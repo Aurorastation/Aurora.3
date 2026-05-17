@@ -128,6 +128,22 @@
 	icon_state = "setup_medium_radio"
 	desc = "It's a case, for building medium-sized electronics with. This one resembles an old radio."
 
+/obj/item/electronic_assembly/medium/anomaly_drill
+	name = "anomaly drill assembly"
+	desc = "A prebuilt electronic assembly designed to drill toward anomaly sensor coordinates."
+	icon_state = "setup_medium_drill"
+	w_class = WEIGHT_CLASS_NORMAL
+	max_components = IC_COMPONENTS_BASE
+	max_complexity = IC_COMPLEXITY_BASE
+	can_anchor = TRUE
+
+/obj/item/electronic_assembly/medium/anomaly_drill/Initialize(mapload, printed = FALSE)
+	. = ..()
+
+	var/obj/item/integrated_circuit/output/xenoarch_precision_excavator/drill_controller = new(src)
+	drill_controller.removable = FALSE
+	force_add_circuit(drill_controller)
+
 // Large assemblies.
 // These get a built-in, non-removable power network interface.
 

@@ -25,6 +25,7 @@
 	var/upgraded = FALSE
 	var/can_clone = FALSE
 	var/obj/item/electronic_assembly/assembly_to_clone
+	var/obj/item/clone_item_to_clone
 	var/currently_printing = FALSE
 
 	// Imported/exported copy-paste blueprint data.
@@ -37,14 +38,16 @@
 	var/clone_min_print_time = 5 SECONDS
 	var/clone_max_print_time = 300 SECONDS
 
+
 /obj/item/integrated_circuit_printer/upgraded
 	upgraded = TRUE
 	can_clone = TRUE
 	max_metal = 500
 	max_phoron = 20
 
+
 /obj/item/integrated_circuit_printer/attackby(obj/item/attacking_item, mob/user)
-	if(istype(attacking_item,/obj/item/stack/material))
+	if(istype(attacking_item, /obj/item/stack/material))
 		var/obj/item/stack/material/stack = attacking_item
 		var/material_name = lowertext(stack.material.name)
 
@@ -53,6 +56,7 @@
 			if(num < 1)
 				to_chat(user, SPAN_WARNING("\The [src] is too full to add more steel."))
 				return TRUE
+
 			if(stack.use(num))
 				to_chat(user, SPAN_NOTICE("You add [num] steel sheet\s to \the [src]."))
 				metal += num * metal_per_sheet
@@ -63,25 +67,16 @@
 			if(num < 1)
 				to_chat(user, SPAN_WARNING("\The [src] is too full to add more phoron."))
 				return TRUE
+
 			if(stack.use(num))
 				to_chat(user, SPAN_NOTICE("You add [num] phoron sheet\s to \the [src]."))
 				phoron += num * phoron_per_sheet
 				return TRUE
 
-	if(istype(attacking_item, /obj/item/electronic_assembly))
-		if(!can_clone)
-			to_chat(user, SPAN_WARNING("\The [src] needs a circuit cloner upgrade before it can scan assemblies."))
-			return TRUE
-
-		var/obj/item/electronic_assembly/E = attacking_item
-		assembly_to_clone = E
-		clone_blueprint_data = null
-		clone_blueprint_name = null
-		clone_blueprint_export = null
-		to_chat(user, SPAN_NOTICE("You scan \the [E] into \the [src]'s cloning buffer."))
+	if(scan_cloneable_item(attacking_item, user))
 		return TRUE
 
-	if(istype(attacking_item,/obj/item/integrated_circuit))
+	if(istype(attacking_item, /obj/item/integrated_circuit))
 		to_chat(user, SPAN_NOTICE("You insert the circuit into \the [src]. "))
 		user.unEquip(attacking_item)
 		metal = min(metal + attacking_item.w_class, max_metal)
@@ -89,20 +84,22 @@
 		qdel(attacking_item)
 		return TRUE
 
-	if(istype(attacking_item,/obj/item/disk/integrated_circuit/upgrade/clone))
+	if(istype(attacking_item, /obj/item/disk/integrated_circuit/upgrade/clone))
 		if(can_clone)
 			to_chat(user, SPAN_WARNING("\The [src] already has this upgrade. "))
 			return TRUE
+
 		to_chat(user, SPAN_NOTICE("You install \the [attacking_item] into \the [src]. "))
 		can_clone = TRUE
 		max_metal = min(max_metal + clone_metal_storage_bonus, 500)
 		qdel(attacking_item)
 		return TRUE
 
-	if(istype(attacking_item,/obj/item/disk/integrated_circuit/upgrade/advanced))
+	if(istype(attacking_item, /obj/item/disk/integrated_circuit/upgrade/advanced))
 		if(upgraded)
 			to_chat(user, SPAN_WARNING("\The [src] already has this upgrade. "))
 			return TRUE
+
 		to_chat(user, SPAN_NOTICE("You install \the [attacking_item] into \the [src]. "))
 		upgraded = TRUE
 		qdel(attacking_item)
@@ -110,14 +107,18 @@
 
 	return ..()
 
+
 /obj/item/integrated_circuit_printer/attack_self(var/mob/user)
 	ui_interact(user)
 
+
 /obj/item/integrated_circuit_printer/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
+
 	if(!ui)
 		ui = new(user, src, "CircuitPrinter", "Integrated Circuit Printer", 600, 500)
 		ui.open()
+
 
 /obj/item/integrated_circuit_printer/ui_data(mob/user)
 	var/list/data = list()
@@ -128,7 +129,7 @@
 	data["phoron_max"] = max_phoron / phoron_per_sheet
 	data["upgraded"] = upgraded
 	data["can_clone"] = can_clone
-	data["assembly_to_clone"] = assembly_to_clone ? assembly_to_clone.name : clone_blueprint_name ? clone_blueprint_name : "None"
+	data["assembly_to_clone"] = assembly_to_clone ? (clone_item_to_clone ? clone_item_to_clone.name : assembly_to_clone.name) : clone_blueprint_name ? clone_blueprint_name : "None"
 	data["clone_cost"] = assembly_to_clone ? round(get_clone_metal_cost(assembly_to_clone) / metal_per_sheet, 0.1) : clone_blueprint_data ? round(get_clone_blueprint_metal_cost(clone_blueprint_data) / metal_per_sheet, 0.1) : 0
 	data["clone_phoron_cost"] = assembly_to_clone ? round(get_clone_phoron_cost(assembly_to_clone) / phoron_per_sheet, 0.01) : clone_blueprint_data ? round(get_clone_blueprint_phoron_cost(clone_blueprint_data) / phoron_per_sheet, 0.01) : 0
 	data["clone_print_time"] = assembly_to_clone ? round(get_clone_print_time(assembly_to_clone) / 10, 0.1) : clone_blueprint_data ? round(get_clone_blueprint_print_time(clone_blueprint_data) / 10, 0.1) : 0
@@ -144,6 +145,42 @@
 
 	return data
 
+
+/obj/item/integrated_circuit_printer/proc/resolve_cloneable_assembly(obj/item/target)
+	if(!target)
+		return null
+
+	if(istype(target, /obj/item/electronic_assembly))
+		return target
+
+	if(hascall(target, "get_cloneable_assembly"))
+		var/obj/item/electronic_assembly/E = call(target, "get_cloneable_assembly")()
+		if(istype(E))
+			return E
+
+	return null
+
+
+/obj/item/integrated_circuit_printer/proc/scan_cloneable_item(obj/item/target, mob/user)
+	var/obj/item/electronic_assembly/E = resolve_cloneable_assembly(target)
+
+	if(!E)
+		return FALSE
+
+	if(!can_clone)
+		to_chat(user, SPAN_WARNING("\The [src] needs a circuit cloner upgrade before it can scan assemblies."))
+		return TRUE
+
+	assembly_to_clone = E
+	clone_item_to_clone = istype(target, /obj/item/electronic_assembly) ? null : target
+	clone_blueprint_data = null
+	clone_blueprint_name = null
+	clone_blueprint_export = null
+
+	to_chat(user, SPAN_NOTICE("You scan \the [target] into \the [src]'s cloning buffer."))
+	return TRUE
+
+
 /obj/item/integrated_circuit_printer/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
@@ -157,14 +194,17 @@
 
 	if(action == "clear_clone")
 		assembly_to_clone = null
+		clone_item_to_clone = null
 		return TRUE
 
 	if(action == "export_clone")
 		if(!can_clone)
 			to_chat(usr, SPAN_WARNING("\The [src] needs a circuit cloner upgrade for that."))
 			return FALSE
+
 		if(!assembly_to_clone || QDELETED(assembly_to_clone))
 			assembly_to_clone = null
+			clone_item_to_clone = null
 			to_chat(usr, SPAN_WARNING("There is no valid scanned assembly to export."))
 			return FALSE
 
@@ -207,10 +247,16 @@
 			to_chat(usr, SPAN_WARNING("That cloning blueprint does not contain a valid assembly type."))
 			return FALSE
 
+		var/host_path = text2path(imported_blueprint["host_type"])
+		if(host_path && !ispath(host_path, /obj/item))
+			to_chat(usr, SPAN_WARNING("That cloning blueprint does not contain a valid host type."))
+			return FALSE
+
 		clone_blueprint_data = imported_blueprint
 		clone_blueprint_name = clone_blueprint_data["name"]
 		clone_blueprint_export = import_text
 		assembly_to_clone = null
+		clone_item_to_clone = null
 
 		to_chat(usr, SPAN_NOTICE("You import the cloning blueprint: [clone_blueprint_name]."))
 		return TRUE
@@ -219,6 +265,7 @@
 		clone_blueprint_data = null
 		clone_blueprint_name = null
 		clone_blueprint_export = null
+		clone_item_to_clone = null
 		to_chat(usr, SPAN_NOTICE("You clear the imported circuit cloning blueprint."))
 		return TRUE
 
@@ -231,15 +278,19 @@
 		var/phoron_cost = 0
 		var/print_time = 0
 		var/obj/item/electronic_assembly/live_scan_to_print = null
+		var/obj/item/live_item_to_print = null
 		var/list/blueprint_to_print = null
 
 		if(assembly_to_clone && !QDELETED(assembly_to_clone))
 			live_scan_to_print = assembly_to_clone
+			live_item_to_print = clone_item_to_clone
 			cost = get_clone_metal_cost(live_scan_to_print)
 			phoron_cost = get_clone_phoron_cost(live_scan_to_print)
 			print_time = get_clone_print_time(live_scan_to_print)
 		else
 			assembly_to_clone = null
+			clone_item_to_clone = null
+
 			if(!clone_blueprint_data)
 				to_chat(usr, SPAN_WARNING("There is no valid assembly or imported blueprint loaded into the cloning buffer."))
 				return FALSE
@@ -262,7 +313,7 @@
 
 		var/mob/printing_user = usr
 		spawn(print_time)
-			finish_clone_print(printing_user, cost, phoron_cost, live_scan_to_print, blueprint_to_print)
+			finish_clone_print(printing_user, cost, phoron_cost, live_scan_to_print, blueprint_to_print, live_item_to_print)
 
 		return TRUE
 
@@ -303,9 +354,11 @@
 			new build_type(get_turf(loc), TRUE)
 		else
 			new build_type(get_turf(loc))
+
 		return TRUE
 
-/obj/item/integrated_circuit_printer/proc/finish_clone_print(mob/user, cost, phoron_cost, obj/item/electronic_assembly/live_scan_to_print, list/blueprint_to_print)
+
+/obj/item/integrated_circuit_printer/proc/finish_clone_print(mob/user, cost, phoron_cost, obj/item/electronic_assembly/live_scan_to_print, list/blueprint_to_print, obj/item/live_item_to_print = null)
 	if(QDELETED(src))
 		return
 
@@ -324,10 +377,13 @@
 	metal -= cost
 	phoron -= phoron_cost
 
-	var/obj/item/electronic_assembly/new_clone = null
+	var/obj/item/new_clone = null
 
 	if(live_scan_to_print && !QDELETED(live_scan_to_print))
-		new_clone = clone_assembly(live_scan_to_print, get_turf(src))
+		if(live_item_to_print && !QDELETED(live_item_to_print) && hascall(live_item_to_print, "clone_with_integrated_assembly"))
+			new_clone = call(live_item_to_print, "clone_with_integrated_assembly")(get_turf(src), src, live_scan_to_print)
+		else
+			new_clone = clone_assembly(live_scan_to_print, get_turf(src))
 	else if(blueprint_to_print)
 		new_clone = clone_assembly_from_blueprint(blueprint_to_print, get_turf(src))
 
@@ -339,12 +395,14 @@
 	if(user)
 		to_chat(user, SPAN_NOTICE("\The [src] finishes printing \the [new_clone]."))
 
+
 /obj/item/integrated_circuit_printer/proc/get_circuit_phoron_cost(circuit_type)
 	if(!circuit_type || !ispath(circuit_type, /obj/item/integrated_circuit))
 		return 0
 
 	var/obj/item/integrated_circuit/IC = circuit_type
 	return max(0, initial(IC.phoron_cost) * phoron_per_sheet)
+
 
 /obj/item/integrated_circuit_printer/proc/get_clone_metal_cost(obj/item/electronic_assembly/source)
 	if(!source)
@@ -356,9 +414,11 @@
 	for(var/obj/item/integrated_circuit/IC in source.contents)
 		if(!IC.removable)
 			continue
+
 		component_cost += max(1, IC.w_class)
 
 	return max(1, case_cost + component_cost)
+
 
 /obj/item/integrated_circuit_printer/proc/get_clone_phoron_cost(obj/item/electronic_assembly/source)
 	if(!source)
@@ -369,9 +429,11 @@
 	for(var/obj/item/integrated_circuit/IC in source.contents)
 		if(!IC.removable)
 			continue
+
 		component_cost += get_circuit_phoron_cost(IC.type)
 
 	return component_cost
+
 
 /obj/item/integrated_circuit_printer/proc/get_clone_print_time(obj/item/electronic_assembly/source)
 	if(!source)
@@ -383,6 +445,7 @@
 
 	if(cost_ratio < 0)
 		cost_ratio = 0
+
 	if(cost_ratio > 1)
 		cost_ratio = 1
 
@@ -390,10 +453,12 @@
 
 	if(scaled_time < clone_min_print_time)
 		scaled_time = clone_min_print_time
+
 	if(scaled_time > clone_max_print_time)
 		scaled_time = clone_max_print_time
 
 	return round(scaled_time)
+
 
 /obj/item/integrated_circuit_printer/proc/clone_pin_data(datum/integrated_io/source_pin, datum/integrated_io/target_pin)
 	if(!source_pin || !target_pin)
@@ -405,10 +470,13 @@
 	else
 		target_pin.write_data_to_pin(source_pin.data)
 
+
 /obj/item/integrated_circuit_printer/proc/clone_io_list_data(list/source_pins, list/target_pins)
 	var/pin_count = min(source_pins.len, target_pins.len)
+
 	for(var/i = 1 to pin_count)
 		clone_pin_data(source_pins[i], target_pins[i])
+
 
 /obj/item/integrated_circuit_printer/proc/map_builtin_circuits(obj/item/electronic_assembly/source, obj/item/electronic_assembly/clone, list/circuit_map)
 	var/list/used_clone_builtins = list()
@@ -420,8 +488,10 @@
 		for(var/obj/item/integrated_circuit/clone_circuit in clone.contents)
 			if(clone_circuit.removable)
 				continue
+
 			if(clone_circuit.type != source_circuit.type)
 				continue
+
 			if(used_clone_builtins.Find(clone_circuit))
 				continue
 
@@ -429,11 +499,11 @@
 			used_clone_builtins += clone_circuit
 			break
 
-/obj/item/integrated_circuit_printer/proc/clone_assembly(obj/item/electronic_assembly/source, atom/location)
-	if(!source || !location)
-		return null
 
-	var/obj/item/electronic_assembly/clone = new source.type(location, TRUE)
+/obj/item/integrated_circuit_printer/proc/copy_assembly_into_existing(obj/item/electronic_assembly/source, obj/item/electronic_assembly/clone)
+	if(!source || !clone)
+		return FALSE
+
 	clone.name = source.name
 	clone.detail_color = source.detail_color
 	clone.opened = FALSE
@@ -478,34 +548,55 @@
 		copy_cloned_links(source_circuit.outputs, new_circuit.outputs, circuit_map)
 		copy_cloned_links(source_circuit.activators, new_circuit.activators, circuit_map)
 
+	return TRUE
+
+
+/obj/item/integrated_circuit_printer/proc/clone_assembly(obj/item/electronic_assembly/source, atom/location)
+	if(!source || !location)
+		return null
+
+	var/obj/item/electronic_assembly/clone = new source.type(location, TRUE)
+
+	if(!copy_assembly_into_existing(source, clone))
+		qdel(clone)
+		return null
+
 	return clone
+
 
 /obj/item/integrated_circuit_printer/proc/copy_cloned_links(list/source_pins, list/target_pins, list/circuit_map)
 	var/pin_count = min(source_pins.len, target_pins.len)
+
 	for(var/i = 1 to pin_count)
 		var/datum/integrated_io/source_pin = source_pins[i]
 		var/datum/integrated_io/target_pin = target_pins[i]
+
 		for(var/datum/integrated_io/source_link in source_pin.linked)
 			var/obj/item/integrated_circuit/linked_source_circuit = source_link.holder
 			var/obj/item/integrated_circuit/linked_new_circuit = circuit_map[linked_source_circuit]
+
 			if(!linked_new_circuit)
 				continue
 
 			var/datum/integrated_io/linked_new_pin = null
 			var/source_link_index = linked_source_circuit.inputs.Find(source_link)
+
 			if(source_link_index)
 				linked_new_pin = linked_new_circuit.inputs[source_link_index]
 			else
 				source_link_index = linked_source_circuit.outputs.Find(source_link)
+
 				if(source_link_index)
 					linked_new_pin = linked_new_circuit.outputs[source_link_index]
 				else
 					source_link_index = linked_source_circuit.activators.Find(source_link)
+
 					if(source_link_index)
 						linked_new_pin = linked_new_circuit.activators[source_link_index]
 
 			if(linked_new_pin)
 				target_pin.linked |= linked_new_pin
+
 
 /obj/item/integrated_circuit_printer/proc/make_saveable_clone_value(value)
 	if(isnull(value) || isnum(value) || istext(value))
@@ -514,41 +605,55 @@
 	if(islist(value))
 		var/list/source_list = value
 		var/list/new_list = list()
+
 		for(var/entry in source_list)
 			new_list += make_saveable_clone_value(entry)
+
 		return new_list
 
 	return null
 
+
 /obj/item/integrated_circuit_printer/proc/serialize_pin_data_list(list/pins)
 	var/list/pin_data = list()
+
 	for(var/datum/integrated_io/pin in pins)
 		pin_data += list(make_saveable_clone_value(pin.data))
+
 	return pin_data
+
 
 /obj/item/integrated_circuit_printer/proc/get_pin_group_name(obj/item/integrated_circuit/circuit, datum/integrated_io/pin)
 	if(circuit.inputs.Find(pin))
 		return "inputs"
+
 	if(circuit.outputs.Find(pin))
 		return "outputs"
+
 	if(circuit.activators.Find(pin))
 		return "activators"
+
 	return null
+
 
 /obj/item/integrated_circuit_printer/proc/get_pin_group_index(obj/item/integrated_circuit/circuit, datum/integrated_io/pin)
 	var/index = circuit.inputs.Find(pin)
+
 	if(index)
 		return index
 
 	index = circuit.outputs.Find(pin)
+
 	if(index)
 		return index
 
 	index = circuit.activators.Find(pin)
+
 	if(index)
 		return index
 
 	return 0
+
 
 /obj/item/integrated_circuit_printer/proc/serialize_pin_links(obj/item/integrated_circuit/source_circuit, datum/integrated_io/source_pin, list/circuit_order)
 	var/list/links = list()
@@ -556,6 +661,7 @@
 	for(var/datum/integrated_io/source_link in source_pin.linked)
 		var/obj/item/integrated_circuit/linked_circuit = source_link.holder
 		var/linked_circuit_index = circuit_order.Find(linked_circuit)
+
 		if(!linked_circuit_index)
 			continue
 
@@ -573,6 +679,7 @@
 
 	return links
 
+
 /obj/item/integrated_circuit_printer/proc/serialize_pin_link_list(obj/item/integrated_circuit/source_circuit, list/pins, list/circuit_order)
 	var/list/link_data = list()
 
@@ -581,17 +688,21 @@
 
 	return link_data
 
+
 /obj/item/integrated_circuit_printer/proc/serialize_clone_blueprint(obj/item/electronic_assembly/source)
 	if(!source)
 		return null
 
 	var/list/circuit_order = list()
+
 	for(var/obj/item/integrated_circuit/source_circuit in source.contents)
 		if(!source_circuit.removable)
 			continue
+
 		circuit_order += source_circuit
 
 	var/list/circuits = list()
+
 	for(var/obj/item/integrated_circuit/source_circuit in circuit_order)
 		var/list/circuit_data = list()
 		circuit_data["type"] = "[source_circuit.type]"
@@ -612,20 +723,27 @@
 
 	var/list/blueprint = list()
 	blueprint["assembly_type"] = "[source.type]"
+
+	if(clone_item_to_clone && hascall(clone_item_to_clone, "get_clone_host_type"))
+		blueprint["host_type"] = "[call(clone_item_to_clone, "get_clone_host_type")()]"
+
 	blueprint["name"] = source.name
 	blueprint["detail_color"] = source.detail_color
 	blueprint["circuits"] = circuits
 
 	return blueprint
 
+
 /obj/item/integrated_circuit_printer/proc/apply_blueprint_pin_data(list/source_data, list/target_pins)
 	if(!source_data || !target_pins)
 		return
 
 	var/pin_count = min(source_data.len, target_pins.len)
+
 	for(var/i = 1 to pin_count)
 		var/datum/integrated_io/target_pin = target_pins[i]
 		target_pin.write_data_to_pin(source_data[i])
+
 
 /obj/item/integrated_circuit_printer/proc/get_blueprint_pin(obj/item/integrated_circuit/circuit, group, pin_index)
 	if(!circuit || !group || !pin_index)
@@ -645,11 +763,13 @@
 
 	return null
 
+
 /obj/item/integrated_circuit_printer/proc/apply_blueprint_links(list/source_link_data, list/source_pins, list/new_circuits)
 	if(!source_link_data || !source_pins || !new_circuits)
 		return
 
 	var/pin_count = min(source_link_data.len, source_pins.len)
+
 	for(var/i = 1 to pin_count)
 		var/datum/integrated_io/source_pin = source_pins[i]
 		var/list/links = source_link_data[i]
@@ -671,15 +791,11 @@
 			if(linked_pin)
 				source_pin.linked |= linked_pin
 
-/obj/item/integrated_circuit_printer/proc/clone_assembly_from_blueprint(list/blueprint, atom/location)
-	if(!blueprint || !location)
-		return null
 
-	var/assembly_path = text2path(blueprint["assembly_type"])
-	if(!assembly_path || !ispath(assembly_path, /obj/item/electronic_assembly))
-		return null
+/obj/item/integrated_circuit_printer/proc/populate_assembly_from_blueprint(list/blueprint, obj/item/electronic_assembly/clone)
+	if(!blueprint || !clone)
+		return FALSE
 
-	var/obj/item/electronic_assembly/clone = new assembly_path(location, TRUE)
 	clone.name = blueprint["name"]
 	clone.detail_color = blueprint["detail_color"]
 	clone.opened = FALSE
@@ -687,6 +803,9 @@
 
 	var/list/new_circuits = list()
 	var/list/circuit_blueprints = blueprint["circuits"]
+
+	if(!islist(circuit_blueprints))
+		return FALSE
 
 	for(var/list/circuit_data in circuit_blueprints)
 		if(!circuit_data["removable"])
@@ -729,7 +848,65 @@
 		apply_blueprint_links(circuit_data["output_links"], new_circuit.outputs, new_circuits)
 		apply_blueprint_links(circuit_data["activator_links"], new_circuit.activators, new_circuits)
 
+	return TRUE
+
+
+/obj/item/integrated_circuit_printer/proc/clone_assembly_from_blueprint(list/blueprint, atom/location)
+	if(!blueprint || !location)
+		return null
+
+	var/assembly_path = text2path(blueprint["assembly_type"])
+	if(!assembly_path || !ispath(assembly_path, /obj/item/electronic_assembly))
+		return null
+
+	var/host_path = text2path(blueprint["host_type"])
+
+	if(host_path && ispath(host_path, /obj/item/radio/headset/circuitry))
+		var/obj/item/radio/headset/circuitry/H = new host_path(location)
+
+		if(!H || !H.circuit_assembly)
+			if(H)
+				qdel(H)
+
+			return null
+
+		if(!populate_assembly_from_blueprint(blueprint, H.circuit_assembly))
+			qdel(H)
+			return null
+
+		H.name = blueprint["name"]
+		H.circuit_assembly.forceMove(H)
+		H.circuit_assembly.clothing = H
+		H.circuit_assembly.name = blueprint["name"]
+		H.circuit_assembly.detail_color = blueprint["detail_color"]
+		H.circuit_assembly.opened = FALSE
+		H.circuit_assembly.battery = null
+
+		for(var/obj/item/integrated_circuit/C in H.circuit_assembly.contents)
+			C.assembly = H.circuit_assembly
+
+		H.circuit_action = locate(/obj/item/integrated_circuit/built_in/action_button) in H.circuit_assembly.contents
+
+		if(!H.circuit_action)
+			H.circuit_action = new(H.circuit_assembly)
+			H.circuit_assembly.force_add_circuit(H.circuit_action)
+
+		H.default_action_type = /datum/action/item_action/integrated_circuit
+		H.action_button_name = "Activate [capitalize_first_letters(H.name)]"
+
+		H.refresh_headset_sprite()
+		H.refresh_radio_state()
+
+		return H
+
+	var/obj/item/electronic_assembly/clone = new assembly_path(location, TRUE)
+
+	if(!populate_assembly_from_blueprint(blueprint, clone))
+		qdel(clone)
+		return null
+
 	return clone
+
 
 /obj/item/integrated_circuit_printer/proc/get_clone_blueprint_metal_cost(list/blueprint)
 	if(!blueprint)
@@ -741,9 +918,12 @@
 
 	var/obj/item/electronic_assembly/E = assembly_path
 	var/case_cost = round((initial(E.max_complexity) + initial(E.max_components)) / 4)
-
 	var/component_cost = 0
 	var/list/circuit_blueprints = blueprint["circuits"]
+
+	if(!islist(circuit_blueprints))
+		return max(1, case_cost)
+
 	for(var/list/circuit_data in circuit_blueprints)
 		if(!circuit_data["removable"])
 			continue
@@ -757,12 +937,16 @@
 
 	return max(1, case_cost + component_cost)
 
+
 /obj/item/integrated_circuit_printer/proc/get_clone_blueprint_phoron_cost(list/blueprint)
 	if(!blueprint)
 		return 0
 
 	var/component_cost = 0
 	var/list/circuit_blueprints = blueprint["circuits"]
+
+	if(!islist(circuit_blueprints))
+		return 0
 
 	for(var/list/circuit_data in circuit_blueprints)
 		if(!circuit_data["removable"])
@@ -776,6 +960,7 @@
 
 	return component_cost
 
+
 /obj/item/integrated_circuit_printer/proc/get_clone_blueprint_print_time(list/blueprint)
 	if(!blueprint)
 		return clone_min_print_time
@@ -786,6 +971,7 @@
 
 	if(cost_ratio < 0)
 		cost_ratio = 0
+
 	if(cost_ratio > 1)
 		cost_ratio = 1
 
@@ -793,24 +979,31 @@
 
 	if(scaled_time < clone_min_print_time)
 		scaled_time = clone_min_print_time
+
 	if(scaled_time > clone_max_print_time)
 		scaled_time = clone_max_print_time
 
 	return round(scaled_time)
 
+
 /obj/item/integrated_circuit/proc/copy_clone_state_to(obj/item/integrated_circuit/target)
 	return
 
+
 /obj/item/integrated_circuit/memory/constant/copy_clone_state_to(obj/item/integrated_circuit/target)
 	var/obj/item/integrated_circuit/memory/constant/new_constant = target
+
 	if(!istype(new_constant))
 		return
+
 	if(islist(data))
 		var/list/source_list = data
 		new_constant.data = source_list.Copy()
 	else
 		new_constant.data = data
+
 	new_constant.accepting_refs = FALSE
+
 
 /obj/item/integrated_circuit_printer/proc/can_print(build_type)
 	for(var/category in SSelectronics.printer_recipe_list)
@@ -822,7 +1015,9 @@
 
 	return FALSE
 
+
 // FUKKEN UPGRADE DISKS
+
 /obj/item/disk/integrated_circuit/upgrade
 	name = "integrated circuit printer upgrade disk"
 	desc = "Install this into your integrated circuit printer to enhance it."
@@ -832,9 +1027,11 @@
 	w_class = WEIGHT_CLASS_SMALL
 	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 4)
 
+
 /obj/item/disk/integrated_circuit/upgrade/advanced
 	name = "integrated circuit printer upgrade disk - advanced designs"
 	desc = "Install this into your integrated circuit printer to enhance it.  This one adds new, advanced designs to the printer."
+
 
 /obj/item/disk/integrated_circuit/upgrade/clone
 	name = "integrated circuit printer upgrade disk - circuit cloner"

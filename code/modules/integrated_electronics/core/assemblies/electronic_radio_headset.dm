@@ -34,17 +34,79 @@
 
 /obj/item/radio/headset/circuitry/proc/setup_headset_integrated_circuit()
 	if(circuit_assembly)
-		return
+		circuit_assembly.forceMove(src)
+		circuit_assembly.clothing = src
+		circuit_assembly.name = name
+	else
+		circuit_assembly = new /obj/item/electronic_assembly/clothing/small(src, TRUE)
+		circuit_assembly.clothing = src
+		circuit_assembly.name = name
 
-	circuit_assembly = new /obj/item/electronic_assembly/clothing/small(src)
-	circuit_assembly.clothing = src
-	circuit_assembly.name = name
+	QDEL_NULL(circuit_assembly.battery)
 
-	circuit_action = new(circuit_assembly)
-	circuit_assembly.force_add_circuit(circuit_action)
+	for(var/obj/item/integrated_circuit/C in circuit_assembly.contents)
+		C.assembly = circuit_assembly
+
+	circuit_action = locate(/obj/item/integrated_circuit/built_in/action_button) in circuit_assembly.contents
+
+	if(!circuit_action)
+		circuit_action = new(circuit_assembly)
+		circuit_assembly.force_add_circuit(circuit_action)
 
 	default_action_type = /datum/action/item_action/integrated_circuit
 	action_button_name = "Activate [capitalize_first_letters(name)]"
+
+
+/obj/item/radio/headset/circuitry/proc/get_cloneable_assembly()
+	return circuit_assembly
+
+
+/obj/item/radio/headset/circuitry/proc/get_clone_host_type()
+	return type
+
+
+/obj/item/radio/headset/circuitry/proc/clone_with_integrated_assembly(atom/location, obj/item/integrated_circuit_printer/printer, obj/item/electronic_assembly/source_assembly)
+	if(!location || !printer || !source_assembly)
+		return null
+
+	var/obj/item/radio/headset/circuitry/new_headset = new type(location)
+
+	if(!new_headset || !new_headset.circuit_assembly)
+		if(new_headset)
+			qdel(new_headset)
+		return null
+
+	var/obj/item/electronic_assembly/clothing/small/internal_assembly = new_headset.circuit_assembly
+
+	if(!printer.copy_assembly_into_existing(source_assembly, internal_assembly))
+		qdel(new_headset)
+		return null
+
+	internal_assembly.forceMove(new_headset)
+	internal_assembly.clothing = new_headset
+	internal_assembly.name = source_assembly.name
+	internal_assembly.detail_color = source_assembly.detail_color
+	internal_assembly.opened = FALSE
+	internal_assembly.battery = null
+
+	for(var/obj/item/integrated_circuit/C in internal_assembly.contents)
+		C.assembly = internal_assembly
+
+	new_headset.name = source_assembly.name
+	new_headset.circuit_assembly = internal_assembly
+	new_headset.circuit_action = locate(/obj/item/integrated_circuit/built_in/action_button) in internal_assembly.contents
+
+	if(!new_headset.circuit_action)
+		new_headset.circuit_action = new(internal_assembly)
+		internal_assembly.force_add_circuit(new_headset.circuit_action)
+
+	new_headset.default_action_type = /datum/action/item_action/integrated_circuit
+	new_headset.action_button_name = "Activate [capitalize_first_letters(new_headset.name)]"
+
+	new_headset.refresh_headset_sprite()
+	new_headset.refresh_radio_state()
+
+	return new_headset
 
 
 /obj/item/radio/headset/circuitry/proc/refresh_radio_state()
@@ -86,11 +148,16 @@
 
 
 /obj/item/radio/headset/circuitry/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/integrated_circuit_printer))
+		var/obj/item/integrated_circuit_printer/P = attacking_item
+		if(P.scan_cloneable_item(src, user))
+			return TRUE
+
 	if(attacking_item.tool_behaviour == TOOL_CROWBAR && circuit_assembly)
 		circuit_assembly.attackby(attacking_item, user)
 		refresh_headset_sprite()
 		refresh_radio_state()
-		return
+		return TRUE
 
 	if(istype(attacking_item, /obj/item/encryptionkey))
 		. = ..()
@@ -100,7 +167,7 @@
 	if(circuit_assembly?.opened)
 		circuit_assembly.attackby(attacking_item, user)
 		refresh_headset_sprite()
-		return
+		return TRUE
 
 	return ..()
 
@@ -193,32 +260,3 @@
 		return
 
 	to_chat(H, SPAN_NOTICE("\The [src] states, \"[message]\""))
-
-
-/obj/item/radio/headset/circuitry/proc/relay_radio_to_circuits(mob/living/speaker, message, channel, datum/language/speaking)
-	/*
-	 * Called by the radio receive/display path after this headset receives radio traffic.
-	 * This forwards accepted radio traffic into installed microphone circuits.
-	 */
-	if(!circuit_assembly)
-		return
-
-	if(!get_wearer())
-		return
-
-	for(var/obj/item/integrated_circuit/input/microphone/MIC in circuit_assembly.contents)
-		MIC.receive_radio_message(speaker, message, channel, speaking)
-
-
-/obj/item/radio/headset/circuitry/proc/relay_radio_text_to_circuits(speaker_name, message, channel, language_name)
-	/*
-	 * Text-only fallback if the radio receive proc does not expose mob/language datums.
-	 */
-	if(!circuit_assembly)
-		return
-
-	if(!get_wearer())
-		return
-
-	for(var/obj/item/integrated_circuit/input/microphone/MIC in circuit_assembly.contents)
-		MIC.receive_radio_text(speaker_name, message, channel, language_name)

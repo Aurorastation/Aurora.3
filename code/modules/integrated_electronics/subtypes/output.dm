@@ -439,3 +439,144 @@
 						return
 	else
 		audible_message(SPAN_NOTICE("\The [src] beeps, out of paper."))
+
+/obj/item/integrated_circuit/output/xenoarch_precision_excavator
+	name = "xenoarch precision excavator"
+	desc = "Automatically excavates xenoarch finds using safe depth and clearance math."
+	extended_desc = "Targets the mineral turf in front of the assembly, reads its xenoarch find data, selects the largest safe excavation amount, and performs precise excavation without breaching the clearance zone."
+	icon_state = "mining"
+	complexity = 16
+	power_draw_per_use = 60
+	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+
+/obj/item/integrated_circuit/output/xenoarch_precision_excavator
+	name = "xenoarch precision excavator"
+	desc = "Automatically excavates xenoarch finds using safe depth and clearance math."
+	extended_desc = "Searches adjacent mineral turfs for a xenoarch find, reads its depth and clearance data, selects the largest safe excavation amount, and performs precise excavation without breaching the clearance zone."
+	icon_state = "mining"
+	complexity = 16
+	power_draw_per_use = 60
+	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+
+	inputs = list()
+
+	outputs = list(
+		"status" = IC_PINTYPE_STRING,
+		"anomaly depth cm" = IC_PINTYPE_NUMBER,
+		"clearance cm" = IC_PINTYPE_NUMBER,
+		"current depth cm" = IC_PINTYPE_NUMBER,
+		"remaining safe depth cm" = IC_PINTYPE_NUMBER,
+		"excavation amount cm" = IC_PINTYPE_NUMBER,
+		"target direction" = IC_PINTYPE_STRING
+	)
+
+	activators = list(
+		"excavate" = IC_PINTYPE_PULSE_IN,
+		"on excavated" = IC_PINTYPE_PULSE_OUT,
+		"on perfect extraction" = IC_PINTYPE_PULSE_OUT,
+		"on unsafe" = IC_PINTYPE_PULSE_OUT,
+		"on failed" = IC_PINTYPE_PULSE_OUT
+	)
+
+/obj/item/integrated_circuit/output/xenoarch_precision_excavator/proc/find_adjacent_xenoarch_turf()
+	var/turf/current_turf = get_turf(assembly)
+	if(!current_turf)
+		return null
+
+	for(var/check_dir in GLOB.cardinals)
+		var/turf/simulated/mineral/M = get_step(current_turf, check_dir)
+		if(istype(M) && M.finds?.len)
+			set_pin_data(IC_OUTPUT, 7, dir2text(check_dir))
+			return M
+
+	return null
+
+/obj/item/integrated_circuit/output/xenoarch_precision_excavator/do_work()
+	if(!assembly)
+		set_pin_data(IC_OUTPUT, 1, "No assembly.")
+		push_data()
+		activate_pin(5)
+		return
+
+	if(!assembly.draw_power(power_draw_per_use))
+		set_pin_data(IC_OUTPUT, 1, "Insufficient power.")
+		push_data()
+		activate_pin(5)
+		return
+
+	var/turf/simulated/mineral/M = find_adjacent_xenoarch_turf()
+
+	if(!M)
+		set_pin_data(IC_OUTPUT, 1, "No adjacent mineral rock with xenoarch find.")
+		set_pin_data(IC_OUTPUT, 7, "none")
+		push_data()
+		activate_pin(5)
+		return
+
+	var/datum/find/F = M.finds[1]
+	if(!F)
+		set_pin_data(IC_OUTPUT, 1, "Invalid xenoarch find.")
+		set_pin_data(IC_OUTPUT, 7, "none")
+		push_data()
+		activate_pin(5)
+		return
+
+	var/safe_depth = F.excavation_required - F.clearance_range
+	var/remaining_safe = safe_depth - M.excavation_level
+	var/final_amount = F.excavation_required - M.excavation_level
+
+	set_pin_data(IC_OUTPUT, 2, F.excavation_required * 2)
+	set_pin_data(IC_OUTPUT, 3, F.clearance_range * 2)
+	set_pin_data(IC_OUTPUT, 4, M.excavation_level * 2)
+	set_pin_data(IC_OUTPUT, 5, remaining_safe * 2)
+
+	if(remaining_safe < 0)
+		set_pin_data(IC_OUTPUT, 1, "Unsafe: already inside clearance zone.")
+		set_pin_data(IC_OUTPUT, 6, 0)
+		push_data()
+		activate_pin(4)
+		return
+
+	var/excavation_amount = 0
+
+	if(remaining_safe > 0)
+		if(remaining_safe >= 15)
+			excavation_amount = 15
+		else if(remaining_safe >= 6)
+			excavation_amount = 6
+		else if(remaining_safe >= 5)
+			excavation_amount = 5
+		else if(remaining_safe >= 4)
+			excavation_amount = 4
+		else if(remaining_safe >= 3)
+			excavation_amount = 3
+		else if(remaining_safe >= 2)
+			excavation_amount = 2
+		else if(remaining_safe >= 1)
+			excavation_amount = 1
+		else if(remaining_safe >= 0.5)
+			excavation_amount = 0.5
+	else
+		excavation_amount = final_amount
+
+	set_pin_data(IC_OUTPUT, 6, excavation_amount * 2)
+
+	if(excavation_amount <= 0)
+		set_pin_data(IC_OUTPUT, 1, "No valid excavation amount.")
+		push_data()
+		activate_pin(5)
+		return
+
+	var/result = M.ic_precision_excavate(excavation_amount)
+
+	set_pin_data(IC_OUTPUT, 1, result)
+	push_data()
+
+	if(result == "Perfect extraction complete.")
+		activate_pin(2)
+	else if(findtext(result, "Unsafe"))
+		activate_pin(4)
+	else if(result == "Excavation advanced.")
+		activate_pin(1)
+	else
+		activate_pin(5)

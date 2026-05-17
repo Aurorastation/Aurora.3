@@ -19,7 +19,7 @@
 	cooldown_per_use = 6 SECONDS
 	inputs = list("target" = IC_PINTYPE_REF, "injection amount" = IC_PINTYPE_NUMBER)
 	inputs_default = list("2" = 5)
-	outputs = list("volume used" = IC_PINTYPE_NUMBER,"self reference" = IC_PINTYPE_REF)
+	outputs = list("volume used" = IC_PINTYPE_NUMBER, "self reference" = IC_PINTYPE_REF)
 	activators = list("inject" = IC_PINTYPE_PULSE_IN, "on injected" = IC_PINTYPE_PULSE_OUT, "on fail" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	volume = 30
@@ -27,10 +27,12 @@
 	var/direc = 1
 	var/transfer_amount = 10
 
+
 /obj/item/integrated_circuit/reagent/injector/interact(mob/user)
 	set_pin_data(IC_OUTPUT, 2, src)
 	push_data()
 	..()
+
 
 /obj/item/integrated_circuit/reagent/injector/on_reagent_change()
 	set_pin_data(IC_OUTPUT, 1, reagents.total_volume)
@@ -39,90 +41,140 @@
 
 /obj/item/integrated_circuit/reagent/injector/on_data_written()
 	var/new_amount = get_pin_data(IC_INPUT, 2)
+
+	if(!isnum(new_amount))
+		return
+
 	if(new_amount < 0)
 		new_amount = -new_amount
 		direc = 0
 	else
 		direc = 1
-	if(isnum(new_amount))
-		new_amount = clamp(new_amount, 0, volume)
-		transfer_amount = new_amount
+
+	new_amount = clamp(new_amount, 0, volume)
+	transfer_amount = new_amount
+
 
 /obj/item/integrated_circuit/reagent/injector/do_work()
-	set waitfor = 0 // Don't sleep in a proc that is called by a processor without this set, otherwise it'll delay the entire thing
-
 	var/atom/movable/AM = get_pin_data_as_type(IC_INPUT, 1, /atom/movable)
-	if(!istype(AM)) //Invalid input
+
+	if(!istype(AM))
 		activate_pin(3)
 		return
 
 	if(direc == 1)
+		if(!reagents || !reagents.total_volume)
+			activate_pin(3)
+			return
 
-		if(!istype(AM)) //Invalid input
+		if(!AM.can_be_injected_by(src))
 			activate_pin(3)
 			return
-		if(!reagents.total_volume) // Empty
-			activate_pin(3)
-			return
-		if(AM.can_be_injected_by(src))
-			if(isliving(AM))
-				var/mob/living/L = AM
-				var/turf/T = get_turf(AM)
+
+		if(isliving(AM))
+			var/mob/living/L = AM
+			var/turf/T = get_turf(AM)
+
+			if(T)
 				T.visible_message(SPAN_WARNING("[assembly] is trying to inject [L]!"))
-				sleep(3 SECONDS)
-				if(!L.can_be_injected_by(src))
-					activate_pin(3)
-					return
-				var/contained = reagents.get_reagents()
-				var/trans = reagents.trans_to_mob(L, transfer_amount, CHEM_BLOOD)
-				message_admins("[assembly] injected \the [L] with [trans]u of [contained].")
-				to_chat(AM, SPAN_NOTICE("You feel a tiny prick!"))
-				visible_message(SPAN_WARNING("[assembly] injects [L]!"))
-			else
-				reagents.trans_to(AM, transfer_amount)
-	else
 
-		if(reagents.total_volume >= volume) // Full
+			addtimer(CALLBACK(src, PROC_REF(finish_living_injection), L), 3 SECONDS)
+			return
+
+		if(reagents.trans_to(AM, transfer_amount))
+			activate_pin(2)
+		else
+			activate_pin(3)
+
+		return
+
+	if(reagents.total_volume >= volume)
+		activate_pin(3)
+		return
+
+	var/obj/target = AM
+
+	if(!target.reagents)
+		activate_pin(3)
+		return
+
+	var/turf/TS = get_turf(src)
+	var/turf/TT = get_turf(AM)
+
+	if(!TS || !TT || !TS.Adjacent(TT))
+		activate_pin(3)
+		return
+
+	var/tramount = clamp(min(transfer_amount, REAGENTS_FREE_SPACE(reagents)), 0, reagents.maximum_volume)
+
+	if(ismob(target))
+		if(!istype(target, /mob/living/carbon))
 			activate_pin(3)
 			return
-		var/obj/target = AM
-		if(!target.reagents)
-			activate_pin(3)
-			return
-		var/turf/TS = get_turf(src)
-		var/turf/TT = get_turf(AM)
-		if(!TS.Adjacent(TT))
-			activate_pin(3)
-			return
-		var/tramount = clamp(min(transfer_amount, REAGENTS_FREE_SPACE(reagents)), 0, reagents.maximum_volume)
-		if(ismob(target))//Blood!
-			if(istype(target, /mob/living/carbon))
-				var/mob/living/carbon/T = target
-				if(!T.dna)
-					if(T.reagents.trans_to_obj(src, tramount))
-						activate_pin(2)
-					else
-						activate_pin(3)
-					return
-				if((T.mutations & NOCLONE)) //target done been et, no more blood in him
-					if(T.reagents.trans_to_obj(src, tramount))
-						activate_pin(2)
-					else
-						activate_pin(3)
-					return
-				T.take_blood(src,tramount)
-				visible_message( SPAN_NOTICE("[assembly] takes a blood sample from [target]."))
+
+		var/mob/living/carbon/T = target
+
+		if(!T.dna)
+			if(T.reagents.trans_to_obj(src, tramount))
+				activate_pin(2)
 			else
 				activate_pin(3)
-				return
+			return
 
-		else //if not mob
-			if(!target.reagents.total_volume)
-				visible_message( SPAN_NOTICE("[target] is empty."))
+		if(T.mutations & NOCLONE)
+			if(T.reagents.trans_to_obj(src, tramount))
+				activate_pin(2)
+			else
 				activate_pin(3)
-				return
-			target.reagents.trans_to_obj(src, tramount)
+			return
+
+		T.take_blood(src, tramount)
+		visible_message(SPAN_NOTICE("[assembly] takes a blood sample from [target]."))
+		activate_pin(2)
+		return
+
+	if(!target.reagents.total_volume)
+		visible_message(SPAN_NOTICE("[target] is empty."))
+		activate_pin(3)
+		return
+
+	target.reagents.trans_to_obj(src, tramount)
 	activate_pin(2)
+
+
+/obj/item/integrated_circuit/reagent/injector/proc/finish_living_injection(mob/living/L)
+	if(QDELETED(src) || QDELETED(L))
+		return
+
+	if(!assembly)
+		activate_pin(3)
+		return
+
+	if(!reagents || !reagents.total_volume)
+		activate_pin(3)
+		return
+
+	if(!L.can_be_injected_by(src))
+		activate_pin(3)
+		return
+
+	var/turf/TS = get_turf(src)
+	var/turf/TL = get_turf(L)
+
+	if(!TS || !TL || !TS.Adjacent(TL))
+		activate_pin(3)
+		return
+
+	var/contained = reagents.get_reagents()
+	var/trans = reagents.trans_to_mob(L, transfer_amount, CHEM_BLOOD)
+
+	if(trans)
+		message_admins("[assembly] injected \the [L] with [trans]u of [contained].")
+		to_chat(L, SPAN_NOTICE("You feel a tiny prick!"))
+		visible_message(SPAN_WARNING("[assembly] injects [L]!"))
+		activate_pin(2)
+	else
+		activate_pin(3)
 
 /obj/item/integrated_circuit/reagent/pump
 	name = "reagent pump"

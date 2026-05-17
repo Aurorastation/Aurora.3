@@ -522,3 +522,287 @@
 	push_data()
 	activate_pin(2)
 
+/obj/item/integrated_circuit/list/list_contains
+	name = "list contains"
+	desc = "Checks whether a list contains a value."
+	icon_state = "template"
+	complexity = 3
+	inputs = list(
+		"list" = IC_PINTYPE_LIST,
+		"value" = IC_PINTYPE_ANY
+	)
+	outputs = list(
+		"contains" = IC_PINTYPE_BOOLEAN,
+		"index" = IC_PINTYPE_NUMBER,
+		"matched value" = IC_PINTYPE_ANY
+	)
+	activators = list(
+		"check" = IC_PINTYPE_PULSE_IN,
+		"found" = IC_PINTYPE_PULSE_OUT,
+		"not found" = IC_PINTYPE_PULSE_OUT
+	)
+	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+
+/obj/item/integrated_circuit/list/list_contains/do_work()
+	var/list/input_list = get_pin_data(IC_INPUT, 1)
+	var/value = get_pin_data(IC_INPUT, 2)
+
+	set_pin_data(IC_OUTPUT, 1, FALSE)
+	set_pin_data(IC_OUTPUT, 2, null)
+	set_pin_data(IC_OUTPUT, 3, null)
+
+	if(!islist(input_list) || !length(input_list))
+		push_data()
+		activate_pin(3)
+		return
+
+	var/index = 1
+
+	for(var/item in input_list)
+		if(item == value || "[item]" == "[value]")
+			set_pin_data(IC_OUTPUT, 1, TRUE)
+			set_pin_data(IC_OUTPUT, 2, index)
+			set_pin_data(IC_OUTPUT, 3, item)
+			push_data()
+			activate_pin(2)
+			return
+
+		index++
+
+	push_data()
+	activate_pin(3)
+
+
+/obj/item/integrated_circuit/list/list_filter_text
+	name = "list text filter"
+	desc = "Filters a list by matching text against each value."
+	icon_state = "template"
+	complexity = 5
+	inputs = list(
+		"list" = IC_PINTYPE_LIST,
+		"match text" = IC_PINTYPE_STRING
+	)
+	outputs = list(
+		"filtered list" = IC_PINTYPE_LIST,
+		"matches found" = IC_PINTYPE_BOOLEAN
+	)
+	activators = list(
+		"filter" = IC_PINTYPE_PULSE_IN,
+		"found" = IC_PINTYPE_PULSE_OUT,
+		"not found" = IC_PINTYPE_PULSE_OUT
+	)
+	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+
+/obj/item/integrated_circuit/list/list_filter_text/do_work()
+	var/list/input_list = get_pin_data(IC_INPUT, 1)
+	var/match_text = get_pin_data(IC_INPUT, 2)
+	var/list/filtered_list = list()
+
+	if(!islist(input_list) || !istext(match_text) || !length(match_text))
+		set_pin_data(IC_OUTPUT, 1, filtered_list)
+		set_pin_data(IC_OUTPUT, 2, FALSE)
+		push_data()
+		activate_pin(3)
+		return
+
+	var/lower_match = lowertext(match_text)
+
+	for(var/item in input_list)
+		var/check_text = lowertext("[item]")
+
+		if(isweakref(item))
+			var/datum/weakref/WR = item
+			var/atom/A = WR.resolve()
+			if(A)
+				check_text = lowertext("[A.name] [A.desc]")
+
+		else if(istype(item, /atom))
+			var/atom/A = item
+			check_text = lowertext("[A.name] [A.desc]")
+
+		if(findtext(check_text, lower_match))
+			filtered_list += item
+
+	set_pin_data(IC_OUTPUT, 1, filtered_list)
+	set_pin_data(IC_OUTPUT, 2, length(filtered_list) ? TRUE : FALSE)
+
+	push_data()
+	activate_pin(length(filtered_list) ? 2 : 3)
+
+
+/obj/item/integrated_circuit/list/list_join
+	name = "list joiner"
+	desc = "Joins a list into a single string using a separator."
+	icon_state = "template"
+	complexity = 3
+	inputs = list(
+		"list" = IC_PINTYPE_LIST,
+		"separator" = IC_PINTYPE_STRING
+	)
+	outputs = list(
+		"joined string" = IC_PINTYPE_STRING
+	)
+	activators = list(
+		"join" = IC_PINTYPE_PULSE_IN,
+		"on joined" = IC_PINTYPE_PULSE_OUT
+	)
+	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+
+/obj/item/integrated_circuit/list/list_join/do_work()
+	var/list/input_list = get_pin_data(IC_INPUT, 1)
+	var/separator = get_pin_data(IC_INPUT, 2)
+
+	if(!islist(input_list))
+		input_list = list()
+
+	if(!istext(separator))
+		separator = ", "
+
+	var/list/text_values = list()
+
+	for(var/item in input_list)
+		text_values += "[item]"
+
+	set_pin_data(IC_OUTPUT, 1, jointext(text_values, separator))
+	push_data()
+	activate_pin(2)
+
+
+/obj/item/integrated_circuit/list/list_sort
+	name = "list sorter"
+	desc = "Sorts a list."
+	extended_desc = "Sorts values alphabetically or numerically depending on what the list contains."
+	icon_state = "template"
+	complexity = 4
+	inputs = list(
+		"list" = IC_PINTYPE_LIST,
+		"ascending" = IC_PINTYPE_BOOLEAN
+	)
+	outputs = list(
+		"sorted list" = IC_PINTYPE_LIST
+	)
+	activators = list(
+		"sort" = IC_PINTYPE_PULSE_IN,
+		"on sorted" = IC_PINTYPE_PULSE_OUT
+	)
+	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+
+/obj/item/integrated_circuit/list/list_sort/do_work()
+	var/list/input_list = get_pin_data(IC_INPUT, 1)
+	var/ascending = get_pin_data(IC_INPUT, 2)
+
+	if(!islist(input_list))
+		input_list = list()
+
+	var/list/sorted_list = input_list.Copy()
+	sortTim(sorted_list, /proc/cmp_text_asc)
+
+	if(!ascending)
+		sorted_list = reverseList(sorted_list)
+
+	set_pin_data(IC_OUTPUT, 1, sorted_list)
+	push_data()
+	activate_pin(2)
+
+
+/obj/item/integrated_circuit/list/random_selector
+	name = "random list selector"
+	desc = "Selects a random value from a list."
+	icon_state = "template"
+	complexity = 3
+	inputs = list(
+		"list" = IC_PINTYPE_LIST
+	)
+	outputs = list(
+		"selected value" = IC_PINTYPE_ANY,
+		"selected index" = IC_PINTYPE_NUMBER
+	)
+	activators = list(
+		"select" = IC_PINTYPE_PULSE_IN,
+		"selected" = IC_PINTYPE_PULSE_OUT,
+		"not selected" = IC_PINTYPE_PULSE_OUT
+	)
+	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+
+/obj/item/integrated_circuit/list/random_selector/do_work()
+	var/list/input_list = get_pin_data(IC_INPUT, 1)
+
+	if(!islist(input_list) || !length(input_list))
+		set_pin_data(IC_OUTPUT, 1, null)
+		set_pin_data(IC_OUTPUT, 2, null)
+		push_data()
+		activate_pin(3)
+		return
+
+	var/index = rand(1, length(input_list))
+
+	set_pin_data(IC_OUTPUT, 1, input_list[index])
+	set_pin_data(IC_OUTPUT, 2, index)
+	push_data()
+	activate_pin(2)
+
+
+/obj/item/integrated_circuit/list/weighted_random_selector
+	name = "weighted random selector"
+	desc = "Selects a random value from a list using a matching list of weights."
+	icon_state = "template"
+	complexity = 6
+	inputs = list(
+		"values" = IC_PINTYPE_LIST,
+		"weights" = IC_PINTYPE_LIST
+	)
+	outputs = list(
+		"selected value" = IC_PINTYPE_ANY,
+		"selected index" = IC_PINTYPE_NUMBER
+	)
+	activators = list(
+		"select" = IC_PINTYPE_PULSE_IN,
+		"selected" = IC_PINTYPE_PULSE_OUT,
+		"not selected" = IC_PINTYPE_PULSE_OUT
+	)
+	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+
+/obj/item/integrated_circuit/list/weighted_random_selector/do_work()
+	var/list/values = get_pin_data(IC_INPUT, 1)
+	var/list/weights = get_pin_data(IC_INPUT, 2)
+
+	if(!islist(values) || !islist(weights) || !length(values) || !length(weights))
+		set_pin_data(IC_OUTPUT, 1, null)
+		set_pin_data(IC_OUTPUT, 2, null)
+		push_data()
+		activate_pin(3)
+		return
+
+	var/total_weight = 0
+
+	for(var/i = 1 to min(length(values), length(weights)))
+		var/weight = weights[i]
+		if(isnum(weight) && weight > 0)
+			total_weight += weight
+
+	if(total_weight <= 0)
+		push_data()
+		activate_pin(3)
+		return
+
+	var/roll = rand(1, total_weight)
+	var/current_weight = 0
+
+	for(var/i = 1 to min(length(values), length(weights)))
+		var/weight = weights[i]
+
+		if(!isnum(weight) || weight <= 0)
+			continue
+
+		current_weight += weight
+
+		if(roll <= current_weight)
+			set_pin_data(IC_OUTPUT, 1, values[i])
+			set_pin_data(IC_OUTPUT, 2, i)
+			push_data()
+			activate_pin(2)
+			return
+
+	push_data()
+	activate_pin(3)
+

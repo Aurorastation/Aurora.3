@@ -57,6 +57,7 @@ PROCESSING_SUBSYSTEM_DEF(electronics)
 		new /obj/item/electronic_assembly/medium/medical,
 		new /obj/item/electronic_assembly/medium/gun,
 		new /obj/item/electronic_assembly/medium/radio,
+		new /obj/item/electronic_assembly/medium/anomaly_drill,
 		new /obj/item/electronic_assembly/large/default,
 		new /obj/item/electronic_assembly/large/scope,
 		new /obj/item/electronic_assembly/large/terminal,

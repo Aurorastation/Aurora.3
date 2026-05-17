@@ -1317,3 +1317,310 @@
 			activate_pin(2)
 			break
 	..()
+
+/obj/item/integrated_circuit/input/ref_validator
+	name = "reference validator"
+	desc = "Checks whether a reference is valid and identifies its general type."
+	icon_state = "video_camera"
+	complexity = 4
+	inputs = list(
+		"reference" = IC_PINTYPE_REF
+	)
+	outputs = list(
+		"valid" = IC_PINTYPE_BOOLEAN,
+		"name" = IC_PINTYPE_STRING,
+		"type path" = IC_PINTYPE_STRING,
+		"is mob" = IC_PINTYPE_BOOLEAN,
+		"is item" = IC_PINTYPE_BOOLEAN,
+		"is machinery" = IC_PINTYPE_BOOLEAN,
+		"is turf" = IC_PINTYPE_BOOLEAN
+	)
+	activators = list(
+		"validate" = IC_PINTYPE_PULSE_IN,
+		"valid" = IC_PINTYPE_PULSE_OUT,
+		"invalid" = IC_PINTYPE_PULSE_OUT
+	)
+	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+
+/obj/item/integrated_circuit/input/ref_validator/do_work()
+	var/atom/A = get_pin_data_as_type(IC_INPUT, 1, /atom)
+
+	set_pin_data(IC_OUTPUT, 1, FALSE)
+	set_pin_data(IC_OUTPUT, 2, null)
+	set_pin_data(IC_OUTPUT, 3, null)
+	set_pin_data(IC_OUTPUT, 4, FALSE)
+	set_pin_data(IC_OUTPUT, 5, FALSE)
+	set_pin_data(IC_OUTPUT, 6, FALSE)
+	set_pin_data(IC_OUTPUT, 7, FALSE)
+
+	if(!A)
+		push_data()
+		activate_pin(3)
+		return
+
+	set_pin_data(IC_OUTPUT, 1, TRUE)
+	set_pin_data(IC_OUTPUT, 2, A.name)
+	set_pin_data(IC_OUTPUT, 3, "[A.type]")
+	set_pin_data(IC_OUTPUT, 4, ismob(A))
+	set_pin_data(IC_OUTPUT, 5, isitem(A))
+	set_pin_data(IC_OUTPUT, 6, istype(A, /obj/machinery))
+	set_pin_data(IC_OUTPUT, 7, isturf(A))
+
+	push_data()
+	activate_pin(2)
+
+
+/obj/item/integrated_circuit/input/distance_checker
+	name = "distance checker"
+	desc = "Checks distance and adjacency between two references."
+	icon_state = "video_camera"
+	complexity = 4
+	inputs = list(
+		"reference A" = IC_PINTYPE_REF,
+		"reference B" = IC_PINTYPE_REF
+	)
+	outputs = list(
+		"distance" = IC_PINTYPE_NUMBER,
+		"adjacent" = IC_PINTYPE_BOOLEAN,
+		"same tile" = IC_PINTYPE_BOOLEAN,
+		"same z-level" = IC_PINTYPE_BOOLEAN
+	)
+	activators = list(
+		"check" = IC_PINTYPE_PULSE_IN,
+		"checked" = IC_PINTYPE_PULSE_OUT,
+		"not checked" = IC_PINTYPE_PULSE_OUT
+	)
+	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+
+/obj/item/integrated_circuit/input/distance_checker/do_work()
+	var/atom/A = get_pin_data_as_type(IC_INPUT, 1, /atom)
+	var/atom/B = get_pin_data_as_type(IC_INPUT, 2, /atom)
+
+	if(!A || !B)
+		set_pin_data(IC_OUTPUT, 1, null)
+		set_pin_data(IC_OUTPUT, 2, FALSE)
+		set_pin_data(IC_OUTPUT, 3, FALSE)
+		set_pin_data(IC_OUTPUT, 4, FALSE)
+		push_data()
+		activate_pin(3)
+		return
+
+	var/turf/TA = get_turf(A)
+	var/turf/TB = get_turf(B)
+
+	if(!TA || !TB)
+		push_data()
+		activate_pin(3)
+		return
+
+	var/same_z = TA.z == TB.z
+	var/distance = same_z ? get_dist(TA, TB) : null
+
+	set_pin_data(IC_OUTPUT, 1, distance)
+	set_pin_data(IC_OUTPUT, 2, same_z && distance <= 1)
+	set_pin_data(IC_OUTPUT, 3, TA == TB)
+	set_pin_data(IC_OUTPUT, 4, same_z)
+
+	push_data()
+	activate_pin(2)
+
+
+/obj/item/integrated_circuit/input/direction_to_ref
+	name = "direction to reference"
+	desc = "Calculates the direction from one reference to another."
+	icon_state = "video_camera"
+	complexity = 4
+	inputs = list(
+		"source" = IC_PINTYPE_REF,
+		"target" = IC_PINTYPE_REF
+	)
+	outputs = list(
+		"direction" = IC_PINTYPE_NUMBER,
+		"direction text" = IC_PINTYPE_STRING
+	)
+	activators = list(
+		"calculate" = IC_PINTYPE_PULSE_IN,
+		"calculated" = IC_PINTYPE_PULSE_OUT,
+		"not calculated" = IC_PINTYPE_PULSE_OUT
+	)
+	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+
+/obj/item/integrated_circuit/input/direction_to_ref/do_work()
+	var/atom/source = get_pin_data_as_type(IC_INPUT, 1, /atom)
+	var/atom/target = get_pin_data_as_type(IC_INPUT, 2, /atom)
+
+	if(!source || !target)
+		set_pin_data(IC_OUTPUT, 1, null)
+		set_pin_data(IC_OUTPUT, 2, null)
+		push_data()
+		activate_pin(3)
+		return
+
+	var/direction = get_dir(source, target)
+
+	set_pin_data(IC_OUTPUT, 1, direction)
+	set_pin_data(IC_OUTPUT, 2, dir2text(direction))
+
+	push_data()
+	activate_pin(2)
+
+
+/obj/item/integrated_circuit/input/area_scanner
+	name = "area scanner"
+	desc = "Returns the area of a referenced object."
+	icon_state = "video_camera"
+	complexity = 3
+	inputs = list(
+		"target" = IC_PINTYPE_REF
+	)
+	outputs = list(
+		"area name" = IC_PINTYPE_STRING,
+		"area ref" = IC_PINTYPE_REF
+	)
+	activators = list(
+		"scan" = IC_PINTYPE_PULSE_IN,
+		"scanned" = IC_PINTYPE_PULSE_OUT,
+		"not scanned" = IC_PINTYPE_PULSE_OUT
+	)
+	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+
+/obj/item/integrated_circuit/input/area_scanner/do_work()
+	var/atom/A = get_pin_data_as_type(IC_INPUT, 1, /atom)
+
+	if(!A)
+		set_pin_data(IC_OUTPUT, 1, null)
+		set_pin_data(IC_OUTPUT, 2, null)
+		push_data()
+		activate_pin(3)
+		return
+
+	var/area/AR = get_area(A)
+
+	if(!AR)
+		push_data()
+		activate_pin(3)
+		return
+
+	set_pin_data(IC_OUTPUT, 1, AR.name)
+	set_pin_data(IC_OUTPUT, 2, AR)
+
+	push_data()
+	activate_pin(2)
+
+
+/obj/item/integrated_circuit/input/access_checker
+	name = "access checker"
+	desc = "Checks whether an access list contains required access."
+	icon_state = "card_reader"
+	complexity = 4
+	inputs = list(
+		"access list" = IC_PINTYPE_LIST,
+		"required access" = IC_PINTYPE_LIST
+	)
+	outputs = list(
+		"allowed" = IC_PINTYPE_BOOLEAN,
+		"missing access" = IC_PINTYPE_LIST
+	)
+	activators = list(
+		"check" = IC_PINTYPE_PULSE_IN,
+		"allowed" = IC_PINTYPE_PULSE_OUT,
+		"denied" = IC_PINTYPE_PULSE_OUT
+	)
+	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+
+/obj/item/integrated_circuit/input/access_checker/do_work()
+	var/list/access_list = get_pin_data(IC_INPUT, 1)
+	var/list/required_access = get_pin_data(IC_INPUT, 2)
+	var/list/missing_access = list()
+
+	if(!islist(access_list))
+		access_list = list()
+
+	if(!islist(required_access))
+		required_access = list()
+
+	for(var/access in required_access)
+		if(!(access in access_list))
+			missing_access += access
+
+	var/allowed = !length(missing_access)
+
+	set_pin_data(IC_OUTPUT, 1, allowed)
+	set_pin_data(IC_OUTPUT, 2, missing_access)
+
+	push_data()
+	activate_pin(allowed ? 2 : 3)
+
+
+/obj/item/integrated_circuit/input/radio_command_receiver
+	name = "radio command receiver"
+	desc = "Receives radio-style command text relayed through an inserted radio."
+	extended_desc = "This circuit receives relayed radio text and exposes the speaker, message, channel, command, arguments, and payload. If a radio reference is provided, only messages relayed from that radio will be accepted."
+	icon_state = "recorder"
+	complexity = 10
+	inputs = list(
+		"radio reference" = IC_PINTYPE_REF
+	)
+	outputs = list(
+		"speaker" = IC_PINTYPE_STRING,
+		"message" = IC_PINTYPE_STRING,
+		"channel" = IC_PINTYPE_STRING,
+		"command" = IC_PINTYPE_STRING,
+		"argument 1" = IC_PINTYPE_STRING,
+		"argument 2" = IC_PINTYPE_STRING,
+		"argument list" = IC_PINTYPE_LIST,
+		"payload" = IC_PINTYPE_STRING
+	)
+	activators = list(
+		"on command received" = IC_PINTYPE_PULSE_OUT
+	)
+	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+	power_draw_per_use = 150
+
+
+/obj/item/integrated_circuit/input/radio_command_receiver/proc/receive_radio_command(speaker_name, message, channel, obj/item/radio/source_radio = null)
+	if(!check_then_do_work())
+		return
+
+	var/obj/item/radio/required_radio = get_pin_data_as_type(IC_INPUT, 1, /obj/item/radio)
+
+	if(required_radio && !source_radio)
+		return
+
+	if(required_radio && source_radio != required_radio)
+		return
+
+	if(!istext(message) || !length(message))
+		return
+
+	var/list/parts = splittext(message, " ")
+	var/list/clean_parts = list()
+
+	for(var/part in parts)
+		if(istext(part) && length(part))
+			clean_parts += part
+
+	if(!length(clean_parts))
+		return
+
+	var/list/arguments = list()
+	for(var/i = 2 to length(clean_parts))
+		arguments += clean_parts[i]
+
+	var/list/payload_parts = list()
+	for(var/i = 2 to length(clean_parts))
+		payload_parts += clean_parts[i]
+
+	var/payload = jointext(payload_parts, " ")
+
+	set_pin_data(IC_OUTPUT, 1, speaker_name ? "[speaker_name]" : "Unknown")
+	set_pin_data(IC_OUTPUT, 2, message)
+	set_pin_data(IC_OUTPUT, 3, channel ? "[channel]" : null)
+	set_pin_data(IC_OUTPUT, 4, lowertext(clean_parts[1]))
+	set_pin_data(IC_OUTPUT, 5, length(clean_parts) >= 2 ? clean_parts[2] : null)
+	set_pin_data(IC_OUTPUT, 6, length(clean_parts) >= 3 ? clean_parts[3] : null)
+	set_pin_data(IC_OUTPUT, 7, arguments)
+	set_pin_data(IC_OUTPUT, 8, payload)
+
+	push_data()
+	activate_pin(1)
