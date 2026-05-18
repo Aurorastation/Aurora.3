@@ -184,12 +184,11 @@
 	for(var/obj/item/integrated_circuit/part in contents)
 		. |= part.GetAccess()
 
-/obj/item/electronic_assembly/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+/obj/item/electronic_assembly/feedback_hints(mob/user, distance, is_adjacent)
 	. = ..()
-	if(opened && get_dist(user, src) <= 1)
+	if(opened && is_adjacent)
 		for(var/obj/item/integrated_circuit/IC in contents)
 			. += SPAN_NOTICE("It contains \a [IC].")
-			interact(user)
 
 /obj/item/electronic_assembly/proc/get_part_complexity()
 	. = 0
