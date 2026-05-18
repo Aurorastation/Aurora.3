@@ -1251,9 +1251,6 @@
 	return "EAST[coord_col]:[coord_col_offset],NORTH[coord_row]:[coord_row_offset]"
 
 /mob/living/carbon/human/handle_random_events()
-	if(InStasis())
-		return
-
 	// Puke if toxloss is too high
 	if(!stat)
 		if (getToxLoss() >= 45 && !lastpuke)
@@ -1270,53 +1267,6 @@
 			T = loc
 			if(T.get_lumcount() < 0.05)	// give a little bit of tolerance for near-dark areas.
 				playsound(null, pick(GLOB.scarySounds), 50, TRUE)
-
-		// People who are afraid of the dark get anxious.
-		if(HAS_TRAIT(src, TRAIT_ORIGIN_DARK_AFRAID))
-			T = loc
-			if(prob(2) && T.get_lumcount() < 0.2)
-				var/list/afraid_of_the_dark_messages = list(
-					"You feel a bit afraid...",
-					"You feel somewhat nervous...",
-					"You could use a little light here...",
-					"It's dark enough that you feel a little anxious..."
-				)
-				to_chat(src, SPAN_WARNING(pick(afraid_of_the_dark_messages)))
-
-		// People sensitive to light get eye strain.
-		if(HAS_TRAIT(src, TRAIT_ORIGIN_LIGHT_SENSITIVE))
-			T = loc
-			// From testing, this generally leaves several minutes between each message.
-			if(prob(0.5) && T.get_lumcount() > 0.95)
-				var/mob/living/carbon/human/self = src
-
-				// If you have this trait, your default flash protection is -1; check for ANY protection.
-				var/flash_protection = self.get_flash_protection()
-
-				// I hate this. We removed flash protection from basic sunglasses for 'powergaming concerns.'
-				// Check if we're wearing the stupid fake loadout sunglasses.
-				// Yes this is stupid. Remove this when we rebalance flash protection to be a 0-100 threshold.
-				var/fakesunglasses = istype(self?.glasses, /obj/item/clothing/glasses/fakesunglasses)
-
-				if(!flash_protection && !fakesunglasses)
-					var/obj/item/organ/eyes = self.get_eyes()
-					if(istype(eyes))
-						self.eye_blurry = max(self.eye_blurry, 6)
-						var/list/eye_sensitivity_messages = list(
-							"Your eyes tire a bit from the brightness.",
-							"Your eyes sting a little; it's too bright.",
-							"The bright light leaves your vision strained."
-						)
-						to_chat(src, SPAN_WARNING(pick(eye_sensitivity_messages)))
-						if(prob(20))
-							// If your eyes are covered, people can see you squinting.
-							var/list/protection = list(self.head, self.glasses, self.wear_mask)
-							var/eyes_covered = FALSE
-							for(var/obj/item/I in protection)
-								if(I?.body_parts_covered & EYES)
-									eyes_covered = TRUE
-							if(!eyes_covered)
-								self.visible_message("[self] squints in discomfort.")
 
 /mob/living/carbon/human/proc/handle_changeling()
 	if(mind)

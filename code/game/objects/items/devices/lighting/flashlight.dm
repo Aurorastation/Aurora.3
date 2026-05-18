@@ -211,7 +211,7 @@
 
 		var/mob/living/carbon/human/H = target_mob	//mob has protective eyewear
 		if(istype(H))
-			if(H.get_flash_protection())
+			if(H.get_flash_protection() > FLASH_PROTECTION_NONE)
 				to_chat(user, SPAN_WARNING("You're going to need to remove \the [H]'s eye protection first."))
 				return
 
