@@ -132,7 +132,7 @@
 	force = 14
 	throw_speed = 2
 	throw_range = 9
-	w_class = WEIGHT_CLASS_TINY
+	w_class = WEIGHT_CLASS_SMALL
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 80)
 	attack_verb = list("pinched", "nipped")
@@ -207,6 +207,7 @@
 	name = "bomb defusal wirecutters"
 	desc = "A tool used to delicately sever the wires used in bomb fuses."
 	icon_state = "mini_wirecutters"
+	w_class = WEIGHT_CLASS_TINY
 	toolspeed = 0.6
 	bomb_defusal_chance = 90 // 90% chance, because the thrill of dying must be kept at all times, duh
 
