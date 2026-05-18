@@ -1,6 +1,6 @@
 /datum/map_template/ruin/away_site/casino
 	name = "Casino"
-	description = "A casino ship!"
+	description = "A casino station!"
 
 	prefix = "away_site/abandoned_casino/"
 	suffix = "abandoned_casino.dmm"
@@ -14,7 +14,7 @@
 
 /singleton/submap_archetype/casino
 	map = "Casino"
-	descriptor = "A casino ship!"
+	descriptor = "A casino station!"
 
 //Ship
 /obj/effect/overmap/visitable/sector/casino

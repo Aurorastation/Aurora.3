@@ -13,7 +13,7 @@
 /obj/structure/coatrack/Initialize()
 	. = ..()
 	var/turf/T = get_turf(src)
-	if(locate(/obj/item/clothing) in get_turf(src))
+	if(locate(/obj/item/clothing) in T)
 		for(var/obj/item/found_item in T)
 			if(!hat && istype(found_item, /obj/item/clothing/head) && !istype(found_item, /obj/item/clothing/head/helmet))
 				hat = found_item
