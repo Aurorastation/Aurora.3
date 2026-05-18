@@ -1,0 +1,4 @@
+author: Banditoz
+delete-after: True
+changes:
+  - rscadd: "Enable find (Ctrl+F) and refresh (F5) on browser windows."
