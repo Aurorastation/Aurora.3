@@ -28,7 +28,7 @@
 	name = "Zeng-Hu Pharmaceuticals"
 	desc = "Zeng-Hu Pharmaceuticals employs a large number of IPCs, both free and owned, with the newest models often being shown to the public as a display of the company's technological prowess. They are treated relatively well based on the standards of the Spur, however they are often urged to perfectionism and quality, being rewarded for success and punished for failure. In keeping with the company's competitive yet meritocratic nature, IPCs which perform well and catch the eye of their superiors can be elevated to positions of responsibility, in some cases, winning their freedom through hard and exceptional labour."
 	important_information = "IPCs belonging to Zeng-Hu do not possess a standard naming convention."
-	possible_accents = list(ACCENT_SOL, ACCENT_LUNA, ACCENT_CETI, ACCENT_KONYAN, ACCENT_EUROPA, ACCENT_ERIDANI, ACCENT_TTS)
+	possible_accents = list(ACCENT_SOL, ACCENT_LUNA, ACCENT_CETI, ACCENT_KONYAN, ACCENT_EUROPA, ACCENT_ERIDANI, ACCENT_ASSUNZIONE, ACCENT_VALKYRIE, ACCENT_AEMAQ, ACCENT_TTS)
 	possible_citizenships = list(CITIZENSHIP_NONE)
 	possible_religions = list(RELIGION_NONE)
 
