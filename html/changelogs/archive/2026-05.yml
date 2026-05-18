@@ -111,3 +111,17 @@
       persistent_objects_get_content proc.
   Hellfirejag:
   - bugfix: Hotfixed a hard del related to stickers.
+2026-05-16:
+  Hellfirejag:
+  - rscadd: Added a code framework for Tool Quality Levels.
+  - bugfix: Fixed runtime errors preventing Read Mind from working.
+  arrow768:
+  - rscdel: Removed warehouse access from roles without a immediate need for it.
+  diggiez:
+  - rscadd: Saved mental images of paper or photos in Commune will now also send popups
+      of the contents.
+  - rscadd: Psi-sensitives receiving a paper mental image will have it translated
+      to what the sender understands. Psi-deaf that manage to receive a photo may
+      see it in greyscale or with randomized colors.
+  - qol: Writing scribbles on the back of photos can be done while just adjacent,
+      rather than needing it and the pen in hand.

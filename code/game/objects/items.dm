@@ -234,14 +234,25 @@
 	/// Requires the usual implementation requirements for new persistent types but provides a single implementation for trash logic
 	var/persistency_considered_trash = FALSE
 
-	/// How a tool acts when you use it on something, such as wirecutters cutting wires while multitools measure power
+	/**
+	 * How a tool acts when you use it on something, such as wirecutters cutting wires while multitools measure power.
+	 * This merely sets the initial starting tool quality for a given tool.
+	 * If a tool wants to have more than one quality, it can do so via SET_TOOL_QUALITIES() in its own Initialize() call
+	 *
+	 * Do note that this is merely just an expedience for /obj/item. Any /atom/ is allowed to have tool qualities.
+	 */
 	var/tool_behaviour = null
+	/// Determines the starting tool level for a tool's basic use if any. tool_behavior must be set for this to apply.
+	var/tool_quality = STANDARD_TOOL_LEVEL
 
 /obj/item/Initialize(mapload, ...)
 	. = ..()
 	if(item_flags & ITEM_FLAG_HELD_MAP_TEXT)
 		set_initial_maptext()
 		check_maptext()
+
+	if (tool_behaviour)
+		LOAD_TOOL_QUALITIES(src, alist(tool_behavior = tool_quality), toolComp)
 
 /obj/item/Destroy()
 	if(ismob(loc))
