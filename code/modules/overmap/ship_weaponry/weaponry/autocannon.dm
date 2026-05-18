@@ -60,6 +60,7 @@
 	damage = 100
 	armor_penetration = 60
 	penetrating = 3
+	anti_materiel_potential = 10
 
 /obj/projectile/ship_ammo/autocannon/he
 	name = "60mm HE shell"

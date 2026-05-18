@@ -60,6 +60,8 @@
 		var/obj/projectile/energy/floramut/gene/projectile = .
 		projectile.gene = gene
 
+//*ADMIN SPAWN ONLY*/
+
 /obj/item/gun/energy/meteorgun
 	name = "meteor gun"
 	desc = "For the love of god, make sure you're aiming this the right way!"
@@ -88,6 +90,76 @@
 	slot_flags = SLOT_BELT
 	can_turret = FALSE
 
+/obj/item/gun/energy/admin_ship_weapon
+	name = "ship artillery testing gun"
+	desc = "If you are holding this, admin-help, this fires ship-weapon bullets for testing purposes."
+	icon = 'icons/obj/guns/meteor_gun.dmi'
+	icon_state = "meteor_gun"
+	item_state = "meteor_gun"
+	slot_flags = SLOT_BELT
+	fire_sound='sound/weapons/gunshot/ship_weapons/flak_fire.ogg'
+	projectile_type = /obj/projectile/ship_ammo/autocannon
+	sel_mode = 1
+	accuracy = 1
+	max_shots = 1000
+	self_recharge = TRUE
+	recharge_time = 5
+	charge_meter = 0
+	can_switch_modes = FALSE
+
+	firemodes = list(
+		// Autocannon
+		list(mode_name="autocannon", burst=11, projectile_type=/obj/projectile/ship_ammo/autocannon),
+		list(mode_name="autocannon frag", burst=8, projectile_type=/obj/projectile/ship_ammo/autocannon/frag),
+		list(mode_name="autocannon he", burst=5, projectile_type=/obj/projectile/ship_ammo/autocannon/he),
+		// Blaster
+		list(mode_name="blaster", burst=1, projectile_type=/obj/projectile/ship_ammo/blaster),
+		// Bruiser
+		list(mode_name="bruiser canister", burst=11, projectile_type=/obj/projectile/ship_ammo/bruiser),
+		list(mode_name="bruiser flechette", burst=9, projectile_type=/obj/projectile/ship_ammo/bruiser/flechette),
+		list(mode_name="bruiser he", burst=4, projectile_type=/obj/projectile/ship_ammo/bruiser/he),
+		// Coilgun
+		list(mode_name="coilgun", burst=1, projectile_type=/obj/projectile/ship_ammo/coilgun),
+		list(mode_name="light coilgun", burst=1, projectile_type=/obj/projectile/ship_ammo/coilgun/light),
+		// Francisca
+		list(mode_name="francisca fmj", burst=8, projectile_type=/obj/projectile/ship_ammo/francisca),
+		list(mode_name="francisca ap", burst=8, projectile_type=/obj/projectile/ship_ammo/francisca/ap),
+		list(mode_name="francisca frag", burst=8, projectile_type=/obj/projectile/ship_ammo/francisca/frag),
+		// Grauwolf
+		list(mode_name="grauwolf he", burst=4, projectile_type=/obj/projectile/ship_ammo/grauwolf),
+		list(mode_name="grauwolf ap", burst=4, projectile_type=/obj/projectile/ship_ammo/grauwolf/ap),
+		// Lammergeier
+		list(mode_name="lammergeier", burst=1, projectile_type=/obj/projectile/ship_ammo/lammergeier),
+		// Leviathan
+		list(mode_name="leviathan", burst=1, projectile_type=/obj/projectile/ship_ammo/leviathan),
+		// Longbow
+		list(mode_name="longbow ap", burst=1, projectile_type=/obj/projectile/ship_ammo/longbow),
+		list(mode_name="longbow he", burst=1, projectile_type=/obj/projectile/ship_ammo/longbow),
+		list(mode_name="longbow bunkerbuster", burst=1, projectile_type=/obj/projectile/ship_ammo/longbow),
+		// Nephilim
+		list(mode_name="nephilim he", burst=15, projectile_type=/obj/projectile/ship_ammo/nephilim),
+		list(mode_name="nephilim ap", burst=15, projectile_type=/obj/projectile/ship_ammo/nephilim/ap),
+		)
+
+/obj/item/gun/energy/admin_ship_weapon/crew
+	name = "horizon artillery testing gun"
+	desc = "If you are holding this, admin-help, this fires the horizon's guns"
+
+	firemodes = list(
+		// Francisca
+		list(mode_name="francisca fmj", burst=8, projectile_type=/obj/projectile/ship_ammo/francisca),
+		list(mode_name="francisca ap", burst=8, projectile_type=/obj/projectile/ship_ammo/francisca/ap),
+		list(mode_name="francisca frag", burst=8, projectile_type=/obj/projectile/ship_ammo/francisca/frag),
+		// Grauwolf
+		list(mode_name="grauwolf he", burst=4, projectile_type=/obj/projectile/ship_ammo/grauwolf),
+		list(mode_name="grauwolf ap", burst=4, projectile_type=/obj/projectile/ship_ammo/grauwolf/ap),
+		// Longbow
+		list(mode_name="longbow ap", burst=1, projectile_type=/obj/projectile/ship_ammo/longbow),
+		list(mode_name="longbow he", burst=1, projectile_type=/obj/projectile/ship_ammo/longbow),
+		list(mode_name="longbow bunkerbuster", burst=1, projectile_type=/obj/projectile/ship_ammo/longbow),
+		)
+
+//*END OF ADMIN SPAWN ONLY*//
 
 /obj/item/gun/energy/mindflayer
 	name = "mind flayer"

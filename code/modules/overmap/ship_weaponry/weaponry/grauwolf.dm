@@ -48,4 +48,5 @@
 	name = "armor-piercing flak"
 	damage = 50
 	armor_penetration = 50
-	penetrating = 2
+	penetrating = 5
+	anti_materiel_potential = 10

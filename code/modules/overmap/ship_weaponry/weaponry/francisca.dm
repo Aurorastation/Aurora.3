@@ -51,6 +51,7 @@
 	damage = 50
 	armor_penetration = 50
 	penetrating = 2
+	anti_materiel_potential = 10
 
 /obj/projectile/ship_ammo/francisca/ap
 	name = "40mm AP shell"

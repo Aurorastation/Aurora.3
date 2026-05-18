@@ -6,6 +6,7 @@
 	maxhealth = OBJECT_HEALTH_MEDIUM
 	color = COLOR_GRAY20
 	build_amt = 4
+	pass_flags_self = PASSTABLE | PASSWINDOW | PASSSTRUCTURE
 	layer = WINDOW_FRAME_LAYER
 	anchored = TRUE
 	density = TRUE

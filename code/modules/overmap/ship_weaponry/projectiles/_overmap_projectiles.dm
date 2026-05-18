@@ -119,15 +119,38 @@
 					qdel(ammunition.original_projectile) //No longer needed.
 					ammunition.original_projectile = widowmaker
 					widowmaker.primed = TRUE
-					var/turf/entry_turf_initial = get_ranged_target_turf(entry_target, REVERSE_DIR(entry_target.dir), 20)
-					var/entry_dir_choice = (dir & NORTH) || (dir & SOUTH) ? list(EAST, WEST) : list(NORTH, SOUTH)
-					var/turf/entry_turf = get_ranged_target_turf(entry_turf_initial, entry_dir_choice, 5)
+					// Offset from the map edge the projectile enters through, not the entry target
+					var/entry_edge_direction = REVERSE_DIR(ammunition.heading)
+					var/turf/map_edge = get_ranged_target_turf(entry_target, entry_edge_direction, 9999)
+					var/turf/entry_turf_initial = get_ranged_target_turf(map_edge, ammunition.heading, 20)
+					// Try to preserve the lateral position where the overmap projectile contacted the target tile
+					// by using the projectile's current src position relative to the entry_target. This makes the
+					// spawned local projectile appear at the map edge at the same lateral offset the overmap
+					// projectile had when it detected the target. Clamp the offset to avoid huge jumps.
+					var/turf/entry_turf = null
+					if(src && entry_target)
+						var/dx = src.x - entry_target.x
+						var/dy = src.y - entry_target.y
+						// limit offset to a small radius so we don't spawn off-map or far away
+						if(dx > 5) dx = 5
+						if(dx < -5) dx = -5
+						if(dy > 5) dy = 5
+						if(dy < -5) dy = -5
+						// If travelling north/south the lateral axis is X, otherwise it's Y
+						if(ammunition.heading & (NORTH | SOUTH))
+							entry_turf = get_offset_target_turf(entry_turf_initial, dx, 0)
+						else
+							entry_turf = get_offset_target_turf(entry_turf_initial, 0, dy)
+					// fallback to previous perpendicular random/stepped behaviour if something went wrong
+					if(!entry_turf)
+						var/entry_dir_choice = (ammunition.heading & NORTH) || (ammunition.heading & SOUTH) ? list(EAST, WEST) : list(NORTH, SOUTH)
+						entry_turf = get_ranged_target_turf(entry_turf_initial, entry_dir_choice, 5)
 					widowmaker.forceMove(entry_turf)
 					widowmaker.dir = ammunition.heading
 					var/turf/target_turf = get_step(widowmaker, widowmaker.dir)
 					widowmaker.on_translate(entry_turf, target_turf)
-					log_and_message_admins("A projectile ([widowmaker.name]) has entered a z-level at [entry_target.name], with direction [dir2text(widowmaker.dir)]! (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[widowmaker.x];Y=[widowmaker.y];Z=[widowmaker.z]'>JMP</a>)")
-					say_dead_direct("A projectile ([widowmaker.name]) has entered a z-level at [entry_target.name], with direction [dir2text(widowmaker.dir)]!")
+					log_and_message_admins("A projectile ([widowmaker.name]) has entered a z-level aimed at [entry_target.name] It appeared at ([entry_turf.x], [entry_turf.y], [entry_turf.z]), with direction [dir2text(widowmaker.dir)]! (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[widowmaker.x];Y=[widowmaker.y];Z=[widowmaker.z]'>JMP</a>)")
+					say_dead_direct("A projectile ([widowmaker.name]) has entered a z-level aimed at [entry_target.name]. It appeared at ([entry_turf.x], [entry_turf.y], [entry_turf.z]), with direction [dir2text(widowmaker.dir)]!")
 					widowmaker.preparePixelProjectile(target_turf, entry_turf)
 					widowmaker.fired_from = src
 					widowmaker.fire()
