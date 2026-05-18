@@ -192,7 +192,7 @@
 					ID.mining_points += points
 					if(points != 0)
 						ping("<b>\The [src]</b> pings, \"Point transfer complete! Transaction total: [points] points!\"")
-						var/character_id = astype(ID.mob_id, /mob/living/carbon/human/)?.character_id
+						var/character_id = astype(ID.mob_id.resolve(), /mob/living/carbon/human/)?.character_id
 						if(character_id)
 							SSpersistence.historyAddCharacterRecord(/singleton/persistent_type/history/character/mining_points, character_id, points)
 					points = 0
