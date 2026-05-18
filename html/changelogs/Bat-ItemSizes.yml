@@ -2,5 +2,5 @@ author: Batrachophrenoboocosmomachia
 delete-after: True
 changes:
   - balance: "Decreases size of Dosimeter from Normal to Small."
-  - balance: "Decreases size of Wirecutters and Music Cartridge from Small to Tiny."
+  - balance: "Decreases size of Bomb Defusal Wirecutters and Music Cartridge from Small to Tiny."
   - balance: "Increases size of Airlock Electronics from Tiny to Small (matches other circuitboards)."
