@@ -78,7 +78,7 @@ PROCESSING_SUBSYSTEM_DEF(electronics)
 		new /obj/item/clothing/glasses/circuitry,
 		new /obj/item/clothing/shoes/circuitry,
 		new /obj/item/clothing/head/circuitry,
-		new /obj/item/clothing/ears/circuitry,
+		new /obj/item/radio/headset/circuitry,
 		new /obj/item/clothing/suit/circuitry
 	)
 
