@@ -12,7 +12,7 @@
 
 /obj/item/grab
 	name = "grab"
-	icon = 'icons/mob/screen/generic.dmi'
+	icon = 'icons/hud/mob/generic.dmi'
 	icon_state = "reinforce"
 	atom_flags = 0
 	var/atom/movable/screen/grab/hud = null

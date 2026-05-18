@@ -1037,24 +1037,24 @@
 
 				// Apply a fire overlay if we're burning.
 				if(on_fire)
-					var/image/burning_image = image('icons/mob/screen1_health.dmi', "burning", pixel_x = species.healths_overlay_x)
+					var/image/burning_image = image('icons/hud/mob/screen1_health.dmi', "burning", pixel_x = species.healths_overlay_x)
 					var/midway_point = FIRE_MAX_STACKS / 2
 					burning_image.color = color_rotation((midway_point - fire_stacks) * 3)
 
 				// Show a general pain/crit indicator if needed.
 				if(is_asystole())
-					var/image/hardcrit_image = image('icons/mob/screen1_health.dmi', "hardcrit", pixel_x = species.healths_overlay_x)
+					var/image/hardcrit_image = image('icons/hud/mob/screen1_health.dmi', "hardcrit", pixel_x = species.healths_overlay_x)
 					health_images += hardcrit_image
 				else if(trauma_val)
 					if(can_feel_pain())
 						if(trauma_val > 0.7)
-							var/image/softcrit_image = image('icons/mob/screen1_health.dmi', "softcrit", pixel_x = species.healths_overlay_x)
+							var/image/softcrit_image = image('icons/hud/mob/screen1_health.dmi', "softcrit", pixel_x = species.healths_overlay_x)
 							health_images += softcrit_image
 						if(trauma_val >= 1)
-							var/image/hardcrit_image = image('icons/mob/screen1_health.dmi', "hardcrit", pixel_x = species.healths_overlay_x)
+							var/image/hardcrit_image = image('icons/hud/mob/screen1_health.dmi', "hardcrit", pixel_x = species.healths_overlay_x)
 							health_images += hardcrit_image
 				else if(no_damage)
-					var/image/fullhealth_image = image('icons/mob/screen1_health.dmi', "fullhealth", pixel_x = species.healths_overlay_x)
+					var/image/fullhealth_image = image('icons/hud/mob/screen1_health.dmi', "fullhealth", pixel_x = species.healths_overlay_x)
 					health_images += fullhealth_image
 
 				healths.overlays += health_images

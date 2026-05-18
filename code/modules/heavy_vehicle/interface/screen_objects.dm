@@ -1,7 +1,7 @@
 // Screen objects hereon out.
 /atom/movable/screen/mecha
 	name = "hardpoint"
-	icon = 'icons/mecha/mecha_hud.dmi'
+	icon = 'icons/hud/mecha/mecha_hud.dmi'
 	icon_state = "hardpoint"
 	var/mob/living/heavy_vehicle/owner
 	maptext_y = 11
@@ -100,19 +100,19 @@
 
 	// Draw background.
 	if(!default_hardpoint_background)
-		default_hardpoint_background = image(icon = 'icons/mecha/mecha_hud.dmi', icon_state = "bar_bkg")
+		default_hardpoint_background = image(icon = 'icons/hud/mecha/mecha_hud.dmi', icon_state = "bar_bkg")
 		default_hardpoint_background.pixel_x = 34
 	new_overlays |= default_hardpoint_background
 
 	if(value == 0)
 		if(!hardpoint_bar_empty)
-			hardpoint_bar_empty = image(icon='icons/mecha/mecha_hud.dmi',icon_state="bar_flash")
+			hardpoint_bar_empty = image(icon='icons/hud/mecha/mecha_hud.dmi',icon_state="bar_flash")
 			hardpoint_bar_empty.pixel_x = 24
 			hardpoint_bar_empty.color = "#FF0000"
 		new_overlays |= hardpoint_bar_empty
 	else if(value < 0)
 		if(!hardpoint_error_icon)
-			hardpoint_error_icon = image(icon='icons/mecha/mecha_hud.dmi',icon_state="bar_error")
+			hardpoint_error_icon = image(icon='icons/hud/mecha/mecha_hud.dmi',icon_state="bar_error")
 			hardpoint_error_icon.pixel_x = 34
 		new_overlays |= hardpoint_error_icon
 	else
@@ -120,7 +120,7 @@
 		// Draw statbar.
 		if(!LAZYLEN(GLOB.hardpoint_bar_cache))
 			for(var/i=0;i<BAR_CAP;i++)
-				var/image/bar = image(icon='icons/mecha/mecha_hud.dmi',icon_state="bar")
+				var/image/bar = image(icon='icons/hud/mecha/mecha_hud.dmi',icon_state="bar")
 				bar.pixel_x = 24+(i*2)
 				if(i>5)
 					bar.color = "#00ff00"

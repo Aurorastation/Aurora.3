@@ -1317,7 +1317,7 @@
 	else
 		throw_mode_on()
 
-#define THROW_MODE_ICON 'icons/effects/cursor/throw_mode.dmi'
+#define THROW_MODE_ICON 'icons/hud/cursor/throw_mode.dmi'
 
 /mob/proc/throw_mode_off()
 	src.in_throw_mode = 0
