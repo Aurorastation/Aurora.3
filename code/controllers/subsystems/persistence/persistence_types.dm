@@ -33,10 +33,10 @@
 	if(history_last_database_id == 0)
 		log_subsystem_persistence_warning("Failed to get last ID of persistent type history records from the database during initialization. Either the table is empty or something went wrong.")
 	history_virtual_id = history_last_database_id
-	history_cache = alist()
+	history_cache = list()
 
 	// Clean history records
-	for(var/type_combination in historyDatabaseGetTypeAttributeCombinations()) // Iterate through each distinct type+attribute combination
+	for(var/alist/type_combination in historyDatabaseGetTypeAttributeCombinations()) // Iterate through each distinct type+attribute combination
 		CHECK_TICK
 		var/type_id = type_combination["type_id"]
 		var/attribute = type_combination["attribute"]

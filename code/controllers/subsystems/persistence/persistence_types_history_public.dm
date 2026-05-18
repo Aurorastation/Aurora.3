@@ -165,7 +165,7 @@
 	if(!skip_caching)
 		history_cache_count += len
 
-	for(var/record in db_records)
+	for(var/alist/record in db_records)
 		var/datum/persistent_record/r = new /datum/persistent_record
 		r.id = record["id"]
 		r.created_at = record["created_at"]
@@ -228,11 +228,11 @@
 	var/attributes = historyDatabaseGetAllAttributes(type_instance.database_id)
 	if(attributes && length(attributes) > 0)
 		for(var/attribute in attributes)
-			result += list("attribute" = attribute, "records" = historyGetAllRecords(target_type, attribute, skip_caching))
+			result += alist("attribute" = attribute, "records" = historyGetAllRecords(target_type, attribute, skip_caching))
 	else
 		var/no_attribute_records = historyGetAllRecords(target_type, null, skip_caching)
 		if(no_attribute_records && length(no_attribute_records) > 0)
-			result = list("attribute" = null, "records" = no_attribute_records)
+			result = alist("attribute" = null, "records" = no_attribute_records)
 	return result
 
 /**

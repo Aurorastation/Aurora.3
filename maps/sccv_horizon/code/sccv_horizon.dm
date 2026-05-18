@@ -241,7 +241,7 @@
 
 	var/name_points_kvps = SSpersistence.historyGetAllRecordsForAllAttributes(/singleton/persistent_type/history/character/mining_points)
 	if(name_points_kvps && length(name_points_kvps) > 0)
-		for(var/kvp in name_points_kvps)
+		for(var/alist/kvp in name_points_kvps)
 			var/char_name = SSpersistence.historyGetCharnameByID(kvp[1])
 			if(!char_name)
 				continue

@@ -45,7 +45,7 @@
 
 	var/result = list()
 	while(query.NextRow())
-		result += list("type_id" = query.item[1], "attribute" = query.item[2])
+		result += alist("type_id" = query.item[1], "attribute" = query.item[2])
 	qdel(query)
 	return result
 
@@ -272,6 +272,6 @@
 
 	var/records = list()
 	while(query.NextRow())
-		records += list("id" = query.item[1], "created_at" = query.item[2], "value" = query.item[3])
+		records += alist("id" = query.item[1], "created_at" = query.item[2], "value" = query.item[3])
 	qdel(query)
 	return records
