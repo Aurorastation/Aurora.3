@@ -364,6 +364,10 @@
 	name = "medical grasper"
 	action_button_name = "Deploy Mounted Health Scanner"
 
+/obj/item/organ/external/hand/right/autakh/medical/Initialize(mapload)
+	. = ..()
+	src.LoadComponent(/datum/component/health_analyzer)
+
 /obj/item/organ/external/hand/right/autakh/medical/refresh_action_button()
 	. = ..()
 	if(.)
@@ -399,7 +403,10 @@
 		owner.last_special = world.time + 50
 		if(ishuman(G.affecting))
 			var/mob/living/carbon/human/H = G.affecting
-			health_scan_mob(H, owner)
+			var/datum/component/health_analyzer/h_analyzer = src.GetComponent(/datum/component/health_analyzer)
+			if(!h_analyzer)
+				return
+			h_analyzer.health_scan_mob(H, owner)
 
 /obj/item/organ/external/hand/right/autakh/security
 	name = "security grasper"
