@@ -140,11 +140,12 @@
 			target = IC.cell
 
 		// Different reactor types have different external recharge speeds.
-		reactor = H.internal_organs_by_name[BP_REACTOR]
-		if(!istype(reactor))
-			return
+		if(isipc(H))
+			reactor = H.internal_organs_by_name[BP_REACTOR]
+			if(!istype(reactor))
+				return
 
-		if((!target || target.percent() > 95) && istype(H.back, /obj/item/rig))
+		if((!target || target.percent() > 98) && istype(H.back, /obj/item/rig))
 			var/obj/item/rig/R = H.back
 			if(R.cell && !R.cell.fully_charged())
 				target = R.cell
@@ -305,6 +306,20 @@
 			if(R.get_cell())
 				return TRUE
 	return FALSE
+
+/obj/machinery/recharge_station/verb/eject()
+	set src in oview(1)
+	set category = "Object"
+	set name = "Eject from Recharge Station"
+
+	if(!use_check_and_message(usr))
+		return
+	src.go_out()
+	add_fingerprint(usr)
+	return
+
+/obj/machinery/recharge_station/AltClick()
+	eject()
 
 /obj/machinery/recharge_station/proc/go_out()
 	if(!occupant)
