@@ -226,7 +226,7 @@
 /datum/language/bug/get_random_name()
 	var/new_name = "[pick(list("Ka'","Za'","Ka'"))]"
 	new_name += "[pick(list("Akaix'","Viax'"))]"
-	new_name += "[pick(list("Uyek","Uyit","Avek","Theth","Ztak","Teth","Zir","Yek","Zirk","Ayek","Yir","Kig","Yol","'Zrk","Nazgr","Yet","Nak","Kiihr","Gruz","Guurz","Nagr","Zkk","Zohd","Norc","Agraz","Yizgr","Yinzr","Nuurg","Iii","Lix","Nhagh","Xir","Z'zit","Zhul","Zgr","Na'k","Isk'yet","Aaaa"))]"
+	new_name += "[pick(list("Uyek","Uyit","Avek","Theth","Ztak","Teth","Zir","Yek","Zirk","Ayek","Yir","Kig","Yol","'Zrk","Nazgr","Yet","Nak","Kiihr","Gruz","Guurz","Nagr","Zkk","Zohd","Norc","Agraz","Yizgr","Yinzr","Nuurg","Iii","Lix","Nhagh","Xir","Z'zit","Zhul","Zgr","Na'k","Isk'yet","Agha"))]"
 	var/list/hive_names = list("Zo'ra" = 3, "K'lax" = 1, "C'thur" = 1)
 	new_name += " [pickweight(hive_names)]"
 	return new_name

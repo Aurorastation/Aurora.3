@@ -1,0 +1,15 @@
+author: diggiez
+
+# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
+delete-after: True
+
+# Any changes you've made.  See valid prefix list above.
+# INDENT WITH TWO SPACES.  NOT TABS.  SPACES.
+# SCREW THIS UP AND IT WON'T WORK.
+# Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
+# Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
+changes:
+  - rscadd: "Added Hivenet echoes only Vaurcae can hear. Representing the wider Hivenet, it's a hugely varied pool with 120 projections and over 300 phrases, triggered every 4-8m for projections and 3-5 for broadcasts. Never will Hivenet feel empty again!"
+  - rscadd: "Hivenet echoes are automatically disabled in the Lemurian Sea due to its peculiar Fog."
+  - server: "There are serverside toggles for Hivenet echoes to be used by Admins & Storytellers for events or gimmicks."
+  - qol: "Changed the OOCly-invalid 'Aaaa' randomgen Vaurca name to Agha. RIP."
