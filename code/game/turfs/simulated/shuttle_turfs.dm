@@ -160,6 +160,9 @@
 		/turf/unsimulated/wall/fakeairlock
 	)
 
+/turf/simulated/wall/shuttle/brown
+	color = COLOR_MUTED_BROWN
+
 /turf/simulated/wall/shuttle/skrell/Initialize(mapload)
 	. = ..(mapload,"skrell")
 

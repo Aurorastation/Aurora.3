@@ -729,6 +729,11 @@
 /obj/machinery/light/colored/decayed/dimmed
 	brightness_power = 0.2
 
+/obj/machinery/light/colored/beige
+	brightness_color = LIGHT_COLOR_BEIGE
+	randomize_color = FALSE
+	icon_state = "tube_decayed_preview"
+
 //---- Floor lights
 
 /obj/machinery/light/floor
@@ -808,6 +813,10 @@
 	brightness_range = 6
 	brightness_power = 0.45
 	brightness_color = LIGHT_COLOR_EMERGENCY_SOFT
+	randomize_color = FALSE
+
+/obj/machinery/light/small/floor/beige
+	brightness_color = LIGHT_COLOR_BEIGE
 	randomize_color = FALSE
 
 /obj/machinery/light/small/emergency

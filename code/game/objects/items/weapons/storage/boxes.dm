@@ -926,6 +926,12 @@
 	color = COLOR_PALE_PINK
 	starts_with = list(/obj/item/light/tube/colored/magenta = 14, /obj/item/light/bulb/colored/magenta = 7)
 
+/obj/item/storage/box/lights/colored/beige
+	name = "box of beige lights"
+	illustration = "lightmixed"
+	color = COLOR_BEIGE
+	starts_with = list(/obj/item/light/tube/colored/beige = 14, /obj/item/light/bulb/colored/beige = 7)
+
 /obj/item/storage/box/kitchen
 	name = "galley supplies"
 	illustration = "knife"

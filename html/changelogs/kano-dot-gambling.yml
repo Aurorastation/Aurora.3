@@ -1,0 +1,8 @@
+author: Kano
+
+delete-after: True
+
+changes:
+  - rscadd: "Remapped casino.dmm."
+  - rscadd: "Coat racks can now hold mapped-in clothings."
+  - code_imp: "Removed a duplicate grate object from the code (gunmetal)."
