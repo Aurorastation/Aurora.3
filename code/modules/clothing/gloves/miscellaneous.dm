@@ -466,7 +466,7 @@
 	item_state = "single_left"
 
 /obj/item/clothing/gloves/single/unathi
-	name = "single glove"
+	name = "unathi single glove"
 	desc = "A single glove. This one is for the right hand. Fitted for unathi."
 	species_restricted = list(BODYTYPE_UNATHI)
 
@@ -476,7 +476,7 @@
 	item_state = "single_left"
 
 /obj/item/clothing/gloves/single/vaurca
-	name = "single glove"
+	name = "vaurca single glove"
 	desc = "A single glove. This one is for the right hand. Fitted for vaurca."
 	species_restricted = list(BODYTYPE_VAURCA)
 
@@ -495,16 +495,16 @@
 	has_accents = TRUE
 
 /obj/item/clothing/gloves/multi_color/tajara
-	name = "multi-color gloves"
+	name = "tajran multi-color gloves"
 	desc = "A pair of gloves, each is a different color. Fitted for tajara."
 	species_restricted = list(BODYTYPE_TAJARA)
 
 /obj/item/clothing/gloves/multi_color/unathi
-	name = "multi-color gloves"
+	name = "unathi multi-color gloves"
 	desc = "A pair of gloves, each is a different color. Fitted for unathi."
 	species_restricted = list(BODYTYPE_UNATHI)
 
 /obj/item/clothing/gloves/multi_color/vaurca
-	name = "multi-color gloves"
+	name = "vaurca multi-color gloves"
 	desc = "A pair of gloves, each is a different color. Fitted for vaurca."
 	species_restricted = list(BODYTYPE_VAURCA)
