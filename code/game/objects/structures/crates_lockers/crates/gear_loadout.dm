@@ -1529,6 +1529,9 @@
 	new /obj/item/clothing/head/helmet/space/void/zavodskoi(src)
 	new /obj/item/gun/projectile/automatic/rifle/z8(src)
 	new /obj/item/gun/projectile/automatic/rifle/z8(src)
+	new /obj/item/gun/projectile/automatic/rifle/z8(src)
+	new /obj/item/ammo_magazine/a556(src)
+	new /obj/item/ammo_magazine/a556(src)
 	new /obj/item/ammo_magazine/a556(src)
 	new /obj/item/ammo_magazine/a556(src)
 	new /obj/item/ammo_magazine/a556(src)
@@ -1538,9 +1541,6 @@
 	new /obj/item/gun/projectile/automatic/rifle/shotgun(src)
 	new /obj/item/ammo_magazine/assault_shotgun(src)
 	new /obj/item/ammo_magazine/assault_shotgun(src)
-	new /obj/item/gun/projectile/automatic/rifle/w556(src) // This could be very strong, use with caution
-	new /obj/item/ammo_magazine/a556(src)
-	new /obj/item/ammo_magazine/a556(src)
 	new /obj/item/gun/projectile/pistol(src)
 	new /obj/item/gun/projectile/pistol(src)
 	new /obj/item/gun/projectile/pistol(src)
@@ -1564,10 +1564,11 @@
 	new /obj/item/ammo_magazine/mc9mm(src)
 	new /obj/item/ammo_magazine/mc9mm(src)
 
-/obj/structure/closet/crate/secure/gear_loadout/ninja/einstein
-	associated_hardsuit = /obj/item/rig/combat/zavod_heavy/equipped(src)
-
 /obj/structure/closet/crate/secure/gear_loadout/ninja/zavodskoi
+	associated_hardsuit = /obj/item/rig/combat/zavod_heavy/ninja
+
+/obj/structure/closet/crate/secure/gear_loadout/ninja/zavodskoi/fill()
+	..()
 	new /obj/item/clothing/under/rank/security/zavod/zavodsec(src)
 	new /obj/item/clothing/accessory/holster/hip(src)
 	new /obj/item/gun/projectile/automatic/rifle/shotgun(src)
