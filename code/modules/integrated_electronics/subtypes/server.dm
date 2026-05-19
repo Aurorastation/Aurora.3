@@ -1,4 +1,4 @@
-var/global/list/ic_database_servers = list()
+GLOBAL_LIST_EMPTY(ic_database_servers)
 
 /proc/ic_normalize_database_id(database_id)
 	if(!istext(database_id) || !length(database_id))
@@ -69,12 +69,12 @@ var/global/list/ic_database_servers = list()
 
 /obj/item/integrated_circuit/server/database/proc/register_database()
 	database_id = ic_normalize_database_id(database_id)
-	ic_database_servers[database_id] = src
+	GLOB.ic_database_servers[database_id] = src
 
 
 /obj/item/integrated_circuit/server/database/proc/unregister_database()
-	if(database_id && ic_database_servers[database_id] == src)
-		ic_database_servers -= database_id
+	if(database_id && GLOB.ic_database_servers[database_id] == src)
+		GLOB.ic_database_servers -= database_id
 
 
 /obj/item/integrated_circuit/server/database/proc/set_database_id(new_id)
@@ -215,7 +215,7 @@ var/global/list/ic_database_servers = list()
 
 	var/list/result = ic_database_response(FALSE, null, "Server not found.")
 
-	var/obj/item/integrated_circuit/server/database/S = ic_database_servers[database_id]
+	var/obj/item/integrated_circuit/server/database/S = GLOB.ic_database_servers[database_id]
 
 	if(istype(S))
 		result = S.handle_request(command, key, value)
@@ -247,8 +247,8 @@ var/global/list/ic_database_servers = list()
 /obj/item/integrated_circuit/server/scanner/do_work()
 	var/list/server_ids = list()
 
-	for(var/database_id in ic_database_servers)
-		var/obj/item/integrated_circuit/server/database/S = ic_database_servers[database_id]
+	for(var/database_id in GLOB.ic_database_servers)
+		var/obj/item/integrated_circuit/server/database/S = GLOB.ic_database_servers[database_id]
 
 		if(istype(S))
 			server_ids.Add(database_id)
@@ -749,7 +749,7 @@ var/global/list/ic_database_servers = list()
 	if(!istext(key) || !length(key))
 		status = "Counter requires a text key."
 	else
-		var/obj/item/integrated_circuit/server/database/S = ic_database_servers[database_id]
+		var/obj/item/integrated_circuit/server/database/S = GLOB.ic_database_servers[database_id]
 
 		if(istype(S))
 			var/current = S.storage[key]
@@ -814,7 +814,7 @@ var/global/list/ic_database_servers = list()
 	if(!istext(key) || !length(key))
 		status = "Compare-write requires a text key."
 	else
-		var/obj/item/integrated_circuit/server/database/S = ic_database_servers[database_id]
+		var/obj/item/integrated_circuit/server/database/S = GLOB.ic_database_servers[database_id]
 
 		if(istype(S))
 			current_value = S.storage[key]
@@ -920,7 +920,7 @@ var/global/list/ic_database_servers = list()
 		if("ADD")
 			parsed_command = "APPEND"
 
-	var/obj/item/integrated_circuit/server/database/S = ic_database_servers[database_id]
+	var/obj/item/integrated_circuit/server/database/S = GLOB.ic_database_servers[database_id]
 
 	if(!istype(S))
 		status = "Server not found."
