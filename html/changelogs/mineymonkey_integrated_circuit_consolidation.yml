@@ -12,6 +12,7 @@ changes:
   - rscadd: "Text-to-speech circuits installed inside electronic radio headsets now output privately to the wearer."
   - rscadd: "Added electronic radio headset cloning support to the integrated circuit printer."
   - rscadd: "Added hosted assembly blueprint support for electronic radio headset cloning."
+  - bugfix: "Made it possible to actually clone the electronic radio headset and made the examine fix work on the headset using feedback_hints."
   - rscadd: "Cloning blueprints can now store a host_type for items that contain an internal electronic assembly."
   - rscadd: "Imported electronic radio headset blueprints now print the headset item instead of only the internal assembly."
   - rscadd: "Added a database server circuit."

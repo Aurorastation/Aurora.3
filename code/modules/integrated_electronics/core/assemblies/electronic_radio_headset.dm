@@ -12,7 +12,7 @@
 	item_state = "headset"
 	slot_flags = SLOT_EARS
 
-	ks1type = /obj/item/encryptionkey/ship/common
+	ks1type = null
 	ks2type = null
 
 	var/obj/item/electronic_assembly/clothing/small/circuit_assembly = null
@@ -64,6 +64,16 @@
 /obj/item/radio/headset/circuitry/proc/get_clone_host_type()
 	return type
 
+/obj/item/radio/headset/circuitry/feedback_hints(mob/user, distance, is_adjacent)
+	. = ..()
+
+	if(distance <= 1 && !circuit_assembly?.opened)
+		return
+
+	var/obj/item/electronic_assembly/E = get_cloneable_assembly()
+	if(E)
+		for(var/obj/item/integrated_circuit/IC in E.contents)
+			. += SPAN_NOTICE("It contains \a [IC].")
 
 /obj/item/radio/headset/circuitry/proc/clone_with_integrated_assembly(atom/location, obj/item/integrated_circuit_printer/printer, obj/item/electronic_assembly/source_assembly)
 	if(!location || !printer || !source_assembly)
@@ -134,14 +144,6 @@
 
 	if(hascall(src, "update_clothing_icon"))
 		call(src, "update_clothing_icon")()
-
-
-/obj/item/radio/headset/circuitry/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
-	if(circuit_assembly)
-		examinate(user, circuit_assembly)
-
-	return ..()
-
 
 /obj/item/radio/headset/circuitry/attack_self(mob/user)
 	return ..()
