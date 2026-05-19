@@ -79,26 +79,31 @@ ABSTRACT_TYPE(/obj/item/gun/energy)
 /obj/item/gun/energy/emp_act(severity)
 	. = ..()
 
-	disable_cell_temp(severity)
-	queue_icon_update()
-
-/obj/item/gun/energy/proc/disable_cell_temp(var/severity)
-	set waitfor = FALSE
 	if(!power_supply)
 		return
+
 	var/mob/M
+	var/initial_charge
 	if(ismob(loc))
 		M = loc
-		to_chat(M, SPAN_DANGER("[src] locks up!"))
-		playsound(M, 'sound/weapons/smg_empty_alarm.ogg', 30)
-	var/initial_charge = power_supply.charge
+		if(power_supply.charge > 0)
+			to_chat(M, SPAN_DANGER("\The [src] locks up as the EMP scrambles it!"))
+			playsound(M, 'sound/weapons/smg_empty_alarm.ogg', 30)
+
+	initial_charge = power_supply.charge
 	power_supply.charge = 0
-	sleep(severity * 20)
+	//Despite TIMER_UNIQUE and TIMER_OVERRIDE, each EMP still generates a new timer, I don't know why, but other than an extra message in chat if you get hit by multiple EMPs it still works.
+	addtimer(CALLBACK(src, PROC_REF(restore_gun_charge), initial_charge, M), 20 SECONDS / severity, TIMER_STOPPABLE | TIMER_DELETE_ME | TIMER_UNIQUE | TIMER_OVERRIDE)
+	SSicon_update.add_to_queue(src)
+
+/obj/item/gun/energy/proc/restore_gun_charge(var/initial_charge, var/mob/M)
 	power_supply.give(initial_charge)
 	update_maptext()
 	update_icon()
 	if(M && loc == M)
-		playsound(M, 'sound/weapons/laser_safetyoff.ogg', 30)
+		if (power_supply.charge > charge_cost)
+			playsound(M, 'sound/weapons/laser_safetyoff.ogg', 30)
+			to_chat(M, SPAN_NOTICE("\The [src] clicks as it resets, ready to fire again!"))
 
 /obj/item/gun/energy/get_cell()
 	return power_supply
