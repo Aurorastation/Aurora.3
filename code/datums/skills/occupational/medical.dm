@@ -82,7 +82,6 @@
 			+ "You can diagnose the following conditions: <br>" \
 			+ " - External injuries.<br>" \
 			+ " - Limb dislocation.<br>" \
-			+ " - Broken bones.<br>" \
 			+ " - Simple bleeds.",
 		SKILL_LEVEL_TRAINED = "You have years of formal training and experience with anatomy.<br>" \
 			+ "You can diagnose the following conditions: <br>" \
