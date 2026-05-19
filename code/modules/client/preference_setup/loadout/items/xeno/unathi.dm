@@ -139,7 +139,7 @@
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/gloves/single_unathi
-	display_name = "single glove (colourable)"
+	display_name = "unathi single glove (colourable)"
 	path = /obj/item/clothing/gloves/single/unathi
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 	whitelisted = list(SPECIES_UNATHI)
@@ -153,7 +153,7 @@
 	gear_tweaks += new /datum/gear_tweak/path(unathi_single_glove)
 
 /datum/gear/gloves/multi_color_unathi
-	display_name = "multi-color gloves (colourable)"
+	display_name = "unathi multi-color gloves (colourable)"
 	path = /obj/item/clothing/gloves/multi_color/unathi
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
 	whitelisted = list(SPECIES_UNATHI)

@@ -403,10 +403,10 @@ ABSTRACT_TYPE(/datum/gear/ears/vaurca)
 	culture_restriction = list(/singleton/origin_item/culture/klax)
 
 /datum/gear/gloves/single_vaurca
-	display_name = "single glove (colourable)"
+	display_name = "vaurca single glove (colourable)"
 	path = /obj/item/clothing/gloves/single/vaurca
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
-	whitelisted = list(SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT)
+	whitelisted = list(SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_WORKER)
 	sort_category = "Xenowear - Vaurca"
 
 /datum/gear/gloves/single_vaurca/New()
@@ -417,8 +417,8 @@ ABSTRACT_TYPE(/datum/gear/ears/vaurca)
 	gear_tweaks += new /datum/gear_tweak/path(vaurca_single_glove)
 
 /datum/gear/gloves/multi_color_vaurca
-	display_name = "multi-color gloves (colourable)"
+	display_name = "vaurca multi-color gloves (colourable)"
 	path = /obj/item/clothing/gloves/multi_color/vaurca
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
-	whitelisted = list(SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT)
+	whitelisted = list(SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_WORKER)
 	sort_category = "Xenowear - Vaurca"

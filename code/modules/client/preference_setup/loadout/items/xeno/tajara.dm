@@ -66,7 +66,7 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	gear_tweaks += new /datum/gear_tweak/path(taj_gloves)
 
 /datum/gear/gloves/single_taj
-	display_name = "single glove (colourable)"
+	display_name = "tajaran single glove (colourable)"
 	path = /obj/item/clothing/gloves/single/tajara
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
@@ -80,7 +80,7 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	gear_tweaks += new /datum/gear_tweak/path(taj_single_glove)
 
 /datum/gear/gloves/multi_color_taj
-	display_name = "multi-color gloves (colourable)"
+	display_name = "tajaran multi-color gloves (colourable)"
 	path = /obj/item/clothing/gloves/multi_color/tajara
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
