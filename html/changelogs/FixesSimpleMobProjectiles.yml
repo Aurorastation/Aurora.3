@@ -1,0 +1,7 @@
+
+author: Fenodyree
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixes all hostile simple mobs shooting the base projectile, instead of their specified projectile."
