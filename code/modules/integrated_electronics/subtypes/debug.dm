@@ -128,3 +128,19 @@
 		return
 
 	new_latch.has_fired = has_fired
+
+/obj/item/integrated_circuit/debug/blank
+	name = "debug marker"
+	desc = "A blank debug circuit. It does nothing and exists only as a movable, removable, renameable marker."
+	extended_desc = "This circuit has no inputs, outputs, or activators. It is useful as a spacer, label, or visual divider inside an assembly."
+	icon_state = "template"
+	complexity = 0
+	size = 0
+	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+
+	inputs = list()
+	outputs = list()
+	activators = list()
+
+/obj/item/integrated_circuit/debug/blank/do_work()
+	return
