@@ -42,7 +42,7 @@
 	microwave_loop = new(src)
 	temp_options = list()
 	for(var/newtime = 1 to 6)
-		var/image/disp_image = image('icons/mob/screen/radial.dmi', "radial_time")
+		var/image/disp_image = image('icons/hud/mob/radial.dmi', "radial_time")
 		var/hue = RotateHue(hsv(0, 255, 255), 120 * (1 - (newtime-5)/(6)))
 		disp_image.color = HSVtoRGB(hue)
 		temp_options["[30 * newtime]"] = disp_image

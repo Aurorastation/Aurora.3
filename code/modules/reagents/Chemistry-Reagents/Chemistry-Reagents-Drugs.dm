@@ -20,7 +20,7 @@
 	var/ignores_drug_resistance = FALSE
 
 /singleton/reagent/drugs/initial_effect(mob/living/carbon/human/M, alien, datum/reagents/holder)
-	if (effect_messages && REALTIMEOFDAY >= M.next_drug_message)
+	if (length(initial_effect_message_list) && effect_messages && REALTIMEOFDAY >= M.next_drug_message)
 		var/msg = pick(initial_effect_message_list)
 		to_chat(M, SPAN_GOOD("[msg]"))
 		M.next_drug_message = REALTIMEOFDAY + DRUG_MESSAGE_COOLDOWN
@@ -35,7 +35,7 @@
 		power = max(power - 2, 0)
 
 /singleton/reagent/drugs/final_effect(mob/living/carbon/M, datum/reagents/holder)
-	if (effect_messages && REALTIMEOFDAY >= M.next_sober_message)
+	if (length(sober_message_list) && effect_messages && REALTIMEOFDAY >= M.next_sober_message)
 		var/msg = pick(sober_message_list)
 		to_chat(M, SPAN_WARNING("[msg]"))
 		M.next_sober_message = REALTIMEOFDAY + SOBER_MESSAGE_COOLDOWN
@@ -420,7 +420,8 @@
 		to_chat(M, SPAN_GOOD(pick("You feel pumped!", "Energy, energy, energy - so much energy!", "You could run a marathon!", "You can't sit still!", "It's difficult to focus right now... but that's not important!")))
 	if(prob(5)) // average of 6 brute every 20 seconds.
 		M.visible_message("[M] shudders violently.", "You shudder uncontrollably, it hurts.")
-		M.take_organ_damage(6 * removed, 0)
+		M.take_organ_damage(6 * removed, 0, used_weapon = "Stimm tissue damage", damage_flags = DAMAGE_FLAG_IGNORE_PROSTHETICS, silent = TRUE)
+
 
 /singleton/reagent/toxin/stimm/final_effect(mob/living/carbon/M, datum/reagents/holder)
 	M.remove_movespeed_modifier(/datum/movespeed_modifier/reagent/stimm)
@@ -846,5 +847,29 @@
 	if(alien == (IS_UNATHI || IS_SKRELL || IS_VAURCA))
 		return
 	. = ..()
+
+/singleton/reagent/drugs/psiblock
+	name = "PsiProtect"
+	description = "A drug that provides temporary protection against psionic effects. It is marketed towards explorers intending to enter or travel near to the Lemurian Sea."
+	color = "#b0b0b0"
+	taste_description = "inexplicably the color grey itself, then all other tastes fade into nothingness"
+	initial_effect_message_list = null
+	sober_message_list = null
+	var/component_to_add = /datum/component/timed_life/psiblock_drugs
+	var/component_timer = 10 MINUTES
+
+/singleton/reagent/drugs/psiblock/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
+	var/datum/component/timed_life/psiblock_drugs/psiblock_comp = M.LoadComponent(component_to_add, component_timer)
+	psiblock_comp.refresh()
+
+/singleton/reagent/drugs/psiblock/yomi_genetics
+	component_to_add = /datum/component/timed_life/psiblock_drugs/yomi_genetics
+
+/singleton/reagent/drugs/psiblock/yomi_genetics/cheap
+	component_to_add = /datum/component/timed_life/psiblock_drugs/yomi_genetics/cheap
+
+/singleton/reagent/drugs/psiblock/yomi_genetics/expensive
+	component_to_add = /datum/component/timed_life/psiblock_drugs/yomi_genetics/expensive
+	component_timer = 8 MINUTES
 
 #undef DRUG_MESSAGE_DELAY

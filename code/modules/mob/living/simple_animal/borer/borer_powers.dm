@@ -561,4 +561,7 @@
 		to_chat(src, SPAN_WARNING("You cannot do that in your current state."))
 		return
 
-	health_scan_mob(host, src, TRUE, TRUE)
+	var/datum/component/health_analyzer/borer/h_analyzer = src.GetComponent(/datum/component/health_analyzer/borer)
+	if(!h_analyzer)
+		return
+	h_analyzer.health_scan_mob(host, src, TRUE, TRUE)

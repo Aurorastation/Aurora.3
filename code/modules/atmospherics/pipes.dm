@@ -1237,6 +1237,7 @@
 
 	name = "Pressure Tank"
 	desc = "A large vessel containing pressurized gas."
+	layer = STRUCTURE_LAYER
 
 	connect_types = CONNECT_TYPE_REGULAR|CONNECT_TYPE_SUPPLY|CONNECT_TYPE_SCRUBBER|CONNECT_TYPE_FUEL|CONNECT_TYPE_AUX
 	volume = 10000 //in liters, 1 meters by 1 meters by 2 meters ~tweaked it a little to simulate a pressure tank without needing to recode them yet

@@ -142,6 +142,10 @@
 	name = "cyan light tube"
 	brightness_color = LIGHT_COLOR_CYAN
 
+/obj/item/light/tube/colored/beige
+	name = "beige light tube"
+	brightness_color = LIGHT_COLOR_BEIGE
+
 /obj/item/light/tube/large
 	w_class = WEIGHT_CLASS_SMALL
 	name = "large light tube"
@@ -193,6 +197,10 @@
 /obj/item/light/bulb/colored/decayed
 	name = "decayed light bulb"
 	brightness_color = LIGHT_COLOR_DECAYED
+
+/obj/item/light/bulb/colored/beige
+	name = "beige light bulb"
+	brightness_color = LIGHT_COLOR_BEIGE
 
 /obj/item/light/throw_impact(atom/hit_atom)
 	..()

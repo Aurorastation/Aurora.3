@@ -457,7 +457,7 @@
 /obj/item/clothing/ears/offear
 	name = "Other ear"
 	w_class = WEIGHT_CLASS_HUGE
-	icon = 'icons/mob/screen/midnight.dmi'
+	icon = 'icons/hud/mob/midnight.dmi'
 	icon_state = "blocked"
 	slot_flags = SLOT_EARS | SLOT_TWOEARS
 

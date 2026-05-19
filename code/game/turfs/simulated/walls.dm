@@ -187,7 +187,7 @@
 	new /obj/effect/decal/cleanable/molten_item(src)
 
 	if(do_message)
-		visible_message(SPAN_DANGER("\The [src] spontaneously combusts!")) //!!OH SHIT!!
+		visible_message(SPAN_DANGER("\The [src] melts into slag!")) //!!OH SHIT!!
 
 /turf/simulated/wall/add_damage(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
 	if(locate(/obj/effect/overlay/wallrot) in src)
@@ -268,11 +268,14 @@
 	if(!can_melt())
 		return
 
-	var/obj/effect/overlay/thermite/O = new /obj/effect/overlay/thermite(src)
 	to_chat(user, SPAN_WARNING("The thermite starts melting through the wall."))
 
-	QDEL_IN(O, 100)
-	addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, melt), FALSE), 100)
+	create_melt_overlay(10 SECONDS)
+	addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, melt), FALSE), 10 SECONDS)
+
+/turf/simulated/wall/proc/create_melt_overlay(overlay_lifetime = 2 SECONDS)
+	var/obj/effect/overlay/thermite/O = new /obj/effect/overlay/thermite(src)
+	QDEL_IN(O, overlay_lifetime)
 
 /turf/simulated/wall/proc/radiate()
 	var/total_radiation = material.radioactivity + (reinf_material ? reinf_material.radioactivity / 2 : 0)

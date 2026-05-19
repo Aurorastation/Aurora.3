@@ -325,8 +325,8 @@
 		return
 	if(in_range(src, user) && ishuman(over) && in_range(over, src))
 		var/list/options = list(
-			"IV drip" = image('icons/mob/screen/radial.dmi', "iv_drip"),
-			"Breath mask" = image('icons/mob/screen/radial.dmi', "iv_mask"))
+			"IV drip" = image('icons/hud/mob/radial.dmi', "iv_drip"),
+			"Breath mask" = image('icons/hud/mob/radial.dmi', "iv_mask"))
 		var/chosen_action = show_radial_menu(user, src, options, require_near = TRUE, radius = 42, tooltips = TRUE)
 		if(!chosen_action)
 			return
@@ -397,10 +397,10 @@
 	if(isDrone(user))
 		return
 	var/list/options = list(
-		"Transfer Rate" = image('icons/mob/screen/radial.dmi', "radial_transrate"),
-		"Remove Container" = image('icons/mob/screen/radial.dmi', "iv_beaker"),
-		"Remove Tank" = image('icons/mob/screen/radial.dmi', "iv_tank"),
-		"Remove Breath Mask" = image('icons/mob/screen/radial.dmi', "iv_mask"))
+		"Transfer Rate" = image('icons/hud/mob/radial.dmi', "radial_transrate"),
+		"Remove Container" = image('icons/hud/mob/radial.dmi', "iv_beaker"),
+		"Remove Tank" = image('icons/hud/mob/radial.dmi', "iv_tank"),
+		"Remove Breath Mask" = image('icons/hud/mob/radial.dmi', "iv_mask"))
 	var/chosen_action = show_radial_menu(user, src, options, require_near = TRUE, radius = 42, tooltips = TRUE)
 	if(!chosen_action)
 		return
@@ -526,11 +526,11 @@
 		do_crash()
 		return
 	var/list/options = list(
-		"Transfer Rate" = image('icons/mob/screen/radial.dmi', "radial_transrate"),
-		"Toggle Mode" = image('icons/mob/screen/radial.dmi', "iv_mode"),
-		"Toggle Stop" = image('icons/mob/screen/radial.dmi', "iv_stop"),
-		"Toggle Valve" = image('icons/mob/screen/radial.dmi', "iv_valve"),
-		"Toggle EPP" = image('icons/mob/screen/radial.dmi', "iv_epp"))
+		"Transfer Rate" = image('icons/hud/mob/radial.dmi', "radial_transrate"),
+		"Toggle Mode" = image('icons/hud/mob/radial.dmi', "iv_mode"),
+		"Toggle Stop" = image('icons/hud/mob/radial.dmi', "iv_stop"),
+		"Toggle Valve" = image('icons/hud/mob/radial.dmi', "iv_valve"),
+		"Toggle EPP" = image('icons/hud/mob/radial.dmi', "iv_epp"))
 	var/chosen_action = show_radial_menu(user, src, options, require_near = TRUE, radius = 42, tooltips = TRUE)
 	if(!chosen_action)
 		return

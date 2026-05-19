@@ -1,5 +1,6 @@
 /**
- * Secondary medical skill that influences the amount and quality of information received when examining other characters' injuries.
+ * This skill influences the information a character receives when medically examining another person (with or without a health analyzer).
+ * With extremely high ranks in the skill giving more detailed information about a character's injuries at a glance to make diagnosing injuries easier.
  * It also provides situational small modifiers when interacting with characters of matching species.
  */
 /datum/component/skill/anatomy

@@ -84,6 +84,8 @@
 		name = capitalize(pick(GLOB.first_names_male)) + " " + capitalize(pick(GLOB.last_names))
 	real_name = name
 
+	src.LoadComponent(/datum/component/health_analyzer/observer)
+
 /mob/abstract/ghost/observer/Destroy()
 	if(client)
 		for(var/image/I in client.images)
@@ -268,7 +270,10 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	if(isipc(orbit_target) || isrobot(orbit_target))
 		robotic_analyze_mob(orbit_target, usr, TRUE)
 	else if(ishuman(orbit_target))
-		health_scan_mob(orbit_target, usr, TRUE, TRUE)
+		var/datum/component/health_analyzer/observer/h_analyzer = src.GetComponent(/datum/component/health_analyzer/observer)
+		if(!h_analyzer)
+			return
+		h_analyzer.health_scan_mob(orbit_target, usr, TRUE, TRUE)
 	else
 		to_chat(src, SPAN_WARNING("This isn't a scannable target."))
 
