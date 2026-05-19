@@ -1,9 +1,0 @@
-author: TheGreyWolf
-
-delete-after: True
-
-changes:
-  - rscadd: "Health analyzers now use a TGUI instead of outputting to the chat."
-  - rscadd: "The handheld health analyzer now takes time to use, depending on the user's anatomy skill level."
-  - rscadd: "It is now possible to pull up the last scan on the handheld health analyzer."
-  - rscdel: "It is no longer possible to switch limb mode on the handheld health analyzer."

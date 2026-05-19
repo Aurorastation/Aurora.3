@@ -1,4 +1,0 @@
-author: Batrachophrenoboocosmomachia
-delete-after: True
-changes:
-  - code_imp: "Moves scattered HUD screen object icon files to dedicated HUD folder."

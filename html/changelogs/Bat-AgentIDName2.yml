@@ -1,4 +1,0 @@
-author: Batrachophrenoboocosmomachia
-delete-after: True
-changes:
-  - bugfix: "Agent ID name set action ACTUALLY works now."

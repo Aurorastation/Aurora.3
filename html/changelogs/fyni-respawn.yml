@@ -1,4 +1,0 @@
-author: fyni
-delete-after: True
-changes:
-  - rscadd: "Changed the respawn message to be inline with rules updates."

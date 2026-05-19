@@ -1,9 +1,0 @@
-author: TheGreyWolf
-
-delete-after: True
-
-changes:
-  - rscadd: "An announcement message has been added when the hangar lockdown is initiated."
-  - rscdel: "The hangar lockdown button has been removed from the pilot lounge."
-  - rscadd: "A hangar lockdown button has been added to the OM office."
-  - rscadd: "The hangar security checkpoint now has different buttons for the entrance shutters and the window shutters."
