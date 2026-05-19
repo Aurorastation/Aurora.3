@@ -8,7 +8,7 @@
 	inventory_shown = FALSE
 	hotkey_ui_hidden = FALSE
 
-/datum/hud/proc/new_player_hud(var/ui_style='icons/mob/screen/white.dmi', var/ui_color = "#fffffe", var/ui_alpha = 255)
+/datum/hud/proc/new_player_hud(var/ui_style='icons/hud/mob/white.dmi', var/ui_color = "#fffffe", var/ui_alpha = 255)
 	SHOULD_NOT_SLEEP(TRUE)
 
 	adding = list()

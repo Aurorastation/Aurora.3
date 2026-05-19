@@ -123,6 +123,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 12500, MATERIAL_GLASS = 7500)
 	damtype = "fire"
 	force = 18
+	tool_quality = STANDARD_TOOL_LEVEL + 1
 
 /obj/item/surgery/scalpel/manager
 	name = "incision management system"
@@ -131,6 +132,7 @@
 	surgerysound = 'sound/items/surgery/cautery.ogg'
 	matter = list (DEFAULT_WALL_MATERIAL = 12500, MATERIAL_GLASS = 7500, MATERIAL_SILVER = 1500, MATERIAL_GOLD = 1500, MATERIAL_DIAMOND = 750)
 	force = 8
+	tool_quality = STANDARD_TOOL_LEVEL + 2
 
 /*
  * Circular Saw

@@ -47,27 +47,32 @@
 	if(!safe_mode)
 		question = tgui_input_text(user, "Ask your question.", "Read Mind", timeout = 1 MINUTE)
 	if((!safe_mode && !question) || user.incapacitated())
+		to_chat(user, SPAN_WARNING("<b>Your focus slips, and the mental connection dissolves.</b>"))
+		user.visible_message(SPAN_WARNING("[user] falters, their concentration broken."))
 		return TRUE
 
 	to_chat(user, SPAN_NOTICE(\
-		target_sensitivity >= PSI_RANK_SENSITIVE \
-			? "<b>Your consciousness mingles with [target]'s thoughts, imploring them to share an answer: <i>[question]</i></b>"\
-			: "<b>You dip your mentality into the surface layer of \the [target]'s mind, seeking an answer: <i>[question]</i></b>"))
+		safe_mode \
+			? (target_sensitivity >= PSI_RANK_SENSITIVE \
+				? "<b>You slip into [target]'s mind, brushing the surface of their thoughts.</b>"\
+				: "<b>You dip your mentality into the surface layer of \the [target]'s mind, seeking whatever thoughts drift to the top.</b>")\
+			: (target_sensitivity >= PSI_RANK_SENSITIVE \
+				? "<b>Your consciousness mingles with [target]'s thoughts, imploring them to share an answer: <i>[question]</i></b>"\
+				: "<b>You dip your mentality into the surface layer of \the [target]'s mind, seeking an answer: <i>[question]</i></b>")))
 	to_chat(target, SPAN_NOTICE("<b>Your mind is compelled to answer.</b>" \
-		+ safe_mode \
+		+ (safe_mode \
 			/* If the target wins the psi-sensitivity check, they're prompted to say whatever they want.*/\
 			? "<b>What are you thinking about, currently?</b>" \
 			/* And if the caster wins, the target is forced to answer a specific question.*/\
 			: "<b>You cannot avoid the following question, and must answer truthfully: </b>" \
-			+ "<b><i>[question]</i></b>"))
+			+ "<b><i>[question]</i></b>")))
 
 	// Attempt to get an answer from the target.
 	var/answer =  tgui_input_text(\
 		target,\
-		"[question]\n"\
-			+ safe_mode \
-				? "You must answer with what you are currently thinking about.\n" \
-				: "You must answer truthfully.\n"\
+		(safe_mode \
+			? "You must answer with what you are currently thinking about.\n" \
+			: "[question]\nYou must answer truthfully.\n")\
 			+ "You have one minute to type a response.", \
 		"Read Mind", \
 		timeout = 1 MINUTE)
@@ -91,13 +96,13 @@
 		to_chat(target, SPAN_NOTICE("<b>You are compelled to answer [user] with: <i>[answer]</i></b>"))
 
 	msg_admin_attack("[key_name(user)] read mind of [key_name(target)] " \
-		+ safe_mode \
+		+ (safe_mode \
 			? "skimming their surface thoughts " \
-			: "forcing them to answer truthfully with question: \"[question]\" " \
+			: "forcing them to answer truthfully with question: \"[question]\" ") \
 		+ "and " \
-		+ answer \
+		+ (answer \
 			? "got answer: \"[answer]\"." \
-			: "got no answer.")
+			: "got no answer."))
 
 	// We take the logistic curve of the psi_sensitivity in order to create a double asymptote that confines the effects without requiring truncating to 0, or setting a maximum.
 	// Maximums occur at +/- infinity. While normal values roughly around 0.5x occur very close to +/- 1.

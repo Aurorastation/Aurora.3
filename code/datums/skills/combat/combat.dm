@@ -78,3 +78,23 @@
 // 	required = TRUE
 // 	component_type = LEADERSHIP_SKILL_COMPONENT
 
+/singleton/skill/tenacity
+	name = "Tenacity"
+	description = "Tenacity represents a character's \"Will to Live\". It affects a character's ability to cling to life when in critical condition, effectively allowing them to live for a little bit longer before medics can reach them. " \
+		+ "It does not affect a character's overall toughness and difficulty to take down in a fight, only how much time they have to be saved when they do go down. "
+	maximum_level = SKILL_LEVEL_PROFESSIONAL
+	category = /singleton/skill_category/combat
+	subcategory = SKILL_SUBCATEGORY_SUPPORT
+	component_type = TENACITY_SKILL_COMPONENT
+	skill_level_descriptions = alist(
+		SKILL_LEVEL_UNFAMILIAR = "You have no modifiers from Tenacity.",
+		SKILL_LEVEL_FAMILIAR = "You take slightly longer to die while in critical condition.",
+		SKILL_LEVEL_TRAINED = "You take a little bit longer to die while in critical condition.",
+		SKILL_LEVEL_PROFESSIONAL = "You take longer to die while in critical condition."
+	)
+	skill_cost_map = alist(
+		SKILL_LEVEL_UNFAMILIAR = 0,
+		SKILL_LEVEL_FAMILIAR = 1,
+		SKILL_LEVEL_TRAINED = 2,
+		SKILL_LEVEL_PROFESSIONAL = 4
+	)

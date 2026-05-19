@@ -9,10 +9,6 @@
 	if(new_track.persistent_objects_track_active) // Prevent multiple registers per object and removes the need to check the register if it's already in there
 		return
 
-	var/turf/T = get_turf(new_track)
-	if(!T || !is_station_level(T.z) || SSatlas.current_map.path != "sccv_horizon") // The persistence system only supports objects from the main map levels for multiple reasons, e.g. Z level value, mapping support
-		return
-
 	new_track.persistent_objects_track_active = TRUE
 	new_track.persistent_objects_author_ckey = ckey
 	GLOB.persistence_object_track_register += new_track

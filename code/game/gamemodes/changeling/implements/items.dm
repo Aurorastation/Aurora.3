@@ -20,6 +20,7 @@
 	canremove = FALSE
 	var/mob/living/creator
 	tool_behaviour = TOOL_CROWBAR
+	tool_quality = STANDARD_TOOL_LEVEL + 1
 
 /obj/item/melee/arm_blade/New()
 	..()

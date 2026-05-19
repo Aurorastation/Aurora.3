@@ -514,7 +514,6 @@
 
 	to_chat(src, SPAN_INFO("You can now right click to use inspect on browsers."))
 	winset(src, null, list("browser-options" = "+devtools"))
-	winset(src, null, list("browser-options" = "+find"))
 
 /// A debug verb to check the sources of currently running timers
 /client/proc/check_timer_sources()

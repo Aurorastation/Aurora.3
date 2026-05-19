@@ -24,10 +24,13 @@
 ///////////////////////////////
 // General procedures
 //////////////////////////////
-// Proc: power_wattage_readable()
-// Parameters: 1 (amount - Power in Watts to be converted to W, kW or MW)
-// Description: Helper proc that converts reading in Watts to kW or MW (returns string version of amount parameter)
-/obj/machinery/proc/power_wattage_readable(var/amount = 0)
+/**
+ * Proc: power_wattage_readable()
+ * Parameters: 1 (amount - Power in Watts to be converted to W, kW or MW)
+ * Description: Helper proc that converts reading in Watts to kW or MW (returns string version of amount parameter)
+ * NOTE: This needs to be replaced by a common SIUnits proc once energy is normalized (watts, volts, joules, etc.)
+ */
+/proc/power_wattage_readable(var/amount = 0)
 	var/units = ""
 	// 10kW and less - Watts
 	if(amount < 10000)
@@ -45,10 +48,35 @@
 	else
 		return "[amount] [units]"
 
-/obj/machinery/power/proc/disconnect_terminal() // machines without a terminal will just return, no harm no fowl.
+/**
+ * Proc: power_joules_readable()
+ * Parameters: 1 (amount - Power in Joules to be converted to J, kJ or MJ)
+ * Description: Helper proc that converts reading in Joules to kJ or MJ (returns string version of amount parameter)
+ * NOTE: This needs to be replaced by a common SIUnits proc once energy is normalized (watts, volts, joules, etc.)
+ */
+/proc/power_joules_readable(var/amount = 0)
+	var/units = ""
+	// 10kW and less - Watts
+	if(amount < 10000)
+		units = "W"
+	// 10MW and less - KiloWatts
+	else if(amount < 10000000)
+		units = "kJ"
+		amount = (round(amount/100) / 10)
+	// More than 10MW - MegaWatts
+	else
+		units = "MJ"
+		amount = (round(amount/10000) / 100)
+	if (units == "J")
+		return "[amount] J"
+	else
+		return "[amount] [units]"
+
+/// Machines without a terminal will just return, no harm no fowl.
+/obj/machinery/power/proc/disconnect_terminal()
 	return
 
-// connect the machine to a powernet if a node cable is present on the turf
+/// Connect the machine to a powernet if a node cable is present on the turf
 /obj/machinery/power/proc/connect_to_network()
 	var/turf/T = src.loc
 	if(!T || !istype(T))
@@ -61,15 +89,17 @@
 	C.powernet.add_machine(src)
 	return 1
 
-// remove and disconnect the machine from its current powernet
+/// Remove and disconnect the machine from its current powernet.
 /obj/machinery/power/proc/disconnect_from_network()
 	if(!powernet)
 		return 0
 	powernet.remove_machine(src)
 	return 1
 
-// attach a wire to a power machine - leads from the turf you are standing on
-//almost never called, overwritten by all power machines but terminal and generator
+/**
+ * Attach a wire to a power machine - leads from the turf you are standing on
+ * almost never called, overwritten by all power machines but terminal and generator
+ */
 /obj/machinery/power/attackby(obj/item/attacking_item, mob/user)
 
 	if(attacking_item.tool_behaviour == TOOL_CABLECOIL)
@@ -94,8 +124,8 @@
 // Powernet handling helpers
 //////////////////////////////////////////
 
-//returns all the cables WITHOUT a powernet in neighbors turfs,
-//pointing towards the turf the machine is located at
+/// Returns all the cables WITHOUT a powernet in neighbors turfs,
+/// pointing towards the turf the machine is located at.
 /obj/machinery/power/proc/get_connections()
 
 	. = list()
@@ -113,8 +143,8 @@
 				. += C
 	return .
 
-//returns all the cables in neighbors turfs,
-//pointing towards the turf the machine is located at
+/// Returns all the cables in neighbors turfs,
+/// pointing towards the turf the machine is located at
 /obj/machinery/power/proc/get_marked_connections()
 
 	. = list()
@@ -131,7 +161,7 @@
 				. += C
 	return .
 
-//returns all the NODES (O-X) cables WITHOUT a powernet in the turf the machine is located at
+/// Returns all the NODES (O-X) cables WITHOUT a powernet in the turf the machine is located at
 /obj/machinery/power/proc/get_indirect_connections()
 	. = list()
 	for(var/obj/structure/cable/C in loc)
@@ -144,10 +174,11 @@
 // GLOBAL PROCS for powernets handling
 //////////////////////////////////////////
 
-
-// returns a list of all power-related objects (nodes, cable, junctions) in turf,
-// excluding source, that match the direction d
-// if unmarked==1, only return those with no powernet
+/**
+ * Returns a list of all power-related objects (nodes, cable, junctions) in turf,
+ * excluding source, that match the direction d.
+ * If unmarked==1, only return those with no powernet
+ */
 /proc/power_list(var/turf/T, var/source, var/d, var/unmarked=0, var/cable_only = 0)
 	. = list()
 	var/fdir = (!d)? 0 : turn(d, 180)			// the opposite direction to d (or 0 if d==0)
@@ -183,7 +214,7 @@
 					. += C
 	return .
 
-//remove the old powernet and replace it with a new one throughout the network.
+/// Remove the old powernet and replace it with a new one throughout the network.
 /proc/propagate_network(var/obj/O, var/datum/powernet/PN)
 	//world.log <<  "propagating new network"
 	var/list/worklist = list()
@@ -216,7 +247,7 @@
 			PM.disconnect_from_network() //... so disconnect if already on a powernet
 
 
-//Merge two powernets, the bigger (in cable length term) absorbing the other
+/// Merge two powernets, the bigger (in cable length term) absorbing the other
 /proc/merge_powernets(var/datum/powernet/net1, var/datum/powernet/net2)
 	if(!net1 || !net2) //if one of the powernet doesn't exist, return
 		return
@@ -280,10 +311,10 @@
 		if (apc.terminal)
 			PN = apc.terminal.powernet
 	else if (!power_source)
-		return 0
+		return FALSE
 	else
 		log_admin("ERROR: /proc/electrocute_mob([victim], [power_source], [source]): wrong power_source")
-		return 0
+		return FALSE
 	//Triggers powernet warning, but only for 5 ticks (if applicable)
 	//If following checks determine user is protected we won't alarm for long.
 	if(PN)

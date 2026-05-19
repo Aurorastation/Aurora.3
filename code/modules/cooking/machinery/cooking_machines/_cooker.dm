@@ -77,7 +77,7 @@
 	. = ..()
 	var/interval = (optimal_temp - min_temp)/temp_settings
 	for(var/newtemp = min_temp - interval, newtemp<=optimal_temp, newtemp+=interval)
-		var/image/disp_image = image('icons/mob/screen/radial.dmi', "radial_temp")
+		var/image/disp_image = image('icons/hud/mob/radial.dmi', "radial_temp")
 		var/hue = RotateHue(hsv(0, 255, 255), 120 * (1 - (newtemp-min_temp)/(optimal_temp-min_temp)))
 		disp_image.color = HSVtoRGB(hue)
 		temp_options["[newtemp - T0C]"] = disp_image

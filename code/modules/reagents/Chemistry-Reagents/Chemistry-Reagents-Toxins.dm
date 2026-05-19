@@ -183,7 +183,7 @@
 		if((alien == IS_VAURCA) || (istype(P) && P.stage >= 3))
 			return
 
-	M.take_organ_damage(0, removed * 0.3) //being splashed directly with phoron causes minor chemical burns
+	M.take_organ_damage(0, removed * 0.3, used_weapon = "Phoron chemical burns", damage_flags = DAMAGE_FLAG_IGNORE_PROSTHETICS, silent = TRUE) //being splashed directly with phoron causes minor chemical burns
 	if(prob(50))
 		M.pl_effects()
 
@@ -194,7 +194,7 @@
 		if((alien == IS_VAURCA) || (istype(P) && P.stage >= 3))
 			return
 
-	M.take_organ_damage(0, removed * 0.6) //Breathing phoron? Oh hell no boy my boy.
+	M.take_organ_damage(0, removed * 0.6, used_weapon = "Phoron inhalation", damage_flags = DAMAGE_FLAG_IGNORE_PROSTHETICS, silent = TRUE) //Breathing phoron? Oh hell no boy my boy.
 	if(prob(50))
 		M.pl_effects()
 

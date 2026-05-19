@@ -209,10 +209,10 @@ ABSTRACT_TYPE(/obj/item/rfd)
 /obj/item/rfd/construction/Initialize()
 	. = ..()
 	radial_modes = list(
-		"Floor and Wall" = image(icon = 'icons/mob/screen/radial.dmi', icon_state = "wallfloor"),
-		"Window and Window Frame" = image(icon = 'icons/mob/screen/radial.dmi', icon_state = "windowframe"),
-		"Airlock" = image(icon = 'icons/mob/screen/radial.dmi', icon_state = "airlock"),
-		"Deconstruct" = image(icon = 'icons/mob/screen/radial.dmi', icon_state = "delete")
+		"Floor and Wall" = image(icon = 'icons/hud/mob/radial.dmi', icon_state = "wallfloor"),
+		"Window and Window Frame" = image(icon = 'icons/hud/mob/radial.dmi', icon_state = "windowframe"),
+		"Airlock" = image(icon = 'icons/hud/mob/radial.dmi', icon_state = "airlock"),
+		"Deconstruct" = image(icon = 'icons/hud/mob/radial.dmi', icon_state = "delete")
 	)
 
 /obj/item/rfd/construction/attack_self(mob/user)
