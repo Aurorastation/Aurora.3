@@ -65,6 +65,27 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	taj_gloves["machinist gloves"] =  /obj/item/clothing/gloves/black/tajara/smithgloves
 	gear_tweaks += new /datum/gear_tweak/path(taj_gloves)
 
+/datum/gear/gloves/single_taj
+	display_name = "single glove (colourable)"
+	path = /obj/item/clothing/gloves/single/tajara
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	sort_category = "Xenowear - Tajara"
+
+/datum/gear/gloves/single_taj/New()
+	..()
+	var/list/taj_single_glove = list()
+	taj_single_glove["single glove, right"] = /obj/item/clothing/gloves/single/tajara
+	taj_single_glove["single glove, left"] = /obj/item/clothing/gloves/single/tajara/left
+	gear_tweaks += new /datum/gear_tweak/path(taj_single_glove)
+
+/datum/gear/gloves/multi_color_taj
+	display_name = "multi-color gloves (colourable)"
+	path = /obj/item/clothing/gloves/multi_color/tajara
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	sort_category = "Xenowear - Tajara"
+
 // Uniforms
 
 /datum/gear/uniform/tajara

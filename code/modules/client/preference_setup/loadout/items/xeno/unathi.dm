@@ -138,6 +138,27 @@
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
+/datum/gear/gloves/single_unathi
+	display_name = "single glove (colourable)"
+	path = /obj/item/clothing/gloves/single/unathi
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+	whitelisted = list(SPECIES_UNATHI)
+	sort_category = "Xenowear - Unathi"
+
+/datum/gear/gloves/single_unathi/New()
+	..()
+	var/list/unathi_single_glove = list()
+	unathi_single_glove["single glove, right"] = /obj/item/clothing/gloves/single/unathi
+	unathi_single_glove["single glove, left"] = /obj/item/clothing/gloves/single/unathi/left
+	gear_tweaks += new /datum/gear_tweak/path(unathi_single_glove)
+
+/datum/gear/gloves/multi_color_unathi
+	display_name = "multi-color gloves (colourable)"
+	path = /obj/item/clothing/gloves/multi_color/unathi
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
+	whitelisted = list(SPECIES_UNATHI)
+	sort_category = "Xenowear - Unathi"
+
 /datum/gear/gloves/unathi_evening
 	display_name = "unathi evening gloves"
 	path = /obj/item/clothing/gloves/evening/unathi
