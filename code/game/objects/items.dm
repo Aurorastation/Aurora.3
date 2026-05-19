@@ -1008,7 +1008,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 			if(!zoom_out_message)
 				M.visible_message("[zoomdevicename ? "<b>[M]</b> looks up from \the [src.name]" : "<b>[M]</b> lowers \the [src.name]"].")
 			else
-				M.visible_message("[zoomdevicename ? "<b>[M]</b> [zoom_out_message] \the [src.name]." : "<b>[M]</b> [zoom_out_message]"]")
+				M.visible_message("[zoomdevicename ? "<b>[M]</b>[zoom_out_message] \the [src.name]." : "<b>[M]</b>[zoom_out_message]"]")
 
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M

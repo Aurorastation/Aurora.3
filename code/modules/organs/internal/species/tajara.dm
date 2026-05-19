@@ -11,7 +11,7 @@
 	var/eye_emote = "'s eyes dilate!"
 	var/allowed_model = PROSTHETIC_TESLA //what robotic model allows this eyes to use the night vision
 	var/cooldown = 30
-	zoom_out_message = "eyes widens as they stop focusing ahead."
+	zoom_out_message = "'s eyes widens as they stop focusing ahead."
 
 /obj/item/organ/internal/eyes/night/Destroy()
 	disable_night_vision()
