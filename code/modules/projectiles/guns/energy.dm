@@ -30,7 +30,10 @@ ABSTRACT_TYPE(/obj/item/gun/energy)
 	var/charge_meter = 1
 	/// This list matches with firemode index, used to determine which firemodes get unlocked with what level of authorization.
 	var/list/required_firemode_auth
-
+	///How long the gun is disabled for after an emp, is set in emp_act and counted down in process.
+	var/emp_disable_time
+	///Initial charge
+	var/initial_charge
 	//self-recharging
 	/// If set, the weapon will recharge itself.
 	var/self_recharge = FALSE
@@ -82,28 +85,38 @@ ABSTRACT_TYPE(/obj/item/gun/energy)
 	if(!power_supply)
 		return
 
+	if(!emp_disable_time)
+		var/mob/M
+		if(ismob(loc))
+			M = loc
+			if(power_supply.charge > 0)
+				to_chat(M, SPAN_DANGER("\The [src] locks up as the EMP scrambles it!"))
+				playsound(M, 'sound/weapons/smg_empty_alarm.ogg', 30)
+		initial_charge = power_supply.charge
+		power_supply.charge = 0
+		SSicon_update.add_to_queue(src)
+		START_PROCESSING(SSprocessing, src)
+
+	emp_disable_time = max(emp_disable_time, 20 / severity)
+
+/obj/item/gun/energy/process(seconds_per_tick)
+
+	emp_disable_time = max(0, emp_disable_time - seconds_per_tick)
+
+	if (!emp_disable_time)
+		STOP_PROCESSING(SSprocessing, src)
+		restore_gun_charge()
+
+/obj/item/gun/energy/proc/restore_gun_charge()
+	power_supply.give(initial_charge)
 	var/mob/M
-	var/initial_charge
 	if(ismob(loc))
 		M = loc
-		if(power_supply.charge > 0)
-			to_chat(M, SPAN_DANGER("\The [src] locks up as the EMP scrambles it!"))
-			playsound(M, 'sound/weapons/smg_empty_alarm.ogg', 30)
-
-	initial_charge = power_supply.charge
-	power_supply.charge = 0
-	//Despite TIMER_UNIQUE and TIMER_OVERRIDE, each EMP still generates a new timer, I don't know why, but other than an extra message in chat if you get hit by multiple EMPs it still works.
-	addtimer(CALLBACK(src, PROC_REF(restore_gun_charge), initial_charge, M), 20 SECONDS / severity, TIMER_STOPPABLE | TIMER_DELETE_ME | TIMER_UNIQUE | TIMER_OVERRIDE)
-	SSicon_update.add_to_queue(src)
-
-/obj/item/gun/energy/proc/restore_gun_charge(var/initial_charge, var/mob/M)
-	power_supply.give(initial_charge)
-	update_maptext()
-	update_icon()
-	if(M && loc == M)
 		if (power_supply.charge > charge_cost)
 			playsound(M, 'sound/weapons/laser_safetyoff.ogg', 30)
 			to_chat(M, SPAN_NOTICE("\The [src] clicks as it resets, ready to fire again!"))
+	update_maptext()
+	update_icon()
 
 /obj/item/gun/energy/get_cell()
 	return power_supply
