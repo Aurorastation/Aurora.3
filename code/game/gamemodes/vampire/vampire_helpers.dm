@@ -1,3 +1,50 @@
+/mob
+	var/tmp/vampire_vision_enabled = TRUE
+	var/tmp/vampire_vision_color
+
+/mob/proc/get_vampire_vision_color()
+	if(vampire_vision_color)
+		return vampire_vision_color
+
+	var/obj/item/organ/internal/eyes/night/temp_eyes = new()
+	vampire_vision_color = temp_eyes.vision_color
+	qdel(temp_eyes)
+
+	return vampire_vision_color
+
+/mob/proc/set_vampire_vision(var/enabled, var/change_preference = TRUE)
+	if(change_preference)
+		vampire_vision_enabled = enabled
+
+	var/vision_color = get_vampire_vision_color()
+	if(enabled)
+		lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
+		if(vision_color)
+			add_client_color(vision_color)
+	else
+		if(vision_color)
+			remove_client_color(vision_color)
+
+	if(ishuman(src))
+		var/mob/living/carbon/human/H = src
+		H.update_sight()
+
+/mob/proc/toggle_vampire_vision()
+	set category = "Vampire"
+	set name = "Toggle Vampire Vision"
+	set desc = "Toggles vampire dark vision and its greyscale filter."
+
+	if(!mind)
+		return
+
+	var/datum/vampire/vampire = mind.antag_datums[MODE_VAMPIRE]
+	if(!vampire || (vampire.status & VAMP_ISTHRALL))
+		return
+
+	set_vampire_vision(!vampire_vision_enabled)
+
+	to_chat(src, SPAN_NOTICE("You [vampire_vision_enabled ? "enable" : "disable"] your vampire vision."))
+
 // Make a vampire, add initial powers.
 /mob/proc/make_vampire()
 	if (!mind)
@@ -6,9 +53,12 @@
 	if(!vampire)
 		mind.antag_datums[MODE_VAMPIRE] = new /datum/vampire()
 		vampire = mind.antag_datums[MODE_VAMPIRE]
+
 	// No powers to thralls. Ew.
 	if(vampire.status & VAMP_ISTHRALL)
 		return
+
+	set_vampire_vision(vampire_vision_enabled, FALSE)
 
 	vampire.blood_usable += 30
 
@@ -19,6 +69,7 @@
 		client.screen += vampire.frenzy_hud
 
 	add_verb(src, /datum/antagonist/vampire/proc/vampire_help)
+	add_verb(src, /mob/proc/toggle_vampire_vision)
 
 	for(var/datum/power/vampire/P in GLOB.vampirepowers)
 		if(!(P in vampire.purchased_powers))
@@ -75,9 +126,11 @@
 	if (!T || !istype(T))
 		return FALSE
 	var/datum/vampire/vampire = mind.antag_datums[MODE_VAMPIRE]
+
 	// How did you even get here?
 	if (!vampire)
 		return FALSE
+
 	var/datum/vampire/vampire_check
 	if(T.mind)
 		if(T.mind.assigned_role == "Chaplain")
@@ -102,7 +155,7 @@
 			to_chat(src, SPAN_WARNING("\The [T]'s mind is too strong to be affected by our powers!"))
 		return FALSE
 	if (account_loyalty_implant)
-		for (var/obj/item/implant/mindshield/I in T)
+		for(var/obj/item/implant/mindshield/I in T)
 			if (I.implanted)
 				if (notify)
 					to_chat(src, SPAN_WARNING("You feel that [T]'s mind is protected from our powers."))
@@ -136,6 +189,7 @@
 	var/datum/vampire/vampire = mind.antag_datums[MODE_VAMPIRE]
 	if(!vampire)
 		return
+
 	// Thralls don't frenzy.
 	if (vampire.status & VAMP_ISTHRALL)
 		return
@@ -243,17 +297,25 @@
 	var/datum/vampire/vampire = mind.antag_datums[MODE_VAMPIRE]
 	if(!vampire)
 		return
+
 	for (var/datum/power/vampire/P in vampire.purchased_powers)
 		if (P.isVerb)
 			remove_verb(src, P.verbpath)
 
+	remove_verb(src, /mob/proc/toggle_vampire_vision)
+
 	if (vampire.status & VAMP_FRENZIED)
 		vampire_stop_frenzy(1)
+
+	set_vampire_vision(FALSE)
 
 /mob/proc/handle_vampire()
 	var/datum/vampire/vampire = mind.antag_datums[MODE_VAMPIRE]
 	if(vampire.status & VAMP_ISTHRALL)
 		return
+
+	if(vampire_vision_enabled && lighting_alpha != LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE)
+		set_vampire_vision(TRUE, FALSE)
 
 	// Apply frenzy while in the chapel.
 	if (istype(get_area(loc), /area/horizon/service/chapel))
@@ -310,6 +372,7 @@
 	. = ..()
 	if(!ishuman(user))
 		return
+
 	var/mob/living/carbon/human/H = user
 	if(isipc(H)) //should this check for diona?
 		to_chat(H, SPAN_WARNING("You don't have any vampiric potential."))
