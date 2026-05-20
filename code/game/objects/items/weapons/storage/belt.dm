@@ -651,7 +651,7 @@
 /obj/item/storage/belt/fannypack
 	name = "fannypack"
 	desc = "A dorky fannypack for keeping small items in."
-	icon = 'icons/obj/item/clothing/belts/fannypacks.dmi'
+	icon = 'icons/mob/clothing/belts/fannypacks.dmi'
 	icon_state = "fannypack"
 	item_state = "fannypack"
 	max_w_class = WEIGHT_CLASS_SMALL
@@ -704,7 +704,7 @@
 /obj/item/storage/belt/generic
 	name = "belt"
 	desc = "Only useful for holding up your pants." // Useless belt is useless.
-	icon = 'icons/obj/item/clothing/belts/generic_belts.dmi'
+	icon = 'icons/mob/clothing/belts/generic_belts.dmi'
 	icon_state = "belt"
 	item_state = "belt"
 	contained_sprite = TRUE

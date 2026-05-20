@@ -1,7 +1,7 @@
 /obj/item/clothing/suit/storage/toggle/labcoat
 	name = "labcoat"
 	desc = "A suit that protects against minor chemical spills."
-	icon = 'icons/obj/item/clothing/suit/storage/toggle/labcoat.dmi'
+	icon = 'icons/mob/clothing/suit/storage/toggle/labcoat.dmi'
 	contained_sprite = TRUE
 	icon_state = "labcoat"
 	item_state = "labcoat" // used for inhands and onmobs. ESPECIALLY FOR CONTAINED SPRITES
@@ -16,7 +16,7 @@
 /obj/item/clothing/suit/storage/toggle/longcoat
 	name = "long labcoat"
 	desc = "A long, victorian styled labcoat that protects against minor chemical spills."
-	icon = 'icons/obj/item/clothing/suit/storage/toggle/labcoat.dmi'
+	icon = 'icons/mob/clothing/suit/storage/toggle/labcoat.dmi'
 	contained_sprite = TRUE
 	icon_state = "labcoat_long"
 	item_state = "labcoat_long" // used for inhands and onmobs. ESPECIALLY FOR CONTAINED SPRITES
@@ -154,7 +154,7 @@
 /obj/item/clothing/suit/storage/galatea_labcoat
 	name = "\improper Galatean labcoat"
 	desc = "A style of labcoat commonly worn by Galatean researchers which is intended to resemble labcoats commonly used throughout the Alliance prior to the Interstellar War’s outbreak in the late 2200s."
-	icon = 'icons/obj/item/clothing/suit/storage/toggle/labcoat.dmi'
+	icon = 'icons/mob/clothing/suit/storage/toggle/labcoat.dmi'
 	icon_state = "labcoat_galatea"
 	item_state = "labcoat_galatea"
 	contained_sprite = TRUE

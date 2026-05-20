@@ -160,7 +160,7 @@
 /obj/item/rig_assembly/combat/falcata
 	name = "falcata exoskeleton control module"
 	desc = "The assembly frame for a security exoskeleton."
-	icon = 'icons/obj/item/clothing/rig/falcata.dmi'
+	icon = 'icons/mob/clothing/rig/falcata.dmi'
 	icon_base = "falcata"
 	icon_state = "falcata1"
 	rig_type = /obj/item/rig/light/falcata

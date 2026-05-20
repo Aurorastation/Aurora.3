@@ -191,7 +191,7 @@
 	overlay_state = "badge_round_bssb"
 	slot_flags = SLOT_TIE
 	contained_sprite = TRUE
-	icon = 'icons/obj/item/clothing/accessory/bssb_badge.dmi'
+	icon = 'icons/mob/clothing/accessory/bssb_badge.dmi'
 
 /obj/item/clothing/accessory/badge/bssb/senior
 	name = "\improper BSSB senior agent's badge"
@@ -296,7 +296,7 @@
 	desc_extended = "A passcard is a modern evolution of the state-issued identification card, with all the functionality of a driver's license, birth certificate, passport, or other document, \
 	updated as necessary or able by a central government. The concept was pioneered in the early days of the Sol Alliance, and continues in most human stellar nations to this day, owing to the availability \
 	and price of consumer plastics and self-powered microholograms."
-	icon = 'icons/obj/item/clothing/accessory/passcards.dmi'
+	icon = 'icons/mob/clothing/accessory/passcards.dmi'
 	icon_state = "passcard_ceti"
 	item_state = "passcard_ceti"
 	contained_sprite = TRUE
@@ -555,7 +555,7 @@
 	desc = "A dagger issued as a writ of passage to Scarabs abroad."
 	desc_extended = "By Scarab traditions, one should show their weapon to non-Scarabs upon first meeting. This dagger, sheathed in hakhma chitin, is often given to noncombatants, the Released, or the young, so they \
 	may meet with outsiders with at least a blade between them. Despite this, the blade is sealed tightly within the scabbard."
-	icon = 'icons/obj/item/clothing/accessory/offworlder.dmi'
+	icon = 'icons/mob/clothing/accessory/offworlder.dmi'
 	icon_state = "passblade_scarab"
 	item_state = "passblade_scarab"
 	worn_overlay = "over"
@@ -622,7 +622,7 @@
 /obj/item/clothing/accessory/badge/passport
 	name = "biesellite passport"
 	desc = "A passport issued to a citizen of the Republic of Biesel."
-	icon = 'icons/obj/item/clothing/accessory/passcards.dmi'
+	icon = 'icons/mob/clothing/accessory/passcards.dmi'
 	icon_state = "passport_ceti"
 	item_state = "passport_ceti"
 	contained_sprite = TRUE

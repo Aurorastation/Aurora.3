@@ -1,7 +1,7 @@
 /obj/item/clothing/shoes/sandals
 	desc = "A pair of rather plain wooden sandals."
 	name = "sandals"
-	icon = 'icons/obj/item/clothing/shoes/sandals.dmi'
+	icon = 'icons/mob/clothing/shoes/sandals.dmi'
 	icon_state = "sandals"
 	item_state = "sandals"
 	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_TESLA_BODY)

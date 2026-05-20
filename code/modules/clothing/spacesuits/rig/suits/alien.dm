@@ -2,7 +2,7 @@
 	name = "NT breacher chassis control module"
 	desc = "A cheap NT knock-off of an Unathi battle-hardsuit. Looks like a fish, moves like a fish, steers like a cow."
 	suit_type = "NT breacher"
-	icon = 'icons/obj/item/clothing/rig/unathi_breacher_cheap.dmi'
+	icon = 'icons/mob/clothing/rig/unathi_breacher_cheap.dmi'
 	icon_state = "breacher_rig_cheap"
 	armor = list(
 		MELEE = ARMOR_MELEE_MAJOR,
@@ -31,7 +31,7 @@
 	name = "breacher chassis control module"
 	desc = "An authentic Unathi breacher chassis. Huge, bulky and absurdly heavy. It must be like wearing a tank."
 	suit_type = "breacher chassis"
-	icon = 'icons/obj/item/clothing/rig/unathi_breacher.dmi'
+	icon = 'icons/mob/clothing/rig/unathi_breacher.dmi'
 	icon_state = "breacher_rig"
 	armor = list(
 		MELEE = ARMOR_MELEE_VERY_HIGH,
@@ -78,7 +78,7 @@
 	name = "redsnout hardsuit control module"
 	desc = "A variation on the Unathi breacher chassis design, fielded by the elite unit of the Tau Ceti Armed Forces known as the Redsnouts."
 	suit_type = "redsnout hardsuit"
-	icon = 'icons/obj/item/clothing/rig/redsnout.dmi'
+	icon = 'icons/mob/clothing/rig/redsnout.dmi'
 	icon_state = "redsnout_rig"
 	armor = list(
 		MELEE = ARMOR_MELEE_VERY_HIGH,
@@ -114,7 +114,7 @@
 	name = "combat exoskeleton control module"
 	desc = "An ancient piece of equipment from a bygone age, This highly advanced Vaurcan technology rarely sees use outside of a battlefield."
 	suit_type = "combat exoskeleton"
-	icon = 'icons/obj/item/clothing/rig/vaurca.dmi'
+	icon = 'icons/mob/clothing/rig/vaurca.dmi'
 	icon_state = "vaurca_rig"
 	armor = list(
 		MELEE = ARMOR_MELEE_MAJOR,
@@ -177,7 +177,7 @@
 	severe loss of Republican Guard units. Additional funding and focus was placed on a previously shelved proposal for heavily armed shock and high technology assault troopers. A \
 	special unit designated to withstand the numerical disadvantages and prolonged engagements special forces of the Republic often faces."
 	suit_type = "tesla suit"
-	icon = 'icons/obj/item/clothing/rig/tesla.dmi'
+	icon = 'icons/mob/clothing/rig/tesla.dmi'
 	icon_state = "tesla_rig"
 	armor = list(
 		MELEE = ARMOR_MELEE_VERY_HIGH,

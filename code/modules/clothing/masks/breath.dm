@@ -23,7 +23,7 @@
 /obj/item/clothing/mask/breath/offworlder
 	name = "overmask"
 	desc = "A large breath mask with cushioning."
-	icon = 'icons/obj/item/clothing/accessory/offworlder.dmi'
+	icon = 'icons/mob/clothing/accessory/offworlder.dmi'
 	contained_sprite = TRUE
 	icon_state = "breathcover"
 	item_state = "breathcover"
@@ -37,7 +37,7 @@
 /obj/item/clothing/mask/breath/skrell
 	name = "skrellian gill cover"
 	desc = "A comfy technological piece used typically by those suffering from gill-related disorders. It goes around the neck and shoulders with a small water tank on the back, featuring a hookup for oxytanks to keep the water oxygenated."
-	icon = 'icons/obj/item/clothing/mask/breath/skrell/gillcover.dmi'
+	icon = 'icons/mob/clothing/mask/breath/skrell/gillcover.dmi'
 	icon_state = "gillcover"
 	item_state = "gillcover"
 	contained_sprite = TRUE

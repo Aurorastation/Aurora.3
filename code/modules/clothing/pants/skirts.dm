@@ -4,7 +4,7 @@
 	name = "casual skirt"
 	desc = "A short, colorful skirt."
 	desc_extended = "Not to be mistaken with the similarly named cut of steak."
-	icon = 'icons/obj/item/clothing/pants/skirts.dmi'
+	icon = 'icons/mob/clothing/pants/skirts.dmi'
 	icon_state = "skirt_casual"
 	item_state = "skirt_casual"
 	body_parts_covered = LOWER_TORSO

@@ -1,7 +1,7 @@
 /obj/item/clothing/shoes/slippers
 	name = "bunny slippers"
 	desc = "Fluffy!"
-	icon = 'icons/obj/item/clothing/shoes/slippers.dmi'
+	icon = 'icons/mob/clothing/shoes/slippers.dmi'
 	icon_state = "slippers"
 	item_state = "slippers"
 	force = 0

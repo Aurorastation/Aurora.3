@@ -3,7 +3,7 @@ GLOBAL_LIST_INIT_TYPED(active_buddy_tags, /obj/item/clothing/accessory/buddytag,
 /obj/item/clothing/accessory/buddytag
 	name = "buddy tag"
 	desc = "A tiny device, paired up with a counterpart set to same code. When the paired devices are too far apart, they start beeping."
-	icon = 'icons/obj/item/clothing/accessory/buddy_tag.dmi'
+	icon = 'icons/mob/clothing/accessory/buddy_tag.dmi'
 	icon_state = "buddytag0"
 	item_state = "buddytag"
 	contained_sprite = TRUE

@@ -596,7 +596,7 @@
 /obj/item/dogtag/adhomai_tag
 	name = "adhomian dogtag"
 	desc = "Dogtags issued to the Tajaran soldiers of all Adhomian factions. Veterans usually bring them back home."
-	icon = 'icons/obj/item/clothing/accessory/dogtags.dmi'
+	icon = 'icons/mob/clothing/accessory/dogtags.dmi'
 	icon_state = "adhomai_tag"
 	w_class = WEIGHT_CLASS_SMALL
 

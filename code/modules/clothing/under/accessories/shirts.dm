@@ -7,7 +7,7 @@
 	name = "sweater"
 	desc = "A warm, knit sweater."
 	desc_extended = "Commonly made out of cotton or wool, but sometimes polyester or acrylic as well."
-	icon = 'icons/obj/item/clothing/accessory/sweaters.dmi'
+	icon = 'icons/mob/clothing/accessory/sweaters.dmi'
 	icon_state = "sweater"
 	item_state = "sweater"
 	contained_sprite = TRUE
@@ -100,7 +100,7 @@
 /obj/item/clothing/accessory/sweater/visegradi
 	name = "visegradi patterned sweater"
 	desc = "A thick wool sweater, with a meandering pattern. These are typical of the planet Visegrad, where the wool is valued in both keeping the wearer dry and warm on the notoriously wet planet."
-	icon = 'icons/obj/item/clothing/accessory/visegradi_sweater.dmi'
+	icon = 'icons/mob/clothing/accessory/visegradi_sweater.dmi'
 	icon_state = "visegradi_sweater"
 	item_state = "visegradi_sweater"
 

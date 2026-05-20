@@ -1,7 +1,7 @@
 /obj/item/clothing/head/ushanka
 	name = "ushanka"
 	desc = "A warm fur hat with ear flaps that can be raised and tied to be out of the way."
-	icon = 'icons/obj/item/clothing/head/ushanka.dmi'
+	icon = 'icons/mob/clothing/head/ushanka.dmi'
 	icon_state = "ushanka"
 	item_state = "ushanka"
 	contained_sprite = TRUE
@@ -15,7 +15,7 @@
 	desc = "A type of flap hat that is extremely popular on Visegrad. It is designed to keep one's head and neck dry, and the flap can be pinned to the sides of the hat when not needed."
 	contained_sprite = TRUE
 	build_from_parts = FALSE
-	icon = 'icons/obj/item/clothing/head/earflap_cap.dmi'
+	icon = 'icons/mob/clothing/head/earflap_cap.dmi'
 	icon_state = "earflap"
 	item_state = "earflap"
 
@@ -41,7 +41,7 @@
 /obj/item/clothing/head/beanie
 	name = "beanie"
 	desc = "A head-hugging brimless winter cap. This one is tight."
-	icon = 'icons/obj/item/clothing/head/beanie.dmi'
+	icon = 'icons/mob/clothing/head/beanie.dmi'
 	contained_sprite = TRUE
 	icon_state = "beanie"
 	item_state = "beanie"

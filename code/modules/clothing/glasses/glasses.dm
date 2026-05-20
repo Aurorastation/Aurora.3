@@ -256,7 +256,7 @@ BLIND     // can't see anything
 /obj/item/clothing/glasses/safety
 	name = "safety glasses"
 	desc = "A simple pair of safety glasses. Thinner than their goggle counterparts, for those who can't decide between safety and style."
-	icon = 'icons/obj/item/clothing/eyes/safety.dmi'
+	icon = 'icons/mob/clothing/eyes/safety.dmi'
 	icon_state = "plaingoggles"
 	item_state = "plaingoggles"
 	contained_sprite = TRUE
@@ -787,7 +787,7 @@ BLIND     // can't see anything
 /obj/item/clothing/glasses/aug/welding
 	name = "glare dampeners"
 	desc = "A subdermal implant installed just above the brow line that deploys a thin sheath of hyperpolycarbonate that protects from eye damage associated with arc flash."
-	icon = 'icons/obj/item/clothing/eyes/welding_goggles.dmi'
+	icon = 'icons/mob/clothing/eyes/welding_goggles.dmi'
 	icon_state = "welding-aug"
 	item_state = "welding-aug"
 	contained_sprite = TRUE
@@ -817,7 +817,7 @@ BLIND     // can't see anything
 /obj/item/clothing/glasses/welding/emergency
 	name = "emergency welding goggles"
 	desc = "A cheaper version of standard welding goggles, approved for emergency use by the NanoTrasen Safety Board."
-	icon = 'icons/obj/item/clothing/eyes/welding_goggles.dmi'
+	icon = 'icons/mob/clothing/eyes/welding_goggles.dmi'
 	icon_state = "ewelding-g"
 	item_state = "ewelding-g"
 	contained_sprite = TRUE
@@ -872,7 +872,7 @@ BLIND     // can't see anything
 /obj/item/clothing/glasses/sunglasses/sechud
 	name = "HUDsunglasses"
 	desc = "Sunglasses in the colours of NanoTrasen security. They come with a blue-tinted HUD."
-	icon = 'icons/obj/item/clothing/eyes/sec_hud.dmi'
+	icon = 'icons/mob/clothing/eyes/sec_hud.dmi'
 	icon_state = "sunhud"
 	item_state = "sunhud"
 	contained_sprite = TRUE

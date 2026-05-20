@@ -6,7 +6,7 @@
 ABSTRACT_TYPE(/obj/item/clothing/pants)
 	name = "pants parent item"
 	desc = DESC_PARENT
-	icon = 'icons/obj/item/clothing/pants/pants.dmi'
+	icon = 'icons/mob/clothing/pants/pants.dmi'
 	species_sprite_adaption_type = WORN_PANTS
 	slot_flags = SLOT_PANTS
 	contained_sprite = TRUE

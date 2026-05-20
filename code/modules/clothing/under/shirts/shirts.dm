@@ -6,7 +6,7 @@
 /obj/item/clothing/under/dressshirt
 	name = "dress shirt"
 	desc = "A casual dress shirt."
-	icon = 'icons/obj/item/clothing/under/shirt/shirts.dmi'
+	icon = 'icons/mob/clothing/under/shirt/shirts.dmi'
 	icon_state = "dressshirt"
 	item_state = "dressshirt"
 	contained_sprite = TRUE

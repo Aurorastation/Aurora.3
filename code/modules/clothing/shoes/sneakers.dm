@@ -1,7 +1,7 @@
 /obj/item/clothing/shoes/sneakers
 	name = "white shoes"
 	desc = "A pair of classy white shoes."
-	icon = 'icons/obj/item/clothing/shoes/sneakers.dmi'
+	icon = 'icons/mob/clothing/shoes/sneakers.dmi'
 	icon_state = "white"
 	item_state = "white"
 	cold_protection = FEET
@@ -134,7 +134,7 @@
 /obj/item/clothing/shoes/flats
 	desc = "A pair of black, low-heeled women's flats."
 	name = "black dress flats"
-	icon = 'icons/obj/item/clothing/shoes/flats.dmi'
+	icon = 'icons/mob/clothing/shoes/flats.dmi'
 	icon_state = "blackdf"
 	item_state = "blackdf"
 	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_TESLA_BODY)

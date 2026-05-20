@@ -2,7 +2,7 @@
 	name = "chokha"
 	desc = "A woolen coat with a high neck commonly worn on Vysoka."
 	desc_extended = "Chokhas are a common choice of outerwear for men and women on Vysoka, and are often colored differently based on their city - or host - of origin. The chokha has become something of a cultural symbol of Vysoka, and is often worn off-world by its citizens."
-	icon = 'icons/obj/item/clothing/suit/storage/vysoka_chokha_male.dmi'
+	icon = 'icons/mob/clothing/suit/storage/vysoka_chokha_male.dmi'
 	icon_state = "chokha"
 	item_state = "chokha"
 	contained_sprite = TRUE
@@ -36,7 +36,7 @@
 	item_state = "winterchokha_red"
 
 /obj/item/clothing/suit/storage/vysoka/f
-	icon = 'icons/obj/item/clothing/suit/storage/vysoka_chokha_female.dmi'
+	icon = 'icons/mob/clothing/suit/storage/vysoka_chokha_female.dmi'
 	contained_sprite = TRUE
 
 /obj/item/clothing/suit/storage/vysoka/f/purple
@@ -73,7 +73,7 @@
 	desc_extended = "The ohdker is a common animal on Vysoka that serves as a livestock and beast of burden, depending on the needs at the time. Its fur is highly prized on Vysoka, and major cities often export it off-world to location such as Xanu Prime."
 	icon_state = "fur"
 	item_state = "fur"
-	icon = 'icons/obj/item/clothing/head/vysoka_caps.dmi'
+	icon = 'icons/mob/clothing/head/vysoka_caps.dmi'
 	contained_sprite = TRUE
 
 /obj/item/clothing/head/vysoka/purple
@@ -110,7 +110,7 @@
 /obj/item/clothing/head/pin/dainshu
 	name = "vysokan dainshu feather"
 	desc = "The feather of a Vysokan dainshu, a domesticated flying beast whose companionship is akin to that of an Earth falcon."
-	icon = 'icons/obj/item/clothing/head/vysoka_caps.dmi'
+	icon = 'icons/mob/clothing/head/vysoka_caps.dmi'
 	icon_state = "dainshu"
 	item_state = "dainshu"
 	contained_sprite = TRUE
@@ -124,7 +124,7 @@
 /obj/item/clothing/under/vysoka
 	name = "thin temperwear"
 	desc = "A loose outfit of thinned and shredded ohdker fur. The particular process of its threading makes these a popular appearance in Vysokan wardrobes, owing to their comfort in varying conditions - mostly the sweltering summer heat or heavy wind of their native plains."
-	icon = 'icons/obj/item/clothing/under/vysoka_under.dmi'
+	icon = 'icons/mob/clothing/under/vysoka_under.dmi'
 	icon_state = "temperwear"
 	item_state = "temperwear"
 	contained_sprite = TRUE

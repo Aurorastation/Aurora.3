@@ -473,7 +473,7 @@
 	name = "red polka dot dress"
 	desc = "A newer fashion style, this dress sports a jaunty, summery print with a scandalous shape by tajara standards. This one is red."
 	desc_extended = "Fundamentally at odds with the more traditional \"Flapper\" variety of clothing popular in the 2440s and 2450s, newer, more revealing and less restrictive dresses have found themselves surging amongst the teenage and young adult demographic on Adhomai, and in the People's Republic of Adhomai specifically. Many parents do not approve of these new styles, but shops sell them all the same, and celebrities flaunt them at red carpet events. Like it or not, times have begun to change."
-	icon = 'icons/obj/item/clothing/under/dress/tajaran/polka_dot_dresses.dmi'
+	icon = 'icons/mob/clothing/under/dress/tajaran/polka_dot_dresses.dmi'
 	icon_state = "polka_red"
 	item_state = "polka_red"
 
@@ -488,7 +488,7 @@
 /obj/item/clothing/under/dress/tajaran/floral
 	name = "floral dress"
 	desc = "A newer fashion style, this flower-printed blouse and pencil skirt sport a colorful print and a scandalous shape by tajara standards."
-	icon = 'icons/obj/item/clothing/under/dress/tajaran/floral_dress.dmi'
+	icon = 'icons/mob/clothing/under/dress/tajaran/floral_dress.dmi'
 	icon_state = "floral_dress"
 	item_state = "floral_dress"
 
@@ -496,7 +496,7 @@
 /obj/item/clothing/under/dress/tajaran/housewife
 	name = "plaid housewife dress"
 	desc = "A modest plaid dress, done in the latest tajaran styles."
-	icon = 'icons/obj/item/clothing/under/dress/tajaran/housewife_dresses.dmi'
+	icon = 'icons/mob/clothing/under/dress/tajaran/housewife_dresses.dmi'
 	icon_state = "housewife_plaid"
 	item_state = "housewife_plaid"
 
@@ -519,7 +519,7 @@
 /obj/item/clothing/under/tajaran/fancy/evening_suit
 	name = "adhomian evening suit"
 	desc = "A rich purple evening suit meant for lounging or other luxury."
-	icon = 'icons/obj/item/clothing/under/tajaran/fancy/evening_suit.dmi'
+	icon = 'icons/mob/clothing/under/tajaran/fancy/evening_suit.dmi'
 	icon_state = "evening_suit"
 	item_state = "evening_suit"
 
@@ -528,7 +528,7 @@
 	name = "high-waisted men's wear"
 	desc = "Dark, black, and high-waisted trousers with accompanying vibrant yellow shirt, for the modern and fashionable men."
 	desc_extended = "Fashion for men, much like for women, is slowly moving away from many-layered outfits and extravagant and flashy suits and dresses; one would be hard-pressed to find young men sporting three-piece suits any longer. Teenage boys and young adults are drawn more and more to relaxing styles and more comfortable fits that would never have found root on Adhomai before. Now, though, up-and-coming businessmen and well-to-do middle-class boys would rather wear trousers and a dress shirt than waste time with vests and oxfords."
-	icon = 'icons/obj/item/clothing/under/tajaran/high_waisted_wear.dmi'
+	icon = 'icons/mob/clothing/under/tajaran/high_waisted_wear.dmi'
 	icon_state = "high_waisted"
 	item_state = "high_waisted"
 
@@ -544,7 +544,7 @@
 	name = "relaxed men's wear"
 	desc = "Plaid pants and an unbuttoned silk shirt mean comfort and style."
 	desc_extended = "Fashion for men, much like for women, is slowly moving away from many-layered outfits and extravagant and flashy suits and dresses; one would be hard-pressed to find young men sporting three-piece suits any longer. Teenage boys and young adults are drawn more and more to relaxing styles and more comfortable fits that would never have found root on Adhomai before. Now, though, up-and-coming businessmen and well-to-do middle-class boys would rather wear trousers and a dress shirt than waste time with vests and oxfords."
-	icon = 'icons/obj/item/clothing/under/tajaran/relaxed_wear.dmi'
+	icon = 'icons/mob/clothing/under/tajaran/relaxed_wear.dmi'
 	icon_state = "relaxed_wear"
 	item_state = "relaxed_wear"
 
@@ -560,6 +560,6 @@
 	name = "smart study outfit"
 	desc = "A brown, interwoven argyle sweater with accompanying trousers - for the modern academian in all of us."
 	desc_extended = "Fashion for men, much like for women, is slowly moving away from many-layered outfits and extravagant and flashy suits and dresses; one would be hard-pressed to find young men sporting three-piece suits any longer. Teenage boys and young adults are drawn more and more to relaxing styles and more comfortable fits that would never have found root on Adhomai before. Now, though, up-and-coming businessmen and well-to-do middle-class boys would rather wear trousers and a dress shirt than waste time with vests and oxfords."
-	icon = 'icons/obj/item/clothing/under/tajaran/smart_study_outfit.dmi'
+	icon = 'icons/mob/clothing/under/tajaran/smart_study_outfit.dmi'
 	icon_state = "study_outfit"
 	item_state = "study_outfit"

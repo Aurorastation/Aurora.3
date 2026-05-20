@@ -1,7 +1,7 @@
 /obj/item/clothing/shoes/laceup
 	name = "black oxford shoes"
 	desc = "The height of fashion, and they're pre-polished!"
-	icon = 'icons/obj/item/clothing/shoes/oxford.dmi'
+	icon = 'icons/mob/clothing/shoes/oxford.dmi'
 	contained_sprite = TRUE
 	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_TESLA_BODY)
 	icon_state = "oxford_black"
