@@ -535,7 +535,7 @@ GLOBAL_LIST_EMPTY(ic_database_servers)
 	name = "text contains"
 	desc = "Checks if one text value contains another."
 	extended_desc = "Useful for filtering logs, messages, status strings, or command text."
-	icon_state = "text"
+	icon_state = "textpad"
 	complexity = 2
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
