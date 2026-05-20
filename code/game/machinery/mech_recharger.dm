@@ -12,7 +12,7 @@
 	var/mob/living/heavy_vehicle/charging
 	var/base_charge_rate = 90 KILO WATTS
 	var/repair_power_usage = 15 KILO WATTS		// Per 1 HP of health.
-	var/repair = 0
+	var/repair
 	var/charge
 
 	component_types = list(
@@ -26,7 +26,11 @@
 	. += ..()
 	. += "Upgraded <b>capacitors</b> will increase charging rate."
 	. += "Upgraded <b>scanning modules</b> will increase both charging rate and repair speed."
+	. += SPAN_NOTICE("	- The current charge speed is <b>[active_power_usage / 1000]</b> kW")
 	. += "Upgraded <b>manipulators</b> will increase repair speed."
+	if(repair > 0)
+		. += SPAN_NOTICE("	- The current repair speed is <b>[repair]</b> HP per second</b>")
+		. += SPAN_NOTICE("	- The current repair power usage is <b>[(repair_power_usage) / 1000]</b> kW")
 
 /obj/machinery/mech_recharger/Initialize(mapload)
 	. = ..()
@@ -50,19 +54,30 @@
 	if(gone == charging)
 		stop_charging()
 
+/obj/machinery/mech_recharger/attackby(obj/item/attacking_item, mob/user)
+	if(default_part_replacement(user, attacking_item))
+		return TRUE
+	else if(default_deconstruction_screwdriver(user, attacking_item))
+		return TRUE
+	else if(default_deconstruction_crowbar(user, attacking_item))
+		return TRUE
+	return ..()
+
 /obj/machinery/mech_recharger/RefreshParts()
 	..()
-	charge = 0
-	repair = -5
+	charge = -0.25
+	repair = -1.75
 
-	for(var/obj/item/stock_parts/P in component_parts)
+	for(var/obj/item/stock_parts/P in component_parts) //Charges at 315 kW and repairs at 3 HP/s fully upgraded.
 		if(iscapacitor(P))
-			charge += P.rating * 20
+			charge += P.rating * 0.5
 		else if(isscanner(P))
-			charge += P.rating * 5
-			repair += P.rating
+			charge += P.rating * 0.25
+			repair += P.rating * 0.25
 		else if(ismanipulator(P))
-			repair += P.rating * 2
+			repair += P.rating * 0.5
+
+	change_power_consumption(initial(base_charge_rate) * charge, POWER_USE_ACTIVE)
 
 /obj/machinery/mech_recharger/process()
 	if(!charging)
@@ -81,9 +96,9 @@
 		stop_charging()
 		return
 
-	var/remaining_energy = active_power_usage
+	var/remaining_energy = active_power_usage * charge
 
-	if(repair && !fully_repaired())
+	if(repair > 0 && !fully_repaired())
 		for(var/obj/item/mech_component/MC in charging)
 			if(MC)
 				MC.repair_brute_damage(repair)

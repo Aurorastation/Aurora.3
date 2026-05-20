@@ -547,6 +547,20 @@
 	max_w_class = WEIGHT_CLASS_NORMAL
 	max_storage_space = 100
 
+/obj/item/storage/part_replacer/full
+	starts_with = list(
+		/obj/item/stock_parts/capacitor/adv = 5,
+		/obj/item/stock_parts/capacitor/super = 5,
+		/obj/item/stock_parts/manipulator/nano = 5,
+		/obj/item/stock_parts/manipulator/pico = 5,
+		/obj/item/stock_parts/scanning_module/adv = 5,
+		/obj/item/stock_parts/scanning_module/phasic = 5,
+		/obj/item/stock_parts/matter_bin/adv = 5,
+		/obj/item/stock_parts/matter_bin/super = 5,
+		/obj/item/stock_parts/micro_laser/high = 5,
+		/obj/item/stock_parts/micro_laser/ultra = 5,
+	)
+
 /obj/item/ectoplasm
 	name = "ectoplasm"
 	desc = "spooky"
