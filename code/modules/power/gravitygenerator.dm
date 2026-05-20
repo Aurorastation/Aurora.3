@@ -2,10 +2,11 @@
 #define POWER_UP 1
 #define POWER_DOWN 2
 
-#define GRAV_NEEDS_SCREWDRIVER 0
-#define GRAV_NEEDS_WELDING 1
-#define GRAV_NEEDS_PLASTEEL 2
-#define GRAV_NEEDS_WRENCH 3
+#define GRAV_OPERATIONAL 0
+#define GRAV_NEEDS_SCREWDRIVER 1
+#define GRAV_NEEDS_WELDING 2
+#define GRAV_NEEDS_PLASTEEL 3
+#define GRAV_NEEDS_WRENCH 4
 
 #define AREA_ERRNONE 0
 #define AREA_STATION 1
@@ -16,17 +17,31 @@
 //
 
 /obj/machinery/gravity_generator
-	name = "gravitational generator"
-	desc = "A device which produces a gravaton field when set up."
+	name = "gravity generator"
+	desc = "A complex and energy-hungry device which produces a graviton field over a modest radius when active."
 	icon = 'icons/obj/machinery/gravity_generator.dmi'
-	anchored = 1
-	density = 1
+	anchored = TRUE
+	density = TRUE
 	use_power = POWER_USE_OFF
-	unacidable = 1
+	unacidable = TRUE
 	var/sprite_number = 0
 	light_color = LIGHT_COLOR_CYAN
-	light_power = 1
-	light_range = 8
+	light_power = 1.4
+	light_range = 6
+	interact_offline = TRUE
+	/// Whether the gravity generator is currently active.
+	var/on = TRUE
+	/// If the main breaker is on/off, to enable/disable gravity.
+	var/breaker = TRUE
+	/// If the generatir os idle, charging, or down.
+	var/charging_state = POWER_IDLE
+	/// How much charge the gravity generator has, goes down when breaker is shut, and shuts down at 0.
+	var/charge_count = 100
+	/// The gravity core overlay currently used.
+	var/current_overlay = null
+	/// Currently configured gravity strength.
+	var/setting = 1.0
+	/// Audio for when the gravgen is on
 	var/datum/looping_sound/gravgen/soundloop
 
 /obj/machinery/gravity_generator/ex_act(severity)
@@ -351,14 +366,12 @@
 	if(new_state) // If we turned on
 		if(!area.has_gravity())
 			alert = 1
-			GLOB.gravity_is_on = 1
 			soundloop.start(src)
 			investigate_log("was brought online and is now producing gravity for this level.", "gravity")
 			message_admins("The gravity generator was brought online. (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>[areadisplayname]</a>)")
 	else
 		if(area.has_gravity())
 			alert = 1
-			GLOB.gravity_is_on = 0
 			soundloop.stop(src)
 			investigate_log("was brought offline and there is now no gravity for this level.", "gravity")
 			message_admins("The gravity generator was brought offline with no backup generator. (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>[areadisplayname]</a>)")
@@ -501,6 +514,7 @@
 #undef POWER_UP
 #undef POWER_DOWN
 
+#undef GRAV_OPERATIONAL
 #undef GRAV_NEEDS_SCREWDRIVER
 #undef GRAV_NEEDS_WELDING
 #undef GRAV_NEEDS_PLASTEEL
