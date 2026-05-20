@@ -30,7 +30,7 @@
 	. += "Upgraded <b>manipulators</b> will increase repair speed."
 	if(repair > 0)
 		. += SPAN_NOTICE("	- The current repair speed is <b>[repair]</b> HP per second</b>")
-		. += SPAN_NOTICE("	- The current repair power usage is <b>[(repair_power_usage) / 1000]</b> kW")
+		. += SPAN_NOTICE("	- The current repair power usage is <b>[(repair_power_usage * repair) / 1000]</b> kW")
 
 /obj/machinery/mech_recharger/Initialize(mapload)
 	. = ..()
@@ -68,7 +68,7 @@
 	charge = -0.25
 	repair = -1.75
 
-	for(var/obj/item/stock_parts/P in component_parts) //Charges at 315 kW and repairs at 3 HP/s fully upgraded.
+	for(var/obj/item/stock_parts/P in component_parts) //Charges at 315 kW and repairs at 2 HP/s fully upgraded.
 		if(iscapacitor(P))
 			charge += P.rating * 0.5
 		else if(isscanner(P))
