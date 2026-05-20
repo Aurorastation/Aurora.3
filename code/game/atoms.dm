@@ -545,9 +545,9 @@
 
 /proc/get_intent_listeners(var/atom/source, var/range = 7, var/list/hearers = list())
 	SHOULD_NOT_SLEEP(TRUE)
-	var/list/listeners = new()
+	var/list/listeners = list()
 	if(air_sound(source))
-		if(!hearers.len)
+		if(!length(hearers))
 			hearers = get_hearers_in_view(range, source)
 		for(var/mob/living/carbon/human/H as anything in GLOB.intent_listener)
 			if((H in hearers))

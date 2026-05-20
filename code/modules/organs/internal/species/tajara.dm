@@ -61,13 +61,13 @@
 	if(!ability_check())
 		return
 	if(zoom)
-		owner.visible_message("<b>[owner]'s</b> eyes widens as they stop focusing ahead.", range = 3)
+		owner.visible_message("[SPAN_BOLD("\The [owner]")]'s eyes widens as they stop focusing ahead.", range = 3)
 	else
-		owner.visible_message("<b>[owner]'s</b> eyes begins to narrow as they focus on something in the distance.", range = 3)
+		owner.visible_message("[SPAN_BOLD("\The [owner]")]'s eyes begins to narrow as they focus on something in the distance.", range = 3)
 		if(!do_after(owner, 1.5 SECONDS))
-			owner.visible_message("<b>[owner]'s</b> eyes stop focusing.", range = 3)
+			owner.visible_message("[SPAN_BOLD("\The [owner]")]'s eyes stop focusing.", range = 3)
 			return
-		owner.visible_message("<b>[owner]'s</b> eyes narrows as their lenses shift to focus ahead.", range = 3)
+		owner.visible_message("[SPAN_BOLD("\The [owner]")]'s eyes narrows as their lenses shift to focus ahead.", range = 3)
 
 	zoom(owner, 3, 7, FALSE, FALSE)
 
@@ -115,7 +115,7 @@
 			show_message = FALSE
 			break
 	if(show_message && eye_emote)
-		owner.visible_message("<b>[owner]</b>[eye_emote]")
+		owner.visible_message("[SPAN_BOLD("\The [owner]")][eye_emote]")
 
 	night_vision = TRUE
 	if(can_change_invisible())
