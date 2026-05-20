@@ -1,7 +1,7 @@
 /obj/item/clothing/head/softcap
 	name = "softcap"
 	desc = "It's a softcap in a tasteless color."
-	icon = 'icons/obj/clothing/hats/soft_caps.dmi'
+	icon = 'icons/mob/clothing/hats/soft_caps.dmi'
 	icon_state = "softcap"
 	item_state = "softcap"
 	item_flags = ITEM_FLAG_SHOW_FLAVOR_TEXT

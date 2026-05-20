@@ -1,7 +1,7 @@
 /obj/item/clothing/mask/chewable
 	name = "chewable item master"
 	desc = "If you are seeing this, ahelp it."
-	icon = 'icons/obj/clothing/masks.dmi'
+	icon = 'icons/mob/clothing/masks.dmi'
 	drop_sound = 'sound/items/drop/food.ogg'
 	pickup_sound = 'sound/items/pickup/food.ogg'
 	body_parts_covered = 0
@@ -95,7 +95,7 @@
 /obj/item/trash/spitwad
 	name = "spit wad"
 	desc = "A disgusting spitwad."
-	icon = 'icons/obj/clothing/masks.dmi'
+	icon = 'icons/mob/clothing/masks.dmi'
 	icon_state = "spit-chew"
 	drop_sound = 'sound/items/drop/flesh.ogg'
 	pickup_sound = 'sound/items/pickup/flesh.ogg'
@@ -200,7 +200,7 @@
 /obj/item/trash/spitgum
 	name = "old gum"
 	desc = "A disgusting chewed up wad of gum."
-	icon = 'icons/obj/clothing/masks.dmi'
+	icon = 'icons/mob/clothing/masks.dmi'
 	icon_state = "spit-gum"
 	drop_sound = 'sound/items/drop/flesh.ogg'
 	pickup_sound = 'sound/items/pickup/flesh.ogg'
@@ -239,7 +239,7 @@
 /obj/item/trash/lollibutt
 	name = "lollipop stick"
 	desc = "A lollipop stick devoid of pop."
-	icon = 'icons/obj/clothing/masks.dmi'
+	icon = 'icons/mob/clothing/masks.dmi'
 	icon_state = "lollipop_stick"
 	slot_flags = SLOT_EARS | SLOT_MASK
 

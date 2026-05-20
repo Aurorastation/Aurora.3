@@ -1,7 +1,7 @@
 /obj/item/storage/belt
 	name = "belt"
 	desc = "Can hold various things."
-	icon = 'icons/obj/clothing/belts.dmi'
+	icon = 'icons/mob/clothing/belts.dmi'
 	icon_state = "utilitybelt"
 	item_state = "utility"
 	force = 2

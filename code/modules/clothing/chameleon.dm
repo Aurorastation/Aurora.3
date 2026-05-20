@@ -90,7 +90,7 @@
 /obj/item/clothing/head/chameleon
 	name = "grey cap"
 	desc = "It looks like a softcap in a tasteless color, but upon closer inspection there's an advanced holographic array installed inside. It seems to have a small dial inside."
-	icon = 'icons/obj/clothing/hats/soft_caps.dmi'
+	icon = 'icons/mob/clothing/hats/soft_caps.dmi'
 	icon_state = "softcap"
 	item_state = "softcap"
 	origin_tech = list(TECH_ILLEGAL = 3)
@@ -171,7 +171,7 @@
 
 /obj/item/clothing/suit/armor/chameleon
 	name = "standard plate carrier"
-	icon = 'icons/obj/clothing/suits.dmi'
+	icon = 'icons/mob/clothing/suits.dmi'
 	contained_sprite = TRUE
 	icon_state = "plate_chameleon"
 	item_state = "plate_chameleon"

@@ -1,7 +1,7 @@
 /obj/item/clothing/head/bandana
 	name = "bandana"
 	desc = "It's a bandana with some fine nanotech lining."
-	icon = 'icons/obj/clothing/hats/bandanas.dmi'
+	icon = 'icons/mob/clothing/hats/bandanas.dmi'
 	icon_state = "bandana"
 	item_state = "bandana"
 	flags_inv = 0

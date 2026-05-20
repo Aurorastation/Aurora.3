@@ -1,7 +1,7 @@
 /obj/item/clothing/accessory
 	name = "tie"
 	desc = "A neosilk clip-on tie."
-	icon = 'icons/obj/clothing/ties.dmi'
+	icon = 'icons/mob/clothing/ties.dmi'
 	icon_state = "bluetie"
 	item_state = ""	//no inhands
 	overlay_state = null
@@ -581,7 +581,7 @@
 /obj/item/clothing/accessory/poncho/roles/cloak
 	name = "quartermaster's cloak"
 	desc = "An elaborate brown and gold cloak."
-	icon = 'icons/obj/clothing/ties.dmi'
+	icon = 'icons/mob/clothing/ties.dmi'
 	icon_override = 'icons/mob/ties.dmi'
 	icon_state = "qmcloak"
 	item_state = "qmcloak"
@@ -682,7 +682,7 @@
 	name = "shoulder cape"
 	desc = "A simple shoulder cape."
 	desc_extended = "In Skrellian tradition, the length of cape typically signifies experience in various fields."
-	icon = 'icons/obj/clothing/ties.dmi'
+	icon = 'icons/mob/clothing/ties.dmi'
 	icon_override = 'icons/mob/ties.dmi'
 	icon_state = "starcape"
 	item_state = "starcape"
@@ -761,7 +761,7 @@
 /obj/item/clothing/accessory/poncho/trinary
 	name = "trinary perfection cape"
 	desc = "A brilliant red and brown cape, commonly worn by those who serve the Trinary Perfection."
-	icon = 'icons/obj/clothing/ties.dmi'
+	icon = 'icons/mob/clothing/ties.dmi'
 	icon_override = 'icons/mob/ties.dmi'
 	icon_state = "trinary_cape"
 	item_state = "trinary_cape"

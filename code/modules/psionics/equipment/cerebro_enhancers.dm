@@ -3,7 +3,7 @@
 	name = "cerebro-energetic enhancer"
 	desc = "A matte-black, eyeless cerebro-energetic enhancement helmet. It uses highly sophisticated, and illegal, techniques to drill into your brain and install psi-infected AIs into the fluid cavities between your lobes."
 	action_button_name = "Install Boosters"
-	icon = 'icons/obj/clothing/hats.dmi'
+	icon = 'icons/mob/clothing/hats.dmi'
 	contained_sprite = FALSE
 	icon_state = "amp"
 
@@ -128,7 +128,7 @@
 	name = "psionic jumpstarter"
 	desc = "Use this to jumpstart your psionic rank to Psionically Harmonious, enabling you to use the Psionic Point Shop and buy offensive psionic abilities. \
 			This won't work on species with no Zona Bovinae, like synthetics, vaurcae or dionae! This item is definitely not canon."
-	icon = 'icons/obj/clothing/hats.dmi'
+	icon = 'icons/mob/clothing/hats.dmi'
 	icon_state = "amp"
 	contained_sprite = FALSE
 

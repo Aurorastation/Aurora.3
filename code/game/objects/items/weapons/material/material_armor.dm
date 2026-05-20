@@ -27,7 +27,7 @@ Protectiveness | Armor %
 /obj/item/clothing/suit/armor/material/makeshift
 	name = "sheet armor"
 	desc = "This appears to be two 'sheets' of a material held together by cable."
-	icon = 'icons/obj/clothing/material_armor.dmi'
+	icon = 'icons/mob/clothing/material_armor.dmi'
 	icon_state = "material_armor"
 	item_state = "material_armor"
 	contained_sprite = 1
@@ -45,7 +45,7 @@ Protectiveness | Armor %
 /obj/item/material/armor_plating
 	name = "armor plating"
 	desc = "A sheet designed to protect something."
-	icon = 'icons/obj/clothing/material_armor.dmi'
+	icon = 'icons/mob/clothing/material_armor.dmi'
 	icon_state = "armor_plate"
 	unbreakable = TRUE
 	force_divisor = 0.05
@@ -90,7 +90,7 @@ Protectiveness | Armor %
 	name = "bucket helmet"
 	desc = "It's a bucket with a large hole cut into it.  You could wear it on your head."
 	flags_inv = HIDEEARS|HIDEEYES|BLOCKHAIR
-	icon = 'icons/obj/clothing/material_armor.dmi'
+	icon = 'icons/mob/clothing/material_armor.dmi'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/lefthand_janitor.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_janitor.dmi',
@@ -106,7 +106,7 @@ Protectiveness | Armor %
 
 /obj/item/clothing/head/helmet/bucket/wood
 	name = "wooden bucket helmet"
-	icon = 'icons/obj/clothing/material_armor.dmi'
+	icon = 'icons/mob/clothing/material_armor.dmi'
 	icon_state = "woodbucket"
 	item_state = "woodbucket"
 	contained_sprite = 1
@@ -135,7 +135,7 @@ Protectiveness | Armor %
 /obj/item/clothing/head/helmet/material/makeshift
 	name = "bucket helmet"
 	desc = "A bucket with plating applied to the outside."
-	icon = 'icons/obj/clothing/material_armor.dmi'
+	icon = 'icons/mob/clothing/material_armor.dmi'
 	icon_state = "material_helmet"
 	item_state = "material_helmet"
 	contained_sprite = 1
