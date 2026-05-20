@@ -46,6 +46,9 @@ ABSTRACT_TYPE(/datum/gear/shirts)
 	shirt["halter top"] = /obj/item/clothing/under/dressshirt/haltertop
 	shirt["tank top"] = /obj/item/clothing/under/dressshirt/tanktop
 	shirt["tank top, feminine"] = /obj/item/clothing/under/dressshirt/tanktop/feminine
+	shirt["tank top, cropped"] = /obj/item/clothing/under/dressshirt/tanktop/cropped
+	shirt["tank top, feminine cropped"] = /obj/item/clothing/under/dressshirt/tanktop/cropped/feminine
+	shirt["tank top, midriff"] = /obj/item/clothing/under/dressshirt/tanktop/midriff
 	gear_tweaks += new /datum/gear_tweak/path(shirt)
 
 /datum/gear/shirts/stripes
@@ -75,3 +78,31 @@ ABSTRACT_TYPE(/datum/gear/shirts)
 	shirts["red silversun shirt"] = /obj/item/clothing/under/dressshirt/silversun/red
 	shirts["random colored silversun shirt"] = /obj/item/clothing/under/dressshirt/silversun/random
 	gear_tweaks += new /datum/gear_tweak/path(shirts)
+
+/datum/gear/shirts/precoloured
+	display_name = "pre-coloured shirt selection"
+	description = "A selection of pre-coloured and graphic shirts."
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+	path = /obj/item/clothing/under/dressshirt/corgi
+
+/datum/gear/shirts/precoloured/New()
+	..()
+	var/list/colouredshirts = list()
+	colouredshirts["corgi t-shirt"] = /obj/item/clothing/under/dressshirt/corgi
+	colouredshirts["heart t-shirt"] = /obj/item/clothing/under/dressshirt/heart
+	colouredshirts["heart t-shirt, alt"] = /obj/item/clothing/under/dressshirt/heart/alt
+	colouredshirts["I love NT t-shirt"] = /obj/item/clothing/under/dressshirt/lovent
+	colouredshirts["band t-shirt"] = /obj/item/clothing/under/dressshirt/band
+	colouredshirts["alien t-shirt"] = /obj/item/clothing/under/dressshirt/alien
+	colouredshirts["tie-dye t-shirt"] = /obj/item/clothing/under/dressshirt/tiedye
+	colouredshirts["skull t-shirt"] = /obj/item/clothing/under/dressshirt/skull
+	colouredshirts["sports t-shirt, blue"] = /obj/item/clothing/under/dressshirt/sport
+	colouredshirts["sports t-shirt, green"] = /obj/item/clothing/under/dressshirt/sport/green
+	colouredshirts["sports t-shirt, red"] = /obj/item/clothing/under/dressshirt/sport/red
+	colouredshirts["wing t-shirt"] = /obj/item/clothing/under/dressshirt/wing
+	colouredshirts["peace t-shirt"] = /obj/item/clothing/under/dressshirt/peace
+	colouredshirts["steak t-shirt"] = /obj/item/clothing/under/dressshirt/meat
+	colouredshirts["quesiton mark t-shirt"] = /obj/item/clothing/under/dressshirt/questionmark
+	colouredshirts["fire tank top"] = /obj/item/clothing/under/dressshirt/tanktop/fire
+	colouredshirts["sun tank top"] = /obj/item/clothing/under/dressshirt/tanktop/sun
+	gear_tweaks += new /datum/gear_tweak/path(colouredshirts)
