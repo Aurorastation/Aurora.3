@@ -45,7 +45,7 @@ changes:
   - rscadd: "Added xenoarch precision excavator circuit support."
   - rscadd: "Added xenoarch excavation outputs for anomaly depth, clearance, current depth, safe remaining depth, excavation amount, and target direction."
   - rscadd: "Added additional manipulation circuits from baystation."
-  - rescad: "Added an additional debug circuit that has 0 complexity, but 1 size. Basically only works to allow better organize circuits."
+  - rscadd: "Added an additional debug circuit that has 0 complexity, but 1 size. Basically only works to allow better organize circuits."
   - qol: "Improved integrated circuit printer cloning support for hosted internal assemblies."
   - qol: "Improved electronic radio headset cloning so cloned headsets keep their internal assembly bound to the headset."
   - qol: "Improved cloned headset setup for internal assembly ownership, clothing reference, action button state, and sprite updates."
