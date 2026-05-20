@@ -129,7 +129,7 @@
 		set_pin_data(IC_OUTPUT, 2, H.get_pulse_as_number(GETPULSE_TOOL))
 		set_pin_data(IC_OUTPUT, 3, H.blood_pressure())
 		set_pin_data(IC_OUTPUT, 4, H.get_blood_oxygenation())
-		set_pin_data(IC_OUTPUT, 5, H.bodytemperature)
+		set_pin_data(IC_OUTPUT, 5, H.bodytemperature-273.15)
 		set_pin_data(IC_OUTPUT, 6, H.is_asystole())
 
 	push_data()
@@ -176,7 +176,7 @@
 		set_pin_data(IC_OUTPUT, 2, H.get_pulse_as_number(GETPULSE_TOOL))
 		set_pin_data(IC_OUTPUT, 3, H.blood_pressure())
 		set_pin_data(IC_OUTPUT, 4, H.get_blood_oxygenation())
-		set_pin_data(IC_OUTPUT, 5, H.bodytemperature)
+		set_pin_data(IC_OUTPUT, 5, H.bodytemperature-273.15)
 		set_pin_data(IC_OUTPUT, 6, H.is_asystole())
 		// Advanced
 		set_pin_data(IC_OUTPUT, 7, get_severity(H.getBruteLoss(), TRUE))

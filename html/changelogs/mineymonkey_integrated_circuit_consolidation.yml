@@ -52,6 +52,7 @@ changes:
   - qol: "Improved cloned circuit preservation for removable circuit names, pin data, constant memory values, and pin links."
   - qol: "Improved database command pad feedback for invalid commands and missing command arguments."
   - qol: "Improved server-terminal workflows using text pad, database command pad, database client, database server, and screen output circuits."
+  - qol: "Updated body temperature from kelvin to celcius in the IC med/adv med scanner."
   - bugfix: "Fixed electronic radio headset blueprints printing only a loose internal clothing assembly."
   - bugfix: "Fixed imported electronic radio headset blueprints failing to recreate the headset wrapper item."
   - bugfix: "Fixed electronic radio headset cloning rebinding issues with internal assemblies."
