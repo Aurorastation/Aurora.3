@@ -64,6 +64,9 @@
 	var/list/echo_response = file2list("config/hivenet_echoes/response_[topic].txt")
 	var/joined = pick(100;0, 60;1)
 
+	if(!length(echo_starter) || !length(echo_response))
+		STOP_PROCESSING(SSprocessing, src)
+		return
 	if(joined && topic == "gossip")
 		to_chat(owner, "<i><span class='game say'>Hivenet, <span class='name'>a [pick("Faint", "Distant", "Fading", "Fleeting", "Drifting", "Low", "Weak", "Far", "Pinging", "Whispering")] Echo</span> broadcasts, <span class='vaurca'>\"[pick(echo_starter)]" + " " + "[pick(echo_response)]\"</span></span></i>")
 	else
