@@ -24,6 +24,8 @@
 			user = client.mob
 		else
 			return
+	if (!user.client)
+		return
 	// Client does NOT have tgui_input on: Returns regular input
 	if(!user.client.prefs.tgui_inputs)
 		var/input_number = input(user, message, title, default) as null|num
@@ -111,6 +113,9 @@
 	return GLOB.always_state
 
 /datum/tgui_input_number/ui_static_data(mob/user)
+	if (!user.client)
+		return list()
+
 	var/list/data = list()
 	data["init_value"] = default // Default is a reserved keyword
 	data["large_buttons"] = user.client.prefs.tgui_buttons_large
