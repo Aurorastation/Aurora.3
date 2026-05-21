@@ -1574,7 +1574,6 @@
 	activators = list(
 		"on command received" = IC_PINTYPE_PULSE_OUT
 	)
-	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	power_draw_per_use = 150
 
 

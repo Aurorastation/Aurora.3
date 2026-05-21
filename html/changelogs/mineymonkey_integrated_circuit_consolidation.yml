@@ -47,6 +47,7 @@ changes:
   - rscadd: "Added additional manipulation circuits from baystation."
   - rscadd: "Added an additional debug circuit that has 0 complexity, but 1 size. Basically only works to allow better organize circuits."
   - rscadd: "Added an append ability for importing JSON files for circuit cloning as the limit appears to be 30000 characters, but a max cap machine (100 circuits) is likely to go past that easily"
+  - rscadd: "Actually made the cloner disk printable in the prolathe woops.""
   - qol: "Improved integrated circuit printer cloning support for hosted internal assemblies."
   - qol: "Improved electronic radio headset cloning so cloned headsets keep their internal assembly bound to the headset."
   - qol: "Improved cloned headset setup for internal assembly ownership, clothing reference, action button state, and sprite updates."
@@ -65,3 +66,4 @@ changes:
   - bugfix: "Fixed radio command receiver input declaration formatting."
   - bugfix: "Fixed integrated hypo-injector delayed injection behavior using a timer callback instead of sleeping in do_work."
   - bugfix: "Fixed injector failure handling for invalid, empty, non-adjacent, or non-injectable targets."
+  - bugfix: "Best one I can think of? Basically removed the spawn flags for /obj/item/integrated_circuit/input/radio_command_receiver because it literally has zero use besides being in the electronic headset item, and well that's already built into it."
