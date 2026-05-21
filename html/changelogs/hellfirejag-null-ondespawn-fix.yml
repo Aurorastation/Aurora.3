@@ -1,0 +1,4 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - bugfix: "Fixed a runtime error that occurs sometimes when a character despawns via cryopod."
