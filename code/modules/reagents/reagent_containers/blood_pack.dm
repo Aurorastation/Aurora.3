@@ -85,7 +85,7 @@
 				LAZYADD(src.other_DNA, target_mob.dna.unique_enzymes)
 				src.other_DNA_type = "saliva"
 
-			while (do_after(user, 25, 5))
+			while (do_after(user, 25, src))
 				var/blood_taken = 0
 				blood_taken = min(5, REAGENT_VOLUME(reagents, /singleton/reagent/blood)/4)
 
