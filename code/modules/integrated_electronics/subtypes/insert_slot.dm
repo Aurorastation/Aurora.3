@@ -228,6 +228,12 @@
 	..()
 
 	var/obj/item/I = get_first_item()
+	set_pin_data(IC_OUTPUT, 1, !!I)
+	set_pin_data(IC_OUTPUT, 2, src)
+	set_pin_data(IC_OUTPUT, 3, I)
+	set_pin_data(IC_OUTPUT, 4, I ? I.name : null)
+	set_pin_data(IC_OUTPUT, 5, I ? 1 : 0)
+	set_pin_data(IC_OUTPUT, 6, I ? 0 : capacity)
 	var/obj/item/card/id/card = null
 	var/list/access = null
 

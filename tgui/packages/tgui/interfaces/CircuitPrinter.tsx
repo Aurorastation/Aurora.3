@@ -18,6 +18,7 @@ export type PrinterData = {
   can_clone: BooleanLike;
   assembly_to_clone: string;
   clone_cost: number;
+  clone_phoron_cost: number;
   clone_print_time: number;
   currently_printing: BooleanLike;
   has_clone_blueprint: BooleanLike;
@@ -95,9 +96,14 @@ export const CircuitPrinter = (props, context) => {
               <LabeledList.Item label="Loaded Blueprint">
                 {data.assembly_to_clone || 'None'}
               </LabeledList.Item>
-              <LabeledList.Item label="Clone Cost">
+              <LabeledList.Item label="Steel Cost">
                 {data.assembly_to_clone && data.assembly_to_clone !== 'None'
                   ? `${data.clone_cost} sheets`
+                  : 'N/A'}
+              </LabeledList.Item>
+              <LabeledList.Item label="Phoron Cost">
+                {data.assembly_to_clone && data.assembly_to_clone !== 'None'
+                  ? `${data.clone_phoron_cost} sheets`
                   : 'N/A'}
               </LabeledList.Item>
               <LabeledList.Item label="Print Time">
@@ -114,7 +120,8 @@ export const CircuitPrinter = (props, context) => {
                 !data.assembly_to_clone ||
                 data.assembly_to_clone === 'None' ||
                 data.currently_printing ||
-                data.metal < data.clone_cost
+                data.metal < data.clone_cost ||
+                data.phoron < data.clone_phoron_cost
               }
               onClick={() => act('clone')}
             />
@@ -143,6 +150,24 @@ export const CircuitPrinter = (props, context) => {
               icon="file-import"
               disabled={data.currently_printing}
               onClick={() => act('import_clone')}
+            />
+            <Button
+              content="Append Import Chunk"
+              icon="plus"
+              disabled={data.currently_printing}
+              onClick={() => act('append_import_chunk')}
+            />
+            <Button
+              content="Import Buffered Blueprint"
+              icon="file-import"
+              disabled={data.currently_printing}
+              onClick={() => act('import_buffered_clone')}
+            />
+            <Button
+              content="Clear Import Buffer"
+              icon="eraser"
+              disabled={data.currently_printing}
+              onClick={() => act('clear_import_buffer')}
             />
             <Button
               content="Clear Imported Blueprint"

@@ -29,6 +29,7 @@
 	var/list/clone_blueprint_data = null
 	var/clone_blueprint_name = null
 	var/clone_blueprint_export = null
+	var/clone_blueprint_import_buffer = ""
 
 	// Clone timing is based on total clone steel cost.
 	// 1 SECOND is 10 ticks on this codebase.
@@ -177,6 +178,37 @@
 	to_chat(user, SPAN_NOTICE("You scan \the [target] into \the [src]'s cloning buffer."))
 	return TRUE
 
+/obj/item/integrated_circuit_printer/proc/import_clone_blueprint_text(var/import_text, var/mob/user)
+	if(!import_text)
+		return FALSE
+
+	import_text = html_decode(import_text)
+
+	var/start_index = findtext(import_text, "{")
+	var/end_index = findlasttext(import_text, "}")
+
+	if(start_index && end_index && end_index >= start_index)
+		import_text = copytext(import_text, start_index, end_index + 1)
+
+	var/list/imported_blueprint = json_decode(import_text)
+	if(!islist(imported_blueprint))
+		to_chat(user, SPAN_WARNING("That cloning blueprint text is invalid."))
+		return FALSE
+
+	var/assembly_path = text2path(imported_blueprint["assembly_type"])
+	if(!assembly_path || !ispath(assembly_path, /obj/item/electronic_assembly))
+		to_chat(user, SPAN_WARNING("That cloning blueprint does not contain a valid assembly type."))
+		return FALSE
+
+	clone_blueprint_data = imported_blueprint
+	clone_blueprint_name = clone_blueprint_data["name"]
+	clone_blueprint_export = import_text
+	assembly_to_clone = null
+	clone_item_to_clone = null
+
+	to_chat(user, SPAN_NOTICE("You import the cloning blueprint: [clone_blueprint_name]."))
+	return TRUE
+
 
 /obj/item/integrated_circuit_printer/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
@@ -226,37 +258,44 @@
 		if(!import_text)
 			return FALSE
 
-		import_text = html_decode(import_text)
+		return import_clone_blueprint_text(import_text, usr)
 
-		var/start_index = findtext(import_text, "{")
-		var/end_index = findlasttext(import_text, "}")
-
-		if(start_index && end_index && end_index >= start_index)
-			import_text = copytext(import_text, start_index, end_index + 1)
-
-		var/list/imported_blueprint = json_decode(import_text)
-		if(!islist(imported_blueprint))
-			to_chat(usr, SPAN_WARNING("That cloning blueprint text is invalid."))
-			return FALSE
-
-		var/assembly_path = text2path(imported_blueprint["assembly_type"])
-		if(!assembly_path || !ispath(assembly_path, /obj/item/electronic_assembly))
-			to_chat(usr, SPAN_WARNING("That cloning blueprint does not contain a valid assembly type."))
-			return FALSE
-
-		clone_blueprint_data = imported_blueprint
-		clone_blueprint_name = clone_blueprint_data["name"]
-		clone_blueprint_export = import_text
-		assembly_to_clone = null
-		clone_item_to_clone = null
-
-		to_chat(usr, SPAN_NOTICE("You import the cloning blueprint: [clone_blueprint_name]."))
+	if(action == "clear_import_buffer")
+		clone_blueprint_import_buffer = ""
+		to_chat(usr, SPAN_NOTICE("You clear the cloning blueprint import buffer."))
 		return TRUE
+
+	if(action == "append_import_chunk")
+		if(!can_clone)
+			to_chat(usr, SPAN_WARNING("\The [src] needs a circuit cloner upgrade for that."))
+			return FALSE
+
+		var/import_chunk = input(usr, "Paste the next cloning blueprint chunk:", "Append Blueprint Chunk") as message|null
+		if(!import_chunk)
+			return FALSE
+
+		import_chunk = html_decode(import_chunk)
+		clone_blueprint_import_buffer += import_chunk
+
+		to_chat(usr, SPAN_NOTICE("You append [length(import_chunk)] character\s to the cloning blueprint import buffer. Buffer length: [length(clone_blueprint_import_buffer)]."))
+		return TRUE
+
+	if(action == "import_buffered_clone")
+		if(!can_clone)
+			to_chat(usr, SPAN_WARNING("\The [src] needs a circuit cloner upgrade for that."))
+			return FALSE
+
+		if(!clone_blueprint_import_buffer)
+			to_chat(usr, SPAN_WARNING("The cloning blueprint import buffer is empty."))
+			return FALSE
+
+		return import_clone_blueprint_text(clone_blueprint_import_buffer, usr)
 
 	if(action == "clear_imported_clone")
 		clone_blueprint_data = null
 		clone_blueprint_name = null
 		clone_blueprint_export = null
+		clone_blueprint_import_buffer = ""
 		to_chat(usr, SPAN_NOTICE("You clear the imported circuit cloning blueprint."))
 		return TRUE
 
@@ -345,6 +384,8 @@
 			new build_type(get_turf(loc))
 
 		return TRUE
+
+	return FALSE
 
 
 /obj/item/integrated_circuit_printer/proc/finish_clone_print(mob/user, cost, phoron_cost, obj/item/electronic_assembly/live_scan_to_print, list/blueprint_to_print)

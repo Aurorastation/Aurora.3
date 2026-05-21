@@ -218,7 +218,7 @@
 	if(!istype(H)) //Invalid input
 		return
 
-	if(H in view(T)) // This is a camera. It can't examine thngs,that it can't see.
+	if((H in view(T)) || (get_turf(H) == T))
 
 
 		set_pin_data(IC_OUTPUT, 1, H.name)

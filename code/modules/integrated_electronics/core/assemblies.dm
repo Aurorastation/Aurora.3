@@ -186,7 +186,7 @@
 
 /obj/item/electronic_assembly/feedback_hints(mob/user, distance, is_adjacent)
 	. = ..()
-	if(distance <= 1 && !opened)
+	if(is_adjacent && opened)
 		for(var/obj/item/integrated_circuit/IC in contents)
 			. += SPAN_NOTICE("It contains \a [IC].")
 
