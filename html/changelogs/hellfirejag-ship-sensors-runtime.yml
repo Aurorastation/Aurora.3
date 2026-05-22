@@ -1,4 +1,0 @@
-author: Hellfirejag
-delete-after: True
-changes:
-  - bugfix: "Fixed a very expensive (lags the server during ship combat) runtime error related to ship sensors."

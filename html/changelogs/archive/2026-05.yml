@@ -220,3 +220,8 @@
   - qol: Changed weight class on integrated circuit printer from BULKY to NORMAL.
   - qol: Changed integrated circuit advanced med scanner from NUM to Severity based
       detection to further align with the current health scanners.
+2026-05-22:
+  Hellfirejag:
+  - bugfix: Fixed a very expensive (lags the server during ship combat) runtime error
+      related to ship sensors.
+  - rscadd: Added a UI indicator for Morale modifiers.
