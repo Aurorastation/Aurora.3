@@ -102,7 +102,9 @@ ABSTRACT_TYPE(/datum/gear/shirts)
 	colouredshirts["wing t-shirt"] = /obj/item/clothing/under/dressshirt/wing
 	colouredshirts["peace t-shirt"] = /obj/item/clothing/under/dressshirt/peace
 	colouredshirts["steak t-shirt"] = /obj/item/clothing/under/dressshirt/meat
-	colouredshirts["quesiton mark t-shirt"] = /obj/item/clothing/under/dressshirt/questionmark
+	colouredshirts["question mark t-shirt"] = /obj/item/clothing/under/dressshirt/questionmark
 	colouredshirts["fire tank top"] = /obj/item/clothing/under/dressshirt/tanktop/fire
+	colouredshirts["fire tank top, feminine"] = /obj/item/clothing/under/dressshirt/tanktop/fire/feminine
 	colouredshirts["sun tank top"] = /obj/item/clothing/under/dressshirt/tanktop/sun
+	colouredshirts["sun tank top, feminine"] = /obj/item/clothing/under/dressshirt/tanktop/sun/feminine
 	gear_tweaks += new /datum/gear_tweak/path(colouredshirts)

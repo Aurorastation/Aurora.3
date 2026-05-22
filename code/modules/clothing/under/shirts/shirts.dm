@@ -271,7 +271,7 @@
 
 /obj/item/clothing/under/dressshirt/lovent
 	name = "\improper I love NT t-shirt"
-	desc = "A white t-shirt with the text 'I <3 NT' on it. Another way to show your love of NanoTrasen!"
+	desc = "A white t-shirt with the text \"I ❤ NT\" on it. Another way to show your love of NanoTrasen!"
 	icon_state = "tshirt_lovent"
 	item_state = "tshirt_lovent"
 
@@ -345,8 +345,16 @@
 	icon_state = "tanktop_fire"
 	item_state = "tanktop_fire"
 
+/obj/item/clothing/under/dressshirt/tanktop/fire/feminine
+	icon_state = "tanktop_fire_fem"
+	item_state = "tanktop_fire_fem"
+
 /obj/item/clothing/under/dressshirt/tanktop/sun
 	name = "sun tank top"
 	desc = "A tank top with a sun decal on it."
 	icon_state = "tanktop_sun"
 	item_state = "tanktop_sun"
+
+/obj/item/clothing/under/dressshirt/tanktop/sun/feminine
+	icon_state = "tanktop_sun_fem"
+	item_state = "tanktop_sun_fem"
