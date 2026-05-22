@@ -13,6 +13,8 @@
 
 	unit_test_groups = list(1)
 
+	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
+
 /singleton/submap_archetype/lone_spacer
 	map = "Independent Skiff"
 	descriptor = "A small independent spacecraft."

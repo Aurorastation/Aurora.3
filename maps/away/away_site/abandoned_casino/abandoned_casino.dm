@@ -12,6 +12,8 @@
 
 	unit_test_groups = list(2)
 
+	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
+
 /singleton/submap_archetype/casino
 	map = "Casino"
 	descriptor = "A casino station!"
