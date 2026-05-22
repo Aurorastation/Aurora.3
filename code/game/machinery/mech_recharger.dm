@@ -15,6 +15,11 @@
 	var/repair
 	var/charge
 
+	var/charge_per_capacitor_rating = 0.5
+	var/charge_per_scanner_rating = 0.25
+	var/repair_per_scanner_rating = 0.25
+	var/repair_per_manipulator_rating = 0.5
+
 	component_types = list(
 		/obj/item/circuitboard/mech_recharger,
 		/obj/item/stock_parts/capacitor = 2,
@@ -70,12 +75,12 @@
 
 	for(var/obj/item/stock_parts/P in component_parts) //Charges at 315 kW and repairs at 2 HP/s fully upgraded.
 		if(iscapacitor(P))
-			charge += P.rating * 0.5
+			charge += P.rating * charge_per_capacitor_rating
 		else if(isscanner(P))
-			charge += P.rating * 0.25
-			repair += P.rating * 0.25
+			charge += P.rating * charge_per_scanner_rating
+			repair += P.rating * repair_per_scanner_rating
 		else if(ismanipulator(P))
-			repair += P.rating * 0.5
+			repair += P.rating * repair_per_manipulator_rating
 
 	change_power_consumption(initial(base_charge_rate) * charge, POWER_USE_ACTIVE)
 
