@@ -1,0 +1,4 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - code_imp: "Added an ENFORCE_CALCULUS(seconds_per_tick) macro to help spot bugs in procs that use calculus methods."
