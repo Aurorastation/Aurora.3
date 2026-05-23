@@ -6,7 +6,7 @@
  *		Low Supply
  */
 
-/obj/machinery/vending/phoronresearch
+/obj/structure/machinery/vending/phoronresearch
 	name = "Toximate 3000"
 	desc = "All the fine parts you need in one vending machine!"
 	vend_id = "bomba"
@@ -35,7 +35,7 @@
 	light_color = COLOR_BLUE_GRAY
 	manufacturer = "scc"
 
-/obj/machinery/vending/battlemonsters
+/obj/structure/machinery/vending/battlemonsters
 	name = "\improper Battlemonsters vendor"
 	desc = "A good place to dump all your rent money."
 	icon_state = "battlemonsters"
@@ -78,7 +78,7 @@
 	charges = 40
 
 
-/obj/machinery/vending/overloaders
+/obj/structure/machinery/vending/overloaders
 	name = "GwokBuzz Vendor"
 	desc = "An entertainment software machine supplied by Gwok Software, a member of the Gwok Group."
 	desc_extended = "Previously the realm of amateur programmers and niche companies, the Gwok Group acquired and amalgamated a number of popular Port Verdant overloader brands in order to capitalize on the growing industry. Seeing untapped markets abroad, the corporation has begun exporting to nations with free IPC populations."
@@ -107,14 +107,14 @@
 	)
 	light_color = LIGHT_COLOR_CYAN
 
-/obj/machinery/vending/overloaders/low_supply
+/obj/structure/machinery/vending/overloaders/low_supply
 	products = list(
 		/obj/item/storage/overloader/classic = 2,
 		/obj/item/storage/overloader/rainbow = 1,
 		/obj/item/storage/overloader/screenshaker = 1
 	)
 
-/obj/machinery/vending/lavatory
+/obj/structure/machinery/vending/lavatory
 	name = "Lavatory Essentials"
 	desc = "Vends things that make you less reviled in the work-place!"
 	icon_state = "lavatory"
@@ -148,7 +148,7 @@
 		/obj/item/inflatable_duck = 1
 	)
 
-/obj/machinery/vending/lavatory/low_supply
+/obj/structure/machinery/vending/lavatory/low_supply
 	products = list(
 		/obj/item/soap = 4,
 		/obj/item/mirror = 2,

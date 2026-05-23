@@ -25,7 +25,7 @@
 
 #define CLONE_BIOMASS 150
 
-/obj/machinery/clonepod
+/obj/structure/machinery/clonepod
 	name = "cloning pod"
 	desc = "An electronically-lockable pod for growing organic tissue."
 	density = 1
@@ -37,7 +37,7 @@
 	var/heal_level = 20 //The clone is released once its health reaches this level.
 	var/heal_rate = 1
 	var/locked = 0
-	var/obj/machinery/computer/cloning/connected = null //So we remember the connected clone machine.
+	var/obj/structure/machinery/computer/cloning/connected = null //So we remember the connected clone machine.
 	var/mess = 0 //Need to clean out it if it's full of exploded clone.
 	var/attempting = 0 //One clone attempt at a time thanks
 	var/eject_wait = 0 //Don't eject them as soon as they are created fuckkk
@@ -51,22 +51,22 @@
 		/obj/item/stack/cable_coil{amount = 2}
 	)
 
-/obj/machinery/clonepod/Initialize()
+/obj/structure/machinery/clonepod/Initialize()
 	. = ..()
 	update_icon()
 
-/obj/machinery/clonepod/Destroy()
+/obj/structure/machinery/clonepod/Destroy()
 	if(connected)
 		connected.release_pod(src)
 	return ..()
 
-/obj/machinery/clonepod/attack_ai(mob/user as mob)
+/obj/structure/machinery/clonepod/attack_ai(mob/user as mob)
 	if(!ai_can_interact(user))
 		return
 	add_hiddenprint(user)
 	return attack_hand(user)
 
-/obj/machinery/clonepod/attack_hand(var/mob/user)
+/obj/structure/machinery/clonepod/attack_hand(var/mob/user)
 	if((stat & NOPOWER) || !occupant || occupant.stat == DEAD)
 		return
 	to_chat(user, "Current clone cycle is [round(GetCloneReadiness())]% complete.")
@@ -74,7 +74,7 @@
 //Clonepod
 
 //Start growing a human clone in the pod!
-/obj/machinery/clonepod/proc/growclone(var/datum/dna2/record/R)
+/obj/structure/machinery/clonepod/proc/growclone(var/datum/dna2/record/R)
 	if(mess || attempting)
 		return 0
 	var/datum/mind/clonemind = locate(R.mind)
@@ -155,7 +155,7 @@
 	attempting = 0
 	return 1
 
-/obj/machinery/clonepod/proc/GetCloneReadiness() // Returns a number between 0 and 100
+/obj/structure/machinery/clonepod/proc/GetCloneReadiness() // Returns a number between 0 and 100
 	if(!occupant)
 		return
 
@@ -165,7 +165,7 @@
 	return between(0, 100 * (occupant.health - occupant.maxhealth * 75 / 100) / (occupant.maxhealth * (heal_level - 75) / 100), 100)
 
 //Grow clones to maturity then kick them out.  FREELOADERS
-/obj/machinery/clonepod/process()
+/obj/structure/machinery/clonepod/process()
 
 	if(stat & NOPOWER) //Autoeject if power is lost
 		if(occupant)
@@ -212,7 +212,7 @@
 	return
 
 //Let's unlock this early I guess.  Might be too early, needs tweaking.
-/obj/machinery/clonepod/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/clonepod/attackby(obj/item/attacking_item, mob/user)
 	if(isnull(occupant))
 		if(default_deconstruction_screwdriver(user, attacking_item))
 			return TRUE
@@ -257,7 +257,7 @@
 	else
 		return ..()
 
-/obj/machinery/clonepod/emag_act(var/remaining_charges, var/mob/user)
+/obj/structure/machinery/clonepod/emag_act(var/remaining_charges, var/mob/user)
 	if(isnull(occupant))
 		return NO_EMAG_ACT
 	to_chat(user, "You force an emergency ejection.")
@@ -266,8 +266,8 @@
 	return 1
 
 //Put messages in the connected computer's temp var for display.
-/obj/machinery/clonepod/proc/connected_message(var/message)
-	if((isnull(connected)) || (!istype(connected, /obj/machinery/computer/cloning)))
+/obj/structure/machinery/clonepod/proc/connected_message(var/message)
+	if((isnull(connected)) || (!istype(connected, /obj/structure/machinery/computer/cloning)))
 		return 0
 	if(!message)
 		return 0
@@ -276,7 +276,7 @@
 	connected.updateUsrDialog()
 	return 1
 
-/obj/machinery/clonepod/RefreshParts()
+/obj/structure/machinery/clonepod/RefreshParts()
 	..()
 	var/rating = 0
 
@@ -287,7 +287,7 @@
 	heal_level = rating * 10 - 20
 	heal_rate = round(rating / 4)
 
-/obj/machinery/clonepod/verb/eject()
+/obj/structure/machinery/clonepod/verb/eject()
 	set name = "Eject Cloner"
 	set category = "Object"
 	set src in oview(1)
@@ -298,7 +298,7 @@
 	add_fingerprint(usr)
 	return
 
-/obj/machinery/clonepod/proc/go_out()
+/obj/structure/machinery/clonepod/proc/go_out()
 	if(locked)
 		return
 
@@ -323,7 +323,7 @@
 	update_icon()
 	return
 
-/obj/machinery/clonepod/proc/malfunction()
+/obj/structure/machinery/clonepod/proc/malfunction()
 	if(occupant)
 		connected_message("Critical Error!")
 		mess = 1
@@ -333,7 +333,7 @@
 			qdel(occupant)
 	return
 
-/obj/machinery/clonepod/relaymove(mob/living/user, direction)
+/obj/structure/machinery/clonepod/relaymove(mob/living/user, direction)
 	. = ..()
 
 	if(user.stat)
@@ -341,13 +341,13 @@
 	go_out()
 	return
 
-/obj/machinery/clonepod/emp_act(severity)
+/obj/structure/machinery/clonepod/emp_act(severity)
 	. = ..()
 
 	if(prob(100/severity))
 		malfunction()
 
-/obj/machinery/clonepod/ex_act(severity)
+/obj/structure/machinery/clonepod/ex_act(severity)
 	switch(severity)
 		if(1.0)
 			for(var/atom/movable/A as mob|obj in src)
@@ -371,7 +371,7 @@
 				return
 	return
 
-/obj/machinery/clonepod/update_icon()
+/obj/structure/machinery/clonepod/update_icon()
 	..()
 	icon_state = "pod_0"
 	if (occupant && !(stat & NOPOWER))
@@ -485,6 +485,6 @@
 
 //SOME SCRAPS I GUESS
 /* EMP grenade/spell effect
-		if(istype(A, /obj/machinery/clonepod))
+		if(istype(A, /obj/structure/machinery/clonepod))
 			A:malfunction()
 */

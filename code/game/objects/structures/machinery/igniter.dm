@@ -1,4 +1,4 @@
-/obj/machinery/igniter
+/obj/structure/machinery/igniter
 	name = "igniter"
 	desc = "It's useful for igniting flammable items."
 	icon = 'icons/obj/stationobjs.dmi'
@@ -11,45 +11,45 @@
 	var/_wifi_id
 	var/datum/wifi/receiver/button/igniter/wifi_receiver
 
-/obj/machinery/igniter/Initialize()
+/obj/structure/machinery/igniter/Initialize()
 	. = ..()
 	update_icon()
 	if(_wifi_id)
 		wifi_receiver = new(_wifi_id, src)
 
-/obj/machinery/igniter/update_icon()
+/obj/structure/machinery/igniter/update_icon()
 	..()
 	icon_state = "igniter[on]"
 
-/obj/machinery/igniter/Destroy()
+/obj/structure/machinery/igniter/Destroy()
 	qdel(wifi_receiver)
 	wifi_receiver = null
 	return ..()
 
-/obj/machinery/igniter/attack_ai(mob/user as mob)
+/obj/structure/machinery/igniter/attack_ai(mob/user as mob)
 	if(!ai_can_interact(user))
 		return
 	return src.attack_hand(user)
 
-/obj/machinery/igniter/attack_hand(mob/user as mob)
+/obj/structure/machinery/igniter/attack_hand(mob/user as mob)
 	if(..())
 		return
 	add_fingerprint(user)
 	ignite()
 	return
 
-/obj/machinery/igniter/process()	//ugh why is this even in process()?
+/obj/structure/machinery/igniter/process()	//ugh why is this even in process()?
 	if (on && powered() )
 		var/turf/location = src.loc
 		if (isturf(location))
 			location.hotspot_expose(1000,500,1)
 	return 1
 
-/obj/machinery/igniter/power_change()
+/obj/structure/machinery/igniter/power_change()
 	..()
 	update_icon()
 
-/obj/machinery/igniter/proc/ignite()
+/obj/structure/machinery/igniter/proc/ignite()
 	use_power_oneoff(50)
 	on = !on
 	if(on)
@@ -61,7 +61,7 @@
 
 // Wall mounted remote-control igniter.
 
-/obj/machinery/sparker
+/obj/structure/machinery/sparker
 	name = "Mounted igniter"
 	desc = "A wall-mounted ignition device."
 	icon = 'icons/obj/stationobjs.dmi'
@@ -76,17 +76,17 @@
 	var/_wifi_id
 	var/datum/wifi/receiver/button/sparker/wifi_receiver
 
-/obj/machinery/sparker/Initialize()
+/obj/structure/machinery/sparker/Initialize()
 	. = ..()
 	if(_wifi_id)
 		wifi_receiver = new(_wifi_id, src)
 
-/obj/machinery/sparker/Destroy()
+/obj/structure/machinery/sparker/Destroy()
 	qdel(wifi_receiver)
 	wifi_receiver = null
 	return ..()
 
-/obj/machinery/sparker/update_icon()
+/obj/structure/machinery/sparker/update_icon()
 	..()
 	if(disable)
 		icon_state = "migniter-d"
@@ -97,11 +97,11 @@
 		icon_state = "migniter-p"
 //		src.sd_SetLuminosity(0)
 
-/obj/machinery/sparker/power_change()
+/obj/structure/machinery/sparker/power_change()
 	..()
 	update_icon()
 
-/obj/machinery/sparker/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/sparker/attackby(obj/item/attacking_item, mob/user)
 	if (attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		add_fingerprint(user)
 		disable = !disable
@@ -112,13 +112,13 @@
 		update_icon()
 		return TRUE
 
-/obj/machinery/sparker/attack_ai(mob/user)
+/obj/structure/machinery/sparker/attack_ai(mob/user)
 	if(!ai_can_interact(user))
 		return
 	if (anchored)
 		return ignite()
 
-/obj/machinery/sparker/proc/ignite()
+/obj/structure/machinery/sparker/proc/ignite()
 	if (!powered())
 		return
 
@@ -135,7 +135,7 @@
 		location.hotspot_expose(1000,500,1)
 	return 1
 
-/obj/machinery/sparker/emp_act(severity)
+/obj/structure/machinery/sparker/emp_act(severity)
 	. = ..()
 
 	if(stat & (BROKEN|NOPOWER))
@@ -143,38 +143,38 @@
 
 	ignite()
 
-/obj/machinery/button/ignition
+/obj/structure/machinery/button/ignition
 	name = "ignition switch"
 	desc = "A remote control switch for a mounted igniter."
 	active_time = 5 SECONDS
 	var/list/datum/weakref/linked_sparkers
 	var/list/datum/weakref/linked_igniters
 
-/obj/machinery/button/ignition/Initialize()
+/obj/structure/machinery/button/ignition/Initialize()
 	..()
 	return INITIALIZE_HINT_LATELOAD
 
-/obj/machinery/button/ignition/LateInitialize()
+/obj/structure/machinery/button/ignition/LateInitialize()
 	. = ..()
-	for (var/obj/machinery/M in SSmachinery.machinery)
-		var/obj/machinery/sparker/S = M
+	for (var/obj/structure/machinery/M in SSmachinery.machinery)
+		var/obj/structure/machinery/sparker/S = M
 		if (istype(S) && S.id == id)
 			LAZYADD(linked_sparkers, WEAKREF(S))
 		else
-			var/obj/machinery/igniter/I = M
+			var/obj/structure/machinery/igniter/I = M
 			if (istype(I) && I.id == id)
 				LAZYADD(linked_igniters, WEAKREF(I))
 
-/obj/machinery/button/ignition/activate(mob/living/user)
+/obj/structure/machinery/button/ignition/activate(mob/living/user)
 	if(..())
 		return
 
 	for (var/datum/weakref/W in linked_sparkers)
-		var/obj/machinery/sparker/S = W.resolve()
+		var/obj/structure/machinery/sparker/S = W.resolve()
 		if(!isnull(S))
-			INVOKE_ASYNC(S, TYPE_PROC_REF(/obj/machinery/sparker, ignite))
+			INVOKE_ASYNC(S, TYPE_PROC_REF(/obj/structure/machinery/sparker, ignite))
 
 	for (var/datum/weakref/W in linked_igniters)
-		var/obj/machinery/igniter/I = W.resolve()
+		var/obj/structure/machinery/igniter/I = W.resolve()
 		if(!isnull(I))
 			I.ignite()

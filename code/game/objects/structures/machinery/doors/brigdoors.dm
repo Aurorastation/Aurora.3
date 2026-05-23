@@ -6,7 +6,7 @@
 //
 // Brig Door Control Displays
 //
-/obj/machinery/door_timer
+/obj/structure/machinery/door_timer
 	name = "door timer"
 	desc = "A remote control for a door."
 	icon = 'icons/obj/status_display.dmi'
@@ -19,7 +19,7 @@
 	var/releasetime = 0		// when world.timeofday reaches it - release the prisoner
 	var/timing = TRUE    		// boolean, true/1 timer is on, false/0 means it's not timing
 	var/picture_state		// icon_state of alert picture, if not displaying text/numbers
-	var/list/obj/machinery/targets = list()
+	var/list/obj/structure/machinery/targets = list()
 	var/timetoset = 0		// Used to set releasetime upon starting the timer
 
 	var/datum/crime_incident/incident
@@ -31,21 +31,21 @@
 
 	var/datum/browser/menu = new(null, "brig_timer", "Brig Timer", 400, 300)
 
-/obj/machinery/door_timer/Initialize()
+/obj/structure/machinery/door_timer/Initialize()
 	..()
 	return INITIALIZE_HINT_LATELOAD
 
-/obj/machinery/door_timer/LateInitialize()
+/obj/structure/machinery/door_timer/LateInitialize()
 	. = ..()
-	for(var/obj/machinery/door/airlock/glass_security/D in SSmachinery.machinery)
+	for(var/obj/structure/machinery/door/airlock/glass_security/D in SSmachinery.machinery)
 		if(D.id_tag == src.id) // Airlocks use "id_tag" instead of "id".
 			targets += D
 
-	for(var/obj/machinery/door/window/brigdoor/D2 in SSmachinery.machinery)
+	for(var/obj/structure/machinery/door/window/brigdoor/D2 in SSmachinery.machinery)
 		if(D2.id == src.id)
 			targets += D2
 
-	for(var/obj/machinery/flasher/F in SSmachinery.machinery)
+	for(var/obj/structure/machinery/flasher/F in SSmachinery.machinery)
 		if(F.id == src.id)
 			targets += F
 
@@ -57,7 +57,7 @@
 		stat |= BROKEN
 	update_icon()
 
-/obj/machinery/door_timer/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+/obj/structure/machinery/door_timer/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(stat & (NOPOWER|BROKEN))
 		return
@@ -70,7 +70,7 @@
 //Main door timer loop, if it's timing and time is >0 reduce time by 1.
 // if it's less than 0, open door, reset timer
 // update the door_timer window and the icon
-/obj/machinery/door_timer/process()
+/obj/structure/machinery/door_timer/process()
 	if(stat & (NOPOWER|BROKEN))	return
 
 	if(src.timing)
@@ -91,7 +91,7 @@
 	return
 
 // has the door power situation changed, if so update icon.
-/obj/machinery/door_timer/power_change()
+/obj/structure/machinery/door_timer/power_change()
 	..()
 	update_icon()
 	return
@@ -100,20 +100,20 @@
 // linked door is open/closed (by density) then opens it/closes it.
 
 // Closes and locks doors, power check
-/obj/machinery/door_timer/proc/timer_start()
+/obj/structure/machinery/door_timer/proc/timer_start()
 	if(stat & (NOPOWER|BROKEN))	return 0
 
 	// Set releasetime
 	releasetime = world.timeofday + timetoset
 
 	// Airlocks
-	for(var/obj/machinery/door/airlock/D in targets)
+	for(var/obj/structure/machinery/door/airlock/D in targets)
 		if(D.density)
 			continue
 		D.close()
 
 	// Windoors
-	for(var/obj/machinery/door/window/D2 in targets)
+	for(var/obj/structure/machinery/door/window/D2 in targets)
 		if(D2.density)
 			continue
 		D2.close()
@@ -131,7 +131,7 @@
 	return TRUE
 
 // Opens and unlocks doors, power check
-/obj/machinery/door_timer/proc/timer_end(var/early = 0, var/broadcast)
+/obj/structure/machinery/door_timer/proc/timer_end(var/early = 0, var/broadcast)
 	if(stat & (NOPOWER|BROKEN))
 		return FALSE
 
@@ -142,13 +142,13 @@
 	timeset(0)
 
 	// Airlocks
-	for(var/obj/machinery/door/airlock/D in targets)
+	for(var/obj/structure/machinery/door/airlock/D in targets)
 		if(!D.density)
 			continue
 		D.open()
 
 	// Windoors
-	for(var/obj/machinery/door/window/D2 in targets)
+	for(var/obj/structure/machinery/door/window/D2 in targets)
 		if(!D2.density)
 			continue
 		D2.open()
@@ -182,7 +182,7 @@
 
 
 // Check for releasetime timeleft
-/obj/machinery/door_timer/proc/timeleft()
+/obj/structure/machinery/door_timer/proc/timeleft()
 	var/timeleft = timetoset
 
 	if(src.timing)
@@ -193,7 +193,7 @@
 		. = 0
 
 // Set timetoset
-/obj/machinery/door_timer/proc/timeset(var/seconds)
+/obj/structure/machinery/door_timer/proc/timeset(var/seconds)
 	timetoset = seconds * 10
 
 	if(timetoset <= 0)
@@ -202,7 +202,7 @@
 	return
 
 //Allows AIs to use door_timer, see human attack_hand function below
-/obj/machinery/door_timer/attack_ai(var/mob/user)
+/obj/structure/machinery/door_timer/attack_ai(var/mob/user)
 	if(!ai_can_interact(user))
 		return
 	return src.attack_hand(user)
@@ -210,7 +210,7 @@
 // Allows humans to use door_timer
 // Opens dialog window when someone clicks on door timer
 // Flasher activation limited to 150 seconds
-/obj/machinery/door_timer/attack_hand(var/mob/user)
+/obj/structure/machinery/door_timer/attack_hand(var/mob/user)
 	if(..())
 		return
 
@@ -232,7 +232,7 @@
 
 	return
 
-/obj/machinery/door_timer/proc/menu_timer(var/mob/user)
+/obj/structure/machinery/door_timer/proc/menu_timer(var/mob/user)
 	// Used for the 'time left' display
 	var/second = round(timeleft() % 60)
 	var/minute = round((timeleft() - second) / 60)
@@ -255,7 +255,7 @@
 
 
 	// Mounted Flash Controls
-	for(var/obj/machinery/flasher/F in targets)
+	for(var/obj/structure/machinery/flasher/F in targets)
 		. += "<br><b>Cell Flash</b>: "
 		if(F.last_flash && (F.last_flash + 150) > world.time)
 			. += "Charging..."
@@ -267,7 +267,7 @@
 
 	return .
 
-/obj/machinery/door_timer/proc/menu_charges()
+/obj/structure/machinery/door_timer/proc/menu_charges()
 	. = ""
 
 	if(!incident)
@@ -291,7 +291,7 @@
 
 	return .
 
-/obj/machinery/door_timer/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/door_timer/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/paper/incident))
 		if(!incident)
 			if(import(attacking_item, user))
@@ -308,7 +308,7 @@
 
 	return ..()
 
-/obj/machinery/door_timer/proc/import(var/obj/item/paper/incident/I, var/user)
+/obj/structure/machinery/door_timer/proc/import(var/obj/item/paper/incident/I, var/user)
 	if(!istype(I))
 		to_chat(user, SPAN_ALERT("\The <b>[src]</b> states, \"Could not import the incident report.\""))
 		return FALSE
@@ -352,7 +352,7 @@
 //  "fc" activates flasher
 // 	"change" resets the timer to the timetoset amount while the timer is counting down
 // Also updates dialog window and timer icon
-/obj/machinery/door_timer/Topic(href, href_list)
+/obj/structure/machinery/door_timer/Topic(href, href_list)
 	if(..())
 		return
 	if(!src.allowed(usr))
@@ -375,7 +375,7 @@
 			src.timer_end(1)
 
 		if("flash")
-			for(var/obj/machinery/flasher/F in targets)
+			for(var/obj/structure/machinery/flasher/F in targets)
 				F.flash()
 
 	src.add_fingerprint(usr)
@@ -389,7 +389,7 @@
 // if NOPOWER, display blank
 // if BROKEN, display blue screen of death icon AI uses
 // if timing=true, run update display function
-/obj/machinery/door_timer/update_icon()
+/obj/structure/machinery/door_timer/update_icon()
 	if(stat & (NOPOWER))
 		icon_state = "frame"
 		return
@@ -409,14 +409,14 @@
 
 
 // Adds an icon in case the screen is broken/off, stolen from status_display.dm
-/obj/machinery/door_timer/proc/set_picture(var/state)
+/obj/structure/machinery/door_timer/proc/set_picture(var/state)
 	picture_state = state
 	ClearOverlays()
 	AddOverlays(picture_state)
 
 //Checks to see if there's 1 line or 2, adds text-icons-numbers/letters over display
 // Stolen from status_display
-/obj/machinery/door_timer/proc/update_display(var/line1, var/line2)
+/obj/structure/machinery/door_timer/proc/update_display(var/line1, var/line2)
 	var/new_text = {"<div style="font-size:[FONT_SIZE];color:[FONT_COLOR];font:'[FONT_STYLE]';text-align:center;" valign="top">[line1]<br>[line2]</div>"}
 	if(maptext != new_text)
 		maptext = new_text
@@ -424,7 +424,7 @@
 
 //Actual string input to icon display for loop, with 5 pixel x offsets for each letter.
 //Stolen from status_display
-/obj/machinery/door_timer/proc/texticon(var/tn, var/px = 0, var/py = 0)
+/obj/structure/machinery/door_timer/proc/texticon(var/tn, var/px = 0, var/py = 0)
 	var/image/I = image('icons/obj/status_display.dmi', "blank")
 	var/len = length(tn)
 
@@ -439,31 +439,31 @@
 	return I
 
 // Door Timers
-/obj/machinery/door_timer/cell_1
+/obj/structure/machinery/door_timer/cell_1
 	name = "Cell A"
 	id = "cell_1"
 
-/obj/machinery/door_timer/cell_2
+/obj/structure/machinery/door_timer/cell_2
 	name = "Cell B"
 	id = "cell_2"
 
-/obj/machinery/door_timer/cell_3
+/obj/structure/machinery/door_timer/cell_3
 	name = "Cell C"
 	id = "cell_3"
 
-/obj/machinery/door_timer/cell_4
+/obj/structure/machinery/door_timer/cell_4
 	name = "Cell D"
 	id = "cell_4"
 
-/obj/machinery/door_timer/cell_5
+/obj/structure/machinery/door_timer/cell_5
 	name = "Cell E"
 	id = "cell_5"
 
-/obj/machinery/door_timer/cell_6
+/obj/structure/machinery/door_timer/cell_6
 	name = "Cell F"
 	id = "cell_6"
 
-/obj/machinery/door_timer/isolation_cell
+/obj/structure/machinery/door_timer/isolation_cell
 	name = "Isolation Cell"
 	id = "cell_isolation"
 

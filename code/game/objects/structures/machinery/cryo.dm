@@ -1,6 +1,6 @@
 #define HEAT_CAPACITY_HUMAN 100 //249840 J/K, for a 72 kg person.
 
-/obj/machinery/atmospherics/unary/cryo_cell
+/obj/structure/machinery/atmospherics/unary/cryo_cell
 	name = "cryo cell"
 	desc = "A cryogenic chamber that can freeze occupants while keeping them alive, preventing them from taking any further damage. It can be loaded with a chemical cocktail for various medical benefits."
 	icon = 'icons/obj/cryogenics.dmi' // map only
@@ -38,7 +38,7 @@
 	var/slow_stasis_mult = 1.7
 	var/current_stasis_mult = 1
 
-/obj/machinery/atmospherics/unary/cryo_cell/mechanics_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/atmospherics/unary/cryo_cell/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "The cryogenic chamber, or 'cryo', treats most damage types, most notably genetic damage. It also stabilizes patients \
 	in critical condition by placing them in stasis, so they can be treated at a later time."
@@ -53,11 +53,11 @@
 	. += "Once they have reached 100 health, right-click the cell and click 'Eject Occupant' to remove them."
 	. += "Remember to turn the cryo off once you've finished to save power and chemicals!"
 
-/obj/machinery/atmospherics/unary/cryo_cell/upgrade_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/atmospherics/unary/cryo_cell/upgrade_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Upgraded <b>manipulators</b> will increase effectiveness of both hyper-metabolism and cryostasis functions."
 
-/obj/machinery/atmospherics/unary/cryo_cell/feedback_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/atmospherics/unary/cryo_cell/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	if(is_adjacent)
 		if(beaker)
@@ -67,12 +67,12 @@
 	if(panel_open)
 		. += "The maintenance hatch is open."
 
-/obj/machinery/atmospherics/unary/cryo_cell/Initialize()
+/obj/structure/machinery/atmospherics/unary/cryo_cell/Initialize()
 	. = ..()
 	update_icon()
 	atmos_init()
 
-/obj/machinery/atmospherics/unary/cryo_cell/Destroy()
+/obj/structure/machinery/atmospherics/unary/cryo_cell/Destroy()
 	var/turf/T = src.loc
 	T.contents += contents
 	if(beaker)
@@ -80,15 +80,15 @@
 		beaker = null
 	return ..()
 
-/obj/machinery/atmospherics/unary/cryo_cell/atmos_init()
+/obj/structure/machinery/atmospherics/unary/cryo_cell/atmos_init()
 	if(node) return
 	var/node_connect = dir
-	for(var/obj/machinery/atmospherics/target in get_step(src,node_connect))
+	for(var/obj/structure/machinery/atmospherics/target in get_step(src,node_connect))
 		if(target.initialize_directions & get_dir(target,src))
 			node = target
 			break
 
-/obj/machinery/atmospherics/unary/cryo_cell/process()
+/obj/structure/machinery/atmospherics/unary/cryo_cell/process()
 	..()
 	if(!node)
 		return
@@ -111,16 +111,16 @@
 
 	return 1
 
-/obj/machinery/atmospherics/unary/cryo_cell/attack_hand(mob/user)
+/obj/structure/machinery/atmospherics/unary/cryo_cell/attack_hand(mob/user)
 	ui_interact(user)
 
-/obj/machinery/atmospherics/unary/cryo_cell/ui_interact(mob/user, datum/tgui/ui = null)
+/obj/structure/machinery/atmospherics/unary/cryo_cell/ui_interact(mob/user, datum/tgui/ui = null)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "CryoTube", "Cryo Cell")
 		ui.open()
 
-/obj/machinery/atmospherics/unary/cryo_cell/ui_data(mob/user)
+/obj/structure/machinery/atmospherics/unary/cryo_cell/ui_data(mob/user)
 	var/list/data = list()
 	data["isOperating"] = on
 	data["hasOccupant"] = occupant ? TRUE : FALSE
@@ -183,7 +183,7 @@
 
 	return data
 
-/obj/machinery/atmospherics/unary/cryo_cell/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/obj/structure/machinery/atmospherics/unary/cryo_cell/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
@@ -229,7 +229,7 @@
 
 	add_fingerprint(usr)
 
-/obj/machinery/atmospherics/unary/cryo_cell/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/atmospherics/unary/cryo_cell/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/reagent_containers/glass))
 		if(beaker)
 			FEEDBACK_FAILURE(user, "A beaker is already loaded into the machine!")
@@ -272,7 +272,7 @@
 
 	return TRUE
 
-/obj/machinery/atmospherics/unary/cryo_cell/mouse_drop_receive(atom/dropped, mob/user, params)
+/obj/structure/machinery/atmospherics/unary/cryo_cell/mouse_drop_receive(atom/dropped, mob/user, params)
 	if(!istype(user))
 		return
 	if(!ismob(dropped))
@@ -312,7 +312,7 @@
 					user.pulling = null
 			addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, update_icon)), 2.5 SECONDS)
 
-/obj/machinery/atmospherics/unary/cryo_cell/update_icon(var/only_pickle = FALSE)
+/obj/structure/machinery/atmospherics/unary/cryo_cell/update_icon(var/only_pickle = FALSE)
 	ClearOverlays()
 	icon_state = "pod[on]"
 
@@ -347,7 +347,7 @@
 		I = image(icon, "pod_glass")
 		AddOverlays(I)
 
-/obj/machinery/atmospherics/unary/cryo_cell/proc/process_occupant()
+/obj/structure/machinery/atmospherics/unary/cryo_cell/proc/process_occupant()
 	if(air_contents.total_moles < 10)
 		return
 	if(occupant)
@@ -366,7 +366,7 @@
 		if(beaker && !has_cryo_medicine)
 			beaker.reagents.trans_to_mob(occupant, 1, CHEM_BLOOD)
 
-/obj/machinery/atmospherics/unary/cryo_cell/proc/heat_gas_contents()
+/obj/structure/machinery/atmospherics/unary/cryo_cell/proc/heat_gas_contents()
 	if(air_contents.total_moles < 1)
 		return
 	var/air_heat_capacity = air_contents.heat_capacity()
@@ -375,11 +375,11 @@
 		var/combined_energy = T20C*current_heat_capacity + air_heat_capacity*air_contents.temperature
 		air_contents.temperature = combined_energy/combined_heat_capacity
 
-/obj/machinery/atmospherics/unary/cryo_cell/proc/expel_gas()
+/obj/structure/machinery/atmospherics/unary/cryo_cell/proc/expel_gas()
 	if(air_contents.total_moles < 1)
 		return
 
-/obj/machinery/atmospherics/unary/cryo_cell/proc/go_out()
+/obj/structure/machinery/atmospherics/unary/cryo_cell/proc/go_out()
 	if(!(occupant))
 		return
 	if (occupant.client)
@@ -394,7 +394,7 @@
 	flick_overlay_view(mutable_appearance(icon, "pod_opening"), 2.5 SECONDS)
 	update_icon()
 
-/obj/machinery/atmospherics/unary/cryo_cell/proc/put_mob(mob/living/carbon/human/M as mob)
+/obj/structure/machinery/atmospherics/unary/cryo_cell/proc/put_mob(mob/living/carbon/human/M as mob)
 	if (stat & (NOPOWER|BROKEN))
 		to_chat(usr, SPAN_WARNING("The cryo cell is not functioning."))
 		return
@@ -427,7 +427,7 @@
 	flick_overlay_view(mutable_appearance(icon, "pod_closing"), 2.5 SECONDS)
 	return 1
 
-/obj/machinery/atmospherics/unary/cryo_cell/verb/move_eject()
+/obj/structure/machinery/atmospherics/unary/cryo_cell/verb/move_eject()
 	set name = "Eject occupant"
 	set category = "Object"
 	set src in oview(1)
@@ -446,7 +446,7 @@
 	add_fingerprint(usr)
 	return
 
-/obj/machinery/atmospherics/unary/cryo_cell/verb/move_inside()
+/obj/structure/machinery/atmospherics/unary/cryo_cell/verb/move_inside()
 	set name = "Move Inside"
 	set category = "Object"
 	set src in oview(1)
@@ -466,13 +466,13 @@
 /atom/proc/return_air_for_internal_lifeform(var/mob/living/lifeform)
 	return return_air()
 
-/obj/machinery/atmospherics/unary/cryo_cell/return_air_for_internal_lifeform()
+/obj/structure/machinery/atmospherics/unary/cryo_cell/return_air_for_internal_lifeform()
 	//assume that the cryo cell has some kind of breath mask or something that
 	//draws from the cryo tube's environment, instead of the cold internal air.
 	if(loc)
 		return loc.return_air()
 
-/obj/machinery/atmospherics/unary/cryo_cell/RefreshParts()
+/obj/structure/machinery/atmospherics/unary/cryo_cell/RefreshParts()
 	..()
 	var/man_rating = 0
 	for(var/obj/item/stock_parts/P in component_parts)

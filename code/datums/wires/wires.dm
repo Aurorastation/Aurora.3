@@ -34,8 +34,8 @@ GLOBAL_LIST_INIT(wire_name_directory, list())
 		CRASH("Wire holder is not of the expected type!")
 
 	src.holder = holder
-	if(istype(holder, /obj/machinery))
-		var/obj/machinery/M = holder
+	if(istype(holder, /obj/structure/machinery))
+		var/obj/structure/machinery/M = holder
 		manufacturer = M.manufacturer
 
 	// If there is a dictionary key set, we'll want to use that. Otherwise, use the holder type.

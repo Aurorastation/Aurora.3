@@ -4,7 +4,7 @@
 #define COMPONENT_STATE 4
 
 //Circuit boards are in /code/game/objects/items/weapons/circuitboards/machinery
-/obj/machinery/constructable_frame //Made into a seperate type to make future revisions easier.
+/obj/structure/machinery/constructable_frame //Made into a seperate type to make future revisions easier.
 	name = "machine blueprint"
 	desc = "A holo-blueprint for a machine."
 	var/machine_description
@@ -22,12 +22,12 @@
 	var/state = 1
 	var/pitch_toggle = 1
 
-/obj/machinery/constructable_frame/mechanics_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/constructable_frame/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "A blueprint that allows the user to rotate the direction the final result will be built in."
 	. += "Higher-quality components can improve the functionality of the machine in different ways."
 
-/obj/machinery/constructable_frame/assembly_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/constructable_frame/assembly_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	switch(state)
 		if(BLUEPRINT_STATE)
@@ -39,7 +39,7 @@
 		if(COMPONENT_STATE)
 			. += "Add the required components. Use the screwdriver to complete the machine."
 
-/obj/machinery/constructable_frame/disassembly_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/constructable_frame/disassembly_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	switch(state)
 		if(BLUEPRINT_STATE)
@@ -51,14 +51,14 @@
 		if(COMPONENT_STATE)
 			. += "Use a crowbar to pry out the circuitboard and the components out."
 
-/obj/machinery/constructable_frame/feedback_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/constructable_frame/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	if(machine_description)
 		. += "[machine_description]"
 	if(components_description)
 		. += "[components_description]"
 
-/obj/machinery/constructable_frame/proc/update_component_desc()
+/obj/structure/machinery/constructable_frame/proc/update_component_desc()
 	var/D
 	if(length(req_components))
 		var/list/component_list = list()
@@ -68,7 +68,7 @@
 		D = "Requires [english_list(component_list)]."
 	components_description = D
 
-/obj/machinery/constructable_frame/machine_frame/attack_hand(mob/user)
+/obj/structure/machinery/constructable_frame/machine_frame/attack_hand(mob/user)
 	if(state == BLUEPRINT_STATE)
 		to_chat(user, SPAN_NOTICE("You begin to finalize the blueprint..."))
 		if(do_after(user, 2 SECONDS, src, do_flags = DO_REPAIR_CONSTRUCT))
@@ -80,7 +80,7 @@
 	else
 		..()
 
-/obj/machinery/constructable_frame/machine_frame/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/constructable_frame/machine_frame/attackby(obj/item/attacking_item, mob/user)
 	switch(state)
 		if(BLUEPRINT_STATE)
 			if(attacking_item.tool_behaviour == TOOL_WIRECUTTER || istype(attacking_item, /obj/item/gun/energy/plasmacutter))
@@ -188,7 +188,7 @@
 							break
 					if(component_check)
 						attacking_item.play_tool_sound(get_turf(src), 50)
-						var/obj/machinery/new_machine = new circuit.build_path(loc, dir, FALSE)
+						var/obj/structure/machinery/new_machine = new circuit.build_path(loc, dir, FALSE)
 						if(istype(circuit, /obj/item/circuitboard/unary_atmos))
 							var/obj/item/circuitboard/unary_atmos/U = circuit
 							U.init_dirs = dir
@@ -244,7 +244,7 @@
 						return TRUE
 
 
-/obj/machinery/constructable_frame/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
+/obj/structure/machinery/constructable_frame/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(!mover)
 		return TRUE
 	if(mover.movement_type & PHASING)
@@ -258,14 +258,14 @@
 		return TRUE
 	return ..()
 
-/obj/machinery/constructable_frame/temp_deco
+/obj/structure/machinery/constructable_frame/temp_deco
 	name = "machine frame"
 	desc = "An old and dusty machine frame that once housed a machine of some kind."
 	icon_state = "box_0"
 	anchored = TRUE
 	density = TRUE
 
-/obj/machinery/constructable_frame/temp_deco/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/constructable_frame/temp_deco/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		attacking_item.play_tool_sound(get_turf(src), 75)
 		to_chat(user, SPAN_NOTICE("You dismantle \the [src]."))

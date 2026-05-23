@@ -1,9 +1,9 @@
 //This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:31
 
-/obj/machinery/computer/telecomms
+/obj/structure/machinery/computer/telecomms
 
 
-/obj/machinery/computer/telecomms/server
+/obj/structure/machinery/computer/telecomms/server
 	name = "Telecommunications Server Monitor"
 	desc = "A monitor that contains and displays the logs of a selected telecommunications server to authorized personnel."
 	icon_screen = "comm_logs"
@@ -13,7 +13,7 @@
 
 	var/screen = 0				// the screen number:
 	var/list/servers = list()	// the servers located by the computer
-	var/obj/machinery/telecomms/server/SelectedServer
+	var/obj/structure/machinery/telecomms/server/SelectedServer
 
 	var/network = "NULL"		// the network to probe
 	var/temp = ""				// temporary feedback messages
@@ -24,7 +24,7 @@
 
 	var/last_print_time
 
-/obj/machinery/computer/telecomms/server/attack_hand(mob/user)
+/obj/structure/machinery/computer/telecomms/server/attack_hand(mob/user)
 	if(stat & (BROKEN|NOPOWER))
 		return
 	user.set_machine(src)
@@ -40,7 +40,7 @@
 			dat += "<br>Current Network: <a href='byond://?src=[REF(src)];network=1'>[network]</a><br>"
 			if(servers.len)
 				dat += "<br>Detected Telecommunication Servers:<ul>"
-				for(var/obj/machinery/telecomms/T in servers)
+				for(var/obj/structure/machinery/telecomms/T in servers)
 					dat += "<li><a href='byond://?src=[REF(src)];viewserver=[T.id]'>[REF(T)] [T.name]</a> ([T.id])</li>"
 				dat += "</ul>"
 				dat += "<br><a href='byond://?src=[REF(src)];operation=release'>\[Flush Buffer\]</a>"
@@ -70,7 +70,7 @@
 	temp = ""
 	return
 
-/obj/machinery/computer/telecomms/server/Topic(href, href_list)
+/obj/structure/machinery/computer/telecomms/server/Topic(href, href_list)
 	if(..())
 		return
 
@@ -80,7 +80,7 @@
 
 	if(href_list["viewserver"])
 		screen = 1
-		for(var/obj/machinery/telecomms/T in servers)
+		for(var/obj/structure/machinery/telecomms/T in servers)
 			if(T.id == href_list["viewserver"])
 				SelectedServer = T
 				break
@@ -100,7 +100,7 @@
 					temp = "<font color = #D70B00>- FAILED: CANNOT PROBE WHEN BUFFER FULL -</font>"
 
 				else
-					for(var/obj/machinery/telecomms/server/T in range(25, src))
+					for(var/obj/structure/machinery/telecomms/server/T in range(25, src))
 						if(T.network == network)
 							servers.Add(T)
 
@@ -147,7 +147,7 @@
 	updateUsrDialog()
 	return
 
-/obj/machinery/computer/telecomms/server/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/computer/telecomms/server/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(attacking_item.use_tool(src, user, 20, volume = 50))
 			if (src.stat & BROKEN)
@@ -176,7 +176,7 @@
 		return TRUE
 	src.updateUsrDialog()
 
-/obj/machinery/computer/telecomms/server/emag_act(var/remaining_charges, var/mob/user)
+/obj/structure/machinery/computer/telecomms/server/emag_act(var/remaining_charges, var/mob/user)
 	if(!emagged)
 		playsound(src.loc, 'sound/effects/sparks4.ogg', 75, 1)
 		emagged = 1
@@ -184,7 +184,7 @@
 		src.updateUsrDialog()
 		return 1
 
-/obj/machinery/computer/telecomms/server/proc/log_entries_to_text(mob/user, var/obj/machinery/telecomms/server/SelectedServer, start = 1, end = SelectedServer.log_entries.len)
+/obj/structure/machinery/computer/telecomms/server/proc/log_entries_to_text(mob/user, var/obj/structure/machinery/telecomms/server/SelectedServer, start = 1, end = SelectedServer.log_entries.len)
 	if(!end)
 		end = SelectedServer.log_entries.len
 	start = between(1, start, SelectedServer.log_entries.len)

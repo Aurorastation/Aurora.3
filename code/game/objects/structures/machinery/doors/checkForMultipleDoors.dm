@@ -1,15 +1,15 @@
-/obj/machinery/door/proc/checkForMultipleDoors()
+/obj/structure/machinery/door/proc/checkForMultipleDoors()
 	if(!src.loc)
 		return 0
-	for(var/obj/machinery/door/D in src.loc)
-		if(!istype(D, /obj/machinery/door/window) && D.density)
+	for(var/obj/structure/machinery/door/D in src.loc)
+		if(!istype(D, /obj/structure/machinery/door/window) && D.density)
 			return 0
 	return 1
 
 /turf/simulated/wall/proc/checkForMultipleDoors()
 	if(!src.loc)
 		return 0
-	for(var/obj/machinery/door/D in locate(src.x,src.y,src.z))
-		if(!istype(D, /obj/machinery/door/window) && D.density)
+	for(var/obj/structure/machinery/door/D in locate(src.x,src.y,src.z))
+		if(!istype(D, /obj/structure/machinery/door/window) && D.density)
 			return 0
 	return 1

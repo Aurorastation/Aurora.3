@@ -75,7 +75,7 @@
 
 	var/code
 	if(nuke_spawn)
-		var/obj/machinery/nuclearbomb/nuke = new(get_turf(nuke_spawn))
+		var/obj/structure/machinery/nuclearbomb/nuke = new(get_turf(nuke_spawn))
 		code = "[rand(10000, 99999)]"
 		nuke.r_code = code
 

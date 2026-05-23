@@ -2,7 +2,7 @@
 //but it does not permit gas to flow back from the environment into the injector. Can be turned off to prevent any gas flow.
 //When it receives the "inject" signal, it will try to pump it's entire contents into the environment regardless of pressure, using power.
 
-/obj/machinery/atmospherics/unary/outlet_injector
+/obj/structure/machinery/atmospherics/unary/outlet_injector
 	name = "air injector"
 	desc = "Passively injects air into its surroundings. Has a valve attached to it that can control flow rate."
 	icon = 'icons/atmos/injector.dmi'
@@ -24,23 +24,23 @@
 
 	level = 1
 
-/obj/machinery/atmospherics/unary/outlet_injector/mechanics_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/atmospherics/unary/outlet_injector/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Outputs the pipe's gas into the atmosphere, similar to an airvent."
 	. += "It can be controlled by a nearby atmospherics computer."
 	. += "A green light on it means it is on."
 
-/obj/machinery/atmospherics/unary/outlet_injector/Initialize()
+/obj/structure/machinery/atmospherics/unary/outlet_injector/Initialize()
 	. = ..()
 	air_contents.volume = ATMOS_DEFAULT_VOLUME_PUMP + 500	//Give it a small reservoir for injecting. Also allows it to have a higher flow rate limit than vent pumps, to differentiate injectors a bit more.
 
-/obj/machinery/atmospherics/unary/outlet_injector/update_icon()
+/obj/structure/machinery/atmospherics/unary/outlet_injector/update_icon()
 	if(!powered())
 		icon_state = "off"
 	else
 		icon_state = "[use_power ? "on" : "off"]"
 
-/obj/machinery/atmospherics/unary/outlet_injector/update_underlays()
+/obj/structure/machinery/atmospherics/unary/outlet_injector/update_underlays()
 	if(..())
 		underlays.Cut()
 		var/turf/T = get_turf(src)
@@ -48,13 +48,13 @@
 			return
 		add_underlay(T, node, dir)
 
-/obj/machinery/atmospherics/unary/outlet_injector/power_change()
+/obj/structure/machinery/atmospherics/unary/outlet_injector/power_change()
 	var/old_stat = stat
 	..()
 	if(old_stat != stat)
 		update_icon()
 
-/obj/machinery/atmospherics/unary/outlet_injector/process()
+/obj/structure/machinery/atmospherics/unary/outlet_injector/process()
 	..()
 
 	last_power_draw = 0
@@ -85,7 +85,7 @@
 
 	return 1
 
-/obj/machinery/atmospherics/unary/outlet_injector/proc/inject()
+/obj/structure/machinery/atmospherics/unary/outlet_injector/proc/inject()
 	if(injecting || (stat & NOPOWER) || !loc)
 		return 0
 
@@ -104,13 +104,13 @@
 
 	flick("inject", src)
 
-/obj/machinery/atmospherics/unary/outlet_injector/proc/set_frequency(new_frequency)
+/obj/structure/machinery/atmospherics/unary/outlet_injector/proc/set_frequency(new_frequency)
 	SSradio.remove_object(src, frequency)
 	frequency = new_frequency
 	if(frequency)
 		radio_connection = SSradio.add_object(src, frequency)
 
-/obj/machinery/atmospherics/unary/outlet_injector/proc/broadcast_status()
+/obj/structure/machinery/atmospherics/unary/outlet_injector/proc/broadcast_status()
 	if(!radio_connection)
 		return 0
 
@@ -130,13 +130,13 @@
 
 	return 1
 
-/obj/machinery/atmospherics/unary/outlet_injector/atmos_init()
+/obj/structure/machinery/atmospherics/unary/outlet_injector/atmos_init()
 	..()
 
 	set_frequency(frequency)
 	broadcast_status()
 
-/obj/machinery/atmospherics/unary/outlet_injector/receive_signal(datum/signal/signal)
+/obj/structure/machinery/atmospherics/unary/outlet_injector/receive_signal(datum/signal/signal)
 	if(!signal.data["tag"] || (signal.data["tag"] != id) || (signal.data["sigtype"]!="command"))
 		return 0
 
@@ -161,19 +161,19 @@
 	broadcast_status_next_process = TRUE
 	update_icon()
 
-/obj/machinery/atmospherics/unary/outlet_injector/hide(var/i)
+/obj/structure/machinery/atmospherics/unary/outlet_injector/hide(var/i)
 	update_underlays()
 
 // ---------- subtypes
 
-/obj/machinery/atmospherics/unary/outlet_injector/supply
+/obj/structure/machinery/atmospherics/unary/outlet_injector/supply
 	connect_types = CONNECT_TYPE_SUPPLY
 
-/obj/machinery/atmospherics/unary/outlet_injector/scrubber
+/obj/structure/machinery/atmospherics/unary/outlet_injector/scrubber
 	connect_types = CONNECT_TYPE_SCRUBBER
 
-/obj/machinery/atmospherics/unary/outlet_injector/fuel
+/obj/structure/machinery/atmospherics/unary/outlet_injector/fuel
 	connect_types = CONNECT_TYPE_FUEL
 
-/obj/machinery/atmospherics/unary/outlet_injector/aux
+/obj/structure/machinery/atmospherics/unary/outlet_injector/aux
 	connect_types = CONNECT_TYPE_AUX

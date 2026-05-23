@@ -1,5 +1,5 @@
 
-/obj/machinery/floodlight
+/obj/structure/machinery/floodlight
 	name = "industrial floodlight"
 	desc = "A series of large LEDs housed in a reflective frame, this is a cheap and easy way of lighting large areas during construction."
 	icon = 'icons/obj/machinery/floodlight.dmi'
@@ -16,7 +16,7 @@
 	var/unlocked = FALSE
 	var/open = FALSE
 
-/obj/machinery/floodlight/feedback_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/floodlight/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	if(!cell.charge)
 		. += SPAN_WARNING("The installed [cell.name] is completely flat!")
@@ -25,19 +25,19 @@
 		. += SPAN_WARNING("\The [src] has no cell installed!")
 	. += SPAN_NOTICE("The installed [cell.name] has [AS_PCT(cell.charge, cell.maxcharge)]% charge remaining.")
 
-/obj/machinery/floodlight/Initialize()
+/obj/structure/machinery/floodlight/Initialize()
 	. = ..()
 	cell = new /obj/item/cell(src)
 
-/obj/machinery/floodlight/Destroy()
+/obj/structure/machinery/floodlight/Destroy()
 	QDEL_NULL(cell)
 	return ..()
 
-/obj/machinery/floodlight/update_icon()
+/obj/structure/machinery/floodlight/update_icon()
 	ClearOverlays()
 	icon_state = "flood[open ? "o" : ""][open && cell ? "b" : ""]0[on]"
 
-/obj/machinery/floodlight/process()
+/obj/structure/machinery/floodlight/process()
 	if(!on)
 		return
 
@@ -52,12 +52,12 @@
 
 	cell.use(use*CELLRATE)
 
-/obj/machinery/floodlight/proc/stop_flicker()
+/obj/structure/machinery/floodlight/proc/stop_flicker()
 	if(on)
 		set_light_range_power_color(light_range, 1, light_color)
 
 // Returns 0 on failure and 1 on success
-/obj/machinery/floodlight/proc/turn_on(var/loud = FALSE)
+/obj/structure/machinery/floodlight/proc/turn_on(var/loud = FALSE)
 	if(!cell)
 		return FALSE
 	if(cell.charge < (use * CELLRATE))
@@ -70,14 +70,14 @@
 		visible_message(SPAN_NOTICE("\The [src] turns on."))
 	return TRUE
 
-/obj/machinery/floodlight/proc/turn_off(var/loud = FALSE)
+/obj/structure/machinery/floodlight/proc/turn_off(var/loud = FALSE)
 	on = FALSE
 	set_light_on(on)
 	update_icon()
 	if(loud)
 		visible_message(SPAN_NOTICE("\The [src] shuts down."))
 
-/obj/machinery/floodlight/attack_ai(mob/user)
+/obj/structure/machinery/floodlight/attack_ai(mob/user)
 	if(istype(user, /mob/living/silicon/robot) && Adjacent(user))
 		return attack_hand(user)
 
@@ -87,7 +87,7 @@
 		if(!turn_on(TRUE))
 			to_chat(user, SPAN_WARNING("You try to turn on \the [src] but it does not work."))
 
-/obj/machinery/floodlight/attack_hand(mob/user)
+/obj/structure/machinery/floodlight/attack_hand(mob/user)
 	if(open && cell)
 		user.put_in_hands(cell)
 		cell.add_fingerprint(user)
@@ -108,7 +108,7 @@
 
 	update_icon()
 
-/obj/machinery/floodlight/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/floodlight/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(!open)
 			unlocked = !unlocked
@@ -137,10 +137,10 @@
 		return TRUE
 	update_icon()
 
-/obj/machinery/floodlight/randomcharge
+/obj/structure/machinery/floodlight/randomcharge
 	// Intentionally left empty as it's the same as the parent, but the cell is randomized.
 
-/obj/machinery/floodlight/randomcharge/Initialize()
+/obj/structure/machinery/floodlight/randomcharge/Initialize()
 	. = ..()
 	if(cell)
 		cell.charge = rand(1, cell.maxcharge)

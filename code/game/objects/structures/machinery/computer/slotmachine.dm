@@ -8,7 +8,7 @@
 #define CREDITCHIP 1
 #define COIN 2
 
-/obj/machinery/computer/slot_machine
+/obj/structure/machinery/computer/slot_machine
 	name = "slot machine"
 	desc = "Gambling for the antisocial."
 	icon = 'icons/obj/machinery/slotmachine.dmi'
@@ -32,7 +32,7 @@
 	var/list/symbols = list(SEVEN = 1, "<font color='orange'>&</font>" = 2, "<font color='yellow'>@</font>" = 2, "<font color='green'>$</font>" = 2, "<font color='blue'>?</font>" = 2, "<font color='grey'>#</font>" = 2, "<font color='white'>!</font>" = 2, "<font color='fuchsia'>%</font>" = 2) //if people are winning too much, multiply every number in this list by 2 and see if they are still winning too much.
 
 
-/obj/machinery/computer/slot_machine/Initialize()
+/obj/structure/machinery/computer/slot_machine/Initialize()
 	. = ..()
 	jackpots = rand(1, 4) //false hope
 	plays = rand(75, 200)
@@ -49,34 +49,34 @@
 	for(cointype in typesof(/obj/item/coin))
 		coinvalues["[cointype]"] = get_value(cointype)
 
-/obj/machinery/computer/slot_machine/Destroy()
+/obj/structure/machinery/computer/slot_machine/Destroy()
 	return ..()
 
-/obj/machinery/computer/slot_machine/process(seconds_per_tick)
+/obj/structure/machinery/computer/slot_machine/process(seconds_per_tick)
 	. = ..() //Sanity checks.
 	if(!.)
 		return .
 
 	money += round(seconds_per_tick / 2) //SPESSH MAJICKS
 
-/obj/machinery/computer/slot_machine/update_icon()
+/obj/structure/machinery/computer/slot_machine/update_icon()
 	if(working)
 		icon_screen = "slots_screen_working"
 	else
 		icon_screen = "slots_screen"
 	. = ..()
 
-/obj/machinery/computer/slot_machine/attack_hand(mob/user)
+/obj/structure/machinery/computer/slot_machine/attack_hand(mob/user)
 	add_fingerprint(user)
 	if(stat & (BROKEN|NOPOWER))
 		return
 	ui_interact(user)
 
-/obj/machinery/computer/slot_machine/power_change()
+/obj/structure/machinery/computer/slot_machine/power_change()
 	..()
 	update_icon()
 
-/obj/machinery/computer/slot_machine/attackby(obj/item/attacking_item, mob/user, params)
+/obj/structure/machinery/computer/slot_machine/attackby(obj/item/attacking_item, mob/user, params)
 	if(istype(attacking_item, /obj/item/coin))
 		var/obj/item/coin/C = attacking_item
 		if(paymode == COIN)
@@ -124,14 +124,14 @@
 	else
 		return ..()
 
-/obj/machinery/computer/slot_machine/emag_act()
+/obj/structure/machinery/computer/slot_machine/emag_act()
 	if(!emagged)
 		emmaged = TRUE
 		spark(src, 3)
 		playsound(src, SFX_SPARKS, 50, 1)
 		return TRUE
 
-/obj/machinery/computer/slot_machine/ui_interact(mob/living/user)
+/obj/structure/machinery/computer/slot_machine/ui_interact(mob/living/user)
 	. = ..()
 	var/reeltext = {"<center><font face=\"courier new\">
 	/*****^*****^*****^*****^*****\\<BR>
@@ -162,7 +162,7 @@
 	popup.set_title_image(user.browse_rsc_icon(icon, icon_state))
 	popup.open()
 
-/obj/machinery/computer/slot_machine/Topic(href, href_list)
+/obj/structure/machinery/computer/slot_machine/Topic(href, href_list)
 	. = ..() //Sanity checks.
 	if(.)
 		return .
@@ -177,7 +177,7 @@
 			balance = 0
 			updateUsrDialog()
 
-/obj/machinery/computer/slot_machine/emp_act(severity)
+/obj/structure/machinery/computer/slot_machine/emp_act(severity)
 	. = ..()
 
 	if(stat & (NOPOWER|BROKEN))
@@ -195,7 +195,7 @@
 	money -= max(0, give_payout(min(rand(-50, 100 * severity_ascending)), money)) //This starts at -50 because it shouldn't always dispense coins yo
 	spin()
 
-/obj/machinery/computer/slot_machine/proc/spin(mob/user)
+/obj/structure/machinery/computer/slot_machine/proc/spin(mob/user)
 	if(!can_spin(user))
 		return
 
@@ -221,20 +221,20 @@
 
 	addtimer(CALLBACK(src, PROC_REF(finish_spinning), user, the_name), SPIN_TIME - (REEL_DEACTIVATE_DELAY * reels.len)) //WARNING: no sanity checking for user since it's not needed and would complicate things (machine should still spin even if user is gone), be wary of this if you're changing this code.
 
-/obj/machinery/computer/slot_machine/proc/do_spin(mob/user, the_name)
+/obj/structure/machinery/computer/slot_machine/proc/do_spin(mob/user, the_name)
 	while(working)
 		randomize_reels()
 		updateUsrDialog()
 		sleep(2)
 
-/obj/machinery/computer/slot_machine/proc/finish_spinning(mob/user, the_name)
+/obj/structure/machinery/computer/slot_machine/proc/finish_spinning(mob/user, the_name)
 	toggle_reel_spin(0, REEL_DEACTIVATE_DELAY)
 	working = FALSE
 	give_prizes(the_name, user)
 	update_icon()
 	updateUsrDialog()
 
-/obj/machinery/computer/slot_machine/proc/can_spin(mob/user)
+/obj/structure/machinery/computer/slot_machine/proc/can_spin(mob/user)
 	if(stat & NOPOWER)
 		to_chat(user, SPAN_WARNING("The slot machine has no power!"))
 		return FALSE
@@ -249,24 +249,24 @@
 		return FALSE
 	return TRUE
 
-/obj/machinery/computer/slot_machine/proc/toggle_reel_spin(value) //value is 1 or 0 aka on or off
+/obj/structure/machinery/computer/slot_machine/proc/toggle_reel_spin(value) //value is 1 or 0 aka on or off
 	for(var/list/reel in reels)
 		reels[reel] = value
 
-/obj/machinery/computer/slot_machine/proc/toggle_reel_spin_delay(value, delay = 0) //value is 1 or 0 aka on or off
+/obj/structure/machinery/computer/slot_machine/proc/toggle_reel_spin_delay(value, delay = 0) //value is 1 or 0 aka on or off
 	toggle_reel_spin(value)
 
 	if(delay)
 		sleep(delay)
 
-/obj/machinery/computer/slot_machine/proc/randomize_reels()
+/obj/structure/machinery/computer/slot_machine/proc/randomize_reels()
 	for(var/reel in reels)
 		if(reels[reel])
 			reel[3] = reel[2]
 			reel[2] = reel[1]
 			reel[1] = pick(symbols)
 
-/obj/machinery/computer/slot_machine/proc/give_prizes(usrname, mob/user)
+/obj/structure/machinery/computer/slot_machine/proc/give_prizes(usrname, mob/user)
 	var/linelength = get_lines()
 
 	if(reels[1][2] + reels[2][2] + reels[3][2] + reels[4][2] + reels[5][2] == "[SEVEN][SEVEN][SEVEN][SEVEN][SEVEN]")
@@ -302,7 +302,7 @@
 
 	updateUsrDialog()
 
-/obj/machinery/computer/slot_machine/proc/get_lines()
+/obj/structure/machinery/computer/slot_machine/proc/get_lines()
 	var/amountthesame
 
 	for(var/i in 1 to 3)
@@ -321,13 +321,13 @@
 
 	return amountthesame
 
-/obj/machinery/computer/slot_machine/proc/give_money(amount)
+/obj/structure/machinery/computer/slot_machine/proc/give_money(amount)
 	var/amount_to_give = money >= amount ? amount : money
 	var/surplus = amount_to_give - give_payout(amount_to_give)
 	money = max(0, money - amount)
 	balance += surplus
 
-/obj/machinery/computer/slot_machine/proc/give_payout(amount, user)
+/obj/structure/machinery/computer/slot_machine/proc/give_payout(amount, user)
 	if(paymode == CREDITCHIP)
 		cointype = /obj/item/spacecash
 	else
@@ -343,7 +343,7 @@
 
 	return amount
 
-/obj/machinery/computer/slot_machine/proc/dispense(amount = 0, cointype = /obj/item/coin/silver, mob/living/target, throwit = 0)
+/obj/structure/machinery/computer/slot_machine/proc/dispense(amount = 0, cointype = /obj/item/coin/silver, mob/living/target, throwit = 0)
 	if(paymode == CREDITCHIP)
 		spawn_money(amount, src.loc, target)
 		if(throwit && target)

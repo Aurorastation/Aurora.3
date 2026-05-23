@@ -16,7 +16,7 @@
 
 	Inbound Signal -> Receiver -> Hub -> Bus -> Processor -> Bus -> Server -> Hub -> Broadcaster
 */
-/obj/machinery/telecomms
+/obj/structure/machinery/telecomms
 	icon = 'icons/obj/machinery/telecomms.dmi'
 	density = TRUE
 	anchored = TRUE
@@ -70,7 +70,7 @@
 	///Private variable to store the looping sound's ID
 	VAR_PRIVATE/datum/looping_sound/telecomms_looping_sound
 
-/obj/machinery/telecomms/condition_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/telecomms/condition_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	if(integrity < initial(integrity))
 		var/state
@@ -86,18 +86,18 @@
 				state = SPAN_NOTICE("The machine's components show some indications of minor damage.")
 		. += state
 
-/obj/machinery/telecomms/mechanics_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/telecomms/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "All telecomms machinery can repaired through the application of Nanopaste."
 
-/obj/machinery/telecomms/Initialize(mapload)
+/obj/structure/machinery/telecomms/Initialize(mapload)
 	. = ..()
 	SSmachinery.all_telecomms += src
 
 	if(mapload)
 		return INITIALIZE_HINT_LATELOAD
 
-/obj/machinery/telecomms/LateInitialize()
+/obj/structure/machinery/telecomms/LateInitialize()
 	. = ..()
 	if(SSatlas.current_map.use_overmap && !linked)
 		var/my_sector = GLOB.map_sectors["[z]"]
@@ -105,28 +105,28 @@
 			attempt_hook_up(my_sector)
 
 	if(autolinkers.len)
-		for(var/obj/machinery/telecomms/T in SSmachinery.all_telecomms)
+		for(var/obj/structure/machinery/telecomms/T in SSmachinery.all_telecomms)
 			if(T != src && (T.z in GetConnectedZlevels(z)))
 				add_automatic_link(T)
 
 	update_icon()
 
-/obj/machinery/telecomms/Destroy()
+/obj/structure/machinery/telecomms/Destroy()
 	SSmachinery.all_telecomms -= src
-	for(var/obj/machinery/telecomms/comm in SSmachinery.all_telecomms)
+	for(var/obj/structure/machinery/telecomms/comm in SSmachinery.all_telecomms)
 		remove_link(comm)
 	links = list()
 	QDEL_NULL(telecomms_looping_sound)
 	return ..()
 
 /// This proc returns distance, so -1 is our error value
-/obj/machinery/telecomms/proc/receive_range(datum/signal/subspace/sig)
+/obj/structure/machinery/telecomms/proc/receive_range(datum/signal/subspace/sig)
 	if(!use_power || !istype(sig) || !is_freq_listening(sig))
 		return -1
 
 	return get_signal_dist(sig)
 
-/obj/machinery/telecomms/proc/broadcast_levels(datum/signal/subspace/sig)
+/obj/structure/machinery/telecomms/proc/broadcast_levels(datum/signal/subspace/sig)
 	if(!use_power || !istype(sig) || !is_freq_listening(sig))
 		return
 
@@ -136,7 +136,7 @@
 			. |= V.map_z
 
 /// Used in auto linking
-/obj/machinery/telecomms/proc/add_automatic_link(var/obj/machinery/telecomms/T)
+/obj/structure/machinery/telecomms/proc/add_automatic_link(var/obj/structure/machinery/telecomms/T)
 	if(src == T)
 		return
 
@@ -145,7 +145,7 @@
 			add_new_link(T)
 			return
 
-/obj/machinery/telecomms/update_icon()
+/obj/structure/machinery/telecomms/update_icon()
 	ClearOverlays()
 	if(operable() && use_power)
 		AddOverlays(emissive_appearance(icon, "[icon_state]_lights"))
@@ -153,7 +153,7 @@
 	if(panel_open)
 		AddOverlays("[icon_state]_panel")
 
-/obj/machinery/telecomms/process()
+/obj/structure/machinery/telecomms/process()
 	if(!use_power)
 		update_icon()
 		return PROCESS_KILL
@@ -170,7 +170,7 @@
 	else if(use_power != POWER_USE_IDLE)
 		toggle_power(POWER_USE_IDLE)
 
-/obj/machinery/telecomms/toggle_power(power_set, additional_flags = 0)
+/obj/structure/machinery/telecomms/toggle_power(power_set, additional_flags = 0)
 	. = ..()
 	if(use_power)
 		START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
@@ -185,19 +185,19 @@
 /**
  * Previous implementation was to run EMP proc then restore, but was very buggy. This is a rudimentary alternate implementation, just flags processors to crap out.
  */
-/obj/machinery/telecomms/proc/ion_storm()
+/obj/structure/machinery/telecomms/proc/ion_storm()
 	var/duration = 270 + rand(1,60)
 	ion_storm = TRUE
 	addtimer(CALLBACK(src, PROC_REF(post_ion_storm_act)), duration SECONDS)
 
-/obj/machinery/telecomms/proc/post_ion_storm_act()
+/obj/structure/machinery/telecomms/proc/post_ion_storm_act()
 	ion_storm = FALSE
 
-/obj/machinery/telecomms/proc/ion_storm_damage()
+/obj/structure/machinery/telecomms/proc/ion_storm_damage()
 	integrity = between(0, integrity - (rand(5,15)), 100)
 
 
-/obj/machinery/telecomms/proc/check_heat()
+/obj/structure/machinery/telecomms/proc/check_heat()
 	// Checks heat from the environment and applies any integrity damage
 	if(!loc) return
 	var/datum/gas_mixture/environment = loc.return_air()
@@ -225,7 +225,7 @@
 		produce_heat()
 		delay = initial(delay)
 
-/obj/machinery/telecomms/proc/produce_heat()
+/obj/structure/machinery/telecomms/proc/produce_heat()
 	if (!produces_heat || !use_power || !operable(EMPED))
 		return
 
@@ -250,12 +250,12 @@
 	env.merge(removed)
 
 /// Relay signal to all linked machinery that are of type [filter]. If signal has been sent [amount] times, stop sending
-/obj/machinery/telecomms/proc/relay_information(datum/signal/subspace/signal, filter, copysig, amount = 20)
+/obj/structure/machinery/telecomms/proc/relay_information(datum/signal/subspace/signal, filter, copysig, amount = 20)
 	if(!use_power)
 		return
 
-	if(!filter || !ispath(filter, /obj/machinery/telecomms))
-		CRASH("null or non /obj/machinery/telecomms typepath given as the filter argument! given typepath: [filter]")
+	if(!filter || !ispath(filter, /obj/structure/machinery/telecomms))
+		CRASH("null or non /obj/structure/machinery/telecomms typepath given as the filter argument! given typepath: [filter]")
 
 	var/send_count = 0
 
@@ -263,7 +263,7 @@
 		signal.data["slow"] += rand(0, round((100-integrity))) // apply some lag based on integrity
 
 	// Loop through all linked machines and send the signal or copy.
-	for(var/obj/machinery/telecomms/filtered_machine in links_by_telecomms_type?[filter])
+	for(var/obj/structure/machinery/telecomms/filtered_machine in links_by_telecomms_type?[filter])
 		if(!filtered_machine.use_power || !(z in GetConnectedZlevels(filtered_machine.z)))
 			continue
 
@@ -286,15 +286,15 @@
 	return send_count
 
 /// Send signal directly to a machine
-/obj/machinery/telecomms/proc/relay_direct_information(datum/signal/signal, obj/machinery/telecomms/machine)
+/obj/structure/machinery/telecomms/proc/relay_direct_information(datum/signal/signal, obj/structure/machinery/telecomms/machine)
 	if(use_power)
 		machine.receive_information(signal, src)
 
 /// Receive information from linked machinery
-/obj/machinery/telecomms/proc/receive_information(datum/signal/signal, obj/machinery/telecomms/machine_from)
+/obj/structure/machinery/telecomms/proc/receive_information(datum/signal/signal, obj/structure/machinery/telecomms/machine_from)
 	return
 
-/obj/machinery/telecomms/proc/is_freq_listening(datum/signal/signal)
+/obj/structure/machinery/telecomms/proc/is_freq_listening(datum/signal/signal)
 	// return TRUE if found, FALSE if not found
 	return signal && (!freq_listening.len || (signal.frequency in freq_listening))
 
@@ -302,7 +302,7 @@
  * Reception range of telecomms machines is limited via overmap_range
  * Returns distance, not a boolean value, so don't do !get_reception or so help me god
  */
-/obj/machinery/telecomms/proc/get_signal_dist(datum/signal/subspace/signal)
+/obj/structure/machinery/telecomms/proc/get_signal_dist(datum/signal/subspace/signal)
 	if(!SSatlas.current_map.use_overmap || !istype(linked) || !istype(signal.sector))
 		if(z == signal.origin_level || (signal.origin_level in GetConnectedZlevels(z)))
 			return 1

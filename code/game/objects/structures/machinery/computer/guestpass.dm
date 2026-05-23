@@ -42,7 +42,7 @@
 #define GUEST_PASS_TERMINAL_UNSET "\[UNSET\]"
 
 // Guest Pass Terminal
-/obj/machinery/computer/guestpass
+/obj/structure/machinery/computer/guestpass
 	name = "guest pass terminal"
 	desc = "A guest pass terminal. It allows issuing temporary access passes to one or more areas."
 	icon = 'icons/obj/computer.dmi'
@@ -62,11 +62,11 @@
 	var/list/internal_log = list()
 	var/mode = 0 // 0: Making pass. 1: Viewing logs.
 
-/obj/machinery/computer/guestpass/Initialize()
+/obj/structure/machinery/computer/guestpass/Initialize()
 	. = ..()
 	uid = "[rand(100,999)]-G[rand(10,99)]"
 
-/obj/machinery/computer/guestpass/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/computer/guestpass/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/card/id))
 		if((!giver || giver == GUEST_PASS_TERMINAL_UNSET) && user.unEquip(attacking_item))
 			attacking_item.forceMove(src)
@@ -77,12 +77,12 @@
 		return TRUE
 	return ..()
 
-/obj/machinery/computer/guestpass/attack_ai(var/mob/user as mob)
+/obj/structure/machinery/computer/guestpass/attack_ai(var/mob/user as mob)
 	if(!ai_can_interact(user))
 		return
 	return attack_hand(user)
 
-/obj/machinery/computer/guestpass/attack_hand(var/mob/user as mob)
+/obj/structure/machinery/computer/guestpass/attack_hand(var/mob/user as mob)
 	if(..())
 		return
 
@@ -115,7 +115,7 @@
 	guestpass_win.set_content(dat)
 	guestpass_win.open()
 
-/obj/machinery/computer/guestpass/Topic(href, href_list)
+/obj/structure/machinery/computer/guestpass/Topic(href, href_list)
 	if(..())
 		return 1
 	usr.set_machine(src)

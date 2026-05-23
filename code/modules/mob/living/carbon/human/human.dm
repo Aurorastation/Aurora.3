@@ -1040,7 +1040,7 @@
 		custom_emote(VISIBLE_MESSAGE,"dry heaves.")
 		return
 
-	var/list/vomitCandidate = typecacheof(/obj/machinery/disposal) + typecacheof(/obj/structure/sink) + typecacheof(/obj/structure/toilet)
+	var/list/vomitCandidate = typecacheof(/obj/structure/machinery/disposal) + typecacheof(/obj/structure/sink) + typecacheof(/obj/structure/toilet)
 	var/obj/vomitReceptacle
 	for(var/obj/vessel in view(1, src))
 		if(!is_type_in_typecache(vessel, vomitCandidate))

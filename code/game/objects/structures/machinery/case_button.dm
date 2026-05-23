@@ -1,5 +1,5 @@
 //TODO: Fix Power Usage
-/obj/machinery/case_button
+/obj/structure/machinery/case_button
 	name = "Forcefield Button"
 	desc = "A button in a case protected with a forcefield."
 	icon = 'icons/obj/glasscasebutton.dmi'
@@ -22,16 +22,16 @@
 	var/last_toggle_time = 0
 	var/timeout = 10 //How long you have to wait between pressing the button
 
-/obj/machinery/case_button/Initialize()
+/obj/structure/machinery/case_button/Initialize()
 	. = ..()
 	listener = new(button_type, src)
 	update_icon()
 
-/obj/machinery/case_button/Destroy()
+/obj/structure/machinery/case_button/Destroy()
 	QDEL_NULL(listener)
 	return ..()
 
-/obj/machinery/case_button/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/case_button/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/card))
 		if(src.allowed(user))
 			covered = !covered //Enable / Disable the forcefield
@@ -47,7 +47,7 @@
 			. = TRUE
 	update_icon()
 
-/obj/machinery/case_button/attack_hand(mob/user as mob)
+/obj/structure/machinery/case_button/attack_hand(mob/user as mob)
 	if(!covered)
 		//Spam Check
 		if((last_toggle_time + timeout) > world.time)
@@ -59,26 +59,26 @@
 		last_toggle_time = world.time
 		if(!active)
 			if(activate(user))
-				for(var/button in get_listeners_by_type(button_type,/obj/machinery/case_button))
-					var/obj/machinery/case_button/cb = button
+				for(var/button in get_listeners_by_type(button_type,/obj/structure/machinery/case_button))
+					var/obj/structure/machinery/case_button/cb = button
 					cb.active = 1
 					cb.update_icon()
 		else
 			if(deactivate(user))
-				for(var/button in get_listeners_by_type(button_type,/obj/machinery/case_button))
-					var/obj/machinery/case_button/cb = button
+				for(var/button in get_listeners_by_type(button_type,/obj/structure/machinery/case_button))
+					var/obj/structure/machinery/case_button/cb = button
 					cb.active = 0
 					cb.update_icon()
 	else
 		..()
 	return
 
-/obj/machinery/case_button/power_change()
+/obj/structure/machinery/case_button/power_change()
 	. = ..()
 	update_icon()
 	return
 
-/obj/machinery/case_button/update_icon()
+/obj/structure/machinery/case_button/update_icon()
 	ClearOverlays()
 	if(stat & NOPOWER)
 		update_use_power(POWER_USE_OFF)
@@ -90,14 +90,14 @@
 	return
 
 //Activate the button - Needs to return 1 for the activation to be successful
-/obj/machinery/case_button/proc/activate(mob/user)
+/obj/structure/machinery/case_button/proc/activate(mob/user)
 	user.visible_message(SPAN_NOTICE("\The [user] presses the button."),
 							SPAN_NOTICE("<span class='notice'>You press the button."),
 							"You hear something being pressed.")
 	return 1
 
 //Deactivate Button - Needs ro return 1 for the activation to be successful
-/obj/machinery/case_button/proc/deactivate(mob/user)
+/obj/structure/machinery/case_button/proc/deactivate(mob/user)
 	user.visible_message(SPAN_NOTICE("\The [user] resets the button."),
 							SPAN_NOTICE("<span class='notice'>You reset the button."),
 							"You hear something being pressed.")
@@ -106,7 +106,7 @@
 
 
 
-/obj/machinery/case_button/shuttle
+/obj/structure/machinery/case_button/shuttle
 	name = "bluespace jump button"
 	desc = "A button in a case protected with a forcefield."
 	icon_state = "c2"
@@ -114,10 +114,10 @@
 	case = 2
 	button = 4
 
-/obj/machinery/case_button/shuttle/activate(mob/user)
+/obj/structure/machinery/case_button/shuttle/activate(mob/user)
 	..()
 	return call_shuttle_proc(user, TRANSFER_JUMP)
 
-/obj/machinery/case_button/shuttle/deactivate(mob/user)
+/obj/structure/machinery/case_button/shuttle/deactivate(mob/user)
 	..()
 	return cancel_call_proc(user)

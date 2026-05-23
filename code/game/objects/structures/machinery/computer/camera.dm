@@ -1,4 +1,4 @@
-/obj/machinery/computer/security
+/obj/structure/machinery/computer/security
 	name = "security camera monitor"
 	desc = "Used to access the various cameras on the station."
 	icon_screen = "cameras"
@@ -6,7 +6,7 @@
 	icon_keyboard_emis = "yellow_key_mask"
 	light_color = LIGHT_COLOR_YELLOW
 	var/current_network = null
-	var/obj/machinery/camera/current_camera = null
+	var/obj/structure/machinery/camera/current_camera = null
 	var/last_pic = 1.0
 	var/list/console_networks
 	var/mapping = 0
@@ -15,7 +15,7 @@
 	var/datum/computer_file/program/camera_monitor/camera_monitor_program
 	circuit = /obj/item/circuitboard/security
 
-/obj/machinery/computer/security/Initialize()
+/obj/structure/machinery/computer/security/Initialize()
 	if(!console_networks)
 		console_networks = SSatlas.current_map.station_networks.Copy()
 	. = ..()
@@ -27,18 +27,18 @@
 	// Make sure that camera_monitor knows its been generated from a dedicated console; this will define its network access.
 	camera_monitor_program.monitored_networks = console_networks
 
-/obj/machinery/computer/security/Destroy()
+/obj/structure/machinery/computer/security/Destroy()
 	if(camera_monitor_program)
 		camera_monitor_program = null
 
 	. = ..()
 
-/obj/machinery/computer/security/attack_ai(var/mob/user as mob)
+/obj/structure/machinery/computer/security/attack_ai(var/mob/user as mob)
 	if(!ai_can_interact(user))
 		return
 	return attack_hand(user)
 
-/obj/machinery/computer/security/check_eye(var/mob/user as mob)
+/obj/structure/machinery/computer/security/check_eye(var/mob/user as mob)
 	if (user.stat || user.blinded || !operable())
 		return -1
 	if(!current_camera)
@@ -48,7 +48,7 @@
 		reset_current()
 	return viewflag
 
-/obj/machinery/computer/security/grants_equipment_vision(var/mob/user as mob)
+/obj/structure/machinery/computer/security/grants_equipment_vision(var/mob/user as mob)
 	if(user.stat || user.blinded || !operable())
 		return FALSE
 	if(!current_camera)
@@ -58,14 +58,14 @@
 		return FALSE
 	return TRUE
 
-/obj/machinery/computer/security/proc/can_access_network(var/mob/user, var/network_access)
+/obj/structure/machinery/computer/security/proc/can_access_network(var/mob/user, var/network_access)
 	// No access passed, or 0 which is considered no access requirement. Allow it.
 	if(!network_access)
 		return TRUE
 
 	return (check_camera_access(user, ACCESS_SECURITY) && GLOB.security_level >= SEC_LEVEL_BLUE) || check_camera_access(user, network_access)
 
-/obj/machinery/computer/security/ui_interact(mob/user, datum/tgui/ui)
+/obj/structure/machinery/computer/security/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		if(camera_monitor_program)
@@ -76,13 +76,13 @@
 			return
 		ui.open()
 
-/obj/machinery/computer/security/ui_data(mob/user)
+/obj/structure/machinery/computer/security/ui_data(mob/user)
 	var/list/data = list()
 	if(camera_monitor_program)
 		data += camera_monitor_program.ui_data(user)
 		return data
 
-/obj/machinery/computer/security/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/obj/structure/machinery/computer/security/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
@@ -90,7 +90,7 @@
 	if(camera_monitor_program)
 		. = camera_monitor_program.ui_act(action, params, ui, state)
 
-/obj/machinery/computer/security/attack_hand(var/mob/user as mob)
+/obj/structure/machinery/computer/security/attack_hand(var/mob/user as mob)
 	if (!(src.z in GetConnectedZlevels(starting_z_level)))
 		to_chat(user, "Unable to establish a connection.")
 		return
@@ -101,7 +101,7 @@
 		user.reset_view(current_camera)
 	ui_interact(user)
 
-/obj/machinery/computer/security/proc/switch_to_camera(var/mob/user, var/obj/machinery/camera/C)
+/obj/structure/machinery/computer/security/proc/switch_to_camera(var/mob/user, var/obj/structure/machinery/camera/C)
 	//don't need to check if the camera works for AI because the AI jumps to the camera location and doesn't actually look through cameras.
 	if(isAI(user))
 		var/mob/living/silicon/ai/A = user
@@ -129,7 +129,7 @@
 	check_eye(user)
 	return 1
 
-/obj/machinery/computer/security/proc/check_camera_access(var/mob/user, var/access)
+/obj/structure/machinery/computer/security/proc/check_camera_access(var/mob/user, var/access)
 	if(!access)
 		return 1
 
@@ -146,11 +146,11 @@
 	return 0
 
 //Camera control: moving.
-/obj/machinery/computer/security/proc/jump_on_click(var/mob/user,var/A)
+/obj/structure/machinery/computer/security/proc/jump_on_click(var/mob/user,var/A)
 	if(user.machine != src)
 		return
-	var/obj/machinery/camera/jump_to
-	if(istype(A,/obj/machinery/camera))
+	var/obj/structure/machinery/camera/jump_to
+	if(istype(A,/obj/structure/machinery/camera))
 		jump_to = A
 	else if(ismob(A))
 		if(ishuman(A))
@@ -169,7 +169,7 @@
 			return
 
 		for(var/cc in SSmachinery.all_cameras)
-			var/obj/machinery/camera/camera = cc
+			var/obj/structure/machinery/camera/camera = cc
 			if(!camera.loc)
 				continue
 			if (camera.loc.loc != check_area)
@@ -187,13 +187,13 @@
 	if(can_access_camera(jump_to))
 		switch_to_camera(user,jump_to)
 
-/obj/machinery/computer/security/proc/can_access_camera(var/obj/machinery/camera/C)
+/obj/structure/machinery/computer/security/proc/can_access_camera(var/obj/structure/machinery/camera/C)
 	var/list/shared_networks = src.console_networks & C.network
 	if(shared_networks.len)
 		return 1
 	return 0
 
-/obj/machinery/computer/security/proc/set_current(var/obj/machinery/camera/C)
+/obj/structure/machinery/computer/security/proc/set_current(var/obj/structure/machinery/camera/C)
 	if(current_camera == C)
 		return
 
@@ -207,7 +207,7 @@
 		if(istype(L))
 			L.tracking_initiated()
 
-/obj/machinery/computer/security/proc/reset_current()
+/obj/structure/machinery/computer/security/proc/reset_current()
 	if(current_camera)
 		var/mob/living/L = current_camera.loc
 		if(istype(L))
@@ -215,7 +215,7 @@
 	current_camera = null
 	update_use_power(POWER_USE_IDLE)
 
-/obj/machinery/computer/security/telescreen
+/obj/structure/machinery/computer/security/telescreen
 	name = "Telescreen"
 	desc = "Used for watching an empty arena."
 	icon = 'icons/obj/computer.dmi'
@@ -227,7 +227,7 @@
 	circuit = null
 	is_holographic = FALSE
 
-/obj/machinery/computer/security/telescreen/entertainment
+/obj/structure/machinery/computer/security/telescreen/entertainment
 	name = "entertainment monitor"
 	desc = "Damn, why do they never have anything interesting on these things?"
 	icon_screen = "entertainment"
@@ -235,7 +235,7 @@
 	light_range_on = 2
 	circuit = null
 
-/obj/machinery/computer/security/wooden_tv
+/obj/structure/machinery/computer/security/wooden_tv
 	name = "security camera monitor"
 	desc = "An old TV hooked into the stations camera network."
 	icon = 'icons/obj/computer.dmi'
@@ -245,7 +245,7 @@
 	light_color = "#3848B3"
 	light_power_on = 0.5
 
-/obj/machinery/computer/security/mining
+/obj/structure/machinery/computer/security/mining
 	name = "outpost camera monitor"
 	desc = "Used to access the various cameras on the outpost."
 	icon_screen = "miningcameras"
@@ -255,7 +255,7 @@
 	console_networks = list("MINE")
 	circuit = /obj/item/circuitboard/security/mining
 
-/obj/machinery/computer/security/engineering
+/obj/structure/machinery/computer/security/engineering
 	name = "engineering camera monitor"
 	desc = "Used to monitor fires and breaches."
 	icon_screen = "engineeringcameras"
@@ -264,7 +264,7 @@
 	light_color = LIGHT_COLOR_YELLOW
 	circuit = /obj/item/circuitboard/security/engineering
 
-/obj/machinery/computer/security/engineering/terminal
+/obj/structure/machinery/computer/security/engineering/terminal
 	name = "engineering camera monitor"
 	icon = 'icons/obj/modular_computers/modular_terminal.dmi'
 	icon_screen = "engines"
@@ -275,12 +275,12 @@
 	can_pass_under = FALSE
 	light_power_on = 1
 
-/obj/machinery/computer/security/engineering/Initialize()
+/obj/structure/machinery/computer/security/engineering/Initialize()
 	if(!console_networks)
 		console_networks = GLOB.engineering_networks.Copy()
 	. = ..()
 
-/obj/machinery/computer/security/nuclear
+/obj/structure/machinery/computer/security/nuclear
 	name = "head mounted camera monitor"
 	desc = "Used to access the built-in cameras in helmets."
 	icon_screen = "syndicam"
@@ -290,11 +290,11 @@
 	console_networks = list(NETWORK_MERCENARY)
 	circuit = null
 
-/obj/machinery/computer/security/nuclear/Initialize()
+/obj/structure/machinery/computer/security/nuclear/Initialize()
 	. = ..()
 	req_access = list(150)
 
-/obj/machinery/computer/security/terminal
+/obj/structure/machinery/computer/security/terminal
 	name = "camera monitor terminal"
 	icon = 'icons/obj/modular_computers/modular_terminal.dmi'
 	icon_screen = "cameras"

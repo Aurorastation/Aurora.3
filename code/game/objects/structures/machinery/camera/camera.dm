@@ -1,4 +1,4 @@
-/obj/machinery/camera
+/obj/structure/machinery/camera
 	name = "security camera"
 	desc = "It's used to monitor compartments."
 	icon = 'icons/obj/monitors.dmi'
@@ -43,7 +43,7 @@
 
 	var/affected_by_emp_until = 0
 
-/obj/machinery/camera/Initialize()
+/obj/structure/machinery/camera/Initialize()
 	wires = new(src)
 	assembly = new(src)
 	assembly.state = 4
@@ -51,7 +51,7 @@
 
 	// Use this to look for cameras that have the same c_tag.
 	if(!isnull(src.c_tag))
-		for(var/obj/machinery/camera/C in GLOB.cameranet.cameras)
+		for(var/obj/structure/machinery/camera/C in GLOB.cameranet.cameras)
 			var/list/tempnetwork = C.network&src.network
 			if(C != src && C.c_tag == src.c_tag && tempnetwork.len)
 
@@ -80,7 +80,7 @@
 
 	return ..()
 
-/obj/machinery/camera/Destroy()
+/obj/structure/machinery/camera/Destroy()
 	SSmachinery.all_cameras -= src
 	deactivate(null, 0) //kick anyone viewing out
 	if(assembly)
@@ -105,11 +105,11 @@
 
 	. = ..()
 
-/obj/machinery/camera/set_pixel_offsets()
+/obj/structure/machinery/camera/set_pixel_offsets()
 	pixel_x = dir & (NORTH|SOUTH) ? 0 : (dir == EAST ? -13 : 13)
 	pixel_y = dir & (NORTH|SOUTH) ? (dir == NORTH ? -3 : DEFAULT_WALL_OFFSET) : 0
 
-/obj/machinery/camera/process()
+/obj/structure/machinery/camera/process()
 	if((stat & EMPED) && world.time >= affected_by_emp_until)
 		stat &= ~EMPED
 		cancelCameraAlarm()
@@ -117,7 +117,7 @@
 		update_coverage()
 	return internal_process()
 
-/obj/machinery/camera/proc/internal_process()
+/obj/structure/machinery/camera/proc/internal_process()
 	// motion camera event loop
 	if (stat & (EMPED|NOPOWER))
 		return
@@ -138,7 +138,7 @@
 					// If they aren't in range, lose the target.
 					lostTarget(target)
 
-/obj/machinery/camera/emp_act(severity)
+/obj/structure/machinery/camera/emp_act(severity)
 	. = ..()
 
 	if(!isEmpProof() && prob(100/severity))
@@ -152,14 +152,14 @@
 			update_icon()
 			update_coverage()
 
-/obj/machinery/camera/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+/obj/structure/machinery/camera/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
 	. = ..()
 	if(. != BULLET_ACT_HIT)
 		return .
 
 	add_damage(hitting_projectile.get_structure_damage(), hitting_projectile.damage_flags(), hitting_projectile.damage_type, hitting_projectile.armor_penetration, hitting_projectile)
 
-/obj/machinery/camera/ex_act(severity)
+/obj/structure/machinery/camera/ex_act(severity)
 	if(src.invuln)
 		return
 
@@ -169,7 +169,7 @@
 
 	..() //and give it the regular chance of being deleted outright
 
-/obj/machinery/camera/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
+/obj/structure/machinery/camera/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	..()
 	if (istype(hitting_atom, /obj))
 		var/obj/O = hitting_atom
@@ -177,11 +177,11 @@
 			visible_message(SPAN_WARNING("<B>[src] was hit by [O].</B>"))
 		add_damage(O.throwforce, O.damage_flags(), O.damtype, O.armor_penetration, O)
 
-/obj/machinery/camera/proc/setViewRange(var/num = 7)
+/obj/structure/machinery/camera/proc/setViewRange(var/num = 7)
 	src.view_range = num
 	GLOB.cameranet.update_visibility(src, 0)
 
-/obj/machinery/camera/attack_hand(mob/living/carbon/human/user as mob)
+/obj/structure/machinery/camera/attack_hand(mob/living/carbon/human/user as mob)
 	if(!istype(user))
 		return
 
@@ -194,7 +194,7 @@
 		add_hiddenprint(user)
 		destroy()
 
-/obj/machinery/camera/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/camera/attackby(obj/item/attacking_item, mob/user)
 	update_coverage()
 	// DECONSTRUCTION
 	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
@@ -251,8 +251,8 @@
 				to_chat(O, "<b><a href='byond://?src=[REF(O)];track2=[REF(O)];track=[REF(U)];trackname=[html_encode(U.name)]'>[U]</a></b> holds \a [itemname] up to one of your cameras ...<a href='byond://?src=[REF(O)];readcapturedpaper=[entry]'>view message</a>")
 
 		for(var/mob/O in GLOB.player_list)
-			if (istype(O.machine, /obj/machinery/computer/security))
-				var/obj/machinery/computer/security/S = O.machine
+			if (istype(O.machine, /obj/structure/machinery/computer/security))
+				var/obj/structure/machinery/computer/security/S = O.machine
 				if (S.current_camera == src)
 					to_chat(O, "[U] holds \a [itemname] up to one of the cameras ...")
 					O << browse("<HTML><HEAD><TITLE>[itemname]</TITLE></HEAD><BODY><TT>[info]</TT></BODY></HTML>", "window=[itemname]") //Force people watching to open the page so they can't see it again)
@@ -283,7 +283,7 @@
 	else
 		return ..()
 
-/obj/machinery/camera/proc/deactivate(user as mob, var/choice = 1)
+/obj/structure/machinery/camera/proc/deactivate(user as mob, var/choice = 1)
 	// The only way for AI to reactivate cameras are malf abilities, this gives them different messages.
 	if(istype(user, /mob/living/silicon/ai))
 		user = null
@@ -317,12 +317,12 @@
 
 	GLOB.cameranet.update_visibility(src)
 
-/obj/machinery/camera/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
+/obj/structure/machinery/camera/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
 	if(!(stat & BROKEN))
 		destroy()
 
 //Used when someone breaks a camera
-/obj/machinery/camera/proc/destroy()
+/obj/structure/machinery/camera/proc/destroy()
 	stat |= BROKEN
 	wires.cut_all()
 
@@ -335,7 +335,7 @@
 	spark(loc, 5)
 	playsound(loc, SFX_SPARKS, 50, 1)
 
-/obj/machinery/camera/proc/set_status(var/newstatus)
+/obj/structure/machinery/camera/proc/set_status(var/newstatus)
 	if (status != newstatus)
 		status = newstatus
 		update_coverage()
@@ -344,25 +344,25 @@
 		//I guess that doesn't matter since they couldn't use it anyway?
 		kick_viewers()
 
-/obj/machinery/camera/check_eye(mob/user)
+/obj/structure/machinery/camera/check_eye(mob/user)
 	if(!can_use()) return -1
 	if(isXRay()) return SEE_TURFS|SEE_MOBS|SEE_OBJS
 	return 0
 
-/obj/machinery/camera/grants_equipment_vision(mob/user)
+/obj/structure/machinery/camera/grants_equipment_vision(mob/user)
 	return can_use()
 
 //This might be redundant, because of check_eye()
-/obj/machinery/camera/proc/kick_viewers()
+/obj/structure/machinery/camera/proc/kick_viewers()
 	for(var/mob/O in GLOB.player_list)
-		if (istype(O.machine, /obj/machinery/computer/security))
-			var/obj/machinery/computer/security/S = O.machine
+		if (istype(O.machine, /obj/structure/machinery/computer/security))
+			var/obj/structure/machinery/computer/security/S = O.machine
 			if (S.current_camera == src)
 				O.unset_machine()
 				O.reset_view(null)
 				to_chat(O, "The screen bursts into static.")
 
-/obj/machinery/camera/update_icon()
+/obj/structure/machinery/camera/update_icon()
 	if (!status || (stat & BROKEN))
 		icon_state = "[initial(icon_state)]1"
 	else if (stat & EMPED)
@@ -370,11 +370,11 @@
 	else
 		icon_state = initial(icon_state)
 
-/obj/machinery/camera/proc/triggerCameraAlarm(var/duration = 0)
+/obj/structure/machinery/camera/proc/triggerCameraAlarm(var/duration = 0)
 	alarm_on = 1
 	GLOB.camera_alarm.triggerAlarm(loc, src, duration)
 
-/obj/machinery/camera/proc/cancelCameraAlarm(var/force = FALSE)
+/obj/structure/machinery/camera/proc/cancelCameraAlarm(var/force = FALSE)
 	if(wires.is_cut(WIRE_ALARM) && !force)
 		return
 
@@ -382,14 +382,14 @@
 	GLOB.camera_alarm.clearAlarm(loc, src)
 
 //if false, then the camera is listed as DEACTIVATED and cannot be used
-/obj/machinery/camera/proc/can_use()
+/obj/structure/machinery/camera/proc/can_use()
 	if(!status)
 		return 0
 	if(stat & (EMPED|BROKEN))
 		return 0
 	return 1
 
-/obj/machinery/camera/proc/can_see()
+/obj/structure/machinery/camera/proc/can_see()
 	var/list/see = null
 	var/turf/pos = get_turf(src)
 	if(!pos)
@@ -422,18 +422,18 @@
 //Return a working camera that can see a given mob
 //or null if none
 /proc/seen_by_camera(var/mob/M)
-	for(var/obj/machinery/camera/C in oview(4, M))
+	for(var/obj/structure/machinery/camera/C in oview(4, M))
 		if(C.can_use())	// check if camera disabled
 			return C
 	return null
 
 /proc/near_range_camera(var/mob/M)
-	for(var/obj/machinery/camera/C in range(4, M))
+	for(var/obj/structure/machinery/camera/C in range(4, M))
 		if(C.can_use())	// check if camera disabled
 			return C
 	return null
 
-/obj/machinery/camera/proc/weld(var/obj/item/weldingtool/WT, var/mob/user)
+/obj/structure/machinery/camera/proc/weld(var/obj/item/weldingtool/WT, var/mob/user)
 
 	if(busy)
 		return 0
@@ -453,7 +453,7 @@
 	busy = 0
 	return 0
 
-/obj/machinery/camera/interact(mob/living/user as mob)
+/obj/structure/machinery/camera/interact(mob/living/user as mob)
 	if(!panel_open || istype(user, /mob/living/silicon/ai))
 		return
 
@@ -464,13 +464,13 @@
 	user.set_machine(src)
 	wires.interact(user)
 
-/obj/machinery/camera/proc/add_network(var/network_name)
+/obj/structure/machinery/camera/proc/add_network(var/network_name)
 	add_networks(list(network_name))
 
-/obj/machinery/camera/proc/remove_network(var/network_name)
+/obj/structure/machinery/camera/proc/remove_network(var/network_name)
 	remove_networks(list(network_name))
 
-/obj/machinery/camera/proc/add_networks(var/list/networks)
+/obj/structure/machinery/camera/proc/add_networks(var/list/networks)
 	var/network_added
 	network_added = 0
 	for(var/network_name in networks)
@@ -481,7 +481,7 @@
 	if(network_added)
 		update_coverage(1)
 
-/obj/machinery/camera/proc/remove_networks(var/list/networks)
+/obj/structure/machinery/camera/proc/remove_networks(var/list/networks)
 	var/network_removed
 	network_removed = 0
 	for(var/network_name in networks)
@@ -492,7 +492,7 @@
 	if(network_removed)
 		update_coverage(1)
 
-/obj/machinery/camera/proc/replace_networks(var/list/networks)
+/obj/structure/machinery/camera/proc/replace_networks(var/list/networks)
 	if(networks.len != network.len)
 		network = networks
 		update_coverage(1)
@@ -504,12 +504,12 @@
 			update_coverage(1)
 			return
 
-/obj/machinery/camera/proc/clear_all_networks()
+/obj/structure/machinery/camera/proc/clear_all_networks()
 	if(network.len)
 		network.Cut()
 		update_coverage(1)
 
-/obj/machinery/camera/proc/nano_structure()
+/obj/structure/machinery/camera/proc/nano_structure()
 	var/cam = list()
 	cam["name"] = sanitize(c_tag)
 	cam["deact"] = !can_use()
@@ -520,7 +520,7 @@
 	return cam
 
 // Resets the camera's wires to fully operational state. Used by one of Malfunction abilities.
-/obj/machinery/camera/proc/reset_wires()
+/obj/structure/machinery/camera/proc/reset_wires()
 	if(!wires)
 		return
 	if (stat & BROKEN) // Fix the camera

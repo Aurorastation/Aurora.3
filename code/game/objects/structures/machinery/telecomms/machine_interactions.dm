@@ -1,10 +1,10 @@
-/obj/machinery/telecomms
+/obj/structure/machinery/telecomms
 	var/temp = "" // output message
 	var/construct_op = 0
 	icon = 'icons/obj/machinery/telecomms.dmi'
 
 
-/obj/machinery/telecomms/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/telecomms/attackby(obj/item/attacking_item, mob/user)
 
 	// Using a multitool lets you access the receiver's interface
 	if(attacking_item.tool_behaviour == TOOL_MULTITOOL)
@@ -105,18 +105,18 @@
 						C.forceMove(user.loc)
 
 					// Create a machine frame and delete the current machine
-					var/obj/machinery/constructable_frame/machine_frame/F = new
+					var/obj/structure/machinery/constructable_frame/machine_frame/F = new
 					F.forceMove(src.loc)
 					qdel(src)
 				. = TRUE
 	update_icon()
 
-/obj/machinery/telecomms/attack_ai(mob/living/silicon/user)
+/obj/structure/machinery/telecomms/attack_ai(mob/living/silicon/user)
 	if(!ai_can_interact(user))
 		return
 	interact(user, user.get_multitool())
 
-/obj/machinery/telecomms/interact(mob/user, var/obj/item/multitool/M)
+/obj/structure/machinery/telecomms/interact(mob/user, var/obj/item/multitool/M)
 	if(!M)
 		M = user.get_multitool()
 	var/dat
@@ -137,7 +137,7 @@
 		dat += "<br>Linked Network Entities: <ol>"
 
 		var/i = 0
-		for(var/obj/machinery/telecomms/T in links)
+		for(var/obj/structure/machinery/telecomms/T in links)
 			i++
 			if(T.hide && !src.hide)
 				continue
@@ -161,7 +161,7 @@
 		dat += "<hr>"
 
 		if(M)
-			var/obj/machinery/telecomms/device = M.get_buffer()
+			var/obj/structure/machinery/telecomms/device = M.get_buffer()
 			if(istype(device))
 				dat += "<br>MULTITOOL BUFFER: [device] ([device.id]) <a href='byond://?src=[REF(src)];link=1'>\[Link\]</a> <a href='byond://?src=[REF(src)];flush=1'>\[Flush\]</a>"
 			else
@@ -177,22 +177,22 @@
 // Additional Options for certain machines. Use this when you want to add an option to a specific machine.
 // Example of how to use below.
 
-/obj/machinery/telecomms/proc/Options_Menu()
+/obj/structure/machinery/telecomms/proc/Options_Menu()
 	return ""
 
 /*
 // Add an option to the processor to switch processing mode. (COMPRESS -> UNCOMPRESS or UNCOMPRESS -> COMPRESS)
-/obj/machinery/telecomms/processor/Options_Menu()
+/obj/structure/machinery/telecomms/processor/Options_Menu()
 	var/dat = "<br>Processing Mode: <A href='byond://?src=[REF(src)];process=1'>[process_mode ? "UNCOMPRESS" : "COMPRESS"]</a>"
 	return dat
 */
 // The topic for Additional Options. Use this for checking href links for your specific option.
 // Example of how to use below.
-/obj/machinery/telecomms/proc/Options_Topic(href, href_list)
+/obj/structure/machinery/telecomms/proc/Options_Topic(href, href_list)
 	return
 
 /*
-/obj/machinery/telecomms/processor/Options_Topic(href, href_list)
+/obj/structure/machinery/telecomms/processor/Options_Topic(href, href_list)
 
 	if(href_list["process"])
 		temp = "<font color = #666633>-% Processing mode changed. %-</font>"
@@ -200,11 +200,11 @@
 */
 // BUS
 
-/obj/machinery/telecomms/bus/Options_Menu()
+/obj/structure/machinery/telecomms/bus/Options_Menu()
 	var/dat = "<br>Change Signal Frequency: <A href='byond://?src=[REF(src)];change_freq=1'>[change_frequency ? "YES ([change_frequency])" : "NO"]</a>"
 	return dat
 
-/obj/machinery/telecomms/bus/Options_Topic(href, href_list)
+/obj/structure/machinery/telecomms/bus/Options_Topic(href, href_list)
 
 	if(href_list["change_freq"])
 
@@ -221,7 +221,7 @@
 				temp = "<font color = #666633>-% Frequency changing deactivated %-</font>"
 
 
-/obj/machinery/telecomms/Topic(href, href_list)
+/obj/structure/machinery/telecomms/Topic(href, href_list)
 
 	if(!isliving(usr))
 		return
@@ -259,7 +259,7 @@
 						temp = "<font color = #666633>-% Too many characters in new network tag %-</font>"
 
 					else
-						for(var/obj/machinery/telecomms/T in links)
+						for(var/obj/structure/machinery/telecomms/T in links)
 							remove_link(T)
 
 						network = newnet
@@ -287,7 +287,7 @@
 	if(href_list["unlink"])
 
 		if(text2num(href_list["unlink"]) <= length(links))
-			var/obj/machinery/telecomms/T = links[text2num(href_list["unlink"])]
+			var/obj/structure/machinery/telecomms/T = links[text2num(href_list["unlink"])]
 			if(T)
 				temp = "<font color = #666633>-% Removed [REF(T)] [T.name] from linked entities. %-</font>"
 				remove_link(T)
@@ -295,7 +295,7 @@
 	if(href_list["link"])
 
 		if(P)
-			var/obj/machinery/telecomms/device = P.get_buffer()
+			var/obj/structure/machinery/telecomms/device = P.get_buffer()
 			if(device)
 				add_new_link(device)
 				temp = "<font color = #666633>-% Successfully linked with [REF(device)] [device.name] %-</font>"
@@ -322,7 +322,7 @@
 	updateDialog()
 
 // Adds new_connection to src's links list AND vice versa. also updates links_by_telecomms_type
-/obj/machinery/telecomms/proc/add_new_link(obj/machinery/telecomms/new_connection)
+/obj/structure/machinery/telecomms/proc/add_new_link(obj/structure/machinery/telecomms/new_connection)
 	if (!istype(new_connection) || new_connection == src)
 		return FALSE
 
@@ -338,7 +338,7 @@
 	return TRUE
 
 // Removes old_connection from src's links list AND vice versa. also updates links_by_telecomms_type
-/obj/machinery/telecomms/proc/remove_link(obj/machinery/telecomms/old_connection)
+/obj/structure/machinery/telecomms/proc/remove_link(obj/structure/machinery/telecomms/old_connection)
 	if (!istype(old_connection) || old_connection == src)
 		return FALSE
 
@@ -352,7 +352,7 @@
 
 	return TRUE
 
-/obj/machinery/telecomms/proc/canAccess(var/mob/user)
+/obj/structure/machinery/telecomms/proc/canAccess(var/mob/user)
 	if(issilicon(user) || in_range(user, src))
 		return 1
 	return 0

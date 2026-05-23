@@ -1,6 +1,6 @@
 // It is a gizmo that flashes a small area
 
-/obj/machinery/flasher
+/obj/structure/machinery/flasher
 	name = "mounted flash"
 	desc = "A mounted flash. Disorientates anyone caught in its range."
 	icon = 'icons/obj/stationobjs.dmi'
@@ -18,11 +18,11 @@
 	var/_wifi_id
 	var/datum/wifi/receiver/button/flasher/wifi_receiver
 
-/obj/machinery/flasher/mechanics_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/flasher/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Use a wirecutter on this to disconnect the flashbulb, disabling it. Use wirecutters again to reconnect it."
 
-/obj/machinery/flasher/portable //Portable version of the flasher. Only flashes when anchored
+/obj/structure/machinery/flasher/portable //Portable version of the flasher. Only flashes when anchored
 	name = "portable flasher"
 	desc = "A portable flashing device. Wrench to activate and deactivate. Cannot detect slow movements."
 	icon_state = "pflash1"
@@ -31,17 +31,17 @@
 	base_state = "pflash"
 	density = 1
 
-/obj/machinery/flasher/Initialize()
+/obj/structure/machinery/flasher/Initialize()
 	. = ..()
 	if(_wifi_id)
 		wifi_receiver = new(_wifi_id, src)
 
-/obj/machinery/flasher/Destroy()
+/obj/structure/machinery/flasher/Destroy()
 	qdel(wifi_receiver)
 	wifi_receiver = null
 	return ..()
 
-/obj/machinery/flasher/power_change()
+/obj/structure/machinery/flasher/power_change()
 	..()
 	if ( !(stat & NOPOWER) )
 		icon_state = "[base_state]1"
@@ -51,7 +51,7 @@
 //		src.sd_SetLuminosity(0)
 
 //Don't want to render prison breaks impossible
-/obj/machinery/flasher/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/flasher/attackby(obj/item/attacking_item, mob/user)
 	if (attacking_item.tool_behaviour == TOOL_WIRECUTTER)
 		add_fingerprint(user)
 		src.disable = !src.disable
@@ -62,7 +62,7 @@
 		return TRUE
 
 //Let the AI trigger them directly.
-/obj/machinery/flasher/attack_ai(mob/user)
+/obj/structure/machinery/flasher/attack_ai(mob/user)
 	if(!ai_can_interact(user))
 		return
 	if (src.anchored)
@@ -70,7 +70,7 @@
 	else
 		return
 
-/obj/machinery/flasher/proc/flash()
+/obj/structure/machinery/flasher/proc/flash()
 	if (!(powered()))
 		return
 
@@ -93,7 +93,7 @@
 
 		O.Weaken(flash_time)
 
-/obj/machinery/flasher/emp_act(severity)
+/obj/structure/machinery/flasher/emp_act(severity)
 	. = ..()
 
 	if(stat & (BROKEN|NOPOWER))
@@ -102,14 +102,14 @@
 	if(prob(75/severity))
 		flash()
 
-/obj/machinery/flasher/portable/HasProximity(atom/movable/AM as mob|obj)
+/obj/structure/machinery/flasher/portable/HasProximity(atom/movable/AM as mob|obj)
 	if ((src.disable) || (src.last_flash && world.time < src.last_flash + 150))
 		return
 
 	if (src.anchored)
 		src.flash()
 
-/obj/machinery/flasher/portable/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/flasher/portable/attackby(obj/item/attacking_item, mob/user)
 	if (attacking_item.tool_behaviour == TOOL_WRENCH)
 		add_fingerprint(user)
 		src.anchored = !src.anchored
@@ -123,11 +123,11 @@
 			AddOverlays("[base_state]-s")
 		return TRUE
 
-/obj/machinery/button/flasher
+/obj/structure/machinery/button/flasher
 	name = "flasher button"
 	desc = "A remote control switch for a mounted flasher."
 
-/obj/machinery/button/flasher/attack_hand(mob/user as mob)
+/obj/structure/machinery/button/flasher/attack_hand(mob/user as mob)
 
 	if(..())
 		return
@@ -137,7 +137,7 @@
 	active = 1
 	icon_state = "launcheract"
 
-	for(var/obj/machinery/flasher/M in SSmachinery.machinery)
+	for(var/obj/structure/machinery/flasher/M in SSmachinery.machinery)
 		if(M.id == src.id)
 			M.flash()
 

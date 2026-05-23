@@ -12,11 +12,11 @@
 	var/name = "data packet (#)"
 	var/parameters = list()
 
-/obj/machinery/telecomms/server
+/obj/structure/machinery/telecomms/server
 	name = "telecommunication server"
 	icon_state = "comm_server"
 	desc = "A machine used to store data and network statistics."
-	telecomms_type = /obj/machinery/telecomms/server
+	telecomms_type = /obj/structure/machinery/telecomms/server
 	density = TRUE
 	anchored = TRUE
 	idle_power_usage = 300 // WATTS
@@ -29,11 +29,11 @@
 	var/datum/ntsl2_program/tcomm/Program // NTSL2++ datum responsible for script execution
 	var/autoruncode = 0		// 1 if the code is set to run every time a signal is picked up
 
-/obj/machinery/telecomms/server/Initialize()
+/obj/structure/machinery/telecomms/server/Initialize()
 	. = ..()
 	Program = SSntsl2.new_program_tcomm(src)
 
-/obj/machinery/telecomms/server/receive_information(datum/signal/subspace/vocal/signal, obj/machinery/telecomms/machine_from)
+/obj/structure/machinery/telecomms/server/receive_information(datum/signal/subspace/vocal/signal, obj/structure/machinery/telecomms/machine_from)
 	// can't log non-vocal signals
 	if(!istype(signal) || !signal.data["message"] || !is_freq_listening(signal))
 		return
@@ -90,15 +90,15 @@
 
 	finish_receive_information(signal)
 
-/obj/machinery/telecomms/server/proc/program_receive_information(datum/signal/signal)
+/obj/structure/machinery/telecomms/server/proc/program_receive_information(datum/signal/signal)
 	Program.retrieve_messages(CALLBACK(src, PROC_REF(finish_receive_information), signal))
 
-/obj/machinery/telecomms/server/proc/finish_receive_information(datum/signal/signal)
-	var/can_send = relay_information(signal, /obj/machinery/telecomms/hub)
+/obj/structure/machinery/telecomms/server/proc/finish_receive_information(datum/signal/signal)
+	var/can_send = relay_information(signal, /obj/structure/machinery/telecomms/hub)
 	if(!can_send)
-		relay_information(signal, /obj/machinery/telecomms/broadcaster)
+		relay_information(signal, /obj/structure/machinery/telecomms/broadcaster)
 
-/obj/machinery/telecomms/server/process()
+/obj/structure/machinery/telecomms/server/process()
 	. = ..()
 	if(istype(Program))
 		Program.retrieve_messages()

@@ -349,8 +349,8 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		// Otherwise, see if we can possess the target.
 		if(user == src && try_possession(M))
 			return
-	if(istype(over, /obj/machinery/drone_fabricator))
-		var/obj/machinery/drone_fabricator/fab = over
+	if(istype(over, /obj/structure/machinery/drone_fabricator))
+		var/obj/structure/machinery/drone_fabricator/fab = over
 		if(fab.create_drone(src))
 			return
 

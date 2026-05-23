@@ -41,7 +41,7 @@
 			playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
 			user.visible_message(SPAN_WARNING("[user] has inserted a circuit into \the [src]!"),
 									"You have inserted the circuit into \the [src]!")
-			new /obj/machinery/door/firedoor(src.loc)
+			new /obj/structure/machinery/door/firedoor(src.loc)
 			qdel(attacking_item)
 			qdel(src)
 		else

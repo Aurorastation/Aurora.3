@@ -3,7 +3,7 @@
  */
 
 
-/obj/machinery/vending/vendors
+/obj/structure/machinery/vending/vendors
 	name = "Omni-Restocker"
 	desc = "The mother of all vendors, from which vending itself comes!"
 	icon_state = "engivend"
@@ -31,7 +31,7 @@
 	light_color = COLOR_GOLD
 	light_mask = "engivend-light-mask"
 
-/obj/machinery/vending/vendors/low_supply
+/obj/structure/machinery/vending/vendors/low_supply
 	products = list(
 		/obj/item/vending_refill/tools = 1,
 		/obj/item/vending_refill/coffee = 1,

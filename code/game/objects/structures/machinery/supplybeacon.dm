@@ -4,12 +4,12 @@
 	icon = 'icons/obj/supplybeacon.dmi'
 	desc = "An inactive, hacked supply beacon stamped with the Tau Ceti Rapid Fabrication logo. Good for one (1) ballistic supply pod shipment."
 	icon_state = "beacon"
-	var/deploy_path = /obj/machinery/power/supply_beacon
+	var/deploy_path = /obj/structure/machinery/power/supply_beacon
 	var/deploy_time = 30
 
 /obj/item/supply_beacon/supermatter
 	name = "inactive supermatter supply beacon"
-	deploy_path = /obj/machinery/power/supply_beacon/supermatter
+	deploy_path = /obj/structure/machinery/power/supply_beacon/supermatter
 
 /obj/item/supply_beacon/attack_self(var/mob/user)
 	user.visible_message(SPAN_NOTICE("\The [user] begins setting up \the [src]."))
@@ -20,7 +20,7 @@
 	user.unEquip(src)
 	qdel(src)
 
-/obj/machinery/power/supply_beacon
+/obj/structure/machinery/power/supply_beacon
 	name = "supply beacon"
 	desc = "A bulky moonshot supply beacon. Someone has been messing with the wiring."
 	icon = 'icons/obj/supplybeacon.dmi'
@@ -35,15 +35,15 @@
 	var/expended
 	var/drop_type
 
-/obj/machinery/power/supply_beacon/New()
+/obj/structure/machinery/power/supply_beacon/New()
 	..()
 	if(!drop_type) drop_type = pick(supply_drop_random_loot_types())
 
-/obj/machinery/power/supply_beacon/supermatter
+/obj/structure/machinery/power/supply_beacon/supermatter
 	name = "supermatter supply beacon"
 	drop_type = "supermatter"
 
-/obj/machinery/power/supply_beacon/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/power/supply_beacon/attackby(obj/item/attacking_item, mob/user)
 	if(!use_power && attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(!anchored && !connect_to_network())
 			to_chat(user, SPAN_WARNING("This device must be placed over an exposed cable."))
@@ -54,7 +54,7 @@
 		return TRUE
 	return ..()
 
-/obj/machinery/power/supply_beacon/attack_hand(var/mob/user)
+/obj/structure/machinery/power/supply_beacon/attack_hand(var/mob/user)
 
 	if(expended)
 		update_use_power(POWER_USE_OFF)
@@ -67,11 +67,11 @@
 		to_chat(user, SPAN_WARNING("You need to secure the beacon with a wrench first!"))
 		return
 
-/obj/machinery/power/supply_beacon/attack_ai(var/mob/user)
+/obj/structure/machinery/power/supply_beacon/attack_ai(var/mob/user)
 	if(user.Adjacent(src))
 		attack_hand(user)
 
-/obj/machinery/power/supply_beacon/proc/activate(var/mob/user)
+/obj/structure/machinery/power/supply_beacon/proc/activate(var/mob/user)
 	if(expended)
 		return
 	if(POWER_SURPLUS(src) < 500)
@@ -81,7 +81,7 @@
 	icon_state = "beacon_active"
 	if(user) to_chat(user, SPAN_NOTICE("You activate the beacon. The supply drop will be dispatched soon."))
 
-/obj/machinery/power/supply_beacon/proc/deactivate(var/mob/user, var/permanent)
+/obj/structure/machinery/power/supply_beacon/proc/deactivate(var/mob/user, var/permanent)
 	if(permanent)
 		expended = 1
 		icon_state = "beacon_depleted"
@@ -92,12 +92,12 @@
 	target_drop_time = null
 	if(user) to_chat(user, SPAN_NOTICE("You deactivate the beacon."))
 
-/obj/machinery/power/supply_beacon/Destroy()
+/obj/structure/machinery/power/supply_beacon/Destroy()
 	if(use_power)
 		deactivate()
 	return ..()
 
-/obj/machinery/power/supply_beacon/process()
+/obj/structure/machinery/power/supply_beacon/process()
 	if(expended)
 		return PROCESS_KILL
 	if(!use_power)
@@ -117,5 +117,5 @@
 		command_announcement.Announce("Tau Ceti Rapid Fabrication priority supply request #[rand(1000,9999)]-[rand(100,999)] received. Shipment dispatched via ballistic supply pod for immediate delivery. Have a nice day.", "Thank You For Your Patronage")
 		addtimer(CALLBACK(src, PROC_REF(make_supply_beacon), drop_x, drop_y, drop_z), rand(10, 30) SECONDS)
 
-/obj/machinery/power/supply_beacon/proc/make_supply_beacon(drop_x, drop_y, drop_z)
+/obj/structure/machinery/power/supply_beacon/proc/make_supply_beacon(drop_x, drop_y, drop_z)
 	new /datum/random_map/droppod/supply(null, drop_x, drop_y, drop_z, supplied_drop = drop_type) // Splat.

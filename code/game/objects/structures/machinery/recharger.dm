@@ -1,6 +1,6 @@
 //This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:31
 
-/obj/machinery/recharger
+/obj/structure/machinery/recharger
 	name = "recharger"
 	desc = "Useful for recharging electronic devices."
 	icon = 'icons/obj/stationobjs.dmi'
@@ -32,15 +32,15 @@
 	var/portable = 1
 	var/list/chargebars
 
-/obj/machinery/recharger/mechanics_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/recharger/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "This device can recharge power cells, various handheld computers, energy weapons and stun batons, flashlights, ecigarettes, handheld inductive chargers, and more."
 
-/obj/machinery/recharger/assembly_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/recharger/assembly_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "It [anchored ? "is" : "could be"] anchored to the floor with some <b>bolts</b>."
 
-/obj/machinery/recharger/feedback_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/recharger/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	var/charging_power_kw = round(active_power_usage / 1000, 0.1)
 	. += "Uses a dedicated power supply to deliver <b>[charging_power_kw] kW</b> when in use."
@@ -53,12 +53,12 @@
 			LAZYADD(chargebars, progbar)
 			chargebars[progbar] = addtimer(CALLBACK(src, PROC_REF(remove_bar), progbar, null), 3 SECONDS, TIMER_UNIQUE | TIMER_STOPPABLE)
 
-/obj/machinery/recharger/proc/remove_bar(datum/progressbar/bar, timerid)
+/obj/structure/machinery/recharger/proc/remove_bar(datum/progressbar/bar, timerid)
 	if (!timerid || deltimer(timerid))
 		LAZYREMOVE(chargebars, bar)
 		qdel(bar)
 
-/obj/machinery/recharger/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/recharger/attackby(obj/item/attacking_item, mob/user)
 	if(portable && attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(charging)
 			to_chat(user, SPAN_WARNING("You can't modify \the [src] while it has something charging inside."))
@@ -99,7 +99,7 @@
 		update_icon()
 		return TRUE
 
-/obj/machinery/recharger/attack_hand(mob/user as mob)
+/obj/structure/machinery/recharger/attack_hand(mob/user as mob)
 	if(istype(user,/mob/living/silicon))
 		return
 
@@ -114,7 +114,7 @@
 				remove_bar(thing, chargebars[thing])
 		update_icon()
 
-/obj/machinery/recharger/process()
+/obj/structure/machinery/recharger/process()
 	if(stat & (NOPOWER|BROKEN) || !anchored)
 		update_use_power(POWER_USE_OFF)
 		icon_state = icon_state_idle
@@ -159,7 +159,7 @@
 			charging.visible_message("\The [charging] falls out of [src].")
 			charging = null
 
-/obj/machinery/recharger/emp_act(severity)
+/obj/structure/machinery/recharger/emp_act(severity)
 	. = ..()
 
 	if(stat & (NOPOWER|BROKEN) || !anchored)
@@ -175,13 +175,13 @@
 		if(B.bcell)
 			B.bcell.charge = 0
 
-/obj/machinery/recharger/update_icon()	//we have an update_icon() in addition to the stuff in process to make it feel a tiny bit snappier.
+/obj/structure/machinery/recharger/update_icon()	//we have an update_icon() in addition to the stuff in process to make it feel a tiny bit snappier.
 	if(charging)
 		icon_state = icon_state_charging + "0"
 	else
 		icon_state = icon_state_idle
 
-/obj/machinery/recharger/wallcharger
+/obj/structure/machinery/recharger/wallcharger
 	name = "wall recharger"
 	desc = "A heavy duty wall recharger specialized for energy weaponry."
 	icon = 'icons/obj/stationobjs.dmi'
@@ -198,6 +198,6 @@
 	appearance_flags = TILE_BOUND // prevents people from viewing us through a wall
 	portable = FALSE
 
-/obj/machinery/recharger/wallcharger/mechanics_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/recharger/wallcharger/mechanics_hints(mob/user, distance, is_adjacent)
 	. = list()
 	. += "This device can recharge energy weapons, stun batons, and flashlights."

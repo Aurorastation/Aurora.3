@@ -7,7 +7,7 @@
 	var/list/turrets = list()
 
 
-/obj/machinery/turretid
+/obj/structure/machinery/turretid
 	name = "turret control panel"
 	desc = "Used to control a compartment's automated defenses."
 	icon = 'icons/obj/machinery/turret_control.dmi'
@@ -41,27 +41,27 @@
 	var/ailock = 0
 	req_access = list(ACCESS_AI_UPLOAD)
 
-/obj/machinery/turretid/mechanics_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/turretid/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "ALT-click the [src] to lock or unlock it (if you have the appropriate ID access)."
 
-/obj/machinery/turretid/stun
+/obj/structure/machinery/turretid/stun
 	enabled = 1
 	icon_state = "control_stun"
 
-/obj/machinery/turretid/lethal
+/obj/structure/machinery/turretid/lethal
 	enabled = 1
 	lethal = 1
 	icon_state = "control_kill"
 
-/obj/machinery/turretid/Destroy()
+/obj/structure/machinery/turretid/Destroy()
 	if(control_area)
 		var/area/A = control_area
 		if(A && istype(A))
 			A.turret_controls -= src
 	return ..()
 
-/obj/machinery/turretid/Initialize(mapload)
+/obj/structure/machinery/turretid/Initialize(mapload)
 	. = ..()
 	if(!control_area)
 		control_area = get_area(src)
@@ -84,12 +84,12 @@
 	else
 		return INITIALIZE_HINT_LATELOAD
 
-/obj/machinery/turretid/LateInitialize()
+/obj/structure/machinery/turretid/LateInitialize()
 	. = ..()
 	power_change()
 	turretModes()
 
-/obj/machinery/turretid/proc/isLocked(mob/user)
+/obj/structure/machinery/turretid/proc/isLocked(mob/user)
 	if(ailock && issilicon(user))
 		to_chat(user, SPAN_WARNING("There seems to be a firewall preventing you from accessing this device."))
 		return TRUE
@@ -101,13 +101,13 @@
 
 	return FALSE
 
-/obj/machinery/turretid/CanUseTopic(mob/user)
+/obj/structure/machinery/turretid/CanUseTopic(mob/user)
 	if(isLocked(user))
 		return STATUS_CLOSE
 
 	return ..()
 
-/obj/machinery/turretid/AltClick(mob/user)
+/obj/structure/machinery/turretid/AltClick(mob/user)
 	if(Adjacent(user))
 		add_fingerprint(user)
 		if(emagged)
@@ -125,7 +125,7 @@
 			balloon_alert(user, "access denied!")
 	return
 
-/obj/machinery/turretid/emag_act(var/remaining_charges, var/mob/user)
+/obj/structure/machinery/turretid/emag_act(var/remaining_charges, var/mob/user)
 	if(!emagged)
 		to_chat(user, SPAN_DANGER("You short out the turret controls' access analysis module."))
 		emagged = 1
@@ -133,7 +133,7 @@
 		ailock = 0
 		return 1
 
-/obj/machinery/turretid/attack_ai(mob/user as mob)
+/obj/structure/machinery/turretid/attack_ai(mob/user as mob)
 	if(!ai_can_interact(user))
 		return
 	if(isLocked(user))
@@ -141,13 +141,13 @@
 
 	ui_interact(user)
 
-/obj/machinery/turretid/attack_hand(mob/user as mob)
+/obj/structure/machinery/turretid/attack_hand(mob/user as mob)
 	if(isLocked(user))
 		return
 
 	ui_interact(user)
 
-/obj/machinery/turretid/ui_data(mob/user)
+/obj/structure/machinery/turretid/ui_data(mob/user)
 	var/list/data = list()
 	data["turrets"] = list()
 	data["locked"] = isAI(user) ? FALSE : locked
@@ -173,18 +173,18 @@
 	if(istype(control_area))
 		if(control_area.turrets.len != LAZYLEN(data["turrets"]))
 			data["turrets"] = list()
-		for(var/obj/machinery/porta_turret/aTurret in control_area.turrets)
+		for(var/obj/structure/machinery/porta_turret/aTurret in control_area.turrets)
 			var/ref = "[REF(aTurret)]"
 			data["turrets"] += list(list("name" = sanitize(aTurret.name + " [LAZYLEN(data["turrets"])]"), "ref" = ref, "settings" = aTurret.get_settings(), "enabled" = aTurret.enabled, "lethal" = aTurret.lethal))
 	return data
 
-/obj/machinery/turretid/ui_interact(mob/user, var/datum/tgui/ui)
+/obj/structure/machinery/turretid/ui_interact(mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "TurretControl", "Defense Systems Control Panel", 375, 725)
 		ui.open()
 
-/obj/machinery/turretid/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/obj/structure/machinery/turretid/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
@@ -216,15 +216,15 @@
 					updateTurrets()
 					. = TRUE
 			else
-				var/obj/machinery/porta_turret/aTurret = locate(params["turret_ref"]) in (control_area.turrets)
+				var/obj/structure/machinery/porta_turret/aTurret = locate(params["turret_ref"]) in (control_area.turrets)
 				if(!aTurret)
 					return
 				. = aTurret.ui_act(action, params, ui, state)
 
-/obj/machinery/turretid/proc/updateTurrets()
+/obj/structure/machinery/turretid/proc/updateTurrets()
 	var/datum/turret_checks/TC = getState()
 	if(istype(control_area))
-		for (var/obj/machinery/porta_turret/aTurret in control_area.turrets)
+		for (var/obj/structure/machinery/porta_turret/aTurret in control_area.turrets)
 			if (aTurret.lethal == lethal || aTurret.egun)
 				TC.enabled = enabled
 				aTurret.setState(TC)
@@ -234,7 +234,7 @@
 
 	queue_icon_update()
 
-/obj/machinery/turretid/proc/getState()
+/obj/structure/machinery/turretid/proc/getState()
 	var/datum/turret_checks/TC = new
 	TC.enabled = enabled
 	TC.lethal = lethal
@@ -249,12 +249,12 @@
 
 	return TC
 
-/obj/machinery/turretid/proc/turretModes()
+/obj/structure/machinery/turretid/proc/turretModes()
 	if (!istype(control_area))
 		return
 	var/one_mode = 0 // Is there general one mode only turret
 	var/both_mode = 0 // Is there both mode turrets
-	for (var/obj/machinery/porta_turret/aTurret in control_area.turrets)
+	for (var/obj/structure/machinery/porta_turret/aTurret in control_area.turrets)
 		// If turret only has lethal mode - lock switching modes
 		if(!aTurret.egun)
 			one_mode = 1
@@ -265,15 +265,15 @@
 	if(both_mode && one_mode)
 		egun = 1
 	else if (LAZYLEN(control_area.turrets)) // If we just have turrets with one mode, ensure that panel's lethal variable is same as Turrets.
-		var/obj/machinery/porta_turret/aTurret = control_area.turrets[1]
+		var/obj/structure/machinery/porta_turret/aTurret = control_area.turrets[1]
 		lethal = aTurret.lethal
 		updateTurrets()
 
-/obj/machinery/turretid/power_change()
+/obj/structure/machinery/turretid/power_change()
 	..()
 	updateTurrets()
 
-/obj/machinery/turretid/update_icon()
+/obj/structure/machinery/turretid/update_icon()
 	..()
 	if(stat & NOPOWER)
 		icon_state = "control_off"
@@ -289,7 +289,7 @@
 		icon_state = "control_standby"
 		set_light(1.5, 1,"#003300")
 
-/obj/machinery/turretid/emp_act(severity)
+/obj/structure/machinery/turretid/emp_act(severity)
 	. = ..()
 
 	if(enabled)

@@ -1,17 +1,17 @@
 
 /datum/computer/file/embedded_program
 	var/list/memory = list()
-	var/obj/machinery/embedded_controller/master
+	var/obj/structure/machinery/embedded_controller/master
 
 	var/id_tag
 
-/datum/computer/file/embedded_program/New(var/obj/machinery/embedded_controller/M)
+/datum/computer/file/embedded_program/New(var/obj/structure/machinery/embedded_controller/M)
 	set_master(M)
 
-/datum/computer/file/embedded_program/proc/set_master(obj/machinery/embedded_controller/new_master)
+/datum/computer/file/embedded_program/proc/set_master(obj/structure/machinery/embedded_controller/new_master)
 	if(new_master && master != new_master)
 		master = new_master
-		id_tag = astype(new_master, /obj/machinery/embedded_controller/radio)?.id_tag
+		id_tag = astype(new_master, /obj/structure/machinery/embedded_controller/radio)?.id_tag
 		RegisterSignal(master, COMSIG_QDELETING, PROC_REF(unset_master))
 
 /datum/computer/file/embedded_program/proc/unset_master()

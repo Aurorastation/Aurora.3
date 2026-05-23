@@ -5,7 +5,7 @@
  *	Glasses vendor
  */
 
-/obj/machinery/vending/dinnerware
+/obj/structure/machinery/vending/dinnerware
 	name = "\improper Dinnerware vendor"
 	desc = "A kitchen and restaurant equipment vendor."
 	product_ads = "Mm, food stuffs!;Food and food accessories.;Get your plates!;You like forks?;I like forks.;Woo, utensils.;You don't really need these..."
@@ -58,7 +58,7 @@
 	random_itemcount = 0
 	light_color = COLOR_STEEL
 
-/obj/machinery/vending/dinnerware/plastic
+/obj/structure/machinery/vending/dinnerware/plastic
 	name = "\improper plastic utensil vendor"
 	desc = "A utensil vendor for the galley and the mess."
 	products = list(
@@ -73,7 +73,7 @@
 		/obj/item/reagent_containers/food/drinks/takeaway_cup_idris = 6,
 	)
 
-/obj/machinery/vending/dinnerware/metal
+/obj/structure/machinery/vending/dinnerware/metal
 	name = "\improper metal utensil vendor"
 	desc = "An upscale utensil vendor for the galley and the mess."
 	products = list(
@@ -88,7 +88,7 @@
 		/obj/item/reagent_containers/food/drinks/takeaway_cup_idris = 6,
 	)
 
-/obj/machinery/vending/dinnerware/bar
+/obj/structure/machinery/vending/dinnerware/bar
 	name = "\improper glasses vendor"
 	desc = "A bar vendor for dispensing various glasses and cups."
 	products = list(

@@ -53,7 +53,7 @@
  *
  * Captalism in the year 2467: everything in a vending machine. Even love.
  */
-/obj/machinery/vending
+/obj/structure/machinery/vending
 	name = "\improper Vendomat"
 	desc = "A generic vending machine."
 	icon = 'icons/obj/vending.dmi'
@@ -230,13 +230,13 @@
 	/// Default price of premium items if not overridden
 	var/extra_price = 50
 
-/obj/machinery/vending/mechanics_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/vending/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "A vending machine infected with a launcher virus can be fixed by using a debugger on it. This takes longer than using a wiring panel."
 	. += "All vending machines can be hacked to obtain some contraband items from them, and some can be fed with coins to gain access to premium items."
 
 
-/obj/machinery/vending/Initialize(mapload)
+/obj/structure/machinery/vending/Initialize(mapload)
 	. = ..()
 	wires = new(src)
 
@@ -276,18 +276,18 @@
 
 	return INITIALIZE_HINT_LATELOAD
 
-/obj/machinery/vending/LateInitialize()
+/obj/structure/machinery/vending/LateInitialize()
 	. = ..()
 	v_asset = get_asset_datum(/datum/asset/spritesheet/vending)
 
-/obj/machinery/vending/mouse_drop_receive(atom/dropping, mob/user, params)
+/obj/structure/machinery/vending/mouse_drop_receive(atom/dropping, mob/user, params)
 	//Adds the component only once. We do it here & not in Initialize() because there are tons of walls & we don't want to add to their init times
 	LoadComponent(/datum/component/leanable, dropping)
 
-/obj/machinery/vending/proc/reset_light()
+/obj/structure/machinery/vending/proc/reset_light()
 	set_light(initial(light_range), initial(light_power), initial(light_color))
 
-/obj/machinery/vending/update_icon()
+/obj/structure/machinery/vending/update_icon()
 	ClearOverlays()
 	if(stat & BROKEN || stat & NOPOWER)
 		return
@@ -303,7 +303,7 @@
  *
  *  To be overriden if building the products list is dynamic at runtime or needs any complex logic
  */
-/obj/machinery/vending/proc/build_products()
+/obj/structure/machinery/vending/proc/build_products()
 	SHOULD_NOT_SLEEP(TRUE)
 	return
 
@@ -314,7 +314,7 @@
  *  products that the vending machine is to carry without manually populating
  *  src.product_records.
  */
-/obj/machinery/vending/proc/build_inventory(list/productlist, list/recordlist, list/categories, start_empty = FALSE, premium = FALSE)
+/obj/structure/machinery/vending/proc/build_inventory(list/productlist, list/recordlist, list/categories, start_empty = FALSE, premium = FALSE)
 	var/list/all_products = list(
 		list(src.products, CAT_NORMAL),
 		list(src.contraband, CAT_HIDDEN),
@@ -336,14 +336,14 @@
 
 			src.product_records.Add(product)
 
-/obj/machinery/vending/Destroy()
+/obj/structure/machinery/vending/Destroy()
 	qdel(wires)
 	wires = null
 	qdel(coin)
 	coin = null
 	return ..()
 
-/obj/machinery/vending/ex_act(severity)
+/obj/structure/machinery/vending/ex_act(severity)
 	switch(severity)
 		if(1.0)
 			qdel(src)
@@ -358,13 +358,13 @@
 				return
 	return
 
-/obj/machinery/vending/emag_act(var/remaining_charges, var/mob/user)
+/obj/structure/machinery/vending/emag_act(var/remaining_charges, var/mob/user)
 	if (!emagged)
 		src.emagged = 1
 		to_chat(user, "You short out the product lock on \the [src]")
 		return 1
 
-/obj/machinery/vending/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/vending/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/debugger))
 		if(!shut_up)
 			to_chat(user, SPAN_WARNING("\The [attacking_item] reads, \"Software error detected. Rectifying.\"."))
@@ -491,7 +491,7 @@
  *
  *  usr is the mob who gets the change.
  */
-/obj/machinery/vending/proc/pay_with_cash(var/obj/item/spacecash/cashmoney, mob/user)
+/obj/structure/machinery/vending/proc/pay_with_cash(var/obj/item/spacecash/cashmoney, mob/user)
 	if(currently_vending.price > cashmoney.worth)
 
 		// This is not a status display message, since it's something the character
@@ -535,7 +535,7 @@
  * Takes payment for whatever is the currently_vending item. Returns 1 if
  * successful, 0 if failed.
  */
-/obj/machinery/vending/proc/pay_with_ewallet(var/obj/item/spacecash/ewallet/wallet, var/mob/user)
+/obj/structure/machinery/vending/proc/pay_with_ewallet(var/obj/item/spacecash/ewallet/wallet, var/mob/user)
 	visible_message("<span class='info'>\The [usr] swipes \the [wallet] through \the [src].</span>")
 	playsound(src.loc, 'sound/machines/id_swipe.ogg', 50, 1)
 	if(currently_vending.price > wallet.worth)
@@ -555,7 +555,7 @@
  * Takes payment for whatever is the currently_vending item. Returns 1 if
  * successful, 0 if failed
  */
-/obj/machinery/vending/proc/pay_with_card(var/obj/item/card/id/I, var/obj/item/ID_container)
+/obj/structure/machinery/vending/proc/pay_with_card(var/obj/item/card/id/I, var/obj/item/ID_container)
 	if(I==ID_container || ID_container == null)
 		visible_message("<span class='info'>\The [usr] swipes \the [I] through \the [src].</span>")
 	else
@@ -622,7 +622,7 @@
  *
  *  Called after the money has already been taken from the customer.
  */
-/obj/machinery/vending/proc/credit_purchase(var/target as text)
+/obj/structure/machinery/vending/proc/credit_purchase(var/target as text)
 	var/datum/money_account/vendor_account = SSeconomy.get_department_account("Vendor")
 	vendor_account.money += currently_vending.price
 
@@ -635,12 +635,12 @@
 	T.time = worldtime2text()
 	SSeconomy.add_transaction_log(vendor_account,T)
 
-/obj/machinery/vending/attack_ai(mob/user as mob)
+/obj/structure/machinery/vending/attack_ai(mob/user as mob)
 	if(!ai_can_interact(user))
 		return
 	return attack_hand(user)
 
-/obj/machinery/vending/attack_hand(mob/user as mob)
+/obj/structure/machinery/vending/attack_hand(mob/user as mob)
 	if(stat & (BROKEN|NOPOWER))
 		return
 
@@ -653,18 +653,18 @@
 	else
 		ui_interact(user)
 
-/obj/machinery/vending/ui_interact(mob/user, var/datum/tgui/ui)
+/obj/structure/machinery/vending/ui_interact(mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "Vending", capitalize_first_letters(name))
 		ui.open()
 
-/obj/machinery/vending/ui_assets(mob/user)
+/obj/structure/machinery/vending/ui_assets(mob/user)
 	return list(
 		get_asset_datum(/datum/asset/spritesheet/vending)
 	)
 
-/obj/machinery/vending/ui_data(mob/user)
+/obj/structure/machinery/vending/ui_data(mob/user)
 	var/list/data = list()
 	data["manufacturer"] = manufacturer
 	data["products"] = list()
@@ -720,7 +720,7 @@
 
 	return data
 
-/obj/machinery/vending/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/obj/structure/machinery/vending/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
@@ -788,7 +788,7 @@
 
 		add_fingerprint(usr)
 
-/obj/machinery/vending/proc/vend(datum/data/vending_product/R, mob/user)
+/obj/structure/machinery/vending/proc/vend(datum/data/vending_product/R, mob/user)
 	if (!R || R.amount < 1)
 		return
 
@@ -840,7 +840,7 @@
 	intent_message(MACHINE_SOUND)
 	addtimer(CALLBACK(src, PROC_REF(vend_product), R, user), vend_delay)
 
-/obj/machinery/vending/proc/vend_product(var/datum/data/vending_product/R, mob/user)
+/obj/structure/machinery/vending/proc/vend_product(var/datum/data/vending_product/R, mob/user)
 
 	var/vending_usr_dir = get_dir(src, user)
 	var/obj/vended = new R.product_path(get_step(src, vending_usr_dir))
@@ -864,17 +864,17 @@
 /// To be overriden if vended out products need any post-processing, setting its vars.
 /// Called by `vend_product`.
 /// `vended` is the item that is being vended out.
-/obj/machinery/vending/proc/vended_product_post(var/obj/vended)
+/obj/structure/machinery/vending/proc/vended_product_post(var/obj/vended)
 	return
 
-/obj/machinery/vending/proc/stock(var/datum/data/vending_product/R, var/mob/user)
+/obj/structure/machinery/vending/proc/stock(var/datum/data/vending_product/R, var/mob/user)
 
 	to_chat(user, SPAN_NOTICE("You insert \the [R.product_name] in the product receptor."))
 	R.amount++
 
 	SStgui.update_uis(src)
 
-/obj/machinery/vending/process()
+/obj/structure/machinery/vending/process()
 	if(stat & (BROKEN|NOPOWER))
 		return
 
@@ -900,7 +900,7 @@
 
 	return
 
-/obj/machinery/vending/proc/speak(var/message)
+/obj/structure/machinery/vending/proc/speak(var/message)
 	if(stat & NOPOWER)
 		return FALSE
 
@@ -911,7 +911,7 @@
 		O.show_message("<span class='game say'><span class='name'>\The [src]</span> beeps, \"[message]\"</span>",2)
 	return TRUE
 
-/obj/machinery/vending/power_change()
+/obj/structure/machinery/vending/power_change()
 	..()
 	if(!anchored)
 		stat |= NOPOWER
@@ -928,7 +928,7 @@
 		set_light(0)
 
 /// Oh no we're malfunctioning!  Dump out some product and break.
-/obj/machinery/vending/proc/malfunction()
+/obj/structure/machinery/vending/proc/malfunction()
 	for(var/datum/data/vending_product/R in src.product_records)
 		if (R.amount <= 0) //Try to use a record that actually has something to dump.
 			continue
@@ -947,7 +947,7 @@
 	return
 
 /// Somebody cut an important wire and now we're following a new definition of "pitch."
-/obj/machinery/vending/proc/throw_item()
+/obj/structure/machinery/vending/proc/throw_item()
 	var/obj/item/throw_item = null
 	var/mob/living/target = locate() in view(7,src)
 	if(!target)
@@ -973,7 +973,7 @@
 	return TRUE
 
 /// Screens go over the lighting layer. Sorry.
-/obj/machinery/vending/can_attach_sticker(var/mob/user, var/obj/item/sticker/S)
+/obj/structure/machinery/vending/can_attach_sticker(var/mob/user, var/obj/item/sticker/S)
 	to_chat(user, SPAN_WARNING("\The [src]'s non-stick surface prevents you from attaching a sticker to it!"))
 	return FALSE
 
@@ -1006,7 +1006,7 @@
 	else
 		. += SPAN_WARNING("It's empty!")
 
-/obj/item/vending_refill/proc/restock_inventory(var/obj/machinery/vending/vendor)
+/obj/item/vending_refill/proc/restock_inventory(var/obj/structure/machinery/vending/vendor)
 	if(vendor)
 		for(var/datum/data/vending_product/product in vendor.product_records)
 			if(product.amount < product.max_amount)

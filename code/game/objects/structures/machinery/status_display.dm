@@ -14,7 +14,7 @@
 // Use to show shuttle ETA/ETD times
 // Alert status
 // And arbitrary messages set by comms computer
-/obj/machinery/status_display
+/obj/structure/machinery/status_display
 	name = "status display"
 	icon = 'icons/obj/status_display.dmi'
 	icon_state = "frame"
@@ -44,18 +44,18 @@
 	/// Color for headers, eg. "- ETA -"
 	var/header_text_color =  COLOR_DISPLAY_PURPLE
 
-/obj/machinery/status_display/Destroy()
+/obj/structure/machinery/status_display/Destroy()
 	SSmachinery.all_status_displays -= src
 	SSradio.remove_object(src,frequency)
 	return ..()
 
 // screens have a layer above, so we can't attach here
-/obj/machinery/status_display/can_attach_sticker(var/mob/user, var/obj/item/sticker/S)
+/obj/structure/machinery/status_display/can_attach_sticker(var/mob/user, var/obj/item/sticker/S)
 	to_chat(user, SPAN_WARNING("\The [src]'s non-stick surface prevents you from attaching a sticker to it!"))
 	return FALSE
 
 // register for radio system
-/obj/machinery/status_display/Initialize()
+/obj/structure/machinery/status_display/Initialize()
 	. = ..()
 	SSmachinery.all_status_displays += src
 	if (hears_arrivals)
@@ -65,7 +65,7 @@
 	update_lighting()
 
 // timed process
-/obj/machinery/status_display/process()
+/obj/structure/machinery/status_display/process()
 	if(stat & NOPOWER)
 		remove_display()
 		update_lighting()
@@ -73,18 +73,18 @@
 	if((mode == STATUS_DISPLAY_TIME) && (message2 != worldtime2text()) || ((mode == STATUS_DISPLAY_CUSTOM)))
 		update()
 
-/obj/machinery/status_display/update_use_power(new_use_power)
+/obj/structure/machinery/status_display/update_use_power(new_use_power)
 	var/should_update = (use_power != new_use_power && (use_power == POWER_USE_OFF || new_use_power == POWER_USE_OFF))
 	. = ..()
 	if(should_update)
 		update()
 
-/obj/machinery/status_display/power_change()
+/obj/structure/machinery/status_display/power_change()
 	. = ..()
 	if(.)
 		update()
 
-/obj/machinery/status_display/emp_act(severity)
+/obj/structure/machinery/status_display/emp_act(severity)
 	. = ..()
 
 	if(stat & (BROKEN|NOPOWER))
@@ -93,7 +93,7 @@
 	set_picture("ai_bsod")
 
 // set what is displayed
-/obj/machinery/status_display/proc/update()
+/obj/structure/machinery/status_display/proc/update()
 	remove_display()
 	if(friendc && !ignore_friendc)
 		set_picture("ai_friend")
@@ -132,7 +132,7 @@
 			arrange_displayed_texts(message1, message2)
 	return 0
 
-/obj/machinery/status_display/proc/arrange_displayed_texts(message1, message2)
+/obj/structure/machinery/status_display/proc/arrange_displayed_texts(message1, message2)
 	var/line1_metric
 	var/line2_metric
 	var/line_pair
@@ -152,7 +152,7 @@
 		AddOverlays(emissive_appearance(icon, "outline", src, alpha = src.alpha))
 		return 1
 
-/obj/machinery/status_display/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+/obj/structure/machinery/status_display/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(mode != STATUS_DISPLAY_BLANK && mode != STATUS_DISPLAY_ALERT)
 		if(message1_overlay || message2_overlay)
@@ -162,13 +162,13 @@
 			if(message2_overlay.message)
 				. += "<br>\t<tt>[html_encode(message2_overlay.message)]</tt>"
 
-/obj/machinery/status_display/proc/set_picture(state)
+/obj/structure/machinery/status_display/proc/set_picture(state)
 	remove_display()
 	picture_state = state
 	AddOverlays(picture_state)
 	update_lighting()
 
-/obj/machinery/status_display/proc/set_messages(line1, line2)
+/obj/structure/machinery/status_display/proc/set_messages(line1, line2)
 	var/message_changed = FALSE
 	if(line1 != message1)
 		message1 = line1
@@ -185,7 +185,7 @@
  * Remove both message objs and null the fields.
  * Don't call this in subclasses.
  */
-/obj/machinery/status_display/proc/remove_messages()
+/obj/structure/machinery/status_display/proc/remove_messages()
 	if(message1_overlay)
 		QDEL_NULL(message1_overlay)
 	if(message2_overlay)
@@ -202,7 +202,7 @@
  * * message - the new message text.
  * Returns new /obj/effect/overlay/status_display_text or null if unchanged.
  */
-/obj/machinery/status_display/proc/update_message(obj/effect/overlay/status_display_text/overlay, line_y, message, x_offset, line_pair)
+/obj/structure/machinery/status_display/proc/update_message(obj/effect/overlay/status_display_text/overlay, line_y, message, x_offset, line_pair)
 	if(overlay && message == overlay.message)
 		return null
 
@@ -216,7 +216,7 @@
 	vis_contents += new_status_display_text
 	return new_status_display_text
 
-/obj/machinery/status_display/proc/update_lighting()
+/obj/structure/machinery/status_display/proc/update_lighting()
 	if( \
 		(stat & (NOPOWER|BROKEN)) || \
 		(mode == STATUS_DISPLAY_BLANK) || \
@@ -226,13 +226,13 @@
 		return
 	set_light(L_WALLMOUNT_RANGE, L_WALLMOUNT_POWER, LIGHT_COLOR_FAINT_CYAN) // blue light
 
-/obj/machinery/status_display/proc/get_shuttle_timer()
+/obj/structure/machinery/status_display/proc/get_shuttle_timer()
 	var/timeleft = GLOB.evacuation_controller.get_eta()
 	if(timeleft < 0)
 		return ""
 	return "[add_zero(num2text((timeleft / 60) % 60),2)]:[add_zero(num2text(timeleft % 60), 2)]"
 
-/obj/machinery/status_display/proc/get_supply_shuttle_timer()
+/obj/structure/machinery/status_display/proc/get_supply_shuttle_timer()
 	var/datum/shuttle/autodock/ferry/supply/shuttle = SScargo.shuttle
 	if (!shuttle)
 		return "Error"
@@ -244,7 +244,7 @@
 		return "[add_zero(num2text((timeleft / 60) % 60),2)]:[add_zero(num2text(timeleft % 60), 2)]"
 	return ""
 
-/obj/machinery/status_display/proc/get_arrivals_shuttle_timer()
+/obj/structure/machinery/status_display/proc/get_arrivals_shuttle_timer()
 	var/datum/shuttle/autodock/ferry/arrival/shuttle = SSarrivals.shuttle
 	if (!shuttle)
 		return "Error"
@@ -256,7 +256,7 @@
 		return "[add_zero(num2text((timeleft / 60) % 60),2)]:[add_zero(num2text(timeleft % 60), 2)]"
 	return ""
 
-/obj/machinery/status_display/proc/get_arrivals_shuttle_timer2()
+/obj/structure/machinery/status_display/proc/get_arrivals_shuttle_timer2()
 	if (!SSarrivals)
 		return "Error"
 
@@ -268,7 +268,7 @@
 	else
 		return "Launch"
 
-/obj/machinery/status_display/proc/remove_display()
+/obj/structure/machinery/status_display/proc/remove_display()
 	ClearOverlays()
 	vis_contents.Cut()
 	if(message1_overlay)
@@ -334,7 +334,7 @@
 /obj/effect/overlay/status_display_text/proc/generate_text(text, center, text_color)
 	return {"<div style="color:[text_color];font:[FONT_STYLE][center ? ";text-align:center" : "text-align:right"]" valign="top">[text]</div>"}
 
-/obj/machinery/status_display/receive_signal(datum/signal/signal)
+/obj/structure/machinery/status_display/receive_signal(datum/signal/signal)
 	switch(signal.data["command"])
 		if("blank")
 			mode = STATUS_DISPLAY_BLANK

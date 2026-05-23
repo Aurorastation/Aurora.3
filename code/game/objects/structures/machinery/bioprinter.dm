@@ -1,6 +1,6 @@
 //These machines are mostly just here for debugging/spawning. Skeletons of the feature to come.
 
-/obj/machinery/bioprinter
+/obj/structure/machinery/bioprinter
 	name = "organ bioprinter"
 	desc = "It's a machine that grows replacement organs."
 	icon = 'icons/obj/surgery.dmi'
@@ -22,12 +22,12 @@
 		BP_LIVER =   list(/obj/item/organ/internal/liver,  50)
 		)
 
-/obj/machinery/bioprinter/prosthetics
+/obj/structure/machinery/bioprinter/prosthetics
 	name = "prosthetics fabricator"
 	desc = "It's a machine that prints prosthetic organs."
 	prints_prosthetics = 1
 
-/obj/machinery/bioprinter/attack_hand(mob/user)
+/obj/structure/machinery/bioprinter/attack_hand(mob/user)
 
 	var/choice = tgui_input_list(usr, "What would you like to print?", "Bioprinter", products)
 	if(!choice)
@@ -56,7 +56,7 @@
 	else
 		to_chat(user, SPAN_WARNING("There is not enough matter in the printer."))
 
-/obj/machinery/bioprinter/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/bioprinter/attackby(obj/item/attacking_item, mob/user)
 
 	// DNA sample from syringe.
 	if(!prints_prosthetics && istype(attacking_item, /obj/item/reagent_containers/syringe))

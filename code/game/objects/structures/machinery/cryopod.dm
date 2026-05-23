@@ -12,7 +12,7 @@
 
 //Main cryopod console.
 
-/obj/machinery/computer/cryopod
+/obj/structure/machinery/computer/cryopod
 	name = "cryogenic oversight console"
 	desc = "An interface between crew and the cryogenic storage oversight systems."
 	icon = 'icons/obj/computer.dmi'
@@ -35,7 +35,7 @@
 	var/storage_name = "Cryogenic Oversight Control"
 	var/allow_items = TRUE
 
-/obj/machinery/computer/cryopod/robot
+/obj/structure/machinery/computer/cryopod/robot
 	name = "robotic storage console"
 	desc = "An interface between crew and the robotic storage systems"
 	icon_state = "altcomputerw"
@@ -48,7 +48,7 @@
 	storage_name = "Robotic Storage Control"
 	allow_items = FALSE
 
-/obj/machinery/computer/cryopod/living_quarters
+/obj/structure/machinery/computer/cryopod/living_quarters
 	name = "living quarters oversight console"
 	desc = "An interface between the main ship and the living quarters where the crew lives."
 	circuit = /obj/item/circuitboard/living_quarters_cryo
@@ -56,12 +56,12 @@
 	storage_name = "Living Quarters Oversight Control"
 	allow_items = TRUE
 
-/obj/machinery/computer/cryopod/attack_ai(mob/user)
+/obj/structure/machinery/computer/cryopod/attack_ai(mob/user)
 	if(!ai_can_interact(user))
 		return
 	src.attack_hand(user)
 
-/obj/machinery/computer/cryopod/attack_hand(mob/user)
+/obj/structure/machinery/computer/cryopod/attack_hand(mob/user)
 	if(stat & (NOPOWER|BROKEN))
 		return
 
@@ -84,7 +84,7 @@
 	cryocon_win.set_content(dat)
 	cryocon_win.open()
 
-/obj/machinery/computer/cryopod/Topic(href, href_list)
+/obj/structure/machinery/computer/cryopod/Topic(href, href_list)
 	if(..())
 		return
 
@@ -152,17 +152,17 @@
 
 /obj/item/circuitboard/cryopodcontrol
 	name = T_BOARD("cryogenic oversight console")
-	build_path = /obj/machinery/computer/cryopod
+	build_path = /obj/structure/machinery/computer/cryopod
 	origin_tech = list(TECH_DATA = 3)
 
 /obj/item/circuitboard/robotstoragecontrol
 	name = T_BOARD("robotic storage console")
-	build_path = /obj/machinery/computer/cryopod/robot
+	build_path = /obj/structure/machinery/computer/cryopod/robot
 	origin_tech = list(TECH_DATA = 3)
 
 /obj/item/circuitboard/living_quarters_cryo
 	name = T_BOARD("living quarters oversight console")
-	build_path = /obj/machinery/computer/cryopod/living_quarters
+	build_path = /obj/structure/machinery/computer/cryopod/living_quarters
 	origin_tech = list(TECH_DATA = 3)
 
 //Decorative structures to go alongside cryopods.
@@ -181,7 +181,7 @@
 	icon_state = "cryo_rear_pipes"
 
 //Cryopods themselves.
-/obj/machinery/cryopod
+/obj/structure/machinery/cryopod
 	name = "cryogenic freezer"
 	desc = "A man-sized pod for entering suspended animation."
 	icon = 'icons/obj/machinery/cryopod.dmi'
@@ -211,7 +211,7 @@
 	/// If this cryopod/lift should ALWAYS announce that a person is departing the map. Primarily used in ports of call for flavorful custom text.
 	var/force_announce = FALSE
 
-	var/obj/machinery/computer/cryopod/control_computer
+	var/obj/structure/machinery/computer/cryopod/control_computer
 
 	// These items are preserved when the process() despawn proc occurs.
 	var/list/items_blacklist = list(
@@ -228,12 +228,12 @@
 		/obj/item/card/id/captains_spare
 		)
 
-/obj/machinery/cryopod/feedback_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/cryopod/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	if(occupant)
 		. += SPAN_NOTICE("<b>[occupant]</b> [occupant.get_pronoun("is")] inside \the [initial(name)].")
 
-/obj/machinery/cryopod/robot
+/obj/structure/machinery/cryopod/robot
 	name = "robotic storage unit"
 	desc = "A storage unit for robots."
 	icon = 'icons/obj/robot_storage.dmi'
@@ -245,7 +245,7 @@
 	on_enter_occupant_message = "The storage unit broadcasts a sleep signal to you. Your systems start to shut down, and you enter low-power mode."
 	allow_occupant_types = list(/mob/living/silicon/robot)
 
-/obj/machinery/cryopod/living_quarters
+/obj/structure/machinery/cryopod/living_quarters
 	name = "living quarters lift"
 	desc = "A lift heading to the living quarters."
 	icon = 'icons/obj/crew_quarters_lift.dmi'
@@ -258,7 +258,7 @@
 	on_enter_occupant_message = "The elevator door closes slowly, ready to bring you down to the living quarters."
 	disallow_occupant_types = list(/mob/living/silicon/robot)
 
-/obj/machinery/cryopod/living_quarters/update_icon()
+/obj/structure/machinery/cryopod/living_quarters/update_icon()
 	ClearOverlays()
 	var/image/I = image(icon, "pod_top")
 	AddOverlays(I)
@@ -278,32 +278,32 @@
 	else
 		name = initial(name)
 
-/obj/machinery/cryopod/Destroy()
+/obj/structure/machinery/cryopod/Destroy()
 	if(occupant)
 		occupant.forceMove(loc)
 		occupant.resting = TRUE
 	return ..()
 
-/obj/machinery/cryopod/Initialize()
+/obj/structure/machinery/cryopod/Initialize()
 	..()
 	update_icon()
 	return INITIALIZE_HINT_LATELOAD
 
-/obj/machinery/cryopod/LateInitialize()
+/obj/structure/machinery/cryopod/LateInitialize()
 	. = ..()
 	find_control_computer()
 
-/obj/machinery/cryopod/can_hold_dropped_items()
+/obj/structure/machinery/cryopod/can_hold_dropped_items()
 	return FALSE
 
-/obj/machinery/cryopod/proc/find_control_computer(urgent=0)
-	for(var/obj/machinery/computer/cryopod/C in get_area(src))
+/obj/structure/machinery/cryopod/proc/find_control_computer(urgent=0)
+	for(var/obj/structure/machinery/computer/cryopod/C in get_area(src))
 		control_computer = C
 		break
 
 	return control_computer != null
 
-/obj/machinery/cryopod/proc/check_occupant_allowed(mob/M)
+/obj/structure/machinery/cryopod/proc/check_occupant_allowed(mob/M)
 	var/correct_type = FALSE
 	for(var/type in allow_occupant_types)
 		if(istype(M, type))
@@ -320,7 +320,7 @@
 	return TRUE
 
 //Lifted from Unity stasis.dm and refactored. ~Zuhayr
-/obj/machinery/cryopod/process()
+/obj/structure/machinery/cryopod/process()
 	if(occupant)
 		//Allow a two minute gap between entering the pod and actually despawning.
 		if((world.time - time_entered < time_till_despawn) && occupant.ckey)
@@ -334,7 +334,7 @@
 
 // This function can not be undone; do not call this unless you are sure
 // Also make sure there is a valid control computer
-/obj/machinery/cryopod/robot/despawn_occupant()
+/obj/structure/machinery/cryopod/robot/despawn_occupant()
 	var/mob/living/silicon/robot/R = occupant
 	if(!istype(R))
 		return ..()
@@ -350,7 +350,7 @@
 
 // This function can not be undone; do not call this unless you are sure
 // Also make sure there is a valid control computer
-/obj/machinery/cryopod/proc/despawn_occupant()
+/obj/structure/machinery/cryopod/proc/despawn_occupant()
 	var/list/items = occupant.get_contents()
 	var/turf/T = get_turf(src)
 	//Drop all items into the pod.
@@ -401,7 +401,7 @@
 	occupant = null
 	update_icon()
 
-/obj/machinery/cryopod/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/cryopod/attackby(obj/item/attacking_item, mob/user)
 	var/obj/item/grab/G = attacking_item
 	if(istype(G))
 		if(occupant)
@@ -416,7 +416,7 @@
 		go_in(user, M)
 		return TRUE
 
-/obj/machinery/cryopod/mouse_drop_receive(atom/dropped, mob/user, params)
+/obj/structure/machinery/cryopod/mouse_drop_receive(atom/dropped, mob/user, params)
 	if(!istype(user, /mob/living))
 		return
 
@@ -427,7 +427,7 @@
 	if(istype(M))
 		go_in(user, M)
 
-/obj/machinery/cryopod/verb/move_inside()
+/obj/structure/machinery/cryopod/verb/move_inside()
 	set name = "Enter Pod"
 	set category = "Object"
 	set src in oview(1)
@@ -437,7 +437,7 @@
 
 	go_in(usr, usr, TRUE) //if you're going in of your own volition, you're probably willing
 
-/obj/machinery/cryopod/proc/go_in(mob/user, mob/living/M, var/willing = FALSE) // user refers to the person doing the putting into, M refers to the person being put in
+/obj/structure/machinery/cryopod/proc/go_in(mob/user, mob/living/M, var/willing = FALSE) // user refers to the person doing the putting into, M refers to the person being put in
 	if(!M.bucklecheck(user)) //We must make sure the person is unbuckled before they go in
 		return
 	if(M.stat == DEAD)
@@ -488,7 +488,7 @@
 	//Despawning occurs when process() is called with an occupant without a client.
 	src.add_fingerprint(user)
 
-/obj/machinery/cryopod/verb/eject()
+/obj/structure/machinery/cryopod/verb/eject()
 	set name = "Eject from Pod"
 	set category = "Object"
 	set src in oview(1)
@@ -508,7 +508,7 @@
 	src.go_out()
 	add_fingerprint(usr)
 
-/obj/machinery/cryopod/proc/go_out()
+/obj/structure/machinery/cryopod/proc/go_out()
 	if(!occupant)
 		return
 
@@ -522,7 +522,7 @@
 	playsound(loc, on_exit_sound, 25)
 	update_icon()
 
-/obj/machinery/cryopod/proc/set_occupant(var/mob/living/carbon/occupant)
+/obj/structure/machinery/cryopod/proc/set_occupant(var/mob/living/carbon/occupant)
 	src.occupant = occupant
 	occupant.forceMove(src)
 	occupant.stop_pulling()
@@ -533,7 +533,7 @@
 		occupant.set_respawn_time()
 	update_icon()
 
-/obj/machinery/cryopod/update_icon()
+/obj/structure/machinery/cryopod/update_icon()
 	flick("[initial(icon_state)]-anim", src)
 	if(occupant)
 		name = "[name] ([occupant])"
@@ -551,12 +551,12 @@
 		else
 			icon_state = initial(icon_state)
 
-/obj/machinery/cryopod/relaymove(mob/living/user, direction)
+/obj/structure/machinery/cryopod/relaymove(mob/living/user, direction)
 	. = ..()
 
 	go_out()
 
-/obj/machinery/cryopod/proc/save_ipc_tag(var/mob/M)
+/obj/structure/machinery/cryopod/proc/save_ipc_tag(var/mob/M)
 	var/choice = alert(M, "Would you like to save your tag data?", "Tag Persistence", "Yes", "No")
 	if(choice == "Yes")
 		var/mob/living/carbon/human/H = M

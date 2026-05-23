@@ -1,4 +1,4 @@
-/obj/machinery/computer/sentencing
+/obj/structure/machinery/computer/sentencing
 	name = "criminal sentencing console"
 	desc = "A console that allows registered security personnel to create incident reports for various crimes. It produces an encrypted report that can be used to automatically set a brig timer."
 	icon = 'icons/obj/computer.dmi'
@@ -15,20 +15,20 @@
 	var/datum/browser/menu = new( null, "crim_sentence", "Criminal Sentencing", 710, 725 )
 	var/console_tag
 
-/obj/machinery/computer/sentencing/New()
+/obj/structure/machinery/computer/sentencing/New()
 	..()
 
 	if( console_tag )
 		tag = console_tag
 
-/obj/machinery/computer/sentencing/attack_hand(mob/user as mob)
+/obj/structure/machinery/computer/sentencing/attack_hand(mob/user as mob)
 	if(..())
 		return
 	if(stat & (NOPOWER|BROKEN))
 		return
 	ui_interact(user)
 
-/obj/machinery/computer/sentencing/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/computer/sentencing/attackby(obj/item/attacking_item, mob/user)
 	if( istype( attacking_item, /obj/item/paper/incident ) && menu_screen == "import_incident" )
 		usr.drop_from_inventory(attacking_item,src)
 
@@ -45,7 +45,7 @@
 		return TRUE
 	return ..()
 
-/obj/machinery/computer/sentencing/proc/import( var/obj/item/paper/incident/I )
+/obj/structure/machinery/computer/sentencing/proc/import( var/obj/item/paper/incident/I )
 	incident = null
 
 	if( istype( I ) && I.incident )
@@ -53,7 +53,7 @@
 
 	return incident
 
-/obj/machinery/computer/sentencing/ui_interact( mob/user as mob )
+/obj/structure/machinery/computer/sentencing/ui_interact( mob/user as mob )
 	. = ""
 
 	switch( menu_screen )
@@ -80,13 +80,13 @@
 
 	return
 
-/obj/machinery/computer/sentencing/proc/main_menu()
+/obj/structure/machinery/computer/sentencing/proc/main_menu()
 	. = "<center><h2>Welcome! Please select an option!</h2><br>"
 	. += "<a href='byond://?src=[REF(src)];button=import_incident'>Import Incident</a>   <a href='byond://?src=[REF(src)];button=new_incident'>New Report</a></center>"
 
 	return .
 
-/obj/machinery/computer/sentencing/proc/import_incident()
+/obj/structure/machinery/computer/sentencing/proc/import_incident()
 	. = "<center><h2>Incident Import</h2><br>"
 	. += "Insert an existing Securty Incident Report paper."
 
@@ -95,7 +95,7 @@
 
 	return .
 
-/obj/machinery/computer/sentencing/proc/incident_report()
+/obj/structure/machinery/computer/sentencing/proc/incident_report()
 	. = ""
 	if( !istype( incident ))
 		. += "There was an error loading the incident, please <a href='byond://?src=[REF(src)];button=change_menu;choice=main_menu'>Try Again</a>"
@@ -168,7 +168,7 @@
 
 	return .
 
-/obj/machinery/computer/sentencing/proc/list_charges( var/buttons = 0 )
+/obj/structure/machinery/computer/sentencing/proc/list_charges( var/buttons = 0 )
 	. += "<table class='border'>"
 	. += "<tr>"
 	if( buttons )
@@ -185,7 +185,7 @@
 		. += "</tr>"
 	. += "</table>"
 
-/obj/machinery/computer/sentencing/proc/list_sentence()
+/obj/structure/machinery/computer/sentencing/proc/list_sentence()
 	. = ""
 
 	. += "<table class='border'>"
@@ -219,7 +219,7 @@
 
 	return .
 
-/obj/machinery/computer/sentencing/proc/list_witnesses()
+/obj/structure/machinery/computer/sentencing/proc/list_witnesses()
 	. = ""
 
 	var/list/witnesses = incident.arbiters["Witness"]
@@ -250,7 +250,7 @@
 
 	return .
 
-/obj/machinery/computer/sentencing/proc/list_evidence()
+/obj/structure/machinery/computer/sentencing/proc/list_evidence()
 	. = ""
 
 	var/list/evidence = incident.evidence
@@ -281,7 +281,7 @@
 
 	return .
 
-/obj/machinery/computer/sentencing/proc/list_notes()
+/obj/structure/machinery/computer/sentencing/proc/list_notes()
 	. = ""
 
 	// Incident notes table
@@ -297,7 +297,7 @@
 
 	return .
 
-/obj/machinery/computer/sentencing/proc/add_charges()
+/obj/structure/machinery/computer/sentencing/proc/add_charges()
 	. = ""
 
 	if( !istype( incident ))
@@ -321,7 +321,7 @@
 	. += "<br><hr>"
 	. += "<center><a href='byond://?src=[REF(src)];button=change_menu;choice=incident_report'>Return</a></center>"
 
-/obj/machinery/computer/sentencing/proc/charges_header()
+/obj/structure/machinery/computer/sentencing/proc/charges_header()
 	. = "<center>"
 
 	if( menu_screen == "low_severity" )
@@ -348,7 +348,7 @@
 
 	return .
 
-/obj/machinery/computer/sentencing/proc/get_law_table(list/laws, header = "Misdemeanors")
+/obj/structure/machinery/computer/sentencing/proc/get_law_table(list/laws, header = "Misdemeanors")
 	. = ""
 
 	. += "<table class='border'>"
@@ -377,7 +377,7 @@
 
 	return .
 
-/obj/machinery/computer/sentencing/proc/render_innocent( var/mob/user )
+/obj/structure/machinery/computer/sentencing/proc/render_innocent( var/mob/user )
 	var/obj/item/card/id/card = incident.card.resolve()
 	ping( "\The [src] pings, \"[card] has been found innocent of the accused crimes!\"" )
 
@@ -385,7 +385,7 @@
 	incident = null
 	menu_screen = "main_menu"
 
-/obj/machinery/computer/sentencing/proc/render_guilty( var/mob/living/user )
+/obj/structure/machinery/computer/sentencing/proc/render_guilty( var/mob/living/user )
 	if( !incident )
 		to_chat(user, SPAN_ALERT("There is no active case!"))
 		return
@@ -409,7 +409,7 @@
 	incident = null
 	menu_screen = "main_menu"
 
-/obj/machinery/computer/sentencing/proc/render_guilty_fine( var/mob/living/user )
+/obj/structure/machinery/computer/sentencing/proc/render_guilty_fine( var/mob/living/user )
 	if(!incident)
 		to_chat(user, SPAN_ALERT("There is no active case!"))
 		return
@@ -455,12 +455,12 @@
 	incident = null
 	menu_screen = "main_menu"
 
-/obj/machinery/computer/sentencing/proc/print_incident_overview(var/text)
+/obj/structure/machinery/computer/sentencing/proc/print_incident_overview(var/text)
 	var/obj/item/paper/P = new /obj/item/paper
 	P.set_content_unsafe("Incident Summary",text)
 	print(P, user = usr)
 
-/obj/machinery/computer/sentencing/proc/print_incident_report( var/sentence = 1 )
+/obj/structure/machinery/computer/sentencing/proc/print_incident_report( var/sentence = 1 )
 	var/error = incident.missingSentenceReq()
 
 	if( error )
@@ -477,7 +477,7 @@
 
 	return 0
 
-/obj/machinery/computer/sentencing/Topic(href, href_list)
+/obj/structure/machinery/computer/sentencing/Topic(href, href_list)
 	if(..())
 		return
 
@@ -615,5 +615,5 @@
 	add_fingerprint(usr)
 	updateUsrDialog()
 
-/obj/machinery/computer/sentencing/courtroom
+/obj/structure/machinery/computer/sentencing/courtroom
 	console_tag = "sentencing_courtroom"

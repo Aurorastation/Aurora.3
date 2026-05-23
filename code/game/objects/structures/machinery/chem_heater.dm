@@ -1,6 +1,6 @@
 #define SLOW_MODE_MAX_TEMP_CHANGE 2 //C
 
-/obj/machinery/chem_heater
+/obj/structure/machinery/chem_heater
 	name = "chemical heater"
 	desc = "A simple device that can be used to heat the contents of a beaker to a precise temperature."
 	icon = 'icons/obj/chemical.dmi'
@@ -26,16 +26,16 @@
 		/obj/item/stock_parts/manipulator
 	)
 
-/obj/machinery/chem_heater/upgrade_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/chem_heater/upgrade_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "- Upgraded <b>manipulators</b> increase the speed at which vessel contents are heated."
 	. += SPAN_NOTICE("	- The current heating power produced by this machine is <b>[machine_strength]kW</b>")
 
-/obj/machinery/chem_heater/attack_hand(mob/user)
+/obj/structure/machinery/chem_heater/attack_hand(mob/user)
 	user.set_machine(src)
 	interact(user)
 
-/obj/machinery/chem_heater/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/chem_heater/attackby(obj/item/attacking_item, mob/user)
 	if(default_deconstruction_screwdriver(user, attacking_item))
 		return TRUE
 	if(default_deconstruction_crowbar(user, attacking_item))
@@ -58,7 +58,7 @@
 		updateUsrDialog()
 		return TRUE
 
-/obj/machinery/chem_heater/interact(mob/user as mob)
+/obj/structure/machinery/chem_heater/interact(mob/user as mob)
 	if(stat & BROKEN)
 		return
 	user.set_machine(src)
@@ -91,7 +91,7 @@
 	chem_win.set_content(dat)
 	chem_win.open()
 
-/obj/machinery/chem_heater/Topic(href, href_list)
+/obj/structure/machinery/chem_heater/Topic(href, href_list)
 	..()
 	if(stat & BROKEN) return
 	if(usr.stat || usr.restrained()) return
@@ -118,7 +118,7 @@
 
 	updateUsrDialog()
 
-/obj/machinery/chem_heater/process()
+/obj/structure/machinery/chem_heater/process()
 
 	..()
 
@@ -161,7 +161,7 @@
 
 	return 1
 
-/obj/machinery/chem_heater/RefreshParts()
+/obj/structure/machinery/chem_heater/RefreshParts()
 	machine_strength = initial(machine_strength)
 	for(var/obj/item/stock_parts/P in component_parts)
 		if(ismanipulator(P))

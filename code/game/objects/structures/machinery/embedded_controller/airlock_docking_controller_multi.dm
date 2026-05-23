@@ -1,6 +1,6 @@
 //a controller for a docking port with multiple independent airlocks
 //this is the master controller, that things will try to dock with.
-/obj/machinery/embedded_controller/radio/docking_port_multi
+/obj/structure/machinery/embedded_controller/radio/docking_port_multi
 	name = "docking port controller"
 
 	var/child_tags_txt
@@ -9,7 +9,7 @@
 
 	var/datum/computer/file/embedded_program/docking/multi/docking_program
 
-/obj/machinery/embedded_controller/radio/docking_port_multi/Initialize()
+/obj/structure/machinery/embedded_controller/radio/docking_port_multi/Initialize()
 	. = ..()
 	docking_program = new/datum/computer/file/embedded_program/docking/multi(src)
 	program = docking_program
@@ -22,13 +22,13 @@
 			child_names[tags[i]] = names[i]
 
 
-/obj/machinery/embedded_controller/radio/docking_port_multi/ui_interact(mob/user, datum/tgui/ui)
+/obj/structure/machinery/embedded_controller/radio/docking_port_multi/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "MultiDockingConsole", name, ui_x=470, ui_y=290)
 		ui.open()
 
-/obj/machinery/embedded_controller/radio/docking_port_multi/ui_data(mob/user)
+/obj/structure/machinery/embedded_controller/radio/docking_port_multi/ui_data(mob/user)
 	var/list/airlocks[child_names.len]
 	var/i = 1
 	for (var/child_tag in child_names)
@@ -40,24 +40,24 @@
 	)
 
 //a docking port based on an airlock
-/obj/machinery/embedded_controller/radio/airlock/docking_port_multi
+/obj/structure/machinery/embedded_controller/radio/airlock/docking_port_multi
 	name = "docking port controller"
 	var/master_tag	//for mapping
 	var/datum/computer/file/embedded_program/airlock/multi_docking/airlock_program
 	tag_secure = TRUE
 
-/obj/machinery/embedded_controller/radio/airlock/docking_port_multi/Initialize()
+/obj/structure/machinery/embedded_controller/radio/airlock/docking_port_multi/Initialize()
 	. = ..()
 	airlock_program = new/datum/computer/file/embedded_program/airlock/multi_docking(src)
 	program = airlock_program
 
-/obj/machinery/embedded_controller/radio/airlock/docking_port_multi/ui_interact(mob/user, datum/tgui/ui)
+/obj/structure/machinery/embedded_controller/radio/airlock/docking_port_multi/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "DockingAirlockConsole", name, ui_x=470, ui_y=250)
 		ui.open()
 
-/obj/machinery/embedded_controller/radio/airlock/docking_port_multi/ui_data(mob/user)
+/obj/structure/machinery/embedded_controller/radio/airlock/docking_port_multi/ui_data(mob/user)
 	return list(
 		"chamber_pressure" = round(airlock_program.memory["chamber_sensor_pressure"]),
 		"exterior_status" = airlock_program.memory["exterior_status"],
@@ -68,7 +68,7 @@
 		"override_enabled" = airlock_program.override_enabled
 	)
 
-/obj/machinery/embedded_controller/radio/airlock/docking_port_multi/ui_act(action, params)
+/obj/structure/machinery/embedded_controller/radio/airlock/docking_port_multi/ui_act(action, params)
 	. = ..()
 	if(.)
 		return
@@ -109,12 +109,12 @@
 	to_world("[id_tag] sent command \"[signal.data["command"]]\" to \"[signal.data["recipient"]]\"")
 	..(signal)
 
-/obj/machinery/embedded_controller/radio/docking_port_multi/verb/view_state()
+/obj/structure/machinery/embedded_controller/radio/docking_port_multi/verb/view_state()
 	set category = "Debug"
 	set src in view(1)
 	src.program:print_state()
 
-/obj/machinery/embedded_controller/radio/docking_port_multi/verb/spoof_signal(var/command as text, var/sender as text)
+/obj/structure/machinery/embedded_controller/radio/docking_port_multi/verb/spoof_signal(var/command as text, var/sender as text)
 	set category = "Debug"
 	set src in view(1)
 	var/datum/signal/signal = new
@@ -124,12 +124,12 @@
 
 	src.program:receive_signal(signal)
 
-/obj/machinery/embedded_controller/radio/docking_port_multi/verb/debug_init_dock(var/target as text)
+/obj/structure/machinery/embedded_controller/radio/docking_port_multi/verb/debug_init_dock(var/target as text)
 	set category = "Debug"
 	set src in view(1)
 	src.program:initiate_docking(target)
 
-/obj/machinery/embedded_controller/radio/docking_port_multi/verb/debug_init_undock()
+/obj/structure/machinery/embedded_controller/radio/docking_port_multi/verb/debug_init_undock()
 	set category = "Debug"
 	set src in view(1)
 	src.program:initiate_undocking()

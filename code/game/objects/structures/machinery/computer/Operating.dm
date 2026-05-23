@@ -1,6 +1,6 @@
 //This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:31
 
-/obj/machinery/computer/operating
+/obj/structure/machinery/computer/operating
 	name = "patient monitoring console"
 	desc = "A console that displays information on the status of the patient on an adjacent operating table."
 	density = TRUE
@@ -12,29 +12,29 @@
 	circuit = /obj/item/circuitboard/operating
 
 	///The operating table we are hooked into
-	var/obj/machinery/optable/table
+	var/obj/structure/machinery/optable/table
 
 	///The paper with the scan of the patient
 	var/obj/item/paper/medscan/primer
 
-	var/obj/machinery/body_scanconsole/embedded/embedded_scanner
+	var/obj/structure/machinery/body_scanconsole/embedded/embedded_scanner
 
-/obj/machinery/computer/operating/Initialize()
+/obj/structure/machinery/computer/operating/Initialize()
 	..()
 
-	embedded_scanner = new /obj/machinery/body_scanconsole/embedded(src, 0, TRUE, TRUE)
+	embedded_scanner = new /obj/structure/machinery/body_scanconsole/embedded(src, 0, TRUE, TRUE)
 
 	return INITIALIZE_HINT_LATELOAD
 
-/obj/machinery/computer/operating/LateInitialize()
+/obj/structure/machinery/computer/operating/LateInitialize()
 	. = ..()
 
-	for(var/obj/machinery/optable/T in orange(1, src))
+	for(var/obj/structure/machinery/optable/T in orange(1, src))
 		var/successfully_hooked = hook_table(T)
 		if(successfully_hooked)
 			break
 
-/obj/machinery/computer/operating/Destroy()
+/obj/structure/machinery/computer/operating/Destroy()
 	QDEL_NULL(embedded_scanner)
 	QDEL_NULL(primer)
 
@@ -49,9 +49,9 @@
  *
  * Returns `TRUE` on successful hook, `FALSE` otherwise
  *
- * * table_to_hook - An `/obj/machinery/optable` to hook to
+ * * table_to_hook - An `/obj/structure/machinery/optable` to hook to
  */
-/obj/machinery/computer/operating/proc/hook_table(obj/machinery/optable/table_to_hook)
+/obj/structure/machinery/computer/operating/proc/hook_table(obj/structure/machinery/optable/table_to_hook)
 	if(table)
 		return FALSE
 
@@ -73,9 +73,9 @@
  *
  * Returns `TRUE` on successful unhook, `FALSE` otherwise
  *
- * * table_to_unhook - An `/obj/machinery/optable` to hook to
+ * * table_to_unhook - An `/obj/structure/machinery/optable` to hook to
  */
-/obj/machinery/computer/operating/proc/unhook_table(obj/machinery/optable/table_to_unhook)
+/obj/structure/machinery/computer/operating/proc/unhook_table(obj/structure/machinery/optable/table_to_unhook)
 	if(table_to_unhook != table)
 		crash_with("Trying to unhook a table that is not hooked!")
 		return FALSE
@@ -85,7 +85,7 @@
 
 	return TRUE
 
-/obj/machinery/computer/operating/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/computer/operating/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/paper/medscan))
 		if(primer)
 			to_chat(user, SPAN_WARNING("\The [src] already has a primer!"))
@@ -94,17 +94,17 @@
 		user.drop_from_inventory(attacking_item, src)
 		primer = attacking_item
 
-/obj/machinery/computer/operating/attack_ai(mob/user)
+/obj/structure/machinery/computer/operating/attack_ai(mob/user)
 	if(!ai_can_interact(user))
 		return
 	return attack_hand(user)
 
-/obj/machinery/computer/operating/attack_hand(mob/user)
+/obj/structure/machinery/computer/operating/attack_hand(mob/user)
 	if(..())
 		return
 	embedded_scanner.ui_interact(user)
 
-/obj/machinery/computer/operating/verb/eject_primer()
+/obj/structure/machinery/computer/operating/verb/eject_primer()
 	set src in oview(1)
 	set category = "Object"
 	set name = "Eject Primer"
@@ -120,7 +120,7 @@
 	usr.put_in_hands(primer)
 	primer = null
 
-/obj/machinery/computer/operating/terminal
+/obj/structure/machinery/computer/operating/terminal
 	name = "patient monitoring terminal"
 	icon = 'icons/obj/modular_computers/modular_terminal.dmi'
 	icon_screen = "med_comp"

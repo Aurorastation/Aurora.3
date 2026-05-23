@@ -1,7 +1,7 @@
 // the light switch
 // can have multiple per area
 // can also operate on non-loc area through "otherarea" var
-/obj/machinery/light_switch
+/obj/structure/machinery/light_switch
 	name = "light switch"
 	desc = "It turns lights on and off. What are you, simple?"
 	icon = 'icons/obj/machinery/button.dmi'
@@ -13,12 +13,12 @@
 	var/otherarea = null
 	power_channel = AREA_USAGE_LIGHT
 
-/obj/machinery/light_switch/feedback_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/light_switch/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	if(distance <= 1)
 		. += "It is [on ? "on" : "off"]."
 
-/obj/machinery/light_switch/Initialize()
+/obj/structure/machinery/light_switch/Initialize()
 	. = ..()
 	src.area = get_area(src)
 	var/area_display_name = get_area_display_name(area)
@@ -33,7 +33,7 @@
 	addtimer(CALLBACK(src, PROC_REF(sync_lights)), 25)
 	update_icon()
 
-/obj/machinery/light_switch/update_icon()
+/obj/structure/machinery/light_switch/update_icon()
 	ClearOverlays()
 	if(!(stat & NOPOWER))
 		var/switch_overlay = image(icon, "light[on]-overlay")
@@ -45,36 +45,36 @@
 	else if (light_range)
 		set_light(FALSE)
 
-/obj/machinery/light_switch/attack_hand(mob/user)
+/obj/structure/machinery/light_switch/attack_hand(mob/user)
 	playsound(src, SFX_SWITCH, 30)
 	on = !on
 	sync_lights()
 	intent_message(BUTTON_FLICK, 5)
 
-/obj/machinery/light_switch/proc/sync_lights()
+/obj/structure/machinery/light_switch/proc/sync_lights()
 	var/area/A = get_area(src)
 	if(!A)
 		return
 	A.lightswitch = on
 
-	for(var/obj/machinery/light_switch/light_switch in area)
+	for(var/obj/structure/machinery/light_switch/light_switch in area)
 		light_switch.on = on
 		light_switch.update_icon()
 
-	for (var/obj/machinery/light/light in area)
+	for (var/obj/structure/machinery/light/light in area)
 		if (on)
 			light.stat &= ~POWEROFF
 		else
 			light.stat |= POWEROFF
 		light.update()
 
-/obj/machinery/light_switch/power_change()
+/obj/structure/machinery/light_switch/power_change()
 	if(!otherarea)
 		..()
 
 		update_icon()
 
-/obj/machinery/light_switch/emp_act(severity)
+/obj/structure/machinery/light_switch/emp_act(severity)
 	. = ..()
 
 	if(stat & (BROKEN|NOPOWER))
@@ -82,25 +82,25 @@
 
 	power_change()
 
-/obj/machinery/light_switch/north
+/obj/structure/machinery/light_switch/north
 	dir = NORTH
 	pixel_y = 30
 
-/obj/machinery/light_switch/south
+/obj/structure/machinery/light_switch/south
 	dir = SOUTH
 	pixel_y = -18
 
-/obj/machinery/light_switch/east
+/obj/structure/machinery/light_switch/east
 	dir = EAST
 	pixel_x = 22
 	pixel_y = 5
 
-/obj/machinery/light_switch/west
+/obj/structure/machinery/light_switch/west
 	dir = WEST
 	pixel_x = -22
 	pixel_y = 5
 
-/obj/machinery/light_switch/idris
+/obj/structure/machinery/light_switch/idris
 	name = "idris smart switch"
 	desc = "A smart lightswitch designed by Idris Incorporated for entertainment venues, this one has additional controls for adjusting the color and brightness of the compartment's lighting."
 	var/current_light_color = LIGHT_COLOR_HALOGEN
@@ -113,13 +113,13 @@
 		"Magenta" = LIGHT_COLOR_VIOLET
 	)
 
-/obj/machinery/light_switch/idris/Initialize()
+/obj/structure/machinery/light_switch/idris/Initialize()
 	. = ..()
 	if(!area.lightswitch)
 		on = TRUE
 		area.lightswitch = TRUE
 
-/obj/machinery/light_switch/idris/attack_hand(mob/user)
+/obj/structure/machinery/light_switch/idris/attack_hand(mob/user)
 	if(stat & NOPOWER)
 		to_chat(user, SPAN_WARNING("\The [src] is not responding."))
 		return
@@ -131,7 +131,7 @@
 	handle_menu_choice(user, choice)
 
 // displays the radial control menu for the smart switch
-/obj/machinery/light_switch/idris/proc/show_control_menu(mob/user)
+/obj/structure/machinery/light_switch/idris/proc/show_control_menu(mob/user)
 	var/list/choices = list()
 
 	var/image/power_toggle = image('icons/obj/machinery/button.dmi', null, "light[on ? 0 : 1]")
@@ -153,7 +153,7 @@
 
 	return show_radial_menu(user, src, choices, uniqueid = "lightswitch_[REF(src)]", radius = 42, require_near = !issilicon(user), tooltips = TRUE)
 
-/obj/machinery/light_switch/idris/proc/handle_menu_choice(mob/user, choice)
+/obj/structure/machinery/light_switch/idris/proc/handle_menu_choice(mob/user, choice)
 	if(choice == "Turn Off" || choice == "Turn On")
 		handle_power_toggle()
 		return
@@ -168,14 +168,14 @@
 
 	handle_preset_color(choice)
 
-/obj/machinery/light_switch/idris/proc/handle_power_toggle()
+/obj/structure/machinery/light_switch/idris/proc/handle_power_toggle()
 	playsound(src, SFX_SWITCH, 30)
 	on = !on
 	sync_lights()
 	intent_message(BUTTON_FLICK, 5)
 
 //brightness adjustment
-/obj/machinery/light_switch/idris/proc/handle_brightness_adjustment(mob/user)
+/obj/structure/machinery/light_switch/idris/proc/handle_brightness_adjustment(mob/user)
 	var/display_value = convert_brightness_to_display(current_brightness)
 	var/input = input(user, "Enter brightness (0-100%):", "Brightness", display_value) as num|null
 	if(isnull(input))
@@ -186,7 +186,7 @@
 
 
 // custom color selection
-/obj/machinery/light_switch/idris/proc/handle_custom_color(mob/user)
+/obj/structure/machinery/light_switch/idris/proc/handle_custom_color(mob/user)
 	var/new_color = input(user, "Choose light color:", "Custom Light Color", current_light_color) as color|null
 	if(!new_color)
 		return
@@ -196,12 +196,12 @@
 
 
 // preset color selection
-/obj/machinery/light_switch/idris/proc/handle_preset_color(color_name)
+/obj/structure/machinery/light_switch/idris/proc/handle_preset_color(color_name)
 	current_light_color = color_options[color_name]
 	apply_lighting_changes()
 
 // applies current color and brightness settings to all lights in the area
-/obj/machinery/light_switch/idris/proc/apply_lighting_changes()
+/obj/structure/machinery/light_switch/idris/proc/apply_lighting_changes()
 	if(!area)
 		return
 
@@ -209,18 +209,18 @@
 		on = TRUE
 
 	var/list/saved_switchcounts = list()
-	for(var/obj/machinery/light/light in area)
+	for(var/obj/structure/machinery/light/light in area)
 		saved_switchcounts[light] = light.switchcount
 
 	sync_lights()
 
-	for(var/obj/machinery/light/light in area)
+	for(var/obj/structure/machinery/light/light in area)
 		apply_light_modifications(light)
 		if(light in saved_switchcounts)
 			light.switchcount = saved_switchcounts[light]
 
 // applies color and brightness modifications
-/obj/machinery/light_switch/idris/proc/apply_light_modifications(obj/machinery/light/light)
+/obj/structure/machinery/light_switch/idris/proc/apply_light_modifications(obj/structure/machinery/light/light)
 	if(!light.brightness_range || !light.brightness_power)
 		return
 
@@ -245,9 +245,9 @@
 	light.update_icon()
 
 // converts internal brightness value (0.8-1.0) to display value (0-100)
-/obj/machinery/light_switch/idris/proc/convert_brightness_to_display(brightness)
+/obj/structure/machinery/light_switch/idris/proc/convert_brightness_to_display(brightness)
 	return ((brightness - 0.8) / 0.2) * 100
 
 // converts display value (0-100) to internal brightness value (0.8-1.0)
-/obj/machinery/light_switch/idris/proc/convert_display_to_brightness(display_value)
+/obj/structure/machinery/light_switch/idris/proc/convert_display_to_brightness(display_value)
 	return 0.8 + (clamp(display_value, 0, 100) / 100) * 0.2

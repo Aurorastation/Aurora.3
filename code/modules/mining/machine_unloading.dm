@@ -1,6 +1,6 @@
 /**********************Unloading unit**************************/
 
-/obj/machinery/mineral/unloading_machine
+/obj/structure/machinery/mineral/unloading_machine
 	name = "unloading machine"
 	desc = "A machine capable of unloading an ore box or ore scattered on the floor within its input zone, to its output zone."
 	icon = 'icons/obj/machinery/mining_machines.dmi'
@@ -17,11 +17,11 @@
 	)
 
 
-/obj/machinery/mineral/unloading_machine/Initialize()
+/obj/structure/machinery/mineral/unloading_machine/Initialize()
 	. = ..()
 	setup_io()
 
-/obj/machinery/mineral/unloading_machine/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/mineral/unloading_machine/attackby(obj/item/attacking_item, mob/user)
 	if(default_deconstruction_screwdriver(user, attacking_item))
 		return
 	if(default_deconstruction_crowbar(user, attacking_item))
@@ -30,7 +30,7 @@
 		return
 	return ..()
 
-/obj/machinery/mineral/unloading_machine/process()
+/obj/structure/machinery/mineral/unloading_machine/process()
 	..()
 	if(src.output_turf && src.input_turf)
 		if(locate(/obj/structure/ore_box, input_turf))

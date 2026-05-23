@@ -4,24 +4,24 @@
 	the network bus for further processing and broadcast.
 */
 
-/obj/machinery/telecomms/receiver
+/obj/structure/machinery/telecomms/receiver
 	name = "subspace receiver"
 	icon_state = "broadcast receiver"
 	desc = "This machine has a dish-like shape and green lights. It is designed to detect and process subspace radio activity."
-	telecomms_type = /obj/machinery/telecomms/receiver
+	telecomms_type = /obj/structure/machinery/telecomms/receiver
 	produces_heat = FALSE
 	overmap_range = 3
 	circuitboard = "/obj/item/circuitboard/telecomms/receiver"
 
-/obj/machinery/telecomms/receiver/Initialize(mapload)
+/obj/structure/machinery/telecomms/receiver/Initialize(mapload)
 	. = ..()
 	SSmachinery.all_receivers += src
 	desc += " It has an effective reception range of [overmap_range] grids on the overmap."
 
-/obj/machinery/telecomms/receiver/Destroy()
+/obj/structure/machinery/telecomms/receiver/Destroy()
 	SSmachinery.all_receivers -= src
 	return ..()
 
-/obj/machinery/telecomms/receiver/receive_signal(datum/signal/subspace/signal)
-	if(!relay_information(signal, /obj/machinery/telecomms/hub, TRUE))
-		relay_information(signal, /obj/machinery/telecomms/bus, TRUE)
+/obj/structure/machinery/telecomms/receiver/receive_signal(datum/signal/subspace/signal)
+	if(!relay_information(signal, /obj/structure/machinery/telecomms/hub, TRUE))
+		relay_information(signal, /obj/structure/machinery/telecomms/bus, TRUE)

@@ -1,9 +1,9 @@
-/obj/machinery/meter
+/obj/structure/machinery/meter
 	name = "meter"
 	desc = "Measures the volume and temperature of the pipe under the meter."
 	icon = 'icons/obj/meter.dmi'
 	icon_state = "meter_base"
-	var/obj/machinery/atmospherics/pipe/target = null
+	var/obj/structure/machinery/atmospherics/pipe/target = null
 	anchored = 1.0
 	power_channel = AREA_USAGE_ENVIRON
 	var/frequency = 0
@@ -16,7 +16,7 @@
 	var/mutable_appearance/button_emissive
 	var/mutable_appearance/atmos_emissive
 
-/obj/machinery/meter/feedback_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/meter/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	if(distance > 3 && !isAI(user))
 		. += SPAN_WARNING("You are too far away to read it.")
@@ -33,18 +33,18 @@
 	else
 		. += SPAN_WARNING("The connect error light is blinking.")
 
-/obj/machinery/meter/Initialize()
+/obj/structure/machinery/meter/Initialize()
 	. = ..()
 	if (!target)
-		src.target = locate(/obj/machinery/atmospherics/pipe) in loc
+		src.target = locate(/obj/structure/machinery/atmospherics/pipe) in loc
 
-/obj/machinery/meter/update_icon()
+/obj/structure/machinery/meter/update_icon()
 	var/list/new_overlays = get_rebuild_overlays()
 	if(LAZYLEN(new_overlays))
 		ClearOverlays()
 		AddOverlays(new_overlays)
 
-/obj/machinery/meter/proc/get_rebuild_overlays()
+/obj/structure/machinery/meter/proc/get_rebuild_overlays()
 	if (!target)
 		return list("pressure_off", "buttons_x")
 	if (stat & (BROKEN|NOPOWER))
@@ -109,7 +109,7 @@
 	if (.)
 		return list(button_overlay, button_emissive, atmos_overlay, atmos_emissive)
 
-/obj/machinery/meter/process()
+/obj/structure/machinery/meter/process()
 	update_icon()
 	if (!target || (stat & (BROKEN|NOPOWER)))
 		return FALSE
@@ -134,14 +134,14 @@
 		)
 		radio_connection.post_signal(src, signal)
 
-/obj/machinery/meter/Click()
+/obj/structure/machinery/meter/Click()
 	if(istype(usr, /mob/living/silicon/ai)) // ghosts can call ..() for examine
 		examinate(usr, src)
 		return 1
 
 	return ..()
 
-/obj/machinery/meter/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/meter/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.tool_behaviour != TOOL_WRENCH)
 		return ..()
 	to_chat(user, SPAN_NOTICE("You begin to unfasten \the [src]..."))
@@ -155,11 +155,11 @@
 
 // TURF METER - REPORTS A TILE'S AIR CONTENTS
 
-/obj/machinery/meter/turf/Initialize()
+/obj/structure/machinery/meter/turf/Initialize()
 	. = ..()
 	src.target = loc
 	if (!target)
 		src.target = loc
 
-/obj/machinery/meter/turf/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/meter/turf/attackby(obj/item/attacking_item, mob/user)
 	return

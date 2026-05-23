@@ -97,7 +97,7 @@
 				input = sanitizeSafe( tgui_input_text(user, "How would you like to name the camera?", "Set Camera Name", (camera_name ? camera_name : temptag), MAX_NAME_LEN), MAX_NAME_LEN )
 
 				state = 4
-				var/obj/machinery/camera/C = new(src.loc)
+				var/obj/structure/machinery/camera/C = new(src.loc)
 				src.forceMove(C)
 				C.assembly = src
 

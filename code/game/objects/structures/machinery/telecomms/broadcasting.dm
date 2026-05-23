@@ -1,7 +1,7 @@
 // Subtype of /datum/signal with additional processing information.
 /datum/signal/subspace
 	transmission_method = TRANSMISSION_SUBSPACE
-	var/server_type = /obj/machinery/telecomms/server
+	var/server_type = /obj/structure/machinery/telecomms/server
 	var/datum/signal/subspace/original
 	var/origin_level
 	var/list/levels
@@ -47,17 +47,17 @@
 /datum/signal/subspace/proc/send_to_receivers()
 	if(!source.loc)
 		// It's an announcer message, just send it to the horizon's receiver
-		for(var/obj/machinery/telecomms/receiver/R in SSmachinery.all_receivers)
+		for(var/obj/structure/machinery/telecomms/receiver/R in SSmachinery.all_receivers)
 			if(is_station_level(R.z))
 				R.receive_signal(src)
 				return TRUE
 
 	var/closest_range = 999999
 	var/list/candidates = list()
-	var/obj/machinery/telecomms/selected_receiver
+	var/obj/structure/machinery/telecomms/selected_receiver
 	var/t_range = -1
 
-	for(var/obj/machinery/telecomms/R in SSmachinery.all_receivers)
+	for(var/obj/structure/machinery/telecomms/R in SSmachinery.all_receivers)
 		t_range = R.receive_range(src)
 		if(t_range <= -1)
 			continue
@@ -75,7 +75,7 @@
 		// Unlikely we ever have two receivers at the same distance listening to one frequency, but still
 		closest_range = 128 // get_dist returns 127 max
 		t_range = -1
-		for(var/obj/machinery/telecomms/R in candidates)
+		for(var/obj/structure/machinery/telecomms/R in candidates)
 			t_range = get_dist(R, source)
 			if(t_range < closest_range)
 				selected_receiver = R

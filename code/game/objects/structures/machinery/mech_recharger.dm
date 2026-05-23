@@ -1,4 +1,4 @@
-/obj/machinery/mech_recharger
+/obj/structure/machinery/mech_recharger
 	name = "exosuit dock"
 	desc = "A exosuit recharger, built into the floor."
 	icon = 'icons/mecha/mech_bay.dmi'
@@ -22,13 +22,13 @@
 		/obj/item/stock_parts/manipulator = 2
 	)
 
-/obj/machinery/mech_recharger/upgrade_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/mech_recharger/upgrade_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Upgraded <b>capacitors</b> will increase charging rate."
 	. += "Upgraded <b>scanning modules</b> will increase both charging rate and repair speed."
 	. += "Upgraded <b>manipulators</b> will increase repair speed."
 
-/obj/machinery/mech_recharger/Initialize(mapload)
+/obj/structure/machinery/mech_recharger/Initialize(mapload)
 	. = ..()
 
 	var/static/list/loc_connections = list(
@@ -38,19 +38,19 @@
 
 	AddElement(/datum/element/connect_loc, loc_connections)
 
-/obj/machinery/mech_recharger/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+/obj/structure/machinery/mech_recharger/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
 	SIGNAL_HANDLER
 
 	if(istype(arrived, /mob/living/heavy_vehicle) && charging != arrived)
 		start_charging(arrived)
 
-/obj/machinery/mech_recharger/proc/on_exit(atom/movable/gone, direction)
+/obj/structure/machinery/mech_recharger/proc/on_exit(atom/movable/gone, direction)
 	SIGNAL_HANDLER
 
 	if(gone == charging)
 		stop_charging()
 
-/obj/machinery/mech_recharger/RefreshParts()
+/obj/structure/machinery/mech_recharger/RefreshParts()
 	..()
 	charge = 0
 	repair = -5
@@ -64,7 +64,7 @@
 		else if(ismanipulator(P))
 			repair += P.rating * 2
 
-/obj/machinery/mech_recharger/process()
+/obj/structure/machinery/mech_recharger/process()
 	if(!charging)
 		update_use_power(POWER_USE_IDLE)
 		return
@@ -100,7 +100,7 @@
 	if(cell && remaining_energy > 0)
 		cell.give(remaining_energy * CELLRATE)
 
-/obj/machinery/mech_recharger/power_change()
+/obj/structure/machinery/mech_recharger/power_change()
 	..()
 	if(!(stat & NOPOWER) && !(stat & BROKEN) && !charging)
 		var/mob/living/heavy_vehicle/HV = locate() in get_turf(src)
@@ -108,10 +108,10 @@
 			start_charging(HV)
 
 // An ugly proc, but apparently mechs don't have maxhealth var of any kind.
-/obj/machinery/mech_recharger/proc/fully_repaired()
+/obj/structure/machinery/mech_recharger/proc/fully_repaired()
 	return charging && (charging.health == charging.maxhealth)
 
-/obj/machinery/mech_recharger/proc/start_charging(var/mob/living/heavy_vehicle/M)
+/obj/structure/machinery/mech_recharger/proc/start_charging(var/mob/living/heavy_vehicle/M)
 	var/no_power = FALSE
 	var/obj/item/cell/C = M.get_cell()
 	if(stat & (NOPOWER | BROKEN))
@@ -126,12 +126,12 @@
 		if(C)
 			to_chat(pilot, SPAN_NOTICE("Now charging..."))
 
-/obj/machinery/mech_recharger/proc/stop_charging()
+/obj/structure/machinery/mech_recharger/proc/stop_charging()
 	update_use_power(POWER_USE_IDLE)
 	charging = null
 
 
-/obj/machinery/mech_recharger/hephaestus
+/obj/structure/machinery/mech_recharger/hephaestus
 	name = "hephaestus exosuit dock"
 	desc = "A massive vehicle dock elevated slightly above the ground, constructed for equally massive charging speeds."
 	icon_state = "supermechcharger"
@@ -148,7 +148,7 @@
 		/obj/item/stock_parts/manipulator = 3
 	)
 
-/obj/machinery/mech_recharger/automobile
+/obj/structure/machinery/mech_recharger/automobile
 	name = "vehicle charging port"
 	desc = "A vehicle battery recharger, built into the ground."
 	icon = 'icons/obj/structure/urban/infrastructure.dmi'

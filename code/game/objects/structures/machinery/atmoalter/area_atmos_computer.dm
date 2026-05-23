@@ -1,4 +1,4 @@
-/obj/machinery/computer/area_atmos
+/obj/structure/machinery/computer/area_atmos
 	name = "Area Air Control"
 	desc = "A computer used to control the stationary scrubbers and pumps in the area."
 	icon_screen = "area_atmos"
@@ -11,29 +11,29 @@
 
 	var/range = 15
 
-/obj/machinery/computer/area_atmos/Initialize()
+/obj/structure/machinery/computer/area_atmos/Initialize()
 	. = ..()
 
 	scanscrubbers()
 
-/obj/machinery/computer/area_atmos/attack_ai(var/mob/user as mob)
+/obj/structure/machinery/computer/area_atmos/attack_ai(var/mob/user as mob)
 	ui_interact(user)
 	return
 
-/obj/machinery/computer/area_atmos/attack_hand(var/mob/user as mob)
+/obj/structure/machinery/computer/area_atmos/attack_hand(var/mob/user as mob)
 	ui_interact(user)
 	return
 
-/obj/machinery/computer/area_atmos/ui_interact(mob/user, datum/tgui/ui)
+/obj/structure/machinery/computer/area_atmos/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "AreaAtmos")
 		ui.open()
 
-/obj/machinery/computer/area_atmos/ui_data(mob/user)
+/obj/structure/machinery/computer/area_atmos/ui_data(mob/user)
 	var/list/data = list()
 	var/list/scrubberdata = list()
-	for(var/obj/machinery/portable_atmospherics/powered/scrubber/huge/scrubber in connectedscrubbers)
+	for(var/obj/structure/machinery/portable_atmospherics/powered/scrubber/huge/scrubber in connectedscrubbers)
 		scrubberdata += list(list(
 			"id" = scrubber.id,
 			"name" = scrubber.name,
@@ -46,7 +46,7 @@
 
 	return data
 
-/obj/machinery/computer/area_atmos/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/obj/structure/machinery/computer/area_atmos/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
@@ -56,7 +56,7 @@
 		return TRUE
 
 	if(action=="cmode")
-		for(var/obj/machinery/portable_atmospherics/powered/scrubber/huge/scrubber in connectedscrubbers)
+		for(var/obj/structure/machinery/portable_atmospherics/powered/scrubber/huge/scrubber in connectedscrubbers)
 			if(scrubber.id == text2num(params["cmode"]))
 				scrubber.on = !(scrubber.on)
 				scrubber.update_icon()
@@ -64,9 +64,9 @@
 
 		return TRUE
 
-/obj/machinery/computer/area_atmos/proc/scanscrubbers()
+/obj/structure/machinery/computer/area_atmos/proc/scanscrubbers()
 	connectedscrubbers = new()
 
-	for(var/obj/machinery/portable_atmospherics/powered/scrubber/huge/scrubber in range(range, src.loc))
+	for(var/obj/structure/machinery/portable_atmospherics/powered/scrubber/huge/scrubber in range(range, src.loc))
 		if(istype(scrubber) && scrubber.loc.z == src.loc.z)
 			connectedscrubbers += scrubber

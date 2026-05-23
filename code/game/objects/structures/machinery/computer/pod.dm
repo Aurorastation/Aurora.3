@@ -1,6 +1,6 @@
 //This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:31
 
-/obj/machinery/computer/pod
+/obj/structure/machinery/computer/pod
 	name = "pod launch control console"
 	desc = "A control console for launching pods. Some people prefer firing Mechas."
 	icon_screen = "command"
@@ -9,23 +9,23 @@
 	light_color = LIGHT_COLOR_GREEN
 	circuit = /obj/item/circuitboard/pod
 	var/id = 1.0
-	var/obj/machinery/mass_driver/connected = null
+	var/obj/structure/machinery/mass_driver/connected = null
 	var/timing = 0.0
 	var/time = 30.0
 	var/title = "Mass Driver Controls"
 
-/obj/machinery/computer/pod/Initialize()
+/obj/structure/machinery/computer/pod/Initialize()
 	..()
 	. = INITIALIZE_HINT_LATELOAD
 
-/obj/machinery/computer/pod/LateInitialize()
+/obj/structure/machinery/computer/pod/LateInitialize()
 	. = ..()
-	for(var/obj/machinery/mass_driver/M in SSmachinery.machinery)
+	for(var/obj/structure/machinery/mass_driver/M in SSmachinery.machinery)
 		if(M.id == id)
 			connected = M
 			return
 
-/obj/machinery/computer/pod/proc/alarm()
+/obj/structure/machinery/computer/pod/proc/alarm()
 	if(stat & (NOPOWER|BROKEN))
 		return
 
@@ -35,31 +35,31 @@
 
 	var/list/same_id = list()
 
-	for(var/obj/machinery/door/blast/M in SSmachinery.machinery)
+	for(var/obj/structure/machinery/door/blast/M in SSmachinery.machinery)
 		if(M.id == id)
 			same_id += M
 			M.open()
 
 	sleep(20)
 
-	for(var/obj/machinery/mass_driver/M in SSmachinery.machinery)
+	for(var/obj/structure/machinery/mass_driver/M in SSmachinery.machinery)
 		if(M.id == id)
 			M.power = connected.power
 			M.drive()
 
 	sleep(50)
 	for(var/mm in same_id)
-		var/obj/machinery/door/blast/M = mm
+		var/obj/structure/machinery/door/blast/M = mm
 		M.close()
 		return
 	return
 
-/obj/machinery/computer/pod/attack_ai(var/mob/user as mob)
+/obj/structure/machinery/computer/pod/attack_ai(var/mob/user as mob)
 	if(!ai_can_interact(user))
 		return
 	return attack_hand(user)
 
-/obj/machinery/computer/pod/attack_hand(var/mob/user as mob)
+/obj/structure/machinery/computer/pod/attack_hand(var/mob/user as mob)
 	if(..())
 		return
 
@@ -91,7 +91,7 @@
 	return
 
 
-/obj/machinery/computer/pod/process()
+/obj/structure/machinery/computer/pod/process()
 	if(!operable())
 		return
 	if(timing)
@@ -105,7 +105,7 @@
 	return
 
 
-/obj/machinery/computer/pod/Topic(href, href_list)
+/obj/structure/machinery/computer/pod/Topic(href, href_list)
 	if(..())
 		return 1
 	if(href_list["power"])
@@ -116,7 +116,7 @@
 	if(href_list["alarm"])
 		alarm()
 	if(href_list["drive"])
-		for(var/obj/machinery/mass_driver/M in SSmachinery.machinery)
+		for(var/obj/structure/machinery/mass_driver/M in SSmachinery.machinery)
 			if(M.id == id)
 				M.power = connected.power
 				M.drive()
@@ -128,7 +128,7 @@
 		time += tp
 		time = min(max(round(time), 0), 120)
 	if(href_list["door"])
-		for(var/obj/machinery/door/blast/M in SSmachinery.machinery)
+		for(var/obj/structure/machinery/door/blast/M in SSmachinery.machinery)
 			if(M.id == id)
 				if(M.density)
 					M.open()
@@ -139,7 +139,7 @@
 
 
 
-/obj/machinery/computer/pod/old
+/obj/structure/machinery/computer/pod/old
 	icon = 'icons/obj/library.dmi'
 	icon_state = "computer"
 	icon_screen = null
@@ -148,13 +148,13 @@
 
 
 
-/obj/machinery/computer/pod/old/syndicate
+/obj/structure/machinery/computer/pod/old/syndicate
 	name = "ProComp Executive IIc"
 	desc = "Criminals often operate on a tight budget. Operates external airlocks."
 	title = "External Airlock Controls"
 	req_access = list(ACCESS_SYNDICATE)
 
-/obj/machinery/computer/pod/old/syndicate/attack_hand(var/mob/user as mob)
+/obj/structure/machinery/computer/pod/old/syndicate/attack_hand(var/mob/user as mob)
 	if(!allowed(user))
 		to_chat(user, SPAN_WARNING("Access denied"))
 		return

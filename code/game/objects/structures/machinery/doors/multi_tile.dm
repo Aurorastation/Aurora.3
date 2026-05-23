@@ -1,5 +1,5 @@
 //Terribly sorry for the code doubling, but things go derpy otherwise.
-/obj/machinery/door/airlock/multi_tile
+/obj/structure/machinery/door/airlock/multi_tile
 	width = 2
 	dir = EAST
 	pixel_x = -32
@@ -27,29 +27,29 @@
 
 	var/list/vision_blockers
 
-/obj/machinery/door/airlock/multi_tile/Initialize(mapload, d, populate_components, obj/structure/door_assembly/DA)
+/obj/structure/machinery/door/airlock/multi_tile/Initialize(mapload, d, populate_components, obj/structure/door_assembly/DA)
 	. = ..()
 	if(visible && !glass)
 		for(var/turf/turf in locs)
 			var/obj/effect/turf_vision_blocker/vision_blocker = new /obj/effect/turf_vision_blocker(turf)
 			LAZYADD(vision_blockers, vision_blocker)
 
-/obj/machinery/door/airlock/multi_tile/Destroy()
+/obj/structure/machinery/door/airlock/multi_tile/Destroy()
 	QDEL_LIST(vision_blockers)
 	return ..()
 
-/obj/machinery/door/airlock/multi_tile/set_opacity(var/new_opacity)
+/obj/structure/machinery/door/airlock/multi_tile/set_opacity(var/new_opacity)
 	. = ..()
 	for(var/obj/effect/turf_vision_blocker/vision_blocker in vision_blockers)
 		vision_blocker.set_opacity(new_opacity)
 
-/obj/machinery/door/airlock/multi_tile/glass
+/obj/structure/machinery/door/airlock/multi_tile/glass
 	name = "glass airlock"
 	opacity = 0
 	glass = 1
 	assembly_type = /obj/structure/door_assembly/multi_tile
 
-/obj/machinery/door/airlock/multi_tile/flipped
+/obj/structure/machinery/door/airlock/multi_tile/flipped
 	width = 2
 	dir = EAST
 	pixel_x = 0
@@ -75,13 +75,13 @@
 	welded_file = 'icons/obj/doors/basic/double/generic/flipped/welded.dmi'
 	emag_file = 'icons/obj/doors/basic/double/generic/flipped/emag.dmi'
 
-/obj/machinery/door/airlock/multi_tile/flipped/glass
+/obj/structure/machinery/door/airlock/multi_tile/flipped/glass
 	name = "glass airlock"
 	opacity = 0
 	glass = 1
 	assembly_type = /obj/structure/door_assembly/multi_tile
 
-/obj/machinery/door/firedoor/multi_tile
+/obj/structure/machinery/door/firedoor/multi_tile
 	icon = 'icons/obj/doors/DoorHazard2x1.dmi'
 	width = 2
 	dir = EAST
@@ -92,18 +92,18 @@
 
 	var/list/vision_blockers
 
-/obj/machinery/door/firedoor/multi_tile/Initialize(mapload)
+/obj/structure/machinery/door/firedoor/multi_tile/Initialize(mapload)
 	. = ..()
 	if(visible && !glass)
 		for(var/turf/turf in locs)
 			var/obj/effect/turf_vision_blocker/vision_blocker = new /obj/effect/turf_vision_blocker(turf)
 			LAZYADD(vision_blockers, vision_blocker)
 
-/obj/machinery/door/firedoor/multi_tile/Destroy()
+/obj/structure/machinery/door/firedoor/multi_tile/Destroy()
 	QDEL_LIST(vision_blockers)
 	return ..()
 
-/obj/machinery/door/firedoor/multi_tile/set_opacity(var/new_opacity)
+/obj/structure/machinery/door/firedoor/multi_tile/set_opacity(var/new_opacity)
 	. = ..()
 	for(var/obj/effect/turf_vision_blocker/vision_blocker in vision_blockers)
 		vision_blocker.set_opacity(new_opacity)
@@ -113,8 +113,8 @@
 	name = "turf vision blocker"
 	opacity = FALSE
 
-/obj/machinery/door/airlock/multi_tile/brown
+/obj/structure/machinery/door/airlock/multi_tile/brown
 	door_color = "#574b3d"
 
-/obj/machinery/door/airlock/multi_tile/glass/brown
+/obj/structure/machinery/door/airlock/multi_tile/glass/brown
 	door_color = "#574b3d"

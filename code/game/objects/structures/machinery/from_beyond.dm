@@ -1,4 +1,4 @@
-/obj/machinery/from_beyond
+/obj/structure/machinery/from_beyond
 	name = "resonance wave emissor"
 	desc = "We see things only as we are constructed to see them."
 	icon = 'icons/obj/xenoarchaeology.dmi'
@@ -33,7 +33,7 @@
 			"There is no escape..."
 			)
 
-/obj/machinery/from_beyond/attack_hand(var/mob/living/carbon/human/user as mob)
+/obj/structure/machinery/from_beyond/attack_hand(var/mob/living/carbon/human/user as mob)
 
 	if(!active)
 		src.visible_message(SPAN_WARNING("[user] switches \the [src] on."))
@@ -47,7 +47,7 @@
 
 	update_icon()
 
-/obj/machinery/from_beyond/update_icon()
+/obj/structure/machinery/from_beyond/update_icon()
 	if(!(stat & NOPOWER))
 		icon_state = "ano60"
 
@@ -57,12 +57,12 @@
 	else
 		icon_state = "ano60"
 
-/obj/machinery/from_beyond/process()
+/obj/structure/machinery/from_beyond/process()
 	..()
 	if(active)
 
 		if(prob(25))
-			for(var/obj/machinery/light/P in view(7, src))
+			for(var/obj/structure/machinery/light/P in view(7, src))
 				P.flicker(1)
 
 		for(var/mob/living/carbon/human/L in view(7, src))

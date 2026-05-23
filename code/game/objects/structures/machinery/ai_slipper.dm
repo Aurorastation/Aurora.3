@@ -1,4 +1,4 @@
-/obj/machinery/ai_slipper
+/obj/structure/machinery/ai_slipper
 	name = "\improper AI Liquid Dispenser"
 	icon = 'icons/obj/machinery/ai_slipper.dmi'
 	icon_state = "motion0"
@@ -13,26 +13,26 @@
 	req_access = list(ACCESS_AI_UPLOAD)
 
 
-/obj/machinery/ai_slipper/Initialize()
+/obj/structure/machinery/ai_slipper/Initialize()
 	. = ..()
 	update_icon()
 
-/obj/machinery/ai_slipper/power_change()
+/obj/structure/machinery/ai_slipper/power_change()
 	..()
 	update_icon()
 
-/obj/machinery/ai_slipper/update_icon()
+/obj/structure/machinery/ai_slipper/update_icon()
 	if (stat & NOPOWER || stat & BROKEN)
 		icon_state = "motion0"
 	else
 		icon_state = disabled ? "motion0" : "motion3"
 
-/obj/machinery/ai_slipper/proc/setState(var/enabled, var/uses)
+/obj/structure/machinery/ai_slipper/proc/setState(var/enabled, var/uses)
 	src.disabled = disabled
 	src.uses = uses
 	src.power_change()
 
-/obj/machinery/ai_slipper/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/ai_slipper/attackby(obj/item/attacking_item, mob/user)
 	if(stat & (NOPOWER|BROKEN))
 		return
 	if (istype(user, /mob/living/silicon))
@@ -52,12 +52,12 @@
 			to_chat(user, SPAN_WARNING("Access denied."))
 	return TRUE
 
-/obj/machinery/ai_slipper/attack_ai(mob/user as mob)
+/obj/structure/machinery/ai_slipper/attack_ai(mob/user as mob)
 	if(!ai_can_interact(user))
 		return
 	return attack_hand(user)
 
-/obj/machinery/ai_slipper/attack_hand(mob/user as mob)
+/obj/structure/machinery/ai_slipper/attack_hand(mob/user as mob)
 	if(stat & (NOPOWER|BROKEN))
 		return
 	if ( (get_dist(src, user) > 1 ))
@@ -88,7 +88,7 @@
 	onclose(user, "computer")
 	return
 
-/obj/machinery/ai_slipper/Topic(href, href_list)
+/obj/structure/machinery/ai_slipper/Topic(href, href_list)
 	..()
 	if (src.locked)
 		if (!istype(usr, /mob/living/silicon))
@@ -111,7 +111,7 @@
 	src.attack_hand(usr)
 	return
 
-/obj/machinery/ai_slipper/proc/slip_process()
+/obj/structure/machinery/ai_slipper/proc/slip_process()
 	while(cooldown_time - world.timeofday > 0)
 		var/ticksleft = cooldown_time - world.timeofday
 

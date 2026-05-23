@@ -1,4 +1,4 @@
-/obj/machinery/iv_drip
+/obj/structure/machinery/iv_drip
 	name = "\improper IV drip"
 	desc = "A professional standard intravenous stand with supplemental gas support for medical use."
 	icon = 'icons/obj/iv_drip.dmi'
@@ -62,7 +62,7 @@
 		/obj/item/stock_parts/manipulator,
 		/obj/item/stock_parts/scanning_module)
 
-/obj/machinery/iv_drip/mechanics_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/iv_drip/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "- IV drips can be supplied beakers/bloodpacks for reagent transfusions, as well as one breath mask and gas tank for supplemental gas therapy."
 	. += "- Use a wrench when it has a tank installed to secure it. Use it again to unsecure it before removal."
@@ -70,7 +70,7 @@
 	. += "- Click the stand with an empty hand to toggle between various modes."
 	. += "- ALT-Click the stand to remove items contained in the stand."
 
-/obj/machinery/iv_drip/upgrade_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/iv_drip/upgrade_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "- Upgraded <b>scanning modules</b> will provide the exact volume and composition of attached beakers."
 	. += adv_scan ? SPAN_GOOD("	- Advanced Scan is enabled") : SPAN_ALERT("	- Advanced Scan is not enabled")
@@ -78,7 +78,7 @@
 	. += SPAN_NOTICE("	- Maximum transfer rate is <b>[transfer_limit]u/s</b>")
 	. += armor_check ? SPAN_ALERT("	- Armor punch-through is not enabled") : SPAN_GOOD("	- Armor punch-through is enabled")
 
-/obj/machinery/iv_drip/feedback_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/iv_drip/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "[src] is [mode ? "injecting" : "taking blood"] at a rate of <b>[src.transfer_amount] u/sec</b>, the automatic injection stop mode is <b>[toggle_stop ? "on" : "off"]</b>."
 	. += "The Emergency Positive Pressure system is [epp ? "on" : "off"]."
@@ -103,7 +103,7 @@
 
 	. += ..()
 
-/obj/machinery/iv_drip/Initialize(mapload)
+/obj/structure/machinery/iv_drip/Initialize(mapload)
 	. = ..()
 
 	var/static/list/loc_connections = list(
@@ -112,7 +112,7 @@
 
 	AddElement(/datum/element/connect_loc, loc_connections)
 
-/obj/machinery/iv_drip/Destroy()
+/obj/structure/machinery/iv_drip/Destroy()
 	if(attached)
 		clear_attached()
 	QDEL_NULL(beaker)
@@ -122,12 +122,12 @@
 	QDEL_NULL(tank)
 	return ..()
 
-/obj/machinery/iv_drip/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	if(istype(mover, /obj/machinery/iv_drip))
+/obj/structure/machinery/iv_drip/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
+	if(istype(mover, /obj/structure/machinery/iv_drip))
 		return FALSE
 	return ..()
 
-/obj/machinery/iv_drip/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+/obj/structure/machinery/iv_drip/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
 	SIGNAL_HANDLER
 
 	if(ishuman(arrived))
@@ -142,7 +142,7 @@
 			src.visible_message(SPAN_WARNING("[M] bumps into \the [src], knocking it over!"), SPAN_WARNING("You bump into \the [src], knocking it over!"))
 			do_crash()
 
-/obj/machinery/iv_drip/update_icon()
+/obj/structure/machinery/iv_drip/update_icon()
 	ClearOverlays()
 	if(beaker)
 		AddOverlays("beaker")
@@ -204,11 +204,11 @@
 	if(panel_open)
 		AddOverlays("panel_open")
 
-/obj/machinery/iv_drip/process()
+/obj/structure/machinery/iv_drip/process()
 	breather_process()
 	attached_process()
 
-/obj/machinery/iv_drip/proc/breather_process()
+/obj/structure/machinery/iv_drip/proc/breather_process()
 	if(breather)
 		if(!breather.Adjacent(src))
 			src.visible_message(SPAN_WARNING("\The [breath_mask] snaps back into \the [src]!"))
@@ -269,7 +269,7 @@
 					to_chat(breather, SPAN_NOTICE("You feel fresh air being pushed into your lungs."))
 			update_icon()
 
-/obj/machinery/iv_drip/proc/attached_process()
+/obj/structure/machinery/iv_drip/proc/attached_process()
 	if(attached)
 		if(!attached.Adjacent(src))
 			iv_rip()
@@ -317,7 +317,7 @@
 			if(attached.take_blood(beaker, amount))
 				update_icon()
 
-/obj/machinery/iv_drip/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+/obj/structure/machinery/iv_drip/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	..()
 	if(use_check_and_message(user))
 		return
@@ -390,7 +390,7 @@
 				tank_on()
 				return
 
-/obj/machinery/iv_drip/AltClick(mob/user)
+/obj/structure/machinery/iv_drip/AltClick(mob/user)
 	. = ..()
 	if(use_check_and_message(user))
 		return
@@ -444,7 +444,7 @@
 			breath_mask = null
 			update_icon()
 
-/obj/machinery/iv_drip/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/iv_drip/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/reagent_containers/blood/ripped))
 		to_chat(user, "You can't use a ripped bloodpack.")
 		return TRUE
@@ -504,12 +504,12 @@
 		return TRUE
 	return ..()
 
-/obj/machinery/iv_drip/attack_ai(mob/user)
+/obj/structure/machinery/iv_drip/attack_ai(mob/user)
 	if(!ai_can_interact(user))
 		return
 	return attack_hand(user)
 
-/obj/machinery/iv_drip/attack_hand(mob/user)
+/obj/structure/machinery/iv_drip/attack_hand(mob/user)
 	if(use_check_and_message(user))
 		return
 	if(isDrone(user))
@@ -546,7 +546,7 @@
 		if("Toggle EPP")
 			toggle_epp()
 
-/obj/machinery/iv_drip/proc/do_crash()
+/obj/structure/machinery/iv_drip/proc/do_crash()
 	ClearOverlays()
 	visible_message(SPAN_WARNING("\The [src] falls over with a buzz, spilling out it's contents!"))
 	flick("iv_crash[is_loose ? "" : "_tank_[tank_type]"]", src)
@@ -556,7 +556,7 @@
 	animate(src, time = 5, transform = transform.Turn(90), easing = BOUNCE_EASING)
 	update_icon()
 
-/obj/machinery/iv_drip/proc/spill()
+/obj/structure/machinery/iv_drip/proc/spill()
 	var/turf/dropspot = get_turf(src)
 	if(breath_mask)
 		if(!breather)
@@ -591,12 +591,12 @@
 		else
 			src.visible_message("\The [tank] rattles, but remains firmly secured to \the [src].")
 
-/obj/machinery/iv_drip/proc/iv_rip()
+/obj/structure/machinery/iv_drip/proc/iv_rip()
 	attached.visible_message(SPAN_WARNING("The needle is ripped out of [attached]'s [vein.name]."), SPAN_DANGER("The needle <B>painfully</B> rips out of your [vein.name]."))
 	vein.take_damage(brute = 5, damage_flags = DAMAGE_FLAG_SHARP)
 	clear_attached()
 
-/obj/machinery/iv_drip/proc/breath_mask_rip()
+/obj/structure/machinery/iv_drip/proc/breath_mask_rip()
 	if(valve_open)
 		tank_off()
 	if(breath_mask.hanging)
@@ -620,7 +620,7 @@
 	breather = null
 	update_icon()
 
-/obj/machinery/iv_drip/proc/tank_on()
+/obj/structure/machinery/iv_drip/proc/tank_on()
 	playsound(src, 'sound/effects/internals.ogg', 100, extrarange = SILENCED_SOUND_EXTRARANGE)
 	tank.forceMove(breather)
 	breather.internal = tank
@@ -630,7 +630,7 @@
 	update_icon()
 	return
 
-/obj/machinery/iv_drip/proc/tank_off()
+/obj/structure/machinery/iv_drip/proc/tank_off()
 	playsound(src, 'sound/effects/internals.ogg', 100, extrarange = SILENCED_SOUND_EXTRARANGE)
 	tank.forceMove(src)
 	if(breather.internals)
@@ -641,7 +641,7 @@
 	epp_active = FALSE
 	update_icon()
 
-/obj/machinery/iv_drip/verb/toggle_mode()
+/obj/structure/machinery/iv_drip/verb/toggle_mode()
 	set category = "Object.IV Drip"
 	set name = "Toggle Mode"
 	set src in view(1)
@@ -653,7 +653,7 @@
 	playsound(usr, 'sound/machines/buttonbeep.ogg', 50, extrarange = SILENCED_SOUND_EXTRARANGE)
 	update_icon()
 
-/obj/machinery/iv_drip/verb/toggle_stop()
+/obj/structure/machinery/iv_drip/verb/toggle_stop()
 	set category = "Object.IV Drip"
 	set name = "Toggle Stop"
 	set src in view(1)
@@ -664,7 +664,7 @@
 	usr.visible_message("<b>[usr]</b> toggles \the [src]'s automatic stop mode [toggle_stop ? "on" : "off"].", SPAN_NOTICE("You toggle \the [src]'s automatic stop mode [toggle_stop ? "on" : "off"]."))
 	playsound(usr, 'sound/machines/click.ogg', 50, extrarange = SILENCED_SOUND_EXTRARANGE)
 
-/obj/machinery/iv_drip/verb/toggle_valve()
+/obj/structure/machinery/iv_drip/verb/toggle_valve()
 	set category = "Object.IV Drip"
 	set name = "Toggle Valve"
 	set src in view(1)
@@ -692,7 +692,7 @@
 		tank_off()
 		return
 
-/obj/machinery/iv_drip/verb/toggle_epp()
+/obj/structure/machinery/iv_drip/verb/toggle_epp()
 	set category = "Object.IV Drip"
 	set name = "Toggle EPP"
 	set src in view(1)
@@ -709,7 +709,7 @@
 	usr.visible_message("<b>[usr]</b> toggles \the [src]'s Emergency Positive Pressure system [epp ? "on" : "off"].", SPAN_NOTICE("You toggle \the [src]'s Emergency Positive Pressure system [epp ? "on" : "off"]."))
 	playsound(usr, 'sound/machines/click.ogg', 50, extrarange = SILENCED_SOUND_EXTRARANGE)
 
-/obj/machinery/iv_drip/verb/transfer_rate()
+/obj/structure/machinery/iv_drip/verb/transfer_rate()
 	set category = "Object.IV Drip"
 	set name = "Set Transfer Rate"
 	set src in view(1)
@@ -726,7 +726,7 @@
 		round_value = FALSE)
 	to_chat(usr, SPAN_NOTICE("Transfer rate set to [src.transfer_amount] u/sec."))
 
-/obj/machinery/iv_drip/RefreshParts()
+/obj/structure/machinery/iv_drip/RefreshParts()
 	..()
 	var/manip = 0
 	var/scanner = 0
@@ -747,14 +747,14 @@
 /**
  * Wrapper for setting the attached variable.
  */
-/obj/machinery/iv_drip/proc/set_attached(mob/attachee)
+/obj/structure/machinery/iv_drip/proc/set_attached(mob/attachee)
 	attached = attachee
 	patient_beam = Beam(attached, "iv_beam", 'icons/effects/beam.dmi', -1, 2)
 
 /**
  * Wrapper for clearing the attached variable.
  */
-/obj/machinery/iv_drip/proc/clear_attached()
+/obj/structure/machinery/iv_drip/proc/clear_attached()
 	attached = null
 	vein = null
 	if(patient_beam)

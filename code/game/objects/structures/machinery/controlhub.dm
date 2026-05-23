@@ -1,5 +1,5 @@
-ABSTRACT_TYPE(/obj/machinery/controlhub)
-/obj/machinery/controlhub
+ABSTRACT_TYPE(/obj/structure/machinery/controlhub)
+/obj/structure/machinery/controlhub
 	name = "control hub"
 	desc = "A control interface that can manage multiple systems from a single point."
 	icon = 'icons/obj/modular_computers/modular_telescreen.dmi'
@@ -26,13 +26,13 @@ ABSTRACT_TYPE(/obj/machinery/controlhub)
  * INITIALIZATION & POWER
  */
 
-/obj/machinery/controlhub/Initialize()
+/obj/structure/machinery/controlhub/Initialize()
 	. = ..()
 	control_states = list()
 	initial_icon_state = icon_state
 	update_icon()
 
-/obj/machinery/controlhub/update_icon()
+/obj/structure/machinery/controlhub/update_icon()
 	ClearOverlays()
 
 	if(stat & BROKEN)
@@ -42,7 +42,7 @@ ABSTRACT_TYPE(/obj/machinery/controlhub)
 	else
 		icon_state = initial_icon_state
 
-/obj/machinery/controlhub/power_change()
+/obj/structure/machinery/controlhub/power_change()
 	..()
 	update_icon()
 
@@ -50,7 +50,7 @@ ABSTRACT_TYPE(/obj/machinery/controlhub)
  * INTERACTION
  */
 
-/obj/machinery/controlhub/attack_hand(mob/user)
+/obj/structure/machinery/controlhub/attack_hand(mob/user)
 	if(..())
 		return TRUE
 
@@ -77,13 +77,13 @@ ABSTRACT_TYPE(/obj/machinery/controlhub)
 		var/button_type
 		switch(control_data["type"])
 			if("holosign", "windowtint")
-				button_type = /obj/machinery/button/switch
+				button_type = /obj/structure/machinery/button/switch
 			if("blast_door")
-				button_type = /obj/machinery/button/remote/blast_door
+				button_type = /obj/structure/machinery/button/remote/blast_door
 			if("airlock")
-				button_type = /obj/machinery/button/remote/airlock
+				button_type = /obj/structure/machinery/button/remote/airlock
 			if("flasher", "igniter", "emitter", "mass_driver")
-				button_type = /obj/machinery/button
+				button_type = /obj/structure/machinery/button
 
 		choices[control_name] = image(icon = initial(button_type:icon), icon_state = initial(button_type:icon_state))
 
@@ -106,7 +106,7 @@ ABSTRACT_TYPE(/obj/machinery/controlhub)
 
 	return TRUE
 
-/obj/machinery/controlhub/proc/activate_control(control_name, list/control_data)
+/obj/structure/machinery/controlhub/proc/activate_control(control_name, list/control_data)
 	var/control_id = control_data["id"]
 
 	switch(control_data["type"])
@@ -131,17 +131,17 @@ ABSTRACT_TYPE(/obj/machinery/controlhub)
  * MACHINERY FINDING HELPERS
  */
 
-/obj/machinery/controlhub/proc/find_machinery_by_id(machinery_type, target_id)
+/obj/structure/machinery/controlhub/proc/find_machinery_by_id(machinery_type, target_id)
 	. = list()
 
-	for(var/obj/machinery/machinery as anything in SSmachinery.machinery)
+	for(var/obj/structure/machinery/machinery as anything in SSmachinery.machinery)
 		if(istype(machinery, machinery_type) && machinery:id == target_id)
 			. += machinery
 
-/obj/machinery/controlhub/proc/find_airlocks_by_id(target_id)
+/obj/structure/machinery/controlhub/proc/find_airlocks_by_id(target_id)
 	. = list()
 
-	for(var/obj/machinery/door/airlock/airlock as anything in SSmachinery.machinery)
+	for(var/obj/structure/machinery/door/airlock/airlock as anything in SSmachinery.machinery)
 		if(airlock.id_tag == target_id)
 			. += airlock
 
@@ -150,20 +150,20 @@ ABSTRACT_TYPE(/obj/machinery/controlhub)
  */
 
 /// toggles the tint on all polarized windows with matching ID within range
-/obj/machinery/controlhub/proc/toggle_windowtint(window_id)
+/obj/structure/machinery/controlhub/proc/toggle_windowtint(window_id)
 	for(var/obj/structure/window/window in range(src, range))
 		if((istype(window, /obj/structure/window/reinforced/polarized) || istype(window, /obj/structure/window/full/reinforced/polarized)) && (window:id == window_id || !window:id))
 			window:toggle()
 
-/obj/machinery/controlhub/proc/toggle_holosign(holosign_id)
-	for(var/obj/machinery/holosign/holosign in find_machinery_by_id(/obj/machinery/holosign, holosign_id))
-		INVOKE_ASYNC(holosign, TYPE_PROC_REF(/obj/machinery/holosign, toggle))
+/obj/structure/machinery/controlhub/proc/toggle_holosign(holosign_id)
+	for(var/obj/structure/machinery/holosign/holosign in find_machinery_by_id(/obj/structure/machinery/holosign, holosign_id))
+		INVOKE_ASYNC(holosign, TYPE_PROC_REF(/obj/structure/machinery/holosign, toggle))
 
 /// toggles blast doors with matching ID based on first door's state
-/obj/machinery/controlhub/proc/toggle_blast_doors(door_id)
+/obj/structure/machinery/controlhub/proc/toggle_blast_doors(door_id)
 	var/open_doors
 
-	for(var/obj/machinery/door/blast/door in find_machinery_by_id(/obj/machinery/door/blast, door_id))
+	for(var/obj/structure/machinery/door/blast/door in find_machinery_by_id(/obj/structure/machinery/door/blast, door_id))
 		if(isnull(open_doors))
 			open_doors = door.density
 
@@ -173,13 +173,13 @@ ABSTRACT_TYPE(/obj/machinery/controlhub)
 			door.close()
 
 /// controls airlocks with matching ID. special_functions bitflags: 1=open/close, 2=ID scan, 4=bolt, 8=electrify, 16=safeties
-/obj/machinery/controlhub/proc/toggle_airlock(control_name, airlock_id, special_functions = 1)
+/obj/structure/machinery/controlhub/proc/toggle_airlock(control_name, airlock_id, special_functions = 1)
 	if(isnull(control_states[control_name]))
 		control_states[control_name] = FALSE
 
 	control_states[control_name] = !control_states[control_name]
 
-	for(var/obj/machinery/door/airlock/airlock in SSmachinery.machinery)
+	for(var/obj/structure/machinery/door/airlock/airlock in SSmachinery.machinery)
 		if(airlock.id_tag != airlock_id)
 			continue
 
@@ -209,44 +209,44 @@ ABSTRACT_TYPE(/obj/machinery/controlhub)
 			if(special_functions & 16)
 				airlock.set_safeties(TRUE)
 
-/obj/machinery/controlhub/proc/trigger_flasher(flasher_id)
-	for(var/obj/machinery/flasher/flasher in find_machinery_by_id(/obj/machinery/flasher, flasher_id))
+/obj/structure/machinery/controlhub/proc/trigger_flasher(flasher_id)
+	for(var/obj/structure/machinery/flasher/flasher in find_machinery_by_id(/obj/structure/machinery/flasher, flasher_id))
 		flasher.flash()
 
-/obj/machinery/controlhub/proc/trigger_igniter(igniter_id)
-	for(var/obj/machinery/sparker/sparker in find_machinery_by_id(/obj/machinery/sparker, igniter_id))
-		INVOKE_ASYNC(sparker, TYPE_PROC_REF(/obj/machinery/sparker, ignite))
+/obj/structure/machinery/controlhub/proc/trigger_igniter(igniter_id)
+	for(var/obj/structure/machinery/sparker/sparker in find_machinery_by_id(/obj/structure/machinery/sparker, igniter_id))
+		INVOKE_ASYNC(sparker, TYPE_PROC_REF(/obj/structure/machinery/sparker, ignite))
 
-	for(var/obj/machinery/igniter/igniter in find_machinery_by_id(/obj/machinery/igniter, igniter_id))
+	for(var/obj/structure/machinery/igniter/igniter in find_machinery_by_id(/obj/structure/machinery/igniter, igniter_id))
 		igniter.ignite()
 
-/obj/machinery/controlhub/proc/trigger_emitter(emitter_id)
-	for(var/obj/machinery/power/emitter/emitter in find_machinery_by_id(/obj/machinery/power/emitter, emitter_id))
+/obj/structure/machinery/controlhub/proc/trigger_emitter(emitter_id)
+	for(var/obj/structure/machinery/power/emitter/emitter in find_machinery_by_id(/obj/structure/machinery/power/emitter, emitter_id))
 		emitter.activate()
 
 /// opens blast door, triggers mass driver, then closes blast door
-/obj/machinery/controlhub/proc/trigger_mass_driver(driver_id)
-	var/list/obj/machinery/door/blast/blast_doors = list()
+/obj/structure/machinery/controlhub/proc/trigger_mass_driver(driver_id)
+	var/list/obj/structure/machinery/door/blast/blast_doors = list()
 
-	for(var/obj/machinery/door/blast/door in find_machinery_by_id(/obj/machinery/door/blast, driver_id))
+	for(var/obj/structure/machinery/door/blast/door in find_machinery_by_id(/obj/structure/machinery/door/blast, driver_id))
 		blast_doors += door
-		INVOKE_ASYNC(door, TYPE_PROC_REF(/obj/machinery/door/blast, open))
+		INVOKE_ASYNC(door, TYPE_PROC_REF(/obj/structure/machinery/door/blast, open))
 
 	sleep(2 SECONDS)
 
-	for(var/obj/machinery/mass_driver/driver in find_machinery_by_id(/obj/machinery/mass_driver, driver_id))
+	for(var/obj/structure/machinery/mass_driver/driver in find_machinery_by_id(/obj/structure/machinery/mass_driver, driver_id))
 		driver.drive()
 
 	sleep(5 SECONDS)
 
-	for(var/obj/machinery/door/blast/door in blast_doors)
-		INVOKE_ASYNC(door, TYPE_PROC_REF(/obj/machinery/door/blast, close))
+	for(var/obj/structure/machinery/door/blast/door in blast_doors)
+		INVOKE_ASYNC(door, TYPE_PROC_REF(/obj/structure/machinery/door/blast, close))
 
 /*
  * SUBTYPES
  */
 
-/obj/machinery/controlhub/bar
+/obj/structure/machinery/controlhub/bar
 	name = "bar control hub"
 	icon_state = "holocontrol"
 	req_access = list(ACCESS_BAR)

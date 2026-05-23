@@ -2,7 +2,7 @@
  *	Grand Romanovich casino vendor
  */
 
-/obj/machinery/vending/casino
+/obj/structure/machinery/vending/casino
 	name = "Grand Romanovich vending machine"
 	desc = "A vending machine commonly found in Crevus' casinos."
 	icon_state = "casinovend"

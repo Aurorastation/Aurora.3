@@ -13,7 +13,7 @@
 		return
 
 	var/list/T = list()
-	for (var/obj/machinery/camera/C in GLOB.cameranet.cameras)
+	for (var/obj/structure/machinery/camera/C in GLOB.cameranet.cameras)
 		var/list/tempnetwork = C.network&src.network
 		if (tempnetwork.len)
 			T["[C.c_tag][(C.can_use() ? null : " (Deactivated)")]"] = C
@@ -33,7 +33,7 @@
 	if (!camera)
 		return 0
 
-	var/obj/machinery/camera/C = track.cameras[camera]
+	var/obj/structure/machinery/camera/C = track.cameras[camera]
 	src.eyeobj.setLoc(C)
 
 	return
@@ -185,7 +185,7 @@
 				return
 			sleep(10)
 
-/obj/machinery/camera/attack_ai(var/mob/living/silicon/ai/user as mob)
+/obj/structure/machinery/camera/attack_ai(var/mob/living/silicon/ai/user as mob)
 	if (!istype(user))
 		return
 	if(!ai_can_interact(user))

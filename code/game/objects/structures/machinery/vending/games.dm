@@ -1,4 +1,4 @@
-/obj/machinery/vending/games
+/obj/structure/machinery/vending/games
 	name = "\improper Good Clean Fun"
 	desc = "Vends things your boss is not going to appreciate you playing with on the job..."
 	vend_id = "games"

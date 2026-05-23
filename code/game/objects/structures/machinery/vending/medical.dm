@@ -10,7 +10,7 @@
  *	NanoPharm Mini (commissary)
  */
 
-/obj/machinery/vending/medical
+/obj/structure/machinery/vending/medical
 	name = "NanoMed Plus"
 	desc = "Medical drug dispenser."
 	icon_state = "med"
@@ -53,7 +53,7 @@
 	light_color = LIGHT_COLOR_GREEN
 	manufacturer = "zenghu"
 
-/obj/machinery/vending/medical/low_supply
+/obj/structure/machinery/vending/medical/low_supply
 	products = list(
 		/obj/item/reagent_containers/glass/bottle/inaprovaline = 1,
 		/obj/item/reagent_containers/glass/bottle/perconol = 1,
@@ -72,7 +72,7 @@
 		/obj/item/reagent_containers/spray/sterilizine = 1
 	)
 
-/obj/machinery/vending/wallmed1
+/obj/structure/machinery/vending/wallmed1
 	name = "NanoMed"
 	desc = "A wall-mounted version of the NanoMed."
 	product_ads = "Go save some lives!;The best stuff for your medbay.;Only the finest tools.;Natural chemicals!;This stuff saves lives.;Don't you want some?"
@@ -104,7 +104,7 @@
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	manufacturer = "zenghu"
 
-/obj/machinery/vending/wallmed1/low_supply
+/obj/structure/machinery/vending/wallmed1/low_supply
 	products = list(
 		/obj/item/stack/medical/bruise_pack = 1,
 		/obj/item/stack/medical/ointment = 1,
@@ -113,7 +113,7 @@
 		/obj/item/storage/box/fancy/med_pouch/toxin = 1
 	)
 
-/obj/machinery/vending/wallmed2
+/obj/structure/machinery/vending/wallmed2
 	name = "NanoMed Mini"
 	desc = "A wall-mounted version of the NanoMed, containing only vital first aid equipment."
 	icon_state = "wallmed"
@@ -144,7 +144,7 @@
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	manufacturer = "zenghu"
 
-/obj/machinery/vending/wallmed2/low_supply
+/obj/structure/machinery/vending/wallmed2/low_supply
 	products = list(
 		/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 1,
 		/obj/item/stack/medical/bruise_pack = 2,
@@ -158,7 +158,7 @@
 	charges = 38
 
 
-/obj/machinery/vending/wallpharm
+/obj/structure/machinery/vending/wallpharm
 	name = "NanoPharm Mini"
 	desc = "A wall-mounted pharmaceuticals vending machine packed with over-the-counter bottles. For the sick salaried worker in you."
 	icon_state = "wallpharm"
@@ -196,7 +196,7 @@
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	manufacturer = "nanotrasen"
 
-/obj/machinery/vending/wallpharm/low_supply
+/obj/structure/machinery/vending/wallpharm/low_supply
 	products = list(
 		/obj/item/stack/medical/bruise_pack = 2,
 		/obj/item/stack/medical/ointment = 2,
@@ -208,7 +208,7 @@
 		/obj/item/storage/pill_bottle/rmt = 1
 	)
 
-/obj/machinery/vending/wallpharm/commissary
+/obj/structure/machinery/vending/wallpharm/commissary
 	random_itemcount = TRUE
 	products = list(
 		/obj/item/storage/box/mms_inhaler = 3,

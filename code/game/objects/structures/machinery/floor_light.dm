@@ -1,4 +1,4 @@
-/obj/machinery/floor_light
+/obj/structure/machinery/floor_light
 	name = "floor light"
 	icon = 'icons/obj/machinery/floor_light.dmi'
 	icon_state = "base"
@@ -19,10 +19,10 @@
 	var/default_light_power = 2
 	var/default_light_colour = "#FFFFFF"
 
-/obj/machinery/floor_light/prebuilt
+/obj/structure/machinery/floor_light/prebuilt
 	anchored = 1
 
-/obj/machinery/floor_light/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/floor_light/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		anchored = !anchored
 		visible_message(SPAN_NOTICE("\The [user] has [anchored ? "attached" : "detached"] \the [src]."))
@@ -60,7 +60,7 @@
 				qdel(src)
 		return TRUE
 
-/obj/machinery/floor_light/attack_hand(var/mob/user)
+/obj/structure/machinery/floor_light/attack_hand(var/mob/user)
 
 	if(user.a_intent == I_HURT && !issmall(user))
 		if(!isnull(damaged) && !(stat & BROKEN))
@@ -95,7 +95,7 @@
 		update_brightness()
 		return
 
-/obj/machinery/floor_light/process()
+/obj/structure/machinery/floor_light/process()
 	..()
 	var/need_update
 	if((!anchored || broken()) && on)
@@ -108,7 +108,7 @@
 	if(need_update)
 		update_brightness()
 
-/obj/machinery/floor_light/proc/update_brightness()
+/obj/structure/machinery/floor_light/proc/update_brightness()
 	if(on && use_power == POWER_USE_ACTIVE)
 		if(light_range != default_light_range || light_power != default_light_power || light_color != default_light_colour)
 			set_light(default_light_range, default_light_power, default_light_colour)
@@ -120,7 +120,7 @@
 	change_power_consumption((light_range + light_power) * 10, POWER_USE_ACTIVE)
 	update_icon()
 
-/obj/machinery/floor_light/update_icon()
+/obj/structure/machinery/floor_light/update_icon()
 	ClearOverlays()
 	var/list/floor_light_cache = SSicon_cache.floor_light_cache
 	if(use_power && !broken())
@@ -151,10 +151,10 @@
 	else
 		icon_state = "base"
 
-/obj/machinery/floor_light/proc/broken()
+/obj/structure/machinery/floor_light/proc/broken()
 	return (stat & (BROKEN|NOPOWER))
 
-/obj/machinery/floor_light/ex_act(severity)
+/obj/structure/machinery/floor_light/ex_act(severity)
 	switch(severity)
 		if(1)
 			qdel(src)
@@ -173,24 +173,24 @@
 				damaged = 0
 	return
 
-/obj/machinery/floor_light/Destroy()
+/obj/structure/machinery/floor_light/Destroy()
 	var/area/A = get_area(src)
 	if(A)
 		on = 0
 	return ..()
 
-/obj/machinery/floor_light/cultify()
+/obj/structure/machinery/floor_light/cultify()
 	default_light_colour = "#FF0000"
 	update_brightness()
 
-/obj/machinery/floor_light/dance
+/obj/structure/machinery/floor_light/dance
 	name = "dance floor"
 	on_state = "light_on-dancefloor_A"
 	anchored = 1
 	on = TRUE
 	use_power = POWER_USE_ACTIVE
 
-/obj/machinery/floor_light/dance/alternate
+/obj/structure/machinery/floor_light/dance/alternate
 	name = "dance floor"
 	on_state = "light_on-dancefloor_B"
 	anchored = 1

@@ -1,4 +1,4 @@
-/obj/machinery/washing_machine
+/obj/structure/machinery/washing_machine
 	name = "washing machine"
 	desc = "A washing machine with special decontamination procedures. It can fit everything from clothes to even rifles."
 	icon = 'icons/obj/machinery/washing_machine.dmi'
@@ -26,21 +26,21 @@
 	var/gibs_ready = 0
 	var/obj/crayon
 
-/obj/machinery/washing_machine/mechanics_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/washing_machine/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Click a washing machine to open and close the door."
 	. += "ALT-click a washing machine to start and stop it."
 	. += "Washing machines can be used as part of the leather tanning process by putting scraped bare hides in them."
 
-/obj/machinery/washing_machine/assembly_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/washing_machine/assembly_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "It [anchored ? "is" : "could be"] anchored to the floor with some <b>bolts</b>."
 
-/obj/machinery/washing_machine/antagonist_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/washing_machine/antagonist_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "If you put Ian inside this machine and run it, terrible things will happen."
 
-/obj/machinery/washing_machine/verb/start()
+/obj/structure/machinery/washing_machine/verb/start()
 	set name = "Start Washing"
 	set category = "Object"
 	set src in oview(1)
@@ -78,7 +78,7 @@
 		state = 4
 	update_icon()
 
-/obj/machinery/washing_machine/verb/climb_out()
+/obj/structure/machinery/washing_machine/verb/climb_out()
 	set name = "Climb out"
 	set category = "Object"
 	set src in usr.loc
@@ -87,14 +87,14 @@
 	if(state in list(1,3,6) )
 		usr.forceMove(src.loc)
 
-/obj/machinery/washing_machine/AltClick(mob/user)
+/obj/structure/machinery/washing_machine/AltClick(mob/user)
 	if(Adjacent(user))
 		start()
 
-/obj/machinery/washing_machine/update_icon()
+/obj/structure/machinery/washing_machine/update_icon()
 	icon_state = "wm_[state][panel]"
 
-/obj/machinery/washing_machine/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/washing_machine/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item,/obj/item/pen/crayon) || istype(attacking_item,/obj/item/stamp))
 		if( state in list(	1, 3, 6 ) )
 			if(!crayon)
@@ -133,7 +133,7 @@
 	update_icon()
 	return ..()
 
-/obj/machinery/washing_machine/attack_hand(mob/user as mob)
+/obj/structure/machinery/washing_machine/attack_hand(mob/user as mob)
 	switch(state)
 		if(1)
 			state = 2

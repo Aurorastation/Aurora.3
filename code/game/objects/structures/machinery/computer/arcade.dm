@@ -1,4 +1,4 @@
-/obj/machinery/computer/arcade/
+/obj/structure/machinery/computer/arcade/
 	name = "random arcade"
 	desc = "random arcade machine"
 	icon = 'icons/obj/computer.dmi'
@@ -7,7 +7,7 @@
 	icon_broken = "broken-arcade"
 	var/prize = /obj/random/arcade
 
-/obj/machinery/computer/arcade/Initialize()
+/obj/structure/machinery/computer/arcade/Initialize()
 	. = ..()
 	// If it's a generic arcade machine, pick a random arcade
 	// circuit board for it and make the new machine
@@ -18,19 +18,19 @@
 
 		return INITIALIZE_HINT_QDEL
 
-/obj/machinery/computer/arcade/proc/prizevend()
+/obj/structure/machinery/computer/arcade/proc/prizevend()
 	if(!contents.len)
 		new prize(src.loc)
 	else
 		var/atom/movable/chosen_prize = pick(contents)
 		chosen_prize.forceMove(src.loc)
 
-/obj/machinery/computer/arcade/attack_ai(mob/user as mob)
+/obj/structure/machinery/computer/arcade/attack_ai(mob/user as mob)
 	if(!ai_can_interact(user))
 		return
 	return src.attack_hand(user)
 
-/obj/machinery/computer/arcade/emp_act(severity)
+/obj/structure/machinery/computer/arcade/emp_act(severity)
 	. = ..()
 
 	if(stat & (NOPOWER|BROKEN))
@@ -50,7 +50,7 @@
 //  BATTLE HERE  //
 ///////////////////
 
-/obj/machinery/computer/arcade/battle
+/obj/structure/machinery/computer/arcade/battle
 	name = "arcade machine"
 	desc = "Does not support Pinball."
 	icon_state = "arcade2"
@@ -66,7 +66,7 @@
 	var/blocked = 0 //Player cannot attack/heal while set
 	var/turtle = 0
 
-/obj/machinery/computer/arcade/battle/Initialize()
+/obj/structure/machinery/computer/arcade/battle/Initialize()
 	. = ..()
 	var/name_action
 	var/name_part1
@@ -81,7 +81,7 @@
 	src.name = (name_action + name_part1 + name_part2)
 
 
-/obj/machinery/computer/arcade/battle/attack_hand(mob/user as mob)
+/obj/structure/machinery/computer/arcade/battle/attack_hand(mob/user as mob)
 	if(..())
 		return
 	user.set_machine(src)
@@ -105,7 +105,7 @@
 	arcade_win.set_content(dat)
 	arcade_win.open()
 
-/obj/machinery/computer/arcade/battle/Topic(href, href_list)
+/obj/structure/machinery/computer/arcade/battle/Topic(href, href_list)
 	if(..())
 		return 1
 
@@ -173,7 +173,7 @@
 	src.updateUsrDialog()
 	return
 
-/obj/machinery/computer/arcade/battle/proc/arcade_action()
+/obj/structure/machinery/computer/arcade/battle/proc/arcade_action()
 	if ((src.enemy_mp <= 0) || (src.enemy_hp <= 0))
 		if(!gameover)
 			src.gameover = 1
@@ -241,7 +241,7 @@
 	return
 
 
-/obj/machinery/computer/arcade/battle/emag_act(var/charges, var/mob/user)
+/obj/structure/machinery/computer/arcade/battle/emag_act(var/charges, var/mob/user)
 	if(!emagged)
 		temp = "If you die in the game, you die for real!"
 		player_hp = 30

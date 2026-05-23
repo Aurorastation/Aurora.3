@@ -6,7 +6,7 @@
  *		Horizon
  */
 
-/obj/machinery/vending/cigarette
+/obj/structure/machinery/vending/cigarette
 	name = "\improper cigarette machine" //OCD had to be uppercase to look nice with the new formating
 	desc = "If you want to get cancer, might as well do it in style!"
 	product_slogans = "Space cigs taste good like a cigarette should.;I'd rather toolbox than switch.;Smoke!;Don't believe the reports - smoke today!"
@@ -106,7 +106,7 @@
 	)
 	light_color = COLOR_BLUE_GRAY
 
-/obj/machinery/vending/cigarette/low_supply
+/obj/structure/machinery/vending/cigarette/low_supply
 	products = list(
 		/obj/item/storage/box/fancy/cigarettes/rugged = 4,
 		/obj/item/storage/box/fancy/cigarettes = 2,
@@ -127,7 +127,7 @@
 		/obj/item/reagent_containers/ecig_cartridge/grape = 1
 	)
 
-/obj/machinery/vending/cigarette/merchant
+/obj/structure/machinery/vending/cigarette/merchant
 	// Mapped in merchant station
 	premium = list()
 	prices = list()
@@ -140,7 +140,7 @@
 		/obj/item/storage/box/fancy/cigarettes/acmeco = 5
 	)
 
-/obj/machinery/vending/cigarette/hacked
+/obj/structure/machinery/vending/cigarette/hacked
 	name = "hacked cigarette machine"
 	prices = list()
 	products = list(
@@ -151,7 +151,7 @@
 	)
 
 // The Horizon gets a basic list of products. The rest should be put in commissary stocks.
-/obj/machinery/vending/cigarette/horizon
+/obj/structure/machinery/vending/cigarette/horizon
 	products = list(
 		/obj/item/storage/box/fancy/cigarettes/rugged = 6,
 		/obj/item/storage/box/fancy/cigarettes = 8,

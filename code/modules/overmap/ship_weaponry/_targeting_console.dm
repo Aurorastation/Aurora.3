@@ -1,4 +1,4 @@
-/obj/machinery/computer/ship/targeting
+/obj/structure/machinery/computer/ship/targeting
 	name = "targeting systems console"
 	desc = "A targeting systems console using Zavodskoi software."
 	icon_screen = "teleport"
@@ -6,14 +6,14 @@
 	icon_keyboard_emis = "teal_key_mask"
 	light_color = LIGHT_COLOR_CYAN
 	circuit = /obj/item/circuitboard/ship/targeting
-	var/obj/machinery/ship_weapon/cannon
+	var/obj/structure/machinery/ship_weapon/cannon
 	var/selected_entrypoint
 	var/platform_direction
 	var/selected_z = 0
 	var/list/names_to_guns = list()
 	var/list/names_to_entries = list()
 
-/obj/machinery/computer/ship/targeting/terminal
+/obj/structure/machinery/computer/ship/targeting/terminal
 	name = "targeting systems terminal"
 	desc = "A targeting systems terminal using Zavodskoi software."
 	icon = 'icons/obj/modular_computers/modular_terminal.dmi'
@@ -25,30 +25,30 @@
 	can_pass_under = FALSE
 	light_power_on = 1
 
-/obj/machinery/computer/ship/targeting/Initialize()
+/obj/structure/machinery/computer/ship/targeting/Initialize()
 	..()
 	return INITIALIZE_HINT_LATELOAD
 
-/obj/machinery/computer/ship/targeting/LateInitialize()
+/obj/structure/machinery/computer/ship/targeting/LateInitialize()
 	. = ..()
 	if(SSatlas.current_map.use_overmap && !linked)
 		var/my_sector = GLOB.map_sectors["[z]"]
 		if(istype(my_sector, /obj/effect/overmap/visitable))
 			attempt_hook_up(my_sector)
 
-/obj/machinery/computer/ship/targeting/Destroy()
+/obj/structure/machinery/computer/ship/targeting/Destroy()
 	cannon = null
 	names_to_guns.Cut()
 	names_to_entries.Cut()
 	return ..()
 
-/obj/machinery/computer/ship/targeting/ui_interact(mob/user, datum/tgui/ui)
+/obj/structure/machinery/computer/ship/targeting/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "Gunnery", "Ajax Targeting Console", 400, 525)
 		ui.open()
 
-/obj/machinery/computer/ship/targeting/ui_data(mob/user)
+/obj/structure/machinery/computer/ship/targeting/ui_data(mob/user)
 	var/list/data = list()
 	data["guns"] = list()
 	data["selected_entrypoint"] = selected_entrypoint
@@ -57,7 +57,7 @@
 		data["platform_direction"] = platform_direction
 		data["platform_directions"] = list("NORTH", "NORTHEAST", "EAST", "SOUTHEAST", "SOUTH", "SOUTHWEST", "WEST", "NORTHWEST")
 	if(linked?.targeting)
-		for(var/obj/machinery/ship_weapon/SW in linked.ship_weapons)
+		for(var/obj/structure/machinery/ship_weapon/SW in linked.ship_weapons)
 			if(!SW.special_firing_mechanism)
 				data["guns"] += list(get_gun_data(SW))
 		data["targeting"] = list(
@@ -91,7 +91,7 @@
 		data["targeting"] = null
 	return data
 
-/obj/machinery/computer/ship/targeting/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/obj/structure/machinery/computer/ship/targeting/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
@@ -142,7 +142,7 @@
 			if(!params["gun"])
 				return
 			var/gun_name = lowertext(params["gun"])
-			for(var/obj/machinery/ship_weapon/SW in linked.ship_weapons)
+			for(var/obj/structure/machinery/ship_weapon/SW in linked.ship_weapons)
 				if(lowertext(SW.name) == gun_name)
 					cannon = SW
 					. = TRUE
@@ -159,7 +159,7 @@
 			platform_direction = text2num(params["dir"])
 			. = TRUE
 
-/obj/machinery/computer/ship/targeting/proc/get_gun_data(var/obj/machinery/ship_weapon/SW)
+/obj/structure/machinery/computer/ship/targeting/proc/get_gun_data(var/obj/structure/machinery/ship_weapon/SW)
 	var/ammo_status = length(SW.ammunition) ? "Loaded, [length(SW.ammunition)] shots" : "Unloaded"
 	var/obj/item/ship_ammunition/SA
 	if(length(SW.ammunition))
@@ -171,7 +171,7 @@
 		"ammunition_type" = capitalize_first_letters(SA ? SA.impact_type : "None Loaded")
 	)
 
-/obj/machinery/computer/ship/targeting/proc/copy_entrypoints(var/z_level_filter = 0)
+/obj/structure/machinery/computer/ship/targeting/proc/copy_entrypoints(var/z_level_filter = 0)
 	. = list()
 	if(istype(linked.targeting, /obj/effect/overmap/visitable))
 		var/obj/effect/overmap/visitable/V = linked.targeting

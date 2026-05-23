@@ -1,5 +1,5 @@
 #define STASIS_TOGGLE_COOLDOWN 50
-/obj/machinery/stasis_bed
+/obj/structure/machinery/stasis_bed
 	name = "lifeform stasis unit"
 	desc = "A not so comfortable looking bed with some nozzles at the top and bottom. It will keep someone in stasis."
 	icon = 'icons/obj/machinery/sleeper.dmi'
@@ -40,26 +40,26 @@
 		/obj/item/stock_parts/capacitor = 2
 	)
 
-/obj/machinery/stasis_bed/mechanics_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/stasis_bed/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "ALT-click this to toggle it on or off."
 	. += "Applies a [stasis_power]x stasis effect to any living creature buckled to an active stasis unit."
 	. += "This causes effects such as bleeding and brain damage to accumulate [stasis_power]x slower."
 
-/obj/machinery/stasis_bed/upgrade_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/stasis_bed/upgrade_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Upgraded <b>microlasers</b> increase the unit's stasis strength."
 	. += "Upgraded <b>capacitors</b> decrease the unit's power consumption."
 
-/obj/machinery/stasis_bed/Initialize(mapload, d, populate_components)
+/obj/structure/machinery/stasis_bed/Initialize(mapload, d, populate_components)
 	. = ..()
 	update_icon()
 
-/obj/machinery/stasis_bed/Destroy()
+/obj/structure/machinery/stasis_bed/Destroy()
 	QDEL_NULL(mattress_on)
 	return ..()
 
-/obj/machinery/stasis_bed/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/stasis_bed/attackby(obj/item/attacking_item, mob/user)
 	if(default_part_replacement(user, attacking_item))
 		return TRUE
 	else if(default_deconstruction_screwdriver(user, attacking_item))
@@ -68,7 +68,7 @@
 		return TRUE
 	return ..()
 
-/obj/machinery/stasis_bed/RefreshParts()
+/obj/structure/machinery/stasis_bed/RefreshParts()
 	..()
 	var/laser_rating = 0
 	var/capacitor_rating = 0
@@ -85,7 +85,7 @@
 	update_current_power_usage()
 
 
-/obj/machinery/stasis_bed/proc/play_power_sound()
+/obj/structure/machinery/stasis_bed/proc/play_power_sound()
 	var/_running = stasis_running()
 	if(last_stasis_sound != _running)
 		var/sound_freq = rand(5120, 8800)
@@ -95,7 +95,7 @@
 			playsound(src, 'sound/machines/synth_no.ogg', 50, TRUE, frequency = sound_freq)
 		last_stasis_sound = _running
 
-/obj/machinery/stasis_bed/AltClick(mob/user)
+/obj/structure/machinery/stasis_bed/AltClick(mob/user)
 	if((world.time >= stasis_can_toggle) && !use_check_and_message(user) && !(stat & (NOPOWER|BROKEN)))
 		stasis_enabled = !stasis_enabled
 		stasis_can_toggle = world.time + STASIS_TOGGLE_COOLDOWN
@@ -107,17 +107,17 @@
 		play_power_sound()
 		update_icon()
 
-/obj/machinery/stasis_bed/Exited(atom/movable/AM, atom/newloc)
+/obj/structure/machinery/stasis_bed/Exited(atom/movable/AM, atom/newloc)
 	if(AM == occupant)
 		var/mob/living/L = AM
 		thaw_occupant(L)
 		occupant = null
 	. = ..()
 
-/obj/machinery/stasis_bed/proc/stasis_running()
+/obj/structure/machinery/stasis_bed/proc/stasis_running()
 	return stasis_enabled && !(stat & (NOPOWER|BROKEN))
 
-/obj/machinery/stasis_bed/update_icon()
+/obj/structure/machinery/stasis_bed/update_icon()
 	ClearOverlays()
 	if(stat & BROKEN)
 		icon_state = "[initial(icon_state)]_broken"
@@ -127,7 +127,7 @@
 		AddOverlays("stasis_maintenance")
 	updateVisOverlay()
 
-/obj/machinery/stasis_bed/proc/updateVisOverlay()
+/obj/structure/machinery/stasis_bed/proc/updateVisOverlay()
 	if(!mattress_state)
 		remove_vis_contents(mattress_on)
 		return
@@ -149,11 +149,11 @@
 		var/anim_time = _running ? 5 SECONDS : 2.5 SECONDS
 		animate(mattress_on, time = anim_time, alpha = new_alpha, easing = CUBIC_EASING|easing_direction)
 
-/obj/machinery/stasis_bed/power_change()
+/obj/structure/machinery/stasis_bed/power_change()
 	. = ..()
 	play_power_sound()
 
-/obj/machinery/stasis_bed/proc/chill_occupant(mob/living/target)
+/obj/structure/machinery/stasis_bed/proc/chill_occupant(mob/living/target)
 	if(target != occupant)
 		return
 	var/freq = rand(24750, 26550)
@@ -162,14 +162,14 @@
 	update_use_power(POWER_USE_ACTIVE)
 	chilled_occupant = TRUE
 
-/obj/machinery/stasis_bed/proc/thaw_occupant(mob/living/target)
+/obj/structure/machinery/stasis_bed/proc/thaw_occupant(mob/living/target)
 	if(target != occupant)
 		return
 
 	update_use_power(POWER_USE_IDLE)
 	chilled_occupant = FALSE
 
-/obj/machinery/stasis_bed/post_buckle(mob/living/carbon/human/H)
+/obj/structure/machinery/stasis_bed/post_buckle(mob/living/carbon/human/H)
 	if(H.buckled_to == src)
 		occupant = H
 		if(stasis_running())
@@ -179,7 +179,7 @@
 		occupant = null
 	update_icon()
 
-/obj/machinery/stasis_bed/process()
+/obj/structure/machinery/stasis_bed/process()
 	if(stat & (NOPOWER|BROKEN))
 		return
 	if(!occupant)

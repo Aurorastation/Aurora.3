@@ -1,4 +1,4 @@
-/obj/machinery/firealarm
+/obj/structure/machinery/firealarm
 	name = "fire alarm"
 	desc = "<i>\"Pull this in case of emergency\"</i>. Thus, keep pulling it forever."
 	icon = 'icons/obj/monitors.dmi'
@@ -20,7 +20,7 @@
 	var/datum/looping_sound/firealarm/soundloop
 	always_area_sensitive = TRUE
 
-/obj/machinery/firealarm/Initialize(mapload, var/dir, var/building = 0)
+/obj/structure/machinery/firealarm/Initialize(mapload, var/dir, var/building = 0)
 	. = ..(mapload)
 
 	if(building)
@@ -45,18 +45,18 @@
 
 	update_icon()
 
-/obj/machinery/firealarm/Destroy()
+/obj/structure/machinery/firealarm/Destroy()
 	QDEL_NULL(soundloop)
 	. = ..()
 
-/obj/machinery/firealarm/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+/obj/structure/machinery/firealarm/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if((stat & (NOPOWER|BROKEN)) || buildstage != 2)
 		return
 
 	. += "The current alert level is [get_security_level()]."
 
-/obj/machinery/firealarm/update_icon()
+/obj/structure/machinery/firealarm/update_icon()
 	ClearOverlays()
 
 	if(panel_open)
@@ -84,27 +84,27 @@
 			AddOverlays("fire0")
 			set_light(0)
 
-/obj/machinery/firealarm/fire_act(exposed_temperature, exposed_volume)
+/obj/structure/machinery/firealarm/fire_act(exposed_temperature, exposed_volume)
 	. = ..()
 
 	if(src.detecting)
 		if(exposed_temperature > T0C+200)
 			src.alarm()			// added check of detector status here
 
-/obj/machinery/firealarm/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+/obj/structure/machinery/firealarm/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
 	. = ..()
 	if(. != BULLET_ACT_HIT)
 		return .
 
 	src.alarm()
 
-/obj/machinery/firealarm/emp_act(severity)
+/obj/structure/machinery/firealarm/emp_act(severity)
 	. = ..()
 
 	if(prob(50/severity))
 		alarm(rand(30/severity, 60/severity))
 
-/obj/machinery/firealarm/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/firealarm/attackby(obj/item/attacking_item, mob/user)
 	if(!istype(attacking_item, /obj/item/forensics))
 		src.add_fingerprint(user)
 	else
@@ -175,7 +175,7 @@
 
 	src.alarm()
 
-/obj/machinery/firealarm/process(seconds_per_tick)//Note: this processing was mostly phased out due to other code, and only runs when needed
+/obj/structure/machinery/firealarm/process(seconds_per_tick)//Note: this processing was mostly phased out due to other code, and only runs when needed
 	if(stat & (NOPOWER|BROKEN))
 		return
 
@@ -192,17 +192,17 @@
 
 	last_process = world.timeofday
 
-/obj/machinery/firealarm/power_change()
+/obj/structure/machinery/firealarm/power_change()
 	..()
 	queue_icon_update()
 
-/obj/machinery/firealarm/ui_interact(mob/user, datum/tgui/ui)
+/obj/structure/machinery/firealarm/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "FireAlarm")
 		ui.open()
 
-/obj/machinery/firealarm/attack_hand(mob/user as mob)
+/obj/structure/machinery/firealarm/attack_hand(mob/user as mob)
 	if (buildstage != 2 || stat & (NOPOWER|BROKEN))
 		return
 
@@ -211,7 +211,7 @@
 	else
 		alarm()
 
-/obj/machinery/firealarm/ui_data(mob/user)
+/obj/structure/machinery/firealarm/ui_data(mob/user)
 	var/list/data = list()
 
 	data["alertLevel"] = get_security_level()
@@ -224,7 +224,7 @@
 
 	return data
 
-/obj/machinery/firealarm/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/obj/structure/machinery/firealarm/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
@@ -249,49 +249,49 @@
 
 	return TRUE
 
-/obj/machinery/firealarm/proc/reset()
+/obj/structure/machinery/firealarm/proc/reset()
 	if (!( src.working ))
 		return
 	var/area/area = get_area(src)
-	for(var/obj/machinery/firealarm/FA in area)
+	for(var/obj/structure/machinery/firealarm/FA in area)
 		GLOB.fire_alarm.clearAlarm(loc, FA)
 		FA.soundloop.stop(FA)
 	update_icon()
 	return
 
-/obj/machinery/firealarm/proc/alarm(var/duration = 0)
+/obj/structure/machinery/firealarm/proc/alarm(var/duration = 0)
 	if(!(src.working))
 		return
 	var/area/area = get_area(src)
-	for(var/obj/machinery/firealarm/FA in area)
+	for(var/obj/structure/machinery/firealarm/FA in area)
 		GLOB.fire_alarm.triggerAlarm(loc, FA, duration)
 		FA.soundloop.start(FA)
 	update_icon()
 	return
 
-/obj/machinery/firealarm/set_emergency_state(var/new_security_level)
+/obj/structure/machinery/firealarm/set_emergency_state(var/new_security_level)
 	if(seclevel != new_security_level)
 		seclevel = new_security_level
 
-/obj/machinery/firealarm/set_pixel_offsets()
+/obj/structure/machinery/firealarm/set_pixel_offsets()
 	// Overwrite the mapped in values.
 	pixel_x = ((dir & (NORTH|SOUTH)) ? 0 : (dir == EAST ? 22 : -22))
 	pixel_y = ((dir & (NORTH|SOUTH)) ? (dir == NORTH ? 32 : -19) : 0)
 
 // Convenience subtypes for mappers.
-/obj/machinery/firealarm/north
+/obj/structure/machinery/firealarm/north
 	dir = NORTH
 	pixel_y = 32
 
-/obj/machinery/firealarm/east
+/obj/structure/machinery/firealarm/east
 	dir = EAST
 	pixel_x = 22
 
-/obj/machinery/firealarm/west
+/obj/structure/machinery/firealarm/west
 	dir = WEST
 	pixel_x = -22
 
-/obj/machinery/firealarm/south
+/obj/structure/machinery/firealarm/south
 	dir = SOUTH
 	pixel_y = -19
 

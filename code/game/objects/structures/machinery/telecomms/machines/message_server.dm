@@ -66,11 +66,11 @@
 			else
 				priority = "Undetermined"
 
-/obj/machinery/telecomms/message_server
+/obj/structure/machinery/telecomms/message_server
 	name = "messaging server"
 	desc = "A machine that processes and routes request console messages."
 	icon_state = "message_server"
-	telecomms_type = /obj/machinery/telecomms/message_server
+	telecomms_type = /obj/structure/machinery/telecomms/message_server
 	idle_power_usage = 10
 	active_power_usage = 100
 
@@ -84,13 +84,13 @@
 			//Messages having theese tokens will be rejected by server. Case sensitive
 	var/spamfilter_limit = MESSAGE_SERVER_DEFAULT_SPAM_LIMIT	//Maximal amount of tokens
 
-/obj/machinery/telecomms/message_server/Initialize()
+/obj/structure/machinery/telecomms/message_server/Initialize()
 	. = ..()
 	if(!decryptkey)
 		decryptkey = GenerateKey()
 	// send_pda_message("System Administrator", "system", "This is an automated message. The messaging system is functioning correctly.")
 
-/obj/machinery/telecomms/message_server/proc/GenerateKey()
+/obj/structure/machinery/telecomms/message_server/proc/GenerateKey()
 	//Feel free to move to Helpers.
 	var/newKey
 	newKey += pick("the", "if", "of", "as", "in", "a", "you", "from", "to", "an", "too", "little", "snow", "dead", "drunk", "rosebud", "duck", "al", "le")
@@ -98,7 +98,7 @@
 	newKey += pick("1", "2", "3", "4", "5", "6", "7", "8", "9", "0")
 	return newKey
 
-/obj/machinery/telecomms/message_server/receive_information(datum/signal/subspace/pda/signal, obj/machinery/telecomms/machine_from)
+/obj/structure/machinery/telecomms/message_server/receive_information(datum/signal/subspace/pda/signal, obj/structure/machinery/telecomms/machine_from)
 	// can't log non-PDA signals
 	if(!istype(signal) || !signal.data["message"] || !use_power || !operable())
 		return
@@ -108,17 +108,17 @@
 	signal.data -= "reject"  // only gets through if it's logged
 
 	// pass it along to either the hub or the broadcaster
-	if(!relay_information(signal, /obj/machinery/telecomms/hub))
-		relay_information(signal, /obj/machinery/telecomms/broadcaster)
+	if(!relay_information(signal, /obj/structure/machinery/telecomms/hub))
+		relay_information(signal, /obj/structure/machinery/telecomms/broadcaster)
 
-/obj/machinery/telecomms/message_server/proc/send_rc_message(var/recipient = "",var/sender = "",var/message = "",var/stamp = "", var/id_auth = "", var/priority = 1)
+/obj/structure/machinery/telecomms/message_server/proc/send_rc_message(var/recipient = "",var/sender = "",var/message = "",var/stamp = "", var/id_auth = "", var/priority = 1)
 	rc_msgs += new/datum/data_rc_msg(recipient,sender,message,stamp,id_auth)
 	var/authmsg = "[message]<br>"
 	if (id_auth)
 		authmsg += "[id_auth]<br>"
 	if (stamp)
 		authmsg += "[stamp]<br>"
-	for (var/obj/machinery/requests_console/Console in GLOB.allConsoles)
+	for (var/obj/structure/machinery/requests_console/Console in GLOB.allConsoles)
 		if (ckey(Console.department) == ckey(recipient))
 			if(!Console.operable())
 				Console.message_log += "<B>Message lost due to console failure.</B><BR>Please contact [station_name()] system adminsitrator or AI for technical assistance.<BR>"
@@ -146,7 +146,7 @@
 			Console.set_light(2)
 
 
-/obj/machinery/telecomms/message_server/attack_hand(user as mob)
+/obj/structure/machinery/telecomms/message_server/attack_hand(user as mob)
 //	to_chat(user, "\blue There seem to be some parts missing from this server. They should arrive on the station in a few days, give or take a few CentCom delays.")
 	to_chat(user, "You toggle request console message passing from [use_power ? "On" : "Off"] to [use_power ? "Off" : "On"]")
 	toggle_power()
@@ -154,7 +154,7 @@
 
 	return
 
-/obj/machinery/telecomms/message_server/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/telecomms/message_server/attackby(obj/item/attacking_item, mob/user)
 	if (use_power && operable(EMPED) && (spamfilter_limit < MESSAGE_SERVER_DEFAULT_SPAM_LIMIT*2) && \
 		istype(attacking_item, /obj/item/circuitboard/message_monitor) && istype(user))
 		spamfilter_limit += round(MESSAGE_SERVER_DEFAULT_SPAM_LIMIT / 2)
@@ -166,7 +166,7 @@
 
 /datum/signal/subspace/pda
 	frequency = PUB_FREQ
-	server_type = /obj/machinery/telecomms/message_server
+	server_type = /obj/structure/machinery/telecomms/message_server
 
 /datum/signal/subspace/pda/New(obj/source, data)
 	. = ..(source, frequency, data = data)
@@ -209,9 +209,9 @@
 		+ "</body></html>", "window=pdaphoto;size=192x192")
 		onclose(M, "pdaphoto")
 
-GLOBAL_DATUM(blackbox, /obj/machinery/blackbox_recorder)
+GLOBAL_DATUM(blackbox, /obj/structure/machinery/blackbox_recorder)
 
-/obj/machinery/blackbox_recorder
+/obj/structure/machinery/blackbox_recorder
 	icon = 'icons/obj/machinery/telecomms.dmi'
 	icon_state = "blackbox"
 	name = "blackbox recorder"
@@ -223,15 +223,15 @@ GLOBAL_DATUM(blackbox, /obj/machinery/blackbox_recorder)
 	// Note: actual logging has been moved to SSstatistics.
 
 	//Only one can exist in the world!
-/obj/machinery/blackbox_recorder/Initialize()
+/obj/structure/machinery/blackbox_recorder/Initialize()
 	. = ..()
 	if(GLOB.blackbox)
-		if(istype(GLOB.blackbox,/obj/machinery/blackbox_recorder))
+		if(istype(GLOB.blackbox,/obj/structure/machinery/blackbox_recorder))
 			qdel(src)
 	else
 		GLOB.blackbox = src
 
-/obj/machinery/blackbox_recorder/Destroy()
+/obj/structure/machinery/blackbox_recorder/Destroy()
 	feedback_set_details("blackbox_destroyed","true")
 	feedback_set("blackbox_destroyed",1)
 

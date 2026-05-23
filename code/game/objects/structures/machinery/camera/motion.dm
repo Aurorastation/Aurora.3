@@ -1,4 +1,4 @@
-/obj/machinery/camera
+/obj/structure/machinery/camera
 	var/list/motionTargets = list()
 	var/detectTime = 0
 	var/area/ai_monitored/area_motion = null
@@ -6,7 +6,7 @@
 	var/alarm_delay = 100
 	movable_flags = MOVABLE_FLAG_PROXMOVE
 
-/obj/machinery/camera/proc/newTarget(var/mob/target)
+/obj/structure/machinery/camera/proc/newTarget(var/mob/target)
 	if(QDELETED(target))
 		return FALSE
 
@@ -21,7 +21,7 @@
 
 	return TRUE
 
-/obj/machinery/camera/proc/lostTarget(var/mob/target)
+/obj/structure/machinery/camera/proc/lostTarget(var/mob/target)
 	SIGNAL_HANDLER
 	if (target in motionTargets)
 		motionTargets -= target
@@ -29,7 +29,7 @@
 	if (motionTargets.len == 0)
 		cancelAlarm()
 
-/obj/machinery/camera/proc/cancelAlarm()
+/obj/structure/machinery/camera/proc/cancelAlarm()
 	if (!status || (stat & NOPOWER))
 		return 0
 	if (detectTime == -1)
@@ -37,7 +37,7 @@
 	detectTime = 0
 	return 1
 
-/obj/machinery/camera/proc/triggerAlarm()
+/obj/structure/machinery/camera/proc/triggerAlarm()
 	if (!status || (stat & NOPOWER))
 		return 0
 	if (!detectTime) return 0
@@ -45,7 +45,7 @@
 	detectTime = -1
 	return 1
 
-/obj/machinery/camera/HasProximity(atom/movable/AM as mob|obj)
+/obj/structure/machinery/camera/HasProximity(atom/movable/AM as mob|obj)
 	// Motion cameras outside of an "ai monitored" area will use this to detect stuff.
 	if (!area_motion)
 		if(isliving(AM) && !QDELING(AM))

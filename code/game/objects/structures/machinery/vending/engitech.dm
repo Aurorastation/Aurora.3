@@ -10,7 +10,7 @@
  *		Syndicate
  */
 
-/obj/machinery/vending/robotics
+/obj/structure/machinery/vending/robotics
 	name = "Robotech Deluxe"
 	desc = "All the tools you need to create your own robot army."
 	icon_state = "robotics"
@@ -51,7 +51,7 @@
 	vend_id = "robo-tools"
 	charges = 38
 
-/obj/machinery/vending/engivend
+/obj/structure/machinery/vending/engivend
 	name = "Engi-Vend"
 	desc = "Spare tool vending. What? Did you expect some witty description?"
 	icon_state = "engivend"
@@ -81,7 +81,7 @@
 	light_color = COLOR_GOLD
 	manufacturer = "hephaestus"
 
-/obj/machinery/vending/engivend/low_supply
+/obj/structure/machinery/vending/engivend/low_supply
 	products = list(
 		/obj/item/multitool = 2,
 		/obj/item/taperoll/engineering = 2,
@@ -95,7 +95,7 @@
 		/obj/item/geiger = 1
 	)
 
-/obj/machinery/vending/tool
+/obj/structure/machinery/vending/tool
 	name = "YouTool"
 	desc = "Tools for tools."
 	icon_state = "tool"
@@ -131,7 +131,7 @@
 	light_color = COLOR_GOLD
 	manufacturer = "hephaestus"
 
-/obj/machinery/vending/tool/low_supply
+/obj/structure/machinery/vending/tool/low_supply
 	products = list(
 		/obj/item/stack/cable_coil/random = 4,
 		/obj/item/crowbar = 3,
@@ -146,7 +146,7 @@
 	)
 
 //This one's from bay12
-/obj/machinery/vending/engineering
+/obj/structure/machinery/vending/engineering
 	name = "Robco Tool Maker"
 	desc = "Everything you need for do-it-yourself station repair."
 	icon_state = "engi"
@@ -196,7 +196,7 @@
 	charges = 25
 
 
-/obj/machinery/vending/encryption
+/obj/structure/machinery/vending/encryption
 	name = "SCC Encryption Key Vendor"
 	desc = "Communications galore, at the tip of your fingers."
 	product_ads = "Stop walkin, get talkin!;Get them keys!;Psst, got a minute?"
@@ -229,7 +229,7 @@
 	charges = 60
 
 
-/obj/machinery/vending/assist
+/obj/structure/machinery/vending/assist
 	vend_id = "tools"
 	icon_state = "generic"
 	icon_vend = "generic-vend"
@@ -253,7 +253,7 @@
 	restock_items = TRUE
 	light_color = COLOR_GUNMETAL
 
-/obj/machinery/vending/assist/synd
+/obj/structure/machinery/vending/assist/synd
 	name = "\improper Parts vendor"
 	desc = "Just a normal vending machine - nothing to see here."
 	icon_state = "generic"

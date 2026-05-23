@@ -1,13 +1,13 @@
 /**********************Mineral stacking unit console**************************/
 
-/obj/machinery/mineral/stacking_unit_console
+/obj/structure/machinery/mineral/stacking_unit_console
 	name = "stacking machine console"
 	desc = "This console allows you to set the max stack size for the stacking machine, as well as letting you eject stacks manually."
 	icon = 'icons/obj/machinery/wall/terminals.dmi'
 	icon_state = "production_console"
 	density = FALSE
 	anchored = TRUE
-	var/obj/machinery/mineral/stacking_machine/machine
+	var/obj/structure/machinery/mineral/stacking_machine/machine
 	idle_power_usage = 15
 	active_power_usage = 50
 
@@ -17,27 +17,27 @@
 		/obj/item/stock_parts/console_screen
 	)
 
-/obj/machinery/mineral/stacking_unit_console/Initialize(mapload, d, populate_components)
+/obj/structure/machinery/mineral/stacking_unit_console/Initialize(mapload, d, populate_components)
 	..()
 	var/mutable_appearance/screen_overlay = mutable_appearance(icon, "production_console-screen", plane = ABOVE_LIGHTING_PLANE)
 	AddOverlays(screen_overlay)
 	set_light(1.4, 1, COLOR_CYAN)
 	return INITIALIZE_HINT_LATELOAD
 
-/obj/machinery/mineral/stacking_unit_console/LateInitialize()
+/obj/structure/machinery/mineral/stacking_unit_console/LateInitialize()
 	. = ..()
 	setup_machine(null)
 
-/obj/machinery/mineral/stacking_unit_console/Destroy()
+/obj/structure/machinery/mineral/stacking_unit_console/Destroy()
 	if(machine)
 		machine.console = null
 	return ..()
 
-/obj/machinery/mineral/stacking_unit_console/proc/setup_machine(mob/user)
+/obj/structure/machinery/mineral/stacking_unit_console/proc/setup_machine(mob/user)
 	if(!machine)
 		var/area/A = get_area(src)
 		var/best_distance = INFINITY
-		for(var/obj/machinery/mineral/stacking_machine/checked_machine in SSmachinery.machinery)
+		for(var/obj/structure/machinery/mineral/stacking_machine/checked_machine in SSmachinery.machinery)
 			if(id)
 				if(checked_machine.id == id)
 					machine = checked_machine
@@ -51,7 +51,7 @@
 
 	return machine
 
-/obj/machinery/mineral/stacking_unit_console/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/mineral/stacking_unit_console/attackby(obj/item/attacking_item, mob/user)
 	if(default_deconstruction_screwdriver(user, attacking_item))
 		return
 	if(default_deconstruction_crowbar(user, attacking_item))
@@ -60,11 +60,11 @@
 		return
 	return ..()
 
-/obj/machinery/mineral/stacking_unit_console/attack_hand(mob/user)
+/obj/structure/machinery/mineral/stacking_unit_console/attack_hand(mob/user)
 	add_fingerprint(user)
 	ui_interact(user)
 
-/obj/machinery/mineral/stacking_unit_console/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1, datum/ui_state/state = GLOB.default_state)
+/obj/structure/machinery/mineral/stacking_unit_console/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1, datum/ui_state/state = GLOB.default_state)
 	if(!setup_machine(user))
 		return
 
@@ -87,7 +87,7 @@
 		ui.open()
 		ui.set_auto_update(1)
 
-/obj/machinery/mineral/stacking_unit_console/Topic(href, href_list)
+/obj/structure/machinery/mineral/stacking_unit_console/Topic(href, href_list)
 	if(..())
 		return
 
@@ -114,7 +114,7 @@
 /**********************Mineral stacking unit**************************/
 
 
-/obj/machinery/mineral/stacking_machine
+/obj/structure/machinery/mineral/stacking_machine
 	name = "stacking machine"
 	desc = "A machine which takes loose stacks of finished sheets and packs them together into one easily transportable sheet."
 	icon = 'icons/obj/machinery/mining_machines.dmi'
@@ -122,7 +122,7 @@
 	density = TRUE
 	anchored = TRUE
 	is_processing_machine = TRUE
-	var/obj/machinery/mineral/stacking_unit_console/console
+	var/obj/structure/machinery/mineral/stacking_unit_console/console
 	var/list/stack_storage = list()
 	var/list/stack_paths = list()
 	var/stack_amt = 50 // Amount to stack before releasing
@@ -134,7 +134,7 @@
 		/obj/item/stock_parts/manipulator = 2
 	)
 
-/obj/machinery/mineral/stacking_machine/Initialize()
+/obj/structure/machinery/mineral/stacking_machine/Initialize()
 	. = ..()
 
 	for(var/stacktype in subtypesof(/obj/item/stack/material) - typesof(/obj/item/stack/material/cyborg))
@@ -144,12 +144,12 @@
 
 	setup_io()
 
-/obj/machinery/mineral/stacking_machine/Destroy()
+/obj/structure/machinery/mineral/stacking_machine/Destroy()
 	if(console)
 		console.machine = null
 	return ..()
 
-/obj/machinery/mineral/stacking_machine/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/mineral/stacking_machine/attackby(obj/item/attacking_item, mob/user)
 	if(default_deconstruction_screwdriver(user, attacking_item))
 		return
 	if(default_deconstruction_crowbar(user, attacking_item))
@@ -158,7 +158,7 @@
 		return
 	return ..()
 
-/obj/machinery/mineral/stacking_machine/process()
+/obj/structure/machinery/mineral/stacking_machine/process()
 	if(!console)
 		return
 	if(stat & BROKEN)

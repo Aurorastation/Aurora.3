@@ -1,4 +1,4 @@
-/obj/machinery/bodyscanner
+/obj/structure/machinery/bodyscanner
 	name = "body scanner"
 	desc = "A state-of-the-art medical diagnostics machine. Guaranteed detection of all your bodily ailments or your money back!"
 	icon = 'icons/obj/machinery/bodyscanner.dmi'
@@ -18,7 +18,7 @@
 	var/mob/living/carbon/occupant
 	var/last_occupant_name = ""
 	var/locked
-	var/obj/machinery/body_scanconsole/connected
+	var/obj/structure/machinery/body_scanconsole/connected
 	var/list/allowed_species = list(
 		SPECIES_HUMAN,
 		SPECIES_HUMAN_OFFWORLD,
@@ -38,7 +38,7 @@
 		SPECIES_MONKEY
 	)
 
-/obj/machinery/bodyscanner/mechanics_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/bodyscanner/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	if (anchored)
 		. += "The advanced scanner detects and reports internal injuries such as bone fractures, internal bleeding, and organ damage. This is useful if you are about to perform surgery."
@@ -46,16 +46,16 @@
 		. += "Right-click the scanner and click 'Eject Occupant' to remove them."
 		. += "You can enter the scanner yourself in a similar way using the 'Enter Body Scanner' verb, or by clicking and dragging yourself onto the scanner with any intent."
 
-/obj/machinery/bodyscanner/Initialize()
+/obj/structure/machinery/bodyscanner/Initialize()
 	. = ..()
-	for(var/obj/machinery/body_scanconsole/C in orange(1,src))
+	for(var/obj/structure/machinery/body_scanconsole/C in orange(1,src))
 		connected = C
 		break
 	if(connected)
 		connected.connected = src
 	update_icon()
 
-/obj/machinery/bodyscanner/Destroy()
+/obj/structure/machinery/bodyscanner/Destroy()
 	// So the GC can qdel this.
 	if (connected)
 		connected.unlink_scanner()
@@ -63,7 +63,7 @@
 	occupant = null
 	return ..()
 
-/obj/machinery/bodyscanner/update_icon()
+/obj/structure/machinery/bodyscanner/update_icon()
 	ClearOverlays()
 	if(panel_open)
 		AddOverlays("[icon_state]-panel")
@@ -84,7 +84,7 @@
 		else
 			icon_state = initial(icon_state)
 
-/obj/machinery/bodyscanner/relaymove(mob/living/user, direction)
+/obj/structure/machinery/bodyscanner/relaymove(mob/living/user, direction)
 	. = ..()
 
 	if (user.stat)
@@ -92,7 +92,7 @@
 	go_out()
 	return
 
-/obj/machinery/bodyscanner/verb/eject()
+/obj/structure/machinery/bodyscanner/verb/eject()
 	set src in oview(1)
 	set category = "Object"
 	set name = "Eject Body Scanner"
@@ -103,11 +103,11 @@
 	add_fingerprint(usr)
 	return
 
-/obj/machinery/bodyscanner/AltClick()
+/obj/structure/machinery/bodyscanner/AltClick()
 	if(use_check_and_message(usr))
 		eject()
 
-/obj/machinery/bodyscanner/verb/move_inside()
+/obj/structure/machinery/bodyscanner/verb/move_inside()
 	set src in oview(1)
 	set category = "Object"
 	set name = "Enter Body Scanner"
@@ -127,7 +127,7 @@
 	add_fingerprint(usr)
 	return
 
-/obj/machinery/bodyscanner/proc/go_out()
+/obj/structure/machinery/bodyscanner/proc/go_out()
 	if(!occupant || locked)
 		return
 
@@ -144,7 +144,7 @@
 	update_icon()
 	return
 
-/obj/machinery/bodyscanner/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/bodyscanner/attackby(obj/item/attacking_item, mob/user)
 	var/obj/item/grab/G = attacking_item
 	if (!istype(G, /obj/item/grab) || !isliving(G.affecting) )
 		return
@@ -171,7 +171,7 @@
 	qdel(G)
 	return TRUE
 
-/obj/machinery/bodyscanner/mouse_drop_receive(atom/dropped, mob/user, params)
+/obj/structure/machinery/bodyscanner/mouse_drop_receive(atom/dropped, mob/user, params)
 	if(!istype(user))
 		return
 
@@ -209,7 +209,7 @@
 	//G = null
 	return
 
-/obj/machinery/bodyscanner/ex_act(severity)
+/obj/structure/machinery/bodyscanner/ex_act(severity)
 	switch(severity)
 		if(1)
 			for(var/atom/movable/A in src)
@@ -229,7 +229,7 @@
 					ex_act(severity)
 				qdel(src)
 
-/obj/machinery/bodyscanner/proc/check_species()
+/obj/structure/machinery/bodyscanner/proc/check_species()
 	if (!occupant || !ishuman(occupant))
 		return TRUE
 	var/mob/living/carbon/human/O = occupant
@@ -237,7 +237,7 @@
 		return TRUE
 	return !(O.get_species() in allowed_species)
 
-/obj/machinery/body_scanconsole/ex_act(severity)
+/obj/structure/machinery/body_scanconsole/ex_act(severity)
 
 	switch(severity)
 		if(1.0)
@@ -246,13 +246,13 @@
 			if(prob(50))
 				qdel(src)
 
-/obj/machinery/body_scanconsole
+/obj/structure/machinery/body_scanconsole
 	name = "body scanner console"
 	var/tgui_name = "Zeng-Hu Pharmaceuticals Body Scanner"
 	desc = "An advanced control panel that can be used to interface with a connected body scanner."
 	icon = 'icons/obj/machinery/bodyscanner.dmi'
 	icon_state = "body_scanner_console"
-	var/obj/machinery/bodyscanner/connected
+	var/obj/structure/machinery/bodyscanner/connected
 	var/collapse_desc = ""
 	var/broken_desc = ""
 	var/has_internal_injuries = FALSE
@@ -272,7 +272,7 @@
 	var/has_print_and_eject = TRUE
 	var/no_scan_message = "No diagnostics profile installed for this species."
 
-/obj/machinery/body_scanconsole/Destroy()
+/obj/structure/machinery/body_scanconsole/Destroy()
 	if (connected)
 		connected.connected = null
 		connected = null
@@ -280,11 +280,11 @@
 		remove_display(D)
 	return ..()
 
-/obj/machinery/body_scanconsole/power_change()
+/obj/structure/machinery/body_scanconsole/power_change()
 	..()
 	update_icon()
 
-/obj/machinery/body_scanconsole/update_icon()
+/obj/structure/machinery/body_scanconsole/update_icon()
 	ClearOverlays()
 	if(panel_open)
 		AddOverlays("[icon_state]_panel")
@@ -296,40 +296,40 @@
 		AddOverlays(emissive_appearance(icon, "[icon_state]_lights"))
 		AddOverlays("[icon_state]_lights")
 
-/obj/machinery/body_scanconsole/Initialize()
+/obj/structure/machinery/body_scanconsole/Initialize()
 	. = ..()
 	FindScanner()
 	update_icon()
 
-/obj/machinery/body_scanconsole/proc/FindScanner()
-	for(var/obj/machinery/bodyscanner/C in orange(1,src))
+/obj/structure/machinery/body_scanconsole/proc/FindScanner()
+	for(var/obj/structure/machinery/bodyscanner/C in orange(1,src))
 		connected = C
 		RegisterSignal(connected, COMSIG_QDELETING, PROC_REF(on_linked_scanner_deletion))
 		break
 	if(connected)
 		connected.connected = src
 
-/obj/machinery/body_scanconsole/proc/on_linked_scanner_deletion()
+/obj/structure/machinery/body_scanconsole/proc/on_linked_scanner_deletion()
 	SIGNAL_HANDLER
 	unlink_scanner()
 
-/obj/machinery/body_scanconsole/proc/unlink_scanner()
+/obj/structure/machinery/body_scanconsole/proc/unlink_scanner()
 	connected = null
 	UnregisterSignal(connected, COMSIG_QDELETING)
 	update_icon()
 
-/obj/machinery/body_scanconsole/attack_ai(var/mob/user)
+/obj/structure/machinery/body_scanconsole/attack_ai(var/mob/user)
 	if(!ai_can_interact(user))
 		return
 	return attack_hand(user)
 
-/obj/machinery/body_scanconsole/attack_hand(var/mob/user)
+/obj/structure/machinery/body_scanconsole/attack_hand(var/mob/user)
 	if(..())
 		return
 
 	ui_interact(user)
 
-/obj/machinery/body_scanconsole/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/obj/structure/machinery/body_scanconsole/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
@@ -343,14 +343,14 @@
 			if(connected)
 				connected.eject()
 
-/obj/machinery/body_scanconsole/proc/FindDisplays()
-	for(var/obj/machinery/computer/operating/D in SSmachinery.machinery)
+/obj/structure/machinery/body_scanconsole/proc/FindDisplays()
+	for(var/obj/structure/machinery/computer/operating/D in SSmachinery.machinery)
 		if (AreConnectedZLevels(D.z, z))
 			connected_displays += D
 			RegisterSignal(D, COMSIG_QDELETING, PROC_REF(on_connected_display_deletion))
 	return !!length(connected_displays)
 
-/obj/machinery/body_scanconsole/ui_interact(mob/user, var/datum/tgui/ui)
+/obj/structure/machinery/body_scanconsole/ui_interact(mob/user, var/datum/tgui/ui)
 	if(!get_connected())
 		to_chat(usr, SPAN_WARNING("[icon2html(src, usr)]Error: No body scanner detected."))
 		return
@@ -359,31 +359,31 @@
 		ui = new(user, src, "BodyScanner", tgui_name, 850, 500)
 		ui.open()
 
-/obj/machinery/body_scanconsole/proc/on_connected_display_deletion(datum/source)
+/obj/structure/machinery/body_scanconsole/proc/on_connected_display_deletion(datum/source)
 	SIGNAL_HANDLER
 
 	remove_display(source)
 
-/obj/machinery/body_scanconsole/proc/remove_display(datum/source, obj/machinery/computer/operating/display)
+/obj/structure/machinery/body_scanconsole/proc/remove_display(datum/source, obj/structure/machinery/computer/operating/display)
 	connected_displays -= display
 	UnregisterSignal(display, COMSIG_QDELETING)
 
-/obj/machinery/body_scanconsole/proc/get_connected()
+/obj/structure/machinery/body_scanconsole/proc/get_connected()
 	if(connected)
 		return connected
 	return null
 
-/obj/machinery/body_scanconsole/proc/get_occupant()
+/obj/structure/machinery/body_scanconsole/proc/get_occupant()
 	if(connected)
 		return connected.occupant
 	return null
 
-/obj/machinery/body_scanconsole/proc/check_species()
+/obj/structure/machinery/body_scanconsole/proc/check_species()
 	if(connected)
 		return connected.check_species()
 	return FALSE
 
-/obj/machinery/body_scanconsole/ui_data(mob/user)
+/obj/structure/machinery/body_scanconsole/ui_data(mob/user)
 	var/list/data = list(
 		"noscan" = null,
 		"nocons" = null,
@@ -502,7 +502,7 @@
 		data["missing_organs"] = missing_organs
 	return data
 
-/obj/machinery/body_scanconsole/proc/get_internal_damage(var/obj/item/organ/internal/I)
+/obj/structure/machinery/body_scanconsole/proc/get_internal_damage(var/obj/item/organ/internal/I)
 	if(I.is_broken())
 		return "Severe"
 	if(I.is_bruised())
@@ -511,7 +511,7 @@
 		return "Minor"
 	return "None"
 
-/obj/machinery/body_scanconsole/proc/get_missing_organs(var/mob/living/carbon/human/H)
+/obj/structure/machinery/body_scanconsole/proc/get_missing_organs(var/mob/living/carbon/human/H)
 	var/list/missingOrgans = list()
 	var/list/species_organs = H.species.has_organ
 	for (var/organ_name in H.species.has_organ)
@@ -519,7 +519,7 @@
 			missingOrgans += organ_name
 	return capitalize(english_list(missingOrgans))
 
-/obj/machinery/body_scanconsole/proc/get_missing_limbs(var/mob/living/carbon/human/H)
+/obj/structure/machinery/body_scanconsole/proc/get_missing_limbs(var/mob/living/carbon/human/H)
 	var/list/missingLimbs = list()
 	var/list/species_limbs = H.species.has_limbs
 	for(var/limb_tag in species_limbs)
@@ -530,7 +530,7 @@
 			missingLimbs += organ_descriptor
 	return capitalize(english_list(missingLimbs))
 
-/obj/machinery/body_scanconsole/proc/get_external_wound_data(var/mob/living/carbon/human/H)
+/obj/structure/machinery/body_scanconsole/proc/get_external_wound_data(var/mob/living/carbon/human/H)
 	// Limbs.
 	var/organs = list()
 	for(var/obj/item/organ/external/O in H.organs)
@@ -616,7 +616,7 @@
 
 	return organs
 
-/obj/machinery/body_scanconsole/proc/get_internal_wound_data(var/mob/living/carbon/human/H)
+/obj/structure/machinery/body_scanconsole/proc/get_internal_wound_data(var/mob/living/carbon/human/H)
 	var/list/organs = list()
 	// Internal Organs. (Duh.)
 	for (var/obj/item/organ/internal/O in H.internal_organs)
@@ -691,7 +691,7 @@
 		organs += list(data)
 	return organs
 
-/obj/machinery/body_scanconsole/proc/get_infection_level(var/level)
+/obj/structure/machinery/body_scanconsole/proc/get_infection_level(var/level)
 	switch (level)
 		if (INFECTION_LEVEL_ONE to INFECTION_LEVEL_ONE + 200)
 			return "Sepsis"
@@ -710,7 +710,7 @@
 
 	return ""
 
-/obj/machinery/body_scanconsole/proc/val2status(var/val, var/warn_threshold = 10, var/danger_threshold = 50, var/inverse = 0)
+/obj/structure/machinery/body_scanconsole/proc/val2status(var/val, var/warn_threshold = 10, var/danger_threshold = 50, var/inverse = 0)
 	if (val < warn_threshold)
 		return inverse ? "bad" : "good"
 	if (val < danger_threshold)
@@ -720,7 +720,7 @@
 
 // These are old procs used for printing.
 
-/obj/machinery/bodyscanner/proc/get_occupant_data()
+/obj/structure/machinery/bodyscanner/proc/get_occupant_data()
 	if (!occupant || !istype(occupant, /mob/living/carbon/human))
 		return
 	var/mob/living/carbon/human/H = occupant
@@ -802,7 +802,7 @@
 	return occupant_data
 
 
-/obj/machinery/body_scanconsole/proc/format_occupant_data(var/list/occ)
+/obj/structure/machinery/body_scanconsole/proc/format_occupant_data(var/list/occ)
 	var/dat = "<font face=\"Courier New\"><font size=\"1\">Scan performed at [occ["stationtime"]]</font></font><br>"
 	dat += "<font face=\"Verdana\">"
 	dat += "<b>Patient Status</b><br><HR>"
@@ -904,32 +904,32 @@
 	return dat
 
 /// an embedded bodyscanner belonging to a patient monitoring console
-/obj/machinery/body_scanconsole/embedded
+/obj/structure/machinery/body_scanconsole/embedded
 	name = "embedded bodyscanner"
 	tgui_name = "Zeng-Hu Pharmaceuticals Surgical Theater"
 	has_detailed_view = FALSE
 	has_print_and_eject = FALSE
 	no_scan_message = "No matching body scanner primer has been added to the monitoring console."
 
-	var/obj/machinery/computer/operating/monitor_console
+	var/obj/structure/machinery/computer/operating/monitor_console
 
-/obj/machinery/body_scanconsole/embedded/Initialize(mapload, d = 0, populate_components = TRUE, is_internal = FALSE)
+/obj/structure/machinery/body_scanconsole/embedded/Initialize(mapload, d = 0, populate_components = TRUE, is_internal = FALSE)
 	. = ..()
 	monitor_console = loc
 
-/obj/machinery/body_scanconsole/embedded/Destroy()
+/obj/structure/machinery/body_scanconsole/embedded/Destroy()
 	monitor_console = null
 	return ..()
 
-/obj/machinery/body_scanconsole/embedded/ui_state(mob/user)
+/obj/structure/machinery/body_scanconsole/embedded/ui_state(mob/user)
 	return GLOB.human_adjacent_loc_state
 
-/obj/machinery/body_scanconsole/embedded/get_connected()
+/obj/structure/machinery/body_scanconsole/embedded/get_connected()
 	if(monitor_console)
 		return monitor_console
 	return null
 
-/obj/machinery/body_scanconsole/embedded/get_occupant()
+/obj/structure/machinery/body_scanconsole/embedded/get_occupant()
 	if(monitor_console?.table)
 
 		if(istype(monitor_console.table.occupant, /datum/weakref))
@@ -940,7 +940,7 @@
 	return null
 
 // if our primer has a scan target, that means it was validated by a bodyscanner
-/obj/machinery/body_scanconsole/embedded/check_species()
+/obj/structure/machinery/body_scanconsole/embedded/check_species()
 	var/atom/occupant = get_occupant()
 	if(!occupant)
 		return TRUE

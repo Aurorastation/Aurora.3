@@ -6,38 +6,38 @@
 
 */
 
-/obj/machinery/abstract
+/obj/structure/machinery/abstract
 	name = "impossible device"
 	desc = "No matter how hard you look at it, you have no idea what it is. (please inform coders if you see this)"
 	simulated = FALSE
 	anchored = 1
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
-/obj/machinery/abstract/attack_ai(mob/user as mob)
+/obj/structure/machinery/abstract/attack_ai(mob/user as mob)
 	return
 
-/obj/machinery/abstract/attack_hand(mob/user as mob)
+/obj/structure/machinery/abstract/attack_hand(mob/user as mob)
 	return
 
-/obj/machinery/abstract/emp_act(severity)
+/obj/structure/machinery/abstract/emp_act(severity)
 	. = ..()
 
 	return
 
-/obj/machinery/abstract/ex_act(severity)
+/obj/structure/machinery/abstract/ex_act(severity)
 	return
 
-/obj/machinery/abstract/tesla_act()
+/obj/structure/machinery/abstract/tesla_act()
 	return
 
-/obj/machinery/abstract/singularity_act()
+/obj/structure/machinery/abstract/singularity_act()
 	return
 
-/obj/machinery/abstract/singularity_pull()
+/obj/structure/machinery/abstract/singularity_pull()
 	return
 
-/obj/machinery/abstract/singuloCanEat()
+/obj/structure/machinery/abstract/singuloCanEat()
 	return FALSE
 
-/obj/machinery/abstract/operable(additional_flags = 0)
+/obj/structure/machinery/abstract/operable(additional_flags = 0)
 	return TRUE

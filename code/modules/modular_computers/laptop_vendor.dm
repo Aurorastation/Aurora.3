@@ -1,6 +1,6 @@
 // A vendor machine for modular computer portable devices - Laptops and Tablets
 
-/obj/machinery/lapvend
+/obj/structure/machinery/lapvend
 	name = "computer vendor"
 	desc = "A vending machine with microfabricator capable of dispensing various NT-branded computers."
 	icon = 'icons/obj/vending.dmi'
@@ -29,7 +29,7 @@
 	var/dev_aislot = 0						// 0: None, 1: Standard
 
 // Removes all traces of old order and allows you to begin configuration from scratch.
-/obj/machinery/lapvend/proc/reset_order()
+/obj/structure/machinery/lapvend/proc/reset_order()
 	state = 0
 	devtype = 0
 	if(fabricated_laptop)
@@ -51,7 +51,7 @@
 	dev_aislot = 0
 
 // Recalculates the price and optionally even fabricates the device.
-/obj/machinery/lapvend/proc/fabricate_and_recalc_price(var/fabricate = 0)
+/obj/structure/machinery/lapvend/proc/fabricate_and_recalc_price(var/fabricate = 0)
 	total_price = 0
 	if(devtype == 1) 		// Laptop, generally cheaper to make it accessible for most station roles
 		if(fabricate)
@@ -246,7 +246,7 @@
 
 
 
-/obj/machinery/lapvend/Topic(href, href_list)
+/obj/structure/machinery/lapvend/Topic(href, href_list)
 	if(..())
 		return 1
 
@@ -300,13 +300,13 @@
 		return 1
 	return 0
 
-/obj/machinery/lapvend/attack_hand(var/mob/user)
+/obj/structure/machinery/lapvend/attack_hand(var/mob/user)
 	if(anchored)
 		ui_interact(user)
 	else
 		to_chat(user, SPAN_NOTICE("\The [src] needs to be anchored to the floor to function!"))
 
-/obj/machinery/lapvend/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
+/obj/structure/machinery/lapvend/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
 	if(stat & (BROKEN | NOPOWER | MAINT))
 		if(ui)
 			ui.close()
@@ -334,7 +334,7 @@
 		ui.open()
 		ui.set_auto_update(1)
 
-/obj/machinery/lapvend/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/lapvend/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		if(anchored)
@@ -360,7 +360,7 @@
 			return TRUE
 	return ..()
 
-/obj/machinery/lapvend/proc/create_device(mob/user, var/message = "Enjoy your new product!")
+/obj/structure/machinery/lapvend/proc/create_device(mob/user, var/message = "Enjoy your new product!")
 	fabricate_and_recalc_price(TRUE)
 	if((devtype == 1) && fabricated_laptop)
 		fabricated_laptop.forceMove(src.loc)
@@ -391,7 +391,7 @@
 	state = 3
 
 // Simplified payment processing, returns 1 on success.
-/obj/machinery/lapvend/proc/process_payment(var/obj/item/card/id/I, var/obj/item/ID_container)
+/obj/structure/machinery/lapvend/proc/process_payment(var/obj/item/card/id/I, var/obj/item/ID_container)
 	var/obj/item/spacecash/S = null
 	if (istype(ID_container, /obj/item/spacecash))
 		S = ID_container

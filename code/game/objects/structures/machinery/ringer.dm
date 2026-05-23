@@ -14,7 +14,7 @@ pixel_x = -8;
 dir = EAST; \
 pixel_x = 8;
 
-/obj/machinery/ringer
+/obj/structure/machinery/ringer
 	name = "ringer terminal"
 	desc = "A ringer terminal, PDAs can be linked to it."
 	icon = 'icons/obj/machinery/wall/terminals.dmi'
@@ -38,19 +38,19 @@ pixel_x = 8;
 	///If the pinging is in cooldown, boolean
 	var/pinged = FALSE
 
-/obj/machinery/ringer/north
+/obj/structure/machinery/ringer/north
 	PRESET_NORTH
 
-/obj/machinery/ringer/south
+/obj/structure/machinery/ringer/south
 	PRESET_SOUTH
 
-/obj/machinery/ringer/west
+/obj/structure/machinery/ringer/west
 	PRESET_WEST
 
-/obj/machinery/ringer/east
+/obj/structure/machinery/ringer/east
 	PRESET_EAST
 
-/obj/machinery/ringer/Initialize(mapload)
+/obj/structure/machinery/ringer/Initialize(mapload)
 	. = ..()
 	if(id)
 		ringers = new(id, src)
@@ -62,19 +62,19 @@ pixel_x = 8;
 	if(!mapload)
 		set_pixel_offsets()
 
-/obj/machinery/ringer/power_change()
+/obj/structure/machinery/ringer/power_change()
 	..()
 	update_icon()
 
-/obj/machinery/ringer/set_pixel_offsets()
+/obj/structure/machinery/ringer/set_pixel_offsets()
 	pixel_x = DIR2PIXEL_X(dir)
 	pixel_y = DIR2PIXEL_Y(dir)
 
-/obj/machinery/ringer/Destroy()
+/obj/structure/machinery/ringer/Destroy()
 	QDEL_NULL(ringers)
 	return ..()
 
-/obj/machinery/ringer/update_icon()
+/obj/structure/machinery/ringer/update_icon()
 	ClearOverlays()
 	var/mutable_appearance/screen = overlay_image(icon, "bell-standby")
 	var/mutable_appearance/screen_hologram = overlay_image(icon, "bell-standby")
@@ -112,7 +112,7 @@ pixel_x = 8;
 	AddOverlays(screen)
 	AddOverlays(screen_emis)
 
-/obj/machinery/ringer/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/ringer/attackby(obj/item/attacking_item, mob/user)
 	if(stat & (BROKEN|NOPOWER) || !istype(user,/mob/living))
 		return TRUE
 
@@ -132,7 +132,7 @@ pixel_x = 8;
 	else
 		return ..()
 
-/obj/machinery/ringer/attack_hand(mob/user as mob)
+/obj/structure/machinery/ringer/attack_hand(mob/user as mob)
 	if(..())
 		return
 
@@ -151,7 +151,7 @@ pixel_x = 8;
 
 	update_icon()
 
-/obj/machinery/ringer/proc/ring_pda()
+/obj/structure/machinery/ringer/proc/ring_pda()
 
 	if (!on || pinged)
 		return
@@ -167,15 +167,15 @@ pixel_x = 8;
 
 	addtimer(CALLBACK(src, PROC_REF(unping)), 45 SECONDS)
 
-/obj/machinery/ringer/proc/unping()
+/obj/structure/machinery/ringer/proc/unping()
 	pinged = FALSE
 	update_icon()
 
-/obj/machinery/ringer/proc/remove_pda(obj/item/modular_computer/P)
+/obj/structure/machinery/ringer/proc/remove_pda(obj/item/modular_computer/P)
 	if (istype(P))
 		rings_pdas -= P
 
-/obj/machinery/ringer_button
+/obj/structure/machinery/ringer_button
 	name = "ringer button"
 	desc = "Use this to get someone's attention, or to annoy them."
 	icon = 'icons/obj/machinery/wall/terminals.dmi'
@@ -183,23 +183,23 @@ pixel_x = 8;
 	anchored = TRUE
 	var/id = ""
 
-/obj/machinery/ringer_button/Initialize(mapload, newid)
+/obj/structure/machinery/ringer_button/Initialize(mapload, newid)
 	. = ..()
 	if(!id)
 		id = newid
 	update_icon()
 
-/obj/machinery/ringer_button/power_change()
+/obj/structure/machinery/ringer_button/power_change()
 	..()
 	update_icon()
 
-/obj/machinery/ringer_button/update_icon()
+/obj/structure/machinery/ringer_button/update_icon()
 	if(stat & NOPOWER)
 		icon_state = "ringer_off"
 	else
 		icon_state = "ringer"
 
-/obj/machinery/ringer_button/attack_hand(mob/living/user)
+/obj/structure/machinery/ringer_button/attack_hand(mob/living/user)
 
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 
@@ -210,7 +210,7 @@ pixel_x = 8;
 
 	for (var/thing in GET_LISTENERS(id))
 		var/listener/L = thing
-		var/obj/machinery/ringer/C = L.target
+		var/obj/structure/machinery/ringer/C = L.target
 		if (istype(C))
 			C.ring_pda()
 

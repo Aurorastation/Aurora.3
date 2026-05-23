@@ -43,7 +43,7 @@
 	[pick("Reality", "Dreamer", "Regrets", "Boltbucket", "Wayfarer", "Trailblazer", "Overtime", "Gizmo", "Express", "Deity", "Diamond", "Miner", "Skiff of Skiffs", "Wallop", "Express", "Courier", "Coal", "Pitchblende", "Ore", "Activated Charcoal", "Plywood", "Luck", "Profit", "Write-off")]"
 	..()
 
-/obj/machinery/computer/shuttle_control/explore/terminal/orion_miner
+/obj/structure/machinery/computer/shuttle_control/explore/terminal/orion_miner
 	name = "shuttle control console"
 	shuttle_tag = "Orion Express Mining Skiff"
 

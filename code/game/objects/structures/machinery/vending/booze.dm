@@ -5,7 +5,7 @@
  *		Low Supply
  */
 
-/obj/machinery/vending/boozeomat
+/obj/structure/machinery/vending/boozeomat
 	name = "Booze-O-Mat"
 	desc = "A technological marvel, supposedly able to mix just the mixture you'd like to drink the moment you ask for one."
 	icon_state = "boozeomat"        //////////////18 drink entities below, plus the glasses, in case someone wants to edit the number of bottles
@@ -108,13 +108,13 @@
 	vend_id = "booze"
 	charges = 100 //holy shit that's a lot of booze
 
-/obj/machinery/vending/boozeomat/ui_data(mob/user)
+/obj/structure/machinery/vending/boozeomat/ui_data(mob/user)
 	var/list/data = ..()
 	data["width_override"] = 900
 	data["height_override"] = 600
 	return data
 
-/obj/machinery/vending/boozeomat/merchant
+/obj/structure/machinery/vending/boozeomat/merchant
 	// boozeomat variant used on the merchant station
 	products = list(
 		/obj/item/reagent_containers/food/drinks/drinkingglass = 12,
@@ -136,7 +136,7 @@
 	req_access = list()
 	restock_items = TRUE
 
-/obj/machinery/vending/boozeomat/abandoned
+/obj/structure/machinery/vending/boozeomat/abandoned
 	// badly stocked, with trash, junk, etc
 	desc = "Used to hold bottles and drinks cold and nice in the past, now it is all dusty and barely functioning, if at all."
 	products = list(
@@ -160,7 +160,7 @@
 	restock_items = TRUE
 	use_power = 0
 
-/obj/machinery/vending/boozeomat/low_supply
+/obj/structure/machinery/vending/boozeomat/low_supply
 	// just badly stocked
 	products = list(
 		/obj/item/reagent_containers/food/drinks/bottle/applejack = 1,
@@ -196,5 +196,5 @@
 		/obj/item/reagent_containers/food/drinks/ice = 9
 	)
 
-/obj/machinery/vending/boozeomat/bar
+/obj/structure/machinery/vending/boozeomat/bar
 	layer = BELOW_TABLE_LAYER

@@ -8,7 +8,7 @@
  *		Hacked
  */
 
-/obj/machinery/vending/snack
+/obj/structure/machinery/vending/snack
 	name = "Getmore Chocolate Corp"
 	desc = "A snack machine courtesy of the Getmore Chocolate Corporation, based out of Mars."
 	product_slogans = "Try our new nougat bar!;Twice the calories for half the price!"
@@ -97,7 +97,7 @@
 	light_color = COLOR_BABY_BLUE
 	manufacturer = "nanotrasen"
 
-/obj/machinery/vending/snack/low_supply
+/obj/structure/machinery/vending/snack/low_supply
 	products = list(
 		/obj/item/reagent_containers/food/drinks/dry_ramen = 4,
 		/obj/item/reagent_containers/food/snacks/chips = 1,
@@ -111,7 +111,7 @@
 		/obj/item/reagent_containers/food/drinks/jyalra = 1
 	)
 
-/obj/machinery/vending/snack/konyang
+/obj/structure/machinery/vending/snack/konyang
 	products = list(
 		/obj/item/reagent_containers/food/snacks/candy = 6,
 		/obj/item/reagent_containers/food/drinks/dry_ramen = 12,
@@ -136,7 +136,7 @@
 		/obj/item/reagent_containers/food/snacks/seaweed = 10,
 	)
 
-/obj/machinery/vending/snack/horizon
+/obj/structure/machinery/vending/snack/horizon
 	products = list(
 		/obj/item/reagent_containers/food/drinks/dry_ramen = 6,
 		/obj/item/reagent_containers/food/snacks/sosjerky = 6,
@@ -204,7 +204,7 @@
 	vend_id = "snacks"
 	charges = 38
 
-/obj/machinery/vending/frontiervend
+/obj/structure/machinery/vending/frontiervend
 	name = "FrontierVend"
 	desc = "A vending machine specialized in snacks from the Coalition of Colonies."
 	desc_extended = "Almost rebranded to the 'Coalition of Snackolonies', the FrontierVend brand is owned by a now-subsidiary of Orion Express specialized in food exports. These machines \
@@ -280,7 +280,7 @@
 	random_itemcount = 0
 	light_color = COLOR_BABY_BLUE
 
-/obj/machinery/vending/frontiervend/low_supply
+/obj/structure/machinery/vending/frontiervend/low_supply
 	products = list(
 		/obj/item/reagent_containers/food/drinks/cans/himeokvass = 2,
 		/obj/item/reagent_containers/food/drinks/cans/boch = 1,
@@ -300,7 +300,7 @@
 		/obj/item/storage/box/fancy/foysnack = 1
 	)
 
-/obj/machinery/vending/frontiervend/hacked
+/obj/structure/machinery/vending/frontiervend/hacked
 	name = "\improper hacked FrontierVend"
 	desc = "A complimentary FrontierVend machine. No money? No worries."
 	prices = list()

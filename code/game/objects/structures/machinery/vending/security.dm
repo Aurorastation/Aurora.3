@@ -4,7 +4,7 @@
  *	Nanosecurity Plus
  */
 
-/obj/machinery/vending/security
+/obj/structure/machinery/vending/security
 	name = "SecTech"
 	desc = "A security equipment vendor."
 	product_ads = "Crack capitalist skulls!;Beat some heads in!;Don't forget - harm is good!;Your weapons are right here.;Handcuffs!;Freeze, scumbag!;Don't tase me bro!;Tase them, bro.;Why not have a donut?"
@@ -42,7 +42,7 @@
 	light_color = COLOR_BABY_BLUE
 	manufacturer = "zavodskoi"
 
-/obj/machinery/vending/security/low_supply
+/obj/structure/machinery/vending/security/low_supply
 	products = list(
 		/obj/item/handcuffs = 2,
 		/obj/item/grenade/chem_grenade/teargas = 1,
@@ -60,7 +60,7 @@
 	charges = 25
 
 
-/obj/machinery/vending/tacticool //Tried not to go overboard with the amount of fun security has access to.
+/obj/structure/machinery/vending/tacticool //Tried not to go overboard with the amount of fun security has access to.
 	name = "Tactical Express"
 	desc = "Everything you need to ensure corporate bureaucracy makes it another day."
 	icon_state = "tact"
@@ -85,7 +85,7 @@
 	light_color = COLOR_BROWN
 	manufacturer = "zavodskoi"
 
-/obj/machinery/vending/tacticool/ert //Slightly more !FUN!
+/obj/structure/machinery/vending/tacticool/ert //Slightly more !FUN!
 	name = "Nanosecurity Plus"
 	desc = "For when shit really goes down; the private contractor's personal armory."
 	req_access = list(ACCESS_SECURITY)

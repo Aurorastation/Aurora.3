@@ -1,7 +1,7 @@
 // Navigation beacon for AI robots
 // Functions as a transponder: looks for incoming signal matching
 
-/obj/machinery/navbeacon
+/obj/structure/machinery/navbeacon
 
 	icon = 'icons/obj/objects.dmi'
 	icon_state = null
@@ -27,11 +27,11 @@
 
 	req_one_access = list(ACCESS_ENGINE, ACCESS_ROBOTICS)
 
-/obj/machinery/navbeacon/mechanics_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/navbeacon/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "ALT-click the [src] to lock or unlock it (if you have the appropriate ID access)."
 
-/obj/machinery/navbeacon/Initialize(mapload)
+/obj/structure/machinery/navbeacon/Initialize(mapload)
 	. = ..()
 
 	//If mapped, set the codes and hide it accordingly, otherwise, you're being built, so don't do that
@@ -50,7 +50,7 @@
 		SSradio.add_object(src, freq, RADIO_NAVBEACONS)
 
 	// set the transponder codes assoc list from codes_txt
-/obj/machinery/navbeacon/proc/set_codes()
+/obj/structure/machinery/navbeacon/proc/set_codes()
 	if(!codes_txt)
 		return
 
@@ -70,12 +70,12 @@
 
 	// called when turf state changes
 	// hide the object if turf is intact
-/obj/machinery/navbeacon/hide(var/intact)
+/obj/structure/machinery/navbeacon/hide(var/intact)
 	set_invisibility(intact ? 101 : 0)
 	update_icon()
 
 	// update the icon_state
-/obj/machinery/navbeacon/update_icon()
+/obj/structure/machinery/navbeacon/update_icon()
 	var/state="navbeacon[open]"
 
 	if(invisibility)
@@ -90,7 +90,7 @@
 	// or the location
 	// or one of the set transponder keys
 	// if found, return a signal
-/obj/machinery/navbeacon/receive_signal(datum/signal/signal)
+/obj/structure/machinery/navbeacon/receive_signal(datum/signal/signal)
 	//Does not work if not anchored to the ground
 	if(!anchored)
 		return
@@ -101,7 +101,7 @@
 
 	// return a signal giving location and transponder codes
 
-/obj/machinery/navbeacon/proc/post_signal()
+/obj/structure/machinery/navbeacon/proc/post_signal()
 	//Does not work if not anchored to the ground
 	if(!anchored)
 		return
@@ -128,7 +128,7 @@
 
 	frequency.post_signal(src, signal, filter = RADIO_NAVBEACONS)
 
-/obj/machinery/navbeacon/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/navbeacon/attackby(obj/item/attacking_item, mob/user)
 	var/turf/T = get_turf(src)
 
 	if(!T.is_plating())
@@ -160,7 +160,7 @@
 
 				hide(!T.is_plating())
 
-/obj/machinery/navbeacon/AltClick(mob/user)
+/obj/structure/machinery/navbeacon/AltClick(mob/user)
 	if(Adjacent(user))
 		if(open)
 			add_fingerprint(user)
@@ -179,18 +179,18 @@
 			to_chat(user, "You must open the cover first!")
 	return
 
-/obj/machinery/navbeacon/attack_ai(var/mob/user)
+/obj/structure/machinery/navbeacon/attack_ai(var/mob/user)
 	if(!ai_can_interact(user))
 		return
 	interact(user, 1)
 
-/obj/machinery/navbeacon/attack_hand(var/mob/user)
+/obj/structure/machinery/navbeacon/attack_hand(var/mob/user)
 	if(!user.IsAdvancedToolUser())
 		return 0
 
 	interact(user, 0)
 
-/obj/machinery/navbeacon/interact(var/mob/user, var/ai = 0)
+/obj/structure/machinery/navbeacon/interact(var/mob/user, var/ai = 0)
 	var/turf/T = loc
 	if(!T.is_plating())
 		return		// prevent intraction when T-scanner revealed
@@ -238,7 +238,7 @@
 	onclose(user, "navbeacon")
 	return
 
-/obj/machinery/navbeacon/Topic(href, href_list)
+/obj/structure/machinery/navbeacon/Topic(href, href_list)
 	..()
 	if (usr.stat)
 		return
@@ -299,7 +299,7 @@
 
 				updateDialog()
 
-/obj/machinery/navbeacon/Destroy()
+/obj/structure/machinery/navbeacon/Destroy()
 	if(SSradio)
 		SSradio.remove_object(src, freq)
 	return ..()

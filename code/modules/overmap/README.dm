@@ -46,7 +46,7 @@ restricted_waypoints is list of 'shuttle name = list(landmark_tags)' pairs for w
 *************************************************************
 # Helm console
 *************************************************************
-/obj/machinery/computer/ship/helm
+/obj/structure/machinery/computer/ship/helm
 ### WHAT IT DOES
 Lets you steer ship around on overmap.
 Lets you use autopilot.
@@ -56,7 +56,7 @@ Just place it anywhere on the ship.
 *************************************************************
 # Engines control console
 *************************************************************
-/obj/machinery/computer/ship/engines
+/obj/structure/machinery/computer/ship/engines
 ### WHAT IT DOES
 Lets use set thrust limits for engines of your ship.
 Lets you shutdown/restart the engines.
@@ -67,7 +67,7 @@ Just place it anywhere on the ship.
 *************************************************************
 # Thermal engines
 *************************************************************
-/obj/machinery/atmospherics/unary/engine
+/obj/structure/machinery/atmospherics/unary/engine
 ### WHAT IT DOES
 Lets your ship move on the map at all.
 ### HOW TO USE
@@ -76,7 +76,7 @@ Put them on map, hook up to pipes with any gas. Heavier gas (CO2/plasma) + More 
 *************************************************************
 # Exploration shuttle terminal
 *************************************************************
-/obj/machinery/computer/shuttle_control/explore
+/obj/structure/machinery/computer/shuttle_control/explore
 ### WHAT IT DOES
 Lets you control shuttles that can change destinations and visit other sectors/ships.
 ### HOW TO USE

@@ -1,4 +1,4 @@
-/obj/machinery/portable_atmospherics/powered/scrubber
+/obj/structure/machinery/portable_atmospherics/powered/scrubber
 	name = "portable air scrubber"
 	desc = "Scrubs contaminants from the local atmosphere or the connected portable tank."
 	icon = 'icons/obj/atmos.dmi'
@@ -19,18 +19,18 @@
 
 	var/list/scrubbing_gas = list(GAS_PHORON, GAS_CO2, GAS_N2O, GAS_HYDROGEN, GAS_HELIUM, GAS_DEUTERIUM, GAS_TRITIUM, GAS_HELIUMFUEL, GAS_SULFUR, GAS_NO2, GAS_CHLORINE, GAS_WATERVAPOR)
 
-/obj/machinery/portable_atmospherics/powered/scrubber/mechanics_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/portable_atmospherics/powered/scrubber/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Filters the air, placing harmful gases into the internal gas container. The container can be emptied by connecting it to a connector port."
 	. += "The pump can pump the air in (sucking) or out (blowing), at a specific target pressure."
 	. += "The power cell inside can be replaced by using a screwdriver, then adding a new cell. Screw it closed again afterwards."
 	. += "A tank of gas can also be attached to the scrubber."
 
-/obj/machinery/portable_atmospherics/powered/scrubber/Initialize()
+/obj/structure/machinery/portable_atmospherics/powered/scrubber/Initialize()
 	. = ..()
 	cell = new/obj/item/cell/apc(src)
 
-/obj/machinery/portable_atmospherics/powered/scrubber/emp_act(severity)
+/obj/structure/machinery/portable_atmospherics/powered/scrubber/emp_act(severity)
 	. = ..()
 
 	if(stat & (BROKEN|NOPOWER))
@@ -40,7 +40,7 @@
 		on = !on
 		update_icon()
 
-/obj/machinery/portable_atmospherics/powered/scrubber/update_icon()
+/obj/structure/machinery/portable_atmospherics/powered/scrubber/update_icon()
 	ClearOverlays()
 
 	if(on && cell && cell.charge)
@@ -56,7 +56,7 @@
 
 	return
 
-/obj/machinery/portable_atmospherics/powered/scrubber/process()
+/obj/structure/machinery/portable_atmospherics/powered/scrubber/process()
 	..()
 
 	var/power_draw = -1
@@ -92,29 +92,29 @@
 	//src.update_icon()
 	src.updateDialog()
 
-/obj/machinery/portable_atmospherics/powered/scrubber/return_air()
+/obj/structure/machinery/portable_atmospherics/powered/scrubber/return_air()
 	return air_contents
 
-/obj/machinery/portable_atmospherics/powered/scrubber/attack_ai(var/mob/user)
+/obj/structure/machinery/portable_atmospherics/powered/scrubber/attack_ai(var/mob/user)
 	if(!ai_can_interact(user))
 		return
 	src.add_hiddenprint(user)
 	return src.attack_hand(user)
 
-/obj/machinery/portable_atmospherics/powered/scrubber/attack_ghost(var/mob/user)
+/obj/structure/machinery/portable_atmospherics/powered/scrubber/attack_ghost(var/mob/user)
 	return src.attack_hand(user)
 
-/obj/machinery/portable_atmospherics/powered/scrubber/attack_hand(var/mob/user)
+/obj/structure/machinery/portable_atmospherics/powered/scrubber/attack_hand(var/mob/user)
 	ui_interact(user)
 	return
 
-/obj/machinery/portable_atmospherics/powered/scrubber/ui_interact(mob/user, datum/tgui/ui)
+/obj/structure/machinery/portable_atmospherics/powered/scrubber/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "AtmoScrubber", ui_x=500, ui_y=380)
 		ui.open()
 
-/obj/machinery/portable_atmospherics/powered/scrubber/ui_data(mob/user)
+/obj/structure/machinery/portable_atmospherics/powered/scrubber/ui_data(mob/user)
 	var/list/data = list()
 	data["portConnected"] = connected_port ? 1 : 0
 	data["tankPressure"] = round(XGM_PRESSURE(air_contents))
@@ -134,7 +134,7 @@
 		data["holdingTankPressure"] = null
 	return data
 
-/obj/machinery/portable_atmospherics/powered/scrubber/ui_act(action, list/params)
+/obj/structure/machinery/portable_atmospherics/powered/scrubber/ui_act(action, list/params)
 	. = ..()
 	if(.)
 		return
@@ -154,7 +154,7 @@
 		update_icon()
 
 //Huge scrubber
-/obj/machinery/portable_atmospherics/powered/scrubber/huge
+/obj/structure/machinery/portable_atmospherics/powered/scrubber/huge
 	name = "Huge Air Scrubber"
 	icon_state = "scrubber:0"
 	anchored = 1
@@ -167,7 +167,7 @@
 	var/global/gid = 1
 	var/id = 0
 
-/obj/machinery/portable_atmospherics/powered/scrubber/huge/Initialize()
+/obj/structure/machinery/portable_atmospherics/powered/scrubber/huge/Initialize()
 	. = ..()
 	QDEL_NULL(cell)
 
@@ -176,10 +176,10 @@
 
 	name = "[name] (ID [id])"
 
-/obj/machinery/portable_atmospherics/powered/scrubber/huge/attack_hand(var/mob/user as mob)
+/obj/structure/machinery/portable_atmospherics/powered/scrubber/huge/attack_hand(var/mob/user as mob)
 		to_chat(usr, SPAN_NOTICE("You can't directly interact with this machine. Use the scrubber control console."))
 
-/obj/machinery/portable_atmospherics/powered/scrubber/huge/update_icon()
+/obj/structure/machinery/portable_atmospherics/powered/scrubber/huge/update_icon()
 	src.overlays = 0
 
 	if(on && !(stat & (NOPOWER|BROKEN)))
@@ -187,13 +187,13 @@
 	else
 		icon_state = "scrubber:0"
 
-/obj/machinery/portable_atmospherics/powered/scrubber/huge/power_change()
+/obj/structure/machinery/portable_atmospherics/powered/scrubber/huge/power_change()
 	var/old_stat = stat
 	..()
 	if (old_stat != stat)
 		update_icon()
 
-/obj/machinery/portable_atmospherics/powered/scrubber/huge/process()
+/obj/structure/machinery/portable_atmospherics/powered/scrubber/huge/process()
 	if(!on || (stat & (NOPOWER|BROKEN)))
 		update_use_power(POWER_USE_OFF)
 		last_flow_rate = 0
@@ -219,7 +219,7 @@
 		use_power_oneoff(power_draw)
 		update_connected_network()
 
-/obj/machinery/portable_atmospherics/powered/scrubber/huge/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/portable_atmospherics/powered/scrubber/huge/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(on)
 			to_chat(user, SPAN_WARNING("Turn \the [src] off first!"))
@@ -243,10 +243,10 @@
 
 	return ..()
 
-/obj/machinery/portable_atmospherics/powered/scrubber/huge/stationary
+/obj/structure/machinery/portable_atmospherics/powered/scrubber/huge/stationary
 	name = "Stationary Air Scrubber"
 
-/obj/machinery/portable_atmospherics/powered/scrubber/huge/stationary/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/portable_atmospherics/powered/scrubber/huge/stationary/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		to_chat(user, SPAN_WARNING("The bolts are too tight for you to unscrew!"))
 		return TRUE

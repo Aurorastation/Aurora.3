@@ -1,4 +1,4 @@
-/obj/machinery/computer/robotics
+/obj/structure/machinery/computer/robotics
 	name = "robotics control console"
 	desc = "Used to remotely lockdown or detonate linked cyborgs."
 	icon = 'icons/obj/modular_computers/modular_console.dmi'
@@ -14,15 +14,15 @@
 	var/safety = 1
 
 
-/obj/machinery/computer/robotics/attack_ai(var/mob/user as mob)
+/obj/structure/machinery/computer/robotics/attack_ai(var/mob/user as mob)
 	if(!ai_can_interact(user))
 		return
 	ui_interact(user)
 
-/obj/machinery/computer/robotics/attack_hand(var/mob/user as mob)
+/obj/structure/machinery/computer/robotics/attack_hand(var/mob/user as mob)
 	ui_interact(user)
 
-/obj/machinery/computer/robotics/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
+/obj/structure/machinery/computer/robotics/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
 	var/data[0]
 	data["robots"] = get_cyborgs(user)
 	data["safety"] = safety
@@ -37,7 +37,7 @@
 		ui.open()
 		ui.set_auto_update(1)
 
-/obj/machinery/computer/robotics/Topic(href, href_list)
+/obj/structure/machinery/computer/robotics/Topic(href, href_list)
 	if(..())
 		return
 	var/mob/user = usr
@@ -203,7 +203,7 @@
 // Proc: get_cyborgs()
 // Parameters: 1 (operator - mob which is operating the console.)
 // Description: Returns NanoUI-friendly list of accessible cyborgs.
-/obj/machinery/computer/robotics/proc/get_cyborgs(var/mob/operator)
+/obj/structure/machinery/computer/robotics/proc/get_cyborgs(var/mob/operator)
 	var/list/robots = list()
 
 	for(var/mob/living/silicon/robot/R in GLOB.mob_list)
@@ -245,7 +245,7 @@
 // Proc: get_cyborg_by_name()
 // Parameters: 1 (name - Cyborg we are trying to find)
 // Description: Helper proc for finding cyborg by name
-/obj/machinery/computer/robotics/proc/get_cyborg_by_name(var/name)
+/obj/structure/machinery/computer/robotics/proc/get_cyborg_by_name(var/name)
 	if(!name)
 		return
 	for(var/mob/living/silicon/robot/R in GLOB.mob_list)

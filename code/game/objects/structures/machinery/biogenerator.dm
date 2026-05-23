@@ -1,4 +1,4 @@
-/obj/machinery/biogenerator
+/obj/structure/machinery/biogenerator
 	name = "biogenerator"
 	desc = "An advanced machine that can be used to convert grown plantlike biological material into various other bio-goods."
 	icon = 'icons/obj/biogenerator.dmi'
@@ -45,13 +45,13 @@
 		/obj/item/stock_parts/capacitor
 	)
 
-/obj/machinery/biogenerator/mechanics_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/biogenerator/mechanics_hints(mob/user, distance, is_adjacent)
 	. = ..()
 	. += "- Food can be placed inside this machine by either left clicking it with food items directly, or by left clicking on it with a plant bag."
 	. += "- Any <b>nutriments</b> inside food are converted into biomass, which can be used by this machine to create a variety of useful items."
 	. += "- <b>Non-nutriment</b> reagents will clog up the machine, making it take longer to process foods."
 
-/obj/machinery/biogenerator/upgrade_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/biogenerator/upgrade_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "- Upgraded <b>manipulators</b> will decrease the cost of bio-goods."
 	. += SPAN_NOTICE("	- The current cost decrease is <b>[round((1 - (1/build_eff)) * 100)]%</b>.")
@@ -583,13 +583,13 @@ EMAG/ILLEGAL
 	object = /obj/item/shield/buckler
 	cost = 500
 
-/obj/machinery/biogenerator/emag_act(var/remaining_charges, var/mob/user)
+/obj/structure/machinery/biogenerator/emag_act(var/remaining_charges, var/mob/user)
 	if(!emagged)
 		emagged = 1
 		visible_message(SPAN_DANGER("\The [src] makes a fizzling sound."))
 		return 1
 
-/obj/machinery/biogenerator/Initialize()
+/obj/structure/machinery/biogenerator/Initialize()
 	. = ..()
 	var/datum/reagents/R = new/datum/reagents(1000)
 	reagents = R
@@ -598,10 +598,10 @@ EMAG/ILLEGAL
 	update_icon()
 	ref_for_ui = "[REF(src)]"
 
-/obj/machinery/biogenerator/on_reagent_change()			//When the reagents change, change the icon as well.
+/obj/structure/machinery/biogenerator/on_reagent_change()			//When the reagents change, change the icon as well.
 	update_icon()
 
-/obj/machinery/biogenerator/update_icon()
+/obj/structure/machinery/biogenerator/update_icon()
 	if(!beaker)
 		icon_state = "[initial(icon_state)]"
 	else if(!processing)
@@ -609,7 +609,7 @@ EMAG/ILLEGAL
 	else
 		icon_state = "[initial(icon_state)]-work"
 
-/obj/machinery/biogenerator/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/biogenerator/attackby(obj/item/attacking_item, mob/user)
 	if(default_deconstruction_screwdriver(user, attacking_item))
 		return TRUE
 	if(default_deconstruction_crowbar(user, attacking_item))
@@ -664,7 +664,7 @@ EMAG/ILLEGAL
 			. = TRUE
 	update_icon()
 
-/obj/machinery/biogenerator/interact(mob/user as mob)
+/obj/structure/machinery/biogenerator/interact(mob/user as mob)
 	if(stat & BROKEN)
 		return
 	user.set_machine(src)
@@ -724,10 +724,10 @@ EMAG/ILLEGAL
 	biogen_win.add_stylesheet("misc", 'html/browser/misc.css')
 	biogen_win.open()
 
-/obj/machinery/biogenerator/attack_hand(mob/user as mob)
+/obj/structure/machinery/biogenerator/attack_hand(mob/user as mob)
 	interact(user)
 
-/obj/machinery/biogenerator/proc/activate()
+/obj/structure/machinery/biogenerator/proc/activate()
 	if (usr.stat)
 		return
 	if (stat) //NOPOWER etc
@@ -755,7 +755,7 @@ EMAG/ILLEGAL
 		menustat = "void"
 	return
 
-/obj/machinery/biogenerator/proc/create_product(var/itemtype, var/count)
+/obj/structure/machinery/biogenerator/proc/create_product(var/itemtype, var/count)
 	if (!ispath(itemtype, /singleton/biorecipe))
 		return FALSE
 
@@ -818,7 +818,7 @@ EMAG/ILLEGAL
 	updateUsrDialog()
 	return 1
 
-/obj/machinery/biogenerator/Topic(href, href_list)
+/obj/structure/machinery/biogenerator/Topic(href, href_list)
 	..() // Run the base topic code so that our mechanics hints still work.
 	if(stat & BROKEN || usr.stat || usr.restrained() || !in_range(src, usr))
 		return
@@ -840,7 +840,7 @@ EMAG/ILLEGAL
 			menustat = "menu"
 	updateUsrDialog()
 
-/obj/machinery/biogenerator/RefreshParts()
+/obj/structure/machinery/biogenerator/RefreshParts()
 	..()
 	var/man_rating = 0
 	var/bin_rating = 0
@@ -859,7 +859,7 @@ EMAG/ILLEGAL
 	eat_eff = max(1, bin_rating)
 	processing_time_divisor = max(1, capacitor_rating)
 
-/obj/machinery/biogenerator/small
+/obj/structure/machinery/biogenerator/small
 	icon_state = "biogen_small"
 	density = FALSE
 	capacity = 25
@@ -871,25 +871,25 @@ EMAG/ILLEGAL
 		/obj/item/stock_parts/capacitor
 	)
 
-/obj/machinery/biogenerator/small/north
+/obj/structure/machinery/biogenerator/small/north
 	dir = NORTH
 	pixel_y = -13
 	layer = MOB_LAYER + 0.1
 
-/obj/machinery/biogenerator/small/south
+/obj/structure/machinery/biogenerator/small/south
 	dir = SOUTH
 	pixel_y = 20
 	layer = OBJ_LAYER + 0.3
 
-/obj/machinery/biogenerator/small/east
+/obj/structure/machinery/biogenerator/small/east
 	dir = EAST
 	pixel_x = -12
 
-/obj/machinery/biogenerator/small/west
+/obj/structure/machinery/biogenerator/small/west
 	dir = WEST
 	pixel_x = 11
 
-/obj/machinery/biogenerator/small/RefreshParts()
+/obj/structure/machinery/biogenerator/small/RefreshParts()
 	..()
 	// Upgraded parts are less efficient on small biogenerators.
 	// Tier 3 parts are equivalent to tier 2 parts for them, while tier 2 parts are only 33% more effective than tier 1 parts.

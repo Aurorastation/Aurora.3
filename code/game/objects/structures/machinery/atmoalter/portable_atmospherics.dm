@@ -1,9 +1,9 @@
-/obj/machinery/portable_atmospherics
+/obj/structure/machinery/portable_atmospherics
 	name = "atmoalter"
 	use_power = POWER_USE_OFF
 	var/datum/gas_mixture/air_contents = new
 
-	var/obj/machinery/atmospherics/portables_connector/connected_port
+	var/obj/structure/machinery/atmospherics/portables_connector/connected_port
 	var/obj/item/tank/holding
 
 	var/volume = 0
@@ -12,32 +12,32 @@
 	var/start_pressure = ONE_ATMOSPHERE
 	var/maximum_pressure = 90 * ONE_ATMOSPHERE
 
-/obj/machinery/portable_atmospherics/Destroy()
+/obj/structure/machinery/portable_atmospherics/Destroy()
 	disconnect()
 	QDEL_NULL(air_contents)
 	QDEL_NULL(holding)
 	return ..()
 
-/obj/machinery/portable_atmospherics/Initialize()
+/obj/structure/machinery/portable_atmospherics/Initialize()
 	. = ..()
 
 	air_contents.volume = volume
 	air_contents.temperature = T20C
 
-	var/obj/machinery/atmospherics/portables_connector/port = locate() in loc
+	var/obj/structure/machinery/atmospherics/portables_connector/port = locate() in loc
 	if(port)
 		connect(port)
 
-/obj/machinery/portable_atmospherics/canister/Initialize()
+/obj/structure/machinery/portable_atmospherics/canister/Initialize()
 	..()
 
 	return INITIALIZE_HINT_LATELOAD
 
-/obj/machinery/portable_atmospherics/canister/LateInitialize()
+/obj/structure/machinery/portable_atmospherics/canister/LateInitialize()
 	. = ..()
 	update_icon()
 
-/obj/machinery/portable_atmospherics/process()
+/obj/structure/machinery/portable_atmospherics/process()
 	if(!connected_port) //only react when pipe_network will ont it do it for you
 		//Allow for reactions
 		air_contents.react()
@@ -45,18 +45,18 @@
 		update_icon()
 		SStgui.update_uis(src)
 
-/obj/machinery/portable_atmospherics/proc/StandardAirMix()
+/obj/structure/machinery/portable_atmospherics/proc/StandardAirMix()
 	return list(
 		GAS_OXYGEN = O2STANDARD * MolesForPressure(),
 		GAS_NITROGEN = N2STANDARD *  MolesForPressure())
 
-/obj/machinery/portable_atmospherics/proc/MolesForPressure(var/target_pressure = start_pressure)
+/obj/structure/machinery/portable_atmospherics/proc/MolesForPressure(var/target_pressure = start_pressure)
 	return (target_pressure * air_contents.volume) / (R_IDEAL_GAS_EQUATION * air_contents.temperature)
 
-/obj/machinery/portable_atmospherics/update_icon()
+/obj/structure/machinery/portable_atmospherics/update_icon()
 	return null
 
-/obj/machinery/portable_atmospherics/proc/connect(obj/machinery/atmospherics/portables_connector/new_port)
+/obj/structure/machinery/portable_atmospherics/proc/connect(obj/structure/machinery/atmospherics/portables_connector/new_port)
 	//Make sure not already connected to something else
 	if(connected_port || !new_port || new_port.connected_device)
 		return 0
@@ -80,7 +80,7 @@
 
 	return 1
 
-/obj/machinery/portable_atmospherics/proc/disconnect()
+/obj/structure/machinery/portable_atmospherics/proc/disconnect()
 	if(!connected_port)
 		return 0
 
@@ -97,7 +97,7 @@
 
 	return 1
 
-/obj/machinery/portable_atmospherics/proc/update_connected_network()
+/obj/structure/machinery/portable_atmospherics/proc/update_connected_network()
 	if(!connected_port)
 		return
 
@@ -105,7 +105,7 @@
 	if (network)
 		network.update = 1
 
-/obj/machinery/portable_atmospherics/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/portable_atmospherics/attackby(obj/item/attacking_item, mob/user)
 	if ((istype(attacking_item, /obj/item/tank) && !( src.destroyed )))
 		if (src.holding)
 			return TRUE
@@ -125,7 +125,7 @@
 			SStgui.update_uis(src)
 			return TRUE
 		else
-			var/obj/machinery/atmospherics/portables_connector/possible_port = locate(/obj/machinery/atmospherics/portables_connector/) in loc
+			var/obj/structure/machinery/atmospherics/portables_connector/possible_port = locate(/obj/structure/machinery/atmospherics/portables_connector/) in loc
 			if(possible_port)
 				if(connect(possible_port))
 					to_chat(user, SPAN_NOTICE("You connect \the [src] to the port."))
@@ -148,24 +148,24 @@
 	return ..()
 
 
-/obj/machinery/portable_atmospherics/powered
+/obj/structure/machinery/portable_atmospherics/powered
 	var/power_rating
 	var/power_losses
 	var/last_power_draw = 0
 	var/obj/item/cell/cell
 
-/obj/machinery/portable_atmospherics/powered/Destroy()
+/obj/structure/machinery/portable_atmospherics/powered/Destroy()
 	QDEL_NULL(cell)
 	return ..()
 
-/obj/machinery/portable_atmospherics/powered/powered()
+/obj/structure/machinery/portable_atmospherics/powered/powered()
 	if(use_power) //using area power
 		return ..()
 	if(cell && cell.charge)
 		return 1
 	return 0
 
-/obj/machinery/portable_atmospherics/powered/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/portable_atmospherics/powered/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/cell))
 		if(cell)
 			to_chat(user, "There is already a power cell installed.")
@@ -199,7 +199,7 @@
 		return TRUE
 	return ..()
 
-/obj/machinery/portable_atmospherics/proc/log_open(var/mob/user)
+/obj/structure/machinery/portable_atmospherics/proc/log_open(var/mob/user)
 	if(air_contents.gas.len == 0)
 		return
 
@@ -216,7 +216,7 @@
 	log_admin("[user] ([user.ckey]) opened '[src.name]' containing [gases].")
 	message_admins("[key_name_admin(user)] opened '[src.name]' containing [gases]. (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)")
 
-/obj/machinery/portable_atmospherics/proc/log_open_userless(var/cause)
+/obj/structure/machinery/portable_atmospherics/proc/log_open_userless(var/cause)
 	if(air_contents.gas.len == 0)
 		return
 

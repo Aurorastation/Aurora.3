@@ -25,7 +25,7 @@
 		return\
 	}
 
-/obj/machinery/suit_cycler
+/obj/structure/machinery/suit_cycler
 	name = "suit cycler"
 	desc = "An industrial machine for painting and refitting voidsuits."
 	anchored = TRUE
@@ -69,11 +69,11 @@
 
 	var/datum/wires/suit_storage_unit/wires
 
-/obj/machinery/suit_cycler/mechanics_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/suit_cycler/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "ALT-click the [src] to lock or unlock it (if you have the appropriate ID access)."
 
-/obj/machinery/suit_cycler/Initialize(mapload, d = 0, populate_parts = TRUE)
+/obj/structure/machinery/suit_cycler/Initialize(mapload, d = 0, populate_parts = TRUE)
 	. = ..()
 
 	if(populate_parts)
@@ -93,7 +93,7 @@
 	if(!target_department || !target_species)
 		qdel(src)
 
-/obj/machinery/suit_cycler/Destroy()
+/obj/structure/machinery/suit_cycler/Destroy()
 	if(occupant)
 		occupant.dropInto(loc)
 		occupant.reset_view()
@@ -105,7 +105,7 @@
 	QDEL_NULL(wires)
 	return ..()
 
-/obj/machinery/suit_cycler/update_icon()
+/obj/structure/machinery/suit_cycler/update_icon()
 	ClearOverlays()
 
 	if(helmet)
@@ -151,12 +151,12 @@
 	else
 		set_light(0)
 
-/obj/machinery/suit_cycler/relaymove(mob/living/user, direction)
+/obj/structure/machinery/suit_cycler/relaymove(mob/living/user, direction)
 	. = ..()
 
 	eject_occupant(user)
 
-/obj/machinery/suit_cycler/mouse_drop_receive(atom/dropped, mob/user, params)
+/obj/structure/machinery/suit_cycler/mouse_drop_receive(atom/dropped, mob/user, params)
 	var/mob/living/M = dropped
 	if(use_check_and_message(user))
 		return
@@ -192,12 +192,12 @@
 		updateUsrDialog()
 		update_icon()
 
-/obj/machinery/suit_cycler/attack_ai(mob/user)
+/obj/structure/machinery/suit_cycler/attack_ai(mob/user)
 	if(!ai_can_interact(user))
 		return
 	return src.attack_hand(user)
 
-/obj/machinery/suit_cycler/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/suit_cycler/attackby(obj/item/attacking_item, mob/user)
 	if(electrified != 0)
 		if(src.shock(user, 100))
 			return
@@ -258,7 +258,7 @@
 
 	..()
 
-/obj/machinery/suit_cycler/AltClick(mob/user)
+/obj/structure/machinery/suit_cycler/AltClick(mob/user)
 	if(Adjacent(user))
 		add_fingerprint(user)
 		if(electrified != 0)
@@ -278,7 +278,7 @@
 			balloon_alert(user, "access denied!")
 	return
 
-/obj/machinery/suit_cycler/emag_act(var/remaining_charges, mob/user)
+/obj/structure/machinery/suit_cycler/emag_act(var/remaining_charges, mob/user)
 	if(emagged)
 		to_chat(user, SPAN_WARNING("The cycler has already been subverted."))
 		return
@@ -292,7 +292,7 @@
 	updateUsrDialog()
 	return 1
 
-/obj/machinery/suit_cycler/attack_hand(mob/user)
+/obj/structure/machinery/suit_cycler/attack_hand(mob/user)
 	add_fingerprint(user)
 
 	if(panel_open)
@@ -308,13 +308,13 @@
 
 	ui_interact(user)
 
-/obj/machinery/suit_cycler/ui_interact(mob/user, datum/tgui/ui)
+/obj/structure/machinery/suit_cycler/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "SuitCycler", name, ui_x=450, ui_y=500)
 		ui.open()
 
-/obj/machinery/suit_cycler/ui_data(mob/user)
+/obj/structure/machinery/suit_cycler/ui_data(mob/user)
 	return list(
 		"in_use" = active,
 		"locked" = locked,
@@ -333,7 +333,7 @@
 		"mask" = mask ? list("name" = mask.name, "damage" = 0) : null
 	)
 
-/obj/machinery/suit_cycler/ui_act(action, params)
+/obj/structure/machinery/suit_cycler/ui_act(action, params)
 	. = ..()
 	if(.)
 		return
@@ -474,7 +474,7 @@
 	src.updateUsrDialog()
 	return
 
-/obj/machinery/suit_cycler/process()
+/obj/structure/machinery/suit_cycler/process()
 	if(electrified > 0)
 		electrified = max(electrified - 1, 0)
 
@@ -505,7 +505,7 @@
 			occupant.take_organ_damage(0, radiation_level + rand(1, 3))
 		occupant.apply_damage(radiation_level * 10, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
 
-/obj/machinery/suit_cycler/proc/finished_job()
+/obj/structure/machinery/suit_cycler/proc/finished_job()
 	visible_message("[icon2html(src, viewers(get_turf(src)))] <span class='notice'>\The [src] pings loudly.</span>")
 	playsound(loc, 'sound/machines/ping.ogg', 50, FALSE)
 	playsound(loc, 'sound/machines/suitstorage_lockdoor.ogg', 50, FALSE)
@@ -513,7 +513,7 @@
 	update_icon()
 	updateUsrDialog()
 
-/obj/machinery/suit_cycler/proc/repair_suit()
+/obj/structure/machinery/suit_cycler/proc/repair_suit()
 	if(!suit || !suit.damage || !suit.can_breach)
 		return
 
@@ -522,7 +522,7 @@
 
 	return
 
-/obj/machinery/suit_cycler/verb/leave()
+/obj/structure/machinery/suit_cycler/verb/leave()
 	set name = "Eject Cycler"
 	set category = "Object"
 	set src in oview(1)
@@ -532,7 +532,7 @@
 
 	eject_occupant(usr)
 
-/obj/machinery/suit_cycler/proc/eject_occupant(mob/user)
+/obj/structure/machinery/suit_cycler/proc/eject_occupant(mob/user)
 	if(user && (locked || active))
 		to_chat(user, SPAN_WARNING("\The [src] is locked!"))
 		return
@@ -553,7 +553,7 @@
 	update_icon()
 
 //There HAS to be a less bloated way to do this. TODO: some kind of table/icon name coding? ~Z
-/obj/machinery/suit_cycler/proc/apply_paintjob()
+/obj/structure/machinery/suit_cycler/proc/apply_paintjob()
 	if(!target_species || !target_department)
 		return
 
@@ -677,12 +677,12 @@
 			suit.name = "refitted [suit.name]"
 	update_icon()
 
-/obj/machinery/suit_cycler/proc/can_change_departments()
+/obj/structure/machinery/suit_cycler/proc/can_change_departments()
 	if(departments.len <= 1)
 		return FALSE
 	else return TRUE
 
-/obj/machinery/suit_cycler/proc/can_change_species()
+/obj/structure/machinery/suit_cycler/proc/can_change_species()
 	if(species.len <= 1)
 		return FALSE
 	else return TRUE

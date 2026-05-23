@@ -1,4 +1,4 @@
-/obj/machinery/computer
+/obj/structure/machinery/computer
 	name = "computer"
 	icon = 'icons/obj/modular_computers/modular_console.dmi'
 	icon_state = "computer"
@@ -32,31 +32,31 @@
 	/// The access cable inserted into this computer, if any.
 	var/obj/item/access_cable/inserted_cable
 
-/obj/machinery/computer/Initialize()
+/obj/structure/machinery/computer/Initialize()
 	. = ..()
 	overlay_layer = layer
 	starting_z_level = src.z
 	power_change()
 	update_icon()
 
-/obj/machinery/computer/Destroy()
+/obj/structure/machinery/computer/Destroy()
 	if(inserted_cable)
 		inserted_cable.retract()
 		inserted_cable = null
 	return ..()
 
-/obj/machinery/computer/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = TRUE)
+/obj/structure/machinery/computer/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = TRUE)
 	if(!operable() || !is_station_level(z) || user.stat)
 		user.unset_machine()
 		return
 
-/obj/machinery/computer/emp_act(severity)
+/obj/structure/machinery/computer/emp_act(severity)
 	. = ..()
 
 	if(prob(20/severity))
 		set_broken()
 
-/obj/machinery/computer/ex_act(severity)
+/obj/structure/machinery/computer/ex_act(severity)
 	switch(severity)
 		if(1.0)
 			qdel(src)
@@ -76,7 +76,7 @@
 				set_broken()
 	return
 
-/obj/machinery/computer/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+/obj/structure/machinery/computer/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
 	. = ..()
 	if(. != BULLET_ACT_HIT)
 		return .
@@ -84,7 +84,7 @@
 	if(prob(hitting_projectile.get_structure_damage()))
 		set_broken()
 
-/obj/machinery/computer/update_icon()
+/obj/structure/machinery/computer/update_icon()
 
 	if(dir == SOUTH)
 		layer = ABOVE_HUMAN_LAYER
@@ -104,8 +104,8 @@
 		var/right = turn(dir, -90)
 		var/turf/L = get_step(src, left)
 		var/turf/R = get_step(src, right)
-		var/obj/machinery/computer/LC = locate() in L
-		var/obj/machinery/computer/RC = locate() in R
+		var/obj/structure/machinery/computer/LC = locate() in L
+		var/obj/structure/machinery/computer/RC = locate() in R
 		if(LC && LC.dir == dir && initial(LC.icon_state) == "computer")
 			append_string += "_L"
 		if(RC && RC.dir == dir && initial(RC.icon_state) == "computer")
@@ -155,7 +155,7 @@
 		else
 			AddOverlays(icon_screen)
 
-/obj/machinery/computer/power_change()
+/obj/structure/machinery/computer/power_change()
 	..()
 	update_icon()
 	if(stat & NOPOWER)
@@ -164,16 +164,16 @@
 		set_light(light_range_on, light_power_on, light_color)
 
 
-/obj/machinery/computer/proc/set_broken()
+/obj/structure/machinery/computer/proc/set_broken()
 	stat |= BROKEN
 	update_icon()
 
-/obj/machinery/computer/proc/decode(text)
+/obj/structure/machinery/computer/proc/decode(text)
 	// Adds line breaks
 	text = replacetext(text, "\n", "<BR>")
 	return text
 
-/obj/machinery/computer/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
+/obj/structure/machinery/computer/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
 	var/obj/structure/computerframe/A = new /obj/structure/computerframe(loc)
 	A.anchored = TRUE
 	if(prob(50))
@@ -187,7 +187,7 @@
 	spark(A, 5, GLOB.alldirs)
 	. = ..()
 
-/obj/machinery/computer/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/computer/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(circuit)
 			if(attacking_item.use_tool(src, user, 20, volume = 50))
@@ -227,7 +227,7 @@
 				insert_cable(access_cable, user)
 		return ..()
 
-/obj/machinery/computer/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
+/obj/structure/machinery/computer/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if (!mover)
 		return 1
 	if(mover?.movement_type & PHASING)
@@ -245,24 +245,24 @@
 	return ..()
 
 // screens have a layer above, so we can't attach here
-/obj/machinery/computer/can_attach_sticker(var/mob/user, var/obj/item/sticker/S)
+/obj/structure/machinery/computer/can_attach_sticker(var/mob/user, var/obj/item/sticker/S)
 	to_chat(user, SPAN_WARNING("\The [src]'s non-stick surface prevents you from attaching a sticker to it!"))
 	return FALSE
 
-/obj/machinery/computer/insert_cable(obj/item/access_cable/cable, mob/user)
+/obj/structure/machinery/computer/insert_cable(obj/item/access_cable/cable, mob/user)
 	. = ..()
 	inserted_cable = cable
 	cable.create_cable(src)
 
-/obj/machinery/computer/cable_interact(obj/item/access_cable/cable, mob/user)
+/obj/structure/machinery/computer/cable_interact(obj/item/access_cable/cable, mob/user)
 	. = ..()
 	attack_hand(user)
 
-/obj/machinery/computer/remove_cable(obj/item/access_cable/cable)
+/obj/structure/machinery/computer/remove_cable(obj/item/access_cable/cable)
 	..()
 	inserted_cable = null
 
-/obj/machinery/computer/terminal
+/obj/structure/machinery/computer/terminal
 	name = "terminal"
 	icon = 'icons/obj/modular_computers/modular_terminal.dmi'
 	is_connected = TRUE
@@ -270,7 +270,7 @@
 	can_pass_under = FALSE
 	light_power_on = 1
 
-/obj/machinery/computer/terminal/inactive
+/obj/structure/machinery/computer/terminal/inactive
 	name = "inactive terminal"
 	light_power = 0
 	light_power_on = 0

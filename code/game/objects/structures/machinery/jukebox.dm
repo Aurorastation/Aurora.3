@@ -1,4 +1,4 @@
-/obj/machinery/media/jukebox
+/obj/structure/machinery/media/jukebox
 	name = "jukebox"
 	desc = "A classic music player."
 	icon = 'icons/obj/jukebox.dmi'
@@ -30,7 +30,7 @@
 	var/datum/track/selection
 
 // GENERAL PROCS
-/obj/machinery/media/jukebox/update_icon()
+/obj/structure/machinery/media/jukebox/update_icon()
 	ClearOverlays()
 	if(stat & (NOPOWER|BROKEN) || !anchored)
 		if(stat & BROKEN)
@@ -45,12 +45,12 @@
 		else
 			AddOverlays("[state_base]-running")
 
-/obj/machinery/media/jukebox/feedback_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/media/jukebox/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	if(music_player?.playing)
 		. += "Now playing: [music_player.selection?.song_name]"
 
-/obj/machinery/media/jukebox/power_change()
+/obj/structure/machinery/media/jukebox/power_change()
 	..()
 	if(!anchored)
 		stat &= ~NOPOWER
@@ -60,13 +60,13 @@
 
 	update_icon()
 
-/obj/machinery/media/jukebox/Destroy()
+/obj/structure/machinery/media/jukebox/Destroy()
 	StopPlaying()
 	if(music_player)
 		qdel(music_player)
 	return ..()
 
-/obj/machinery/media/jukebox/attack_hand(mob/user as mob)
+/obj/structure/machinery/media/jukebox/attack_hand(mob/user as mob)
 	if(!anchored)
 		to_chat(usr, SPAN_WARNING("You must secure \the [src] first."))
 		return
@@ -80,21 +80,21 @@
 
 	ui_interact(user)
 
-/obj/machinery/media/jukebox/attack_ai(mob/user as mob)
+/obj/structure/machinery/media/jukebox/attack_ai(mob/user as mob)
 	if(!ai_can_interact(user))
 		return
 	return src.attack_hand(user)
 
-/obj/machinery/media/jukebox/ui_interact(mob/user, datum/tgui/ui)
+/obj/structure/machinery/media/jukebox/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "Jukebox", name)
 		ui.open()
 
-/obj/machinery/media/jukebox/ui_data(mob/user)
+/obj/structure/machinery/media/jukebox/ui_data(mob/user)
 	return music_player.get_ui_data()
 
-/obj/machinery/media/jukebox/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/obj/structure/machinery/media/jukebox/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
@@ -119,7 +119,7 @@
 			StartPlaying()
 			return TRUE
 
-/obj/machinery/media/jukebox/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/media/jukebox/attackby(obj/item/attacking_item, mob/user)
 	if(!istype(attacking_item, /obj/item/forensics))
 		src.add_fingerprint(user)
 
@@ -136,7 +136,7 @@
 	else
 		return ..()
 
-/obj/machinery/media/jukebox/proc/StartPlaying()
+/obj/structure/machinery/media/jukebox/proc/StartPlaying()
 	StopPlaying()
 	if(music_player)
 		if(!music_player.selection)
@@ -145,13 +145,13 @@
 	update_use_power(POWER_USE_ACTIVE)
 	update_icon()
 
-/obj/machinery/media/jukebox/proc/StopPlaying()
+/obj/structure/machinery/media/jukebox/proc/StopPlaying()
 	if(music_player)
 		music_player.StopPlaying()
 	update_use_power(POWER_USE_IDLE)
 	update_icon()
 
-/obj/machinery/media/jukebox/emag_act(var/remaining_charges, var/mob/user)
+/obj/structure/machinery/media/jukebox/emag_act(var/remaining_charges, var/mob/user)
 	if(!emagged)
 		emagged = 1
 		StopPlaying()
@@ -159,7 +159,7 @@
 		update_icon()
 		return 1
 
-/obj/machinery/media/jukebox/proc/explode()
+/obj/structure/machinery/media/jukebox/proc/explode()
 	walk_to(src,0)
 	visible_message(SPAN_DANGER("\the [src] blows apart!"))
 
@@ -171,7 +171,7 @@
 	qdel(src)
 
 // DEFINITIONS
-/obj/machinery/media/jukebox/audioconsole
+/obj/structure/machinery/media/jukebox/audioconsole
 	name = "audioconsole"
 	desc = "An Idris-designed jukebox for the 25th century. Unfortunately, someone made a mistake setting this one up. It isn't connected to the extranet and only plays the demo music it was pre-programmed with."
 	icon = 'icons/obj/audioconsole.dmi'
@@ -196,7 +196,7 @@
 		new/datum/track("Konyang Vibes #4", 'sound/music/ingame/konyang/konyang-4.ogg', 3 MINUTES + 8 SECONDS)
 	)
 
-/obj/machinery/media/jukebox/audioconsole/update_icon()
+/obj/structure/machinery/media/jukebox/audioconsole/update_icon()
 	ClearOverlays()
 	if(stat & (NOPOWER|BROKEN) || !anchored)
 		if(stat & BROKEN)
@@ -208,13 +208,13 @@
 	if(music_player?.playing)
 		AddOverlays("[state_base]-running")
 
-/obj/machinery/media/jukebox/audioconsole/wall
+/obj/structure/machinery/media/jukebox/audioconsole/wall
 	icon = 'icons/obj/audioconsole_wall.dmi'
 	density = FALSE
 	anchored = TRUE
 
 // Old-timey phonograph.
-/obj/machinery/media/jukebox/phonograph
+/obj/structure/machinery/media/jukebox/phonograph
 	name = "phonograph"
 	desc = "Play that funky music..."
 	icon = 'icons/obj/jukebox.dmi'
@@ -227,13 +227,13 @@
 		new/datum/track("Posin", 'sound/music/ingame/adhomai/posin.ogg', 2 MINUTES + 50 SECONDS, /obj/item/music_cartridge/adhomai_swing)
 	)
 
-/obj/machinery/media/jukebox/phonograph/update_icon()
+/obj/structure/machinery/media/jukebox/phonograph/update_icon()
 	ClearOverlays()
 	icon_state = state_base
 	if(music_player?.playing)
 		AddOverlays("[state_base]-running")
 
-/obj/machinery/media/jukebox/gramophone
+/obj/structure/machinery/media/jukebox/gramophone
 	name = "gramophone"
 	desc = "Play that vintage music!"
 	icon = 'icons/obj/jukebox.dmi'
@@ -246,13 +246,13 @@
 		new/datum/track("Posin", 'sound/music/ingame/adhomai/posin.ogg', 2 MINUTES + 50 SECONDS, /obj/item/music_cartridge/adhomai_swing)
 	)
 
-/obj/machinery/media/jukebox/gramophone/update_icon()
+/obj/structure/machinery/media/jukebox/gramophone/update_icon()
 	ClearOverlays()
 	icon_state = state_base
 	if(music_player?.playing)
 		AddOverlays("[state_base]-running")
 
-/obj/machinery/media/jukebox/calliope
+/obj/structure/machinery/media/jukebox/calliope
 	name = "calliope"
 	desc = "A steam powered music instrument. This one is painted in bright colors."
 	icon = 'maps/away/ships/tajara/circus/circus_sprites.dmi'
@@ -265,5 +265,5 @@
 		new/datum/track("Posin", 'sound/music/ingame/adhomai/posin.ogg', 2 MINUTES + 50 SECONDS, /obj/item/music_cartridge/adhomai_swing)
 	)
 
-/obj/machinery/media/jukebox/calliope/update_icon()
+/obj/structure/machinery/media/jukebox/calliope/update_icon()
 	return

@@ -1,7 +1,7 @@
 //This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:31
 #define DOOR_REPAIR_AMOUNT 50	//amount of health regained per stack amount used
 
-/obj/machinery/door
+/obj/structure/machinery/door
 	name = "Door"
 	desc = "It opens and closes."
 	icon = 'icons/obj/doors/doorint.dmi'
@@ -67,11 +67,11 @@
 
 	can_astar_pass = CANASTARPASS_ALWAYS_PROC
 
-/obj/machinery/door/mouse_drop_receive(atom/dropping, mob/user, params)
+/obj/structure/machinery/door/mouse_drop_receive(atom/dropping, mob/user, params)
 	//Adds the component only once. We do it here & not in Initialize() because there are tons of walls & we don't want to add to their init times
 	LoadComponent(/datum/component/leanable, dropping)
 
-/obj/machinery/door/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
+/obj/structure/machinery/door/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	if(damage >= 10)
 		visible_message(SPAN_DANGER("\The [user] smashes into the [src]!"))
 		playsound(src.loc, hitsound, 60, 1)
@@ -81,7 +81,7 @@
 		playsound(src.loc, hitsound_light, 8, TRUE, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 	user.do_attack_animation(src)
 
-/obj/machinery/door/Initialize()
+/obj/structure/machinery/door/Initialize()
 	. = ..()
 	if(density)
 		layer = closed_layer
@@ -96,13 +96,13 @@
 	if(turf_hand_priority)
 		AddComponent(/datum/component/turf_hand, turf_hand_priority)
 
-/obj/machinery/door/Move(new_loc, new_dir)
+/obj/structure/machinery/door/Move(new_loc, new_dir)
 	. = ..()
 	SetBounds()
 	update_nearby_tiles()
 	update_icon()
 
-/obj/machinery/door/proc/SetBounds()
+/obj/structure/machinery/door/proc/SetBounds()
 	if(width > 1)
 		if(dir in list(EAST, WEST))
 			bound_width = width * world.icon_size
@@ -111,7 +111,7 @@
 			bound_width = world.icon_size
 			bound_height = width * world.icon_size
 
-/obj/machinery/door/proc/open_hatch(var/atom/mover = null)
+/obj/structure/machinery/door/proc/open_hatch(var/atom/mover = null)
 	if (!hatchstate)
 		hatchstate = 1
 		update_icon()
@@ -125,34 +125,34 @@
 		S.under_door()
 
 
-/obj/machinery/door/proc/close_hatch()
+/obj/structure/machinery/door/proc/close_hatch()
 	hatchstate = 0//hatch stays open for 3 seconds
 	update_icon()
 	playsound(src.loc, hatch_close_sound, 30, TRUE, extrarange = SILENCED_SOUND_EXTRARANGE)
 
-/obj/machinery/door/Destroy()
+/obj/structure/machinery/door/Destroy()
 	set_density(FALSE)
 	update_nearby_tiles()
 
 	return ..()
 
-/obj/machinery/door/proc/close_door_in(var/time = 5 SECONDS)
+/obj/structure/machinery/door/proc/close_door_in(var/time = 5 SECONDS)
 	addtimer(CALLBACK(src, PROC_REF(close)), time, TIMER_UNIQUE | TIMER_OVERRIDE)
 
-/obj/machinery/door/proc/close_hatch_in(var/time = 3 SECONDS)
+/obj/structure/machinery/door/proc/close_hatch_in(var/time = 3 SECONDS)
 	addtimer(CALLBACK(src, PROC_REF(close_hatch)), time, TIMER_UNIQUE | TIMER_OVERRIDE)
 
-/obj/machinery/door/proc/can_open()
+/obj/structure/machinery/door/proc/can_open()
 	if(!density || operating || !ROUND_IS_STARTED)
 		return 0
 	return 1
 
-/obj/machinery/door/proc/can_close()
+/obj/structure/machinery/door/proc/can_close()
 	if(density || operating || !ROUND_IS_STARTED)
 		return 0
 	return 1
 
-/obj/machinery/door/CollidedWith(atom/bumped_atom)
+/obj/structure/machinery/door/CollidedWith(atom/bumped_atom)
 	. = ..()
 	if(p_open || operating) return
 	if (!bumped_atom.simulated) return
@@ -164,8 +164,8 @@
 			bumpopen(M)
 		return
 
-	if(istype(bumped_atom, /obj/machinery/bot))
-		var/obj/machinery/bot/bot = bumped_atom
+	if(istype(bumped_atom, /obj/structure/machinery/bot))
+		var/obj/structure/machinery/bot/bot = bumped_atom
 		if(src.check_access(bot.botcard))
 			if(density)
 				open()
@@ -214,7 +214,7 @@
 	return
 
 
-/obj/machinery/door/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
+/obj/structure/machinery/door/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(air_group)
 		return !block_air_zones
 	if (istype(mover))
@@ -233,11 +233,11 @@
 				return 1//If this door is closed, but it has hatches, and this creature can go through hatches. Then we let it through without opening
 	return !density
 
-/obj/machinery/door/CanAStarPass(to_dir, datum/can_pass_info/pass_info)
+/obj/structure/machinery/door/CanAStarPass(to_dir, datum/can_pass_info/pass_info)
 	return (check_access_list(pass_info.access) && can_open())
 
 
-/obj/machinery/door/proc/bumpopen(mob/user as mob)
+/obj/structure/machinery/door/proc/bumpopen(mob/user as mob)
 	if(operating)	return
 	if(user.last_airflow > world.time - GLOB.vsc.airflow_delay) //Fakkit
 		return
@@ -247,7 +247,7 @@
 		else				do_animate("deny")
 	return
 
-/obj/machinery/door/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+/obj/structure/machinery/door/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
 	. = ..()
 	if(. != BULLET_ACT_HIT)
 		return .
@@ -270,7 +270,7 @@
 	if(damage)
 		add_damage(damage)
 
-/obj/machinery/door/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
+/obj/structure/machinery/door/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	..()
 	var/tforce = 0
 	if(!throwingdatum)
@@ -289,12 +289,12 @@
 		playsound(src.loc, hitsound, volume, TRUE)
 		add_damage(tforce)
 
-/obj/machinery/door/attack_ai(mob/user)
+/obj/structure/machinery/door/attack_ai(mob/user)
 	if(!ai_can_interact(user))
 		return
 	return attack_hand(user)
 
-/obj/machinery/door/attack_hand(mob/user as mob)
+/obj/structure/machinery/door/attack_hand(mob/user as mob)
 	if(src.operating > 0 || isrobot(user))	return //borgs can't attack doors open because it conflicts with their AI-like interaction with them.
 
 	if(src.operating) return
@@ -310,7 +310,7 @@
 		do_animate("deny")
 		return
 
-/obj/machinery/door/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/door/attackby(obj/item/attacking_item, mob/user)
 	if(!istype(attacking_item, /obj/item/forensics))
 		src.add_fingerprint(user)
 
@@ -397,7 +397,7 @@
 	if(src.density)
 		do_animate("deny")
 
-/obj/machinery/door/emag_act(var/remaining_charges)
+/obj/structure/machinery/door/emag_act(var/remaining_charges)
 	if(density && operable())
 		do_animate("emag")
 		emagged = 1
@@ -406,7 +406,7 @@
 		open(1)
 		return 1
 
-/obj/machinery/door/add_damage(damage, damage_flags, damage_type, armor_penetration, obj/weapon, message = TRUE)
+/obj/structure/machinery/door/add_damage(damage, damage_flags, damage_type, armor_penetration, obj/weapon, message = TRUE)
 	var/initialhealth = health
 	. = ..()
 	if(message)
@@ -418,24 +418,24 @@
 			visible_message(SPAN_WARNING("\The [src] shows signs of damage!"))
 	update_icon()
 
-/obj/machinery/door/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
+/obj/structure/machinery/door/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
 	set_broken()
 
-/obj/machinery/door/proc/set_broken()
+/obj/structure/machinery/door/proc/set_broken()
 	stat |= BROKEN
 	visible_message(SPAN_WARNING("[src] breaks!"))
 	update_icon()
 
-/obj/machinery/door/emp_act(severity)
+/obj/structure/machinery/door/emp_act(severity)
 	. = ..()
 
-	if(prob(20/severity) && (istype(src,/obj/machinery/door/airlock) || istype(src,/obj/machinery/door/window)) )
+	if(prob(20/severity) && (istype(src,/obj/structure/machinery/door/airlock) || istype(src,/obj/structure/machinery/door/window)) )
 		open()
 
-/obj/machinery/door/ex_act(severity)
+/obj/structure/machinery/door/ex_act(severity)
 	var/bolted = 0
-	if (istype(src, /obj/machinery/door/airlock))
-		var/obj/machinery/door/airlock/A = src
+	if (istype(src, /obj/structure/machinery/door/airlock))
+		var/obj/structure/machinery/door/airlock/A = src
 		bolted = A.locked
 	switch(severity)
 		if(1.0)
@@ -467,7 +467,7 @@
 	return
 
 
-/obj/machinery/door/update_icon()
+/obj/structure/machinery/door/update_icon()
 	if(density)
 		icon_state = "door_closed"
 	else
@@ -475,7 +475,7 @@
 	return
 
 
-/obj/machinery/door/proc/do_animate(animation)
+/obj/structure/machinery/door/proc/do_animate(animation)
 	switch(animation)
 		if("opening")
 			if(p_open)
@@ -496,7 +496,7 @@
 				playsound(src.loc, 'sound/machines/buzz-two.ogg', 50, FALSE, extrarange = SILENCED_SOUND_EXTRARANGE)
 	return
 
-/obj/machinery/door/proc/open(var/forced = 0)
+/obj/structure/machinery/door/proc/open(var/forced = 0)
 	set waitfor = FALSE
 
 	if(!can_open(forced))
@@ -523,14 +523,14 @@
 
 	return 1
 
-/obj/machinery/door/proc/next_close_time()
+/obj/structure/machinery/door/proc/next_close_time()
 	return (normalspeed ? open_duration : 5)
 
-/obj/machinery/door/proc/autoclose()
+/obj/structure/machinery/door/proc/autoclose()
 	if (!QDELETED(src) && can_close(FALSE) && autoclose)
 		close()
 
-/obj/machinery/door/proc/close(var/forced = 0)
+/obj/structure/machinery/door/proc/close(var/forced = 0)
 	set waitfor = FALSE
 
 	if(!can_close(forced))
@@ -561,22 +561,22 @@
 		qdel(fire)
 	return
 
-/obj/machinery/door/proc/requiresID()
+/obj/structure/machinery/door/proc/requiresID()
 	return 1
 
-/obj/machinery/door/allowed(mob/M)
+/obj/structure/machinery/door/allowed(mob/M)
 	if(!requiresID())
 		return TRUE // Door doesn't require an ID. So obviously they're allowed.
 	if(unrestricted_side(M))
 		return TRUE
 	return ..(M)
 
-/obj/machinery/door/proc/unrestricted_side(mob/M) //Allows for specific side of airlocks to be unrestrected (IE, can exit maint freely, but need access to enter)
+/obj/structure/machinery/door/proc/unrestricted_side(mob/M) //Allows for specific side of airlocks to be unrestrected (IE, can exit maint freely, but need access to enter)
 	if(!unres_dir)
 		return FALSE
 	return get_dir(src, M) & unres_dir
 
-/obj/machinery/door/update_nearby_tiles(need_rebuild)
+/obj/structure/machinery/door/update_nearby_tiles(need_rebuild)
 	for(var/turf/T in locs)
 		if (istype(T, /turf/simulated))
 			var/turf/simulated/turf = T
@@ -585,14 +585,14 @@
 
 	return 1
 
-/obj/machinery/door/proc/update_heat_protection(var/turf/simulated/source)
+/obj/structure/machinery/door/proc/update_heat_protection(var/turf/simulated/source)
 	if(istype(source))
 		if(src.density && (src.opacity || src.heat_proof))
 			source.thermal_conductivity = DOOR_HEAT_TRANSFER_COEFFICIENT
 		else
 			source.thermal_conductivity = initial(source.thermal_conductivity)
 
-/obj/machinery/door/proc/is_open(var/invert=0)
+/obj/structure/machinery/door/proc/is_open(var/invert=0)
 	if(invert)
 		return src.density
 	return !src.density

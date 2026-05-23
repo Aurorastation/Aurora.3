@@ -3,7 +3,7 @@
 	very flexible, but it gets the job done.
 */
 
-/obj/machinery/telecomms/allinone
+/obj/structure/machinery/telecomms/allinone
 	name = "telecommunications mainframe"
 	icon_state = "comm_server"
 	desc = "A compact machine used for portable subspace telecommuniations processing."
@@ -16,7 +16,7 @@
 	var/away_aio = FALSE
 	var/list/recent_broadcasts
 
-/obj/machinery/telecomms/allinone/Initialize()
+/obj/structure/machinery/telecomms/allinone/Initialize()
 	. = ..()
 	if(!freq_listening.len)
 		freq_listening = ANTAG_FREQS
@@ -25,11 +25,11 @@
 
 	desc += " It has an effective reception range of [overmap_range] grids on the overmap."
 
-/obj/machinery/telecomms/allinone/Destroy()
+/obj/structure/machinery/telecomms/allinone/Destroy()
 	SSmachinery.all_receivers -= src
 	return ..()
 
-/obj/machinery/telecomms/allinone/receive_signal(datum/signal/subspace/signal)
+/obj/structure/machinery/telecomms/allinone/receive_signal(datum/signal/subspace/signal)
 	signal.levels = broadcast_levels(signal)
 
 	// Decompress the signal, mark it received
@@ -49,13 +49,13 @@
 
 	addtimer(CALLBACK(src, PROC_REF(remove_signal_message_from_recent_broadcasts), signal_message), 1 SECONDS)
 
-/obj/machinery/telecomms/allinone/proc/remove_signal_message_from_recent_broadcasts(signal_message)
+/obj/structure/machinery/telecomms/allinone/proc/remove_signal_message_from_recent_broadcasts(signal_message)
 	recent_broadcasts -= signal_message
 
-/obj/machinery/telecomms/allinone/ship
+/obj/structure/machinery/telecomms/allinone/ship
 	away_aio = TRUE
 
-/obj/machinery/telecomms/allinone/ship/LateInitialize()
+/obj/structure/machinery/telecomms/allinone/ship/LateInitialize()
 	. = ..()
 	if(!linked)
 		return
@@ -68,16 +68,16 @@
 			assign_away_freq(linked.name)
 		)
 
-/obj/machinery/telecomms/allinone/ship/coalition_navy
+/obj/structure/machinery/telecomms/allinone/ship/coalition_navy
 	name = "coalition navy telecommunications mainframe"
 	desc = "A compact machine used for portable subspace telecommuniations processing. This one also has encryption codes for Coalition navy vessels."
 
-/obj/machinery/telecomms/allinone/ship/coalition_navy/LateInitialize()
+/obj/structure/machinery/telecomms/allinone/ship/coalition_navy/LateInitialize()
 	. = ..()
 	freq_listening += COAL_FREQ
 
 //This goes on the station map so away ships can maintain radio contact.
-/obj/machinery/telecomms/allinone/ship/station_relay
+/obj/structure/machinery/telecomms/allinone/ship/station_relay
 	name = "external signal receiver"
 	desc = "This device allows nearby third-party ships to maintain radio contact with their crew that are aboard the %STATIONNAME."
 	idle_power_usage = 25
@@ -85,11 +85,11 @@
 	freq_listening = list(HAIL_FREQ)
 	away_aio = FALSE
 
-/obj/machinery/telecomms/allinone/ship/station_relay/mechanics_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/telecomms/allinone/ship/station_relay/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "This device does not need to be linked to other telecommunications equipment; it will receive and broadcast on its own. It only needs to be powered."
 
-/obj/machinery/telecomms/allinone/ship/station_relay/LateInitialize()
+/obj/structure/machinery/telecomms/allinone/ship/station_relay/LateInitialize()
 	. = ..()
 	desc = replacetext(desc, "%STATIONNAME", SSatlas.current_map.station_name)
 	for(var/ch in AWAY_FREQS_ASSIGNED)
@@ -97,4 +97,4 @@
 	freq_listening |= AWAY_FREQS_UNASSIGNED
 	freq_listening |= ANTAG_FREQS
 
-/obj/machinery/telecomms/allinone/ship
+/obj/structure/machinery/telecomms/allinone/ship

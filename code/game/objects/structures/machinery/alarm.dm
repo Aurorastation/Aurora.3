@@ -98,7 +98,7 @@ pixel_x = 10;
 	var/list/air_vent_info = list()
 	var/list/air_scrub_info = list()
 
-/obj/machinery/alarm
+/obj/structure/machinery/alarm
 	name = "alarm"
 	desc = "A device that controls the local air regulation machinery and informs you when you're breathing vacuum."
 	icon = 'icons/obj/monitors.dmi'
@@ -169,153 +169,153 @@ pixel_x = 10;
 	var/previous_environment_volume = null
 	var/list/previous_environment_gas = list()
 
-/obj/machinery/alarm/north
+/obj/structure/machinery/alarm/north
 	PRESET_NORTH
 
-/obj/machinery/alarm/east
+/obj/structure/machinery/alarm/east
 	PRESET_EAST
 
-/obj/machinery/alarm/west
+/obj/structure/machinery/alarm/west
 	PRESET_WEST
 
-/obj/machinery/alarm/south
+/obj/structure/machinery/alarm/south
 	PRESET_SOUTH
 
-/obj/machinery/alarm/nobreach
+/obj/structure/machinery/alarm/nobreach
 	breach_detection = 0
 	desc = "A device that controls the local air regulation machinery."
 
-/obj/machinery/alarm/nobreach/north
+/obj/structure/machinery/alarm/nobreach/north
 	PRESET_NORTH
 
-/obj/machinery/alarm/nobreach/east
+/obj/structure/machinery/alarm/nobreach/east
 	PRESET_EAST
 
-/obj/machinery/alarm/nobreach/west
+/obj/structure/machinery/alarm/nobreach/west
 	PRESET_WEST
 
-/obj/machinery/alarm/nobreach/south
+/obj/structure/machinery/alarm/nobreach/south
 	PRESET_SOUTH
 
-/obj/machinery/alarm/monitor
+/obj/structure/machinery/alarm/monitor
 	report_danger_level = 0
 	breach_detection = 0
 	desc = "A device that controls the local air regulation machinery."
 
-/obj/machinery/alarm/monitor/north
+/obj/structure/machinery/alarm/monitor/north
 	PRESET_NORTH
 
-/obj/machinery/alarm/monitor/east
+/obj/structure/machinery/alarm/monitor/east
 	PRESET_EAST
 
-/obj/machinery/alarm/monitor/west
+/obj/structure/machinery/alarm/monitor/west
 	PRESET_WEST
 
-/obj/machinery/alarm/monitor/south
+/obj/structure/machinery/alarm/monitor/south
 	PRESET_SOUTH
 
-/obj/machinery/alarm/server
+/obj/structure/machinery/alarm/server
 	req_one_access = list(ACCESS_RD, ACCESS_ATMOSPHERICS, ACCESS_ENGINE_EQUIP)
 	target_temperature = 80
 	desc = "A device that controls the local air regulation machinery. This one is designed for use in small server compartments."
 	highpower = 1
 
-/obj/machinery/alarm/server/north
+/obj/structure/machinery/alarm/server/north
 	PRESET_NORTH
 
-/obj/machinery/alarm/server/east
+/obj/structure/machinery/alarm/server/east
 	PRESET_EAST
 
-/obj/machinery/alarm/server/west
+/obj/structure/machinery/alarm/server/west
 	PRESET_WEST
 
-/obj/machinery/alarm/server/south
+/obj/structure/machinery/alarm/server/south
 	PRESET_SOUTH
 
-/obj/machinery/alarm/tcom
+/obj/structure/machinery/alarm/tcom
 	desc = "A device that controls the local air regulation machinery. This one is designed for use in server halls."
 	req_access = list(ACCESS_TCOMSAT)
 	highpower = 1
 
-/obj/machinery/alarm/tcom/north
+/obj/structure/machinery/alarm/tcom/north
 	PRESET_NORTH
 
-/obj/machinery/alarm/tcom/east
+/obj/structure/machinery/alarm/tcom/east
 	PRESET_EAST
 
-/obj/machinery/alarm/tcom/west
+/obj/structure/machinery/alarm/tcom/west
 	PRESET_WEST
 
-/obj/machinery/alarm/tcom/south
+/obj/structure/machinery/alarm/tcom/south
 	PRESET_SOUTH
 
-/obj/machinery/alarm/freezer
+/obj/structure/machinery/alarm/freezer
 	req_one_access = list(ACCESS_GALLEY, ACCESS_ATMOSPHERICS, ACCESS_ENGINE_EQUIP)
 	highpower = 1
 	target_temperature = T0C - 20
 
-/obj/machinery/alarm/freezer/north
+/obj/structure/machinery/alarm/freezer/north
 	PRESET_NORTH
 
-/obj/machinery/alarm/freezer/east
+/obj/structure/machinery/alarm/freezer/east
 	PRESET_EAST
 
-/obj/machinery/alarm/freezer/west
+/obj/structure/machinery/alarm/freezer/west
 	PRESET_WEST
 
-/obj/machinery/alarm/freezer/south
+/obj/structure/machinery/alarm/freezer/south
 	PRESET_SOUTH
 
-/obj/machinery/alarm/cold
+/obj/structure/machinery/alarm/cold
 	target_temperature = T0C + 5
 
-/obj/machinery/alarm/cold/north
+/obj/structure/machinery/alarm/cold/north
 	PRESET_NORTH
 
-/obj/machinery/alarm/cold/east
+/obj/structure/machinery/alarm/cold/east
 	PRESET_EAST
 
-/obj/machinery/alarm/cold/west
+/obj/structure/machinery/alarm/cold/west
 	PRESET_WEST
 
-/obj/machinery/alarm/cold/south
+/obj/structure/machinery/alarm/cold/south
 	PRESET_SOUTH
 
-/obj/machinery/alarm/warm
+/obj/structure/machinery/alarm/warm
 	target_temperature = T20C + 10
 
-/obj/machinery/alarm/warm/north
+/obj/structure/machinery/alarm/warm/north
 	PRESET_NORTH
 
-/obj/machinery/alarm/warm/east
+/obj/structure/machinery/alarm/warm/east
 	PRESET_EAST
 
-/obj/machinery/alarm/warm/west
+/obj/structure/machinery/alarm/warm/west
 	PRESET_WEST
 
-/obj/machinery/alarm/warm/south
+/obj/structure/machinery/alarm/warm/south
 	PRESET_SOUTH
 
 /// Air alarm parent objs for Horizon shuttles. Handles access control without needing to manually override anything in mapping.
-/obj/machinery/alarm/shuttle
+/obj/structure/machinery/alarm/shuttle
 	desc = "A device that controls the local air regulation machinery. This one is designed for use in shuttles."
 	req_access = null
 	highpower = 1
 
-/obj/machinery/alarm/shuttle/north
+/obj/structure/machinery/alarm/shuttle/north
 	PRESET_NORTH
 
-/obj/machinery/alarm/shuttle/east
+/obj/structure/machinery/alarm/shuttle/east
 	PRESET_EAST
 
-/obj/machinery/alarm/shuttle/west
+/obj/structure/machinery/alarm/shuttle/west
 	PRESET_WEST
 
-/obj/machinery/alarm/shuttle/south
+/obj/structure/machinery/alarm/shuttle/south
 	PRESET_SOUTH
 
 /// Assigns req_one_access perms associated with the area of the shuttle its mapped in.
-/obj/machinery/alarm/shuttle/Initialize()
+/obj/structure/machinery/alarm/shuttle/Initialize()
 	. = ..()
 	var/area = get_area(src)
 
@@ -329,7 +329,7 @@ pixel_x = 10;
 		req_one_access = list(ACCESS_ENGINE_EQUIP, ACCESS_ATMOSPHERICS, ACCESS_CANARY)
 
 
-/obj/machinery/alarm/server/Initialize()
+/obj/structure/machinery/alarm/server/Initialize()
 	. = ..()
 	TLV[GAS_OXYGEN] =			list(-1.0, -1.0,-1.0,-1.0) // Partial pressure, kpa
 	TLV[GAS_CO2] = 				list(-1.0, -1.0,   5,  10) // Partial pressure, kpa
@@ -345,7 +345,7 @@ pixel_x = 10;
 /**
  * Kitchen freezer
  */
-/obj/machinery/alarm/freezer/Initialize()
+/obj/structure/machinery/alarm/freezer/Initialize()
 	. = ..()
 	TLV[GAS_OXYGEN] = list(16, 17, 135, 140) // Partial pressure, kpa
 	TLV["pressure"] = list(ONE_ATMOSPHERE*0.50,ONE_ATMOSPHERE*0.70,ONE_ATMOSPHERE*1.10,ONE_ATMOSPHERE*1.20)
@@ -354,22 +354,22 @@ pixel_x = 10;
 /**
  * Refridgerated area, cold but above-freezing
  */
-/obj/machinery/alarm/cold/Initialize()
+/obj/structure/machinery/alarm/cold/Initialize()
 	. = ..()
 	TLV["pressure"] =		list(ONE_ATMOSPHERE*0.70,ONE_ATMOSPHERE*0.80,ONE_ATMOSPHERE*1.10,ONE_ATMOSPHERE*1.20) /* kpa */
 	TLV["temperature"] =	list(247, 273, 288, T0C+40) // Shouldn't go below 0
 
-/obj/machinery/alarm/Destroy()
+/obj/structure/machinery/alarm/Destroy()
 	unregister_radio(src, frequency)
 	qdel(wires)
 	wires = null
 	return ..()
 
-/obj/machinery/alarm/LateInitialize()
+/obj/structure/machinery/alarm/LateInitialize()
 	. = ..()
 	apply_mode()
 
-/obj/machinery/alarm/Initialize(mapload, var/dir, var/building = 0)
+/obj/structure/machinery/alarm/Initialize(mapload, var/dir, var/building = 0)
 	. = ..()
 
 	if(building)
@@ -393,11 +393,11 @@ pixel_x = 10;
 
 	return INITIALIZE_HINT_LATELOAD
 
-/obj/machinery/alarm/set_pixel_offsets()
+/obj/structure/machinery/alarm/set_pixel_offsets()
 	pixel_x = ((src.dir & (NORTH|SOUTH)) ? 0 : (src.dir == EAST ? 10 : -10))
 	pixel_y = ((src.dir & (NORTH|SOUTH)) ? (src.dir == NORTH ? 21 : -4) : 0)
 
-/obj/machinery/alarm/proc/first_run()
+/obj/structure/machinery/alarm/proc/first_run()
 	alarm_area = get_area(src)
 	// Just directional indicators, if any
 	alarm_area_name = get_area_display_name(alarm_area, FALSE, FALSE, FALSE, TRUE)
@@ -426,7 +426,7 @@ pixel_x = 10;
 	TLV["pressure"] =		list(ONE_ATMOSPHERE*0.80,ONE_ATMOSPHERE*0.90,ONE_ATMOSPHERE*1.10,ONE_ATMOSPHERE*1.20) /* kpa */
 	TLV["temperature"] =	list(T0C-26, T0C, T0C+40, T0C+66) // K
 
-/obj/machinery/alarm/process(seconds_per_tick)
+/obj/structure/machinery/alarm/process(seconds_per_tick)
 	if((stat & (NOPOWER|BROKEN)) || shorted || buildstage != 2)
 		return
 
@@ -489,7 +489,7 @@ pixel_x = 10;
 
 	return
 
-/obj/machinery/alarm/proc/handle_heating_cooling(datum/gas_mixture/environment, seconds_per_tick)
+/obj/structure/machinery/alarm/proc/handle_heating_cooling(datum/gas_mixture/environment, seconds_per_tick)
 	var/danger_level = null
 	ALARM_GET_DANGER_LEVEL(danger_level, target_temperature, TLV["temperature"])
 
@@ -541,7 +541,7 @@ pixel_x = 10;
 /**
  * Returns whether this air alarm thinks there is a breach, given the sensors that are available to it.
  */
-/obj/machinery/alarm/proc/breach_detected()
+/obj/structure/machinery/alarm/proc/breach_detected()
 	var/turf/simulated/location = loc
 
 	if(!istype(location))
@@ -560,7 +560,7 @@ pixel_x = 10;
 
 	return 0
 
-/obj/machinery/alarm/update_icon()
+/obj/structure/machinery/alarm/update_icon()
 	ClearOverlays()
 	icon_state = "alarmp"
 
@@ -599,7 +599,7 @@ pixel_x = 10;
 	else
 		AddOverlays("alarm_fan_off")
 
-/obj/machinery/alarm/proc/refresh_all()
+/obj/structure/machinery/alarm/proc/refresh_all()
 	for(var/id_tag in alarm_area.air_vent_names)
 		var/list/I = alarm_area.air_vent_info[id_tag]
 		if (I && I["timestamp"]+AALARM_REPORT_TIMEOUT/2 > world.time)
@@ -611,7 +611,7 @@ pixel_x = 10;
 			continue
 		send_signal(id_tag, list("status"))
 
-/obj/machinery/alarm/proc/set_frequency(new_frequency)
+/obj/structure/machinery/alarm/proc/set_frequency(new_frequency)
 	SSradio.remove_object(src, frequency)
 	frequency = new_frequency
 	radio_connection = SSradio.add_object(src, frequency, RADIO_TO_AIRALARM)
@@ -619,7 +619,7 @@ pixel_x = 10;
 /**
  * Sends signal 'command' to 'target'. Returns 0 if no radio connection, 1 otherwise
  */
-/obj/machinery/alarm/proc/send_signal(var/target, var/list/command)
+/obj/structure/machinery/alarm/proc/send_signal(var/target, var/list/command)
 	if(!radio_connection)
 		return 0
 
@@ -635,10 +635,10 @@ pixel_x = 10;
 
 	return 1
 
-/obj/machinery/alarm/proc/apply_mode()
+/obj/structure/machinery/alarm/proc/apply_mode()
 	//propagate mode to other air alarms in the area
 	//TODO: make it so that players can choose between applying the new mode to the room they are in (related area) vs the entire alarm area
-	for (var/obj/machinery/alarm/AA in alarm_area)
+	for (var/obj/structure/machinery/alarm/AA in alarm_area)
 		AA.mode = mode
 
 	switch(mode)
@@ -672,13 +672,13 @@ pixel_x = 10;
 			for(var/device_id in alarm_area.air_vent_names)
 				send_signal(device_id, list("power"= 0) )
 
-/obj/machinery/alarm/proc/apply_danger_level(var/new_danger_level)
+/obj/structure/machinery/alarm/proc/apply_danger_level(var/new_danger_level)
 	if (report_danger_level && alarm_area.atmosalert(new_danger_level, src))
 		post_alert(new_danger_level)
 
 	update_icon()
 
-/obj/machinery/alarm/proc/post_alert(alert_level)
+/obj/structure/machinery/alarm/proc/post_alert(alert_level)
 	var/datum/radio_frequency/frequency = SSradio.return_frequency(alarm_frequency)
 	if(!frequency)
 		return
@@ -698,23 +698,23 @@ pixel_x = 10;
 
 	frequency.post_signal(src, alert_signal)
 
-/obj/machinery/alarm/attack_ai(mob/user)
+/obj/structure/machinery/alarm/attack_ai(mob/user)
 	if(!ai_can_interact(user))
 		return
 	ui_interact(user)
 
-/obj/machinery/alarm/attack_hand(mob/user)
+/obj/structure/machinery/alarm/attack_hand(mob/user)
 	. = ..()
 	if (.)
 		return
 	return interact(user)
 
-/obj/machinery/alarm/interact(mob/user)
+/obj/structure/machinery/alarm/interact(mob/user)
 	ui_interact(user)
 	if (panel_open)
 		wires.interact(user)
 
-/obj/machinery/alarm/ui_interact(mob/user, datum/tgui/ui)
+/obj/structure/machinery/alarm/ui_interact(mob/user, datum/tgui/ui)
 	if(buildstage != 2)
 		return
 	if(aidisabled && isAI(user))
@@ -725,7 +725,7 @@ pixel_x = 10;
 		ui = new(user, src, "AirAlarm")
 		ui.open()
 
-/obj/machinery/alarm/ui_data(mob/user)
+/obj/structure/machinery/alarm/ui_data(mob/user)
 	var/list/data = list()
 
 	// Status
@@ -838,7 +838,7 @@ pixel_x = 10;
 
 	return data
 
-/obj/machinery/alarm/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/obj/structure/machinery/alarm/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
@@ -963,7 +963,7 @@ pixel_x = 10;
 			return TRUE
 
 /// Snowflake proc to make it so users of the Atmosphere Control app (having the UI open) have full access to an alarm.
-/obj/machinery/alarm/ui_status(mob/user)
+/obj/structure/machinery/alarm/ui_status(mob/user)
 	for(var/datum/tgui/open_tgui in user.tgui_open_uis)
 		if(open_tgui.interface == "AtmosAlarmControl")
 			return UI_INTERACTIVE
@@ -972,12 +972,12 @@ pixel_x = 10;
 /**
  * Resets the area atmospheric alarm. Called by ui_act and directly by atmos_alert computers.
  */
-/obj/machinery/alarm/proc/alarm_reset()
+/obj/structure/machinery/alarm/proc/alarm_reset()
 	if(alarm_area.atmosalert(0, src))
 		apply_danger_level(0)
 	update_icon()
 
-/obj/machinery/alarm/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/alarm/attackby(obj/item/attacking_item, mob/user)
 	if(!istype(attacking_item, /obj/item/forensics))
 		src.add_fingerprint(user)
 
@@ -1037,7 +1037,7 @@ pixel_x = 10;
 
 	return ..()
 
-/obj/machinery/alarm/AltClick(mob/user)
+/obj/structure/machinery/alarm/AltClick(mob/user)
 	if(Adjacent(user))
 		if(stat & (NOPOWER|BROKEN))
 			to_chat(user, SPAN_NOTICE("Nothing happens."))
@@ -1058,11 +1058,11 @@ pixel_x = 10;
 			balloon_alert(user, "access denied!")
 		return TRUE
 
-/obj/machinery/alarm/power_change()
+/obj/structure/machinery/alarm/power_change()
 	..()
 	queue_icon_update()
 
-/obj/machinery/alarm/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+/obj/structure/machinery/alarm/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if (buildstage < 2)
 		. +=  SPAN_WARNING("It is not wired.")

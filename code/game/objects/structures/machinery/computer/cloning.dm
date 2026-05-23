@@ -1,4 +1,4 @@
-/obj/machinery/computer/cloning
+/obj/structure/machinery/computer/cloning
 	name = "cloning control console"
 	icon_screen = "dna"
 	icon_keyboard = "teal_key"
@@ -6,7 +6,7 @@
 	light_color = LIGHT_COLOR_BLUE
 	circuit = /obj/item/circuitboard/cloning
 	req_access = list(ACCESS_GENETICS)
-	var/obj/machinery/dna_scannernew/scanner = null //Linked scanner. For scanning.
+	var/obj/structure/machinery/dna_scannernew/scanner = null //Linked scanner. For scanning.
 	var/list/pods = list() //Linked cloning pods.
 	var/temp = ""
 	var/scantemp = "Scanner unoccupied"
@@ -16,24 +16,24 @@
 	var/obj/item/disk/data/diskette = null //Mostly so the geneticist can steal everything.
 	var/loading = 0 // Nice loading text
 
-/obj/machinery/computer/cloning/Initialize()
+/obj/structure/machinery/computer/cloning/Initialize()
 	. = ..()
 	updatemodules()
 
-/obj/machinery/computer/cloning/Destroy()
+/obj/structure/machinery/computer/cloning/Destroy()
 	releasecloner()
 	return ..()
 
-/obj/machinery/computer/cloning/proc/updatemodules()
+/obj/structure/machinery/computer/cloning/proc/updatemodules()
 	src.scanner = findscanner()
 	releasecloner()
 	findcloner()
 
-/obj/machinery/computer/cloning/proc/findscanner()
-	var/obj/machinery/dna_scannernew/scannerf = null
+/obj/structure/machinery/computer/cloning/proc/findscanner()
+	var/obj/structure/machinery/dna_scannernew/scannerf = null
 
 	//Try to find scanner on adjacent tiles first
-	for(var/obj/machinery/dna_scannernew/C in orange(1,src))
+	for(var/obj/structure/machinery/dna_scannernew/C in orange(1,src))
 		scannerf = C
 		if (scannerf)
 			return scannerf
@@ -41,18 +41,18 @@
 	//Then look for a free one in the area
 	if(!scannerf)
 		var/area/A = get_area(src)
-		for(var/obj/machinery/dna_scannernew/S in A)
+		for(var/obj/structure/machinery/dna_scannernew/S in A)
 			return S
 
 	return
 
-/obj/machinery/computer/cloning/proc/releasecloner()
-	for(var/obj/machinery/clonepod/P in pods)
+/obj/structure/machinery/computer/cloning/proc/releasecloner()
+	for(var/obj/structure/machinery/clonepod/P in pods)
 		P.connected = null
 		P.name = initial(P.name)
 	pods.Cut()
 
-/obj/machinery/computer/cloning/proc/connect_pod(var/obj/machinery/clonepod/P)
+/obj/structure/machinery/computer/cloning/proc/connect_pod(var/obj/structure/machinery/clonepod/P)
 	if(P in pods)
 		return 0
 
@@ -64,7 +64,7 @@
 
 	return 1
 
-/obj/machinery/computer/cloning/proc/release_pod(var/obj/machinery/clonepod/P)
+/obj/structure/machinery/computer/cloning/proc/release_pod(var/obj/structure/machinery/clonepod/P)
 	if(!(P in pods))
 		return
 
@@ -74,21 +74,21 @@
 	rename_pods()
 	return 1
 
-/obj/machinery/computer/cloning/proc/rename_pods()
+/obj/structure/machinery/computer/cloning/proc/rename_pods()
 	for(var/i = 1 to pods.len)
 		var/atom/P = pods[i]
 		P.name = "[initial(P.name)] #[i]"
 
-/obj/machinery/computer/cloning/proc/findcloner()
+/obj/structure/machinery/computer/cloning/proc/findcloner()
 	var/num = 1
 	var/area/A = get_area(src)
-	for(var/obj/machinery/clonepod/P in A)
+	for(var/obj/structure/machinery/clonepod/P in A)
 		if(!P.connected)
 			pods += P
 			P.connected = src
 			P.name = "[initial(P.name)] #[num++]"
 
-/obj/machinery/computer/cloning/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/computer/cloning/attackby(obj/item/attacking_item, mob/user)
 	if (istype(attacking_item, /obj/item/disk/data)) //INSERT SOME DISKETTES
 		if (!src.diskette)
 			user.drop_from_inventory(attacking_item,src)
@@ -99,12 +99,12 @@
 	else
 		return ..()
 
-/obj/machinery/computer/cloning/attack_ai(mob/user as mob)
+/obj/structure/machinery/computer/cloning/attack_ai(mob/user as mob)
 	if(!ai_can_interact(user))
 		return
 	return attack_hand(user)
 
-/obj/machinery/computer/cloning/attack_hand(mob/user as mob)
+/obj/structure/machinery/computer/cloning/attack_hand(mob/user as mob)
 	if(!allowed(user))
 		to_chat(user, SPAN_WARNING("Access denied."))
 		return
@@ -157,7 +157,7 @@
 				dat += "Lock status: <a href='byond://?src=[REF(src)];lock=1'>[src.scanner.locked ? "Locked" : "Unlocked"]</a><br>"
 
 			if (pods.len)
-				for (var/obj/machinery/clonepod/pod in pods)
+				for (var/obj/structure/machinery/clonepod/pod in pods)
 					dat += "[pod] biomass: <i>[pod.biomass]</i><br>"
 
 			// Database
@@ -221,7 +221,7 @@
 	onclose(user, "cloning")
 	return
 
-/obj/machinery/computer/cloning/Topic(href, href_list)
+/obj/structure/machinery/computer/cloning/Topic(href, href_list)
 	if(..())
 		return 1
 
@@ -329,7 +329,7 @@
 			if(!pods.len)
 				temp = "Error: No clone pods detected."
 			else
-				var/obj/machinery/clonepod/pod = pods[1]
+				var/obj/structure/machinery/clonepod/pod = pods[1]
 				if (pods.len > 1)
 					pod = input(usr,"Select a cloning pod to use", "Pod selection") as anything in pods
 				if(pod.occupant)
@@ -370,7 +370,7 @@
 	src.updateUsrDialog()
 	return
 
-/obj/machinery/computer/cloning/proc/scan_mob(mob/living/carbon/human/subject as mob)
+/obj/structure/machinery/computer/cloning/proc/scan_mob(mob/living/carbon/human/subject as mob)
 	if ((isnull(subject)) || (!(ishuman(subject))) || (!subject.dna))
 		scantemp = "Error: Unable to locate valid genetic data."
 		return
@@ -424,7 +424,7 @@
 	scantemp = "Subject successfully scanned."
 
 //Find a specific record by key.
-/obj/machinery/computer/cloning/proc/find_record(var/find_key)
+/obj/structure/machinery/computer/cloning/proc/find_record(var/find_key)
 	var/selected_record = null
 	for(var/datum/dna2/record/R in src.records)
 		if (R.ckey == find_key)

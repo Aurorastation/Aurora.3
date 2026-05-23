@@ -49,9 +49,9 @@ pixel_x = 12;
 GLOBAL_LIST_INIT(req_console_assistance, list())
 GLOBAL_LIST_INIT(req_console_supplies, list())
 GLOBAL_LIST_INIT(req_console_information, list())
-GLOBAL_LIST_INIT_TYPED(allConsoles, /obj/machinery/requests_console, list())
+GLOBAL_LIST_INIT_TYPED(allConsoles, /obj/structure/machinery/requests_console, list())
 
-/obj/machinery/requests_console
+/obj/structure/machinery/requests_console
 	name = "requests console"
 	desc = "A console intended to send requests to different departments on the station."
 	icon = 'icons/obj/machinery/wall/terminals.dmi'
@@ -119,23 +119,23 @@ GLOBAL_LIST_INIT_TYPED(allConsoles, /obj/machinery/requests_console, list())
 	///List of PDAs we alert upon a request receipt
 	var/list/obj/item/modular_computer/alert_pdas = list()
 
-/obj/machinery/requests_console/north
+/obj/structure/machinery/requests_console/north
 	PRESET_NORTH
 
-/obj/machinery/requests_console/south
+/obj/structure/machinery/requests_console/south
 	PRESET_SOUTH
 
-/obj/machinery/requests_console/west
+/obj/structure/machinery/requests_console/west
 	PRESET_WEST
 
-/obj/machinery/requests_console/east
+/obj/structure/machinery/requests_console/east
 	PRESET_EAST
 
-/obj/machinery/requests_console/power_change()
+/obj/structure/machinery/requests_console/power_change()
 	..()
 	update_icon()
 
-/obj/machinery/requests_console/update_icon()
+/obj/structure/machinery/requests_console/update_icon()
 	ClearOverlays()
 	var/mutable_appearance/screen = overlay_image(icon, "req_comp-idle")
 	var/mutable_appearance/screen_hologram = overlay_image(icon, "req_comp-idle")
@@ -176,7 +176,7 @@ GLOBAL_LIST_INIT_TYPED(allConsoles, /obj/machinery/requests_console, list())
 		AddOverlays(screen_emis)
 		AddOverlays(overlay_image(icon, "req_comp-scanline"))
 
-/obj/machinery/requests_console/Initialize(mapload, var/dir, var/building = 0)
+/obj/structure/machinery/requests_console/Initialize(mapload, var/dir, var/building = 0)
 	. = ..()
 
 	desc = "A console intended to send requests to different departments on the [station_name(TRUE)]."
@@ -211,14 +211,14 @@ GLOBAL_LIST_INIT_TYPED(allConsoles, /obj/machinery/requests_console, list())
 	if(!mapload)
 		set_pixel_offsets()
 
-/obj/machinery/requests_console/set_pixel_offsets()
+/obj/structure/machinery/requests_console/set_pixel_offsets()
 	pixel_x = DIR2PIXEL_X(dir)
 	pixel_y = DIR2PIXEL_Y(dir)
 
-/obj/machinery/requests_console/Destroy()
+/obj/structure/machinery/requests_console/Destroy()
 	GLOB.allConsoles -= src
 	var/lastDeptRC = 1
-	for (var/obj/machinery/requests_console/Console in GLOB.allConsoles)
+	for (var/obj/structure/machinery/requests_console/Console in GLOB.allConsoles)
 		if (Console.department == department)
 			lastDeptRC = 0
 			break
@@ -233,12 +233,12 @@ GLOBAL_LIST_INIT_TYPED(allConsoles, /obj/machinery/requests_console, list())
 		alert_pdas.Cut()
 	return ..()
 
-/obj/machinery/requests_console/attack_hand(user as mob)
+/obj/structure/machinery/requests_console/attack_hand(user as mob)
 	if(..(user))
 		return
 	ui_interact(user)
 
-/obj/machinery/requests_console/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
+/obj/structure/machinery/requests_console/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
 	var/data[0]
 
 	data["department"] = department
@@ -295,7 +295,7 @@ GLOBAL_LIST_INIT_TYPED(allConsoles, /obj/machinery/requests_console, list())
 		ui.set_initial_data(data)
 		ui.open()
 
-/obj/machinery/requests_console/Topic(href, href_list)
+/obj/structure/machinery/requests_console/Topic(href, href_list)
 	if(..())	return
 	usr.set_machine(src)
 	add_fingerprint(usr)
@@ -331,7 +331,7 @@ GLOBAL_LIST_INIT_TYPED(allConsoles, /obj/machinery/requests_console, list())
 		screen = RCS_SENTFAIL
 		var/pass = FALSE
 		var/datum/data_rc_msg/log = new(href_list["department"], department, log_msg, msgStamped, msgVerified, priority)
-		for (var/obj/machinery/telecomms/message_server/MS in SSmachinery.all_telecomms)
+		for (var/obj/structure/machinery/telecomms/message_server/MS in SSmachinery.all_telecomms)
 			if (MS.use_power)
 				MS.rc_msgs += log
 				pass = TRUE
@@ -348,7 +348,7 @@ GLOBAL_LIST_INIT_TYPED(allConsoles, /obj/machinery/requests_console, list())
 		if(tempScreen == RCS_ANNOUNCE && !announcementConsole)
 			return
 		if(tempScreen == RCS_VIEWMSGS)
-			for (var/obj/machinery/requests_console/Console in GLOB.allConsoles)
+			for (var/obj/structure/machinery/requests_console/Console in GLOB.allConsoles)
 				if (Console.department == department)
 					Console.newmessagepriority = 0
 					Console.icon_state = "req_comp0"
@@ -453,7 +453,7 @@ GLOBAL_LIST_INIT_TYPED(allConsoles, /obj/machinery/requests_console, list())
 	return
 
 					//err... hacking code, which has no reason for existing... but anyway... it was once supposed to unlock priority 3 messanging on that console (EXTREME priority...), but the code for that was removed.
-/obj/machinery/requests_console/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/requests_console/attackby(obj/item/attacking_item, mob/user)
 	if (istype(attacking_item, /obj/item/card/id))
 		if(!operable(MAINT)) return TRUE
 		if(screen == RCS_MESSAUTH)
@@ -504,14 +504,14 @@ GLOBAL_LIST_INIT_TYPED(allConsoles, /obj/machinery/requests_console, list())
 			fax_send(attacking_item, user)
 		return TRUE
 
-/obj/machinery/requests_console/proc/can_send()
-	for(var/obj/machinery/telecomms/message_server/MS in SSmachinery.all_telecomms)
+/obj/structure/machinery/requests_console/proc/can_send()
+	for(var/obj/structure/machinery/telecomms/message_server/MS in SSmachinery.all_telecomms)
 		if(!MS.use_power)
 			continue
 		return TRUE
 	return FALSE
 
-/obj/machinery/requests_console/proc/fax_send(var/obj/item/O, var/mob/user)
+/obj/structure/machinery/requests_console/proc/fax_send(var/obj/item/O, var/mob/user)
 	var/sendto = tgui_input_list(user, "Select department.", "Send Fax", GLOB.allConsoles)
 	if(!sendto)
 		return
@@ -522,7 +522,7 @@ GLOBAL_LIST_INIT_TYPED(allConsoles, /obj/machinery/requests_console, list())
 		audible_message("<b>The Requests Console</b> beeps, [SPAN_WARNING(msg)]")
 		return
 	for(var/cc in GLOB.allConsoles)
-		var/obj/machinery/requests_console/Console = cc
+		var/obj/structure/machinery/requests_console/Console = cc
 		if(Console == sendto)
 			var/paperstock_usage = 1
 			var/is_paper_bundle = istype(O, /obj/item/paper_bundle)
@@ -548,7 +548,7 @@ GLOBAL_LIST_INIT_TYPED(allConsoles, /obj/machinery/requests_console, list())
 			audible_message("<b>The Requests Console</b> beeps, \"Fax sent.\"")
 			return
 
-/obj/machinery/requests_console/proc/reset_message(var/mainmenu = 0)
+/obj/structure/machinery/requests_console/proc/reset_message(var/mainmenu = 0)
 	message = ""
 	recipient = ""
 	priority = 0

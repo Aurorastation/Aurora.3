@@ -1,4 +1,4 @@
-/obj/machinery/button
+/obj/structure/machinery/button
 	name = "button"
 	icon = 'icons/obj/machinery/button.dmi'
 	icon_state = "launcherbtt"
@@ -14,37 +14,37 @@
 	var/_wifi_id
 	var/datum/wifi/sender/wifi_sender
 
-/obj/machinery/button/Initialize()
+/obj/structure/machinery/button/Initialize()
 	. = ..()
 	update_icon()
 	if(_wifi_id && !wifi_sender)
 		wifi_sender = new/datum/wifi/sender/button(_wifi_id, src)
 
-/obj/machinery/button/Destroy()
+/obj/structure/machinery/button/Destroy()
 	qdel(wifi_sender)
 	wifi_sender = null
 	return ..()
 
-/obj/machinery/button/attack_ai(mob/user as mob)
+/obj/structure/machinery/button/attack_ai(mob/user as mob)
 	if(!ai_can_interact(user))
 		return
 	return attack_hand(user)
 
-/obj/machinery/button/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/button/attackby(obj/item/attacking_item, mob/user)
 	return attack_hand(user)
 
-/obj/machinery/button/attack_hand(mob/living/user)
+/obj/structure/machinery/button/attack_hand(mob/living/user)
 	if(..()) return 1
 	user.visible_message("<b>[user]</b> hits \the [src] button.")
 	activate(user)
 	intent_message(BUTTON_FLICK, 5)
 
-/obj/machinery/button/proc/deactivate(mob/living/user)
+/obj/structure/machinery/button/proc/deactivate(mob/living/user)
 	active = FALSE
 	update_icon()
 	operating = FALSE
 
-/obj/machinery/button/proc/activate(mob/living/user)
+/obj/structure/machinery/button/proc/activate(mob/living/user)
 	if(operating || !istype(wifi_sender))
 		return FALSE
 
@@ -56,35 +56,35 @@
 	addtimer(CALLBACK(src, PROC_REF(deactivate)), active_time, TIMER_DELETE_ME)
 	return TRUE
 
-/obj/machinery/button/update_icon()
+/obj/structure/machinery/button/update_icon()
 	if(active)
 		icon_state = "launcheract"
 	else
 		icon_state = "launcherbtt"
 
 //alternate button with the same functionality, except has a lightswitch sprite instead
-/obj/machinery/button/switch
+/obj/structure/machinery/button/switch
 	icon_state = "light0"
 
-/obj/machinery/button/switch/update_icon()
+/obj/structure/machinery/button/switch/update_icon()
 	icon_state = "light[active]"
 
-/obj/machinery/button/switch/attack_hand()
+/obj/structure/machinery/button/switch/attack_hand()
 	playsound(src, SFX_BUTTON, 30)
 	intent_message(BUTTON_FLICK, 5)
 
 //alternate button with the same functionality, except has a door control sprite instead
-/obj/machinery/button/alternate
+/obj/structure/machinery/button/alternate
 	icon_state = "doorctrl0"
 
-/obj/machinery/button/alternate/update_icon()
+/obj/structure/machinery/button/alternate/update_icon()
 	if(active)
 		icon_state = "doorctrl0"
 	else
 		icon_state = "doorctrl2"
 
 //Toggle button with two states (on and off) and calls seperate procs for each state
-/obj/machinery/button/toggle/activate(mob/living/user)
+/obj/structure/machinery/button/toggle/activate(mob/living/user)
 	if(operating || !istype(wifi_sender))
 		return
 
@@ -99,17 +99,17 @@
 	operating = 0
 
 //alternate button with the same toggle functionality, except has a lightswitch sprite instead
-/obj/machinery/button/toggle/switch
+/obj/structure/machinery/button/toggle/switch
 	icon_state = "light0"
 
-/obj/machinery/button/toggle/switch/update_icon()
+/obj/structure/machinery/button/toggle/switch/update_icon()
 	icon_state = "light[active]"
 
 //alternate button with the same toggle functionality, except has a door control sprite instead
-/obj/machinery/button/toggle/alternate
+/obj/structure/machinery/button/toggle/alternate
 	icon_state = "doorctrl0"
 
-/obj/machinery/button/toggle/alternate/update_icon()
+/obj/structure/machinery/button/toggle/alternate/update_icon()
 	if(active)
 		icon_state = "doorctrl0"
 	else
@@ -119,15 +119,15 @@
 // Mass Driver Button
 //  Passes the activate call to a mass driver wifi sender
 //-------------------------------
-/obj/machinery/button/mass_driver
+/obj/structure/machinery/button/mass_driver
 	name = "mass driver button"
 
-/obj/machinery/button/mass_driver/Initialize()
+/obj/structure/machinery/button/mass_driver/Initialize()
 	. = ..()
 	if(_wifi_id)
 		wifi_sender = new/datum/wifi/sender/mass_driver(_wifi_id, src)
 
-/obj/machinery/button/mass_driver/activate(mob/living/user)
+/obj/structure/machinery/button/mass_driver/activate(mob/living/user)
 	if(active || !istype(wifi_sender))
 		return
 
@@ -151,7 +151,7 @@
 #define SHOCK  0x8
 #define SAFE   0x10
 
-/obj/machinery/button/toggle/door
+/obj/structure/machinery/button/toggle/door
 	icon_state = "doorctrl0"
 
 	var/_door_functions = 1
@@ -161,18 +161,18 @@
 				8 = shock
 				16 = door safties  */
 
-/obj/machinery/button/toggle/door/update_icon()
+/obj/structure/machinery/button/toggle/door/update_icon()
 	if(active)
 		icon_state = "doorctrl0"
 	else
 		icon_state = "doorctrl2"
 
-/obj/machinery/button/toggle/door/Initialize()
+/obj/structure/machinery/button/toggle/door/Initialize()
 	if(_wifi_id)
 		wifi_sender = new/datum/wifi/sender/door(_wifi_id, src)
 	. = ..()
 
-/obj/machinery/button/toggle/door/activate(mob/living/user)
+/obj/structure/machinery/button/toggle/door/activate(mob/living/user)
 	if(operating || !istype(wifi_sender))
 		return
 

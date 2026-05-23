@@ -1,4 +1,4 @@
-/obj/machinery/transformer
+/obj/structure/machinery/transformer
 	name = "Automatic Robotic Factory 5000"
 	desc = "A large, complicated machine with thousands of moving parts and sharp instruments. There is an entrance and exit: large enough to fit someone inside"
 	icon = 'icons/obj/recycling.dmi'
@@ -10,7 +10,7 @@
 	var/transform_standing = 0
 	var/canuse = 1
 
-/obj/machinery/transformer/Initialize()
+/obj/structure/machinery/transformer/Initialize()
 	// On us
 	. = ..()
 	if(loc)
@@ -18,23 +18,23 @@
 	else
 		addtimer(CALLBACK(src, PROC_REF(MakeConveyor)), 5)
 
-/obj/machinery/transformer/proc/MakeConveyor()
+/obj/structure/machinery/transformer/proc/MakeConveyor()
 	if (!loc)
 		return
-	new /obj/machinery/conveyor(loc, WEST, 1)
+	new /obj/structure/machinery/conveyor(loc, WEST, 1)
 	var/turf/T = get_turf(src)
 	if(T)// Spawn Conveyour Belts
 		//East
 		var/turf/east = get_step(src, EAST)
 		if(istype(east, /turf/simulated/floor))
-			new /obj/machinery/conveyor(east, WEST, 1)
+			new /obj/structure/machinery/conveyor(east, WEST, 1)
 
 		// West
 		var/turf/west = get_step(src, WEST)
 		if(istype(west, /turf/simulated/floor))
-			new /obj/machinery/conveyor(west, WEST, 1)
+			new /obj/structure/machinery/conveyor(west, WEST, 1)
 
-/obj/machinery/transformer/CollidedWith(atom/bumped_atom)
+/obj/structure/machinery/transformer/CollidedWith(atom/bumped_atom)
 	. = ..()
 
 	// HasEntered didn't like people lying down.
@@ -46,7 +46,7 @@
 			H.forceMove(src.loc)
 			make_robot(H)
 
-/obj/machinery/transformer/proc/make_robot(var/mob/living/carbon/human/H)
+/obj/structure/machinery/transformer/proc/make_robot(var/mob/living/carbon/human/H)
 	if(stat & (BROKEN|NOPOWER))
 		return
 	if(!transform_dead && H.stat == DEAD)
@@ -68,7 +68,7 @@
 		visible_message(SPAN_NOTICE("The machine displays an error message reading it is still making the required parts."))
 		return
 
-/obj/machinery/transformer/proc/rearm()
+/obj/structure/machinery/transformer/proc/rearm()
 	src.visible_message(SPAN_NOTICE("\The [src] pings!"))
 	playsound(src.loc, 'sound/machines/ping.ogg', 50, 0)
 	canuse = TRUE

@@ -1,6 +1,6 @@
 /obj/item/circuitboard/rdserver
 	name = T_BOARD("R&D server")
-	build_path = /obj/machinery/r_n_d/server
+	build_path = /obj/structure/machinery/r_n_d/server
 	board_type = BOARD_MACHINE
 	origin_tech = list(TECH_DATA = 3)
 	req_components = list(
@@ -9,7 +9,7 @@
 
 /obj/item/circuitboard/rdtechprocessor
 	name = T_BOARD("R&D tech processor")
-	build_path = /obj/machinery/r_n_d/tech_processor
+	build_path = /obj/structure/machinery/r_n_d/tech_processor
 	board_type = BOARD_MACHINE
 	origin_tech = list(TECH_DATA = 3)
 	req_components = list(
@@ -19,7 +19,7 @@
 
 /obj/item/circuitboard/destructive_analyzer
 	name = T_BOARD("destructive analyzer")
-	build_path = /obj/machinery/r_n_d/destructive_analyzer
+	build_path = /obj/structure/machinery/r_n_d/destructive_analyzer
 	board_type = BOARD_MACHINE
 	origin_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2, TECH_DATA = 2)
 	req_components = list(
@@ -29,7 +29,7 @@
 
 /obj/item/circuitboard/autolathe
 	name = T_BOARD("autolathe")
-	build_path = /obj/machinery/fabricator/autolathe
+	build_path = /obj/structure/machinery/fabricator/autolathe
 	board_type = BOARD_MACHINE
 	origin_tech = list(TECH_ENGINEERING = 2, TECH_DATA = 2)
 	req_components = list(
@@ -40,7 +40,7 @@
 
 /obj/item/circuitboard/microlathe
 	name = T_BOARD("microlathe")
-	build_path = /obj/machinery/fabricator/microlathe
+	build_path = /obj/structure/machinery/fabricator/microlathe
 	board_type = BOARD_MACHINE
 	origin_tech = list(TECH_ENGINEERING = 2, TECH_DATA = 2)
 	req_components = list(
@@ -51,7 +51,7 @@
 
 /obj/item/circuitboard/protolathe
 	name = T_BOARD("protolathe")
-	build_path = /obj/machinery/r_n_d/protolathe
+	build_path = /obj/structure/machinery/r_n_d/protolathe
 	board_type = BOARD_MACHINE
 	origin_tech = list(TECH_ENGINEERING = 2, TECH_DATA = 2)
 	req_components = list(
@@ -62,7 +62,7 @@
 
 /obj/item/circuitboard/circuit_imprinter
 	name = T_BOARD("circuit imprinter")
-	build_path = /obj/machinery/r_n_d/circuit_imprinter
+	build_path = /obj/structure/machinery/r_n_d/circuit_imprinter
 	board_type = BOARD_MACHINE
 	origin_tech = list(TECH_ENGINEERING = 2, TECH_DATA = 2)
 	req_components = list(
@@ -72,7 +72,7 @@
 
 /obj/item/circuitboard/mechfab
 	name = T_BOARD("mechatronic fabricator")
-	build_path = /obj/machinery/mecha_part_fabricator
+	build_path = /obj/structure/machinery/mecha_part_fabricator
 	board_type = BOARD_MACHINE
 	origin_tech = list(TECH_DATA = 3, TECH_ENGINEERING = 3)
 	req_components = list(
@@ -83,7 +83,7 @@
 
 /obj/item/circuitboard/telesci_pad
 	name = T_BOARD("telepad")
-	build_path = /obj/machinery/telepad
+	build_path = /obj/structure/machinery/telepad
 	board_type = BOARD_MACHINE
 	origin_tech = list(TECH_DATA = 4, TECH_ENGINEERING = 3, TECH_MATERIAL = 3, TECH_BLUESPACE = 4)
 	req_components = list(
@@ -94,7 +94,7 @@
 
 /obj/item/circuitboard/ntnet_relay
 	name = T_BOARD("NTNet Quantum Relay")
-	build_path = /obj/machinery/ntnet_relay
+	build_path = /obj/structure/machinery/ntnet_relay
 	board_type = BOARD_MACHINE
 	origin_tech = list(TECH_DATA = 4)
 	req_components = list(

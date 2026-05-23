@@ -1,24 +1,24 @@
 // This should probably be something cooler than a button, eventually.
-/obj/machinery/button/distress
+/obj/structure/machinery/button/distress
 	name = "distress beacon launcher"
 	desc = "Press this button to launch a distress beacon."
 	var/recorded_message
 
-/obj/machinery/button/distress/Initialize(mapload, d, populate_components, is_internal)
+/obj/structure/machinery/button/distress/Initialize(mapload, d, populate_components, is_internal)
 	..()
 	return INITIALIZE_HINT_LATELOAD
 
-/obj/machinery/button/distress/LateInitialize()
+/obj/structure/machinery/button/distress/LateInitialize()
 	. = ..()
 	if(SSatlas.current_map.use_overmap && !linked)
 		var/my_sector = GLOB.map_sectors["[z]"]
 		if (istype(my_sector, /obj/effect/overmap/visitable))
 			attempt_hook_up(my_sector)
 
-/obj/machinery/button/distress/hear_talk(mob/M, text, verb, datum/language/speaking)
+/obj/structure/machinery/button/distress/hear_talk(mob/M, text, verb, datum/language/speaking)
 	recorded_message = text
 
-/obj/machinery/button/distress/attack_hand(var/mob/user)
+/obj/structure/machinery/button/distress/attack_hand(var/mob/user)
 	if(..())
 		return
 	if(!linked)

@@ -1,4 +1,4 @@
-/obj/machinery/stasis_cage
+/obj/structure/machinery/stasis_cage
 	name = "stasis cage"
 	desc = "A high-tech animal cage, designed to keep contained fauna docile and safe."
 	icon = 'icons/obj/machinery/stasis_cage.dmi'
@@ -30,11 +30,11 @@
 
 	parts_power_mgmt = FALSE
 
-/obj/machinery/stasis_cage/upgrade_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/stasis_cage/upgrade_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Upgraded <b>capacitors</b> will reduce power usage."
 
-/obj/machinery/stasis_cage/feedback_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/stasis_cage/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	if (contained)
 		. += SPAN_NOTICE("\The [contained] is kept inside.")
@@ -43,7 +43,7 @@
 	if (cell)
 		. += SPAN_NOTICE("\The [src]'s power gauge shows [cell.percent()]% remaining.")
 
-/obj/machinery/stasis_cage/Initialize()
+/obj/structure/machinery/stasis_cage/Initialize()
 	. = ..()
 	airtank = new /datum/gas_mixture(src)
 	airtank.temperature = T20C
@@ -60,7 +60,7 @@
 
 	wires = new /datum/wires/stasis_cage(src)
 
-/obj/machinery/stasis_cage/Destroy()
+/obj/structure/machinery/stasis_cage/Destroy()
 	release()
 	QDEL_NULL(airtank)
 	QDEL_NULL(contained)
@@ -68,7 +68,7 @@
 	QDEL_NULL(wires)
 	return ..()
 
-/obj/machinery/stasis_cage/process(seconds_per_tick)
+/obj/structure/machinery/stasis_cage/process(seconds_per_tick)
 	if (use_power || !cell || !cell.charge)
 		return
 	cell.use(2 * seconds_per_tick)
@@ -80,7 +80,7 @@
 			var/mob/living/simple_animal/SA = contained
 			SA.in_stasis = TRUE
 
-/obj/machinery/stasis_cage/proc/try_release(mob/user)
+/obj/structure/machinery/stasis_cage/proc/try_release(mob/user)
 	if(!contained)
 		to_chat(user, SPAN_WARNING("There's no animals inside \the [src]"))
 		return
@@ -99,7 +99,7 @@
 		user.visible_message(SPAN_NOTICE("[user] releases \the [contained] from \the [src]!"))
 		release()
 
-/obj/machinery/stasis_cage/proc/release()
+/obj/structure/machinery/stasis_cage/proc/release()
 	if (contained)
 		contained.dropInto(src)
 		contained = null
@@ -107,7 +107,7 @@
 		update_icon()
 		update_use_power(POWER_USE_IDLE)
 
-/obj/machinery/stasis_cage/proc/contain(mob/user, mob/thing)
+/obj/structure/machinery/stasis_cage/proc/contain(mob/user, mob/thing)
 	if(contained || broken)
 		return
 	if (!use_power)
@@ -117,27 +117,27 @@
 	set_contained(thing)
 	update_use_power(POWER_USE_ACTIVE)
 
-/obj/machinery/stasis_cage/proc/set_contained(mob/contained)
+/obj/structure/machinery/stasis_cage/proc/set_contained(mob/contained)
 	src.contained = contained
 	if(contained)
 		contained.forceMove(src)
 	update_icon()
 
 
-/obj/machinery/stasis_cage/attack_hand(mob/user)
+/obj/structure/machinery/stasis_cage/attack_hand(mob/user)
 	if (!panel_open)
 		try_release(user)
 	else
 		wires.interact(user)
 
-/obj/machinery/stasis_cage/attack_robot(mob/user)
+/obj/structure/machinery/stasis_cage/attack_robot(mob/user)
 	if (Adjacent(user))
 		if(!panel_open)
 			try_release(user)
 		else
 			wires.interact(user)
 
-/obj/machinery/stasis_cage/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/stasis_cage/attackby(obj/item/attacking_item, mob/user)
 	. = ..()
 	// Crowbar - Pry thing out of cage
 	if (attacking_item.tool_behaviour == TOOL_CROWBAR)
@@ -179,21 +179,21 @@
 		panel_open = !panel_open
 		to_chat(user, SPAN_NOTICE("You [panel_open ? "unscrew" : "screw shut"] the maintainance panel of \the [src]"))
 
-/obj/machinery/stasis_cage/return_air() //Used to make stasis cage protect from vacuum.
+/obj/structure/machinery/stasis_cage/return_air() //Used to make stasis cage protect from vacuum.
 	if (!use_power)
 		return
 	if(airtank)
 		return airtank
 	..()
 
-/obj/machinery/stasis_cage/RefreshParts()
+/obj/structure/machinery/stasis_cage/RefreshParts()
 	..()
 	var/charge_multiplier
 	for(var/obj/item/stock_parts/capacitor/C in component_parts)
 		charge_multiplier += C.rating / 2
 	change_power_consumption(initial(active_power_usage) / charge_multiplier, POWER_USE_ACTIVE)
 
-/obj/machinery/stasis_cage/emp_act(severity)
+/obj/structure/machinery/stasis_cage/emp_act(severity)
 	. = ..()
 	if(contained)
 		if(prob(30))
@@ -212,7 +212,7 @@
 
 	update_icon()
 
-/obj/machinery/stasis_cage/update_icon()
+/obj/structure/machinery/stasis_cage/update_icon()
 	. = ..()
 	ClearOverlays()
 	if (use_power)
@@ -232,7 +232,7 @@
 		else
 			icon_state = initial(icon_state)
 
-/obj/machinery/stasis_cage/mouse_drop_receive(atom/dropped, mob/user, params)
+/obj/structure/machinery/stasis_cage/mouse_drop_receive(atom/dropped, mob/user, params)
 	if (!isanimal(dropped) && safety)
 		to_chat(user, SPAN_WARNING("\The [src] smartly refuses \the [dropped]."))
 		return
@@ -256,7 +256,7 @@
 
 /datum/wires/stasis_cage
 	proper_name = "Stasis Cage"
-	holder_type = /obj/machinery/stasis_cage
+	holder_type = /obj/structure/machinery/stasis_cage
 
 
 /datum/wires/stasis_cage/New(atom/holder)
@@ -270,14 +270,14 @@
 
 /datum/wires/stasis_cage/interactable(mob/user)
 	SHOULD_CALL_PARENT(FALSE)
-	var/obj/machinery/stasis_cage/stasis_cage = holder
+	var/obj/structure/machinery/stasis_cage/stasis_cage = holder
 	if (stasis_cage.panel_open)
 		return TRUE
 	return FALSE
 
 
 /datum/wires/stasis_cage/get_status()
-	var/obj/machinery/stasis_cage/stasis_cage = holder
+	var/obj/structure/machinery/stasis_cage/stasis_cage = holder
 	. = ..()
 	if(!stasis_cage.use_power)
 		. += "The panel is unpowered."
@@ -289,7 +289,7 @@
 
 
 /datum/wires/stasis_cage/on_cut(wire, mend, source)
-	var/obj/machinery/stasis_cage/stasis_cage = holder
+	var/obj/structure/machinery/stasis_cage/stasis_cage = holder
 	switch (wire)
 		if (WIRE_SAFETY)
 			stasis_cage.safety = !stasis_cage.safety
@@ -306,7 +306,7 @@
 
 
 /datum/wires/stasis_cage/on_pulse(wire)
-	var/obj/machinery/stasis_cage/stasis_cage = holder
+	var/obj/structure/machinery/stasis_cage/stasis_cage = holder
 	switch (wire)
 		if (WIRE_SAFETY)
 			if (stasis_cage.contained)

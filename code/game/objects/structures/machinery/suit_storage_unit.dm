@@ -3,7 +3,7 @@
 //////////////////////////////////////
 
 
-/obj/machinery/suit_storage_unit
+/obj/structure/machinery/suit_storage_unit
 	name = "Suit Storage Unit"
 	desc = "An industrial U-Stor-It Storage unit designed to accomodate all kinds of space suits. Its on-board equipment also allows the user to decontaminate the contents through a UV-ray purging cycle. There's a warning label dangling from the control pad, reading \"STRICTLY NO BIOLOGICALS IN THE CONFINES OF THE UNIT\"."
 	icon = 'icons/obj/machinery/suit_storage.dmi'
@@ -29,13 +29,13 @@
 
 //The units themselves/////////////////
 
-/obj/machinery/suit_storage_unit/standard_unit
+/obj/structure/machinery/suit_storage_unit/standard_unit
 	SUIT_TYPE = /obj/item/clothing/suit/space
 	HELMET_TYPE = /obj/item/clothing/head/helmet/space
 	MASK_TYPE = /obj/item/clothing/mask/breath
 
 
-/obj/machinery/suit_storage_unit/Initialize()
+/obj/structure/machinery/suit_storage_unit/Initialize()
 	. = ..()
 	update_icon()
 	if(SUIT_TYPE)
@@ -45,7 +45,7 @@
 	if(MASK_TYPE)
 		MASK = new MASK_TYPE(src)
 
-/obj/machinery/suit_storage_unit/update_icon()
+/obj/structure/machinery/suit_storage_unit/update_icon()
 	ClearOverlays()
 
 	if(panelopen)
@@ -79,7 +79,7 @@
 		else
 			AddOverlays("[initial(icon_state)]_ready")
 
-/obj/machinery/suit_storage_unit/power_change()
+/obj/structure/machinery/suit_storage_unit/power_change()
 	..()
 	if( !(stat & NOPOWER) )
 		src.ispowered = 1
@@ -88,14 +88,14 @@
 		addtimer(CALLBACK(src, PROC_REF(handle_power_return)), rand(1, 15))
 
 
-/obj/machinery/suit_storage_unit/proc/handle_power_return()
+/obj/structure/machinery/suit_storage_unit/proc/handle_power_return()
 	src.ispowered = 0
 	src.islocked = 0
 	src.isopen = 1
 	src.dump_everything()
 	src.update_icon()
 
-/obj/machinery/suit_storage_unit/ex_act(severity)
+/obj/structure/machinery/suit_storage_unit/ex_act(severity)
 	switch(severity)
 		if(1.0)
 			if(prob(50))
@@ -110,7 +110,7 @@
 		else
 			return
 
-/obj/machinery/suit_storage_unit/attack_hand(mob/user as mob)
+/obj/structure/machinery/suit_storage_unit/attack_hand(mob/user as mob)
 	var/dat
 	if(..())
 		return
@@ -174,7 +174,7 @@
 	return
 
 
-/obj/machinery/suit_storage_unit/Topic(href, href_list) //I fucking HATE this proc
+/obj/structure/machinery/suit_storage_unit/Topic(href, href_list) //I fucking HATE this proc
 	if(..())
 		return
 	if ((usr.contents.Find(src) || ((get_dist(src, usr) <= 1) && istype(src.loc, /turf))) || (istype(usr, /mob/living/silicon/ai)))
@@ -221,7 +221,7 @@
 	return
 
 
-/obj/machinery/suit_storage_unit/proc/toggleUV(mob/user as mob)
+/obj/structure/machinery/suit_storage_unit/proc/toggleUV(mob/user as mob)
 //	var/protected = 0
 //	var/mob/living/carbon/human/H = user
 	if(!src.panelopen)
@@ -247,7 +247,7 @@
 		return
 
 
-/obj/machinery/suit_storage_unit/proc/togglesafeties(mob/user as mob)
+/obj/structure/machinery/suit_storage_unit/proc/togglesafeties(mob/user as mob)
 //	var/protected = 0
 //	var/mob/living/carbon/human/H = user
 	if(!src.panelopen) //Needed check due to bugs
@@ -268,7 +268,7 @@
 		src.safetieson = !src.safetieson
 
 
-/obj/machinery/suit_storage_unit/proc/dispense_helmet(mob/user as mob)
+/obj/structure/machinery/suit_storage_unit/proc/dispense_helmet(mob/user as mob)
 	if(!src.HELMET)
 		return //Do I even need this sanity check? Nyoro~n
 	else
@@ -277,7 +277,7 @@
 		return
 
 
-/obj/machinery/suit_storage_unit/proc/dispense_suit(mob/user as mob)
+/obj/structure/machinery/suit_storage_unit/proc/dispense_suit(mob/user as mob)
 	if(!src.SUIT)
 		return
 	else
@@ -286,7 +286,7 @@
 		return
 
 
-/obj/machinery/suit_storage_unit/proc/dispense_mask(mob/user as mob)
+/obj/structure/machinery/suit_storage_unit/proc/dispense_mask(mob/user as mob)
 	if(!src.MASK)
 		return
 	else
@@ -295,7 +295,7 @@
 		return
 
 
-/obj/machinery/suit_storage_unit/proc/dump_everything()
+/obj/structure/machinery/suit_storage_unit/proc/dump_everything()
 	src.islocked = 0 //locks go free
 	if(src.SUIT)
 		src.SUIT.forceMove(src.loc)
@@ -311,7 +311,7 @@
 	return
 
 
-/obj/machinery/suit_storage_unit/proc/toggle_open(mob/user as mob)
+/obj/structure/machinery/suit_storage_unit/proc/toggle_open(mob/user as mob)
 	if(src.islocked || src.isUV)
 		to_chat(user, SPAN_WARNING("Unable to open unit."))
 		return
@@ -322,7 +322,7 @@
 	return
 
 
-/obj/machinery/suit_storage_unit/proc/toggle_lock(mob/user as mob)
+/obj/structure/machinery/suit_storage_unit/proc/toggle_lock(mob/user as mob)
 	if(src.OCCUPANT && src.safetieson)
 		to_chat(user, SPAN_WARNING("The Unit's safety protocols disallow locking when a biological form is detected inside its compartments."))
 		return
@@ -332,7 +332,7 @@
 	return
 
 
-/obj/machinery/suit_storage_unit/proc/start_UV(mob/user as mob)
+/obj/structure/machinery/suit_storage_unit/proc/start_UV(mob/user as mob)
 	if(src.isUV || src.isopen) //I'm bored of all these sanity checks
 		return
 	if(src.OCCUPANT && src.safetieson)
@@ -390,12 +390,12 @@
 	src.updateUsrDialog()
 	return
 
-/obj/machinery/suit_storage_unit/proc/cycletimeleft()
+/obj/structure/machinery/suit_storage_unit/proc/cycletimeleft()
 	if(src.cycletime_left >= 1)
 		src.cycletime_left--
 	return src.cycletime_left
 
-/obj/machinery/suit_storage_unit/proc/eject_occupant(mob/user as mob)
+/obj/structure/machinery/suit_storage_unit/proc/eject_occupant(mob/user as mob)
 	if (src.islocked)
 		return
 
@@ -418,7 +418,7 @@
 	return
 
 
-/obj/machinery/suit_storage_unit/verb/get_out()
+/obj/structure/machinery/suit_storage_unit/verb/get_out()
 	set name = "Eject Suit Storage Unit"
 	set category = "Object"
 	set src in oview(1)
@@ -432,7 +432,7 @@
 	return
 
 
-/obj/machinery/suit_storage_unit/verb/move_inside()
+/obj/structure/machinery/suit_storage_unit/verb/move_inside()
 	set name = "Hide in Suit Storage Unit"
 	set category = "Object"
 	set src in oview(1)
@@ -468,7 +468,7 @@
 	return
 
 
-/obj/machinery/suit_storage_unit/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/suit_storage_unit/attackby(obj/item/attacking_item, mob/user)
 	if(!src.ispowered)
 		return TRUE
 	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
@@ -553,7 +553,7 @@
 	src.updateUsrDialog()
 
 
-/obj/machinery/suit_storage_unit/attack_ai(mob/user as mob)
+/obj/structure/machinery/suit_storage_unit/attack_ai(mob/user as mob)
 	if(!ai_can_interact(user))
 		return
 	return src.attack_hand(user)

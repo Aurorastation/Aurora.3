@@ -1,4 +1,4 @@
-/obj/machinery/sleeper
+/obj/structure/machinery/sleeper
 	name = "sleeper"
 	desc = "A fancy bed with built-in injectors, a dialysis machine, and a limited health scanner."
 	icon = 'icons/obj/machinery/sleeper.dmi'
@@ -43,7 +43,7 @@
 
 	parts_power_mgmt = FALSE
 
-/obj/machinery/sleeper/mechanics_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/sleeper/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "The sleeper allows you to clean the blood by means of dialysis, and to administer medication in a controlled environment."
 	. += "Click your target with Grab intent, then click on the sleeper to place them in it. Then click the green console with an empty hand to open the menu."
@@ -53,17 +53,17 @@
 	. += "Right-click the cell and click 'Eject Occupant' to remove them.  You can enter the cell yourself by right clicking and selecting 'Enter Sleeper'. \
 	Note that you cannot control the sleeper while inside of it."
 
-/obj/machinery/sleeper/upgrade_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/sleeper/upgrade_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Upgraded <b>capacitors</b> will reduce power usage."
 	. += "Upgraded <b>scanning modules</b> will reduce power usage."
 
-/obj/machinery/sleeper/Initialize()
+/obj/structure/machinery/sleeper/Initialize()
 	. = ..()
 	update_icon()
 	parts_power_usage = active_power_usage
 
-/obj/machinery/sleeper/process(seconds_per_tick)
+/obj/structure/machinery/sleeper/process(seconds_per_tick)
 	if((stat & (NOPOWER|BROKEN)) && !interact_offline)
 		return
 
@@ -94,7 +94,7 @@
 	if(iscarbon(occupant) && stasis > 1)
 		occupant.SetStasis(stasis)
 
-/obj/machinery/sleeper/update_icon()
+/obj/structure/machinery/sleeper/update_icon()
 	flick("[initial(icon_state)]-anim", src)
 	if(occupant)
 		if(stat & NOPOWER || stat & BROKEN)
@@ -105,7 +105,7 @@
 	else
 		icon_state = initial(icon_state)
 
-/obj/machinery/sleeper/RefreshParts()
+/obj/structure/machinery/sleeper/RefreshParts()
 	..()
 	var/scan_rating = 0
 	var/cap_rating = 0
@@ -121,19 +121,19 @@
 	change_power_consumption((initial(active_power_usage) - (cap_rating + scan_rating)*2), POWER_USE_ACTIVE)
 	parts_power_usage = active_power_usage
 
-/obj/machinery/sleeper/attack_hand(var/mob/user)
+/obj/structure/machinery/sleeper/attack_hand(var/mob/user)
 	if(..())
 		return TRUE
 
 	ui_interact(user)
 
-/obj/machinery/sleeper/ui_interact(mob/user, var/datum/tgui/ui)
+/obj/structure/machinery/sleeper/ui_interact(mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "Sleeper", "Sleeper", 450, 500)
 		ui.open()
 
-/obj/machinery/sleeper/ui_data(mob/user)
+/obj/structure/machinery/sleeper/ui_data(mob/user)
 	var/list/data = list()
 	data["power"] = (stat & (NOPOWER|BROKEN)) && !interact_offline ? FALSE : TRUE
 
@@ -196,7 +196,7 @@
 
 	return data
 
-/obj/machinery/sleeper/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/obj/structure/machinery/sleeper/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
@@ -235,12 +235,12 @@
 
 	return TRUE
 
-/obj/machinery/sleeper/attack_ai(var/mob/user)
+/obj/structure/machinery/sleeper/attack_ai(var/mob/user)
 	if(!ai_can_interact(user))
 		return
 	return attack_hand(user)
 
-/obj/machinery/sleeper/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/sleeper/attackby(obj/item/attacking_item, mob/user)
 	if(!istype(attacking_item, /obj/item/forensics))
 		add_fingerprint(user)
 	if(istype(attacking_item, /obj/item/reagent_containers/glass))
@@ -293,7 +293,7 @@
 	else if(default_part_replacement(user, attacking_item))
 		return TRUE
 
-/obj/machinery/sleeper/mouse_drop_receive(atom/dropped, mob/user, params)
+/obj/structure/machinery/sleeper/mouse_drop_receive(atom/dropped, mob/user, params)
 	var/mob/target = dropped
 	if(!istype(target))
 		return
@@ -310,13 +310,13 @@
 		LB.user_unbuckle(user)
 	go_in(target, user)
 
-/obj/machinery/sleeper/relaymove(mob/living/user, direction)
+/obj/structure/machinery/sleeper/relaymove(mob/living/user, direction)
 	. = ..()
 
 	if(user == occupant)
 		go_out()
 
-/obj/machinery/sleeper/emp_act(severity)
+/obj/structure/machinery/sleeper/emp_act(severity)
 	. = ..()
 
 	if(filtering)
@@ -329,13 +329,13 @@
 		go_out()
 
 
-/obj/machinery/sleeper/proc/toggle_filter()
+/obj/structure/machinery/sleeper/proc/toggle_filter()
 	if(!occupant || !beaker)
 		filtering = FALSE
 		return
 	filtering = !filtering
 
-/obj/machinery/sleeper/proc/toggle_pump()
+/obj/structure/machinery/sleeper/proc/toggle_pump()
 	if(!occupant || !beaker)
 		pump = FALSE
 		return
@@ -345,7 +345,7 @@
 	else
 		to_chat(occupant, SPAN_WARNING("You feel the tube being pulled out of your throat."))
 
-/obj/machinery/sleeper/proc/go_in(var/mob/M, var/mob/user)
+/obj/structure/machinery/sleeper/proc/go_in(var/mob/M, var/mob/user)
 	if(!M)
 		return
 	if((stat & (BROKEN|NOPOWER)) && !interact_offline)
@@ -373,7 +373,7 @@
 		occupant = M
 		update_icon()
 
-/obj/machinery/sleeper/proc/go_out()
+/obj/structure/machinery/sleeper/proc/go_out()
 	if(!occupant)
 		return
 	if(occupant.client)
@@ -390,18 +390,18 @@
 	toggle_filter()
 	toggle_pump()
 
-/obj/machinery/sleeper/AltClick()
+/obj/structure/machinery/sleeper/AltClick()
 	if(use_check_and_message(usr))
 		go_out()
 
-/obj/machinery/sleeper/proc/remove_beaker()
+/obj/structure/machinery/sleeper/proc/remove_beaker()
 	if(beaker)
 		beaker.forceMove(get_turf(src))
 		beaker = null
 		toggle_filter()
 		toggle_pump()
 
-/obj/machinery/sleeper/proc/inject_chemical(var/mob/living/user, var/chemical, var/add_amount)
+/obj/structure/machinery/sleeper/proc/inject_chemical(var/mob/living/user, var/chemical, var/add_amount)
 	if((stat & (BROKEN|NOPOWER)) && !interact_offline)
 		return
 

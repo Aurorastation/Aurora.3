@@ -38,7 +38,7 @@
 	filters = filter(type="rays", size = _size, color = _color, factor = _factor, density = _density, flags = FILTER_OVERLAY, offset = _offset)
 
 
-/obj/machinery/rotating_alarm
+/obj/structure/machinery/rotating_alarm
 	name = "industrial alarm"
 	desc = "An industrial rotating alarm light."
 	icon = 'icons/obj/structure/rotating_alarm.dmi'
@@ -48,7 +48,7 @@
 	anchored = TRUE
 
 	var/on = FALSE
-	var/construct_type = /obj/machinery/light_construct
+	var/construct_type = /obj/structure/machinery/light_construct
 
 	var/obj/spinning_light/spin_effect = null
 
@@ -59,7 +59,7 @@
 	var/static/list/spinning_lights_cache = list()
 
 
-/obj/machinery/rotating_alarm/Initialize()
+/obj/structure/machinery/rotating_alarm/Initialize()
 	. = ..()
 
 	//Setup colour
@@ -71,14 +71,14 @@
 
 	set_dir(dir) //Set dir again so offsets update correctly
 
-/obj/machinery/rotating_alarm/Destroy()
+/obj/structure/machinery/rotating_alarm/Destroy()
 	QDEL_NULL(spin_effect)
 	QDEL_LIST_ASSOC_VAL(spinning_lights_cache)
 
 	. = ..()
 
 
-/obj/machinery/rotating_alarm/set_dir(ndir) //Due to effect, offsets cannot be part of sprite, so need to set it for each dir
+/obj/structure/machinery/rotating_alarm/set_dir(ndir) //Due to effect, offsets cannot be part of sprite, so need to set it for each dir
 	. = ..()
 	if(dir == NORTH)
 		pixel_y = -13
@@ -90,7 +90,7 @@
 		pixel_x = -20
 
 
-/obj/machinery/rotating_alarm/proc/set_color(color)
+/obj/structure/machinery/rotating_alarm/proc/set_color(color)
 	if(on)
 		vis_contents -= spin_effect
 
@@ -107,7 +107,7 @@
 	if(on)
 		vis_contents += spin_effect
 
-/obj/machinery/rotating_alarm/proc/toggle_state()
+/obj/structure/machinery/rotating_alarm/proc/toggle_state()
 	if(on)
 		vis_contents -= spin_effect
 		set_light(0)

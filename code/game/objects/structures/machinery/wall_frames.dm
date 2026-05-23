@@ -45,7 +45,7 @@
 		to_chat(usr, SPAN_WARNING("There's already an item on this wall!"))
 		return
 
-	var/obj/machinery/M = new build_machine_type(loc, ndir, 1)
+	var/obj/structure/machinery/M = new build_machine_type(loc, ndir, 1)
 	M.fingerprints = src.fingerprints
 	M.fingerprintshidden = src.fingerprintshidden
 	M.fingerprintslast = src.fingerprintslast
@@ -56,29 +56,29 @@
 	name = "fire alarm frame"
 	desc = "Used for building fire alarms."
 	icon_state = "firealarm"
-	build_machine_type = /obj/machinery/firealarm
+	build_machine_type = /obj/structure/machinery/firealarm
 
 /obj/item/frame/air_alarm
 	name = "air alarm frame"
 	desc = "Used for building air alarms."
 	icon_state = "alarm_bitem"
-	build_machine_type = /obj/machinery/alarm
+	build_machine_type = /obj/structure/machinery/alarm
 
 /obj/item/frame/light
 	name = "light fixture frame"
 	desc = "Used for building lights."
 	icon = 'icons/obj/machinery/light.dmi'
 	icon_state = "tube-construct-item"
-	build_machine_type = /obj/machinery/light_construct
+	build_machine_type = /obj/structure/machinery/light_construct
 
 /obj/item/frame/light/small
 	name = "small light fixture frame"
 	icon_state = "bulb-construct-item"
 	refund_amt = 1
-	build_machine_type = /obj/machinery/light_construct/small
+	build_machine_type = /obj/structure/machinery/light_construct/small
 
 /obj/item/frame/light/spot
 	name = "spotlight fixture frame"
 	icon_state = "slight-construct-item"
 	refund_amt = 3
-	build_machine_type = /obj/machinery/light_construct/spot
+	build_machine_type = /obj/structure/machinery/light_construct/spot

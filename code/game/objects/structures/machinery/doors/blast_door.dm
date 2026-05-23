@@ -9,7 +9,7 @@
 #define BLAST_DOOR_CRUSH_DAMAGE 40
 #define SHUTTER_CRUSH_DAMAGE 10
 
-/obj/machinery/door/blast
+/obj/structure/machinery/door/blast
 	name = "blast door"
 	desc = "That looks like it doesn't open easily."
 	icon = 'icons/obj/doors/rapid_pdoor.dmi'
@@ -44,7 +44,7 @@
 	/// If the blast door should close when power goes out.
 	var/fail_secure = FALSE
 
-/obj/machinery/door/blast/Initialize()
+/obj/structure/machinery/door/blast/Initialize()
 	. = ..()
 	if(_wifi_id)
 		wifi_receiver = new(_wifi_id, src)
@@ -53,7 +53,7 @@
 	else
 		layer = open_layer
 
-/obj/machinery/door/blast/Destroy()
+/obj/structure/machinery/door/blast/Destroy()
 	QDEL_NULL(wifi_receiver)
 	return ..()
 
@@ -62,7 +62,7 @@
  *
  * * atom/bumped_atom - Atom that tried to walk through this object
  */
-/obj/machinery/door/blast/CollidedWith(atom/bumped_atom)
+/obj/structure/machinery/door/blast/CollidedWith(atom/bumped_atom)
 	if(!density)
 		return ..()
 	else
@@ -71,7 +71,7 @@
 /**
  * Updates icon of this object. Uses icon state variables.
  */
-/obj/machinery/door/blast/update_icon()
+/obj/structure/machinery/door/blast/update_icon()
 	if(density)
 		icon_state = icon_state_closed
 	else
@@ -81,7 +81,7 @@
 /**
  * Opens the door. No checks are done inside this proc.
  */
-/obj/machinery/door/blast/proc/force_open()
+/obj/structure/machinery/door/blast/proc/force_open()
 	src.operating = 1
 	playsound(src.loc, open_sound, 100, 1)
 	flick(icon_state_opening, src)
@@ -96,7 +96,7 @@
 /**
  * Closes the door. No checks are done inside this proc.
  */
-/obj/machinery/door/blast/proc/force_close()
+/obj/structure/machinery/door/blast/proc/force_close()
 	if(density)
 		return 0
 	src.operating = 1
@@ -113,7 +113,7 @@
 /**
  * Opens or closes the door, depending on current state. No checks are done inside this proc.
  */
-/obj/machinery/door/blast/proc/force_toggle()
+/obj/structure/machinery/door/blast/proc/force_toggle()
 	if(src.density)
 		src.force_open()
 	else
@@ -127,7 +127,7 @@
  * * obj/item/attacking_item - Item this object was clicked with
  * * mob/user - Mob which clicked this object
  */
-/obj/machinery/door/blast/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/door/blast/attackby(obj/item/attacking_item, mob/user)
 	if(!istype(attacking_item, /obj/item/forensics))
 		src.add_fingerprint(user)
 	if(istype(attacking_item, /obj/item/material/twohanded/fireaxe))
@@ -171,7 +171,7 @@
 /**
  * Opens the door. Does necessary checks. Automatically closes if autoclose is true.
  */
-/obj/machinery/door/blast/open()
+/obj/structure/machinery/door/blast/open()
 	if (src.operating || (stat & BROKEN || stat & NOPOWER))
 		return
 	force_open()
@@ -182,7 +182,7 @@
 /**
  * Closes the door. Does necessary checks.
  */
-/obj/machinery/door/blast/close()
+/obj/structure/machinery/door/blast/close()
 	if (src.operating || (stat & BROKEN || stat & NOPOWER))
 		return
 	force_close()
@@ -195,19 +195,19 @@
 /**
  * Fully repairs the blast door.
  */
-/obj/machinery/door/blast/proc/repair()
+/obj/structure/machinery/door/blast/proc/repair()
 	set_health(maxhealth)
 	if(stat & BROKEN)
 		stat &= ~BROKEN
 
-/obj/machinery/door/blast/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
+/obj/structure/machinery/door/blast/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(air_group) return 1
 	return ..()
 
 /**
  * Controls how blast doors and shutters should act when power is lost or restored.
  */
-/obj/machinery/door/blast/power_change()
+/obj/structure/machinery/door/blast/power_change()
 	..()
 	if(src.operating || (stat & BROKEN))
 		return
@@ -219,12 +219,12 @@
 		INVOKE_ASYNC(src, PROC_REF(force_open))
 		securitylock = FALSE
 
-/obj/machinery/door/blast/attack_hand(mob/user as mob)
+/obj/structure/machinery/door/blast/attack_hand(mob/user as mob)
 	return
 
 // SUBTYPE: Regular
 // Your classical blast door, found almost everywhere.
-/obj/machinery/door/blast/regular
+/obj/structure/machinery/door/blast/regular
 	//Because SDMM doesn't recognise the name otherwise, for some reason
 	name = "blast door"
 	icon_state_open = "pdoor0"
@@ -235,7 +235,7 @@
 	maxhealth = OBJECT_HEALTH_EXTREMELY_HIGH
 	block_air_zones = 1
 
-/obj/machinery/door/blast/regular/open
+/obj/structure/machinery/door/blast/regular/open
 	//Because SDMM doesn't recognise the name otherwise, for some reason
 	name = "blast door"
 	icon_state = "pdoor0"
@@ -244,7 +244,7 @@
 
 // SUBTYPE: Shutters
 // Nicer looking, and also weaker, shutters. Found in kitchen and similar areas.
-/obj/machinery/door/blast/shutters
+/obj/structure/machinery/door/blast/shutters
 	name = "shutter"
 	icon_state_open = "shutter0"
 	icon_state_opening = "shutterc0"
@@ -254,14 +254,14 @@
 	damage = SHUTTER_CRUSH_DAMAGE
 	closed_layer = CLOSED_DOOR_LAYER
 
-/obj/machinery/door/blast/shutters/open
+/obj/structure/machinery/door/blast/shutters/open
 	icon_state = "shutter0"
 	density = FALSE
 	opacity = FALSE
 
 // SUBTYPE: Odin
 // Found on the odin, or where people really shouldnt get into
-/obj/machinery/door/blast/odin
+/obj/structure/machinery/door/blast/odin
 	icon_state_open = "pdoor0"
 	icon_state_opening = "pdoorc0"
 	icon_state_closed = "pdoor1"
@@ -270,37 +270,37 @@
 	maxhealth = OBJECT_HEALTH_EXTREMELY_HIGH
 	block_air_zones = 1
 
-/obj/machinery/door/blast/odin/open
+/obj/structure/machinery/door/blast/odin/open
 	//Because SDMM doesn't recognise the name otherwise, for some reason
 	name = "blast door"
 	icon_state = "pdoor0"
 	density = 0
 	opacity = 0
 
-/obj/machinery/door/blast/odin/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/door/blast/odin/attackby(obj/item/attacking_item, mob/user)
 	return
 
-/obj/machinery/door/blast/odin/ex_act(var/severity)
+/obj/structure/machinery/door/blast/odin/ex_act(var/severity)
 	return
 
-/obj/machinery/door/blast/odin/add_damage(damage, damage_flags, damage_type, armor_penetration, obj/weapon, message)
+/obj/structure/machinery/door/blast/odin/add_damage(damage, damage_flags, damage_type, armor_penetration, obj/weapon, message)
 	return
 
-/obj/machinery/door/blast/odin/shuttle
+/obj/structure/machinery/door/blast/odin/shuttle
 	icon_state = "pdoor0"
 	density = 0
 	opacity = 0
 
-/obj/machinery/door/blast/odin/shuttle/ert
+/obj/structure/machinery/door/blast/odin/shuttle/ert
 	_wifi_id = "ert_shuttle_lockdown"
 
-/obj/machinery/door/blast/odin/shuttle/tcfl
+/obj/structure/machinery/door/blast/odin/shuttle/tcfl
 	_wifi_id = "tcfl_shuttle_release"
 	icon_state = "pdoor1"
 	density = 1
 	opacity = 1
 
-/obj/machinery/door/blast/odin/shuttle/tcfl/shutter
+/obj/structure/machinery/door/blast/odin/shuttle/tcfl/shutter
 	_wifi_id = "tcfl_shuttle_lockdown"
 	density = 0
 	opacity = 0

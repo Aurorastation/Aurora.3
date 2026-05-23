@@ -10,7 +10,7 @@
  *	MegaSeed Servitor
  */
 
-/obj/machinery/vending/hydronutrients
+/obj/structure/machinery/vending/hydronutrients
 	name = "NutriMax"
 	desc = "A plant nutrients vendor."
 	product_slogans = "Aren't you glad you don't have to fertilize the natural way?;Now with 50% less stink!;Plants are people too!"
@@ -38,7 +38,7 @@
 	random_itemcount = 0
 	light_color = COLOR_BABY_BLUE
 
-/obj/machinery/vending/hydronutrients/low_supply
+/obj/structure/machinery/vending/hydronutrients/low_supply
 	products = list(
 		/obj/item/reagent_containers/glass/fertilizer/ez = 3,
 		/obj/item/reagent_containers/glass/fertilizer/l4z = 4,
@@ -48,7 +48,7 @@
 		/obj/item/storage/bag/plants = 3
 	)
 
-/obj/machinery/vending/hydronutrients/xenobotany
+/obj/structure/machinery/vending/hydronutrients/xenobotany
 	products = list(
 		/obj/item/reagent_containers/glass/fertilizer/ez = 6,
 		/obj/item/reagent_containers/glass/fertilizer/l4z = 6,
@@ -64,7 +64,7 @@
 		/obj/item/reagent_containers/glass/bottle/mutagen = 3
 	)
 
-/obj/machinery/vending/hydronutrients/xenobotany/low_supply
+/obj/structure/machinery/vending/hydronutrients/xenobotany/low_supply
 	products = list(
 		/obj/item/reagent_containers/glass/fertilizer/ez = 3,
 		/obj/item/reagent_containers/glass/fertilizer/l4z = 4,
@@ -81,7 +81,7 @@
 	)
 
 //Used specifically for more advanced setups, includes analyzers and tools inside the machine.
-/obj/machinery/vending/hydronutrients/hydroponics
+/obj/structure/machinery/vending/hydronutrients/hydroponics
 	name = "HydroVend"
 	desc = "A one stop shop for all your hydroponics needs."
 
@@ -108,7 +108,7 @@
 	)
 
 //Meant to replace garden vending machines in public spaces, has a price list for items. Nothing unreasonable.
-/obj/machinery/vending/hydronutrients/gardenvend
+/obj/structure/machinery/vending/hydronutrients/gardenvend
 	name = "GardenVend"
 	desc = "A one stop shop for all your gardening needs."
 
@@ -144,7 +144,7 @@
 		/obj/item/reagent_containers/glass/bottle/mutagen = 2
 	)
 
-/obj/machinery/vending/hydronutrients/gardenvend/low_supply
+/obj/structure/machinery/vending/hydronutrients/gardenvend/low_supply
 	products = list(
 		/obj/item/reagent_containers/glass/fertilizer/ez = 2,
 		/obj/item/plantspray/pests = 3,
@@ -161,7 +161,7 @@
 	charges = 23
 
 
-/obj/machinery/vending/hydroseeds
+/obj/structure/machinery/vending/hydroseeds
 	name = "MegaSeed Servitor"
 	desc = "When you need seeds fast!"
 	product_slogans = "THIS'S WHERE TH' SEEDS LIVE! GIT YOU SOME!;Hands down the best seed selection on the station!;Also certain mushroom varieties available, more for experts! Get certified today!"
@@ -343,7 +343,7 @@
  *  This needs to be customized to fetch the actual names of the seeds, otherwise
  *  the machine would simply list "packet of seeds" times 20
  */
-/obj/machinery/vending/hydroseeds/build_inventory()
+/obj/structure/machinery/vending/hydroseeds/build_inventory()
 	var/list/all_products = list(
 		list(src.products, CAT_NORMAL),
 		list(src.contraband, CAT_HIDDEN),

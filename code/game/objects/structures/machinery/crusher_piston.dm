@@ -1,7 +1,7 @@
 #define PISTON_MOVE_DAMAGE 30
 #define PISTON_MOVE_DIVISOR 8
 
-/obj/machinery/crusher_base
+/obj/structure/machinery/crusher_base
 	name = "trash compactor"
 	desc = "A colossal piston used for crushing garbage."
 	icon = 'icons/obj/machinery/crusherbase.dmi'
@@ -12,7 +12,7 @@
 	//Just 300 Watts here. Power is drawn by the piston when it moves
 	idle_power_usage = 300
 
-	var/obj/machinery/crusher_piston/pstn //Piston
+	var/obj/structure/machinery/crusher_piston/pstn //Piston
 
 	var/action = "idle" //Action the piston should perform
 	// idle -> Do nothing
@@ -57,7 +57,7 @@
 		/obj/item/reagent_containers/glass/beaker = 3
 	)
 
-/obj/machinery/crusher_base/Initialize()
+/obj/structure/machinery/crusher_base/Initialize()
 	. = ..()
 
 	action_start_time = world.time
@@ -70,10 +70,10 @@
 	// Change the icons of the neighboring bases
 	change_neighbor_base_icons()
 
-/obj/machinery/crusher_base/Destroy()
+/obj/structure/machinery/crusher_base/Destroy()
 	var/oldloc = loc
-	var/obj/machinery/crusher_base/left = locate(/obj/machinery/crusher_base, get_step(src, WEST))
-	var/obj/machinery/crusher_base/right = locate(/obj/machinery/crusher_base, get_step(src, EAST))
+	var/obj/structure/machinery/crusher_base/left = locate(/obj/structure/machinery/crusher_base, get_step(src, WEST))
+	var/obj/structure/machinery/crusher_base/right = locate(/obj/structure/machinery/crusher_base, get_step(src, EAST))
 
 	loc=null
 	if(left)
@@ -85,7 +85,7 @@
 	QDEL_NULL(pstn)
 	return ..()
 
-/obj/machinery/crusher_base/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/crusher_base/attackby(obj/item/attacking_item, mob/user)
 	if(status != "idle" && prob(40) && ishuman(user))
 		var/mob/living/carbon/human/M = user
 		M.apply_damage(45, DAMAGE_BRUTE, user.get_active_hand())
@@ -115,7 +115,7 @@
 			return TRUE
 	return ..()
 
-/obj/machinery/crusher_base/default_deconstruction_crowbar(var/mob/user, var/obj/item/crowbar/C)
+/obj/structure/machinery/crusher_base/default_deconstruction_crowbar(var/mob/user, var/obj/item/crowbar/C)
 	if(!istype(C))
 		return 0
 	if(num_progress != 0) //Piston needs to be retracted before you are able to deconstruct it
@@ -123,19 +123,19 @@
 		return 0
 	return ..()
 
-/obj/machinery/crusher_base/proc/change_neighbor_base_icons()
-	var/obj/machinery/crusher_base/left = locate(/obj/machinery/crusher_base, get_step(src, WEST))
-	var/obj/machinery/crusher_base/right = locate(/obj/machinery/crusher_base, get_step(src, EAST))
+/obj/structure/machinery/crusher_base/proc/change_neighbor_base_icons()
+	var/obj/structure/machinery/crusher_base/left = locate(/obj/structure/machinery/crusher_base, get_step(src, WEST))
+	var/obj/structure/machinery/crusher_base/right = locate(/obj/structure/machinery/crusher_base, get_step(src, EAST))
 	if(left)
 		left.queue_icon_update()
 
 	if(right)
 		right.queue_icon_update()
 
-/obj/machinery/crusher_base/update_icon()
+/obj/structure/machinery/crusher_base/update_icon()
 	ClearOverlays()
-	var/obj/machinery/crusher_base/left = locate(/obj/machinery/crusher_base, get_step(src, WEST))
-	var/obj/machinery/crusher_base/right = locate(/obj/machinery/crusher_base, get_step(src, EAST))
+	var/obj/structure/machinery/crusher_base/left = locate(/obj/structure/machinery/crusher_base, get_step(src, WEST))
+	var/obj/structure/machinery/crusher_base/right = locate(/obj/structure/machinery/crusher_base, get_step(src, EAST))
 
 	if(QDELETED(left))
 		left = null
@@ -173,11 +173,11 @@
 		AddOverlays("[asmtype]-hatch")
 	update_above()
 
-/obj/machinery/crusher_base/power_change()
+/obj/structure/machinery/crusher_base/power_change()
 	..()
 	queue_icon_update()
 
-/obj/machinery/crusher_base/process()
+/obj/structure/machinery/crusher_base/process()
 	set waitfor = FALSE
 	if(!pstn) //We dont process if theres no piston
 		return
@@ -321,7 +321,7 @@
 		if(!AM.simulated)
 			items_to_move -= AM
 			continue
-		if(istype(AM,/obj/machinery/crusher_piston))
+		if(istype(AM,/obj/structure/machinery/crusher_piston))
 			items_to_move -= AM
 			continue
 		items_to_move -= AM
@@ -339,29 +339,29 @@
 	process_lock = 0
 
 
-/obj/machinery/crusher_base/proc/crush_start()
+/obj/structure/machinery/crusher_base/proc/crush_start()
 	action = "extend"
 
 
-/obj/machinery/crusher_base/proc/crush_abort()
+/obj/structure/machinery/crusher_base/proc/crush_abort()
 	//Abort the crush
 	//Retract all the pistons, ...
 	action = "retract"
 	initial = 1
 
-/obj/machinery/crusher_base/proc/get_num_progress()
+/obj/structure/machinery/crusher_base/proc/get_num_progress()
 	return num_progress
 
-/obj/machinery/crusher_base/proc/get_action()
+/obj/structure/machinery/crusher_base/proc/get_action()
 	return action
 
-/obj/machinery/crusher_base/proc/get_status()
+/obj/structure/machinery/crusher_base/proc/get_status()
 	return status
 
-/obj/machinery/crusher_base/proc/is_blocked()
+/obj/structure/machinery/crusher_base/proc/is_blocked()
 	return blocked
 
-/obj/machinery/crusher_base/proc/valve_check() //Check if the depreasurization valve is open
+/obj/structure/machinery/crusher_base/proc/valve_check() //Check if the depreasurization valve is open
 	if(valve_open == 1)
 		visible_message("The hydraulic pump in [src] briefly spins up and then shuts down.","You hear a pump spinning up briefly and then shutting down.")
 		action = "idle"
@@ -369,7 +369,7 @@
 	return 1
 
 //Piston Stage 1
-/obj/machinery/crusher_piston
+/obj/structure/machinery/crusher_piston
 	name = "trash compactor piston"
 	desc = "A colossal piston used for crushing garbage."
 	icon = 'icons/obj/machinery/crusherpiston.dmi' //Placeholder TODO: Get a proper icon
@@ -378,38 +378,37 @@
 	anchored = 1
 	pixel_y = -64
 	var/stage = 0 //The stage of the piston
-	var/obj/machinery/crusher_base/crs_base //Crusher Base the piston is linked to
+	var/obj/structure/machinery/crusher_base/crs_base //Crusher Base the piston is linked to
 	var/obj/effect/piston_blocker/pb1
 	var/obj/effect/piston_blocker/pb2
 	var/obj/effect/piston_blocker/pb3
 
 	var/static/list/immovable_items
 
-/obj/machinery/crusher_piston/Initialize()
+/obj/structure/machinery/crusher_piston/Initialize()
 	. = ..()
 
 	// Setup the immovable items typecache.
 	// 	(We only want to do this once as this is a huge list.)
 	if(!LAZYLEN(immovable_items))
 		immovable_items = typecacheof(list(
-			/obj/machinery,
 			/obj/structure,
 			/obj/item/modular_computer/telescreen,
 			/obj/item/modular_computer/console
-		)) - /obj/machinery/crusher_piston
+		)) - /obj/structure/machinery/crusher_piston
 
-/obj/machinery/crusher_piston/Destroy()
+/obj/structure/machinery/crusher_piston/Destroy()
 	reset_blockers()
 	if(!QDELETED(crs_base))
 		QDEL_NULL(crs_base)
 	return ..()
 
-/obj/machinery/crusher_piston/proc/reset_blockers()
+/obj/structure/machinery/crusher_piston/proc/reset_blockers()
 	QDEL_NULL(pb1)
 	QDEL_NULL(pb2)
 	QDEL_NULL(pb3)
 
-/obj/machinery/crusher_piston/proc/extend_0_1()
+/obj/structure/machinery/crusher_piston/proc/extend_0_1()
 	use_power_oneoff(5 KILO WATTS)
 	var/turf/T = get_turf(src)
 	if(!can_extend_into(T))
@@ -421,7 +420,7 @@
 		crs_base.items_to_move += AM
 	return 1
 
-/obj/machinery/crusher_piston/proc/extend_1_2()
+/obj/structure/machinery/crusher_piston/proc/extend_1_2()
 	use_power_oneoff(5 KILO WATTS)
 	var/turf/T = get_turf(pb1)
 	var/turf/extension_turf = get_step(T,SOUTH)
@@ -434,7 +433,7 @@
 		crs_base.items_to_move += AM
 	return 1
 
-/obj/machinery/crusher_piston/proc/extend_2_3()
+/obj/structure/machinery/crusher_piston/proc/extend_2_3()
 	use_power_oneoff(5 KILO WATTS)
 	var/turf/T = get_turf(pb2)
 	var/turf/extension_turf = get_step(T,SOUTH)
@@ -447,20 +446,20 @@
 		crs_base.items_to_move += AM
 	return 1
 
-/obj/machinery/crusher_piston/proc/retract_3_0()
+/obj/structure/machinery/crusher_piston/proc/retract_3_0()
 	icon_state="piston_3_0"
 	stage = 0
 	reset_blockers()
-/obj/machinery/crusher_piston/proc/retract_2_0()
+/obj/structure/machinery/crusher_piston/proc/retract_2_0()
 	icon_state="piston_2_0"
 	stage = 0
 	reset_blockers()
-/obj/machinery/crusher_piston/proc/retract_1_0()
+/obj/structure/machinery/crusher_piston/proc/retract_1_0()
 	icon_state="piston_1_0"
 	stage = 0
 	reset_blockers()
 
-/obj/machinery/crusher_piston/proc/can_extend_into(var/turf/extension_turf)
+/obj/structure/machinery/crusher_piston/proc/can_extend_into(var/turf/extension_turf)
 	//Check if atom is of a specific Type
 	if(istype(extension_turf,/turf/simulated/wall))
 		return 0

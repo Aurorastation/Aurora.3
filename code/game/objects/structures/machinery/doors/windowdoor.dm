@@ -1,4 +1,4 @@
-/obj/machinery/door/window
+/obj/structure/machinery/door/window
 	name = "interior door"
 	desc = "A strong door."
 	icon = 'icons/obj/structure/window/window_panes.dmi'
@@ -19,7 +19,7 @@
 	atmos_canpass = CANPASS_PROC
 	pass_flags_self = PASSGLASS
 
-/obj/machinery/door/window/Initialize(mapload)
+/obj/structure/machinery/door/window/Initialize(mapload)
 	. = ..()
 	if (!mapload)
 		update_nearby_tiles()
@@ -28,18 +28,18 @@
 		icon_state = "[icon_state]"
 		base_state = icon_state
 
-/obj/machinery/door/window/update_icon()
+/obj/structure/machinery/door/window/update_icon()
 	if(!density != !operating) //XOR, baby
 		icon_state = base_state
 	else
 		icon_state = "[base_state]open"
 
-/obj/machinery/door/window/Destroy()
+/obj/structure/machinery/door/window/Destroy()
 	density = FALSE
 	update_nearby_tiles()
 	return ..()
 
-/obj/machinery/door/window/CollidedWith(atom/bumped_atom)
+/obj/structure/machinery/door/window/CollidedWith(atom/bumped_atom)
 	//Fucking snowflake code
 	SHOULD_CALL_PARENT(FALSE)
 	SEND_SIGNAL(src, COMSIG_ATOM_BUMPED, bumped_atom)
@@ -51,7 +51,7 @@
 	if(ishuman(M) || isrobot(M) || isbot(M) || istype(M, /mob/living/simple_animal/spiderbot) || ismech(M))
 		INVOKE_ASYNC(src, PROC_REF(handle_collision_opening), M)
 
-/obj/machinery/door/window/proc/handle_collision_opening(var/mob/M)
+/obj/structure/machinery/door/window/proc/handle_collision_opening(var/mob/M)
 	if(!operable())
 		if(do_after(M, 1 SECOND, src))
 			// The VM here is before open and the wording is backwards because density gets set after a background sleep in open
@@ -61,7 +61,7 @@
 		open()
 		addtimer(CALLBACK(src, PROC_REF(close)), check_access(null) ? 5 SECONDS : 2 SECONDS)
 
-/obj/machinery/door/window/allowed(mob/M)
+/obj/structure/machinery/door/window/allowed(mob/M)
 	. = ..()
 	if(!operable() || !density) // Unpowered windoors can just be slid open, open windoors can always be closed
 		return TRUE
@@ -69,7 +69,7 @@
 	if(operable() && . == FALSE)
 		flick("[base_state]deny", src)
 
-/obj/machinery/door/window/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
+/obj/structure/machinery/door/window/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(mover?.movement_type & PHASING)
 		return TRUE
 	var/movingdir = get_dir(loc,target)
@@ -82,7 +82,7 @@
 	else
 		return TRUE
 
-/obj/machinery/door/window/CheckExit(atom/movable/mover as mob|obj, turf/target as turf)
+/obj/structure/machinery/door/window/CheckExit(atom/movable/mover as mob|obj, turf/target as turf)
 	if(istype(mover) && mover.pass_flags & PASSGLASS)
 		return 1
 	if(get_dir(loc, target) == dir)
@@ -90,7 +90,7 @@
 	else
 		return 1
 
-/obj/machinery/door/window/open(var/forced=FALSE)
+/obj/structure/machinery/door/window/open(var/forced=FALSE)
 	set waitfor = FALSE
 
 	if(!can_open() && !forced)
@@ -107,7 +107,7 @@
 	operating = FALSE
 	return TRUE
 
-/obj/machinery/door/window/close(var/forced=FALSE)
+/obj/structure/machinery/door/window/close(var/forced=FALSE)
 	set waitfor = FALSE
 
 	if (!can_close() && !forced)
@@ -126,7 +126,7 @@
 	operating = FALSE
 	return 1
 
-/obj/machinery/door/window/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon, display_message = FALSE)
+/obj/structure/machinery/door/window/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon, display_message = FALSE)
 	new /obj/item/trash/broken_electronics(loc)
 	new /obj/item/material/shard(loc)
 	var/obj/item/stack/cable_coil/CC = new /obj/item/stack/cable_coil(loc)
@@ -138,7 +138,7 @@
 		visible_message("[src] shatters!")
 	qdel(src)
 
-/obj/machinery/door/window/attack_hand(mob/user as mob)
+/obj/structure/machinery/door/window/attack_hand(mob/user as mob)
 	var/mob/living/carbon/human/H = user
 	if(istype(H) && H.species.can_shred(H))
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
@@ -150,7 +150,7 @@
 	else
 		return attackby(null, user)
 
-/obj/machinery/door/window/emag_act(var/remaining_charges, var/mob/user)
+/obj/structure/machinery/door/window/emag_act(var/remaining_charges, var/mob/user)
 	if (density && operable())
 		emagged = 1
 		flick("[src.base_state]spark", src)
@@ -159,7 +159,7 @@
 		desc = "A strong door. It keeps trying to close, but is jammed."
 		return 1
 
-/obj/machinery/door/window/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/door/window/attackby(obj/item/attacking_item, mob/user)
 
 	//If it's in the process of opening/closing, ignore the click
 	if (operating)
@@ -225,7 +225,7 @@
 			close()
 		return TRUE
 
-/obj/machinery/door/window/brigdoor
+/obj/structure/machinery/door/window/brigdoor
 	name = "secure door"
 	icon = 'icons/obj/structure/window/window_panes.dmi'
 	icon_state = "leftsecure"
@@ -235,113 +235,113 @@
 
 	var/id = null
 
-/obj/machinery/door/window/brigdoor/allowed(mob/M)
+/obj/structure/machinery/door/window/brigdoor/allowed(mob/M)
 	if(!operable()) // Brigdoors are the exception to the "fail open" windoor - they lock closed
 		to_chat(M, SPAN_WARNING("\The [src] refuses to budge in its unpowered state."))
 		return FALSE
 	. = ..()
 
-/obj/machinery/door/window/brigdoor/power_change()
+/obj/structure/machinery/door/window/brigdoor/power_change()
 	..()
 	if((stat & NOPOWER) && !density)
 		close(TRUE)
 
-/obj/machinery/door/window/northleft
+/obj/structure/machinery/door/window/northleft
 	dir = NORTH
 
-/obj/machinery/door/window/eastleft
+/obj/structure/machinery/door/window/eastleft
 	dir = EAST
 
-/obj/machinery/door/window/westleft
+/obj/structure/machinery/door/window/westleft
 	dir = WEST
 
-/obj/machinery/door/window/southleft
+/obj/structure/machinery/door/window/southleft
 	dir = SOUTH
 
-/obj/machinery/door/window/northright
+/obj/structure/machinery/door/window/northright
 	dir = NORTH
 	icon_state = "right"
 	base_state = "right"
 
-/obj/machinery/door/window/eastright
+/obj/structure/machinery/door/window/eastright
 	dir = EAST
 	icon_state = "right"
 	base_state = "right"
 
-/obj/machinery/door/window/westright
+/obj/structure/machinery/door/window/westright
 	dir = WEST
 	icon_state = "right"
 	base_state = "right"
 
-/obj/machinery/door/window/southright
+/obj/structure/machinery/door/window/southright
 	dir = SOUTH
 	icon_state = "right"
 	base_state = "right"
 
-/obj/machinery/door/window/brigdoor/northleft
+/obj/structure/machinery/door/window/brigdoor/northleft
 	dir = NORTH
 
-/obj/machinery/door/window/brigdoor/eastleft
+/obj/structure/machinery/door/window/brigdoor/eastleft
 	dir = EAST
 
-/obj/machinery/door/window/brigdoor/westleft
+/obj/structure/machinery/door/window/brigdoor/westleft
 	dir = WEST
 
-/obj/machinery/door/window/brigdoor/southleft
+/obj/structure/machinery/door/window/brigdoor/southleft
 	dir = SOUTH
 
-/obj/machinery/door/window/brigdoor/northright
+/obj/structure/machinery/door/window/brigdoor/northright
 	dir = NORTH
 	icon_state = "rightsecure"
 	base_state = "rightsecure"
 
-/obj/machinery/door/window/brigdoor/eastright
+/obj/structure/machinery/door/window/brigdoor/eastright
 	dir = EAST
 	icon_state = "rightsecure"
 	base_state = "rightsecure"
 
-/obj/machinery/door/window/brigdoor/westright
+/obj/structure/machinery/door/window/brigdoor/westright
 	dir = WEST
 	icon_state = "rightsecure"
 	base_state = "rightsecure"
 
-/obj/machinery/door/window/brigdoor/southright
+/obj/structure/machinery/door/window/brigdoor/southright
 	dir = SOUTH
 	icon_state = "rightsecure"
 	base_state = "rightsecure"
 
-/obj/machinery/door/window/desk
+/obj/structure/machinery/door/window/desk
 	name = "desk door"
 	icon = 'icons/obj/structure/window/desk_windoors.dmi'
 
-/obj/machinery/door/window/desk/northleft
+/obj/structure/machinery/door/window/desk/northleft
 	dir = NORTH
 
-/obj/machinery/door/window/desk/eastleft
+/obj/structure/machinery/door/window/desk/eastleft
 	dir = EAST
 
-/obj/machinery/door/window/desk/westleft
+/obj/structure/machinery/door/window/desk/westleft
 	dir = WEST
 
-/obj/machinery/door/window/desk/southleft
+/obj/structure/machinery/door/window/desk/southleft
 	dir = SOUTH
 
-/obj/machinery/door/window/desk/northright
+/obj/structure/machinery/door/window/desk/northright
 	dir = NORTH
 	icon_state = "right"
 	base_state = "right"
 
-/obj/machinery/door/window/desk/eastright
+/obj/structure/machinery/door/window/desk/eastright
 	dir = EAST
 	icon_state = "right"
 	base_state = "right"
 
-/obj/machinery/door/window/desk/westright
+/obj/structure/machinery/door/window/desk/westright
 	dir = WEST
 	icon_state = "right"
 	base_state = "right"
 
-/obj/machinery/door/window/desk/southright
+/obj/structure/machinery/door/window/desk/southright
 	dir = SOUTH
 	icon_state = "right"
 	base_state = "right"

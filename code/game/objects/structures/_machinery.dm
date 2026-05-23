@@ -80,16 +80,13 @@ Class Procs:
 	Compiled by Aygar
 */
 
-/obj/machinery
+/obj/structure/machinery
 	name = "machinery"
 	icon = 'icons/obj/stationobjs.dmi'
-	w_class = WEIGHT_CLASS_GIGANTIC
-	layer = STRUCTURE_LAYER
 	init_flags = INIT_MACHINERY_PROCESS_SELF
 	pass_flags_self = PASSMACHINE | LETPASSCLICKS
 	destroy_sound = 'sound/effects/meteorimpact.ogg'
 	hitsound = 'sound/effects/metalhit.ogg'
-	should_use_health = TRUE
 
 	/**
 	 * 'stat' = 'state'. Controlled by a bitflag, differentiates between a few different possible states including the machine being broken or unpowered.
@@ -173,7 +170,7 @@ Class Procs:
 	///Disables some optimizations
 	var/always_area_sensitive = FALSE
 
-/obj/machinery/feedback_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/feedback_hints(mob/user, distance, is_adjacent)
 	. = list()
 	if(signaler && is_adjacent)
 		. += SPAN_WARNING("\The [src] has a hidden signaler attached to it. You might or might not notice this.")
@@ -184,7 +181,7 @@ Class Procs:
 		. += SPAN_NOTICE("\The [src] is anchored to the floor by a couple of <b>bolts</b>.")
 	*/
 
-/obj/machinery/Initialize(mapload, d = 0, populate_components = TRUE, is_internal = FALSE)
+/obj/structure/machinery/Initialize(mapload, d = 0, populate_components = TRUE, is_internal = FALSE)
 	//Stupid macro used in power usage
 	CAN_BE_REDEFINED(TRUE)
 
@@ -216,7 +213,7 @@ Class Procs:
 
 	return INITIALIZE_HINT_LATELOAD
 
-/obj/machinery/Destroy()
+/obj/structure/machinery/Destroy()
 	//Stupid macro used in power usage
 	CAN_BE_REDEFINED(TRUE)
 
@@ -234,7 +231,7 @@ Class Procs:
 
 	return ..()
 
-/obj/machinery/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
+/obj/structure/machinery/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
 	var/turf/current_turf = get_turf(src)
 	spark(current_turf, 3, GLOB.alldirs)
 	if(component_parts)
@@ -255,10 +252,11 @@ Class Procs:
 			metal_to_spawn++
 	if(metal_to_spawn)
 		new /obj/item/stack/material/steel(get_turf(src), metal_to_spawn)
-	. = ..()
+	if(!should_use_health)
+		return FALSE
+	qdel(src)
 
-
-// /obj/machinery/proc/process_all()
+// /obj/structure/machinery/proc/process_all()
 // 	/* Uncomment this if/when you need component processing
 // 	if(processing_flags & MACHINERY_PROCESS_COMPONENTS)
 // 		for(var/thing in processing_parts)
@@ -271,10 +269,10 @@ Class Procs:
 // 		if(. == PROCESS_KILL)
 // 			STOP_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 
-/obj/machinery/process(seconds_per_tick)
+/obj/structure/machinery/process(seconds_per_tick)
 	return PROCESS_KILL
 
-/obj/machinery/emp_act(severity)
+/obj/structure/machinery/emp_act(severity)
 	. = ..()
 	if(use_power && stat == 0)
 		use_power_oneoff(7500/severity)
@@ -288,15 +286,6 @@ Class Procs:
 
 		QDEL_IN(pulse2, 10)
 
-/obj/machinery/ex_act(severity)
-	switch(severity)
-		if(1)
-			add_damage(maxhealth)
-		if(2)
-			add_damage(maxhealth * 0.5)
-		if(3)
-			add_damage(maxhealth * 0.25)
-
 /**
  * Check to see if the machine is operable
  *
@@ -304,7 +293,7 @@ Class Procs:
  *
  * Returns `TRUE` if the machine is operable, `FALSE` otherwise
  */
-/obj/machinery/proc/operable(additional_flags = 0)
+/obj/structure/machinery/proc/operable(additional_flags = 0)
 	SHOULD_NOT_SLEEP(TRUE)
 	SHOULD_BE_PURE(TRUE)
 
@@ -313,7 +302,7 @@ Class Procs:
 	else
 		return TRUE
 
-/obj/machinery/proc/toggle_power(power_set = -1, additional_flags = 0)
+/obj/structure/machinery/proc/toggle_power(power_set = -1, additional_flags = 0)
 	if(power_set >= 0)
 		update_use_power(power_set)
 	else if (use_power || !operable(additional_flags))
@@ -323,7 +312,7 @@ Class Procs:
 
 	update_icon()
 
-/obj/machinery/CanUseTopic(mob/user)
+/obj/structure/machinery/CanUseTopic(mob/user)
 	if(stat & BROKEN)
 		return STATUS_CLOSE
 
@@ -332,18 +321,18 @@ Class Procs:
 
 	return ..()
 
-/obj/machinery/CouldUseTopic(mob/user)
+/obj/structure/machinery/CouldUseTopic(mob/user)
 	..()
 	if(clicksound && iscarbon(user))
 		playsound(src, clicksound, clickvol)
 	user.set_machine(src)
 
-/obj/machinery/CouldNotUseTopic(mob/user)
+/obj/structure/machinery/CouldNotUseTopic(mob/user)
 	user.unset_machine()
 
 ////////////////////////////////////////////////////////////////////////////////////////////
 
-/obj/machinery/attack_ai(mob/user)
+/obj/structure/machinery/attack_ai(mob/user)
 	if(!ai_can_interact(user))
 		return
 	if(isrobot(user))
@@ -354,7 +343,7 @@ Class Procs:
 	else
 		return src.attack_hand(user)
 
-/obj/machinery/attack_hand(mob/user)
+/obj/structure/machinery/attack_hand(mob/user)
 	if(!operable(MAINT))
 		return TRUE
 	if(user.lying || user.stat)
@@ -367,7 +356,7 @@ Class Procs:
 
 	return ..()
 
-/obj/machinery/attack_ranged(mob/user, params)
+/obj/structure/machinery/attack_ranged(mob/user, params)
 	. = ..()
 	if(isipc(user))
 		var/mob/living/carbon/human/robot = user
@@ -375,7 +364,7 @@ Class Procs:
 		if(wireless_access_point?.access_terminal(src))
 			attack_hand(user)
 
-/obj/machinery/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/attackby(obj/item/attacking_item, mob/user)
 	if(obj_flags & OBJ_FLAG_SIGNALER)
 		if(issignaler(attacking_item))
 			if(signaler)
@@ -394,7 +383,7 @@ Class Procs:
 			return TRUE
 	return ..()
 
-/obj/machinery/proc/detach_signaler(var/turf/detach_turf)
+/obj/structure/machinery/proc/detach_signaler(var/turf/detach_turf)
 	if(!signaler)
 		return
 
@@ -412,7 +401,7 @@ Class Procs:
 
 	return S
 
-/obj/machinery/proc/RefreshParts()
+/obj/structure/machinery/proc/RefreshParts()
 	/*
 	if(parts_power_mgmt)
 		var/new_idle_power
@@ -432,36 +421,36 @@ Class Procs:
 		change_power_consumption(new_active_power, POWER_USE_ACTIVE)
 	*/
 
-/obj/machinery/proc/assign_uid()
+/obj/structure/machinery/proc/assign_uid()
 	uid = gl_uid
 	gl_uid++
 
-/obj/machinery/proc/state(var/msg)
+/obj/structure/machinery/proc/state(var/msg)
 	for(var/mob/O in hearers(src, null))
 		O.show_message("[icon2html(src, O)] <span class = 'notice'>[msg]</span>", 2)
 
-/obj/machinery/proc/ping(text=null)
+/obj/structure/machinery/proc/ping(text=null)
 	if (!text)
 		text = "\The [src] pings."
 
 	state(text, "blue")
 	playsound(src.loc, 'sound/machines/ping.ogg', 50, 0)
 
-/obj/machinery/proc/pingx3(text=null)
+/obj/structure/machinery/proc/pingx3(text=null)
 	if (!text)
 		text = "\The [src] pings."
 
 	state(text, "blue")
 	playsound(src.loc, 'sound/machines/pingx3.ogg', 50, 0)
 
-/obj/machinery/proc/buzz(text=null)
+/obj/structure/machinery/proc/buzz(text=null)
 	if (!text)
 		text = "\The [src] buzzes."
 
 	state(text, "blue")
 	playsound(src.loc, 'sound/machines/buzz-sigh.ogg', 50, 0) //TODO: Check if that one is the correct sound
 
-/obj/machinery/proc/shock(mob/user, prb)
+/obj/structure/machinery/proc/shock(mob/user, prb)
 	if(!operable())
 		return 0
 	if(!prob(prb))
@@ -470,7 +459,7 @@ Class Procs:
 	if (electrocute_mob(user, get_area(src), src, 0.7))
 		var/area/temp_area = get_area(src)
 		if(temp_area)
-			var/obj/machinery/power/apc/temp_apc = temp_area.get_apc()
+			var/obj/structure/machinery/power/apc/temp_apc = temp_area.get_apc()
 
 			if(temp_apc && temp_apc.terminal && temp_apc.terminal.powernet)
 				temp_apc.terminal.powernet.trigger_warning()
@@ -478,14 +467,14 @@ Class Procs:
 			return 1
 	return 0
 
-/obj/machinery/proc/default_deconstruction_crowbar(var/mob/user, var/obj/item/C)
+/obj/structure/machinery/proc/default_deconstruction_crowbar(var/mob/user, var/obj/item/C)
 	if(!istype(C) || C.tool_behaviour != TOOL_CROWBAR)
 		return 0
 	if(!panel_open)
 		return 0
 	. = dismantle()
 
-/obj/machinery/proc/default_deconstruction_screwdriver(var/mob/user, var/obj/item/S)
+/obj/structure/machinery/proc/default_deconstruction_screwdriver(var/mob/user, var/obj/item/S)
 	if(!istype(S) || S.tool_behaviour != TOOL_SCREWDRIVER)
 		return FALSE
 	S.play_tool_sound(get_turf(src), 50)
@@ -494,7 +483,7 @@ Class Procs:
 	update_icon()
 	return TRUE
 
-/obj/machinery/proc/default_part_replacement(var/mob/user, var/obj/item/storage/part_replacer/R)
+/obj/structure/machinery/proc/default_part_replacement(var/mob/user, var/obj/item/storage/part_replacer/R)
 	if(!LAZYLEN(component_parts))
 		return FALSE
 	else if(istype(R))
@@ -546,9 +535,9 @@ Class Procs:
 			to_chat(user, counting_english_list(component_parts))
 	else return FALSE
 
-/obj/machinery/proc/dismantle()
+/obj/structure/machinery/dismantle()
 	playsound(loc, SFX_CROWBAR, 50, 1)
-	var/obj/machinery/constructable_frame/machine_frame/M = new /obj/machinery/constructable_frame/machine_frame(loc)
+	var/obj/structure/machinery/constructable_frame/machine_frame/M = new /obj/structure/machinery/constructable_frame/machine_frame(loc)
 	M.set_dir(src.dir)
 	M.state = 3
 	M.icon_state = "blueprint_1"
@@ -561,7 +550,7 @@ Class Procs:
 
 	return TRUE
 
-/obj/machinery/proc/print(var/obj/paper, var/play_sound = 1, var/print_sfx = SFX_PRINT, var/print_delay = 10, var/message, var/mob/user)
+/obj/structure/machinery/proc/print(var/obj/paper, var/play_sound = 1, var/print_sfx = SFX_PRINT, var/print_delay = 10, var/message, var/mob/user)
 	if( printing )
 		return FALSE
 
@@ -578,24 +567,14 @@ Class Procs:
 
 	return TRUE
 
-/obj/machinery/proc/print_move_paper(obj/paper, mob/user)
+/obj/structure/machinery/proc/print_move_paper(obj/paper, mob/user)
 	if(user && ishuman(user) && user.Adjacent(src))
 		user.put_in_hands(paper)
 	else
 		paper.forceMove(loc)
 	printing = FALSE
 
-/obj/machinery/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
-	. = ..()
-	if(. != BULLET_ACT_HIT)
-		return .
-
-	if(hitting_projectile.get_structure_damage() > 5)
-		bullet_ping(hitting_projectile)
-
-	add_damage(hitting_projectile.damage, hitting_projectile.damage_flags(), hitting_projectile.damage_type, hitting_projectile.armor_penetration, hitting_projectile)
-
-/obj/machinery/proc/do_hair_pull(mob/living/carbon/human/H)
+/obj/structure/machinery/proc/do_hair_pull(mob/living/carbon/human/H)
 	if(stat & (NOPOWER|BROKEN))
 		return
 
@@ -622,7 +601,7 @@ Class Procs:
 			H.apply_damage(45, DAMAGE_PAIN)
 
 // A late init operation called in SSshuttle for ship computers and holopads, used to attach the thing to the right ship.
-/obj/machinery/proc/attempt_hook_up(var/obj/effect/overmap/visitable/sector)
+/obj/structure/machinery/proc/attempt_hook_up(var/obj/effect/overmap/visitable/sector)
 	SHOULD_CALL_PARENT(TRUE)
 	if(!istype(sector))
 		return FALSE
@@ -631,13 +610,13 @@ Class Procs:
 		return TRUE
 	return FALSE
 
-/obj/machinery/proc/sync_linked()
+/obj/structure/machinery/proc/sync_linked()
 	var/obj/effect/overmap/visitable/sector = GLOB.map_sectors["[z]"]
 	if(!sector)
 		return
 	return attempt_hook_up_recursive(sector)
 
-/obj/machinery/proc/attempt_hook_up_recursive(var/obj/effect/overmap/visitable/sector)
+/obj/structure/machinery/proc/attempt_hook_up_recursive(var/obj/effect/overmap/visitable/sector)
 	if(attempt_hook_up(sector))
 		return sector
 	for(var/obj/effect/overmap/visitable/candidate in sector)
@@ -647,10 +626,10 @@ Class Procs:
 /obj/proc/on_user_login(mob/M)
 	return
 
-/obj/machinery/proc/set_emergency_state(var/new_security_level)
+/obj/structure/machinery/proc/set_emergency_state(var/new_security_level)
 	return
 
-/obj/machinery/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
+/obj/structure/machinery/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	. = ..()
 	if(isliving(hitting_atom))
 		var/mob/living/M = hitting_atom
@@ -659,7 +638,7 @@ Class Procs:
 	else
 		visible_message(SPAN_DANGER("\The [src] was hit by \the [hitting_atom]."))
 
-/obj/machinery/ui_status(mob/user, datum/ui_state/state)
+/obj/structure/machinery/ui_status(mob/user, datum/ui_state/state)
 	. = ..()
 	if(. < UI_INTERACTIVE)
 		if(user.machine)

@@ -1,4 +1,4 @@
-/obj/machinery/computer/terminal/loreconsole/abandoned_casino/hangar_note
+/obj/structure/machinery/computer/terminal/loreconsole/abandoned_casino/hangar_note
 	entries = list(
 		new/datum/lore_console_entry(
 			"\[RE: Receiving dock malfunction\]", {"

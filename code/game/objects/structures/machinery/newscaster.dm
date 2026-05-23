@@ -19,9 +19,9 @@ dir = EAST; \
 pixel_x = 8;
 
 ///Global list that contains reference to all newscasters in existence.
-GLOBAL_LIST_INIT_TYPED(allCasters, /obj/machinery/newscaster, list())
+GLOBAL_LIST_INIT_TYPED(allCasters, /obj/structure/machinery/newscaster, list())
 
-/obj/machinery/newscaster
+/obj/structure/machinery/newscaster
 	name = "newscaster"
 	desc = "A standard newsfeed handler for use on commercial space stations. All the news you absolutely have no use for, in one place!"
 	icon = 'icons/obj/machinery/wall/terminals.dmi'
@@ -89,35 +89,35 @@ GLOBAL_LIST_INIT_TYPED(allCasters, /obj/machinery/newscaster, list())
 	var/datum/feed_channel/viewing_channel = null
 	var/datum/feed_message/viewing_message = null
 
-/obj/machinery/newscaster/north
+/obj/structure/machinery/newscaster/north
 	PRESET_NORTH
 
-/obj/machinery/newscaster/south
+/obj/structure/machinery/newscaster/south
 	PRESET_SOUTH
 
-/obj/machinery/newscaster/west
+/obj/structure/machinery/newscaster/west
 	PRESET_WEST
 
-/obj/machinery/newscaster/east
+/obj/structure/machinery/newscaster/east
 	PRESET_EAST
 
-/obj/machinery/newscaster/security_unit
+/obj/structure/machinery/newscaster/security_unit
 	name = "Security Newscaster"
 	securityCaster = 1
 
-/obj/machinery/newscaster/security_unit/north
+/obj/structure/machinery/newscaster/security_unit/north
 	PRESET_NORTH
 
-/obj/machinery/newscaster/security_unit/south
+/obj/structure/machinery/newscaster/security_unit/south
 	PRESET_SOUTH
 
-/obj/machinery/newscaster/security_unit/west
+/obj/structure/machinery/newscaster/security_unit/west
 	PRESET_WEST
 
-/obj/machinery/newscaster/security_unit/east
+/obj/structure/machinery/newscaster/security_unit/east
 	PRESET_EAST
 
-/obj/machinery/newscaster/Initialize(mapload)
+/obj/structure/machinery/newscaster/Initialize(mapload)
 	. = ..()                                //I just realised the newscasters weren't in the global machines list. The superconstructor call will tend to that
 	GLOB.allCasters += src
 	paper_remaining = 15            // Will probably change this to something better
@@ -129,15 +129,15 @@ GLOBAL_LIST_INIT_TYPED(allCasters, /obj/machinery/newscaster, list())
 	if(!mapload)
 		set_pixel_offsets()
 
-/obj/machinery/newscaster/Destroy()
+/obj/structure/machinery/newscaster/Destroy()
 	GLOB.allCasters -= src
 	return ..()
 
-/obj/machinery/newscaster/set_pixel_offsets()
+/obj/structure/machinery/newscaster/set_pixel_offsets()
 	pixel_x = DIR2PIXEL_X(dir)
 	pixel_y = DIR2PIXEL_Y(dir)
 
-/obj/machinery/newscaster/update_icon()
+/obj/structure/machinery/newscaster/update_icon()
 	if(!ispowered || isbroken)
 		icon_state = initial(icon_state)
 		set_light(FALSE)
@@ -246,7 +246,7 @@ GLOBAL_LIST_INIT_TYPED(allCasters, /obj/machinery/newscaster, list())
 	icon_state = initial(icon_state)
 	return
 
-/obj/machinery/newscaster/power_change()
+/obj/structure/machinery/newscaster/power_change()
 	if(isbroken) //Broken shit can't be powered.
 		return
 	..()
@@ -256,11 +256,11 @@ GLOBAL_LIST_INIT_TYPED(allCasters, /obj/machinery/newscaster, list())
 	else
 		addtimer(CALLBACK(src, PROC_REF(post_power_loss)), rand(1, 15))
 
-/obj/machinery/newscaster/proc/post_power_loss()
+/obj/structure/machinery/newscaster/proc/post_power_loss()
 	ispowered = 0
 	update_icon()
 
-/obj/machinery/newscaster/ex_act(severity)
+/obj/structure/machinery/newscaster/ex_act(severity)
 	switch(severity)
 		if(1.0)
 			qdel(src)
@@ -278,12 +278,12 @@ GLOBAL_LIST_INIT_TYPED(allCasters, /obj/machinery/newscaster, list())
 			src.update_icon()
 			return
 
-/obj/machinery/newscaster/attack_ai(mob/user as mob)
+/obj/structure/machinery/newscaster/attack_ai(mob/user as mob)
 	if(!ai_can_interact(user))
 		return
 	return src.attack_hand(user)
 
-/obj/machinery/newscaster/attack_hand(mob/user as mob)            //########### THE MAIN BEEF IS HERE! And in the proc below this...############
+/obj/structure/machinery/newscaster/attack_hand(mob/user as mob)            //########### THE MAIN BEEF IS HERE! And in the proc below this...############
 
 	if(!src.ispowered || src.isbroken)
 		return
@@ -563,7 +563,7 @@ GLOBAL_LIST_INIT_TYPED(allCasters, /obj/machinery/newscaster, list())
 		newscaster_main.open()
 		onclose(human_or_robot_user, "newscaster_main")
 
-/obj/machinery/newscaster/Topic(href, href_list)
+/obj/structure/machinery/newscaster/Topic(href, href_list)
 	if(..())
 		return
 	if ((usr.contents.Find(src) || ((get_dist(src, usr) <= 1) && istype(src.loc, /turf))) || (istype(usr, /mob/living/silicon)))
@@ -772,7 +772,7 @@ GLOBAL_LIST_INIT_TYPED(allCasters, /obj/machinery/newscaster, list())
 			var/choice = alert("Please confirm Wanted Issue removal","Network Security Handler","Confirm","Cancel")
 			if(choice=="Confirm")
 				SSnews.wanted_issue = null
-				for(var/obj/machinery/newscaster/NEWSCASTER in GLOB.allCasters)
+				for(var/obj/structure/machinery/newscaster/NEWSCASTER in GLOB.allCasters)
 					NEWSCASTER.update_icon()
 				src.screen=17
 			src.updateUsrDialog()
@@ -873,7 +873,7 @@ GLOBAL_LIST_INIT_TYPED(allCasters, /obj/machinery/newscaster, list())
 
 
 
-/obj/machinery/newscaster/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/newscaster/attackby(obj/item/attacking_item, mob/user)
 	if (src.isbroken)
 		playsound(src.loc, 'sound/effects/hit_on_shattered_glass.ogg', 100, 1)
 		for (var/mob/O in hearers(5, src.loc))
@@ -909,7 +909,7 @@ GLOBAL_LIST_INIT_TYPED(allCasters, /obj/machinery/newscaster, list())
 	is_synth = synth
 	photo = p
 
-/obj/machinery/newscaster/proc/AttachPhoto(mob/user as mob)
+/obj/structure/machinery/newscaster/proc/AttachPhoto(mob/user as mob)
 	if(photo_data)
 		if(!photo_data.is_synth)
 			photo_data.photo.forceMove(src.loc)
@@ -929,7 +929,7 @@ GLOBAL_LIST_INIT_TYPED(allCasters, /obj/machinery/newscaster, list())
 
 		photo_data = new(selection, 1)
 
-/obj/machinery/newscaster/proc/AttachPaper(mob/user)
+/obj/structure/machinery/newscaster/proc/AttachPaper(mob/user)
 	if(paper_data || paper_name)
 		paper_name = ""
 		paper_data = ""
@@ -1126,7 +1126,7 @@ GLOBAL_LIST_INIT_TYPED(allCasters, /obj/machinery/newscaster, list())
 
 // Newscaster scans you
 // autorecognition, woo!
-/obj/machinery/newscaster/proc/scan_user(mob/living/user)
+/obj/structure/machinery/newscaster/proc/scan_user(mob/living/user)
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		var/obj/item/card/id/ID = H.GetIdCard()
@@ -1139,7 +1139,7 @@ GLOBAL_LIST_INIT_TYPED(allCasters, /obj/machinery/newscaster, list())
 		scanned_user = "[ai_user.name] ([ai_user.job])"
 
 
-/obj/machinery/newscaster/proc/print_paper()
+/obj/structure/machinery/newscaster/proc/print_paper()
 	feedback_inc("newscaster_newspapers_printed",1)
 	var/obj/item/newspaper/NEWSPAPER = new /obj/item/newspaper
 	for(var/channel in SSnews.network_channels)
@@ -1152,7 +1152,7 @@ GLOBAL_LIST_INIT_TYPED(allCasters, /obj/machinery/newscaster, list())
 	src.paper_remaining--
 	return
 
-/obj/machinery/newscaster/proc/newsAlert(var/news_call)
+/obj/structure/machinery/newscaster/proc/newsAlert(var/news_call)
 	if (!is_station_level(z))
 		clearAlert()
 		return
@@ -1173,7 +1173,7 @@ GLOBAL_LIST_INIT_TYPED(allCasters, /obj/machinery/newscaster, list())
 		playsound(loc, 'sound/machines/warning-buzzer.ogg', 75, TRUE, SHORT_RANGE_SOUND_EXTRARANGE, ignore_walls = FALSE)
 	return
 
-/obj/machinery/newscaster/proc/clearAlert()
+/obj/structure/machinery/newscaster/proc/clearAlert()
 	alert = 0
 	update_icon()
 

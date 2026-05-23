@@ -1,26 +1,26 @@
 #define SENSORS_DISTANCE_COEFFICIENT 5
-/obj/machinery/computer/ship/sensors
+/obj/structure/machinery/computer/ship/sensors
 	var/list/objects_in_view = list() 		// Associative list of objects in view -> identification process
 	var/list/contact_datums = list()		// Associate an /obj/effect -> /datum/overmap_contact
 	var/list/trackers = list()
 	var/list/datalink_contacts = list()		// A list of the datalink contacts we're receiving from the datalinks
 	var/tmp/muted = FALSE
 
-/obj/machinery/computer/ship/sensors/proc/reveal_contacts(var/mob/user)
+/obj/structure/machinery/computer/ship/sensors/proc/reveal_contacts(var/mob/user)
 	if(user && user.client)
 		for(var/key in contact_datums)
 			var/datum/overmap_contact/record = contact_datums[key]
 			if(record)
 				user.client.images |= record.marker
 
-/obj/machinery/computer/ship/sensors/proc/hide_contacts(var/mob/user)
+/obj/structure/machinery/computer/ship/sensors/proc/hide_contacts(var/mob/user)
 	if(user && user.client)
 		for(var/key in contact_datums)
 			var/datum/overmap_contact/record = contact_datums[key]
 			if(record)
 				user.client.images -= record.marker
 
-/obj/machinery/computer/ship/sensors/process()
+/obj/structure/machinery/computer/ship/sensors/process()
 	..()
 
 	update_sound()
@@ -31,7 +31,7 @@
 	// Update our own marker icon regardless of power or sensor connections.
 	var/sensor_range = 0
 
-	var/obj/machinery/shipsensors/sensors = get_sensors()
+	var/obj/structure/machinery/shipsensors/sensors = get_sensors()
 	if(sensors?.use_power)
 		sensor_range = round(sensors.range,1)
 	var/datum/overmap_contact/self_record = contact_datums[linked]
@@ -147,7 +147,7 @@
 /**
  * Adds an overmap object to the known contacts.
  */
-/obj/machinery/computer/ship/sensors/proc/add_contact(obj/effect/overmap/contact)
+/obj/structure/machinery/computer/ship/sensors/proc/add_contact(obj/effect/overmap/contact)
 	var/datum/overmap_contact/record = new(src, contact)
 	var/bearing = get_bearing(contact)
 	contact_datums[contact] = record
@@ -161,12 +161,12 @@
 /**
  * Gets the bearing of an obj/effect/overmap/contact from src.
  */
-/obj/machinery/computer/ship/sensors/proc/get_bearing(obj/effect/overmap/contact)
+/obj/structure/machinery/computer/ship/sensors/proc/get_bearing(obj/effect/overmap/contact)
 	. = round(90 - Atan2(contact.x - linked.x, contact.y - linked.y),5)
 	if(. < 0)
 		. += 360
 
-/obj/machinery/computer/ship/sensors/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/computer/ship/sensors/attackby(obj/item/attacking_item, mob/user)
 	. = ..()
 	var/obj/item/multitool/P = attacking_item
 	if(!istype(P))
@@ -184,12 +184,12 @@
 	RegisterSignal(tracker, COMSIG_QDELETING, PROC_REF(remove_tracker))
 	to_chat(user, SPAN_NOTICE("You link the tracker in \the [P]'s buffer to \the [src]."))
 
-/obj/machinery/computer/ship/sensors/proc/remove_tracker(obj/item/ship_tracker/tracker)
+/obj/structure/machinery/computer/ship/sensors/proc/remove_tracker(obj/item/ship_tracker/tracker)
 	trackers -= tracker
 
-/obj/machinery/computer/ship/sensors/proc/datalink_process()
+/obj/structure/machinery/computer/ship/sensors/proc/datalink_process()
 	for(var/obj/effect/overmap/visitable/datalink_ship in src.connected.datalinked)					// Get ships that are datalinked with us
-		for(var/obj/machinery/computer/ship/sensors/sensor_console in datalink_ship.consoles)							// Pick one sensor console
+		for(var/obj/structure/machinery/computer/ship/sensors/sensor_console in datalink_ship.consoles)							// Pick one sensor console
 
 
 			var/list/diff_datalink_contacts = list()
@@ -218,7 +218,7 @@
 		ship_contact_record.ping()
 		ship_contact_record.update_marker_icon()
 
-/obj/machinery/computer/ship/sensors/proc/datalink_process_all_contacts_of_console(var/obj/machinery/computer/ship/sensors/sensor_console, var/obj/effect/overmap/visitable/datalink_ship)
+/obj/structure/machinery/computer/ship/sensors/proc/datalink_process_all_contacts_of_console(var/obj/structure/machinery/computer/ship/sensors/sensor_console, var/obj/effect/overmap/visitable/datalink_ship)
 	for(var/obj/effect/overmap/datalink_contact in sensor_console.objects_in_view) // Pick one contact that the sensor console has
 		if(datalink_contact != src.connected)
 			if(!(datalink_contact in datalink_contacts[datalink_ship]))		// This is a new datalink contact
@@ -231,13 +231,13 @@
 					datalink_contact_record.ping()
 
 
-/obj/machinery/computer/ship/sensors/proc/datalink_remove_all_contacts_of_console(var/obj/machinery/computer/ship/sensors/sensor_console, var/obj/effect/overmap/visitable/datalink_ship)
+/obj/structure/machinery/computer/ship/sensors/proc/datalink_remove_all_contacts_of_console(var/obj/structure/machinery/computer/ship/sensors/sensor_console, var/obj/effect/overmap/visitable/datalink_ship)
 	for(var/obj/effect/overmap/datalink_contact in sensor_console.objects_in_view)
 		if(datalink_contact != src.connected)
 			datalink_remove_contact(datalink_contact, datalink_ship)
 
 
-/obj/machinery/computer/ship/sensors/proc/datalink_add_contact(var/obj/effect/overmap/datalink_contact, var/obj/effect/overmap/visitable/datalink_ship, var/force = FALSE)
+/obj/structure/machinery/computer/ship/sensors/proc/datalink_add_contact(var/obj/effect/overmap/datalink_contact, var/obj/effect/overmap/visitable/datalink_ship, var/force = FALSE)
 	if(!(datalink_contact in datalink_contacts[datalink_ship]) && !(objects_in_view[datalink_contact]) || force)			// This is a new datalink contact
 
 		var/datum/overmap_contact/datalink_contact_record = contact_datums[datalink_contact]					// Is it already in the contact_datums?
@@ -259,7 +259,7 @@
 			datalink_contacts[datalink_ship] |= list(datalink_contact)
 
 
-/obj/machinery/computer/ship/sensors/proc/datalink_remove_contact(var/obj/effect/overmap/datalink_contact, var/obj/effect/overmap/visitable/datalink_ship)
+/obj/structure/machinery/computer/ship/sensors/proc/datalink_remove_contact(var/obj/effect/overmap/datalink_contact, var/obj/effect/overmap/visitable/datalink_ship)
 	var/datum/overmap_contact/datalink_contact_record = contact_datums[datalink_contact]							// Retrieve the contact record
 	if(!datalink_contact_record)
 		return
@@ -270,13 +270,13 @@
 		datalink_contacts[datalink_ship] -= list(datalink_contact)
 
 
-/obj/machinery/computer/ship/sensors/proc/datalink_add_ship_datalink(var/obj/effect/overmap/visitable/datalink_ship)
+/obj/structure/machinery/computer/ship/sensors/proc/datalink_add_ship_datalink(var/obj/effect/overmap/visitable/datalink_ship)
 	datalink_ship.datalinked |= src.connected
 	src.connected.datalinked |= datalink_ship
 
-/obj/machinery/computer/ship/sensors/proc/datalink_remove_ship_datalink(var/obj/effect/overmap/visitable/datalink_ship, var/remove_link)
+/obj/structure/machinery/computer/ship/sensors/proc/datalink_remove_ship_datalink(var/obj/effect/overmap/visitable/datalink_ship, var/remove_link)
 	if(datalink_contacts[datalink_ship])
-		for(var/obj/machinery/computer/ship/sensors/sensor_console in datalink_ship.consoles)
+		for(var/obj/structure/machinery/computer/ship/sensors/sensor_console in datalink_ship.consoles)
 			// Remove the two ships from each other's datalinked list
 			if(remove_link)
 				src.connected.datalinked -= datalink_ship
@@ -302,9 +302,9 @@
 		visible_message(SPAN_NOTICE("<b>\The [src]</b> states, \"A datalink contact was severed! Recalibrating...\""))
 
 
-/obj/machinery/computer/ship/sensors/proc/datalink_remove_all_ships_datalink(var/remove_link)
+/obj/structure/machinery/computer/ship/sensors/proc/datalink_remove_all_ships_datalink(var/remove_link)
 	for(var/obj/effect/overmap/visitable/datalink_ship in linked.datalinked)
-		for(var/obj/machinery/computer/ship/sensors/sensor_console in datalink_ship.consoles)
+		for(var/obj/structure/machinery/computer/ship/sensors/sensor_console in datalink_ship.consoles)
 			sensor_console.datalink_remove_ship_datalink(linked, remove_link)
 			break
 

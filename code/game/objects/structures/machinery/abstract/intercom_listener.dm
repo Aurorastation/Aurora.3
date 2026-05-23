@@ -1,11 +1,11 @@
-/obj/machinery/abstract/intercom_listener
+/obj/structure/machinery/abstract/intercom_listener
 	name = "intercom power interface"
 	desc = DESC_PARENT
 	power_channel = AREA_USAGE_EQUIP
 
 	var/obj/item/radio/intercom/master
 
-/obj/machinery/abstract/intercom_listener/New(atom/loc, obj/item/radio/intercom/owner)
+/obj/structure/machinery/abstract/intercom_listener/New(atom/loc, obj/item/radio/intercom/owner)
 	if (QDELETED(owner))
 		warning("intercom_listener created with QDELETED intercom!")
 		qdel(src)
@@ -13,11 +13,11 @@
 		master = owner
 		..()
 
-/obj/machinery/abstract/intercom_listener/Destroy()
+/obj/structure/machinery/abstract/intercom_listener/Destroy()
 	master = null
 	return ..()
 
-/obj/machinery/abstract/intercom_listener/power_change()
+/obj/structure/machinery/abstract/intercom_listener/power_change()
 	..()
 	if (master)
 		var/state = powered(power_channel)

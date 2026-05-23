@@ -4,7 +4,7 @@
  *	Rental Bikes self-service vendor
  */
 
-/obj/machinery/vending/minimart
+/obj/structure/machinery/vending/minimart
 	name = "\improper minimart refrigerator"
 	desc = "A snack machine courtesy of the Getmore Chocolate Corporation, based out of Mars."
 	//product_slogans = "Try our new nougat bar!;Twice the calories for half the price!"
@@ -62,7 +62,7 @@
 	)
 	light_color = COLOR_BABY_BLUE
 
-/obj/machinery/vending/minimart/alcohol
+/obj/structure/machinery/vending/minimart/alcohol
 	name = "\improper minimart alcohol selection"
 	products = list(
 		/obj/item/reagent_containers/food/drinks/bottle/makgeolli = 5,
@@ -93,7 +93,7 @@
 		/obj/item/reagent_containers/food/drinks/bottle/champagne = 40.00
 	)
 
-/obj/machinery/vending/rental_bikes
+/obj/structure/machinery/vending/rental_bikes
 	name = "\improper Rental Bikes self-service vendor"
 	desc = "Rent-a-bike, for a day!"
 	icon_state = "rent-a-bike"
@@ -119,13 +119,13 @@
 	/// Same as the list for mopeds, except for sports bikes.
 	var/list/key_data_sports = list()
 
-/obj/machinery/vending/rental_bikes/build_products()
+/obj/structure/machinery/vending/rental_bikes/build_products()
 	if(length(key_data_mopeds))
 		products[/obj/item/key/bike/moped] = length(key_data_mopeds)
 	if(length(key_data_sports))
 		products[/obj/item/key/bike/sport] = length(key_data_sports)
 
-/obj/machinery/vending/rental_bikes/vended_product_post(var/obj/vended)
+/obj/structure/machinery/vending/rental_bikes/vended_product_post(var/obj/vended)
 	var/obj/item/key/key = vended
 	if(!istype(key))
 		return

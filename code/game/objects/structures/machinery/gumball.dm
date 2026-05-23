@@ -1,4 +1,4 @@
-/obj/machinery/gumballmachine
+/obj/structure/machinery/gumballmachine
 	name = "gumball machine"
 	desc = "A lithe device with a glass globe on top, which can be operated to dispense various candies."
 	icon = 'icons/obj/vending.dmi'
@@ -14,16 +14,16 @@
 	var/on = 1
 	var/broken = 0
 
-/obj/machinery/gumballmachine/feedback_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/gumballmachine/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "\The [src] costs [gumprice] credits to use."
 
 
-/obj/machinery/gumballmachine/Initialize()
+/obj/structure/machinery/gumballmachine/Initialize()
 	. = ..()
 
 
-/obj/machinery/gumballmachine/process()
+/obj/structure/machinery/gumballmachine/process()
 	if(broken)
 		return
 	else
@@ -32,7 +32,7 @@
 
 		update_icon()
 
-/obj/machinery/gumballmachine/update_icon()
+/obj/structure/machinery/gumballmachine/update_icon()
 	switch(amountleft)
 		if(20)
 			icon_state = "[initialicon]_100"
@@ -50,14 +50,14 @@
 			icon_state = "[initialicon]_empty"
 			desc = "A colorful [typeofcandy] machine. It's empty!"
 
-/obj/machinery/gumballmachine/proc/update_power()
+/obj/structure/machinery/gumballmachine/proc/update_power()
 	if(stat & (BROKEN|NOPOWER|EMPED))
 		on = 0
 	else
 		on = 1
 
 
-/obj/machinery/gumballmachine/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/gumballmachine/attackby(obj/item/attacking_item, mob/user)
 	if (istype(attacking_item, /obj/item/spacecash))
 		var/obj/item/spacecash/C = attacking_item
 		if(!on)
@@ -89,12 +89,12 @@
 
 
 
-/obj/machinery/gumballmachine/proc/buygumball()
+/obj/structure/machinery/gumballmachine/proc/buygumball()
 	playsound(src.loc, 'sound/items/drumroll.ogg', 50, 0, -4)
 	new vendingtype(src.loc, 1)
 	amountleft -= 1
 
-/obj/machinery/gumballmachine/proc/smashgumball()
+/obj/structure/machinery/gumballmachine/proc/smashgumball()
 	icon_state = "[initialicon]_broken"
 	playsound(get_turf(src), SFX_BREAK_GLASS, 75, 1)
 	if(amountleft)
@@ -107,7 +107,7 @@
 	broken = TRUE
 	amountleft = FALSE
 
-/obj/machinery/gumballmachine/sucker
+/obj/structure/machinery/gumballmachine/sucker
 	name = "sucker machine"
 
 	icon_state = "sucker_100"

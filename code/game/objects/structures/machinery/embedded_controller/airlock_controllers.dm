@@ -1,5 +1,5 @@
 //base type for controllers of two-door systems
-/obj/machinery/embedded_controller/radio/airlock
+/obj/structure/machinery/embedded_controller/radio/airlock
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	// Setup parameters only
 	radio_filter = RADIO_AIRLOCK
@@ -17,7 +17,7 @@
 	var/has_interior_sensor
 	var/has_exterior_sensor
 
-/obj/machinery/embedded_controller/radio/airlock/Initialize(mapload, given_id_tag, given_frequency, given_tag_exterior_door, given_tag_interior_door, given_tag_airpump, given_tag_chamber_sensor)
+/obj/structure/machinery/embedded_controller/radio/airlock/Initialize(mapload, given_id_tag, given_frequency, given_tag_exterior_door, given_tag_interior_door, given_tag_airpump, given_tag_chamber_sensor)
 	. = ..()
 	if(given_id_tag)
 		id_tag = given_id_tag
@@ -33,30 +33,30 @@
 		tag_chamber_sensor = given_tag_chamber_sensor
 	program = new /datum/computer/file/embedded_program/airlock(src)
 
-/obj/machinery/embedded_controller/radio/airlock/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/embedded_controller/radio/airlock/attackby(obj/item/attacking_item, mob/user)
 	//Swiping ID on the access button
 	if (attacking_item.GetID())
 		attack_hand(user)
 		return TRUE
 	return ..()
 
-/obj/machinery/embedded_controller/radio/airlock/attack_hand(mob/user)
+/obj/structure/machinery/embedded_controller/radio/airlock/attack_hand(mob/user)
 	if(!allowed(user))
 		to_chat(user, SPAN_WARNING("Access denied."))
 		return FALSE
 	return ..()
 
 //Advanced airlock controller for when you want a more versatile airlock controller - useful for turning simple access control rooms into airlocks
-/obj/machinery/embedded_controller/radio/airlock/advanced_airlock_controller
+/obj/structure/machinery/embedded_controller/radio/airlock/advanced_airlock_controller
 	name = "Advanced Airlock Controller"
 
-/obj/machinery/embedded_controller/radio/airlock/advanced_airlock_controller/ui_interact(mob/user, datum/tgui/ui)
+/obj/structure/machinery/embedded_controller/radio/airlock/advanced_airlock_controller/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "AirlockConsoleAdvanced", name, ui_x=470, ui_y=290)
 		ui.open()
 
-/obj/machinery/embedded_controller/radio/airlock/advanced_airlock_controller/ui_data(mob/user)
+/obj/structure/machinery/embedded_controller/radio/airlock/advanced_airlock_controller/ui_data(mob/user)
 	var/list/data = list()
 
 	data["chamber_pressure"] = round(program.memory["chamber_sensor_pressure"])
@@ -70,7 +70,7 @@
 
 	return data
 
-/obj/machinery/embedded_controller/radio/airlock/advanced_airlock_controller/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/obj/structure/machinery/embedded_controller/radio/airlock/advanced_airlock_controller/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
@@ -80,17 +80,17 @@
 		program.receive_user_command(command_name)
 
 //Airlock controller for airlock control - most airlocks on the station use this
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller
+/obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller
 	name = "Airlock Controller"
 	tag_secure = TRUE
 
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller/ui_interact(mob/user, datum/tgui/ui)
+/obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "AirlockConsoleStandard", name, ui_x=470, ui_y=290)
 		ui.open()
 
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller/ui_data(mob/user)
+/obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller/ui_data(mob/user)
 	var/list/data = list()
 
 	data["chamber_pressure"] = round(program.memory["chamber_sensor_pressure"])
@@ -98,7 +98,7 @@
 
 	return data
 
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
@@ -108,7 +108,7 @@
 		program.receive_user_command(command_name)
 
 //Access controller for door control - used in virology and the like
-/obj/machinery/embedded_controller/radio/airlock/access_controller
+/obj/structure/machinery/embedded_controller/radio/airlock/access_controller
 	icon = 'icons/obj/airlock_machines.dmi'
 	icon_state = "access_control_standby"
 
@@ -116,7 +116,7 @@
 	tag_secure = TRUE
 
 
-/obj/machinery/embedded_controller/radio/airlock/access_controller/update_icon()
+/obj/structure/machinery/embedded_controller/radio/airlock/access_controller/update_icon()
 	if(on && program)
 		if(program.memory["processing"])
 			icon_state = "access_control_process"
@@ -125,13 +125,13 @@
 	else
 		icon_state = "access_control_off"
 
-/obj/machinery/embedded_controller/radio/airlock/access_controller/ui_interact(mob/user, datum/tgui/ui)
+/obj/structure/machinery/embedded_controller/radio/airlock/access_controller/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "AirlockConsoleAccess", name, ui_x=470, ui_y=290)
 		ui.open()
 
-/obj/machinery/embedded_controller/radio/airlock/access_controller/ui_data(mob/user)
+/obj/structure/machinery/embedded_controller/radio/airlock/access_controller/ui_data(mob/user)
 	var/list/data = list()
 
 	var/ext_door_status = (program.memory["exterior_status"]["state"] == "closed" && program.memory["exterior_status"]["lock"] == "locked")
@@ -143,7 +143,7 @@
 
 	return data
 
-/obj/machinery/embedded_controller/radio/airlock/access_controller/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/obj/structure/machinery/embedded_controller/radio/airlock/access_controller/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return

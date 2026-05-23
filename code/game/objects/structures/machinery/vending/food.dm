@@ -4,7 +4,7 @@
  *	Ramen
  */
 
-/obj/machinery/vending/mredispenser
+/obj/structure/machinery/vending/mredispenser
 	name = "MRE dispenser"
 	desc = "A vending machine filled with MRE's."
 	icon_state = "mrevend"
@@ -44,7 +44,7 @@
 	vend_delay = 15
 	idle_power_usage = 211 // Cold MREs...
 
-/obj/machinery/vending/mredispenser/low_supply
+/obj/structure/machinery/vending/mredispenser/low_supply
 	products = list(
 		/obj/item/storage/box/fancy/mre = 1,
 		/obj/item/storage/box/fancy/mre/menu2 = 1,
@@ -54,7 +54,7 @@
 		/obj/item/storage/box/fancy/mre/menu12 = 3
 	)
 
-/obj/machinery/vending/ramen
+/obj/structure/machinery/vending/ramen
 	name = "\improper ramen vendor"
 	desc = "A generic brand vending machine capable of cooking tonkotsu ramen at the push of a button. Truly a pinnacle of human engineering!"
 	icon_state = "ramen"
@@ -72,7 +72,7 @@
 	)
 	light_color = COLOR_GUNMETAL
 
-/obj/machinery/vending/quick_e_meals
+/obj/structure/machinery/vending/quick_e_meals
 	name = "\improper quick-e-meals vendor"
 	desc = "Shelves of affordable microwave-ready meals by Orion and Getmore just waiting to be deployed into the battle against hunger!"
 	icon_state = "quick_e"

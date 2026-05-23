@@ -133,13 +133,13 @@ Deployable Kits
 	icon_state = "chainfence"
 
 //Actual Deployable machinery stuff
-/obj/machinery/deployable
+/obj/structure/machinery/deployable
 	name = "deployable"
 	desc = "deployable"
 	icon = 'icons/obj/objects.dmi'
 	req_access = list(ACCESS_SECURITY)//I'm changing this until these are properly tested./N
 
-/obj/machinery/deployable/barrier
+/obj/structure/machinery/deployable/barrier
 	name = "deployable barrier"
 	desc = "A deployable barrier. Swipe your ID card to lock/unlock it."
 	icon = 'icons/obj/objects.dmi'
@@ -150,12 +150,12 @@ Deployable Kits
 	var/locked = 0.0
 //	req_access = list(ACCESS_MAINT_TUNNELS)
 
-/obj/machinery/deployable/barrier/New()
+/obj/structure/machinery/deployable/barrier/New()
 	..()
 
 	src.icon_state = "[initial(icon_state)][src.locked]"
 
-/obj/machinery/deployable/barrier/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/deployable/barrier/attackby(obj/item/attacking_item, mob/user)
 	if (istype(attacking_item, /obj/item/card/id/))
 		if (src.allowed(user))
 			if	(src.emagged < 2.0)
@@ -200,7 +200,7 @@ Deployable Kits
 			src.explode()
 		..()
 
-/obj/machinery/deployable/barrier/ex_act(severity)
+/obj/structure/machinery/deployable/barrier/ex_act(severity)
 	switch(severity)
 		if(1.0)
 			src.explode()
@@ -211,7 +211,7 @@ Deployable Kits
 				src.explode()
 			return
 
-/obj/machinery/deployable/barrier/emp_act(severity)
+/obj/structure/machinery/deployable/barrier/emp_act(severity)
 	. = ..()
 
 	if(stat & (BROKEN|NOPOWER))
@@ -221,7 +221,7 @@ Deployable Kits
 		anchored = !anchored
 		icon_state = "[initial(icon_state)][src.locked]"
 
-/obj/machinery/deployable/barrier/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)//So bullets will fly over and stuff.
+/obj/structure/machinery/deployable/barrier/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)//So bullets will fly over and stuff.
 	if(mover?.movement_type & PHASING)
 		return TRUE
 	if(air_group || (height==0))
@@ -231,7 +231,7 @@ Deployable Kits
 	else
 		return 0
 
-/obj/machinery/deployable/barrier/proc/explode()
+/obj/structure/machinery/deployable/barrier/proc/explode()
 	visible_message(SPAN_DANGER("[src] blows apart!"))
 
 /*	var/obj/item/stack/rods/ =*/
@@ -242,7 +242,7 @@ Deployable Kits
 	explosion(src.loc,-1,-1,0)
 	qdel(src)
 
-/obj/machinery/deployable/barrier/emag_act(var/remaining_charges, var/mob/user)
+/obj/structure/machinery/deployable/barrier/emag_act(var/remaining_charges, var/mob/user)
 	if (src.emagged == 0)
 		src.emagged = 1
 		src.req_access.Cut()
@@ -258,7 +258,7 @@ Deployable Kits
 		visible_message(SPAN_WARNING("BZZzZZzZZzZT"))
 		return 1
 
-/obj/machinery/deployable/barrier/legion
+/obj/structure/machinery/deployable/barrier/legion
 	name = "\improper TCAF barrier"
 	desc = "A deployable barrier, bearing the marks of the Tau Ceti Armed Forces. Swipe your ID card to lock/unlock it."
 	icon_state = "barrier_legion"
@@ -275,7 +275,7 @@ Deployable Kits
 	drop_sound = 'sound/items/drop/backpack.ogg'
 	pickup_sound = 'sound/items/pickup/backpack.ogg'
 
-	var/kit_product = /obj/machinery/floodlight
+	var/kit_product = /obj/structure/machinery/floodlight
 	var/assembly_time = 8 SECONDS
 
 /obj/item/deployable_kit/attack_self(mob/user)
@@ -298,7 +298,7 @@ Deployable Kits
 	item_state = "barrier_kit"
 	contained_sprite = TRUE
 	w_class = WEIGHT_CLASS_SMALL
-	kit_product = /obj/machinery/deployable/barrier/legion
+	kit_product = /obj/structure/machinery/deployable/barrier/legion
 
 /obj/item/deployable_kit/surgery_table
 	name = "surgery table assembly kit"
@@ -307,7 +307,7 @@ Deployable Kits
 	icon_state = "table_deployable"
 	item_state = "table_parts"
 	w_class = WEIGHT_CLASS_BULKY
-	kit_product = /obj/machinery/optable
+	kit_product = /obj/structure/machinery/optable
 	assembly_time = 20 SECONDS
 
 /obj/item/deployable_kit/surgery_table/assemble_kit(mob/user)
@@ -332,7 +332,7 @@ Deployable Kits
 	drop_sound = 'sound/items/drop/axe.ogg'
 	pickup_sound = 'sound/items/pickup/axe.ogg'
 	w_class = WEIGHT_CLASS_BULKY
-	kit_product = /obj/machinery/porta_turret/legion
+	kit_product = /obj/structure/machinery/porta_turret/legion
 	assembly_time = 15 SECONDS
 
 /obj/item/deployable_kit/iv_drip
@@ -343,7 +343,7 @@ Deployable Kits
 	item_state = "inf_box"
 	contained_sprite = TRUE
 	w_class = WEIGHT_CLASS_NORMAL
-	kit_product = /obj/machinery/iv_drip
+	kit_product = /obj/structure/machinery/iv_drip
 	assembly_time = 4 SECONDS
 
 /obj/item/deployable_kit/remote_mech

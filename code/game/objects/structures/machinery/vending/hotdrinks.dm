@@ -4,7 +4,7 @@
  *		Free
  */
 
-/obj/machinery/vending/coffee
+/obj/structure/machinery/vending/coffee
 	name = "\improper Hot Drinks machine"
 	desc = "A vending machine which dispenses hot drinks."
 	product_ads = "Have a drink!;Drink up!;It's good for you!;Would you like a hot joe?;I'd kill for some coffee!;The best beans in the galaxy.;Only the finest brew for you.;Mmmm. Nothing like a coffee.;I like coffee, don't you?;Coffee helps you work!;Try some tea.;We hope you like the best!;Try our new chocolate!;Admin conspiracies"
@@ -46,7 +46,7 @@
 	temperature_setting = -1
 	light_color = COLOR_BROWN
 
-/obj/machinery/vending/coffee/free
+/obj/structure/machinery/vending/coffee/free
 	name = "\improper Free Hot Drinks machine"
 	desc = "A vending machine which dispenses complimentary hot drinks."
 	random_itemcount = 0
@@ -58,7 +58,7 @@
 	)
 	prices = list()
 
-/obj/machinery/vending/coffee/low_supply
+/obj/structure/machinery/vending/coffee/low_supply
 	products = list(
 		/obj/item/reagent_containers/food/drinks/coffee = 2,
 		/obj/item/reagent_containers/food/drinks/tea = 3,

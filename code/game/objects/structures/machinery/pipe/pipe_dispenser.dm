@@ -1,4 +1,4 @@
-/obj/machinery/pipedispenser
+/obj/structure/machinery/pipedispenser
 	name = "pipe dispenser"
 	desc = "A large piece of machinery used to dispense pipes that transport and manipulate gasses."
 	icon = 'icons/obj/pipe_dispenser.dmi'
@@ -9,13 +9,13 @@
 	var/window_id = "pipedispenser"
 	var/pipe_cooldown = 0
 
-/obj/machinery/pipedispenser/mechanics_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/pipedispenser/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "It must be anchored to be used, or can be unanchored to be moved."
 	. += "You can put excess (atmospheric) pipes into the dispenser."
 	. += "It will not work in unpowered areas."
 
-/obj/machinery/pipedispenser/attack_hand(mob/user)
+/obj/structure/machinery/pipedispenser/attack_hand(mob/user)
 	if(..())
 		return
 
@@ -96,7 +96,7 @@
 	pipedispenser_win.set_content(dat)
 	pipedispenser_win.open()
 
-/obj/machinery/pipedispenser/Topic(href, href_list)
+/obj/structure/machinery/pipedispenser/Topic(href, href_list)
 	if(..())
 		return
 
@@ -120,7 +120,7 @@
 		new /obj/item/pipe_meter(loc)
 		pipe_cooldown = world.time + 1.5 SECONDS
 
-/obj/machinery/pipedispenser/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/pipedispenser/attackby(obj/item/attacking_item, mob/user)
 	if(!istype(attacking_item, /obj/item/forensics))
 		add_fingerprint(user)
 	if(istype(attacking_item, /obj/item/pipe) || istype(attacking_item, /obj/item/pipe_meter))
@@ -148,27 +148,27 @@
 	else
 		return ..()
 
-/obj/machinery/pipedispenser/disposal
+/obj/structure/machinery/pipedispenser/disposal
 	name = "disposal pipe dispenser"
 	desc = "A large piece of machinery used to dispense pipes that transport and manipulate objects."
 	icon_state = "disposal_dispenser"
 	window_id = "disposaldispenser"
 
-/obj/machinery/pipedispenser/disposal/mechanics_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/pipedispenser/disposal/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "It must be anchored to be used, or can be unanchored to be moved."
 	. += "You can put excess (disposal) pipes into the dispenser."
 	. += "It will not work in unpowered areas."
 
 //Allow you to drag-drop disposal pipes into it
-/obj/machinery/pipedispenser/disposal/mouse_drop_receive(atom/dropped, mob/user, params)
+/obj/structure/machinery/pipedispenser/disposal/mouse_drop_receive(atom/dropped, mob/user, params)
 	var/obj/structure/disposalconstruct/pipe = dropped
 	if(!istype(pipe) || pipe.anchored || use_check_and_message(user))
 		return
 
 	qdel(pipe)
 
-/obj/machinery/pipedispenser/disposal/attack_hand(mob/user)
+/obj/structure/machinery/pipedispenser/disposal/attack_hand(mob/user)
 	if(..())
 		return
 
@@ -198,7 +198,7 @@
 // 0=straight, 1=bent, 2=junction-j1, 3=junction-j2, 4=junction-y, 5=trunk
 
 
-/obj/machinery/pipedispenser/disposal/Topic(href, href_list)
+/obj/structure/machinery/pipedispenser/disposal/Topic(href, href_list)
 	if(..())
 		return
 	usr.set_machine(src)
@@ -258,8 +258,8 @@
 		pipe_cooldown = world.time + 1.5 SECONDS
 
 // adding a pipe dispensers that spawn unhooked from the ground
-/obj/machinery/pipedispenser/orderable
+/obj/structure/machinery/pipedispenser/orderable
 	anchored = FALSE
 
-/obj/machinery/pipedispenser/disposal/orderable
+/obj/structure/machinery/pipedispenser/disposal/orderable
 	anchored = FALSE

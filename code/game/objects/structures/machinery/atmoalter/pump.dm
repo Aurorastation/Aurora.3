@@ -1,4 +1,4 @@
-/obj/machinery/portable_atmospherics/powered/pump
+/obj/structure/machinery/portable_atmospherics/powered/pump
 	name = "portable air pump"
 	desc = "Used to fill or drain rooms without differentiating between gases. Invaluable for filling air in a compartment rapidly after a breach repair."
 	icon = 'icons/obj/atmos.dmi'
@@ -18,24 +18,24 @@
 	power_rating = 7500 //7500 W ~ 10 HP
 	power_losses = 150
 
-/obj/machinery/portable_atmospherics/powered/pump/mechanics_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/portable_atmospherics/powered/pump/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "The internal gas container can be filled by connecting it to a connector port.  The pump can pump the air in (sucking) \
 	or out (blowing), at a specific target pressure."
 	. += "The power cell inside can be replaced by using a screwdriver, then adding a new cell. Screw it closed again afterwards."
 	. += "A tank of gas can also be attached to the air pump."
 
-/obj/machinery/portable_atmospherics/powered/pump/filled
+/obj/structure/machinery/portable_atmospherics/powered/pump/filled
 	start_pressure = PRESSURE_ONE_THOUSAND * 5
 
-/obj/machinery/portable_atmospherics/powered/pump/Initialize()
+/obj/structure/machinery/portable_atmospherics/powered/pump/Initialize()
 	. = ..()
 	cell = new/obj/item/cell/apc(src)
 
 	var/list/air_mix = StandardAirMix()
 	src.air_contents.adjust_multi(GAS_OXYGEN, air_mix[GAS_OXYGEN], GAS_NITROGEN, air_mix[GAS_NITROGEN])
 
-/obj/machinery/portable_atmospherics/powered/pump/update_icon()
+/obj/structure/machinery/portable_atmospherics/powered/pump/update_icon()
 	ClearOverlays()
 
 	if(on && cell && cell.charge)
@@ -51,7 +51,7 @@
 
 	return
 
-/obj/machinery/portable_atmospherics/powered/pump/emp_act(severity)
+/obj/structure/machinery/portable_atmospherics/powered/pump/emp_act(severity)
 	. = ..()
 
 	if(stat & (BROKEN|NOPOWER))
@@ -67,7 +67,7 @@
 	update_icon()
 	SStgui.update_uis(src)
 
-/obj/machinery/portable_atmospherics/powered/pump/process()
+/obj/structure/machinery/portable_atmospherics/powered/pump/process()
 	..()
 	var/power_draw = -1
 
@@ -118,22 +118,22 @@
 	src.updateDialog()
 	SStgui.update_uis(src)
 
-/obj/machinery/portable_atmospherics/powered/pump/return_air()
+/obj/structure/machinery/portable_atmospherics/powered/pump/return_air()
 	return air_contents
 
-/obj/machinery/portable_atmospherics/powered/pump/attack_ai(var/mob/user)
+/obj/structure/machinery/portable_atmospherics/powered/pump/attack_ai(var/mob/user)
 	if(!ai_can_interact(user))
 		return
 	src.add_hiddenprint(user)
 	return src.attack_hand(user)
 
-/obj/machinery/portable_atmospherics/powered/pump/attack_ghost(var/mob/user)
+/obj/structure/machinery/portable_atmospherics/powered/pump/attack_ghost(var/mob/user)
 	return src.attack_hand(user)
 
-/obj/machinery/portable_atmospherics/powered/pump/attack_hand(var/mob/user)
+/obj/structure/machinery/portable_atmospherics/powered/pump/attack_hand(var/mob/user)
 	ui_interact(user)
 
-/obj/machinery/portable_atmospherics/powered/pump/ui_data(mob/user)
+/obj/structure/machinery/portable_atmospherics/powered/pump/ui_data(mob/user)
 	var/air_pressure = XGM_PRESSURE(air_contents)
 	var/list/data = list()
 	data["portConnected"] = connected_port ? 1 : 0
@@ -152,13 +152,13 @@
 		data["holdingTank"] = list("name" = holding.name, "tankPressure" = round(XGM_PRESSURE(holding.air_contents)))
 	return data
 
-/obj/machinery/portable_atmospherics/powered/pump/ui_interact(mob/user, datum/tgui/ui)
+/obj/structure/machinery/portable_atmospherics/powered/pump/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "PortablePump", "Portable Pump", 480, 450)
 		ui.open()
 
-/obj/machinery/portable_atmospherics/powered/pump/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/obj/structure/machinery/portable_atmospherics/powered/pump/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return

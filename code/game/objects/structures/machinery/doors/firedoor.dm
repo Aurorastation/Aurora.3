@@ -6,7 +6,7 @@
 #define FIREDOOR_ALERT_HOT      1
 #define FIREDOOR_ALERT_COLD     2
 
-/obj/machinery/door/firedoor
+/obj/structure/machinery/door/firedoor
 	name = "emergency shutter"
 	desc = "An airtight emergency shutter designed to seal off areas from hostile environments. It flashes a warning light if it detects an environmental hazard on any side."
 	icon = 'icons/obj/doors/basic/single/emergency/firedoor.dmi'
@@ -69,14 +69,14 @@
 
 	can_astar_pass = CANASTARPASS_DENSITY
 
-/obj/machinery/door/firedoor/mechanics_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/door/firedoor/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Firedoors automatically close if the pressure differential on either side of them meets or exceeds 25 kPa, or temperature rises above 50° C or falls below 0° C on either side."
 	. += "Firedoors require electricity to operate."
 	. += "Firedoors on active lockdown can be examined, when adjacent, to view pressure and temperature data from each side of the door."
 	. += "Engineering, Atmospherics, or Paramedical access rights are required to freely open firedoors on active lockdown."
 
-/obj/machinery/door/firedoor/feedback_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/door/firedoor/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	if(!is_adjacent || !density)
 		return
@@ -117,9 +117,9 @@
 				users_to_open_string += ", [users_to_open[i]]"
 		. += "These people have opened \the [src] during an alert: [users_to_open_string]."
 
-/obj/machinery/door/firedoor/Initialize(var/mapload)
+/obj/structure/machinery/door/firedoor/Initialize(var/mapload)
 	. = ..()
-	for(var/obj/machinery/door/firedoor/F in loc)
+	for(var/obj/structure/machinery/door/firedoor/F in loc)
 		if(F != src)
 			crash_with("Duplicate firedoors at [x]-[y]-[z]. Deleting one.")
 			QDEL_IN(src, 1)
@@ -142,7 +142,7 @@
 
 	smart_generation()
 
-/obj/machinery/door/firedoor/proc/smart_generation()
+/obj/structure/machinery/door/firedoor/proc/smart_generation()
 	if(!enable_smart_generation)
 		return .
 
@@ -165,31 +165,31 @@
 		return .
 
 	// if there is adjacent firedoor
-	if(locate(/obj/machinery/door/firedoor, get_step(src,NORTH)))
+	if(locate(/obj/structure/machinery/door/firedoor, get_step(src,NORTH)))
 		dir = EAST
 		return .
-	if(locate(/obj/machinery/door/firedoor, get_step(src,SOUTH)))
+	if(locate(/obj/structure/machinery/door/firedoor, get_step(src,SOUTH)))
 		dir = WEST
 		return .
-	if(locate(/obj/machinery/door/firedoor, get_step(src,WEST)))
+	if(locate(/obj/structure/machinery/door/firedoor, get_step(src,WEST)))
 		dir = NORTH
 		return .
-	if(locate(/obj/machinery/door/firedoor, get_step(src,EAST)))
+	if(locate(/obj/structure/machinery/door/firedoor, get_step(src,EAST)))
 		dir = SOUTH
 		return .
 
 	/// Face same dir as door if on the same tile
-	var/obj/machinery/door/airlock/door = locate(/obj/machinery/door/airlock, current_turf)
+	var/obj/structure/machinery/door/airlock/door = locate(/obj/structure/machinery/door/airlock, current_turf)
 	if(istype(door))
 		dir = door.dir
 		return .
 
-/obj/machinery/door/firedoor/Destroy()
+/obj/structure/machinery/door/firedoor/Destroy()
 	for(var/area/A in areas_added)
 		A.all_doors.Remove(src)
 	. = ..()
 
-/obj/machinery/door/firedoor/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
+/obj/structure/machinery/door/firedoor/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	if(stat & (BROKEN|NOPOWER))
 		if(damage >= 10)
 			if(src.density)
@@ -203,17 +203,17 @@
 		return
 	..()
 
-/obj/machinery/door/firedoor/get_material()
+/obj/structure/machinery/door/firedoor/get_material()
 	return SSmaterials.get_material_by_name(DEFAULT_WALL_MATERIAL)
 
-/obj/machinery/door/firedoor/CollidedWith(atom/bumped_atom)
+/obj/structure/machinery/door/firedoor/CollidedWith(atom/bumped_atom)
 	if(p_open || operating)
 		return
 	if(!density)
 		return ..()
 	return 0
 
-/obj/machinery/door/firedoor/attack_hand(mob/user as mob)
+/obj/structure/machinery/door/firedoor/attack_hand(mob/user as mob)
 	add_fingerprint(user)
 	// Already doing something.
 	if(operating)
@@ -269,7 +269,7 @@
 	if(needs_to_close)
 		addtimer(CALLBACK(src, PROC_REF(do_close)), 50)
 
-/obj/machinery/door/firedoor/proc/do_close()
+/obj/structure/machinery/door/firedoor/proc/do_close()
 	var/alarmed = FALSE
 	for (var/thing in areas_added)
 		var/area/A = thing
@@ -281,7 +281,7 @@
 		nextstate = FIREDOOR_CLOSED
 		close()
 
-/obj/machinery/door/firedoor/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/door/firedoor/attackby(obj/item/attacking_item, mob/user)
 	if(!istype(attacking_item, /obj/item/forensics))
 		add_fingerprint(user)
 	// Already doing something.
@@ -380,7 +380,7 @@
 /**
  * Regular pressure checks. Has a +10s delay between each check.
  */
-/obj/machinery/door/firedoor/process()
+/obj/structure/machinery/door/firedoor/process()
 	if(density && next_process_time <= world.time)
 		// 10 second delays between process updates.
 		next_process_time = world.time + 100
@@ -430,7 +430,7 @@
 	else if(!density)
 		return PROCESS_KILL
 
-/obj/machinery/door/firedoor/proc/latetoggle()
+/obj/structure/machinery/door/firedoor/proc/latetoggle()
 	if(operating || !nextstate)
 		return
 	switch(nextstate)
@@ -443,14 +443,14 @@
 			close()
 	return
 
-/obj/machinery/door/firedoor/can_close()
+/obj/structure/machinery/door/firedoor/can_close()
 	if(locate(/obj/effect/blob) in get_turf(src))
 		return FALSE
 	if(locate(/mob/living) in get_turf(src))
 		return FALSE
 	return ..()
 
-/obj/machinery/door/firedoor/close()
+/obj/structure/machinery/door/firedoor/close()
 	if(!can_close())
 		return
 	ClearOverlays()
@@ -458,7 +458,7 @@
 	START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 	return ..()
 
-/obj/machinery/door/firedoor/open(forced = 0, user = usr)
+/obj/structure/machinery/door/firedoor/open(forced = 0, user = usr)
 	ClearOverlays()
 	if(hatch_open)
 		hatch_open = 0
@@ -476,7 +476,7 @@
 	latetoggle()
 	return ..()
 
-/obj/machinery/door/firedoor/do_animate(animation)
+/obj/structure/machinery/door/firedoor/do_animate(animation)
 	UpdateOverlays()
 	switch(animation)
 		if("opening")
@@ -486,7 +486,7 @@
 			flick("door_closing", src)
 			playsound(src, close_sound, 37, 1)
 
-/obj/machinery/door/firedoor/update_icon()
+/obj/structure/machinery/door/firedoor/update_icon()
 	ClearOverlays()
 	set_light(0)
 	var/do_set_light = 0
@@ -522,10 +522,10 @@
 	if(do_set_light)
 		set_light(2, 0.5, COLOR_SUN)
 
-/obj/machinery/door/firedoor/noid
+/obj/structure/machinery/door/firedoor/noid
 	req_one_access = null
 
-/obj/machinery/door/firedoor/noid/closed
+/obj/structure/machinery/door/firedoor/noid/closed
 	req_one_access = null
 	icon_state = "door_closed"
 	density = TRUE
@@ -533,7 +533,7 @@
 
 //These are playing merry hell on ZAS.  Sorry fellas :(
 
-/*/obj/machinery/door/firedoor/border_only
+/*/obj/structure/machinery/door/firedoor/border_only
 
 
 	icon = 'icons/obj/doors/edge_Doorfire.dmi'

@@ -1,6 +1,6 @@
 //This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:31
 
-/obj/machinery/computer/aiupload
+/obj/structure/machinery/computer/aiupload
 	name = "\improper AI upload console"
 	desc = "Used to upload laws to the AI."
 	icon_screen = "aiupload"
@@ -12,7 +12,7 @@
 	var/opened = 0
 
 
-/obj/machinery/computer/aiupload/verb/AccessInternals()
+/obj/structure/machinery/computer/aiupload/verb/AccessInternals()
 	set category = "Object"
 	set name = "Access Computer's Internals"
 	set src in oview(1)
@@ -27,7 +27,7 @@
 	return
 
 
-/obj/machinery/computer/aiupload/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/computer/aiupload/attackby(obj/item/attacking_item, mob/user)
 	if(!is_station_level(src.z))
 		to_chat(user, SPAN_DANGER("Unable to establish a connection:"))
 		return TRUE
@@ -39,7 +39,7 @@
 		return ..()
 
 
-/obj/machinery/computer/aiupload/attack_hand(var/mob/user as mob)
+/obj/structure/machinery/computer/aiupload/attack_hand(var/mob/user as mob)
 	if(src.stat & NOPOWER)
 		to_chat(user, "The upload computer has no power!")
 		return
@@ -55,11 +55,11 @@
 		to_chat(user, "[src.current.name] selected for law changes.")
 	return
 
-/obj/machinery/computer/aiupload/attack_ghost(user)
+/obj/structure/machinery/computer/aiupload/attack_ghost(user)
 	return 1
 
 
-/obj/machinery/computer/borgupload
+/obj/structure/machinery/computer/borgupload
 	name = "cyborg upload console"
 	desc = "Used to upload laws to Cyborgs."
 	icon_screen = "aiupload"
@@ -70,7 +70,7 @@
 	var/mob/living/silicon/robot/current = null
 
 
-/obj/machinery/computer/borgupload/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/computer/borgupload/attackby(obj/item/attacking_item, mob/user)
 	var/obj/item/aiModule/module = attacking_item
 	if(!is_station_level(src.z))
 		to_chat(user, SPAN_DANGER("Unable to establish a connection:"))
@@ -82,7 +82,7 @@
 		return ..()
 
 
-/obj/machinery/computer/borgupload/attack_hand(var/mob/user as mob)
+/obj/structure/machinery/computer/borgupload/attack_hand(var/mob/user as mob)
 	if(src.stat & NOPOWER)
 		to_chat(user, "The upload computer has no power!")
 		return
@@ -98,5 +98,5 @@
 		to_chat(user, "[src.current.name] selected for law changes.")
 	return
 
-/obj/machinery/computer/borgupload/attack_ghost(user)
+/obj/structure/machinery/computer/borgupload/attack_ghost(user)
 	return 1

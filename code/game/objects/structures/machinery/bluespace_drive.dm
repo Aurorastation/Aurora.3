@@ -4,7 +4,7 @@
 	volume = 70
 	vary = TRUE
 
-/obj/machinery/bluespacedrive
+/obj/structure/machinery/bluespacedrive
 	name = "C-Goliath Drive"
 	desc = "Developed by NanoTrasen, the C-Goliath Drive is a complex piece of machinery designed to fold space using the physics of the Bluespace Dimension and powered by Phoron. \
 			As one of the greatest pieces of technology invented in the Orion Spur, the bluespace drive changed history twice. \
@@ -22,10 +22,10 @@
 	// opacity = TRUE
 
 	/// The atmospherics interface used to give gasses to the drive
-	var/obj/machinery/atmospherics/portables_connector/atmos_interface
+	var/obj/structure/machinery/atmospherics/portables_connector/atmos_interface
 
 	/// The interface used to give fuel (phoron) to the drive
-	var/obj/machinery/atmospherics/portables_connector/fuel_interface
+	var/obj/structure/machinery/atmospherics/portables_connector/fuel_interface
 
 	/// The internal gas that the drive uses, fed by the `atmos_interface`
 	var/datum/gas_mixture/internal_gas = new()
@@ -92,7 +92,7 @@
 	/// Our bluespace jump event
 	var/datum/event/bluespace_jump/bluespace_jump_event
 
-/obj/machinery/bluespacedrive/Initialize()
+/obj/structure/machinery/bluespacedrive/Initialize()
 	..()
 
 	//Thanks to byond bug 2925542
@@ -101,17 +101,17 @@
 	bound_x = -32
 	bound_width = 96
 
-	atmos_interface = locate(/obj/machinery/atmospherics/portables_connector) in get_turf(src)
+	atmos_interface = locate(/obj/structure/machinery/atmospherics/portables_connector) in get_turf(src)
 	if(atmos_interface)
 		RegisterSignal(atmos_interface, COMSIG_QDELETING, PROC_REF(handle_atmos_interface_qdeleting))
 
-	fuel_interface = locate(/obj/machinery/atmospherics/portables_connector) in get_step(src, WEST)
+	fuel_interface = locate(/obj/structure/machinery/atmospherics/portables_connector) in get_step(src, WEST)
 	if(fuel_interface)
 		RegisterSignal(fuel_interface, COMSIG_QDELETING, PROC_REF(handle_fuel_interface_qdeleting))
 
 	return INITIALIZE_HINT_LATELOAD
 
-/obj/machinery/bluespacedrive/LateInitialize()
+/obj/structure/machinery/bluespacedrive/LateInitialize()
 	. = ..()
 	if(SSatlas.current_map.use_overmap && !linked)
 		var/my_sector = GLOB.map_sectors["[z]"]
@@ -127,7 +127,7 @@
 
 		return
 
-/obj/machinery/bluespacedrive/Destroy()
+/obj/structure/machinery/bluespacedrive/Destroy()
 	QDEL_NULL(internal_gas)
 	QDEL_NULL(fuel_gas)
 
@@ -136,7 +136,7 @@
 
 	. = ..()
 
-/obj/machinery/bluespacedrive/update_icon()
+/obj/structure/machinery/bluespacedrive/update_icon()
 	ClearOverlays()
 
 	. = ..()
@@ -149,7 +149,7 @@
 	if(initiate_jump_timer_id)
 		AddOverlays("drive_orb")
 
-/obj/machinery/bluespacedrive/process(seconds_per_tick)
+/obj/structure/machinery/bluespacedrive/process(seconds_per_tick)
 
 	//If we have an atmos interface, and it's connected to a pipe, pump gas from it to our internal gas tank
 	if(atmos_interface?.node)
@@ -173,7 +173,7 @@
 		if(our_singularity)
 			QDEL_NULL(our_singularity)
 
-/obj/machinery/bluespacedrive/CanPass(atom/movable/mover, turf/target, height, air_group)
+/obj/structure/machinery/bluespacedrive/CanPass(atom/movable/mover, turf/target, height, air_group)
 	if(istype(mover, /obj/singularity/bluespace_drive))
 		return TRUE
 
@@ -183,7 +183,7 @@
  * Compute the power from the gasses that we received, and discard them
  * any non recognised gasses goes to (blue)space, aka is thrown away
  */
-/obj/machinery/bluespacedrive/proc/consume_internal_gasses()
+/obj/structure/machinery/bluespacedrive/proc/consume_internal_gasses()
 	SHOULD_NOT_SLEEP(TRUE)
 
 	for(var/gas_type in internal_gas.gas)
@@ -195,7 +195,7 @@
 /**
  * Moves the ship to the target location, depending on the drive charge and configuration
  */
-/obj/machinery/bluespacedrive/proc/move_ship()
+/obj/structure/machinery/bluespacedrive/proc/move_ship()
 	SHOULD_NOT_SLEEP(TRUE)
 
 	var/turf/target_turf = get_jump_destination()
@@ -210,7 +210,7 @@
  *
  * Returns FALSE if the jump cannot be performed or would end up in the same turf, the new `/turf` otherwise
  */
-/obj/machinery/bluespacedrive/proc/get_jump_destination()
+/obj/structure/machinery/bluespacedrive/proc/get_jump_destination()
 	SHOULD_BE_PURE(TRUE)
 	SHOULD_NOT_SLEEP(TRUE)
 
@@ -231,25 +231,25 @@
 		return target_turf
 
 ///Handles the qdel of the atmos_interface
-/obj/machinery/bluespacedrive/proc/handle_atmos_interface_qdeleting()
+/obj/structure/machinery/bluespacedrive/proc/handle_atmos_interface_qdeleting()
 	SIGNAL_HANDLER
 
 	atmos_interface = null
 
 ///Handles the qdel of the atmos_interface
-/obj/machinery/bluespacedrive/proc/handle_fuel_interface_qdeleting()
+/obj/structure/machinery/bluespacedrive/proc/handle_fuel_interface_qdeleting()
 	SIGNAL_HANDLER
 
 	fuel_interface = null
 
 ///Handles the qdel of the atmos_interface
-/obj/machinery/bluespacedrive/proc/handle_singularity_deletion()
+/obj/structure/machinery/bluespacedrive/proc/handle_singularity_deletion()
 	SIGNAL_HANDLER
 
 	our_singularity = null
 
 ///Toggles the energized state of the drive
-/obj/machinery/bluespacedrive/proc/toggle_energized()
+/obj/structure/machinery/bluespacedrive/proc/toggle_energized()
 	SHOULD_NOT_SLEEP(TRUE)
 
 	energized = !energized
@@ -278,7 +278,7 @@
 	update_light()
 
 // Toggles whether the drive is primed or not (so whether the jump computer can initiate a jump or not)
-/obj/machinery/bluespacedrive/proc/toggle_primed()
+/obj/structure/machinery/bluespacedrive/proc/toggle_primed()
 	primed = !primed
 	// not much going on here right now but mb a cool effect can go with it
 
@@ -287,7 +287,7 @@
  *
  * forced - If TRUE, the purge isn't the natural effect of consuming the gasses
  */
-/obj/machinery/bluespacedrive/proc/purge_charge(forced)
+/obj/structure/machinery/bluespacedrive/proc/purge_charge(forced)
 	SHOULD_NOT_SLEEP(TRUE)
 
 	if(forced)
@@ -310,7 +310,7 @@
 	update_icon()
 
 ///Sets the rotation of the drive jump
-/obj/machinery/bluespacedrive/proc/set_rotation(rotation)
+/obj/structure/machinery/bluespacedrive/proc/set_rotation(rotation)
 	SHOULD_NOT_SLEEP(TRUE)
 
 	if(!isnum(rotation) || rotation < 0 || rotation > 359)
@@ -328,7 +328,7 @@
  *
  * Returns FALSE if the jump cannot be performed, TRUE otherwise
  */
-/obj/machinery/bluespacedrive/proc/initiate_jump()
+/obj/structure/machinery/bluespacedrive/proc/initiate_jump()
 	SHOULD_NOT_SLEEP(TRUE)
 
 	//Already jumping
@@ -364,7 +364,7 @@
 	return TRUE
 
 
-/obj/machinery/bluespacedrive/proc/enter_bluespace()
+/obj/structure/machinery/bluespacedrive/proc/enter_bluespace()
 	SHOULD_NOT_SLEEP(TRUE)
 
 	for(var/mob/living/affected_mob in GLOB.player_list)
@@ -379,7 +379,7 @@
 
 	//Discharge to all the coils (flavored as warper receivers)
 	var/coils_discharged_to = 0
-	for(var/obj/machinery/power/tesla_coil/coil in orange(4, src))
+	for(var/obj/structure/machinery/power/tesla_coil/coil in orange(4, src))
 		if(!coil.anchored)
 			continue
 
@@ -405,7 +405,7 @@
 /**
  * Exits the bluespace, also called if the jump is aborted
  */
-/obj/machinery/bluespacedrive/proc/exit_bluespace()
+/obj/structure/machinery/bluespacedrive/proc/exit_bluespace()
 	SHOULD_NOT_SLEEP(TRUE)
 
 	for(var/mob/living/affected_mob in GLOB.player_list)
@@ -427,7 +427,7 @@
 /**
  * Aborts the jump sequence
  */
-/obj/machinery/bluespacedrive/proc/abort_bluespace_jump()
+/obj/structure/machinery/bluespacedrive/proc/abort_bluespace_jump()
 	SHOULD_NOT_SLEEP(TRUE)
 
 	//The timer means we're jumping, if not set, we're not jumping so we can't abort
@@ -443,19 +443,19 @@
 	visible_message(SPAN_DANGER("\The [src] bluespace warp bubble constriction field falthers, discharging!"))
 
 
-/obj/machinery/bluespacedrive/proc/apply_bluespace_effect(mob/living/M)
+/obj/structure/machinery/bluespacedrive/proc/apply_bluespace_effect(mob/living/M)
 	if(M.client)
 		to_chat(M,SPAN_NOTICE("You feel oddly light, and somewhat disoriented as everything around you shimmers and warps ever so slightly."))
 		M.overlay_fullscreen("bluespace", /atom/movable/screen/fullscreen/bluespace_overlay)
 	M.confused = 20
 
-/obj/machinery/bluespacedrive/proc/remove_bluespace_effect(mob/living/M)
+/obj/structure/machinery/bluespacedrive/proc/remove_bluespace_effect(mob/living/M)
 	if(M.client)
 		to_chat(M,SPAN_NOTICE("You feel rooted in the material world again."))
 		M.clear_fullscreen("bluespace")
 
 ///Activates the bluespace jump event, mainly to give the skybox image
-/obj/machinery/bluespacedrive/proc/activate_bluespace_jump_event()
+/obj/structure/machinery/bluespacedrive/proc/activate_bluespace_jump_event()
 	SHOULD_NOT_SLEEP(TRUE)
 
 	if(istype(bluespace_jump_event))
@@ -464,7 +464,7 @@
 	bluespace_jump_event = new()
 
 ///Deactivates the bluespace jump event, mainly to return the skybox image to normal
-/obj/machinery/bluespacedrive/proc/deactivate_bluespace_jump_event()
+/obj/structure/machinery/bluespacedrive/proc/deactivate_bluespace_jump_event()
 	SHOULD_NOT_SLEEP(TRUE)
 
 	if(QDELETED(bluespace_jump_event))
@@ -484,22 +484,22 @@
  * The console that energises/deenergises the drive and can purge gas contents.
  * For use by Engineering.
  */
-/obj/machinery/computer/bluespacedrivecontrol
+/obj/structure/machinery/computer/bluespacedrivecontrol
 	name = "\improper bluespace drive control console"
 	desc = "Used to control the bluespace drive."
 	icon_keyboard = "lightblue_key"
 	icon_keyboard_emis = "lightblue_key_mask"
 	light_color = LIGHT_COLOR_BLUE
 
-	/// The bluespace drive (`/obj/machinery/bluespacedrive`) that this console controls
-	var/obj/machinery/bluespacedrive/linked_bluespace_drive
+	/// The bluespace drive (`/obj/structure/machinery/bluespacedrive`) that this console controls
+	var/obj/structure/machinery/bluespacedrive/linked_bluespace_drive
 
-/obj/machinery/computer/bluespacedrivecontrol/Initialize()
+/obj/structure/machinery/computer/bluespacedrivecontrol/Initialize()
 	..()
 
 	return INITIALIZE_HINT_LATELOAD
 
-/obj/machinery/computer/bluespacedrivecontrol/LateInitialize()
+/obj/structure/machinery/computer/bluespacedrivecontrol/LateInitialize()
 	. = ..()
 
 	if(SSatlas.current_map.use_overmap && !linked)
@@ -507,7 +507,7 @@
 		if(istype(my_sector, /obj/effect/overmap/visitable/ship))
 			attempt_hook_up(my_sector)
 
-		for(var/obj/machinery/bluespacedrive/BSD in SSmachinery.machinery)
+		for(var/obj/structure/machinery/bluespacedrive/BSD in SSmachinery.machinery)
 			if(linked.check_ownership(BSD))
 				linked_bluespace_drive = BSD
 				break
@@ -524,13 +524,13 @@
 
 	RegisterSignal(linked_bluespace_drive, COMSIG_QDELETING, PROC_REF(handle_drive_deletion))
 
-/obj/machinery/computer/bluespacedrivecontrol/Destroy()
+/obj/structure/machinery/computer/bluespacedrivecontrol/Destroy()
 	linked = null
 	linked_bluespace_drive = null
 
 	. = ..()
 
-/obj/machinery/computer/bluespacedrivecontrol/ui_data(mob/user)
+/obj/structure/machinery/computer/bluespacedrivecontrol/ui_data(mob/user)
 	var/list/data = list()
 
 	data["energized"] = linked_bluespace_drive.energized
@@ -542,7 +542,7 @@
 
 	return data
 
-/obj/machinery/computer/bluespacedrivecontrol/ui_act(action, params)
+/obj/structure/machinery/computer/bluespacedrivecontrol/ui_act(action, params)
 	. = ..()
 	if(.)
 		return
@@ -558,18 +558,18 @@
 		if("purge_charge")
 			linked_bluespace_drive.purge_charge(forced = TRUE)
 
-/obj/machinery/computer/bluespacedrivecontrol/ui_interact(mob/user, datum/tgui/ui)
+/obj/structure/machinery/computer/bluespacedrivecontrol/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "BluespaceDriveControl", ui_x=500, ui_y=380)
 		ui.open()
 
 
-/obj/machinery/computer/bluespacedrivecontrol/attack_hand(mob/user)
+/obj/structure/machinery/computer/bluespacedrivecontrol/attack_hand(mob/user)
 		ui_interact(user)
 
 /// Signal handler for when the linked bluespace drive is deleted
-/obj/machinery/computer/bluespacedrivecontrol/proc/handle_drive_deletion()
+/obj/structure/machinery/computer/bluespacedrivecontrol/proc/handle_drive_deletion()
 	SIGNAL_HANDLER
 
 	linked_bluespace_drive = null
@@ -583,22 +583,22 @@
  * The console that actually performs the bluespace jump.
  * For use by the Bridge
  */
-/obj/machinery/computer/bluespacedrivejump
+/obj/structure/machinery/computer/bluespacedrivejump
 	name = "\improper bluespace drive jump console"
 	desc = "Used to align and engage the bluespace drive for a jump."
 	icon_keyboard = "lightblue_key"
 	icon_keyboard_emis = "lightblue_key_mask"
 	light_color = LIGHT_COLOR_BLUE
 
-	/// The bluespace drive (`/obj/machinery/bluespacedrive`) that this console controls
-	var/obj/machinery/bluespacedrive/linked_bluespace_drive
+	/// The bluespace drive (`/obj/structure/machinery/bluespacedrive`) that this console controls
+	var/obj/structure/machinery/bluespacedrive/linked_bluespace_drive
 
-/obj/machinery/computer/bluespacedrivejump/Initialize()
+/obj/structure/machinery/computer/bluespacedrivejump/Initialize()
 	..()
 
 	return INITIALIZE_HINT_LATELOAD
 
-/obj/machinery/computer/bluespacedrivejump/LateInitialize()
+/obj/structure/machinery/computer/bluespacedrivejump/LateInitialize()
 	. = ..()
 
 	if(SSatlas.current_map.use_overmap && !linked)
@@ -606,7 +606,7 @@
 		if(istype(my_sector, /obj/effect/overmap/visitable/ship))
 			attempt_hook_up(my_sector)
 
-		for(var/obj/machinery/bluespacedrive/BSD in SSmachinery.machinery)
+		for(var/obj/structure/machinery/bluespacedrive/BSD in SSmachinery.machinery)
 			if(linked.check_ownership(BSD))
 				linked_bluespace_drive = BSD
 				break
@@ -623,13 +623,13 @@
 
 	RegisterSignal(linked_bluespace_drive, COMSIG_QDELETING, PROC_REF(handle_drive_deletion))
 
-/obj/machinery/computer/bluespacedrivejump/Destroy()
+/obj/structure/machinery/computer/bluespacedrivejump/Destroy()
 	linked = null
 	linked_bluespace_drive = null
 
 	. = ..()
 
-/obj/machinery/computer/bluespacedrivejump/ui_data(mob/user)
+/obj/structure/machinery/computer/bluespacedrivejump/ui_data(mob/user)
 	var/list/data = list()
 
 	data["charge"] = (linked_bluespace_drive.internal_gas.total_moles || linked_bluespace_drive.fuel_gas.total_moles) ? TRUE : FALSE
@@ -641,7 +641,7 @@
 
 	return data
 
-/obj/machinery/computer/bluespacedrivejump/ui_act(action, params)
+/obj/structure/machinery/computer/bluespacedrivejump/ui_act(action, params)
 	. = ..()
 	if(.)
 		return
@@ -663,17 +663,17 @@
 				visible_message(SPAN_NOTICE("\The [src] buzzes, flashing \"Unable to acquire bluespace path: Destination unreachable, same as current position \
 											or jump already in progress\"!"))
 
-/obj/machinery/computer/bluespacedrivejump/ui_interact(mob/user, datum/tgui/ui)
+/obj/structure/machinery/computer/bluespacedrivejump/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "BluespaceDriveJump", ui_x=500, ui_y=380)
 		ui.open()
 
-/obj/machinery/computer/bluespacedrivejump/attack_hand(mob/user)
+/obj/structure/machinery/computer/bluespacedrivejump/attack_hand(mob/user)
 		ui_interact(user)
 
 /// Signal handler for when the linked bluespace drive is deleted
-/obj/machinery/computer/bluespacedrivejump/proc/handle_drive_deletion()
+/obj/structure/machinery/computer/bluespacedrivejump/proc/handle_drive_deletion()
 	SIGNAL_HANDLER
 
 	linked_bluespace_drive = null
@@ -688,7 +688,7 @@
 	energy = 100
 
 	///The bluespace drive that made us
-	var/obj/machinery/bluespacedrive/drive_that_made_us
+	var/obj/structure/machinery/bluespacedrive/drive_that_made_us
 
 	///How far can the singularity move from the drive, before it starts destroying things
 	var/max_safe_distance_from_drive = 4
@@ -696,7 +696,7 @@
 	///The beam that tethers the singularity to the drive
 	var/datum/beam/beam_to_drive
 
-/obj/singularity/bluespace_drive/Initialize(mapload, energy, qdel_in, alert_admins, obj/machinery/bluespacedrive/drive_that_made_us)
+/obj/singularity/bluespace_drive/Initialize(mapload, energy, qdel_in, alert_admins, obj/structure/machinery/bluespacedrive/drive_that_made_us)
 	. = ..()
 
 	src.drive_that_made_us = drive_that_made_us
@@ -805,16 +805,16 @@
 	set_unsafe_on_init = TRUE
 
 /obj/item/paper/fluff/bluespacedrive_manual/New(loc, ...)
-	name = "[/obj/machinery/bluespacedrive::name] Field Handbook"
-	desc = "A manual illustrating the basic operation of the [/obj/machinery/bluespacedrive::name], useful for those who missed the last 300 years of history."
+	name = "[/obj/structure/machinery/bluespacedrive::name] Field Handbook"
+	desc = "A manual illustrating the basic operation of the [/obj/structure/machinery/bluespacedrive::name], useful for those who missed the last 300 years of history."
 
 	info = {"
 	<h2>
-		<b>[/obj/machinery/bluespacedrive::name] Field Handbook - Quick Reference</b><BR>
+		<b>[/obj/structure/machinery/bluespacedrive::name] Field Handbook - Quick Reference</b><BR>
 	</h2>
 
 	<font size = "1">
-		<i>"How to use the [/obj/machinery/bluespacedrive::name] for bluespace jumping."</i>
+		<i>"How to use the [/obj/structure/machinery/bluespacedrive::name] for bluespace jumping."</i>
 	</font>
 
 	<BR>
@@ -822,7 +822,7 @@
 	<BR>
 
 	<font size = "2">
-		<h3>The [/obj/machinery/bluespacedrive::name] comes equipped with:</h3><BR>
+		<h3>The [/obj/structure/machinery/bluespacedrive::name] comes equipped with:</h3><BR>
 		<ul style="list-style:circle">
 			<li>Two separate gas feeding circuits: A Phoron line on the west and a moderator gas mix line on the north.</li>
 			<li>Two independent power circuits: The primary circuit, which feeds the outer shield ring, the compartment APC and the drive itself, and the secondary circuit, which feeds the inner shield ring.</li>
@@ -837,7 +837,7 @@
 		<ol>
 			<li>Energize and charge the two SMES circuits to an acceptable level.</li>
 			<li>Wrench down the coils and the outer shield ring generators, wrench down and weld down the inner shield ring generators and the emitters.</li>
-			<li>Prepare [/obj/machinery/bluespacedrive::minimum_phoron_moles_per_jump] moles of Phoron to be pulled into the drive, on the Phoron line.</li>
+			<li>Prepare [/obj/structure/machinery/bluespacedrive::minimum_phoron_moles_per_jump] moles of Phoron to be pulled into the drive, on the Phoron line.</li>
 			<li>Prepare the moderator gas mixture to be fed into the drive, on the moderator gas mix line.</li>
 			<li>Once sure the calculations for the gasses are correct and the drive can feed, activate the emitters.</li>
 			<li>Wait for the charge bar indicators on the inner shield generators to reach 100%.</li>
@@ -868,11 +868,11 @@
 		<BR>
 
 		<h4><i>Dr. Marivek's notes:</i></h3><BR>
-		The [/obj/machinery/bluespacedrive::name] will create the bluespace-field-driver singularity only when energized and fed with any valid gas in the moderator circuit and the Phoron line.<BR>
-		Any quantity above [/obj/machinery/bluespacedrive::minimum_phoron_moles_per_jump] moles of Phoron is wasted, precise calculation is therefore encourage for efficiency.<BR>
+		The [/obj/structure/machinery/bluespacedrive::name] will create the bluespace-field-driver singularity only when energized and fed with any valid gas in the moderator circuit and the Phoron line.<BR>
+		Any quantity above [/obj/structure/machinery/bluespacedrive::minimum_phoron_moles_per_jump] moles of Phoron is wasted, precise calculation is therefore encourage for efficiency.<BR>
 		Various gasses can be used for the moderation mix, any gas that is not valid will simply be absorbed without contributing to the bluespace effect.<BR>
 		Temperature of the moderation gas mixture is also influential, in my observations, ontop of the specific gas and the amount. Higher temperatures seems to increase the effect per mole.<BR>
-		The field-driver singularity is not self-sustaining, and can be destroyed by depowering the [/obj/machinery/bluespacedrive::name].<BR>
+		The field-driver singularity is not self-sustaining, and can be destroyed by depowering the [/obj/structure/machinery/bluespacedrive::name].<BR>
 		Should the field-driver singularity become loose from the quantum entanglement tunnel, unless fed, it won't destroy more than its size and won't move.<BR>
 		It has been noted that, at times, it has been observed to escape the first shield ring. It is extremely important to ensure both shield rings are engaged for maximum safety.
 

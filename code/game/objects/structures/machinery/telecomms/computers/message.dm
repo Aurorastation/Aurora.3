@@ -4,7 +4,7 @@
 */
 
 // The monitor itself.
-/obj/machinery/computer/message_monitor
+/obj/structure/machinery/computer/message_monitor
 	name = "messaging monitor console"
 	desc = "Used to access and maintain data on messaging servers. Allows you to view requests console messages."
 	icon_screen = "comm_logs"
@@ -14,7 +14,7 @@
 	var/hack_icon = "error"
 	circuit = /obj/item/circuitboard/message_monitor
 	//Server linked to.
-	var/obj/machinery/telecomms/message_server/linkedServer = null
+	var/obj/structure/machinery/telecomms/message_server/linkedServer = null
 	//Sparks effect - For emag
 	var/datum/effect_system/sparks/spark_system
 	//Messages - Saves me time if I want to change something.
@@ -34,26 +34,26 @@
 	var/customjob		= "Admin"
 	var/custommessage 	= "This is a test, please ignore."
 
-/obj/machinery/computer/message_monitor/Initialize()
+/obj/structure/machinery/computer/message_monitor/Initialize()
 	..()
 	spark_system = bind_spark(src, 5)
 
 	return INITIALIZE_HINT_LATELOAD
 
-/obj/machinery/computer/message_monitor/LateInitialize()
+/obj/structure/machinery/computer/message_monitor/LateInitialize()
 	. = ..()
 	//If the server isn't linked to a server, and there's a server available, default it to the first one in the list.
 	if(!linkedServer)
-		for(var/obj/machinery/telecomms/message_server/S in SSmachinery.all_telecomms)
+		for(var/obj/structure/machinery/telecomms/message_server/S in SSmachinery.all_telecomms)
 			linkedServer = S
 			break
 
-/obj/machinery/computer/message_monitor/Destroy()
+/obj/structure/machinery/computer/message_monitor/Destroy()
 	QDEL_NULL(spark_system)
 	linkedServer = null
 	return ..()
 
-/obj/machinery/computer/message_monitor/attackby(obj/item/attacking_item, mob/user, params)
+/obj/structure/machinery/computer/message_monitor/attackby(obj/item/attacking_item, mob/user, params)
 	if(stat & (NOPOWER|BROKEN))
 		return ..()
 	if(!istype(user))
@@ -65,7 +65,7 @@
 
 	return ..()
 
-/obj/machinery/computer/message_monitor/emag_act(var/remaining_charges, var/mob/user)
+/obj/structure/machinery/computer/message_monitor/emag_act(var/remaining_charges, var/mob/user)
 	// Will create sparks and print out the console's password. You will then have to wait a while for the console to be back online.
 	// It'll take more time if there's more characters in the password..
 	if(!emag && operable())
@@ -84,14 +84,14 @@
 		else
 			to_chat(user, SPAN_NOTICE("A no server error appears on the screen."))
 
-/obj/machinery/computer/message_monitor/update_icon()
+/obj/structure/machinery/computer/message_monitor/update_icon()
 	if(emag || hacking)
 		icon_screen = hack_icon
 	else
 		icon_screen = initial(icon_screen)
 	..()
 
-/obj/machinery/computer/message_monitor/attack_hand(var/mob/living/user as mob)
+/obj/structure/machinery/computer/message_monitor/attack_hand(var/mob/living/user as mob)
 	if(stat & (NOPOWER|BROKEN))
 		return
 	if(!istype(user))
@@ -252,12 +252,12 @@
 	onclose(user, "message")
 	return
 
-/obj/machinery/computer/message_monitor/attack_ai(mob/user as mob)
+/obj/structure/machinery/computer/message_monitor/attack_ai(mob/user as mob)
 	if(!ai_can_interact(user))
 		return
 	return src.attack_hand(user)
 
-/obj/machinery/computer/message_monitor/proc/BruteForce(mob/user as mob)
+/obj/structure/machinery/computer/message_monitor/proc/BruteForce(mob/user as mob)
 	if(isnull(linkedServer))
 		to_chat(user, SPAN_WARNING("Could not complete brute-force: Linked Server Disconnected!"))
 	else
@@ -267,16 +267,16 @@
 	update_icon()
 	src.screen = 0 // Return the screen back to normal
 
-/obj/machinery/computer/message_monitor/proc/UnmagConsole()
+/obj/structure/machinery/computer/message_monitor/proc/UnmagConsole()
 	src.emag = 0
 	update_icon()
 
-/obj/machinery/computer/message_monitor/proc/ResetMessage()
+/obj/structure/machinery/computer/message_monitor/proc/ResetMessage()
 	customsender 	= "System Administrator"
 	custommessage 	= "This is a test, please ignore."
 	customjob 		= "Admin"
 
-/obj/machinery/computer/message_monitor/Topic(href, href_list)
+/obj/structure/machinery/computer/message_monitor/Topic(href, href_list)
 	if(..())
 		return 1
 	//Authenticate
@@ -298,7 +298,7 @@
 	//Find a server
 	if (href_list["find"])
 		var/list/message_servers = list()
-		for(var/obj/machinery/telecomms/message_server/M in SSmachinery.all_telecomms)
+		for(var/obj/structure/machinery/telecomms/message_server/M in SSmachinery.all_telecomms)
 			message_servers += M
 
 		if(message_servers.len > 1)
@@ -429,14 +429,14 @@
 /obj/item/paper/monitorkey
 	//..()
 	name = "Monitor Decryption Key"
-	var/obj/machinery/telecomms/message_server/server = null
+	var/obj/structure/machinery/telecomms/message_server/server = null
 
 /obj/item/paper/monitorkey/Initialize()
 	..()
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/item/paper/monitorkey/LateInitialize()
-	for(var/obj/machinery/telecomms/message_server/server in SSmachinery.all_telecomms)
+	for(var/obj/structure/machinery/telecomms/message_server/server in SSmachinery.all_telecomms)
 		if(!isnull(server))
 			if(!isnull(server.decryptkey))
 				info = "<center><h2>Daily Key Reset</h2></center><br>The new message monitor key is '[server.decryptkey]'.<br>Please keep this a secret and away from unauthorized personnel.<br>If necessary, change the password to a more secure one."

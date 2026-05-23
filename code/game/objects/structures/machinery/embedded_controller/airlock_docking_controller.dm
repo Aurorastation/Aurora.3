@@ -1,23 +1,23 @@
 //a docking port based on an airlock
-/obj/machinery/embedded_controller/radio/airlock/docking_port
+/obj/structure/machinery/embedded_controller/radio/airlock/docking_port
 	name = "docking port controller"
 	var/datum/computer/file/embedded_program/airlock/docking/airlock_program
 	var/datum/computer/file/embedded_program/docking/airlock/docking_program
 	tag_secure = TRUE
 
-/obj/machinery/embedded_controller/radio/airlock/docking_port/Initialize()
+/obj/structure/machinery/embedded_controller/radio/airlock/docking_port/Initialize()
 	. = ..()
 	airlock_program = new/datum/computer/file/embedded_program/airlock/docking(src)
 	docking_program = new/datum/computer/file/embedded_program/docking/airlock(src, airlock_program)
 	program = docking_program
 
-/obj/machinery/embedded_controller/radio/airlock/docking_port/ui_interact(mob/user, datum/tgui/ui)
+/obj/structure/machinery/embedded_controller/radio/airlock/docking_port/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "DockingAirlockConsole", name, ui_x=470, ui_y=250)
 		ui.open()
 
-/obj/machinery/embedded_controller/radio/airlock/docking_port/ui_data(mob/user)
+/obj/structure/machinery/embedded_controller/radio/airlock/docking_port/ui_data(mob/user)
 	return list(
 		"chamber_pressure" = round(airlock_program.memory["chamber_sensor_pressure"]),
 		"exterior_status" = airlock_program.memory["exterior_status"],
@@ -28,7 +28,7 @@
 		"override_enabled" = docking_program.override_enabled
 	)
 
-/obj/machinery/embedded_controller/radio/airlock/docking_port/ui_act(action, params)
+/obj/structure/machinery/embedded_controller/radio/airlock/docking_port/ui_act(action, params)
 	. = ..()
 	if(.)
 		return
@@ -56,7 +56,7 @@
 /datum/computer/file/embedded_program/docking/airlock
 	var/datum/computer/file/embedded_program/airlock/docking/airlock_program
 
-/datum/computer/file/embedded_program/docking/airlock/New(var/obj/machinery/embedded_controller/M, var/datum/computer/file/embedded_program/airlock/docking/A)
+/datum/computer/file/embedded_program/docking/airlock/New(var/obj/structure/machinery/embedded_controller/M, var/datum/computer/file/embedded_program/airlock/docking/A)
 	..(M)
 	airlock_program = A
 	airlock_program.master_prog = src
@@ -144,12 +144,12 @@
 	to_world("[id_tag] sent command \"[signal.data["command"]]\" to \"[signal.data["recipient"]]\"")
 	..(signal)
 
-/obj/machinery/embedded_controller/radio/airlock/docking_port/verb/view_state()
+/obj/structure/machinery/embedded_controller/radio/airlock/docking_port/verb/view_state()
 	set category = "Debug"
 	set src in view(1)
 	src.program:print_state()
 
-/obj/machinery/embedded_controller/radio/airlock/docking_port/verb/spoof_signal(var/command as text, var/sender as text)
+/obj/structure/machinery/embedded_controller/radio/airlock/docking_port/verb/spoof_signal(var/command as text, var/sender as text)
 	set category = "Debug"
 	set src in view(1)
 	var/datum/signal/signal = new
@@ -159,12 +159,12 @@
 
 	src.program:receive_signal(signal)
 
-/obj/machinery/embedded_controller/radio/airlock/docking_port/verb/debug_init_dock(var/target as text)
+/obj/structure/machinery/embedded_controller/radio/airlock/docking_port/verb/debug_init_dock(var/target as text)
 	set category = "Debug"
 	set src in view(1)
 	src.program:initiate_docking(target)
 
-/obj/machinery/embedded_controller/radio/airlock/docking_port/verb/debug_init_undock()
+/obj/structure/machinery/embedded_controller/radio/airlock/docking_port/verb/debug_init_undock()
 	set category = "Debug"
 	set src in view(1)
 	src.program:initiate_undocking()

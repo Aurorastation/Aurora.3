@@ -3,7 +3,7 @@
  *	Actor Vendor
  **/
 
-/obj/machinery/vending/actor
+/obj/structure/machinery/vending/actor
 	name = "\improper Actor Vendor"
 	desc = "Has all your odyssey actor items, to let you effectively do your odysseying and actoring."
 	vend_id = "actor"
@@ -25,7 +25,7 @@ Intended to take some pressure off admins asked regularly to spawn in clothing b
 Only contains very few origin-specific items, as otherwise the list would get so long it'd be entirely incomprehensible.
 If you want to expand this to more than primarily generic items, I recommend designing a UI that supports switching between categories.
 */
-/obj/machinery/vending/generic_clothing
+/obj/structure/machinery/vending/generic_clothing
 	name = "\improper Generic Clothing Vendor"
 	desc = "Contains a large number of generic clothing items. Comes with hand-held dyers to dye its contents however the user wishes."
 	vend_id = "generic_clothing"

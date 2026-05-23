@@ -1,6 +1,6 @@
 // AI (i.e. game AI, not the AI player) controlled bots
 
-/obj/machinery/bot
+/obj/structure/machinery/bot
 	icon = 'icons/mob/npc/aibots.dmi'
 	layer = MOB_LAYER
 	light_range = 3
@@ -14,31 +14,31 @@
 	var/locked = 1
 	//var/emagged = 0 //Urist: Moving that var to the general /bot tree as it's used by most bots
 
-/obj/machinery/bot/Initialize(mapload, d, populate_components, is_internal)
+/obj/structure/machinery/bot/Initialize(mapload, d, populate_components, is_internal)
 	. = ..()
 	add_to_target_grid()
 
-/obj/machinery/bot/Destroy()
+/obj/structure/machinery/bot/Destroy()
 	clear_from_target_grid()
 	return ..()
 
-/obj/machinery/bot/proc/turn_on()
+/obj/structure/machinery/bot/proc/turn_on()
 	if(stat)
 		return 0
 	on = 1
 	set_light_on(on)
 
-/obj/machinery/bot/proc/turn_off()
+/obj/structure/machinery/bot/proc/turn_off()
 	on = 0
 	set_light_on(on)
 
-/obj/machinery/bot/proc/explode()
+/obj/structure/machinery/bot/proc/explode()
 	qdel(src)
 
-/obj/machinery/bot/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
+/obj/structure/machinery/bot/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
 	explode()
 
-/obj/machinery/bot/emag_act(var/remaining_charges, var/user)
+/obj/structure/machinery/bot/emag_act(var/remaining_charges, var/user)
 	if(locked && !emagged)
 		locked = 0
 		emagged = 1
@@ -51,7 +51,7 @@
 		log_and_message_admins("emagged [src]'s inner circuits")
 		return 1
 
-/obj/machinery/bot/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/bot/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(!locked)
 			open = !open
@@ -80,12 +80,12 @@
 		else
 			return ..()
 
-/obj/machinery/bot/bullet_act(var/obj/projectile/Proj)
+/obj/structure/machinery/bot/bullet_act(var/obj/projectile/Proj)
 	if(!(Proj.damage_type == DAMAGE_BRUTE || Proj.damage_type == DAMAGE_BURN))
 		return BULLET_ACT_BLOCK
 	. = ..()
 
-/obj/machinery/bot/ex_act(severity)
+/obj/structure/machinery/bot/ex_act(severity)
 	switch(severity)
 		if(1)
 			explode()
@@ -97,7 +97,7 @@
 				add_damage(rand(1,5)*fire_dam_coeff)
 				add_damage(rand(1,5)*brute_dam_coeff)
 
-/obj/machinery/bot/emp_act(severity)
+/obj/structure/machinery/bot/emp_act(severity)
 	. = ..()
 
 	var/was_on = on
@@ -115,17 +115,17 @@
 		turn_off()
 	addtimer(CALLBACK(src, PROC_REF(post_emp), was_on), severity * 300)
 
-/obj/machinery/bot/proc/post_emp(was_on)
+/obj/structure/machinery/bot/proc/post_emp(was_on)
 	stat &= ~EMPED
 	if (was_on)
 		turn_on()
 
-/obj/machinery/bot/attack_ai(mob/user as mob)
+/obj/structure/machinery/bot/attack_ai(mob/user as mob)
 	if(!ai_can_interact(user))
 		return
 	src.attack_hand(user)
 
-/obj/machinery/bot/attack_hand(var/mob/living/carbon/human/user)
+/obj/structure/machinery/bot/attack_hand(var/mob/living/carbon/human/user)
 
 	if(!istype(user))
 		return ..()
@@ -181,7 +181,7 @@
 		return 1
 
 	for(var/obj/O in B)
-		if(O.density && !istype(O, /obj/machinery/door) && !(O.atom_flags & ATOM_FLAG_CHECKS_BORDER))
+		if(O.density && !istype(O, /obj/structure/machinery/door) && !(O.atom_flags & ATOM_FLAG_CHECKS_BORDER))
 			return 1
 
 	return 0
@@ -194,9 +194,9 @@
 		if(D.dir == SOUTHWEST)	return 1
 		if(D.dir == dir)		return 1
 
-	for(var/obj/machinery/door/D in loc)
+	for(var/obj/structure/machinery/door/D in loc)
 		if(!D.density)			continue
-		if(istype(D, /obj/machinery/door/window))
+		if(istype(D, /obj/structure/machinery/door/window))
 			if( dir & D.dir )	return !D.check_access(ID)
 
 			//if((dir & SOUTH) && (D.dir & (EAST|WEST)))		return !D.check_access(ID)

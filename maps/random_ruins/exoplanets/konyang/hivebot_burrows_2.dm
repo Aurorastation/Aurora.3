@@ -23,10 +23,10 @@
 	sound_environment = SOUND_AREA_TUNNEL_ENCLOSED
 	ambience = AMBIENCE_FOREBODING
 
-/obj/machinery/door/airlock/hatch/broken
+/obj/structure/machinery/door/airlock/hatch/broken
 	name = "Broken Hatch"
 
-/obj/machinery/door/airlock/hatch/broken/Initialize() // to make door start already broken and open
+/obj/structure/machinery/door/airlock/hatch/broken/Initialize() // to make door start already broken and open
 	. = ..()
 	p_open = 1
 	opacity = 0

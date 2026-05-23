@@ -1,4 +1,4 @@
-/obj/machinery/computer/shuttle
+/obj/structure/machinery/computer/shuttle
 	name = "Shuttle"
 	desc = "For shuttle control."
 
@@ -9,7 +9,7 @@
 	var/list/authorized = list(  )
 
 
-/obj/machinery/computer/shuttle/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/computer/shuttle/attackby(obj/item/attacking_item, mob/user)
 	var/obj/item/card/W = attacking_item
 	if(!istype(W))
 		return

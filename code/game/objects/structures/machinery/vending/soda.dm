@@ -8,7 +8,7 @@
  *	BODA (Soviet Soda)
  */
 
-/obj/machinery/vending/cola
+/obj/structure/machinery/vending/cola
 	name = "Idris Re-Fresh"
 	desc = "A soft drink vendor provided by an Idris subsidiary."
 	icon_state = "cola_machine"
@@ -76,7 +76,7 @@
 	temperature_setting = -1
 	light_color = COLOR_GUNMETAL
 
-/obj/machinery/vending/cola/low_supply
+/obj/structure/machinery/vending/cola/low_supply
 	products = list(
 		/obj/item/reagent_containers/food/drinks/cans/diet_cola = 1,
 		/obj/item/reagent_containers/food/drinks/cans/space_mountain_wind = 2,
@@ -90,7 +90,7 @@
 		/obj/item/reagent_containers/food/drinks/cans/hrozamal_soda = 2
 	)
 
-/obj/machinery/vending/cola/konyang
+/obj/structure/machinery/vending/cola/konyang
 	products = list(
 		/obj/item/reagent_containers/food/drinks/cans/cola = 10,
 		/obj/item/reagent_containers/food/drinks/cans/diet_cola = 10,
@@ -110,7 +110,7 @@
 	)
 
 // Reduced list of products as most are in the commissary
-/obj/machinery/vending/cola/horizon
+/obj/structure/machinery/vending/cola/horizon
 	products = list(
 		/obj/item/reagent_containers/food/drinks/cans/cola = 10,
 		/obj/item/reagent_containers/food/drinks/cans/diet_cola = 10,
@@ -136,7 +136,7 @@
 	charges = 50
 
 
-/obj/machinery/vending/zora
+/obj/structure/machinery/vending/zora
 	name = "Zo'ra Soda"
 	desc = "An energy drink vendor provided by the Getmore Corporation in partnership with the brood of Ta'Akaix'Xakt'yagz'isk Zo'ra."
 	icon_state = "zoda"
@@ -184,7 +184,7 @@
 	temperature_setting = -1
 	light_color = COLOR_CULT_REINFORCED
 
-/obj/machinery/vending/zora/low_supply
+/obj/structure/machinery/vending/zora/low_supply
 	products = list(
 		/obj/item/reagent_containers/food/drinks/cans/zorasoda/cherry = 2,
 		/obj/item/reagent_containers/food/drinks/cans/zorasoda/phoron = 3,
@@ -201,7 +201,7 @@
 	charges = 40
 
 
-/obj/machinery/vending/sovietsoda
+/obj/structure/machinery/vending/sovietsoda
 	name = "BODA"
 	desc = "An old sweet water vending machine, how did this end up here?"
 	icon_state = "sovietsoda"

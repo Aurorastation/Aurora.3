@@ -12,7 +12,7 @@
  * * Create `new/datum/lore_console_entry(title, body)` instances in the `entries` list
  * * This list can contain multiple datum entries, each entry represents a page
  */
-ABSTRACT_TYPE(/obj/machinery/computer/terminal/loreconsole)
+ABSTRACT_TYPE(/obj/structure/machinery/computer/terminal/loreconsole)
 	name = "information terminal"
 	desc = "A terminal with a blank screen, waiting to receive an input."
 	icon_screen = "loreconsole"
@@ -20,19 +20,19 @@ ABSTRACT_TYPE(/obj/machinery/computer/terminal/loreconsole)
 	light_power_on = 2
 	var/list/entries = list()
 
-/obj/machinery/computer/terminal/loreconsole/attack_hand(mob/user)
+/obj/structure/machinery/computer/terminal/loreconsole/attack_hand(mob/user)
 	ui_interact(user)
 
-/obj/machinery/computer/terminal/loreconsole/ui_state(mob/user)
+/obj/structure/machinery/computer/terminal/loreconsole/ui_state(mob/user)
 	return GLOB.default_state
 
-/obj/machinery/computer/terminal/loreconsole/ui_interact(mob/user, datum/tgui/ui = null)
+/obj/structure/machinery/computer/terminal/loreconsole/ui_interact(mob/user, datum/tgui/ui = null)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "LoreConsole", name)
 		ui.open()
 
-/obj/machinery/computer/terminal/loreconsole/ui_static_data(mob/user)
+/obj/structure/machinery/computer/terminal/loreconsole/ui_static_data(mob/user)
 	var/list/data = list()
 	data["entries"] = list()
 	for(var/datum/lore_console_entry/entry as anything in entries)
@@ -41,7 +41,7 @@ ABSTRACT_TYPE(/obj/machinery/computer/terminal/loreconsole)
 	return data
 
 // Allows storytellers and ghosts with admin perms edit entries.
-/obj/machinery/computer/terminal/loreconsole/attack_ghost(mob/user)
+/obj/structure/machinery/computer/terminal/loreconsole/attack_ghost(mob/user)
 	if(isstoryteller(user) || check_rights(R_ADMIN|R_FUN, TRUE, user))
 
 		var/choice = tgui_input_list(user, "Would you like to add, edit or remove entries?", "Manage Entries", list("Add", "Edit", "Remove"))
@@ -93,5 +93,5 @@ ABSTRACT_TYPE(/obj/machinery/computer/terminal/loreconsole)
 
 	..()
 
-ABSTRACT_TYPE(/obj/machinery/computer/terminal/loreconsole/always_powered)
+ABSTRACT_TYPE(/obj/structure/machinery/computer/terminal/loreconsole/always_powered)
 	interact_offline = TRUE

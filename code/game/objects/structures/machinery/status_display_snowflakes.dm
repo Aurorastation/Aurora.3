@@ -1,9 +1,9 @@
-/obj/machinery/status_display/supply_display
+/obj/structure/machinery/status_display/supply_display
 	ignore_friendc = 1
 	text_color = COLOR_DISPLAY_ORANGE
 	header_text_color = COLOR_DISPLAY_YELLOW
 
-/obj/machinery/status_display/supply_display/update()
+/obj/structure/machinery/status_display/supply_display/update()
 	if(mode == STATUS_DISPLAY_CUSTOM)
 		remove_display()
 		var/message1 = "CARGO"
@@ -29,20 +29,20 @@
 		return TRUE
 	..()
 
-/obj/machinery/status_display/supply_display/receive_signal(datum/signal/signal)
+/obj/structure/machinery/status_display/supply_display/receive_signal(datum/signal/signal)
 	if(signal.data["command"] == "supply")
 		mode = STATUS_DISPLAY_CUSTOM
 	else
 		..(signal)
 
-/obj/machinery/status_display/arrivals_display
+/obj/structure/machinery/status_display/arrivals_display
 	ignore_friendc = 1
 	hears_arrivals = TRUE
 
 	text_color = COLOR_DISPLAY_GREEN
 	header_text_color = COLOR_DISPLAY_CYAN
 
-/obj/machinery/status_display/arrivals_display/update()
+/obj/structure/machinery/status_display/arrivals_display/update()
 	if(!..() && mode == STATUS_DISPLAY_CUSTOM)
 		var/message1 = "ARVLS"
 		var/message2 = ""
@@ -66,7 +66,7 @@
 		return 1
 	return 0
 
-/obj/machinery/status_display/arrivals_display/receive_signal(datum/signal/signal)
+/obj/structure/machinery/status_display/arrivals_display/receive_signal(datum/signal/signal)
 	if(signal.data["command"] == "arrivals")
 		mode = STATUS_DISPLAY_CUSTOM
 	else

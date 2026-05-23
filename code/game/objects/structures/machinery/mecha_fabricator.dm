@@ -1,4 +1,4 @@
-/obj/machinery/mecha_part_fabricator
+/obj/structure/machinery/mecha_part_fabricator
 	name = "synthetic fabricator"
 	desc = "A general purpose fabricator that can be used to fabricate equipment for synthetics or exosuits."
 	icon = 'icons/obj/machinery/robotics_fabricator.dmi'
@@ -48,7 +48,7 @@
 	///The timer id for the build callback, if we're building something
 	var/build_callback_timer
 
-/obj/machinery/mecha_part_fabricator/upgrade_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/mecha_part_fabricator/upgrade_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "- Upgraded <b>matter bins</b> will increase material storage capacity."
 	. += SPAN_NOTICE("	- The current storage capacity is <b>[res_max_amount / 2000]</b> sheets")
@@ -57,7 +57,7 @@
 	. += "- Upgraded <b>manipulators</b> will improve material use efficiency."
 	. += SPAN_NOTICE("	- The current cost reduction is <b>[round((1 - mat_efficiency) * 100)]%</b>")
 
-/obj/machinery/mecha_part_fabricator/Initialize()
+/obj/structure/machinery/mecha_part_fabricator/Initialize()
 	. = ..()
 
 	files = new /datum/research(src) //Setup the research data holder.
@@ -66,11 +66,11 @@
 	update_categories()
 
 /// Make sure the machine starts the round properly synced.
-/obj/machinery/mecha_part_fabricator/LateInitialize()
+/obj/structure/machinery/mecha_part_fabricator/LateInitialize()
 	. = ..()
 	sync()
 
-/obj/machinery/mecha_part_fabricator/update_icon()
+/obj/structure/machinery/mecha_part_fabricator/update_icon()
 	ClearOverlays()
 	update_fab_audio()
 	if(panel_open)
@@ -84,7 +84,7 @@
 		AddOverlays("[icon_state]_lights_working")
 
 /// Starts and stops the necessary audio.
-/obj/machinery/mecha_part_fabricator/proc/update_fab_audio()
+/obj/structure/machinery/mecha_part_fabricator/proc/update_fab_audio()
 	if(!fab_loop)
 		return
 
@@ -93,7 +93,7 @@
 	else
 		fab_loop.stop()
 
-/obj/machinery/mecha_part_fabricator/dismantle()
+/obj/structure/machinery/mecha_part_fabricator/dismantle()
 	for(var/f in materials)
 		eject_materials(f, materials[f])
 
@@ -102,7 +102,7 @@
 
 	..()
 
-/obj/machinery/mecha_part_fabricator/RefreshParts()
+/obj/structure/machinery/mecha_part_fabricator/RefreshParts()
 	..()
 	res_max_amount = 0
 
@@ -118,7 +118,7 @@
 		T += M.rating
 	production_speed = T / 2 // 1 -> 3
 
-/obj/machinery/mecha_part_fabricator/attack_hand(var/mob/user)
+/obj/structure/machinery/mecha_part_fabricator/attack_hand(var/mob/user)
 	if(..())
 		return
 	if(!allowed(user))
@@ -134,14 +134,14 @@
 
 	ui_interact(user)
 
-/obj/machinery/mecha_part_fabricator/ui_interact(mob/user, datum/tgui/ui)
+/obj/structure/machinery/mecha_part_fabricator/ui_interact(mob/user, datum/tgui/ui)
 	. = ..()
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "SyntheticFabricator", "Synthetic Fabricator", 1200, 800)
 		ui.open()
 
-/obj/machinery/mecha_part_fabricator/ui_data(mob/user)
+/obj/structure/machinery/mecha_part_fabricator/ui_data(mob/user)
 	var/list/data = list()
 	data["manufacturer"] = manufacturer
 	var/datum/design/current = queue.len ? queue[1] : null
@@ -176,7 +176,7 @@
 	return data
 
 
-/obj/machinery/mecha_part_fabricator/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/obj/structure/machinery/mecha_part_fabricator/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
@@ -214,7 +214,7 @@
 	if(.)
 		playsound(src, 'sound/machines/synthfab/synthfab_button.ogg', 50)
 
-/obj/machinery/mecha_part_fabricator/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/mecha_part_fabricator/attackby(obj/item/attacking_item, mob/user)
 	if(build_callback_timer)
 		to_chat(user, SPAN_NOTICE("\The [src] is busy. Please wait for completion of previous operation."))
 		return TRUE
@@ -260,7 +260,7 @@
 		to_chat(user, SPAN_NOTICE("\The [src] cannot hold more [sname]."))
 	return TRUE
 
-/obj/machinery/mecha_part_fabricator/mouse_drop_receive(atom/dropped, mob/user, params)
+/obj/structure/machinery/mecha_part_fabricator/mouse_drop_receive(atom/dropped, mob/user, params)
 	var/mob/living/carbon/human/target = dropped
 	if (!istype(target) || target.buckled_to || get_dist(user, src) > 1 || get_dist(user, target) > 1 || user.stat || istype(user, /mob/living/silicon/ai))
 		return
@@ -304,7 +304,7 @@
 			spawn(10)
 			user.visible_message(SPAN_ALERT("[user] stops the [src] and leaves [target] resting as they are."), SPAN_ALERT("You turn the [src] off and let go of [target]."))
 
-/obj/machinery/mecha_part_fabricator/emag_act(var/remaining_charges, var/mob/user)
+/obj/structure/machinery/mecha_part_fabricator/emag_act(var/remaining_charges, var/mob/user)
 	switch(emagged)
 		if(0)
 			emagged = 0.5
@@ -328,7 +328,7 @@
  *
  * * path: The path of the design to add
  */
-/obj/machinery/mecha_part_fabricator/proc/add_to_queue(path)
+/obj/structure/machinery/mecha_part_fabricator/proc/add_to_queue(path)
 	var/datum/design/D = files.known_designs[path]
 	if(!D)
 		return
@@ -342,7 +342,7 @@
  *
  * * index: The index of the design to remove
  */
-/obj/machinery/mecha_part_fabricator/proc/remove_from_queue(index)
+/obj/structure/machinery/mecha_part_fabricator/proc/remove_from_queue(index)
 	queue.Cut(index, index + 1)
 
 	//If we're removing the first thing in the queue, stop the build timer
@@ -356,7 +356,7 @@
 /**
  * Handle the construction queue
  */
-/obj/machinery/mecha_part_fabricator/proc/handle_queue()
+/obj/structure/machinery/mecha_part_fabricator/proc/handle_queue()
 
 	//No work to do or already busy, stop
 	if(!length(queue) || build_callback_timer)
@@ -389,7 +389,7 @@
 
 	update_icon()
 
-/obj/machinery/mecha_part_fabricator/proc/can_build(var/datum/design/D)
+/obj/structure/machinery/mecha_part_fabricator/proc/can_build(var/datum/design/D)
 	for(var/M in D.materials)
 		if(materials[M] < D.materials[M] * mat_efficiency)
 			return 0
@@ -400,7 +400,7 @@
  *
  * * design_to_build: The design to build
  */
-/obj/machinery/mecha_part_fabricator/proc/build(datum/design/design_to_build)
+/obj/structure/machinery/mecha_part_fabricator/proc/build(datum/design/design_to_build)
 	//Consume the materials
 	for(var/M in design_to_build.materials)
 		materials[M] = max(0, materials[M] - design_to_build.materials[M] * mat_efficiency)
@@ -423,13 +423,13 @@
 	//Do the queue handling for the next item, or to stop
 	handle_queue()
 
-/obj/machinery/mecha_part_fabricator/proc/get_queue_names()
+/obj/structure/machinery/mecha_part_fabricator/proc/get_queue_names()
 	. = list()
 	for(var/i = 1 to queue.len)
 		var/datum/design/D = queue[i]
 		. += list(list("name" = D.name, "time" = get_design_time(D), "index" = i))
 
-/obj/machinery/mecha_part_fabricator/proc/get_build_options()
+/obj/structure/machinery/mecha_part_fabricator/proc/get_build_options()
 	. = list()
 	for(var/path in files.known_designs)
 		var/datum/design/D = files.known_designs[path]
@@ -437,16 +437,16 @@
 			continue
 		. += list(list("name" = D.name, "desc" = D.desc, "type" = D.type, "category" = D.category, "resources" = get_design_resourses(D), "time" = get_design_time(D)))
 
-/obj/machinery/mecha_part_fabricator/proc/get_design_resourses(var/datum/design/D)
+/obj/structure/machinery/mecha_part_fabricator/proc/get_design_resourses(var/datum/design/D)
 	var/list/F = list()
 	for(var/T in D.materials)
 		F += "[capitalize(T)]: [D.materials[T] * mat_efficiency]"
 	return english_list(F, and_text = ", ")
 
-/obj/machinery/mecha_part_fabricator/proc/get_design_time(var/datum/design/D)
+/obj/structure/machinery/mecha_part_fabricator/proc/get_design_time(var/datum/design/D)
 	return time2text(round(10 * D.time / production_speed), "mm:ss")
 
-/obj/machinery/mecha_part_fabricator/proc/update_categories()
+/obj/structure/machinery/mecha_part_fabricator/proc/update_categories()
 	categories = list()
 	for(var/path in files.known_designs)
 		var/datum/design/D = files.known_designs[path]
@@ -456,12 +456,12 @@
 	if(!category || !(category in categories))
 		category = categories[1]
 
-/obj/machinery/mecha_part_fabricator/proc/get_materials()
+/obj/structure/machinery/mecha_part_fabricator/proc/get_materials()
 	. = list()
 	for(var/T in materials)
 		. += list(list("name" = capitalize(T), "amount" = materials[T]))
 
-/obj/machinery/mecha_part_fabricator/proc/eject_materials(var/material, var/amount)
+/obj/structure/machinery/mecha_part_fabricator/proc/eject_materials(var/material, var/amount)
 	if(!amount)
 		return
 	material = lowertext(material)
@@ -473,9 +473,9 @@
 	S.update_icon()
 	materials[material] -= amount
 
-/obj/machinery/mecha_part_fabricator/proc/sync()
+/obj/structure/machinery/mecha_part_fabricator/proc/sync()
 	sync_message = "Error: no console found."
-	for(var/obj/machinery/computer/rdconsole/RDC in get_area(src))
+	for(var/obj/structure/machinery/computer/rdconsole/RDC in get_area(src))
 		if(!RDC.sync)
 			continue
 		for(var/id in RDC.files.known_tech)

@@ -1,6 +1,6 @@
 #define MAX_STAGES 3
 
-/obj/machinery/antibody_extractor
+/obj/structure/machinery/antibody_extractor
 	name = "antibody extractor"
 	desc = "A machine made to extract antibodies. There's a holographic info-label on it..."
 	desc_extended = "This machine is made to extract antibodies from a subject. It will only work with the <b>unmutated, original</b> version of the virus."
@@ -19,7 +19,7 @@
 	/// The person from which the cure is being extracted.
 	var/mob/living/carbon/human/occupant
 
-/obj/machinery/antibody_extractor/feedback_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/antibody_extractor/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	if(!working)
 		. += "It's inactive, and beeping ominously every now and then."
@@ -31,11 +31,11 @@
 		if(3)
 			. += SPAN_CULT("The dark, black blood is slowly being treated and filtered into a shiny, white substance...")
 
-/obj/machinery/antibody_extractor/Destroy()
+/obj/structure/machinery/antibody_extractor/Destroy()
 	occupant = null
 	return ..()
 
-/obj/machinery/antibody_extractor/attack_hand(mob/user)
+/obj/structure/machinery/antibody_extractor/attack_hand(mob/user)
 	if(working)
 		to_chat(user, SPAN_WARNING("\The [src] is totally unresponsive while processing the cure!"))
 		return
@@ -67,7 +67,7 @@
 				to_chat(occupant, SPAN_CULT(FONT_HUGE("You are locked by bindings into \the [src] and your arm is stabbed by a needle!")))
 				playsound(src, 'sound/effects/lingextends.ogg', 30)
 
-/obj/machinery/antibody_extractor/process()
+/obj/structure/machinery/antibody_extractor/process()
 	if(working)
 		icon_state = "extractor-active"
 		if(stage < MAX_STAGES+1)
@@ -107,22 +107,22 @@
 			cure_progress = 0
 			icon_state = "extractor"
 
-/obj/machinery/antibody_extractor/ex_act(severity)
+/obj/structure/machinery/antibody_extractor/ex_act(severity)
 	return
 
-/obj/machinery/antibody_extractor/post_buckle(mob/living/carbon/human/H)
+/obj/structure/machinery/antibody_extractor/post_buckle(mob/living/carbon/human/H)
 	if(H.buckled_to == src)
 		occupant = H
 	playsound(src, 'sound/effects/buckle.ogg', 30)
 
-/obj/machinery/antibody_extractor/user_unbuckle(mob/user)
+/obj/structure/machinery/antibody_extractor/user_unbuckle(mob/user)
 	if(working)
 		to_chat(user, SPAN_WARNING("The buckles are too tight! There's no way out for [occupant]!"))
 		return
 	. = ..()
 	occupant = null
 
-/obj/machinery/antibody_extractor/relaymove(mob/user as mob)
+/obj/structure/machinery/antibody_extractor/relaymove(mob/user as mob)
 	if (user.stat)
 		return
 	if(working)

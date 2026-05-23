@@ -46,7 +46,7 @@
 		to_chat(usr, SPAN_WARNING("\The [src] cannot be placed in this area."))
 		return
 
-	var/obj/machinery/M = new build_machine_type(loc, ndir, 1)
+	var/obj/structure/machinery/M = new build_machine_type(loc, ndir, 1)
 	M.fingerprints = src.fingerprints
 	M.fingerprintshidden = src.fingerprintshidden
 	M.fingerprintslast = src.fingerprintslast
@@ -58,11 +58,11 @@
 	desc = "Used for building lights."
 	icon = 'icons/obj/machinery/light.dmi'
 	icon_state = "floortube-construct-stage1"
-	build_machine_type = /obj/machinery/light_construct/floor
+	build_machine_type = /obj/structure/machinery/light_construct/floor
 	reverse = 1
 
 /obj/item/floor_frame/light/small
 	name = "small floor light fixture frame"
 	icon_state = "floor-construct-stage1"
 	refund_amt = 1
-	build_machine_type = /obj/machinery/light_construct/small/floor
+	build_machine_type = /obj/structure/machinery/light_construct/small/floor

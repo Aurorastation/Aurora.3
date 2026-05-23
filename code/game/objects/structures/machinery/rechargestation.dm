@@ -1,4 +1,4 @@
-/obj/machinery/recharge_station
+/obj/structure/machinery/recharge_station
 	name = "synthetic recharging station"
 	desc = "A heavy duty rapid charging system, designed to quickly recharge synthetic power reserves."
 	icon = 'icons/obj/robot_charger.dmi'
@@ -45,12 +45,12 @@
 		/obj/item/stack/cable_coil{amount = 5}
 	)
 
-/obj/machinery/recharge_station/upgrade_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/recharge_station/upgrade_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Upgraded <b>capacitors</b> will increase charging rate (for shipbounds only, not IPCs)."
 	. += "Upgraded <b>manipulators</b> will make the recharging station also start to repair brute damage, then also burn damage, at increasing speed (for shipbounds only, not IPCs)."
 
-/obj/machinery/recharge_station/feedback_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/recharge_station/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	var/charging_power_kw = round(charging_power / 1000, 0.1)
 	. += "Uses a dedicated power supply to deliver <b>[charging_power_kw] kW</b> when in use."
@@ -64,19 +64,19 @@
 	else
 		. += SPAN_ALERT("It has not been upgraded to repair shipbounds' burn damage.")
 
-/obj/machinery/recharge_station/Initialize()
+/obj/structure/machinery/recharge_station/Initialize()
 	. = ..()
 	update_icon()
 
-/obj/machinery/recharge_station/Destroy()
+/obj/structure/machinery/recharge_station/Destroy()
 	QDEL_NULL(cell)
 
 	. = ..()
 
-/obj/machinery/recharge_station/proc/has_cell_power()
+/obj/structure/machinery/recharge_station/proc/has_cell_power()
 	return cell && cell.percent() > 0
 
-/obj/machinery/recharge_station/process(seconds_per_tick)
+/obj/structure/machinery/recharge_station/process(seconds_per_tick)
 	if(stat & (BROKEN))
 		return
 	if(!cell) // Shouldn't be possible, but sanity check
@@ -112,7 +112,7 @@
 		update_icon()
 
 //Processes the occupant, drawing from the internal power cell if needed.
-/obj/machinery/recharge_station/proc/process_occupant(seconds_per_tick = 1)
+/obj/structure/machinery/recharge_station/proc/process_occupant(seconds_per_tick = 1)
 	if(!isrobot(occupant) && !ishuman(occupant))
 		return
 
@@ -165,19 +165,19 @@
 			D.upgrade_cooldown = world.time + 1 MINUTE
 			D.master_matrix.apply_upgrades(D)
 
-/obj/machinery/recharge_station/proc/chargepercentage()
+/obj/structure/machinery/recharge_station/proc/chargepercentage()
 	if(!cell)
 		return 0
 	return cell.percent()
 
-/obj/machinery/recharge_station/relaymove(mob/living/user, direction)
+/obj/structure/machinery/recharge_station/relaymove(mob/living/user, direction)
 	. = ..()
 
 	if(user.stat)
 		return
 	go_out()
 
-/obj/machinery/recharge_station/emp_act(severity)
+/obj/structure/machinery/recharge_station/emp_act(severity)
 	. = ..()
 
 	if(occupant)
@@ -186,14 +186,14 @@
 	if(cell)
 		cell.emp_act(severity)
 
-/obj/machinery/recharge_station/attack_hand(mob/user)
+/obj/structure/machinery/recharge_station/attack_hand(mob/user)
 	. = ..()
 	if(occupant && (user != occupant))
 		if(do_after(user, 1 SECOND, src))
 			user.visible_message(SPAN_NOTICE("[user] lowers the manual release lever on \the [src]."), SPAN_NOTICE("You lower the manual release lever on \the [src]."))
 			go_out()
 
-/obj/machinery/recharge_station/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/recharge_station/attackby(obj/item/attacking_item, mob/user)
 	if(!occupant)
 		if(default_deconstruction_screwdriver(user, attacking_item))
 			return TRUE
@@ -216,7 +216,7 @@
 		qdel(attacking_item)
 	return ..()
 
-/obj/machinery/recharge_station/RefreshParts()
+/obj/structure/machinery/recharge_station/RefreshParts()
 	..()
 
 	var/man_rating = 0
@@ -236,7 +236,7 @@
 	weld_rate = max(0, man_rating - 3)
 	wire_rate = max(0, man_rating - 5)
 
-/obj/machinery/recharge_station/proc/build_overlays()
+/obj/structure/machinery/recharge_station/proc/build_overlays()
 	ClearOverlays()
 	switch(round(chargepercentage()))
 		if(1 to 20)
@@ -252,7 +252,7 @@
 		if(99 to 110)
 			AddOverlays("statn_c100")
 
-/obj/machinery/recharge_station/update_icon()
+/obj/structure/machinery/recharge_station/update_icon()
 	..()
 	if(stat & BROKEN)
 		icon_state = "borgcharger0"
@@ -269,13 +269,13 @@
 	if(icon_update_tick == 0)
 		build_overlays()
 
-/obj/machinery/recharge_station/CollidedWith(atom/bumped_atom)
+/obj/structure/machinery/recharge_station/CollidedWith(atom/bumped_atom)
 	. = ..()
 
 	if(isliving(bumped_atom))
 		go_in(bumped_atom)
 
-/obj/machinery/recharge_station/proc/go_in(mob/living/M)
+/obj/structure/machinery/recharge_station/proc/go_in(mob/living/M)
 	if(occupant)
 		return
 	if(!hascell(M))
@@ -289,7 +289,7 @@
 	update_icon()
 	return TRUE
 
-/obj/machinery/recharge_station/proc/hascell(var/mob/M)
+/obj/structure/machinery/recharge_station/proc/hascell(var/mob/M)
 	SHOULD_NOT_SLEEP(TRUE)
 	SHOULD_BE_PURE(TRUE)
 
@@ -307,7 +307,7 @@
 				return TRUE
 	return FALSE
 
-/obj/machinery/recharge_station/verb/eject()
+/obj/structure/machinery/recharge_station/verb/eject()
 	set src in oview(1)
 	set category = "Object"
 	set name = "Eject from Recharge Station"
@@ -318,10 +318,10 @@
 	add_fingerprint(usr)
 	return
 
-/obj/machinery/recharge_station/AltClick()
+/obj/structure/machinery/recharge_station/AltClick()
 	eject()
 
-/obj/machinery/recharge_station/proc/go_out()
+/obj/structure/machinery/recharge_station/proc/go_out()
 	if(!occupant)
 		return
 
@@ -330,7 +330,7 @@
 	occupant = null
 	update_icon()
 
-/obj/machinery/recharge_station/proc/move_ipc(var/mob/M) // For the grab/drag and drop
+/obj/structure/machinery/recharge_station/proc/move_ipc(var/mob/M) // For the grab/drag and drop
 	var/mob/living/R = M
 	usr.visible_message(SPAN_NOTICE("[usr] starts putting [R] into [src]."), SPAN_NOTICE("You start putting [R] into [src]."), range = 3)
 	if(do_mob(usr, R, 5 SECONDS))
@@ -343,7 +343,7 @@
 		to_chat(usr, SPAN_DANGER("Cancelled loading [R] into the charger. You and [R] must stay still!"))
 	return
 
-/obj/machinery/recharge_station/mouse_drop_receive(atom/dropped, mob/user, params)
+/obj/structure/machinery/recharge_station/mouse_drop_receive(atom/dropped, mob/user, params)
 	if (istype(dropped, /mob/living/silicon/robot))
 		var/mob/living/silicon/robot/R = dropped
 		if (!user.Adjacent(R) || !Adjacent(user))

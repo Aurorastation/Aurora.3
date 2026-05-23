@@ -1,6 +1,6 @@
 /datum/wires/apc
 	proper_name = "APC"
-	holder_type = /obj/machinery/power/apc
+	holder_type = /obj/structure/machinery/power/apc
 
 /datum/wires/apc/New(atom/holder)
 	wires = list(
@@ -11,7 +11,7 @@
 	..()
 
 /datum/wires/apc/get_status()
-	var/obj/machinery/power/apc/A = holder
+	var/obj/structure/machinery/power/apc/A = holder
 	. = ..()
 	. += A.locked ? "The APC is locked." : "The APC is unlocked."
 	. += A.shorted ? "The APCs power has been shorted." : "The APC is working properly!"
@@ -20,12 +20,12 @@
 /datum/wires/apc/interactable(mob/user)
 	if(!..())
 		return FALSE
-	var/obj/machinery/power/apc/A = holder
+	var/obj/structure/machinery/power/apc/A = holder
 	return A?.panel_open
 
 /datum/wires/apc/on_pulse(wire)
 
-	var/obj/machinery/power/apc/A = holder
+	var/obj/structure/machinery/power/apc/A = holder
 
 	switch(wire)
 
@@ -42,24 +42,24 @@
 			addtimer(CALLBACK(src, PROC_REF(set_ai_control), A, FALSE), 1 SECONDS)
 
 
-/datum/wires/apc/proc/set_locked(var/obj/machinery/power/apc/A, var/setting)
+/datum/wires/apc/proc/set_locked(var/obj/structure/machinery/power/apc/A, var/setting)
 	if(A)
 		A.locked = setting
 
-/datum/wires/apc/proc/set_short_out(var/obj/machinery/power/apc/A, var/setting)
+/datum/wires/apc/proc/set_short_out(var/obj/structure/machinery/power/apc/A, var/setting)
 	if(setting)
 		A.shorted = TRUE
 	else if(A && !is_cut(WIRE_POWER1) && !is_cut(WIRE_POWER2))
 		A.shorted = FALSE
 
-/datum/wires/apc/proc/set_ai_control(var/obj/machinery/power/apc/A, var/setting)
+/datum/wires/apc/proc/set_ai_control(var/obj/structure/machinery/power/apc/A, var/setting)
 	if(setting)
 		A.aidisabled = TRUE
 	else if(A && !is_cut(WIRE_AI))
 		A.aidisabled = FALSE
 
 /datum/wires/apc/on_cut(wire, mend, source)
-	var/obj/machinery/power/apc/A = holder
+	var/obj/structure/machinery/power/apc/A = holder
 
 	switch(wire)
 		if(WIRE_POWER1, WIRE_POWER2)

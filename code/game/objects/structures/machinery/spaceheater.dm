@@ -1,4 +1,4 @@
-/obj/machinery/space_heater
+/obj/structure/machinery/space_heater
 	name = "portable temperature control unit"
 	desc = "A portable temperature control unit. It can heat or cool a compartment to your liking."
 	icon = 'icons/obj/atmos.dmi'
@@ -26,7 +26,7 @@
 	/// Is our cell high-powered? (>= 50 kW, so 'super' or better).
 	var/high_power_cell = FALSE
 
-/obj/machinery/space_heater/feedback_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/space_heater/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "The unit is <b>[on ? "on" : "off"]</b> and the hatch is <b>[panel_open ? "open" : "closed"]</b>."
 	if(panel_open)
@@ -34,19 +34,19 @@
 	else
 		. += "The charge meter reads <b>[cell ? round(cell.percent(),1) : 0]%</b>."
 
-/obj/machinery/space_heater/Initialize()
+/obj/structure/machinery/space_heater/Initialize()
 	. = ..()
 	cell = new(src)
 	/// Ensure env exists so TGUI doesn't attempt to round null for display.
 	env = loc.return_air()
 	update_icon()
 
-/obj/machinery/space_heater/Destroy()
+/obj/structure/machinery/space_heater/Destroy()
 	env = null
 	QDEL_NULL(cell)
 	return ..()
 
-/obj/machinery/space_heater/update_icon()
+/obj/structure/machinery/space_heater/update_icon()
 	ClearOverlays()
 	if(panel_open)
 		AddOverlays("sheater-open")
@@ -68,12 +68,12 @@
 		AddOverlays(emissive_appearance(icon, "sheater-standby-emissive", src, alpha = src.alpha))
 		set_light_on(FALSE)
 
-/obj/machinery/space_heater/powered()
+/obj/structure/machinery/space_heater/powered()
 	if(cell && cell.charge)
 		return TRUE
 	return FALSE
 
-/obj/machinery/space_heater/emp_act(severity)
+/obj/structure/machinery/space_heater/emp_act(severity)
 	. = ..()
 
 	if(stat & (BROKEN|NOPOWER))
@@ -82,7 +82,7 @@
 	if(cell)
 		cell.emp_act(severity)
 
-/obj/machinery/space_heater/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/space_heater/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/cell))
 		if(panel_open)
 			if(cell)
@@ -106,7 +106,7 @@
 		return TRUE
 	return ..()
 
-/obj/machinery/space_heater/attack_hand(mob/user)
+/obj/structure/machinery/space_heater/attack_hand(mob/user)
 	src.add_fingerprint(user)
 	if(panel_open)
 		if(cell)
@@ -128,13 +128,13 @@
 		ui_interact(user)
 
 // TGUI functions begin
-/obj/machinery/space_heater/ui_interact(mob/user, datum/tgui/ui)
+/obj/structure/machinery/space_heater/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "SpaceHeater", src.name, 415, 280)
 		ui.open()
 
-/obj/machinery/space_heater/ui_data(mob/user)
+/obj/structure/machinery/space_heater/ui_data(mob/user)
 	var/list/data = list()
 
 	current_temperature = round(env.temperature - T0C, 0.1)
@@ -155,7 +155,7 @@
 
 	return data
 
-/obj/machinery/space_heater/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/obj/structure/machinery/space_heater/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if (.)
 		return
@@ -178,7 +178,7 @@
 			. = TRUE
 // TGUI functions end
 
-/obj/machinery/space_heater/process()
+/obj/structure/machinery/space_heater/process()
 	if(on && loc)
 		if(cell && cell.charge)
 			env = loc.return_air()
@@ -218,7 +218,7 @@
 		update_icon()
 
 //For mounting on walls in planetary buildings and stuff.
-/obj/machinery/space_heater/stationary
+/obj/structure/machinery/space_heater/stationary
 	name = "stationary temperature control unit"
 	desc = "A stationary temperature control unit. It can heat or cool a compartment to your liking."
 	anchored = TRUE

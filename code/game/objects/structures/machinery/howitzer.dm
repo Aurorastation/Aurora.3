@@ -3,7 +3,7 @@
  *
  * Howitzers are a field weapon capable of delivering artillery fire to a location
  */
-ABSTRACT_TYPE(/obj/machinery/howitzer)
+ABSTRACT_TYPE(/obj/structure/machinery/howitzer)
 	name = "howitzer"
 
 	icon = 'icons/obj/machinery/howitzer/howitzer.dmi'
@@ -65,17 +65,17 @@ ABSTRACT_TYPE(/obj/machinery/howitzer)
 
 	/* END ROTATION INTERNALS */
 
-/obj/machinery/howitzer/Initialize(mapload, d, populate_components, is_internal)
+/obj/structure/machinery/howitzer/Initialize(mapload, d, populate_components, is_internal)
 	. = ..()
 	if(!anchored)
 		icon_state = "howitzer"
 
 	set_dir(NORTH)
 
-/obj/machinery/howitzer/attack_hand(mob/user)
+/obj/structure/machinery/howitzer/attack_hand(mob/user)
 		ui_interact(user)
 
-/obj/machinery/howitzer/AltClick(mob/user)
+/obj/structure/machinery/howitzer/AltClick(mob/user)
 	if(ishuman(user))
 		var/mob/living/carbon/human/user_human = user
 
@@ -93,13 +93,13 @@ ABSTRACT_TYPE(/obj/machinery/howitzer)
 				loaded_shot = null
 			return
 
-/obj/machinery/howitzer/ui_interact(mob/user, datum/tgui/ui)
+/obj/structure/machinery/howitzer/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "Howitzer", ui_x=500, ui_y=380)
 		ui.open()
 
-/obj/machinery/howitzer/ui_data(mob/user)
+/obj/structure/machinery/howitzer/ui_data(mob/user)
 	var/list/data = list()
 	data["loaded_shot"] = loaded_shot ? TRUE : FALSE
 	data["horizontal_angle"] = horizontal_angle
@@ -107,7 +107,7 @@ ABSTRACT_TYPE(/obj/machinery/howitzer)
 
 	return data
 
-/obj/machinery/howitzer/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/obj/structure/machinery/howitzer/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
@@ -121,7 +121,7 @@ ABSTRACT_TYPE(/obj/machinery/howitzer)
 		if("fire")
 			fire(ui.user)
 
-/obj/machinery/howitzer/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/howitzer/attackby(obj/item/attacking_item, mob/user)
 	. = ..()
 
 	if(istype(attacking_item, /obj/item/ammo_casing))
@@ -162,7 +162,7 @@ ABSTRACT_TYPE(/obj/machinery/howitzer)
  *
  * * angle - The angle to set, a number
  */
-/obj/machinery/howitzer/proc/change_horizontal_angle(angle)
+/obj/structure/machinery/howitzer/proc/change_horizontal_angle(angle)
 	if(angle > 360 || angle < 0)
 		stack_trace("Invalid horizontal angle!")
 		return
@@ -201,7 +201,7 @@ ABSTRACT_TYPE(/obj/machinery/howitzer)
 		rotation_timerid = addtimer(CALLBACK(src, PROC_REF(set_horizontal_angle), angle, wanted_dir), duration_of_rotation, TIMER_STOPPABLE|TIMER_UNIQUE)
 
 ///Sets the horizontal angle and dir, internal use only, do not call this directly
-/obj/machinery/howitzer/proc/set_horizontal_angle(angle, wanted_dir)
+/obj/structure/machinery/howitzer/proc/set_horizontal_angle(angle, wanted_dir)
 	PROTECTED_PROC(TRUE)
 
 	rotation_timerid = null
@@ -220,7 +220,7 @@ ABSTRACT_TYPE(/obj/machinery/howitzer)
  *
  * * angle - The angle to set, a number
  */
-/obj/machinery/howitzer/proc/change_vertical_angle(angle)
+/obj/structure/machinery/howitzer/proc/change_vertical_angle(angle)
 	if(angle > 90 || angle < 0)
 		stack_trace("Invalid vertical angle!")
 		return
@@ -245,7 +245,7 @@ ABSTRACT_TYPE(/obj/machinery/howitzer)
 		rotation_timerid = addtimer(CALLBACK(src, PROC_REF(set_vertical_angle), angle), (degrees_to_change * decisecond_per_degree_vertical_rotation), TIMER_STOPPABLE|TIMER_UNIQUE)
 
 ///Sets the vertical angle and dir, internal use only, do not call this directly
-/obj/machinery/howitzer/proc/set_vertical_angle(angle)
+/obj/structure/machinery/howitzer/proc/set_vertical_angle(angle)
 	PROTECTED_PROC(TRUE)
 
 	rotation_timerid = null
@@ -263,7 +263,7 @@ ABSTRACT_TYPE(/obj/machinery/howitzer)
  *
  * * user - The `/mob` that requested to fire the projectile
  */
-/obj/machinery/howitzer/proc/fire(mob/user)
+/obj/structure/machinery/howitzer/proc/fire(mob/user)
 	if(!anchored)
 		balloon_alert_to_viewers("not anchored down!")
 		to_chat(user, SPAN_WARNING("The howitzer is not anchored down!"))
@@ -505,7 +505,7 @@ ABSTRACT_TYPE(/obj/item/howitzer_pellet)
 		ACTUAL HOWITZERS TO USE
 #####################################*/
 
-/obj/machinery/howitzer/gadpathur_105mm
+/obj/structure/machinery/howitzer/gadpathur_105mm
 	name = "gadpathur 105mm light field howitzer"
 	desc = "A 105mm light field howitzer, in service with the Gadpathur Planetary Defense Council."
 

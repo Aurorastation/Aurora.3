@@ -29,7 +29,7 @@
 	var/tag_pump_out_external
 	var/tag_pump_out_internal
 
-/datum/computer/file/embedded_program/airlock/New(var/obj/machinery/embedded_controller/M)
+/datum/computer/file/embedded_program/airlock/New(var/obj/structure/machinery/embedded_controller/M)
 	..(M)
 
 	memory["chamber_sensor_pressure"] = ONE_ATMOSPHERE
@@ -42,8 +42,8 @@
 	memory["purge"] = 0
 	memory["secure"] = 0
 
-	if (istype(M, /obj/machinery/embedded_controller/radio/airlock))	//if our controller is an airlock controller than we can auto-init our tags
-		var/obj/machinery/embedded_controller/radio/airlock/controller = M
+	if (istype(M, /obj/structure/machinery/embedded_controller/radio/airlock))	//if our controller is an airlock controller than we can auto-init our tags
+		var/obj/structure/machinery/embedded_controller/radio/airlock/controller = M
 		cycle_to_external_air = controller.cycle_to_external_air
 		if(cycle_to_external_air)
 			tag_pump_out_external = "[id_tag]_pump_out_external"
@@ -89,7 +89,7 @@
 			memory["pump_status"] = "off"
 
 	else if(receive_tag==id_tag)
-		if(istype(master, /obj/machinery/embedded_controller/radio/airlock/access_controller))
+		if(istype(master, /obj/structure/machinery/embedded_controller/radio/airlock/access_controller))
 			switch(signal.data["command"])
 				if("cycle_exterior")
 					receive_user_command("cycle_ext_door")

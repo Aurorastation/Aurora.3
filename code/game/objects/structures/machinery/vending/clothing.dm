@@ -2,7 +2,7 @@
  * ClothesMate
  */
 
-/obj/machinery/vending/clothing
+/obj/structure/machinery/vending/clothing
 	name = "ClothesMate"
 	desc = "A vending machine for clothing."
 	icon_state = "clothes"

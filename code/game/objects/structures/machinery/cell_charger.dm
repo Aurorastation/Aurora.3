@@ -1,4 +1,4 @@
-/obj/machinery/cell_charger
+/obj/structure/machinery/cell_charger
 	name = "heavy-duty cell charger"
 	desc = "A much more powerful version of the standard recharger that is specifically designed to charge power cells."
 	icon = 'icons/obj/machinery/cell_charger.dmi'
@@ -13,11 +13,11 @@
 	var/charge_level = -1
 	var/const/CHARGE_EFFICIENCY = 1.38
 
-/obj/machinery/cell_charger/assembly_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/cell_charger/assembly_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "It [anchored ? "is" : "could be"] anchored in place with a couple of <b>bolts</b>."
 
-/obj/machinery/cell_charger/feedback_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/cell_charger/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	if(distance > 5)
 		return
@@ -27,7 +27,7 @@
 	else
 		. += SPAN_WARNING("The charger is empty.")
 
-/obj/machinery/cell_charger/proc/update_charge_level()
+/obj/structure/machinery/cell_charger/proc/update_charge_level()
 	if(!charging)
 		charge_level = -1
 		return
@@ -36,7 +36,7 @@
 	if(new_level != charge_level)
 		charge_level = new_level
 
-/obj/machinery/cell_charger/update_icon()
+/obj/structure/machinery/cell_charger/update_icon()
 	ClearOverlays()
 	if(charging)
 		charging.update_icon()
@@ -52,7 +52,7 @@
 	AddOverlays("cell-o2")
 	AddOverlays("[icon_state]-o[charge_level]")
 
-/obj/machinery/cell_charger/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/cell_charger/attackby(obj/item/attacking_item, mob/user)
 	if(stat & BROKEN)
 		return TRUE
 
@@ -83,7 +83,7 @@
 		START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 		return TRUE
 
-/obj/machinery/cell_charger/attack_hand(mob/user)
+/obj/structure/machinery/cell_charger/attack_hand(mob/user)
 	if(charging)
 		user.put_in_hands(charging, TRUE)
 		charging.add_fingerprint(user)
@@ -95,7 +95,7 @@
 
 	return TRUE
 
-/obj/machinery/cell_charger/attack_ai(mob/user)
+/obj/structure/machinery/cell_charger/attack_ai(mob/user)
 	if(isrobot(user) && charging) // Borgs can remove the cell if they are near enough
 		user.put_in_hands(charging, TRUE)
 		charging.update_icon()
@@ -105,7 +105,7 @@
 		charge_level = -1
 		update_icon()
 
-/obj/machinery/cell_charger/emp_act(severity)
+/obj/structure/machinery/cell_charger/emp_act(severity)
 	. = ..()
 
 	if(INOPERABLE(src))
@@ -113,14 +113,14 @@
 	if(charging)
 		charging.emp_act(severity)
 
-/obj/machinery/cell_charger/power_change()
+/obj/structure/machinery/cell_charger/power_change()
 	if(..() && charging && anchored)
 		if(INOPERABLE(src))
 			STOP_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 		else
 			START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 
-/obj/machinery/cell_charger/process()
+/obj/structure/machinery/cell_charger/process()
 	if(INOPERABLE(src) || !anchored)
 		update_use_power(POWER_USE_OFF)
 		update_icon()

@@ -1,4 +1,4 @@
-/obj/machinery/optable
+/obj/structure/machinery/optable
 	name = "operating table"
 	desc = "Used for advanced medical procedures."
 	icon = 'icons/obj/surgery.dmi'
@@ -24,20 +24,20 @@
 	var/suppressing = FALSE
 
 	///The connected surgery computer
-	var/obj/machinery/computer/operating/computer = null
+	var/obj/structure/machinery/computer/operating/computer = null
 
 	/// If the patient must be lying on this surgery table for it to set the patient as occupant.
 	var/occupant_must_be_lying = TRUE
 
-/obj/machinery/optable/mechanics_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/optable/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Click your target with Grab intent, then click on the table with an empty hand, to place them on it."
 
-/obj/machinery/optable/feedback_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/optable/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "The neural suppressors are switched [suppressing ? "on" : "off"]."
 
-/obj/machinery/optable/Initialize()
+/obj/structure/machinery/optable/Initialize()
 	..()
 
 	LAZYADD(can_buckle, /mob/living)
@@ -48,15 +48,15 @@
 
 	return INITIALIZE_HINT_LATELOAD
 
-/obj/machinery/optable/LateInitialize()
+/obj/structure/machinery/optable/LateInitialize()
 	. = ..()
 
 	//Search for an operating computer and ask it to hook us up
-	for(var/obj/machinery/computer/operating/candidate_computer in orange(src, 1))
+	for(var/obj/structure/machinery/computer/operating/candidate_computer in orange(src, 1))
 		if(candidate_computer.hook_table(src))
 			break
 
-/obj/machinery/optable/Destroy()
+/obj/structure/machinery/optable/Destroy()
 	STOP_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 	UnregisterSignal(loc, COMSIG_ATOM_ENTERED)
 	UnregisterSignal(loc, COMSIG_ATOM_EXITED)
@@ -75,7 +75,7 @@
 	. = ..()
 
 /// Any mob that enters our tile will awaken our processing as it's a potential patient
-/obj/machinery/optable/proc/mark_patient(datum/source, mob/living/carbon/potential_patient)
+/obj/structure/machinery/optable/proc/mark_patient(datum/source, mob/living/carbon/potential_patient)
 	SIGNAL_HANDLER
 	if(!istype(potential_patient))
 		return
@@ -83,7 +83,7 @@
 	refresh_icon_state()
 
 /// Unmark the potential patient
-/obj/machinery/optable/proc/unmark_patient(datum/source, mob/living/carbon/potential_patient)
+/obj/structure/machinery/optable/proc/unmark_patient(datum/source, mob/living/carbon/potential_patient)
 	SIGNAL_HANDLER
 	if(!istype(potential_patient))
 		return
@@ -102,14 +102,14 @@
 		//Reprocess the icon state at the end
 		refresh_icon_state()
 
-/obj/machinery/optable/process(seconds_per_tick)
+/obj/structure/machinery/optable/process(seconds_per_tick)
 	//We just call the check_occupant for all the processing
 	check_occupant(seconds_per_tick)
 
 /**
  * Acquires the view of the patient so that it's locked on the table, instead of eg. remote viewing a camera
  */
-/obj/machinery/optable/proc/acquire_view(mob/living/carbon/patient)
+/obj/structure/machinery/optable/proc/acquire_view(mob/living/carbon/patient)
 	//No point if there's no client
 	if(!patient.client)
 		return
@@ -121,14 +121,14 @@
 /**
  * Releases the view of the patient back to the mob
  */
-/obj/machinery/optable/proc/release_view(mob/living/carbon/patient)
+/obj/structure/machinery/optable/proc/release_view(mob/living/carbon/patient)
 	//No point if there's no client
 	if(!patient.client)
 		return
 
 	patient.reset_view(null)
 
-/obj/machinery/optable/ex_act(severity)
+/obj/structure/machinery/optable/ex_act(severity)
 	switch(severity)
 		if(1.0)
 			qdel(src)
@@ -142,7 +142,7 @@
 				density = FALSE
 	return
 
-/obj/machinery/optable/attack_hand(mob/user)
+/obj/structure/machinery/optable/attack_hand(mob/user)
 	if((user.mutations & HULK))
 		visible_message(SPAN_DANGER("\The [user] destroys \the [src]!"))
 		density = FALSE
@@ -172,7 +172,7 @@
 /**
  * Refreshes the icon state based on the table status
  */
-/obj/machinery/optable/proc/refresh_icon_state()
+/obj/structure/machinery/optable/proc/refresh_icon_state()
 	SHOULD_NOT_SLEEP(TRUE)
 
 	var/mob/living/carbon/human/human_occupant = occupant?.resolve()
@@ -190,7 +190,7 @@
 		icon_state = "[modify_state]-idle"
 
 
-/obj/machinery/optable/proc/check_occupant(seconds_per_tick)
+/obj/structure/machinery/optable/proc/check_occupant(seconds_per_tick)
 	SHOULD_NOT_SLEEP(TRUE)
 
 	refresh_icon_state()
@@ -239,7 +239,7 @@
  *
  * Returns `TRUE` if the patient was taken, `FALSE` otherwise
  */
-/obj/machinery/optable/proc/take_occupant(mob/living/carbon/patient, mob/living/carbon/giver)
+/obj/structure/machinery/optable/proc/take_occupant(mob/living/carbon/patient, mob/living/carbon/giver)
 	SHOULD_NOT_SLEEP(TRUE)
 
 	//No point if there's no patient
@@ -269,11 +269,11 @@
 /**
  * Actually moves a patient to the table.
  */
-/obj/machinery/optable/proc/move_patient_to_table(mob/living/carbon/patient, mob/living/carbon/giver)
+/obj/structure/machinery/optable/proc/move_patient_to_table(mob/living/carbon/patient, mob/living/carbon/giver)
 	patient.resting = TRUE
 	patient.forceMove(loc)
 
-/obj/machinery/optable/mouse_drop_receive(atom/dropped, mob/user, params)
+/obj/structure/machinery/optable/mouse_drop_receive(atom/dropped, mob/user, params)
 	//If the user is a ghost, stop.
 	if(isghost(user))
 		return
@@ -316,7 +316,7 @@
 	else
 		return ..()
 
-/obj/machinery/optable/attackby(obj/item/attacking_item, mob/user, params)
+/obj/structure/machinery/optable/attackby(obj/item/attacking_item, mob/user, params)
 	if(istype(attacking_item, /obj/item/grab))
 		var/obj/item/grab/G = attacking_item
 
@@ -345,7 +345,7 @@
 	if(default_part_replacement(user, attacking_item))
 		return TRUE
 
-/obj/machinery/optable/robotics
+/obj/structure/machinery/optable/robotics
 	name = "machinery chair"
 	desc = "Some sort of hybrid between an operating table and a chair, typically used by machinists and roboticists to strap synthetics to while they work on them. \
 			It comes with an access cable for easy access to a synthetic's diagnostics unit."
@@ -354,18 +354,18 @@
 	occupant_must_be_lying = FALSE
 	can_buckle = list(/mob/living/carbon/human)
 
-/obj/machinery/optable/robotics/mechanics_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/optable/robotics/mechanics_hints(mob/user, distance, is_adjacent)
 	. = ..()
 	. += list("Use a <b>non-help</b> intent to unbuckle.")
 
-/obj/machinery/optable/robotics/refresh_icon_state()
+/obj/structure/machinery/optable/robotics/refresh_icon_state()
 	return
 
-/obj/machinery/optable/robotics/move_patient_to_table(mob/living/carbon/patient, mob/living/carbon/giver)
+/obj/structure/machinery/optable/robotics/move_patient_to_table(mob/living/carbon/patient, mob/living/carbon/giver)
 	buckle(patient, giver)
 	visible_message(SPAN_NOTICE("[giver] buckles [patient] to \the [src]."))
 
-/obj/machinery/optable/robotics/buckle(atom/movable/buckling_atom, mob/user)
+/obj/structure/machinery/optable/robotics/buckle(atom/movable/buckling_atom, mob/user)
 	. = ..()
 	if(.)
 		playsound(src, 'sound/effects/metal_close.ogg', 20)

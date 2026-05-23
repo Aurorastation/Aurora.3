@@ -9,20 +9,20 @@
 #define COMPRESS   0
 #define UNCOMPRESS 1
 
-/obj/machinery/telecomms/processor
+/obj/structure/machinery/telecomms/processor
 	name = "processor unit"
 	icon_state = "processor"
 	desc = "This machine is used to process large quantities of information."
-	telecomms_type = /obj/machinery/telecomms/processor
+	telecomms_type = /obj/structure/machinery/telecomms/processor
 	delay = 5
 	circuitboard = "/obj/item/circuitboard/telecomms/processor"
 	var/process_mode = UNCOMPRESS
 
-/obj/machinery/telecomms/processor/antagonist_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/telecomms/processor/antagonist_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Attacking/damaging this machine will cause communications over its linked frequency(s) to become increasingly garbled."
 
-/obj/machinery/telecomms/processor/receive_information(datum/signal/subspace/signal, obj/machinery/telecomms/machine_from)
+/obj/structure/machinery/telecomms/processor/receive_information(datum/signal/subspace/signal, obj/structure/machinery/telecomms/machine_from)
 	if(!is_freq_listening(signal))
 		return
 
@@ -42,7 +42,7 @@
 		// Uncompress signal to complete clarity
 		else signal.data["compression"] = 0
 
-	if(istype(machine_from, /obj/machinery/telecomms/bus))
+	if(istype(machine_from, /obj/structure/machinery/telecomms/bus))
 		relay_direct_information(signal, machine_from) // send the signal back to the machine
 	else // no bus detected - send the signal to servers instead
 		signal.data["slow"] += rand(5, 10) // slow the signal down

@@ -8,7 +8,7 @@
 #define TURRET_SECONDARY_TARGET 1
 #define TURRET_NOT_TARGET 0
 
-/obj/machinery/porta_turret
+/obj/structure/machinery/porta_turret
 	name = "turret"
 	icon = 'icons/obj/turrets.dmi'
 	icon_state = "cover_0"
@@ -113,7 +113,7 @@
 
 	var/old_angle = 0
 
-/obj/machinery/porta_turret/get_damage_condition_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/porta_turret/get_damage_condition_hints(mob/user, distance, is_adjacent)
 	if(health / maxhealth < 0.35)
 		. = SPAN_DANGER("\The [src] is critically damaged!")
 	else if(health / maxhealth < 0.6)
@@ -123,16 +123,16 @@
 	else
 		. = "\The [src] is in perfect condition."
 
-/obj/machinery/porta_turret/mechanics_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/porta_turret/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "ALT-click the [src] to lock or unlock it (if you have the appropriate ID access)."
 
-/obj/machinery/porta_turret/assembly_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/porta_turret/assembly_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	if(!immobile)
 		. += "It [anchored ? "is" : "could be"] anchored to the floor with some <b>bolts</b>."
 
-/obj/machinery/porta_turret/crescent
+/obj/structure/machinery/porta_turret/crescent
 	enabled = FALSE
 	ailock = TRUE
 	check_synth	 = FALSE
@@ -149,13 +149,13 @@
 	/// Set to true to allow emagging of this turret.
 	var/admin_emag_override = FALSE
 
-/obj/machinery/porta_turret/crescent/emag_act()
+/obj/structure/machinery/porta_turret/crescent/emag_act()
 	if (admin_emag_override)
 		return ..()
 	else
 		return NO_EMAG_ACT
 
-/obj/machinery/porta_turret/stationary
+/obj/structure/machinery/porta_turret/stationary
 	ailock = 1
 	lethal = 1
 	lethal_icon = 1
@@ -163,7 +163,7 @@
 	installation = /obj/item/gun/energy/rifle/laser
 	sprite_set = "laser"
 
-/obj/machinery/porta_turret/Initialize(mapload)
+/obj/structure/machinery/porta_turret/Initialize(mapload)
 	. = ..()
 	//Sets up a spark system
 	spark_system = bind_spark(src, 5)
@@ -181,10 +181,10 @@
 	if(istype(control_area))
 		LAZYADD(control_area.turrets, src)
 		if(!mapload)
-			for(var/obj/machinery/turretid/aTurretID in control_area.turret_controls)
+			for(var/obj/structure/machinery/turretid/aTurretID in control_area.turret_controls)
 				aTurretID.turretModes()
 		if(LAZYLEN(control_area.turret_controls))
-			var/obj/machinery/turretid/SOME_TURRET_ID = control_area.turret_controls[1]
+			var/obj/structure/machinery/turretid/SOME_TURRET_ID = control_area.turret_controls[1]
 			var/datum/turret_checks/SOME_TC = SOME_TURRET_ID.getState() // this helper should honestly fucking exist why doesn't it :ree:
 			if(SOME_TC.lethal != lethal && !egun)
 				SOME_TC.enabled = 0
@@ -192,11 +192,11 @@
 
 	add_to_target_grid()
 
-/obj/machinery/porta_turret/Destroy()
+/obj/structure/machinery/porta_turret/Destroy()
 	var/area/control_area = get_area(src)
 	if(istype(control_area))
 		LAZYREMOVE(control_area.turrets, src)
-		for(var/obj/machinery/turretid/aTurretID in control_area.turret_controls)
+		for(var/obj/structure/machinery/turretid/aTurretID in control_area.turret_controls)
 			aTurretID.turretModes()
 	qdel(spark_system)
 	spark_system = null
@@ -209,7 +209,7 @@
 	. = ..()
 
 
-/obj/machinery/porta_turret/update_icon()
+/obj/structure/machinery/porta_turret/update_icon()
 	ClearOverlays()
 	underlays.Cut()
 
@@ -236,7 +236,7 @@
 	else
 		set_light(light_range, light_power)
 
-/obj/machinery/porta_turret/proc/isLocked(mob/user)
+/obj/structure/machinery/porta_turret/proc/isLocked(mob/user)
 	if(ailock && issilicon(user))
 		to_chat(user, SPAN_WARNING("There seems to be a firewall preventing you from accessing this device."))
 		return TRUE
@@ -248,15 +248,15 @@
 
 	return FALSE
 
-/obj/machinery/porta_turret/attack_ai(mob/user)
+/obj/structure/machinery/porta_turret/attack_ai(mob/user)
 	if(!ai_can_interact(user))
 		return
 	ui_interact(user)
 
-/obj/machinery/porta_turret/attack_hand(mob/user)
+/obj/structure/machinery/porta_turret/attack_hand(mob/user)
 	ui_interact(user)
 
-/obj/machinery/porta_turret/ui_data(mob/user)
+/obj/structure/machinery/porta_turret/ui_data(mob/user)
 	var/list/data = list()
 	data["locked"] = locked
 	data["enabled"] = enabled
@@ -266,7 +266,7 @@
 	data["settings"] = get_settings()
 	return data
 
-/obj/machinery/porta_turret/proc/get_settings()
+/obj/structure/machinery/porta_turret/proc/get_settings()
 	. = list()
 
 	var/usedSettings = list(
@@ -283,17 +283,17 @@
 		var/name = usedSettings[v]
 		. += list(list("category" = name, "value" = vars[v], "variable_name" = v))
 
-/obj/machinery/porta_turret/ui_interact(mob/user, var/datum/tgui/ui)
+/obj/structure/machinery/porta_turret/ui_interact(mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "TurretControlPorta", "Defense Systems Control Panel", 375, 425)
 		ui.open()
 
-/obj/machinery/porta_turret/proc/HasController()
+/obj/structure/machinery/porta_turret/proc/HasController()
 	var/area/A = get_area(src)
 	return A && A.turret_controls.len > 0
 
-/obj/machinery/porta_turret/ui_status(mob/user, datum/ui_state/state)
+/obj/structure/machinery/porta_turret/ui_status(mob/user, datum/ui_state/state)
 	. = ..()
 	if(HasController())
 		to_chat(user, SPAN_NOTICE("Turrets can only be controlled using the assigned turret controller."))
@@ -308,7 +308,7 @@
 
 	return ..()
 
-/obj/machinery/porta_turret/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/obj/structure/machinery/porta_turret/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
@@ -346,18 +346,18 @@
 			check_wildlife = value
 		. = TRUE
 
-/obj/machinery/porta_turret/power_change()
+/obj/structure/machinery/porta_turret/power_change()
 	..()
 	if(powered())
 		queue_icon_update()
 	else
 		addtimer(CALLBACK(src, PROC_REF(lose_power)), rand(1, 15))
 
-/obj/machinery/porta_turret/proc/lose_power()
+/obj/structure/machinery/porta_turret/proc/lose_power()
 	stat |= NOPOWER
 	queue_icon_update()
 
-/obj/machinery/porta_turret/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/porta_turret/attackby(obj/item/attacking_item, mob/user)
 	if(stat & BROKEN)
 		if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 			//If the turret is destroyed, you can remove it with a crowbar to
@@ -443,7 +443,7 @@
 				addtimer(CALLBACK(src, PROC_REF(reset_attacked)), 1 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE)
 		return ..()
 
-/obj/machinery/porta_turret/AltClick(mob/user)
+/obj/structure/machinery/porta_turret/AltClick(mob/user)
 	if(Adjacent(user))
 		if(allowed(user))
 			locked = !locked
@@ -459,10 +459,10 @@
 			balloon_alert(user, "access denied!")
 		return TRUE
 
-/obj/machinery/porta_turret/proc/reset_attacked()
+/obj/structure/machinery/porta_turret/proc/reset_attacked()
 	attacked = FALSE
 
-/obj/machinery/porta_turret/emag_act(var/remaining_charges, var/mob/user)
+/obj/structure/machinery/porta_turret/emag_act(var/remaining_charges, var/mob/user)
 	if(!emagged)
 		//Emagging the turret makes it go bonkers and stun everyone. It also makes
 		//the turret shoot much, much faster.
@@ -477,7 +477,7 @@
 		enabled = 1 //turns it back on. The cover popUp() popDown() are automatically called in process(), no need to define it here
 		return 1
 
-/obj/machinery/porta_turret/add_damage(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
+/obj/structure/machinery/porta_turret/add_damage(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
 	if(!raised && !raising)
 		damage = damage / 8
 
@@ -485,7 +485,7 @@
 		spark_system.queue()
 	. = ..()
 
-/obj/machinery/porta_turret/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+/obj/structure/machinery/porta_turret/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
 	var/damage = hitting_projectile.get_structure_damage()
 
 	if(!damage)
@@ -502,7 +502,7 @@
 
 	add_damage(damage)
 
-/obj/machinery/porta_turret/emp_act(severity)
+/obj/structure/machinery/porta_turret/emp_act(severity)
 	. = ..()
 
 	if(enabled)
@@ -520,10 +520,10 @@
 		addtimer(CALLBACK(src, PROC_REF(post_emp_act)), rand(60, 600))
 
 
-/obj/machinery/porta_turret/proc/post_emp_act()
+/obj/structure/machinery/porta_turret/proc/post_emp_act()
 	enabled = TRUE
 
-/obj/machinery/porta_turret/ex_act(severity)
+/obj/structure/machinery/porta_turret/ex_act(severity)
 	switch (severity)
 		if (1)
 			qdel(src)
@@ -535,13 +535,13 @@
 		if (3)
 			add_damage(maxhealth * 8 / 3)
 
-/obj/machinery/porta_turret/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
+/obj/structure/machinery/porta_turret/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
 	health = 0
 	stat |= BROKEN	//enables the BROKEN bit
 	spark_system.queue()	//creates some sparks because they look cool
 	update_icon()
 
-/obj/machinery/porta_turret/process()
+/obj/structure/machinery/porta_turret/process()
 	//the main machinery process
 	if((stat & (NOPOWER|BROKEN)) || !enabled)
 		//if the turret has no power, is broken, or off, make the turret pop down if it hasn't already
@@ -577,7 +577,7 @@
 		deltimer(resetting)
 		resetting = null
 
-/obj/machinery/porta_turret/proc/fastscan(on)
+/obj/structure/machinery/porta_turret/proc/fastscan(on)
 	if(on == fast_processing)
 		return
 
@@ -590,19 +590,19 @@
 
 	fast_processing = on
 
-/obj/machinery/porta_turret/proc/reset()
+/obj/structure/machinery/porta_turret/proc/reset()
 	if(!targets.len && !secondarytargets.len)
 		fastscan(FALSE)
 		popDown()
 
-/obj/machinery/porta_turret/proc/assess_and_assign_living(var/mob/living/L, var/list/targets, var/list/secondarytargets)
+/obj/structure/machinery/porta_turret/proc/assess_and_assign_living(var/mob/living/L, var/list/targets, var/list/secondarytargets)
 	switch(assess_living(L))
 		if(TURRET_PRIORITY_TARGET)
 			targets += L
 		if(TURRET_SECONDARY_TARGET)
 			secondarytargets += L
 
-/obj/machinery/porta_turret/proc/assess_and_assign_closet(var/obj/structure/closet/C, var/list/targets, var/list/secondarytargets)
+/obj/structure/machinery/porta_turret/proc/assess_and_assign_closet(var/obj/structure/closet/C, var/list/targets, var/list/secondarytargets)
 	if(is_type_in_list(C,list(/obj/structure/closet/statue,/obj/structure/closet/walllocker/firecloset,/obj/structure/closet/walllocker)))
 		return
 	if(!lethal)
@@ -623,7 +623,7 @@
 	if(found_secondary)
 		secondarytargets += C
 
-/obj/machinery/porta_turret/proc/assess_living(var/mob/living/L)
+/obj/structure/machinery/porta_turret/proc/assess_living(var/mob/living/L)
 	if(!istype(L))
 		return TURRET_NOT_TARGET
 
@@ -691,7 +691,7 @@
 				return TURRET_NOT_TARGET
 	return TURRET_PRIORITY_TARGET	//if the perp has passed all previous tests, congrats, it is now a "shoot-me!" nominee
 
-/obj/machinery/porta_turret/proc/assess_perp(var/mob/living/carbon/human/H)
+/obj/structure/machinery/porta_turret/proc/assess_perp(var/mob/living/carbon/human/H)
 	if(!H || !istype(H))
 		return 0
 
@@ -700,7 +700,7 @@
 
 	return H.assess_perp(src, check_access, check_weapons, check_records, check_arrest)
 
-/obj/machinery/porta_turret/proc/tryToShootAt(var/list/targets)
+/obj/structure/machinery/porta_turret/proc/tryToShootAt(var/list/targets)
 	if(targets.len && last_target && (last_target in targets) && target(last_target))
 		return 1
 
@@ -711,7 +711,7 @@
 			return 1
 
 
-/obj/machinery/porta_turret/proc/popUp()	//pops the turret up
+/obj/structure/machinery/porta_turret/proc/popUp()	//pops the turret up
 	set waitfor = FALSE
 	if(disabled)
 		return
@@ -732,7 +732,7 @@
 	set_raised_raising(1, 0)
 	update_icon()
 
-/obj/machinery/porta_turret/proc/popDown()	//pops the turret down
+/obj/structure/machinery/porta_turret/proc/popDown()	//pops the turret down
 	set waitfor = FALSE
 
 	last_target = null
@@ -755,12 +755,12 @@
 	set_angle(0)
 	update_icon()
 
-/obj/machinery/porta_turret/proc/set_raised_raising(var/raised, var/raising)
+/obj/structure/machinery/porta_turret/proc/set_raised_raising(var/raised, var/raising)
 	src.raised = raised
 	src.raising = raising
 	density = raised || raising
 
-/obj/machinery/porta_turret/proc/target(var/target)
+/obj/structure/machinery/porta_turret/proc/target(var/target)
 	if(disabled)
 		return
 	if(target)
@@ -775,10 +775,10 @@
 		return 1
 	return
 
-/obj/machinery/porta_turret/proc/reset_last_fired()
+/obj/structure/machinery/porta_turret/proc/reset_last_fired()
 	last_fired = FALSE
 
-/obj/machinery/porta_turret/proc/shootAt(var/target)
+/obj/structure/machinery/porta_turret/proc/shootAt(var/target)
 	//any emagged turrets will shoot extremely fast! This not only is deadly, but drains a lot power!
 	if(last_fired || !raised)	//prevents rapid-fire shooting, unless it's been emagged
 		return
@@ -830,7 +830,7 @@
 	var/check_wildlife
 	var/ailock
 
-/obj/machinery/porta_turret/proc/setState(var/datum/turret_checks/TC)
+/obj/structure/machinery/porta_turret/proc/setState(var/datum/turret_checks/TC)
 	if(controllock)
 		return
 	src.enabled = TC.enabled
@@ -863,23 +863,23 @@
 		Known as "turret frame"s
 */
 
-/obj/machinery/porta_turret_construct
+/obj/structure/machinery/porta_turret_construct
 	name = "turret frame"
 	icon = 'icons/obj/turrets.dmi'
 	icon_state = "turret_frame_0_0"
 	density = 1
-	var/target_type = /obj/machinery/porta_turret	// The type we intend to build
+	var/target_type = /obj/structure/machinery/porta_turret	// The type we intend to build
 	var/build_step = 0			//the current step in the building process
 	var/finish_name = "turret"	//the name applied to the product turret
 	var/obj/item/gun/energy/installation = null		//the gun type installed
 	var/case_sprite_set = 0		//sprite set the turret case will use
 	var/obj/item/gun/energy/E = null
 
-/obj/machinery/porta_turret_construct/dark
+/obj/structure/machinery/porta_turret_construct/dark
 	icon_state = "turret_frame_0_1"
 	case_sprite_set = 1
 
-/obj/machinery/porta_turret_construct/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/porta_turret_construct/attackby(obj/item/attacking_item, mob/user)
 	//this is a bit unwieldy but self-explanatory
 	switch(build_step)
 		if(0)	//first step
@@ -955,7 +955,7 @@
 						return TRUE
 					to_chat(user, SPAN_NOTICE("You install [attacking_item] into the turret."))
 					user.drop_from_inventory(E,src)
-					target_type = /obj/machinery/porta_turret
+					target_type = /obj/structure/machinery/porta_turret
 					installation = attacking_item //installation becomes I.type
 					build_step = 4
 					icon_state = "turret_frame_4_[case_sprite_set]"
@@ -1031,7 +1031,7 @@
 					to_chat(user, SPAN_NOTICE("You weld the turret's armor down."))
 
 					//The final step: create a full turret
-					var/obj/machinery/porta_turret/Turret = new target_type(loc)
+					var/obj/structure/machinery/porta_turret/Turret = new target_type(loc)
 					Turret.name = finish_name
 					Turret.installation = installation
 					Turret.gun_charge = E.power_supply.charge
@@ -1083,7 +1083,7 @@
 	return ..()
 
 
-/obj/machinery/porta_turret_construct/attack_hand(mob/user)
+/obj/structure/machinery/porta_turret_construct/attack_hand(mob/user)
 	switch(build_step)
 		if(4)
 			if(!installation)
@@ -1100,7 +1100,7 @@
 			new /obj/item/assembly/prox_sensor(loc)
 			build_step = 4
 
-/obj/machinery/porta_turret_construct/attack_ai()
+/obj/structure/machinery/porta_turret_construct/attack_ai()
 	return
 
 /atom/movable/porta_turret_cover
@@ -1109,7 +1109,7 @@
 
 //preset turrets
 
-/obj/machinery/porta_turret/xray
+/obj/structure/machinery/porta_turret/xray
 	installation = /obj/item/gun/energy/xray
 	lethal = 1
 	lethal_icon = 1
@@ -1120,7 +1120,7 @@
 	eshot_sound	= 'sound/weapons/laser3.ogg'
 	req_one_access = list(ACCESS_SYNDICATE)
 
-/obj/machinery/porta_turret/ion
+/obj/structure/machinery/porta_turret/ion
 	installation = /obj/item/gun/energy/rifle/ionrifle
 	lethal = 0
 	lethal_icon = 0
@@ -1133,7 +1133,7 @@
 	eshot_sound	= 'sound/weapons/laser1.ogg'
 	req_one_access = list(ACCESS_SYNDICATE)
 
-/obj/machinery/porta_turret/crossbow
+/obj/structure/machinery/porta_turret/crossbow
 	installation = /obj/item/gun/energy/crossbow
 	lethal = 1
 	lethal_icon = 1
@@ -1144,7 +1144,7 @@
 	eshot_sound	= 'sound/weapons/Genhit.ogg'
 	req_one_access = list(ACCESS_SYNDICATE)
 
-/obj/machinery/porta_turret/cannon
+/obj/structure/machinery/porta_turret/cannon
 	installation = /obj/item/gun/energy/rifle/laser/heavy
 	lethal = 1
 	lethal_icon = 1
@@ -1155,7 +1155,7 @@
 	eshot_sound	= 'sound/weapons/lasercannonfire.ogg'
 	req_one_access = list(ACCESS_SYNDICATE)
 
-/obj/machinery/porta_turret/pulse
+/obj/structure/machinery/porta_turret/pulse
 	installation = /obj/item/gun/energy/pulse
 	lethal = 1
 	lethal_icon = 1
@@ -1167,7 +1167,7 @@
 	eshot_sound	= 'sound/weapons/pulse.ogg'
 	req_one_access = list(ACCESS_SYNDICATE)
 
-/obj/machinery/porta_turret/sniper
+/obj/structure/machinery/porta_turret/sniper
 	installation = /obj/item/gun/energy/rifle/laser/sniper
 	lethal = 1
 	lethal_icon = 1
@@ -1179,7 +1179,7 @@
 	eshot_sound	= 'sound/weapons/marauder.ogg'
 	req_one_access = list(ACCESS_SYNDICATE)
 
-/obj/machinery/porta_turret/net
+/obj/structure/machinery/porta_turret/net
 	installation = /obj/item/gun/energy/net
 	lethal = 1
 	lethal_icon = 1
@@ -1190,7 +1190,7 @@
 	eshot_sound	= 'sound/weapons/plasma_cutter.ogg'
 	req_one_access = list(ACCESS_SYNDICATE)
 
-/obj/machinery/porta_turret/thermal
+/obj/structure/machinery/porta_turret/thermal
 	installation = /obj/item/gun/energy/vaurca/thermaldrill
 	lethal = 1
 	lethal_icon = 1
@@ -1201,7 +1201,7 @@
 	eshot_sound	= 'sound/magic/lightningbolt.ogg'
 	req_one_access = list(ACCESS_SYNDICATE)
 
-/obj/machinery/porta_turret/meteor
+/obj/structure/machinery/porta_turret/meteor
 	installation = /obj/item/gun/energy/meteorgun
 	lethal = 1
 	lethal_icon = 1
@@ -1213,7 +1213,7 @@
 	eshot_sound	= 'sound/weapons/lasercannonfire.ogg'
 	req_one_access = list(ACCESS_SYNDICATE)
 
-/obj/machinery/porta_turret/ballistic
+/obj/structure/machinery/porta_turret/ballistic
 	installation = /obj/item/gun/energy/mountedsmg
 	lethal = 1
 	lethal_icon = 1
@@ -1226,7 +1226,7 @@
 
 	req_one_access = list(ACCESS_SYNDICATE)
 
-/obj/machinery/porta_turret/legion
+/obj/structure/machinery/porta_turret/legion
 	enabled = 0
 	use_power = POWER_USE_OFF
 	icon_state = "cover_legion"
@@ -1244,7 +1244,7 @@
 	ailock = 1
 	req_one_access = list(ACCESS_LEGION, ACCESS_TCAF_SHIPS)
 
-/obj/machinery/porta_turret/hologram
+/obj/structure/machinery/porta_turret/hologram
 	name = "warrior statue"
 	desc = "An ancient and crumbling sandstone statue of an Unathi. This one is armored, and wields a war scythe."
 	name_override = TRUE

@@ -1,6 +1,6 @@
 GLOBAL_VAR(bomb_set)
 
-/obj/machinery/nuclearbomb
+/obj/structure/machinery/nuclearbomb
 	name = "\improper Nuclear Fission Explosive"
 	desc = "Uh oh. RUN!!!!"
 	icon = 'icons/obj/nuke.dmi'
@@ -26,17 +26,17 @@ GLOBAL_VAR(bomb_set)
 	var/previous_level = ""
 	var/datum/wires/nuclearbomb/wires = null
 
-/obj/machinery/nuclearbomb/Initialize()
+/obj/structure/machinery/nuclearbomb/Initialize()
 	. = ..()
 	r_code = "[rand(10000, 99999.0)]"//Creates a random code upon object spawn.
 	wires = new/datum/wires/nuclearbomb(src)
 
-/obj/machinery/nuclearbomb/Destroy()
+/obj/structure/machinery/nuclearbomb/Destroy()
 	qdel(wires)
 	wires = null
 	return ..()
 
-/obj/machinery/nuclearbomb/process()
+/obj/structure/machinery/nuclearbomb/process()
 	if (src.timing)
 		src.timeleft = max(timeleft - 2, 0) // 2 seconds per process()
 		if (timeleft <= 0)
@@ -45,7 +45,7 @@ GLOBAL_VAR(bomb_set)
 		SSnanoui.update_uis(src)
 	return
 
-/obj/machinery/nuclearbomb/attackby(obj/item/attacking_item, mob/user, params)
+/obj/structure/machinery/nuclearbomb/attackby(obj/item/attacking_item, mob/user, params)
 	if (attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		src.add_fingerprint(user)
 		if (src.auth)
@@ -145,10 +145,10 @@ GLOBAL_VAR(bomb_set)
 				return TRUE
 	return ..()
 
-/obj/machinery/nuclearbomb/attack_ghost(mob/user)
+/obj/structure/machinery/nuclearbomb/attack_ghost(mob/user)
 	attack_hand(user)
 
-/obj/machinery/nuclearbomb/attack_hand(mob/user as mob)
+/obj/structure/machinery/nuclearbomb/attack_hand(mob/user as mob)
 	if (extended)
 		if (panel_open)
 			wires.interact(user)
@@ -166,7 +166,7 @@ GLOBAL_VAR(bomb_set)
 			update_icon()
 	return
 
-/obj/machinery/nuclearbomb/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
+/obj/structure/machinery/nuclearbomb/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
 	var/data[0]
 	data["hacking"] = 0
 	data["auth"] = is_auth(user)
@@ -199,7 +199,7 @@ GLOBAL_VAR(bomb_set)
 		ui.open()
 		ui.set_auto_update(1)
 
-/obj/machinery/nuclearbomb/verb/toggle_deployable()
+/obj/structure/machinery/nuclearbomb/verb/toggle_deployable()
 	set category = "Object"
 	set name = "Toggle Deployable"
 	set src in oview(1)
@@ -215,14 +215,14 @@ GLOBAL_VAR(bomb_set)
 		src.deployable = 1
 	return
 
-/obj/machinery/nuclearbomb/proc/is_auth(var/mob/user)
+/obj/structure/machinery/nuclearbomb/proc/is_auth(var/mob/user)
 	if(auth)
 		return 1
 	if(user.can_admin_interact())
 		return 1
 	return 0
 
-/obj/machinery/nuclearbomb/Topic(href, href_list)
+/obj/structure/machinery/nuclearbomb/Topic(href, href_list)
 	if(..())
 		return 1
 
@@ -319,7 +319,7 @@ GLOBAL_VAR(bomb_set)
 
 	SSnanoui.update_uis(src)
 
-/obj/machinery/nuclearbomb/proc/secure_device()
+/obj/structure/machinery/nuclearbomb/proc/secure_device()
 	if(timing <= 0)
 		return
 
@@ -328,11 +328,11 @@ GLOBAL_VAR(bomb_set)
 	timeleft = clamp(timeleft, 120, 600)
 	update_icon()
 
-/obj/machinery/nuclearbomb/ex_act(severity)
+/obj/structure/machinery/nuclearbomb/ex_act(severity)
 	return
 
 #define NUKERANGE 80
-/obj/machinery/nuclearbomb/proc/explode()
+/obj/structure/machinery/nuclearbomb/proc/explode()
 	if (src.safety)
 		timing = 0
 		return
@@ -355,7 +355,7 @@ GLOBAL_VAR(bomb_set)
 
 	if(istype(SSticker.mode, /datum/game_mode/nuclear))
 		var/datum/game_mode/nuclear/merc_current_mode = SSticker.mode
-		var/obj/machinery/computer/shuttle_control/multi/antag/syndicate/syndie_location = locate(/obj/machinery/computer/shuttle_control/multi/antag/syndicate)
+		var/obj/structure/machinery/computer/shuttle_control/multi/antag/syndicate/syndie_location = locate(/obj/structure/machinery/computer/shuttle_control/multi/antag/syndicate)
 		if(syndie_location)
 			merc_current_mode.syndies_didnt_escape = isNotAdminLevel(syndie_location.z)
 		merc_current_mode.nuke_off_station = off_station
@@ -377,7 +377,7 @@ GLOBAL_VAR(bomb_set)
 			GLOB.universe_has_ended = 1
 			return
 
-/obj/machinery/nuclearbomb/update_icon()
+/obj/structure/machinery/nuclearbomb/update_icon()
 	if(lighthack)
 		icon_state = "idle"
 	else if(timing == -1)
@@ -415,7 +415,7 @@ GLOBAL_VAR(bomb_set)
 /obj/item/disk/nuclear/touch_map_edge()
 	qdel(src)
 
-/obj/machinery/nuclearbomb/station
+/obj/structure/machinery/nuclearbomb/station
 	name = "scuttling device terminal"
 	desc = "An ominous looking terminal, designed to scuttle a spaceship."
 	icon = 'icons/obj/nuke_station.dmi'
@@ -426,23 +426,23 @@ GLOBAL_VAR(bomb_set)
 	var/list/flash_tiles = list()
 	var/last_turf_state
 
-/obj/machinery/nuclearbomb/station/Initialize(mapload)
+/obj/structure/machinery/nuclearbomb/station/Initialize(mapload)
 	..()
-	verbs -= /obj/machinery/nuclearbomb/verb/toggle_deployable
+	verbs -= /obj/structure/machinery/nuclearbomb/verb/toggle_deployable
 	return INITIALIZE_HINT_LATELOAD
 
-/obj/machinery/nuclearbomb/station/LateInitialize()
+/obj/structure/machinery/nuclearbomb/station/LateInitialize()
 	. = ..()
 	for(var/turf/simulated/floor/T in RANGE_TURFS(1, src))
 		T.set_flooring(GET_SINGLETON(/singleton/flooring/reinforced/circuit/red))
 		flash_tiles += T
 	update_icon()
 
-/obj/machinery/nuclearbomb/station/Destroy()
+/obj/structure/machinery/nuclearbomb/station/Destroy()
 	flash_tiles.Cut()
 	return ..()
 
-/obj/machinery/nuclearbomb/station/update_icon()
+/obj/structure/machinery/nuclearbomb/station/update_icon()
 	var/target_icon_state
 	if(lighthack)
 		target_icon_state = "rcircuit_off"

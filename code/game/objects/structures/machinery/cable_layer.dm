@@ -1,4 +1,4 @@
-/obj/machinery/cablelayer
+/obj/structure/machinery/cablelayer
 	name = "automatic cable layer"
 	icon = 'icons/obj/cable_layer.dmi'
 	icon_state = "cable_layer"
@@ -8,21 +8,21 @@
 	var/max_cable = 100
 	var/on = FALSE
 
-/obj/machinery/cablelayer/feedback_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/cablelayer/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += SPAN_NOTICE("\The [src]'s cable reel has [cable.amount] length\s left.")
 
-/obj/machinery/cablelayer/Initialize()
+/obj/structure/machinery/cablelayer/Initialize()
 	. = ..()
 	cable = new(src)
 	cable.amount = max_cable
 
-/obj/machinery/cablelayer/Move(new_turf,M_Dir)
+/obj/structure/machinery/cablelayer/Move(new_turf,M_Dir)
 	. = ..()
 	if(on)
 		layCable(new_turf,M_Dir)
 
-/obj/machinery/cablelayer/attack_hand(mob/user)
+/obj/structure/machinery/cablelayer/attack_hand(mob/user)
 	if(!cable && !on)
 		to_chat(user, SPAN_WARNING("\The [src] doesn't have any cable loaded."))
 		return
@@ -30,7 +30,7 @@
 	user.visible_message("\The [user] [!on ? "de" : ""]activates \the [src].", SPAN_NOTICE("You switch \the [src] [on ? "on" : "off"]."))
 	return
 
-/obj/machinery/cablelayer/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/cablelayer/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.tool_behaviour == TOOL_CABLECOIL)
 		var/result = load_cable(attacking_item)
 		if(!result)
@@ -59,7 +59,7 @@
 			return TRUE
 		return cable.attackby(attacking_item, user)
 
-/obj/machinery/cablelayer/proc/load_cable(var/obj/item/stack/cable_coil/CC)
+/obj/structure/machinery/cablelayer/proc/load_cable(var/obj/item/stack/cable_coil/CC)
 	if(istype(CC) && CC.amount)
 		var/cur_amount = cable? cable.amount : 0
 		var/to_load = max(max_cable - cur_amount,0)
@@ -73,7 +73,7 @@
 		else
 			return FALSE
 
-/obj/machinery/cablelayer/proc/use_cable(amount)
+/obj/structure/machinery/cablelayer/proc/use_cable(amount)
 	if(!cable || cable.amount < 1)
 		on = FALSE
 		reset()
@@ -86,10 +86,10 @@
 		cable = null
 	return cable_color
 
-/obj/machinery/cablelayer/proc/reset()
+/obj/structure/machinery/cablelayer/proc/reset()
 	last_piece = null
 
-/obj/machinery/cablelayer/proc/layCable(var/turf/new_turf,var/M_Dir)
+/obj/structure/machinery/cablelayer/proc/layCable(var/turf/new_turf,var/M_Dir)
 	if(!istype(new_turf))
 		return reset()
 	if(!new_turf.is_plating())

@@ -5,11 +5,11 @@
 	They receive their message from a server after the message has been logged.
 */
 
-/obj/machinery/telecomms/broadcaster
+/obj/structure/machinery/telecomms/broadcaster
 	name = "subspace broadcaster"
 	icon_state = "broadcaster"
 	desc = "A dish-shaped machine used to broadcast processed subspace signals."
-	telecomms_type = /obj/machinery/telecomms/broadcaster
+	telecomms_type = /obj/structure/machinery/telecomms/broadcaster
 	idle_power_usage = 100 // WATTS
 	active_power_usage = 3 KILO WATTS
 	produces_heat = FALSE
@@ -18,11 +18,11 @@
 	overmap_range = 3
 	var/list/recent_broadcasts
 
-/obj/machinery/telecomms/broadcaster/Initialize(mapload)
+/obj/structure/machinery/telecomms/broadcaster/Initialize(mapload)
 	. = ..()
 	LAZYINITLIST(recent_broadcasts)
 
-/obj/machinery/telecomms/broadcaster/receive_information(datum/signal/subspace/signal, obj/machinery/telecomms/machine_from)
+/obj/structure/machinery/telecomms/broadcaster/receive_information(datum/signal/subspace/signal, obj/structure/machinery/telecomms/machine_from)
 	// Don't broadcast rejected signals
 	if(!istype(signal))
 		return
@@ -54,5 +54,5 @@
 
 	addtimer(CALLBACK(src, PROC_REF(remove_signal_message_from_recent_broadcasts), signal_message), 1 SECONDS)
 
-/obj/machinery/telecomms/broadcaster/proc/remove_signal_message_from_recent_broadcasts(signal_message)
+/obj/structure/machinery/telecomms/broadcaster/proc/remove_signal_message_from_recent_broadcasts(signal_message)
 	recent_broadcasts -= signal_message

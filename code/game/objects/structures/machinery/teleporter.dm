@@ -1,10 +1,10 @@
-/obj/machinery/teleport
+/obj/structure/machinery/teleport
 	name = "teleport"
 	icon = 'icons/obj/teleporter.dmi'
 	density = TRUE
 	anchored = TRUE
 
-/obj/machinery/teleport/pad
+/obj/structure/machinery/teleport/pad
 	name = "teleporter pad"
 	desc = "It's the pad of a teleporting machine."
 	icon_state = "pad"
@@ -21,11 +21,11 @@
 	var/engaged = FALSE
 	var/ignore_distance = FALSE // For antag teleporters.
 
-/obj/machinery/teleport/pad/Initialize()
+/obj/structure/machinery/teleport/pad/Initialize()
 	. = ..()
 	queue_icon_update()
 
-/obj/machinery/teleport/pad/process()
+/obj/structure/machinery/teleport/pad/process()
 	var/old_engaged = engaged
 	if(locked_obj)
 		if(stat & (NOPOWER|BROKEN) || !within_range(locked_obj))
@@ -35,14 +35,14 @@
 	if(old_engaged != engaged)
 		update_icon()
 
-/obj/machinery/teleport/pad/CollidedWith(atom/bumped_atom)
+/obj/structure/machinery/teleport/pad/CollidedWith(atom/bumped_atom)
 	. = ..()
 
 	if(engaged)
 		teleport(bumped_atom)
 		use_power_oneoff(5000)
 
-/obj/machinery/teleport/pad/proc/teleport(atom/movable/M as mob|obj)
+/obj/structure/machinery/teleport/pad/proc/teleport(atom/movable/M as mob|obj)
 	if(!locked_obj)
 		audible_message(SPAN_WARNING("Failure: Cannot authenticate locked on coordinates. Please reinstate coordinate matrix."))
 	var/obj/teleport_obj = locked_obj.resolve()
@@ -56,7 +56,7 @@
 	if(ishuman(M))
 		calibration = min(calibration + 5, 100)
 
-/obj/machinery/teleport/pad/update_icon()
+/obj/structure/machinery/teleport/pad/update_icon()
 	ClearOverlays()
 	if (engaged)
 		var/image/I = image(icon, src, "[initial(icon_state)]_active_overlay")
@@ -70,7 +70,7 @@
 			I.plane = ABOVE_LIGHTING_PLANE
 			AddOverlays(I)
 
-/obj/machinery/teleport/pad/proc/within_range(var/target)
+/obj/structure/machinery/teleport/pad/proc/within_range(var/target)
 	if(ignore_distance)
 		return TRUE
 	if (isweakref(target))
@@ -87,7 +87,7 @@
 				if(get_dist(my_sector, target_sector) < max_teleport_range)
 					return TRUE
 
-/obj/machinery/teleport/pad/proc/engage()
+/obj/structure/machinery/teleport/pad/proc/engage()
 	if(stat & (BROKEN|NOPOWER))
 		return
 
@@ -98,7 +98,7 @@
 	engaged = TRUE
 	queue_icon_update()
 
-/obj/machinery/teleport/pad/proc/disengage()
+/obj/structure/machinery/teleport/pad/proc/disengage()
 	if(stat & (BROKEN|NOPOWER))
 		return
 
@@ -109,26 +109,26 @@
 	engaged = FALSE
 	queue_icon_update()
 
-/obj/machinery/teleport/pad/power_change()
+/obj/structure/machinery/teleport/pad/power_change()
 	..()
 	queue_icon_update()
 
-/obj/machinery/teleport/pad/proc/start_recalibration()
+/obj/structure/machinery/teleport/pad/proc/start_recalibration()
 	audible_message(SPAN_NOTICE("Recalibrating..."))
 	addtimer(CALLBACK(src, PROC_REF(recalibrate)), 5 SECONDS, TIMER_UNIQUE)
 
-/obj/machinery/teleport/pad/proc/recalibrate()
+/obj/structure/machinery/teleport/pad/proc/recalibrate()
 	calibration = 0
 	audible_message(SPAN_NOTICE("Calibration complete."))
 
-/obj/machinery/teleport/pad/ninja
+/obj/structure/machinery/teleport/pad/ninja
 	ignore_distance = TRUE
 
 // -------------- odyssey teleporter
 
 /// Teleports actors to the odyssey scenario away site.
 /// Uses holomap POIs as possible destinations.
-/obj/machinery/teleport_odyssey
+/obj/structure/machinery/teleport_odyssey
 	name = "actor teleport pad"
 	desc = "Teleports odyssey actors to the odyssey scenario away site. Very convenient."
 	icon = 'icons/obj/teleporter.dmi'
@@ -136,7 +136,7 @@
 	density = TRUE
 	anchored = TRUE
 
-/obj/machinery/teleport_odyssey/attack_hand(mob/user)
+/obj/structure/machinery/teleport_odyssey/attack_hand(mob/user)
 	// find valid POIs for the odyssey scenario site
 	var/list/obj/effect/landmark/minimap_poi/possible_pois = list()
 	for(var/obj/effect/landmark/minimap_poi/poi in SSholomap.pois)

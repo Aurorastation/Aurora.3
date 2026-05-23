@@ -8,11 +8,11 @@
 	from Servers/Buses and sends that back to the relay, to then be broadcasted.
 */
 
-/obj/machinery/telecomms/hub
+/obj/structure/machinery/telecomms/hub
 	name = "telecommunication hub"
 	icon_state = "hub"
 	desc = "A mighty piece of hardware used to send and receive massive amounts of data."
-	telecomms_type = /obj/machinery/telecomms/hub
+	telecomms_type = /obj/structure/machinery/telecomms/hub
 	density = TRUE
 	anchored = TRUE
 	idle_power_usage = 1.6 KILO WATTS
@@ -21,12 +21,12 @@
 	netspeed = 40
 	produces_sound = TRUE
 
-/obj/machinery/telecomms/hub/receive_information(datum/signal/signal, obj/machinery/telecomms/machine_from)
+/obj/structure/machinery/telecomms/hub/receive_information(datum/signal/signal, obj/structure/machinery/telecomms/machine_from)
 	if(!is_freq_listening(signal))
 		return
 
-	if(istype(machine_from, /obj/machinery/telecomms/receiver))
+	if(istype(machine_from, /obj/structure/machinery/telecomms/receiver))
 		//If the signal is compressed, send it to the bus.
-		relay_information(signal, /obj/machinery/telecomms/bus) // ideally relay the copied information to bus units
+		relay_information(signal, /obj/structure/machinery/telecomms/bus) // ideally relay the copied information to bus units
 	else
-		relay_information(signal, /obj/machinery/telecomms/broadcaster) // Broadcast the current signal to our z-levels
+		relay_information(signal, /obj/structure/machinery/telecomms/broadcaster) // Broadcast the current signal to our z-levels
