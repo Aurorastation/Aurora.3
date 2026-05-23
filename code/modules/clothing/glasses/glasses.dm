@@ -11,7 +11,7 @@ BLIND     // can't see anything
 */
 /obj/item/clothing/glasses
 	name = "glasses"
-	icon = 'icons/mob/clothing/glasses.dmi'
+	icon = 'icons/mob/clothing/eyes/glasses.dmi'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/clothing/lefthand_glasses.dmi',
 		slot_r_hand_str = 'icons/mob/items/clothing/righthand_glasses.dmi'
@@ -1157,10 +1157,10 @@ BLIND     // can't see anything
 		var/mob/living/carbon/human/H = loc
 		if(H.glasses == src)
 			H.CutOverlays(mob_overlay, ATOM_ICON_CACHE_PROTECTED)
-	mob_overlay = mutable_appearance('icons/mob/clothing/glasses.dmi', "[icon_state]_eye")
+	mob_overlay = mutable_appearance('icons/mob/clothing/eyes/glasses.dmi', "[icon_state]_eye")
 	mob_overlay.appearance_flags = RESET_COLOR
 	mob_overlay.color = eye_color
-	mob_overlay_emis = emissive_appearance('icons/mob/clothing/glasses.dmi', "[icon_state]_eye")
+	mob_overlay_emis = emissive_appearance('icons/mob/clothing/eyes/glasses.dmi', "[icon_state]_eye")
 	if(active && ishuman(loc))
 		var/mob/living/carbon/human/H = loc
 		if(H.glasses == src)
@@ -1195,7 +1195,7 @@ BLIND     // can't see anything
 /obj/item/clothing/glasses/eyepatch/hud/update_icon()
 	ClearOverlays()
 	if(active)
-		var/image/eye = image('icons/mob/clothing/glasses.dmi', "[icon_state]_ovr")
+		var/image/eye = image('icons/mob/clothing/eyes/glasses.dmi', "[icon_state]_ovr")
 		eye.appearance_flags = RESET_COLOR
 		eye.color = eye_color
 		AddOverlays(eye)
