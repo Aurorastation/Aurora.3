@@ -273,7 +273,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		var/datum/component/health_analyzer/observer/h_analyzer = src.GetComponent(/datum/component/health_analyzer/observer)
 		if(!h_analyzer)
 			return
-		h_analyzer.health_scan_mob(orbit_target, usr, TRUE, TRUE)
+		h_analyzer.health_scan_mob(orbit_target, usr, TRUE, FALSE)
 	else
 		to_chat(src, SPAN_WARNING("This isn't a scannable target."))
 

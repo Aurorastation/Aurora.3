@@ -96,7 +96,7 @@
 	if(do_after(user, time SECONDS, target_mob, DO_UNIQUE))
 		flick("[owner.icon_state]-scan", owner)
 
-		health_scan_mob(target_mob, user, sound_scan = sound_scan)
+		health_scan_mob(target_mob, user, FALSE, sound_scan = sound_scan)
 		ui_interact(user)
 
 		owner.add_fingerprint(user)
@@ -108,7 +108,7 @@
 
 	owner.add_fingerprint(user)
 
-/datum/component/health_analyzer/proc/health_scan_mob(var/mob/M, var/mob/living/user, var/just_scan = FALSE, var/sound_scan)
+/datum/component/health_analyzer/proc/health_scan_mob(var/mob/M, var/mob/living/user, var/just_scan = FALSE, var/sound_scan = FALSE)
 	scan_title = null
 	status_results = list()
 	trauma_results = list()
