@@ -1,4 +1,4 @@
-//generic procs copied from obj/effect/alien
+///generic procs copied from obj/effect/alien
 /obj/effect/spider
 	name = "web"
 	desc = "It's stringy and sticky, eugh. Probably came from one of those greimorians..."
