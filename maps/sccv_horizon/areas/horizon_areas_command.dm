@@ -67,6 +67,7 @@
 /area/horizon/command/bridge
 	name = "Bridge"
 	icon_state = "bridge"
+	department = LOC_BRIDGE
 	no_light_control = 1
 	area_blurb = "The sound here seems to carry more than others, every click of a shoe or clearing of a throat amplified. \
 	The smell of ink, written and printed, wafts notably through the air."

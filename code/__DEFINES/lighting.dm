@@ -7,6 +7,8 @@
 /// Cold, diluted blue. rgb(100, 150, 250)
 #define LIGHT_COLOR_BLUE			"#6496FA"
 
+/// Light blue. rgb(142, 180, 255)
+#define LIGHT_COLOR_LIGHT_BLUE		"#8eb4ff"
 /// Cyan. rgb(125, 225, 225)
 #define LIGHT_COLOR_CYAN			"#7DE1E1"
 /// Diluted cyan. rgb(202, 240, 255)
@@ -50,16 +52,35 @@
 /// A softer emergency red, used for small bulbs. rgb(250, 130, 130)
 #define LIGHT_COLOR_EMERGENCY_SOFT	"#FA8282"
 /// Clinical white light bulbs
-#define LIGHT_COLOUR_WHITE			"#FEFEFE"
+#define LIGHT_COLOR_BULB_WHITE		"#FEFEFE"
+/// Grimier off-white.
+#define LIGHT_COLOR_OFFWHITE		"#f9d2bd"
 /// Warm yellowish light bulbs
-#define LIGHT_COLOUR_WARM			"#FFFEE0"
+#define LIGHT_COLOR_WARM			"#efeebb"
 /// Amberish decayed light bulbs
 #define LIGHT_COLOR_DECAYED			"#fabd6d"
 /// Reddish decayed light bulbs
 #define LIGHT_COLOR_DYING			"#fa826d"
+/// Pale green. Mostly for medical.
+#define LIGHT_COLOR_CLINICAL		"#5bffaa"
+/// A very gentle purple-ish color!
+#define LIGHT_COLOR_LAVENDER		"#d8bfd8"
 
-/// List of standard light colors used for randomized lighting and selectable printed lights.
-#define LIGHT_STANDARD_COLORS list(LIGHT_COLOUR_WHITE, LIGHT_COLOUR_WARM, LIGHT_COLOR_HALOGEN)
+// This is the list of area-based light variations!
+/// Standard list of randomised light colors. White-ish.
+#define LIGHT_STANDARD_COLORS list(LIGHT_COLOR_BULB_WHITE, LIGHT_COLOR_WARM, LIGHT_COLOR_HALOGEN)
+/// Generic warmer off-white lighting, for public areas.
+#define LIGHT_WARM_COLORS list(LIGHT_COLOR_WARM, LIGHT_COLOR_OFFWHITE)
+/// Slightly more vibrant and clear white lighting, for medical and very proper areas.
+#define LIGHT_CLINICAL_COLORS list(LIGHT_COLOR_CLINICAL, LIGHT_COLOR_BULB_WHITE)
+/// Everything is yellow in engineering! It's industrial!
+#define LIGHT_ENGINEERING_COLORS list(LIGHT_COLOR_WARM, LIGHT_COLOR_DECAYED)
+/// Purple. Funky. Probably tastes like blueberries. For research.
+#define LIGHT_RESEARCH_COLORS list(LIGHT_COLOR_LAVENDER, LIGHT_COLOR_PALE_PURPLE)
+/// Foreboding blue. Ominous. You are in a high security area.
+#define LIGHT_HIGHSEC_COLORS list(LIGHT_COLOR_BLUE, LIGHT_COLOR_LIGHT_BLUE)
+/// For maintenance bulbs. Dark and grim and moody.
+#define LIGHT_MAINTENANCE_COLORS list(LIGHT_COLOR_DYING, LIGHT_COLOR_DECAYED, 	LIGHT_COLOR_FLARE)
 
 #define LIGHT_MODE_RED      "red"
 #define LIGHT_MODE_DELTA    "delta"

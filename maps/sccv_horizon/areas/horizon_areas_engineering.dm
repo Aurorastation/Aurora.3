@@ -235,7 +235,7 @@
 	horizon_deck = 3
 	area_blurb = "Countless machines sit within these compartments, an unfathomably complex network that runs every radio and computer connection. \
 	The air lacks any notable scent, having been filtered of dust and pollutants for the sake of all the sensitive machinery."
-	department = LOC_ENGINEERING
+	department = LOC_COMMAND
 	subdepartment = SUBLOC_TELECOMMS
 
 /area/horizon/tcommsat/entrance
