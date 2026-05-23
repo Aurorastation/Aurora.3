@@ -1,16 +1,27 @@
+/*
+ * subtypes/reagents.dm
+ * Reagent circuits for reading containers, transferring chemicals, and exposing reagent metadata.
+ */
+
+/// reagent: Integrated circuit component..
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/reagent
 	category_text = "Reagent"
+	// Stores `volume` state used by this integrated electronics object.
 	var/volume = 0
 	origin_tech = list(TECH_ENGINEERING = 2, TECH_DATA = 2, TECH_BIO = 2)
 
+/// Initializes runtime state after the parent type is constructed.
 /obj/item/integrated_circuit/reagent/Initialize()
 	. = ..()
 	if(volume)
 		create_reagents(volume)
 
+/// integrated hypo-injector: Pumps reagents into the targeted adjacent container or target.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/reagent/injector
 	name = "integrated hypo-injector"
-	desc = "This scary looking thing is able to pump liquids into whatever it's pointed at."
+	desc = "Pumps reagents into the targeted adjacent container or target."
 	icon_state = "injector"
 	extended_desc = "This autoinjector can push reagents into another container or someone else outside of the machine.  The target \
 	must be adjacent to the machine, and if it is a person, they cannot be wearing thick clothing."
@@ -24,22 +35,28 @@
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	volume = 30
 	power_draw_per_use = 150
+	// Stores `direc` state used by this integrated electronics object.
 	var/direc = 1
+	// Stores `transfer_amount` state used by this integrated electronics object.
 	var/transfer_amount = 10
 
 
+/// Opens or updates the user interaction flow for this object.
 /obj/item/integrated_circuit/reagent/injector/interact(mob/user)
 	set_pin_data(IC_OUTPUT, 2, src)
 	push_data()
 	..()
 
 
+/// Implements `on_reagent_change` behavior for this integrated electronics type.
 /obj/item/integrated_circuit/reagent/injector/on_reagent_change()
 	set_pin_data(IC_OUTPUT, 1, reagents.total_volume)
 	push_data()
 
 
+/// Implements `on_data_written` behavior for this integrated electronics type.
 /obj/item/integrated_circuit/reagent/injector/on_data_written()
+	// Stores `new_amount` state used by this integrated electronics object.
 	var/new_amount = get_pin_data(IC_INPUT, 2)
 
 	if(!isnum(new_amount))
@@ -55,7 +72,9 @@
 	transfer_amount = new_amount
 
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/reagent/injector/do_work()
+	// Stores `AM` state used by this integrated electronics object.
 	var/atom/movable/AM = get_pin_data_as_type(IC_INPUT, 1, /atom/movable)
 
 	if(!istype(AM))
@@ -99,6 +118,7 @@
 		return
 
 	var/turf/TS = get_turf(src)
+	// Stores `TT` state used by this integrated electronics object.
 	var/turf/TT = get_turf(AM)
 
 	if(!TS || !TT || !TS.Adjacent(TT))
@@ -142,6 +162,7 @@
 	activate_pin(2)
 
 
+/// Implements `finish_living_injection` behavior for this integrated electronics type.
 /obj/item/integrated_circuit/reagent/injector/proc/finish_living_injection(mob/living/L)
 	if(QDELETED(src) || QDELETED(L))
 		return
@@ -159,6 +180,7 @@
 		return
 
 	var/turf/TS = get_turf(src)
+	// Stores `TL` state used by this integrated electronics object.
 	var/turf/TL = get_turf(L)
 
 	if(!TS || !TL || !TS.Adjacent(TL))
@@ -166,6 +188,7 @@
 		return
 
 	var/contained = reagents.get_reagents()
+	// Stores `trans` state used by this integrated electronics object.
 	var/trans = reagents.trans_to_mob(L, transfer_amount, CHEM_BLOOD)
 
 	if(trans)
@@ -176,9 +199,11 @@
 	else
 		activate_pin(3)
 
+/// reagent pump: Moves reagents inside the assembly or to nearby targets.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/reagent/pump
 	name = "reagent pump"
-	desc = "Moves liquids safely inside a machine, or even nearby it."
+	desc = "Moves reagents inside the assembly or to nearby targets."
 	icon_state = "reagent_pump"
 	extended_desc = "This is a pump, which will move liquids from the source ref to the target ref.  The third pin determines \
 	how much liquid is moved per pulse, between 0 and 50.  The pump can move reagents to any open container inside the machine, or \
@@ -198,11 +223,15 @@
 	)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	origin_tech = list(TECH_ENGINEERING = 2, TECH_DATA = 2, TECH_BIO = 2)
+	// Stores `transfer_amount` state used by this integrated electronics object.
 	var/transfer_amount = 10
+	// Stores `direc` state used by this integrated electronics object.
 	var/direc = 1
 	power_draw_per_use = 100
 
+/// Implements `on_data_written` behavior for this integrated electronics type.
 /obj/item/integrated_circuit/reagent/pump/on_data_written()
+	// Stores `new_amount` state used by this integrated electronics object.
 	var/new_amount = get_pin_data(IC_INPUT, 3)
 	if(new_amount < 0)
 		new_amount = -new_amount
@@ -213,8 +242,11 @@
 		new_amount = clamp(new_amount, 0, 50)
 		transfer_amount = new_amount
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/reagent/pump/do_work()
+	// Stores `source` state used by this integrated electronics object.
 	var/atom/movable/source = get_pin_data_as_type(IC_INPUT, 1, /atom/movable)
+	// Stores `target` state used by this integrated electronics object.
 	var/atom/movable/target = get_pin_data_as_type(IC_INPUT, 2, /atom/movable)
 	if(!source || !assembly)
 		return
@@ -226,7 +258,9 @@
 		return
 
 	var/turf/our_turf = get_turf(assembly) // there is probably a more elegant way to do this, but it covers all the bases (including assembly being held [or source/target being in a being held assembly], which prev implementation didn't)
+	// Stores `source_turf` state used by this integrated electronics object.
 	var/turf/source_turf = get_turf(source)
+	// Stores `target_turf` state used by this integrated electronics object.
 	var/turf/target_turf = get_turf(target)
 	if((source_turf.Adjacent(our_turf)  || istype(beaker_slot)) && target_turf.Adjacent(our_turf))
 		if(!source.reagents || !target.reagents)
@@ -245,11 +279,13 @@
 			target.reagents.trans_to(source, transfer_amount)
 		activate_pin(2)
 
+/// reagent storage: Stores reagents safely inside the assembly. Can store up to 60u. Functions as an internal beaker for the assembly.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/reagent/storage
 	name = "reagent storage"
-	desc = "Stores liquid inside, and away from electrical components.  Can store up to 60u."
+	desc = "Stores reagents safely inside the assembly.  Can store up to 60u."
 	icon_state = "reagent_storage"
-	extended_desc = "This is effectively an internal beaker."
+	extended_desc = "Functions as an internal beaker for the assembly."
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	complexity = 4
 	inputs = list()
@@ -259,41 +295,49 @@
 	origin_tech = list(TECH_ENGINEERING = 2, TECH_DATA = 2, TECH_BIO = 2)
 	volume = 60
 
+/// Implements `on_reagent_change` behavior for this integrated electronics type.
 /obj/item/integrated_circuit/reagent/storage/on_reagent_change()
 	set_pin_data(IC_OUTPUT, 1, reagents.total_volume)
 	push_data()
 
+/// Opens or updates the user interaction flow for this object.
 /obj/item/integrated_circuit/reagent/storage/interact(mob/user)
 	set_pin_data(IC_OUTPUT, 2, src)
 	push_data()
 	..()
 
+/// cryo reagent storage: Stores reagents safely inside the assembly. Can store up to 60u. This will also suppress reactions. Functions as an internal cryo beaker for the assembly.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/reagent/storage/cryo
 	name = "cryo reagent storage"
-	desc = "Stores liquid inside, and away from electrical components.  Can store up to 60u.  This will also suppress reactions."
+	desc = "Stores reagents safely inside the assembly.  Can store up to 60u.  This will also suppress reactions."
 	icon_state = "reagent_storage_cryo"
-	extended_desc = "This is effectively an internal cryo beaker."
+	extended_desc = "Functions as an internal cryo beaker for the assembly."
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER | ATOM_FLAG_NO_REACT
 	complexity = 8
 	spawn_flags = IC_SPAWN_RESEARCH
 	origin_tech = list(TECH_MATERIAL = 3, TECH_ENGINEERING = 2, TECH_DATA = 2, TECH_BIO = 2)
 
+/// big reagent storage: Stores reagents safely inside the assembly. Can store up to 180u. Functions as an internal beaker for the assembly.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/reagent/storage/big
 	name = "big reagent storage"
-	desc = "Stores liquid inside, and away from electrical components.  Can store up to 180u."
+	desc = "Stores reagents safely inside the assembly.  Can store up to 180u."
 	icon_state = "reagent_storage_big"
-	extended_desc = "This is effectively an internal beaker."
+	extended_desc = "Functions as an internal beaker for the assembly."
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	complexity = 16
 	volume = 180
 	spawn_flags = IC_SPAWN_RESEARCH
 	origin_tech = list(TECH_MATERIAL = 3, TECH_ENGINEERING = 2, TECH_DATA = 2, TECH_BIO = 2)
 
+/// reagent scanner: Stores reagents safely inside the assembly. Can store up to 60u. On pulse, outputs a list of contained reagents and analyzes their taste. Useful for reagent filters and other chemistry....
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/reagent/storage/scan
 	name = "reagent scanner"
-	desc = "Stores liquid inside, and away from electrical components.  Can store up to 60u.  On pulse this beaker will send list of contained reagents, as well as analyse their taste."
+	desc = "Stores reagents safely inside the assembly.  Can store up to 60u.  On pulse, outputs a list of contained reagents and analyzes their taste."
 	icon_state = "reagent_scan"
-	extended_desc = "Mostly useful for reagent filters."
+	extended_desc = "Useful for reagent filters and other chemistry circuits that need a target reagent name."
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	complexity = 8
 	outputs = list("volume used" = IC_PINTYPE_NUMBER,"self reference" = IC_PINTYPE_REF,"list of reagents" = IC_PINTYPE_LIST,"taste" = IC_PINTYPE_STRING)
@@ -301,7 +345,9 @@
 	spawn_flags = IC_SPAWN_RESEARCH
 	origin_tech = list(TECH_MATERIAL = 3, TECH_ENGINEERING = 2, TECH_DATA = 2, TECH_BIO = 2)
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/reagent/storage/scan/do_work()
+	// Stores `cont` state used by this integrated electronics object.
 	var/list/cont = list()
 	for(var/_RE in reagents.reagent_volumes)
 		var/singleton/reagent/RE = GET_SINGLETON(_RE)
@@ -311,9 +357,11 @@
 	push_data()
 
 
+/// reagent filter: Filters reagents using a configured list of desired or blocked reagent names.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/reagent/filter
 	name = "reagent filter"
-	desc = "Filtering liquids by list of desired or unwanted reagents."
+	desc = "Filters reagents using a configured list of desired or blocked reagent names."
 	icon_state = "reagent_filter"
 	extended_desc = "This is a filter which will move liquids from the source ref to the target ref. \
 	It will move all reagents, except list, given in fourth pin if amount value is positive.\
@@ -327,11 +375,15 @@
 	activators = list("transfer reagents" = IC_PINTYPE_PULSE_IN, "on transfer" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	origin_tech = list(TECH_ENGINEERING = 2, TECH_DATA = 2, TECH_BIO = 2)
+	// Stores `transfer_amount` state used by this integrated electronics object.
 	var/transfer_amount = 10
+	// Stores `direc` state used by this integrated electronics object.
 	var/direc = 1
 	power_draw_per_use = 100
 
+/// Implements `on_data_written` behavior for this integrated electronics type.
 /obj/item/integrated_circuit/reagent/filter/on_data_written()
+	// Stores `new_amount` state used by this integrated electronics object.
 	var/new_amount = get_pin_data(IC_INPUT, 3)
 	if(new_amount < 0)
 		new_amount = -new_amount
@@ -342,9 +394,13 @@
 		new_amount = clamp(new_amount, 0, 50)
 		transfer_amount = new_amount
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/reagent/filter/do_work()
+	// Stores `source` state used by this integrated electronics object.
 	var/atom/movable/source = get_pin_data_as_type(IC_INPUT, 1, /atom/movable)
+	// Stores `target` state used by this integrated electronics object.
 	var/atom/movable/target = get_pin_data_as_type(IC_INPUT, 2, /atom/movable)
+	// Stores `demand` state used by this integrated electronics object.
 	var/list/demand = get_pin_data(IC_INPUT, 4)
 	if(!istype(source) || !istype(target)) //Invalid input
 		return

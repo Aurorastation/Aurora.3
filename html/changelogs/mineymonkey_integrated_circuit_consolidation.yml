@@ -57,6 +57,8 @@ changes:
   - qol: "Updated body temperature from kelvin to celcius in the IC med/adv med scanner."
   - qol: "Changed examiner to allow it to view items on its turf, aka inside a circuit"
   - qol: "Updated ID slot to allow it to be used as a locking mechanism for circuits instead of just a chuddly holder only."
+  - qol: "Coders and players rejoice, changed around the text and made things rather cleaner and more clear on what each circuit does, how they work, and added comments to make things easier for future development..."
+  - qol: "Changed the drill sprites to be more inline with the rest of circuits (Thank you @EnchantedCrocolisk!)"
   - bugfix: "Fixed electronic radio headset blueprints printing only a loose internal clothing assembly."
   - bugfix: "Fixed imported electronic radio headset blueprints failing to recreate the headset wrapper item."
   - bugfix: "Fixed electronic radio headset cloning rebinding issues with internal assemblies."
@@ -67,3 +69,4 @@ changes:
   - bugfix: "Fixed integrated hypo-injector delayed injection behavior using a timer callback instead of sleeping in do_work."
   - bugfix: "Fixed injector failure handling for invalid, empty, non-adjacent, or non-injectable targets."
   - bugfix: "Best one I can think of? Basically removed the spawn flags for /obj/item/integrated_circuit/input/radio_command_receiver because it literally has zero use besides being in the electronic headset item, and well that's already built into it."
+  - bugfix: "A lot of little ones, basically cloning didn't import/export any built-in circuit pulse and data pathing."

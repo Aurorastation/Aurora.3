@@ -12,9 +12,11 @@ a creative player the means to solve many problems.  Circuits are held inside an
 /obj/item/integrated_circuit/proc/external_examine(mob/user)
 	any_examine(user)
 
+/// Implements `any_examine` behavior for this integrated electronics type.
 /obj/item/integrated_circuit/proc/any_examine(mob/user)
 	. = list()
 
+/// Initializes runtime state after the parent type is constructed.
 /obj/item/integrated_circuit/Initialize()
 	displayed_name = name
 	if(!size)
@@ -26,9 +28,11 @@ a creative player the means to solve many problems.  Circuits are held inside an
 	setup_io(activators, /datum/integrated_io/activate)
 	. = ..()
 
+/// Implements `on_data_written` behavior for this integrated electronics type.
 /obj/item/integrated_circuit/proc/on_data_written() //Override this for special behaviour when new data gets pushed to the circuit.
 	return
 
+/// Releases owned objects and clears references before parent deletion runs.
 /obj/item/integrated_circuit/Destroy()
 	for(var/datum/integrated_io/I in inputs)
 		qdel(I)
@@ -48,18 +52,21 @@ a creative player the means to solve many problems.  Circuits are held inside an
 
 	. = ..()
 
+/// Implements `ui_host` behavior for this integrated electronics type.
 /obj/item/integrated_circuit/ui_host()
 	if(istype(src.loc, /obj/item/electronic_assembly))
 		var/obj/item/electronic_assembly/assembly = loc
 		return assembly.resolve_ui_host()
 	return ..()
 
+/// Implements `emp_act` behavior for this integrated electronics type.
 /obj/item/integrated_circuit/emp_act(severity)
 	. = ..()
 
 	for(var/datum/integrated_io/io in inputs + outputs + activators)
 		io.scramble()
 
+/// Implements `check_interactivity` behavior for this integrated electronics type.
 /obj/item/integrated_circuit/proc/check_interactivity(mob/user)
 	if(assembly)
 		return assembly.check_interactivity(user)
@@ -67,11 +74,13 @@ a creative player the means to solve many problems.  Circuits are held inside an
 		return 0
 	return 1
 
+/// Implements `rename_component` behavior for this integrated electronics type.
 /obj/item/integrated_circuit/verb/rename_component()
 	set name = "Rename Circuit"
 	set category = "Object"
-	set desc = "Rename your circuit, useful to stay organized."
+	set desc = "Renames the circuit to make assemblies easier to organize."
 
+	// Stores `M` state used by this integrated electronics object.
 	var/mob/M = usr
 	if(!check_interactivity(M))
 		return
@@ -81,15 +90,20 @@ a creative player the means to solve many problems.  Circuits are held inside an
 		to_chat(M, SPAN_NOTICE("The circuit '[src.name]' is now labeled '[input]'."))
 		displayed_name = input
 
+/// Opens or updates the user interaction flow for this object.
 /obj/item/integrated_circuit/interact(mob/user)
 	if(!check_interactivity(user))
 		return
 
 	var/window_height = 350
+	// Stores `window_width` state used by this integrated electronics object.
 	var/window_width = 600
+	// Stores `table_edge_width` state used by this integrated electronics object.
 	var/table_edge_width = "30%"
+	// Stores `table_middle_width` state used by this integrated electronics object.
 	var/table_middle_width = "40%"
 
+	// Stores `HTML` state used by this integrated electronics object.
 	var/list/HTML = list(
 		"<div align='center'>",
 		"<table border='1' style='undefined;table-layout: fixed; width: 80%'>",
@@ -107,7 +121,9 @@ a creative player the means to solve many problems.  Circuits are held inside an
 	HTML += "<col style='width: [table_edge_width]'>"
 	HTML += "</colgroup>"
 
+	// Stores `column_width` state used by this integrated electronics object.
 	var/column_width = 3
+	// Stores `row_height` state used by this integrated electronics object.
 	var/row_height = max(inputs.len, outputs.len, 1)
 
 	for(var/i = 1 to row_height)
@@ -175,8 +191,12 @@ a creative player the means to solve many problems.  Circuits are held inside an
 		HTML += "<br><span class='highlight'>Power Draw: [power_draw_idle] W (Idle)</span>"
 	if(power_draw_per_use)
 		HTML += "<br><span class='highlight'>Power Draw: [power_draw_per_use] W (Active)</span>" // Borgcode says that powercells' checked_use() takes joules as input.
-	HTML += "<br><span class='highlight'>[extended_desc]</span>"
+	if(extended_desc)
+		HTML += "<br><span class='highlight'><b>Helper:</b> [extended_desc]</span>"
+	else
+		HTML += "<br><span class='highlight'><b>Helper:</b> No special notes. Set the input pins, pulse the activator pin, and read the output pins.</span>"
 
+	// Stores `B` state used by this integrated electronics object.
 	var/datum/browser/B = new(user, assembly ? "assembly-[REF(assembly)]" : "circuit-[REF(src)]", (displayed_name && displayed_name != name) ? "[displayed_name] ([name])" : name, window_width, window_height)
 	B.set_content(HTML.Join())
 	B.open()
@@ -191,15 +211,22 @@ a creative player the means to solve many problems.  Circuits are held inside an
 		return 1
 
 	var/update = 1
+	// Stores `A` state used by this integrated electronics object.
 	var/obj/item/electronic_assembly/A = src.assembly
+	// Stores `update_to_assembly` state used by this integrated electronics object.
 	var/update_to_assembly = 0
+	// Stores `pin` state used by this integrated electronics object.
 	var/datum/integrated_io/pin = locate(href_list["pin"]) in inputs + outputs + activators
+	// Stores `linked` state used by this integrated electronics object.
 	var/datum/integrated_io/linked = null
 	if(href_list["link"])
 		linked = locate(href_list["link"]) in pin.linked
 
+	// Stores `held_item` state used by this integrated electronics object.
 	var/obj/item/held_item = usr.get_active_hand()
+	// Stores `off_hand` state used by this integrated electronics object.
 	var/obj/item/off_hand = usr.get_inactive_hand()
+	// Stores `M` state used by this integrated electronics object.
 	var/obj/item/multitool/M
 	if(held_item?.tool_behaviour == TOOL_MULTITOOL)
 		M = held_item
@@ -313,14 +340,17 @@ a creative player the means to solve many problems.  Circuits are held inside an
 		else
 			interact(usr) // To refresh the UI.
 
+/// Pushes this circuit's output pin values to connected circuits.
 /obj/item/integrated_circuit/proc/push_data()
 	for(var/datum/integrated_io/O in outputs)
 		O.push_data()
 
+/// Reads connected pin values into this circuit before work runs.
 /obj/item/integrated_circuit/proc/pull_data()
 	for(var/datum/integrated_io/I in inputs)
 		I.push_data()
 
+/// Implements `draw_idle_power` behavior for this integrated electronics type.
 /obj/item/integrated_circuit/proc/draw_idle_power()
 	if(assembly)
 		return assembly.draw_power(power_draw_idle)
@@ -337,6 +367,7 @@ a creative player the means to solve many problems.  Circuits are held inside an
 		return TRUE // Battery has enough.
 	return FALSE // Not enough power.
 
+/// Implements `check_then_do_work` behavior for this integrated electronics type.
 /obj/item/integrated_circuit/proc/check_then_do_work(ignore_power = FALSE, activator_id)
 	if(world.time < next_use) 	// All intergrated circuits have an internal cooldown, to protect from spam.
 		return 0
@@ -348,9 +379,11 @@ a creative player the means to solve many problems.  Circuits are held inside an
 	do_work(activator_id)
 	return 1
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/proc/do_work(activator_id)
 	return
 
+/// Implements `disconnect_all` behavior for this integrated electronics type.
 /obj/item/integrated_circuit/proc/disconnect_all()
 	for(var/datum/integrated_io/I in inputs)
 		I.disconnect()
@@ -359,11 +392,14 @@ a creative player the means to solve many problems.  Circuits are held inside an
 	for(var/datum/integrated_io/activate/A in activators)
 		A.disconnect()
 
+/// Implements `attackby_react` behavior for this integrated electronics type.
 /obj/item/integrated_circuit/proc/attackby_react(var/atom/movable/A,mob/user)
 	return
 
+/// Implements `on_anchored` behavior for this integrated electronics type.
 /obj/item/integrated_circuit/proc/on_anchored()
 	return
 
+/// Implements `on_unanchored` behavior for this integrated electronics type.
 /obj/item/integrated_circuit/proc/on_unanchored()
 	return

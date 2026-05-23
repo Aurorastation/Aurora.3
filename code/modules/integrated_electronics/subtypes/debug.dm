@@ -1,8 +1,17 @@
+/*
+ * subtypes/debug.dm
+ * Debug/testing circuits used to inspect values, format helper output, and verify integrated electronics behavior.
+ */
+
+/// debug: Integrated circuit component..
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/debug
 	category_text = "Debugging"
 	complexity = 1
 	spawn_flags = 0
 
+/// helper test circuit: Tests integrated circuit helper procs. Outputs formatted helper proc results from one input.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/debug/helper_test
 	name = "helper test circuit"
 	desc = "Tests integrated circuit helper procs."
@@ -25,11 +34,15 @@
 		"on tested" = IC_PINTYPE_PULSE_OUT
 	)
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/debug/helper_test/do_work()
 	pull_data()
 
+	// Stores `input_value` state used by this integrated electronics object.
 	var/input_value = get_pin_data(IC_INPUT, 1)
+	// Stores `number_value` state used by this integrated electronics object.
 	var/number_value = get_pin_data(IC_INPUT, 2)
+	// Stores `template_value` state used by this integrated electronics object.
 	var/template_value = get_pin_data(IC_INPUT, 3)
 
 	set_pin_data(IC_OUTPUT, 1, ic_display_value(input_value))
@@ -40,6 +53,8 @@
 	push_data()
 	activate_pin(2)
 
+/// one-shot pulse: Allows one pulse through, then blocks further pulses until reset. This circuit is useful for preventing repeated signals. When triggered, it sends one pulse if it has not already fired. After firing, it will ignore fu....
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/debug/one_shot_pulse
 	name = "one-shot pulse"
 	desc = "Allows one pulse through, then blocks further pulses until reset."
@@ -51,6 +66,7 @@
 	power_draw_per_use = 50
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
+	// Stores `has_fired` state used by this integrated electronics object.
 	var/has_fired = FALSE
 
 	inputs = list(
@@ -68,7 +84,9 @@
 		"blocked" = IC_PINTYPE_PULSE_OUT
 	)
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/debug/one_shot_pulse/do_work(activator_id)
+	// Stores `active_pin` state used by this integrated electronics object.
 	var/active_pin = activator_id
 
 	if(istype(active_pin, /datum/integrated_io))
@@ -92,9 +110,11 @@
 			reset_latch()
 			return
 
+/// Implements `trigger_once` behavior for this integrated electronics type.
 /obj/item/integrated_circuit/debug/one_shot_pulse/proc/trigger_once()
 	pull_data()
 
+	// Stores `enabled` state used by this integrated electronics object.
 	var/enabled = get_pin_data(IC_INPUT, 1)
 
 	if(!enabled)
@@ -117,18 +137,23 @@
 	push_data()
 	activate_pin(3)
 
+/// Implements `reset_latch` behavior for this integrated electronics type.
 /obj/item/integrated_circuit/debug/one_shot_pulse/proc/reset_latch()
 	has_fired = FALSE
 	set_pin_data(IC_OUTPUT, 1, has_fired)
 	push_data()
 
+/// Implements `copy_clone_state_to` behavior for this integrated electronics type.
 /obj/item/integrated_circuit/debug/one_shot_pulse/copy_clone_state_to(obj/item/integrated_circuit/target)
+	// Stores `new_latch` state used by this integrated electronics object.
 	var/obj/item/integrated_circuit/debug/one_shot_pulse/new_latch = target
 	if(!istype(new_latch))
 		return
 
 	new_latch.has_fired = has_fired
 
+/// debug marker: A blank debug circuit. It does nothing and exists only as a movable, removable, renameable marker. This circuit has no inputs, outputs, or activators. It is useful as a spacer, label, or visual divider inside an assembly.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/debug/blank
 	name = "debug marker"
 	desc = "A blank debug circuit. It does nothing and exists only as a movable, removable, renameable marker."
@@ -142,5 +167,6 @@
 	outputs = list()
 	activators = list()
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/debug/blank/do_work()
 	return

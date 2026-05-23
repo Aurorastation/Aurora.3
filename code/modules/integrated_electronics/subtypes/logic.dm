@@ -1,13 +1,22 @@
+/*
+ * subtypes/logic.dm
+ * Logic and comparison circuits for boolean gates, equality checks, numeric comparisons, and conditional routing.
+ */
+
+/// logic gate: This tiny chip will decide for you!. Logic circuits treat null, 0, and empty text as FALSE. Non-zero numbers, non-empty text, valid refs, and populated lists are TRUE. Compare matching value types for reliable results.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/logic
 	name = "logic gate"
 	desc = "This tiny chip will decide for you!"
-	extended_desc = "Logic circuits will treat a null, 0, and a \"\" string value as FALSE and anything else as TRUE. If inputs are of mismatching type, expect undocumented behaviour."
+	extended_desc = "Logic circuits treat null, 0, and empty text as FALSE. Non-zero numbers, non-empty text, valid refs, and populated lists are TRUE. Compare matching value types for reliable results."
 	complexity = 3
 	outputs = list("result" = IC_PINTYPE_BOOLEAN)
 	activators = list("compare" = IC_PINTYPE_PULSE_IN)
 	category_text = "Logic"
 	power_draw_per_use = 10
 
+/// binary: Integrated circuit component..
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/logic/binary
 	inputs = list(
 		"A" = IC_PINTYPE_ANY,
@@ -19,10 +28,14 @@
 		"on false result" = IC_PINTYPE_PULSE_OUT
 	)
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/logic/binary/do_work()
+	// Stores `data1` state used by this integrated electronics object.
 	var/data1 = get_pin_data(IC_INPUT, 1)
+	// Stores `data2` state used by this integrated electronics object.
 	var/data2 = get_pin_data(IC_INPUT, 2)
 
+	// Stores `result` state used by this integrated electronics object.
 	var/result = FALSE
 	if (comparable(data1, data2))
 		result = !!do_compare(data1, data2)
@@ -35,9 +48,11 @@
 	else
 		activate_pin(3)
 
+/// Implements `do_compare` behavior for this integrated electronics type.
 /obj/item/integrated_circuit/logic/binary/proc/do_compare(A, B)
 	return FALSE
 
+/// Implements `comparable` behavior for this integrated electronics type.
 /obj/item/integrated_circuit/logic/binary/proc/comparable(A, B)
 	if (isnum(A) && isnum(B))
 		. = TRUE
@@ -50,6 +65,8 @@
 	else
 		. = FALSE
 
+/// unary: Integrated circuit component..
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/logic/unary
 	inputs = list(
 		"A" = IC_PINTYPE_ANY
@@ -59,24 +76,32 @@
 		"on compare" = IC_PINTYPE_PULSE_OUT
 	)
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/logic/unary/do_work()
+	// Stores `mydata` state used by this integrated electronics object.
 	var/mydata = get_pin_data(IC_INPUT, 1)
 	set_pin_data(IC_OUTPUT, 1, !!do_check(mydata))
 	push_data()
 	activate_pin(2)
 
+/// Implements `do_check` behavior for this integrated electronics type.
 /obj/item/integrated_circuit/logic/unary/proc/do_check(A)
 	return FALSE
 
+/// equal gate: This gate compares two values, and outputs the number one if both are the same.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/logic/binary/equals
 	name = "equal gate"
 	desc = "This gate compares two values, and outputs the number one if both are the same."
 	icon_state = "equal"
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
+/// Implements `do_compare` behavior for this integrated electronics type.
 /obj/item/integrated_circuit/logic/binary/equals/do_compare(A, B)
 	return A == B
 
+/// JK latch: This gate is a synchronized JK latch.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/logic/binary/jklatch
 	name = "JK latch"
 	desc = "This gate is a synchronized JK latch."
@@ -85,8 +110,10 @@
 	outputs = list("Q" = IC_PINTYPE_BOOLEAN,"!Q" = IC_PINTYPE_BOOLEAN)
 	activators = list("pulse in C" = IC_PINTYPE_PULSE_IN, "pulse out Q" = IC_PINTYPE_PULSE_OUT, "pulse out !Q" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+	// Stores `lstate` state used by this integrated electronics object.
 	var/lstate=FALSE
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/logic/binary/jklatch/do_work()
 	if(get_pin_data(IC_INPUT, 1))
 		if(get_pin_data(IC_INPUT, 2))
@@ -104,6 +131,8 @@
 		activate_pin(3)
 	push_data()
 
+/// RS latch: This gate is a synchronized RS latch. If both R and S are true, its state will not change.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/logic/binary/rslatch
 	name = "RS latch"
 	desc = "This gate is a synchronized RS latch. If both R and S are true, its state will not change."
@@ -112,8 +141,10 @@
 	outputs = list("Q" = IC_PINTYPE_BOOLEAN,"!Q" = IC_PINTYPE_BOOLEAN)
 	activators = list("pulse in C" = IC_PINTYPE_PULSE_IN, "pulse out Q" = IC_PINTYPE_PULSE_OUT, "pulse out !Q" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+	// Stores `lstate` state used by this integrated electronics object.
 	var/lstate=FALSE
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/logic/binary/rslatch/do_work()
 	if(get_pin_data(IC_INPUT, 1))
 		if(!get_pin_data(IC_INPUT, 2))
@@ -129,6 +160,8 @@
 		activate_pin(3)
 	push_data()
 
+/// gated D latch: This gate is a synchronized gated D latch.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/logic/binary/gdlatch
 	name = "gated D latch"
 	desc = "This gate is a synchronized gated D latch."
@@ -137,8 +170,10 @@
 	outputs = list("Q" = IC_PINTYPE_BOOLEAN,"!Q" = IC_PINTYPE_BOOLEAN)
 	activators = list("pulse in C" = IC_PINTYPE_PULSE_IN, "pulse out Q" = IC_PINTYPE_PULSE_OUT, "pulse out !Q" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+	// Stores `lstate` state used by this integrated electronics object.
 	var/lstate=FALSE
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/logic/binary/gdlatch/do_work()
 	if(get_pin_data(IC_INPUT, 2))
 		if(get_pin_data(IC_INPUT, 1))
@@ -155,69 +190,92 @@
 		activate_pin(3)
 	push_data()
 
+/// not equal gate: This gate compares two values, and outputs the number one if both are different.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/logic/binary/not_equals
 	name = "not equal gate"
 	desc = "This gate compares two values, and outputs the number one if both are different."
 	icon_state = "not_equal"
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
+/// Implements `do_compare` behavior for this integrated electronics type.
 /obj/item/integrated_circuit/logic/binary/not_equals/do_compare(A, B)
 	return A != B
 
+/// and gate: This gate will output 'one' if both inputs evaluate to true.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/logic/binary/and
 	name = "and gate"
 	desc = "This gate will output 'one' if both inputs evaluate to true."
 	icon_state = "and"
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
+/// Implements `do_compare` behavior for this integrated electronics type.
 /obj/item/integrated_circuit/logic/binary/and/do_compare(A, B)
 	return A && B
 
+/// or gate: This gate will output 'one' if one of the inputs evaluate to true.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/logic/binary/or
 	name = "or gate"
 	desc = "This gate will output 'one' if one of the inputs evaluate to true."
 	icon_state = "or"
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
+/// Implements `do_compare` behavior for this integrated electronics type.
 /obj/item/integrated_circuit/logic/binary/or/do_compare(A, B)
 	return A || B
 
+/// less than gate: This will output 'one' if the first input is less than the second input.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/logic/binary/less_than
 	name = "less than gate"
 	desc = "This will output 'one' if the first input is less than the second input."
 	icon_state = "less_than"
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
+/// Implements `do_compare` behavior for this integrated electronics type.
 /obj/item/integrated_circuit/logic/binary/less_than/do_compare(A, B)
 	return A < B
 
+/// less than or equal gate: This will output 'one' if the first input is less than, or equal to the second input.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/logic/binary/less_than_or_equal
 	name = "less than or equal gate"
 	desc = "This will output 'one' if the first input is less than, or equal to the second input."
 	icon_state = "less_than_or_equal"
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
+/// Implements `do_compare` behavior for this integrated electronics type.
 /obj/item/integrated_circuit/logic/binary/less_than_or_equal/do_compare(A, B)
 	return A <= B
 
+/// greater than gate: This will output 'one' if the first input is greater than the second input.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/logic/binary/greater_than
 	name = "greater than gate"
 	desc = "This will output 'one' if the first input is greater than the second input."
 	icon_state = "greater_than"
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
+/// Implements `do_compare` behavior for this integrated electronics type.
 /obj/item/integrated_circuit/logic/binary/greater_than/do_compare(A, B)
 	return A > B
 
+/// greater_than or equal gate: This will output 'one' if the first input is greater than, or equal to the second input.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/logic/binary/greater_than_or_equal
 	name = "greater_than or equal gate"
 	desc = "This will output 'one' if the first input is greater than, or equal to the second input."
 	icon_state = "greater_than_or_equal"
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
+/// Implements `do_compare` behavior for this integrated electronics type.
 /obj/item/integrated_circuit/logic/binary/greater_than_or_equal/do_compare(A, B)
 	return A >= B
 
+/// not gate: This gate inverts what's fed into it.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/logic/unary/not
 	name = "not gate"
 	desc = "This gate inverts what's fed into it."
@@ -225,9 +283,12 @@
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	activators = list("invert" = IC_PINTYPE_PULSE_IN, "on inverted" = IC_PINTYPE_PULSE_OUT)
 
+/// Implements `do_check` behavior for this integrated electronics type.
 /obj/item/integrated_circuit/logic/unary/not/do_check(A)
 	return !A
 
+/// threshold comparator: Checks whether a number is below, inside, or above a range.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/logic/threshold_comparator
 	name = "threshold comparator"
 	desc = "Checks whether a number is below, inside, or above a range."
@@ -252,16 +313,22 @@
 	)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/logic/threshold_comparator/do_work()
+	// Stores `value` state used by this integrated electronics object.
 	var/value = get_pin_data(IC_INPUT, 1)
+	// Stores `minimum` state used by this integrated electronics object.
 	var/minimum = get_pin_data(IC_INPUT, 2)
+	// Stores `maximum` state used by this integrated electronics object.
 	var/maximum = get_pin_data(IC_INPUT, 3)
 
 	if(!isnum(value) || !isnum(minimum) || !isnum(maximum))
 		return
 
 	var/below = value < minimum
+	// Stores `above` state used by this integrated electronics object.
 	var/above = value > maximum
+	// Stores `inside` state used by this integrated electronics object.
 	var/inside = !below && !above
 
 	set_pin_data(IC_OUTPUT, 1, below)
@@ -279,6 +346,8 @@
 		activate_pin(4)
 
 
+/// multi-threshold status: Classifies a number as normal, warning, or danger using low and high thresholds.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/logic/multi_threshold_status
 	name = "multi-threshold status"
 	desc = "Classifies a number as normal, warning, or danger using low and high thresholds."
@@ -305,19 +374,28 @@
 	)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/logic/multi_threshold_status/do_work()
+	// Stores `value` state used by this integrated electronics object.
 	var/value = get_pin_data(IC_INPUT, 1)
+	// Stores `danger_low` state used by this integrated electronics object.
 	var/danger_low = get_pin_data(IC_INPUT, 2)
+	// Stores `warning_low` state used by this integrated electronics object.
 	var/warning_low = get_pin_data(IC_INPUT, 3)
+	// Stores `warning_high` state used by this integrated electronics object.
 	var/warning_high = get_pin_data(IC_INPUT, 4)
+	// Stores `danger_high` state used by this integrated electronics object.
 	var/danger_high = get_pin_data(IC_INPUT, 5)
 
 	if(!isnum(value) || !isnum(danger_low) || !isnum(warning_low) || !isnum(warning_high) || !isnum(danger_high))
 		return
 
 	var/normal = FALSE
+	// Stores `warning` state used by this integrated electronics object.
 	var/warning = FALSE
+	// Stores `danger` state used by this integrated electronics object.
 	var/danger = FALSE
+	// Stores `status` state used by this integrated electronics object.
 	var/status = "NORMAL"
 
 	if(value <= danger_low)
@@ -350,10 +428,12 @@
 		activate_pin(4)
 
 
+/// cooldown limiter: Allows a pulse through only when its cooldown has expired.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/logic/cooldown_limiter
 	name = "cooldown limiter"
 	desc = "Allows a pulse through only when its cooldown has expired."
-	icon_state = "timer"
+	icon_state = "template"
 	complexity = 4
 	inputs = list(
 		"cooldown seconds" = IC_PINTYPE_NUMBER
@@ -368,9 +448,12 @@
 	)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
+	// Stores `next_allowed_time` state used by this integrated electronics object.
 	var/next_allowed_time = 0
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/logic/cooldown_limiter/do_work()
+	// Stores `cooldown_seconds` state used by this integrated electronics object.
 	var/cooldown_seconds = get_pin_data(IC_INPUT, 1)
 
 	if(!isnum(cooldown_seconds))
@@ -391,6 +474,8 @@
 	activate_pin(3)
 
 
+/// pulse counter: Counts incoming pulses. If reset is true when pulsed, the count resets instead.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/logic/pulse_counter
 	name = "pulse counter"
 	desc = "Counts incoming pulses. If reset is true when pulsed, the count resets instead."
@@ -409,8 +494,10 @@
 	)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
+	// Stores `count` state used by this integrated electronics object.
 	var/count = 0
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/logic/pulse_counter/do_work()
 	if(get_pin_data(IC_INPUT, 1))
 		count = 0
@@ -425,10 +512,12 @@
 	activate_pin(2)
 
 
+/// pulse sequencer: Cycles through four output pulses. If reset is true when pulsed, the sequence resets instead.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/logic/pulse_sequencer
 	name = "pulse sequencer"
 	desc = "Cycles through four output pulses. If reset is true when pulsed, the sequence resets instead."
-	icon_state = "counter"
+	icon_state = "template"
 	complexity = 4
 	inputs = list(
 		"reset" = IC_PINTYPE_BOOLEAN
@@ -446,8 +535,10 @@
 	)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
+	// Stores `current_step` state used by this integrated electronics object.
 	var/current_step = 0
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/logic/pulse_sequencer/do_work()
 	if(get_pin_data(IC_INPUT, 1))
 		current_step = 0

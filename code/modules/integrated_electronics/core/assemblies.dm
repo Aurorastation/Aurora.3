@@ -1,27 +1,41 @@
+/*
+ * core/assemblies.dm
+ * Base electronic assembly behavior: circuit storage, open/closed handling, interaction, icon updates, cloning hooks, and wiring rules.
+ */
+
 /obj/item/electronic_assembly
 	name = "electronic assembly"
-	desc = "It's a case, for building small electronics with."
+	desc = "A case for building small electronic assemblies."
 	w_class = WEIGHT_CLASS_SMALL
 	icon = 'icons/obj/assemblies/electronic_setups.dmi'
 	icon_state = "setup_small"
 	item_flags = ITEM_FLAG_NO_BLUDGEON
 	light_system = MOVABLE_LIGHT
 
+	// Stores `max_components` state used by this integrated electronics object.
 	var/max_components = IC_COMPONENTS_BASE
+	// Stores `max_complexity` state used by this integrated electronics object.
 	var/max_complexity = IC_COMPLEXITY_BASE
+	// Whether the assembly panel is open for direct circuit access.
 	var/opened = 0
+	// Stores `can_anchor` state used by this integrated electronics object.
 	var/can_anchor = FALSE // If true, wrenching it will anchor it.
+	// Power cell or battery object feeding the assembly.
 	var/obj/item/cell/device/battery // Internal cell which most circuits need to work.
+	// User-selected detail color used for assembly and wearable overlays.
 	var/detail_color = COLOR_ASSEMBLY_BLACK
+	// Stores `access_card` state used by this integrated electronics object.
 	var/obj/item/card/id/access_card
 
+/// Defines an electronic assembly subtype that stores and runs installed circuits.
 /obj/item/electronic_assembly/implant
 	name = "electronic implant"
 	icon_state = "setup_implant"
-	desc = "It's a case, for building very tiny electronics with."
+	desc = "A case for building very small electronic assemblies."
 	w_class = WEIGHT_CLASS_TINY
 	max_components = IC_COMPONENTS_BASE * 3/4
 	max_complexity = IC_COMPLEXITY_BASE * 3/4
+	// Stores `implant` state used by this integrated electronics object.
 	var/obj/item/implant/integrated_circuit/implant = null
 
 /obj/item/electronic_assembly/Initialize(mapload, printed = FALSE)
@@ -31,13 +45,16 @@
 	START_PROCESSING(SSelectronics, src)
 	access_card = new /obj/item/card/id(src)
 
+/// Releases owned objects and clears references before parent deletion runs.
 /obj/item/electronic_assembly/Destroy()
 	QDEL_NULL(battery)
 	STOP_PROCESSING(SSelectronics, src)
 	QDEL_NULL(access_card)
 	return ..()
 
+/// Implements `Collide` behavior for this integrated electronics type.
 /obj/item/electronic_assembly/Collide(atom/AM)
+	// Stores `collw` state used by this integrated electronics object.
 	var/collw = AM
 	.=..()
 	if((istype(collw, /obj/machinery/door/airlock) ||  istype(collw, /obj/machinery/door/window)) && (!isnull(access_card)))
@@ -45,9 +62,11 @@
 		if(D.check_access(access_card))
 			D.open()
 
+/// Runs periodic behavior while this object is registered for processing.
 /obj/item/electronic_assembly/process()
 	handle_idle_power()
 
+/// Implements `handle_idle_power` behavior for this integrated electronics type.
 /obj/item/electronic_assembly/proc/handle_idle_power()
 	// First we generate power.
 	for(var/obj/item/integrated_circuit/passive/power/P in contents)
@@ -58,33 +77,41 @@
 		if(IC.power_draw_idle && !draw_power(IC.power_draw_idle))
 			IC.power_fail()
 
+/// Updates icon state, overlays, and visual appearance.
 /obj/item/electronic_assembly/implant/update_icon()
 	..()
 	implant.icon_state = icon_state
 
+/// Implements `ui_host` behavior for this integrated electronics type.
 /obj/item/electronic_assembly/implant/ui_host()
 	return implant
 
+/// Implements `resolve_ui_host` behavior for this integrated electronics type.
 /obj/item/electronic_assembly/proc/resolve_ui_host()
 	return src
 
+/// Implements `resolve_ui_host` behavior for this integrated electronics type.
 /obj/item/electronic_assembly/implant/resolve_ui_host()
 	return implant
 
+/// Implements `check_interactivity` behavior for this integrated electronics type.
 /obj/item/electronic_assembly/proc/check_interactivity(mob/user)
 	if(!CanInteract(user, GLOB.physical_state))
 		return 0
 	return 1
 
+/// Opens or updates the user interaction flow for this object.
 /obj/item/electronic_assembly/interact(mob/user)
 	if(!check_interactivity(user))
 		return
 
 	var/total_parts = 0
+	// Stores `total_complexity` state used by this integrated electronics object.
 	var/total_complexity = 0
 	for(var/obj/item/integrated_circuit/part in contents)
 		total_parts += part.size
 		total_complexity = total_complexity + part.complexity
+	// Stores `HTML` state used by this integrated electronics object.
 	var/list/HTML = list()
 
 	HTML += "<br><a href='byond://?src=[REF(src)]'>Refresh</a>  |  "
@@ -121,10 +148,12 @@
 			HTML += "<a href='byond://?src=[REF(circuit)];bottom=[REF(circuit)];from_assembly=1'>Move to Bottom</a>"
 			HTML += "<br>"
 
+	// Stores `B` state used by this integrated electronics object.
 	var/datum/browser/B = new(user, "assembly-[REF(src)]", name, 600, 400)
 	B.set_content(HTML.Join())
 	B.open(FALSE)
 
+/// Handles href/topic interactions from older browser-style UI code.
 /obj/item/electronic_assembly/Topic(href, href_list[])
 	if(..())
 		return 1
@@ -147,12 +176,14 @@
 
 	interact(usr) // To refresh the UI.
 
+/// Implements `rename` behavior for this integrated electronics type.
 /obj/item/electronic_assembly/verb/rename()
 	set name = "Rename Circuit"
 	set category = "Object"
-	set desc = "Rename your circuit, useful to stay organized."
+	set desc = "Renames the circuit to make assemblies easier to organize."
 	set src in usr
 
+	// Stores `M` state used by this integrated electronics object.
 	var/mob/M = usr
 	if(!check_interactivity(M))
 		return null
@@ -164,9 +195,11 @@
 		return input
 	return null
 
+/// Checks whether `move` is allowed in the current state.
 /obj/item/electronic_assembly/proc/can_move()
 	return FALSE
 
+/// Updates icon state, overlays, and visual appearance.
 /obj/item/electronic_assembly/update_icon()
 	if(opened)
 		icon_state = "[initial(icon_state)]-open"
@@ -179,22 +212,26 @@
 	detail_overlay.color = detail_color
 	AddOverlays(detail_overlay)
 
+/// Implements `GetAccess` behavior for this integrated electronics type.
 /obj/item/electronic_assembly/GetAccess()
 	. = list()
 	for(var/obj/item/integrated_circuit/part in contents)
 		. |= part.GetAccess()
 
+/// Adds modern examine/feedback hint lines for nearby users.
 /obj/item/electronic_assembly/feedback_hints(mob/user, distance, is_adjacent)
 	. = ..()
 	if(is_adjacent && opened)
 		for(var/obj/item/integrated_circuit/IC in contents)
 			. += SPAN_NOTICE("It contains \a [IC].")
 
+/// Returns the current `part_complexity` value or object used by this electronics code.
 /obj/item/electronic_assembly/proc/get_part_complexity()
 	. = 0
 	for(var/obj/item/integrated_circuit/part in contents)
 		. += part.complexity
 
+/// Returns the current `part_size` value or object used by this electronics code.
 /obj/item/electronic_assembly/proc/get_part_size()
 	. = 0
 	for(var/obj/item/integrated_circuit/part in contents)
@@ -211,6 +248,7 @@
 		return FALSE
 
 	var/total_part_size = get_part_size()
+	// Stores `total_complexity` state used by this integrated electronics object.
 	var/total_complexity = get_part_complexity()
 
 	if((total_part_size + IC.size) > max_components)
@@ -232,10 +270,12 @@
 	IC.forceMove(src)
 	IC.assembly = src
 
+/// Implements `afterattack` behavior for this integrated electronics type.
 /obj/item/electronic_assembly/afterattack(atom/target, mob/user, proximity)
 	for(var/obj/item/integrated_circuit/input/sensor/S in contents)
 		S.sense(target, user)
 
+/// Handles another item being used on this object.
 /obj/item/electronic_assembly/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/integrated_circuit))
 		if(!user.unEquip(attacking_item))
@@ -308,6 +348,7 @@
 				return TRUE
 		return ..()
 
+/// Handles direct use in hand by a mob.
 /obj/item/electronic_assembly/attack_self(mob/user)
 	if(!check_interactivity(user))
 		return
@@ -316,6 +357,7 @@
 		return
 
 	var/list/input_selection = list()
+	// Stores `available_inputs` state used by this integrated electronics object.
 	var/list/available_inputs = list()
 	for(var/obj/item/integrated_circuit/input/input in contents)
 		if(input.can_be_asked_input)
@@ -329,6 +371,7 @@
 				disp_name += " ([i+1])"
 			input_selection.Add(disp_name)
 
+	// Stores `choice` state used by this integrated electronics object.
 	var/obj/item/integrated_circuit/input/choice
 	if(available_inputs)
 		var/selection = tgui_input_list(user, "What do you want to interact with?", "Interaction", input_selection)
@@ -339,6 +382,7 @@
 	if(choice)
 		choice.ask_for_input(user)
 
+/// Implements `emp_act` behavior for this integrated electronics type.
 /obj/item/electronic_assembly/emp_act(severity)
 	. = ..()
 
@@ -357,10 +401,12 @@
 		return TRUE
 	return FALSE
 
+/// Implements `on_anchored` behavior for this integrated electronics type.
 /obj/item/electronic_assembly/proc/on_anchored()
 	for(var/obj/item/integrated_circuit/IC in contents)
 		IC.on_anchored()
 
+/// Implements `on_unanchored` behavior for this integrated electronics type.
 /obj/item/electronic_assembly/proc/on_unanchored()
 	for(var/obj/item/integrated_circuit/IC in contents)
 		IC.on_unanchored()

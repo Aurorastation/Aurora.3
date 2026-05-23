@@ -1,3 +1,8 @@
+/*
+ * core/printer.dm
+ * Integrated circuit printer, material storage, upgrade handling, circuit printing, assembly scanning, blueprint import/export, and clone construction.
+ */
+
 /obj/item/integrated_circuit_printer
 	name = "integrated circuit printer"
 	desc = "A portable(ish) machine made to print tiny modular circuitry out of metal."
@@ -10,33 +15,49 @@
 	// Total upgraded storage cap is 520 material units:
 	// 500 steel + 20 phoron.
 	var/metal = 0
+	// Stores `max_metal` state used by this integrated electronics object.
 	var/max_metal = 100
+	// Stores `metal_per_sheet` state used by this integrated electronics object.
 	var/metal_per_sheet = 10
 
+	// Stored phoron amount available for printing.
 	var/phoron = 0
+	// Stores `max_phoron` state used by this integrated electronics object.
 	var/max_phoron = 20
+	// Stores `phoron_per_sheet` state used by this integrated electronics object.
 	var/phoron_per_sheet = 10
 
+	// Stores `clone_metal_storage_bonus` state used by this integrated electronics object.
 	var/clone_metal_storage_bonus = 400
 
+	// Stores `upgraded` state used by this integrated electronics object.
 	var/upgraded = FALSE
+	// Stores `can_clone` state used by this integrated electronics object.
 	var/can_clone = FALSE
+	// Stores `assembly_to_clone` state used by this integrated electronics object.
 	var/obj/item/electronic_assembly/assembly_to_clone
+	// Stores `clone_item_to_clone` state used by this integrated electronics object.
 	var/obj/item/clone_item_to_clone
+	// Stores `currently_printing` state used by this integrated electronics object.
 	var/currently_printing = FALSE
 
 	// Imported/exported copy-paste blueprint data.
 	var/list/clone_blueprint_data = null
+	// Stores `clone_blueprint_name` state used by this integrated electronics object.
 	var/clone_blueprint_name = null
+	// Stores `clone_blueprint_export` state used by this integrated electronics object.
 	var/clone_blueprint_export = null
+	// Stores `clone_blueprint_import_buffer` state used by this integrated electronics object.
 	var/clone_blueprint_import_buffer = ""
 
 	// Clone timing is based on total clone steel cost.
 	// 1 SECOND is 10 ticks on this codebase.
 	var/clone_min_print_time = 5 SECONDS
+	// Stores `clone_max_print_time` state used by this integrated electronics object.
 	var/clone_max_print_time = 300 SECONDS
 
 
+/// Defines the `upgraded` integrated circuit subtype and its pin-facing behavior.
 /obj/item/integrated_circuit_printer/upgraded
 	upgraded = TRUE
 	can_clone = TRUE
@@ -44,6 +65,7 @@
 	max_phoron = 20
 
 
+/// Handles another item being used on this object.
 /obj/item/integrated_circuit_printer/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/stack/material))
 		var/obj/item/stack/material/stack = attacking_item
@@ -106,10 +128,12 @@
 	return ..()
 
 
+/// Handles direct use in hand by a mob.
 /obj/item/integrated_circuit_printer/attack_self(var/mob/user)
 	ui_interact(user)
 
 
+/// Creates or updates the TGUI interface for this object.
 /obj/item/integrated_circuit_printer/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 
@@ -118,7 +142,9 @@
 		ui.open()
 
 
+/// Builds the data payload sent from DM to TGUI.
 /obj/item/integrated_circuit_printer/ui_data(mob/user)
+	// Stores `data` state used by this integrated electronics object.
 	var/list/data = list()
 
 	data["metal"] = metal / metal_per_sheet
@@ -144,6 +170,7 @@
 	return data
 
 
+/// Implements `resolve_cloneable_assembly` behavior for this integrated electronics type.
 /obj/item/integrated_circuit_printer/proc/resolve_cloneable_assembly(obj/item/target)
 	if(!target)
 		return null
@@ -159,7 +186,9 @@
 	return null
 
 
+/// Attempts to scan an item that can expose an internal assembly for cloning.
 /obj/item/integrated_circuit_printer/proc/scan_cloneable_item(obj/item/target, mob/user)
+	// Stores `E` state used by this integrated electronics object.
 	var/obj/item/electronic_assembly/E = resolve_cloneable_assembly(target)
 
 	if(!E)
@@ -178,18 +207,22 @@
 	to_chat(user, SPAN_NOTICE("You scan \the [target] into \the [src]'s cloning buffer."))
 	return TRUE
 
+/// Implements `import_clone_blueprint_text` behavior for this integrated electronics type.
 /obj/item/integrated_circuit_printer/proc/import_clone_blueprint_text(var/import_text, var/mob/user)
 	if(!import_text)
 		return FALSE
 
 	import_text = html_decode(import_text)
 
+	// Stores `start_index` state used by this integrated electronics object.
 	var/start_index = findtext(import_text, "{")
+	// Stores `end_index` state used by this integrated electronics object.
 	var/end_index = findlasttext(import_text, "}")
 
 	if(start_index && end_index && end_index >= start_index)
 		import_text = copytext(import_text, start_index, end_index + 1)
 
+	// Stores `imported_blueprint` state used by this integrated electronics object.
 	var/list/imported_blueprint = json_decode(import_text)
 	if(!islist(imported_blueprint))
 		to_chat(user, SPAN_WARNING("That cloning blueprint text is invalid."))
@@ -210,6 +243,7 @@
 	return TRUE
 
 
+/// Handles actions sent back from TGUI.
 /obj/item/integrated_circuit_printer/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
@@ -388,6 +422,7 @@
 	return FALSE
 
 
+/// Implements `finish_clone_print` behavior for this integrated electronics type.
 /obj/item/integrated_circuit_printer/proc/finish_clone_print(mob/user, cost, phoron_cost, obj/item/electronic_assembly/live_scan_to_print, list/blueprint_to_print)
 	if(QDELETED(src))
 		return
@@ -407,6 +442,7 @@
 	metal -= cost
 	phoron -= phoron_cost
 
+	// Stores `new_clone` state used by this integrated electronics object.
 	var/obj/item/electronic_assembly/new_clone = null
 
 	if(live_scan_to_print && !QDELETED(live_scan_to_print))
@@ -423,6 +459,7 @@
 		to_chat(user, SPAN_NOTICE("\The [src] finishes printing \the [new_clone]."))
 
 
+/// Returns the current `circuit_phoron_cost` value or object used by this electronics code.
 /obj/item/integrated_circuit_printer/proc/get_circuit_phoron_cost(circuit_type)
 	if(!circuit_type || !ispath(circuit_type, /obj/item/integrated_circuit))
 		return 0
@@ -431,11 +468,13 @@
 	return max(0, initial(IC.phoron_cost) * phoron_per_sheet)
 
 
+/// Returns the current `clone_metal_cost` value or object used by this electronics code.
 /obj/item/integrated_circuit_printer/proc/get_clone_metal_cost(obj/item/electronic_assembly/source)
 	if(!source)
 		return 0
 
 	var/case_cost = round((source.max_complexity + source.max_components) / 4)
+	// Stores `component_cost` state used by this integrated electronics object.
 	var/component_cost = 0
 
 	for(var/obj/item/integrated_circuit/IC in source.contents)
@@ -446,6 +485,7 @@
 	return max(1, case_cost + component_cost)
 
 
+/// Returns the current `clone_phoron_cost` value or object used by this electronics code.
 /obj/item/integrated_circuit_printer/proc/get_clone_phoron_cost(obj/item/electronic_assembly/source)
 	if(!source)
 		return 0
@@ -460,12 +500,15 @@
 	return component_cost
 
 
+/// Returns the current `clone_print_time` value or object used by this electronics code.
 /obj/item/integrated_circuit_printer/proc/get_clone_print_time(obj/item/electronic_assembly/source)
 	if(!source)
 		return clone_min_print_time
 
 	var/cost = get_clone_metal_cost(source)
+	// Stores `effective_max_cost` state used by this integrated electronics object.
 	var/effective_max_cost = max(1, max_metal)
+	// Stores `cost_ratio` state used by this integrated electronics object.
 	var/cost_ratio = cost / effective_max_cost
 
 	if(cost_ratio < 0)
@@ -473,6 +516,7 @@
 	if(cost_ratio > 1)
 		cost_ratio = 1
 
+	// Stores `scaled_time` state used by this integrated electronics object.
 	var/scaled_time = clone_min_print_time + ((clone_max_print_time - clone_min_print_time) * cost_ratio)
 
 	if(scaled_time < clone_min_print_time)
@@ -483,6 +527,7 @@
 	return round(scaled_time)
 
 
+/// Implements `clone_pin_data` behavior for this integrated electronics type.
 /obj/item/integrated_circuit_printer/proc/clone_pin_data(datum/integrated_io/source_pin, datum/integrated_io/target_pin)
 	if(!source_pin || !target_pin)
 		return
@@ -494,14 +539,18 @@
 		target_pin.write_data_to_pin(source_pin.data)
 
 
+/// Implements `clone_io_list_data` behavior for this integrated electronics type.
 /obj/item/integrated_circuit_printer/proc/clone_io_list_data(list/source_pins, list/target_pins)
+	// Stores `pin_count` state used by this integrated electronics object.
 	var/pin_count = min(source_pins.len, target_pins.len)
 
 	for(var/i = 1 to pin_count)
 		clone_pin_data(source_pins[i], target_pins[i])
 
 
+/// Implements `map_builtin_circuits` behavior for this integrated electronics type.
 /obj/item/integrated_circuit_printer/proc/map_builtin_circuits(obj/item/electronic_assembly/source, obj/item/electronic_assembly/clone, list/circuit_map)
+	// Stores `used_clone_builtins` state used by this integrated electronics object.
 	var/list/used_clone_builtins = list()
 
 	for(var/obj/item/integrated_circuit/source_circuit in source.contents)
@@ -521,6 +570,7 @@
 			break
 
 
+/// Copies circuit contents from one assembly into an already-created target assembly.
 /obj/item/integrated_circuit_printer/proc/copy_assembly_into_existing(obj/item/electronic_assembly/source, obj/item/electronic_assembly/clone)
 	if(!source || !clone)
 		return FALSE
@@ -530,6 +580,7 @@
 	clone.opened = FALSE
 	clone.update_icon()
 
+	// Stores `circuit_map` state used by this integrated electronics object.
 	var/list/circuit_map = list()
 	map_builtin_circuits(source, clone, circuit_map)
 
@@ -572,6 +623,7 @@
 	return TRUE
 
 
+/// Implements `clone_assembly` behavior for this integrated electronics type.
 /obj/item/integrated_circuit_printer/proc/clone_assembly(obj/item/electronic_assembly/source, atom/location)
 	if(!source || !location)
 		return null
@@ -585,7 +637,9 @@
 	return clone
 
 
+/// Implements `copy_cloned_links` behavior for this integrated electronics type.
 /obj/item/integrated_circuit_printer/proc/copy_cloned_links(list/source_pins, list/target_pins, list/circuit_map)
+	// Stores `pin_count` state used by this integrated electronics object.
 	var/pin_count = min(source_pins.len, target_pins.len)
 
 	for(var/i = 1 to pin_count)
@@ -616,6 +670,7 @@
 				target_pin.linked |= linked_new_pin
 
 
+/// Implements `make_saveable_clone_value` behavior for this integrated electronics type.
 /obj/item/integrated_circuit_printer/proc/make_saveable_clone_value(value)
 	if(isnull(value) || isnum(value) || istext(value))
 		return value
@@ -632,7 +687,9 @@
 	return null
 
 
+/// Serializes `pin_data_list` into blueprint/export-safe data.
 /obj/item/integrated_circuit_printer/proc/serialize_pin_data_list(list/pins)
+	// Stores `pin_data` state used by this integrated electronics object.
 	var/list/pin_data = list()
 
 	for(var/datum/integrated_io/pin in pins)
@@ -641,6 +698,7 @@
 	return pin_data
 
 
+/// Returns the current `pin_group_name` value or object used by this electronics code.
 /obj/item/integrated_circuit_printer/proc/get_pin_group_name(obj/item/integrated_circuit/circuit, datum/integrated_io/pin)
 	if(circuit.inputs.Find(pin))
 		return "inputs"
@@ -654,7 +712,9 @@
 	return null
 
 
+/// Returns the current `pin_group_index` value or object used by this electronics code.
 /obj/item/integrated_circuit_printer/proc/get_pin_group_index(obj/item/integrated_circuit/circuit, datum/integrated_io/pin)
+	// Stores `index` state used by this integrated electronics object.
 	var/index = circuit.inputs.Find(pin)
 	if(index)
 		return index
@@ -670,7 +730,9 @@
 	return 0
 
 
+/// Serializes `pin_links` into blueprint/export-safe data.
 /obj/item/integrated_circuit_printer/proc/serialize_pin_links(obj/item/integrated_circuit/source_circuit, datum/integrated_io/source_pin, list/circuit_order)
+	// Stores `links` state used by this integrated electronics object.
 	var/list/links = list()
 
 	for(var/datum/integrated_io/source_link in source_pin.linked)
@@ -694,7 +756,9 @@
 	return links
 
 
+/// Serializes `pin_link_list` into blueprint/export-safe data.
 /obj/item/integrated_circuit_printer/proc/serialize_pin_link_list(obj/item/integrated_circuit/source_circuit, list/pins, list/circuit_order)
+	// Stores `link_data` state used by this integrated electronics object.
 	var/list/link_data = list()
 
 	for(var/datum/integrated_io/source_pin in pins)
@@ -703,17 +767,26 @@
 	return link_data
 
 
+/// Serializes `clone_blueprint` into blueprint/export-safe data.
 /obj/item/integrated_circuit_printer/proc/serialize_clone_blueprint(obj/item/electronic_assembly/source)
 	if(!source)
 		return null
 
 	var/list/circuit_order = list()
 
+	// Keep removable circuits first so existing blueprint imports retain their old circuit index behavior.
+	// Built-in circuits are appended after them so exported JSON still records links to and from built-ins.
 	for(var/obj/item/integrated_circuit/source_circuit in source.contents)
 		if(!source_circuit.removable)
 			continue
 		circuit_order += source_circuit
 
+	for(var/obj/item/integrated_circuit/source_circuit in source.contents)
+		if(source_circuit.removable)
+			continue
+		circuit_order += source_circuit
+
+	// Stores `circuits` state used by this integrated electronics object.
 	var/list/circuits = list()
 
 	for(var/obj/item/integrated_circuit/source_circuit in circuit_order)
@@ -734,6 +807,7 @@
 
 		circuits += list(circuit_data)
 
+	// Serialized assembly data used for import/export cloning.
 	var/list/blueprint = list()
 	blueprint["assembly_type"] = "[source.type]"
 	blueprint["name"] = source.name
@@ -743,6 +817,7 @@
 	return blueprint
 
 
+/// Implements `apply_blueprint_pin_data` behavior for this integrated electronics type.
 /obj/item/integrated_circuit_printer/proc/apply_blueprint_pin_data(list/source_data, list/target_pins)
 	if(!source_data || !target_pins)
 		return
@@ -754,6 +829,7 @@
 		target_pin.write_data_to_pin(source_data[i])
 
 
+/// Returns the current `blueprint_pin` value or object used by this electronics code.
 /obj/item/integrated_circuit_printer/proc/get_blueprint_pin(obj/item/integrated_circuit/circuit, group, pin_index)
 	if(!circuit || !group || !pin_index)
 		return null
@@ -773,6 +849,7 @@
 	return null
 
 
+/// Implements `apply_blueprint_links` behavior for this integrated electronics type.
 /obj/item/integrated_circuit_printer/proc/apply_blueprint_links(list/source_link_data, list/source_pins, list/new_circuits)
 	if(!source_link_data || !source_pins || !new_circuits)
 		return
@@ -801,6 +878,28 @@
 				source_pin.linked |= linked_pin
 
 
+/// Implements `find_matching_blueprint_builtin` behavior for this integrated electronics type.
+/obj/item/integrated_circuit_printer/proc/find_matching_blueprint_builtin(obj/item/electronic_assembly/clone, circuit_path, list/used_builtins)
+	if(!clone || !circuit_path)
+		return null
+
+	for(var/obj/item/integrated_circuit/clone_circuit in clone.contents)
+		if(clone_circuit.removable)
+			continue
+
+		if(clone_circuit.type != circuit_path)
+			continue
+
+		if(used_builtins.Find(clone_circuit))
+			continue
+
+		used_builtins += clone_circuit
+		return clone_circuit
+
+	return null
+
+
+/// Implements `copy_assembly_into_existing_from_blueprint` behavior for this integrated electronics type.
 /obj/item/integrated_circuit_printer/proc/copy_assembly_into_existing_from_blueprint(list/blueprint, obj/item/electronic_assembly/clone)
 	if(!blueprint || !clone)
 		return FALSE
@@ -810,43 +909,52 @@
 	clone.opened = FALSE
 	clone.update_icon()
 
+	// Stores `new_circuits` state used by this integrated electronics object.
 	var/list/new_circuits = list()
+	// Stores `used_builtins` state used by this integrated electronics object.
+	var/list/used_builtins = list()
+	// Stores `circuit_blueprints` state used by this integrated electronics object.
 	var/list/circuit_blueprints = blueprint["circuits"]
 
+	// Build an index-aligned list that mirrors the blueprint circuit order.
+	// Removable circuits are newly printed. Built-in circuits are mapped to the
+	// clone assembly's existing non-removable circuits so links to built-ins survive.
 	for(var/list/circuit_data in circuit_blueprints)
-		if(!circuit_data["removable"])
-			continue
-
 		var/circuit_path = text2path(circuit_data["type"])
+
 		if(!circuit_path || !ispath(circuit_path, /obj/item/integrated_circuit))
+			new_circuits += null
 			continue
 
-		var/obj/item/integrated_circuit/new_circuit = new circuit_path(clone)
-		new_circuit.displayed_name = circuit_data["displayed_name"]
-		new_circuit.removable = circuit_data["removable"]
-		new_circuit.assembly = clone
-		clone.force_add_circuit(new_circuit)
+		var/obj/item/integrated_circuit/new_circuit = null
 
-		apply_blueprint_pin_data(circuit_data["inputs"], new_circuit.inputs)
-		apply_blueprint_pin_data(circuit_data["outputs"], new_circuit.outputs)
-		apply_blueprint_pin_data(circuit_data["activators"], new_circuit.activators)
+		if(circuit_data["removable"])
+			new_circuit = new circuit_path(clone)
+			new_circuit.displayed_name = circuit_data["displayed_name"]
+			new_circuit.removable = circuit_data["removable"]
+			new_circuit.assembly = clone
+			clone.force_add_circuit(new_circuit)
+		else
+			new_circuit = find_matching_blueprint_builtin(clone, circuit_path, used_builtins)
 
-		if(istype(new_circuit, /obj/item/integrated_circuit/memory/constant))
-			var/obj/item/integrated_circuit/memory/constant/C = new_circuit
-			C.data = circuit_data["constant_data"]
-			C.accepting_refs = FALSE
+		if(new_circuit)
+			apply_blueprint_pin_data(circuit_data["inputs"], new_circuit.inputs)
+			apply_blueprint_pin_data(circuit_data["outputs"], new_circuit.outputs)
+			apply_blueprint_pin_data(circuit_data["activators"], new_circuit.activators)
+
+			if(istype(new_circuit, /obj/item/integrated_circuit/memory/constant))
+				var/obj/item/integrated_circuit/memory/constant/C = new_circuit
+				C.data = circuit_data["constant_data"]
+				C.accepting_refs = FALSE
 
 		new_circuits += new_circuit
 
+	// Apply links by blueprint index. Because new_circuits is index-aligned,
+	// links to removable circuits and built-in circuits both resolve correctly.
 	for(var/i = 1 to circuit_blueprints.len)
-		if(i > new_circuits.len)
-			continue
-
 		var/list/circuit_data = circuit_blueprints[i]
-		if(!circuit_data["removable"])
-			continue
-
 		var/obj/item/integrated_circuit/new_circuit = new_circuits[i]
+
 		if(!new_circuit)
 			continue
 
@@ -856,6 +964,7 @@
 
 	return TRUE
 
+/// Implements `clone_assembly_from_blueprint` behavior for this integrated electronics type.
 /obj/item/integrated_circuit_printer/proc/clone_assembly_from_blueprint(list/blueprint, atom/location)
 	if(!blueprint || !location)
 		return null
@@ -886,6 +995,7 @@
 	return clone
 
 
+/// Returns the current `clone_blueprint_metal_cost` value or object used by this electronics code.
 /obj/item/integrated_circuit_printer/proc/get_clone_blueprint_metal_cost(list/blueprint)
 	if(!blueprint)
 		return 0
@@ -895,9 +1005,12 @@
 		return 0
 
 	var/obj/item/electronic_assembly/E = assembly_path
+	// Stores `case_cost` state used by this integrated electronics object.
 	var/case_cost = round((initial(E.max_complexity) + initial(E.max_components)) / 4)
 
+	// Stores `component_cost` state used by this integrated electronics object.
 	var/component_cost = 0
+	// Stores `circuit_blueprints` state used by this integrated electronics object.
 	var/list/circuit_blueprints = blueprint["circuits"]
 
 	for(var/list/circuit_data in circuit_blueprints)
@@ -914,11 +1027,13 @@
 	return max(1, case_cost + component_cost)
 
 
+/// Returns the current `clone_blueprint_phoron_cost` value or object used by this electronics code.
 /obj/item/integrated_circuit_printer/proc/get_clone_blueprint_phoron_cost(list/blueprint)
 	if(!blueprint)
 		return 0
 
 	var/component_cost = 0
+	// Stores `circuit_blueprints` state used by this integrated electronics object.
 	var/list/circuit_blueprints = blueprint["circuits"]
 
 	for(var/list/circuit_data in circuit_blueprints)
@@ -934,12 +1049,15 @@
 	return component_cost
 
 
+/// Returns the current `clone_blueprint_print_time` value or object used by this electronics code.
 /obj/item/integrated_circuit_printer/proc/get_clone_blueprint_print_time(list/blueprint)
 	if(!blueprint)
 		return clone_min_print_time
 
 	var/cost = get_clone_blueprint_metal_cost(blueprint)
+	// Stores `effective_max_cost` state used by this integrated electronics object.
 	var/effective_max_cost = max(1, max_metal)
+	// Stores `cost_ratio` state used by this integrated electronics object.
 	var/cost_ratio = cost / effective_max_cost
 
 	if(cost_ratio < 0)
@@ -947,6 +1065,7 @@
 	if(cost_ratio > 1)
 		cost_ratio = 1
 
+	// Stores `scaled_time` state used by this integrated electronics object.
 	var/scaled_time = clone_min_print_time + ((clone_max_print_time - clone_min_print_time) * cost_ratio)
 
 	if(scaled_time < clone_min_print_time)
@@ -957,11 +1076,14 @@
 	return round(scaled_time)
 
 
+/// Implements `copy_clone_state_to` behavior for this integrated electronics type.
 /obj/item/integrated_circuit/proc/copy_clone_state_to(obj/item/integrated_circuit/target)
 	return
 
 
+/// Implements `copy_clone_state_to` behavior for this integrated electronics type.
 /obj/item/integrated_circuit/memory/constant/copy_clone_state_to(obj/item/integrated_circuit/target)
+	// Stores `new_constant` state used by this integrated electronics object.
 	var/obj/item/integrated_circuit/memory/constant/new_constant = target
 	if(!istype(new_constant))
 		return
@@ -975,6 +1097,7 @@
 	new_constant.accepting_refs = FALSE
 
 
+/// Checks whether `print` is allowed in the current state.
 /obj/item/integrated_circuit_printer/proc/can_print(build_type)
 	for(var/category in SSelectronics.printer_recipe_list)
 		var/list/current_list = SSelectronics.printer_recipe_list[category]
@@ -997,11 +1120,13 @@
 	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 4)
 
 
+/// Defines the `advanced` integrated circuit subtype and its pin-facing behavior.
 /obj/item/disk/integrated_circuit/upgrade/advanced
 	name = "integrated circuit printer upgrade disk - advanced designs"
 	desc = "Install this into your integrated circuit printer to enhance it.  This one adds new, advanced designs to the printer."
 
 
+/// Defines the `clone` integrated circuit subtype and its pin-facing behavior.
 /obj/item/disk/integrated_circuit/upgrade/clone
 	name = "integrated circuit printer upgrade disk - circuit cloner"
 	desc = "Install this into your integrated circuit printer to enhance it.  This one allows the printer to duplicate assemblies."

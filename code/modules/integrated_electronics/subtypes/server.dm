@@ -1,5 +1,11 @@
+/*
+ * subtypes/server.dm
+ * Data server circuits that store shared values and allow other circuits to push, pull, or query keyed data.
+ */
+
 GLOBAL_LIST_EMPTY(ic_database_servers)
 
+/// Implements `ic_normalize_database_id` behavior for this integrated electronics type.
 /proc/ic_normalize_database_id(database_id)
 	if(!istext(database_id) || !length(database_id))
 		return "main"
@@ -15,6 +21,8 @@ GLOBAL_LIST_EMPTY(ic_database_servers)
 	)
 
 
+/// server: Integrated circuit component..
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/server
 	category_text = "Data Server"
 	complexity = 2
@@ -26,6 +34,8 @@ GLOBAL_LIST_EMPTY(ic_database_servers)
 	)
 
 
+/// database server: A keyed database server for integrated circuits. Stores keyed values for server client circuits. Commands: GET, SET, DELETE, CLEAR, HAS, KEYS, LEN, APPEND.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/server/database
 	name = "database server"
 	desc = "A keyed database server for integrated circuits."
@@ -52,31 +62,38 @@ GLOBAL_LIST_EMPTY(ic_database_servers)
 		"status" = IC_PINTYPE_STRING
 	)
 
+	// Stores `database_id` state used by this integrated electronics object.
 	var/database_id = "main"
+	// Stores `storage` state used by this integrated electronics object.
 	var/list/storage = list()
 
 
+/// Initializes runtime state after the parent type is constructed.
 /obj/item/integrated_circuit/server/database/Initialize()
 	. = ..()
 	register_database()
 
 
+/// Releases owned objects and clears references before parent deletion runs.
 /obj/item/integrated_circuit/server/database/Destroy()
 	unregister_database()
 	storage = null
 	return ..()
 
 
+/// Implements `register_database` behavior for this integrated electronics type.
 /obj/item/integrated_circuit/server/database/proc/register_database()
 	database_id = ic_normalize_database_id(database_id)
 	GLOB.ic_database_servers[database_id] = src
 
 
+/// Implements `unregister_database` behavior for this integrated electronics type.
 /obj/item/integrated_circuit/server/database/proc/unregister_database()
 	if(database_id && GLOB.ic_database_servers[database_id] == src)
 		GLOB.ic_database_servers -= database_id
 
 
+/// Sets `database_id` and performs any required follow-up bookkeeping.
 /obj/item/integrated_circuit/server/database/proc/set_database_id(new_id)
 	new_id = ic_normalize_database_id(new_id)
 
@@ -88,6 +105,7 @@ GLOBAL_LIST_EMPTY(ic_database_servers)
 	register_database()
 
 
+/// Implements `handle_request` behavior for this integrated electronics type.
 /obj/item/integrated_circuit/server/database/proc/handle_request(command, key, value)
 	if(!istext(command))
 		return ic_database_response(FALSE, null, "Command must be text.")
@@ -158,16 +176,22 @@ GLOBAL_LIST_EMPTY(ic_database_servers)
 	return ic_database_response(FALSE, null, "Unknown command.")
 
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/server/database/do_work()
 	pull_data()
 
+	// Stores `new_id` state used by this integrated electronics object.
 	var/new_id = get_pin_data(IC_INPUT, 1)
+	// Stores `command` state used by this integrated electronics object.
 	var/command = get_pin_data(IC_INPUT, 2)
+	// Stores `key` state used by this integrated electronics object.
 	var/key = get_pin_data(IC_INPUT, 3)
+	// Stores `value` state used by this integrated electronics object.
 	var/value = get_pin_data(IC_INPUT, 4)
 
 	set_database_id(new_id)
 
+	// Stores `result` state used by this integrated electronics object.
 	var/list/result = handle_request(command, key, value)
 
 	set_pin_data(IC_OUTPUT, 1, result["success"])
@@ -178,6 +202,8 @@ GLOBAL_LIST_EMPTY(ic_database_servers)
 	activate_pin(2)
 
 
+/// database client: Sends requests to a database server. Targets a database server by server id. Commands: GET, SET, DELETE, CLEAR, HAS, KEYS, LEN, APPEND.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/server/client
 	name = "database client"
 	desc = "Sends requests to a database server."
@@ -205,16 +231,23 @@ GLOBAL_LIST_EMPTY(ic_database_servers)
 	)
 
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/server/client/do_work()
 	pull_data()
 
+	// Stores `database_id` state used by this integrated electronics object.
 	var/database_id = ic_normalize_database_id(get_pin_data(IC_INPUT, 1))
+	// Stores `command` state used by this integrated electronics object.
 	var/command = get_pin_data(IC_INPUT, 2)
+	// Stores `key` state used by this integrated electronics object.
 	var/key = get_pin_data(IC_INPUT, 3)
+	// Stores `value` state used by this integrated electronics object.
 	var/value = get_pin_data(IC_INPUT, 4)
 
+	// Stores `result` state used by this integrated electronics object.
 	var/list/result = ic_database_response(FALSE, null, "Server not found.")
 
+	// Stores `S` state used by this integrated electronics object.
 	var/obj/item/integrated_circuit/server/database/S = GLOB.ic_database_servers[database_id]
 
 	if(istype(S))
@@ -228,10 +261,12 @@ GLOBAL_LIST_EMPTY(ic_database_servers)
 	activate_pin(2)
 
 
+/// database scanner: Outputs a list of active database server ids. Useful for debugging database wiring or discovering which database servers are available.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/server/scanner
 	name = "database scanner"
 	desc = "Outputs a list of active database server ids."
-	extended_desc = "Useful for debugging or discovering available database servers."
+	extended_desc = "Useful for debugging database wiring or discovering which database servers are available."
 	icon_state = "addition"
 	complexity = 2
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
@@ -244,7 +279,9 @@ GLOBAL_LIST_EMPTY(ic_database_servers)
 	)
 
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/server/scanner/do_work()
+	// Stores `server_ids` state used by this integrated electronics object.
 	var/list/server_ids = list()
 
 	for(var/database_id in GLOB.ic_database_servers)
@@ -260,6 +297,8 @@ GLOBAL_LIST_EMPTY(ic_database_servers)
 	activate_pin(2)
 
 
+/// 4-field record builder: Builds an associative list record from up to four key/value pairs. This is useful for making database records like pressure, oxygen, temperature, and status.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/server/record_builder4
 	name = "4-field record builder"
 	desc = "Builds an associative list record from up to four key/value pairs."
@@ -284,30 +323,40 @@ GLOBAL_LIST_EMPTY(ic_database_servers)
 	)
 
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/server/record_builder4/do_work()
 	pull_data()
 
+	// Stores `record` state used by this integrated electronics object.
 	var/list/record = list()
 
+	// Stores `key1` state used by this integrated electronics object.
 	var/key1 = get_pin_data(IC_INPUT, 1)
+	// Stores `value1` state used by this integrated electronics object.
 	var/value1 = get_pin_data(IC_INPUT, 2)
 	if(istext(key1) && length(key1))
 		record += key1
 		record += value1
 
+	// Stores `key2` state used by this integrated electronics object.
 	var/key2 = get_pin_data(IC_INPUT, 3)
+	// Stores `value2` state used by this integrated electronics object.
 	var/value2 = get_pin_data(IC_INPUT, 4)
 	if(istext(key2) && length(key2))
 		record += key2
 		record += value2
 
+	// Stores `key3` state used by this integrated electronics object.
 	var/key3 = get_pin_data(IC_INPUT, 5)
+	// Stores `value3` state used by this integrated electronics object.
 	var/value3 = get_pin_data(IC_INPUT, 6)
 	if(istext(key3) && length(key3))
 		record += key3
 		record += value3
 
+	// Stores `key4` state used by this integrated electronics object.
 	var/key4 = get_pin_data(IC_INPUT, 7)
+	// Stores `value4` state used by this integrated electronics object.
 	var/value4 = get_pin_data(IC_INPUT, 8)
 	if(istext(key4) && length(key4))
 		record += key4
@@ -319,6 +368,8 @@ GLOBAL_LIST_EMPTY(ic_database_servers)
 	activate_pin(2)
 
 
+/// 8-field record builder: Builds an associative list record from up to eight key/value pairs. This is useful for larger database records.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/server/record_builder8
 	name = "8-field record builder"
 	desc = "Builds an associative list record from up to eight key/value pairs."
@@ -351,54 +402,72 @@ GLOBAL_LIST_EMPTY(ic_database_servers)
 	)
 
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/server/record_builder8/do_work()
 	pull_data()
 
+	// Stores `record` state used by this integrated electronics object.
 	var/list/record = list()
 
+	// Stores `key1` state used by this integrated electronics object.
 	var/key1 = get_pin_data(IC_INPUT, 1)
+	// Stores `value1` state used by this integrated electronics object.
 	var/value1 = get_pin_data(IC_INPUT, 2)
 	if(istext(key1) && length(key1))
 		record += key1
 		record += value1
 
+	// Stores `key2` state used by this integrated electronics object.
 	var/key2 = get_pin_data(IC_INPUT, 3)
+	// Stores `value2` state used by this integrated electronics object.
 	var/value2 = get_pin_data(IC_INPUT, 4)
 	if(istext(key2) && length(key2))
 		record += key2
 		record += value2
 
+	// Stores `key3` state used by this integrated electronics object.
 	var/key3 = get_pin_data(IC_INPUT, 5)
+	// Stores `value3` state used by this integrated electronics object.
 	var/value3 = get_pin_data(IC_INPUT, 6)
 	if(istext(key3) && length(key3))
 		record += key3
 		record += value3
 
+	// Stores `key4` state used by this integrated electronics object.
 	var/key4 = get_pin_data(IC_INPUT, 7)
+	// Stores `value4` state used by this integrated electronics object.
 	var/value4 = get_pin_data(IC_INPUT, 8)
 	if(istext(key4) && length(key4))
 		record += key4
 		record += value4
 
+	// Stores `key5` state used by this integrated electronics object.
 	var/key5 = get_pin_data(IC_INPUT, 9)
+	// Stores `value5` state used by this integrated electronics object.
 	var/value5 = get_pin_data(IC_INPUT, 10)
 	if(istext(key5) && length(key5))
 		record += key5
 		record += value5
 
+	// Stores `key6` state used by this integrated electronics object.
 	var/key6 = get_pin_data(IC_INPUT, 11)
+	// Stores `value6` state used by this integrated electronics object.
 	var/value6 = get_pin_data(IC_INPUT, 12)
 	if(istext(key6) && length(key6))
 		record += key6
 		record += value6
 
+	// Stores `key7` state used by this integrated electronics object.
 	var/key7 = get_pin_data(IC_INPUT, 13)
+	// Stores `value7` state used by this integrated electronics object.
 	var/value7 = get_pin_data(IC_INPUT, 14)
 	if(istext(key7) && length(key7))
 		record += key7
 		record += value7
 
+	// Stores `key8` state used by this integrated electronics object.
 	var/key8 = get_pin_data(IC_INPUT, 15)
+	// Stores `value8` state used by this integrated electronics object.
 	var/value8 = get_pin_data(IC_INPUT, 16)
 	if(istext(key8) && length(key8))
 		record += key8
@@ -410,6 +479,8 @@ GLOBAL_LIST_EMPTY(ic_database_servers)
 	activate_pin(2)
 
 
+/// record reader: Reads one field from an associative list record. Use this after a database GET returns a record list.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/server/record_reader
 	name = "record reader"
 	desc = "Reads one field from an associative list record."
@@ -429,13 +500,18 @@ GLOBAL_LIST_EMPTY(ic_database_servers)
 	)
 
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/server/record_reader/do_work()
 	pull_data()
 
+	// Stores `record` state used by this integrated electronics object.
 	var/list/record = get_pin_data(IC_INPUT, 1)
+	// Stores `field` state used by this integrated electronics object.
 	var/field = get_pin_data(IC_INPUT, 2)
 
+	// Stores `value` state used by this integrated electronics object.
 	var/value = null
+	// Stores `found` state used by this integrated electronics object.
 	var/found = FALSE
 
 	if(islist(record) && istext(field) && length(field))
@@ -452,6 +528,8 @@ GLOBAL_LIST_EMPTY(ic_database_servers)
 	activate_pin(2)
 
 
+/// record writer: Writes one field into an associative list record. Takes an existing record, writes a field, and outputs the edited record.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/server/record_writer
 	name = "record writer"
 	desc = "Writes one field into an associative list record."
@@ -472,14 +550,20 @@ GLOBAL_LIST_EMPTY(ic_database_servers)
 	)
 
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/server/record_writer/do_work()
 	pull_data()
 
+	// Stores `input_record` state used by this integrated electronics object.
 	var/list/input_record = get_pin_data(IC_INPUT, 1)
+	// Stores `field` state used by this integrated electronics object.
 	var/field = get_pin_data(IC_INPUT, 2)
+	// Stores `value` state used by this integrated electronics object.
 	var/value = get_pin_data(IC_INPUT, 3)
 
+	// Stores `output_record` state used by this integrated electronics object.
 	var/list/output_record = list()
+	// Stores `success` state used by this integrated electronics object.
 	var/success = FALSE
 
 	if(islist(input_record))
@@ -496,10 +580,12 @@ GLOBAL_LIST_EMPTY(ic_database_servers)
 	activate_pin(2)
 
 
+/// record keys: Outputs a list of keys from an associative list record. Useful for reading database records and checking their field names.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/server/record_keys
 	name = "record keys"
 	desc = "Outputs a list of keys from an associative list record."
-	extended_desc = "Useful for examining database records."
+	extended_desc = "Useful for reading database records and checking their field names."
 	icon_state = "addition"
 	complexity = 2
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
@@ -514,10 +600,13 @@ GLOBAL_LIST_EMPTY(ic_database_servers)
 	)
 
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/server/record_keys/do_work()
 	pull_data()
 
+	// Stores `record` state used by this integrated electronics object.
 	var/list/record = get_pin_data(IC_INPUT, 1)
+	// Stores `keys` state used by this integrated electronics object.
 	var/list/keys = list()
 
 	if(islist(record))
@@ -531,6 +620,8 @@ GLOBAL_LIST_EMPTY(ic_database_servers)
 	activate_pin(2)
 
 
+/// text contains: Checks if one text value contains another. Useful for filtering logs, messages, status strings, or command text.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/server/text_contains
 	name = "text contains"
 	desc = "Checks if one text value contains another."
@@ -555,13 +646,18 @@ GLOBAL_LIST_EMPTY(ic_database_servers)
 	)
 
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/server/text_contains/do_work()
 	pull_data()
 
+	// Stores `text` state used by this integrated electronics object.
 	var/text = get_pin_data(IC_INPUT, 1)
+	// Stores `search` state used by this integrated electronics object.
 	var/search = get_pin_data(IC_INPUT, 2)
+	// Stores `case_sensitive` state used by this integrated electronics object.
 	var/case_sensitive = get_pin_data(IC_INPUT, 3)
 
+	// Stores `position` state used by this integrated electronics object.
 	var/position = 0
 
 	if(istext(text) && istext(search) && length(search))
@@ -577,6 +673,8 @@ GLOBAL_LIST_EMPTY(ic_database_servers)
 	activate_pin(2)
 
 
+/// queue push: Adds a value to the end of a queue list. Use this with database APPEND or with a retrieved list.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/server/queue_push
 	name = "queue push"
 	desc = "Adds a value to the end of a queue list."
@@ -596,12 +694,16 @@ GLOBAL_LIST_EMPTY(ic_database_servers)
 	)
 
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/server/queue_push/do_work()
 	pull_data()
 
+	// Stores `input_queue` state used by this integrated electronics object.
 	var/list/input_queue = get_pin_data(IC_INPUT, 1)
+	// Stores `value` state used by this integrated electronics object.
 	var/value = get_pin_data(IC_INPUT, 2)
 
+	// Stores `output_queue` state used by this integrated electronics object.
 	var/list/output_queue = list()
 
 	if(islist(input_queue))
@@ -616,10 +718,12 @@ GLOBAL_LIST_EMPTY(ic_database_servers)
 	activate_pin(2)
 
 
+/// queue pop: Removes and outputs the first value from a queue list. Outputs the first list item separately, then outputs the remaining list as a new queue.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/server/queue_pop
 	name = "queue pop"
 	desc = "Removes and outputs the first value from a queue list."
-	extended_desc = "Outputs the first item and the remaining queue."
+	extended_desc = "Outputs the first list item separately, then outputs the remaining list as a new queue."
 	icon_state = "subtraction"
 	complexity = 2
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
@@ -635,12 +739,17 @@ GLOBAL_LIST_EMPTY(ic_database_servers)
 	)
 
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/server/queue_pop/do_work()
 	pull_data()
 
+	// Stores `input_queue` state used by this integrated electronics object.
 	var/list/input_queue = get_pin_data(IC_INPUT, 1)
+	// Stores `output_queue` state used by this integrated electronics object.
 	var/list/output_queue = list()
+	// Stores `value` state used by this integrated electronics object.
 	var/value = null
+	// Stores `had_value` state used by this integrated electronics object.
 	var/had_value = FALSE
 
 	if(islist(input_queue))
@@ -659,6 +768,8 @@ GLOBAL_LIST_EMPTY(ic_database_servers)
 	activate_pin(2)
 
 
+/// list first/last: Outputs the first and last values from a list. Useful for logs, queues, and message buffers.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/server/list_first_last
 	name = "list first/last"
 	desc = "Outputs the first and last values from a list."
@@ -679,14 +790,20 @@ GLOBAL_LIST_EMPTY(ic_database_servers)
 	)
 
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/server/list_first_last/do_work()
 	pull_data()
 
+	// Stores `input_list` state used by this integrated electronics object.
 	var/list/input_list = get_pin_data(IC_INPUT, 1)
 
+	// Stores `first` state used by this integrated electronics object.
 	var/first = null
+	// Stores `last` state used by this integrated electronics object.
 	var/last = null
+	// Stores `length` state used by this integrated electronics object.
 	var/length = 0
+	// Stores `has_values` state used by this integrated electronics object.
 	var/has_values = FALSE
 
 	if(islist(input_list))
@@ -706,6 +823,8 @@ GLOBAL_LIST_EMPTY(ic_database_servers)
 	activate_pin(2)
 
 
+/// database counter client: Reads a numeric database value, changes it, and writes it back. Useful for scores, cycle counts, alarm counts, and quotas.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/server/database_counter
 	name = "database counter client"
 	desc = "Reads a numeric database value, changes it, and writes it back."
@@ -732,15 +851,22 @@ GLOBAL_LIST_EMPTY(ic_database_servers)
 	)
 
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/server/database_counter/do_work()
 	pull_data()
 
+	// Stores `database_id` state used by this integrated electronics object.
 	var/database_id = ic_normalize_database_id(get_pin_data(IC_INPUT, 1))
+	// Stores `key` state used by this integrated electronics object.
 	var/key = get_pin_data(IC_INPUT, 2)
+	// Stores `amount` state used by this integrated electronics object.
 	var/amount = get_pin_data(IC_INPUT, 3)
 
+	// Stores `success` state used by this integrated electronics object.
 	var/success = FALSE
+	// Stores `new_value` state used by this integrated electronics object.
 	var/new_value = 0
+	// Stores `status` state used by this integrated electronics object.
 	var/status = "Server not found."
 
 	if(isnull(amount))
@@ -773,6 +899,8 @@ GLOBAL_LIST_EMPTY(ic_database_servers)
 	activate_pin(2)
 
 
+/// database compare-write client: Writes a database value only if the current value matches the expected value. Useful for locks, queues, safe counters, and avoiding accidental overwrites.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/server/database_compare_write
 	name = "database compare-write client"
 	desc = "Writes a database value only if the current value matches the expected value."
@@ -799,16 +927,24 @@ GLOBAL_LIST_EMPTY(ic_database_servers)
 	)
 
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/server/database_compare_write/do_work()
 	pull_data()
 
+	// Stores `database_id` state used by this integrated electronics object.
 	var/database_id = ic_normalize_database_id(get_pin_data(IC_INPUT, 1))
+	// Stores `key` state used by this integrated electronics object.
 	var/key = get_pin_data(IC_INPUT, 2)
+	// Stores `expected_value` state used by this integrated electronics object.
 	var/expected_value = get_pin_data(IC_INPUT, 3)
+	// Stores `new_value` state used by this integrated electronics object.
 	var/new_value = get_pin_data(IC_INPUT, 4)
 
+	// Stores `success` state used by this integrated electronics object.
 	var/success = FALSE
+	// Stores `current_value` state used by this integrated electronics object.
 	var/current_value = null
+	// Stores `status` state used by this integrated electronics object.
 	var/status = "Server not found."
 
 	if(!istext(key) || !length(key))
@@ -834,6 +970,8 @@ GLOBAL_LIST_EMPTY(ic_database_servers)
 	push_data()
 	activate_pin(2)
 
+/// database command pad: Parses typed text commands and sends them to a database server. Commands: READ key, WRITE key value, DELETE key, HAS key, KEYS, LEN, CLEAR, APPEND key value.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/server/command_pad
 	name = "database command pad"
 	desc = "Parses typed text commands and sends them to a database server."
@@ -867,17 +1005,26 @@ GLOBAL_LIST_EMPTY(ic_database_servers)
 	)
 
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/server/command_pad/do_work()
 	pull_data()
 
+	// Stores `database_id` state used by this integrated electronics object.
 	var/database_id = ic_normalize_database_id(get_pin_data(IC_INPUT, 1))
+	// Stores `raw_text` state used by this integrated electronics object.
 	var/raw_text = get_pin_data(IC_INPUT, 2)
 
+	// Stores `success` state used by this integrated electronics object.
 	var/success = FALSE
+	// Stores `response` state used by this integrated electronics object.
 	var/response = null
+	// Stores `status` state used by this integrated electronics object.
 	var/status = "No command."
+	// Stores `parsed_command` state used by this integrated electronics object.
 	var/parsed_command = null
+	// Stores `parsed_key` state used by this integrated electronics object.
 	var/parsed_key = null
+	// Stores `parsed_value` state used by this integrated electronics object.
 	var/parsed_value = null
 
 	if(!istext(raw_text) || !length(raw_text))
@@ -892,6 +1039,7 @@ GLOBAL_LIST_EMPTY(ic_database_servers)
 		return
 
 	var/text = trim(raw_text)
+	// Stores `first_space` state used by this integrated electronics object.
 	var/first_space = findtext(text, " ")
 
 	if(first_space)
@@ -920,6 +1068,7 @@ GLOBAL_LIST_EMPTY(ic_database_servers)
 		if("ADD")
 			parsed_command = "APPEND"
 
+	// Stores `S` state used by this integrated electronics object.
 	var/obj/item/integrated_circuit/server/database/S = GLOB.ic_database_servers[database_id]
 
 	if(!istype(S))

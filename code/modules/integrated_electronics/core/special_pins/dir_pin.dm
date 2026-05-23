@@ -1,8 +1,15 @@
+/*
+ * core/special_pins/dir_pin.dm
+ * Direction pin conversion and validation for BYOND direction constants.
+ */
+
 // These pins can only contain directions (1,2,4,8...) or null.
 /datum/integrated_io/dir
 	name = "dir pin"
 
+/// Implements `ask_for_pin_data` behavior for this integrated electronics type.
 /datum/integrated_io/dir/ask_for_pin_data(mob/user)
+	// Stores `new_data` state used by this integrated electronics object.
 	var/new_data = input("Please type in a valid dir number.  \
 	Valid dirs are;\n\
 	North/Fore = [NORTH],\n\
@@ -19,14 +26,17 @@
 		to_chat(user, SPAN_NOTICE("You input [new_data] into the pin."))
 		write_data_to_pin(new_data)
 
+/// Implements `write_data_to_pin` behavior for this integrated electronics type.
 /datum/integrated_io/dir/write_data_to_pin(var/new_data)
 	if(isnull(new_data) || (new_data in (GLOB.alldirs + list(UP, DOWN))))
 		data = new_data
 		holder.on_data_written()
 
+/// Implements `display_pin_type` behavior for this integrated electronics type.
 /datum/integrated_io/dir/display_pin_type()
 	return IC_FORMAT_DIR
 
+/// Implements `display_data` behavior for this integrated electronics type.
 /datum/integrated_io/dir/display_data(var/input)
 	if(!isnull(data))
 		return "([dir2text(data)])"

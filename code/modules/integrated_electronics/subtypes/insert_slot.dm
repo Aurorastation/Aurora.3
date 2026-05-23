@@ -1,10 +1,20 @@
+/*
+ * subtypes/insert_slot.dm
+ * Insert-slot circuits that hold items and expose slot state, item references, and capacity information to the circuit network.
+ */
+
 //Insert slots allow items to be inserted into assemblies from outside.
 //These items can then be used by other components through ref pins.
 
+/// insert slot: Integrated circuit component..
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/insert_slot
 	category_text = "Insert slot"
+	// Stores `capacity` state used by this integrated electronics object.
 	var/capacity = 0
+	// Stores `allowed_types` state used by this integrated electronics object.
 	var/list/allowed_types = list()
+	// Stores `items_contained` state used by this integrated electronics object.
 	var/list/items_contained = list()
 
 	activators = list(
@@ -27,15 +37,18 @@
 	size = 5
 	complexity = 1
 
+/// Initializes runtime state after the parent type is constructed.
 /obj/item/integrated_circuit/insert_slot/Initialize()
 	. = ..()
 	items_contained = list()
 	update_outputs()
 
+/// Opens or updates the user interaction flow for this object.
 /obj/item/integrated_circuit/insert_slot/interact(mob/user)
 	update_outputs()
 	. = ..()
 
+/// Returns the current `first_item` value or object used by this electronics code.
 /obj/item/integrated_circuit/insert_slot/proc/get_first_item()
 	if(items_contained.len)
 		return items_contained[1]
@@ -56,7 +69,9 @@
 
 	return null
 
+/// Updates `outputs` after related circuit or assembly state changes.
 /obj/item/integrated_circuit/insert_slot/proc/update_outputs()
+	// Stores `held_item` state used by this integrated electronics object.
 	var/obj/item/held_item = get_first_item()
 
 	set_pin_data(IC_OUTPUT, 1, !!held_item)
@@ -66,6 +81,7 @@
 	set_pin_data(IC_OUTPUT, 5, items_contained.len)
 	set_pin_data(IC_OUTPUT, 6, max(capacity - items_contained.len, 0))
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/insert_slot/do_work()
 	while(items_contained.len)
 		var/obj/item/O = items_contained[1]
@@ -78,6 +94,7 @@
 	activate_pin(3)
 	return TRUE
 
+/// Implements `insert` behavior for this integrated electronics type.
 /obj/item/integrated_circuit/insert_slot/proc/insert(var/obj/item/O, var/mob/user)
 	if(!O || !user)
 		return FALSE
@@ -99,6 +116,8 @@
 	activate_pin(2)
 	return TRUE
 
+/// paper tray: A simple paper tray similar to one from a printer.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/insert_slot/paper_tray
 	name = "paper tray"
 	desc = "A simple paper tray similar to one from a printer."
@@ -122,6 +141,7 @@
 		"top paper used length" = IC_PINTYPE_NUMBER
 	)
 
+/// Updates `outputs` after related circuit or assembly state changes.
 /obj/item/integrated_circuit/insert_slot/paper_tray/update_outputs()
 	..()
 
@@ -134,6 +154,8 @@
 		set_pin_data(IC_OUTPUT, 7, null)
 		set_pin_data(IC_OUTPUT, 8, 0)
 
+/// beaker holder: A slot for holding a beaker.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/insert_slot/beaker_holder
 	name = "beaker holder"
 	desc = "A slot for holding a beaker."
@@ -157,10 +179,12 @@
 		"reagent names" = IC_PINTYPE_LIST
 	)
 
+/// Updates `outputs` after related circuit or assembly state changes.
 /obj/item/integrated_circuit/insert_slot/beaker_holder/update_outputs()
 	..()
 
 	var/obj/item/reagent_containers/glass/beaker/B = get_first_item()
+	// Stores `reagent_names` state used by this integrated electronics object.
 	var/list/reagent_names = list()
 
 	if(B && B.reagents)
@@ -178,6 +202,8 @@
 		set_pin_data(IC_OUTPUT, 9, 0)
 		set_pin_data(IC_OUTPUT, 10, list())
 
+/// ID card slot: A slot for holding and reading an ID card.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/insert_slot/id_slot
 	name = "ID card slot"
 	desc = "A slot for holding and reading an ID card."
@@ -208,11 +234,13 @@
 		"passkey" = IC_PINTYPE_LIST
 	)
 
+/// Implements `insert` behavior for this integrated electronics type.
 /obj/item/integrated_circuit/insert_slot/id_slot/insert(var/obj/item/O, var/mob/user)
 	. = ..()
 	if(.)
 		cache_access_if_enabled(O)
 
+/// Implements `cache_access_if_enabled` behavior for this integrated electronics type.
 /obj/item/integrated_circuit/insert_slot/id_slot/proc/cache_access_if_enabled(var/obj/item/I)
 	if(!get_pin_data(IC_INPUT, 1))
 		return
@@ -224,6 +252,7 @@
 	if(access)
 		assembly.access_card.access |= access
 
+/// Updates `outputs` after related circuit or assembly state changes.
 /obj/item/integrated_circuit/insert_slot/id_slot/update_outputs()
 	..()
 
@@ -234,7 +263,9 @@
 	set_pin_data(IC_OUTPUT, 4, I ? I.name : null)
 	set_pin_data(IC_OUTPUT, 5, I ? 1 : 0)
 	set_pin_data(IC_OUTPUT, 6, I ? 0 : capacity)
+	// Stores `card` state used by this integrated electronics object.
 	var/obj/item/card/id/card = null
+	// Stores `access` state used by this integrated electronics object.
 	var/list/access = null
 
 	if(I)
@@ -256,6 +287,8 @@
 		set_pin_data(IC_OUTPUT, 10, null)
 		set_pin_data(IC_OUTPUT, 11, list())
 
+/// card slot: A generic slot for holding and reading card-like objects. A generic card slot. It accepts any card object, outputs the held item reference, and attempts to read access data from it.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/insert_slot/card_slot
 	name = "card slot"
 	desc = "A generic slot for holding and reading card-like objects."
@@ -286,11 +319,13 @@
 		"has access data" = IC_PINTYPE_BOOLEAN
 	)
 
+/// Implements `insert` behavior for this integrated electronics type.
 /obj/item/integrated_circuit/insert_slot/card_slot/insert(var/obj/item/O, var/mob/user)
 	. = ..()
 	if(.)
 		cache_access_if_enabled(O)
 
+/// Implements `cache_access_if_enabled` behavior for this integrated electronics type.
 /obj/item/integrated_circuit/insert_slot/card_slot/proc/cache_access_if_enabled(var/obj/item/I)
 	if(!get_pin_data(IC_INPUT, 1))
 		return
@@ -302,11 +337,14 @@
 	if(access)
 		assembly.access_card.access |= access
 
+/// Updates `outputs` after related circuit or assembly state changes.
 /obj/item/integrated_circuit/insert_slot/card_slot/update_outputs()
 	..()
 
 	var/obj/item/I = get_first_item()
+	// Stores `card` state used by this integrated electronics object.
 	var/obj/item/card/id/card = null
+	// Stores `access` state used by this integrated electronics object.
 	var/list/access = null
 
 	if(I)
@@ -330,6 +368,8 @@
 		set_pin_data(IC_OUTPUT, 11, access ? access : list())
 		set_pin_data(IC_OUTPUT, 12, !!length(access))
 
+/// power cell slot: A socket for holding and reading a power cell. A reinforced socket that holds a single power cell. Outputs charge, maximum charge, and charge percentage.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/insert_slot/power_cell_slot
 	name = "power cell slot"
 	desc = "A socket for holding and reading a power cell."
@@ -337,7 +377,11 @@
 	capacity = 1
 	size = 7
 	power_draw_per_use = 20
-	allowed_types = list(/obj/item/cell)
+	allowed_types = list(
+		/obj/item/cell,
+		/obj/item/cell/device,
+		/obj/item/cell/device/high
+	)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	origin_tech = list(TECH_ENGINEERING = 2, TECH_POWER = 3)
 
@@ -353,6 +397,7 @@
 		"percentage" = IC_PINTYPE_NUMBER
 	)
 
+/// Updates `outputs` after related circuit or assembly state changes.
 /obj/item/integrated_circuit/insert_slot/power_cell_slot/update_outputs()
 	..()
 
@@ -368,6 +413,8 @@
 		set_pin_data(IC_OUTPUT, 9, 0)
 
 
+/// storage slot: A bracket for holding a storage container. A bracket that can hold one storage item. Outputs the storage reference for scanner, grabber, sorter, or custom storage logic.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/insert_slot/storage_slot
 	name = "storage slot"
 	desc = "A bracket for holding a storage container."
@@ -390,6 +437,7 @@
 		"contained item count" = IC_PINTYPE_NUMBER
 	)
 
+/// Updates `outputs` after related circuit or assembly state changes.
 /obj/item/integrated_circuit/insert_slot/storage_slot/update_outputs()
 	..()
 
@@ -402,6 +450,8 @@
 		set_pin_data(IC_OUTPUT, 7, null)
 		set_pin_data(IC_OUTPUT, 8, 0)
 
+/// tool slot: A reinforced slot for holding a tool. A utility slot that can hold one tool or general item. Outputs the held item reference for machines that require a physical tool.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/insert_slot/tool_slot
 	name = "tool slot"
 	desc = "A reinforced slot for holding a tool."
@@ -423,12 +473,15 @@
 		"tool reference" = IC_PINTYPE_REF
 	)
 
+/// Updates `outputs` after related circuit or assembly state changes.
 /obj/item/integrated_circuit/insert_slot/tool_slot/update_outputs()
 	..()
 
 	var/obj/item/I = get_first_item()
 	set_pin_data(IC_OUTPUT, 7, I)
 
+/// general item tray: A generic tray for holding small items.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/insert_slot/item_tray
 	name = "general item tray"
 	desc = "A generic tray for holding small items."

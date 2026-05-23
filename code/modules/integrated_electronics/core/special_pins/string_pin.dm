@@ -1,13 +1,21 @@
+/*
+ * core/special_pins/string_pin.dm
+ * String pin conversion, validation, and formatting.
+ */
+
 // These pins can only contain text and null.
 /datum/integrated_io/string
 	name = "string pin"
 
+/// Implements `ask_for_pin_data` behavior for this integrated electronics type.
 /datum/integrated_io/string/ask_for_pin_data(mob/user)
+	// Stores `new_data` state used by this integrated electronics object.
 	var/new_data = sanitize(input("Please type in a string.","[src] string writing") as null|text, MAX_MESSAGE_LEN, 1, 0, 1)
 	if(holder.check_interactivity(user) )
 		to_chat(user, SPAN_NOTICE("You input [new_data ? "new_data" : "NULL"] into the pin."))
 		write_data_to_pin(new_data)
 
+/// Implements `write_data_to_pin` behavior for this integrated electronics type.
 /datum/integrated_io/string/write_data_to_pin(var/new_data)
 	if(isnull(new_data) || istext(new_data))
 		data = new_data
@@ -18,12 +26,15 @@
 	if(!is_valid())
 		return
 	var/string_length = length(data)
+	// Stores `options` state used by this integrated electronics object.
 	var/list/options = list("!","@","#","$","%","^","&","*") + GLOB.alphabet_uppercase
+	// Stores `new_data` state used by this integrated electronics object.
 	var/new_data = ""
 	while(string_length)
 		new_data += pick(options)
 		string_length--
 	push_data()
 
+/// Implements `display_pin_type` behavior for this integrated electronics type.
 /datum/integrated_io/string/display_pin_type()
 	return IC_FORMAT_STRING

@@ -1,8 +1,14 @@
+/*
+ * core/tools.dm
+ * Tools used to manipulate integrated electronics, such as wiring, debugging, and assembly maintenance helpers.
+ */
+
 #define WIRE     "wire"
 #define WIRING   "wiring"
 #define UNWIRE   "unwire"
 #define UNWIRING "unwiring"
 
+/// Defines `/obj/item/integrated_electronics/wirer` for integrated electronics support.
 /obj/item/integrated_electronics/wirer
 	name = "circuit wirer"
 	desc = "It's a small wiring tool, with a wire roll, electric soldering iron, wire cutter, and more in one package. \
@@ -13,12 +19,16 @@
 	item_state = "wirer"
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	w_class = WEIGHT_CLASS_SMALL
+	// Stores `selected_io` state used by this integrated electronics object.
 	var/datum/integrated_io/selected_io
+	// Stores `mode` state used by this integrated electronics object.
 	var/mode = WIRE
 
+/// Updates icon state, overlays, and visual appearance.
 /obj/item/integrated_electronics/wirer/update_icon()
 	icon_state = "wirer-[mode]"
 
+/// Implements `wire` behavior for this integrated electronics type.
 /obj/item/integrated_electronics/wirer/proc/wire(var/datum/integrated_io/io, mob/user)
 	if(!io.holder.assembly)
 		to_chat(user, SPAN_WARNING("\The [io.holder] needs to be secured inside an assembly first."))
@@ -82,6 +92,7 @@
 											[io.name] are not connected."))
 
 
+/// Handles direct use in hand by a mob.
 /obj/item/integrated_electronics/wirer/attack_self(mob/user)
 	switch(mode)
 		if(WIRE)
@@ -106,6 +117,7 @@
 #undef UNWIRE
 #undef UNWIRING
 
+/// Defines `/obj/item/integrated_electronics/debugger` for integrated electronics support.
 /obj/item/integrated_electronics/debugger
 	name = "circuit debugger"
 	desc = "This small tool allows one working with custom machinery to directly set data to a specific pin, useful for writing \
@@ -115,10 +127,14 @@
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	item_flags = ITEM_FLAG_NO_BLUDGEON
 	w_class = WEIGHT_CLASS_SMALL
+	// Stores `data_to_write` state used by this integrated electronics object.
 	var/data_to_write = null
+	// Stores `accepting_refs` state used by this integrated electronics object.
 	var/accepting_refs = 0
 
+/// Handles direct use in hand by a mob.
 /obj/item/integrated_electronics/debugger/attack_self(mob/user)
+	// Stores `type_to_use` state used by this integrated electronics object.
 	var/type_to_use = input("Please choose a type to use.","[src] type setting") as null|anything in list("string","number","ref", "null")
 	if(!CanInteract(user, GLOB.physical_state))
 		return
@@ -145,6 +161,7 @@
 			data_to_write = null
 			to_chat(user, SPAN_NOTICE("You set \the [src]'s memory to absolutely nothing."))
 
+/// Implements `afterattack` behavior for this integrated electronics type.
 /obj/item/integrated_electronics/debugger/afterattack(atom/target, mob/living/user, proximity)
 	if(accepting_refs && proximity)
 		data_to_write = WEAKREF(target)
@@ -153,6 +170,7 @@
 		now off.</span>")
 		accepting_refs = 0
 
+/// Implements `write_data` behavior for this integrated electronics type.
 /obj/item/integrated_electronics/debugger/proc/write_data(var/datum/integrated_io/io, mob/user)
 	switch (io.io_type)
 		if (DATA_CHANNEL)
@@ -169,6 +187,7 @@
 
 	io.holder.interact(user) // This is to update the UI.
 
+/// Defines `/obj/item/integrated_electronics/detailer` for integrated electronics support.
 /obj/item/integrated_electronics/detailer
 	name = "assembly detailer"
 	desc = "A combination autopainter and flash anodizer designed to give electronic assemblies a colorful, wear-resistant finish."
@@ -176,7 +195,9 @@
 	icon_state = "detailer"
 	item_flags = ITEM_FLAG_NO_BLUDGEON
 	w_class = WEIGHT_CLASS_SMALL
+	// User-selected detail color used for assembly and wearable overlays.
 	var/detail_color = COLOR_ASSEMBLY_WHITE
+	// Stores `color_list` state used by this integrated electronics object.
 	var/static/list/color_list = list(
 		"black" = COLOR_ASSEMBLY_BLACK,
 		"machine gray" = COLOR_ASSEMBLY_BGRAY,
@@ -196,17 +217,22 @@
 		"hot pink" = COLOR_ASSEMBLY_HOT_PINK
 		)
 
+/// Initializes runtime state after the parent type is constructed.
 /obj/item/integrated_electronics/detailer/Initialize()
 	update_icon()
 	return ..()
 
+/// Updates icon state, overlays, and visual appearance.
 /obj/item/integrated_electronics/detailer/update_icon()
 	ClearOverlays()
+	// Stores `detail_overlay` state used by this integrated electronics object.
 	var/image/detail_overlay = image('icons/obj/assemblies/electronic_tools.dmi', "detailer-color")
 	detail_overlay.color = detail_color
 	AddOverlays(detail_overlay)
 
+/// Handles direct use in hand by a mob.
 /obj/item/integrated_electronics/detailer/attack_self(mob/user)
+	// Stores `color_choice` state used by this integrated electronics object.
 	var/color_choice = input(user, "Select color.", "Assembly Detailer", detail_color) as null|anything in color_list
 	if(!color_choice)
 		return
@@ -215,9 +241,10 @@
 	detail_color = color_list[color_choice]
 	update_icon()
 
+/// Defines `/obj/item/storage/bag/circuits` for integrated electronics support.
 /obj/item/storage/bag/circuits
 	name = "circuit kit"
-	desc = "This kit is essential for any circuitry projects."
+	desc = "A kit containing basic tools and parts for circuit projects."
 	icon = 'icons/obj/assemblies/electronic_tools.dmi'
 	icon_state = "circuit_kit"
 	w_class = WEIGHT_CLASS_NORMAL
@@ -233,6 +260,7 @@
 	)
 	make_exact_fit = TRUE
 
+/// Implements `fill` behavior for this integrated electronics type.
 /obj/item/storage/bag/circuits/basic/fill()
 	new /obj/item/storage/bag/circuits/mini/arithmetic(src)
 	new /obj/item/storage/bag/circuits/mini/trig(src)
@@ -253,6 +281,7 @@
 	new /obj/item/screwdriver(src)
 	new /obj/item/crowbar(src)
 
+/// Implements `fill` behavior for this integrated electronics type.
 /obj/item/storage/bag/circuits/all/fill()
 	..()
 	new /obj/item/storage/bag/circuits/mini/arithmetic/all(src)
@@ -277,18 +306,22 @@
 	new /obj/item/integrated_electronics/debugger(src)
 	new /obj/item/crowbar(src)
 
+/// Defines `/obj/item/storage/bag/circuits/mini` for integrated electronics support.
 /obj/item/storage/bag/circuits/mini
 	name = "circuit box"
-	desc = "Used to partition categories of circuits, for a neater workspace."
+	desc = "Stores circuits by category for easier organization."
 	w_class = WEIGHT_CLASS_SMALL
 	display_contents_with_number = TRUE
 	pickup_blacklist = list(
 						/obj/item/storage/bag/circuits
 							)
 	can_hold = list(/obj/item/integrated_circuit)
+	// Stores `spawn_flags_to_use` state used by this integrated electronics object.
 	var/spawn_flags_to_use = IC_SPAWN_DEFAULT
+	// Stores `spawn_types` state used by this integrated electronics object.
 	var/list/spawn_types = list()
 
+/// Implements `fill` behavior for this integrated electronics type.
 /obj/item/storage/bag/circuits/mini/fill()
 	spawn_types = typecacheof(spawn_types)
 	for (var/thing in typecache_filter_list(SSelectronics.all_integrated_circuits, spawn_types))
@@ -297,9 +330,10 @@
 			for (var/i in 1 to 4)
 				new IC.type(src)
 
+/// Defines `/obj/item/storage/bag/circuits/mini/arithmetic` for integrated electronics support.
 /obj/item/storage/bag/circuits/mini/arithmetic
 	name = "arithmetic circuit box"
-	desc = "Warning: Contains math."
+	desc = "Contains arithmetic and numeric utility circuits."
 	icon_state = "box_arithmetic"
 	spawn_types = list(
 		/obj/item/integrated_circuit/arithmetic
@@ -308,9 +342,10 @@
 /obj/item/storage/bag/circuits/mini/arithmetic/all // Don't believe this will ever be needed.
 	spawn_flags_to_use = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
+/// Defines `/obj/item/storage/bag/circuits/mini/trig` for integrated electronics support.
 /obj/item/storage/bag/circuits/mini/trig
 	name = "trig circuit box"
-	desc = "Danger: Contains more math."
+	desc = "Contains trigonometric circuits."
 	icon_state = "box_trig"
 	spawn_types = list(
 		/obj/item/integrated_circuit/trig
@@ -319,124 +354,146 @@
 /obj/item/storage/bag/circuits/mini/trig/all // Ditto
 	spawn_flags_to_use = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
+/// Defines `/obj/item/storage/bag/circuits/mini/input` for integrated electronics support.
 /obj/item/storage/bag/circuits/mini/input
 	name = "input circuit box"
-	desc = "Tell these circuits everything you know."
+	desc = "Contains data storage circuits."
 	icon_state = "box_input"
 	spawn_types = list(
 		/obj/item/integrated_circuit/input
 	)
 
+/// Defines `/obj/item/storage/bag/circuits/mini/input/all` for integrated electronics support.
 /obj/item/storage/bag/circuits/mini/input/all
 	spawn_flags_to_use = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
+/// Defines `/obj/item/storage/bag/circuits/mini/output` for integrated electronics support.
 /obj/item/storage/bag/circuits/mini/output
 	name = "output circuit box"
-	desc = "Circuits to interface with the world beyond itself."
+	desc = "Contains input circuits that read from the surrounding environment."
 	icon_state = "box_output"
 	spawn_types = list(
 		/obj/item/integrated_circuit/output
 	)
 
+/// Defines `/obj/item/storage/bag/circuits/mini/output/all` for integrated electronics support.
 /obj/item/storage/bag/circuits/mini/output/all
 	spawn_flags_to_use = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
+/// Defines `/obj/item/storage/bag/circuits/mini/memory` for integrated electronics support.
 /obj/item/storage/bag/circuits/mini/memory
 	name = "memory circuit box"
-	desc = "Machines can be quite forgetful without these."
+	desc = "Contains memory circuits for storing circuit data."
 	icon_state = "box_memory"
 	spawn_types = list(
 		/obj/item/integrated_circuit/memory
 	)
 
+/// Defines `/obj/item/storage/bag/circuits/mini/memory/all` for integrated electronics support.
 /obj/item/storage/bag/circuits/mini/memory/all
 	spawn_flags_to_use = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
+/// Defines `/obj/item/storage/bag/circuits/mini/logic` for integrated electronics support.
 /obj/item/storage/bag/circuits/mini/logic
 	name = "logic circuit box"
-	desc = "May or may not be Turing complete."
+	desc = "Contains logic circuits for boolean-style control and comparisons."
 	icon_state = "box_logic"
 	spawn_types = list(
 		/obj/item/integrated_circuit/logic
 	)
 
+/// Defines `/obj/item/storage/bag/circuits/mini/logic/all` for integrated electronics support.
 /obj/item/storage/bag/circuits/mini/logic/all
 	spawn_flags_to_use = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
+/// Defines `/obj/item/storage/bag/circuits/mini/time` for integrated electronics support.
 /obj/item/storage/bag/circuits/mini/time
 	name = "time circuit box"
-	desc = "No time machine parts, sadly."
+	desc = "Contains timer and clock circuits."
 	icon_state = "box_time"
 	spawn_types = list(
 		/obj/item/integrated_circuit/time
 	)
 
+/// Defines `/obj/item/storage/bag/circuits/mini/time/all` for integrated electronics support.
 /obj/item/storage/bag/circuits/mini/time/all
 	spawn_flags_to_use = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
+/// Defines `/obj/item/storage/bag/circuits/mini/reagents` for integrated electronics support.
 /obj/item/storage/bag/circuits/mini/reagents
 	name = "reagent circuit box"
-	desc = "Unlike most electronics, these circuits are supposed to come in contact with liquids."
+	desc = "Contains circuits for handling reagents and containers."
 	icon_state = "box_reagents"
 	spawn_types = list(
 		/obj/item/integrated_circuit/reagent
 	)
 
+/// Defines `/obj/item/storage/bag/circuits/mini/reagents/all` for integrated electronics support.
 /obj/item/storage/bag/circuits/mini/reagents/all
 	spawn_flags_to_use = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
+/// Defines `/obj/item/storage/bag/circuits/mini/transfer` for integrated electronics support.
 /obj/item/storage/bag/circuits/mini/transfer
 	name = "transfer circuit box"
-	desc = "Useful for moving data representing something arbitrary to another arbitrary virtual place."
+	desc = "Contains circuits for routing data between pins and devices."
 	icon_state = "box_transfer"
 	spawn_types = list(
 		/obj/item/integrated_circuit/transfer
 	)
 
+/// Defines `/obj/item/storage/bag/circuits/mini/transfer/all` for integrated electronics support.
 /obj/item/storage/bag/circuits/mini/transfer/all
 	spawn_flags_to_use = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
+/// Defines `/obj/item/storage/bag/circuits/mini/converter` for integrated electronics support.
 /obj/item/storage/bag/circuits/mini/converter
 	name = "converter circuit box"
-	desc = "Transform one piece of data to another type of data with these."
+	desc = "Contains circuits for converting data between supported formats."
 	icon_state = "box_converter"
 	spawn_types = list(
 		/obj/item/integrated_circuit/converter
 	)
 
+/// Defines `/obj/item/storage/bag/circuits/mini/converter/all` for integrated electronics support.
 /obj/item/storage/bag/circuits/mini/converter/all
 	spawn_flags_to_use = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
+/// Defines `/obj/item/storage/bag/circuits/mini/smart` for integrated electronics support.
 /obj/item/storage/bag/circuits/mini/smart
 	name = "smart box"
-	desc = "Sentience not included."
+	desc = "Contains smart control circuits for navigation and automation."
 	icon_state = "box_ai"
 	spawn_types = list(
 		/obj/item/integrated_circuit/smart
 	)
 
+/// Defines `/obj/item/storage/bag/circuits/mini/smart/all` for integrated electronics support.
 /obj/item/storage/bag/circuits/mini/smart/all
 	spawn_flags_to_use = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
+/// Defines `/obj/item/storage/bag/circuits/mini/manipulation` for integrated electronics support.
 /obj/item/storage/bag/circuits/mini/manipulation
 	name = "manipulation box"
-	desc = "Make your machines actually useful with these."
+	desc = "Contains output circuits that display data or perform visible actions."
 	icon_state = "box_manipulation"
 	spawn_types = list(
 		/obj/item/integrated_circuit/manipulation
 	)
 
+/// Defines `/obj/item/storage/bag/circuits/mini/manipulation/all` for integrated electronics support.
 /obj/item/storage/bag/circuits/mini/manipulation/all
 	spawn_flags_to_use = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
+/// Defines `/obj/item/storage/bag/circuits/mini/power` for integrated electronics support.
 /obj/item/storage/bag/circuits/mini/power
 	name = "power circuit box"
-	desc = "Electronics generally require electricity."
+	desc = "Contains circuits that generate, receive, or transmit power."
 	icon_state = "box_power"
 	spawn_types = list(
 		/obj/item/integrated_circuit/passive/power,
 		/obj/item/integrated_circuit/power
 	)
 
+/// Defines `/obj/item/storage/bag/circuits/mini/power/all` for integrated electronics support.
 /obj/item/storage/bag/circuits/mini/power/all
 	spawn_flags_to_use = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH

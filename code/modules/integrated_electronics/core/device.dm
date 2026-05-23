@@ -1,22 +1,32 @@
+/*
+ * core/device.dm
+ * Base device support for electronics-related items that are not themselves circuit assemblies.
+ */
+
 /obj/item/assembly/electronic_assembly
 	name = "electronic device"
-	desc = "It's a case for building electronics with. It can be attached to other small devices."
+	desc = "A case for building electronics that can attach to other small devices."
 	icon_state = "setup_device"
+	// Whether the assembly panel is open for direct circuit access.
 	var/opened = 0
 
+	// Stores `EA` state used by this integrated electronics object.
 	var/obj/item/electronic_assembly/device/EA
 
+/// Initializes runtime state after the parent type is constructed.
 /obj/item/assembly/electronic_assembly/Initialize()
 	. = ..()
 	EA = new(src)
 	EA.holder = src
 
+/// Releases owned objects and clears references before parent deletion runs.
 /obj/item/assembly/electronic_assembly/Destroy()
 	EA.holder = null
 	QDEL_NULL(EA)
 
 	. = ..()
 
+/// Handles another item being used on this object.
 /obj/item/assembly/electronic_assembly/attackby(obj/item/attacking_item, mob/user)
 	if (attacking_item.tool_behaviour == TOOL_CROWBAR)
 		toggle_open(user)
@@ -25,6 +35,7 @@
 	else
 		..()
 
+/// Implements `toggle_open` behavior for this integrated electronics type.
 /obj/item/assembly/electronic_assembly/proc/toggle_open(mob/user)
 	playsound(get_turf(src), 'sound/items/crowbar_pry.ogg', 50, 1)
 	opened = !opened
@@ -33,6 +44,7 @@
 	secured = 1
 	update_icon()
 
+/// Updates icon state, overlays, and visual appearance.
 /obj/item/assembly/electronic_assembly/update_icon()
 	if(EA)
 		icon_state = initial(icon_state)
@@ -41,6 +53,7 @@
 	if(opened)
 		icon_state = "[icon_state]-open"
 
+/// Handles direct use in hand by a mob.
 /obj/item/assembly/electronic_assembly/attack_self(mob/user as mob)
 	if(EA)
 		EA.attack_self(user)
@@ -51,33 +64,40 @@
 		for(var/obj/item/integrated_circuit/built_in/device_input/I in EA.contents)
 			I.do_work()
 
+/// Adds examine text shown to nearby users.
 /obj/item/assembly/electronic_assembly/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
 	. = ..()
 	if(EA)
 		for(var/obj/item/integrated_circuit/IC in EA.contents)
 			IC.external_examine(user)
 
+/// Implements `toggle` behavior for this integrated electronics type.
 /obj/item/assembly/electronic_assembly/verb/toggle()
 	set src in usr
 	set category = "Object"
 	set name = "Open/Close Device Assembly"
-	set desc = "Open or close device assembly!"
+	set desc = "Opens or closes the device assembly."
 
 	toggle_open(usr)
 
+/// Defines an electronic assembly subtype that stores and runs installed circuits.
 /obj/item/electronic_assembly/device
 	name = "electronic device"
 	icon_state = "setup_device"
-	desc = "It's a tiny electronic device with specific use for attaching to other devices."
+	desc = "A tiny electronic device designed to attach to other devices."
 	w_class = WEIGHT_CLASS_TINY
 	max_components = IC_COMPONENTS_BASE * 3/4
 	max_complexity = IC_COMPLEXITY_BASE * 3/4
 
+	// Stores `holder` state used by this integrated electronics object.
 	var/obj/item/assembly/electronic_assembly/holder
+	// Stores `input` state used by this integrated electronics object.
 	var/obj/item/integrated_circuit/built_in/device_input/input
+	// Stores `output` state used by this integrated electronics object.
 	var/obj/item/integrated_circuit/built_in/device_output/output
 
 
+/// Initializes runtime state after the parent type is constructed.
 /obj/item/electronic_assembly/device/Initialize()
 	. = ..()
 
@@ -87,6 +107,7 @@
 	src.input.assembly = src
 	src.output.assembly = src
 
+/// Releases owned objects and clears references before parent deletion runs.
 /obj/item/electronic_assembly/device/Destroy()
 	src.holder = null
 
@@ -98,6 +119,7 @@
 
 	. = ..()
 
+/// Implements `check_interactivity` behavior for this integrated electronics type.
 /obj/item/electronic_assembly/device/check_interactivity(mob/user)
 	if(!CanInteract(user, state = GLOB.deep_inventory_state))
 		return 0

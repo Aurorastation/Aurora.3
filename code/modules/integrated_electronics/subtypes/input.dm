@@ -1,11 +1,22 @@
+/*
+ * subtypes/input.dm
+ * Input circuits that read world state, speech, atmosphere, medical data, radio traffic, objects, mobs, or other external signals.
+ */
+
+/// input: Integrated circuit component..
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/input
+	// Stores `can_be_asked_input` state used by this integrated electronics object.
 	var/can_be_asked_input = 0
 	category_text = "Input"
 	power_draw_per_use = 50
 
+/// Implements `ask_for_input` behavior for this integrated electronics type.
 /obj/item/integrated_circuit/input/proc/ask_for_input(mob/user)
 	return
 
+/// button: This tiny button must do something, right?.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/input/button
 	name = "button"
 	desc = "This tiny button must do something, right?"
@@ -21,6 +32,8 @@
 	to_chat(user, SPAN_NOTICE("You press the button labeled '[src.name]'."))
 	activate_pin(1)
 
+/// toggle button: It toggles on, off, on, off.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/input/toggle_button
 	name = "toggle button"
 	desc = "It toggles on, off, on, off..."
@@ -38,6 +51,8 @@
 	activate_pin(1)
 	to_chat(user, SPAN_NOTICE("You toggle the button labeled '[src.name]' [get_pin_data(IC_OUTPUT, 1) ? "on" : "off"]."))
 
+/// number pad: This small number pad allows someone to input a number into the system.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/input/numberpad
 	name = "number pad"
 	desc = "This small number pad allows someone to input a number into the system."
@@ -50,13 +65,17 @@
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	power_draw_per_use = 40
 
+/// Implements `ask_for_input` behavior for this integrated electronics type.
 /obj/item/integrated_circuit/input/numberpad/ask_for_input(mob/user)
+	// Stores `new_input` state used by this integrated electronics object.
 	var/new_input = input(user, "Enter a number, please.","Number pad") as null|num
 	if(isnum(new_input) && assembly.check_interactivity(user))
 		set_pin_data(IC_OUTPUT, 1, new_input)
 		push_data()
 		activate_pin(1)
 
+/// text pad: This small text pad allows someone to input a string into the system.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/input/textpad
 	name = "text pad"
 	desc = "This small text pad allows someone to input a string into the system."
@@ -69,13 +88,17 @@
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	power_draw_per_use = 40
 
+/// Implements `ask_for_input` behavior for this integrated electronics type.
 /obj/item/integrated_circuit/input/textpad/ask_for_input(mob/user)
+	// Stores `new_input` state used by this integrated electronics object.
 	var/new_input = sanitize(input(user, "Enter some words, please.","Number pad") as null|text, MAX_MESSAGE_LEN, 1, 0, 1)
 	if(istext(new_input) && assembly.check_interactivity(user))
 		set_pin_data(IC_OUTPUT, 1, new_input)
 		push_data()
 		activate_pin(1)
 
+/// color pad: This small color pad allows someone to input a hexadecimal color into the system.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/input/colorpad
 	name = "color pad"
 	desc = "This small color pad allows someone to input a hexadecimal color into the system."
@@ -88,13 +111,17 @@
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	power_draw_per_use = 40
 
+/// Implements `ask_for_input` behavior for this integrated electronics type.
 /obj/item/integrated_circuit/input/colorpad/ask_for_input(mob/user)
+	// Stores `new_color` state used by this integrated electronics object.
 	var/new_color = input(user, "Enter a color, please.", "Color pad", get_pin_data(IC_OUTPUT, 1)) as color|null
 	if(new_color && assembly.check_interactivity(user))
 		set_pin_data(IC_OUTPUT, 1, new_color)
 		push_data()
 		activate_pin(1)
 
+/// integrated medical analyser: A very small version of the common medical analyser. This allows the machine to know how healthy someone is.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/input/med_scanner
 	name = "integrated medical analyser"
 	desc = "A very small version of the common medical analyser.  This allows the machine to know how healthy someone is."
@@ -115,7 +142,9 @@
 	origin_tech = list(TECH_ENGINEERING = 2, TECH_DATA = 2, TECH_BIO = 2)
 	power_draw_per_use = 400
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/input/med_scanner/do_work()
+	// Stores `H` state used by this integrated electronics object.
 	var/mob/living/carbon/human/H = get_pin_data_as_type(IC_INPUT, 1, /mob/living/carbon/human)
 	if(!istype(H)) //Invalid input
 		return
@@ -135,6 +164,8 @@
 	push_data()
 	activate_pin(2)
 
+/// integrated advanced medical analyser: Integrated circuit component..
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/input/adv_med_scanner
 	name = "integrated advanced medical analyser"
 	desc = "A very small version of the common medical analyser.  This allows the machine to know how healthy someone is.  \
@@ -162,7 +193,9 @@
 	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 3, TECH_BIO = 4)
 	power_draw_per_use = 800
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/input/adv_med_scanner/do_work()
+	// Stores `H` state used by this integrated electronics object.
 	var/mob/living/carbon/human/H = get_pin_data_as_type(IC_INPUT, 1, /mob/living/carbon/human)
 	if(!istype(H)) //Invalid input
 		return
@@ -188,6 +221,8 @@
 	push_data()
 	activate_pin(2)
 
+/// examiner: Integrated circuit component..
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/input/examiner
 	name = "examiner"
 	desc = "It's a little machine vision system. It can return the name, description, distance,\
@@ -212,8 +247,11 @@
 	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 3, TECH_BIO = 4)
 	power_draw_per_use = 800
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/input/examiner/do_work()
+	// Stores `H` state used by this integrated electronics object.
 	var/atom/H = get_pin_data_as_type(IC_INPUT, 1, /atom)
+	// Stores `T` state used by this integrated electronics object.
 	var/turf/T = get_turf(src)
 	if(!istype(H)) //Invalid input
 		return
@@ -241,6 +279,8 @@
 	else
 		activate_pin(3)
 
+/// local locator: Integrated circuit component..
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/input/local_locator
 	name = "local locator"
 	desc = "This is needed for certain devices that demand a reference for a target to act upon.  This type only locates something \
@@ -256,6 +296,7 @@
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	power_draw_per_use = 200
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/input/local_locator/do_work()
 	if(assembly && istype(assembly.loc, /mob/living))
 		set_pin_data(IC_OUTPUT, 1, assembly.loc)
@@ -265,6 +306,8 @@
 	push_data()
 	activate_pin(2)
 
+/// adjacent locator: Integrated circuit component..
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/input/adjacent_locator
 	name = "adjacent locator"
 	desc = "This is needed for certain devices that demand a reference for a target to act upon.  This type only locates something \
@@ -278,7 +321,9 @@
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	power_draw_per_use = 300
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/input/adjacent_locator/do_work()
+	// Stores `A` state used by this integrated electronics object.
 	var/atom/A = get_pin_data_as_type(IC_INPUT, 1, /atom)
 	if(!A)
 		set_pin_data(IC_OUTPUT, 1, null)
@@ -286,7 +331,9 @@
 		return
 	var/desired_type = A.type
 
+	// Stores `nearby_things` state used by this integrated electronics object.
 	var/list/nearby_things = range(1, get_turf(src))
+	// Stores `valid_things` state used by this integrated electronics object.
 	var/list/valid_things = list()
 	for(var/atom/thing in nearby_things)
 		if(thing.type != desired_type)
@@ -297,6 +344,8 @@
 		set_pin_data(IC_OUTPUT, 1, pick(valid_things))
 		push_data()
 
+/// advanced locator: This is needed for certain devices that demand a reference for a target to act upon. This type locates something that is standing in given radius of up to 7 meters. The first pin requires a ref to a kind of object tha....
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/input/advanced_locator
 	complexity = 6
 	name = "advanced locator"
@@ -307,19 +356,27 @@
 	activators = list("locate" = IC_PINTYPE_PULSE_IN,"found" = IC_PINTYPE_PULSE_OUT,"not found" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	power_draw_per_use = 300
+	// Stores `radius` state used by this integrated electronics object.
 	var/radius = 1
 
+/// Implements `on_data_written` behavior for this integrated electronics type.
 /obj/item/integrated_circuit/input/advanced_locator/on_data_written()
+	// Stores `rad` state used by this integrated electronics object.
 	var/rad = get_pin_data(IC_INPUT, 2)
 	if(isnum(rad))
 		rad = clamp(rad, 0, 7)
 		radius = rad
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/input/advanced_locator/do_work()
 	set_pin_data(IC_OUTPUT, 1, null)
+	// Stores `T` state used by this integrated electronics object.
 	var/turf/T = get_turf(src)
+	// Stores `nearby_things` state used by this integrated electronics object.
 	var/list/nearby_things = view(radius, T)
+	// Stores `valid_things` state used by this integrated electronics object.
 	var/list/valid_things = list()
+	// Stores `I` state used by this integrated electronics object.
 	var/I = get_pin_data(IC_INPUT, 1, FALSE)
 	if(isweakref(I))
 		var/datum/weakref/WR = I
@@ -341,6 +398,8 @@
 		activate_pin(3)
 	push_data()
 
+/// integrated signaler: Signals from a signaler can be received with this, allowing for remote control. Additionally, it can send signals as well.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/input/signaler
 	name = "integrated signaler"
 	desc = "Signals from a signaler can be received with this, allowing for remote control.  Additionally, it can send signals as well."
@@ -364,10 +423,14 @@
 	power_draw_idle = 50
 	power_draw_per_use = 400
 
+	// Stores `frequency` state used by this integrated electronics object.
 	var/frequency = 1457
+	// Stores `code` state used by this integrated electronics object.
 	var/code = 30
+	// Stores `radio_connection` state used by this integrated electronics object.
 	var/datum/radio_frequency/radio_connection
 
+/// Initializes runtime state after the parent type is constructed.
 /obj/item/integrated_circuit/input/signaler/Initialize()
 	. = ..()
 	set_frequency(frequency)
@@ -375,13 +438,17 @@
 	set_pin_data(IC_INPUT, 1, frequency)
 	set_pin_data(IC_INPUT, 2, code)
 
+/// Releases owned objects and clears references before parent deletion runs.
 /obj/item/integrated_circuit/input/signaler/Destroy()
 	SSradio.remove_object(src,frequency)
 	frequency = 0
 	. = ..()
 
+/// Implements `on_data_written` behavior for this integrated electronics type.
 /obj/item/integrated_circuit/input/signaler/on_data_written()
+	// Stores `new_freq` state used by this integrated electronics object.
 	var/new_freq = get_pin_data(IC_INPUT, 1)
+	// Stores `new_code` state used by this integrated electronics object.
 	var/new_code = get_pin_data(IC_INPUT, 2)
 	if(isnum(new_freq) && new_freq > 0)
 		set_frequency(new_freq)
@@ -400,6 +467,7 @@
 	radio_connection.post_signal(src, signal)
 	activate_pin(2)
 
+/// Sets `frequency` and performs any required follow-up bookkeeping.
 /obj/item/integrated_circuit/input/signaler/proc/set_frequency(new_frequency)
 	if(!frequency)
 		return
@@ -407,8 +475,11 @@
 	frequency = new_frequency
 	radio_connection = SSradio.add_object(src, frequency, RADIO_CHAT)
 
+/// Implements `receive_signal` behavior for this integrated electronics type.
 /obj/item/integrated_circuit/input/signaler/receive_signal(datum/signal/signal)
+	// Stores `new_code` state used by this integrated electronics object.
 	var/new_code = get_pin_data(IC_INPUT, 2)
+	// Stores `code` state used by this integrated electronics object.
 	var/code = 0
 
 	if(isnum(new_code))
@@ -426,10 +497,12 @@
 		O.show_message("[icon2html(src, viewers(get_turf(src)))] *beep* *beep*", 3, "*beep* *beep*", 2)
 
 //This circuit gives information on where the machine is.
+/// global positioning system: This allows you to easily know the position of a machine containing this device. The GPS outputs absolute map coordinates, not coordinates relative to the assembly.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/input/gps
 	name = "global positioning system"
 	desc = "This allows you to easily know the position of a machine containing this device."
-	extended_desc = "The GPS's coordinates it gives is absolute, not relative."
+	extended_desc = "The GPS outputs absolute map coordinates, not coordinates relative to the assembly."
 	icon = 'icons/obj/item/gps.dmi'
 	icon_state = "gps"
 	item_state = "radio"
@@ -448,7 +521,9 @@
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	power_draw_per_use = 300
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/input/gps/do_work()
+	// Stores `T` state used by this integrated electronics object.
 	var/turf/T = get_turf(src)
 
 	set_pin_data(IC_OUTPUT, 1, null)
@@ -464,10 +539,12 @@
 	push_data()
 	activate_pin(2)
 
+/// microphone: Detects nearby speech and outputs the speaker and message text.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/input/microphone
 	name = "microphone"
-	desc = "Useful for spying on people or for voice activated machines."
-	extended_desc = "This will automatically translate most languages it hears to Tau Ceti Basic.  \
+	desc = "Detects nearby speech and outputs the speaker and message text."
+	extended_desc = "When triggered by speech it can hear, this circuit outputs the speaker and message text, translated to Tau Ceti Basic when possible.  \
 	The first activation pin is always pulsed when the circuit hears someone talk, while the second one \
 	is only triggered if it hears someone speaking a language other than Tau Ceti Basic."
 	icon_state = "recorder"
@@ -484,16 +561,19 @@
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	power_draw_per_use = 150
 
+/// Initializes runtime state after the parent type is constructed.
 /obj/item/integrated_circuit/input/microphone/Initialize()
 	. = ..()
 	become_hearing_sensitive()
 
+/// Releases owned objects and clears references before parent deletion runs.
 /obj/item/integrated_circuit/input/microphone/Destroy()
 	return ..()
 
 /obj/item/integrated_circuit/input/microphone/hear_talk(mob/living/M, msg, var/verb = "says", datum/language/speaking = null)
 	receive_radio_message(M, msg, null, speaking)
 
+/// Implements `receive_radio_message` behavior for this integrated electronics type.
 /obj/item/integrated_circuit/input/microphone/proc/receive_radio_message(mob/living/M, msg, channel = null, datum/language/speaking = null)
 	/*
 	 * Shared microphone intake.
@@ -520,6 +600,7 @@
 	if(translated)
 		activate_pin(2)
 
+/// Implements `receive_radio_text` behavior for this integrated electronics type.
 /obj/item/integrated_circuit/input/microphone/proc/receive_radio_text(speaker_name, msg, channel = null, language_name = null)
 	/*
 	 * Text-only fallback for radio relay hooks that do not expose mob/language datums.
@@ -537,6 +618,8 @@
 	if(language_name && language_name != "Tau Ceti Basic" && language_name != "Common")
 		activate_pin(2)
 
+/// sensor: Scans and obtains a reference for any objects or persons near you. All you need to do is shove the machine in their face. If 'ignore storage' pin is set to true, the sensor will disregard scanning various storage cont....
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/input/sensor
 	name = "sensor"
 	desc = "Scans and obtains a reference for any objects or persons near you.  All you need to do is shove the machine in their face."
@@ -549,6 +632,7 @@
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	power_draw_per_use = 1200
 
+/// Implements `sense` behavior for this integrated electronics type.
 /obj/item/integrated_circuit/input/sensor/proc/sense(var/atom/A, mob/user)
 	if(!user.Adjacent(A))
 		return FALSE
@@ -563,6 +647,8 @@
 	user.visible_message(SPAN_NOTICE("[user] waves [assembly] around [A]."), SPAN_NOTICE("You scan [A] with [assembly]."))
 	return TRUE
 
+/// atmospheric analyser: Integrated circuit component..
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/input/atmo_scanner
 	name = "atmospheric analyser"
 	desc = "The same atmospheric analysis module that is integrated into PDAs.  \
@@ -594,11 +680,13 @@
 	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 3)
 	power_draw_per_use = 600
 
+/// internal battery monitor: This monitors the charge level of an internal battery. When pulsed, this circuit reports the assembly battery charge, maximum charge, and charge percentage.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/input/internalbm
 	name = "internal battery monitor"
 	desc = "This monitors the charge level of an internal battery."
 	icon_state = "internalbm"
-	extended_desc = "This circuit will give you values of charge, max charge and percentage of the internal battery on demand."
+	extended_desc = "When pulsed, this circuit reports the assembly battery charge, maximum charge, and charge percentage."
 	w_class = WEIGHT_CLASS_TINY
 	complexity = 1
 	inputs = list()
@@ -613,6 +701,7 @@
 	origin_tech = list(TECH_ENGINEERING = 4, TECH_DATA = 4, TECH_POWER = 4, TECH_MAGNET = 3)
 	power_draw_per_use = 10
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/input/internalbm/do_work()
 	set_pin_data(IC_OUTPUT, 1, null)
 	set_pin_data(IC_OUTPUT, 2, null)
@@ -627,11 +716,13 @@
 	push_data()
 	activate_pin(2)
 
+/// external battery monitor: This can help watch the battery level of any device in range. When pulsed, this circuit reports the charge, maximum charge, and charge percentage of a visible power cell or powered device.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/input/externalbm
 	name = "external battery monitor"
 	desc = "This can help watch the battery level of any device in range."
 	icon_state = "externalbm"
-	extended_desc = "This circuit will give you values of charge, max charge and percentage of any device or battery in view"
+	extended_desc = "When pulsed, this circuit reports the charge, maximum charge, and charge percentage of a visible power cell or powered device."
 	w_class = WEIGHT_CLASS_TINY
 	complexity = 2
 	inputs = list("target" = IC_PINTYPE_REF)
@@ -645,8 +736,10 @@
 	origin_tech = list(TECH_ENGINEERING = 4, TECH_DATA = 4, TECH_POWER = 4, TECH_MAGNET = 3)
 	power_draw_per_use = 10
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/input/externalbm/do_work()
 
+	// Stores `AM` state used by this integrated electronics object.
 	var/atom/movable/AM = get_pin_data_as_type(IC_INPUT, 1, /atom/movable)
 	set_pin_data(IC_OUTPUT, 1, null)
 	set_pin_data(IC_OUTPUT, 2, null)
@@ -673,13 +766,17 @@
 	push_data()
 	activate_pin(2)
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/input/atmo_scanner/do_work()
+	// Stores `T` state used by this integrated electronics object.
 	var/turf/T = get_turf(src)
 	if(!istype(T)) //Invalid input
 		return
 	var/datum/gas_mixture/environment = T.return_air()
 
+	// Stores `pressure` state used by this integrated electronics object.
 	var/pressure = XGM_PRESSURE(environment)
+	// Stores `total_moles` state used by this integrated electronics object.
 	var/total_moles = environment.total_moles
 
 	if (total_moles)
@@ -737,6 +834,8 @@
 	push_data()
 	activate_pin(2)
 
+/// pressure sensor: A tiny pressure sensor module similar to that found in a PDA atmosphere analyser.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/input/pressure_sensor
 	name = "pressure sensor"
 	desc = "A tiny pressure sensor module similar to that found in a PDA atmosphere analyser."
@@ -751,13 +850,17 @@
 	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 3)
 	power_draw_per_use = 200
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/input/pressure_sensor/do_work()
+	// Stores `T` state used by this integrated electronics object.
 	var/turf/T = get_turf(src)
 	if(!istype(T)) //Invalid input
 		return
 	var/datum/gas_mixture/environment = T.return_air()
 
+	// Stores `pressure` state used by this integrated electronics object.
 	var/pressure = XGM_PRESSURE(environment)
+	// Stores `total_moles` state used by this integrated electronics object.
 	var/total_moles = environment.total_moles
 
 	if (total_moles)
@@ -767,6 +870,8 @@
 	push_data()
 	activate_pin(2)
 
+/// temperature sensor: A tiny temperature sensor module similar to that found in a PDA atmosphere analyser.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/input/temperature_sensor
 	name = "temperature sensor"
 	desc = "A tiny temperature sensor module similar to that found in a PDA atmosphere analyser."
@@ -781,12 +886,15 @@
 	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 3)
 	power_draw_per_use = 200
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/input/temperature_sensor/do_work()
+	// Stores `T` state used by this integrated electronics object.
 	var/turf/T = get_turf(src)
 	if(!istype(T)) //Invalid input
 		return
 	var/datum/gas_mixture/environment = T.return_air()
 
+	// Stores `total_moles` state used by this integrated electronics object.
 	var/total_moles = environment.total_moles
 
 	if (total_moles)
@@ -796,6 +904,8 @@
 	push_data()
 	activate_pin(2)
 
+/// oxygen sensor: A tiny oxygen sensor module similar to that found in a PDA atmosphere analyser.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/input/gas_sensor
 	name = "oxygen sensor"
 	desc = "A tiny oxygen sensor module similar to that found in a PDA atmosphere analyser."
@@ -806,21 +916,27 @@
 	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 3)
 	power_draw_per_use = 200
 
+	// Stores `gas_name` state used by this integrated electronics object.
 	var/gas_name = GAS_OXYGEN
+	// Stores `gas_display_name` state used by this integrated electronics object.
 	var/gas_display_name = GAS_OXYGEN
 
+/// Initializes runtime state after the parent type is constructed.
 /obj/item/integrated_circuit/input/gas_sensor/Initialize()
 	outputs = list(
 		gas_name = IC_PINTYPE_NUMBER
 	)
 	. = ..()
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/input/gas_sensor/do_work()
+	// Stores `T` state used by this integrated electronics object.
 	var/turf/T = get_turf(src)
 	if(!istype(T)) //Invalid input
 		return
 	var/datum/gas_mixture/environment = T.return_air()
 
+	// Stores `total_moles` state used by this integrated electronics object.
 	var/total_moles = environment.total_moles
 
 	if (total_moles)
@@ -831,6 +947,8 @@
 	push_data()
 	activate_pin(2)
 
+/// carbon dioxide sensor: A tiny carbon dioxide sensor module similar to that found in a PDA atmosphere analyser.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/input/gas_sensor/co2
 	name = "carbon dioxide sensor"
 	displayed_name = "carbon dioxide sensor"
@@ -838,6 +956,8 @@
 	gas_name = GAS_CO2
 	gas_display_name = "carbon dioxide"
 
+/// nitrogen sensor: A tiny nitrogen sensor module similar to that found in a PDA atmosphere analyser.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/input/gas_sensor/nitrogen
 	name = "nitrogen sensor"
 	displayed_name = "nitrogen sensor"
@@ -845,6 +965,8 @@
 	gas_name = GAS_NITROGEN
 	gas_display_name = "nitrogen"
 
+/// phoron sensor: A tiny phoron sensor module similar to that found in a PDA atmosphere analyser.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/input/gas_sensor/phoron
 	name = "phoron sensor"
 	displayed_name = "phoron sensor"
@@ -852,6 +974,8 @@
 	gas_name = GAS_PHORON
 	gas_display_name = GAS_PHORON
 
+/// hydrogen sensor: A tiny hydrogen sensor module similar to that found in a PDA atmosphere analyser.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/input/gas_sensor/hydrogen_level
 	name = "hydrogen sensor"
 	displayed_name = "hydrogen sensor"
@@ -859,6 +983,8 @@
 	gas_name = GAS_HYDROGEN
 	gas_display_name = GAS_HYDROGEN
 
+/// deuterium sensor: A tiny deuterium sensor module similar to that found in a PDA atmosphere analyser.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/input/gas_sensor/deuterium_level
 	name = "deuterium sensor"
 	displayed_name = "deuterium sensor"
@@ -866,6 +992,8 @@
 	gas_name = GAS_DEUTERIUM
 	gas_display_name = GAS_DEUTERIUM
 
+/// tritium sensor: A tiny tritium sensor module similar to that found in a PDA atmosphere analyser.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/input/gas_sensor/tritium_level
 	name = "tritium sensor"
 	displayed_name = "tritium sensor"
@@ -873,6 +1001,8 @@
 	gas_name = GAS_TRITIUM
 	gas_display_name = GAS_TRITIUM
 
+/// helium sensor: A tiny helium sensor module similar to that found in a PDA atmosphere analyser.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/input/gas_sensor/helium_level
 	name = "helium sensor"
 	displayed_name = "helium sensor"
@@ -880,6 +1010,8 @@
 	gas_name = GAS_HELIUM
 	gas_display_name = GAS_HELIUM
 
+/// helium-3 sensor: A tiny helium-3 sensor module similar to that found in a PDA atmosphere analyser.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/input/gas_sensor/helium3_level
 	name = "helium-3 sensor"
 	displayed_name = "helium-3 sensor"
@@ -887,6 +1019,8 @@
 	gas_name = GAS_HELIUMFUEL
 	gas_display_name = GAS_HELIUMFUEL
 
+/// sulphur dioxide sensor: A tiny sulphur dioxide sensor module similar to that found in a PDA atmosphere analyser.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/input/gas_sensor/sulfurdioxide_level
 	name = "sulphur dioxide sensor"
 	displayed_name = "sulphur dioxide sensor"
@@ -894,6 +1028,8 @@
 	gas_name = GAS_SULFUR
 	gas_display_name = GAS_SULFUR
 
+/// nitrogen dioxide sensor: A tiny nitrogen dioxide sensor module similar to that found in a PDA atmosphere analyser.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/input/gas_sensor/nitrogendioxide_level
 	name = "nitrogen dioxide sensor"
 	displayed_name = "nitrogen dioxide sensor"
@@ -901,6 +1037,8 @@
 	gas_name = GAS_NO2
 	gas_display_name = GAS_NO2
 
+/// chlorine sensor: A tiny chlorine sensor module similar to that found in a PDA atmosphere analyser.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/input/gas_sensor/chlorine_level
 	name = "chlorine sensor"
 	displayed_name = "chlorine sensor"
@@ -908,6 +1046,8 @@
 	gas_name = GAS_CHLORINE
 	gas_display_name = GAS_CHLORINE
 
+/// water vapour sensor: A tiny water vapour sensor module similar to that found in a PDA atmosphere analyser.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/input/gas_sensor/watervapor_level
 	name = "water vapour sensor"
 	displayed_name = "water vapour sensor"
@@ -915,6 +1055,8 @@
 	gas_name = GAS_WATERVAPOR
 	gas_display_name = GAS_WATERVAPOR
 
+/// tile pointer: This circuit will get a tile ref with the provided absolute coordinates.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/input/turfpoint
 	name = "tile pointer"
 	desc = "This circuit will get a tile ref with the provided absolute coordinates."
@@ -928,13 +1070,17 @@
 	spawn_flags = IC_SPAWN_RESEARCH
 	power_draw_per_use = 400
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/input/turfpoint/do_work()
 	if(!assembly)
 		activate_pin(3)
 		return
 	var/turf/T = get_turf(assembly)
+	// Stores `target_x` state used by this integrated electronics object.
 	var/target_x = clamp(get_pin_data(IC_INPUT, 1), 0, world.maxx)
+	// Stores `target_y` state used by this integrated electronics object.
 	var/target_y = clamp(get_pin_data(IC_INPUT, 2), 0, world.maxy)
+	// Stores `A` state used by this integrated electronics object.
 	var/turf/A = locate(target_x, target_y, T.z)
 	set_pin_data(IC_OUTPUT, 1, null)
 	if(!A || !(A in view(T)))
@@ -945,6 +1091,8 @@
 	push_data()
 	activate_pin(2)
 
+/// tile analyzer: This circuit can analyze the contents of the scanned turf, and can read letters on the turf.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/input/turfscan
 	name = "tile analyzer"
 	desc = "This circuit can analyze the contents of the scanned turf, and can read letters on the turf."
@@ -967,9 +1115,13 @@
 	power_draw_per_use = 400
 	cooldown_per_use = 10
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/input/turfscan/do_work()
+	// Stores `scanned_turf` state used by this integrated electronics object.
 	var/turf/scanned_turf = get_pin_data_as_type(IC_INPUT, 1, /turf)
+	// Stores `circuit_turf` state used by this integrated electronics object.
 	var/turf/circuit_turf = get_turf(src)
+	// Stores `area_name` state used by this integrated electronics object.
 	var/area_name = get_area_name(scanned_turf)
 	if(!istype(scanned_turf)) //Invalid input
 		activate_pin(3)
@@ -993,6 +1145,8 @@
 	else
 		activate_pin(3)
 
+/// list advanced locator: Integrated circuit component..
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/input/advanced_locator_list
 	complexity = 6
 	name = "list advanced locator"
@@ -1006,18 +1160,23 @@
 	activators = list("locate" = IC_PINTYPE_PULSE_IN,"found" = IC_PINTYPE_PULSE_OUT,"not found" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	power_draw_per_use = 300
+	// Stores `radius` state used by this integrated electronics object.
 	var/radius = 1
 	cooldown_per_use = 10
 
+/// Implements `on_data_written` behavior for this integrated electronics type.
 /obj/item/integrated_circuit/input/advanced_locator_list/on_data_written()
+	// Stores `rad` state used by this integrated electronics object.
 	var/rad = get_pin_data(IC_INPUT, 2)
 
 	if(isnum(rad))
 		rad = clamp(rad, 0, 8)
 		radius = rad
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/input/advanced_locator_list/do_work()
 	set_pin_data(IC_OUTPUT, 1, null)
+	// Stores `input_list` state used by this integrated electronics object.
 	var/list/input_list = list()
 	input_list = get_pin_data(IC_INPUT, 1)
 	if(length(input_list))	//if there is no input don't do anything.
@@ -1052,6 +1211,8 @@
 		activate_pin(3)
 	push_data()
 
+/// ranged sensor: Scans and obtains a reference for any objects or persons in range. All you need to do is point the machine towards the target. If the 'ignore storage' pin is set to true, the sensor will disregard scanning various sto....
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/input/sensor/ranged
 	name = "ranged sensor"
 	desc = "Scans and obtains a reference for any objects or persons in range. All you need to do is point the machine towards the target."
@@ -1064,6 +1225,7 @@
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	power_draw_per_use = 1200
 
+/// Implements `sense` behavior for this integrated electronics type.
 /obj/item/integrated_circuit/input/sensor/ranged/sense(atom/A, mob/user)
 	if(!user || (!istype(A)  && !isliving(A)))
 		return FALSE
@@ -1085,6 +1247,8 @@
 	activate_pin(1)
 	return TRUE
 
+/// scanner: Scans and obtains a reference for any objects you use on the assembly.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/input/obj_scanner
 	name = "scanner"
 	desc = "Scans and obtains a reference for any objects you use on the assembly."
@@ -1098,6 +1262,7 @@
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	power_draw_per_use = 200
 
+/// Implements `attackby_react` behavior for this integrated electronics type.
 /obj/item/integrated_circuit/input/obj_scanner/attackby_react(var/atom/A,var/mob/user,intent)
 	if(intent!=I_HELP)
 		return FALSE
@@ -1112,7 +1277,9 @@
 	activate_pin(1)
 	return TRUE
 
+/// Implements `ic_split_assignment` behavior for this integrated electronics type.
 /proc/ic_split_assignment(raw_assignment)
+	// Stores `result` state used by this integrated electronics object.
 	var/list/result = list(
 		"job title" = null,
 		"corporation" = null
@@ -1122,7 +1289,9 @@
 		return result
 
 	var/assignment = trim(raw_assignment)
+	// Stores `open_paren` state used by this integrated electronics object.
 	var/open_paren = findtext(assignment, "(")
+	// Stores `close_paren` state used by this integrated electronics object.
 	var/close_paren = findtext(assignment, ")", open_paren + 1)
 
 	if(open_paren && close_paren && close_paren > open_paren)
@@ -1134,6 +1303,8 @@
 	return result
 
 
+/// ID card reader: A circuit that can read the registered name, assignment, job title, corporation, and PassKey string from an ID card.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/input/card_reader
 	name = "ID card reader" // To differentiate it from the data card reader.
 	desc = "A circuit that can read the registered name, assignment, job title, corporation, and PassKey string from an ID card."
@@ -1159,8 +1330,11 @@
 	)
 
 
+/// Implements `attackby_react` behavior for this integrated electronics type.
 /obj/item/integrated_circuit/input/card_reader/attackby_react(obj/item/I, mob/living/user, intent)
+	// Stores `card` state used by this integrated electronics object.
 	var/obj/item/card/id/card = I.GetID()
+	// Stores `access` state used by this integrated electronics object.
 	var/list/access = I.GetAccess()
 
 	if(!access)
@@ -1192,6 +1366,8 @@
 	activate_pin(1)
 	return TRUE
 
+/// radiation sensor: A tiny radiation sensor module similar to that found in a geiger counter.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/input/radiation_sensor
 	name = "radiation sensor"
 	desc = "A tiny radiation sensor module similar to that found in a geiger counter."
@@ -1206,7 +1382,9 @@
 	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 3)
 	power_draw_per_use = 200
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/input/radiation_sensor/do_work()
+	// Stores `T` state used by this integrated electronics object.
 	var/turf/T = get_turf(src)
 	if(!istype(T)) //Invalid input
 		return
@@ -1219,6 +1397,8 @@
 		set_pin_data(IC_OUTPUT, 1, 0)
 	push_data()
 
+/// light sensor: A tiny light sensor module.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/input/light_sensor
 	name = "light sensor"
 	desc = "A tiny light sensor module."
@@ -1233,7 +1413,9 @@
 	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 3)
 	power_draw_per_use = 200
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/input/light_sensor/do_work()
+	// Stores `T` state used by this integrated electronics object.
 	var/turf/T = get_turf(src)
 	if(!istype(T)) //Invalid input
 		return
@@ -1245,6 +1427,8 @@
 		set_pin_data(IC_OUTPUT, 1, 0)
 	push_data()
 
+/// face scanner: Integrated circuit component..
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/input/face_scanner
 	name = "face scanner"
 	desc = "A complex camera and in-built scanner, similar to an examiner but specifically for people.\
@@ -1267,7 +1451,9 @@
 	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 3, TECH_BIO = 5)
 	power_draw_per_use = 1000
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/input/face_scanner/do_work()
+	// Stores `H` state used by this integrated electronics object.
 	var/mob/living/carbon/human/H = get_pin_data_as_type(IC_INPUT, 1, /mob/living/carbon/human)
 	if(!istype(H)) //Invalid input
 		return
@@ -1285,10 +1471,12 @@
 	else
 		activate_pin(3)
 
+/// alden-saraspova counter: A miniaturized Alden-Saraspova counter, used to detected anomalous readings. Often used by xenoarchaeologists. It can only scan a 14x14 area and has a built-in 15 second cooldown.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/input/anomaly_scanner
 	name = "alden-saraspova counter"
-	desc = "A miniaturised Alden-Saraspova counter, used to detected anomalous readings. Often used by xenoarchaeologists."
-	extended_desc = "It can only scan a 14x14 area and has an built-in 15 second cooldown."
+	desc = "A miniaturized Alden-Saraspova counter, used to detected anomalous readings. Often used by xenoarchaeologists."
+	extended_desc = "It can only scan a 14x14 area and has a built-in 15 second cooldown."
 	icon_state = "medscan_adv"
 	complexity = 12
 	outputs = list(
@@ -1301,6 +1489,7 @@
 	power_draw_per_use = 2000
 	cooldown_per_use = 15 SECONDS // sizeable cooldown to prevent view spam
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/input/anomaly_scanner/do_work()
 	if(!SSxenoarch)
 		return
@@ -1318,6 +1507,106 @@
 			break
 	..()
 
+/// depth scanner: A miniaturized depth analysis scanner, used to read xenoarchaeological depth and clearance data from scanned mineral turfs. Feed it a scanned turf reference. If the turf contains a find, it outputs required depth, cle....
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
+/obj/item/integrated_circuit/input/depth_scanner
+	name = "depth scanner"
+	desc = "A miniaturized depth analysis scanner, used to read xenoarchaeological depth and clearance data from scanned mineral turfs."
+	extended_desc = "Feed it a scanned turf reference. If the turf contains a find, it outputs required depth, clearance, current depth, safe depth, material, and coordinates."
+	icon_state = "medscan_adv"
+	complexity = 12
+	inputs = list(
+		"target turf" = IC_PINTYPE_REF
+	)
+	outputs = list(
+		"target turf" = IC_PINTYPE_REF,
+		"required depth" = IC_PINTYPE_NUMBER,
+		"clearance" = IC_PINTYPE_NUMBER,
+		"current depth" = IC_PINTYPE_NUMBER,
+		"safe depth" = IC_PINTYPE_NUMBER,
+		"material" = IC_PINTYPE_STRING,
+		"coordinates" = IC_PINTYPE_STRING,
+		"status" = IC_PINTYPE_STRING
+	)
+	activators = list(
+		"scan" = IC_PINTYPE_PULSE_IN,
+		"find detected" = IC_PINTYPE_PULSE_OUT,
+		"nothing detected" = IC_PINTYPE_PULSE_OUT
+	)
+	spawn_flags = IC_SPAWN_RESEARCH
+	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 4, TECH_MAGNET = 4)
+	power_draw_per_use = 1000
+	cooldown_per_use = 5 SECONDS
+
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
+/obj/item/integrated_circuit/input/depth_scanner/do_work()
+	// Stores `scanned_turf` state used by this integrated electronics object.
+	var/turf/simulated/mineral/scanned_turf = get_pin_data_as_type(IC_INPUT, 1, /turf/simulated/mineral)
+
+	set_pin_data(IC_OUTPUT, 1, null)
+	set_pin_data(IC_OUTPUT, 2, null)
+	set_pin_data(IC_OUTPUT, 3, null)
+	set_pin_data(IC_OUTPUT, 4, null)
+	set_pin_data(IC_OUTPUT, 5, null)
+	set_pin_data(IC_OUTPUT, 6, null)
+	set_pin_data(IC_OUTPUT, 7, null)
+	set_pin_data(IC_OUTPUT, 8, "No valid mineral turf scanned.")
+
+	if(!istype(scanned_turf))
+		push_data()
+		activate_pin(3)
+		return
+
+	var/turf/circuit_turf = get_turf(src)
+	if(!(scanned_turf in view(circuit_turf)))
+		set_pin_data(IC_OUTPUT, 8, "Target turf is out of scanner range.")
+		push_data()
+		activate_pin(3)
+		return
+
+	if(!(scanned_turf.finds && scanned_turf.finds.len) && !scanned_turf.artifact_find)
+		set_pin_data(IC_OUTPUT, 1, scanned_turf)
+		set_pin_data(IC_OUTPUT, 7, "[scanned_turf.x], [scanned_turf.y], [scanned_turf.z]")
+		set_pin_data(IC_OUTPUT, 8, "No subsurface find detected.")
+		push_data()
+		activate_pin(3)
+		return
+
+	var/required_depth = 0
+	// Stores `clearance` state used by this integrated electronics object.
+	var/clearance = 0
+	// Stores `current_depth` state used by this integrated electronics object.
+	var/current_depth = scanned_turf.excavation_level * 2
+	// Stores `material` state used by this integrated electronics object.
+	var/material = scanned_turf.mineral ? scanned_turf.mineral.display_name : "Rock"
+
+	if(scanned_turf.finds && scanned_turf.finds.len)
+		var/datum/find/F = scanned_turf.finds[1]
+		required_depth = F.excavation_required * 2
+		clearance = F.clearance_range * 2
+		material = get_responsive_reagent(F.find_type)
+	else if(scanned_turf.artifact_find)
+		required_depth = rand(75, 100)
+		clearance = rand(5, 25)
+		material = "Unknown anomaly"
+
+	// Stores `safe_depth` state used by this integrated electronics object.
+	var/safe_depth = max(required_depth - clearance, 0)
+
+	set_pin_data(IC_OUTPUT, 1, scanned_turf)
+	set_pin_data(IC_OUTPUT, 2, required_depth)
+	set_pin_data(IC_OUTPUT, 3, clearance)
+	set_pin_data(IC_OUTPUT, 4, current_depth)
+	set_pin_data(IC_OUTPUT, 5, safe_depth)
+	set_pin_data(IC_OUTPUT, 6, material)
+	set_pin_data(IC_OUTPUT, 7, "[scanned_turf.x], [scanned_turf.y], [scanned_turf.z]")
+	set_pin_data(IC_OUTPUT, 8, "Find detected.")
+
+	push_data()
+	activate_pin(2)
+
+/// reference validator: Checks whether a reference is valid and identifies its general type.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/input/ref_validator
 	name = "reference validator"
 	desc = "Checks whether a reference is valid and identifies its general type."
@@ -1342,7 +1631,9 @@
 	)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/input/ref_validator/do_work()
+	// Stores `A` state used by this integrated electronics object.
 	var/atom/A = get_pin_data_as_type(IC_INPUT, 1, /atom)
 
 	set_pin_data(IC_OUTPUT, 1, FALSE)
@@ -1370,9 +1661,13 @@
 	activate_pin(2)
 
 
+/// distance checker: Compares two references and reports distance, adjacency, same-tile status, and z-level matching.
+/// If reference B is empty, the circuit checks the turf directly in front of reference A instead.
+/// Pulse "check" to run the comparison. "checked" pulses on success, while "not checked" pulses if reference A or the target turf is invalid.
 /obj/item/integrated_circuit/input/distance_checker
 	name = "distance checker"
-	desc = "Checks distance and adjacency between two references."
+	desc = "Checks distance and adjacency between two references. If reference B is empty, it checks the tile in front of reference A."
+	extended_desc = "Compares reference A against reference B and outputs the distance, whether they are adjacent, whether they are on the same tile, and whether they are on the same z-level. If reference B is empty, the circuit uses the turf directly in front of reference A instead. This is useful for checking whether an assembly is facing a nearby object, wall, turf, or target location without needing a second reference input."
 	icon_state = "video_camera"
 	complexity = 4
 	inputs = list(
@@ -1392,11 +1687,14 @@
 	)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/input/distance_checker/do_work()
+	// Stores `A` state used by this integrated electronics object.
 	var/atom/A = get_pin_data_as_type(IC_INPUT, 1, /atom)
+	// Stores `B` state used by this integrated electronics object.
 	var/atom/B = get_pin_data_as_type(IC_INPUT, 2, /atom)
 
-	if(!A || !B)
+	if(!A)
 		set_pin_data(IC_OUTPUT, 1, null)
 		set_pin_data(IC_OUTPUT, 2, FALSE)
 		set_pin_data(IC_OUTPUT, 3, FALSE)
@@ -1406,14 +1704,22 @@
 		return
 
 	var/turf/TA = get_turf(A)
-	var/turf/TB = get_turf(B)
+	// Stores `TB` state used by this integrated electronics object.
+	var/turf/TB = null
+	if(TA)
+		TB = B ? get_turf(B) : get_step(TA, A.dir)
 
 	if(!TA || !TB)
+		set_pin_data(IC_OUTPUT, 1, null)
+		set_pin_data(IC_OUTPUT, 2, FALSE)
+		set_pin_data(IC_OUTPUT, 3, FALSE)
+		set_pin_data(IC_OUTPUT, 4, FALSE)
 		push_data()
 		activate_pin(3)
 		return
 
 	var/same_z = TA.z == TB.z
+	// Stores `distance` state used by this integrated electronics object.
 	var/distance = same_z ? get_dist(TA, TB) : null
 
 	set_pin_data(IC_OUTPUT, 1, distance)
@@ -1425,6 +1731,8 @@
 	activate_pin(2)
 
 
+/// direction to reference: Calculates the direction from one reference to another.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/input/direction_to_ref
 	name = "direction to reference"
 	desc = "Calculates the direction from one reference to another."
@@ -1445,8 +1753,11 @@
 	)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/input/direction_to_ref/do_work()
+	// Stores `source` state used by this integrated electronics object.
 	var/atom/source = get_pin_data_as_type(IC_INPUT, 1, /atom)
+	// Stores `target` state used by this integrated electronics object.
 	var/atom/target = get_pin_data_as_type(IC_INPUT, 2, /atom)
 
 	if(!source || !target)
@@ -1465,6 +1776,8 @@
 	activate_pin(2)
 
 
+/// area scanner: Returns the area of a referenced object.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/input/area_scanner
 	name = "area scanner"
 	desc = "Returns the area of a referenced object."
@@ -1484,7 +1797,9 @@
 	)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/input/area_scanner/do_work()
+	// Stores `A` state used by this integrated electronics object.
 	var/atom/A = get_pin_data_as_type(IC_INPUT, 1, /atom)
 
 	if(!A)
@@ -1508,6 +1823,8 @@
 	activate_pin(2)
 
 
+/// access checker: Checks whether an access list contains required access.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/input/access_checker
 	name = "access checker"
 	desc = "Checks whether an access list contains required access."
@@ -1528,9 +1845,13 @@
 	)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/input/access_checker/do_work()
+	// Stores `access_list` state used by this integrated electronics object.
 	var/list/access_list = get_pin_data(IC_INPUT, 1)
+	// Stores `required_access` state used by this integrated electronics object.
 	var/list/required_access = get_pin_data(IC_INPUT, 2)
+	// Stores `missing_access` state used by this integrated electronics object.
 	var/list/missing_access = list()
 
 	if(!islist(access_list))
@@ -1543,6 +1864,7 @@
 		if(!(access in access_list))
 			missing_access += access
 
+	// Stores `allowed` state used by this integrated electronics object.
 	var/allowed = !length(missing_access)
 
 	set_pin_data(IC_OUTPUT, 1, allowed)
@@ -1552,6 +1874,8 @@
 	activate_pin(allowed ? 2 : 3)
 
 
+/// radio command receiver: Receives radio-style command text relayed through an inserted radio. This circuit receives relayed radio text and exposes the speaker, message, channel, command, arguments, and payload. If a radio reference is provide....
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/input/radio_command_receiver
 	name = "radio command receiver"
 	desc = "Receives radio-style command text relayed through an inserted radio."
@@ -1575,8 +1899,10 @@
 		"on command received" = IC_PINTYPE_PULSE_OUT
 	)
 	power_draw_per_use = 150
+	spawn_flags = null
 
 
+/// Implements `receive_radio_command` behavior for this integrated electronics type.
 /obj/item/integrated_circuit/input/radio_command_receiver/proc/receive_radio_command(speaker_name, message, channel, obj/item/radio/source_radio = null)
 	if(!check_then_do_work())
 		return
@@ -1593,6 +1919,7 @@
 		return
 
 	var/list/parts = splittext(message, " ")
+	// Stores `clean_parts` state used by this integrated electronics object.
 	var/list/clean_parts = list()
 
 	for(var/part in parts)
@@ -1606,10 +1933,12 @@
 	for(var/i = 2 to length(clean_parts))
 		arguments += clean_parts[i]
 
+	// Stores `payload_parts` state used by this integrated electronics object.
 	var/list/payload_parts = list()
 	for(var/i = 2 to length(clean_parts))
 		payload_parts += clean_parts[i]
 
+	// Stores `payload` state used by this integrated electronics object.
 	var/payload = jointext(payload_parts, " ")
 
 	set_pin_data(IC_OUTPUT, 1, speaker_name ? "[speaker_name]" : "Unknown")

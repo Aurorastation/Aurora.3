@@ -1,17 +1,26 @@
+/*
+ * core/special_pins/number_pin.dm
+ * Number pin conversion, validation, and formatting.
+ */
+
 // These pins can only contain numbers (int and floating point) or null.
 /datum/integrated_io/number
 	name = "number pin"
 
+/// Implements `ask_for_pin_data` behavior for this integrated electronics type.
 /datum/integrated_io/number/ask_for_pin_data(mob/user)
+	// Stores `new_data` state used by this integrated electronics object.
 	var/new_data = input("Please type in a number.","[src] number writing") as null|num
 	if(isnum(new_data) && holder.check_interactivity(user) )
 		to_chat(user, SPAN_NOTICE("You input [new_data] into the pin."))
 		write_data_to_pin(new_data)
 
+/// Implements `write_data_to_pin` behavior for this integrated electronics type.
 /datum/integrated_io/number/write_data_to_pin(var/new_data)
 	if(isnull(new_data) || isnum(new_data))
 		data = new_data
 		holder.on_data_written()
 
+/// Implements `display_pin_type` behavior for this integrated electronics type.
 /datum/integrated_io/number/display_pin_type()
 	return IC_FORMAT_NUMBER

@@ -1,4 +1,11 @@
+/*
+ * subtypes/lists.dm
+ * List circuits for creating, reading, writing, merging, filtering, and transforming list pin data.
+ */
+
 //These circuits do things with lists, and use special list pins for stability.
+/// list: Integrated circuit component..
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/list
 	complexity = 1
 	inputs = list(
@@ -10,10 +17,12 @@
 	power_draw_per_use = 200
 
 
+/// empty list circuit: This circuit outputs an empty list. Outputs an empty list that can be passed into append, write, and other list-editing circuits.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/list/empty
 	name = "empty list circuit"
 	desc = "This circuit outputs an empty list."
-	extended_desc = "Useful as a starting point for append, write, and other list-editing circuits."
+	extended_desc = "Outputs an empty list that can be passed into append, write, and other list-editing circuits."
 	inputs = list()
 	outputs = list(
 		"empty list" = IC_PINTYPE_LIST
@@ -21,21 +30,27 @@
 	icon_state = "addition"
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/list/empty/do_work()
 	set_pin_data(IC_OUTPUT, 1, list())
 	push_data()
 	activate_pin(2)
 
 
+/// pick circuit: This circuit will randomly 'pick' an element from a list that is inputted. Outputs null if the list is empty. The input list is not changed.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/list/pick
 	name = "pick circuit"
 	desc = "This circuit will randomly 'pick' an element from a list that is inputted."
-	extended_desc = "Will output null if the list is empty. Input list is unmodified."
+	extended_desc = "Outputs null if the list is empty. The input list is not changed."
 	icon_state = "addition"
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/list/pick/do_work()
+	// Stores `result` state used by this integrated electronics object.
 	var/result = null
+	// Stores `input_list` state used by this integrated electronics object.
 	var/list/input_list = get_pin_data(IC_INPUT, 1)
 
 	if(input_list.len)
@@ -46,10 +61,12 @@
 	activate_pin(2)
 
 
+/// append circuit: This circuit will add an element to a list. Adds the new element to the end of the list.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/list/append
 	name = "append circuit"
 	desc = "This circuit will add an element to a list."
-	extended_desc = "The new element will always be at the bottom of the list."
+	extended_desc = "Adds the new element to the end of the list."
 	inputs = list(
 		"list to append" = IC_PINTYPE_LIST,
 		"input" = IC_PINTYPE_ANY
@@ -60,9 +77,13 @@
 	icon_state = "addition"
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/list/append/do_work()
+	// Stores `input_list` state used by this integrated electronics object.
 	var/list/input_list = get_pin_data(IC_INPUT, 1)
+	// Stores `output_list` state used by this integrated electronics object.
 	var/list/output_list = input_list.Copy()
+	// Stores `new_entry` state used by this integrated electronics object.
 	var/new_entry = get_pin_data(IC_INPUT, 2)
 
 	output_list.Add(new_entry)
@@ -72,6 +93,8 @@
 	activate_pin(2)
 
 
+/// search circuit: This circuit will give index of desired element in the list. Search will start at 1 position and will return first matching position.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/list/search
 	name = "search circuit"
 	desc = "This circuit will give index of desired element in the list."
@@ -86,8 +109,11 @@
 	icon_state = "addition"
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/list/search/do_work()
+	// Stores `input_list` state used by this integrated electronics object.
 	var/list/input_list = get_pin_data(IC_INPUT, 1)
+	// Stores `item` state used by this integrated electronics object.
 	var/item = get_pin_data(IC_INPUT, 2)
 
 	set_pin_data(IC_OUTPUT, 1, input_list.Find(item))
@@ -95,6 +121,8 @@
 	activate_pin(2)
 
 
+/// at circuit: This circuit will pick an element from a list by index. If there is no element with such index, result will be null.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/list/at
 	name = "at circuit"
 	desc = "This circuit will pick an element from a list by index."
@@ -107,9 +135,13 @@
 	icon_state = "addition"
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/list/at/do_work()
+	// Stores `input_list` state used by this integrated electronics object.
 	var/list/input_list = get_pin_data(IC_INPUT, 1)
+	// Stores `index` state used by this integrated electronics object.
 	var/index = get_pin_data(IC_INPUT, 2)
+	// Stores `item` state used by this integrated electronics object.
 	var/item = null
 
 	if(!isnull(index))
@@ -123,6 +155,8 @@
 	activate_pin(2)
 
 
+/// delete circuit: This circuit will delete the element from a list by index. If there is no element with such index, result list will be unchanged.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/list/delete
 	name = "delete circuit"
 	desc = "This circuit will delete the element from a list by index."
@@ -137,9 +171,13 @@
 	icon_state = "addition"
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/list/delete/do_work()
+	// Stores `input_list` state used by this integrated electronics object.
 	var/list/input_list = get_pin_data(IC_INPUT, 1)
+	// Stores `output_list` state used by this integrated electronics object.
 	var/list/output_list = input_list.Copy()
+	// Stores `index` state used by this integrated electronics object.
 	var/index = get_pin_data(IC_INPUT, 2)
 
 	if(!isnull(index))
@@ -153,6 +191,8 @@
 	activate_pin(2)
 
 
+/// write circuit: This circuit will write an element into a list with a given index. If the index is beyond the current list length, the list will expand with null entries until the index exists.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/list/write
 	name = "write circuit"
 	desc = "This circuit will write an element into a list with a given index."
@@ -168,10 +208,15 @@
 	icon_state = "addition"
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/list/write/do_work()
+	// Stores `input_list` state used by this integrated electronics object.
 	var/list/input_list = get_pin_data(IC_INPUT, 1)
+	// Stores `output_list` state used by this integrated electronics object.
 	var/list/output_list = input_list.Copy()
+	// Stores `index` state used by this integrated electronics object.
 	var/index = get_pin_data(IC_INPUT, 2)
+	// Stores `item` state used by this integrated electronics object.
 	var/item = get_pin_data(IC_INPUT, 3)
 
 	if(!isnull(index))
@@ -188,6 +233,8 @@
 	activate_pin(2)
 
 
+/// 4-way write circuit: This circuit writes up to four items into a list. Each item is written directly to its matching list position. Item 1 writes to list position 1, item 2 writes to position 2, and so on.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/list/write4
 	name = "4-way write circuit"
 	desc = "This circuit writes up to four items into a list."
@@ -206,8 +253,11 @@
 	complexity = 2
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/list/write4/do_work()
+	// Stores `input_list` state used by this integrated electronics object.
 	var/list/input_list = get_pin_data(IC_INPUT, 1)
+	// Stores `output_list` state used by this integrated electronics object.
 	var/list/output_list = input_list.Copy()
 
 	for(var/i = 1; i <= 4; i++)
@@ -223,6 +273,8 @@
 	activate_pin(2)
 
 
+/// 8-way write circuit: This circuit writes up to eight items into a list. Each item is written directly to its matching list position. Item 1 writes to list position 1, item 2 writes to position 2, and so on.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/list/write8
 	name = "8-way write circuit"
 	desc = "This circuit writes up to eight items into a list."
@@ -245,8 +297,11 @@
 	complexity = 3
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/list/write8/do_work()
+	// Stores `input_list` state used by this integrated electronics object.
 	var/list/input_list = get_pin_data(IC_INPUT, 1)
+	// Stores `output_list` state used by this integrated electronics object.
 	var/list/output_list = input_list.Copy()
 
 	for(var/i = 1; i <= 8; i++)
@@ -262,6 +317,8 @@
 	activate_pin(2)
 
 
+/// len circuit: This circuit will give length of the list.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/list/len
 	name = "len circuit"
 	desc = "This circuit will give length of the list."
@@ -274,7 +331,9 @@
 	icon_state = "addition"
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/list/len/do_work()
+	// Stores `input_list` state used by this integrated electronics object.
 	var/list/input_list = get_pin_data(IC_INPUT, 1)
 
 	set_pin_data(IC_OUTPUT, 1, input_list.len)
@@ -282,6 +341,8 @@
 	activate_pin(2)
 
 
+/// join text circuit: This circuit will add all elements of a list into one string, separated by a character. Default settings will encode the entire list into a string. Mixed list values are converted to display text before joining.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/list/jointext
 	name = "join text circuit"
 	desc = "This circuit will add all elements of a list into one string, separated by a character."
@@ -303,30 +364,34 @@
 	icon_state = "addition"
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/list/jointext/do_work()
+	// Stores `input_list` state used by this integrated electronics object.
 	var/list/input_list = get_pin_data(IC_INPUT, 1)
+	// Stores `delimiter` state used by this integrated electronics object.
 	var/delimiter = get_pin_data(IC_INPUT, 2)
+	// Stores `start` state used by this integrated electronics object.
 	var/start = get_pin_data(IC_INPUT, 3)
+	// Stores `end` state used by this integrated electronics object.
 	var/end = get_pin_data(IC_INPUT, 4)
 
+	// Stores `result` state used by this integrated electronics object.
 	var/result = null
 
 	if(input_list.len && !isnull(delimiter) && !isnull(start) && !isnull(end))
-		start = round(start)
-		end = round(end)
+		var/list/filtered_list = list()
+		for(var/item in input_list)
+			if(!isnull(item))
+				filtered_list += item
+		result = jointext(filtered_list, delimiter, start, end)
 
-		var/list/text_list = list()
-
-		for(var/value in input_list)
-			text_list.Add("[value]")
-
-		result = jointext(text_list, delimiter, start, end)
-
-	set_pin_data(IC_OUTPUT, 1, result)
-	push_data()
-	activate_pin(2)
+		set_pin_data(IC_OUTPUT, 1, result)
+		push_data()
+		activate_pin(2)
 
 
+/// any greater than circuit: This circuit checks whether any number in a list is greater than a target value. Non-number values are ignored. Outputs true if at least one number in the list is greater than the comparison value.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/list/any_greater_than
 	name = "any greater than circuit"
 	desc = "This circuit checks whether any number in a list is greater than a target value."
@@ -347,10 +412,14 @@
 	complexity = 2
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/list/any_greater_than/do_work()
+	// Stores `input_list` state used by this integrated electronics object.
 	var/list/input_list = get_pin_data(IC_INPUT, 1)
+	// Stores `compare_value` state used by this integrated electronics object.
 	var/compare_value = get_pin_data(IC_INPUT, 2)
 
+	// Stores `result` state used by this integrated electronics object.
 	var/result = FALSE
 
 	if(!isnull(compare_value))
@@ -371,6 +440,8 @@
 		activate_pin(3)
 
 
+/// any less than circuit: This circuit checks whether any number in a list is less than a target value. Non-number values are ignored. Outputs true if at least one number in the list is less than the comparison value.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/list/any_less_than
 	name = "any less than circuit"
 	desc = "This circuit checks whether any number in a list is less than a target value."
@@ -391,10 +462,14 @@
 	complexity = 2
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/list/any_less_than/do_work()
+	// Stores `input_list` state used by this integrated electronics object.
 	var/list/input_list = get_pin_data(IC_INPUT, 1)
+	// Stores `compare_value` state used by this integrated electronics object.
 	var/compare_value = get_pin_data(IC_INPUT, 2)
 
+	// Stores `result` state used by this integrated electronics object.
 	var/result = FALSE
 
 	if(!isnull(compare_value))
@@ -415,6 +490,8 @@
 		activate_pin(3)
 
 
+/// any equal to circuit: This circuit checks whether any value in a list is equal to a target value. Outputs true if at least one value in the list is equal to the comparison value. This can compare numbers, strings, booleans, refs, or null.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/list/any_equal_to
 	name = "any equal to circuit"
 	desc = "This circuit checks whether any value in a list is equal to a target value."
@@ -435,10 +512,14 @@
 	complexity = 2
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/list/any_equal_to/do_work()
+	// Stores `input_list` state used by this integrated electronics object.
 	var/list/input_list = get_pin_data(IC_INPUT, 1)
+	// Stores `compare_value` state used by this integrated electronics object.
 	var/compare_value = get_pin_data(IC_INPUT, 2)
 
+	// Stores `result` state used by this integrated electronics object.
 	var/result = FALSE
 
 	for(var/value in input_list)
@@ -454,6 +535,8 @@
 	else
 		activate_pin(3)
 
+/// list arithmetic: This circuit performs basic arithmetic between two lists of numbers. Takes two lists and applies the selected operation index-by-index. If either value is not a number, the output at that position is null. Supported o....
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/list/arithmetic
 	name = "list arithmetic"
 	desc = "This circuit performs basic arithmetic between two lists of numbers."
@@ -474,13 +557,18 @@
 	)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/list/arithmetic/do_work()
 	pull_data()
 
+	// Stores `list_a` state used by this integrated electronics object.
 	var/list/list_a = get_pin_data(IC_INPUT, 1)
+	// Stores `list_b` state used by this integrated electronics object.
 	var/list/list_b = get_pin_data(IC_INPUT, 2)
+	// Stores `operation` state used by this integrated electronics object.
 	var/operation = lowertext("[get_pin_data(IC_INPUT, 3)]")
 
+	// Stores `result` state used by this integrated electronics object.
 	var/list/result = list()
 
 	if(!islist(list_a) || !islist(list_b))
@@ -522,6 +610,8 @@
 	push_data()
 	activate_pin(2)
 
+/// list contains: Checks whether a list contains a value.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/list/list_contains
 	name = "list contains"
 	desc = "Checks whether a list contains a value."
@@ -543,8 +633,11 @@
 	)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/list/list_contains/do_work()
+	// Stores `input_list` state used by this integrated electronics object.
 	var/list/input_list = get_pin_data(IC_INPUT, 1)
+	// Stores `value` state used by this integrated electronics object.
 	var/value = get_pin_data(IC_INPUT, 2)
 
 	set_pin_data(IC_OUTPUT, 1, FALSE)
@@ -573,6 +666,8 @@
 	activate_pin(3)
 
 
+/// list text filter: Filters a list by matching text against each value.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/list/list_filter_text
 	name = "list text filter"
 	desc = "Filters a list by matching text against each value."
@@ -593,9 +688,13 @@
 	)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/list/list_filter_text/do_work()
+	// Stores `input_list` state used by this integrated electronics object.
 	var/list/input_list = get_pin_data(IC_INPUT, 1)
+	// Stores `match_text` state used by this integrated electronics object.
 	var/match_text = get_pin_data(IC_INPUT, 2)
+	// Stores `filtered_list` state used by this integrated electronics object.
 	var/list/filtered_list = list()
 
 	if(!islist(input_list) || !istext(match_text) || !length(match_text))
@@ -630,6 +729,8 @@
 	activate_pin(length(filtered_list) ? 2 : 3)
 
 
+/// list joiner: Joins a list into a single string using a separator.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/list/list_join
 	name = "list joiner"
 	desc = "Joins a list into a single string using a separator."
@@ -648,8 +749,11 @@
 	)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/list/list_join/do_work()
+	// Stores `input_list` state used by this integrated electronics object.
 	var/list/input_list = get_pin_data(IC_INPUT, 1)
+	// Stores `separator` state used by this integrated electronics object.
 	var/separator = get_pin_data(IC_INPUT, 2)
 
 	if(!islist(input_list))
@@ -658,6 +762,7 @@
 	if(!istext(separator))
 		separator = ", "
 
+	// Stores `text_values` state used by this integrated electronics object.
 	var/list/text_values = list()
 
 	for(var/item in input_list)
@@ -668,6 +773,8 @@
 	activate_pin(2)
 
 
+/// list sorter: Sorts a list. Sorts values alphabetically or numerically depending on what the list contains.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/list/list_sort
 	name = "list sorter"
 	desc = "Sorts a list."
@@ -687,13 +794,17 @@
 	)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/list/list_sort/do_work()
+	// Stores `input_list` state used by this integrated electronics object.
 	var/list/input_list = get_pin_data(IC_INPUT, 1)
+	// Stores `ascending` state used by this integrated electronics object.
 	var/ascending = get_pin_data(IC_INPUT, 2)
 
 	if(!islist(input_list))
 		input_list = list()
 
+	// Stores `sorted_list` state used by this integrated electronics object.
 	var/list/sorted_list = input_list.Copy()
 	sortTim(sorted_list, /proc/cmp_text_asc)
 
@@ -705,6 +816,8 @@
 	activate_pin(2)
 
 
+/// random list selector: Selects a random value from a list.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/list/random_selector
 	name = "random list selector"
 	desc = "Selects a random value from a list."
@@ -724,7 +837,9 @@
 	)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/list/random_selector/do_work()
+	// Stores `input_list` state used by this integrated electronics object.
 	var/list/input_list = get_pin_data(IC_INPUT, 1)
 
 	if(!islist(input_list) || !length(input_list))
@@ -742,6 +857,8 @@
 	activate_pin(2)
 
 
+/// weighted random selector: Selects a random value from a list using a matching list of weights.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/list/weighted_random_selector
 	name = "weighted random selector"
 	desc = "Selects a random value from a list using a matching list of weights."
@@ -762,8 +879,11 @@
 	)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/list/weighted_random_selector/do_work()
+	// Stores `values` state used by this integrated electronics object.
 	var/list/values = get_pin_data(IC_INPUT, 1)
+	// Stores `weights` state used by this integrated electronics object.
 	var/list/weights = get_pin_data(IC_INPUT, 2)
 
 	if(!islist(values) || !islist(weights) || !length(values) || !length(weights))
@@ -786,6 +906,7 @@
 		return
 
 	var/roll = rand(1, total_weight)
+	// Stores `current_weight` state used by this integrated electronics object.
 	var/current_weight = 0
 
 	for(var/i = 1 to min(length(values), length(weights)))

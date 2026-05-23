@@ -1,3 +1,8 @@
+/*
+ * core/special_pins/list_pin.dm
+ * List pin serialization, display, cloning, and safety handling for list-valued circuit data.
+ */
+
 // These pins contain a list.
 // Lists may contain strings, numbers, weakrefs, nested lists, or null.
 // Individual circuits are responsible for deciding what data types they accept.
@@ -6,11 +11,15 @@
 	name = "list pin"
 	data = list()
 
+/// Implements `ask_for_pin_data` behavior for this integrated electronics type.
 /datum/integrated_io/list/ask_for_pin_data(mob/user)
 	interact(user)
 
+/// Opens or updates the user interaction flow for this object.
 /datum/integrated_io/list/proc/interact(mob/user)
+	// Stores `my_list` state used by this integrated electronics object.
 	var/list/my_list = data
+	// Stores `t` state used by this integrated electronics object.
 	var/t = "<h2>[src]</h2><br>"
 	t += "List length: [my_list.len]<br>"
 	t += "<a href='byond://?src=[REF(src)]'>Refresh</a>  |  "
@@ -26,20 +35,24 @@
 		t += "<a href='byond://?src=[REF(src)];edit=1;pos=[i]'>Edit</a>  |  "
 		t += "<a href='byond://?src=[REF(src)];remove=1;pos=[i]'>Remove</a><br>"
 
+	// Stores `B` state used by this integrated electronics object.
 	var/datum/browser/B = new(user, "list_pin_[REF(src)]", null, 500, 400)
 	B.set_content(t)
 	B.open(FALSE)
 
+/// Adds `to_list` to the relevant circuit, assembly, or UI state.
 /datum/integrated_io/list/proc/add_to_list(mob/user, new_entry)
 	if(isnull(new_entry) && user)
 		new_entry = ask_for_data_type(user, null, list("string", "number", "null"))
 
 	Add(new_entry)
 
+/// Implements `Add` behavior for this integrated electronics type.
 /datum/integrated_io/list/proc/Add(new_entry)
 	if(!islist(data))
 		data = list()
 
+	// Stores `my_list` state used by this integrated electronics object.
 	var/list/my_list = data
 
 	if(my_list.len >= IC_MAX_LIST_LENGTH)
@@ -48,7 +61,9 @@
 	my_list.Add(new_entry)
 	holder.on_data_written()
 
+/// Removes `from_list_by_position` from the relevant circuit, assembly, or UI state.
 /datum/integrated_io/list/proc/remove_from_list_by_position(mob/user, position)
+	// Stores `my_list` state used by this integrated electronics object.
 	var/list/my_list = data
 
 	if(!my_list.len)
@@ -66,7 +81,9 @@
 	my_list.Cut(position, position + 1)
 	holder.on_data_written()
 
+/// Removes `from_list` from the relevant circuit, assembly, or UI state.
 /datum/integrated_io/list/proc/remove_from_list(mob/user, target_entry)
+	// Stores `my_list` state used by this integrated electronics object.
 	var/list/my_list = data
 
 	if(!my_list.len)
@@ -82,7 +99,9 @@
 			my_list.Cut(position, position + 1)
 			holder.on_data_written()
 
+/// Implements `edit_in_list` behavior for this integrated electronics type.
 /datum/integrated_io/list/proc/edit_in_list(mob/user, target_entry)
+	// Stores `my_list` state used by this integrated electronics object.
 	var/list/my_list = data
 
 	if(!my_list.len)
@@ -99,7 +118,9 @@
 			my_list[i] = edited_entry
 			holder.on_data_written()
 
+/// Implements `edit_in_list_by_position` behavior for this integrated electronics type.
 /datum/integrated_io/list/proc/edit_in_list_by_position(mob/user, position)
+	// Stores `my_list` state used by this integrated electronics object.
 	var/list/my_list = data
 
 	if(!my_list.len)
@@ -115,11 +136,14 @@
 		return
 
 	var/target_entry = my_list[position]
+	// Stores `edited_entry` state used by this integrated electronics object.
 	var/edited_entry = ask_for_data_type(user, target_entry, list("string", "number", "null"))
 	my_list[position] = edited_entry
 	holder.on_data_written()
 
+/// Implements `swap_inside_list` behavior for this integrated electronics type.
 /datum/integrated_io/list/proc/swap_inside_list(mob/user, first_target, second_target)
+	// Stores `my_list` state used by this integrated electronics object.
 	var/list/my_list = data
 
 	if(my_list.len <= 1)
@@ -139,22 +163,28 @@
 		return
 
 	var/first_pos = my_list.Find(first_target)
+	// Stores `second_pos` state used by this integrated electronics object.
 	var/second_pos = my_list.Find(second_target)
 
 	if(first_pos && second_pos)
 		my_list.Swap(first_pos, second_pos)
 		holder.on_data_written()
 
+/// Implements `clear_list` behavior for this integrated electronics type.
 /datum/integrated_io/list/proc/clear_list(mob/user)
+	// Stores `my_list` state used by this integrated electronics object.
 	var/list/my_list = data
 	my_list.Cut()
 	holder.on_data_written()
 
+/// Implements `scramble` behavior for this integrated electronics type.
 /datum/integrated_io/list/scramble()
+	// Stores `my_list` state used by this integrated electronics object.
 	var/list/my_list = data
 	data = shuffle(my_list)
 	push_data()
 
+/// Implements `write_data_to_pin` behavior for this integrated electronics type.
 /datum/integrated_io/list/write_data_to_pin(var/new_data)
 	if(isnull(new_data))
 		data = list()
@@ -165,6 +195,7 @@
 		return
 
 	var/list/new_list = new_data
+	// Stores `sanitized` state used by this integrated electronics object.
 	var/list/sanitized = list()
 
 	for(var/value in new_list)
@@ -174,6 +205,7 @@
 	data = sanitized
 	holder.on_data_written()
 
+/// Implements `display_pin_type` behavior for this integrated electronics type.
 /datum/integrated_io/list/display_pin_type()
 	return IC_FORMAT_LIST
 

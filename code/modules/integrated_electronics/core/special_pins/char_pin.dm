@@ -1,13 +1,21 @@
+/*
+ * core/special_pins/char_pin.dm
+ * Character/string single-character pin behavior and validation.
+ */
+
 // These pins can only contain a 1 character string or null.
 /datum/integrated_io/char
 	name = "char pin"
 
+/// Implements `ask_for_pin_data` behavior for this integrated electronics type.
 /datum/integrated_io/char/ask_for_pin_data(mob/user)
+	// Stores `new_data` state used by this integrated electronics object.
 	var/new_data = sanitize(input("Please type in one character.","[src] char writing") as null|text)
 	if(holder.check_interactivity(user) )
 		to_chat(user, SPAN_NOTICE("You input [new_data ? "'[new_data]'" : "NULL"] into the pin."))
 		write_data_to_pin(new_data)
 
+/// Implements `write_data_to_pin` behavior for this integrated electronics type.
 /datum/integrated_io/char/write_data_to_pin(var/new_data)
 	if(isnull(new_data) || istext(new_data))
 		if(length(new_data) > 1)
@@ -23,5 +31,6 @@
 	data = pick(options)
 	push_data()
 
+/// Implements `display_pin_type` behavior for this integrated electronics type.
 /datum/integrated_io/char/display_pin_type()
 	return IC_FORMAT_CHAR

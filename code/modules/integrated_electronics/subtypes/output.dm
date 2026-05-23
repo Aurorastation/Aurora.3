@@ -1,21 +1,33 @@
+/*
+ * subtypes/output.dm
+ * Output circuits that speak, display, signal, pulse, transmit, or otherwise emit circuit results into the game world.
+ */
+
+/// output: Integrated circuit component..
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/output
 	category_text = "Output"
 
+/// small screen: Displays one value when the assembly is examined closely.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/output/screen
 	name = "small screen"
-	desc = "This small screen can display a single piece of data, when the machine is examined closely."
+	desc = "Displays one value when the assembly is examined closely."
 	icon_state = "screen"
 	inputs = list("displayed data" = IC_PINTYPE_ANY)
 	outputs = list()
 	activators = list("load data" = IC_PINTYPE_PULSE_IN)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	power_draw_per_use = 100
+	// Stores `stuff_to_display` state used by this integrated electronics object.
 	var/stuff_to_display = null
 
+/// Implements `disconnect_all` behavior for this integrated electronics type.
 /obj/item/integrated_circuit/output/screen/disconnect_all()
 	..()
 	stuff_to_display = null
 
+/// Implements `any_examine` behavior for this integrated electronics type.
 /obj/item/integrated_circuit/output/screen/any_examine(mob/user)
 	. = ..()
 	if (displayed_name)
@@ -23,7 +35,9 @@
 	else
 		. += "There is an unlabelled little screen, which displays [!isnull(stuff_to_display) ? "'[stuff_to_display]'" : "nothing"]."
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/output/screen/do_work()
+	// Stores `I` state used by this integrated electronics object.
 	var/datum/integrated_io/I = inputs[1]
 	if(isweakref(I.data))
 		var/datum/d = I.data_as_type(/datum)
@@ -32,12 +46,15 @@
 	else
 		stuff_to_display = I.data
 
+/// screen: Displays data to the person holding the device.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/output/screen/medium
 	name = "screen"
-	desc = "This screen allows for people holding the device to see a piece of data."
+	desc = "Displays data to the person holding the device."
 	icon_state = "screen_medium"
 	power_draw_per_use = 200
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/output/screen/medium/do_work()
 	..()
 	var/list/nearby_things = range(0, get_turf(src))
@@ -45,37 +62,47 @@
 		var/obj/O = assembly ? assembly : src
 		to_chat(M, SPAN_NOTICE("[icon2html(O, viewers(get_turf(src)))] [stuff_to_display]"))
 
+/// large screen: Displays data to nearby viewers who can see the device.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/output/screen/large
 	name = "large screen"
-	desc = "This screen allows for people able to see the device to see a piece of data."
+	desc = "Displays data to nearby viewers who can see the device."
 	icon_state = "screen_large"
 	power_draw_per_use = 400
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/output/screen/large/do_work()
 	..()
 	var/obj/O = assembly ? loc : assembly
 	O.visible_message(SPAN_NOTICE("[icon2html(O, viewers(get_turf(src)))] [stuff_to_display]"))
 
+/// light: Turns a light on or off when pulsed.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/output/light
 	name = "light"
-	desc = "This light can turn on and off on command."
+	desc = "Turns a light on or off when pulsed."
 	icon_state = "light"
 	complexity = 4
 	inputs = list()
 	outputs = list()
 	activators = list("toggle light" = IC_PINTYPE_PULSE_IN)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+	// Stores `light_toggled` state used by this integrated electronics object.
 	var/light_toggled = FALSE
+	// Stores `light_brightness` state used by this integrated electronics object.
 	var/light_brightness = 3
+	// Stores `light_rgb` state used by this integrated electronics object.
 	var/light_rgb = COLOR_WHITE
 	power_draw_idle = 0 // Adjusted based on brightness.
 
 	light_system = MOVABLE_LIGHT
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/output/light/do_work()
 	light_toggled = !light_toggled
 	update_lighting()
 
+/// Updates `lighting` after related circuit or assembly state changes.
 /obj/item/integrated_circuit/output/light/proc/update_lighting()
 	if(assembly)
 		var/atom/movable/atom_holder = assembly.get_assembly_holder()
@@ -86,13 +113,17 @@
 				atom_holder.set_light_on(TRUE)
 			power_draw_idle = light_toggled ? light_brightness * 2 : 0
 
+/// Implements `disconnect_all` behavior for this integrated electronics type.
 /obj/item/integrated_circuit/output/light/disconnect_all()
 	..()
 	light_toggled = FALSE
 	update_lighting()
 
+/// Updates `lighting` after related circuit or assembly state changes.
 /obj/item/integrated_circuit/output/light/advanced/update_lighting()
+	// Stores `new_color` state used by this integrated electronics object.
 	var/new_color = get_pin_data(IC_INPUT, 1)
+	// Stores `brightness` state used by this integrated electronics object.
 	var/brightness = get_pin_data(IC_INPUT, 2)
 
 	if(new_color && isnum(brightness))
@@ -100,6 +131,7 @@
 		light_rgb = new_color
 		light_brightness = brightness
 
+	// Stores `atom_holder` state used by this integrated electronics object.
 	var/atom/movable/atom_holder = assembly.get_assembly_holder()
 	if(istype(atom_holder))
 		atom_holder.set_light_range_power_color(light_brightness, light_brightness, light_rgb)
@@ -110,9 +142,11 @@
 	light_toggled = FALSE
 	update_lighting()
 
+/// advanced light: Turns a configurable colored light on or off when pulsed.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/output/light/advanced
 	name = "advanced light"
-	desc = "This light can turn on and off on command, in any color, and in various brightness levels."
+	desc = "Turns a configurable colored light on or off when pulsed."
 	icon_state = "light_adv"
 	complexity = 8
 	inputs = list(
@@ -123,12 +157,15 @@
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 3)
 
+/// Implements `on_data_written` behavior for this integrated electronics type.
 /obj/item/integrated_circuit/output/light/advanced/on_data_written()
 	update_lighting()
 
+/// speaker circuit: Plays sounds from the assembly.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/output/sound
 	name = "speaker circuit"
-	desc = "A miniature speaker is attached to this component."
+	desc = "Plays sounds from the assembly."
 	icon_state = "speaker"
 	complexity = 8
 	cooldown_per_use = 1 SECOND
@@ -140,12 +177,15 @@
 	outputs = list()
 	activators = list("play sound" = IC_PINTYPE_PULSE_IN)
 	power_draw_per_use = 200
+	// Stores `sounds` state used by this integrated electronics object.
 	var/list/sounds = list()
 
+/// text-to-speech circuit: Plays sounds from the assembly. Converts valid text input into spoken audio.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/output/text_to_speech
 	name = "text-to-speech circuit"
-	desc = "A miniature speaker is attached to this component."
-	extended_desc = "This unit is more advanced than the plain speaker circuit, able to transpose any valid text to speech."
+	desc = "Plays sounds from the assembly."
+	extended_desc = "Converts valid text input into spoken audio."
 	icon_state = "speaker"
 	complexity = 12
 	cooldown_per_use = 1 SECOND
@@ -155,7 +195,9 @@
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	power_draw_per_use = 600
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/output/text_to_speech/do_work()
+	// Stores `text` state used by this integrated electronics object.
 	var/text = get_pin_data(IC_INPUT, 1)
 
 	if(isnull(text))
@@ -180,6 +222,7 @@
 	var/obj/O = loc ? loc : src
 	audible_message("[icon2html(O, viewers(get_turf(O)))] \The [O.name] states, \"[text]\"")
 
+/// Initializes runtime state after the parent type is constructed.
 /obj/item/integrated_circuit/output/sound/Initialize()
 	. = ..()
 	extended_desc = list()
@@ -189,9 +232,13 @@
 	extended_desc += ", and the third determines if the frequency of the sound will vary with each activation."
 	extended_desc = jointext(extended_desc, null)
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/output/sound/do_work()
+	// Stores `ID` state used by this integrated electronics object.
 	var/ID = get_pin_data(IC_INPUT, 1)
+	// Stores `vol` state used by this integrated electronics object.
 	var/vol = get_pin_data(IC_INPUT, 2)
+	// Stores `freq` state used by this integrated electronics object.
 	var/freq = get_pin_data(IC_INPUT, 3)
 	if(!isnull(ID) && !isnull(vol))
 		var/selected_sound = sounds[ID]
@@ -200,9 +247,11 @@
 		vol = between(0, vol, 100)
 		playsound(get_turf(src), selected_sound, vol, freq, -1)
 
+/// beeper circuit: Integrated circuit component..
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/output/sound/beeper
 	name = "beeper circuit"
-	desc = "A miniature speaker is attached to this component.  This is often used in the construction of motherboards, which use \
+	desc = "Plays sounds from the assembly.  This is often used in the construction of motherboards, which use \
 	the speaker to tell the user if something goes very wrong when booting up.  It can also do other similar synthetic sounds such \
 	as buzzing, pinging, chiming, and more."
 	sounds = list(
@@ -217,9 +266,11 @@
 	)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
+/// securitron sound circuit: Plays alert tones or warning sounds.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/output/sound/beepsky
 	name = "securitron sound circuit"
-	desc = "A miniature speaker is attached to this component.  Considered by some to be the essential component for a securitron."
+	desc = "A miniature speaker that plays alert tones or warning sounds."
 	sounds = list(
 		"creep"        = 'sound/voice/bcreep.ogg',
 		"criminal"     = 'sound/voice/bcriminal.ogg',
@@ -232,9 +283,11 @@
 	spawn_flags = IC_SPAWN_RESEARCH
 	origin_tech = list(TECH_ENGINEERING = 2, TECH_DATA = 2)
 
+/// medibot sound circuit: A miniature speaker that plays medical bot audio cues.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/output/sound/medbot
 	name = "medibot sound circuit"
-	desc = "A miniature speaker is attached to this component, used to annoy patients while they get pricked by a medbot."
+	desc = "A miniature speaker that plays medical bot audio cues."
 	sounds = list(
 		"surgeon"     = 'sound/voice/medbot/msurgeon.ogg',
 		"radar"       = 'sound/voice/medbot/mradar.ogg',
@@ -254,10 +307,12 @@
 	spawn_flags = IC_SPAWN_RESEARCH
 	origin_tech = list(TECH_ENGINEERING = 2, TECH_DATA = 2, TECH_BIO = 1)
 
+/// video camera circuit: Creates a camera feed from the assembly's position. Creates a camera feed. It uses the Research camera network by default, but the network can be changed.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/output/video_camera
 	name = "video camera circuit"
-	desc = "This small camera allows a remote viewer to see what it sees."
-	extended_desc = "The camera is linked to the Research camera network by default, but can be changed."
+	desc = "Creates a camera feed from the assembly's position."
+	extended_desc = "Creates a camera feed. It uses the Research camera network by default, but the network can be changed."
 	icon_state = "video_camera"
 	w_class = WEIGHT_CLASS_SMALL
 	complexity = 10
@@ -272,17 +327,21 @@
 	activators = list()
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	power_draw_idle = 5 // Raises to 200 when on.
+	// Stores `camera` state used by this integrated electronics object.
 	var/obj/machinery/camera/network/research/camera
 
+/// Initializes runtime state after the parent type is constructed.
 /obj/item/integrated_circuit/output/video_camera/Initialize()
 	. = ..()
 	camera = new(src, 0, TRUE, TRUE)
 	on_data_written()
 
+/// Releases owned objects and clears references before parent deletion runs.
 /obj/item/integrated_circuit/output/video_camera/Destroy()
 	QDEL_NULL(camera)
 	return ..()
 
+/// Sets `camera_status` and performs any required follow-up bookkeeping.
 /obj/item/integrated_circuit/output/video_camera/proc/set_camera_status(var/status)
 	if(camera)
 		camera.set_status(status)
@@ -291,11 +350,13 @@
 			if(!draw_idle_power())
 				power_fail()
 
+/// Sets `camera_network` and performs any required follow-up bookkeeping.
 /obj/item/integrated_circuit/output/video_camera/proc/set_camera_network(var/network)
 	if(camera)
 		camera.network = list(network)
 		camera.update_coverage()
 
+/// Implements `on_data_written` behavior for this integrated electronics type.
 /obj/item/integrated_circuit/output/video_camera/on_data_written()
 	if(camera)
 		var/cam_name = get_pin_data(IC_INPUT, 1)
@@ -306,16 +367,19 @@
 		set_camera_network(cam_network)
 		set_camera_status(cam_active)
 
+/// Implements `power_fail` behavior for this integrated electronics type.
 /obj/item/integrated_circuit/output/video_camera/power_fail()
 	if(camera)
 		set_camera_status(0)
 		set_pin_data(IC_INPUT, 3, FALSE)
 		push_data()
 
+/// light-emitting diode: This LED lights while its input contains TRUE-equivalent data. TRUE values include non-empty text, non-zero numbers, valid refs, and populated lists. FALSE values include null, 0, and empty text.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/output/led
 	name = "light-emitting diode"
-	desc = "This a LED that is lit whenever there is TRUE-equivalent data on its input."
-	extended_desc = "TRUE-equivalent values are: Non-empty strings, non-zero numbers, and valid refs."
+	desc = "This LED lights while its input contains TRUE-equivalent data."
+	extended_desc = "TRUE values include non-empty text, non-zero numbers, valid refs, and populated lists. FALSE values include null, 0, and empty text."
 	complexity = 0.1
 	icon_state = "led"
 	inputs = list("lit" = IC_PINTYPE_BOOLEAN)
@@ -323,19 +387,25 @@
 	activators = list()
 	power_draw_idle = 0 // Raises to 10 when lit.
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+	// Stores `led_color` state used by this integrated electronics object.
 	var/led_color
+	// Stores `color_name` state used by this integrated electronics object.
 	var/color_name
 
+/// Implements `on_data_written` behavior for this integrated electronics type.
 /obj/item/integrated_circuit/output/led/on_data_written()
 	power_draw_idle = get_pin_data(IC_INPUT, 1) ? 10 : 0
 
+/// Implements `power_fail` behavior for this integrated electronics type.
 /obj/item/integrated_circuit/output/led/power_fail()
 	set_pin_data(IC_INPUT, 1, FALSE)
 	push_data()
 
+/// Implements `any_examine` behavior for this integrated electronics type.
 /obj/item/integrated_circuit/output/led/any_examine(mob/user)
 	. = ..()
 	var/text_output = list()
+	// Stores `initial_name` state used by this integrated electronics object.
 	var/initial_name = initial(name)
 
 	// Doing all this work just to have a color-blind friendly output.
@@ -347,54 +417,74 @@
 	text_output += " which is currently [get_pin_data(IC_INPUT, 1) ? "lit <font color=[led_color]>[color_name]</font>" : "unlit."]"
 	. += jointext(text_output,null)
 
+/// red LED: Integrated circuit component..
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/output/led/red
 	name = "red LED"
 	led_color = COLOR_RED
 	color_name = "red"
 
+/// orange LED: Integrated circuit component..
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/output/led/orange
 	name = "orange LED"
 	led_color = COLOR_ORANGE
 	color_name = "orange"
 
+/// yellow LED: Integrated circuit component..
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/output/led/yellow
 	name = "yellow LED"
 	led_color = COLOR_YELLOW
 	color_name = "yellow"
 
+/// green LED: Integrated circuit component..
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/output/led/green
 	name = "green LED"
 	led_color = COLOR_GREEN
 	color_name = "green"
 
+/// blue LED: Integrated circuit component..
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/output/led/blue
 	name = "blue LED"
 	led_color = COLOR_BLUE
 	color_name = "blue"
 
+/// purple LED: Integrated circuit component..
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/output/led/purple
 	name = "purple LED"
 	led_color = COLOR_PURPLE
 	color_name = "purple"
 
+/// cyan LED: Integrated circuit component..
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/output/led/cyan
 	name = "cyan LED"
 	led_color = COLOR_CYAN
 	color_name = "cyan"
 
+/// white LED: Integrated circuit component..
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/output/led/white
 	name = "white LED"
 	led_color = COLOR_WHITE
 	color_name = "white"
 
+/// pink LED: Integrated circuit component..
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/output/led/pink
 	name = "pink LED"
 	led_color = COLOR_PINK
 	color_name = "pink"
 
+/// printer: Prints text to paper. If the eject input is enabled, or if the paper is full, the paper is ejected after printing..
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/output/printer
 	name = "printer"
-	desc = "This printer can print text to a sheet of paper. If the eject pin is set or the paper is full of text it will eject the paper after printing"
+	desc = "Prints text to paper. If the eject input is enabled, or if the paper is full, the paper is ejected after printing."
 	icon_state = "screen"
 	inputs = list("printed data" = IC_PINTYPE_ANY, "paper source" = IC_PINTYPE_REF, "eject sheet" = IC_PINTYPE_BOOLEAN)
 	outputs = list()
@@ -403,17 +493,25 @@
 	power_draw_per_use = 200
 	w_class = WEIGHT_CLASS_NORMAL
 	size = 5
+	// Stores `stuff_to_print` state used by this integrated electronics object.
 	var/stuff_to_print = null
 
+/// Implements `disconnect_all` behavior for this integrated electronics type.
 /obj/item/integrated_circuit/output/printer/disconnect_all()
 	..()
 	stuff_to_print = null
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/output/printer/do_work()
+	// Stores `paper_source` state used by this integrated electronics object.
 	var/obj/item/integrated_circuit/insert_slot/paper_tray/paper_source = get_pin_data_as_type(IC_INPUT, 2, /obj/item/)
+	// Stores `paper_sheet` state used by this integrated electronics object.
 	var/obj/item/paper/paper_sheet = null
+	// Stores `eject` state used by this integrated electronics object.
 	var/eject = get_pin_data(IC_INPUT, 3)
+	// Stores `info` state used by this integrated electronics object.
 	var/datum/integrated_io/info = inputs[1]
+	// Stores `using_tray` state used by this integrated electronics object.
 	var/using_tray = istype(paper_source)
 	if(isweakref(info.data))
 		stuff_to_print = "[get_pin_data_as_type(IC_INPUT, 1, /datum/)]"
@@ -439,144 +537,3 @@
 						return
 	else
 		audible_message(SPAN_NOTICE("\The [src] beeps, out of paper."))
-
-/obj/item/integrated_circuit/output/xenoarch_precision_excavator
-	name = "xenoarch precision excavator"
-	desc = "Automatically excavates xenoarch finds using safe depth and clearance math."
-	extended_desc = "Targets the mineral turf in front of the assembly, reads its xenoarch find data, selects the largest safe excavation amount, and performs precise excavation without breaching the clearance zone."
-	icon_state = "mining"
-	complexity = 16
-	power_draw_per_use = 60
-	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
-
-/obj/item/integrated_circuit/output/xenoarch_precision_excavator
-	name = "xenoarch precision excavator"
-	desc = "Automatically excavates xenoarch finds using safe depth and clearance math."
-	extended_desc = "Searches adjacent mineral turfs for a xenoarch find, reads its depth and clearance data, selects the largest safe excavation amount, and performs precise excavation without breaching the clearance zone."
-	icon_state = "mining"
-	complexity = 16
-	power_draw_per_use = 60
-	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
-
-	inputs = list()
-
-	outputs = list(
-		"status" = IC_PINTYPE_STRING,
-		"anomaly depth cm" = IC_PINTYPE_NUMBER,
-		"clearance cm" = IC_PINTYPE_NUMBER,
-		"current depth cm" = IC_PINTYPE_NUMBER,
-		"remaining safe depth cm" = IC_PINTYPE_NUMBER,
-		"excavation amount cm" = IC_PINTYPE_NUMBER,
-		"target direction" = IC_PINTYPE_STRING
-	)
-
-	activators = list(
-		"excavate" = IC_PINTYPE_PULSE_IN,
-		"on excavated" = IC_PINTYPE_PULSE_OUT,
-		"on perfect extraction" = IC_PINTYPE_PULSE_OUT,
-		"on unsafe" = IC_PINTYPE_PULSE_OUT,
-		"on failed" = IC_PINTYPE_PULSE_OUT
-	)
-
-/obj/item/integrated_circuit/output/xenoarch_precision_excavator/proc/find_adjacent_xenoarch_turf()
-	var/turf/current_turf = get_turf(assembly)
-	if(!current_turf)
-		return null
-
-	for(var/check_dir in GLOB.cardinals)
-		var/turf/simulated/mineral/M = get_step(current_turf, check_dir)
-		if(istype(M) && M.finds?.len)
-			set_pin_data(IC_OUTPUT, 7, dir2text(check_dir))
-			return M
-
-	return null
-
-/obj/item/integrated_circuit/output/xenoarch_precision_excavator/do_work()
-	if(!assembly)
-		set_pin_data(IC_OUTPUT, 1, "No assembly.")
-		push_data()
-		activate_pin(5)
-		return
-
-	if(!assembly.draw_power(power_draw_per_use))
-		set_pin_data(IC_OUTPUT, 1, "Insufficient power.")
-		push_data()
-		activate_pin(5)
-		return
-
-	var/turf/simulated/mineral/M = find_adjacent_xenoarch_turf()
-
-	if(!M)
-		set_pin_data(IC_OUTPUT, 1, "No adjacent mineral rock with xenoarch find.")
-		set_pin_data(IC_OUTPUT, 7, "none")
-		push_data()
-		activate_pin(5)
-		return
-
-	var/datum/find/F = M.finds[1]
-	if(!F)
-		set_pin_data(IC_OUTPUT, 1, "Invalid xenoarch find.")
-		set_pin_data(IC_OUTPUT, 7, "none")
-		push_data()
-		activate_pin(5)
-		return
-
-	var/safe_depth = F.excavation_required - F.clearance_range
-	var/remaining_safe = safe_depth - M.excavation_level
-	var/final_amount = F.excavation_required - M.excavation_level
-
-	set_pin_data(IC_OUTPUT, 2, F.excavation_required * 2)
-	set_pin_data(IC_OUTPUT, 3, F.clearance_range * 2)
-	set_pin_data(IC_OUTPUT, 4, M.excavation_level * 2)
-	set_pin_data(IC_OUTPUT, 5, remaining_safe * 2)
-
-	if(remaining_safe < 0)
-		set_pin_data(IC_OUTPUT, 1, "Unsafe: already inside clearance zone.")
-		set_pin_data(IC_OUTPUT, 6, 0)
-		push_data()
-		activate_pin(4)
-		return
-
-	var/excavation_amount = 0
-
-	if(remaining_safe > 0)
-		if(remaining_safe >= 15)
-			excavation_amount = 15
-		else if(remaining_safe >= 6)
-			excavation_amount = 6
-		else if(remaining_safe >= 5)
-			excavation_amount = 5
-		else if(remaining_safe >= 4)
-			excavation_amount = 4
-		else if(remaining_safe >= 3)
-			excavation_amount = 3
-		else if(remaining_safe >= 2)
-			excavation_amount = 2
-		else if(remaining_safe >= 1)
-			excavation_amount = 1
-		else if(remaining_safe >= 0.5)
-			excavation_amount = 0.5
-	else
-		excavation_amount = final_amount
-
-	set_pin_data(IC_OUTPUT, 6, excavation_amount * 2)
-
-	if(excavation_amount <= 0)
-		set_pin_data(IC_OUTPUT, 1, "No valid excavation amount.")
-		push_data()
-		activate_pin(5)
-		return
-
-	var/result = M.ic_precision_excavate(excavation_amount)
-
-	set_pin_data(IC_OUTPUT, 1, result)
-	push_data()
-
-	if(result == "Perfect extraction complete.")
-		activate_pin(2)
-	else if(findtext(result, "Unsafe"))
-		activate_pin(4)
-	else if(result == "Excavation advanced.")
-		activate_pin(1)
-	else
-		activate_pin(5)

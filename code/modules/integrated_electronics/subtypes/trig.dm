@@ -1,4 +1,11 @@
+/*
+ * subtypes/trig.dm
+ * Trigonometry and coordinate math circuits.
+ */
+
 //These circuits do not-so-simple math.
+/// trig: Input and output are in degrees.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/trig
 	complexity = 1
 	inputs = list(
@@ -22,16 +29,21 @@
 
 // Sine //
 
+/// sin circuit: Outputs the sine of A.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/trig/sine
 	name = "sin circuit"
-	desc = "Has nothing to do with evil, unless you consider trigonometry to be evil.  Outputs the sine of A."
+	desc = "Outputs the sine of A."
 	icon_state = "sine"
 	inputs = list("A" = IC_PINTYPE_NUMBER)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/trig/sine/do_work()
 	pull_data()
+	// Stores `result` state used by this integrated electronics object.
 	var/result = null
+	// Stores `A` state used by this integrated electronics object.
 	var/A = get_pin_data(IC_INPUT, 1)
 	if(!isnull(A))
 		result = sin(A)
@@ -42,6 +54,8 @@
 
 // Cosine //
 
+/// cos circuit: Outputs the cosine of A.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/trig/cosine
 	name = "cos circuit"
 	desc = "Outputs the cosine of A."
@@ -49,9 +63,12 @@
 	inputs = list("A" = IC_PINTYPE_NUMBER)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/trig/cosine/do_work()
 	pull_data()
+	// Stores `result` state used by this integrated electronics object.
 	var/result = null
+	// Stores `A` state used by this integrated electronics object.
 	var/A = get_pin_data(IC_INPUT, 1)
 	if(!isnull(A))
 		result = cos(A)
@@ -62,16 +79,21 @@
 
 // Tangent //
 
+/// tan circuit: Outputs the tangent of A. Guaranteed to not go on a tangent about its existence.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/trig/tangent
 	name = "tan circuit"
-	desc = "Outputs the tangent of A.  Guaranteed to not go on a tangent about its existance."
+	desc = "Outputs the tangent of A."
 	icon_state = "tangent"
 	inputs = list("A" = IC_PINTYPE_NUMBER)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/trig/tangent/do_work()
 	pull_data()
+	// Stores `result` state used by this integrated electronics object.
 	var/result = null
+	// Stores `A` state used by this integrated electronics object.
 	var/A = get_pin_data(IC_INPUT, 1)
 	if(!isnull(A))
 		result = Tan(A)
@@ -82,6 +104,8 @@
 
 // Cosecant //
 
+/// csc circuit: Outputs the cosecant of A.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/trig/cosecant
 	name = "csc circuit"
 	desc = "Outputs the cosecant of A."
@@ -89,9 +113,12 @@
 	inputs = list("A" = IC_PINTYPE_NUMBER)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/trig/cosecant/do_work()
 	pull_data()
+	// Stores `result` state used by this integrated electronics object.
 	var/result = null
+	// Stores `A` state used by this integrated electronics object.
 	var/A = get_pin_data(IC_INPUT, 1)
 	if(!isnull(A))
 		result = Csc(A)
@@ -103,16 +130,21 @@
 
 // Secant //
 
+/// sec circuit: Outputs the secant of A.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/trig/secant
 	name = "sec circuit"
-	desc = "Outputs the secant of A.  Has nothing to do with the security department."
+	desc = "Outputs the secant of A."
 	icon_state = "secant"
 	inputs = list("A" = IC_PINTYPE_NUMBER)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/trig/secant/do_work()
 	pull_data()
+	// Stores `result` state used by this integrated electronics object.
 	var/result = null
+	// Stores `A` state used by this integrated electronics object.
 	var/A = get_pin_data(IC_INPUT, 1)
 	if(!isnull(A))
 		result = Sec(A)
@@ -124,6 +156,8 @@
 
 // Cotangent //
 
+/// cot circuit: Outputs the cotangent of A.
+/// Wire inputs, pulse activators, and route outputs according to the pin definitions below.
 /obj/item/integrated_circuit/trig/cotangent
 	name = "cot circuit"
 	desc = "Outputs the cotangent of A."
@@ -131,9 +165,12 @@
 	inputs = list("A" = IC_PINTYPE_NUMBER)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
+/// Performs the circuit operation: pull inputs, compute results, write outputs, and pulse activators as needed.
 /obj/item/integrated_circuit/trig/cotangent/do_work()
 	pull_data()
+	// Stores `result` state used by this integrated electronics object.
 	var/result = null
+	// Stores `A` state used by this integrated electronics object.
 	var/A = get_pin_data(IC_INPUT, 1)
 	if(!isnull(A))
 		result = Cot(A)

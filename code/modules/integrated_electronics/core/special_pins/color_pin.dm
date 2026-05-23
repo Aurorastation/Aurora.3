@@ -1,13 +1,21 @@
+/*
+ * core/special_pins/color_pin.dm
+ * Color pin parsing, validation, and display handling for circuit color values.
+ */
+
 // These pins can only contain a color (in the form of #FFFFFF) or null.
 /datum/integrated_io/color
 	name = "color pin"
 
+/// Implements `ask_for_pin_data` behavior for this integrated electronics type.
 /datum/integrated_io/color/ask_for_pin_data(mob/user)
+	// Stores `new_data` state used by this integrated electronics object.
 	var/new_data = input("Please select a color.","[src] color writing") as null|color
 	if(holder.check_interactivity(user) )
 		to_chat(user, SPAN_NOTICE("You input a <font color='[new_data]'>new color</font> into the pin."))
 		write_data_to_pin(new_data)
 
+/// Implements `write_data_to_pin` behavior for this integrated electronics type.
 /datum/integrated_io/color/write_data_to_pin(new_data)
 	// Since this is storing the color as a string hex color code, we need to make sure it's actually one.
 	if(isnull(new_data) || istext(new_data))
@@ -35,9 +43,11 @@
 	data = new_data
 	push_data()
 
+/// Implements `display_pin_type` behavior for this integrated electronics type.
 /datum/integrated_io/color/display_pin_type()
 	return IC_FORMAT_COLOR
 
+/// Implements `display_data` behavior for this integrated electronics type.
 /datum/integrated_io/color/display_data(input)
 	if(!isnull(data))
 		return "(<font color='[data]'>[data]</font>)"

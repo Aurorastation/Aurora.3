@@ -1,6 +1,13 @@
+/*
+ * core/helpers.dm
+ * Utility procs for integrated electronics, including formatting, data conversion, cloning, list handling, and shared validation.
+ */
+
 /obj/item/integrated_circuit/proc/setup_io(list/io_list, io_type, list/io_default_list)
+	// Stores `io_list_copy` state used by this integrated electronics object.
 	var/list/io_list_copy = io_list.Copy()
 	io_list.Cut()
+	// Stores `i` state used by this integrated electronics object.
 	var/i = 0
 	for(var/io_entry in io_list_copy)
 		i++
@@ -21,39 +28,49 @@
 		else
 			io_list += new io_type(src, io_entry, default_data)
 
+/// Writes a value to one of this circuit's pins.
 /obj/item/integrated_circuit/proc/set_pin_data(pin_type, pin_number, datum/new_data)
 	if(istype(new_data) && !isweakref(new_data))
 		new_data = WEAKREF(new_data)
 
+	// Stores `pin` state used by this integrated electronics object.
 	var/datum/integrated_io/pin = get_pin_ref(pin_type, pin_number)
 	if(!pin)
 		CRASH("Invalid pin ref.")
 	return pin.write_data_to_pin(new_data)
 
+/// Reads a value from one of this circuit's pins.
 /obj/item/integrated_circuit/proc/get_pin_data(pin_type, pin_number, var/resolve_weakrefs = TRUE)
+	// Stores `pin` state used by this integrated electronics object.
 	var/datum/integrated_io/pin = get_pin_ref(pin_type, pin_number)
 	if(!pin)
 		return null
 	return pin.get_data(resolve_weakrefs)
 
+/// Returns the current `pin_data_as_type` value or object used by this electronics code.
 /obj/item/integrated_circuit/proc/get_pin_data_as_type(pin_type, pin_number, as_type)
+	// Stores `pin` state used by this integrated electronics object.
 	var/datum/integrated_io/pin = get_pin_ref(pin_type, pin_number)
 	if(!pin)
 		return null
 	return pin.data_as_type(as_type)
 
+/// Pulses an activator pin so downstream circuits can react.
 /obj/item/integrated_circuit/proc/activate_pin(pin_number)
+	// Stores `A` state used by this integrated electronics object.
 	var/datum/integrated_io/activate/A = activators[pin_number]
 	if(!A)
 		return FALSE
 	A.push_data(pin_number)
 	return TRUE
 
+/// Returns the current `data` value or object used by this electronics code.
 /datum/integrated_io/proc/get_data(var/resolve_weakrefs = TRUE)
 	if(resolve_weakrefs && isweakref(data))
 		return data.resolve()
 	return data
 
+/// Returns the current `pin_ref` value or object used by this electronics code.
 /obj/item/integrated_circuit/proc/get_pin_ref(pin_type, pin_number)
 	if(!pin_number || pin_number < 1)
 		return null
@@ -74,6 +91,7 @@
 
 	return null
 
+/// Implements `handle_wire` behavior for this integrated electronics type.
 /obj/item/integrated_circuit/proc/handle_wire(datum/integrated_io/pin, obj/item/integrated_electronics/tool)
 	if(!pin || !tool)
 		return FALSE
@@ -90,6 +108,7 @@
 
 	return FALSE
 
+/// Implements `XorEncrypt` behavior for this integrated electronics type.
 /proc/XorEncrypt(string, key)
 	if(!string || !key || !istext(string) || !istext(key))
 		return null
@@ -108,15 +127,19 @@
 /proc/ic_is_null(value)
 	return isnull(value)
 
+/// Implements `ic_is_text` behavior for this integrated electronics type.
 /proc/ic_is_text(value)
 	return istext(value)
 
+/// Implements `ic_is_number` behavior for this integrated electronics type.
 /proc/ic_is_number(value)
 	return isnum(value)
 
+/// Implements `ic_is_list` behavior for this integrated electronics type.
 /proc/ic_is_list(value)
 	return islist(value)
 
+/// Implements `ic_is_ref` behavior for this integrated electronics type.
 /proc/ic_is_ref(value)
 	if(isweakref(value))
 		return TRUE
@@ -124,6 +147,7 @@
 		return TRUE
 	return FALSE
 
+/// Implements `ic_truthy` behavior for this integrated electronics type.
 /proc/ic_truthy(value)
 	if(isnull(value))
 		return FALSE
@@ -140,6 +164,7 @@
 
 	return TRUE
 
+/// Implements `ic_falsey` behavior for this integrated electronics type.
 /proc/ic_falsey(value)
 	return !ic_truthy(value)
 
@@ -173,9 +198,11 @@
 
 	return "[value]"
 
+/// Implements `ic_safe_bool` behavior for this integrated electronics type.
 /proc/ic_safe_bool(value)
 	return ic_truthy(value)
 
+/// Implements `ic_display_value` behavior for this integrated electronics type.
 /proc/ic_display_value(value)
 	if(isnull(value))
 		return "null"
@@ -199,6 +226,7 @@
 
 	return "[value]"
 
+/// Implements `ic_type_text` behavior for this integrated electronics type.
 /proc/ic_type_text(value)
 	if(isnull(value))
 		return "null"
@@ -235,6 +263,7 @@
 		return list()
 
 	var/list/output = list()
+	// Stores `split_values` state used by this integrated electronics object.
 	var/list/split_values = splittext(text, separator)
 
 	for(var/entry in split_values)
@@ -242,12 +271,14 @@
 
 	return output
 
+/// Implements `ic_copy_list` behavior for this integrated electronics type.
 /proc/ic_copy_list(list/L)
 	if(!islist(L))
 		return list()
 
 	return L.Copy()
 
+/// Implements `ic_filter_nulls` behavior for this integrated electronics type.
 /proc/ic_filter_nulls(list/L)
 	if(!islist(L))
 		return list()
@@ -259,19 +290,23 @@
 
 	return output
 
+/// Implements `ic_list_contains` behavior for this integrated electronics type.
 /proc/ic_list_contains(list/L, value)
 	if(!islist(L))
 		return FALSE
 
 	return L.Find(value) ? TRUE : FALSE
 
+/// Implements `ic_list_length` behavior for this integrated electronics type.
 /proc/ic_list_length(list/L)
 	if(!islist(L))
 		return 0
 
 	return L.len
 
+/// Implements `ic_clamp_number` behavior for this integrated electronics type.
 /proc/ic_clamp_number(value, minimum, maximum)
+	// Stores `number` state used by this integrated electronics object.
 	var/number = ic_safe_number(value, minimum)
 
 	if(number < minimum)
@@ -282,8 +317,11 @@
 
 	return number
 
+/// Implements `ic_percent` behavior for this integrated electronics type.
 /proc/ic_percent(value, maximum)
+	// Stores `number` state used by this integrated electronics object.
 	var/number = ic_safe_number(value, 0)
+	// Stores `max_number` state used by this integrated electronics object.
 	var/max_number = ic_safe_number(maximum, 0)
 
 	if(max_number <= 0)
@@ -291,7 +329,9 @@
 
 	return (number / max_number) * 100
 
+/// Implements `ic_range_check` behavior for this integrated electronics type.
 /proc/ic_range_check(value, minimum, maximum)
+	// Stores `number` state used by this integrated electronics object.
 	var/number = ic_safe_number(value, 0)
 
 	if(number < minimum)
@@ -302,7 +342,9 @@
 
 	return 0
 
+/// Implements `ic_range_text` behavior for this integrated electronics type.
 /proc/ic_range_text(value, minimum, maximum)
+	// Stores `range_result` state used by this integrated electronics object.
 	var/range_result = ic_range_check(value, minimum, maximum)
 
 	if(range_result < 0)
@@ -313,15 +355,19 @@
 
 	return "normal"
 
+/// Implements `ic_format_status` behavior for this integrated electronics type.
 /proc/ic_format_status(label, value)
 	return "[ic_safe_text(label, "Status")]: [ic_display_value(value)]"
 
+/// Implements `ic_format_warning` behavior for this integrated electronics type.
 /proc/ic_format_warning(label, value)
 	return "WARNING: [ic_safe_text(label, "Value")] [ic_display_value(value)]"
 
+/// Implements `ic_format_error` behavior for this integrated electronics type.
 /proc/ic_format_error(label, value)
 	return "ERROR: [ic_safe_text(label, "Value")] [ic_display_value(value)]"
 
+/// Implements `ic_join_lines` behavior for this integrated electronics type.
 /proc/ic_join_lines(list/L)
 	if(!islist(L))
 		return ""
@@ -334,6 +380,7 @@
 
 	return jointext(output, "\n")
 
+/// Implements `ic_make_saveable_value` behavior for this integrated electronics type.
 /proc/ic_make_saveable_value(value)
 	if(isnull(value) || isnum(value) || istext(value))
 		return value
@@ -356,7 +403,9 @@
 
 	return "[value]"
 
+/// Implements `ic_sanitize_template_value` behavior for this integrated electronics type.
 /proc/ic_sanitize_template_value(value)
+	// Stores `text_value` state used by this integrated electronics object.
 	var/text_value = ic_display_value(value)
 	text_value = replacetext(text_value, "\n", " ")
 	text_value = replacetext(text_value, ascii2text(13), " ")
@@ -389,6 +438,7 @@
 
 	return L[number_index]
 
+/// Implements `ic_set_nested_list_value` behavior for this integrated electronics type.
 /proc/ic_set_nested_list_value(list/L, index, value)
 	if(!islist(L))
 		return list()
@@ -404,6 +454,7 @@
 	L[number_index] = value
 	return L
 
+/// Implements `ic_number_or_null` behavior for this integrated electronics type.
 /proc/ic_number_or_null(value)
 	if(isnum(value))
 		return value
@@ -415,8 +466,11 @@
 
 	return null
 
+/// Implements `ic_add_numbers` behavior for this integrated electronics type.
 /proc/ic_add_numbers(value_1, value_2)
+	// Stores `A` state used by this integrated electronics object.
 	var/A = ic_number_or_null(value_1)
+	// Stores `B` state used by this integrated electronics object.
 	var/B = ic_number_or_null(value_2)
 
 	if(isnull(A) || isnull(B))
@@ -424,8 +478,11 @@
 
 	return A + B
 
+/// Implements `ic_subtract_numbers` behavior for this integrated electronics type.
 /proc/ic_subtract_numbers(value_1, value_2)
+	// Stores `A` state used by this integrated electronics object.
 	var/A = ic_number_or_null(value_1)
+	// Stores `B` state used by this integrated electronics object.
 	var/B = ic_number_or_null(value_2)
 
 	if(isnull(A) || isnull(B))
@@ -433,8 +490,11 @@
 
 	return A - B
 
+/// Implements `ic_multiply_numbers` behavior for this integrated electronics type.
 /proc/ic_multiply_numbers(value_1, value_2)
+	// Stores `A` state used by this integrated electronics object.
 	var/A = ic_number_or_null(value_1)
+	// Stores `B` state used by this integrated electronics object.
 	var/B = ic_number_or_null(value_2)
 
 	if(isnull(A) || isnull(B))
@@ -442,8 +502,11 @@
 
 	return A * B
 
+/// Implements `ic_divide_numbers` behavior for this integrated electronics type.
 /proc/ic_divide_numbers(value_1, value_2)
+	// Stores `A` state used by this integrated electronics object.
 	var/A = ic_number_or_null(value_1)
+	// Stores `B` state used by this integrated electronics object.
 	var/B = ic_number_or_null(value_2)
 
 	if(isnull(A) || isnull(B) || B == 0)
