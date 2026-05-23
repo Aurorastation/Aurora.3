@@ -225,3 +225,10 @@
   - bugfix: Fixed a very expensive (lags the server during ship combat) runtime error
       related to ship sensors.
   - rscadd: Added a UI indicator for Morale modifiers.
+2026-05-23:
+  Batrachophrenoboocosmomachia:
+  - balance: Decreases size of Dosimeter from Normal to Small.
+  - balance: Decreases size of Bomb Defusal Wirecutters and Music Cartridge from Small
+      to Tiny.
+  - balance: Increases size of Airlock Electronics from Tiny to Small (matches other
+      circuitboards).
