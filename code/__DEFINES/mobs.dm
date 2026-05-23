@@ -272,19 +272,19 @@
 #define MAX_SUPPLIED_LAW_NUMBER 50
 
 //default item on-mob icons
-#define INV_HEAD_DEF_ICON			'icons/mob/head.dmi'
-#define INV_BACK_DEF_ICON			'icons/mob/back.dmi'
+#define INV_HEAD_DEF_ICON			'icons/mob/clothing/head/head.dmi'
+#define INV_BACK_DEF_ICON			'icons/mob/clothing/back/back.dmi'
 #define INV_L_HAND_DEF_ICON			'icons/mob/items/lefthand.dmi'
 #define INV_R_HAND_DEF_ICON			'icons/mob/items/righthand.dmi'
-#define INV_W_UNIFORM_DEF_ICON		'icons/mob/uniform.dmi'
-#define INV_ACCESSORIES_DEF_ICON	'icons/mob/ties.dmi'
-#define INV_BELT_DEF_ICON 			'icons/mob/belt.dmi'
-#define INV_SUIT_DEF_ICON			'icons/mob/suit.dmi'
-#define INV_L_EAR_DEF_ICON			'icons/mob/l_ear.dmi'
-#define INV_R_EAR_DEF_ICON			'icons/mob/r_ear.dmi'
-#define INV_SHOES_DEF_ICON			'icons/mob/feet.dmi'
-#define INV_WRISTS_DEF_ICON			'icons/mob/wrist.dmi'
-#define INV_PANTS_DEF_ICON			'icons/mob/pants.dmi'
+#define INV_W_UNIFORM_DEF_ICON		'icons/mob/clothing/under/uniform.dmi'
+#define INV_ACCESSORIES_DEF_ICON	'icons/mob/clothing/accessory/ties.dmi'
+#define INV_BELT_DEF_ICON 			'icons/mob/clothing/belts/belt.dmi'
+#define INV_SUIT_DEF_ICON			'icons/mob/clothing/suit/suit.dmi'
+#define INV_L_EAR_DEF_ICON			'icons/mob/clothing/ears/l_ear.dmi'
+#define INV_R_EAR_DEF_ICON			'icons/mob/clothing/ears/r_ear.dmi'
+#define INV_SHOES_DEF_ICON			'icons/mob/clothing/shoes/feet.dmi'
+#define INV_WRISTS_DEF_ICON			'icons/mob/clothing/wrists/wrist.dmi'
+#define INV_PANTS_DEF_ICON			'icons/mob/clothing/pants/pants.dmi'
 
 // IPC tags
 #define IPC_OWNERSHIP_SELF	  "Self Owned"

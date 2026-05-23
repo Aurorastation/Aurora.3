@@ -582,7 +582,7 @@
 	name = "quartermaster's cloak"
 	desc = "An elaborate brown and gold cloak."
 	icon = 'icons/mob/clothing/ties.dmi'
-	icon_override = 'icons/mob/ties.dmi'
+	icon_override = 'icons/mob/clothing/accessory/ties.dmi'
 	icon_state = "qmcloak"
 	item_state = "qmcloak"
 	contained_sprite = FALSE
@@ -682,8 +682,8 @@
 	name = "shoulder cape"
 	desc = "A simple shoulder cape."
 	desc_extended = "In Skrellian tradition, the length of cape typically signifies experience in various fields."
-	icon = 'icons/mob/clothing/ties.dmi'
-	icon_override = 'icons/mob/ties.dmi'
+	icon = 'icons/mob/clothing/accessory/ties.dmi'
+	icon_override = 'icons/mob/clothing/accessory/ties.dmi'
 	icon_state = "starcape"
 	item_state = "starcape"
 	flippable = TRUE
@@ -761,8 +761,8 @@
 /obj/item/clothing/accessory/poncho/trinary
 	name = "trinary perfection cape"
 	desc = "A brilliant red and brown cape, commonly worn by those who serve the Trinary Perfection."
-	icon = 'icons/mob/clothing/ties.dmi'
-	icon_override = 'icons/mob/ties.dmi'
+	icon = 'icons/mob/clothing/accessory/ties.dmi'
+	icon_override = 'icons/mob/clothing/accessory/ties.dmi'
 	icon_state = "trinary_cape"
 	item_state = "trinary_cape"
 	overlay_state = "trinary_cape"
