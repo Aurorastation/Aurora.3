@@ -43,17 +43,21 @@
 /obj/item/clothing/accessory/legion/specialist
 	name = "specialist medallion"
 	desc = "Two small medallions, one worn on the shoulder and the other worn on the chest. Meant to display the rank of specialist troops in the Tau Ceti Armed Forces."
+	icon = 'icons/mob/clothing/accessory/specialist_medallion.dmi'
 	icon_state = "specialist_medallion"
 	item_state = "specialist_medallion"
 	overlay_state = "specialist_medallion"
+	contained_sprite = TRUE
 
 // For any legionnaires with significant authority, including officers.
 /obj/item/clothing/accessory/legion
 	name = "seniority ribbons"
 	desc = "A ribbon meant to attach to the chest and sling around the shoulder accompanied by two medallions, marking seniority in the Tau Ceti Armed Forces."
+	icon = 'icons/mob/clothing/accessory/senior_ribbon.dmi'
 	icon_state = "senior_ribbon"
 	item_state = "senior_ribbon"
 	overlay_state = "senior_ribbon"
+	contained_sprite = TRUE
 	slot = ACCESSORY_SLOT_CAPE
 	flippable = TRUE
 

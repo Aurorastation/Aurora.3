@@ -126,8 +126,10 @@
 /obj/item/clothing/accessory/storage/overalls
 	name = "overalls"
 	desc = "Heavy-duty overalls for use on the work site, with plenty of convenient pockets to boot."
+	icon = 'icons/mob/clothing/accessory/overalls.dmi'
 	icon_state = "mining_overalls"
 	overlay_state = "mining_overalls"
+	contained_sprite = TRUE
 	slots = 5
 
 /obj/item/clothing/accessory/storage/overalls/mining
@@ -183,7 +185,9 @@
 /obj/item/clothing/accessory/storage/knifeharness
 	name = "decorated harness"
 	desc = "A heavily decorated harness of sinew and leather with two knife-loops."
+	icon = 'icons/mob/clothing/accessory/unathi_harness.dmi'
 	icon_state = "unathiharness2"
+	contained_sprite = TRUE
 	slots = 2
 
 /obj/item/clothing/accessory/storage/knifeharness/Initialize()
@@ -219,8 +223,10 @@
 /obj/item/clothing/accessory/storage/bandolier
 	name = "bandolier"
 	desc = "A pocketed belt designated to hold shotgun shells."
+	icon = 'icons/mob/clothing/accessory/bandolier.dmi'
 	icon_state = "bandolier"
 	item_state = "bandolier"
+	contained_sprite = TRUE
 	slots = 16
 
 /obj/item/clothing/accessory/storage/bandolier/Initialize()

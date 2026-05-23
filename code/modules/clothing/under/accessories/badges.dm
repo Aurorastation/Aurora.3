@@ -7,9 +7,11 @@
 /obj/item/clothing/accessory/badge
 	name = "badge"
 	desc = "A corporate security badge, made from gold and set on false leather."
+	icon = 'icons/mob/clothing/accessory/badges.dmi'
 	icon_state = "badge"
 	item_state = "marshalbadge"
 	overlay_state = "marshalbadge"
+	contained_sprite = TRUE
 	slot_flags = SLOT_BELT | SLOT_TIE
 
 	var/stored_name
@@ -284,6 +286,7 @@
 /obj/item/clothing/accessory/badge/trinary
 	name = "trinary perfection brooch"
 	desc = "A metal brooch worn by those who serve or follow the beliefs of the Trinary Perfection. It resembles a gear with a triangle inside."
+	icon = 'icons/mob/clothing/accessory/badges.dmi'
 	icon_state = "trinary_badge"
 	overlay_state = "trinary_badge"
 	badge_string = null
