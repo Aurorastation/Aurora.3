@@ -32,6 +32,7 @@
 #include "code\__DEFINES\access.dm"
 #include "code\__DEFINES\accessories.dm"
 #include "code\__DEFINES\admin.dm"
+#include "code\__DEFINES\airlocks.dm"
 #include "code\__DEFINES\antagonist.dm"
 #include "code\__DEFINES\armor.dm"
 #include "code\__DEFINES\assemblies.dm"
