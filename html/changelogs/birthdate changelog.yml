@@ -1,0 +1,9 @@
+author: mineymonkey
+delete-after: True
+
+changes:
+  - rscadd: "Added an optional character birthdate preference using YYYY-MM-DD format."
+  - qol: "Characters with a saved birthdate now have their age automatically calculated from their birthdate."
+  - qol: "Manually setting character age now clears the saved birthdate to prevent conflicting age values."
+  - backend: "Added birthdate save/load support for character preferences."
+  - backend: "Added birthdate SQL persistence support for character records."

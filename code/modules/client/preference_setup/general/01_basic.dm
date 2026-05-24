@@ -7,6 +7,7 @@
 	S["gender"]     >> pref.gender
 	S["pronouns"]   >> pref.pronouns
 	S["age"]        >> pref.age
+	S["birthdate"]  >> pref.birthdate
 	S["species"]    >> pref.species
 	S["height"]		>> pref.height
 	S["spawnpoint"] >> pref.spawnpoint
@@ -25,6 +26,7 @@
 	S["gender"]     << pref.gender
 	S["pronouns"]   << pref.pronouns
 	S["age"]        << pref.age
+	S["birthdate"]  << pref.birthdate
 	S["species"]    << pref.species
 	S["height"]		<< pref.height
 	S["spawnpoint"] << pref.spawnpoint
@@ -48,6 +50,7 @@
 				"gender",
 				"pronouns",
 				"age",
+				"birthdate",
 				"metadata",
 				"spawnpoint",
 				"species",
@@ -83,6 +86,7 @@
 			"gender",
 			"pronouns",
 			"age",
+			"birthdate",
 			"metadata",
 			"spawnpoint",
 			"species",
@@ -107,6 +111,7 @@
 		"gender" = pref.gender,
 		"pronouns" = pref.pronouns,
 		"age" = pref.age,
+		"birthdate" = pref.birthdate,
 		"metadata" = pref.metadata,
 		"spawnpoint" = pref.spawnpoint,
 		"species" = pref.species,
@@ -154,6 +159,12 @@
 		pref.species = SPECIES_HUMAN
 
 	pref.height		= sanitize_integer(text2num(pref.height), pref.getMinHeight(), pref.getMaxHeight(), 170)
+	if(pref.birthdate)
+		var/calculated_age = birthdate_to_age(pref.birthdate)
+		if(!isnull(calculated_age))
+			pref.age = calculated_age
+		else
+			pref.birthdate = null
 	pref.age                = sanitize_integer(text2num(pref.age), pref.getMinAge(), pref.getMaxAge(), initial(pref.age))
 	pref.gender             = sanitize_gender(pref.gender, pref.species)
 	pref.pronouns           = sanitize_pronouns(pref.pronouns, pref.species, pref.gender)
@@ -185,6 +196,7 @@
 	if(length(S.selectable_pronouns))
 		dat += "<b>Pronouns:</b> <a href='byond://?src=[REF(src)];pronouns=1'><b>[capitalize_first_letters(pref.pronouns)]</b></a><br>"
 	dat += "<b>Age:</b> <a href='byond://?src=[REF(src)];age=1'>[pref.age]</a><br>"
+	dat += "<b>Birthdate:</b> <a href='byond://?src=[REF(src)];birthdate=1'>[pref.birthdate ? pref.birthdate : "Unset"]</a><br>"
 	dat += "<b>Height:</b> <a href='byond://?src=[REF(src)];height=1'>[pref.height]</a><br>"
 	dat += "<b>Spawn Point</b>: <a href='byond://?src=[REF(src)];spawnpoint=1'>[pref.spawnpoint]</a><br>"
 	dat += "<b>Floating Chat Color:</b> <a href='byond://?src=[REF(src)];select_floating_chat_color=1'><b>[pref.floating_chat_color]</b></a><br>"
@@ -293,7 +305,24 @@
 	else if(href_list["age"])
 		var/new_age = input(user, "Choose your character's age:\n([pref.getMinAge()]-[pref.getMaxAge()])", "Character Preference", pref.age) as num|null
 		if(new_age && CanUseTopic(user))
-			pref.age = max(min(round(text2num(new_age)),  pref.getMaxAge()),pref.getMinAge())
+			pref.birthdate = null
+			pref.age = max(min(round(new_age), pref.getMaxAge()), pref.getMinAge())
+			return TOPIC_REFRESH
+
+	else if(href_list["birthdate"])
+		var/new_birthdate = input(user, "Choose your character's birthdate in YYYY-MM-DD format:", "Character Preference", pref.birthdate) as text|null
+		if(new_birthdate && CanUseTopic(user))
+			var/calculated_age = birthdate_to_age(new_birthdate)
+			if(isnull(calculated_age))
+				to_chat(user, SPAN_WARNING("Invalid birthdate. Use YYYY-MM-DD."))
+				return TOPIC_REFRESH
+
+			if(calculated_age < pref.getMinAge() || calculated_age > pref.getMaxAge())
+				to_chat(user, SPAN_WARNING("That birthdate gives an age outside the allowed range: [pref.getMinAge()]-[pref.getMaxAge()]."))
+				return TOPIC_REFRESH
+
+			pref.birthdate = new_birthdate
+			pref.age = calculated_age
 			return TOPIC_REFRESH
 
 	else if(href_list["height"])

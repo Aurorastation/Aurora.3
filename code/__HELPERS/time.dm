@@ -224,3 +224,33 @@ var/real_round_start_time
 	var/adhomian_month = text2num(time2text(world.time, "MM"))
 	adhomian_month = Ceiling(adhomian_month/3)
 	return "[tajaran_year()]-[adhomian_month]-[tajaran_date()]"
+
+/**
+ * Allows calculating birthdate to current day for AGE conversion
+ */
+/proc/birthdate_to_age(birthdate)
+	if(!birthdate || length(birthdate) !=10)
+		return null
+	if(copytext(birthdate, 5, 6) != "-" || copytext(birthdate, 8, 9) != "-")
+		return null
+
+	var/year = text2num(copytext(birthdate, 1, 5))
+	var/month = text2num(copytext(birthdate, 6, 8))
+	var/day = text2num(copytext(birthdate, 9, 11))
+
+	if(!year || !month || !day)
+		return null
+	if(month <1 || month > 12)
+		return null
+	if(day <1 || day >31)
+		return null
+
+	var/current_month = text2num(time2text(world.realtime, "MM"))
+	var/current_day = text2num(time2text(world.realtime, "DD"))
+
+	var/age = GLOB.game_year - year
+
+	if(current_month < month || (current_month == month && current_day <day))
+		age--
+
+	return age
