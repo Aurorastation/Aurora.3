@@ -28,6 +28,7 @@
 	RegisterSignal(parent, COMSIG_PSI_MIND_POWER, PROC_REF(cancel_power), override = TRUE)
 	RegisterSignal(parent, COMSIG_GET_MINISTRY_MODIFIERS, PROC_REF(modify_ministry_empathy), override = TRUE)
 	RegisterSignal(parent, COMSIG_RECEIVE_MINISTRY_MODIFIERS, PROC_REF(modify_ministry_receiving), override = TRUE)
+	RegisterSignal(parent, COMSIG_GET_LEADERSHIP_MODIFIERS, PROC_REF(modify_leadership_empathy), override = TRUE)
 
 /datum/component/timed_life/psiblock_drugs/Destroy()
 	owner = null
@@ -43,6 +44,7 @@
 	UnregisterSignal(parent, COMSIG_PSI_MIND_POWER)
 	UnregisterSignal(parent, COMSIG_GET_MINISTRY_MODIFIERS)
 	UnregisterSignal(parent, COMSIG_RECEIVE_MINISTRY_MODIFIERS)
+	UnregisterSignal(parent, COMSIG_GET_LEADERSHIP_MODIFIERS)
 	return ..()
 
 /datum/component/timed_life/psiblock_drugs/proc/modify_sensitivity(parent, effective_sensitivity)
@@ -70,6 +72,15 @@
 
 	to_chat(ministree, SPAN_BAD("You feel nothing from [minister]'s words."))
 	*moodlet_value = 0
+
+/datum/component/timed_life/psiblock_drugs/proc/modify_leadership_empathy(leader, moodlet_value)
+	SIGNAL_HANDLER
+	if (!(*moodlet_value))
+		return
+
+	to_chat(leader, SPAN_BAD("Why should you care about how others feel?"))
+	*moodlet_value = 0
+
 
 /datum/component/timed_life/psiblock_drugs/process(seconds_per_tick)
 	. = ..()

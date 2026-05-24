@@ -16,6 +16,7 @@
 	RegisterSignal(owner, COMSIG_PSI_CHECK_SENSITIVITY, PROC_REF(modify_sensitivity), override = TRUE)
 	RegisterSignal(owner, COMSIG_GET_MINISTRY_MODIFIERS, PROC_REF(modify_ministry_empathy), override = TRUE)
 	RegisterSignal(owner, COMSIG_RECEIVE_MINISTRY_MODIFIERS, PROC_REF(modify_ministry_receiving), override = TRUE)
+	RegisterSignal(owner, COMSIG_GET_LEADERSHIP_MODIFIERS, PROC_REF(modify_leadership_empathy), override = TRUE)
 
 /obj/item/organ/internal/augment/bioaug/mind_blanker/replaced()
 	. = ..()
@@ -26,6 +27,7 @@
 	RegisterSignal(owner, COMSIG_PSI_CHECK_SENSITIVITY, PROC_REF(modify_sensitivity), override = TRUE)
 	RegisterSignal(owner, COMSIG_GET_MINISTRY_MODIFIERS, PROC_REF(modify_ministry_empathy), override = TRUE)
 	RegisterSignal(owner, COMSIG_RECEIVE_MINISTRY_MODIFIERS, PROC_REF(modify_ministry_receiving), override = TRUE)
+	RegisterSignal(owner, COMSIG_GET_LEADERSHIP_MODIFIERS, PROC_REF(modify_leadership_empathy), override = TRUE)
 
 /obj/item/organ/internal/augment/bioaug/mind_blanker/removed()
 	if(!owner)
@@ -35,6 +37,7 @@
 	UnregisterSignal(owner, COMSIG_PSI_CHECK_SENSITIVITY)
 	UnregisterSignal(owner, COMSIG_GET_MINISTRY_MODIFIERS)
 	UnregisterSignal(owner, COMSIG_RECEIVE_MINISTRY_MODIFIERS)
+	UnregisterSignal(owner, COMSIG_GET_LEADERSHIP_MODIFIERS)
 	return ..()
 
 /obj/item/organ/internal/augment/bioaug/mind_blanker/proc/cancel_power(implantee, caster, cancelled, cancel_return, wide_field)
@@ -69,6 +72,14 @@
 		return
 
 	to_chat(ministree, SPAN_BAD("You feel nothing from [minister]'s words."))
+	*moodlet_value = 0
+
+/obj/item/organ/internal/augment/bioaug/mind_blanker/proc/modify_leadership_empathy(leader, moodlet_value)
+	SIGNAL_HANDLER
+	if (!(*moodlet_value))
+		return
+
+	to_chat(leader, SPAN_BAD("Why should you care about how others feel?"))
 	*moodlet_value = 0
 
 /obj/item/organ/internal/augment/bioaug/mind_blanker_lethal
