@@ -121,7 +121,7 @@
 			play_elevator_animation(TRUE) // returning to CC, play the animation after elevator physically leaves
 
 		//wait ETA here.
-		arrive_time = world.time + SScargo.movetime
+		arrive_time = launch_estimate()
 		while (world.time <= arrive_time)
 			sleep(5)
 
@@ -154,10 +154,22 @@
 /datum/shuttle/autodock/ferry/supply/proc/idle()
 	return (moving_status == SHUTTLE_IDLE)
 
-//returns the ETA in seconds
+/// returns the ETA in seconds
 /datum/shuttle/autodock/ferry/supply/proc/eta_seconds()
 	var/ticksleft = arrive_time - world.time
-	return round(ticksleft/10,1)
+	if(ticksleft > 0)
+		return "[round(ticksleft/10,1)] seconds"
+	else
+		return "soon."
+
+/// Gets the cargo moving time
+/datum/shuttle/autodock/ferry/supply/proc/launch_estimate(var/in_seconds = FALSE)
+	var/time = world.time + SScargo.movetime
+	if(in_seconds)
+		time = time - world.time
+		return round(time/10,1)
+	else
+		return time
 
 /**************************
 	Elevator Animations
