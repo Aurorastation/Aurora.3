@@ -1,0 +1,6 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed carts to no longer make noise when they don't move, such as trying to push them past a wall."
