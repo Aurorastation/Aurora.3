@@ -54,7 +54,7 @@
 /// Clinical white light bulbs
 #define LIGHT_COLOR_BULB_WHITE		"#FEFEFE"
 /// Grimier off-white.
-#define LIGHT_COLOR_OFFWHITE		"#f9d2bd"
+#define LIGHT_COLOR_OFFWHITE		"#efd8bb"
 /// Warm yellowish light bulbs
 #define LIGHT_COLOR_WARM			"#efeebb"
 /// Amberish decayed light bulbs
