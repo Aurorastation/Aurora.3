@@ -226,31 +226,138 @@ var/real_round_start_time
 	return "[tajaran_year()]-[adhomian_month]-[tajaran_date()]"
 
 /**
- * Allows calculating birthdate to current day for AGE conversion
+ * Returns TRUE if the provided year/month/day form a valid birthdate.
+ * Allows signed years so ancient species can have birth years before year 1.
+ */
+/proc/is_valid_birthdate(year, month, day)
+	if(!isnum(year) || !isnum(month) || !isnum(day))
+		return FALSE
+
+	if(month < 1 || month > 12)
+		return FALSE
+
+	var/list/days_in_month = list(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31)
+	var/max_day = days_in_month[month]
+
+	if(month == 2 && isLeap(year))
+		max_day = 29
+
+	return day >= 1 && day <= max_day
+
+/**
+ * Formats a year/month/day into a stored birthdate string.
+ * Positive year example: 2440-01-01
+ * Negative year example: -27532-01-01
+ */
+/proc/format_birthdate(year, month, day)
+	var/month_text = month < 10 ? "0[month]" : "[month]"
+	var/day_text = day < 10 ? "0[day]" : "[day]"
+
+	return "[year]-[month_text]-[day_text]"
+
+/**
+ * Parses a stored birthdate string into list("year", "month", "day").
+ * Supports both YYYY-MM-DD and signed negative years like -27532-01-01.
+ */
+/proc/parse_birthdate(birthdate)
+	if(!birthdate)
+		return null
+
+	var/first_dash = findtext(birthdate, "-", 2)
+	if(!first_dash)
+		return null
+
+	var/second_dash = findtext(birthdate, "-", first_dash + 1)
+	if(!second_dash)
+		return null
+
+	var/year = text2num(copytext(birthdate, 1, first_dash))
+	var/month = text2num(copytext(birthdate, first_dash + 1, second_dash))
+	var/day = text2num(copytext(birthdate, second_dash + 1))
+
+	if(isnull(year) || isnull(month) || isnull(day))
+		return null
+
+	if(!is_valid_birthdate(year, month, day))
+		return null
+
+	return list(
+		"year" = year,
+		"month" = month,
+		"day" = day
+	)
+
+/**
+ * Formats a stored birthdate for player-facing display.
+ * Negative stored years are shown as BCE while storage remains signed numeric.
+ */
+/proc/display_birthdate(birthdate)
+	var/list/parsed_birthdate = parse_birthdate(birthdate)
+	if(!parsed_birthdate)
+		return birthdate
+
+	var/year = parsed_birthdate["year"]
+	var/month = parsed_birthdate["month"]
+	var/day = parsed_birthdate["day"]
+
+	var/month_text = month < 10 ? "0[month]" : "[month]"
+	var/day_text = day < 10 ? "0[day]" : "[day]"
+
+	if(year < 0)
+		return "[abs(year)] BCE-[month_text]-[day_text]"
+
+	return "[year]-[month_text]-[day_text]"
+
+/**
+ * Converts an existing numeric age into a fallback birthdate.
+ * Used for migration from legacy age-only characters.
+ */
+/proc/birthdate_from_age(age)
+	age = text2num(age)
+	if(!age)
+		age = 30
+
+	return format_birthdate(GLOB.game_year - age, 1, 1)
+
+/**
+ * Calculates current character age from a stored birthdate.
  */
 /proc/birthdate_to_age(birthdate)
-	if(!birthdate || length(birthdate) !=10)
-		return null
-	if(copytext(birthdate, 5, 6) != "-" || copytext(birthdate, 8, 9) != "-")
-		return null
-
-	var/year = text2num(copytext(birthdate, 1, 5))
-	var/month = text2num(copytext(birthdate, 6, 8))
-	var/day = text2num(copytext(birthdate, 9, 11))
-
-	if(!year || !month || !day)
-		return null
-	if(month <1 || month > 12)
-		return null
-	if(day <1 || day >31)
+	var/list/parsed_birthdate = parse_birthdate(birthdate)
+	if(!parsed_birthdate)
 		return null
 
-	var/current_month = text2num(time2text(world.realtime, "MM"))
-	var/current_day = text2num(time2text(world.realtime, "DD"))
+	var/year = parsed_birthdate["year"]
+	var/month = parsed_birthdate["month"]
+	var/day = parsed_birthdate["day"]
+
+	var/current_month = text2num(time2text(world.timeofday, "MM"))
+	var/current_day = text2num(time2text(world.timeofday, "DD"))
 
 	var/age = GLOB.game_year - year
 
-	if(current_month < month || (current_month == month && current_day <day))
+	if(current_month < month || (current_month == month && current_day < day))
 		age--
 
 	return age
+/**
+ * Shifts a stored birthdate by a number of years while preserving month/day when possible.
+ * If the target year cannot support the original day, such as February 29 on a non-leap year,
+ * the day is reduced until the date is valid.
+ */
+/proc/shift_birthdate_year(birthdate, year_shift)
+	var/list/parsed_birthdate = parse_birthdate(birthdate)
+	if(!parsed_birthdate)
+		return null
+
+	var/year = parsed_birthdate["year"] + year_shift
+	var/month = parsed_birthdate["month"]
+	var/day = parsed_birthdate["day"]
+
+	while(day > 1 && !is_valid_birthdate(year, month, day))
+		day--
+
+	if(!is_valid_birthdate(year, month, day))
+		return null
+
+	return format_birthdate(year, month, day)
