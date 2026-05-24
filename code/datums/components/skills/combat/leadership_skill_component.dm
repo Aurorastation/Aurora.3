@@ -4,6 +4,7 @@
 /datum/moodlet/leadership
 	moodlet_descriptor = SPAN_GOOD("Listened to an encouraging speech")
 	initial_descriptor = SPAN_GOOD("You have received a morale modifier from hearing words of encouragement.")
+	duration = 15 MINUTES
 
 /datum/action/leadership
 	name = "Deliver Speech"
