@@ -1,4 +1,3 @@
-
 /obj/item/clothing/wrists
 	name = "wrists"
 	w_class = WEIGHT_CLASS_TINY
@@ -16,7 +15,12 @@
 	contained_sprite = TRUE
 
 /obj/item/clothing/wrists/update_clothing_icon()
-	if (ismob(src.loc))
+	if(ishuman(src.loc))
+		// Wrist equipment is split into left and right slots on humans. Updating both sides keeps paired wristwear and flipped wristwear visually consistent.
+		var/mob/living/carbon/human/H = src.loc
+		H.update_inv_l_wrist()
+		H.update_inv_r_wrist()
+	else if(ismob(src.loc))
 		var/mob/M = src.loc
 		M.update_inv_wrists()
 
@@ -83,6 +87,8 @@
 	desc = "A set of luxurious chains intended to be wrapped around long, lanky arms. They don't seem particularly comfortable. They're encrusted with cobalt-blue gems, and made of <b>REAL</b> faux gold."
 	icon_state = "cobalt_armchains"
 	item_state = "cobalt_armchains"
+	// Paired wristwear occupies both wrist slots. The real item is equipped to one wrist, while an offwrist placeholder reserves the opposite wrist.
+	slot_flags = SLOT_WRISTS|SLOT_TWOWRISTS
 	gender = PLURAL
 	flipped = -1
 
@@ -103,6 +109,8 @@
 	desc = "A pair of sturdy and thick decorative bracers, seeming better for fashion than protection. They're encrusted with cobalt-blue gems, and made of <b>REAL</b> faux gold."
 	icon_state = "cobalt_bracers"
 	item_state = "cobalt_bracers"
+	// Paired wristwear occupies both wrist slots. The real item is equipped to one wrist, while an offwrist placeholder reserves the opposite wrist.
+	slot_flags = SLOT_WRISTS|SLOT_TWOWRISTS
 	gender = PLURAL
 	flipped = -1
 
@@ -117,3 +125,33 @@
 	desc = "A pair of sturdy and thick decorative bracers, seeming better for fashion than protection. They're encrusted with ruby-red gems, and made of <b>REAL</b> faux gold."
 	icon_state = "ruby_bracers"
 	item_state = "ruby_bracers"
+
+// Placeholder item used by paired wristwear.
+// This is not a second real item; it exists only to reserve and display the opposite wrist slot.
+// Removing the real paired item should also clear this placeholder.
+/obj/item/clothing/wrists/offwrist
+	name = "wristwear counterpart"
+	desc = "You should not be seeing this."
+	icon_state = null
+	item_state = null
+	canremove = FALSE
+
+// Copies the visible and inventory-relevant state from the real paired wrist item.
+// This lets the opposite wrist display the same icon while still behaving as a non-removable placeholder.
+/obj/item/clothing/wrists/offwrist/proc/copy_wrist(obj/item/clothing/wrists/original)
+	name = original.name
+	desc = original.desc
+	icon = original.icon
+	icon_state = original.icon_state
+	item_state = original.item_state
+	slot_flags = original.slot_flags
+	body_parts_covered = original.body_parts_covered
+	flags_inv = original.flags_inv
+	gender = original.gender
+	flipped = original.flipped
+	mob_wear_layer = original.mob_wear_layer
+	contained_sprite = original.contained_sprite
+	sprite_sheets = original.sprite_sheets
+	item_icons = original.item_icons
+	item_state_slots = original.item_state_slots
+	icon_override = original.icon_override

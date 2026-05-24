@@ -1,0 +1,11 @@
+author: mineymonkey
+delete-after: True
+
+changes:
+  - rscadd: "Split the former combined wrist inventory slot into separate left and right wrist slots."
+  - rscadd: "Added support for paired wristwear, allowing items such as bracers and arm chains to occupy both wrist slots while remaining a single real item."
+  - bugfix: "Updated ID card lookup logic to check both left and right wrist slots instead of only the legacy combined wrist slot."
+  - refactor: "Updated wrist slot defines, slot strings, and clothing slot flags to support split wrist equipment while preserving legacy wrist slot compatibility."
+  - refactor: "Updated human inventory equip, unequip, and equipped-item lookup handling for left wrist, right wrist, and two-wrist items."
+  - refactor: "Updated wristwear clothing definitions to mark paired wrist items with the new two-wrist slot behavior."
+  - refactor: "Updated species HUD data to display separate left and right wrist inventory slots."
