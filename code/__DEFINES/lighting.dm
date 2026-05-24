@@ -68,19 +68,15 @@
 
 // This is the list of area-based light variations!
 /// Standard list of randomised light colors. White-ish.
-#define LIGHT_STANDARD_COLORS list(LIGHT_COLOR_BULB_WHITE, LIGHT_COLOR_WARM, LIGHT_COLOR_HALOGEN)
+#define LIGHT_CLINICAL_COLORS list(LIGHT_COLOR_BULB_WHITE, LIGHT_COLOR_WARM, LIGHT_COLOR_HALOGEN)
 /// Generic warmer off-white lighting, for public areas.
 #define LIGHT_WARM_COLORS list(LIGHT_COLOR_WARM, LIGHT_COLOR_OFFWHITE)
-/// Slightly more vibrant and clear white lighting, for medical and very proper areas.
-#define LIGHT_CLINICAL_COLORS list(LIGHT_COLOR_CLINICAL, LIGHT_COLOR_BULB_WHITE)
 /// Everything is yellow in engineering! It's industrial!
 #define LIGHT_ENGINEERING_COLORS list(LIGHT_COLOR_WARM, LIGHT_COLOR_DECAYED)
 /// Purple. Funky. Probably tastes like blueberries. For research.
 #define LIGHT_RESEARCH_COLORS list(LIGHT_COLOR_LAVENDER, LIGHT_COLOR_PALE_PURPLE)
 /// Foreboding blue. Ominous. You are in a high security area.
 #define LIGHT_HIGHSEC_COLORS list(LIGHT_COLOR_BLUE, LIGHT_COLOR_LIGHT_BLUE)
-/// For maintenance bulbs. Dark and grim and moody.
-#define LIGHT_MAINTENANCE_COLORS list(LIGHT_COLOR_DYING, LIGHT_COLOR_DECAYED, 	LIGHT_COLOR_FLARE)
 
 #define LIGHT_MODE_RED      "red"
 #define LIGHT_MODE_DELTA    "delta"

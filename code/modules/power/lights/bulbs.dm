@@ -16,11 +16,11 @@
 	var/rigged = 0		// true if rigged to explode
 	var/brightness_range = 2 //how much light it gives off
 	var/brightness_power = 0.45
-	var/brightness_color = LIGHT_COLOR_HALOGEN
+	var/brightness_color = LIGHT_COLOR_OFFWHITE
 	var/lighttype = null
 	var/randomize_range = TRUE
 	var/randomize_color = TRUE
-	var/list/randomized_colors = LIGHT_STANDARD_COLORS
+	var/list/randomized_colors = LIGHT_WARM_COLORS
 
 /obj/item/light/antagonist_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -134,6 +134,10 @@
 	name = "magenta light tube"
 	brightness_color = LIGHT_COLOR_VIOLET
 
+/obj/item/light/tube/colored/pale_purple
+	name = "pale purple light tube"
+	brightness_color = LIGHT_COLOR_PALE_PURPLE
+
 /obj/item/light/tube/colored/yellow
 	name = "yellow light tube"
 	brightness_color = LIGHT_COLOR_YELLOW
@@ -185,6 +189,10 @@
 /obj/item/light/bulb/colored/magenta
 	name = "magenta light bulb"
 	brightness_color = LIGHT_COLOR_VIOLET
+
+/obj/item/light/bulb/colored/pale_purple
+	name = "pale purple light tube"
+	brightness_color = LIGHT_COLOR_PALE_PURPLE
 
 /obj/item/light/bulb/colored/yellow
 	name = "yellow light bulb"

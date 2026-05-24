@@ -28,7 +28,7 @@
 	var/night_brightness_power = 0.3
 	var/supports_nightmode = TRUE
 	var/nightmode = FALSE
-	var/brightness_color = LIGHT_COLOR_HALOGEN
+	var/brightness_color = LIGHT_COLOR_OFFWHITE
 	/// Expected types defined in lightning.dm
 	var/status = LIGHT_OK
 	var/flickering = 0
@@ -63,7 +63,7 @@
 	var/randomize_color = TRUE
 	var/default_color
 	/// This might get modified!
-	var/static/list/randomized_colors = LIGHT_STANDARD_COLORS
+	var/static/list/randomized_colors = LIGHT_WARM_COLORS
 	var/static/list/emergency_lights = list(
 		LIGHT_MODE_RED = LIGHT_COLOR_EMERGENCY,
 		LIGHT_MODE_DELTA = LIGHT_COLOR_ORANGE
@@ -139,9 +139,9 @@
 	if(randomize_color)
 		var/area/A = get_area(src)
 		switch(A.department)
-			if(LOC_MEDICAL)
+			if(LOC_MEDICAL, LOC_SHUTTLE)
 				randomized_colors = LIGHT_CLINICAL_COLORS
-			if(LOC_ENGINEERING, LOC_OPERATIONS, LOC_HANGAR, LOC_CREW, LOC_SHUTTLE)
+			if(LOC_ENGINEERING, LOC_OPERATIONS, LOC_HANGAR, LOC_CREW, LOC_MAINTENANCE)
 				randomized_colors = LIGHT_ENGINEERING_COLORS
 			if(LOC_PUBLIC, LOC_SERVICE, LOC_BRIDGE, LOC_HOLODECK)
 				randomized_colors = LIGHT_WARM_COLORS
@@ -149,8 +149,6 @@
 				randomized_colors = LIGHT_RESEARCH_COLORS
 			if(LOC_AI, LOC_SECURITY, LOC_COMMAND)
 				randomized_colors = LIGHT_HIGHSEC_COLORS
-			if(LOC_MAINTENANCE)
-				randomized_colors = LIGHT_MAINTENANCE_COLORS
 
 		brightness_color = pick(randomized_colors)
 

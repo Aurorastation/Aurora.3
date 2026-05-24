@@ -103,10 +103,10 @@
 /obj/machinery/light_switch/idris
 	name = "idris smart switch"
 	desc = "A smart lightswitch designed by Idris Incorporated for entertainment venues, this one has additional controls for adjusting the color and brightness of the compartment's lighting."
-	var/current_light_color = LIGHT_COLOR_HALOGEN
+	var/current_light_color = LIGHT_COLOR_OFFWHITE
 	var/current_brightness = 1.0
 	var/static/list/color_options = list(
-		"Standard" = LIGHT_COLOR_HALOGEN,
+		"Standard" = LIGHT_COLOR_OFFWHITE,
 		"Red" = LIGHT_COLOR_RED,
 		"Green" = LIGHT_COLOR_GREEN,
 		"Blue" = LIGHT_COLOR_BLUE,
