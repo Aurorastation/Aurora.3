@@ -123,23 +123,18 @@
 
 /obj/machinery/gravity_generator/main
 	icon_state = "on_8"
-	idle_power_usage = 0
-	active_power_usage = 3000
+	idle_power_usage = 50 KILO WATTS
+	active_power_usage = 1 MEGA WATTS
 	power_channel = AREA_USAGE_ENVIRON
 	sprite_number = 8
 	interact_offline = 1
-	var/on = 1
-	var/breaker = 1
 	var/list/parts = list()
 	var/obj/middle = null
-	var/charging_state = POWER_IDLE
-	var/charge_count = 100
-	var/current_overlay = null
 	var/broken_state = 0
 	var/list/localareas = list()
 	var/round_start = 2 //To help stop a bug with round start
-	var/backpanelopen = 0
-	var/eventon = 0
+	var/panel_open_heavy = 0
+	var/event_active = 0
 
 /obj/machinery/gravity_generator/main/Destroy()
 	LOG_DEBUG("Gravity Generator Destroyed")
@@ -155,17 +150,17 @@
 
 /obj/machinery/gravity_generator/main/proc/eventshutofftoggle() // Used by the gravity event. Bypasses charging and all of that stuff.
 	breaker = 0
-	set_state(eventon)
+	set_state(event_active)
 	sleep(20)
 	charge_count = 0
 	breaker = 1
 	charging_state = POWER_UP
 	set_power()
-	eventon = !eventon
+	event_active = !event_active
 	addtimer(CALLBACK(src, PROC_REF(reset_event)), 100) // Because it takes 100 seconds for it to recharge. And we need to make sure we resen this var
 
 /obj/machinery/gravity_generator/main/proc/reset_event()
-	eventon = !eventon
+	event_active = !event_active
 
 /obj/machinery/gravity_generator/main/proc/setup_parts()
 	var/turf/our_turf = get_turf(src)
@@ -247,65 +242,50 @@
 		else
 			..()
 	if(attacking_item.tool_behaviour == TOOL_CROWBAR)
-		if(backpanelopen)
+		if(panel_open_heavy)
 			attacking_item.play_tool_sound(get_turf(src), 50)
 			to_chat(user, SPAN_NOTICE("You replace the back panel."))
-			backpanelopen = 0
+			panel_open_heavy = 0
 		else
 			attacking_item.play_tool_sound(get_turf(src), 50)
 			to_chat(user, SPAN_NOTICE("You open the back panel."))
-			backpanelopen = 1
+			panel_open_heavy = 1
 
 	if(old_broken_state != broken_state)
 		update_icon()
 
 /obj/machinery/gravity_generator/main/attack_hand(mob/user as mob)
-	if(!..())
-		return interact(user)
-
-/obj/machinery/gravity_generator/main/interact(mob/user as mob)
-	if(stat & BROKEN)
+	if(..(user))
 		return
-	var/dat = "Gravity Generator Breaker: "
-	if(!eventon)
-		if(breaker)
-			dat += "<span class='linkOn'>ON</span> <A href='byond://?src=[REF(src)];gentoggle=1'>OFF</A>"
-		else
-			dat += "<A href='byond://?src=[REF(src)];gentoggle=1'>ON</A> <span class='linkOn'>OFF</span> "
-		if(backpanelopen)
-			dat += "<br>Emergency shutoff:<br>"
-			dat += "<A href='byond://?src=[REF(src)];eshutoff=1'>Red Button</A>"
+	ui_interact(user)
 
-		dat += "<br>Generator Status:<br><div class='statusDisplay'>"
-		if(charging_state != POWER_IDLE)
-			dat += "<font class='bad'>WARNING</font> Radiation Detected. <br>[charging_state == POWER_UP ? "Charging..." : "Discharging..."]"
-		else if(on)
-			dat += "Powered."
-		else
-			dat += "Unpowered."
+/obj/machinery/gravity_generator/main/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "GravityGenerator", name)
+		ui.open()
 
-		dat += "<br>Gravity Charge: [charge_count]%</div>"
-	else
-		dat += "<h3><font class='bad'>ERROR: SYSTEM MALFUNCTION. PLEASE WAIT...</font></h3>"
-	var/datum/browser/popup = new(user, "gravgen", name)
-	popup.set_content(dat)
-	popup.open()
+/obj/machinery/gravity_generator/main/ui_data(mob/user)
+	var/list/data = list()
 
+	data["breaker"] = breaker
+	data["charge_count"] = charge_count
+	data["charging_state"] = charging_state
+	data["on"] = on
+	data["operational"] = (stat & BROKEN) ? FALSE : TRUE
 
-/obj/machinery/gravity_generator/main/Topic(href, href_list)
+	return data
 
-	if(..())
+/obj/machinery/gravity_generator/main/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
 		return
 
-	if(href_list["gentoggle"])
-		breaker = !breaker
-		investigate_log("was toggled [breaker ? "<font color='green'>ON</font>" : SPAN_WARNING("OFF")] by [usr.key].", "gravity")
-		set_power()
-		src.updateUsrDialog()
-	else if(href_list["eshutoff"])
-		investigate_log("was shut off by [usr.key].", "gravity")
-		eshutoff()
-
+	switch(action)
+		if("gentoggle")
+			breaker = !breaker
+			set_power()
+			. = TRUE
 
 /obj/machinery/gravity_generator/main/power_change()
 	..()
@@ -317,7 +297,7 @@
 	if(charge_count > 0)
 		charge_count = 0
 		playsound(src.loc, 'sound/effects/EMPulse.ogg', 100, 1)
-		pulse_radiation(100)
+		SSradiation.radiate(src, 100)
 		set_state(0)
 		if(middle)
 			middle.ClearOverlays()
@@ -387,23 +367,26 @@
 /obj/machinery/gravity_generator/main/process()
 	if(stat & BROKEN)
 		return
+	if(on || charging_state != POWER_IDLE)
+		SSradiation.radiate(src, 20)
 	if(charging_state != POWER_IDLE)
 		if(charging_state == POWER_UP && charge_count >= 100)
 			set_state(1)
 		else if(charging_state == POWER_DOWN && charge_count <= 0)
 			set_state(0)
 		else
+			var/new_charge_count = charge_count
 			if(charging_state == POWER_UP)
-				charge_count += rand(1,5)
+				new_charge_count += rand(1,5)
+				charge_count = (max(new_charge_count, 100))
 			else if(charging_state == POWER_DOWN)
-				charge_count -= rand(1,5)
+				new_charge_count -= rand(1,5)
+				charge_count = (min(0, new_charge_count))
 
 			if(charge_count % 4 == 0 && prob(75)) // Let them know it is charging/discharging.
 				playsound(src.loc, 'sound/effects/EMPulse.ogg', 100, 1)
 
 			updateDialog()
-			if(prob(30)) // To help stop "Your clothes feel warm" spam.
-				pulse_radiation()
 
 			var/overlay_state = null
 			switch(charge_count)
@@ -430,15 +413,12 @@
 						middle.AddOverlays(overlay_state)
 					current_overlay = overlay_state
 
-/obj/machinery/gravity_generator/main/proc/pulse_radiation(var/amount = 20)
-	SSradiation.radiate(src, amount)
-
-// Shake everyone on the z level to let them know that gravity was enagaged/disenagaged.
+/// Shake everyone on the z level to let them know that gravity was enagaged/disenagaged.
 /obj/machinery/gravity_generator/main/proc/shake_everyone()
 	var/turf/our_turf = get_turf(src)
-	for(var/mob/M in GLOB.mob_list)
-		var/turf/their_turf = get_turf(M)
-		if(their_turf && (their_turf.z == our_turf.z))
+	var/list/connected_z_levels = GetConnectedZlevels(our_turf.z)
+	for(var/mob/living/M in GLOB.mob_list)
+		if(M.z in connected_z_levels)
 			M.update_gravity(M.mob_has_gravity())
 			if(M.client)
 				if(!M)	return
@@ -484,31 +464,30 @@
 /obj/machinery/gravity_generator/main/proc/get_area_type(var/area/A = get_area(src))
 	if (A.name == "Space")
 		return AREA_SPACE
-	else if(A.alwaysgravity == 1 || A.nevergravity == 1)
+	else if(A.alwaysgravity == TRUE || A.nevergravity == TRUE)
 		return AREA_SPECIAL
 	else
 		return AREA_STATION
 
 /obj/machinery/gravity_generator/main/proc/throw_up_and_down(var/area/Area)
-	if(!Area)
-		return
 	to_world("<h2 class='alert'>Station Announcement:</h2>")
-	to_world(SPAN_DANGER("Warning! Localized Gravity Failure in \the [Area]. Brace for dangerous gravity change!"))
-	sleep(50)
-	set_state(FALSE)
-	sleep(30)
+	to_world(SPAN_DANGER("Warning! Localized Gravity Failure. Brace for dangerous gravity change!"))
+	addtimer(CALLBACK(src, PROC_REF(set_state), FALSE), 5 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(throw_carbons_down)), 3 SECONDS)
+
+/obj/machinery/gravity_generator/main/proc/throw_carbons_down()
 	set_state(TRUE)
+	var/turf/our_turf = get_turf(src)
+	var/list/connected_z_levels = GetConnectedZlevels(our_turf.z)
 	for(var/mob/living/M in GLOB.mob_list)
-		var/turf/their_turf = get_turf(M)
-		if(their_turf?.loc ==  Area)
+		if(M.z in connected_z_levels)
 			if(ishuman(M))
 				var/mob/living/carbon/human/H = M
 				var/obj/item/clothing/shoes/magboots/boots = H.get_equipped_item(slot_shoes)
 				if(istype(boots))
 					continue
 			to_chat(M, SPAN_DANGER("Suddenly the gravity pushed you up to the ceiling and dropped you back on the floor with great force!"))
-			M.fall_impact(1)
-
+			M.fall_impact(levels_fallen = 1)
 
 #undef POWER_IDLE
 #undef POWER_UP
