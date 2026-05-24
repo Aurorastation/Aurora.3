@@ -56,7 +56,7 @@
 /// Grimier, warmer off-white.
 #define LIGHT_COLOR_OFFWHITE		"#efe5bb"
 /// Warm yellowish light bulbs
-#define LIGHT_COLOR_WARM			"#efeebb"
+#define LIGHT_COLOR_WARM			"#e7e6af"
 /// Amberish decayed light bulbs
 #define LIGHT_COLOR_DECAYED			"#fabd6d"
 /// Reddish decayed light bulbs
