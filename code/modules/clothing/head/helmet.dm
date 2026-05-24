@@ -155,14 +155,20 @@
 	flags_inv = HIDEEARS
 	action_button_name = "Toggle Visor"
 
+/obj/item/clothing/head/helmet/riot/mechanics_hints(mob/user, distance, is_adjacent)
+	. = ..()
+	. += "You can <b>Alt-Shift-Click</b> to [icon_state == initial(icon_state) ? "raise" : "lower"] the visor."
+
+/obj/item/clothing/head/helmet/riot/AltShiftClick(user)
+	do_flip(user)
+
 /obj/item/clothing/head/helmet/riot/attack_self(mob/user as mob)
-	if (use_check_and_message(user))
+	do_flip(user)
+
+/obj/item/clothing/head/helmet/riot/proc/do_flip(mob/user)
+	if(use_check_and_message(user))
 		return
 
-	do_flip(user)
-	update_clothing_icon()
-
-/obj/item/clothing/head/helmet/riot/proc/do_flip(var/mob/user)
 	if(icon_state == initial(icon_state))
 		icon_state = "[icon_state]-up"
 		item_state = icon_state
@@ -174,6 +180,7 @@
 		to_chat(user, SPAN_NOTICE("You lower the visor on \the [src]."))
 		body_parts_covered = HEAD|FACE|EYES
 
+	update_clothing_icon()
 
 /obj/item/clothing/head/helmet/ablative
 	name = "ablative helmet"

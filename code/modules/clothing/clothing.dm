@@ -61,6 +61,11 @@
 			refit_for_species(refit_initialize)
 	update_icon()
 
+/obj/item/clothing/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "You can <b>Alt-Click</b> to adjust \the [src]'s layer, if it's applicable to this item."
+	. += "You can <b>Alt-Shift-Click</b> to remove any attached accessories."
+
 /obj/item/clothing/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
 
@@ -621,16 +626,29 @@
 	if(allow_hair_covering)
 		verbs += /obj/item/clothing/head/proc/toggle_block_hair
 
+/obj/item/clothing/head/mechanics_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += "You can <b>Alt-Click</b> to adjust hair coverage."
+
 /obj/item/clothing/head/proc/toggle_block_hair()
 	set name = "Toggle Hair Coverage"
 	set category = "Object.Equipped"
 	set src in usr
 
+	handle_toggle_block_hair(usr)
+
+/obj/item/clothing/head/AltClick(user)
+	handle_toggle_block_hair(user)
+
+/obj/item/clothing/head/proc/handle_toggle_block_hair(mob/user)
+	if(use_check_and_message(user))
+		return
+
 	if(allow_hair_covering)
 		flags_inv ^= BLOCKHEADHAIR
-		to_chat(usr, SPAN_NOTICE("[src] will now [flags_inv & BLOCKHEADHAIR ? "hide" : "show"] hair."))
-		if(ishuman(usr))
-			var/mob/living/carbon/human/H = usr
+		to_chat(user, SPAN_NOTICE("[src] will now [flags_inv & BLOCKHEADHAIR ? "hide" : "show"] hair."))
+		if(ishuman(user))
+			var/mob/living/carbon/human/H = user
 			H.update_hair()
 
 /obj/item/clothing/head/get_image_key_mod()
@@ -964,11 +982,17 @@
 	set category = "Object.Equipped"
 	set src in usr
 
-	if(use_check_and_message(usr))
-		return 0
+	handle_toggle_layer(usr)
+
+/obj/item/clothing/shoes/AltClick(user)
+	handle_toggle_layer(user)
+
+/obj/item/clothing/shoes/proc/handle_toggle_layer(mob/user)
+	if(use_check_and_message(user))
+		return
 
 	if(shoes_under_pants == -1)
-		to_chat(usr, SPAN_NOTICE("[src] cannot be worn above your suit!"))
+		to_chat(user, SPAN_NOTICE("[src] cannot be worn above your suit!"))
 		return
 	shoes_under_pants = !shoes_under_pants
 	update_icon()
