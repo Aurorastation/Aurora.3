@@ -226,9 +226,34 @@
 	accuracy = 100
 	projectile_piercing = PASSMOB|PASSDOORS|PASSGLASS|PASSCLOSEDTURF|PASSWINDOW|PASSMACHINE|PASSBLOB|PASSFLAPS|PASSVEHICLE|PASSSTRUCTURE|PASSSHIELD //It's a ship weapon let it try to penetrate everything.
 	pierce_decay_damage = 0.95  //Ship weapon projectiles don't lose much damage on pierce by default, but this can be set per projectile.
+	///This is passed to explosion(), it is stored here for when projectiles hit shields and need to damage the shield as if they had exploded.
+	var/list/explosion_strength = list(0, 0, 0)
+	///The last thing this projectile pierced. Used for spalling effects in on_hit()
+	var/atom/last_thing_pierced = null
 	var/obj/item/ship_ammunition/ammo
 	var/primed = FALSE
-	var/hit_target = FALSE //First target we hit. Used to report if a hit was successful.
+	///First target we hit. Used to report if a hit was successful.
+	var/hit_target = FALSE
+
+/obj/projectile/ship_ammo/Moved(atom/old_loc, movement_dir, forced, list/old_locs, momentum_change = TRUE)
+	. = ..()
+	if(last_thing_pierced)
+		var/turf/entered_turf = isturf(loc) ? loc : get_turf(loc)
+		if(!(entered_turf.check_density(FALSE, TRUE))) //Checks for mobs so we don't spawn spalling inside the poor bridge crew.
+			handle_spalling(entered_turf)
+			last_thing_pierced = null
+
+/**
+* Handles spalling when AP or FMJ projectiles pierce somthing.
+*
+*
+*/
+/obj/projectile/ship_ammo/proc/handle_spalling(atom/source)
+	// if(!ammo)
+	// 	return FALSE
+	// if(ammo.impact_type == SHIP_AMMO_IMPACT_FMJ || ammo.impact_type == SHIP_AMMO_IMPACT_AP)
+	fragem(source, 70, 70, 1, 2, 10, 4, TRUE)
+	return TRUE
 
 /obj/projectile/ship_ammo/Destroy()
 	ammo = null
@@ -258,6 +283,9 @@
 		)
 		if(ammo && ammo.origin)
 			ammo.origin.signal_hit(hit_data)
+
+	if(istype(target, /turf/simulated/wall)) //Stores the last thing we pierced for spalling purposes.
+		last_thing_pierced = target
 	return ..()
 
 /obj/projectile/ship_ammo/proc/on_translate(var/turf/entry_turf, var/target_turf) //This proc is called when the projectile enters a new ship's overmap zlevel.

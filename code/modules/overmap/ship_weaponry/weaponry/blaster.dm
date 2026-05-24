@@ -27,14 +27,16 @@
 	damage = 10000
 	armor_penetration = 1000
 	penetrating = 1
+	explosion_strength = list(2, 5, 7)
 
 /obj/projectile/ship_ammo/blaster/on_hit(atom/target, blocked, def_zone, is_landmark_hit)
 	. = ..()
+	var/turf/epicenter = get_turf(target)
 	if(ismob(target))
 		var/mob/M = target
 		M.visible_message(SPAN_DANGER("<font size=5>\The [src] disintegrates [M]'s chest and blasts them into pieces!</font>"))
 	if(isturf(target) || isobj(target))
-		explosion(target, 2, 5, 7)
+		explosion(epicenter, explosion_strength[1], explosion_strength[2], explosion_strength[3])
 
 /obj/machinery/ammunition_loader/blaster
 	name = "mining blaster loader"

@@ -41,7 +41,7 @@
 		var/renwick_increase_per_field = total_renwick_increase / length(field) //per field tile
 		var/renwick_upkeep_per_field = max(field_strength * dissipation_rate, min_dissipation)
 		var/amount_to_strengthen = renwick_increase_per_field - renwick_upkeep_per_field
-		field_strength = min(field_strength + amount_to_strengthen, max_field_strength)
+		field_strength = max(min(field_strength + amount_to_strengthen, max_field_strength), 0)
 
 		if(field_strength < 1)
 			if(strong_field)

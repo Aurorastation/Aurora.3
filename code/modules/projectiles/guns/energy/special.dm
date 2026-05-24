@@ -109,25 +109,25 @@
 
 	firemodes = list(
 		// Autocannon
-		list(mode_name="autocannon", burst=11, projectile_type=/obj/projectile/ship_ammo/autocannon),
-		list(mode_name="autocannon frag", burst=8, projectile_type=/obj/projectile/ship_ammo/autocannon/frag),
-		list(mode_name="autocannon he", burst=5, projectile_type=/obj/projectile/ship_ammo/autocannon/he),
+		list(mode_name="autocannon", burst=1, projectile_type=/obj/projectile/ship_ammo/autocannon),
+		list(mode_name="autocannon frag", burst=1, projectile_type=/obj/projectile/ship_ammo/autocannon/frag),
+		list(mode_name="autocannon he", burst=1, projectile_type=/obj/projectile/ship_ammo/autocannon/he),
 		// Blaster
 		list(mode_name="blaster", burst=1, projectile_type=/obj/projectile/ship_ammo/blaster),
 		// Bruiser
-		list(mode_name="bruiser canister", burst=11, projectile_type=/obj/projectile/ship_ammo/bruiser),
-		list(mode_name="bruiser flechette", burst=9, projectile_type=/obj/projectile/ship_ammo/bruiser/flechette),
-		list(mode_name="bruiser he", burst=4, projectile_type=/obj/projectile/ship_ammo/bruiser/he),
+		list(mode_name="bruiser canister", burst=1, projectile_type=/obj/projectile/ship_ammo/bruiser),
+		list(mode_name="bruiser flechette", burst=1, projectile_type=/obj/projectile/ship_ammo/bruiser/flechette),
+		list(mode_name="bruiser he", burst=1, projectile_type=/obj/projectile/ship_ammo/bruiser/he),
 		// Coilgun
 		list(mode_name="coilgun", burst=1, projectile_type=/obj/projectile/ship_ammo/coilgun),
 		list(mode_name="light coilgun", burst=1, projectile_type=/obj/projectile/ship_ammo/coilgun/light),
 		// Francisca
-		list(mode_name="francisca fmj", burst=8, projectile_type=/obj/projectile/ship_ammo/francisca),
-		list(mode_name="francisca ap", burst=8, projectile_type=/obj/projectile/ship_ammo/francisca/ap),
-		list(mode_name="francisca frag", burst=8, projectile_type=/obj/projectile/ship_ammo/francisca/frag),
+		list(mode_name="francisca fmj", burst=1, projectile_type=/obj/projectile/ship_ammo/francisca),
+		list(mode_name="francisca ap", burst=1, projectile_type=/obj/projectile/ship_ammo/francisca/ap),
+		list(mode_name="francisca frag", burst=1, projectile_type=/obj/projectile/ship_ammo/francisca/frag),
 		// Grauwolf
-		list(mode_name="grauwolf he", burst=4, projectile_type=/obj/projectile/ship_ammo/grauwolf),
-		list(mode_name="grauwolf ap", burst=4, projectile_type=/obj/projectile/ship_ammo/grauwolf/ap),
+		list(mode_name="grauwolf he", burst=1, projectile_type=/obj/projectile/ship_ammo/grauwolf),
+		list(mode_name="grauwolf ap", burst=1, projectile_type=/obj/projectile/ship_ammo/grauwolf/ap),
 		// Lammergeier
 		list(mode_name="lammergeier", burst=1, projectile_type=/obj/projectile/ship_ammo/lammergeier),
 		// Leviathan
@@ -137,8 +137,8 @@
 		list(mode_name="longbow he", burst=1, projectile_type=/obj/projectile/ship_ammo/longbow),
 		list(mode_name="longbow bunkerbuster", burst=1, projectile_type=/obj/projectile/ship_ammo/longbow),
 		// Nephilim
-		list(mode_name="nephilim he", burst=15, projectile_type=/obj/projectile/ship_ammo/nephilim),
-		list(mode_name="nephilim ap", burst=15, projectile_type=/obj/projectile/ship_ammo/nephilim/ap),
+		list(mode_name="nephilim he", burst=1, projectile_type=/obj/projectile/ship_ammo/nephilim),
+		list(mode_name="nephilim ap", burst=1, projectile_type=/obj/projectile/ship_ammo/nephilim/ap),
 		)
 
 /obj/item/gun/energy/admin_ship_weapon/crew
@@ -147,12 +147,12 @@
 
 	firemodes = list(
 		// Francisca
-		list(mode_name="francisca fmj", burst=8, projectile_type=/obj/projectile/ship_ammo/francisca),
-		list(mode_name="francisca ap", burst=8, projectile_type=/obj/projectile/ship_ammo/francisca/ap),
-		list(mode_name="francisca frag", burst=8, projectile_type=/obj/projectile/ship_ammo/francisca/frag),
+		list(mode_name="francisca fmj", burst=1, projectile_type=/obj/projectile/ship_ammo/francisca),
+		list(mode_name="francisca ap", burst=1, projectile_type=/obj/projectile/ship_ammo/francisca/ap),
+		list(mode_name="francisca frag", burst=1, projectile_type=/obj/projectile/ship_ammo/francisca/frag),
 		// Grauwolf
-		list(mode_name="grauwolf he", burst=4, projectile_type=/obj/projectile/ship_ammo/grauwolf),
-		list(mode_name="grauwolf ap", burst=4, projectile_type=/obj/projectile/ship_ammo/grauwolf/ap),
+		list(mode_name="grauwolf he", burst=1, projectile_type=/obj/projectile/ship_ammo/grauwolf),
+		list(mode_name="grauwolf ap", burst=1, projectile_type=/obj/projectile/ship_ammo/grauwolf/ap),
 		// Longbow
 		list(mode_name="longbow ap", burst=1, projectile_type=/obj/projectile/ship_ammo/longbow),
 		list(mode_name="longbow he", burst=1, projectile_type=/obj/projectile/ship_ammo/longbow),
@@ -278,8 +278,8 @@
 
 	firemodes = list(
 		list(mode_name="concentrated burst", burst=12, burst_delay = 1, move_delay=5, dispersion = GATLINGLASER_DISPERSION_CONCENTRATED),
-		list(mode_name="spray", burst=22, burst_delay = 1, move_delay = 8, dispersion = GATLINGLASER_DISPERSION_SPRAY),
-		list(mode_name="massive spray", burst=32, burst_delay = 1, move_delay = 10, dispersion = GATLINGLASER_DISPERSION_SPRAY),
+		list(mode_name="spray", burst=12, burst_delay = 1, move_delay = 8, dispersion = GATLINGLASER_DISPERSION_SPRAY),
+		list(mode_name="massive spray", burst=12, burst_delay = 1, move_delay = 10, dispersion = GATLINGLASER_DISPERSION_SPRAY),
 		)
 
 	charge_cost = 40
@@ -449,8 +449,8 @@
 
 	firemodes = list(
 		list(mode_name="2 second burst", burst=10, burst_delay = 1, fire_delay = 20, fire_delay_wielded = 20),
-		list(mode_name="4 second burst", burst=20, burst_delay = 1, fire_delay = 40, fire_delay_wielded = 40),
-		list(mode_name="6 second burst", burst=30, burst_delay = 1, fire_delay = 60, fire_delay_wielded = 60),
+		list(mode_name="4 second burst", burst=10, burst_delay = 1, fire_delay = 40, fire_delay_wielded = 40),
+		list(mode_name="6 second burst", burst=10, burst_delay = 1, fire_delay = 60, fire_delay_wielded = 60),
 		list(mode_name="point-burst auto", can_autofire = TRUE, burst = 3, fire_delay = 3, fire_delay_wielded = 3, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(1.0, 1.0, 1.0, 1.0, 1.2))
 	)
 

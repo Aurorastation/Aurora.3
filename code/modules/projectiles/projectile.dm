@@ -78,7 +78,7 @@
 	var/pierce_chance = 0
 	/// 0-1 multiplier, the projectile's damage is modified by multiplying this after each pierce.
 	var/pierce_decay_damage = 0.7
-	///Used to determine whether or not to apply embed chances on hit.
+	///Used to determine whether or not to apply embed chances on hit, also used in ship weapons for spalling.
 	var/last_hit_pierced = FALSE
 	/// If objects are below this layer, we pass through them.
 	var/hit_threshhold = PROJECTILE_HIT_THRESHHOLD_LAYER

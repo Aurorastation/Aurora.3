@@ -50,6 +50,7 @@
 	damage = 40
 	armor_penetration = 40
 	penetrating = 0
+	explosion_strength = list(0, 2, 3)
 
 
 /obj/projectile/ship_ammo/nephilim/ap
@@ -60,4 +61,4 @@
 
 /obj/projectile/ship_ammo/nephilim/he/on_hit(atom/target, blocked, def_zone, is_landmark_hit)
 	. = ..()
-	explosion(target, 0, 2, 3)
+	explosion(get_turf(target), explosion_strength[1], explosion_strength[2], explosion_strength[3])
