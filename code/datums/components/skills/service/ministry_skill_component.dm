@@ -1,6 +1,6 @@
 /// Moodlet used for the Ministry skill.
 /datum/moodlet/ministry_blessing
-	moodlet_descriptor = SPAN_GOOD("Received a blessing")
+	moodlet_descriptor = SPAN_GOOD("Received a blessing.")
 	initial_descriptor = SPAN_GOOD("You have received a morale modifier from hearing a blessing.")
 
 /// Action bar object used by the Ministry skill.

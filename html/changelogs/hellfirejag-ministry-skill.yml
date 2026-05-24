@@ -2,3 +2,4 @@ author: Hellfirejag
 delete-after: True
 changes:
   - rscadd: "Added a new skill called Ministry."
+  - rscadd: "Added a new skill called Leadership."
