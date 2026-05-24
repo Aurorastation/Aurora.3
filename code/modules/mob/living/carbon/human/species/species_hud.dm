@@ -63,6 +63,9 @@
 	for(var/slot in gear)
 		equip_slots |= gear[slot]["slot"]
 
+	// Used by split wrist inventory. Keep the legacy combined wrist slot valid for old outfit/loadout paths.
+	equip_slots |= slot_wrists
+
 	if(has_hands)
 		equip_slots |= slot_l_hand
 		equip_slots |= slot_r_hand

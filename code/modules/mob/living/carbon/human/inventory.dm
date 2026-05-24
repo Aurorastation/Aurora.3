@@ -55,7 +55,6 @@ This saves us from having to call add_fingerprint() any time something is put in
 		qdel(W)
 	return null
 
-
 /mob/living/carbon/human/proc/has_organ(name)
 	var/obj/item/organ/external/O = organs_by_name?[name]
 
@@ -293,8 +292,6 @@ This saves us from having to call add_fingerprint() any time something is put in
 	update_action_buttons()
 	return 1
 
-
-
 // This is an unsafe proc. Use mob_can_equip(), equip_to_slot_if_possible(), or advanced_equip_to_slot_if_possible() before calling it.
 /mob/living/carbon/human/equip_to_slot(obj/item/W, slot, redraw_mob = TRUE, assisted_equip)
 	..()
@@ -302,6 +299,18 @@ This saves us from having to call add_fingerprint() any time something is put in
 		return
 	if(!istype(W))
 		return
+
+	// Used by legacy wrist paths. Some outfits and loadouts still equip items to the old combined wrist slot.
+	// Redirect those equips into an actual split wrist slot so the item appears on the HUD, can be removed, and blocks the correct wrist.
+	if(slot == slot_wrists)
+		if(!l_wrist)
+			slot = slot_l_wrist
+		else if(!r_wrist)
+			slot = slot_r_wrist
+		else
+			to_chat(src, SPAN_WARNING("Your wrists are already occupied."))
+			return
+
 	if(!has_organ_for_slot(slot))
 		return
 	if(!species || !species.hud || !(slot in species.hud.equip_slots))
@@ -317,11 +326,6 @@ This saves us from having to call add_fingerprint() any time something is put in
 	// Used by paired wristwear. A two-wrist item needs the opposite wrist to be empty before it creates an offwrist placeholder.
 	if((slot == slot_r_wrist) && (W.slot_flags & SLOT_TWOWRISTS) && l_wrist)
 		to_chat(src, SPAN_WARNING("Your left wrist is already occupied."))
-		return
-
-	// Used by legacy wrist paths. A two-wrist item cannot use the legacy combined slot if either split wrist is occupied.
-	if((slot == slot_wrists) && (W.slot_flags & SLOT_TWOWRISTS) && (l_wrist || r_wrist))
-		to_chat(src, SPAN_WARNING("One of your wrists is already occupied."))
 		return
 
 	W.forceMove(src)
@@ -444,24 +448,6 @@ This saves us from having to call add_fingerprint() any time something is put in
 			W.on_equipped(src, slot, assisted_equip)
 			update_inv_r_wrist(redraw_mob)
 			update_inv_l_wrist(redraw_mob)
-
-		if(slot_wrists)
-			if(istype(W, /obj/item/clothing/wrists))
-				var/obj/item/clothing/wrists/wristwear = W
-				wristwear.set_wrist_side(slot_l_wrist)
-			src.wrists = W
-			if(W.slot_flags & SLOT_TWOWRISTS)
-				// Used by legacy wrist paths. The real item is mirrored into the left wrist and an offwrist placeholder reserves the right wrist.
-				src.l_wrist = W
-				var/obj/item/clothing/wrists/offwrist/O = new /obj/item/clothing/wrists/offwrist(src)
-				O.copy_wrist(W)
-				src.r_wrist = O
-				O.hud_layerise()
-				O.screen_loc = ui_r_wrist
-				update_inv_l_wrist(redraw_mob)
-				update_inv_r_wrist(redraw_mob)
-			W.on_equipped(src, slot, assisted_equip)
-			update_inv_wrists(redraw_mob)
 
 		if(slot_pants)
 			src.pants = W
@@ -599,7 +585,7 @@ This saves us from having to call add_fingerprint() any time something is put in
 		if(slot_r_ear)      return r_ear
 		if(slot_l_wrist)    return l_wrist
 		if(slot_r_wrist)    return r_wrist
-		if(slot_wrists)     return wrists
+		if(slot_wrists)     return l_wrist || r_wrist || wrists
 		if(slot_pants)      return pants
 	return ..()
 
@@ -665,7 +651,6 @@ This saves us from having to call add_fingerprint() any time something is put in
 			items += r_store
 
 	return items
-
 
 /mob/living/carbon/human/put_in_active_hand(obj/item/item_to_equip, set_disable_warning = FALSE)
 	var/hand_to_equip_to = hand ? slot_l_hand : slot_r_hand

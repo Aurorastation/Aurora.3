@@ -9,6 +9,7 @@ changes:
   - bugfix: "Updated the existing Wrist primary radio preference to find radios in either the left or right wrist slot."
   - bugfix: "Updated wristbound radio slot handling so they can properly select left or right wrist item states once matching sprites are implemented (WE HOPE!!!)."
   - bugfix: "Updated wrist inventory icon rendering to draw equipment from both split wrist slots."
+  - bugfix: "Fixed legacy wrist-slot equips being placed into the old combined wrist slot instead of a visible left or right wrist slot."
   - qol: "Removed the manual wristwear flip verb in favor of automatically setting wristwear orientation based on the equipped wrist slot."
   - refactor: "Updated wrist slot defines, slot strings, and clothing slot flags to support split wrist equipment while preserving legacy wrist slot compatibility."
   - refactor: "Updated human inventory equip, unequip, and equipped-item lookup handling for left wrist, right wrist, and two-wrist items."

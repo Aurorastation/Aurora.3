@@ -235,6 +235,12 @@ GLOBAL_LIST(global_huds)
 					if(slot_wear_mask)
 						if(H.wear_mask)
 							H.wear_mask.screen_loc = hud_data["loc"]
+					if(slot_l_wrist)
+						if(H.l_wrist)
+							H.l_wrist.screen_loc = hud_data["loc"]
+					if(slot_r_wrist)
+						if(H.r_wrist)
+							H.r_wrist.screen_loc = hud_data["loc"]
 					if(slot_wrists)
 						if(H.wrists)
 							H.wrists.screen_loc = hud_data["loc"]
@@ -270,6 +276,12 @@ GLOBAL_LIST(global_huds)
 					if(slot_wear_mask)
 						if(H.wear_mask)
 							H.wear_mask.screen_loc = null
+					if(slot_l_wrist)
+						if(H.l_wrist)
+							H.l_wrist.screen_loc = null
+					if(slot_r_wrist)
+						if(H.r_wrist)
+							H.r_wrist.screen_loc = null
 					if(slot_wrists)
 						if(H.wrists)
 							H.wrists.screen_loc = null

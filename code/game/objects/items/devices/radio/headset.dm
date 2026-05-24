@@ -239,6 +239,10 @@
 			H.update_inv_r_wrist()
 		else if(H.wrists == src)
 			H.update_inv_wrists()
+		else if(H.l_ear == src)
+			H.update_inv_l_ear()
+		else if(H.r_ear == src)
+			H.update_inv_r_ear()
 
 /obj/item/radio/headset/wrist/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()

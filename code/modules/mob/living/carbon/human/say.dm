@@ -254,7 +254,7 @@
 				R = wrists
 				has_radio = TRUE
 			if(istype(r_hand, /obj/item/radio))
-				R = wrists
+				R = r_hand
 				has_radio = TRUE
 			if(has_radio)
 				used_radios += R

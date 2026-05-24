@@ -67,8 +67,8 @@
 #define slot_in_belt     24
 #define slot_l_wrist     25
 #define slot_r_wrist     26
-#define slot_wrists      slot_l_wrist // legacy alias; remove later after old references are migrated
-#define slot_last        27 //for the love of god, keep this updated or you won't be able to unequip things
+#define slot_wrists      27 // legacy combined wrist slot; keep distinct from the split wrist slots
+#define slot_last        28 //for the love of god, keep this updated or you won't be able to unequip things
 
 // Inventory slot strings.
 // since numbers cannot be used as associative list keys.
@@ -90,7 +90,7 @@
 #define slot_shoes_str 		"slot_shoes"
 #define slot_l_wrist_str 	"slot_l_wrist"
 #define slot_r_wrist_str 	"slot_r_wrist"
-#define slot_wrists_str 	"slot_l_wrist" // legacy alias; remove later after old references are migrated
+#define slot_wrists_str 	"slot_wrists" // legacy alias; remove later after old references are migrated
 #define slot_gloves_str 	"slot_gloves"
 #define slot_tail_str		"slot_tail"
 
