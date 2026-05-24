@@ -14,6 +14,8 @@
 
 	RegisterSignal(owner, COMSIG_PSI_MIND_POWER, PROC_REF(cancel_power), override = TRUE)
 	RegisterSignal(owner, COMSIG_PSI_CHECK_SENSITIVITY, PROC_REF(modify_sensitivity), override = TRUE)
+	RegisterSignal(owner, COMSIG_GET_MINISTRY_MODIFIERS, PROC_REF(modify_ministry_empathy), override = TRUE)
+	RegisterSignal(owner, COMSIG_RECEIVE_MINISTRY_MODIFIERS, PROC_REF(modify_ministry_receiving), override = TRUE)
 
 /obj/item/organ/internal/augment/bioaug/mind_blanker/replaced()
 	. = ..()
@@ -22,6 +24,8 @@
 
 	RegisterSignal(owner, COMSIG_PSI_MIND_POWER, PROC_REF(cancel_power), override = TRUE)
 	RegisterSignal(owner, COMSIG_PSI_CHECK_SENSITIVITY, PROC_REF(modify_sensitivity), override = TRUE)
+	RegisterSignal(owner, COMSIG_GET_MINISTRY_MODIFIERS, PROC_REF(modify_ministry_empathy), override = TRUE)
+	RegisterSignal(owner, COMSIG_RECEIVE_MINISTRY_MODIFIERS, PROC_REF(modify_ministry_receiving), override = TRUE)
 
 /obj/item/organ/internal/augment/bioaug/mind_blanker/removed()
 	if(!owner)
@@ -29,9 +33,11 @@
 
 	UnregisterSignal(owner, COMSIG_PSI_MIND_POWER)
 	UnregisterSignal(owner, COMSIG_PSI_CHECK_SENSITIVITY)
+	UnregisterSignal(owner, COMSIG_GET_MINISTRY_MODIFIERS)
+	UnregisterSignal(owner, COMSIG_RECEIVE_MINISTRY_MODIFIERS)
 	return ..()
 
-/obj/item/organ/internal/augment/bioaug/mind_blanker/proc/cancel_power(var/implantee, var/caster, var/cancelled, var/cancel_return, var/wide_field)
+/obj/item/organ/internal/augment/bioaug/mind_blanker/proc/cancel_power(implantee, caster, cancelled, cancel_return, wide_field)
 	SIGNAL_HANDLER
 	if(is_broken())
 		return
@@ -42,12 +48,28 @@
 
 	to_chat(implantee, SPAN_DANGER("Your mind wriggles as it repulses an outside thought."))
 
-/obj/item/organ/internal/augment/bioaug/mind_blanker/proc/modify_sensitivity(var/implantee, var/effective_sensitivity)
+/obj/item/organ/internal/augment/bioaug/mind_blanker/proc/modify_sensitivity(implantee, effective_sensitivity)
 	SIGNAL_HANDLER
 	if(is_broken())
 		return
 
 	*effective_sensitivity += sensitivity_modifier
+
+/obj/item/organ/internal/augment/bioaug/mind_blanker/proc/modify_ministry_empathy(minister, ministree, moodlet_value)
+	SIGNAL_HANDLER
+	if (!(*moodlet_value))
+		return
+
+	to_chat(minister, SPAN_BAD("Why should you care how [ministree.name] feels?"))
+	*moodlet_value = 0
+
+/obj/item/organ/internal/augment/bioaug/mind_blanker/proc/modify_ministry_receiving(ministree, minister, moodlet_value)
+	SIGNAL_HANDLER
+	if (!(*moodlet_value))
+		return
+
+	to_chat(ministree, SPAN_BAD("You feel nothing from [minister.name]'s words."))
+	*moodlet_value = 0
 
 /obj/item/organ/internal/augment/bioaug/mind_blanker_lethal
 	name = "lethal mind blanker"
@@ -82,7 +104,7 @@
 	UnregisterSignal(owner, COMSIG_PSI_MIND_POWER)
 	UnregisterSignal(owner, COMSIG_PSI_CHECK_SENSITIVITY)
 
-/obj/item/organ/internal/augment/bioaug/mind_blanker_lethal/proc/cancel_power_lethal(var/mob/living/carbon/human/implantee, var/caster, var/cancelled, var/cancel_return, var/wide_field)
+/obj/item/organ/internal/augment/bioaug/mind_blanker_lethal/proc/cancel_power_lethal(mob/living/carbon/human/implantee, caster, cancelled, cancel_return, wide_field)
 	SIGNAL_HANDLER
 	if(is_broken())
 		return
@@ -98,7 +120,7 @@
 		victim.confused += 20
 		*cancel_return = SPAN_DANGER("Agony lances through my brain as their mind clamps down upon me!")
 
-/obj/item/organ/internal/augment/bioaug/mind_blanker_lethal/proc/modify_sensitivity(var/implantee, var/effective_sensitivity)
+/obj/item/organ/internal/augment/bioaug/mind_blanker_lethal/proc/modify_sensitivity(implantee, effective_sensitivity)
 	SIGNAL_HANDLER
 	if(is_broken())
 		return

@@ -132,3 +132,8 @@
 // Surgery Signals
 /// Signal raised against the surgeon attempting to perform a surgery to query their components for any rate mods.
 #define COMSIG_GET_SURGERY_SUCCESS_MODIFIERS "get_surgery_success_modifiers"
+
+/// Signal raised against a character attempting to give a ministry moodlet to someone.
+#define COMSIG_GET_MINISTRY_MODIFIERS "get_ministry_modifiers"
+/// Signal raised against the recipient of the Ministry skill action, allowing effects to interrupt the received moodlet.
+#define COMSIG_RECEIVE_MINISTRY_MODIFIERS "receive_ministry_modifiers"
