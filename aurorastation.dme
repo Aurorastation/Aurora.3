@@ -546,6 +546,7 @@
 #include "code\datums\components\skills\service\cooking_skill_component.dm"
 #include "code\datums\components\skills\service\entertaining_skill_component.dm"
 #include "code\datums\components\skills\service\gardening_skill_component.dm"
+#include "code\datums\components\skills\service\ministry_skill_component.dm"
 #include "code\datums\components\synthetic_endoskeleton\synthetic_endoskeleton.dm"
 #include "code\datums\components\tools\tool_quality.dm"
 #include "code\datums\components\turf_click\turf_hand.dm"

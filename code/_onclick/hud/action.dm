@@ -3,6 +3,7 @@
 #define AB_INNATE 3
 #define AB_GENERIC 4
 #define AB_ITEM_USE_ICON 5
+#define AB_CALL_SELF 6
 
 #define AB_CHECK_RESTRAINED 1
 #define AB_CHECK_STUNNED 2
@@ -90,6 +91,9 @@
 		if(AB_GENERIC)
 			if(target && procname)
 				call(target,procname)(usr)
+		if(AB_CALL_SELF)
+			if (procname)
+				call(src, procname)()
 	return
 
 /datum/action/proc/Activate()
@@ -337,6 +341,7 @@
 #undef AB_INNATE
 #undef AB_GENERIC
 #undef AB_ITEM_USE_ICON
+#undef AB_CALL_SELF
 
 #undef AB_CHECK_RESTRAINED
 #undef AB_CHECK_STUNNED

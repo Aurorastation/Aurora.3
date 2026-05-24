@@ -41,6 +41,8 @@
 #define COMSIG_MOB_ZONE_SEL_CHANGE "mob_zone_sel_change"
 ///from base of /mob/Login(): ()
 #define COMSIG_MOB_LOGIN "mob_login"
+/// Sent at the end of /mob/LateLogin() after the client is fully initialized.
+#define COMSIG_MOB_AFTER_LOGIN "mob_after_login"
 ///from base of /mob/Logout(): ()
 #define COMSIG_MOB_LOGOUT "mob_logout"
 /// from mob/get_status_tab_items(): (list/items)
