@@ -408,6 +408,12 @@ This saves us from having to call add_fingerprint() any time something is put in
 			update_inv_gloves(redraw_mob)
 
 		if(slot_l_wrist)
+			if(istype(W, /obj/item/clothing/wrists))
+				var/obj/item/clothing/wrists/wristwear = W
+				wristwear.set_wrist_side(slot_l_wrist)
+			if(istype(W, /obj/item/radio/headset/wrist))
+				var/obj/item/radio/headset/wrist/wrist_radio = W
+				wrist_radio.set_wrist_side(slot_l_wrist)
 			src.l_wrist = W
 			if(W.slot_flags & SLOT_TWOWRISTS)
 				// Used by paired wristwear. The real item stays on the left wrist and an offwrist placeholder reserves the right wrist.
@@ -421,6 +427,12 @@ This saves us from having to call add_fingerprint() any time something is put in
 			update_inv_r_wrist(redraw_mob)
 
 		if(slot_r_wrist)
+			if(istype(W, /obj/item/clothing/wrists))
+				var/obj/item/clothing/wrists/wristwear = W
+				wristwear.set_wrist_side(slot_r_wrist)
+			if(istype(W, /obj/item/radio/headset/wrist))
+				var/obj/item/radio/headset/wrist/wrist_radio = W
+				wrist_radio.set_wrist_side(slot_r_wrist)
 			src.r_wrist = W
 			if(W.slot_flags & SLOT_TWOWRISTS)
 				// Used by paired wristwear. The real item stays on the right wrist and an offwrist placeholder reserves the left wrist.
@@ -434,6 +446,9 @@ This saves us from having to call add_fingerprint() any time something is put in
 			update_inv_l_wrist(redraw_mob)
 
 		if(slot_wrists)
+			if(istype(W, /obj/item/clothing/wrists))
+				var/obj/item/clothing/wrists/wristwear = W
+				wristwear.set_wrist_side(slot_l_wrist)
 			src.wrists = W
 			if(W.slot_flags & SLOT_TWOWRISTS)
 				// Used by legacy wrist paths. The real item is mirrored into the left wrist and an offwrist placeholder reserves the right wrist.

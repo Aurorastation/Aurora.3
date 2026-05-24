@@ -9,7 +9,10 @@
 	desc = "A pair of flashy bracers for a stylish Sinta, whether a noble or a noble's envoy."
 	icon_state = "bracers"
 	item_state = "bracers"
+	// Used by paired wristwear. Jeweled bracers occupy both wrist slots like other paired bracer items.
+	slot_flags = SLOT_WRISTS|SLOT_TWOWRISTS
 	gender = PLURAL
+	flipped = -1
 	build_from_parts = TRUE
 	worn_overlay = "trim"
 

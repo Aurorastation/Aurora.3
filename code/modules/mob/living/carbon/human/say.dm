@@ -187,12 +187,12 @@
 	if(istype(r_ear, /obj/item/radio))
 		headsets["Right Ear"] = r_ear
 
-	// Used by split wrist radios. Department radio channels use get_radio(), so check both split wrist slots before falling back to the legacy wrists slot.
+	// Used by split wrist radios. The existing Wrist preference should find a radio in either split wrist slot.
 	if(istype(l_wrist, /obj/item/radio))
-		headsets["Left Wrist"] = l_wrist
-	if(istype(r_wrist, /obj/item/radio))
-		headsets["Right Wrist"] = r_wrist
-	if(istype(wrists, /obj/item/radio))
+		headsets["Wrist"] = l_wrist
+	else if(istype(r_wrist, /obj/item/radio))
+		headsets["Wrist"] = r_wrist
+	else if(istype(wrists, /obj/item/radio))
 		headsets["Wrist"] = wrists
 
 	if(length(headsets))

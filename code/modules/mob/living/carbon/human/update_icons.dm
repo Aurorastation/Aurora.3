@@ -1256,47 +1256,71 @@ There are several things that need to be remembered:
 	if(update_icons)
 		update_icon(TRUE)
 
-/mob/living/carbon/human/update_inv_wrists(var/update_icons=1)
-	if (QDELETED(src))
+/mob/living/carbon/human/update_inv_wrists(var/update_icons = 1)
+	if(QDELETED(src))
 		return
 
-	overlays_raw[UNDER_UNIFORM_LAYER_WR] = null
-	overlays_raw[ABOVE_UNIFORM_LAYER_WR] = null
-	overlays_raw[ABOVE_SUIT_LAYER_WR] = null
+	overlays_raw[UNDER_UNIFORM_LAYER_WR] = list()
+	overlays_raw[ABOVE_UNIFORM_LAYER_WR] = list()
+	overlays_raw[ABOVE_SUIT_LAYER_WR] = list()
 
 	if(check_draw_wrists())
-		var/mob_icon
-		var/mob_state = wrists.item_state || wrists.icon_state
-		if(wrists.contained_sprite)
-			if(wrists.icon_override)
-				mob_icon = wrists.icon_override
-			else if(wrists.sprite_sheets && wrists.sprite_sheets[GET_BODY_TYPE])
-				mob_icon = wrists.sprite_sheets[GET_BODY_TYPE]
+		var/list/wrist_items = list()
+
+		if(l_wrist)
+			wrist_items += l_wrist
+		if(r_wrist && r_wrist != l_wrist)
+			wrist_items += r_wrist
+		if(wrists && !(wrists in wrist_items))
+			wrist_items += wrists
+
+		for(var/obj/item/wrist_item as anything in wrist_items)
+			if(!wrist_item)
+				continue
+
+			var/obj/item/clothing/wrists/offwrist/placeholder = wrist_item
+			if(istype(placeholder))
+				continue
+
+			if(!(wrist_item.flags_inv & ALWAYSDRAW) && (wear_suit?.flags_inv & HIDEWRISTS))
+				continue
+
+			var/mob_icon
+			var/mob_state = wrist_item.item_state || wrist_item.icon_state
+
+			if(wrist_item.contained_sprite)
+				if(wrist_item.icon_override)
+					mob_icon = wrist_item.icon_override
+				else if(wrist_item.sprite_sheets && wrist_item.sprite_sheets[GET_BODY_TYPE])
+					mob_icon = wrist_item.sprite_sheets[GET_BODY_TYPE]
+				else
+					mob_icon = wrist_item.icon
+
+				wrist_item.auto_adapt_species(src)
+				mob_state = "[UNDERSCORE_OR_NULL(wrist_item.icon_species_tag)][wrist_item.item_state][WORN_WRISTS]"
 			else
-				mob_icon = wrists.icon
-			wrists.auto_adapt_species(src)
-			mob_state = "[UNDERSCORE_OR_NULL(wrists.icon_species_tag)][wrists.item_state][WORN_WRISTS]"
-		else
-			if(wrists.item_state_slots && wrists.item_state_slots[slot_wrists_str])
-				mob_state = wrists.item_state_slots[slot_wrists_str]
+				if(wrist_item.item_state_slots && wrist_item.item_state_slots[slot_wrists_str])
+					mob_state = wrist_item.item_state_slots[slot_wrists_str]
 
-			//determine icon to use
-			if(wrists.item_icons && (slot_wrists_str in wrists.item_icons))
-				mob_icon = wrists.item_icons[slot_wrists_str]
-			else if(wrists.icon_override)
-				mob_icon = wrists.icon_override
-				mob_state += WORN_WRISTS
-			else
-				mob_icon = INV_WRISTS_DEF_ICON
+				if(wrist_item.item_icons && (slot_wrists_str in wrist_item.item_icons))
+					mob_icon = wrist_item.item_icons[slot_wrists_str]
+				else if(wrist_item.icon_override)
+					mob_icon = wrist_item.icon_override
+					mob_state += WORN_WRISTS
+				else
+					mob_icon = INV_WRISTS_DEF_ICON
 
-		var/image/wrists_overlay = wrists.get_mob_overlay(src, mob_icon, mob_state, slot_wrists_str)
+			var/image/wrist_overlay = wrist_item.get_mob_overlay(src, mob_icon, mob_state, slot_wrists_str)
 
-		var/wrist_layer = ABOVE_SUIT_LAYER_WR
-		if(istype(wrists, /obj/item/clothing/wrists) || istype(wrists, /obj/item/radio/headset/wrist))
-			var/obj/item/clothing/wrists/W = wrists
-			wrist_layer = W.mob_wear_layer
+			var/wrist_layer = ABOVE_SUIT_LAYER_WR
+			if(istype(wrist_item, /obj/item/clothing/wrists))
+				var/obj/item/clothing/wrists/W = wrist_item
+				wrist_layer = W.mob_wear_layer
+			else if(istype(wrist_item, /obj/item/radio/headset/wrist))
+				var/obj/item/radio/headset/wrist/R = wrist_item
+				wrist_layer = R.mob_wear_layer
 
-		overlays_raw[wrist_layer] = wrists_overlay
+			overlays_raw[wrist_layer] += wrist_overlay
 
 	if(update_icons)
 		update_icon()
@@ -1625,14 +1649,14 @@ There are several things that need to be remembered:
 /mob/living/carbon/human/proc/check_draw_wrists()
 	SHOULD_NOT_SLEEP(TRUE)
 	SHOULD_BE_PURE(TRUE)
-	if (!wrists)
+
+	if(!l_wrist && !r_wrist && !wrists)
 		return FALSE
-	else if (wrists.flags_inv & ALWAYSDRAW)
+	if((l_wrist?.flags_inv & ALWAYSDRAW) || (r_wrist?.flags_inv & ALWAYSDRAW) || (wrists?.flags_inv & ALWAYSDRAW))
 		return TRUE
-	else if (wear_suit?.flags_inv & HIDEWRISTS)
+	if(wear_suit?.flags_inv & HIDEWRISTS)
 		return FALSE
-	else
-		return TRUE
+	return TRUE
 
 /mob/living/carbon/human/proc/check_draw_pants()
 	SHOULD_NOT_SLEEP(TRUE)
