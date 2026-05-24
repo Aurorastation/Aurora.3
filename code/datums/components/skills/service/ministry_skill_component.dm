@@ -27,18 +27,20 @@
 	SIGNAL_HANDLER
 	if (owner == target)
 		to_chat(owner, SPAN_NOTICE("You cannot offer a blessing to yourself."))
-		return
+		return COMSIG_MOB_CANCEL_CLICKON
 
 	if (!astype(target, /mob)?.client)
 		to_chat(owner, SPAN_NOTICE("[target] cannot receive a blessing."))
-		return
+		return COMSIG_MOB_CANCEL_CLICKON
 
 	if (get_dist(owner, target) >= 2)
 		to_chat(owner, SPAN_NOTICE("You must be adjacent to [target] to offer them a blessing."))
+		return COMSIG_MOB_CANCEL_CLICKON
 
 	// StrongDMM for whatever ungodly reason can't tell that this proc won't block the caller.
 	UNLINT(try_give_blessing(target))
 	UnregisterSignal(owner, COMSIG_MOB_CLICKON)
+	return COMSIG_MOB_CANCEL_CLICKON
 
 /datum/action/ministry/proc/try_give_blessing(mob/target)
 	set waitfor = FALSE
