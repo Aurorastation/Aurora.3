@@ -53,8 +53,8 @@
 #define LIGHT_COLOR_EMERGENCY_SOFT	"#FA8282"
 /// Clinical white light bulbs
 #define LIGHT_COLOR_BULB_WHITE		"#FEFEFE"
-/// Grimier off-white.
-#define LIGHT_COLOR_OFFWHITE		"#efd8bb"
+/// Grimier, warmer off-white.
+#define LIGHT_COLOR_OFFWHITE		"#efe5bb"
 /// Warm yellowish light bulbs
 #define LIGHT_COLOR_WARM			"#efeebb"
 /// Amberish decayed light bulbs
@@ -67,7 +67,7 @@
 #define LIGHT_COLOR_LAVENDER		"#d8bfd8"
 
 // This is the list of area-based light variations!
-/// Standard list of randomised light colors. White-ish.
+/// Quite clean, cold, clinical lighting. For tightly monitored or very sterile areas.
 #define LIGHT_CLINICAL_COLORS list(LIGHT_COLOR_BULB_WHITE, LIGHT_COLOR_WARM, LIGHT_COLOR_HALOGEN)
 /// Generic warmer off-white lighting, for public areas.
 #define LIGHT_WARM_COLORS list(LIGHT_COLOR_WARM, LIGHT_COLOR_OFFWHITE)

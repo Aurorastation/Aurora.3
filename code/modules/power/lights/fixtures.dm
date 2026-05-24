@@ -139,15 +139,15 @@
 	if(randomize_color)
 		var/area/A = get_area(src)
 		switch(A.department)
-			if(LOC_MEDICAL, LOC_SHUTTLE)
+			if(LOC_MEDICAL, LOC_SHUTTLE, LOC_BRIDGE)
 				randomized_colors = LIGHT_CLINICAL_COLORS
 			if(LOC_ENGINEERING, LOC_OPERATIONS, LOC_HANGAR, LOC_CREW, LOC_MAINTENANCE)
 				randomized_colors = LIGHT_ENGINEERING_COLORS
-			if(LOC_PUBLIC, LOC_SERVICE, LOC_BRIDGE, LOC_HOLODECK)
+			if(LOC_PUBLIC, LOC_SERVICE, LOC_HOLODECK, LOC_SECURITY)
 				randomized_colors = LIGHT_WARM_COLORS
 			if(LOC_SCIENCE)
 				randomized_colors = LIGHT_RESEARCH_COLORS
-			if(LOC_AI, LOC_SECURITY, LOC_COMMAND)
+			if(LOC_AI, LOC_COMMAND)
 				randomized_colors = LIGHT_HIGHSEC_COLORS
 
 		brightness_color = pick(randomized_colors)
