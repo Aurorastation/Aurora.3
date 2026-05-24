@@ -35,8 +35,9 @@
 	if(sensors?.use_power)
 		sensor_range = round(sensors.range,1)
 	var/datum/overmap_contact/self_record = contact_datums[linked]
-	self_record.update_marker_icon()
-	self_record.show()
+	if (self_record)
+		self_record.update_marker_icon()
+		self_record.show()
 
 	// Update our 'sensor range' (ie. overmap lighting)
 	if(!sensors || !sensors.use_power || (stat & (NOPOWER|BROKEN)))
@@ -51,7 +52,7 @@
 
 		objects_in_view.Cut()
 	else
-		self_record.ping_radar(sensor_range)
+		self_record?.ping_radar(sensor_range)
 
 		// What can we see?
 		var/list/objects_in_current_view = list()

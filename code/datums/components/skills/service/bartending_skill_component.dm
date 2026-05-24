@@ -1,6 +1,8 @@
 /datum/component/skill/bartending
 
 /datum/moodlet/bartender_drink
+	moodlet_descriptor = SPAN_GOOD("Consumed a skillfully prepared drink.")
+	initial_descriptor = SPAN_GOOD("You have gained a morale modifier from consuming a skillfully prepared drink.")
 
 /datum/component/drink_moodlet_provider
 	/// The morale boosting value of the moodlet this drink will provide.
