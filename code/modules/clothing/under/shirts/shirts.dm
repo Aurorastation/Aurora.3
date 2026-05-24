@@ -339,22 +339,63 @@
 	icon_state = "tshirt_question"
 	item_state = "tshirt_question"
 
+/obj/item/clothing/under/dressshirt/bowling
+	name = "white bowling t-shirt"
+	desc = "A t-shirt for bowling."
+	icon_state = "tshirt_bowlingw"
+	item_state = "tshirt_bowlingw"
+
+/obj/item/clothing/under/dressshirt/bowling/aqua
+	name = "aqua bowling t-shirt"
+	icon_state = "tshirt_bowlinga"
+	item_state = "tshirt_bowlinga"
+
+/obj/item/clothing/under/dressshirt/bowling/purple
+	name = "purple bowling t-shirt"
+	icon_state = "tshirt_bowlingp"
+	item_state = "tshirt_bowlingp"
+
+/obj/item/clothing/under/dressshirt/bowling/red
+	name = "red bowling t-shirt"
+	icon_state = "tshirt_bowlingr"
+	item_state = "tshirt_bowlingr"
+
+/obj/item/clothing/under/dressshirt/jersey
+	name = "blue jersey"
+	desc = "A sports shirt with numbers on the back."
+	icon_state = "shirt_jersey"
+	item_state = "shirt_jersey"
+
+/obj/item/clothing/under/dressshirt/jersey/red
+	name = "red jersey"
+	icon_state = "shirt_jersey_red"
+	item_state = "shirt_jersey_red"
+
+/obj/item/clothing/under/dressshirt/pinkblack
+	name = "pink and black t-shirt"
+	desc = "A pink t-shirt with black sleeves."
+	icon_state = "tshirt_pinkblack"
+	item_state = "tshirt_pinkblack"
+
+/obj/item/clothing/under/dressshirt/nanotrasen
+	name = "blue NanoTrasen t-shirt"
+	desc = "A t-shirt with the letters \"NT\" printed on it."
+	icon_state = "tshirt_nt_blue"
+	item_state = "tshirt_nt_blue"
+
+/obj/item/clothing/under/dressshirt/nanotrasen/red
+	name = "red NanoTrasen t-shirt"
+	icon_state = "tshirt_nt_red"
+	item_state = "tshirt_nt_red"
+
 /obj/item/clothing/under/dressshirt/tanktop/fire
 	name = "fire tank top"
 	desc = "A tank top with a flame decal on it."
 	icon_state = "tanktop_fire"
 	item_state = "tanktop_fire"
 
-/obj/item/clothing/under/dressshirt/tanktop/fire/feminine
-	icon_state = "tanktop_fire_fem"
-	item_state = "tanktop_fire_fem"
-
 /obj/item/clothing/under/dressshirt/tanktop/sun
 	name = "sun tank top"
 	desc = "A tank top with a sun decal on it."
 	icon_state = "tanktop_sun"
 	item_state = "tanktop_sun"
-
-/obj/item/clothing/under/dressshirt/tanktop/sun/feminine
-	icon_state = "tanktop_sun_fem"
-	item_state = "tanktop_sun_fem"

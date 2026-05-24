@@ -103,8 +103,15 @@ ABSTRACT_TYPE(/datum/gear/shirts)
 	colouredshirts["peace t-shirt"] = /obj/item/clothing/under/dressshirt/peace
 	colouredshirts["steak t-shirt"] = /obj/item/clothing/under/dressshirt/meat
 	colouredshirts["question mark t-shirt"] = /obj/item/clothing/under/dressshirt/questionmark
+	colouredshirts["white bowling t-shirt"] = /obj/item/clothing/under/dressshirt/bowling
+	colouredshirts["aqua bowling t-shirt"] = /obj/item/clothing/under/dressshirt/bowling/aqua
+	colouredshirts["purple bowling t-shirt"] = /obj/item/clothing/under/dressshirt/bowling/purple
+	colouredshirts["red bowling t-shirt"] = /obj/item/clothing/under/dressshirt/bowling/red
+	colouredshirts["blue jersey"] = /obj/item/clothing/under/dressshirt/jersey
+	colouredshirts["red jersey"] = /obj/item/clothing/under/dressshirt/jersey/red
+	colouredshirts["pink and black t-shirt"] = /obj/item/clothing/under/dressshirt/pinkblack
+	colouredshirts["blue NanoTrasen t-shirt"] = /obj/item/clothing/under/dressshirt/nanotrasen
+	colouredshirts["red NanoTrasen t-shirt"] = /obj/item/clothing/under/dressshirt/nanotrasen/red
 	colouredshirts["fire tank top"] = /obj/item/clothing/under/dressshirt/tanktop/fire
-	colouredshirts["fire tank top, feminine"] = /obj/item/clothing/under/dressshirt/tanktop/fire/feminine
 	colouredshirts["sun tank top"] = /obj/item/clothing/under/dressshirt/tanktop/sun
-	colouredshirts["sun tank top, feminine"] = /obj/item/clothing/under/dressshirt/tanktop/sun/feminine
 	gear_tweaks += new /datum/gear_tweak/path(colouredshirts)
