@@ -60,7 +60,7 @@
 	if (!(*moodlet_value))
 		return
 
-	to_chat(minister, SPAN_BAD("Why should you care how [ministree.name] feels?"))
+	to_chat(minister, SPAN_BAD("Why should you care how [ministree] feels?"))
 	*moodlet_value = 0
 
 /datum/component/timed_life/psiblock_drugs/proc/modify_ministry_receiving(ministree, minister, moodlet_value)
@@ -68,7 +68,7 @@
 	if (!(*moodlet_value))
 		return
 
-	to_chat(ministree, SPAN_BAD("You feel nothing from [minister.name]'s words."))
+	to_chat(ministree, SPAN_BAD("You feel nothing from [minister]'s words."))
 	*moodlet_value = 0
 
 /datum/component/timed_life/psiblock_drugs/process(seconds_per_tick)
