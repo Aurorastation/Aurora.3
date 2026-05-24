@@ -224,7 +224,7 @@
 	anti_materiel_potential = 3
 	impact_sounds = list(BULLET_IMPACT_MEAT = SOUNDS_BULLET_MEAT, BULLET_IMPACT_METAL = SOUNDS_BULLET_METAL)
 	accuracy = 100
-	projectile_piercing = PASSMOB|PASSDOORS|PASSGLASS|PASSCLOSEDTURF|PASSWINDOW|PASSMACHINE|PASSBLOB|PASSFLAPS|PASSVEHICLE|PASSSTRUCTURE //It's a ship weapon let it try to penetrate everything.
+	projectile_piercing = PASSMOB|PASSDOORS|PASSGLASS|PASSCLOSEDTURF|PASSWINDOW|PASSMACHINE|PASSBLOB|PASSFLAPS|PASSVEHICLE|PASSSTRUCTURE|PASSSHIELD //It's a ship weapon let it try to penetrate everything.
 	pierce_decay_damage = 0.95  //Ship weapon projectiles don't lose much damage on pierce by default, but this can be set per projectile.
 	var/obj/item/ship_ammunition/ammo
 	var/primed = FALSE

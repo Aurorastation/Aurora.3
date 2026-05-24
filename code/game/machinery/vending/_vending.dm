@@ -63,6 +63,7 @@
 	density = 1
 	clicksound = SFX_BUTTON
 	manufacturer = "idris"
+	maxhealth = OBJECT_HEALTH_HIGH
 
 	// Every vending machine has one of these.
 	/// `icon_state` when off. Defined on init.
@@ -357,6 +358,24 @@
 				src.malfunction()
 				return
 	return
+
+/obj/machinery/vending/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
+	var/turf/current_turf = get_turf(src)
+	if(current_turf)
+		var/list/stocked_products = list()
+		for(var/datum/data/vending_product/product in product_records)
+			if(product.amount > 0)
+				stocked_products += product
+
+		var/items_to_drop = rand(1, 5)
+		while(items_to_drop-- > 0 && length(stocked_products))
+			var/datum/data/vending_product/product = pick(stocked_products)
+			new product.product_path(current_turf)
+			product.amount--
+			if(product.amount < 1)
+				stocked_products -= product
+
+	. = ..()
 
 /obj/machinery/vending/emag_act(var/remaining_charges, var/mob/user)
 	if (!emagged)

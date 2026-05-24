@@ -4,6 +4,18 @@
 /obj/machinery/shield_gen/external
 	name = "hull shield generator"
 
+	component_types = list(
+		/obj/item/circuitboard/shield_gen_ex,
+		/obj/item/stock_parts/manipulator = 2,
+		/obj/item/stock_parts/micro_laser = 2,
+		/obj/item/stock_parts/capacitor = 2,
+		/obj/item/stock_parts/subspace/transmitter = 1,
+		/obj/item/stock_parts/subspace/crystal = 1,
+		/obj/item/stock_parts/subspace/amplifier = 1,
+		/obj/item/stock_parts/console_screen = 1,
+		/obj/item/stack/cable_coil = 5
+	)
+
 //Search for space turfs within range that are adjacent to a simulated turf.
 /obj/machinery/shield_gen/external/get_shielded_turfs()
 	var/list/out = list()

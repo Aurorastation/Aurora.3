@@ -56,6 +56,8 @@ GLOBAL_LIST_INIT(bitflags, list(1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 204
 #define PASSDOORHATCH	(1<<15)
 #define PASSTRACE	(1<<16) //Used by turrets in the check_trajectory proc to target mobs hiding behind certain things (such as closets)
 #define PASSRAILING	(1<<17)
+/// Allows you to pass over energy shields, these handle blocking projectiles in their on_hit().
+#define PASSSHIELD (1<<18)
 
 //Movement Types
 #define GROUND (1<<0)

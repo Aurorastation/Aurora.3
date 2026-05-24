@@ -50,20 +50,22 @@
 	icon_state = "small"
 	damage = 50
 	armor_penetration = 50
-	penetrating = 2
+	penetrating = 3
 	anti_materiel_potential = 10
 
 /obj/projectile/ship_ammo/francisca/ap
 	name = "40mm AP shell"
 	damage = 30
 	armor_penetration = 100
-	penetrating = 4
+	penetrating = 8
+	anti_materiel_potential = 8
 
 /obj/projectile/ship_ammo/francisca/frag
 	name = "40mm FRAG shell"
 	damage = 30
 	armor_penetration = 50
 	penetrating = 1
+	anti_materiel_potential = 6
 
 /obj/projectile/ship_ammo/francisca/frag/on_hit(atom/target, blocked, def_zone, is_landmark_hit)
 	fragem(src, 70, 70, 1, 2, 10, 4, TRUE)

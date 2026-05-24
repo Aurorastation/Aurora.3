@@ -36,6 +36,7 @@
 	damage = 100
 	armor_penetration = 50
 	penetrating = 0
+	anti_materiel_potential = 100
 
 /obj/projectile/ship_ammo/grauwolf/on_hit(atom/target, blocked, def_zone, is_landmark_hit)
 	. = ..()
@@ -48,5 +49,5 @@
 	name = "armor-piercing flak"
 	damage = 50
 	armor_penetration = 50
-	penetrating = 5
-	anti_materiel_potential = 10
+	penetrating = 8
+	anti_materiel_potential = 8

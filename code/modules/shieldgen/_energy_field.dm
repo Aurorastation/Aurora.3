@@ -5,11 +5,11 @@
 	/// The actual strength of the field.
 	var/field_strength = 0
 	/// Current strengthening rate of a single field.
-	var/strengthen_rate = 0.2
-	/// Maximum rate by which an energy field can be strengthened.
-	var/max_strengthen_rate = 0.5
-	/// The percentage of the shield strength that needs to be replaced each second
-	var/dissipation_rate = 0.030
+	var/strengthen_rate = 0.1
+	/// Maximum rate by which an energy field can be strengthened. This is set by shield components in RefreshComponents, the initial rate with standard components is 0.5 (2 Manipulators, Rating 1: give 0.1 each)
+	var/max_strengthen_rate = 0.3
+	/// The percentage of the shield strength that needs to be replaced each second. This is modified by shield components in RefreshComponents, the initial rate with standard components is 0.030. (2 Micro Lasers, Rating 1: subtract 0.003 each)
+	var/dissipation_rate = 0.036
 	/// An energy field will dissipate by at least this rate in renwicks per field tile (otherwise field would never dissipate completely as dissipation is a percentage)
 	var/min_dissipation = 0.01
 	/// Our target field strength.
@@ -18,8 +18,8 @@
 	var/max_field_strength = 10
 	/// The time passed since the last "fail", AKA losing charge faster than you can replenish it.
 	var/time_since_fail = 100
-	/// How many renwicks per watt.
-	var/energy_conversion_rate = 0.00006
+	/// How many renwicks per watt. This is modified by shield components in RefreshComponents, the initial rate with standard components is 0.00005 (2 Capacitors, Rating 1: give 0.00001 each)
+	var/energy_conversion_rate = 0.00003
 	/// If the field is strong, then the energy field objects will turn dense.
 	var/strong_field = FALSE
 
@@ -32,6 +32,7 @@
  * @assumed_charge: the charge that is given to this energy field. You have to get the required energy first, if you want a balanced field.
  */
 /datum/energy_field/proc/handle_strength(assumed_charge = 0)
+	assumed_charge = max(assumed_charge, 0)
 	if(length(field))
 		time_since_fail++
 		//the amount of renwicks that the generator can add this tick, over the entire field
@@ -61,7 +62,7 @@
 	var/required_energy = 0
 	if(length(field))
 		var/renwick_upkeep_per_field = max(field_strength * dissipation_rate, min_dissipation)
-		var/target_renwick_increase = min(target_field_strength - field_strength, strengthen_rate) + renwick_upkeep_per_field //per field tile
+		var/target_renwick_increase = max(min(target_field_strength - field_strength, strengthen_rate) + renwick_upkeep_per_field, 0) //per field tile
 		required_energy = length(field) * target_renwick_increase / energy_conversion_rate
 	return required_energy
 
@@ -100,8 +101,8 @@
 
 	data["average_field"] = round(field_strength, 0.01)
 	data["progress_field"] = (target_field_strength ? round(100 * field_strength / target_field_strength, 0.1) : "NA")
-	data["power_take"] = round(length(field) * max(field_strength * dissipation_rate, min_dissipation) / energy_conversion_rate)
-	data["shield_power"] = round(length(field) * min(strengthen_rate, target_field_strength - field_strength) / energy_conversion_rate)
+	data["power_take"] = round(length(field) * max(field_strength * dissipation_rate, min_dissipation) / energy_conversion_rate / 1000) //Divide by 100 to convert to kW
+	data["shield_power"] = round(max(length(field) * min(strengthen_rate, target_field_strength - field_strength) / energy_conversion_rate / 1000, 0)) //Divide by 100 to convert to kW
 	data["strengthen_rate"] = (strengthen_rate * 10)
 	data["max_strengthen_rate"] = (max_strengthen_rate * 10)
 	data["target_field_strength"] = target_field_strength

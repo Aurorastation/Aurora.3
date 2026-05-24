@@ -47,7 +47,7 @@
 	icon = 'icons/obj/guns/ship/ship_ammo_autocannon.dmi'
 	icon_state = "autocannon_frag"
 	overmap_icon_state = "cannon_salvo"
-	impact_type = SHIP_AMMO_IMPACT_HE
+	impact_type = SHIP_AMMO_IMPACT_FRAG
 	ammunition_flags = SHIP_AMMO_FLAG_INFLAMMABLE|SHIP_AMMO_FLAG_VERY_HEAVY
 	caliber = SHIP_CALIBER_60MM
 	burst = 8
@@ -59,8 +59,8 @@
 	icon_state = "small"
 	damage = 100
 	armor_penetration = 60
-	penetrating = 3
-	anti_materiel_potential = 10
+	penetrating = 8
+	anti_materiel_potential = 6
 
 /obj/projectile/ship_ammo/autocannon/he
 	name = "60mm HE shell"
@@ -81,5 +81,5 @@
 	explosion(target, 0, 2, 3)
 
 /obj/projectile/ship_ammo/autocannon/frag/on_hit(atom/target, blocked, def_zone, is_landmark_hit)
-	fragem(target, 70, 70, 1, 2, 15, 5, TRUE)
+	fragem(target, 70, 70, 1, 2, 30, 2, FALSE, spread_range = 4, maim_rate = -1) //A maim rate of -1 helps prevent accidental decapitations. See handle_limb_gibbing to tune this.
 	..()
