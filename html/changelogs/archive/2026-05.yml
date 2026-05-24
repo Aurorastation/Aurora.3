@@ -232,3 +232,25 @@
       to Tiny.
   - balance: Increases size of Airlock Electronics from Tiny to Small (matches other
       circuitboards).
+2026-05-24:
+  Dessysalta:
+  - rscadd: Adds Zavod Asset Crates to the uplink, and the suit itself to the hardsuit
+      token for Operatives.
+  ElorgRHG:
+  - rscadd: Added colorable cargo pants to the loadout.
+  Fenodyree:
+  - bugfix: Fixes all hostile simple mobs shooting the base projectile, instead of
+      their specified projectile.
+  Hellfirejag:
+  - code_imp: Added an ENFORCE_CALCULUS(seconds_per_tick) macro to help spot bugs
+      in procs that use calculus methods.
+  Kano:
+  - rscadd: Ported 6 hairstyles from Shiptest.
+  TheGreyWolf:
+  - rscadd: Added a search function to the quikpay, commissary register and other
+      devices using that system.
+  Wowzewow (Wezzy):
+  - bugfix: Fixes ATK and ABK stack overlays
+  hazelmouse:
+  - rscadd: Added a second shaker to the Horizon's bar.
+  - bugfix: BarDrobes now contain every service corporation's uniform.

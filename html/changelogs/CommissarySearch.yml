@@ -1,6 +1,0 @@
-author: TheGreyWolf
-
-delete-after: True
-
-changes:
-  - rscadd: "Added a search function to the quikpay, commissary register and other devices using that system."
