@@ -280,6 +280,8 @@
 	products = list(
 		/obj/item/clothing/under/sl_suit = 3,
 		/obj/item/clothing/under/rank/bartender = 3,
+		/obj/item/clothing/under/rank/bartender/idris = 3,
+		/obj/item/clothing/under/rank/bartender/orion = 3,
 		/obj/item/clothing/under/suit_jacket = 3,
 		/obj/item/clothing/under/suit_jacket/burgundy = 3,
 		/obj/item/clothing/under/suit_jacket/navy = 3,
