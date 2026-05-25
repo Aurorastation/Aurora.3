@@ -1,6 +1,7 @@
 /// ENGINEERING_AREAS
 /area/horizon/engineering
 	name = "Engineering (PARENT AREA - DON'T USE)"
+	area_lighting = LIGHT_ENGINEERING_COLORS
 	icon_state = "engineering"
 	ambience = AMBIENCE_ENGINEERING
 	holomap_color = HOLOMAP_AREACOLOR_ENGINEERING
@@ -229,6 +230,7 @@
 /// TCOMMS_AREAS
 /area/horizon/tcommsat
 	ambience = AMBIENCE_ENGINEERING
+	area_lighting = LIGHT_HIGHSEC_COLORS
 	no_light_control = 1
 	station_area = TRUE
 	holomap_color = HOLOMAP_AREACOLOR_ENGINEERING

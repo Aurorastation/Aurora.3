@@ -62,7 +62,9 @@
 	var/previous_stat
 	var/randomize_color = TRUE
 	var/default_color
-	/// This might get modified!
+	/// This is also defined at the area level! If you want to mess with
+	/// light fixture colours without touching specific subtypes, you
+	/// should probably be looking at the area's variables, not at this.
 	var/static/list/randomized_colors = LIGHT_WARM_COLORS
 	var/static/list/emergency_lights = list(
 		LIGHT_MODE_RED = LIGHT_COLOR_EMERGENCY,
@@ -134,21 +136,10 @@
 					broken(1)
 
 	// If we're randomizing the color of this fixture, we check if the area has a special palette.
-	// If it doesn't belong in any of these areas, you get whatever the default is.
-	// This is intended to save mapping time by automating light variations on the main server map.
+	// This is intended to save mapping time by automating light variations without any mapping.
 	if(randomize_color)
 		var/area/A = get_area(src)
-		switch(A.department)
-			if(LOC_MEDICAL, LOC_SHUTTLE, LOC_BRIDGE)
-				randomized_colors = LIGHT_CLINICAL_COLORS
-			if(LOC_ENGINEERING, LOC_OPERATIONS, LOC_HANGAR, LOC_CREW, LOC_MAINTENANCE)
-				randomized_colors = LIGHT_ENGINEERING_COLORS
-			if(LOC_PUBLIC, LOC_SERVICE, LOC_HOLODECK, LOC_SECURITY)
-				randomized_colors = LIGHT_WARM_COLORS
-			if(LOC_SCIENCE)
-				randomized_colors = LIGHT_RESEARCH_COLORS
-			if(LOC_AI, LOC_COMMAND)
-				randomized_colors = LIGHT_HIGHSEC_COLORS
+		randomized_colors = A.area_lighting
 
 		brightness_color = pick(randomized_colors)
 

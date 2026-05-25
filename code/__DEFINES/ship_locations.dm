@@ -25,7 +25,6 @@
 // Used in fixtures.dm! If you change one, change the other too!
 #define LOC_AI			"Artificial Intelligence"
 #define LOC_COMMAND		"Command"
-#define LOC_BRIDGE		"Bridge"
 // LOC_PUBLIC and LOC_CREW are effectively the same thing, just separated for flavor.
 // LOC_PUBLIC is pretty much going to be hallways/stairs etc.
 #define LOC_PUBLIC		"Public"

@@ -95,6 +95,9 @@
 	// 'amidships' belongs to location_ew
 	var/location_ew = null
 	var/location_ns = null
+	/// What colors should the area's light fixtures emit, if any?
+	/// Only applies to light fixtures which are set to use randomized lighting!
+	var/list/area_lighting = LIGHT_WARM_COLORS
 
 	var/centcomm_area = FALSE
 
