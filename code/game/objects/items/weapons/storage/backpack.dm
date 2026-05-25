@@ -31,6 +31,8 @@
 	 * Suffix used for overlays with an attached sleeping bag, because satchels are at people's sides while other bags are on people's backs.
 	 */
 	var/attached_icon = "backpack"
+	var/worn_access = TRUE // If the object may be accessed while equipped in a storage slot.
+	var/equip_access = TRUE // If the object may be accessed while equipped anywhere on a character, including hands.
 
 /obj/item/storage/backpack/antagonist_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -104,6 +106,8 @@
 		H.drop_from_inventory(attached_bag)
 		attached_bag.loc = null
 		return
+	if (!worn_check())
+		return
 	return ..()
 
 /obj/item/storage/backpack/update_icon()
@@ -131,6 +135,33 @@
 		return
 	return ..()
 
+/obj/item/storage/backpack/open(mob/user)
+	if (!worn_check())
+		return
+	..()
+
+/obj/item/storage/backpack/proc/worn_check(no_message = FALSE)
+	if(ismob(loc))
+		var/mob/M = loc
+		if(!istype(M))
+			return TRUE //not equipped
+		if(!worn_access && (slot_flags & SLOT_BACK) && M.get_equipped_item(slot_back) == src)
+			if(!no_message)
+				to_chat(M, SPAN_WARNING("Your arms are not long enough to open \the [src] while it is on your back!"))
+				if(use_sound)
+					playsound(loc, use_sound, 50, 1, -5)
+				if(animated)
+					animate_parent()
+			return FALSE
+		if(!equip_access && (ismob(loc)))
+			if(!no_message)
+				to_chat(M, SPAN_WARNING("\The [src] is too cumbersome to handle, you're going to have to set it down somewhere!"))
+				if(use_sound)
+					playsound(loc, use_sound, 50, 1, -5)
+				if(animated)
+					animate_parent()
+			return FALSE
+	return TRUE
 
 /*
  * Backpack Types
@@ -592,7 +623,8 @@
 	icon = 'icons/obj/storage/duffelbag.dmi'
 	icon_state = "duffel"
 	item_state = "duffel"
-	slowdown = 0.3
+	worn_access = FALSE
+	equip_access = FALSE
 	max_storage_space = DEFAULT_DUFFELBAG_STORAGE
 	straps = TRUE
 
