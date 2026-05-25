@@ -10,9 +10,6 @@
 	var/obj/skybox/skybox
 
 /client/proc/update_skybox(rebuild)
-#ifdef OPENDREAM
-	return
-#endif
 	if(!skybox)
 		skybox = new()
 		screen += skybox

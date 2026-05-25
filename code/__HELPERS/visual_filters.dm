@@ -12,14 +12,14 @@
 // Defining this for future proofing and ease of searching for erroneous usage.
 /image/proc/add_filter(filter_name, priority, list/params)
 #ifdef OPENDREAM
-	if(params && (params["type"] == "blur" || params["type"] == "drop_shadow"))
+	if(params && params["type"] == "blur")
 		return
 #endif
 	filters += filter(arglist(params))
 
 /atom/proc/add_filter(name,priority,list/params)
 #ifdef OPENDREAM
-	if(params && (params["type"] == "blur" || params["type"] == "drop_shadow"))
+	if(params && (params["type"] == "blur" || (params["type"] == "drop_shadow" && istype(src, /atom/movable/screen/plane_master))))
 		return
 #endif
 	LAZYINITLIST(filter_data)
