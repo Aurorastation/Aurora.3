@@ -24,6 +24,7 @@
 			"dreamDaemon": true
 		},
 		{
+			// Builds with OpenDream and starts the server with OpenDream.
 			"type": "opendream",
 			"request": "launch",
 			"name": "OpenDream",
