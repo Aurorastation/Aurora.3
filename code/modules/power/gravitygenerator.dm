@@ -29,20 +29,6 @@
 	light_power = 1.4
 	light_range = 6
 	interact_offline = TRUE
-	/// Whether the gravity generator is currently active.
-	var/on = TRUE
-	/// If the main breaker is on/off, to enable/disable gravity.
-	var/breaker = TRUE
-	/// If the generatir os idle, charging, or down.
-	var/charging_state = POWER_IDLE
-	/// How much charge the gravity generator has, goes down when breaker is shut, and shuts down at 0.
-	var/charge_count = 100
-	/// The gravity core overlay currently used.
-	var/current_overlay = null
-	/// Currently configured gravity strength.
-	var/setting = 1.0
-	/// Audio for when the gravgen is on
-	var/datum/looping_sound/gravgen/soundloop
 
 /obj/machinery/gravity_generator/ex_act(severity)
 	if(severity == 1) // Very sturdy.
@@ -123,18 +109,47 @@
 
 /obj/machinery/gravity_generator/main
 	icon_state = "on_8"
-	idle_power_usage = 50 KILO WATTS
-	active_power_usage = 1 MEGA WATTS
+	idle_power_usage = 5 KILO WATTS
+	active_power_usage = 10 KILO WATTS
 	power_channel = AREA_USAGE_ENVIRON
 	sprite_number = 8
 	interact_offline = 1
+	/// Whether the gravity generator is currently active.
+	var/on = TRUE
+	/// If the main breaker is on/off, to enable/disable gravity.
+	var/breaker = TRUE
+	/// If the generator is idle, charging, or down.
+	var/charging_state = POWER_IDLE
+	/// How much charge the gravity generator has, goes down when breaker is shut, and shuts down at 0.
+	var/charge_count = 100
+	/// The gravity core overlay currently used.
+	var/current_overlay = null
+	/// Currently configured gravity strength.
+	var/setting = 1.0
+	/// Audio for when the gravgen is on
+	var/datum/looping_sound/gravgen/soundloop
 	var/list/parts = list()
 	var/obj/middle = null
-	var/broken_state = 0
+	/// When broken, what stage it is at (GRAV_NEEDS_SCREWDRIVER:0) (GRAV_NEEDS_WELDING:1) (GRAV_NEEDS_PLASTEEL:2) (GRAV_NEEDS_WRENCH:3)
+	var/broken_state = GRAV_OPERATIONAL
 	var/list/localareas = list()
 	var/round_start = 2 //To help stop a bug with round start
 	var/panel_open_heavy = 0
-	var/event_active = 0
+
+/obj/machinery/gravity_generator/main/Initialize()
+	. = ..()
+	soundloop = new(src, start_immediately = FALSE)
+	addtimer(CALLBACK(src, PROC_REF(updateareas)), 10)
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/machinery/gravity_generator/main/LateInitialize()
+	..()
+	if(SSatlas.current_map.use_overmap && !linked)
+		var/my_sector = GLOB.map_sectors["[z]"]
+		if (istype(my_sector, /obj/effect/overmap/visitable))
+			attempt_hook_up(my_sector)
+	if(linked)
+		linked.gravity_generator = src
 
 /obj/machinery/gravity_generator/main/Destroy()
 	LOG_DEBUG("Gravity Generator Destroyed")
@@ -147,20 +162,6 @@
 		qdel(O)
 	linked?.gravity_generator = null
 	return ..()
-
-/obj/machinery/gravity_generator/main/proc/eventshutofftoggle() // Used by the gravity event. Bypasses charging and all of that stuff.
-	breaker = 0
-	set_state(event_active)
-	sleep(20)
-	charge_count = 0
-	breaker = 1
-	charging_state = POWER_UP
-	set_power()
-	event_active = !event_active
-	addtimer(CALLBACK(src, PROC_REF(reset_event)), 100) // Because it takes 100 seconds for it to recharge. And we need to make sure we resen this var
-
-/obj/machinery/gravity_generator/main/proc/reset_event()
-	event_active = !event_active
 
 /obj/machinery/gravity_generator/main/proc/setup_parts()
 	var/turf/our_turf = get_turf(src)
@@ -194,7 +195,7 @@
 	charge_count = 0
 	breaker = 0
 	set_power()
-	set_state(0)
+	disable()
 	investigate_log("has broken down.", "gravity")
 
 /obj/machinery/gravity_generator/main/set_fix()
@@ -297,8 +298,8 @@
 	if(charge_count > 0)
 		charge_count = 0
 		playsound(src.loc, 'sound/effects/EMPulse.ogg', 100, 1)
-		SSradiation.radiate(src, 100)
-		set_state(0)
+		// SSradiation.radiate(src, 100)
+		disable()
 		if(middle)
 			middle.ClearOverlays()
 		if(prob(1)) //It will spawn a small one and eat the generator. Won't cause any other issues considering it's a 1x1 and will go away on it's own.
@@ -323,70 +324,87 @@
 
 // Set the charging state based on power/breaker.
 /obj/machinery/gravity_generator/main/proc/set_power()
-	var/new_state = 0
+	var/new_state = FALSE
 	if(stat & (NOPOWER|BROKEN) || !breaker)
-		new_state = 0
+		new_state = FALSE
 	else if(breaker)
-		new_state = 1
+		new_state = TRUE
 
 	charging_state = new_state ? POWER_UP : POWER_DOWN // Startup sequence animation.
 	investigate_log("is now [charging_state == POWER_UP ? "charging" : "discharging"].", "gravity")
 	update_icon()
 
-// Set the state of the gravity.
-/obj/machinery/gravity_generator/main/proc/set_state(var/new_state)
+/obj/machinery/gravity_generator/main/proc/enable()
 	charging_state = POWER_IDLE
-	var/gravity_changed = (on != new_state)
-	on = new_state
-	update_use_power(on ? POWER_USE_ACTIVE : POWER_USE_IDLE)
+	var/gravity_changed = FALSE
+	if(!on)
+		gravity_changed = TRUE
+	on = TRUE
+
+	update_use_power(POWER_USE_ACTIVE)
+
+	soundloop.start()
+
 	// Sound the alert if gravity was just enabled or disabled.
-	var/alert = 0
 	var/area/area = get_area(src)
 	var/areadisplayname = get_area_display_name(area)
-	if(new_state) // If we turned on
-		if(!area.has_gravity())
-			alert = 1
-			soundloop.start(src)
-			investigate_log("was brought online and is now producing gravity for this level.", "gravity")
-			message_admins("The gravity generator was brought online. (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>[areadisplayname]</a>)")
-	else
-		if(area.has_gravity())
-			alert = 1
-			soundloop.stop(src)
-			investigate_log("was brought offline and there is now no gravity for this level.", "gravity")
-			message_admins("The gravity generator was brought offline with no backup generator. (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>[areadisplayname]</a>)")
 
 	update_icon()
+
+	if(!area.has_gravity())
+		soundloop.start(src)
+		investigate_log("was brought online and is now producing gravity for this level.", "gravity")
+		message_admins("The gravity generator was brought online. (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>[areadisplayname]</a>)")
+
 	update_list(gravity_changed)
+	shake_everyone()
 	src.updateUsrDialog()
-	if(alert)
-		shake_everyone()
+
+
+/obj/machinery/gravity_generator/main/proc/disable()
+	charging_state = POWER_IDLE
+	var/gravity_changed = FALSE
+	if(on)
+		gravity_changed = TRUE
+	on = FALSE
+
+	update_use_power(POWER_USE_IDLE)
+
+	soundloop.stop()
+
+	// Sound the alert if gravity was just enabled or disabled.
+	var/area/area = get_area(src)
+	var/areadisplayname = get_area_display_name(area)
+
+	if(area.has_gravity())
+		soundloop.stop(src)
+		investigate_log("was brought offline and there is now no gravity for this level.", "gravity")
+		message_admins("The gravity generator was brought offline with no backup generator. (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>[areadisplayname]</a>)")
+
+	update_list(gravity_changed)
+	shake_everyone()
+	src.updateUsrDialog()
 
 // Charge/Discharge and turn on/off gravity when you reach 0/100 percent.
 // Also emit radiation and handle the overlays.
 /obj/machinery/gravity_generator/main/process()
 	if(stat & BROKEN)
 		return
-	if(on || charging_state != POWER_IDLE)
-		SSradiation.radiate(src, 20)
+	// if(on || charging_state != POWER_IDLE)
+		// SSradiation.radiate(src, 20)
 	if(charging_state != POWER_IDLE)
 		if(charging_state == POWER_UP && charge_count >= 100)
-			set_state(1)
+			enable()
 		else if(charging_state == POWER_DOWN && charge_count <= 0)
-			set_state(0)
+			disable()
 		else
-			var/new_charge_count = charge_count
 			if(charging_state == POWER_UP)
-				new_charge_count += rand(1,5)
-				charge_count = (max(new_charge_count, 100))
+				charge_count += 34
 			else if(charging_state == POWER_DOWN)
-				new_charge_count -= rand(1,5)
-				charge_count = (min(0, new_charge_count))
+				charge_count -= 34
 
 			if(charge_count % 4 == 0 && prob(75)) // Let them know it is charging/discharging.
 				playsound(src.loc, 'sound/effects/EMPulse.ogg', 100, 1)
-
-			updateDialog()
 
 			var/overlay_state = null
 			switch(charge_count)
@@ -440,21 +458,6 @@
 				A.gravitychange(FALSE)
 			SSmachinery.gravity_generators -= src
 
-/obj/machinery/gravity_generator/main/Initialize()
-	. = ..()
-	soundloop = new(src, start_immediately = FALSE)
-	addtimer(CALLBACK(src, PROC_REF(updateareas)), 10)
-	return INITIALIZE_HINT_LATELOAD
-
-/obj/machinery/gravity_generator/main/LateInitialize()
-	..()
-	if(SSatlas.current_map.use_overmap && !linked)
-		var/my_sector = GLOB.map_sectors["[z]"]
-		if (istype(my_sector, /obj/effect/overmap/visitable))
-			attempt_hook_up(my_sector)
-	if(linked)
-		linked.gravity_generator = src
-
 /obj/machinery/gravity_generator/main/proc/updateareas()
 	for(var/area/A in GLOB.the_station_areas)
 		if(!(get_area_type(A) == AREA_STATION))
@@ -469,14 +472,14 @@
 	else
 		return AREA_STATION
 
-/obj/machinery/gravity_generator/main/proc/throw_up_and_down(var/area/Area)
+/obj/machinery/gravity_generator/main/proc/throw_up_and_down()
 	to_world("<h2 class='alert'>Station Announcement:</h2>")
-	to_world(SPAN_DANGER("Warning! Localized Gravity Failure. Brace for dangerous gravity change!"))
-	addtimer(CALLBACK(src, PROC_REF(set_state), FALSE), 5 SECONDS)
-	addtimer(CALLBACK(src, PROC_REF(throw_carbons_down)), 3 SECONDS)
+	to_world(SPAN_DANGER("Warning! Localized gravity failure, buckle yourself securely now! Brace! Brace!"))
+	disable()
+	addtimer(CALLBACK(src, PROC_REF(throw_carbons_down)), 5 SECONDS)
 
 /obj/machinery/gravity_generator/main/proc/throw_carbons_down()
-	set_state(TRUE)
+	enable()
 	var/turf/our_turf = get_turf(src)
 	var/list/connected_z_levels = GetConnectedZlevels(our_turf.z)
 	for(var/mob/living/M in GLOB.mob_list)
@@ -484,7 +487,8 @@
 			if(ishuman(M))
 				var/mob/living/carbon/human/H = M
 				var/obj/item/clothing/shoes/magboots/boots = H.get_equipped_item(slot_shoes)
-				if(istype(boots))
+				if(istype(boots) || H.buckled_to)
+					to_chat(M, SPAN_WARNING("You feel a surge of nausea and g-force, but you avoid being thrown around!"))
 					continue
 			to_chat(M, SPAN_DANGER("Suddenly the gravity pushed you up to the ceiling and dropped you back on the floor with great force!"))
 			M.fall_impact(levels_fallen = 1)

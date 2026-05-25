@@ -246,7 +246,7 @@
 
 	for(var/A in SSmachinery.gravity_generators)
 		var/obj/machinery/gravity_generator/main/B = A
-		B.throw_up_and_down(Area)
+		B.throw_up_and_down()
 	log_ability_use(user, "gravity malfunction")
 
 // END ABILITY VERBS

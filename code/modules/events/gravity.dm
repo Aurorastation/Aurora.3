@@ -13,4 +13,5 @@
 	..()
 	for(var/obj/machinery/gravity_generator/main/generator in SSmachinery.gravity_generators)
 		if(generator.z in affecting_z)
-			generator.eventshutofftoggle()
+			return
+			// generator.eventshutofftoggle()
