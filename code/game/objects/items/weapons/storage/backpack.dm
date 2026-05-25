@@ -689,7 +689,8 @@
 	desc = "A snazzy black and red duffel bag, perfect for smuggling C4 and Parapens. It seems to be made of a lighter material."
 	icon_state = "duffel-syndie"
 	item_state = "duffel-syndie"
-	slowdown = 0
+	worn_access = TRUE
+	equip_access = TRUE
 	empty_delay = 0.8 SECOND
 
 /obj/item/storage/backpack/duffel/cmo
