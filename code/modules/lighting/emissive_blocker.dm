@@ -19,6 +19,9 @@
 
 /atom/movable/emissive_blocker/Initialize(mapload, source)
 	. = ..()
+#ifdef OPENDREAM
+	alpha = 0
+#endif
 	verbs.Cut() //Cargo culting from lighting object, this maybe affects memory usage?
 
 	render_source = source

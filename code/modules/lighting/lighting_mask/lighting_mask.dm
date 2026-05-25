@@ -45,6 +45,9 @@
 
 /atom/movable/lighting_mask/Initialize(mapload, ...)
 	. = ..()
+#ifdef OPENDREAM
+	alpha = 0
+#endif
 	add_filter("pixel_smoother", 3, gauss_blur_filter(2))
 	add_filter("shadow_alpha_masking", 4, alpha_mask_filter(render_source = SHADOW_RENDER_TARGET, flags = MASK_INVERSE))
 
@@ -132,12 +135,16 @@
 
 ///Setter proc for the intensity of the mask
 /atom/movable/lighting_mask/proc/set_intensity(intensity = 1)
+#ifdef OPENDREAM
+	alpha = 0
+#else
 	if(intensity >= 0)
 		alpha = ALPHA_TO_INTENSITY(intensity)
 		blend_mode = BLEND_ADD
 	else
 		alpha = ALPHA_TO_INTENSITY(-intensity)
 		blend_mode = BLEND_SUBTRACT
+#endif
 
 ///The holder atom turned, spins the mask if it's needed
 /atom/movable/lighting_mask/proc/rotate_mask_on_holder_turn(new_direction)

@@ -82,7 +82,9 @@
 
 /obj/effect/map_effect/particle_emitter/Initialize(mapload, ...)
 	. = ..()
+#ifndef OPENDREAM
 	particles = new particle_type
+#endif
 	icon = null
 
 /obj/effect/map_effect/particle_emitter/bar_smoke
@@ -99,8 +101,10 @@
 
 /obj/particle_emitter/Initialize(mapload, time, _color)
 	. = ..()
+#ifndef OPENDREAM
 	if (particle_type)
 		particles = GLOB.all_particles[particle_type]
+#endif
 
 	if (time > 0)
 		QDEL_IN(src, time)

@@ -66,7 +66,7 @@
 		if(use_material_name)
 			name = "[material.display_name] [initial(name)]"
 		if(use_material_sound)
-			if(sharp && !material.weapon_hitsound == 'sound/weapons/metalhit.ogg' || !sharp)
+			if(sharp && material.weapon_hitsound != 'sound/weapons/metalhit.ogg' || !sharp)
 				// wooden swords don't sound like metal swords.
 				// metalhit check is so swords when metal use their regular slice sfx.
 				hitsound = material.weapon_hitsound

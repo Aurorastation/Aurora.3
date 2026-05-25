@@ -78,7 +78,9 @@
 
 	var/last_reactants = 0
 
+#ifndef OPENDREAM
 	particles = new/particles/fusion
+#endif
 
 	var/animating_ripple = FALSE
 
@@ -120,12 +122,14 @@
 	var/radius_add = round(percent_to_next_size * WORLD_ICON_SIZE, 1)
 	vfx_radius_visual = min(max(vfx_radius_actual + radius_add, vfx_radius_actual), vfx_radius_next)
 	*/
-	particles.position = generator("circle", vfx_radius_actual - size, vfx_radius_actual, NORMAL_RAND)
+	if (particles)
+		particles.position = generator("circle", vfx_radius_actual - size, vfx_radius_actual, NORMAL_RAND)
 
 	//Radiation affects drift
 	var/radiationfactor = clamp((radiation_avg * 0.001), 0, 0.75)
-	particles.drift = generator("circle", (0.2 + radiationfactor), NORMAL_RAND)
-	particles.spawning = last_reactants * 0.9 + Interpolate(0, 200, clamp(plasma_temperature / 70000, 0, 1))
+	if (particles)
+		particles.drift = generator("circle", (0.2 + radiationfactor), NORMAL_RAND)
+		particles.spawning = last_reactants * 0.9 + Interpolate(0, 200, clamp(plasma_temperature / 70000, 0, 1))
 
 /obj/effect/fusion_em_field/New(loc, obj/machinery/power/fusion_core/new_owned_core)
 	..()
@@ -143,7 +147,8 @@
 		qdel(src)
 		return
 
-	particles.spawning = 0 //Turn off particles until something calls for it
+	if (particles)
+		particles.spawning = 0 //Turn off particles until something calls for it
 
 	// Create the gimmicky things to handle field collisions
 	var/obj/effect/fusion_particle_catcher/catcher
@@ -836,7 +841,8 @@
 		last_power = use_power
 		//Temperature based color
 
-		particles.gradient = list(0, COLOR_WHITE, 0.85, light_color)
+		if (particles)
+			particles.gradient = list(0, COLOR_WHITE, 0.85, light_color)
 		UNLINT(var/dm_filter/outline = filters[2])
 		UNLINT(outline.color = light_color)
 		UNLINT(var/dm_filter/bloom = filters[3])

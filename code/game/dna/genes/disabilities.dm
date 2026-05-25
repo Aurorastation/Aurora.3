@@ -19,10 +19,10 @@
 	var/sdisability=0
 
 	// Activation message
-	var/activation_message=""
+	var/activation_message = null
 
 	// Yay, you're no longer growing 3 arms
-	var/deactivation_message=""
+	var/deactivation_message = null
 
 /datum/dna/gene/disability/can_activate(var/mob/M,var/flags)
 	return 1 // Always set!
@@ -34,10 +34,6 @@
 		M.disabilities|=disability
 	if(sdisability)
 		M.sdisabilities|=sdisability
-	if(activation_message)
-		to_chat(M, SPAN_WARNING("[activation_message]"))
-	else
-		testing("[name] has no activation message.")
 
 /datum/dna/gene/disability/deactivate(var/mob/M, var/connected, var/flags)
 	if(mutation && (M.mutations & mutation))
@@ -46,10 +42,6 @@
 		M.disabilities &= (~disability)
 	if(sdisability)
 		M.sdisabilities &= (~sdisability)
-	if(deactivation_message)
-		to_chat(M, SPAN_WARNING("[deactivation_message]"))
-	else
-		testing("[name] has no deactivation message.")
 
 // Note: Doesn't seem to do squat, at the moment.
 /datum/dna/gene/disability/hallucinate

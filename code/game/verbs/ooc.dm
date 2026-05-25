@@ -190,6 +190,10 @@
 	set category = "OOC.Debug"
 	set desc = "Fit the width of the map window to match the viewport"
 
+#ifdef OPENDREAM
+	return
+#endif
+
 	// Fetch aspect ratio
 	var/view_size = getviewsize(view)
 	var/aspect_ratio = view_size[1] / view_size[2]

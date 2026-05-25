@@ -1,10 +1,11 @@
 {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-    "version": "0.2.0",
+	// Use IntelliSense to learn about possible attributes.
+	// Hover to view descriptions of existing attributes.
+	// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+	"version": "0.2.0",
 	"configurations": [
-		{ // Builds with CBT and launches DreamSeeker.
+		{
+			// Builds with CBT and launches DreamSeeker.
 			"type": "byond",
 			"request": "launch",
 			"name": "Launch DreamSeeker",
@@ -12,7 +13,8 @@
 			"postDebugTask": "dreamchecker",
 			"dmb": "${workspaceFolder}/${command:CurrentDMB}"
 		},
-		{ // Builds with CBT and starts the server with DreamDaemon.
+		{
+			// Builds with CBT and starts the server with DreamDaemon.
 			"type": "byond",
 			"request": "launch",
 			"name": "Launch DreamDaemon",
@@ -20,6 +22,13 @@
 			"postDebugTask": "dreamchecker",
 			"dmb": "${workspaceFolder}/${command:CurrentDMB}",
 			"dreamDaemon": true
+		},
+		{
+			"type": "opendream",
+			"request": "launch",
+			"name": "OpenDream",
+			"preLaunchTask": "OpenDream: compile ${command:CurrentDME}",
+			"json_path": "${workspaceFolder}/${command:CurrentJson}"
 		}
 	]
 }

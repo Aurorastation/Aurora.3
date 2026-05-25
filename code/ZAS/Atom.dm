@@ -25,8 +25,9 @@
 
 /// Convenience function for atoms to update turfs they occupy
 /atom/movable/proc/update_nearby_tiles(need_rebuild)
-	for(var/turf/simulated/turf in locs)
-		SSair.mark_for_update(turf)
+	if(locs)
+		for(var/turf/simulated/turf in locs)
+			SSair.mark_for_update(turf)
 
 	return 1
 

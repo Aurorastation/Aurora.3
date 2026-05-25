@@ -232,6 +232,11 @@
 
 	if(prefs.lobby_music_vol)
 		for(var/lobby_music in SSticker.login_music)
+#ifdef OPENDREAM
+			var/music_name = "[lobby_music]"
+			if(findtext(music_name, ".xm") || findtext(music_name, ".mod") || findtext(music_name, ".mid"))
+				continue
+#endif
 			SEND_SOUND(src, sound(lobby_music, repeat = 0, wait = TRUE, volume = prefs.lobby_music_vol, channel = CHANNEL_LOBBYMUSIC)) // MAD JAMS
 
 /proc/get_rand_frequency()

@@ -157,11 +157,15 @@
 	var/atom/oldloc = loc
 
 	if (oldloc)
+		var/list/old_locs = locs
 		loc = null
 		var/area/old_area = get_area(oldloc)
 		if(isturf(oldloc)) //This checked if it's a multitile, which i have no clue what would be here, so just check for turf
-			for(var/atom/old_loc as anything in locs)
-				old_loc.Exited(src, NONE)
+			if(old_locs)
+				for(var/atom/old_loc as anything in old_locs)
+					old_loc.Exited(src, NONE)
+			else
+				oldloc.Exited(src, NONE)
 		else
 			oldloc.Exited(src, NONE)
 
@@ -387,7 +391,11 @@
 
 	switch(blocks_emissive)
 		if(EMISSIVE_BLOCK_GENERIC)
+#ifdef OPENDREAM
+			var/mutable_appearance/gen_emissive_blocker = mutable_appearance(icon, icon_state, plane = EMISSIVE_PLANE, alpha = 0)
+#else
 			var/mutable_appearance/gen_emissive_blocker = mutable_appearance(icon, icon_state, plane = EMISSIVE_PLANE, alpha = src.alpha)
+#endif
 			gen_emissive_blocker.color = GLOB.em_block_color
 			gen_emissive_blocker.dir = dir
 			gen_emissive_blocker.appearance_flags |= appearance_flags

@@ -33,14 +33,11 @@ Nothing should ever be included before this file.
 //Defines to extend OpenDream code coverage
 #define DEBUG
 #define TIMER_DEBUG
-#define TESTING
-#define UNIT_TEST
 #define ZASDBG
 #define DO_NOT_DEFER_ASSETS
 #define SQL_PREF_DEBUG
 #define REFERENCE_TRACKING
 #define REFERENCE_TRACKING_DEBUG
-#define MANUAL_UNIT_TEST
 #define AMAP
 #define ENABLE_SUNLIGHT
 

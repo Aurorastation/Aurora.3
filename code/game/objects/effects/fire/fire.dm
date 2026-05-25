@@ -68,7 +68,9 @@
 	if(color != null)
 		set_color(color)
 
+#ifndef OPENDREAM
 	particles = new /particles/smoke/turf_fire
+#endif
 
 	var/static/list/loc_connections = list(
 		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),

@@ -1,58 +1,50 @@
 {
-    // See https://go.microsoft.com/fwlink/?LinkId=733558
-    // for the documentation about the tasks.json format
-    "version": "2.0.0",
-    "tasks": [
-      {
-        "type": "process",
-        "command": "tools/build/build",
-        "windows": {
-            "command": ".\\tools\\build\\build.bat"
-        },
-        "options": {
-            "env": {
-                "DM_EXE": "${config:dreammaker.byondPath}"
-            }
-        },
-        "problemMatcher": [
-            "$dreammaker",
-            "$tsc",
-            "$eslint-stylish"
-        ],
-        "group": {
-            "kind": "build",
-            "isDefault": true
-        },
-        "dependsOn": ["dm: reparse"],
-        "label": "Build All"
-      },
-      {
-        "command": "${command:dreammaker.reparse}",
-        "group": "build",
-        "label": "dm: reparse"
-      },
-      {
-        "type": "shell",
-        "command": "tools/dreamchecker/dreamchecker",
-        "windows": {
-          "command": ".\\tools\\dreamchecker\\dreamchecker.bat \".\\tools\\dreamchecker\\dreamchecker.exe\"",
-          "echo": "false"
-        },
-        "group": "build",
-        "label": "dreamchecker"
-      },
-      {
-        "type": "dreammaker",
-        "dme": "aurorastation.dme",
-        "problemMatcher": [
-          "$dreammaker"
-        ],
-        "group": "build",
-        "label": "dm: build - aurorastation.dme",
-        "dependsOrder": "sequence",
-        "dependsOn": [
-            "dreamchecker"
-        ]
+	// See https://go.microsoft.com/fwlink/?LinkId=733558
+	// for the documentation about the tasks.json format
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "process",
+			"command": "tools/build/build",
+			"windows": {
+				"command": ".\\tools\\build\\build.bat"
+			},
+			"options": {
+				"env": {
+					"DM_EXE": "${config:dreammaker.byondPath}"
+				}
+			},
+			"problemMatcher": ["$dreammaker", "$tsc", "$eslint-stylish"],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"dependsOn": ["dm: reparse"],
+			"label": "Build All"
+		},
+		{
+			"command": "${command:dreammaker.reparse}",
+			"group": "build",
+			"label": "dm: reparse"
+		},
+		{
+			"type": "shell",
+			"command": "tools/dreamchecker/dreamchecker",
+			"windows": {
+				"command": ".\\tools\\dreamchecker\\dreamchecker.bat \".\\tools\\dreamchecker\\dreamchecker.exe\"",
+				"echo": "false"
+			},
+			"group": "build",
+			"label": "dreamchecker"
+		},
+		{
+			"type": "dreammaker",
+			"dme": "aurorastation.dme",
+			"problemMatcher": ["$dreammaker"],
+			"group": "build",
+			"label": "dm: build - aurorastation.dme",
+			"dependsOrder": "sequence",
+			"dependsOn": ["dreamchecker"]
 		},
 		{
 			"type": "shell",
@@ -60,10 +52,7 @@
 			"windows": {
 				"command": ".\\bin\\tgui-build.cmd"
 			},
-			"problemMatcher": [
-				"$tsc",
-				"$eslint-stylish"
-			],
+			"problemMatcher": ["$tsc", "$eslint-stylish"],
 			"group": "build",
 			"label": "tgui: build"
 		},
@@ -73,10 +62,7 @@
 			"windows": {
 				"command": ".\\bin\\tgui-dev.cmd"
 			},
-			"problemMatcher": [
-				"$tsc",
-				"$eslint-stylish"
-			],
+			"problemMatcher": ["$tsc", "$eslint-stylish"],
 			"group": "build",
 			"label": "tgui: dev server"
 		},
@@ -86,10 +72,7 @@
 			"windows": {
 				"command": ".\\bin\\tgui-bench.cmd"
 			},
-			"problemMatcher": [
-				"$tsc",
-				"$eslint-stylish"
-			],
+			"problemMatcher": ["$tsc", "$eslint-stylish"],
 			"group": "build",
 			"label": "tgui: bench"
 		},
@@ -99,10 +82,7 @@
 			"windows": {
 				"command": ".\\bin\\tgui-sonar.cmd"
 			},
-			"problemMatcher": [
-				"$tsc",
-				"$eslint-stylish"
-			],
+			"problemMatcher": ["$tsc", "$eslint-stylish"],
 			"group": "build",
 			"label": "tgui: sonar"
 		},
@@ -112,12 +92,14 @@
 			"windows": {
 				"command": ".\\bin\\tgfont.cmd"
 			},
-			"problemMatcher": [
-				"$tsc",
-				"$eslint-stylish"
-			],
+			"problemMatcher": ["$tsc", "$eslint-stylish"],
 			"group": "build",
 			"label": "tgui: rebuild tgfont"
+		},
+		{
+			"label": "OpenDream: compile aurorastation.dme",
+			"type": "opendream",
+			"problemMatcher": "$openDreamCompiler"
 		}
 	]
 }
