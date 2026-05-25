@@ -22,7 +22,6 @@
 
 /// 'Departments' - formal and informal
 // If we rename any of these, also change them in subsystems.dm define.
-// Used in fixtures.dm! If you change one, change the other too!
 #define LOC_AI			"Artificial Intelligence"
 #define LOC_COMMAND		"Command"
 // LOC_PUBLIC and LOC_CREW are effectively the same thing, just separated for flavor.
