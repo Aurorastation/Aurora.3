@@ -136,7 +136,7 @@
 					broken(1)
 
 	// If we're randomizing the color of this fixture, we check if the area has a special palette.
-	// This is intended to save mapping time by automating light variations without any mapping.
+	// This is intended to save mapping time by automating light variations in different areas.
 	if(randomize_color)
 		var/area/A = get_area(src)
 		randomized_colors = A.area_lighting
