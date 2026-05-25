@@ -70,10 +70,10 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
 		// use bapi to read, parse, process, mapmanip etc
 		// this will "crash"/stacktrace on fail
 		// Except when measuring; i don't give a shit about bapi when measuring the map size,
-		// if you're changing the map size from bapi you're stupid and deserve it not to work,
-		// and i'm not slowing down the whole initialization by a third just for this possibility
+#ifndef OPENDREAM
 		if(!measureOnly)
 			tfile = bapi_read_dmm_file(tfilepath)
+#endif
 		// if bapi for whatever reason fails and returns null, or we're measuring
 		// try to load it the old dm way instead
 		if(!tfile)

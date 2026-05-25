@@ -314,12 +314,16 @@ GLOBAL_LIST_EMPTY(asset_datums)
 		if (size[SPRSZ_STRIPPED])
 			continue
 
+#ifdef OPENDREAM
+		size[SPRSZ_STRIPPED] = size[SPRSZ_ICON]
+#else
 		var/fname = "data/spritesheets/[name]_[size_id].png"
 		fcopy(size[SPRSZ_ICON], fname)
 		var/error = dll_call(RUST_G, "dmi_strip_metadata", fname)
 		if(length(error))
 			crash_with("Failed to strip [name]_[size_id].png: [error]")
 		size[SPRSZ_STRIPPED] = icon(fname)
+#endif
 
 /datum/asset/spritesheet/proc/generate_css()
 	var/list/out = list()
