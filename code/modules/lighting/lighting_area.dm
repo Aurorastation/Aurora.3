@@ -51,11 +51,7 @@
 	lighting_effect.plane = LIGHTING_PLANE
 	lighting_effect.layer = LIGHTING_PRIMARY_LAYER
 	lighting_effect.blend_mode = BLEND_ADD
-#ifdef OPENDREAM
-	lighting_effect.alpha = 0
-#else
 	lighting_effect.alpha = base_lighting_alpha
-#endif
 	lighting_effect.color = base_lighting_color
 	for(var/turf/T in src)
 		T.overlays += lighting_effect

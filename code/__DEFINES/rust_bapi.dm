@@ -40,8 +40,4 @@
 // ------------------------------------------- bapi functions callable from dm
 // Should only call functions ending with `_ffi`.
 
-#ifdef OPENDREAM
-#define bapi_read_dmm_file(arg) null
-#else
 #define bapi_read_dmm_file(arg) BAPI_CALL(read_dmm_file_ffi, arg)
-#endif

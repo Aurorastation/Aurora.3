@@ -17,14 +17,6 @@
 	///reference: current relay this plane is utilizing to render
 	var/obj/render_plane_relay/relay
 
-/atom/movable/screen/plane_master/New()
-	. = ..()
-#ifdef OPENDREAM
-	if (plane == LIGHTING_PLANE || plane == EXTERIOR_LIGHTING_PLANE || plane == EMISSIVE_PLANE || plane == O_LIGHTING_VISUAL_PLANE || plane == DISPLACEMENT_PLATE_RENDER_LAYER || plane == WARP_EFFECT_PLANE || plane == HEAT_EFFECT_PLANE)
-		alpha = 0
-		show_alpha = 0
-		hide_alpha = 0
-#endif
 
 /atom/movable/screen/plane_master/proc/Show(override)
 	alpha = override || show_alpha
@@ -112,10 +104,8 @@
 
 /atom/movable/screen/plane_master/lighting/backdrop(mob/mymob)
 	. = ..()
-#ifndef OPENDREAM
 	mymob.overlay_fullscreen("lighting_backdrop", /atom/movable/screen/fullscreen/lighting_backdrop/backplane)
 	mymob.overlay_fullscreen("lighting_backdrop_lit_secondary", /atom/movable/screen/fullscreen/lighting_backdrop/lit_secondary)
-#endif
 
 /atom/movable/screen/plane_master/lighting/Initialize()
 	. = ..()
@@ -253,8 +243,6 @@
 /atom/movable/screen/plane_master/openspace_backdrop/Initialize()
 	. = ..()
 	filters = list()
-#ifndef OPENDREAM
 	filters += filter(type = "drop_shadow", color = "#04080FAA", size = -10)
 	filters += filter(type = "drop_shadow", color = "#04080FAA", size = -15)
 	filters += filter(type = "drop_shadow", color = "#04080FAA", size = -20)
-#endif

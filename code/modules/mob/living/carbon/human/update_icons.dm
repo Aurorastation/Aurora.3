@@ -432,14 +432,12 @@ There are several things that need to be remembered:
 			if(hair_style && (species.type in hair_style.species_allowed))
 				var/icon/hair_s = new/icon("icon" = hair_style.icon, "icon_state" = hair_style.icon_state)
 				if(hair_style.do_colouration)
-#ifndef OPENDREAM
 					if(g_style)
 						var/datum/sprite_accessory/gradient_style = GLOB.hair_gradient_styles_list[g_style]
 						if(gradient_style && gradient_style.species_allowed && (species.type in gradient_style.species_allowed))
 							grad_s = new/icon("icon" = gradient_style.icon, "icon_state" = gradient_style.icon_state)
 							grad_s.Blend(hair_s, ICON_AND)
 							grad_s.Blend(rgb(r_grad, g_grad, b_grad), ICON_MULTIPLY)
-#endif
 					hair_s.Blend(rgb(r_hair, g_hair, b_hair), hair_style.icon_blend_mode)
 					if(!isnull(grad_s))
 						var/icon/grad_s_final = new/icon("icon" = hair_style.icon, "icon_state" = hair_style.icon_state)

@@ -13,9 +13,8 @@
 	var/atom/movable/movable_target = target
 	if(!isturf(movable_target.loc))
 		return
-	if(movable_target.locs)
-		for(var/turf/turf_loc as anything in movable_target.locs)
-			turf_loc.add_opacity_source(target)
+	for(var/turf/turf_loc as anything in movable_target.locs)
+		turf_loc.add_opacity_source(target)
 
 
 /datum/element/light_blocking/Detach(datum/target)
@@ -24,9 +23,8 @@
 	var/atom/movable/movable_target = target
 	if(!isturf(movable_target.loc))
 		return
-	if(movable_target.locs)
-		for(var/turf/turf_loc as anything in movable_target.locs)
-			turf_loc.remove_opacity_source(target)
+	for(var/turf/turf_loc as anything in movable_target.locs)
+		turf_loc.remove_opacity_source(target)
 
 
 ///Updates old and new turf loc opacities.
@@ -41,6 +39,5 @@
 			var/turf/old_turf = old_loc
 			old_turf.remove_opacity_source(source)
 	if(isturf(source.loc))
-		if(source.locs)
-			for(var/turf/new_turf as anything in source.locs)
-				new_turf.add_opacity_source(source)
+		for(var/turf/new_turf as anything in source.locs)
+			new_turf.add_opacity_source(source)
