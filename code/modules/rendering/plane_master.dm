@@ -17,7 +17,6 @@
 	///reference: current relay this plane is utilizing to render
 	var/obj/render_plane_relay/relay
 
-
 /atom/movable/screen/plane_master/proc/Show(override)
 	alpha = override || show_alpha
 

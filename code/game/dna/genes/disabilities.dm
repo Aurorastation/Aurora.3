@@ -18,11 +18,13 @@
 	// SDisability to give (or 0)
 	var/sdisability=0
 
+#ifndef OPENDREAM
 	// Activation message
-	var/activation_message = null
+	var/activation_message=""
 
 	// Yay, you're no longer growing 3 arms
-	var/deactivation_message = null
+	var/deactivation_message=""
+#endif
 
 /datum/dna/gene/disability/can_activate(var/mob/M,var/flags)
 	return 1 // Always set!
@@ -34,6 +36,12 @@
 		M.disabilities|=disability
 	if(sdisability)
 		M.sdisabilities|=sdisability
+#ifndef OPENDREAM
+	if(activation_message)
+		to_chat(M, SPAN_WARNING("[activation_message]"))
+	else
+		testing("[name] has no activation message.")
+#endif
 
 /datum/dna/gene/disability/deactivate(var/mob/M, var/connected, var/flags)
 	if(mutation && (M.mutations & mutation))
@@ -42,6 +50,12 @@
 		M.disabilities &= (~disability)
 	if(sdisability)
 		M.sdisabilities &= (~sdisability)
+#ifndef OPENDREAM
+	if(deactivation_message)
+		to_chat(M, SPAN_WARNING("[deactivation_message]"))
+	else
+		testing("[name] has no deactivation message.")
+#endif
 
 // Note: Doesn't seem to do squat, at the moment.
 /datum/dna/gene/disability/hallucinate
