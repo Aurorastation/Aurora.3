@@ -760,8 +760,12 @@
 	mineral = "sandstone"
 
 /obj/machinery/door/airlock/palepurple
-	name = "airlock"
 	door_color = COLOR_PURPLE
+	hashatch = FALSE
+
+/obj/machinery/door/airlock/brown
+	door_color = "#574b3d"
+	stripe_color = COLOR_GRAY20
 	hashatch = FALSE
 
 /obj/machinery/door/airlock/highsecurity

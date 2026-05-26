@@ -391,6 +391,8 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 
 	winset(src, "map", "style=\"[MAP_STYLESHEET]\"")
 
+	winset(src, null, list("browser-options" = "+find,refresh"))
+
 	if(IsGuestKey(key) && GLOB.config.external_auth)
 		src.authed = FALSE
 		var/mob/abstract/unauthed/m = new()

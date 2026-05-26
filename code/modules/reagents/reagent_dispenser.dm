@@ -225,10 +225,10 @@
 
 	..()
 
-/obj/structure/reagent_dispensers/fueltank/fire_act(temperature, volume)
+/obj/structure/reagent_dispensers/fueltank/fire_act(exposed_temperature, exposed_volume)
 	if (is_leaking)
 		ex_act(2.0)
-	else if (temperature > T0C+500)
+	else if (exposed_temperature > T0C+500)
 		ex_act(2.0)
 	return ..()
 

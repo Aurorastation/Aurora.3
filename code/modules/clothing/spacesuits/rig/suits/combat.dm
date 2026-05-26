@@ -31,7 +31,6 @@
 	light_overlay = "helmet_light_dual_cyan"
 
 /obj/item/rig/combat/equipped
-
 	initial_modules = list(
 		/obj/item/rig_module/mounted,
 		/obj/item/rig_module/vision/thermal,
@@ -634,3 +633,82 @@
 		/obj/item/rig_module/cooling_unit,
 		/obj/item/rig_module/recharger
 		)
+
+/obj/item/rig/combat/zavod_heavy
+	name = "reaper hardsuit control module"
+	desc = "A heavily armored hardsuit manufactured and used by Zavodskoi operatives, the K2-98Z \"Reaper\" is employed by Zavodskoi's elite asset protection, as well as in corporate-sponsored police forces."
+	desc_extended = "Borrowing design cues from their other popular hardsuits, such as those within the Solarian military, the Reaper was originally commissioned by the police chief in Rahe, " \
+		+ "Vysoka for usage by point men in door-kicking operations and other close quarters assignments. " \
+		+ "Corporate campaigns have all but normalized the motto \"Fear The Reaper\" as an attempt to increase sales—an attempt that was wildly successful. " \
+		+ "Nowadays, they see extensive use in high-risk cargo vessels, with specialists directly attached to Zavodskoi VIPs, and joint operations with the Stellar Corporate Conglomerate."
+	icon = 'icons/obj/item/clothing/rig/zavodheavy.dmi'
+	icon_state = "zavod_heavy"
+	icon_supported_species_tags = null
+	suit_type = "reaper hardsuit"
+	allowed = list(/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
+	species_restricted = list(BODYTYPE_HUMAN)
+	chest_type = /obj/item/clothing/suit/space/rig/zavod_heavy
+	helm_type = /obj/item/clothing/head/helmet/space/rig/combat/zavod_heavy
+	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY
+
+/obj/item/rig/combat/zavod_heavy/equipped
+	initial_modules = list(
+		/obj/item/rig_module/actuators/combat,
+		/obj/item/rig_module/chem_dispenser/combat,
+		/obj/item/rig_module/cooling_unit,
+		/obj/item/rig_module/grenade_launcher/frag,
+		/obj/item/rig_module/vision/nvg
+		)
+
+/obj/item/rig/combat/zavod_heavy/ninja
+	initial_modules = list(
+		/obj/item/rig_module/actuators/combat,
+		/obj/item/rig_module/chem_dispenser/combat,
+		/obj/item/rig_module/device/drill,
+		/obj/item/rig_module/vision/thermal,
+		/obj/item/rig_module/maneuvering_jets,
+		/obj/item/rig_module/cooling_unit,
+		/obj/item/rig_module/grenade_launcher/frag,
+		)
+
+/obj/item/clothing/suit/space/rig/zavod_heavy
+	var/lights_active = FALSE
+
+/obj/item/clothing/suit/space/rig/zavod_heavy/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
+	var/image/I = ..()
+	if(slot != slot_wear_suit_str)
+		return I
+
+	var/obj/item/rig/rigcontroller = H.get_equipped_item(slot_back)
+	if(!istype(rigcontroller, /obj/item/rig) || rigcontroller.offline)
+		// Turn off the suit lights
+		if (lights_active)
+			set_light_on(FALSE)
+			lights_active = FALSE
+		return I
+
+	if (!lights_active && !rigcontroller.sealing)
+		set_light_range_power_color(0.3, 0.2, "#ff0800")
+		set_light_on(TRUE)
+		lights_active = TRUE
+
+	var/image/emissive_overlay = emissive_appearance(mob_icon, "zavod_heavy_sealed_su-emissive")
+	I.AddOverlays(emissive_overlay)
+	return I
+
+/obj/item/clothing/head/helmet/space/rig/combat/zavod_heavy
+	light_overlay = "helmet_light"
+	light_color = "#ff0800"
+
+/obj/item/clothing/head/helmet/space/rig/combat/zavod_heavy/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
+	var/image/I = ..()
+	if(slot != slot_head_str)
+		return I
+
+	var/obj/item/rig/rigcontroller = H.get_equipped_item(slot_back)
+	if(!istype(rigcontroller, /obj/item/rig) || rigcontroller.offline)
+		return I
+
+	var/image/emissive_overlay = emissive_appearance(mob_icon, "zavod_heavy_sealed_he-emissive")
+	I.AddOverlays(emissive_overlay)
+	return I

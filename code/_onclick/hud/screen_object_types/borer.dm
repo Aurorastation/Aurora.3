@@ -1,5 +1,5 @@
 /atom/movable/screen/borer
-	icon = 'icons/mob/screen/borer.dmi'
+	icon = 'icons/hud/mob/borer.dmi'
 	maptext_x = 5
 	maptext_y = 16
 

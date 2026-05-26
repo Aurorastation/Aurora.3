@@ -489,7 +489,7 @@
 	src.add_fingerprint(user)
 
 /obj/machinery/cryopod/verb/eject()
-	set name = "Eject Pod"
+	set name = "Eject from Pod"
 	set category = "Object"
 	set src in oview(1)
 	if(use_check_and_message(usr))

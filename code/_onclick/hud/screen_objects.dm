@@ -8,7 +8,7 @@
 */
 /atom/movable/screen
 	name = ""
-	icon = 'icons/mob/screen/generic.dmi'
+	icon = 'icons/hud/mob/generic.dmi'
 	plane = HUD_PLANE
 	layer = HUD_BASE_LAYER
 	/// A reference to the object in the slot. Grabs or items, generally.
@@ -228,7 +228,7 @@
 
 
 /obj/effect/overlay/zone_sel
-	icon = 'icons/mob/zone_sel.dmi'
+	icon = 'icons/hud/mob/zone_sel.dmi'
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	alpha = 128
 	anchored = TRUE
@@ -293,7 +293,7 @@
 
 /atom/movable/screen/zone_sel/update_icon()
 	ClearOverlays()
-	selecting_appearance = mutable_appearance('icons/mob/zone_sel.dmi', "[selecting]")
+	selecting_appearance = mutable_appearance('icons/hud/mob/zone_sel.dmi', "[selecting]")
 	AddOverlays(selecting_appearance)
 
 /atom/movable/screen/Click(location, control, params)
@@ -361,7 +361,7 @@
 					var/turf/above_turf = GET_TURF_ABOVE(T)
 					if(!isopenturf(above_turf))
 						continue
-					var/image/point_up = image(icon = 'icons/mob/screen/generic.dmi', icon_state = "arrow_up", loc = T)
+					var/image/point_up = image(icon = 'icons/hud/mob/generic.dmi', icon_state = "arrow_up", loc = T)
 					point_up.plane = GAME_PLANE
 					point_up.layer = POINTER_LAYER
 					viewer_client?.images += point_up
@@ -553,13 +553,13 @@
 		return
 	if(!handcuff_overlay)
 		var/state = (hud.l_hand_hud_object == src) ? "l_hand_hud_handcuffs" : "r_hand_hud_handcuffs"
-		handcuff_overlay = image("icon"='icons/mob/screen_gen.dmi', "icon_state" = state)
+		handcuff_overlay = image("icon"='icons/hud/mob/screen_gen.dmi', "icon_state" = state)
 	if(!disabled_hand_overlay)
 		var/state = (hud.l_hand_hud_object == src) ? "l_hand_disabled" : "r_hand_disabled"
-		disabled_hand_overlay = image("icon" = 'icons/mob/screen_gen.dmi', "icon_state" = state)
+		disabled_hand_overlay = image("icon" = 'icons/hud/mob/screen_gen.dmi', "icon_state" = state)
 	if(!removed_hand_overlay)
 		var/state = (hud.l_hand_hud_object == src) ? "l_hand_removed" : "r_hand_removed"
-		removed_hand_overlay = image("icon" = 'icons/mob/screen_gen.dmi', "icon_state" = state)
+		removed_hand_overlay = image("icon" = 'icons/hud/mob/screen_gen.dmi', "icon_state" = state)
 	ClearOverlays()
 	if(hud.mymob && ishuman(hud.mymob))
 		var/mob/living/carbon/human/H = hud.mymob

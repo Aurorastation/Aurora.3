@@ -366,6 +366,7 @@
 	attack_verb = list("bashed", "bludgeoned", "thrashed", "whacked", "slashed", "cut")
 	sharp = TRUE
 	tool_behaviour = TOOL_CROWBAR
+	tool_quality = STANDARD_TOOL_LEVEL - 2
 
 // Flags.
 

@@ -28,8 +28,12 @@
 	possible_accents = list(ACCENT_HIMEO)
 	possible_citizenships = CITIZENSHIPS_COALITION
 	possible_religions = RELIGIONS_COALITION
-	origin_traits = list(TRAIT_ORIGIN_COLD_RESISTANCE, TRAIT_ORIGIN_LIGHT_SENSITIVE)
+	origin_traits = list(TRAIT_ORIGIN_COLD_RESISTANCE)
 	origin_traits_descriptions = list("are more acclimatised to the cold.", "are more sensitive to bright lights")
+
+/singleton/origin_item/origin/himeo/on_apply(mob/living/carbon/human/H)
+	. = ..()
+	H.AddElement(/datum/element/light_sensitivity)
 
 /singleton/origin_item/origin/vysoka
 	name = "Free System of Vysoka"
@@ -96,8 +100,11 @@
 	possible_accents = list(ACCENT_ASSUNZIONE)
 	possible_citizenships = CITIZENSHIPS_COALITION
 	possible_religions = list(RELIGION_LUCEISM)
-	origin_traits = list(TRAIT_ORIGIN_DARK_AFRAID)
 	origin_traits_descriptions = list("tend to feel nervous in the dark")
+
+/singleton/origin_item/origin/assunzione/on_apply(mob/living/carbon/human/H)
+	. = ..()
+	H.AddElement(/datum/element/dark_afraid)
 
 /singleton/origin_item/origin/ncf
 	name = "Non-Coalition Frontier"

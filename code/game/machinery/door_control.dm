@@ -159,6 +159,24 @@
 				M.open()
 				return
 
+/obj/machinery/button/remote/blast_door/hangar_lockdown
+	var/on_message = "A hangar lockdown has been initiated."
+	var/off_message = "The hangar lockdown has been lifted."
+	var/on_title = "Hangar Lockdown In Effect!"
+	var/off_title = "Hangar Lockdown Lifted!"
+	var/channel = "Common"
+	var/on = FALSE
+
+/obj/machinery/button/remote/blast_door/hangar_lockdown/trigger()
+	. = ..()
+	on = !on
+	if(on)
+		security_announcement.Announce(on_message, on_title)
+	else
+		security_announcement.Announce(off_message, off_title)
+	for(var/obj/machinery/button/remote/blast_door/hangar_lockdown/B in SSmachinery.machinery)
+		if(B.id == src.id)
+			B.on = src.on
 /*
 	Emitter remote control
 */

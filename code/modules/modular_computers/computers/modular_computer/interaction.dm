@@ -166,12 +166,11 @@
 	eject_item()
 
 /obj/item/modular_computer/attack(mob/living/target_mob, mob/living/user, target_zone)
-	var/sound_scan = FALSE
-	if(last_scan <= world.time - 20) //Spam limiter.
-		last_scan = world.time
-		sound_scan = TRUE
 	if(scan_mode == SCANNER_MEDICAL)
-		health_scan_mob(target_mob, user, TRUE, sound_scan = sound_scan)
+		var/datum/component/health_analyzer/h_analyzer = src.GetComponent(/datum/component/health_analyzer)
+		if(!h_analyzer)
+			return
+		h_analyzer.attack(target_mob, user)
 
 /obj/item/modular_computer/afterattack(atom/A, mob/user, proximity_flag, click_parameters)
 	. = ..()

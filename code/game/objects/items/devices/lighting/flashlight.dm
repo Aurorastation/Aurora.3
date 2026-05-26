@@ -38,8 +38,6 @@
 	var/always_on = FALSE
 	/// How efficient the flashlight is at producing light compared to baseline
 	var/efficiency_modifier = 1.0
-	/// A way for mappers to force which way a flashlight faces upon spawning
-	var/spawn_dir
 
 /obj/item/flashlight/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -81,6 +79,11 @@
 	STOP_PROCESSING(SSprocessing, src)
 	QDEL_NULL(cell)
 	return ..()
+
+/obj/item/flashlight/dropped(mob/user)
+	. = ..()
+	if(user?.dir)
+		set_dir(user.dir)
 
 /obj/item/flashlight/get_cell()
 	return cell
@@ -208,7 +211,7 @@
 
 		var/mob/living/carbon/human/H = target_mob	//mob has protective eyewear
 		if(istype(H))
-			if(H.get_flash_protection())
+			if(H.get_flash_protection() > FLASH_PROTECTION_NONE)
 				to_chat(user, SPAN_WARNING("You're going to need to remove \the [H]'s eye protection first."))
 				return
 

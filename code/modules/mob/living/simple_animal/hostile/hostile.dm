@@ -429,7 +429,7 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 
 	// var/def_zone = get_exposed_defense_zone(target)
 
-	fire_projectile(/obj/projectile, target, projectilesound, firer = user)
+	fire_projectile(projectiletype, target, projectilesound, firer = user)
 
 /mob/living/simple_animal/hostile/proc/DestroySurroundings(var/bypass_prob = FALSE)
 	if(ON_ATTACK_COOLDOWN(src))

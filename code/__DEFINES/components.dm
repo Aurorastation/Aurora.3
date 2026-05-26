@@ -26,7 +26,9 @@
 #define FORENSICS_SKILL_COMPONENT /datum/component/skill/forensics
 #define PHARMACOLOGY_SKILL_COMPONENT /datum/component/skill/pharmacology
 #define SURGERY_SKILL_COMPONENT /datum/component/skill/surgery
+#define TOOL_COMPONENT /datum/component/tool_quality_container
 #define CAROUSING_SKILL_COMPONENT /datum/component/skill/carousing
+#define TENACITY_SKILL_COMPONENT /datum/component/skill/tenacity
 
 /**
  * Trinary-Boolean helper that either returns null, or the skill level of a given skill component(which can be zero).

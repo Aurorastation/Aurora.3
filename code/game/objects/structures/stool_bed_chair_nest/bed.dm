@@ -576,10 +576,10 @@
 			return
 	if(buckled)
 		var/list/options = list(
-			"Transfer Rate" = image('icons/mob/screen/radial.dmi', "radial_transrate"),
-			"Remove Container" = image('icons/mob/screen/radial.dmi', "iv_beaker"),
-			"Remove Vitals Monitor" = image('icons/mob/screen/radial.dmi', "vitals_monitor"),
-			"Remove Scan" = image('icons/mob/screen/radial.dmi', "med_scan"))
+			"Transfer Rate" = image('icons/hud/mob/radial.dmi', "radial_transrate"),
+			"Remove Container" = image('icons/hud/mob/radial.dmi', "iv_beaker"),
+			"Remove Vitals Monitor" = image('icons/hud/mob/radial.dmi', "vitals_monitor"),
+			"Remove Scan" = image('icons/hud/mob/radial.dmi', "med_scan"))
 		var/chosen_action = show_radial_menu(user, src, options, require_near = TRUE, radius = 42, tooltips = TRUE)
 		if(!chosen_action)
 			return

@@ -545,7 +545,7 @@
 
 	to_chat(usr, "You can respawn now, enjoy your new life!")
 	log_game("[usr.name]/[usr.key] used abandon mob.")
-	to_chat(usr, SPAN_NOTICE("<B>Make sure to play a different character, and please roleplay correctly!</B>"))
+	to_chat(usr, SPAN_NOTICE("<B>If you died, make sure to play a different character, and remember to roleplay correctly!</B>"))
 
 	client?.screen.Cut()
 	if(!client)
@@ -1317,7 +1317,7 @@
 	else
 		throw_mode_on()
 
-#define THROW_MODE_ICON 'icons/effects/cursor/throw_mode.dmi'
+#define THROW_MODE_ICON 'icons/hud/cursor/throw_mode.dmi'
 
 /mob/proc/throw_mode_off()
 	src.in_throw_mode = 0

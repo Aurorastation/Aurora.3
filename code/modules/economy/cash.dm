@@ -344,9 +344,24 @@
 	initial_worth = isnull(content["initial_worth"]) ? 0 : content["initial_worth"]
 	worth = isnull(content["worth"]) ? 0 : content["worth"]
 	owner_name = isnull(content["owner_name"]) ? src.owner_name : content["owner_name"]
+
 	src.x = x
 	src.y = y
 	src.z = z
+
+	// While the item features a persistent location, we want to return it to a safe spot if it is not in acceptable areas
+	var/area/target_area
+	var/area/A = get_area(src)
+	if(A && istype(A, /area/horizon/command))
+		target_area = A // Command areas are deemed safe
+	else
+		target_area = locate(/area/horizon/command/heads/xo) in GLOB.areas // Non safe area - XO office as fallback
+
+	var/obj/structure/table/T = locate(/obj/structure/table) in target_area // Put it on a table
+	if(T)
+		src.x = T.x
+		src.y = T.y
+		src.z = T.z
 
 /obj/item/spacecash/ewallet/persistent_charge_card/Destroy()
 	log_and_message_admins("Persistent charge card ([src.name]) at [src] was destroyed!", null, get_turf(src))

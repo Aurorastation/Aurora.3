@@ -6,9 +6,16 @@
 	activable = TRUE
 	cooldown = 8
 
+/obj/item/organ/internal/augment/health_scanner/Initialize()
+	. = ..()
+	src.LoadComponent(/datum/component/health_analyzer)
+
 /obj/item/organ/internal/augment/health_scanner/attack_self(var/mob/user)
 	. = ..()
 	if(!.)
 		return FALSE
 
-	health_scan_mob(owner, owner, TRUE, TRUE)
+	var/datum/component/health_analyzer/h_analyzer = src.GetComponent(/datum/component/health_analyzer)
+	if(!h_analyzer)
+		return
+	h_analyzer.health_scan_mob(owner, owner, TRUE, TRUE)

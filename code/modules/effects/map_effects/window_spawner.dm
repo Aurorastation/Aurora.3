@@ -234,6 +234,7 @@
 /obj/effect/map_effect/window_spawner/full/shuttle
 	name = "full reinforced window spawner"
 	icon_state = "full_rwindow_shuttle"
+	frame_path = /obj/structure/window_frame/shuttle
 	window_path = /obj/structure/window/full/reinforced
 
 /obj/effect/map_effect/window_spawner/full/shuttle/scc
@@ -253,6 +254,14 @@
 	icon_state = "full_rwindow_shuttle"
 	frame_color = "#6E5B4A"
 	color = "#6E5B4A"
+
+/obj/effect/map_effect/window_spawner/full/shuttle/brown
+	icon_state = "full_rwindow_shuttle"
+	frame_color = COLOR_MUTED_BROWN
+	color = COLOR_MUTED_BROWN
+
+/obj/effect/map_effect/window_spawner/full/shuttle/brown/firedoor
+	spawn_firedoor = TRUE
 
 //Coalition window frames
 /obj/effect/map_effect/window_spawner/full/shuttle/coalition

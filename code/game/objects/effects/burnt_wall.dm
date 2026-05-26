@@ -35,8 +35,8 @@
 	return ..()
 
 /obj/effect/overlay/thermite
-	name = "burning thermite"
-	desc = "It's flaming ball of thermite!"
+	name = "blazing heat"
+	desc = "It's blazing wall of heat!"
 	icon = 'icons/effects/fire.dmi'
 	icon_state = "2"
 	anchored = TRUE

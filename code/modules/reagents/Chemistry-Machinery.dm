@@ -77,7 +77,7 @@
 		src.beaker = attacking_item
 		user.drop_from_inventory(attacking_item, src)
 		to_chat(user, "You add the beaker to the machine!")
-		src.updateUsrDialog()
+		SStgui.update_uis(src)
 		icon_state = "mixer1"
 		CHEMMASTER_BOTTLE_SOUND
 
@@ -91,7 +91,7 @@
 		src.loaded_pill_bottle = attacking_item
 		user.drop_from_inventory(attacking_item, src)
 		to_chat(user, "You add the pill bottle into the dispenser slot!")
-		src.updateUsrDialog()
+		SStgui.update_uis(src)
 	else if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		anchored = !anchored
 		to_chat(user, "You [anchored ? "attach" : "detach"] the [src] [anchored ? "to" : "from"] the ground")
@@ -381,7 +381,7 @@
 			src.beaker =  attacking_item
 			user.drop_from_inventory(attacking_item,src)
 			update_icon()
-			src.updateUsrDialog()
+			SStgui.update_uis(src)
 			return 0
 
 	if(holdingitems && holdingitems.len >= limit)
@@ -412,7 +412,7 @@
 		else
 			to_chat(user, "You fill \the [src] from \the [attacking_item].")
 
-		src.updateUsrDialog()
+		SStgui.update_uis(src)
 		return 0
 
 	if(!sheet_reagents[attacking_item.type] && (!attacking_item.reagents || !attacking_item.reagents.total_volume))
@@ -422,7 +422,7 @@
 	user.remove_from_mob(attacking_item)
 	attacking_item.forceMove(src)
 	holdingitems += attacking_item
-	src.updateUsrDialog()
+	SStgui.update_uis(src)
 	return 0
 
 /obj/machinery/reagentgrinder/attack_ai(mob/user as mob)
@@ -491,7 +491,7 @@
 			eject()
 		if ("detach")
 			detach(usr)
-	src.updateUsrDialog()
+	SStgui.update_uis(src)
 	return 1
 
 /obj/machinery/reagentgrinder/proc/detach(var/mob/user)
@@ -576,7 +576,7 @@
 
 /obj/machinery/reagentgrinder/proc/grind_reset()
 	inuse = FALSE
-	updateUsrDialog()
+	SStgui.update_uis(src)
 
 
 /obj/machinery/reagentgrinder/mouse_drop_receive(atom/dropped, mob/user, params)
