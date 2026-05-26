@@ -167,7 +167,7 @@
 	if(target)
 		improvement_potential += (0.1 * IMPROVEMENT_MULTIPLIER) / (max(1, burst))  //100 shots to improve by 1%, you can only improve if your gun takes damage, so it will need many repair cycles for this to be significant.
 
-		if (istype(target, /obj/machinery/portable_atmospherics/hydroponics))
+		if (istype(target, /obj/structure/machinery/portable_atmospherics/hydroponics))
 			if (istype(modulator, /obj/item/laser_components/modulator/floramut) || istype(modulator, /obj/item/laser_components/modulator/floramut2))
 				improvement_potential += (1  * IMPROVEMENT_MULTIPLIER) / (max(1, burst))
 				return ..()
