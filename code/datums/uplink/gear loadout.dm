@@ -247,3 +247,15 @@
 	desc = "A crate containing gear for a single individual. Humans only, for now."
 	path = /obj/structure/closet/crate/secure/gear_loadout/outereyes/single
 	telecrystal_cost = 10
+
+/datum/uplink_item/item/gear_loadout/zavodskoi
+	name = "Zavodskoi Assets (Group)"
+	desc = "A crate containing gear for a group. The hardsuit and voidsuits are only usable by humans."
+	path = /obj/structure/closet/crate/secure/gear_loadout/zavodskoi
+	telecrystal_cost = 35
+
+/datum/uplink_item/item/gear_loadout/zavodskoi_single
+	name = "Zavodskoi Assets (Single)"
+	desc = "A crate containing gear for a single individual. The voidsuit is only usable by humans."
+	path = /obj/structure/closet/crate/secure/gear_loadout/zavodskoi/single
+	telecrystal_cost = 10

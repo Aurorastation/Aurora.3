@@ -275,8 +275,8 @@
 			busy = 0
 			continue
 
-		if((istype(O, /obj/machinery/door/firedoor) && O.density) || (istype(O, /obj/machinery/door/airlock) && O.density) || istype(O, /obj/machinery/door/blast) && O.density)
-			var/obj/machinery/door/D = O
+		if((istype(O, /obj/structure/machinery/door/firedoor) && O.density) || (istype(O, /obj/structure/machinery/door/airlock) && O.density) || istype(O, /obj/structure/machinery/door/blast) && O.density)
+			var/obj/structure/machinery/door/D = O
 			if(D.stat & BROKEN)
 				src.visible_message(SPAN_NOTICE("[src] starts to tear \the [D] open."))
 				busy = 1
@@ -290,7 +290,7 @@
 					new /obj/item/stack/material/steel(get_turf(D))
 					qdel(D)
 				busy = 0
-			else if(istype(D, /obj/machinery/door/airlock/multi_tile))
+			else if(istype(D, /obj/structure/machinery/door/airlock/multi_tile))
 				D.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
 			else
 				rapid = 1

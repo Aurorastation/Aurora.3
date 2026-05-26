@@ -99,7 +99,7 @@
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
 
-/obj/machinery/computer/shuttle_control/explore/terminal/database_freighter_shuttle
+/obj/structure/machinery/computer/shuttle_control/explore/terminal/database_freighter_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Database Freighter Shuttle"
 

@@ -40,7 +40,7 @@ ABSTRACT_TYPE(/singleton/fabricator_recipe/engineering)
 
 /singleton/fabricator_recipe/engineering/floor_light
 	name = "floor light"
-	path = /obj/machinery/floor_light
+	path = /obj/structure/machinery/floor_light
 
 /singleton/fabricator_recipe/engineering/tile_circuit_blue
 	name = "circuit tile, blue"

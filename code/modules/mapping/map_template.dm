@@ -118,10 +118,10 @@
 		return // let proper initialisation handle it later
 
 	var/list/turf/turfs = list()
-	var/list/obj/machinery/atmospherics/atmos_machines = list()
-	var/list/obj/machinery/machines = list()
+	var/list/obj/structure/machinery/atmospherics/atmos_machines = list()
+	var/list/obj/structure/machinery/machines = list()
 	var/list/obj/structure/cable/cables = list()
-	var/list/obj/machinery/power/apc/apcs = list()
+	var/list/obj/structure/machinery/power/apc/apcs = list()
 
 	for(var/atom/A as anything in atoms)
 		if(isnull(A) || (A.flags_1 & INITIALIZED_1))
@@ -132,11 +132,11 @@
 			cables += A
 
 		//Not mutually exclusive anymore section, pay close attention!
-		if(istype(A, /obj/machinery))
+		if(istype(A, /obj/structure/machinery))
 			machines += A
-			if(istype(A, /obj/machinery/atmospherics))
+			if(istype(A, /obj/structure/machinery/atmospherics))
 				atmos_machines += A
-			else if(istype(A, /obj/machinery/power/apc))
+			else if(istype(A, /obj/structure/machinery/power/apc))
 				apcs += A
 
 	var/notsuspended
@@ -151,10 +151,10 @@
 	if(notsuspended)
 		SSmachinery.can_fire = TRUE
 
-	for (var/obj/machinery/power/apc/apc as anything in apcs)
+	for (var/obj/structure/machinery/power/apc/apc as anything in apcs)
 		apc.update() // map-loading areas and APCs is weird, okay
 
-	for (var/obj/machinery/machine as anything in machines)
+	for (var/obj/structure/machinery/machine as anything in machines)
 		machine.power_change()
 
 	for (var/turf/T as anything in turfs)

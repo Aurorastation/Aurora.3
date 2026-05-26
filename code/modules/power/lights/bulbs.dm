@@ -1,7 +1,7 @@
 
 // the light item
 // can be tube or bulb subtypes
-// will fit into empty /obj/machinery/light of the corresponding type
+// will fit into empty /obj/structure/machinery/light of the corresponding type
 
 /obj/item/light
 	icon = 'icons/obj/machinery/light.dmi'
@@ -88,7 +88,7 @@
 /obj/item/light/afterattack(atom/target, mob/user, proximity)
 	if(!proximity)
 		return
-	if(istype(target, /obj/machinery/light))
+	if(istype(target, /obj/structure/machinery/light))
 		return
 	if(user.a_intent != I_HURT)
 		return

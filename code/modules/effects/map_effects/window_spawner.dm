@@ -9,7 +9,7 @@
 	var/window_path = /obj/structure/window/basic
 	var/frame_path = /obj/structure/window_frame
 	var/grille_path = /obj/structure/grille/over
-	var/firedoor_path = /obj/machinery/door/firedoor
+	var/firedoor_path = /obj/structure/machinery/door/firedoor
 
 	/// For full window panes and full windows
 	var/single_window = FALSE
@@ -56,7 +56,7 @@
 	if(spawn_grille)
 		new grille_path(loc)
 	if(spawn_firedoor)
-		var/obj/machinery/door/firedoor/new_firedoor = new firedoor_path(loc)
+		var/obj/structure/machinery/door/firedoor/new_firedoor = new firedoor_path(loc)
 		if(req_one_access)
 			new_firedoor.req_one_access = req_one_access
 	if(!single_window)

@@ -78,6 +78,12 @@ ABSTRACT_TYPE(/obj/item/clothing/pants)
 	build_from_parts = TRUE
 	worn_overlay = "belt"
 
+/obj/item/clothing/pants/cargo
+	name = "cargo pants"
+	desc = "A pair of pants with large pockets."
+	icon_state = "cargopants"
+	item_state = "cargopants"
+
 /obj/item/clothing/pants/striped
 	name = "striped pants"
 	desc = "A pair of striped pants. Typically seen among privateers."

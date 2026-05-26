@@ -241,7 +241,7 @@
 		return
 
 	visible_message("<span class ='notice'>\The [src] pulses.</span>")
-	for(var/obj/machinery/light/L in view(5, src))
+	for(var/obj/structure/machinery/light/L in view(5, src))
 		L.flicker()
 
 /mob/living/simple_animal/shade/bluespace/verb/move_item()

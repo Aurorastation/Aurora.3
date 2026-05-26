@@ -1,4 +1,4 @@
-/obj/machinery/atmospherics/unary/vent_scrubber
+/obj/structure/machinery/atmospherics/unary/vent_scrubber
 	name = "air scrubber"
 	desc = "Has a valve and pump attached to it."
 	icon = 'icons/atmos/vent_scrubber.dmi'
@@ -31,13 +31,13 @@
 
 	var/broadcast_status_next_process = FALSE
 
-/obj/machinery/atmospherics/unary/vent_scrubber/mechanics_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "This filters the atmosphere of harmful gas. Filtered gas goes to the pipes connected to it, typically a scrubber pipe."
 	. += "It can be controlled from an Air Alarm."
 	. += "It can be configured to drain all air rapidly with a 'panic siphon' from an air alarm."
 
-/obj/machinery/atmospherics/unary/vent_scrubber/feedback_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	if(distance <= 1)
 		. += "A small gauge in the corner reads [round(last_flow_rate, 0.1)] L/s at [round(last_power_draw)] W."
@@ -46,11 +46,11 @@
 	if(welded)
 		. += "It seems welded shut."
 
-/obj/machinery/atmospherics/unary/vent_scrubber/on
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on
 	use_power = POWER_USE_IDLE
 	icon_state = "map_scrubber_on"
 
-/obj/machinery/atmospherics/unary/vent_scrubber/Initialize(mapload)
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/Initialize(mapload)
 	if(mapload)
 		var/turf/T = loc
 		var/image/I = image(icon, T, icon_state, dir, pixel_x, pixel_y)
@@ -76,7 +76,7 @@
 	if (!scrubbing_gas)
 		reset_scrubbing()
 
-/obj/machinery/atmospherics/unary/vent_scrubber/proc/reset_scrubbing()
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/proc/reset_scrubbing()
 	if (initial(scrubbing_gas))
 		scrubbing_gas = initial(scrubbing_gas)
 	else
@@ -85,17 +85,17 @@
 			if (g != GAS_OXYGEN && g != GAS_NITROGEN)
 				add_to_scrubbing(g)
 
-/obj/machinery/atmospherics/unary/vent_scrubber/proc/add_to_scrubbing(new_gas)
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/proc/add_to_scrubbing(new_gas)
 	scrubbing_gas |= new_gas
 
-/obj/machinery/atmospherics/unary/vent_scrubber/proc/remove_from_scrubbing(old_gas)
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/proc/remove_from_scrubbing(old_gas)
 	scrubbing_gas -= old_gas
 
-/obj/machinery/atmospherics/unary/vent_scrubber/atmos_init()
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/atmos_init()
 	..()
 	broadcast_status()
 
-/obj/machinery/atmospherics/unary/vent_scrubber/Destroy()
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/Destroy()
 	unregister_radio(src, frequency)
 	if(initial_loc)
 		initial_loc.air_scrub_info -= id_tag
@@ -103,7 +103,7 @@
 
 	return ..()
 
-/obj/machinery/atmospherics/unary/vent_scrubber/update_icon(var/safety = 0)
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/update_icon(var/safety = 0)
 	var/turf/T = get_turf(src)
 	if(!istype(T))
 		return
@@ -119,13 +119,13 @@
 	else
 		icon_state = "in"
 
-/obj/machinery/atmospherics/unary/vent_scrubber/update_underlays()
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/update_underlays()
 	if(..())
 		underlays.Cut()
 		var/turf/T = get_turf(src)
 		if(!istype(T))
 			return
-		if(!T.is_plating() && node && node.level == 1 && istype(node, /obj/machinery/atmospherics/pipe))
+		if(!T.is_plating() && node && node.level == 1 && istype(node, /obj/structure/machinery/atmospherics/pipe))
 			return
 		else
 			if(node)
@@ -134,12 +134,12 @@
 				add_underlay(T,, dir)
 			underlays += "frame"
 
-/obj/machinery/atmospherics/unary/vent_scrubber/proc/set_frequency(new_frequency)
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/proc/set_frequency(new_frequency)
 	SSradio.remove_object(src, frequency)
 	frequency = new_frequency
 	radio_connection = SSradio.add_object(src, frequency, radio_filter_in)
 
-/obj/machinery/atmospherics/unary/vent_scrubber/proc/broadcast_status()
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/proc/broadcast_status()
 	if(!radio_connection)
 		return 0
 
@@ -181,7 +181,7 @@
 
 	return 1
 
-/obj/machinery/atmospherics/unary/vent_scrubber/process()
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/process()
 	..()
 
 	if (hibernate > world.time)
@@ -226,11 +226,11 @@
 
 	return 1
 
-/obj/machinery/atmospherics/unary/vent_scrubber/hide(var/i) //to make the little pipe section invisible, the icon changes.
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/hide(var/i) //to make the little pipe section invisible, the icon changes.
 	update_icon()
 	update_underlays()
 
-/obj/machinery/atmospherics/unary/vent_scrubber/receive_signal(datum/signal/signal)
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/receive_signal(datum/signal/signal)
 	if(stat & (NOPOWER|BROKEN))
 		return
 	if(!signal.data["tag"] || (signal.data["tag"] != id_tag) || (signal.data["sigtype"]!="command"))
@@ -351,13 +351,13 @@
 	update_icon()
 	return
 
-/obj/machinery/atmospherics/unary/vent_scrubber/power_change()
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/power_change()
 	var/old_stat = stat
 	..()
 	if(old_stat != stat)
 		update_icon()
 
-/obj/machinery/atmospherics/unary/vent_scrubber/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/attackby(obj/item/attacking_item, mob/user)
 	if (attacking_item.tool_behaviour == TOOL_WRENCH)
 		if (!(stat & NOPOWER) && use_power)
 			to_chat(user, SPAN_WARNING("You cannot unwrench \the [src], turn it off first."))
