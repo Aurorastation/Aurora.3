@@ -873,7 +873,7 @@
 		/obj/item/light/tube/colored/blue,
 		/obj/item/light/tube/colored/magenta,
 		/obj/item/light/tube/colored/yellow,
-		/obj/item/light/tube/colored/cyan
+		/obj/item/light/tube/colored/pale_purple
 	)
 	var/static/list/bulbs_colors = list(
 		/obj/item/light/bulb/colored/red,
@@ -881,7 +881,7 @@
 		/obj/item/light/bulb/colored/blue,
 		/obj/item/light/bulb/colored/magenta,
 		/obj/item/light/bulb/colored/yellow,
-		/obj/item/light/bulb/colored/cyan
+		/obj/item/light/bulb/colored/pale_purple
 	)
 	for(var/i = 0, i < 14, i++)
 		var/type = pick(tube_colors)
