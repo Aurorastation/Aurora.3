@@ -208,7 +208,7 @@
 		P.dir = S.dir
 	P.icon_state = overmap_icon_state
 	P.speed = get_speed()
-	P.entry_target = entry_point
+	P.submap_target = entry_point
 	forceMove(P)
 	log_and_message_admins("A projectile ([name]) has entered the Overmap! (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[P.x];Y=[P.y];Z=[P.z]'>JMP</a>)")
 	return TRUE
@@ -283,8 +283,8 @@
 			P.shrapnel_type = /obj/item/stack/rods
 			P.name = "metal rod"
 			P.armor_penetration = 15 //Giant metal rods can punch through armour better than glass.
-		else if(istype(thing_pierced, /obj/machinery/door/airlock))
-			var/obj/machinery/door/airlock/D = thing_pierced
+		else if(istype(thing_pierced, /obj/structure/machinery/door/airlock))
+			var/obj/structure/machinery/door/airlock/D = thing_pierced
 			if(D.window_material)
 				if(D.window_material == SSmaterials.get_material_by_name(MATERIAL_GLASS))
 					P.shrapnel_type = /obj/item/material/shard
@@ -324,7 +324,7 @@
 		if(ammo && ammo.origin)
 			ammo.origin.signal_hit(hit_data)
 
-	if(istype(target, /turf/simulated/wall) || istype(target, /obj/machinery/door)) //Stores the last thing we pierced for spalling purposes.
+	if(istype(target, /turf/simulated/wall) || istype(target, /obj/structure/machinery/door)) //Stores the last thing we pierced for spalling purposes.
 		last_thing_pierced = target
 	else if (istype(target, /obj/structure)) //If it is a structure on a dense turf, that uses health,
 		if (target.should_use_health == TRUE)

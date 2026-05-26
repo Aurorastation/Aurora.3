@@ -99,8 +99,8 @@
 					widowmaker.primed = TRUE
 					widowmaker.forceMove(submap_target)
 					widowmaker.on_hit(laze, is_landmark_hit = TRUE)
-					log_and_message_admins("A projectile ([widowmaker.name]) has entered a z-level aimed at [submap_target.name] It appeared at ([entry_turf.x], [entry_turf.y], [entry_turf.z]), with direction [dir2text(widowmaker.dir)]! (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[widowmaker.x];Y=[widowmaker.y];Z=[widowmaker.z]'>JMP</a>)")
-					say_dead_direct("A projectile ([widowmaker.name]) has entered a z-level aimed at [submap_target.name]. It appeared at ([entry_turf.x], [entry_turf.y], [entry_turf.z]), with direction [dir2text(widowmaker.dir)]!")
+					log_and_message_admins("A projectile ([widowmaker.name]) has entered an exoplanet z-level aimed at [submap_target.name] It appeared at ([submap_target.x], [submap_target.y], [submap_target.z]), with direction [dir2text(widowmaker.dir)]! (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[widowmaker.x];Y=[widowmaker.y];Z=[widowmaker.z]'>JMP</a>)")
+					say_dead_direct("A projectile ([widowmaker.name]) has entered an exoplanet z-level aimed at [submap_target.name]. It appeared at ([submap_target.x], [submap_target.y], [submap_target.z]), with direction [dir2text(widowmaker.dir)]!")
 					qdel(widowmaker)
 					qdel(src)
 				else if(istype(V, /obj/effect/overmap/visitable) && (ammunition.overmap_behaviour & SHIP_AMMO_CAN_HIT_VISITABLES))

@@ -93,7 +93,7 @@
 		visible_message(SPAN_NOTICE("\The [src] has been [anchored ? "bolted to the floor" : "unbolted from the floor"] by \the [user]."))
 
 		if(anchored)
-			for(var/obj/machinery/shield_gen/gen in range(1, src))
+			for(var/obj/structure/machinery/shield_gen/gen in range(1, src))
 				if(get_dir(src, gen) == src.dir)
 					if(gen.attach_capacitor(src))
 						owned_gen = gen
