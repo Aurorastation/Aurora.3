@@ -9,8 +9,8 @@
 	var/obj/item/ship_ammunition/ammunition
 	/// The target is the actual overmap object we're hitting.
 	var/atom/target
-	/// The entry target is where the projectile itself is going to spawn in world.
-	var/obj/entry_target
+	/// The submap target is passed by the targetting console, it is the landmark selected on that console. This is the point on the submap (eg. The Horizon's Bridge) that the projectile will aim for when it enters.
+	var/obj/submap_target
 	var/range = OVERMAP_PROJECTILE_RANGE_MEDIUM
 	var/current_range_counter = 0
 	// A projectile with 0 speed does not move. Note that this is the 'lag' variable on walk_towards! Lower speed is better.
@@ -65,7 +65,7 @@
 /obj/effect/overmap/projectile/Destroy()
 	ammunition = null
 	target = null
-	entry_target = null
+	submap_target = null
 	return ..()
 
 /obj/effect/overmap/projectile/proc/prepare_for_entry()
@@ -83,7 +83,7 @@
 			continue
 		if(istype(A, /obj/effect/overmap/visitable))
 			var/obj/effect/overmap/visitable/V = A
-			if((V.check_ownership(entry_target)) || (V == target)) //Target spotted!
+			if((V.check_ownership(submap_target)) || (V == target)) //Target spotted!
 				if(istype(V, /obj/effect/overmap/visitable/sector/exoplanet) && (ammunition.overmap_behaviour & SHIP_AMMO_CAN_HIT_PLANETS))
 					. = TRUE
 					//Manually stopping because this proc needs to sleep for a bit.
@@ -91,16 +91,16 @@
 					var/obj/projectile/ship_ammo/widowmaker = new ammunition.original_projectile.type
 					widowmaker.ammo = ammunition
 					qdel(ammunition.original_projectile) //No longer needed.
-					var/turf/laze = get_turf(entry_target)
+					var/turf/laze = get_turf(submap_target)
 					ammunition.original_projectile = widowmaker
 					playsound(laze, 'sound/weapons/gunshot/ship_weapons/orbital_travel.ogg', 60)
 					laze.visible_message(SPAN_DANGER("<font size=6>A bright star is getting closer from the sky...!</font>"))
 					sleep(11 SECONDS) //Let the sound play!
 					widowmaker.primed = TRUE
-					widowmaker.forceMove(entry_target)
+					widowmaker.forceMove(submap_target)
 					widowmaker.on_hit(laze, is_landmark_hit = TRUE)
-					log_and_message_admins("A projectile ([name]) has entered a z-level at [entry_target.name]! (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[widowmaker.x];Y=[widowmaker.y];Z=[widowmaker.z]'>JMP</a>)")
-					say_dead_direct("A projectile ([name]) has entered a z-level at [entry_target.name]!")
+					log_and_message_admins("A projectile ([widowmaker.name]) has entered a z-level aimed at [submap_target.name] It appeared at ([entry_turf.x], [entry_turf.y], [entry_turf.z]), with direction [dir2text(widowmaker.dir)]! (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[widowmaker.x];Y=[widowmaker.y];Z=[widowmaker.z]'>JMP</a>)")
+					say_dead_direct("A projectile ([widowmaker.name]) has entered a z-level aimed at [submap_target.name]. It appeared at ([entry_turf.x], [entry_turf.y], [entry_turf.z]), with direction [dir2text(widowmaker.dir)]!")
 					qdel(widowmaker)
 					qdel(src)
 				else if(istype(V, /obj/effect/overmap/visitable) && (ammunition.overmap_behaviour & SHIP_AMMO_CAN_HIT_VISITABLES))
@@ -112,45 +112,22 @@
 							var/corrected_heading = SSatlas.naval_to_dir["[VS.fore_dir]"][naval_heading]
 							ammunition.heading = corrected_heading
 					else //if it's not a ship it doesn't have a fore direction, so we need to autocorrect
-						ammunition.heading = entry_target.dir
+						ammunition.heading = submap_target.dir
 					prepare_for_entry()
 					var/obj/projectile/ship_ammo/widowmaker = new ammunition.original_projectile.type
 					widowmaker.ammo = ammunition
 					qdel(ammunition.original_projectile) //No longer needed.
 					ammunition.original_projectile = widowmaker
 					widowmaker.primed = TRUE
-					// Offset from the map edge the projectile enters through, not the entry target
-					var/entry_edge_direction = REVERSE_DIR(ammunition.heading)
-					var/turf/map_edge = get_ranged_target_turf(entry_target, entry_edge_direction, 9999)
-					var/turf/entry_turf_initial = get_ranged_target_turf(map_edge, ammunition.heading, 20)
-					// Try to preserve the lateral position where the overmap projectile contacted the target tile
-					// by using the projectile's current src position relative to the entry_target. This makes the
-					// spawned local projectile appear at the map edge at the same lateral offset the overmap
-					// projectile had when it detected the target. Clamp the offset to avoid huge jumps.
-					var/turf/entry_turf = null
-					if(src && entry_target)
-						var/dx = src.x - entry_target.x
-						var/dy = src.y - entry_target.y
-						// limit offset to a small radius so we don't spawn off-map or far away
-						if(dx > 5) dx = 5
-						if(dx < -5) dx = -5
-						if(dy > 5) dy = 5
-						if(dy < -5) dy = -5
-						// If travelling north/south the lateral axis is X, otherwise it's Y
-						if(ammunition.heading & (NORTH | SOUTH))
-							entry_turf = get_offset_target_turf(entry_turf_initial, dx, 0)
-						else
-							entry_turf = get_offset_target_turf(entry_turf_initial, 0, dy)
-					// fallback to previous perpendicular random/stepped behaviour if something went wrong
-					if(!entry_turf)
-						var/entry_dir_choice = (ammunition.heading & NORTH) || (ammunition.heading & SOUTH) ? list(EAST, WEST) : list(NORTH, SOUTH)
-						entry_turf = get_ranged_target_turf(entry_turf_initial, entry_dir_choice, 5)
+					var/turf/entry_turf_initial = get_edge_target_turf(submap_target, REVERSE_DIR(submap_target.dir)) //Spawn the projectile at the map edge.
+					var/entry_dir_choice = (dir & NORTH) || (dir & SOUTH) ? list(EAST, WEST) : list(NORTH, SOUTH)
+					var/turf/entry_turf = get_ranged_target_turf(entry_turf_initial, entry_dir_choice, 5)
 					widowmaker.forceMove(entry_turf)
 					widowmaker.dir = ammunition.heading
 					var/turf/target_turf = get_step(widowmaker, widowmaker.dir)
 					widowmaker.on_translate(entry_turf, target_turf)
-					log_and_message_admins("A projectile ([widowmaker.name]) has entered a z-level aimed at [entry_target.name] It appeared at ([entry_turf.x], [entry_turf.y], [entry_turf.z]), with direction [dir2text(widowmaker.dir)]! (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[widowmaker.x];Y=[widowmaker.y];Z=[widowmaker.z]'>JMP</a>)")
-					say_dead_direct("A projectile ([widowmaker.name]) has entered a z-level aimed at [entry_target.name]. It appeared at ([entry_turf.x], [entry_turf.y], [entry_turf.z]), with direction [dir2text(widowmaker.dir)]!")
+					log_and_message_admins("A projectile ([widowmaker.name]) has entered a z-level aimed at [submap_target.name] It appeared at ([entry_turf.x], [entry_turf.y], [entry_turf.z]), with direction [dir2text(widowmaker.dir)]! (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[widowmaker.x];Y=[widowmaker.y];Z=[widowmaker.z]'>JMP</a>)")
+					say_dead_direct("A projectile ([widowmaker.name]) has entered a z-level aimed at [submap_target.name]. It appeared at ([entry_turf.x], [entry_turf.y], [entry_turf.z]), with direction [dir2text(widowmaker.dir)]!")
 					widowmaker.preparePixelProjectile(target_turf, entry_turf)
 					widowmaker.fired_from = src
 					widowmaker.fire()

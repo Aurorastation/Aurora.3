@@ -107,7 +107,7 @@
 
 	/**
 	 * An explosive projectile that fails to penetrate will be deleted before it can explode.
-	 * All explosive ship weapons also have high damage, so this only matters on a strength 10 shield.
+	 * All explosive ship weapons also have high damage, so this only really matters on a strength 10 shield.
 	 * If the projectile is explosive, it deals whatever damage that explosion would have done to the shield.
 	 */
 	if(istype(hitting_projectile, /obj/projectile/ship_ammo))
@@ -127,7 +127,7 @@
 
 	damage_field(initial_damage / 10)
 
-	. = ..()
+	. = ..() //If we get down here fall back on normal piercing calculations, for normal projectiles hitting shields.
 	if(. != BULLET_ACT_HIT)
 		return .
 

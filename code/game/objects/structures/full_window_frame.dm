@@ -6,7 +6,7 @@
 	maxhealth = OBJECT_HEALTH_MEDIUM
 	color = COLOR_GRAY20
 	build_amt = 4
-	pass_flags_self = PASSTABLE | PASSWINDOW | PASSSTRUCTURE
+	pass_flags_self = PASSRAILING
 	layer = WINDOW_FRAME_LAYER
 	anchored = TRUE
 	density = TRUE
@@ -59,6 +59,11 @@
 	if(locate(/obj/structure/window_frame) in get_turf(mover))
 		return TRUE
 	return FALSE
+
+/obj/structure/window_frame/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
 
 /obj/structure/window_frame/attackby(obj/item/attacking_item, mob/user)
 	if((attacking_item.tool_behaviour == TOOL_SCREWDRIVER) && (istype(loc, /turf/simulated) || anchored))

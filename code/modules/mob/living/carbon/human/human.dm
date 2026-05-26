@@ -1428,14 +1428,15 @@
 		blood_color = null
 		return 1
 
-/mob/living/carbon/human/get_visible_implants(var/class = 0)
+/mob/living/carbon/human/get_visible_implants(var/class = 0) //Default class 0, class 1 is tiny objects, so class 0 will show everything.
 
 	var/list/visible_implants = list()
 	for(var/obj/item/organ/external/organ in src.organs)
 		for(var/obj/item/O in organ.implants)
 			if(!istype(O,/obj/item/implant) && (O.w_class > class) && !istype(O,/obj/item/material/shard/shrapnel))
 				visible_implants += O
-
+			if(istype(O,/obj/item/material/shard/shrapnel) && (O.w_class > class + 2)) //If the shrapnel is larger than class 2 (small), it is visible.
+				visible_implants += O
 	return(visible_implants)
 
 /mob/living/carbon/human/embedded_needs_process()

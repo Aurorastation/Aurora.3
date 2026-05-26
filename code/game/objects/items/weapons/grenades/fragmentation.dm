@@ -37,7 +37,6 @@
 			P.maim_rate = maim_rate
 		P.range = shard_range
 		P.name = "shrapnel"
-
 		P.preparePixelProjectile(T, get_turf(source))
 		P.firer = source
 		P.fired_from = source

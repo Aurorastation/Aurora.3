@@ -1220,8 +1220,8 @@
 	var/obj/item/SP = new shrapnel_type(organ)
 	SP.edge = TRUE
 	SP.sharp = TRUE
-	SP.name = (name != "shrapnel") ? "[initial(name)] shrapnel" : "shrapnel"
-	SP.desc += " It looks like it was fired from [fired_from]."
+	SP.name = (name != "shrapnel") ? "[name] shrapnel" : "shrapnel"
+	SP.desc += " It looks like it came from from \a [fired_from]."
 	SP.forceMove(organ)
 	organ.embed(SP)
 	return SP
