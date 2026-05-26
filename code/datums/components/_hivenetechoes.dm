@@ -2,6 +2,7 @@
 
 	/// The next real life time a broadcast echo will generate.
 	var/next_broadcastEcho = 0
+	var/topic
 	/// The next real life time a projection echo will generate.
 	var/next_projectionEcho = 0
 
@@ -32,8 +33,8 @@
 		return
 
 	// Setup the first time the echoes will begin playing.
-	next_broadcastEcho = REALTIMEOFDAY + rand(180, 300) SECONDS
-	next_projectionEcho = REALTIMEOFDAY + rand(240, 480) SECONDS
+	next_broadcastEcho = world.time + rand(180, 300) SECONDS
+	next_projectionEcho = world.time + rand(240, 480) SECONDS
 
 	// Finally start the clock.
 	START_PROCESSING(SSprocessing, src)
@@ -47,14 +48,14 @@
 	if(owner.stat != CONSCIOUS)
 		return
 
-	var/curtime = REALTIMEOFDAY
-	if(curtime >= next_broadcastEcho)
-		var/topic = "[pick(100;"gossip", 30;"happy", 15;"tense")]"
+	if(world.time >= next_broadcastEcho && !topic) // topic has to null itself, or an extra broadcast generates for w/e reason
+		topic = "[pick(100;"gossip", 30;"happy", 15;"tense")]"
 		GetBroadcastEcho(topic)
-		next_broadcastEcho = curtime + rand(180, 300) SECONDS
-	if(curtime >= next_projectionEcho)
+		topic = null
+		next_broadcastEcho = world.time + rand(180, 300) SECONDS
+	if(world.time >= next_projectionEcho)
 		GetProjectionEcho()
-		next_projectionEcho = curtime + rand(240, 480) SECONDS
+		next_projectionEcho = world.time + rand(240, 480) SECONDS
 
 /datum/component/HiveEchoes/proc/GetBroadcastEcho(topic)
 	if (!owner.internal_organs_by_name[BP_NEURAL_SOCKET] || within_jamming_range(owner))
