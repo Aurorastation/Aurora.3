@@ -213,9 +213,9 @@ Turf and target are seperate in case you want to teleport some distance from a t
 		if(D.dir == SOUTHWEST)	return 1
 		if(D.dir == dir)		return 1
 
-	for(var/obj/machinery/door/D in loc)
+	for(var/obj/structure/machinery/door/D in loc)
 		if(!D.density)			continue
-		if(istype(D, /obj/machinery/door/window))
+		if(istype(D, /obj/structure/machinery/door/window))
 			if((dir & SOUTH) && (D.dir & (EAST|WEST)))		return 1
 			if((dir & EAST ) && (D.dir & (NORTH|SOUTH)))	return 1
 		else return 1	// it's a real, air blocking door
@@ -960,7 +960,7 @@ GLOBAL_LIST_INIT(common_tools, list(
 /proc/can_operate(mob/living/carbon/M) //If it's 2, commence surgery, if it's 1, fail surgery, if it's 0, attack
 	var/surgery_attempt = SURGERY_IGNORE
 	var/located = FALSE
-	if(locate(/obj/machinery/optable, M.loc))
+	if(locate(/obj/structure/machinery/optable, M.loc))
 		located = TRUE
 		surgery_attempt = SURGERY_SUCCESS
 	else if(locate(/obj/structure/bed/roller, M.loc))
@@ -981,26 +981,26 @@ GLOBAL_LIST_INIT(common_tools, list(
 
 /// Checks if that loc and dir has a item on the wall
 GLOBAL_LIST_INIT(wall_items, typecacheof(list(
-	/obj/machinery/power/apc,
-	/obj/machinery/alarm,
+	/obj/structure/machinery/power/apc,
+	/obj/structure/machinery/alarm,
 	/obj/item/radio/intercom,
 	/obj/structure/extinguisher_cabinet,
 	/obj/structure/reagent_dispensers/peppertank,
-	/obj/machinery/status_display,
-	/obj/machinery/requests_console,
-	/obj/machinery/light_switch,
-	/obj/machinery/newscaster,
-	/obj/machinery/firealarm,
+	/obj/structure/machinery/status_display,
+	/obj/structure/machinery/requests_console,
+	/obj/structure/machinery/light_switch,
+	/obj/structure/machinery/newscaster,
+	/obj/structure/machinery/firealarm,
 	/obj/structure/noticeboard,
-	/obj/machinery/computer/security/telescreen,
-	/obj/machinery/embedded_controller/radio/airlock,
+	/obj/structure/machinery/computer/security/telescreen,
+	/obj/structure/machinery/embedded_controller/radio/airlock,
 	/obj/item/storage/secure/safe,
-	/obj/machinery/door_timer,
-	/obj/machinery/flasher,
-	/obj/machinery/keycard_auth,
+	/obj/structure/machinery/door_timer,
+	/obj/structure/machinery/flasher,
+	/obj/structure/machinery/keycard_auth,
 	/obj/structure/mirror,
 	/obj/structure/fireaxecabinet,
-	/obj/machinery/computer/security/telescreen/entertainment,
+	/obj/structure/machinery/computer/security/telescreen/entertainment,
 	/obj/structure/sign
 )))
 

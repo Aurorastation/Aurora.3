@@ -220,3 +220,37 @@
   - qol: Changed weight class on integrated circuit printer from BULKY to NORMAL.
   - qol: Changed integrated circuit advanced med scanner from NUM to Severity based
       detection to further align with the current health scanners.
+2026-05-22:
+  Hellfirejag:
+  - bugfix: Fixed a very expensive (lags the server during ship combat) runtime error
+      related to ship sensors.
+  - rscadd: Added a UI indicator for Morale modifiers.
+2026-05-23:
+  Batrachophrenoboocosmomachia:
+  - balance: Decreases size of Dosimeter from Normal to Small.
+  - balance: Decreases size of Bomb Defusal Wirecutters and Music Cartridge from Small
+      to Tiny.
+  - balance: Increases size of Airlock Electronics from Tiny to Small (matches other
+      circuitboards).
+2026-05-24:
+  Dessysalta:
+  - rscadd: Adds Zavod Asset Crates to the uplink, and the suit itself to the hardsuit
+      token for Operatives.
+  ElorgRHG:
+  - rscadd: Added colorable cargo pants to the loadout.
+  Fenodyree:
+  - bugfix: Fixes all hostile simple mobs shooting the base projectile, instead of
+      their specified projectile.
+  Hellfirejag:
+  - code_imp: Added an ENFORCE_CALCULUS(seconds_per_tick) macro to help spot bugs
+      in procs that use calculus methods.
+  Kano:
+  - rscadd: Ported 6 hairstyles from Shiptest.
+  TheGreyWolf:
+  - rscadd: Added a search function to the quikpay, commissary register and other
+      devices using that system.
+  Wowzewow (Wezzy):
+  - bugfix: Fixes ATK and ABK stack overlays
+  hazelmouse:
+  - rscadd: Added a second shaker to the Horizon's bar.
+  - bugfix: BarDrobes now contain every service corporation's uniform.

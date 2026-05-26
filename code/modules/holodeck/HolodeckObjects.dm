@@ -200,10 +200,10 @@
 /obj/structure/window/reinforced/holowindow/disappearing/Destroy()
 	return ..()
 
-/obj/machinery/door/window/holowindoor/Destroy()
+/obj/structure/machinery/door/window/holowindoor/Destroy()
 	return ..()
 
-/obj/machinery/door/window/holowindoor/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/door/window/holowindoor/attackby(obj/item/attacking_item, mob/user)
 
 	if (src.operating == 1)
 		return
@@ -231,7 +231,7 @@
 
 	return
 
-/obj/machinery/door/window/holowindoor/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon, display_message = TRUE)
+/obj/structure/machinery/door/window/holowindoor/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon, display_message = TRUE)
 	density = FALSE
 	playsound(src, SFX_BREAK_GLASS, 70, 1)
 	if(display_message)
@@ -403,7 +403,7 @@
 		return ..()
 
 
-/obj/machinery/readybutton
+/obj/structure/machinery/readybutton
 	name = "Ready Declaration Device"
 	desc = "This device is used to declare ready. If all devices in an area are ready, the event will begin!"
 	icon = 'icons/obj/monitors.dmi'
@@ -415,14 +415,14 @@
 	anchored = 1.0
 	use_power = POWER_USE_OFF // reason is because the holodeck already takes power so this can be powered as a result.
 
-/obj/machinery/readybutton/attack_ai(mob/user as mob)
+/obj/structure/machinery/readybutton/attack_ai(mob/user as mob)
 	to_chat(user, "The AI is not to interact with these devices!")
 	return
 
-/obj/machinery/readybutton/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/readybutton/attackby(obj/item/attacking_item, mob/user)
 	to_chat(user, "The device is a solid button, there's nothing you can do with it!")
 
-/obj/machinery/readybutton/attack_hand(mob/user as mob)
+/obj/structure/machinery/readybutton/attack_hand(mob/user as mob)
 
 	if(user.stat || stat & (NOPOWER|BROKEN))
 		to_chat(user, "This device is not powered.")
@@ -445,7 +445,7 @@
 
 	var/numbuttons = 0
 	var/numready = 0
-	for(var/obj/machinery/readybutton/button in currentarea)
+	for(var/obj/structure/machinery/readybutton/button in currentarea)
 		numbuttons++
 		if (button.ready)
 			numready++
@@ -453,13 +453,13 @@
 	if(numbuttons == numready)
 		begin_event()
 
-/obj/machinery/readybutton/update_icon()
+/obj/structure/machinery/readybutton/update_icon()
 	if(ready)
 		icon_state = "auth_on"
 	else
 		icon_state = "auth_off"
 
-/obj/machinery/readybutton/proc/begin_event()
+/obj/structure/machinery/readybutton/proc/begin_event()
 
 	eventstarted = 1
 

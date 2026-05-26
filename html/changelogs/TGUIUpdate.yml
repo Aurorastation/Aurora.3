@@ -1,0 +1,7 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed that certain health analyzer stuff never showed limb damage and other advanced injuries."
+  - qol: "Improved the readability of the health analyzer UI."

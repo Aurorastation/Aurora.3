@@ -1,4 +1,4 @@
-/obj/machinery/r_n_d/server
+/obj/structure/machinery/r_n_d/server
 	name = "\improper R&D server"
 	desc = "A server which houses a back-up of all station research. It can be used to restore lost data, or to act as another point of retrieval."
 	icon_state = "RD-server"
@@ -25,17 +25,17 @@
 
 	parts_power_mgmt = FALSE
 
-/obj/machinery/r_n_d/server/upgrade_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/r_n_d/server/upgrade_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Upgraded <b>scanning modules</b> will reduce active power usage."
 
-/obj/machinery/r_n_d/server/Destroy()
-	for(var/obj/machinery/r_n_d/tech_processor/TP as anything in linked_processors)
+/obj/structure/machinery/r_n_d/server/Destroy()
+	for(var/obj/structure/machinery/r_n_d/tech_processor/TP as anything in linked_processors)
 		TP.set_server(null)
 	griefProtection()
 	return ..()
 
-/obj/machinery/r_n_d/server/RefreshParts()
+/obj/structure/machinery/r_n_d/server/RefreshParts()
 	..()
 	var/tot_rating = 0
 
@@ -43,11 +43,11 @@
 		tot_rating += SP.rating
 	change_power_consumption(idle_power_usage / max(1, tot_rating), POWER_USE_IDLE)
 
-/obj/machinery/r_n_d/server/Initialize()
+/obj/structure/machinery/r_n_d/server/Initialize()
 	. = ..()
 	setup()
 
-/obj/machinery/r_n_d/server/proc/setup()
+/obj/structure/machinery/r_n_d/server/proc/setup()
 	if(!files)
 		files = new /datum/research(src)
 	var/list/temp_list
@@ -62,7 +62,7 @@
 		for(var/N in temp_list)
 			id_with_download += text2num(N)
 
-/obj/machinery/r_n_d/server/process()
+/obj/structure/machinery/r_n_d/server/process()
 	if(stat & (NOPOWER|BROKEN))
 		return
 
@@ -90,8 +90,8 @@
 		delay = initial(delay)
 	upgrade_techs()
 
-/obj/machinery/r_n_d/server/proc/upgrade_techs()
-	for(var/obj/machinery/r_n_d/tech_processor/TP as anything in linked_processors)
+/obj/structure/machinery/r_n_d/server/proc/upgrade_techs()
+	for(var/obj/structure/machinery/r_n_d/tech_processor/TP as anything in linked_processors)
 		if(TP.stat & (NOPOWER|BROKEN))
 			continue
 		TP.processing_stage++
@@ -102,24 +102,24 @@
 					files.UpdateTech(T.id, round(TP.tech_rate))
 			TP.processing_stage = 0
 
-/obj/machinery/r_n_d/server/emp_act(severity)
+/obj/structure/machinery/r_n_d/server/emp_act(severity)
 	. = ..()
 
 	griefProtection()
 
-/obj/machinery/r_n_d/server/ex_act(severity)
+/obj/structure/machinery/r_n_d/server/ex_act(severity)
 	griefProtection()
 	..()
 
 //Backup files to centcomm to help admins recover data after greifer attacks
-/obj/machinery/r_n_d/server/proc/griefProtection()
-	for(var/obj/machinery/r_n_d/server/centcom/C in SSmachinery.machinery)
+/obj/structure/machinery/r_n_d/server/proc/griefProtection()
+	for(var/obj/structure/machinery/r_n_d/server/centcom/C in SSmachinery.machinery)
 		for(var/id in files.known_tech)
 			var/datum/tech/T = files.known_tech[id]
 			C.files.AddTech2Known(T)
 		C.files.RefreshResearch()
 
-/obj/machinery/r_n_d/server/proc/produce_heat()
+/obj/structure/machinery/r_n_d/server/proc/produce_heat()
 	if(!produces_heat)
 		return
 
@@ -142,10 +142,10 @@
 
 			env.merge(removed)
 
-/obj/machinery/r_n_d/server/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/r_n_d/server/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.tool_behaviour == TOOL_MULTITOOL)
 		var/obj/item/multitool/MT = attacking_item
-		var/obj/machinery/r_n_d/tech_processor/TP = MT.get_buffer(/obj/machinery/r_n_d/tech_processor)
+		var/obj/structure/machinery/r_n_d/tech_processor/TP = MT.get_buffer(/obj/structure/machinery/r_n_d/tech_processor)
 		if(TP)
 			TP.set_server(src)
 			MT.unregister_buffer(TP)
@@ -158,15 +158,15 @@
 	if(default_part_replacement(user, attacking_item))
 		return
 
-/obj/machinery/r_n_d/server/centcom
+/obj/structure/machinery/r_n_d/server/centcom
 	name = "central R&D database"
 	server_id = -1
 
-/obj/machinery/r_n_d/server/centcom/setup()
+/obj/structure/machinery/r_n_d/server/centcom/setup()
 	..()
 	var/list/no_id_servers = list()
 	var/list/server_ids = list()
-	for(var/obj/machinery/r_n_d/server/S in SSmachinery.machinery)
+	for(var/obj/structure/machinery/r_n_d/server/S in SSmachinery.machinery)
 		switch(S.server_id)
 			if(-1)
 				continue
@@ -175,7 +175,7 @@
 			else
 				server_ids += S.server_id
 
-	for(var/obj/machinery/r_n_d/server/S in no_id_servers)
+	for(var/obj/structure/machinery/r_n_d/server/S in no_id_servers)
 		var/num = 1
 		while(!S.server_id)
 			if(num in server_ids)
@@ -185,12 +185,12 @@
 				server_ids += num
 		no_id_servers -= S
 
-/obj/machinery/r_n_d/server/centcom/process()
+/obj/structure/machinery/r_n_d/server/centcom/process()
 	return PROCESS_KILL //don't need process()
 
-/obj/machinery/r_n_d/server/advanced //an advanced server that starts with higher tech levels
+/obj/structure/machinery/r_n_d/server/advanced //an advanced server that starts with higher tech levels
 
-/obj/machinery/r_n_d/server/advanced/setup()
+/obj/structure/machinery/r_n_d/server/advanced/setup()
 	if(!files)
 		files = new /datum/research/hightech(src)
 	var/list/temp_list
@@ -205,7 +205,7 @@
 		for(var/N in temp_list)
 			id_with_download += text2num(N)
 
-/obj/machinery/computer/rdservercontrol
+/obj/structure/machinery/computer/rdservercontrol
 	name = "R&D server controller"
 	desc = "A console use to operate a RnD server, such as locking it, wiping it, or downloading its stored research."
 
@@ -216,12 +216,12 @@
 
 	circuit = /obj/item/circuitboard/rdservercontrol
 	var/screen = 0
-	var/obj/machinery/r_n_d/server/temp_server
+	var/obj/structure/machinery/r_n_d/server/temp_server
 	var/list/servers = list()
 	var/list/consoles = list()
 	var/badmin = 0
 
-/obj/machinery/computer/rdservercontrol/Topic(href, href_list)
+/obj/structure/machinery/computer/rdservercontrol/Topic(href, href_list)
 	if(..())
 		return 1
 
@@ -239,7 +239,7 @@
 		consoles = list()
 		servers = list()
 		var/turf/T = get_turf(src)
-		for(var/obj/machinery/r_n_d/server/S in SSmachinery.machinery)
+		for(var/obj/structure/machinery/r_n_d/server/S in SSmachinery.machinery)
 			var/turf/ST = get_turf(S)
 			if(ST && !AreConnectedZLevels(ST.z, T.z))
 				continue
@@ -248,7 +248,7 @@
 				break
 		if(href_list["access"])
 			screen = 1
-			for(var/obj/machinery/computer/rdconsole/C in SSmachinery.machinery)
+			for(var/obj/structure/machinery/computer/rdconsole/C in SSmachinery.machinery)
 				var/turf/CT = get_turf(C)
 				if(CT && !AreConnectedZLevels(CT.z, T.z))
 					continue
@@ -258,7 +258,7 @@
 			screen = 2
 		else if(href_list[TRANSFER_CREW])
 			screen = 3
-			for(var/obj/machinery/r_n_d/server/S in SSmachinery.machinery)
+			for(var/obj/structure/machinery/r_n_d/server/S in SSmachinery.machinery)
 				var/turf/ST = get_turf(S)
 				if(S == src || (ST && !AreConnectedZLevels(ST.z, T.z)))
 					continue
@@ -296,7 +296,7 @@
 	updateUsrDialog()
 	return
 
-/obj/machinery/computer/rdservercontrol/attack_hand(mob/user as mob)
+/obj/structure/machinery/computer/rdservercontrol/attack_hand(mob/user as mob)
 	if(stat & (BROKEN|NOPOWER))
 		return
 	user.set_machine(src)
@@ -306,9 +306,9 @@
 		if(0) //Main Menu
 			dat += "Connected Servers:<BR><BR>"
 			var/turf/T = get_turf(src)
-			for(var/obj/machinery/r_n_d/server/S in SSmachinery.machinery)
+			for(var/obj/structure/machinery/r_n_d/server/S in SSmachinery.machinery)
 				var/turf/ST = get_turf(S)
-				if((istype(S, /obj/machinery/r_n_d/server/centcom) && !badmin) || (ST && !AreConnectedZLevels(ST.z, T.z)))
+				if((istype(S, /obj/structure/machinery/r_n_d/server/centcom) && !badmin) || (ST && !AreConnectedZLevels(ST.z, T.z)))
 					continue
 				dat += "[S.name] || "
 				dat += "<A href='byond://?src=[REF(src)];access=[S.server_id]'> Access Rights</A> | "
@@ -319,7 +319,7 @@
 		if(1) //Access rights menu
 			dat += "[temp_server.name] Access Rights<BR><BR>"
 			dat += "Consoles with Upload Access<BR>"
-			for(var/obj/machinery/computer/rdconsole/C in consoles)
+			for(var/obj/structure/machinery/computer/rdconsole/C in consoles)
 				var/turf/console_turf = get_turf(C)
 				dat += "* <A href='byond://?src=[REF(src)];upload_toggle=[C.id]'>[console_turf.loc]" //FYI, these are all numeric ids, eventually.
 				if(C.id in temp_server.id_with_upload)
@@ -327,7 +327,7 @@
 				else
 					dat += " (Add)</A><BR>"
 			dat += "Consoles with Download Access<BR>"
-			for(var/obj/machinery/computer/rdconsole/C in consoles)
+			for(var/obj/structure/machinery/computer/rdconsole/C in consoles)
 				var/turf/console_turf = get_turf(C)
 				dat += "* <A href='byond://?src=[REF(src)];download_toggle=[C.id]'>[console_turf.loc]"
 				if(C.id in temp_server.id_with_download)
@@ -353,14 +353,14 @@
 		if(3) //Server Data Transfer
 			dat += "[temp_server.name] Server to Server Transfer<BR><BR>"
 			dat += "Send Data to what server?<BR>"
-			for(var/obj/machinery/r_n_d/server/S in servers)
+			for(var/obj/structure/machinery/r_n_d/server/S in servers)
 				dat += "[S.name] <A href='byond://?src=[REF(src)];send_to=[S.server_id]'> (Transfer)</A><BR>"
 			dat += "<HR><A href='byond://?src=[REF(src)];main=1'>Main Menu</A>"
 	user << browse(HTML_SKELETON_TITLE("R&D Server Control", dat), "window=server_control;size=575x400")
 	onclose(user, "server_control")
 	return
 
-/obj/machinery/computer/rdservercontrol/emag_act(var/remaining_charges, var/mob/user)
+/obj/structure/machinery/computer/rdservercontrol/emag_act(var/remaining_charges, var/mob/user)
 	if(!emagged)
 		playsound(src.loc, 'sound/effects/sparks4.ogg', 75, 1)
 		emagged = 1
@@ -368,13 +368,13 @@
 		src.updateUsrDialog()
 		return 1
 
-/obj/machinery/r_n_d/server/advanced/robotics
+/obj/structure/machinery/r_n_d/server/advanced/robotics
 	name = "robotics R&D server"
 	id_with_upload_string = "1;2"
 	id_with_download_string = "1;2"
 	server_id = 2
 
-/obj/machinery/r_n_d/server/advanced/core
+/obj/structure/machinery/r_n_d/server/advanced/core
 	name = "core R&D server"
 	id_with_upload_string = "1"
 	id_with_download_string = "1"

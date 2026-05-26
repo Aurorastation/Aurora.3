@@ -119,7 +119,7 @@
 
 	if(known)
 		plane = ABOVE_LIGHTING_PLANE
-		for(var/obj/machinery/computer/ship/helm/H in SSmachinery.machinery)
+		for(var/obj/structure/machinery/computer/ship/helm/H in SSmachinery.machinery)
 			H.get_known_sectors()
 	update_icon()
 
@@ -157,8 +157,8 @@
 	if(ishuman(usr))
 		var/mob/living/carbon/human/H = usr
 		var/client/C = H.client
-		if(H.machine && istype(H.machine, /obj/machinery/computer/ship/targeting) && istype(C.eye, /obj/effect/overmap))
-			var/obj/machinery/computer/ship/targeting/GS = H.machine
+		if(H.machine && istype(H.machine, /obj/structure/machinery/computer/ship/targeting) && istype(C.eye, /obj/effect/overmap))
+			var/obj/structure/machinery/computer/ship/targeting/GS = H.machine
 			if(GS.targeting)
 				return
 			if(!istype(GS.linked.loc, /turf/unsimulated/map))
@@ -198,7 +198,7 @@
 	. = ..()
 	closeToolTip(usr)
 
-/obj/effect/overmap/visitable/proc/target(var/obj/effect/overmap/O, var/obj/machinery/computer/ship/C)
+/obj/effect/overmap/visitable/proc/target(var/obj/effect/overmap/O, var/obj/structure/machinery/computer/ship/C)
 	C.targeting = TRUE
 	usr.visible_message(SPAN_WARNING("[usr] starts calibrating the targeting systems, swiping around the holographic screen..."), SPAN_WARNING("You start calibrating the targeting systems, swiping around the screen as you focus..."))
 	if(do_after(usr, 5 SECONDS))
@@ -224,14 +224,14 @@
 		C.visible_message(SPAN_DANGER("[usr] engages the targeting systems, acquiring a lock on the target!"))
 		if(istype(O, /obj/effect/overmap/visitable/ship))
 			var/obj/effect/overmap/visitable/ship/S = O
-			for(var/obj/machinery/computer/ship/SH in S.consoles)
-				if(istype(SH, /obj/machinery/computer/ship/sensors))
+			for(var/obj/structure/machinery/computer/ship/SH in S.consoles)
+				if(istype(SH, /obj/structure/machinery/computer/ship/sensors))
 					playsound(SH, 'sound/effects/ship_weapons/locked_on.ogg', 70)
 					SH.visible_message(SPAN_DANGER("<font size=4>\The [SH] beeps alarmingly, signaling an enemy lock-on!</font>"))
 	else
 		C.targeting = FALSE
 
-/obj/effect/overmap/visitable/proc/detarget(var/obj/effect/overmap/O,  var/obj/machinery/computer/C)
+/obj/effect/overmap/visitable/proc/detarget(var/obj/effect/overmap/O,  var/obj/structure/machinery/computer/C)
 	if(C)
 		playsound(C, 'sound/items/rfd_interrupt.ogg', 70)
 	if(O)

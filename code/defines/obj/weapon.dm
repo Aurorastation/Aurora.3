@@ -483,7 +483,7 @@
 
 /obj/item/camera_bug/attack_self(mob/user as mob)
 	var/list/cameras = new/list()
-	for (var/obj/machinery/camera/C in GLOB.cameranet.cameras)
+	for (var/obj/structure/machinery/camera/C in GLOB.cameranet.cameras)
 		if (C.bugged && C.status)
 			cameras.Add(C)
 	if (length(cameras) == 0)
@@ -492,13 +492,13 @@
 
 	var/list/friendly_cameras = new/list()
 
-	for (var/obj/machinery/camera/C in cameras)
+	for (var/obj/structure/machinery/camera/C in cameras)
 		friendly_cameras.Add(C.c_tag)
 
 	var/target = tgui_input_list(user, "Select the camera to observe", "Camera Bug", friendly_cameras)
 	if (!target)
 		return
-	for (var/obj/machinery/camera/C in cameras)
+	for (var/obj/structure/machinery/camera/C in cameras)
 		if (C.c_tag == target)
 			target = C
 			break
@@ -512,7 +512,7 @@
 	icon = 'icons/obj/power.dmi'
 	icon_state = "wire1"
 
-	var/obj/machinery/machine
+	var/obj/structure/machinery/machine
 
 /obj/item/neuralbroke
 	name = "fried neural socket"

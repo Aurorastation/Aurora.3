@@ -1,0 +1,8 @@
+author: Fenodyree
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixes EMPs affecting human mobs twice. Light EMPs now need two hits to explode your PDA."
+  - bugfix: "Fixes energy guns not being disabled by EMPs and gives more feedback when it happens."
+

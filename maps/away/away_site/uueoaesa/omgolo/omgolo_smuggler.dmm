@@ -91,7 +91,7 @@
 /turf/simulated/floor,
 /area/omgolo_smuggler)
 "lT" = (
-/obj/machinery/atmospherics/unary/vent_pump{
+/obj/structure/machinery/atmospherics/unary/vent_pump{
 	dir = 1
 	},
 /turf/simulated/floor/airless,
@@ -123,7 +123,7 @@
 /area/omgolo_smuggler)
 "nK" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/empty/phoron,
+/obj/structure/machinery/portable_atmospherics/canister/empty/phoron,
 /turf/simulated/floor,
 /area/omgolo_smuggler)
 "nL" = (
@@ -178,10 +178,10 @@
 /turf/simulated/floor/tiled/airless,
 /area/space)
 "qs" = (
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	dir = 4
 	},
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -209,7 +209,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/omgolo_smuggler)
 "sb" = (
-/obj/machinery/porta_turret/ballistic{
+/obj/structure/machinery/porta_turret/ballistic{
 	cover_set = 1;
 	health = 120;
 	icon_state = "cover_1";
@@ -235,17 +235,17 @@
 /turf/simulated/wall/shuttle/raider,
 /area/space)
 "to" = (
-/obj/machinery/atmospherics/unary/engine{
+/obj/structure/machinery/atmospherics/unary/engine{
 	dir = 8
 	},
 /turf/simulated/floor/airless,
 /area/space)
 "tt" = (
-/obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
+/obj/structure/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
 /turf/simulated/floor/airless,
 /area/omgolo_smuggler)
 "uR" = (
-/obj/machinery/atmospherics/unary/engine{
+/obj/structure/machinery/atmospherics/unary/engine{
 	dir = 8
 	},
 /obj/structure/window/borosilicate/reinforced{
@@ -273,10 +273,10 @@
 /turf/simulated/floor,
 /area/omgolo_smuggler)
 "xT" = (
-/obj/machinery/door/airlock/engineering{
+/obj/structure/machinery/door/airlock/engineering{
 	name = "Power Room"
 	},
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -290,8 +290,8 @@
 /turf/simulated/floor,
 /area/omgolo_smuggler)
 "ye" = (
-/obj/machinery/door/airlock/mining,
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/airlock/mining,
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /turf/simulated/floor/airless,
@@ -333,7 +333,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/space)
 "Cl" = (
-/obj/machinery/door/airlock/external,
+/obj/structure/machinery/door/airlock/external,
 /turf/simulated/floor/airless,
 /area/space)
 "CQ" = (
@@ -349,7 +349,7 @@
 	icon_state = "0-2";
 	dir = 8
 	},
-/obj/machinery/power/apc/empty/east,
+/obj/structure/machinery/power/apc/empty/east,
 /turf/simulated/floor/reinforced/reactor,
 /area/omgolo_smuggler)
 "Er" = (
@@ -450,15 +450,15 @@
 	},
 /area/omgolo_smuggler)
 "TE" = (
-/obj/machinery/vending/boozeomat/unathi_pirate,
+/obj/structure/machinery/vending/boozeomat/unathi_pirate,
 /turf/simulated/floor/tiled/dark,
 /area/omgolo_smuggler)
 "TW" = (
-/obj/machinery/portable_atmospherics/canister/empty/hydrogen,
+/obj/structure/machinery/portable_atmospherics/canister/empty/hydrogen,
 /turf/simulated/floor/airless,
 /area/omgolo_smuggler)
 "TZ" = (
-/obj/machinery/power/portgen/basic/fusion,
+/obj/structure/machinery/power/portgen/basic/fusion,
 /obj/structure/cable/green{
 	d2 = 2;
 	icon_state = "0-2"
