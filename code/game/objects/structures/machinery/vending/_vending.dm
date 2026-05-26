@@ -359,7 +359,7 @@
 				return
 	return
 
-/obj/machinery/vending/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
+/obj/structure/machinery/vending/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
 	var/turf/current_turf = get_turf(src)
 	if(current_turf)
 		var/list/stocked_products = list()
@@ -377,7 +377,7 @@
 
 	. = ..()
 
-/obj/machinery/vending/emag_act(var/remaining_charges, var/mob/user)
+/obj/structure/machinery/vending/emag_act(var/remaining_charges, var/mob/user)
 	if (!emagged)
 		src.emagged = 1
 		to_chat(user, "You short out the product lock on \the [src]")

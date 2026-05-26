@@ -56,12 +56,12 @@
 	. = ..()
 
 /obj/structure/machinery/shield_gen/Destroy()
-	for(var/obj/machinery/shield_capacitor/cap in owned_capacitors) //Detach any owned capacitors
+	for(var/obj/structure/machinery/shield_capacitor/cap in owned_capacitors) //Detach any owned capacitors
 		detach_capacitor(cap)
 	owned_capacitors = list()
 	return ..()
 
-/obj/machinery/shield_gen/upgrade_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/shield_gen/upgrade_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Upgraded <b>manipulators</b> will increase the maximum field strengthen rate."
 	. += SPAN_NOTICE("\t- The current maximum field strengthen rate is <b>[energy_field.max_strengthen_rate]</b> renwicks per second.")
@@ -108,13 +108,13 @@
 				attach_capacitor(cap)
 		else
 			// Detach any owned capacitors when unwrenching
-			for(var/obj/machinery/shield_capacitor/cap in owned_capacitors)
+			for(var/obj/structure/machinery/shield_capacitor/cap in owned_capacitors)
 				detach_capacitor(cap)
 			owned_capacitors = list()
 	else
 		..()
 
-/obj/machinery/shield_gen/RefreshParts()
+/obj/structure/machinery/shield_gen/RefreshParts()
 	..()
 	var/max_strengthen_rate_increase = 0
 	var/energy_conversion_rate_increase = 0
@@ -151,7 +151,7 @@
 		to_chat(user, SPAN_WARNING("The device needs to be bolted to the ground first."))
 		return
 	else
-		for(var/obj/machinery/shield_capacitor/cap in owned_capacitors) //Make sure the capacitors weren't blown up
+		for(var/obj/structure/machinery/shield_capacitor/cap in owned_capacitors) //Make sure the capacitors weren't blown up
 			if(!(cap in range(1, src)) || get_dir(cap, src) != cap.dir || !cap.anchored)
 				if(cap && cap.owned_gen == src)
 					cap.owned_gen = null
@@ -161,7 +161,7 @@
 			attach_capacitor(cap)
 	return ui_interact(user)
 
-/obj/machinery/shield_gen/proc/attach_capacitor(obj/machinery/shield_capacitor/cap)
+/obj/structure/machinery/shield_gen/proc/attach_capacitor(obj/structure/machinery/shield_capacitor/cap)
 	if(!cap || cap.owned_gen || !cap.anchored)
 		return FALSE
 	if(!(cap in range(1, src)) || get_dir(cap, src) != cap.dir)
@@ -173,7 +173,7 @@
 	updateDialog()
 	return TRUE
 
-/obj/machinery/shield_gen/proc/detach_capacitor(obj/machinery/shield_capacitor/cap)
+/obj/structure/machinery/shield_gen/proc/detach_capacitor(obj/structure/machinery/shield_capacitor/cap)
 	if(!cap)
 		return FALSE
 	if(owned_capacitors && (cap in owned_capacitors))
@@ -204,7 +204,7 @@
 		return 0
 	var/list/active_capacitors = list()
 	var/available_charge = 0
-	for(var/obj/machinery/shield_capacitor/cap in owned_capacitors) //Loop through capacitors that can provide charge
+	for(var/obj/structure/machinery/shield_capacitor/cap in owned_capacitors) //Loop through capacitors that can provide charge
 		if(!cap || !cap.active || cap.stored_charge <= 0)
 			continue
 		active_capacitors += cap
@@ -215,13 +215,13 @@
 
 	var/assumed_charge = min(available_charge, required_energy)
 	if(assumed_charge >= available_charge)
-		for(var/obj/machinery/shield_capacitor/cap in active_capacitors)
+		for(var/obj/structure/machinery/shield_capacitor/cap in active_capacitors)
 			cap.stored_charge = 0
 		return assumed_charge
 
 	var/remaining = assumed_charge
 	for(var/i = 1, i <= active_capacitors.len, i++)
-		var/obj/machinery/shield_capacitor/cap = active_capacitors[i]
+		var/obj/structure/machinery/shield_capacitor/cap = active_capacitors[i]
 		var/took = (i == active_capacitors.len) ? remaining : round(assumed_charge * (cap.stored_charge / available_charge))
 		took = min(took, cap.stored_charge, remaining)
 		if(took <= 0)
@@ -245,7 +245,7 @@
 			return
 		else
 			var/has_active = FALSE
-			for(var/obj/machinery/shield_capacitor/cap in owned_capacitors)
+			for(var/obj/structure/machinery/shield_capacitor/cap in owned_capacitors)
 				if(cap && cap.active)
 					has_active = TRUE
 					break

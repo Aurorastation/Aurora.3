@@ -1,4 +1,4 @@
-/obj/machinery/shield_capacitor
+/obj/structure/machinery/shield_capacitor
 	name = "shield capacitor"
 	desc = "Machine that charges a shield generator."
 	icon = 'icons/obj/machinery/shielding.dmi'
@@ -21,7 +21,7 @@
 	var/locked = FALSE
 
 	var/charge_rate = 100 KILO WATTS		//100 kW
-	var/obj/machinery/shield_gen/owned_gen
+	var/obj/structure/machinery/shield_gen/owned_gen
 
 	component_types = list(
 		/obj/item/circuitboard/shield_cap,
@@ -34,26 +34,26 @@
 		/obj/item/stack/cable_coil = 5
 		)
 
-/obj/machinery/shield_capacitor/upgrade_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/shield_capacitor/upgrade_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Upgraded <b>capacitors</b> will increase capacity."
 	. += SPAN_NOTICE("	- The current capacity is <b>[max_charge / 1e6]</b> MJ")
 	. += "Upgraded <b>microlasers</b> will increase the charging rate."
 	. += SPAN_NOTICE("	- The current maximum charge rate is <b>[max_charge_rate / 1e6]</b> MW")
 
-/obj/machinery/shield_capacitor/Initialize()
+/obj/structure/machinery/shield_capacitor/Initialize()
 	..()
 	return INITIALIZE_HINT_LATELOAD
 
-/obj/machinery/shield_capacitor/LateInitialize()
+/obj/structure/machinery/shield_capacitor/LateInitialize()
 	. = ..()
-	for(var/obj/machinery/shield_gen/possible_gen in range(1, src))
+	for(var/obj/structure/machinery/shield_gen/possible_gen in range(1, src))
 		if(get_dir(src, possible_gen) == dir)
 			if(possible_gen.attach_capacitor(src))
 				owned_gen = possible_gen
 				break
 
-/obj/machinery/shield_capacitor/emag_act(var/remaining_charges, var/mob/user)
+/obj/structure/machinery/shield_capacitor/emag_act(var/remaining_charges, var/mob/user)
 	if(prob(75))
 		locked = !locked
 		to_chat(user, "Controls are now [locked ? "locked." : "unlocked."]")
@@ -61,7 +61,7 @@
 		updateDialog()
 	spark(src, 5, GLOB.alldirs)
 
-/obj/machinery/shield_capacitor/RefreshParts()
+/obj/structure/machinery/shield_capacitor/RefreshParts()
 	..()
 	max_charge = 0
 	max_charge_rate = 6 MEGA WATTS	//9 MW after base components. 15 MW with full upgrades.
@@ -72,7 +72,7 @@
 		else if(ismicrolaser(P))
 			max_charge_rate += P.rating * 3 MEGA WATTS
 
-/obj/machinery/shield_capacitor/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/shield_capacitor/attackby(obj/item/attacking_item, mob/user)
 
 	if(default_part_replacement(user, attacking_item))
 		return TRUE
@@ -105,18 +105,18 @@
 	else
 		..()
 
-/obj/machinery/shield_capacitor/attack_hand(mob/user)
+/obj/structure/machinery/shield_capacitor/attack_hand(mob/user)
 	if(stat & (BROKEN))
 		return
 	ui_interact(user)
 
-/obj/machinery/shield_capacitor/ui_interact(mob/user, datum/tgui/ui)
+/obj/structure/machinery/shield_capacitor/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "ShieldCapacitor", "Shield Capacitor", 400, 300)
 		ui.open()
 
-/obj/machinery/shield_capacitor/ui_data(mob/user)
+/obj/structure/machinery/shield_capacitor/ui_data(mob/user)
 	var/list/data = list()
 	data["anchored"] = anchored
 	data["locked"] = locked
@@ -128,7 +128,7 @@
 	data["max_charge_rate"] = max_charge_rate / 1000 //UI expects kW
 	return data
 
-/obj/machinery/shield_capacitor/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/obj/structure/machinery/shield_capacitor/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
@@ -144,7 +144,7 @@
 			charge_rate = between(0 KILO WATTS, round(params["charge_rate"]) * 1000, max_charge_rate)
 			. = TRUE
 
-/obj/machinery/shield_capacitor/process()
+/obj/structure/machinery/shield_capacitor/process()
 	if (!anchored)
 		active = FALSE
 
@@ -172,12 +172,12 @@
 		time_since_fail = 0 //losing charge faster than we can draw from PN
 	last_stored_charge = stored_charge
 
-/obj/machinery/shield_capacitor/power_change()
+/obj/structure/machinery/shield_capacitor/power_change()
 	if(stat & BROKEN)
 		icon_state = "broke"
 	else
 		..()
 
 /// Horizon-specific non-variant, for now.
-/obj/machinery/shield_capacitor/multiz
+/obj/structure/machinery/shield_capacitor/multiz
 
