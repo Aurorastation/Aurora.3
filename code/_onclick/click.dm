@@ -31,8 +31,8 @@
 		click_handler.OnDblClick(src, params)
 
 		//Why god why
-		if(istype(usr.machine, /obj/machinery/computer/security))
-			var/obj/machinery/computer/security/console = usr.machine
+		if(istype(usr.machine, /obj/structure/machinery/computer/security))
+			var/obj/structure/machinery/computer/security/console = usr.machine
 			console.jump_on_click(usr,src)
 
 /atom/MouseWheel(delta_x,delta_y,location,control,params)

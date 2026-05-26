@@ -12,7 +12,7 @@
 	can_hear_hivenet = FALSE //Unlike most silicons, this is a consumer product with minimal lawbinding, and isn't trusted with Hivenet logs
 
 	var/network = "SS13"
-	var/obj/machinery/camera/current = null
+	var/obj/structure/machinery/camera/current = null
 	var/ram = 100	// Used as currency to purchase different abilities
 	var/list/software = list()
 	var/userDNA		// The DNA string of our assigned user
@@ -92,7 +92,7 @@
 	var/secHUD = 0			// Toggles whether the Security HUD is active or not
 	var/medHUD = 0			// Toggles whether the Medical  HUD is active or not
 
-	var/obj/machinery/door/airlock/hackdoor		// The airlock being hacked
+	var/obj/structure/machinery/door/airlock/hackdoor		// The airlock being hacked
 	var/hackprogress = 0				// Possible values: 0 - 1000, >= 1000 means the hack is complete and will be reset upon next check
 	var/hack_aborted = 0
 
@@ -265,7 +265,7 @@
 		if(3)
 			to_chat(src, "<font color=green>You feel an electric surge run through your circuitry and become acutely aware at how lucky you are that you can still feel at all.</font>")
 
-/mob/living/silicon/pai/proc/switchCamera(var/obj/machinery/camera/C)
+/mob/living/silicon/pai/proc/switchCamera(var/obj/structure/machinery/camera/C)
 	if (!C)
 		src.unset_machine()
 		src.reset_view(null)

@@ -295,7 +295,7 @@
 
 	openwindow(usr)
 
-/obj/machinery/disposal/deliveryChute
+/obj/structure/machinery/disposal/deliveryChute
 	name = "delivery chute"
 	desc = "A chute for big and small packages alike!"
 	density = 1
@@ -303,19 +303,19 @@
 
 	var/c_mode = 0
 
-/obj/machinery/disposal/deliveryChute/Initialize()
+/obj/structure/machinery/disposal/deliveryChute/Initialize()
 	. = ..()
 	trunk = locate() in src.loc
 	if(trunk)
 		trunk.linked = src	// link the pipe trunk to self
 
-/obj/machinery/disposal/deliveryChute/interact()
+/obj/structure/machinery/disposal/deliveryChute/interact()
 	return
 
-/obj/machinery/disposal/deliveryChute/update()
+/obj/structure/machinery/disposal/deliveryChute/update()
 	return
 
-/obj/machinery/disposal/deliveryChute/CollidedWith(atom/bumped_atom) //Go straight into the chute
+/obj/structure/machinery/disposal/deliveryChute/CollidedWith(atom/bumped_atom) //Go straight into the chute
 	. = ..()
 
 	if(istype(bumped_atom, /obj/projectile) || istype(bumped_atom, /obj/effect))
@@ -339,7 +339,7 @@
 		M.forceMove(src)
 	INVOKE_ASYNC(src, PROC_REF(flush))
 
-/obj/machinery/disposal/deliveryChute/flush()
+/obj/structure/machinery/disposal/deliveryChute/flush()
 	flushing = TRUE
 	flick("intake-closing", src)
 	var/obj/disposalholder/H = new()	// virtual holder object which actually
@@ -361,7 +361,7 @@
 	update()
 	return
 
-/obj/machinery/disposal/deliveryChute/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/disposal/deliveryChute/attackby(obj/item/attacking_item, mob/user)
 	if(!attacking_item || !user)
 		return
 
@@ -398,7 +398,7 @@
 			to_chat(user, "You need more welding fuel to complete this task.")
 			return
 
-/obj/machinery/disposal/deliveryChute/Destroy()
+/obj/structure/machinery/disposal/deliveryChute/Destroy()
 	if(trunk)
 		trunk.linked = null
 	return ..()

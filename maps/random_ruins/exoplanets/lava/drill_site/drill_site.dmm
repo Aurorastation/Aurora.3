@@ -14,12 +14,12 @@
 /turf/template_noop,
 /area/template_noop)
 "e" = (
-/obj/machinery/floodlight,
+/obj/structure/machinery/floodlight,
 /obj/effect/landmark/clear,
 /turf/template_noop,
 /area/template_noop)
 "f" = (
-/obj/machinery/mining/brace,
+/obj/structure/machinery/mining/brace,
 /obj/effect/landmark/clear,
 /turf/template_noop,
 /area/template_noop)
@@ -40,7 +40,7 @@
 /turf/template_noop,
 /area/template_noop)
 "k" = (
-/obj/machinery/mining/drill,
+/obj/structure/machinery/mining/drill,
 /obj/effect/landmark/clear,
 /turf/template_noop,
 /area/template_noop)

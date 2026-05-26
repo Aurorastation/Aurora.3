@@ -27,7 +27,7 @@
 #define SMES_INPUT_ATTEMPT	10
 #define SMES_INPUT_MAX		11
 
-/obj/machinery/power/smes
+/obj/structure/machinery/power/smes
 	name = "power storage unit"
 	desc = "A high-capacity superconducting magnetic energy storage (SMES) unit."
 	icon_state = "smes"
@@ -90,7 +90,7 @@
 	var/name_tag = null
 	///Suggestions about how to avoid clickspam building several terminals accepted!
 	var/building_terminal = 0
-	var/obj/machinery/power/terminal/terminal = null
+	var/obj/structure/machinery/power/terminal/terminal = null
 	/// If this is set to 0 it will send out warning on New()
 	var/should_be_mapped = 0
 	var/datum/effect_system/sparks/big_spark
@@ -100,12 +100,12 @@
 	var/charge_mode = 0
 	var/last_time = 1
 
-/obj/machinery/power/smes/assembly_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/power/smes/assembly_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	if(health < initial(health))
 		. += "It can be repaired with a <b>welding tool</b>."
 
-/obj/machinery/power/smes/feedback_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/power/smes/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	if(is_badly_damaged())
 		. += SPAN_DANGER("\The [src] is damaged to the point of non-function!")
@@ -117,7 +117,7 @@
 				coils += C
 			. += "The [max_coils] coil slots contain: [counting_english_list(coils)]."
 
-/obj/machinery/power/smes/drain_power(var/drain_check, var/surge, var/amount = 0)
+/obj/structure/machinery/power/smes/drain_power(var/drain_check, var/surge, var/amount = 0)
 
 	if(drain_check)
 		return 1
@@ -126,19 +126,19 @@
 	charge -= smes_amt
 	return smes_amt / SMESRATE
 
-/obj/machinery/power/smes/proc/drain_power_simple(var/amount = 0)
+/obj/structure/machinery/power/smes/proc/drain_power_simple(var/amount = 0)
 	var/power_drawn = between(0, amount, charge)
 	charge -= power_drawn
 	return power_drawn
 
-/obj/machinery/power/smes/Destroy()
+/obj/structure/machinery/power/smes/Destroy()
 	QDEL_NULL(big_spark)
 	QDEL_NULL(small_spark)
 	SSmachinery.smes_units -= src
 	QDEL_NULL(terminal)
 	return ..()	// TODO: Properly clean up terminal.
 
-/obj/machinery/power/smes/Initialize()
+/obj/structure/machinery/power/smes/Initialize()
 	. = ..()
 	SSmachinery.smes_units += src
 	big_spark = bind_spark(src, 5, GLOB.alldirs)
@@ -149,7 +149,7 @@
 	dir_loop:
 		for(var/d in GLOB.cardinals)
 			var/turf/T = get_step(src, d)
-			for(var/obj/machinery/power/terminal/term in T)
+			for(var/obj/structure/machinery/power/terminal/term in T)
 				if(term && term.dir == turn(d, 180))
 					terminal = term
 					break dir_loop
@@ -164,26 +164,26 @@
 	if(!should_be_mapped)
 		warning("Non-buildable or Non-magical SMES at [src.x]X [src.y]Y [src.z]Z")
 
-/obj/machinery/power/smes/proc/can_function()
+/obj/structure/machinery/power/smes/proc/can_function()
 	if(is_badly_damaged())
 		return FALSE
 	if(stat & BROKEN)
 		return FALSE
 	return TRUE
 
-/obj/machinery/power/smes/proc/is_badly_damaged()
+/obj/structure/machinery/power/smes/proc/is_badly_damaged()
 	if(health < initial(health) / 5)
 		return TRUE
 	return FALSE
 
-/obj/machinery/power/smes/disconnect_terminal()
+/obj/structure/machinery/power/smes/disconnect_terminal()
 	if(terminal)
 		terminal.master = null
 		terminal = null
 		return 1
 	return 0
 
-/obj/machinery/power/smes/update_icon()
+/obj/structure/machinery/power/smes/update_icon()
 	ClearOverlays()
 	var/mutable_appearance/oc
 	var/mutable_appearance/oc_emis
@@ -223,10 +223,10 @@
 		op_emis
 	))
 
-/obj/machinery/power/smes/proc/chargedisplay()
+/obj/structure/machinery/power/smes/proc/chargedisplay()
 	return round(5.5*charge/(capacity ? capacity : 5e6))
 
-/obj/machinery/power/smes/proc/input_power(var/percentage)
+/obj/structure/machinery/power/smes/proc/input_power(var/percentage)
 	var/inputted_power = target_load * (percentage/100)
 	inputted_power = between(0, inputted_power, target_load)
 	if(terminal && terminal.powernet)
@@ -240,7 +240,7 @@
 			inputting = 1
 		// else inputting = 0, as set in process()
 
-/obj/machinery/power/smes/proc/update_time()
+/obj/structure/machinery/power/smes/proc/update_time()
 
 	var/delta_power = input_taken - output_used
 	delta_power *= SMESRATE
@@ -258,7 +258,7 @@
 		charge_mode = 2
 	last_time = world.time
 
-/obj/machinery/power/smes/process()
+/obj/structure/machinery/power/smes/process()
 	if(!can_function())
 		return
 	if(failure_timer)	// Disabled by gridcheck.
@@ -299,7 +299,7 @@
 
 // called after all power processes are finished
 // restores charge level to smes if there was excess this ptick
-/obj/machinery/power/smes/proc/restore(var/percent_load)
+/obj/structure/machinery/power/smes/proc/restore(var/percent_load)
 	if(!can_function())
 		return
 
@@ -325,7 +325,7 @@
 	return
 
 //Will return 1 on failure
-/obj/machinery/power/smes/proc/make_terminal(const/mob/user)
+/obj/structure/machinery/power/smes/proc/make_terminal(const/mob/user)
 	if (user.loc == loc)
 		to_chat(user, SPAN_WARNING("You must not be on the same tile as the [src]."))
 		return 1
@@ -347,23 +347,23 @@
 			return 1
 	to_chat(user, SPAN_NOTICE("You start adding cable to the [src]."))
 	if(do_after(user, 5 SECONDS, src, DO_REPAIR_CONSTRUCT))
-		terminal = new /obj/machinery/power/terminal(tempLoc)
+		terminal = new /obj/structure/machinery/power/terminal(tempLoc)
 		terminal.set_dir(tempDir)
 		terminal.master = src
 		return 0
 	return 1
 
-/obj/machinery/power/smes/attack_ai(mob/user)
+/obj/structure/machinery/power/smes/attack_ai(mob/user)
 	if(!ai_can_interact(user))
 		return
 	add_hiddenprint(user)
 	ui_interact(user)
 
-/obj/machinery/power/smes/attack_hand(mob/user)
+/obj/structure/machinery/power/smes/attack_hand(mob/user)
 	add_fingerprint(user)
 	ui_interact(user)
 
-/obj/machinery/power/smes/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/power/smes/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(!open_hatch)
 			if(is_badly_damaged())
@@ -429,7 +429,7 @@
 		return 0
 	return 1
 
-/obj/machinery/power/smes/ui_data(mob/user)
+/obj/structure/machinery/power/smes/ui_data(mob/user)
 	var/list/data = list()
 	data["name_tag"] = name_tag
 	data["charge_taken"] = round(input_taken)
@@ -451,7 +451,7 @@
 	data["fail_time"] = failure_timer * 2
 	return data
 
-/obj/machinery/power/smes/ui_interact(mob/user, var/datum/tgui/ui)
+/obj/structure/machinery/power/smes/ui_interact(mob/user, var/datum/tgui/ui)
 	if(!can_function())
 		if(!terminal)
 			to_chat(user, SPAN_WARNING("\The [src] is lacking a terminal!"))
@@ -465,10 +465,10 @@
 		ui = new(user, src, "SMES", name, 540, 420)
 		ui.open()
 
-/obj/machinery/power/smes/proc/Percentage()
+/obj/structure/machinery/power/smes/proc/Percentage()
 	return round(100.0*charge/capacity, 0.1)
 
-/obj/machinery/power/smes/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/obj/structure/machinery/power/smes/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
@@ -493,10 +493,10 @@
 			output_level = clamp(params["output"], 0, output_level_max)	// clamp to range
 			. = TRUE
 
-/obj/machinery/power/smes/proc/energy_fail(var/duration)
+/obj/structure/machinery/power/smes/proc/energy_fail(var/duration)
 	failure_timer = max(failure_timer, duration)
 
-/obj/machinery/power/smes/proc/ion_act()
+/obj/structure/machinery/power/smes/proc/ion_act()
 	if(is_station_level(src.z))
 		if(prob(1)) //explosion
 			for(var/mob/M in viewers(src))
@@ -523,17 +523,17 @@
 		else
 			energy_fail(rand(0, 30))
 
-/obj/machinery/power/smes/proc/inputting(var/do_input)
+/obj/structure/machinery/power/smes/proc/inputting(var/do_input)
 	input_attempt = do_input
 	if(!input_attempt)
 		inputting = 0
 
-/obj/machinery/power/smes/proc/outputting(var/do_output)
+/obj/structure/machinery/power/smes/proc/outputting(var/do_output)
 	output_attempt = do_output
 	if(!output_attempt)
 		outputting = 0
 
-/obj/machinery/power/smes/emp_act(severity)
+/obj/structure/machinery/power/smes/emp_act(severity)
 	. = ..()
 
 	if(prob(50))
@@ -551,18 +551,18 @@
 	update_icon()
 
 
-/obj/machinery/power/smes/magical
+/obj/structure/machinery/power/smes/magical
 	name = "quantum power storage unit"
 	desc = "A high-capacity superconducting magnetic energy storage (SMES) unit. Gains energy from quantum entanglement link."
 	capacity = 5000000
 	output_level = 250000
 	should_be_mapped = 1
 
-/obj/machinery/power/smes/magical/process()
+/obj/structure/machinery/power/smes/magical/process()
 	charge = 5000000
 	..()
 
-/obj/machinery/power/smes/buildable/superconducting
+/obj/structure/machinery/power/smes/buildable/superconducting
 	name = "superconducting cryogenic capacitor"
 	desc = "An experimental, extremely high-capacity type of SMES. It uses integrated cryogenic cooling and superconducting cables to break conventional limits on power transfer."
 	icon_state = "cannon_smes"

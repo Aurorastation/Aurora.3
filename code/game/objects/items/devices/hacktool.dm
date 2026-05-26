@@ -17,7 +17,7 @@
 	..()
 	known_targets = list()
 	current_hacks = list()
-	supported_types = list(/obj/machinery/door/airlock)
+	supported_types = list(/obj/structure/machinery/door/airlock)
 	hack_state = new(src)
 
 /obj/item/multitool/hacktool/Destroy()
@@ -60,8 +60,8 @@
 	if(!is_type_in_list(target, supported_types))
 		to_chat(user, "[icon2html(src, user)] <span class='warning'>Unable to hack this target!</span>")
 		return FALSE
-	if(istype(target, /obj/machinery/door/airlock))
-		var/obj/machinery/door/airlock/door = target
+	if(istype(target, /obj/structure/machinery/door/airlock))
+		var/obj/structure/machinery/door/airlock/door = target
 		if(door.hack_proof)
 			to_chat(user, SPAN_WARNING("Hacking [target] is beyond the capabilities of this device!"))
 			return FALSE

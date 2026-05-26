@@ -11,7 +11,7 @@
 	var/obj/item/radio/borg/radio = null
 	var/mob/living/silicon/ai/connected_ai = null
 	var/obj/item/cell/cell = null
-	var/obj/machinery/camera/camera = null
+	var/obj/structure/machinery/camera/camera = null
 	var/obj/item/mmi/mmi = null
 	var/obj/item/card/id/internal_id = null
 	var/list/req_access = list(ACCESS_ROBOTICS) //Access needed to pop out the brain.
@@ -63,7 +63,7 @@
 	voice_name = name
 
 	radio = new radio_type(src)
-	camera = new /obj/machinery/camera(src, 0, TRUE, TRUE)
+	camera = new /obj/structure/machinery/camera(src, 0, TRUE, TRUE)
 	camera.c_tag = "spiderbot-[real_name]"
 	camera.replace_networks(list("SS13"))
 
@@ -324,7 +324,7 @@
 	if (underdoor)
 		underdoor = 0
 		if ((layer == UNDERDOOR))//if this is false, then we must have used hide, or had our layer changed by something else. We wont do anymore checks for this move proc
-			for (var/obj/machinery/door/D in loc)
+			for (var/obj/structure/machinery/door/D in loc)
 				if (D.hashatch)
 					underdoor = 1
 					break

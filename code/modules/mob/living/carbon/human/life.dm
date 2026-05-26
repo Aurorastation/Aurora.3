@@ -392,8 +392,8 @@
 			bodytemperature -= temperature_loss * seconds_per_tick
 	else
 		var/loc_temp = T0C
-		if(istype(loc, /obj/machinery/atmospherics/unary/cryo_cell))
-			var/obj/machinery/atmospherics/unary/cryo_cell/C = loc
+		if(istype(loc, /obj/structure/machinery/atmospherics/unary/cryo_cell))
+			var/obj/structure/machinery/atmospherics/unary/cryo_cell/C = loc
 			loc_temp = C.air_contents?.temperature
 		else
 			loc_temp = environment.temperature

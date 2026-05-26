@@ -142,11 +142,11 @@
 		if(5)
 			return /obj/structure/disposalpipe/trunk
 		if(6)
-			return /obj/machinery/disposal
+			return /obj/structure/machinery/disposal
 		if(7)
 			return /obj/structure/disposaloutlet
 		if(8)
-			return /obj/machinery/disposal/deliveryChute
+			return /obj/structure/machinery/disposal/deliveryChute
 		if(9)
 			switch(subtype)
 				if(0)
@@ -286,7 +286,7 @@
 							SortP.updatename()
 
 					else if(ptype==6) // Disposal bin
-						var/obj/machinery/disposal/P = new /obj/machinery/disposal(src.loc)
+						var/obj/structure/machinery/disposal/P = new /obj/structure/machinery/disposal(src.loc)
 						src.transfer_fingerprints_to(P)
 						P.mode = 0 // start with pump off
 
@@ -300,12 +300,12 @@
 
 					else if(ptype==8) // Disposal outlet
 
-						var/obj/machinery/disposal/deliveryChute/P = new /obj/machinery/disposal/deliveryChute(src.loc)
+						var/obj/structure/machinery/disposal/deliveryChute/P = new /obj/structure/machinery/disposal/deliveryChute(src.loc)
 						src.transfer_fingerprints_to(P)
 						P.set_dir(dir)
 
 					else if(ptype==15) // Small Disposal bin
-						var/obj/machinery/disposal/small/P = new /obj/machinery/disposal/small(src.loc, dir, 1)
+						var/obj/structure/machinery/disposal/small/P = new /obj/structure/machinery/disposal/small(src.loc, dir, 1)
 						src.transfer_fingerprints_to(P)
 						P.mode = 0 // start with pump off
 

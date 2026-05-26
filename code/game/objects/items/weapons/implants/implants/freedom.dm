@@ -93,7 +93,7 @@ No Implant Specifics"}
 	action_button_name = "Activate Telefreedom Implant"
 
 	/**
-	 * The linked telepad to teleport to, a weakref to an `/obj/machinery/telepad` object
+	 * The linked telepad to teleport to, a weakref to an `/obj/structure/machinery/telepad` object
 	 */
 	var/datum/weakref/linked_telepad = null
 
@@ -130,6 +130,6 @@ No Implant Specifics"}
 
 /obj/item/implant/telefreedom/resolve_attackby(atom/A, mob/user, click_parameters)
 	. = ..()
-	if(istype(A, /obj/machinery/telepad))
+	if(istype(A, /obj/structure/machinery/telepad))
 		linked_telepad = WEAKREF(A)
 		to_chat(user, SPAN_NOTICE("You link the telepad to your telefreedom implant."))

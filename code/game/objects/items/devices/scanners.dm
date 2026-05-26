@@ -448,12 +448,12 @@ BREATH ANALYZER
 	slot_flags = SLOT_BELT
 	w_class = WEIGHT_CLASS_NORMAL
 	origin_tech = list(TECH_MAGNET = 2, TECH_BIO = 3)
-	var/obj/machinery/body_scanconsole/connected = null //this is used to print the date and to deal with extra
+	var/obj/structure/machinery/body_scanconsole/connected = null //this is used to print the date and to deal with extra
 
 /obj/item/advanced_healthanalyzer/Initialize()
 	. = ..()
 	if(!connected)
-		var/obj/machinery/body_scanconsole/S = new (src)
+		var/obj/structure/machinery/body_scanconsole/S = new (src)
 		S.forceMove(src)
 		S.update_use_power(POWER_USE_OFF)
 		connected = S
