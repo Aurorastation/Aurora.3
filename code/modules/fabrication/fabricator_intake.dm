@@ -3,7 +3,7 @@
 #define FILL_INCOMPLETELY "Fill Incompletely"
 
 ///Loads the lathe with materials
-/obj/machinery/fabricator/proc/load_lathe(obj/item/loading_item, mob/user)
+/obj/structure/machinery/fabricator/proc/load_lathe(obj/item/loading_item, mob/user)
 
 	//Resources are being loaded.
 	var/obj/item/eating = loading_item

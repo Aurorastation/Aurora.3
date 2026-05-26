@@ -1,4 +1,4 @@
-/obj/machinery/ship_weapon/grauwolf
+/obj/structure/machinery/ship_weapon/grauwolf
 	name = "grauwolf flak battery"
 	desc = "A Kumar Arms flak battery developed in 2461 as part of the same <i>\"Chivalry\"</i> line of the Longbow. Its barrels may look smaller than its significantly larger kin's, \
 			but don't let that fool you: this gun will shred through smaller ships."
@@ -9,7 +9,7 @@
 	caliber = SHIP_CALIBER_90MM
 	screenshake_type = SHIP_GUN_SCREENSHAKE_SCREEN
 
-/obj/machinery/ammunition_loader/grauwolf
+/obj/structure/machinery/ammunition_loader/grauwolf
 	name = "grauwolf flak loader"
 
 /obj/item/ship_ammunition/grauwolf_bundle

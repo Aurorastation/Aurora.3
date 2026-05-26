@@ -1,7 +1,0 @@
-author: FabianK3
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed repeating default font tag getting added to persistent papers, breaking their life cycle and resulting in massive text sizes."
-  - balance: "Raised expiration time of persistent papers from 30 to 180 days."

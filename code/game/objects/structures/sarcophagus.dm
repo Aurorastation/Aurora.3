@@ -63,11 +63,11 @@
 		if("highvalue")
 			new /obj/random/highvalue (get_turf(src))
 		if("supermatter")
-			new /obj/machinery/power/supermatter/shard (get_turf(src))
+			new /obj/structure/machinery/power/supermatter/shard (get_turf(src))
 		if("artifact")
-			new /obj/machinery/artifact (get_turf(src))
+			new /obj/structure/machinery/artifact (get_turf(src))
 		if("beyond")
-			new /obj/machinery/from_beyond (get_turf(src))
+			new /obj/structure/machinery/from_beyond (get_turf(src))
 	return
 
 /obj/item/sarcophagus_key

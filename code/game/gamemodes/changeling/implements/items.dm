@@ -20,6 +20,7 @@
 	canremove = FALSE
 	var/mob/living/creator
 	tool_behaviour = TOOL_CROWBAR
+	tool_quality = STANDARD_TOOL_LEVEL + 1
 
 /obj/item/melee/arm_blade/New()
 	..()
@@ -150,16 +151,16 @@
 		return
 
 	//Airlocks require an ugly block of code, but we don't want to just call emag_act(), since we don't want to break airlocks forever.
-	if(istype(target, /obj/machinery/door))
-		var/obj/machinery/door/door = target
+	if(istype(target, /obj/structure/machinery/door))
+		var/obj/structure/machinery/door/door = target
 		to_chat(user, SPAN_NOTICE("We send an electrical pulse up our finger, and into \the [target], attempting to open it."))
 
 		if(door.density && door.operable())
 			door.do_animate("spark")
 			if(do_after(user, 1 SECOND))
 				//More typechecks, because windoors can't be locked.  Fun.
-				if(istype(target,/obj/machinery/door/airlock))
-					var/obj/machinery/door/airlock/airlock = target
+				if(istype(target,/obj/structure/machinery/door/airlock))
+					var/obj/structure/machinery/door/airlock/airlock = target
 
 					if(airlock.locked) //Check if we're bolted.
 						airlock.unlock()

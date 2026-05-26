@@ -1,4 +1,4 @@
-/obj/machinery/ship_weapon/francisca
+/obj/structure/machinery/ship_weapon/francisca
 	name = "francisca rotary gun"
 	desc = "A Kumar Arms rotary gun developed in 2461. While its barrels may be smaller than its significantly larger kin's, the Longbow's, don't let that fool you: this gun will shred through smaller ships."
 	icon = 'icons/obj/machinery/ship_guns/francisca.dmi'
@@ -9,11 +9,11 @@
 	caliber = SHIP_CALIBER_40MM
 	screenshake_type = SHIP_GUN_SCREENSHAKE_SCREEN
 
-/obj/machinery/ship_weapon/francisca/compact//Franky but small, for shuttles with very little space
+/obj/structure/machinery/ship_weapon/francisca/compact//Franky but small, for shuttles with very little space
 	name = "compact francisca rotary gun"
 	icon = 'icons/obj/machinery/ship_guns/francisca_compact.dmi'
 
-/obj/machinery/ammunition_loader/francisca
+/obj/structure/machinery/ammunition_loader/francisca
 	name = "francisca ammunition loader"
 
 /obj/item/ship_ammunition/francisca

@@ -66,17 +66,27 @@
 	return ..()
 
 /obj/structure/ex_act(severity)
-	switch(severity)
-		if(1.0)
-			qdel(src)
-			return
-		if(2.0)
-			if(prob(50))
+	// If this object doesn't use health for whatever reason, default to ancient ex_act() code.
+	if(!should_use_health)
+		switch(severity)
+			if(1.0)
 				qdel(src)
 				return
-		if(3.0)
-			return
-
+			if(2.0)
+				if(prob(50))
+					qdel(src)
+					return
+			if(3.0)
+				return
+	// If we do use health, normal atom health behavior.
+	else
+		switch(severity)
+			if(1)
+				add_damage(maxhealth)
+			if(2)
+				add_damage(maxhealth * 0.5)
+			if(3)
+				add_damage(maxhealth * 0.25)
 
 /obj/structure/proc/dismantle()
 	var/material/dismantle_material
@@ -99,8 +109,10 @@
 	if(. != BULLET_ACT_HIT)
 		return .
 
-	add_damage(hitting_projectile.damage, hitting_projectile.damage_flags(), hitting_projectile.damtype, hitting_projectile.armor_penetration, hitting_projectile)
-	bullet_ping(hitting_projectile)
+	if(hitting_projectile.get_structure_damage() > 5)
+		bullet_ping(hitting_projectile)
+
+	add_damage(hitting_projectile.damage, hitting_projectile.damage_flags(), hitting_projectile.damage_type, hitting_projectile.armor_penetration, hitting_projectile)
 
 /obj/structure/proc/climb_on()
 

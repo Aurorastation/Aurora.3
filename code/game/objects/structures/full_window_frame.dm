@@ -24,12 +24,12 @@
 		/obj/structure/window_frame,
 		/obj/structure/window_frame/unanchored,
 		/obj/structure/window_frame/empty,
-		/obj/machinery/door
+		/obj/structure/machinery/door
 	)
 	blend_overlay = "wall"
 	can_blend_with = list(
 		/turf/simulated/wall,
-		/obj/machinery/door
+		/obj/structure/machinery/door
 	)
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/should_check_mapload = TRUE
@@ -206,13 +206,13 @@
 		/turf/simulated/wall/shuttle/dark,
 		/turf/simulated/wall/shuttle/dark/cardinal,
 		/obj/structure/window_frame/shuttle,
-		/obj/machinery/door
+		/obj/structure/machinery/door
 	)
 
 	can_blend_with = list(
 		/turf/simulated/wall/shuttle,
 		/turf/simulated/wall/shuttle/cardinal,
-		/obj/machinery/door
+		/obj/structure/machinery/door
 	)
 
 /obj/structure/window_frame/shuttle/merc

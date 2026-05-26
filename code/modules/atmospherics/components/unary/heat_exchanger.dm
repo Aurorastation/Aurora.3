@@ -1,14 +1,14 @@
-/obj/machinery/atmospherics/unary/heat_exchanger
+/obj/structure/machinery/atmospherics/unary/heat_exchanger
 	name = "heat exchanger"
 	desc = "Exchanges heat between two input gases."
 	icon = 'icons/atmos/heat_exchanger.dmi'
 	icon_state = "intact"
 	density = TRUE
 
-	var/obj/machinery/atmospherics/unary/heat_exchanger/partner = null
+	var/obj/structure/machinery/atmospherics/unary/heat_exchanger/partner = null
 	var/update_cycle
 
-/obj/machinery/atmospherics/unary/heat_exchanger/update_icon()
+/obj/structure/machinery/atmospherics/unary/heat_exchanger/update_icon()
 	if(node)
 		icon_state = "intact"
 	else
@@ -16,11 +16,11 @@
 
 	return
 
-/obj/machinery/atmospherics/unary/heat_exchanger/atmos_init()
+/obj/structure/machinery/atmospherics/unary/heat_exchanger/atmos_init()
 	if(!partner)
 		var/partner_connect = turn(dir,180)
 
-		for(var/obj/machinery/atmospherics/unary/heat_exchanger/target in get_step(src,partner_connect))
+		for(var/obj/structure/machinery/atmospherics/unary/heat_exchanger/target in get_step(src,partner_connect))
 			if(target.dir & get_dir(src,target))
 				partner = target
 				partner.partner = src
@@ -28,7 +28,7 @@
 
 	..()
 
-/obj/machinery/atmospherics/unary/heat_exchanger/process()
+/obj/structure/machinery/atmospherics/unary/heat_exchanger/process()
 	..()
 	if(QDELETED(partner))
 		return FALSE
@@ -63,7 +63,7 @@
 
 	return TRUE
 
-/obj/machinery/atmospherics/unary/heat_exchanger/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/atmospherics/unary/heat_exchanger/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.tool_behaviour != TOOL_WRENCH)
 		return ..()
 	var/turf/T = src.loc

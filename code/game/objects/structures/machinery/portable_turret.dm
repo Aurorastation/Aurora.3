@@ -1,0 +1,1267 @@
+/*		Portable Turrets:
+		Constructed from metal, a gun of choice, and a prox sensor.
+		This code is slightly more documented than normal, as requested by XSI on IRC.
+*/
+
+
+#define TURRET_PRIORITY_TARGET 2
+#define TURRET_SECONDARY_TARGET 1
+#define TURRET_NOT_TARGET 0
+
+/obj/structure/machinery/porta_turret
+	name = "turret"
+	icon = 'icons/obj/turrets.dmi'
+	icon_state = "cover_0"
+	anchored = 1
+
+	density = 0
+	/// when inactive, this turret takes up constant 50 Equipment power
+	idle_power_usage = 50
+	/// when active, this turret takes up constant 300 Equipment power
+	active_power_usage = 300
+	/// drains power from the EQUIPMENT channel
+	power_channel = AREA_USAGE_EQUIP
+
+	maxhealth = OBJECT_HEALTH_MEDIUM
+
+	req_one_access = list(ACCESS_SECURITY, ACCESS_HEADS)
+
+	light_range = 3
+	light_power = 2
+
+	armor = list(
+		MELEE = ARMOR_MELEE_KEVLAR,
+		BULLET = ARMOR_BALLISTIC_PISTOL,
+		LASER = ARMOR_LASER_KEVLAR
+	)
+
+	/// if the turret cover is "open" and the turret is raised
+	var/raised = 0
+	/// if the turret is currently opening or closing its cover
+	var/raising= 0
+	/// if 1 the turret slowly repairs itself.
+	var/auto_repair = 0
+	/// if the turret's behaviour control access is locked
+	var/locked = 1
+	/// if the turret responds to control panels
+	var/controllock = 0
+	/// the type of weapon installed
+	var/obj/item/gun/energy/installation = /obj/item/gun/energy/gun
+	/// the charge of the gun inserted
+	var/gun_charge = 0
+	/// holder for power needed
+	var/reqpower = 500
+	/// holder for the icon_state. 1 for lethal sprite, null for stun sprite.
+	var/lethal_icon = 0
+	/// holder to handle certain guns switching modes
+	var/egun = 1
+	/// set of gun sprites the turret will use
+	var/sprite_set = "carbine"
+	/// set of cover sprites the turret will use
+	var/cover_set = 0
+	var/name_override = FALSE
+	/// 1: if the turret is cooling down from a shot, 0: turret is ready to fire
+	var/last_fired = 0
+	/// 1.5 seconds between each shot
+	var/shot_delay = 15
+	/// checks if the perp is set to arrest
+	var/check_arrest = 1
+	/// checks if a security record exists at all
+	var/check_records = 1
+	/// checks if it can shoot people that have a weapon they aren't authorized to have
+	var/check_weapons = 0
+	/// if this is active, the turret shoots everything that does not meet the access requirements
+	var/check_access = 1
+	/// checks if it can shoot at simple animals or anything that passes issmall
+	var/check_wildlife = 1
+	/// if active, will shoot at anything not an AI or cyborg
+	var/check_synth	 = 0
+	/// if active, will shoot at borgs
+	var/target_borgs = FALSE
+	///  AI cannot use this
+	var/ailock = 0
+	///  If TRUE, the turret cannot be detached from the ground with a wrench.
+	var/immobile = FALSE
+	///  If TRUE, the turret cannot be salvaged for parts when broken.
+	var/no_salvage = FALSE
+	/// if set to 1, the turret gets pissed off and shoots at people nearby (unless they have sec access!)
+	var/attacked = 0
+	/// determines if the turret is on
+	var/enabled = 1
+	/// whether in lethal or stun mode
+	var/lethal = 0
+	var/disabled = 0
+	/// holder for stun (main) mode beam
+	var/projectile =/obj/projectile/beam/stun
+	/// holder for lethal (secondary) mode beam
+	var/eprojectile = /obj/projectile/beam
+	/// what sound should play when the turret fires
+	var/shot_sound = 'sound/weapons/Taser.ogg'
+	/// what sound should play when the lethal turret fires
+	var/eshot_sound	= 'sound/weapons/laser1.ogg'
+	/// the spark system, used for generating... sparks?
+	var/datum/effect_system/sparks/spark_system
+	var/wrenching = 0
+	/// last target fired at, prevents turrets from erratically firing at all valid targets in range
+	var/last_target
+	/// list of primary targets
+	var/list/targets = list()
+	/// targets that are least important
+	var/list/secondarytargets = list()
+	var/resetting
+	var/fast_processing = FALSE
+
+	var/old_angle = 0
+
+/obj/structure/machinery/porta_turret/get_damage_condition_hints(mob/user, distance, is_adjacent)
+	if(health / maxhealth < 0.35)
+		. = SPAN_DANGER("\The [src] is critically damaged!")
+	else if(health / maxhealth < 0.6)
+		. = SPAN_ALERT("\The [src] is badly damaged!")
+	else if(health / maxhealth < 1)
+		. = SPAN_NOTICE("\The [src] is slightly damaged.")
+	else
+		. = "\The [src] is in perfect condition."
+
+/obj/structure/machinery/porta_turret/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "ALT-click the [src] to lock or unlock it (if you have the appropriate ID access)."
+
+/obj/structure/machinery/porta_turret/assembly_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(!immobile)
+		. += "It [anchored ? "is" : "could be"] anchored to the floor with some <b>bolts</b>."
+
+/obj/structure/machinery/porta_turret/crescent
+	enabled = FALSE
+	ailock = TRUE
+	check_synth	 = FALSE
+	target_borgs = FALSE
+	check_access = TRUE
+	check_arrest = TRUE
+	check_records = TRUE
+	check_weapons = TRUE
+	check_wildlife = TRUE
+	immobile = TRUE
+	no_salvage = TRUE
+	req_one_access = list(ACCESS_CENT_SPECOPS, ACCESS_CENT_GENERAL)
+
+	/// Set to true to allow emagging of this turret.
+	var/admin_emag_override = FALSE
+
+/obj/structure/machinery/porta_turret/crescent/emag_act()
+	if (admin_emag_override)
+		return ..()
+	else
+		return NO_EMAG_ACT
+
+/obj/structure/machinery/porta_turret/stationary
+	ailock = 1
+	lethal = 1
+	lethal_icon = 1
+	egun = 0
+	installation = /obj/item/gun/energy/rifle/laser
+	sprite_set = "laser"
+
+/obj/structure/machinery/porta_turret/Initialize(mapload)
+	. = ..()
+	//Sets up a spark system
+	spark_system = bind_spark(src, 5)
+	if(!istype(installation, /obj/item/gun/energy))
+		installation = new installation(src)
+	if(installation)
+		if(installation.fire_delay_wielded > 0)
+			shot_delay = max(installation.fire_delay_wielded, 4)
+		else
+			shot_delay = max(installation.fire_delay, 4)
+		if(!name_override)
+			name = "[installation.name] [name]"
+
+	var/area/control_area = get_area(src)
+	if(istype(control_area))
+		LAZYADD(control_area.turrets, src)
+		if(!mapload)
+			for(var/obj/structure/machinery/turretid/aTurretID in control_area.turret_controls)
+				aTurretID.turretModes()
+		if(LAZYLEN(control_area.turret_controls))
+			var/obj/structure/machinery/turretid/SOME_TURRET_ID = control_area.turret_controls[1]
+			var/datum/turret_checks/SOME_TC = SOME_TURRET_ID.getState() // this helper should honestly fucking exist why doesn't it :ree:
+			if(SOME_TC.lethal != lethal && !egun)
+				SOME_TC.enabled = 0
+			src.setState(SOME_TC)
+
+	add_to_target_grid()
+
+/obj/structure/machinery/porta_turret/Destroy()
+	var/area/control_area = get_area(src)
+	if(istype(control_area))
+		LAZYREMOVE(control_area.turrets, src)
+		for(var/obj/structure/machinery/turretid/aTurretID in control_area.turret_controls)
+			aTurretID.turretModes()
+	qdel(spark_system)
+	spark_system = null
+	if(fast_processing)
+		STOP_PROCESSING(SSfast_process, src)
+	QDEL_NULL(installation)
+
+	clear_from_target_grid()
+
+	. = ..()
+
+
+/obj/structure/machinery/porta_turret/update_icon()
+	ClearOverlays()
+	underlays.Cut()
+
+	if(stat & BROKEN)
+		icon_state = "turret_[sprite_set]_broken"
+		underlays += "cover_open_[cover_set]"
+		set_light(0)
+	else if(raised || raising)
+		if(powered() && enabled)
+			if(!lethal_icon)
+				icon_state = "turret_[sprite_set]_stun"
+				underlays += "cover_open_[cover_set]"
+			else
+				icon_state = "turret_[sprite_set]_lethal"
+				underlays += "cover_open_[cover_set]"
+		else
+			icon_state = "turret_[sprite_set]_off"
+			underlays += "cover_open_[cover_set]"
+	else
+		icon_state = "cover_[cover_set]"
+
+	if(stat & NOPOWER)
+		set_light(0)
+	else
+		set_light(light_range, light_power)
+
+/obj/structure/machinery/porta_turret/proc/isLocked(mob/user)
+	if(ailock && issilicon(user))
+		to_chat(user, SPAN_WARNING("There seems to be a firewall preventing you from accessing this device."))
+		return TRUE
+
+	if(!issilicon(user))
+		if(locked && !allowed(user))
+			to_chat(user, SPAN_WARNING("Access denied."))
+			return TRUE
+
+	return FALSE
+
+/obj/structure/machinery/porta_turret/attack_ai(mob/user)
+	if(!ai_can_interact(user))
+		return
+	ui_interact(user)
+
+/obj/structure/machinery/porta_turret/attack_hand(mob/user)
+	ui_interact(user)
+
+/obj/structure/machinery/porta_turret/ui_data(mob/user)
+	var/list/data = list()
+	data["locked"] = locked
+	data["enabled"] = enabled
+	data["is_lethal"] = TRUE
+	data["lethal"] = lethal
+	data["can_switch"] = egun
+	data["settings"] = get_settings()
+	return data
+
+/obj/structure/machinery/porta_turret/proc/get_settings()
+	. = list()
+
+	var/usedSettings = list(
+		"check_synth" = "Neutralize All Non-Synthetics",
+		"target_borgs" = "Neutralize All Cyborg-likes",
+		"check_wildlife" = "Neutralize All Wildlife",
+		"check_weapons" = "Check Weapon Authorization",
+		"check_records" = "Check Security Records",
+		"check_arrest" = "Check Arrest Status",
+		"check_access" = "Check Access Authorization"
+	)
+
+	for(var/v in usedSettings)
+		var/name = usedSettings[v]
+		. += list(list("category" = name, "value" = vars[v], "variable_name" = v))
+
+/obj/structure/machinery/porta_turret/ui_interact(mob/user, var/datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "TurretControlPorta", "Defense Systems Control Panel", 375, 425)
+		ui.open()
+
+/obj/structure/machinery/porta_turret/proc/HasController()
+	var/area/A = get_area(src)
+	return A && A.turret_controls.len > 0
+
+/obj/structure/machinery/porta_turret/ui_status(mob/user, datum/ui_state/state)
+	. = ..()
+	if(HasController())
+		to_chat(user, SPAN_NOTICE("Turrets can only be controlled using the assigned turret controller."))
+		return UI_CLOSE
+
+	if(isLocked(user))
+		return UI_CLOSE
+
+	if(!anchored)
+		to_chat(usr, SPAN_NOTICE("\The [src] has to be secured first!"))
+		return UI_CLOSE
+
+	return ..()
+
+/obj/structure/machinery/porta_turret/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
+		return
+
+	if(action == "command" && !isnull(params["value"]))
+		var/value = text2num(params["value"])
+		if(params["command"] == "enable")
+			enabled = value
+			if (enabled)
+				START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
+				fast_processing = FALSE
+			else if(fast_processing)
+				STOP_PROCESSING(SSfast_process, src)
+				fast_processing = FALSE
+				popDown()
+			else
+				STOP_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
+				popDown()
+		else if(params["command"] == "lethal")
+			lethal = value
+			lethal_icon = value
+		else if(params["command"] == "check_synth")
+			check_synth = value
+		else if(params["command"] == "target_borgs")
+			target_borgs = value
+		else if(params["command"] == "check_weapons")
+			check_weapons = value
+		else if(params["command"] == "check_records")
+			check_records = value
+		else if(params["command"] == "check_arrest")
+			check_arrest = value
+		else if(params["command"] == "check_access")
+			check_access = value
+		else if(params["command"] == "check_wildlife")
+			check_wildlife = value
+		. = TRUE
+
+/obj/structure/machinery/porta_turret/power_change()
+	..()
+	if(powered())
+		queue_icon_update()
+	else
+		addtimer(CALLBACK(src, PROC_REF(lose_power)), rand(1, 15))
+
+/obj/structure/machinery/porta_turret/proc/lose_power()
+	stat |= NOPOWER
+	queue_icon_update()
+
+/obj/structure/machinery/porta_turret/attackby(obj/item/attacking_item, mob/user)
+	if(stat & BROKEN)
+		if(attacking_item.tool_behaviour == TOOL_CROWBAR)
+			//If the turret is destroyed, you can remove it with a crowbar to
+			//try and salvage its components
+			to_chat(user, SPAN_NOTICE("You begin prying the metal coverings off."))
+			if(attacking_item.use_tool(src, user, 20, volume = 50))
+				if(prob(70) && !no_salvage)
+					to_chat(user, SPAN_NOTICE("You remove the turret and salvage some components."))
+					if(installation)
+						installation.forceMove(loc)
+						installation = null
+					if(prob(50))
+						new /obj/item/stack/material/steel(loc, rand(1,4))
+					if(prob(50))
+						new /obj/item/assembly/prox_sensor(loc)
+				else
+					to_chat(user, SPAN_NOTICE("You remove the turret but did not manage to salvage anything."))
+				qdel(src) // qdel
+			return TRUE
+
+	else if((attacking_item.tool_behaviour == TOOL_WRENCH))
+		if (immobile)
+			to_chat(user, SPAN_NOTICE("[src] is firmly attached to the ground with some form of epoxy."))
+			return TRUE
+
+		if(enabled || raised)
+			to_chat(user, SPAN_WARNING("You cannot unsecure an active turret!"))
+			return TRUE
+		if(wrenching)
+			to_chat(user, SPAN_WARNING("Someone is already [anchored ? "un" : ""]securing the turret!"))
+			return TRUE
+		if(!anchored && isinspace())
+			to_chat(user, SPAN_WARNING("Cannot secure turrets in space!"))
+			return TRUE
+
+		user.visible_message( \
+				SPAN_WARNING("[user] begins [anchored ? "un" : ""]securing the turret."), \
+				SPAN_NOTICE("You begin [anchored ? "un" : ""]securing the turret.") \
+			)
+
+		wrenching = 1
+		if(attacking_item.use_tool(src, user, 50, volume = 50))
+			//This code handles moving the turret around. After all, it's a portable turret!
+			if(!anchored)
+				attacking_item.play_tool_sound(get_turf(src), 100)
+				anchored = 1
+				update_icon()
+				to_chat(user, SPAN_NOTICE("You secure the exterior bolts on the turret."))
+			else if(anchored)
+				attacking_item.play_tool_sound(get_turf(src), 100)
+				anchored = 0
+				to_chat(user, SPAN_NOTICE("You unsecure the exterior bolts on the turret."))
+				update_icon()
+		wrenching = 0
+		return TRUE
+
+	else if(attacking_item.tool_behaviour == TOOL_WELDER)
+		var/obj/item/weldingtool/WT = attacking_item
+		if (!WT.welding)
+			to_chat(user, SPAN_DANGER("\The [WT] must be turned on!"))
+		else if (health == maxhealth)
+			to_chat(user, SPAN_NOTICE("\The [src] is fully repaired."))
+			return
+		else if (WT.use(3, user))
+			to_chat(user, SPAN_NOTICE("Now welding \the [src]."))
+			if(WT.use_tool(src, user, 5, volume = 50))
+				if(QDELETED(src) || !WT.isOn())
+					return TRUE
+				playsound(src.loc, 'sound/items/welder_pry.ogg', 50, 1)
+				add_health(maxhealth * 0.3)
+			else
+				to_chat(user, SPAN_NOTICE("You fail to complete the welding."))
+		else
+			to_chat(user, SPAN_WARNING("You need more welding fuel to complete this task."))
+		return TRUE
+	else
+		//if the turret was attacked with the intention of harming it:
+		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+		add_damage(attacking_item.force * 0.5)
+		if(attacking_item.force * 0.5 > 1) //if the force of impact dealt at least 1 damage, the turret gets pissed off
+			if(!attacked && !emagged)
+				attacked = 1
+				addtimer(CALLBACK(src, PROC_REF(reset_attacked)), 1 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE)
+		return ..()
+
+/obj/structure/machinery/porta_turret/AltClick(mob/user)
+	if(Adjacent(user))
+		if(allowed(user))
+			locked = !locked
+			if(locked)
+				playsound(src, 'sound/machines/terminal/terminal_button03.ogg', 35, FALSE)
+			else
+				playsound(src, 'sound/machines/terminal/terminal_button01.ogg', 35, FALSE)
+			balloon_alert(user, locked ? "locked" : "unlocked")
+			SStgui.update_uis(src)
+		else
+			to_chat(user, SPAN_NOTICE("Access denied."))
+			playsound(src, 'sound/machines/terminal/terminal_error.ogg', 25, FALSE)
+			balloon_alert(user, "access denied!")
+		return TRUE
+
+/obj/structure/machinery/porta_turret/proc/reset_attacked()
+	attacked = FALSE
+
+/obj/structure/machinery/porta_turret/emag_act(var/remaining_charges, var/mob/user)
+	if(!emagged)
+		//Emagging the turret makes it go bonkers and stun everyone. It also makes
+		//the turret shoot much, much faster.
+		to_chat(user, SPAN_WARNING("You short out [src]'s threat assessment circuits."))
+		visible_message("[src] hums oddly...")
+		emagged = 1
+		lethal_icon = 1
+		controllock = 1
+		shot_delay = shot_delay / 2
+		enabled = 0 //turns off the turret temporarily
+		sleep(60) //6 seconds for the traitor to gtfo of the area before the turret decides to ruin his shit
+		enabled = 1 //turns it back on. The cover popUp() popDown() are automatically called in process(), no need to define it here
+		return 1
+
+/obj/structure/machinery/porta_turret/add_damage(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
+	if(!raised && !raising)
+		damage = damage / 8
+
+	if (damage > 5 && prob(45))
+		spark_system.queue()
+	. = ..()
+
+/obj/structure/machinery/porta_turret/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	var/damage = hitting_projectile.get_structure_damage()
+
+	if(!damage)
+		return BULLET_ACT_BLOCK
+
+	if(enabled)
+		if(!attacked && !emagged)
+			attacked = 1
+			addtimer(CALLBACK(src, PROC_REF(reset_attacked)), 60, TIMER_UNIQUE | TIMER_OVERRIDE)
+
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	add_damage(damage)
+
+/obj/structure/machinery/porta_turret/emp_act(severity)
+	. = ..()
+
+	if(enabled)
+		//if the turret is on, the EMP no matter how severe disables the turret for a while
+		//and scrambles its settings, with a slight chance of having an emag effect
+		check_arrest = prob(50)
+		check_records = prob(50)
+		check_weapons = prob(50)
+		check_access = prob(20)	// check_access is a pretty big deal, so it's least likely to get turned on
+		check_wildlife = prob(50)
+		if(prob(5))
+			emagged = TRUE
+
+		enabled = FALSE
+		addtimer(CALLBACK(src, PROC_REF(post_emp_act)), rand(60, 600))
+
+
+/obj/structure/machinery/porta_turret/proc/post_emp_act()
+	enabled = TRUE
+
+/obj/structure/machinery/porta_turret/ex_act(severity)
+	switch (severity)
+		if (1)
+			qdel(src)
+		if (2)
+			if (prob(25))
+				qdel(src)
+			else
+				add_damage(maxhealth * 8) //should instakill most turrets
+		if (3)
+			add_damage(maxhealth * 8 / 3)
+
+/obj/structure/machinery/porta_turret/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
+	health = 0
+	stat |= BROKEN	//enables the BROKEN bit
+	spark_system.queue()	//creates some sparks because they look cool
+	update_icon()
+
+/obj/structure/machinery/porta_turret/process()
+	//the main machinery process
+	if((stat & (NOPOWER|BROKEN)) || !enabled)
+		//if the turret has no power, is broken, or off, make the turret pop down if it hasn't already
+		if(raised || raising)
+			popDown()
+		return
+
+	if(auto_repair && (health < maxhealth))
+		use_power_oneoff(20000)
+		add_health(1)
+
+	if(raising)
+		return // Don't try to do target acquisition while we're resetting
+
+	targets = list()
+	secondarytargets = list()
+
+	var/list/potentials = get_hearers_in_LOS(world.view, src)
+
+	if(potentials.len)
+		for(var/mob/living/L in potentials)
+			assess_and_assign_living(L, targets, secondarytargets)
+
+		if(targets.len || secondarytargets.len)
+			fastscan(TRUE)
+
+			if(!tryToShootAt(targets))
+				tryToShootAt(secondarytargets)
+
+	if(raised && !targets.len && !secondarytargets.len)
+		resetting = addtimer(CALLBACK(src, PROC_REF(reset)), 6 SECONDS, TIMER_UNIQUE | TIMER_STOPPABLE) // no valid targets, close the cover
+	else if(resetting)
+		deltimer(resetting)
+		resetting = null
+
+/obj/structure/machinery/porta_turret/proc/fastscan(on)
+	if(on == fast_processing)
+		return
+
+	if(on && !fast_processing)
+		STOP_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
+		START_PROCESSING(SSfast_process, src)
+	else if(fast_processing)
+		STOP_PROCESSING(SSfast_process, src)
+		START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
+
+	fast_processing = on
+
+/obj/structure/machinery/porta_turret/proc/reset()
+	if(!targets.len && !secondarytargets.len)
+		fastscan(FALSE)
+		popDown()
+
+/obj/structure/machinery/porta_turret/proc/assess_and_assign_living(var/mob/living/L, var/list/targets, var/list/secondarytargets)
+	switch(assess_living(L))
+		if(TURRET_PRIORITY_TARGET)
+			targets += L
+		if(TURRET_SECONDARY_TARGET)
+			secondarytargets += L
+
+/obj/structure/machinery/porta_turret/proc/assess_and_assign_closet(var/obj/structure/closet/C, var/list/targets, var/list/secondarytargets)
+	if(is_type_in_list(C,list(/obj/structure/closet/statue,/obj/structure/closet/walllocker/firecloset,/obj/structure/closet/walllocker)))
+		return
+	if(!lethal)
+		return
+
+	//If someone in the locker is a primary target, we assign the locker as a primary target and return immediately.
+	//If someone in the locker is a secondary target, we remember that and only assign the locker as a secondary target, if there is no other primary target in the locker.
+	var/found_secondary = FALSE
+	for(var/O in C.contents)
+		if(!isliving(O))
+			continue
+		switch(assess_living(O))
+			if(TURRET_PRIORITY_TARGET)
+				targets += C
+				return
+			if(TURRET_SECONDARY_TARGET)
+				found_secondary = TRUE
+	if(found_secondary)
+		secondarytargets += C
+
+/obj/structure/machinery/porta_turret/proc/assess_living(var/mob/living/L)
+	if(!istype(L))
+		return TURRET_NOT_TARGET
+
+	if(!L)
+		return TURRET_NOT_TARGET
+
+	if(L.invisibility >= INVISIBILITY_LEVEL_ONE) // Cannot see him. see_invisible is a mob-var
+		return TURRET_NOT_TARGET
+
+	if(!emagged && !target_borgs && issilicon(L))	// Don't target silica
+		return TURRET_NOT_TARGET
+
+	if(isbrain(L) && !isturf(L.loc)) // Don't target cyborg brains / MMIs
+		return TURRET_NOT_TARGET
+
+	if(L.stat && !emagged)		//if the perp is dead/dying, no need to bother really
+		return TURRET_NOT_TARGET	//move onto next potential victim!
+
+	if(get_dist(src, L) > 7)	//if it's too far away, why bother?
+		return TURRET_NOT_TARGET
+
+	var/flags =  PASSTABLE|PASSTRACE|PASSRAILING
+	if(ispath(projectile, /obj/projectile/beam) || ispath(eprojectile, /obj/projectile/beam))
+		flags |= PASSTABLE|PASSGLASS|PASSGRILLE|PASSRAILING
+
+	// if(!(L in check_trajectory(L, src, pass_flags=flags)))	//check if we have true line of sight
+	// 	return TURRET_NOT_TARGET
+
+	if(emagged)		// If emagged not even the dead get a rest
+		return L.stat ? TURRET_SECONDARY_TARGET : TURRET_PRIORITY_TARGET
+
+	if(target_borgs && isAI(L))		//don't shoot the AI if we're shooting silica!
+		return TURRET_NOT_TARGET
+
+	if(lethal && locate(/mob/living/silicon/ai) in get_turf(L))		//don't accidentally kill the AI!
+		return TURRET_NOT_TARGET
+
+	if(check_synth)	//If it's set to attack all non-silicons, target them!
+		if(L.lying)
+			return lethal ? TURRET_SECONDARY_TARGET : TURRET_NOT_TARGET
+		return TURRET_PRIORITY_TARGET
+
+	if(iscuffed(L)) // If the target is handcuffed, leave it alone
+		return TURRET_NOT_TARGET
+
+	if(isanimal(L) || issmall(L)) // Animals are not so dangerous
+		return check_wildlife ? TURRET_SECONDARY_TARGET : TURRET_NOT_TARGET
+
+	if(isalien(L)) // Xenos are dangerous
+		return check_wildlife ? TURRET_PRIORITY_TARGET	: TURRET_NOT_TARGET
+
+	if(ishuman(L))	//if the target is a human, analyze threat level
+		if(assess_perp(L) < 4)
+			return TURRET_NOT_TARGET	//if threat level < 4, keep going
+
+	if(L.lying)		//if the perp is lying down, it's still a target but a less-important target
+		return lethal ? TURRET_SECONDARY_TARGET : TURRET_NOT_TARGET
+
+	if(ismech(L))
+		var/mob/living/heavy_vehicle/M = L
+		if(!M.pilots?.len)
+			return TURRET_NOT_TARGET
+		for(var/mob/pilot in M.pilots)
+			if(allowed(pilot)) // don't shoot if the mech contains at least one person with access
+				return TURRET_NOT_TARGET
+	return TURRET_PRIORITY_TARGET	//if the perp has passed all previous tests, congrats, it is now a "shoot-me!" nominee
+
+/obj/structure/machinery/porta_turret/proc/assess_perp(var/mob/living/carbon/human/H)
+	if(!H || !istype(H))
+		return 0
+
+	if(emagged)
+		return 10
+
+	return H.assess_perp(src, check_access, check_weapons, check_records, check_arrest)
+
+/obj/structure/machinery/porta_turret/proc/tryToShootAt(var/list/targets)
+	if(targets.len && last_target && (last_target in targets) && target(last_target))
+		return 1
+
+	while(targets.len > 0)
+		var/T = pick(targets)
+		targets -= T
+		if(target(T))
+			return 1
+
+
+/obj/structure/machinery/porta_turret/proc/popUp()	//pops the turret up
+	set waitfor = FALSE
+	if(disabled)
+		return
+	if(raising || raised)
+		return
+	if(stat & BROKEN)
+		return
+	set_raised_raising(raised, 1)
+	update_icon()
+
+	var/atom/flick_holder = new /atom/movable/porta_turret_cover(loc)
+	flick_holder.layer = layer + 0.1
+	flick("popup_[cover_set]", flick_holder)
+	playsound(loc, 'sound/machines/turrets/turret_deploy.ogg', 100, 1)
+	sleep(10)
+	qdel(flick_holder)
+
+	set_raised_raising(1, 0)
+	update_icon()
+
+/obj/structure/machinery/porta_turret/proc/popDown()	//pops the turret down
+	set waitfor = FALSE
+
+	last_target = null
+	if(disabled)
+		return
+	if(raising || !raised)
+		return
+	if(stat & BROKEN)
+		return
+	set_raised_raising(raised, 1)
+
+	var/atom/flick_holder = new /atom/movable/porta_turret_cover(loc)
+	flick_holder.layer = layer + 0.1
+	flick("popdown_[cover_set]", flick_holder)
+	playsound(loc, 'sound/machines/turrets/turret_retract.ogg', 100, 1)
+	sleep(10)
+	qdel(flick_holder)
+
+	set_raised_raising(0, 0)
+	set_angle(0)
+	update_icon()
+
+/obj/structure/machinery/porta_turret/proc/set_raised_raising(var/raised, var/raising)
+	src.raised = raised
+	src.raising = raising
+	density = raised || raising
+
+/obj/structure/machinery/porta_turret/proc/target(var/target)
+	if(disabled)
+		return
+	if(target)
+		last_target = target
+		popUp()				//pop the turret up if it's not already up.
+		var/new_angle = get_angle(src, target)
+		if(new_angle > old_angle + 30 || new_angle < old_angle - 30)
+			playsound(loc, 'sound/machines/turrets/turret_rotate.ogg', 100, 1)
+		set_angle(new_angle)
+		old_angle = new_angle
+		shootAt(target)
+		return 1
+	return
+
+/obj/structure/machinery/porta_turret/proc/reset_last_fired()
+	last_fired = FALSE
+
+/obj/structure/machinery/porta_turret/proc/shootAt(var/target)
+	//any emagged turrets will shoot extremely fast! This not only is deadly, but drains a lot power!
+	if(last_fired || !raised)	//prevents rapid-fire shooting, unless it's been emagged
+		return
+
+	var/turf/T = get_turf(src)
+	var/turf/U = get_turf(target)
+	if(!istype(T) || !istype(U))
+		return
+
+	if(!raised) //the turret has to be raised in order to fire - makes sense, right?
+		return
+
+	update_icon()
+	var/obj/projectile/A
+
+	if(emagged || lethal)
+		A = new eprojectile(loc)
+		playsound(loc, eshot_sound, 75, 1)
+	else
+		A = new projectile(loc)
+		playsound(loc, shot_sound, 75, 1)
+
+	A.accuracy = max(installation.accuracy * 0.25 , installation.accuracy_wielded * 0.25, A.accuracy * 0.25)  // Because turrets should be better at shooting.
+
+	// Lethal/emagged turrets use twice the power due to higher energy beams
+	// Emagged turrets again use twice as much power due to higher firing rates
+	use_power_oneoff(reqpower * (2 * (emagged || lethal)) * (2 * emagged))
+
+	//Turrets aim for the center of mass by default.
+	//If the target is grabbing someone then the turret smartly aims for extremities
+	A.def_zone = get_exposed_defense_zone(target)
+	//Shooting Code:
+	A.preparePixelProjectile(target, T)
+	A.firer = src
+	A.fired_from = src
+	A.fire()
+	last_fired = TRUE
+	addtimer(CALLBACK(src, PROC_REF(reset_last_fired)), shot_delay, TIMER_UNIQUE | TIMER_OVERRIDE)
+
+/datum/turret_checks
+	var/enabled
+	var/lethal
+	var/check_synth
+	var/target_borgs
+	var/check_access
+	var/check_records
+	var/check_arrest
+	var/check_weapons
+	var/check_wildlife
+	var/ailock
+
+/obj/structure/machinery/porta_turret/proc/setState(var/datum/turret_checks/TC)
+	if(controllock)
+		return
+	src.enabled = TC.enabled
+	if (enabled)
+		START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
+		fast_processing = FALSE
+	else if(fast_processing)
+		STOP_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
+		fast_processing = FALSE
+	else
+		STOP_PROCESSING(SSfast_process, src)
+	if(egun) //If turret can switch modes.
+		src.lethal = TC.lethal
+		src.lethal_icon = TC.lethal
+
+	check_synth = TC.check_synth
+	target_borgs = TC.target_borgs
+	check_access = TC.check_access
+	check_records = TC.check_records
+	check_arrest = TC.check_arrest
+	check_weapons = TC.check_weapons
+	check_wildlife = TC.check_wildlife
+	ailock = TC.ailock
+
+	src.power_change()
+	update_icon()
+
+/*
+		Portable turret constructions
+		Known as "turret frame"s
+*/
+
+/obj/structure/machinery/porta_turret_construct
+	name = "turret frame"
+	icon = 'icons/obj/turrets.dmi'
+	icon_state = "turret_frame_0_0"
+	density = 1
+	var/target_type = /obj/structure/machinery/porta_turret	// The type we intend to build
+	var/build_step = 0			//the current step in the building process
+	var/finish_name = "turret"	//the name applied to the product turret
+	var/obj/item/gun/energy/installation = null		//the gun type installed
+	var/case_sprite_set = 0		//sprite set the turret case will use
+	var/obj/item/gun/energy/E = null
+
+/obj/structure/machinery/porta_turret_construct/dark
+	icon_state = "turret_frame_0_1"
+	case_sprite_set = 1
+
+/obj/structure/machinery/porta_turret_construct/attackby(obj/item/attacking_item, mob/user)
+	//this is a bit unwieldy but self-explanatory
+	switch(build_step)
+		if(0)	//first step
+			if(attacking_item.tool_behaviour == TOOL_WRENCH && !anchored)
+				attacking_item.play_tool_sound(get_turf(src), 100)
+				to_chat(user, SPAN_NOTICE("You secure the external bolts."))
+				anchored = 1
+				build_step = 1
+				icon_state = "turret_frame_1_[case_sprite_set]"
+				return TRUE
+
+			else if(attacking_item.tool_behaviour == TOOL_CROWBAR && !anchored)
+				attacking_item.play_tool_sound(get_turf(src), 75)
+				to_chat(user, SPAN_NOTICE("You dismantle the turret construction."))
+				new /obj/item/stack/material/steel( loc, 5)
+				qdel(src)
+				return TRUE
+
+		if(1)
+			if(istype(attacking_item, /obj/item/stack/material) && attacking_item.get_material_name() == DEFAULT_WALL_MATERIAL)
+				var/obj/item/stack/M = attacking_item
+				if(M.use(2))
+					to_chat(user, SPAN_NOTICE("You add some metal armor to the interior frame."))
+					build_step = 2
+					icon_state = "turret_frame_2_[case_sprite_set]"
+				else
+					to_chat(user, SPAN_WARNING("You need two sheets of metal to continue construction."))
+				return TRUE
+
+			else if(attacking_item.tool_behaviour == TOOL_WRENCH)
+				attacking_item.play_tool_sound(get_turf(src), 75)
+				to_chat(user, SPAN_NOTICE("You unfasten the external bolts."))
+				anchored = 0
+				build_step = 0
+				icon_state = "turret_frame_0_[case_sprite_set]"
+				return TRUE
+
+
+		if(2)
+			if(attacking_item.tool_behaviour == TOOL_WRENCH)
+				attacking_item.play_tool_sound(get_turf(src), 100)
+				to_chat(user, SPAN_NOTICE("You bolt the metal armor into place."))
+				build_step = 3
+				icon_state = "turret_frame_3_[case_sprite_set]"
+				return TRUE
+
+			else if(attacking_item.tool_behaviour == TOOL_WELDER)
+				var/obj/item/weldingtool/WT = attacking_item
+				if(!WT.isOn())
+					return TRUE
+				if(WT.get_fuel() < 5) //uses up 5 fuel.
+					to_chat(user, SPAN_NOTICE("You need more fuel to complete this task."))
+					return TRUE
+
+				playsound(loc, pick('sound/items/Welder.ogg', 'sound/items/welder_pry.ogg'), 50, 1)
+				if(attacking_item.use_tool(src, user, 20, volume = 50))
+					if(!src || !WT.use(5, user)) return TRUE
+					build_step = 1
+					to_chat(user, "You remove the turret's interior metal armor.")
+					new /obj/item/stack/material/steel( loc, 2)
+					icon_state = "turret_frame_1_[case_sprite_set]"
+				return TRUE
+
+
+		if(3)
+			if(istype(attacking_item, /obj/item/gun/energy)) //the gun installation part
+				E = attacking_item //typecasts the item to a gun
+				if(E.can_turret)
+					if(isrobot(user))
+						return TRUE
+					if(!user.unEquip(attacking_item))
+						to_chat(user, SPAN_NOTICE("\the [attacking_item] is stuck to your hand, you cannot put it in \the [src]"))
+						return TRUE
+					to_chat(user, SPAN_NOTICE("You install [attacking_item] into the turret."))
+					user.drop_from_inventory(E,src)
+					target_type = /obj/structure/machinery/porta_turret
+					installation = attacking_item //installation becomes I.type
+					build_step = 4
+					icon_state = "turret_frame_4_[case_sprite_set]"
+					AddOverlays("turret_[E.turret_sprite_set]_off")
+				return TRUE
+
+			else if(attacking_item.tool_behaviour == TOOL_WRENCH)
+				attacking_item.play_tool_sound(get_turf(src), 100)
+				to_chat(user, SPAN_NOTICE("You remove the turret's metal armor bolts."))
+				build_step = 2
+				icon_state = "turret_frame_2_[case_sprite_set]"
+				return TRUE
+
+		if(4)
+			if(isprox(attacking_item))
+				build_step = 5
+				if(!user.unEquip(attacking_item))
+					to_chat(user, SPAN_NOTICE("\the [attacking_item] is stuck to your hand, you cannot put it in \the [src]"))
+					return TRUE
+				to_chat(user, SPAN_NOTICE("You add the prox sensor to the turret."))
+				qdel(attacking_item)
+				return TRUE
+
+			//attack_hand() removes the gun
+
+		if(5)
+			if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
+				attacking_item.play_tool_sound(get_turf(src), 100)
+				build_step = 6
+				to_chat(user, SPAN_NOTICE("You close the access hatch."))
+				icon_state = "turret_frame_5a_[case_sprite_set]"
+				AddOverlays("turret_[E.turret_sprite_set]_off")
+				AddOverlays("turret_frame_5b_[case_sprite_set]")
+				return TRUE
+
+			//attack_hand() removes the prox sensor
+
+		if(6)
+			if(istype(attacking_item, /obj/item/stack/material) && attacking_item.get_material_name() == DEFAULT_WALL_MATERIAL)
+				var/obj/item/stack/M = attacking_item
+				if(M.use(2))
+					to_chat(user, SPAN_NOTICE("You add some metal armor to the exterior frame."))
+					ClearOverlays()
+					icon_state = "turret_frame_5a_[case_sprite_set]"
+					AddOverlays("turret_[E.turret_sprite_set]_off")
+					AddOverlays("turret_frame_5c_[case_sprite_set]")
+					build_step = 7
+				else
+					to_chat(user, SPAN_WARNING("You need two sheets of metal to continue construction."))
+				return TRUE
+
+			else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
+				attacking_item.play_tool_sound(get_turf(src), 100)
+				build_step = 5
+				to_chat(user, SPAN_NOTICE("You open the access hatch."))
+				ClearOverlays()
+				icon_state = "turret_frame_4_[case_sprite_set]"
+				AddOverlays("turret_[E.turret_sprite_set]_off")
+				return TRUE
+
+		if(7)
+			if(attacking_item.tool_behaviour == TOOL_WELDER)
+				var/obj/item/weldingtool/WT = attacking_item
+				if(!WT.isOn()) return
+				if(WT.get_fuel() < 5)
+					to_chat(user, SPAN_NOTICE("You need more fuel to complete this task."))
+
+				playsound(loc, pick('sound/items/Welder.ogg', 'sound/items/welder_pry.ogg'), 50, 1)
+				if(attacking_item.use_tool(src, user, 30, volume = 50))
+					if(!src || !WT.use(5, user))
+						return
+					build_step = 8
+					to_chat(user, SPAN_NOTICE("You weld the turret's armor down."))
+
+					//The final step: create a full turret
+					var/obj/structure/machinery/porta_turret/Turret = new target_type(loc)
+					Turret.name = finish_name
+					Turret.installation = installation
+					Turret.gun_charge = E.power_supply.charge
+					Turret.enabled = 0
+
+					Turret.projectile = initial(E.projectile_type)
+					if(E.secondary_projectile_type)
+						Turret.eprojectile = E.secondary_projectile_type
+					else
+						Turret.eprojectile = E.projectile_type
+
+					Turret.shot_sound = initial(E.fire_sound)
+					if(E.secondary_fire_sound)
+						Turret.eshot_sound = E.secondary_fire_sound
+					else
+						Turret.eshot_sound = E.fire_sound
+					Turret.egun = E.can_switch_modes
+					Turret.sprite_set = E.turret_sprite_set
+					if(E.turret_is_lethal)
+						Turret.lethal_icon = 1
+					// Check if gun has wielded delay, turret will have same fire rate as the gun.
+					if(E.fire_delay_wielded > 0)
+						Turret.shot_delay = max(E.fire_delay_wielded, 4)
+					else
+						Turret.shot_delay = max(E.fire_delay, 4)
+
+					Turret.cover_set = case_sprite_set
+					Turret.icon_state = "cover_[case_sprite_set]"
+					START_PROCESSING_MACHINE(Turret, MACHINERY_PROCESS_SELF)
+					qdel(src) // qdel
+				return TRUE
+
+			else if(attacking_item.tool_behaviour == TOOL_CROWBAR)
+				attacking_item.play_tool_sound(get_turf(src), 75)
+				to_chat(user, SPAN_NOTICE("You pry off the turret's exterior armor."))
+				new /obj/item/stack/material/steel(loc, 2)
+				build_step = 6
+				ClearOverlays()
+				icon_state = "turret_frame_5a_[case_sprite_set]"
+				AddOverlays("turret_[E.turret_sprite_set]_off")
+				AddOverlays("turret_frame_5c_[case_sprite_set]")
+				return TRUE
+
+	if(attacking_item.tool_behaviour == TOOL_PEN)	//you can rename turrets like bots!
+		var/t = sanitizeSafe(input(user, "Enter new turret name", name, finish_name) as text, MAX_NAME_LEN)
+		if(t && in_range(src, usr) && loc != usr)
+			finish_name = t
+			return TRUE
+	return ..()
+
+
+/obj/structure/machinery/porta_turret_construct/attack_hand(mob/user)
+	switch(build_step)
+		if(4)
+			if(!installation)
+				return
+			build_step = 3
+			E.forceMove(src.loc)
+			installation = null
+			ClearOverlays()
+			icon_state = "turret_frame_3_[case_sprite_set]"
+			to_chat(user, SPAN_NOTICE("You remove [E.name] from the turret frame."))
+
+		if(5)
+			to_chat(user, SPAN_NOTICE("You remove the prox sensor from the turret frame."))
+			new /obj/item/assembly/prox_sensor(loc)
+			build_step = 4
+
+/obj/structure/machinery/porta_turret_construct/attack_ai()
+	return
+
+/atom/movable/porta_turret_cover
+	icon = 'icons/obj/turrets.dmi'
+
+
+//preset turrets
+
+/obj/structure/machinery/porta_turret/xray
+	installation = /obj/item/gun/energy/xray
+	lethal = 1
+	lethal_icon = 1
+	egun = 0
+	sprite_set = "xray"
+
+	eprojectile = /obj/projectile/beam/xray
+	eshot_sound	= 'sound/weapons/laser3.ogg'
+	req_one_access = list(ACCESS_SYNDICATE)
+
+/obj/structure/machinery/porta_turret/ion
+	installation = /obj/item/gun/energy/rifle/ionrifle
+	lethal = 0
+	lethal_icon = 0
+	egun = 1
+	sprite_set = "ion"
+
+	projectile = /obj/projectile/ion/stun
+	eprojectile = /obj/projectile/ion
+	shot_sound = 'sound/weapons/laser1.ogg'
+	eshot_sound	= 'sound/weapons/laser1.ogg'
+	req_one_access = list(ACCESS_SYNDICATE)
+
+/obj/structure/machinery/porta_turret/crossbow
+	installation = /obj/item/gun/energy/crossbow
+	lethal = 1
+	lethal_icon = 1
+	egun = 0
+	sprite_set = "crossbow"
+
+	eprojectile = /obj/projectile/energy/bolt/large
+	eshot_sound	= 'sound/weapons/Genhit.ogg'
+	req_one_access = list(ACCESS_SYNDICATE)
+
+/obj/structure/machinery/porta_turret/cannon
+	installation = /obj/item/gun/energy/rifle/laser/heavy
+	lethal = 1
+	lethal_icon = 1
+	egun = 0
+	sprite_set = "cannon"
+
+	eprojectile = /obj/projectile/beam/heavylaser
+	eshot_sound	= 'sound/weapons/lasercannonfire.ogg'
+	req_one_access = list(ACCESS_SYNDICATE)
+
+/obj/structure/machinery/porta_turret/pulse
+	installation = /obj/item/gun/energy/pulse
+	lethal = 1
+	lethal_icon = 1
+	egun = 0
+	sprite_set = "pulse"
+	no_salvage = TRUE
+
+	eprojectile = /obj/projectile/beam/pulse
+	eshot_sound	= 'sound/weapons/pulse.ogg'
+	req_one_access = list(ACCESS_SYNDICATE)
+
+/obj/structure/machinery/porta_turret/sniper
+	installation = /obj/item/gun/energy/rifle/laser/sniper
+	lethal = 1
+	lethal_icon = 1
+	egun = 0
+	sprite_set = "sniper"
+	no_salvage = TRUE
+
+	eprojectile = /obj/projectile/beam/sniper
+	eshot_sound	= 'sound/weapons/marauder.ogg'
+	req_one_access = list(ACCESS_SYNDICATE)
+
+/obj/structure/machinery/porta_turret/net
+	installation = /obj/item/gun/energy/net
+	lethal = 1
+	lethal_icon = 1
+	egun = 0
+	sprite_set = "net"
+
+	eprojectile = /obj/projectile/beam/energy_net
+	eshot_sound	= 'sound/weapons/plasma_cutter.ogg'
+	req_one_access = list(ACCESS_SYNDICATE)
+
+/obj/structure/machinery/porta_turret/thermal
+	installation = /obj/item/gun/energy/vaurca/thermaldrill
+	lethal = 1
+	lethal_icon = 1
+	egun = 0
+	sprite_set = "thermaldrill"
+
+	eprojectile = /obj/projectile/beam/thermaldrill
+	eshot_sound	= 'sound/magic/lightningbolt.ogg'
+	req_one_access = list(ACCESS_SYNDICATE)
+
+/obj/structure/machinery/porta_turret/meteor
+	installation = /obj/item/gun/energy/meteorgun
+	lethal = 1
+	lethal_icon = 1
+	egun = 0
+	sprite_set = "meteor"
+	no_salvage = TRUE
+
+	eprojectile = /obj/projectile/meteor
+	eshot_sound	= 'sound/weapons/lasercannonfire.ogg'
+	req_one_access = list(ACCESS_SYNDICATE)
+
+/obj/structure/machinery/porta_turret/ballistic
+	installation = /obj/item/gun/energy/mountedsmg
+	lethal = 1
+	lethal_icon = 1
+	egun = 0
+	sprite_set = "ballistic"
+	no_salvage = TRUE
+
+	eprojectile = /obj/projectile/bullet/pistol/medium
+	eshot_sound	= 'sound/weapons/gunshot/gunshot_saw.ogg'
+
+	req_one_access = list(ACCESS_SYNDICATE)
+
+/obj/structure/machinery/porta_turret/legion
+	enabled = 0
+	use_power = POWER_USE_OFF
+	icon_state = "cover_legion"
+	lethal = 1
+	lethal_icon = 1
+	egun = 0
+	installation = /obj/item/gun/energy/blaster/carbine
+	sprite_set = "blaster"
+	cover_set = "legion"
+	eprojectile = /obj/projectile/energy/blaster/heavy
+
+	check_arrest = 0
+	check_records = 0
+	check_access = 1
+	ailock = 1
+	req_one_access = list(ACCESS_LEGION, ACCESS_TCAF_SHIPS)
+
+/obj/structure/machinery/porta_turret/hologram
+	name = "warrior statue"
+	desc = "An ancient and crumbling sandstone statue of an Unathi. This one is armored, and wields a war scythe."
+	name_override = TRUE
+	icon_state = "cover_holo"
+	light_range = 0
+	light_power = 1
+	installation = /obj/item/gun/energy/mountedsmg
+	lethal = 1
+	lethal_icon = 1
+	egun = 0
+	sprite_set = "ballistic"
+	cover_set = "holo"
+	eprojectile = /obj/projectile/bullet/pistol/medium
+	eshot_sound	= 'sound/weapons/gunshot/gunshot_saw.ogg'
+	no_salvage = TRUE
+	req_one_access = list(ACCESS_SYNDICATE)
+
+#undef TURRET_PRIORITY_TARGET
+#undef TURRET_SECONDARY_TARGET
+#undef TURRET_NOT_TARGET

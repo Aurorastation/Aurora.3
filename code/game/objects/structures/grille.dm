@@ -67,7 +67,7 @@
 		/obj/structure/window/full/phoron/reinforced,
 		/obj/structure/window/shuttle/scc_space_ship,
 		/turf/simulated/wall/shuttle/scc_space_ship,
-		/obj/machinery/door
+		/obj/structure/machinery/door
 	)
 	blend_overlay = "wall"
 	attach_overlay = "attach"

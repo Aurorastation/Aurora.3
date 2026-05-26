@@ -1,5 +1,5 @@
 /atom/movable/screen/vampire
-	icon = 'icons/mob/screen/vampire.dmi'
+	icon = 'icons/hud/mob/vampire.dmi'
 	maptext_x = 5
 	maptext_y = 16
 

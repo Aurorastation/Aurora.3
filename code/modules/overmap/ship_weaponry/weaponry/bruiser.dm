@@ -1,4 +1,4 @@
-/obj/machinery/ship_weapon/bruiser
+/obj/structure/machinery/ship_weapon/bruiser
 	name = "bruiser cannon II"
 	desc = "Among the Hegemony's earliest forays into ranged weaponry for their military ships, newer models of the Bruiser remain common on Hegemony ships. Older designs of the weapon popular among many Unathi sailors - including pirates - for their extreme simplicity, allowing them to fire handcrafted ammunition with minimal modification."
 	desc_extended = "The Hegemony Model I 'Bruiser' was the first spaceship-mounted weapon to be designed by Izweski engineers - a simple enough design for a heavy ballistic cannon. The Bruiser is also notable for the light weight of its ammunition, allowing an Unathi to carry a shell without need of mechanical assistance - minimizing the expensive equipment that a vessel might require to fight. The Model I Bruiser was inaccurate, slow to fire and prone to overheating, leading to the design of the commonly-used Hegemony Model II 'Bruiser', largely seen on the corvettes and destroyers of the Izweski Navy. The Model II is faster, more accurate and capable of firing at much higher velocities, enabling the smaller ships of the Navy to punch above their weight class in battle."
@@ -11,7 +11,7 @@
 	screenshake_type = SHIP_GUN_SCREENSHAKE_SCREEN
 	load_time = 4 SECONDS
 
-/obj/machinery/ammunition_loader/bruiser
+/obj/structure/machinery/ammunition_loader/bruiser
 	name = "bruiser ammunition loader"
 	icon_state = "ammo_loader_unathi"
 

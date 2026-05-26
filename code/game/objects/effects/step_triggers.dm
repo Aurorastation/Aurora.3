@@ -115,7 +115,7 @@
 
 /* Tosses things in a certain direction */
 /obj/effect/step_trigger/thrower
-	icon = 'icons/mob/screen/generic.dmi'
+	icon = 'icons/hud/mob/generic.dmi'
 	icon_state = "dir_arrow"
 	var/direction = SOUTH // the direction of throw
 	var/tiles = 3 // if 0: forever until atom hits a stopper

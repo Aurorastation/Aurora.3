@@ -3,7 +3,7 @@
 // with the kinetic harvester than they put into the
 // field in the first place.
 
-/obj/machinery/fusion_fuel_compressor
+/obj/structure/machinery/fusion_fuel_compressor
 	name = "fuel compressor"
 	icon = 'icons/obj/machinery/fusion.dmi'
 	icon_state = "fuel_compressor1"
@@ -11,15 +11,15 @@
 	anchored = TRUE
 	layer = 4
 
-/obj/machinery/fusion_fuel_compressor/mouse_drop_receive(atom/dropped, mob/user, params)
+/obj/structure/machinery/fusion_fuel_compressor/mouse_drop_receive(atom/dropped, mob/user, params)
 	if(user.incapacitated() || !user.Adjacent(src))
 		return
 	return do_fuel_compression(dropped, user)
 
-/obj/machinery/fusion_fuel_compressor/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/fusion_fuel_compressor/attackby(obj/item/attacking_item, mob/user)
 	return do_fuel_compression(attacking_item, user) || ..()
 
-/obj/machinery/fusion_fuel_compressor/proc/do_fuel_compression(obj/item/thing, mob/user)
+/obj/structure/machinery/fusion_fuel_compressor/proc/do_fuel_compression(obj/item/thing, mob/user)
 	if(istype(thing) && thing.reagents && thing.reagents.total_volume && thing.is_open_container())
 		if(length(thing.reagents.reagent_volumes) > 1)
 			to_chat(user, SPAN_WARNING("The contents of \the [thing] are impure and cannot be used as fuel."))
@@ -33,7 +33,7 @@
 		thing.reagents.remove_reagent(R.type, 100)
 		user.put_in_hands(F)
 		return 1
-	else if(istype(thing, /obj/machinery/power/supermatter/shard))
+	else if(istype(thing, /obj/structure/machinery/power/supermatter/shard))
 		var/obj/item/fuel_assembly/F = new(get_turf(src), MATERIAL_SUPERMATTER)
 		visible_message(SPAN_NOTICE("\The [src] compresses \the [thing] into a new fuel assembly."))
 		qdel(thing)

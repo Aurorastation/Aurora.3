@@ -73,7 +73,7 @@
 	var/damageoverlaytemp = 0
 	var/computer_id = null
 	var/character_id = 0
-	var/obj/machinery/machine = null
+	var/obj/structure/machinery/machine = null
 	var/height = HEIGHT_NOT_USED
 	var/sdisabilities = 0				//Carbon
 	var/disabilities = 0				//Carbon
@@ -127,7 +127,7 @@
 	var/emote_type = 1		// Define emote default type, 1 for seen emotes, 2 for heard emotes
 	var/facing_dir = null   // Used for the ancient art of moonwalking.
 
-	var/obj/machinery/hologram/holopad/holo = null
+	var/obj/structure/machinery/hologram/holopad/holo = null
 
 	var/name_archive //For admin things like possession
 

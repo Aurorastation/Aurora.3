@@ -1,7 +1,7 @@
 //---------- external shield generator
 //generates an energy field that loops around any built up area in space (is useless inside) halts movement and airflow, is blocked by walls, windows, airlocks etc
 
-/obj/machinery/shield_gen/external
+/obj/structure/machinery/shield_gen/external
 	name = "hull shield generator"
 
 	component_types = list(
@@ -17,7 +17,7 @@
 	)
 
 //Search for space turfs within range that are adjacent to a simulated turf.
-/obj/machinery/shield_gen/external/get_shielded_turfs()
+/obj/structure/machinery/shield_gen/external/get_shielded_turfs()
 	var/list/out = list()
 
 	var/turf/gen_turf = get_turf(src)

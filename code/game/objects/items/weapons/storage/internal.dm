@@ -105,7 +105,7 @@
 
 /obj/item/storage/internal/skrell
 	name = "headtail storage"
-	icon = 'icons/obj/action_buttons/organs.dmi'
+	icon = 'icons/hud/action_buttons/organs.dmi'
 	icon_state = "skrell_headpocket"
 	storage_slots = 1
 	max_storage_space = 2

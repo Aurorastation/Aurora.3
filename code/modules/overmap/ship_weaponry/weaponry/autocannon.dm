@@ -1,4 +1,4 @@
-/obj/machinery/ship_weapon/autocannon
+/obj/structure/machinery/ship_weapon/autocannon
 	name = "goshawk heavy autocannon"
 	desc = "This rugged thing is a Kumar Arms Goshawk heavy autocannon, developed originally in 2456 and ubiqutous in certain circles ever since. A heavier predecessor to the later Francisca rotary gun developed some years after, this fires 60mm shells large enough to rend walls apart outright, reducing hulls to a pepppered gore of scrap metal under sustained fire. Its simplicity is only eclipsed by its efficiency, and such models are not expected to be leaving active service in both military and civilian hands anytime soon despite their advancing age."
 	icon = 'icons/obj/machinery/ship_guns/autocannon.dmi'
@@ -8,7 +8,7 @@
 	caliber = SHIP_CALIBER_60MM
 	screenshake_type = SHIP_GUN_SCREENSHAKE_SCREEN
 
-/obj/machinery/ammunition_loader/autocannon
+/obj/structure/machinery/ammunition_loader/autocannon
 	name = "autocannon ammunition loader"
 
 /obj/item/ship_ammunition/autocannon

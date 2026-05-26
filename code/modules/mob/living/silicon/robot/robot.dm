@@ -81,7 +81,7 @@
 	// Internal components (non-datum)
 	var/obj/item/cell/cell
 	var/obj/item/radio/borg/radio
-	var/obj/machinery/camera/camera
+	var/obj/structure/machinery/camera/camera
 	var/obj/item/mmi/mmi
 	var/obj/item/stock_parts/matter_bin/storage
 	var/obj/item/tank/jetpack/carbondioxide/synthetic/jetpack
@@ -162,7 +162,7 @@
 	common_radio = radio
 
 	if(!camera)
-		camera = new /obj/machinery/camera(src, 0, TRUE, TRUE)
+		camera = new /obj/structure/machinery/camera(src, 0, TRUE, TRUE)
 		camera.c_tag = real_name
 		if(!scrambled_codes)
 			camera.replace_networks(list(NETWORK_STATION, NETWORK_ROBOTS))

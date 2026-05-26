@@ -5,7 +5,7 @@
 //heavy explosion range will do 3 renwick's damage
 //explosion damage is cumulative. if a tile is in range of light, medium and heavy damage, it will take a hit from all three
 
-/obj/machinery/shield_gen
+/obj/structure/machinery/shield_gen
 	name = "bubble shield generator"
 	desc = "Machine that generates an impenetrable field of energy when activated."
 	icon = 'icons/obj/machinery/shielding.dmi'
@@ -48,14 +48,14 @@
 		/obj/item/stack/cable_coil = 5
 	)
 
-/obj/machinery/shield_gen/Initialize()
+/obj/structure/machinery/shield_gen/Initialize()
 	owned_capacitors = list()
-	for(var/obj/machinery/shield_capacitor/possible_cap in range(1, src)) //Attach nearby capacitors
+	for(var/obj/structure/machinery/shield_capacitor/possible_cap in range(1, src)) //Attach nearby capacitors
 		attach_capacitor(possible_cap)
 	energy_field = new(src, get_shielded_turfs())
 	. = ..()
 
-/obj/machinery/shield_gen/Destroy()
+/obj/structure/machinery/shield_gen/Destroy()
 	for(var/obj/machinery/shield_capacitor/cap in owned_capacitors) //Detach any owned capacitors
 		detach_capacitor(cap)
 	owned_capacitors = list()
@@ -71,7 +71,7 @@
 	. += SPAN_NOTICE("\t- The current field dissipation rate decrease is: <b>[(initial(energy_field.dissipation_rate) - (2 * micro_laser_bonus)) / energy_field.dissipation_rate * 100]%</b>")
 
 
-/obj/machinery/shield_gen/emag_act(var/remaining_charges, var/mob/user)
+/obj/structure/machinery/shield_gen/emag_act(var/remaining_charges, var/mob/user)
 	if(prob(75))
 		locked = !locked
 		to_chat(user, "Controls are now [locked ? "locked." : "unlocked."]")
@@ -80,7 +80,7 @@
 
 	spark(src, 5, GLOB.alldirs)
 
-/obj/machinery/shield_gen/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/shield_gen/attackby(obj/item/attacking_item, mob/user)
 	if(default_part_replacement(user, attacking_item))
 		return TRUE
 	else if(default_deconstruction_screwdriver(user, attacking_item))
@@ -104,7 +104,7 @@
 		if(anchored)
 			// Attach nearby capacitors wrenching down the shield
 			owned_capacitors = list()
-			for(var/obj/machinery/shield_capacitor/cap in range(1, src))
+			for(var/obj/structure/machinery/shield_capacitor/cap in range(1, src))
 				attach_capacitor(cap)
 		else
 			// Detach any owned capacitors when unwrenching
@@ -134,16 +134,16 @@
 		energy_field.dissipation_rate = max(0, initial(energy_field.dissipation_rate) - (dissipation_rate_decrease * micro_laser_bonus))
 		energy_field.strengthen_rate = min(energy_field.strengthen_rate, energy_field.max_strengthen_rate) ///If the strengthen rate got decreased and the current strengthen rate is now above the max, reduce it to the max.
 
-/obj/machinery/shield_gen/attack_ai(mob/user)
+/obj/structure/machinery/shield_gen/attack_ai(mob/user)
 	if(!ai_can_interact(user))
 		return
 
-/obj/machinery/shield_gen/attack_hand(mob/user)
+/obj/structure/machinery/shield_gen/attack_hand(mob/user)
 	if(stat & BROKEN)
 		return
 	interact(user)
 
-/obj/machinery/shield_gen/interact(mob/user)
+/obj/structure/machinery/shield_gen/interact(mob/user)
 	if(locked)
 		to_chat(user, SPAN_WARNING("The device is locked. Swipe your ID to unlock it."))
 		return
@@ -157,7 +157,7 @@
 					cap.owned_gen = null
 				owned_capacitors -= cap
 	if(!owned_capacitors || owned_capacitors.len == 0) // Try to attach any valid adjacent capacitors
-		for(var/obj/machinery/shield_capacitor/cap in range(1, src))
+		for(var/obj/structure/machinery/shield_capacitor/cap in range(1, src))
 			attach_capacitor(cap)
 	return ui_interact(user)
 
@@ -183,7 +183,7 @@
 	updateDialog()
 	return TRUE
 
-/obj/machinery/shield_gen/process()
+/obj/structure/machinery/shield_gen/process()
 	if(active)
 		if(!anchored)
 			toggle()
@@ -199,7 +199,7 @@
 /**
  * Called whenever the field needs to take charge from attached capacitors.
  */
-/obj/machinery/shield_gen/proc/assume_charge(required_energy)
+/obj/structure/machinery/shield_gen/proc/assume_charge(required_energy)
 	if(!owned_capacitors || owned_capacitors.len == 0)
 		return 0
 	var/list/active_capacitors = list()
@@ -233,12 +233,12 @@
 
 	return assumed_charge - remaining
 
-/obj/machinery/shield_gen/ex_act(var/severity)
+/obj/structure/machinery/shield_gen/ex_act(var/severity)
 	if(active)
 		toggle()
 	return ..()
 
-/obj/machinery/shield_gen/proc/toggle()
+/obj/structure/machinery/shield_gen/proc/toggle()
 	if(!active)
 		if(!owned_capacitors || owned_capacitors.len == 0)
 			balloon_alert_to_viewers("no capacitor")
@@ -263,7 +263,7 @@
 			to_chat(M, SPAN_NOTICE("[icon2html(src, M)] You hear heavy droning fade out."))
 			energy_field.clear_field()
 
-/obj/machinery/shield_gen/update_icon()
+/obj/structure/machinery/shield_gen/update_icon()
 	if(stat & BROKEN)
 		icon_state = "broke"
 	else
@@ -273,7 +273,7 @@
 			icon_state = "generator0"
 
 //grab the border tiles in a square around this machine
-/obj/machinery/shield_gen/proc/get_shielded_turfs()
+/obj/structure/machinery/shield_gen/proc/get_shielded_turfs()
 	var/turf/T = get_turf(src)
 	. = list()
 
@@ -305,13 +305,13 @@
 
 	return . - get_turf(src)
 
-/obj/machinery/shield_gen/ui_interact(mob/user, var/datum/tgui/ui)
+/obj/structure/machinery/shield_gen/ui_interact(mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "ShieldGenerator", "Shield Generator", 480, 400)
 		ui.open()
 
-/obj/machinery/shield_gen/ui_data(mob/user)
+/obj/structure/machinery/shield_gen/ui_data(mob/user)
 	var/list/data = list()
 
 	data["owned_capacitor"] = (owned_capacitors && owned_capacitors.len > 0)
@@ -326,7 +326,7 @@
 
 	return data
 
-/obj/machinery/shield_gen/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/obj/structure/machinery/shield_gen/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
@@ -349,7 +349,7 @@
 
 	add_fingerprint(usr)
 
-/obj/machinery/shield_gen/proc/getzabove(var/turf/location)
+/obj/structure/machinery/shield_gen/proc/getzabove(var/turf/location)
 	var/connected = list()
 	var/turf/above = GET_TURF_ABOVE(location)
 
@@ -361,7 +361,7 @@
 
 	return connected
 
-/obj/machinery/shield_gen/proc/getzbelow(var/turf/location)
+/obj/structure/machinery/shield_gen/proc/getzbelow(var/turf/location)
 	var/connected = list()
 	var/turf/below = GET_TURF_BELOW(location)
 

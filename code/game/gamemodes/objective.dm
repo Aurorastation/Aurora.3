@@ -674,15 +674,15 @@ GLOBAL_LIST_EMPTY(process_objectives)
 			target_amount = 6
 			loot = "a complete particle accelerator"
 		if(2)
-			target = /obj/machinery/the_singularitygen
+			target = /obj/structure/machinery/the_singularitygen
 			target_amount = 1
 			loot = "a gravitational generator"
 		if(3)
-			target = /obj/machinery/power/emitter
+			target = /obj/structure/machinery/power/emitter
 			target_amount = 4
 			loot = "four emitters"
 		if(4)
-			target = /obj/machinery/nuclearbomb
+			target = /obj/structure/machinery/nuclearbomb
 			target_amount = 1
 			loot = "a nuclear bomb"
 		if(5)

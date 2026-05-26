@@ -89,7 +89,7 @@
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
 
-/obj/machinery/computer/shuttle_control/explore/tajaran_smuggler_shuttle
+/obj/structure/machinery/computer/shuttle_control/explore/tajaran_smuggler_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Adhomian Freight Shuttle"
 
@@ -128,6 +128,6 @@
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
 
-/obj/machinery/computer/shuttle_control/explore/tajaran_smuggler_cargo
+/obj/structure/machinery/computer/shuttle_control/explore/tajaran_smuggler_cargo
 	name = "cargo ejection control console"
 	shuttle_tag = "Adhomian Freight Cargo"
