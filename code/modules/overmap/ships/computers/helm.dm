@@ -311,7 +311,7 @@
 	add_fingerprint(usr)
 	SStgui.update_uis(src)
 
-/obj/machinery/computer/ship/helm/proc/refresh_ui()
+/obj/structure/machinery/computer/ship/helm/proc/refresh_ui()
 	SStgui.update_uis(src)
 
 /obj/structure/machinery/computer/ship/navigation
