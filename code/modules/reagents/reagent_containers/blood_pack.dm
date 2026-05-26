@@ -236,7 +236,7 @@
 									var/mob/living/carbon/human/K = A
 									K.bloody_body()
 									break spray_loop
-								if ((!istype(A, /obj/) && A.density) || istype(A, /obj/structure/window/) || istype(A, /obj/machinery/door/airlock/))
+								if ((!istype(A, /obj/) && A.density) || istype(A, /obj/structure/window/) || istype(A, /obj/structure/machinery/door/airlock/))
 									break spray_loop
 							blood_splatter(target, null, 1)
 			blood_splatter(src.loc, null, 1)

@@ -4,9 +4,9 @@ GLOBAL_LIST_INIT_TYPED(ship_engines, /datum/ship_engine, list())
 
 /datum/ship_engine
 	var/name = "ship engine"
-	var/obj/machinery/holder	//actual engine object
+	var/obj/structure/machinery/holder	//actual engine object
 
-/datum/ship_engine/New(var/obj/machinery/_holder)
+/datum/ship_engine/New(var/obj/structure/machinery/_holder)
 	..()
 	holder = _holder
 	GLOB.ship_engines += src

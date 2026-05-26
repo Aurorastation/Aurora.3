@@ -8,7 +8,7 @@
 #define RC_SPIKE_DURATION_LO 5       // seconds a single spike lasts (lower bound)
 #define RC_SPIKE_DURATION_HI 7       // seconds a single spike lasts (upper bound)
 
-/obj/machinery/radiocarbon_spectrometer
+/obj/structure/machinery/radiocarbon_spectrometer
 	name = "radiocarbon spectrometer"
 	desc = "A specialised, complex scanner for gleaning information on all manner of small things."
 	anchored = TRUE
@@ -65,7 +65,7 @@
 	var/t_to_next_spike = 0
 	var/rad_shield = FALSE
 
-/obj/machinery/radiocarbon_spectrometer/Initialize()
+/obj/structure/machinery/radiocarbon_spectrometer/Initialize()
 	. = ..()
 	create_reagents(500)
 	coolant_reagents_purity[/singleton/reagent/water] = 0.5
@@ -81,10 +81,10 @@
 	coolant_reagents_purity[/singleton/reagent/coolant] = 1
 	coolant_reagents_purity[/singleton/reagent/adminordrazine] = 2
 
-/obj/machinery/radiocarbon_spectrometer/attack_hand(mob/user)
+/obj/structure/machinery/radiocarbon_spectrometer/attack_hand(mob/user)
 	ui_interact(user)
 
-/obj/machinery/radiocarbon_spectrometer/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/radiocarbon_spectrometer/attackby(obj/item/attacking_item, mob/user)
 	if(scanning)
 		to_chat(user, SPAN_WARNING("You can't do that while [src] is scanning!"))
 	else
@@ -119,7 +119,7 @@
 		scanned_item = attacking_item
 		to_chat(user, "<span class=notice>You put \the [attacking_item] into \the [src].</span>")
 
-/obj/machinery/radiocarbon_spectrometer/proc/update_coolant()
+/obj/structure/machinery/radiocarbon_spectrometer/proc/update_coolant()
 	var/total_purity = 0
 	fresh_coolant = 0
 	coolant_purity = 0
@@ -137,7 +137,7 @@
 	if(total_purity && fresh_coolant)
 		coolant_purity = total_purity / fresh_coolant
 
-/obj/machinery/radiocarbon_spectrometer/ui_interact(mob/user, datum/tgui/ui)
+/obj/structure/machinery/radiocarbon_spectrometer/ui_interact(mob/user, datum/tgui/ui)
 	if(user.stat)
 		return
 	ui = SStgui.try_update_ui(user, src, ui)
@@ -145,7 +145,7 @@
 		ui = new(user, src, "GeoScanner", "High Res Radiocarbon Spectrometer")
 		ui.open()
 
-/obj/machinery/radiocarbon_spectrometer/ui_data(mob/user)
+/obj/structure/machinery/radiocarbon_spectrometer/ui_data(mob/user)
 	return list(
 		"scanned_item" = scanned_item ? scanned_item.name : "",
 		"scanned_item_desc" = scanned_item ? (scanned_item.desc ? scanned_item.desc : "No information on record.") : "",
@@ -169,7 +169,7 @@
 		"rad_shield_on" = rad_shield
 	)
 
-/obj/machinery/radiocarbon_spectrometer/process()
+/obj/structure/machinery/radiocarbon_spectrometer/process()
 	if(scanning)
 		if(!scanned_item || scanned_item.loc != src)
 			scanned_item = null
@@ -265,7 +265,7 @@
 			visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] [pick("plinks","hisses")][pick(" quietly"," softly"," sadly"," plaintively")]."), range = 2)
 	last_process_worldtime = world.time
 
-/obj/machinery/radiocarbon_spectrometer/proc/stop_scanning()
+/obj/structure/machinery/radiocarbon_spectrometer/proc/stop_scanning()
 	scanning = FALSE
 	scanner_rpm_dir = 1
 	scanner_rpm = 0
@@ -281,7 +281,7 @@
 		src.reagents.remove_any(used_coolant)
 		used_coolant = 0
 
-/obj/machinery/radiocarbon_spectrometer/proc/complete_scan()
+/obj/structure/machinery/radiocarbon_spectrometer/proc/complete_scan()
 	visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] makes an insistent chime."), range = 2)
 
 	if(scanned_item)
@@ -344,7 +344,7 @@
 		scanned_item.forceMove(src.loc)
 		scanned_item = null
 
-/obj/machinery/radiocarbon_spectrometer/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/obj/structure/machinery/radiocarbon_spectrometer/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return

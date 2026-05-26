@@ -1,5 +1,5 @@
 ///Processes the current build, incrementing its remaining time and handling removing it from the print queue
-/obj/machinery/fabricator/proc/update_current_build(spend_time)
+/obj/structure/machinery/fabricator/proc/update_current_build(spend_time)
 
 	if(!istype(currently_printing) || !is_functioning())
 		return
@@ -20,7 +20,7 @@
 	get_next_build()
 	update_icon()
 
-/obj/machinery/fabricator/proc/start_building()
+/obj/structure/machinery/fabricator/proc/start_building()
 	if(!(fab_status_flags & FAB_BUSY) && is_functioning())
 		//Start the fabricator's looping sound
 		if (fabricator_looping_sound == null)
@@ -30,7 +30,7 @@
 		update_use_power(POWER_USE_ACTIVE)
 		update_icon()
 
-/obj/machinery/fabricator/proc/stop_building()
+/obj/structure/machinery/fabricator/proc/stop_building()
 	fabricator_looping_sound.stop()
 	QDEL_NULL(fabricator_looping_sound)
 	if(fab_status_flags & FAB_BUSY)
@@ -39,7 +39,7 @@
 		update_icon()
 		STOP_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 
-/obj/machinery/fabricator/proc/get_next_build()
+/obj/structure/machinery/fabricator/proc/get_next_build()
 	currently_printing = null
 	if(length(print_queue))
 		currently_printing = print_queue[1]
@@ -49,7 +49,7 @@
 	SStgui.update_uis(src)
 
 ///Tries to build the next item in the fabricator's queue
-/obj/machinery/fabricator/proc/try_queue_build(singleton/fabricator_recipe/recipe, multiplier)
+/obj/structure/machinery/fabricator/proc/try_queue_build(singleton/fabricator_recipe/recipe, multiplier)
 
 	// Do some basic sanity checking.
 	if(!is_functioning() || !istype(recipe) || !(recipe in SSfabrication.get_recipes(fabricator_class)) || !can_print_item(recipe))
@@ -83,7 +83,7 @@
 		start_building()
 
 ///Tries to cancel the build order
-/obj/machinery/fabricator/proc/try_cancel_build(datum/fabricator_build_order/order)
+/obj/structure/machinery/fabricator/proc/try_cancel_build(datum/fabricator_build_order/order)
 	if(istype(order) && currently_printing != order && is_functioning())
 		if(order in print_queue)
 			// Refund some mats.
@@ -95,7 +95,7 @@
 	return FALSE
 
 ///Determines whether the recipe is valid to print in this fabricator. Checks for hacked status and ship security levels.
-/obj/machinery/fabricator/proc/can_print_item(singleton/fabricator_recipe/recipe)
+/obj/structure/machinery/fabricator/proc/can_print_item(singleton/fabricator_recipe/recipe)
 	var/ship_security_level = seclevel2num(get_security_level())
 	var/is_on_ship = is_station_level(z) // since ship security levels are global FOR NOW, we'll ignore the alert check for offship fabricators
 

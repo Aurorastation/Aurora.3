@@ -66,22 +66,22 @@
 	for(var/obj/effect/landmark/engine_setup/coolant_canister/C in GLOB.landmarks_list)
 		switch(response)
 			if(OPT_CARBONDIOXIDE)
-				C.canister_type = /obj/machinery/portable_atmospherics/canister/carbon_dioxide
+				C.canister_type = /obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide
 				continue
 			if(OPT_HYDROGEN)
-				C.canister_type = /obj/machinery/portable_atmospherics/canister/phoron
+				C.canister_type = /obj/structure/machinery/portable_atmospherics/canister/phoron
 				continue
 			if(OPT_NITROGEN)
-				C.canister_type = /obj/machinery/portable_atmospherics/canister/nitrogen
+				C.canister_type = /obj/structure/machinery/portable_atmospherics/canister/nitrogen
 				continue
 			if(OPT_NITROUSOXIDE)
-				C.canister_type = /obj/machinery/portable_atmospherics/canister/sleeping_agent
+				C.canister_type = /obj/structure/machinery/portable_atmospherics/canister/sleeping_agent
 				continue
 			if(OPT_OXYGEN)
-				C.canister_type = /obj/machinery/portable_atmospherics/canister/oxygen
+				C.canister_type = /obj/structure/machinery/portable_atmospherics/canister/oxygen
 				continue
 			if(OPT_PHORON)
-				C.canister_type = /obj/machinery/portable_atmospherics/canister/hydrogen
+				C.canister_type = /obj/structure/machinery/portable_atmospherics/canister/hydrogen
 				continue
 			else
 				to_chat(usr, SPAN_DANGER("Did not find canister type for '[response]'! Aborting."))
@@ -199,7 +199,7 @@
 
 /obj/effect/landmark/engine_setup/pump_max/activate()
 	..()
-	var/obj/machinery/atmospherics/binary/pump/P = locate() in get_turf(src)
+	var/obj/structure/machinery/atmospherics/binary/pump/P = locate() in get_turf(src)
 	if(!P)
 		log_and_message_admins("## WARNING: Unable to locate pump at [x] [y] [z]!")
 		return SETUP_WARNING
@@ -215,11 +215,11 @@
 
 /obj/effect/landmark/engine_setup/empty_canister/activate()
 	..()
-	var/obj/machinery/atmospherics/portables_connector/P = locate() in get_turf(src)
+	var/obj/structure/machinery/atmospherics/portables_connector/P = locate() in get_turf(src)
 	if(!P)
 		log_and_message_admins("## WARNING: Unable to locate connector port at [x] [y] [z]!")
 		return SETUP_WARNING
-	new/obj/machinery/portable_atmospherics/canister(get_turf(src)) // Canisters automatically connect to connectors in New()
+	new/obj/structure/machinery/portable_atmospherics/canister(get_turf(src)) // Canisters automatically connect to connectors in New()
 	return SETUP_OK
 
 
@@ -231,7 +231,7 @@
 
 /obj/effect/landmark/engine_setup/coolant_canister/activate()
 	..()
-	var/obj/machinery/atmospherics/portables_connector/P = locate() in get_turf(src)
+	var/obj/structure/machinery/atmospherics/portables_connector/P = locate() in get_turf(src)
 	if(!P)
 		log_and_message_admins("## ERROR: Unable to locate coolant connector port at [x] [y] [z]!")
 		return SETUP_ERROR
@@ -251,7 +251,7 @@
 	if(!last)
 		return SETUP_DELAYED
 	..()
-	var/obj/machinery/power/supermatter/SM = locate() in get_turf(src)
+	var/obj/structure/machinery/power/supermatter/SM = locate() in get_turf(src)
 	if(!SM)
 		log_and_message_admins("## ERROR: Unable to locate supermatter core at [x] [y] [z]!")
 		return SETUP_ERROR
@@ -268,7 +268,7 @@
 
 /obj/effect/landmark/engine_setup/smes/activate()
 	..()
-	var/obj/machinery/power/smes/S = locate() in get_turf(src)
+	var/obj/structure/machinery/power/smes/S = locate() in get_turf(src)
 	if(!S)
 		log_and_message_admins("## WARNING: Unable to locate SMES unit at [x] [y] [z]!")
 		return SETUP_WARNING
@@ -287,7 +287,7 @@
 
 /obj/effect/landmark/engine_setup/filter/activate()
 	..()
-	var/obj/machinery/atmospherics/omni/filter/F = locate() in get_turf(src)
+	var/obj/structure/machinery/atmospherics/omni/filter/F = locate() in get_turf(src)
 	if(!F)
 		log_and_message_admins("## WARNING: Unable to locate omni filter at [x] [y] [z]!")
 		return SETUP_WARNING
@@ -315,7 +315,7 @@
 
 /obj/effect/landmark/engine_setup/freezer/activate()
 	..()
-	var/obj/machinery/atmospherics/unary/freezer/F = locate() in get_turf(src)
+	var/obj/structure/machinery/atmospherics/unary/freezer/F = locate() in get_turf(src)
 	if(!F)
 		log_and_message_admins("## WARNING: Unable to locate freezer at [x] [y] [z]!")
 		return SETUP_WARNING

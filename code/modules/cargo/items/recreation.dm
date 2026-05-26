@@ -162,7 +162,7 @@
 	description = "A common sight in any modern space bar, this jukebox has all the space classics."
 	price = 500
 	items = list(
-		/obj/machinery/media/jukebox
+		/obj/structure/machinery/media/jukebox
 	)
 	access = 0
 	container_type = "box"
@@ -176,7 +176,7 @@
 	description = "An Adhomian record player."
 	price = 700
 	items = list(
-		/obj/machinery/media/jukebox/phonograph
+		/obj/structure/machinery/media/jukebox/phonograph
 	)
 	access = 0
 	container_type = "box"

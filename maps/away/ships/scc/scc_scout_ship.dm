@@ -90,7 +90,7 @@
 	designation = "[pick("Dew Point", "Monsoon", "Cyclogenesis", "Warm Fronts", "Moisture Deficit", "Borealis", "Surface Tension", "Precipitation", "Oscillation", "Coalescence", "Double Rainbow", "Through a Cloud, Darkly", "Relative Humidity", "Evapotranspiration", "Alluvial Plain", "Dehydration", "Hydrophobia", "The Rain Formerly Known as Purple", "Lacrimosum", "Island of Ignorance", "Intertropical", "Once in a Lullaby", "A Boat Made from a Sheet of Newspaper", "Flood Control")]"
 	..()
 
-/obj/machinery/computer/shuttle_control/explore/terminal/scc_scout_shuttle
+/obj/structure/machinery/computer/shuttle_control/explore/terminal/scc_scout_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "SCC Scout Shuttle"
 

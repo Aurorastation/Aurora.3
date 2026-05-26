@@ -290,7 +290,7 @@
 		playsound(src, 'sound/items/rfd_empty.ogg', 20, FALSE)
 		failed_to_seal = 1
 
-	var/is_in_cycler = istype(initiator.loc, /obj/machinery/suit_cycler)
+	var/is_in_cycler = istype(initiator.loc, /obj/structure/machinery/suit_cycler)
 	seal_delay = is_in_cycler ? 1 : initial(seal_delay)
 
 	var/jumpsuit_was_hidden = FALSE
@@ -1180,7 +1180,7 @@
 		wearer_move_delay = world.time
 		return wearer.buckled_to.relaymove(wearer, direction)
 
-	if(istype(wearer.machine, /obj/machinery))
+	if(istype(wearer.machine, /obj/structure/machinery))
 		if(wearer.machine.relaymove(wearer, direction))
 			return
 

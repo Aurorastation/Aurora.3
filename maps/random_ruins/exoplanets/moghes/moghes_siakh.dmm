@@ -166,7 +166,7 @@
 	},
 /area/exoplanet/moghes)
 "Q" = (
-/obj/machinery/door/urban{
+/obj/structure/machinery/door/urban{
 	dir = 4;
 	pixel_x = -29
 	},

@@ -282,8 +282,8 @@
 
 		if(is_new_area_valid)
 			new_area.Entered(AM)
-			if(istype(AM, /obj/machinery))
-				var/obj/machinery/M = AM
+			if(istype(AM, /obj/structure/machinery))
+				var/obj/structure/machinery/M = AM
 				M.shuttle_move(src)
 
 	last_outside_check = OUTSIDE_UNCERTAIN
@@ -669,11 +669,10 @@
 	var/static/list/allowed = typecacheof(list(
 		/obj/structure/table,
 		/obj/structure/closet,
-		/obj/machinery/constructable_frame,
 		/obj/structure/target_stake,
 		/obj/structure/cable,
 		/obj/structure/disposalpipe,
-		/obj/machinery,
+		/obj/structure/machinery,
 		/mob
 	))
 
@@ -690,7 +689,7 @@
 				if(!O.density)
 					add = 1
 					break
-				if(istype(O, /obj/machinery/door))
+				if(istype(O, /obj/structure/machinery/door))
 					//not sure why this doesn't fire on LinkBlocked()
 					add = 0
 					break
