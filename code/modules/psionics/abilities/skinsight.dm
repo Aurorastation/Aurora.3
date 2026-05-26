@@ -57,7 +57,7 @@
 		var/datum/component/health_analyzer/h_analyzer = src.GetComponent(/datum/component/health_analyzer)
 		if(!h_analyzer)
 			return
-		h_analyzer.health_scan_mob(target, user, TRUE, TRUE)
+		h_analyzer.health_scan_mob(target, user, TRUE, FALSE)
 	else
 		user.visible_message(SPAN_NOTICE("[user] slowly passes [user.get_pronoun("his")] hand over [target]..."),
 							SPAN_NOTICE("You slowly pass your hand over [target]..."))

@@ -375,7 +375,7 @@
 			var/datum/component/health_analyzer/mech/h_analyzer = src.GetComponent(/datum/component/health_analyzer/mech)
 			if(!h_analyzer)
 				return
-			h_analyzer.health_scan_mob(target_mob, pilot, TRUE, TRUE, sound_scan = TRUE)
+			h_analyzer.health_scan_mob(target_mob, pilot, FALSE, TRUE)
 	else
 		user_vehicle.visible_message("<b>[user_vehicle]</b> starts scanning \the [target_mob] with \the [src].",
 								SPAN_NOTICE("You start scanning \the [target_mob] with \the [src]."))
