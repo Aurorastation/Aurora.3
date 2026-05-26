@@ -21,7 +21,7 @@
 		user.drop_from_inventory(attacking_item, src);\
 		##slot = attacking_item;\
 		update_icon();\
-		updateUsrDialog();\
+		SStgui.update_uis(src);\
 		return\
 	}
 
@@ -189,7 +189,7 @@
 		occupant = M
 
 		add_fingerprint(user)
-		updateUsrDialog()
+		SStgui.update_uis(src)
 		update_icon()
 
 /obj/structure/machinery/suit_cycler/attack_ai(mob/user)
@@ -240,14 +240,14 @@
 			add_fingerprint(user)
 			qdel(G)
 
-			updateUsrDialog()
+			SStgui.update_uis(src)
 			update_icon()
 		return
 
 	else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		panel_open = !panel_open
 		to_chat(user, SPAN_NOTICE("You [panel_open ? "open" : "close"] the maintenance panel."))
-		updateUsrDialog()
+		SStgui.update_uis(src)
 		update_icon()
 		return
 
@@ -289,7 +289,7 @@
 	emagged = TRUE
 	safeties = FALSE
 	req_access = list()
-	updateUsrDialog()
+	SStgui.update_uis(src)
 	return 1
 
 /obj/structure/machinery/suit_cycler/attack_hand(mob/user)
@@ -444,7 +444,7 @@
 		active = TRUE
 		irradiating = 10
 		update_icon()
-		src.updateUsrDialog()
+		SStgui.update_uis(src)
 
 		sleep(10)
 		if(helmet)
@@ -471,7 +471,7 @@
 			if(radiation_level > 1)
 				mask.clean_blood()
 
-	src.updateUsrDialog()
+	SStgui.update_uis(src)
 	return
 
 /obj/structure/machinery/suit_cycler/process()
@@ -511,7 +511,7 @@
 	playsound(loc, 'sound/machines/suitstorage_lockdoor.ogg', 50, FALSE)
 	active = FALSE
 	update_icon()
-	updateUsrDialog()
+	SStgui.update_uis(src)
 
 /obj/structure/machinery/suit_cycler/proc/repair_suit()
 	if(!suit || !suit.damage || !suit.can_breach)
@@ -549,7 +549,7 @@
 
 	if(user)
 		add_fingerprint(user)
-	updateUsrDialog()
+	SStgui.update_uis(src)
 	update_icon()
 
 //There HAS to be a less bloated way to do this. TODO: some kind of table/icon name coding? ~Z

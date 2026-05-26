@@ -1050,7 +1050,7 @@ pixel_x = 10;
 			else
 				playsound(src, 'sound/machines/terminal/terminal_button01.ogg', 35, FALSE)
 			balloon_alert(user, locked ? "locked" : "unlocked")
-			updateUsrDialog()
+			SStgui.update_uis(src)
 
 		else
 			to_chat(user, SPAN_NOTICE("Access denied."))

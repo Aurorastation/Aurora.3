@@ -109,15 +109,18 @@ GLOBAL_LIST_INIT_TYPED(allConsoles, /obj/structure/machinery/requests_console, l
 	///Priority of the message being sent
 	var/priority = -1 ;
 
+	/// Category of the message being composed: "assist", "supply", "info", or "reply".
+	var/message_type = "info"
+
 	//Form intregration
-	var/SQLquery
+	var/sql_filter_dept = ""
 	var/paperstock = 20
 	var/lid = 0
 	//End Form Integration
 	var/datum/announcement/announcement = new
 
 	///List of PDAs we alert upon a request receipt
-	var/list/obj/item/modular_computer/alert_pdas = list()
+	var/list/datum/weakref/alert_pdas = list()
 
 /obj/structure/machinery/requests_console/north
 	PRESET_NORTH
@@ -137,7 +140,7 @@ GLOBAL_LIST_INIT_TYPED(allConsoles, /obj/structure/machinery/requests_console, l
 
 /obj/structure/machinery/requests_console/update_icon()
 	ClearOverlays()
-	var/mutable_appearance/screen = overlay_image(icon, "req_comp-idle")
+	var/mutable_appearance/screen_overlay = overlay_image(icon, "req_comp-idle")
 	var/mutable_appearance/screen_hologram = overlay_image(icon, "req_comp-idle")
 	var/mutable_appearance/screen_emis = emissive_appearance(icon, "req_comp-idle")
 	screen_hologram.filters += filter(type="color", color=list(
@@ -146,33 +149,33 @@ GLOBAL_LIST_INIT_TYPED(allConsoles, /obj/structure/machinery/requests_console, l
 		0, 0, 0, 0,
 		HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_OPACITY
 	))
-	screen.filters += filter(type="color", color=list(
+	screen_overlay.filters += filter(type="color", color=list(
 		HOLOSCREEN_ADDITION_OPACITY, 0, 0, 0,
 		0, HOLOSCREEN_ADDITION_OPACITY, 0, 0,
 		0, 0, HOLOSCREEN_ADDITION_OPACITY, 0,
 		0, 0, 0, 1
 	))
 	screen_hologram.blend_mode = BLEND_MULTIPLY
-	screen.blend_mode = BLEND_ADD
+	screen_overlay.blend_mode = BLEND_ADD
 	if(stat & NOPOWER)
 		icon_state = initial(icon_state)
 		set_light(FALSE)
 	else
 		switch(newmessagepriority)
 			if(0)
-				screen = overlay_image(icon, "req_comp-idle")
+				screen_overlay = overlay_image(icon, "req_comp-idle")
 				set_light(L_WALLMOUNT_RANGE, L_WALLMOUNT_POWER, COLOR_CYAN)
 			if(1)
-				screen = overlay_image(icon, "req_comp-alert")
+				screen_overlay = overlay_image(icon, "req_comp-alert")
 				set_light(L_WALLMOUNT_RANGE, L_WALLMOUNT_POWER, COLOR_CYAN)
 			if(2)
-				screen = overlay_image(icon, "req_comp-redalert")
+				screen_overlay = overlay_image(icon, "req_comp-redalert")
 				set_light(L_WALLMOUNT_RANGE,L_WALLMOUNT_POWER, COLOR_ORANGE)
 			if(3)
-				screen = overlay_image(icon, "req_comp-yellowalert")
+				screen_overlay = overlay_image(icon, "req_comp-yellowalert")
 				set_light(L_WALLMOUNT_RANGE, L_WALLMOUNT_POWER, COLOR_ORANGE)
 		AddOverlays(screen_hologram)
-		AddOverlays(screen)
+		AddOverlays(screen_overlay)
 		AddOverlays(screen_emis)
 		AddOverlays(overlay_image(icon, "req_comp-scanline"))
 
@@ -200,11 +203,11 @@ GLOBAL_LIST_INIT_TYPED(allConsoles, /obj/structure/machinery/requests_console, l
 
 	name = "[department] requests console"
 	GLOB.allConsoles += src
-	if (departmentType & RC_ASSIST)
+	if(departmentType & RC_ASSIST)
 		GLOB.req_console_assistance |= department
-	if (departmentType & RC_SUPPLY)
+	if(departmentType & RC_SUPPLY)
 		GLOB.req_console_supplies |= department
-	if (departmentType & RC_INFO)
+	if(departmentType & RC_INFO)
 		GLOB.req_console_information |= department
 	update_icon()
 
@@ -218,16 +221,16 @@ GLOBAL_LIST_INIT_TYPED(allConsoles, /obj/structure/machinery/requests_console, l
 /obj/structure/machinery/requests_console/Destroy()
 	GLOB.allConsoles -= src
 	var/lastDeptRC = 1
-	for (var/obj/structure/machinery/requests_console/Console in GLOB.allConsoles)
-		if (Console.department == department)
+	for(var/obj/structure/machinery/requests_console/console in GLOB.allConsoles)
+		if(console.department == department)
 			lastDeptRC = 0
 			break
 	if(lastDeptRC)
-		if (departmentType & RC_ASSIST)
+		if(departmentType & RC_ASSIST)
 			GLOB.req_console_assistance -= department
-		if (departmentType & RC_SUPPLY)
+		if(departmentType & RC_SUPPLY)
 			GLOB.req_console_supplies -= department
-		if (departmentType & RC_INFO)
+		if(departmentType & RC_INFO)
 			GLOB.req_console_information -= department
 
 		alert_pdas.Cut()
@@ -238,266 +241,303 @@ GLOBAL_LIST_INIT_TYPED(allConsoles, /obj/structure/machinery/requests_console, l
 		return
 	ui_interact(user)
 
-/obj/structure/machinery/requests_console/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
-	var/data[0]
 
-	data["department"] = department
-	data["screen"] = screen
-	data["message_log"] = message_log
-	data["newmessagepriority"] = newmessagepriority
-	data["silent"] = silent
-	data["announcementConsole"] = announcementConsole
-
-	data["assist_dept"] = GLOB.req_console_assistance
-	data["supply_dept"] = GLOB.req_console_supplies
-	data["info_dept"]   = GLOB.req_console_information
-
-	data["message"] = message
-	data["recipient"] = recipient
-	data["priortiy"] = priority
-	data["msgStamped"] = msgStamped
-	data["msgVerified"] = msgVerified
-	data["announceAuth"] = announceAuth
-
-	if (screen == RCS_FORMS)
-		if (!establish_db_connection(GLOB.dbcon))
-			data["sql_error"] = 1
-		else
-			if (!SQLquery)
-				SQLquery = "SELECT id, name, department FROM ss13_forms ORDER BY id"
-
-			var/datum/db_query/query = SSdbcore.NewQuery(SQLquery)
-			query.Execute()
-
-			var/list/forms = list()
-			while (query.NextRow())
-				forms += list(list("id" = query.item[1], "name" = query.item[2], "department" = query.item[3]))
-
-			qdel(query)
-
-			if (!forms.len)
-				data["sql_error"] = 1
-
-			data["forms"] = forms
-
-	data["pda_list"] = list()
-
-	for (var/A in alert_pdas)
-		var/obj/item/modular_computer/pda = A
-		data["pda_list"] += list(list("name" = alert_pdas[pda], "pda" = "[REF(pda)]"))
-
-	data["lid"] = lid
-	data["paper"] = paperstock
-
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
-		ui = new(user, src, ui_key, "requests_console.tmpl", "[department] Requests Console", 520, 410)
-		ui.set_initial_data(data)
+/obj/structure/machinery/requests_console/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "RequestsConsole", "[department] Requests Console")
 		ui.open()
 
-/obj/structure/machinery/requests_console/Topic(href, href_list)
-	if(..())	return
-	usr.set_machine(src)
+/obj/structure/machinery/requests_console/ui_data(mob/user)
+	var/list/data = list(
+		"department" = department,
+		"screen" = screen,
+		"message_log" = message_log,
+		"newmessagepriority" = newmessagepriority,
+		"silent" = silent,
+		"announcementConsole" = announcementConsole,
+		"assist_dept" = GLOB.req_console_assistance,
+		"supply_dept" = GLOB.req_console_supplies,
+		"info_dept" = GLOB.req_console_information,
+		"message" = message,
+		"recipient" = recipient,
+		"priority" = priority,
+		"msgStamped" = msgStamped,
+		"msgVerified" = msgVerified,
+		"announceAuth" = announceAuth,
+		"lid" = lid,
+		"paper" = paperstock
+	)
+
+	if(screen == RCS_FORMS)
+		if(!SSdbcore.Connect())
+			data["sql_error"] = 1
+		else
+			var/datum/db_query/query
+			if(sql_filter_dept)
+				query = SSdbcore.NewQuery(
+					"SELECT id, name, department FROM ss13_forms WHERE department LIKE :filter ORDER BY id",
+					list("filter" = "%[sql_filter_dept]%"))
+			else
+				query = SSdbcore.NewQuery("SELECT id, name, department FROM ss13_forms ORDER BY id")
+			if(!query.Execute())
+				data["sql_error"] = 1
+			else
+				var/list/forms = list()
+				while(query.NextRow())
+					forms += list(list("id" = query.item[1], "name" = query.item[2], "department" = query.item[3]))
+				if(!forms.len)
+					data["sql_error"] = 1
+				data["forms"] = forms
+			qdel(query)
+
+	var/list/pda_list = list()
+	for(var/datum/weakref/ref in alert_pdas)
+		var/obj/item/modular_computer/pda = ref.resolve()
+		if(!pda)
+			alert_pdas -= ref
+			continue
+		pda_list += list(list("name" = alert_pdas[ref], "pda" = "[REF(pda)]"))
+	data["pda_list"] = pda_list
+
+	return data
+
+/obj/structure/machinery/requests_console/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
+		return
 	add_fingerprint(usr)
 
-	if(reject_bad_text(href_list["write"]))
-		recipient = href_list["write"] //write contains the string of the receiving department's name
+	switch(action)
+		// Begin composing a message: gets text via input dialog then shows auth screen
+		if("compose")
+			var/rcpt = params["recipient"]
+			if(!reject_bad_text(rcpt))
+				return TRUE
+			recipient = rcpt
+			switch(screen)
+				if(RCS_RQASSIST)
+					message_type = "assist"
+				if(RCS_RQSUPPLY)
+					message_type = "supply"
+				if(RCS_SENDINFO)
+					message_type = "info"
+				else
+					message_type = "reply"
+			var/new_message = sanitize(tgui_input_text(usr, "Write your message:", "Compose Message", encode = FALSE))
+			if(new_message && !use_check_and_message(usr))
+				message = new_message
+				screen = RCS_MESSAUTH
+				switch(text2num(params["priority"]))
+					if(1) priority = 1
+					if(2) priority = 2
+					else  priority = 0
+			else
+				reset_message(1)
+			return TRUE
 
-		var/new_message = sanitize(input("Write your message:", "Awaiting Input", null) as null|text)
-		if(new_message && !use_check_and_message(usr))
-			message = new_message
-			screen = RCS_MESSAUTH
-			switch(href_list["priority"])
-				if("1") priority = 1
-				if("2")	priority = 2
-				else	priority = 0
-		else
+		if("write_announcement")
+			var/new_message = sanitize(tgui_input_text(usr, "Write your message:", "Announcement", encode = FALSE))
+			if(new_message && !use_check_and_message(usr))
+				message = new_message
+			else
+				reset_message(1)
+			return TRUE
+
+		if("send_announcement")
+			if(!announcementConsole)
+				return TRUE
+			announcement.Announce(message, msg_sanitized = 1)
 			reset_message(1)
+			return TRUE
 
-	if(href_list["writeAnnouncement"])
-		var/new_message = sanitize(input("Write your message:", "Awaiting Input", null) as null|text)
-		if(new_message && !use_check_and_message(usr))
-			message = new_message
-		else
-			reset_message(1)
+		// Send the composed+authenticated message
+		if("send_message")
+			if(!message)
+				return TRUE
+			screen = RCS_SENTFAIL
+			var/pass = FALSE
+			for(var/obj/structure/machinery/telecomms/message_server/MS in SSmachinery.all_telecomms)
+				if(MS.use_power)
+					MS.send_rc_message(recipient, department, message, msgStamped, msgVerified, priority, message_type)
+					pass = TRUE
+			if(pass)
+				screen = RCS_SENTPASS
+				message_log += list(list(
+					"type" = "sent",
+					"category" = message_type,
+					"recipient" = recipient,
+					"body" = message
+				))
+			else
+				audible_message("<b>The Requests Console</b> beeps, [SPAN_WARNING("NOTICE: No server detected!")]")
+			return TRUE
 
-	if(href_list["sendAnnouncement"])
-		if(!announcementConsole)	return
-		announcement.Announce(message, msg_sanitized = 1)
-		reset_message(1)
+		if("set_screen")
+			var/new_screen = text2num(params["screen"])
+			if(new_screen == RCS_ANNOUNCE && !announcementConsole)
+				return TRUE
+			if(new_screen == RCS_VIEWMSGS)
+				for(var/obj/structure/machinery/requests_console/console in GLOB.allConsoles)
+					if(console.department == department)
+						console.newmessagepriority = 0
+						console.update_icon()
+			if(new_screen == RCS_MAINMENU)
+				reset_message()
+			screen = new_screen
+			return TRUE
 
-	if( href_list["department"] && message )
-		var/log_msg = message
-		screen = RCS_SENTFAIL
-		var/pass = FALSE
-		var/datum/data_rc_msg/log = new(href_list["department"], department, log_msg, msgStamped, msgVerified, priority)
-		for (var/obj/structure/machinery/telecomms/message_server/MS in SSmachinery.all_telecomms)
-			if (MS.use_power)
-				MS.rc_msgs += log
-				pass = TRUE
-		if(pass)
-			screen = RCS_SENTPASS
-			message_log += "<B>Message sent to [recipient]</B><BR>[message]"
-		else
-			var/msg = "NOTICE: No server detected!"
-			audible_message("<b>The Requests Console</b> beeps, [SPAN_WARNING(msg)]")
+		if("toggle_silent")
+			silent = !silent
+			return TRUE
 
-	//Handle screen switching
-	if(href_list["setScreen"])
-		var/tempScreen = text2num(href_list["setScreen"])
-		if(tempScreen == RCS_ANNOUNCE && !announcementConsole)
-			return
-		if(tempScreen == RCS_VIEWMSGS)
-			for (var/obj/structure/machinery/requests_console/Console in GLOB.allConsoles)
-				if (Console.department == department)
-					Console.newmessagepriority = 0
-					Console.icon_state = "req_comp0"
-					Console.set_light(0)
-		if(tempScreen == RCS_MAINMENU)
-			reset_message()
-		screen = tempScreen
+		if("link_pda")
+			var/obj/item/modular_computer/pda = usr.get_active_hand()
+			if(!pda || !istype(pda))
+				to_chat(usr, SPAN_WARNING("You need to be holding a handheld computer to link it."))
+			else
+				var/datum/weakref/ref = find_pda_ref(pda)
+				if(ref)
+					to_chat(usr, SPAN_NOTICE("\The [pda] appears to be already linked."))
+					alert_pdas[ref] = pda.name
+				else
+					ref = WEAKREF(pda)
+					alert_pdas += ref
+					alert_pdas[ref] = pda.name
+					to_chat(usr, SPAN_NOTICE("You link \the [pda] to \the [src]. It will now ping upon the arrival of a request to this machine."))
+			return TRUE
 
-	//Handle silencing the console
-	if(href_list["toggleSilent"])
-		silent = !silent
+		if("unlink_pda")
+			var/obj/item/modular_computer/pda = locate(params["pda"])
+			if(pda && istype(pda))
+				var/datum/weakref/ref = find_pda_ref(pda)
+				if(ref)
+					to_chat(usr, SPAN_NOTICE("You unlink [alert_pdas[ref]] from \the [src]. It will no longer be notified of new requests."))
+					alert_pdas -= ref
+			return TRUE
 
-	// Link a PDA
-	if(href_list["linkpda"])
-		var/obj/item/modular_computer/pda = usr.get_active_hand()
-		if (!pda || !istype(pda))
-			to_chat(usr, SPAN_WARNING("You need to be holding a handheld computer to link it."))
-		else if (pda in alert_pdas)
-			to_chat(usr, SPAN_NOTICE("\The [pda] appears to be already linked."))
-			//Update the name real quick.
-			alert_pdas[pda] = pda.name
-		else
-			alert_pdas += pda
-			alert_pdas[pda] = pda.name
-			to_chat(usr, SPAN_NOTICE("You link \the [pda] to \the [src]. It will now ping upon the arrival of a request to this machine."))
+		if("sort_forms")
+			sql_filter_dept = sanitize(params["department"])
+			return TRUE
 
-	// Unlink a PDA.
-	if(href_list["unlink"])
-		var/obj/item/modular_computer/pda = locate(href_list["unlink"])
-		if (pda && istype(pda))
-			if (pda in alert_pdas)
-				to_chat(usr, SPAN_NOTICE("You unlink [alert_pdas[pda]] from \the [src]. It will no longer be notified of new requests."))
-				alert_pdas -= pda
+		if("reset_sql")
+			sql_filter_dept = ""
+			return TRUE
 
-	// Sort the forms.
-	if(href_list["sort"])
-		var/sortdep = sanitizeSQL(href_list["sort"])
-		SQLquery = "SELECT id, name, department FROM ss13_forms WHERE department LIKE '%[sortdep]%' ORDER BY id"
+		if("print_form")
+			var/printid = text2num(params["id"])
+			if(!printid)
+				return TRUE
+			if(!SSdbcore.Connect())
+				to_chat(usr, SPAN_WARNING("Connection to the database lost. Aborting."))
+				return TRUE
+			var/datum/db_query/query = SSdbcore.NewQuery(
+				"SELECT id, name, data FROM ss13_forms WHERE id = :id",
+				list("id" = printid))
+			if(!query.Execute())
+				to_chat(usr, SPAN_WARNING("Connection to the database lost. Aborting."))
+				qdel(query)
+				return TRUE
+			while(query.NextRow())
+				var/form_id = query.item[1]
+				var/form_name = query.item[2]
+				var/form_data = html_encode(query.item[3])
+				var/obj/item/paper/form_paper = new()
+				form_paper.color = "#fff9e8"
+				form_paper.set_content("NFC-[form_id] - [form_name]", form_data)
+				print(form_paper, user = usr)
+				paperstock--
+			qdel(query)
+			return TRUE
 
-	if (href_list["resetSQL"])
-		SQLquery = "SELECT id, name, department FROM ss13_forms ORDER BY id"
+		if("whatis")
+			var/whatisid = text2num(params["id"])
+			if(!whatisid)
+				return TRUE
+			if(!SSdbcore.Connect())
+				to_chat(usr, SPAN_WARNING("Connection to the database lost. Aborting."))
+				return TRUE
+			var/datum/db_query/query = SSdbcore.NewQuery(
+				"SELECT id, name, department, info FROM ss13_forms WHERE id = :id",
+				list("id" = whatisid))
+			if(!query.Execute())
+				to_chat(usr, SPAN_WARNING("Connection to the database lost. Aborting."))
+				qdel(query)
+				return TRUE
+			var/dat = "<center><b>Stellar Corporate Conglomerate Form</b><br>"
+			while(query.NextRow())
+				dat += "<b>SCCF-[query.item[1]]</b><br><br>"
+				dat += "<b>[query.item[2]]</b><br>"
+				dat += "<b>[query.item[3]] Department</b><hr>"
+				dat += "[query.item[4]]"
+			dat += "</center>"
+			qdel(query)
+			usr << browse(HTML_SKELETON(dat), "window=Information;size=560x240")
+			return TRUE
 
-	// Print a form.
-	if(href_list["print"])
-		var/printid = sanitizeSQL(href_list["print"])
-
-		if(!establish_db_connection(GLOB.dbcon))
-			alert("Connection to the database lost. Aborting.")
-		if(!printid)
-			alert("Invalid query. Try again.")
-		var/datum/db_query/query = SSdbcore.NewQuery("SELECT id, name, data FROM ss13_forms WHERE id=[printid]")
-		query.Execute()
-
-		while(query.NextRow())
-			var/id = query.item[1]
-			var/name = query.item[2]
-			var/data = query.item[3]
-			var/obj/item/paper/C = new()
-			C.color = "#fff9e8"
-
-			//Let's start the BB >> HTML conversion!
-
-			data = html_encode(data)
-			C.set_content("NFC-[id] - [name]", data)
-			print(C, user = usr)
-
-			paperstock--
-
-		qdel(query)
-
-	// Get extra information about the form.
-	if(href_list["whatis"])
-		var/whatisid = sanitizeSQL(href_list["whatis"])
-
-		if(!establish_db_connection(GLOB.dbcon))
-			alert("Connection to the database lost. Aborting.")
-		if(!whatisid)
-			alert("Invalid query. Try again.")
-		var/datum/db_query/query = SSdbcore.NewQuery("SELECT id, name, department, info FROM ss13_forms WHERE id=:id",list("id"=whatisid))
-		query.Execute()
-		var/dat = "<center><b>Stellar Corporate Conglomerate Form</b><br>"
-		while(query.NextRow())
-			var/id = query.item[1]
-			var/name = query.item[2]
-			var/department = query.item[3]
-			var/info = query.item[4]
-
-			dat += "<b>SCCF-[id]</b><br><br>"
-			dat += "<b>[name]</b><br>"
-			dat += "<b>[department] Department</b><hr>"
-			dat += "[info]"
-		dat += "</center>"
-		usr << browse(HTML_SKELETON(dat), "window=Information;size=560x240")
-		qdel(query)
-
-	// Toggle the paper bin lid.
-	if(href_list["setLid"])
-		lid = !lid
-		to_chat(usr, SPAN_NOTICE("You [lid ? "open" : "close"] the lid."))
-
-	updateUsrDialog()
-	return
+		if("toggle_lid")
+			lid = !lid
+			to_chat(usr, SPAN_NOTICE("You [lid ? "open" : "close"] the lid."))
+			return TRUE
 
 					//err... hacking code, which has no reason for existing... but anyway... it was once supposed to unlock priority 3 messanging on that console (EXTREME priority...), but the code for that was removed.
 /obj/structure/machinery/requests_console/attackby(obj/item/attacking_item, mob/user)
-	if (istype(attacking_item, /obj/item/card/id))
+	if(istype(attacking_item, /obj/item/modular_computer))
+		var/obj/item/modular_computer/pda = attacking_item
+		var/datum/weakref/ref = find_pda_ref(pda)
+		if(ref)
+			to_chat(user, SPAN_NOTICE("You unlink [alert_pdas[ref]] from \the [src]. It will no longer be notified of new requests."))
+			alert_pdas -= ref
+		else
+			ref = WEAKREF(pda)
+			alert_pdas += ref
+			alert_pdas[ref] = pda.name
+			to_chat(user, SPAN_NOTICE("You link \the [pda] to \the [src]. It will now ping upon the arrival of a request to this machine."))
+		return TRUE
+	if(istype(attacking_item, /obj/item/card/id))
 		if(!operable(MAINT)) return TRUE
 		if(screen == RCS_MESSAUTH)
-			var/obj/item/card/id/T = attacking_item
-			msgVerified = "<font color='green'><b>Verified by [T.registered_name], [T.assignment]</b></font>"
-			updateUsrDialog()
+			var/obj/item/card/id/id_card = attacking_item
+			msgVerified = "[id_card.registered_name], [id_card.assignment]"
+			SStgui.update_uis(src)
 		if(screen == RCS_ANNOUNCE)
-			var/obj/item/card/id/ID = attacking_item
-			if (ACCESS_RC_ANNOUNCE in ID.GetAccess())
+			var/obj/item/card/id/auth_card = attacking_item
+			if(ACCESS_RC_ANNOUNCE in auth_card.GetAccess())
 				announceAuth = 1
-				announcement.announcer = ID.assignment ? "[ID.assignment] [ID.registered_name]" : ID.registered_name
+				announcement.announcer = auth_card.assignment ? "[auth_card.assignment] [auth_card.registered_name]" : auth_card.registered_name
 			else
 				reset_message()
 				to_chat(user, SPAN_WARNING("You are not authorized to send announcements."))
-			updateUsrDialog()
+			SStgui.update_uis(src)
 		return TRUE
-	else if (istype(attacking_item, /obj/item/stamp))
+	else if(istype(attacking_item, /obj/item/stamp))
 		if(!operable(MAINT)) return
 		if(screen == RCS_MESSAUTH)
-			var/obj/item/stamp/T = attacking_item
-			msgStamped = SPAN_NOTICE("<b>Stamped with the [T.name]</b>")
-			updateUsrDialog()
+			var/obj/item/stamp/used_stamp = attacking_item
+			msgStamped = used_stamp.name
+			SStgui.update_uis(src)
 		return TRUE
-	else if (istype(attacking_item, /obj/item/paper_bundle))
-		var/obj/item/paper_bundle/C = attacking_item
+	else if(istype(attacking_item, /obj/item/paper_bundle))
+		var/obj/item/paper_bundle/paper_bundle = attacking_item
 		if(lid)
 			if(alert(user, "Do you want to restock \the [src] with \the [attacking_item]?", "Paper Restocking", "Yes", "No") == "No")
 				to_chat(user, SPAN_NOTICE("You decide against restocking \the [src], noting that the lid is still open."))
 				return
-			paperstock += C.amount
-			user.drop_from_inventory(C,get_turf(src))
-			qdel(C)
+			paperstock += paper_bundle.amount
+			user.drop_from_inventory(paper_bundle, get_turf(src))
+			qdel(paper_bundle)
 			audible_message("<b>The Requests Console</b> beeps, \"Paper added.\"")
 		else if(screen == RCS_MAINMENU)	//Faxing them papers
 			fax_send(attacking_item, user)
 		return TRUE
-	else if (istype(attacking_item, /obj/item/paper))
+	else if(istype(attacking_item, /obj/item/paper))
 		if(lid)
 			if(alert(user, "Do you want to restock \the [src] with \the [attacking_item]?", "Paper Restocking", "Yes", "No") == "No")
 				to_chat(user, SPAN_NOTICE("You decide against restocking \the [src], noting that the lid is still open."))
 				return
-			var/obj/item/paper/C = attacking_item
-			user.drop_from_inventory(C,get_turf(src))
-			qdel(C)
+			var/obj/item/paper/paper_item = attacking_item
+			user.drop_from_inventory(paper_item, get_turf(src))
+			qdel(paper_item)
 			paperstock++
 			audible_message("<b>The Requests Console</b> beeps, \"Paper added.\"")
 		else if(screen == RCS_MAINMENU)	//Faxing them papers
@@ -511,7 +551,7 @@ GLOBAL_LIST_INIT_TYPED(allConsoles, /obj/structure/machinery/requests_console, l
 		return TRUE
 	return FALSE
 
-/obj/structure/machinery/requests_console/proc/fax_send(var/obj/item/O, var/mob/user)
+/obj/structure/machinery/requests_console/proc/fax_send(obj/item/fax_item, mob/user)
 	var/sendto = tgui_input_list(user, "Select department.", "Send Fax", GLOB.allConsoles)
 	if(!sendto)
 		return
@@ -521,34 +561,34 @@ GLOBAL_LIST_INIT_TYPED(allConsoles, /obj/structure/machinery/requests_console, l
 		var/msg = "NOTICE: No server detected!"
 		audible_message("<b>The Requests Console</b> beeps, [SPAN_WARNING(msg)]")
 		return
-	for(var/cc in GLOB.allConsoles)
-		var/obj/structure/machinery/requests_console/Console = cc
-		if(Console == sendto)
+	for(var/obj/structure/machinery/requests_console/console in GLOB.allConsoles)
+		if(console == sendto)
 			var/paperstock_usage = 1
-			var/is_paper_bundle = istype(O, /obj/item/paper_bundle)
+			var/is_paper_bundle = istype(fax_item, /obj/item/paper_bundle)
 			if(is_paper_bundle)
-				var/obj/item/paper_bundle/OPB = O
-				paperstock_usage = OPB.amount
-			if(Console.paperstock < paperstock_usage)
+				var/obj/item/paper_bundle/fax_bundle = fax_item
+				paperstock_usage = fax_bundle.amount
+			if(console.paperstock < paperstock_usage)
 				audible_message("<b>The Requests Console</b> beeps, \"Error! Receiving console out of paper! Aborting!\"")
 				return
-			playsound(Console.loc, 'sound/machines/twobeep.ogg', 40)
-			playsound(Console.loc, 'sound/items/polaroid1.ogg', 40)
+			playsound(console.loc, 'sound/machines/twobeep.ogg', 40)
+			playsound(console.loc, 'sound/items/polaroid1.ogg', 40)
 			if(!is_paper_bundle)
-				var/obj/item/paper/P = copy(Console, O, FALSE, FALSE, 0, 15, user)
-				P.forceMove(Console.loc)
+				var/obj/item/paper/fax_copy = copy(console, fax_item, FALSE, FALSE, 0, 15, user)
+				fax_copy.forceMove(console.loc)
 			else
-				var/obj/item/paper_bundle/PB = bundlecopy(Console, O, FALSE, 15, FALSE)
-				PB.forceMove(Console.loc)
-			Console.audible_message("<b>The Requests Console</b> beeps, \"Fax received.\"")
-			for(var/obj/item/modular_computer/pda in Console.alert_pdas)
-				var/message = "A fax has arrived!"
-				pda.get_notification(message, 1, "[Console.department] Requests Console")
-			Console.paperstock -= paperstock_usage
+				var/obj/item/paper_bundle/bundle_copy = bundlecopy(console, fax_item, FALSE, 15, FALSE)
+				bundle_copy.forceMove(console.loc)
+			console.audible_message("<b>The Requests Console</b> beeps, \"Fax received.\"")
+			for(var/datum/weakref/ref in console.alert_pdas)
+				var/obj/item/modular_computer/pda = ref.resolve()
+				if(pda)
+					pda.get_notification("A fax has arrived!", 1, "[console.department] Requests Console")
+			console.paperstock -= paperstock_usage
 			audible_message("<b>The Requests Console</b> beeps, \"Fax sent.\"")
 			return
 
-/obj/structure/machinery/requests_console/proc/reset_message(var/mainmenu = 0)
+/obj/structure/machinery/requests_console/proc/reset_message(mainmenu = FALSE)
 	message = ""
 	recipient = ""
 	priority = 0
@@ -558,6 +598,12 @@ GLOBAL_LIST_INIT_TYPED(allConsoles, /obj/structure/machinery/requests_console, l
 	announcement.announcer = ""
 	if(mainmenu)
 		screen = RCS_MAINMENU
+
+/// Finds the weakref in `alert_pdas` that resolves to the given PDA. Returns null if the PDA is not linked.
+/obj/structure/machinery/requests_console/proc/find_pda_ref(obj/item/modular_computer/pda)
+	for(var/datum/weakref/ref in alert_pdas)
+		if(ref.resolve() == pda)
+			return ref
 
 #undef PRESET_NORTH
 #undef PRESET_SOUTH

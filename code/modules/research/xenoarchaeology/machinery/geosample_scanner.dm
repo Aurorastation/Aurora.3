@@ -1,9 +1,18 @@
+// Continuous-stress radiation loop tuning. See `process()` block for the full rationale.
+#define RC_RAD_MAX           50      // hard cap on emission power
+#define RC_RAD_RAMP_NORMAL   1       // severity added per second while shield is down (no spike)
+#define RC_RAD_RAMP_SPIKE    10      // severity added per second while shield is down during a radspike
+#define RC_RAD_DECAY_RATE    25      // severity removed per second while shield is up (or after spike ends)
+#define RC_SPIKE_INTERVAL_LO 15      // seconds between spike events (lower bound)
+#define RC_SPIKE_INTERVAL_HI 25      // seconds between spike events (upper bound)
+#define RC_SPIKE_DURATION_LO 5       // seconds a single spike lasts (lower bound)
+#define RC_SPIKE_DURATION_HI 7       // seconds a single spike lasts (upper bound)
 
 /obj/structure/machinery/radiocarbon_spectrometer
 	name = "radiocarbon spectrometer"
 	desc = "A specialised, complex scanner for gleaning information on all manner of small things."
-	anchored = 1
-	density = 1
+	anchored = TRUE
+	density = TRUE
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	icon = 'icons/obj/xenoarchaeology.dmi'
 	icon_state = "spectrometer"
@@ -12,7 +21,7 @@
 	active_power_usage = 300
 
 	//var/obj/item/reagent_containers/glass/coolant_container
-	var/scanning = 0
+	var/scanning = FALSE
 	var/report_num = 0
 	//
 	var/obj/item/scanned_item
@@ -40,9 +49,21 @@
 	var/tleft_retarget_optimal_wavelength = 0
 	var/maser_efficiency = 0
 	//
-	var/radiation = 0				//0-100 mSv
-	var/t_left_radspike = 0
-	var/rad_shield = 0
+	/// Current emission power being pushed into SSradiation. Climbs while the shield is down,
+	/// decays while it is up. Capped to RC_RAD_MAX so even RAD_SHIELDED suits keep meaningful
+	/// mitigation at adjacency (over the cap, the armor_pen formula in /mob/living/rad_act
+	/// starts overwhelming the suit's RAD value).
+	var/radiation_emission = 0
+	/// TRUE while a radspike event is currently active. Increases the shield-down ramp rate
+	/// from RC_RAD_RAMP_NORMAL to RC_RAD_RAMP_SPIKE.
+	var/spike_active = FALSE
+	/// Seconds remaining in the current spike event. Used and decremented only while
+	/// `spike_active` is TRUE.
+	var/spike_remaining = 0
+	/// Seconds until the next spike event begins. Counted down only while `spike_active`
+	/// is FALSE; reaches 0 → flips spike_active TRUE.
+	var/t_to_next_spike = 0
+	var/rad_shield = FALSE
 
 /obj/structure/machinery/radiocarbon_spectrometer/Initialize()
 	. = ..()
@@ -60,7 +81,7 @@
 	coolant_reagents_purity[/singleton/reagent/coolant] = 1
 	coolant_reagents_purity[/singleton/reagent/adminordrazine] = 2
 
-/obj/structure/machinery/radiocarbon_spectrometer/attack_hand(var/mob/user as mob)
+/obj/structure/machinery/radiocarbon_spectrometer/attack_hand(mob/user)
 	ui_interact(user)
 
 /obj/structure/machinery/radiocarbon_spectrometer/attackby(obj/item/attacking_item, mob/user)
@@ -70,24 +91,24 @@
 		if(istype(attacking_item, /obj/item/stack/nanopaste))
 			var/choice = alert("What do you want to do with the nanopaste?","Radiometric Scanner","Scan nanopaste","Fix seal integrity")
 			if(choice == "Fix seal integrity")
-				var/obj/item/stack/nanopaste/N = attacking_item
-				var/amount_used = min(N.get_amount(), 10 - scanner_seal_integrity / 10)
-				N.use(amount_used)
+				var/obj/item/stack/nanopaste/nanopaste_stack = attacking_item
+				var/amount_used = min(nanopaste_stack.get_amount(), 10 - scanner_seal_integrity / 10)
+				nanopaste_stack.use(amount_used)
 				scanner_seal_integrity = round(scanner_seal_integrity + amount_used * 10)
 				return
 		if(istype(attacking_item, /obj/item/reagent_containers/glass))
 			var/choice = alert("What do you want to do with the container?","Radiometric Scanner","Add coolant","Empty coolant","Scan container")
 			if(choice == "Add coolant")
-				var/obj/item/reagent_containers/glass/G = attacking_item
-				var/amount_transferred = min(src.reagents.maximum_volume - src.reagents.total_volume, G.reagents.total_volume)
-				G.reagents.trans_to(src, amount_transferred)
+				var/obj/item/reagent_containers/glass/glass_container = attacking_item
+				var/amount_transferred = min(src.reagents.maximum_volume - src.reagents.total_volume, glass_container.reagents.total_volume)
+				glass_container.reagents.trans_to(src, amount_transferred)
 				to_chat(user, "<span class='info'>You empty [amount_transferred]u of coolant into [src].</span>")
 				update_coolant()
 				return
 			else if(choice == "Empty coolant")
-				var/obj/item/reagent_containers/glass/G = attacking_item
-				var/amount_transferred = min(G.reagents.maximum_volume - G.reagents.total_volume, src.reagents.total_volume)
-				src.reagents.trans_to(G, amount_transferred)
+				var/obj/item/reagent_containers/glass/glass_container = attacking_item
+				var/amount_transferred = min(glass_container.reagents.maximum_volume - glass_container.reagents.total_volume, src.reagents.total_volume)
+				src.reagents.trans_to(glass_container, amount_transferred)
 				to_chat(user, "<span class='info'>You remove [amount_transferred]u of coolant from [src].</span>")
 				update_coolant()
 				return
@@ -102,65 +123,51 @@
 	var/total_purity = 0
 	fresh_coolant = 0
 	coolant_purity = 0
-	var/num_reagent_types = 0
-	for (var/_current_reagent in reagents.reagent_volumes)
-		var/singleton/reagent/current_reagent = GET_SINGLETON(_current_reagent)
-		if (!current_reagent)
+	for(var/reagent_type in reagents.reagent_volumes)
+		var/singleton/reagent/reagent = GET_SINGLETON(reagent_type)
+		if(!reagent)
 			continue
-		var/cur_purity = coolant_reagents_purity[_current_reagent]
-		if(!cur_purity)
-			cur_purity = 0.1
-		else if(cur_purity > 1)
-			cur_purity = 1
-		total_purity += cur_purity * REAGENT_VOLUME(reagents, _current_reagent)
-		fresh_coolant += REAGENT_VOLUME(reagents, _current_reagent)
-		num_reagent_types += 1
+		var/purity_value = coolant_reagents_purity[reagent_type]
+		if(!purity_value)
+			purity_value = 0.1
+		else if(purity_value > 1)
+			purity_value = 1
+		total_purity += purity_value * REAGENT_VOLUME(reagents, reagent_type)
+		fresh_coolant += REAGENT_VOLUME(reagents, reagent_type)
 	if(total_purity && fresh_coolant)
 		coolant_purity = total_purity / fresh_coolant
 
-/obj/structure/machinery/radiocarbon_spectrometer/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
-
+/obj/structure/machinery/radiocarbon_spectrometer/ui_interact(mob/user, datum/tgui/ui)
 	if(user.stat)
 		return
-
-	// this is the data which will be sent to the ui
-	var/data[0]
-	data["scanned_item"] = (scanned_item ? scanned_item.name : "")
-	data["scanned_item_desc"] = (scanned_item ? (scanned_item.desc ? scanned_item.desc : "No information on record.") : "")
-	data["last_scan_data"] = last_scan_data
-	//
-	data["scan_progress"] = round(scanner_progress)
-	data["scanning"] = scanning
-	//
-	data["scanner_seal_integrity"] = round(scanner_seal_integrity)
-	data["scanner_rpm"] = round(scanner_rpm)
-	data["scanner_temperature"] = round(scanner_temperature)
-	//
-	data["coolant_usage_rate"] = "[coolant_usage_rate]"
-	data["unused_coolant_abs"] = round(fresh_coolant)
-	data["unused_coolant_per"] = round(fresh_coolant / reagents.maximum_volume * 100)
-	data["coolant_purity"] = "[coolant_purity * 100]"
-	//
-	data["optimal_wavelength"] = round(optimal_wavelength)
-	data["maser_wavelength"] = round(maser_wavelength)
-	data["maser_efficiency"] = round(maser_efficiency * 100)
-	//
-	data["radiation"] = round(radiation)
-	data["t_left_radspike"] = round(t_left_radspike)
-	data["rad_shield_on"] = rad_shield
-
-	// update the ui if it exists, returns null if no ui is passed/found
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
-		// the ui does not exist, so we'll create a new() one
-		// for a list of parameters and their descriptions see the code docs in \code\modules\nano\nanoui.dm
-		ui = new(user, src, ui_key, "geoscanner.tmpl", "High Res Radiocarbon Spectrometer", 900, 825)
-		// when the ui is first opened this is the data it will use
-		ui.set_initial_data(data)
-		// open the new ui window
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "GeoScanner", "High Res Radiocarbon Spectrometer")
 		ui.open()
-		// auto update every Master Controller tick
-		ui.set_auto_update(1)
+
+/obj/structure/machinery/radiocarbon_spectrometer/ui_data(mob/user)
+	return list(
+		"scanned_item" = scanned_item ? scanned_item.name : "",
+		"scanned_item_desc" = scanned_item ? (scanned_item.desc ? scanned_item.desc : "No information on record.") : "",
+		"last_scan_data" = last_scan_data,
+		"scan_progress" = round(scanner_progress),
+		"scanning" = scanning,
+		"scanner_seal_integrity" = round(scanner_seal_integrity),
+		"scanner_rpm" = round(scanner_rpm),
+		"scanner_temperature" = round(scanner_temperature),
+		"coolant_usage_rate" = coolant_usage_rate,
+		"unused_coolant_abs" = round(fresh_coolant),
+		"unused_coolant_per" = round(fresh_coolant / reagents.maximum_volume * 100),
+		"coolant_purity" = round(coolant_purity * 100),
+		"optimal_wavelength" = round(optimal_wavelength),
+		"maser_wavelength" = round(maser_wavelength),
+		"maser_efficiency" = round(maser_efficiency * 100),
+		"radiation_emission" = round(radiation_emission),
+		"radiation_max" = RC_RAD_MAX,
+		"spike_active" = spike_active,
+		"t_to_next_spike" = round(t_to_next_spike),
+		"rad_shield_on" = rad_shield
+	)
 
 /obj/structure/machinery/radiocarbon_spectrometer/process()
 	if(scanning)
@@ -187,21 +194,32 @@
 			//each unit of coolant
 			scanner_temperature += scanner_rpm * deltaT * 0.05
 
-			//radiation
-			t_left_radspike -= deltaT
-			if(t_left_radspike > 0)
-				//ordinary radiation
-				radiation = rand() * 15
+			// Continuous-stress radiation loop with random spike events. Emission climbs while the
+			// shield is down and decays when it is raised. RC_RAD_RAMP_NORMAL is the baseline rate;
+			// during a spike the rate switches to RC_RAD_RAMP_SPIKE, fast enough that letting it run
+			// 5+ seconds will saturate to the cap. Spike events fire on a randomised interval so the
+			// player has to actually watch the meter / geiger rather than memorise a tempo. The cap
+			// (RC_RAD_MAX) is set just below where /mob/living/rad_act's armor_pen formula starts
+			// overwhelming RAD_SHIELDED suits, so the anomaly suit (RAD=100) still grants meaningful
+			// mitigation at adjacency even at the worst case.
+			if(spike_active)
+				spike_remaining -= deltaT
+				if(spike_remaining <= 0)
+					spike_active = FALSE
+					t_to_next_spike = rand(RC_SPIKE_INTERVAL_LO, RC_SPIKE_INTERVAL_HI)
 			else
-				//radspike
-				if(t_left_radspike > -5)
-					radiation = rand() * 15 + 85
-					if(!rad_shield)
-						//irradiate nearby mobs
-						for(var/mob/living/M in view(7,src))
-							M.apply_damage(radiation / 25, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
-				else
-					t_left_radspike = pick(10,15,25)
+				t_to_next_spike -= deltaT
+				if(t_to_next_spike <= 0)
+					spike_active = TRUE
+					spike_remaining = rand(RC_SPIKE_DURATION_LO, RC_SPIKE_DURATION_HI)
+
+			if(rad_shield)
+				radiation_emission = max(radiation_emission - RC_RAD_DECAY_RATE * deltaT, 0)
+			else
+				var/ramp = spike_active ? RC_RAD_RAMP_SPIKE : RC_RAD_RAMP_NORMAL
+				radiation_emission = min(radiation_emission + ramp * deltaT, RC_RAD_MAX)
+				if(radiation_emission > 0)
+					SSradiation.radiate(src, radiation_emission)
 
 			//use some coolant to cool down
 			if(coolant_usage_rate > 0)
@@ -248,15 +266,17 @@
 	last_process_worldtime = world.time
 
 /obj/structure/machinery/radiocarbon_spectrometer/proc/stop_scanning()
-	scanning = 0
+	scanning = FALSE
 	scanner_rpm_dir = 1
 	scanner_rpm = 0
 	optimal_wavelength = 0
 	maser_efficiency = 0
 	maser_wavelength = 0
 	coolant_usage_rate = 0
-	radiation = 0
-	t_left_radspike = 0
+	radiation_emission = 0
+	spike_active = FALSE
+	spike_remaining = 0
+	t_to_next_spike = 0
 	if(used_coolant)
 		src.reagents.remove_any(used_coolant)
 		used_coolant = 0
@@ -266,99 +286,111 @@
 
 	if(scanned_item)
 		//create report
-		var/obj/item/paper/P = new(src)
-		P.name = "[src] report #[++report_num]: [scanned_item.name]"
-		P.stamped = list(/obj/item/stamp)
-		P.overlays = list("paper_stamped")
+		var/obj/item/paper/report_paper = new(src)
+		report_paper.name = "[src] report #[++report_num]: [scanned_item.name]"
+		report_paper.stamped = list(/obj/item/stamp)
+		report_paper.overlays = list("paper_stamped")
 
 		//work out data
 		var/data = " - Mundane object: [scanned_item.desc ? scanned_item.desc : "No information on record."]<br>"
-		var/datum/geosample/G
+		var/datum/geosample/geosample_data
 		switch(scanned_item.type)
 			if(/obj/item/ore)
-				var/obj/item/ore/O = scanned_item
-				if(O.geologic_data)
-					G = O.geologic_data
+				var/obj/item/ore/ore_item = scanned_item
+				if(ore_item.geologic_data)
+					geosample_data = ore_item.geologic_data
 
 			if(/obj/item/rocksliver)
-				var/obj/item/rocksliver/O = scanned_item
-				if(O.geologic_data)
-					G = O.geologic_data
+				var/obj/item/rocksliver/rock_sliver = scanned_item
+				if(rock_sliver.geologic_data)
+					geosample_data = rock_sliver.geologic_data
 
 			if(/obj/item/archaeological_find)
 				data = " - Mundane object (archaic xenos origins)<br>"
 
-				var/obj/item/archaeological_find/A = scanned_item
-				if(A.talking_atom)
+				var/obj/item/archaeological_find/arch_find = scanned_item
+				if(arch_find.talking_atom)
 					data = " - Exhibits properties consistent with sonic reproduction and audio capture technologies.<br>"
 
-		var/anom_found = 0
-		if(G)
-			data = " - Spectometric analysis on mineral sample has determined type [GLOB.finds_as_strings[GLOB.responsive_carriers.Find(G.source_mineral)]]<br>"
-			if(G.age_billion > 0)
-				data += " - Radiometric dating shows age of [G.age_billion].[G.age_million] billion years<br>"
-			else if(G.age_million > 0)
-				data += " - Radiometric dating shows age of [G.age_million].[G.age_thousand] million years<br>"
+		var/anom_found = FALSE
+		if(geosample_data)
+			data = " - Spectometric analysis on mineral sample has determined type [GLOB.finds_as_strings[GLOB.responsive_carriers.Find(geosample_data.source_mineral)]]<br>"
+			if(geosample_data.age_billion > 0)
+				data += " - Radiometric dating shows age of [geosample_data.age_billion].[geosample_data.age_million] billion years<br>"
+			else if(geosample_data.age_million > 0)
+				data += " - Radiometric dating shows age of [geosample_data.age_million].[geosample_data.age_thousand] million years<br>"
 			else
-				data += " - Radiometric dating shows age of [G.age_thousand * 1000 + G.age] years<br>"
+				data += " - Radiometric dating shows age of [geosample_data.age_thousand * 1000 + geosample_data.age] years<br>"
 			data += " - Chromatographic analysis shows the following materials present:<br>"
-			for(var/carrier in G.find_presence)
-				if(G.find_presence[carrier])
+			for(var/carrier in geosample_data.find_presence)
+				if(geosample_data.find_presence[carrier])
 					var/index = GLOB.responsive_carriers.Find(carrier)
 					if(index > 0 && index <= GLOB.finds_as_strings.len)
-						data += "	> [100 * G.find_presence[carrier]]% [GLOB.finds_as_strings[index]]<br>"
+						data += "	> [100 * geosample_data.find_presence[carrier]]% [GLOB.finds_as_strings[index]]<br>"
 
-			if(G.artifact_id && G.artifact_distance >= 0)
-				anom_found = 1
-				data += " - Hyperspectral imaging reveals exotic energy wavelength detected with ID: [G.artifact_id]<br>"
-				data += " - Fourier transform analysis on anomalous energy absorption indicates energy source located inside emission radius of [G.artifact_distance]m<br>"
+			if(geosample_data.artifact_id && geosample_data.artifact_distance >= 0)
+				anom_found = TRUE
+				data += " - Hyperspectral imaging reveals exotic energy wavelength detected with ID: [geosample_data.artifact_id]<br>"
+				data += " - Fourier transform analysis on anomalous energy absorption indicates energy source located inside emission radius of [geosample_data.artifact_distance]m<br>"
 
 		if(!anom_found)
 			data += " - No anomalous data<br>"
 
-		P.info = "<b>[src] analysis report #[report_num]</b><br>"
-		P.info += "<b>Scanned item:</b> [scanned_item.name]<br><br>" + data
-		last_scan_data = P.info
-		P.forceMove(src.loc)
+		report_paper.info = "<b>[src] analysis report #[report_num]</b><br>"
+		report_paper.info += "<b>Scanned item:</b> [scanned_item.name]<br><br>" + data
+		last_scan_data = report_paper.info
+		report_paper.forceMove(src.loc)
 
 		scanned_item.forceMove(src.loc)
 		scanned_item = null
 
-/obj/structure/machinery/radiocarbon_spectrometer/Topic(href, href_list)
+/obj/structure/machinery/radiocarbon_spectrometer/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
+		return
 	if(stat & (NOPOWER|BROKEN))
-		return 0 // don't update UIs attached to this object
+		return
 
-	if(href_list["scanItem"])
-		if(scanning)
-			stop_scanning()
-		else
-			if(scanned_item)
-				if(scanner_seal_integrity > 0)
-					scanner_progress = 0
-					scanning = 1
-					t_left_radspike = pick(5,10,15)
-					to_chat(usr, SPAN_NOTICE("Scan initiated."))
-				else
-					to_chat(usr, SPAN_WARNING("Could not initiate scan, seal requires replacing."))
+	switch(action)
+		if("scan_item")
+			if(scanning)
+				stop_scanning()
 			else
-				to_chat(usr, SPAN_WARNING("Insert an item to scan."))
+				if(scanned_item)
+					if(scanner_seal_integrity > 0)
+						scanner_progress = 0
+						scanning = TRUE
+						t_to_next_spike = rand(RC_SPIKE_INTERVAL_LO, RC_SPIKE_INTERVAL_HI)
+						to_chat(usr, SPAN_NOTICE("Scan initiated."))
+					else
+						to_chat(usr, SPAN_WARNING("Could not initiate scan, seal requires replacing."))
+				else
+					to_chat(usr, SPAN_WARNING("Insert an item to scan."))
+			return TRUE
 
-	if(href_list["maserWavelength"])
-		maser_wavelength = max(min(maser_wavelength + 1000 * text2num(href_list["maserWavelength"]), 10000), 1)
+		if("maser_wavelength")
+			maser_wavelength = clamp(maser_wavelength + 1000 * text2num(params["delta"]), 1, 10000)
+			return TRUE
 
-	if(href_list["coolantRate"])
-		coolant_usage_rate = max(min(coolant_usage_rate + text2num(href_list["coolantRate"]), 10000), 0)
+		if("coolant_rate")
+			coolant_usage_rate = clamp(coolant_usage_rate + text2num(params["delta"]), 0, 10000)
+			return TRUE
 
-	if(href_list["toggle_rad_shield"])
-		if(rad_shield)
-			rad_shield = 0
-		else
-			rad_shield = 1
+		if("toggle_rad_shield")
+			rad_shield = !rad_shield
+			return TRUE
 
-	if(href_list["ejectItem"])
-		if(scanned_item)
-			scanned_item.forceMove(src.loc)
-			scanned_item = null
+		if("eject_item")
+			if(scanned_item)
+				scanned_item.forceMove(src.loc)
+				scanned_item = null
+			return TRUE
 
-	add_fingerprint(usr)
-	return 1 // update UIs attached to this object
+#undef RC_RAD_MAX
+#undef RC_RAD_RAMP_NORMAL
+#undef RC_RAD_RAMP_SPIKE
+#undef RC_RAD_DECAY_RATE
+#undef RC_SPIKE_INTERVAL_LO
+#undef RC_SPIKE_INTERVAL_HI
+#undef RC_SPIKE_DURATION_LO
+#undef RC_SPIKE_DURATION_HI

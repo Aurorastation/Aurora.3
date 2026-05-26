@@ -1760,15 +1760,14 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/supply/dock)
 "hc" = (
-/obj/effect/floor_decal/corner/dark_blue/full,
-/obj/effect/floor_decal/corner/dark_blue{
-	dir = 4
-	},
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
 	},
 /obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
+	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge)
@@ -2114,6 +2113,13 @@
 	dir = 4
 	},
 /turf/simulated/wall/r_wall,
+/area/bridge)
+"iL" = (
+/obj/effect/floor_decal/corner/dark_blue/full,
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
 /area/bridge)
 "iM" = (
 /obj/structure/machinery/atmospherics/pipe/simple/heat_exchanging{
@@ -2628,19 +2634,14 @@
 /turf/simulated/floor/plating,
 /area/construction/storage)
 "lO" = (
-/obj/structure/machinery/button/remote/blast_door{
-	desc = "A remote control-switch for the AI core maintenance door.";
-	id = "runtime_blastdoors";
-	name = "Runtime Safety Blast Doors";
-	pixel_x = 5;
-	pixel_y = 28;
-	dir = 1
-	},
 /obj/structure/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 10
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/bridge)
+"lQ" = (
+/turf/simulated/wall/r_wall,
+/area/template_noop)
 "lR" = (
 /obj/structure/machinery/hologram/holopad/long_range,
 /obj/effect/overmap/visitable/ship/runtime,
@@ -3071,6 +3072,10 @@
 	},
 /turf/simulated/floor/tiled/gridded,
 /area/hallway/primary/central_two)
+"ow" = (
+/obj/structure/machinery/power/apc/north,
+/turf/simulated/floor/carpet/rubber,
+/area/bridge)
 "ox" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled/full,
@@ -3090,6 +3095,15 @@
 /obj/structure/machinery/alarm/south,
 /turf/simulated/floor/tiled/dark/full,
 /area/hallway/primary/central_one)
+"oO" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 5
+	},
+/obj/structure/bed/stool/chair/office/bridge{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/bridge)
 "oR" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/railing/mapped{
@@ -3477,12 +3491,6 @@
 /turf/simulated/floor/tiled/gridded,
 /area/shuttle/runtime)
 "qU" = (
-/obj/effect/floor_decal/corner/dark_blue{
-	dir = 5
-	},
-/obj/structure/bed/stool/chair/office/bridge{
-	dir = 1
-	},
 /obj/structure/cable/yellow{
 	icon_state = "2-4"
 	},
@@ -3873,6 +3881,18 @@
 	},
 /turf/simulated/floor/airless,
 /area/construction/storage)
+"ts" = (
+/obj/structure/table/glass,
+/obj/structure/machinery/requests_console/east{
+	announcementConsole = 1;
+	department = "Bridge";
+	departmentType = 7
+	},
+/obj/structure/machinery/photocopier/faxmachine{
+	department = "Bridge"
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/bridge)
 "tt" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/machinery/door/blast/regular{
@@ -4006,11 +4026,13 @@
 /turf/simulated/floor/plating,
 /area/construction/storage)
 "um" = (
-/obj/effect/floor_decal/industrial/warning/full,
-/obj/structure/machinery/iff_beacon/name_change{
-	pixel_y = 5
+/obj/effect/floor_decal/corner/dark_blue/full{
+	dir = 4
 	},
-/turf/simulated/floor/airless,
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
 /area/bridge)
 "un" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -4600,6 +4622,17 @@
 	},
 /turf/simulated/floor/reinforced/phoron,
 /area/construction/storage)
+"xJ" = (
+/obj/structure/table/glass,
+/obj/structure/machinery/requests_console/west{
+	department = "Security";
+	departmentType = 7
+	},
+/obj/structure/machinery/photocopier/faxmachine{
+	department = "Security"
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/bridge)
 "xL" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 1
@@ -5205,6 +5238,14 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/hallway/primary/central_one)
+"By" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/structure/machinery/door/blast/regular/open{
+	id = "runtime_blastdoors";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/full,
+/area/template_noop)
 "BF" = (
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/structure/machinery/shipsensors/strong{
@@ -5510,7 +5551,6 @@
 /turf/simulated/floor/tiled/full,
 /area/hallway/primary/central_two)
 "Dl" = (
-/obj/structure/machinery/power/apc/north,
 /obj/structure/cable/yellow{
 	icon_state = "0-8"
 	},
@@ -6720,11 +6760,15 @@
 /turf/simulated/floor/tiled/gridded,
 /area/turret_protected/ai)
 "Kj" = (
-/obj/effect/floor_decal/industrial/warning/full,
-/obj/structure/machinery/shipsensors/strong{
-	pixel_y = 4
+/obj/structure/machinery/button/remote/blast_door{
+	desc = "A remote control-switch for the AI core maintenance door.";
+	id = "runtime_blastdoors";
+	name = "Runtime Safety Blast Doors";
+	pixel_x = 5;
+	pixel_y = 28;
+	dir = 1
 	},
-/turf/simulated/floor/airless,
+/turf/simulated/floor/carpet/rubber,
 /area/bridge)
 "Kn" = (
 /obj/structure/machinery/atmospherics/pipe/simple/visible/cyan{
@@ -7688,6 +7732,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
+"QL" = (
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/structure/machinery/shipsensors/strong{
+	pixel_y = 4
+	},
+/turf/simulated/floor/airless,
+/area/template_noop)
 "QM" = (
 /obj/structure/machinery/door/blast/regular/open{
 	id = "runtime_mixchamber_int";
@@ -7879,14 +7930,11 @@
 /turf/simulated/floor/reinforced/airless,
 /area/construction/storage)
 "RH" = (
-/obj/effect/floor_decal/corner/dark_blue/full{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/dark_blue{
-	dir = 1
-	},
-/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4
+	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge)
@@ -8236,6 +8284,13 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/hallway/primary/central_one)
+"TF" = (
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/structure/machinery/iff_beacon/name_change{
+	pixel_y = 5
+	},
+/turf/simulated/floor/airless,
+/area/template_noop)
 "TG" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -77739,8 +77794,8 @@ uh
 uh
 uh
 uh
-uh
 mA
+lQ
 ig
 ig
 ig
@@ -77996,10 +78051,10 @@ uh
 uh
 uh
 uh
-uh
 mA
-Kj
+QL
 JX
+xJ
 up
 MI
 up
@@ -78253,10 +78308,10 @@ uh
 uh
 uh
 uh
-uh
 mA
+lQ
 ig
-ig
+Kj
 lO
 UW
 kP
@@ -78511,9 +78566,9 @@ uh
 uh
 uh
 uh
-uh
-JX
+By
 QU
+um
 RH
 nN
 iT
@@ -78768,9 +78823,9 @@ uh
 uh
 uh
 uh
-uh
-JX
+By
 yW
+oO
 qU
 lR
 ck
@@ -79025,9 +79080,9 @@ uh
 uh
 uh
 uh
-uh
-JX
+By
 tf
+iL
 hc
 pz
 Ji
@@ -79281,10 +79336,10 @@ uh
 uh
 uh
 uh
-uh
 mA
+lQ
 ig
-ig
+ow
 Dl
 OF
 EH
@@ -79538,10 +79593,10 @@ uh
 uh
 uh
 uh
-uh
 mA
-um
+TF
 JX
+ts
 IJ
 IJ
 IJ
@@ -79795,8 +79850,8 @@ uh
 uh
 uh
 uh
-uh
 mA
+lQ
 ig
 ig
 ig
