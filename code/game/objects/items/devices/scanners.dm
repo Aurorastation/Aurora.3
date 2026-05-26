@@ -29,7 +29,6 @@ BREATH ANALYZER
 	flick("[icon_state]-scan", src)
 
 /obj/item/healthanalyzer/attack(mob/living/target_mob, mob/living/user, target_zone)
-	to_chat(world, "healthanalyzer/attack([target_mob], [user], [target_zone])")
 	var/datum/component/health_analyzer/h_analyzer = src.GetComponent(/datum/component/health_analyzer)
 	if(!h_analyzer)
 		return
