@@ -281,13 +281,13 @@
 				params["turn"] = pick("45", "-45")
 			else
 				connected.relaymove(usr, connected.dir, accellimit)
-				addtimer(CALLBACK(src, PROC_REF(updateUsrDialog)), connected.burn_delay + 1) // remove when turning into vueui
+				addtimer(CALLBACK(src, PROC_REF(refresh_ui)), connected.burn_delay + 1)
 
 		if (action == "turn")
 			var/ndir = text2num(params["turn"])
 			if(connected.can_turn())
 				connected.turn_ship(ndir)
-				addtimer(CALLBACK(src, PROC_REF(updateUsrDialog)), min(connected.vessel_mass / 10, 1) SECONDS + 1)
+				addtimer(CALLBACK(src, PROC_REF(refresh_ui)), min(connected.vessel_mass / 10, 1) SECONDS + 1)
 
 		if (action == "combat_turn")
 			var/ndir = text2num(params["combat_turn"])
@@ -299,7 +299,7 @@
 
 		if (action == "brake")
 			connected.decelerate()
-			addtimer(CALLBACK(src, PROC_REF(updateUsrDialog)), connected.burn_delay + 1)
+			addtimer(CALLBACK(src, PROC_REF(refresh_ui)), connected.burn_delay + 1)
 
 		if (action == "apilot")
 			autopilot = !autopilot
@@ -309,7 +309,10 @@
 		return TRUE
 
 	add_fingerprint(usr)
-	updateUsrDialog()
+	SStgui.update_uis(src)
+
+/obj/machinery/computer/ship/helm/proc/refresh_ui()
+	SStgui.update_uis(src)
 
 /obj/machinery/computer/ship/navigation
 	name = "navigation console"

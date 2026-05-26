@@ -111,39 +111,56 @@
 	if(!relay_information(signal, /obj/machinery/telecomms/hub))
 		relay_information(signal, /obj/machinery/telecomms/broadcaster)
 
-/obj/machinery/telecomms/message_server/proc/send_rc_message(var/recipient = "",var/sender = "",var/message = "",var/stamp = "", var/id_auth = "", var/priority = 1)
-	rc_msgs += new/datum/data_rc_msg(recipient,sender,message,stamp,id_auth)
-	var/authmsg = "[message]<br>"
-	if (id_auth)
-		authmsg += "[id_auth]<br>"
-	if (stamp)
-		authmsg += "[stamp]<br>"
-	for (var/obj/machinery/requests_console/Console in GLOB.allConsoles)
-		if (ckey(Console.department) == ckey(recipient))
-			if(!Console.operable())
-				Console.message_log += "<B>Message lost due to console failure.</B><BR>Please contact [station_name()] system adminsitrator or AI for technical assistance.<BR>"
-				continue
-			if(Console.newmessagepriority < priority)
-				Console.newmessagepriority = priority
-				Console.icon_state = "req_comp[priority]"
-			switch(priority)
-				if(2)
-					if(!Console.silent)
-						playsound(Console.loc, 'sound/machines/twobeep.ogg', 50, 1)
-						Console.audible_message("[icon2html(Console, viewers(get_turf(Console)))] *The Requests Console beeps: 'PRIORITY Alert in [sender]'",,5)
-					Console.message_log += "<B><span class='warning'>High Priority message from <A href='byond://?src=[REF(Console)];write=[sender]'>[sender]</A></span></B><BR>[authmsg]"
-					for(var/obj/item/modular_computer/pda in Console.alert_pdas)
-						var/pda_message = "A high priority message has arrived!"
-						pda.get_notification(pda_message, 1, "[Console.department] Requests Console")
-				else
-					if(!Console.silent)
-						playsound(Console.loc, 'sound/machines/twobeep.ogg', 50, 1)
-						Console.audible_message("[icon2html(Console, viewers(get_turf(Console)))] *The Requests Console beeps: 'Message from [sender]'",,4)
-					Console.message_log += "<B>Message from <A href='byond://?src=[REF(Console)];write=[sender]'>[sender]</A></B><BR>[authmsg]"
-					for(var/obj/item/modular_computer/pda in Console.alert_pdas)
-						var/pda_message = "A message has arrived!"
-						pda.get_notification(pda_message, 1, "[Console.department] Requests Console")
-			Console.set_light(2)
+/// Display label for a message category code ("assist"/"supply"/"info"/"reply").
+/obj/machinery/telecomms/message_server/proc/rc_category_label(category)
+	switch(category)
+		if("assist")
+			return "Assistance Request"
+		if("supply")
+			return "Supply Request"
+		if("reply")
+			return "Reply"
+		else
+			return "Message"
+
+/obj/machinery/telecomms/message_server/proc/send_rc_message(recipient = "", sender = "", message = "", stamp = "", id_auth = "", priority = 1, category = "info")
+	rc_msgs += new/datum/data_rc_msg(recipient, sender, message, stamp, id_auth)
+	var/category_label = rc_category_label(category)
+	for(var/obj/machinery/requests_console/Console in GLOB.allConsoles)
+		if(ckey(Console.department) != ckey(recipient))
+			continue
+		if(!Console.operable())
+			Console.message_log += list(list(
+				"type" = "error",
+				"body" = "Message lost due to console failure. Please contact [station_name()] system administrator or AI for technical assistance."
+			))
+			continue
+		if(Console.newmessagepriority < priority)
+			Console.newmessagepriority = priority
+			Console.update_icon()
+		var/list/entry = list(
+			"type" = "received",
+			"category" = category,
+			"priority" = priority >= 2 ? "high" : "normal",
+			"sender" = sender,
+			"body" = message,
+			"stamp" = stamp,
+			"id_auth" = id_auth
+		)
+		Console.message_log += list(entry)
+		if(!Console.silent)
+			playsound(Console.loc, 'sound/machines/twobeep.ogg', 50, 1)
+			if(priority >= 2)
+				Console.audible_message("[icon2html(Console, viewers(get_turf(Console)))] *The Requests Console beeps: 'PRIORITY [category_label] from [sender]'",, 5)
+			else
+				Console.audible_message("[icon2html(Console, viewers(get_turf(Console)))] *The Requests Console beeps: '[category_label] from [sender]'",, 4)
+		var/notification_text = priority >= 2 ? "A high priority [lowertext(category_label)] has arrived!" : "A new [lowertext(category_label)] has arrived!"
+		for(var/datum/weakref/ref in Console.alert_pdas)
+			var/obj/item/modular_computer/pda = ref.resolve()
+			if(pda)
+				pda.get_notification(notification_text, 1, "[Console.department] Requests Console")
+		SStgui.update_uis(Console)
+		Console.set_light(2)
 
 
 /obj/machinery/telecomms/message_server/attack_hand(user as mob)

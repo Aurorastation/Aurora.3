@@ -566,7 +566,7 @@ GLOBAL_LIST_EMPTY_TYPED(alloy_data, /datum/alloy)
 				new /obj/item/ore/slag(output_turf)
 
 	if(console)
-		console.updateUsrDialog()
+		SStgui.update_uis(console)
 
 /obj/machinery/mineral/processing_unit/RefreshParts()
 	..()
