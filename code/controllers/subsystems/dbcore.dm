@@ -386,6 +386,8 @@ SUBSYSTEM_DEF(dbcore)
 	var/datum/callback/success_callback
 	/// The callback to invoke when the query was not executed successfully
 	var/datum/callback/fail_callback
+	/// If TRUE, the query will automatically qdel itself after invoking its callback (set by ExecuteNoSleep)
+	var/auto_qdel = FALSE
 
 	// Status information
 	/// Current status of the query.
@@ -527,12 +529,14 @@ SUBSYSTEM_DEF(dbcore)
  * - permit_before_dbcore_running `FALSE` - If set to TRUE allows the query to be queued before the DBCore Subsystem is running (will still only be executed after it is running)
  */
 /datum/db_query/proc/ExecuteNoSleep(permit_before_dbcore_running=FALSE)
+	auto_qdel = TRUE
 	Activity("Execute")
 	if(status == DB_QUERY_STARTED)
 		CRASH("Attempted to start a new query while waiting on the old one")
 
 	if(!SSdbcore.Connect())
 		last_error = "No connection!"
+		qdel(src)
 		return FALSE
 
 	Close()
@@ -541,6 +545,7 @@ SUBSYSTEM_DEF(dbcore)
 		status = DB_QUERY_BROKEN
 		last_error = "MC not running, Cant Execute NoSleep Query"
 		log_subsystem_dbcore("Attemted to Execute NoSleep Query while MC was not running: [sql], Arguments: [json_encode(arguments)], error: [last_error]")
+		qdel(src)
 		return FALSE
 	else
 		SSdbcore.queue_query(src)
@@ -696,14 +701,33 @@ Ignore_errors instructes mysql to continue inserting rows if some of them have e
 			status = DB_QUERY_BROKEN
 			return
 
-/// Invokes the appropriate query callback if set
+/// Invokes the appropriate query callback if set.
+/// If auto_qdel is TRUE (set by ExecuteNoSleep), the query is automatically
+/// qdel'd after the callback runs via _invoke_and_cleanup, ensuring fire-and-forget
+/// queries are always cleaned up even if the callback's bound datum is GC'd.
 /datum/db_query/proc/invoke_callback()
 	if (status == DB_QUERY_FINISHED)
 		if (success_callback)
-			success_callback.InvokeAsync(src)
+			if (auto_qdel)
+				INVOKE_ASYNC(src, TYPE_PROC_REF(/datum/db_query, _invoke_and_cleanup), success_callback)
+			else
+				success_callback.InvokeAsync(src)
+		else if (auto_qdel)
+			qdel(src)
 	else
 		if (fail_callback)
-			fail_callback.InvokeAsync(src)
+			if (auto_qdel)
+				INVOKE_ASYNC(src, TYPE_PROC_REF(/datum/db_query, _invoke_and_cleanup), fail_callback)
+			else
+				fail_callback.InvokeAsync(src)
+		else if (auto_qdel)
+			qdel(src)
+
+/// Invokes the given callback synchronously (passing this query as the argument),
+/// then qdels this query. Used by invoke_callback() when auto_qdel is TRUE.
+/datum/db_query/proc/_invoke_and_cleanup(datum/callback/cb)
+	cb.Invoke(src)
+	qdel(src)
 
 /// Messages the admin on sync queries to ask if the server just hung
 /datum/db_query/proc/slow_query_check()
