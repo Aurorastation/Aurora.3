@@ -23,7 +23,7 @@
 		to_chat(usr, SPAN_WARNING("Your module is not installed in a hardsuit."))
 		return
 
-	module.holder.ui_interact(usr, nano_state = GLOB.contained_state)
+	module.holder.ui_interact(usr)
 
 /mob
 	var/get_rig_stats = 0
@@ -32,9 +32,7 @@
 	name = "IIS module"
 	desc = "An integrated intelligence system module suitable for most hardsuits."
 	icon_state = "IIS"
-	toggleable = TRUE
-	usable = TRUE
-	disruptive = FALSE
+	module_type = MODULETYPE_TOGGLE
 	activates_on_touch = TRUE
 	confined_use = TRUE
 
@@ -46,10 +44,12 @@
 	deactivate_string = "Disable Dataspike"
 
 	interface_name = "integrated intelligence system"
-	interface_desc = "A socket that supports a range of artificial intelligence systems."
+	interface_desc = "A socket that supports a range of artificial intelligence systems. When active, you can click on any active AI (including traditional ship/station AIs, pAIs, and robot intelligence circuits) to attempt to integrate it into your suit systems."
 
-	var/mob/integrated_ai // Direct reference to the actual mob held in the suit.
-	var/obj/item/ai_card  // Reference to the MMI, posibrain, intellicard or pAI card previously holding the AI.
+	/// Direct reference to the actual mob held in the suit.
+	var/mob/integrated_ai
+	/// Reference to the MMI, intellicard or pAI card previously holding the AI.
+	var/obj/item/ai_card
 	var/obj/item/ai_verbs/verb_holder
 
 	category = MODULE_GENERAL
@@ -136,6 +136,18 @@
 		return TRUE
 
 	return FALSE
+
+/obj/item/rig_module/ai_container/get_configuration()
+	. = ..()
+	var/button_label = "No AI Currently Installed"
+	if(integrated_ai)
+		button_label = integrated_ai.name
+	.["eject"] = add_ui_configuration(engage_string, "button", button_label)
+
+/obj/item/rig_module/ai_container/configure_edit(key, value, user)
+	switch(key)
+		if("eject")
+			engage(null, user)
 
 /obj/item/rig_module/ai_container/engage(atom/target, mob/user)
 	if(!..())
@@ -227,10 +239,10 @@
 	name = "datajack module"
 	desc = "A simple induction datalink module."
 	icon_state = "datajack"
-	toggleable = TRUE
 	activates_on_touch = TRUE
-	usable = FALSE
+	module_type = MODULETYPE_USABLE
 
+	engage_string = "Eject AI"
 	activate_string = "Enable Datajack"
 	deactivate_string = "Disable Datajack"
 
@@ -269,16 +281,16 @@
 		return TRUE
 
 	// I fucking hate R&D code. This typecheck spam would be totally unnecessary in a sane setup.
-	else if(istype(input_device,/obj/machinery))
+	else if(istype(input_device,/obj/structure/machinery))
 		var/datum/research/incoming_files
-		if(istype(input_device,/obj/machinery/computer/rdconsole))
-			var/obj/machinery/computer/rdconsole/input_machine = input_device
+		if(istype(input_device,/obj/structure/machinery/computer/rdconsole))
+			var/obj/structure/machinery/computer/rdconsole/input_machine = input_device
 			incoming_files = input_machine.files
-		else if(istype(input_device,/obj/machinery/r_n_d/server))
-			var/obj/machinery/r_n_d/server/input_machine = input_device
+		else if(istype(input_device,/obj/structure/machinery/r_n_d/server))
+			var/obj/structure/machinery/r_n_d/server/input_machine = input_device
 			incoming_files = input_machine.files
-		else if(istype(input_device,/obj/machinery/mecha_part_fabricator))
-			var/obj/machinery/mecha_part_fabricator/input_machine = input_device
+		else if(istype(input_device,/obj/structure/machinery/mecha_part_fabricator))
+			var/obj/structure/machinery/mecha_part_fabricator/input_machine = input_device
 			incoming_files = input_machine.files
 
 		if(!incoming_files || !incoming_files.known_tech || !incoming_files.known_tech.len)
@@ -318,8 +330,7 @@
 	name = "electrowarfare module"
 	desc = "A bewilderingly complex bundle of fiber optics and chips."
 	icon_state = "ewar"
-	toggleable = TRUE
-	usable = FALSE
+	module_type = MODULETYPE_TOGGLE
 	confined_use = TRUE
 
 	activate_string = "Enable Countermeasures"
@@ -352,7 +363,7 @@
 	name = "hardsuit power sink"
 	desc = "An heavy-duty power sink."
 	icon_state = "powersink"
-	toggleable = TRUE
+	module_type = MODULETYPE_TOGGLE
 	activates_on_touch = TRUE
 	disruptive = FALSE
 

@@ -24,7 +24,7 @@
 	base_area = /area/nuclear_silo/upper_level_lift
 	base_turf = /turf/simulated/open
 
-/obj/machinery/computer/shuttle_control/multi/lift/nuclear_silo
+/obj/structure/machinery/computer/shuttle_control/multi/lift/nuclear_silo
 	shuttle_tag = "Bunker Lift"
 
 // --------------------- surface, South

@@ -8,12 +8,12 @@
 	var/image/radar			 // Radar image for sonar esque effect
 
 	// The sensor console holding this data.
-	var/obj/machinery/computer/ship/sensors/owner
+	var/obj/structure/machinery/computer/ship/sensors/owner
 
 	// The actual overmap effect associated with this.
 	var/obj/effect/overmap/effect
 
-/datum/overmap_contact/New(var/obj/machinery/computer/ship/sensors/creator, var/obj/effect/overmap/source)
+/datum/overmap_contact/New(var/obj/structure/machinery/computer/ship/sensors/creator, var/obj/effect/overmap/source)
 	// Update local tracking information.
 	owner =  creator
 	effect = source
@@ -84,7 +84,7 @@
 	if(owner)
 		// If we have a lock on what was lost, remove the lock from the targeting consoles
 		if(owner.connected.targeting == effect)
-			for(var/obj/machinery/computer/ship/targeting/console in owner.connected.consoles)
+			for(var/obj/structure/machinery/computer/ship/targeting/console in owner.connected.consoles)
 				owner.connected.detarget(effect, console)
 
 		// Removes the client images from the client of the mobs that are looking at this contact

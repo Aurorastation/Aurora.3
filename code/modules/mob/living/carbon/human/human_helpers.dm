@@ -93,8 +93,8 @@
 		G.process_hud(src)
 
 /mob/living/carbon/human/proc/process_rig(var/obj/item/rig/O)
-	if(O.visor && O.visor.active && O.visor.vision && O.visor.vision.glasses && (!O.helmet || (head && O.helmet == head)))
-		process_glasses(O.visor.vision.glasses)
+	if(O.visor && O.visor.active && O.visor.vision_mode && O.visor.vision_mode.glasses && (!O.helmet || (head && O.helmet == head)))
+		process_glasses(O.visor.vision_mode.glasses)
 
 /// Applies organ/markings prefs to this mob.
 /mob/living/carbon/human/proc/sync_organ_prefs_to_mob(datum/preferences/prefs, apply_prosthetics = TRUE, apply_markings = TRUE)
@@ -275,8 +275,8 @@
 	else
 		. = 80 * (1 - bodytemperature / species.cold_level_3)
 		. = max(20, .) //stasis factor range: 20 to 80 after rounding. irl cryonics ''achieves full stasis'' in bodies at 80K.
-	if(istype(loc, /obj/machinery/atmospherics/unary/cryo_cell))
-		var/obj/machinery/atmospherics/unary/cryo_cell/cryo = loc
+	if(istype(loc, /obj/structure/machinery/atmospherics/unary/cryo_cell))
+		var/obj/structure/machinery/atmospherics/unary/cryo_cell/cryo = loc
 		if(cryo.current_stasis_mult)
 			var/gcf_stasis_mult = cryo.current_stasis_mult
 			. = . * gcf_stasis_mult

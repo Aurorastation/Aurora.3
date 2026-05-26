@@ -58,7 +58,7 @@
 			return
 	..()
 
-// for /obj/machinery/vending/sovietsoda
+// for /obj/structure/machinery/vending/sovietsoda
 /obj/item/reagent_containers/food/drinks/drinkingglass/soda
 	reagents_to_add = list(/singleton/reagent/drink/sodawater = 50)
 

@@ -53,13 +53,10 @@
 	name = "hardsuit visor"
 	desc = "A layered, translucent visor system for a hardsuit."
 	icon_state = "optics"
-
+	module_type = MODULETYPE_TOGGLE
 	interface_name = "optical scanners"
 	interface_desc = "An integrated multi-mode vision system."
 
-	engage_on_activate = FALSE
-	usable = TRUE
-	toggleable = TRUE
 	disruptive = FALSE
 	confined_use = TRUE
 
@@ -67,7 +64,9 @@
 	activate_string = "Enable Visor"
 	deactivate_string = "Disable Visor"
 
-	var/datum/rig_vision/vision
+	active_power_cost = 2
+
+	var/datum/rig_vision/vision_mode
 	var/list/vision_modes = list(
 		/datum/rig_vision/nvg,
 		/datum/rig_vision/thermal
@@ -77,10 +76,76 @@
 
 	category = MODULE_GENERAL
 
+/// There should only ever be one vision module installed in a suit.
+/obj/item/rig_module/vision/installed()
+	..()
+	holder.visor = src
+
+/obj/item/rig_module/vision/New()
+	..()
+
+	if(!vision_modes)
+		return
+
+	var/list/processed_vision = list()
+	for(var/new_vision_mode in vision_modes)
+		var/datum/rig_vision/vision_datum = new new_vision_mode
+		processed_vision += vision_datum
+
+	vision_modes = processed_vision
+
+	vision_index = 1
+	vision_mode = length(vision_modes) ? vision_modes[vision_index] : null
+
+/obj/item/rig_module/vision/get_configuration(mob/user)
+	. = ..()
+	if(!vision_modes || length(vision_modes) <= 1)
+		return .
+
+	var/list/modes = list()
+	for(var/datum/rig_vision/added_mode in vision_modes)
+		modes += added_mode.mode
+
+	.["vision_mode"] = add_ui_configuration("Visor mode", "list", vision_mode.mode, modes)
+
+/obj/item/rig_module/vision/configure_edit(key, value, mob/user)
+	switch(key)
+		if("vision_mode")
+			set_vision_mode(user, value)
+
+/obj/item/rig_module/vision/proc/set_vision_mode(mob/user, var/new_mode)
+	if(!new_mode || new_mode == "")
+		return FALSE
+
+	if(!active)
+		to_chat(user, SPAN_WARNING("\The [src] isn't activated!"))
+		return FALSE
+
+	var/i = 1
+	for(var/datum/rig_vision/V in vision_modes)
+		if(V.mode == new_mode)
+			vision_index = i
+			vision_mode = V
+			sound_to(user, 'sound/machines/terminal/terminal_select.ogg')
+			return TRUE
+		i++
+
+	return FALSE
+
+/obj/item/rig_module/vision/activate(mob/user)
+	. = ..()
+	sound_to(user, 'sound/items/goggles_charge.ogg')
+
+/obj/item/rig_module/vision/deactivate(mob/user)
+	. = ..()
+	sound_to(user, 'sound/effects/pop.ogg')
+
 /obj/item/rig_module/vision/multi
 	name = "hardsuit optical package"
 	desc = "A complete visor system of optical scanners and vision modes."
 	icon_state = "fulloptics"
+
+	active_power_cost = 3
 
 	interface_name = "multi optical visor"
 	interface_desc = "An integrated multi-mode vision system."
@@ -100,10 +165,10 @@
 	desc = "A layered, translucent visor system for a hardsuit."
 	icon_state = "meson"
 
-	usable = FALSE
-
 	construction_cost = list(DEFAULT_WALL_MATERIAL = 1500, MATERIAL_GLASS = 5000)
 	construction_time = 300
+
+	active_power_cost = 2
 
 	interface_name = "meson/material scanner"
 	interface_desc = "An integrated meson/material scanner."
@@ -118,7 +183,7 @@
 	desc = "A layered, translucent visor system for a hardsuit."
 	icon_state = "thermal"
 
-	usable = FALSE
+	active_power_cost = 2
 
 	interface_name = "thermal scanner"
 	interface_desc = "An integrated thermal scanner."
@@ -132,10 +197,10 @@
 	desc = "A multi input night vision system for a hardsuit."
 	icon_state = "night"
 
-	usable = FALSE
-
 	construction_cost = list(DEFAULT_WALL_MATERIAL = 1500, MATERIAL_GLASS = 5000, MATERIAL_URANIUM = 5000)
 	construction_time = 300
+
+	active_power_cost = 2
 
 	interface_name = "night vision interface"
 	interface_desc = "An integrated night vision system."
@@ -148,8 +213,6 @@
 	name = "hardsuit security hud"
 	desc = "A simple tactical information system for a hardsuit."
 	icon_state = "securityhud"
-
-	usable = FALSE
 
 	construction_cost = list(DEFAULT_WALL_MATERIAL = 1500, MATERIAL_GLASS = 5000)
 	construction_time = 300
@@ -166,8 +229,6 @@
 	desc = "A simple medical status indicator for a hardsuit."
 	icon_state = "healthhud"
 
-	usable = FALSE
-
 	construction_cost = list(DEFAULT_WALL_MATERIAL = 1500, MATERIAL_GLASS = 5000)
 	construction_time = 300
 
@@ -177,42 +238,3 @@
 	vision_modes = list(/datum/rig_vision/medhud)
 
 	category = MODULE_MEDICAL
-
-// There should only ever be one vision module installed in a suit.
-/obj/item/rig_module/vision/installed()
-	..()
-	holder.visor = src
-
-/obj/item/rig_module/vision/engage(atom/target, mob/user)
-	if(!..() || !vision_modes)
-		return FALSE
-	if(!active)
-		to_chat(user, SPAN_WARNING("\The [src] isn't activated!"))
-		return FALSE
-
-	if(vision_modes.len > 1)
-		vision_index++
-		if(vision_index > vision_modes.len)
-			vision_index = 1
-		vision = vision_modes[vision_index]
-
-		message_user(user, SPAN_NOTICE("You cycle \the [src] to <b>[vision.mode]</b> mode."), SPAN_NOTICE("\The [user] cycles \the [src] to <b>[vision.mode]</b> mode."))
-	else
-		to_chat(user, SPAN_WARNING("\The [src] only has one mode."))
-	return TRUE
-
-/obj/item/rig_module/vision/New()
-	..()
-
-	if(!vision_modes)
-		return
-
-	vision_index = 1
-	var/list/processed_vision = list()
-
-	for(var/vision_mode in vision_modes)
-		var/datum/rig_vision/vision_datum = new vision_mode
-		if(!vision) vision = vision_datum
-		processed_vision += vision_datum
-
-	vision_modes = processed_vision

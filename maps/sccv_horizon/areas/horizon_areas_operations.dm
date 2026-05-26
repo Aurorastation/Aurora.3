@@ -14,6 +14,13 @@
 	area_blurb = "Scuff marks scar the floor from the movement of many crates and stored goods."
 	horizon_deck = 1
 
+/area/horizon/operations/ship_supply_warehouse
+	name = "Ship Supply Warehouse"
+	icon_state = "dark160"
+	sound_environment = SOUND_AREA_LARGE_ENCLOSED
+	area_blurb = "Scuff marks scar the floor from the movement of many crates and stored goods."
+	horizon_deck = 2
+
 /area/horizon/operations/package_conveyors
 	name = "Package Conveyors"
 	icon_state = "dark128"

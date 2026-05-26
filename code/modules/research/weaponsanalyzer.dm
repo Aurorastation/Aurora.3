@@ -1,4 +1,4 @@
-/obj/machinery/r_n_d/weapons_analyzer
+/obj/structure/machinery/r_n_d/weapons_analyzer
 	name = "weapons analyzer"
 	desc = "A research device which can be used to put together modular energy weapons, or to gain knowledge about the effectiveness of various objects as weaponry."
 	icon_state = "weapon_analyzer"
@@ -13,11 +13,11 @@
 			/obj/item/stock_parts/console_screen = 1
 		)
 
-/obj/machinery/r_n_d/weapons_analyzer/feedback_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/r_n_d/weapons_analyzer/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += SPAN_NOTICE("It has [item ? "[item.name]" : "nothing"] attached.")
 
-/obj/machinery/r_n_d/weapons_analyzer/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/r_n_d/weapons_analyzer/attackby(obj/item/attacking_item, mob/user)
 	if(!attacking_item || !user || !ishuman(user))
 		return
 
@@ -64,16 +64,16 @@
 		update_icon()
 	ui_interact(user)
 
-/obj/machinery/r_n_d/weapons_analyzer/attack_hand(mob/user)
+/obj/structure/machinery/r_n_d/weapons_analyzer/attack_hand(mob/user)
 	user.set_machine(src)
 	ui_interact(user)
 
-/obj/machinery/r_n_d/weapons_analyzer/proc/reset()
+/obj/structure/machinery/r_n_d/weapons_analyzer/proc/reset()
 	process = FALSE
 	update_icon()
 	SStgui.update_uis(src)
 
-/obj/machinery/r_n_d/weapons_analyzer/proc/check_swap(var/mob/user, var/obj/I)
+/obj/structure/machinery/r_n_d/weapons_analyzer/proc/check_swap(var/mob/user, var/obj/I)
 	if(item)
 		to_chat(user, SPAN_NOTICE("You swap \the [item] out for \the [I]."))
 		if(istype(item, /obj/item/laser_assembly))
@@ -85,7 +85,7 @@
 		item = null
 		update_icon()
 
-/obj/machinery/r_n_d/weapons_analyzer/verb/eject()
+/obj/structure/machinery/r_n_d/weapons_analyzer/verb/eject()
 	set name = "Eject Inserted Item"
 	set category = "Object"
 	set src in view(1)
@@ -111,7 +111,7 @@
 	else
 		to_chat(usr, SPAN_WARNING("There is nothing in \the [src]."))
 
-/obj/machinery/r_n_d/weapons_analyzer/update_icon()
+/obj/structure/machinery/r_n_d/weapons_analyzer/update_icon()
 	icon_state = initial(icon_state)
 	ClearOverlays()
 
@@ -134,7 +134,7 @@
 		gun_overlay.pixel_y += 12
 		AddOverlays(gun_overlay)
 
-/obj/machinery/r_n_d/weapons_analyzer/ui_data(mob/user)
+/obj/structure/machinery/r_n_d/weapons_analyzer/ui_data(mob/user)
 	var/list/data = list()
 	data["laser_assembly"] = null
 	data["gun"] = null
@@ -282,13 +282,13 @@
 			data["item"]["shield_power"] = E_item.shield_power
 	return data
 
-/obj/machinery/r_n_d/weapons_analyzer/ui_interact(mob/user, var/datum/tgui/ui)
+/obj/structure/machinery/r_n_d/weapons_analyzer/ui_interact(mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "WeaponsAnalyzer", "Weapons Analyzer", 600, 600)
 		ui.open()
 
-/obj/machinery/r_n_d/weapons_analyzer/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/obj/structure/machinery/r_n_d/weapons_analyzer/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
@@ -297,13 +297,13 @@
 		do_print()
 		. = TRUE
 
-/obj/machinery/r_n_d/weapons_analyzer/proc/do_print()
+/obj/structure/machinery/r_n_d/weapons_analyzer/proc/do_print()
 	var/obj/item/paper/R = new /obj/item/paper(get_turf(src))
 	R.color = "#fef8ff"
 	R.set_content_unsafe("Weapon Analysis ([item.name])", get_print_info(item))
 	print(R, message = "\The [src] beeps, printing \the [R] after a moment.", user = usr)
 
-/obj/machinery/r_n_d/weapons_analyzer/proc/get_print_info(var/obj/item/device)
+/obj/structure/machinery/r_n_d/weapons_analyzer/proc/get_print_info(var/obj/item/device)
 	var/dat = "<span class='notice'><b>Analysis performed at [worldtime2text()]</b></span><br>"
 	dat += "<span class='notice'><b>Analyzer Item: [device.name]</b></span><br><br>"
 	dat += device.get_print_info()

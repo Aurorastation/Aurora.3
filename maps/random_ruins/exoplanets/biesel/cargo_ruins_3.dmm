@@ -30,7 +30,7 @@
 /area/template_noop)
 "j" = (
 /obj/effect/decal/curb/corner,
-/obj/machinery/light/small/floor,
+/obj/structure/machinery/light/small/floor,
 /turf/simulated/floor/exoplanet/concrete,
 /area/template_noop)
 "k" = (
@@ -43,7 +43,7 @@
 /obj/effect/decal/curb{
 	dir = 8
 	},
-/obj/machinery/light/small/floor,
+/obj/structure/machinery/light/small/floor,
 /turf/simulated/floor/exoplanet/concrete,
 /area/template_noop)
 "n" = (
@@ -102,7 +102,7 @@
 /obj/effect/decal/curb/corner{
 	dir = 8
 	},
-/obj/machinery/light/small/floor,
+/obj/structure/machinery/light/small/floor,
 /turf/simulated/floor/exoplanet/concrete,
 /area/template_noop)
 "B" = (
@@ -168,14 +168,14 @@
 /obj/effect/decal/curb/corner{
 	dir = 1
 	},
-/obj/machinery/light/small/floor,
+/obj/structure/machinery/light/small/floor,
 /turf/simulated/floor/exoplanet/concrete,
 /area/template_noop)
 "R" = (
 /obj/effect/decal/curb/corner{
 	dir = 4
 	},
-/obj/machinery/light/small/floor,
+/obj/structure/machinery/light/small/floor,
 /turf/simulated/floor/exoplanet/concrete,
 /area/template_noop)
 "T" = (
@@ -193,7 +193,7 @@
 /obj/effect/decal/curb{
 	dir = 4
 	},
-/obj/machinery/light/small/floor,
+/obj/structure/machinery/light/small/floor,
 /turf/simulated/floor/exoplanet/concrete,
 /area/template_noop)
 "X" = (

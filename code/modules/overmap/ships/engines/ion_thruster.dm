@@ -1,9 +1,9 @@
 //electric engine, should be very rare
 /datum/ship_engine/ion
 	name = "ion thruster"
-	var/obj/machinery/ion_engine/thruster
+	var/obj/structure/machinery/ion_engine/thruster
 
-/datum/ship_engine/ion/New(obj/machinery/_holder)
+/datum/ship_engine/ion/New(obj/structure/machinery/_holder)
 	..()
 	thruster = _holder
 
@@ -35,7 +35,7 @@
 /datum/ship_engine/ion/can_burn()
 	return thruster.on && thruster.powered()
 
-/obj/machinery/ion_engine
+/obj/structure/machinery/ion_engine
 	name = "ion propulsion device"
 	desc = "An advanced ion propulsion device, using energy and a minute amount of gas to generate thrust."
 	icon = 'icons/obj/ship_engine.dmi'
@@ -56,15 +56,15 @@
 	var/burn_cost = 36000
 	var/generated_thrust = 2.5
 
-/obj/machinery/ion_engine/Initialize()
+/obj/structure/machinery/ion_engine/Initialize()
 	. = ..()
 	controller = new(src)
 
-/obj/machinery/ion_engine/Destroy()
+/obj/structure/machinery/ion_engine/Destroy()
 	QDEL_NULL(controller)
 	. = ..()
 
-/obj/machinery/ion_engine/proc/get_status()
+/obj/structure/machinery/ion_engine/proc/get_status()
 	. = list()
 
 	. += list(list(
@@ -75,16 +75,16 @@
 	if(!powered())
 		. += list(list("text" = "Insufficient power to operate.", "severity" = "bad"))
 
-/obj/machinery/ion_engine/proc/burn(var/power_modifier = 1)
+/obj/structure/machinery/ion_engine/proc/burn(var/power_modifier = 1)
 	if(!on && !powered())
 		return 0
 	use_power_oneoff(thrust_limit * burn_cost * power_modifier)
 	. = thrust_limit * generated_thrust * power_modifier
 
-/obj/machinery/ion_engine/proc/get_thrust()
+/obj/structure/machinery/ion_engine/proc/get_thrust()
 	return thrust_limit * generated_thrust * on
 
-/obj/machinery/ion_engine/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/ion_engine/attackby(obj/item/attacking_item, mob/user)
 	. = ..()
 	if(default_deconstruction_screwdriver(user, attacking_item))
 		return TRUE

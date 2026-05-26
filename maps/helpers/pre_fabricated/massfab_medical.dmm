@@ -21,8 +21,8 @@
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 8
 	},
-/obj/machinery/optable,
-/obj/machinery/vending/wallmed2{
+/obj/structure/machinery/optable,
+/obj/structure/machinery/vending/wallmed2{
 	pixel_x = -28
 	},
 /turf/simulated/floor/tiled/white,
@@ -38,7 +38,7 @@
 /turf/simulated/floor/tiled/white,
 /area/space)
 "bx" = (
-/obj/machinery/smartfridge/secure/medbay,
+/obj/structure/machinery/smartfridge/secure/medbay,
 /obj/effect/floor_decal/spline/plain/orange{
 	dir = 10
 	},
@@ -99,7 +99,7 @@
 /turf/simulated/floor/tiled/white,
 /area/space)
 "cd" = (
-/obj/machinery/door/airlock/medical,
+/obj/structure/machinery/door/airlock/medical,
 /turf/simulated/floor/tiled/full,
 /area/space)
 "co" = (
@@ -136,7 +136,7 @@
 	pixel_x = 5;
 	pixel_y = -5
 	},
-/obj/machinery/vending/wallmed2{
+/obj/structure/machinery/vending/wallmed2{
 	pixel_x = 28
 	},
 /obj/effect/floor_decal/corner_wide/green{
@@ -149,15 +149,15 @@
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 1
 	},
-/obj/machinery/optable,
-/obj/machinery/vending/wallmed2{
+/obj/structure/machinery/optable,
+/obj/structure/machinery/vending/wallmed2{
 	pixel_y = 29
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
 "cP" = (
 /obj/effect/floor_decal/corner_wide/green/full,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	name = "adjusted light fixture"
 	},
 /obj/structure/table/standard,
@@ -234,7 +234,7 @@
 	pixel_y = 4;
 	pixel_x = -8
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 4;
@@ -247,7 +247,7 @@
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 6
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	name = "adjusted light fixture"
 	},
 /turf/simulated/floor/tiled/white,
@@ -256,7 +256,7 @@
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 5
 	},
-/obj/machinery/bodyscanner{
+/obj/structure/machinery/bodyscanner{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
@@ -320,7 +320,7 @@
 	pixel_x = 13;
 	pixel_y = 3
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 1;
@@ -343,8 +343,8 @@
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 5
 	},
-/obj/machinery/iv_drip,
-/obj/machinery/light{
+/obj/structure/machinery/iv_drip,
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 1;
@@ -365,7 +365,7 @@
 /obj/structure/filingcabinet/medical{
 	pixel_x = 10
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	name = "adjusted light fixture"
 	},
 /turf/simulated/floor/tiled/white,
@@ -374,21 +374,21 @@
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 10
 	},
-/obj/machinery/vending/medical,
+/obj/structure/machinery/vending/medical,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "fN" = (
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 5
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 1;
 	name = "adjusted light fixture";
 	pixel_y = 19
 	},
-/obj/machinery/vending/medical,
+/obj/structure/machinery/vending/medical,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "gc" = (
@@ -407,8 +407,8 @@
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 10
 	},
-/obj/machinery/iv_drip,
-/obj/machinery/light{
+/obj/structure/machinery/iv_drip,
+/obj/structure/machinery/light{
 	name = "adjusted light fixture"
 	},
 /obj/structure/sink{
@@ -424,14 +424,14 @@
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 1
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	name = "adjusted light fixture"
 	},
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "gF" = (
-/obj/machinery/door/airlock/medical{
+/obj/structure/machinery/door/airlock/medical{
 	name = "Examination Room 1"
 	},
 /turf/simulated/floor/tiled/full,
@@ -444,7 +444,7 @@
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 1
 	},
-/obj/machinery/body_scanconsole{
+/obj/structure/machinery/body_scanconsole{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -461,7 +461,7 @@
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 1
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 1;
@@ -485,7 +485,7 @@
 /turf/simulated/floor/tiled/white,
 /area/space)
 "iw" = (
-/obj/machinery/chemical_dispenser/ert,
+/obj/structure/machinery/chemical_dispenser/ert,
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
 	dir = 4
@@ -510,7 +510,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner_wide/green,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 1;
@@ -529,7 +529,7 @@
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 6
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 4;
@@ -539,11 +539,11 @@
 /turf/simulated/floor/tiled/white,
 /area/space)
 "jy" = (
-/obj/machinery/body_scanconsole,
+/obj/structure/machinery/body_scanconsole,
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 4
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 4;
@@ -571,7 +571,7 @@
 /turf/simulated/floor/tiled/white,
 /area/space)
 "ki" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	name = "adjusted light fixture"
 	},
 /obj/structure/table/standard,
@@ -589,8 +589,8 @@
 /turf/simulated/floor/tiled/white,
 /area/space)
 "kC" = (
-/obj/machinery/photocopier,
-/obj/machinery/light{
+/obj/structure/machinery/photocopier,
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 1;
@@ -635,7 +635,7 @@
 /turf/simulated/floor/tiled/full,
 /area/space)
 "kP" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	name = "adjusted light fixture"
 	},
 /turf/simulated/floor/tiled/white,
@@ -694,20 +694,20 @@
 /turf/simulated/floor/tiled/white,
 /area/space)
 "lP" = (
-/obj/machinery/vending/wallmed2{
+/obj/structure/machinery/vending/wallmed2{
 	pixel_y = 29
 	},
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 1
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1;
 	name = "adjusted light fixture"
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
 "mp" = (
-/obj/machinery/computer/operating{
+/obj/structure/machinery/computer/operating{
 	dir = 1
 	},
 /obj/effect/floor_decal/spline/plain/green{
@@ -729,11 +729,11 @@
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 4
 	},
-/obj/machinery/body_scanconsole,
+/obj/structure/machinery/body_scanconsole,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "no" = (
-/obj/machinery/body_scanconsole{
+/obj/structure/machinery/body_scanconsole{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
@@ -742,10 +742,10 @@
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 10
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	name = "adjusted light fixture"
 	},
-/obj/machinery/vending/medical,
+/obj/structure/machinery/vending/medical,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "oP" = (
@@ -784,7 +784,7 @@
 /turf/simulated/floor/tiled/white,
 /area/space)
 "px" = (
-/obj/machinery/chem_master,
+/obj/structure/machinery/chem_master,
 /obj/effect/floor_decal/spline/plain/orange{
 	dir = 5
 	},
@@ -794,7 +794,7 @@
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 10
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	name = "adjusted light fixture"
 	},
 /turf/simulated/floor/tiled/white,
@@ -803,10 +803,10 @@
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 5
 	},
-/obj/machinery/bodyscanner{
+/obj/structure/machinery/bodyscanner{
 	dir = 8
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 4;
@@ -822,7 +822,7 @@
 /obj/structure/filingcabinet/chestdrawer{
 	pixel_x = 7
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	name = "adjusted light fixture"
 	},
 /obj/effect/floor_decal/corner_wide/green/full{
@@ -835,17 +835,17 @@
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 1
 	},
-/obj/machinery/iv_drip,
+/obj/structure/machinery/iv_drip,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "qd" = (
-/obj/machinery/chemical_dispenser/full{
+/obj/structure/machinery/chemical_dispenser/full{
 	dir = 1
 	},
 /obj/effect/floor_decal/spline/plain/orange{
 	dir = 4
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 4;
@@ -855,8 +855,8 @@
 /turf/simulated/floor/carpet/rubber,
 /area/space)
 "qf" = (
-/obj/machinery/optable,
-/obj/machinery/vending/wallmed2{
+/obj/structure/machinery/optable,
+/obj/structure/machinery/vending/wallmed2{
 	pixel_x = -28
 	},
 /obj/effect/floor_decal/spline/plain/green{
@@ -868,7 +868,7 @@
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 6
 	},
-/obj/machinery/bodyscanner{
+/obj/structure/machinery/bodyscanner{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
@@ -885,10 +885,10 @@
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 8
 	},
-/obj/machinery/computer/operating{
+/obj/structure/machinery/computer/operating{
 	dir = 1
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 8;
@@ -905,7 +905,7 @@
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 5
 	},
-/obj/machinery/iv_drip,
+/obj/structure/machinery/iv_drip,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "qK" = (
@@ -930,7 +930,7 @@
 "qS" = (
 /obj/structure/table/standard,
 /obj/item/vitals_monitor,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	name = "adjusted light fixture"
 	},
 /turf/simulated/floor/tiled/white,
@@ -939,14 +939,14 @@
 /obj/effect/floor_decal/spline/plain/orange{
 	dir = 6
 	},
-/obj/machinery/smartfridge/secure/medbay,
+/obj/structure/machinery/smartfridge/secure/medbay,
 /turf/simulated/floor/carpet/rubber,
 /area/space)
 "rn" = (
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 10
 	},
-/obj/machinery/bodyscanner{
+/obj/structure/machinery/bodyscanner{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -955,14 +955,14 @@
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 6
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 4;
 	name = "adjusted light fixture";
 	pixel_x = 10
 	},
-/obj/machinery/iv_drip,
+/obj/structure/machinery/iv_drip,
 /obj/structure/sink{
 	dir = 4;
 	pixel_x = 13
@@ -992,7 +992,7 @@
 /obj/structure/bed/padded,
 /obj/item/bedsheet/medical,
 /obj/structure/curtain/open/medical,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	name = "adjusted light fixture"
 	},
 /obj/effect/floor_decal/corner_wide/green/full{
@@ -1005,8 +1005,8 @@
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 6
 	},
-/obj/machinery/computer/operating,
-/obj/machinery/light{
+/obj/structure/machinery/computer/operating,
+/obj/structure/machinery/light{
 	name = "adjusted light fixture"
 	},
 /turf/simulated/floor/tiled/white,
@@ -1015,8 +1015,8 @@
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 5
 	},
-/obj/machinery/sleeper,
-/obj/machinery/light{
+/obj/structure/machinery/sleeper,
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 1;
@@ -1029,7 +1029,7 @@
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 5
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 4;
@@ -1039,7 +1039,7 @@
 /turf/simulated/floor/tiled/white,
 /area/space)
 "sm" = (
-/obj/machinery/optable,
+/obj/structure/machinery/optable,
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 8
 	},
@@ -1080,7 +1080,7 @@
 "tf" = (
 /obj/effect/floor_decal/spline/plain/green,
 /obj/effect/floor_decal/industrial/outline/security,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	name = "adjusted light fixture";
 	pixel_x = 16
 	},
@@ -1095,7 +1095,7 @@
 /area/space)
 "tW" = (
 /obj/structure/table/standard,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 1;
@@ -1112,7 +1112,7 @@
 /obj/structure/bed/padded,
 /obj/item/bedsheet/medical,
 /obj/structure/curtain/open/medical,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	name = "adjusted light fixture"
 	},
 /obj/effect/floor_decal/corner_wide/green/full,
@@ -1140,10 +1140,10 @@
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 9
 	},
-/obj/machinery/sleeper{
+/obj/structure/machinery/sleeper{
 	dir = 4
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 8;
@@ -1156,10 +1156,10 @@
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 10
 	},
-/obj/machinery/sleeper{
+/obj/structure/machinery/sleeper{
 	dir = 1
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	name = "adjusted light fixture"
 	},
 /turf/simulated/floor/tiled/white,
@@ -1168,8 +1168,8 @@
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 9
 	},
-/obj/machinery/bodyscanner,
-/obj/machinery/light{
+/obj/structure/machinery/bodyscanner,
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 1;
@@ -1179,7 +1179,7 @@
 /turf/simulated/floor/tiled/white,
 /area/space)
 "uL" = (
-/obj/machinery/iv_drip,
+/obj/structure/machinery/iv_drip,
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 5
 	},
@@ -1194,7 +1194,7 @@
 /turf/simulated/floor/tiled/white,
 /area/space)
 "ve" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 1;
@@ -1226,7 +1226,7 @@
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 6
 	},
-/obj/machinery/vending/medical,
+/obj/structure/machinery/vending/medical,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "vE" = (
@@ -1253,7 +1253,7 @@
 /turf/simulated/floor/tiled/white,
 /area/space)
 "vX" = (
-/obj/machinery/door/airlock/medical{
+/obj/structure/machinery/door/airlock/medical{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
@@ -1275,13 +1275,13 @@
 /turf/simulated/floor/tiled/white,
 /area/space)
 "ws" = (
-/obj/machinery/computer/operating{
+/obj/structure/machinery/computer/operating{
 	dir = 1
 	},
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 4
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 4;
@@ -1294,7 +1294,7 @@
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 1
 	},
-/obj/machinery/bodyscanner,
+/obj/structure/machinery/bodyscanner,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "wI" = (
@@ -1325,7 +1325,7 @@
 	},
 /area/space)
 "xi" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 4;
@@ -1393,7 +1393,7 @@
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 1
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 1;
@@ -1411,7 +1411,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/black,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 1;
@@ -1431,14 +1431,14 @@
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 9
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 8;
 	name = "adjusted light fixture";
 	pixel_x = -10
 	},
-/obj/machinery/vending/medical,
+/obj/structure/machinery/vending/medical,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "yo" = (
@@ -1449,7 +1449,7 @@
 /turf/simulated/floor/tiled/white,
 /area/space)
 "yu" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 4;
@@ -1475,7 +1475,7 @@
 /turf/simulated/floor/tiled/white,
 /area/space)
 "yI" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 8;
@@ -1504,7 +1504,7 @@
 /turf/simulated/floor/tiled/white,
 /area/space)
 "zg" = (
-/obj/machinery/photocopier,
+/obj/structure/machinery/photocopier,
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 5
 	},
@@ -1529,7 +1529,7 @@
 	pixel_y = 4;
 	pixel_x = -8
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 8;
@@ -1561,7 +1561,7 @@
 /turf/simulated/floor/tiled/white,
 /area/space)
 "zy" = (
-/obj/machinery/vending/medical,
+/obj/structure/machinery/vending/medical,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "zI" = (
@@ -1575,7 +1575,7 @@
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 4
 	},
-/obj/machinery/bodyscanner{
+/obj/structure/machinery/bodyscanner{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
@@ -1601,7 +1601,7 @@
 /obj/structure/bed/padded,
 /obj/item/bedsheet/medical,
 /obj/structure/curtain/open/medical,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 1;
@@ -1678,13 +1678,13 @@
 /turf/template_noop,
 /area/space)
 "Bo" = (
-/obj/machinery/chemical_dispenser/full{
+/obj/structure/machinery/chemical_dispenser/full{
 	dir = 1
 	},
 /obj/effect/floor_decal/spline/plain/orange{
 	dir = 8
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 8;
@@ -1694,7 +1694,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/space)
 "Bx" = (
-/obj/machinery/bodyscanner{
+/obj/structure/machinery/bodyscanner{
 	dir = 1
 	},
 /obj/effect/floor_decal/spline/plain/green{
@@ -1707,7 +1707,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/reagentgrinder{
+/obj/structure/machinery/reagentgrinder{
 	pixel_y = 7
 	},
 /obj/item/stack/material/phoron{
@@ -1725,7 +1725,7 @@
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 9
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 8;
@@ -1741,13 +1741,13 @@
 /turf/simulated/floor/tiled/white,
 /area/space)
 "Ce" = (
-/obj/machinery/body_scanconsole{
+/obj/structure/machinery/body_scanconsole{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
 "Cs" = (
-/obj/machinery/body_scanconsole,
+/obj/structure/machinery/body_scanconsole,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "CM" = (
@@ -1755,7 +1755,7 @@
 /turf/simulated/floor/carpet/green,
 /area/space)
 "CR" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 8;
@@ -1777,10 +1777,10 @@
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 6
 	},
-/obj/machinery/bodyscanner{
+/obj/structure/machinery/bodyscanner{
 	dir = 1
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	name = "adjusted light fixture"
 	},
 /turf/simulated/floor/tiled/white,
@@ -1789,14 +1789,14 @@
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 6
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 4;
 	name = "adjusted light fixture";
 	pixel_x = 10
 	},
-/obj/machinery/vending/medical,
+/obj/structure/machinery/vending/medical,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "DD" = (
@@ -1810,7 +1810,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/black,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	name = "adjusted light fixture"
 	},
 /obj/structure/mirror{
@@ -1839,7 +1839,7 @@
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 4
 	},
-/obj/machinery/iv_drip,
+/obj/structure/machinery/iv_drip,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "Fa" = (
@@ -1896,13 +1896,13 @@
 /turf/template_noop,
 /area/space)
 "FT" = (
-/obj/machinery/door/airlock/multi_tile{
+/obj/structure/machinery/door/airlock/multi_tile{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/full,
 /area/space)
 "FW" = (
-/obj/machinery/iv_drip,
+/obj/structure/machinery/iv_drip,
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 9
 	},
@@ -1920,14 +1920,14 @@
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 9
 	},
-/obj/machinery/iv_drip,
+/obj/structure/machinery/iv_drip,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "Gl" = (
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 8
 	},
-/obj/machinery/bodyscanner{
+/obj/structure/machinery/bodyscanner{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -1936,8 +1936,8 @@
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 4
 	},
-/obj/machinery/optable,
-/obj/machinery/vending/wallmed2{
+/obj/structure/machinery/optable,
+/obj/structure/machinery/vending/wallmed2{
 	pixel_x = 28
 	},
 /turf/simulated/floor/tiled/white,
@@ -1990,7 +1990,7 @@
 /obj/structure/mirror{
 	pixel_x = 27
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 1;
@@ -2001,20 +2001,20 @@
 /area/space)
 "GH" = (
 /obj/effect/floor_decal/spline/plain/green,
-/obj/machinery/optable,
-/obj/machinery/vending/wallmed2{
+/obj/structure/machinery/optable,
+/obj/structure/machinery/vending/wallmed2{
 	pixel_y = -29
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
 "GI" = (
-/obj/machinery/computer/operating{
+/obj/structure/machinery/computer/operating{
 	dir = 1
 	},
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 8
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 8;
@@ -2058,7 +2058,7 @@
 /turf/simulated/floor/tiled/white,
 /area/space)
 "HN" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	name = "adjusted light fixture"
 	},
 /obj/structure/table/standard,
@@ -2067,17 +2067,17 @@
 /turf/simulated/floor/tiled/white,
 /area/space)
 "HY" = (
-/obj/machinery/door/airlock/medical{
+/obj/structure/machinery/door/airlock/medical{
 	name = "Bathroom"
 	},
 /turf/simulated/floor/tiled/full,
 /area/space)
 "Ic" = (
 /obj/effect/floor_decal/spline/plain/green,
-/obj/machinery/vending/wallmed2{
+/obj/structure/machinery/vending/wallmed2{
 	pixel_y = -29
 	},
-/obj/machinery/optable,
+/obj/structure/machinery/optable,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "IA" = (
@@ -2092,7 +2092,7 @@
 /obj/structure/mirror{
 	pixel_x = -28
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	name = "adjusted light fixture"
 	},
 /turf/simulated/floor/tiled/white,
@@ -2118,7 +2118,7 @@
 	pixel_x = -4;
 	pixel_y = 8
 	},
-/obj/machinery/vending/wallmed2{
+/obj/structure/machinery/vending/wallmed2{
 	pixel_x = 28
 	},
 /obj/effect/floor_decal/corner_wide/green{
@@ -2130,7 +2130,7 @@
 "Jm" = (
 /obj/structure/table/standard,
 /obj/item/vitals_monitor,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 1;
@@ -2148,7 +2148,7 @@
 	pixel_x = 6;
 	pixel_y = 2
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 1;
@@ -2165,7 +2165,7 @@
 /obj/structure/bed/padded,
 /obj/item/bedsheet/medical,
 /obj/structure/curtain/open/medical,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 1;
@@ -2246,20 +2246,20 @@
 /area/space)
 "Km" = (
 /obj/effect/floor_decal/spline/plain/green,
-/obj/machinery/body_scanconsole{
+/obj/structure/machinery/body_scanconsole{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
 "Ku" = (
 /obj/effect/floor_decal/spline/plain/green,
-/obj/machinery/sleeper{
+/obj/structure/machinery/sleeper{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
 "KA" = (
-/obj/machinery/door/airlock/multi_tile/glass{
+/obj/structure/machinery/door/airlock/multi_tile/glass{
 	name = "Medical Storage and Prep"
 	},
 /turf/simulated/floor/tiled/full,
@@ -2274,12 +2274,12 @@
 /turf/simulated/floor/tiled/white,
 /area/space)
 "KZ" = (
-/obj/machinery/chemical_dispenser/ert,
+/obj/structure/machinery/chemical_dispenser/ert,
 /obj/effect/floor_decal/spline/plain/green,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "Lf" = (
-/obj/machinery/chem_master,
+/obj/structure/machinery/chem_master,
 /obj/effect/floor_decal/spline/plain/orange{
 	dir = 9
 	},
@@ -2287,7 +2287,7 @@
 /area/space)
 "Lg" = (
 /obj/structure/table/standard,
-/obj/machinery/reagentgrinder{
+/obj/structure/machinery/reagentgrinder{
 	pixel_y = 7
 	},
 /obj/item/stack/material/phoron{
@@ -2308,7 +2308,7 @@
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 8
 	},
-/obj/machinery/iv_drip,
+/obj/structure/machinery/iv_drip,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "LF" = (
@@ -2319,8 +2319,8 @@
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 10
 	},
-/obj/machinery/computer/operating,
-/obj/machinery/light{
+/obj/structure/machinery/computer/operating,
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 8;
@@ -2356,7 +2356,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/black,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	name = "adjusted light fixture"
 	},
 /obj/structure/mirror{
@@ -2375,7 +2375,7 @@
 /obj/structure/filingcabinet/chestdrawer{
 	pixel_x = 7
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	name = "adjusted light fixture"
 	},
 /obj/effect/floor_decal/corner_wide/green/full,
@@ -2418,7 +2418,7 @@
 	pixel_x = 6;
 	pixel_y = 2
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 1;
@@ -2433,7 +2433,7 @@
 /area/space)
 "Nk" = (
 /obj/structure/table/standard,
-/obj/machinery/vending/wallmed2{
+/obj/structure/machinery/vending/wallmed2{
 	pixel_x = -28
 	},
 /obj/item/storage/firstaid/regular{
@@ -2458,14 +2458,14 @@
 /turf/simulated/floor/tiled/white,
 /area/space)
 "NG" = (
-/obj/machinery/photocopier,
-/obj/machinery/light{
+/obj/structure/machinery/photocopier,
+/obj/structure/machinery/light{
 	name = "adjusted light fixture"
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
 "Of" = (
-/obj/machinery/chemical_dispenser/ert,
+/obj/structure/machinery/chemical_dispenser/ert,
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
 	dir = 8
@@ -2485,7 +2485,7 @@
 /turf/simulated/floor/tiled/white,
 /area/space)
 "Oz" = (
-/obj/machinery/photocopier,
+/obj/structure/machinery/photocopier,
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 10
 	},
@@ -2505,7 +2505,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/black,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 1;
@@ -2522,7 +2522,7 @@
 /turf/simulated/floor/tiled/white,
 /area/space)
 "Pi" = (
-/obj/machinery/sleeper{
+/obj/structure/machinery/sleeper{
 	dir = 1
 	},
 /obj/effect/floor_decal/spline/plain/green,
@@ -2566,7 +2566,7 @@
 /obj/item/roller{
 	pixel_y = 4
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 1;
@@ -2629,7 +2629,7 @@
 /turf/simulated/floor/tiled/white,
 /area/space)
 "Qm" = (
-/obj/machinery/door/airlock/medical{
+/obj/structure/machinery/door/airlock/medical{
 	name = "Examination Room 3"
 	},
 /turf/simulated/floor/tiled/full,
@@ -2639,7 +2639,7 @@
 	dir = 5
 	},
 /obj/effect/floor_decal/corner_wide/green,
-/obj/machinery/photocopier,
+/obj/structure/machinery/photocopier,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "Qs" = (
@@ -2656,10 +2656,10 @@
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 10
 	},
-/obj/machinery/bodyscanner{
+/obj/structure/machinery/bodyscanner{
 	dir = 4
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 8;
@@ -2687,7 +2687,7 @@
 /turf/simulated/floor/tiled/white,
 /area/space)
 "QG" = (
-/obj/machinery/optable,
+/obj/structure/machinery/optable,
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 4
 	},
@@ -2695,17 +2695,17 @@
 /area/space)
 "QM" = (
 /obj/effect/floor_decal/spline/plain/green,
-/obj/machinery/iv_drip,
+/obj/structure/machinery/iv_drip,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "QQ" = (
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 5
 	},
-/obj/machinery/computer/operating{
+/obj/structure/machinery/computer/operating{
 	dir = 1
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 4;
@@ -2773,7 +2773,7 @@
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 8
 	},
-/obj/machinery/sleeper{
+/obj/structure/machinery/sleeper{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -2782,7 +2782,7 @@
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 4
 	},
-/obj/machinery/vending/medical{
+/obj/structure/machinery/vending/medical{
 	density = 0;
 	pixel_x = 31;
 	req_access = list(204)
@@ -2820,7 +2820,7 @@
 /turf/simulated/floor/tiled/white,
 /area/space)
 "Sk" = (
-/obj/machinery/bodyscanner{
+/obj/structure/machinery/bodyscanner{
 	dir = 1
 	},
 /obj/effect/floor_decal/spline/plain/green{
@@ -2829,7 +2829,7 @@
 /turf/simulated/floor/tiled/white,
 /area/space)
 "SN" = (
-/obj/machinery/iv_drip,
+/obj/structure/machinery/iv_drip,
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 4
 	},
@@ -2856,7 +2856,7 @@
 /area/space)
 "Ty" = (
 /obj/effect/floor_decal/spline/plain/green,
-/obj/machinery/bodyscanner{
+/obj/structure/machinery/bodyscanner{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
@@ -2865,11 +2865,11 @@
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 9
 	},
-/obj/machinery/bodyscanner,
+/obj/structure/machinery/bodyscanner,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "Ue" = (
-/obj/machinery/door/airlock/multi_tile/glass{
+/obj/structure/machinery/door/airlock/multi_tile/glass{
 	dir = 2;
 	name = "Medical"
 	},
@@ -2919,15 +2919,15 @@
 /turf/simulated/floor/tiled/white,
 /area/space)
 "Ut" = (
-/obj/machinery/door/airlock/multi_tile,
+/obj/structure/machinery/door/airlock/multi_tile,
 /turf/simulated/floor/tiled/full,
 /area/space)
 "UB" = (
-/obj/machinery/optable,
+/obj/structure/machinery/optable,
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 4
 	},
-/obj/machinery/vending/wallmed2{
+/obj/structure/machinery/vending/wallmed2{
 	pixel_x = 28
 	},
 /turf/simulated/floor/tiled/white,
@@ -2936,11 +2936,11 @@
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 1
 	},
-/obj/machinery/sleeper,
+/obj/structure/machinery/sleeper,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "UL" = (
-/obj/machinery/iv_drip,
+/obj/structure/machinery/iv_drip,
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 8
 	},
@@ -2952,7 +2952,7 @@
 	},
 /obj/effect/floor_decal/corner_wide/green,
 /obj/structure/table/standard,
-/obj/machinery/vending/wallmed2{
+/obj/structure/machinery/vending/wallmed2{
 	pixel_x = -28
 	},
 /obj/item/storage/firstaid/regular{
@@ -2977,7 +2977,7 @@
 /obj/structure/mirror{
 	pixel_x = 27
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	name = "adjusted light fixture"
 	},
 /turf/simulated/floor/tiled/white,
@@ -2986,7 +2986,7 @@
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 5
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 1;
@@ -2996,7 +2996,7 @@
 /turf/simulated/floor/tiled/white,
 /area/space)
 "VA" = (
-/obj/machinery/door/airlock/medical{
+/obj/structure/machinery/door/airlock/medical{
 	name = "Examination Room 2"
 	},
 /turf/simulated/floor/tiled/full,
@@ -3005,10 +3005,10 @@
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 6
 	},
-/obj/machinery/sleeper{
+/obj/structure/machinery/sleeper{
 	dir = 8
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 4;
@@ -3048,10 +3048,10 @@
 /turf/simulated/floor/tiled/white,
 /area/space)
 "Wm" = (
-/obj/machinery/computer/operating{
+/obj/structure/machinery/computer/operating{
 	dir = 1
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 8;
@@ -3070,11 +3070,11 @@
 /turf/simulated/floor/tiled/white,
 /area/space)
 "Wy" = (
-/obj/machinery/body_scanconsole,
+/obj/structure/machinery/body_scanconsole,
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 8
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 8;
@@ -3091,7 +3091,7 @@
 /obj/structure/filingcabinet/medical{
 	pixel_x = 10
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 1;
@@ -3101,7 +3101,7 @@
 /turf/simulated/floor/tiled/white,
 /area/space)
 "WH" = (
-/obj/machinery/body_scanconsole{
+/obj/structure/machinery/body_scanconsole{
 	dir = 1;
 	pixel_y = 6
 	},
@@ -3111,10 +3111,10 @@
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 9
 	},
-/obj/machinery/computer/operating{
+/obj/structure/machinery/computer/operating{
 	dir = 1
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 1;
@@ -3127,7 +3127,7 @@
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 10
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 8;
@@ -3137,7 +3137,7 @@
 /turf/simulated/floor/tiled/white,
 /area/space)
 "Xa" = (
-/obj/machinery/computer/operating{
+/obj/structure/machinery/computer/operating{
 	dir = 1
 	},
 /obj/effect/floor_decal/spline/plain/green{
@@ -3219,7 +3219,7 @@
 /obj/structure/mirror{
 	pixel_x = -28
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 1;
@@ -3245,7 +3245,7 @@
 /area/space)
 "Yi" = (
 /obj/structure/table/standard,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 1;
@@ -3268,7 +3268,7 @@
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 4
 	},
-/obj/machinery/sleeper{
+/obj/structure/machinery/sleeper{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
@@ -3277,7 +3277,7 @@
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 8
 	},
-/obj/machinery/body_scanconsole{
+/obj/structure/machinery/body_scanconsole{
 	dir = 1;
 	pixel_y = 6
 	},
@@ -3287,8 +3287,8 @@
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 9
 	},
-/obj/machinery/iv_drip,
-/obj/machinery/light{
+/obj/structure/machinery/iv_drip,
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 8;
@@ -3308,7 +3308,7 @@
 /turf/simulated/floor/tiled/white,
 /area/space)
 "Zd" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 1;
@@ -3332,7 +3332,7 @@
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 9
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 1;

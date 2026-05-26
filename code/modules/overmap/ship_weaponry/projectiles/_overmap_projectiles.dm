@@ -26,7 +26,7 @@
 	x = sx
 	y = sy
 	z = SSatlas.current_map.overmap_z
-	addtimer(CALLBACK(src, PROC_REF(move_to)), 1)
+	addtimer(CALLBACK(src, PROC_REF(move_to)), 1, TIMER_STOPPABLE|TIMER_DELETE_ME)
 
 /obj/effect/overmap/projectile/Bump(var/atom/A)
 	if(istype(A, /turf/unsimulated/map/edge))
@@ -66,6 +66,7 @@
 	ammunition = null
 	target = null
 	entry_target = null
+	walk(src, 0)
 	return ..()
 
 /obj/effect/overmap/projectile/proc/prepare_for_entry()

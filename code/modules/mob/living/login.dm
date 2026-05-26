@@ -22,7 +22,7 @@
 		psi.update(TRUE)
 
 	//login during ventcrawl
-	if(is_ventcrawling && istype(loc, /obj/machinery/atmospherics)) //attach us back into the pipes
+	if(is_ventcrawling && istype(loc, /obj/structure/machinery/atmospherics)) //attach us back into the pipes
 		remove_ventcrawl()
 		add_ventcrawl(loc)
 

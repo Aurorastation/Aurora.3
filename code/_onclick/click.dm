@@ -31,8 +31,8 @@
 		click_handler.OnDblClick(src, params)
 
 		//Why god why
-		if(istype(usr.machine, /obj/machinery/computer/security))
-			var/obj/machinery/computer/security/console = usr.machine
+		if(istype(usr.machine, /obj/structure/machinery/computer/security))
+			var/obj/structure/machinery/computer/security/console = usr.machine
 			console.jump_on_click(usr,src)
 
 /atom/MouseWheel(delta_x,delta_y,location,control,params)
@@ -421,7 +421,7 @@
 GLOBAL_LIST(click_catchers)
 
 /atom/movable/screen/click_catcher
-	icon = 'icons/mob/screen_gen.dmi'
+	icon = 'icons/hud/mob/screen_gen.dmi'
 	icon_state = "click_catcher"
 	plane = CLICKCATCHER_PLANE
 	mouse_opacity = MOUSE_OPACITY_OPAQUE

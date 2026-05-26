@@ -57,3 +57,6 @@
 
 /// Signal raised at the end of a mob's vision update to check if signals wish to supplement their own huds.
 #define COMSIG_MOB_UPDATE_VISION "mob_update_vision"
+
+/// Signal raised when a mob checks for their flash protection.
+#define COMSIG_GET_FLASH_PROTECTION_MODIFIERS "get_flash_protection_modifiers"

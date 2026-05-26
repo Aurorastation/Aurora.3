@@ -73,7 +73,7 @@ SUBSYSTEM_DEF(shuttle)
 	entry_points_to_initialize.Cut()
 
 /datum/controller/subsystem/shuttle/proc/initialize_ship_weapons()
-	for(var/obj/machinery/ship_weapon/SW in weapons_to_initialize)
+	for(var/obj/structure/machinery/ship_weapon/SW in weapons_to_initialize)
 		SW.sync_linked()
 		if(SW.linked)
 			LAZYADD(SW.linked.ship_weapons, SW)

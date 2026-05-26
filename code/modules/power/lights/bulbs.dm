@@ -1,7 +1,7 @@
 
 // the light item
 // can be tube or bulb subtypes
-// will fit into empty /obj/machinery/light of the corresponding type
+// will fit into empty /obj/structure/machinery/light of the corresponding type
 
 /obj/item/light
 	icon = 'icons/obj/machinery/light.dmi'
@@ -88,7 +88,7 @@
 /obj/item/light/afterattack(atom/target, mob/user, proximity)
 	if(!proximity)
 		return
-	if(istype(target, /obj/machinery/light))
+	if(istype(target, /obj/structure/machinery/light))
 		return
 	if(user.a_intent != I_HURT)
 		return
@@ -142,6 +142,10 @@
 	name = "cyan light tube"
 	brightness_color = LIGHT_COLOR_CYAN
 
+/obj/item/light/tube/colored/beige
+	name = "beige light tube"
+	brightness_color = LIGHT_COLOR_BEIGE
+
 /obj/item/light/tube/large
 	w_class = WEIGHT_CLASS_SMALL
 	name = "large light tube"
@@ -193,6 +197,10 @@
 /obj/item/light/bulb/colored/decayed
 	name = "decayed light bulb"
 	brightness_color = LIGHT_COLOR_DECAYED
+
+/obj/item/light/bulb/colored/beige
+	name = "beige light bulb"
+	brightness_color = LIGHT_COLOR_BEIGE
 
 /obj/item/light/throw_impact(atom/hit_atom)
 	..()

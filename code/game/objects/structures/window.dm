@@ -450,21 +450,21 @@
 /obj/structure/window/reinforced/crescent/shatter()
 	return
 
-/obj/machinery/button/switch/windowtint
+/obj/structure/machinery/button/switch/windowtint
 	name = "window tint control"
 	desc = "A remote control switch for polarized windows."
 	var/range = 16
 
-/obj/machinery/button/switch/windowtint/update_icon()
+/obj/structure/machinery/button/switch/windowtint/update_icon()
 	icon_state = "light[active]"
 
-/obj/machinery/button/switch/windowtint/attack_hand(mob/user as mob)
+/obj/structure/machinery/button/switch/windowtint/attack_hand(mob/user as mob)
 	if(..())
 		return TRUE
 
 	toggle_tint()
 
-/obj/machinery/button/switch/windowtint/proc/toggle_tint()
+/obj/structure/machinery/button/switch/windowtint/proc/toggle_tint()
 	use_power_oneoff(5)
 
 	active = !active
@@ -478,7 +478,7 @@
 		if(W.id == src.id || !W.id)
 			W.toggle()
 
-/obj/machinery/button/switch/windowtint/power_change()
+/obj/structure/machinery/button/switch/windowtint/power_change()
 	..()
 	if(active && !powered(power_channel))
 		toggle_tint()
@@ -619,13 +619,13 @@
 		/obj/structure/window/full/phoron/reinforced,
 		/obj/structure/window/shuttle/scc_space_ship,
 		/turf/simulated/wall/shuttle/scc_space_ship,
-		/obj/machinery/door
+		/obj/structure/machinery/door
 	)
 	blend_overlay = "wall"
 	attach_overlay = "attach"
 	can_blend_with = list(
 		/turf/simulated/wall,
-		/obj/machinery/door,
+		/obj/structure/machinery/door,
 		/obj/structure/window_frame
 	)
 
