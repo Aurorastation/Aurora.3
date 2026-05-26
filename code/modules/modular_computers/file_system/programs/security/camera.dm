@@ -164,7 +164,6 @@
 	set_current(C)
 	user.set_machine(ui_host())
 	user.reset_view(current_camera)
-	check_eye(user)
 
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
@@ -192,43 +191,13 @@
 			L.tracking_cancelled()
 	current_camera = null
 
-/datum/computer_file/program/camera_monitor/check_eye(var/mob/user as mob)
-	var/obj/item/modular_computer/MC = user.machine
-	if(istype(MC) && ui_host() == MC)
-		if(!MC.working || user.blinded || user.stat)
-			user.unset_machine()
-			return -1
-	if(!current_camera)
-		return 0
-	var/viewflag = current_camera.check_eye(user)
-	if ( viewflag < 0 ) //camera doesn't work
-		reset_current()
-	return viewflag
-
-/datum/computer_file/program/camera_monitor/grants_equipment_vision(mob/user)
-	var/obj/item/modular_computer/MC = user.machine
-	if(istype(MC) && ui_host() == MC)
-		if(!MC.working || user.blinded || user.stat)
-			return FALSE
-	if(!current_camera)
-		return FALSE
-	var/viewflag = current_camera.check_eye(user)
-	if (viewflag < 0) //camera doesn't work
-		return FALSE
-	return TRUE
-
 // ERT Variant of the program
 /datum/computer_file/program/camera_monitor/ert
 	filename = "ntcammon"
 	filedesc = "Advanced Camera Monitoring"
 	extended_desc = "This program allows remote access to station's camera system. Some camera networks may have additional access requirements. This version has an integrated database with additional encrypted keys."
 	size = 14
-	nanomodule_path = /datum/nano_module/camera_monitor/ert
 	available_on_ntnet = FALSE
-
-/datum/nano_module/camera_monitor/ert
-	name = "Advanced Camera Monitoring Program"
-	available_to_ai = FALSE
 
 // The ERT variant has access to ERT and crescent cams, but still checks for accesses. ERT members should be able to use it.
 /datum/computer_file/program/camera_monitor/ert/modify_networks_list(var/list/networks)
@@ -242,12 +211,8 @@
 	filedesc = "Journalism Camera Monitoring"
 	extended_desc = "This program allows remote access to station's camera system. Some camera networks may have additional access requirements. This version has has a connection to news networks."
 	size = 2
-	nanomodule_path = /datum/nano_module/camera_monitor/news
 	required_access_download = null
 	usage_flags = PROGRAM_ALL
-
-/datum/nano_module/camera_monitor/news
-	name = "Journalism Camera Monitoring Program"
 
 /datum/computer_file/program/camera_monitor/news/modify_networks_list(var/list/networks)
 	networks = list()

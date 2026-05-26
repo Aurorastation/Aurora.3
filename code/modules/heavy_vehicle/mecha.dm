@@ -325,9 +325,6 @@
 		if(istype(exosuit) && exosuit.head && exosuit.head.radio && exosuit.head.radio.is_functional())
 			return ..()
 
-/obj/item/radio/exosuit/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/ui_state/state = GLOB.mech_state)
-	. = ..()
-
 /mob/living/heavy_vehicle/proc/become_remote()
 	for(var/mob/user in pilots)
 		eject(user, FALSE)

@@ -1,26 +1,8 @@
-/obj/item/modular_computer/initial_data()
+/obj/item/modular_computer/proc/initial_data()
 	return list("_PC" = get_header_data())
 
-/datum/computer_file/program/initial_data()
+/datum/computer_file/program/proc/initial_data()
 	return list("_PC" = get_header_data())
-
-/obj/item/modular_computer/update_layout()
-	return TRUE
-
-/datum/computer_file/program/update_layout()
-	return TRUE
-
-/datum/nano_module/program
-	available_to_ai = FALSE
-	var/datum/computer_file/program/program	// Program-Based computer program that runs this nano module. Defaults to null.
-
-/datum/nano_module/program/New(var/host, var/topic_manager, var/program)
-	..()
-	src.program = program
-
-/datum/nano_module/program/Destroy()
-	program = null
-	return ..()
 
 /datum/topic_manager/program
 	var/datum/program

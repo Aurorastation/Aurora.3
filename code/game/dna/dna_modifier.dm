@@ -281,7 +281,7 @@
 			user.drop_from_inventory(attacking_item, src)
 			src.disk = attacking_item
 			to_chat(user, "You insert [attacking_item].")
-			SSnanoui.update_uis(src) // update all UIs attached to src
+			SStgui.update_uis(src) // update all UIs attached to src
 			return TRUE
 	else
 		return ..()

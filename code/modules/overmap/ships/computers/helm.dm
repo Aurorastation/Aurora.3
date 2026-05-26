@@ -117,6 +117,9 @@
 		return 1
 
 /obj/machinery/computer/ship/helm/ui_interact(mob/user, datum/tgui/ui)
+	if(!connected)
+		balloon_alert(user, "no connection!")
+		return
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "Helm", capitalize_first_letters(name))
@@ -126,55 +129,52 @@
 /obj/machinery/computer/ship/helm/ui_data(mob/user)
 	var/list/data = list()
 
-	if(!connected)
-		display_reconnect_dialog(user, "helm")
-	else
-		var/turf/T = get_turf(connected)
-		var/obj/effect/overmap/visitable/sector/current_sector = locate() in T
+	var/turf/T = get_turf(connected)
+	var/obj/effect/overmap/visitable/sector/current_sector = locate() in T
 
-		data["sector"] = current_sector ? current_sector.name : "Deep Space"
-		data["sector_info"] = current_sector ? current_sector.desc : "Not Available"
-		data["landed"] = connected.get_landed_info()
-		data["ship_coord_x"] = connected.x
-		data["ship_coord_y"] = connected.y
-		data["dest"] = dy && dx
-		data["autopilot_x"] = dx
-		data["autopilot_y"] = dy
-		data["speedlimit"] = speedlimit ? speedlimit*1000 : "Halted"
-		data["accel"] = get_acceleration()
-		data["heading"] = connected.get_heading() ? dir2angle(connected.get_heading()) : 0
-		data["direction"] = dir2angle(connected.dir)
-		data["autopilot"] = autopilot
-		data["manual_control"] = viewing_overmap(user)
-		data["canburn"] = connected.can_burn()
-		data["canturn"] = connected.can_turn()
-		data["cancombatroll"] = connected.can_combat_roll()
-		data["cancombatturn"] = connected.can_combat_turn()
-		data["accellimit"] = accellimit*1000
+	data["sector"] = current_sector ? current_sector.name : "Deep Space"
+	data["sector_info"] = current_sector ? current_sector.desc : "Not Available"
+	data["landed"] = connected.get_landed_info()
+	data["ship_coord_x"] = connected.x
+	data["ship_coord_y"] = connected.y
+	data["dest"] = dy && dx
+	data["autopilot_x"] = dx
+	data["autopilot_y"] = dy
+	data["speedlimit"] = speedlimit ? speedlimit*1000 : "Halted"
+	data["accel"] = get_acceleration()
+	data["heading"] = connected.get_heading() ? dir2angle(connected.get_heading()) : 0
+	data["direction"] = dir2angle(connected.dir)
+	data["autopilot"] = autopilot
+	data["manual_control"] = viewing_overmap(user)
+	data["canburn"] = connected.can_burn()
+	data["canturn"] = connected.can_turn()
+	data["cancombatroll"] = connected.can_combat_roll()
+	data["cancombatturn"] = connected.can_combat_turn()
+	data["accellimit"] = accellimit*1000
 
-		var/speed = round(connected.get_speed()*1000, 0.01)
-		data["speed"] = speed
-		if(connected.get_speed() < SHIP_SPEED_SLOW)
-			data["speed_slow"] = TRUE
-		if(connected.get_speed() > SHIP_SPEED_FAST)
-			data["speed_fast"] = TRUE
-		var/list/speed_xy = connected.get_speed_xy()
-		data["ship_speed_x"] = speed_xy[1]
-		data["ship_speed_y"] = speed_xy[2]
+	var/speed = round(connected.get_speed()*1000, 0.01)
+	data["speed"] = speed
+	if(connected.get_speed() < SHIP_SPEED_SLOW)
+		data["speed_slow"] = TRUE
+	if(connected.get_speed() > SHIP_SPEED_FAST)
+		data["speed_fast"] = TRUE
+	var/list/speed_xy = connected.get_speed_xy()
+	data["ship_speed_x"] = speed_xy[1]
+	data["ship_speed_y"] = speed_xy[2]
 
-		data["ETAnext"] = get_eta()
+	data["ETAnext"] = get_eta()
 
-		var/list/locations[0]
-		for (var/key in known_sectors)
-			var/datum/computer_file/data/waypoint/R = known_sectors[key]
-			var/list/rdata[0]
-			rdata["name"] = R.fields["name"]
-			rdata["x"] = R.fields["x"]
-			rdata["y"] = R.fields["y"]
-			rdata["reference"] = "[REF(R)]"
-			locations.Add(list(rdata))
+	var/list/locations[0]
+	for (var/key in known_sectors)
+		var/datum/computer_file/data/waypoint/R = known_sectors[key]
+		var/list/rdata[0]
+		rdata["name"] = R.fields["name"]
+		rdata["x"] = R.fields["x"]
+		rdata["y"] = R.fields["y"]
+		rdata["reference"] = "[REF(R)]"
+		locations.Add(list(rdata))
 
-		data["locations"] = locations
+	data["locations"] = locations
 
 	return data
 
@@ -353,6 +353,10 @@
 	ui_interact(user)
 
 /obj/machinery/computer/ship/navigation/ui_interact(mob/user, datum/tgui/ui)
+	if(!connected)
+		balloon_alert(user, "no connection!")
+		return
+
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "Nav", capitalize_first_letters(name), ui_x=470, ui_y=320)
@@ -362,25 +366,22 @@
 /obj/machinery/computer/ship/navigation/ui_data(mob/user)
 	var/list/data = list()
 
-	if(!connected)
-		display_reconnect_dialog(user, "navigation")
-	else
-		var/turf/T = get_turf(connected)
-		var/obj/effect/overmap/visitable/sector/current_sector = locate() in T
+	var/turf/T = get_turf(connected)
+	var/obj/effect/overmap/visitable/sector/current_sector = locate() in T
 
-		data["sector"] = current_sector ? current_sector.name : "Deep Space"
-		data["sector_info"] = current_sector ? current_sector.desc : "Not Available"
-		data["ship_coord_x"] = connected.x
-		data["ship_coord_y"] = connected.y
-		data["speed"] = round(connected.get_speed()*1000, 0.01)
-		data["accel"] = round(connected.get_acceleration()*1000, 0.01)
-		var/list/speed_xy = connected.get_speed_xy()
-		data["ship_speed_x"] = speed_xy[1]
-		data["ship_speed_y"] = speed_xy[2]
-		data["direction"] = dir2angle(connected.dir)
-		data["heading"] = connected.get_heading() ? dir2angle(connected.get_heading()) : 0
-		data["ETAnext"] = get_eta()
-		data["viewing"] = viewing_overmap(user)
+	data["sector"] = current_sector ? current_sector.name : "Deep Space"
+	data["sector_info"] = current_sector ? current_sector.desc : "Not Available"
+	data["ship_coord_x"] = connected.x
+	data["ship_coord_y"] = connected.y
+	data["speed"] = round(connected.get_speed()*1000, 0.01)
+	data["accel"] = round(connected.get_acceleration()*1000, 0.01)
+	var/list/speed_xy = connected.get_speed_xy()
+	data["ship_speed_x"] = speed_xy[1]
+	data["ship_speed_y"] = speed_xy[2]
+	data["direction"] = dir2angle(connected.dir)
+	data["heading"] = connected.get_heading() ? dir2angle(connected.get_heading()) : 0
+	data["ETAnext"] = get_eta()
+	data["viewing"] = viewing_overmap(user)
 
 	return data
 

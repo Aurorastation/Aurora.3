@@ -45,11 +45,6 @@
 		inserted_cable = null
 	return ..()
 
-/obj/machinery/computer/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = TRUE)
-	if(!operable() || !is_station_level(z) || user.stat)
-		user.unset_machine()
-		return
-
 /obj/machinery/computer/emp_act(severity)
 	. = ..()
 
