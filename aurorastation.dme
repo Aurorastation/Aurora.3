@@ -3890,6 +3890,7 @@
 #include "code\modules\synthesized_instruments\env_editor.dm"
 #include "code\modules\synthesized_instruments\event_manager.dm"
 #include "code\modules\synthesized_instruments\globals.dm"
+#include "code\modules\synthesized_instruments\instrument_ui.dm"
 #include "code\modules\synthesized_instruments\instruments.dm"
 #include "code\modules\synthesized_instruments\real_instruments.dm"
 #include "code\modules\synthesized_instruments\song.dm"

@@ -46,7 +46,7 @@
 		start_building()
 	else
 		stop_building()
-	updateUsrDialog()
+	SStgui.update_uis(src)
 
 ///Tries to build the next item in the fabricator's queue
 /obj/machinery/fabricator/proc/try_queue_build(singleton/fabricator_recipe/recipe, multiplier)
