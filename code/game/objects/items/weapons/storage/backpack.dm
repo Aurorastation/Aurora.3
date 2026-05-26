@@ -31,8 +31,14 @@
 	 * Suffix used for overlays with an attached sleeping bag, because satchels are at people's sides while other bags are on people's backs.
 	 */
 	var/attached_icon = "backpack"
-	var/worn_access = TRUE // If the object may be accessed while equipped in a storage slot.
-	var/equip_access = TRUE // If the object may be accessed while equipped anywhere on a character, including hands.
+	/**
+	 * If the object may be accessed while equipped in a storage slot.
+	 */
+	var/worn_access = TRUE
+	/**
+	 * If the object may be accessed while equipped anywhere on a character, including hands.
+	 */
+	var/equip_access = TRUE
 
 /obj/item/storage/backpack/antagonist_hints(mob/user, distance, is_adjacent)
 	. += ..()
