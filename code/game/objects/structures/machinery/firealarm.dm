@@ -16,7 +16,7 @@
 	var/last_process = 0
 	var/buildstage = 2 // 2 = complete, 1 = no wires,  0 = circuit gone
 	var/seclevel
-	///looping sound datum for our fire alarm siren.
+	/// Looping sound datum for our fire alarm siren.
 	var/datum/looping_sound/firealarm/soundloop
 	always_area_sensitive = TRUE
 
