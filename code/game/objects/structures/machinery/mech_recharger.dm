@@ -59,7 +59,7 @@
 	if(gone == charging)
 		stop_charging()
 
-/obj/machinery/mech_recharger/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/mech_recharger/attackby(obj/item/attacking_item, mob/user)
 	if(default_part_replacement(user, attacking_item))
 		return TRUE
 	else if(default_deconstruction_screwdriver(user, attacking_item))
