@@ -4,8 +4,8 @@
  * @license MIT
  */
 
-import * as keycodes from 'common/keycodes';
-import { globalEvents, KeyEvent } from './events';
+import * as keycodes from 'tgui-core/keycodes';
+import { globalEvents, type KeyEvent } from './events';
 import { createLogger } from './logging';
 
 const logger = createLogger('hotkeys');
@@ -52,14 +52,14 @@ const keyCodeToByond = (keyCode: number) => {
   if (keyCode === 45) return 'Insert';
   if (keyCode === 46) return 'Delete';
   // prettier-ignore
-  if (keyCode >= 48 && keyCode <= 57 || keyCode >= 65 && keyCode <= 90) {
+  if ((keyCode >= 48 && keyCode <= 57) || (keyCode >= 65 && keyCode <= 90)) {
     return String.fromCharCode(keyCode);
   }
   if (keyCode >= 96 && keyCode <= 105) {
-    return 'Numpad' + (keyCode - 96);
+    return `Numpad${keyCode - 96}`;
   }
   if (keyCode >= 112 && keyCode <= 123) {
-    return 'F' + (keyCode - 111);
+    return `F${keyCode - 111}`;
   }
   if (keyCode === 188) return ',';
   if (keyCode === 189) return '-';
@@ -84,9 +84,9 @@ const handlePassthrough = (key: KeyEvent) => {
   // NOTE: Alt modifier is pretty bad and sticky in IE11.
   // prettier-ignore
   if (
-    key.event.defaultPrevented
-    || key.isModifierKey()
-    || hotKeysAcquired.includes(key.code)
+    key.event.defaultPrevented ||
+    key.isModifierKey() ||
+    hotKeysAcquired.includes(key.code)
   ) {
     return;
   }
@@ -135,7 +135,7 @@ export const releaseHotKey = (keyCode: number) => {
 };
 
 export const releaseHeldKeys = () => {
-  for (let byondKeyCode of Object.keys(keyState)) {
+  for (const byondKeyCode of Object.keys(keyState)) {
     if (keyState[byondKeyCode]) {
       keyState[byondKeyCode] = false;
       logger.log(`releasing key "${byondKeyCode}"`);
@@ -154,7 +154,7 @@ export const setupHotKeys = () => {
   Byond.winget('default.*').then((data: Record<string, string>) => {
     // Group each macro by ref
     const groupedByRef: Record<string, ByondSkinMacro> = {};
-    for (let key of Object.keys(data)) {
+    for (const key of Object.keys(data)) {
       const keyPath = key.split('.');
       const ref = keyPath[1];
       const prop = keyPath[2];
@@ -170,11 +170,10 @@ export const setupHotKeys = () => {
     }
     // Insert macros
     const escapedQuotRegex = /\\"/g;
-    // prettier-ignore
-    const unescape = (str: string) => str
-      .substring(1, str.length - 1)
-      .replace(escapedQuotRegex, '"');
-    for (let ref of Object.keys(groupedByRef)) {
+    // biome-ignore lint/suspicious/noShadowRestrictedNames: Probably should be fixed but I don't know how.
+    const unescape = (str: string) =>
+      str.substring(1, str.length - 1).replace(escapedQuotRegex, '"');
+    for (const ref of Object.keys(groupedByRef)) {
       const macro = groupedByRef[ref];
       const byondKeyName = unescape(macro.name);
       byondMacros[byondKeyName] = unescape(macro.command);

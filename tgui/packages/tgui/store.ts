@@ -4,7 +4,6 @@
  * @license MIT
  */
 
-import { flow } from 'common/fp';
 import {
   applyMiddleware,
   combineReducers,
@@ -13,7 +12,8 @@ import {
   type Reducer,
   type Store,
 } from 'common/redux';
-import { Component } from 'react';
+import { flow } from 'tgui-core/fp';
+
 import { assetMiddleware } from './assets';
 import { backendMiddleware, backendReducer } from './backend';
 import { debugMiddleware, debugReducer, relayMiddleware } from './debug';
@@ -44,7 +44,7 @@ export const configureStore = (options: ConfigureStoreOptions = {}): Store => {
       debug: debugReducer,
       backend: backendReducer,
     }),
-    reducer,
+    reducer as any,
   ]);
 
   const middlewares: Middleware[] = !sideEffects
@@ -68,7 +68,6 @@ export const configureStore = (options: ConfigureStoreOptions = {}): Store => {
   const store = createStore(rootReducer, enhancer);
 
   // Globals
-  window.__store__ = store;
   window.__augmentStack__ = createStackAugmentor(store);
 
   return store;
@@ -109,17 +108,3 @@ const createStackAugmentor =
       })
     );
   };
-
-/**
- * Store provider for Inferno apps.
- */
-export class StoreProvider extends Component<StoreProviderProps> {
-  getChildContext() {
-    const { store } = this.props;
-    return { store };
-  }
-
-  render() {
-    return this.props.children;
-  }
-}

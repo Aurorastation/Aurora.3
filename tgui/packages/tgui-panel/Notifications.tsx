@@ -6,15 +6,13 @@
 
 import { Flex } from 'tgui-core/components';
 
-export function Notifications(props) {
+export const Notifications = (props) => {
   const { children } = props;
-
   return <div className="Notifications">{children}</div>;
-}
+};
 
-function NotificationsItem(props) {
+const NotificationsItem = (props) => {
   const { rightSlot, children } = props;
-
   return (
     <Flex align="center" className="Notification">
       <Flex.Item className="Notification__content" grow={1}>
@@ -25,6 +23,6 @@ function NotificationsItem(props) {
       )}
     </Flex>
   );
-}
+};
 
 Notifications.Item = NotificationsItem;

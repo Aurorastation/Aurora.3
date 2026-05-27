@@ -4,107 +4,62 @@
  * @license MIT
  */
 import { useState } from 'react';
-import { JSONTree } from 'react-json-tree';
-import { Divider, NoticeBox, Section, Stack, Tabs } from 'tgui-core/components';
-import { useBackend } from '../backend';
-import { tgui16 } from '../constants/theme';
+import { Section, Stack, Tabs } from 'tgui-core/components';
+
 import { Pane, Window } from '../layouts';
 
-type Props = {
-  panel?: boolean;
-};
+const r = import.meta.webpackContext('../', {
+  recursive: false,
+  include: /\.stories\.tsx$/,
+});
 
-enum Tab {
-  Config = 'config',
-  Data = 'data',
-  Shared = 'shared',
-  Chunks = 'outgoingPayloadQueues',
-  Components = 'components',
+/**
+ * @returns {{
+ *   meta: {
+ *     title: string,
+ *     render: () => any,
+ *   },
+ * }[]}
+ */
+function getStories() {
+  return r.keys().map((path) => r(path));
 }
 
-const tabs = [
-  { name: 'Config', value: Tab.Config },
-  { name: 'Data', value: Tab.Data },
-  { name: 'Shared', value: Tab.Shared },
-  { name: 'Chunks', value: Tab.Chunks },
-] as const;
-
-export function KitchenSink(props: Props) {
+export function KitchenSink(props) {
   const { panel } = props;
+  const [pageIndex, setPageIndex] = useState(0);
 
-  const [activeTab, setActiveTab] = useState(Tab.Config);
+  const stories = getStories();
+  if (stories.length === 0) {
+    return <div>Loading stories...</div>;
+  }
 
+  const story = stories[pageIndex];
   const Layout = panel ? Pane : Window;
 
   return (
     <Layout title="Kitchen Sink" width={600} height={500}>
       <Layout.Content>
         <Stack fill>
-          <Stack.Item grow>
-            <Tabs vertical>
-              {tabs.map((tab) => (
-                <Tabs.Tab
-                  key={tab.name}
-                  className="candystripe"
-                  selected={activeTab === tab.value}
-                  onClick={() => setActiveTab(tab.value)}
-                >
-                  {tab.name}
-                </Tabs.Tab>
-              ))}
-              <Divider />
-              <Tabs.Tab
-                selected={activeTab === Tab.Components}
-                onClick={() => setActiveTab(Tab.Components)}
-              >
-                Components
-              </Tabs.Tab>
-            </Tabs>
+          <Stack.Item>
+            <Section fill fitted>
+              <Tabs vertical>
+                {stories.map((story, i) => (
+                  <Tabs.Tab
+                    key={i}
+                    color="transparent"
+                    selected={i === pageIndex}
+                    onClick={() => setPageIndex(i)}
+                  >
+                    {story.meta.title}
+                  </Tabs.Tab>
+                ))}
+              </Tabs>
+            </Section>
           </Stack.Item>
-          <Stack.Item grow={4}>
-            {activeTab === Tab.Components ? (
-              <ComponentsPage />
-            ) : (
-              <TreePage tab={activeTab} />
-            )}
-          </Stack.Item>
+          <Stack.Item grow>{story.meta.render()}</Stack.Item>
         </Stack>
       </Layout.Content>
     </Layout>
-  );
-}
-
-function ComponentsPage() {
-  return (
-    <Section fill>
-      <NoticeBox info>All component stories have been moved.</NoticeBox>
-      View them here{' '}
-      <a href="https://tgstation.github.io/tgui-core">
-        https://tgstation.github.io/tgui-core
-      </a>
-    </Section>
-  );
-}
-
-type TreeProps = {
-  tab: Tab;
-};
-
-function TreePage(props: TreeProps) {
-  const { tab } = props;
-
-  const backend = useBackend();
-  const inView = backend[tab];
-
-  return (
-    <Section
-      fill
-      scrollable
-      title={`${backend.config.interface.name ?? 'TGUI'} data`}
-    >
-      <div style={{ border: 'thin solid var(--color-base)' }}>
-        <JSONTree data={inView} theme={tgui16} />
-      </div>
-    </Section>
   );
 }
