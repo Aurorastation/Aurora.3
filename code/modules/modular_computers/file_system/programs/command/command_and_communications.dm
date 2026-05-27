@@ -321,7 +321,7 @@ Command action procs
 
 
 /proc/is_relay_online()
-	for(var/obj/machinery/bluespacerelay/M in SSmachinery.machinery)
+	for(var/obj/structure/machinery/bluespacerelay/M in SSmachinery.machinery)
 		if(M.stat == 0)
 			return TRUE
 	return FALSE

@@ -2,14 +2,14 @@ ABSTRACT_TYPE(/obj/effect/landmark/holodeck)
 	name = "holodeck landmark"
 
 	/// The computer our landmark is linked to
-	var/obj/machinery/computer/holodeck_control/console
+	var/obj/structure/machinery/computer/holodeck_control/console
 
 /obj/effect/landmark/holodeck/Destroy()
 	console = null
 	return ..()
 
 /// Sets up the landmark to work with the provided console
-/obj/effect/landmark/holodeck/proc/initialize_holodeck_landmark(var/obj/machinery/computer/holodeck_control/set_console)
+/obj/effect/landmark/holodeck/proc/initialize_holodeck_landmark(var/obj/structure/machinery/computer/holodeck_control/set_console)
 	console = set_console
 	console.holodeck_landmarks += src
 
@@ -21,7 +21,7 @@ ABSTRACT_TYPE(/obj/effect/landmark/holodeck)
 /obj/effect/landmark/holodeck/atmos_test
 	name = "atmospheric test start"
 
-/obj/effect/landmark/holodeck/atmos_test/initialize_holodeck_landmark(var/obj/machinery/computer/holodeck_control/set_console)
+/obj/effect/landmark/holodeck/atmos_test/initialize_holodeck_landmark(var/obj/structure/machinery/computer/holodeck_control/set_console)
 	. = ..()
 
 	var/turf/turf = get_turf(src)
@@ -34,7 +34,7 @@ ABSTRACT_TYPE(/obj/effect/landmark/holodeck)
 /obj/effect/landmark/holodeck/holocarp_spawn
 	name = "holocarp spawn"
 
-/obj/effect/landmark/holodeck/holocarp_spawn/initialize_holodeck_landmark(var/obj/machinery/computer/holodeck_control/set_console)
+/obj/effect/landmark/holodeck/holocarp_spawn/initialize_holodeck_landmark(var/obj/structure/machinery/computer/holodeck_control/set_console)
 	. = ..()
 
 	console.holographic_mobs += new /mob/living/simple_animal/hostile/carp/holodeck(loc)
@@ -43,7 +43,7 @@ ABSTRACT_TYPE(/obj/effect/landmark/holodeck)
 /obj/effect/landmark/holodeck/holocarp_spawn_random
 	name = "holocarp spawn random"
 
-/obj/effect/landmark/holodeck/holocarp_spawn_random/initialize_holodeck_landmark(var/obj/machinery/computer/holodeck_control/set_console)
+/obj/effect/landmark/holodeck/holocarp_spawn_random/initialize_holodeck_landmark(var/obj/structure/machinery/computer/holodeck_control/set_console)
 	. = ..()
 
 	if(prob(4)) // With 4 spawn points, carp should only appear 15% of the time.
@@ -63,7 +63,7 @@ ABSTRACT_TYPE(/obj/effect/landmark/holodeck)
 	pain_carp = new /mob/living/simple_animal/hostile/carp/holodeck/pain(loc)
 	console.holographic_mobs += pain_carp
 
-/obj/effect/landmark/holodeck/holocarp_spawn_pain/initialize_holodeck_landmark(var/obj/machinery/computer/holodeck_control/set_console)
+/obj/effect/landmark/holodeck/holocarp_spawn_pain/initialize_holodeck_landmark(var/obj/structure/machinery/computer/holodeck_control/set_console)
 	. = ..()
 
 	spawn_pain_carp()
@@ -78,7 +78,7 @@ ABSTRACT_TYPE(/obj/effect/landmark/holodeck)
 /obj/effect/landmark/holodeck/penguin_spawn_random
 	name = "penguin spawn random"
 
-/obj/effect/landmark/holodeck/penguin_spawn_random/initialize_holodeck_landmark(var/obj/machinery/computer/holodeck_control/set_console)
+/obj/effect/landmark/holodeck/penguin_spawn_random/initialize_holodeck_landmark(var/obj/structure/machinery/computer/holodeck_control/set_console)
 	. = ..()
 
 	if(prob(50))
@@ -90,7 +90,7 @@ ABSTRACT_TYPE(/obj/effect/landmark/holodeck)
 /obj/effect/landmark/holodeck/penguin_spawn_emperor
 	name = "penguin spawn emperor"
 
-/obj/effect/landmark/holodeck/penguin_spawn_emperor/initialize_holodeck_landmark(var/obj/machinery/computer/holodeck_control/set_console)
+/obj/effect/landmark/holodeck/penguin_spawn_emperor/initialize_holodeck_landmark(var/obj/structure/machinery/computer/holodeck_control/set_console)
 	. = ..()
 
 	console.holographic_mobs += new /mob/living/simple_animal/penguin/holodeck/emperor(loc)
@@ -99,7 +99,7 @@ ABSTRACT_TYPE(/obj/effect/landmark/holodeck)
 /obj/effect/landmark/holodeck/animal_baby_random
 	name = "animal baby random"
 
-/obj/effect/landmark/holodeck/animal_baby_random/initialize_holodeck_landmark(var/obj/machinery/computer/holodeck_control/set_console)
+/obj/effect/landmark/holodeck/animal_baby_random/initialize_holodeck_landmark(var/obj/structure/machinery/computer/holodeck_control/set_console)
 	. = ..()
 
 	if(prob(50))

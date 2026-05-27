@@ -23,10 +23,9 @@
 			var/client/client = user
 			user = client.mob
 		else
-			return null
-
-	if(isnull(user.client))
-		return null
+			return
+	if (!user.client)
+		return
 
 	// Client does NOT have tgui_input on: Returns regular input
 	if(!user.client.prefs.tgui_inputs)
@@ -117,6 +116,9 @@
 	return GLOB.always_state
 
 /datum/tgui_input_text/ui_static_data(mob/user)
+	if (!user.client)
+		return list()
+
 	var/list/data = list()
 	data["large_buttons"] = user.client.prefs.tgui_buttons_large
 	data["swapped_buttons"] = user.client.prefs.tgui_inputs_swapped

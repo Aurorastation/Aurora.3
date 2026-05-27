@@ -1,6 +1,6 @@
 //Engine control and monitoring console
 
-/obj/machinery/computer/ship/engines
+/obj/structure/machinery/computer/ship/engines
 	name = "engine control console"
 	icon_screen = "enginecontrol"
 	icon_keyboard = "cyan_key"
@@ -9,7 +9,7 @@
 	circuit = /obj/item/circuitboard/ship/engines
 	var/display_state = "status"
 
-/obj/machinery/computer/ship/engines/cockpit
+/obj/structure/machinery/computer/ship/engines/cockpit
 	density = FALSE
 	icon = 'icons/obj/cockpit_console.dmi'
 	icon_state = "right"
@@ -17,7 +17,7 @@
 	icon_keyboard = null
 	circuit = null
 
-/obj/machinery/computer/ship/engines/terminal
+/obj/structure/machinery/computer/ship/engines/terminal
 	name = "engine control terminal"
 	icon = 'icons/obj/modular_computers/modular_terminal.dmi'
 	icon_screen = "engines"
@@ -28,7 +28,7 @@
 	can_pass_under = FALSE
 	light_power_on = 1
 
-/obj/machinery/computer/ship/engines/ui_interact(mob/user, datum/tgui/ui)
+/obj/structure/machinery/computer/ship/engines/ui_interact(mob/user, datum/tgui/ui)
 	if(!connected)
 		balloon_alert(user, "no connection!")
 		return
@@ -38,7 +38,7 @@
 		ui = new(user, src, "EnginesControl", "[connected.get_real_name()] Engines Control")
 		ui.open()
 
-/obj/machinery/computer/ship/engines/ui_data(mob/user)
+/obj/structure/machinery/computer/ship/engines/ui_data(mob/user)
 	var/list/data = list()
 
 	if(!connected)
@@ -67,7 +67,7 @@
 
 	return data
 
-/obj/machinery/computer/ship/engines/ui_act(action, params)
+/obj/structure/machinery/computer/ship/engines/ui_act(action, params)
 	. = ..()
 	if(.)
 		return

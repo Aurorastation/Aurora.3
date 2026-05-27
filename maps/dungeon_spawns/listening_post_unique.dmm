@@ -6,7 +6,7 @@
 /turf/simulated/wall/r_wall,
 /area/dungeon/syndie_listening_post)
 "ac" = (
-/obj/machinery/atmospherics/unary/vent_pump{
+/obj/structure/machinery/atmospherics/unary/vent_pump{
 	frequency = 1351;
 	id_tag = "listening_post_vent"
 	},
@@ -18,7 +18,7 @@
 /turf/simulated/mineral,
 /area/mine/unexplored)
 "ae" = (
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+/obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller{
 	frequency = 1351;
 	id_tag = "listening_post_airlock";
 	pixel_y = 25;
@@ -27,14 +27,14 @@
 	tag_exterior_door = "listening_post_exterior";
 	tag_interior_door = "listening_post_interior"
 	},
-/obj/machinery/atmospherics/unary/vent_pump{
+/obj/structure/machinery/atmospherics/unary/vent_pump{
 	frequency = 1351;
 	id_tag = "listening_post_vent"
 	},
 /turf/simulated/floor,
 /area/dungeon/syndie_listening_post)
 "af" = (
-/obj/machinery/atmospherics/unary/vent_pump{
+/obj/structure/machinery/atmospherics/unary/vent_pump{
 	frequency = 1351;
 	id_tag = "listening_post_vent"
 	},
@@ -42,7 +42,7 @@
 /turf/simulated/floor,
 /area/dungeon/syndie_listening_post)
 "ag" = (
-/obj/machinery/access_button/airlock_interior{
+/obj/structure/machinery/access_button/airlock_interior{
 	frequency = 1351;
 	master_tag = "listening_post_airlock";
 	pixel_x = -25
@@ -61,7 +61,7 @@
 /turf/simulated/floor/tiled/dark/airless,
 /area/dungeon/syndie_listening_post)
 "ai" = (
-/obj/machinery/light_construct{
+/obj/structure/machinery/light_construct{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/airless,
@@ -92,7 +92,7 @@
 /turf/simulated/floor/tiled/dark/airless,
 /area/dungeon/syndie_listening_post)
 "an" = (
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	frequency = 1351;
 	icon_state = "door_locked";
 	id_tag = "listening_post_exterior";
@@ -106,18 +106,18 @@
 /turf/simulated/floor,
 /area/dungeon/syndie_listening_post)
 "ap" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8
 	},
 /turf/simulated/floor,
 /area/dungeon/syndie_listening_post)
 "aq" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/dungeon/syndie_listening_post)
 "ar" = (
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	frequency = 1351;
 	icon_state = "door_locked";
 	id_tag = "listening_post_interior";
@@ -125,19 +125,19 @@
 	name = "Listening Post";
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
 /turf/simulated/floor,
 /area/dungeon/syndie_listening_post)
 "as" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/airless,
 /area/dungeon/syndie_listening_post)
 "at" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark/airless,
@@ -154,24 +154,24 @@
 /turf/simulated/floor/tiled/dark/airless,
 /area/dungeon/syndie_listening_post)
 "ax" = (
-/obj/machinery/airlock_sensor{
+/obj/structure/machinery/airlock_sensor{
 	frequency = 1351;
 	id_tag = "listening_post_sensor";
 	pixel_y = -25
 	},
-/obj/machinery/atmospherics/unary/vent_pump{
+/obj/structure/machinery/atmospherics/unary/vent_pump{
 	dir = 1;
 	frequency = 1351;
 	id_tag = "listening_post_vent"
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_color = "#FA8282"
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/dungeon/syndie_listening_post)
 "ay" = (
-/obj/machinery/atmospherics/unary/vent_pump{
+/obj/structure/machinery/atmospherics/unary/vent_pump{
 	dir = 1;
 	frequency = 1351;
 	id_tag = "listening_post_vent"
@@ -180,15 +180,15 @@
 /turf/simulated/floor,
 /area/dungeon/syndie_listening_post)
 "az" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 1
 	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/door/window/northright,
+/obj/structure/machinery/door/window/northright,
 /obj/structure/sign/vacuum{
 	pixel_x = -32
 	},
@@ -198,19 +198,19 @@
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 "aB" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 1
 	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
 /obj/structure/window/reinforced,
-/obj/machinery/door/window/northright,
+/obj/structure/machinery/door/window/northright,
 /turf/simulated/floor/tiled/dark,
 /area/dungeon/syndie_listening_post)
 "aC" = (
-/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/structure/machinery/portable_atmospherics/canister/oxygen,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark/airless,
 /area/dungeon/syndie_listening_post)
@@ -220,7 +220,7 @@
 /turf/simulated/floor/tiled/dark/airless,
 /area/dungeon/syndie_listening_post)
 "aE" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_color = "#FA8282"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -269,7 +269,7 @@
 /turf/simulated/floor/tiled/dark/airless,
 /area/dungeon/syndie_listening_post)
 "aN" = (
-/obj/machinery/atmospherics/unary/vent_pump{
+/obj/structure/machinery/atmospherics/unary/vent_pump{
 	dir = 1;
 	frequency = 1351;
 	id_tag = "listening_post_vent"
@@ -332,13 +332,13 @@
 "aX" = (
 /obj/structure/table/reinforced,
 /obj/item/pen/fountain/black,
-/obj/machinery/light_construct{
+/obj/structure/machinery/light_construct{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/airless,
 /area/dungeon/syndie_listening_post)
 "aZ" = (
-/obj/machinery/constructable_frame/temp_deco,
+/obj/structure/machinery/constructable_frame/temp_deco,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/shuttle/dark_red{
 	nitrogen = 0;
@@ -357,7 +357,7 @@
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 "bc" = (
-/obj/machinery/access_button/airlock_exterior{
+/obj/structure/machinery/access_button/airlock_exterior{
 	frequency = 1351;
 	master_tag = "listening_post_airlock";
 	pixel_x = 25
@@ -399,7 +399,7 @@
 	},
 /area/dungeon/syndie_listening_post)
 "bh" = (
-/obj/machinery/light_construct{
+/obj/structure/machinery/light_construct{
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/dark_red{
@@ -432,11 +432,11 @@
 /turf/simulated/floor/tiled/dark/airless,
 /area/dungeon/syndie_listening_post)
 "bl" = (
-/obj/machinery/photocopier,
+/obj/structure/machinery/photocopier,
 /turf/simulated/floor/tiled/dark/airless,
 /area/dungeon/syndie_listening_post)
 "bm" = (
-/obj/machinery/constructable_frame/temp_deco,
+/obj/structure/machinery/constructable_frame/temp_deco,
 /turf/simulated/floor/shuttle/dark_red{
 	nitrogen = 0;
 	oxygen = 0
@@ -498,7 +498,7 @@
 /area/dungeon/syndie_listening_post)
 "bw" = (
 /obj/structure/computerframe,
-/obj/machinery/light_construct,
+/obj/structure/machinery/light_construct,
 /turf/simulated/floor/tiled/dark/airless,
 /area/dungeon/syndie_listening_post)
 "bx" = (

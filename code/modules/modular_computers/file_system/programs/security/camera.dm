@@ -42,7 +42,7 @@
 	color = LIGHT_COLOR_ORANGE
 	usage_flags = PROGRAM_CONSOLE | PROGRAM_LAPTOP
 	tgui_id = "CameraMonitoring"
-	var/obj/machinery/camera/current_camera
+	var/obj/structure/machinery/camera/current_camera
 	var/current_network
 	/// Used for camera monitor consoles from which this interface can be launched. If it exists, only provide that console's "console_networks" networks.
 	var/list/monitored_networks = list()
@@ -115,7 +115,7 @@
 
 	switch(action)
 		if("switch_camera")
-			var/obj/machinery/camera/C = locate(params["switch_camera"]) in GLOB.cameranet.cameras
+			var/obj/structure/machinery/camera/C = locate(params["switch_camera"]) in GLOB.cameranet.cameras
 			if(!C)
 				return
 			if(!(current_network in C.network))
@@ -145,7 +145,7 @@
 			usr.reset_view(current_camera)
 			return TRUE
 
-/datum/computer_file/program/camera_monitor/proc/switch_to_camera(var/mob/user, var/obj/machinery/camera/C)
+/datum/computer_file/program/camera_monitor/proc/switch_to_camera(var/mob/user, var/obj/structure/machinery/camera/C)
 	//don't need to check if the camera works for AI because the AI jumps to the camera location and doesn't actually look through cameras.
 	if(isAI(user))
 		var/mob/living/silicon/ai/A = user
@@ -171,7 +171,7 @@
 
 	return TRUE
 
-/datum/computer_file/program/camera_monitor/proc/set_current(var/obj/machinery/camera/C)
+/datum/computer_file/program/camera_monitor/proc/set_current(var/obj/structure/machinery/camera/C)
 	if(current_camera == C)
 		return
 

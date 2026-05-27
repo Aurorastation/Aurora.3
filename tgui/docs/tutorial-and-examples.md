@@ -37,7 +37,7 @@ powerful interactions for embedded objects or remote access.
 Let's start with a very basic hello world.
 
 ```dm
-/obj/machinery/my_machine/ui_interact(mob/user, datum/tgui/ui)
+/obj/structure/machinery/my_machine/ui_interact(mob/user, datum/tgui/ui)
   ui = SStgui.try_update_ui(user, src, ui)
   if(!ui)
     ui = new(user, src, "MyMachine")
@@ -59,7 +59,7 @@ After `ui_interact`, we need to define `ui_data`. This just returns a list of
 data for our object to use. Let's imagine our object has a few vars:
 
 ```dm
-/obj/machinery/my_machine/ui_data(mob/user)
+/obj/structure/machinery/my_machine/ui_data(mob/user)
   var/list/data = list()
   data["health"] = health
   data["color"] = color
@@ -75,7 +75,7 @@ Finally, the `ui_act` proc is called by the interface whenever the user used an
 input. The input's `action` and `params` are passed to the proc.
 
 ```dm
-/obj/machinery/my_machine/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/obj/structure/machinery/my_machine/ui_act(action, params)
   . = ..()
   if(.)
     return

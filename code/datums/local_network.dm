@@ -21,7 +21,7 @@ GLOBAL_LIST_EMPTY(local_networks)
 				return FALSE
 	return TRUE
 
-/datum/local_network/proc/add_device(obj/machinery/device)
+/datum/local_network/proc/add_device(obj/structure/machinery/device)
 	var/list/entities = get_devices(device.type)
 
 	if(!entities)
@@ -32,7 +32,7 @@ GLOBAL_LIST_EMPTY(local_networks)
 
 	return entities[device]
 
-/datum/local_network/proc/remove_device(obj/machinery/device)
+/datum/local_network/proc/remove_device(obj/structure/machinery/device)
 	var/list/entities = get_devices(device.type)
 	if(!entities)
 		return TRUE
@@ -44,7 +44,7 @@ GLOBAL_LIST_EMPTY(local_networks)
 		qdel(src)
 	return isnull(entities[device])
 
-/datum/local_network/proc/is_connected(obj/machinery/device)
+/datum/local_network/proc/is_connected(obj/structure/machinery/device)
 	var/list/entities = get_devices(device.type)
 
 	if(!entities)

@@ -8,7 +8,7 @@
 	active_power_use = 0 //Usage doesn't really require power. We don't want people stuck inside
 	origin_tech = list(TECH_DATA = 2, TECH_BIO = 3)
 	passive_power_use = 25
-	var/obj/machinery/sleeper/mounted/sleeper = null
+	var/obj/structure/machinery/sleeper/mounted/sleeper = null
 	module_hints = list(
 		"<b>Left Click(Living Target):</b> Load the target into the mech's onboard Medical Sleeper unit.",
 		"<b>Alt Click(Icon):</b> Activate the sleeper unit's control interface.",
@@ -18,7 +18,7 @@
 
 /obj/item/mecha_equipment/sleeper/Initialize()
 	. = ..()
-	sleeper = new /obj/machinery/sleeper/mounted(src)
+	sleeper = new /obj/structure/machinery/sleeper/mounted(src)
 	sleeper.forceMove(src)
 
 /obj/item/mecha_equipment/sleeper/Destroy()
@@ -75,7 +75,7 @@
 	else
 		..()
 
-/obj/machinery/sleeper/mounted
+/obj/structure/machinery/sleeper/mounted
 	name = "\improper mounted sleeper"
 	density = 0
 	anchored = 0
@@ -84,13 +84,13 @@
 	interact_offline = TRUE
 	display_loading_message = FALSE
 
-/obj/machinery/sleeper/mounted/ui_host()
+/obj/structure/machinery/sleeper/mounted/ui_host()
 	var/obj/item/mecha_equipment/sleeper/S = loc
 	if(istype(S))
 		return S.owner
 	return null
 
-/obj/machinery/sleeper/mounted/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/sleeper/mounted/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/reagent_containers/glass))
 		if(!user.unEquip(attacking_item, src))
 			return TRUE
@@ -330,7 +330,7 @@
 /// Special health analyzer used by the exosuit health analyzer.
 /obj/item/healthanalyzer/mech
 	name = "mounted health analyzer"
-	var/obj/machinery/body_scanconsole/connected = null
+	var/obj/structure/machinery/body_scanconsole/connected = null
 	/// Toggle whether to do full or basic scan
 	var/fullScan = FALSE
 
@@ -340,7 +340,7 @@
 /obj/item/healthanalyzer/mech/Initialize()
 	. = ..()
 	if(!connected)
-		var/obj/machinery/body_scanconsole/S = new (src)
+		var/obj/structure/machinery/body_scanconsole/S = new (src)
 		S.forceMove(src)
 		S.update_use_power(POWER_USE_OFF)
 		connected = S
@@ -375,7 +375,7 @@
 			var/datum/component/health_analyzer/mech/h_analyzer = src.GetComponent(/datum/component/health_analyzer/mech)
 			if(!h_analyzer)
 				return
-			h_analyzer.health_scan_mob(target_mob, pilot, TRUE, TRUE, sound_scan = TRUE)
+			h_analyzer.health_scan_mob(target_mob, pilot, FALSE, TRUE)
 	else
 		user_vehicle.visible_message("<b>[user_vehicle]</b> starts scanning \the [target_mob] with \the [src].",
 								SPAN_NOTICE("You start scanning \the [target_mob] with \the [src]."))

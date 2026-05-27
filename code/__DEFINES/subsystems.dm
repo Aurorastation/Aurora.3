@@ -1,6 +1,6 @@
 /// START specific to SSmachinery
 #define START_PROCESSING_MACHINE(machine, flag)\
-	if(!istype(machine, /obj/machinery)) CRASH("A non-machine [log_info_line(machine)] was queued to process on the machinery subsystem.");\
+	if(!istype(machine, /obj/structure/machinery)) CRASH("A non-machine [log_info_line(machine)] was queued to process on the machinery subsystem.");\
 	machine.processing_flags |= flag;\
 	START_PROCESSING(SSmachinery, machine)
 

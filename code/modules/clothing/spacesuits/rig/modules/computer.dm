@@ -281,16 +281,16 @@
 		return TRUE
 
 	// I fucking hate R&D code. This typecheck spam would be totally unnecessary in a sane setup.
-	else if(istype(input_device,/obj/machinery))
+	else if(istype(input_device,/obj/structure/machinery))
 		var/datum/research/incoming_files
-		if(istype(input_device,/obj/machinery/computer/rdconsole))
-			var/obj/machinery/computer/rdconsole/input_machine = input_device
+		if(istype(input_device,/obj/structure/machinery/computer/rdconsole))
+			var/obj/structure/machinery/computer/rdconsole/input_machine = input_device
 			incoming_files = input_machine.files
-		else if(istype(input_device,/obj/machinery/r_n_d/server))
-			var/obj/machinery/r_n_d/server/input_machine = input_device
+		else if(istype(input_device,/obj/structure/machinery/r_n_d/server))
+			var/obj/structure/machinery/r_n_d/server/input_machine = input_device
 			incoming_files = input_machine.files
-		else if(istype(input_device,/obj/machinery/mecha_part_fabricator))
-			var/obj/machinery/mecha_part_fabricator/input_machine = input_device
+		else if(istype(input_device,/obj/structure/machinery/mecha_part_fabricator))
+			var/obj/structure/machinery/mecha_part_fabricator/input_machine = input_device
 			incoming_files = input_machine.files
 
 		if(!incoming_files || !incoming_files.known_tech || !incoming_files.known_tech.len)
