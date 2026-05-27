@@ -1,6 +1,6 @@
 /**********************Input and output plates**************************/
 
-/obj/machinery/mineral/input
+/obj/structure/machinery/mineral/input
 	icon = 'icons/hud/mob/generic.dmi'
 	icon_state = "x2"
 	name = "Input Area"
@@ -8,11 +8,11 @@
 	density = FALSE
 	anchored = TRUE
 
-/obj/machinery/mineral/input/Initialize()
+/obj/structure/machinery/mineral/input/Initialize()
 	. = ..()
 	icon_state = "blank"
 
-/obj/machinery/mineral/output
+/obj/structure/machinery/mineral/output
 	icon = 'icons/hud/mob/generic.dmi'
 	icon_state = "x"
 	name = "Output Area"
@@ -20,6 +20,6 @@
 	density = FALSE
 	anchored = TRUE
 
-/obj/machinery/mineral/output/Initialize()
+/obj/structure/machinery/mineral/output/Initialize()
 	. = ..()
 	icon_state = "blank"

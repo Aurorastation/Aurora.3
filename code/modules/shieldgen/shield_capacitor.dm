@@ -1,4 +1,4 @@
-/obj/machinery/shield_capacitor
+/obj/structure/machinery/shield_capacitor
 	name = "shield capacitor"
 	desc = "Machine that charges a shield generator."
 	icon = 'icons/obj/machinery/shielding.dmi'
@@ -19,20 +19,20 @@
 	var/locked = FALSE
 
 	var/charge_rate = 100000		//100 kW
-	var/obj/machinery/shield_gen/owned_gen
+	var/obj/structure/machinery/shield_gen/owned_gen
 
-/obj/machinery/shield_capacitor/Initialize()
+/obj/structure/machinery/shield_capacitor/Initialize()
 	..()
 	return INITIALIZE_HINT_LATELOAD
 
-/obj/machinery/shield_capacitor/LateInitialize()
+/obj/structure/machinery/shield_capacitor/LateInitialize()
 	. = ..()
-	for(var/obj/machinery/shield_gen/possible_gen in range(1, src))
+	for(var/obj/structure/machinery/shield_gen/possible_gen in range(1, src))
 		if(get_dir(src, possible_gen) == dir)
 			possible_gen.owned_capacitor = src
 			break
 
-/obj/machinery/shield_capacitor/emag_act(var/remaining_charges, var/mob/user)
+/obj/structure/machinery/shield_capacitor/emag_act(var/remaining_charges, var/mob/user)
 	if(prob(75))
 		locked = !locked
 		to_chat(user, "Controls are now [locked ? "locked." : "unlocked."]")
@@ -40,7 +40,7 @@
 		updateDialog()
 	spark(src, 5, GLOB.alldirs)
 
-/obj/machinery/shield_capacitor/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/shield_capacitor/attackby(obj/item/attacking_item, mob/user)
 
 	if(istype(attacking_item, /obj/item/card/id))
 		if(allowed(user))
@@ -54,7 +54,7 @@
 		visible_message(SPAN_NOTICE("\The [src] has been [anchored ? "bolted to the floor" : "unbolted from the floor"] by \the [user]."))
 
 		if(anchored)
-			for(var/obj/machinery/shield_gen/gen in range(1, src))
+			for(var/obj/structure/machinery/shield_gen/gen in range(1, src))
 				if(get_dir(src, gen) == src.dir && !gen.owned_capacitor)
 					owned_gen = gen
 					owned_gen.owned_capacitor = src
@@ -66,18 +66,18 @@
 	else
 		..()
 
-/obj/machinery/shield_capacitor/attack_hand(mob/user)
+/obj/structure/machinery/shield_capacitor/attack_hand(mob/user)
 	if(stat & (BROKEN))
 		return
 	ui_interact(user)
 
-/obj/machinery/shield_capacitor/ui_interact(mob/user, datum/tgui/ui)
+/obj/structure/machinery/shield_capacitor/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "ShieldCapacitor", "Shield Capacitor", 400, 300)
 		ui.open()
 
-/obj/machinery/shield_capacitor/ui_data(mob/user)
+/obj/structure/machinery/shield_capacitor/ui_data(mob/user)
 	var/list/data = list()
 	data["anchored"] = anchored
 	data["locked"] = locked
@@ -89,7 +89,7 @@
 	data["max_charge_rate"] = max_charge_rate
 	return data
 
-/obj/machinery/shield_capacitor/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/obj/structure/machinery/shield_capacitor/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
@@ -104,7 +104,7 @@
 			charge_rate = between(10000, params["charge_rate"], max_charge_rate)
 			. = TRUE
 
-/obj/machinery/shield_capacitor/process()
+/obj/structure/machinery/shield_capacitor/process()
 	if (!anchored)
 		active = FALSE
 
@@ -132,12 +132,12 @@
 		time_since_fail = 0 //losing charge faster than we can draw from PN
 	last_stored_charge = stored_charge
 
-/obj/machinery/shield_capacitor/power_change()
+/obj/structure/machinery/shield_capacitor/power_change()
 	if(stat & BROKEN)
 		icon_state = "broke"
 	else
 		..()
 
 /// Horizon-specific non-variant, for now.
-/obj/machinery/shield_capacitor/multiz
+/obj/structure/machinery/shield_capacitor/multiz
 

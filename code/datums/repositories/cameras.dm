@@ -24,7 +24,7 @@ GLOBAL_DATUM_INIT(camera_repository, /datum/repository/cameras, new())
 		return
 	invalidated = 0
 
-	for(var/obj/machinery/camera/C in GLOB.cameranet.cameras)
+	for(var/obj/structure/machinery/camera/C in GLOB.cameranet.cameras)
 		var/cam = C.nano_structure()
 		for(var/network in C.network)
 			if(!networks[network])

@@ -406,7 +406,7 @@
 			var/datum/component/health_analyzer/h_analyzer = src.GetComponent(/datum/component/health_analyzer)
 			if(!h_analyzer)
 				return
-			h_analyzer.health_scan_mob(H, owner)
+			h_analyzer.health_scan_mob(H, owner, FALSE, TRUE)
 
 /obj/item/organ/external/hand/right/autakh/security
 	name = "security grasper"

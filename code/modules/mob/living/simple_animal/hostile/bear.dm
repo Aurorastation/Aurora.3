@@ -211,8 +211,8 @@
 						nearest_downed_dist = dist
 
 
-		if(istype(A, /obj/machinery/bot))
-			var/obj/machinery/bot/B = A
+		if(istype(A, /obj/structure/machinery/bot))
+			var/obj/structure/machinery/bot/B = A
 			if (B.health > 0)
 				if (dist < nearest_dist)
 					nearest_target = B
@@ -235,8 +235,8 @@
 		var/mob/living/L = target_mob
 		if((L.stat != DEAD))
 			return (0)
-	if (istype(target_mob,/obj/machinery/bot))
-		var/obj/machinery/bot/B = target_mob
+	if (istype(target_mob,/obj/structure/machinery/bot))
+		var/obj/structure/machinery/bot/B = target_mob
 		if(B.health > 0)
 			return (0)
 	return 1

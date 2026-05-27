@@ -225,7 +225,7 @@
 	fragment_damage = 10
 
 	///The airlock that we are observing for when it opens, to explode
-	var/obj/machinery/door/airlock/door_rigged
+	var/obj/structure/machinery/door/airlock/door_rigged
 
 //Prevent this mine to be used like a normal one
 /obj/item/landmine/frag/door_rigging/attack_self(mob/user)
@@ -235,7 +235,7 @@
 /obj/item/landmine/frag/door_rigging/resolve_attackby(atom/A, mob/user, click_parameters)
 	. = ..()
 
-	if(istype(A, /obj/machinery/door/airlock))
+	if(istype(A, /obj/structure/machinery/door/airlock))
 
 		door_rigged = A
 		var/turf/turf_under_door = get_turf(door_rigged)

@@ -40,5 +40,5 @@
 /obj/item/phylactery/pickup(mob/living/user as mob)
 	..()
 	to_chat(user, SPAN_WARNING("As you pick up \the [src], you feel a wave of dread wash over you."))
-	for(var/obj/machinery/light/P in view(7, user))
+	for(var/obj/structure/machinery/light/P in view(7, user))
 		P.flicker(1)

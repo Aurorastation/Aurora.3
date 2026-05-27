@@ -207,7 +207,7 @@ GLOBAL_LIST_EMPTY(map_count)
 
 /datum/random_map/proc/get_additional_spawns(var/value, var/turf/T)
 	if(value == DOOR_CHAR)
-		new /obj/machinery/door/airlock(T)
+		new /obj/structure/machinery/door/airlock(T)
 
 /datum/random_map/proc/cleanup()
 	return

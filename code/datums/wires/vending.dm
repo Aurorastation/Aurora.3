@@ -1,6 +1,6 @@
 /datum/wires/vending
 	proper_name = "Vending Machine"
-	holder_type = /obj/machinery/vending
+	holder_type = /obj/structure/machinery/vending
 
 /datum/wires/vending/New()
 	wires = list(
@@ -19,13 +19,13 @@
 /datum/wires/vending/interactable(mob/user)
 	if(!..())
 		return FALSE
-	var/obj/machinery/vending/V = holder
+	var/obj/structure/machinery/vending/V = holder
 	if(V.panel_open)
 		return TRUE
 	return FALSE
 
 /datum/wires/vending/get_status()
-	var/obj/machinery/vending/V = holder
+	var/obj/structure/machinery/vending/V = holder
 	. += ..()
 	. += "The orange light is [V.seconds_electrified ? "off" : "on"]."
 	. += "The red light is [V.shoot_inventory ? "off" : "blinking"]."
@@ -35,7 +35,7 @@
 	. += "The blue light is [V.temperature_setting == 1 ? "on" : "off"]."
 
 /datum/wires/vending/on_pulse(wire, user)
-	var/obj/machinery/vending/V = holder
+	var/obj/structure/machinery/vending/V = holder
 	switch(wire)
 		if(WIRE_THROW)
 			V.shoot_inventory = !V.shoot_inventory
@@ -53,7 +53,7 @@
 			V.temperature_setting = V.temperature_setting != 1 ? 1 : 0
 
 /datum/wires/vending/on_cut(wire, mend, source)
-	var/obj/machinery/vending/V = holder
+	var/obj/structure/machinery/vending/V = holder
 	switch(wire)
 		if(WIRE_THROW)
 			V.shoot_inventory = !mend

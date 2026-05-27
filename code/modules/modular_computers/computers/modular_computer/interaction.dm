@@ -369,7 +369,7 @@
 	var/mob/M = user
 	if(use_check_and_message(M))
 		return
-	if(istype(over, /obj/machinery/power/apc) && tesla_link)
+	if(istype(over, /obj/structure/machinery/power/apc) && tesla_link)
 		return over.attackby(src, M)
 	if(!istype(over, /atom/movable/screen) && !(over == src))
 		return attack_self(M)

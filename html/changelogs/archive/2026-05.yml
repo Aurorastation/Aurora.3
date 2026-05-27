@@ -220,3 +220,91 @@
   - qol: Changed weight class on integrated circuit printer from BULKY to NORMAL.
   - qol: Changed integrated circuit advanced med scanner from NUM to Severity based
       detection to further align with the current health scanners.
+2026-05-22:
+  Hellfirejag:
+  - bugfix: Fixed a very expensive (lags the server during ship combat) runtime error
+      related to ship sensors.
+  - rscadd: Added a UI indicator for Morale modifiers.
+2026-05-23:
+  Batrachophrenoboocosmomachia:
+  - balance: Decreases size of Dosimeter from Normal to Small.
+  - balance: Decreases size of Bomb Defusal Wirecutters and Music Cartridge from Small
+      to Tiny.
+  - balance: Increases size of Airlock Electronics from Tiny to Small (matches other
+      circuitboards).
+2026-05-24:
+  Dessysalta:
+  - rscadd: Adds Zavod Asset Crates to the uplink, and the suit itself to the hardsuit
+      token for Operatives.
+  ElorgRHG:
+  - rscadd: Added colorable cargo pants to the loadout.
+  Fenodyree:
+  - bugfix: Fixes all hostile simple mobs shooting the base projectile, instead of
+      their specified projectile.
+  Hellfirejag:
+  - code_imp: Added an ENFORCE_CALCULUS(seconds_per_tick) macro to help spot bugs
+      in procs that use calculus methods.
+  Kano:
+  - rscadd: Ported 6 hairstyles from Shiptest.
+  TheGreyWolf:
+  - rscadd: Added a search function to the quikpay, commissary register and other
+      devices using that system.
+  Wowzewow (Wezzy):
+  - bugfix: Fixes ATK and ABK stack overlays
+  hazelmouse:
+  - rscadd: Added a second shaker to the Horizon's bar.
+  - bugfix: BarDrobes now contain every service corporation's uniform.
+2026-05-27:
+  Batrachophrenoboocosmomachia:
+  - refactor: Repaths /obj/machinery to /obj/structure/machinery.
+  Fenodyree:
+  - bugfix: Fixes EMPs affecting human mobs twice. Light EMPs now need two hits to
+      explode your PDA.
+  - bugfix: Fixes energy guns not being disabled by EMPs and gives more feedback when
+      it happens.
+  Hellfirejag:
+  - bugfix: Fixed a runtime error caused by a diona entering a cryopod.
+  - bugfix: Fixed a runtime error caused by vampires trying to drink from a blood
+      bag.
+  - bugfix: Fixed a niche runtime error that occurs occasionally during late spawns.
+  - bugfix: Fixed a runtime when harvesting plants.
+  - bugfix: Fixed a runtime caused when a player disconnects while a tgui input window
+      is open.
+  TheGreyWolf:
+  - bugfix: Fixed that certain health analyzer stuff never showed limb damage and
+      other advanced injuries.
+  - qol: Improved the readability of the health analyzer UI.
+  - bugfix: Fixed carts to no longer make noise when they don't move, such as trying
+      to push them past a wall.
+  arrow768:
+  - refactor: Updates the Computer Fabricator to TGUI
+  - refactor: Updates the Instruments to TGUI
+  - refactor: Updates the Geo Scanner to TGUI
+  - refactor: Updates the Stacking Machine to TGUI
+  - refactor: Updates the Robotics Console to TGUI
+  - refactor: Updates the Requests Console to TGUI
+  - refactor: Updates the Synthesizer/Instrument main panel to TGUI
+  - refactor: Updates the Nuclear Bomb control panel to TGUI
+  - rscadd: Requests Console messages are now typed (Assistance Request, Supply Request,
+      Information, Reply); the type is shown in the recipient's log, audible alert,
+      and PDA notification.
+  - rscadd: "Reconstructs the Synthesizer's Virtual Environment Editor (was broken\
+      \ since added \u2014 its NanoUI template never existed). The Custom environment\
+      \ preset that depends on it is gated behind a new musical_config.can_use_custom\
+      \ flag (default off, matching prior behavior)."
+  - bugfix: Fixes the Autolathe UI re-opening after every print job.
+  - bugfix: Fixes the Song Editor's currently-playing line indicator not advancing
+      during playback.
+  - bugfix: Fixes a class of bugs where TGUI windows for the Air Alarm, Portable Turret,
+      Mining Vendor, Mineral Processor, Tank Dispenser, Helm Console, all Chemistry
+      machines, and Suit Cycler would force themselves back open after every action,
+      even when the player had closed them.
+  - bugfix: Fixes the spatial sound system silently dropping every sound that used
+      the 'None' (-1) environment id or a 23-element custom environment list. The
+      validator was rejecting both as invalid, so synthesizer notes played with Custom
+      or None mode produced no audible output at all.
+  - admin: Adds two requests consoles and two fax machines to the bridge on the runtime
+      test map.
+  mineymonkey:
+  - bugfix: Assigned a proper icon_state to the chameleon shoes and fixed the emp
+      issue not disabling them properly.

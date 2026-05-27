@@ -89,10 +89,10 @@
 
 /obj/effect/overmap/visitable/ship/Destroy()
 	SSshuttle.ships -= src
-	for(var/obj/machinery/computer/ship/S in SSmachinery.machinery)
+	for(var/obj/structure/machinery/computer/ship/S in SSmachinery.machinery)
 		if(S.linked == src)
 			S.linked = null
-	for(var/obj/machinery/computer/shuttle_control/explore/C in SSmachinery.machinery)
+	for(var/obj/structure/machinery/computer/shuttle_control/explore/C in SSmachinery.machinery)
 		if(C.linked == src)
 			C.linked = null
 
@@ -262,7 +262,7 @@
 		icon_state = moving_state
 	else
 		icon_state = initial(icon_state)
-	for(var/obj/machinery/computer/ship/machine in consoles)
+	for(var/obj/structure/machinery/computer/ship/machine in consoles)
 		if(machine.z in map_z)
 			for(var/datum/weakref/W in machine.viewers)
 				var/mob/M = W.resolve()
@@ -312,9 +312,9 @@
 
 /obj/effect/overmap/visitable/ship/populate_sector_objects()
 	..()
-	for(var/obj/machinery/computer/ship/S in SSmachinery.machinery)
+	for(var/obj/structure/machinery/computer/ship/S in SSmachinery.machinery)
 		S.attempt_hook_up(src)
-	for(var/obj/machinery/computer/shuttle_control/explore/C in SSmachinery.machinery)
+	for(var/obj/structure/machinery/computer/shuttle_control/explore/C in SSmachinery.machinery)
 		C.attempt_hook_up(src)
 	for(var/datum/ship_engine/E in GLOB.ship_engines)
 		if(check_ownership(E.holder))
@@ -407,7 +407,7 @@
 	last_combat_roll = world.time
 
 /obj/effect/overmap/visitable/ship/signal_hit(var/list/hit_data)
-	for(var/obj/machinery/computer/ship/targeting/TR in consoles)
+	for(var/obj/structure/machinery/computer/ship/targeting/TR in consoles)
 		TR.visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(TR)))] Hit confirmed on [hit_data["target_name"]] in [hit_data["target_area"]] at coordinates [hit_data["coordinates"]]."), range = 2)
 
 /obj/effect/overmap/visitable/ship/proc/get_speed_sensor_increase()

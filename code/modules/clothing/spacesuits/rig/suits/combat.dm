@@ -213,7 +213,7 @@
 		)
 
 /obj/item/clothing/head/helmet/space/rig/tcfl
-	camera = /obj/machinery/camera/network/tcfl
+	camera = /obj/structure/machinery/camera/network/tcfl
 
 /obj/item/rig/gunslinger
 	name = "gunslinger hardsuit control module"
@@ -619,7 +619,7 @@
 
 /obj/item/clothing/head/helmet/space/rig/legionnaire
 	light_overlay = "helmet_light_tcaf_legionnaire"
-	camera = /obj/machinery/camera/network/tcfl
+	camera = /obj/structure/machinery/camera/network/tcfl
 
 /obj/item/rig/combat/legionnaire/equipped
 
@@ -655,8 +655,20 @@
 	initial_modules = list(
 		/obj/item/rig_module/actuators/combat,
 		/obj/item/rig_module/chem_dispenser/combat,
+		/obj/item/rig_module/cooling_unit,
 		/obj/item/rig_module/grenade_launcher/frag,
 		/obj/item/rig_module/vision/nvg
+		)
+
+/obj/item/rig/combat/zavod_heavy/ninja
+	initial_modules = list(
+		/obj/item/rig_module/actuators/combat,
+		/obj/item/rig_module/chem_dispenser/combat,
+		/obj/item/rig_module/device/drill,
+		/obj/item/rig_module/vision/thermal,
+		/obj/item/rig_module/maneuvering_jets,
+		/obj/item/rig_module/cooling_unit,
+		/obj/item/rig_module/grenade_launcher/frag,
 		)
 
 /obj/item/clothing/suit/space/rig/zavod_heavy

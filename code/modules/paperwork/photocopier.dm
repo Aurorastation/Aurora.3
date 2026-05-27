@@ -1,4 +1,4 @@
-/obj/machinery/photocopier
+/obj/structure/machinery/photocopier
 	name = "photocopier"
 	icon = 'icons/obj/library.dmi'
 	icon_state = "photocopier"
@@ -25,12 +25,12 @@
 	/// Print animation.
 	var/print_animation = "photocopier_print"
 
-/obj/machinery/photocopier/attack_ai(mob/user as mob)
+/obj/structure/machinery/photocopier/attack_ai(mob/user as mob)
 	if(!ai_can_interact(user))
 		return
 	return attack_hand(user)
 
-/obj/machinery/photocopier/ui_data(mob/user)
+/obj/structure/machinery/photocopier/ui_data(mob/user)
 	var/list/data = list()
 	data["toner"] = toner
 	data["max_toner"] = max_toner
@@ -40,17 +40,17 @@
 	data["num_copies"] = num_copies
 	return data
 
-/obj/machinery/photocopier/attack_hand(mob/user)
+/obj/structure/machinery/photocopier/attack_hand(mob/user)
 	user.set_machine(src)
 	ui_interact(user)
 
-/obj/machinery/photocopier/ui_interact(mob/user, var/datum/tgui/ui)
+/obj/structure/machinery/photocopier/ui_interact(mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "Photocopier", "Nanocopier", 300, 300)
 		ui.open()
 
-/obj/machinery/photocopier/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/obj/structure/machinery/photocopier/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
@@ -106,7 +106,7 @@
 			num_copies = clamp(text2num(params["num_copies"]), 1, max_copies)
 			return TRUE
 
-/obj/machinery/photocopier/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/photocopier/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/paper) || istype(attacking_item, /obj/item/photo) || istype(attacking_item, /obj/item/paper_bundle))
 		if(!copy_item)
 			user.drop_from_inventory(attacking_item,src)
@@ -137,7 +137,7 @@
 		to_chat(user, SPAN_NOTICE("You [anchored ? "wrench" : "unwrench"] \the [src]."))
 	return ..()
 
-/proc/copy_type(var/obj/machinery/target, var/c_item, var/toner, var/do_print = TRUE, var/mob/user) // helper proc to reduce ctrl+c ctrl+v
+/proc/copy_type(var/obj/structure/machinery/target, var/c_item, var/toner, var/do_print = TRUE, var/mob/user) // helper proc to reduce ctrl+c ctrl+v
 	if (istype(c_item, /obj/item/paper))
 		var/obj/item/paper/C = copy(target, c_item, do_print, do_print, 1 SECOND, toner, user)
 		sleep(20)
@@ -154,7 +154,7 @@
 		to_chat(usr, SPAN_WARNING("\The [c_item] can't be copied by \the [target]."))
 		return FALSE
 
-/obj/machinery/photocopier/ex_act(severity)
+/obj/structure/machinery/photocopier/ex_act(severity)
 	switch(severity)
 		if(1.0)
 			qdel(src)
@@ -172,7 +172,7 @@
 					toner = 0
 	return
 
-/proc/copy(var/obj/machinery/target, var/obj/item/paper/copy, var/print = TRUE, var/use_sound = TRUE, var/delay = 10, var/toner, mob/user) // note: var/delay is the delay from copy to print, it should be less than the sleep in copy_type()
+/proc/copy(var/obj/structure/machinery/target, var/obj/item/paper/copy, var/print = TRUE, var/use_sound = TRUE, var/delay = 10, var/toner, mob/user) // note: var/delay is the delay from copy to print, it should be less than the sleep in copy_type()
 	var/obj/item/paper/c = new copy.type(target)
 	var/info
 	var/pname
@@ -212,21 +212,21 @@
 
 	if(!toner)
 		target.visible_message(SPAN_NOTICE("A red light on \the [target] flashes, indicating that it is out of toner."))
-		if(target.type == /obj/machinery/photocopier)
+		if(target.type == /obj/structure/machinery/photocopier)
 			flick("photocopier_notoner", target)
 		playsound(target.loc, 'sound/machines/buzz-two.ogg', 75, 1)
 		return
 
 	c.set_content_unsafe(pname, info)
 	if (print)
-		if(istype(target, /obj/machinery/photocopier))
-			var/obj/machinery/photocopier/T = target
+		if(istype(target, /obj/structure/machinery/photocopier))
+			var/obj/structure/machinery/photocopier/T = target
 			flick(T.print_animation, target)
 			--T.toner
 		target.print(c, use_sound, 'sound/items/bureaucracy/print.ogg', delay, user = user)
 	return c
 
-/proc/photocopy(var/obj/machinery/target, var/obj/item/photo/photocopy, var/toner)
+/proc/photocopy(var/obj/structure/machinery/target, var/obj/item/photo/photocopy, var/toner)
 	var/obj/item/photo/p = photocopy.copy()
 	p.forceMove(target.loc)
 
@@ -244,25 +244,25 @@
 	if(toner < 0)
 		toner = 0
 		target.visible_message(SPAN_NOTICE("A red light on \the [target] flashes, indicating that it is out of toner."))
-		if(target.type == /obj/machinery/photocopier)
+		if(target.type == /obj/structure/machinery/photocopier)
 			flick("photocopier_notoner", target)
 		playsound(target.loc, 'sound/machines/buzz-two.ogg', 75, 1)
-	if(target.type == /obj/machinery/photocopier)
-		var/obj/machinery/photocopier/T = target
+	if(target.type == /obj/structure/machinery/photocopier)
+		var/obj/structure/machinery/photocopier/T = target
 		T.toner -= 5
 		flick("photocopier_print", target)
 		playsound(target.loc, 'sound/items/bureaucracy/print.ogg', 75, 1)
 	return p
 
 //If need_toner is 0, the copies will still be lightened when low on toner, however it will not be prevented from printing. TODO: Implement print queues for fax machines and get rid of need_toner
-/proc/bundlecopy(var/obj/machinery/target, var/obj/item/paper_bundle/bundle, var/need_toner = TRUE, var/toner, var/do_print = TRUE)
+/proc/bundlecopy(var/obj/structure/machinery/target, var/obj/item/paper_bundle/bundle, var/need_toner = TRUE, var/toner, var/do_print = TRUE)
 	var/obj/item/paper_bundle/p = new /obj/item/paper_bundle(target)
 	for(var/obj/item/W in bundle.pages)
 		if(toner <= 0 && need_toner)
 			toner = 0
 			target.visible_message(SPAN_NOTICE("A red light on \the [target] flashes, indicating that it is out of toner."))
-			if(target.type == /obj/machinery/photocopier)
-				var/obj/machinery/photocopier/T = target
+			if(target.type == /obj/structure/machinery/photocopier)
+				var/obj/structure/machinery/photocopier/T = target
 				flick("photocopier_notoner", target)
 				--T.toner
 			playsound(target.loc, 'sound/machines/buzz-two.ogg', 75, 1)

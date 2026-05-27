@@ -8,7 +8,7 @@
 /obj/item/clothing/gloves/brown/tajara,
 /obj/item/clothing/shoes/tajara/fancy,
 /obj/item/clothing/head/tajaran/fur,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/wood,
@@ -17,7 +17,7 @@
 /obj/structure/bed/stool/chair/wood{
 	dir = 4
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/wood,
@@ -25,7 +25,7 @@
 "aF" = (
 /obj/structure/table/wood,
 /obj/item/flashlight/lamp,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/wood,
@@ -92,7 +92,7 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "gm" = (
-/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/structure/machinery/portable_atmospherics/hydroponics/soil,
 /turf/simulated/floor/exoplanet/barren{
 	temperature = 268.15
 	},
@@ -116,9 +116,9 @@
 	},
 /area/adhomai_village)
 "if" = (
-/obj/machinery/appliance/cooker/stove/adhomai,
+/obj/structure/machinery/appliance/cooker/stove/adhomai,
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white{
@@ -144,7 +144,7 @@
 "jg" = (
 /obj/structure/table/stone/marble,
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/chemical_dispenser/coffee/full,
+/obj/structure/machinery/chemical_dispenser/coffee/full,
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
@@ -153,7 +153,7 @@
 /obj/structure/railing/fence{
 	dir = 8
 	},
-/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/structure/machinery/portable_atmospherics/hydroponics/soil,
 /turf/simulated/floor/exoplanet/barren{
 	temperature = 268.15
 	},
@@ -186,7 +186,7 @@
 /obj/item/material/kitchen/utensil/knife,
 /obj/item/material/kitchen/utensil/knife,
 /obj/item/tray,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/wood,
@@ -202,7 +202,7 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "mF" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/wood,
@@ -216,7 +216,7 @@
 /obj/structure/bed/stool/chair/sofa/blue{
 	dir = 1
 	},
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /obj/effect/ghostspawpoint{
 	identifier = "adhomai_village";
 	name = "igs - adhomai_village"
@@ -224,7 +224,7 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "nR" = (
-/obj/machinery/shower{
+/obj/structure/machinery/shower{
 	dir = 4
 	},
 /obj/structure/curtain/open/shower,
@@ -278,18 +278,18 @@
 	},
 /area/adhomai_village)
 "qV" = (
-/obj/machinery/vending/dinnerware,
+/obj/structure/machinery/vending/dinnerware,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
 /area/adhomai_village)
 "rf" = (
-/obj/machinery/door/urban,
+/obj/structure/machinery/door/urban,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "rk" = (
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
@@ -308,14 +308,14 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "sS" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "tK" = (
 /obj/structure/closet/cabinet,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /obj/item/clothing/pants/skirt/tajaran,
@@ -339,8 +339,8 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "vP" = (
-/obj/machinery/appliance/cooker/oven/adhomai,
-/obj/machinery/light/small{
+/obj/structure/machinery/appliance/cooker/oven/adhomai,
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/wood,
@@ -374,11 +374,11 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "wH" = (
-/obj/machinery/floodlight,
+/obj/structure/machinery/floodlight,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "wY" = (
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /turf/simulated/floor/tiled/freezer{
 	temperature = 268.15
 	},
@@ -487,14 +487,14 @@
 	},
 /area/adhomai_village)
 "Cz" = (
-/obj/machinery/door/urban{
+/obj/structure/machinery/door/urban{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "CX" = (
-/obj/machinery/appliance/cooker/oven/adhomai,
+/obj/structure/machinery/appliance/cooker/oven/adhomai,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white{
@@ -518,11 +518,11 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "DP" = (
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "Em" = (
-/obj/machinery/appliance/cooker/stove/adhomai,
+/obj/structure/machinery/appliance/cooker/stove/adhomai,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
@@ -563,7 +563,7 @@
 /area/adhomai_village)
 "GQ" = (
 /mob/living/simple_animal/fatshouter,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/wood,
@@ -576,7 +576,7 @@
 /area/adhomai_village)
 "Ht" = (
 /obj/structure/closet/cabinet,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /obj/item/clothing/under/tajaran,
@@ -617,7 +617,7 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "IJ" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /obj/effect/ghostspawpoint{
@@ -657,7 +657,7 @@
 	},
 /area/exoplanet/adhomai)
 "Jr" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/wood,
@@ -672,7 +672,7 @@
 /obj/structure/railing/fence{
 	dir = 8
 	},
-/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/structure/machinery/portable_atmospherics/hydroponics/soil,
 /turf/simulated/floor/exoplanet/barren{
 	temperature = 268.15
 	},
@@ -684,7 +684,7 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "LC" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -712,7 +712,7 @@
 /area/adhomai_village)
 "Oa" = (
 /obj/structure/reagent_dispensers/keg/mead,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/wood,
@@ -734,7 +734,7 @@
 /area/adhomai_village)
 "OA" = (
 /obj/structure/railing/fence,
-/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/structure/machinery/portable_atmospherics/hydroponics/soil,
 /turf/simulated/floor/exoplanet/barren{
 	temperature = 268.15
 	},
@@ -846,7 +846,7 @@
 	pixel_y = 5
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/reagentgrinder,
+/obj/structure/machinery/reagentgrinder,
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
@@ -862,7 +862,7 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "TD" = (
-/obj/machinery/door/urban{
+/obj/structure/machinery/door/urban{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/wood,
@@ -914,7 +914,7 @@
 	pixel_x = 7;
 	pixel_y = 8
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white{
@@ -928,7 +928,7 @@
 /obj/structure/railing/fence{
 	dir = 8
 	},
-/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/structure/machinery/portable_atmospherics/hydroponics/soil,
 /turf/simulated/floor/exoplanet/barren{
 	temperature = 268.15
 	},
@@ -941,7 +941,7 @@
 /obj/structure/railing/fence{
 	dir = 1
 	},
-/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/structure/machinery/portable_atmospherics/hydroponics/soil,
 /turf/simulated/floor/exoplanet/barren{
 	temperature = 268.15
 	},

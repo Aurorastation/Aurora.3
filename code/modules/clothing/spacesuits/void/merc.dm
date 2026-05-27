@@ -20,7 +20,7 @@
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN)
 	light_overlay = "merc_voidsuit_lights"
-	camera = /obj/machinery/camera/network/mercenary
+	camera = /obj/structure/machinery/camera/network/mercenary
 	light_range = 6
 	light_color = "#ffffff"
 

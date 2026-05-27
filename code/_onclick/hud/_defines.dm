@@ -96,6 +96,11 @@
 #define ui_health_east_loc "EAST-1:28" // used to manipulate the position of the healths screen element, must be same as the one above
 #define ui_health_east_template "EAST-1:" // ditto
 #define ui_internal "EAST-1:28,CENTER+1:17"
+/**
+ * Location that the morale component will place its HUD element,
+ * which is defined here for your sanity as a maintainer so that you know where it is in reference to everything else.
+ */
+#define UI_MORALE_LOCATION "EAST-1:28,CENTER+2:19"
 
 //Upper-middle right (alerts)
 #define ui_alert1 "EAST-1:28,CENTER+5:27"
@@ -170,3 +175,6 @@
 #define ui_ai_view_images "SOUTH:6,WEST+11:16"
 #define ui_ai_move_up "SOUTH:6,WEST+12:16"
 #define ui_ai_move_down "SOUTH:6,WEST+13:16"
+
+// HUD element related signals
+#define COMSIG_GET_HUD_ELEMENTS "get_hud_elements"

@@ -207,6 +207,7 @@
 	name = "bomb defusal wirecutters"
 	desc = "A tool used to delicately sever the wires used in bomb fuses."
 	icon_state = "mini_wirecutters"
+	w_class = WEIGHT_CLASS_TINY
 	toolspeed = 0.6
 	bomb_defusal_chance = 90 // 90% chance, because the thrill of dying must be kept at all times, duh
 
