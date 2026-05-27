@@ -73,7 +73,7 @@
 
 	// Laws
 	var/datum/drone_matrix/master_matrix
-	var/obj/machinery/drone_fabricator/master_fabricator
+	var/obj/structure/machinery/drone_fabricator/master_fabricator
 	var/law_type = /datum/ai_laws/drone
 
 	// Self-Mailing

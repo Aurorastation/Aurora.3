@@ -478,7 +478,7 @@ SUBSYSTEM_DEF(cargo)
 			return 1
 	if(istype(A, /obj/item/disk/nuclear))
 		return 1
-	if(istype(A, /obj/machinery/nuclearbomb))
+	if(istype(A, /obj/structure/machinery/nuclearbomb))
 		return 1
 	if(istype(A, /obj/item/radio/beacon))
 		return 1

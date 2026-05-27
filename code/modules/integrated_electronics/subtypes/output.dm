@@ -327,8 +327,7 @@
 	activators = list()
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	power_draw_idle = 5 // Raises to 200 when on.
-	// Stores `camera` state used by this integrated electronics object.
-	var/obj/machinery/camera/network/research/camera
+	var/obj/structure/machinery/camera/network/research/camera
 
 /// Initializes runtime state after the parent type is constructed.
 /obj/item/integrated_circuit/output/video_camera/Initialize()

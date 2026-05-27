@@ -78,7 +78,7 @@
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
 
-/obj/machinery/computer/shuttle_control/explore/freebooter_salvager
+/obj/structure/machinery/computer/shuttle_control/explore/freebooter_salvager
 	name = "shuttle control console"
 	shuttle_tag = "Freebooter Salvager Shuttle"
 

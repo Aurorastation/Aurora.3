@@ -218,9 +218,7 @@
 	activators = list()
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	origin_tech = list(TECH_ENGINEERING = 2, TECH_POWER = 2)
-	// Stores `IO` state used by this integrated electronics object.
-	var/obj/machinery/power/circuit_io/IO = null // Dummy power machine to move energy in/out without a bunch of code duplication.
-	// Stores `throughput` state used by this integrated electronics object.
+	var/obj/structure/machinery/power/circuit_io/IO = null // Dummy power machine to move energy in/out without a bunch of code duplication.
 	var/throughput = 10000 // Give/take up to 10kW.
 
 /// built-in power network interface: A built-in power network interface for machine-integrated electronic assemblies.
@@ -272,12 +270,10 @@
 
 // Internal power machine for interacting with the powernet.
 // It needs a bit of special code since base /machinery/power assumes loc will be a tile.
-/obj/machinery/power/circuit_io
+/obj/structure/machinery/power/circuit_io
 	name = "embedded electrical I/O"
 
-/// Implements `connect_to_network` behavior for this integrated electronics type.
-/obj/machinery/power/circuit_io/connect_to_network()
-	// Stores `T` state used by this integrated electronics object.
+/obj/structure/machinery/power/circuit_io/connect_to_network()
 	var/turf/T = get_turf(src)
 	if(!istype(T))
 		return FALSE

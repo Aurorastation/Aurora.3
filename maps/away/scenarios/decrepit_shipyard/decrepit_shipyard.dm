@@ -81,7 +81,7 @@
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
 
-/obj/machinery/computer/shuttle_control/explore/terminal/decrepit_shipyard_shuttle
+/obj/structure/machinery/computer/shuttle_control/explore/terminal/decrepit_shipyard_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Decrepit Shuttle"
 

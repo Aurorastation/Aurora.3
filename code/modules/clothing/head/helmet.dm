@@ -18,7 +18,7 @@
 	max_heat_protection_temperature = HELMET_MAX_HEAT_PROTECTION_TEMPERATURE
 	siemens_coefficient = 0.5
 	w_class = WEIGHT_CLASS_NORMAL
-	var/obj/machinery/camera/camera
+	var/obj/structure/machinery/camera/camera
 	drop_sound = 'sound/items/drop/helm.ogg'
 	pickup_sound = 'sound/items/pickup/helm.ogg'
 	protects_against_weather = TRUE
@@ -470,5 +470,5 @@
 	action_button_name = "Toggle Helmet Light"
 	light_overlay = "helmet_light_dual"
 	light_range = 6
-	camera = /obj/machinery/camera/network/tcfl
+	camera = /obj/structure/machinery/camera/network/tcfl
 	on = 0

@@ -53,7 +53,7 @@
 	var/percent_unstable = 0
 	var/percent_unstable_archive = 0
 
-	var/obj/machinery/power/fusion_core/owned_core
+	var/obj/structure/machinery/power/fusion_core/owned_core
 	var/list/reactants = list()
 	var/list/particle_catchers = list()
 
@@ -61,11 +61,11 @@
 		/obj/projectile,
 		/obj/effect,
 		/obj/structure/cable,
-		/obj/machinery/atmospherics,
-		/obj/machinery/air_sensor,
-		/obj/machinery/camera,
+		/obj/structure/machinery/atmospherics,
+		/obj/structure/machinery/air_sensor,
+		/obj/structure/machinery/camera,
 		/obj/item/tape,
-		/obj/machinery/shield
+		/obj/structure/machinery/shield
 		)
 
 	var/light_min_range = 2
@@ -127,7 +127,7 @@
 	particles.drift = generator("circle", (0.2 + radiationfactor), NORMAL_RAND)
 	particles.spawning = last_reactants * 0.9 + Interpolate(0, 200, clamp(plasma_temperature / 70000, 0, 1))
 
-/obj/effect/fusion_em_field/New(loc, obj/machinery/power/fusion_core/new_owned_core)
+/obj/effect/fusion_em_field/New(loc, obj/structure/machinery/power/fusion_core/new_owned_core)
 	..()
 
 	filters = list(filter(type = "ripple", size = 4, "radius" = 1, "falloff" = 1)

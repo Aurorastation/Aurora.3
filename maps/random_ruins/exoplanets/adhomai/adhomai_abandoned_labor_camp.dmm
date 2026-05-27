@@ -1,6 +1,6 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aa" = (
-/obj/machinery/door/airlock/security{
+/obj/structure/machinery/door/airlock/security{
 	name = "Checkpoint";
 	req_access = list(209);
 	dir = 4
@@ -13,7 +13,7 @@
 /turf/simulated/floor/exoplanet/concrete/square,
 /area/exoplanet/adhomai)
 "ds" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "ef" = (
@@ -37,7 +37,7 @@
 /turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "ew" = (
-/obj/machinery/shower{
+/obj/structure/machinery/shower{
 	dir = 1
 	},
 /obj/structure/curtain/open/shower,
@@ -70,13 +70,13 @@
 	},
 /area/exoplanet/adhomai)
 "gm" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "gz" = (
-/obj/machinery/vending/cigarette,
+/obj/structure/machinery/vending/cigarette,
 /obj/structure/sign/flag/pra/large/west{
 	pixel_x = -32
 	},
@@ -96,7 +96,7 @@
 /turf/simulated/floor/exoplanet/concrete/square,
 /area/exoplanet/adhomai)
 "ko" = (
-/obj/machinery/door/window/brigdoor/northright{
+/obj/structure/machinery/door/window/brigdoor/northright{
 	dir = 4;
 	req_access = list(209)
 	},
@@ -171,7 +171,7 @@
 /turf/simulated/floor/exoplanet/concrete,
 /area/exoplanet/adhomai)
 "ot" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/snow/cold,
@@ -190,7 +190,7 @@
 /turf/simulated/floor/exoplanet/concrete,
 /area/exoplanet/adhomai)
 "qm" = (
-/obj/machinery/door/airlock/security{
+/obj/structure/machinery/door/airlock/security{
 	name = "Checkpoint";
 	req_access = list(209);
 	dir = 1
@@ -218,7 +218,7 @@
 /turf/simulated/floor/exoplanet/concrete,
 /area/exoplanet/adhomai)
 "rM" = (
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /turf/simulated/floor/exoplanet/concrete/square,
 /area/exoplanet/adhomai)
 "sQ" = (
@@ -234,7 +234,7 @@
 /turf/simulated/floor/exoplanet/concrete,
 /area/exoplanet/adhomai)
 "uc" = (
-/obj/machinery/vending/coffee,
+/obj/structure/machinery/vending/coffee,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/concrete/square,
 /area/exoplanet/adhomai)
@@ -257,7 +257,7 @@
 /area/exoplanet/adhomai)
 "wj" = (
 /obj/structure/closet/cabinet,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /obj/item/storage/bag/ore,
@@ -324,7 +324,7 @@
 /turf/simulated/floor/exoplanet/concrete/square,
 /area/exoplanet/adhomai)
 "zA" = (
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	id = "labor_entry";
 	name = "Entry";
 	req_access = list(209);
@@ -371,7 +371,7 @@
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = list(209)
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/security,
@@ -411,7 +411,7 @@
 /area/exoplanet/adhomai)
 "GR" = (
 /obj/structure/table/rack,
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /obj/item/flashlight/lantern,
 /turf/simulated/floor/exoplanet/concrete/square,
 /area/exoplanet/adhomai)
@@ -431,7 +431,7 @@
 /turf/simulated/floor/exoplanet/concrete/square,
 /area/exoplanet/adhomai)
 "Ic" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/freezer{
@@ -451,7 +451,7 @@
 /turf/simulated/floor/exoplanet/concrete/square,
 /area/exoplanet/adhomai)
 "IO" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/snow/cold,
@@ -475,7 +475,7 @@
 /area/exoplanet/adhomai)
 "Oa" = (
 /obj/structure/closet/cabinet,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/cobweb,
@@ -490,7 +490,7 @@
 /turf/simulated/floor/exoplanet/concrete/square,
 /area/exoplanet/adhomai)
 "OA" = (
-/obj/machinery/door/blast/shutters{
+/obj/structure/machinery/door/blast/shutters{
 	id = "labor_entry"
 	},
 /obj/effect/floor_decal/concrete{
@@ -512,7 +512,7 @@
 /turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "Qe" = (
-/obj/machinery/door/urban,
+/obj/structure/machinery/door/urban,
 /turf/simulated/floor/exoplanet/concrete,
 /area/exoplanet/adhomai)
 "Rh" = (
@@ -522,7 +522,7 @@
 /turf/simulated/floor/exoplanet/concrete,
 /area/exoplanet/adhomai)
 "Rw" = (
-/obj/machinery/shower{
+/obj/structure/machinery/shower{
 	pixel_y = 18
 	},
 /obj/structure/curtain/open/shower,
@@ -553,7 +553,7 @@
 /turf/simulated/floor/exoplanet/concrete/square,
 /area/exoplanet/adhomai)
 "TD" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/freezer{
@@ -579,7 +579,7 @@
 /turf/simulated/floor/exoplanet/concrete,
 /area/exoplanet/adhomai)
 "Xk" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -593,7 +593,7 @@
 /turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "XT" = (
-/obj/machinery/door/blast/shutters{
+/obj/structure/machinery/door/blast/shutters{
 	id = "labor_entry"
 	},
 /turf/simulated/floor/exoplanet/concrete,
@@ -606,11 +606,11 @@
 /turf/simulated/floor/exoplanet/concrete,
 /area/exoplanet/adhomai)
 "Yn" = (
-/obj/machinery/door/urban,
+/obj/structure/machinery/door/urban,
 /turf/simulated/floor/exoplanet/concrete/square,
 /area/exoplanet/adhomai)
 "YQ" = (
-/obj/machinery/photocopier,
+/obj/structure/machinery/photocopier,
 /turf/simulated/floor/exoplanet/concrete/square,
 /area/exoplanet/adhomai)
 "YV" = (

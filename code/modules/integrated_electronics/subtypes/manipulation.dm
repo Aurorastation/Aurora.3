@@ -664,16 +664,16 @@
 	power_draw_per_use = 1000
 	power_draw_idle = 0
 	origin_tech = list(TECH_ENGINEERING = 4, TECH_MAGNET = 5)
-	// Stores `deployed_shields` state used by this integrated electronics object.
-	var/list/obj/machinery/shield/deployed_shields
+
+	/// A list of shields deployed by this circuit for amount checks/shield deletions.
+	var/list/obj/structure/machinery/shield/deployed_shields
 
 /// Releases owned objects and clears references before parent deletion runs.
 /obj/item/integrated_circuit/manipulation/bubble_shield/Destroy()
 	QDEL_LAZYLIST(deployed_shields)
 	return ..()
 
-/// Implements `kill_shield` behavior for this integrated electronics type.
-/obj/item/integrated_circuit/manipulation/bubble_shield/proc/kill_shield(var/obj/machinery/shield/shield)
+/obj/item/integrated_circuit/manipulation/bubble_shield/proc/kill_shield(var/obj/structure/machinery/shield/shield)
 	LAZYREMOVE(deployed_shields, shield)
 	qdel(shield)
 	set_pin_data(IC_OUTPUT, 1, LAZYLEN(deployed_shields))
@@ -706,15 +706,16 @@
 
 	var/turf/target_turf = locate(target_x, target_y, our_turf.z)
 
-	if(target_turf && (target_turf in view(3, our_turf)))
-		if(locate(/obj/machinery/shield) in target_turf)
+	// create the shield
+	if(target_turf && (target_turf in view(3, our_turf))) // must be in view and within 3 tiles
+		if(locate(/obj/structure/machinery/shield) in target_turf) // already got a shield
 			return
 
 		if(LAZYLEN(deployed_shields) >= 3)
 			activate_pin(3)
 			return
-
-		var/obj/machinery/shield/shield = new /obj/machinery/shield(target_turf)
+		//actually creating the shield
+		var/obj/structure/machinery/shield/shield = new /obj/structure/machinery/shield(target_turf)
 		shield.name = "bubble shield"
 		shield.health = strength
 		LAZYADD(deployed_shields, shield)
@@ -733,7 +734,7 @@
 
 /// Implements `power_fail` behavior for this integrated electronics type.
 /obj/item/integrated_circuit/manipulation/bubble_shield/power_fail()
-	for(var/obj/machinery/shield/shield in deployed_shields)
+	for(var/obj/structure/machinery/shield/shield in deployed_shields)
 		kill_shield(shield)
 
 

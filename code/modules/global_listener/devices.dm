@@ -44,52 +44,52 @@
 
 //Receiver procs
 /datum/wifi/receiver/button/door/proc/open()
-	var/obj/machinery/door/D = parent
+	var/obj/structure/machinery/door/D = parent
 	if(istype(D) && D.can_open())
 		D.open()
 
 /datum/wifi/receiver/button/door/proc/close()
-	var/obj/machinery/door/D = parent
+	var/obj/structure/machinery/door/D = parent
 	if(istype(D) && D.can_close())
 		D.close()
 
 /datum/wifi/receiver/button/door/proc/lock()
-	var/obj/machinery/door/airlock/D = parent
+	var/obj/structure/machinery/door/airlock/D = parent
 	if(istype(D))
 		D.lock()
 
 /datum/wifi/receiver/button/door/proc/unlock()
-	var/obj/machinery/door/airlock/D = parent
+	var/obj/structure/machinery/door/airlock/D = parent
 	if(istype(D))
 		D.unlock()
 
 /datum/wifi/receiver/button/door/proc/enable_idscan()
-	var/obj/machinery/door/airlock/D = parent
+	var/obj/structure/machinery/door/airlock/D = parent
 	if(istype(D))
 		D.set_idscan(1)
 
 /datum/wifi/receiver/button/door/proc/disable_idscan()
-	var/obj/machinery/door/airlock/D = parent
+	var/obj/structure/machinery/door/airlock/D = parent
 	if(istype(D))
 		D.set_idscan(0)
 
 /datum/wifi/receiver/button/door/proc/enable_safeties()
-	var/obj/machinery/door/airlock/D = parent
+	var/obj/structure/machinery/door/airlock/D = parent
 	if(istype(D))
 		D.set_safeties(1)
 
 /datum/wifi/receiver/button/door/proc/disable_safeties()
-	var/obj/machinery/door/airlock/D = parent
+	var/obj/structure/machinery/door/airlock/D = parent
 	if(istype(D))
 		D.set_safeties(0)
 
 /datum/wifi/receiver/button/door/proc/electrify()
-	var/obj/machinery/door/airlock/D = parent
+	var/obj/structure/machinery/door/airlock/D = parent
 	if(istype(D))
 		D.electrify(-1)
 
 /datum/wifi/receiver/button/door/proc/unelectrify()
-	var/obj/machinery/door/airlock/D = parent
+	var/obj/structure/machinery/door/airlock/D = parent
 	if(istype(D))
 		D.electrify(0)
 
@@ -99,12 +99,12 @@
 //-------------------------------
 /datum/wifi/receiver/button/emitter/activate(mob/living/user)
 	..()
-	var/obj/machinery/power/emitter/E = parent
+	var/obj/structure/machinery/power/emitter/E = parent
 	if(istype(E) && !E.active)
 		E.activate(user)	//if the emitter is not active, trigger the activate proc to toggle it
 
 /datum/wifi/receiver/button/emitter/deactivate(mob/living/user)
-	var/obj/machinery/power/emitter/E = parent
+	var/obj/structure/machinery/power/emitter/E = parent
 	if(istype(E) && E.active)
 		E.activate(user)	//if the emitter is active, trigger the activate proc to toggle it
 
@@ -124,7 +124,7 @@
 //-------------------------------
 /datum/wifi/receiver/button/flasher/activate(mob/living/user)
 	..()
-	var/obj/machinery/flasher/F = parent
+	var/obj/structure/machinery/flasher/F = parent
 	if(istype(F))
 		F.flash()
 
@@ -134,12 +134,12 @@
 //-------------------------------
 /datum/wifi/receiver/button/holosign/activate(mob/living/user)
 	..()
-	var/obj/machinery/holosign/H = parent
+	var/obj/structure/machinery/holosign/H = parent
 	if(istype(H) && !H.lit)
 		H.toggle()
 
 /datum/wifi/receiver/button/holosign/deactivate(mob/living/user)
-	var/obj/machinery/holosign/H = parent
+	var/obj/structure/machinery/holosign/H = parent
 	if(istype(H) && H.lit)
 		H.toggle()
 
@@ -149,14 +149,14 @@
 //-------------------------------
 /datum/wifi/receiver/button/igniter/activate(mob/living/user)
 	..()
-	var/obj/machinery/igniter/I = parent
+	var/obj/structure/machinery/igniter/I = parent
 	if(istype(I))
 		if(!I.on)
 			I.ignite()
 
 /datum/wifi/receiver/button/igniter/deactivate(mob/living/user)
-	if(istype(parent, /obj/machinery/igniter))
-		var/obj/machinery/igniter/I = parent
+	if(istype(parent, /obj/structure/machinery/igniter))
+		var/obj/structure/machinery/igniter/I = parent
 		if(I.on)
 			I.ignite()
 //-------------------------------
@@ -165,7 +165,7 @@
 //-------------------------------
 /datum/wifi/receiver/button/sparker/activate(mob/living/user)
 	..()
-	var/obj/machinery/sparker/S = parent
+	var/obj/structure/machinery/sparker/S = parent
 	if(istype(S))
 		S.ignite()
 
@@ -207,6 +207,6 @@
 
 /datum/wifi/receiver/button/mass_driver/activate(mob/living/user)
 	..()
-	var/obj/machinery/mass_driver/M = parent
+	var/obj/structure/machinery/mass_driver/M = parent
 	if(istype(M))
 		M.drive()

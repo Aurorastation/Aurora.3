@@ -11,7 +11,7 @@
 	return ..()
 
 /mob/living/heavy_vehicle/mouse_drop_receive(atom/dropped, mob/user, params)
-	var/obj/machinery/portable_atmospherics/canister/C = dropped
+	var/obj/structure/machinery/portable_atmospherics/canister/C = dropped
 	if(istype(C))
 		body.mouse_drop_receive(arglist(args))
 	else . = ..()
