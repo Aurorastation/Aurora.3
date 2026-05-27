@@ -119,3 +119,5 @@
 		for(var/atom/movable/screen/movable/spell_master/spell_master in spell_masters)
 			spell_master.toggle_open(1)
 			client.screen -= spell_master
+
+	SEND_SIGNAL(src, COMSIG_MOB_AFTER_LOGIN)
