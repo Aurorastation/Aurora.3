@@ -1,7 +1,0 @@
-author: Hellfirejag
-delete-after: True
-changes:
-  - bugfix: "Fixed a runtime error caused by vampires trying to drink from a blood bag."
-  - bugfix: "Fixed a niche runtime error that occurs occasionally during late spawns."
-  - bugfix: "Fixed a runtime when harvesting plants."
-  - bugfix: "Fixed a runtime caused when a player disconnects while a tgui input window is open."
