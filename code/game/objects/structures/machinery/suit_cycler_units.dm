@@ -396,7 +396,7 @@
 	suit = /obj/item/clothing/suit/space/void/engineering/himeo
 	helmet = /obj/item/clothing/head/helmet/space/void/engineering/himeo
 
-/obj/machinery/suit_cycler/offship/outereyes
+/obj/structure/machinery/suit_cycler/offship/outereyes
 	model_text = "Outer Eyes"
 	departments = list("Outer Eyes")
 	suit = /obj/item/clothing/suit/space/void/outereyes
