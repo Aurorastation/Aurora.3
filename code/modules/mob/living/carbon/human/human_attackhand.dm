@@ -255,7 +255,7 @@
 			if(!attack)
 				return 0
 
-			H.do_attack_animation(src, H.default_attack.attack_effect)
+			H.do_attack_animation(src, attack.attack_effect)
 			if(!attack_message)
 				attack.show_attack(H, src, hit_zone, rand_damage)
 			else
