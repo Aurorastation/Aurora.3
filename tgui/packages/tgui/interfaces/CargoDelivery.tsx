@@ -1,6 +1,12 @@
-import { BooleanLike } from '../../common/react';
+import {
+  Button,
+  LabeledList,
+  Section,
+  Table,
+  Tabs,
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Button, LabeledList, Section, Table, Tabs } from '../components';
 import { NtosWindow } from '../layouts';
 
 export type CargoData = {
@@ -53,7 +59,7 @@ type Item = {
 };
 
 export const CargoDelivery = (props, context) => {
-  const { act, data } = useBackend<CargoData>(context);
+  const { act, data } = useBackend<CargoData>();
 
   return (
     <NtosWindow resizable>
@@ -103,7 +109,7 @@ export const CargoDelivery = (props, context) => {
 };
 
 export const MainView = (props, context) => {
-  const { act, data } = useBackend<CargoData>(context);
+  const { act, data } = useBackend<CargoData>();
 
   return (
     <Section>
@@ -138,7 +144,7 @@ export const MainView = (props, context) => {
 };
 
 export const Overview = (props, context) => {
-  const { act, data } = useBackend<CargoData>(context);
+  const { act, data } = useBackend<CargoData>();
 
   return (
     <Section title="Overview">
@@ -215,7 +221,7 @@ export const Overview = (props, context) => {
 };
 
 export const Payment = (props, context) => {
-  const { act, data } = useBackend<CargoData>(context);
+  const { act, data } = useBackend<CargoData>();
 
   return (
     <Section

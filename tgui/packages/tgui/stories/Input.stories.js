@@ -4,7 +4,6 @@
  * @license MIT
  */
 
-import { useLocalState } from '../backend';
 import {
   Box,
   DraggableControl,
@@ -15,7 +14,8 @@ import {
   NumberInput,
   Section,
   Slider,
-} from '../components';
+} from 'tgui-core/components';
+import { useLocalState } from '../backend';
 
 export const meta = {
   title: 'Input',

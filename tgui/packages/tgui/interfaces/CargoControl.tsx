@@ -1,6 +1,13 @@
-import { BooleanLike } from '../../common/react';
+import {
+  Box,
+  Button,
+  LabeledList,
+  Section,
+  Table,
+  Tabs,
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Box, Button, LabeledList, Section, Table, Tabs } from '../components';
 import { NtosWindow } from '../layouts';
 
 export type CargoData = {
@@ -104,7 +111,7 @@ type Bounty = {
 };
 
 export const CargoControl = (props, context) => {
-  const { act, data } = useBackend<CargoData>(context);
+  const { act, data } = useBackend<CargoData>();
   // FUCK THE WAY THESE FUCKING TOPIC CALLS WERE MADE
   // THIS BULLSHIT GAVE ME ARTHRITIS
   return (
@@ -295,7 +302,7 @@ const showAppropriateWindow = (page) => {
 };
 
 export const MainWindow = (props, context) => {
-  const { act, data } = useBackend<CargoData>(context);
+  const { act, data } = useBackend<CargoData>();
   return (
     <Section title="Main Window">
       <Box bold>Welcome, {data.username}.</Box>
@@ -320,7 +327,7 @@ export const MainWindow = (props, context) => {
 };
 
 export const OverviewSubmitted = (props, context) => {
-  const { act, data } = useBackend<CargoData>(context);
+  const { act, data } = useBackend<CargoData>();
   return (
     <Section title="Submitted Orders">
       <LabeledList>
@@ -393,7 +400,7 @@ export const OverviewSubmitted = (props, context) => {
 };
 
 export const OverviewApproved = (props, context) => {
-  const { act, data } = useBackend<CargoData>(context);
+  const { act, data } = useBackend<CargoData>();
   return (
     <Section title="Approved Orders">
       <LabeledList>
@@ -457,7 +464,7 @@ export const OverviewApproved = (props, context) => {
 };
 
 export const OverviewShipped = (props, context) => {
-  const { act, data } = useBackend<CargoData>(context);
+  const { act, data } = useBackend<CargoData>();
   return (
     <Section title="Shipped Orders">
       <LabeledList>
@@ -506,7 +513,7 @@ export const OverviewShipped = (props, context) => {
 };
 
 export const OverviewDelivered = (props, context) => {
-  const { act, data } = useBackend<CargoData>(context);
+  const { act, data } = useBackend<CargoData>();
   return (
     <Section title="Delivered Orders">
       <LabeledList>
@@ -555,7 +562,7 @@ export const OverviewDelivered = (props, context) => {
 };
 
 export const OverviewShipments = (props, context) => {
-  const { act, data } = useBackend<CargoData>(context);
+  const { act, data } = useBackend<CargoData>();
   return (
     <Section title="Shipments Overview">
       <Table>
@@ -588,7 +595,7 @@ export const OverviewShipments = (props, context) => {
 };
 
 export const Bounties = (props, context) => {
-  const { act, data } = useBackend<CargoData>(context);
+  const { act, data } = useBackend<CargoData>();
   return (
     <Section
       title="Operations Bounties"
@@ -637,7 +644,7 @@ export const Bounties = (props, context) => {
 };
 
 export const Settings = (props, context) => {
-  const { act, data } = useBackend<CargoData>(context);
+  const { act, data } = useBackend<CargoData>();
   return (
     <Section title="Settings">
       <LabeledList>

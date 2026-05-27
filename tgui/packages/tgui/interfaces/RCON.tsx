@@ -1,5 +1,3 @@
-import { BooleanLike } from '../../common/react';
-import { useBackend, useLocalState } from '../backend';
 import {
   Box,
   Button,
@@ -10,7 +8,9 @@ import {
   NumberInput,
   ProgressBar,
   Section,
-} from '../components';
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
+import { useBackend, useLocalState } from '../backend';
 import { NtosWindow } from '../layouts';
 
 export type RCONData = {
@@ -37,7 +37,7 @@ type Breaker = {
 };
 
 export const RCON = (props, context) => {
-  const { act, data } = useBackend<RCONData>(context);
+  const { act, data } = useBackend<RCONData>();
 
   return (
     <NtosWindow resizable>
@@ -58,7 +58,7 @@ export const RCON = (props, context) => {
 };
 
 export const SMESInfo = (props, context) => {
-  const { act, data } = useBackend<RCONData>(context);
+  const { act, data } = useBackend<RCONData>();
   const [smesSearchTerm, setSmesSearchTerm] = useLocalState<string>(
     context,
     `smesSearchTerm`,
@@ -206,7 +206,7 @@ export const SMESInfo = (props, context) => {
 };
 
 export const BreakerInfo = (props, context) => {
-  const { act, data } = useBackend<RCONData>(context);
+  const { act, data } = useBackend<RCONData>();
   const [breakerSearchTerm, setBreakerSearchTerm] = useLocalState<string>(
     context,
     `breakerSearchTerm`,

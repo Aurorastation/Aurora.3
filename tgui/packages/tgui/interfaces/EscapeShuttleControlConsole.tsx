@@ -1,5 +1,5 @@
+import { Box, Button, LabeledList, Section } from 'tgui-core/components';
 import { useBackend } from '../backend';
-import { Button, Section, Box, LabeledList } from '../components';
 import { Window } from '../layouts';
 
 export type AuthData = {
@@ -21,10 +21,10 @@ export type EscapeShuttleControlConsoleData = {
 };
 
 export const EscapeShuttleControlConsole = (props, context) => {
-  const { act, data } = useBackend<EscapeShuttleControlConsoleData>(context);
+  const { act, data } = useBackend<EscapeShuttleControlConsoleData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section title="Shuttle Status">
           <Box>{data.shuttle_status}</Box>

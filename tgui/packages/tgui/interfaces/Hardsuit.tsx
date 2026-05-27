@@ -1,4 +1,3 @@
-import { useBackend } from '../backend';
 import {
   Box,
   Button,
@@ -11,9 +10,10 @@ import {
   Section,
   Stack,
   Table,
-} from '../components';
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
+import { useBackend } from '../backend';
 import { Window } from '../layouts';
-import { BooleanLike } from '../../common/react';
 
 type RigCharge = {
   chargetype: string;
@@ -99,7 +99,7 @@ const pill = (text: string, color?: string) => (
 );
 
 const SuitStatusSection = (props, context) => {
-  const { act, data } = useBackend<Data>(context);
+  const { act, data } = useBackend<Data>();
   const interfaceOffline = !!data.interfacelock || (data.malf ?? 0) > 0;
   const aiOverriddenForWearer = !!data.aicontrol && !data.ai;
 
@@ -183,7 +183,7 @@ const SuitStatusSection = (props, context) => {
 };
 
 const HardwareSection = (props, context) => {
-  const { act, data } = useBackend<Data>(context);
+  const { act, data } = useBackend<Data>();
   const pieceDisabled = !!data.sealing;
 
   return (
@@ -277,7 +277,7 @@ const HardwareSection = (props, context) => {
 };
 
 const ModulesSection = (props, context) => {
-  const { act, data } = useBackend<Data>(context);
+  const { act, data } = useBackend<Data>();
   const systemsOffline = !!data.seals || !!data.sealing;
 
   if (systemsOffline) {
@@ -645,7 +645,7 @@ const ConfigureButtonEntry = (props, context) => {
 };
 
 export const Hardsuit = (props, context) => {
-  const { data } = useBackend<Data>(context);
+  const { data } = useBackend<Data>();
   const interfaceBreak = !!data.interfacelock || (data.malf ?? 0) > 0;
 
   return (

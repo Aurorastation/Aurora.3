@@ -1,7 +1,13 @@
-import { toFixed } from 'common/math';
-import { BooleanLike } from 'common/react';
+import {
+  Box,
+  Button,
+  LabeledList,
+  NumberInput,
+  Section,
+} from 'tgui-core/components';
+import { toFixed } from 'tgui-core/math';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Section, LabeledList, Button, Box, NumberInput } from '../components';
 import { Window } from '../layouts';
 
 type Channel = {
@@ -36,7 +42,7 @@ type RadioData = {
 };
 
 export const Radio = (props, context) => {
-  const { act, data } = useBackend<RadioData>(context);
+  const { act, data } = useBackend<RadioData>();
   const {
     mic_status,
     speaker,

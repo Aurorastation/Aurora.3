@@ -1,5 +1,3 @@
-import { BooleanLike } from '../../common/react';
-import { useBackend, useLocalState, useSharedState } from '../backend';
 import {
   Box,
   Button,
@@ -11,7 +9,9 @@ import {
   Section,
   Stack,
   Table,
-} from '../components';
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
+import { useBackend, useLocalState, useSharedState } from '../backend';
 import { Window } from '../layouts';
 
 export type ATMData = {
@@ -39,10 +39,10 @@ type Transaction = {
 };
 
 export const ATM = (props, context) => {
-  const { act, data } = useBackend<ATMData>(context);
+  const { act, data } = useBackend<ATMData>();
 
   return (
-    <Window resizable theme="idris">
+    <Window theme="idris">
       <Window.Content scrollable>
         <Section
           title={
@@ -76,7 +76,7 @@ export const ATM = (props, context) => {
 };
 
 export const LoginWindow = (props, context) => {
-  const { act, data } = useBackend<ATMData>(context);
+  const { act, data } = useBackend<ATMData>();
   const [acc, setAcc] = useSharedState<string>(context, 'acc', '');
   const [pin, setPin] = useLocalState<string>(context, 'pin', '');
 
@@ -123,7 +123,7 @@ export const LoginWindow = (props, context) => {
 };
 
 export const AuthenticatedWindow = (props, context) => {
-  const { act, data } = useBackend<ATMData>(context);
+  const { act, data } = useBackend<ATMData>();
   const [withdraw, setWithdraw] = useLocalState<number>(context, 'withdraw', 0);
   const [security, setSecurity] = useLocalState<boolean>(
     context,

@@ -5,7 +5,6 @@
 // Powernet sensors are devices which relay information about connected powernet. This information may be relayed
 // via two procs. Proc return_reading_text will return fully HTML styled string which contains all information. This
 // may be used in PDAs or similar applications. Second proc, return_reading_data will return list containing needed data.
-// This is used in NanoUI, for example.
 
 /obj/machinery/power/sensor
 	name = "Powernet Sensor"

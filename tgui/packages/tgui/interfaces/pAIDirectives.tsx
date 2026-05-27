@@ -1,5 +1,5 @@
+import { Button, LabeledList, NoticeBox, Section } from 'tgui-core/components';
 import { useBackend } from '../backend';
-import { Button, LabeledList, NoticeBox, Section } from '../components';
 import { NtosWindow } from '../layouts';
 
 export type DirectivesData = {
@@ -10,7 +10,7 @@ export type DirectivesData = {
 };
 
 export const pAIDirectives = (props, context) => {
-  const { act, data } = useBackend<DirectivesData>(context);
+  const { act, data } = useBackend<DirectivesData>();
 
   return (
     <NtosWindow resizable>

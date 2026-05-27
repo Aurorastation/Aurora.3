@@ -325,14 +325,14 @@
 	if(!ai_can_interact(user))
 		return
 	src.add_hiddenprint(user)
-	// DNA Modifier is currently deprecated (old NanoUI code)
+	// DNA Modifier is deprecated.
 	to_chat(user, SPAN_WARNING("The firmware on this thing is so hopelessly out of date as to render it unusable. Dang."))
 	return
 	// ui_interact(user)
 
 /obj/machinery/computer/scan_consolenew/attack_hand(user as mob)
 	if(!..())
-		// DNA Modifier is currently deprecated (old NanoUI code)
+		// DNA Modifier is deprecated.
 		to_chat(user, SPAN_WARNING("The firmware on this thing is so hopelessly out of date as to render it unusable. Dang."))
 		return
 		// ui_interact(user)

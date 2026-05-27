@@ -1,6 +1,12 @@
-import { BooleanLike } from '../../common/react';
+import {
+  Box,
+  Button,
+  LabeledList,
+  NumberInput,
+  Section,
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Button, Box, LabeledList, Section, NumberInput } from '../components';
 import { Window } from '../layouts';
 
 export type ShieldData = {
@@ -21,10 +27,10 @@ export type ShieldData = {
 };
 
 export const ShieldGenerator = (props, context) => {
-  const { act, data } = useBackend<ShieldData>(context);
+  const { act, data } = useBackend<ShieldData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section
           title="Shield Information"

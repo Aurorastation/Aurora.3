@@ -1,6 +1,6 @@
-import { BooleanLike } from '../../common/react';
+import { Button, NoticeBox, ProgressBar, Section } from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Button, NoticeBox, ProgressBar, Section } from '../components';
 import { NtosWindow } from '../layouts';
 
 export type DoorjackData = {
@@ -12,7 +12,7 @@ export type DoorjackData = {
 };
 
 export const pAIDoorjack = (props, context) => {
-  const { act, data } = useBackend<DoorjackData>(context);
+  const { act, data } = useBackend<DoorjackData>();
 
   return (
     <NtosWindow resizable>

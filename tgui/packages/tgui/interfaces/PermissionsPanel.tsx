@@ -1,6 +1,6 @@
-import { BooleanLike } from '../../common/react';
+import { Box, Button, Section, Table } from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Box, Button, Section, Table } from '../components';
 import { Window } from '../layouts';
 
 export type PanelData = {
@@ -15,10 +15,10 @@ type Admin = {
 };
 
 export const PermissionsPanel = (props, context) => {
-  const { act, data } = useBackend<PanelData>(context);
+  const { act, data } = useBackend<PanelData>();
 
   return (
-    <Window resizable theme="admin">
+    <Window theme="admin">
       <Window.Content scrollable>
         <Section title="Staff">
           {data.forumuserui_enabled ? (

@@ -1,6 +1,12 @@
-import { BooleanLike } from 'common/react';
+import {
+  Box,
+  Button,
+  LabeledControls,
+  Section,
+  Tooltip,
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Box, Button, LabeledControls, Section, Tooltip } from '../components';
 import { Window } from '../layouts';
 
 export type NeuralData = {
@@ -16,7 +22,7 @@ export type NeuralData = {
 };
 
 export const NeuralConfiguration = (props, context) => {
-  const { act, data } = useBackend<NeuralData>(context);
+  const { act, data } = useBackend<NeuralData>();
 
   return (
     <Window

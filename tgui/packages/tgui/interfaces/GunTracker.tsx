@@ -1,5 +1,5 @@
+import { Button, Section, Table } from 'tgui-core/components';
 import { useBackend } from '../backend';
-import { Button, Section, Table } from '../components';
 import { NtosWindow } from '../layouts';
 
 export type TrackerData = {
@@ -14,7 +14,7 @@ type Pin = {
 };
 
 export const GunTracker = (props, context) => {
-  const { act, data } = useBackend<TrackerData>(context);
+  const { act, data } = useBackend<TrackerData>();
 
   return (
     <NtosWindow resizable width={800}>

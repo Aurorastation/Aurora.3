@@ -1,6 +1,6 @@
-import { BooleanLike } from '../../common/react';
+import { Button, Collapsible, Input, Section } from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend, useLocalState } from '../backend';
-import { Button, Collapsible, Input, Section } from '../components';
 import { Window } from '../layouts';
 
 export type FollowData = {
@@ -17,7 +17,7 @@ type Ghost = {
 };
 
 export const FollowMenu = (props, context) => {
-  const { act, data } = useBackend<FollowData>(context);
+  const { act, data } = useBackend<FollowData>();
   const [searchTerm, setSearchTerm] = useLocalState<string>(
     context,
     `searchTerm`,
@@ -25,7 +25,7 @@ export const FollowMenu = (props, context) => {
   );
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section
           title="Follow Menu"

@@ -1,5 +1,3 @@
-import { BooleanLike } from '../../common/react';
-import { useBackend } from '../backend';
 import {
   Box,
   Button,
@@ -9,7 +7,9 @@ import {
   LabeledList,
   NoticeBox,
   Section,
-} from '../components';
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
+import { useBackend } from '../backend';
 import { NtosWindow } from '../layouts';
 
 export type IDData = {
@@ -57,7 +57,7 @@ type Job = {
 };
 
 export const IDCardModification = (props, context) => {
-  const { act, data } = useBackend<IDData>(context);
+  const { act, data } = useBackend<IDData>();
 
   return (
     <NtosWindow resizable width={650} height={700}>
@@ -85,7 +85,7 @@ export const IDCardModification = (props, context) => {
 };
 
 export const AccessModification = (props, context) => {
-  const { act, data } = useBackend<IDData>(context);
+  const { act, data } = useBackend<IDData>();
 
   return (
     <Section title="Access Modification">

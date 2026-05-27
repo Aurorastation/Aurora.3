@@ -1,6 +1,12 @@
-import { BooleanLike } from '../../common/react';
+import {
+  Button,
+  Input,
+  LabeledControls,
+  Section,
+  Table,
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Button, Input, LabeledControls, Section, Table } from '../components';
 import { Window } from '../layouts';
 
 export type GPSData = {
@@ -25,10 +31,10 @@ type GPSDevice = {
 };
 
 export const GPS = (props, context) => {
-  const { act, data } = useBackend<GPSData>(context);
+  const { act, data } = useBackend<GPSData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section
           title="Controls"

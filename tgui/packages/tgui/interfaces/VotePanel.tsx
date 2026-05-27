@@ -1,6 +1,3 @@
-import { BooleanLike } from 'common/react';
-
-import { useBackend } from '../backend';
 import {
   Box,
   Button,
@@ -10,7 +7,9 @@ import {
   NoticeBox,
   Section,
   Stack,
-} from '../components';
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
+import { useBackend } from '../backend';
 import { Window } from '../layouts';
 
 enum VoteConfig {
@@ -61,7 +60,7 @@ type Data = {
 };
 
 export const VotePanel = (props, context) => {
-  const { data } = useBackend<Data>(context);
+  const { data } = useBackend<Data>();
   const { currentVote, user } = data;
 
   /**
@@ -97,7 +96,7 @@ export const VotePanel = (props, context) => {
  * @returns A section visible to everyone with vote options.
  */
 const VoteOptions = (props, context) => {
-  const { act, data } = useBackend<Data>(context);
+  const { act, data } = useBackend<Data>();
   const { possibleVotes, user } = data;
 
   return (
@@ -147,7 +146,7 @@ const VoteOptions = (props, context) => {
  * @returns A collapsible list of voters
  */
 const VotersList = (props, context) => {
-  const { data } = useBackend<Data>(context);
+  const { data } = useBackend<Data>();
 
   return (
     <Stack.Item>
@@ -171,7 +170,7 @@ const VotersList = (props, context) => {
  * @returns A section visible to all users.
  */
 const ChoicesPanel = (props, context) => {
-  const { act, data } = useBackend<Data>(context);
+  const { act, data } = useBackend<Data>();
   const { currentVote, user } = data;
 
   return (
@@ -260,7 +259,7 @@ const ChoicesPanel = (props, context) => {
  * @returns A section visible to everyone.
  */
 const TimePanel = (props, context) => {
-  const { act, data } = useBackend<Data>(context);
+  const { act, data } = useBackend<Data>();
   const { currentVote, user } = data;
 
   return (

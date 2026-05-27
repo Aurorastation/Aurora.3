@@ -1,5 +1,3 @@
-import { BooleanLike } from '../../common/react';
-import { useBackend, useLocalState } from '../backend';
 import {
   Box,
   Button,
@@ -8,7 +6,9 @@ import {
   Section,
   Table,
   Tabs,
-} from '../components';
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
+import { useBackend, useLocalState } from '../backend';
 import { Window } from '../layouts';
 
 // ---- Types ----
@@ -103,9 +103,9 @@ const RCON_YES = 3;
 
 // ---- Root component ----
 
-export const AirAlarm = (props, context) => {
-  const { act, data } = useBackend<AirAlarmData>(context);
-  const [tab, setTab] = useLocalState(context, 'tab', 'status');
+export const AirAlarm = (props) => {
+  const { act, data } = useBackend<AirAlarmData>();
+  const [tab, setTab] = useLocalState('tab', 'status');
 
   const tabs = [
     { id: 'status', label: 'Status' },
@@ -148,8 +148,8 @@ export const AirAlarm = (props, context) => {
 
 // ---- Status section (always visible) ----
 
-const StatusSection = (props, context) => {
-  const { act, data } = useBackend<AirAlarmData>(context);
+const StatusSection = (props) => {
+  const { act, data } = useBackend<AirAlarmData>();
 
   return (
     <Section title="Air Status">
@@ -217,8 +217,8 @@ const StatusSection = (props, context) => {
 
 // ---- Main tab ----
 
-const MainSection = (props, context) => {
-  const { act, data } = useBackend<AirAlarmData>(context);
+const MainSection = (props) => {
+  const { act, data } = useBackend<AirAlarmData>();
 
   return (
     <Section title="Controls">
@@ -251,7 +251,7 @@ const MainSection = (props, context) => {
 // ---- Vents tab ----
 
 const VentsSection = (props, context) => {
-  const { act, data } = useBackend<AirAlarmData>(context);
+  const { act, data } = useBackend<AirAlarmData>();
 
   if (!data.vents.length) {
     return <NoticeBox>No vents connected.</NoticeBox>;
@@ -337,7 +337,7 @@ const VentsSection = (props, context) => {
 // ---- Scrubbers tab ----
 
 const ScrubbersSection = (props, context) => {
-  const { act, data } = useBackend<AirAlarmData>(context);
+  const { act, data } = useBackend<AirAlarmData>();
 
   if (!data.scrubbers.length) {
     return <NoticeBox>No scrubbers connected.</NoticeBox>;
@@ -403,7 +403,7 @@ const ScrubbersSection = (props, context) => {
 // ---- Mode tab ----
 
 const ModeSection = (props, context) => {
-  const { act, data } = useBackend<AirAlarmData>(context);
+  const { act, data } = useBackend<AirAlarmData>();
 
   return (
     <Section title="Environmental Mode">
@@ -434,7 +434,7 @@ const ModeSection = (props, context) => {
 const THRESHOLD_LABELS = ['Min²', 'Min¹', 'Max¹', 'Max²'];
 
 const SensorsSection = (props, context) => {
-  const { act, data } = useBackend<AirAlarmData>(context);
+  const { act, data } = useBackend<AirAlarmData>();
 
   return (
     <Section title="Alarm Thresholds">

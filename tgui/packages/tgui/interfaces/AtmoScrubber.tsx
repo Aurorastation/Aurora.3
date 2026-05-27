@@ -1,14 +1,13 @@
-import { useBackend } from '../backend';
-import { useLocalState } from '../backend';
 import {
   Button,
-  Section,
   LabeledList,
   ProgressBar,
+  Section,
   Slider,
-} from '../components';
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
+import { useBackend, useLocalState } from '../backend';
 import { Window } from '../layouts';
-import { BooleanLike } from '../../common/react';
 
 export type AtmoScrubberData = {
   portConnected: BooleanLike;
@@ -21,12 +20,12 @@ export type AtmoScrubberData = {
   cellMaxCharge: number;
   on: BooleanLike;
   hasHoldingTank: BooleanLike;
-  holdingTankName: String[];
-  holdingTankPressure: String[];
+  holdingTankName: string[];
+  holdingTankPressure: string[];
 };
 
 export const AtmoScrubber = (props, context) => {
-  const { act, data } = useBackend<AtmoScrubberData>(context);
+  const { act, data } = useBackend<AtmoScrubberData>();
 
   const [tank_color] = useLocalState(context, 'tank_color', '');
   const [cell_color] = useLocalState(context, 'tank_color', '');

@@ -1,8 +1,13 @@
-import { BooleanLike } from '../../common/react';
-import { capitalizeAll } from '../../common/string';
+import {
+  Box,
+  Button,
+  Dropdown,
+  LabeledList,
+  Section,
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
+import { capitalizeAll } from 'tgui-core/string';
 import { useBackend } from '../backend';
-import { Button, Section, Box, LabeledList } from '../components';
-import { Dropdown } from '../components/Dropdown';
 import { Window } from '../layouts';
 import { MinimapView } from './common/MinimapView';
 
@@ -37,9 +42,9 @@ type Targeting = {
 };
 
 export const GunneryWindow = (props, context) => {
-  const { act, data } = useBackend<GunneryData>(context);
+  const { act, data } = useBackend<GunneryData>();
   const { entry_points, z_levels, guns, platform_directions } = data;
-  let gun_names: String[];
+  let gun_names: string[];
   gun_names = [];
   gun_names = guns.map((gun) => {
     return capitalizeAll(gun.name);
@@ -154,9 +159,9 @@ export const GunneryWindow = (props, context) => {
 };
 
 export const Gunnery = (props, context) => {
-  const { act, data } = useBackend<GunneryData>(context);
+  const { act, data } = useBackend<GunneryData>();
   return (
-    <Window resizable theme="zavodskoi">
+    <Window theme="zavodskoi">
       <Window.Content scrollable>
         <Section title="Ajax Targeting Console">
           <Button

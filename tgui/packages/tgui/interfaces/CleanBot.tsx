@@ -1,5 +1,5 @@
+import { Button, Collapsible, Section, Stack } from 'tgui-core/components';
 import { useBackend } from '../backend';
-import { Button, Section, Stack, Collapsible } from '../components';
 import { Window } from '../layouts';
 
 export type CleanBotConfig = {
@@ -15,7 +15,7 @@ export type CleanBotConfig = {
 };
 
 export const CleanBot = (props, context) => {
-  const { act, data } = useBackend<CleanBotConfig>(context);
+  const { act, data } = useBackend<CleanBotConfig>();
 
   return (
     <Window title="CleanBot" theme="idris">

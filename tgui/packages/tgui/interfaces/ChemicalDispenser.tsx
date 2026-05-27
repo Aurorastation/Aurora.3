@@ -1,5 +1,3 @@
-import { BooleanLike } from '../../common/react';
-import { useBackend } from '../backend';
 import {
   AnimatedNumber,
   Box,
@@ -9,7 +7,9 @@ import {
   NumberInput,
   Section,
   Stack,
-} from '../components';
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
+import { useBackend } from '../backend';
 import { Window } from '../layouts';
 
 export type DispenserData = {
@@ -36,10 +36,10 @@ type Chemical = {
 };
 
 export const ChemicalDispenser = (props, context) => {
-  const { act, data } = useBackend<DispenserData>(context);
+  const { act, data } = useBackend<DispenserData>();
 
   return (
-    <Window resizable theme={data.manufacturer}>
+    <Window theme={data.manufacturer}>
       <Window.Content scrollable>
         <Section>
           <LabeledControls>
@@ -100,7 +100,7 @@ export const ChemicalDispenser = (props, context) => {
 };
 
 export const ChemTable = (props, context) => {
-  const { act, data } = useBackend<DispenserData>(context);
+  const { act, data } = useBackend<DispenserData>();
 
   return (
     <Box mr={-1}>
@@ -119,7 +119,7 @@ export const ChemTable = (props, context) => {
 };
 
 export const BeakerContents = (props, context) => {
-  const { act, data } = useBackend<DispenserData>(context);
+  const { act, data } = useBackend<DispenserData>();
 
   return (
     <Section>

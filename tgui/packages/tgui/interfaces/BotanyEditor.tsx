@@ -1,8 +1,15 @@
 // botany_editor.tsx
-import { Window } from '../layouts';
-import { BooleanLike } from '../../common/react';
+
+import {
+  Box,
+  Button,
+  LabeledList,
+  NoticeBox,
+  Section,
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Box, Button, LabeledList, NoticeBox, Section } from '../components';
+import { Window } from '../layouts';
 
 type Data = {
   activity: BooleanLike;
@@ -14,7 +21,7 @@ type Data = {
 };
 
 export const BotanyEditor = (_props, context) => {
-  const { act, data } = useBackend<Data>(context);
+  const { act, data } = useBackend<Data>();
   const { activity, degradation, disk, sourceName, locus, loadedseed } = data;
 
   const hasLoadedSeed = !!loadedseed;

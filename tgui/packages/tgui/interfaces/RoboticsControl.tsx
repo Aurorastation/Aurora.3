@@ -1,5 +1,3 @@
-import { BooleanLike } from '../../common/react';
-import { useBackend } from '../backend';
 import {
   Box,
   Button,
@@ -7,7 +5,9 @@ import {
   NoticeBox,
   ProgressBar,
   Section,
-} from '../components';
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
+import { useBackend } from '../backend';
 import { Window } from '../layouts';
 
 type RoboticsControlData = {
@@ -31,7 +31,7 @@ type RobotEntry = {
 };
 
 export const RoboticsControl = (props, context) => {
-  const { act, data } = useBackend<RoboticsControlData>(context);
+  const { act, data } = useBackend<RoboticsControlData>();
 
   return (
     <Window

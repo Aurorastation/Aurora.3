@@ -1,14 +1,14 @@
-import { BooleanLike } from '../../common/react';
-import { useBackend } from '../backend';
 import {
   Box,
   Button,
   Flex,
-  LabeledList,
   Knob,
+  LabeledList,
   ProgressBar,
   Section,
-} from '../components';
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
+import { useBackend } from '../backend';
 import { Window } from '../layouts';
 
 export type SpaceHeaterData = {
@@ -24,7 +24,7 @@ export type SpaceHeaterData = {
 };
 
 export const SpaceHeater = (props, context) => {
-  const { act, data } = useBackend<SpaceHeaterData>(context);
+  const { act, data } = useBackend<SpaceHeaterData>();
 
   return (
     <Window width="415" height="280">

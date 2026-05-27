@@ -302,7 +302,7 @@ ABSTRACT_TYPE(/datum/computer_file/program)
 	else // Should never happen - So fail silently
 		return FALSE
 
-// This attempts to retrieve header data for NanoUIs. If implementing completely new device of different type than existing ones
+// This attempts to retrieve header data for UIs. If implementing completely new device of different type than existing ones
 // always include the device here in this proc. This proc basically relays the request to whatever is running the program.
 /datum/computer_file/program/proc/get_header_data()
 	if(computer)

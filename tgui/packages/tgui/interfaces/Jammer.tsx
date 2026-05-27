@@ -1,5 +1,5 @@
+import { Button, LabeledList, Section } from 'tgui-core/components';
 import { useBackend } from '../backend';
-import { Button, LabeledList, Section } from '../components';
 import { Window } from '../layouts';
 
 export type JammerData = {
@@ -7,10 +7,10 @@ export type JammerData = {
 };
 
 export const Jammer = (props, context) => {
-  const { act, data } = useBackend<JammerData>(context);
+  const { act, data } = useBackend<JammerData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section title="Jammer Level">
           <LabeledList>

@@ -1,5 +1,3 @@
-import { BooleanLike } from '../../common/react';
-import { useBackend } from '../backend';
 import {
   Box,
   Button,
@@ -7,7 +5,9 @@ import {
   NoticeBox,
   Section,
   Table,
-} from '../components';
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
+import { useBackend } from '../backend';
 import { Window } from '../layouts';
 
 // Screen constants (must match DM defines)
@@ -75,7 +75,7 @@ const CATEGORY_LABEL: Record<NonNullable<LogEntry['category']>, string> = {
 };
 
 export const RequestsConsole = (props, context) => {
-  const { act, data } = useBackend<RequestsConsoleData>(context);
+  const { act, data } = useBackend<RequestsConsoleData>();
   const { screen, department } = data;
 
   return (

@@ -1,5 +1,5 @@
+import { Box, Button, Flex, Section } from 'tgui-core/components';
 import { useBackend } from '../backend';
-import { Box, Button, Flex, Section } from '../components';
 import { Window } from '../layouts';
 
 export type IconData = {
@@ -14,7 +14,7 @@ export type Item = {
 };
 
 export const OverlayChoice = (props, context) => {
-  const { act, data } = useBackend<IconData>(context);
+  const { act, data } = useBackend<IconData>();
 
   return (
     <Window width={500} height={500}>
@@ -34,7 +34,7 @@ export const OverlayChoice = (props, context) => {
 };
 
 export const ContentsWindow = (props, context) => {
-  const { act, data } = useBackend<IconData>(context);
+  const { act, data } = useBackend<IconData>();
   const { contents } = data;
 
   return (

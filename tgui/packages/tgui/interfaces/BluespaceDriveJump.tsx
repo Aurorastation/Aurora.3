@@ -1,14 +1,14 @@
-import { useBackend } from '../backend';
 import {
   Button,
   Knob,
   LabeledControls,
-  Section,
   LabeledList,
   NoticeBox,
-} from '../components';
+  Section,
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
+import { useBackend } from '../backend';
 import { Window } from '../layouts';
-import { BooleanLike } from '../../common/react';
 
 export type BluespaceDriveJumpData = {
   charge: BooleanLike;
@@ -20,7 +20,7 @@ export type BluespaceDriveJumpData = {
 };
 
 export const BluespaceDriveJump = (props, context) => {
-  const { act, data } = useBackend<BluespaceDriveJumpData>(context);
+  const { act, data } = useBackend<BluespaceDriveJumpData>();
   return (
     <Window width="382" height="277" theme="nanotrasen">
       <Window.Content>

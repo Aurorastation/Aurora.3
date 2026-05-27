@@ -1,5 +1,5 @@
+import { Box, Input, Section, Table } from 'tgui-core/components';
 import { useBackend, useLocalState } from '../backend';
-import { Box, Input, Section, Table } from '../components';
 import { NtosWindow } from '../layouts';
 
 export type CodexData = {
@@ -14,7 +14,7 @@ type Recipe = {
 };
 
 export const CookingCodex = (props, context) => {
-  const { act, data } = useBackend<CodexData>(context);
+  const { act, data } = useBackend<CodexData>();
   const [searchTerm, setSearchTerm] = useLocalState<string>(
     context,
     `searchTerm`,

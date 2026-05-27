@@ -1,6 +1,11 @@
-import { BooleanLike } from '../../common/react';
+import {
+  Button,
+  LabeledList,
+  ProgressBar,
+  Section,
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Button, LabeledList, ProgressBar, Section } from '../components';
 import { NtosWindow } from '../layouts';
 
 export type CrusherData = {
@@ -19,7 +24,7 @@ type Piston = {
 };
 
 export const CrusherControl = (props, context) => {
-  const { act, data } = useBackend<CrusherData>(context);
+  const { act, data } = useBackend<CrusherData>();
 
   return (
     <NtosWindow resizable>
@@ -49,7 +54,7 @@ export const CrusherControl = (props, context) => {
 };
 
 export const PistonManagement = (props, context) => {
-  const { act, data } = useBackend<CrusherData>(context);
+  const { act, data } = useBackend<CrusherData>();
 
   return (
     <LabeledList>
@@ -85,7 +90,7 @@ export const PistonManagement = (props, context) => {
 };
 
 export const PistonMonitoring = (props, context) => {
-  const { act, data } = useBackend<CrusherData>(context);
+  const { act, data } = useBackend<CrusherData>();
 
   return (
     <Section title="Piston Monitoring">

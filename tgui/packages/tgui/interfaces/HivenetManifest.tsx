@@ -1,7 +1,6 @@
+import { Box, Section, Table } from 'tgui-core/components';
 import { useBackend } from '../backend';
-import { Box, Section, Table } from '../components';
 import { Window } from '../layouts';
-import { TableCell, TableRow } from '../components/Table';
 
 export type VaurcaData = {
   name: string;
@@ -18,10 +17,10 @@ export type HivenetManifestData = {
 };
 
 export const HivenetManifest = (props, context) => {
-  const { act, data } = useBackend<HivenetManifestData>(context);
+  const { act, data } = useBackend<HivenetManifestData>();
 
   return (
-    <Window resizable theme="vaurca">
+    <Window theme="vaurca">
       <Window.Content scrollable>
         {Object.keys(data.all_vaurca).map((hive) => {
           const hiveData = data.all_vaurca[hive];
@@ -36,20 +35,20 @@ export const HivenetManifest = (props, context) => {
               <Table>
                 {hiveData.vaurca.map((vaurca) => {
                   return (
-                    <TableRow
+                    <Table.Row
                       pb={1}
                       key={vaurca.name}
                       bold={vaurca.bold}
                       overflow="hidden"
                     >
-                      <TableCell>
+                      <Table.Cell>
                         <Box fontSize="1.5rem" textAlign="center">
                           {' - '}
                           {vaurca.name}
                           {' - '}
                         </Box>
-                      </TableCell>
-                    </TableRow>
+                      </Table.Cell>
+                    </Table.Row>
                   );
                 })}
               </Table>

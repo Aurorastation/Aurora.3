@@ -1,17 +1,17 @@
-import { BooleanLike } from '../../common/react';
-import { useBackend, useLocalState } from '../backend';
 import {
   Box,
   Button,
   Icon,
+  Input,
   LabeledList,
   Section,
+  Stack,
   Table,
   Tabs,
   Tooltip,
-  Stack,
-  Input,
-} from '../components';
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
+import { useBackend, useLocalState } from '../backend';
 import { NtosWindow } from '../layouts';
 import { sanitizeText } from '../sanitize';
 
@@ -92,7 +92,7 @@ type Order = {
 };
 
 export const CargoOrder = (props, context) => {
-  const { act, data } = useBackend<CargoData>(context);
+  const { act, data } = useBackend<CargoData>();
 
   return (
     <NtosWindow resizable width={800} height={800}>
@@ -118,7 +118,7 @@ export const CargoOrder = (props, context) => {
 };
 
 export const MainPage = (props, context) => {
-  const { act, data } = useBackend<CargoData>(context);
+  const { act, data } = useBackend<CargoData>();
   const [details, setDetails] = useLocalState<boolean>(
     context,
     'details',
@@ -261,7 +261,7 @@ export const MainPage = (props, context) => {
 };
 
 export const ShowDetails = (props, context) => {
-  const { act, data } = useBackend<CargoData>(context);
+  const { act, data } = useBackend<CargoData>();
 
   return (
     <Section title="Details">
@@ -290,7 +290,7 @@ export const ShowDetails = (props, context) => {
 };
 
 export const TrackingPage = (props, context) => {
-  const { act, data } = useBackend<CargoData>(context);
+  const { act, data } = useBackend<CargoData>();
 
   return (
     <Section title="Tracking">
@@ -321,7 +321,7 @@ export const TrackingPage = (props, context) => {
 };
 
 export const ShowTrackingStatus = (props, context) => {
-  const { act, data } = useBackend<CargoData>(context);
+  const { act, data } = useBackend<CargoData>();
   const contentHtml = { __html: sanitizeText(data.tracked_order_report) };
 
   return (

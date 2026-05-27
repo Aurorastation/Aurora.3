@@ -1,5 +1,3 @@
-import { BooleanLike } from '../../common/react';
-import { useBackend } from '../backend';
 import {
   Box,
   Button,
@@ -7,7 +5,9 @@ import {
   LabeledList,
   ProgressBar,
   Section,
-} from '../components';
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
+import { useBackend } from '../backend';
 import { NtosWindow } from '../layouts';
 import { sanitizeText } from '../sanitize';
 
@@ -34,7 +34,7 @@ type Article = {
 };
 
 export const NTOSNewsBrowser = (props, context) => {
-  const { act, data } = useBackend<NewsData>(context);
+  const { act, data } = useBackend<NewsData>();
 
   return (
     <NtosWindow resizable>
@@ -52,7 +52,7 @@ export const NTOSNewsBrowser = (props, context) => {
 };
 
 export const ErrorMessage = (props, context) => {
-  const { act, data } = useBackend<NewsData>(context);
+  const { act, data } = useBackend<NewsData>();
 
   return (
     <Section
@@ -65,7 +65,7 @@ export const ErrorMessage = (props, context) => {
 };
 
 export const ShowArticle = (props, context) => {
-  const { act, data } = useBackend<NewsData>(context);
+  const { act, data } = useBackend<NewsData>();
   const contentHtml = { __html: sanitizeText(data.article) };
 
   return (
@@ -84,7 +84,7 @@ export const ShowArticle = (props, context) => {
 };
 
 export const ShowArticleList = (props, context) => {
-  const { act, data } = useBackend<NewsData>(context);
+  const { act, data } = useBackend<NewsData>();
 
   return (
     <Section

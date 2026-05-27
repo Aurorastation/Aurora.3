@@ -1,5 +1,5 @@
+import { Section, Table, Tabs } from 'tgui-core/components';
 import { useBackend, useLocalState } from '../backend';
-import { Section, Table, Tabs } from '../components';
 import { NtosWindow } from '../layouts';
 
 export type JanitorData = {
@@ -21,7 +21,7 @@ type Supply = {
 };
 
 export const Janitor = (props, context) => {
-  const { act, data } = useBackend<JanitorData>(context);
+  const { act, data } = useBackend<JanitorData>();
   const [tab, setTab] = useLocalState(context, 'tab', 'Mops');
   return (
     <NtosWindow resizable>

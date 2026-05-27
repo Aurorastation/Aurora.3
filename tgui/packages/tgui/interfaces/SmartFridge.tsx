@@ -1,6 +1,6 @@
-import { BooleanLike } from '../../common/react';
+import { BlockQuote, Box, Button, Input, Section } from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend, useLocalState } from '../backend';
-import { BlockQuote, Box, Button, Section, Input } from '../components';
 import { Window } from '../layouts';
 
 export type FridgeData = {
@@ -20,7 +20,7 @@ type Item = {
 };
 
 export const SmartFridge = (props, context) => {
-  const { act, data } = useBackend<FridgeData>(context);
+  const { act, data } = useBackend<FridgeData>();
   const [searchTerm, setSearchTerm] = useLocalState<string>(
     context,
     `searchTerm`,
@@ -28,7 +28,7 @@ export const SmartFridge = (props, context) => {
   );
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section
           title="Storage"
@@ -75,7 +75,7 @@ export const SmartFridge = (props, context) => {
 };
 
 export const ContentsWindow = (props, context) => {
-  const { act, data } = useBackend<FridgeData>(context);
+  const { act, data } = useBackend<FridgeData>();
   const [searchTerm] = useLocalState<string>(context, `searchTerm`, ``);
   const itemList = data.contents.filter(
     (item) =>

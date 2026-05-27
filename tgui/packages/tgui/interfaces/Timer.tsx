@@ -1,6 +1,11 @@
-import { BooleanLike } from '../../common/react';
+import {
+  Button,
+  LabeledList,
+  NumberInput,
+  Section,
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Button, NumberInput, Section, LabeledList } from '../components';
 import { Window } from '../layouts';
 
 export type TimerData = {
@@ -9,10 +14,10 @@ export type TimerData = {
 };
 
 export const Timer = (props, context) => {
-  const { act, data } = useBackend<TimerData>(context);
+  const { act, data } = useBackend<TimerData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section
           title="Timing Unit"

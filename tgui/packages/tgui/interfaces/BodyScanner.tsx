@@ -1,5 +1,3 @@
-import { BooleanLike } from '../../common/react';
-import { useBackend } from '../backend';
 import {
   BlockQuote,
   Box,
@@ -8,7 +6,9 @@ import {
   LabeledList,
   Section,
   Table,
-} from '../components';
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
+import { useBackend } from '../backend';
 import { Window } from '../layouts';
 
 export type ScannerData = {
@@ -78,10 +78,10 @@ type InternalOrgan = {
 };
 
 export const BodyScanner = (props, context) => {
-  const { act, data } = useBackend<ScannerData>(context);
+  const { act, data } = useBackend<ScannerData>();
 
   return (
-    <Window resizable theme="zenghu">
+    <Window theme="zenghu">
       <Window.Content scrollable>
         {data.invalid ? <InvalidWindow /> : <ScannerWindow />}
       </Window.Content>
@@ -90,7 +90,7 @@ export const BodyScanner = (props, context) => {
 };
 
 export const InvalidWindow = (props, context) => {
-  const { act, data } = useBackend<ScannerData>(context);
+  const { act, data } = useBackend<ScannerData>();
 
   return (
     <Table>
@@ -116,7 +116,7 @@ export const InvalidWindow = (props, context) => {
 };
 
 export const ScannerWindow = (props, context) => {
-  const { act, data } = useBackend<ScannerData>(context);
+  const { act, data } = useBackend<ScannerData>();
 
   return (
     <Flex fontSize="1.2rem" wrap="wrap">
@@ -379,7 +379,7 @@ export const ScannerWindow = (props, context) => {
 };
 
 export const OrganWindow = (props, context) => {
-  const { act, data } = useBackend<ScannerData>(context);
+  const { act, data } = useBackend<ScannerData>();
 
   return (
     <Table>
@@ -410,7 +410,7 @@ export const OrganWindow = (props, context) => {
 };
 
 export const ExternalOrganWindow = (props, context) => {
-  const { act, data } = useBackend<ScannerData>(context);
+  const { act, data } = useBackend<ScannerData>();
 
   return (
     <Table>
@@ -449,7 +449,7 @@ export const ExternalOrganWindow = (props, context) => {
 };
 
 export const MissingOrgans = (props, context) => {
-  const { act, data } = useBackend<ScannerData>(context);
+  const { act, data } = useBackend<ScannerData>();
 
   return (
     <BlockQuote>
@@ -462,7 +462,7 @@ export const MissingOrgans = (props, context) => {
 };
 
 export const MissingLimbs = (props, context) => {
-  const { act, data } = useBackend<ScannerData>(context);
+  const { act, data } = useBackend<ScannerData>();
 
   return (
     <BlockQuote>

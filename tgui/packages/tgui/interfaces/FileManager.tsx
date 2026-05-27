@@ -1,6 +1,6 @@
-import { BooleanLike } from '../../common/react';
+import { Box, Button, NoticeBox, Section, Table } from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Box, Button, NoticeBox, Section, Table } from '../components';
 import { NtosWindow } from '../layouts';
 import { sanitizeText } from '../sanitize';
 
@@ -23,7 +23,7 @@ type File = {
 };
 
 export const FileManager = (props, context) => {
-  const { act, data } = useBackend<FileData>(context);
+  const { act, data } = useBackend<FileData>();
 
   return (
     <NtosWindow resizable width={675} height={700}>
@@ -49,7 +49,7 @@ export const FileManager = (props, context) => {
 };
 
 export const ShowFiles = (props, context) => {
-  const { act, data } = useBackend<FileData>(context);
+  const { act, data } = useBackend<FileData>();
 
   return (
     <Section
@@ -155,7 +155,7 @@ export const ShowFiles = (props, context) => {
 };
 
 export const ShowFile = (props, context) => {
-  const { act, data } = useBackend<FileData>(context);
+  const { act, data } = useBackend<FileData>();
   const contentHtml = { __html: sanitizeText(data.filedata) };
 
   return (

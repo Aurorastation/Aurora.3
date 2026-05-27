@@ -1,6 +1,12 @@
-import { BooleanLike } from '../../common/react';
+import {
+  Box,
+  Button,
+  LabeledList,
+  NoticeBox,
+  Section,
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Box, Button, LabeledList, NoticeBox, Section } from '../components';
 import { Window } from '../layouts';
 
 export type LateJoinData = {
@@ -24,10 +30,10 @@ type Job = {
 };
 
 export const LateJoin = (props, context) => {
-  const { act, data } = useBackend<LateJoinData>(context);
+  const { act, data } = useBackend<LateJoinData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section>
           <Section textAlign="center">
@@ -80,7 +86,7 @@ export const LateJoin = (props, context) => {
 };
 
 export const JobsList = (props, context) => {
-  const { act, data } = useBackend<LateJoinData>(context);
+  const { act, data } = useBackend<LateJoinData>();
 
   return (
     <Section textAlign="center">

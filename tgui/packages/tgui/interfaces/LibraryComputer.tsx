@@ -1,8 +1,7 @@
-import { BooleanLike } from '../../common/react';
-import { useBackend, useLocalState } from '../backend';
 import {
   Box,
   Button,
+  Dropdown,
   Icon,
   Input,
   LabeledList,
@@ -11,8 +10,9 @@ import {
   Stack,
   Table,
   Tabs,
-} from '../components';
-import { Dropdown } from '../components/Dropdown';
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
+import { useBackend, useLocalState } from '../backend';
 import { Window } from '../layouts';
 
 export type LibraryComputerData = {
@@ -68,7 +68,7 @@ type ScannerState = {
 const UPLOAD_CATEGORIES = ['Fiction', 'Non-Fiction', 'Reference', 'Religion'];
 
 export const LibraryComputer = (props, context) => {
-  const { act, data } = useBackend<LibraryComputerData>(context);
+  const { act, data } = useBackend<LibraryComputerData>();
   const [tab, setTab] = useLocalState(context, 'tab', 'inventory');
 
   const handleTabChange = (newTab: string) => {
@@ -83,7 +83,7 @@ export const LibraryComputer = (props, context) => {
   };
 
   return (
-    <Window resizable width={750} height={600}>
+    <Window width={750} height={600}>
       <Window.Content>
         <Tabs>
           <Tabs.Tab
@@ -148,7 +148,7 @@ export const LibraryComputer = (props, context) => {
 };
 
 const InventoryTab = (props, context) => {
-  const { act, data } = useBackend<LibraryComputerData>(context);
+  const { act, data } = useBackend<LibraryComputerData>();
 
   return (
     <Section
@@ -191,7 +191,7 @@ const InventoryTab = (props, context) => {
 };
 
 const CheckoutsTab = (props, context) => {
-  const { act, data } = useBackend<LibraryComputerData>(context);
+  const { act, data } = useBackend<LibraryComputerData>();
 
   return (
     <Section
@@ -247,7 +247,7 @@ const CheckoutsTab = (props, context) => {
 };
 
 const CheckOutTab = (props, context) => {
-  const { act, data } = useBackend<LibraryComputerData>(context);
+  const { act, data } = useBackend<LibraryComputerData>();
   const [bookTitle, setBookTitle] = useLocalState(context, 'co_book', '');
   const [recipient, setRecipient] = useLocalState(context, 'co_recip', '');
   const [showBookPicker, setShowBookPicker] = useLocalState(
@@ -402,7 +402,7 @@ const CheckOutTab = (props, context) => {
 type SortField = 'author' | 'title' | 'category';
 
 const ArchiveTab = (props, context) => {
-  const { act, data } = useBackend<LibraryComputerData>(context);
+  const { act, data } = useBackend<LibraryComputerData>();
   // Local state only for the search input — committed to server on Enter or button click
   const [searchInput, setSearchInput] = useLocalState(
     context,
@@ -625,7 +625,7 @@ const ArchiveTab = (props, context) => {
 };
 
 const UploadTab = (props, context) => {
-  const { act, data } = useBackend<LibraryComputerData>(context);
+  const { act, data } = useBackend<LibraryComputerData>();
   const { scanner } = data;
 
   return (
@@ -708,7 +708,7 @@ const UploadTab = (props, context) => {
 };
 
 const BibleTab = (props, context) => {
-  const { act, data } = useBackend<LibraryComputerData>(context);
+  const { act, data } = useBackend<LibraryComputerData>();
 
   return (
     <Section title="Bible Printer">
@@ -728,7 +728,7 @@ const BibleTab = (props, context) => {
 };
 
 const VaultTab = (props, context) => {
-  const { act, data } = useBackend<LibraryComputerData>(context);
+  const { act, data } = useBackend<LibraryComputerData>();
 
   return (
     <Section title="Forbidden Lore Vault v1.3">

@@ -1,6 +1,6 @@
-import { BooleanLike } from '../../common/react';
+import { Button, Section, Table } from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Button, Section, Table } from '../components';
 import { NtosWindow } from '../layouts';
 
 export type NTOSMainData = {
@@ -22,7 +22,7 @@ type NTService = {
 };
 
 export const NTOSMain = (props, context) => {
-  const { act, data } = useBackend<NTOSMainData>(context);
+  const { act, data } = useBackend<NTOSMainData>();
   const { programs = [], services = [] } = data;
   return (
     <NtosWindow title={'NTOS Main Menu'} width={400} height={500}>

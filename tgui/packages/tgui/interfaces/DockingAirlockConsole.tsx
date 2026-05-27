@@ -1,5 +1,11 @@
+import {
+  Box,
+  Button,
+  LabeledList,
+  ProgressBar,
+  Section,
+} from 'tgui-core/components';
 import { useBackend } from '../backend';
-import { Box, Button, LabeledList, ProgressBar, Section } from '../components';
 import { Window } from '../layouts';
 
 export type StatusData = {
@@ -18,10 +24,10 @@ export type DockingAirlockConsoleData = {
 };
 
 export const DockingAirlockConsole = (props, context) => {
-  const { act, data } = useBackend<DockingAirlockConsoleData>(context);
+  const { act, data } = useBackend<DockingAirlockConsoleData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section title="Status">
           <Box>

@@ -1,6 +1,3 @@
-import { round } from 'common/math';
-import { BooleanLike } from 'common/react';
-import { useBackend } from '../backend';
 import {
   AnimatedNumber,
   Box,
@@ -8,7 +5,10 @@ import {
   Knob,
   LabeledList,
   Section,
-} from '../components';
+} from 'tgui-core/components';
+import { round } from 'tgui-core/math';
+import type { BooleanLike } from 'tgui-core/react';
+import { useBackend } from '../backend';
 import { Window } from '../layouts';
 
 export type ThermostatData = {
@@ -24,7 +24,7 @@ export type ThermostatData = {
 };
 
 export const CoolingUnitThermostat = (props, context) => {
-  const { act, data } = useBackend<ThermostatData>(context);
+  const { act, data } = useBackend<ThermostatData>();
 
   return (
     <Window
@@ -41,7 +41,7 @@ export const CoolingUnitThermostat = (props, context) => {
 };
 
 export const ThermostatWindow = (props, context) => {
-  const { act, data } = useBackend<ThermostatData>(context);
+  const { act, data } = useBackend<ThermostatData>();
 
   // K = C + 273.15 | C = K – 273.15
   return (
@@ -96,7 +96,7 @@ export const ThermostatWindow = (props, context) => {
 };
 
 export const Broken = (props, context) => {
-  const { act, data } = useBackend<ThermostatData>(context);
+  const { act, data } = useBackend<ThermostatData>();
 
   return (
     <Section title="CRITICAL ERROR 0x0127F29">

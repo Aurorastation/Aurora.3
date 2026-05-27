@@ -1,8 +1,7 @@
-import { BooleanLike } from '../../common/react';
-import { useBackend, useLocalState } from '../backend';
 import {
   Box,
   Button,
+  Dropdown,
   Icon,
   Input,
   LabeledList,
@@ -10,8 +9,9 @@ import {
   Section,
   Stack,
   Table,
-} from '../components';
-import { Dropdown } from '../components/Dropdown';
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
+import { useBackend, useLocalState } from '../backend';
 import { Window } from '../layouts';
 
 export type LibraryPublicComputerData = {
@@ -33,7 +33,7 @@ type SearchResult = {
 const CATEGORIES = ['Any', 'Fiction', 'Non-Fiction', 'Reference', 'Religion'];
 
 export const LibraryPublicComputer = (props, context) => {
-  const { act, data } = useBackend<LibraryPublicComputerData>(context);
+  const { act, data } = useBackend<LibraryPublicComputerData>();
   const [title, setTitle] = useLocalState(context, 'title', '');
   const [author, setAuthor] = useLocalState(context, 'author', '');
   const [category, setCategory] = useLocalState(

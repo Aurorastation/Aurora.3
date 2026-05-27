@@ -1,5 +1,5 @@
+import { Box, Button, Section, Stack } from 'tgui-core/components';
 import { useBackend, useLocalState } from '../backend';
-import { Box, Button, Section, Stack } from '../components';
 import { Window } from '../layouts';
 
 type LoreEntry = {
@@ -12,7 +12,7 @@ type LoreConsoleData = {
 };
 
 export const LoreConsole = (props, context) => {
-  const { data } = useBackend<LoreConsoleData>(context);
+  const { data } = useBackend<LoreConsoleData>();
   const { entries } = data;
   const [currentPage, setCurrentPage] = useLocalState(
     context,

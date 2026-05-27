@@ -1,8 +1,15 @@
 // botany_isolator.tsx
+
+import {
+  Box,
+  Button,
+  LabeledList,
+  NoticeBox,
+  Section,
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Box, Button, LabeledList, NoticeBox, Section } from '../components';
 import { Window } from '../layouts';
-import { BooleanLike } from '../../common/react';
 
 type GeneMask = {
   mask: string;
@@ -20,7 +27,7 @@ type Data = {
 };
 
 export const BotanyIsolator = (_props, context) => {
-  const { act, data } = useBackend<Data>(context);
+  const { act, data } = useBackend<Data>();
   const { activity, degradation, disk, loadedSeed, sourceName, geneMasks } =
     data;
 

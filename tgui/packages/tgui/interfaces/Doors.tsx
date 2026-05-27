@@ -1,6 +1,6 @@
-import { BooleanLike } from '../../common/react';
+import { Box, Button, ProgressBar, Section } from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Section, ProgressBar, Button, Box } from '../components';
 import { Window } from '../layouts';
 
 export type DoorsData = {
@@ -26,10 +26,10 @@ export type DoorsData = {
 };
 
 export const Doors = (props, context) => {
-  const { act, data } = useBackend<DoorsData>(context);
+  const { act, data } = useBackend<DoorsData>();
   const door_title = data.doorArea + '(' + data.doorName + ')';
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section
           title={door_title}
@@ -247,7 +247,7 @@ const get_power_status_message = (state, time) => {
   } else if (state === 0) {
     return 'Online';
   } else {
-    let timeleft = Math.max(Math.round((state - time) / 10), 0);
+    const timeleft = Math.max(Math.round((state - time) / 10), 0);
     return 'Interrupted, ' + timeleft + 's remaining';
   }
 };
@@ -258,7 +258,7 @@ const get_electrified_message = (electrified, time) => {
   } else if (electrified === -1) {
     return 'Permanently';
   } else {
-    let electrified_message = Math.max(
+    const electrified_message = Math.max(
       Math.round((electrified - time) / 10),
       0,
     );

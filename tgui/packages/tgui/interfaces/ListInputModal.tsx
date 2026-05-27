@@ -1,51 +1,31 @@
-import { Loader } from './common/Loader';
-import { InputButtons } from './common/InputButtons';
-import { Button, Input, Section, Stack } from '../components';
-import { useBackend, useLocalState } from '../backend';
+import { useState } from 'react';
+import { Autofocus, Button, Input, Section, Stack } from 'tgui-core/components';
 import {
   KEY_A,
   KEY_DOWN,
-  KEY_ESCAPE,
   KEY_ENTER,
+  KEY_ESCAPE,
   KEY_UP,
   KEY_Z,
-} from '../../common/keycodes';
-import { Window } from '../layouts';
+} from 'tgui-core/keycodes';
 
-type ListInputData = {
-  init_value: string;
+import { InputButtons } from './common/InputButtons';
+
+type ListInputModalProps = {
   items: string[];
-  large_buttons: boolean;
+  default_item: string;
   message: string;
-  timeout: number;
-  title: string;
+  on_selected: (entry: string) => void;
+  on_cancel: () => void;
 };
 
-export const ListInputModal = (props, context) => {
-  const { act, data } = useBackend<ListInputData>(context);
-  const {
-    items = [],
-    message = '',
-    init_value,
-    large_buttons,
-    timeout,
-    title,
-  } = data;
-  const [selected, setSelected] = useLocalState<number>(
-    context,
-    'selected',
-    items.indexOf(init_value),
-  );
-  const [searchBarVisible, setSearchBarVisible] = useLocalState<boolean>(
-    context,
-    'searchBarVisible',
-    items.length > 9,
-  );
-  const [searchQuery, setSearchQuery] = useLocalState<string>(
-    context,
-    'searchQuery',
-    '',
-  );
+export const ListInputModal = (props: ListInputModalProps) => {
+  const { items = [], default_item, message, on_selected, on_cancel } = props;
+
+  const [selected, setSelected] = useState(items.indexOf(default_item));
+  const [searchBarVisible, setSearchBarVisible] = useState(items.length > 9);
+  const [searchQuery, setSearchQuery] = useState('');
+
   // User presses up or down on keyboard
   // Simulates clicking an item
   const onArrowKey = (key: number) => {
@@ -78,7 +58,9 @@ export const ListInputModal = (props, context) => {
   // User presses a letter key and searchbar is visible
   const onFocusSearch = () => {
     setSearchBarVisible(false);
-    setSearchBarVisible(true);
+    setTimeout(() => {
+      setSearchBarVisible(true);
+    }, 1);
   };
   // User presses a letter key with no searchbar visible
   const onLetterSearch = (key: number) => {
@@ -109,149 +91,135 @@ export const ListInputModal = (props, context) => {
   const filteredItems = items.filter((item) =>
     item?.toLowerCase().includes(searchQuery.toLowerCase()),
   );
-  // Dynamically changes the window height based on the message.
-  const windowHeight =
-    325 + Math.ceil(message.length / 3) + (large_buttons ? 5 : 0);
   // Grabs the cursor when no search bar is visible.
   if (!searchBarVisible) {
     setTimeout(() => document!.getElementById(selected.toString())?.focus(), 1);
   }
 
   return (
-    <Window title={title} width={325} height={windowHeight}>
-      {timeout && <Loader value={timeout} />}
-      <Window.Content
-        onKeyDown={(event) => {
-          const keyCode = window.event ? event.which : event.keyCode;
-          if (keyCode === KEY_DOWN || keyCode === KEY_UP) {
-            event.preventDefault();
-            onArrowKey(keyCode);
+    <Section
+      onKeyDown={(event) => {
+        const keyCode = window.event ? event.which : event.keyCode;
+        if (keyCode === KEY_DOWN || keyCode === KEY_UP) {
+          event.preventDefault();
+          onArrowKey(keyCode);
+        }
+        if (keyCode === KEY_ENTER) {
+          event.preventDefault();
+          on_selected(filteredItems[selected]);
+        }
+        if (!searchBarVisible && keyCode >= KEY_A && keyCode <= KEY_Z) {
+          event.preventDefault();
+          onLetterSearch(keyCode);
+        }
+        if (keyCode === KEY_ESCAPE) {
+          event.preventDefault();
+          on_cancel();
+        }
+      }}
+      buttons={
+        <Button
+          compact
+          icon={searchBarVisible ? 'search' : 'font'}
+          selected
+          tooltip={
+            searchBarVisible
+              ? 'Search Mode. Type to search or use arrow keys to select manually.'
+              : 'Hotkey Mode. Type a letter to jump to the first match. Enter to select.'
           }
-          if (keyCode === KEY_ENTER) {
-            event.preventDefault();
-            act('submit', { entry: filteredItems[selected] });
-          }
-          if (!searchBarVisible && keyCode >= KEY_A && keyCode <= KEY_Z) {
-            event.preventDefault();
-            onLetterSearch(keyCode);
-          }
-          if (keyCode === KEY_ESCAPE) {
-            event.preventDefault();
-            act('cancel');
-          }
-        }}
-      >
-        <Section
-          buttons={
-            <Button
-              compact
-              icon={searchBarVisible ? 'search' : 'font'}
-              selected
-              tooltip={
-                searchBarVisible
-                  ? 'Search Mode. Type to search or use arrow keys to select manually.'
-                  : 'Hotkey Mode. Type a letter to jump to the first match. Enter to select.'
-              }
-              tooltipPosition="left"
-              onClick={() => onSearchBarToggle()}
-            />
-          }
-          className="ListInput__Section"
-          fill
-          title={message}
-        >
-          <Stack fill vertical>
-            <Stack.Item grow>
-              <ListDisplay
-                filteredItems={filteredItems}
-                onClick={onClick}
-                onFocusSearch={onFocusSearch}
-                searchBarVisible={searchBarVisible}
-                selected={selected}
-              />
-            </Stack.Item>
-            {searchBarVisible && (
-              <SearchBar
-                filteredItems={filteredItems}
-                onSearch={onSearch}
-                searchQuery={searchQuery}
-                selected={selected}
-              />
-            )}
-            <Stack.Item>
-              <InputButtons input={filteredItems[selected]} />
-            </Stack.Item>
-          </Stack>
-        </Section>
-      </Window.Content>
-    </Window>
+          tooltipPosition="left"
+          onClick={() => onSearchBarToggle()}
+        />
+      }
+      className="ListInput__Section"
+      fill
+      title={message}
+    >
+      <Stack fill vertical>
+        <Stack.Item grow>
+          <ListDisplay
+            filteredItems={filteredItems}
+            onClick={onClick}
+            onDoubleClick={on_selected}
+            onFocusSearch={onFocusSearch}
+            searchBarVisible={searchBarVisible}
+            selected={selected}
+          />
+        </Stack.Item>
+        {searchBarVisible && (
+          <Input
+            autoFocus
+            autoSelect
+            fluid
+            onEnter={() => on_selected(filteredItems[selected])}
+            onChange={onSearch}
+            placeholder="Search..."
+            value={searchQuery}
+          />
+        )}
+        <Stack.Item>
+          <InputButtons
+            input={filteredItems[selected]}
+            on_submit={() => on_selected(filteredItems[selected])}
+            on_cancel={on_cancel}
+          />
+        </Stack.Item>
+      </Stack>
+    </Section>
   );
 };
+
+interface ListDisplayProps {
+  filteredItems: string[];
+  onClick: (itemIndex: number) => void;
+  onDoubleClick: (entry: string) => void;
+  onFocusSearch: () => void;
+  searchBarVisible: boolean;
+  selected: number;
+}
 
 /**
  * Displays the list of selectable items.
  * If a search query is provided, filters the items.
  */
-const ListDisplay = (props, context) => {
-  const { act } = useBackend<ListInputData>(context);
-  const { filteredItems, onClick, onFocusSearch, searchBarVisible, selected } =
-    props;
+const ListDisplay = (props: ListDisplayProps) => {
+  const {
+    filteredItems,
+    onClick,
+    onDoubleClick,
+    onFocusSearch,
+    searchBarVisible,
+    selected,
+  } = props;
 
   return (
-    <Section fill scrollable tabIndex={0}>
-      {filteredItems.map((item, index) => {
-        return (
-          <Button
-            color="transparent"
-            fluid
-            id={index}
-            key={index}
-            onClick={() => onClick(index)}
-            onDblClick={(event) => {
+    <Section fill scrollable>
+      <Autofocus />
+      {filteredItems.map((item, index) => (
+        <Button
+          className="candystripe"
+          color="transparent"
+          fluid
+          id={`${index}`}
+          key={index}
+          onClick={() => onClick(index)}
+          onDoubleClick={() => onDoubleClick(item)}
+          onKeyDown={(event) => {
+            const keyCode = window.event ? event.which : event.keyCode;
+            if (searchBarVisible && keyCode >= KEY_A && keyCode <= KEY_Z) {
               event.preventDefault();
-              act('submit', { entry: filteredItems[selected] });
-            }}
-            onKeyDown={(event) => {
-              const keyCode = window.event ? event.which : event.keyCode;
-              if (searchBarVisible && keyCode >= KEY_A && keyCode <= KEY_Z) {
-                event.preventDefault();
-                onFocusSearch();
-              }
-            }}
-            selected={index === selected}
-            style={{
-              animation: 'none',
-              transition: 'none',
-            }}
-          >
-            {item.replace(/^\w/, (c) => c.toUpperCase())}
-          </Button>
-        );
-      })}
+              onFocusSearch();
+            }
+          }}
+          selected={index === selected}
+          style={{
+            animation: 'none',
+            transition: 'none',
+          }}
+        >
+          {item.replace(/^\w/, (c) => c.toUpperCase())}
+        </Button>
+      ))}
     </Section>
-  );
-};
-
-/**
- * Renders a search bar input.
- * Closing the bar defaults input to an empty string.
- */
-const SearchBar = (props, context) => {
-  const { act } = useBackend<ListInputData>(context);
-  const { filteredItems, onSearch, searchQuery, selected } = props;
-
-  return (
-    <Input
-      autoFocus
-      autoSelect
-      fluid
-      onEnter={(event) => {
-        event.preventDefault();
-        act('submit', { entry: filteredItems[selected] });
-      }}
-      onInput={(_, value) => onSearch(value)}
-      placeholder="Search..."
-      value={searchQuery}
-    />
   );
 };

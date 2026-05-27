@@ -1,5 +1,5 @@
+import { Button, NoticeBox, Section } from 'tgui-core/components';
 import { useBackend } from '../backend';
-import { Button, NoticeBox, Section } from '../components';
 import { Window } from '../layouts';
 
 type AtmosAlertComputerData = {
@@ -13,7 +13,7 @@ type AlarmEntry = {
 };
 
 export const AtmosAlertComputer = (props, context) => {
-  const { act, data } = useBackend<AtmosAlertComputerData>(context);
+  const { act, data } = useBackend<AtmosAlertComputerData>();
 
   return (
     <Window

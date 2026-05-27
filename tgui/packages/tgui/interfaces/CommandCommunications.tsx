@@ -1,6 +1,13 @@
-import { BooleanLike } from '../../common/react';
+import {
+  Box,
+  Button,
+  Collapsible,
+  Input,
+  Section,
+  Stack,
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend, useLocalState } from '../backend';
-import { Box, Button, Collapsible, Input, Section, Stack } from '../components';
 import { NtosWindow } from '../layouts';
 import { sanitizeText } from '../sanitize';
 
@@ -49,7 +56,7 @@ type EvacOption = {
 };
 
 export const CommandCommunications = (props, context) => {
-  const { act, data } = useBackend<CommsData>(context);
+  const { act, data } = useBackend<CommsData>();
   const [choosingAlert, setChoosingAlert] = useLocalState<boolean>(
     context,
     `choosingAlert`,
@@ -277,7 +284,7 @@ export const CommandCommunications = (props, context) => {
 };
 
 export const MessageList = (props, context) => {
-  const { act, data } = useBackend<CommsData>(context);
+  const { act, data } = useBackend<CommsData>();
   const [viewingMessage, setViewingMessage] = useLocalState<number | null>(
     context,
     'viewingMessage',

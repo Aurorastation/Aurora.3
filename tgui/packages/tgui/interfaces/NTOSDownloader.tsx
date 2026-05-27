@@ -1,15 +1,15 @@
-import { toFixed } from 'common/math';
-import { useBackend } from '../backend';
 import {
-  Box,
   BlockQuote,
+  Box,
   Button,
   Collapsible,
+  Divider,
+  ProgressBar,
   Section,
   Stack,
-  ProgressBar,
-  Divider,
-} from '../components';
+} from 'tgui-core/components';
+import { toFixed } from 'tgui-core/math';
+import { useBackend } from '../backend';
 import { NtosWindow } from '../layouts';
 
 type NTOSProgram = {
@@ -38,7 +38,7 @@ type NTOSDownloaderData = {
 };
 
 const AvailableDownloads = (props, context) => {
-  const { act, data } = useBackend<NTOSDownloaderData>(context);
+  const { act, data } = useBackend<NTOSDownloaderData>();
   const { available = [], disk_size, disk_used, queue_size } = data;
   const remainingSpace = disk_size - (disk_used + queue_size);
   const filteredAvailable = available.filter((prg) => !prg.stat);
@@ -83,7 +83,7 @@ const AvailableDownloads = (props, context) => {
 };
 
 const DownloadQueue = (props, context) => {
-  const { act, data } = useBackend<NTOSDownloaderData>(context);
+  const { act, data } = useBackend<NTOSDownloaderData>();
   const { queue_size, speed, queue, active_download } = data;
   return (
     <Stack fill vertical>
@@ -128,7 +128,7 @@ const DownloadQueue = (props, context) => {
 };
 
 export const NTOSDownloader = (props, context) => {
-  const { act, data } = useBackend<NTOSDownloaderData>(context);
+  const { act, data } = useBackend<NTOSDownloaderData>();
   const {
     available,
     disk_size,

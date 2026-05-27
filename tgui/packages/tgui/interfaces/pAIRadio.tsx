@@ -1,6 +1,6 @@
-import { BooleanLike } from '../../common/react';
+import { Button, LabeledList, Section, Slider } from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Button, LabeledList, Section, Slider } from '../components';
 import { NtosWindow } from '../layouts';
 
 export type RadioData = {
@@ -16,7 +16,7 @@ type Channel = {
 };
 
 export const pAIRadio = (props, context) => {
-  const { act, data } = useBackend<RadioData>(context);
+  const { act, data } = useBackend<RadioData>();
 
   return (
     <NtosWindow resizable>

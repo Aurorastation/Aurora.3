@@ -4,8 +4,8 @@
  * @license MIT
  */
 
+import { Box, Button, ByondUi, Section } from 'tgui-core/components';
 import { useLocalState } from '../backend';
-import { Box, Button, ByondUi, Section } from '../components';
 import { logger } from '../logging';
 
 export const meta = {

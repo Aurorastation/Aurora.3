@@ -1,5 +1,11 @@
+import {
+  Button,
+  LabeledList,
+  NoticeBox,
+  Section,
+  Table,
+} from 'tgui-core/components';
 import { useBackend } from '../backend';
-import { Button, LabeledList, NoticeBox, Section, Table } from '../components';
 import { NtosWindow } from '../layouts';
 
 export type WarrantData = {
@@ -16,7 +22,7 @@ type Warrant = {
 };
 
 export const DigitalWarrant = (props, context) => {
-  const { act, data } = useBackend<WarrantData>(context);
+  const { act, data } = useBackend<WarrantData>();
 
   return (
     <NtosWindow resizable width={900} height={600}>
@@ -28,7 +34,7 @@ export const DigitalWarrant = (props, context) => {
 };
 
 export const ActiveWarrantEdit = (props, context) => {
-  const { act, data } = useBackend<WarrantData>(context);
+  const { act, data } = useBackend<WarrantData>();
 
   return (
     <Section
@@ -84,7 +90,7 @@ export const ActiveWarrantEdit = (props, context) => {
 };
 
 export const AllWarrants = (props, context) => {
-  const { act, data } = useBackend<WarrantData>(context);
+  const { act, data } = useBackend<WarrantData>();
 
   return (
     <>

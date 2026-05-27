@@ -1,5 +1,4 @@
-import { BooleanLike } from '../../common/react';
-import { useBackend } from '../backend';
+import { sortBy } from 'es-toolkit';
 import {
   Box,
   Button,
@@ -7,9 +6,10 @@ import {
   NoticeBox,
   Section,
   Table,
-} from '../components';
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
+import { useBackend } from '../backend';
 import { NtosWindow } from '../layouts';
-import { sortBy } from 'es-toolkit';
 
 export type PowerData = {
   all_sensors: Sensor[];
@@ -44,7 +44,7 @@ type APCData = {
 };
 
 export const PowerMonitor = (props, context) => {
-  const { act, data } = useBackend<PowerData>(context);
+  const { act, data } = useBackend<PowerData>();
 
   return (
     <NtosWindow resizable width={800}>
@@ -56,7 +56,7 @@ export const PowerMonitor = (props, context) => {
 };
 
 export const ShowMasterList = (props, context) => {
-  const { act, data } = useBackend<PowerData>(context);
+  const { act, data } = useBackend<PowerData>();
 
   return (
     <Section
@@ -81,7 +81,7 @@ export const ShowMasterList = (props, context) => {
 };
 
 export const SensorMonitoring = (props, context) => {
-  const { act, data } = useBackend<PowerData>(context);
+  const { act, data } = useBackend<PowerData>();
   const { apc_data = [] } = data.focus;
   const apcs_sorted: APCData[] = sortBy(apc_data, [
     (APCData: APCData) => APCData.name,

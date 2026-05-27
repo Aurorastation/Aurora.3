@@ -1,5 +1,5 @@
+import { Button, LabeledList, Section } from 'tgui-core/components';
 import { useBackend } from '../backend';
-import { Button, Section, LabeledList } from '../components';
 import { Window } from '../layouts';
 
 export type ShuttleControlConsoleLiftData = {
@@ -16,10 +16,10 @@ export type ShuttleControlConsoleLiftData = {
 };
 
 export const ShuttleControlConsoleLift = (props, context) => {
-  const { act, data } = useBackend<ShuttleControlConsoleLiftData>(context);
+  const { act, data } = useBackend<ShuttleControlConsoleLiftData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section title="Lift Status">
           <LabeledList>

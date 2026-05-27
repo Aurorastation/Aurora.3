@@ -5,11 +5,11 @@ import {
   ProgressBar,
   Section,
   Stack,
-} from '../components';
+} from 'tgui-core/components';
+import { round } from 'tgui-core/math';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { round } from 'common/math';
 import { Window } from '../layouts';
-import { BooleanLike } from '../../common/react';
 
 type Data = {
   totalOutput: number;
@@ -41,7 +41,7 @@ type Data = {
 const f1 = (n?: number) => round(n ?? 0, 0.1);
 
 export const StirlingEngine = (props, context) => {
-  const { data } = useBackend<Data>(context);
+  const { data } = useBackend<Data>();
   const {
     totalOutput,
     maxTotalOutput,

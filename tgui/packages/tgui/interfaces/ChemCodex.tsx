@@ -1,5 +1,5 @@
+import { Input, LabeledList, NoticeBox, Section } from 'tgui-core/components';
 import { useBackend, useLocalState } from '../backend';
-import { Input, LabeledList, NoticeBox, Section } from '../components';
 import { NtosWindow } from '../layouts';
 
 export type CodexData = {
@@ -27,7 +27,7 @@ type Reagent = {
 };
 
 export const ChemCodex = (props, context) => {
-  const { act, data } = useBackend<CodexData>(context);
+  const { act, data } = useBackend<CodexData>();
   const [searchTerm, setSearchTerm] = useLocalState<string>(
     context,
     `searchTerm`,

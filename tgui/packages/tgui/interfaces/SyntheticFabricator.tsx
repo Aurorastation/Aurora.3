@@ -1,5 +1,3 @@
-import { round } from '../../common/math';
-import { useBackend } from '../backend';
 import {
   AnimatedNumber,
   Box,
@@ -12,7 +10,9 @@ import {
   Section,
   Table,
   Tabs,
-} from '../components';
+} from 'tgui-core/components';
+import { round } from 'tgui-core/math';
+import { useBackend } from '../backend';
 import { Window } from '../layouts';
 
 export type FabricatorData = {
@@ -65,10 +65,10 @@ type Material = {
 };
 
 export const SyntheticFabricator = (props, context) => {
-  const { act, data } = useBackend<FabricatorData>(context);
+  const { act, data } = useBackend<FabricatorData>();
 
   return (
-    <Window resizable theme={data.manufacturer}>
+    <Window theme={data.manufacturer}>
       <Window.Content scrollable>
         <Flex fontSize="1.2rem" wrap>
           <Flex.Item>

@@ -1,12 +1,12 @@
-import { BooleanLike } from '../../common/react';
-import { useBackend } from '../backend';
 import {
-  LabeledList,
   Button,
   Input,
+  LabeledList,
   NumberInput,
   Section,
-} from '../components';
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
+import { useBackend } from '../backend';
 import { Window } from '../layouts';
 
 export type TerminalData = {
@@ -30,10 +30,10 @@ type ItemBuy = {
 };
 
 export const OrderTerminal = (props, context) => {
-  const { act, data } = useBackend<TerminalData>(context);
+  const { act, data } = useBackend<TerminalData>();
 
   return (
-    <Window resizable theme="idris">
+    <Window theme="idris">
       <Window.Content scrollable>
         <Section
           title="Ordering"
@@ -55,7 +55,7 @@ export const OrderTerminal = (props, context) => {
 };
 
 export const ItemWindow = (props, context) => {
-  const { act, data } = useBackend<TerminalData>(context);
+  const { act, data } = useBackend<TerminalData>();
 
   return (
     <Section>
@@ -104,7 +104,7 @@ export const ItemWindow = (props, context) => {
 };
 
 export const AddItems = (props, context) => {
-  const { act, data } = useBackend<TerminalData>(context);
+  const { act, data } = useBackend<TerminalData>();
   return (
     <Section>
       <Input
@@ -124,7 +124,7 @@ export const AddItems = (props, context) => {
 };
 
 export const CartWindow = (props, context) => {
-  const { act, data } = useBackend<TerminalData>(context);
+  const { act, data } = useBackend<TerminalData>();
   return (
     <Section>
       <LabeledList>

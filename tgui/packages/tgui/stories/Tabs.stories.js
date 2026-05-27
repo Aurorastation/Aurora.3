@@ -4,8 +4,8 @@
  * @license MIT
  */
 
+import { Button, Section, Tabs } from 'tgui-core/components';
 import { useLocalState } from '../backend';
-import { Button, Section, Tabs } from '../components';
 
 export const meta = {
   title: 'Tabs',

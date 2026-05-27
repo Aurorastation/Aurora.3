@@ -1,12 +1,12 @@
-import { BooleanLike } from '../../common/react';
-import { useBackend } from '../backend';
 import {
   Button,
+  Input,
   LabeledList,
   NumberInput,
-  Input,
   Section,
-} from '../components';
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
+import { useBackend } from '../backend';
 import { Window } from '../layouts';
 
 export type CardData = {
@@ -23,7 +23,7 @@ export type CardData = {
 };
 
 export const AgentID = (props, context) => {
-  const { act, data } = useBackend<CardData>(context);
+  const { act, data } = useBackend<CardData>();
   const {
     name,
     age,

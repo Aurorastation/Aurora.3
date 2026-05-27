@@ -1,7 +1,3 @@
-import { round } from '../../common/math';
-import { BooleanLike } from '../../common/react';
-import { capitalizeAll } from '../../common/string';
-import { useBackend, useLocalState } from '../backend';
 import {
   Box,
   Button,
@@ -13,7 +9,11 @@ import {
   Stack,
   Table,
   Tabs,
-} from '../components';
+} from 'tgui-core/components';
+import { round } from 'tgui-core/math';
+import type { BooleanLike } from 'tgui-core/react';
+import { capitalizeAll } from 'tgui-core/string';
+import { useBackend, useLocalState } from '../backend';
 import { Window } from '../layouts';
 
 export type AutolatheData = {
@@ -59,11 +59,11 @@ type QueueItem = {
 };
 
 export const Autolathe = (props, context) => {
-  const { act, data } = useBackend<AutolatheData>(context);
+  const { act, data } = useBackend<AutolatheData>();
   const [tab, setTab] = useLocalState(context, 'tab', 'All');
 
   return (
-    <Window resizable theme={data.manufacturer} width="1000" height="700">
+    <Window theme={data.manufacturer} width="1000" height="700">
       <Window.Content scrollable>
         <Stack vertical fill>
           <Stack.Item>
@@ -130,7 +130,7 @@ export const Autolathe = (props, context) => {
 };
 
 export const CategoryData = (props, context) => {
-  const { act, data } = useBackend<AutolatheData>(context);
+  const { act, data } = useBackend<AutolatheData>();
   const [tab, setTab] = useLocalState(context, 'tab', 'All');
   const [searchTerm, setSearchTerm] = useLocalState<string>(
     context,
@@ -306,7 +306,7 @@ export const CategoryData = (props, context) => {
 };
 
 export const QueueData = (props, context) => {
-  const { act, data } = useBackend<AutolatheData>(context);
+  const { act, data } = useBackend<AutolatheData>();
 
   return (
     <Section fill title="Queue">

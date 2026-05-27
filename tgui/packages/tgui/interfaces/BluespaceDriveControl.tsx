@@ -1,7 +1,12 @@
+import {
+  Button,
+  LabeledControls,
+  LabeledList,
+  Section,
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Button, LabeledControls, Section, LabeledList } from '../components';
 import { Window } from '../layouts';
-import { BooleanLike } from '../../common/react';
 
 export type BluespaceDriveControlData = {
   energized: BooleanLike;
@@ -13,7 +18,7 @@ export type BluespaceDriveControlData = {
 };
 
 export const BluespaceDriveControl = (props, context) => {
-  const { act, data } = useBackend<BluespaceDriveControlData>(context);
+  const { act, data } = useBackend<BluespaceDriveControlData>();
   return (
     <Window width="382" height="277" theme="nanotrasen">
       <Window.Content>

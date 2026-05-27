@@ -1,7 +1,5 @@
 // code/modules/tgui/modules/faction_select.dm
-import { classes } from 'common/react';
-import { resolveAsset } from '../assets';
-import { useBackend } from '../backend';
+
 import {
   Box,
   Button,
@@ -11,7 +9,10 @@ import {
   LabeledList,
   Section,
   Stack,
-} from '../components';
+} from 'tgui-core/components';
+import { classes } from 'tgui-core/react';
+import { resolveAsset } from '../assets';
+import { useBackend } from '../backend';
 import { Window } from '../layouts';
 
 export type FactionSelectData = {
@@ -51,7 +52,7 @@ export const FactionSelect = () => {
 };
 
 const FactionList = (props, context) => {
-  const { act, data } = useBackend<FactionSelectData>(context);
+  const { act, data } = useBackend<FactionSelectData>();
   return (
     <Section fill fitted pl={1} py={1} scrollable>
       <Stack vertical>
@@ -87,7 +88,7 @@ const FactionList = (props, context) => {
 };
 
 const FactionInfo = (props, context) => {
-  const { act, data } = useBackend<FactionSelectData>(context);
+  const { act, data } = useBackend<FactionSelectData>();
 
   const currentFaction = data.factions.find(
     (faction) => faction.name === data.viewed_faction,
@@ -162,7 +163,7 @@ const FactionInfo = (props, context) => {
 
 const FactionPanel = (props: { currentFaction: Faction }, context) => {
   const { currentFaction } = props;
-  const { act, data } = useBackend<FactionSelectData>(context);
+  const { act, data } = useBackend<FactionSelectData>();
 
   const currentIsChosen = currentFaction.name === data.chosen_faction;
   const CanSelect = () =>

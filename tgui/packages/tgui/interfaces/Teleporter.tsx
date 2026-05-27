@@ -1,6 +1,6 @@
-import { BooleanLike } from '../../common/react';
+import { Button, LabeledList, Section, Table } from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Button, LabeledList, Section, Table } from '../components';
 import { NtosWindow } from '../layouts';
 
 export type TeleporterData = {
@@ -30,7 +30,7 @@ type Implant = {
 };
 
 export const Teleporter = (props, context) => {
-  const { act, data } = useBackend<TeleporterData>(context);
+  const { act, data } = useBackend<TeleporterData>();
 
   return (
     <NtosWindow resizable>
@@ -42,7 +42,7 @@ export const Teleporter = (props, context) => {
 };
 
 export const TeleporterPad = (props, context) => {
-  const { act, data } = useBackend<TeleporterData>(context);
+  const { act, data } = useBackend<TeleporterData>();
 
   return (
     <>
@@ -110,7 +110,7 @@ export const TeleporterPad = (props, context) => {
 };
 
 export const FindPad = (props, context) => {
-  const { act, data } = useBackend<TeleporterData>(context);
+  const { act, data } = useBackend<TeleporterData>();
 
   return (
     <Section title="Nearby Teleporter Pads">

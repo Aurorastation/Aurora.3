@@ -4,8 +4,8 @@
  * @license MIT
  */
 
+import { Button, Flex, Section } from 'tgui-core/components';
 import { useLocalState } from '../backend';
-import { Button, Flex, Section } from '../components';
 
 export const meta = {
   title: 'Flex & Sections',

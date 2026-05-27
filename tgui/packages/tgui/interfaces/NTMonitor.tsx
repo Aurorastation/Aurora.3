@@ -1,5 +1,3 @@
-import { BooleanLike } from '../../common/react';
-import { useBackend } from '../backend';
 import {
   Box,
   Button,
@@ -7,7 +5,9 @@ import {
   NoticeBox,
   Section,
   Table,
-} from '../components';
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
+import { useBackend } from '../backend';
 import { NtosWindow } from '../layouts';
 
 export type MonitorData = {
@@ -26,7 +26,7 @@ export type MonitorData = {
 };
 
 export const NTMonitor = (props, context) => {
-  const { act, data } = useBackend<MonitorData>(context);
+  const { act, data } = useBackend<MonitorData>();
 
   return (
     <NtosWindow resizable>

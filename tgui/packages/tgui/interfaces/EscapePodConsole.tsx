@@ -1,5 +1,5 @@
+import { Box, Button, LabeledList, Section } from 'tgui-core/components';
 import { useBackend } from '../backend';
-import { Box, Button, LabeledList, Section } from '../components';
 import { Window } from '../layouts';
 
 export type EscapePodConsoleData = {
@@ -12,10 +12,10 @@ export type EscapePodConsoleData = {
 };
 
 export const EscapePodConsole = (props, context) => {
-  const { act, data } = useBackend<EscapePodConsoleData>(context);
+  const { act, data } = useBackend<EscapePodConsoleData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section title="Status">
           <Box>

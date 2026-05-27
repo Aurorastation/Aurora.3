@@ -1,6 +1,14 @@
-import { BooleanLike } from '../../common/react';
+import {
+  Box,
+  Button,
+  Input,
+  Section,
+  Stack,
+  Table,
+  Tabs,
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend, useLocalState } from '../backend';
-import { Box, Button, Input, Section, Stack, Table, Tabs } from '../components';
 import { NtosWindow } from '../layouts';
 
 export type ChatData = {
@@ -35,7 +43,7 @@ type User = {
 };
 
 export const ChatClient = (props, context) => {
-  const { act, data } = useBackend<ChatData>(context);
+  const { act, data } = useBackend<ChatData>();
   const [editingRingtone, setEditingRingtone] = useLocalState(
     context,
     'editingRingtone',
@@ -97,7 +105,7 @@ export const ChatClient = (props, context) => {
 };
 
 export const Users = (props, context) => {
-  const { act, data } = useBackend<ChatData>(context);
+  const { act, data } = useBackend<ChatData>();
   const [searchTerm, setSearchTerm] = useLocalState<string>(
     context,
     `searchTerm`,
@@ -139,7 +147,7 @@ export const Users = (props, context) => {
 };
 
 export const AllUsers = (props, context) => {
-  const { act, data } = useBackend<ChatData>(context);
+  const { act, data } = useBackend<ChatData>();
   const [searchTerm, setSearchTerm] = useLocalState<string>(
     context,
     `searchTerm`,
@@ -181,7 +189,7 @@ export const AllUsers = (props, context) => {
 };
 
 export const Chat = (props, context) => {
-  const { act, data } = useBackend<ChatData>(context);
+  const { act, data } = useBackend<ChatData>();
   const [newMessage, setNewMessage] = useLocalState<string>(
     context,
     `newMessage`,
@@ -350,7 +358,7 @@ export const Chat = (props, context) => {
 };
 
 export const ChannelsWindow = (props, context) => {
-  const { act, data } = useBackend<ChatData>(context);
+  const { act, data } = useBackend<ChatData>();
   const [channelSearchTerm, setChannelSearchTerm] = useLocalState<string>(
     context,
     `channelSearchTerm`,

@@ -1,6 +1,6 @@
+import { Button, NoticeBox, Section, Table } from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Section, Table, Button, NoticeBox } from '../components';
-import { BooleanLike } from '../../common/react';
 import { Window } from '../layouts';
 
 export type AreaAtmosScrubberData = {
@@ -16,10 +16,10 @@ type Scrubber = {
 };
 
 export const AreaAtmos = (props, context) => {
-  const { act, data } = useBackend<AreaAtmosScrubberData>(context);
+  const { act, data } = useBackend<AreaAtmosScrubberData>();
 
   return (
-    <Window resizable width={500} height={300}>
+    <Window width={500} height={300}>
       <Window.Content scrollable>
         {' '}
         {data.scrubbers && data.scrubbers.length ? (
@@ -33,7 +33,7 @@ export const AreaAtmos = (props, context) => {
 };
 
 export const AreaScan = (props, context) => {
-  const { act, data } = useBackend<AreaAtmosScrubberData>(context);
+  const { act, data } = useBackend<AreaAtmosScrubberData>();
 
   return (
     <Section>
@@ -44,7 +44,7 @@ export const AreaScan = (props, context) => {
 };
 
 export const AreaScrubbers = (props, context) => {
-  const { act, data } = useBackend<AreaAtmosScrubberData>(context);
+  const { act, data } = useBackend<AreaAtmosScrubberData>();
 
   return (
     <Section title="Area Air Control">

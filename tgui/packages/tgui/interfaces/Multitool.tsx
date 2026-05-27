@@ -1,6 +1,6 @@
-import { BooleanLike } from '../../common/react';
+import { Button, LabeledList, Section } from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Button, LabeledList, Section } from '../components';
 import { Window } from '../layouts';
 
 export type MultitoolData = {
@@ -14,10 +14,10 @@ type SelectedIo = {
 };
 
 export const Multitool = (props, context) => {
-  const { act, data } = useBackend<MultitoolData>(context);
+  const { act, data } = useBackend<MultitoolData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section title="Smart Track">
           <Button
@@ -39,7 +39,7 @@ export const Multitool = (props, context) => {
 };
 
 export const IoWindow = (props, context) => {
-  const { act, data } = useBackend<MultitoolData>(context);
+  const { act, data } = useBackend<MultitoolData>();
   return (
     <Section title="Circuit I/O">
       <LabeledList>

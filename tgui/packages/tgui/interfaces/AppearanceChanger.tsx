@@ -1,7 +1,12 @@
-import { BooleanLike } from '../../common/react';
+import {
+  Button,
+  Collapsible,
+  NumberInput,
+  Section,
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
+import { capitalize } from 'tgui-core/string';
 import { useBackend } from '../backend';
-import { capitalize } from '../../common/string';
-import { Button, Collapsible, NumberInput, Section } from '../components';
 import { Window } from '../layouts';
 
 export type ChangerData = {
@@ -59,10 +64,10 @@ export type ChangerData = {
 };
 
 export const AppearanceChanger = (props, context) => {
-  const { act, data } = useBackend<ChangerData>(context);
+  const { act, data } = useBackend<ChangerData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         {data.change_race ? <SpeciesWindow /> : ''}
         {data.change_gender ? <GenderWindow /> : ''}
@@ -81,7 +86,7 @@ export const AppearanceChanger = (props, context) => {
 };
 
 export const SpeciesWindow = (props, context) => {
-  const { act, data } = useBackend<ChangerData>(context);
+  const { act, data } = useBackend<ChangerData>();
 
   return (
     <Section title="Species">
@@ -100,7 +105,7 @@ export const SpeciesWindow = (props, context) => {
 };
 
 export const GenderWindow = (props, context) => {
-  const { act, data } = useBackend<ChangerData>(context);
+  const { act, data } = useBackend<ChangerData>();
 
   return (
     <Section title="Bodytype">
@@ -126,7 +131,7 @@ export const GenderWindow = (props, context) => {
   );
 };
 export const BodyWindow = (props, context) => {
-  const { act, data } = useBackend<ChangerData>(context);
+  const { act, data } = useBackend<ChangerData>();
 
   return (
     <Section title="Body Modifications">
@@ -154,7 +159,7 @@ export const BodyWindow = (props, context) => {
 };
 
 export const CultureWindow = (props, context) => {
-  const { act, data } = useBackend<ChangerData>(context);
+  const { act, data } = useBackend<ChangerData>();
 
   return (
     <Section title="Cultures">
@@ -215,7 +220,7 @@ export const CultureWindow = (props, context) => {
 };
 
 export const LanguagesWindow = (props, context) => {
-  const { act, data } = useBackend<ChangerData>(context);
+  const { act, data } = useBackend<ChangerData>();
 
   return (
     <Section title="Languages">
@@ -232,7 +237,7 @@ export const LanguagesWindow = (props, context) => {
 };
 
 export const ColorsWindow = (props, context) => {
-  const { act, data } = useBackend<ChangerData>(context);
+  const { act, data } = useBackend<ChangerData>();
 
   return (
     <Section title="Colors">
@@ -282,7 +287,7 @@ export const ColorsWindow = (props, context) => {
 };
 
 export const HairWindow = (props, context) => {
-  const { act, data } = useBackend<ChangerData>(context);
+  const { act, data } = useBackend<ChangerData>();
 
   return (
     <Section title="Hair Styles">

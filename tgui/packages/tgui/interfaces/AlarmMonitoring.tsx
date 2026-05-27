@@ -1,6 +1,6 @@
-import { BooleanLike } from '../../common/react';
+import { Button, LabeledList, Section } from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Button, LabeledList, Section } from '../components';
 import { NtosWindow } from '../layouts';
 
 export type AlarmData = {
@@ -30,7 +30,7 @@ type Camera = {
 };
 
 export const AlarmMonitoring = (props, context) => {
-  const { act, data } = useBackend<AlarmData>(context);
+  const { act, data } = useBackend<AlarmData>();
 
   return (
     <NtosWindow resizable width={600} height={700}>

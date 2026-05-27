@@ -1,5 +1,5 @@
+import { Box, Divider, Section } from 'tgui-core/components';
 import { useBackend } from '../backend';
-import { Box, Divider, Section } from '../components';
 import { Window } from '../layouts';
 
 export type FlavorTextData = {
@@ -26,10 +26,10 @@ const Linkify = ({ text }) => {
 };
 
 export const FlavorText = (props, context) => {
-  const { act, data } = useBackend<FlavorTextData>(context);
+  const { act, data } = useBackend<FlavorTextData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section>
           {data.flavor_text.split('\n').map((line) =>

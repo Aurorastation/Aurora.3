@@ -1,5 +1,3 @@
-import { BooleanLike } from '../../common/react';
-import { useBackend, useLocalState } from '../backend';
 import {
   Box,
   Button,
@@ -9,7 +7,9 @@ import {
   Section,
   Table,
   Tabs,
-} from '../components';
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
+import { useBackend, useLocalState } from '../backend';
 import { NtosWindow } from '../layouts';
 
 export type DatabaseData = {
@@ -41,7 +41,7 @@ type Transaction = {
 };
 
 export const AccountDatabase = (props, context) => {
-  const { act, data } = useBackend<DatabaseData>(context);
+  const { act, data } = useBackend<DatabaseData>();
   const [active, setActive] = useLocalState(context, 'active', '');
 
   return (
@@ -71,7 +71,7 @@ export const AccountDatabase = (props, context) => {
 };
 
 export const AccountWindow = (props, context) => {
-  const { act, data } = useBackend<DatabaseData>(context);
+  const { act, data } = useBackend<DatabaseData>();
   const [active, setActive] = useLocalState(context, 'active', 'none');
   const [tab, setTab] = useLocalState(context, 'tab', 'All Accounts');
   const [make_new_acc, setMakeNewAcc] = useLocalState(
@@ -170,7 +170,7 @@ export const AccountWindow = (props, context) => {
 };
 
 export const SpecificAccountData = (props, context) => {
-  const { act, data } = useBackend<DatabaseData>(context);
+  const { act, data } = useBackend<DatabaseData>();
   const [active, setActive] = useLocalState(context, 'active', 'none');
   const [tab, setTab] = useLocalState(context, 'tab', 'All Accounts');
   const [adding_funds, setAdding] = useLocalState(context, 'adding_funds', 0);

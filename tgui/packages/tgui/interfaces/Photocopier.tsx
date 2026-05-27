@@ -1,12 +1,12 @@
-import { useBackend } from '../backend';
 import {
-  Section,
-  ProgressBar,
-  Box,
-  NumberInput,
-  Button,
   BlockQuote,
-} from '../components';
+  Box,
+  Button,
+  NumberInput,
+  ProgressBar,
+  Section,
+} from 'tgui-core/components';
+import { useBackend } from '../backend';
 import { Window } from '../layouts';
 
 export type PhotocopierData = {
@@ -19,10 +19,10 @@ export type PhotocopierData = {
 };
 
 export const Photocopier = (props, context) => {
-  const { act, data } = useBackend<PhotocopierData>(context);
+  const { act, data } = useBackend<PhotocopierData>();
   // Extract `health` and `color` variables from the `data` object.
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section title="Toner">
           {data.toner ? (
@@ -65,7 +65,7 @@ export const Photocopier = (props, context) => {
 };
 
 const PrintOptions = (props, context) => {
-  const { act, data } = useBackend<PhotocopierData>(context);
+  const { act, data } = useBackend<PhotocopierData>();
   const { num_copies } = data;
   return (
     <Section>
@@ -98,7 +98,7 @@ const PrintOptions = (props, context) => {
 };
 
 const Toner = (props, context) => {
-  const { act, data } = useBackend<PhotocopierData>(context);
+  const { act, data } = useBackend<PhotocopierData>();
   const { toner, max_toner } = data;
 
   const average_toner = max_toner * 0.66;

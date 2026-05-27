@@ -1,6 +1,3 @@
-import { BooleanLike } from '../../common/react';
-import { capitalizeAll } from '../../common/string';
-import { useBackend, useLocalState } from '../backend';
 import {
   Box,
   Button,
@@ -9,7 +6,10 @@ import {
   LabeledList,
   NoticeBox,
   Section,
-} from '../components';
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
+import { capitalizeAll } from 'tgui-core/string';
+import { useBackend, useLocalState } from '../backend';
 import { Window } from '../layouts';
 
 export type VendingData = {
@@ -42,10 +42,10 @@ type Product = {
 };
 
 export const Vending = (props, context) => {
-  const { act, data } = useBackend<VendingData>(context);
+  const { act, data } = useBackend<VendingData>();
 
   return (
-    <Window resizable width={425} height={500} theme={data.manufacturer}>
+    <Window width={425} height={500} theme={data.manufacturer}>
       <Window.Content scrollable>
         <Box textAlign="center">{data.display_ad}</Box>
         <Section>
@@ -61,7 +61,7 @@ export const Vending = (props, context) => {
 };
 
 export const ShowAllItems = (props, context) => {
-  const { act, data } = useBackend<VendingData>(context);
+  const { act, data } = useBackend<VendingData>();
   const [searchTerm, setSearchTerm] = useLocalState<string>(
     context,
     `searchTerm`,
@@ -146,7 +146,7 @@ export const ShowAllItems = (props, context) => {
 };
 
 export const ShowVendingItem = (props, context) => {
-  const { act, data } = useBackend<VendingData>(context);
+  const { act, data } = useBackend<VendingData>();
 
   return (
     <Section

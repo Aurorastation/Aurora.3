@@ -1,15 +1,15 @@
-import { useBackend } from '../backend';
 import {
+  Box,
   Button,
+  Collapsible,
+  Divider,
+  Flex,
+  LabeledList,
   Section,
   Stack,
   Table,
-  Flex,
-  Box,
-  Collapsible,
-  LabeledList,
-  Divider,
-} from '../components';
+} from 'tgui-core/components';
+import { useBackend } from '../backend';
 import { Window } from '../layouts';
 
 export type DispenserData = {
@@ -27,25 +27,25 @@ export type DispenserData = {
   is_condimaster: boolean;
 };
 
-let modes = new Map<number, string>([
+const modes = new Map<number, string>([
   [0, 'Disposals'],
   [1, 'Beaker'],
 ]);
 
 type Reagent = {
-  name: String;
+  name: string;
   volume: number;
-  typepath: String;
+  typepath: string;
 };
 
 type Blood = {
-  name: String;
-  type: String;
-  DNA: String;
+  name: string;
+  type: string;
+  DNA: string;
 };
 
 const ReagentFactory = (props, context) => {
-  const { act, data } = useBackend<DispenserData>(context);
+  const { act, data } = useBackend<DispenserData>();
   const { reagents, quantities, clickOperation } = props;
 
   return (
@@ -82,7 +82,7 @@ const ReagentFactory = (props, context) => {
 };
 
 const DispenseButton = (props, context) => {
-  const { act, data } = useBackend<DispenserData>(context);
+  const { act, data } = useBackend<DispenserData>();
   const { quantity, reagent, operation } = props;
 
   if (quantity === 'Custom') {
@@ -117,8 +117,8 @@ const DispenseButton = (props, context) => {
 };
 
 export const ChemMaster = (props, context) => {
-  const { act, data } = useBackend<DispenserData>(context);
-  let dispensable_quantities = [1, 2, 5, 10, 15, 20, 30, 60, 'Custom', 'All'];
+  const { act, data } = useBackend<DispenserData>();
+  const dispensable_quantities = [1, 2, 5, 10, 15, 20, 30, 60, 'Custom', 'All'];
 
   return (
     <Window

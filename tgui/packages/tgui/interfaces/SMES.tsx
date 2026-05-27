@@ -1,14 +1,14 @@
-import { BooleanLike } from '../../common/react';
-import { useBackend } from '../backend';
 import {
-  Box,
   BlockQuote,
+  Box,
   Button,
   LabeledList,
-  Section,
-  ProgressBar,
   NumberInput,
-} from '../components';
+  ProgressBar,
+  Section,
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
+import { useBackend } from '../backend';
 import { Window } from '../layouts';
 
 export type SMESData = {
@@ -31,10 +31,10 @@ export type SMESData = {
 };
 
 export const SMES = (props, context) => {
-  const { act, data } = useBackend<SMESData>(context);
+  const { act, data } = useBackend<SMESData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         {data.fail_time ? <FailWindow /> : <SMESWindow />}
       </Window.Content>
@@ -43,7 +43,7 @@ export const SMES = (props, context) => {
 };
 
 export const FailWindow = (props, context) => {
-  const { act, data } = useBackend<SMESData>(context);
+  const { act, data } = useBackend<SMESData>();
 
   return (
     <Section
@@ -64,7 +64,7 @@ export const FailWindow = (props, context) => {
 };
 
 export const SMESWindow = (props, context) => {
-  const { act, data } = useBackend<SMESData>(context);
+  const { act, data } = useBackend<SMESData>();
 
   return (
     <Section title="Supermagnetic Storage">
@@ -176,10 +176,10 @@ export const SMESWindow = (props, context) => {
 };
 
 const time_remaining = (time, wtime) => {
-  let timeleft = (time - wtime) / 10; // deciseconds
-  let hours = Math.round(timeleft / 3600);
-  let minutes = Math.round((timeleft % 3600) / 60);
-  let seconds = Math.round(timeleft % 60);
+  const timeleft = (time - wtime) / 10; // deciseconds
+  const hours = Math.round(timeleft / 3600);
+  const minutes = Math.round((timeleft % 3600) / 60);
+  const seconds = Math.round(timeleft % 60);
   return [
     hours >= 1 && `${hours} hours`,
     minutes >= 1 && `${minutes} minutes`,

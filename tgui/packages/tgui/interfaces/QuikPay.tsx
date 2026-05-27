@@ -1,15 +1,15 @@
-import { BooleanLike } from '../../common/react';
-import { useBackend, useLocalState } from '../backend';
 import {
-  LabeledList,
+  Box,
   Button,
+  Flex,
   Input,
+  LabeledList,
   NumberInput,
   Section,
-  Flex,
   Table,
-  Box,
-} from '../components';
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
+import { useBackend, useLocalState } from '../backend';
 import { Window } from '../layouts';
 
 export type PayData = {
@@ -36,10 +36,10 @@ type ItemBuy = {
 };
 
 export const QuikPay = (props, context) => {
-  const { act, data } = useBackend<PayData>(context);
+  const { act, data } = useBackend<PayData>();
 
   return (
-    <Window resizable theme="idris">
+    <Window theme="idris">
       <Window.Content scrollable>
         <Section
           title="Ordering"
@@ -79,7 +79,7 @@ export const QuikPay = (props, context) => {
 };
 
 export const ItemWindow = (props, context) => {
-  const { act, data } = useBackend<PayData>(context);
+  const { act, data } = useBackend<PayData>();
   const [searchTerm, setSearchTerm] = useLocalState<string>(
     context,
     `searchTerm`,
@@ -213,7 +213,7 @@ export const ItemWindow = (props, context) => {
 };
 
 export const AddItems = (props, context) => {
-  const { act, data } = useBackend<PayData>(context);
+  const { act, data } = useBackend<PayData>();
   return (
     <Section title="Add Item">
       <Input
@@ -241,7 +241,7 @@ export const AddItems = (props, context) => {
 };
 
 export const CartWindow = (props, context) => {
-  const { act, data } = useBackend<PayData>(context);
+  const { act, data } = useBackend<PayData>();
   return (
     <Section>
       <LabeledList>

@@ -1,6 +1,6 @@
-import { BooleanLike } from '../../common/react';
+import { Button, LabeledList, Section } from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Section, LabeledList, Button } from '../components';
 import { Window } from '../layouts';
 import { AtmosControl } from './AtmosControl';
 
@@ -15,10 +15,10 @@ type Device = {
 };
 
 export const AtmosControlInjector = (props, context) => {
-  const { act, data } = useBackend<InjectorData>(context);
+  const { act, data } = useBackend<InjectorData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section>
           <AtmosControl />
@@ -37,7 +37,7 @@ export const AtmosControlInjector = (props, context) => {
 };
 
 export const InjectorWindow = (props, context) => {
-  const { act, data } = useBackend<InjectorData>(context);
+  const { act, data } = useBackend<InjectorData>();
 
   return (
     <Section title="Fuel Injection System">

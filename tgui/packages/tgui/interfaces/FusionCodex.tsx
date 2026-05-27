@@ -1,5 +1,5 @@
+import { Box, Flex, Input, LabeledList, Section } from 'tgui-core/components';
 import { useBackend, useLocalState } from '../backend';
-import { Box, Flex, Input, LabeledList, Section } from '../components';
 import { NtosWindow } from '../layouts';
 
 export type CodexData = {
@@ -28,7 +28,7 @@ type Product = {
 };
 
 export const FusionCodex = (props, context) => {
-  const { act, data } = useBackend<CodexData>(context);
+  const { act, data } = useBackend<CodexData>();
   const [searchTerm, setSearchTerm] = useLocalState<string>(
     context,
     `searchTerm`,

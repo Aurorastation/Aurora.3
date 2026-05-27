@@ -1,7 +1,7 @@
-import { BooleanLike } from '../../common/react';
-import { capitalize } from '../../common/string';
+import { Box, Button, NoticeBox, Section } from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
+import { capitalize } from 'tgui-core/string';
 import { useBackend } from '../backend';
-import { Box, Button, NoticeBox, Section } from '../components';
 import { Window } from '../layouts';
 
 export type HarvesterData = {
@@ -19,10 +19,10 @@ type Material = {
 };
 
 export const KineticHarvester = (props, context) => {
-  const { act, data } = useBackend<HarvesterData>(context);
+  const { act, data } = useBackend<HarvesterData>();
 
   return (
-    <Window resizable theme={data.manufacturer}>
+    <Window theme={data.manufacturer}>
       <Window.Content scrollable>
         {data.id ? (
           <HarvestWindow />
@@ -35,7 +35,7 @@ export const KineticHarvester = (props, context) => {
 };
 
 export const HarvestWindow = (props, context) => {
-  const { act, data } = useBackend<HarvesterData>(context);
+  const { act, data } = useBackend<HarvesterData>();
 
   return (
     <Section

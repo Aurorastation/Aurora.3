@@ -1,6 +1,11 @@
-import { BooleanLike } from '../../common/react';
+import {
+  Button,
+  LabeledList,
+  ProgressBar,
+  Section,
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Button, LabeledList, ProgressBar, Section } from '../components';
 import { Window } from '../layouts';
 
 export type WagonData = {
@@ -23,10 +28,10 @@ export type WagonData = {
 };
 
 export const PussyWagon = (props, context) => {
-  const { act, data } = useBackend<WagonData>(context);
+  const { act, data } = useBackend<WagonData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section title="Status">
           <LabeledList>
@@ -90,7 +95,7 @@ export const PussyWagon = (props, context) => {
 };
 
 export const ControlsWindow = (props, context) => {
-  const { act, data } = useBackend<WagonData>(context);
+  const { act, data } = useBackend<WagonData>();
 
   return (
     <LabeledList>

@@ -1,6 +1,3 @@
-import { BooleanLike } from 'common/react';
-import { capitalize } from 'common/string';
-import { useBackend } from '../backend';
 import {
   AnimatedNumber,
   Box,
@@ -8,7 +5,10 @@ import {
   Divider,
   LabeledList,
   Section,
-} from '../components';
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
+import { capitalize } from 'tgui-core/string';
+import { useBackend } from '../backend';
 
 export type DiagnosticsData = {
   broken: BooleanLike;
@@ -54,7 +54,7 @@ type Limb = {
 };
 
 export const IPCDiagnostics = (props, context) => {
-  const { act, data } = useBackend<DiagnosticsData>(context);
+  const { act, data } = useBackend<DiagnosticsData>();
 
   return (
     <>
@@ -128,7 +128,7 @@ export const IPCDiagnostics = (props, context) => {
 };
 
 export const OrganDisplay = (props, context) => {
-  const { act, data } = useBackend<DiagnosticsData>(context);
+  const { act, data } = useBackend<DiagnosticsData>();
 
   return (
     <Section title={data.patient_name + ': Internal Components'}>

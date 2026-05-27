@@ -1,6 +1,3 @@
-import { toFixed } from 'common/math';
-import { BooleanLike } from 'common/react';
-import { useBackend } from '../backend';
 import {
   BlockQuote,
   Box,
@@ -11,7 +8,10 @@ import {
   Section,
   Slider,
   Stack,
-} from '../components';
+} from 'tgui-core/components';
+import { toFixed } from 'tgui-core/math';
+import type { BooleanLike } from 'tgui-core/react';
+import { useBackend } from '../backend';
 import { NtosWindow } from '../layouts';
 
 type BatteryData = {
@@ -41,7 +41,7 @@ type NTOSConfigData = {
 };
 
 const BatteryStatus = (props, context) => {
-  const { act, data } = useBackend<NTOSConfigData>(context);
+  const { act, data } = useBackend<NTOSConfigData>();
   const { battery } = data;
   if (!battery) {
     return (
@@ -76,7 +76,7 @@ const BatteryStatus = (props, context) => {
 };
 
 const ResourceUsage = (props, context) => {
-  const { act, data } = useBackend<NTOSConfigData>(context);
+  const { act, data } = useBackend<NTOSConfigData>();
   const { power_usage, disk_used, disk_size } = data;
   const remainingSpace = disk_size - disk_used;
   return (
@@ -102,7 +102,7 @@ const ResourceUsage = (props, context) => {
 };
 
 export const NTOSConfig = (props, context) => {
-  const { act, data } = useBackend<NTOSConfigData>(context);
+  const { act, data } = useBackend<NTOSConfigData>();
   const {
     hardware = [],
     card_slot,

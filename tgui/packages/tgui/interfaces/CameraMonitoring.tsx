@@ -1,6 +1,6 @@
-import { BooleanLike } from '../../common/react';
+import { Button, Input, NoticeBox, Section } from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend, useLocalState } from '../backend';
-import { Button, Input, NoticeBox, Section } from '../components';
 import { NtosWindow } from '../layouts';
 
 export type CameraData = {
@@ -25,7 +25,7 @@ type Network = {
 };
 
 export const CameraMonitoring = (props, context) => {
-  const { act, data } = useBackend<CameraData>(context);
+  const { act, data } = useBackend<CameraData>();
 
   return (
     <NtosWindow resizable height={800} width={900}>
@@ -42,7 +42,7 @@ export const CameraMonitoring = (props, context) => {
 };
 
 export const ShowNetworks = (props, context) => {
-  const { act, data } = useBackend<CameraData>(context);
+  const { act, data } = useBackend<CameraData>();
 
   return (
     <Section
@@ -72,7 +72,7 @@ export const ShowNetworks = (props, context) => {
 };
 
 export const ShowNetworkCameras = (props, context) => {
-  const { act, data } = useBackend<CameraData>(context);
+  const { act, data } = useBackend<CameraData>();
   const [searchTerm, setSearchTerm] = useLocalState<string>(
     context,
     `searchTerm`,

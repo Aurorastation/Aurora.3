@@ -1,6 +1,6 @@
-import { BooleanLike } from '../../common/react';
+import { Button, LabeledList, NoticeBox, Section } from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Button, LabeledList, NoticeBox, Section } from '../components';
 import { Window } from '../layouts';
 
 export type TurretData = {
@@ -19,10 +19,10 @@ type Setting = {
 };
 
 export const TurretControlPorta = (props, context) => {
-  const { act, data } = useBackend<TurretData>(context);
+  const { act, data } = useBackend<TurretData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section title="Control Panel">
           <NoticeBox>
@@ -38,7 +38,7 @@ export const TurretControlPorta = (props, context) => {
 };
 
 export const ControlSection = (props, context) => {
-  const { act, data } = useBackend<TurretData>(context);
+  const { act, data } = useBackend<TurretData>();
 
   return (
     <LabeledList>

@@ -1,6 +1,12 @@
+import {
+  Box,
+  Divider,
+  NoticeBox,
+  ProgressBar,
+  Section,
+} from 'tgui-core/components';
+import { capitalize } from 'tgui-core/string';
 import { useBackend } from '../backend';
-import { Box, Divider, NoticeBox, ProgressBar, Section } from '../components';
-import { capitalize } from '../../common/string';
 import { Window } from '../layouts';
 
 export type ArmorValuesData = {
@@ -8,10 +14,10 @@ export type ArmorValuesData = {
 };
 
 export const ArmorValues = (props, context) => {
-  const { act, data } = useBackend<ArmorValuesData>(context);
+  const { act, data } = useBackend<ArmorValuesData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section>
           <NoticeBox>
