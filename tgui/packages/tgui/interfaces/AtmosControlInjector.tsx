@@ -14,7 +14,7 @@ type Device = {
   automation: BooleanLike;
 };
 
-export const AtmosControlInjector = (props, context) => {
+export const AtmosControlInjector = (props) => {
   const { act, data } = useBackend<InjectorData>();
 
   return (
@@ -36,7 +36,7 @@ export const AtmosControlInjector = (props, context) => {
   );
 };
 
-export const InjectorWindow = (props, context) => {
+export const InjectorWindow = (props) => {
   const { act, data } = useBackend<InjectorData>();
 
   return (

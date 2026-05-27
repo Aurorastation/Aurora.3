@@ -64,7 +64,7 @@ type Material = {
   amount: number;
 };
 
-export const SyntheticFabricator = (props, context) => {
+export const SyntheticFabricator = (props) => {
   const { act, data } = useBackend<FabricatorData>();
 
   return (

@@ -25,7 +25,7 @@ export type MonitorData = {
   ntnetmaxlogs: number;
 };
 
-export const NTMonitor = (props, context) => {
+export const NTMonitor = (props) => {
   const { act, data } = useBackend<MonitorData>();
 
   return (
@@ -123,7 +123,7 @@ export const NTMonitor = (props, context) => {
           </LabeledList>
         </Section>
         <Section title="System Logs">
-          {data.ntnetlogs && data.ntnetlogs.length ? (
+          {data.ntnetlogs?.length ? (
             data.ntnetlogs.map((log) => (
               <Box key={log} backgroundColor="#000000">
                 {log}
@@ -134,7 +134,7 @@ export const NTMonitor = (props, context) => {
           )}
         </Section>
         <Section title="Message Logs">
-          {data.ntnetmessages && data.ntnetmessages.length ? (
+          {data.ntnetmessages?.length ? (
             data.ntnetmessages.map((log) => (
               <Box key={log} backgroundColor="#000000">
                 {log}

@@ -26,7 +26,7 @@ type Data = {
   geneMasks: GeneMask[] | null;
 };
 
-export const BotanyIsolator = (_props, context) => {
+export const BotanyIsolator = (_props) => {
   const { act, data } = useBackend<Data>();
   const { activity, degradation, disk, loadedSeed, sourceName, geneMasks } =
     data;

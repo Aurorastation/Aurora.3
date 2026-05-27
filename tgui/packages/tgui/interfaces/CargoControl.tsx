@@ -110,7 +110,7 @@ type Bounty = {
   background: string;
 };
 
-export const CargoControl = (props, context) => {
+export const CargoControl = (props) => {
   const { act, data } = useBackend<CargoData>();
   // FUCK THE WAY THESE FUCKING TOPIC CALLS WERE MADE
   // THIS BULLSHIT GAVE ME ARTHRITIS
@@ -301,7 +301,7 @@ const showAppropriateWindow = (page) => {
   }
 };
 
-export const MainWindow = (props, context) => {
+export const MainWindow = (props) => {
   const { act, data } = useBackend<CargoData>();
   return (
     <Section title="Main Window">
@@ -326,7 +326,7 @@ export const MainWindow = (props, context) => {
   );
 };
 
-export const OverviewSubmitted = (props, context) => {
+export const OverviewSubmitted = (props) => {
   const { act, data } = useBackend<CargoData>();
   return (
     <Section title="Submitted Orders">
@@ -399,7 +399,7 @@ export const OverviewSubmitted = (props, context) => {
   );
 };
 
-export const OverviewApproved = (props, context) => {
+export const OverviewApproved = (props) => {
   const { act, data } = useBackend<CargoData>();
   return (
     <Section title="Approved Orders">
@@ -463,7 +463,7 @@ export const OverviewApproved = (props, context) => {
   );
 };
 
-export const OverviewShipped = (props, context) => {
+export const OverviewShipped = (props) => {
   const { act, data } = useBackend<CargoData>();
   return (
     <Section title="Shipped Orders">
@@ -512,7 +512,7 @@ export const OverviewShipped = (props, context) => {
   );
 };
 
-export const OverviewDelivered = (props, context) => {
+export const OverviewDelivered = (props) => {
   const { act, data } = useBackend<CargoData>();
   return (
     <Section title="Delivered Orders">
@@ -561,7 +561,7 @@ export const OverviewDelivered = (props, context) => {
   );
 };
 
-export const OverviewShipments = (props, context) => {
+export const OverviewShipments = (props) => {
   const { act, data } = useBackend<CargoData>();
   return (
     <Section title="Shipments Overview">
@@ -594,7 +594,7 @@ export const OverviewShipments = (props, context) => {
   );
 };
 
-export const Bounties = (props, context) => {
+export const Bounties = (props) => {
   const { act, data } = useBackend<CargoData>();
   return (
     <Section
@@ -643,7 +643,7 @@ export const Bounties = (props, context) => {
   );
 };
 
-export const Settings = (props, context) => {
+export const Settings = (props) => {
   const { act, data } = useBackend<CargoData>();
   return (
     <Section title="Settings">

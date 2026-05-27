@@ -41,7 +41,7 @@ type Targeting = {
   distance: number;
 };
 
-export const GunneryWindow = (props, context) => {
+export const GunneryWindow = (props) => {
   const { act, data } = useBackend<GunneryData>();
   const { entry_points, z_levels, guns, platform_directions } = data;
   let gun_names: string[];
@@ -61,14 +61,14 @@ export const GunneryWindow = (props, context) => {
   }
   if (!data.targeting) {
     return (
-      <Section collapsing title="Targeting Information">
+      <Section title="Targeting Information">
         <Box bold>No target designated.</Box>
       </Section>
     );
   } else {
     return (
       <Section>
-        <Section collapsing title="Lock-On Information">
+        <Section title="Lock-On Information">
           <LabeledList>
             <LabeledList.Item label="Target">{target_name}</LabeledList.Item>
             <LabeledList.Item label="Type">
@@ -79,11 +79,12 @@ export const GunneryWindow = (props, context) => {
             </LabeledList.Item>
           </LabeledList>
         </Section>
-        <Section collapsing title="Targeting Calibration">
+        <Section title="Targeting Calibration">
           <Dropdown
             options={entry_points}
             displayText={data.selected_entrypoint}
             width="100%"
+            selected={data.selected_entrypoint}
             onSelected={(value) =>
               act('select_entrypoint', { entrypoint: value })
             }
@@ -95,6 +96,7 @@ export const GunneryWindow = (props, context) => {
                 options={z_levels}
                 displayText={data.selected_z}
                 width="100%"
+                selected={data.selected_z.toString()}
                 onSelected={(value) => act('select_z', { z: value })}
               />
             </Section>
@@ -107,6 +109,7 @@ export const GunneryWindow = (props, context) => {
                 options={platform_directions}
                 displayText={data.platform_direction}
                 width="100%"
+                selected={data.platform_direction}
                 onSelected={(value) =>
                   act('platform_direction', { dir: value })
                 }
@@ -116,18 +119,19 @@ export const GunneryWindow = (props, context) => {
             ''
           )}
         </Section>
-        <Section collapsing title="Scan">
+        <Section title="Scan">
           {MinimapView({
             map_image: data.entry_point_map_image,
             x: data.entry_point_x,
             y: data.entry_point_y,
           })}
         </Section>
-        <Section collapsing title="Weaponry Control">
+        <Section title="Weaponry Control">
           <Dropdown
             options={gun_names}
             width="100%"
             displayText={cannon_name ? cannon_name : ''}
+            selected={cannon_name ? cannon_name : ''}
             onSelected={(value) => act('select_gun', { gun: value })}
           />
           {data.cannon && (
@@ -158,7 +162,7 @@ export const GunneryWindow = (props, context) => {
   }
 };
 
-export const Gunnery = (props, context) => {
+export const Gunnery = (props) => {
   const { act, data } = useBackend<GunneryData>();
   return (
     <Window theme="zavodskoi">

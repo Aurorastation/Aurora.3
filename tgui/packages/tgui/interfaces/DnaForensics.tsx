@@ -18,7 +18,7 @@ type Data = {
   lid_closed: BooleanLike;
 };
 
-export const DnaForensics = (props, context) => {
+export const DnaForensics = (props) => {
   const { act, data } = useBackend<Data>();
   const hasItem = !!data.bloodsamp;
 

@@ -15,7 +15,7 @@ export type ShuttleControlConsoleLiftData = {
   ship_name: string;
 };
 
-export const ShuttleControlConsoleLift = (props, context) => {
+export const ShuttleControlConsoleLift = (props) => {
   const { act, data } = useBackend<ShuttleControlConsoleLiftData>();
 
   return (

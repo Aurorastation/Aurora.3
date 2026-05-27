@@ -72,7 +72,7 @@ const progressClass = (value) => {
   }
 };
 
-export const CryoTube = (props, context) => {
+export const CryoTube = (props) => {
   const { act, data } = useBackend<CryoData>();
   return (
     <Window theme="zenghu">
@@ -83,13 +83,13 @@ export const CryoTube = (props, context) => {
   );
 };
 
-export const CryoContent = (props, context) => {
+export const CryoContent = (props) => {
   const { act, data } = useBackend<CryoData>();
   return (
     <Fragment>
       <Section
         title="Occupant"
-        flexGrow="1"
+        flexGrow={true}
         buttons={
           <Button
             icon="user-slash"
@@ -172,7 +172,7 @@ export const CryoContent = (props, context) => {
         ) : (
           <Flex height="100%" textAlign="center">
             <Flex.Item grow="1" align="center" color="label">
-              <Icon name="user-slash" mb="0.5rem" size="5" />
+              <Icon name="user-slash" mb="0.5rem" size={5} />
               <br />
               No occupant detected.
             </Flex.Item>
@@ -241,7 +241,7 @@ export const CryoContent = (props, context) => {
   );
 };
 
-const CryoBeaker = (props, context) => {
+const CryoBeaker = (props) => {
   const { act, data } = useBackend<BeakerData>();
   if (data.isBeakerLoaded) {
     return (
@@ -255,7 +255,7 @@ const CryoBeaker = (props, context) => {
           {data.beakerVolume ? (
             <AnimatedNumber
               value={data.beakerVolume}
-              format={(v) => Math.round(v) + ' units remaining'}
+              format={(v) => `${Math.round(v)} units remaining`}
             />
           ) : (
             'Beaker is empty'

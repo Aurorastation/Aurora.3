@@ -30,7 +30,7 @@ const FlightSection = (act, data) => (
     title="Flight Data"
     buttons={
       <Button
-        content={'Sector Map View ' + (data.viewing ? 'Engaged' : 'Disengaged')}
+        content={`Sector Map View ${data.viewing ? 'Engaged' : 'Disengaged'}`}
         onClick={() => act('viewing')}
       />
     }
@@ -82,7 +82,7 @@ const NavSection = (act, data) => (
     </Table>
   </Section>
 );
-export const Nav = (props, context) => {
+export const Nav = (props) => {
   const { act, data } = useBackend<NavData>();
 
   return (

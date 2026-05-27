@@ -37,7 +37,7 @@ type PowerChannel = {
   status: number;
 };
 
-export const Apc = (props, context) => {
+export const Apc = (props) => {
   const { act, data } = useBackend<APCData>();
 
   return (
@@ -49,7 +49,7 @@ export const Apc = (props, context) => {
   );
 };
 
-export const FailWindow = (props, context) => {
+export const FailWindow = (props) => {
   const { act, data } = useBackend<APCData>();
 
   return (
@@ -72,7 +72,7 @@ export const FailWindow = (props, context) => {
   );
 };
 
-export const APCWindow = (props, context) => {
+export const APCWindow = (props) => {
   const { act, data } = useBackend<APCData>();
   return (
     <Section>
@@ -251,7 +251,7 @@ export const APCWindow = (props, context) => {
   );
 };
 
-export const SiliconWindow = (props, context) => {
+export const SiliconWindow = (props) => {
   const { act, data } = useBackend<APCData>();
   return (
     <Section

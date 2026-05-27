@@ -27,13 +27,9 @@ type Product = {
   amount: number;
 };
 
-export const FusionCodex = (props, context) => {
+export const FusionCodex = (props) => {
   const { act, data } = useBackend<CodexData>();
-  const [searchTerm, setSearchTerm] = useLocalState<string>(
-    context,
-    `searchTerm`,
-    ``,
-  );
+  const [searchTerm, setSearchTerm] = useLocalState<string>(`searchTerm`, ``);
 
   return (
     <NtosWindow resizable>
@@ -48,7 +44,7 @@ export const FusionCodex = (props, context) => {
               placeholder="Search by name"
               width="40vw"
               maxLength={512}
-              onInput={(e, value) => {
+              onChange={(value) => {
                 setSearchTerm(value);
               }}
               value={searchTerm}

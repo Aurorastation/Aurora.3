@@ -35,7 +35,7 @@ type Chemical = {
   amount: number;
 };
 
-export const ChemicalDispenser = (props, context) => {
+export const ChemicalDispenser = (props) => {
   const { act, data } = useBackend<DispenserData>();
 
   return (
@@ -44,7 +44,7 @@ export const ChemicalDispenser = (props, context) => {
         <Section>
           <LabeledControls>
             {data.preset_dispense_amounts.map((number) => (
-              <LabeledControls.Item key={number}>
+              <LabeledControls.Item key={number} label={number.toString()}>
                 <Button
                   content={number}
                   icon="chevron-circle-down"
@@ -63,7 +63,7 @@ export const ChemicalDispenser = (props, context) => {
               unit="u"
               step={5}
               stepPixelSize={15}
-              onDrag={(e, value) => act('amount', { amount: value })}
+              onDrag={(value) => act('amount', { amount: value })}
             />
           </Box>
           <Divider />
@@ -99,7 +99,7 @@ export const ChemicalDispenser = (props, context) => {
   );
 };
 
-export const ChemTable = (props, context) => {
+export const ChemTable = (props) => {
   const { act, data } = useBackend<DispenserData>();
 
   return (
@@ -107,7 +107,7 @@ export const ChemTable = (props, context) => {
       {data.chemicals.map((chemical) => (
         <Button
           key={chemical.label}
-          content={chemical.label + ' (' + chemical.amount + ')'}
+          content={`${chemical.label} (${chemical.amount})`}
           icon="tint"
           width="170px"
           lineHeight={1.75}
@@ -118,7 +118,7 @@ export const ChemTable = (props, context) => {
   );
 };
 
-export const BeakerContents = (props, context) => {
+export const BeakerContents = (props) => {
   const { act, data } = useBackend<DispenserData>();
 
   return (

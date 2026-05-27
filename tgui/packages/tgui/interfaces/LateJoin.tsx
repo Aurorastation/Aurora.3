@@ -1,3 +1,4 @@
+import { resolveAsset } from 'tgui/assets';
 import {
   Box,
   Button,
@@ -29,7 +30,7 @@ type Job = {
   current_positions: number;
 };
 
-export const LateJoin = (props, context) => {
+export const LateJoin = (props) => {
   const { act, data } = useBackend<LateJoinData>();
 
   return (
@@ -37,18 +38,15 @@ export const LateJoin = (props, context) => {
       <Window.Content scrollable>
         <Section>
           <Section textAlign="center">
-            Welcome, <Box bold>{data.character_name + '.'}</Box>
+            Welcome, <Box bold>{`${data.character_name}.`}</Box>
             {
-              <Box
-                as="img"
-                m={0}
-                src={`data:image/jpeg;base64,${data.character_image}`}
-                width="35%"
-                height="35%"
-                style={{
-                  '-ms-interpolation-mode': 'nearest-neighbor',
-                }}
-              />
+              <Box as="img" m={0} width="35%" height="35%">
+                <img
+                  src={resolveAsset(`${data.character_image}`)}
+                  width="48px"
+                  height="48px"
+                />
+              </Box>
             }
           </Section>
           <LabeledList>
@@ -85,7 +83,7 @@ export const LateJoin = (props, context) => {
   );
 };
 
-export const JobsList = (props, context) => {
+export const JobsList = (props) => {
   const { act, data } = useBackend<LateJoinData>();
 
   return (
@@ -111,7 +109,6 @@ export const JobsList = (props, context) => {
                       ')'
                     : job.title
                 }
-                bold={job.head}
                 width="100%"
                 onClick={() => act('SelectedJob', { SelectedJob: job.title })}
               />

@@ -13,7 +13,7 @@ export type VitalsData = {
   blood_o2: number;
 };
 
-export const VitalsMonitor = (props, context) => {
+export const VitalsMonitor = (props) => {
   const { act, data } = useBackend<VitalsData>();
 
   return (
@@ -31,7 +31,7 @@ export const VitalsMonitor = (props, context) => {
   );
 };
 
-const PatientVitals = (props, context) => {
+const PatientVitals = (props) => {
   const { act, data } = useBackend<VitalsData>();
   return (
     <Section>

@@ -23,7 +23,7 @@ type Piston = {
   piston: number;
 };
 
-export const CrusherControl = (props, context) => {
+export const CrusherControl = (props) => {
   const { act, data } = useBackend<CrusherData>();
 
   return (
@@ -53,7 +53,7 @@ export const CrusherControl = (props, context) => {
   );
 };
 
-export const PistonManagement = (props, context) => {
+export const PistonManagement = (props) => {
   const { act, data } = useBackend<CrusherData>();
 
   return (
@@ -89,7 +89,7 @@ export const PistonManagement = (props, context) => {
   );
 };
 
-export const PistonMonitoring = (props, context) => {
+export const PistonMonitoring = (props) => {
   const { act, data } = useBackend<CrusherData>();
 
   return (
@@ -101,7 +101,7 @@ export const PistonMonitoring = (props, context) => {
         {data.status_pistons.map((piston) => (
           <LabeledList.Item
             key={piston.piston}
-            label={'Piston' + piston.piston}
+            label={`Piston${piston.piston}`}
           >
             <ProgressBar
               ranges={{

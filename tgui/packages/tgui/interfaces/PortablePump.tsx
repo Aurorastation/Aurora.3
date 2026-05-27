@@ -30,7 +30,7 @@ type Tank = {
   tankPressure: number;
 };
 
-export const PortablePump = (props, context) => {
+export const PortablePump = (props) => {
   const { act, data } = useBackend<PumpData>();
   // Extract `health` and `color` variables from the `data` object.
 
@@ -115,7 +115,7 @@ export const PortablePump = (props, context) => {
             unit="kPa"
             minValue={data.minpressure}
             maxValue={data.maxpressure}
-            onDrag={(e, value) =>
+            onDrag={(value) =>
               act('pressure_set', {
                 pressure_set: value,
               })
@@ -127,7 +127,7 @@ export const PortablePump = (props, context) => {
   );
 };
 
-export const HoldingTankWindow = (props, context) => {
+export const HoldingTankWindow = (props) => {
   const { act, data } = useBackend<PumpData>();
   return (
     <Section>

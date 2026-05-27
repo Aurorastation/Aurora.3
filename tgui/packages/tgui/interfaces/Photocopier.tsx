@@ -18,7 +18,7 @@ export type PhotocopierData = {
   num_copies: number;
 };
 
-export const Photocopier = (props, context) => {
+export const Photocopier = (props) => {
   const { act, data } = useBackend<PhotocopierData>();
   // Extract `health` and `color` variables from the `data` object.
   return (
@@ -64,7 +64,7 @@ export const Photocopier = (props, context) => {
   );
 };
 
-const PrintOptions = (props, context) => {
+const PrintOptions = (props) => {
   const { act, data } = useBackend<PhotocopierData>();
   const { num_copies } = data;
   return (
@@ -80,7 +80,7 @@ const PrintOptions = (props, context) => {
           minValue={1}
           maxValue={10}
           value={num_copies}
-          onDrag={(e, value) =>
+          onDrag={(value) =>
             act('set_copies', {
               num_copies: value,
             })
@@ -97,7 +97,7 @@ const PrintOptions = (props, context) => {
   );
 };
 
-const Toner = (props, context) => {
+const Toner = (props) => {
   const { act, data } = useBackend<PhotocopierData>();
   const { toner, max_toner } = data;
 

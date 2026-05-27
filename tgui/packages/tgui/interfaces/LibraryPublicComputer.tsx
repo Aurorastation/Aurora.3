@@ -32,23 +32,18 @@ type SearchResult = {
 
 const CATEGORIES = ['Any', 'Fiction', 'Non-Fiction', 'Reference', 'Religion'];
 
-export const LibraryPublicComputer = (props, context) => {
+export const LibraryPublicComputer = (props) => {
   const { act, data } = useBackend<LibraryPublicComputerData>();
-  const [title, setTitle] = useLocalState(context, 'title', '');
-  const [author, setAuthor] = useLocalState(context, 'author', '');
+  const [title, setTitle] = useLocalState('title', '');
+  const [author, setAuthor] = useLocalState('author', '');
   const [category, setCategory] = useLocalState(
-    context,
     'category',
     data.search_category,
   );
-  const [hasSearched, setHasSearched] = useLocalState(
-    context,
-    'hasSearched',
-    false,
-  );
+  const [hasSearched, setHasSearched] = useLocalState('hasSearched', false);
 
   return (
-    <Window title="Public Library Terminal" width={650} height={500} resizable>
+    <Window title="Public Library Terminal" width={650} height={500}>
       <Window.Content scrollable>
         <Section title="Search the Archive">
           <LabeledList>
@@ -57,7 +52,7 @@ export const LibraryPublicComputer = (props, context) => {
                 fluid
                 value={title}
                 placeholder="Leave blank for any"
-                onInput={(e, val) => setTitle(val)}
+                onChange={(val) => setTitle(val)}
               />
             </LabeledList.Item>
             <LabeledList.Item label="Author">
@@ -65,7 +60,7 @@ export const LibraryPublicComputer = (props, context) => {
                 fluid
                 value={author}
                 placeholder="Leave blank for any"
-                onInput={(e, val) => setAuthor(val)}
+                onChange={(val) => setAuthor(val)}
               />
             </LabeledList.Item>
             <LabeledList.Item label="Category">

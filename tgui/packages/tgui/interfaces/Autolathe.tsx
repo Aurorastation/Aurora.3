@@ -58,12 +58,12 @@ type QueueItem = {
   remaining_time: number;
 };
 
-export const Autolathe = (props, context) => {
+export const Autolathe = (props) => {
   const { act, data } = useBackend<AutolatheData>();
-  const [tab, setTab] = useLocalState(context, 'tab', 'All');
+  const [tab, setTab] = useLocalState('tab', 'All');
 
   return (
-    <Window theme={data.manufacturer} width="1000" height="700">
+    <Window theme={data.manufacturer} width={1000} height={700}>
       <Window.Content scrollable>
         <Stack vertical fill>
           <Stack.Item>
@@ -129,15 +129,11 @@ export const Autolathe = (props, context) => {
   );
 };
 
-export const CategoryData = (props, context) => {
+export const CategoryData = (props) => {
   const { act, data } = useBackend<AutolatheData>();
-  const [tab, setTab] = useLocalState(context, 'tab', 'All');
-  const [searchTerm, setSearchTerm] = useLocalState<string>(
-    context,
-    `searchTerm`,
-    ``,
-  );
-  const [amount, setAmount] = useLocalState(context, 'amount', 1);
+  const [tab, setTab] = useLocalState('tab', 'All');
+  const [searchTerm, setSearchTerm] = useLocalState<string>(`searchTerm`, ``);
+  const [amount, setAmount] = useLocalState('amount', 1);
 
   return (
     <Section
@@ -149,7 +145,7 @@ export const CategoryData = (props, context) => {
           autoSelect
           placeholder="Search by name"
           maxLength={512}
-          onInput={(e, value) => {
+          onBlur={(value) => {
             setSearchTerm(value);
           }}
           value={searchTerm}
@@ -167,7 +163,7 @@ export const CategoryData = (props, context) => {
           )
           .map((recipe) =>
             recipe.category === tab || tab === 'All' ? (
-              <Table.Row>
+              <Table.Row key={tab}>
                 <Table.Cell py={0.25}>
                   <Button
                     content={
@@ -177,7 +173,7 @@ export const CategoryData = (props, context) => {
                     }
                     tooltip={
                       !recipe.enabled
-                        ? 'Security Level Needed: ' + recipe.security_level
+                        ? `Security Level Needed: ${recipe.security_level}`
                         : ''
                     }
                     className={
@@ -305,7 +301,7 @@ export const CategoryData = (props, context) => {
   );
 };
 
-export const QueueData = (props, context) => {
+export const QueueData = (props) => {
   const { act, data } = useBackend<AutolatheData>();
 
   return (

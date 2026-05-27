@@ -13,7 +13,7 @@ export type PackageData = {
   delivery_point_id: string;
 };
 
-export const CargoPack = (props, context) => {
+export const CargoPack = (props) => {
   const { act, data } = useBackend<CargoPackData>();
 
   return (

@@ -15,7 +15,7 @@ type Channel = {
   listening: BooleanLike;
 };
 
-export const pAIRadio = (props, context) => {
+export const pAIRadio = (props) => {
   const { act, data } = useBackend<RadioData>();
 
   return (
@@ -54,9 +54,7 @@ export const pAIRadio = (props, context) => {
                 value={data.radio_range}
                 minValue={0}
                 maxValue={4}
-                onDrag={(e, value) =>
-                  act('radio_range', { radio_range: value })
-                }
+                onDrag={(value) => act('radio_range', { radio_range: value })}
               />
             </LabeledList.Item>
           </LabeledList>

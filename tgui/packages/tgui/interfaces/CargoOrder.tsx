@@ -91,7 +91,7 @@ type Order = {
   reason: string;
 };
 
-export const CargoOrder = (props, context) => {
+export const CargoOrder = (props) => {
   const { act, data } = useBackend<CargoData>();
 
   return (
@@ -117,22 +117,14 @@ export const CargoOrder = (props, context) => {
   );
 };
 
-export const MainPage = (props, context) => {
+export const MainPage = (props) => {
   const { act, data } = useBackend<CargoData>();
-  const [details, setDetails] = useLocalState<boolean>(
-    context,
-    'details',
-    false,
-  );
-  const [searchTerm, setSearchTerm] = useLocalState<string>(
-    context,
-    `searchTerm`,
-    ``,
-  );
+  const [details, setDetails] = useLocalState<boolean>('details', false);
+  const [searchTerm, setSearchTerm] = useLocalState<string>(`searchTerm`, ``);
 
   return (
     <Stack vertical>
-      <Section title={'Welcome, ' + data.username}>
+      <Section title={`Welcome, ${data.username}`}>
         <Stack vertical>
           <Stack.Item fontSize={1.4} bold>
             Your Basket
@@ -181,7 +173,7 @@ export const MainPage = (props, context) => {
             autoSelect
             placeholder="Search by name"
             maxLength={512}
-            onInput={(e, value) => {
+            onChange={(value) => {
               setSearchTerm(value);
             }}
             value={searchTerm}
@@ -219,7 +211,7 @@ export const MainPage = (props, context) => {
                 key={item.name}
                 buttons={
                   <Button
-                    content={item.price_adjusted.toFixed(2) + '电'}
+                    content={`${item.price_adjusted.toFixed(2)}电`}
                     disabled={
                       !item.supplier_data.available && item.price_adjusted <= 0
                     }
@@ -260,7 +252,7 @@ export const MainPage = (props, context) => {
   );
 };
 
-export const ShowDetails = (props, context) => {
+export const ShowDetails = (props) => {
   const { act, data } = useBackend<CargoData>();
 
   return (
@@ -289,7 +281,7 @@ export const ShowDetails = (props, context) => {
   );
 };
 
-export const TrackingPage = (props, context) => {
+export const TrackingPage = (props) => {
   const { act, data } = useBackend<CargoData>();
 
   return (
@@ -320,12 +312,13 @@ export const TrackingPage = (props, context) => {
   );
 };
 
-export const ShowTrackingStatus = (props, context) => {
+export const ShowTrackingStatus = (props) => {
   const { act, data } = useBackend<CargoData>();
   const contentHtml = { __html: sanitizeText(data.tracked_order_report) };
 
   return (
-    <Section title="Tracking Information">
+    <Section title={`Tracking Information`}>
+      {/** biome-ignore lint/security/noDangerouslySetInnerHtml: Is sanitized by DOMPurify. */}
       <Box dangerouslySetInnerHTML={contentHtml} />
     </Section>
   );

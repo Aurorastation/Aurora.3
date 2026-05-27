@@ -20,7 +20,7 @@ type Datapoint = {
   unit: string;
 };
 
-export const AtmosControl = (props, context) => {
+export const AtmosControl = (props) => {
   const { act, data } = useBackend<AtmosData>();
   return data.sensors.length ? (
     <SensorData />
@@ -29,7 +29,7 @@ export const AtmosControl = (props, context) => {
   );
 };
 
-export const SensorData = (props, context) => {
+export const SensorData = (props) => {
   const { act, data } = useBackend<AtmosData>();
   return (
     <>

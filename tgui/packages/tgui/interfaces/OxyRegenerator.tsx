@@ -16,7 +16,7 @@ type OxyRegeneratorData = {
   o2: number;
 };
 
-export const OxyRegenerator = (props, context) => {
+export const OxyRegenerator = (props) => {
   const { act, data } = useBackend<OxyRegeneratorData>();
 
   return (

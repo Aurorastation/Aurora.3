@@ -7,7 +7,7 @@ export type MaglockData = {
   locked: BooleanLike;
 };
 
-export const Maglock = (props, context) => {
+export const Maglock = (props) => {
   const { act, data } = useBackend<MaglockData>();
 
   return (
@@ -28,7 +28,7 @@ export const Maglock = (props, context) => {
   );
 };
 
-export const ConfigureWindow = (props, context) => {
+export const ConfigureWindow = (props) => {
   const { act, data } = useBackend<MaglockData>();
 
   return (

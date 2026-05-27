@@ -9,7 +9,7 @@ export type SimpleDockingConsoleData = {
   door_lock: string;
 };
 
-export const SimpleDockingConsole = (props, context) => {
+export const SimpleDockingConsole = (props) => {
   const { act, data } = useBackend<SimpleDockingConsoleData>();
 
   return (

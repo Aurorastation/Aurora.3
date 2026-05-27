@@ -6,7 +6,7 @@ export type JammerData = {
   active: number;
 };
 
-export const Jammer = (props, context) => {
+export const Jammer = (props) => {
   const { act, data } = useBackend<JammerData>();
 
   return (

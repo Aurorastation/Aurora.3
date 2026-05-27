@@ -8,7 +8,7 @@ export type EscapePodBerthConsoleData = {
   armed: boolean;
 };
 
-export const EscapePodBerthConsole = (props, context) => {
+export const EscapePodBerthConsole = (props) => {
   const { act, data } = useBackend<EscapePodBerthConsoleData>();
 
   return (

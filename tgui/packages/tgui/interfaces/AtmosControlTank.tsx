@@ -28,7 +28,7 @@ type Output = {
   setpressure: number;
 };
 
-export const AtmosControlTank = (props, context) => {
+export const AtmosControlTank = (props) => {
   const { act, data } = useBackend<TankData>();
   return (
     <Window>
@@ -59,7 +59,7 @@ export const AtmosControlTank = (props, context) => {
   );
 };
 
-export const InputWindow = (props, context) => {
+export const InputWindow = (props) => {
   const { act, data } = useBackend<TankData>();
   return (
     <LabeledList>
@@ -78,16 +78,14 @@ export const InputWindow = (props, context) => {
           maxValue={data.maxrate}
           unit="L/s"
           step={10}
-          onDrag={(e, value) =>
-            act('in_set_flowrate', { in_set_flowrate: value })
-          }
+          onDrag={(value) => act('in_set_flowrate', { in_set_flowrate: value })}
         />
       </LabeledList.Item>
     </LabeledList>
   );
 };
 
-export const OutputWindow = (props, context) => {
+export const OutputWindow = (props) => {
   const { act, data } = useBackend<TankData>();
   return (
     <Section>
@@ -107,7 +105,7 @@ export const OutputWindow = (props, context) => {
             maxValue={data.maxpressure}
             unit="kPa"
             step={100}
-            onDrag={(e, value) =>
+            onDrag={(value) =>
               act('out_set_pressure', { out_set_pressure: value })
             }
           />

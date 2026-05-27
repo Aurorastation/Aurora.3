@@ -17,7 +17,7 @@ type EnvParam = {
   default: number;
 };
 
-export const EnvEditor = (props, context) => {
+export const EnvEditor = (props) => {
   const { act, data } = useBackend<EnvEditorData>();
 
   return (

@@ -25,7 +25,7 @@ type Role = {
   type: string;
 };
 
-export const OdysseyPanel = (props, context) => {
+export const OdysseyPanel = (props) => {
   const { act, data } = useBackend<OdysseyData>();
 
   return (
@@ -76,7 +76,7 @@ export const OdysseyPanel = (props, context) => {
   );
 };
 
-export const RoleDisplay = (props, context) => {
+export const RoleDisplay = (props) => {
   const { act, data } = useBackend<OdysseyData>();
 
   return (

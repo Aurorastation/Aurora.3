@@ -6,7 +6,7 @@ export type PodData = {
   status: number;
 };
 
-export const DropPod = (props, context) => {
+export const DropPod = (props) => {
   const { act, data } = useBackend<PodData>();
 
   return (

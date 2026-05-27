@@ -20,7 +20,7 @@ type Data = {
   loadedseed: string;
 };
 
-export const BotanyEditor = (_props, context) => {
+export const BotanyEditor = (_props) => {
   const { act, data } = useBackend<Data>();
   const { activity, degradation, disk, sourceName, locus, loadedseed } = data;
 
@@ -86,7 +86,7 @@ export const BotanyEditor = (_props, context) => {
 
                   <Button
                     icon="eject"
-                    disable={!hasLoadedSeed}
+                    disabled={!hasLoadedSeed}
                     content="Eject Target"
                     onClick={() => act('eject_packet')}
                   />

@@ -56,7 +56,7 @@ type Job = {
   job: string;
 };
 
-export const IDCardModification = (props, context) => {
+export const IDCardModification = (props) => {
   const { act, data } = useBackend<IDData>();
 
   return (
@@ -84,7 +84,7 @@ export const IDCardModification = (props, context) => {
   );
 };
 
-export const AccessModification = (props, context) => {
+export const AccessModification = (props) => {
   const { act, data } = useBackend<IDData>();
 
   return (
@@ -118,7 +118,7 @@ export const AccessModification = (props, context) => {
         </LabeledList.Item>
       </LabeledList>
       <Section title="Assignments">
-        <Collapsible content="Collapse" open>
+        <Collapsible className="Collapse" open>
           <LabeledList>
             <LabeledList.Item label="Custom" labelColor="white">
               <Button

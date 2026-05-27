@@ -46,20 +46,16 @@ type Reactant = {
   amount: number;
 };
 
-export const FusionCoreControl = (props, context) => {
+export const FusionCoreControl = (props) => {
   const { act, data } = useBackend<FusionCoreData>();
-  const [override, setOverride] = useSharedState<boolean>(
-    context,
-    'override',
-    false,
-  );
+  const [override, setOverride] = useSharedState<boolean>('override', false);
   return (
     <Window width={800} height={500} theme={data.manufacturer}>
       <Window.Content scrollable>
-        {data.cores && data.cores.length ? (
+        {data.cores?.length ? (
           data.cores.map((core) => (
             <Section
-              title={'INDRA Core ' + core.id}
+              title={`INDRA Core ${core.id}`}
               key={core.id}
               buttons={
                 core.field ? (
@@ -141,7 +137,7 @@ export const FusionCoreControl = (props, context) => {
                           minValue={20}
                           maxValue={core.field_strength_max * 100}
                           stepPixelSize={15}
-                          onDrag={(e, value) =>
+                          onDrag={(value) =>
                             act('strength', {
                               strength: value,
                               machine: core.ref,
@@ -177,7 +173,7 @@ export const FusionCoreControl = (props, context) => {
                             Core offline.
                           </Box>
                         ) : (
-                          round(core.temperature, 0.1) + ' kelvin'
+                          `${round(core.temperature, 0.1)} kelvin`
                         )}
                       </LabeledList.Item>
                     </LabeledList>
@@ -186,7 +182,7 @@ export const FusionCoreControl = (props, context) => {
                 <Flex.Item grow={1}>
                   <Box m={2}>
                     <Box fontSize={1.5}>Reactants</Box>
-                    {core.reactants && core.reactants.length ? (
+                    {core.reactants?.length ? (
                       core.reactants.map((reactant) => (
                         <Section key={reactant.name}>
                           <Dimmer>

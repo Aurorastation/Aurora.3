@@ -21,7 +21,7 @@ type Warrant = {
   wtype: string;
 };
 
-export const DigitalWarrant = (props, context) => {
+export const DigitalWarrant = (props) => {
   const { act, data } = useBackend<WarrantData>();
 
   return (
@@ -33,7 +33,7 @@ export const DigitalWarrant = (props, context) => {
   );
 };
 
-export const ActiveWarrantEdit = (props, context) => {
+export const ActiveWarrantEdit = (props) => {
   const { act, data } = useBackend<WarrantData>();
 
   return (
@@ -89,7 +89,7 @@ export const ActiveWarrantEdit = (props, context) => {
   );
 };
 
-export const AllWarrants = (props, context) => {
+export const AllWarrants = (props) => {
   const { act, data } = useBackend<WarrantData>();
 
   return (
@@ -100,7 +100,7 @@ export const AllWarrants = (props, context) => {
           <Button content="Add Warrant" onClick={() => act('addwarrant')} />
         }
       >
-        {data.allwarrants && data.allwarrants.length ? (
+        {data.allwarrants?.length ? (
           <Table>
             <Table.Row header>
               <Table.Cell>Name</Table.Cell>
@@ -129,7 +129,7 @@ export const AllWarrants = (props, context) => {
         )}
       </Section>
       <Section title="Search Warrants">
-        {data.allwarrants && data.allwarrants.length ? (
+        {data.allwarrants?.length ? (
           <Table>
             <Table.Row header>
               <Table.Cell>Name</Table.Cell>

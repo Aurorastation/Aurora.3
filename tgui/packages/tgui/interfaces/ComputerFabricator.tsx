@@ -93,7 +93,7 @@ const HwRow = ({
   </LabeledList.Item>
 );
 
-export const ComputerFabricator = (props, context) => {
+export const ComputerFabricator = (props) => {
   const { act, data } = useBackend<ComputerFabricatorData>();
 
   return (

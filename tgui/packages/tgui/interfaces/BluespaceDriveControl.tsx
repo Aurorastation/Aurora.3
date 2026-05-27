@@ -17,24 +17,22 @@ export type BluespaceDriveControlData = {
   primed: BooleanLike;
 };
 
-export const BluespaceDriveControl = (props, context) => {
+export const BluespaceDriveControl = (props) => {
   const { act, data } = useBackend<BluespaceDriveControlData>();
   return (
-    <Window width="382" height="277" theme="nanotrasen">
+    <Window width={382} height={277} theme="nanotrasen">
       <Window.Content>
         <Section title="Drive Configuration">
           <LabeledControls>
-            <LabeledControls.Item>
+            <LabeledControls.Item label="Energize">
               <Button
-                name="Energize"
                 content={data.energized ? 'Energized' : 'Energize'}
                 color={data.energized ? 'green' : 'red'}
                 onClick={() => act('toggle_energized')}
               />
             </LabeledControls.Item>
-            <LabeledControls.Item>
+            <LabeledControls.Item label="Purge Charge">
               <Button
-                name="Purge Charge"
                 content="Purge Charge"
                 color="red"
                 disabled={!data.charge || data.jumping}
@@ -45,9 +43,8 @@ export const BluespaceDriveControl = (props, context) => {
         </Section>
         <Section title="Drive Status">
           <LabeledControls>
-            <LabeledControls.Item>
+            <LabeledControls.Item label="Prime">
               <Button
-                name="Prime"
                 content={data.primed ? 'Primed' : 'Not Primed'}
                 color={data.primed ? 'green' : 'red'}
                 onClick={() => act('toggle_primed')}

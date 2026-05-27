@@ -22,7 +22,7 @@ export type ArcadeData = {
   information: string;
 };
 
-export const NTOSArcade = (props, context) => {
+export const NTOSArcade = (props) => {
   const { act, data } = useBackend<ArcadeData>();
 
   return (
@@ -34,7 +34,7 @@ export const NTOSArcade = (props, context) => {
   );
 };
 
-export const GameOverWindow = (props, context) => {
+export const GameOverWindow = (props) => {
   const { act, data } = useBackend<ArcadeData>();
 
   return (
@@ -52,7 +52,7 @@ export const GameOverWindow = (props, context) => {
   );
 };
 
-export const GameWindow = (props, context) => {
+export const GameWindow = (props) => {
   const { act, data } = useBackend<ArcadeData>();
 
   return (

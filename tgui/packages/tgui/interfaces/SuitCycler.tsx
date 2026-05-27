@@ -32,7 +32,7 @@ type SuitObject = {
   damage: number;
 };
 
-export const SuitCycler = (props, context) => {
+export const SuitCycler = (props) => {
   const { act, data } = useBackend<SuitCyclerData>();
 
   return (

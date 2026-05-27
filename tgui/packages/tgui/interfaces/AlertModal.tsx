@@ -31,7 +31,7 @@ type AlertModalData = {
 const KEY_DECREMENT = -1;
 const KEY_INCREMENT = 1;
 
-export const AlertModal = (props, context) => {
+export const AlertModal = (props) => {
   const { act, data } = useBackend<AlertModalData>();
   const {
     autofocus,
@@ -41,7 +41,7 @@ export const AlertModal = (props, context) => {
     timeout,
     title,
   } = data;
-  const [selected, setSelected] = useLocalState<number>(context, 'selected', 0);
+  const [selected, setSelected] = useLocalState<number>('selected', 0);
   // Dynamically sets window dimensions
   const windowHeight =
     115 +
@@ -104,7 +104,7 @@ export const AlertModal = (props, context) => {
  * Technically this handles more than 2 buttons, but you
  * should just be using a list input in that case.
  */
-const ButtonDisplay = (props, context) => {
+const ButtonDisplay = (props) => {
   const { data } = useBackend<AlertModalData>();
   const { buttons = [], large_buttons, swapped_buttons } = data;
   const { selected } = props;
@@ -143,7 +143,7 @@ const ButtonDisplay = (props, context) => {
 /**
  * Displays a button with variable sizing.
  */
-const AlertButton = (props, context) => {
+const AlertButton = (props) => {
   const { act, data } = useBackend<AlertModalData>();
   const { large_buttons } = data;
   const { button, selected } = props;

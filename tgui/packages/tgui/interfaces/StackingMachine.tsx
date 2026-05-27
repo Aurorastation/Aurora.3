@@ -19,7 +19,7 @@ type ContentEntry = {
   amount: number;
 };
 
-export const StackingMachine = (props, context) => {
+export const StackingMachine = (props) => {
   const { act, data } = useBackend<StackingMachineData>();
   return (
     <Window title="Stacking Machine" width={400} height={350} theme="ntos">

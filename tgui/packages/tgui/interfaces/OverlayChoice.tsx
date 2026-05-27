@@ -13,7 +13,7 @@ export type Item = {
   singleton_path: string;
 };
 
-export const OverlayChoice = (props, context) => {
+export const OverlayChoice = (props) => {
   const { act, data } = useBackend<IconData>();
 
   return (
@@ -33,7 +33,7 @@ export const OverlayChoice = (props, context) => {
   );
 };
 
-export const ContentsWindow = (props, context) => {
+export const ContentsWindow = (props) => {
   const { act, data } = useBackend<IconData>();
   const { contents } = data;
 

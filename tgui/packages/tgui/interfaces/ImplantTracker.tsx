@@ -19,7 +19,7 @@ type TrackingImplant = {
   ref: string;
 };
 
-export const ImplantTracker = (props, context) => {
+export const ImplantTracker = (props) => {
   const { act, data } = useBackend<TrackerData>();
 
   return (

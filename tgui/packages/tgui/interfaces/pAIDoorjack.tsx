@@ -11,7 +11,7 @@ export type DoorjackData = {
   aborted: BooleanLike;
 };
 
-export const pAIDoorjack = (props, context) => {
+export const pAIDoorjack = (props) => {
   const { act, data } = useBackend<DoorjackData>();
 
   return (

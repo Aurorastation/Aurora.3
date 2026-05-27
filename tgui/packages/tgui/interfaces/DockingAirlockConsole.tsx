@@ -23,7 +23,7 @@ export type DockingAirlockConsoleData = {
   override_enabled: boolean;
 };
 
-export const DockingAirlockConsole = (props, context) => {
+export const DockingAirlockConsole = (props) => {
   const { act, data } = useBackend<DockingAirlockConsoleData>();
 
   return (

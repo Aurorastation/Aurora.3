@@ -23,12 +23,11 @@ export type ThermostatData = {
   safety_burnt: BooleanLike;
 };
 
-export const CoolingUnitThermostat = (props, context) => {
+export const CoolingUnitThermostat = (props) => {
   const { act, data } = useBackend<ThermostatData>();
 
   return (
     <Window
-      resizable
       theme={data.broken ? 'spookyconsole' : 'hephaestus'}
       width={400}
       height={300}
@@ -40,7 +39,7 @@ export const CoolingUnitThermostat = (props, context) => {
   );
 };
 
-export const ThermostatWindow = (props, context) => {
+export const ThermostatWindow = (props) => {
   const { act, data } = useBackend<ThermostatData>();
 
   // K = C + 273.15 | C = K – 273.15
@@ -65,7 +64,7 @@ export const ThermostatWindow = (props, context) => {
           step={5}
           stepPixelSize={25}
           unit={'°C'}
-          onDrag={(e, value) =>
+          onDrag={(value) =>
             act('change_thermostat', {
               change_thermostat: value,
             })
@@ -95,7 +94,7 @@ export const ThermostatWindow = (props, context) => {
   );
 };
 
-export const Broken = (props, context) => {
+export const Broken = (props) => {
   const { act, data } = useBackend<ThermostatData>();
 
   return (

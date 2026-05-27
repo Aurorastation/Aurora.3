@@ -30,7 +30,7 @@ export type SMESData = {
   fail_time: number;
 };
 
-export const SMES = (props, context) => {
+export const SMES = (props) => {
   const { act, data } = useBackend<SMESData>();
 
   return (
@@ -42,7 +42,7 @@ export const SMES = (props, context) => {
   );
 };
 
-export const FailWindow = (props, context) => {
+export const FailWindow = (props) => {
   const { act, data } = useBackend<SMESData>();
 
   return (
@@ -63,7 +63,7 @@ export const FailWindow = (props, context) => {
   );
 };
 
-export const SMESWindow = (props, context) => {
+export const SMESWindow = (props) => {
   const { act, data } = useBackend<SMESData>();
 
   return (
@@ -116,7 +116,7 @@ export const SMESWindow = (props, context) => {
               maxValue={data.charge_max}
               unit="W"
               step={5000}
-              onDrag={(e, value) => act('input', { input: value })}
+              onDrag={(value) => act('input', { input: value })}
             />
           </LabeledList.Item>
           <LabeledList.Item label="Input Load">
@@ -156,7 +156,7 @@ export const SMESWindow = (props, context) => {
               maxValue={data.output_max}
               unit="W"
               step={5000}
-              onDrag={(e, value) => act('output', { output: value })}
+              onDrag={(value) => act('output', { output: value })}
             />
           </LabeledList.Item>
           <LabeledList.Item label="Output Load">

@@ -55,27 +55,18 @@ type EvacOption = {
   silicon_allowed: BooleanLike;
 };
 
-export const CommandCommunications = (props, context) => {
+export const CommandCommunications = (props) => {
   const { act, data } = useBackend<CommsData>();
   const [choosingAlert, setChoosingAlert] = useLocalState<boolean>(
-    context,
     `choosingAlert`,
     false,
   );
 
-  const [firstLine, setFirstLine] = useLocalState<string>(
-    context,
-    `firstLine`,
-    '',
-  );
-  const [secondLine, setSecondLine] = useLocalState<string>(
-    context,
-    `secondLine`,
-    '',
-  );
+  const [firstLine, setFirstLine] = useLocalState<string>(`firstLine`, '');
+  const [secondLine, setSecondLine] = useLocalState<string>(`secondLine`, '');
 
   return (
-    <NtosWindow resizable width={600} height={500}>
+    <NtosWindow width={600} height={500}>
       <NtosWindow.Content scrollable>
         <Section title="Communications Options">
           <Stack vertical>
@@ -98,7 +89,7 @@ export const CommandCommunications = (props, context) => {
                       </Box>
                     </Box>
                   ) : (
-                    'Send Emergency Message To ' + data.boss_short
+                    `Send Emergency Message To ${data.boss_short}`
                   )
                 }
                 icon="compass"
@@ -177,7 +168,7 @@ export const CommandCommunications = (props, context) => {
             </Stack.Item>
           </Stack>
         </Section>
-        <Collapsible content="Status Display Settings">
+        <Collapsible title="Status Display Settings">
           <Section
             title="Status Display Settings"
             buttons={
@@ -218,13 +209,13 @@ export const CommandCommunications = (props, context) => {
                 value={firstLine}
                 placeholder="First line"
                 width={20}
-                onInput={(e, v) => setFirstLine(v)}
+                onChange={(v) => setFirstLine(v)}
               />
               <Input
                 value={secondLine}
                 placeholder="Second line"
                 width={20}
-                onInput={(e, v) => setSecondLine(v)}
+                onChange={(v) => setSecondLine(v)}
               />
             </Section>
             <Section title="Alerts">
@@ -272,21 +263,16 @@ export const CommandCommunications = (props, context) => {
           </Section>
         </Collapsible>
         <Section title="Message List">
-          {data.messages && data.messages.length ? (
-            <MessageList />
-          ) : (
-            'There are no messages.'
-          )}
+          {data.messages?.length ? <MessageList /> : 'There are no messages.'}
         </Section>
       </NtosWindow.Content>
     </NtosWindow>
   );
 };
 
-export const MessageList = (props, context) => {
+export const MessageList = (props) => {
   const { act, data } = useBackend<CommsData>();
   const [viewingMessage, setViewingMessage] = useLocalState<number | null>(
-    context,
     'viewingMessage',
     null,
   );
@@ -328,7 +314,7 @@ export const MessageList = (props, context) => {
             }
           >
             <Box
-              style={{ 'white-space': 'pre-line' }}
+              // biome-ignore lint/security/noDangerouslySetInnerHtml: Is sanitized by DOMPurify.
               dangerouslySetInnerHTML={processMessage(message.contents)}
             />
           </Section>

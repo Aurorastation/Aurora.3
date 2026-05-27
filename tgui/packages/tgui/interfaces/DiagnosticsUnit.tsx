@@ -47,14 +47,11 @@ type Limb = {
   max_damage: number;
 };
 
-export const DiagnosticsUnit = (props, context) => {
+export const DiagnosticsUnit = (props) => {
   const { act, data } = useBackend<DiagnosticsData>();
 
   return (
-    <Window
-      resizable
-      theme={data.broken ? 'spookyconsole' : data.machine_ui_theme}
-    >
+    <Window theme={data.broken ? 'spookyconsole' : data.machine_ui_theme}>
       <Window.Content scrollable>
         {data.broken ? <Broken /> : <IPCDiagnostics />}
       </Window.Content>
@@ -62,7 +59,7 @@ export const DiagnosticsUnit = (props, context) => {
   );
 };
 
-export const Broken = (props, context) => {
+export const Broken = (props) => {
   const { act, data } = useBackend<DiagnosticsData>();
 
   return (

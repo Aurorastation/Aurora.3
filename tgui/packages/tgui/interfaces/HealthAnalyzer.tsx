@@ -16,7 +16,7 @@ type LimbResult = {
   value: string;
 };
 
-export const HealthAnalyzer = (props, context) => {
+export const HealthAnalyzer = (props) => {
   const { act, data } = useBackend<HealthAnalyzerData>();
   const {
     scan_title,
@@ -47,6 +47,7 @@ export const HealthAnalyzer = (props, context) => {
                 <Stack.Item key={i}>
                   <Box
                     className="HealthAnalyzer__line"
+                    /* biome-ignore lint/security/noDangerouslySetInnerHtml: Is sanitized by DOMPurify. */
                     dangerouslySetInnerHTML={{ __html: line }}
                   />
                 </Stack.Item>
@@ -69,6 +70,7 @@ export const HealthAnalyzer = (props, context) => {
                       <Stack.Item key={i}>
                         <Box
                           className="HealthAnalyzer__line"
+                          /* biome-ignore lint/security/noDangerouslySetInnerHtml: Is sanitized by DOMPurify. */
                           dangerouslySetInnerHTML={{ __html: line }}
                         />
                       </Stack.Item>
@@ -86,6 +88,7 @@ export const HealthAnalyzer = (props, context) => {
                           <LabeledList.Item key={i}>
                             <Box
                               className="HealthAnalyzer__line"
+                              /* biome-ignore lint/security/noDangerouslySetInnerHtml: Is sanitized by DOMPurify. */
                               dangerouslySetInnerHTML={{ __html: entry }}
                             />
                           </LabeledList.Item>
@@ -96,6 +99,7 @@ export const HealthAnalyzer = (props, context) => {
                             label={
                               <Box
                                 bold
+                                /* biome-ignore lint/security/noDangerouslySetInnerHtml: Is sanitized by DOMPurify. */
                                 dangerouslySetInnerHTML={{
                                   __html: entry.label,
                                 }}
@@ -104,6 +108,7 @@ export const HealthAnalyzer = (props, context) => {
                           >
                             <Box
                               className="HealthAnalyzer__line"
+                              /* biome-ignore lint/security/noDangerouslySetInnerHtml: Is sanitized by DOMPurify. */
                               dangerouslySetInnerHTML={{
                                 __html: entry.value,
                               }}
@@ -123,6 +128,7 @@ export const HealthAnalyzer = (props, context) => {
                       <Stack.Item key={i}>
                         <Box
                           className="HealthAnalyzer__line"
+                          /* biome-ignore lint/security/noDangerouslySetInnerHtml: Is sanitized by DOMPurify. */
                           dangerouslySetInnerHTML={{ __html: line }}
                         />
                       </Stack.Item>
@@ -143,6 +149,7 @@ export const HealthAnalyzer = (props, context) => {
                 <Stack.Item key={i}>
                   <Box
                     className="HealthAnalyzer__line"
+                    /* biome-ignore lint/security/noDangerouslySetInnerHtml: Is sanitized by DOMPurify. */
                     dangerouslySetInnerHTML={{ __html: line }}
                   />
                 </Stack.Item>

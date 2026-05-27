@@ -13,7 +13,7 @@ export type AccessTerminalData = {
   card_accesses: number[];
 };
 
-export const AccessTerminal = (props, context) => {
+export const AccessTerminal = (props) => {
   const { act, data } = useBackend<AccessTerminalData>();
 
   return (

@@ -44,7 +44,7 @@ type Blood = {
   DNA: string;
 };
 
-const ReagentFactory = (props, context) => {
+const ReagentFactory = (props) => {
   const { act, data } = useBackend<DispenserData>();
   const { reagents, quantities, clickOperation } = props;
 
@@ -54,7 +54,7 @@ const ReagentFactory = (props, context) => {
         ? reagents.map((reagent) => (
             <Table.Row key={reagent.name}>
               <Section
-                title={reagent.name + ' (' + reagent.volume + ')'}
+                title={`${reagent.name} (${reagent.volume})`}
                 buttons={
                   reagent.name === 'Blood' && clickOperation === 'add' ? (
                     <Button
@@ -81,7 +81,7 @@ const ReagentFactory = (props, context) => {
   );
 };
 
-const DispenseButton = (props, context) => {
+const DispenseButton = (props) => {
   const { act, data } = useBackend<DispenserData>();
   const { quantity, reagent, operation } = props;
 
@@ -90,7 +90,7 @@ const DispenseButton = (props, context) => {
       <Button.Input
         key={quantity}
         content={quantity}
-        onCommit={(e, value: string) => {
+        onCommit={(value: string) => {
           act(operation, {
             [operation]: reagent.typepath,
             amount: parseFloat(value),
@@ -116,7 +116,7 @@ const DispenseButton = (props, context) => {
   }
 };
 
-export const ChemMaster = (props, context) => {
+export const ChemMaster = (props) => {
   const { act, data } = useBackend<DispenserData>();
   const dispensable_quantities = [1, 2, 5, 10, 15, 20, 30, 60, 'Custom', 'All'];
 
@@ -189,7 +189,7 @@ export const ChemMaster = (props, context) => {
           </Table>
         </Section>
         <Divider />
-        <Section title={data.machine_name.split(' ')[0] + ' Content'}>
+        <Section title={`${data.machine_name.split(' ')[0]} Content`}>
           <Stack vertical>
             <Stack.Item>
               <Flex fill>
@@ -271,7 +271,6 @@ export const ChemMaster = (props, context) => {
                       key={icon}
                       className={icon}
                       style={{
-                        '-ms-interpolation-mode': 'bicubic',
                         transform: 'scale(1.5)',
                       }}
                     />
@@ -310,7 +309,6 @@ export const ChemMaster = (props, context) => {
                         key={icon}
                         className={icon}
                         style={{
-                          '-ms-interpolation-mode': 'bicubic',
                           transform: 'scale(1.5)',
                         }}
                       />

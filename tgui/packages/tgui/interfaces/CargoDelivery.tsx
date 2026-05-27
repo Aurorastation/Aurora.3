@@ -58,7 +58,7 @@ type Item = {
   supplier_name: string;
 };
 
-export const CargoDelivery = (props, context) => {
+export const CargoDelivery = (props) => {
   const { act, data } = useBackend<CargoData>();
 
   return (
@@ -108,7 +108,7 @@ export const CargoDelivery = (props, context) => {
   );
 };
 
-export const MainView = (props, context) => {
+export const MainView = (props) => {
   const { act, data } = useBackend<CargoData>();
 
   return (
@@ -143,7 +143,7 @@ export const MainView = (props, context) => {
   );
 };
 
-export const Overview = (props, context) => {
+export const Overview = (props) => {
   const { act, data } = useBackend<CargoData>();
 
   return (
@@ -220,12 +220,12 @@ export const Overview = (props, context) => {
   );
 };
 
-export const Payment = (props, context) => {
+export const Payment = (props) => {
   const { act, data } = useBackend<CargoData>();
 
   return (
     <Section
-      title={'Payment: Order No. ' + data.order_details.order_id}
+      title={`Payment: Order No. ${data.order_details.order_id}`}
       buttons={
         <>
           <Button

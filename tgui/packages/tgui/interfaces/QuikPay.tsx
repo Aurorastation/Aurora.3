@@ -35,7 +35,7 @@ type ItemBuy = {
   price: number;
 };
 
-export const QuikPay = (props, context) => {
+export const QuikPay = (props) => {
   const { act, data } = useBackend<PayData>();
 
   return (
@@ -78,13 +78,9 @@ export const QuikPay = (props, context) => {
   );
 };
 
-export const ItemWindow = (props, context) => {
+export const ItemWindow = (props) => {
   const { act, data } = useBackend<PayData>();
-  const [searchTerm, setSearchTerm] = useLocalState<string>(
-    context,
-    `searchTerm`,
-    ``,
-  );
+  const [searchTerm, setSearchTerm] = useLocalState<string>(`searchTerm`, ``);
   const normalizedSearchTerm = searchTerm.toLowerCase();
 
   const groupedItems = data.items.reduce((groups, item) => {
@@ -212,7 +208,7 @@ export const ItemWindow = (props, context) => {
   );
 };
 
-export const AddItems = (props, context) => {
+export const AddItems = (props) => {
   const { act, data } = useBackend<PayData>();
   return (
     <Section title="Add Item">
@@ -233,14 +229,14 @@ export const AddItems = (props, context) => {
         minValue={0}
         maxValue={100}
         stepPixelSize={5}
-        onDrag={(e, value) => act('set_new_price', { set_new_price: value })}
+        onDrag={(value) => act('set_new_price', { set_new_price: value })}
       />
       <Button content="Add" onClick={() => act('add')} />
     </Section>
   );
 };
 
-export const CartWindow = (props, context) => {
+export const CartWindow = (props) => {
   const { act, data } = useBackend<PayData>();
   return (
     <Section>

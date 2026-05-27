@@ -29,7 +29,7 @@ type PortEntry = {
   f_type: string | null;
 };
 
-export const OmniFilter = (props, context) => {
+export const OmniFilter = (props) => {
   const { act, data } = useBackend<OmniFilterData>();
 
   return (

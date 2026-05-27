@@ -67,9 +67,9 @@ type ScannerState = {
 
 const UPLOAD_CATEGORIES = ['Fiction', 'Non-Fiction', 'Reference', 'Religion'];
 
-export const LibraryComputer = (props, context) => {
+export const LibraryComputer = (props) => {
   const { act, data } = useBackend<LibraryComputerData>();
-  const [tab, setTab] = useLocalState(context, 'tab', 'inventory');
+  const [tab, setTab] = useLocalState('tab', 'inventory');
 
   const handleTabChange = (newTab: string) => {
     setTab(newTab);
@@ -147,7 +147,7 @@ export const LibraryComputer = (props, context) => {
   );
 };
 
-const InventoryTab = (props, context) => {
+const InventoryTab = (props) => {
   const { act, data } = useBackend<LibraryComputerData>();
 
   return (
@@ -190,7 +190,7 @@ const InventoryTab = (props, context) => {
   );
 };
 
-const CheckoutsTab = (props, context) => {
+const CheckoutsTab = (props) => {
   const { act, data } = useBackend<LibraryComputerData>();
 
   return (
@@ -246,17 +246,15 @@ const CheckoutsTab = (props, context) => {
   );
 };
 
-const CheckOutTab = (props, context) => {
+const CheckOutTab = (props) => {
   const { act, data } = useBackend<LibraryComputerData>();
-  const [bookTitle, setBookTitle] = useLocalState(context, 'co_book', '');
-  const [recipient, setRecipient] = useLocalState(context, 'co_recip', '');
+  const [bookTitle, setBookTitle] = useLocalState('co_book', '');
+  const [recipient, setRecipient] = useLocalState('co_recip', '');
   const [showBookPicker, setShowBookPicker] = useLocalState(
-    context,
     'co_book_picker',
     false,
   );
   const [showRecipientPicker, setShowRecipientPicker] = useLocalState(
-    context,
     'co_recip_picker',
     false,
   );
@@ -280,7 +278,7 @@ const CheckOutTab = (props, context) => {
                 fluid
                 value={bookTitle}
                 placeholder="Enter book title"
-                onInput={(e, v) => setBookTitle(v)}
+                onBlur={(v) => setBookTitle(v)}
               />
             </Stack.Item>
             {data.inventory.length > 0 && (
@@ -327,7 +325,7 @@ const CheckOutTab = (props, context) => {
                 fluid
                 value={recipient}
                 placeholder="Enter recipient name"
-                onInput={(e, v) => setRecipient(v)}
+                onBlur={(v) => setRecipient(v)}
               />
             </Stack.Item>
             {data.crew_names.length > 0 && (
@@ -401,15 +399,14 @@ const CheckOutTab = (props, context) => {
 
 type SortField = 'author' | 'title' | 'category';
 
-const ArchiveTab = (props, context) => {
+const ArchiveTab = (props) => {
   const { act, data } = useBackend<LibraryComputerData>();
   // Local state only for the search input — committed to server on Enter or button click
   const [searchInput, setSearchInput] = useLocalState(
-    context,
     'archive_search_input',
     data.archive_search,
   );
-  const [isbnInput, setIsbnInput] = useLocalState(context, 'isbn_input', '');
+  const [isbnInput, setIsbnInput] = useLocalState('isbn_input', '');
 
   const totalPages = Math.max(
     1,
@@ -469,8 +466,8 @@ const ArchiveTab = (props, context) => {
             fluid
             value={searchInput}
             placeholder="Search by title, author, or category..."
-            onInput={(e, v) => setSearchInput(v)}
-            onEnter={(e, v) => commitSearch(v)}
+            onChange={(v) => setSearchInput(v)}
+            onEnter={(v) => commitSearch(v)}
           />
         </Stack.Item>
         <Stack.Item>
@@ -498,7 +495,7 @@ const ArchiveTab = (props, context) => {
             value={isbnInput}
             placeholder="ISBN"
             width={8}
-            onInput={(e, v) => setIsbnInput(v)}
+            onBlur={(v) => setIsbnInput(v)}
           />
         </Stack.Item>
         <Stack.Item>
@@ -554,7 +551,6 @@ const ArchiveTab = (props, context) => {
                         textOverflow: 'ellipsis',
                         whiteSpace: 'nowrap',
                       }}
-                      title={entry.author}
                     >
                       {entry.author}
                     </Table.Cell>
@@ -565,7 +561,6 @@ const ArchiveTab = (props, context) => {
                         textOverflow: 'ellipsis',
                         whiteSpace: 'nowrap',
                       }}
-                      title={entry.title}
                     >
                       {entry.title}
                     </Table.Cell>
@@ -624,7 +619,7 @@ const ArchiveTab = (props, context) => {
   );
 };
 
-const UploadTab = (props, context) => {
+const UploadTab = (props) => {
   const { act, data } = useBackend<LibraryComputerData>();
   const { scanner } = data;
 
@@ -676,7 +671,7 @@ const UploadTab = (props, context) => {
             <LabeledList.Item label="Author">
               <Input
                 value={scanner.author || ''}
-                onInput={(e, val) => act('set_upload_author', { value: val })}
+                onBlur={(val) => act('set_upload_author', { value: val })}
               />
             </LabeledList.Item>
             <LabeledList.Item label="Category">
@@ -707,7 +702,7 @@ const UploadTab = (props, context) => {
   );
 };
 
-const BibleTab = (props, context) => {
+const BibleTab = (props) => {
   const { act, data } = useBackend<LibraryComputerData>();
 
   return (
@@ -727,7 +722,7 @@ const BibleTab = (props, context) => {
   );
 };
 
-const VaultTab = (props, context) => {
+const VaultTab = (props) => {
   const { act, data } = useBackend<LibraryComputerData>();
 
   return (

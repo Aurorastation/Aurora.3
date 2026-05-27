@@ -9,7 +9,7 @@ import {
   Slider,
   Stack,
 } from 'tgui-core/components';
-import { toFixed } from 'tgui-core/math';
+import { round } from 'tgui-core/math';
 import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
 import { NtosWindow } from '../layouts';
@@ -40,7 +40,7 @@ type NTOSConfigData = {
   max_message_range: number;
 };
 
-const BatteryStatus = (props, context) => {
+const BatteryStatus = (props) => {
   const { act, data } = useBackend<NTOSConfigData>();
   const { battery } = data;
   if (!battery) {
@@ -67,7 +67,7 @@ const BatteryStatus = (props, context) => {
               average: [0.25, 0.5],
               bad: [-Infinity, 0.25],
             }}
-            value={toFixed(battery.percent / 100)}
+            value={round(battery.percent / 100, 2)}
           />
         </LabeledList.Item>
       </LabeledList>
@@ -75,7 +75,7 @@ const BatteryStatus = (props, context) => {
   }
 };
 
-const ResourceUsage = (props, context) => {
+const ResourceUsage = (props) => {
   const { act, data } = useBackend<NTOSConfigData>();
   const { power_usage, disk_used, disk_size } = data;
   const remainingSpace = disk_size - disk_used;
@@ -94,14 +94,14 @@ const ResourceUsage = (props, context) => {
           value={disk_used / disk_size}
         >
           {remainingSpace} GQ free of {disk_size} GQ (
-          {toFixed((disk_used / disk_size) * 100)}%)
+          {round((disk_used / disk_size) * 100, 2)}%)
         </ProgressBar>
       </LabeledList.Item>
     </LabeledList>
   );
 };
 
-export const NTOSConfig = (props, context) => {
+export const NTOSConfig = (props) => {
   const { act, data } = useBackend<NTOSConfigData>();
   const {
     hardware = [],

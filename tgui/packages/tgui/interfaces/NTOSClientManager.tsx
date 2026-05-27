@@ -18,23 +18,15 @@ type NTOSClientData = {
   ntnet_status: BooleanLike;
 };
 
-const DeviceEnrollment = (props, context) => {
+const DeviceEnrollment = (props) => {
   const { act, data } = useBackend<NTOSClientData>();
   const { available_presets, ntnet_status } = data;
-  const [deviceType, setDeviceType] = useLocalState(
-    context,
-    'setDeviceType',
-    1,
-  );
-  const [devicePreset, setDevicePreset] = useLocalState(
-    context,
-    'setDevicePreset',
-    '',
-  );
+  const [deviceType, setDeviceType] = useLocalState('setDeviceType', 1);
+  const [devicePreset, setDevicePreset] = useLocalState('setDevicePreset', '');
   if (!ntnet_status) {
     return (
       <Section title="Device Enrollment">
-        <NoticeBox warning>
+        <NoticeBox danger>
           NTNet download servers are currently unavailable. Enrollment is not
           possible at this time.
         </NoticeBox>
@@ -94,7 +86,7 @@ const DeviceEnrollment = (props, context) => {
   }
 };
 
-export const NTOSClientManager = (props, context) => {
+export const NTOSClientManager = (props) => {
   const { act, data } = useBackend<NTOSClientData>();
   const { enrollment } = data;
   return (

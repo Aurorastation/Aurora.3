@@ -16,7 +16,7 @@ export type HivenetManifestData = {
   all_vaurca: VaurcaListData[];
 };
 
-export const HivenetManifest = (props, context) => {
+export const HivenetManifest = (props) => {
   const { act, data } = useBackend<HivenetManifestData>();
 
   return (
@@ -29,7 +29,7 @@ export const HivenetManifest = (props, context) => {
               key={hive}
               title={hive}
               textAlign="center"
-              className={'border-dept-' + hiveData.color.toLowerCase()}
+              className={`border-dept-${hiveData.color.toLowerCase()}`}
               backgroundColor="rgba(10, 10, 10, 0.7)"
             >
               <Table>

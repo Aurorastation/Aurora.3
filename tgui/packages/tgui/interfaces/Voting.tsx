@@ -23,7 +23,7 @@ export type VotingData = {
   total_players_ready: number;
 };
 
-export const Voting = (props, context) => {
+export const Voting = (props) => {
   const { act, data } = useBackend<VotingData>();
 
   return (
@@ -35,7 +35,7 @@ export const Voting = (props, context) => {
   );
 };
 
-export const VoteWindow = (props, context) => {
+export const VoteWindow = (props) => {
   const { act, data } = useBackend<VotingData>();
 
   const extra_column =
@@ -117,7 +117,7 @@ export const VoteWindow = (props, context) => {
   );
 };
 
-export const StartVoteWindow = (props, context) => {
+export const StartVoteWindow = (props) => {
   const { act, data } = useBackend<VotingData>();
   return (
     <Section collapsing title="Start a Vote">

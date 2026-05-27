@@ -98,7 +98,7 @@ const pill = (text: string, color?: string) => (
   </Box>
 );
 
-const SuitStatusSection = (props, context) => {
+const SuitStatusSection = (props) => {
   const { act, data } = useBackend<Data>();
   const interfaceOffline = !!data.interfacelock || (data.malf ?? 0) > 0;
   const aiOverriddenForWearer = !!data.aicontrol && !data.ai;
@@ -182,7 +182,7 @@ const SuitStatusSection = (props, context) => {
   );
 };
 
-const HardwareSection = (props, context) => {
+const HardwareSection = (props) => {
   const { act, data } = useBackend<Data>();
   const pieceDisabled = !!data.sealing;
 
@@ -276,7 +276,7 @@ const HardwareSection = (props, context) => {
   );
 };
 
-const ModulesSection = (props, context) => {
+const ModulesSection = (props) => {
   const { act, data } = useBackend<Data>();
   const systemsOffline = !!data.seals || !!data.sealing;
 
@@ -429,7 +429,7 @@ const ModulesSection = (props, context) => {
 
                 <Table.Cell>
                   <Collapsible
-                    title={m.module_name + ' ' + damagedTag}
+                    title={`${m.module_name} ${damagedTag}`}
                     color={
                       m.module_active || m.module_selected ? 'good' : 'average'
                     }
@@ -488,7 +488,7 @@ const ModulesSection = (props, context) => {
   );
 };
 
-const ConfigureScreen = (props, context) => {
+const ConfigureScreen = (props) => {
   const { configuration_data, module_ref } = props;
 
   const keys = Object.keys(configuration_data || {});
@@ -518,7 +518,7 @@ const ConfigureScreen = (props, context) => {
   );
 };
 
-const ConfigureDataEntry = (props, context) => {
+const ConfigureDataEntry = (props) => {
   const { type } = props;
   const configureEntryTypes = {
     number: <ConfigureNumberEntry {...props} />,
@@ -536,8 +536,8 @@ const ConfigureDataEntry = (props, context) => {
   );
 };
 
-const ConfigureNumberEntry = (props, context) => {
-  const { act } = useBackend(context);
+const ConfigureNumberEntry = (props) => {
+  const { act } = useBackend();
   const { entryKey, value, module_ref } = props;
   return (
     <NumberInput
@@ -558,8 +558,8 @@ const ConfigureNumberEntry = (props, context) => {
   );
 };
 
-const ConfigureBoolEntry = (props, context) => {
-  const { act } = useBackend(context);
+const ConfigureBoolEntry = (props) => {
+  const { act } = useBackend();
   const { entryKey, value, module_ref } = props;
 
   return (
@@ -576,8 +576,8 @@ const ConfigureBoolEntry = (props, context) => {
   );
 };
 
-const ConfigureColorEntry = (props, context) => {
-  const { act } = useBackend(context);
+const ConfigureColorEntry = (props) => {
+  const { act } = useBackend();
   const { entryKey, value, module_ref } = props;
   return (
     <>
@@ -595,8 +595,8 @@ const ConfigureColorEntry = (props, context) => {
   );
 };
 
-const ConfigureListEntry = (props, context) => {
-  const { act } = useBackend(context);
+const ConfigureListEntry = (props) => {
+  const { act } = useBackend();
   const { entryKey, value, values, module_ref } = props;
 
   return (
@@ -615,8 +615,8 @@ const ConfigureListEntry = (props, context) => {
   );
 };
 
-const ConfigurePinEntry = (props, context) => {
-  const { act } = useBackend(context);
+const ConfigurePinEntry = (props) => {
+  const { act } = useBackend();
   const { entryKey, value, module_ref } = props;
   return (
     <Button
@@ -631,8 +631,8 @@ const ConfigurePinEntry = (props, context) => {
   );
 };
 
-const ConfigureButtonEntry = (props, context) => {
-  const { act } = useBackend(context);
+const ConfigureButtonEntry = (props) => {
+  const { act } = useBackend();
   const { entryKey, value, module_ref } = props;
   return (
     <Button
@@ -644,7 +644,7 @@ const ConfigureButtonEntry = (props, context) => {
   );
 };
 
-export const Hardsuit = (props, context) => {
+export const Hardsuit = (props) => {
   const { data } = useBackend<Data>();
   const interfaceBreak = !!data.interfacelock || (data.malf ?? 0) > 0;
 

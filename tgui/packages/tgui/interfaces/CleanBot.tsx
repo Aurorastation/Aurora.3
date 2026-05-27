@@ -14,7 +14,7 @@ export type CleanBotConfig = {
   beacon_freq: number;
 };
 
-export const CleanBot = (props, context) => {
+export const CleanBot = (props) => {
   const { act, data } = useBackend<CleanBotConfig>();
 
   return (

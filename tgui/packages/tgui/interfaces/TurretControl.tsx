@@ -27,7 +27,7 @@ type Setting = {
   value: BooleanLike;
 };
 
-export const TurretControl = (props, context) => {
+export const TurretControl = (props) => {
   const { act, data } = useBackend<TurretData>();
 
   return (
@@ -49,7 +49,7 @@ export const TurretControl = (props, context) => {
   );
 };
 
-export const ControlSection = (props, context) => {
+export const ControlSection = (props) => {
   const { act, data } = useBackend<TurretData>();
 
   return (
@@ -102,7 +102,7 @@ export const ControlSection = (props, context) => {
   );
 };
 
-export const TurretsSection = (props, context) => {
+export const TurretsSection = (props) => {
   const { act, data } = useBackend<TurretData>();
 
   return (

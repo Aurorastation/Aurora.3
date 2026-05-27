@@ -63,7 +63,7 @@ type Item = {
   shield_power: number;
 };
 
-export const WeaponsAnalyzer = (props, context) => {
+export const WeaponsAnalyzer = (props) => {
   const { act, data } = useBackend<AnalyzerData>();
 
   return (
@@ -83,7 +83,7 @@ export const WeaponsAnalyzer = (props, context) => {
   );
 };
 
-export const ItemWindow = (props, context) => {
+export const ItemWindow = (props) => {
   const { act, data } = useBackend<AnalyzerData>();
 
   return (
@@ -140,7 +140,7 @@ export const ItemWindow = (props, context) => {
   );
 };
 
-export const GunWindow = (props, context) => {
+export const GunWindow = (props) => {
   const { act, data } = useBackend<AnalyzerData>();
 
   return (
@@ -217,7 +217,7 @@ export const GunWindow = (props, context) => {
   );
 };
 
-export const GunMods = (props, context) => {
+export const GunMods = (props) => {
   const { act, data } = useBackend<AnalyzerData>();
 
   return (
@@ -264,7 +264,7 @@ export const GunMods = (props, context) => {
   );
 };
 
-export const AssemblyWindow = (props, context) => {
+export const AssemblyWindow = (props) => {
   const { act, data } = useBackend<AnalyzerData>();
 
   return (

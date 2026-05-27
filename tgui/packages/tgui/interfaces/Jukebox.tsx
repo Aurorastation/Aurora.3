@@ -15,7 +15,7 @@ export type Data = {
   playlist: Song[];
 };
 
-export const Jukebox = (props, context) => {
+export const Jukebox = (props) => {
   const { act, data } = useBackend<Data>();
   const { active, selection, playlist } = data;
 
@@ -62,7 +62,7 @@ export const Jukebox = (props, context) => {
               <Table.Cell>Length</Table.Cell>
             </Table.Row>
             {playlist_sorted.sort().map((song) => (
-              <Table.Row key={song}>
+              <Table.Row key={song.name}>
                 <Table.Cell>
                   {''}
                   <Button
@@ -78,9 +78,7 @@ export const Jukebox = (props, context) => {
                     }
                     selected={song === song_selected}
                     icon="play"
-                    onClick={(track: Song) =>
-                      act('changeTrack', { track: song.name })
-                    }
+                    onClick={() => act('changeTrack', { track: song.name })}
                   />
                 </Table.Cell>
                 <Table.Cell

@@ -21,7 +21,7 @@ type Field = {
   type: string;
 };
 
-export const SuspensionGenerator = (props, context) => {
+export const SuspensionGenerator = (props) => {
   const { act, data } = useBackend<SuspensionData>();
 
   return (

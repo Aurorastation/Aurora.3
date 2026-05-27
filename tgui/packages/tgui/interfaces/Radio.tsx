@@ -41,7 +41,7 @@ type RadioData = {
   subspace?: BooleanLike;
 };
 
-export const Radio = (props, context) => {
+export const Radio = (props) => {
   const { act, data } = useBackend<RadioData>();
   const {
     mic_status,
@@ -152,7 +152,7 @@ export const Radio = (props, context) => {
                 <LabeledList.Item
                   key={channel.chan}
                   label={
-                    <span class={channel.chan_span}>
+                    <span className={channel.chan_span}>
                       {channel.display_name}
                     </span>
                   }

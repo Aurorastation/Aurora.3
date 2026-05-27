@@ -21,7 +21,7 @@ type NTService = {
   running: BooleanLike;
 };
 
-export const NTOSMain = (props, context) => {
+export const NTOSMain = (props) => {
   const { act, data } = useBackend<NTOSMainData>();
   const { programs = [], services = [] } = data;
   return (
@@ -58,7 +58,7 @@ export const NTOSMain = (props, context) => {
             })}
           </Table>
         </Section>
-        <Section collapsing title="NTOS Services">
+        <Section title="NTOS Services">
           <Table>
             {services.map((service) => {
               return (

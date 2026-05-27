@@ -47,7 +47,7 @@ const num2bearing = (num) => {
   return bearing;
 };
 
-export const AwayShuttleManifest = (props, context) => {
+export const AwayShuttleManifest = (props) => {
   const { act, data } = useBackend<AwayShuttleData>();
 
   return (
@@ -60,7 +60,7 @@ export const AwayShuttleManifest = (props, context) => {
   );
 };
 
-export const ManifestEntryEdit = (props, context) => {
+export const ManifestEntryEdit = (props) => {
   const { act, data } = useBackend<AwayShuttleData>();
 
   return (
@@ -109,7 +109,7 @@ export const ManifestEntryEdit = (props, context) => {
   );
 };
 
-export const AllShuttles = (props, context) => {
+export const AllShuttles = (props) => {
   const { act, data } = useBackend<AwayShuttleData>();
 
   return (
@@ -213,7 +213,7 @@ export const AllShuttles = (props, context) => {
                 />
               }
             >
-              {data.shuttle_manifest && data.shuttle_manifest.length ? (
+              {data.shuttle_manifest?.length ? (
                 <Flex>
                   <Table>
                     <Table.Row header>

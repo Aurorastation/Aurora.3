@@ -250,7 +250,7 @@ const MainSection = (props) => {
 
 // ---- Vents tab ----
 
-const VentsSection = (props, context) => {
+const VentsSection = (props) => {
   const { act, data } = useBackend<AirAlarmData>();
 
   if (!data.vents.length) {
@@ -336,7 +336,7 @@ const VentsSection = (props, context) => {
 
 // ---- Scrubbers tab ----
 
-const ScrubbersSection = (props, context) => {
+const ScrubbersSection = (props) => {
   const { act, data } = useBackend<AirAlarmData>();
 
   if (!data.scrubbers.length) {
@@ -402,7 +402,7 @@ const ScrubbersSection = (props, context) => {
 
 // ---- Mode tab ----
 
-const ModeSection = (props, context) => {
+const ModeSection = (props) => {
   const { act, data } = useBackend<AirAlarmData>();
 
   return (
@@ -418,7 +418,7 @@ const ModeSection = (props, context) => {
             disabled={!!data.shorted}
             onClick={() => act('mode', { mode: m.mode })}
           >
-            <Box bold display="inline-block">
+            <Box bold style={{ display: 'inline-block' }}>
               {m.name}
             </Box>{' '}
             — {m.description}
@@ -433,7 +433,7 @@ const ModeSection = (props, context) => {
 
 const THRESHOLD_LABELS = ['Min²', 'Min¹', 'Max¹', 'Max²'];
 
-const SensorsSection = (props, context) => {
+const SensorsSection = (props) => {
   const { act, data } = useBackend<AirAlarmData>();
 
   return (

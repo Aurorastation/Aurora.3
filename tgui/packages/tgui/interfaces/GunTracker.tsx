@@ -13,7 +13,7 @@ type Pin = {
   lock_status: number; // 1 disabled, 2 auto, 3 stun, 4 lethal
 };
 
-export const GunTracker = (props, context) => {
+export const GunTracker = (props) => {
   const { act, data } = useBackend<TrackerData>();
 
   return (

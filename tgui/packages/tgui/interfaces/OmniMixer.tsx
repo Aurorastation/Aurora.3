@@ -28,7 +28,7 @@ type PortEntry = {
   con_lock: BooleanLike;
 };
 
-export const OmniMixer = (props, context) => {
+export const OmniMixer = (props) => {
   const { act, data } = useBackend<OmniMixerData>();
 
   return (

@@ -22,7 +22,7 @@ type File = {
   password: BooleanLike;
 };
 
-export const FileManager = (props, context) => {
+export const FileManager = (props) => {
   const { act, data } = useBackend<FileData>();
 
   return (
@@ -48,7 +48,7 @@ export const FileManager = (props, context) => {
   );
 };
 
-export const ShowFiles = (props, context) => {
+export const ShowFiles = (props) => {
   const { act, data } = useBackend<FileData>();
 
   return (
@@ -154,7 +154,7 @@ export const ShowFiles = (props, context) => {
   );
 };
 
-export const ShowFile = (props, context) => {
+export const ShowFile = (props) => {
   const { act, data } = useBackend<FileData>();
   const contentHtml = { __html: sanitizeText(data.filedata) };
 
@@ -184,6 +184,7 @@ export const ShowFile = (props, context) => {
         </>
       }
     >
+      {/** biome-ignore lint/security/noDangerouslySetInnerHtml: Is sanitized by DOMPurify. */}
       <Box dangerouslySetInnerHTML={contentHtml} />
     </Section>
   );

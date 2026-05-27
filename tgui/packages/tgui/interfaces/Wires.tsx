@@ -26,7 +26,7 @@ type Wire = {
   wire: string;
 };
 
-export const Wires = (props, context) => {
+export const Wires = (props) => {
   const { data } = useBackend<Data>();
   const { proper_name, status = [], wires = [] } = data;
   const dynamicHeight = 150 + wires.length * 30 + (proper_name ? 30 : 0);
@@ -63,7 +63,7 @@ export const Wires = (props, context) => {
 };
 
 /** Returns a labeled list of wires */
-const WireMap = (props, context) => {
+const WireMap = (props) => {
   const { act, data } = useBackend<Data>();
   const { wires } = data;
 

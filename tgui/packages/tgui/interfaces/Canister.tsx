@@ -28,7 +28,7 @@ type Tank = {
   tankPressure: number;
 };
 
-export const Canister = (props, context) => {
+export const Canister = (props) => {
   const { act, data } = useBackend<CanisterData>();
   const port_string = data.portConnected ? 'Connected' : 'Disconnected';
 
@@ -115,7 +115,7 @@ export const Canister = (props, context) => {
               maxValue={data.maxReleasePressure}
               step={5}
               stepPixelSize={1}
-              onDrag={(e, value) =>
+              onDrag={(value) =>
                 act('pressure', {
                   pressure: value,
                 })
@@ -128,7 +128,7 @@ export const Canister = (props, context) => {
   );
 };
 
-export const HoldingTankWindow = (props, context) => {
+export const HoldingTankWindow = (props) => {
   const { act, data } = useBackend<CanisterData>();
   return (
     <Section>

@@ -13,7 +13,7 @@ type Organ = {
   present: BooleanLike;
 };
 
-export const DamageMenu = (props, context) => {
+export const DamageMenu = (props) => {
   const { act, data } = useBackend<DamageData>();
 
   return (
@@ -27,7 +27,7 @@ export const DamageMenu = (props, context) => {
             </Table.Row>
             {data.limbs.map((limb) =>
               limb.present ? (
-                <Table.Row>
+                <Table.Row key={data.limbs.indexOf(limb)}>
                   <Table.Cell key={limb.name}>{limb.name}</Table.Cell>
                   <Table.Cell>
                     <Button
@@ -82,7 +82,7 @@ export const DamageMenu = (props, context) => {
             </Table.Row>
             {data.organs.map((organ) =>
               organ.present ? (
-                <Table.Row>
+                <Table.Row key={data.organs.indexOf(organ)}>
                   <Table.Cell key={organ.name}>{organ.name}</Table.Cell>
                   <Table.Cell>
                     <Button

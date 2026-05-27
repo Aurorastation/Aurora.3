@@ -33,7 +33,7 @@ type Article = {
   archived: BooleanLike;
 };
 
-export const NTOSNewsBrowser = (props, context) => {
+export const NTOSNewsBrowser = (props) => {
   const { act, data } = useBackend<NewsData>();
 
   return (
@@ -51,7 +51,7 @@ export const NTOSNewsBrowser = (props, context) => {
   );
 };
 
-export const ErrorMessage = (props, context) => {
+export const ErrorMessage = (props) => {
   const { act, data } = useBackend<NewsData>();
 
   return (
@@ -64,7 +64,7 @@ export const ErrorMessage = (props, context) => {
   );
 };
 
-export const ShowArticle = (props, context) => {
+export const ShowArticle = (props) => {
   const { act, data } = useBackend<NewsData>();
   const contentHtml = { __html: sanitizeText(data.article) };
 
@@ -78,12 +78,13 @@ export const ShowArticle = (props, context) => {
         </>
       }
     >
-      <Box dangerouslySetInnerHtml={contentHtml} />
+      {/** biome-ignore lint/security/noDangerouslySetInnerHtml: Is sanitized by DOMPurify. */}
+      <Box dangerouslySetInnerHTML={contentHtml} />
     </Section>
   );
 };
 
-export const ShowArticleList = (props, context) => {
+export const ShowArticleList = (props) => {
   const { act, data } = useBackend<NewsData>();
 
   return (
@@ -91,9 +92,7 @@ export const ShowArticleList = (props, context) => {
       title="Available Articles"
       buttons={
         <Button
-          content={
-            (data.showing_archived ? 'Hide' : 'Show') + ' Archived Files'
-          }
+          content={`${data.showing_archived ? 'Hide' : 'Show'} Archived Files`}
           onClick={() => act('PRG_toggle_archived')}
         />
       }

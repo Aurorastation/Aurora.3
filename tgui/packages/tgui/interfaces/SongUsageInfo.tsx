@@ -9,7 +9,7 @@ type SongUsageInfoData = {
   max_events: number;
 };
 
-export const SongUsageInfo = (props, context) => {
+export const SongUsageInfo = (props) => {
   const { data } = useBackend<SongUsageInfoData>();
 
   return (

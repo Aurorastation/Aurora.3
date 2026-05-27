@@ -16,13 +16,9 @@ type Ghost = {
   special_character: number; // 0 (non-antag), 1 (special role) or 2 (antag)
 };
 
-export const FollowMenu = (props, context) => {
+export const FollowMenu = (props) => {
   const { act, data } = useBackend<FollowData>();
-  const [searchTerm, setSearchTerm] = useLocalState<string>(
-    context,
-    `searchTerm`,
-    ``,
-  );
+  const [searchTerm, setSearchTerm] = useLocalState<string>(`searchTerm`, ``);
 
   return (
     <Window>
@@ -37,7 +33,7 @@ export const FollowMenu = (props, context) => {
                 placeholder="Search by name"
                 width="40vw"
                 maxLength={512}
-                onInput={(e, value) => {
+                onChange={(value) => {
                   setSearchTerm(value);
                 }}
                 value={searchTerm}
@@ -48,9 +44,8 @@ export const FollowMenu = (props, context) => {
         >
           {data.categories.sort().map((category) => (
             <Section title="" key={category}>
-              <Collapsible open={1} title={category}>
-                {data.ghosts &&
-                  data.ghosts.length &&
+              <Collapsible open={true} title={category}>
+                {data.ghosts?.length &&
                   data.ghosts
                     .filter(
                       (ghost) =>

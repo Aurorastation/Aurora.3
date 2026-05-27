@@ -18,7 +18,7 @@ type Material = {
   harvest: BooleanLike;
 };
 
-export const KineticHarvester = (props, context) => {
+export const KineticHarvester = (props) => {
   const { act, data } = useBackend<HarvesterData>();
 
   return (
@@ -34,7 +34,7 @@ export const KineticHarvester = (props, context) => {
   );
 };
 
-export const HarvestWindow = (props, context) => {
+export const HarvestWindow = (props) => {
   const { act, data } = useBackend<HarvesterData>();
 
   return (
@@ -50,7 +50,7 @@ export const HarvestWindow = (props, context) => {
       }
     >
       {data.status ? (
-        data.materials && data.materials.length ? (
+        data.materials?.length ? (
           data.materials.map((material) => (
             <Section
               title={
@@ -88,7 +88,7 @@ export const HarvestWindow = (props, context) => {
                     />
                   </>
                 ) : (
-                  <NoticeBox warning>
+                  <NoticeBox danger>
                     Not enough cubic units harvested.
                   </NoticeBox>
                 )

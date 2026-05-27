@@ -36,7 +36,7 @@ type Breaker = {
   update_locked: BooleanLike;
 };
 
-export const RCON = (props, context) => {
+export const RCON = (props) => {
   const { act, data } = useBackend<RCONData>();
 
   return (
@@ -57,10 +57,9 @@ export const RCON = (props, context) => {
   );
 };
 
-export const SMESInfo = (props, context) => {
+export const SMESInfo = (props) => {
   const { act, data } = useBackend<RCONData>();
   const [smesSearchTerm, setSmesSearchTerm] = useLocalState<string>(
-    context,
     `smesSearchTerm`,
     ``,
   );
@@ -205,10 +204,9 @@ export const SMESInfo = (props, context) => {
   );
 };
 
-export const BreakerInfo = (props, context) => {
+export const BreakerInfo = (props) => {
   const { act, data } = useBackend<RCONData>();
   const [breakerSearchTerm, setBreakerSearchTerm] = useLocalState<string>(
-    context,
     `breakerSearchTerm`,
     ``,
   );

@@ -37,7 +37,7 @@ type Fuel = {
   fuel_type: string;
 };
 
-export const PortableGenerator = (props, context) => {
+export const PortableGenerator = (props) => {
   const { act, data } = useBackend<GeneratorData>();
 
   return (
@@ -132,7 +132,7 @@ export const PortableGenerator = (props, context) => {
                 maxValue={data.output_max}
                 step={1}
                 stepPixelSize={25}
-                onDrag={(e, value) =>
+                onDrag={(value) =>
                   act('set_power', {
                     set_power: value,
                   })

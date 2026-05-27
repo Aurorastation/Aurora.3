@@ -14,7 +14,7 @@ type Admin = {
   rights: string;
 };
 
-export const PermissionsPanel = (props, context) => {
+export const PermissionsPanel = (props) => {
   const { act, data } = useBackend<PanelData>();
 
   return (

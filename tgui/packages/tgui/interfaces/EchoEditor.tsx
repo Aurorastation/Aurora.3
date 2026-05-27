@@ -14,7 +14,7 @@ type EchoParam = {
   real: BooleanLike;
 };
 
-export const EchoEditor = (props, context) => {
+export const EchoEditor = (props) => {
   const { act, data } = useBackend<EchoEditorData>();
 
   return (

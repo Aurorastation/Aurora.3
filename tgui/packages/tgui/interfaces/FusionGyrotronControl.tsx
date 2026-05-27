@@ -24,16 +24,16 @@ type Gyrotron = {
   power_status: string;
 };
 
-export const FusionGyrotronControl = (props, context) => {
+export const FusionGyrotronControl = (props) => {
   const { act, data } = useBackend<FusionGyrotronData>();
 
   return (
     <Window width={400} height={500} theme={data.manufacturer}>
       <Window.Content scrollable>
-        {data.gyrotrons && data.gyrotrons.length ? (
+        {data.gyrotrons?.length ? (
           data.gyrotrons.map((gyrotron) => (
             <Section
-              title={'Gyrotron ' + gyrotron.id}
+              title={`Gyrotron ${gyrotron.id}`}
               key={gyrotron.id}
               buttons={
                 <Button
@@ -55,7 +55,7 @@ export const FusionGyrotronControl = (props, context) => {
                     maxValue={250}
                     unit="x"
                     stepPixelSize={15}
-                    onDrag={(e, value) =>
+                    onDrag={(value) =>
                       act('modifypower', {
                         modifypower: value,
                         machine: gyrotron.ref,
@@ -70,7 +70,7 @@ export const FusionGyrotronControl = (props, context) => {
                     maxValue={10}
                     stepPixelSize={15}
                     unit="ds"
-                    onDrag={(e, value) =>
+                    onDrag={(value) =>
                       act('modifyrate', {
                         modifyrate: value,
                         machine: gyrotron.ref,

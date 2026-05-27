@@ -8,7 +8,7 @@ export type TurboLiftData = {
   doorsOpen: boolean;
 };
 
-export const TurboLift = (props, context) => {
+export const TurboLift = (props) => {
   const { act, data } = useBackend<TurboLiftData>();
 
   return (

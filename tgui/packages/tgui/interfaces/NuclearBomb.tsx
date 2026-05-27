@@ -22,7 +22,7 @@ const KEYPAD_ROWS: string[][] = [
   ['R', '0', 'E'],
 ];
 
-export const NuclearBomb = (props, context) => {
+export const NuclearBomb = (props) => {
   const { act, data } = useBackend<NuclearBombData>();
   const armed = !!data.auth && !!data.yescode;
 

@@ -1,5 +1,6 @@
 import { Color } from 'tgui-core/color';
 import {
+  AnimatedNumber,
   Box,
   Button,
   ProgressBar,
@@ -12,6 +13,7 @@ import type { BooleanLike } from 'tgui-core/react';
 import { capitalizeAll } from 'tgui-core/string';
 import { useBackend } from '../backend';
 import { NtosWindow } from '../layouts';
+import { sanitizeText } from '../sanitize';
 
 export type SensorsData = {
   viewing: BooleanLike;
@@ -71,7 +73,7 @@ type DistressBeaconData = {
 
 const SensorSection = (act, data: SensorsData) => {
   let range_choice_max = 0;
-  if (data.range_choices && data.range_choices.length) {
+  if (data.range_choices?.length) {
     range_choice_max = data.range_choices[data.range_choices.length - 1];
   } else {
     range_choice_max = 0;
@@ -81,9 +83,7 @@ const SensorSection = (act, data: SensorsData) => {
       title="Sensor Array Control"
       buttons={
         <Button
-          content={
-            'Sector Map View ' + (data.viewing ? 'Engaged' : 'Disengaged')
-          }
+          content={`Sector Map View ${data.viewing ? 'Engaged' : 'Disengaged'}`}
           onClick={() => act('viewing')}
         />
       }
@@ -138,17 +138,17 @@ const SensorSection = (act, data: SensorsData) => {
               Desired Range: {data.desired_range} / {range_choice_max}
             </Slider>
             <ProgressBar
-              animated
               backgroundColor={Color.lerp(
                 new Color(62, 97, 137, 0),
                 new Color(189, 32, 32),
                 data.range / range_choice_max,
-              )}
+              ).toString()}
               minValue={1}
               maxValue={range_choice_max}
               value={data.range}
             >
-              Current Range: {data.range} / {range_choice_max}
+              Current Range:{' '}
+              <AnimatedNumber value={data.range / range_choice_max} />
             </ProgressBar>
           </Table.Cell>
         </Table.Row>
@@ -173,12 +173,11 @@ const SensorSection = (act, data: SensorsData) => {
           <Table.Cell>Integrity:</Table.Cell>
           <Table.Cell>
             <ProgressBar
-              animated
               backgroundColor={Color.lerp(
                 Color.fromHex('#20b142'),
                 Color.fromHex('#db2828'),
                 data.health / data.max_health,
-              )}
+              ).toString()}
               color={(() => {
                 if (data.health > (data.max_health / 3) * 2) {
                   return 'green';
@@ -200,12 +199,11 @@ const SensorSection = (act, data: SensorsData) => {
           <Table.Cell>Temperature:</Table.Cell>
           <Table.Cell>
             <ProgressBar
-              animated
               backgroundColor={Color.lerp(
                 Color.fromHex('#20b142'),
                 Color.fromHex('#db2828'),
                 data.heat / data.critical_heat,
-              )}
+              ).toString()}
               color={(() => {
                 if (data.heat > (data.critical_heat / 3) * 2) {
                   return 'red';
@@ -230,41 +228,37 @@ const SensorSection = (act, data: SensorsData) => {
 
 const ContactsSection = (act, data: SensorsData) => (
   <Section title="Sensor Contacts">
-    {data.contacts && data.contacts.length ? (
+    {data.contacts?.length ? (
       <Table>
         <Table.Row header>
           <Table.Cell />
-          <Table.Cell title="Designation">Designation</Table.Cell>
-          <Table.Cell title="Bearing">B</Table.Cell>
-          <Table.Cell title="X Grid Coordinate">X</Table.Cell>
-          <Table.Cell title="Y Grid Coordinate">Y</Table.Cell>
-          <Table.Cell title="Grid Coordinate Distance/Range">D</Table.Cell>
-          <Table.Cell title="Color">C</Table.Cell>
+          <Table.Cell>Designation</Table.Cell>
+          <Table.Cell>Bearing</Table.Cell>
+          <Table.Cell>X Grid Coordinate</Table.Cell>
+          <Table.Cell>Y Grid Coordinate</Table.Cell>
+          <Table.Cell>Grid Coordinate Distance/Range</Table.Cell>
+          <Table.Cell>Color</Table.Cell>
         </Table.Row>
         {data.contacts.map((contact: ContactData, i) => (
           <Table.Row key={contact.name}>
-            <Table.Cell title="Scan">
+            <Table.Cell>
               <Button
                 content={'Scan'}
                 onClick={() => act('scan', { scan: contact.ref })}
               />
             </Table.Cell>
-            <Table.Cell title="Designation">
-              {capitalizeAll(contact.name)}
-            </Table.Cell>
+            <Table.Cell>{capitalizeAll(contact.name)}</Table.Cell>
             {contact.landed ? (
               ''
             ) : (
               <>
-                <Table.Cell title="Bearing">{contact.bearing}</Table.Cell>
-                <Table.Cell title="X Grid Coordinate">{contact.x}</Table.Cell>
-                <Table.Cell title="Y Grid Coordinate">{contact.y}</Table.Cell>
-                <Table.Cell title="Grid Coordinate Distance/Range">
+                <Table.Cell>{contact.bearing}</Table.Cell>
+                <Table.Cell>{contact.x}</Table.Cell>
+                <Table.Cell>{contact.y}</Table.Cell>
+                <Table.Cell>
                   {new String(round(contact.distance, 2)).padStart(6, '0')}
                 </Table.Cell>
-                <Table.Cell title="Color" color={contact.color}>
-                  ██
-                </Table.Cell>
+                <Table.Cell color={contact.color}>██</Table.Cell>
               </>
             )}
           </Table.Row>
@@ -277,12 +271,12 @@ const ContactsSection = (act, data: SensorsData) => (
 );
 
 const ContactDetailsSection = (act, data: SensorsData) => {
+  const contentHtml = { __html: sanitizeText(data.contact_details) };
   if (data.contact_details && data.contact_details !== '') {
-    /* eslint-disable react/no-danger */
     const contact_details = (
-      <div dangerouslySetInnerHTML={{ __html: data.contact_details }} />
+      // biome-ignore lint/security/noDangerouslySetInnerHtml: Is sanitized by DOMPurify.
+      <div dangerouslySetInnerHTML={contentHtml} />
     );
-    /* eslint-enable */
     return (
       <Section title="Sensor Contact Details">
         <Box textAlign="center">
@@ -306,7 +300,7 @@ const ContactDetailsSection = (act, data: SensorsData) => {
   }
 };
 
-const CompassSection = (context, act, data: SensorsData) => (
+const CompassSection = (act, data: SensorsData) => (
   <Section title="Sensor Contacts Compass">
     <Box textAlign="center">
       <svg height={200} width={200} viewBox="0 0 100 100">
@@ -328,7 +322,7 @@ const CompassSection = (context, act, data: SensorsData) => (
             fill="#5c83b0"
             stroke="white"
             stroke-width="0.5"
-            transform={'rotate(' + data.direction + ' 50 50)'}
+            transform={`rotate(${data.direction} 50 50)`}
           />
           {[0, 45, 90, 135, 180, 225, 270, 315].map((b) => (
             <rect // compass bearings
@@ -338,7 +332,7 @@ const CompassSection = (context, act, data: SensorsData) => (
               x="50"
               y="58"
               fill="#3e6189"
-              transform={'rotate(' + b + ' 50 50)'}
+              transform={`rotate(${b} 50 50)`}
             />
           ))}
           {data.contacts
@@ -351,7 +345,7 @@ const CompassSection = (context, act, data: SensorsData) => (
                 x="49.5"
                 y="58"
                 fill={contact.color}
-                transform={'rotate(' + (contact.bearing + 180) + ' 50 50)'}
+                transform={`rotate(${contact.bearing + 180} 50 50)`}
               />
             ))}
           {data.contacts
@@ -364,7 +358,7 @@ const CompassSection = (context, act, data: SensorsData) => (
                   x={50 - 2}
                   y={50 - 2 - clamp((contact.distance / 2) * 8, 0, 40)}
                   fill={contact.color}
-                  transform={'rotate(' + contact.bearing + ' 50 50)'}
+                  transform={`rotate(${contact.bearing} 50 50)`}
                 />
                 <text // contact bearing on edge of compass
                   x="50"
@@ -372,7 +366,7 @@ const CompassSection = (context, act, data: SensorsData) => (
                   text-anchor="middle"
                   fill="white"
                   font-size="5"
-                  transform={'rotate(' + contact.bearing + ' 50 50)'}
+                  transform={`rotate(${contact.bearing} 50 50)`}
                 >
                   {contact.bearing}
                 </text>
@@ -386,7 +380,7 @@ const CompassSection = (context, act, data: SensorsData) => (
               text-anchor="middle"
               fill="white"
               font-size="8"
-              transform={'rotate(' + b + ' 50 50)'}
+              transform={`rotate(${b} 50 50)`}
             >
               {b}
             </text>
@@ -399,7 +393,7 @@ const CompassSection = (context, act, data: SensorsData) => (
 
 const DatalinksSection = (act, data: SensorsData) => (
   <Section title="Datalinks">
-    {data.datalink_requests && data.datalink_requests.length ? (
+    {data.datalink_requests?.length ? (
       <Table>
         <Table.Row header>
           <Table.Cell>Datalink Requests:</Table.Cell>
@@ -433,7 +427,7 @@ const DatalinksSection = (act, data: SensorsData) => (
     ) : (
       ''
     )}
-    {data.datalinked && data.datalinked.length ? (
+    {data.datalinked?.length ? (
       <Table>
         <Table.Row header>
           <Table.Cell>Active Datalinks:</Table.Cell>
@@ -457,8 +451,7 @@ const DatalinksSection = (act, data: SensorsData) => (
     ) : (
       ''
     )}
-    {data.contacts &&
-    data.contacts.length &&
+    {data.contacts?.length &&
     data.contacts.some((contact) => contact.can_datalink) ? (
       <Table>
         <Table.Row header>
@@ -545,7 +538,7 @@ const IFFSection = (act, data: SensorsData) => (
 
 const DistressSection = (act, data: SensorsData) => (
   <Section title="Distress Beacons">
-    {data.distress_beacons && data.distress_beacons.length ? (
+    {data.distress_beacons?.length ? (
       <Table>
         <Table.Row header>
           <Table.Cell />
@@ -575,7 +568,7 @@ const DistressSection = (act, data: SensorsData) => (
   </Section>
 );
 
-export const Sensors = (props, context) => {
+export const Sensors = (props) => {
   const { act, data } = useBackend<SensorsData>();
 
   {
@@ -618,7 +611,7 @@ export const Sensors = (props, context) => {
           ''
         )}
         {SensorSection(act, data)}
-        {CompassSection(context, act, data)}
+        {CompassSection(act, data)}
         {ContactsSection(act, data)}
         {ContactDetailsSection(act, data)}
         {DatalinksSection(act, data)}

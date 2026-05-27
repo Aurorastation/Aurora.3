@@ -34,7 +34,7 @@ type Data = {
   engines_info: EngineInfo[];
 };
 
-export const EnginesControl = (_props, context) => {
+export const EnginesControl = (_props) => {
   const { act, data } = useBackend<Data>();
 
   const engines = data.engines_info || [];

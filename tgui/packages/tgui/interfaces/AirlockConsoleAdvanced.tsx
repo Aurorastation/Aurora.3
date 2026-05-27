@@ -19,7 +19,7 @@ export type AdvancedAirlockConsoleData = {
   secure: boolean;
 };
 
-export const AirlockConsoleAdvanced = (props, context) => {
+export const AirlockConsoleAdvanced = (props) => {
   const { act, data } = useBackend<AdvancedAirlockConsoleData>();
 
   return (

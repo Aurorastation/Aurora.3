@@ -24,14 +24,10 @@ type Psionic = {
   path: string;
 };
 
-export const PsionicShop = (props, context) => {
+export const PsionicShop = (props) => {
   const { act, data } = useBackend<PsiData>();
 
-  const [searchTerm, setSearchTerm] = useLocalState<string>(
-    context,
-    `searchTerm`,
-    ``,
-  );
+  const [searchTerm, setSearchTerm] = useLocalState<string>(`searchTerm`, ``);
 
   return (
     <Window theme="wizard">
@@ -82,14 +78,10 @@ export const PsionicShop = (props, context) => {
   );
 };
 
-export const PsionicsList = (props, context) => {
+export const PsionicsList = (props) => {
   const { act, data } = useBackend<PsiData>();
 
-  const [searchTerm, setSearchTerm] = useLocalState<string>(
-    context,
-    `searchTerm`,
-    ``,
-  );
+  const [searchTerm, setSearchTerm] = useLocalState<string>(`searchTerm`, ``);
 
   return (
     <Section>

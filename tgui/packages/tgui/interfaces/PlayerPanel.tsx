@@ -22,14 +22,10 @@ type Player = {
   age: any; // string or number
 };
 
-export const PlayerPanel = (props, context) => {
+export const PlayerPanel = (props) => {
   const { act, data } = useBackend<PanelData>();
 
-  const [searchTerm, setSearchTerm] = useLocalState<string>(
-    context,
-    `searchTerm`,
-    ``,
-  );
+  const [searchTerm, setSearchTerm] = useLocalState<string>(`searchTerm`, ``);
 
   return (
     <Window theme="admin">

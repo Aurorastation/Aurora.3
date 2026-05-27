@@ -45,7 +45,7 @@ type Limb = {
   max_damage: number;
 };
 
-export const RoboticsComputer = (props, context) => {
+export const RoboticsComputer = (props) => {
   const { act, data } = useBackend<DiagnosticsData>();
 
   return (

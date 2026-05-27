@@ -41,7 +41,7 @@ type Product = {
   icon_tag: string;
 };
 
-export const Vending = (props, context) => {
+export const Vending = (props) => {
   const { act, data } = useBackend<VendingData>();
 
   return (
@@ -60,13 +60,9 @@ export const Vending = (props, context) => {
   );
 };
 
-export const ShowAllItems = (props, context) => {
+export const ShowAllItems = (props) => {
   const { act, data } = useBackend<VendingData>();
-  const [searchTerm, setSearchTerm] = useLocalState<string>(
-    context,
-    `searchTerm`,
-    ``,
-  );
+  const [searchTerm, setSearchTerm] = useLocalState<string>(`searchTerm`, ``);
 
   return (
     <>
@@ -145,7 +141,7 @@ export const ShowAllItems = (props, context) => {
   );
 };
 
-export const ShowVendingItem = (props, context) => {
+export const ShowVendingItem = (props) => {
   const { act, data } = useBackend<VendingData>();
 
   return (

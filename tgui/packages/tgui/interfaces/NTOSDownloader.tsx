@@ -37,7 +37,7 @@ type NTOSDownloaderData = {
   queue: NTOSDownload[];
 };
 
-const AvailableDownloads = (props, context) => {
+const AvailableDownloads = (props) => {
   const { act, data } = useBackend<NTOSDownloaderData>();
   const { available = [], disk_size, disk_used, queue_size } = data;
   const remainingSpace = disk_size - (disk_used + queue_size);
@@ -82,7 +82,7 @@ const AvailableDownloads = (props, context) => {
   );
 };
 
-const DownloadQueue = (props, context) => {
+const DownloadQueue = (props) => {
   const { act, data } = useBackend<NTOSDownloaderData>();
   const { queue_size, speed, queue, active_download } = data;
   return (
@@ -127,7 +127,7 @@ const DownloadQueue = (props, context) => {
   );
 };
 
-export const NTOSDownloader = (props, context) => {
+export const NTOSDownloader = (props) => {
   const { act, data } = useBackend<NTOSDownloaderData>();
   const {
     available,

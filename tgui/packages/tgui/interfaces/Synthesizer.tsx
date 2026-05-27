@@ -46,7 +46,7 @@ type SynthesizerData = {
   };
 };
 
-export const Synthesizer = (props, context) => {
+export const Synthesizer = (props) => {
   const { act, data } = useBackend<SynthesizerData>();
   const { playback, basic_options, advanced_options, sustain, show, status } =
     data;

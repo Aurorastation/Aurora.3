@@ -16,14 +16,10 @@ type Pad = {
   ref: string;
 };
 
-export const Holopad = (props, context) => {
+export const Holopad = (props) => {
   const { act, data } = useBackend<HolopadData>();
 
-  const [searchTerm, setSearchTerm] = useLocalState<string>(
-    context,
-    `searchTerm`,
-    ``,
-  );
+  const [searchTerm, setSearchTerm] = useLocalState<string>(`searchTerm`, ``);
 
   return (
     <Window>
@@ -54,7 +50,7 @@ export const Holopad = (props, context) => {
                 placeholder="Search by holopad name"
                 width="40vw"
                 maxLength={512}
-                onInput={(e, value) => {
+                onChange={(value) => {
                   setSearchTerm(value);
                 }}
                 value={searchTerm}
@@ -73,14 +69,10 @@ export const Holopad = (props, context) => {
   );
 };
 
-export const HolopadList = (props, context) => {
+export const HolopadList = (props) => {
   const { act, data } = useBackend<HolopadData>();
 
-  const [searchTerm, setSearchTerm] = useLocalState<string>(
-    context,
-    `searchTerm`,
-    ``,
-  );
+  const [searchTerm, setSearchTerm] = useLocalState<string>(`searchTerm`, ``);
 
   return (
     <Section>

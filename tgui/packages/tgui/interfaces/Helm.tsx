@@ -74,7 +74,7 @@ const FlightSection = (act, data) => (
         <Table.Cell>Acceleration limiter:</Table.Cell>
         <Table.Cell>
           <Button
-            content={data.accellimit + ' Gm/h'}
+            content={`${data.accellimit} Gm/h`}
             onClick={() => act('accellimit', { accellimit: 9 })}
           />
         </Table.Cell>
@@ -106,7 +106,7 @@ const BearingsSection = (act, data) => (
           fill="#5c83b0"
           stroke="white"
           stroke-width="1"
-          transform={'rotate(' + data.direction + ' 50 50)'}
+          transform={`rotate(${data.direction} 50 50)`}
         />
         <text
           x="50"
@@ -212,9 +212,11 @@ const ManualSection = (act, data) => (
     <Table>
       <Table.Row>
         <Table.Cell width="50%">
-          <Table width={0} title="Control" align="center">
+          <Table width={0}>
             <Table.Row>
-              <Table.Cell title="Roll Left / Port">
+              Controls" align="center"
+              <Table.Cell>
+                Roll Left / Port
                 <Button
                   icon="angle-double-left"
                   color="red"
@@ -222,14 +224,16 @@ const ManualSection = (act, data) => (
                   onClick={() => act('roll', { roll: 8 })}
                 />
               </Table.Cell>
-              <Table.Cell title="Burn / Forward">
+              <Table.Cell>
+                Burn / Forward
                 <Button
                   icon="arrow-up"
                   disabled={!data.canburn}
                   onClick={() => act('move', { move: 1 })}
                 />
               </Table.Cell>
-              <Table.Cell title="Roll Right / Starboard">
+              <Table.Cell>
+                Roll Right / Starboard
                 <Button
                   icon="angle-double-right"
                   color="red"
@@ -239,21 +243,24 @@ const ManualSection = (act, data) => (
               </Table.Cell>
             </Table.Row>
             <Table.Row>
-              <Table.Cell title="Turn Left / Counterclockwise">
+              <Table.Cell>
+                Turn Left / Counterclockwise
                 <Button
                   icon="undo"
                   disabled={!data.canturn}
                   onClick={() => act('turn', { turn: 8 })}
                 />
               </Table.Cell>
-              <Table.Cell title="Slow / Stop / Inertia Dampener">
+              <Table.Cell>
+                Slow / Stop / Inertia Dampener
                 <Button
                   icon="stop"
                   disabled={!data.canburn || data.speed === 0}
                   onClick={() => act('brake', { move: 1 })}
                 />
               </Table.Cell>
-              <Table.Cell title="Turn Right / Clockwise">
+              <Table.Cell>
+                Turn Right / Clockwise
                 <Button
                   icon="redo"
                   disabled={!data.canturn}
@@ -266,12 +273,10 @@ const ManualSection = (act, data) => (
       </Table.Row>
     </Table>
     <Button
-      content={
-        'Manual Control ' + (data.manual_control ? 'Engaged' : 'Disengaged')
-      }
+      content={`Manual Control ${data.manual_control ? 'Engaged' : 'Disengaged'}`}
       width="100%"
       icon="cog"
-      iconSpin={data.manual_control ? '0.0' : null}
+      iconSpin={!!data.manual_control}
       onClick={() => act('manual', { manual: true })}
     />
   </Section>
@@ -313,17 +318,17 @@ const AutopilotSection = (act, data) => (
         <Table.Cell>
           <Button
             width="100%"
-            content={data.speedlimit + ' Gm/h'}
+            content={`${data.speedlimit} Gm/h`}
             onClick={() => act('speedlimit', { speedlimit: true })}
           />
         </Table.Cell>
       </Table.Row>
     </Table>
     <Button
-      content={'Autopilot ' + (data.autopilot ? 'Engaged' : 'Disengaged')}
+      content={`Autopilot ${data.autopilot ? 'Engaged' : 'Disengaged'}`}
       width="100%"
       icon="cog"
-      iconSpin={data.autopilot ? '0.0' : null}
+      iconSpin={!!data.autopilot}
       disabled={!data.dest}
       onClick={() => act('apilot', { apilot: true })}
     />
@@ -358,7 +363,7 @@ const NavSection = (act, data) => (
 const PosSection = (act, data) => (
   <Section title="Saved Positions">
     <Table>
-      {data.locations && data.locations.length ? (
+      {data.locations?.length ? (
         <>
           <Table.Row header>
             <Table.Cell>Name</Table.Cell>
@@ -408,7 +413,7 @@ const PosSection = (act, data) => (
   </Section>
 );
 
-export const Helm = (props, context) => {
+export const Helm = (props) => {
   const { act, data } = useBackend<HelmData>();
 
   return (

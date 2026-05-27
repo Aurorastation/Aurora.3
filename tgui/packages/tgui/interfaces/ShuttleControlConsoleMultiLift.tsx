@@ -17,7 +17,7 @@ export type ShuttleControlConsoleMultiLiftData = {
   current_location: string;
 };
 
-export const ShuttleControlConsoleMultiLift = (props, context) => {
+export const ShuttleControlConsoleMultiLift = (props) => {
   const { act, data } = useBackend<ShuttleControlConsoleMultiLiftData>();
 
   return (

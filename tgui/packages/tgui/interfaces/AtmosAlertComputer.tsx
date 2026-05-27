@@ -12,7 +12,7 @@ type AlarmEntry = {
   ref: string;
 };
 
-export const AtmosAlertComputer = (props, context) => {
+export const AtmosAlertComputer = (props) => {
   const { act, data } = useBackend<AtmosAlertComputerData>();
 
   return (

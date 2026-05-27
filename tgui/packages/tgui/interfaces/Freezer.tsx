@@ -17,7 +17,7 @@ export type FreezerData = {
   gasTemperatureAvgBottom: number;
 };
 
-export const Freezer = (props, context) => {
+export const Freezer = (props) => {
   const { act, data } = useBackend<FreezerData>();
 
   return (
@@ -42,7 +42,7 @@ export const Freezer = (props, context) => {
             value={data.powerSetting}
             minValue={0}
             maxValue={100}
-            onDrag={(e, value) =>
+            onDrag={(value) =>
               act('setPower', {
                 setPower: value,
               })
@@ -92,7 +92,7 @@ export const Freezer = (props, context) => {
             minValue={0}
             maxValue={1000}
             unit="K"
-            onDrag={(e, value) =>
+            onDrag={(value) =>
               act('temp', {
                 temp: value,
               })

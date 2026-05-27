@@ -77,7 +77,7 @@ type InternalOrgan = {
   infection: string;
 };
 
-export const BodyScanner = (props, context) => {
+export const BodyScanner = (props) => {
   const { act, data } = useBackend<ScannerData>();
 
   return (
@@ -89,7 +89,7 @@ export const BodyScanner = (props, context) => {
   );
 };
 
-export const InvalidWindow = (props, context) => {
+export const InvalidWindow = (props) => {
   const { act, data } = useBackend<ScannerData>();
 
   return (
@@ -115,7 +115,7 @@ export const InvalidWindow = (props, context) => {
   );
 };
 
-export const ScannerWindow = (props, context) => {
+export const ScannerWindow = (props) => {
   const { act, data } = useBackend<ScannerData>();
 
   return (
@@ -291,7 +291,7 @@ export const ScannerWindow = (props, context) => {
               </LabeledList.Item>
               <LabeledList.Item label="Est. Paralysis Level">
                 {data.paralysis
-                  ? Math.round(data.paralysis / 4) + ' Seconds Left'
+                  ? `${Math.round(data.paralysis / 4)} Seconds Left`
                   : 'None'}
               </LabeledList.Item>
             </LabeledList>
@@ -378,7 +378,7 @@ export const ScannerWindow = (props, context) => {
   );
 };
 
-export const OrganWindow = (props, context) => {
+export const OrganWindow = (props) => {
   const { act, data } = useBackend<ScannerData>();
 
   return (
@@ -409,7 +409,7 @@ export const OrganWindow = (props, context) => {
   );
 };
 
-export const ExternalOrganWindow = (props, context) => {
+export const ExternalOrganWindow = (props) => {
   const { act, data } = useBackend<ScannerData>();
 
   return (
@@ -448,7 +448,7 @@ export const ExternalOrganWindow = (props, context) => {
   );
 };
 
-export const MissingOrgans = (props, context) => {
+export const MissingOrgans = (props) => {
   const { act, data } = useBackend<ScannerData>();
 
   return (
@@ -461,7 +461,7 @@ export const MissingOrgans = (props, context) => {
   );
 };
 
-export const MissingLimbs = (props, context) => {
+export const MissingLimbs = (props) => {
   const { act, data } = useBackend<ScannerData>();
 
   return (

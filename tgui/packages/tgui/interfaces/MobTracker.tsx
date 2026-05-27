@@ -11,7 +11,7 @@ export type MobTrackerData = {
   no_data_description: string;
 };
 
-export const MobTracker = (props, context) => {
+export const MobTracker = (props) => {
   const { act, data } = useBackend<MobTrackerData>();
 
   const total_entities = Object.values(data.areas_containing_mobs || {}).reduce(
@@ -30,10 +30,12 @@ export const MobTracker = (props, context) => {
           <Box
             textAlign="center"
             height="100%"
-            display="flex"
-            flexDirection="column"
+            style={{
+              flex: 1,
+              flexDirection: 'column',
+              justifyContent: 'center',
+            }}
             align="center"
-            justify="center"
             fontFamily="monospace"
           >
             <Box fontSize="24px" mb={1}>

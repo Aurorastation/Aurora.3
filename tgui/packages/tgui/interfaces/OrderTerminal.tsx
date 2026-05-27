@@ -29,7 +29,7 @@ type ItemBuy = {
   amount: number;
 };
 
-export const OrderTerminal = (props, context) => {
+export const OrderTerminal = (props) => {
   const { act, data } = useBackend<TerminalData>();
 
   return (
@@ -54,7 +54,7 @@ export const OrderTerminal = (props, context) => {
   );
 };
 
-export const ItemWindow = (props, context) => {
+export const ItemWindow = (props) => {
   const { act, data } = useBackend<TerminalData>();
 
   return (
@@ -103,7 +103,7 @@ export const ItemWindow = (props, context) => {
   );
 };
 
-export const AddItems = (props, context) => {
+export const AddItems = (props) => {
   const { act, data } = useBackend<TerminalData>();
   return (
     <Section>
@@ -116,14 +116,14 @@ export const AddItems = (props, context) => {
         minValue={0}
         maxValue={100}
         stepPixelSize={5}
-        onDrag={(e, value) => act('set_new_price', { set_new_price: value })}
+        onDrag={(value) => act('set_new_price', { set_new_price: value })}
       />
       <Button content="Add" onClick={() => act('add')} />
     </Section>
   );
 };
 
-export const CartWindow = (props, context) => {
+export const CartWindow = (props) => {
   const { act, data } = useBackend<TerminalData>();
   return (
     <Section>

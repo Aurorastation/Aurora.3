@@ -10,7 +10,7 @@ export type FireAlarmData = {
   timing: BooleanLike;
 };
 
-export const FireAlarm = (props, context) => {
+export const FireAlarm = (props) => {
   const { act, data } = useBackend<FireAlarmData>();
   return (
     <Window theme="hephaestus" title="Fire Alarm">
@@ -27,14 +27,15 @@ export const FireAlarm = (props, context) => {
           </Button>
         </Section>
         <Section title="Timed Lockdown">
-          <Box title="Current Timer">
+          <Box>
+            Current Timer:{' '}
             {data.time > 1
-              ? (data.time / 10).toFixed(0).toString() + ' seconds'
+              ? `${(data.time / 10).toFixed(0).toString()} seconds`
               : 'Not Set'}
           </Box>
           <Button.Input
             content="Set Activation Timer"
-            onCommit={(e, value) => {
+            onCommit={(value) => {
               act('set_timer', {
                 set_timer: value,
               });

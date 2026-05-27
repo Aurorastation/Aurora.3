@@ -43,7 +43,7 @@ type APCData = {
   name: string;
 };
 
-export const PowerMonitor = (props, context) => {
+export const PowerMonitor = (props) => {
   const { act, data } = useBackend<PowerData>();
 
   return (
@@ -55,7 +55,7 @@ export const PowerMonitor = (props, context) => {
   );
 };
 
-export const ShowMasterList = (props, context) => {
+export const ShowMasterList = (props) => {
   const { act, data } = useBackend<PowerData>();
 
   return (
@@ -80,7 +80,7 @@ export const ShowMasterList = (props, context) => {
   );
 };
 
-export const SensorMonitoring = (props, context) => {
+export const SensorMonitoring = (props) => {
   const { act, data } = useBackend<PowerData>();
   const { apc_data = [] } = data.focus;
   const apcs_sorted: APCData[] = sortBy(apc_data, [

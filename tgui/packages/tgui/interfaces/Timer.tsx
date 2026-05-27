@@ -13,7 +13,7 @@ export type TimerData = {
   time: number;
 };
 
-export const Timer = (props, context) => {
+export const Timer = (props) => {
   const { act, data } = useBackend<TimerData>();
 
   return (
@@ -38,7 +38,7 @@ export const Timer = (props, context) => {
                 unit="s"
                 value={data.time}
                 format={(value) => Math.round(value)}
-                onDrag={(e, value) => act('tp', { tp: value })}
+                onDrag={(value) => act('tp', { tp: value })}
               />
             </LabeledList.Item>
           </LabeledList>

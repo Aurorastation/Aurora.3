@@ -10,7 +10,7 @@ export type SupermatterData = {
   detonating: BooleanLike;
 };
 
-export const Supermatter = (props, context) => {
+export const Supermatter = (props) => {
   const { act, data } = useBackend<SupermatterData>();
 
   return (
@@ -22,7 +22,7 @@ export const Supermatter = (props, context) => {
   );
 };
 
-export const DetonateWindow = (props, context) => {
+export const DetonateWindow = (props) => {
   const { act, data } = useBackend<SupermatterData>();
 
   return (
@@ -32,7 +32,7 @@ export const DetonateWindow = (props, context) => {
   );
 };
 
-export const SupermatterWindow = (props, context) => {
+export const SupermatterWindow = (props) => {
   const { act, data } = useBackend<SupermatterData>();
 
   return (

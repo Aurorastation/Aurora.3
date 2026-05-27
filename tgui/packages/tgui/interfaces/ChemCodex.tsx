@@ -26,13 +26,9 @@ type Reagent = {
   amount: number;
 };
 
-export const ChemCodex = (props, context) => {
+export const ChemCodex = (props) => {
   const { act, data } = useBackend<CodexData>();
-  const [searchTerm, setSearchTerm] = useLocalState<string>(
-    context,
-    `searchTerm`,
-    ``,
-  );
+  const [searchTerm, setSearchTerm] = useLocalState<string>(`searchTerm`, ``);
 
   return (
     <NtosWindow resizable>
@@ -47,7 +43,7 @@ export const ChemCodex = (props, context) => {
               placeholder="Search by name"
               width="40vw"
               maxLength={512}
-              onInput={(e, value) => {
+              onChange={(value) => {
                 setSearchTerm(value);
               }}
               value={searchTerm}
@@ -63,7 +59,7 @@ export const ChemCodex = (props, context) => {
           )
           .map((reaction) => (
             <Section
-              title={reaction.result.name + '(' + reaction.result.amount + 'u)'}
+              title={`${reaction.result.name}(${reaction.result.amount}u)`}
               key={reaction.result.name}
             >
               <NoticeBox>{reaction.result.description}</NoticeBox>

@@ -26,7 +26,7 @@ type Circuit = {
   category: string;
 };
 
-export const CircuitPrinter = (props, context) => {
+export const CircuitPrinter = (props) => {
   const { act, data } = useBackend<PrinterData>();
 
   return (
@@ -58,9 +58,11 @@ export const CircuitPrinter = (props, context) => {
             {data.circuits.map((circuit) =>
               circuit.category === category ? (
                 <Button
-                  content={circuit.name}
+                  key={circuit.name}
                   onClick={() => act('build', { build: circuit.path })}
-                />
+                >
+                  {circuit.name}
+                </Button>
               ) : (
                 ''
               ),

@@ -13,7 +13,7 @@ export type SignalerData = {
   code: number;
 };
 
-export const Signaler = (props, context) => {
+export const Signaler = (props) => {
   const { act, data } = useBackend<SignalerData>();
 
   return (
@@ -52,7 +52,7 @@ export const Signaler = (props, context) => {
                 maxValue={100}
                 value={data.code}
                 width="80px"
-                onDrag={(e, value) =>
+                onDrag={(value) =>
                   act('code', {
                     code: value,
                   })

@@ -9,7 +9,7 @@ export type ScannerData = {
   ore_names: string[];
 };
 
-export const OreDetector = (props, context) => {
+export const OreDetector = (props) => {
   const { act, data } = useBackend<ScannerData>();
 
   const ore_enabled = (ore_name) => {

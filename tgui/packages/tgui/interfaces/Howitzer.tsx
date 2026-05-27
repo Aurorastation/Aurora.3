@@ -9,7 +9,7 @@ export type HowitzerData = {
   vertical_angle: number;
 };
 
-export const Howitzer = (props, context) => {
+export const Howitzer = (props) => {
   const { act, data } = useBackend<HowitzerData>();
   return (
     <Window>
@@ -44,7 +44,7 @@ export const Howitzer = (props, context) => {
             />
           </LabeledControls.Item>
           <LabeledControls.Item label="Fire Control">
-            <Button name="Fire" content="Fire" onClick={() => act('fire')} />
+            <Button content="Fire" onClick={() => act('fire')} />
           </LabeledControls.Item>
         </LabeledControls>
       </Window.Content>

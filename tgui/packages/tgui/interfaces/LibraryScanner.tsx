@@ -10,7 +10,7 @@ export type LibraryScannerData = {
   is_anchored: BooleanLike;
 };
 
-export const LibraryScanner = (props, context) => {
+export const LibraryScanner = (props) => {
   const { act, data } = useBackend<LibraryScannerData>();
 
   if (!data.is_anchored) {

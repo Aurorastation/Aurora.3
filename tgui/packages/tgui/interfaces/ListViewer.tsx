@@ -11,7 +11,7 @@ type List = {
   value: any;
 };
 
-export const ListViewer = (props, context) => {
+export const ListViewer = (props) => {
   const { act, data } = useBackend<ListData>();
 
   return (
@@ -34,8 +34,8 @@ export const ListViewer = (props, context) => {
             {data.listvar.map((list) => (
               <Box key={list.key}>
                 <Table.Row>
-                  <Table.Cell label={list.key}>{list.key}</Table.Cell>
-                  <Table.Cell label={list.key}>{list.value}</Table.Cell>
+                  <Table.Cell>{list.key}</Table.Cell>
+                  <Table.Cell>{list.value}</Table.Cell>
                   <Table.Cell>
                     <Button
                       onClick={() =>

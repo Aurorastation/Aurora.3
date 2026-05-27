@@ -13,7 +13,7 @@ export type ArmorValuesData = {
   armor_values: string[];
 };
 
-export const ArmorValues = (props, context) => {
+export const ArmorValues = (props) => {
   const { act, data } = useBackend<ArmorValuesData>();
 
   return (
@@ -28,7 +28,7 @@ export const ArmorValues = (props, context) => {
           <Divider />
           {Object.keys(data.armor_values).map((line) =>
             line ? (
-              <Box>
+              <Box key={data.armor_values[line]}>
                 <Box pb={1}>{capitalize(line)}</Box>
                 <ProgressBar
                   ranges={{

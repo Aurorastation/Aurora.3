@@ -30,7 +30,7 @@ type RobotEntry = {
   access: BooleanLike;
 };
 
-export const RoboticsControl = (props, context) => {
+export const RoboticsControl = (props) => {
   const { act, data } = useBackend<RoboticsControlData>();
 
   return (

@@ -7,7 +7,7 @@ export type TankDispenserData = {
   tanks_phoron: number;
 };
 
-export const TankDispenser = (props, context) => {
+export const TankDispenser = (props) => {
   const { act, data } = useBackend<TankDispenserData>();
 
   return (

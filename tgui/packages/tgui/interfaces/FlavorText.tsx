@@ -22,10 +22,11 @@ const Linkify = ({ text }) => {
   const words = text.split(' ');
   const formatedWords = words.map((w, i) => addMarkup(w));
   const html = formatedWords.join(' ');
+  /* biome-ignore lint/security/noDangerouslySetInnerHtml: Is sanitized by DOMPurify. */
   return <Box key={text} dangerouslySetInnerHTML={{ __html: html }} />;
 };
 
-export const FlavorText = (props, context) => {
+export const FlavorText = (props) => {
   const { act, data } = useBackend<FlavorTextData>();
 
   return (
@@ -34,7 +35,7 @@ export const FlavorText = (props, context) => {
         <Section>
           {data.flavor_text.split('\n').map((line) =>
             line ? (
-              <Box>
+              <Box key={line}>
                 <Linkify text={line} />
                 <Divider />
               </Box>

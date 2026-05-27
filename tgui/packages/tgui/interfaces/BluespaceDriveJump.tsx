@@ -19,10 +19,10 @@ export type BluespaceDriveJumpData = {
   primed: BooleanLike;
 };
 
-export const BluespaceDriveJump = (props, context) => {
+export const BluespaceDriveJump = (props) => {
   const { act, data } = useBackend<BluespaceDriveJumpData>();
   return (
-    <Window width="382" height="277" theme="nanotrasen">
+    <Window width={382} height={277} theme="nanotrasen">
       <Window.Content>
         <Section title="Jump Computer">
           {!data.primed ? (
@@ -40,23 +40,18 @@ export const BluespaceDriveJump = (props, context) => {
             ''
           )}
           <LabeledControls>
-            <LabeledControls.Item>
+            <LabeledControls.Item label="Rotation">
               <Knob
-                name="Rotation"
                 animated
                 value={data.rotation}
                 unit="°"
                 minValue={0}
                 maxValue={359}
-                disabled={!data.charge}
-                onChange={(e, value) =>
-                  act('set_rotation', { rotation: value })
-                }
+                onChange={(value) => act('set_rotation', { rotation: value })}
               />
             </LabeledControls.Item>
-            <LabeledControls.Item>
+            <LabeledControls.Item label="Jump">
               <Button
-                name="Jump"
                 content="Jump"
                 color="green"
                 disabled={!data.charge || data.jumping || !data.primed}

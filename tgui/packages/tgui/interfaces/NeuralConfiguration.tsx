@@ -21,12 +21,11 @@ export type NeuralData = {
   port_can_communicate: BooleanLike;
 };
 
-export const NeuralConfiguration = (props, context) => {
+export const NeuralConfiguration = (props) => {
   const { act, data } = useBackend<NeuralData>();
 
   return (
     <Window
-      resizable
       theme={
         data.neural_coherence > data.max_neural_coherence * 0.75
           ? 'spookyconsole'

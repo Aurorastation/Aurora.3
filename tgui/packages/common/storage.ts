@@ -6,10 +6,12 @@
  * @license MIT
  */
 
+export const IMPL_MEMORY = 0;
 export const IMPL_HUB_STORAGE = 1;
 export const IMPL_IFRAME_INDEXED_DB = 2;
 
 type StorageImplementation =
+  | typeof IMPL_MEMORY
   | typeof IMPL_HUB_STORAGE
   | typeof IMPL_IFRAME_INDEXED_DB;
 
@@ -32,6 +34,32 @@ const testGeneric = (testFn: () => boolean) => (): boolean => {
 const testHubStorage = testGeneric(
   () => window.hubStorage && !!window.hubStorage.getItem,
 );
+
+class MemoryBackend implements StorageBackend {
+  private store: Record<string, any>;
+  public impl: StorageImplementation;
+
+  constructor() {
+    this.impl = IMPL_MEMORY;
+    this.store = {};
+  }
+
+  async get(key: string): Promise<any> {
+    return this.store[key];
+  }
+
+  async set(key: string, value: any): Promise<void> {
+    this.store[key] = value;
+  }
+
+  async remove(key: string): Promise<void> {
+    this.store[key] = undefined;
+  }
+
+  async clear(): Promise<void> {
+    this.store = {};
+  }
+}
 
 class HubStorageBackend implements StorageBackend {
   public impl: StorageImplementation;
@@ -77,20 +105,7 @@ class IFrameIndexedDbBackend implements StorageBackend {
     iframe.src = Byond.storageCdn;
 
     const completePromise: Promise<boolean> = new Promise((resolve) => {
-      fetch(Byond.storageCdn, { method: "HEAD" }).then((response) => {
-        if (response.status !== 200) {
-          resolve(false);
-        }
-
-      }).catch(() => {
-        resolve(false);
-      })
-
-      window.addEventListener('message', (message) => {
-        if (message.data === "ready") {
-          resolve(true);
-        }
-      })
+      iframe.onload = () => resolve(true);
     });
 
     this.documentElement = document.body.appendChild(iframe);
@@ -128,6 +143,21 @@ class IFrameIndexedDbBackend implements StorageBackend {
     this.iframeWindow.postMessage({ type: 'clear' }, '*');
   }
 
+  async ping(): Promise<boolean> {
+    const promise: Promise<boolean> = new Promise((resolve) => {
+      window.addEventListener('message', (message) => {
+        if (message.data === true) {
+          resolve(true);
+        }
+      });
+
+      setTimeout(() => resolve(false), 100);
+    });
+
+    this.iframeWindow.postMessage({ type: 'ping' }, '*');
+    return promise;
+  }
+
   async destroy(): Promise<void> {
     document.body.removeChild(this.documentElement);
   }
@@ -139,69 +169,66 @@ class IFrameIndexedDbBackend implements StorageBackend {
  */
 class StorageProxy implements StorageBackend {
   private backendPromise: Promise<StorageBackend>;
-  public impl: StorageImplementation = IMPL_IFRAME_INDEXED_DB;
+  public impl: StorageImplementation = IMPL_MEMORY;
 
   constructor() {
     this.backendPromise = (async () => {
+      if (Byond.storageCdn && !window.hubStorage) {
+        const iframe = new IFrameIndexedDbBackend();
+        await iframe.ready();
 
-      // If we have not enabled byondstorage yet, we need to check
-      // if we can use the IFrame, or if we need to enable byondstorage
-      if (!testHubStorage()) {
+        if ((await iframe.ping()) === true) {
+          if (await iframe.get('byondstorage-migrated')) return iframe;
 
-        // If we have an IFrame URL we can use, and we haven't already enabled
-        // byondstorage, we should use the IFrame backend
-        if (Byond.storageCdn) {
-          const iframe = new IFrameIndexedDbBackend();
+          Byond.winset(null, 'browser-options', '+byondstorage');
 
-          if ((await iframe.ready()) === true) {
-            if (await iframe.get('byondstorage-migrated')) return iframe;
+          await new Promise<void>((resolve) => {
+            document.addEventListener('byondstorageupdated', async () => {
+              setTimeout(() => {
+                const hub = new HubStorageBackend();
 
-            Byond.winset(null, 'browser-options', '+byondstorage');
+                for (const setting of [
+                  'panel-settings',
+                  'chat-state',
+                  'chat-messages',
+                ]) {
+                  hub
+                    .get(setting)
+                    .then((settings) => iframe.set(setting, settings));
+                }
 
-            await new Promise<void>((resolve) => {
-              document.addEventListener('byondstorageupdated', async () => {
-                setTimeout(() => {
-                  const hub = new HubStorageBackend();
+                iframe.set('byondstorage-migrated', true);
+                Byond.winset(null, 'browser-options', '-byondstorage');
 
-                  // Migrate these existing settings from byondstorage to the IFrame
-                  for (const setting of ['panel-settings', 'chat-state', 'chat-messages']) {
-                    hub
-                      .get(setting)
-                      .then((settings) => iframe.set(setting, settings));
-                  }
-
-                  iframe.set('byondstorage-migrated', true);
-                  Byond.winset(null, 'browser-options', '-byondstorage');
-
-                  resolve();
-                }, 1);
-              });
+                resolve();
+              }, 1);
             });
+          });
 
-            return iframe;
-          }
+          return iframe;
+        }
 
-          iframe.destroy();
-        };
+        iframe.destroy();
 
-        // IFrame hasn't worked out for us, we'll need to enable byondstorage
-        Byond.winset(null, 'browser-options', '+byondstorage');
+        if (!testHubStorage()) {
+          Byond.winset(null, 'browser-options', '+byondstorage');
 
-        return new Promise((resolve) => {
-          const listener = () => {
-            document.removeEventListener('byondstorageupdated', listener);
+          return new Promise((resolve) => {
+            const listener = () => {
+              document.removeEventListener('byondstorageupdated', listener);
+              resolve(new HubStorageBackend());
+            };
 
-            // This event is emitted *before* byondstorage is actually created
-            // so we have to wait a little bit before we can use it
-            setTimeout(() => resolve(new HubStorageBackend()), 1);
-          };
-
-          document.addEventListener('byondstorageupdated', listener);
-        });
+            document.addEventListener('byondstorageupdated', listener);
+          });
+        }
+        return new HubStorageBackend();
       }
+      console.warn(
+        'No supported storage backend found. Using in-memory storage.',
+      );
 
-      // byondstorage is already enabled, we can use it straight away
-      return new HubStorageBackend();
+      return new MemoryBackend();
     })();
   }
 

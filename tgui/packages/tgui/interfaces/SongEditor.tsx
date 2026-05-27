@@ -15,7 +15,7 @@ type SongEditorData = {
   total_pages: number;
 };
 
-export const SongEditor = (props, context) => {
+export const SongEditor = (props) => {
   const { act, data } = useBackend<SongEditorData>();
 
   return (

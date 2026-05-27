@@ -23,7 +23,7 @@ export type SpaceHeaterData = {
   set_temperature_min: number;
 };
 
-export const SpaceHeater = (props, context) => {
+export const SpaceHeater = (props) => {
   const { act, data } = useBackend<SpaceHeaterData>();
 
   return (
@@ -109,7 +109,7 @@ export const SpaceHeater = (props, context) => {
                     maxValue={data.set_temperature_max}
                     step={1}
                     stepPixelSize={2}
-                    onDrag={(e, value) =>
+                    onDrag={(value) =>
                       act('tempSet', {
                         set_temperature: value,
                       })

@@ -1,4 +1,5 @@
 import {
+  AnimatedNumber,
   Button,
   LabeledList,
   NumberInput,
@@ -23,7 +24,7 @@ type Data = {
   measure_enabled: BooleanLike;
 };
 
-export const AtmosPump = (props, context) => {
+export const AtmosPump = (props) => {
   const { act, data } = useBackend<Data>();
   const {
     on,
@@ -61,7 +62,7 @@ export const AtmosPump = (props, context) => {
                   unit="L/s"
                   minValue={0}
                   maxValue={max_rate}
-                  onChange={(_, value) =>
+                  onChange={(value) =>
                     act('rate', {
                       rate: value,
                     })
@@ -89,7 +90,7 @@ export const AtmosPump = (props, context) => {
                   minValue={0}
                   maxValue={max_pressure}
                   step={10}
-                  onChange={(_, value) =>
+                  onChange={(value) =>
                     act('pressure', {
                       pressure: value,
                     })
@@ -111,7 +112,6 @@ export const AtmosPump = (props, context) => {
             {max_power_draw ? (
               <LabeledList.Item label="Load">
                 <ProgressBar
-                  animated
                   color={(() => {
                     if (power_draw > (max_power_draw / 3) * 2) {
                       return 'red';
@@ -125,6 +125,7 @@ export const AtmosPump = (props, context) => {
                   maxValue={max_power_draw}
                   value={power_draw}
                 >
+                  <AnimatedNumber value={power_draw} />
                   {power_draw} W
                 </ProgressBar>
               </LabeledList.Item>

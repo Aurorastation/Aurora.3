@@ -29,7 +29,7 @@ type Camera = {
   z: number;
 };
 
-export const AlarmMonitoring = (props, context) => {
+export const AlarmMonitoring = (props) => {
   const { act, data } = useBackend<AlarmData>();
 
   return (

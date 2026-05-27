@@ -30,7 +30,7 @@ type FaxData = {
   departments: string[];
 };
 
-export const Fax = (props, context) => {
+export const Fax = (props) => {
   const { act, data } = useBackend<FaxData>();
 
   return (
@@ -72,7 +72,7 @@ export const Fax = (props, context) => {
   );
 };
 
-const FaxWindow = (props, context) => {
+const FaxWindow = (props) => {
   const { act, data } = useBackend<FaxData>();
   const remaining_cooldown = data.cooldown_end - data.world_time;
 
@@ -97,7 +97,7 @@ const FaxWindow = (props, context) => {
   );
 };
 
-const SendWindow = (props, context) => {
+const SendWindow = (props) => {
   const { act, data } = useBackend<FaxData>();
 
   return (
@@ -106,6 +106,7 @@ const SendWindow = (props, context) => {
         <LabeledList.Item label="Sending To">
           <Dropdown
             options={data.departments}
+            selected={data.destination}
             onSelected={(value) =>
               act('select_destination', { select_destination: value })
             }
@@ -117,8 +118,7 @@ const SendWindow = (props, context) => {
     </Section>
   );
 };
-
-const PaperWindow = (props, context) => {
+const PaperWindow = (props) => {
   const { act, data } = useBackend<FaxData>();
 
   return (
@@ -138,7 +138,7 @@ const PaperWindow = (props, context) => {
   );
 };
 
-const PDANotifyWindow = (props, context) => {
+const PDANotifyWindow = (props) => {
   const { act, data } = useBackend<FaxData>();
 
   return (

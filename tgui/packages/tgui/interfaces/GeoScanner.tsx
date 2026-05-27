@@ -33,7 +33,7 @@ type GeoScannerData = {
   rad_shield_on: BooleanLike;
 };
 
-export const GeoScanner = (props, context) => {
+export const GeoScanner = (props) => {
   const { act, data } = useBackend<GeoScannerData>();
 
   return (
@@ -167,7 +167,7 @@ export const GeoScanner = (props, context) => {
                 icon="minus"
                 onClick={() => act('maser_wavelength', { delta: -1 })}
               />
-              <Box display="inline-block" mx={1}>
+              <Box style={{ display: 'inline-block' }} mx={1}>
                 {data.maser_wavelength} nm
               </Box>
               <Button
@@ -240,6 +240,7 @@ export const GeoScanner = (props, context) => {
           data.last_scan_data !== 'No scans on record.' && (
             <Section title="Last Scan Report">
               <Box
+                /* biome-ignore lint/security/noDangerouslySetInnerHtml: Is sanitized by DOMPurify. */
                 dangerouslySetInnerHTML={{ __html: data.last_scan_data }}
                 style={{ fontFamily: 'monospace', fontSize: '0.85em' }}
               />

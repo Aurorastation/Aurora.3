@@ -17,7 +17,7 @@ export type EngineData = {
   tow: string;
 };
 
-export const TrainEngine = (props, context) => {
+export const TrainEngine = (props) => {
   const { act, data } = useBackend<EngineData>();
 
   return (

@@ -28,7 +28,7 @@ type CrewMember = {
   z: number;
 };
 
-export const SuitSensors = (props, context) => {
+export const SuitSensors = (props) => {
   const { act, data } = useBackend<SensorsData>();
 
   return (

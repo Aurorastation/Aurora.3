@@ -21,22 +21,22 @@ export type AtmoScrubberData = {
   on: BooleanLike;
   hasHoldingTank: BooleanLike;
   holdingTankName: string[];
-  holdingTankPressure: string[];
+  holdingTankPressure: number;
 };
 
-export const AtmoScrubber = (props, context) => {
+export const AtmoScrubber = (props) => {
   const { act, data } = useBackend<AtmoScrubberData>();
 
-  const [tank_color] = useLocalState(context, 'tank_color', '');
-  const [cell_color] = useLocalState(context, 'tank_color', '');
+  const [tank_color] = useLocalState('tank_color', '');
+  const [cell_color] = useLocalState('tank_color', '');
 
   const tank_presure_color = tank_color
     ? { color: tank_color }
     : {
         ranges: {
-          good: [-Infinity, 500],
-          bad: [750, Infinity],
-          average: [500, 750],
+          good: [-Infinity, 500] as const,
+          bad: [750, Infinity] as const,
+          average: [500, 750] as const,
         },
       };
 
@@ -44,9 +44,9 @@ export const AtmoScrubber = (props, context) => {
     ? { color: cell_color }
     : {
         ranges: {
-          good: [data.cellMaxCharge / 2, Infinity],
-          bad: [-Infinity, data.cellMaxCharge / 4],
-          average: [data.cellMaxCharge / 4, data.cellMaxCharge / 2],
+          good: [data.cellMaxCharge / 2, Infinity] as const,
+          bad: [-Infinity, data.cellMaxCharge / 4] as const,
+          average: [data.cellMaxCharge / 4, data.cellMaxCharge / 2] as const,
         },
       };
 

@@ -9,7 +9,7 @@ export type DirectivesData = {
   supplemental: string;
 };
 
-export const pAIDirectives = (props, context) => {
+export const pAIDirectives = (props) => {
   const { act, data } = useBackend<DirectivesData>();
 
   return (

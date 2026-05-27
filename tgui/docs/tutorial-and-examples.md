@@ -127,7 +127,7 @@ import { useBackend } from '../backend';
 import { Button, LabeledList, Section } from 'tgui-core/components';
 import { Window } from '../layouts';
 
-export const SampleInterface = (props, context) => {
+export const SampleInterface = (props) => {
 	const { act, data } = useBackend(context);
 	// Extract `health` and `color` variables from the `data` object.
 	const { health, color } = data;
@@ -249,7 +249,7 @@ import { useBackend } from '../backend';
 import { Button, LabeledList, Section } from 'tgui-core/components';
 import { Window } from '../layouts';
 
-export const SampleInterface = (props, context) => {
+export const SampleInterface = (props) => {
 	return (
 		<Window>
 			<Window.Content scrollable>
@@ -259,7 +259,7 @@ export const SampleInterface = (props, context) => {
 	);
 };
 
-const HealthStatus = (props, context) => {
+const HealthStatus = (props) => {
 	const { act, data } = useBackend(context);
 	const { user } = props;
 	const { health, color } = data;
@@ -311,7 +311,7 @@ import { useBackend } from '../backend';
 import { Button, LabeledList, Section } from 'tgui-core/components';
 import { Window } from '../layouts';
 
-export const SampleInterface = (props, context) => {
+export const SampleInterface = (props) => {
 	const { act, data } = useBackend(context);
 	// Extract `health` and `color` variables from the `data` object.
 	const { health, color } = data;

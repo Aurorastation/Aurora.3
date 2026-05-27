@@ -74,7 +74,7 @@ const CATEGORY_LABEL: Record<NonNullable<LogEntry['category']>, string> = {
   reply: 'Reply',
 };
 
-export const RequestsConsole = (props, context) => {
+export const RequestsConsole = (props) => {
   const { act, data } = useBackend<RequestsConsoleData>();
   const { screen, department } = data;
 

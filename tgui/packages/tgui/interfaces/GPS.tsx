@@ -30,7 +30,7 @@ type GPSDevice = {
   compass_color: string;
 };
 
-export const GPS = (props, context) => {
+export const GPS = (props) => {
   const { act, data } = useBackend<GPSData>();
 
   return (
@@ -88,10 +88,7 @@ export const GPS = (props, context) => {
                   <Button
                     content="Compass"
                     disabled={data.own_tag === track.gps.tag}
-                    selected={
-                      data.compass_list &&
-                      data.compass_list.includes(track.gps.tag)
-                    }
+                    selected={data.compass_list?.includes(track.gps.tag)}
                     onClick={() => act('compass', { compass: track.gps.tag })}
                   />
                 </Table.Cell>

@@ -27,7 +27,7 @@ export type WagonData = {
   max_bucket_capacity: number;
 };
 
-export const PussyWagon = (props, context) => {
+export const PussyWagon = (props) => {
   const { act, data } = useBackend<WagonData>();
 
   return (
@@ -94,7 +94,7 @@ export const PussyWagon = (props, context) => {
   );
 };
 
-export const ControlsWindow = (props, context) => {
+export const ControlsWindow = (props) => {
   const { act, data } = useBackend<WagonData>();
 
   return (

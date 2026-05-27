@@ -15,7 +15,7 @@ export type ProximityData = {
   time: number;
 };
 
-export const Proximity = (props, context) => {
+export const Proximity = (props) => {
   const { act, data } = useBackend<ProximityData>();
 
   return (
@@ -60,7 +60,7 @@ export const Proximity = (props, context) => {
                 minValue={1}
                 maxValue={5}
                 value={data.range}
-                onDrag={(e, value) => act('range', { range: value })}
+                onDrag={(value) => act('range', { range: value })}
               />
             </LabeledList.Item>
           </LabeledList>

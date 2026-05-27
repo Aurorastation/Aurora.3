@@ -30,7 +30,7 @@ type NukeDisk = {
   z: number;
 };
 
-export const RoundStatus = (props, context) => {
+export const RoundStatus = (props) => {
   const { act, data } = useBackend<RoundData>();
 
   return (
@@ -70,7 +70,7 @@ export const RoundStatus = (props, context) => {
   );
 };
 
-export const Antagonists = (props, context) => {
+export const Antagonists = (props) => {
   const { act, data } = useBackend<RoundData>();
 
   return (
@@ -124,7 +124,7 @@ export const Antagonists = (props, context) => {
   );
 };
 
-export const NukeDisks = (props, context) => {
+export const NukeDisks = (props) => {
   const { act, data } = useBackend<RoundData>();
 
   return (

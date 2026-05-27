@@ -24,7 +24,7 @@ export type CapacitorData = {
   max_charge_rate: number;
 };
 
-export const ShieldCapacitor = (props, context) => {
+export const ShieldCapacitor = (props) => {
   const { act, data } = useBackend<CapacitorData>();
 
   return (
@@ -42,7 +42,7 @@ export const ShieldCapacitor = (props, context) => {
   );
 };
 
-export const CapacitorWindow = (props, context) => {
+export const CapacitorWindow = (props) => {
   const { act, data } = useBackend<CapacitorData>();
 
   return (

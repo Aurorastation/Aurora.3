@@ -29,7 +29,7 @@ type Implant = {
   ref: string;
 };
 
-export const Teleporter = (props, context) => {
+export const Teleporter = (props) => {
   const { act, data } = useBackend<TeleporterData>();
 
   return (
@@ -41,7 +41,7 @@ export const Teleporter = (props, context) => {
   );
 };
 
-export const TeleporterPad = (props, context) => {
+export const TeleporterPad = (props) => {
   const { act, data } = useBackend<TeleporterData>();
 
   return (
@@ -109,7 +109,7 @@ export const TeleporterPad = (props, context) => {
   );
 };
 
-export const FindPad = (props, context) => {
+export const FindPad = (props) => {
   const { act, data } = useBackend<TeleporterData>();
 
   return (

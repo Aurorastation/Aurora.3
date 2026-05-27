@@ -9,7 +9,7 @@ export type pAIData = {
   comments: string;
 };
 
-export const pAIRecruitment = (props, context) => {
+export const pAIRecruitment = (props) => {
   const { act, data } = useBackend<pAIData>();
 
   return (
