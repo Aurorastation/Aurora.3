@@ -392,8 +392,8 @@
 			bodytemperature -= temperature_loss * seconds_per_tick
 	else
 		var/loc_temp = T0C
-		if(istype(loc, /obj/machinery/atmospherics/unary/cryo_cell))
-			var/obj/machinery/atmospherics/unary/cryo_cell/C = loc
+		if(istype(loc, /obj/structure/machinery/atmospherics/unary/cryo_cell))
+			var/obj/structure/machinery/atmospherics/unary/cryo_cell/C = loc
 			loc_temp = C.air_contents?.temperature
 		else
 			loc_temp = environment.temperature
@@ -728,15 +728,32 @@
 		if(gloves && (gloves.heat_protection & HANDS))
 			protected = TRUE
 
-		if(!protected)
-			for(var/obj/item/held_item in src)
-				if(held_item.contaminated && !(species.flags & PHORON_IMMUNE))
-					if(held_item == r_hand)
-						apply_damage(GLOB.vsc.plc.CONTAMINATION_LOSS, DAMAGE_BURN, BP_R_HAND)
-					else if(held_item == l_hand)
-						apply_damage(GLOB.vsc.plc.CONTAMINATION_LOSS, DAMAGE_BURN, BP_L_HAND)
-					else
-						adjustFireLoss(GLOB.vsc.plc.CONTAMINATION_LOSS)
+		if(!(species.flags & PHORON_IMMUNE))
+			for(var/obj/item/held_item in list(r_hand, l_hand, wear_suit, head, wear_mask, w_uniform, gloves, shoes))
+				if(held_item.contaminated)
+					if(held_item.body_parts_covered & HEAD)
+						apply_damage(GLOB.vsc.plc.CONTAMINATION_LOSS, DAMAGE_BURN, BP_HEAD, "Contamination burns", DAMAGE_FLAG_IGNORE_PROSTHETICS, 100, TRUE)
+					if (held_item.body_parts_covered & UPPER_TORSO)
+						apply_damage(GLOB.vsc.plc.CONTAMINATION_LOSS, DAMAGE_BURN, BP_CHEST, "Contamination burns", DAMAGE_FLAG_IGNORE_PROSTHETICS, 100, TRUE)
+					if (held_item.body_parts_covered & LOWER_TORSO)
+						apply_damage(GLOB.vsc.plc.CONTAMINATION_LOSS, DAMAGE_BURN, BP_GROIN, "Contamination burns", DAMAGE_FLAG_IGNORE_PROSTHETICS, 100, TRUE)
+					if (held_item.body_parts_covered & LEG_LEFT)
+						apply_damage(GLOB.vsc.plc.CONTAMINATION_LOSS, DAMAGE_BURN, BP_L_LEG, "Contamination burns", DAMAGE_FLAG_IGNORE_PROSTHETICS, 100, TRUE)
+					if (held_item.body_parts_covered & LEG_RIGHT)
+						apply_damage(GLOB.vsc.plc.CONTAMINATION_LOSS, DAMAGE_BURN, BP_R_LEG, "Contamination burns", DAMAGE_FLAG_IGNORE_PROSTHETICS, 100, TRUE)
+					if (held_item.body_parts_covered & ARM_LEFT)
+						apply_damage(GLOB.vsc.plc.CONTAMINATION_LOSS, DAMAGE_BURN, BP_L_ARM, "Contamination burns", DAMAGE_FLAG_IGNORE_PROSTHETICS, 100, TRUE)
+					if (held_item.body_parts_covered & ARM_RIGHT)
+						apply_damage(GLOB.vsc.plc.CONTAMINATION_LOSS, DAMAGE_BURN, BP_R_ARM, "Contamination burns", DAMAGE_FLAG_IGNORE_PROSTHETICS, 100, TRUE)
+					if (held_item.body_parts_covered & HAND_LEFT)
+						apply_damage(GLOB.vsc.plc.CONTAMINATION_LOSS, DAMAGE_BURN, BP_L_HAND, "Contamination burns", DAMAGE_FLAG_IGNORE_PROSTHETICS, 100, TRUE)
+					if (held_item.body_parts_covered & HAND_RIGHT)
+						apply_damage(GLOB.vsc.plc.CONTAMINATION_LOSS, DAMAGE_BURN, BP_R_HAND, "Contamination burns", DAMAGE_FLAG_IGNORE_PROSTHETICS, 100, TRUE)
+					if(!protected)
+						if(held_item == r_hand)
+							apply_damage(GLOB.vsc.plc.CONTAMINATION_LOSS * gloves.permeability_coefficient, DAMAGE_BURN, BP_R_HAND, "Contamination burns", DAMAGE_FLAG_IGNORE_PROSTHETICS, 100, TRUE)
+						else if(held_item == l_hand)
+							apply_damage(GLOB.vsc.plc.CONTAMINATION_LOSS * gloves.permeability_coefficient, DAMAGE_BURN, BP_L_HAND, "Contamination burns", DAMAGE_FLAG_IGNORE_PROSTHETICS, 100, TRUE)
 
 	if (intoxication)
 		handle_intoxication()
@@ -834,11 +851,11 @@
 		if(paralysis || sleeping || InStasis())
 			blinded = TRUE
 			if(sleeping && !stat)
-				species.sleep_msg(src)
 				set_stat(UNCONSCIOUS)
+				species.sleep_msg(src)
 				if(!sleeping_msg_debounce)
 					sleeping_msg_debounce = TRUE
-					to_chat(src, SPAN_NOTICE(FONT_LARGE("You are now unconscious.<br>You will not remember anything you \"see\" happening around you until you regain consciousness.")))
+					to_chat(src, EXAMINE_BLOCK_BLUE(SPAN_NOTICE(FONT_LARGE("You are now unconscious. You will not remember anything you see, hear, or feel happening around you until you regain consciousness."))))
 
 			adjustHalLoss(-3)
 			if (species.tail)
@@ -1037,24 +1054,24 @@
 
 				// Apply a fire overlay if we're burning.
 				if(on_fire)
-					var/image/burning_image = image('icons/mob/screen1_health.dmi', "burning", pixel_x = species.healths_overlay_x)
+					var/image/burning_image = image('icons/hud/mob/screen1_health.dmi', "burning", pixel_x = species.healths_overlay_x)
 					var/midway_point = FIRE_MAX_STACKS / 2
 					burning_image.color = color_rotation((midway_point - fire_stacks) * 3)
 
 				// Show a general pain/crit indicator if needed.
 				if(is_asystole())
-					var/image/hardcrit_image = image('icons/mob/screen1_health.dmi', "hardcrit", pixel_x = species.healths_overlay_x)
+					var/image/hardcrit_image = image('icons/hud/mob/screen1_health.dmi', "hardcrit", pixel_x = species.healths_overlay_x)
 					health_images += hardcrit_image
 				else if(trauma_val)
 					if(can_feel_pain())
 						if(trauma_val > 0.7)
-							var/image/softcrit_image = image('icons/mob/screen1_health.dmi', "softcrit", pixel_x = species.healths_overlay_x)
+							var/image/softcrit_image = image('icons/hud/mob/screen1_health.dmi', "softcrit", pixel_x = species.healths_overlay_x)
 							health_images += softcrit_image
 						if(trauma_val >= 1)
-							var/image/hardcrit_image = image('icons/mob/screen1_health.dmi', "hardcrit", pixel_x = species.healths_overlay_x)
+							var/image/hardcrit_image = image('icons/hud/mob/screen1_health.dmi', "hardcrit", pixel_x = species.healths_overlay_x)
 							health_images += hardcrit_image
 				else if(no_damage)
-					var/image/fullhealth_image = image('icons/mob/screen1_health.dmi', "fullhealth", pixel_x = species.healths_overlay_x)
+					var/image/fullhealth_image = image('icons/hud/mob/screen1_health.dmi', "fullhealth", pixel_x = species.healths_overlay_x)
 					health_images += fullhealth_image
 
 				healths.overlays += health_images
@@ -1251,9 +1268,6 @@
 	return "EAST[coord_col]:[coord_col_offset],NORTH[coord_row]:[coord_row_offset]"
 
 /mob/living/carbon/human/handle_random_events()
-	if(InStasis())
-		return
-
 	// Puke if toxloss is too high
 	if(!stat)
 		if (getToxLoss() >= 45 && !lastpuke)
@@ -1270,44 +1284,6 @@
 			T = loc
 			if(T.get_lumcount() < 0.05)	// give a little bit of tolerance for near-dark areas.
 				playsound(null, pick(GLOB.scarySounds), 50, TRUE)
-
-		// People who are afraid of the dark get anxious.
-		if(HAS_TRAIT(src, TRAIT_ORIGIN_DARK_AFRAID))
-			T = loc
-			if(prob(2) && T.get_lumcount() < 0.2)
-				var/list/afraid_of_the_dark_messages = list(
-					"You feel a bit afraid...",
-					"You feel somewhat nervous...",
-					"You could use a little light here...",
-					"It's dark enough that you feel a little anxious..."
-				)
-				to_chat(src, SPAN_WARNING(pick(afraid_of_the_dark_messages)))
-
-		// People sensitive to light get eye strain.
-		if(HAS_TRAIT(src, TRAIT_ORIGIN_LIGHT_SENSITIVE))
-			T = loc
-			// From testing, this generally leaves several minutes between each message.
-			if(prob(1) && T.get_lumcount() > 0.8)
-				var/mob/living/carbon/human/self = src
-
-				// If you have this trait, your default flash protection is -1; check for ANY protection.
-				var/flash_protection = self.get_flash_protection()
-
-				// I hate this. We removed flash protection from basic sunglasses for 'powergaming concerns.'
-				// Check if we're wearing the stupid fake loadout sunglasses.
-				// Yes this is stupid. Remove this when we rebalance flash protection to be a 0-100 threshold.
-				var/fakesunglasses = istype(self?.glasses, /obj/item/clothing/glasses/fakesunglasses)
-
-				if(!flash_protection && !fakesunglasses)
-					var/obj/item/organ/eyes = self.get_eyes()
-					if(istype(eyes))
-						self.eye_blurry = max(self.eye_blurry, 6)
-						var/list/eye_sensitivity_messages = list(
-							"Your eyes tire a bit from the brightness.",
-							"Your eyes sting a little; it's too bright.",
-							"The bright light leaves your vision strained."
-						)
-						to_chat(src, SPAN_WARNING(pick(eye_sensitivity_messages)))
 
 /mob/living/carbon/human/proc/handle_changeling()
 	if(mind)

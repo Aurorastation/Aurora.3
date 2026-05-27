@@ -8,7 +8,7 @@
 /turf/simulated/floor/plating,
 /area/merchants_guild/portengine)
 "ax" = (
-/obj/machinery/power/apc/south{
+/obj/structure/machinery/power/apc/south{
 	is_critical = 1;
 	req_access = list(113)
 	},
@@ -17,10 +17,10 @@
 /area/merchants_guild/captain)
 "aA" = (
 /obj/structure/bed/stool/chair/office/dark,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -31,7 +31,7 @@
 /turf/simulated/floor/tiled,
 /area/merchants_guild/office)
 "aC" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -42,13 +42,13 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
 	},
-/obj/machinery/alarm/north{
+/obj/structure/machinery/alarm/north{
 	req_one_access = list(215)
 	},
 /turf/simulated/floor/tiled,
 /area/merchants_guild/office)
 "aK" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 5
 	},
 /turf/simulated/floor/plating,
@@ -57,7 +57,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1;
 	id_tag = "merchant_guild_shuttle_in";
 	frequency = 1313
@@ -72,7 +72,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/machinery/hologram/holopad/long_range,
+/obj/structure/machinery/hologram/holopad/long_range,
 /turf/simulated/floor/tiled,
 /area/merchants_guild/bridge)
 "bq" = (
@@ -85,13 +85,13 @@
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 1
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/effect/floor_decal/corner_wide/purple/diagonal,
 /turf/simulated/floor/tiled,
 /area/shuttle/merchants_guild)
 "bJ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/machinery/power/terminal{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/machinery/power/terminal{
 	dir = 1
 	},
 /obj/structure/cable/green{
@@ -107,7 +107,7 @@
 /turf/space/transit/north,
 /area/space)
 "bU" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/purple{
@@ -116,7 +116,7 @@
 /turf/simulated/floor/tiled,
 /area/merchants_guild)
 "ce" = (
-/obj/machinery/computer/ship/sensors{
+/obj/structure/machinery/computer/ship/sensors{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner_wide/purple/diagonal,
@@ -130,7 +130,7 @@
 /obj/item/clothing/accessory/poncho/unathimantle{
 	color = "#ba650b"
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/item/clothing/under/unathi,
 /obj/item/clothing/under/unathi/himation,
 /obj/item/clothing/under/unathi/huytai,
@@ -150,16 +150,16 @@
 /obj/item/clothing/head/helmet/space/void/engineering,
 /obj/item/clothing/mask/breath,
 /obj/item/gps/engineering,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/merchants_guild/eva)
 "co" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
-/obj/machinery/power/smes/buildable/horizon_shuttle,
+/obj/structure/machinery/power/smes/buildable/horizon_shuttle,
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
@@ -195,16 +195,16 @@
 /turf/simulated/floor/carpet/orange,
 /area/merchants_guild/captain)
 "cH" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/alarm/north{
+/obj/structure/machinery/alarm/north{
 	pixel_y = -25;
 	req_one_access = list(215)
 	},
@@ -214,7 +214,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
 	},
-/obj/machinery/power/apc/north{
+/obj/structure/machinery/power/apc/north{
 	req_access = list(113)
 	},
 /obj/structure/cable/green{
@@ -233,10 +233,10 @@
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/merchants_guild)
 "cV" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -261,25 +261,25 @@
 /turf/simulated/floor/plating,
 /area/merchants_guild/hangar)
 "dj" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
-/obj/machinery/portable_atmospherics/canister/empty{
+/obj/structure/machinery/portable_atmospherics/canister/empty{
 	name = "waste canister"
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/merchants_guild/portengine)
 "dq" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	frequency = 1313;
 	id_tag = "merchant_guild_shuttle_external";
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/red,
-/obj/machinery/access_button{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/red,
+/obj/structure/machinery/access_button{
 	command = "cycle_exterior";
 	frequency = 1313;
 	master_tag = "merchant_guild_shuttle";
@@ -291,10 +291,10 @@
 /turf/simulated/floor/plating,
 /area/shuttle/merchants_guild)
 "dC" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
 /obj/structure/cable/green{
@@ -306,21 +306,21 @@
 /area/merchants_guild/portengine)
 "dF" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/alarm/north{
+/obj/structure/machinery/alarm/north{
 	pixel_y = -25;
 	req_one_access = list(215)
 	},
 /turf/simulated/floor/plating,
 /area/merchants_guild/warehouse)
 "dL" = (
-/obj/machinery/power/apc/east{
+/obj/structure/machinery/power/apc/east{
 	is_critical = 1
 	},
 /obj/structure/cable/green{
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -340,14 +340,14 @@
 /turf/simulated/floor/tiled,
 /area/merchants_guild/canteen)
 "en" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 6
 	},
 /obj/effect/floor_decal/corner_wide/purple/diagonal,
 /turf/simulated/floor/tiled,
 /area/shuttle/merchants_guild)
 "eC" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 9
 	},
 /turf/simulated/floor/plating,
@@ -358,7 +358,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/door/airlock/highsecurity{
+/obj/structure/machinery/door/airlock/highsecurity{
 	req_access = list(215);
 	name = "Reactor";
 	dir = 1
@@ -369,7 +369,7 @@
 /turf/simulated/floor/plating,
 /area/merchants_guild/hangar)
 "fa" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -383,10 +383,10 @@
 /turf/simulated/floor/tiled,
 /area/merchants_guild/bridge)
 "ff" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -394,7 +394,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/door/airlock/glass_service{
+/obj/structure/machinery/door/airlock/glass_service{
 	name = "Crew Quarters";
 	dir = 4;
 	req_access = list(215)
@@ -405,8 +405,8 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
 	},
-/obj/machinery/photocopier,
-/obj/machinery/light,
+/obj/structure/machinery/photocopier,
+/obj/structure/machinery/light,
 /obj/structure/sign/flag/hegemony/large/south,
 /turf/simulated/floor/tiled,
 /area/merchants_guild/office)
@@ -419,10 +419,10 @@
 /turf/simulated/floor/plating,
 /area/merchants_guild/starboardengine)
 "fq" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -430,7 +430,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/door/airlock/glass_mining{
+/obj/structure/machinery/door/airlock/glass_mining{
 	req_access = list(215);
 	name = "Cargo Office";
 	dir = 4
@@ -442,15 +442,15 @@
 /turf/simulated/floor/plating,
 /area/merchants_guild/bridge)
 "fE" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 4
 	},
-/obj/machinery/meter,
+/obj/structure/machinery/meter,
 /turf/simulated/floor/plating,
 /area/merchants_guild/portengine)
 "fM" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/iff_beacon,
+/obj/structure/machinery/iff_beacon,
 /turf/simulated/floor/plating,
 /area/shuttle/merchants_guild)
 "ga" = (
@@ -472,7 +472,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/merchants_guild)
 "gh" = (
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	dir = 8;
 	id = "merchants_guild"
 	},
@@ -481,7 +481,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
@@ -515,14 +515,14 @@
 /turf/simulated/floor/tiled,
 /area/merchants_guild/office)
 "gt" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/fuel{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/merchants_guild/portengine)
 "gy" = (
 /obj/structure/window/borosilicate/reinforced,
-/obj/machinery/atmospherics/unary/engine,
+/obj/structure/machinery/atmospherics/unary/engine,
 /obj/effect/landmark/entry_point/aft{
 	name = "aft, starboard thruster"
 	},
@@ -533,7 +533,7 @@
 /turf/space/transit/north,
 /area/space)
 "gI" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 9
 	},
 /turf/simulated/floor/plating,
@@ -558,10 +558,10 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/purple{
@@ -570,7 +570,7 @@
 /turf/simulated/floor/tiled,
 /area/merchants_guild)
 "gZ" = (
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	dir = 1;
 	id = "merchants_guild"
 	},
@@ -589,7 +589,7 @@
 /turf/simulated/wall/shuttle/raider,
 /area/merchants_guild/canteen)
 "hf" = (
-/obj/machinery/atmospherics/binary/passive_gate/on{
+/obj/structure/machinery/atmospherics/binary/passive_gate/on{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -609,7 +609,7 @@
 /turf/simulated/floor/tiled,
 /area/merchants_guild)
 "hS" = (
-/obj/machinery/alarm/north{
+/obj/structure/machinery/alarm/north{
 	pixel_y = -25;
 	req_one_access = list(215)
 	},
@@ -632,10 +632,10 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -649,7 +649,7 @@
 /turf/simulated/floor/plating,
 /area/merchants_guild/portengine)
 "iL" = (
-/obj/machinery/computer/general_air_control/large_tank_control{
+/obj/structure/machinery/computer/general_air_control/large_tank_control{
 	frequency = 1984;
 	name = "Carbon Dioxide Supply Monitor";
 	output_tag = "mg_vent";
@@ -659,34 +659,34 @@
 /turf/simulated/floor/plating,
 /area/merchants_guild/starboardengine)
 "iS" = (
-/obj/machinery/computer/ship/engines{
+/obj/structure/machinery/computer/ship/engines{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/merchants_guild/bridge)
 "iX" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 1
 	},
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/obj/machinery/light,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/light,
 /obj/effect/floor_decal/corner_wide/purple/diagonal,
 /turf/simulated/floor/tiled,
 /area/shuttle/merchants_guild)
 "jb" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
-/obj/machinery/alarm/north{
+/obj/structure/machinery/alarm/north{
 	req_one_access = list(215)
 	},
 /turf/simulated/floor/tiled,
 /area/merchants_guild/bridge)
 "je" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -694,7 +694,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/door/airlock/glass_mining{
+/obj/structure/machinery/door/airlock/glass_mining{
 	req_access = list(215);
 	name = "Warehouse";
 	dir = 4
@@ -720,7 +720,7 @@
 /obj/effect/floor_decal/corner/purple{
 	dir = 10
 	},
-/obj/machinery/alarm/north{
+/obj/structure/machinery/alarm/north{
 	pixel_y = -25;
 	req_one_access = list(215)
 	},
@@ -737,13 +737,13 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/merchants_guild)
 "jB" = (
 /obj/structure/closet/crate/loot,
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/plating,
 /area/merchants_guild/warehouse)
 "jG" = (
@@ -752,13 +752,13 @@
 /turf/simulated/floor/tiled,
 /area/shuttle/merchants_guild)
 "jH" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -769,19 +769,19 @@
 /turf/simulated/floor/plating,
 /area/merchants_guild/starboardengine)
 "jI" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
 /turf/simulated/floor/plating,
 /area/merchants_guild/starboardengine)
 "jJ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
 /turf/simulated/floor/plating,
 /area/merchants_guild/starboardengine)
 "jN" = (
 /obj/structure/bed/stool/bar/padded,
 /obj/effect/floor_decal/corner_wide/green/diagonal,
-/obj/machinery/alarm/north{
+/obj/structure/machinery/alarm/north{
 	req_one_access = list(215)
 	},
 /turf/simulated/floor/tiled,
@@ -799,7 +799,7 @@
 /turf/simulated/floor/tiled,
 /area/merchants_guild/crew)
 "jX" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/purple{
@@ -808,7 +808,7 @@
 /turf/simulated/floor/tiled,
 /area/merchants_guild)
 "jZ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -825,19 +825,19 @@
 	},
 /area/merchants_guild/office)
 "kg" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/merchants_guild)
 "ko" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -860,7 +860,7 @@
 /turf/simulated/wall/shuttle/raider,
 /area/merchants_guild/starboardengine)
 "kM" = (
-/obj/machinery/computer/ship/helm{
+/obj/structure/machinery/computer/ship/helm{
 	dir = 4;
 	req_access = list(215)
 	},
@@ -868,10 +868,10 @@
 /turf/simulated/floor/tiled,
 /area/shuttle/merchants_guild)
 "kN" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -888,7 +888,7 @@
 /turf/simulated/floor/tiled,
 /area/merchants_guild)
 "kO" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -902,7 +902,7 @@
 /turf/simulated/floor/plating,
 /area/merchants_guild/portengine)
 "lG" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
@@ -916,7 +916,7 @@
 /turf/simulated/floor/plating,
 /area/merchants_guild/portengine)
 "mw" = (
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	dir = 1;
 	id = "merchants_guild"
 	},
@@ -933,7 +933,7 @@
 /area/merchants_guild/office)
 "mB" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/shipsensors,
+/obj/structure/machinery/shipsensors,
 /turf/simulated/floor/plating,
 /area/shuttle/merchants_guild)
 "mT" = (
@@ -958,12 +958,12 @@
 /area/merchants_guild/portengine)
 "nn" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/power/apc/south{
+/obj/structure/machinery/power/apc/south{
 	is_critical = 1;
 	req_access = list(113)
 	},
 /obj/structure/cable/green,
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/plating,
 /area/merchants_guild/warehouse)
 "nv" = (
@@ -977,7 +977,7 @@
 /turf/simulated/floor/plating,
 /area/merchants_guild/warehouse)
 "nF" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -999,7 +999,7 @@
 /turf/simulated/floor/lino,
 /area/merchants_guild/canteen)
 "nV" = (
-/obj/machinery/door/airlock/glass_mining{
+/obj/structure/machinery/door/airlock/glass_mining{
 	req_access = list(215);
 	name = "Cargo Office";
 	dir = 1
@@ -1010,7 +1010,7 @@
 /turf/simulated/wall/shuttle/raider,
 /area/merchants_guild/office)
 "oa" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -1018,7 +1018,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/alarm/north{
+/obj/structure/machinery/alarm/north{
 	req_one_access = list(215)
 	},
 /turf/simulated/floor/tiled,
@@ -1029,13 +1029,13 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/door/airlock/glass_command{
+/obj/structure/machinery/door/airlock/glass_command{
 	name = "Captain's Quarters";
 	req_access = list(215);
 	dir = 4
@@ -1049,7 +1049,7 @@
 /turf/simulated/floor/tiled,
 /area/merchants_guild/office)
 "oy" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner_wide/green/diagonal,
@@ -1064,10 +1064,10 @@
 /turf/simulated/floor/plating,
 /area/merchants_guild/portengine)
 "pa" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /obj/structure/cable/green{
@@ -1078,7 +1078,7 @@
 /turf/simulated/floor/tiled,
 /area/merchants_guild/armory)
 "pb" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -1088,13 +1088,13 @@
 	dir = 10
 	},
 /obj/structure/filingcabinet/chestdrawer,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/merchants_guild/office)
 "pv" = (
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	id = "merchants_guild";
 	reversed = 1
 	},
@@ -1104,7 +1104,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/door/blast/regular{
+/obj/structure/machinery/door/blast/regular{
 	id = "mg_cargo_hatch"
 	},
 /obj/effect/landmark/entry_point/aft{
@@ -1113,7 +1113,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/merchants_guild)
 "px" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 5
 	},
 /turf/simulated/floor/plating,
@@ -1134,19 +1134,19 @@
 /obj/item/clothing/head/helmet/space/void/engineering,
 /obj/item/clothing/mask/breath,
 /obj/item/gps/engineering,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/merchants_guild/eva)
 "pR" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 9
 	},
 /turf/simulated/floor/plating,
@@ -1160,7 +1160,7 @@
 /turf/simulated/floor/carpet/orange,
 /area/merchants_guild/captain)
 "qb" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -1184,13 +1184,13 @@
 /turf/simulated/floor/plating,
 /area/merchants_guild/portengine)
 "qt" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 10
 	},
 /turf/simulated/floor/plating,
 /area/merchants_guild/portengine)
 "qv" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -1203,25 +1203,25 @@
 "qL" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/railing/mapped,
-/obj/machinery/computer/ship/helm{
+/obj/structure/machinery/computer/ship/helm{
 	req_access = list(215)
 	},
 /turf/simulated/floor/tiled,
 /area/merchants_guild/bridge)
 "qN" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/merchants_guild/hangar)
 "qS" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/merchants_guild/portengine)
 "qV" = (
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	dir = 8;
 	id = "merchants_guild"
 	},
@@ -1243,22 +1243,22 @@
 /turf/simulated/floor/tiled,
 /area/merchants_guild/armory)
 "rc" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 9
 	},
 /turf/simulated/floor/plating,
 /area/merchants_guild/starboardengine)
 "rk" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/fuel{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/merchants_guild/starboardengine)
 "rq" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -1273,20 +1273,20 @@
 /area/merchants_guild)
 "rs" = (
 /obj/structure/window/borosilicate/reinforced,
-/obj/machinery/atmospherics/unary/engine,
+/obj/structure/machinery/atmospherics/unary/engine,
 /turf/simulated/floor/plating,
 /area/merchants_guild/starboardengine)
 "rt" = (
-/obj/machinery/atmospherics/binary/pump/high_power{
+/obj/structure/machinery/atmospherics/binary/pump/high_power{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/merchants_guild/starboardengine)
 "rv" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /obj/structure/cable/green{
@@ -1298,10 +1298,10 @@
 /turf/simulated/floor/tiled,
 /area/merchants_guild/bridge)
 "rw" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -1312,22 +1312,22 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/merchants_guild/eva)
 "rL" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
 /obj/structure/cable/green{
@@ -1354,24 +1354,24 @@
 /turf/simulated/floor/tiled,
 /area/merchants_guild/crew)
 "rV" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/lino,
 /area/merchants_guild/canteen)
 "sa" = (
-/obj/machinery/alarm/east{
+/obj/structure/machinery/alarm/east{
 	pixel_x = 25;
 	req_one_access = list(215)
 	},
 /turf/simulated/floor/plating,
 /area/merchants_guild/portengine)
 "sc" = (
-/obj/machinery/computer/ship/sensors{
+/obj/structure/machinery/computer/ship/sensors{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/merchants_guild/bridge)
 "sn" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
 /turf/simulated/wall/shuttle/raider,
@@ -1388,13 +1388,13 @@
 /turf/simulated/floor/plating,
 /area/merchants_guild/portengine)
 "sx" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /obj/structure/cable/green{
@@ -1405,13 +1405,13 @@
 /turf/simulated/floor/tiled,
 /area/merchants_guild)
 "sz" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/merchants_guild/bridge)
 "sA" = (
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	dir = 10;
 	id = "merchants_guild";
 	reversed = 1
@@ -1425,7 +1425,7 @@
 /turf/simulated/floor/plating,
 /area/merchants_guild/hangar)
 "sB" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -1436,7 +1436,7 @@
 /turf/simulated/floor/tiled,
 /area/merchants_guild/canteen)
 "tf" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/plating,
 /area/merchants_guild/portengine)
 "tk" = (
@@ -1452,13 +1452,13 @@
 /turf/simulated/floor/tiled,
 /area/merchants_guild/canteen)
 "tx" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 9
 	},
 /turf/simulated/floor/plating,
 /area/merchants_guild/portengine)
 "tH" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1;
 	id_tag = "merchant_guild_shuttle_in";
 	frequency = 1313
@@ -1466,13 +1466,13 @@
 /turf/simulated/floor/plating,
 /area/shuttle/merchants_guild)
 "tM" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/merchants_guild/portengine)
 "tX" = (
-/obj/machinery/atmospherics/binary/pump/high_power,
+/obj/structure/machinery/atmospherics/binary/pump/high_power,
 /turf/simulated/floor/plating,
 /area/merchants_guild/starboardengine)
 "uj" = (
@@ -1481,17 +1481,17 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/alarm/north{
+/obj/structure/machinery/alarm/north{
 	pixel_y = -25;
 	req_one_access = list(215)
 	},
 /turf/simulated/floor/plating,
 /area/merchants_guild/hangar)
 "up" = (
-/obj/machinery/recharger/wallcharger{
+/obj/structure/machinery/recharger/wallcharger{
 	pixel_y = 24
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/structure/machinery/recharger/wallcharger{
 	pixel_x = -28;
 	pixel_y = 3
 	},
@@ -1511,7 +1511,7 @@
 /turf/simulated/floor/tiled,
 /area/merchants_guild/crew)
 "uz" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -1520,13 +1520,13 @@
 /turf/simulated/wall/shuttle/raider,
 /area/merchants_guild/eva)
 "uG" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/blue{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/blue{
 	dir = 6
 	},
 /turf/simulated/floor/plating,
 /area/merchants_guild/portengine)
 "uN" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /obj/structure/sign/flag/hegemony/large/north,
@@ -1536,10 +1536,10 @@
 /turf/simulated/floor/foamedmetal,
 /area/merchants_guild/captain)
 "vL" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
 /obj/structure/cable/green{
@@ -1566,7 +1566,7 @@
 /area/merchants_guild/crew)
 "vY" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -1580,7 +1580,7 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/purple{
@@ -1595,20 +1595,20 @@
 /turf/simulated/wall/shuttle/raider,
 /area/merchants_guild/crew)
 "wr" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	id_tag = "merchant_guild_shuttle_internal";
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/merchants_guild)
 "wt" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/structure/cable/green{
@@ -1626,7 +1626,7 @@
 /turf/simulated/floor/plating,
 /area/merchants_guild/hangar)
 "wN" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -1639,7 +1639,7 @@
 /area/merchants_guild)
 "wP" = (
 /obj/structure/plasticflaps/airtight,
-/obj/machinery/door/airlock/maintenance{
+/obj/structure/machinery/door/airlock/maintenance{
 	name = "Telecommunications";
 	dir = 4
 	},
@@ -1657,18 +1657,18 @@
 /turf/simulated/floor/tiled,
 /area/merchants_guild/eva)
 "xi" = (
-/obj/machinery/appliance/cooker/oven,
+/obj/structure/machinery/appliance/cooker/oven,
 /turf/simulated/floor/lino,
 /area/merchants_guild/canteen)
 "xl" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 5
 	},
 /obj/effect/floor_decal/corner_wide/purple/diagonal,
 /turf/simulated/floor/tiled,
 /area/shuttle/merchants_guild)
 "xs" = (
-/obj/machinery/portable_atmospherics/canister/hydrogen,
+/obj/structure/machinery/portable_atmospherics/canister/hydrogen,
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
 	dir = 8;
@@ -1683,7 +1683,7 @@
 /turf/simulated/floor/tiled,
 /area/merchants_guild/canteen)
 "xI" = (
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	dir = 1;
 	id = "merchants_guild"
 	},
@@ -1696,58 +1696,58 @@
 /turf/simulated/floor/plating,
 /area/merchants_guild/office)
 "xN" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
 /area/merchants_guild/office)
 "xT" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc/south{
+/obj/structure/machinery/power/apc/south{
 	is_critical = 1;
 	req_access = list(113)
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/plating,
 /area/merchants_guild/starboardengine)
 "xV" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/merchants_guild/starboardengine)
 "xW" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/blue,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/blue,
 /turf/simulated/floor/plating,
 /area/merchants_guild/portengine)
 "ya" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 10
 	},
 /turf/simulated/floor/plating,
 /area/merchants_guild/starboardengine)
 "yg" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -1755,10 +1755,10 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
-/obj/machinery/door/airlock/engineering{
+/obj/structure/machinery/door/airlock/engineering{
 	name = "Starboard Engineering";
 	req_access = list(215);
 	dir = 4
@@ -1778,10 +1778,10 @@
 /turf/simulated/floor/plating,
 /area/merchants_guild/portengine)
 "yp" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -1792,19 +1792,19 @@
 /turf/simulated/floor/plating,
 /area/merchants_guild/portengine)
 "ys" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/obj/machinery/alarm/north{
+/obj/structure/machinery/alarm/north{
 	req_one_access = list(215)
 	},
 /turf/simulated/floor/tiled,
 /area/merchants_guild/eva)
 "yv" = (
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	dir = 8;
 	id = "merchants_guild"
 	},
@@ -1826,17 +1826,17 @@
 	},
 /area/merchants_guild/bridge)
 "yF" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/yellow{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/yellow{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/merchants_guild/starboardengine)
 "yG" = (
-/obj/machinery/appliance/cooker/stove,
+/obj/structure/machinery/appliance/cooker/stove,
 /turf/simulated/floor/lino,
 /area/merchants_guild/canteen)
 "yM" = (
-/obj/machinery/suit_cycler/engineering,
+/obj/structure/machinery/suit_cycler/engineering,
 /turf/simulated/floor/tiled,
 /area/merchants_guild/eva)
 "yO" = (
@@ -1850,17 +1850,17 @@
 /area/merchants_guild/crew)
 "yV" = (
 /obj/structure/window/borosilicate/reinforced,
-/obj/machinery/atmospherics/unary/engine,
+/obj/structure/machinery/atmospherics/unary/engine,
 /turf/simulated/floor/plating,
 /area/merchants_guild/portengine)
 "za" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
@@ -1869,7 +1869,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/north{
+/obj/structure/machinery/power/apc/north{
 	req_access = list(113)
 	},
 /turf/simulated/floor/tiled,
@@ -1881,10 +1881,10 @@
 /turf/simulated/floor/tiled,
 /area/merchants_guild/bridge)
 "zE" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /obj/structure/cable/green{
@@ -1895,7 +1895,7 @@
 /turf/simulated/floor/carpet/orange,
 /area/merchants_guild/captain)
 "zH" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -1904,7 +1904,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/terminal{
+/obj/structure/machinery/power/terminal{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -1918,14 +1918,14 @@
 /turf/simulated/floor/reinforced,
 /area/merchants_guild/portengine)
 "zX" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/merchants_guild/eva)
 "Ab" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -1937,7 +1937,7 @@
 /turf/simulated/floor/tiled,
 /area/merchants_guild/bridge)
 "Au" = (
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	dir = 8;
 	id = "merchants_guild"
 	},
@@ -1960,11 +1960,11 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	frequency = 1313;
 	id_tag = "merchant_guild_shuttle_out_internal"
 	},
-/obj/machinery/airlock_sensor{
+/obj/structure/machinery/airlock_sensor{
 	frequency = 1313;
 	id_tag = "merchant_guild_chamber_sensor";
 	pixel_x = -24;
@@ -1980,7 +1980,7 @@
 	},
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/railing/mapped,
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	dir = 8;
 	id = "merchants_guild"
 	},
@@ -1990,7 +1990,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/purple{
@@ -2009,20 +2009,20 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/machinery/computer/ship/engines,
+/obj/structure/machinery/computer/ship/engines,
 /turf/simulated/floor/tiled,
 /area/merchants_guild/bridge)
 "Bo" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
 /turf/simulated/floor/plating,
 /area/merchants_guild/portengine)
 "Bu" = (
-/obj/machinery/vending/engivend{
+/obj/structure/machinery/vending/engivend{
 	req_access = list(215)
 	},
 /turf/simulated/floor/plating,
@@ -2047,38 +2047,38 @@
 /turf/simulated/floor/tiled,
 /area/merchants_guild/crew)
 "BB" = (
-/obj/machinery/power/portgen/basic/fusion,
+/obj/structure/machinery/power/portgen/basic/fusion,
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
 /turf/simulated/floor/reinforced,
 /area/merchants_guild/portengine)
 "BF" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/structure/machinery/atmospherics/pipe/tank/air{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/merchants_guild/portengine)
 "BG" = (
 /obj/structure/table/stone/marble,
-/obj/machinery/chemical_dispenser/bar_soft{
+/obj/structure/machinery/chemical_dispenser/bar_soft{
 	dir = 8
 	},
 /turf/simulated/floor/lino,
 /area/merchants_guild/canteen)
 "BI" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner_wide/purple/diagonal,
-/obj/machinery/alarm/north{
+/obj/structure/machinery/alarm/north{
 	pixel_y = -25;
 	req_one_access = list(215)
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/merchants_guild)
 "BL" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/blue{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/blue{
 	dir = 5
 	},
 /turf/simulated/floor/plating,
@@ -2109,7 +2109,7 @@
 /area/merchants_guild/office)
 "Cf" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
@@ -2118,11 +2118,11 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	id_tag = "merchant_guild_shuttle_internal";
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -2137,14 +2137,14 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled,
 /area/merchants_guild/office)
 "CS" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -2159,7 +2159,7 @@
 /turf/simulated/floor/tiled,
 /area/merchants_guild)
 "Dt" = (
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	dir = 1;
 	id = "merchants_guild"
 	},
@@ -2169,24 +2169,24 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/merchants_guild/warehouse)
 "Dw" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 4
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/merchants_guild/starboardengine)
 "DI" = (
-/obj/machinery/vending/dinnerware,
+/obj/structure/machinery/vending/dinnerware,
 /turf/simulated/floor/lino,
 /area/merchants_guild/canteen)
 "DW" = (
 /obj/structure/cable/green,
-/obj/machinery/power/apc/south{
+/obj/structure/machinery/power/apc/south{
 	is_critical = 1;
 	req_access = list(113)
 	},
@@ -2199,7 +2199,7 @@
 /area/merchants_guild/hangar)
 "DY" = (
 /obj/effect/floor_decal/corner_wide/purple/diagonal,
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	command = "cycle_interior";
 	frequency = 1313;
 	master_tag = "merchant_guild_shuttle";
@@ -2210,7 +2210,7 @@
 /turf/simulated/floor/tiled,
 /area/shuttle/merchants_guild)
 "Ea" = (
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	dir = 9;
 	id = "merchants_guild";
 	reversed = 1
@@ -2224,7 +2224,7 @@
 /turf/simulated/floor/plating,
 /area/merchants_guild/warehouse)
 "Ed" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -2237,20 +2237,20 @@
 /turf/simulated/floor/plating,
 /area/shuttle/merchants_guild)
 "Ei" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/machinery/light{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/carpet/orange,
 /area/merchants_guild/captain)
 "Em" = (
-/obj/machinery/vending/boozeomat{
+/obj/structure/machinery/vending/boozeomat{
 	req_access = null
 	},
 /turf/simulated/floor/lino,
 /area/merchants_guild/canteen)
 "En" = (
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	dir = 8;
 	id = "merchants_guild"
 	},
@@ -2263,7 +2263,7 @@
 /area/merchants_guild/warehouse)
 "Es" = (
 /obj/structure/window/borosilicate/reinforced,
-/obj/machinery/atmospherics/unary/engine,
+/obj/structure/machinery/atmospherics/unary/engine,
 /obj/effect/landmark/entry_point/aft{
 	name = "aft, starboard thruster"
 	},
@@ -2278,14 +2278,14 @@
 /turf/simulated/floor/tiled,
 /area/merchants_guild/office)
 "EQ" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/lino,
 /area/merchants_guild/canteen)
 "ER" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/plating,
 /area/merchants_guild/warehouse)
 "ET" = (
@@ -2304,17 +2304,17 @@
 /turf/simulated/floor/plating,
 /area/merchants_guild/bridge)
 "Fi" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/merchants_guild/portengine)
 "Fn" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
 /obj/structure/window/reinforced,
@@ -2325,14 +2325,14 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner_wide/purple/diagonal,
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/door/window{
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/door/window{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/merchants_guild)
 "Fq" = (
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	dir = 1;
 	id = "merchants_guild"
 	},
@@ -2345,7 +2345,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -2358,13 +2358,13 @@
 /turf/simulated/floor/plating,
 /area/merchants_guild/portengine)
 "Fs" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/merchants_guild/portengine)
 "Ft" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/purple{
@@ -2373,20 +2373,20 @@
 /turf/simulated/floor/tiled,
 /area/merchants_guild/crew)
 "Fy" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
 /obj/structure/cable/green{
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/north{
+/obj/structure/machinery/power/apc/north{
 	req_access = list(113)
 	},
 /obj/structure/cable/green{
 	icon_state = "2-8"
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/purple{
@@ -2395,17 +2395,17 @@
 /turf/simulated/floor/tiled,
 /area/merchants_guild)
 "FQ" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/red,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/red,
 /turf/simulated/floor/plating,
 /area/merchants_guild/portengine)
 "Gq" = (
 /turf/simulated/floor/tiled,
 /area/merchants_guild/office)
 "Gt" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -2426,17 +2426,17 @@
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/north{
+/obj/structure/machinery/power/apc/north{
 	req_access = list(113)
 	},
 /obj/effect/floor_decal/corner_wide/green/diagonal,
 /turf/simulated/floor/tiled,
 /area/merchants_guild/canteen)
 "GU" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
@@ -2444,16 +2444,16 @@
 "GX" = (
 /obj/effect/floor_decal/corner/brown/full,
 /obj/structure/table/standard,
-/obj/machinery/photocopier/faxmachine,
-/obj/machinery/light,
+/obj/structure/machinery/photocopier/faxmachine,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled,
 /area/merchants_guild/office)
 "Hs" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -2463,10 +2463,10 @@
 /area/merchants_guild/warehouse)
 "Ht" = (
 /obj/effect/overmap/visitable/ship/landable/merchants_guild_shuttle,
-/obj/machinery/hologram/holopad/long_range,
-/obj/machinery/light,
+/obj/structure/machinery/hologram/holopad/long_range,
+/obj/structure/machinery/light,
 /obj/structure/cable/green,
-/obj/machinery/power/apc/south{
+/obj/structure/machinery/power/apc/south{
 	is_critical = 1;
 	req_access = list(113)
 	},
@@ -2474,7 +2474,7 @@
 /turf/simulated/floor/tiled,
 /area/shuttle/merchants_guild)
 "Hx" = (
-/obj/machinery/atmospherics/binary/pump/high_power{
+/obj/structure/machinery/atmospherics/binary/pump/high_power{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner_wide/purple/diagonal,
@@ -2484,14 +2484,14 @@
 /turf/simulated/floor/carpet/orange,
 /area/merchants_guild/captain)
 "HN" = (
-/obj/machinery/vending/tool,
+/obj/structure/machinery/vending/tool,
 /turf/simulated/floor/plating,
 /area/merchants_guild/starboardengine)
 "HR" = (
 /turf/simulated/floor/foamedmetal,
 /area/merchants_guild/eva)
 "HT" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
 	frequency = 1313;
 	id_tag = "merchant_guild_shuttle_out_external"
@@ -2511,15 +2511,15 @@
 /obj/effect/landmark/entry_point/fore{
 	name = "port, airlock"
 	},
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	frequency = 1313;
 	id_tag = "merchant_guild_shuttle_external";
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 5
 	},
-/obj/machinery/airlock_sensor/airlock_exterior{
+/obj/structure/machinery/airlock_sensor/airlock_exterior{
 	frequency = 1313;
 	id_tag = "merchant_guild_exterior_sensor";
 	master_tag = "merchant_guild_shuttle";
@@ -2529,7 +2529,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/merchants_guild)
 "Ie" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/purple{
@@ -2538,14 +2538,14 @@
 /turf/simulated/floor/tiled,
 /area/merchants_guild/crew)
 "Ii" = (
-/obj/machinery/atmospherics/binary/pump{
+/obj/structure/machinery/atmospherics/binary/pump{
 	dir = 1;
 	name = "pump to waste"
 	},
 /turf/simulated/floor/plating,
 /area/merchants_guild/portengine)
 "Il" = (
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	dir = 8;
 	id = "merchants_guild"
 	},
@@ -2558,10 +2558,10 @@
 /area/merchants_guild/hangar)
 "Ir" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -2572,11 +2572,11 @@
 /turf/simulated/floor/plating,
 /area/merchants_guild/warehouse)
 "Iv" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	frequency = 1313;
 	id_tag = "merchant_guild_shuttle_out_internal"
 	},
-/obj/machinery/embedded_controller/radio/airlock/docking_port_multi{
+/obj/structure/machinery/embedded_controller/radio/airlock/docking_port_multi{
 	frequency = 1313;
 	id_tag = "merchant_guild_shuttle_airlock";
 	master_tag = "merchant_guild_shuttle";
@@ -2593,22 +2593,22 @@
 /turf/simulated/floor/plating,
 /area/shuttle/merchants_guild)
 "IB" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 6
 	},
 /turf/simulated/floor/plating,
 /area/merchants_guild/portengine)
 "IL" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -2616,7 +2616,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/door/airlock/engineering{
+/obj/structure/machinery/door/airlock/engineering{
 	name = "Starboard Engineering";
 	req_access = list(215);
 	dir = 4
@@ -2628,19 +2628,19 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc/north{
+/obj/structure/machinery/power/apc/north{
 	req_access = list(113)
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/merchants_guild/armory)
 "IT" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -2648,7 +2648,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/door/airlock/glass_service{
+/obj/structure/machinery/door/airlock/glass_service{
 	name = "Crew Quarters";
 	req_access = list(215);
 	dir = 4
@@ -2656,7 +2656,7 @@
 /turf/simulated/floor/tiled,
 /area/merchants_guild/canteen)
 "IY" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 5
 	},
 /obj/structure/fuel_port/hydrogen{
@@ -2666,20 +2666,20 @@
 /turf/simulated/floor/tiled,
 /area/shuttle/merchants_guild)
 "Ji" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/carpet/orange,
 /area/merchants_guild/captain)
 "Jj" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner_wide/purple/diagonal,
-/obj/machinery/embedded_controller/radio/simple_docking_controller{
+/obj/structure/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1313;
 	id_tag = "merchant_guild_shuttle";
 	pixel_y = 25
@@ -2687,8 +2687,8 @@
 /turf/simulated/floor/tiled,
 /area/shuttle/merchants_guild)
 "Jp" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/merchants_guild)
 "Jt" = (
@@ -2698,10 +2698,10 @@
 	},
 /area/merchants_guild/bridge)
 "Jy" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -2715,10 +2715,10 @@
 /turf/simulated/floor/tiled,
 /area/merchants_guild)
 "JG" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -2739,13 +2739,13 @@
 /area/merchants_guild/office)
 "Ku" = (
 /obj/structure/table/stone/marble,
-/obj/machinery/chemical_dispenser/bar_alc/full{
+/obj/structure/machinery/chemical_dispenser/bar_alc/full{
 	dir = 8
 	},
 /turf/simulated/floor/lino,
 /area/merchants_guild/canteen)
 "KC" = (
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	dir = 8;
 	id = "merchants_guild"
 	},
@@ -2772,11 +2772,11 @@
 /turf/simulated/floor/tiled,
 /area/merchants_guild/crew)
 "KE" = (
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/plating,
 /area/merchants_guild/starboardengine)
 "KI" = (
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	pixel_y = 25;
 	name = "Cargo Hatch";
 	id = "mg_cargo_hatch"
@@ -2797,11 +2797,11 @@
 /area/merchants_guild/starboardengine)
 "Ll" = (
 /obj/structure/cable/green,
-/obj/machinery/power/apc/south{
+/obj/structure/machinery/power/apc/south{
 	is_critical = 1;
 	req_access = list(113)
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/effect/floor_decal/corner/purple{
 	dir = 10
 	},
@@ -2811,7 +2811,7 @@
 /turf/simulated/floor/tiled,
 /area/merchants_guild/crew)
 "Lp" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/plating,
 /area/merchants_guild/hangar)
 "Ls" = (
@@ -2827,7 +2827,7 @@
 /turf/simulated/floor/plating,
 /area/merchants_guild/portengine)
 "LC" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -2835,77 +2835,77 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/structure/sign/flag/hegemony/large/north,
 /turf/simulated/floor/tiled,
 /area/merchants_guild/bridge)
 "LJ" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/merchants_guild/starboardengine)
 "LN" = (
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/obj/machinery/light{
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/merchants_guild/starboardengine)
 "LX" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/merchants_guild/portengine)
 "Ma" = (
-/obj/machinery/air_sensor{
+/obj/structure/machinery/air_sensor{
 	id_tag = "mg_sensor"
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/merchants_guild/starboardengine)
 "Mb" = (
-/obj/machinery/computer/shuttle_control/explore/merchants_guild{
+/obj/structure/machinery/computer/shuttle_control/explore/merchants_guild{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner_wide/purple/diagonal,
 /turf/simulated/floor/tiled,
 /area/shuttle/merchants_guild)
 "Mh" = (
-/obj/machinery/atmospherics/pipe/manifold/visible/black{
+/obj/structure/machinery/atmospherics/pipe/manifold/visible/black{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner_wide/purple/diagonal,
 /turf/simulated/floor/tiled,
 /area/shuttle/merchants_guild)
 "Mj" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
 /area/merchants_guild/crew)
 "Mu" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/merchants_guild/portengine)
 "MB" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -2913,44 +2913,44 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
 /turf/simulated/floor/plating,
 /area/merchants_guild/starboardengine)
 "MF" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/merchants_guild/armory)
 "MI" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/structure/machinery/atmospherics/pipe/tank/air{
 	dir = 8
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/merchants_guild/portengine)
 "MR" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/merchants_guild/portengine)
 "MS" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 1
 	},
 /obj/structure/cable/green{
@@ -2966,7 +2966,7 @@
 /area/merchants_guild/portengine)
 "Nb" = (
 /obj/effect/floor_decal/corner_wide/purple/diagonal,
-/obj/machinery/airlock_sensor/airlock_interior{
+/obj/structure/machinery/airlock_sensor/airlock_interior{
 	frequency = 1380;
 	id_tag = "merchant_guild_interior_sensor";
 	pixel_x = -25;
@@ -2981,7 +2981,7 @@
 /turf/simulated/floor/plating,
 /area/merchants_guild/portengine)
 "Ne" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/fuel{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
@@ -2996,10 +2996,10 @@
 /turf/simulated/floor/tiled,
 /area/merchants_guild/eva)
 "Nj" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -3007,7 +3007,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/door/airlock/highsecurity{
+/obj/structure/machinery/door/airlock/highsecurity{
 	req_access = list(215);
 	name = "Reactor";
 	dir = 4
@@ -3015,7 +3015,7 @@
 /turf/simulated/floor/tiled,
 /area/merchants_guild/armory)
 "ND" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/plating,
 /area/merchants_guild/hangar)
 "NI" = (
@@ -3025,14 +3025,15 @@
 /obj/structure/table/standard,
 /obj/item/paper_bin,
 /obj/item/pen,
+/obj/item/eftpos,
 /turf/simulated/floor/tiled,
 /area/merchants_guild/office)
 "NM" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/yellow,
 /turf/simulated/floor/plating,
 /area/merchants_guild/starboardengine)
 "NO" = (
-/obj/machinery/conveyor_switch{
+/obj/structure/machinery/conveyor_switch{
 	id = "merchants_guild"
 	},
 /turf/simulated/floor/reinforced{
@@ -3043,7 +3044,7 @@
 /turf/simulated/wall/shuttle/raider,
 /area/merchants_guild/canteen)
 "Oi" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 4
 	},
 /turf/simulated/wall/shuttle/raider,
@@ -3060,16 +3061,16 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/plating,
 /area/merchants_guild/hangar)
 "OJ" = (
-/obj/machinery/atmospherics/pipe/manifold/visible/black,
+/obj/structure/machinery/atmospherics/pipe/manifold/visible/black,
 /obj/effect/floor_decal/corner_wide/purple/diagonal,
 /turf/simulated/floor/tiled,
 /area/shuttle/merchants_guild)
 "OK" = (
-/obj/machinery/atmospherics/binary/pump/high_power,
+/obj/structure/machinery/atmospherics/binary/pump/high_power,
 /obj/effect/floor_decal/corner_wide/purple/diagonal,
 /turf/simulated/floor/tiled,
 /area/shuttle/merchants_guild)
@@ -3084,13 +3085,13 @@
 /turf/simulated/floor/tiled,
 /area/merchants_guild/armory)
 "Pe" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/merchants_guild/starboardengine)
 "Ph" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/plating,
 /area/merchants_guild/starboardengine)
 "Pk" = (
@@ -3103,11 +3104,11 @@
 /turf/simulated/floor/tiled,
 /area/merchants_guild/armory)
 "PF" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/plating,
 /area/merchants_guild/starboardengine)
 "PK" = (
-/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/structure/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/tiled,
 /area/merchants_guild/eva)
 "Qf" = (
@@ -3117,9 +3118,9 @@
 /turf/simulated/floor/tiled,
 /area/merchants_guild/office)
 "Qj" = (
-/obj/machinery/atmospherics/portables_connector,
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/obj/machinery/light{
+/obj/structure/machinery/atmospherics/portables_connector,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner_wide/purple/diagonal,
@@ -3139,10 +3140,10 @@
 /turf/simulated/floor/carpet/orange,
 /area/merchants_guild/captain)
 "QG" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -3161,22 +3162,22 @@
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/north{
+/obj/structure/machinery/power/apc/north{
 	req_access = list(113)
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/merchants_guild/eva)
 "RI" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /turf/simulated/floor/plating,
@@ -3186,7 +3187,7 @@
 /turf/simulated/floor/lino,
 /area/merchants_guild/canteen)
 "RR" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/reinforced,
@@ -3199,25 +3200,25 @@
 /turf/simulated/floor/foamedmetal,
 /area/merchants_guild/armory)
 "Sv" = (
-/obj/machinery/atmospherics/pipe/tank{
+/obj/structure/machinery/atmospherics/pipe/tank{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/merchants_guild/portengine)
 "SE" = (
-/obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
+/obj/structure/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
 	dir = 4;
 	id_tag = "mg_vent"
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/merchants_guild/starboardengine)
 "SP" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/door/airlock/command{
+/obj/structure/machinery/door/airlock/command{
 	name = "Bridge";
 	req_access = list(215);
 	dir = 1
@@ -3225,7 +3226,7 @@
 /turf/simulated/floor/tiled,
 /area/merchants_guild/bridge)
 "ST" = (
-/obj/machinery/embedded_controller/radio/simple_docking_controller{
+/obj/structure/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1313;
 	id_tag = "merchant_guild_shuttle_dock";
 	pixel_y = -25
@@ -3259,10 +3260,10 @@
 /turf/simulated/floor/tiled,
 /area/merchants_guild/crew)
 "TC" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -3278,7 +3279,7 @@
 /turf/simulated/floor/tiled,
 /area/merchants_guild/canteen)
 "TK" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8;
 	level = 2
 	},
@@ -3295,7 +3296,7 @@
 /area/merchants_guild/office)
 "TT" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 4
 	},
 /turf/simulated/floor/reinforced,
@@ -3344,8 +3345,8 @@
 /turf/simulated/floor/carpet/orange,
 /area/merchants_guild/captain)
 "Uk" = (
-/obj/machinery/atmospherics/portables_connector,
-/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/atmospherics/portables_connector,
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
 /obj/structure/window/reinforced{
 	dir = 1
 	},
@@ -3356,34 +3357,34 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/machinery/door/window,
+/obj/structure/machinery/door/window,
 /turf/simulated/floor/plating,
 /area/merchants_guild/starboardengine)
 "Uo" = (
 /obj/structure/table/standard,
 /obj/item/flashlight/lamp,
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/effect/floor_decal/corner/purple{
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
 /area/merchants_guild/crew)
 "Up" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner_wide/green/diagonal,
 /turf/simulated/floor/tiled,
 /area/merchants_guild/canteen)
 "Uq" = (
-/obj/machinery/telecomms/allinone/ship,
+/obj/structure/machinery/telecomms/allinone/ship,
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
 	},
 /area/merchants_guild/portengine)
 "Uz" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
 /obj/structure/cable/green{
@@ -3392,7 +3393,7 @@
 /turf/simulated/floor/plating,
 /area/merchants_guild/hangar)
 "UL" = (
-/obj/machinery/computer/ship/engines{
+/obj/structure/machinery/computer/ship/engines{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -3410,7 +3411,7 @@
 /turf/template_noop,
 /area/space)
 "UR" = (
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	dir = 8;
 	id = "merchants_guild"
 	},
@@ -3418,16 +3419,16 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating,
 /area/merchants_guild)
 "UU" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /turf/simulated/floor/plating,
@@ -3443,26 +3444,26 @@
 /turf/simulated/floor/tiled,
 /area/merchants_guild/armory)
 "Vh" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled,
 /area/merchants_guild)
 "Vj" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 6
 	},
-/obj/machinery/computer/ship/engines{
+/obj/structure/machinery/computer/ship/engines{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner_wide/purple/diagonal,
 /turf/simulated/floor/tiled,
 /area/shuttle/merchants_guild)
 "Vr" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/machinery/light{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner_wide/green/diagonal,
@@ -3473,7 +3474,7 @@
 /turf/unsimulated/wall/fakepdoor,
 /area/merchants_guild/hangar)
 "Wb" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -3482,10 +3483,10 @@
 /turf/simulated/floor/plating,
 /area/merchants_guild/starboardengine)
 "Wh" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -3493,7 +3494,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/door/airlock/glass_command{
+/obj/structure/machinery/door/airlock/glass_command{
 	name = "Captain's Quarters";
 	req_access = list(215);
 	dir = 4
@@ -3509,13 +3510,13 @@
 /turf/template_noop,
 /area/space)
 "Wu" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -3523,7 +3524,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
 /obj/effect/floor_decal/corner/purple{
@@ -3541,7 +3542,7 @@
 /turf/simulated/floor/tiled,
 /area/merchants_guild/canteen)
 "WG" = (
-/obj/machinery/atmospherics/unary/engine{
+/obj/structure/machinery/atmospherics/unary/engine{
 	dir = 8
 	},
 /obj/structure/window/borosilicate/reinforced{
@@ -3550,17 +3551,17 @@
 /turf/simulated/floor/plating,
 /area/shuttle/merchants_guild)
 "Xc" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/plating,
 /area/merchants_guild/starboardengine)
 "Xt" = (
-/obj/machinery/power/smes/buildable/horizon_shuttle,
-/obj/machinery/power/smes/buildable/horizon_shuttle,
+/obj/structure/machinery/power/smes/buildable/horizon_shuttle,
+/obj/structure/machinery/power/smes/buildable/horizon_shuttle,
 /obj/structure/cable/green,
 /turf/simulated/floor/plating,
 /area/merchants_guild/portengine)
 "Xv" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/purple{
@@ -3572,18 +3573,18 @@
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 4
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/reinforced{
 	temperature = 278.15
 	},
 /area/merchants_guild/office)
 "Yf" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/merchants_guild)
 "YG" = (
-/obj/machinery/computer/ship/sensors{
+/obj/structure/machinery/computer/ship/sensors{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -3593,14 +3594,14 @@
 /turf/simulated/floor/tiled,
 /area/merchants_guild/eva)
 "Zo" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 8
 	},
-/obj/machinery/portable_atmospherics/canister/air,
+/obj/structure/machinery/portable_atmospherics/canister/air,
 /turf/simulated/floor/plating,
 /area/merchants_guild/portengine)
 "Zz" = (
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	dir = 1;
 	id = "merchants_guild"
 	},
@@ -3610,7 +3611,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/merchant_pad,
+/obj/structure/machinery/merchant_pad,
 /turf/simulated/floor/plating,
 /area/merchants_guild/office)
 "ZB" = (
@@ -3627,16 +3628,16 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/merchants_guild/starboardengine)
 "ZG" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -3644,7 +3645,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/door/airlock/glass_mining{
+/obj/structure/machinery/door/airlock/glass_mining{
 	req_access = list(215);
 	name = "Warehouse";
 	dir = 4
@@ -3652,19 +3653,19 @@
 /turf/simulated/floor/tiled,
 /area/merchants_guild/warehouse)
 "ZH" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/merchants_guild)
 "ZL" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,

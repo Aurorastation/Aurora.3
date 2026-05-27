@@ -902,3 +902,7 @@
 	id = ACCESS_VOIDTAMER_SHIP
 	access_type = ACCESS_TYPE_CENTCOM
 
+#define ACCESS_ABANDONED_CASINO_STAFF 257
+/datum/access/abandoned_casino
+	id = ACCESS_ABANDONED_CASINO_STAFF
+

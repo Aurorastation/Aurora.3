@@ -1,9 +1,9 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aa" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /obj/effect/floor_decal/corner/paleblue{
@@ -19,7 +19,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/red,
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/light/small/emergency{
 	dir = 1
 	},
 /obj/item/ship_ammunition/francisca/frag{
@@ -70,7 +70,7 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/hailstorm_ship/torpedo_bay)
 "ad" = (
-/obj/machinery/computer/ship/engines/terminal{
+/obj/structure/machinery/computer/ship/engines/terminal{
 	dir = 4;
 	req_access = list(214)
 	},
@@ -83,8 +83,8 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -102,19 +102,19 @@
 /area/hailstorm_ship/bridge)
 "ai" = (
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4;
 	req_access = list(214);
 	name = "Habitation Module"
@@ -125,7 +125,7 @@
 /area/hailstorm_ship/central_maint)
 "am" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
-/obj/machinery/door/blast/shutters/open{
+/obj/structure/machinery/door/blast/shutters/open{
 	id = "hailstorm_windows";
 	dir = 4
 	},
@@ -179,10 +179,10 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline_segment/red,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/obj/machinery/light/small/emergency,
+/obj/structure/machinery/light/small/emergency,
 /obj/structure/bed/handrail{
 	dir = 1
 	},
@@ -200,12 +200,12 @@
 	},
 /area/hailstorm_ship/kitchen)
 "ax" = (
-/obj/machinery/computer/ship/sensors/terminal{
+/obj/structure/machinery/computer/ship/sensors/terminal{
 	dir = 8;
 	req_access = list(214)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 4
 	},
 /obj/structure/sign/painting_frame/almari{
@@ -223,8 +223,8 @@
 	},
 /area/hailstorm_ship/crew)
 "aC" = (
-/obj/machinery/smartfridge/foodheater,
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/smartfridge/foodheater,
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/hatch/service,
@@ -233,8 +233,8 @@
 	},
 /area/hailstorm_ship/kitchen)
 "aF" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
@@ -250,10 +250,10 @@
 	},
 /area/hailstorm_ship/central_maint)
 "aH" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -267,7 +267,7 @@
 "aJ" = (
 /obj/structure/table/steel,
 /obj/effect/floor_decal/corner/orange/diagonal,
-/obj/machinery/cell_charger{
+/obj/structure/machinery/cell_charger{
 	pixel_y = 2
 	},
 /obj/random/dirt_75,
@@ -285,7 +285,7 @@
 /area/hailstorm_ship/engineering)
 "aK" = (
 /obj/structure/table/wood,
-/obj/machinery/media/jukebox/gramophone{
+/obj/structure/machinery/media/jukebox/gramophone{
 	pixel_y = 3;
 	anchored = 1
 	},
@@ -295,7 +295,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc/north{
+/obj/structure/machinery/power/apc/north{
 	req_access = list(214)
 	},
 /obj/structure/sign/painting_frame/harrlala{
@@ -311,7 +311,7 @@
 /obj/structure/plasticflaps/airtight{
 	dir = 8
 	},
-/obj/machinery/door/blast/regular{
+/obj/structure/machinery/door/blast/regular{
 	id = "hailstorm_torpedo_4_interior";
 	name = "Torpedo Bay Four"
 	},
@@ -320,8 +320,8 @@
 	},
 /area/hailstorm_ship/torpedo_bay)
 "aV" = (
-/obj/machinery/atmospherics/portables_connector/aux,
-/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/atmospherics/portables_connector/aux,
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
 /obj/effect/floor_decal/industrial/outline/blue,
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -331,10 +331,10 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -343,12 +343,12 @@
 	},
 /area/hailstorm_ship/torpedo_bay)
 "bb" = (
-/obj/machinery/computer/ship/sensors/terminal{
+/obj/structure/machinery/computer/ship/sensors/terminal{
 	dir = 1;
 	req_access = list(214)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -357,7 +357,7 @@
 	},
 /area/shuttle/hailstorm_shuttle)
 "be" = (
-/obj/machinery/suit_cycler/offship/dpra,
+/obj/structure/machinery/suit_cycler/offship/dpra,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/sign/flag/dpra{
 	stand_icon = "banner";
@@ -381,7 +381,7 @@
 /obj/effect/floor_decal/industrial/arrow/red{
 	dir = 4
 	},
-/obj/machinery/light/small/emergency,
+/obj/structure/machinery/light/small/emergency,
 /turf/simulated/floor/reinforced{
 	temperature = 278.15
 	},
@@ -390,8 +390,8 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
 /obj/structure/cable/green{
@@ -403,17 +403,17 @@
 /area/hailstorm_ship/advisor_cabin)
 "bp" = (
 /obj/effect/floor_decal/industrial/hatch_door/red,
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 8
 	},
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	pixel_y = -27;
 	pixel_x = 7;
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/docking/hailstorm_ship/port_dock,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/machinery/door/blast/shutters/open{
+/obj/structure/machinery/door/blast/shutters/open{
 	id = "hailstorm_airlock";
 	dir = 4
 	},
@@ -428,8 +428,8 @@
 	},
 /area/hailstorm_ship/armory)
 "bz" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/decal/cleanable/floor_damage/wood_broken7,
 /obj/random/dirt_75,
 /turf/simulated/floor/wood{
@@ -440,11 +440,11 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/hailstorm_ship/engineering)
 "bJ" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor,
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
+/obj/structure/machinery/embedded_controller/radio/airlock/docking_port{
 	pixel_x = 24;
 	dir = 8;
 	frequency = 1380
@@ -465,9 +465,9 @@
 	icon_state = "1-8"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 5
 	},
 /turf/simulated/floor/plating{
@@ -484,10 +484,10 @@
 	},
 /area/hailstorm_ship/engineering)
 "bT" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/full{
@@ -501,8 +501,8 @@
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/random/dirt_75,
 /turf/simulated/floor/wood{
 	temperature = 278.15
@@ -527,7 +527,7 @@
 /obj/effect/floor_decal/industrial/outline_segment/red{
 	dir = 10
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/structure/sign/flag/dpra/large/west{
 	dir = 8;
 	pixel_x = -32
@@ -537,7 +537,7 @@
 	},
 /area/hailstorm_ship/gunnery_starboard)
 "cp" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -553,7 +553,7 @@
 	},
 /area/hailstorm_ship/armory)
 "ct" = (
-/obj/machinery/air_sensor,
+/obj/structure/machinery/air_sensor,
 /obj/effect/map_effect/marker/large_tank{
 	name = "hailstorm_co2";
 	master_tag = "hailstorm_co2"
@@ -563,7 +563,7 @@
 "cv" = (
 /obj/structure/cable/green,
 /obj/effect/floor_decal/corner/orange/diagonal,
-/obj/machinery/power/apc/east{
+/obj/structure/machinery/power/apc/east{
 	req_access = list(214)
 	},
 /obj/random/dirt_75,
@@ -577,7 +577,7 @@
 /turf/simulated/floor/airless,
 /area/space)
 "cE" = (
-/obj/machinery/atmospherics/unary/engine,
+/obj/structure/machinery/atmospherics/unary/engine,
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -618,11 +618,11 @@
 /obj/effect/landmark/entry_point/aft,
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/structure/plasticflaps/airtight,
-/obj/machinery/door/blast/regular{
+/obj/structure/machinery/door/blast/regular{
 	id = "hailstorm_torpedo_shuttle";
 	dir = 4
 	},
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	name = "Torpedo Bay";
 	id = "hailstorm_torpedo_shuttle";
 	dir = 1;
@@ -638,11 +638,11 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
-/obj/machinery/meter,
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/meter,
+/obj/structure/machinery/light/colored/decayed{
 	dir = 1
 	},
 /obj/random/dirt_75,
@@ -651,7 +651,7 @@
 	},
 /area/hailstorm_ship/atmospherics)
 "do" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -663,13 +663,13 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/light/small/emergency{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -679,7 +679,7 @@
 	pixel_x = -32
 	},
 /obj/effect/floor_decal/industrial/outline/firefighting_closet,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
 /obj/random/dirt_75,
@@ -688,7 +688,7 @@
 	},
 /area/hailstorm_ship/propulsion)
 "dF" = (
-/obj/machinery/computer/ship/engines/terminal{
+/obj/structure/machinery/computer/ship/engines/terminal{
 	dir = 8;
 	req_access = list(214)
 	},
@@ -713,7 +713,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
 	},
-/obj/machinery/alarm/cold/south{
+/obj/structure/machinery/alarm/cold/south{
 	req_one_access = null;
 	req_access = list(214)
 	},
@@ -743,18 +743,18 @@
 	},
 /area/hailstorm_ship/captain_cabin)
 "dJ" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume,
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume,
 /obj/structure/bed/handrail{
 	dir = 4
 	},
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/light/small/emergency{
 	dir = 4
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
 /obj/structure/lattice/catwalk/indoor,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/map_effect/marker/airlock/shuttle/hailstorm_shuttle{
 	req_one_access = list(214)
 	},
@@ -774,30 +774,30 @@
 	},
 /area/hailstorm_ship/crew)
 "dS" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4
 	},
-/obj/machinery/meter,
+/obj/structure/machinery/meter,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
 /area/hailstorm_ship/propulsion)
 "dX" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 10
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/hailstorm_ship/docking_arm)
 "ed" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/black{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 5
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/hailstorm_shuttle)
 "ej" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
-/obj/machinery/door/blast/shutters/open{
+/obj/structure/machinery/door/blast/shutters/open{
 	id = "hailstorm_windows";
 	dir = 4
 	},
@@ -812,10 +812,10 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -827,17 +827,17 @@
 	},
 /area/hailstorm_ship/captain_cabin)
 "el" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/aux,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/aux,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/fuel{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -847,7 +847,7 @@
 /area/hailstorm_ship/docking_arm)
 "ep" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
-/obj/machinery/door/blast/shutters/open{
+/obj/structure/machinery/door/blast/shutters/open{
 	id = "hailstorm_windows"
 	},
 /turf/simulated/floor/plating{
@@ -872,8 +872,8 @@
 /area/hailstorm_ship/crew)
 "eB" = (
 /obj/effect/floor_decal/industrial/outline/blue,
-/obj/machinery/portable_atmospherics/canister/air,
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/portable_atmospherics/canister/air,
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 8
 	},
 /obj/structure/sign/flag/dpra/large/east{
@@ -894,10 +894,10 @@
 /turf/simulated/floor/reinforced/airless,
 /area/space)
 "eH" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -922,19 +922,19 @@
 /area/space)
 "eL" = (
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4;
 	req_access = list(214);
 	name = "Port Gunnery Module"
@@ -954,8 +954,8 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -983,7 +983,7 @@
 	},
 /area/hailstorm_ship/engineering)
 "fE" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/full{
@@ -992,7 +992,7 @@
 /area/hailstorm_ship/central_hallway)
 "fH" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -1019,20 +1019,20 @@
 	},
 /area/hailstorm_ship/bridge)
 "gr" = (
-/obj/machinery/door/firedoor/noid,
+/obj/structure/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
 	dir = 8
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/door/airlock/external{
 	req_access = list(214);
 	name = "Docking Module"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
 /turf/simulated/floor/tiled/full{
 	temperature = 278.15
 	},
@@ -1041,7 +1041,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 10
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -1055,7 +1055,7 @@
 "gQ" = (
 /obj/structure/table/reinforced/steel,
 /obj/effect/floor_decal/industrial/hatch/grey,
-/obj/machinery/power/apc/north{
+/obj/structure/machinery/power/apc/north{
 	req_access = list(214)
 	},
 /obj/structure/cable/green{
@@ -1071,12 +1071,13 @@
 /obj/item/storage/toolbox/emergency{
 	pixel_y = 2
 	},
+/obj/item/eftpos,
 /turf/simulated/floor/tiled/full{
 	temperature = 278.15
 	},
 /area/hailstorm_ship/bridge)
 "gV" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/black{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 9
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
@@ -1086,7 +1087,7 @@
 	req_access = list(214)
 	},
 /obj/effect/floor_decal/industrial/outline/engineering,
-/obj/machinery/light/colored/decayed,
+/obj/structure/machinery/light/colored/decayed,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -1097,11 +1098,11 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8;
 	must_start_working = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /obj/random/dirt_75,
@@ -1113,10 +1114,10 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/light/small/emergency{
 	dir = 4
 	},
 /turf/simulated/floor/plating{
@@ -1131,7 +1132,7 @@
 	pixel_y = 16
 	},
 /obj/effect/floor_decal/industrial/outline/service,
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 4
 	},
 /obj/effect/ghostspawpoint{
@@ -1149,7 +1150,7 @@
 /area/space)
 "ht" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
-/obj/machinery/door/blast/shutters/open{
+/obj/structure/machinery/door/blast/shutters/open{
 	id = "hailstorm_windows"
 	},
 /turf/simulated/floor/plating{
@@ -1158,19 +1159,19 @@
 /area/hailstorm_ship/medbay)
 "hv" = (
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4;
 	req_access = list(214);
 	name = "Helm Module"
@@ -1180,10 +1181,10 @@
 	},
 /area/hailstorm_ship/bridge)
 "hG" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -1198,21 +1199,21 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
 /area/hailstorm_ship/central_maint)
 "hL" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/north{
+/obj/structure/machinery/power/apc/north{
 	req_access = list(214)
 	},
 /obj/item/clothing/accessory/medal/dpra_liberation{
@@ -1223,7 +1224,7 @@
 	},
 /area/hailstorm_ship/advisor_quarters)
 "hV" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -1237,7 +1238,7 @@
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 4
 	},
-/obj/machinery/light/colored/decayed,
+/obj/structure/machinery/light/colored/decayed,
 /obj/random/dirt_75,
 /obj/structure/closet/crate/trashcart,
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -1257,27 +1258,27 @@
 	},
 /area/hailstorm_ship/central_hallway)
 "il" = (
-/obj/machinery/door/firedoor/noid,
+/obj/structure/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
 	dir = 8
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/door/airlock/maintenance_hatch{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/door/airlock/maintenance_hatch{
 	req_access = list(214);
 	name = "Atmospherics"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
 /turf/simulated/floor/tiled/full{
 	temperature = 278.15
 	},
 /area/hailstorm_ship/atmospherics)
 "iv" = (
 /obj/structure/lattice/catwalk/indoor,
-/obj/machinery/shower{
+/obj/structure/machinery/shower{
 	pixel_y = 24
 	},
 /obj/structure/curtain/open/shower,
@@ -1287,8 +1288,8 @@
 	},
 /area/hailstorm_ship/bathroom)
 "ix" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -1309,20 +1310,20 @@
 	},
 /area/shuttle/hailstorm_shuttle)
 "iB" = (
-/obj/machinery/door/firedoor/noid,
+/obj/structure/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
 	dir = 8
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/door/airlock/external{
 	req_access = list(214);
 	name = "Engineering Module"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
 /turf/simulated/floor/tiled/full{
 	temperature = 278.15
 	},
@@ -1343,19 +1344,19 @@
 	},
 /area/hailstorm_ship/advisor_quarters)
 "iH" = (
-/obj/machinery/door/firedoor/noid,
+/obj/structure/machinery/door/firedoor/noid,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
 	dir = 8
 	},
-/obj/machinery/door/airlock/maintenance_hatch{
+/obj/structure/machinery/door/airlock/maintenance_hatch{
 	req_access = list(214);
 	name = "Head"
 	},
@@ -1365,10 +1366,10 @@
 /area/hailstorm_ship/bathroom)
 "iO" = (
 /obj/effect/floor_decal/industrial/outline/red,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = list(214);
 	name = "Personal Arms"
@@ -1386,7 +1387,7 @@
 	},
 /area/hailstorm_ship/captain_quarters)
 "iR" = (
-/obj/machinery/power/portgen/basic{
+/obj/structure/machinery/power/portgen/basic{
 	anchored = 1
 	},
 /obj/effect/floor_decal/industrial/warning/full,
@@ -1399,7 +1400,7 @@
 	},
 /area/hailstorm_ship/engineering)
 "iT" = (
-/obj/machinery/computer/ship/targeting/terminal{
+/obj/structure/machinery/computer/ship/targeting/terminal{
 	dir = 1;
 	req_access = list(214)
 	},
@@ -1410,7 +1411,7 @@
 /area/hailstorm_ship/bridge)
 "iZ" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/portable_atmospherics/canister/air,
+/obj/structure/machinery/portable_atmospherics/canister/air,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -1419,7 +1420,7 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/portgen/basic/fusion,
+/obj/structure/machinery/power/portgen/basic/fusion,
 /obj/structure/sign/radiation{
 	pixel_y = 32
 	},
@@ -1441,18 +1442,18 @@
 	},
 /area/shuttle/hailstorm_shuttle)
 "jw" = (
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/atmospherics/portables_connector/aux{
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/atmospherics/portables_connector/aux{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/blue,
-/obj/machinery/atmospherics/pipe/simple/hidden/black{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 4
 	},
 /obj/structure/fuel_port/hydrogen{
 	pixel_y = 32
 	},
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -1464,18 +1465,18 @@
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/door/airlock/external,
-/obj/machinery/access_button{
+/obj/structure/machinery/door/airlock/external,
+/obj/structure/machinery/access_button{
 	pixel_x = -27;
 	pixel_y = -7
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/map_effect/marker/airlock/docking/hailstorm_shuttle/shuttle_port,
-/obj/machinery/door/blast/shutters/open{
+/obj/structure/machinery/door/blast/shutters/open{
 	id = "hailstorm_airlock"
 	},
 /turf/simulated/floor/tiled/full{
@@ -1484,18 +1485,18 @@
 /area/hailstorm_ship/docking_arm)
 "jI" = (
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 8
 	},
-/obj/machinery/door/airlock/maintenance_hatch{
+/obj/structure/machinery/door/airlock/maintenance_hatch{
 	req_access = list(214);
 	name = "Propulsion Management";
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full{
@@ -1508,7 +1509,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/red,
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/light/small/emergency{
 	dir = 1
 	},
 /obj/item/ship_ammunition/nephilim/ap,
@@ -1525,7 +1526,7 @@
 	},
 /area/hailstorm_ship/gunnery_port)
 "jK" = (
-/obj/machinery/iv_drip,
+/obj/structure/machinery/iv_drip,
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white{
@@ -1534,10 +1535,10 @@
 /area/hailstorm_ship/medbay)
 "jQ" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/plating{
@@ -1557,11 +1558,11 @@
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1
 	},
-/obj/machinery/door/airlock/external,
+/obj/structure/machinery/door/airlock/external,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	pixel_x = -27;
 	pixel_y = 7;
 	dir = 1
@@ -1569,7 +1570,7 @@
 /obj/effect/shuttle_landmark/hailstorm_shuttle/hangar,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/docking/hailstorm_shuttle/shuttle_port,
-/obj/machinery/door/blast/shutters/open{
+/obj/structure/machinery/door/blast/shutters/open{
 	id = "hailstorm_airlock"
 	},
 /obj/effect/landmark/entry_point/aft{
@@ -1594,7 +1595,7 @@
 	},
 /area/hailstorm_ship/kitchen)
 "kw" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -1611,10 +1612,10 @@
 /turf/simulated/floor/reinforced/airless,
 /area/space)
 "kC" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -1623,11 +1624,11 @@
 	},
 /area/hailstorm_ship/bridge)
 "kD" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
 /obj/structure/cable/green,
-/obj/machinery/power/apc/south{
+/obj/structure/machinery/power/apc/south{
 	req_access = list(214)
 	},
 /obj/item/clothing/accessory/medal/dasnrra_liberation{
@@ -1639,7 +1640,7 @@
 /area/hailstorm_ship/captain_quarters)
 "kF" = (
 /obj/structure/lattice/catwalk/indoor,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8;
 	must_start_working = 1
 	},
@@ -1650,13 +1651,13 @@
 /area/hailstorm_ship/docking_arm)
 "kJ" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
 /area/hailstorm_ship/propulsion)
 "kL" = (
-/obj/machinery/sparker{
+/obj/structure/machinery/sparker{
 	id = "hailstorm_igniter";
 	pixel_x = -10
 	},
@@ -1667,7 +1668,7 @@
 /obj/structure/plasticflaps/airtight{
 	dir = 8
 	},
-/obj/machinery/door/blast/regular{
+/obj/structure/machinery/door/blast/regular{
 	id = "hailstorm_torpedo_2_exterior"
 	},
 /obj/effect/landmark/entry_point/port{
@@ -1683,7 +1684,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/west{
+/obj/structure/machinery/power/apc/west{
 	req_access = list(246)
 	},
 /obj/item/tank/jetpack/oxygen,
@@ -1713,7 +1714,7 @@
 /obj/effect/floor_decal/spline/plain/yellow{
 	dir = 10
 	},
-/obj/machinery/alarm/cold/west{
+/obj/structure/machinery/alarm/cold/west{
 	req_one_access = null;
 	req_access = list(214)
 	},
@@ -1722,7 +1723,7 @@
 	},
 /area/hailstorm_ship/propulsion)
 "lc" = (
-/obj/machinery/atmospherics/binary/pump/high_power{
+/obj/structure/machinery/atmospherics/binary/pump/high_power{
 	name = "Propellant Recycling Pump";
 	target_pressure = 15000
 	},
@@ -1742,16 +1743,16 @@
 	},
 /area/hailstorm_ship/armory)
 "lk" = (
-/obj/machinery/door/firedoor/noid,
+/obj/structure/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
 	dir = 8
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/door/airlock/maintenance_hatch{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/door/airlock/maintenance_hatch{
 	req_access = list(214);
 	name = "Utility Closet"
 	},
@@ -1761,17 +1762,17 @@
 /area/hailstorm_ship/medbay)
 "lo" = (
 /obj/effect/floor_decal/industrial/hatch_door/red,
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 8
 	},
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	pixel_x = -25;
 	pixel_y = -25;
 	dir = 1
 	},
 /obj/effect/map_effect/marker/airlock/docking/hailstorm_ship/port_dock,
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/machinery/door/blast/shutters/open{
+/obj/structure/machinery/door/blast/shutters/open{
 	id = "hailstorm_airlock";
 	dir = 4
 	},
@@ -1790,11 +1791,11 @@
 /area/hailstorm_ship/torpedo_bay)
 "lB" = (
 /obj/effect/floor_decal/industrial/outline/service,
-/obj/machinery/alarm/cold/south{
+/obj/structure/machinery/alarm/cold/south{
 	req_one_access = null;
 	req_access = list(214)
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /obj/structure/closet/secure_closet/cabinet{
@@ -1852,19 +1853,19 @@
 /area/hailstorm_ship/engineering)
 "lZ" = (
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/door/airlock/command/gold{
+/obj/structure/machinery/door/airlock/command/gold{
 	req_access = list(214);
 	dir = 4;
 	name = "Advisor's Quarters"
@@ -1874,15 +1875,15 @@
 	},
 /area/hailstorm_ship/advisor_quarters)
 "md" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -1901,7 +1902,7 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/hailstorm_ship/armory)
 "mi" = (
-/obj/machinery/atmospherics/binary/passive_gate/supply{
+/obj/structure/machinery/atmospherics/binary/passive_gate/supply{
 	target_pressure = 400
 	},
 /obj/effect/floor_decal/industrial/hatch_tiny/blue{
@@ -1924,10 +1925,10 @@
 /obj/effect/floor_decal/spline/plain/yellow{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber{
@@ -1935,7 +1936,7 @@
 	},
 /area/hailstorm_ship/armory)
 "mt" = (
-/obj/machinery/computer/shuttle_control/explore/terminal/hailstorm_shuttle,
+/obj/structure/machinery/computer/shuttle_control/explore/terminal/hailstorm_shuttle,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/full{
@@ -1944,13 +1945,13 @@
 /area/shuttle/hailstorm_shuttle)
 "mu" = (
 /obj/effect/floor_decal/corner/paleblue/full,
-/obj/machinery/light/colored/decayed,
+/obj/structure/machinery/light/colored/decayed,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
 /area/hailstorm_ship/central_hallway)
 "mw" = (
-/obj/machinery/iff_beacon/name_change,
+/obj/structure/machinery/iff_beacon/name_change,
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 1
 	},
@@ -1964,7 +1965,7 @@
 	pixel_y = 16
 	},
 /obj/effect/floor_decal/industrial/outline/service,
-/obj/machinery/light/colored/decayed,
+/obj/structure/machinery/light/colored/decayed,
 /obj/effect/ghostspawpoint{
 	name = "igs - hailstorm_crew";
 	identifier = "hailstorm_crew"
@@ -1978,10 +1979,10 @@
 	},
 /area/hailstorm_ship/crew)
 "mG" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -1993,12 +1994,12 @@
 	},
 /area/hailstorm_ship/command_maint)
 "mM" = (
-/obj/machinery/computer/ship/targeting/terminal{
+/obj/structure/machinery/computer/ship/targeting/terminal{
 	dir = 4;
 	req_access = list(214)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 8
 	},
 /obj/structure/sign/painting_frame/nated{
@@ -2012,7 +2013,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/east{
+/obj/structure/machinery/power/apc/east{
 	req_access = list(214)
 	},
 /obj/effect/floor_decal/corner/paleblue{
@@ -2026,8 +2027,8 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable/green{
 	icon_state = "1-4"
@@ -2056,7 +2057,7 @@
 /obj/item/clothing/head/helmet/merc,
 /obj/item/clothing/head/helmet/merc,
 /obj/effect/floor_decal/industrial/outline/red,
-/obj/machinery/light/colored/decayed,
+/obj/structure/machinery/light/colored/decayed,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -2069,18 +2070,18 @@
 /turf/simulated/floor/airless,
 /area/hailstorm_ship/propulsion)
 "nh" = (
-/obj/machinery/door/firedoor/noid,
+/obj/structure/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
 	dir = 8
 	},
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/door/airlock/highsecurity{
+/obj/structure/machinery/door/airlock/highsecurity{
 	req_access = list(214);
 	name = "Nuclear Reactor Compartment"
 	},
-/obj/machinery/door/blast/regular/open{
+/obj/structure/machinery/door/blast/regular/open{
 	dir = 4;
 	id = "hailstorm_reactor"
 	},
@@ -2090,11 +2091,11 @@
 /area/hailstorm_ship/engineering)
 "ni" = (
 /obj/effect/floor_decal/industrial/outline/service,
-/obj/machinery/alarm/cold/north{
+/obj/structure/machinery/alarm/cold/north{
 	req_one_access = null;
 	req_access = list(214)
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /obj/structure/closet/secure_closet/cabinet{
@@ -2119,7 +2120,7 @@
 	},
 /area/hailstorm_ship/advisor_quarters)
 "nk" = (
-/obj/machinery/computer/ship/helm/terminal{
+/obj/structure/machinery/computer/ship/helm/terminal{
 	dir = 1;
 	req_access = list(214)
 	},
@@ -2150,7 +2151,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -2159,10 +2160,10 @@
 	},
 /area/hailstorm_ship/bathroom)
 "oc" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /obj/effect/floor_decal/corner/paleblue{
@@ -2174,7 +2175,7 @@
 	},
 /area/hailstorm_ship/docking_arm)
 "oj" = (
-/obj/machinery/photocopier,
+/obj/structure/machinery/photocopier,
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/structure/sign/painting_frame/nated{
 	pixel_y = 32
@@ -2190,16 +2191,16 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/hailstorm_ship/armory)
 "op" = (
-/obj/machinery/iv_drip,
+/obj/structure/machinery/iv_drip,
 /obj/effect/floor_decal/industrial/outline/red,
-/obj/machinery/light/colored/decayed,
+/obj/structure/machinery/light/colored/decayed,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
 /area/hailstorm_ship/medbay)
 "ou" = (
-/obj/machinery/cryopod,
+/obj/structure/machinery/cryopod,
 /obj/effect/floor_decal/industrial/hatch/blue,
 /turf/simulated/floor/tiled/full{
 	temperature = 278.15
@@ -2208,10 +2209,10 @@
 "oy" = (
 /obj/structure/table/steel,
 /obj/effect/floor_decal/corner/lime/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /obj/item/storage/box/large/condiment{
@@ -2226,8 +2227,8 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable/green{
 	icon_state = "1-4"
@@ -2237,7 +2238,7 @@
 	},
 /area/hailstorm_ship/torpedo_bay)
 "oE" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 6
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
@@ -2252,10 +2253,10 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /obj/structure/cable/green{
@@ -2266,11 +2267,11 @@
 	},
 /area/hailstorm_ship/captain_cabin)
 "oT" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/hailstorm_ship/docking_arm)
 "pc" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -2280,12 +2281,12 @@
 /area/hailstorm_ship/propulsion)
 "ph" = (
 /obj/effect/floor_decal/industrial/hatch_door/red,
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock/docking/hailstorm_ship/starboard_dock,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/machinery/door/blast/shutters/open{
+/obj/structure/machinery/door/blast/shutters/open{
 	id = "hailstorm_airlock";
 	dir = 4
 	},
@@ -2297,7 +2298,7 @@
 	},
 /area/hailstorm_ship/docking_arm)
 "pk" = (
-/obj/machinery/computer/ship/engines/terminal{
+/obj/structure/machinery/computer/ship/engines/terminal{
 	req_access = list(214)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -2307,7 +2308,7 @@
 	},
 /area/shuttle/hailstorm_shuttle)
 "pl" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
 /obj/effect/landmark/entry_point/fore,
@@ -2317,14 +2318,14 @@
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	pixel_x = -27;
 	pixel_y = -7
 	},
-/obj/machinery/door/airlock/external,
+/obj/structure/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock/shuttle/hailstorm_shuttle{
 	req_one_access = list(214)
 	},
@@ -2334,9 +2335,9 @@
 	},
 /area/shuttle/hailstorm_shuttle)
 "pn" = (
-/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/structure/machinery/portable_atmospherics/canister/oxygen,
 /obj/effect/floor_decal/industrial/outline/blue,
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 1
 	},
 /obj/structure/sign/flag/dpra{
@@ -2349,7 +2350,7 @@
 	},
 /area/hailstorm_ship/armory)
 "pt" = (
-/obj/machinery/iff_beacon/name_change{
+/obj/structure/machinery/iff_beacon/name_change{
 	pixel_y = 5
 	},
 /obj/effect/floor_decal/industrial/warning/full,
@@ -2367,7 +2368,7 @@
 	icon_state = "co2-5";
 	opacity = 0
 	},
-/obj/machinery/atmospherics/unary/vent_pump/siphon/atmos{
+/obj/structure/machinery/atmospherics/unary/vent_pump/siphon/atmos{
 	dir = 8
 	},
 /obj/effect/map_effect/marker/large_tank{
@@ -2385,7 +2386,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/north{
+/obj/structure/machinery/power/apc/north{
 	req_access = list(214)
 	},
 /obj/item/ship_ammunition/francisca/ap{
@@ -2433,11 +2434,11 @@
 	},
 /area/hailstorm_ship/gunnery_starboard)
 "pJ" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor,
-/obj/machinery/airlock_sensor{
+/obj/structure/machinery/airlock_sensor{
 	pixel_x = -24;
 	dir = 4
 	},
@@ -2451,15 +2452,15 @@
 	icon_state = "1-4"
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
 /area/hailstorm_ship/kitchen)
 "pN" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 5
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -2469,7 +2470,7 @@
 /area/hailstorm_ship/docking_arm)
 "pO" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	dir = 8;
 	id = "hailstorm_kitchen";
 	name = "Kitchen Shutters";
@@ -2491,7 +2492,7 @@
 /obj/effect/floor_decal/industrial/outline_segment/grey{
 	dir = 5
 	},
-/obj/machinery/light/colored/decayed,
+/obj/structure/machinery/light/colored/decayed,
 /obj/item/storage/toolbox/mechanical{
 	pixel_y = 2
 	},
@@ -2513,7 +2514,7 @@
 	icon_state = "2-8"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
 /turf/simulated/floor/plating{
@@ -2521,7 +2522,7 @@
 	},
 /area/hailstorm_ship/propulsion)
 "qg" = (
-/obj/machinery/bodyscanner,
+/obj/structure/machinery/bodyscanner,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/full{
@@ -2529,7 +2530,7 @@
 	},
 /area/hailstorm_ship/medbay)
 "qh" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 9
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -2547,7 +2548,7 @@
 /obj/structure/tank_wall/carbon_dioxide{
 	icon_state = "co2-10"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
 /turf/simulated/floor/airless,
@@ -2563,8 +2564,8 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -2580,13 +2581,13 @@
 /obj/effect/floor_decal/industrial/outline_segment/red{
 	dir = 4
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/reinforced{
 	temperature = 278.15
 	},
 /area/hailstorm_ship/gunnery_port)
 "qG" = (
-/obj/machinery/atmospherics/unary/engine,
+/obj/structure/machinery/atmospherics/unary/engine,
 /obj/effect/floor_decal/industrial/warning/full,
 /turf/simulated/floor/reinforced/airless,
 /area/shuttle/hailstorm_shuttle)
@@ -2600,19 +2601,19 @@
 /area/hailstorm_ship/armory)
 "ra" = (
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/door/airlock/command/gold{
+/obj/structure/machinery/door/airlock/command/gold{
 	req_access = list(214);
 	dir = 4;
 	name = "Captain's Quarters"
@@ -2622,7 +2623,7 @@
 	},
 /area/hailstorm_ship/captain_quarters)
 "rb" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/full{
@@ -2634,7 +2635,7 @@
 /obj/structure/plasticflaps/airtight{
 	dir = 8
 	},
-/obj/machinery/door/blast/regular{
+/obj/structure/machinery/door/blast/regular{
 	id = "hailstorm_torpedo_3_interior";
 	name = "Torpedo Bay Three"
 	},
@@ -2652,7 +2653,7 @@
 	pixel_x = -2;
 	pixel_y = 13
 	},
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /obj/item/versebook/dpra{
 	pixel_y = 2;
 	pixel_x = 5
@@ -2663,7 +2664,7 @@
 /area/hailstorm_ship/advisor_cabin)
 "rq" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 9
 	},
 /turf/simulated/floor/plating{
@@ -2671,11 +2672,11 @@
 	},
 /area/hailstorm_ship/propulsion)
 "rD" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor,
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
+/obj/structure/machinery/embedded_controller/radio/airlock/docking_port{
 	pixel_y = 26
 	},
 /obj/effect/map_effect/marker/airlock/docking/hailstorm_ship/starboard_dock,
@@ -2684,16 +2685,16 @@
 	},
 /area/hailstorm_ship/docking_arm)
 "rT" = (
-/obj/machinery/door/firedoor/noid,
+/obj/structure/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
 	dir = 8
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/door/airlock/command/gold{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/door/airlock/command/gold{
 	req_access = list(214);
 	name = "Captain's Cabin"
 	},
@@ -2703,8 +2704,8 @@
 /area/hailstorm_ship/captain_cabin)
 "rW" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/obj/machinery/light/colored/decayed,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/light/colored/decayed,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -2735,7 +2736,7 @@
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 8
 	},
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/light/small/emergency{
 	dir = 4
 	},
 /turf/simulated/floor/reinforced{
@@ -2743,9 +2744,9 @@
 	},
 /area/shuttle/hailstorm_shuttle)
 "sd" = (
-/obj/machinery/appliance/cooker/stove,
+/obj/structure/machinery/appliance/cooker/stove,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -2757,10 +2758,10 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/light/small/emergency{
 	dir = 8
 	},
 /turf/simulated/floor/plating{
@@ -2772,7 +2773,7 @@
 /obj/structure/plasticflaps/airtight{
 	dir = 8
 	},
-/obj/machinery/door/blast/regular{
+/obj/structure/machinery/door/blast/regular{
 	id = "hailstorm_torpedo_2_interior";
 	name = "Torpedo Bay Two"
 	},
@@ -2781,7 +2782,7 @@
 	},
 /area/hailstorm_ship/torpedo_bay)
 "sw" = (
-/obj/machinery/vending/tool{
+/obj/structure/machinery/vending/tool{
 	req_access = list(214)
 	},
 /obj/effect/floor_decal/industrial/hatch/engineering,
@@ -2791,11 +2792,11 @@
 	},
 /area/hailstorm_ship/engineering)
 "sy" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor,
-/obj/machinery/airlock_sensor{
+/obj/structure/machinery/airlock_sensor{
 	pixel_y = -24;
 	dir = 1
 	},
@@ -2816,14 +2817,14 @@
 /area/hailstorm_ship/bridge)
 "sJ" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
 /area/hailstorm_ship/propulsion)
 "sL" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/blue{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/blue{
 	dir = 6
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -2835,16 +2836,16 @@
 	},
 /area/hailstorm_ship/atmospherics)
 "sM" = (
-/obj/machinery/door/firedoor/noid,
+/obj/structure/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
 	dir = 8
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/door/airlock/maintenance_hatch{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/door/airlock/maintenance_hatch{
 	req_access = list(214);
 	name = "Crew Barracks"
 	},
@@ -2853,7 +2854,7 @@
 	},
 /area/hailstorm_ship/crew)
 "sS" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 5
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
@@ -2900,7 +2901,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/obj/machinery/alarm/cold/north{
+/obj/structure/machinery/alarm/cold/north{
 	req_one_access = null;
 	req_access = list(214)
 	},
@@ -2914,14 +2915,14 @@
 	},
 /area/hailstorm_ship/crew)
 "th" = (
-/obj/machinery/power/apc/east{
+/obj/structure/machinery/power/apc/east{
 	req_access = list(214)
 	},
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/obj/machinery/atmospherics/portables_connector,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/atmospherics/portables_connector,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating{
@@ -2937,7 +2938,7 @@
 /area/hailstorm_ship/engineering)
 "to" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -2969,7 +2970,7 @@
 /obj/item/reagent_containers/glass/bottle/perconol,
 /obj/item/reagent_containers/glass/bottle/inaprovaline,
 /obj/item/reagent_containers/glass/bottle/antitoxin,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /obj/item/clothing/suit/storage/hooded/tajaran/surgery,
@@ -2981,7 +2982,7 @@
 	},
 /area/hailstorm_ship/medbay)
 "tH" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /obj/structure/sign/flag/dpra{
@@ -2994,7 +2995,7 @@
 	},
 /area/hailstorm_ship/docking_arm)
 "tO" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -3004,7 +3005,7 @@
 /area/hailstorm_ship/bridge)
 "ub" = (
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 8
 	},
 /obj/structure/curtain/open/bed{
@@ -3016,7 +3017,7 @@
 	},
 /area/hailstorm_ship/crew)
 "uh" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /obj/random/dirt_75,
@@ -3028,7 +3029,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	pixel_y = 25;
 	pixel_x = -4;
 	id = "hailstorm_reactor";
@@ -3045,17 +3046,17 @@
 	},
 /area/hailstorm_ship/engineering)
 "um" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/light/small/emergency{
 	dir = 1
 	},
 /turf/simulated/floor/plating{
@@ -3064,10 +3065,10 @@
 /area/hailstorm_ship/central_maint)
 "uq" = (
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 8
 	},
-/obj/machinery/door/airlock/maintenance_hatch{
+/obj/structure/machinery/door/airlock/maintenance_hatch{
 	req_access = list(214);
 	name = "Engineering";
 	dir = 4
@@ -3080,10 +3081,10 @@
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 5
 	},
 /obj/random/dirt_75,
@@ -3093,11 +3094,11 @@
 /area/shuttle/hailstorm_shuttle)
 "uw" = (
 /obj/structure/table/stone/marble,
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
-/obj/machinery/door/blast/shutters{
+/obj/structure/machinery/door/blast/shutters{
 	dir = 4;
 	id = "hailstorm_kitchen"
 	},
@@ -3106,20 +3107,20 @@
 	},
 /area/hailstorm_ship/kitchen)
 "uz" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/power/apc/north{
+/obj/structure/machinery/power/apc/north{
 	req_access = list(214)
 	},
-/obj/machinery/alarm/cold/south{
+/obj/structure/machinery/alarm/cold/south{
 	req_one_access = null;
 	req_access = list(214)
 	},
@@ -3131,7 +3132,7 @@
 	},
 /area/hailstorm_ship/command_maint)
 "uL" = (
-/obj/machinery/shipsensors,
+/obj/structure/machinery/shipsensors,
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 1
 	},
@@ -3149,7 +3150,7 @@
 /obj/structure/plasticflaps/airtight{
 	dir = 8
 	},
-/obj/machinery/door/blast/regular{
+/obj/structure/machinery/door/blast/regular{
 	id = "hailstorm_torpedo_4_exterior"
 	},
 /obj/effect/landmark/entry_point/port{
@@ -3160,16 +3161,16 @@
 	},
 /area/hailstorm_ship/torpedo_bay)
 "vG" = (
-/obj/machinery/door/firedoor/noid,
+/obj/structure/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
 	dir = 8
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/door/airlock/maintenance_hatch{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/door/airlock/maintenance_hatch{
 	req_access = list(214);
 	name = "Central Maintenance"
 	},
@@ -3179,19 +3180,19 @@
 /area/hailstorm_ship/central_hallway)
 "vJ" = (
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/door/airlock/maintenance_hatch{
+/obj/structure/machinery/door/airlock/maintenance_hatch{
 	req_access = list(214);
 	name = "Engineering";
 	dir = 4
@@ -3201,12 +3202,12 @@
 	},
 /area/hailstorm_ship/engineering)
 "vP" = (
-/obj/machinery/computer/ship/helm/terminal{
+/obj/structure/machinery/computer/ship/helm/terminal{
 	dir = 1;
 	req_access = list(214)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -3232,25 +3233,25 @@
 /obj/item/reagent_containers/inhaler/pneumalin,
 /obj/item/reagent_containers/inhaler/pneumalin,
 /obj/item/auto_cpr,
-/obj/machinery/light/colored/decayed,
+/obj/structure/machinery/light/colored/decayed,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
 /area/hailstorm_ship/medbay)
 "vS" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 1
 	},
-/obj/machinery/meter,
+/obj/structure/machinery/meter,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
 /area/hailstorm_ship/propulsion)
 "vU" = (
-/obj/machinery/portable_atmospherics/canister/empty,
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/portable_atmospherics/canister/empty,
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/red,
@@ -3259,7 +3260,7 @@
 	},
 /area/hailstorm_ship/atmospherics)
 "vW" = (
-/obj/machinery/computer/ship/sensors/terminal{
+/obj/structure/machinery/computer/ship/sensors/terminal{
 	dir = 1;
 	req_access = list(214)
 	},
@@ -3286,7 +3287,7 @@
 	},
 /area/hailstorm_ship/engineering)
 "vZ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -3295,8 +3296,8 @@
 	},
 /area/hailstorm_ship/atmospherics)
 "wi" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
@@ -3315,13 +3316,13 @@
 /obj/effect/floor_decal/spline/plain/yellow{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/carpet/rubber{
 	temperature = 278.15
 	},
 /area/hailstorm_ship/armory)
 "wt" = (
-/obj/machinery/atmospherics/binary/pump/high_power{
+/obj/structure/machinery/atmospherics/binary/pump/high_power{
 	name = "Canister to Tank";
 	target_pressure = 15000;
 	dir = 1
@@ -3340,8 +3341,8 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -3355,7 +3356,7 @@
 	},
 /area/hailstorm_ship/advisor_cabin)
 "wG" = (
-/obj/machinery/alarm/cold/south{
+/obj/structure/machinery/alarm/cold/south{
 	req_one_access = null;
 	req_access = list(214)
 	},
@@ -3368,7 +3369,7 @@
 	},
 /area/hailstorm_ship/docking_arm)
 "wI" = (
-/obj/machinery/vending/engivend{
+/obj/structure/machinery/vending/engivend{
 	req_access = list(214)
 	},
 /obj/effect/floor_decal/industrial/hatch/engineering,
@@ -3385,10 +3386,10 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -3398,7 +3399,7 @@
 /obj/effect/floor_decal/spline/plain/yellow{
 	dir = 9
 	},
-/obj/machinery/power/apc/west{
+/obj/structure/machinery/power/apc/west{
 	req_access = list(214)
 	},
 /turf/simulated/floor/carpet/rubber{
@@ -3406,26 +3407,26 @@
 	},
 /area/hailstorm_ship/propulsion)
 "wX" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
 /area/hailstorm_ship/atmospherics)
 "wY" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 4
 	},
 /obj/random/junk,
@@ -3437,17 +3438,17 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
 /area/shuttle/hailstorm_shuttle)
 "xe" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
 /obj/random/dirt_75,
@@ -3468,7 +3469,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 1
 	},
 /turf/simulated/floor/plating{
@@ -3476,7 +3477,7 @@
 	},
 /area/hailstorm_ship/atmospherics)
 "xy" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor,
@@ -3488,7 +3489,7 @@
 "xA" = (
 /obj/structure/table/reinforced/steel,
 /obj/effect/floor_decal/industrial/hatch/grey,
-/obj/machinery/alarm/cold/north{
+/obj/structure/machinery/alarm/cold/north{
 	req_one_access = null;
 	req_access = list(214)
 	},
@@ -3496,7 +3497,7 @@
 	stand_icon = "banner";
 	pixel_x = 32
 	},
-/obj/machinery/photocopier/faxmachine{
+/obj/structure/machinery/photocopier/faxmachine{
 	department = "Hailstorm Ship";
 	pixel_y = 4;
 	req_one_access = null;
@@ -3507,7 +3508,7 @@
 	},
 /area/hailstorm_ship/bridge)
 "xE" = (
-/obj/machinery/ammunition_loader/nephilim{
+/obj/structure/machinery/ammunition_loader/nephilim{
 	dir = 1;
 	weapon_id = "Hailstorm Blaster"
 	},
@@ -3517,19 +3518,19 @@
 /area/hailstorm_ship/gunnery_port)
 "xG" = (
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4;
 	req_access = list(214);
 	name = "Armory Module"
@@ -3543,14 +3544,14 @@
 /area/hailstorm_ship/bathroom)
 "xR" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/alarm/cold/south{
+/obj/structure/machinery/alarm/cold/south{
 	req_one_access = null;
 	req_access = list(214)
 	},
 /obj/structure/undies_wardrobe{
 	pixel_x = -1
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/service,
@@ -3572,7 +3573,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc/south{
+/obj/structure/machinery/power/apc/south{
 	req_access = list(214)
 	},
 /obj/effect/floor_decal/corner/paleblue{
@@ -3583,16 +3584,16 @@
 	},
 /area/hailstorm_ship/docking_arm)
 "yj" = (
-/obj/machinery/door/firedoor/noid,
+/obj/structure/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
 	dir = 8
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/door/airlock/external{
 	req_access = list(214);
 	name = "Torpedo Module"
 	},
@@ -3602,8 +3603,8 @@
 /area/hailstorm_ship/torpedo_bay)
 "yl" = (
 /obj/effect/floor_decal/industrial/outline/red,
-/obj/machinery/light/small,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/light/small,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
 	level = 2
 	},
@@ -3645,7 +3646,7 @@
 	},
 /area/shuttle/hailstorm_shuttle)
 "yu" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/aux,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/aux,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -3653,7 +3654,7 @@
 /area/hailstorm_ship/docking_arm)
 "yD" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
-/obj/machinery/door/blast/shutters/open{
+/obj/structure/machinery/door/blast/shutters/open{
 	id = "hailstorm_windows"
 	},
 /obj/effect/landmark/entry_point/fore{
@@ -3664,14 +3665,14 @@
 	},
 /area/hailstorm_ship/bridge)
 "yF" = (
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	dir = 5;
 	id = "hailstorm_airlock";
 	name = "Dock Lockdown";
 	pixel_y = 3;
 	pixel_x = -38
 	},
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	dir = 5;
 	id = "hailstorm_windows";
 	name = "Window Shutters";
@@ -3684,7 +3685,7 @@
 	pixel_x = -2
 	},
 /obj/random/dirt_75,
-/obj/machinery/button/distress{
+/obj/structure/machinery/button/distress{
 	pixel_y = 3;
 	pixel_x = -23;
 	dir = 4
@@ -3695,7 +3696,7 @@
 /area/hailstorm_ship/bridge)
 "yH" = (
 /obj/effect/floor_decal/industrial/outline/security,
-/obj/machinery/hologram/holopad/long_range,
+/obj/structure/machinery/hologram/holopad/long_range,
 /obj/effect/overmap/visitable/ship/hailstorm_ship,
 /obj/structure/bed/handrail{
 	dir = 8;
@@ -3712,13 +3713,13 @@
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/obj/machinery/alarm/cold/south{
+/obj/structure/machinery/alarm/cold/south{
 	req_one_access = null;
 	req_access = list(214)
 	},
@@ -3729,7 +3730,7 @@
 "yN" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/railing/mapped,
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
 /turf/simulated/floor/plating{
@@ -3772,7 +3773,7 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /turf/simulated/floor/plating{
@@ -3781,7 +3782,7 @@
 /area/hailstorm_ship/propulsion)
 "yW" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
-/obj/machinery/door/blast/shutters/open{
+/obj/structure/machinery/door/blast/shutters/open{
 	id = "hailstorm_windows";
 	dir = 4
 	},
@@ -3793,7 +3794,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/north{
+/obj/structure/machinery/power/apc/north{
 	req_access = list(214)
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
@@ -3803,8 +3804,8 @@
 	},
 /area/hailstorm_ship/kitchen)
 "za" = (
-/obj/machinery/atmospherics/portables_connector/aux,
-/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/atmospherics/portables_connector/aux,
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
 /obj/effect/floor_decal/industrial/outline/blue,
 /obj/structure/sign/flag/dpra{
 	stand_icon = "banner";
@@ -3815,16 +3816,16 @@
 	},
 /area/hailstorm_ship/docking_arm)
 "zb" = (
-/obj/machinery/door/firedoor/noid,
+/obj/structure/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
 	dir = 8
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/door/airlock/maintenance_hatch{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/door/airlock/maintenance_hatch{
 	req_access = list(214);
 	name = "Kitchen"
 	},
@@ -3834,10 +3835,10 @@
 /area/hailstorm_ship/kitchen)
 "zc" = (
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 8
 	},
-/obj/machinery/door/airlock/glass_service{
+/obj/structure/machinery/door/airlock/glass_service{
 	dir = 8;
 	name = "Kitchen";
 	req_access = list(214)
@@ -3872,7 +3873,7 @@
 /area/hailstorm_ship/kitchen)
 "zu" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/light/small/emergency{
 	dir = 1
 	},
 /turf/simulated/floor/plating{
@@ -3880,7 +3881,7 @@
 	},
 /area/hailstorm_ship/command_maint)
 "zw" = (
-/obj/machinery/atmospherics/binary/pump/high_power{
+/obj/structure/machinery/atmospherics/binary/pump/high_power{
 	name = "Tank to Thrusters";
 	target_pressure = 15000;
 	dir = 1
@@ -3907,15 +3908,15 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
 /area/hailstorm_ship/engine_maint)
 "zE" = (
-/obj/machinery/power/terminal{
+/obj/structure/machinery/power/terminal{
 	dir = 1
 	},
 /obj/structure/cable/green{
@@ -3924,7 +3925,7 @@
 /obj/structure/bed/handrail{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/black{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning/cee,
@@ -3954,7 +3955,7 @@
 /obj/item/storage/box/shells/buckshot,
 /obj/item/storage/box/shells/buckshot,
 /obj/effect/floor_decal/industrial/outline/red,
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 1
 	},
 /obj/structure/sign/flag/dpra/large/east{
@@ -3969,16 +3970,16 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/hailstorm_ship/gunnery_starboard)
 "Aa" = (
-/obj/machinery/door/firedoor/noid,
+/obj/structure/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
 	dir = 8
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/door/airlock/external{
 	req_access = list(214);
 	name = "Habitation Module"
 	},
@@ -3996,7 +3997,7 @@
 	},
 /area/hailstorm_ship/engineering)
 "Az" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
@@ -4014,7 +4015,7 @@
 	},
 /area/hailstorm_ship/central_hallway)
 "AK" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/full{
 	temperature = 278.15
@@ -4027,13 +4028,13 @@
 	},
 /area/hailstorm_ship/engineering)
 "AN" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -4046,10 +4047,10 @@
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/south{
+/obj/structure/machinery/power/apc/south{
 	req_access = list(214)
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /turf/simulated/floor/wood{
@@ -4061,7 +4062,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
 	},
-/obj/machinery/alarm/cold/north{
+/obj/structure/machinery/alarm/cold/north{
 	req_one_access = null;
 	req_access = list(214)
 	},
@@ -4096,7 +4097,7 @@
 	},
 /area/hailstorm_ship/advisor_cabin)
 "Ba" = (
-/obj/machinery/suit_cycler/offship/dpra,
+/obj/structure/machinery/suit_cycler/offship/dpra,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/full{
@@ -4104,16 +4105,16 @@
 	},
 /area/hailstorm_ship/armory)
 "Bh" = (
-/obj/machinery/door/firedoor/noid,
+/obj/structure/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
 	dir = 8
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/door/airlock/external{
 	req_access = list(214);
 	name = "Helm Module"
 	},
@@ -4128,7 +4129,7 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/hailstorm_ship/gunnery_port)
 "Bk" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -4150,7 +4151,7 @@
 /area/hailstorm_ship/armory)
 "Bx" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
-/obj/machinery/door/blast/shutters/open{
+/obj/structure/machinery/door/blast/shutters/open{
 	id = "hailstorm_windows";
 	dir = 4
 	},
@@ -4159,8 +4160,8 @@
 	},
 /area/hailstorm_ship/advisor_quarters)
 "BA" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
@@ -4184,13 +4185,13 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/power/apc/west{
+/obj/structure/machinery/power/apc/west{
 	req_access = list(214)
 	},
-/obj/machinery/alarm/cold/east,
+/obj/structure/machinery/alarm/cold/east,
 /obj/structure/cable/green,
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -4199,7 +4200,7 @@
 "BR" = (
 /obj/structure/closet/radiation,
 /obj/effect/floor_decal/industrial/outline/engineering,
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 8
 	},
 /turf/simulated/floor/tiled{
@@ -4216,13 +4217,13 @@
 	},
 /area/hailstorm_ship/engineering)
 "Ca" = (
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	pixel_y = -23;
 	pixel_x = -3;
 	id = "hailstorm_shuttle_shutters";
 	name = "Viewport Shutters"
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
 /obj/random/dirt_75,
@@ -4276,10 +4277,10 @@
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc/south{
+/obj/structure/machinery/power/apc/south{
 	req_access = list(214)
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -4289,7 +4290,7 @@
 /area/hailstorm_ship/bathroom)
 "Cr" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
-/obj/machinery/door/blast/shutters/open{
+/obj/structure/machinery/door/blast/shutters/open{
 	id = "hailstorm_windows";
 	dir = 4
 	},
@@ -4301,10 +4302,10 @@
 	},
 /area/hailstorm_ship/bridge)
 "Cx" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
 /obj/structure/cable/green{
@@ -4322,10 +4323,10 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
@@ -4344,13 +4345,13 @@
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
-/obj/machinery/alarm/cold/south{
+/obj/structure/machinery/alarm/cold/south{
 	req_one_access = null;
 	req_access = list(214)
 	},
@@ -4370,7 +4371,7 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/hailstorm_ship/advisor_cabin)
 "CW" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /obj/structure/sign/flag/dpra{
@@ -4384,9 +4385,9 @@
 "Da" = (
 /obj/structure/table/steel,
 /obj/effect/floor_decal/corner/lime/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/reagentgrinder{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/reagentgrinder{
 	pixel_x = -7;
 	pixel_y = 9
 	},
@@ -4404,22 +4405,22 @@
 	},
 /area/hailstorm_ship/kitchen)
 "DF" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
 /area/hailstorm_ship/atmospherics)
 "DQ" = (
 /obj/effect/floor_decal/industrial/hatch/blue,
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/structure/machinery/atmospherics/pipe/tank/air{
 	dir = 8;
 	start_pressure = 6000
 	},
@@ -4428,15 +4429,15 @@
 	},
 /area/hailstorm_ship/atmospherics)
 "DT" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden,
-/obj/machinery/meter,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden,
+/obj/structure/machinery/meter,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
 /area/hailstorm_ship/propulsion)
 "DU" = (
-/obj/machinery/atmospherics/unary/engine,
+/obj/structure/machinery/atmospherics/unary/engine,
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 8
 	},
@@ -4456,7 +4457,7 @@
 	},
 /area/hailstorm_ship/kitchen)
 "Em" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full{
@@ -4477,7 +4478,7 @@
 	},
 /area/hailstorm_ship/propulsion)
 "Er" = (
-/obj/machinery/atmospherics/unary/engine,
+/obj/structure/machinery/atmospherics/unary/engine,
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -4506,9 +4507,9 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/hailstorm_ship/crew)
 "Fo" = (
-/obj/machinery/telecomms/allinone/ship,
+/obj/structure/machinery/telecomms/allinone/ship,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/full{
@@ -4516,7 +4517,7 @@
 	},
 /area/hailstorm_ship/engineering)
 "Fp" = (
-/obj/machinery/shipsensors{
+/obj/structure/machinery/shipsensors{
 	pixel_y = 5
 	},
 /obj/effect/floor_decal/industrial/warning/full,
@@ -4526,23 +4527,23 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/structure/cable/green{
 	icon_state = "2-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
 /area/hailstorm_ship/docking_arm)
 "Ft" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor,
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
+/obj/structure/machinery/embedded_controller/radio/airlock/docking_port{
 	pixel_y = 26
 	},
 /obj/effect/map_effect/marker/airlock/docking/hailstorm_ship/port_dock,
@@ -4562,10 +4563,10 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/light/small/emergency{
 	dir = 4
 	},
 /turf/simulated/floor/plating{
@@ -4591,17 +4592,17 @@
 	},
 /area/shuttle/hailstorm_shuttle)
 "Ge" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/light/small/emergency{
 	dir = 1
 	},
 /turf/simulated/floor/plating{
@@ -4609,20 +4610,20 @@
 	},
 /area/hailstorm_ship/gunnery_port)
 "Gr" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 1
 	},
 /turf/simulated/floor/plating{
@@ -4630,7 +4631,7 @@
 	},
 /area/hailstorm_ship/docking_arm)
 "Gv" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
 /obj/random/dirt_75,
@@ -4660,7 +4661,7 @@
 	},
 /area/hailstorm_ship/armory)
 "GR" = (
-/obj/machinery/ammunition_loader/francisca{
+/obj/structure/machinery/ammunition_loader/francisca{
 	weapon_id = "Hailstorm Rotary"
 	},
 /turf/simulated/floor/reinforced{
@@ -4668,7 +4669,7 @@
 	},
 /area/hailstorm_ship/gunnery_starboard)
 "Hb" = (
-/obj/machinery/atmospherics/binary/pump/high_power/on{
+/obj/structure/machinery/atmospherics/binary/pump/high_power/on{
 	dir = 8;
 	target_pressure = 15000;
 	name = "Scrubbers to Waste"
@@ -4690,9 +4691,9 @@
 /turf/space/dynamic,
 /area/hailstorm_ship/gunnery_starboard)
 "Hh" = (
-/obj/machinery/appliance/cooker/fryer,
+/obj/structure/machinery/appliance/cooker/fryer,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -4701,13 +4702,13 @@
 	},
 /area/hailstorm_ship/kitchen)
 "Hj" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -4729,10 +4730,10 @@
 /obj/structure/cable/green{
 	icon_state = "2-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 10
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -4741,14 +4742,14 @@
 	},
 /area/shuttle/hailstorm_shuttle)
 "Ht" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/black,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/black,
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/hailstorm_shuttle)
 "Hu" = (
 /obj/structure/sign/flag/dpra/large/north{
 	pixel_y = 32
 	},
-/obj/machinery/sleeper,
+/obj/structure/machinery/sleeper,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/full{
@@ -4792,7 +4793,7 @@
 /obj/structure/plasticflaps/airtight{
 	dir = 8
 	},
-/obj/machinery/door/blast/regular{
+/obj/structure/machinery/door/blast/regular{
 	id = "hailstorm_torpedo_1_exterior"
 	},
 /obj/effect/landmark/entry_point/starboard{
@@ -4803,14 +4804,14 @@
 	},
 /area/hailstorm_ship/torpedo_bay)
 "HY" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/north{
+/obj/structure/machinery/power/apc/north{
 	req_access = list(214)
 	},
 /turf/simulated/floor/plating{
@@ -4824,7 +4825,7 @@
 /area/hailstorm_ship/gunnery_starboard)
 "Id" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
-/obj/machinery/door/blast/shutters/open{
+/obj/structure/machinery/door/blast/shutters/open{
 	id = "hailstorm_windows"
 	},
 /turf/simulated/floor/plating{
@@ -4833,7 +4834,7 @@
 /area/hailstorm_ship/bridge)
 "Iq" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
-/obj/machinery/door/blast/shutters/open{
+/obj/structure/machinery/door/blast/shutters/open{
 	id = "hailstorm_shuttle_shutters"
 	},
 /turf/simulated/floor/plating{
@@ -4869,16 +4870,16 @@
 /obj/vehicle/bike/wasp_torpedo{
 	dir = 8
 	},
-/obj/machinery/light/small/emergency,
+/obj/structure/machinery/light/small/emergency,
 /turf/simulated/floor/reinforced{
 	temperature = 278.15
 	},
 /area/hailstorm_ship/torpedo_bay)
 "IN" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/obj/machinery/light/colored/decayed,
+/obj/structure/machinery/light/colored/decayed,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/full{
 	temperature = 278.15
@@ -4919,7 +4920,7 @@
 	},
 /area/hailstorm_ship/torpedo_bay)
 "Jj" = (
-/obj/machinery/atmospherics/binary/passive_gate/on{
+/obj/structure/machinery/atmospherics/binary/passive_gate/on{
 	dir = 8;
 	target_pressure = 250;
 	name = "Air Supply to Distro"
@@ -4945,7 +4946,7 @@
 /obj/structure/filingcabinet/filingcabinet{
 	pixel_x = 10
 	},
-/obj/machinery/papershredder{
+/obj/structure/machinery/papershredder{
 	pixel_x = -5
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
@@ -4960,7 +4961,7 @@
 	},
 /area/hailstorm_ship/captain_cabin)
 "Jv" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -4974,7 +4975,7 @@
 /obj/structure/sign/flag/dpra/large/south{
 	pixel_y = -32
 	},
-/obj/machinery/alarm/cold/west{
+/obj/structure/machinery/alarm/cold/west{
 	req_one_access = null;
 	req_access = list(214)
 	},
@@ -4994,11 +4995,11 @@
 	},
 /area/hailstorm_ship/kitchen)
 "Jz" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor,
-/obj/machinery/airlock_sensor{
+/obj/structure/machinery/airlock_sensor{
 	pixel_y = -24;
 	dir = 1
 	},
@@ -5008,11 +5009,11 @@
 	},
 /area/hailstorm_ship/docking_arm)
 "JA" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/hailstorm_ship/propulsion)
 "JK" = (
-/obj/machinery/photocopier,
+/obj/structure/machinery/photocopier,
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/structure/sign/painting_frame/nated{
 	pixel_y = -32
@@ -5022,10 +5023,10 @@
 	},
 /area/hailstorm_ship/advisor_cabin)
 "JP" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/obj/machinery/alarm/cold/north{
+/obj/structure/machinery/alarm/cold/north{
 	req_one_access = null;
 	req_access = list(214)
 	},
@@ -5058,7 +5059,7 @@
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 4
 	},
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/light/small/emergency{
 	dir = 8
 	},
 /turf/simulated/floor/reinforced{
@@ -5075,7 +5076,7 @@
 /area/space)
 "Ko" = (
 /obj/structure/lattice/catwalk/indoor,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/docking/hailstorm_shuttle/shuttle_port,
@@ -5087,7 +5088,7 @@
 /turf/simulated/wall/shuttle/dark/cardinal/merc,
 /area/shuttle/hailstorm_shuttle)
 "Kq" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
@@ -5099,13 +5100,13 @@
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 4
 	},
-/obj/machinery/button/ignition{
+/obj/structure/machinery/button/ignition{
 	id = "hailstorm_igniter";
 	pixel_y = -29;
 	dir = 8;
 	pixel_x = 26
 	},
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 8
 	},
 /turf/simulated/floor/carpet/rubber{
@@ -5113,11 +5114,11 @@
 	},
 /area/hailstorm_ship/propulsion)
 "KC" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 1
 	},
 /turf/simulated/floor/plating{
@@ -5125,7 +5126,7 @@
 	},
 /area/hailstorm_ship/docking_arm)
 "KK" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /obj/random/dirt_75,
@@ -5158,7 +5159,7 @@
 	},
 /area/hailstorm_ship/torpedo_bay)
 "KY" = (
-/obj/machinery/ship_weapon/francisca/compact{
+/obj/structure/machinery/ship_weapon/francisca/compact{
 	pixel_y = -80;
 	pixel_x = -40;
 	weapon_id = "Hailstorm Rotary"
@@ -5172,10 +5173,10 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/light/small/emergency{
 	dir = 4
 	},
 /turf/simulated/floor/plating{
@@ -5183,7 +5184,7 @@
 	},
 /area/hailstorm_ship/central_maint)
 "Li" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor,
@@ -5193,10 +5194,10 @@
 	},
 /area/hailstorm_ship/docking_arm)
 "Lj" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /obj/structure/cable/green{
@@ -5216,17 +5217,17 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/hailstorm_ship/atmospherics)
 "Ly" = (
-/obj/machinery/portable_atmospherics/canister/empty,
+/obj/structure/machinery/portable_atmospherics/canister/empty,
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
 /area/hailstorm_ship/atmospherics)
 "LG" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -5236,22 +5237,22 @@
 /obj/structure/cable/green{
 	icon_state = "2-4"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
 /area/hailstorm_ship/atmospherics)
 "LK" = (
 /obj/effect/floor_decal/industrial/hatch_door/red,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock/docking/hailstorm_ship/starboard_dock,
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/machinery/door/blast/shutters/open{
+/obj/structure/machinery/door/blast/shutters/open{
 	id = "hailstorm_airlock";
 	dir = 4
 	},
@@ -5260,16 +5261,16 @@
 	},
 /area/hailstorm_ship/docking_arm)
 "LM" = (
-/obj/machinery/door/firedoor/noid,
+/obj/structure/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
 	dir = 8
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/door/airlock/command/gold{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/door/airlock/command/gold{
 	req_access = list(214);
 	name = "Advisor's Cabin"
 	},
@@ -5301,19 +5302,19 @@
 /area/hailstorm_ship/engineering)
 "LZ" = (
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4;
 	req_access = list(214);
 	name = "Port Gunnery Module"
@@ -5323,7 +5324,7 @@
 	},
 /area/hailstorm_ship/gunnery_starboard)
 "Mf" = (
-/obj/machinery/appliance/cooker/oven,
+/obj/structure/machinery/appliance/cooker/oven,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/sign/flag/dpra/large/west{
 	dir = 8;
@@ -5336,10 +5337,10 @@
 /area/hailstorm_ship/kitchen)
 "Mi" = (
 /obj/effect/floor_decal/industrial/hatch_door/red,
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 8
 	},
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	pixel_y = -27;
 	pixel_x = -7;
 	dir = 8
@@ -5349,7 +5350,7 @@
 /obj/effect/shuttle_landmark/hailstorm_ship/dock_starboard{
 	dir = 4
 	},
-/obj/machinery/door/blast/shutters/open{
+/obj/structure/machinery/door/blast/shutters/open{
 	id = "hailstorm_airlock";
 	dir = 4
 	},
@@ -5358,16 +5359,16 @@
 	},
 /area/hailstorm_ship/docking_arm)
 "Mv" = (
-/obj/machinery/door/firedoor/noid,
+/obj/structure/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
 	dir = 8
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/door/airlock/external{
 	req_access = list(214);
 	name = "Habitation Module"
 	},
@@ -5377,7 +5378,7 @@
 /area/hailstorm_ship/central_maint)
 "MA" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
-/obj/machinery/door/blast/shutters/open{
+/obj/structure/machinery/door/blast/shutters/open{
 	id = "hailstorm_windows";
 	dir = 4
 	},
@@ -5389,10 +5390,10 @@
 	},
 /area/hailstorm_ship/advisor_quarters)
 "MC" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -5408,7 +5409,7 @@
 /obj/structure/plasticflaps/airtight{
 	dir = 8
 	},
-/obj/machinery/door/blast/regular{
+/obj/structure/machinery/door/blast/regular{
 	id = "hailstorm_torpedo_3_exterior"
 	},
 /obj/effect/landmark/entry_point/starboard{
@@ -5429,20 +5430,20 @@
 	},
 /area/shuttle/hailstorm_shuttle)
 "MH" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/access_button{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/access_button{
 	pixel_x = -27;
 	pixel_y = 7;
 	dir = 1
 	},
-/obj/machinery/door/airlock/external,
+/obj/structure/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock/shuttle/hailstorm_shuttle{
 	req_one_access = list(214)
 	},
@@ -5455,7 +5456,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -5464,45 +5465,45 @@
 	},
 /area/hailstorm_ship/crew)
 "MK" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/blue,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/blue,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/machinery/meter,
+/obj/structure/machinery/meter,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
 /area/hailstorm_ship/atmospherics)
 "MM" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 8
 	},
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	dir = 1;
 	pixel_y = 25;
 	pixel_x = -6;
 	id = "hailstorm_torpedo_1_exterior";
 	name = "Torpedo Bay One Exterior"
 	},
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	dir = 1;
 	pixel_y = 25;
 	pixel_x = 5;
 	id = "hailstorm_torpedo_1_interior";
 	name = "Torpedo Bay One Interior"
 	},
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	dir = 1;
 	pixel_y = 34;
 	pixel_x = -6;
 	id = "hailstorm_torpedo_3_exterior";
 	name = "Torpedo Bay Three Exterior"
 	},
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	dir = 1;
 	pixel_y = 34;
 	pixel_x = 5;
@@ -5534,7 +5535,7 @@
 	},
 /area/hailstorm_ship/torpedo_bay)
 "MO" = (
-/obj/machinery/vending/dinnerware,
+/obj/structure/machinery/vending/dinnerware,
 /obj/effect/floor_decal/industrial/hatch/service,
 /turf/simulated/floor/tiled/full{
 	temperature = 278.15
@@ -5549,11 +5550,11 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning/corner,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /obj/random/dirt_75,
@@ -5575,7 +5576,7 @@
 	icon_state = "co2-11";
 	opacity = 0
 	},
-/obj/machinery/atmospherics/unary/outlet_injector{
+/obj/structure/machinery/atmospherics/unary/outlet_injector{
 	dir = 8
 	},
 /obj/effect/map_effect/marker/large_tank{
@@ -5596,7 +5597,7 @@
 /obj/item/typewriter_case{
 	pixel_y = 3
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /obj/item/versebook/dpra{
@@ -5612,15 +5613,15 @@
 	},
 /area/hailstorm_ship/captain_cabin)
 "Nk" = (
-/obj/machinery/atmospherics/portables_connector/supply{
+/obj/structure/machinery/atmospherics/portables_connector/supply{
 	dir = 8
 	},
-/obj/machinery/portable_atmospherics/canister/air,
+/obj/structure/machinery/portable_atmospherics/canister/air,
 /obj/effect/floor_decal/industrial/outline/blue,
-/obj/machinery/atmospherics/pipe/simple/hidden/black{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 4
 	},
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -5629,10 +5630,10 @@
 	},
 /area/shuttle/hailstorm_shuttle)
 "Nl" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -5647,7 +5648,7 @@
 	},
 /area/hailstorm_ship/bridge)
 "Nm" = (
-/obj/machinery/power/smes/buildable/main_engine{
+/obj/structure/machinery/power/smes/buildable/main_engine{
 	charge = 3e+007
 	},
 /obj/structure/cable/green{
@@ -5668,11 +5669,11 @@
 	},
 /area/hailstorm_ship/engineering)
 "Nu" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/manifold/hidden/black,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/black,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -5689,20 +5690,20 @@
 	},
 /area/hailstorm_ship/crew)
 "Ny" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/blue{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/blue{
 	dir = 5
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/machinery/light/colored/decayed,
+/obj/structure/machinery/light/colored/decayed,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
 /area/hailstorm_ship/atmospherics)
 "Nz" = (
-/obj/machinery/hologram/holopad/long_range,
+/obj/structure/machinery/hologram/holopad/long_range,
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/effect/overmap/visitable/ship/landable/hailstorm_shuttle,
 /turf/simulated/floor/tiled/full{
@@ -5724,7 +5725,7 @@
 /obj/vehicle/bike/wasp_torpedo{
 	dir = 8
 	},
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/light/small/emergency{
 	dir = 1
 	},
 /turf/simulated/floor/reinforced{
@@ -5732,7 +5733,7 @@
 	},
 /area/hailstorm_ship/torpedo_bay)
 "NP" = (
-/obj/machinery/ship_weapon/nephilim{
+/obj/structure/machinery/ship_weapon/nephilim{
 	pixel_y = -64;
 	weapon_id = "Hailstorm Blaster"
 	},
@@ -5746,7 +5747,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
 	},
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -5768,10 +5769,10 @@
 	dir = 4;
 	pixel_x = -3
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/obj/machinery/light/small/emergency,
+/obj/structure/machinery/light/small/emergency,
 /obj/structure/bed/handrail{
 	dir = 1
 	},
@@ -5781,8 +5782,8 @@
 /area/hailstorm_ship/gunnery_port)
 "Oj" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/mech_recharger,
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/mech_recharger,
+/obj/structure/machinery/light/colored/decayed{
 	dir = 1
 	},
 /mob/living/heavy_vehicle/premade/ripley/loader,
@@ -5791,7 +5792,7 @@
 	},
 /area/hailstorm_ship/bridge)
 "Ok" = (
-/obj/machinery/appliance/cooker/grill,
+/obj/structure/machinery/appliance/cooker/grill,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white{
@@ -5799,16 +5800,16 @@
 	},
 /area/hailstorm_ship/kitchen)
 "Ol" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -5820,7 +5821,7 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/hailstorm_ship/kitchen)
 "Ow" = (
-/obj/machinery/body_scanconsole{
+/obj/structure/machinery/body_scanconsole{
 	dir = 1;
 	pixel_y = 6
 	},
@@ -5858,7 +5859,7 @@
 /obj/structure/filingcabinet/filingcabinet{
 	pixel_x = 10
 	},
-/obj/machinery/papershredder{
+/obj/structure/machinery/papershredder{
 	pixel_x = -5
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
@@ -5873,40 +5874,40 @@
 	},
 /area/hailstorm_ship/advisor_cabin)
 "OJ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 6
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/hailstorm_ship/docking_arm)
 "OR" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 4
 	},
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	dir = 1;
 	pixel_y = 25;
 	pixel_x = -5;
 	id = "hailstorm_torpedo_2_interior";
 	name = "Torpedo Bay Two Interior"
 	},
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	dir = 1;
 	pixel_y = 25;
 	pixel_x = 6;
 	id = "hailstorm_torpedo_2_exterior";
 	name = "Torpedo Bay Two Exterior"
 	},
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	dir = 1;
 	pixel_y = 34;
 	pixel_x = -5;
 	id = "hailstorm_torpedo_4_interior";
 	name = "Torpedo Bay Four Interior"
 	},
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	dir = 1;
 	pixel_y = 34;
 	pixel_x = 6;
@@ -5918,16 +5919,16 @@
 	},
 /area/hailstorm_ship/torpedo_bay)
 "OV" = (
-/obj/machinery/door/firedoor/noid,
+/obj/structure/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
 	dir = 8
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/door/airlock/external{
 	req_access = list(214);
 	name = "Engineering Module"
 	},
@@ -5951,7 +5952,7 @@
 /area/hailstorm_ship/central_hallway)
 "Ps" = (
 /obj/effect/floor_decal/industrial/hatch_door/red,
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock/docking/hailstorm_ship/port_dock,
@@ -5959,7 +5960,7 @@
 /obj/effect/shuttle_landmark/hailstorm_ship/dock_port{
 	dir = 8
 	},
-/obj/machinery/door/blast/shutters/open{
+/obj/structure/machinery/door/blast/shutters/open{
 	id = "hailstorm_airlock";
 	dir = 4
 	},
@@ -5985,7 +5986,7 @@
 /area/hailstorm_ship/docking_arm)
 "PB" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
 /turf/simulated/floor/plating{
@@ -6018,13 +6019,13 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green,
-/obj/machinery/power/apc/east{
+/obj/structure/machinery/power/apc/east{
 	req_access = list(214)
 	},
-/obj/machinery/alarm/cold/west{
+/obj/structure/machinery/alarm/cold/west{
 	req_one_access = null;
 	req_access = list(214)
 	},
@@ -6034,12 +6035,12 @@
 	},
 /area/hailstorm_ship/engine_maint)
 "PM" = (
-/obj/machinery/vending/engineering{
+/obj/structure/machinery/vending/engineering{
 	req_access = list(214);
 	pixel_x = -1
 	},
 /obj/effect/floor_decal/industrial/hatch/engineering,
-/obj/machinery/light/colored/decayed,
+/obj/structure/machinery/light/colored/decayed,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/full{
 	temperature = 278.15
@@ -6052,10 +6053,10 @@
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/north{
+/obj/structure/machinery/power/apc/north{
 	req_access = list(214)
 	},
-/obj/machinery/vending/cigarette/hacked,
+/obj/structure/machinery/vending/cigarette/hacked,
 /obj/effect/floor_decal/industrial/hatch/service,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled{
@@ -6063,10 +6064,10 @@
 	},
 /area/hailstorm_ship/central_hallway)
 "PY" = (
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/light/small/emergency{
 	dir = 8
 	},
-/obj/machinery/power/smes/buildable{
+/obj/structure/machinery/power/smes/buildable{
 	name = "Refugee Shuttle SMES";
 	output_attempt = 1;
 	output_level = 200000;
@@ -6086,7 +6087,7 @@
 	},
 /area/shuttle/hailstorm_shuttle)
 "Qn" = (
-/obj/machinery/atmospherics/unary/engine,
+/obj/structure/machinery/atmospherics/unary/engine,
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 4
 	},
@@ -6096,26 +6097,26 @@
 /obj/structure/tank_wall/carbon_dioxide{
 	icon_state = "co2-4"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
 /turf/simulated/floor/airless,
 /area/hailstorm_ship/propulsion)
 "Qw" = (
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4;
 	req_access = list(214);
 	name = "Command Module"
@@ -6128,7 +6129,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/light/colored/decayed,
+/obj/structure/machinery/light/colored/decayed,
 /obj/random/dirt_75,
 /obj/random/junk,
 /turf/simulated/floor/plating{
@@ -6136,7 +6137,7 @@
 	},
 /area/hailstorm_ship/atmospherics)
 "QA" = (
-/obj/machinery/computer/ship/engines/terminal{
+/obj/structure/machinery/computer/ship/engines/terminal{
 	dir = 8;
 	req_access = list(214)
 	},
@@ -6165,15 +6166,15 @@
 /area/hailstorm_ship/propulsion)
 "QR" = (
 /obj/effect/floor_decal/industrial/hatch_door/red,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock/docking/hailstorm_ship/port_dock,
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/machinery/door/blast/shutters/open{
+/obj/structure/machinery/door/blast/shutters/open{
 	id = "hailstorm_airlock";
 	dir = 4
 	},
@@ -6182,7 +6183,7 @@
 	},
 /area/hailstorm_ship/docking_arm)
 "Re" = (
-/obj/machinery/alarm/cold/west{
+/obj/structure/machinery/alarm/cold/west{
 	req_one_access = null;
 	req_access = list(214)
 	},
@@ -6222,7 +6223,7 @@
 /area/hailstorm_ship/armory)
 "Ry" = (
 /obj/effect/floor_decal/corner/orange/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /obj/random/dirt_75,
@@ -6250,8 +6251,8 @@
 	},
 /area/hailstorm_ship/crew)
 "RQ" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -6269,10 +6270,10 @@
 "Sa" = (
 /obj/structure/bed/roller,
 /obj/effect/floor_decal/industrial/outline/medical,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/obj/machinery/alarm/cold/south{
+/obj/structure/machinery/alarm/cold/south{
 	req_one_access = null;
 	req_access = list(214)
 	},
@@ -6282,10 +6283,10 @@
 	},
 /area/hailstorm_ship/medbay)
 "Sk" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/meter,
+/obj/structure/machinery/meter,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -6293,7 +6294,7 @@
 /area/hailstorm_ship/atmospherics)
 "Sp" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/structure/machinery/atmospherics/pipe/tank/air{
 	dir = 8;
 	start_pressure = 6000
 	},
@@ -6303,17 +6304,17 @@
 	},
 /area/hailstorm_ship/atmospherics)
 "Sq" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/light/small/emergency{
 	dir = 1
 	},
 /turf/simulated/floor/plating{
@@ -6324,10 +6325,10 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -6337,17 +6338,17 @@
 /area/hailstorm_ship/central_hallway)
 "Ss" = (
 /obj/effect/floor_decal/industrial/hatch_door/red,
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 8
 	},
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	pixel_x = 25;
 	pixel_y = -25;
 	dir = 1
 	},
 /obj/effect/map_effect/marker/airlock/docking/hailstorm_ship/starboard_dock,
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/machinery/door/blast/shutters/open{
+/obj/structure/machinery/door/blast/shutters/open{
 	id = "hailstorm_airlock";
 	dir = 4
 	},
@@ -6362,10 +6363,10 @@
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/north{
+/obj/structure/machinery/power/apc/north{
 	req_access = list(214)
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /turf/simulated/floor/wood{
@@ -6377,7 +6378,7 @@
 /obj/structure/plasticflaps/airtight{
 	dir = 8
 	},
-/obj/machinery/door/blast/regular{
+/obj/structure/machinery/door/blast/regular{
 	id = "hailstorm_torpedo_1_interior";
 	name = "Torpedo Bay One"
 	},
@@ -6386,7 +6387,7 @@
 	},
 /area/hailstorm_ship/torpedo_bay)
 "ST" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/universal,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/universal,
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/hailstorm_ship/propulsion)
 "SX" = (
@@ -6398,7 +6399,7 @@
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/hailstorm_ship/propulsion)
 "Td" = (
-/obj/machinery/suit_cycler/offship/dpra,
+/obj/structure/machinery/suit_cycler/offship/dpra,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/sign/flag/dpra{
 	stand_icon = "banner";
@@ -6413,7 +6414,7 @@
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 8
 	},
-/obj/machinery/alarm/cold/north{
+/obj/structure/machinery/alarm/cold/north{
 	req_one_access = null;
 	req_access = list(214)
 	},
@@ -6423,7 +6424,7 @@
 	},
 /area/hailstorm_ship/central_hallway)
 "Tu" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning/cee,
@@ -6431,10 +6432,10 @@
 /area/shuttle/hailstorm_shuttle)
 "Tv" = (
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 8
 	},
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4;
 	req_access = list(214);
 	name = "Armoury Module"
@@ -6461,7 +6462,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /turf/simulated/floor/wood{
@@ -6481,7 +6482,7 @@
 /obj/effect/floor_decal/industrial/arrow/red{
 	dir = 4
 	},
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/light/small/emergency{
 	dir = 1
 	},
 /turf/simulated/floor/reinforced{
@@ -6489,20 +6490,20 @@
 	},
 /area/hailstorm_ship/torpedo_bay)
 "Ut" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/meter,
+/obj/structure/machinery/meter,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
 /area/hailstorm_ship/atmospherics)
 "UR" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/obj/machinery/light/colored/decayed,
+/obj/structure/machinery/light/colored/decayed,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/full{
 	temperature = 278.15
@@ -6512,10 +6513,10 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/white{
@@ -6523,7 +6524,7 @@
 	},
 /area/hailstorm_ship/medbay)
 "UW" = (
-/obj/machinery/computer/cryopod{
+/obj/structure/machinery/computer/cryopod{
 	pixel_y = 32
 	},
 /obj/effect/floor_decal/industrial/loading/blue{
@@ -6539,7 +6540,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/north{
+/obj/structure/machinery/power/apc/north{
 	req_access = list(214)
 	},
 /obj/random/dirt_75,
@@ -6549,7 +6550,7 @@
 /area/hailstorm_ship/medbay)
 "Va" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/hidden/black{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 4
 	},
 /turf/simulated/floor/plating{
@@ -6557,20 +6558,20 @@
 	},
 /area/shuttle/hailstorm_shuttle)
 "Vb" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 1
 	},
 /turf/simulated/floor/plating{
@@ -6588,7 +6589,7 @@
 /obj/effect/floor_decal/industrial/outline_segment/grey{
 	dir = 10
 	},
-/obj/machinery/alarm/cold/west{
+/obj/structure/machinery/alarm/cold/west{
 	req_one_access = null;
 	req_access = list(214)
 	},
@@ -6612,10 +6613,10 @@
 /turf/space/dynamic,
 /area/space)
 "Vg" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -6630,7 +6631,7 @@
 	},
 /area/hailstorm_ship/command_maint)
 "Vk" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 9
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
@@ -6687,11 +6688,11 @@
 	},
 /area/hailstorm_ship/atmospherics)
 "VZ" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 1
 	},
 /turf/simulated/floor/plating{
@@ -6700,10 +6701,10 @@
 /area/hailstorm_ship/propulsion)
 "We" = (
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 8
 	},
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4;
 	req_access = list(214);
 	name = "Command Module"
@@ -6717,10 +6718,10 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/light/small/emergency{
 	dir = 4
 	},
 /turf/simulated/floor/plating{
@@ -6737,7 +6738,7 @@
 /turf/simulated/floor/reinforced/airless,
 /area/space)
 "WP" = (
-/obj/machinery/atmospherics/binary/pump/high_power{
+/obj/structure/machinery/atmospherics/binary/pump/high_power{
 	dir = 8;
 	name = "Thrusters to Canister";
 	target_pressure = 15000
@@ -6745,17 +6746,17 @@
 /obj/effect/floor_decal/industrial/hatch_tiny/yellow{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
 /turf/simulated/floor/tiled/full{
 	temperature = 278.15
 	},
 /area/hailstorm_ship/propulsion)
 "WQ" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/fuel,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/fuel,
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/hailstorm_ship/docking_arm)
 "WU" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 1;
 	id_tag = "ipc_refugee_shuttle_pump";
 	frequency = 1380
@@ -6763,7 +6764,7 @@
 /obj/structure/bed/handrail{
 	dir = 4
 	},
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
+/obj/structure/machinery/embedded_controller/radio/airlock/docking_port{
 	pixel_x = 24;
 	dir = 8;
 	frequency = 1380
@@ -6772,8 +6773,8 @@
 	icon_state = "1-2"
 	},
 /obj/structure/lattice/catwalk/indoor,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/airlock_sensor{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/airlock_sensor{
 	pixel_x = -24;
 	dir = 4
 	},
@@ -6785,17 +6786,17 @@
 	},
 /area/shuttle/hailstorm_shuttle)
 "WZ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -6809,7 +6810,7 @@
 	name = "hailstorm_co2";
 	master_tag = "hailstorm_co2"
 	},
-/obj/machinery/computer/general_air_control/large_tank_control/terminal{
+/obj/structure/machinery/computer/general_air_control/large_tank_control/terminal{
 	name = "Carbon Dioxide Supply Monitor";
 	dir = 8;
 	req_access = list(214)
@@ -6826,7 +6827,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/vending/wallmed1{
+/obj/structure/machinery/vending/wallmed1{
 	req_access = list(214);
 	pixel_x = -28;
 	pixel_y = 2
@@ -6838,7 +6839,7 @@
 /area/shuttle/hailstorm_shuttle)
 "Xk" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
-/obj/machinery/door/blast/shutters/open{
+/obj/structure/machinery/door/blast/shutters/open{
 	id = "hailstorm_windows";
 	dir = 4
 	},
@@ -6858,7 +6859,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/north{
+/obj/structure/machinery/power/apc/north{
 	req_access = list(214)
 	},
 /obj/item/ship_ammunition/nephilim,
@@ -6871,7 +6872,7 @@
 	},
 /area/hailstorm_ship/gunnery_port)
 "Xr" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -6881,7 +6882,7 @@
 /area/hailstorm_ship/propulsion)
 "Xv" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -6911,11 +6912,11 @@
 /obj/structure/bed/handrail{
 	dir = 8
 	},
-/obj/machinery/alarm/cold/east{
+/obj/structure/machinery/alarm/cold/east{
 	req_one_access = null;
 	req_access = list(214)
 	},
-/obj/machinery/atmospherics/binary/pump/high_power{
+/obj/structure/machinery/atmospherics/binary/pump/high_power{
 	name = "Canister to Thrusters";
 	target_pressure = 15000
 	},
@@ -6929,10 +6930,10 @@
 /area/shuttle/hailstorm_shuttle)
 "XO" = (
 /obj/effect/floor_decal/corner/orange/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/tiled{
@@ -6940,7 +6941,7 @@
 	},
 /area/hailstorm_ship/engineering)
 "XP" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -6949,9 +6950,9 @@
 	},
 /area/hailstorm_ship/atmospherics)
 "XR" = (
-/obj/machinery/fabricator/autolathe/hacked,
+/obj/structure/machinery/fabricator/autolathe/hacked,
 /obj/effect/floor_decal/industrial/hatch/engineering,
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -6964,7 +6965,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /turf/simulated/floor/wood{
@@ -6972,10 +6973,10 @@
 	},
 /area/hailstorm_ship/advisor_cabin)
 "XY" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
 /turf/simulated/floor/carpet/rubber{
@@ -7000,7 +7001,7 @@
 /turf/space/dynamic,
 /area/space)
 "Yv" = (
-/obj/machinery/power/terminal{
+/obj/structure/machinery/power/terminal{
 	dir = 4
 	},
 /obj/structure/cable{
@@ -7034,8 +7035,8 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -7043,7 +7044,7 @@
 /area/hailstorm_ship/bridge)
 "Zh" = (
 /obj/effect/floor_decal/spline/plain/yellow,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/carpet/rubber{
 	temperature = 278.15
 	},
@@ -7058,24 +7059,24 @@
 /area/hailstorm_ship/bridge)
 "Zt" = (
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/door/airlock/maintenance_hatch{
+/obj/structure/machinery/door/airlock/maintenance_hatch{
 	req_access = list(214);
 	name = "Propulsion Management";
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full{
@@ -7083,10 +7084,10 @@
 	},
 /area/hailstorm_ship/propulsion)
 "Zu" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
-/obj/machinery/airlock_sensor{
+/obj/structure/machinery/airlock_sensor{
 	pixel_x = -24;
 	dir = 4
 	},
@@ -7101,7 +7102,7 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 6
 	},
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -7125,7 +7126,7 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/hailstorm_ship/captain_cabin)
 "ZI" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 10
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
@@ -7134,10 +7135,10 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/light/small/emergency{
 	dir = 8
 	},
 /turf/simulated/floor/plating{
@@ -7152,7 +7153,7 @@
 /area/space)
 "ZU" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
-/obj/machinery/door/blast/shutters/open{
+/obj/structure/machinery/door/blast/shutters/open{
 	id = "hailstorm_windows";
 	dir = 4
 	},
@@ -7161,7 +7162,7 @@
 	},
 /area/hailstorm_ship/captain_quarters)
 "ZW" = (
-/obj/machinery/portable_atmospherics/canister/empty,
+/obj/structure/machinery/portable_atmospherics/canister/empty,
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/sign/flag/dpra/large/west{
 	dir = 8;

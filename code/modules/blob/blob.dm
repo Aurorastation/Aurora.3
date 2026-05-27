@@ -12,6 +12,7 @@
 
 	layer = BLOB_SHIELD_LAYER
 
+	should_use_health = TRUE
 	maxhealth = 30
 
 	var/regen_rate = 5
@@ -109,7 +110,7 @@
 	if(TW)
 		TW.add_damage(rand(5,20))
 		return
-	for(var/obj/machinery/door/D in T) // There can be several - and some of them can be open, locate() is not suitable
+	for(var/obj/structure/machinery/door/D in T) // There can be several - and some of them can be open, locate() is not suitable
 		if(D.density)
 			attack_door(D)
 			if(D.health <= 0)
@@ -136,7 +137,7 @@
 	if(V)
 		V.ex_act(2)
 		return
-	var/obj/machinery/camera/CA = locate() in T
+	var/obj/structure/machinery/camera/CA = locate() in T
 	if(CA && !(CA.stat & BROKEN))
 		CA.add_damage(30)
 		return
@@ -175,7 +176,7 @@
 	source.visible_message(SPAN_WARNING("A tendril flies out from \the [src] and smashes into \the [source]!"), SPAN_DANGER("A tendril flies out from \the [src] and smashes into you!"))
 	playsound(get_turf(src), 'sound/effects/attackblob.ogg', 50, TRUE)
 
-/obj/effect/blob/proc/attack_door(var/obj/machinery/door/D)
+/obj/effect/blob/proc/attack_door(var/obj/structure/machinery/door/D)
 	if(!D)
 		return
 	attack_msg(D)

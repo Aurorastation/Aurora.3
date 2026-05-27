@@ -140,7 +140,7 @@
 	},
 /area/moghes_dorviza)
 "tD" = (
-/obj/machinery/door/urban{
+/obj/structure/machinery/door/urban{
 	dir = 4;
 	pixel_x = -29
 	},
@@ -218,7 +218,7 @@
 /area/moghes_dorviza)
 "Aa" = (
 /obj/structure/flora/grass/desert,
-/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/structure/machinery/portable_atmospherics/hydroponics/soil,
 /obj/structure/diona/bulb,
 /turf/simulated/floor/exoplanet/diona{
 	temperature = 315.15
@@ -248,11 +248,11 @@
 /turf/simulated/floor/exoplanet/carpet/orange,
 /area/moghes_dorviza/tent)
 "Ea" = (
-/obj/machinery/iv_drip,
+/obj/structure/machinery/iv_drip,
 /turf/simulated/floor/exoplanet/carpet/orange,
 /area/moghes_dorviza/tent)
 "Ec" = (
-/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/structure/machinery/portable_atmospherics/hydroponics/soil,
 /obj/structure/diona/bulb,
 /turf/simulated/floor/exoplanet/diona{
 	temperature = 315.15
@@ -286,7 +286,7 @@
 /area/moghes_dorviza/tent)
 "FR" = (
 /obj/structure/flora/grass/desert/bush,
-/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/structure/machinery/portable_atmospherics/hydroponics/soil,
 /turf/simulated/floor/exoplanet/diona{
 	temperature = 315.15
 	},
@@ -539,7 +539,7 @@
 /turf/simulated/floor/exoplanet/carpet/darkblue,
 /area/moghes_dorviza/tent)
 "XY" = (
-/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/structure/machinery/portable_atmospherics/hydroponics/soil,
 /turf/simulated/floor/exoplanet/diona{
 	temperature = 315.15
 	},

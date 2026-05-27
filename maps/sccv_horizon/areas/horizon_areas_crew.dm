@@ -242,6 +242,13 @@
 	horizon_deck = 1
 	area_blurb = "A discrete compartment frequented by the ship's many synthetics and IPCs."
 
+// In case we make all the supply closets their own /areas in future.
+/area/horizon/crew/emergency_closet/deck_2/starboard
+	name = "Emergency Supply Closet"
+	icon_state = "maintenance"
+	horizon_deck = 2
+	area_blurb = "Contains emergency supplies, surprisingly enough."
+
 // Rad shielded because common afk area.
 /area/horizon/crew/washroom
 	name = "Horizon - Head (PARENT AREA - DON'T USE)"

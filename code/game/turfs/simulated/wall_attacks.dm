@@ -180,6 +180,7 @@
 			if(WT.use_tool(src, user, max(5, abs(health - maxhealth) / 5), volume = 50) && WT && WT.isOn())
 				to_chat(user, SPAN_NOTICE("You finish repairing the damage to [src]."))
 				add_health(maxhealth - health)
+				update_icon()
 				clear_bulletholes()
 		else
 			to_chat(user, SPAN_NOTICE("You need more welding fuel to complete this task."))

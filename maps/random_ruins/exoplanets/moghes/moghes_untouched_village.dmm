@@ -19,7 +19,7 @@
 /area/moghes_village/indoors)
 "an" = (
 /obj/structure/closet/crate/hydroponics,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/wood/birch{
@@ -33,7 +33,7 @@
 	},
 /area/moghes_village)
 "bg" = (
-/obj/machinery/gibber,
+/obj/structure/machinery/gibber,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
@@ -122,7 +122,7 @@
 	},
 /area/moghes_village)
 "hQ" = (
-/obj/machinery/door/urban{
+/obj/structure/machinery/door/urban{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/wood/birch{
@@ -130,7 +130,7 @@
 	},
 /area/moghes_village/indoors)
 "ip" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/grass/moghes/dirt,
@@ -146,7 +146,7 @@
 /turf/simulated/floor/exoplanet/grass/moghes/dirt,
 /area/moghes_village/indoors)
 "kl" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/grass/moghes,
@@ -175,7 +175,7 @@
 	},
 /area/moghes_village/indoors)
 "kO" = (
-/obj/machinery/appliance/cooker/oven,
+/obj/structure/machinery/appliance/cooker/oven,
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 303.15
 	},
@@ -218,7 +218,7 @@
 /turf/simulated/floor/exoplanet/grass/moghes/dirt,
 /area/moghes_village)
 "lL" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/structure/bed/stool/chair/sofa/right/brown,
@@ -260,8 +260,8 @@
 	pixel_x = -9;
 	pixel_y = 5
 	},
-/obj/machinery/reagentgrinder,
-/obj/machinery/light{
+/obj/structure/machinery/reagentgrinder,
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/wood/birch{
@@ -289,7 +289,7 @@
 /area/moghes_village)
 "oi" = (
 /obj/structure/railing/fence,
-/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/structure/machinery/portable_atmospherics/hydroponics/soil,
 /turf/simulated/floor/exoplanet/grass/moghes/dirt/beach{
 	dir = 8
 	},
@@ -313,7 +313,7 @@
 	},
 /area/moghes_village/indoors)
 "pt" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/exoplanet/grass/moghes,
 /area/moghes_village)
 "pA" = (
@@ -325,7 +325,7 @@
 	},
 /area/moghes_village/indoors)
 "qk" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 1
 	},
@@ -400,7 +400,7 @@
 /turf/simulated/floor/exoplanet/grass/moghes/dirt,
 /area/moghes_village)
 "tM" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -437,7 +437,7 @@
 	},
 /area/moghes_village/indoors)
 "vQ" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/freezer,
@@ -459,26 +459,26 @@
 /turf/simulated/floor/exoplanet/carpet/orange,
 /area/moghes_village/indoors)
 "xz" = (
-/obj/machinery/vending/dinnerware,
+/obj/structure/machinery/vending/dinnerware,
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 303.15
 	},
 /area/moghes_village/indoors)
 "yU" = (
 /obj/structure/railing/fence,
-/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/structure/machinery/portable_atmospherics/hydroponics/soil,
 /turf/simulated/floor/exoplanet/grass/moghes/dirt/beach{
 	dir = 4
 	},
 /area/moghes_village)
 "Ac" = (
-/obj/machinery/door/urban{
+/obj/structure/machinery/door/urban{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/moghes_village/indoors)
 "AE" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 303.15
 	},
@@ -504,7 +504,7 @@
 	},
 /area/moghes_village/indoors)
 "Dp" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/grass/moghes,
@@ -541,11 +541,11 @@
 	},
 /area/moghes_village/indoors)
 "Gf" = (
-/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/structure/machinery/portable_atmospherics/hydroponics/soil,
 /turf/simulated/floor/exoplanet/water/shallow/moghes,
 /area/moghes_village)
 "Gp" = (
-/obj/machinery/door/urban,
+/obj/structure/machinery/door/urban,
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 303.15
 	},
@@ -603,7 +603,7 @@
 /turf/simulated/floor/exoplanet/marble,
 /area/moghes_village/shrine)
 "IU" = (
-/obj/machinery/door/urban{
+/obj/structure/machinery/door/urban{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/grass/moghes/dirt,
@@ -627,7 +627,7 @@
 	pixel_x = 7;
 	pixel_y = 8
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/wood/birch{
@@ -653,13 +653,13 @@
 /turf/simulated/floor/exoplanet/carpet/orange,
 /area/moghes_village/indoors)
 "Ma" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/carpet/orange,
 /area/moghes_village/indoors)
 "Mo" = (
-/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/structure/machinery/portable_atmospherics/hydroponics/soil,
 /turf/simulated/floor/exoplanet/grass/moghes/dirt/beach{
 	dir = 4
 	},
@@ -717,10 +717,10 @@
 	pixel_x = 7;
 	pixel_y = 8
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/wood/birch{
@@ -743,7 +743,7 @@
 "Rd" = (
 /obj/structure/table/rack,
 /obj/item/material/hatchet,
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 303.15
 	},
@@ -755,17 +755,17 @@
 /area/moghes_village)
 "RN" = (
 /obj/structure/railing/fence,
-/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/structure/machinery/portable_atmospherics/hydroponics/soil,
 /turf/simulated/floor/exoplanet/grass/moghes/dirt/beach{
 	dir = 1
 	},
 /area/moghes_village)
 "RQ" = (
-/obj/machinery/door/urban,
+/obj/structure/machinery/door/urban,
 /turf/simulated/floor/exoplanet/grass/moghes/dirt,
 /area/moghes_village/indoors)
 "RV" = (
-/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/structure/machinery/portable_atmospherics/hydroponics/soil,
 /turf/simulated/floor/exoplanet/grass/moghes/dirt/beach{
 	dir = 8
 	},
@@ -844,7 +844,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/door/window{
+/obj/structure/machinery/door/window{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/freezer,
@@ -859,7 +859,7 @@
 	},
 /area/moghes_village/indoors)
 "ZL" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/structure/coatrack,

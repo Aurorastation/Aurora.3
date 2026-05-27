@@ -246,17 +246,6 @@ Follow by example and make good judgement based on length which list to include 
 	icon_state = "hair_bob_shoulder"
 	chatname = "short hair"
 
-/datum/sprite_accessory/hair/bobcurl
-	name = "Bobcurl"
-	icon_state = "hair_bobcurl"
-	species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie)
-	chatname = "curls"
-
-/datum/sprite_accessory/hair/bobcurl2
-	name = "Bobcurl 2"
-	icon_state = "hair_bobcurl2"
-	chatname = "curls"
-
 /datum/sprite_accessory/hair/bookish
 	name = "Bookish"
 	icon_state = "hair_bookish"
@@ -513,11 +502,6 @@ Follow by example and make good judgement based on length which list to include 
 	chatname = "long fringe"
 	length = 2
 
-/datum/sprite_accessory/hair/emofringe
-	name = "Emo Fringe"
-	icon_state = "hair_emofringe"
-	chatname = "fringe"
-
 /datum/sprite_accessory/hair/emofringe_long
 	name = "Emo Fringe Long"
 	icon_state = "hair_emofringe_long"
@@ -592,12 +576,6 @@ Follow by example and make good judgement based on length which list to include 
 /datum/sprite_accessory/hair/father
 	name = "Father"
 	icon_state = "hair_father"
-	chatname = "short hair"
-
-/datum/sprite_accessory/hair/feather
-	name = "Feather"
-	icon_state = "hair_feather"
-	length = 2
 	chatname = "short hair"
 
 /datum/sprite_accessory/hair/flat_top
@@ -1231,12 +1209,6 @@ Follow by example and make good judgement based on length which list to include 
 	length = 2
 	chatname = "ponytail"
 
-/datum/sprite_accessory/hair/ponytail_spiky
-	name = "Ponytail, Spiky"
-	icon_state = "hair_ponytail_spiky"
-	length = 4
-	chatname = "ponytail"
-
 /datum/sprite_accessory/hair/ponytail_wisp
 	name = "Ponytail, Wisp"
 	icon_state = "hair_ponytail_wisp"
@@ -1739,6 +1711,12 @@ Follow by example and make good judgement based on length which list to include 
 	length = 1
 	chatname = "balding hair"
 
+/datum/sprite_accessory/hair/balding/bedhead_short
+	name = "Bedhead, Short"
+	icon_state = "hair_bedhead_short"
+	length = 2
+	chatname = "messy hair"
+
 /datum/sprite_accessory/hair/balding/bangs_light
 	name = "Bangs, Light"
 	icon_state = "hair_bangs_light"
@@ -1749,6 +1727,18 @@ Follow by example and make good judgement based on length which list to include 
 	name = "Bob, Alt"
 	icon_state = "hair_bob_alt"
 	length = 1
+	chatname = "short hair"
+
+/datum/sprite_accessory/hair/balding/bob_curl
+	name = "Bob, Curl"
+	icon_state = "hair_bob_curl"
+	length = 2
+	chatname = "short hair"
+
+/datum/sprite_accessory/hair/balding/bob_wavy
+	name = "Bob, Wavy"
+	icon_state = "hair_bob_wavy"
+	length = 2
 	chatname = "short hair"
 
 /datum/sprite_accessory/hair/balding/braided_tail
@@ -1817,6 +1807,18 @@ Follow by example and make good judgement based on length which list to include 
 	length = 1
 	chatname = "choppy hair"
 
+/datum/sprite_accessory/hair/balding/emo_fringe
+	name = "Emo, Fringe"
+	icon_state = "hair_emo_fringe"
+	length = 2
+	chatname = "fringe"
+
+/datum/sprite_accessory/hair/balding/emo_bangs
+	name = "Emo, Bangs"
+	icon_state = "hair_emo_bangs"
+	length = 2
+	chatname = "bangs"
+
 /datum/sprite_accessory/hair/balding/fade
 	name = "Fade"
 	icon_state = "hair_fade"
@@ -1828,6 +1830,12 @@ Follow by example and make good judgement based on length which list to include 
 	icon_state = "hair_fade_grown"
 	length = 1
 	chatname = "groomed hair"
+
+/datum/sprite_accessory/hair/balding/feather
+	name = "Feather"
+	icon_state = "hair_feather"
+	length = 2
+	chatname = "short hair"
 
 /datum/sprite_accessory/hair/balding/floof
 	name = "Floof"
@@ -2018,6 +2026,30 @@ Follow by example and make good judgement based on length which list to include 
 	name = "Wavy Shoulder (Ponytail)"
 	icon_state = "hair_wavyshoulder_up"
 	length = 2
+	chatname = "ponytail"
+
+/datum/sprite_accessory/hair/balding/bun_short3
+	name = "Bun, Short 3"
+	icon_state = "hair_bun_short3"
+	length = 2
+	chatname = "hair bun"
+
+/datum/sprite_accessory/hair/balding/bun_loose
+	name = "Bun, Loose"
+	icon_state = "hair_bun_loose"
+	length = 2
+	chatname = "hair bun"
+
+/datum/sprite_accessory/hair/balding/ponytail_simple
+	name = "Ponytail, Simple"
+	icon_state = "hair_ponytail_simple"
+	length = 2
+	chatname = "ponytail"
+
+/datum/sprite_accessory/hair/balding/ponytail_spiky
+	name = "Ponytail, Spiky"
+	icon_state = "hair_ponytail_spiky"
+	length = 4
 	chatname = "ponytail"
 
 /*

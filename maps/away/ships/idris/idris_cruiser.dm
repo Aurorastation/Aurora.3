@@ -83,7 +83,7 @@
 	designation = "Idris Runabout"
 	..()
 
-/obj/machinery/computer/shuttle_control/explore/terminal/idris_cruiser_shuttle
+/obj/structure/machinery/computer/shuttle_control/explore/terminal/idris_cruiser_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Idris Runabout"
 

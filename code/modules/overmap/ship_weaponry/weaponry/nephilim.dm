@@ -1,4 +1,4 @@
-/obj/machinery/ship_weapon/nephilim
+/obj/structure/machinery/ship_weapon/nephilim
 	name = "nephilim blaster repeater"
 	desc = "The Nephilim is a reliable blaster repeater produced on-contract by several factories across the spur. Seeing widespread use on both sides of the piracy epidemic in the Coalition, it has been shown to be effective and easy to maintain; two details not shared by earlier ship-mounted blaster weapons. Utilising hydrogen blaster cells, it is quicker to charge, while necessitating frequent reloads."
 	icon = 'icons/obj/machinery/ship_guns/nephilim.dmi'
@@ -11,7 +11,7 @@
 	screenshake_type = SHIP_GUN_SCREENSHAKE_SCREEN
 
 
-/obj/machinery/ship_weapon/nephilim/pre_fire(/atom/target, /obj/effect/landmark/landmark)
+/obj/structure/machinery/ship_weapon/nephilim/pre_fire(/atom/target, /obj/effect/landmark/landmark)
 	for(var/mob/M in GLOB.living_mob_list)
 		if(AreConnectedZLevels(GET_Z(M), z))
 			sound_to(M, sound('sound/weapons/gunshot/ship_weapons/gatling_laser.ogg'))
@@ -19,7 +19,7 @@
 	sleep(1.1 SECONDS)
 	. = ..()
 
-/obj/machinery/ammunition_loader/nephilim
+/obj/structure/machinery/ammunition_loader/nephilim
 	name = "nephilim ammunition loader"
 
 /obj/item/ship_ammunition/nephilim

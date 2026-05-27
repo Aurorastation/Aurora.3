@@ -1,6 +1,6 @@
 // A simple power outlet that lets people charge modular computers
 
-/obj/machinery/power/outlet
+/obj/structure/machinery/power/outlet
 	name = "power outlet"
 	desc = "A simple power outlet. You can charge your PDA or other modular computer device here."
 	icon = 'icons/obj/power.dmi'
@@ -19,25 +19,25 @@
 
 	parts_power_mgmt = FALSE
 
-/obj/machinery/power/outlet/upgrade_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/power/outlet/upgrade_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Upgraded <b>capacitors</b> will increase the rate at which connected devices charge."
 
-/obj/machinery/power/outlet/Initialize()
+/obj/structure/machinery/power/outlet/Initialize()
 	. = ..()
 	connect_to_network()
 
-/obj/machinery/power/outlet/update_icon()
+/obj/structure/machinery/power/outlet/update_icon()
 	icon_state = panel_open ? "[initial(icon_state)]-open" : initial(icon_state)
 
-/obj/machinery/power/outlet/RefreshParts()
+/obj/structure/machinery/power/outlet/RefreshParts()
 	..()
 	var/part_level = 0
 	for(var/obj/item/stock_parts/SP in component_parts)
 		part_level += SP.rating
 	active_power_usage = initial(active_power_usage) * part_level
 
-/obj/machinery/power/outlet/attackby(obj/item/attacking_item, mob/user, params)
+/obj/structure/machinery/power/outlet/attackby(obj/item/attacking_item, mob/user, params)
 	if(istype(attacking_item, /obj/item/modular_computer))
 		var/obj/item/modular_computer/C = attacking_item
 		if(istype(C.tesla_link, /obj/item/computer_hardware/tesla_link/charging_cable))
@@ -60,7 +60,7 @@
 
 /obj/item/circuitboard/outlet
 	name = T_BOARD("power outlet")
-	build_path = /obj/machinery/power/outlet
+	build_path = /obj/structure/machinery/power/outlet
 	board_type = BOARD_MACHINE
 	origin_tech = list(
 		TECH_ENGINEERING = 1,

@@ -4,9 +4,9 @@ GLOBAL_LIST_INIT_TYPED(ship_engines, /datum/ship_engine, list())
 
 /datum/ship_engine
 	var/name = "ship engine"
-	var/obj/machinery/holder	//actual engine object
+	var/obj/structure/machinery/holder	//actual engine object
 
-/datum/ship_engine/New(var/obj/machinery/_holder)
+/datum/ship_engine/New(var/obj/structure/machinery/_holder)
 	..()
 	holder = _holder
 	GLOB.ship_engines += src
@@ -14,13 +14,13 @@ GLOBAL_LIST_INIT_TYPED(ship_engines, /datum/ship_engine, list())
 /datum/ship_engine/proc/can_burn()
 	return 0
 
-//Tries to fire the engine with power modifier (0..1). Returns thrust.
-//Power modifier is intended to be used for maneuvers or the like,
-//that should use less/more fuel/electricity than an actual burn.
+/// Tries to fire the engine with power modifier (0..1). Returns thrust.
+/// Power modifier is intended to be used for maneuvers or the like,
+/// that should use less/more fuel/electricity than an actual burn.
 /datum/ship_engine/proc/burn(var/power_modifier = 1)
 	return 0
 
-//Returns status string for this engine
+/// Returns status string for this engine
 /datum/ship_engine/proc/get_status()
 	return "All systems nominal"
 

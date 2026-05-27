@@ -97,7 +97,7 @@
 
 	var/obj/effect/overmap/visitable/mothership = GLOB.map_sectors["[shuttle_datum.current_location.z]"]
 	if(mothership)
-		for(var/obj/machinery/computer/ship/sensors/sensor_console in consoles)
+		for(var/obj/structure/machinery/computer/ship/sensors/sensor_console in consoles)
 			sensor_console.datalink_add_ship_datalink(mothership)
 			break
 

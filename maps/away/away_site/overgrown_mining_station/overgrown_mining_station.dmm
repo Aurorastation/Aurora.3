@@ -9,7 +9,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "ac" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
 /turf/simulated/floor/airless,
@@ -24,7 +24,7 @@
 /turf/simulated/floor/wood/airless,
 /area/overgrown_mining_station)
 "af" = (
-/obj/machinery/door/airlock/mining{
+/obj/structure/machinery/door/airlock/mining{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -35,7 +35,7 @@
 /turf/simulated/floor/wood/airless,
 /area/overgrown_mining_station)
 "ah" = (
-/obj/machinery/door/airlock/silver{
+/obj/structure/machinery/door/airlock/silver{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -79,7 +79,7 @@
 /turf/simulated/floor/wood/airless,
 /area/overgrown_mining_station)
 "aw" = (
-/obj/machinery/vending/cigarette,
+/obj/structure/machinery/vending/cigarette,
 /turf/simulated/floor/tiled/rust/airless,
 /area/overgrown_mining_station)
 "ax" = (
@@ -91,7 +91,7 @@
 /turf/simulated/floor/airless,
 /area/overgrown_mining_station)
 "aY" = (
-/obj/machinery/media/jukebox,
+/obj/structure/machinery/media/jukebox,
 /turf/simulated/floor/tiled/rust/airless,
 /area/overgrown_mining_station)
 "bn" = (
@@ -122,7 +122,7 @@
 /turf/simulated/floor/wood/airless,
 /area/overgrown_mining_station)
 "bQ" = (
-/obj/machinery/fabricator/autolathe,
+/obj/structure/machinery/fabricator/autolathe,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "bU" = (
@@ -159,7 +159,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "db" = (
-/obj/machinery/constructable_frame/temp_deco{
+/obj/structure/machinery/constructable_frame/temp_deco{
 	icon_state = "box_1"
 	},
 /obj/item/stack/cable_coil/orange,
@@ -169,7 +169,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
 	},
-/obj/machinery/door/window{
+/obj/structure/machinery/door/window{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/grey{
@@ -178,7 +178,7 @@
 /turf/simulated/floor/tiled/white/airless,
 /area/overgrown_mining_station)
 "dq" = (
-/obj/machinery/constructable_frame/temp_deco{
+/obj/structure/machinery/constructable_frame/temp_deco{
 	icon_state = "blueprint_1"
 	},
 /turf/simulated/floor/airless,
@@ -253,14 +253,14 @@
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/overgrown_mining_station)
 "fj" = (
-/obj/machinery/appliance/cooker/oven,
+/obj/structure/machinery/appliance/cooker/oven,
 /obj/effect/floor_decal/corner/grey{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/white/airless,
 /area/overgrown_mining_station)
 "fx" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/blood/tracks/footprints,
@@ -294,7 +294,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "fR" = (
-/obj/machinery/vending/tool,
+/obj/structure/machinery/vending/tool,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "fS" = (
@@ -320,13 +320,13 @@
 /turf/simulated/floor/tiled/rust/airless,
 /area/overgrown_mining_station)
 "gy" = (
-/obj/machinery/mech_recharger,
+/obj/structure/machinery/mech_recharger,
 /obj/structure/mech_wreckage/powerloader,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "gC" = (
-/obj/machinery/constructable_frame/temp_deco{
+/obj/structure/machinery/constructable_frame/temp_deco{
 	icon_state = "box_2"
 	},
 /turf/simulated/floor/diona/airless,
@@ -340,11 +340,11 @@
 /area/space)
 "gX" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/portable_atmospherics/canister/empty/phoron,
+/obj/structure/machinery/portable_atmospherics/canister/empty/phoron,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "ha" = (
-/obj/machinery/papershredder,
+/obj/structure/machinery/papershredder,
 /obj/item/shreddedp,
 /turf/simulated/floor/diona/airless,
 /area/overgrown_mining_station)
@@ -375,7 +375,7 @@
 "hv" = (
 /obj/structure/curtain/open/shower,
 /obj/item/bikehorn/rubberducky,
-/obj/machinery/shower,
+/obj/structure/machinery/shower,
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled/white/airless,
 /area/overgrown_mining_station)
@@ -384,7 +384,7 @@
 /turf/simulated/floor/tiled/white/airless,
 /area/overgrown_mining_station)
 "hG" = (
-/obj/machinery/constructable_frame/temp_deco,
+/obj/structure/machinery/constructable_frame/temp_deco,
 /turf/simulated/floor/diona/airless,
 /area/overgrown_mining_station)
 "hJ" = (
@@ -405,7 +405,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "hZ" = (
-/obj/machinery/constructable_frame/temp_deco{
+/obj/structure/machinery/constructable_frame/temp_deco{
 	icon_state = "box_2"
 	},
 /obj/effect/floor_decal/corner_wide/lime{
@@ -414,7 +414,7 @@
 /turf/simulated/floor/tiled/white/airless,
 /area/overgrown_mining_station)
 "ia" = (
-/obj/machinery/computer/arcade/battle,
+/obj/structure/machinery/computer/arcade/battle,
 /turf/simulated/floor/tiled/rust/airless,
 /area/overgrown_mining_station)
 "ic" = (
@@ -435,12 +435,12 @@
 /turf/simulated/floor/exoplanet/asteroid/ash,
 /area/overgrown_mining_station)
 "iH" = (
-/obj/machinery/floodlight,
+/obj/structure/machinery/floodlight,
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
 /turf/simulated/floor/tiled/white/airless,
 /area/overgrown_mining_station)
 "iK" = (
-/obj/machinery/vending/robotics,
+/obj/structure/machinery/vending/robotics,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/overgrown_mining_station)
 "iT" = (
@@ -462,7 +462,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "ji" = (
-/obj/machinery/door/airlock/silver{
+/obj/structure/machinery/door/airlock/silver{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white/airless,
@@ -493,7 +493,7 @@
 /turf/simulated/floor/tiled/rust/airless,
 /area/overgrown_mining_station)
 "jZ" = (
-/obj/machinery/vending/coffee,
+/obj/structure/machinery/vending/coffee,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "kg" = (
@@ -506,7 +506,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "kt" = (
-/obj/machinery/floodlight,
+/obj/structure/machinery/floodlight,
 /turf/simulated/floor/diona/airless,
 /area/overgrown_mining_station)
 "ky" = (
@@ -515,7 +515,7 @@
 /turf/simulated/floor/tiled/rust/airless,
 /area/overgrown_mining_station)
 "kC" = (
-/obj/machinery/vending/snack,
+/obj/structure/machinery/vending/snack,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "kI" = (
@@ -529,7 +529,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "kW" = (
-/obj/machinery/floodlight,
+/obj/structure/machinery/floodlight,
 /turf/simulated/floor/airless,
 /area/overgrown_mining_station)
 "lf" = (
@@ -547,7 +547,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "lN" = (
-/obj/machinery/constructable_frame/temp_deco{
+/obj/structure/machinery/constructable_frame/temp_deco{
 	icon_state = "pico_mani"
 	},
 /obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
@@ -613,7 +613,7 @@
 /turf/simulated/floor/tiled/rust/airless,
 /area/overgrown_mining_station)
 "mw" = (
-/obj/machinery/floodlight,
+/obj/structure/machinery/floodlight,
 /turf/simulated/floor/tiled/asteroid/airless,
 /area/overgrown_mining_station)
 "mK" = (
@@ -648,7 +648,7 @@
 /turf/simulated/floor/tiled/rust/airless,
 /area/overgrown_mining_station)
 "ny" = (
-/obj/machinery/power/supermatter/shard,
+/obj/structure/machinery/power/supermatter/shard,
 /turf/simulated/floor/diona/airless,
 /area/overgrown_mining_station)
 "nP" = (
@@ -669,7 +669,7 @@
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/overgrown_mining_station)
 "om" = (
-/obj/machinery/portable_atmospherics/canister/empty/phoron,
+/obj/structure/machinery/portable_atmospherics/canister/empty/phoron,
 /turf/simulated/floor/diona/airless,
 /area/overgrown_mining_station)
 "op" = (
@@ -724,7 +724,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "pf" = (
-/obj/machinery/constructable_frame/temp_deco,
+/obj/structure/machinery/constructable_frame/temp_deco,
 /turf/simulated/floor/airless,
 /area/overgrown_mining_station)
 "pi" = (
@@ -744,14 +744,14 @@
 /turf/simulated/floor/wood/airless,
 /area/overgrown_mining_station)
 "pM" = (
-/obj/machinery/floodlight,
+/obj/structure/machinery/floodlight,
 /obj/structure/sign/poster{
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/rust/airless,
 /area/overgrown_mining_station)
 "pP" = (
-/obj/machinery/conveyor,
+/obj/structure/machinery/conveyor,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "qi" = (
@@ -759,7 +759,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "qm" = (
-/obj/machinery/constructable_frame/temp_deco{
+/obj/structure/machinery/constructable_frame/temp_deco{
 	icon_state = "box_1"
 	},
 /turf/simulated/floor/tiled/airless,
@@ -783,7 +783,7 @@
 /turf/simulated/wall,
 /area/overgrown_mining_station)
 "qN" = (
-/obj/machinery/vending/medical,
+/obj/structure/machinery/vending/medical,
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
 /turf/simulated/floor/tiled/white/airless,
 /area/overgrown_mining_station)
@@ -809,7 +809,7 @@
 /turf/simulated/floor/tiled/white/airless,
 /area/overgrown_mining_station)
 "rl" = (
-/obj/machinery/constructable_frame/temp_deco{
+/obj/structure/machinery/constructable_frame/temp_deco{
 	icon_state = "box_2"
 	},
 /turf/simulated/floor/tiled/airless,
@@ -896,7 +896,7 @@
 /turf/simulated/floor/exoplanet/asteroid/ash,
 /area/overgrown_mining_station)
 "sR" = (
-/obj/machinery/door/airlock/silver{
+/obj/structure/machinery/door/airlock/silver{
 	name = "Toilet";
 	dir = 4
 	},
@@ -943,7 +943,7 @@
 /area/overgrown_mining_station)
 "tT" = (
 /obj/structure/curtain/open/shower,
-/obj/machinery/shower,
+/obj/structure/machinery/shower,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled/white/airless,
@@ -970,7 +970,7 @@
 /turf/simulated/floor/tiled/white/airless,
 /area/overgrown_mining_station)
 "uO" = (
-/obj/machinery/door/airlock/mining{
+/obj/structure/machinery/door/airlock/mining{
 	dir = 4
 	},
 /turf/simulated/floor/diona/airless,
@@ -984,7 +984,7 @@
 /area/overgrown_mining_station)
 "vm" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/airlock/mining{
+/obj/structure/machinery/door/airlock/mining{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full/airless,
@@ -1010,7 +1010,7 @@
 /turf/simulated/floor/wood/airless,
 /area/overgrown_mining_station)
 "vY" = (
-/obj/machinery/constructable_frame/temp_deco,
+/obj/structure/machinery/constructable_frame/temp_deco,
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 10
 	},
@@ -1070,7 +1070,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "xk" = (
-/obj/machinery/shower{
+/obj/structure/machinery/shower{
 	icon_state = "mirror_mask_broken"
 	},
 /turf/simulated/wall,
@@ -1116,7 +1116,7 @@
 /turf/simulated/floor/tiled/asteroid/airless,
 /area/overgrown_mining_station)
 "yc" = (
-/obj/machinery/appliance/cooker/stove,
+/obj/structure/machinery/appliance/cooker/stove,
 /obj/effect/floor_decal/corner/grey{
 	dir = 5
 	},
@@ -1130,7 +1130,7 @@
 /turf/simulated/floor/tiled/white/airless,
 /area/overgrown_mining_station)
 "yp" = (
-/obj/machinery/constructable_frame/temp_deco,
+/obj/structure/machinery/constructable_frame/temp_deco,
 /obj/item/trash/broken_electronics,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
@@ -1147,7 +1147,7 @@
 /area/overgrown_mining_station)
 "yw" = (
 /obj/structure/platform,
-/obj/machinery/mecha_part_fabricator,
+/obj/structure/machinery/mecha_part_fabricator,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/overgrown_mining_station)
 "yy" = (
@@ -1193,7 +1193,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "zi" = (
-/obj/machinery/constructable_frame/temp_deco{
+/obj/structure/machinery/constructable_frame/temp_deco{
 	icon_state = "box_1"
 	},
 /obj/effect/floor_decal/corner_wide/lime{
@@ -1210,7 +1210,7 @@
 /turf/simulated/floor/tiled/white/airless,
 /area/overgrown_mining_station)
 "zp" = (
-/obj/machinery/vending/cola,
+/obj/structure/machinery/vending/cola,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "zP" = (
@@ -1247,7 +1247,7 @@
 /turf/simulated/floor/tiled/rust/airless,
 /area/overgrown_mining_station)
 "Au" = (
-/obj/machinery/vending/dinnerware,
+/obj/structure/machinery/vending/dinnerware,
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
 	},
@@ -1260,7 +1260,7 @@
 /turf/simulated/floor/tiled/white/airless,
 /area/overgrown_mining_station)
 "Ax" = (
-/obj/machinery/constructable_frame/temp_deco{
+/obj/structure/machinery/constructable_frame/temp_deco{
 	icon_state = "vbox_2"
 	},
 /turf/simulated/floor/tiled/airless,
@@ -1288,14 +1288,14 @@
 /turf/simulated/floor/exoplanet/asteroid/ash,
 /area/overgrown_mining_station)
 "AQ" = (
-/obj/machinery/door/airlock/mining{
+/obj/structure/machinery/door/airlock/mining{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/full/airless,
 /area/overgrown_mining_station)
 "AS" = (
-/obj/machinery/constructable_frame/temp_deco,
+/obj/structure/machinery/constructable_frame/temp_deco,
 /obj/item/stack/cable_coil/orange,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
@@ -1319,7 +1319,7 @@
 /turf/simulated/floor/tiled/white/airless,
 /area/overgrown_mining_station)
 "BF" = (
-/obj/machinery/vending/dinnerware/plastic,
+/obj/structure/machinery/vending/dinnerware/plastic,
 /turf/simulated/floor/tiled/rust/airless,
 /area/overgrown_mining_station)
 "BV" = (
@@ -1351,7 +1351,7 @@
 /turf/simulated/floor/tiled/asteroid/airless,
 /area/overgrown_mining_station)
 "CU" = (
-/obj/machinery/constructable_frame/temp_deco,
+/obj/structure/machinery/constructable_frame/temp_deco,
 /obj/item/circuitboard/refiner,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
@@ -1366,7 +1366,7 @@
 /area/overgrown_mining_station)
 "Db" = (
 /obj/structure/table/stone/marble,
-/obj/machinery/reagentgrinder,
+/obj/structure/machinery/reagentgrinder,
 /obj/effect/floor_decal/corner/grey{
 	dir = 5
 	},
@@ -1380,7 +1380,7 @@
 /turf/simulated/floor/wood/airless,
 /area/overgrown_mining_station)
 "Do" = (
-/obj/machinery/mech_recharger,
+/obj/structure/machinery/mech_recharger,
 /obj/effect/decal/cleanable/blood/oil,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/airless,
@@ -1435,7 +1435,7 @@
 /turf/simulated/floor/tiled/white/airless,
 /area/overgrown_mining_station)
 "EC" = (
-/obj/machinery/optable,
+/obj/structure/machinery/optable,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "EF" = (
@@ -1452,7 +1452,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "EU" = (
-/obj/machinery/computer/arcade/orion_trail,
+/obj/structure/machinery/computer/arcade/orion_trail,
 /obj/structure/sign/poster{
 	pixel_y = 32
 	},
@@ -1472,7 +1472,7 @@
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/overgrown_mining_station)
 "Fh" = (
-/obj/machinery/conveyor,
+/obj/structure/machinery/conveyor,
 /obj/item/ore/phoron,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
@@ -1499,7 +1499,7 @@
 /turf/simulated/floor/diona/airless,
 /area/overgrown_mining_station)
 "FV" = (
-/obj/machinery/constructable_frame/temp_deco{
+/obj/structure/machinery/constructable_frame/temp_deco{
 	icon_state = "vbox_0"
 	},
 /turf/simulated/floor/tiled/airless,
@@ -1509,7 +1509,7 @@
 /turf/simulated/floor/diona/airless,
 /area/overgrown_mining_station)
 "Gl" = (
-/obj/machinery/artifact,
+/obj/structure/machinery/artifact,
 /turf/simulated/floor/exoplanet/asteroid/ash,
 /area/overgrown_mining_station)
 "Gy" = (
@@ -1566,7 +1566,7 @@
 /turf/simulated/floor/exoplanet/asteroid/ash,
 /area/overgrown_mining_station)
 "Ia" = (
-/obj/machinery/mech_recharger,
+/obj/structure/machinery/mech_recharger,
 /mob/living/heavy_vehicle/premade/ripley/cargo,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
@@ -1590,7 +1590,7 @@
 /area/overgrown_mining_station)
 "Iu" = (
 /obj/structure/curtain/open/shower,
-/obj/machinery/shower,
+/obj/structure/machinery/shower,
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled/white/airless,
 /area/overgrown_mining_station)
@@ -1605,7 +1605,7 @@
 "Iz" = (
 /obj/structure/curtain/open/shower,
 /obj/item/soap/deluxe,
-/obj/machinery/shower,
+/obj/structure/machinery/shower,
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled/white/airless,
 /area/overgrown_mining_station)
@@ -1613,7 +1613,7 @@
 /turf/unsimulated/mineral/asteroid,
 /area/overgrown_mining_station)
 "IJ" = (
-/obj/machinery/artifact,
+/obj/structure/machinery/artifact,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "IM" = (
@@ -1641,7 +1641,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "Je" = (
-/obj/machinery/floodlight,
+/obj/structure/machinery/floodlight,
 /turf/simulated/floor/exoplanet/asteroid/ash,
 /area/overgrown_mining_station)
 "Jh" = (
@@ -1703,7 +1703,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "KL" = (
-/obj/machinery/portable_atmospherics/canister/empty/oxygen,
+/obj/structure/machinery/portable_atmospherics/canister/empty/oxygen,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "KQ" = (
@@ -1742,12 +1742,12 @@
 /turf/simulated/floor/tiled/white/airless,
 /area/overgrown_mining_station)
 "Lv" = (
-/obj/machinery/vending/cigarette,
+/obj/structure/machinery/vending/cigarette,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "LD" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/portable_atmospherics/canister/phoron_scarce,
+/obj/structure/machinery/portable_atmospherics/canister/phoron_scarce,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "LM" = (
@@ -1858,7 +1858,7 @@
 /area/overgrown_mining_station)
 "OD" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/portable_atmospherics/canister/phoron,
+/obj/structure/machinery/portable_atmospherics/canister/phoron,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "OF" = (
@@ -1885,7 +1885,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "Pm" = (
-/obj/machinery/vending/boozeomat/merchant,
+/obj/structure/machinery/vending/boozeomat/merchant,
 /turf/simulated/floor/tiled/rust/airless,
 /area/overgrown_mining_station)
 "Pp" = (
@@ -1894,11 +1894,11 @@
 /turf/simulated/floor/tiled/white/airless,
 /area/overgrown_mining_station)
 "Pu" = (
-/obj/machinery/door/blast/regular/open,
+/obj/structure/machinery/door/blast/regular/open,
 /turf/simulated/floor/diona/airless,
 /area/overgrown_mining_station)
 "Pw" = (
-/obj/machinery/floodlight,
+/obj/structure/machinery/floodlight,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/material/shard/wood,
 /turf/simulated/floor/wood/airless,
@@ -1936,19 +1936,19 @@
 /turf/simulated/floor/diona/airless,
 /area/overgrown_mining_station)
 "Qn" = (
-/obj/machinery/conveyor,
+/obj/structure/machinery/conveyor,
 /obj/item/stack/material/phoron,
 /obj/item/stack/material/phoron,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "QQ" = (
-/obj/machinery/constructable_frame/temp_deco{
+/obj/structure/machinery/constructable_frame/temp_deco{
 	icon_state = "box_2"
 	},
 /turf/simulated/floor/airless,
 /area/overgrown_mining_station)
 "QR" = (
-/obj/machinery/floodlight,
+/obj/structure/machinery/floodlight,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "QV" = (
@@ -1996,7 +1996,7 @@
 /turf/simulated/floor/wood/airless,
 /area/overgrown_mining_station)
 "Rv" = (
-/obj/machinery/vending/engineering{
+/obj/structure/machinery/vending/engineering{
 	req_access = null
 	},
 /turf/simulated/floor/tiled/airless,
@@ -2015,7 +2015,7 @@
 /turf/simulated/floor/diona/airless,
 /area/overgrown_mining_station)
 "RW" = (
-/obj/machinery/constructable_frame/temp_deco,
+/obj/structure/machinery/constructable_frame/temp_deco,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "Sf" = (
@@ -2030,12 +2030,12 @@
 /area/overgrown_mining_station)
 "St" = (
 /obj/effect/decal/cleanable/floor_damage/tiled_broken3,
-/obj/machinery/iv_drip,
+/obj/structure/machinery/iv_drip,
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
 /turf/simulated/floor/tiled/white/airless,
 /area/overgrown_mining_station)
 "SX" = (
-/obj/machinery/floodlight,
+/obj/structure/machinery/floodlight,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
@@ -2099,7 +2099,7 @@
 /turf/simulated/floor/tiled/white/airless,
 /area/overgrown_mining_station)
 "UE" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/blood/tracks/footprints,
@@ -2134,7 +2134,7 @@
 "Vn" = (
 /obj/item/trash/broken_electronics,
 /obj/structure/platform,
-/obj/machinery/constructable_frame/temp_deco{
+/obj/structure/machinery/constructable_frame/temp_deco{
 	icon_state = "box_1"
 	},
 /turf/simulated/floor/tiled/dark/full/airless,
@@ -2162,7 +2162,7 @@
 /turf/simulated/floor/tiled/white/airless,
 /area/overgrown_mining_station)
 "Wn" = (
-/obj/machinery/iv_drip,
+/obj/structure/machinery/iv_drip,
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
 /turf/simulated/floor/tiled/white/airless,
 /area/overgrown_mining_station)
@@ -2188,13 +2188,13 @@
 /area/overgrown_mining_station)
 "Xe" = (
 /obj/structure/platform,
-/obj/machinery/constructable_frame/temp_deco{
+/obj/structure/machinery/constructable_frame/temp_deco{
 	icon_state = "box_1"
 	},
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/overgrown_mining_station)
 "Xs" = (
-/obj/machinery/constructable_frame/temp_deco{
+/obj/structure/machinery/constructable_frame/temp_deco{
 	icon_state = "blueprint_0"
 	},
 /turf/simulated/floor/airless,
@@ -2252,7 +2252,7 @@
 /turf/template_noop,
 /area/space)
 "Yl" = (
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white/airless,
@@ -2262,7 +2262,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
 	},
-/obj/machinery/door/window{
+/obj/structure/machinery/door/window{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/grey{
@@ -2289,7 +2289,7 @@
 /turf/simulated/floor/tiled/white/airless,
 /area/overgrown_mining_station)
 "YJ" = (
-/obj/machinery/crystal,
+/obj/structure/machinery/crystal,
 /turf/simulated/floor/diona/airless,
 /area/overgrown_mining_station)
 "YO" = (
@@ -2298,7 +2298,7 @@
 /area/overgrown_mining_station)
 "YW" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/floodlight,
+/obj/structure/machinery/floodlight,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "Zk" = (
@@ -2315,7 +2315,7 @@
 /turf/simulated/floor/diona/airless,
 /area/overgrown_mining_station)
 "ZO" = (
-/obj/machinery/constructable_frame/temp_deco,
+/obj/structure/machinery/constructable_frame/temp_deco,
 /obj/item/trash/broken_electronics,
 /turf/simulated/floor/diona/airless,
 /area/overgrown_mining_station)
@@ -2331,7 +2331,7 @@
 /turf/simulated/floor/wood/airless,
 /area/overgrown_mining_station)
 "ZY" = (
-/obj/machinery/mineral/equipment_vendor,
+/obj/structure/machinery/mineral/equipment_vendor,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "ZZ" = (

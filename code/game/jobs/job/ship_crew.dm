@@ -10,8 +10,8 @@
 	supervisors = "absolutely everyone"
 	selection_color = "#949494"
 	economic_modifier = 1
-	access = list()			//See /datum/job/assistant/get_access()
-	minimal_access = list()	//See /datum/job/assistant/get_access()
+
+	job_access = list()	//See /datum/job/assistant/get_access()
 	outfit = /obj/outfit/job/assistant
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 	alt_ages = list(
@@ -36,7 +36,6 @@
 		"Medical Orderly" = list("NanoTrasen", "Zeng-Hu Pharmaceuticals", "Private Military Contracting Group"),
 		"Wait Staff" = list("NanoTrasen", "Idris Incorporated", "Orion Express")
 	)
-
 
 /datum/job/assistant/get_access(selected_title)
 	var/list/out_list = list()
@@ -118,8 +117,8 @@
 	supervisors = "any authority figure"
 	selection_color = "#949494"
 	economic_modifier = 1
-	access = list()
-	minimal_access = list()
+
+	job_access = list()
 	outfit = /obj/outfit/job/visitor
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
@@ -145,7 +144,7 @@
 	supervisors = "any authority figure"
 	selection_color = "#949494"
 	economic_modifier = 1
-	access = list()
-	minimal_access = list()
+
+	job_access = list()
 	outfit = /obj/outfit/job/visitor/passenger
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)

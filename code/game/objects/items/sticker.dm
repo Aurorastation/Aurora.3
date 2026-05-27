@@ -6,6 +6,7 @@
 	item_flags = ITEM_FLAG_NO_BLUDGEON
 	w_class = WEIGHT_CLASS_TINY
 	vis_flags = VIS_INHERIT_LAYER | VIS_INHERIT_DIR
+	persistant_objects_expiration_time_days = 7
 
 	var/datum/weakref/attached
 	var/list/rand_icons
@@ -14,6 +15,11 @@
 	. = ..()
 	if(LAZYLEN(rand_icons))
 		icon_state = pick(rand_icons)
+
+/obj/item/sticker/Destroy()
+	astype(attached?.resolve(), /atom/movable)?.remove_vis_contents(src)
+	attached = null
+	return ..()
 
 /obj/item/sticker/attack_hand(mob/user)
 	if(!isliving(user) || !attached)
@@ -63,6 +69,7 @@
 	user.drop_from_inventory(src, A)
 	attached = WEAKREF(A)
 	A.add_vis_contents(src)
+	SSpersistence.objectsRegisterTrack(src, ckey(user.key))
 
 /obj/item/sticker/proc/remove_sticker(var/mob/user)
 	user.put_in_hands(src)
@@ -71,6 +78,20 @@
 		to_chat(user, SPAN_NOTICE("You remove \the [src] from \the [attached_atom]."))
 		attached_atom.remove_vis_contents(src)
 		attached = null
+	SSpersistence.objectsDeregisterTrack(src)
+
+/obj/item/sticker/persistent_objects_get_content()
+	var/list/content = list()
+	content["pixel_x"] = pixel_x
+	content["pixel_y"] = pixel_y
+	return content
+
+/obj/item/sticker/persistent_objects_apply_content(content, x, y, z)
+	src.pixel_x = content["pixel_x"]
+	src.pixel_y = content["pixel_y"]
+	src.x = x
+	src.y = y
+	src.z = z
 
 //
 //generic stickers, catch all for anything that doesn't fit in another category
