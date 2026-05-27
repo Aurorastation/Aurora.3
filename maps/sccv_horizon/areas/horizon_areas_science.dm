@@ -5,6 +5,7 @@
 	department = LOC_SCIENCE
 	horizon_deck = 2
 	icon_state = "research"
+	area_flags = AREA_FLAG_FIRING_RANGE //Lets science shoot guns inside their own department.
 	area_blurb = "The science sectors of the ship lend themselves to a clean, functional sterility; at least when everything is going well."
 
 /area/horizon/rnd/conference
@@ -14,6 +15,7 @@
 	name = "Hallway"
 	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
 	lightswitch = TRUE
+	area_flags = null //Shouldn't be shooting in the public hallway.
 	location_ew = LOC_PORT
 
 /area/horizon/rnd/hallway/secondary

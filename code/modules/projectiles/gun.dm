@@ -420,11 +420,6 @@ ABSTRACT_TYPE(/obj/item/gun)
 	if(!special_check(user))
 		return FALSE
 
-	var/failure_chance = 100 - reliability
-	if(prob(failure_chance))
-		handle_reliability_fail(user)
-		return FALSE
-
 	if(world.time < next_fire_time)
 		if(world.time % 3 && !can_autofire) //to prevent spam
 			to_chat(user, SPAN_WARNING("\The [src] is not ready to fire again!"))
@@ -433,6 +428,11 @@ ABSTRACT_TYPE(/obj/item/gun)
 	var/shoot_time = get_appropriate_delay()
 	user.setClickCooldown(shoot_time)
 	next_fire_time = world.time + shoot_time
+
+	var/failure_chance = 100 - reliability //Here so there is click delay even if the gun malfunctions.
+	if(prob(failure_chance))
+		handle_reliability_fail(user)
+		return FALSE
 
 	user.face_atom(target, TRUE)
 
