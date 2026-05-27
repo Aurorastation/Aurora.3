@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Section } from 'tgui-core/components';
+import { Box, Button, Flex, Image, Section } from 'tgui-core/components';
 import { useBackend } from '../backend';
 import { Window } from '../layouts';
 
@@ -80,15 +80,17 @@ export const ContentsWindow = (props) => {
               >
                 {item.icon ? (
                   <Box
-                    as="img"
-                    src={`data:image/png;base64,${item.icon}`}
                     style={{
-                      width: '64px',
-                      height: '32px',
                       imageRendering: 'pixelated',
                       margin: '0 auto 4px auto',
                     }}
-                  />
+                  >
+                    <Image
+                      width="60px"
+                      height="60px"
+                      src={`data:image/jpeg;base64,${item.icon}`}
+                    />
+                  </Box>
                 ) : null}
               </Flex.Item>
 

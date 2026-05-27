@@ -88,21 +88,19 @@ export const SyntheticFabricator = (props) => {
                 {data.materials.map((material) => (
                   <LabeledControls.Item
                     key={material.name}
-                    label={
-                      <Button
-                        icon="eject"
-                        content={material.name}
-                        tooltip="Eject"
-                        color="grey"
-                        onClick={() =>
-                          act('eject', {
-                            eject: material.name,
-                            amount: material.amount,
-                          })
-                        }
-                      />
-                    }
+                    label={material.name}
                   >
+                    <Button
+                      icon="eject"
+                      tooltip="Eject"
+                      color="grey"
+                      onClick={() =>
+                        act('eject', {
+                          eject: material.name,
+                          amount: material.amount,
+                        })
+                      }
+                    />
                     <ProgressBar
                       ranges={{
                         good: [
@@ -145,7 +143,6 @@ export const SyntheticFabricator = (props) => {
                       textAlign="center"
                       selected={data.category === category.name}
                       key={category.name}
-                      collapsing
                       onClick={() =>
                         act('category', { category: category.name })
                       }

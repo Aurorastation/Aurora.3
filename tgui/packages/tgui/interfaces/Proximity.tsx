@@ -37,10 +37,10 @@ export const Proximity = (props) => {
               <NumberInput
                 minValue={10}
                 maxValue={600}
+                step={5}
                 unit="s"
                 value={data.time}
-                format={(value) => Math.round(value)}
-                onChange={(e, value) => act('tp', { tp: value })}
+                onChange={(value) => act('tp', { tp: Math.round(value) })}
               />
             </LabeledList.Item>
           </LabeledList>
@@ -59,8 +59,9 @@ export const Proximity = (props) => {
               <NumberInput
                 minValue={1}
                 maxValue={5}
+                step={1}
                 value={data.range}
-                onDrag={(value) => act('range', { range: value })}
+                onChange={(value) => act('range', { range: value })}
               />
             </LabeledList.Item>
           </LabeledList>

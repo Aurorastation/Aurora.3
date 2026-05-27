@@ -41,13 +41,13 @@ export const SuitCycler = (props) => {
         <Section title="Locking Panel">
           {data.in_use ? (
             <NoticeBox>
-              The {data.model_text ? data.model_text + ' ' : ''}suit cycler is
+              The {data.model_text ? `${data.model_text} ` : ''}suit cycler is
               currently in use. Please wait...
             </NoticeBox>
           ) : data.locked ? (
             <Box>
               <NoticeBox>
-                The {data.model_text ? data.model_text + ' ' : ''}suit cycler is
+                The {data.model_text ? `${data.model_text} ` : ''}suit cycler is
                 currently locked. Please contact your system administrator.
               </NoticeBox>
               <Button
@@ -60,7 +60,7 @@ export const SuitCycler = (props) => {
           ) : (
             <Box>
               <NoticeBox>
-                Welcome to the {data.model_text ? data.model_text + ' ' : ''}
+                Welcome to the {data.model_text ? `${data.model_text} ` : ''}
                 suit cycler control panel.
               </NoticeBox>
               <Button

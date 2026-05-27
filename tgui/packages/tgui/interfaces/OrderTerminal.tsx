@@ -66,9 +66,7 @@ export const ItemWindow = (props) => {
             <Button
               content="Buy"
               icon="calendar"
-              onClick={(e, value) =>
-                act('buy', { buying: item.name, amount: 1 })
-              }
+              onClick={(value) => act('buy', { buying: item.name, amount: 1 })}
             />
           </LabeledList.Item>
         ))}

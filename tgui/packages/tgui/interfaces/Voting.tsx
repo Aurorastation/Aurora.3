@@ -58,7 +58,6 @@ export const VoteWindow = (props) => {
 
   return (
     <Section
-      collapsing
       title={data.question}
       buttons={
         data.is_staff ? (
@@ -120,7 +119,7 @@ export const VoteWindow = (props) => {
 export const StartVoteWindow = (props) => {
   const { act, data } = useBackend<VotingData>();
   return (
-    <Section collapsing title="Start a Vote">
+    <Section title="Start a Vote">
       <Box>
         <Button
           content="Restart"

@@ -57,7 +57,7 @@ export const SuitSensors = (props) => {
                     }
                   >
                     {crewmember.stype > 0 && data.security_level > 1
-                      ? crewmember.pulse + ' BPM'
+                      ? `${crewmember.pulse} BPM`
                       : 'N/A'}
                   </Table.Cell>
                 ) : (
@@ -69,7 +69,7 @@ export const SuitSensors = (props) => {
                     }
                   >
                     {crewmember.stype > 0 && data.security_level > 1
-                      ? Math.round(crewmember.cellCharge) + '%'
+                      ? `${Math.round(crewmember.cellCharge)}%`
                       : 'N/A'}
                   </Table.Cell>
                 )}
@@ -98,7 +98,7 @@ export const SuitSensors = (props) => {
                 </Table.Cell>
                 <Table.Cell>
                   {crewmember.stype > 1 && data.security_level > 1
-                    ? Math.round(crewmember.bodytemp * 10) / 10 + 'C'
+                    ? `${Math.round(crewmember.bodytemp * 10) / 10}C`
                     : 'N/A'}
                 </Table.Cell>
 

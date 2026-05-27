@@ -128,7 +128,7 @@ const ItemCategoriesSection = (act: any, data: UplinkData) => {
 
   return (
     <Section
-      title={'Gear ' + (!searchTerm ? 'categories' : 'search')}
+      title={`Gear ${!searchTerm ? 'categories' : 'search'}`}
       buttons={ItemSearch()}
     >
       {!searchTerm ? CategoriesList(act, data) : ItemSection(act, data)}
@@ -241,13 +241,13 @@ const ItemSection = (act: any, data: UplinkData) => {
                 />
               </Table.Cell>
               <Table.Cell>
-                {item.bc_cost ? item.bc_cost + ' BC' : ''}{' '}
+                {item.bc_cost ? `${item.bc_cost} BC` : ''}{' '}
               </Table.Cell>
               <Table.Cell>
-                {item.tc_cost ? item.tc_cost + ' TC' : ''}{' '}
+                {item.tc_cost ? `${item.tc_cost} TC` : ''}{' '}
               </Table.Cell>
               <Table.Cell>
-                {item.left < 42 ? item.left + ' LEFT' : ''}{' '}
+                {item.left < 42 ? `${item.left} LEFT` : ''}{' '}
               </Table.Cell>
             </Table.Row>
             <Table.Row color={item.can_buy ? null : 'gray'}>

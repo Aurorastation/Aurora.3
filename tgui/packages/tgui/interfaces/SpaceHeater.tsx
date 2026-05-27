@@ -27,7 +27,7 @@ export const SpaceHeater = (props) => {
   const { act, data } = useBackend<SpaceHeaterData>();
 
   return (
-    <Window width="415" height="280">
+    <Window width={415} height={280}>
       <Window.Content>
         <Section
           title="Device Configuration"

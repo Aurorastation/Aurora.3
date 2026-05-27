@@ -84,7 +84,7 @@ export const Radio = (props) => {
                 maxValue={max_freq / 10}
                 value={freq / 10}
                 format={(value) => toFixed(value, 1)}
-                onChange={(_, value) =>
+                onChange={(value) =>
                   act('set_freq', {
                     freq: value * 10,
                   })

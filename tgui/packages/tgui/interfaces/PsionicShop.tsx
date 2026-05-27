@@ -41,7 +41,7 @@ export const PsionicShop = (props) => {
               placeholder="Search by name"
               width="40vw"
               maxLength={512}
-              onInput={(e, value) => {
+              onChange={(value) => {
                 setSearchTerm(value);
               }}
               value={searchTerm}
@@ -67,7 +67,7 @@ export const PsionicShop = (props) => {
             ''
           )}
 
-          {data.available_psionics && data.available_psionics.length ? (
+          {data.available_psionics?.length ? (
             <PsionicsList />
           ) : (
             <NoticeBox>There are no psionics available.</NoticeBox>
@@ -93,7 +93,7 @@ export const PsionicsList = (props) => {
         .map((psi) => (
           <Section
             key={psi.name}
-            title={psi.name + ' (' + psi.point_cost + ')'}
+            title={`${psi.name} (${psi.point_cost})`}
             buttons={
               <Button
                 content="Buy"

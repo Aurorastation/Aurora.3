@@ -72,7 +72,6 @@ const PrintOptions = (props) => {
       <Box>
         Copies to Print:
         <NumberInput
-          animate
           width={2.6}
           height={1.65}
           step={1}

@@ -1,4 +1,11 @@
-import { BlockQuote, Box, Button, Input, Section } from 'tgui-core/components';
+import {
+  BlockQuote,
+  Box,
+  Button,
+  Image,
+  Input,
+  Section,
+} from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
 import { useBackend, useLocalState } from '../backend';
 import { Window } from '../layouts';
@@ -33,7 +40,7 @@ export const SmartFridge = (props) => {
               <Input
                 selfClear
                 placeholder="Search..."
-                onInput={(e, value) => {
+                onChange={(value) => {
                   setSearchTerm(value);
                 }}
                 value={searchTerm}
@@ -50,6 +57,7 @@ export const SmartFridge = (props) => {
             data.locked === -1 ? (
               <BlockQuote>
                 <Box color="bad">
+                  {/** biome-ignore lint/suspicious/noCommentText: Just flavor text */}
                   Sec.re ACC_** //:securi_ntdiag##or 1%($...
                 </Box>
               </BlockQuote>
@@ -102,11 +110,12 @@ export const ContentsWindow = (props) => {
             >
               {/* Item icon */}
               {item.icon ? (
-                <Box
-                  as="img"
-                  src={`data:image/png;base64,${item.icon}`}
-                  style={{ width: '32px', height: '32px', flexShrink: 0 }}
-                />
+                <Box as="img">
+                  <Image>
+                    width="32px" height="32px" src=
+                    {`data:image/png;base64,${item.icon}`}
+                  </Image>
+                </Box>
               ) : null}
               {/* Name stuff */}
               <Box

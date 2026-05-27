@@ -63,7 +63,7 @@ export const ShowMasterList = (props) => {
       title="Sensor Monitoring"
       buttons={<Button content="Scan" onClick={() => act('refresh')} />}
     >
-      {data.all_sensors && data.all_sensors.length ? (
+      {data.all_sensors?.length ? (
         data.all_sensors.map((sensor) => (
           <Box key={sensor.name}>
             <Button
@@ -89,7 +89,7 @@ export const SensorMonitoring = (props) => {
 
   return (
     <Section
-      title={'Network Information: ' + data.focus.name}
+      title={`Network Information: ${data.focus.name}`}
       buttons={<Button content="Return" onClick={() => act('clear')} />}
     >
       <LabeledList>
@@ -122,7 +122,7 @@ export const SensorMonitoring = (props) => {
             <Table.Cell>Cell Status</Table.Cell>
             <Table.Cell>APC Load</Table.Cell>
           </Table.Row>
-          {apcs_sorted && apcs_sorted.length ? (
+          {apcs_sorted?.length ? (
             apcs_sorted.map((apc) => (
               <Table.Row key={apc.name}>
                 <Table.Cell>{apc.name}</Table.Cell>
@@ -140,7 +140,7 @@ export const SensorMonitoring = (props) => {
                             : 'bad'
                       }
                     >
-                      {apc.cell_charge + '%'}
+                      {`${apc.cell_charge}%`}
                     </Box>
                   ) : (
                     'Discharged'

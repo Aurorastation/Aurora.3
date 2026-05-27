@@ -63,8 +63,8 @@ export const RoundStatus = (props) => {
             </LabeledList.Item>
           </LabeledList>
         </Section>
-        {data.antagonists && data.antagonists.length ? <Antagonists /> : ''}
-        {data.nuke_disks && data.nuke_disks.length ? <NukeDisks /> : ''}
+        {data.antagonists?.length ? <Antagonists /> : ''}
+        {data.nuke_disks?.length ? <NukeDisks /> : ''}
       </Window.Content>
     </Window>
   );

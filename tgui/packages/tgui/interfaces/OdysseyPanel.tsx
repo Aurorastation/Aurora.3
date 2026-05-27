@@ -66,7 +66,7 @@ export const OdysseyPanel = (props) => {
             scenario&apos;s intended canon status.
           </NoticeBox>
         </Section>
-        {data.scenario_roles && data.scenario_roles.length ? (
+        {data.scenario_roles?.length ? (
           <RoleDisplay />
         ) : (
           <NoticeBox>There are no roles for this scenario.</NoticeBox>

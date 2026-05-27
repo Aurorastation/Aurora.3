@@ -117,7 +117,7 @@ export const ItemWindow = (props) => {
           autoSelect
           placeholder="Search categories or items"
           maxLength={512}
-          onInput={(e, value) => {
+          onChange={(value) => {
             setSearchTerm(value);
           }}
           value={searchTerm}

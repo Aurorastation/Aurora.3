@@ -1,49 +1,77 @@
-import {
-  Button,
-  LabeledList,
-  NumberInput,
-  Section,
-} from 'tgui-core/components';
+import { Button, Section } from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
+
 import { useBackend } from '../backend';
 import { Window } from '../layouts';
 
-export type TimerData = {
-  timeractive: BooleanLike;
-  time: number;
+type Data = {
+  minutes: number;
+  seconds: number;
+  timing: BooleanLike;
+  loop: BooleanLike;
 };
 
 export const Timer = (props) => {
-  const { act, data } = useBackend<TimerData>();
+  const { act, data } = useBackend<Data>();
+  const { timing, loop } = data;
 
   return (
-    <Window>
-      <Window.Content scrollable>
+    <Window width={275} height={115}>
+      <Window.Content>
         <Section
           title="Timing Unit"
           buttons={
-            <Button
-              content={data.timeractive ? 'Armed' : 'Not Armed'}
-              color={data.timeractive ? 'danger' : ''}
-              icon="clock"
-              onClick={() => act('time')}
-            />
+            <>
+              <Button
+                icon={'sync'}
+                content={loop ? 'Repeating' : 'Repeat'}
+                selected={loop}
+                onClick={() => act('repeat')}
+              />
+              <Button
+                icon={'clock-o'}
+                content={timing ? 'Stop' : 'Start'}
+                selected={timing}
+                onClick={() => act('time')}
+              />
+            </>
           }
         >
-          <LabeledList>
-            <LabeledList.Item label="Time Left">
-              <NumberInput
-                minValue={10}
-                maxValue={600}
-                unit="s"
-                value={data.time}
-                format={(value) => Math.round(value)}
-                onDrag={(value) => act('tp', { tp: value })}
-              />
-            </LabeledList.Item>
-          </LabeledList>
+          <TimerContent />
         </Section>
       </Window.Content>
     </Window>
+  );
+};
+
+/** Displays a few more buttons to control the timer. */
+const TimerContent = (props) => {
+  const { act, data } = useBackend<Data>();
+  const { minutes, seconds, timing } = data;
+
+  return (
+    <>
+      <Button
+        icon="fast-backward"
+        disabled={timing}
+        onClick={() => act('input', { adjust: -30 })}
+      />
+      <Button
+        icon="backward"
+        disabled={timing}
+        onClick={() => act('input', { adjust: -1 })}
+      />
+      {String(minutes).padStart(2, '0')}:{String(seconds).padStart(2, '0')}{' '}
+      <Button
+        icon="forward"
+        disabled={timing}
+        onClick={() => act('input', { adjust: 1 })}
+      />
+      <Button
+        icon="fast-forward"
+        disabled={timing}
+        onClick={() => act('input', { adjust: 30 })}
+      />
+    </>
   );
 };
