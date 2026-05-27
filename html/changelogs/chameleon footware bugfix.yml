@@ -1,6 +1,0 @@
-author: mineymonkey
-
-delete-after: True
-
-changes:
-  - bugfix: "Assigned a proper icon_state to the chameleon shoes and fixed the emp issue not disabling them properly."
