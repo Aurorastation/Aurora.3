@@ -18,6 +18,8 @@
 	var/det_time = 30
 	var/fake = FALSE
 	var/activation_sound = 'sound/weapons/armbomb.ogg'
+	pickup_sound = 'sound/items/pickup/grenade.ogg'
+	drop_sound = 'sound/items/drop/grenade.ogg'
 
 /obj/item/grenade/Destroy()
 	// Stop all animations to prevent a hard delete.

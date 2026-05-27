@@ -20,8 +20,8 @@
 	var/list/construction_options = list("One Direction", "Full Window")
 	default_type = "glass"
 	icon_has_variants = TRUE
-	drop_sound = 'sound/items/drop/glass.ogg'
-	pickup_sound = 'sound/items/pickup/glass.ogg'
+	drop_sound = 'sound/items/drop/glass_sheet.ogg'
+	pickup_sound = 'sound/items/pickup/glass_sheet.ogg'
 
 /obj/item/stack/material/glass/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()

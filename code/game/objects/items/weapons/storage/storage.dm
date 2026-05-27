@@ -75,6 +75,9 @@
 	///Sound played when used. null for no sound.
 	var/use_sound = SFX_RUSTLE
 
+	///Sound played when item inserted. null for no sound.
+	var/rustle_sound = SFX_RUSTLE
+
 	/// List of pre-filled items
 	var/list/starts_with
 
@@ -584,8 +587,8 @@
 		user.prepare_for_slotmove(W)
 	W.forceMove(src)
 	W.on_enter_storage(src)
-	if(use_sound)
-		playsound(src.loc, src.use_sound, 50, 0, -5)
+	if(rustle_sound)
+		playsound(src.loc, src.rustle_sound, 50, 0, -5)
 	if(animated)
 		animate_parent()
 	if(user)

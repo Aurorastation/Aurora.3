@@ -40,7 +40,9 @@
 	///Boolean, if set, can be crushed into a trash item when empty
 	var/trash = null
 
-	use_sound = 'sound/items/storage/box.ogg'
+	var/maxHealth = 20	//health is already defined
+	use_sound = 'sound/items/storage/cardboardbox.ogg'
+	rustle_sound = 'sound/items/rustle/cardboardbox.ogg'
 	drop_sound = 'sound/items/drop/cardboardbox.ogg'
 	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
 	var/chewable = TRUE
