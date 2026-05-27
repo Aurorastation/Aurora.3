@@ -79,7 +79,8 @@ STOCK_ITEM_COMMON(light, 1.8)
 			/obj/item/storage/box/lights/colored/blue, \
 			/obj/item/storage/box/lights/colored/cyan, \
 			/obj/item/storage/box/lights/colored/yellow, \
-			/obj/item/storage/box/lights/colored/magenta \
+			/obj/item/storage/box/lights/colored/magenta, \
+			/obj/item/storage/box/lights/colored/pale_purple \
 		)
 		new type(L)
 

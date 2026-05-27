@@ -40,16 +40,25 @@ ABSTRACT_TYPE(/obj/item/clothing/pants)
 		var/mob/M = src.loc
 		M.update_inv_pants()
 
+/obj/item/clothing/pants/AltClick(mob/user)
+	if(use_check_and_message(user))
+		return
+
+	handle_change_layer(user)
+
 /obj/item/clothing/pants/verb/change_layer()
 	set category = "Object.Equipped"
 	set name = "Change Pants Layer"
 	set src in usr
 
+	handle_change_layer(usr)
+
+/obj/item/clothing/pants/proc/handle_change_layer(mob/user)
 	var/list/options = list("Under Uniform" = UNDER_UNIFORM_LAYER_PA, "Over Uniform" = ABOVE_UNIFORM_LAYER_PA, "Over Suit" = ABOVE_SUIT_LAYER_PA)
-	var/new_layer = tgui_input_list(usr, "Position Pants", "Pants Layer", options)
+	var/new_layer = tgui_input_list(user, "Position Pants", "Pants Layer", options)
 	if(new_layer)
 		mob_wear_layer = options[new_layer]
-		to_chat(usr, SPAN_NOTICE("\The [src] will now layer [new_layer]."))
+		to_chat(user, SPAN_NOTICE("\The [src] will now layer [new_layer]."))
 		update_clothing_icon()
 
 /********** Pants Start **********/

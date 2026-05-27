@@ -7,7 +7,6 @@
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT | SLOT_EARS
 	throwforce = 1
-	layer = BELOW_TABLE_LAYER
 	w_class = WEIGHT_CLASS_TINY
 
 	var/leaves_residue = 1
@@ -69,11 +68,11 @@
 		if(max_stack == 1)
 			to_chat(user, SPAN_WARNING("\The [src] cannot be stacked!"))
 			return
-		if(!src.BB)
+		var/obj/item/ammo_casing/B = attacking_item
+		if(!src.BB && B.BB)
 			to_chat(user, SPAN_WARNING("That round is spent!"))
 			return
-		var/obj/item/ammo_casing/B = attacking_item
-		if(!B.BB)
+		if(!B.BB && src.BB)
 			to_chat(user, SPAN_WARNING("Your round is spent!"))
 			return
 		var/obj/item/ammo_pile/pile = new /obj/item/ammo_pile(get_turf(user), list(src, attacking_item))

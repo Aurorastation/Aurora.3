@@ -28,7 +28,7 @@
 	var/night_brightness_power = 0.3
 	var/supports_nightmode = TRUE
 	var/nightmode = FALSE
-	var/brightness_color = LIGHT_COLOR_HALOGEN
+	var/brightness_color = LIGHT_COLOR_OFFWHITE
 	/// Expected types defined in lightning.dm
 	var/status = LIGHT_OK
 	var/flickering = 0
@@ -62,7 +62,10 @@
 	var/previous_stat
 	var/randomize_color = TRUE
 	var/default_color
-	var/static/list/randomized_colors = LIGHT_STANDARD_COLORS
+	/// This is also defined at the area level! If you want to mess with
+	/// light fixture colours without touching specific subtypes, you
+	/// should probably be looking at the area's variables, not at this.
+	var/static/list/randomized_colors = LIGHT_WARM_COLORS
 	var/static/list/emergency_lights = list(
 		LIGHT_MODE_RED = LIGHT_COLOR_EMERGENCY,
 		LIGHT_MODE_DELTA = LIGHT_COLOR_ORANGE
@@ -132,8 +135,14 @@
 				if(prob(1) || (maybe_broken && prob(50)))
 					broken(1)
 
+	// If we're randomizing the color of this fixture, we check if the area has a special palette.
+	// This is intended to save mapping time by automating light variations in different areas.
 	if(randomize_color)
+		var/area/A = get_area(src)
+		randomized_colors = A.area_lighting
+
 		brightness_color = pick(randomized_colors)
+
 	default_color = brightness_color // We need a different var so the new color doesn't get wiped away. Initial() wouldn't work since brightness_color is overridden.
 	update(0)
 	set_pixel_offsets()
