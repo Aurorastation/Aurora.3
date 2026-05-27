@@ -129,7 +129,7 @@ note dizziness decrements automatically in the mob's Life() proc.
 	//reset the pixel offsets to defaults
 	is_floating = FALSE
 
-/atom/movable/proc/do_attack_animation(atom/attacked_atom, obj/item/used_item, visual_effect_icon, no_effect, item_animation_override = null)
+/atom/movable/proc/do_attack_animation(atom/attacked_atom, visual_effect_icon, obj/item/used_item, no_effect, fov_effect = TRUE, item_animation_override = null)
 	if(!no_effect && (visual_effect_icon || used_item))
 		do_item_attack_animation(attacked_atom, visual_effect_icon, used_item, animation_type = item_animation_override)
 

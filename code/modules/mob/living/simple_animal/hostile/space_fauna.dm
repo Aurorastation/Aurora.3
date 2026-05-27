@@ -34,6 +34,7 @@
 	armor_penetration = 5
 	attack_flags = DAMAGE_FLAG_EDGE
 	attacktext = "bites"
+	attack_vis_effect = ATTACK_EFFECT_BITE
 	attack_sound = 'sound/weapons/bite.ogg'
 
 	//Space carp aren't affected by atmos.
@@ -299,6 +300,7 @@
 	melee_damage_lower = 5
 	melee_damage_upper = 5
 	attacktext = "bites"
+	attack_vis_effect = ATTACK_EFFECT_BITE
 	attack_sound = 'sound/weapons/bite.ogg'
 
 	min_oxy = 0

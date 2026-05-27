@@ -42,7 +42,7 @@
 	energy_field.remove_individual_field(src)
 
 /obj/effect/energy_field/attackby(obj/item/attacking_item, mob/user)
-	user.do_attack_animation(src, attacking_item)
+	user.do_attack_animation(src, used_item = attacking_item)
 	if(attacking_item.force < 10)
 		user.visible_message(SPAN_WARNING("[user] harmlessly attacks \the [src] with \the [attacking_item]."),
 								SPAN_WARNING("You attack \the [src] with \the [attacking_item], but it bounces off without doing any damage."))
@@ -55,7 +55,7 @@
 	if(istype(H))
 		if(H.species.can_shred(H))
 			H.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-			H.do_attack_animation(src, FIST_ATTACK_ANIMATION)
+			H.do_attack_animation(src)
 			H.visible_message(SPAN_WARNING("[H] shreds \the [src]!"), SPAN_WARNING("You shred \the [src]!"))
 			damage_field(1)
 			return
