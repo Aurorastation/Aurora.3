@@ -702,21 +702,23 @@ ABSTRACT_TYPE(/obj/item/gun)
 		M.visible_message(SPAN_GOOD("\The [user] takes \the [src] out of their mouth."))
 		mouthshoot = FALSE
 		return
+
+	user.visible_message(SPAN_DANGER("\The [user] pulls the trigger."))
+	if (!pin && needspin) // Checks the pin of the gun.
+		handle_click_empty(user)
+		mouthshoot = FALSE
+		return
+	else if (!pin.pin_auth() && needspin)
+		handle_click_empty(user)
+		mouthshoot = FALSE
+		return
+	else if(safety() && user.a_intent != I_HURT)
+		handle_click_empty(user)
+		mouthshoot = FALSE
+		return
+
 	var/obj/projectile/in_chamber = consume_next_projectile()
 	if(istype(in_chamber))
-		user.visible_message(SPAN_DANGER("\The [user] pulls the trigger."))
-		if (!pin && needspin) // Checks the pin of the gun.
-			handle_click_empty(user)
-			mouthshoot = FALSE
-			return
-		if (!pin.pin_auth() && needspin)
-			handle_click_empty(user)
-			mouthshoot = FALSE
-			return
-		if(safety() && user.a_intent != I_HURT)
-			handle_click_empty(user)
-			mouthshoot = FALSE
-			return
 		play_fire_sound()
 
 		in_chamber.on_hit(M)
