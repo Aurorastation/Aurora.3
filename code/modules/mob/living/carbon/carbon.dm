@@ -238,29 +238,29 @@
 					if(1 to 10)
 						status += (anatomy < 3 ? "bruised" : "superficially cut")
 					if(10 to 25)
-						status += (anatomy < 3 ? "wounded" : "moderately physically traumatized")
+						status += (anatomy < 3 ? "wounded" : "moderately injured")
 					if(25 to 50)
-						status += (anatomy < 3 ? "badly injured" : "significantly physically traumatized")
+						status += (anatomy < 3 ? "badly injured" : "significantly injured")
 					if(50 to 75)
-						status += (anatomy < 3 ? "severely injured" : "YELLOW TAGGED physical trauma")
+						status += (anatomy < 3 ? "severely injured" : "mangled and difficult to move")
 					if(75 to 100)
-						status += (anatomy < 3 ? "extremely injured" : SPAN_DANGER("RED TAGGED physical injury, loss of limb is imminent"))
+						status += (anatomy < 3 ? "extremely injured" : SPAN_DANGER("horribly mangled, and it feels like it may give out at any moment"))
 					if(100 to INFINITY)
-						status += (anatomy < 3 ? "critically injured" : SPAN_DANGER("BLACK TAGGED physical injury, the limb is beyond saving"))
+						status += (anatomy < 3 ? "critically injured" : SPAN_DANGER("ruined beyond recognition, and you can barely feel it at all"))
 
 				switch(burndamage)
 					if(1 to 10)
-						status += (anatomy < 3 ? "numb" : "superficially burned")
+						status += (anatomy < 3 ? "numb" : "lightly burned")
 					if(10 to 25)
 						status += (anatomy < 3 ? "blistered" : "moderately burned")
 					if(25 to 50)
-						status += (anatomy < 3 ? "peeling away" : "notable 3rd degree burns")
+						status += (anatomy < 3 ? "peeling away" : "marked by notable partial-thickness burns")
 					if(50 to 75)
-						status += (anatomy < 3 ? "visibly charred" : "YELLOW TAGGED 3rd degree burns")
+						status += (anatomy < 3 ? "visibly charred" : "covered in extensive partial-thickness burns")
 					if(75 to 100)
-						status += (anatomy < 3 ? "black leather" : SPAN_DANGER("RED TAGGED burn injury, loss of limb is imminent"))
+						status += (anatomy < 3 ? "like black leather" : SPAN_DANGER("burned down to deadened, leathery tissue and looks close to being unrecoverable"))
 					if(100 to INFINITY)
-						status += (anatomy < 3 ? "like charcoal" : SPAN_DANGER("BLACK TAGGED burn injury, the limb is beyond saving"))
+						status += (anatomy < 3 ? "like charcoal" : SPAN_DANGER("charred beyond recognition and may be beyond saving"))
 
 				if(org.is_stump())
 					status += SPAN_DANGER("MISSING")
@@ -292,7 +292,7 @@
 					if(!(org.status & (ORGAN_DEAD | ORGAN_BROKEN)))
 						status += "hurts when touched"
 						painful_check = TRUE
-					status += "swelled and have darkly discolored spots"
+					status += "swelled and has darkly discolored spots"
 
 				if(anatomy < 3 && (org.status & ORGAN_DEAD))
 					status += "feels numb and pale"
