@@ -69,14 +69,26 @@
 			+ " - Firearms you shoot have a 30 degree spread-angle decrease, making them somewhat more accurate. This generally doesn't apply to weapons fired in semi-auto, but will make burst and automatic fire more manageable." \
 	)
 
-// Temporarily commented because this is a little too complicated to catch in the initial release.
-// /singleton/skill/leadership
-// 	name = "Leadership"
-// 	description = "Leadership skill grants access to a unique 'Inspire' action, which lets you say something inspiring and give the target a positive moodlet."
-// 	category = /singleton/skill_category/combat
-// 	subcategory = SKILL_SUBCATEGORY_SUPPORT
-// 	required = TRUE
-// 	component_type = LEADERSHIP_SKILL_COMPONENT
+/singleton/skill/leadership
+	name = "Leadership"
+	description = "Leadership represents a characters skill with inspiring others. Having ranks in this skill grants access to the \"Deliver Speech\" action. Which can be used to give a morale modifier either in an area, or to a single person. " \
+		+ "Additional ranks increase the morale modifier provided."
+	maximum_level = SKILL_LEVEL_PROFESSIONAL
+	category = /singleton/skill_category/combat
+	subcategory = SKILL_SUBCATEGORY_SUPPORT
+	component_type = LEADERSHIP_SKILL_COMPONENT
+	skill_level_descriptions = alist(
+		SKILL_LEVEL_UNFAMILIAR = "You have no skill with motivational speeches.",
+		SKILL_LEVEL_FAMILIAR = "You gain the \"Deliver Speech\" ability, which provides a small morale bonus.",
+		SKILL_LEVEL_TRAINED = "You gain the \"Deliver Speech\" ability, which provides a modest morale bonus.",
+		SKILL_LEVEL_PROFESSIONAL = "You gain the \"Deliver Speech\" ability, which provides a moderate morale bonus."
+	)
+	skill_cost_map = alist(
+		SKILL_LEVEL_UNFAMILIAR = 0,
+		SKILL_LEVEL_FAMILIAR = 1,
+		SKILL_LEVEL_TRAINED = 2,
+		SKILL_LEVEL_PROFESSIONAL = 4
+	)
 
 /singleton/skill/tenacity
 	name = "Tenacity"

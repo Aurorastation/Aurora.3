@@ -798,7 +798,7 @@
 		to_chat(M, SPAN_DANGER(pick("Your heart is beating rapidly!", "Your chest hurts!", "You've totally over-exerted yourself!")))
 	if(prob(M.chem_doses[type] / 3))
 		M.visible_message("<b>[M]</b> twitches violently, grimacing.", "You twitch violently and feel yourself sprain a joint.")
-		M.take_organ_damage(5 * removed, 0)
+		M.take_organ_damage(5 * removed, 0, used_weapon = "Hyperzine overdose", damage_flags = DAMAGE_FLAG_IGNORE_PROSTHETICS, silent = TRUE)
 		M.adjustHalLoss(15)
 
 /singleton/reagent/hyperzine/final_effect(mob/living/carbon/M, datum/reagents/holder)
@@ -892,7 +892,7 @@
 
 /singleton/reagent/hyronalin/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(prob(60))
-		M.take_organ_damage(4 * removed, 0) //Hyronaline OD deals brute damage to the same degree as Arithrazine
+		M.take_organ_damage(8 * removed, 0, used_weapon = "Hyronaline overdose", damage_flags = DAMAGE_FLAG_IGNORE_PROSTHETICS, silent = TRUE)
 
 /singleton/reagent/arithrazine
 	name = "Arithrazine"
@@ -922,11 +922,11 @@
 		M.apply_radiation(-280 * removed)
 		M.add_chemical_effect(CE_ITCH, M.chem_doses[type]/2)
 		if(prob(60))
-			M.take_organ_damage(8 * removed, 0)
+			M.take_organ_damage(8 * removed, 0, used_weapon = "Arithrazine tissue damage", damage_flags = DAMAGE_FLAG_IGNORE_PROSTHETICS, silent = TRUE)
 
 /singleton/reagent/arithrazine/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(prob(50))
-		M.take_organ_damage(6 * removed, 0) //Even more collateral damage dealt by arithrazine when overdosed.
+		M.take_organ_damage(6 * removed, 0, used_weapon = "Arithrazine overdose", damage_flags = DAMAGE_FLAG_IGNORE_PROSTHETICS, silent = TRUE) //Even more collateral damage dealt by arithrazine when overdosed.
 
 /singleton/reagent/thetamycin
 	name = "Thetamycin"
@@ -2081,7 +2081,7 @@
 		to_chat(M, SPAN_WARNING(pick("You have a headache!", "Energy, energy, energy - so much energy!", "You can't sit still!", "It's difficult to focus right now... but that's not important!", "Your heart is beating rapidly!", "Your chest hurts!", "You've totally over-exerted yourself!")))
 	if(prob(M.chem_doses[type] / 3))
 		M.emote(pick("twitch", "blink_r", "shiver"))
-		M.take_organ_damage(5 * removed, 0)
+		M.take_organ_damage(5 * removed, 0, used_weapon = "Caffeine overdose", damage_flags = DAMAGE_FLAG_IGNORE_PROSTHETICS, silent = TRUE)
 		M.adjustHalLoss(15)
 
 /singleton/reagent/caffeine/final_effect(mob/living/carbon/M, alien, removed, datum/reagents/holder)

@@ -30,7 +30,7 @@
 	invisibility = INVISIBILITY_LIGHTING
 	plane = BLACKNESS_PLANE
 
-	var/obj/machinery/power/apc/apc = null
+	var/obj/structure/machinery/power/apc/apc = null
 	/// The base turf type of the area, which can be used to override the z-level's base turf.
 	var/turf/base_turf
 
@@ -95,6 +95,9 @@
 	// 'amidships' belongs to location_ew
 	var/location_ew = null
 	var/location_ns = null
+	/// What colors should the area's light fixtures emit, if any?
+	/// Only applies to light fixtures which are set to use randomized lighting!
+	var/list/area_lighting = LIGHT_WARM_COLORS
 
 	var/centcomm_area = FALSE
 
@@ -191,7 +194,7 @@
 		state = initial(lightswitch)
 
 	lightswitch = state
-	var/obj/machinery/light_switch/L = locate() in src
+	var/obj/structure/machinery/light_switch/L = locate() in src
 	if(L)
 		L.on = state
 		L.sync_lights()
@@ -199,7 +202,7 @@
 /area/proc/get_cameras()
 	. = list()
 	for (var/thing in SSmachinery.all_cameras)
-		var/obj/machinery/camera/C = thing
+		var/obj/structure/machinery/camera/C = thing
 		if (!isturf(C.loc))
 			continue
 
@@ -213,7 +216,7 @@
 		GLOB.atmosphere_alarm.triggerAlarm(src, alarm_source, severity = danger_level)
 
 	//Check all the alarms before lowering atmosalm. Raising is perfectly fine.
-	for (var/obj/machinery/alarm/AA in src)
+	for (var/obj/structure/machinery/alarm/AA in src)
 		if (!(AA.stat & (NOPOWER|BROKEN)) && !AA.shorted && AA.report_danger_level)
 			danger_level = max(danger_level, AA.danger_level)
 
@@ -225,7 +228,7 @@
 			air_doors_close()
 
 		atmosalm = danger_level
-		for (var/obj/machinery/alarm/AA in src)
+		for (var/obj/structure/machinery/alarm/AA in src)
 			AA.update_icon()
 
 		return 1
@@ -234,46 +237,46 @@
 /area/proc/air_doors_close()
 	if(!air_doors_activated)
 		air_doors_activated = 1
-		for(var/obj/machinery/door/firedoor/E in all_doors)
+		for(var/obj/structure/machinery/door/firedoor/E in all_doors)
 			if(!E.blocked)
 				if(E.operating)
 					E.nextstate = FIREDOOR_CLOSED
 				else if(!E.density)
-					INVOKE_ASYNC(E, TYPE_PROC_REF(/obj/machinery/door, close))
+					INVOKE_ASYNC(E, TYPE_PROC_REF(/obj/structure/machinery/door, close))
 
 /area/proc/air_doors_open()
 	if(air_doors_activated)
 		air_doors_activated = 0
-		for(var/obj/machinery/door/firedoor/E in all_doors)
+		for(var/obj/structure/machinery/door/firedoor/E in all_doors)
 			if(!E.blocked)
 				if(E.operating)
 					E.nextstate = FIREDOOR_OPEN
 				else if(E.density)
-					INVOKE_ASYNC(E, TYPE_PROC_REF(/obj/machinery/door, open))
+					INVOKE_ASYNC(E, TYPE_PROC_REF(/obj/structure/machinery/door, open))
 
 /area/proc/fire_alert()
 	if(!fire)
 		fire = 1	//used for firedoor checks
 		update_icon()
 		mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-		for(var/obj/machinery/door/firedoor/D in all_doors)
+		for(var/obj/structure/machinery/door/firedoor/D in all_doors)
 			if(!D.blocked)
 				if(D.operating)
 					D.nextstate = FIREDOOR_CLOSED
 				else if(!D.density)
-					INVOKE_ASYNC(D, TYPE_PROC_REF(/obj/machinery/door, close))
+					INVOKE_ASYNC(D, TYPE_PROC_REF(/obj/structure/machinery/door, close))
 
 /area/proc/fire_reset()
 	if (fire)
 		fire = 0	//used for firedoor checks
 		update_icon()
 		mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-		for(var/obj/machinery/door/firedoor/D in all_doors)
+		for(var/obj/structure/machinery/door/firedoor/D in all_doors)
 			if(!D.blocked)
 				if(D.operating)
 					D.nextstate = FIREDOOR_OPEN
 				else if(D.density)
-					INVOKE_ASYNC(D, TYPE_PROC_REF(/obj/machinery/door, open))
+					INVOKE_ASYNC(D, TYPE_PROC_REF(/obj/structure/machinery/door, open))
 
 /area/proc/readyalert()
 	if(!eject)
@@ -296,12 +299,12 @@
 		party = 0
 		mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 		update_icon()
-		for(var/obj/machinery/door/firedoor/D in all_doors)
+		for(var/obj/structure/machinery/door/firedoor/D in all_doors)
 			if(!D.blocked)
 				if(D.operating)
 					D.nextstate = FIREDOOR_OPEN
 				else if(D.density)
-					INVOKE_ASYNC(D, TYPE_PROC_REF(/obj/machinery/door, open))
+					INVOKE_ASYNC(D, TYPE_PROC_REF(/obj/structure/machinery/door, open))
 
 #define DO_PARTY(COLOR) animate(color = COLOR, time = 0.5 SECONDS, easing = QUAD_EASING)
 
@@ -483,11 +486,11 @@
 		to_chat(mob, SPAN_WARNING("The sudden appearance of gravity makes you fall to the floor!"))
 
 /area/proc/prison_break()
-	for(var/obj/machinery/power/apc/temp_apc in src)
+	for(var/obj/structure/machinery/power/apc/temp_apc in src)
 		temp_apc.overload_lighting(70)
-	for(var/obj/machinery/door/airlock/temp_airlock in src)
+	for(var/obj/structure/machinery/door/airlock/temp_airlock in src)
 		temp_airlock.prison_open()
-	for(var/obj/machinery/door/window/temp_windoor in src)
+	for(var/obj/structure/machinery/door/window/temp_windoor in src)
 		temp_windoor.open()
 
 /area/has_gravity(turf/gravity_turf)

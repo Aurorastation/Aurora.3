@@ -8,7 +8,7 @@
 /area/enviro_testing_facility/outside/surface)
 "ew" = (
 /obj/effect/floor_decal/industrial/outline/engineering,
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/plating/asteroid,
 /area/enviro_testing_facility/outside/surface)
@@ -22,7 +22,7 @@
 /area/enviro_testing_facility/outside/surface)
 "eJ" = (
 /obj/effect/floor_decal/industrial/outline/engineering,
-/obj/machinery/portable_atmospherics/canister/empty/air,
+/obj/structure/machinery/portable_atmospherics/canister/empty/air,
 /turf/simulated/floor/exoplanet/plating/asteroid,
 /area/enviro_testing_facility/outside/surface)
 "eR" = (
@@ -40,7 +40,7 @@
 /area/enviro_testing_facility/outside/surface)
 "hi" = (
 /obj/effect/floor_decal/industrial/outline/engineering,
-/obj/machinery/portable_atmospherics/canister/air,
+/obj/structure/machinery/portable_atmospherics/canister/air,
 /turf/simulated/floor/exoplanet/plating/asteroid,
 /area/enviro_testing_facility/outside/surface)
 "hG" = (
@@ -58,13 +58,13 @@
 /turf/simulated/floor/exoplanet/plating/asteroid,
 /area/enviro_testing_facility/outside/surface)
 "ic" = (
-/obj/machinery/portable_atmospherics/canister/air,
+/obj/structure/machinery/portable_atmospherics/canister/air,
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/plating/asteroid,
 /area/enviro_testing_facility/outside/surface)
 "iN" = (
-/obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
+/obj/structure/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
 /turf/simulated/floor/exoplanet/plating/asteroid,
 /area/enviro_testing_facility/outside/surface)
 "iP" = (
@@ -106,7 +106,7 @@
 /area/enviro_testing_facility/outside/surface)
 "nC" = (
 /obj/effect/floor_decal/industrial/outline/engineering,
-/obj/machinery/portable_atmospherics/canister/empty/hydrogen,
+/obj/structure/machinery/portable_atmospherics/canister/empty/hydrogen,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/plating/asteroid,
 /area/enviro_testing_facility/outside/surface)
@@ -126,7 +126,7 @@
 /area/enviro_testing_facility/outside/surface)
 "oe" = (
 /obj/effect/floor_decal/industrial/outline/engineering,
-/obj/machinery/portable_atmospherics/canister/hydrogen,
+/obj/structure/machinery/portable_atmospherics/canister/hydrogen,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/plating/asteroid,
 /area/enviro_testing_facility/outside/surface)
@@ -138,7 +138,7 @@
 /turf/simulated/floor/exoplanet/plating/asteroid,
 /area/enviro_testing_facility/outside/surface)
 "qT" = (
-/obj/machinery/portable_atmospherics/canister/empty,
+/obj/structure/machinery/portable_atmospherics/canister/empty,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/plating/asteroid,
 /area/enviro_testing_facility/outside/surface)
@@ -155,7 +155,7 @@
 /turf/simulated/floor/exoplanet/plating/asteroid,
 /area/enviro_testing_facility/outside/surface)
 "uy" = (
-/obj/machinery/portable_atmospherics/canister/empty/air,
+/obj/structure/machinery/portable_atmospherics/canister/empty/air,
 /turf/simulated/floor/exoplanet/plating/asteroid,
 /area/enviro_testing_facility/outside/surface)
 "wq" = (
@@ -190,7 +190,7 @@
 /turf/simulated/floor/exoplanet/plating/asteroid,
 /area/enviro_testing_facility/outside/surface)
 "yG" = (
-/obj/machinery/camera/network/enviro_testing_facility{
+/obj/structure/machinery/camera/network/enviro_testing_facility{
 	dir = 1;
 	c_tag = "Outside - Landing Pads 2"
 	},
@@ -204,7 +204,7 @@
 /turf/simulated/floor/exoplanet/barren,
 /area/enviro_testing_facility/outside/surface)
 "zu" = (
-/obj/machinery/portable_atmospherics/canister/empty,
+/obj/structure/machinery/portable_atmospherics/canister/empty,
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/plating/asteroid,
@@ -247,12 +247,12 @@
 /area/enviro_testing_facility/outside/landing)
 "DS" = (
 /obj/effect/floor_decal/industrial/outline/engineering,
-/obj/machinery/portable_atmospherics/canister/empty/air,
+/obj/structure/machinery/portable_atmospherics/canister/empty/air,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/plating/asteroid,
 /area/enviro_testing_facility/outside/surface)
 "Er" = (
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/plating/asteroid,
 /area/enviro_testing_facility/outside/surface)
@@ -262,13 +262,13 @@
 /turf/simulated/floor/exoplanet/barren,
 /area/enviro_testing_facility/outside/landing)
 "Fe" = (
-/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/structure/machinery/portable_atmospherics/canister/oxygen,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/plating/asteroid,
 /area/enviro_testing_facility/outside/surface)
 "Fw" = (
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor/exoplanet/plating/asteroid,
 /area/enviro_testing_facility/outside/surface)
@@ -282,7 +282,7 @@
 /area/enviro_testing_facility/outside/surface)
 "JZ" = (
 /obj/effect/floor_decal/industrial/outline/engineering,
-/obj/machinery/portable_atmospherics/canister/empty/oxygen,
+/obj/structure/machinery/portable_atmospherics/canister/empty/oxygen,
 /turf/simulated/floor/exoplanet/plating/asteroid,
 /area/enviro_testing_facility/outside/surface)
 "Ki" = (
@@ -290,7 +290,7 @@
 /turf/simulated/floor/exoplanet/barren,
 /area/enviro_testing_facility/outside/surface)
 "Lp" = (
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -305,13 +305,13 @@
 /turf/simulated/floor/exoplanet/plating/asteroid,
 /area/enviro_testing_facility/outside/surface)
 "Nq" = (
-/obj/machinery/portable_atmospherics/canister/empty/air,
+/obj/structure/machinery/portable_atmospherics/canister/empty/air,
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/plating/asteroid,
 /area/enviro_testing_facility/outside/surface)
 "Pw" = (
-/obj/machinery/camera/network/enviro_testing_facility{
+/obj/structure/machinery/camera/network/enviro_testing_facility{
 	dir = 8;
 	c_tag = "Outside - Landing Pads 1"
 	},
@@ -353,7 +353,7 @@
 /turf/simulated/floor/exoplanet/plating/asteroid,
 /area/enviro_testing_facility/outside/surface)
 "Tr" = (
-/obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
+/obj/structure/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/plating/asteroid,
@@ -383,7 +383,7 @@
 /area/enviro_testing_facility/outside/surface)
 "UV" = (
 /obj/effect/floor_decal/industrial/outline/engineering,
-/obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
+/obj/structure/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/plating/asteroid,
 /area/enviro_testing_facility/outside/surface)

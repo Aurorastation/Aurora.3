@@ -1,4 +1,4 @@
-/obj/machinery/ship_weapon/longbow
+/obj/structure/machinery/ship_weapon/longbow
 	name = "longbow cannon"
 	desc = "A Kumar Arms high-velocity cannon and flagship of <i>\"Chivalry\"</i> weapons line, developed in 2461 as an upgrade to its predecessor, the Ballista. Its upgrades include a bigger payload, a more streamlined loading process, and easier maintenance, making this cannon one of the best armaments in the Spur."
 	icon_state = "weapon_base"
@@ -8,7 +8,7 @@
 	firing_effects = FIRING_EFFECT_FLAG_EXTREMELY_LOUD
 	screenshake_type = SHIP_GUN_SCREENSHAKE_ALL_MOBS
 
-/obj/machinery/ammunition_loader/longbow
+/obj/structure/machinery/ammunition_loader/longbow
 	name = "longbow shell loader"
 
 /obj/projectile/ship_ammo/longbow

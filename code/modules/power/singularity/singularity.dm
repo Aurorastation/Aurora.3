@@ -42,7 +42,7 @@
 
 	START_PROCESSING(SScalamity, src)
 	SScalamity.singularities += src
-	for(var/obj/machinery/power/tesla_beacon/singubeacon in SSmachinery.processing)
+	for(var/obj/structure/machinery/power/tesla_beacon/singubeacon in SSmachinery.processing)
 		if(singubeacon.active)
 			target = singubeacon
 			break
@@ -107,7 +107,7 @@
 
 /obj/singularity/proc/admin_investigate_setup()
 	last_warning = world.time
-	var/count = locate(/obj/machinery/containment_field) in orange(30, src)
+	var/count = locate(/obj/structure/machinery/containment_field) in orange(30, src)
 
 	var/msg = "A singulo has been created."
 	if (!count)
@@ -403,15 +403,15 @@
 	if (!isturf(T))
 		return 0
 
-	if ((locate(/obj/machinery/containment_field) in T) || (locate(/obj/shieldwall) in T))
+	if ((locate(/obj/structure/machinery/containment_field) in T) || (locate(/obj/shieldwall) in T))
 		return 0
-	else if (locate(/obj/machinery/field_generator) in T)
-		var/obj/machinery/field_generator/G = locate(/obj/machinery/field_generator) in T
+	else if (locate(/obj/structure/machinery/field_generator) in T)
+		var/obj/structure/machinery/field_generator/G = locate(/obj/structure/machinery/field_generator) in T
 
 		if (G && G.active)
 			return 0
-	else if (locate(/obj/machinery/shieldwallgen) in T)
-		var/obj/machinery/shieldwallgen/S = locate(/obj/machinery/shieldwallgen) in T
+	else if (locate(/obj/structure/machinery/shieldwallgen) in T)
+		var/obj/structure/machinery/shieldwallgen/S = locate(/obj/structure/machinery/shieldwallgen) in T
 
 		if (S?.power_state)
 			return 0

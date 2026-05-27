@@ -1,5 +1,6 @@
 /// SCIENCE_AREAS
 /area/horizon/rnd
+	area_lighting = LIGHT_RESEARCH_COLORS
 	holomap_color = HOLOMAP_AREACOLOR_SCIENCE
 	department = LOC_SCIENCE
 	horizon_deck = 2

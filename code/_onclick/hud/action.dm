@@ -3,6 +3,7 @@
 #define AB_INNATE 3
 #define AB_GENERIC 4
 #define AB_ITEM_USE_ICON 5
+#define AB_CALL_SELF 6
 
 #define AB_CHECK_RESTRAINED 1
 #define AB_CHECK_STUNNED 2
@@ -26,7 +27,7 @@
 	var/processing = 0
 	var/active = 0
 	var/atom/movable/screen/movable/action_button/button = null
-	var/button_icon = 'icons/obj/action_buttons/actions.dmi'
+	var/button_icon = 'icons/hud/action_buttons/actions.dmi'
 	var/button_icon_state = "default"
 	var/button_icon_color
 	var/background_icon_state = "bg_default"
@@ -90,6 +91,9 @@
 		if(AB_GENERIC)
 			if(target && procname)
 				call(target,procname)(usr)
+		if(AB_CALL_SELF)
+			if (procname)
+				call(src, procname)()
 	return
 
 /datum/action/proc/Activate()
@@ -175,7 +179,7 @@
 //Hide/Show Action Buttons ... Button
 /atom/movable/screen/movable/action_button/hide_toggle
 	name = "Hide Buttons"
-	icon = 'icons/obj/action_buttons/actions.dmi'
+	icon = 'icons/hud/action_buttons/actions.dmi'
 	icon_state = "bg_default"
 	var/hidden = 0
 
@@ -245,7 +249,7 @@
 
 /datum/action/item_action/hands_free/activate/implant
 	action_type = AB_ITEM_USE_ICON
-	button_icon = 'icons/obj/action_buttons/implants.dmi'
+	button_icon = 'icons/hud/action_buttons/implants.dmi'
 	button_icon_state = "default"
 
 /datum/action/item_action/hands_free/activate/implant/adrenaline
@@ -268,7 +272,7 @@
 
 /datum/action/item_action/organ
 	action_type = AB_ITEM_USE_ICON
-	button_icon = 'icons/obj/action_buttons/organs.dmi'
+	button_icon = 'icons/hud/action_buttons/organs.dmi'
 
 /datum/action/item_action/organ/SetTarget(var/atom/Target)
 	. = ..()
@@ -337,6 +341,7 @@
 #undef AB_INNATE
 #undef AB_GENERIC
 #undef AB_ITEM_USE_ICON
+#undef AB_CALL_SELF
 
 #undef AB_CHECK_RESTRAINED
 #undef AB_CHECK_STUNNED

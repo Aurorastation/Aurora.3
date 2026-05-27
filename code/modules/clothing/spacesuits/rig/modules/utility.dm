@@ -19,16 +19,21 @@
  * /obj/item/rig_module/actuators/combat
  */
 
+/// Device-type modules create a contained /obj/item, which can then be used with middle-click.
 /obj/item/rig_module/device
 	name = "mounted device"
 	desc = "Some kind of hardsuit mount."
-	usable = FALSE
-	selectable = 1
-	toggleable = FALSE
+	module_type = MODULETYPE_USABLE_ACTIVE
 	disruptive = FALSE
+	use_power_cost = 5
 
 	var/device_type
 	var/obj/item/device
+
+/obj/item/rig_module/device/Initialize()
+	. = ..()
+	if(device_type)
+		device = new device_type(src)
 
 /obj/item/rig_module/device/Destroy()
 	if(!ispath(src.device))
@@ -46,6 +51,8 @@
 	construction_cost = list("$glass" = 5250, DEFAULT_WALL_MATERIAL = 2500)
 	construction_time = 300
 
+	engage_string = "Run Self-Diagnostic"
+
 	device_type = /obj/item/healthanalyzer
 
 	category = MODULE_MEDICAL
@@ -56,21 +63,17 @@
 	interface_name = "vitals tracker"
 	interface_desc = "Shows an informative health readout of the user."
 
-	usable = TRUE
-	selectable = 0
-
 	category = MODULE_GENERAL
-
 
 /obj/item/rig_module/device/drill
 	name = "hardsuit diamond drill mount"
 	desc = "A very heavy diamond-tipped drill."
 	icon_state = "drill"
+	module_type = MODULETYPE_USABLE_ACTIVE
 	interface_name = "mounted drill"
 	interface_desc = "A diamond-tipped industrial drill."
 	suit_overlay_active = "mounted-drill"
-	suit_overlay_inactive = "mounted-drill"
-	use_power_cost = 0.1
+	use_power_cost = 0.2
 	construction_cost = list(DEFAULT_WALL_MATERIAL = 55000, MATERIAL_GLASS = 2250, MATERIAL_SILVER = 5250, MATERIAL_DIAMOND = 3750)
 	construction_time = 350
 
@@ -85,7 +88,6 @@
 	interface_name = "mounted drill"
 	interface_desc = "A basic industrial drill."
 	suit_overlay_active = "mounted-drill"
-	suit_overlay_inactive = "mounted-drill"
 	use_power_cost = 0.1
 
 	device_type = /obj/item/pickaxe/drill
@@ -99,8 +101,6 @@
 	interface_name = "Alden-Saraspova counter"
 	interface_desc = "An exotic particle detector commonly used by xenoarchaeologists."
 	engage_string = "Begin Scan"
-	usable = TRUE
-	selectable = 0
 	device_type = /obj/item/ano_scanner
 
 	category = MODULE_UTILITY
@@ -112,8 +112,6 @@
 	interface_name = "ore detector"
 	interface_desc = "A sonar system for detecting large masses of ore."
 	engage_string = "Begin Scan"
-	usable = TRUE
-	selectable = 0
 	device_type = /obj/item/mining_scanner
 
 	category = MODULE_UTILITY
@@ -122,16 +120,43 @@
 	name = "RFD-C mount"
 	desc = "A cell-powered rapid construction device for a hardsuit."
 	icon_state = "rcd"
+	suit_overlay_active = "mounted-rfd"
 	interface_name = "mounted RFD-C"
 	interface_desc = "A device for building or removing walls. Cell-powered."
-	usable = TRUE
+	module_type = MODULETYPE_USABLE_ACTIVE
 	engage_string = "Configure RFD-C"
 	construction_cost = list(DEFAULT_WALL_MATERIAL = 30000, MATERIAL_PHORON = 12500, MATERIAL_SILVER = 10000, MATERIAL_GOLD = 10000)
 	construction_time = 1000
 
 	device_type = /obj/item/rfd/construction/mounted
+	/// Name of the atom (or mode, if deconstructing) to display in the UI. Default for RFD-C is a wall.
+	var/current_setting = "wall"
 
 	category = MODULE_UTILITY
+
+/obj/item/rig_module/device/rfd_c/proc/get_current_setting()
+	var/obj/item/rfd/construction/mounted/our_device = device
+	switch(our_device?.mode)
+		if(RFD_FLOORS_AND_WALL)
+			return "Floors & Wall"
+		if(RFD_WINDOW_AND_FRAME)
+			return "Window & Frame"
+		if(RFD_AIRLOCK)
+			return "Airlock"
+		if(RFD_DECONSTRUCT)
+			return "Deconstruct"
+	// How?
+	return "ERROR - CONSULT MANUFACTURER"
+
+/obj/item/rig_module/device/rfd_c/get_configuration()
+	. = ..()
+	.["rfd_settings"] = add_ui_configuration("Configure RFD-C Settings", "button", get_current_setting())
+
+/obj/item/rig_module/device/rfd_c/configure_edit(key, value, mob/user)
+	var/obj/item/rfd/construction/mounted/our_device = device
+	switch(key)
+		if("rfd_settings")
+			our_device.attack_self(user)
 
 /obj/item/rig_module/device/rfd_c/handle_device_engage(atom/target, mob/user)
 	var/resolved = target.attackby(device, user)
@@ -142,17 +167,13 @@
 			return FALSE
 	return TRUE
 
-/obj/item/rig_module/device/Initialize()
-	. = ..()
-	if(device_type)
-		device = new device_type(src)
-
-/obj/item/rig_module/device/engage(atom/target, mob/user)
+/obj/item/rig_module/device/rfd_c/engage(atom/target, mob/user)
 	if(!..() || !device)
 		return FALSE
 
+	var/obj/item/rfd/construction/mounted/our_device = device
 	if(!target)
-		device.attack_self(user)
+		our_device.attack_self(user)
 		return TRUE
 
 	var/turf/T = get_turf(target)
@@ -160,7 +181,7 @@
 		return FALSE
 
 	// Stop generating infinite devices please, and thank you.
-	if(istype(target, /obj/machinery/disposal))
+	if(istype(target, /obj/structure/machinery/disposal))
 		return FALSE
 
 	return handle_device_engage(target, user)
@@ -174,11 +195,11 @@
 /obj/item/rig_module/chem_dispenser
 	name = "mounted chemical dispenser"
 	desc = "A complex web of tubing and needles suitable for hardsuit use."
+	suit_overlay_active = "mounted-injector"
+	interface_desc = "Dispenses loaded chemicals directly into the wearer's (or adjacent target's) bloodstream."
 	icon_state = "injector"
-	usable = TRUE
-	selectable = FALSE
-	toggleable = FALSE
-	disruptive = FALSE
+	module_type = MODULETYPE_USABLE_ACTIVE
+	disruptive = TRUE
 	confined_use = TRUE
 	construction_cost = list(DEFAULT_WALL_MATERIAL=10000, MATERIAL_GLASS =9250, MATERIAL_GOLD =2500, MATERIAL_SILVER =4250,"phoron"=5500)
 	construction_time = 400
@@ -192,9 +213,9 @@
 		list("tricordrazine",	"tricordrazine",	/singleton/reagent/tricordrazine,		80),
 		list("mortaphenyl",		"mortaphenyl",		/singleton/reagent/mortaphenyl,			80),
 		list("dexalin plus",	"dexalinp",			/singleton/reagent/dexalin/plus,		80),
-		list("antibiotics",		"thetamycin",		/singleton/reagent/thetamycin,			80),
-		list("antitoxins",		"dylovene",			/singleton/reagent/dylovene,			80),
-		list("nutrients",		"glucose",			/singleton/reagent/nutriment/glucose,	80),
+		list("thetamycin",		"thetamycin",		/singleton/reagent/thetamycin,			80),
+		list("dylovene",		"dylovene",			/singleton/reagent/dylovene,			80),
+		list("glucose",			"glucose",			/singleton/reagent/nutriment/glucose,	80),
 		list("hyronalin",		"hyronalin",		/singleton/reagent/hyronalin,			80),
 		list("synaptizine",		"synaptizine",		/singleton/reagent/synaptizine,			80),
 		list("radium",			"radium",			/singleton/reagent/radium,				80)
@@ -205,21 +226,21 @@
 	category = MODULE_HEAVY_COMBAT
 
 /obj/item/rig_module/chem_dispenser/ninja
-	interface_desc = "Dispenses loaded chemicals directly into the wearer's bloodstream. This variant is made to be extremely light and flexible."
+	interface_desc = "Dispenses loaded chemicals directly into the wearer's (or adjacent target's) bloodstream. This variant is made to be extremely light and flexible."
 
 	//just over a syringe worth of each. Want more? Go refill. Gives the ninja another reason to have to show their face.
 	charges = list(
 		list("tricordrazine",	"tricordrazine",	/singleton/reagent/tricordrazine,		20),
 		list("mortaphenyl",		"mortaphenyl",		/singleton/reagent/mortaphenyl,			20),
 		list("dexalin plus",	"dexalinp",			/singleton/reagent/dexalin/plus,		20),
-		list("antibiotics",		"thetamycin",		/singleton/reagent/thetamycin,			20),
-		list("antitoxins",		"dylovene",			/singleton/reagent/dylovene,			20),
-		list("nutrients",		"glucose",			/singleton/reagent/nutriment/glucose,	80),
+		list("thetamycin",		"thetamycin",		/singleton/reagent/thetamycin,			20),
+		list("dylovene",		"dylovene",			/singleton/reagent/dylovene,			20),
+		list("glucose",			"glucose",			/singleton/reagent/nutriment/glucose,	80),
 		list("hyronalin",		"hyronalin",		/singleton/reagent/hyronalin,			20),
 		list("synaptizine",		"synaptizine",		/singleton/reagent/synaptizine,			20),
 		list("radium",			"radium",			/singleton/reagent/radium,				20)
 		)
-
+	disruptive = FALSE
 	category = MODULE_UTILITY
 
 /obj/item/rig_module/chem_dispenser/accepts_item(var/obj/item/input_item, var/mob/living/user)
@@ -261,7 +282,7 @@
 	var/mob/living/carbon/human/H = holder.wearer
 
 	if(!charge_selected)
-		to_chat(user, SPAN_WARNING("You have not selected a chemical type."))
+		balloon_alert(user, "no chem selected!")
 		return FALSE
 
 	var/datum/rig_charge/charge = charges[charge_selected]
@@ -271,7 +292,7 @@
 
 	var/chems_to_use = 5
 	if(charge.charges <= 0)
-		to_chat(user, SPAN_WARNING("Insufficient chems!"))
+		balloon_alert(user, "out of chem!")
 		return FALSE
 	else if(charge.charges < chems_to_use)
 		chems_to_use = charge.charges
@@ -300,6 +321,8 @@
 	if(charge.charges < 0)
 		charge.charges = 0
 
+	playsound(src,'sound/items/reagent_containers/liquid/plastic_bottle_liquid_slosh1.ogg',25,1)
+
 	return TRUE
 
 /obj/item/rig_module/chem_dispenser/combat
@@ -314,7 +337,6 @@
 		)
 
 	interface_name = "combat chem dispenser"
-	interface_desc = "Dispenses loaded chemicals directly into the bloodstream."
 
 	category = MODULE_LIGHT_COMBAT
 
@@ -331,7 +353,6 @@
 		)
 
 	interface_name = "vaurca combat chem dispenser"
-	interface_desc = "Dispenses loaded chemicals directly into the bloodstream."
 
 	category = MODULE_VAURCA
 
@@ -346,21 +367,18 @@
 		)
 
 	interface_name = "chem dispenser"
-	interface_desc = "Dispenses loaded chemicals directly into the bloodstream."
 
 	category = MODULE_GENERAL
 
 /obj/item/rig_module/chem_dispenser/injector
 	name = "mounted chemical injector"
 	desc = "A complex web of tubing and a large needle suitable for hardsuit use."
-	usable = FALSE
-	selectable = 1
-	disruptive = 1
+	module_type = MODULETYPE_USABLE_ACTIVE
 	construction_cost = list(DEFAULT_WALL_MATERIAL = 10000, MATERIAL_GLASS = 9250, MATERIAL_GOLD = 2500, MATERIAL_SILVER = 4250, MATERIAL_PHORON = 5500)
 	construction_time = 400
 
 	interface_name = "mounted chem injector"
-	interface_desc = "Dispenses loaded chemicals via an arm-mounted injector."
+	interface_desc = "Dispenses loaded chemicals directly into the wearer's (or adjacent target's) bloodstream. This variant is made to be extremely light and flexible."
 
 	category = MODULE_MEDICAL
 
@@ -373,19 +391,15 @@
 		)
 
 /obj/item/rig_module/voice
-	name = "hardsuit voice synthesiser"
+	name = "hardsuit voice synthesizer"
 	desc = "A speaker box and sound processor."
 	icon_state = "megaphone"
-	usable = TRUE
-	selectable = 0
-	toggleable = FALSE
+	module_type = MODULETYPE_TOGGLE
 	disruptive = FALSE
 	confined_use = TRUE
 
-	engage_string = "Configure Synthesiser"
-
-	interface_name = "voice synthesiser"
-	interface_desc = "A flexible and powerful voice modulator system."
+	interface_name = "voice synthesizer"
+	interface_desc = "A flexible and powerful voice modulator system. Can mimic both names and accents."
 
 	var/obj/item/voice_changer/voice_holder
 
@@ -406,30 +420,31 @@
 	..()
 	holder.speech = src
 
+/obj/item/rig_module/voice/get_configuration()
+	. = ..()
+	.["configure"] = add_ui_configuration(engage_string, "button", "Name: [voice_holder?.name], Accent: [voice_holder?.current_accent]")
+
+/obj/item/rig_module/voice/configure_edit(key, value, user)
+	switch(key)
+		if("configure")
+			engage(null, user)
+
 /obj/item/rig_module/voice/engage(atom/target, mob/user)
 	if(!..())
 		return FALSE
 
-	var/choice= tgui_input_list(user, "Would you like to toggle the synthesiser, set the name or set an accent?", "Synthesizer", list("Enable","Disable","Set Name", "Set Accent"))
+	var/choice= tgui_input_list(user, "Would you like to set the name or accent for the synthesizer?", src, list("Set Name", "Set Accent"))
 
 	if(!choice)
 		return FALSE
 
 	switch(choice)
-		if("Enable")
-			active = TRUE
-			voice_holder.active = TRUE
-			message_user(user, SPAN_NOTICE("You enable the speech synthesiser."), SPAN_NOTICE("\The [user] enables the speech synthesiser."))
-		if("Disable")
-			active = FALSE
-			voice_holder.active = FALSE
-			message_user(user, SPAN_NOTICE("You disable the speech synthesiser."), SPAN_NOTICE("\The [user] disables the speech synthesiser."))
 		if("Set Name")
 			var/raw_choice = sanitize(input(user, "Please enter a new name.") as text|null, MAX_NAME_LEN)
 			if(!raw_choice)
 				return FALSE
 			voice_holder.voice = raw_choice
-			message_user(user, SPAN_NOTICE("You set the synthesizer to mimic <b>[voice_holder.voice]</b>."), SPAN_NOTICE("\The [user] set the speech synthesizer to mimic <b>[voice_holder.voice]</b>."))
+			message_user(user, SPAN_NOTICE("You set the synthesizer to mimic <b>[raw_choice]</b>."), SPAN_NOTICE("\The [user] set the speech synthesizer to mimic <b>[voice_holder.voice]</b>."))
 		if("Set Accent")
 			var/raw_choice = tgui_input_list(user, "Please choose an accent to mimick.", "Accent Mimicry", SSrecords.accents)
 			if(!raw_choice)
@@ -438,28 +453,39 @@
 			message_user(user, SPAN_NOTICE("You set the synthesizer to mimic the [raw_choice] accent."), SPAN_NOTICE("\The [user] set the speech synthesizer the [raw_choice] accent."))
 	return TRUE
 
+/obj/item/rig_module/voice/activate(mob/user)
+	if(!..())
+		return
+	voice_holder.active = TRUE
+	message_user(user, SPAN_NOTICE("You enable the speech synthesizer. Name: [voice_holder?.name], Accent: [voice_holder?.current_accent]"), SPAN_NOTICE("\The [user] enables the speech synthesizer."))
+	return TRUE
+
+/obj/item/rig_module/voice/deactivate(mob/user)
+	if(!..())
+		return FALSE
+
+	voice_holder.active = FALSE
+	message_user(user, SPAN_NOTICE("You disable the speech synthesizer."), SPAN_NOTICE("\The [user] disables the speech synthesizer."))
+	return TRUE
+
 /obj/item/rig_module/maneuvering_jets
 	name = "hardsuit maneuvering jets"
 	desc = "A compact gas thruster system for a hardsuit."
 	icon_state = "thrusters"
-	usable = TRUE
-	toggleable = TRUE
-	selectable = 0
+	module_type = MODULETYPE_TOGGLE
 	disruptive = FALSE
 	construction_cost = list(DEFAULT_WALL_MATERIAL = 15000, MATERIAL_GLASS = 4250, MATERIAL_SILVER = 4250, MATERIAL_URANIUM = 5250)
 	construction_time = 300
 
 	suit_overlay_active = "maneuvering_active"
-	suit_overlay_inactive = null //"maneuvering_inactive"
-
-	engage_string = "Toggle Stabilizers"
-	activate_string = "Activate Thrusters"
-	deactivate_string = "Deactivate Thrusters"
+	suit_overlay_inactive = "maneuvering_inactive"
 
 	interface_name = "maneuvering jets"
 	interface_desc = "An inbuilt EVA maneuvering system that runs off the hardsuit air supply."
 
 	var/obj/item/tank/jetpack/rig/jets
+	/// Do we have stabilizers? If yes the user won't move from inertia.
+	var/stabilize = TRUE
 
 	category = MODULE_GENERAL
 
@@ -467,49 +493,35 @@
 	QDEL_NULL(jets)
 	. = ..()
 
-/obj/item/rig_module/maneuvering_jets/engage(atom/target, mob/user)
-	if(!..())
-		return FALSE
-	var/list/extra_mobs = list()
-	if(user != holder.wearer)
-		extra_mobs += holder.wearer
-	jets.toggle_rockets_stabilization(user, extra_mobs)
-	return TRUE
+/obj/item/rig_module/maneuvering_jets/get_configuration()
+	. = ..()
+	.["stabilizers"] = add_ui_configuration("Stabilizers", "bool", stabilize)
+
+/obj/item/rig_module/maneuvering_jets/configure_edit(key, value, mob/user)
+	switch(key)
+		if("stabilizers")
+			if(engage(src, user))
+				jets.toggle_rockets_stabilization(user)
 
 /obj/item/rig_module/maneuvering_jets/activate(mob/user)
-	if(active)
+	if(!..())
 		return FALSE
-	if(use_check_and_message(user))
-		return FALSE
-
-	active = TRUE
-
-	if(suit_overlay_active)
-		suit_overlay = suit_overlay_active
-	else
-		suit_overlay = null
-	holder.update_icon()
-
 	if(!jets.on)
-		var/list/extra_mobs = list()
-		if(user != holder.wearer)
-			extra_mobs += holder.wearer
-		jets.toggle_jetpack(user, extra_mobs)
+		jets.enable_jetpack(user)
+		stabilize = jets.stabilization_on
 	return TRUE
 
 /obj/item/rig_module/maneuvering_jets/deactivate(mob/user)
 	if(!..())
 		return FALSE
 	if(jets.on)
-		var/list/extra_mobs = list()
-		if(user != holder.wearer)
-			extra_mobs += holder.wearer
-		jets.toggle_jetpack(user, extra_mobs)
+		jets.disable_jetpack(user)
 	return TRUE
 
 /obj/item/rig_module/maneuvering_jets/New()
 	..()
 	jets = new(src)
+	stabilize = jets.stabilization_on
 
 /obj/item/rig_module/maneuvering_jets/installed()
 	..()
@@ -526,8 +538,6 @@
 	interface_name = "paper dispenser"
 	interface_desc = "Dispenses warm, clean, and crisp sheets of paper."
 	engage_string = "Dispense"
-	usable = TRUE
-	selectable = 0
 	device_type = /obj/item/paper_bin
 
 	category = MODULE_GENERAL
@@ -544,10 +554,10 @@
 	name = "mounted pen"
 	desc = "For mecha John Hancocks."
 	icon_state = "pen"
+	module_type = MODULETYPE_USABLE
 	interface_name = "mounted pen"
 	interface_desc = "Signatures with style(tm)."
 	engage_string = "Change color"
-	usable = TRUE
 	device_type = /obj/item/pen/multi
 
 	category = MODULE_GENERAL
@@ -555,11 +565,11 @@
 /obj/item/rig_module/device/stamp
 	name = "mounted internal affairs stamp"
 	desc = "DENIED."
+	module_type = MODULETYPE_USABLE
 	icon_state = "stamp"
 	interface_name = "mounted stamp"
 	interface_desc = "Leave your mark."
 	engage_string = "Toggle stamp type"
-	usable = TRUE
 	var/iastamp
 	var/deniedstamp
 
@@ -606,67 +616,51 @@
 	name = "leg actuators"
 	desc = "A set of electromechanical actuators, for safe traversal of multilevelled areas."
 	icon_state = "actuators"
+	module_type = MODULETYPE_USABLE_ACTIVE
 	interface_name = "leg actuators"
-	interface_desc = "Allows you to fall from heights and to jump up onto ledges."
+	interface_desc = "Allows you to fall from heights and dash up to <b>4</b> tiles at once. To jump onto ledges, stand adjacent and facing a climbable wall (one with a walkable turf above it), then target your own turf to rapidly climb to the turf above!"
 
 	construction_cost = list(DEFAULT_WALL_MATERIAL=15000, MATERIAL_GLASS = 1250, MATERIAL_SILVER =5250)
 	construction_time = 300
 
 	disruptive = FALSE
 
-	use_power_cost = 5
+	active_power_cost = 1
+	use_power_cost = 20
 	module_cooldown = 25
 
-	/*
-	 * TOGGLE - dampens fall, on or off.
-	 * SELECTABLE - Jump forward or up!
-	 */
-	toggleable = TRUE
-	selectable = TRUE
-	usable = FALSE
-
-	engage_string = "Toggle Leg Actuators"
-	activate_string = "Enable Leg Actuators"
-	deactivate_string = "Disable Leg Actuators"
-
-	var/combatType = 0		// Determines whether or not the actuators can do special combat oriented tasks.
-							// Such as leaping faster, or grappling targets.
-	var/leapDistance = 4	// Determines how far the actuators allow you to leap (radius, inclusive).
-
+	/// Determines whether or not the actuators can do special combat oriented tasks,
+	/// such as leaping faster, or grappling targets.
+	var/combatType = 0
+	/// Determines how far the actuators allow you to leap (radius, inclusive).
+	var/leapDistance = 4
 	category = MODULE_GENERAL
 
 /obj/item/rig_module/actuators/combat
 	name = "military grade leg actuators"
 	desc = "A set of high-powered hydraulic actuators, for improved traversal of multilevelled areas."
 	interface_name = "combat leg actuators"
-
+	interface_desc = "Allows you to fall from heights and dash up to <b>7</b> tiles at once. To jump onto ledges, stand adjacent and facing a climbable wall (one with a walkable turf above it), \
+	then target your own turf to <b>instantly</b> leap to the turf above! These leg actuators also let you aggressively lunge and grap people by targeting them directly with your dash ability."
 	combatType = 1
 	leapDistance = 7
 
-	use_power_cost = 10
+	use_power_cost = 50
 
 	category = MODULE_LIGHT_COMBAT
 
-/obj/item/rig_module/actuators/proc/is_valid_turf(var/turf/T)
-	if(!T || istype(T, /turf/space) || T.density || T.contains_dense_objects())
-		return null
-	if(isopenturf(T))
-		var/obj/structure/lattice/L = locate() in T
-		if(L)
-			return L.name
-		var/turf/leapBelow = GET_TURF_BELOW(T)
-		if(leapBelow.density)
-			return leapBelow.name
-		else if(T.contains_dense_objects())
-			return "structure"
-		else
-			return null
-	return T.name
+/obj/item/rig_module/actuators/get_configuration()
+	. = ..()
+	.["fall_damping"] = add_ui_configuration("Fall Damping", "bool", active)
+
+/obj/item/rig_module/actuators/configure_edit(key, value, mob/user)
+	switch(key)
+		if("fall_damping")
+			active = !active
+			balloon_alert(user, "fall damping [active ? "active" : "inactive"]!")
 
 /obj/item/rig_module/actuators/engage(atom/target, mob/user)
-	// This is for when you toggle it on or off. Why do they both run the same
-	// proc chain ...? :l
-	if (!target)
+	if(!target)
 		return TRUE
 
 	var/mob/living/carbon/human/H = holder.wearer
@@ -765,10 +759,25 @@
 		H.forceMove(leapEnd)
 		return TRUE
 
+/obj/item/rig_module/actuators/proc/is_valid_turf(var/turf/T)
+	if(!T || istype(T, /turf/space) || T.density || T.contains_dense_objects())
+		return null
+	if(isopenturf(T))
+		var/obj/structure/lattice/L = locate() in T
+		if(L)
+			return L.name
+		var/turf/leapBelow = GET_TURF_BELOW(T)
+		if(leapBelow.density)
+			return leapBelow.name
+		else if(T.contains_dense_objects())
+			return "structure"
+		else
+			return null
+	return T.name
 
 /obj/item/rig_module/cooling_unit
 	name = "mounted cooling unit"
-	toggleable = TRUE
+	module_type = MODULETYPE_TOGGLE
 	origin_tech = list(TECH_MAGNET = 2, TECH_MATERIAL = 2, TECH_ENGINEERING = 3)
 	interface_name = "mounted cooling unit"
 	interface_desc = "A heat sink with liquid cooled radiator."
@@ -799,8 +808,8 @@
 /obj/item/rig_module/cooling_unit/proc/get_environment_temperature()
 	if(ishuman(loc))
 		var/mob/living/carbon/human/H = loc
-		if(istype(H.loc, /obj/machinery/atmospherics/unary/cryo_cell))
-			var/obj/machinery/atmospherics/unary/cryo_cell/C = H.loc
+		if(istype(H.loc, /obj/structure/machinery/atmospherics/unary/cryo_cell))
+			var/obj/structure/machinery/atmospherics/unary/cryo_cell/C = H.loc
 			return C.air_contents.temperature
 
 	var/turf/T = get_turf(src)
@@ -819,13 +828,12 @@
 	icon_state = "actuators"
 	interface_name = "boring laser"
 	interface_desc = "Allows you to burrow to the z-level below."
+	module_type = MODULETYPE_USABLE
 
 	disruptive = 1
 
 	use_power_cost = 5
 	module_cooldown = 25
-
-	usable = TRUE
 
 	category = MODULE_VAURCA
 
@@ -850,10 +858,11 @@ GLOBAL_LIST_EMPTY(lattice_users)
 	icon_state = "actuators"
 	interface_name = "neural lattice"
 	interface_desc = "Synchronize neural lattice to reduce pain."
+	module_type = MODULETYPE_USABLE
 
 	disruptive = FALSE
 
-	toggleable = TRUE
+	module_type = MODULETYPE_TOGGLE
 	confined_use = TRUE
 
 	category = MODULE_VAURCA
@@ -877,8 +886,10 @@ GLOBAL_LIST_EMPTY(lattice_users)
 /obj/item/rig_module/foam_sprayer
 	name = "mounted foam sprayer"
 	desc = "A shoulder-mounted metal foam sprayer."
-	selectable = TRUE
+	module_type = MODULETYPE_USABLE_ACTIVE
 	icon_state = "actuators"
+
+	suit_overlay_active = "mounted-gun"
 
 	interface_name = "integrated foam sprayer"
 	interface_desc = "Projects a line of metal foam where the user selects."
@@ -922,26 +933,27 @@ GLOBAL_LIST_EMPTY(lattice_users)
 /obj/item/rig_module/recharger
 	name = "weapon recharge module"
 	desc = "A specialised power cable designed to connect an energy weapon to a hardsuit's power supply."
-	toggleable = TRUE
+	module_type = MODULETYPE_TOGGLE
 	icon_state = "powersink"
 	interface_name = "integrated weapon recharger"
 	interface_desc = "Can connect to an energy weapon, recharging it off the hardsuit's power supply. Drag the weapon onto the hardsuit control module to connect it."
 	category = MODULE_LIGHT_COMBAT
-	usable = FALSE
 	disruptive = FALSE
 	confined_use = TRUE
-	///The gun charging off our hardsuit
+	/// The gun charging off our hardsuit
 	var/obj/item/gun/energy/connected
 
-/obj/item/rig_module/recharger/activate(mob/user)
+/obj/item/rig_module/recharger/engage(atom/target, mob/user)
 	if (!..())
 		return FALSE
-
 
 	if(!connected)
 		to_chat(user, SPAN_NOTICE("\The [src] does not have a connected energy weapon to charge!"))
 		return FALSE
 
+	if(!active)
+		balloon_alert(user, "module inactive!")
+		return FALSE
 
 	to_chat(user, SPAN_NOTICE("\The [connected] is now connected to your hardsuit power supply. Deactivate this module to disconnect it."))
 	return TRUE
@@ -949,9 +961,8 @@ GLOBAL_LIST_EMPTY(lattice_users)
 /obj/item/rig_module/recharger/deactivate(mob/user)
 	if (!..())
 		return FALSE
-
-
 	if(connected)
+		balloon_alert(user, "[connected] disconnected!")
 		connected.disconnect()
 
 

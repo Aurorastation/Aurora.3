@@ -189,7 +189,7 @@
 	set_light_on(on)
 	update_icon()
 
-/obj/item/flashlight/vendor_action(var/obj/machinery/vending/V)
+/obj/item/flashlight/vendor_action(var/obj/structure/machinery/vending/V)
 	toggle()
 
 /obj/item/flashlight/emp_act(severity)
@@ -211,7 +211,7 @@
 
 		var/mob/living/carbon/human/H = target_mob	//mob has protective eyewear
 		if(istype(H))
-			if(H.get_flash_protection())
+			if(H.get_flash_protection() > FLASH_PROTECTION_NONE)
 				to_chat(user, SPAN_WARNING("You're going to need to remove \the [H]'s eye protection first."))
 				return
 

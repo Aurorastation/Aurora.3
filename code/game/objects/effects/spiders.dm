@@ -1,4 +1,4 @@
-//generic procs copied from obj/effect/alien
+///generic procs copied from obj/effect/alien
 /obj/effect/spider
 	name = "web"
 	desc = "It's stringy and sticky, eugh. Probably came from one of those greimorians..."
@@ -120,7 +120,7 @@
 	var/growth_rate = 1
 	/// Their current growth, from 0-100.
 	var/growth_level = 0
-	var/obj/machinery/atmospherics/unary/vent_pump/entry_vent
+	var/obj/structure/machinery/atmospherics/unary/vent_pump/entry_vent
 	var/travelling_in_vent = FALSE
 	/// Possible creatures the larva can mature into.
 	var/list/possible_offspring = list(
@@ -172,12 +172,12 @@
 		if(get_dist(src, entry_vent) <= 1)
 			if(entry_vent.network && entry_vent.network.normal_members.len)
 				var/list/vents = list()
-				for(var/obj/machinery/atmospherics/unary/vent_pump/temp_vent in entry_vent.network.normal_members)
+				for(var/obj/structure/machinery/atmospherics/unary/vent_pump/temp_vent in entry_vent.network.normal_members)
 					vents.Add(temp_vent)
 				if(!vents.len)
 					entry_vent = null
 					return
-				var/obj/machinery/atmospherics/unary/vent_pump/exit_vent = pick(vents)
+				var/obj/structure/machinery/atmospherics/unary/vent_pump/exit_vent = pick(vents)
 
 				spawn(rand(20,60))
 					if(!QDELETED(src))
@@ -218,7 +218,7 @@
 				src.visible_message(SPAN_NOTICE("\The [src] skitters[pick(" away"," around","")]."))
 	else if(prob(5))
 		//vent crawl!
-		for(var/obj/machinery/atmospherics/unary/vent_pump/v in view(7,src))
+		for(var/obj/structure/machinery/atmospherics/unary/vent_pump/v in view(7,src))
 			if(!v.welded)
 				entry_vent = v
 				GLOB.move_manager.move_to(src, entry_vent, 0, 5)

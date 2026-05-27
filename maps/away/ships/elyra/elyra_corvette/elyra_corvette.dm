@@ -120,7 +120,7 @@
 	sizeclass = "Huriya-class Transport Craft"
 	shiptype = "All-environment troop transport"
 
-/obj/machinery/computer/shuttle_control/explore/elyran_shuttle
+/obj/structure/machinery/computer/shuttle_control/explore/elyran_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Elyran Naval Shuttle"
 	req_access = list(ACCESS_ELYRAN_NAVAL_INFANTRY_SHIP)
