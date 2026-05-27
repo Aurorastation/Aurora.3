@@ -33,8 +33,8 @@
 		A.reagents.trans_to_obj(src, max_fuel)
 		to_chat(user, SPAN_NOTICE("You refuel \the [src]."))
 		playsound(get_turf(src), 'sound/effects/refill.ogg', 50, TRUE, -6)
-	else if(istype(A, /obj/machinery/beehive))
-		var/obj/machinery/beehive/B = A
+	else if(istype(A, /obj/structure/machinery/beehive))
+		var/obj/structure/machinery/beehive/B = A
 		if(B.closed)
 			to_chat(user, SPAN_WARNING("You need to open \the [B] with a crowbar before smoking the bees."))
 			return TRUE

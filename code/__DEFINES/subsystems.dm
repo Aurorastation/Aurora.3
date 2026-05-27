@@ -1,6 +1,6 @@
 /// START specific to SSmachinery
 #define START_PROCESSING_MACHINE(machine, flag)\
-	if(!istype(machine, /obj/machinery)) CRASH("A non-machine [log_info_line(machine)] was queued to process on the machinery subsystem.");\
+	if(!istype(machine, /obj/structure/machinery)) CRASH("A non-machine [log_info_line(machine)] was queued to process on the machinery subsystem.");\
 	machine.processing_flags |= flag;\
 	START_PROCESSING(SSmachinery, machine)
 
@@ -225,6 +225,7 @@
 #define INIT_ORDER_DBCORE 95
 #define INIT_ORDER_AUTH 94 //Admin permissions should be loaded early on
 #define INIT_ORDER_SOUNDS 83
+#define INIT_ORDER_SENTRY 79
 #define INIT_ORDER_DISCORD 78
 #define INIT_ORDER_JOBS 65 // Must init before atoms, to set up properly the dynamic job lists.
 #define INIT_ORDER_AI_CONTROLLERS 55 //So the controller can get the ref

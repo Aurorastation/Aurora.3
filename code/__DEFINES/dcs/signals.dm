@@ -41,6 +41,8 @@
 #define COMSIG_MOB_ZONE_SEL_CHANGE "mob_zone_sel_change"
 ///from base of /mob/Login(): ()
 #define COMSIG_MOB_LOGIN "mob_login"
+/// Sent at the end of /mob/LateLogin() after the client is fully initialized.
+#define COMSIG_MOB_AFTER_LOGIN "mob_after_login"
 ///from base of /mob/Logout(): ()
 #define COMSIG_MOB_LOGOUT "mob_logout"
 /// from mob/get_status_tab_items(): (list/items)
@@ -126,3 +128,15 @@
 // Various computer signals for interrupting via skill or other effects.
 #define COMSIG_USE_REACTOR_COMPUTER "use_reactor_computer"
 #define COMSIG_USE_MECH_FAB "use_mech_fab"
+
+// Surgery Signals
+/// Signal raised against the surgeon attempting to perform a surgery to query their components for any rate mods.
+#define COMSIG_GET_SURGERY_SUCCESS_MODIFIERS "get_surgery_success_modifiers"
+
+/// Signal raised against a character attempting to give a ministry moodlet to someone.
+#define COMSIG_GET_MINISTRY_MODIFIERS "get_ministry_modifiers"
+/// Signal raised against the recipient of the Ministry skill action, allowing effects to interrupt the received moodlet.
+#define COMSIG_RECEIVE_MINISTRY_MODIFIERS "receive_ministry_modifiers"
+
+/// Signal raised against a character attempting to deliver a speech.
+#define COMSIG_GET_LEADERSHIP_MODIFIERS "get_leadership_modifiers"

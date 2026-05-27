@@ -1,7 +1,7 @@
 /datum/computer_file/data/waypoint
 	var/list/fields = list()
 
-/obj/machinery/computer/ship/helm
+/obj/structure/machinery/computer/ship/helm
 	name = "helm control console"
 	icon_screen = "helm"
 	icon_keyboard = "cyan_key"
@@ -17,7 +17,7 @@
 	var/list/linked_helmets = list()
 	circuit = /obj/item/circuitboard/ship/helm
 
-/obj/machinery/computer/ship/helm/cockpit
+/obj/structure/machinery/computer/ship/helm/cockpit
 	density = 0
 	icon = 'icons/obj/cockpit_console.dmi'
 	icon_state = "main"
@@ -25,7 +25,7 @@
 	icon_keyboard = null
 	circuit = null
 
-/obj/machinery/computer/ship/helm/terminal
+/obj/structure/machinery/computer/ship/helm/terminal
 	name = "helm control terminal"
 	icon = 'icons/obj/modular_computers/modular_terminal.dmi'
 	icon_screen = "helm"
@@ -36,16 +36,16 @@
 	can_pass_under = FALSE
 	light_power_on = 1
 
-/obj/machinery/computer/ship/helm/Initialize()
+/obj/structure/machinery/computer/ship/helm/Initialize()
 	. = ..()
 	get_known_sectors()
 
-/obj/machinery/computer/ship/helm/Destroy()
+/obj/structure/machinery/computer/ship/helm/Destroy()
 	for(var/obj/item/clothing/head/helmet/pilot/PH as anything in linked_helmets)
 		PH.linked_helm = null
 	return ..()
 
-/obj/machinery/computer/ship/helm/attackby(obj/item/attacking_item, mob/user, params)
+/obj/structure/machinery/computer/ship/helm/attackby(obj/item/attacking_item, mob/user, params)
 	if(istype(attacking_item, /obj/item/clothing/head/helmet/pilot))
 		if(!connected)
 			to_chat(user, SPAN_WARNING("\The [src] isn't linked to any vessels!"))
@@ -62,7 +62,7 @@
 		return
 	return ..()
 
-/obj/machinery/computer/ship/helm/proc/get_known_sectors()
+/obj/structure/machinery/computer/ship/helm/proc/get_known_sectors()
 	var/area/overmap/map = GLOB.map_overmap
 	if(!map)
 		return
@@ -74,13 +74,13 @@
 			R.fields["y"] = S.y
 			known_sectors[S.name] = R
 
-/obj/machinery/computer/ship/helm/proc/check_processing()
+/obj/structure/machinery/computer/ship/helm/proc/check_processing()
 	if(autopilot || length(linked_helmets))
 		START_PROCESSING(SSprocessing, src)
 		return
 	STOP_PROCESSING(SSprocessing, src)
 
-/obj/machinery/computer/ship/helm/process()
+/obj/structure/machinery/computer/ship/helm/process()
 	..()
 	if (autopilot && dx && dy)
 		var/turf/T = locate(dx,dy,SSatlas.current_map.overmap_z)
@@ -109,21 +109,21 @@
 		PH.set_hud_maptext("| Ship Status | [connected.x]-[connected.y] |<br>Speed: [round(connected.get_speed()*1000, 0.01)] | Acceleration: [get_acceleration()]<br>ETA to Next Grid: [get_eta()]")
 		PH.check_ship_overlay(PH.loc, connected)
 
-/obj/machinery/computer/ship/helm/relaymove(mob/living/user, direction)
+/obj/structure/machinery/computer/ship/helm/relaymove(mob/living/user, direction)
 	. = ..()
 
 	if(viewing_overmap(user) && connected)
 		connected.relaymove(user, direction, accellimit)
 		return 1
 
-/obj/machinery/computer/ship/helm/ui_interact(mob/user, datum/tgui/ui)
+/obj/structure/machinery/computer/ship/helm/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "Helm", capitalize_first_letters(name))
 		RegisterSignal(ui, COMSIG_TGUI_CLOSE, PROC_REF(handle_unlook_signal))
 		ui.open()
 
-/obj/machinery/computer/ship/helm/ui_data(mob/user)
+/obj/structure/machinery/computer/ship/helm/ui_data(mob/user)
 	var/list/data = list()
 
 	if(!connected)
@@ -178,17 +178,17 @@
 
 	return data
 
-/obj/machinery/computer/ship/helm/proc/get_acceleration()
+/obj/structure/machinery/computer/ship/helm/proc/get_acceleration()
 	return min(round(connected.get_acceleration()*1000, 0.01),accellimit*1000)
 
-/obj/machinery/computer/ship/helm/proc/get_eta()
+/obj/structure/machinery/computer/ship/helm/proc/get_eta()
 	var/ETA = connected.ETA()
 	if(ETA && connected.get_speed())
 		return "[round(ETA/7)] seconds"
 	else
 		return "N/A"
 
-/obj/machinery/computer/ship/helm/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/obj/structure/machinery/computer/ship/helm/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	if(..())
 		return TRUE
 
@@ -281,13 +281,13 @@
 				params["turn"] = pick("45", "-45")
 			else
 				connected.relaymove(usr, connected.dir, accellimit)
-				addtimer(CALLBACK(src, PROC_REF(updateUsrDialog)), connected.burn_delay + 1) // remove when turning into vueui
+				addtimer(CALLBACK(src, PROC_REF(refresh_ui)), connected.burn_delay + 1)
 
 		if (action == "turn")
 			var/ndir = text2num(params["turn"])
 			if(connected.can_turn())
 				connected.turn_ship(ndir)
-				addtimer(CALLBACK(src, PROC_REF(updateUsrDialog)), min(connected.vessel_mass / 10, 1) SECONDS + 1)
+				addtimer(CALLBACK(src, PROC_REF(refresh_ui)), min(connected.vessel_mass / 10, 1) SECONDS + 1)
 
 		if (action == "combat_turn")
 			var/ndir = text2num(params["combat_turn"])
@@ -299,7 +299,7 @@
 
 		if (action == "brake")
 			connected.decelerate()
-			addtimer(CALLBACK(src, PROC_REF(updateUsrDialog)), connected.burn_delay + 1)
+			addtimer(CALLBACK(src, PROC_REF(refresh_ui)), connected.burn_delay + 1)
 
 		if (action == "apilot")
 			autopilot = !autopilot
@@ -309,9 +309,12 @@
 		return TRUE
 
 	add_fingerprint(usr)
-	updateUsrDialog()
+	SStgui.update_uis(src)
 
-/obj/machinery/computer/ship/navigation
+/obj/structure/machinery/computer/ship/helm/proc/refresh_ui()
+	SStgui.update_uis(src)
+
+/obj/structure/machinery/computer/ship/navigation
 	name = "navigation console"
 	icon_screen = "nav"
 	icon_keyboard = "cyan_key"
@@ -319,7 +322,7 @@
 	light_color = LIGHT_COLOR_CYAN
 	circuit = /obj/item/circuitboard/ship/navigation
 
-/obj/machinery/computer/ship/navigation/cockpit
+/obj/structure/machinery/computer/ship/navigation/cockpit
 	density = 0
 	icon = 'icons/obj/cockpit_console.dmi'
 	icon_state = "right"
@@ -327,7 +330,7 @@
 	icon_keyboard = null
 	circuit = null
 
-/obj/machinery/computer/ship/navigation/terminal
+/obj/structure/machinery/computer/ship/navigation/terminal
 	name = "navigation terminal"
 	icon = 'icons/obj/modular_computers/modular_terminal.dmi'
 	icon_screen = "nav"
@@ -338,14 +341,25 @@
 	can_pass_under = FALSE
 	light_power_on = 1
 
-/obj/machinery/computer/ship/navigation/ui_interact(mob/user, datum/tgui/ui)
+/obj/structure/machinery/computer/ship/navigation/attack_hand(mob/user)
+	if(stat & (NOPOWER|BROKEN))
+		return FALSE
+	if(use_check_and_message(user))
+		return FALSE
+	if(!emagged && !allowed(user))
+		to_chat(user, SPAN_WARNING("Access denied."))
+		return FALSE
+	user.set_machine(src)
+	ui_interact(user)
+
+/obj/structure/machinery/computer/ship/navigation/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "Nav", capitalize_first_letters(name), ui_x=470, ui_y=320)
 		RegisterSignal(ui, COMSIG_TGUI_CLOSE, PROC_REF(handle_unlook_signal))
 		ui.open()
 
-/obj/machinery/computer/ship/navigation/ui_data(mob/user)
+/obj/structure/machinery/computer/ship/navigation/ui_data(mob/user)
 	var/list/data = list()
 
 	if(!connected)
@@ -370,14 +384,14 @@
 
 	return data
 
-/obj/machinery/computer/ship/navigation/proc/get_eta()
+/obj/structure/machinery/computer/ship/navigation/proc/get_eta()
 	var/ETA = connected.ETA()
 	if(ETA && connected.get_speed())
 		return "[round(ETA/7)] seconds"
 	else
 		return "N/A"
 
-/obj/machinery/computer/ship/navigation/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/obj/structure/machinery/computer/ship/navigation/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	if(..())
 		return TRUE
 

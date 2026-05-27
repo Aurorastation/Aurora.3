@@ -146,7 +146,7 @@
 	sizeclass = "Mattock-class Mining Shuttle"
 	shiptype = "Mineral exploitation and salvage operations"
 
-/obj/machinery/computer/shuttle_control/explore/terminal/scarab_shuttle
+/obj/structure/machinery/computer/shuttle_control/explore/terminal/scarab_shuttle
 	name = "shuttle control terminal"
 	shuttle_tag = "Scarab Shuttle"
 
@@ -194,7 +194,7 @@
 	base_area = /area/ship/coc_scarab/cargobay
 	base_turf = /turf/simulated/open
 
-/obj/machinery/computer/shuttle_control/multi/lift/scarab
+/obj/structure/machinery/computer/shuttle_control/multi/lift/scarab
 	shuttle_tag = "Scarab Lift"
 
 // CUSTOM STUFF

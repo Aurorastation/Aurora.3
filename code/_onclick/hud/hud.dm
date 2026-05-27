@@ -51,7 +51,7 @@ GLOBAL_LIST(global_huds)
 	blurry.alpha = 100
 
 	vr_control = new /atom/movable/screen()
-	vr_control.icon = 'icons/mob/screen/full.dmi'
+	vr_control.icon = 'icons/hud/mob/full.dmi'
 	vr_control.icon_state = "vr_control"
 	vr_control.screen_loc = "1,1"
 	vr_control.mouse_opacity = MOUSE_OPACITY_TRANSPARENT

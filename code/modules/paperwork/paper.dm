@@ -66,6 +66,18 @@
 	var/can_change_icon_state = TRUE
 	var/set_unsafe_on_init = FALSE
 
+	persistant_objects_expiration_time_days = 180
+
+/obj/item/paper/Destroy()
+	info = null
+	info_links = null
+	stamps = null
+	ico = null
+	offset_x = null
+	offset_y = null
+	stamped = null
+	return ..()
+
 /obj/item/paper/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	if (old_name && (icon_state == "paper_plane" || icon_state == "paper_swan"))
@@ -91,13 +103,13 @@
 		if (mapload)
 			update_icon()
 		else
-			addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, update_icon)), 1)
+			addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, update_icon)), 1, TIMER_STOPPABLE | TIMER_DELETE_ME)
 
-/obj/item/paper/proc/set_content(title, text)
+/obj/item/paper/proc/set_content(title, text, adddefaultfont = TRUE)
 	if(title)
 		name = title
 	if (text && length(text))
-		info = parsepencode(text)
+		info = parsepencode(text, skipdefaultfont = !adddefaultfont)
 	else
 		info = ""
 
@@ -347,7 +359,7 @@
 
 	return signfont
 
-/obj/item/paper/proc/parsepencode(t, obj/item/pen/P, mob/user, iscrayon, isfountain, istypewriter)
+/obj/item/paper/proc/parsepencode(t, obj/item/pen/P, mob/user, iscrayon, isfountain, istypewriter, skipdefaultfont = FALSE)
 	if(user)
 		t = parse_languages(user, t, TRUE)
 	if(P)
@@ -403,14 +415,15 @@
 		t = replacetext(t, "\[cell\]", "")
 		t = replacetext(t, "\[barcode\]", "")
 
-	if(iscrayon)
-		t = "<font face=\"[crayonfont]\" color=[P ? P.colour : "black"]><b>[t]</b></font>"
-	else if(isfountain)
-		t = "<font face=\"[fountainfont]\" color=[P ? P.colour : "black"]><i>[t]</i></font>"
-	else if(istypewriter)
-		t = "<font face=\"[typewriterfont]\" color=[P ? P.colour : "black"]><i>[t]</i></font>"
-	else
-		t = "<font face=\"[deffont]\" color=[P ? P.colour : "black"]>[t]</font>"
+	if(!skipdefaultfont)
+		if(iscrayon)
+			t = "<font face=\"[crayonfont]\" color=[P ? P.colour : "black"]><b>[t]</b></font>"
+		else if(isfountain)
+			t = "<font face=\"[fountainfont]\" color=[P ? P.colour : "black"]><i>[t]</i></font>"
+		else if(istypewriter)
+			t = "<font face=\"[typewriterfont]\" color=[P ? P.colour : "black"]><i>[t]</i></font>"
+		else
+			t = "<font face=\"[deffont]\" color=[P ? P.colour : "black"]>[t]</font>"
 
 	t = pencode2html(t)
 
@@ -442,7 +455,7 @@
 		else
 			flick("paper_onfire", src)
 
-		addtimer(CALLBACK(src, PROC_REF(burnpaper_callback), P, user, class), 20, TIMER_UNIQUE)
+		addtimer(CALLBACK(src, PROC_REF(burnpaper_callback), P, user, class), 20, TIMER_UNIQUE | TIMER_STOPPABLE | TIMER_DELETE_ME)
 
 /obj/item/paper/proc/burnpaper_callback(obj/item/P, mob/user, class = "warning")
 	if (QDELETED(user) || QDELETED(src))
@@ -832,7 +845,7 @@
 	return content
 
 /obj/item/paper/persistent_objects_apply_content(content, x, y, z)
-	set_content(content["title"], content["text"])
+	set_content(content["title"], content["text"], adddefaultfont = FALSE)
 	src.x = x
 	src.y = y
 	src.z = z
@@ -890,7 +903,7 @@
 	..()
 
 /obj/item/paper/stickynotes/afterattack(var/A, mob/user, var/prox, var/params)
-	if(!in_range(user, A) || istype(A, /obj/machinery) || istype(A, /obj/item/paper) || crumpled)
+	if(!in_range(user, A) || istype(A, /obj/structure/machinery) || istype(A, /obj/item/paper) || crumpled)
 		return
 
 	var/turf/target_turf = get_turf(A)

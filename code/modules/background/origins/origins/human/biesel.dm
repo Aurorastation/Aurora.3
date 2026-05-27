@@ -10,16 +10,15 @@
 
 /singleton/origin_item/origin/biesel
 	name = "Biesel"
-	desc = "One of the first colonies outside of the Sol System, Biesel has since flourished into an economic powerhouse within the greater Orion Spur. There exists no singular culture, but instead, a loose melting pot of multiculturalism exists where the only definable trait of Biesellite culture is that it doesn't have any. Most of Tau Ceti's inhabitants reside within Mendell City, a large metropolis that stretches across the plains of Biesel, and has various districts each with its own culture."
+	desc = "One of the first colonies outside of the Sol System, Biesel has since flourished into an economic and cultural powerhouse within the greater Orion Spur, and sets the cultural benchmark for the greater Republic of Biesel. Many of Biesel's inhabitants reside within Mendell City, a large metropolis that stretches across the plains of Biesel, and has various districts each with its own culture."
 	possible_accents = list(ACCENT_CETI)
 	possible_citizenships = list(CITIZENSHIP_BIESEL, CITIZENSHIP_SOL)
 	possible_religions = RELIGIONS_BIESEL
 
 /singleton/origin_item/origin/new_gibson
 	name = "New Gibson"
-	desc = "New Gibson has suffered many tragedies throughout its history, leading to a hardened, communal society. While the multiculturalism that exists within the Republic of Biesel has also affected New Gibsonites, they are still far more reliant on their colonial roots compared to their Biesellite counterparts."
-	important_information = "Due to the insular nature of the Undirstads of New Gibson, <b>characters hailing from them must have names and appearances consistent with the Nordic regions of Earth, the original colonists of the Undirstads.</b> Only those born in the Undirstads may take the Undirstad accent. This is enforceable by server moderation and admins."
-	possible_accents = list(ACCENT_GIBSON_OVAN, ACCENT_GIBSON_UNDIR)
+	desc = "New Gibson is the largest moon of Reade and the Industrial Heart of Tau Ceti. Historically, it has been neglected by both the Solarian Alliance and the Republic of Biesel, dealing with crisis after crisis. As such, its people are hardened, insular, and often resentful. However, they are experts at their crafts, be it mining, engineering, or phoronics."
+	possible_accents = list(ACCENT_GIBSON)
 	possible_citizenships = list(CITIZENSHIP_BIESEL, CITIZENSHIP_SOL)
 	possible_religions = RELIGIONS_BIESEL
 	origin_traits = list(TRAIT_ORIGIN_COLD_RESISTANCE)
@@ -27,7 +26,7 @@
 
 /singleton/origin_item/origin/reade
 	name = "Reade"
-	desc = "Outposts dot the dozens of moons found in orbit of Reade, many dedicated to mineral extraction and refinement. However, within the upper atmosphere of the gas giant the engineering feat that is the Anemostrovilos exists. The gigantic floating metropolis has its industry focused on the extraction of important gases such as Hydrogen and Helium-3 required to fuel the Orion Spur's warpdrives and thrusters. Nearly anyone can be found in the outposts either in the upper atmosphere of Reade or across its many moons."
+	desc = "A gas giant in outer Tau Ceti, home to both platforms within the planet's atmosphere and countless smaller outposts in orbit and on its many moons. A fledgling culture defined by company and military towns can be found within the non-unified Reade's atmosphere, with city state-like platforms competing with one another and responsible for much of the Republic of Biesel's military shipbuilding. In orbit and among its moons, smaller off-worlder communities can be found."
 	possible_accents = list(ACCENT_READE)
 	possible_citizenships = list(CITIZENSHIP_BIESEL, CITIZENSHIP_SOL)
 	possible_religions = RELIGIONS_BIESEL

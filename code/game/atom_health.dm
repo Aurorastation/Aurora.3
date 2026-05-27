@@ -70,16 +70,18 @@
 	return TRUE
 
 /**
- * Use this proc to update an atom's maxhealth. Set update_current_health to TRUE if you want to change the current health proportionally to the new maxhealth, or FALSE if you want to keep the current health the same.
+ * Use this proc to update an atom's maxhealth.
+ * Set update_current_health to TRUE if you want to change the current health proportionally to the new maxhealth, or FALSE if you want to keep the current health the same.
  */
 /atom/proc/set_maxhealth(new_maxhealth, update_current_health = FALSE)
-	if(!maxhealth || !should_use_health)
+	if(!should_use_health)
 		return FALSE
 
 	var/old_maxhealth = maxhealth
 	maxhealth = new_maxhealth
 	if(update_current_health || health > maxhealth)
-		health *= maxhealth / old_maxhealth
+		// Incase this proc is used to determine initial maxhealth value, we make sure to assign the health value instead of multiplying the null by the value.
+		health = health ? health * (maxhealth / old_maxhealth) : maxhealth
 	return TRUE
 
 /**

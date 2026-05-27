@@ -7,13 +7,13 @@
 
 /obj/effect/map_effect/door_helper/Initialize(mapload, ...)
 	..()
-	for(var/obj/machinery/door/D in loc)
-		if(istype(D, /obj/machinery/door/blast) || istype(D, /obj/machinery/door/firedoor))
+	for(var/obj/structure/machinery/door/D in loc)
+		if(istype(D, /obj/structure/machinery/door/blast) || istype(D, /obj/structure/machinery/door/firedoor))
 			continue
 		modify_door(D)
 	return INITIALIZE_HINT_QDEL
 
-/obj/effect/map_effect/door_helper/proc/modify_door(obj/machinery/door/D)
+/obj/effect/map_effect/door_helper/proc/modify_door(obj/structure/machinery/door/D)
 	return
 
 // --------------------------
@@ -24,7 +24,7 @@
 /obj/effect/map_effect/door_helper/unres
 	icon_state = "door_helper_unres_door"
 
-/obj/effect/map_effect/door_helper/unres/modify_door(obj/machinery/door/D)
+/obj/effect/map_effect/door_helper/unres/modify_door(obj/structure/machinery/door/D)
 	D.unres_dir ^= dir
 
 // --------------------------
@@ -41,11 +41,11 @@
 	/// As above, but with req_one_access. Note that only one of these lists should ever be set.
 	var/list/req_one_access_by_level
 
-/obj/effect/map_effect/door_helper/level_access/modify_door(obj/machinery/door/D)
+/obj/effect/map_effect/door_helper/level_access/modify_door(obj/structure/machinery/door/D)
 	if(length(access_by_level) && length(req_one_access_by_level))
 		crash_with("Airlock access level modifier at [x] [y] [z] spawned with both access lists set.")
 	if(isairlock(D))
-		var/obj/machinery/door/airlock/A = D
+		var/obj/structure/machinery/door/airlock/A = D
 		A.access_by_level = access_by_level
 		A.req_one_access_by_level = req_one_access_by_level
 
@@ -78,10 +78,10 @@
 /obj/effect/map_effect/door_helper/lock
 	icon_state = "door_helper_locked"
 
-/obj/effect/map_effect/door_helper/lock/modify_door(obj/machinery/door/D)
+/obj/effect/map_effect/door_helper/lock/modify_door(obj/structure/machinery/door/D)
 	. = ..()
 	if(isairlock(D))
-		var/obj/machinery/door/airlock/A = D
+		var/obj/structure/machinery/door/airlock/A = D
 		A.locked = TRUE
 		A.set_airlock_overlays(AIRLOCK_CLOSED)
 
@@ -92,9 +92,9 @@
 /obj/effect/map_effect/door_helper/access_req
 	icon_state = "door_helper_access_req"
 
-/obj/effect/map_effect/door_helper/access_req/modify_door(obj/machinery/door/door)
+/obj/effect/map_effect/door_helper/access_req/modify_door(obj/structure/machinery/door/door)
 	. = ..()
-	if(isairlock(door) || istype(door, /obj/machinery/door/window))
+	if(isairlock(door) || istype(door, /obj/structure/machinery/door/window))
 		if(!door.req_access && req_access)
 			door.req_access = list()
 		door.req_access += req_access

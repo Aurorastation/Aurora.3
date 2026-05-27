@@ -1,6 +1,6 @@
 /obj/item/circuitboard/biogenerator
 	name = T_BOARD("biogenerator")
-	build_path = /obj/machinery/biogenerator
+	build_path = /obj/structure/machinery/biogenerator
 	board_type = BOARD_MACHINE
 	origin_tech = list(TECH_DATA = 2)
 	req_components = list(
@@ -10,4 +10,4 @@
 
 /obj/item/circuitboard/biogenerator/small
 	name = T_BOARD("small biogenerator")
-	build_path = /obj/machinery/biogenerator/small
+	build_path = /obj/structure/machinery/biogenerator/small

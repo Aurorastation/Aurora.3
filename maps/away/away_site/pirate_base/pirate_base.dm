@@ -60,7 +60,7 @@
 	designation = "[pick("Black Betty", "Bastard's Home", "Super Glue Tank", "Battering Ram", "Desperado", "Scimitar", "Arrow's End", "Rustbucket", "Flintlock")]"
 	..()
 
-/obj/machinery/computer/shuttle_control/explore/pirate_ship
+/obj/structure/machinery/computer/shuttle_control/explore/pirate_ship
 	name = "shuttle control console"
 	shuttle_tag = "Wanted Vessel"
 

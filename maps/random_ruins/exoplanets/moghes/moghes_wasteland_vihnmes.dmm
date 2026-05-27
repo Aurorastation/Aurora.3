@@ -16,7 +16,7 @@
 	},
 /area/exoplanet/moghes)
 "ay" = (
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 8
 	},
 /obj/structure/reagent_dispensers/watertank,
@@ -143,7 +143,7 @@
 	},
 /area/moghes_vihnmes)
 "dC" = (
-/obj/machinery/door/window{
+/obj/structure/machinery/door/window{
 	dir = 4
 	},
 /obj/effect/floor_decal/spline/plain/beige{
@@ -203,7 +203,7 @@
 /obj/item/reagent_containers/glass/bottle/ammonia,
 /obj/item/reagent_containers/glass/bottle/ammonia,
 /obj/item/reagent_containers/glass/bottle/ammonia,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/item/saddle,
@@ -319,7 +319,7 @@
 	},
 /area/moghes_vihnmes)
 "oJ" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/grass/moghes/dirt{
@@ -327,7 +327,7 @@
 	},
 /area/exoplanet/moghes)
 "oS" = (
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 1
 	},
 /obj/structure/bed/stool/wood,
@@ -389,7 +389,7 @@
 	},
 /area/moghes_vihnmes)
 "rw" = (
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 4
 	},
 /obj/effect/floor_decal/spline/plain/beige{
@@ -409,7 +409,7 @@
 	},
 /area/exoplanet/moghes)
 "sH" = (
-/obj/machinery/door/window{
+/obj/structure/machinery/door/window{
 	dir = 4
 	},
 /obj/effect/floor_decal/spline/plain/beige,
@@ -444,7 +444,7 @@
 	pixel_x = 5;
 	pixel_y = -2
 	},
-/obj/machinery/reagentgrinder{
+/obj/structure/machinery/reagentgrinder{
 	pixel_x = 4;
 	pixel_y = 16
 	},
@@ -455,7 +455,7 @@
 /area/moghes_vihnmes)
 "tV" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/vending/dinnerware,
+/obj/structure/machinery/vending/dinnerware,
 /turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
@@ -488,7 +488,7 @@
 	},
 /area/moghes_vihnmes)
 "uN" = (
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 1
 	},
 /obj/effect/floor_decal/spline/plain/beige{
@@ -497,7 +497,7 @@
 /turf/simulated/floor/exoplanet/wood/birch,
 /area/moghes_vihnmes)
 "va" = (
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 1
 	},
 /obj/structure/flora/pottedplant/woodyshrubdying,
@@ -508,7 +508,7 @@
 /area/moghes_vihnmes)
 "vG" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/tiled/white{
@@ -549,7 +549,7 @@
 /obj/item/storage/box/shells/buckshot,
 /obj/item/clothing/accessory/storage/bandolier,
 /obj/item/clothing/suit/armor/unathi,
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 8
 	},
 /obj/effect/floor_decal/spline/plain/beige{
@@ -606,7 +606,7 @@
 /area/moghes_vihnmes)
 "xR" = (
 /obj/structure/table/wood,
-/obj/machinery/chemical_dispenser/bar_alc/full{
+/obj/structure/machinery/chemical_dispenser/bar_alc/full{
 	dir = 4
 	},
 /obj/effect/floor_decal/spline/plain/beige{
@@ -636,7 +636,7 @@
 /area/moghes_vihnmes)
 "yM" = (
 /obj/structure/closet/crate/hydroponics,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/grass/moghes/dirt{
@@ -652,10 +652,10 @@
 /area/moghes_vihnmes)
 "zg" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 8
 	},
-/obj/machinery/appliance/cooker/oven,
+/obj/structure/machinery/appliance/cooker/oven,
 /turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
@@ -750,7 +750,7 @@
 /area/exoplanet/moghes)
 "Fb" = (
 /obj/structure/reagent_dispensers/keg/xuizikeg,
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 8
 	},
 /obj/effect/floor_decal/spline/plain/beige{
@@ -799,7 +799,7 @@
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/tiled/white{
@@ -863,7 +863,7 @@
 /area/moghes_vihnmes)
 "IB" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/appliance/cooker/stove,
+/obj/structure/machinery/appliance/cooker/stove,
 /turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
@@ -887,7 +887,7 @@
 /area/moghes_vihnmes)
 "Jt" = (
 /obj/structure/table/wood,
-/obj/machinery/chemical_dispenser/bar_soft/full{
+/obj/structure/machinery/chemical_dispenser/bar_soft/full{
 	dir = 4
 	},
 /obj/effect/floor_decal/spline/plain/beige{
@@ -964,7 +964,7 @@
 	},
 /area/moghes_vihnmes)
 "Oj" = (
-/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/structure/machinery/portable_atmospherics/hydroponics/soil,
 /turf/simulated/floor/exoplanet/grass/moghes/dirt{
 	temperature = 315.15
 	},
@@ -988,7 +988,7 @@
 	},
 /obj/structure/table/wood,
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/tiled/white{
@@ -1059,7 +1059,7 @@
 	},
 /area/moghes_vihnmes)
 "RF" = (
-/obj/machinery/vending/dinnerware/bar,
+/obj/structure/machinery/vending/dinnerware/bar,
 /obj/effect/floor_decal/spline/plain/beige{
 	dir = 8
 	},
@@ -1080,14 +1080,14 @@
 	},
 /area/moghes_vihnmes)
 "Sx" = (
-/obj/machinery/portable_atmospherics/hydroponics/soil,
-/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/structure/machinery/portable_atmospherics/hydroponics/soil,
+/obj/structure/machinery/portable_atmospherics/hydroponics/soil,
 /turf/simulated/floor/exoplanet/grass/moghes/dirt{
 	temperature = 315.15
 	},
 /area/exoplanet/moghes)
 "SH" = (
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 1
 	},
 /obj/effect/floor_decal/spline/plain/beige{
@@ -1107,7 +1107,7 @@
 	},
 /area/exoplanet/moghes)
 "Tv" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/grass/moghes/dirt{
@@ -1173,7 +1173,7 @@
 /area/moghes_vihnmes)
 "Wz" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/appliance/cooker/fryer,
+/obj/structure/machinery/appliance/cooker/fryer,
 /turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},

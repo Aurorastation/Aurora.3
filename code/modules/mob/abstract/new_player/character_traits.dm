@@ -4,63 +4,63 @@
 	var/name = "Enigma"
 	var/desc = "This trait was not meant to be seen by mortal minds."
 
-/datum/character_disabilities/proc/apply_self(var/mob/living/carbon/human/H)
+/datum/character_disabilities/proc/apply_self(mob/living/carbon/human/H)
 	return
 
 /datum/character_disabilities/nearsighted
 	name = "Nearsightedness"
 	desc = "Without prescription glasses your vision is impaired."
 
-/datum/character_disabilities/nearsighted/apply_self(var/mob/living/carbon/human/H)
+/datum/character_disabilities/nearsighted/apply_self(mob/living/carbon/human/H)
 	H.disabilities |= NEARSIGHTED
 
 /datum/character_disabilities/stutter
 	name = "Stuttering"
 	desc = "You have a chronic case of stuttering, repeating sounds involuntarily."
 
-/datum/character_disabilities/stutter/apply_self(var/mob/living/carbon/human/H)
+/datum/character_disabilities/stutter/apply_self(mob/living/carbon/human/H)
 	H.disabilities |= STUTTERING
 
 /datum/character_disabilities/deuteranomaly
 	name = "Deuteranopia"
 	desc = "You have difficulty perceiving green."
 
-/datum/character_disabilities/deuteranomaly/apply_self(var/mob/living/carbon/human/H)
+/datum/character_disabilities/deuteranomaly/apply_self(mob/living/carbon/human/H)
 	H.add_client_color(/datum/client_color/deuteranopia, TRUE)
 
 /datum/character_disabilities/protanopia
 	name = "Protanopia"
 	desc = "You have difficulty perceiving red."
 
-/datum/character_disabilities/protanopia/apply_self(var/mob/living/carbon/human/H)
+/datum/character_disabilities/protanopia/apply_self(mob/living/carbon/human/H)
 	H.add_client_color(/datum/client_color/protanopia, TRUE)
 
 /datum/character_disabilities/tritanopia
 	name = "Tritanopia"
 	desc = "You have difficulty perceiving green and yellow."
 
-/datum/character_disabilities/tritanopia/apply_self(var/mob/living/carbon/human/H)
+/datum/character_disabilities/tritanopia/apply_self(mob/living/carbon/human/H)
 	H.add_client_color(/datum/client_color/tritanopia, TRUE)
 
 /datum/character_disabilities/total_colorblind
 	name = "Total Colorblindness"
 	desc = "You cannot see color, only black, white, and shades of gray."
 
-/datum/character_disabilities/total_colorblind/apply_self(var/mob/living/carbon/human/H)
+/datum/character_disabilities/total_colorblind/apply_self(mob/living/carbon/human/H)
 	H.add_client_color(/datum/client_color/monochrome, TRUE)
 
 /datum/character_disabilities/deaf
 	name = "Deafness"
 	desc = "You are unable to percieve sound."
 
-/datum/character_disabilities/deaf/apply_self(var/mob/living/carbon/human/H)
+/datum/character_disabilities/deaf/apply_self(mob/living/carbon/human/H)
 	H.sdisabilities |= DEAF
 
 /datum/character_disabilities/asthma
 	name = "Asthma"
 	desc = "You are prone to inflammation in the lungs."
 
-/datum/character_disabilities/asthma/apply_self(var/mob/living/carbon/human/H)
+/datum/character_disabilities/asthma/apply_self(mob/living/carbon/human/H)
 	H.disabilities |= ASTHMA
 	if(H.max_stamina)
 		H.max_stamina *= 0.8
@@ -72,7 +72,7 @@
 	/// This takes a TRAIT_DISABILITY_* type trait, and assigns it to the character on apply_self
 	var/trait_type = TRAIT_DISABILITY_HEMOPHILIA
 
-/datum/character_disabilities/hemophilia/apply_self(var/mob/living/carbon/human/H)
+/datum/character_disabilities/hemophilia/apply_self(mob/living/carbon/human/H)
 	ADD_TRAIT(H, trait_type, DISABILITY_TRAIT)
 
 /datum/character_disabilities/hemophilia/major
@@ -85,7 +85,7 @@ ABSTRACT_TYPE(/datum/character_disabilities/organ_scarring)
 	name = "Organ Scarring"
 	var/affected_organ
 
-/datum/character_disabilities/organ_scarring/apply_self(var/mob/living/carbon/human/target)
+/datum/character_disabilities/organ_scarring/apply_self(mob/living/carbon/human/target)
 	var/obj/item/organ/internal/affecting = target.internal_organs_by_name[affected_organ]
 	if(affecting)
 		affecting.set_max_damage(initial(affecting.max_damage) * 0.5)
@@ -111,7 +111,7 @@ ABSTRACT_TYPE(/datum/character_disabilities/broken)
 	name = "Bruised Limb"
 	var/affected_limb
 
-/datum/character_disabilities/broken/apply_self(var/mob/living/carbon/human/target)
+/datum/character_disabilities/broken/apply_self(mob/living/carbon/human/target)
 	var/obj/item/organ/external/affecting = target.get_organ(affected_limb)
 	if(affecting)
 		affecting.fracture(TRUE, /datum/condition/organ/fracture/comminuted)
@@ -141,7 +141,7 @@ BROKEN_DISABILITY(right_foot, "Right Foot", BP_R_FOOT)
 		+ "Though this does not grant any psychic abilities, a character with this trait is counted as being psychic for a variety of effects." \
 		+ "For example, having the ability to distinguish the source of telepathic signals, but also taking bonus damage from anything that deals bonus damage to psychics."
 
-/datum/character_disabilities/high_psi_sensitivity/apply_self(var/mob/living/carbon/human/H)
+/datum/character_disabilities/high_psi_sensitivity/apply_self(mob/living/carbon/human/H)
 	H.AddComponent(HIGH_PSI_SENSITIVITY_COMPONENT)
 
 /datum/character_disabilities/low_psi_sensitivity
@@ -151,5 +151,20 @@ BROKEN_DISABILITY(right_foot, "Right Foot", BP_R_FOOT)
 		+ "For example, losing the ability to distinguish the source of telepathic signals, or taking brain damage when having their mind read." \
 		+ "On the opposite end of the spectrum, anything that deals bonus damage to psychics will also deal reduced damage to you."
 
-/datum/character_disabilities/low_psi_sensitivity/apply_self(var/mob/living/carbon/human/H)
+/datum/character_disabilities/low_psi_sensitivity/apply_self(mob/living/carbon/human/H)
 	H.AddComponent(LOW_PSI_SENSITIVITY_COMPONENT)
+
+/datum/character_disabilities/photosensitivity
+	name = "Photosensitivity"
+	desc = "You are highly sensitive to bright lights. " \
+		+ "Characters with this trait suffer from painful sensations and degraded vision when standing in brightly lit areas without eye protection. "
+
+/datum/character_disabilities/photosensitivity/apply_self(mob/living/carbon/human/H)
+	H.AddElement(/datum/element/light_sensitivity)
+
+/datum/character_disabilities/nyctophobia
+	name = "Nyctophobia"
+	desc = "You have a fear of the dark."
+
+/datum/character_disabilities/nyctophobia/apply_self(mob/living/carbon/human/H)
+	H.AddElement(/datum/element/dark_afraid)

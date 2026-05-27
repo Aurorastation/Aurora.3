@@ -2,7 +2,7 @@
 /obj/item/rig/verb/hardsuit_interface()
 	set name = "Open Hardsuit Interface"
 	set desc = "Open the hardsuit system interface."
-	set category = "Hardsuit"
+	set category = "Hardsuit.Core Functions"
 	set src = usr.contents
 
 	if(wearer && wearer.back == src)
@@ -11,7 +11,7 @@
 /obj/item/rig/verb/toggle_vision()
 	set name = "Toggle Visor"
 	set desc = "Turns your rig visor off or on."
-	set category = "Hardsuit"
+	set category = "Hardsuit.Module Control"
 	set src = usr.contents
 
 	if(!istype(wearer) || !wearer.back == src)
@@ -40,7 +40,7 @@
 /obj/item/rig/proc/toggle_helmet()
 	set name = "Toggle Helmet"
 	set desc = "Deploys or retracts your helmet."
-	set category = "Hardsuit"
+	set category = "Hardsuit.Part Toggles"
 	set src = usr.contents
 
 	if(!istype(wearer) || !wearer.back == src)
@@ -58,7 +58,7 @@
 /obj/item/rig/proc/toggle_chest()
 	set name = "Toggle Chestpiece"
 	set desc = "Deploys or retracts your chestpiece."
-	set category = "Hardsuit"
+	set category = "Hardsuit.Part Toggles"
 	set src = usr.contents
 
 	if(!istype(wearer) || !wearer.back == src)
@@ -76,7 +76,7 @@
 /obj/item/rig/proc/toggle_gauntlets()
 	set name = "Toggle Gauntlets"
 	set desc = "Deploys or retracts your gauntlets."
-	set category = "Hardsuit"
+	set category = "Hardsuit.Part Toggles"
 	set src = usr.contents
 
 	if(!istype(wearer) || !wearer.back == src)
@@ -94,7 +94,7 @@
 /obj/item/rig/proc/toggle_boots()
 	set name = "Toggle Boots"
 	set desc = "Deploys or retracts your boots."
-	set category = "Hardsuit"
+	set category = "Hardsuit.Part Toggles"
 	set src = usr.contents
 
 	if(!istype(wearer) || !wearer.back == src)
@@ -110,9 +110,9 @@
 	toggle_piece("boots",wearer)
 
 /obj/item/rig/verb/deploy_suit()
-	set name = "Deploy Hardsuit"
+	set name = "Deploy All Hardsuit Parts"
 	set desc = "Deploys helmet, gloves and boots."
-	set category = "Hardsuit"
+	set category = "Hardsuit.Core Functions"
 	set src = usr.contents
 
 	if(!istype(wearer) || !wearer.back == src)
@@ -131,9 +131,9 @@
 	deploy(wearer)
 
 /obj/item/rig/verb/toggle_seals_verb()
-	set name = "Toggle Hardsuit"
-	set desc = "Activates or deactivates your rig."
-	set category = "Hardsuit"
+	set name = "Engage/Disengage Hardsuit"
+	set desc = "Activates or deactivates your hardsuit."
+	set category = "Hardsuit.Core Functions"
 	set src = usr.contents
 
 	if(!istype(wearer) || !wearer.back == src)
@@ -151,7 +151,7 @@
 /obj/item/rig/verb/switch_vision_mode()
 	set name = "Switch Vision Mode"
 	set desc = "Switches between available vision modes."
-	set category = "Hardsuit"
+	set category = "Hardsuit.Module Control"
 	set src = usr.contents
 
 	if(malfunction_check(usr))
@@ -180,7 +180,7 @@
 /obj/item/rig/verb/alter_voice()
 	set name = "Configure Voice Synthesiser"
 	set desc = "Toggles or configures your voice synthesizer."
-	set category = "Hardsuit"
+	set category = "Hardsuit.Module Control"
 	set src = usr.contents
 
 	if(malfunction_check(usr))
@@ -203,7 +203,7 @@
 /obj/item/rig/verb/select_module()
 	set name = "Select Module"
 	set desc = "Selects a module as your primary system."
-	set category = "Hardsuit"
+	set category = "Hardsuit.Module Control"
 	set src = usr.contents
 
 	if(malfunction_check(usr))
@@ -222,7 +222,7 @@
 
 	var/list/selectable = list()
 	for(var/obj/item/rig_module/module in installed_modules)
-		if(module.selectable)
+		if(module.module_type == MODULETYPE_USABLE_ACTIVE)
 			selectable |= module
 
 	var/obj/item/rig_module/module = tgui_input_list(usr, "Which module do you wish to select?", "Select Module", selectable)
@@ -238,7 +238,7 @@
 /obj/item/rig/verb/toggle_module()
 	set name = "Toggle Module"
 	set desc = "Toggle a system module."
-	set category = "Hardsuit"
+	set category = "Hardsuit.Module Control"
 	set src = usr.contents
 
 	if(malfunction_check(usr))
@@ -257,7 +257,7 @@
 
 	var/list/selectable = list()
 	for(var/obj/item/rig_module/module in installed_modules)
-		if(module.toggleable)
+		if(module.module_type == MODULETYPE_TOGGLE)
 			selectable |= module
 
 	var/obj/item/rig_module/module = tgui_input_list(usr, "Which module do you wish to toggle?", "Toggle Module", selectable)
@@ -275,7 +275,7 @@
 /obj/item/rig/verb/engage_module()
 	set name = "Engage Module"
 	set desc = "Engages a system module."
-	set category = "Hardsuit"
+	set category = "Hardsuit.Module Control"
 	set src = usr.contents
 
 	if(malfunction_check(usr))
@@ -294,7 +294,7 @@
 
 	var/list/selectable = list()
 	for(var/obj/item/rig_module/module in installed_modules)
-		if(module.usable)
+		if(module.module_type == MODULETYPE_USABLE)
 			selectable |= module
 
 	var/obj/item/rig_module/module = tgui_input_list(usr, "Which module do you wish to engage?", "Engage Module", selectable)

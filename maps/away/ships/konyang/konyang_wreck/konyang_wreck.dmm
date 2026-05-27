@@ -1,16 +1,16 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "ad" = (
-/obj/machinery/computer/cryopod/robot{
+/obj/structure/machinery/computer/cryopod/robot{
 	pixel_x = -32
 	},
-/obj/machinery/cryopod/robot,
+/obj/structure/machinery/cryopod/robot,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/cryo)
 "ag" = (
 /obj/structure/closet/firecloset/full,
 /obj/effect/floor_decal/industrial/outline/firefighting_closet,
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/atmos)
 "aj" = (
@@ -26,7 +26,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod8)
 "ao" = (
-/obj/machinery/cryopod/robot,
+/obj/structure/machinery/cryopod/robot,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/cryo)
@@ -56,10 +56,10 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -79,19 +79,19 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc/west{
+/obj/structure/machinery/power/apc/west{
 	req_access = null
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/konyang_wreck/pod7)
 "aH" = (
-/obj/machinery/atmospherics/unary/engine,
+/obj/structure/machinery/atmospherics/unary/engine,
 /obj/structure/window/borosilicate/reinforced,
 /turf/simulated/floor/plating,
 /area/konyang_wreck/starbthrust)
 "aJ" = (
-/obj/machinery/atmospherics/pipe/simple/visible/red{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/red{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
@@ -120,14 +120,14 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	dir = 4;
 	name = "Cargo Storage #2"
 	},
@@ -167,10 +167,10 @@
 /turf/simulated/floor/plating,
 /area/konyang_wreck/pod1)
 "bG" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -215,8 +215,8 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 8;
@@ -226,12 +226,12 @@
 /turf/simulated/floor/plating,
 /area/konyang_wreck)
 "bN" = (
-/obj/machinery/door/window/southleft,
+/obj/structure/machinery/door/window/southleft,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod4)
 "bS" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/mech_recharger,
+/obj/structure/machinery/mech_recharger,
 /mob/living/heavy_vehicle/premade/ripley/loader,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/mechbay)
@@ -241,7 +241,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/engineering)
 "cd" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
 	},
 /obj/structure/cable{
@@ -257,13 +257,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/engineering)
 "cf" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -274,7 +274,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/atmos)
 "ch" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -282,14 +282,14 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/door/airlock/atmos{
+/obj/structure/machinery/door/airlock/atmos{
 	dir = 4;
 	name = "Atmospherics"
 	},
@@ -304,11 +304,11 @@
 	pixel_y = 12;
 	pixel_x = 8
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod7)
 "cr" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/fuel,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/fuel,
 /turf/simulated/floor/plating,
 /area/konyang_wreck/portthrust)
 "cB" = (
@@ -316,7 +316,7 @@
 /turf/simulated/floor/bluegrid,
 /area/konyang_wreck/engineering)
 "cG" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
@@ -343,7 +343,7 @@
 /obj/item/clothing/head/helmet/space/void/engineering,
 /obj/item/suit_cooling_unit,
 /obj/item/clothing/mask/breath,
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/engineering)
 "cY" = (
@@ -368,8 +368,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod8)
 "dd" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 4;
@@ -380,7 +380,7 @@
 /area/konyang_wreck/starboarddock)
 "de" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/mining/brace{
+/obj/structure/machinery/mining/brace{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -395,10 +395,10 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -410,7 +410,7 @@
 /area/konyang_wreck)
 "dn" = (
 /obj/structure/table/standard,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -419,7 +419,7 @@
 /turf/simulated/wall/shuttle/dark/cardinal/merc,
 /area/konyang_wreck/aicore)
 "dA" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -430,7 +430,7 @@
 /area/konyang_wreck/pod1)
 "dD" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
@@ -445,10 +445,10 @@
 /turf/simulated/floor/plating,
 /area/konyang_wreck/pod4)
 "dL" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -461,13 +461,13 @@
 /turf/simulated/floor/plating,
 /area/konyang_wreck/pod5)
 "dN" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/engineering)
 "dR" = (
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
@@ -506,10 +506,10 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -524,17 +524,17 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/konyang_wreck/pod2)
 "el" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
@@ -545,7 +545,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/portdock)
 "eo" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock{
@@ -574,21 +574,21 @@
 /area/konyang_wreck/engineering)
 "eu" = (
 /obj/structure/table/standard,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod8)
 "ew" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod3)
 "ey" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -600,16 +600,16 @@
 /turf/simulated/floor/plating,
 /area/konyang_wreck/pod3)
 "ez" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/light{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/light{
 	dir = 4;
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/atmos)
 "eA" = (
-/obj/machinery/power/apc/north{
+/obj/structure/machinery/power/apc/north{
 	req_access = null
 	},
 /obj/structure/cable/green{
@@ -619,7 +619,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/engineering)
 "eE" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
@@ -627,16 +627,16 @@
 /area/konyang_wreck/pod7)
 "eK" = (
 /obj/structure/plasticflaps/airtight,
-/obj/machinery/door/airlock/maintenance_hatch{
+/obj/structure/machinery/door/airlock/maintenance_hatch{
 	name = "Telecomms"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/atmos)
 "eS" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
 /obj/structure/cable/green{
@@ -659,6 +659,7 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
 	},
+/obj/item/eftpos,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/bridge)
 "eW" = (
@@ -678,7 +679,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/east{
+/obj/structure/machinery/power/apc/east{
 	req_access = null
 	},
 /obj/effect/floor_decal/corner/brown{
@@ -692,10 +693,10 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -710,7 +711,7 @@
 /area/konyang_wreck/pod7)
 "fm" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/vending/cola,
+/obj/structure/machinery/vending/cola,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod3)
 "fp" = (
@@ -724,7 +725,7 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc/west{
+/obj/structure/machinery/power/apc/west{
 	req_access = null
 	},
 /obj/effect/floor_decal/corner/brown{
@@ -779,21 +780,21 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck)
 "gf" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/effect/landmark/corpse/ipc_zombie,
 /obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod4)
 "gk" = (
-/obj/machinery/door/airlock/external,
+/obj/structure/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock/docking{
 	landmark_tag = "konyang_wreck_dock1";
 	master_tag = "konyang_wreck_dock1";
 	name = "konyang_wreck_dock1"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/machinery/atmospherics/pipe/manifold/hidden{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -803,7 +804,7 @@
 /turf/simulated/floor/plating,
 /area/konyang_wreck/pod5)
 "gs" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -820,7 +821,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/portdock)
 "gv" = (
-/obj/machinery/atmospherics/binary/pump{
+/obj/structure/machinery/atmospherics/binary/pump{
 	dir = 8;
 	name = "pump to waste"
 	},
@@ -829,9 +830,9 @@
 /area/konyang_wreck/atmos)
 "gx" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/mech_recharger,
+/obj/structure/machinery/mech_recharger,
 /mob/living/heavy_vehicle/premade/ripley/loader,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	icon_state = "tube_empty"
 	},
@@ -850,7 +851,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck)
 "gF" = (
-/obj/machinery/hologram/holopad/long_range,
+/obj/structure/machinery/hologram/holopad/long_range,
 /obj/effect/overmap/visitable/ship/konyang_wreck,
 /obj/effect/landmark/corpse/ipc_zombie,
 /obj/effect/decal/cleanable/blood/oil,
@@ -863,7 +864,7 @@
 /turf/simulated/wall/shuttle/dark/cardinal/merc,
 /area/konyang_wreck/cryo)
 "gJ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
@@ -888,7 +889,7 @@
 /area/konyang_wreck/pod6)
 "gV" = (
 /obj/structure/table/standard,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -900,19 +901,19 @@
 	icon_state = "1-4"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/konyang_wreck/captain)
 "hd" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
 /obj/structure/cable/green{
@@ -924,7 +925,7 @@
 /turf/simulated/floor/plating,
 /area/konyang_wreck/pod1)
 "hm" = (
-/obj/machinery/atmospherics/pipe/simple/visible/universal{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/universal{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -934,7 +935,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod6)
 "hu" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/captain)
 "hv" = (
@@ -947,7 +948,7 @@
 /turf/simulated/floor/plating,
 /area/konyang_wreck/pod8)
 "hw" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod7)
@@ -957,7 +958,7 @@
 	master_tag = "konyang_wreck_dock4";
 	name = "konyang_wreck_dock4"
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -977,14 +978,14 @@
 	master_tag = "airlock_konyang_wreck";
 	name = "airlock_konyang_wreck"
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
-/obj/machinery/airlock_sensor{
+/obj/structure/machinery/airlock_sensor{
 	pixel_x = 6;
 	pixel_y = 28
 	},
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
+/obj/structure/machinery/embedded_controller/radio/airlock/docking_port{
 	pixel_x = -6;
 	pixel_y = 28
 	},
@@ -1008,10 +1009,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod5)
 "hT" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -1020,14 +1021,14 @@
 	icon_state = "4-8"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	dir = 4;
 	name = "Cargo Storage #5"
 	},
 /turf/simulated/floor/plating,
 /area/konyang_wreck)
 "hX" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -1040,16 +1041,16 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/atmos)
 "hZ" = (
-/obj/machinery/alarm/west{
+/obj/structure/machinery/alarm/west{
 	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1072,12 +1073,12 @@
 "io" = (
 /obj/structure/table/wood,
 /obj/item/flashlight/lamp/green,
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/captain)
 "ip" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -1107,10 +1108,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod6)
 "iz" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/atmos)
 "iD" = (
@@ -1128,10 +1129,10 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -1145,22 +1146,22 @@
 /area/konyang_wreck/portdock)
 "iS" = (
 /obj/effect/floor_decal/industrial/outline/medical,
-/obj/machinery/iv_drip,
+/obj/structure/machinery/iv_drip,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod8)
 "iW" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/engineering)
 "jb" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod1)
 "jd" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 1
 	},
 /obj/structure/cable/green{
@@ -1171,7 +1172,7 @@
 /turf/simulated/floor/plating,
 /area/konyang_wreck/portthrust)
 "je" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	icon_state = "tube_empty"
 	},
@@ -1181,7 +1182,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck)
 "jg" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/brown{
@@ -1204,7 +1205,7 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/obj/machinery/computer/general_air_control/large_tank_control/terminal{
+/obj/structure/machinery/computer/general_air_control/large_tank_control/terminal{
 	dir = 4;
 	name = "Fuel Supply Terminal";
 	sensors = list("konyang_wreck_sensor"="Tank");
@@ -1213,11 +1214,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/atmos)
 "jM" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -1238,7 +1239,7 @@
 /turf/simulated/floor/plating,
 /area/konyang_wreck/pod3)
 "ke" = (
-/obj/machinery/atmospherics/binary/pump{
+/obj/structure/machinery/atmospherics/binary/pump{
 	dir = 8;
 	name = "pump to waste"
 	},
@@ -1246,7 +1247,7 @@
 /turf/simulated/floor/plating,
 /area/konyang_wreck/starbthrust)
 "kf" = (
-/obj/machinery/alarm/west{
+/obj/structure/machinery/alarm/west{
 	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1263,13 +1264,13 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/konyang_wreck)
 "kq" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	icon_state = "tube_empty"
 	},
@@ -1279,10 +1280,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck)
 "kr" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -1291,7 +1292,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	dir = 4;
 	name = "Cargo Storage #3"
 	},
@@ -1305,13 +1306,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod2)
 "ku" = (
-/obj/machinery/alarm/west{
+/obj/structure/machinery/alarm/west{
 	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod7)
 "kz" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/brown{
@@ -1323,14 +1324,14 @@
 /turf/template_noop,
 /area/space)
 "kL" = (
-/obj/machinery/atmospherics/binary/pump/fuel{
+/obj/structure/machinery/atmospherics/binary/pump/fuel{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/atmos)
 "kO" = (
-/obj/machinery/door/window/southleft,
+/obj/structure/machinery/door/window/southleft,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod6)
 "kV" = (
@@ -1339,31 +1340,31 @@
 	master_tag = "konyang_wreck_dock2";
 	name = "konyang_wreck_dock2"
 	},
-/obj/machinery/airlock_sensor{
+/obj/structure/machinery/airlock_sensor{
 	pixel_x = 6;
 	pixel_y = 28
 	},
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
+/obj/structure/machinery/embedded_controller/radio/airlock/docking_port{
 	pixel_x = -6;
 	pixel_y = 28
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/konyang_wreck/portdock)
 "lb" = (
-/obj/machinery/vending/engineering{
+/obj/structure/machinery/vending/engineering{
 	req_access = null
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/engineering)
 "le" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -1371,16 +1372,16 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/atmos)
 "lf" = (
-/obj/machinery/door/airlock/external,
+/obj/structure/machinery/door/airlock/external,
 /obj/effect/shuttle_landmark/konyang_wreck/dock1{
 	dir = 1
 	},
@@ -1396,17 +1397,17 @@
 /turf/simulated/floor/plating,
 /area/konyang_wreck/portdock)
 "lg" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /obj/structure/cable/green{
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
-/obj/machinery/power/apc/north{
+/obj/structure/machinery/power/apc/north{
 	req_access = null
 	},
 /obj/effect/floor_decal/corner/dark_blue{
@@ -1426,7 +1427,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod5)
 "lv" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock{
@@ -1456,10 +1457,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod1)
 "lM" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 8
 	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
 	},
@@ -1493,14 +1494,14 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/east{
+/obj/structure/machinery/power/apc/east{
 	req_access = null
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/konyang_wreck/pod2)
 "mC" = (
-/obj/machinery/door/airlock/multi_tile/glass{
+/obj/structure/machinery/door/airlock/multi_tile/glass{
 	name = "Docking Arm";
 	dir = 1
 	},
@@ -1510,13 +1511,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/portdock)
 "mE" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1529,17 +1530,17 @@
 /obj/item/clothing/head/helmet/space/void/engineering,
 /obj/item/suit_cooling_unit,
 /obj/item/clothing/mask/breath,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/engineering)
 "mS" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/atmos)
 "mV" = (
@@ -1554,11 +1555,11 @@
 /turf/simulated/wall/shuttle/dark/cardinal/merc,
 /area/konyang_wreck/pod2)
 "mY" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/fuel,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/fuel,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1570,7 +1571,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod6)
 "nd" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
@@ -1585,7 +1586,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod3)
 "no" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod6)
@@ -1596,7 +1597,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/starboarddock)
 "ny" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/docking{
@@ -1605,7 +1606,7 @@
 	name = "konyang_wreck_dock4"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	dir = 8;
 	pixel_x = -12;
 	pixel_y = 28
@@ -1613,11 +1614,11 @@
 /turf/simulated/floor/plating,
 /area/konyang_wreck/starboarddock)
 "nz" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/konyang_wreck/starbthrust)
 "nC" = (
@@ -1634,17 +1635,17 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/door/airlock/engineering{
+/obj/structure/machinery/door/airlock/engineering{
 	name = "Engineering"
 	},
 /turf/simulated/floor/plating,
 /area/konyang_wreck)
 "nR" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -1654,14 +1655,14 @@
 /turf/simulated/floor/plating,
 /area/konyang_wreck/portdock)
 "nZ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/portdock)
 "oa" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
@@ -1688,14 +1689,14 @@
 /turf/simulated/wall/shuttle/dark/cardinal/merc,
 /area/konyang_wreck/pod8)
 "oq" = (
-/obj/machinery/door/airlock/external,
+/obj/structure/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock/docking{
 	landmark_tag = "konyang_wreck_dock3";
 	master_tag = "konyang_wreck_dock3";
 	name = "konyang_wreck_dock3"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
 /turf/simulated/floor/plating,
@@ -1751,7 +1752,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod5)
 "oR" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
 	},
@@ -1759,7 +1760,7 @@
 /area/konyang_wreck/portdock)
 "oT" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
@@ -1799,7 +1800,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/cryo)
 "pj" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 1
 	},
 /obj/structure/cable/green{
@@ -1811,7 +1812,7 @@
 /area/konyang_wreck/engineering)
 "pl" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/plating,
 /area/konyang_wreck/pod6)
 "pr" = (
@@ -1819,7 +1820,7 @@
 /turf/simulated/floor/plating,
 /area/konyang_wreck/pod1)
 "pt" = (
-/obj/machinery/computer/ship/helm,
+/obj/structure/machinery/computer/ship/helm,
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
@@ -1861,7 +1862,7 @@
 	master_tag = "airlock_konyang_wreck";
 	name = "airlock_konyang_wreck"
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -1875,17 +1876,17 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc/west{
+/obj/structure/machinery/power/apc/west{
 	req_access = null
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/konyang_wreck/pod3)
 "qk" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -1894,7 +1895,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	dir = 4;
 	name = "Cargo Storage #7"
 	},
@@ -1928,7 +1929,7 @@
 /turf/simulated/floor/reinforced,
 /area/konyang_wreck/aicore)
 "qF" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -1946,8 +1947,8 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/konyang_wreck)
@@ -1967,8 +1968,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod8)
 "qI" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
-/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -1978,24 +1979,24 @@
 /area/konyang_wreck/atmos)
 "qL" = (
 /obj/structure/table/standard,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal/coc,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod7)
 "qN" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/blue{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/blue{
 	dir = 4
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/plating,
 /area/konyang_wreck/starbthrust)
 "qU" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2008,16 +2009,16 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod7)
 "ra" = (
-/obj/machinery/photocopier,
+/obj/structure/machinery/photocopier,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/captain)
 "rd" = (
-/obj/machinery/atmospherics/unary/engine,
+/obj/structure/machinery/atmospherics/unary/engine,
 /obj/structure/window/borosilicate/reinforced,
 /turf/simulated/floor/plating,
 /area/konyang_wreck/portthrust)
 "rg" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -2025,17 +2026,17 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/konyang_wreck)
 "rh" = (
-/obj/machinery/atmospherics/binary/pump{
+/obj/structure/machinery/atmospherics/binary/pump{
 	dir = 4;
 	name = "Air to Connector"
 	},
@@ -2047,14 +2048,14 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/east{
+/obj/structure/machinery/power/apc/east{
 	req_access = null
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/konyang_wreck/pod4)
 "rm" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8;
 	icon_state = "tube_empty"
 	},
@@ -2064,10 +2065,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck)
 "rr" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -2079,10 +2080,10 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -2092,25 +2093,25 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/airlock/highsecurity{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/door/airlock/highsecurity{
 	name = "AI Core";
 	dir = 1
 	},
 /turf/simulated/floor/reinforced,
 /area/konyang_wreck/aicore)
 "rw" = (
-/obj/machinery/atmospherics/pipe/manifold4w/visible/blue,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/visible/blue,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/atmos)
 "rx" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/vending/zora,
+/obj/structure/machinery/vending/zora,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod3)
 "rA" = (
-/obj/machinery/door/window/southleft,
+/obj/structure/machinery/door/window/southleft,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod2)
 "rI" = (
@@ -2139,21 +2140,21 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/east{
+/obj/structure/machinery/power/apc/east{
 	req_access = null
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/konyang_wreck/pod6)
 "sb" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/atmos)
 "sc" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/docking{
@@ -2162,7 +2163,7 @@
 	name = "konyang_wreck_dock4"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/machinery/atmospherics/pipe/manifold/hidden,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden,
 /turf/simulated/floor/plating,
 /area/konyang_wreck/starboarddock)
 "sg" = (
@@ -2178,16 +2179,16 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/konyang_wreck)
 "sl" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -2196,20 +2197,20 @@
 	icon_state = "4-8"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	dir = 4;
 	name = "Cargo Storage #7"
 	},
 /turf/simulated/floor/plating,
 /area/konyang_wreck)
 "sq" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2238,18 +2239,18 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod1)
 "sG" = (
-/obj/machinery/computer/ship/sensors,
+/obj/structure/machinery/computer/ship/sensors,
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/bridge)
 "sP" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4;
 	id_tag = "tarwa_shuttle_out"
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/dark_blue{
@@ -2272,7 +2273,7 @@
 	master_tag = "konyang_wreck_dock3";
 	name = "konyang_wreck_dock3"
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
@@ -2282,13 +2283,13 @@
 /area/konyang_wreck/atmos)
 "ts" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/konyang_wreck/pod3)
 "tt" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2299,10 +2300,10 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/door/airlock/command{
+/obj/structure/machinery/door/airlock/command{
 	name = "Bridge";
 	dir = 1
 	},
@@ -2320,14 +2321,14 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	dir = 4;
 	name = "Cargo Storage #2"
 	},
@@ -2338,7 +2339,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod6)
 "tV" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 1
 	},
 /obj/structure/cable/green{
@@ -2380,7 +2381,7 @@
 /area/konyang_wreck/captain)
 "ul" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/mech_recharger,
+/obj/structure/machinery/mech_recharger,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/mechbay)
 "un" = (
@@ -2389,27 +2390,27 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	dir = 4;
 	name = "Cargo Storage #6"
 	},
 /turf/simulated/floor/plating,
 /area/konyang_wreck)
 "ux" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck)
 "uy" = (
-/obj/machinery/alarm/east{
+/obj/structure/machinery/alarm/east{
 	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2418,7 +2419,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	icon_state = "tube_empty"
 	},
@@ -2430,24 +2431,24 @@
 	master_tag = "konyang_wreck_dock4";
 	name = "konyang_wreck_dock4"
 	},
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
+/obj/structure/machinery/embedded_controller/radio/airlock/docking_port{
 	pixel_x = -6;
 	pixel_y = 28
 	},
-/obj/machinery/airlock_sensor{
+/obj/structure/machinery/airlock_sensor{
 	pixel_x = 6;
 	pixel_y = 28
 	},
 /turf/simulated/floor/plating,
 /area/konyang_wreck/starboarddock)
 "uN" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/konyang_wreck/starbthrust)
 "uY" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8;
 	icon_state = "tube_empty"
 	},
@@ -2455,10 +2456,10 @@
 /area/konyang_wreck/starbthrust)
 "uZ" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /turf/simulated/floor/plating,
@@ -2467,13 +2468,13 @@
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/east{
+/obj/structure/machinery/power/apc/east{
 	req_access = null
 	},
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/atmos)
 "vs" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
@@ -2483,7 +2484,7 @@
 /turf/simulated/wall/shuttle/dark/cardinal/merc,
 /area/konyang_wreck/portdock)
 "vy" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 1
 	},
 /obj/structure/cable/green{
@@ -2491,13 +2492,13 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/door/airlock/maintenance_hatch{
+/obj/structure/machinery/door/airlock/maintenance_hatch{
 	name = "Port Thruster"
 	},
 /turf/simulated/floor/plating,
 /area/konyang_wreck/portthrust)
 "vz" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/portdock)
 "vC" = (
@@ -2524,7 +2525,7 @@
 "vE" = (
 /obj/structure/table/steel,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/heart,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2536,7 +2537,7 @@
 /turf/simulated/wall/shuttle/dark/cardinal/merc,
 /area/konyang_wreck/pod8)
 "vG" = (
-/obj/machinery/atmospherics/unary/engine,
+/obj/structure/machinery/atmospherics/unary/engine,
 /obj/effect/landmark/entry_point/aft{
 	name = "aft, port thruster"
 	},
@@ -2551,7 +2552,7 @@
 /turf/template_noop,
 /area/space)
 "vM" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod5)
@@ -2566,16 +2567,16 @@
 	master_tag = "konyang_wreck_dock1";
 	name = "konyang_wreck_dock1"
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/konyang_wreck/portdock)
 "vY" = (
-/obj/machinery/computer/cryopod{
+/obj/structure/machinery/computer/cryopod{
 	pixel_x = 32
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	icon_state = "tube_empty"
 	},
@@ -2589,10 +2590,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/starboarddock)
 "wh" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -2601,14 +2602,14 @@
 	icon_state = "4-8"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	dir = 4;
 	name = "Cargo Storage #1"
 	},
 /turf/simulated/floor/plating,
 /area/konyang_wreck/pod1)
 "wt" = (
-/obj/machinery/door/airlock/multi_tile/glass{
+/obj/structure/machinery/door/airlock/multi_tile/glass{
 	name = "Docking Arm";
 	dir = 1
 	},
@@ -2618,7 +2619,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/starboarddock)
 "wy" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	icon_state = "tube_empty"
 	},
@@ -2632,14 +2633,14 @@
 /area/konyang_wreck/starboarddock)
 "wz" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/vending/cigarette,
+/obj/structure/machinery/vending/cigarette,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod3)
 "wK" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
 /obj/structure/cable/green{
@@ -2674,7 +2675,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/door/airlock/highsecurity{
+/obj/structure/machinery/door/airlock/highsecurity{
 	name = "Reactor";
 	dir = 1
 	},
@@ -2689,8 +2690,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/engineering)
 "wY" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /turf/simulated/floor/plating,
@@ -2711,19 +2712,19 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/bluegrid,
 /area/konyang_wreck/engineering)
 "xb" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod2)
 "xc" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2734,17 +2735,17 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/konyang_wreck/pod8)
 "xh" = (
-/obj/machinery/power/terminal,
+/obj/structure/machinery/power/terminal,
 /obj/structure/cable{
 	d2 = 4;
 	icon_state = "0-4"
@@ -2760,15 +2761,15 @@
 	pixel_y = 12;
 	pixel_x = 8
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod6)
 "xq" = (
-/obj/machinery/door/window/southleft,
+/obj/structure/machinery/door/window/southleft,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod1)
 "xs" = (
-/obj/machinery/atmospherics/pipe/simple/visible/blue{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/blue{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2831,7 +2832,7 @@
 /turf/simulated/wall/shuttle/dark/cardinal/merc,
 /area/konyang_wreck/starboarddock)
 "xU" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
 /obj/effect/shuttle_landmark/konyang_wreck/dock2{
@@ -2850,13 +2851,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod8)
 "yh" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
-/obj/machinery/portable_atmospherics/canister/empty{
+/obj/structure/machinery/portable_atmospherics/canister/empty{
 	name = "waste canister"
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8;
 	icon_state = "tube_empty"
 	},
@@ -2870,7 +2871,7 @@
 /turf/simulated/wall/shuttle/dark/cardinal/merc,
 /area/konyang_wreck/engineering)
 "yD" = (
-/obj/machinery/atmospherics/portables_connector/fuel{
+/obj/structure/machinery/atmospherics/portables_connector/fuel{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2885,20 +2886,20 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod7)
 "yF" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/atmos)
 "yI" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 1
 	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/engineering)
 "yM" = (
-/obj/machinery/atmospherics/binary/passive_gate{
+/obj/structure/machinery/atmospherics/binary/passive_gate{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -2919,7 +2920,7 @@
 	master_tag = "konyang_wreck_dock2";
 	name = "konyang_wreck_dock2"
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -2928,7 +2929,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod3)
 "zc" = (
-/obj/machinery/power/apc/east{
+/obj/structure/machinery/power/apc/east{
 	req_access = null
 	},
 /obj/structure/cable/green{
@@ -2941,10 +2942,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck)
 "zi" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -2953,28 +2954,28 @@
 	icon_state = "4-8"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	dir = 4;
 	name = "Cargo Storage #1"
 	},
 /turf/simulated/floor/plating,
 /area/konyang_wreck)
 "zk" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/fuel{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/konyang_wreck/starbthrust)
 "zm" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/konyang_wreck/pod8)
 "zn" = (
-/obj/machinery/vending/mredispenser,
-/obj/machinery/light{
+/obj/structure/machinery/vending/mredispenser,
+/obj/structure/machinery/light{
 	dir = 8;
 	icon_state = "tube_empty"
 	},
@@ -2982,19 +2983,19 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/cryo)
 "zo" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 9
 	},
 /turf/simulated/floor/plating,
 /area/konyang_wreck/starbthrust)
 "zq" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck)
 "zs" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/fuel{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -3002,16 +3003,16 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/atmos)
 "zt" = (
-/obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
+/obj/structure/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
 	dir = 4;
 	id_tag = "konyang_wreck_vent"
 	},
@@ -3019,7 +3020,7 @@
 /area/konyang_wreck/atmos)
 "zy" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
@@ -3031,23 +3032,23 @@
 	icon_state = "1-8"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/konyang_wreck/cryo)
 "zD" = (
-/obj/machinery/door/airlock/external,
+/obj/structure/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock/docking{
 	landmark_tag = "konyang_wreck_dock3";
 	master_tag = "konyang_wreck_dock3";
 	name = "konyang_wreck_dock3"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/machinery/atmospherics/pipe/manifold/hidden{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -3060,8 +3061,8 @@
 /turf/simulated/wall/shuttle/dark/cardinal/merc,
 /area/konyang_wreck/pod4)
 "zM" = (
-/obj/machinery/cryopod/robot,
-/obj/machinery/light{
+/obj/structure/machinery/cryopod/robot,
+/obj/structure/machinery/light{
 	dir = 8;
 	icon_state = "tube_empty"
 	},
@@ -3077,20 +3078,20 @@
 	pixel_y = 12;
 	pixel_x = 8
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod5)
 "zQ" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/cryo)
 "zV" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /turf/simulated/floor/plating,
@@ -3111,7 +3112,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod5)
 "Ak" = (
-/obj/machinery/door/airlock/external,
+/obj/structure/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock/docking{
 	landmark_tag = "konyang_wreck_dock1";
 	master_tag = "konyang_wreck_dock1";
@@ -3121,10 +3122,10 @@
 /turf/simulated/floor/plating,
 /area/konyang_wreck/portdock)
 "Aq" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -3136,13 +3137,13 @@
 /turf/simulated/floor/plating,
 /area/konyang_wreck/pod5)
 "As" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /obj/structure/cable/green{
@@ -3153,7 +3154,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/atmos)
 "Au" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	icon_state = "tube_empty"
 	},
@@ -3163,7 +3164,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/starboarddock)
 "Av" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/docking{
@@ -3172,7 +3173,7 @@
 	name = "konyang_wreck_dock2"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/machinery/atmospherics/pipe/manifold/hidden,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden,
 /turf/simulated/floor/plating,
 /area/konyang_wreck/portdock)
 "AB" = (
@@ -3181,10 +3182,10 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -3198,7 +3199,7 @@
 /area/konyang_wreck)
 "AG" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/mining/drill,
+/obj/structure/machinery/mining/drill,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod6)
 "AT" = (
@@ -3206,10 +3207,10 @@
 /turf/simulated/floor/plating,
 /area/konyang_wreck/pod2)
 "AY" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -3224,7 +3225,7 @@
 /turf/simulated/floor/plating,
 /area/konyang_wreck)
 "AZ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/engineering)
 "Bf" = (
@@ -3233,7 +3234,7 @@
 /area/konyang_wreck/engineering)
 "Bs" = (
 /obj/structure/table/standard,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3244,14 +3245,14 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	dir = 4;
 	name = "Cargo Storage #8"
 	},
@@ -3263,16 +3264,16 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	name = "Central Hallway"
 	},
 /turf/simulated/floor/plating,
 /area/konyang_wreck)
 "BB" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 1
 	},
 /obj/structure/cable/green{
@@ -3288,10 +3289,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/engineering)
 "BC" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
-/obj/machinery/portable_atmospherics/canister/empty/air,
+/obj/structure/machinery/portable_atmospherics/canister/empty/air,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/atmos)
 "BH" = (
@@ -3318,7 +3319,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod5)
 "BQ" = (
-/obj/machinery/atmospherics/unary/engine,
+/obj/structure/machinery/atmospherics/unary/engine,
 /obj/effect/landmark/entry_point/aft{
 	name = "aft, starboard thruster"
 	},
@@ -3354,13 +3355,13 @@
 /turf/simulated/floor/plating,
 /area/konyang_wreck/pod7)
 "Ct" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/konyang_wreck/portthrust)
 "Cx" = (
-/obj/machinery/computer/ship/navigation{
+/obj/structure/machinery/computer/ship/navigation{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/dark_blue{
@@ -3373,13 +3374,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/atmos)
 "CB" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck)
 "CE" = (
-/obj/machinery/atmospherics/pipe/simple/visible/blue{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/blue{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3401,11 +3402,11 @@
 /area/konyang_wreck/pod8)
 "CK" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/cryopod/robot,
+/obj/structure/machinery/cryopod/robot,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod4)
 "CL" = (
-/obj/machinery/computer/ship/engines,
+/obj/structure/machinery/computer/ship/engines,
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
@@ -3416,14 +3417,14 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/west{
+/obj/structure/machinery/power/apc/west{
 	req_access = null
 	},
 /obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/cryo)
 "CZ" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/blue,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/blue,
 /turf/simulated/floor/plating,
 /area/konyang_wreck/starbthrust)
 "Db" = (
@@ -3455,7 +3456,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/captain)
 "Dr" = (
-/obj/machinery/door/airlock/external,
+/obj/structure/machinery/door/airlock/external,
 /obj/effect/shuttle_landmark/konyang_wreck/dock3{
 	dir = 1
 	},
@@ -3479,14 +3480,14 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/konyang_wreck)
 "DD" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/konyang_wreck/starbthrust)
 "DG" = (
@@ -3505,13 +3506,13 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/konyang_wreck)
 "DH" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/docking{
@@ -3523,17 +3524,17 @@
 /turf/simulated/floor/plating,
 /area/konyang_wreck/portdock)
 "DO" = (
-/obj/machinery/alarm/east{
+/obj/structure/machinery/alarm/east{
 	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod8)
 "DS" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/starboarddock)
 "DW" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/red{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/red{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -3542,10 +3543,10 @@
 /turf/simulated/wall/shuttle/dark/cardinal/merc,
 /area/konyang_wreck/pod6)
 "Ep" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -3557,12 +3558,12 @@
 /turf/simulated/floor/plating,
 /area/konyang_wreck/portdock)
 "Eq" = (
-/obj/machinery/vending/coffee,
+/obj/structure/machinery/vending/coffee,
 /obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/cryo)
 "Eu" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -3576,7 +3577,7 @@
 /area/konyang_wreck/pod2)
 "EC" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/plating,
 /area/konyang_wreck/pod7)
 "EE" = (
@@ -3591,14 +3592,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod1)
 "EM" = (
-/obj/machinery/door/airlock/external,
+/obj/structure/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock/docking{
 	landmark_tag = "konyang_wreck_dock1";
 	master_tag = "konyang_wreck_dock1";
 	name = "konyang_wreck_dock1"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
 /turf/simulated/floor/plating,
@@ -3609,14 +3610,14 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	dir = 4;
 	name = "Cargo Storage #8"
 	},
@@ -3628,14 +3629,14 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	dir = 4;
 	name = "Cargo Storage #6"
 	},
@@ -3645,7 +3646,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc/south{
+/obj/structure/machinery/power/apc/south{
 	req_access = null
 	},
 /turf/simulated/floor/plating,
@@ -3663,7 +3664,7 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc/west{
+/obj/structure/machinery/power/apc/west{
 	req_access = null
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -3673,7 +3674,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc/south{
+/obj/structure/machinery/power/apc/south{
 	req_access = null
 	},
 /obj/effect/decal/cleanable/blood/splatter,
@@ -3699,7 +3700,7 @@
 /turf/simulated/floor/plating,
 /area/konyang_wreck/starboarddock)
 "FE" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
 /turf/simulated/floor/plating,
 /area/konyang_wreck/starbthrust)
 "FL" = (
@@ -3725,13 +3726,13 @@
 /area/konyang_wreck/portdock)
 "FV" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/konyang_wreck/pod4)
 "FX" = (
-/obj/machinery/alarm/east{
+/obj/structure/machinery/alarm/east{
 	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3746,11 +3747,11 @@
 /turf/simulated/floor/plating,
 /area/konyang_wreck/pod2)
 "Gi" = (
-/obj/machinery/porta_turret/xray,
+/obj/structure/machinery/porta_turret/xray,
 /turf/simulated/floor/reinforced,
 /area/konyang_wreck/aicore)
 "GB" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
 	},
@@ -3758,13 +3759,13 @@
 /area/konyang_wreck/starboarddock)
 "GL" = (
 /obj/structure/table/standard,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod5)
 "GP" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/structure/machinery/atmospherics/pipe/tank/air{
 	start_pressure = 5066.26;
 	dir = 4
 	},
@@ -3794,10 +3795,10 @@
 /turf/simulated/wall/shuttle/dark/cardinal/merc,
 /area/konyang_wreck/aicore)
 "Hi" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 1
 	},
-/obj/machinery/portable_atmospherics/powered/pump/filled,
+/obj/structure/machinery/portable_atmospherics/powered/pump/filled,
 /turf/simulated/floor/plating,
 /area/konyang_wreck/starbthrust)
 "Hj" = (
@@ -3826,7 +3827,7 @@
 /turf/simulated/floor/plating,
 /area/konyang_wreck/pod6)
 "Hu" = (
-/obj/machinery/door/airlock/external,
+/obj/structure/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock/docking{
 	landmark_tag = "konyang_wreck_dock3";
 	master_tag = "konyang_wreck_dock3";
@@ -3848,7 +3849,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod7)
 "HD" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -3869,11 +3870,11 @@
 	name = "radioactive material crate"
 	},
 /obj/item/stack/material/tritium/full,
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/engineering)
 "HH" = (
-/obj/machinery/atmospherics/pipe/tank{
+/obj/structure/machinery/atmospherics/pipe/tank{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3888,7 +3889,7 @@
 /area/konyang_wreck/engineering)
 "HL" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/vending/snack,
+/obj/structure/machinery/vending/snack,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod3)
 "HN" = (
@@ -3915,7 +3916,7 @@
 "HZ" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/vehicle/train/cargo/trolley,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8;
 	icon_state = "tube_empty"
 	},
@@ -3929,18 +3930,18 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/captain)
 "Id" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod8)
 "Ig" = (
-/obj/machinery/door/window/southleft,
+/obj/structure/machinery/door/window/southleft,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod8)
 "Ii" = (
-/obj/machinery/door/airlock/command{
+/obj/structure/machinery/door/airlock/command{
 	name = "Captain's Quarters"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3984,8 +3985,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod8)
 "IG" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/konyang_wreck/portdock)
@@ -3996,7 +3997,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod2)
 "IJ" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/fuel,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/fuel,
 /turf/simulated/floor/plating,
 /area/konyang_wreck/starbthrust)
 "IW" = (
@@ -4014,11 +4015,11 @@
 /turf/simulated/floor/plating,
 /area/konyang_wreck/engineering)
 "Jc" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/captain)
 "Jd" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /obj/effect/landmark/corpse/orionexpress/captain,
@@ -4031,10 +4032,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod1)
 "Ju" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
 	},
@@ -4042,7 +4043,7 @@
 /area/konyang_wreck/portdock)
 "Jw" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/plating,
 /area/konyang_wreck/pod4)
 "Jx" = (
@@ -4055,7 +4056,7 @@
 /turf/simulated/wall/shuttle/dark/cardinal/merc,
 /area/konyang_wreck/pod5)
 "JI" = (
-/obj/machinery/door/window/southleft,
+/obj/structure/machinery/door/window/southleft,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod7)
 "JO" = (
@@ -4068,10 +4069,10 @@
 /turf/simulated/wall/shuttle/dark/cardinal/merc,
 /area/konyang_wreck/portdock)
 "JR" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
 /obj/structure/cable/green{
@@ -4083,7 +4084,7 @@
 /turf/simulated/floor/plating,
 /area/konyang_wreck/pod3)
 "JS" = (
-/obj/machinery/atmospherics/pipe/manifold/visible/red,
+/obj/structure/machinery/atmospherics/pipe/manifold/visible/red,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/atmos)
 "JW" = (
@@ -4098,10 +4099,10 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
@@ -4128,14 +4129,14 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	dir = 4;
 	name = "Cargo Storage #4"
 	},
@@ -4159,7 +4160,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod5)
 "KK" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock{
@@ -4168,7 +4169,7 @@
 	name = "airlock_konyang_wreck"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/machinery/atmospherics/pipe/manifold/hidden,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden,
 /turf/simulated/floor/plating,
 /area/konyang_wreck/engineering)
 "KU" = (
@@ -4177,10 +4178,10 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -4193,7 +4194,7 @@
 /turf/simulated/floor/plating,
 /area/konyang_wreck/pod8)
 "KZ" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8;
 	icon_state = "tube_empty"
 	},
@@ -4211,20 +4212,20 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/konyang_wreck)
 "Lf" = (
 /obj/structure/table/standard,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod3)
 "Lk" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
 /obj/effect/shuttle_landmark/konyang_wreck/dock4{
@@ -4239,7 +4240,7 @@
 /turf/simulated/floor/plating,
 /area/konyang_wreck/starboarddock)
 "Lm" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8;
 	icon_state = "tube_empty"
 	},
@@ -4249,10 +4250,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/portdock)
 "Lz" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -4261,7 +4262,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	dir = 4;
 	name = "Cargo Storage #3"
 	},
@@ -4279,13 +4280,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod6)
 "LL" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/blue{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/blue{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/konyang_wreck/starbthrust)
 "LN" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/brown{
@@ -4297,7 +4298,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
-/obj/machinery/iff_beacon/name_change,
+/obj/structure/machinery/iff_beacon/name_change,
 /turf/simulated/floor/airless,
 /area/space)
 "Mj" = (
@@ -4332,7 +4333,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod5)
 "Mx" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
@@ -4344,8 +4345,8 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/konyang_wreck)
@@ -4369,17 +4370,17 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/east{
+/obj/structure/machinery/power/apc/east{
 	req_access = null
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/konyang_wreck/pod8)
 "MX" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -4388,7 +4389,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	dir = 4;
 	name = "Cargo Storage #5"
 	},
@@ -4399,7 +4400,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod4)
 "Nd" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/docking{
@@ -4408,13 +4409,13 @@
 	name = "konyang_wreck_dock4"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
 /turf/simulated/floor/plating,
 /area/konyang_wreck/starboarddock)
 "Nf" = (
-/obj/machinery/alarm/east{
+/obj/structure/machinery/alarm/east{
 	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
@@ -4423,7 +4424,7 @@
 /obj/structure/shipping_container_old{
 	icon_state = "red1"
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/effect/overlay/container_logo{
 	icon_state = "heph3"
 	},
@@ -4436,7 +4437,7 @@
 /obj/item/clothing/suit/storage/toggle/corp/orion,
 /obj/structure/closet,
 /obj/item/clothing/shoes/workboots,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	icon_state = "tube_empty"
 	},
@@ -4444,10 +4445,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/cryo)
 "Nm" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 1
 	},
-/obj/machinery/portable_atmospherics/powered/scrubber,
+/obj/structure/machinery/portable_atmospherics/powered/scrubber,
 /turf/simulated/floor/plating,
 /area/konyang_wreck/starbthrust)
 "Ns" = (
@@ -4459,14 +4460,14 @@
 /area/konyang_wreck/pod6)
 "Nu" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/cryopod/robot,
+/obj/structure/machinery/cryopod/robot,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod2)
 "Nv" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 10
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -4478,10 +4479,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod8)
 "NG" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 9
 	},
-/obj/machinery/suit_cycler/engineering{
+/obj/structure/machinery/suit_cycler/engineering{
 	req_access = null
 	},
 /turf/simulated/floor/tiled/dark,
@@ -4497,10 +4498,10 @@
 /turf/simulated/floor/airless,
 /area/space)
 "NP" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -4528,16 +4529,16 @@
 /area/konyang_wreck/pod4)
 "NW" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/vending/coffee,
+/obj/structure/machinery/vending/coffee,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod3)
 "Oa" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod8)
 "Oh" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 9
 	},
 /obj/structure/cable/green{
@@ -4573,8 +4574,8 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 8;
@@ -4594,7 +4595,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod6)
 "Os" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -4608,7 +4609,7 @@
 /turf/simulated/floor/plating,
 /area/konyang_wreck/starboarddock)
 "OA" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
@@ -4623,7 +4624,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod8)
 "OF" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock{
@@ -4632,7 +4633,7 @@
 	name = "airlock_konyang_wreck"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
 /turf/simulated/floor/plating,
@@ -4648,7 +4649,7 @@
 /area/konyang_wreck/pod5)
 "OQ" = (
 /obj/structure/table/steel,
-/obj/machinery/chemical_dispenser/coffeemaster/full,
+/obj/structure/machinery/chemical_dispenser/coffeemaster/full,
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
@@ -4658,7 +4659,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/bridge)
 "OV" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
@@ -4670,24 +4671,24 @@
 	master_tag = "konyang_wreck_dock3";
 	name = "konyang_wreck_dock3"
 	},
-/obj/machinery/airlock_sensor{
+/obj/structure/machinery/airlock_sensor{
 	dir = 8;
 	pixel_x = 20;
 	pixel_y = -6
 	},
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
+/obj/structure/machinery/embedded_controller/radio/airlock/docking_port{
 	dir = 8;
 	pixel_x = 20;
 	pixel_y = 6
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/konyang_wreck/starboarddock)
 "OZ" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/plating,
 /area/konyang_wreck/pod8)
 "Pa" = (
@@ -4724,13 +4725,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod7)
 "Ph" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/atmos)
 "Pi" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "2-8"
 	},
@@ -4744,7 +4745,7 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/east{
+/obj/structure/machinery/power/apc/east{
 	req_access = null
 	},
 /turf/simulated/floor/tiled/dark,
@@ -4819,10 +4820,10 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /turf/simulated/floor/greengrid,
@@ -4852,7 +4853,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck)
 "Qh" = (
-/obj/machinery/vending/engivend{
+/obj/structure/machinery/vending/engivend{
 	req_access = null
 	},
 /turf/simulated/floor/tiled/dark,
@@ -4864,29 +4865,29 @@
 	icon_state = "4-8"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	dir = 4;
 	name = "Cryogenic Storage"
 	},
 /turf/simulated/floor/plating,
 /area/konyang_wreck/cryo)
 "Qs" = (
-/obj/machinery/atmospherics/portables_connector,
-/obj/machinery/portable_atmospherics/powered/scrubber,
-/obj/machinery/light{
+/obj/structure/machinery/atmospherics/portables_connector,
+/obj/structure/machinery/portable_atmospherics/powered/scrubber,
+/obj/structure/machinery/light{
 	dir = 4;
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/plating,
 /area/konyang_wreck/starbthrust)
 "Qt" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/fuel{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -4902,7 +4903,7 @@
 /turf/template_noop,
 /area/space)
 "QD" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/plating,
 /area/konyang_wreck/portthrust)
 "QM" = (
@@ -4910,7 +4911,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/atmos)
 "QO" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/brown{
@@ -4920,7 +4921,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/portdock)
 "QP" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
@@ -4930,16 +4931,16 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod2)
 "QW" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 5
 	},
 /turf/simulated/floor/plating,
 /area/konyang_wreck/portthrust)
 "QX" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -4951,7 +4952,7 @@
 /turf/simulated/floor/plating,
 /area/konyang_wreck/starboarddock)
 "Rb" = (
-/obj/machinery/power/smes/buildable/third_party_shuttle,
+/obj/structure/machinery/power/smes/buildable/third_party_shuttle,
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
@@ -4960,11 +4961,11 @@
 /area/konyang_wreck/engineering)
 "Re" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/plating,
 /area/konyang_wreck/pod2)
 "Rj" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/bluegrid/cooled,
@@ -4975,7 +4976,7 @@
 /area/konyang_wreck/pod7)
 "Rn" = (
 /obj/structure/table/standard,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -4986,17 +4987,17 @@
 	master_tag = "konyang_wreck_dock1";
 	name = "konyang_wreck_dock1"
 	},
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
+/obj/structure/machinery/embedded_controller/radio/airlock/docking_port{
 	dir = 8;
 	pixel_x = 20;
 	pixel_y = 6
 	},
-/obj/machinery/airlock_sensor{
+/obj/structure/machinery/airlock_sensor{
 	dir = 8;
 	pixel_x = 20;
 	pixel_y = -6
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
@@ -5017,9 +5018,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod1)
 "Ry" = (
-/obj/machinery/fabricator/autolathe,
+/obj/structure/machinery/fabricator/autolathe,
 /obj/effect/floor_decal/industrial/outline/operations,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8;
 	icon_state = "tube_empty"
 	},
@@ -5041,8 +5042,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod3)
 "RS" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 8;
@@ -5052,7 +5053,7 @@
 /turf/simulated/floor/plating,
 /area/konyang_wreck/portdock)
 "RX" = (
-/obj/machinery/alarm/west{
+/obj/structure/machinery/alarm/west{
 	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
@@ -5063,8 +5064,8 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 4;
@@ -5114,14 +5115,14 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc/south{
+/obj/structure/machinery/power/apc/south{
 	req_access = null
 	},
 /turf/simulated/floor/plating,
 /area/konyang_wreck/portthrust)
 "Tb" = (
-/obj/machinery/atmospherics/portables_connector,
-/obj/machinery/portable_atmospherics/powered/pump/filled,
+/obj/structure/machinery/atmospherics/portables_connector,
+/obj/structure/machinery/portable_atmospherics/powered/pump/filled,
 /turf/simulated/floor/plating,
 /area/konyang_wreck/starbthrust)
 "Th" = (
@@ -5129,14 +5130,14 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc/west{
+/obj/structure/machinery/power/apc/west{
 	req_access = null
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/konyang_wreck/pod5)
 "Tk" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/brown{
@@ -5151,7 +5152,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck)
 "To" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 1
 	},
 /obj/structure/cable/green{
@@ -5162,27 +5163,27 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/mechbay)
 "Tp" = (
-/obj/machinery/air_sensor{
+/obj/structure/machinery/air_sensor{
 	frequency = 1441;
 	id_tag = "konyang_wreck_sensor"
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/konyang_wreck/atmos)
 "Tr" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/door/airlock/maintenance_hatch{
+/obj/structure/machinery/door/airlock/maintenance_hatch{
 	name = "Starboard Thruster"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/atmos)
 "Ts" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
@@ -5194,14 +5195,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/bridge)
 "Tx" = (
-/obj/machinery/door/window/southleft,
+/obj/structure/machinery/door/window/southleft,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod3)
 "Ty" = (
-/obj/machinery/atmospherics/portables_connector/fuel{
+/obj/structure/machinery/atmospherics/portables_connector/fuel{
 	dir = 4
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8;
 	icon_state = "tube_empty"
 	},
@@ -5211,7 +5212,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
-/obj/machinery/shipsensors,
+/obj/structure/machinery/shipsensors,
 /turf/simulated/floor/airless,
 /area/space)
 "TA" = (
@@ -5227,7 +5228,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/engineering)
 "TE" = (
-/obj/machinery/cryopod{
+/obj/structure/machinery/cryopod{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/medical,
@@ -5240,11 +5241,11 @@
 /turf/simulated/wall/shuttle/dark/cardinal/merc,
 /area/konyang_wreck/atmos)
 "Uj" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/red,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/red,
 /turf/simulated/floor/plating,
 /area/konyang_wreck/starbthrust)
 "Uk" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	icon_state = "tube_empty"
 	},
@@ -5256,7 +5257,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck)
 "Ul" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 1
 	},
 /obj/structure/cable/green{
@@ -5264,14 +5265,14 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/engineering)
 "Un" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/atmos)
 "Ur" = (
@@ -5301,10 +5302,10 @@
 /turf/simulated/floor/airless,
 /area/space)
 "UN" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -5335,7 +5336,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod7)
 "Vg" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/brown{
@@ -5344,7 +5345,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/starboarddock)
 "Vl" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -5352,7 +5353,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/engineering)
 "Vm" = (
@@ -5370,20 +5371,20 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/konyang_wreck/pod6)
 "Vr" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /obj/structure/cable/green{
@@ -5392,7 +5393,7 @@
 	icon_state = "2-8"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
@@ -5403,20 +5404,20 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/konyang_wreck/pod6)
 "Vv" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -5428,8 +5429,8 @@
 /turf/simulated/floor/plating,
 /area/konyang_wreck)
 "VD" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/atmos)
 "VF" = (
@@ -5443,13 +5444,13 @@
 	icon_state = "4-8"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
-/obj/machinery/door/airlock/command{
+/obj/structure/machinery/door/airlock/command{
 	name = "Captain's Office";
 	dir = 4
 	},
@@ -5489,7 +5490,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/starboarddock)
 "Wi" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -5519,21 +5520,21 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/engineering)
 "WL" = (
-/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/structure/machinery/portable_atmospherics/canister/oxygen,
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/engineering)
 "WQ" = (
 /obj/structure/table/reinforced/steel,
 /obj/random/toolbox,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8;
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/mechbay)
 "Xa" = (
-/obj/machinery/power/apc/south{
+/obj/structure/machinery/power/apc/south{
 	req_access = null
 	},
 /obj/structure/cable/green{
@@ -5543,21 +5544,21 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/mechbay)
 "Xc" = (
-/obj/machinery/atmospherics/binary/pump/high_power{
+/obj/structure/machinery/atmospherics/binary/pump/high_power{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/atmos)
 "Xd" = (
-/obj/machinery/suit_cycler/engineering{
+/obj/structure/machinery/suit_cycler/engineering{
 	req_access = null
 	},
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/engineering)
 "Xf" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -5567,8 +5568,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod7)
 "Xr" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/konyang_wreck/starboarddock)
@@ -5578,17 +5579,17 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/konyang_wreck)
 "XB" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -5599,14 +5600,14 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	dir = 4;
 	name = "Cargo Storage #4"
 	},
@@ -5619,16 +5620,16 @@
 	icon_state = "4-8"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/konyang_wreck)
 "XV" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -5644,7 +5645,7 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
-/obj/machinery/photocopier/faxmachine{
+/obj/structure/machinery/photocopier/faxmachine{
 	department = "Orion Cargo Vessel"
 	},
 /obj/item/paper/fluff/konyang_wreck_warning,
@@ -5658,7 +5659,7 @@
 /turf/simulated/floor/plating,
 /area/konyang_wreck/pod6)
 "Yk" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8;
 	icon_state = "tube_empty"
 	},
@@ -5668,7 +5669,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck)
 "Yl" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -5677,7 +5678,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/door/airlock/engineering{
+/obj/structure/machinery/door/airlock/engineering{
 	name = "Engineering";
 	dir = 4
 	},
@@ -5693,7 +5694,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod4)
 "Yq" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/fuel{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -5709,10 +5710,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod4)
 "YD" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -5721,20 +5722,20 @@
 	icon_state = "4-8"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/konyang_wreck)
 "YH" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/mining/brace{
+/obj/structure/machinery/mining/brace{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod6)
 "YK" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
@@ -5750,10 +5751,10 @@
 /turf/simulated/floor/plating,
 /area/konyang_wreck/pod2)
 "Zl" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -5789,11 +5790,11 @@
 /area/konyang_wreck/pod4)
 "ZA" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/vending/sovietsoda,
+/obj/structure/machinery/vending/sovietsoda,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod3)
 "ZE" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/docking{
@@ -5802,18 +5803,18 @@
 	name = "konyang_wreck_dock2"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
 /turf/simulated/floor/plating,
 /area/konyang_wreck/portdock)
 "ZG" = (
-/obj/machinery/atmospherics/portables_connector,
-/obj/machinery/portable_atmospherics/powered/scrubber,
+/obj/structure/machinery/atmospherics/portables_connector,
+/obj/structure/machinery/portable_atmospherics/powered/scrubber,
 /turf/simulated/floor/plating,
 /area/konyang_wreck/starbthrust)
 "ZO" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 1
 	},
 /obj/structure/cable/green{
@@ -5821,16 +5822,16 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/door/airlock/maintenance_hatch{
+/obj/structure/machinery/door/airlock/maintenance_hatch{
 	name = "Vehicle Bay"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/engineering)
 "ZR" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /obj/structure/cable/green{
@@ -5839,13 +5840,13 @@
 	icon_state = "2-4"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/konyang_wreck/starboarddock)
 "ZY" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/green/diagonal,

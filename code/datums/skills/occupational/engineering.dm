@@ -1,12 +1,19 @@
 /singleton/skill/electrical_engineering
 	name = "Electrical Engineering"
-	description = "Not currently implemented"
+	description = "Electrical engineering covers usage and maintenance of various electrical systems, such as wiring."
 	maximum_level = SKILL_LEVEL_PROFESSIONAL
 	uneducated_skill_cap = SKILL_LEVEL_FAMILIAR
 	category =  /singleton/skill_category/occupational
 	subcategory = SKILL_SUBCATEGORY_ENGINEERING
 	required = TRUE
 	component_type = ELECTRICAL_ENGINEERING_SKILL_COMPONENT
+	skill_level_descriptions = alist(
+		SKILL_LEVEL_UNFAMILIAR = "You have little to no experience working with electrical systems.",
+		SKILL_LEVEL_FAMILIAR = "You have some experience working with electrical systes, though are not formally trained.",
+		SKILL_LEVEL_TRAINED = "You have formal training in electrical engineering concepts, equivalent to a Bachelor's Degree.",
+		SKILL_LEVEL_PROFESSIONAL = "You have many years of training in electrical related Engineering concepts, equivalent to a Master's Degree or better.<br>" \
+			+ " - You can tell what most machinery and airlock wires do just by looking at them." \
+	)
 
 /singleton/skill/mechanical_engineering
 	name = "Mechanical Engineering"

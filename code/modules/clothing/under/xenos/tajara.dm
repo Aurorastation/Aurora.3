@@ -29,6 +29,17 @@
 	icon_state = "male_taj_fancy_alt2"
 	item_state = "male_taj_fancy_alt2"
 
+/obj/item/clothing/under/tajaran/fancy/colorable
+	icon_state = "male_taj_fancy_colorable"
+	item_state = "male_taj_fancy_colorable"
+	contained_sprite = TRUE
+	build_from_parts = TRUE
+	has_accents = TRUE
+	worn_overlay = "base"
+
+/obj/item/clothing/under/tajaran/fancy/colorable/silver
+	worn_overlay = "base_silver"
+
 /obj/item/clothing/under/tajaran/nt
 	name = "NanoTrasen overalls"
 	desc = "Overalls meant for NanoTrasen employees of xeno descent, modified to prevent overheating."
@@ -192,6 +203,17 @@
 /obj/item/clothing/under/dress/tajaran/formal/alt2
 	icon_state = "female_taj_fancy_alt2"
 	item_state = "female_taj_fancy_alt2"
+
+/obj/item/clothing/under/dress/tajaran/formal/colorable
+	icon_state = "female_taj_fancy_colorable"
+	item_state = "female_taj_fancy_colorable"
+	contained_sprite = TRUE
+	build_from_parts = TRUE
+	has_accents = TRUE
+	worn_overlay = "base"
+
+/obj/item/clothing/under/dress/tajaran/formal/colorable/silver
+	worn_overlay = "base_silver"
 
 /obj/item/clothing/pants/tajaran
 	name = "adhomian summer pants"

@@ -42,7 +42,7 @@
 		to_chat(user, SPAN_WARNING("This area already has an APC."))
 		return //only one APC per area
 
-	for(var/obj/machinery/power/terminal/T in user_turf)
+	for(var/obj/structure/machinery/power/terminal/T in user_turf)
 		if (T.master)
 			to_chat(user, SPAN_WARNING("There is another network terminal here."))
 			return
@@ -56,13 +56,13 @@
 	var/apc_path
 	switch(ndir)
 		if(NORTH)
-			apc_path = /obj/machinery/power/apc/north
+			apc_path = /obj/structure/machinery/power/apc/north
 		if(SOUTH)
-			apc_path = /obj/machinery/power/apc/south
+			apc_path = /obj/structure/machinery/power/apc/south
 		if(EAST)
-			apc_path = /obj/machinery/power/apc/east
+			apc_path = /obj/structure/machinery/power/apc/east
 		if(WEST)
-			apc_path = /obj/machinery/power/apc/west
+			apc_path = /obj/structure/machinery/power/apc/west
 
 	if(!apc_path)
 		stack_trace("APC being built by a non-mob, or somehow the direction grabbing or the cardinal directions are fucked!")

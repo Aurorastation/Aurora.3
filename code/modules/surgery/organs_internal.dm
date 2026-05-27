@@ -4,6 +4,7 @@
 	can_infect = TRUE
 	blood_level = 1
 	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
+	skill_diff_fail_modifier = SURGERY_DIFFICULTY_EXTREME
 
 /singleton/surgery_step/internal/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -118,7 +119,7 @@
 
 	min_duration = 50
 	max_duration = 70
-	skill_requirements = alist(ROBOTICS_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
+	skill_requirements = alist(ROBOTICS_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR)
 
 /singleton/surgery_step/internal/fix_organ_robotic/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())

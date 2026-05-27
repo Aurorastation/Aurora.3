@@ -187,6 +187,7 @@
 
 /datum/species/bug/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.gender = NEUTER
+	H.AddComponent(/datum/component/HiveEchoes)
 	return ..()
 
 /datum/species/bug/is_naturally_insulated()

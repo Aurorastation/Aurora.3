@@ -40,8 +40,8 @@
 /obj/item/electronic_assembly/Collide(atom/AM)
 	var/collw = AM
 	.=..()
-	if((istype(collw, /obj/machinery/door/airlock) ||  istype(collw, /obj/machinery/door/window)) && (!isnull(access_card)))
-		var/obj/machinery/door/D = collw
+	if((istype(collw, /obj/structure/machinery/door/airlock) ||  istype(collw, /obj/structure/machinery/door/window)) && (!isnull(access_card)))
+		var/obj/structure/machinery/door/D = collw
 		if(D.check_access(access_card))
 			D.open()
 
@@ -184,13 +184,11 @@
 	for(var/obj/item/integrated_circuit/part in contents)
 		. |= part.GetAccess()
 
-/obj/item/electronic_assembly/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+/obj/item/electronic_assembly/feedback_hints(mob/user, distance, is_adjacent)
 	. = ..()
-	if(distance <= 1)
+	if(opened && is_adjacent)
 		for(var/obj/item/integrated_circuit/IC in contents)
-			. += IC.external_examine(user)
-		if(opened)
-			interact(user)
+			. += SPAN_NOTICE("It contains \a [IC].")
 
 /obj/item/electronic_assembly/proc/get_part_complexity()
 	. = 0

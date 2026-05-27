@@ -76,6 +76,8 @@
 	var/pierces = 0
 	///The base chance that a projectile capable of piercing will actually pierce.
 	var/pierce_chance = 0
+	/// 0-1 multiplier, the projectile's damage is modified by multiplying this after each pierce.
+	var/pierce_decay_damage = 0.7
 	///Used to determine whether or not to apply embed chances on hit.
 	var/last_hit_pierced = FALSE
 	/// If objects are below this layer, we pass through them.
@@ -376,6 +378,22 @@
 	beam_index = point_cache
 	beam_segments[beam_index] = null
 
+/obj/projectile/proc/check_human_shield(atom/A)
+	if(!isliving(A) || !starting)
+		return FALSE
+
+	var/mob/living/M = A
+	if(point_blank || !(M.dir & get_dir(M, starting)))
+		return FALSE
+
+	for(var/obj/item/grab/G in list(M.l_hand, M.r_hand))
+		if(!G?.affecting || G.state < GRAB_NECK || G.affecting.lying)
+			continue
+		M.visible_message(SPAN_DANGER("\The [M] uses [G.affecting] as a shield!"))
+		return G.affecting
+
+	return FALSE
+
 /obj/projectile/Collide(atom/A)
 	SEND_SIGNAL(src, COMSIG_MOVABLE_BUMP, A)
 	if(!can_hit_target(A, A == original, TRUE, TRUE))
@@ -394,13 +412,21 @@
  * Also, we select_target to find what to process_hit first.
  */
 /obj/projectile/proc/Impact(atom/A)
+	if(QDELETED(src))
+		return TRUE
 	if(!trajectory)
 		qdel(src)
 		return FALSE
 	if(impacted[A.weak_reference]) // NEVER doublehit
 		return FALSE
-	var/datum/point/point_cache = trajectory.copy_to()
 	var/turf/T = get_turf(A)
+	var/atom/shield_target = check_human_shield(A)
+	if(shield_target)
+		var/datum/weakref/original_ref = A.weak_reference
+		impacted[original_ref] = TRUE
+		process_hit(T, shield_target, A)
+		impacted -= original_ref
+	var/datum/point/point_cache = trajectory.copy_to()
 	if(ricochets < ricochets_max && check_ricochet_flag(A) && check_ricochet(A))
 		ricochets++
 		if(A.handle_ricochet(src))
@@ -422,6 +448,9 @@
 	if(ismob(A))
 		var/miss_modifier = max(15*(distance-1) - round(25*accuracy), 0)
 		def_zone = get_zone_with_miss_chance(def_zone, A, miss_modifier, (distance > 1 || original != A), point_blank)
+		if (!def_zone)
+			A.visible_message(SPAN_NOTICE("\The [src] misses [A] narrowly!"))
+			return FALSE
 	else
 		def_zone = ran_zone(def_zone, clamp(accurate_range - (accuracy_falloff * distance), 5, 100)) //Lower accurancy/longer range tradeoff. 7 is a balanced number to use.
 
@@ -659,7 +688,8 @@
 		return PROJECTILE_PIERCE_PHASE
 	if(projectile_piercing & A.pass_flags_self)
 		if (penetrating > pierces)
-			if(damage > 20 && prob(pierce_chance + damage))
+			if(prob(min(100, (pierce_chance + (damage/4) + armor_penetration) * anti_materiel_potential))) //Base pierce_chance is 0. This gives the STS a 30% chance to pierce once.
+				damage *= pierce_decay_damage
 				penetrating--
 				last_hit_pierced = TRUE
 				return PROJECTILE_PIERCE_HIT
@@ -734,6 +764,8 @@
 		pixel_move(pixel_speed_multiplier, FALSE)
 
 /obj/projectile/proc/fire(angle, atom/direct_target)
+	if(QDELETED(src))
+		return
 	LAZYINITLIST(impacted)
 	if(fired_from)
 		SEND_SIGNAL(fired_from, COMSIG_PROJECTILE_BEFORE_FIRE, src, original)
@@ -954,8 +986,7 @@
  */
 /obj/projectile/proc/preparePixelProjectile(atom/target, atom/source, list/modifiers = null, deviation = 0)
 	if(!(isnull(modifiers) || islist(modifiers)))
-		stack_trace("WARNING: Projectile [type] fired with non-list modifiers, likely was passed click params.")
-		modifiers = null
+		modifiers = params2list(modifiers)
 
 	var/turf/source_loc = get_turf(source)
 	var/turf/target_loc = get_turf(target)

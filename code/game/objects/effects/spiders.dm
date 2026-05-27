@@ -1,4 +1,4 @@
-//generic procs copied from obj/effect/alien
+///generic procs copied from obj/effect/alien
 /obj/effect/spider
 	name = "web"
 	desc = "It's stringy and sticky, eugh. Probably came from one of those greimorians..."
@@ -6,7 +6,12 @@
 	anchored = TRUE
 	density = FALSE
 	mouse_opacity = MOUSE_OPACITY_ICON
-	maxhealth = OBJECT_HEALTH_FRAGILE
+	should_use_health = TRUE
+	maxhealth = OBJECT_HEALTH_VERY_LOW
+	armor = list(
+		MELEE = ARMOR_MELEE_MINOR,
+		BULLET = ARMOR_BALLISTIC_MINOR
+	)
 
 //similar to weeds, but only barfed out by nurses manually
 /obj/effect/spider/ex_act(severity)
@@ -20,21 +25,6 @@
 			if(prob(5))
 				qdel(src)
 	return
-
-/obj/effect/spider/attackby(obj/item/attacking_item, mob/user)
-	visible_message(SPAN_WARNING("\The [src] has been [LAZYPICK(attacking_item.attack_verb, "attacked")] with [attacking_item][(user ? " by [user]." : ".")]"))
-	var/damage = attacking_item.force / 4.0
-	if(attacking_item.tool_behaviour == TOOL_WELDER)
-		var/obj/item/weldingtool/WT = attacking_item
-		if(WT.use(0, user))
-			damage = 15
-			playsound(loc, 'sound/items/Welder.ogg', 100, 1)
-		return TRUE
-	else
-		user.do_attack_animation(src)
-		playsound(loc, attacking_item.hitsound, 50, 1, -1)
-
-	add_damage(damage)
 
 /obj/effect/spider/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
 	. = ..()
@@ -130,7 +120,7 @@
 	var/growth_rate = 1
 	/// Their current growth, from 0-100.
 	var/growth_level = 0
-	var/obj/machinery/atmospherics/unary/vent_pump/entry_vent
+	var/obj/structure/machinery/atmospherics/unary/vent_pump/entry_vent
 	var/travelling_in_vent = FALSE
 	/// Possible creatures the larva can mature into.
 	var/list/possible_offspring = list(
@@ -182,12 +172,12 @@
 		if(get_dist(src, entry_vent) <= 1)
 			if(entry_vent.network && entry_vent.network.normal_members.len)
 				var/list/vents = list()
-				for(var/obj/machinery/atmospherics/unary/vent_pump/temp_vent in entry_vent.network.normal_members)
+				for(var/obj/structure/machinery/atmospherics/unary/vent_pump/temp_vent in entry_vent.network.normal_members)
 					vents.Add(temp_vent)
 				if(!vents.len)
 					entry_vent = null
 					return
-				var/obj/machinery/atmospherics/unary/vent_pump/exit_vent = pick(vents)
+				var/obj/structure/machinery/atmospherics/unary/vent_pump/exit_vent = pick(vents)
 
 				spawn(rand(20,60))
 					if(!QDELETED(src))
@@ -228,7 +218,7 @@
 				src.visible_message(SPAN_NOTICE("\The [src] skitters[pick(" away"," around","")]."))
 	else if(prob(5))
 		//vent crawl!
-		for(var/obj/machinery/atmospherics/unary/vent_pump/v in view(7,src))
+		for(var/obj/structure/machinery/atmospherics/unary/vent_pump/v in view(7,src))
 			if(!v.welded)
 				entry_vent = v
 				GLOB.move_manager.move_to(src, entry_vent, 0, 5)
@@ -258,12 +248,13 @@
 	die()
 
 /obj/effect/spider/spiderling/attackby(obj/item/attacking_item, mob/user)
-	. = ..()
 	if(istype(attacking_item, /obj/item/newspaper))
 		var/obj/item/newspaper/N = attacking_item
 		if(N.rolled)
 			die()
 			return TRUE
+
+	. = ..()
 
 /obj/effect/decal/cleanable/spiderling_remains
 	name = "greimorian larva remains"
@@ -275,7 +266,6 @@
 	name = "cocoon"
 	desc = "Something wrapped in silky greimorian web"
 	icon_state = "cocoon1"
-	maxhealth = OBJECT_HEALTH_VERY_LOW
 
 /obj/effect/spider/cocoon/Initialize()
 	. = ..()

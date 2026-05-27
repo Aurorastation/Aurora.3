@@ -336,12 +336,12 @@ In most cases it makes more sense to use apply_damage() instead! And make sure t
 //Damages ONE external organ, organ gets randomly selected from damagable ones.
 //It automatically updates damage overlays if necesary
 //It automatically updates health status
-/mob/living/carbon/human/take_organ_damage(var/brute, var/burn, var/damage_flags)
+/mob/living/carbon/human/take_organ_damage(var/brute, var/burn, var/damage_flags, var/used_weapon = null, var/silent)
 	var/list/obj/item/organ/external/parts = get_damageable_organs()
 	if(!parts.len)
 		return
 	var/obj/item/organ/external/picked = pick(parts)
-	if(picked.take_damage(brute, burn, damage_flags))
+	if(picked.take_damage(brute, burn, damage_flags, used_weapon, silent))
 		UpdateDamageIcon()
 		BITSET(hud_updateflag, HEALTH_HUD)
 	updatehealth()
@@ -480,6 +480,10 @@ This function restores all organs.
 				return
 			def_zone = ran_zone(def_zone)
 		organ = get_organ(check_zone(def_zone))
+
+	if(damage_flags & DAMAGE_FLAG_IGNORE_PROSTHETICS)
+		if(BP_IS_ROBOTIC(organ))
+			return FALSE
 
 	//Handle other types of damage
 	if(!(damagetype in list(DAMAGE_BRUTE, DAMAGE_BURN, DAMAGE_PAIN, DAMAGE_CLONE)))

@@ -213,15 +213,6 @@
 		'sound/ambience/fire/Fire_Ambient_03.ogg'
 	)
 
-/datum/sound_effect/hiss_sound
-	key = SFX_HISS
-	file_paths = list(
-		'sound/voice/hiss1.ogg',
-		'sound/voice/hiss2.ogg',
-		'sound/voice/hiss3.ogg',
-		'sound/voice/hiss4.ogg'
-	)
-
 /datum/sound_effect/page_sound
 	key = SFX_PAGE_TURN
 	file_paths = list(

@@ -14,7 +14,7 @@
 	color = LIGHT_COLOR_ORANGE
 	tgui_id = "PenalMechs"
 
-	var/obj/machinery/camera/current_camera
+	var/obj/structure/machinery/camera/current_camera
 
 /datum/computer_file/program/penal_mechs/ui_data(mob/user)
 	var/list/data = list()
@@ -82,7 +82,7 @@
 				var/mob/living/heavy_vehicle/M = locate(params["track_mech"]) in GLOB.mob_list
 				if(!istype(M))
 					return FALSE
-				var/obj/machinery/camera/C = M.camera
+				var/obj/structure/machinery/camera/C = M.camera
 				if(C)
 					switch_to_camera(usr, C)
 			return TRUE
@@ -109,7 +109,7 @@
 				to_chat(M, SPAN_WARNING("Remote Penal Monitoring: [message]"))
 				return TRUE
 
-/datum/computer_file/program/penal_mechs/proc/switch_to_camera(var/mob/user, var/obj/machinery/camera/C)
+/datum/computer_file/program/penal_mechs/proc/switch_to_camera(var/mob/user, var/obj/structure/machinery/camera/C)
 	//don't need to check if the camera works for AI because the AI jumps to the camera location and doesn't actually look through cameras.
 	if(isAI(user))
 		var/mob/living/silicon/ai/A = user
@@ -131,7 +131,7 @@
 	check_eye(user)
 	return TRUE
 
-/datum/computer_file/program/penal_mechs/proc/set_current(var/obj/machinery/camera/C)
+/datum/computer_file/program/penal_mechs/proc/set_current(var/obj/structure/machinery/camera/C)
 	if(current_camera == C)
 		return
 

@@ -73,6 +73,11 @@
 				to_chat(user, SPAN_WARNING("There's already a music cartridge in there."))
 				..()
 
+/// Ensure we stop playing music when dropped for any reason.
+/obj/item/clothing/ears/earphones/dropped(mob/user)
+	. = ..()
+	StopPlaying()
+
 /obj/item/clothing/ears/earphones/proc/read_music_cartridge(obj/item/music_cartridge/cartridge, mob/user)
 	StopPlaying() // New cartridge in, so clean up our sound token if it hasn't already been for some reason
 
@@ -394,7 +399,7 @@ Earphone Variants
 	desc = "A music cartridge."
 	icon = 'icons/obj/item/music_cartridges.dmi'
 	icon_state = "generic"
-	w_class = WEIGHT_CLASS_SMALL
+	w_class = WEIGHT_CLASS_TINY
 	var/list/datum/track/tracks
 	/// Whether or not this cartridge can be removed from the datum/jukebox it belongs to.
 	var/hardcoded = FALSE

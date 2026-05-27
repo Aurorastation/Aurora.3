@@ -204,6 +204,7 @@
 	new /obj/item/gun/projectile/sec(src)
 	new /obj/item/ammo_magazine/c45m/rubber(src)
 	new /obj/item/breath_analyzer(src)
+	new /obj/item/pin_extractor(src)
 	//Belts
 	new /obj/item/clothing/accessory/storage/black_vest(src)
 	new /obj/item/clothing/accessory/holster/hip(src)

@@ -1,0 +1,8 @@
+author: Kano
+
+delete-after: True
+
+changes:
+  - qol: "Added various clothing shortcuts. You can now Alt-Click to adjust layers, Alt-Shit-Click to remove accessories, etc. on most clothings."
+  - rscadd: "Tweaked inventory HUD icon frames to process shortcut clicks (Alt-Click and Shift-Alt-Click for now). This means you no longer have to click specifically on item icons to use shortcuts."
+  - code_imp: "Moved a block of code to where it belongs, minor code improvements."

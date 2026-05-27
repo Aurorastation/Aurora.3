@@ -231,8 +231,31 @@
 	desc = "A crate containing gear for a group. Includes merchant clothes as well. Recommended for IPCs."
 	path = /obj/structure/closet/crate/secure/gear_loadout/hoplan
 
-/datum/uplink_item/item/gear_loadout/exclusionist_single
+/datum/uplink_item/item/gear_loadout/hoplan_single
 	name = "Golden Deep Hoplan Assets (Single)"
 	desc = "A crate containing gear for a single individual. Recommended for IPCs."
 	path = /obj/structure/closet/crate/secure/gear_loadout/hoplan/single
+	telecrystal_cost = 10
+
+/datum/uplink_item/item/gear_loadout/outereyes
+	name = "Outer Eyes (Group)"
+	desc = "A crate containing gear for a group. Humans only, for now."
+	path = /obj/structure/closet/crate/secure/gear_loadout/outereyes
+
+/datum/uplink_item/item/gear_loadout/outereyes_single
+	name = "Outer Eyes (Single)"
+	desc = "A crate containing gear for a single individual. Humans only, for now."
+	path = /obj/structure/closet/crate/secure/gear_loadout/outereyes/single
+	telecrystal_cost = 10
+
+/datum/uplink_item/item/gear_loadout/zavodskoi
+	name = "Zavodskoi Assets (Group)"
+	desc = "A crate containing gear for a group. The hardsuit and voidsuits are only usable by humans."
+	path = /obj/structure/closet/crate/secure/gear_loadout/zavodskoi
+	telecrystal_cost = 35
+
+/datum/uplink_item/item/gear_loadout/zavodskoi_single
+	name = "Zavodskoi Assets (Single)"
+	desc = "A crate containing gear for a single individual. The voidsuit is only usable by humans."
+	path = /obj/structure/closet/crate/secure/gear_loadout/zavodskoi/single
 	telecrystal_cost = 10

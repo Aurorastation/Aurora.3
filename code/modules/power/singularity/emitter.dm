@@ -2,7 +2,7 @@
 #define EMITTER_BOLTED 1
 #define EMITTER_WELDED 2
 
-/obj/machinery/power/emitter
+/obj/structure/machinery/power/emitter
 	name = "emitter"
 	desc = "It is a heavy duty industrial laser."
 	desc_extended = "A standard heavy duty laser emitter. As the name implies it fires very high energy laser beams in the targeted direction. There is a big warning label printed on the top panel:\"WARNING: RISK OF DEATH. \
@@ -38,13 +38,13 @@
 
 	var/datum/effect_system/sparks/spark_system
 
-/obj/machinery/power/emitter/mechanics_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/power/emitter/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Standing next to \the [src] and examining it will let you see how many shots it has fired since last being turned on."
 	. += "Using an Engineering ID on \the [src] will toggle its control locks."
 	. += "You can attach a signaler to \the [src] to remotely toggle it on and off (so long as its controls are not locked)."
 
-/obj/machinery/power/emitter/assembly_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/power/emitter/assembly_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	switch(state)
 		if(EMITTER_LOOSE)
@@ -52,7 +52,7 @@
 		if(EMITTER_BOLTED)
 			. += "\The [src] must be <b>welded</b> securely to the floor before it can be fired."
 
-/obj/machinery/power/emitter/disassembly_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/power/emitter/disassembly_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	switch(state)
 		if(EMITTER_BOLTED)
@@ -60,7 +60,7 @@
 		if(EMITTER_WELDED)
 			. += "\The [src] must first be <b>unwelded</b> before its anchoring bolts can be unsecured."
 
-/obj/machinery/power/emitter/feedback_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/power/emitter/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	if(state == EMITTER_WELDED)
 		. += SPAN_WARNING("\The [src] is bolted and welded to the floor, and ready to fire.")
@@ -68,11 +68,11 @@
 		. += SPAN_NOTICE("The shot counter display reads: [shot_counter] shots.")
 	. += "Its controls are currently [locked ? "locked" : "unlocked"]."
 
-/obj/machinery/power/emitter/antagonist_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/power/emitter/antagonist_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Emagging this will both disable the locking mechanism and put its capacitor and firing mechanisms into overdrive!"
 
-/obj/machinery/power/emitter/Destroy()
+/obj/structure/machinery/power/emitter/Destroy()
 	if(special_emitter)
 		message_admins("Emitter deleted at ([x],[y],[z] - <A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)",0,1)
 		log_game("Emitter deleted at ([x],[y],[z])")
@@ -82,7 +82,7 @@
 	QDEL_NULL(signaler)
 	return ..()
 
-/obj/machinery/power/emitter/Initialize()
+/obj/structure/machinery/power/emitter/Initialize()
 	. = ..()
 	spark_system = bind_spark(src, 5, GLOB.alldirs)
 	if(state == EMITTER_WELDED && anchored)
@@ -90,7 +90,7 @@
 		if(_wifi_id)
 			wifi_receiver = new(_wifi_id, src)
 
-/obj/machinery/power/emitter/update_icon()
+/obj/structure/machinery/power/emitter/update_icon()
 	ClearOverlays()
 	if(active && powernet && POWER_AVAIL(src))
 		AddOverlays(emissive_appearance(icon, "[icon_state]_lights"))
@@ -103,11 +103,15 @@
 			lights_image.plane = ABOVE_LIGHTING_PLANE
 			AddOverlays(lights_image)
 
-/obj/machinery/power/emitter/attack_hand(mob/user)
+/obj/structure/machinery/power/emitter/attack_hand(mob/user)
 	add_fingerprint(user)
 	var/max_engineering_skill = \
 		max(astype(user.GetComponent(REACTOR_SYSTEMS_SKILL_COMPONENT), SKILL_COMPONENT)?.skill_level, \
 			astype(user.GetComponent(ELECTRICAL_ENGINEERING_SKILL_COMPONENT), SKILL_COMPONENT)?.skill_level)
+
+	if(issilicon(user))
+		activate(user)
+		return TRUE
 
 	if(max_engineering_skill <= SKILL_LEVEL_TRAINED)
 		to_chat(user, SPAN_WARNING("You try to find the switch on \the [src]... How do you even turn this thing on?"))
@@ -116,7 +120,7 @@
 		to_chat(user, SPAN_NOTICE("You finally find the switch!"))
 	activate(user)
 
-/obj/machinery/power/emitter/proc/activate(mob/user)
+/obj/structure/machinery/power/emitter/proc/activate(mob/user)
 	if(state == EMITTER_WELDED)
 		if(!powernet)
 			if(user)
@@ -151,13 +155,13 @@
 			to_chat(user, SPAN_WARNING("\The [src] needs to be firmly secured to the floor first."))
 		return TRUE
 
-/obj/machinery/power/emitter/emp_act(severity)
+/obj/structure/machinery/power/emitter/emp_act(severity)
 	. = ..()
 
 	activate(null)
 	return TRUE
 
-/obj/machinery/power/emitter/process(seconds_per_tick)
+/obj/structure/machinery/power/emitter/process(seconds_per_tick)
 	if(stat & (BROKEN))
 		return
 	if(state != EMITTER_WELDED || (!powernet && active_power_usage))
@@ -205,7 +209,7 @@
 		A.fire()
 		shot_counter++
 
-/obj/machinery/power/emitter/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/power/emitter/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(active)
 			to_chat(user, SPAN_WARNING("You cannot unbolt \the [src] while it's active."))
@@ -294,7 +298,7 @@
 	..()
 	return
 
-/obj/machinery/power/emitter/emag_act(remaining_charges, mob/user)
+/obj/structure/machinery/power/emitter/emag_act(remaining_charges, mob/user)
 	if(!emagged)
 		locked = FALSE
 		emagged = TRUE
@@ -308,22 +312,22 @@
 		to_chat(user, SPAN_WARNING("\The [src] seems to already have been modified."))
 		return FALSE
 
-/obj/machinery/power/emitter/do_signaler()
+/obj/structure/machinery/power/emitter/do_signaler()
 	if(!locked)
 		activate(null)
 	else
 		visible_message("[icon2html(src, viewers(get_turf(src)))] [src] whines, \"Access denied!\"")
 
-/obj/machinery/power/emitter/proc/get_initial_fire_delay()
+/obj/structure/machinery/power/emitter/proc/get_initial_fire_delay()
 	return 10 SECONDS
 
-/obj/machinery/power/emitter/proc/get_rand_burst_delay()
+/obj/structure/machinery/power/emitter/proc/get_rand_burst_delay()
 	return rand(min_burst_delay, max_burst_delay)
 
-/obj/machinery/power/emitter/proc/get_burst_delay()
+/obj/structure/machinery/power/emitter/proc/get_burst_delay()
 	return 0.2 SECONDS // This value doesn't really affect normal emitters, but *does* affect subtypes like the gyrotron that can have very long delays
 
-/obj/machinery/power/emitter/proc/get_emitter_beam()
+/obj/structure/machinery/power/emitter/proc/get_emitter_beam()
 	return new /obj/projectile/beam/emitter(get_turf(src))
 
 #undef EMITTER_LOOSE

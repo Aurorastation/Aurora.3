@@ -41,8 +41,6 @@ ABSTRACT_TYPE(/datum/gear/pants)
 	pants["mustang jeans short shorts"] = /obj/item/clothing/pants/shorts/jeans/mustang/short
 	pants["black jeans shorts"] = /obj/item/clothing/pants/shorts/jeans/black
 	pants["black jeans short shorts"] = /obj/item/clothing/pants/shorts/jeans/black/short
-	pants["grey jeans shorts"] = /obj/item/clothing/pants/shorts/jeans/grey
-	pants["grey jeans short shorts"] = /obj/item/clothing/pants/shorts/jeans/grey/short
 
 	// Athletic Shorts
 	pants["black athletic shorts"] = /obj/item/clothing/pants/shorts/athletic/black
@@ -66,6 +64,7 @@ ABSTRACT_TYPE(/datum/gear/pants)
 	// Pants
 	colorpants["dress pants"] = /obj/item/clothing/pants/dress
 	colorpants["dress pants, with belt"] = /obj/item/clothing/pants/dress/belt
+	colorpants["cargo pants"] = /obj/item/clothing/pants/cargo
 	colorpants["striped pants"] = /obj/item/clothing/pants/striped
 	colorpants["flared pants"] = /obj/item/clothing/pants/flared
 	colorpants["mustang jeans"] = /obj/item/clothing/pants/mustang/colourable

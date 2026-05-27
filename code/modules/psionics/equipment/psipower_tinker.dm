@@ -3,7 +3,7 @@
 	icon_state = "crowbar"
 	force = 11
 	tool_behaviour = TOOL_CROWBAR
-	var/list/tools = list("crowbar", "wrench", "screwdriver", "cutters")
+	var/list/tools = list(TOOL_CROWBAR, TOOL_WRENCH, TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
 
 /obj/item/psychic_power/tinker/Initialize(mapload, ...)
 	. = ..()
@@ -26,7 +26,8 @@
 	if(!owner || loc != owner)
 		return
 
-	tool_behaviour = lowertext(choice)
+	tool_behaviour = choice
+	LOAD_TOOL_QUALITIES(src, alist(choice = owner.check_psi_sensitivity()), toolComp)
 	name = "psychokinetic [tool_behaviour]"
 	icon_state = tool_behaviour
 	to_chat(owner, SPAN_NOTICE("You begin emulating \a [tool_behaviour]."))

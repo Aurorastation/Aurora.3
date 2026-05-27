@@ -1,7 +1,7 @@
 /*
  * Library Public Computer
  */
-/obj/machinery/librarypubliccomp
+/obj/structure/machinery/librarypubliccomp
 	name = "public library computer"
 	desc = "A computer."
 	icon = 'icons/obj/library.dmi'
@@ -15,19 +15,19 @@
 	var/db_loading = FALSE
 	var/db_error = FALSE
 
-/obj/machinery/librarypubliccomp/attack_hand(var/mob/user)
+/obj/structure/machinery/librarypubliccomp/attack_hand(var/mob/user)
 	. = ..()
 	if(.)
 		return TRUE
 	ui_interact(user)
 
-/obj/machinery/librarypubliccomp/ui_interact(mob/user, datum/tgui/ui)
+/obj/structure/machinery/librarypubliccomp/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "LibraryPublicComputer", "Public Library Terminal", 650, 500)
 		ui.open()
 
-/obj/machinery/librarypubliccomp/ui_data(mob/user)
+/obj/structure/machinery/librarypubliccomp/ui_data(mob/user)
 	var/list/data = list()
 	data["search_title"] = search_title
 	data["search_author"] = search_author
@@ -37,7 +37,7 @@
 	data["search_results"] = search_results
 	return data
 
-/obj/machinery/librarypubliccomp/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/obj/structure/machinery/librarypubliccomp/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
@@ -53,7 +53,7 @@
 				INVOKE_ASYNC(src, PROC_REF(async_search))
 			. = TRUE
 
-/obj/machinery/librarypubliccomp/proc/async_search()
+/obj/structure/machinery/librarypubliccomp/proc/async_search()
 	db_loading = TRUE
 	db_error = FALSE
 	search_results = list()

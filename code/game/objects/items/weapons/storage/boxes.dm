@@ -533,16 +533,13 @@
 	desc = "A box full of laser modulators, used to build laser weapons."
 	illustration = "firecracker"
 	starts_with = list(
+		/obj/item/laser_components/modulator = 1,
 		/obj/item/laser_components/modulator/taser = 1,
 		/obj/item/laser_components/modulator/tesla = 1,
 		/obj/item/laser_components/modulator/ion = 1,
 		/obj/item/laser_components/modulator/floramut = 1,
 		/obj/item/laser_components/modulator/floramut2 = 1,
-		/obj/item/laser_components/modulator/arodentia = 1,
-		/obj/item/laser_components/modulator/red = 1,
-		/obj/item/laser_components/modulator/blue = 1,
-		/obj/item/laser_components/modulator/omni = 1,
-		/obj/item/laser_components/modulator/practice = 1,
+		/obj/item/laser_components/modulator/xenovermin = 1,
 		/obj/item/laser_components/modulator/mindflayer = 1,
 		/obj/item/laser_components/modulator/decloner = 1,
 		/obj/item/laser_components/modulator/ebow = 1,
@@ -647,7 +644,14 @@
 	desc = "It has a large ketchup smear on it."
 	color = COLOR_YELLOW_GRAY
 	illustration = "condiment"
-	starts_with = list(/obj/item/reagent_containers/food/condiment = 6)
+	starts_with = list(
+		/obj/item/reagent_containers/food/condiment/ketchup = 1,
+		/obj/item/reagent_containers/food/condiment/barbecue = 1,
+		/obj/item/reagent_containers/food/condiment/soysauce = 1,
+		/obj/item/reagent_containers/food/condiment/mayonnaise = 1,
+		/obj/item/reagent_containers/food/condiment/hot_sauce = 1,
+		/obj/item/reagent_containers/food/condiment/ntella = 1
+	)
 
 /obj/item/storage/box/cups
 	name = "box of paper cups"
@@ -866,7 +870,7 @@
 		/obj/item/light/tube/colored/blue,
 		/obj/item/light/tube/colored/magenta,
 		/obj/item/light/tube/colored/yellow,
-		/obj/item/light/tube/colored/cyan
+		/obj/item/light/tube/colored/pale_purple
 	)
 	var/static/list/bulbs_colors = list(
 		/obj/item/light/bulb/colored/red,
@@ -874,7 +878,7 @@
 		/obj/item/light/bulb/colored/blue,
 		/obj/item/light/bulb/colored/magenta,
 		/obj/item/light/bulb/colored/yellow,
-		/obj/item/light/bulb/colored/cyan
+		/obj/item/light/bulb/colored/pale_purple
 	)
 	for(var/i = 0, i < 14, i++)
 		var/type = pick(tube_colors)
@@ -913,11 +917,23 @@
 	color = COLOR_YELLOW_GRAY
 	starts_with = list(/obj/item/light/tube/colored/yellow = 14, /obj/item/light/bulb/colored/yellow = 7)
 
+/obj/item/storage/box/lights/colored/pale_purple
+	name = "box of pale purple lights"
+	illustration = "lightmixed"
+	color = COLOR_PURPLE_GRAY
+	starts_with = list(/obj/item/light/tube/colored/pale_purple = 14, /obj/item/light/bulb/colored/pale_purple = 7)
+
 /obj/item/storage/box/lights/colored/magenta
 	name = "box of magenta lights"
 	illustration = "lightmixed"
 	color = COLOR_PALE_PINK
 	starts_with = list(/obj/item/light/tube/colored/magenta = 14, /obj/item/light/bulb/colored/magenta = 7)
+
+/obj/item/storage/box/lights/colored/beige
+	name = "box of beige lights"
+	illustration = "lightmixed"
+	color = COLOR_BEIGE
+	starts_with = list(/obj/item/light/tube/colored/beige = 14, /obj/item/light/bulb/colored/beige = 7)
 
 /obj/item/storage/box/kitchen
 	name = "galley supplies"

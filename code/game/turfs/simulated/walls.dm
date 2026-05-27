@@ -20,8 +20,8 @@
 		/obj/structure/window_frame,
 		/obj/structure/window_frame/unanchored,
 		/obj/structure/window_frame/empty,
-		/obj/machinery/door,
-		/obj/machinery/door/airlock,
+		/obj/structure/machinery/door,
+		/obj/structure/machinery/door/airlock,
 		/obj/structure/arch
 	)
 	hitsound = 'sound/weapons/Genhit.ogg'
@@ -48,29 +48,19 @@
 
 	pathing_pass_method = TURF_PATHING_PASS_NO //Literally a wall, until we implement bots that can wallwarp, we might aswell save the processing
 
-
-/turf/simulated/wall/condition_hints(mob/user, distance, is_adjacent)
-	. += ..()
-	if(health >= maxhealth)
-		. += SPAN_NOTICE("It looks fully intact.")
-	else
-		// Total damage is based of base material integrity and optionally, if reinforced, reinforcement material integrity on top
-		var/integrity = material.integrity
-		if(reinf_material)
-			integrity += reinf_material.integrity
-
-		var/relative_damage = health / maxhealth
-
-		if(relative_damage <= 0.25)
-			. += SPAN_NOTICE("It looks slightly damaged.")
-		else if(relative_damage <= 0.5)
-			. += SPAN_WARNING("It looks damaged.")
-		else if(relative_damage <= 0.75)
-			. += SPAN_WARNING("It looks moderately damaged.")
-		else if(relative_damage <= 0.9)
-			. += SPAN_DANGER("It looks heavily damaged.")
-		else
-			. += SPAN_DANGER("It looks critically damaged and on the verge of structural collapse.")
+/turf/simulated/wall/get_damage_condition_hints(mob/user, distance, is_adjacent)
+	var/state
+	var/current_damage = health / maxhealth
+	switch(current_damage)
+		if(0 to 0.2)
+			state = SPAN_DANGER("\The [src] is about to collapse into shattered debris!")
+		if(0.2 to 0.4)
+			state = SPAN_WARNING("\The [src] shows massive cracks across its surface and is in dire need of repairs!")
+		if(0.4 to 0.8)
+			state = SPAN_NOTICE("\The [src] is dented, but still sturdy.")
+		if(0.8 to 1)
+			state = SPAN_NOTICE("\The [src] seems completely intact.")
+	. = state
 
 /turf/simulated/wall/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -113,7 +103,7 @@
 		reinf_material = SSmaterials.get_material_by_name(rmaterialtype)
 	update_material()
 	hitsound = material.hitsound
-	set_maxhealth(material.integrity + (reinf_material ? reinf_material.integrity : 0))
+	set_maxhealth(material.integrity + (reinf_material ? reinf_material.integrity : 0), TRUE)
 
 	if (material.radioactivity || (reinf_material && reinf_material.radioactivity))
 		START_PROCESSING(SSprocessing, src)
@@ -192,11 +182,12 @@
 	if(!can_melt())
 		return
 
-	new /obj/effect/overlay/burnt_wall(get_turf(src), name, material, reinf_material)
 	src.ChangeTurf(under_turf)
+	// Create a gooey mass of slag.
+	new /obj/effect/decal/cleanable/molten_item(src)
 
 	if(do_message)
-		visible_message(SPAN_DANGER("\The [src] spontaneously combusts!")) //!!OH SHIT!!
+		visible_message(SPAN_DANGER("\The [src] melts into slag!")) //!!OH SHIT!!
 
 /turf/simulated/wall/add_damage(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
 	if(locate(/obj/effect/overlay/wallrot) in src)
@@ -277,11 +268,14 @@
 	if(!can_melt())
 		return
 
-	var/obj/effect/overlay/thermite/O = new /obj/effect/overlay/thermite(src)
 	to_chat(user, SPAN_WARNING("The thermite starts melting through the wall."))
 
-	QDEL_IN(O, 100)
-	addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, melt), FALSE), 100)
+	create_melt_overlay(10 SECONDS)
+	addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, melt), FALSE), 10 SECONDS)
+
+/turf/simulated/wall/proc/create_melt_overlay(overlay_lifetime = 2 SECONDS)
+	var/obj/effect/overlay/thermite/O = new /obj/effect/overlay/thermite(src)
+	QDEL_IN(O, overlay_lifetime)
 
 /turf/simulated/wall/proc/radiate()
 	var/total_radiation = material.radioactivity + (reinf_material ? reinf_material.radioactivity / 2 : 0)
@@ -298,7 +292,7 @@
 			src.ChangeTurf(/turf/simulated/floor)
 			for(var/turf/simulated/wall/W in range(3,src))
 				W.burn((temperature/4))
-			for(var/obj/machinery/door/airlock/phoron/D in range(3,src))
+			for(var/obj/structure/machinery/door/airlock/phoron/D in range(3,src))
 				D.ignite(temperature/4)
 
 /turf/simulated/wall/is_wall()

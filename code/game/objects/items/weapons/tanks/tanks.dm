@@ -13,6 +13,8 @@
 	slot_flags = SLOT_BACK
 	w_class = WEIGHT_CLASS_NORMAL
 
+	permeability_coefficient = 0 //So your oxygen tank doesn't get contaminated by phoron in the air.
+
 	force = 11
 	throwforce = 10.0
 	throw_speed = 1

@@ -1,4 +1,4 @@
-/obj/machinery/ship_weapon/coilgun/light
+/obj/structure/machinery/ship_weapon/coilgun/light
 	name = "M302A7 piledriver light coilgun"
 	desc = "A miniaturized version of the Solarian Navy’s coilgun platform, the M302A7 is the latest version of a weapon class that has served with honor since the Interstellar War. A semiautomatic, magazine-loaded design, it excels at applying pressure to enemy shields and hulls."
 	desc_extended = "Pressed for a smaller version of a coilgun to fit onto escort craft, the Alliance contracted what was then Necropolis Industries to design and manufacture the Navy’s first coilgun for corvette use in the mid-2200s. The M2307 is a post-Interstellar War modernization of earlier models that had been steadily improved upon over time. Though phased out of use in some battlegroups in favor of the M455A1 light coilgun, it remains a common sight in many fleets."

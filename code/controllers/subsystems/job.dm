@@ -122,10 +122,10 @@ SUBSYSTEM_DEF(jobs)
 	Debug("AR has failed, Player: [player], Rank: [rank]")
 	return FALSE
 
-/datum/controller/subsystem/jobs/proc/FreeRole(var/rank)
-	var/datum/job/job = GetJob(rank)
-	if(!istype(job))
-		return
+/datum/controller/subsystem/jobs/proc/FreeRole(rank)
+	astype(GetJob(rank), /datum/job)?.current_positions--
+
+/datum/controller/subsystem/jobs/proc/FreeJob(datum/job/job)
 	job.current_positions--
 
 /datum/controller/subsystem/jobs/proc/FindOccupationCandidates(datum/job/job, level, flag)
@@ -311,7 +311,6 @@ SUBSYSTEM_DEF(jobs)
 		EquipCustom(H, job, H.client.prefs, custom_equip_leftovers, spawn_in_storage, custom_equip_slots)
 
 		job.equip(H)
-		UniformReturn(H, H.client.prefs, job)
 
 		spawn_in_storage += EquipCustomDeferred(H, H.client.prefs, custom_equip_leftovers, custom_equip_slots)
 	else
@@ -621,13 +620,12 @@ SUBSYSTEM_DEF(jobs)
 
 	//Handle job slot/tater cleanup.
 	if (H.mind)
-		var/role = H.mind.assigned_role
 		var/datum/job/job = GetJob(H.mind.assigned_role)
-		job.on_despawn(H)
-		FreeRole(role)
-		if(H.mind.objectives.len)
-			qdel(H.mind.objectives)
-			H.mind.special_role = null
+		if (job)
+			job.on_despawn(H)
+			FreeJob(job)
+		QDEL_LIST(H.mind.objectives)
+		H.mind.special_role = null
 
 	// Delete them from datacore.
 	if(ishuman(H))
@@ -861,7 +859,7 @@ SUBSYSTEM_DEF(jobs)
 	set waitfor = 0
 
 	var/style = "font-family: 'Fixedsys'; -dm-text-outline: 1 black; font-size: 11px;"
-	var/text = "[worlddate2text()], [worldtime2text()]\n[station_name()], [SSatlas.current_sector.name]"
+	var/text = "[worlddate2text()] [worldtime2text()]\n[station_name()], [SSatlas.current_sector.name]"
 	text = uppertext(text)
 
 	var/obj/effect/overlay/T = new()
@@ -888,21 +886,4 @@ SUBSYSTEM_DEF(jobs)
 		C.screen -= T
 	qdel(T)
 
-/datum/controller/subsystem/jobs/proc/UniformReturn(mob/living/carbon/human/H, datum/preferences/prefs, datum/job/job)
-	var/uniform = job.get_outfit(H)
-	if(!uniform) // silicons don't have uniforms or gear
-		return
-	var/obj/outfit/U = new uniform
-	var/spawned_uniform = FALSE
-	var/spawned_suit = FALSE
-	for(var/item in prefs.gear)
-		var/datum/gear/L = GLOB.gear_datums[item]
-		if(L.slot == slot_w_uniform)
-			if(U.uniform && !spawned_uniform && !istype(H.w_uniform, U.uniform))
-				H.equip_or_collect(new U.uniform(H), H.back)
-				spawned_uniform = TRUE
-		if(L.slot == slot_wear_suit)
-			if(U.suit && !spawned_suit && !istype(H.wear_suit, U.suit))
-				H.equip_or_collect(new U.suit(H), H.back)
-				spawned_suit = TRUE
 #undef Debug

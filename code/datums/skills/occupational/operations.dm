@@ -1,6 +1,10 @@
 /singleton/skill/robotics
 	name = "Robotics"
-	description = "Governs the user's ability to perform surgical procedures on synthetics, as well as the complexity of what procedures can be performed."
+	description = "Governs the user's ability to perform surgical procedures on synthetics, as well as the complexity of what procedures can be performed. " \
+		+ "A low rank in this skill causes surgery procedures to have a significantly higher chance to fail, while high ranks improve surgical chances. " \
+		+ "The more advanced a surgery is, the greater the penalties will be from attempting it unskilled. " \
+		+ "Having high ranks in this skill can also help offset the penalties from using non-ideal tools in surgery. " \
+		+ "This does not affect \"surgeries\" performed on organics."
 	maximum_level = SKILL_LEVEL_PROFESSIONAL
 	uneducated_skill_cap = SKILL_LEVEL_FAMILIAR
 	category =  /singleton/skill_category/occupational
@@ -9,15 +13,15 @@
 	required = TRUE
 	skill_level_descriptions = alist(
 		SKILL_LEVEL_UNFAMILIAR = "You have zero training or experience with synthetics.<br>" \
-			+ " - You cannot perform any surgical procedures on synthetics.",
+			+ " - You suffer a large penalty to the chances of successfully performing any surgery on synthetics.",
 		SKILL_LEVEL_FAMILIAR = "You have minimal training on the basics of synthetic repair and maintenance. This could be the level of a hobbyist, or someone currently pursuing a degree in robotics.<br>" \
-			+ "You can perform the following procedures: <br>" \
+			+ "You can perform the following procedures without penalties: <br>" \
 			+ " - Opening or closing external maintenance panels to make superficial repairs.<br>" \
 			+ " - Repairing basic damage with a welder or cables.<br>" \
 			+ " - Repairing external damage to mechanical limbs.<br>" \
 			+ " - Cutting someone out of a hardsuit.",
 		SKILL_LEVEL_TRAINED = "You have years of formal training or experience on repairing and maintaining synthetics equivalent to a Bachelor's degree in Robotics.<br>" \
-			+ "You can perform the following procedures:<br>" \
+			+ "You can perform the following procedures without penalties:<br>" \
 			+ " - Opening or closing external maintenance panels to make superficial repairs.<br>" \
 			+ " - Repairing basic damage with a welder or cables.<br>" \
 			+ " - Repairing external damage to mechanical limbs.<br>" \
@@ -30,7 +34,7 @@
 			+ " - Perform all forms of internal repairs to IPCs.<br>" \
 			+ " - Prepare an MMI for cyborgification.",
 		SKILL_LEVEL_PROFESSIONAL = "Not currently implemented, functions exactly as per Trained.<br>" \
-			+ "You can perform the following procedures:<br>" \
+			+ "You can perform the following procedures without penalties:<br>" \
 			+ " - Opening or closing external maintenance panels to make superficial repairs.<br>" \
 			+ " - Repairing basic damage with a welder or cables.<br>" \
 			+ " - Repairing external damage to mechanical limbs.<br>" \

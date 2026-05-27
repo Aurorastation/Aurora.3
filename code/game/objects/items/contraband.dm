@@ -52,15 +52,21 @@
 
 /obj/item/reagent_containers/glass/beaker/vial/random/toxin
 	random_reagent_list = list(
-		list(/singleton/reagent/drugs/mindbreaker = 10, /singleton/reagent/drugs/mms = 20)	= 3,
-		list(/singleton/reagent/mercury = 15)										= 3,
-		list(/singleton/reagent/toxin/carpotoxin = 15)								= 2,
-		list(/singleton/reagent/drugs/impedrezene = 15)									= 2,
-		list(/singleton/reagent/toxin/dextrotoxin = 10)								= 1,
-		list(/singleton/reagent/toxin/spectrocybin = 15)								= 1,
-		list(/singleton/reagent/drugs/joy = 10, /singleton/reagent/water = 20)					= 1,
-		list(/singleton/reagent/toxin/berserk = 10)                                  = 1,
-		list(/singleton/reagent/ammonia = 15)										= 3)
+		list(
+			/singleton/reagent/drugs/mindbreaker = 10,
+			/singleton/reagent/drugs/mms = 20
+			)												= 3,
+		list(/singleton/reagent/mercury = 15)				= 3,
+		list(/singleton/reagent/toxin/carpotoxin = 15)		= 2,
+		list(/singleton/reagent/drugs/impedrezene = 15)		= 2,
+		list(/singleton/reagent/toxin/dextrotoxin = 10)		= 1,
+		list(/singleton/reagent/toxin/spectrocybin = 15)	= 1,
+		list(
+			/singleton/reagent/drugs/joy = 10,
+			/singleton/reagent/water = 20
+			)												= 1,
+		list(/singleton/reagent/toxin/berserk = 10)			= 1,
+		list(/singleton/reagent/ammonia = 15)				= 3)
 
 /obj/item/reagent_containers/glass/beaker/vial/random/Initialize()
 	. = ..()

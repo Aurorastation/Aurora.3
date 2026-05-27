@@ -1,5 +1,5 @@
 import { BooleanLike } from '../../common/react';
-import { useBackend } from '../backend';
+import { useBackend, useLocalState } from '../backend';
 import {
   LabeledList,
   Button,
@@ -80,6 +80,12 @@ export const QuikPay = (props, context) => {
 
 export const ItemWindow = (props, context) => {
   const { act, data } = useBackend<PayData>(context);
+  const [searchTerm, setSearchTerm] = useLocalState<string>(
+    context,
+    `searchTerm`,
+    ``,
+  );
+  const normalizedSearchTerm = searchTerm.toLowerCase();
 
   const groupedItems = data.items.reduce((groups, item) => {
     const category = item.category || 'Uncategorized';
@@ -91,52 +97,84 @@ export const ItemWindow = (props, context) => {
   }, {});
 
   const sortedCategories = Object.keys(groupedItems).sort();
+  const filteredCategories = sortedCategories
+    .map((category) => {
+      const categoryMatches =
+        category.toLowerCase().indexOf(normalizedSearchTerm) > -1;
+      const items = categoryMatches
+        ? groupedItems[category]
+        : groupedItems[category].filter(
+            (item) =>
+              item.name?.toLowerCase().indexOf(normalizedSearchTerm) > -1,
+          );
+
+      return { category, items };
+    })
+    .filter((group) => group.items.length > 0);
 
   return (
-    <Section>
+    <Section
+      title="Items"
+      buttons={
+        <Input
+          autoFocus
+          autoSelect
+          placeholder="Search categories or items"
+          maxLength={512}
+          onInput={(e, value) => {
+            setSearchTerm(value);
+          }}
+          value={searchTerm}
+        />
+      }
+    >
       <Flex direction="row">
         <Flex.Item grow={1}>
-          {sortedCategories.map((category) => (
-            <Section key={category} title={category}>
-              <Table>
-                {groupedItems[category].map((item) => (
-                  <Table.Row key={`${category}-${item.name}`}>
-                    <Table.Cell>{item.name}</Table.Cell>
-                    <Table.Cell align="right">
-                      {item.price.toFixed(2)}电 &nbsp;
-                    </Table.Cell>
-                    <Table.Cell>
-                      {!data.editmode ? (
-                        <Button
-                          content="Buy"
-                          icon="calendar"
-                          onClick={() =>
-                            act('buy', {
-                              buying: item.name,
-                              amount: 1,
-                              price: item.price,
-                            })
-                          }
-                        />
-                      ) : (
-                        <>
-                          &nbsp;
+          {filteredCategories.length < 1 ? (
+            <Section>No items found.</Section>
+          ) : (
+            filteredCategories.map(({ category, items }) => (
+              <Section key={category} title={category}>
+                <Table>
+                  {items.map((item) => (
+                    <Table.Row key={`${category}-${item.name}`}>
+                      <Table.Cell>{item.name}</Table.Cell>
+                      <Table.Cell align="right">
+                        {item.price.toFixed(2)}电 &nbsp;
+                      </Table.Cell>
+                      <Table.Cell>
+                        {!data.editmode ? (
                           <Button
-                            content="Delete"
-                            icon="trash"
-                            color="bad"
+                            content="Buy"
+                            icon="calendar"
                             onClick={() =>
-                              act('remove', { removing: item.name })
+                              act('buy', {
+                                buying: item.name,
+                                amount: 1,
+                                price: item.price,
+                              })
                             }
                           />
-                        </>
-                      )}
-                    </Table.Cell>
-                  </Table.Row>
-                ))}
-              </Table>
-            </Section>
-          ))}
+                        ) : (
+                          <>
+                            &nbsp;
+                            <Button
+                              content="Delete"
+                              icon="trash"
+                              color="bad"
+                              onClick={() =>
+                                act('remove', { removing: item.name })
+                              }
+                            />
+                          </>
+                        )}
+                      </Table.Cell>
+                    </Table.Row>
+                  ))}
+                </Table>
+              </Section>
+            ))
+          )}
         </Flex.Item>
 
         <Box width="1px" backgroundColor="rgba(255, 255, 255, 0.15)" mx={2} />
