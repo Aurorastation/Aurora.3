@@ -16,11 +16,12 @@
 #define SLOT_BACK       BITFLAG(10)
 #define SLOT_POCKET     BITFLAG(11) // This is to allow items with a w_class of 3 or 4 to fit in pockets.
 #define SLOT_TWOEARS    BITFLAG(12)
-#define SLOT_TIE        BITFLAG(13)
-#define SLOT_HOLSTER    BITFLAG(14)
-#define SLOT_WRISTS     BITFLAG(15)
-#define SLOT_S_STORE    BITFLAG(16)
-#define SLOT_PANTS      BITFLAG(17)
+#define SLOT_TWOWRISTS  BITFLAG(13) // Used by paired wristwear, such as bracers and arm chains. The real item is equipped to one wrist and an offwrist placeholder is created for the other wrist.
+#define SLOT_TIE        BITFLAG(14)
+#define SLOT_HOLSTER    BITFLAG(15)
+#define SLOT_WRISTS     BITFLAG(16)
+#define SLOT_S_STORE    BITFLAG(17)
+#define SLOT_PANTS      BITFLAG(18)
 
 // Bitmasks for the flags_inv variable. These determine when a piece of clothing hides another, i.e. a helmet hiding glasses.
 #define HIDEGLOVES      0x1
@@ -64,8 +65,10 @@
 #define slot_pants       22
 #define slot_tie         23
 #define slot_in_belt     24
-#define slot_wrists      25
-#define slot_last		 26 //for the love of god, keep this updated or you won't be able to unequip things
+#define slot_l_wrist     25
+#define slot_r_wrist     26
+#define slot_wrists      27 // legacy combined wrist slot; keep distinct from the split wrist slots
+#define slot_last        28 //for the love of god, keep this updated or you won't be able to unequip things
 
 // Inventory slot strings.
 // since numbers cannot be used as associative list keys.
@@ -85,7 +88,9 @@
 #define slot_r_ear_str		"slot_r_ear"
 #define slot_pants_str		"slot_pants"
 #define slot_shoes_str 		"slot_shoes"
-#define slot_wrists_str 	"slot_wrists"
+#define slot_l_wrist_str 	"slot_l_wrist"
+#define slot_r_wrist_str 	"slot_r_wrist"
+#define slot_wrists_str 	"slot_wrists" // legacy alias; remove later after old references are migrated
 #define slot_gloves_str 	"slot_gloves"
 #define slot_tail_str		"slot_tail"
 

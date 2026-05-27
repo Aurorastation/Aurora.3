@@ -1,0 +1,18 @@
+author: mineymonkey
+delete-after: True
+
+changes:
+  - rscadd: "Split the former combined wrist inventory slot into separate left and right wrist slots."
+  - rscadd: "Added support for paired wristwear, allowing items such as bracers and arm chains to occupy both wrist slots while remaining a single real item."
+  - bugfix: "Updated ID card lookup logic to check both left and right wrist slots instead of only the legacy combined wrist slot."
+  - bugfix: "Updated wrist radio speech handling so wristbound radios can transmit properly from either split wrist slot."
+  - bugfix: "Updated the existing Wrist primary radio preference to find radios in either the left or right wrist slot."
+  - bugfix: "Updated wristbound radio slot handling so they can properly select left or right wrist item states once matching sprites are implemented (WE HOPE!!!)."
+  - bugfix: "Updated wrist inventory icon rendering to draw equipment from both split wrist slots."
+  - bugfix: "Fixed legacy wrist-slot equips being placed into the old combined wrist slot instead of a visible left or right wrist slot."
+  - qol: "Removed the manual wristwear flip verb in favor of automatically setting wristwear orientation based on the equipped wrist slot."
+  - refactor: "Updated wrist slot defines, slot strings, and clothing slot flags to support split wrist equipment while preserving legacy wrist slot compatibility."
+  - refactor: "Updated human inventory equip, unequip, and equipped-item lookup handling for left wrist, right wrist, and two-wrist items."
+  - refactor: "Updated wristwear clothing definitions to mark paired wrist items with the new two-wrist slot behavior."
+  - refactor: "Updated Unathi jeweled bracers to use the new paired wristwear behavior."
+  - refactor: "Updated species HUD data to display separate left and right wrist inventory slots."

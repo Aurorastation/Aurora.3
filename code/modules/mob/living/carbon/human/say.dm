@@ -186,7 +186,13 @@
 		headsets["Left Ear"] = l_ear
 	if(istype(r_ear, /obj/item/radio))
 		headsets["Right Ear"] = r_ear
-	if(istype(wrists, /obj/item/radio))
+
+	// Used by split wrist radios. The existing Wrist preference should find a radio in either split wrist slot.
+	if(istype(l_wrist, /obj/item/radio))
+		headsets["Wrist"] = l_wrist
+	else if(istype(r_wrist, /obj/item/radio))
+		headsets["Wrist"] = r_wrist
+	else if(istype(wrists, /obj/item/radio))
 		headsets["Wrist"] = wrists
 
 	if(length(headsets))
@@ -237,11 +243,18 @@
 		if("wrist")
 			var/obj/item/radio/R
 			var/has_radio = FALSE
-			if(istype(wrists,/obj/item/radio))
+			// Used by wrist radio speech. Check the split wrist slots before falling back to the legacy combined wrists slot.
+			if(istype(l_wrist, /obj/item/radio))
+				R = l_wrist
+				has_radio = TRUE
+			else if(istype(r_wrist, /obj/item/radio))
+				R = r_wrist
+				has_radio = TRUE
+			else if(istype(wrists, /obj/item/radio))
 				R = wrists
 				has_radio = TRUE
 			if(istype(r_hand, /obj/item/radio))
-				R = wrists
+				R = r_hand
 				has_radio = TRUE
 			if(has_radio)
 				used_radios += R

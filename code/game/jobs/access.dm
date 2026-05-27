@@ -243,10 +243,23 @@ GLOBAL_LIST_INIT_TYPED(ghost_all_access, /obj/item/card/id/all_access, list())
 		var/id = I.GetID()
 		if(id)
 			return id
+
 	if(wear_id)
 		var/id = wear_id.GetID()
 		if(id)
 			return id
+
+	// Wrist IDs may be worn on either split wrist slot. Check both new wrist slots before falling back to the legacy combined wrist slot.
+	if(l_wrist)
+		var/id = l_wrist.GetID()
+		if(id)
+			return id
+
+	if(r_wrist)
+		var/id = r_wrist.GetID()
+		if(id)
+			return id
+
 	if(wrists)
 		var/id = wrists.GetID()
 		if(id)

@@ -223,6 +223,27 @@
 	var/mob_wear_layer = ABOVE_SUIT_LAYER_WR
 	EarSound = FALSE
 
+/obj/item/radio/headset/wrist/proc/set_wrist_side(slot)
+	if(slot == slot_l_wrist)
+		item_state = "[initial(item_state)]_r"
+	else if(slot == slot_r_wrist)
+		item_state = initial(item_state)
+	else
+		return
+
+	if(ishuman(src.loc))
+		var/mob/living/carbon/human/H = src.loc
+		if(H.l_wrist == src)
+			H.update_inv_l_wrist()
+		else if(H.r_wrist == src)
+			H.update_inv_r_wrist()
+		else if(H.wrists == src)
+			H.update_inv_wrists()
+		else if(H.l_ear == src)
+			H.update_inv_l_ear()
+		else if(H.r_ear == src)
+			H.update_inv_r_ear()
+
 /obj/item/radio/headset/wrist/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "This radio can be heard by people standing next to the one wearing it."
@@ -236,16 +257,21 @@
 		mob_wear_layer = ABOVE_UNIFORM_LAYER_WR
 	else
 		mob_wear_layer = ABOVE_SUIT_LAYER_WR
+
 	to_chat(usr, SPAN_NOTICE("\The [src] will now layer [mob_wear_layer == ABOVE_SUIT_LAYER_WR ? "over" : "under"] your outerwear."))
-	if (ishuman(src.loc))
+
+	if(ishuman(src.loc))
 		var/mob/living/carbon/human/H = src.loc
-		if(H.wrists == src)
+		if(H.l_wrist == src)
+			H.update_inv_l_wrist()
+		else if(H.r_wrist == src)
+			H.update_inv_r_wrist()
+		else if(H.wrists == src)
 			H.update_inv_wrists()
 		else if(H.l_ear == src)
 			H.update_inv_l_ear()
 		else if(H.r_ear == src)
 			H.update_inv_r_ear()
-
 
 /obj/item/radio/headset/wrist/clip
 	name = "clip-on radio"

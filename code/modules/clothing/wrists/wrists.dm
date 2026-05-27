@@ -1,4 +1,3 @@
-
 /obj/item/clothing/wrists
 	name = "wrists"
 	w_class = WEIGHT_CLASS_TINY
@@ -16,17 +15,36 @@
 	contained_sprite = TRUE
 
 /obj/item/clothing/wrists/update_clothing_icon()
-	if (ismob(src.loc))
+	if(ishuman(src.loc))
+		// Used by split wrist inventory. Updating both wrist slots keeps left/right wrist icons visually synced.
+		var/mob/living/carbon/human/H = src.loc
+		H.update_inv_l_wrist()
+		H.update_inv_r_wrist()
+	else if(ismob(src.loc))
 		var/mob/M = src.loc
 		M.update_inv_wrists()
 
-/obj/item/clothing/wrists/Initialize()
-	. = ..()
-	update_flip_verb()
+/obj/item/clothing/wrists/proc/set_wrist_side(slot)
+	if(gender == PLURAL || flipped == -1)
+		return
 
-/obj/item/clothing/wrists/proc/update_flip_verb()
-	if((gender != PLURAL) && (flipped != -1)) // Check for plurality and whether it has a flipped icon.
-		verbs += /obj/item/clothing/wrists/watch/proc/swapwrists
+	if(slot == slot_l_wrist)
+		flipped = FALSE
+	else if(slot == slot_r_wrist)
+		flipped = TRUE
+	else
+		return
+
+	var/base_icon_state = initial(icon_state)
+	var/base_item_state = initial(item_state)
+
+	if(base_icon_state && ("[base_icon_state]_flip" in icon_states(icon)))
+		icon_state = "[base_icon_state][flipped ? "_flip" : ""]"
+
+	if(base_item_state)
+		item_state = "[base_item_state][flipped ? "_flip" : ""]"
+
+	update_clothing_icon()
 
 /obj/item/clothing/wrists/verb/change_layer()
 	set category = "Object.Equipped"
@@ -39,25 +57,6 @@
 		mob_wear_layer = options[new_layer]
 		to_chat(usr, SPAN_NOTICE("\The [src] will now layer [new_layer]."))
 		update_clothing_icon()
-
-/obj/item/clothing/wrists/watch/proc/swapwrists()
-	set category = "Object.Equipped"
-	set name = "Flip Wristwear"
-	set src in usr
-
-	if(use_check_and_message(usr))
-		return 0
-
-	flipped = !flipped
-	if(("[initial(icon_state)]_flip") in icon_states(icon))
-		icon_state = "[initial(item_state)][flipped ? "_flip" : ""]"
-	item_state = "[initial(item_state)][flipped ? "_flip" : ""]"
-	to_chat(usr, "You change \the [src] to be on your [src.flipped ? "left" : "right"] wrist.")
-	if(equip_sound)
-		playsound(src, equip_sound, EQUIP_SOUND_VOLUME)
-	else
-		playsound(src, drop_sound, DROP_SOUND_VOLUME)
-	update_clothing_icon()
 
 /obj/item/clothing/wrists/bracelet
 	name = "bracelet"
@@ -83,6 +82,8 @@
 	desc = "A set of luxurious chains intended to be wrapped around long, lanky arms. They don't seem particularly comfortable. They're encrusted with cobalt-blue gems, and made of <b>REAL</b> faux gold."
 	icon_state = "cobalt_armchains"
 	item_state = "cobalt_armchains"
+	// Used by paired wristwear, such as bracers and arm chains. The real item is equipped to one wrist and an offwrist placeholder is created for the other wrist.
+	slot_flags = SLOT_WRISTS|SLOT_TWOWRISTS
 	gender = PLURAL
 	flipped = -1
 
@@ -103,6 +104,8 @@
 	desc = "A pair of sturdy and thick decorative bracers, seeming better for fashion than protection. They're encrusted with cobalt-blue gems, and made of <b>REAL</b> faux gold."
 	icon_state = "cobalt_bracers"
 	item_state = "cobalt_bracers"
+	// Used by paired wristwear, such as bracers and arm chains. The real item is equipped to one wrist and an offwrist placeholder is created for the other wrist.
+	slot_flags = SLOT_WRISTS|SLOT_TWOWRISTS
 	gender = PLURAL
 	flipped = -1
 
@@ -117,3 +120,30 @@
 	desc = "A pair of sturdy and thick decorative bracers, seeming better for fashion than protection. They're encrusted with ruby-red gems, and made of <b>REAL</b> faux gold."
 	icon_state = "ruby_bracers"
 	item_state = "ruby_bracers"
+
+// Used by paired wristwear. This is not a second real item; it only reserves and displays the opposite wrist slot.
+/obj/item/clothing/wrists/offwrist
+	name = "wristwear counterpart"
+	desc = "You should not be seeing this."
+	icon_state = null
+	item_state = null
+	canremove = FALSE
+
+/obj/item/clothing/wrists/offwrist/proc/copy_wrist(obj/item/clothing/wrists/original)
+	// Used by paired wristwear. The placeholder copies the real item's visible state while remaining non-removable.
+	name = original.name
+	desc = original.desc
+	icon = original.icon
+	icon_state = original.icon_state
+	item_state = original.item_state
+	slot_flags = original.slot_flags
+	body_parts_covered = original.body_parts_covered
+	flags_inv = original.flags_inv
+	gender = original.gender
+	flipped = original.flipped
+	mob_wear_layer = original.mob_wear_layer
+	contained_sprite = original.contained_sprite
+	sprite_sheets = original.sprite_sheets
+	item_icons = original.item_icons
+	item_state_slots = original.item_state_slots
+	icon_override = original.icon_override

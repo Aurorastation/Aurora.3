@@ -652,6 +652,8 @@ GLOBAL_LIST_INIT(slot_flags_enumeration, list(
 	"[slot_w_uniform]" = SLOT_ICLOTHING,
 	"[slot_wear_id]" = SLOT_ID,
 	"[slot_tie]" = SLOT_TIE,
+	"[slot_l_wrist]" = SLOT_WRISTS, // Legacy wrist slot string is preserved for older code paths. New wrist equipment should prefer slot_l_wrist_str or slot_r_wrist_str.
+	"[slot_r_wrist]" = SLOT_WRISTS,
 	"[slot_wrists]" = SLOT_WRISTS,
 	"[slot_pants]" = SLOT_PANTS
 	))

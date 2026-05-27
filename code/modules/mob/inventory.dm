@@ -117,7 +117,8 @@ GLOBAL_LIST_INIT(slot_equipment_priority, list(
 		slot_tie,
 		slot_l_store,
 		slot_r_store,
-		slot_wrists,
+		slot_l_wrist,
+		slot_r_wrist,
 		slot_pants
 	))
 
