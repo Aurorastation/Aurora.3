@@ -1,0 +1,5 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - bugfix: "Fixed the Hiskyn Treasure Trove away site not having any ambience."
+  - rscadd: "Map Areas will now cause unit tests to fail if given invalid ambience."
