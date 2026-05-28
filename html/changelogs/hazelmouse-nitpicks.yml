@@ -59,4 +59,4 @@ changes:
   - rscadd: "Turrets now produce less light."
   - rscadd: "Telecommunications is no longer lit with blue lighting."
   - rscadd: "Several dark spots on the map are now better lit, including medical's GTR and the INDRA chamber in engineering."
-  - rscadd: "Implemented a few very ancillary changes to the Horizon's mapping outside of maintenance."
+  - rscadd: "Implemented a few very ancillary changes to the Horizon's mapping outside of maintenance, including adding tiles to all airlocks."
