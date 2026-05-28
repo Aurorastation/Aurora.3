@@ -22,14 +22,10 @@
 	if (mind)
 		mind.handle_mob_deletion(src)
 
-	for(var/infection in viruses)
-		qdel(infection)
-
 	for(var/cc in client_colors)
 		qdel(cc)
 
 	client_colors = null
-	viruses.Cut()
 	item_verbs = null
 
 	//Added this to prevent nonliving mobs from ghostising
