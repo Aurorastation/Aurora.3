@@ -589,9 +589,7 @@
 		if(!L) // datum was deleted but list entry not yet pruned
 			LAZYREMOVE(static_light_sources, L)
 			continue
-		if(!L.source_atom)
-			continue
-		L.source_atom.static_update_light()
+		L.source_atom?.static_update_light()
 
 /atom/movable/Exited(atom/movable/gone, direction)
 	. = ..()
