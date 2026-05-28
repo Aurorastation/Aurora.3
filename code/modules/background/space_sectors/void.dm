@@ -26,8 +26,6 @@
 		)
 
 	sector_welcome_message = 'sound/AI/welcome_lights_edge.ogg'
-	sector_hud_menu = 'icons/misc/hudmenu/coalition_hud.dmi'
-	sector_hud_arrow = "menu_arrow"
 
 	lobby_tracks = list(
 		'sound/music/lobby/lights_edge/lights_edge_1.ogg',

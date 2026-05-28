@@ -9,8 +9,6 @@
 	starlight_power = 2
 	starlight_range = 4
 	sector_welcome_message = 'sound/AI/welcome_coalition.ogg'
-	sector_hud_menu = 'icons/misc/hudmenu/coalition_hud.dmi'
-	sector_hud_arrow = "menu_arrow"
 
 /datum/space_sector/weeping_stars
 	name = SECTOR_WEEPING_STARS
@@ -38,8 +36,6 @@
 	starlight_power = 2
 	starlight_range = 4
 	sector_welcome_message = 'sound/AI/welcome_weeping.ogg'
-	sector_hud_menu = 'icons/misc/hudmenu/coalition_hud.dmi'
-	sector_hud_arrow = "menu_arrow"
 
 /datum/space_sector/arusha
 	name = SECTOR_ARUSHA
@@ -123,8 +119,6 @@
 	starlight_power = 2
 	starlight_range = 4
 	sector_welcome_message = 'sound/AI/welcome_weeping.ogg'
-	sector_hud_menu = 'icons/misc/hudmenu/coalition_hud.dmi'
-	sector_hud_arrow = "menu_arrow"
 
 /datum/space_sector/haneunim
 	name = SECTOR_HANEUNIM
@@ -154,8 +148,6 @@
 	sector_lobby_art = list('icons/misc/titlescreens/lore/silicon_nightmares.dmi')
 	sector_lobby_transitions = 0
 	sector_welcome_message = 'sound/AI/welcome_konyang.ogg'
-	sector_hud_menu = 'icons/misc/hudmenu/konyang_hud.dmi'
-	sector_hud_arrow = "menu_arrow"
 
 	lobby_tracks = list(
 		'sound/music/lobby/konyang/konyang-1.ogg',

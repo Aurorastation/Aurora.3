@@ -105,9 +105,6 @@
 	sector_lobby_art = list('icons/misc/titlescreens/lore/cold_dawn.dmi')
 	sector_lobby_transitions = 0
 	sector_welcome_message = 'sound/AI/adhomai_welcome.ogg'
-	sector_hud_menu = 'icons/misc/hudmenu/tajara_hud.dmi'
-	sector_hud_menu_sound = 'sound/effects/menu_click_heavy.ogg'
-	sector_hud_arrow = "menu_arrow"
 
 	lore_radio_stations = list(
 		"34.2 The Voice of the Tajaran People" = 'texts/lore_radio/adhomai/34.2_The_Voice_of_the_Tajaran_People.txt',
