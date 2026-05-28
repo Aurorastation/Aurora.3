@@ -1,0 +1,4 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - bugfix: "Fixed a runtime error caused by mannequins recursively trying to delete themselves under certain circumstances."
