@@ -12,7 +12,7 @@
 
 	force_spawnpoint = TRUE
 
-	lobby_icons = list('icons/misc/titlescreens/runtime/developers.dmi', 'icons/misc/titlescreens/runtime/away.dmi')
+	lobby_icons = list('icons/misc/titlescreens/runtime/developers.dmi')
 	lobby_transitions = FALSE
 
 	admin_levels = list(9)

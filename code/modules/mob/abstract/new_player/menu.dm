@@ -48,9 +48,9 @@
 	using.name = "Current Lore Summary"
 	adding += using
 
-	// using = new /atom/movable/screen/new_player/selection/server_logo(src)
-	// using.name = "Aurora"
-	// adding += using
+	using = new /atom/movable/screen/new_player/selection/server_logo(src)
+	using.name = "Aurora"
+	adding += using
 
 	mymob.client.screen = list()
 	mymob.client.screen += adding
@@ -79,7 +79,7 @@ ABSTRACT_TYPE(/atom/movable/screen/new_player)
 	screen_loc = "WEST,SOUTH"
 	layer = UNDER_HUD_LAYER
 	icon = 'icons/misc/titlescreens/title.dmi'
-	icon_state = "loading"
+	icon_state = null
 
 	///An index used to rotate along the lobby icons
 	var/lobby_screen_index = 1
@@ -165,6 +165,9 @@ ABSTRACT_TYPE(/atom/movable/screen/new_player/selection)
 	mouse_opacity = MOUSE_OPACITY_OPAQUE
 	var/click_sound = 'sound/effects/menu_click.ogg'
 	var/hud_arrow
+	var/does_matrix_scale = TRUE
+	var/uses_hud_arrow = TRUE
+	alpha = 60
 
 /atom/movable/screen/new_player/selection/New(datum/hud/H)
 	color = null
@@ -189,21 +192,21 @@ ABSTRACT_TYPE(/atom/movable/screen/new_player/selection)
 	set_sector_things()
 
 /atom/movable/screen/new_player/selection/MouseEntered(location, control, params)
-	if(hud_arrow)
-		AddOverlays(hud_arrow)
-		UpdateOverlays() // force this so it appears before MC is done
-	else
-		var/matrix/M = matrix()
+	if(SSatlas.current_sector?.sector_hud_arrow && uses_hud_arrow)
+		AddOverlays(SSatlas.current_sector.sector_hud_arrow)
+	var/matrix/M = matrix()
+	if(does_matrix_scale)
 		M.Scale(1.1, 1)
-		animate(src, color = color_rotation(30), transform = M, time = 3, easing = CUBIC_EASING)
+		M.Translate(8, 0)
+	animate(src, color = null, transform = M, time = 3, easing = CUBIC_EASING)
+	animate(src, alpha = 255, time = 3, easing = CUBIC_EASING)
 	return ..()
 
 /atom/movable/screen/new_player/selection/MouseExited(location, control, params)
-	if(hud_arrow)
-		CutOverlays(hud_arrow)
-		UpdateOverlays()
-	else
-		animate(src, color = null, transform = null, time = 3, easing = CUBIC_EASING)
+	if(SSatlas.current_sector?.sector_hud_arrow && uses_hud_arrow)
+		ClearOverlays()
+	animate(src, color = null, transform = null, time = 3, easing = CUBIC_EASING)
+	animate(src, alpha = 60, time = 3, easing = CUBIC_EASING)
 	return ..()
 
 /atom/movable/screen/new_player/selection/Click()
@@ -231,9 +234,12 @@ ABSTRACT_TYPE(/atom/movable/screen/new_player/selection)
 		tgui_alert(player, "You may not unready during Odyssey setup!", "Odyssey")
 		return
 
-	..()
-
 	if(SSticker.current_state <= GAME_STATE_SETTING_UP)
+		if(player && click_sound)
+			if(player.ready)
+				sound_to(player, 'sound/weapons/laser_safetyoff.ogg')
+			else
+				sound_to(player, 'sound/weapons/laser_safetyon.ogg')
 		player.ready(!player.ready)
 	else
 		player.join_game()
@@ -433,7 +439,7 @@ ABSTRACT_TYPE(/atom/movable/screen/new_player/selection)
  */
 /atom/movable/screen/new_player/selection/lore_summary
 	name = "Current Lore Summary"
-	icon_state = "lore_summary"
+	icon_state = "lore"
 	screen_loc = "LEFT+0.1,CENTER-7"
 
 /atom/movable/screen/new_player/selection/lore_summary/Click()
@@ -454,7 +460,11 @@ ABSTRACT_TYPE(/atom/movable/screen/new_player/selection)
  */
 /atom/movable/screen/new_player/selection/server_logo
 	name = "Aurora"
-	screen_loc = "LEFT+0.5,CENTER+42"
+	icon = 'icons/misc/hudmenu/logo.dmi'
+	icon_state = "logo"
+	screen_loc = "LEFT+0.2,CENTER+5.4"
+	does_matrix_scale = FALSE
+	uses_hud_arrow = FALSE
 	hud_arrow = null
 
 /atom/movable/screen/new_player/selection/server_logo/Click()
