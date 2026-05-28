@@ -22,13 +22,16 @@
 
 /datum/action/leadership/proc/get_target(owner, atom/target, modifiers)
 	SIGNAL_HANDLER
+	UnregisterSignal(owner, COMSIG_MOB_CLICKON)
+	if (. == COMSIG_MOB_CANCEL_CLICKON)
+		return . // Another signal-handler already got to it.
+
 	// Both forms of deliver speech will immediately return control to the caller without blocking.
 	// Unfortunately StrongDMM is apparently incapable of reading that.
 	if (owner == target)
 		UNLINT(deliver_speech_area(owner))
 	else
 		UNLINT(deliver_speech_target(owner, target))
-	UnregisterSignal(owner, COMSIG_MOB_CLICKON)
 	return COMSIG_MOB_CANCEL_CLICKON
 
 /datum/action/leadership/proc/deliver_speech_area(mob/owner)
