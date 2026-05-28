@@ -18,6 +18,8 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 	delete_inventory()
 
 /mob/living/carbon/human/dummy/mannequin/Destroy()
+	if(QDELING(src))
+		return ..()
 	SSmobs.free_mannequin(src)
 	return ..()
 

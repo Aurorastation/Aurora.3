@@ -123,7 +123,7 @@ SUBSYSTEM_DEF(mobs)
 	mannequins_del_timers[ckey] = addtimer(CALLBACK(src, PROC_REF(del_mannequin), ckey), 5 MINUTES, TIMER_UNIQUE | TIMER_OVERRIDE | TIMER_STOPPABLE)
 
 /datum/controller/subsystem/mobs/proc/del_mannequin(ckey)
-	var/mannequin = mannequins[ckey]
+	var/mob/living/carbon/human/dummy/mannequin/mannequin = mannequins[ckey]
 	mannequins[ckey] = null
 	mannequins -= ckey
 
@@ -133,6 +133,8 @@ SUBSYSTEM_DEF(mobs)
 	mannequins_del_timers[ckey] = null
 	mannequins_del_timers -= ckey
 
+	if(!mannequin || QDELING(mannequin))
+		return
 	qdel(mannequin)
 
 /**
