@@ -1,0 +1,10 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - bugfix: "Hopefully fixed a hard delete with Bluespace Techs."
+  - rscadd: "Bluespace Techs now spawn with all skills fully maxed out"
+  - rscadd: "Upon being promoted to Antagonist, player characters now have certain skills (such as Firearms) always increased to at least a minimum level of competence."
+  - bugfix: "Fixed a bug where both Leadership and Ministry could apply to the same mouse click."
+  - bugfix: "Fixed Ministry not cancelling if you fail to click on a valid target."
+  - bugfix: "Fixed player characters who have never visited the Skills menu failing to generate required skills."
+  - bugfix: "Fixed player characters spawning with non-required skills (like Ministry) at rank 1."

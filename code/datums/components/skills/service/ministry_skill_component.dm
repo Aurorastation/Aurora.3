@@ -27,22 +27,26 @@
 
 /datum/action/ministry/proc/get_target(owner, atom/target, modifiers)
 	SIGNAL_HANDLER
+	UnregisterSignal(owner, COMSIG_MOB_CLICKON)
+	if (. == COMSIG_MOB_CANCEL_CLICKON)
+		return . // Another signal-handler already got to it somehow.
+
+	. = COMSIG_MOB_CANCEL_CLICKON
 	if (owner == target)
 		to_chat(owner, SPAN_NOTICE("You cannot offer a blessing to yourself."))
-		return COMSIG_MOB_CANCEL_CLICKON
+		return .
 
 	if (!astype(target, /mob)?.client)
 		to_chat(owner, SPAN_NOTICE("[target] cannot receive a blessing."))
-		return COMSIG_MOB_CANCEL_CLICKON
+		return .
 
 	if (get_dist(owner, target) >= 2)
 		to_chat(owner, SPAN_NOTICE("You must be adjacent to [target] to offer them a blessing."))
-		return COMSIG_MOB_CANCEL_CLICKON
+		return .
 
 	// StrongDMM for whatever ungodly reason can't tell that this proc won't block the caller.
 	UNLINT(try_give_blessing(target))
-	UnregisterSignal(owner, COMSIG_MOB_CLICKON)
-	return COMSIG_MOB_CANCEL_CLICKON
+	return .
 
 /datum/action/ministry/proc/try_give_blessing(mob/target)
 	set waitfor = FALSE
