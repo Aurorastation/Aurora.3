@@ -380,3 +380,14 @@
   hazelmouse:
   - rscadd: Lighting aboard the SCCV Horizon now varies per area, and is now slightly
       warmer in almost all areas of the game world, including off-sites.
+2026-05-29:
+  CatsinHD:
+  - rscdel: Removes Hephaestus as an option for the New Kingdom of Adhomai citizenship.
+  TheGreyWolf:
+  - rscadd: Increased the time of the cargo elevator to be 30 seconds + 10 per different
+      supplier, instead of going with the higher of the two numbers.
+  - bugfix: Fixed that the cargo control program displayed a negative number when
+      calling the elevator.
+  Wowzewow (Wezzy):
+  - balance: Duffelbags no longer give slowdown. Instead, you have to take them off
+      first before opening them.
