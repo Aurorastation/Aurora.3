@@ -6,6 +6,7 @@
 
 // Webpack asset modules.
 // Should match extensions used in webpack config.
+/// <reference types="webpack-env" />
 declare module '*.png' {
   const content: string;
   export default content;
@@ -17,6 +18,16 @@ declare module '*.jpg' {
 }
 
 declare module '*.svg' {
+  const content: string;
+  export default content;
+}
+
+declare module '*.scss' {
+  const content: string;
+  export default content;
+}
+
+declare module '*.sass' {
   const content: string;
   export default content;
 }
