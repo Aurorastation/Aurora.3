@@ -141,6 +141,35 @@
 		list(mode_name="nephilim ap", burst=1, projectile_type=/obj/projectile/ship_ammo/nephilim/ap),
 		)
 
+/obj/item/gun/energy/admin_ship_weapon/consume_next_projectile() //Longbow ammo has warhead data that can't simply be set in the firemodes.
+	var/obj/projectile/ship_ammo/projectile = ..()
+	if(!projectile)
+		return projectile
+
+	var/datum/firemode/current_mode = firemodes[sel_mode]
+	var/obj/item/ship_ammunition/loaded_ammo
+	switch(current_mode?.name)
+		if("longbow ap")
+			loaded_ammo = new /obj/item/ship_ammunition/longbow/preset_ap()
+			projectile.penetrating = 1
+		if("longbow he")
+			loaded_ammo = new /obj/item/ship_ammunition/longbow/preset_he()
+		if("longbow bunkerbuster")
+			loaded_ammo = new /obj/item/ship_ammunition/longbow/preset_bb()
+			projectile.penetrating = 3
+
+	if(!loaded_ammo)
+		return projectile
+
+	loaded_ammo.forceMove(projectile)
+	projectile.ammo = loaded_ammo
+	projectile.name = loaded_ammo.name
+	projectile.desc = loaded_ammo.desc
+	return projectile
+
+/obj/item/gun/energy/admin_ship_weapon/attack_self(mob/user) //So admins can shoot this at the ship from out of sight.
+	toggle_scope(2.0, user)
+
 /obj/item/gun/energy/admin_ship_weapon/crew
 	name = "horizon artillery testing gun"
 	desc = "If you are holding this, admin-help, this fires the horizon's guns"
@@ -154,9 +183,9 @@
 		list(mode_name="grauwolf he", burst=1, projectile_type=/obj/projectile/ship_ammo/grauwolf),
 		list(mode_name="grauwolf ap", burst=1, projectile_type=/obj/projectile/ship_ammo/grauwolf/ap),
 		// Longbow
-		list(mode_name="longbow ap", burst=1, projectile_type=/obj/projectile/ship_ammo/longbow),
-		list(mode_name="longbow he", burst=1, projectile_type=/obj/projectile/ship_ammo/longbow),
-		list(mode_name="longbow bunkerbuster", burst=1, projectile_type=/obj/projectile/ship_ammo/longbow),
+		list(mode_name="longbow ap", burst=1, projectile_type=/obj/projectile/ship_ammo/longbow, ship_ammo_type = /obj/item/ship_ammunition/longbow/preset_ap),
+		list(mode_name="longbow he", burst=1, projectile_type=/obj/projectile/ship_ammo/longbow, ship_ammo_type = /obj/item/ship_ammunition/longbow/preset_he),
+		list(mode_name="longbow bunkerbuster", burst=1, projectile_type=/obj/projectile/ship_ammo/longbow, ship_ammo_type = /obj/item/ship_ammunition/longbow/preset_bb),
 		)
 
 //*END OF ADMIN SPAWN ONLY*//
