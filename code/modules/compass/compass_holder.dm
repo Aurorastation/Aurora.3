@@ -61,7 +61,7 @@
 	rebuild_overlay_lists(TRUE)
 
 /obj/compass_holder/Destroy()
-	QDEL_LIST(compass_waypoints)
+	QDEL_LIST_ASSOC_VAL(compass_waypoints)
 	. = ..()
 
 /obj/compass_holder/proc/get_heading()
