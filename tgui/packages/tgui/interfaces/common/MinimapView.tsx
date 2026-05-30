@@ -96,6 +96,6 @@ export const MinimapView = (props: MinimapViewProps) => {
       </g>
     </svg>
   ) : (
-    <NoticeBox warning>No scan image available.</NoticeBox>
+    <NoticeBox danger>No scan image available.</NoticeBox>
   );
 };
