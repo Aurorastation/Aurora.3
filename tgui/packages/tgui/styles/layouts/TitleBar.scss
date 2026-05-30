@@ -8,7 +8,17 @@
 @use '../colors';
 @use '../functions.scss' as *;
 
+$background-color: var(--titlebar-background) !default;
+$text-color: var(--titlebar-text) !default;
+$shadow-color-core: var(--titlebar-shadow-core) !default;
+$scrollbar-color-multiplier: 1 !default;
+
 .TitleBar {
+  --titlebar-background: #{$background-color};
+  --titlebar-text: #{$text-color};
+  --titlebar-shadow-core: #{$shadow-color-core};
+  --scrollbar-color-multiplier: #{$scrollbar-color-multiplier};
+
   user-select: none;
   position: fixed;
   display: flex;

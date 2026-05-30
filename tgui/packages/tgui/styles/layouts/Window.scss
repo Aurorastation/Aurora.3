@@ -5,7 +5,12 @@
 
 @use '../base';
 
+$background-color: base.$color-bg !default;
+
 .Window {
+  --window-background: #{$background-color};
+  --border-radius-unit: #{base.$border-radius};
+
   position: fixed;
   inset: 0;
   color: var(--color-text);

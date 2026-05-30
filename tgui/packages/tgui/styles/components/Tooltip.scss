@@ -1,0 +1,5 @@
+$background-color: var(--tooltip-background) !default;
+
+.Tooltip {
+  --tooltip-background: #{$background-color};
+}

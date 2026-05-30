@@ -342,22 +342,7 @@
 		.["partially insulated"] = "It is made from a poor insulator that will dampen (but not fully block) electric shocks passing through it."
 
 /obj/item/get_examine_text(mob/user, distance, is_adjacent, infix, suffix, get_extended = FALSE)
-	var/size
-	switch(src.w_class)
-		if (WEIGHT_CLASS_HUGE to INFINITY)
-			size = "huge"
-		if (WEIGHT_CLASS_BULKY to WEIGHT_CLASS_HUGE)
-			size = "bulky"
-		if (WEIGHT_CLASS_NORMAL to WEIGHT_CLASS_BULKY)
-			size = "normal-sized"
-		if (WEIGHT_CLASS_SMALL to WEIGHT_CLASS_NORMAL)
-			size = "small"
-		if (0 to WEIGHT_CLASS_SMALL)
-			size = "tiny"
-	//Changed this switch to ranges instead of tiered values, to cope with granularity and also
-	//things outside its range ~Nanako
-
-	. = ..(user, distance, is_adjacent, "It is a [size] item.", get_extended = get_extended)
+	. = ..(user, distance, is_adjacent, get_extended = get_extended)
 	var/datum/component/armor/armor_component = GetComponent(/datum/component/armor)
 	if(armor_component && !armor_component.hidden)
 		. += FONT_SMALL(SPAN_NOTICE("\[?\] This item has armor values. <a href='byond://?src=[REF(src)];examine_armor=1'>\[Show Armor Values\]</a>"))

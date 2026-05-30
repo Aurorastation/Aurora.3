@@ -75,6 +75,13 @@
 /obj/item/clothing/examine_descriptor(mob/user)
 	return "clothing"
 
+/obj/item/clothing/examine_tags(mob/user)
+	. = ..()
+	if(item_flags & ITEM_FLAG_THICK_MATERIAL)
+		.["thick"] = "Stops or slows minor piercing effects, such as from injectors."
+	if(item_flags & ITEM_FLAG_INJECTION_PORT)
+		.["port-enabled"] = "Has a dedicated injection port for syringes and hypo-sprays to be used on the wearer."
+
 //Updates the icons of the mob wearing the clothing item, if any.
 /obj/item/clothing/proc/update_clothing_icon()
 	return

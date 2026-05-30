@@ -1,0 +1,7 @@
+@use '../base';
+
+$background-color: base.$color-bg-section !default;
+
+.Section {
+  --section-background: #{$background-color};
+}

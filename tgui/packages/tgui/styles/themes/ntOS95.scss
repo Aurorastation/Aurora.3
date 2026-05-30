@@ -25,11 +25,11 @@ $scrollbar-color-multiplier: 1;
 
 .theme-ntOS95 {
   // Atomic classes
-  @include meta.load-css('~tgui-core/styles/atomic/color.scs');
+  @include meta.load-css('../atomic/color.scss');
 
   // Components
   @include meta.load-css(
-    'tgui-core/components/Button.scss',
+    '../components/Button.scss',
     $with: (
       'color-default': #e8e4c9,
       'color-disabled': #363636,
@@ -39,16 +39,16 @@ $scrollbar-color-multiplier: 1;
     )
   );
   @include meta.load-css(
-    'tgui-core/components/ProgressBar.scss',
+    '../components/ProgressBar.scss',
     $with: ('background-color': rgba(0, 0, 0, 0.5))
   );
   @include meta.load-css(
-    'tgui-core/components/Section.scss',
+    '../components/Section.scss',
     $with: ('background-color': rgba(0, 0, 0, 0.4))
   );
 
   @include meta.load-css(
-    'tgui-core/components/Tooltip.scss',
+    '../components/Tooltip.scss',
     $with: ('background-color': #ecee9e)
   );
   // Layouts

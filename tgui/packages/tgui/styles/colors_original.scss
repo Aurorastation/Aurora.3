@@ -22,9 +22,7 @@ $purple: #a333c8 !default;
 $pink: #e03997 !default;
 $brown: #a5673f !default;
 $grey: #767676 !default;
-$gray: $grey !default;
 $light-grey: #aaa !default;
-$light-gray: $light-grey !default;
 $silver: #c0c0c0 !default;
 $crimson: #dc143c !default;
 $cyan: #00ffff !default;
@@ -43,22 +41,15 @@ $bg-lightness: -15% !default;
 $fg-lightness: 10% !default;
 
 @function bg($color) {
-  @if meta.type-of($color) == 'color' {
-    @return color.scale($color, $lightness: $bg-lightness);
-  }
-
-  @return hsl(from $color h s calc(l - var(--adjust-color)));
+  @return color.scale($color, $lightness: $bg-lightness);
 }
 
 @function fg($color) {
-  @if meta.type-of($color) == 'color' {
-    @return color.scale($color, $lightness: $fg-lightness);
-  }
-
-  @return hsl(from $color h s calc(l + var(--adjust-color)));
+  @return color.scale($color, $lightness: $fg-lightness);
 }
 
 // Mappings of color names
+
 $_gen_map: (
   'black': $black,
   'white': $white,
@@ -74,9 +65,7 @@ $_gen_map: (
   'pink': $pink,
   'brown': $brown,
   'grey': $grey,
-  'gray': $gray,
   'light-grey': $light-grey,
-  'light-gray': $light-gray,
   'silver': $silver,
   'crimson': $crimson,
   'cyan': $cyan,
@@ -89,38 +78,23 @@ $_gen_map: (
   'label': $label,
 );
 
-// Modern tgui-core atomic styles expect a generic color map.
-$color-map-keys: map.keys($_gen_map) !default;
-$color-map: ();
-@each $color-name in $color-map-keys {
-  $color-map: map.merge(
-    $color-map,
-    (
-      $color-name: map.get($_gen_map, $color-name),
-    )
-  );
-}
-
-// Legacy Aurora theme styles configure these maps directly.
+// Foreground color names for which to generate a color map
 $fg-map-keys: map.keys($_gen_map) !default;
+// Background color names for which to generate a color map
 $bg-map-keys: map.keys($_gen_map) !default;
 
 $fg-map: ();
 @each $color-name in $fg-map-keys {
-  $fg-map: map.merge(
-    $fg-map,
-    (
-      $color-name: fg(map.get($_gen_map, $color-name)),
-    )
-  );
+  // prettier-ignore
+  $fg-map: map-merge($fg-map, (
+    $color-name: fg(map.get($_gen_map, $color-name)),
+  ));
 }
 
 $bg-map: ();
 @each $color-name in $bg-map-keys {
-  $bg-map: map.merge(
-    $bg-map,
-    (
-      $color-name: bg(map.get($_gen_map, $color-name)),
-    )
-  );
+  // prettier-ignore
+  $bg-map: map-merge($bg-map, (
+    $color-name: bg(map.get($_gen_map, $color-name)),
+  ));
 }

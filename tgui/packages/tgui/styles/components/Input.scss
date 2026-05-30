@@ -1,0 +1,6 @@
+$border-color: var(--input-border-color) !default;
+
+.Input {
+  --input-border-color: #{$border-color};
+  --input-border-color-focus: #{$border-color};
+}

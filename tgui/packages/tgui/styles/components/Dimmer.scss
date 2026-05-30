@@ -1,0 +1,5 @@
+$background-dimness: 0.5 !default;
+
+.Dimmer {
+  --dimmer-background: hsla(0, 0%, 0%, #{$background-dimness});
+}

@@ -3,6 +3,17 @@
  * SPDX-License-Identifier: MIT
  */
 
+@use '../base';
+
+$background-color: base.$color-bg !default;
+$scrollbar-color-multiplier: 1 !default;
+
+.Layout {
+  --color-base: #{$background-color};
+  --base-gradient-spread: #{base.$color-bg-grad-spread};
+  --scrollbar-color-multiplier: #{$scrollbar-color-multiplier};
+}
+
 .Layout__content {
   overflow-x: hidden;
   overflow-y: hidden;
