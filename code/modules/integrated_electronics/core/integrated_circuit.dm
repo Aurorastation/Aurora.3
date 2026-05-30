@@ -70,7 +70,7 @@ a creative player the means to solve many problems.  Circuits are held inside an
 /obj/item/integrated_circuit/verb/rename_component()
 	set name = "Rename Circuit"
 	set category = "Object"
-	set desc = "Rename your circuit, useful to stay organized."
+	set desc = "Renames the circuit to make assemblies easier to organize."
 
 	var/mob/M = usr
 	if(!check_interactivity(M))
@@ -175,7 +175,8 @@ a creative player the means to solve many problems.  Circuits are held inside an
 		HTML += "<br><span class='highlight'>Power Draw: [power_draw_idle] W (Idle)</span>"
 	if(power_draw_per_use)
 		HTML += "<br><span class='highlight'>Power Draw: [power_draw_per_use] W (Active)</span>" // Borgcode says that powercells' checked_use() takes joules as input.
-	HTML += "<br><span class='highlight'>[extended_desc]</span>"
+	if(extended_desc)
+		HTML += "<br><span class='highlight'>[extended_desc]</span>"
 
 	var/datum/browser/B = new(user, assembly ? "assembly-[REF(assembly)]" : "circuit-[REF(src)]", (displayed_name && displayed_name != name) ? "[displayed_name] ([name])" : name, window_width, window_height)
 	B.set_content(HTML.Join())
@@ -319,7 +320,7 @@ a creative player the means to solve many problems.  Circuits are held inside an
 
 /obj/item/integrated_circuit/proc/pull_data()
 	for(var/datum/integrated_io/I in inputs)
-		I.push_data()
+		I.pull_data()
 
 /obj/item/integrated_circuit/proc/draw_idle_power()
 	if(assembly)

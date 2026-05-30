@@ -1,3 +1,8 @@
+/*
+ * core/assemblies/clothing.dm
+ * Wearable electronic assemblies that can be embedded into clothing-style items and driven through item actions.
+ */
+
 
 // The base subtype for assemblies that can be worn. Certain pieces will have more or less capabilities
 // E.g. Glasses have less room than something worn over the chest.
@@ -6,10 +11,10 @@
 /obj/item/electronic_assembly/clothing
 	name = "electronic clothing"
 	var/clothing_icon_state = "circuitry" // Needs to match the clothing's base icon_state.
-	desc = "It's a case, for building machines attached to clothing."
+	desc = "A clothing-mounted case for integrated electronics."
 	w_class = WEIGHT_CLASS_SMALL
-	max_components = IC_COMPONENTS_BASE
-	max_complexity = IC_COMPLEXITY_BASE
+	max_components = 26
+	max_complexity = 68
 	var/obj/item/clothing/clothing = null
 
 /obj/item/electronic_assembly/clothing/ui_host()
@@ -22,23 +27,29 @@
 	return clothing
 
 /obj/item/electronic_assembly/clothing/update_icon()
-	clothing.icon_state = "[initial(clothing.icon_state)][opened ? "-open" : ""]"
+	if(!clothing)
+		return
+
+	clothing.icon_state = opened ? "[initial(clothing.icon_state)]-open" : initial(clothing.icon_state)
 	clothing.ClearOverlays()
-	var/image/detail_overlay = image('icons/obj/assemblies/wearable_electronic_setups.dmi', "[initial(clothing.icon_state)][opened ? "-open" : ""]-color")
+
+	var/image/detail_overlay = image('icons/obj/assemblies/wearable_electronic_setups.dmi', "[clothing.icon_state]-color")
 	detail_overlay.color = detail_color
 	clothing.AddOverlays(detail_overlay)
-	clothing.update_clothing_icon()
+
+	if(hascall(clothing, "update_clothing_icon"))
+		call(clothing, "update_clothing_icon")()
 
 // This is 'small' relative to the size of regular clothing assemblies.
 /obj/item/electronic_assembly/clothing/small
-	max_components = IC_COMPONENTS_BASE / 2
-	max_complexity = IC_COMPLEXITY_BASE / 2
+	max_components = 14
+	max_complexity = 36
 	w_class = WEIGHT_CLASS_TINY
 
 // Ditto.
 /obj/item/electronic_assembly/clothing/large
-	max_components = IC_COMPONENTS_BASE * 2
-	max_complexity = IC_COMPLEXITY_BASE * 2
+	max_components = 42
+	max_complexity = 105
 	w_class = WEIGHT_CLASS_NORMAL
 
 /obj/item/electronic_assembly/clothing/rename()
@@ -63,9 +74,9 @@
 		..()
 
 // Does most of the repeatative setup.
-/obj/item/clothing/proc/setup_integrated_circuit(new_type)
+/obj/item/clothing/proc/setup_integrated_circuit(new_type, printed = FALSE)
 	// Set up the internal circuit holder.
-	IC = new new_type(src)
+	IC = new new_type(src, printed)
 	IC.clothing = src
 	IC.name = name
 
@@ -83,22 +94,22 @@
 // Jumpsuit.
 /obj/item/clothing/under/circuitry
 	name = "electronic jumpsuit"
-	desc = "It's a wearable case for electronics. This one is a black jumpsuit with wiring weaved into the fabric."
+	desc = "A wearable case for integrated electronics. This one is a black jumpsuit with wiring weaved into the fabric."
 	icon = 'icons/obj/assemblies/wearable_electronic_setups.dmi'
 	contained_sprite = TRUE
 	icon_state = "jumpsuit"
 	item_state = "jumpsuit"
 	worn_state = "jumpsuit"
 
-/obj/item/clothing/under/circuitry/Initialize()
-	setup_integrated_circuit(/obj/item/electronic_assembly/clothing)
+/obj/item/clothing/under/circuitry/Initialize(mapload, printed = FALSE)
+	setup_integrated_circuit(/obj/item/electronic_assembly/clothing, printed)
 	return ..()
 
 /obj/item/clothing/under/circuitry/build_additional_parts(mob/living/carbon/human/H, mob_icon, slot)
 	var/static/list/valid_slots
 	if(!valid_slots)
 		valid_slots = list(slot_w_uniform_str)
-	if(IC.detail_color && (slot in valid_slots))
+	if(IC?.detail_color && (slot in valid_slots))
 		var/image/electronic_overlay = overlay_image(icon, "[item_state][slot_str_to_contained_flag(slot)]-color", IC.detail_color, RESET_COLOR)
 		return electronic_overlay
 	return ..()
@@ -106,22 +117,22 @@
 // Gloves.
 /obj/item/clothing/gloves/circuitry
 	name = "electronic gloves"
-	desc = "It's a wearable case for electronics. This one is a pair of black gloves, with wires woven into them. A small \
+	desc = "A wearable case for integrated electronics. This one is a pair of black gloves, with wires woven into them. A small \
 	device with a screen is attached to the left glove."
 	icon = 'icons/obj/assemblies/wearable_electronic_setups.dmi'
 	contained_sprite = TRUE
 	icon_state = "gloves"
 	item_state = "gloves"
 
-/obj/item/clothing/gloves/circuitry/Initialize()
-	setup_integrated_circuit(/obj/item/electronic_assembly/clothing/small)
+/obj/item/clothing/gloves/circuitry/Initialize(mapload, printed = FALSE)
+	setup_integrated_circuit(/obj/item/electronic_assembly/clothing/small, printed)
 	return ..()
 
 /obj/item/clothing/gloves/circuitry/build_additional_parts(mob/living/carbon/human/H, mob_icon, slot)
 	var/static/list/valid_slots
 	if(!valid_slots)
 		valid_slots = list(slot_gloves_str)
-	if(IC.detail_color && (slot in valid_slots))
+	if(IC?.detail_color && (slot in valid_slots))
 		var/image/electronic_overlay = overlay_image(icon, "[item_state][slot_str_to_contained_flag(slot)]-color", IC.detail_color, RESET_COLOR)
 		return electronic_overlay
 	return ..()
@@ -139,22 +150,22 @@
 // Glasses.
 /obj/item/clothing/glasses/circuitry
 	name = "electronic goggles"
-	desc = "It's a wearable case for electronics. This one is a pair of goggles, with wiring sticking out. \
+	desc = "A wearable case for integrated electronics. This one is a pair of goggles, with wiring sticking out. \
 	Could this augment your vision?" // Sadly it won't, or at least not yet.
 	icon = 'icons/obj/assemblies/wearable_electronic_setups.dmi'
 	contained_sprite = TRUE
 	icon_state = "goggles"
 	item_state = "goggles"
 
-/obj/item/clothing/glasses/circuitry/Initialize()
-	setup_integrated_circuit(/obj/item/electronic_assembly/clothing/small)
+/obj/item/clothing/glasses/circuitry/Initialize(mapload, printed = FALSE)
+	setup_integrated_circuit(/obj/item/electronic_assembly/clothing/small, printed)
 	return ..()
 
 /obj/item/clothing/glasses/circuitry/build_additional_parts(mob/living/carbon/human/H, mob_icon, slot)
 	var/static/list/valid_slots
 	if(!valid_slots)
 		valid_slots = list(slot_glasses_str, slot_l_hand_str, slot_r_hand_str)
-	if(IC.detail_color && (slot in valid_slots))
+	if(IC?.detail_color && (slot in valid_slots))
 		var/image/electronic_overlay = overlay_image(icon, "[item_state][slot_str_to_contained_flag(slot)]-color", IC.detail_color, RESET_COLOR)
 		return electronic_overlay
 	return ..()
@@ -177,22 +188,22 @@
 // Shoes
 /obj/item/clothing/shoes/circuitry
 	name = "electronic boots"
-	desc = "It's a wearable case for electronics. This one is a pair of boots, with wires attached to a small \
+	desc = "A wearable case for integrated electronics. This one is a pair of boots, with wires attached to a small \
 	cover."
 	icon = 'icons/obj/assemblies/wearable_electronic_setups.dmi'
 	contained_sprite = TRUE
 	icon_state = "shoes"
 	item_state = "shoes"
 
-/obj/item/clothing/shoes/circuitry/Initialize()
-	setup_integrated_circuit(/obj/item/electronic_assembly/clothing/small)
+/obj/item/clothing/shoes/circuitry/Initialize(mapload, printed = FALSE)
+	setup_integrated_circuit(/obj/item/electronic_assembly/clothing/small, printed)
 	return ..()
 
 /obj/item/clothing/shoes/circuitry/build_additional_parts(mob/living/carbon/human/H, mob_icon, slot)
 	var/static/list/valid_slots
 	if(!valid_slots)
 		valid_slots = list(slot_shoes_str)
-	if(IC.detail_color && (slot in valid_slots))
+	if(IC?.detail_color && (slot in valid_slots))
 		var/image/electronic_overlay = overlay_image(icon, "[item_state][slot_str_to_contained_flag(slot)]-color", IC.detail_color, RESET_COLOR)
 		return electronic_overlay
 	return ..()
@@ -200,44 +211,44 @@
 // Head
 /obj/item/clothing/head/circuitry
 	name = "electronic headwear"
-	desc = "It's a wearable case for electronics. This one appears to be a very technical-looking piece that \
+	desc = "A wearable case for integrated electronics. This one appears to be a very technical-looking piece that \
 	goes around the collar, with a heads-up-display attached on the right."
 	icon = 'icons/obj/assemblies/wearable_electronic_setups.dmi'
 	contained_sprite = TRUE
 	icon_state = "head"
 	item_state = "head"
 
-/obj/item/clothing/head/circuitry/Initialize()
-	setup_integrated_circuit(/obj/item/electronic_assembly/clothing/small)
+/obj/item/clothing/head/circuitry/Initialize(mapload, printed = FALSE)
+	setup_integrated_circuit(/obj/item/electronic_assembly/clothing/small, printed)
 	return ..()
 
 /obj/item/clothing/head/circuitry/build_additional_parts(mob/living/carbon/human/H, mob_icon, slot)
 	var/static/list/valid_slots
 	if(!valid_slots)
 		valid_slots = list(slot_head_str)
-	if(IC.detail_color && (slot in valid_slots))
+	if(IC?.detail_color && (slot in valid_slots))
 		var/image/electronic_overlay = overlay_image(icon, "[item_state][slot_str_to_contained_flag(slot)]-color", IC.detail_color, RESET_COLOR)
 		return electronic_overlay
 	return ..()
 
-// Ear
+// Ears
 /obj/item/clothing/ears/circuitry
 	name = "electronic earwear"
-	desc = "It's a wearable case for electronics. This one appears to be a technical-looking headset."
+	desc = "A wearable case for integrated electronics. This one appears to be a technical-looking headset."
 	icon = 'icons/obj/assemblies/wearable_electronic_setups.dmi'
 	contained_sprite = TRUE
 	icon_state = "headset"
 	item_state = "headset"
 
-/obj/item/clothing/ears/circuitry/Initialize()
-	setup_integrated_circuit(/obj/item/electronic_assembly/clothing/small)
+/obj/item/clothing/ears/circuitry/Initialize(mapload, printed = FALSE)
+	setup_integrated_circuit(/obj/item/electronic_assembly/clothing/small, printed)
 	return ..()
 
 /obj/item/clothing/ears/circuitry/build_additional_parts(mob/living/carbon/human/H, mob_icon, slot)
 	var/static/list/valid_slots
 	if(!valid_slots)
 		valid_slots = list(slot_l_ear_str, slot_r_ear_str)
-	if(IC.detail_color && (slot in valid_slots))
+	if(IC?.detail_color && (slot in valid_slots))
 		var/image/electronic_overlay = overlay_image(icon, "[item_state][slot_str_to_contained_flag(slot)]-color", IC.detail_color, RESET_COLOR)
 		return electronic_overlay
 	return ..()
@@ -245,22 +256,22 @@
 // Exo-slot
 /obj/item/clothing/suit/circuitry
 	name = "electronic chestpiece"
-	desc = "It's a wearable case for electronics. This one appears to be a very technical-looking vest, that \
+	desc = "A wearable case for integrated electronics. This one appears to be a very technical-looking vest, that \
 	almost looks professionally made, however the wiring popping out betrays that idea."
 	icon = 'icons/obj/assemblies/wearable_electronic_setups.dmi'
 	contained_sprite = TRUE
 	icon_state = "chest"
 	item_state = "chest"
 
-/obj/item/clothing/suit/circuitry/Initialize()
-	setup_integrated_circuit(/obj/item/electronic_assembly/clothing/large)
+/obj/item/clothing/suit/circuitry/Initialize(mapload, printed = FALSE)
+	setup_integrated_circuit(/obj/item/electronic_assembly/clothing/large, printed)
 	return ..()
 
 /obj/item/clothing/suit/circuitry/build_additional_parts(mob/living/carbon/human/H, mob_icon, slot)
 	var/static/list/valid_slots
 	if(!valid_slots)
 		valid_slots = list(slot_wear_suit_str)
-	if(IC.detail_color && (slot in valid_slots))
+	if(IC?.detail_color && (slot in valid_slots))
 		var/image/electronic_overlay = overlay_image(icon, "[item_state][slot_str_to_contained_flag(slot)]-color", IC.detail_color, RESET_COLOR)
 		return electronic_overlay
 	return ..()

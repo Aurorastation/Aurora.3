@@ -1,7 +1,13 @@
+/*
+ * core/device.dm
+ * Base device support for electronics-related items that are not themselves circuit assemblies.
+ */
+
 /obj/item/assembly/electronic_assembly
 	name = "electronic device"
-	desc = "It's a case for building electronics with. It can be attached to other small devices."
+	desc = "A case for building electronics that can attach to other small devices."
 	icon_state = "setup_device"
+	// Whether the assembly panel is open for direct circuit access.
 	var/opened = 0
 
 	var/obj/item/electronic_assembly/device/EA
@@ -61,17 +67,17 @@
 	set src in usr
 	set category = "Object"
 	set name = "Open/Close Device Assembly"
-	set desc = "Open or close device assembly!"
+	set desc = "Opens or closes the device assembly."
 
 	toggle_open(usr)
 
 /obj/item/electronic_assembly/device
 	name = "electronic device"
 	icon_state = "setup_device"
-	desc = "It's a tiny electronic device with specific use for attaching to other devices."
+	desc = "A tiny electronic device designed to attach to other devices."
 	w_class = WEIGHT_CLASS_TINY
-	max_components = IC_COMPONENTS_BASE * 3/4
-	max_complexity = IC_COMPLEXITY_BASE * 3/4
+	max_components = 16
+	max_complexity = 42
 
 	var/obj/item/assembly/electronic_assembly/holder
 	var/obj/item/integrated_circuit/built_in/device_input/input

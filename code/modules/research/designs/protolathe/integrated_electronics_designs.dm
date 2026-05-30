@@ -66,3 +66,10 @@
 	req_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 4)
 	materials = list(DEFAULT_WALL_MATERIAL = 2000)
 	build_path = /obj/item/disk/integrated_circuit/upgrade/advanced
+
+/datum/design/item/integrated_electronics/custom_circuit_printer_upgrade/clone
+	name = "Integrated Circuit Printer Upgrade Disk - Circuit Cloner"
+	desc = "An upgrade disk that allows the integrated circuit printer to duplicate assemblies."
+	req_tech = list(TECH_ENGINEERING = 5, TECH_DATA = 6)
+	materials = list(DEFAULT_WALL_MATERIAL = 3000)
+	build_path = /obj/item/disk/integrated_circuit/upgrade/clone

@@ -9,9 +9,9 @@
 /obj/item/implant/integrated_circuit/isLegal()
 	return TRUE
 
-/obj/item/implant/integrated_circuit/Initialize()
+/obj/item/implant/integrated_circuit/Initialize(mapload, printed = FALSE)
 	. = ..()
-	IC = new(src)
+	IC = new(src, printed)
 	IC.implant = src
 
 /obj/item/implant/integrated_circuit/Destroy()

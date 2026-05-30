@@ -1,213 +1,293 @@
+/*
+ * core/assemblies/generic.dm
+ * Generic handheld, large, wall-mounted, and specialty electronic assembly variants.
+ */
+
 // Generic subtypes without a lot of special code.
+
+// Anchored pickup protection.
+// This prevents anchored electronic assemblies from being picked up like normal items.
+// Anchored assemblies still pass ordinary hand interaction through attack_self(), so closed
+// assemblies expose their external inputs and opened assemblies expose the circuit UI.
+
+/obj/item/electronic_assembly
+	var/supports_builtin_powernet = FALSE
+	var/supports_builtin_locomotion = FALSE
+
+/obj/item/electronic_assembly/attack_hand(mob/user)
+	if(anchored)
+		if(!check_interactivity(user))
+			return TRUE
+
+		attack_self(user)
+		return TRUE
+
+	return ..()
+
+/obj/item/electronic_assembly/mob_can_equip(mob/user, slot, disable_warning = FALSE, bypass_equip_delay_self = FALSE)
+	if(anchored)
+		if(!disable_warning)
+			to_chat(user, SPAN_WARNING("\The [src] is anchored in place."))
+		return FALSE
+
+	return ..()
 
 // Small assemblies.
 
 /obj/item/electronic_assembly/default
-	name = "type-a electronic assembly"
+	name = "basic small circuit case"
 
 /obj/item/electronic_assembly/calc
-	name = "type-b electronic assembly"
+	name = "calculator small circuit case"
 	icon_state = "setup_small_calc"
-	desc = "It's a case, for building small electronics with. This one resembles a pocket calculator."
+	desc = "A case for building small electronic assemblies. This one resembles a pocket calculator."
 
 /obj/item/electronic_assembly/clam
-	name = "type-c electronic assembly"
+	name = "clamshell small circuit case"
 	icon_state = "setup_small_clam"
-	desc = "It's a case, for building small electronics with. This one has a clamshell design."
+	desc = "A case for building small electronic assemblies. This one has a clamshell design."
 
 /obj/item/electronic_assembly/simple
-	name = "type-d electronic assembly"
+	name = "compact small circuit case"
 	icon_state = "setup_small_simple"
-	desc = "It's a case, for building small electronics with. This one has a simple design."
+	desc = "A case for building small electronic assemblies. This one has a simple design."
 
 /obj/item/electronic_assembly/hook
-	name = "type-e electronic assembly"
+	name = "belt-clip small circuit case"
 	icon_state = "setup_small_hook"
-	desc = "It's a case, for building small electronics with. This one looks like it has a belt clip, but it's purely decorative."
+	desc = "A case for building small electronic assemblies. This one looks like it has a belt clip, but it's purely decorative."
 
 /obj/item/electronic_assembly/pda
-	name = "type-f electronic assembly"
+	name = "PDA-style small circuit case"
 	icon_state = "setup_small_pda"
-	desc = "It's a case, for building small electronics with. This one resembles a PDA."
+	desc = "A case for building small electronic assemblies. This one resembles a PDA."
+
 
 // Tiny assemblies.
 
 /obj/item/electronic_assembly/tiny
-	name = "electronic device"
+	name = "tiny circuit case"
 	icon_state = "setup_device"
-	desc = "It's a case, for building tiny-sized electronics with."
+	desc = "A case for building tiny electronic assemblies."
 	w_class = WEIGHT_CLASS_TINY
-	max_components = IC_COMPONENTS_BASE / 2
-	max_complexity = IC_COMPLEXITY_BASE / 2
+	max_components = 12
+	max_complexity = 30
 
 /obj/item/electronic_assembly/tiny/default
-	name = "type-a electronic device"
+	name = "basic tiny circuit case"
 
 /obj/item/electronic_assembly/tiny/cylinder
-	name = "type-b electronic device"
+	name = "cylindrical tiny circuit case"
 	icon_state = "setup_device_cylinder"
-	desc = "It's a case, for building tiny-sized electronics with. This one has a cylindrical design."
+	desc = "A case for building tiny electronic assemblies. This one has a cylindrical design."
 
 /obj/item/electronic_assembly/tiny/scanner
-	name = "type-c electronic device"
+	name = "scanner tiny circuit case"
 	icon_state = "setup_device_scanner"
-	desc = "It's a case, for building tiny-sized electronics with. This one has a scanner-like design."
+	desc = "A case for building tiny electronic assemblies. This one has a scanner-like design."
 
 /obj/item/electronic_assembly/tiny/hook
-	name = "type-d electronic device"
+	name = "belt-clip tiny circuit case"
 	icon_state = "setup_device_hook"
-	desc = "It's a case, for building tiny-sized electronics with. This one looks like it has a belt clip, but it's purely decorative."
+	desc = "A case for building tiny electronic assemblies. This one looks like it has a belt clip, but it's purely decorative."
 
 /obj/item/electronic_assembly/tiny/box
-	name = "type-e electronic device"
+	name = "boxy tiny circuit case"
 	icon_state = "setup_device_box"
-	desc = "It's a case, for building tiny-sized electronics with. This one has a boxy design."
+	desc = "A case for building tiny electronic assemblies. This one has a boxy design."
+
 
 // Medium assemblies.
 
 /obj/item/electronic_assembly/medium
-	name = "electronic mechanism"
+	name = "medium circuit case"
 	icon_state = "setup_medium"
-	desc = "It's a case, for building medium-sized electronics with."
+	desc = "A case for building medium electronic assemblies."
 	w_class = WEIGHT_CLASS_NORMAL
-	max_components = IC_COMPONENTS_BASE * 2
-	max_complexity = IC_COMPLEXITY_BASE * 2
+	max_components = 55
+	max_complexity = 140
 
 /obj/item/electronic_assembly/medium/default
-	name = "type-a electronic mechanism"
+	name = "basic medium circuit case"
 
 /obj/item/electronic_assembly/medium/box
-	name = "type-b electronic mechanism"
+	name = "boxy medium circuit case"
 	icon_state = "setup_medium_box"
-	desc = "It's a case, for building medium-sized electronics with. This one has a boxy design."
+	desc = "A case for building medium electronic assemblies. This one has a boxy design."
 
 /obj/item/electronic_assembly/medium/clam
-	name = "type-c electronic mechanism"
+	name = "clamshell medium circuit case"
 	icon_state = "setup_medium_clam"
-	desc = "It's a case, for building medium-sized electronics with. This one has a clamshell design."
+	desc = "A case for building medium electronic assemblies. This one has a clamshell design."
 
 /obj/item/electronic_assembly/medium/medical
-	name = "type-d electronic mechanism"
+	name = "medical medium circuit case"
 	icon_state = "setup_medium_med"
-	desc = "It's a case, for building medium-sized electronics with. This one resembles some type of medical apparatus."
+	desc = "A case for building medium electronic assemblies. This one resembles some type of medical apparatus."
 
 /obj/item/electronic_assembly/medium/gun
-	name = "type-e electronic mechanism"
+	name = "tool-shaped medium circuit case"
 	icon_state = "setup_medium_gun"
 	item_state = "circuitgun"
-	desc = "It's a case, for building medium-sized electronics with. This one resembles a gun, or some type of tool, \
+	desc = "A case for building medium electronic assemblies. This one resembles a gun, or some type of tool, \
 	if you're feeling optimistic."
 
 /obj/item/electronic_assembly/medium/radio
-	name = "type-f electronic mechanism"
+	name = "radio medium circuit case"
 	icon_state = "setup_medium_radio"
-	desc = "It's a case, for building medium-sized electronics with. This one resembles an old radio."
+	desc = "A case for building medium electronic assemblies. This one resembles an old radio."
+
+/obj/item/electronic_assembly/medium/anomaly_drill
+	name = "anomaly drill assembly"
+	desc = "A prebuilt electronic assembly designed to drill toward anomaly sensor coordinates."
+	icon_state = "setup_medium_drill"
+	w_class = WEIGHT_CLASS_NORMAL
+	max_components = 30
+	max_complexity = 80
+	can_anchor = FALSE
+
+/obj/item/electronic_assembly/medium/anomaly_drill/Initialize(mapload, printed = FALSE)
+	. = ..()
+
+	var/obj/item/integrated_circuit/manipulation/xenoarch_precision_excavator/drill_controller = new(src)
+	drill_controller.removable = FALSE
+	drill_controller.assembly = src
+	force_add_circuit(drill_controller)
+
 
 // Large assemblies.
+// These get a built-in, non-removable power network interface.
 
 /obj/item/electronic_assembly/large
-	name = "electronic machine"
+	name = "large circuit machine"
 	icon_state = "setup_large"
-	desc = "It's a case, for building large electronics with."
+	desc = "A case for building large electronic assemblies."
 	w_class = WEIGHT_CLASS_BULKY
-	max_components = IC_COMPONENTS_BASE * 4
-	max_complexity = IC_COMPLEXITY_BASE * 4
+	max_components = 110
+	max_complexity = 240
 	can_anchor = TRUE
+	supports_builtin_powernet = TRUE
+
+/obj/item/electronic_assembly/large/Initialize(mapload, printed = FALSE)
+	. = ..()
+	add_builtin_powernet()
 
 /obj/item/electronic_assembly/large/default
-	name = "type-a electronic machine"
+	name = "basic large circuit machine"
 
 /obj/item/electronic_assembly/large/scope
-	name = "type-b electronic machine"
+	name = "oscilloscope large circuit machine"
 	icon_state = "setup_large_scope"
-	desc = "It's a case, for building large electronics with. This one resembles an oscilloscope."
+	desc = "A case for building large electronic assemblies. This one resembles an oscilloscope."
 
 /obj/item/electronic_assembly/large/terminal
-	name = "type-c electronic machine"
+	name = "terminal large circuit machine"
 	icon_state = "setup_large_terminal"
-	desc = "It's a case, for building large electronics with. This one resembles a computer terminal."
+	desc = "A case for building large electronic assemblies. This one resembles a computer terminal."
 
 /obj/item/electronic_assembly/large/arm
-	name = "type-d electronic machine"
+	name = "robotic arm large circuit machine"
 	icon_state = "setup_large_arm"
-	desc = "It's a case, for building large electronics with. This one resembles a robotic arm."
+	desc = "A case for building large electronic assemblies. This one resembles a robotic arm."
 
 /obj/item/electronic_assembly/large/tall
-	name = "type-e electronic machine"
+	name = "tall large circuit machine"
 	icon_state = "setup_large_tall"
-	desc = "It's a case, for building large electronics with. This one has a tall design."
+	desc = "A case for building large electronic assemblies. This one has a tall design."
 
 /obj/item/electronic_assembly/large/industrial
-	name = "type-f electronic machine"
+	name = "industrial large circuit machine"
 	icon_state = "setup_large_industrial"
-	desc = "It's a case, for building large electronics with. This one resembles some kind of industrial machinery."
+	desc = "A case for building large electronic assemblies. This one resembles some kind of industrial machinery."
+
 
 // Drone assemblies, which can move with the locomotion circuit.
 
 /obj/item/electronic_assembly/drone
-	name = "electronic drone"
+	name = "circuit drone"
 	icon_state = "setup_drone"
-	desc = "It's a case, for building mobile electronics with."
+	desc = "A mobile case for building electronic assemblies."
 	w_class = WEIGHT_CLASS_NORMAL
-	max_components = IC_COMPONENTS_BASE * 1.5
-	max_complexity = IC_COMPLEXITY_BASE * 1.5
+	max_components = 38
+	max_complexity = 95
 	can_anchor = FALSE
+	supports_builtin_locomotion = TRUE
+
+/obj/item/electronic_assembly/drone/Initialize(mapload, printed = FALSE)
+	. = ..()
+	add_builtin_locomotion()
 
 /obj/item/electronic_assembly/drone/can_move()
 	return TRUE
 
 /obj/item/electronic_assembly/drone/default
-	name = "type-a electronic drone"
+	name = "basic circuit drone"
 
 /obj/item/electronic_assembly/drone/arms
-	name = "type-b electronic drone"
+	name = "armed circuit drone"
 	icon_state = "setup_drone_arms"
-	desc = "It's a case, for building mobile electronics with. This one is armed and dangerous."
+	desc = "A mobile case for building weapon-capable electronic assemblies."
 
 /obj/item/electronic_assembly/drone/medbot
-	name = "type-d electronic drone"
+	name = "medical circuit drone"
 	icon_state = "setup_drone_medbot"
-	desc = "It's a case, for building mobile electronics with. This one resembles a Medibot."
+	desc = "A mobile case for building electronic assemblies. This one resembles a Medibot."
 
 /obj/item/electronic_assembly/drone/genbot
-	name = "type-e electronic drone"
+	name = "utility circuit drone"
 	icon_state = "setup_drone_genbot"
-	desc = "It's a case, for building mobile electronics with. This one has a generic bot design."
+	desc = "A mobile case for building electronic assemblies. This one has a generic bot design."
 
 /obj/item/electronic_assembly/drone/android
-	name = "type-f electronic drone"
+	name = "android circuit drone"
 	icon_state = "setup_drone_android"
-	desc = "It's a case, for building mobile electronics with. This one has a hominoid design."
+	desc = "A mobile case for building electronic assemblies. This one has a hominoid design."
+
 
 // Wall mounted assemblies.
+// These get a built-in, non-removable power network interface.
 
 /obj/item/electronic_assembly/wallmount
-	name = "wall-mounted electronic assembly"
+	name = "medium wall-mounted circuit case"
 	icon_state = "setup_wallmount_medium"
-	desc = "It's a case, for building medium-sized electronics with. It has a magnetized \
+	desc = "A case for building medium electronic assemblies. It has a magnetized \
 	backing to allow it to stick to walls."
 	w_class = WEIGHT_CLASS_NORMAL
-	max_components = IC_COMPONENTS_BASE * 2
-	max_complexity = IC_COMPLEXITY_BASE * 2
+	max_components = 55
+	max_complexity = 140
 	can_anchor = TRUE
+	supports_builtin_powernet = TRUE
+
+/obj/item/electronic_assembly/wallmount/Initialize(mapload, printed = FALSE)
+	. = ..()
+	add_builtin_powernet()
 
 /obj/item/electronic_assembly/wallmount/proc/mount_assembly(turf/on_wall, mob/user)
-	if(get_dist(on_wall,user) > 1)
+	if(get_dist(on_wall, user) > 1)
 		return
+
 	var/ndir = get_dir(on_wall, user)
 	if(!(ndir in GLOB.cardinals))
 		return
+
 	var/turf/T = get_turf(user)
 	if(!istype(T, /turf/simulated/floor))
 		to_chat(user, SPAN_WARNING("You cannot place \the [src] on this spot!"))
 		return
+
 	playsound(src.loc, 'sound/machines/click.ogg', 75, 1)
-	user.visible_message("\The [user] attaches \the [src] to the wall.",
+
+	user.visible_message(
+		"\The [user] attaches \the [src] to the wall.",
 		SPAN_NOTICE("You attach \the [src] to the wall."),
-		"<span class='italics'>You hear clicking.</span>")
-	if(isrobot(user)) //Robots cannot unequip/drop items, for Safety Reasons.
+		"<span class='italics'>You hear clicking.</span>"
+	)
+
+	if(isrobot(user)) // Robots cannot unequip/drop items, for safety reasons.
 		forceMove(T)
-	user.drop_item(T)
+	else
+		user.drop_item(T)
+
 	anchored = TRUE
 	on_anchored()
 	set_pixel_offsets()
@@ -222,31 +302,58 @@
 	pixel_y = DIR2PIXEL_Y(dir)
 
 /obj/item/electronic_assembly/wallmount/heavy
-	name = "heavy wall-mounted electronic assembly"
+	name = "large wall-mounted circuit machine"
 	icon_state = "setup_wallmount_large"
-	desc = "It's a case, for building large electronics with. It has a magnetized backing \
+	desc = "A case for building large electronic assemblies. It has a magnetized backing \
 	to allow it to stick to walls."
 	w_class = WEIGHT_CLASS_BULKY
-	max_components = IC_COMPONENTS_BASE * 4
-	max_complexity = IC_COMPLEXITY_BASE * 4
+	max_components = 110
+	max_complexity = 240
 
 /obj/item/electronic_assembly/wallmount/light
-	name = "light wall-mounted electronic assembly"
+	name = "small wall-mounted circuit case"
 	icon_state = "setup_wallmount_small"
-	desc = "It's a case, for building small electronics with. It has a magnetized backing \
+	desc = "A case for building small electronic assemblies. It has a magnetized backing \
 	to allow it to stick to walls."
 	w_class = WEIGHT_CLASS_SMALL
 	max_components = IC_COMPONENTS_BASE
 	max_complexity = IC_COMPLEXITY_BASE
 
 /obj/item/electronic_assembly/wallmount/tiny
-	name = "tiny wall-mounted electronic assembly"
+	name = "tiny wall-mounted circuit case"
 	icon_state = "setup_wallmount_tiny"
-	desc = "It's a case, for building tiny electronics with. It has a magnetized backing \
+	desc = "A case for building tiny electronic assemblies. It has a magnetized backing \
 	to allow it to stick to walls."
 	w_class = WEIGHT_CLASS_TINY
-	max_components = IC_COMPONENTS_BASE / 2
-	max_complexity = IC_COMPLEXITY_BASE / 2
+	max_components = 12
+	max_complexity = 30
+
+
+// Built-in circuits.
+
+/obj/item/electronic_assembly/proc/add_builtin_powernet()
+	if(!supports_builtin_powernet)
+		return
+
+	for(var/obj/item/integrated_circuit/passive/power/powernet/P in contents)
+		return
+
+	var/obj/item/integrated_circuit/passive/power/powernet/builtin/P = new(src)
+	P.removable = FALSE
+	P.assembly = src
+	force_add_circuit(P)
+
+/obj/item/electronic_assembly/proc/add_builtin_locomotion()
+	if(!supports_builtin_locomotion)
+		return
+
+	for(var/obj/item/integrated_circuit/manipulation/locomotion/builtin/L in contents)
+		return
+
+	var/obj/item/integrated_circuit/manipulation/locomotion/builtin/L = new(src)
+	L.removable = FALSE
+	L.assembly = src
+	force_add_circuit(L)
 
 /obj/item/electronic_assembly/proc/get_assembly_holder()
 	return src
