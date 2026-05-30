@@ -60,8 +60,8 @@
 		else
 			playsound(loc, 'sound/machines/weapons_analyzer.ogg', 75, 1)
 			addtimer(CALLBACK(src, PROC_REF(reset)), 15)
-	 process = TRUE
-	 update_icon()
+	process = TRUE
+	update_icon()
 	else if(istype(attacking_item, /obj/item/combitool))
 		return
 	else if(attacking_item)
