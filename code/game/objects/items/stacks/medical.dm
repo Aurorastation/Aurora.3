@@ -120,8 +120,8 @@ Contains:
 	heal_brute = 4
 	icon_has_variants = TRUE
 	apply_sounds = SFX_RIP
-	drop_sound = 'sound/items/drop/gloves.ogg'
-	pickup_sound = 'sound/items/pickup/gloves.ogg'
+	drop_sound = SFX_CLOTH_DROP
+	pickup_sound = SFX_CLOTH_PICKUP
 
 /obj/item/stack/medical/bruise_pack/full/Initialize()
 	. = ..()
