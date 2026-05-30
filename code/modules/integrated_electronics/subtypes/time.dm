@@ -1,6 +1,11 @@
+/*
+ * subtypes/time.dm
+ * Timing circuits: delays, clocks, pulses, cooldown-style behavior, and scheduled activation.
+ */
+
 /obj/item/integrated_circuit/time
 	name = "time circuit"
-	desc = "Now you can build your own clock!"
+	desc = "Outputs the current local time when pulsed."
 	complexity = 2
 	inputs = list()
 	outputs = list()
@@ -65,7 +70,7 @@
 
 /obj/item/integrated_circuit/time/ticker
 	name = "ten second ticker"
-	desc = "This circuit sends an automatic pulse every ten seconds."
+	desc = "Sends an automatic pulse every ten seconds."
 	icon_state = "tick-m"
 	complexity = 8
 	var/seconds_to_pulse = 10 SECONDS
@@ -102,7 +107,7 @@
 
 /obj/item/integrated_circuit/time/ticker/fast
 	name = "two second ticker"
-	desc = "This advanced circuit sends an automatic pulse every two seconds."
+	desc = "Sends an automatic pulse every two seconds."
 	icon_state = "tick-f"
 	complexity = 12
 	seconds_to_pulse = 2
@@ -111,7 +116,7 @@
 
 /obj/item/integrated_circuit/time/ticker/slow
 	name = "thirty second ticker"
-	desc = "This simple circuit sends an automatic pulse every thirty seconds."
+	desc = "Sends an automatic pulse every thirty seconds."
 	icon_state = "tick-s"
 	complexity = 4
 	seconds_to_pulse = 30
@@ -120,7 +125,7 @@
 
 /obj/item/integrated_circuit/time/ticker/very_slow
 	name = "five minute ticker"
-	desc = "This simple circuit sends an automatic pulse every five minutes (three hundred seconds)."
+	desc = "Sends an automatic pulse every five minutes."
 	icon_state = "tick-s"
 	complexity = 4
 	seconds_to_pulse = 300
@@ -129,7 +134,7 @@
 
 /obj/item/integrated_circuit/time/ticker/custom
 	name = "custom ticker"
-	desc = "This advanced circuit sends an automatic pulse with a configurable interval between 2 and 600 seconds. Default: 60 seconds."
+	desc = "Sends automatic pulses at a configurable interval between 2 and 600 seconds. Default: 60 seconds."
 	icon_state = "tick-f"
 	complexity = 15
 	seconds_to_pulse = 60
@@ -143,7 +148,7 @@
 
 /obj/item/integrated_circuit/time/clock
 	name = "integrated clock"
-	desc = "Tells you what the local time is, specific to your station, planet, or facility."
+	desc = "Outputs the local station, planet, or facility time."
 	icon_state = "clock"
 	inputs = list()
 	outputs = list(
@@ -164,3 +169,96 @@
 
 	push_data()
 	activate_pin(2)
+
+/obj/item/integrated_circuit/timed/signal_burst_ticker
+	name = "signal burst ticker"
+	desc = "A ticker that starts when pulsed, ticks a fixed number of times, then stops."
+	extended_desc = "Useful when you want a signaler, scanner, button, or other pulse source to temporarily enable a repeating circuit chain."
+	icon_state = "clock"
+	complexity = 4
+	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+	category_text = "Time"
+	power_draw_per_use = 50
+
+	inputs = list(
+		"delay seconds" = IC_PINTYPE_NUMBER,
+		"tick count" = IC_PINTYPE_NUMBER
+	)
+
+	inputs_default = list(
+		"1" = 2,
+		"2" = 4
+	)
+
+	outputs = list(
+		"current tick" = IC_PINTYPE_NUMBER,
+		"running" = IC_PINTYPE_BOOLEAN
+	)
+
+	activators = list(
+		"start" = IC_PINTYPE_PULSE_IN,
+		"on tick" = IC_PINTYPE_PULSE_OUT,
+		"on finished" = IC_PINTYPE_PULSE_OUT
+	)
+
+	var/running = FALSE
+	var/current_tick = 0
+	var/max_ticks = 4
+	var/delay_time = 2 SECONDS
+
+
+/obj/item/integrated_circuit/timed/signal_burst_ticker/do_work()
+	if(running)
+		return
+
+	pull_data()
+
+	var/input_delay = get_pin_data(IC_INPUT, 1)
+	var/input_ticks = get_pin_data(IC_INPUT, 2)
+
+	if(isnum(input_delay))
+		input_delay = max(0.1, input_delay)
+	else
+		input_delay = 2
+
+	if(isnum(input_ticks))
+		input_ticks = max(1, round(input_ticks))
+	else
+		input_ticks = 4
+
+	delay_time = input_delay SECONDS
+	max_ticks = input_ticks
+	current_tick = 0
+	running = TRUE
+
+	set_pin_data(IC_OUTPUT, 1, current_tick)
+	set_pin_data(IC_OUTPUT, 2, running)
+	push_data()
+
+	addtimer(CALLBACK(src, PROC_REF(process_tick)), delay_time)
+
+
+/obj/item/integrated_circuit/timed/signal_burst_ticker/proc/process_tick()
+	if(!running)
+		return
+
+	current_tick++
+
+	set_pin_data(IC_OUTPUT, 1, current_tick)
+	set_pin_data(IC_OUTPUT, 2, running)
+	push_data()
+	activate_pin(2)
+
+	if(current_tick >= max_ticks)
+		running = FALSE
+		set_pin_data(IC_OUTPUT, 2, running)
+		push_data()
+		activate_pin(3)
+		return
+
+	addtimer(CALLBACK(src, PROC_REF(process_tick)), delay_time)
+
+
+/obj/item/integrated_circuit/timed/signal_burst_ticker/Destroy()
+	running = FALSE
+	return ..()

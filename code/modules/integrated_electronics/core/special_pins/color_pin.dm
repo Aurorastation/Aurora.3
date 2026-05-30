@@ -1,3 +1,8 @@
+/*
+ * core/special_pins/color_pin.dm
+ * Color pin parsing, validation, and display handling for circuit color values.
+ */
+
 // These pins can only contain a color (in the form of #FFFFFF) or null.
 /datum/integrated_io/color
 	name = "color pin"

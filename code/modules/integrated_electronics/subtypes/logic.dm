@@ -1,7 +1,12 @@
+/*
+ * subtypes/logic.dm
+ * Logic and comparison circuits for boolean gates, equality checks, numeric comparisons, and conditional routing.
+ */
+
 /obj/item/integrated_circuit/logic
 	name = "logic gate"
 	desc = "This tiny chip will decide for you!"
-	extended_desc = "Logic circuits will treat a null, 0, and a \"\" string value as FALSE and anything else as TRUE. If inputs are of mismatching type, expect undocumented behaviour."
+	extended_desc = "Logic circuits treat null, 0, and empty text as FALSE. Non-zero numbers, non-empty text, valid refs, and populated lists are TRUE. Compare matching value types for reliable results."
 	complexity = 3
 	outputs = list("result" = IC_PINTYPE_BOOLEAN)
 	activators = list("compare" = IC_PINTYPE_PULSE_IN)
@@ -227,3 +232,240 @@
 
 /obj/item/integrated_circuit/logic/unary/not/do_check(A)
 	return !A
+
+/obj/item/integrated_circuit/logic/threshold_comparator
+	name = "threshold comparator"
+	desc = "Checks whether a number is below, inside, or above a range."
+	icon_state = "comparator"
+	complexity = 3
+	inputs = list(
+		"value" = IC_PINTYPE_NUMBER,
+		"minimum" = IC_PINTYPE_NUMBER,
+		"maximum" = IC_PINTYPE_NUMBER
+	)
+	outputs = list(
+		"below range" = IC_PINTYPE_BOOLEAN,
+		"inside range" = IC_PINTYPE_BOOLEAN,
+		"above range" = IC_PINTYPE_BOOLEAN,
+		"status text" = IC_PINTYPE_STRING
+	)
+	activators = list(
+		"compare" = IC_PINTYPE_PULSE_IN,
+		"below" = IC_PINTYPE_PULSE_OUT,
+		"inside" = IC_PINTYPE_PULSE_OUT,
+		"above" = IC_PINTYPE_PULSE_OUT
+	)
+	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+
+/obj/item/integrated_circuit/logic/threshold_comparator/do_work()
+	var/value = get_pin_data(IC_INPUT, 1)
+	var/minimum = get_pin_data(IC_INPUT, 2)
+	var/maximum = get_pin_data(IC_INPUT, 3)
+
+	if(!isnum(value) || !isnum(minimum) || !isnum(maximum))
+		return
+
+	var/below = value < minimum
+	var/above = value > maximum
+	var/inside = !below && !above
+
+	set_pin_data(IC_OUTPUT, 1, below)
+	set_pin_data(IC_OUTPUT, 2, inside)
+	set_pin_data(IC_OUTPUT, 3, above)
+	set_pin_data(IC_OUTPUT, 4, below ? "BELOW RANGE" : above ? "ABOVE RANGE" : "INSIDE RANGE")
+
+	push_data()
+
+	if(below)
+		activate_pin(2)
+	else if(inside)
+		activate_pin(3)
+	else
+		activate_pin(4)
+
+
+/obj/item/integrated_circuit/logic/multi_threshold_status
+	name = "multi-threshold status"
+	desc = "Classifies a number as normal, warning, or danger using low and high thresholds."
+	icon_state = "comparator"
+	complexity = 5
+	inputs = list(
+		"value" = IC_PINTYPE_NUMBER,
+		"danger low" = IC_PINTYPE_NUMBER,
+		"warning low" = IC_PINTYPE_NUMBER,
+		"warning high" = IC_PINTYPE_NUMBER,
+		"danger high" = IC_PINTYPE_NUMBER
+	)
+	outputs = list(
+		"normal" = IC_PINTYPE_BOOLEAN,
+		"warning" = IC_PINTYPE_BOOLEAN,
+		"danger" = IC_PINTYPE_BOOLEAN,
+		"status text" = IC_PINTYPE_STRING
+	)
+	activators = list(
+		"check" = IC_PINTYPE_PULSE_IN,
+		"normal" = IC_PINTYPE_PULSE_OUT,
+		"warning" = IC_PINTYPE_PULSE_OUT,
+		"danger" = IC_PINTYPE_PULSE_OUT
+	)
+	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+
+/obj/item/integrated_circuit/logic/multi_threshold_status/do_work()
+	var/value = get_pin_data(IC_INPUT, 1)
+	var/danger_low = get_pin_data(IC_INPUT, 2)
+	var/warning_low = get_pin_data(IC_INPUT, 3)
+	var/warning_high = get_pin_data(IC_INPUT, 4)
+	var/danger_high = get_pin_data(IC_INPUT, 5)
+
+	if(!isnum(value) || !isnum(danger_low) || !isnum(warning_low) || !isnum(warning_high) || !isnum(danger_high))
+		return
+
+	var/normal = FALSE
+	var/warning = FALSE
+	var/danger = FALSE
+	var/status = "NORMAL"
+
+	if(value <= danger_low)
+		danger = TRUE
+		status = "LOW DANGER"
+	else if(value < warning_low)
+		warning = TRUE
+		status = "LOW WARNING"
+	else if(value >= danger_high)
+		danger = TRUE
+		status = "HIGH DANGER"
+	else if(value > warning_high)
+		warning = TRUE
+		status = "HIGH WARNING"
+	else
+		normal = TRUE
+
+	set_pin_data(IC_OUTPUT, 1, normal)
+	set_pin_data(IC_OUTPUT, 2, warning)
+	set_pin_data(IC_OUTPUT, 3, danger)
+	set_pin_data(IC_OUTPUT, 4, status)
+
+	push_data()
+
+	if(normal)
+		activate_pin(2)
+	else if(warning)
+		activate_pin(3)
+	else
+		activate_pin(4)
+
+
+/obj/item/integrated_circuit/logic/cooldown_limiter
+	name = "cooldown limiter"
+	desc = "Allows a pulse through only when its cooldown has expired."
+	icon_state = "template"
+	complexity = 4
+	inputs = list(
+		"cooldown seconds" = IC_PINTYPE_NUMBER
+	)
+	outputs = list(
+		"remaining cooldown" = IC_PINTYPE_NUMBER
+	)
+	activators = list(
+		"attempt pulse" = IC_PINTYPE_PULSE_IN,
+		"allowed pulse" = IC_PINTYPE_PULSE_OUT,
+		"blocked pulse" = IC_PINTYPE_PULSE_OUT
+	)
+	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+
+	var/next_allowed_time = 0
+
+/obj/item/integrated_circuit/logic/cooldown_limiter/do_work()
+	var/cooldown_seconds = get_pin_data(IC_INPUT, 1)
+
+	if(!isnum(cooldown_seconds))
+		cooldown_seconds = 1
+
+	cooldown_seconds = max(cooldown_seconds, 0)
+
+	if(world.time >= next_allowed_time)
+		next_allowed_time = world.time + cooldown_seconds SECONDS
+		set_pin_data(IC_OUTPUT, 1, 0)
+		push_data()
+		activate_pin(2)
+		return
+
+	var/remaining = max(round((next_allowed_time - world.time) / 10, 0.1), 0)
+	set_pin_data(IC_OUTPUT, 1, remaining)
+	push_data()
+	activate_pin(3)
+
+
+/obj/item/integrated_circuit/logic/pulse_counter
+	name = "pulse counter"
+	desc = "Counts incoming pulses. If reset is true when pulsed, the count resets instead."
+	icon_state = "counter"
+	complexity = 2
+	inputs = list(
+		"reset" = IC_PINTYPE_BOOLEAN
+	)
+	outputs = list(
+		"count" = IC_PINTYPE_NUMBER
+	)
+	activators = list(
+		"pulse" = IC_PINTYPE_PULSE_IN,
+		"on count changed" = IC_PINTYPE_PULSE_OUT,
+		"on reset" = IC_PINTYPE_PULSE_OUT
+	)
+	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+
+	var/count = 0
+
+/obj/item/integrated_circuit/logic/pulse_counter/do_work()
+	if(get_pin_data(IC_INPUT, 1))
+		count = 0
+		set_pin_data(IC_OUTPUT, 1, count)
+		push_data()
+		activate_pin(3)
+		return
+
+	count++
+	set_pin_data(IC_OUTPUT, 1, count)
+	push_data()
+	activate_pin(2)
+
+
+/obj/item/integrated_circuit/logic/pulse_sequencer
+	name = "pulse sequencer"
+	desc = "Cycles through four output pulses. If reset is true when pulsed, the sequence resets instead."
+	icon_state = "template"
+	complexity = 4
+	inputs = list(
+		"reset" = IC_PINTYPE_BOOLEAN
+	)
+	outputs = list(
+		"current step" = IC_PINTYPE_NUMBER
+	)
+	activators = list(
+		"pulse" = IC_PINTYPE_PULSE_IN,
+		"step 1 pulse" = IC_PINTYPE_PULSE_OUT,
+		"step 2 pulse" = IC_PINTYPE_PULSE_OUT,
+		"step 3 pulse" = IC_PINTYPE_PULSE_OUT,
+		"step 4 pulse" = IC_PINTYPE_PULSE_OUT,
+		"on reset" = IC_PINTYPE_PULSE_OUT
+	)
+	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+
+	var/current_step = 0
+
+/obj/item/integrated_circuit/logic/pulse_sequencer/do_work()
+	if(get_pin_data(IC_INPUT, 1))
+		current_step = 0
+		set_pin_data(IC_OUTPUT, 1, current_step)
+		push_data()
+		activate_pin(6)
+		return
+
+	current_step++
+
+	if(current_step > 4)
+		current_step = 1
+
+	set_pin_data(IC_OUTPUT, 1, current_step)
+	push_data()
+	activate_pin(current_step + 1)

@@ -129,7 +129,7 @@
 		set_pin_data(IC_OUTPUT, 2, H.get_pulse_as_number(GETPULSE_TOOL))
 		set_pin_data(IC_OUTPUT, 3, H.blood_pressure())
 		set_pin_data(IC_OUTPUT, 4, H.get_blood_oxygenation())
-		set_pin_data(IC_OUTPUT, 5, H.bodytemperature)
+		set_pin_data(IC_OUTPUT, 5, H.bodytemperature-273.15)
 		set_pin_data(IC_OUTPUT, 6, H.is_asystole())
 
 	push_data()
@@ -176,7 +176,7 @@
 		set_pin_data(IC_OUTPUT, 2, H.get_pulse_as_number(GETPULSE_TOOL))
 		set_pin_data(IC_OUTPUT, 3, H.blood_pressure())
 		set_pin_data(IC_OUTPUT, 4, H.get_blood_oxygenation())
-		set_pin_data(IC_OUTPUT, 5, H.bodytemperature)
+		set_pin_data(IC_OUTPUT, 5, H.bodytemperature-273.15)
 		set_pin_data(IC_OUTPUT, 6, H.is_asystole())
 		// Advanced
 		set_pin_data(IC_OUTPUT, 7, get_severity(H.getBruteLoss(), TRUE))
@@ -218,7 +218,7 @@
 	if(!istype(H)) //Invalid input
 		return
 
-	if(H in view(T)) // This is a camera. It can't examine thngs,that it can't see.
+	if((H in view(T)) || (get_turf(H) == T))
 
 
 		set_pin_data(IC_OUTPUT, 1, H.name)
@@ -429,7 +429,7 @@
 /obj/item/integrated_circuit/input/gps
 	name = "global positioning system"
 	desc = "This allows you to easily know the position of a machine containing this device."
-	extended_desc = "The GPS's coordinates it gives is absolute, not relative."
+	extended_desc = "The GPS outputs absolute map coordinates, not coordinates relative to the assembly."
 	icon = 'icons/obj/item/gps.dmi'
 	icon_state = "gps"
 	item_state = "radio"
@@ -466,8 +466,8 @@
 
 /obj/item/integrated_circuit/input/microphone
 	name = "microphone"
-	desc = "Useful for spying on people or for voice activated machines."
-	extended_desc = "This will automatically translate most languages it hears to Tau Ceti Basic.  \
+	desc = "Detects nearby speech and outputs the speaker and message text."
+	extended_desc = "When triggered by speech it can hear, this circuit outputs the speaker and message text, translated to Tau Ceti Basic when possible.  \
 	The first activation pin is always pulsed when the circuit hears someone talk, while the second one \
 	is only triggered if it hears someone speaking a language other than Tau Ceti Basic."
 	icon_state = "recorder"
@@ -491,7 +491,16 @@
 /obj/item/integrated_circuit/input/microphone/Destroy()
 	return ..()
 
-/obj/item/integrated_circuit/input/microphone/hear_talk(mob/living/M, msg, var/verb="says", datum/language/speaking=null)
+/obj/item/integrated_circuit/input/microphone/hear_talk(mob/living/M, msg, var/verb = "says", datum/language/speaking = null)
+	receive_radio_message(M, msg, null, speaking)
+
+/obj/item/integrated_circuit/input/microphone/proc/receive_radio_message(mob/living/M, msg, channel = null, datum/language/speaking = null)
+	/*
+	 * Shared microphone intake.
+	 *
+	 * Local speech enters through hear_talk().
+	 * Radio speech enters when /obj/item/radio/headset/circuitry relays it.
+	 */
 	if(isanimal(M))
 		if(!M.universal_speak)
 			return
@@ -509,6 +518,23 @@
 	push_data()
 	activate_pin(1)
 	if(translated)
+		activate_pin(2)
+
+/obj/item/integrated_circuit/input/microphone/proc/receive_radio_text(speaker_name, msg, channel = null, language_name = null)
+	/*
+	 * Text-only fallback for radio relay hooks that do not expose mob/language datums.
+	 * This cannot perform real datum-based translation because no datum/language is provided.
+	 */
+	if(!msg)
+		return
+
+	set_pin_data(IC_OUTPUT, 1, speaker_name ? speaker_name : "Unknown")
+	set_pin_data(IC_OUTPUT, 2, msg)
+
+	push_data()
+	activate_pin(1)
+
+	if(language_name && language_name != "Tau Ceti Basic" && language_name != "Common")
 		activate_pin(2)
 
 /obj/item/integrated_circuit/input/sensor
@@ -572,7 +598,7 @@
 	name = "internal battery monitor"
 	desc = "This monitors the charge level of an internal battery."
 	icon_state = "internalbm"
-	extended_desc = "This circuit will give you values of charge, max charge and percentage of the internal battery on demand."
+	extended_desc = "When pulsed, this circuit reports the assembly battery charge, maximum charge, and charge percentage."
 	w_class = WEIGHT_CLASS_TINY
 	complexity = 1
 	inputs = list()
@@ -605,7 +631,7 @@
 	name = "external battery monitor"
 	desc = "This can help watch the battery level of any device in range."
 	icon_state = "externalbm"
-	extended_desc = "This circuit will give you values of charge, max charge and percentage of any device or battery in view"
+	extended_desc = "When pulsed, this circuit reports the charge, maximum charge, and charge percentage of a visible power cell or powered device."
 	w_class = WEIGHT_CLASS_TINY
 	complexity = 2
 	inputs = list("target" = IC_PINTYPE_REF)
@@ -1086,28 +1112,57 @@
 	activate_pin(1)
 	return TRUE
 
+/proc/ic_split_assignment(raw_assignment)
+	var/list/result = list(
+		"job title" = null,
+		"corporation" = null
+	)
+
+	if(!istext(raw_assignment) || !length(raw_assignment))
+		return result
+
+	var/assignment = trim(raw_assignment)
+	var/open_paren = findtext(assignment, "(")
+	var/close_paren = findtext(assignment, ")", open_paren + 1)
+
+	if(open_paren && close_paren && close_paren > open_paren)
+		result["job title"] = trim(copytext(assignment, 1, open_paren))
+		result["corporation"] = trim(copytext(assignment, open_paren + 1, close_paren))
+	else
+		result["job title"] = assignment
+
+	return result
+
+
 /obj/item/integrated_circuit/input/card_reader
-	name = "ID card reader" //To differentiate it from the data card reader
-	desc = "A circuit that can read the registred name, assignment, and PassKey string from an ID card."
+	name = "ID card reader" // To differentiate it from the data card reader.
+	desc = "A circuit that can read the registered name, assignment, job title, corporation, and PassKey string from an ID card."
 	icon_state = "card_reader"
 
 	complexity = 4
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+
 	inputs = list(
 		"enable credential cache" = IC_PINTYPE_BOOLEAN
 	)
+
 	outputs = list(
 		"registered name" = IC_PINTYPE_STRING,
 		"assignment" = IC_PINTYPE_STRING,
+		"job title" = IC_PINTYPE_STRING,
+		"corporation" = IC_PINTYPE_STRING,
 		"passkey" = IC_PINTYPE_LIST
 	)
+
 	activators = list(
 		"on read" = IC_PINTYPE_PULSE_OUT
 	)
 
+
 /obj/item/integrated_circuit/input/card_reader/attackby_react(obj/item/I, mob/living/user, intent)
 	var/obj/item/card/id/card = I.GetID()
 	var/list/access = I.GetAccess()
+
 	if(!access)
 		return
 
@@ -1115,17 +1170,23 @@
 		assembly?.access_card.access |= access
 
 	if(card) // An ID card.
+		var/list/split_assignment = ic_split_assignment(card.assignment)
+
 		set_pin_data(IC_OUTPUT, 1, card.registered_name)
 		set_pin_data(IC_OUTPUT, 2, card.assignment)
+		set_pin_data(IC_OUTPUT, 3, split_assignment["job title"])
+		set_pin_data(IC_OUTPUT, 4, split_assignment["corporation"])
 
-	else if(length(access))	// A non-card object that has access levels.
+	else if(length(access)) // A non-card object that has access levels.
 		set_pin_data(IC_OUTPUT, 1, null)
 		set_pin_data(IC_OUTPUT, 2, null)
+		set_pin_data(IC_OUTPUT, 3, null)
+		set_pin_data(IC_OUTPUT, 4, null)
 
 	else
 		return FALSE
 
-	set_pin_data(IC_OUTPUT, 3, access)
+	set_pin_data(IC_OUTPUT, 5, access)
 
 	push_data()
 	activate_pin(1)
@@ -1226,8 +1287,8 @@
 
 /obj/item/integrated_circuit/input/anomaly_scanner
 	name = "alden-saraspova counter"
-	desc = "A miniaturised Alden-Saraspova counter, used to detected anomalous readings. Often used by xenoarchaeologists."
-	extended_desc = "It can only scan a 14x14 area and has an built-in 15 second cooldown."
+	desc = "A miniaturized Alden-Saraspova counter, used to detected anomalous readings. Often used by xenoarchaeologists."
+	extended_desc = "It can only scan a 14x14 area and has a built-in 15 second cooldown."
 	icon_state = "medscan_adv"
 	complexity = 12
 	outputs = list(
@@ -1256,3 +1317,407 @@
 			activate_pin(2)
 			break
 	..()
+
+/obj/item/integrated_circuit/input/depth_scanner
+	name = "depth scanner"
+	desc = "A miniaturized depth analysis scanner, used to read xenoarchaeological depth and clearance data from scanned mineral turfs."
+	extended_desc = "Feed it a scanned turf reference. If the turf contains a find, it outputs required depth, clearance, current depth, safe depth, material, and coordinates."
+	icon_state = "medscan_adv"
+	complexity = 12
+	inputs = list(
+		"target turf" = IC_PINTYPE_REF
+	)
+	outputs = list(
+		"target turf" = IC_PINTYPE_REF,
+		"required depth" = IC_PINTYPE_NUMBER,
+		"clearance" = IC_PINTYPE_NUMBER,
+		"current depth" = IC_PINTYPE_NUMBER,
+		"safe depth" = IC_PINTYPE_NUMBER,
+		"material" = IC_PINTYPE_STRING,
+		"coordinates" = IC_PINTYPE_STRING,
+		"status" = IC_PINTYPE_STRING
+	)
+	activators = list(
+		"scan" = IC_PINTYPE_PULSE_IN,
+		"find detected" = IC_PINTYPE_PULSE_OUT,
+		"nothing detected" = IC_PINTYPE_PULSE_OUT
+	)
+	spawn_flags = IC_SPAWN_RESEARCH
+	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 4, TECH_MAGNET = 4)
+	power_draw_per_use = 1000
+	cooldown_per_use = 5 SECONDS
+
+/obj/item/integrated_circuit/input/depth_scanner/do_work()
+	var/turf/simulated/mineral/scanned_turf = get_pin_data_as_type(IC_INPUT, 1, /turf/simulated/mineral)
+
+	set_pin_data(IC_OUTPUT, 1, null)
+	set_pin_data(IC_OUTPUT, 2, null)
+	set_pin_data(IC_OUTPUT, 3, null)
+	set_pin_data(IC_OUTPUT, 4, null)
+	set_pin_data(IC_OUTPUT, 5, null)
+	set_pin_data(IC_OUTPUT, 6, null)
+	set_pin_data(IC_OUTPUT, 7, null)
+	set_pin_data(IC_OUTPUT, 8, "No valid mineral turf scanned.")
+
+	if(!istype(scanned_turf))
+		push_data()
+		activate_pin(3)
+		return
+
+	var/turf/circuit_turf = get_turf(src)
+	if(!(scanned_turf in view(circuit_turf)))
+		set_pin_data(IC_OUTPUT, 8, "Target turf is out of scanner range.")
+		push_data()
+		activate_pin(3)
+		return
+
+	if(!(scanned_turf.finds && scanned_turf.finds.len) && !scanned_turf.artifact_find)
+		set_pin_data(IC_OUTPUT, 1, scanned_turf)
+		set_pin_data(IC_OUTPUT, 7, "[scanned_turf.x], [scanned_turf.y], [scanned_turf.z]")
+		set_pin_data(IC_OUTPUT, 8, "No subsurface find detected.")
+		push_data()
+		activate_pin(3)
+		return
+
+	var/required_depth = 0
+	var/clearance = 0
+	var/current_depth = scanned_turf.excavation_level * 2
+	var/material = scanned_turf.mineral ? scanned_turf.mineral.display_name : "Rock"
+
+	if(scanned_turf.finds && scanned_turf.finds.len)
+		var/datum/find/F = scanned_turf.finds[1]
+		required_depth = F.excavation_required * 2
+		clearance = F.clearance_range * 2
+		material = get_responsive_reagent(F.find_type)
+	else if(scanned_turf.artifact_find)
+		required_depth = rand(75, 100)
+		clearance = rand(5, 25)
+		material = "Unknown anomaly"
+
+	var/safe_depth = max(required_depth - clearance, 0)
+
+	set_pin_data(IC_OUTPUT, 1, scanned_turf)
+	set_pin_data(IC_OUTPUT, 2, required_depth)
+	set_pin_data(IC_OUTPUT, 3, clearance)
+	set_pin_data(IC_OUTPUT, 4, current_depth)
+	set_pin_data(IC_OUTPUT, 5, safe_depth)
+	set_pin_data(IC_OUTPUT, 6, material)
+	set_pin_data(IC_OUTPUT, 7, "[scanned_turf.x], [scanned_turf.y], [scanned_turf.z]")
+	set_pin_data(IC_OUTPUT, 8, "Find detected.")
+
+	push_data()
+	activate_pin(2)
+
+/obj/item/integrated_circuit/input/ref_validator
+	name = "reference validator"
+	desc = "Checks whether a reference is valid and identifies its general type."
+	icon_state = "video_camera"
+	complexity = 4
+	inputs = list(
+		"reference" = IC_PINTYPE_REF
+	)
+	outputs = list(
+		"valid" = IC_PINTYPE_BOOLEAN,
+		"name" = IC_PINTYPE_STRING,
+		"type path" = IC_PINTYPE_STRING,
+		"is mob" = IC_PINTYPE_BOOLEAN,
+		"is item" = IC_PINTYPE_BOOLEAN,
+		"is machinery" = IC_PINTYPE_BOOLEAN,
+		"is turf" = IC_PINTYPE_BOOLEAN
+	)
+	activators = list(
+		"validate" = IC_PINTYPE_PULSE_IN,
+		"valid" = IC_PINTYPE_PULSE_OUT,
+		"invalid" = IC_PINTYPE_PULSE_OUT
+	)
+	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+
+/obj/item/integrated_circuit/input/ref_validator/do_work()
+	var/atom/A = get_pin_data_as_type(IC_INPUT, 1, /atom)
+
+	set_pin_data(IC_OUTPUT, 1, FALSE)
+	set_pin_data(IC_OUTPUT, 2, null)
+	set_pin_data(IC_OUTPUT, 3, null)
+	set_pin_data(IC_OUTPUT, 4, FALSE)
+	set_pin_data(IC_OUTPUT, 5, FALSE)
+	set_pin_data(IC_OUTPUT, 6, FALSE)
+	set_pin_data(IC_OUTPUT, 7, FALSE)
+
+	if(!A)
+		push_data()
+		activate_pin(3)
+		return
+
+	set_pin_data(IC_OUTPUT, 1, TRUE)
+	set_pin_data(IC_OUTPUT, 2, A.name)
+	set_pin_data(IC_OUTPUT, 3, "[A.type]")
+	set_pin_data(IC_OUTPUT, 4, ismob(A))
+	set_pin_data(IC_OUTPUT, 5, isitem(A))
+	set_pin_data(IC_OUTPUT, 6, istype(A, /obj/structure/machinery))
+	set_pin_data(IC_OUTPUT, 7, isturf(A))
+
+	push_data()
+	activate_pin(2)
+
+
+/obj/item/integrated_circuit/input/distance_checker
+	name = "distance checker"
+	desc = "Checks distance and adjacency between two references. If reference B is empty, it checks the tile in front of reference A."
+	extended_desc = "Compares reference A against reference B and outputs the distance, whether they are adjacent, whether they are on the same tile, and whether they are on the same z-level. If reference B is empty, the circuit uses the turf directly in front of reference A instead. This is useful for checking whether an assembly is facing a nearby object, wall, turf, or target location without needing a second reference input."
+	icon_state = "video_camera"
+	complexity = 4
+	inputs = list(
+		"reference A" = IC_PINTYPE_REF,
+		"reference B" = IC_PINTYPE_REF
+	)
+	outputs = list(
+		"distance" = IC_PINTYPE_NUMBER,
+		"adjacent" = IC_PINTYPE_BOOLEAN,
+		"same tile" = IC_PINTYPE_BOOLEAN,
+		"same z-level" = IC_PINTYPE_BOOLEAN
+	)
+	activators = list(
+		"check" = IC_PINTYPE_PULSE_IN,
+		"checked" = IC_PINTYPE_PULSE_OUT,
+		"not checked" = IC_PINTYPE_PULSE_OUT
+	)
+	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+
+/obj/item/integrated_circuit/input/distance_checker/do_work()
+	var/atom/A = get_pin_data_as_type(IC_INPUT, 1, /atom)
+	var/atom/B = get_pin_data_as_type(IC_INPUT, 2, /atom)
+
+	if(!A)
+		set_pin_data(IC_OUTPUT, 1, null)
+		set_pin_data(IC_OUTPUT, 2, FALSE)
+		set_pin_data(IC_OUTPUT, 3, FALSE)
+		set_pin_data(IC_OUTPUT, 4, FALSE)
+		push_data()
+		activate_pin(3)
+		return
+
+	var/turf/TA = get_turf(A)
+	var/turf/TB = null
+	if(TA)
+		TB = B ? get_turf(B) : get_step(TA, A.dir)
+
+	if(!TA || !TB)
+		set_pin_data(IC_OUTPUT, 1, null)
+		set_pin_data(IC_OUTPUT, 2, FALSE)
+		set_pin_data(IC_OUTPUT, 3, FALSE)
+		set_pin_data(IC_OUTPUT, 4, FALSE)
+		push_data()
+		activate_pin(3)
+		return
+
+	var/same_z = TA.z == TB.z
+	var/distance = same_z ? get_dist(TA, TB) : null
+
+	set_pin_data(IC_OUTPUT, 1, distance)
+	set_pin_data(IC_OUTPUT, 2, same_z && distance <= 1)
+	set_pin_data(IC_OUTPUT, 3, TA == TB)
+	set_pin_data(IC_OUTPUT, 4, same_z)
+
+	push_data()
+	activate_pin(2)
+
+
+/obj/item/integrated_circuit/input/direction_to_ref
+	name = "direction to reference"
+	desc = "Calculates the direction from one reference to another."
+	icon_state = "video_camera"
+	complexity = 4
+	inputs = list(
+		"source" = IC_PINTYPE_REF,
+		"target" = IC_PINTYPE_REF
+	)
+	outputs = list(
+		"direction" = IC_PINTYPE_NUMBER,
+		"direction text" = IC_PINTYPE_STRING
+	)
+	activators = list(
+		"calculate" = IC_PINTYPE_PULSE_IN,
+		"calculated" = IC_PINTYPE_PULSE_OUT,
+		"not calculated" = IC_PINTYPE_PULSE_OUT
+	)
+	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+
+/obj/item/integrated_circuit/input/direction_to_ref/do_work()
+	var/atom/source = get_pin_data_as_type(IC_INPUT, 1, /atom)
+	var/atom/target = get_pin_data_as_type(IC_INPUT, 2, /atom)
+
+	if(!source || !target)
+		set_pin_data(IC_OUTPUT, 1, null)
+		set_pin_data(IC_OUTPUT, 2, null)
+		push_data()
+		activate_pin(3)
+		return
+
+	var/direction = get_dir(source, target)
+
+	set_pin_data(IC_OUTPUT, 1, direction)
+	set_pin_data(IC_OUTPUT, 2, dir2text(direction))
+
+	push_data()
+	activate_pin(2)
+
+
+/obj/item/integrated_circuit/input/area_scanner
+	name = "area scanner"
+	desc = "Returns the area of a referenced object."
+	icon_state = "video_camera"
+	complexity = 3
+	inputs = list(
+		"target" = IC_PINTYPE_REF
+	)
+	outputs = list(
+		"area name" = IC_PINTYPE_STRING,
+		"area ref" = IC_PINTYPE_REF
+	)
+	activators = list(
+		"scan" = IC_PINTYPE_PULSE_IN,
+		"scanned" = IC_PINTYPE_PULSE_OUT,
+		"not scanned" = IC_PINTYPE_PULSE_OUT
+	)
+	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+
+/obj/item/integrated_circuit/input/area_scanner/do_work()
+	var/atom/A = get_pin_data_as_type(IC_INPUT, 1, /atom)
+
+	if(!A)
+		set_pin_data(IC_OUTPUT, 1, null)
+		set_pin_data(IC_OUTPUT, 2, null)
+		push_data()
+		activate_pin(3)
+		return
+
+	var/area/AR = get_area(A)
+
+	if(!AR)
+		push_data()
+		activate_pin(3)
+		return
+
+	set_pin_data(IC_OUTPUT, 1, AR.name)
+	set_pin_data(IC_OUTPUT, 2, AR)
+
+	push_data()
+	activate_pin(2)
+
+
+/obj/item/integrated_circuit/input/access_checker
+	name = "access checker"
+	desc = "Checks whether an access list contains required access."
+	icon_state = "card_reader"
+	complexity = 4
+	inputs = list(
+		"access list" = IC_PINTYPE_LIST,
+		"required access" = IC_PINTYPE_LIST
+	)
+	outputs = list(
+		"allowed" = IC_PINTYPE_BOOLEAN,
+		"missing access" = IC_PINTYPE_LIST
+	)
+	activators = list(
+		"check" = IC_PINTYPE_PULSE_IN,
+		"allowed" = IC_PINTYPE_PULSE_OUT,
+		"denied" = IC_PINTYPE_PULSE_OUT
+	)
+	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+
+/obj/item/integrated_circuit/input/access_checker/do_work()
+	var/list/access_list = get_pin_data(IC_INPUT, 1)
+	var/list/required_access = get_pin_data(IC_INPUT, 2)
+	var/list/missing_access = list()
+
+	if(!islist(access_list))
+		access_list = list()
+
+	if(!islist(required_access))
+		required_access = list()
+
+	for(var/access in required_access)
+		if(!(access in access_list))
+			missing_access += access
+
+	var/allowed = !length(missing_access)
+
+	set_pin_data(IC_OUTPUT, 1, allowed)
+	set_pin_data(IC_OUTPUT, 2, missing_access)
+
+	push_data()
+	activate_pin(allowed ? 2 : 3)
+
+
+/obj/item/integrated_circuit/input/radio_command_receiver
+	name = "radio command receiver"
+	desc = "Receives radio-style command text relayed through an inserted radio."
+	extended_desc = "This circuit receives relayed radio text and exposes the speaker, message, channel, command, arguments, and payload. If a radio reference is provided, only messages relayed from that radio will be accepted."
+	icon_state = "recorder"
+	complexity = 10
+	inputs = list(
+		"radio reference" = IC_PINTYPE_REF
+	)
+	outputs = list(
+		"speaker" = IC_PINTYPE_STRING,
+		"message" = IC_PINTYPE_STRING,
+		"channel" = IC_PINTYPE_STRING,
+		"command" = IC_PINTYPE_STRING,
+		"argument 1" = IC_PINTYPE_STRING,
+		"argument 2" = IC_PINTYPE_STRING,
+		"argument list" = IC_PINTYPE_LIST,
+		"payload" = IC_PINTYPE_STRING
+	)
+	activators = list(
+		"on command received" = IC_PINTYPE_PULSE_OUT
+	)
+	power_draw_per_use = 150
+	spawn_flags = null
+
+
+/obj/item/integrated_circuit/input/radio_command_receiver/proc/receive_radio_command(speaker_name, message, channel, obj/item/radio/source_radio = null)
+	if(!check_then_do_work())
+		return
+
+	var/obj/item/radio/required_radio = get_pin_data_as_type(IC_INPUT, 1, /obj/item/radio)
+
+	if(required_radio && !source_radio)
+		return
+
+	if(required_radio && source_radio != required_radio)
+		return
+
+	if(!istext(message) || !length(message))
+		return
+
+	var/list/parts = splittext(message, " ")
+	var/list/clean_parts = list()
+
+	for(var/part in parts)
+		if(istext(part) && length(part))
+			clean_parts += part
+
+	if(!length(clean_parts))
+		return
+
+	var/list/arguments = list()
+	for(var/i = 2 to length(clean_parts))
+		arguments += clean_parts[i]
+
+	var/list/payload_parts = list()
+	for(var/i = 2 to length(clean_parts))
+		payload_parts += clean_parts[i]
+
+	var/payload = jointext(payload_parts, " ")
+
+	set_pin_data(IC_OUTPUT, 1, speaker_name ? "[speaker_name]" : "Unknown")
+	set_pin_data(IC_OUTPUT, 2, message)
+	set_pin_data(IC_OUTPUT, 3, channel ? "[channel]" : null)
+	set_pin_data(IC_OUTPUT, 4, lowertext(clean_parts[1]))
+	set_pin_data(IC_OUTPUT, 5, length(clean_parts) >= 2 ? clean_parts[2] : null)
+	set_pin_data(IC_OUTPUT, 6, length(clean_parts) >= 3 ? clean_parts[3] : null)
+	set_pin_data(IC_OUTPUT, 7, arguments)
+	set_pin_data(IC_OUTPUT, 8, payload)
+
+	push_data()
+	activate_pin(1)

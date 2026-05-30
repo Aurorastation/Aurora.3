@@ -1,3 +1,8 @@
+/*
+ * ~defines/~defines.dm
+ * Undefines temporary macros after integrated electronics files finish compiling.
+ */
+
 #undef IC_INPUT
 #undef IC_OUTPUT
 #undef IC_ACTIVATOR

@@ -1,3 +1,8 @@
+/*
+ * subtypes/trig.dm
+ * Trigonometry and coordinate math circuits.
+ */
+
 //These circuits do not-so-simple math.
 /obj/item/integrated_circuit/trig
 	complexity = 1
@@ -24,7 +29,7 @@
 
 /obj/item/integrated_circuit/trig/sine
 	name = "sin circuit"
-	desc = "Has nothing to do with evil, unless you consider trigonometry to be evil.  Outputs the sine of A."
+	desc = "Outputs the sine of A."
 	icon_state = "sine"
 	inputs = list("A" = IC_PINTYPE_NUMBER)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
@@ -64,7 +69,7 @@
 
 /obj/item/integrated_circuit/trig/tangent
 	name = "tan circuit"
-	desc = "Outputs the tangent of A.  Guaranteed to not go on a tangent about its existance."
+	desc = "Outputs the tangent of A."
 	icon_state = "tangent"
 	inputs = list("A" = IC_PINTYPE_NUMBER)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
@@ -105,7 +110,7 @@
 
 /obj/item/integrated_circuit/trig/secant
 	name = "sec circuit"
-	desc = "Outputs the secant of A.  Has nothing to do with the security department."
+	desc = "Outputs the secant of A."
 	icon_state = "secant"
 	inputs = list("A" = IC_PINTYPE_NUMBER)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH

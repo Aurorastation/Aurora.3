@@ -1,3 +1,8 @@
+/*
+ * subtypes/converters.dm
+ * Converter circuits that translate between numbers, strings, booleans, directions, colors, and other pin formats.
+ */
+
 //These circuits convert one variable to another.
 /obj/item/integrated_circuit/converter
 	complexity = 2
@@ -10,7 +15,7 @@
 /obj/item/integrated_circuit/converter/num2text
 	name = "number to string"
 	desc = "This circuit can convert a number variable into a string."
-	extended_desc = "Because of game limitations null/false variables will output a '0' string."
+	extended_desc = "Null or false-equivalent inputs output as the text value '0'."
 	complexity = 1
 	icon_state = "num-string"
 	inputs = list("input" = IC_PINTYPE_NUMBER)
@@ -33,7 +38,8 @@
 /obj/item/integrated_circuit/converter/num2text4
 	name = "4-way number to string"
 	desc = "This circuit can convert up to four number variables into strings."
-	extended_desc = "Because of game limitations null/false variables will output a '0' string."
+	extended_desc = "Null or false-equivalent inputs output as the text value '0'."
+	complexity = 2
 	icon_state = "num-string"
 	inputs = list(
 		"input 1" = IC_PINTYPE_NUMBER,
@@ -69,7 +75,7 @@
 /obj/item/integrated_circuit/converter/num2text8
 	name = "8-way number to string"
 	desc = "This circuit can convert up to eight number variables into strings."
-	extended_desc = "Because of game limitations null/false variables will output a '0' string."
+	extended_desc = "Null or false-equivalent inputs output as the text value '0'."
 	complexity = 4
 	icon_state = "num-string"
 	inputs = list(
@@ -151,7 +157,7 @@
 
 /obj/item/integrated_circuit/converter/lowercase
 	name = "lowercase string converter"
-	desc = "this will cause a string to come out in all lowercase."
+	desc = "Converts text to lowercase."
 	icon_state = "lowercase"
 	inputs = list("input" = IC_PINTYPE_STRING)
 	outputs = list("output" = IC_PINTYPE_STRING)
@@ -170,7 +176,7 @@
 
 /obj/item/integrated_circuit/converter/uppercase
 	name = "uppercase string converter"
-	desc = "THIS WILL CAUSE A STRING TO COME OUT IN ALL UPPERCASE."
+	desc = "Converts text to uppercase."
 	icon_state = "uppercase"
 	inputs = list("input" = IC_PINTYPE_STRING)
 	outputs = list("output" = IC_PINTYPE_STRING)
@@ -189,7 +195,7 @@
 
 /obj/item/integrated_circuit/converter/concatenator
 	name = "concatenator"
-	desc = "This joins many strings together to get one big string."
+	desc = "Joins multiple text inputs into one text output."
 	complexity = 4
 	inputs = list(
 		"A" = IC_PINTYPE_STRING,
@@ -218,8 +224,8 @@
 
 /obj/item/integrated_circuit/converter/separator
 	name = "separator"
-	desc = "This splits as single string into two at the relative split point."
-	extended_desc = "This circuits splits a given string into two, based on the string, and the index value. \
+	desc = "Splits a text input into two outputs at the selected position."
+	extended_desc = "This circuit splits a given string into two, based on the string, and the index value. \
 	The index splits the string <b>after</b> the given index, including spaces. So 'a person' with an index of '3' \
 	will split into 'a p' and 'erson'."
 	complexity = 4
@@ -252,7 +258,7 @@
 
 /obj/item/integrated_circuit/converter/findstring
 	name = "find text"
-	desc = "This gives position of sample in the string. Or returns 0."
+	desc = "Outputs the position of a sample text within the input text, or 0 if it is not found."
 	extended_desc = "The first pin is the string to be examined. The second pin is the sample to be found. \
 	For example, 'eat this burger',' ' will give you position 4. This circuit isn't case sensitive."
 	complexity = 4
