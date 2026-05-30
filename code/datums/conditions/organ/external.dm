@@ -1,19 +1,3 @@
-/datum/condition/organ/broken_spine
-	name = "Broken Spine"
-	desc = "AAAAAAUUUUUUUGHHHHHHHH"
-	severity = CONDITION_SEVERITY_HIGH
-	traits = list(TRAIT_BROKEN_SPINE)
-	injury_types = list(INJURY_TYPE_BRUISE, INJURY_TYPE_CUT, INJURY_TYPE_PIERCE)
-	apply_sound = 'sound/effects/conditions/broken_spine.ogg'
-	max_condition_amount = 1
-	min_damage = 100
-
-/datum/condition/organ/broken_spine/on_apply()
-	. = ..()
-	organ.owner?.visible_message(SPAN_CONDITION("[organ?.owner]'s spine breaks in half!"), SPAN_CONDITION("Your spine breaks in half!"))
-	organ.owner?.Weaken(3)
-	organ.owner?.make_jittery(20)
-
 /datum/condition/organ/fracture
 	name = "Fracture"
 	desc = "This is a base type, report this if it somehow appears."
@@ -365,3 +349,35 @@
 		var/obj/item/organ/internal/brain/sponge = concussee.internal_organs_by_name[BP_BRAIN]
 		if(istype(sponge) && sponge.damage < (sponge.max_damage * 0.5))
 			sponge.take_damage(2)
+
+/datum/condition/organ/blunt/broken_spine
+	name = "Broken Spine"
+	desc = "The spinal cord has been broken."
+	severity = CONDITION_SEVERITY_HIGH
+	traits = list(TRAIT_BROKEN_SPINE)
+	injury_types = list(INJURY_TYPE_BRUISE)
+	apply_sound = 'sound/effects/conditions/broken_spine.ogg'
+	max_condition_amount = 1
+	min_damage = 100
+
+/datum/condition/organ/blunt/broken_spine/pre_apply(atom/movable/new_parent, injury_type)
+	if(!..())
+		return FALSE
+	var/obj/item/organ/external/affected = new_parent
+	var/frac_count = 0
+	for(var/datum/condition/organ/fracture/fracture in affected.conditions)
+		if(fracture.severity >= CONDITION_SEVERITY_MEDIUM)
+			frac_count += 2
+		else
+			frac_count++
+
+	if(frac_count >= 3)
+		concussee = affected.owner
+		return TRUE
+	return FALSE
+
+/datum/condition/organ/blunt/broken_spine/on_apply()
+	. = ..()
+	organ.owner?.visible_message(SPAN_CONDITION("[organ?.owner]'s spine breaks in half!"), SPAN_CONDITION("Your spine breaks in half!"))
+	organ.owner?.Weaken(3)
+	organ.owner?.make_jittery(20)
