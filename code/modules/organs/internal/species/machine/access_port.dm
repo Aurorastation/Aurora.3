@@ -76,7 +76,8 @@
 /obj/item/organ/internal/machine/access_port/proc/insert_item(obj/item/jack)
 	SIGNAL_HANDLER
 	if(internal_port)
-		crash_with("Insert_item with [jack] on access port called with [internal_port] of [owner] already present!")
+		log_debug("Insert_item with [jack] on access port called with [internal_port] of [owner] already present! Aborting insertion.")
+		return
 
 	internal_port = jack
 	jack.forceMove(src)
@@ -113,6 +114,11 @@
 	. = ..()
 	insert_item(cable)
 	cable.create_cable(owner)
+
+/obj/item/organ/internal/machine/access_port/remove_cable(obj/item/access_cable/cable)
+	. = ..()
+	if(internal_port == cable)
+		clear_port()
 
 /obj/item/organ/internal/machine/access_port/cable_interact(obj/item/access_cable/cable, mob/user)
 	var/obj/item/organ/internal/machine/internal_diagnostics/diagnostics_unit = owner.internal_organs_by_name[BP_DIAGNOSTICS_SUITE]
@@ -277,6 +283,15 @@
 			user.visible_message(SPAN_WARNING("[user] tries to jack \the [src] into [human]'s access port..."))
 			if(!do_mob(user, human, 2 SECONDS))
 				return
+			// Re-check after the delay: port state may have changed during consent/wait window
+			var/obj/item/organ/internal/machine/access_port/fresh_port = human.internal_organs_by_name[BP_ACCESS_PORT]
+			if(!fresh_port)
+				to_chat(user, SPAN_WARNING("[human] no longer has an access port!"))
+				return
+			if(fresh_port.internal_port)
+				to_chat(user, SPAN_WARNING("The access port is now occupied by [fresh_port.internal_port]!"))
+				return
+			access_port = fresh_port
 			user.visible_message(SPAN_WARNING("[user] jacks \the [src] into [human]'s access port!"))
 
 		else
