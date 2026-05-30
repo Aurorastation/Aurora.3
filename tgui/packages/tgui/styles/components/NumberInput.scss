@@ -1,6 +1,0 @@
-$border-color: var(--number-input-border-color) !default;
-
-.NumberInput {
-  --number-input-border-color: #{$border-color};
-  --number-input-border-color-active: #{$border-color};
-}

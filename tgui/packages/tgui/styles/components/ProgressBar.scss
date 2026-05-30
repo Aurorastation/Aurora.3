@@ -1,9 +1,0 @@
-@use '../colors';
-
-$background-color: var(--progress-bar-background) !default;
-$color-default-fill: colors.$primary !default;
-
-.ProgressBar {
-  --progress-bar-background: #{$background-color};
-  --progress-bar-color: #{$color-default-fill};
-}
