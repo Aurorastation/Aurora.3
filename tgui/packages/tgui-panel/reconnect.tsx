@@ -11,10 +11,11 @@ setInterval(() => {
   });
 }, 5000);
 
-export const ReconnectButton = () => {
+export function ReconnectButton() {
   if (!url) {
     return null;
   }
+
   return (
     <>
       <Button
@@ -34,9 +35,7 @@ export const ReconnectButton = () => {
           location.href = `byond://${url}`;
           Byond.command('.quit');
         }}
-      >
-        Relaunch game
-      </Button>
+      />
     </>
   );
-};
+}

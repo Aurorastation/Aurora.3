@@ -16,7 +16,6 @@ type IFace = {
 };
 
 type TguiWindow = {
-  fancy: BinaryIO;
   key: string;
   locked: BinaryIO;
   scale: BinaryIO;
