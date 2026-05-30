@@ -152,7 +152,7 @@ export const BodyWindow = (props) => {
           maxValue={data.height_max}
           minValue={data.height_min}
           unit="cm"
-          onDrag={(value) => act('set_height', { height: value })}
+          onChange={(value) => act('set_height', { height: value })}
         />
       </Section>
     </Section>

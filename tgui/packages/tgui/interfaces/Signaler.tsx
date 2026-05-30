@@ -51,7 +51,7 @@ export const Signaler = (props) => {
                 maxValue={100}
                 value={data.code}
                 width="80px"
-                onDrag={(value) =>
+                onChange={(value) =>
                   act('code', {
                     code: value,
                   })

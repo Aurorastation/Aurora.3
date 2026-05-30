@@ -54,7 +54,7 @@ export const pAIRadio = (props) => {
                 value={data.radio_range}
                 minValue={0}
                 maxValue={4}
-                onDrag={(value) => act('radio_range', { radio_range: value })}
+                onChange={(_, value) => act('radio_range', { radio_range: value })}
               />
             </LabeledList.Item>
           </LabeledList>

@@ -64,7 +64,7 @@ export const ThermostatWindow = (props) => {
           step={5}
           stepPixelSize={25}
           unit={'°C'}
-          onDrag={(value) =>
+          onChange={(_, value) =>
             act('change_thermostat', {
               change_thermostat: value,
             })

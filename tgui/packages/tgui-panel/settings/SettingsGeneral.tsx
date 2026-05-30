@@ -136,7 +136,7 @@ export function SettingsGeneral(props) {
                 value={settings.fontSize}
                 unit="px"
                 format={(value) => toFixed(value)}
-                onChange={(e, value) => updateSettings({ fontSize: value })}
+                onChange={(_, value) => updateSettings({ fontSize: value })}
               />
             </Stack.Item>
           </Stack>
@@ -149,7 +149,7 @@ export function SettingsGeneral(props) {
             maxValue={5}
             value={settings.lineHeight}
             format={(value) => toFixed(value, 2)}
-            onChange={(e, value) =>
+            onChange={(_, value) =>
               updateSettings({
                 lineHeight: value,
               })

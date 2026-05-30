@@ -190,7 +190,7 @@ export const OccupantStatus = (props) => {
                 maxValue={data.stasissettings[data.stasissettings.length - 1]}
                 step={1}
                 stepPixelSize={50}
-                onDrag={(value) =>
+                onChange={(_, value) =>
                   act('stasis', {
                     stasis: value,
                   })

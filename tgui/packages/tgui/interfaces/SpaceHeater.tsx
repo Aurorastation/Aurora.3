@@ -109,7 +109,7 @@ export const SpaceHeater = (props) => {
                     maxValue={data.set_temperature_max}
                     step={1}
                     stepPixelSize={2}
-                    onDrag={(value) =>
+                    onChange={(_, value) =>
                       act('tempSet', {
                         set_temperature: value,
                       })

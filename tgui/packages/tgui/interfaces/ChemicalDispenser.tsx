@@ -63,7 +63,7 @@ export const ChemicalDispenser = (props) => {
               unit="u"
               step={5}
               stepPixelSize={15}
-              onDrag={(value) => act('amount', { amount: value })}
+              onChange={(value) => act('amount', { amount: value })}
             />
           </Box>
           <Divider />

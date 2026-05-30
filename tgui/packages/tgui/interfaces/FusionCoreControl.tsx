@@ -137,7 +137,7 @@ export const FusionCoreControl = (props) => {
                           minValue={20}
                           maxValue={core.field_strength_max * 100}
                           stepPixelSize={15}
-                          onDrag={(value) =>
+                          onChange={(value) =>
                             act('strength', {
                               strength: value,
                               machine: core.ref,

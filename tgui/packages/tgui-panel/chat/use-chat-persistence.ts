@@ -3,7 +3,8 @@ import DOMPurify from 'dompurify';
 import { useAtom, useAtomValue } from 'jotai';
 import { useEffect } from 'react';
 import { settingsLoadedAtom } from '../settings/atoms';
-import { chatLoadedAtom, versionAtom } from './atom';
+import { store } from '../events/store';
+import { chatLoadedAtom, currentPageAtom, versionAtom } from './atom';
 import { MESSAGE_SAVE_INTERVAL } from './constants';
 import { saveChatToStorage } from './helpers';
 import { startChatStateMigration } from './migration';
@@ -62,12 +63,14 @@ export function useChatPersistence() {
     // Empty settings, set defaults
     if (!state) {
       console.log('Initialized chat with default settings');
+      chatRenderer.changePage(store.get(currentPageAtom));
     } else if (state && 'version' in state && state.version === version) {
       console.log('Loaded chat state from storage:', state);
       startChatStateMigration(state);
     } else {
       // Discard incompatible versions
       console.log('Discarded incompatible chat state from storage:', state);
+      chatRenderer.changePage(store.get(currentPageAtom));
     }
   }
 

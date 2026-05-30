@@ -79,7 +79,7 @@ const PrintOptions = (props) => {
           minValue={1}
           maxValue={10}
           value={num_copies}
-          onDrag={(value) =>
+          onChange={(value) =>
             act('set_copies', {
               num_copies: value,
             })

@@ -641,5 +641,5 @@ Class Procs:
 /obj/structure/machinery/ui_status(mob/user, datum/ui_state/state)
 	. = ..()
 	if(. < UI_INTERACTIVE)
-		if(user.machine)
+		if(user?.machine)
 			user.unset_machine()

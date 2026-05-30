@@ -107,14 +107,14 @@ export const AddItems = (props) => {
     <Section>
       <Input
         value={data.new_item}
-        onChange={(e, value) => act('set_new_item', { set_new_item: value })}
+        onChange={(_, value) => act('set_new_item', { set_new_item: value })}
       />
       <NumberInput
         value={data.new_price}
         minValue={0}
         maxValue={100}
         stepPixelSize={5}
-        onDrag={(value) => act('set_new_price', { set_new_price: value })}
+        onChange={(value) => act('set_new_price', { set_new_price: value })}
       />
       <Button content="Add" onClick={() => act('add')} />
     </Section>

@@ -215,12 +215,12 @@ export const AddItems = (props) => {
       <Input
         placeholder="Item name"
         value={data.new_item}
-        onChange={(e, value) => act('set_new_item', { set_new_item: value })}
+        onChange={(_, value) => act('set_new_item', { set_new_item: value })}
       />
       <Input
         placeholder="Category"
         value={data.new_category}
-        onChange={(e, value) =>
+        onChange={(_, value) =>
           act('set_new_category', { set_new_category: value })
         }
       />
@@ -229,7 +229,7 @@ export const AddItems = (props) => {
         minValue={0}
         maxValue={100}
         stepPixelSize={5}
-        onDrag={(value) => act('set_new_price', { set_new_price: value })}
+        onChange={(value) => act('set_new_price', { set_new_price: value })}
       />
       <Button content="Add" onClick={() => act('add')} />
     </Section>

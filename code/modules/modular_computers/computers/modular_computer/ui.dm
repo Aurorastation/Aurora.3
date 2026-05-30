@@ -206,5 +206,5 @@
 				return UI_INTERACTIVE
 	. = ..()
 	if(. < UI_INTERACTIVE)
-		if(user.machine)
+		if(user?.machine)
 			user.unset_machine()
