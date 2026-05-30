@@ -132,10 +132,10 @@
 	base_area = /area/horizon/operations/office_aux
 	base_turf = /turf/simulated/open
 
-/obj/machinery/computer/shuttle_control/multi/lift/operations
+/obj/structure/machinery/computer/shuttle_control/multi/lift/operations
 	shuttle_tag = "Operations Lift"
 
-/obj/machinery/computer/shuttle_control/multi/lift/wall/operations
+/obj/structure/machinery/computer/shuttle_control/multi/lift/wall/operations
 	shuttle_tag = "Operations Lift"
 
 /area/turbolift/scc_ship/operations_lift
@@ -174,10 +174,10 @@
 	base_area = /area/horizon/medical/hallway
 	base_turf = /turf/simulated/open
 
-/obj/machinery/computer/shuttle_control/multi/lift/robotics
+/obj/structure/machinery/computer/shuttle_control/multi/lift/robotics
 	shuttle_tag = "Robotics Lift 2"
 
-/obj/machinery/computer/shuttle_control/multi/lift/wall/robotics
+/obj/structure/machinery/computer/shuttle_control/multi/lift/wall/robotics
 	shuttle_tag = "Robotics Lift 2"
 
 /area/turbolift/scc_ship/robotics_lift

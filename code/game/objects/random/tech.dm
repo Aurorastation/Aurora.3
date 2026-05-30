@@ -281,39 +281,39 @@
 	// In descending order of probability
 	problist = list(
 		// common:
-		/obj/machinery/portable_atmospherics/canister/empty/air = 2,
-		/obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide = 2,
-		/obj/machinery/portable_atmospherics/canister/empty/oxygen = 2,
-		/obj/machinery/portable_atmospherics/canister/empty = 1,
-		/obj/machinery/portable_atmospherics/canister/empty/nitrogen = 1.5,
-		/obj/machinery/portable_atmospherics/canister/empty/hydrogen = 1.25,
-		/obj/machinery/portable_atmospherics/canister/empty/sleeping_agent = 1,
-		/obj/machinery/portable_atmospherics/canister/empty/helium = 0.5,
-		/obj/machinery/portable_atmospherics/canister/empty/chlorine = 0.1,
-		/obj/machinery/portable_atmospherics/canister/empty/sulfur_dioxide = 0.1,
-		/obj/machinery/portable_atmospherics/canister/empty/nitrogen_dioxide = 0.1,
-		/obj/machinery/portable_atmospherics/canister/empty/heliumfuel = 0.05,
-		/obj/machinery/portable_atmospherics/canister/empty/phoron = 0.1,
+		/obj/structure/machinery/portable_atmospherics/canister/empty/air = 2,
+		/obj/structure/machinery/portable_atmospherics/canister/empty/carbon_dioxide = 2,
+		/obj/structure/machinery/portable_atmospherics/canister/empty/oxygen = 2,
+		/obj/structure/machinery/portable_atmospherics/canister/empty = 1,
+		/obj/structure/machinery/portable_atmospherics/canister/empty/nitrogen = 1.5,
+		/obj/structure/machinery/portable_atmospherics/canister/empty/hydrogen = 1.25,
+		/obj/structure/machinery/portable_atmospherics/canister/empty/sleeping_agent = 1,
+		/obj/structure/machinery/portable_atmospherics/canister/empty/helium = 0.5,
+		/obj/structure/machinery/portable_atmospherics/canister/empty/chlorine = 0.1,
+		/obj/structure/machinery/portable_atmospherics/canister/empty/sulfur_dioxide = 0.1,
+		/obj/structure/machinery/portable_atmospherics/canister/empty/nitrogen_dioxide = 0.1,
+		/obj/structure/machinery/portable_atmospherics/canister/empty/heliumfuel = 0.05,
+		/obj/structure/machinery/portable_atmospherics/canister/empty/phoron = 0.1,
 	)
 
 /obj/random/canister/filled
 	name = "random filled canister"
 	// In descending order of probability
 	problist = list(
-		/obj/machinery/portable_atmospherics/canister/air = 2,
-		/obj/machinery/portable_atmospherics/canister/carbon_dioxide = 2,
-		/obj/machinery/portable_atmospherics/canister/oxygen = 2,
-		/obj/machinery/portable_atmospherics/canister/nitrogen = 1.5,
-		/obj/machinery/portable_atmospherics/canister/hydrogen = 1.25,
-		/obj/machinery/portable_atmospherics/canister/sleeping_agent = 1,
-		/obj/machinery/portable_atmospherics/canister/nitrogen/prechilled = 0.75,
-		/obj/machinery/portable_atmospherics/canister/helium = 0.5,
-		/obj/machinery/portable_atmospherics/canister/chlorine = 0.1,
-		/obj/machinery/portable_atmospherics/canister/sulfur_dioxide = 0.1,
-		/obj/machinery/portable_atmospherics/canister/nitrogen_dioxide = 0.1,
-		/obj/machinery/portable_atmospherics/canister/heliumfuel = 0.05,
-		/obj/machinery/portable_atmospherics/canister/phoron_scarce = 0.1,
-		/obj/machinery/portable_atmospherics/canister/phoron = 0.01,
+		/obj/structure/machinery/portable_atmospherics/canister/air = 2,
+		/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide = 2,
+		/obj/structure/machinery/portable_atmospherics/canister/oxygen = 2,
+		/obj/structure/machinery/portable_atmospherics/canister/nitrogen = 1.5,
+		/obj/structure/machinery/portable_atmospherics/canister/hydrogen = 1.25,
+		/obj/structure/machinery/portable_atmospherics/canister/sleeping_agent = 1,
+		/obj/structure/machinery/portable_atmospherics/canister/nitrogen/prechilled = 0.75,
+		/obj/structure/machinery/portable_atmospherics/canister/helium = 0.5,
+		/obj/structure/machinery/portable_atmospherics/canister/chlorine = 0.1,
+		/obj/structure/machinery/portable_atmospherics/canister/sulfur_dioxide = 0.1,
+		/obj/structure/machinery/portable_atmospherics/canister/nitrogen_dioxide = 0.1,
+		/obj/structure/machinery/portable_atmospherics/canister/heliumfuel = 0.05,
+		/obj/structure/machinery/portable_atmospherics/canister/phoron_scarce = 0.1,
+		/obj/structure/machinery/portable_atmospherics/canister/phoron = 0.01,
 	)
 
 /// Used on the Horizon, or anywhere else you don't want people to find extremely rare/valuable gases like Phoron or Helium-3.
@@ -321,15 +321,15 @@
 	name = "random filled canister (restricted)"
 	// In descending order of probability
 	problist = list(
-		/obj/machinery/portable_atmospherics/canister/air = 2,
-		/obj/machinery/portable_atmospherics/canister/carbon_dioxide = 2,
-		/obj/machinery/portable_atmospherics/canister/oxygen = 2,
-		/obj/machinery/portable_atmospherics/canister/nitrogen = 1.5,
-		/obj/machinery/portable_atmospherics/canister/hydrogen = 1.25,
-		/obj/machinery/portable_atmospherics/canister/sleeping_agent = 1,
-		/obj/machinery/portable_atmospherics/canister/nitrogen/prechilled = 0.75,
-		/obj/machinery/portable_atmospherics/canister/helium = 0.5,
-		/obj/machinery/portable_atmospherics/canister/chlorine = 0.1,
-		/obj/machinery/portable_atmospherics/canister/sulfur_dioxide = 0.1,
-		/obj/machinery/portable_atmospherics/canister/nitrogen_dioxide = 0.1,
+		/obj/structure/machinery/portable_atmospherics/canister/air = 2,
+		/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide = 2,
+		/obj/structure/machinery/portable_atmospherics/canister/oxygen = 2,
+		/obj/structure/machinery/portable_atmospherics/canister/nitrogen = 1.5,
+		/obj/structure/machinery/portable_atmospherics/canister/hydrogen = 1.25,
+		/obj/structure/machinery/portable_atmospherics/canister/sleeping_agent = 1,
+		/obj/structure/machinery/portable_atmospherics/canister/nitrogen/prechilled = 0.75,
+		/obj/structure/machinery/portable_atmospherics/canister/helium = 0.5,
+		/obj/structure/machinery/portable_atmospherics/canister/chlorine = 0.1,
+		/obj/structure/machinery/portable_atmospherics/canister/sulfur_dioxide = 0.1,
+		/obj/structure/machinery/portable_atmospherics/canister/nitrogen_dioxide = 0.1,
 	)

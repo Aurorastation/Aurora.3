@@ -631,12 +631,9 @@
 	flippable = FALSE
 	v_flippable = FALSE
 	badge_string = null
-
 	var/open = CANT_OPEN
-
-	drop_sound = 'sound/items/drop/cloth.ogg'
-
-	pickup_sound = 'sound/items/pickup/cloth.ogg'
+	drop_sound = 'sound/items/drop/clothing.ogg'
+	pickup_sound = 'sound/items/pickup/clothing.ogg'
 
 /obj/item/clothing/accessory/badge/passport/Initialize()
 	. = ..()

@@ -1,4 +1,4 @@
-/obj/machinery/ship_weapon/coilgun
+/obj/structure/machinery/ship_weapon/coilgun
 	name = "M55A2 Coilgun"
 	desc = "A venerable mainstay of the Solarian Navy's arsenal and the prime reason of why Issac Newton is still the deadliest human in the Spur. The M55A2 is capable of firing rifled tungsten rods the size of flagpoles at supersonic speeds. Despite it's lackluster performance against a well-armored ship of the line, it's ability to seriously damage any smaller vessel with a few well-aimed shots has earned the platform's ubiqutous status in the Alliance's 100 fleets."
 	desc_extended = "Originally desgined just before the outbreak of the Interstellar War, the M55 series of Intermediate Coilgun have seen extensive service from the battles over Gadpathur and Xanu to the actions of the First invasion of Tau Ceti with the M55A1. However, in spite of the A1 variant's significant advancements in percision and ease of use, the M55's greatest hour was arguably in the discord and chaos of the Solarian Civil War. With the faster-firing and much easier to produce M55A2 being used by all sides of the conflict. Tried and tested on the warlord-infested ruins of Southern Sol and over the smoldering battlefields of San Colette, the M55A2 still remains the 'workhorse gun' of the Solarian Navy to this day. It is mostly used as a primary armament (either on turret mounts or fixed in fore-facing casemates) aboard escort vessels. And on secondary turret mounts aboard a ship of the line. "
@@ -36,7 +36,7 @@
 	if(isturf(target) || isobj(target))
 		explosion(target, 1, 5, 3)
 
-/obj/machinery/ammunition_loader/sol
+/obj/structure/machinery/ammunition_loader/sol
 	icon_state = "ammo_loader_sol"
 
 /obj/structure/viewport/sol

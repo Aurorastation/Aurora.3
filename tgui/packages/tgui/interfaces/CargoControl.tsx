@@ -39,7 +39,7 @@ export type CargoData = {
   have_printer: BooleanLike;
   shuttle_available: BooleanLike;
   shuttle_has_arrive_time: BooleanLike;
-  shuttle_eta_seconds: number;
+  shuttle_eta_seconds: string;
   shuttle_can_launch: BooleanLike;
   shuttle_can_cancel: BooleanLike;
   shuttle_can_force: BooleanLike;
@@ -308,7 +308,7 @@ export const MainWindow = (props, context) => {
         <Section title="Elevator Information">
           <LabeledList>
             <LabeledList.Item label="ETA">
-              {data.shuttle_eta_seconds} seconds
+              {data.shuttle_eta_seconds}
             </LabeledList.Item>
           </LabeledList>
         </Section>

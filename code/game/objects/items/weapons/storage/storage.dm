@@ -75,6 +75,9 @@
 	///Sound played when used. null for no sound.
 	var/use_sound = SFX_RUSTLE
 
+	///Sound played when item inserted. null for no sound.
+	var/rustle_sound = SFX_RUSTLE
+
 	/// List of pre-filled items
 	var/list/starts_with
 
@@ -93,6 +96,9 @@
 
 /obj/item/storage/Destroy()
 	close_all()
+	for(var/mob/M in is_seeing)
+		if(M.s_active == src)
+			M.s_active = null
 	QDEL_NULL(boxes)
 	QDEL_NULL(storage_start)
 	QDEL_NULL(storage_continue)
@@ -313,7 +319,8 @@
 	hide_from(user)
 	user.s_active = null
 	if(!length(can_see_contents()))
-		storage_start.vis_contents = list()
+		if(storage_start)
+			storage_start.vis_contents = list()
 		QDEL_LIST(storage_screens)
 		storage_screens = list()
 
@@ -584,8 +591,8 @@
 		user.prepare_for_slotmove(W)
 	W.forceMove(src)
 	W.on_enter_storage(src)
-	if(use_sound)
-		playsound(src.loc, src.use_sound, 50, 0, -5)
+	if(rustle_sound)
+		playsound(src.loc, src.rustle_sound, 50, 0, -5)
 	if(animated)
 		animate_parent()
 	if(user)

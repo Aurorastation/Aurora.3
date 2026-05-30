@@ -5,7 +5,7 @@
 
 	if (check_rights(R_ADMIN|R_CCIAA|R_FUN) || isstoryteller(usr))
 		var/list/faxes = list()
-		for(var/obj/machinery/photocopier/faxmachine/F in GLOB.allfaxes)
+		for(var/obj/structure/machinery/photocopier/faxmachine/F in GLOB.allfaxes)
 			faxes[F.department] = F
 
 		if(!length(faxes))
@@ -16,7 +16,7 @@
 			to_chat(usr, SPAN_DANGER("CCIA NOTE: Remember that you should only interact via CentComm faxes as they relate to your current odyssey. For any questions, please consult CCIA via Discord."))
 
 		var/department = tgui_input_list(usr, "Pick a fax machine.", "Send Admin Fax", faxes)
-		var/obj/machinery/photocopier/faxmachine/fax = faxes[department]
+		var/obj/structure/machinery/photocopier/faxmachine/fax = faxes[department]
 		if (!istype(fax))
 			to_chat(usr, SPAN_WARNING("Couldn't find a fax machine to send this to!"))
 			return
