@@ -1,0 +1,15 @@
+author: Fenodyree
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixes modular lasers improvement cap."
+  - bugfix: "Fixes negative initial values being handled incorrectly."
+  - bugfix: "Fixes some repair edge cases."
+  - bugfix: "Fixes welding repairs not needing eye protection."
+  - bugfix: "Fixes gattling laser mod having the wrong improvable variables."
+  - bugfix: "Fixes the weapon analyzer printout calculating modlaser stats incorrectly."
+  - bugfix: "Fixes high skill users not being able to field repair modlasers."
+  - balance: "Drops the per var improvement cap by 50%, multiplicative scaling is no joke."
+
+
