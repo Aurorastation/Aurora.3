@@ -72,6 +72,9 @@
 	QDEL_LIST(accessories)
 	return ..()
 
+/obj/item/clothing/examine_descriptor(mob/user)
+	return "clothing"
+
 //Updates the icons of the mob wearing the clothing item, if any.
 /obj/item/clothing/proc/update_clothing_icon()
 	return

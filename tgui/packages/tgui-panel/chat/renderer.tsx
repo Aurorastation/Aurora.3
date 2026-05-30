@@ -65,6 +65,7 @@ function createReconnectedNode() {
   return node;
 }
 
+
 function handleImageError(e) {
   setTimeout(() => {
     /** @type {HTMLImageElement} */

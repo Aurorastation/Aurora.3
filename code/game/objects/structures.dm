@@ -40,6 +40,9 @@
 	material = null
 	return ..()
 
+/obj/structure/examine_descriptor(mob/user)
+	return "structure"
+
 /obj/structure/attackby(obj/item/attacking_item, mob/user, params)
 	. = ..()
 	if(user?.a_intent == I_HURT && maxhealth)

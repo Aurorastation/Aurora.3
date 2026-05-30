@@ -256,6 +256,9 @@ Class Procs:
 		return FALSE
 	qdel(src)
 
+/obj/structure/machinery/examine_descriptor(mob/user)
+	return "machine"
+
 // /obj/structure/machinery/proc/process_all()
 // 	/* Uncomment this if/when you need component processing
 // 	if(processing_flags & MACHINERY_PROCESS_COMPONENTS)

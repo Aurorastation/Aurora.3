@@ -43,6 +43,9 @@
 #define SPAN_BOLDNOTICE(str) ("<span class='boldnotice'>" + str + "</span>")
 #define SPAN_BOLDWARNING(X) "<span class='boldwarning'>[X]</span>"
 
+// Spans that use embedded tgui components:
+#define SPAN_TOOLTIP(tip, main_text) ("<span data-component=\"Tooltip\" data-content=\"" + tip + "\" class=\"tooltip\">" + main_text + "</span>")
+
 /*
 #####################
 	Font sizes
