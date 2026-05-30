@@ -486,7 +486,12 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 	character.religion = religion
 	character.accent = accent
 	character.set_culture(GET_SINGLETON(text2path(culture)))
-	character.set_origin(GET_SINGLETON(text2path(origin)))
+	var/origin_path = text2path(origin)
+	if(ispath(origin_path, /singleton/origin_item/origin))
+		character.set_origin(GET_SINGLETON(origin_path))
+	else
+		// Saved origin type no longer exists; fall back to the first valid origin for this culture.
+		character.set_origin(GET_SINGLETON(character.culture.possible_origins[1]))
 
 	// Destroy/cyborgize organs & setup body markings
 	character.sync_organ_prefs_to_mob(src)

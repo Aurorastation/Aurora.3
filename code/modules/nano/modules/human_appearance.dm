@@ -264,8 +264,14 @@
 	data["valid_pronouns"] = valid_pronouns
 
 	data["change_culture"] = can_change(APPEARANCE_CULTURE)
+	if(!owner.culture)
+		to_chat(user, SPAN_WARNING("Your character's culture is missing, closing."))
+		SStgui.close_uis(src)
+		return
 	data["owner_culture"] = owner.culture.name
 	data["valid_cultures"] = valid_cultures
+	if(!owner.origin)
+		owner.set_origin(GET_SINGLETON(owner.culture.possible_origins[1]))
 	data["owner_origin"] = owner.origin.name
 	data["valid_origins"] = valid_origins
 	data["owner_citizenship"] = owner.citizenship
