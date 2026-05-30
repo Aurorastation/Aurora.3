@@ -251,6 +251,8 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 
 /obj/item/organ/proc/handle_rejection()
 	// Process unsuitable transplants.
+	if(!owner || !owner.dna)
+		return
 	if(dna)
 		if(!rejecting)
 			if(blood_incompatible(dna.b_type, owner.dna.b_type, species, owner.species))
