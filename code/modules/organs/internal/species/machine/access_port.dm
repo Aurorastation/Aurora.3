@@ -76,13 +76,14 @@
 /obj/item/organ/internal/machine/access_port/proc/insert_item(obj/item/jack)
 	SIGNAL_HANDLER
 	if(internal_port)
-		log_debug("Insert_item with [jack] on access port called with [internal_port] of [owner] already present! Aborting insertion.")
-		return
+		crash_with("Insert_item with [jack] on access port called with [internal_port] of [owner] already present!")
+		return FALSE
 
 	internal_port = jack
 	jack.forceMove(src)
 	RegisterSignal(internal_port, COMSIG_QDELETING, PROC_REF(clear_port))
 	to_chat(owner, SPAN_MACHINE_WARNING("Internal firewall notice: [internal_port] inserted into [src]."))
+	return TRUE
 
 /**
  * This proc is called whenever the access cable is, for some reason, qdeleted (like with an explosion).
@@ -112,7 +113,9 @@
 
 /obj/item/organ/internal/machine/access_port/insert_cable(obj/item/access_cable/cable, mob/user)
 	. = ..()
-	insert_item(cable)
+	if (!insert_item(cable))
+		return
+
 	cable.create_cable(owner)
 
 /obj/item/organ/internal/machine/access_port/remove_cable(obj/item/access_cable/cable)
