@@ -387,11 +387,9 @@
 
 	while(improvement_potential > 0 && damaged_components.len)
 		var/list/upgradable_components = list()
-		for(var/obj/item/laser_components/component in damaged_components)
-			// Only consider components that still have room under the improvement cap
-			// and that don't already have pending improvement potential queued.
-			if((component.total_improved + component.improvement_potential) < IMPROVEMENT_CAP)
-				if(component.increasable_stats.len || component.decreaseable_stats.len)
+		for(var/obj/item/laser_components/component in damaged_components) //Only give it improvement potential if it's damaged.
+			if((component.total_improved + component.improvement_potential) < IMPROVEMENT_CAP) //Only give it improvement potential if it doesn't have enough to hit cap.
+				if(component.increasable_stats.len || component.decreaseable_stats.len) //Don't give it to components with nothing to improve.
 					upgradable_components += component
 			else
 				damaged_components.Remove(component) //If a component has reached the improvement cap, it can't be improved anymore.
