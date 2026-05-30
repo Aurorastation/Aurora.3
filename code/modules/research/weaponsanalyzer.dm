@@ -128,7 +128,7 @@
 	if(istype(item, /obj/item/laser_assembly))
 		var/obj/item/laser_assembly/A = item
 		A.update_icon()
-		icon_state = process ?  "[icon_state]_working" : "[icon_state]_on"
+		icon_state = process ? "[icon_state]_working" : "[icon_state]_on"
 		Icon_used = new /icon(item.icon, item.icon_state)
 	else if(item)
 		icon_state = "[icon_state]_on"
