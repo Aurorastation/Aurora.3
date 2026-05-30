@@ -62,7 +62,7 @@
 
 /obj/compass_holder/Destroy()
 	QDEL_LIST_ASSOC_VAL(compass_waypoints)
-	. = ..()
+	return ..()
 
 /obj/compass_holder/proc/get_heading()
 	var/atom/A = loc?.loc // is there a get_holder_recursive() equivalent on Polaris?
