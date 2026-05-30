@@ -10,6 +10,8 @@ changes:
   - bugfix: "Fixes gattling laser mod having the wrong improvable variables."
   - bugfix: "Fixes the weapon analyzer printout calculating modlaser stats incorrectly."
   - bugfix: "Fixes high skill users not being able to field repair modlasers."
+  - bugfix: "Fixes the weapon analyzer ripping your combitool out of your hand."
+  - bugfix: "Fixes the weapon analyzer not being deconstructable."
   - balance: "Drops the per var improvement cap by 50%, multiplicative scaling is no joke."
 
 
