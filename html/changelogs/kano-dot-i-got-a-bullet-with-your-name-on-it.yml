@@ -1,6 +1,0 @@
-author: Kano
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed not being able to write messages on longbow shell ammunition."
