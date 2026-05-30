@@ -1,0 +1,7 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - rscadd: "Morale now affects crafting speed, providing up to +/- 25% extra crafting speed that scales with the current morale percentage. EG: Having 50% morale gives 12.5% faster crafting."
+  - rscadd: "Morale now affects the Gardening skill, providing up to +/- 25% plant harvesting speed. Having at least a 75% morale bonus increases plant harvesting yield by +1 fruit."
+  - balance: "Increased the numerical effects of morale modifiers on skill-related checks by 50% across the board."
+  - balance: "Increased the duration of the Leadership bonus to 30 minutes (up from 15 minutes)."

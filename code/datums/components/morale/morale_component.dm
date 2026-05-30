@@ -85,10 +85,38 @@
 	 * The maximum possible panic chance from negative morale point sums.
 	 * Since negative moodlets are unique to psychic damage, the effects of psychically induced panic are uniquely stronger than simply being unskilled.
 	 */
-	var/panic_chance_ceiling = 10
+	var/panic_chance_ceiling = 10.0
 
 	/// The maximum possible positive or negative contribution to surgery success chances from morale modifiers.
-	var/surgery_success_contribution = 10
+	var/surgery_success_contribution = 15.0
+
+	/// The maximum possible positive or negative contribution to firearm dispersion (in degrees)
+	var/firearm_dispersion_contribution = 15.0
+
+	/// The maximum possible positive or negative contribution to firearm accuracy (in tiles of effective distance)
+	var/firearm_accuracy_contribution = 1.5
+
+	/// The maximum possible positive or negative contribution to melee damage (x100 to convert this to +%)
+	var/melee_damage_contribution = 0.075
+
+	/**
+	 * The maximum possible contribution to mech move delays (other than forwards motion).
+	 * This applies to strafing, turning, and reverse movements.
+	 */
+	var/mech_move_delay_contribution = 0.75
+
+	/// The maximum possible positive or negative percent modifier to crafting speed.
+	var/crafting_speed_contribution = 0.25
+
+	/**
+	 * The maximum possible contribution to plants harvested from morale.
+	 * Note that yield is rounded to integer amounts.
+	 * This will give +1 yield after morale reaches at least 75%, and -1 yield at -75%
+	 */
+	var/plant_yield_contribution = 1.35
+
+	/// The maximum possible positive or negative percent modifier to plant harvesting speed
+	var/harvest_speed_contribution = 0.25
 
 /datum/component/morale/proc/get_morale_ratio()
 	return morale_ratio
@@ -104,7 +132,7 @@
 	// logically prove via VAR_PRIVATE that this is only ever set via a hyperbolic tangent
 	// And that because a hyperbolic tangent will only ever return a value between -1 and 1,
 	// the range of this equation becomes the set of integers between 1 and 9 inclusive.
-	morale_ui.icon_state = ((morale_ratio > -0.0001 && morale_ratio < 0.0001) ? "morale_hidden" : "morale" + "[round(morale_ratio * 4) + 5]")
+	morale_ui.icon_state = ((morale_ratio > -0.1 && morale_ratio < 0.1) ? "morale_hidden" : "morale" + "[round(morale_ratio * 4) + 5]")
 
 /datum/component/morale/proc/set_beta_value(input)
 	beta_value = input
@@ -148,6 +176,8 @@
 	RegisterSignal(parent, COMSIG_MECH_MOVE_STRAFE, PROC_REF(handle_user_strafe), override = TRUE)
 	RegisterSignal(parent, COMSIG_MECH_TOGGLE_POWER, PROC_REF(handle_mech_toggle_power), override = TRUE)
 	RegisterSignal(parent, COMSIG_GET_SURGERY_SUCCESS_MODIFIERS, PROC_REF(handle_surgery_modifiers), override = TRUE)
+	RegisterSignal(parent, COMSIG_GET_CRAFTING_MODIFIERS, PROC_REF(handle_crafting_speed), override = TRUE)
+	RegisterSignal(parent, COMSIG_PLANT_HARVESTER, PROC_REF(modify_yield), override = TRUE)
 
 /datum/component/morale/Destroy()
 	QDEL_LIST_FORCE(moodlets)
@@ -170,6 +200,8 @@
 	UnregisterSignal(parent, COMSIG_MECH_MOVE_STRAFE)
 	UnregisterSignal(parent, COMSIG_MECH_TOGGLE_POWER)
 	UnregisterSignal(parent, COMSIG_GET_SURGERY_SUCCESS_MODIFIERS)
+	UnregisterSignal(parent, COMSIG_GET_CRAFTING_MODIFIERS)
+	UnregisterSignal(parent, COMSIG_PLANT_HARVESTER)
 	return ..()
 
 /datum/component/morale/process(seconds_per_tick)
@@ -205,12 +237,12 @@
 																											*/
 /datum/component/morale/proc/modify_hit_effect(owner, mob/living/target, obj/item/weapon, power, hit_zone)
 	SIGNAL_HANDLER
-	*power = *power * (1 + (0.05 * morale_ratio))
+	*power = *power * (1 + (melee_damage_contribution * morale_ratio))
 
 /datum/component/morale/proc/handle_accuracy(mob/shooter, accuracy_decrease, dispersion_increase)
 	SIGNAL_HANDLER
-	*accuracy_decrease = *accuracy_decrease - morale_ratio
-	*dispersion_increase = *dispersion_increase - 10 * morale_ratio
+	*accuracy_decrease = *accuracy_decrease - firearm_accuracy_contribution * morale_ratio
+	*dispersion_increase = *dispersion_increase - firearm_dispersion_contribution * morale_ratio
 
 /datum/component/morale/proc/safety_fumble(mob/shooter, obj/item/gun/shoota, cancelled)
 	SIGNAL_HANDLER
@@ -261,7 +293,7 @@
 	if (direction == NORTH)
 		return
 
-	*delay_modifier = *delay_modifier - 0.5 * morale_ratio
+	*delay_modifier = *delay_modifier - mech_move_delay_contribution * morale_ratio
 
 /datum/component/morale/proc/handle_user_strafe(mob/living/user, direction, delay_modifier)
 	SIGNAL_HANDLER
@@ -274,7 +306,7 @@
 			SPAN_DANGER("You fumble with your mech's controls in a blind panic!"))
 		*direction = angle2dir(dir2angle(direction) + 180)
 
-	*delay_modifier = *delay_modifier - 0.5 * morale_ratio
+	*delay_modifier = *delay_modifier - mech_move_delay_contribution * morale_ratio
 
 /datum/component/morale/proc/handle_mech_toggle_power(mob/user, cancelled, delay)
 	SIGNAL_HANDLER
@@ -299,3 +331,12 @@
 		return // draw nothing.
 
 	user.client?.screen |= morale_ui
+
+/datum/component/morale/proc/handle_crafting_speed(mob/user, doafter_time)
+	SIGNAL_HANDLER
+	*doafter_time = *doafter_time * (1 - (crafting_speed_contribution * morale_ratio))
+
+/datum/component/morale/proc/modify_yield(owner, datum/seed/plant, total_yield, cancelled, doafter)
+	SIGNAL_HANDLER
+	*total_yield = *total_yield + plant_yield_contribution * morale_ratio
+	*doafter = *doafter * (1 - (harvest_speed_contribution * morale_ratio))
