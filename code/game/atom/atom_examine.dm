@@ -97,7 +97,7 @@
 		// some regex to ensure that we don't add another "and" if the final element's main text (not tooltip) has one
 		tag_string = english_list(tag_string, and_text = (findtext(tag_string[length(tag_string)], regex(@">.*?and .*?<"))) ? " " : " and ")
 		to_chat(world, "tag_string: [tag_string]")
-		. += "[get_pronoun("He")] [get_pronoun("is")] a [tag_string] [examine_descriptor(user)]."
+		. += "It is a [tag_string] [examine_descriptor(user)]."
 
 	// Returns a SPAN_* based on health, if configured.
 	var/list/condition_hints = src.condition_hints()
