@@ -311,7 +311,7 @@ SUBSYSTEM_DEF(garbage)
 	var/sentry_threshold = 0.2 SECONDS
 	if (time > sentry_threshold && SSsentry)
 		SSsentry.capture_message(
-			"Hard delete: [type] ([refID]) with dump: [detail]",
+			"Hard delete: [type] with dump: [detail]",
 			"warning",
 			"garbage",
 			tags = list("datum_type" = "[type]"),
