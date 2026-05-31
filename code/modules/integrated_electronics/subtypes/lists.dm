@@ -332,6 +332,7 @@
 	name = "any greater than circuit"
 	desc = "This circuit checks whether any number in a list is greater than a target value."
 	extended_desc = "Non-number values are ignored. Outputs true if at least one number in the list is greater than the comparison value."
+	category_text = "MATH - List Comparisons"
 	inputs = list(
 		"list" = IC_PINTYPE_LIST,
 		"compare value" = IC_PINTYPE_NUMBER
@@ -376,6 +377,7 @@
 	name = "any less than circuit"
 	desc = "This circuit checks whether any number in a list is less than a target value."
 	extended_desc = "Non-number values are ignored. Outputs true if at least one number in the list is less than the comparison value."
+	category_text = "MATH - List Comparisons"
 	inputs = list(
 		"list" = IC_PINTYPE_LIST,
 		"compare value" = IC_PINTYPE_NUMBER
@@ -420,6 +422,7 @@
 	name = "any equal to circuit"
 	desc = "This circuit checks whether any value in a list is equal to a target value."
 	extended_desc = "Outputs true if at least one value in the list is equal to the comparison value. This can compare numbers, strings, booleans, refs, or null."
+	category_text = "MATH - List Comparisons"
 	inputs = list(
 		"list" = IC_PINTYPE_LIST,
 		"compare value" = IC_PINTYPE_ANY
@@ -459,6 +462,7 @@
 	name = "list arithmetic"
 	desc = "This circuit performs basic arithmetic between two lists of numbers."
 	extended_desc = "Takes two lists and applies the selected operation index-by-index. If either value is not a number, the output at that position is null. Supported operations are add, subtract, multiply, and divide."
+	category_text = "MATH - List Math"
 	icon_state = "addition"
 	complexity = 8
 	inputs = list(
@@ -526,6 +530,7 @@
 /obj/item/integrated_circuit/list/list_contains
 	name = "list contains"
 	desc = "Checks whether a list contains a value."
+	category_text = "MATH - List Comparisons"
 	icon_state = "template"
 	complexity = 3
 	inputs = list(

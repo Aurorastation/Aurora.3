@@ -21,7 +21,7 @@
 		"compute" = IC_PINTYPE_PULSE_IN,
 		"on computed" = IC_PINTYPE_PULSE_OUT
 	)
-	category_text = "Trig"
+	category_text = "MATH - Trigonometry"
 	extended_desc = "Input and output are in degrees."
 	power_draw_per_use = 10 // Still cheap math.
 

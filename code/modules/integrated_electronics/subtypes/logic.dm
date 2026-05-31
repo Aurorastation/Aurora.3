@@ -10,7 +10,7 @@
 	complexity = 3
 	outputs = list("result" = IC_PINTYPE_BOOLEAN)
 	activators = list("compare" = IC_PINTYPE_PULSE_IN)
-	category_text = "Logic"
+	category_text = "LOGIC - Boolean Logic"
 	power_draw_per_use = 10
 
 /obj/item/integrated_circuit/logic/binary
@@ -77,6 +77,7 @@
 	name = "equal gate"
 	desc = "This gate compares two values, and outputs the number one if both are the same."
 	icon_state = "equal"
+	category_text = "LOGIC - Comparisons"
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
 /obj/item/integrated_circuit/logic/binary/equals/do_compare(A, B)
@@ -164,6 +165,7 @@
 	name = "not equal gate"
 	desc = "This gate compares two values, and outputs the number one if both are different."
 	icon_state = "not_equal"
+	category_text = "LOGIC - Comparisons"
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
 /obj/item/integrated_circuit/logic/binary/not_equals/do_compare(A, B)
@@ -191,6 +193,7 @@
 	name = "less than gate"
 	desc = "This will output 'one' if the first input is less than the second input."
 	icon_state = "less_than"
+	category_text = "LOGIC - Comparisons"
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
 /obj/item/integrated_circuit/logic/binary/less_than/do_compare(A, B)
@@ -200,6 +203,7 @@
 	name = "less than or equal gate"
 	desc = "This will output 'one' if the first input is less than, or equal to the second input."
 	icon_state = "less_than_or_equal"
+	category_text = "LOGIC - Comparisons"
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
 /obj/item/integrated_circuit/logic/binary/less_than_or_equal/do_compare(A, B)
@@ -209,6 +213,7 @@
 	name = "greater than gate"
 	desc = "This will output 'one' if the first input is greater than the second input."
 	icon_state = "greater_than"
+	category_text = "LOGIC - Comparisons"
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
 /obj/item/integrated_circuit/logic/binary/greater_than/do_compare(A, B)
@@ -218,6 +223,7 @@
 	name = "greater_than or equal gate"
 	desc = "This will output 'one' if the first input is greater than, or equal to the second input."
 	icon_state = "greater_than_or_equal"
+	category_text = "LOGIC - Comparisons"
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
 /obj/item/integrated_circuit/logic/binary/greater_than_or_equal/do_compare(A, B)
@@ -237,6 +243,7 @@
 	name = "threshold comparator"
 	desc = "Checks whether a number is below, inside, or above a range."
 	icon_state = "comparator"
+	category_text = "LOGIC - Comparisons"
 	complexity = 3
 	inputs = list(
 		"value" = IC_PINTYPE_NUMBER,
@@ -288,6 +295,7 @@
 	name = "multi-threshold status"
 	desc = "Classifies a number as normal, warning, or danger using low and high thresholds."
 	icon_state = "comparator"
+	category_text = "LOGIC - Comparisons"
 	complexity = 5
 	inputs = list(
 		"value" = IC_PINTYPE_NUMBER,

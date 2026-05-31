@@ -18,7 +18,7 @@
 	)
 	outputs = list("result" = IC_PINTYPE_NUMBER)
 	activators = list("compute" = IC_PINTYPE_PULSE_IN, "on computed" = IC_PINTYPE_PULSE_OUT)
-	category_text = "Arithmetic"
+	category_text = "MATH - Arithmetic"
 	power_draw_per_use = 50 // Math is pretty cheap.
 
 // +Adding+ //
@@ -290,7 +290,7 @@
 	var/result = 0
 	for(var/datum/integrated_io/I in inputs)
 		I.pull_data()
-		if(isnum(I.data))
+		if(isnum(I.data) && I.data >= 0)
 			result = sqrt(I.data)
 
 	set_pin_data(IC_OUTPUT, 1, result)
@@ -334,6 +334,9 @@
 		if(isnum(I.data))
 			values.Add(I.data)
 
+	if(!length(values))
+		return
+
 	set_pin_data(IC_OUTPUT, 1, min(values))
 	push_data()
 	activate_pin(2)
@@ -352,6 +355,9 @@
 		I.pull_data()
 		if(isnum(I.data))
 			values.Add(I.data)
+
+	if(!length(values))
+		return
 
 	set_pin_data(IC_OUTPUT, 1, max(values))
 	push_data()

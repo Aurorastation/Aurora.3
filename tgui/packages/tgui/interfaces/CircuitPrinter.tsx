@@ -47,6 +47,37 @@ type Circuit = {
   category: string;
 };
 
+type CircuitSubgroup = {
+  key: string;
+  group: string;
+  subgroup: string;
+  circuits: Circuit[];
+};
+
+type CircuitGroup = {
+  group: string;
+  subgroups: CircuitSubgroup[];
+};
+
+const splitCircuitCategory = (category: string) => {
+  const separator = ' - ';
+  const subgroupedGroups = ['LOGIC', 'MATH'];
+  const separatorIndex = category.indexOf(separator);
+  const group = category.slice(0, separatorIndex);
+
+  if (separatorIndex < 0 || !subgroupedGroups.includes(group)) {
+    return {
+      group: category,
+      subgroup: category,
+    };
+  }
+
+  return {
+    group,
+    subgroup: category.slice(separatorIndex + separator.length),
+  };
+};
+
 export const CircuitPrinter = (props, context) => {
   const { act, data } = useBackend<PrinterData>(context);
 
@@ -73,25 +104,65 @@ export const CircuitPrinter = (props, context) => {
 
   const normalizedSearchTerm = searchTerm.toLowerCase();
   const categories = [...data.categories].sort();
-  const circuitsByCategory = categories.map((category) => {
-    const categoryMatches = category
-      .toLowerCase()
-      .includes(normalizedSearchTerm);
+  const categoryGroups = categories.reduce<CircuitGroup[]>(
+    (groups, category) => {
+      const { group, subgroup } = splitCircuitCategory(category);
+      const groupMatches = group.toLowerCase().includes(normalizedSearchTerm);
+      const subgroupMatches = subgroup
+        .toLowerCase()
+        .includes(normalizedSearchTerm);
+      const categoryMatches = category
+        .toLowerCase()
+        .includes(normalizedSearchTerm);
 
-    const circuits = data.circuits.filter((circuit) => {
-      if (circuit.category !== category) {
-        return false;
+      const circuits = data.circuits.filter((circuit) => {
+        if (circuit.category !== category) {
+          return false;
+        }
+
+        if (
+          !normalizedSearchTerm ||
+          groupMatches ||
+          subgroupMatches ||
+          categoryMatches
+        ) {
+          return true;
+        }
+
+        return !!circuit.name?.toLowerCase().includes(normalizedSearchTerm);
+      });
+
+      if (!circuits.length) {
+        return groups;
       }
 
-      if (!normalizedSearchTerm || categoryMatches) {
-        return true;
+      let circuitGroup = groups.find((entry) => entry.group === group);
+
+      if (!circuitGroup) {
+        circuitGroup = {
+          group,
+          subgroups: [],
+        };
+        groups.push(circuitGroup);
       }
 
-      return !!circuit.name?.toLowerCase().includes(normalizedSearchTerm);
-    });
+      circuitGroup.subgroups.push({
+        key: category,
+        group,
+        subgroup,
+        circuits,
+      });
 
-    return { category, circuits };
-  });
+      return groups;
+    },
+    [],
+  );
+
+  categoryGroups.sort((a, b) => a.group.localeCompare(b.group));
+  categoryGroups.forEach((group) =>
+    group.subgroups.sort((a, b) => a.subgroup.localeCompare(b.subgroup)),
+  );
+
   const importPastedBlueprint = async () => {
     const importText = blueprintText;
 
@@ -313,46 +384,91 @@ export const CircuitPrinter = (props, context) => {
             />
           }
         >
-          {circuitsByCategory.map(({ category, circuits }) => {
-            if (!circuits.length) {
-              return null;
-            }
+          {categoryGroups.map(({ group, subgroups }) => {
+            const circuitCount = subgroups.reduce(
+              (count, subgroup) => count + subgroup.circuits.length,
+              0,
+            );
+            const hasSubgroups = ['LOGIC', 'MATH'].includes(group);
+            const groupCollapsed = !!collapsedCategories[group];
 
             return (
               <Section
-                title={`${category} (${circuits.length})`}
-                key={category}
+                title={`${group} (${circuitCount})`}
+                key={group}
                 buttons={
                   <Button
-                    icon={
-                      collapsedCategories[category]
-                        ? 'chevron-right'
-                        : 'chevron-down'
-                    }
+                    icon={groupCollapsed ? 'chevron-right' : 'chevron-down'}
                     tooltip={
-                      collapsedCategories[category]
-                        ? 'Expand category'
-                        : 'Collapse category'
+                      groupCollapsed ? 'Expand category' : 'Collapse category'
                     }
                     onClick={() =>
                       setCollapsedCategories({
                         ...collapsedCategories,
-                        [category]: !collapsedCategories[category],
+                        [group]: !collapsedCategories[group],
                       })
                     }
                   />
                 }
               >
-                {!collapsedCategories[category] &&
-                  circuits.map((circuit) => (
-                    <Button
-                      key={circuit.path}
-                      content={circuit.name}
-                      tooltip={circuit.desc}
-                      disabled={data.currently_printing}
-                      onClick={() => act('build', { build: circuit.path })}
-                    />
-                  ))}
+                {!groupCollapsed &&
+                  !hasSubgroups &&
+                  subgroups.flatMap(({ circuits }) =>
+                    circuits.map((circuit) => (
+                      <Button
+                        key={circuit.path}
+                        content={circuit.name}
+                        tooltip={circuit.desc}
+                        disabled={data.currently_printing}
+                        onClick={() => act('build', { build: circuit.path })}
+                      />
+                    )),
+                  )}
+                {!groupCollapsed &&
+                  hasSubgroups &&
+                  subgroups.map(({ key, subgroup, circuits }) => {
+                    const subgroupCollapsed = !!collapsedCategories[key];
+
+                    return (
+                      <Section
+                        title={`${subgroup} (${circuits.length})`}
+                        key={key}
+                        buttons={
+                          <Button
+                            icon={
+                              subgroupCollapsed
+                                ? 'chevron-right'
+                                : 'chevron-down'
+                            }
+                            tooltip={
+                              subgroupCollapsed
+                                ? 'Expand category'
+                                : 'Collapse category'
+                            }
+                            onClick={() =>
+                              setCollapsedCategories({
+                                ...collapsedCategories,
+                                [key]: !collapsedCategories[key],
+                              })
+                            }
+                          />
+                        }
+                      >
+                        {!subgroupCollapsed &&
+                          circuits.map((circuit) => (
+                            <Button
+                              key={circuit.path}
+                              content={circuit.name}
+                              tooltip={circuit.desc}
+                              disabled={data.currently_printing}
+                              onClick={() =>
+                                act('build', { build: circuit.path })
+                              }
+                            />
+                          ))}
+                      </Section>
+                    );
+                  })}
               </Section>
             );
           })}
