@@ -5,3 +5,4 @@ changes:
   - refactor: "Replaces all material string defines to path defines, replacing SSmaterials procs w/ GET_SINGLETON instead."
   - refactor: "Removes all material var edited objects from all maps, adding new presets where necessary."
   - refactor: "Updates recipes unit test to run all recipes against all material singletons."
+  - bugfix: "Prevents several material recipes from being generated for non-rigid materials (i.e. cloth railings)."

@@ -7,6 +7,7 @@
 	recipes = list()
 
 	// If is_brittle() returns true, these are only good for a single strike.
+	if(integrity >= 15 && hardness >= 10)
 	recipes += new /datum/stack_recipe_list("generic crafts",
 		list(
 			new /datum/stack_recipe("[display_name] baseball bat", /obj/item/material/twohanded/baseballbat, 10, time = 20, one_per_turf = 0, on_floor = 1, supplied_material = "[name]", required_skills_soft = alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)),
@@ -16,7 +17,7 @@
 			new /datum/stack_recipe("[display_name] armor plating", /obj/item/material/armor_plating, 3, time = 20, on_floor = 1, supplied_material = "[name]", required_skills_soft = alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_TRAINED))
 		))
 
-	if(integrity >= 50)
+	if(integrity >= 50 && hardness >= 10)
 		recipes += new /datum/stack_recipe_list("generic construction",
 		list(
 			new /datum/stack_recipe("[display_name] door", /obj/structure/simple_door, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1, supplied_material = "[name]", required_skills_soft = alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR)),

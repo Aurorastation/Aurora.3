@@ -925,6 +925,7 @@
 	flags = MATERIAL_BRITTLE
 	integrity = 10
 	icon_colour = COLOR_CARDBOARD
+	integrity = 5
 	hardness = 1
 	weight = 1
 	protectiveness = 0 // 0%
@@ -983,6 +984,7 @@
 	stack_type = /obj/item/stack/material/leather
 	stack_origin_tech = list(TECH_MATERIAL = 2)
 	flags = MATERIAL_PADDING
+	integrity = 5
 	hardness = 1
 	weight = 1
 	value = 3
@@ -1008,6 +1010,7 @@
 	ignition_point = T0C+232
 	melting_point = T0C+300
 	protectiveness = 1 // 4%
+	integrity = 5
 	hardness = 1
 	weight = 1
 	golem = SPECIES_GOLEM_CLOTH
@@ -1020,6 +1023,7 @@
 	display_name = "comfy"
 	use_name = "red upholstery"
 	stack_type = /obj/item/stack/tile/carpet
+	integrity = 5
 	hardness = 1
 	weight = 1
 	icon_colour = COLOR_RED
@@ -1100,6 +1104,7 @@
 	melting_point = T0C+300
 	protectiveness = 1 // 4%
 	flags = MATERIAL_PADDING
+	integrity = 5
 	hardness = 1
 	weight = 1
 	golem = SPECIES_GOLEM_CLOTH
@@ -1116,6 +1121,7 @@
 	ignition_point = T0C+232
 	melting_point = T0C+300
 	flags = MATERIAL_PADDING
+	integrity = 5
 	hardness = 1
 	weight = 1
 	protectiveness = 3 // 13%
