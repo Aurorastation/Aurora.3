@@ -177,6 +177,8 @@
 	volume = 40
 	safety = 1
 	reagents_to_add = list(/singleton/reagent/capsaicin/condensed = 40)
+	drop_sound = 'sound/items/drop/pepper_spray.ogg'
+	pickup_sound = 'sound/items/pickup/pepper_spray.ogg'
 
 /obj/item/reagent_containers/spray/pepper/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()

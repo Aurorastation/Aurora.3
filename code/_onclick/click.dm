@@ -85,6 +85,9 @@
 		if(LAZYACCESS(modifiers, CTRL_CLICK))
 			CtrlShiftClickOn(A)
 			return
+		if(LAZYACCESS(modifiers, ALT_CLICK))
+			AltShiftClickOn(A)
+			return
 		ShiftClickOn(A)
 		return
 	if(LAZYACCESS(modifiers, MIDDLE_CLICK))
@@ -315,19 +318,29 @@
 	Alt click
 	Unused except for AI
 */
-/mob/proc/AltClickOn(var/atom/A)
+/mob/proc/AltClickOn(atom/A)
 	A.AltClick(src)
 	return
 
-/atom/proc/AltClick(var/mob/user)
+/atom/proc/AltClick(mob/user)
 	var/turf/T = get_turf(src)
 	if(!T || !user.TurfAdjacent(T))
 		return FALSE
 	if(T && (isturf(loc) || isturf(src)) && user.TurfAdjacent(T))
 		user.set_listed_turf(T)
 
-/mob/proc/TurfAdjacent(var/turf/T)
+/mob/proc/TurfAdjacent(turf/T)
 	return T.AdjacentQuick(src)
+
+/**
+ * Alt Shift click
+ * Currently only used for removing accessories from clothing.
+ */
+/mob/proc/AltShiftClickOn(atom/A)
+	A.AltShiftClick(src)
+
+/atom/proc/AltShiftClick(mob/user)
+	return
 
 /mob/proc/RightClickOn(atom/A)
 	A.RightClick(src)
