@@ -7,14 +7,14 @@
 	body = body_
 
 /**
- * A useful object to convey the lore of your away_site maps, opposed to papers
+ * A fancy alternative to papers, for your lore enjoyers!
  * How to use it?
  * * Create `new/datum/lore_console_entry(title, body)` instances in the `entries` list
  * * This list can contain multiple datum entries, each entry represents a page
  */
-ABSTRACT_TYPE(/obj/structure/machinery/computer/terminal/loreconsole)
-	name = "information terminal"
-	desc = "A terminal with a blank screen, waiting to receive an input."
+/obj/structure/machinery/computer/loreconsole
+	name = "information console"
+	desc = "A holographic console in idle state, displaying a series of log entries."
 	icon_screen = "loreconsole"
 	icon_keyboard = "black_key"
 	icon_keyboard_emis = "black_key_mask"
@@ -22,19 +22,19 @@ ABSTRACT_TYPE(/obj/structure/machinery/computer/terminal/loreconsole)
 	light_color = LIGHT_COLOR_DECAYED
 	var/list/entries = list()
 
-/obj/structure/machinery/computer/terminal/loreconsole/attack_hand(mob/user)
+/obj/structure/machinery/computer/loreconsole/attack_hand(mob/user)
 	ui_interact(user)
 
-/obj/structure/machinery/computer/terminal/loreconsole/ui_state(mob/user)
+/obj/structure/machinery/computer/loreconsole/ui_state(mob/user)
 	return GLOB.default_state
 
-/obj/structure/machinery/computer/terminal/loreconsole/ui_interact(mob/user, datum/tgui/ui = null)
+/obj/structure/machinery/computer/loreconsole/ui_interact(mob/user, datum/tgui/ui = null)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "LoreConsole", name)
 		ui.open()
 
-/obj/structure/machinery/computer/terminal/loreconsole/ui_static_data(mob/user)
+/obj/structure/machinery/computer/loreconsole/ui_static_data(mob/user)
 	var/list/data = list()
 	data["entries"] = list()
 	for(var/datum/lore_console_entry/entry as anything in entries)
@@ -43,7 +43,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/computer/terminal/loreconsole)
 	return data
 
 // Allows storytellers and ghosts with admin perms edit entries.
-/obj/structure/machinery/computer/terminal/loreconsole/attack_ghost(mob/user)
+/obj/structure/machinery/computer/loreconsole/attack_ghost(mob/user)
 	if(isstoryteller(user) || check_rights(R_ADMIN|R_FUN, TRUE, user))
 
 		var/choice = tgui_input_list(user, "Would you like to add, edit or remove entries?", "Manage Entries", list("Add", "Edit", "Remove"))
@@ -95,5 +95,28 @@ ABSTRACT_TYPE(/obj/structure/machinery/computer/terminal/loreconsole)
 
 	..()
 
-ABSTRACT_TYPE(/obj/structure/machinery/computer/terminal/loreconsole/always_powered)
+/obj/structure/machinery/computer/loreconsole/always_powered
+	interact_offline = TRUE
+
+// ---- Terminal variant
+/obj/structure/machinery/computer/loreconsole/terminal
+	name = "information terminal"
+	desc = "An old-school terminal in idle state, displaying a series of log entries."
+	icon = 'icons/obj/modular_computers/modular_terminal.dmi'
+	icon_keyboard = "black_key"
+	icon_keyboard_emis = "black_key_mask"
+
+/obj/structure/machinery/computer/loreconsole/terminal/always_powered
+	interact_offline = TRUE
+
+// ---- Skrell variant
+/obj/structure/machinery/computer/loreconsole/skrell
+	name = "convoluted console"
+	desc = "A holographic console of an alien technology, seemingly opens to an interface with a series of log entries."
+	icon_screen = "skrell"
+	icon_keyboard = "skrell_key"
+	icon_keyboard_emis = "skrell_key_mask"
+	light_color = LIGHT_COLOR_PURPLE
+
+/obj/structure/machinery/computer/loreconsole/skrell/always_powered
 	interact_offline = TRUE

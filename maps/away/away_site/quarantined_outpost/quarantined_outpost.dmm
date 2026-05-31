@@ -35302,7 +35302,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/decal/cleanable/cobweb2,
 /obj/random/dirt_75,
-/obj/structure/machinery/computer/terminal/loreconsole/always_powered/quarantined_outpost/maintenance_log,
+/obj/structure/machinery/computer/loreconsole/terminal/always_powered/quarantined_outpost/maintenance_log,
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/quarantined_outpost/server_relay/south_east)
 "xwE" = (

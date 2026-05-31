@@ -1119,7 +1119,7 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 		PAPERS & LORE CONSOLES
 ####################################*/
 
-/obj/structure/machinery/computer/terminal/loreconsole/always_powered/quarantined_outpost/maintenance_log
+/obj/structure/machinery/computer/loreconsole/terminal/always_powered/quarantined_outpost/maintenance_log
 	entries = list(
 		new/datum/lore_console_entry(
 			"\[11 FEB 2274 - CYCLE 451 - ATKINSON\]", {"

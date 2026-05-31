@@ -12590,7 +12590,7 @@
 /turf/simulated/floor/wood/walnut,
 /area/abandoned_casino/reception)
 "Wx" = (
-/obj/structure/machinery/computer/terminal/loreconsole/abandoned_casino/hangar_note{
+/obj/structure/machinery/computer/loreconsole/terminal/abandoned_casino/hangar_note{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,

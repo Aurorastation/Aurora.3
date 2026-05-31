@@ -224,6 +224,7 @@
 		/obj/structure/bed/stool/chair/office/hover,
 		/obj/structure/bed/stool/hover,
 		/obj/structure/arch,
+		/obj/structure/flora
 	))
 
 /turf/simulated/floor/exoplanet/water/smooth/Initialize()
