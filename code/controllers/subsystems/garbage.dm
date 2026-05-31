@@ -308,7 +308,7 @@ SUBSYSTEM_DEF(garbage)
 		postpone(time)
 
 	// Standard sentry logging for hard dels other than the two subsystems that will always hard del every round
-	var/sentry_threshold = 0.2 SECONDS
+	var/sentry_threshold = 0.25 SECONDS
 	if (time > sentry_threshold && SSsentry)
 		SSsentry.capture_message(
 			"Hard delete: [type]",
