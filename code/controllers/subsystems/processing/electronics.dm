@@ -19,7 +19,7 @@ PROCESSING_SUBSYSTEM_DEF(electronics)
 	// First loop is to seperate the actual circuits from base circuits.
 	var/list/circuits_to_use = list()
 	for(var/obj/item/integrated_circuit/IC in all_integrated_circuits)
-		if((IC.spawn_flags & (IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH)))
+		if((IC.get_printer_spawn_flags() & (IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH)))
 			circuits_to_use += IC
 
 	// Second loop is to find all categories.
@@ -95,7 +95,8 @@ PROCESSING_SUBSYSTEM_DEF(electronics)
 			var/is_basic = TRUE
 			if(istype(O, /obj/item/integrated_circuit))
 				var/obj/item/integrated_circuit/IC = O
-				if((IC.spawn_flags & IC_SPAWN_RESEARCH) && (!(IC.spawn_flags & IC_SPAWN_DEFAULT)))
+				var/printer_spawn_flags = IC.get_printer_spawn_flags()
+				if((printer_spawn_flags & IC_SPAWN_RESEARCH) && (!(printer_spawn_flags & IC_SPAWN_DEFAULT)))
 					is_basic = FALSE
 			var/list/recipe = list(path = "[O.type]", name = "[O.name]", desc = "[O.desc]", "basic" = is_basic, "category" = category)
 			if(is_basic)
