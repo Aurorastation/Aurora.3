@@ -39,13 +39,13 @@ GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 
 		/obj/item/reagent_crystal,
 
-		/obj/machinery/portable_atmospherics/hydroponics/soil/invisible,
+		/obj/structure/machinery/portable_atmospherics/hydroponics/soil/invisible,
 
 		// Requires to pick an output at init
-		/obj/machinery/appliance/mixer/,
+		/obj/structure/machinery/appliance/mixer/,
 
 		// Requires an AI
-		/obj/machinery/ai_powersupply,
+		/obj/structure/machinery/ai_powersupply,
 
 		// Requires a player
 		/atom/movable/screen/new_player/selection/join_game,
@@ -113,7 +113,7 @@ GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 	// Paths and all the subpaths excluded
 
 	//Needs a holodeck area linked to it which is not guarenteed to exist and technically is supposed to have a 1:1 relationship with computer anyway.
-	ignore += typesof(/obj/machinery/computer/holodeck_control)
+	ignore += typesof(/obj/structure/machinery/computer/holodeck_control)
 
 	// Spells require an owner, which would not work here
 	ignore += typesof(/obj/item/spell)
@@ -130,13 +130,13 @@ GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 	ignore += typesof(/obj/item/robot_module)
 
 	// Requires a shuttle
-	ignore += typesof(/obj/machinery/computer/shuttle_control)
+	ignore += typesof(/obj/structure/machinery/computer/shuttle_control)
 
 	// Requires a weapon attached
-	ignore += typesof(/obj/machinery/ammunition_loader)
+	ignore += typesof(/obj/structure/machinery/ammunition_loader)
 
 	// Requires others of its components at init
-	ignore += typesof(/obj/machinery/gravity_generator/main/station)
+	ignore += typesof(/obj/structure/machinery/gravity_generator/main/station)
 
 	// Requires an owner's client
 	ignore += typesof(/atom/movable/screen/psi)

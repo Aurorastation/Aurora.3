@@ -93,7 +93,7 @@
 	designation = pick("Xk'tiik", "Kl'axkia", "Xahth", "Aaxkia'tiik", "Lak'tixa", "Laxka")
 	..()
 
-/obj/machinery/computer/shuttle_control/explore/terminal/tret_industrial
+/obj/structure/machinery/computer/shuttle_control/explore/terminal/tret_industrial
 	name = "shuttle control console"
 	shuttle_tag = "Tret Mining Shuttle"
 

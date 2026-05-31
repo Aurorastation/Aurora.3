@@ -1,4 +1,4 @@
-/obj/machinery/appliance/cooker/stove
+/obj/structure/machinery/appliance/cooker/stove
 	name = "stove"
 	desc = "Don't touch it!"
 	icon_state = "stove"
@@ -35,7 +35,7 @@
 		list(7, -3)
 	)
 
-/obj/machinery/appliance/cooker/stove/update_icon()
+/obj/structure/machinery/appliance/cooker/stove/update_icon()
 	. = ..()
 	ClearOverlays()
 	var/list/pans = list()
@@ -86,12 +86,12 @@
 		return
 	AddOverlays(pans)
 
-/obj/machinery/appliance/cooker/stove/adhomai
+/obj/structure/machinery/appliance/cooker/stove/adhomai
 	name = "adhomian stove"
 	desc = "A rustic Adhomian stove. Warm enough to gather around the winter."
 	icon_state = "adhomai_stove_off"
 
-/obj/machinery/appliance/cooker/stove/adhomai/update_icon()
+/obj/structure/machinery/appliance/cooker/stove/adhomai/update_icon()
 	ClearOverlays()
 	if(!stat)
 		icon_state = "adhomai_stove_on"

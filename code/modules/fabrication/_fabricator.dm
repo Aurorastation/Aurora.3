@@ -1,4 +1,4 @@
-ABSTRACT_TYPE(/obj/machinery/fabricator)
+ABSTRACT_TYPE(/obj/structure/machinery/fabricator)
 	density = TRUE
 	anchored = TRUE
 	use_power = POWER_USE_IDLE
@@ -64,7 +64,7 @@ ABSTRACT_TYPE(/obj/machinery/fabricator)
 	///The looping sound used while the fabricator is running
 	VAR_PRIVATE/datum/looping_sound/fabricator_looping_sound
 
-/obj/machinery/fabricator/upgrade_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/fabricator/upgrade_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "- Upgraded <b>matter bins</b> will increase material storage capacity."
 	. += SPAN_NOTICE("	- The current storage limit per material type is <b>[storage_capacity[DEFAULT_WALL_MATERIAL] / 2000]</b> sheets")
@@ -73,7 +73,7 @@ ABSTRACT_TYPE(/obj/machinery/fabricator)
 	. += "- Upgraded <b>manipulators</b> will increase the fabrication speed."
 	. += SPAN_NOTICE("	- The current build speed increase is <b>[round(build_time_multiplier * 100)]%</b>")
 
-/obj/machinery/fabricator/Initialize(mapload)
+/obj/structure/machinery/fabricator/Initialize(mapload)
 	wires = new(src)
 	print_loc = src
 	stored_material = list()
@@ -93,7 +93,7 @@ ABSTRACT_TYPE(/obj/machinery/fabricator)
 	update_icon()
 	. = ..()
 
-/obj/machinery/fabricator/Destroy()
+/obj/structure/machinery/fabricator/Destroy()
 	print_loc = null
 	QDEL_NULL(currently_printing)
 	QDEL_NULL(wires)
@@ -103,13 +103,13 @@ ABSTRACT_TYPE(/obj/machinery/fabricator)
 
 	return ..()
 
-/obj/machinery/fabricator/ui_interact(mob/user, datum/tgui/ui)
+/obj/structure/machinery/fabricator/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "Autolathe", capitalize_first_letters(name))
 		ui.open()
 
-/obj/machinery/fabricator/ui_data(mob/user)
+/obj/structure/machinery/fabricator/ui_data(mob/user)
 	. = ..()
 	var/list/data = list()
 	data["manufacturer"] = manufacturer
@@ -164,7 +164,7 @@ ABSTRACT_TYPE(/obj/machinery/fabricator)
 		)
 	return data
 
-/obj/machinery/fabricator/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/fabricator/attackby(obj/item/attacking_item, mob/user)
 	if(fab_status_flags & FAB_BUSY)
 		to_chat(user, SPAN_NOTICE("\The [src] is busy. Please wait for the completion of previous operation."))
 		return TRUE
@@ -198,15 +198,15 @@ ABSTRACT_TYPE(/obj/machinery/fabricator)
 	load_lathe(attacking_item, user)
 	return TRUE
 
-/obj/machinery/fabricator/attack_hand(mob/user)
+/obj/structure/machinery/fabricator/attack_hand(mob/user)
 	user.set_machine(src)
 	ui_interact(user)
 
 ///
-/obj/machinery/fabricator/proc/is_functioning()
+/obj/structure/machinery/fabricator/proc/is_functioning()
 	. = use_power != POWER_USE_OFF && !(fab_status_flags & FAB_DISABLED)
 
-/obj/machinery/fabricator/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/obj/structure/machinery/fabricator/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
@@ -234,12 +234,12 @@ ABSTRACT_TYPE(/obj/machinery/fabricator)
 		try_cancel_build(order)
 		. = TRUE
 
-/obj/machinery/fabricator/process(seconds_per_tick)
+/obj/structure/machinery/fabricator/process(seconds_per_tick)
 	..()
 	if(use_power == POWER_USE_ACTIVE && (fab_status_flags & FAB_BUSY))
 		update_current_build(seconds_per_tick)
 
-/obj/machinery/fabricator/update_icon()
+/obj/structure/machinery/fabricator/update_icon()
 	if(!does_flick)
 		return
 	ClearOverlays()
@@ -253,11 +253,11 @@ ABSTRACT_TYPE(/obj/machinery/fabricator)
 		AddOverlays(emissive_appearance(icon, "[icon_state]_lights"))
 		AddOverlays("[icon_state]_lights")
 
-/obj/machinery/fabricator/proc/remove_mat_overlay(mat_overlay)
+/obj/structure/machinery/fabricator/proc/remove_mat_overlay(mat_overlay)
 	CutOverlays(mat_overlay)
 	update_icon()
 
-/obj/machinery/fabricator/RefreshParts()
+/obj/structure/machinery/fabricator/RefreshParts()
 	..()
 	var/mb_rating = 0
 	var/man_rating = 0
@@ -273,7 +273,7 @@ ABSTRACT_TYPE(/obj/machinery/fabricator)
 	mat_efficiency = 1.1 - (las_rating * 0.1) // Normally, price is 1.25 the amount of material, so this shouldn't go higher than 0.8. Maximum rating of parts is 3
 	build_time_multiplier = initial(build_time_multiplier) * man_rating
 
-/obj/machinery/fabricator/dismantle()
+/obj/structure/machinery/fabricator/dismantle()
 	for(var/mat in stored_material)
 		var/singleton/material/M = GET_SINGLETON(mat)
 		if(!istype(M))

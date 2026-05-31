@@ -3,14 +3,14 @@
 /turf/simulated/floor/airless,
 /area/haneunim_mining)
 "bb" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/tiled/rust,
 /area/haneunim_mining)
 "bd" = (
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	id = "haneunim_mining2"
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -27,12 +27,12 @@
 /area/haneunim_mining)
 "bJ" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/mech_recharger/hephaestus,
+/obj/structure/machinery/mech_recharger/hephaestus,
 /mob/living/heavy_vehicle/premade/miner,
 /turf/simulated/floor/tiled/rust,
 /area/haneunim_mining)
 "cy" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/rust,
@@ -47,7 +47,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/tracker,
+/obj/structure/machinery/power/tracker,
 /turf/simulated/floor/airless,
 /area/haneunim_mining)
 "da" = (
@@ -56,14 +56,14 @@
 	name = "airlock_haneunim_mining";
 	frequency = 1131
 	},
-/obj/machinery/light/colored/dying{
+/obj/structure/machinery/light/colored/dying{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/haneunim_mining)
 "dk" = (
 /obj/structure/cryofeed,
-/obj/machinery/light/colored/dying{
+/obj/structure/machinery/light/colored/dying{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/rust,
@@ -97,13 +97,13 @@
 /area/haneunim_mining)
 "et" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light/colored/dying{
+/obj/structure/machinery/light/colored/dying{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/rust,
 /area/haneunim_mining)
 "eG" = (
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	id = "haneunim_mining3"
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -115,7 +115,7 @@
 /turf/simulated/floor/tiled/rust,
 /area/haneunim_mining)
 "eL" = (
-/obj/machinery/mineral/stacking_unit_console{
+/obj/structure/machinery/mineral/stacking_unit_console{
 	pixel_x = -32
 	},
 /turf/simulated/floor/tiled/rust,
@@ -126,17 +126,17 @@
 /area/haneunim_mining)
 "fn" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/mining/brace{
+/obj/structure/machinery/mining/brace{
 	dir = 4
 	},
-/obj/machinery/light/colored/dying{
+/obj/structure/machinery/light/colored/dying{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/rust,
 /area/haneunim_mining)
 "fv" = (
-/obj/machinery/door/airlock/external,
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/door/airlock/external,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
 /obj/structure/cable/yellow{
@@ -153,7 +153,7 @@
 /turf/simulated/floor/plating,
 /area/haneunim_mining)
 "gf" = (
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	id = "haneunim_mining3"
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -162,11 +162,11 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/machinery/mineral/processing_unit,
+/obj/structure/machinery/mineral/processing_unit,
 /turf/simulated/floor/tiled/rust,
 /area/haneunim_mining)
 "gy" = (
-/obj/machinery/cryopod,
+/obj/structure/machinery/cryopod,
 /turf/simulated/floor/tiled/rust,
 /area/haneunim_mining)
 "hk" = (
@@ -188,13 +188,13 @@
 /turf/simulated/floor/airless,
 /area/haneunim_mining)
 "hv" = (
-/obj/machinery/mineral/processing_unit_console{
+/obj/structure/machinery/mineral/processing_unit_console{
 	pixel_x = -32
 	},
 /turf/simulated/floor/tiled/rust,
 /area/haneunim_mining)
 "im" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
 	},
 /obj/structure/cable/yellow{
@@ -207,14 +207,14 @@
 	name = "airlock_haneunim_mining";
 	frequency = 1131
 	},
-/obj/machinery/airlock_sensor{
+/obj/structure/machinery/airlock_sensor{
 	dir = 8;
 	pixel_x = 20
 	},
 /turf/simulated/floor/plating,
 /area/haneunim_mining)
 "iv" = (
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	id = "haneunim_mining2"
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -238,18 +238,18 @@
 /turf/template_noop,
 /area/template_noop)
 "je" = (
-/obj/machinery/cryopod{
+/obj/structure/machinery/cryopod{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/rust,
 /area/haneunim_mining)
 "ji" = (
-/obj/machinery/power/solar,
+/obj/structure/machinery/power/solar,
 /obj/structure/cable/yellow,
 /turf/simulated/floor/airless,
 /area/haneunim_mining)
 "jr" = (
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	id = "haneunim_mining3"
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -277,12 +277,12 @@
 /turf/simulated/floor/tiled/rust,
 /area/haneunim_mining)
 "np" = (
-/obj/machinery/recharge_station,
+/obj/structure/machinery/recharge_station,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/rust,
 /area/haneunim_mining)
 "ny" = (
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	id = "haneunim_mining2"
 	},
 /obj/structure/plasticflaps/airtight,
@@ -290,7 +290,7 @@
 /area/haneunim_mining)
 "nT" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/mining/brace{
+/obj/structure/machinery/mining/brace{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/rust,
@@ -307,35 +307,35 @@
 /turf/simulated/floor/tiled/rust,
 /area/haneunim_mining)
 "pW" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/rust,
 /area/haneunim_mining)
 "qm" = (
-/obj/machinery/light/colored/dying{
+/obj/structure/machinery/light/colored/dying{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/rust,
 /area/haneunim_mining)
 "qK" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/mech_recharger/hephaestus,
+/obj/structure/machinery/mech_recharger/hephaestus,
 /mob/living/heavy_vehicle/premade/miner,
-/obj/machinery/light/colored/dying{
+/obj/structure/machinery/light/colored/dying{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/rust,
 /area/haneunim_mining)
 "rY" = (
 /obj/structure/reagent_dispensers/watertank,
-/obj/machinery/light/colored/dying{
+/obj/structure/machinery/light/colored/dying{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/rust,
 /area/haneunim_mining)
 "sq" = (
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	id = "haneunim_mining2"
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -344,7 +344,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/machinery/mineral/processing_unit,
+/obj/structure/machinery/mineral/processing_unit,
 /turf/simulated/floor/tiled/rust,
 /area/haneunim_mining)
 "su" = (
@@ -367,11 +367,11 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/mineral/stacking_machine,
+/obj/structure/machinery/mineral/stacking_machine,
 /turf/simulated/floor/tiled/rust,
 /area/haneunim_mining)
 "uS" = (
-/obj/machinery/mineral/processing_unit_console{
+/obj/structure/machinery/mineral/processing_unit_console{
 	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/rust,
@@ -390,7 +390,7 @@
 /turf/simulated/floor/tiled/rust,
 /area/haneunim_mining)
 "wM" = (
-/obj/machinery/light/colored/dying{
+/obj/structure/machinery/light/colored/dying{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -402,7 +402,7 @@
 /area/haneunim_mining)
 "wT" = (
 /obj/structure/closet/secure_closet/miner,
-/obj/machinery/light/colored/dying{
+/obj/structure/machinery/light/colored/dying{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/rust,
@@ -414,14 +414,14 @@
 /turf/simulated/floor/tiled/rust,
 /area/haneunim_mining)
 "wZ" = (
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	id = "haneunim_mining1"
 	},
 /obj/structure/plasticflaps/airtight,
 /turf/simulated/floor/tiled/rust,
 /area/haneunim_mining)
 "xq" = (
-/obj/machinery/door/airlock/external,
+/obj/structure/machinery/door/airlock/external,
 /obj/structure/cable/yellow{
 	d1 = 1;
 	d2 = 2;
@@ -433,13 +433,13 @@
 	frequency = 1131
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	pixel_x = 28
 	},
 /turf/simulated/floor/plating,
 /area/haneunim_mining)
 "xW" = (
-/obj/machinery/power/smes/buildable/autosolars,
+/obj/structure/machinery/power/smes/buildable/autosolars,
 /obj/structure/cable/green,
 /turf/simulated/floor/tiled/rust,
 /area/haneunim_mining)
@@ -452,7 +452,7 @@
 /area/haneunim_mining)
 "zk" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/mining/drill,
+/obj/structure/machinery/mining/drill,
 /turf/simulated/floor/tiled/rust,
 /area/haneunim_mining)
 "zJ" = (
@@ -462,7 +462,7 @@
 /turf/simulated/floor/tiled/rust,
 /area/haneunim_mining)
 "Ck" = (
-/obj/machinery/door/airlock/external,
+/obj/structure/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "airlock_haneunim_mining";
 	name = "airlock_haneunim_mining";
@@ -479,13 +479,13 @@
 /turf/simulated/floor/airless,
 /area/haneunim_mining)
 "Dz" = (
-/obj/machinery/light/colored/dying{
+/obj/structure/machinery/light/colored/dying{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/rust,
 /area/haneunim_mining)
 "Ed" = (
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	id = "haneunim_mining1"
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -497,7 +497,7 @@
 /turf/simulated/floor/tiled/rust,
 /area/haneunim_mining)
 "Eh" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
 	},
 /obj/effect/map_effect/marker/airlock{
@@ -505,14 +505,14 @@
 	name = "airlock_haneunim_mining";
 	frequency = 1131
 	},
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+/obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller{
 	dir = 4;
 	pixel_x = -20
 	},
 /turf/simulated/floor/plating,
 /area/haneunim_mining)
 "EO" = (
-/obj/machinery/conveyor_switch/oneway{
+/obj/structure/machinery/conveyor_switch/oneway{
 	id = "haneunim_mining1"
 	},
 /turf/simulated/floor/tiled/rust,
@@ -522,7 +522,7 @@
 /turf/simulated/floor/tiled/rust,
 /area/haneunim_mining)
 "Fl" = (
-/obj/machinery/vending/cola/konyang,
+/obj/structure/machinery/vending/cola/konyang,
 /turf/simulated/floor/tiled/rust,
 /area/haneunim_mining)
 "Fx" = (
@@ -536,7 +536,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/low/north,
+/obj/structure/machinery/power/apc/low/north,
 /turf/simulated/floor/tiled/rust,
 /area/haneunim_mining)
 "Gh" = (
@@ -558,7 +558,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	id = "haneunim_mining3"
 	},
 /turf/simulated/floor/tiled/rust,
@@ -574,14 +574,14 @@
 /turf/simulated/floor/tiled/rust,
 /area/haneunim_mining)
 "HO" = (
-/obj/machinery/light/colored/dying{
+/obj/structure/machinery/light/colored/dying{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/rust,
 /area/haneunim_mining)
 "HX" = (
-/obj/machinery/door/airlock/external,
-/obj/machinery/atmospherics/pipe/manifold/hidden{
+/obj/structure/machinery/door/airlock/external,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock{
@@ -590,7 +590,7 @@
 	frequency = 1131
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	pixel_x = -28;
 	pixel_y = 12;
 	dir = 1
@@ -599,26 +599,26 @@
 /area/haneunim_mining)
 "Ij" = (
 /obj/effect/floor_decal/industrial/warning/dust,
-/obj/machinery/mineral/unloading_machine,
+/obj/structure/machinery/mineral/unloading_machine,
 /turf/simulated/floor/airless,
 /area/haneunim_mining)
 "ID" = (
-/obj/machinery/light/colored/dying{
+/obj/structure/machinery/light/colored/dying{
 	dir = 8
 	},
-/obj/machinery/recharge_station,
+/obj/structure/machinery/recharge_station,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/rust,
 /area/haneunim_mining)
 "IL" = (
-/obj/machinery/conveyor_switch/oneway{
+/obj/structure/machinery/conveyor_switch/oneway{
 	id = "haneunim_mining2"
 	},
 /turf/simulated/floor/tiled/rust,
 /area/haneunim_mining)
 "IX" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/mining/brace{
+/obj/structure/machinery/mining/brace{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/rust,
@@ -628,14 +628,14 @@
 /turf/simulated/floor/tiled/rust,
 /area/haneunim_mining)
 "Kd" = (
-/obj/machinery/suit_cycler/mining/prepared,
+/obj/structure/machinery/suit_cycler/mining/prepared,
 /turf/simulated/floor/tiled/rust,
 /area/haneunim_mining)
 "Kp" = (
 /obj/structure/cryofeed{
 	dir = 4
 	},
-/obj/machinery/light/colored/dying{
+/obj/structure/machinery/light/colored/dying{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/rust,
@@ -649,7 +649,7 @@
 /obj/structure/sign/flag/heph/large/north{
 	pixel_y = 32
 	},
-/obj/machinery/vending/snack/konyang,
+/obj/structure/machinery/vending/snack/konyang,
 /turf/simulated/floor/tiled/rust,
 /area/haneunim_mining)
 "Li" = (
@@ -657,13 +657,13 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/solar_control/autostart{
+/obj/structure/machinery/power/solar_control/autostart{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/rust,
 /area/haneunim_mining)
 "LZ" = (
-/obj/machinery/suit_storage_unit/standard_unit,
+/obj/structure/machinery/suit_storage_unit/standard_unit,
 /turf/simulated/floor/tiled/rust,
 /area/haneunim_mining)
 "Ma" = (
@@ -693,7 +693,7 @@
 /obj/structure/sign/flag/heph/large/north{
 	pixel_y = 32
 	},
-/obj/machinery/light/colored/dying{
+/obj/structure/machinery/light/colored/dying{
 	dir = 1
 	},
 /obj/structure/table/steel,
@@ -719,7 +719,7 @@
 /turf/simulated/floor/tiled/rust,
 /area/haneunim_mining)
 "Qs" = (
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	id = "haneunim_mining1"
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -728,11 +728,11 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/mineral/processing_unit,
+/obj/structure/machinery/mineral/processing_unit,
 /turf/simulated/floor/tiled/rust,
 /area/haneunim_mining)
 "QF" = (
-/obj/machinery/power/solar,
+/obj/structure/machinery/power/solar,
 /obj/structure/cable/yellow{
 	d2 = 2;
 	icon_state = "0-2"
@@ -758,7 +758,7 @@
 /turf/simulated/floor/tiled/rust,
 /area/haneunim_mining)
 "Rl" = (
-/obj/machinery/vending/dinnerware/plastic,
+/obj/structure/machinery/vending/dinnerware/plastic,
 /turf/simulated/floor/tiled/rust,
 /area/haneunim_mining)
 "Rr" = (
@@ -797,7 +797,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/light/colored/dying{
+/obj/structure/machinery/light/colored/dying{
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock{
@@ -824,7 +824,7 @@
 	},
 /area/template_noop)
 "TA" = (
-/obj/machinery/mineral/stacking_unit_console{
+/obj/structure/machinery/mineral/stacking_unit_console{
 	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/rust,
@@ -834,7 +834,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/terminal{
+/obj/structure/machinery/power/terminal{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/rust,
@@ -853,27 +853,27 @@
 /turf/simulated/floor/airless,
 /area/haneunim_mining)
 "Xo" = (
-/obj/machinery/computer/cryopod{
+/obj/structure/machinery/computer/cryopod{
 	pixel_y = -24
 	},
 /turf/simulated/floor/tiled/rust,
 /area/haneunim_mining)
 "Xx" = (
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	id = "haneunim_mining3"
 	},
 /obj/structure/plasticflaps/airtight,
 /turf/simulated/floor/tiled/rust,
 /area/haneunim_mining)
 "YI" = (
-/obj/machinery/conveyor_switch/oneway{
+/obj/structure/machinery/conveyor_switch/oneway{
 	id = "haneunim_mining3"
 	},
 /turf/simulated/floor/tiled/rust,
 /area/haneunim_mining)
 "YZ" = (
 /obj/structure/closet/crate/freezer/rations,
-/obj/machinery/light/colored/dying{
+/obj/structure/machinery/light/colored/dying{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/rust,

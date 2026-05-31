@@ -17,7 +17,7 @@
 	origin_tech = list(TECH_DATA = 1, TECH_ENGINEERING = 1, TECH_ILLEGAL = 3)
 
 	var/obj/item/radio/spy/radio
-	var/obj/machinery/camera/spy/camera
+	var/obj/structure/machinery/camera/spy/camera
 
 /obj/item/spy_bug/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -75,8 +75,8 @@
 
 	var/operating = 0
 	var/obj/item/radio/spy/radio
-	var/obj/machinery/camera/spy/selected_camera
-	var/list/obj/machinery/camera/spy/cameras = new()
+	var/obj/structure/machinery/camera/spy/selected_camera
+	var/list/obj/structure/machinery/camera/spy/cameras = new()
 
 /obj/item/spy_monitor/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -156,20 +156,20 @@
 	return radio.hear_talk(M, msg, speaking)
 
 
-/obj/machinery/camera/spy
+/obj/structure/machinery/camera/spy
 	// These cheap toys are accessible from the mercenary camera console as well
 	network = list(NETWORK_MERCENARY)
 	active_power_usage = 0
 	/// Set on Initialize(), simulates initial() but for the name variable so we can restore it when needed
 	var/initial_name
 
-/obj/machinery/camera/spy/Initialize()
+/obj/structure/machinery/camera/spy/Initialize()
 	. = ..()
 	name = "DV-136ZB #[rand(1000,9999)]"
 	initial_name = name
 	c_tag = name
 
-/obj/machinery/camera/spy/check_eye(var/mob/user as mob)
+/obj/structure/machinery/camera/spy/check_eye(var/mob/user as mob)
 	return FALSE
 
 /obj/item/radio/spy

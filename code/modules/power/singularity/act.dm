@@ -69,15 +69,15 @@
 			step_towards(src,S)
 		else ..()
 
-/obj/machinery/atmospherics/pipe/singularity_pull()
+/obj/structure/machinery/atmospherics/pipe/singularity_pull()
 	return
 
-/obj/machinery/power/supermatter/shard/singularity_act()
+/obj/structure/machinery/power/supermatter/shard/singularity_act()
 	src.loc = null
 	qdel(src)
 	return 5000
 
-/obj/machinery/power/supermatter/singularity_act()
+/obj/structure/machinery/power/supermatter/singularity_act()
 	if(!src.loc)
 		return
 

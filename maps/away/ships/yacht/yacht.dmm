@@ -7,7 +7,7 @@
 /turf/template_noop,
 /area/space)
 "ad" = (
-/obj/machinery/shipsensors,
+/obj/structure/machinery/shipsensors,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
@@ -28,17 +28,17 @@
 /area/space)
 "ai" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/computer/ship/helm,
+/obj/structure/machinery/computer/ship/helm,
 /turf/simulated/floor/wood/walnut,
 /area/shuttle/yacht/bridge)
 "aj" = (
-/obj/machinery/computer/ship/sensors{
+/obj/structure/machinery/computer/ship/sensors{
 	dir = 4
 	},
 /turf/simulated/floor/wood/walnut,
 /area/shuttle/yacht/bridge)
 "ak" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood/walnut,
@@ -51,15 +51,15 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/wood,
 /obj/item/gun/energy/pistol,
-/obj/machinery/light_switch{
+/obj/structure/machinery/light_switch{
 	pixel_x = 7;
 	pixel_y = 24
 	},
 /turf/simulated/floor/wood/walnut,
 /area/shuttle/yacht/bridge)
 "an" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/decal/cleanable/dirt,
 /mob/living/simple_animal/hostile/giant_spider/hunter,
 /turf/simulated/floor/wood/walnut,
@@ -71,7 +71,7 @@
 /turf/simulated/floor/wood/walnut,
 /area/shuttle/yacht/bridge)
 "aq" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /obj/item/reagent_containers/pill/cyanide,
@@ -82,14 +82,14 @@
 /turf/simulated/floor/wood/walnut,
 /area/shuttle/yacht/bridge)
 "ar" = (
-/obj/machinery/alarm/south{
+/obj/structure/machinery/alarm/south{
 	req_one_access = null
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood/walnut,
 /area/shuttle/yacht/bridge)
 "as" = (
-/obj/machinery/computer/ship/engines{
+/obj/structure/machinery/computer/ship/engines{
 	dir = 8
 	},
 /turf/simulated/floor/wood/walnut,
@@ -100,11 +100,11 @@
 	icon_state = "0-8"
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/power/apc/empty/south,
+/obj/structure/machinery/power/apc/empty/south,
 /turf/simulated/floor/wood/walnut,
 /area/shuttle/yacht/bridge)
 "au" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	icon_state = "tube_empty"
 	},
@@ -118,9 +118,9 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/airlock/silver{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/door/airlock/silver{
 	features_powerloss_manual_override = 0;
 	dir = 1
 	},
@@ -158,8 +158,8 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood/yew,
 /area/shuttle/yacht/living)
@@ -168,7 +168,7 @@
 /turf/simulated/floor/wood/yew,
 /area/shuttle/yacht/living)
 "aG" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/item/trash/snack_bowl,
@@ -178,7 +178,7 @@
 /turf/simulated/floor/wood/yew,
 /area/shuttle/yacht/living)
 "aH" = (
-/obj/machinery/disposal,
+/obj/structure/machinery/disposal,
 /obj/structure/disposalpipe/trunk{
 	dir = 1
 	},
@@ -195,9 +195,9 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/light{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -219,7 +219,7 @@
 /turf/simulated/wall/titanium,
 /area/shuttle/yacht/living)
 "aP" = (
-/obj/machinery/door/airlock/silver{
+/obj/structure/machinery/door/airlock/silver{
 	features_powerloss_manual_override = 0;
 	dir = 1
 	},
@@ -239,13 +239,13 @@
 "aT" = (
 /obj/effect/decal/cleanable/cobweb,
 /obj/effect/spider/stickyweb,
-/obj/machinery/alarm/north{
+/obj/structure/machinery/alarm/north{
 	req_one_access = null
 	},
 /turf/simulated/floor/wood/walnut,
 /area/shuttle/yacht/living)
 "aU" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/blood/drip,
@@ -254,10 +254,10 @@
 /turf/simulated/floor/wood/walnut,
 /area/shuttle/yacht/living)
 "aV" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/blood/drip,
@@ -265,15 +265,15 @@
 /turf/simulated/floor/wood/walnut,
 /area/shuttle/yacht/living)
 "aW" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/closet/walllocker/emerglocker/north,
 /obj/effect/decal/cleanable/blood/drip,
-/obj/machinery/door/airlock/silver{
+/obj/structure/machinery/door/airlock/silver{
 	features_powerloss_manual_override = 0;
 	dir = 4
 	},
@@ -285,26 +285,26 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood/yew,
 /area/shuttle/yacht/living)
 "aY" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood/yew,
 /area/shuttle/yacht/living)
 "aZ" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/item/book/manual/chef_recipes,
@@ -314,7 +314,7 @@
 /turf/simulated/floor/wood/yew,
 /area/shuttle/yacht/living)
 "ba" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/blood/gibs/robot/down,
@@ -323,11 +323,11 @@
 /turf/simulated/floor/wood/yew,
 /area/shuttle/yacht/living)
 "bb" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	icon_state = "tube_empty"
 	},
-/obj/machinery/vending/dinnerware,
+/obj/structure/machinery/vending/dinnerware,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood/yew,
 /area/shuttle/yacht/living)
@@ -357,14 +357,14 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/spider/stickyweb,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood/yew,
 /area/shuttle/yacht/living)
 "bl" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /obj/effect/spider/stickyweb,
@@ -380,7 +380,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/shuttle/yacht/living)
 "bo" = (
-/obj/machinery/door/airlock/silver{
+/obj/structure/machinery/door/airlock/silver{
 	features_powerloss_manual_override = 0;
 	dir = 4
 	},
@@ -391,7 +391,7 @@
 /turf/simulated/floor/carpet/purple,
 /area/shuttle/yacht/living)
 "br" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /obj/structure/bookcase/libraryspawn/nonfiction,
@@ -403,7 +403,7 @@
 /turf/simulated/floor/beach/water/alt,
 /area/shuttle/yacht/living)
 "bt" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	icon_state = "tube_empty"
 	},
@@ -411,7 +411,7 @@
 /turf/simulated/floor/wood/yew,
 /area/shuttle/yacht/living)
 "bv" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/carpet/purple,
 /area/shuttle/yacht/living)
 "bw" = (
@@ -434,10 +434,10 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
 /obj/effect/spider/stickyweb,
@@ -445,10 +445,10 @@
 /turf/simulated/floor/wood/yew,
 /area/shuttle/yacht/living)
 "bB" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/effect/spider/stickyweb,
@@ -456,38 +456,38 @@
 /turf/simulated/floor/wood/yew,
 /area/shuttle/yacht/living)
 "bC" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/door/airlock/silver{
+/obj/structure/machinery/door/airlock/silver{
 	features_powerloss_manual_override = 0;
 	dir = 4
 	},
 /turf/simulated/floor/carpet/purple,
 /area/shuttle/yacht/living)
 "bD" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/carpet/purple,
 /area/shuttle/yacht/living)
 "bE" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
 /turf/simulated/floor/carpet/purple,
 /area/shuttle/yacht/living)
 "bF" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /obj/item/storage/bible,
@@ -497,13 +497,13 @@
 /turf/simulated/floor/carpet/purple,
 /area/shuttle/yacht/living)
 "bG" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/beach/water/alt,
 /area/shuttle/yacht/living)
 "bI" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/item/clothing/shoes/swimmingfins,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/freezer,
@@ -514,8 +514,8 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/decal/cleanable/blood/gibs/robot/limb,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood/yew,
@@ -523,17 +523,17 @@
 "bK" = (
 /obj/effect/decal/cleanable/blood/gibs/robot/down,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/floodlight,
+/obj/structure/machinery/floodlight,
 /turf/simulated/floor/wood/yew,
 /area/shuttle/yacht/living)
 "bL" = (
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /obj/structure/filingcabinet,
 /turf/simulated/floor/carpet/purple,
 /area/shuttle/yacht/living)
 "bM" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/carpet/purple,
 /area/shuttle/yacht/living)
 "bO" = (
@@ -542,10 +542,10 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/decal/cleanable/blood/gibs/robot/down,
-/obj/machinery/door/airlock/silver{
+/obj/structure/machinery/door/airlock/silver{
 	features_powerloss_manual_override = 0;
 	dir = 1
 	},
@@ -555,16 +555,16 @@
 /turf/simulated/wall/walnutwood,
 /area/shuttle/yacht/living)
 "bQ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/door/airlock/hatch{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/yacht/engine)
 "bR" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/tank/air,
+/obj/structure/machinery/atmospherics/pipe/tank/air,
 /turf/simulated/floor/plating,
 /area/shuttle/yacht/engine)
 "bS" = (
@@ -575,12 +575,12 @@
 "bT" = (
 /obj/item/cell/hyper,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/computer/ship/engines,
+/obj/structure/machinery/computer/ship/engines,
 /turf/simulated/floor/plating,
 /area/shuttle/yacht/engine)
 "bU" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/power/smes/buildable,
+/obj/structure/machinery/power/smes/buildable,
 /obj/structure/cable{
 	d2 = 4;
 	icon_state = "0-4"
@@ -598,12 +598,12 @@
 	icon_state = "2-8"
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/light_switch{
+/obj/structure/machinery/light_switch{
 	dir = 8;
 	pixel_x = 25;
 	pixel_y = -8
 	},
-/obj/machinery/power/apc/empty/north,
+/obj/structure/machinery/power/apc/empty/north,
 /obj/item/blueprints,
 /obj/item/pen/drafting/blue{
 	pixel_x = -6;
@@ -614,39 +614,39 @@
 /area/shuttle/yacht/engine)
 "bW" = (
 /obj/item/extinguisher,
-/obj/machinery/portable_atmospherics/hydroponics,
+/obj/structure/machinery/portable_atmospherics/hydroponics,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood/yew,
 /area/shuttle/yacht/living)
 "bX" = (
-/obj/machinery/vending/hydronutrients,
+/obj/structure/machinery/vending/hydronutrients,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood/yew,
 /area/shuttle/yacht/living)
 "bY" = (
-/obj/machinery/seed_storage/garden,
+/obj/structure/machinery/seed_storage/garden,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood/yew,
 /area/shuttle/yacht/living)
 "bZ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/visible/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/visible/supply,
 /turf/simulated/floor/plating,
 /area/shuttle/yacht/engine)
 "ca" = (
 /obj/structure/closet/secure_closet/kitchen_cabinet/standard,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/light_switch{
+/obj/structure/machinery/light_switch{
 	pixel_x = -6;
 	pixel_y = 24
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/yacht/engine)
 "cb" = (
-/obj/machinery/space_heater,
+/obj/structure/machinery/space_heater,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/binary/pump/on,
+/obj/structure/machinery/atmospherics/binary/pump/on,
 /turf/simulated/floor/plating,
 /area/shuttle/yacht/engine)
 "cc" = (
@@ -654,7 +654,7 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/power/solar,
+/obj/structure/machinery/power/solar,
 /turf/simulated/floor/airless,
 /area/shuttle/yacht/engine)
 "cd" = (
@@ -663,7 +663,7 @@
 /turf/simulated/floor/wood/yew,
 /area/shuttle/yacht/living)
 "ce" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -676,13 +676,13 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -693,10 +693,10 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -713,15 +713,15 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood/yew,
 /area/shuttle/yacht/living)
 "ck" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -733,29 +733,29 @@
 /turf/simulated/floor/wood/yew,
 /area/shuttle/yacht/living)
 "cm" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/light/small{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/shuttle/yacht/engine)
 "cn" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/shuttle/yacht/engine)
 "co" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/cyan{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/cyan{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/portable_atmospherics/powered/pump,
+/obj/structure/machinery/portable_atmospherics/powered/pump,
 /turf/simulated/floor/plating,
 /area/shuttle/yacht/engine)
 "cp" = (
@@ -864,13 +864,13 @@
 /area/shuttle/yacht/engine)
 "cC" = (
 /obj/structure/cable,
-/obj/machinery/portable_atmospherics/hydroponics,
+/obj/structure/machinery/portable_atmospherics/hydroponics,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/power/apc/empty/west,
+/obj/structure/machinery/power/apc/empty/west,
 /turf/simulated/floor/wood/yew,
 /area/shuttle/yacht/living)
 "cD" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/decal/cleanable/dirt,
 /mob/living/bot/farmbot,
 /turf/simulated/floor/wood/yew,
@@ -886,18 +886,18 @@
 /turf/simulated/floor/wood/yew,
 /area/shuttle/yacht/living)
 "cG" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/alarm/west{
+/obj/structure/machinery/alarm/west{
 	req_one_access = null
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/yacht/engine)
 "cJ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 4
 	},
 /obj/effect/landmark/entry_point/west{
@@ -906,7 +906,7 @@
 /turf/simulated/wall/titanium,
 /area/shuttle/yacht/engine)
 "cK" = (
-/obj/machinery/atmospherics/unary/outlet_injector{
+/obj/structure/machinery/atmospherics/unary/outlet_injector{
 	dir = 8;
 	use_power = 1
 	},
@@ -915,7 +915,7 @@
 /area/space)
 "cL" = (
 /obj/structure/cable,
-/obj/machinery/power/solar,
+/obj/structure/machinery/power/solar,
 /turf/simulated/floor/airless,
 /area/shuttle/yacht/engine)
 "cN" = (
@@ -924,23 +924,23 @@
 /turf/simulated/floor/plating,
 /area/shuttle/yacht/engine)
 "cO" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/shuttle/yacht/engine)
 "cQ" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
-/obj/machinery/alarm/west{
+/obj/structure/machinery/alarm/west{
 	req_one_access = null
 	},
-/obj/machinery/portable_atmospherics/hydroponics,
+/obj/structure/machinery/portable_atmospherics/hydroponics,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood/yew,
 /area/shuttle/yacht/living)
 "cR" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
 	level = 2
 	},
@@ -950,14 +950,14 @@
 /turf/simulated/floor/wood/yew,
 /area/shuttle/yacht/living)
 "cS" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/reagent_dispensers/keg/beerkeg,
 /turf/simulated/floor/wood/yew,
 /area/shuttle/yacht/living)
 "cT" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
@@ -969,13 +969,13 @@
 /turf/simulated/floor/wood/yew,
 /area/shuttle/yacht/living)
 "cY" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/shuttle/yacht/engine)
 "cZ" = (
-/obj/machinery/vending/tool,
+/obj/structure/machinery/vending/tool,
 /turf/simulated/floor/plating,
 /area/shuttle/yacht/engine)
 "dc" = (
@@ -998,7 +998,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/yacht/engine)
 "dh" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
 	level = 2
 	},
@@ -1006,47 +1006,47 @@
 /turf/simulated/floor/plating,
 /area/shuttle/yacht/engine)
 "di" = (
-/obj/machinery/atmospherics/unary/heater,
+/obj/structure/machinery/atmospherics/unary/heater,
 /turf/simulated/floor/plating,
 /area/shuttle/yacht/engine)
 "dk" = (
-/obj/machinery/atmospherics/unary/heater,
+/obj/structure/machinery/atmospherics/unary/heater,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/shuttle/yacht/engine)
 "dm" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
 	level = 2
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/yacht/engine)
 "dn" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 6
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/shuttle/yacht/engine)
 "do" = (
-/obj/machinery/atmospherics/pipe/manifold4w/visible/black,
-/obj/machinery/light/small{
+/obj/structure/machinery/atmospherics/pipe/manifold4w/visible/black,
+/obj/structure/machinery/light/small{
 	dir = 4;
 	pixel_y = 8
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/meter,
+/obj/structure/machinery/meter,
 /turf/simulated/floor/plating,
 /area/shuttle/yacht/engine)
 "dp" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
 	},
 /turf/simulated/wall/titanium,
 /area/shuttle/yacht/engine)
 "dq" = (
-/obj/machinery/atmospherics/unary/vent_pump{
+/obj/structure/machinery/atmospherics/unary/vent_pump{
 	dir = 8;
 	external_pressure_bound = 0;
 	external_pressure_bound_default = 0;
@@ -1062,7 +1062,7 @@
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/shuttle/yacht/engine)
 "dr" = (
-/obj/machinery/atmospherics/unary/vent_pump{
+/obj/structure/machinery/atmospherics/unary/vent_pump{
 	dir = 4;
 	external_pressure_bound = 0;
 	external_pressure_bound_default = 0;
@@ -1078,28 +1078,28 @@
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/shuttle/yacht/engine)
 "dt" = (
-/obj/machinery/atmospherics/pipe/manifold4w/visible/black,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/visible/black,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/meter,
-/obj/machinery/light/small{
+/obj/structure/machinery/meter,
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/yacht/engine)
 "du" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/visible/black{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 10
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/yacht/engine)
 "dv" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black,
+/obj/structure/machinery/atmospherics/pipe/simple/visible/black,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/shuttle/yacht/engine)
 "dw" = (
-/obj/machinery/atmospherics/unary/heater{
+/obj/structure/machinery/atmospherics/unary/heater{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -1110,11 +1110,11 @@
 /area/shuttle/yacht/engine)
 "dy" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/visible/black,
+/obj/structure/machinery/atmospherics/pipe/simple/visible/black,
 /turf/simulated/floor/plating,
 /area/shuttle/yacht/engine)
 "dz" = (
-/obj/machinery/atmospherics/pipe/manifold/visible/black{
+/obj/structure/machinery/atmospherics/pipe/manifold/visible/black{
 	dir = 8
 	},
 /obj/structure/window/reinforced,
@@ -1122,17 +1122,17 @@
 /turf/simulated/floor/plating,
 /area/shuttle/yacht/engine)
 "dA" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 10
 	},
 /obj/structure/window/reinforced,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/recharge_station,
+/obj/structure/machinery/recharge_station,
 /turf/simulated/floor/plating,
 /area/shuttle/yacht/engine)
 "dC" = (
 /obj/structure/window/reinforced,
-/obj/machinery/atmospherics/pipe/simple/visible/black{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 6
 	},
 /obj/structure/reagent_dispensers/fueltank,
@@ -1140,13 +1140,13 @@
 /area/shuttle/yacht/engine)
 "dD" = (
 /obj/structure/window/reinforced,
-/obj/machinery/atmospherics/pipe/manifold/visible/black{
+/obj/structure/machinery/atmospherics/pipe/manifold/visible/black{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/yacht/engine)
 "dE" = (
-/obj/machinery/atmospherics/unary/engine{
+/obj/structure/machinery/atmospherics/unary/engine{
 	dir = 1
 	},
 /turf/simulated/floor/airless,
@@ -1160,7 +1160,7 @@
 /turf/template_noop,
 /area/space)
 "eb" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	icon_state = "tube_empty"
 	},
@@ -1188,14 +1188,14 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/hologram/holopad/long_range,
+/obj/structure/machinery/hologram/holopad/long_range,
 /turf/simulated/floor/wood/walnut,
 /area/shuttle/yacht/bridge)
 "hb" = (
-/obj/machinery/power/terminal{
+/obj/structure/machinery/power/terminal{
 	dir = 1
 	},
 /obj/structure/cable{
@@ -1204,7 +1204,7 @@
 	},
 /obj/item/storage/toolbox/electrical,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -1215,11 +1215,11 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
@@ -1231,7 +1231,7 @@
 	icon_state = "4-8"
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	frequency = 1439;
 	icon_state = "door_locked";
 	id_tag = "yacht_outer";
@@ -1239,7 +1239,7 @@
 	name = "External Access";
 	dir = 4
 	},
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	command = "cycle_exterior";
 	frequency = 1439;
 	master_tag = "yacht_airlock";
@@ -1262,7 +1262,7 @@
 	icon_state = "4-8"
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+/obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller{
 	frequency = 1439;
 	id_tag = "yacht_airlock";
 	pixel_y = 24;
@@ -1271,11 +1271,11 @@
 	tag_exterior_door = "yacht_outer";
 	tag_interior_door = "yacht_inner"
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
 	id_tag = "yacht_pump"
 	},
-/obj/machinery/airlock_sensor{
+/obj/structure/machinery/airlock_sensor{
 	frequency = 1439;
 	id_tag = "yacht_sensor";
 	pixel_y = -24
@@ -1283,13 +1283,13 @@
 /turf/simulated/floor/airless,
 /area/shuttle/yacht/engine)
 "kt" = (
-/obj/machinery/alarm/north{
+/obj/structure/machinery/alarm/north{
 	pixel_y = -22
 	},
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 1
 	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/plating,
 /area/shuttle/yacht/engine)
 "lb" = (
@@ -1299,10 +1299,10 @@
 	icon_state = "4-8"
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	frequency = 1439;
 	icon_state = "door_locked";
 	id_tag = "yacht_inner";
@@ -1310,7 +1310,7 @@
 	name = "External Access";
 	dir = 4
 	},
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	command = "cycle_interior";
 	frequency = 1439;
 	master_tag = "yacht_airlock";
@@ -1354,7 +1354,7 @@
 	icon_state = "4-8"
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/manifold/hidden{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
@@ -1370,7 +1370,7 @@
 	icon_state = "4-8"
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/binary/pump{
+/obj/structure/machinery/atmospherics/binary/pump{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -1383,33 +1383,33 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/visible/universal{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/universal{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/yacht/engine)
 "pb" = (
-/obj/machinery/alarm/east{
+/obj/structure/machinery/alarm/east{
 	req_one_access = null
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/yacht/engine)
 "qb" = (
-/obj/machinery/atmospherics/binary/pump{
+/obj/structure/machinery/atmospherics/binary/pump{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/shuttle/yacht/engine)
 "qE" = (
-/obj/machinery/atmospherics/unary/engine{
+/obj/structure/machinery/atmospherics/unary/engine{
 	dir = 1
 	},
 /obj/effect/landmark/entry_point/north{
@@ -1419,7 +1419,7 @@
 /area/shuttle/yacht/engine)
 "sb" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
 /turf/simulated/floor/plating,
@@ -1427,14 +1427,14 @@
 "tb" = (
 /obj/structure/closet/firecloset,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/yacht/engine)
 "tT" = (
 /obj/structure/cable,
-/obj/machinery/power/solar,
+/obj/structure/machinery/power/solar,
 /obj/effect/landmark/entry_point/east{
 	name = "port, solars aft side"
 	},
@@ -1447,20 +1447,20 @@
 /area/shuttle/yacht/engine)
 "uv" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/shower,
+/obj/structure/machinery/shower,
 /obj/structure/curtain/open/shower,
 /turf/simulated/floor/tiled/freezer,
 /area/shuttle/yacht/living)
 "vb" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/structure/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/plating,
 /area/shuttle/yacht/engine)
 "wb" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /obj/item/bikehorn/rubberducky,
@@ -1491,7 +1491,7 @@
 /turf/simulated/floor/wood/walnut,
 /area/shuttle/yacht/bridge)
 "zA" = (
-/obj/machinery/alarm/west{
+/obj/structure/machinery/alarm/west{
 	req_one_access = null
 	},
 /turf/simulated/floor/carpet/purple,
@@ -1501,7 +1501,7 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/power/solar,
+/obj/structure/machinery/power/solar,
 /obj/effect/landmark/entry_point/east{
 	name = "port, solars fore side"
 	},
@@ -1530,16 +1530,16 @@
 /turf/simulated/floor/plating,
 /area/shuttle/yacht/bridge)
 "Hj" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/yacht/engine)
 "If" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/light_switch{
+/obj/structure/machinery/light_switch{
 	pixel_x = -6;
 	pixel_y = 24
 	},
@@ -1554,24 +1554,24 @@
 /area/shuttle/yacht/living)
 "MX" = (
 /obj/effect/spider/stickyweb,
-/obj/machinery/alarm/north{
+/obj/structure/machinery/alarm/north{
 	req_one_access = null
 	},
 /turf/simulated/floor/beach/water/alt,
 /area/shuttle/yacht/living)
 "Nb" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/vending/wallmed1{
+/obj/structure/machinery/vending/wallmed1{
 	pixel_y = 30;
 	req_access = null
 	},
-/obj/machinery/alarm/east{
+/obj/structure/machinery/alarm/east{
 	req_one_access = null
 	},
 /turf/simulated/floor/wood/yew,
 /area/shuttle/yacht/living)
 "OU" = (
-/obj/machinery/iff_beacon/name_change,
+/obj/structure/machinery/iff_beacon/name_change,
 /obj/structure/railing/mapped{
 	dir = 1
 	},
@@ -1583,7 +1583,7 @@
 	},
 /area/shuttle/yacht/bridge)
 "RV" = (
-/obj/machinery/atmospherics/unary/engine{
+/obj/structure/machinery/atmospherics/unary/engine{
 	dir = 1
 	},
 /obj/effect/landmark/entry_point/north{

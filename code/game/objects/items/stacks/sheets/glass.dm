@@ -91,7 +91,7 @@
 				to_chat(user, SPAN_WARNING("There is already a windoor assembly in that location."))
 				return 1
 
-			if(isturf(user.loc) && locate(/obj/machinery/door/window/, user.loc))
+			if(isturf(user.loc) && locate(/obj/structure/machinery/door/window/, user.loc))
 				to_chat(user, SPAN_WARNING("There is already a windoor in that location."))
 				return 1
 

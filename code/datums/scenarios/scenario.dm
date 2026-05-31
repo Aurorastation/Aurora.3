@@ -99,7 +99,7 @@
 	command_announcement.Announce(scenario_announcements.horizon_early_announcement_message, scenario_announcements.horizon_announcement_title, do_print = TRUE)
 	var/obj/effect/overmap/odyssey_site = SSodyssey.get_odyssey_overmap_effect()
 	if(odyssey_site)
-		for(var/obj/machinery/computer/ship/sensors/sensors in SSodyssey.main_map.consoles)
+		for(var/obj/structure/machinery/computer/ship/sensors/sensors in SSodyssey.main_map.consoles)
 			sensors.add_contact(odyssey_site)
 
 /**
@@ -129,7 +129,7 @@
 		if(istype(ship, /obj/effect/overmap/visitable/ship/landable) || (ship == SSodyssey.main_map))
 			continue
 
-		for(var/obj/machinery/computer/ship/sensors/sensors in ship.consoles)
+		for(var/obj/structure/machinery/computer/ship/sensors/sensors in ship.consoles)
 			priority_announcement.Announce(scenario_announcements.offship_announcement_message, "[ship.name] Sensors Report", zlevels = ship.map_z)
 			sensors.add_contact(odyssey_site)
 

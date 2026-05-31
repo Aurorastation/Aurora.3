@@ -113,5 +113,5 @@
 	..()
 	return
 
-/obj/item/grenade/vendor_action(var/obj/machinery/vending/V)
+/obj/item/grenade/vendor_action(var/obj/structure/machinery/vending/V)
 	activate(V)

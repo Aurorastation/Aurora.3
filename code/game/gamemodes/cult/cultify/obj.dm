@@ -45,7 +45,7 @@
 /obj/item/storage/backpack/cultpack/cultify()
 	return
 
-/obj/machinery/cultify()
+/obj/structure/machinery/cultify()
 	// We keep the number of cultified machines down by only converting those that are dense
 	// The alternative is to keep a separate file of exceptions.
 	if(density)
@@ -58,47 +58,47 @@
 		new I(get_turf(src))
 	qdel(src)
 
-/obj/machinery/atmospherics/cultify()
+/obj/structure/machinery/atmospherics/cultify()
 	if(invisibility != INVISIBILITY_MAXIMUM)
 		set_invisibility(INVISIBILITY_MAXIMUM)
 		density = FALSE
 
-/obj/machinery/cooker/cultify()
+/obj/structure/machinery/cooker/cultify()
 	new /obj/structure/cult/talisman(get_turf(src))
 	qdel(src)
 
-/obj/machinery/computer/cultify()
+/obj/structure/machinery/computer/cultify()
 	new /obj/structure/cult/tome(get_turf(src))
 	qdel(src)
 
-/obj/machinery/door/cultify()
+/obj/structure/machinery/door/cultify()
 	new /obj/structure/simple_door/cult(get_turf(src))
 	qdel(src)
 
-/obj/machinery/door/airlock/cultify()
+/obj/structure/machinery/door/airlock/cultify()
 	if(secured_wires)
 		return
 	new /obj/structure/simple_door/cult(get_turf(src))
 	qdel(src)
 
-/obj/machinery/door/airlock/lift/cultify()
+/obj/structure/machinery/door/airlock/lift/cultify()
 	return
 
-/obj/machinery/door/firedoor/cultify()
+/obj/structure/machinery/door/firedoor/cultify()
 	qdel(src)
 
-/obj/machinery/light/cultify()
+/obj/structure/machinery/light/cultify()
 	new /obj/structure/cult/pylon(get_turf(src))
 	qdel(src)
 
-/obj/machinery/mech_sensor/cultify()
+/obj/structure/machinery/mech_sensor/cultify()
 	qdel(src)
 
-/obj/machinery/power/apc/cultify()
+/obj/structure/machinery/power/apc/cultify()
 	if(invisibility != INVISIBILITY_MAXIMUM)
 		set_invisibility(INVISIBILITY_MAXIMUM)
 
-/obj/machinery/vending/cultify()
+/obj/structure/machinery/vending/cultify()
 	new /obj/structure/cult/forge(get_turf(src))
 	qdel(src)
 

@@ -138,7 +138,7 @@
 /obj/item/ship_ammunition/proc/update_status()
 	return
 
-/obj/item/ship_ammunition/proc/eject_shell(var/obj/machinery/ship_weapon/SW) //do cool casing ejection effects here
+/obj/item/ship_ammunition/proc/eject_shell(var/obj/structure/machinery/ship_weapon/SW) //do cool casing ejection effects here
 	return
 
 /obj/item/ship_ammunition/proc/wield(var/mob/living/carbon/human/user)

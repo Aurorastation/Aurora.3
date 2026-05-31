@@ -18,4 +18,4 @@
 	var/datum/component/health_analyzer/h_analyzer = src.GetComponent(/datum/component/health_analyzer)
 	if(!h_analyzer)
 		return
-	h_analyzer.health_scan_mob(owner, owner, TRUE, TRUE)
+	h_analyzer.health_scan_mob(owner, owner, TRUE, FALSE)

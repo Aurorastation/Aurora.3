@@ -213,7 +213,7 @@
 		)
 
 /obj/item/clothing/head/helmet/space/rig/tcfl
-	camera = /obj/machinery/camera/network/tcfl
+	camera = /obj/structure/machinery/camera/network/tcfl
 
 /obj/item/rig/gunslinger
 	name = "gunslinger hardsuit control module"
@@ -619,7 +619,7 @@
 
 /obj/item/clothing/head/helmet/space/rig/legionnaire
 	light_overlay = "helmet_light_tcaf_legionnaire"
-	camera = /obj/machinery/camera/network/tcfl
+	camera = /obj/structure/machinery/camera/network/tcfl
 
 /obj/item/rig/combat/legionnaire/equipped
 

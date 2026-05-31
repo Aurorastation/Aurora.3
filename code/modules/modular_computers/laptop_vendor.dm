@@ -12,7 +12,7 @@
 #define LAPVEND_DEVICE_TABLET 2
 #define LAPVEND_DEVICE_PDA    3
 
-/obj/machinery/lapvend
+/obj/structure/machinery/lapvend
 	name = "computer vendor"
 	desc = "A vending machine with microfabricator capable of dispensing various NT-branded computers."
 	icon = 'icons/obj/vending.dmi'
@@ -41,7 +41,7 @@
 	var/dev_aislot = 0						// 0: None, 1: Standard
 
 // Removes all traces of old order and allows you to begin configuration from scratch.
-/obj/machinery/lapvend/proc/reset_order()
+/obj/structure/machinery/lapvend/proc/reset_order()
 	state = LAPVEND_STATE_SELECT
 	devtype = LAPVEND_DEVICE_NONE
 	if(fabricated_laptop)
@@ -63,7 +63,7 @@
 	dev_aislot = 0
 
 // Recalculates the price and optionally even fabricates the device.
-/obj/machinery/lapvend/proc/fabricate_and_recalc_price(fabricate = FALSE)
+/obj/structure/machinery/lapvend/proc/fabricate_and_recalc_price(fabricate = FALSE)
 	total_price = 0
 	if(devtype == LAPVEND_DEVICE_LAPTOP) 		// Laptop, generally cheaper to make it accessible for most station roles
 		if(fabricate)
@@ -255,7 +255,7 @@
 	return 0
 
 
-/obj/machinery/lapvend/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/obj/structure/machinery/lapvend/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
@@ -305,13 +305,13 @@
 			fabricate_and_recalc_price(FALSE)
 			return TRUE
 
-/obj/machinery/lapvend/attack_hand(mob/user)
+/obj/structure/machinery/lapvend/attack_hand(mob/user)
 	if(anchored)
 		ui_interact(user)
 	else
 		to_chat(user, SPAN_NOTICE("\The [src] needs to be anchored to the floor to function!"))
 
-/obj/machinery/lapvend/ui_interact(mob/user, datum/tgui/ui)
+/obj/structure/machinery/lapvend/ui_interact(mob/user, datum/tgui/ui)
 	if(stat & (BROKEN | NOPOWER | MAINT))
 		return
 	ui = SStgui.try_update_ui(user, src, ui)
@@ -319,7 +319,7 @@
 		ui = new(user, src, "ComputerFabricator", "Personal Computer Vendor")
 		ui.open()
 
-/obj/machinery/lapvend/ui_data(mob/user)
+/obj/structure/machinery/lapvend/ui_data(mob/user)
 	var/list/data = list("state" = src.state)
 	if(src.state == LAPVEND_STATE_CONFIGURE)
 		data["devtype"] = devtype
@@ -335,7 +335,7 @@
 		data["totalprice"] = total_price
 	return data
 
-/obj/machinery/lapvend/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/lapvend/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		if(anchored)
@@ -361,7 +361,7 @@
 			return TRUE
 	return ..()
 
-/obj/machinery/lapvend/proc/create_device(mob/user, message = "Enjoy your new product!")
+/obj/structure/machinery/lapvend/proc/create_device(mob/user, message = "Enjoy your new product!")
 	fabricate_and_recalc_price(TRUE)
 	if((devtype == LAPVEND_DEVICE_LAPTOP) && fabricated_laptop)
 		fabricated_laptop.forceMove(src.loc)
@@ -392,7 +392,7 @@
 	state = LAPVEND_STATE_COMPLETE
 
 // Simplified payment processing, returns TRUE on success.
-/obj/machinery/lapvend/proc/process_payment(obj/item/card/id/id_card, obj/item/id_container)
+/obj/structure/machinery/lapvend/proc/process_payment(obj/item/card/id/id_card, obj/item/id_container)
 	var/obj/item/spacecash/cash = null
 	if(istype(id_container, /obj/item/spacecash))
 		cash = id_container
