@@ -95,6 +95,9 @@
 	// 'amidships' belongs to location_ew
 	var/location_ew = null
 	var/location_ns = null
+	/// What colors should the area's light fixtures emit, if any?
+	/// Only applies to light fixtures which are set to use randomized lighting!
+	var/list/area_lighting = LIGHT_WARM_COLORS
 
 	var/centcomm_area = FALSE
 
@@ -124,6 +127,11 @@
 	. = ..()
 
 /area/Initialize(mapload)
+#ifdef UNIT_TEST
+	if (!islist(ambience))
+		log_error("Area: [src.type] set list/ambience with [ambience] instead of a list. This var MUST be a list().")
+#endif
+
 	icon_state = "white"
 	color = null
 
@@ -378,7 +386,7 @@
 	L.lastarea = newarea
 
 	// Start playing ambience.
-	if(src.ambience.len && L && L.client && (L.client.prefs.sfx_toggles & ASFX_AMBIENCE) && !L.ear_deaf)
+	if(length(src.ambience) && L && L.client && (L.client.prefs.sfx_toggles & ASFX_AMBIENCE) && !L.ear_deaf)
 		play_ambience(L)
 	else
 		stop_ambience(L)

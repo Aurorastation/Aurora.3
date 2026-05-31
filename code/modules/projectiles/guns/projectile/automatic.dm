@@ -18,6 +18,8 @@
 	fire_delay = ROF_SMG
 	can_suppress = TRUE
 	suppressor_x_offset = 8
+	drop_sound = 'sound/items/drop/smg.ogg'
+	pickup_sound = 'sound/items/pickup/smg.ogg'
 
 	firemodes = list(
 		list(mode_name="semiauto",       can_autofire=0, burst=1, fire_delay=ROF_SMG),
@@ -209,6 +211,8 @@ ABSTRACT_TYPE(/obj/item/gun/projectile/automatic/rifle)
 
 	is_wieldable = TRUE
 	can_suppress = FALSE
+	drop_sound = 'sound/items/drop/rifle.ogg'
+	pickup_sound = 'sound/items/pickup/rifle.ogg'
 
 	firemodes = list(
 		list(mode_name="semiauto",       burst=1, fire_delay=ROF_RIFLE),
@@ -934,6 +938,8 @@ ABSTRACT_TYPE(/obj/item/gun/projectile/automatic/rifle)
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 	recoil = 3
 	fire_sound = 'sound/weapons/gunshot/gunshot_shotgun.ogg'
+	drop_sound = 'sound/items/drop/shotgun.ogg'
+	pickup_sound = 'sound/items/pickup/shotgun.ogg'
 
 	accuracy = -2
 	recoil_wielded = 0

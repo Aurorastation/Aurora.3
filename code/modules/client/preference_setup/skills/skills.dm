@@ -68,11 +68,6 @@
 		loaded_skills = list()
 
 	pref.skills = list()
-	for(var/key in SSskills.required_skills)
-		var/singleton/skill/skill = GET_SINGLETON(key)
-		if (istype(skill))
-			pref.skills[skill.type] = SKILL_LEVEL_UNFAMILIAR
-
 	for(var/key,value in loaded_skills)
 		if (!key)
 			continue
