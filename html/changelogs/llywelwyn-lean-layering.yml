@@ -1,0 +1,4 @@
+author: Llywelwyn
+delete-after: True
+changes:
+  - bugfix: "Leaning on the north side of a wall now correctly hides your lower body behind the wall instead of drawing you on top of it."

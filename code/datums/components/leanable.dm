@@ -95,6 +95,7 @@
 			shift_pixel_x = 10
 	animate(src, pixel_x = shift_pixel_x, pixel_y = shift_pixel_y, time = 1)
 	if(direction == NORTH)
+		src.appearance_flags |= KEEP_TOGETHER
 		src.add_filter("cutout", 1, alpha_mask_filter(icon = icon('icons/effects/effects.dmi', "cutout")))
 	if(direction == SOUTH)
 		src.layer = ABOVE_DOOR_LAYER
@@ -105,7 +106,7 @@
 		SPAN_NOTICE("[src] leans against [lean_target]."),
 		SPAN_NOTICE("You lean against [lean_target]."),
 	)
-	RegisterSignals(src, list(COMSIG_MOVABLE_MOVED, COMSIG_MOB_RESISTED), PROC_REF(stop_leaning), src)
+	RegisterSignals(src, list(COMSIG_MOVABLE_MOVED, COMSIG_MOB_RESISTED, COMSIG_MOB_LYING_DOWN), PROC_REF(stop_leaning), src)
 
 /mob/living/proc/stop_leaning()
 	SIGNAL_HANDLER
@@ -116,11 +117,13 @@
 	UnregisterSignal(src, list(
 		COMSIG_MOVABLE_MOVED,
 		COMSIG_MOB_RESISTED,
+		COMSIG_MOB_LYING_DOWN,
 	))
 	SEND_SIGNAL(src, COMSIG_LIVING_STOPPED_LEANING)
 	to_chat(src, SPAN_NOTICE("You stop leaning on the wall."))
 	REMOVE_TRAIT(src, TRAIT_UNDENSE, TRAIT_SOURCE_WALL_LEANING)
 	REMOVE_TRAIT(src, TRAIT_LEANING, TRAIT_SOURCE_WALL_LEANING)
+	appearance_flags &= ~KEEP_TOGETHER
 	remove_filter("cutout")
 
 /datum/component/leanable/proc/stopped_leaning(datum/source)
