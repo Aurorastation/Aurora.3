@@ -281,19 +281,21 @@
 	return
 
 /obj/item/destTagger/Topic(href, href_list)
-	src.add_fingerprint(usr)
+	. = ..()
+	if(!.)
+		src.add_fingerprint(usr)
 
-	if(href_list["nextTag"] && (html_decode(href_list["nextTag"]) in SSdisposals.tagger_locations))
-		src.currTag = html_decode(href_list["nextTag"])
+		if(href_list["nextTag"] && (html_decode(href_list["nextTag"]) in SSdisposals.tagger_locations))
+			src.currTag = html_decode(href_list["nextTag"])
 
-	if(href_list["nextTag"] == "CUSTOM")
-		var/dest = input("Please enter custom location.", "Location", src.currTag ? src.currTag : "None")
-		if(dest != "None")
-			src.currTag = dest
-		else
-			src.currTag = 0
+		if(href_list["nextTag"] == "CUSTOM")
+			var/dest = input("Please enter custom location.", "Location", src.currTag ? src.currTag : "None")
+			if(dest != "None")
+				src.currTag = dest
+			else
+				src.currTag = 0
 
-	openwindow(usr)
+		openwindow(usr)
 
 /obj/structure/machinery/disposal/deliveryChute
 	name = "delivery chute"

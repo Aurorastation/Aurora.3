@@ -261,6 +261,16 @@
 			if(do_after(H, 1 SECOND) && connected.can_combat_roll())
 				visible_message(SPAN_DANGER("[H] tilts the yoke all the way to the [ndir == WEST ? "left" : "right"]!"))
 				connected.combat_roll(ndir)
+		if(issilicon(usr))
+			var/mob/living/silicon/H = usr
+			var/dir_to_move = turn(connected.dir, ndir == WEST ? 90 : -90)
+			var/turf/new_turf = get_step(connected, dir_to_move)
+			if(new_turf.x > SSatlas.current_map.overmap_size || new_turf.y > SSatlas.current_map.overmap_size)
+				to_chat(H, SPAN_WARNING("Your integrated safeguards prevent you from going into deep space."))
+				return
+			if(do_after(H, 1 SECOND) && connected.can_combat_roll())
+				visible_message(SPAN_DANGER("[H] remotely tilts the yoke systematically all the way to the [ndir == WEST ? "left" : "right"]!"))
+				connected.combat_roll(ndir)
 
 	if (action == "manual")
 		viewing_overmap(usr) ? unlook(usr) : look(usr)
@@ -275,7 +285,7 @@
 		if(newlimit)
 			accellimit = max(newlimit/1000, 0)
 
-	if(!issilicon(usr)) // AI and robots aren't allowed to pilot
+	if(isliving(usr))// AI and robots are allowed to pilot now!
 		if (action == "move")
 			if(prob(usr.confused * 5))
 				params["turn"] = pick("45", "-45")
@@ -296,6 +306,11 @@
 				if(do_after(H, 1 SECOND) && connected.can_combat_turn())
 					visible_message(SPAN_DANGER("[H] twists the yoke all the way to the [ndir == WEST ? "left" : "right"]!"))
 					connected.combat_turn(ndir)
+			if(issilicon(usr))
+				var/mob/living/silicon/H = usr
+				if(do_after(H, 1 SECOND) && connected.can_combat_turn())
+					visible_message(SPAN_DANGER("[H] remotely twists the yoke systematically all the way to the [ndir == WEST ? "left" : "right"]!"))
+					connected.combat_turn(ndir)
 
 		if (action == "brake")
 			connected.decelerate()
@@ -305,7 +320,6 @@
 			autopilot = !autopilot
 			check_processing()
 	else
-		to_chat(usr, SPAN_WARNING("Your software does not allow you to interact with the piloting controls."))
 		return TRUE
 
 	add_fingerprint(usr)

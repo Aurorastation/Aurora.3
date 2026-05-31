@@ -111,6 +111,8 @@ BREATH ANALYZER
 	throwforce = 5
 	throw_speed = 4
 	throw_range = 20
+	drop_sound = 'sound/items/drop/gas_analyzer.ogg'
+	pickup_sound = 'sound/items/pickup/gas_analyzer.ogg'
 
 	matter = list(MATERIAL_ALUMINIUM = 30, MATERIAL_GLASS = 20)
 

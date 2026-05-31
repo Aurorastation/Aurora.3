@@ -14,6 +14,8 @@
 	load_method = MAGAZINE
 	handle_casings = DELETE_CASINGS
 	fire_delay = ROF_HEAVY
+	drop_sound = 'sound/items/drop/shotgun.ogg'
+	pickup_sound = 'sound/items/pickup/shotgun.ogg'
 
 /obj/item/gun/projectile/plasma/update_icon()
 	..()
