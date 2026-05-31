@@ -36,7 +36,7 @@
 	damage = 100
 	armor_penetration = 50
 	penetrating = 0
-	anti_materiel_potential = 100
+	anti_materiel_potential = 6
 	explosion_strength = list(0, 2, 4)
 
 /obj/projectile/ship_ammo/grauwolf/on_hit(atom/target, blocked, def_zone, is_landmark_hit)
