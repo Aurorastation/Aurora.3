@@ -413,6 +413,7 @@
 	A.forceMove(an)
 	an.item = A
 	A.updatetype()
+	A.try_recharge()
 	A.pin = null
 	gun_mods = null
 	focusing_lens = null
