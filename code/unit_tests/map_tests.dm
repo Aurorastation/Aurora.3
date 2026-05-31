@@ -182,6 +182,7 @@
 	for(var/obj/structure/machinery/door/firedoor/F in world)
 		var/turf/T = get_turf(F)
 		checks++
+		TEST_ASSERT_NOTNULL(T, "A turf does not exist under the firedoor at [F.x],[F.y],[F.z]")
 		var/firelock_increment = 0
 		for(var/obj/structure/machinery/door/firedoor/FD in T)
 			firelock_increment += 1
