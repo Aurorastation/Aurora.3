@@ -177,7 +177,7 @@
 		. += "Sensor readings indicate the presence of a message written on the shell: <b>[written_message]</b>"
 
 /obj/item/ship_ammunition/proc/get_speed() //Lag variable used for step_towards(). Lower is better.
-	return 12 //FOR DEBUG CHANGE ME BACK
+	return 4
 
 /obj/item/ship_ammunition/touch_map_edge(var/new_z)
 	if(isprojectile(loc))

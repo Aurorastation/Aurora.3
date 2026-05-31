@@ -183,9 +183,9 @@
 		list(mode_name="grauwolf he", burst=1, projectile_type=/obj/projectile/ship_ammo/grauwolf),
 		list(mode_name="grauwolf ap", burst=1, projectile_type=/obj/projectile/ship_ammo/grauwolf/ap),
 		// Longbow
-		list(mode_name="longbow ap", burst=1, projectile_type=/obj/projectile/ship_ammo/longbow, ship_ammo_type = /obj/item/ship_ammunition/longbow/preset_ap),
-		list(mode_name="longbow he", burst=1, projectile_type=/obj/projectile/ship_ammo/longbow, ship_ammo_type = /obj/item/ship_ammunition/longbow/preset_he),
-		list(mode_name="longbow bunkerbuster", burst=1, projectile_type=/obj/projectile/ship_ammo/longbow, ship_ammo_type = /obj/item/ship_ammunition/longbow/preset_bb),
+		list(mode_name="longbow ap", burst=1, projectile_type=/obj/projectile/ship_ammo/longbow),
+		list(mode_name="longbow he", burst=1, projectile_type=/obj/projectile/ship_ammo/longbow),
+		list(mode_name="longbow bunkerbuster", burst=1, projectile_type=/obj/projectile/ship_ammo/longbow),
 		)
 
 //*END OF ADMIN SPAWN ONLY*//
@@ -307,8 +307,8 @@
 
 	firemodes = list(
 		list(mode_name="concentrated burst", burst=12, burst_delay = 1, move_delay=5, dispersion = GATLINGLASER_DISPERSION_CONCENTRATED),
-		list(mode_name="spray", burst=12, burst_delay = 1, move_delay = 8, dispersion = GATLINGLASER_DISPERSION_SPRAY),
-		list(mode_name="massive spray", burst=12, burst_delay = 1, move_delay = 10, dispersion = GATLINGLASER_DISPERSION_SPRAY),
+		list(mode_name="spray", burst=22, burst_delay = 1, move_delay = 8, dispersion = GATLINGLASER_DISPERSION_SPRAY),
+		list(mode_name="massive spray", burst=32, burst_delay = 1, move_delay = 10, dispersion = GATLINGLASER_DISPERSION_SPRAY),
 		)
 
 	charge_cost = 40
@@ -478,8 +478,8 @@
 
 	firemodes = list(
 		list(mode_name="2 second burst", burst=10, burst_delay = 1, fire_delay = 20, fire_delay_wielded = 20),
-		list(mode_name="4 second burst", burst=10, burst_delay = 1, fire_delay = 40, fire_delay_wielded = 40),
-		list(mode_name="6 second burst", burst=10, burst_delay = 1, fire_delay = 60, fire_delay_wielded = 60),
+		list(mode_name="4 second burst", burst=20, burst_delay = 1, fire_delay = 40, fire_delay_wielded = 40),
+		list(mode_name="6 second burst", burst=30, burst_delay = 1, fire_delay = 60, fire_delay_wielded = 60),
 		list(mode_name="point-burst auto", can_autofire = TRUE, burst = 3, fire_delay = 3, fire_delay_wielded = 3, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(1.0, 1.0, 1.0, 1.0, 1.2))
 	)
 
