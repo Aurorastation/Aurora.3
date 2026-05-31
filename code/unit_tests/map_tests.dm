@@ -159,6 +159,8 @@
 	var/checks = 0
 	var/failed_checks = 0
 	for(var/obj/structure/machinery/door/airlock/A in world)
+		if(QDELETED(A))
+			continue
 		var/turf/T = get_turf(A)
 		checks++
 		TEST_ASSERT_NOTNULL(T, "A turf does not exist under the door at [A.x],[A.y],[A.z]")
@@ -180,6 +182,8 @@
 	var/checks = 0
 	var/failed_checks = 0
 	for(var/obj/structure/machinery/door/firedoor/F in world)
+		if(QDELETED(F))
+			continue
 		var/turf/T = get_turf(F)
 		checks++
 		TEST_ASSERT_NOTNULL(T, "A turf does not exist under the firedoor at [F.x],[F.y],[F.z]")
