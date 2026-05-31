@@ -505,7 +505,7 @@
 	add_pain(0.6 * burn + 0.4 * brute)
 
 	if(owner)
-		SEND_SIGNAL(owner, COMSIG_EXTERNAL_ORGAN_DAMAGE, burn + brute)
+		SEND_SIGNAL(owner, COMSIG_DAMAGE_TO_ENDOSKELETON, burn + brute)
 
 	//If there are still hurties to dispense
 	if (spillover)
