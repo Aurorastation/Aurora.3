@@ -552,8 +552,8 @@ By design, d1 is the smallest direction and d2 is the highest
 
 		if(affecting.open != 0)
 			if(can_operate(H))
-				if(do_surgery(H,user,src))
-					return TRUE
+				do_surgery(H,user,src)
+				return user.a_intent != I_HURT
 		else
 			if(!BP_IS_ROBOTIC(affecting))
 				if(affecting.is_bandaged())

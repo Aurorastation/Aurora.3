@@ -1,0 +1,6 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - bugfix: "Fixed a bug where guessing the wrong tool during surgery results in attacking the patient."
+  - bugfix: "Attempting to use an item on someone while in HELP intent will now never ATTACK them."
+  - bugfix: "Being on HARM intent now skips all surgery steps in order to proceed directly to brutal murder."

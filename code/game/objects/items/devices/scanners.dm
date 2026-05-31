@@ -33,12 +33,6 @@ BREATH ANALYZER
 	. += "Health analyzers are faster at scanning people, the higher grade it is and the higher the anatomy skill of the user is."
 	. += "Clicking it in hand will pull up the last scan, if it has not been cleared."
 
-/obj/item/healthanalyzer/attack(mob/living/target_mob, mob/living/user, target_zone)
-	var/datum/component/health_analyzer/h_analyzer = src.GetComponent(/datum/component/health_analyzer)
-	if(!h_analyzer)
-		return
-	h_analyzer.attack(target_mob, user, target_zone)
-
 /obj/item/healthanalyzer/attack_self(mob/user)
 	var/datum/component/health_analyzer/h_analyzer = src.GetComponent(/datum/component/health_analyzer)
 	if(!h_analyzer)

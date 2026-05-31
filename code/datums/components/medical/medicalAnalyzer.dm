@@ -52,6 +52,18 @@
 	if(!isobj(parent))
 		return
 	owner = parent
+	RegisterSignal(parent, COMSIG_MOB_ATTACKBY, PROC_REF(handle_attackby), override = TRUE)
+
+/datum/component/health_analyzer/Destroy()
+	owner = null
+	UnregisterSignal(parent, COMSIG_MOB_ATTACKBY)
+	return ..()
+
+/datum/component/health_analyzer/proc/handle_attackby(obj/item/attacking_item, mob/user, mob/living/target, target_zone, handled)
+	SIGNAL_HANDLER
+	*handled = TRUE
+	// StrongDMM can't tell that this proc will immediately return control to the caller. Oh well.
+	UNLINT(attack(target, user, target_zone))
 
 /datum/component/health_analyzer/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
@@ -85,6 +97,8 @@
 			return TRUE
 
 /datum/component/health_analyzer/proc/attack(mob/living/target_mob, mob/living/user, target_zone)
+	// This proc has to run async in order to immediately return control to the caller with the handled reply.
+	set waitfor = FALSE
 	sound_scan = TRUE
 
 	user.visible_message("\The [user] starts scanning [user == target_mob ? "themself" : "\the [target_mob]"] with \the [owner].")
@@ -94,14 +108,21 @@
 	var/time = max(5 - (0.5 * (device_level + (anatomy ? anatomy : 1))), 1)
 
 	if(do_after(user, time SECONDS, target_mob, DO_UNIQUE))
+		// These have to be rechecked since this proc is now in async.
+		if (!istype(user) || !istype(target_mob))
+			return
 		flick("[owner.icon_state]-scan", owner)
 
 		health_scan_mob(target_mob, user, FALSE, sound_scan = sound_scan)
 		ui_interact(user)
 
 		owner.add_fingerprint(user)
-	else
-		user.visible_message("\The [user] stops scanning \the [target_mob].")
+		return
+
+	// These have to be rechecked since this proc is now in async.
+	if (!istype(user) || !istype(target_mob))
+		return
+	user.visible_message("\The [user] stops scanning \the [target_mob].")
 
 /datum/component/health_analyzer/proc/attack_self(mob/user)
 	ui_interact(user)

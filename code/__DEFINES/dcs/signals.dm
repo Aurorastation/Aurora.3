@@ -140,3 +140,6 @@
 
 /// Signal raised against a character attempting to deliver a speech.
 #define COMSIG_GET_LEADERSHIP_MODIFIERS "get_leadership_modifiers"
+
+/// Signal raised against an item being used to attack a mob, and can optionally allow components to interrupt the attack by setting the handled pointer to TRUE
+#define COMSIG_MOB_ATTACKBY "mob_attackby"

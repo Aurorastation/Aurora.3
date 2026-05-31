@@ -85,19 +85,25 @@ This calls [atom/proc/tool_act], among others.
 		return FALSE
 
 	var/selected_zone = user.zone_sel ? user.zone_sel.selecting : BP_CHEST
-	var/operating = can_operate(src)
-	if(operating == SURGERY_SUCCESS)
-		if(do_surgery(src, user, attacking_item))
-			return TRUE
-		else
-			return attacking_item.attack(src, user, selected_zone) //This is necessary to make things like health analyzers work. -mattatlas
-	if(operating == SURGERY_FAIL)
-		if(do_surgery(src, user, attacking_item, TRUE))
-			return TRUE
-		else
-			return attacking_item.attack(src, user, selected_zone)
-	else
+	var/handled = FALSE
+	SEND_SIGNAL(attacking_item, COMSIG_MOB_ATTACKBY, user, src, selected_zone, &handled)
+	if (handled)
+		return TRUE
+
+	// Skip surgery checks entirely on harm intent.
+	if (user.a_intent == I_HURT)
 		return attacking_item.attack(src, user, selected_zone)
+
+	var/operating = can_operate(src)
+	switch (operating)
+		if(SURGERY_SUCCESS)
+			do_surgery(src, user, attacking_item)
+			return TRUE
+		if(SURGERY_FAIL)
+			do_surgery(src, user, attacking_item, TRUE)
+			return TRUE
+		if(SURGERY_IGNORE)
+			return user.a_intent == I_HELP ? TRUE : attacking_item.attack(src, user, selected_zone)
 
 /mob/living/carbon/human/attackby(obj/item/attacking_item, mob/user, params)
 	if(user == src && user.a_intent == I_GRAB && zone_sel?.selecting == BP_MOUTH && can_devour(attacking_item, silent = TRUE))
