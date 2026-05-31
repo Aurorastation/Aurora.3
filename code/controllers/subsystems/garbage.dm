@@ -306,7 +306,7 @@ SUBSYSTEM_DEF(garbage)
 
 	if (time > 0.1 SECONDS)
 		postpone(time)
-	var/threshold = 0.5 // Used to be CONFIG_GET(number/hard_deletes_overrun_threshold)
+	var/threshold = 0.2 // Used to be CONFIG_GET(number/hard_deletes_overrun_threshold)
 	if (threshold && (time > threshold SECONDS))
 		if (!(type_info.qdel_flags & QDEL_ITEM_ADMINS_WARNED))
 			log_game("Error: [type]([refID]) took longer than [threshold] seconds to delete (took [round(time/10, 0.1)] seconds to delete)")
@@ -314,7 +314,7 @@ SUBSYSTEM_DEF(garbage)
 			type_info.qdel_flags |= QDEL_ITEM_ADMINS_WARNED
 			if(SSsentry)
 				SSsentry.capture_message(
-					"Hard delete overrun: [type] ([refID])",
+					"Hard delete overrun: [type] ([refID]) with dump: [detail]",
 					"warning",
 					"garbage",
 					tags = list("datum_type" = "[type]"),
