@@ -2,7 +2,7 @@
 
 /atom/movable/screen/module
 	dir = SOUTHWEST
-	icon = 'icons/mob/screen/robot.dmi'
+	icon = 'icons/hud/mob/robot.dmi'
 	var/mod_pos
 
 /atom/movable/screen/module/one
@@ -33,7 +33,7 @@
 	R.toggle_module(mod_pos)
 
 /atom/movable/screen/ai
-	icon = 'icons/mob/screen/ai.dmi'
+	icon = 'icons/hud/mob/ai.dmi'
 
 /atom/movable/screen/ai/core
 	name = "AI Core"

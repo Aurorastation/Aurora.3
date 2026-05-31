@@ -82,6 +82,22 @@
 		"Science Personnel" = /obj/outfit/job/scientist/event/zavodskoi
 	)
 
+/datum/faction/zavodskoi_interstellar/get_corporate_objectives(var/mission_level)
+	switch(mission_level)
+		if(REPRESENTATIVE_MISSION_HIGH)
+			return pick("Recruit a crew member to inform Hephaestus Industries contractors of their poor benefits, unsupportive company, and need to unionise.",
+						"Support Zavodskoi employees involved in disputes with Hephaestus Industries contractors",
+						"Identify and document Hephaestus Industries employees with disfavourable views towards Hephaestus")
+		if(REPRESENTATIVE_MISSION_MEDIUM)
+			return pick("Identify and rectify Zavodskoi Interstellar employees not compliant with company image standards or otherwise damaging company optics",
+						"Identify and rectify aberrant behaviour in Zavodskoi Interstellar synthetics.",
+						"Have a Zavodskoi employee sign a contract extension in exchange for a nearly-all-paid, 3-day holiday to a destination of choice on Moroz")
+		else
+			return pick("Conduct a survey on Zavodskoi Interstellar employee morale",
+						"Evaluate crew opinions on Zavodskoi Interstellar's company image",
+						"Identify and resolve a complaint of a Zavodskoi Interstellar employee")
+
+
 /obj/outfit/job/officer/zavodskoi
 	name = "Security Officer - Zavodskoi Interstellar"
 

@@ -161,7 +161,7 @@ SUBSYSTEM_DEF(radio)
 	SHOULD_NOT_SLEEP(TRUE)
 
 	var/datum/signal/subspace/testsig = new(O, test_freq)
-	for (var/obj/machinery/telecomms/R in SSmachinery.all_receivers)
+	for (var/obj/structure/machinery/telecomms/R in SSmachinery.all_receivers)
 		if(R.receive_range(testsig) >= 0)
 			return TRUE
 

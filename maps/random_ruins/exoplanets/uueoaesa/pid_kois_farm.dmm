@@ -9,7 +9,7 @@
 /turf/simulated/floor/tiled,
 /area/pid_kois_farm)
 "cs" = (
-/obj/machinery/hologram/holopad/long_range,
+/obj/structure/machinery/hologram/holopad/long_range,
 /turf/simulated/floor/tiled,
 /area/pid_kois_farm)
 "cH" = (
@@ -39,8 +39,8 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 10
 	},
-/obj/machinery/light,
-/obj/machinery/botany/extractor,
+/obj/structure/machinery/light,
+/obj/structure/machinery/botany/extractor,
 /turf/simulated/floor/tiled,
 /area/pid_kois_farm)
 "dM" = (
@@ -64,7 +64,7 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 10
 	},
-/obj/machinery/seed_extractor,
+/obj/structure/machinery/seed_extractor,
 /turf/simulated/floor/tiled,
 /area/pid_kois_farm)
 "fm" = (
@@ -93,7 +93,7 @@
 /turf/simulated/floor/tiled,
 /area/pid_kois_farm)
 "fV" = (
-/obj/machinery/portable_atmospherics/hydroponics,
+/obj/structure/machinery/portable_atmospherics/hydroponics,
 /turf/simulated/floor/tiled/white,
 /area/pid_kois_farm)
 "gR" = (
@@ -102,15 +102,15 @@
 	master_tag = "airlock_klax";
 	name = "airlock_klax"
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
 	},
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+/obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller{
 	dir = 8;
 	pixel_y = -6;
 	pixel_x = 20
 	},
-/obj/machinery/airlock_sensor{
+/obj/structure/machinery/airlock_sensor{
 	dir = 8;
 	pixel_x = 20;
 	pixel_y = 6
@@ -125,7 +125,7 @@
 /obj/item/reagent_containers/inhaler/phoron_special,
 /obj/item/reagent_containers/inhaler/phoron_special,
 /obj/item/reagent_containers/inhaler/phoron_special,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -166,7 +166,7 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -186,7 +186,7 @@
 "kb" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/structure/curtain/open/bed,
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/effect/ghostspawpoint{
 	name = "igs - pid_vaurca";
 	identifier = "pid_vaurca"
@@ -200,7 +200,7 @@
 	name = "airlock_klax"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/machinery/door/airlock/external,
+/obj/structure/machinery/door/airlock/external,
 /turf/simulated/floor/plating,
 /area/pid_kois_farm)
 "kO" = (
@@ -218,14 +218,14 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled,
 /area/pid_kois_farm)
 "md" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 9
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
@@ -243,8 +243,8 @@
 	name = "airlock_klax"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/machinery/door/airlock/external,
-/obj/machinery/access_button{
+/obj/structure/machinery/door/airlock/external,
+/obj/structure/machinery/access_button{
 	pixel_x = 28;
 	pixel_y = -10
 	},
@@ -278,7 +278,7 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 9
 	},
-/obj/machinery/portable_atmospherics/powered/scrubber/huge/stationary,
+/obj/structure/machinery/portable_atmospherics/powered/scrubber/huge/stationary,
 /turf/simulated/floor/tiled/white,
 /area/pid_kois_farm)
 "qZ" = (
@@ -286,7 +286,7 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 5
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -304,10 +304,10 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 5
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
-/obj/machinery/biogenerator{
+/obj/structure/machinery/biogenerator{
 	icon_state = "biogen-empty"
 	},
 /turf/simulated/floor/tiled,
@@ -316,7 +316,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -325,7 +325,7 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 5
 	},
-/obj/machinery/fabricator/autolathe,
+/obj/structure/machinery/fabricator/autolathe,
 /turf/simulated/floor/tiled,
 /area/pid_kois_farm)
 "sg" = (
@@ -357,7 +357,7 @@
 /obj/structure/table/rack,
 /obj/item/storage/bag/inflatable,
 /obj/item/storage/bag/inflatable,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -383,7 +383,7 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 9
 	},
-/obj/machinery/vending/dinnerware,
+/obj/structure/machinery/vending/dinnerware,
 /turf/simulated/floor/tiled,
 /area/pid_kois_farm)
 "tn" = (
@@ -436,20 +436,20 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 10
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled,
 /area/pid_kois_farm)
 "vC" = (
 /obj/structure/plasticflaps/airtight{
 	dir = 4
 	},
-/obj/machinery/door/airlock/service{
+/obj/structure/machinery/door/airlock/service{
 	name = "Hydroponics Bay"
 	},
 /turf/simulated/floor/tiled,
 /area/pid_kois_farm)
 "vZ" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -462,7 +462,7 @@
 /obj/effect/floor_decal/corner/green/full{
 	dir = 1
 	},
-/obj/machinery/seed_storage/xenobotany,
+/obj/structure/machinery/seed_storage/garden/xenobotany,
 /turf/simulated/floor/tiled,
 /area/pid_kois_farm)
 "xh" = (
@@ -503,13 +503,13 @@
 /obj/structure/table/rack,
 /obj/item/storage/toolbox/mechanical,
 /obj/item/storage/toolbox/mechanical,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/pid_kois_farm)
 "yb" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
 /obj/structure/window/reinforced,
@@ -519,8 +519,8 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/door/window{
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/door/window{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -533,7 +533,7 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 9
 	},
-/obj/machinery/vending/zora,
+/obj/structure/machinery/vending/zora,
 /turf/simulated/floor/tiled,
 /area/pid_kois_farm)
 "zw" = (
@@ -541,7 +541,7 @@
 	dir = 10
 	},
 /obj/structure/closet/hazmat/general,
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled,
 /area/pid_kois_farm)
 "zC" = (
@@ -551,7 +551,7 @@
 /turf/simulated/floor/tiled/white,
 /area/pid_kois_farm)
 "zN" = (
-/obj/machinery/door/airlock/security{
+/obj/structure/machinery/door/airlock/security{
 	name = "Equipment Storage"
 	},
 /turf/simulated/floor/tiled,
@@ -560,7 +560,7 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 10
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/white,
 /area/pid_kois_farm)
 "Ad" = (
@@ -580,7 +580,7 @@
 /obj/item/seeds/koisspore,
 /obj/item/seeds/koisspore,
 /obj/item/seeds/koisspore,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -598,10 +598,10 @@
 	name = "airlock_klax"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/machinery/atmospherics/pipe/manifold/hidden{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8
 	},
-/obj/machinery/door/airlock/external,
+/obj/structure/machinery/door/airlock/external,
 /turf/simulated/floor/plating,
 /area/pid_kois_farm)
 "Bw" = (
@@ -643,7 +643,7 @@
 /turf/simulated/floor/tiled,
 /area/pid_kois_farm)
 "Cu" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -667,7 +667,7 @@
 /turf/simulated/floor/tiled,
 /area/pid_kois_farm)
 "CO" = (
-/obj/machinery/door/airlock/service{
+/obj/structure/machinery/door/airlock/service{
 	name = "Habitation";
 	dir = 4
 	},
@@ -695,7 +695,7 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -724,14 +724,14 @@
 /obj/item/reagent_containers/food/snacks/koisbar,
 /obj/item/reagent_containers/food/snacks/koisbar,
 /obj/item/reagent_containers/food/snacks/koisbar,
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled,
 /area/pid_kois_farm)
 "EQ" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 6
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -798,7 +798,7 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 5
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -846,7 +846,7 @@
 /area/pid_kois_farm)
 "MS" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -855,7 +855,7 @@
 /turf/simulated/floor/tiled/white,
 /area/pid_kois_farm)
 "Ov" = (
-/obj/machinery/door/airlock/engineering{
+/obj/structure/machinery/door/airlock/engineering{
 	name = "Tool Storage"
 	},
 /turf/simulated/floor/tiled,
@@ -872,10 +872,10 @@
 	master_tag = "airlock_klax";
 	name = "airlock_klax"
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -883,7 +883,7 @@
 "Pr" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/structure/curtain/open/bed,
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled,
 /area/pid_kois_farm)
 "Qh" = (
@@ -893,11 +893,11 @@
 	name = "airlock_klax"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/machinery/atmospherics/pipe/simple/visible{
+/obj/structure/machinery/atmospherics/pipe/simple/visible{
 	dir = 10
 	},
-/obj/machinery/door/airlock/external,
-/obj/machinery/access_button{
+/obj/structure/machinery/door/airlock/external,
+/obj/structure/machinery/access_button{
 	dir = 1;
 	pixel_x = 28;
 	pixel_y = 12
@@ -905,7 +905,7 @@
 /turf/simulated/floor/plating,
 /area/pid_kois_farm)
 "QX" = (
-/obj/machinery/door/airlock/service{
+/obj/structure/machinery/door/airlock/service{
 	name = "Habitation"
 	},
 /turf/simulated/floor/tiled,
@@ -917,7 +917,7 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 6
 	},
-/obj/machinery/vending/hydronutrients/xenobotany,
+/obj/structure/machinery/vending/hydronutrients/xenobotany,
 /turf/simulated/floor/tiled,
 /area/pid_kois_farm)
 "Sk" = (
@@ -934,7 +934,7 @@
 /turf/simulated/floor/tiled,
 /area/pid_kois_farm)
 "SF" = (
-/obj/machinery/door/airlock/service{
+/obj/structure/machinery/door/airlock/service{
 	name = "Hydroponics Bay"
 	},
 /turf/simulated/floor/tiled,
@@ -980,7 +980,7 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 10
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled,
 /area/pid_kois_farm)
 "Wl" = (
@@ -1016,14 +1016,14 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 10
 	},
-/obj/machinery/botany/editor,
+/obj/structure/machinery/botany/editor,
 /turf/simulated/floor/tiled,
 /area/pid_kois_farm)
 "YZ" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 6
 	},
-/obj/machinery/portable_atmospherics/powered/scrubber/huge/stationary,
+/obj/structure/machinery/portable_atmospherics/powered/scrubber/huge/stationary,
 /turf/simulated/floor/tiled/white,
 /area/pid_kois_farm)
 "Zr" = (
@@ -1035,7 +1035,7 @@
 /turf/template_noop,
 /area/space)
 "Zv" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
+/obj/structure/machinery/atmospherics/pipe/simple/visible{
 	dir = 10
 	},
 /turf/simulated/floor/tiled,

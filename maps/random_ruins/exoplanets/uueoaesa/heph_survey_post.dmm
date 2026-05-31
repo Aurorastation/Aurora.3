@@ -1,24 +1,24 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "ab" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/heph_survey_post)
 "ad" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /obj/structure/bed/stool/padded/beige,
 /turf/simulated/floor/tiled/dark,
 /area/heph_survey_post)
 "ae" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/alarm/east,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/alarm/east,
 /turf/simulated/floor/tiled/dark,
 /area/heph_survey_post)
 "au" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/light/colored/dying{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/light/colored/dying{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -30,13 +30,13 @@
 /area/heph_survey_post)
 "bH" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/mining/brace{
+/obj/structure/machinery/mining/brace{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/heph_survey_post)
 "bL" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/heph_survey_post)
@@ -46,7 +46,7 @@
 	},
 /area/heph_survey_post)
 "bO" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/floor_damage/rust,
@@ -65,7 +65,7 @@
 /turf/template_noop,
 /area/template_noop)
 "dD" = (
-/obj/machinery/light/colored/dying{
+/obj/structure/machinery/light/colored/dying{
 	dir = 4
 	},
 /obj/structure/toilet{
@@ -75,26 +75,26 @@
 /turf/simulated/floor/tiled/freezer,
 /area/heph_survey_post)
 "dK" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
 /area/heph_survey_post)
 "ea" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/heph_survey_post)
 "er" = (
-/obj/machinery/alarm/east,
+/obj/structure/machinery/alarm/east,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/heph_survey_post)
@@ -112,14 +112,14 @@
 /turf/simulated/floor/plating,
 /area/heph_survey_post)
 "fz" = (
-/obj/machinery/door/airlock/external,
+/obj/structure/machinery/door/airlock/external,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	pixel_x = -24;
 	pixel_y = 32;
 	dir = 4
@@ -138,15 +138,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/heph_survey_post)
 "hm" = (
-/obj/machinery/computer/cryopod{
+/obj/structure/machinery/computer/cryopod{
 	pixel_x = 29
 	},
-/obj/machinery/alarm/south,
+/obj/structure/machinery/alarm/south,
 /turf/simulated/floor/tiled/white,
 /area/heph_survey_post)
 "hu" = (
 /obj/effect/landmark/clear,
-/obj/machinery/power/solar,
+/obj/structure/machinery/power/solar,
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
@@ -154,12 +154,12 @@
 /area/template_noop)
 "hE" = (
 /obj/structure/table/standard,
-/obj/machinery/chemical_dispenser/coffeemaster/full,
+/obj/structure/machinery/chemical_dispenser/coffeemaster/full,
 /obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/tiled/dark,
 /area/heph_survey_post)
 "hM" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
 /obj/random/dirt_75,
@@ -183,9 +183,9 @@
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc/empty/west,
+/obj/structure/machinery/power/apc/empty/west,
 /obj/effect/decal/cleanable/cobweb,
-/obj/machinery/light/colored/dying{
+/obj/structure/machinery/light/colored/dying{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -213,11 +213,11 @@
 /turf/simulated/floor/plating,
 /area/heph_survey_post)
 "jx" = (
-/obj/machinery/fabricator/autolathe,
+/obj/structure/machinery/fabricator/autolathe,
 /turf/simulated/floor/tiled/dark,
 /area/heph_survey_post)
 "jF" = (
-/obj/machinery/hologram/holopad/long_range{
+/obj/structure/machinery/hologram/holopad/long_range{
 	pixel_x = 16
 	},
 /turf/simulated/floor/tiled/dark,
@@ -228,10 +228,10 @@
 /turf/simulated/floor/plating,
 /area/heph_survey_post)
 "kV" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -251,20 +251,20 @@
 /turf/simulated/floor/tiled/dark,
 /area/heph_survey_post)
 "lF" = (
-/obj/machinery/recharger/wallcharger{
+/obj/structure/machinery/recharger/wallcharger{
 	pixel_y = -32
 	},
 /obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/tiled/dark,
 /area/heph_survey_post)
 "mN" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/door/airlock/multi_tile{
+/obj/structure/machinery/door/airlock/multi_tile{
 	dir = 1;
 	name = "Warehouse"
 	},
@@ -284,10 +284,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/heph_survey_post)
 "nI" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/heph_survey_post)
 "nJ" = (
@@ -306,7 +306,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/light/colored/dying{
+/obj/structure/machinery/light/colored/dying{
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock{
@@ -334,10 +334,10 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
 	},
-/obj/machinery/airlock_sensor{
+/obj/structure/machinery/airlock_sensor{
 	pixel_x = -20;
 	dir = 4
 	},
@@ -349,45 +349,45 @@
 /turf/simulated/floor/plating,
 /area/heph_survey_post)
 "nW" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
 /area/heph_survey_post)
 "ov" = (
-/obj/machinery/atmospherics/binary/pump{
+/obj/structure/machinery/atmospherics/binary/pump{
 	name = "pump to waste"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/heph_survey_post)
 "pc" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/heph_survey_post)
 "pj" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/heph_survey_post)
 "pu" = (
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/terminal{
+/obj/structure/machinery/power/terminal{
 	dir = 8
 	},
-/obj/machinery/light/colored/dying{
+/obj/structure/machinery/light/colored/dying{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/heph_survey_post)
 "pv" = (
 /obj/structure/cable/green,
-/obj/machinery/power/solar_control{
+/obj/structure/machinery/power/solar_control{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -403,20 +403,20 @@
 /turf/simulated/floor/tiled/dark,
 /area/heph_survey_post)
 "qL" = (
-/obj/machinery/atmospherics/binary/passive_gate/on{
+/obj/structure/machinery/atmospherics/binary/passive_gate/on{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/heph_survey_post)
 "rD" = (
-/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/structure/machinery/portable_atmospherics/canister/oxygen,
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled/dark,
 /area/heph_survey_post)
 "rI" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/ore_box,
-/obj/machinery/light/colored/dying{
+/obj/structure/machinery/light/colored/dying{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -431,15 +431,15 @@
 /area/heph_survey_post)
 "sd" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/mech_recharger/hephaestus,
+/obj/structure/machinery/mech_recharger/hephaestus,
 /mob/living/heavy_vehicle/premade/miner,
-/obj/machinery/light/colored/dying{
+/obj/structure/machinery/light/colored/dying{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/heph_survey_post)
 "te" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/dark,
 /area/heph_survey_post)
 "tm" = (
@@ -450,7 +450,7 @@
 /turf/template_noop,
 /area/template_noop)
 "ty" = (
-/obj/machinery/door/airlock/external,
+/obj/structure/machinery/door/airlock/external,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -464,7 +464,7 @@
 /area/heph_survey_post)
 "tS" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/mining/drill,
+/obj/structure/machinery/mining/drill,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/heph_survey_post)
@@ -479,40 +479,40 @@
 /area/heph_survey_post)
 "uv" = (
 /obj/structure/table/standard,
-/obj/machinery/chemical_dispenser/coffeemaster/full,
+/obj/structure/machinery/chemical_dispenser/coffeemaster/full,
 /turf/simulated/floor/tiled/dark,
 /area/heph_survey_post)
 "vv" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/door/airlock/engineering{
+/obj/structure/machinery/door/airlock/engineering{
 	dir = 4;
 	name = "Power"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/heph_survey_post)
 "vO" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/door/airlock/mining{
+/obj/structure/machinery/door/airlock/mining{
 	name = "Crew Habitation";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/heph_survey_post)
 "vT" = (
-/obj/machinery/alarm/south,
+/obj/structure/machinery/alarm/south,
 /obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/tiled/dark,
 /area/heph_survey_post)
@@ -547,16 +547,16 @@
 /turf/simulated/floor/plating,
 /area/heph_survey_post)
 "wW" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/heph_survey_post)
 "xl" = (
-/obj/machinery/suit_cycler/offship/hephaestus,
+/obj/structure/machinery/suit_cycler/offship/hephaestus,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -569,20 +569,20 @@
 /turf/template_noop,
 /area/template_noop)
 "xz" = (
-/obj/machinery/cryopod{
+/obj/structure/machinery/cryopod{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/heph_survey_post)
 "xO" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/dark,
 /area/heph_survey_post)
 "xV" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -607,10 +607,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/heph_survey_post)
 "Br" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 1
 	},
-/obj/machinery/portable_atmospherics/canister/empty{
+/obj/structure/machinery/portable_atmospherics/canister/empty{
 	name = "waste canister"
 	},
 /obj/effect/floor_decal/industrial/outline/red,
@@ -627,15 +627,15 @@
 /area/heph_survey_post)
 "Di" = (
 /obj/effect/landmark/clear,
-/obj/machinery/power/solar,
+/obj/structure/machinery/power/solar,
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
 /turf/template_noop,
 /area/template_noop)
 "Dv" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/airlock/multi_tile{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/door/airlock/multi_tile{
 	name = "Command"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -650,24 +650,24 @@
 /obj/structure/cryofeed{
 	dir = 1
 	},
-/obj/machinery/light/colored/dying{
+/obj/structure/machinery/light/colored/dying{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/heph_survey_post)
 "Eh" = (
-/obj/machinery/light/colored/dying{
+/obj/structure/machinery/light/colored/dying{
 	dir = 4
 	},
 /obj/structure/table/standard,
-/obj/machinery/photocopier/faxmachine{
+/obj/structure/machinery/photocopier/faxmachine{
 	department = "Hephaestus Survey Post"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/heph_survey_post)
 "EY" = (
 /obj/effect/floor_decal/industrial/warning/full,
-/obj/machinery/shipsensors,
+/obj/structure/machinery/shipsensors,
 /turf/simulated/floor/airless,
 /area/heph_survey_post)
 "Fm" = (
@@ -679,7 +679,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/smes/buildable/third_party_shuttle/empty,
+/obj/structure/machinery/power/smes/buildable/third_party_shuttle/empty,
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
@@ -690,26 +690,26 @@
 /turf/simulated/floor/tiled/dark,
 /area/heph_survey_post)
 "GE" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/obj/machinery/alarm/east,
+/obj/structure/machinery/alarm/east,
 /turf/simulated/floor/tiled/dark,
 /area/heph_survey_post)
 "HE" = (
-/obj/machinery/suit_cycler/offship/hephaestus,
+/obj/structure/machinery/suit_cycler/offship/hephaestus,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/heph_survey_post)
 "Ig" = (
-/obj/machinery/computer/ship/sensors/terminal,
+/obj/structure/machinery/computer/ship/sensors/terminal,
 /turf/simulated/floor/tiled/dark,
 /area/heph_survey_post)
 "Ir" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /obj/random/dirt_75,
@@ -729,7 +729,7 @@
 /turf/template_noop,
 /area/template_noop)
 "IY" = (
-/obj/machinery/light/colored/dying{
+/obj/structure/machinery/light/colored/dying{
 	dir = 8
 	},
 /obj/structure/closet/firecloset/full,
@@ -740,66 +740,66 @@
 /turf/simulated/floor/tiled/dark,
 /area/heph_survey_post)
 "Jc" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/universal,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/universal,
 /turf/simulated/floor/tiled/dark,
 /area/heph_survey_post)
 "Jj" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/heph_survey_post)
 "Jo" = (
-/obj/machinery/suit_cycler/offship/hephaestus,
-/obj/machinery/light/colored/dying{
+/obj/structure/machinery/suit_cycler/offship/hephaestus,
+/obj/structure/machinery/light/colored/dying{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /turf/simulated/floor/plating,
 /area/heph_survey_post)
 "JE" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
 /area/heph_survey_post)
 "JN" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/heph_survey_post)
 "Kf" = (
-/obj/machinery/door/airlock/mining{
+/obj/structure/machinery/door/airlock/mining{
 	name = "Cryogenics"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/heph_survey_post)
 "KQ" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 1
 	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled/dark,
 /area/heph_survey_post)
 "KR" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/mining/brace{
+/obj/structure/machinery/mining/brace{
 	dir = 4
 	},
-/obj/machinery/light/colored/dying{
+/obj/structure/machinery/light/colored/dying{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/cobweb,
@@ -819,12 +819,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/heph_survey_post)
 "Nc" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/tiled/dark,
 /area/heph_survey_post)
 "NF" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/structure/machinery/atmospherics/pipe/tank/air{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
@@ -834,7 +834,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/heph_survey_post)
 "OD" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
 /obj/random/dirt_75,
@@ -848,12 +848,12 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/alarm/north,
+/obj/structure/machinery/alarm/north,
 /turf/simulated/floor/tiled/dark,
 /area/heph_survey_post)
 "Px" = (
-/obj/machinery/door/airlock/external,
-/obj/machinery/atmospherics/pipe/manifold/hidden{
+/obj/structure/machinery/door/airlock/external,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock{
@@ -879,8 +879,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/heph_survey_post)
 "QQ" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -895,24 +895,24 @@
 /turf/simulated/floor/plating,
 /area/heph_survey_post)
 "Rf" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
 /area/heph_survey_post)
 "Rr" = (
-/obj/machinery/shower,
+/obj/structure/machinery/shower,
 /obj/structure/curtain/open/shower,
 /turf/simulated/floor/tiled/freezer,
 /area/heph_survey_post)
 "Sr" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -928,10 +928,10 @@
 /turf/simulated/floor/plating,
 /area/heph_survey_post)
 "Te" = (
-/obj/machinery/light/colored/dying{
+/obj/structure/machinery/light/colored/dying{
 	dir = 4
 	},
-/obj/machinery/alarm/east,
+/obj/structure/machinery/alarm/east,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/heph_survey_post)
@@ -949,18 +949,18 @@
 /area/heph_survey_post)
 "Tr" = (
 /obj/structure/dispenser/oxygen,
-/obj/machinery/light/colored/dying{
+/obj/structure/machinery/light/colored/dying{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
 /area/heph_survey_post)
 "Tv" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/mining/brace{
+/obj/structure/machinery/mining/brace{
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -968,7 +968,7 @@
 /area/heph_survey_post)
 "TR" = (
 /obj/effect/landmark/clear,
-/obj/machinery/power/tracker,
+/obj/structure/machinery/power/tracker,
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
@@ -1001,37 +1001,37 @@
 /turf/simulated/floor/tiled/white,
 /area/heph_survey_post)
 "UH" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/tiled/dark,
 /area/heph_survey_post)
 "VA" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/mining/brace{
+/obj/structure/machinery/mining/brace{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/heph_survey_post)
 "VV" = (
-/obj/machinery/door/airlock/mining{
+/obj/structure/machinery/door/airlock/mining{
 	name = "Bathroom";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/heph_survey_post)
 "WJ" = (
-/obj/machinery/cryopod{
+/obj/structure/machinery/cryopod{
 	dir = 2
 	},
 /turf/simulated/floor/tiled/white,
 /area/heph_survey_post)
 "WK" = (
-/obj/machinery/door/blast/regular{
+/obj/structure/machinery/door/blast/regular{
 	dir = 4;
 	name = "Sensor Shroud";
 	id = "heph_post_sensors"
 	},
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	id = "heph_post_sensors";
 	pixel_x = 26;
 	pixel_y = 12;
@@ -1040,12 +1040,12 @@
 /turf/simulated/floor/airless,
 /area/heph_survey_post)
 "WL" = (
-/obj/machinery/suit_cycler/offship/hephaestus,
+/obj/structure/machinery/suit_cycler/offship/hephaestus,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1057,17 +1057,17 @@
 /turf/simulated/floor/tiled/dark,
 /area/heph_survey_post)
 "Xn" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
 /obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/tiled/dark,
 /area/heph_survey_post)
 "XG" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
 	},
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+/obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller{
 	dir = 8;
 	pixel_y = -6;
 	pixel_x = 20
@@ -1099,7 +1099,7 @@
 /area/heph_survey_post)
 "XS" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/mining/drill,
+/obj/structure/machinery/mining/drill,
 /turf/simulated/floor/plating,
 /area/heph_survey_post)
 "Yo" = (
@@ -1126,10 +1126,10 @@
 /turf/template_noop,
 /area/template_noop)
 "Zb" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
-/obj/machinery/door/airlock/multi_tile{
+/obj/structure/machinery/door/airlock/multi_tile{
 	dir = 1;
 	name = "Atmospherics"
 	},
@@ -1142,13 +1142,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/heph_survey_post)
 "Zo" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/structure/bed/stool/padded/beige,
 /turf/simulated/floor/tiled/dark,
 /area/heph_survey_post)
 "Zr" = (
-/obj/machinery/door/airlock/external,
-/obj/machinery/access_button{
+/obj/structure/machinery/door/airlock/external,
+/obj/structure/machinery/access_button{
 	pixel_x = 28;
 	pixel_y = -8
 	},
@@ -1161,14 +1161,14 @@
 /turf/simulated/floor/plating,
 /area/heph_survey_post)
 "Zy" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
 /obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/tiled/dark,
 /area/heph_survey_post)
 "ZH" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/heph_survey_post)
@@ -1187,7 +1187,7 @@
 /obj/item/plastique/seismic,
 /obj/item/plastique/seismic,
 /obj/item/plastique/seismic,
-/obj/machinery/light/colored/dying{
+/obj/structure/machinery/light/colored/dying{
 	dir = 8
 	},
 /turf/simulated/floor/plating,

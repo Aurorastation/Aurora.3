@@ -12,7 +12,7 @@
 	// Various turf and door types used when generating the turbolift floors.
 	var/wall_type =  /turf/simulated/wall/elevator
 	var/floor_type = /turf/simulated/floor/tiled/dark
-	var/door_type =  /obj/machinery/door/airlock/lift
+	var/door_type =  /obj/structure/machinery/door/airlock/lift
 
 	var/list/areas_to_use = list()
 
@@ -178,7 +178,7 @@
 						if(thing.simulated)
 							qdel(thing)
 				if(checking.type == floor_type) // Don't build over empty space on lower levels.
-					var/obj/machinery/door/airlock/lift/newdoor = new door_type(checking)
+					var/obj/structure/machinery/door/airlock/lift/newdoor = new door_type(checking)
 					if(internal)
 						lift.doors += newdoor
 						newdoor.lift = cfloor
@@ -197,8 +197,8 @@
 			// Place lights
 			var/turf/placing1 = locate(light_x1, light_y1, cz)
 			var/turf/placing2 = locate(light_x2, light_y2, cz)
-			var/obj/machinery/light/light1 = new(placing1, light)
-			var/obj/machinery/light/light2 = new(placing2, light)
+			var/obj/structure/machinery/light/light1 = new(placing1, light)
+			var/obj/structure/machinery/light/light2 = new(placing2, light)
 			if(udir == NORTH || udir == SOUTH)
 				light1.set_dir(WEST)
 				light2.set_dir(EAST)

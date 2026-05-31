@@ -3,7 +3,7 @@
 	desc = "A portable(ish) machine made to print tiny modular circuitry out of metal."
 	icon = 'icons/obj/assemblies/electronic_tools.dmi'
 	icon_state = "circuit_printer"
-	w_class = WEIGHT_CLASS_BULKY
+	w_class = WEIGHT_CLASS_NORMAL
 	var/metal = 0
 	var/max_metal = 100
 	var/metal_per_sheet = 10 // One sheet equals this much metal.

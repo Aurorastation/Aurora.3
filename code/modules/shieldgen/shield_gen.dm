@@ -5,7 +5,7 @@
 //heavy explosion range will do 3 renwick's damage
 //explosion damage is cumulative. if a tile is in range of light, medium and heavy damage, it will take a hit from all three
 
-/obj/machinery/shield_gen
+/obj/structure/machinery/shield_gen
 	name = "bubble shield generator"
 	desc = "Machine that generates an impenetrable field of energy when activated."
 	icon = 'icons/obj/machinery/shielding.dmi'
@@ -26,23 +26,23 @@
 	/// Maximum field radius.
 	var/max_field_radius = 100
 	/// The shield capacitor attached to this shield generator.
-	var/obj/machinery/shield_capacitor/owned_capacitor
+	var/obj/structure/machinery/shield_capacitor/owned_capacitor
 	/// If this shield generator supports multi-z.
 	var/multiz = TRUE
 
-/obj/machinery/shield_gen/Initialize()
-	for(var/obj/machinery/shield_capacitor/possible_cap in range(1, src))
+/obj/structure/machinery/shield_gen/Initialize()
+	for(var/obj/structure/machinery/shield_capacitor/possible_cap in range(1, src))
 		if(get_dir(possible_cap, src) == possible_cap.dir)
 			owned_capacitor = possible_cap
 			break
 	energy_field = new(src, get_shielded_turfs())
 	. = ..()
 
-/obj/machinery/shield_gen/Destroy()
+/obj/structure/machinery/shield_gen/Destroy()
 	owned_capacitor = null
 	return ..()
 
-/obj/machinery/shield_gen/emag_act(var/remaining_charges, var/mob/user)
+/obj/structure/machinery/shield_gen/emag_act(var/remaining_charges, var/mob/user)
 	if(prob(75))
 		locked = !locked
 		to_chat(user, "Controls are now [locked ? "locked." : "unlocked."]")
@@ -51,7 +51,7 @@
 
 	spark(src, 5, GLOB.alldirs)
 
-/obj/machinery/shield_gen/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/shield_gen/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/card/id))
 		if(allowed(user))
 			locked = !locked
@@ -66,7 +66,7 @@
 		if(active)
 			toggle()
 		if(anchored)
-			for(var/obj/machinery/shield_capacitor/cap in range(1, src))
+			for(var/obj/structure/machinery/shield_capacitor/cap in range(1, src))
 				if(cap.owned_gen)
 					continue
 				if(get_dir(cap, src) == cap.dir && cap.anchored)
@@ -80,17 +80,17 @@
 	else
 		..()
 
-/obj/machinery/shield_gen/attack_ai(mob/user)
+/obj/structure/machinery/shield_gen/attack_ai(mob/user)
 	if(!ai_can_interact(user))
 		return
 	return attack_hand(user)
 
-/obj/machinery/shield_gen/attack_hand(mob/user)
+/obj/structure/machinery/shield_gen/attack_hand(mob/user)
 	if(stat & BROKEN)
 		return
 	interact(user)
 
-/obj/machinery/shield_gen/interact(mob/user)
+/obj/structure/machinery/shield_gen/interact(mob/user)
 	if(locked)
 		to_chat(user, SPAN_WARNING("The device is locked. Swipe your ID to unlock it."))
 		return
@@ -104,7 +104,7 @@
 					owned_capacitor.owned_gen = null
 				owned_capacitor = null
 	if(!owned_capacitor)
-		for(var/obj/machinery/shield_capacitor/cap in range(1, src))
+		for(var/obj/structure/machinery/shield_capacitor/cap in range(1, src))
 			if(cap.owned_gen)
 				continue
 			if(get_dir(cap, src) == cap.dir && cap.anchored)
@@ -114,7 +114,7 @@
 				break
 	return ui_interact(user)
 
-/obj/machinery/shield_gen/process()
+/obj/structure/machinery/shield_gen/process()
 	if(active)
 		if(!anchored)
 			toggle()
@@ -130,7 +130,7 @@
 /**
  * Called whenever the field needs to take charge from the capacitor.
  */
-/obj/machinery/shield_gen/proc/assume_charge(required_energy)
+/obj/structure/machinery/shield_gen/proc/assume_charge(required_energy)
 	if(!owned_capacitor || !owned_capacitor.active)
 		return 0
 	var/assumed_charge = min(owned_capacitor.stored_charge, required_energy)
@@ -138,12 +138,12 @@
 	owned_capacitor.stored_charge -= assumed_charge
 	return assumed_charge
 
-/obj/machinery/shield_gen/ex_act(var/severity)
+/obj/structure/machinery/shield_gen/ex_act(var/severity)
 	if(active)
 		toggle()
 	return ..()
 
-/obj/machinery/shield_gen/proc/toggle()
+/obj/structure/machinery/shield_gen/proc/toggle()
 	if(!active)
 		if(!owned_capacitor)
 			balloon_alert_to_viewers("no capacitor")
@@ -162,7 +162,7 @@
 			to_chat(M, SPAN_NOTICE("[icon2html(src, M)] You hear heavy droning fade out."))
 			energy_field.clear_field()
 
-/obj/machinery/shield_gen/update_icon()
+/obj/structure/machinery/shield_gen/update_icon()
 	if(stat & BROKEN)
 		icon_state = "broke"
 	else
@@ -172,7 +172,7 @@
 			icon_state = "generator0"
 
 //grab the border tiles in a square around this machine
-/obj/machinery/shield_gen/proc/get_shielded_turfs()
+/obj/structure/machinery/shield_gen/proc/get_shielded_turfs()
 	var/turf/T = get_turf(src)
 	. = list()
 
@@ -204,13 +204,13 @@
 
 	return . - get_turf(src)
 
-/obj/machinery/shield_gen/ui_interact(mob/user, var/datum/tgui/ui)
+/obj/structure/machinery/shield_gen/ui_interact(mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "ShieldGenerator", "Shield Generator", 480, 400)
 		ui.open()
 
-/obj/machinery/shield_gen/ui_data(mob/user)
+/obj/structure/machinery/shield_gen/ui_data(mob/user)
 	var/list/data = list()
 
 	data["owned_capacitor"] = !!owned_capacitor
@@ -224,7 +224,7 @@
 
 	return data
 
-/obj/machinery/shield_gen/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/obj/structure/machinery/shield_gen/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
@@ -247,7 +247,7 @@
 
 	add_fingerprint(usr)
 
-/obj/machinery/shield_gen/proc/getzabove(var/turf/location)
+/obj/structure/machinery/shield_gen/proc/getzabove(var/turf/location)
 	var/connected = list()
 	var/turf/above = GET_TURF_ABOVE(location)
 
@@ -259,7 +259,7 @@
 
 	return connected
 
-/obj/machinery/shield_gen/proc/getzbelow(var/turf/location)
+/obj/structure/machinery/shield_gen/proc/getzbelow(var/turf/location)
 	var/connected = list()
 	var/turf/below = GET_TURF_BELOW(location)
 

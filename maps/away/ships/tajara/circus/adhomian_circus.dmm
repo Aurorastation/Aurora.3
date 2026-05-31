@@ -8,7 +8,7 @@
 	},
 /area/adhomian_circus/clown)
 "aaA" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	icon_state = "tube_empty"
 	},
@@ -42,10 +42,10 @@
 	},
 /area/adhomian_circus/port)
 "aiW" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -58,13 +58,13 @@
 	},
 /area/adhomian_circus/starboard)
 "akn" = (
-/obj/machinery/door/airlock/external,
-/obj/machinery/access_button{
+/obj/structure/machinery/door/airlock/external,
+/obj/structure/machinery/access_button{
 	pixel_x = -28;
 	pixel_y = 12;
 	dir = 1
 	},
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	pixel_x = 28;
 	pixel_y = 12;
 	dir = 1
@@ -81,8 +81,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/adhomian_circus_shuttle)
 "alY" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -91,7 +91,7 @@
 	},
 /area/adhomian_circus/starboard)
 "amW" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled{
@@ -107,11 +107,11 @@
 	},
 /area/adhomian_circus/bridge)
 "ara" = (
-/obj/machinery/atmospherics/unary/engine,
+/obj/structure/machinery/atmospherics/unary/engine,
 /turf/simulated/floor/airless,
 /area/adhomian_circus/engine)
 "atO" = (
-/obj/machinery/atmospherics/pipe/tank/carbon_dioxide{
+/obj/structure/machinery/atmospherics/pipe/tank/carbon_dioxide{
 	dir = 1
 	},
 /turf/simulated/floor/plating{
@@ -126,7 +126,7 @@
 	},
 /area/adhomian_circus/fortune)
 "aGz" = (
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	name = "Propulsion";
 	req_access = list(202);
 	dir = 4
@@ -136,7 +136,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -153,10 +153,10 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/tank{
+/obj/structure/machinery/atmospherics/pipe/tank{
 	dir = 8
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	icon_state = "tube_empty"
 	},
@@ -165,7 +165,7 @@
 	},
 /area/adhomian_circus/maintenance)
 "aRr" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8;
 	level = 2
 	},
@@ -174,10 +174,10 @@
 	},
 /area/adhomian_circus/clown)
 "aSh" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
 /obj/structure/cable/green{
@@ -193,7 +193,7 @@
 	},
 /area/adhomian_circus/starboard)
 "aTD" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -202,7 +202,7 @@
 	},
 /area/adhomian_circus/port)
 "aUK" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8;
 	icon_state = "tube_empty"
 	},
@@ -211,14 +211,14 @@
 	},
 /area/adhomian_circus/starboard)
 "bdp" = (
-/obj/machinery/door/airlock/glass{
+/obj/structure/machinery/door/airlock/glass{
 	name = "Cockpit";
 	req_access = list(202);
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/door/firedoor,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -242,7 +242,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8;
 	icon_state = "tube_empty"
 	},
@@ -251,10 +251,10 @@
 	},
 /area/adhomian_circus/maintenance)
 "bhJ" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -266,7 +266,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/cyan{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/cyan{
 	dir = 8
 	},
 /turf/simulated/floor/plating{
@@ -274,7 +274,7 @@
 	},
 /area/adhomian_circus/maintenance)
 "bmD" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 9
 	},
 /turf/simulated/wall/shuttle/space_ship,
@@ -296,7 +296,7 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/adhomian_circus/maintenance)
 "bsf" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 6
 	},
 /turf/simulated/floor/carpet/art{
@@ -304,13 +304,13 @@
 	},
 /area/adhomian_circus/hangar)
 "bsl" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/fuel{
 	dir = 1
 	},
 /turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/adhomian_circus_shuttle)
 "byG" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /turf/simulated/floor/tiled{
@@ -325,13 +325,13 @@
 	},
 /area/adhomian_circus/clown)
 "bAh" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1;
 	icon_state = "tube_empty"
 	},
@@ -345,10 +345,10 @@
 	},
 /area/adhomian_circus/port)
 "bCv" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -368,7 +368,7 @@
 	},
 /area/adhomian_circus/crew)
 "bKA" = (
-/obj/machinery/shipsensors/weak,
+/obj/structure/machinery/shipsensors/weak,
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
 	dir = 4
@@ -376,7 +376,7 @@
 /turf/simulated/floor/airless,
 /area/adhomian_circus/bridge)
 "bNj" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
 	},
 /turf/simulated/wall/shuttle/space_ship,
@@ -393,11 +393,11 @@
 	},
 /area/adhomian_circus/port)
 "bTK" = (
-/obj/machinery/alarm/cold/north{
+/obj/structure/machinery/alarm/cold/north{
 	req_one_access = null;
 	req_access = list(202)
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -416,8 +416,8 @@
 	},
 /area/adhomian_circus/port)
 "bWG" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -438,10 +438,10 @@
 	},
 /area/adhomian_circus/port)
 "bXS" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/black{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/black{
 	dir = 4
 	},
-/obj/machinery/meter,
+/obj/structure/machinery/meter,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -461,7 +461,7 @@
 	},
 /area/adhomian_circus/port)
 "cmk" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled{
@@ -469,8 +469,8 @@
 	},
 /area/adhomian_circus/hangar)
 "cmo" = (
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/obj/machinery/light/small{
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/plating{
@@ -482,7 +482,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/east{
+/obj/structure/machinery/power/apc/east{
 	req_access = list(202)
 	},
 /turf/simulated/floor/tiled{
@@ -490,10 +490,10 @@
 	},
 /area/adhomian_circus/hangar)
 "csw" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -513,8 +513,8 @@
 /area/adhomian_circus/starboard)
 "cAk" = (
 /obj/structure/curtain/black,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -523,9 +523,9 @@
 	},
 /area/adhomian_circus/fortune)
 "cBJ" = (
-/obj/machinery/power/smes/buildable/third_party_shuttle,
+/obj/structure/machinery/power/smes/buildable/third_party_shuttle,
 /obj/structure/cable,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -549,7 +549,7 @@
 "cFk" = (
 /obj/structure/table/wood,
 /obj/item/flashlight/lamp,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled{
@@ -557,7 +557,7 @@
 	},
 /area/adhomian_circus/crew)
 "cFD" = (
-/obj/machinery/alarm/cold/east{
+/obj/structure/machinery/alarm/cold/east{
 	req_access = list(202);
 	req_one_access = null
 	},
@@ -568,7 +568,7 @@
 "cHa" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/vehicle/unicycle,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled{
@@ -577,7 +577,7 @@
 /area/adhomian_circus/clown)
 "cJz" = (
 /obj/random/pottedplant,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /turf/simulated/floor/wood{
@@ -600,7 +600,7 @@
 /obj/structure/toilet{
 	dir = 4
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white{
@@ -608,7 +608,7 @@
 	},
 /area/adhomian_circus/crew)
 "cUR" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8;
 	icon_state = "tube_empty"
 	},
@@ -619,7 +619,7 @@
 "cUS" = (
 /obj/item/storage/box/unique/monkeycubes/farwacubes,
 /obj/structure/closet/crate,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /turf/simulated/floor/tiled{
@@ -633,7 +633,7 @@
 	},
 /area/adhomian_circus/starboard)
 "dgA" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8;
 	level = 2
 	},
@@ -645,10 +645,10 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/machinery/meter,
+/obj/structure/machinery/meter,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -662,10 +662,10 @@
 	},
 /area/adhomian_circus/starboard)
 "dne" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
 /obj/structure/cable/green{
@@ -678,10 +678,10 @@
 	},
 /area/adhomian_circus/starboard)
 "dnG" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
 /obj/structure/cable/green{
@@ -698,7 +698,7 @@
 /area/adhomian_circus/port)
 "dsF" = (
 /obj/structure/table/stone/marble,
-/obj/machinery/chemical_dispenser/bar_alc/full,
+/obj/structure/machinery/chemical_dispenser/bar_alc/full,
 /turf/simulated/floor/lino/diamond{
 	temperature = 278.15
 	},
@@ -714,23 +714,23 @@
 /turf/simulated/floor/carpet/darkblue,
 /area/adhomian_circus/fortune)
 "dzv" = (
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
+/obj/structure/machinery/embedded_controller/radio/airlock/docking_port{
 	dir = 8;
 	pixel_y = 6;
 	pixel_x = 20
 	},
-/obj/machinery/airlock_sensor{
+/obj/structure/machinery/airlock_sensor{
 	pixel_x = 20;
 	dir = 8;
 	pixel_y = -6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
 	},
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/light/small/emergency{
 	dir = 8
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /obj/effect/floor_decal/industrial/outline_door/red,
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 1
@@ -779,7 +779,7 @@
 	},
 /area/adhomian_circus/crew)
 "dJv" = (
-/obj/machinery/computer/ship/navigation{
+/obj/structure/machinery/computer/ship/navigation{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/pink{
@@ -797,7 +797,7 @@
 	},
 /area/adhomian_circus/port)
 "dOG" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/effect/floor_decal/spline/plain/grey{
 	dir = 4
 	},
@@ -805,7 +805,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/adhomian_circus_shuttle)
 "dOO" = (
-/obj/machinery/computer/ship/engines{
+/obj/structure/machinery/computer/ship/engines{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/pink{
@@ -830,7 +830,7 @@
 	},
 /area/adhomian_circus/starboard)
 "dUt" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8;
 	icon_state = "tube_empty"
 	},
@@ -855,7 +855,7 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/adhomian_circus/engine)
 "eih" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1;
 	icon_state = "tube_empty"
 	},
@@ -864,7 +864,7 @@
 	},
 /area/adhomian_circus/hangar)
 "eit" = (
-/obj/machinery/alarm/cold/south{
+/obj/structure/machinery/alarm/cold/south{
 	req_one_access = null;
 	req_access = list(202)
 	},
@@ -873,10 +873,10 @@
 	},
 /area/adhomian_circus/tamer)
 "eon" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled{
@@ -884,10 +884,10 @@
 	},
 /area/adhomian_circus/clown)
 "eqz" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1;
 	icon_state = "tube_empty"
 	},
@@ -913,7 +913,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/west{
+/obj/structure/machinery/power/apc/west{
 	req_access = list(202)
 	},
 /turf/simulated/floor/plating{
@@ -931,7 +931,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/machinery/atmospherics/binary/passive_gate/supply{
+/obj/structure/machinery/atmospherics/binary/passive_gate/supply{
 	dir = 1;
 	target_pressure = 250
 	},
@@ -943,7 +943,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/tank{
+/obj/structure/machinery/atmospherics/pipe/tank{
 	dir = 8
 	},
 /turf/simulated/floor/plating{
@@ -951,24 +951,24 @@
 	},
 /area/adhomian_circus/maintenance)
 "eDa" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/door/airlock/hatch{
 	name = "Staff";
 	req_access = list(202);
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
 /area/adhomian_circus/maintenance)
 "eFz" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	name = "Restroom";
 	dir = 1
 	},
@@ -977,10 +977,10 @@
 	},
 /area/adhomian_circus/crew)
 "eII" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -993,10 +993,10 @@
 	},
 /area/adhomian_circus/hangar)
 "eIZ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -1004,8 +1004,8 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/glass{
+/obj/structure/machinery/door/firedoor,
+/obj/structure/machinery/door/airlock/glass{
 	name = "Stage";
 	dir = 4
 	},
@@ -1014,7 +1014,7 @@
 	},
 /area/adhomian_circus/starboard)
 "eQz" = (
-/obj/machinery/atmospherics/binary/pump/fuel/on,
+/obj/structure/machinery/atmospherics/binary/pump/fuel/on,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/adhomian_circus_shuttle)
@@ -1051,7 +1051,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1;
 	icon_state = "tube_empty"
 	},
@@ -1060,10 +1060,10 @@
 	},
 /area/adhomian_circus/hangar)
 "fcj" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -1076,8 +1076,8 @@
 	},
 /area/adhomian_circus/port)
 "fdH" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -1094,7 +1094,7 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/adhomian_circus/fortune)
 "fpz" = (
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -1106,14 +1106,14 @@
 /turf/simulated/floor/carpet/darkblue,
 /area/adhomian_circus/fortune)
 "ftV" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/black{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 9
 	},
 /turf/simulated/wall/shuttle/space_ship,
 /area/adhomian_circus/engine)
 "fwf" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -1143,7 +1143,7 @@
 	},
 /area/adhomian_circus/port)
 "fDP" = (
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
+/obj/structure/machinery/embedded_controller/radio/airlock/docking_port{
 	pixel_y = 28;
 	pixel_x = -6
 	},
@@ -1165,8 +1165,8 @@
 	},
 /area/adhomian_circus/port)
 "fGZ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -1175,10 +1175,10 @@
 	},
 /area/adhomian_circus/port)
 "fHU" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	pixel_x = 12;
 	pixel_y = 28;
 	dir = 4
@@ -1211,7 +1211,7 @@
 	},
 /area/adhomian_circus/starboard)
 "fPY" = (
-/obj/machinery/door/window{
+/obj/structure/machinery/door/window{
 	req_access = list(202);
 	name = "Food Stand";
 	dir = 8
@@ -1243,7 +1243,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/universal,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/universal,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
@@ -1274,10 +1274,10 @@
 	},
 /area/adhomian_circus/port)
 "gkO" = (
-/obj/machinery/computer/ship/engines/terminal{
+/obj/structure/machinery/computer/ship/engines/terminal{
 	dir = 4
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /obj/effect/floor_decal/spline/plain/grey{
@@ -1331,7 +1331,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/east{
+/obj/structure/machinery/power/apc/east{
 	req_access = list(202)
 	},
 /turf/simulated/floor/wood{
@@ -1345,9 +1345,10 @@
 /obj/effect/floor_decal/corner/pink{
 	dir = 9
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
+/obj/item/eftpos,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -1362,8 +1363,8 @@
 /area/adhomian_circus/clown)
 "gQT" = (
 /obj/structure/table/stone/marble,
-/obj/machinery/chemical_dispenser/bar_soft/full,
-/obj/machinery/light{
+/obj/structure/machinery/chemical_dispenser/bar_soft/full,
+/obj/structure/machinery/light{
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/lino/diamond{
@@ -1371,8 +1372,8 @@
 	},
 /area/adhomian_circus/port)
 "gSf" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -1388,7 +1389,7 @@
 "gTj" = (
 /obj/structure/table/wood,
 /obj/item/flashlight/lamp,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled{
@@ -1404,7 +1405,7 @@
 	},
 /area/adhomian_circus/starboard)
 "gVY" = (
-/obj/machinery/atmospherics/binary/pump/high_power{
+/obj/structure/machinery/atmospherics/binary/pump/high_power{
 	dir = 1
 	},
 /turf/simulated/floor/plating{
@@ -1425,7 +1426,7 @@
 /obj/item/clothing/under/clown,
 /obj/item/clothing/mask/clown,
 /obj/item/clothing/head/clown,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1;
 	icon_state = "tube_empty"
 	},
@@ -1448,11 +1449,11 @@
 	},
 /area/adhomian_circus/port)
 "hdA" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/black,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/black,
 /turf/simulated/wall/shuttle/space_ship,
 /area/adhomian_circus/engine)
 "hke" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/black,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/black,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -1498,7 +1499,7 @@
 /area/adhomian_circus/starboard)
 "hIR" = (
 /obj/structure/cable/green,
-/obj/machinery/power/apc/high/south{
+/obj/structure/machinery/power/apc/high/south{
 	req_access = list(202)
 	},
 /turf/simulated/floor/tiled{
@@ -1521,10 +1522,10 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 9
 	},
-/obj/machinery/alarm/cold/south{
+/obj/structure/machinery/alarm/cold/south{
 	req_one_access = null;
 	req_access = list(202)
 	},
@@ -1561,7 +1562,7 @@
 	},
 /area/adhomian_circus/starboard)
 "iiQ" = (
-/obj/machinery/computer/ship/helm{
+/obj/structure/machinery/computer/ship/helm{
 	dir = 1;
 	req_access = list(204)
 	},
@@ -1583,7 +1584,7 @@
 	},
 /area/adhomian_circus/clown)
 "irI" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled{
@@ -1614,13 +1615,13 @@
 	},
 /area/adhomian_circus/clown)
 "iGV" = (
-/obj/machinery/atmospherics/portables_connector/aux,
-/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/atmospherics/portables_connector/aux,
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/adhomian_circus_shuttle)
 "iJi" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/wood{
@@ -1638,10 +1639,10 @@
 	},
 /area/adhomian_circus/bridge)
 "iVv" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 8;
@@ -1655,8 +1656,8 @@
 	},
 /area/adhomian_circus/port)
 "iWN" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -1665,8 +1666,8 @@
 	},
 /area/adhomian_circus/hangar)
 "iWT" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -1675,10 +1676,10 @@
 	},
 /area/adhomian_circus/maintenance)
 "iWU" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 1
 	},
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -1697,8 +1698,8 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/vending/tool,
-/obj/machinery/light{
+/obj/structure/machinery/vending/tool,
+/obj/structure/machinery/light{
 	dir = 4;
 	icon_state = "tube_empty"
 	},
@@ -1738,14 +1739,14 @@
 /turf/template_noop,
 /area/space)
 "jjZ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
 /turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/adhomian_circus_shuttle)
 "jqO" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
 /obj/structure/cable/green{
@@ -1781,10 +1782,10 @@
 /turf/simulated/floor/airless,
 /area/shuttle/adhomian_circus_shuttle)
 "jzx" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -1815,7 +1816,7 @@
 	},
 /area/adhomian_circus/port)
 "jLJ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/black{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 6
 	},
 /turf/simulated/floor/plating{
@@ -1848,7 +1849,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/machinery/iff_beacon{
+/obj/structure/machinery/iff_beacon{
 	pixel_y = 4
 	},
 /turf/simulated/floor/airless,
@@ -1857,7 +1858,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/atmospherics/binary/pump/on,
+/obj/structure/machinery/atmospherics/binary/pump/on,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -1870,10 +1871,10 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/east{
+/obj/structure/machinery/power/apc/east{
 	req_access = null
 	},
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/adhomian_circus_shuttle)
 "jZG" = (
@@ -1881,7 +1882,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/east{
+/obj/structure/machinery/power/apc/east{
 	req_access = list(202)
 	},
 /turf/simulated/floor/tiled{
@@ -1896,7 +1897,7 @@
 	},
 /area/adhomian_circus/fortune)
 "kbv" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/aux,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/aux,
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 8
 	},
@@ -1909,17 +1910,17 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/machinery/shipsensors/weak{
+/obj/structure/machinery/shipsensors/weak{
 	pixel_y = 4;
 	pixel_x = -1
 	},
 /turf/simulated/floor/airless,
 /area/shuttle/adhomian_circus_shuttle)
 "knb" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
 /obj/structure/cable/green{
@@ -1945,7 +1946,7 @@
 	},
 /area/adhomian_circus/starboard)
 "kvj" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/extinguisher_cabinet/north,
@@ -1962,14 +1963,14 @@
 	},
 /area/adhomian_circus/tamer)
 "kvN" = (
-/obj/machinery/atmospherics/unary/engine,
+/obj/structure/machinery/atmospherics/unary/engine,
 /obj/effect/landmark/entry_point/aft{
 	name = "aft engines, starboard"
 	},
 /turf/simulated/floor/airless,
 /area/adhomian_circus/engine)
 "kwP" = (
-/obj/machinery/computer/ship/sensors{
+/obj/structure/machinery/computer/ship/sensors{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/pink{
@@ -1987,8 +1988,8 @@
 	},
 /area/adhomian_circus/port)
 "kCJ" = (
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/obj/machinery/light/small{
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/plating{
@@ -1996,7 +1997,7 @@
 	},
 /area/adhomian_circus/engine)
 "kFJ" = (
-/obj/machinery/vending/dinnerware,
+/obj/structure/machinery/vending/dinnerware,
 /turf/simulated/floor/lino/diamond{
 	temperature = 278.15
 	},
@@ -2019,7 +2020,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/adhomian_circus_shuttle)
 "kMJ" = (
-/obj/machinery/vending/boozeomat{
+/obj/structure/machinery/vending/boozeomat{
 	req_access = null
 	},
 /turf/simulated/floor/lino/diamond{
@@ -2027,7 +2028,7 @@
 	},
 /area/adhomian_circus/port)
 "kNv" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	icon_state = "tube_empty"
 	},
@@ -2036,10 +2037,10 @@
 	},
 /area/adhomian_circus/starboard)
 "kOW" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
 /obj/structure/cable/green{
@@ -2061,7 +2062,7 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc/west{
+/obj/structure/machinery/power/apc/west{
 	req_access = list(202)
 	},
 /turf/simulated/floor/tiled{
@@ -2085,7 +2086,7 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/obj/machinery/embedded_controller/radio/simple_docking_controller{
+/obj/structure/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1337;
 	id_tag = "adhomian_circus_shuttle_dock";
 	tag_door = "circus_hangar_door";
@@ -2111,7 +2112,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/east{
+/obj/structure/machinery/power/apc/east{
 	req_access = list(202)
 	},
 /turf/simulated/floor/plating{
@@ -2122,25 +2123,25 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/universal,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/universal,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
 /area/adhomian_circus/maintenance)
 "lia" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/black,
-/obj/machinery/meter,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/black,
+/obj/structure/machinery/meter,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
 /area/adhomian_circus/engine)
 "lln" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/tiled{
@@ -2178,7 +2179,7 @@
 	},
 /area/adhomian_circus/port)
 "lsQ" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled{
@@ -2194,7 +2195,7 @@
 	},
 /area/adhomian_circus/starboard)
 "ltF" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/tiled{
@@ -2202,7 +2203,7 @@
 	},
 /area/adhomian_circus/crew)
 "ltJ" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /obj/structure/table/wood,
@@ -2215,7 +2216,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
-/obj/machinery/vending/engivend{
+/obj/structure/machinery/vending/engivend{
 	req_access = null
 	},
 /turf/simulated/floor/plating{
@@ -2247,7 +2248,7 @@
 /turf/template_noop,
 /area/space)
 "lHi" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -2258,14 +2259,14 @@
 	},
 /area/adhomian_circus/port)
 "lKh" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1;
 	icon_state = "tube_empty"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -2286,8 +2287,8 @@
 	},
 /area/adhomian_circus/port)
 "lRw" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -2297,7 +2298,7 @@
 /area/adhomian_circus/crew)
 "lTp" = (
 /obj/structure/closet/cabinet,
-/obj/machinery/alarm/cold/north{
+/obj/structure/machinery/alarm/cold/north{
 	req_one_access = null;
 	req_access = list(202)
 	},
@@ -2313,10 +2314,10 @@
 	},
 /area/adhomian_circus/tamer)
 "lYK" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 8
 	},
-/obj/machinery/light/small/emergency,
+/obj/structure/machinery/light/small/emergency,
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 4
 	},
@@ -2337,10 +2338,10 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /turf/simulated/floor/wood{
@@ -2351,10 +2352,10 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/machinery/door/window{
+/obj/structure/machinery/door/window{
 	dir = 4
 	},
-/obj/machinery/shower{
+/obj/structure/machinery/shower{
 	dir = 1
 	},
 /obj/structure/curtain/open/shower,
@@ -2364,8 +2365,8 @@
 	},
 /area/adhomian_circus/crew)
 "mbY" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -2379,7 +2380,7 @@
 	},
 /area/adhomian_circus/hangar)
 "mcf" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -2405,7 +2406,7 @@
 	desc = "A small empty jar that is mostly used for giving a tip.";
 	name = "tip jar"
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/lino/diamond{
@@ -2444,10 +2445,10 @@
 	},
 /area/adhomian_circus/starboard)
 "mvI" = (
-/obj/machinery/computer/ship/navigation/terminal{
+/obj/structure/machinery/computer/ship/navigation/terminal{
 	dir = 8
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /obj/effect/floor_decal/spline/plain/grey{
@@ -2456,8 +2457,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/adhomian_circus_shuttle)
 "mIJ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -2471,7 +2472,7 @@
 	},
 /area/adhomian_circus/maintenance)
 "mLH" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
@@ -2491,7 +2492,7 @@
 	},
 /area/adhomian_circus/starboard)
 "mSe" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/effect/ghostspawpoint{
@@ -2513,7 +2514,7 @@
 /obj/item/reagent_containers/food/snacks/chipplate/tajcandy,
 /obj/item/reagent_containers/food/snacks/chipplate/tajcandy,
 /obj/item/reagent_containers/food/snacks/chipplate/tajcandy,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	icon_state = "tube_empty"
 	},
@@ -2522,10 +2523,10 @@
 	},
 /area/adhomian_circus/port)
 "mWN" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
 /obj/structure/cable/green{
@@ -2541,7 +2542,7 @@
 	identifier = "adhomian_circus_ringmaster";
 	name = "igs - adhomian_circus_ringmaster"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
 /turf/simulated/floor/tiled{
@@ -2549,7 +2550,7 @@
 	},
 /area/adhomian_circus/bridge)
 "mYq" = (
-/obj/machinery/light_switch{
+/obj/structure/machinery/light_switch{
 	pixel_x = -24
 	},
 /turf/simulated/floor/wood{
@@ -2557,7 +2558,7 @@
 	},
 /area/adhomian_circus/fortune)
 "nbY" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 9
 	},
 /obj/effect/floor_decal/spline/plain/grey{
@@ -2595,7 +2596,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/north{
+/obj/structure/machinery/power/apc/north{
 	req_access = list(202)
 	},
 /turf/simulated/floor/tiled{
@@ -2612,7 +2613,7 @@
 /area/adhomian_circus/hangar)
 "njB" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2641,10 +2642,10 @@
 	},
 /area/adhomian_circus/fortune)
 "ntK" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 8
 	},
-/obj/machinery/portable_atmospherics/canister/air,
+/obj/structure/machinery/portable_atmospherics/canister/air,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
@@ -2664,8 +2665,8 @@
 	},
 /area/adhomian_circus/starboard)
 "nuw" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -2702,11 +2703,11 @@
 	},
 /area/adhomian_circus/port)
 "nBx" = (
-/obj/machinery/door/airlock/external,
-/obj/machinery/access_button{
+/obj/structure/machinery/door/airlock/external,
+/obj/structure/machinery/access_button{
 	pixel_x = 28
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/effect/map_effect/marker_helper/airlock/interior,
@@ -2730,8 +2731,8 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/machinery/power/smes/buildable/horizon_shuttle,
-/obj/machinery/light{
+/obj/structure/machinery/power/smes/buildable/horizon_shuttle,
+/obj/structure/machinery/light{
 	dir = 8;
 	icon_state = "tube_empty"
 	},
@@ -2744,8 +2745,8 @@
 	},
 /area/adhomian_circus/maintenance)
 "nDF" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
-/obj/machinery/airlock_sensor{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/obj/structure/machinery/airlock_sensor{
 	pixel_y = 28;
 	pixel_x = 6
 	},
@@ -2759,10 +2760,10 @@
 /turf/simulated/floor/plating,
 /area/adhomian_circus/hangar)
 "nNZ" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	pixel_x = 12;
 	pixel_y = -28;
 	dir = 4
@@ -2774,8 +2775,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/adhomian_circus/hangar)
 "nTh" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -2800,13 +2801,13 @@
 	},
 /area/adhomian_circus/clown)
 "nVg" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 8
 	},
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	pixel_x = -12;
 	pixel_y = -28;
 	dir = 8
@@ -2833,10 +2834,10 @@
 	},
 /area/adhomian_circus/fortune)
 "nXE" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -2873,7 +2874,7 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/adhomian_circus/port)
 "onz" = (
-/obj/machinery/power/terminal{
+/obj/structure/machinery/power/terminal{
 	dir = 4
 	},
 /obj/structure/bed/stool/chair/shuttle{
@@ -2897,7 +2898,7 @@
 	},
 /area/adhomian_circus/port)
 "ooV" = (
-/obj/machinery/alarm/cold/north{
+/obj/structure/machinery/alarm/cold/north{
 	req_one_access = null;
 	req_access = list(202)
 	},
@@ -2938,7 +2939,7 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/adhomian_circus_shuttle)
 "oGi" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 5
 	},
 /obj/effect/floor_decal/industrial/outline_door/red{
@@ -2959,7 +2960,7 @@
 /turf/space,
 /area/space)
 "oLm" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/black{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 9
 	},
 /turf/simulated/wall/shuttle/space_ship,
@@ -2977,7 +2978,7 @@
 "oYm" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/largecrate/animal/adhomai/rafama,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8;
 	icon_state = "tube_empty"
 	},
@@ -3002,7 +3003,7 @@
 	},
 /area/adhomian_circus/tamer)
 "pbC" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	icon_state = "tube_empty"
 	},
@@ -3013,7 +3014,7 @@
 "pda" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/largecrate/animal/adhomai/schlorrgo,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8;
 	icon_state = "tube_empty"
 	},
@@ -3035,7 +3036,7 @@
 	},
 /area/adhomian_circus/fortune)
 "pgu" = (
-/obj/machinery/hologram/holopad/long_range,
+/obj/structure/machinery/hologram/holopad/long_range,
 /obj/effect/overmap/visitable/ship/landable/adhomian_circus_shuttle,
 /obj/structure/cable/green{
 	icon_state = "1-4"
@@ -3051,8 +3052,8 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/meter,
-/obj/machinery/atmospherics/pipe/manifold/hidden/red{
+/obj/structure/machinery/meter,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/red{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -3094,7 +3095,7 @@
 	},
 /area/adhomian_circus/hangar)
 "pLA" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	frequency = 1337;
 	icon_state = "door_locked";
 	id_tag = "circus_hangar_door";
@@ -3115,7 +3116,7 @@
 	},
 /area/adhomian_circus/hangar)
 "pOw" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/tiled{
@@ -3139,14 +3140,14 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/cyan{
 	dir = 5
 	},
 /obj/structure/cable/green{
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/high/south{
+/obj/structure/machinery/power/apc/high/south{
 	req_access = list(202)
 	},
 /turf/simulated/floor/plating{
@@ -3160,10 +3161,10 @@
 	},
 /area/adhomian_circus/clown)
 "qcw" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
 /obj/structure/cable/green{
@@ -3174,10 +3175,10 @@
 	},
 /area/adhomian_circus/port)
 "qek" = (
-/obj/machinery/button/distress{
+/obj/structure/machinery/button/distress{
 	pixel_y = 32
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1;
 	icon_state = "tube_empty"
 	},
@@ -3189,15 +3190,15 @@
 	},
 /area/adhomian_circus/bridge)
 "qhw" = (
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	name = "Animal Tamer";
 	req_access = list(202);
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -3205,16 +3206,16 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
 /area/adhomian_circus/tamer)
 "qia" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -3226,7 +3227,7 @@
 /obj/effect/floor_decal/corner_wide/grey{
 	dir = 10
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/marble{
@@ -3239,10 +3240,10 @@
 	},
 /area/adhomian_circus/engine)
 "qtp" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 9
 	},
-/obj/machinery/alarm/east{
+/obj/structure/machinery/alarm/east{
 	req_one_access = null
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -3255,7 +3256,7 @@
 	},
 /area/adhomian_circus/port)
 "qxV" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled{
@@ -3288,7 +3289,7 @@
 /obj/effect/floor_decal/corner/pink/full{
 	dir = 1
 	},
-/obj/machinery/alarm/cold/north{
+/obj/structure/machinery/alarm/cold/north{
 	req_one_access = null;
 	req_access = list(202)
 	},
@@ -3304,7 +3305,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/machinery/power/terminal,
+/obj/structure/machinery/power/terminal,
 /obj/structure/cable/green{
 	d2 = 4;
 	icon_state = "0-4"
@@ -3321,7 +3322,7 @@
 /area/adhomian_circus/maintenance)
 "qRs" = (
 /obj/structure/closet/cabinet,
-/obj/machinery/light_switch{
+/obj/structure/machinery/light_switch{
 	pixel_y = 24;
 	pixel_x = -9
 	},
@@ -3341,7 +3342,7 @@
 	},
 /area/adhomian_circus/port)
 "qWL" = (
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	name = "Propulsion";
 	req_access = list(202);
 	dir = 4
@@ -3351,7 +3352,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -3363,7 +3364,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/adhomian_circus_shuttle)
 "rnu" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1;
 	icon_state = "tube_empty"
 	},
@@ -3383,7 +3384,7 @@
 /obj/effect/floor_decal/corner_wide/grey{
 	dir = 10
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/marble{
@@ -3391,10 +3392,10 @@
 	},
 /area/adhomian_circus/starboard)
 "rqD" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 1
 	},
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -3428,7 +3429,7 @@
 /obj/random/soap,
 /obj/random/soap,
 /obj/random/soap,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /turf/simulated/floor/tiled{
@@ -3471,7 +3472,7 @@
 /obj/effect/floor_decal/corner_wide/grey{
 	dir = 9
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8;
 	icon_state = "tube_empty"
 	},
@@ -3480,7 +3481,7 @@
 	},
 /area/adhomian_circus/port)
 "rVQ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
 /obj/structure/cable/green{
@@ -3514,8 +3515,8 @@
 	},
 /area/adhomian_circus/port)
 "rZd" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 4;
@@ -3531,10 +3532,10 @@
 	},
 /area/adhomian_circus/starboard)
 "seg" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
 /obj/structure/cable/green{
@@ -3547,7 +3548,7 @@
 	},
 /area/adhomian_circus/hangar)
 "skB" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 8
 	},
 /obj/effect/floor_decal/spline/plain/grey{
@@ -3559,7 +3560,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/red,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 8;
@@ -3570,8 +3571,8 @@
 	},
 /area/adhomian_circus/maintenance)
 "suQ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -3587,7 +3588,7 @@
 	},
 /area/adhomian_circus/port)
 "sBE" = (
-/obj/machinery/atmospherics/unary/engine,
+/obj/structure/machinery/atmospherics/unary/engine,
 /turf/simulated/floor/plating,
 /area/shuttle/adhomian_circus_shuttle)
 "sMK" = (
@@ -3634,7 +3635,7 @@
 	},
 /area/adhomian_circus/hangar)
 "sRj" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled{
@@ -3652,7 +3653,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
-/obj/machinery/power/portgen/basic/fusion,
+/obj/structure/machinery/power/portgen/basic/fusion,
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
@@ -3665,7 +3666,7 @@
 	},
 /area/adhomian_circus/maintenance)
 "sSb" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
 /obj/structure/cable/green{
@@ -3684,8 +3685,8 @@
 	},
 /area/adhomian_circus/hangar)
 "sTW" = (
-/obj/machinery/atmospherics/portables_connector/fuel,
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/atmospherics/portables_connector/fuel,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/fuel_port/hydrogen{
 	pixel_y = 28;
@@ -3699,7 +3700,7 @@
 	},
 /area/adhomian_circus/port)
 "sVW" = (
-/obj/machinery/atmospherics/pipe/tank/carbon_dioxide{
+/obj/structure/machinery/atmospherics/pipe/tank/carbon_dioxide{
 	dir = 1
 	},
 /turf/simulated/floor/plating{
@@ -3731,17 +3732,17 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/adhomian_circus_shuttle)
 "tqA" = (
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	name = "Clown";
 	req_access = list(202);
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -3755,7 +3756,7 @@
 	},
 /area/adhomian_circus/port)
 "tvi" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 5
 	},
 /turf/simulated/wall/shuttle/space_ship,
@@ -3769,10 +3770,10 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/obj/machinery/meter,
+/obj/structure/machinery/meter,
 /obj/structure/cable/green{
 	icon_state = "2-8"
 	},
@@ -3795,21 +3796,21 @@
 	},
 /area/adhomian_circus/hangar)
 "tJW" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/black,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/black,
 /turf/simulated/wall/shuttle/space_ship,
 /area/adhomian_circus/engine/port)
 "tPC" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/black,
-/obj/machinery/meter,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/black,
+/obj/structure/machinery/meter,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
 /area/adhomian_circus/engine/port)
 "tPX" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/black{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/black{
 	dir = 8
 	},
-/obj/machinery/meter,
+/obj/structure/machinery/meter,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -3826,13 +3827,13 @@
 /obj/effect/floor_decal/spline/plain/grey{
 	dir = 4
 	},
-/obj/machinery/computer/shuttle_control/explore/adhomian_circus_shuttle{
+/obj/structure/machinery/computer/shuttle_control/explore/adhomian_circus_shuttle{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/adhomian_circus_shuttle)
 "tZg" = (
-/obj/machinery/computer/ship/sensors/terminal{
+/obj/structure/machinery/computer/ship/sensors/terminal{
 	dir = 8
 	},
 /obj/effect/floor_decal/spline/plain/grey{
@@ -3841,7 +3842,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/adhomian_circus_shuttle)
 "ujs" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/plating{
@@ -3859,7 +3860,7 @@
 	},
 /area/adhomian_circus/port)
 "uua" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /turf/simulated/floor/tiled{
@@ -3867,7 +3868,7 @@
 	},
 /area/adhomian_circus/clown)
 "uub" = (
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	name = "Telecomms";
 	req_access = list(202);
 	dir = 1
@@ -3882,7 +3883,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/structure/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -3896,7 +3897,7 @@
 	},
 /area/adhomian_circus/port)
 "uMY" = (
-/obj/machinery/atmospherics/unary/engine,
+/obj/structure/machinery/atmospherics/unary/engine,
 /obj/effect/landmark/entry_point/aft{
 	name = "aft engines, port"
 	},
@@ -3953,8 +3954,8 @@
 	},
 /area/adhomian_circus/clown)
 "vkB" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -3985,7 +3986,7 @@
 /obj/effect/floor_decal/corner/pink{
 	dir = 6
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8;
 	level = 2
 	},
@@ -4014,7 +4015,7 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc/west{
+/obj/structure/machinery/power/apc/west{
 	req_access = list(202)
 	},
 /turf/simulated/floor/tiled{
@@ -4022,20 +4023,20 @@
 	},
 /area/adhomian_circus/port)
 "vuS" = (
-/obj/machinery/computer/ship/helm/terminal{
+/obj/structure/machinery/computer/ship/helm/terminal{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/adhomian_circus_shuttle)
 "vyl" = (
-/obj/machinery/alarm/cold/north{
+/obj/structure/machinery/alarm/cold/north{
 	req_one_access = null;
 	req_access = list(202)
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -4051,7 +4052,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/north{
+/obj/structure/machinery/power/apc/north{
 	req_access = list(202)
 	},
 /turf/simulated/floor/tiled{
@@ -4059,7 +4060,7 @@
 	},
 /area/adhomian_circus/clown)
 "vzT" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/plating{
@@ -4067,7 +4068,7 @@
 	},
 /area/adhomian_circus/engine/port)
 "vBV" = (
-/obj/machinery/atmospherics/binary/pump/high_power{
+/obj/structure/machinery/atmospherics/binary/pump/high_power{
 	dir = 1
 	},
 /turf/simulated/floor/plating{
@@ -4075,7 +4076,7 @@
 	},
 /area/adhomian_circus/engine)
 "vCc" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/black{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 10
 	},
 /turf/simulated/floor/plating{
@@ -4083,7 +4084,7 @@
 	},
 /area/adhomian_circus/engine/port)
 "vCH" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/black{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 5
 	},
 /turf/simulated/wall/shuttle/space_ship,
@@ -4096,7 +4097,7 @@
 	},
 /area/adhomian_circus/tamer)
 "vHi" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8;
 	level = 2
 	},
@@ -4112,7 +4113,7 @@
 	},
 /area/adhomian_circus/port)
 "vLy" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled{
@@ -4120,30 +4121,30 @@
 	},
 /area/adhomian_circus/hangar)
 "vNj" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/black,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/black,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
 /area/adhomian_circus/engine/port)
 "vOJ" = (
-/obj/machinery/hologram/holopad/long_range,
+/obj/structure/machinery/hologram/holopad/long_range,
 /obj/effect/overmap/visitable/ship/adhomian_circus,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
 /area/adhomian_circus/bridge)
 "vQh" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1;
 	icon_state = "tube_empty"
 	},
@@ -4160,8 +4161,8 @@
 /obj/effect/floor_decal/corner/pink{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 8;
@@ -4180,10 +4181,10 @@
 	},
 /area/adhomian_circus/port)
 "wgC" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -4223,7 +4224,7 @@
 	},
 /area/adhomian_circus/fortune)
 "wqU" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled{
@@ -4235,7 +4236,7 @@
 /turf/space/transit/north,
 /area/space)
 "wwC" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1;
 	icon_state = "tube_empty"
 	},
@@ -4252,14 +4253,14 @@
 	},
 /area/adhomian_circus/port)
 "wEA" = (
-/obj/machinery/atmospherics/unary/engine,
+/obj/structure/machinery/atmospherics/unary/engine,
 /turf/simulated/floor/airless,
 /area/adhomian_circus/engine/port)
 "wFh" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -4267,8 +4268,8 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/glass{
+/obj/structure/machinery/door/firedoor,
+/obj/structure/machinery/door/airlock/glass{
 	name = "Stage";
 	dir = 4
 	},
@@ -4277,16 +4278,16 @@
 	},
 /area/adhomian_circus/port)
 "wKY" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/black{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 5
 	},
 /turf/simulated/wall/shuttle/space_ship,
 /area/adhomian_circus/engine/port)
 "wLA" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
-/obj/machinery/portable_atmospherics/canister/empty{
+/obj/structure/machinery/portable_atmospherics/canister/empty{
 	name = "waste canister"
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -4297,10 +4298,10 @@
 	},
 /area/adhomian_circus/maintenance)
 "wLD" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 1
 	},
-/obj/machinery/portable_atmospherics/canister/air/airlock{
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock{
 	start_pressure = 1000.97
 	},
 /obj/structure/window/reinforced{
@@ -4310,7 +4311,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/door/window{
+/obj/structure/machinery/door/window{
 	req_access = list(202);
 	dir = 1
 	},
@@ -4340,7 +4341,7 @@
 /obj/item/reagent_containers/food/snacks/sliceable/fatshouter_fillet,
 /obj/item/reagent_containers/food/snacks/spicy_clams,
 /obj/item/reagent_containers/food/snacks/spicy_clams,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	icon_state = "tube_empty"
 	},
@@ -4349,8 +4350,8 @@
 	},
 /area/adhomian_circus/port)
 "xix" = (
-/obj/machinery/telecomms/allinone/ship,
-/obj/machinery/light/small{
+/obj/structure/machinery/telecomms/allinone/ship,
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor/tiled{
@@ -4368,7 +4369,7 @@
 /obj/effect/floor_decal/corner_wide/grey{
 	dir = 6
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	icon_state = "tube_empty"
 	},
@@ -4380,7 +4381,7 @@
 /obj/effect/floor_decal/corner_wide/grey{
 	dir = 9
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8;
 	icon_state = "tube_empty"
 	},
@@ -4394,7 +4395,7 @@
 "xCk" = (
 /obj/structure/table/wood,
 /obj/item/flashlight/lamp/lava/cyan,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /turf/simulated/floor/wood{
@@ -4423,7 +4424,7 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/adhomian_circus/tamer)
 "xJd" = (
-/obj/machinery/iff_beacon/name_change,
+/obj/structure/machinery/iff_beacon/name_change,
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
 	dir = 8
@@ -4431,7 +4432,7 @@
 /turf/simulated/floor/airless,
 /area/adhomian_circus/bridge)
 "xMn" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled{
@@ -4452,7 +4453,7 @@
 /area/adhomian_circus/port)
 "xUF" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /obj/structure/closet/crate/internals,

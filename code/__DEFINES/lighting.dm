@@ -7,6 +7,8 @@
 /// Cold, diluted blue. rgb(100, 150, 250)
 #define LIGHT_COLOR_BLUE			"#6496FA"
 
+/// Light blue. rgb(142, 180, 255)
+#define LIGHT_COLOR_LIGHT_BLUE		"#8eb4ff"
 /// Cyan. rgb(125, 225, 225)
 #define LIGHT_COLOR_CYAN			"#7DE1E1"
 /// Diluted cyan. rgb(202, 240, 255)
@@ -17,6 +19,8 @@
 #define LIGHT_COLOR_YELLOW			"#E1E17D"
 /// Clear brown, mostly dim. rgb(150, 100, 50)
 #define LIGHT_COLOR_BROWN			"#966432"
+/// Soft, light beige.  rgb(252, 207, 144)
+#define LIGHT_COLOR_BEIGE	"#fccf90"
 /// Mostly pure orange. rgb(250, 150, 50)
 #define LIGHT_COLOR_ORANGE			"#FA9632"
 /// Soft purple. rgb(169, 127, 170)
@@ -48,16 +52,31 @@
 /// A softer emergency red, used for small bulbs. rgb(250, 130, 130)
 #define LIGHT_COLOR_EMERGENCY_SOFT	"#FA8282"
 /// Clinical white light bulbs
-#define LIGHT_COLOUR_WHITE			"#FEFEFE"
+#define LIGHT_COLOR_BULB_WHITE		"#FEFEFE"
+/// Grimier, warmer off-white.
+#define LIGHT_COLOR_OFFWHITE		"#efe5bb"
 /// Warm yellowish light bulbs
-#define LIGHT_COLOUR_WARM			"#FFFEE0"
+#define LIGHT_COLOR_WARM			"#e7e6af"
 /// Amberish decayed light bulbs
 #define LIGHT_COLOR_DECAYED			"#fabd6d"
 /// Reddish decayed light bulbs
 #define LIGHT_COLOR_DYING			"#fa826d"
+/// Pale green. Mostly for medical.
+#define LIGHT_COLOR_CLINICAL		"#5bffaa"
+/// A very gentle purple-ish color!
+#define LIGHT_COLOR_LAVENDER		"#d8bfd8"
 
-/// List of standard light colors used for randomized lighting and selectable printed lights.
-#define LIGHT_STANDARD_COLORS list(LIGHT_COLOUR_WHITE, LIGHT_COLOUR_WARM, LIGHT_COLOR_HALOGEN)
+// This is the list of area-based light variations!
+/// Quite clean, cold, clinical lighting. For tightly monitored or very sterile areas.
+#define LIGHT_CLINICAL_COLORS list(LIGHT_COLOR_BULB_WHITE, LIGHT_COLOR_WARM, LIGHT_COLOR_HALOGEN)
+/// Generic warmer off-white lighting, for public areas.
+#define LIGHT_WARM_COLORS list(LIGHT_COLOR_WARM, LIGHT_COLOR_OFFWHITE)
+/// Everything is yellow in engineering! It's industrial!
+#define LIGHT_ENGINEERING_COLORS list(LIGHT_COLOR_WARM, LIGHT_COLOR_DECAYED)
+/// Purple. Funky. Probably tastes like blueberries. For research.
+#define LIGHT_RESEARCH_COLORS list(LIGHT_COLOR_LAVENDER, LIGHT_COLOR_PALE_PURPLE)
+/// Foreboding blue. Ominous. You are in a high security area.
+#define LIGHT_HIGHSEC_COLORS list(LIGHT_COLOR_BLUE, LIGHT_COLOR_LIGHT_BLUE)
 
 #define LIGHT_MODE_RED      "red"
 #define LIGHT_MODE_DELTA    "delta"

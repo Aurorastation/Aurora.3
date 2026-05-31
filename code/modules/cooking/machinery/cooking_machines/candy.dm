@@ -1,4 +1,4 @@
-/obj/machinery/appliance/mixer/candy
+/obj/structure/machinery/appliance/mixer/candy
 	name = "candy machine"
 	desc = "Get yer candied cheese wheels here!"
 	icon_state = "mixer_off"
@@ -21,6 +21,6 @@
 			/obj/item/stock_parts/matter_bin = 2
 		)
 
-/obj/machinery/appliance/mixer/candy/change_product_appearance(var/obj/item/reagent_containers/food/snacks/product)
+/obj/structure/machinery/appliance/mixer/candy/change_product_appearance(var/obj/item/reagent_containers/food/snacks/product)
 	food_color = get_random_colour(1)
 	. = ..()

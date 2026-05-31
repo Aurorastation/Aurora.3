@@ -221,11 +221,20 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark
 	color = COLOR_DARK_GUNMETAL
 
+/obj/structure/lattice/catwalk/indoor/grate/dark/damaged
+	icon_state = "grate_dam0"
+	damaged = TRUE
+
+/obj/structure/lattice/catwalk/indoor/grate/dark/damaged/Initialize()
+	. = ..()
+	icon_state = "[base_icon_state]_dam[rand(0,3)]"
+
+/obj/structure/lattice/catwalk/indoor/grate/dark/old/Initialize()
+	. = ..()
+	AddOverlays("rust")
+
 /obj/structure/lattice/catwalk/indoor/grate/gridded
 	color = COLOR_GRAY40
-
-/obj/structure/lattice/catwalk/indoor/grate/gunmetal
-	color = COLOR_DARK_GUNMETAL
 
 /obj/structure/lattice/catwalk/indoor/grate/slate
 	color = COLOR_SLATE

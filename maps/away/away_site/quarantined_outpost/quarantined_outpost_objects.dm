@@ -8,7 +8,7 @@ GLOBAL_LIST_EMPTY(quarantined_outpost_canisters)
 
 /// List of landmarkslocations for various things (randomly spawning creatures, canisters, etc...)
 
-/// List of the things '/obj/machinery/computer/terminal/mob_tracker' required to track.
+/// List of the things '/obj/structure/machinery/computer/terminal/mob_tracker' required to track.
 GLOBAL_LIST_EMPTY(trackables_pool)
 
 #define BREAK_WALL_COOLDOWN 5 SECONDS
@@ -383,7 +383,7 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 		return FALSE // we're breaking something and we need to stand still
 
 	var/turf/target_turf = NewLoc
-	var/obj/machinery/door/firedoor/F = locate(/obj/machinery/door/firedoor) in target_turf
+	var/obj/structure/machinery/door/firedoor/F = locate(/obj/structure/machinery/door/firedoor) in target_turf
 	var/obj/structure/quarantined_outpost_extractor/EX = locate(/obj/structure/quarantined_outpost_extractor) in target_turf
 
 	if(istype(target_turf, /turf/simulated/wall) || EX || (F && F.density))
@@ -441,7 +441,7 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 		return FALSE // we're breaking something and we need to stand still
 
 	var/turf/target_turf = NewLoc
-	var/obj/machinery/door/firedoor/F = locate(/obj/machinery/door/firedoor) in target_turf
+	var/obj/structure/machinery/door/firedoor/F = locate(/obj/structure/machinery/door/firedoor) in target_turf
 	var/obj/structure/quarantined_outpost_extractor/EX = locate(/obj/structure/quarantined_outpost_extractor) in target_turf
 
 	if(istype(target_turf, /turf/simulated/wall) || EX || (F && F.density))
@@ -713,7 +713,7 @@ GLOBAL_LIST_EMPTY(trackables_pool)
  * * Define a subtype of this and put the types you need to have tracked in `types_to_track` list.
  * * Add your mobs/objects to `GLOB.trackables_pool`. For example, see: `/mob/living/simple_animal/hostile/revivable/abomination/quarantined_outpost`
  */
-/obj/machinery/computer/terminal/mob_tracker
+/obj/structure/machinery/computer/terminal/mob_tracker
 	name = "tracking terminal"
 	icon_screen = "command"
 	icon_keyboard = "atmos_key"
@@ -738,7 +738,7 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 	var/list/areas_with_mobs
 	var/list/areas_with_objects
 
-/obj/machinery/computer/terminal/mob_tracker/proc/categorize_trackables(mob/user)
+/obj/structure/machinery/computer/terminal/mob_tracker/proc/categorize_trackables(mob/user)
 	playsound(get_turf(src), SFX_KEYBOARD, 30, TRUE)
 	if(cooldown_until > world.time)
 		to_chat(user, SPAN_WARNING("Terminal declines your input. Scanners are still preparing for the queries, you may try again in [time2text(cooldown_until - world.time, "mm:ss")] seconds."))
@@ -762,13 +762,13 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 			areas_with_objects[area_name]++
 	cooldown_until = world.time + cooldown
 
-/obj/machinery/computer/terminal/mob_tracker/ui_interact(mob/user, datum/tgui/ui)
+/obj/structure/machinery/computer/terminal/mob_tracker/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "MobTracker", capitalize_first_letters(name))
 		ui.open()
 
-/obj/machinery/computer/terminal/mob_tracker/ui_data(mob/user)
+/obj/structure/machinery/computer/terminal/mob_tracker/ui_data(mob/user)
 	var/list/data = list()
 
 	data["areas_containing_mobs"] = areas_with_mobs
@@ -779,20 +779,20 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 
 	return data
 
-/obj/machinery/computer/terminal/mob_tracker/ui_act(action, params)
+/obj/structure/machinery/computer/terminal/mob_tracker/ui_act(action, params)
 	. = ..()
 	if(.)
 		return
 	if(action)
 		categorize_trackables(usr)
 
-/obj/machinery/computer/terminal/mob_tracker/attack_hand(mob/user)
+/obj/structure/machinery/computer/terminal/mob_tracker/attack_hand(mob/user)
 	if(..())
 		return
 	ui_interact(user)
 
-/// If this object is present in the same Z level as `/obj/machinery/computer/terminal/mob_tracker`, trackers will be dependant on this machine to stay active in order to work.
-/obj/machinery/mob_tracker/server_relay
+/// If this object is present in the same Z level as `/obj/structure/machinery/computer/terminal/mob_tracker`, trackers will be dependant on this machine to stay active in order to work.
+/obj/structure/machinery/mob_tracker/server_relay
 	name = "server relay"
 	desc = "An enclosed server machinery."
 	icon = 'icons/obj/machinery/research.dmi'
@@ -805,16 +805,16 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 	var/active = FALSE
 	var/busy = FALSE
 
-/obj/machinery/mob_tracker/server_relay/mechanics_hints()
+/obj/structure/machinery/mob_tracker/server_relay/mechanics_hints()
 	. += ..()
 	. += "You may use a <b>multitool</b> on this [src] to attempt activating it. It must be powered first."
 
-/obj/machinery/mob_tracker/server_relay/Initialize()
+/obj/structure/machinery/mob_tracker/server_relay/Initialize()
 	. = ..()
 	power_change()
 	update_icon()
 
-/obj/machinery/mob_tracker/server_relay/power_change()
+/obj/structure/machinery/mob_tracker/server_relay/power_change()
 	..()
 	update_icon()
 	if(stat & NOPOWER)
@@ -822,7 +822,7 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 		active = FALSE
 		post_activation()
 
-/obj/machinery/mob_tracker/server_relay/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/mob_tracker/server_relay/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/multitool))
 		if(stat & NOPOWER)
 			to_chat(user, SPAN_NOTICE("\The [src] is not powered, completely unresponsive to your inputs."))
@@ -847,12 +847,12 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 
 	return ..()
 
-/obj/machinery/mob_tracker/server_relay/proc/post_activation()
-	for(var/obj/machinery/computer/terminal/mob_tracker/MT in world)
+/obj/structure/machinery/mob_tracker/server_relay/proc/post_activation()
+	for(var/obj/structure/machinery/computer/terminal/mob_tracker/MT in world)
 		if(MT.z == src.z)
 			MT.disabled = !active
 
-/obj/machinery/mob_tracker/server_relay/update_icon()
+/obj/structure/machinery/mob_tracker/server_relay/update_icon()
 	if(stat & NOPOWER)
 		icon_state = "server-nopower"
 	else if(active)
@@ -864,7 +864,7 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 
 // ---- Ruin specific consoles
 
-/obj/machinery/computer/terminal/mob_tracker/quarantined_outpost
+/obj/structure/machinery/computer/terminal/mob_tracker/quarantined_outpost
 	name = "obsolete terminal"
 	types_to_track = list(
 		/mob/living/simple_animal/hostile/revivable/husked_creature/quarantined_outpost,
@@ -876,7 +876,7 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 	disabled = TRUE
 	no_data_description = "ERR:0xDEAD UNABLE TO LINK WITH SENSORS RELAY"
 
-/obj/machinery/computer/terminal/quarantined_outpost/extraction
+/obj/structure/machinery/computer/terminal/quarantined_outpost/extraction
 	name = "extraction terminal"
 	icon_screen = "forensic"
 	icon_keyboard = "atmos_key"
@@ -884,7 +884,7 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 
 	var/used = FALSE
 
-/obj/machinery/computer/terminal/quarantined_outpost/extraction/attack_hand(mob/user)
+/obj/structure/machinery/computer/terminal/quarantined_outpost/extraction/attack_hand(mob/user)
 	if(used)
 		to_chat(user, SPAN_WARNING("You cannot interact with \the [src] right now."))
 		return
@@ -958,7 +958,7 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 
 /obj/effect/landmark/trapped_vent/Initialize(mapload)
 	. = ..()
-	my_vent = WEAKREF(locate(/obj/machinery/atmospherics/unary/vent_pump) in get_turf(src))
+	my_vent = WEAKREF(locate(/obj/structure/machinery/atmospherics/unary/vent_pump) in get_turf(src))
 	if(!my_vent)
 		return INITIALIZE_HINT_QDEL // Object wasn't placed on a vent, abort!
 
@@ -978,7 +978,7 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 	if(activated)
 		return
 	activated = TRUE
-	var/obj/machinery/atmospherics/unary/vent_pump/vent = my_vent.resolve() // temporarily referencing because we need the vent's variables
+	var/obj/structure/machinery/atmospherics/unary/vent_pump/vent = my_vent.resolve() // temporarily referencing because we need the vent's variables
 	var/turf/T = get_turf(src)
 	if(!vent || vent.welded) // trap was made invalid, no need to check for bypassers
 		QDEL_LAZYLIST(step_trigger_group)
@@ -1119,7 +1119,7 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 		PAPERS & LORE CONSOLES
 ####################################*/
 
-/obj/machinery/computer/loreconsole/terminal/always_powered/quarantined_outpost/maintenance_log
+/obj/structure/machinery/computer/terminal/loreconsole/always_powered/quarantined_outpost/maintenance_log
 	entries = list(
 		new/datum/lore_console_entry(
 			"\[11 FEB 2274 - CYCLE 451 - ATKINSON\]", {"

@@ -122,10 +122,10 @@ SUBSYSTEM_DEF(jobs)
 	Debug("AR has failed, Player: [player], Rank: [rank]")
 	return FALSE
 
-/datum/controller/subsystem/jobs/proc/FreeRole(var/rank)
-	var/datum/job/job = GetJob(rank)
-	if(!istype(job))
-		return
+/datum/controller/subsystem/jobs/proc/FreeRole(rank)
+	astype(GetJob(rank), /datum/job)?.current_positions--
+
+/datum/controller/subsystem/jobs/proc/FreeJob(datum/job/job)
 	job.current_positions--
 
 /datum/controller/subsystem/jobs/proc/FindOccupationCandidates(datum/job/job, level, flag)
@@ -620,13 +620,12 @@ SUBSYSTEM_DEF(jobs)
 
 	//Handle job slot/tater cleanup.
 	if (H.mind)
-		var/role = H.mind.assigned_role
 		var/datum/job/job = GetJob(H.mind.assigned_role)
-		job.on_despawn(H)
-		FreeRole(role)
-		if(H.mind.objectives.len)
-			qdel(H.mind.objectives)
-			H.mind.special_role = null
+		if (job)
+			job.on_despawn(H)
+			FreeJob(job)
+		QDEL_LIST(H.mind.objectives)
+		H.mind.special_role = null
 
 	// Delete them from datacore.
 	if(ishuman(H))
@@ -860,7 +859,7 @@ SUBSYSTEM_DEF(jobs)
 	set waitfor = 0
 
 	var/style = "font-family: 'Fixedsys'; -dm-text-outline: 1 black; font-size: 11px;"
-	var/text = "[worlddate2text()], [worldtime2text()]\n[station_name()], [SSatlas.current_sector.name]"
+	var/text = "[worlddate2text()] [worldtime2text()]\n[station_name()], [SSatlas.current_sector.name]"
 	text = uppertext(text)
 
 	var/obj/effect/overlay/T = new()

@@ -497,9 +497,9 @@
 		return
 	else if (starting)
 		var/list/options = list(
-			"Full CPR" = image('icons/mob/screen/radial.dmi', "cpro2"),
-			"Compressions" = image('icons/mob/screen/generic.dmi', "cpr"),
-			"Mouth-to-Mouth" = image('icons/mob/screen/radial.dmi', "iv_tank")
+			"Full CPR" = image('icons/hud/mob/radial.dmi', "cpro2"),
+			"Compressions" = image('icons/hud/mob/generic.dmi', "cpr"),
+			"Mouth-to-Mouth" = image('icons/hud/mob/radial.dmi', "iv_tank")
 		)
 		cpr_mode = show_radial_menu(H, src, options, require_near = TRUE, tooltips = TRUE, no_repeat_close = TRUE)
 		if(!cpr_mode)
@@ -512,7 +512,7 @@
 
 		to_chat(H, cpr_attempt_message)
 
-	H.do_attack_animation(src, null, image('icons/mob/screen/generic.dmi', src, "cpr", src.layer + 1))
+	H.do_attack_animation(src, null, image('icons/hud/mob/generic.dmi', src, "cpr", src.layer + 1))
 	var/starting_pixel_y = pixel_y
 	animate(src, pixel_y = starting_pixel_y + 4, time = 2)
 	animate(src, pixel_y = starting_pixel_y, time = 2)

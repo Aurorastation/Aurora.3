@@ -485,6 +485,9 @@
 		return get_id_name("Unknown")
 	if( head && (head.flags_inv&HIDEFACE) )
 		return get_id_name("Unknown")		//Likewise for hats
+	if(istype(wear_suit, /obj/item/clothing/suit/vaurca/shaper)) //Check for Preimminent Shaper helmet which obscures Hive affiliation
+		var/list/hiveless_name = splittext(real_name, " ") //then remove Hive surname, ignore ID for obvious reason.
+		return hiveless_name[1]
 	var/face_name = get_face_name()
 	var/id_name = get_id_name("")
 	if(id_name && (id_name != face_name))
@@ -825,7 +828,7 @@
 			var/static/list/tags = list()
 			if(!length(tags))
 				for(var/thing in list(TRIAGE_NONE, TRIAGE_GREEN, TRIAGE_YELLOW, TRIAGE_RED, TRIAGE_BLACK))
-					tags[thing] = image(icon = 'icons/mob/screen/triage_tag.dmi', icon_state = thing)
+					tags[thing] = image(icon = 'icons/hud/mob/triage_tag.dmi', icon_state = thing)
 			var/chosen_tag = show_radial_menu(usr, src, tags, radius = 42, tooltips = TRUE)
 			if(chosen_tag)
 				triage_tag = chosen_tag
@@ -890,8 +893,13 @@
 	return
 
 
-/// Returns a number between -1 to 2
+/**
+ * Returns a numerical value between -INFINITY and +INFINITY representing a user's flash protection value.
+ * As a friendly reminder, do not use the == operator on this proc, use >= or <= instead.
+ */
 /mob/living/carbon/human/get_flash_protection(ignore_inherent = FALSE)
+
+	// Handle all the exits first before we do the standard method.
 
 	//Ling
 	var/datum/changeling/changeling = changeling_power(0, 0, 0)
@@ -905,20 +913,24 @@
 	if (I && I.status & ORGAN_CUT_AWAY)
 		return FLASH_PROTECTION_MAJOR
 
-	if (!ignore_inherent && species.inherent_eye_protection)
-		. = max(species.inherent_eye_protection, flash_protection)
-	else
-		return flash_protection
+	// Standard method, sum of modifiers.
+	var/base_flash_protection = flash_protection
 
-	if(HAS_TRAIT(src, TRAIT_ORIGIN_LIGHT_SENSITIVE))
-		return max(. - 1, FLASH_PROTECTION_REDUCED)
+	// Fetch flash protection modifiers via ECS methods.
+	// Anything in this proc that doesn't hook into this signal should eventually be replaced with signal registry methods for simplicity.
+	SEND_SIGNAL(src, COMSIG_GET_FLASH_PROTECTION_MODIFIERS, &base_flash_protection)
+
+	if (!ignore_inherent)
+		base_flash_protection += species.inherent_eye_protection
+
+	return base_flash_protection
 
 /mob/living/carbon/human/flash_act(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, ignore_inherent = FALSE, type = /atom/movable/screen/fullscreen/flash, length = 2.5 SECONDS)
 	if(..())
 		var/obj/item/organ/E = get_eyes(no_synthetic = !affect_silicon)
 		if(istype(E))
 			return E.flash_act(intensity, override_blindness_check, affect_silicon, ignore_inherent, type, length)
-	else if(intensity == get_flash_protection(ignore_inherent))
+	else if(intensity >= get_flash_protection(ignore_inherent))
 		if(prob(20))
 			to_chat(src, SPAN_NOTICE("Something bright flashes in the corner of your vision!"))
 
@@ -1028,7 +1040,7 @@
 		custom_emote(VISIBLE_MESSAGE,"dry heaves.")
 		return
 
-	var/list/vomitCandidate = typecacheof(/obj/machinery/disposal) + typecacheof(/obj/structure/sink) + typecacheof(/obj/structure/toilet)
+	var/list/vomitCandidate = typecacheof(/obj/structure/machinery/disposal) + typecacheof(/obj/structure/sink) + typecacheof(/obj/structure/toilet)
 	var/obj/vomitReceptacle
 	for(var/obj/vessel in view(1, src))
 		if(!is_type_in_typecache(vessel, vomitCandidate))

@@ -1,6 +1,7 @@
 /// MEDICAL_AREAS
 /area/horizon/medical
 	station_area = TRUE
+	area_lighting = LIGHT_CLINICAL_COLORS
 	holomap_color = HOLOMAP_AREACOLOR_MEDICAL
 	area_blurb = "Various smells waft through the sick bay: disinfectants, various medicines, sterile gloves, and gauze. It's not a pleasant smell, but one you could grow to ignore."
 	department = LOC_MEDICAL

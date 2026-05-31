@@ -813,12 +813,12 @@
 		var/mob/living/L = target_mob
 		if(!L.stat)
 			return FALSE
-	else if(istype(target_mob, /obj/machinery/bot))
-		var/obj/machinery/bot/B = target_mob
+	else if(istype(target_mob, /obj/structure/machinery/bot))
+		var/obj/structure/machinery/bot/B = target_mob
 		if(B.health > 0)
 			return FALSE
-	else if(istype(target_mob, /obj/machinery/porta_turret))
-		var/obj/machinery/porta_turret/T = target_mob
+	else if(istype(target_mob, /obj/structure/machinery/porta_turret))
+		var/obj/structure/machinery/porta_turret/T = target_mob
 		if(T.health > 0)
 			return FALSE
 	else if(istype(target_mob, /obj/effect/energy_field))

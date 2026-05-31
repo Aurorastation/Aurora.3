@@ -56,7 +56,7 @@
 			new /datum/stack_recipe("wall girders", /obj/structure/girder, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1, required_skills_soft = alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)),
 			new /datum/stack_recipe("steel window frame", /obj/structure/window_frame/unanchored, BUILD_AMT, time = 25, one_per_turf = 1, on_floor = 1, required_skills_soft = alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)),
 			new /datum/stack_recipe("computer frame", /obj/structure/computerframe, BUILD_AMT, time = 10 SECONDS, one_per_turf = 1, on_floor = 1, required_skills_soft = alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)),
-			new /datum/stack_recipe("machine blueprint", /obj/machinery/constructable_frame/machine_frame, 2, time = 10 SECONDS, one_per_turf = 1, on_floor = 1, required_skills_soft = alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR)),
+			new /datum/stack_recipe("machine blueprint", /obj/structure/machinery/constructable_frame/machine_frame, 2, time = 10 SECONDS, one_per_turf = 1, on_floor = 1, required_skills_soft = alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR)),
 			new /datum/stack_recipe("light fixture frame", /obj/item/frame/light, 2, required_skills_hard = alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR)),
 			new /datum/stack_recipe("floor light fixture frame", /obj/item/floor_frame/light, 2, required_skills_hard = alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR)),
 			new /datum/stack_recipe("small light fixture frame", /obj/item/frame/light/small, 1, required_skills_hard = alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR)),
@@ -75,7 +75,7 @@
 			new /datum/stack_recipe("engineering cart", /obj/structure/cart/storage/engineeringcart, BUILD_AMT, time = 120, one_per_turf = 1, on_floor = 1, required_skills_soft = alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)),
 			new /datum/stack_recipe("parcel cart", /obj/structure/cart/storage/parcelcart, BUILD_AMT, time = 120, one_per_turf = 1, on_floor = 1, required_skills_soft = alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)),
 			new /datum/stack_recipe("steel closet", /obj/structure/closet, BUILD_AMT, time = 15, one_per_turf = 1, on_floor = 1, required_skills_soft = alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR)),
-			new /datum/stack_recipe("canister", /obj/machinery/portable_atmospherics/canister, 10, time = 15, one_per_turf = 1, on_floor = 1, required_skills_soft = alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)),
+			new /datum/stack_recipe("canister", /obj/structure/machinery/portable_atmospherics/canister, 10, time = 15, one_per_turf = 1, on_floor = 1, required_skills_soft = alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)),
 			new /datum/stack_recipe("target stake", /obj/structure/target_stake, BUILD_AMT, time = 15, one_per_turf = 1, on_floor = 1, required_skills_soft = alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)),
 			new /datum/stack_recipe("shooting target", /obj/item/target, 5, time = 10, one_per_turf = 0, on_floor = 1, required_skills_soft = alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)),
 			new /datum/stack_recipe("dark office chair", /obj/structure/bed/stool/chair/office/dark, BUILD_AMT, one_per_turf = 1, on_floor = 1, required_skills_soft = alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)),
@@ -103,8 +103,8 @@
 
 	recipes += new /datum/stack_recipe_list("turret frames",
 		list(
-			new /datum/stack_recipe("light turret frame", /obj/machinery/porta_turret_construct, 5, time = 25, one_per_turf = 1, on_floor = 1, required_skills_soft = alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)),
-			new /datum/stack_recipe("dark turret frame", /obj/machinery/porta_turret_construct/dark, 5, time = 25, one_per_turf = 1, on_floor = 1, required_skills_soft = alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_TRAINED))
+			new /datum/stack_recipe("light turret frame", /obj/structure/machinery/porta_turret_construct, 5, time = 25, one_per_turf = 1, on_floor = 1, required_skills_soft = alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)),
+			new /datum/stack_recipe("dark turret frame", /obj/structure/machinery/porta_turret_construct/dark, 5, time = 25, one_per_turf = 1, on_floor = 1, required_skills_soft = alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_TRAINED))
 		))
 
 	recipes += new /datum/stack_recipe_list("modular computers",
@@ -181,7 +181,7 @@
 	..()
 	recipes += new /datum/stack_recipe_list("[display_name] recipes",
 		list(
-			new /datum/stack_recipe("planting bed", /obj/machinery/portable_atmospherics/hydroponics/soil, 3, time = 10, one_per_turf = 1, on_floor = 1)
+			new /datum/stack_recipe("planting bed", /obj/structure/machinery/portable_atmospherics/hydroponics/soil, 3, time = 10, one_per_turf = 1, on_floor = 1)
 		))
 
 /material/cardboard/generate_recipes()

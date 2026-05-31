@@ -1,0 +1,232 @@
+/obj/structure/machinery/button/remote
+	name = "remote object control"
+	desc = "It controls objects, remotely."
+	icon_state = "doorctrl0"
+	power_channel = AREA_USAGE_ENVIRON
+	var/desiredstate = 0
+	var/exposedwires = 0
+	var/wires = 3
+	/*
+	Bitflag,	1=checkID
+				2=Network Access
+	*/
+
+	anchored = 1.0
+	idle_power_usage = 2
+	active_power_usage = 4
+
+/obj/structure/machinery/button/remote/attack_ai(mob/user as mob)
+	if(!ai_can_interact(user))
+		return
+	if(wires & 2)
+		return src.attack_hand(user)
+	else
+		to_chat(user, "Error, no route to host.")
+
+/obj/structure/machinery/button/remote/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/forensics))
+		return
+	return src.attack_hand(user)
+
+/obj/structure/machinery/button/remote/emag_act(var/remaining_charges, var/mob/user)
+	if(req_access.len || req_one_access.len)
+		req_access = list()
+		req_one_access = list()
+		playsound(src.loc, SFX_SPARKS, 100, 1)
+		return 1
+
+/obj/structure/machinery/button/remote/attack_hand(mob/user as mob)
+	if(..())
+		return
+
+	src.add_fingerprint(user)
+	if(stat & (NOPOWER|BROKEN))
+		return
+
+	if(!allowed(user) && (wires & 1))
+		to_chat(user, SPAN_WARNING("Access denied"))
+		flick("doorctrl-denied",src)
+		return
+
+	use_power_oneoff(5)
+	icon_state = "doorctrl1"
+	desiredstate = !desiredstate
+	trigger(user)
+	update_icon()
+
+/obj/structure/machinery/button/remote/proc/trigger()
+	return
+
+/obj/structure/machinery/button/remote/power_change()
+	..()
+	update_icon()
+
+/obj/structure/machinery/button/remote/update_icon()
+	if(stat & NOPOWER)
+		icon_state = "doorctrl-p"
+	else
+		icon_state = "doorctrl0"
+
+/*
+	Airlock remote control
+*/
+
+// Bitmasks for door switches.
+#define OPEN   0x1
+#define IDSCAN 0x2
+#define BOLTS  0x4
+#define SHOCK  0x8
+#define SAFE   0x10
+
+/obj/structure/machinery/button/remote/airlock
+	name = "remote door-control"
+	desc = "It controls doors, remotely."
+
+	var/specialfunctions = 1
+	/*
+	Bitflag, 	1= open
+				2= idscan,
+				4= bolts
+				8= shock
+				16= door safties
+	*/
+
+/obj/structure/machinery/button/remote/airlock/trigger()
+	for(var/obj/structure/machinery/door/airlock/D in SSmachinery.machinery)
+		if(D.id_tag == src.id)
+			if(specialfunctions & OPEN)
+				if (D.density)
+					D.open()
+					return
+				else
+					D.close()
+					return
+			if(desiredstate == 1)
+				if(specialfunctions & IDSCAN)
+					D.set_idscan(0)
+				if(specialfunctions & BOLTS)
+					D.lock()
+				if(specialfunctions & SHOCK)
+					D.electrify(-1)
+				if(specialfunctions & SAFE)
+					D.set_safeties(0)
+			else
+				if(specialfunctions & IDSCAN)
+					D.set_idscan(1)
+				if(specialfunctions & BOLTS)
+					D.unlock()
+				if(specialfunctions & SHOCK)
+					D.electrify(0)
+				if(specialfunctions & SAFE)
+					D.set_safeties(1)
+
+/obj/structure/machinery/button/remote/airlock/screamer
+	var/message = "REPLACE THIS!"
+	var/channel = "Common"
+
+/obj/structure/machinery/button/remote/airlock/screamer/trigger()
+	. = ..()
+	GLOB.global_announcer.autosay(message, capitalize_first_letters(name), channel)
+
+#undef OPEN
+#undef IDSCAN
+#undef BOLTS
+#undef SHOCK
+#undef SAFE
+
+/*
+	Blast door remote control
+*/
+/obj/structure/machinery/button/remote/blast_door
+	name = "remote blast door-control"
+	desc = "It controls blast doors, remotely."
+
+/obj/structure/machinery/button/remote/blast_door/trigger()
+	var/new_state
+	for(var/obj/structure/machinery/door/blast/M in SSmachinery.machinery)
+		if(M.id == id)
+			if(isnull(new_state))
+				new_state = M.density
+			if(new_state)
+				M.open()
+			else
+				M.close()
+
+/obj/structure/machinery/button/remote/blast_door/open_only/trigger()
+	for(var/obj/structure/machinery/door/blast/M in SSmachinery.machinery)
+		if(M.id == src.id)
+			if(M.density)
+				M.open()
+
+/obj/structure/machinery/button/remote/blast_door/hangar_lockdown
+	var/on_message = "A hangar lockdown has been initiated."
+	var/off_message = "The hangar lockdown has been lifted."
+	var/on_title = "Hangar Lockdown In Effect!"
+	var/off_title = "Hangar Lockdown Lifted!"
+	var/channel = "Common"
+	var/on = FALSE
+
+/obj/structure/machinery/button/remote/blast_door/hangar_lockdown/trigger()
+	. = ..()
+	on = !on
+	if(on)
+		security_announcement.Announce(on_message, on_title)
+	else
+		security_announcement.Announce(off_message, off_title)
+	for(var/obj/structure/machinery/button/remote/blast_door/hangar_lockdown/B in SSmachinery.machinery)
+		if(B.id == src.id)
+			B.on = src.on
+/*
+	Emitter remote control
+*/
+/obj/structure/machinery/button/remote/emitter
+	name = "remote emitter control"
+	desc = "It controls emitters, remotely."
+
+/obj/structure/machinery/button/remote/emitter/trigger(mob/user as mob)
+	for(var/obj/structure/machinery/power/emitter/E in SSmachinery.machinery)
+		if(E.id == src.id)
+			E.activate(user)
+			return
+
+/*
+	Mass driver remote control
+*/
+/obj/structure/machinery/button/remote/driver
+	name = "mass driver button"
+	desc = "A remote control switch for a mass driver."
+	icon_state = "launcherbtt"
+
+/obj/structure/machinery/button/remote/driver/trigger(mob/user as mob)
+	active = 1
+	update_icon()
+
+	var/list/same_id = list()
+
+	for(var/obj/structure/machinery/door/blast/M in SSmachinery.machinery)
+		if (M.id == src.id)
+			same_id += M
+			INVOKE_ASYNC(M, TYPE_PROC_REF(/obj/structure/machinery/door/blast, open))
+
+	sleep(20)
+
+	for(var/obj/structure/machinery/mass_driver/M in SSmachinery.machinery)
+		if(M.id == src.id)
+			M.drive()
+
+	sleep(50)
+
+	for(var/mm in same_id)
+		INVOKE_ASYNC(mm, TYPE_PROC_REF(/obj/structure/machinery/door/blast, close))
+
+	icon_state = "launcherbtt"
+	active = 0
+	update_icon()
+
+	return
+
+/obj/structure/machinery/button/remote/driver/update_icon()
+	if(!active || (stat & NOPOWER))
+		icon_state = "launcherbtt"
+	else
+		icon_state = "launcheract"

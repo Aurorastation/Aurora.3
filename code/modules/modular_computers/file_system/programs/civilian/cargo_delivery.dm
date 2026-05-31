@@ -36,7 +36,7 @@
 		data["id_name"] = id_card ? id_card.name : "-----"
 
 	//Pass the shipped orders
-	var/list/order_list = SScargo.get_orders_by_status("shipped", TRUE) + SScargo.get_orders_by_status("approved", TRUE) + SScargo.get_orders_by_status("Unpaid", TRUE, list("shipped", "approved"))
+	var/list/order_list = SScargo.get_orders_by_status("shipped", TRUE) + SScargo.get_orders_by_status("approved", TRUE) + SScargo.get_orders_by_status("Unpaid", TRUE, list("shipped", "approved", "rejected", "basket", "submitted"))
 
 	data["order_list"] = order_list
 
@@ -107,9 +107,10 @@
 				return TRUE
 
 			var/obj/item/spacecash/ewallet/charge_card
+			var/mob/living/L
 			if(!using_id)
 				if(isliving(usr))
-					var/mob/living/L = usr
+					L = usr
 					charge_card = L.get_active_hand()
 				if(!istype(charge_card))
 					return TRUE
@@ -137,6 +138,8 @@
 						status_message = "Account Error: Failed to Deposit Credits into Cargo Account"
 						return TRUE
 					charge_card.worth -= transaction_amount
+					if(istype(charge_card, /obj/item/spacecash/ewallet/persistent_charge_card))
+						log_and_message_admins("[charge_card] used for a transaction at [src] with amount [transaction_amount]. Remaining balance: [charge_card.worth]", L, get_turf(src))
 
 				playsound(computer, 'sound/machines/chime.ogg', 50, TRUE)
 				status_message = co.set_paid(GetNameAndAssignmentFromId(id_card), usr.character_id, destinationact)

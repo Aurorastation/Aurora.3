@@ -10,6 +10,9 @@
 
 #define FRACTURE_AND_TENDON_DAM_THRESHOLD 30 // if a weapon does more than this amount of damage, it's powerful enough to sever the tendon AND fracture the bone, if it's a sharp weapon
 
+///How long before a wound starts autohealing without treatment
+#define HEALING_DELAY 60 SECONDS
+
 /obj/item/organ/external
 	name = "external"
 	min_broken_damage = 30
@@ -437,6 +440,9 @@
 	if((brute <= 0) && (burn <= 0))
 		return 0
 
+	if(damage_flags & DAMAGE_FLAG_IGNORE_PROSTHETICS && BP_IS_ROBOTIC(src))
+		return 0
+
 	var/laser = (damage_flags & DAMAGE_FLAG_LASER)
 	var/sharp = (damage_flags & DAMAGE_FLAG_SHARP)
 	var/edge = (damage_flags & DAMAGE_FLAG_EDGE)
@@ -783,7 +789,7 @@ This function completely restores a damaged organ to perfect condition.
 		return TRUE
 	return FALSE
 
-/obj/item/organ/external/process()
+/obj/item/organ/external/process(seconds_per_tick)
 	if(owner)
 		//Specialized handling for tesla limbs. Checks if the limb currently has an associated tesla spine. Else, will disable the emissive and active overlays
 		if(is_tesla)
@@ -815,7 +821,7 @@ This function completely restores a damaged organ to perfect condition.
 			N.handle_nymph(src)
 
 		if(surge_damage && (status & ORGAN_ASSISTED))
-			tick_surge_damage() //Yes, this being here is intentional since this proc does not call ..() unless the owner is null.
+			tick_surge_damage(seconds_per_tick) //Yes, this being here is intentional since this proc does not call ..() unless the owner is null.
 
 		//Infections
 		update_germs()
@@ -993,8 +999,10 @@ Note that amputating the affected organ does in fact remove the infection from t
 		var/heal_amt = 0
 
 		// if damage >= 50 AFTER treatment then it's probably too severe to heal within the timeframe of a round.
+		// Only autoheal if wound was created or enlarged more than 10 seconds ago, this is so damage over time effects don't need to be larger than the autoheal speed
 		if (updatehud && brute_ratio < 50 && burn_ratio < 50 && W.can_autoheal())
-			heal_amt += 0.5
+			if (W.created + HEALING_DELAY <= world.time || W.bandaged || W.salved)
+				heal_amt += 0.5
 
 		//we only update wounds once in [wound_update_accuracy] ticks so have to emulate realtime
 		heal_amt *= wound_update_accuracy

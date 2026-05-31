@@ -1,10 +1,10 @@
 /// The lighting system.
-/// Consists of light fixtures (/obj/machinery/light) and light tube/bulb items (/obj/item/light).
+/// Consists of light fixtures (/obj/structure/machinery/light) and light tube/bulb items (/obj/item/light).
 
 /// 20W per unit luminosity
 #define LIGHTING_POWER_FACTOR 40
 /// Standard tube light fixture
-/obj/machinery/light
+/obj/structure/machinery/light
 	name = "light fixture"
 	icon = 'icons/obj/machinery/light.dmi'
 	/// Base description and icon_state
@@ -28,7 +28,7 @@
 	var/night_brightness_power = 0.3
 	var/supports_nightmode = TRUE
 	var/nightmode = FALSE
-	var/brightness_color = LIGHT_COLOR_HALOGEN
+	var/brightness_color = LIGHT_COLOR_OFFWHITE
 	/// Expected types defined in lightning.dm
 	var/status = LIGHT_OK
 	var/flickering = 0
@@ -62,18 +62,21 @@
 	var/previous_stat
 	var/randomize_color = TRUE
 	var/default_color
-	var/static/list/randomized_colors = LIGHT_STANDARD_COLORS
+	/// This is also defined at the area level! If you want to mess with
+	/// light fixture colours without touching specific subtypes, you
+	/// should probably be looking at the area's variables, not at this.
+	var/static/list/randomized_colors = LIGHT_WARM_COLORS
 	var/static/list/emergency_lights = list(
 		LIGHT_MODE_RED = LIGHT_COLOR_EMERGENCY,
 		LIGHT_MODE_DELTA = LIGHT_COLOR_ORANGE
 	)
 	init_flags = 0
 
-/obj/machinery/light/mechanics_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/light/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Use Grab intent on a working light to remove it from its fixture."
 
-/obj/machinery/light/feedback_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/light/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	switch(status)
 		if(LIGHT_OK)
@@ -87,32 +90,32 @@
 	if(cell)
 		. += "The charge meter reads [round((cell.charge / cell.maxcharge) * 100, 0.1)]%."
 
-/obj/machinery/light/built/Initialize()
+/obj/structure/machinery/light/built/Initialize()
 	status = LIGHT_EMPTY
 	stat |= MAINT
 	. = ..()
 
-/obj/machinery/light/floor/built/Initialize()
+/obj/structure/machinery/light/floor/built/Initialize()
 	status = LIGHT_EMPTY
 	stat |= MAINT
 	. = ..()
 
-/obj/machinery/light/small/built/Initialize()
+/obj/structure/machinery/light/small/built/Initialize()
 	status = LIGHT_EMPTY
 	stat |= MAINT
 	. = ..()
 
-/obj/machinery/light/small/floor/built/Initialize()
+/obj/structure/machinery/light/small/floor/built/Initialize()
 	status = LIGHT_EMPTY
 	stat |= MAINT
 	. = ..()
 
-/obj/machinery/light/spot/built/Initialize()
+/obj/structure/machinery/light/spot/built/Initialize()
 	status = LIGHT_EMPTY
 	stat |= MAINT
 	. = ..()
 
-/obj/machinery/light/Initialize(mapload)
+/obj/structure/machinery/light/Initialize(mapload)
 	. = ..()
 
 	if (!has_power())
@@ -132,33 +135,39 @@
 				if(prob(1) || (maybe_broken && prob(50)))
 					broken(1)
 
+	// If we're randomizing the color of this fixture, we check if the area has a special palette.
+	// This is intended to save mapping time by automating light variations in different areas.
 	if(randomize_color)
+		var/area/A = get_area(src)
+		randomized_colors = A.area_lighting
+
 		brightness_color = pick(randomized_colors)
+
 	default_color = brightness_color // We need a different var so the new color doesn't get wiped away. Initial() wouldn't work since brightness_color is overridden.
 	update(0)
 	set_pixel_offsets()
 
-/obj/machinery/light/Destroy()
+/obj/structure/machinery/light/Destroy()
 	QDEL_NULL(cell)
 	return ..()
 
-/obj/machinery/light/set_pixel_offsets()
+/obj/structure/machinery/light/set_pixel_offsets()
 	pixel_x = dir & (NORTH|SOUTH) ? 0 : (dir == EAST ? 12 : -12)
 	pixel_y = dir & (NORTH|SOUTH) ? (dir == NORTH ? DEFAULT_WALL_OFFSET : -2) : 0
 
-/obj/machinery/light/small/set_pixel_offsets()
+/obj/structure/machinery/light/small/set_pixel_offsets()
 	pixel_x = dir & (NORTH|SOUTH) ? 0 : (dir == EAST ? 12 : -12)
 	pixel_y = dir & (NORTH|SOUTH) ? (dir == NORTH ? DEFAULT_WALL_OFFSET : -22) : 0
 
-/obj/machinery/light/floor/set_pixel_offsets()
+/obj/structure/machinery/light/floor/set_pixel_offsets()
 	pixel_x = pixel_x
 	pixel_y = pixel_y
 
-/obj/machinery/light/small/floor/set_pixel_offsets()
+/obj/structure/machinery/light/small/floor/set_pixel_offsets()
 	pixel_x = pixel_x
 	pixel_y = pixel_y
 
-/obj/machinery/light/update_icon()
+/obj/structure/machinery/light/update_icon()
 	ClearOverlays()
 	if ((status == LIGHT_EMPTY) || !fitting_has_empty_icon)
 		icon_state = "[base_state]_empty"
@@ -194,7 +203,7 @@
 			stat &= ~MAINT
 
 // update the icon_state and luminosity of the light depending on its state
-/obj/machinery/light/proc/update(var/trigger = 1)
+/obj/structure/machinery/light/proc/update(var/trigger = 1)
 	emergency_mode = FALSE
 
 	switch (status)
@@ -260,13 +269,13 @@
 	else if(processing_flags)
 		STOP_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 
-/obj/machinery/light/proc/broken_sparks()
+/obj/structure/machinery/light/proc/broken_sparks()
 	if(world.time > next_spark && !(stat & POWEROFF) && has_power())
 		spark(src, 3, GLOB.alldirs)
 		next_spark = world.time + 1 MINUTE + (rand(-15, 15) SECONDS)
 
 // ehh
-/obj/machinery/light/process(seconds_per_tick)
+/obj/structure/machinery/light/process(seconds_per_tick)
 	if (cell && has_power())
 		cell.give(0.2 * seconds_per_tick)
 		if(cell.fully_charged())
@@ -277,13 +286,13 @@
 	if(status == LIGHT_BROKEN)
 		broken_sparks()
 
-/obj/machinery/light/proc/has_emergency_power(pwr = LIGHT_EMERGENCY_POWER_USE)
+/obj/structure/machinery/light/proc/has_emergency_power(pwr = LIGHT_EMERGENCY_POWER_USE)
 	if (no_emergency | !cell)
 		return FALSE
 	if (pwr ? cell.charge >= pwr : cell.charge)
 		return status == LIGHT_OK
 
-/obj/machinery/light/proc/use_emergency_power(pwr = 0.2)
+/obj/structure/machinery/light/proc/use_emergency_power(pwr = 0.2)
 	if (!has_emergency_power(pwr))
 		return FALSE
 	if (cell.charge > 600) // Default mini-cell max is 500.
@@ -297,7 +306,7 @@
 		set_light(l_power = new_power)
 	return TRUE
 
-/obj/machinery/light/proc/check_update()
+/obj/structure/machinery/light/proc/check_update()
 	if (emergency_mode)
 		return light_range != brightness_range * 0.25 || light_power != max(0.5, 0.75 * (cell.charge / cell.maxcharge)) || light_color != LIGHT_COLOR_EMERGENCY
 	else if (supports_nightmode && nightmode)
@@ -305,7 +314,7 @@
 	else
 		return light_range != brightness_range || light_power != brightness_power || light_color != brightness_color
 
-/obj/machinery/light/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
+/obj/structure/machinery/light/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	if(!damage)
 		return
 	if(status == LIGHT_EMPTY)
@@ -324,7 +333,7 @@
 
 // attack with item - insert light (if right type), otherwise try to break the light
 
-/obj/machinery/light/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/light/attackby(obj/item/attacking_item, mob/user)
 	//Light replacer code
 	if(istype(attacking_item, /obj/item/lightreplacer))
 		var/obj/item/lightreplacer/LR = attacking_item
@@ -382,18 +391,18 @@
 		if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER) //If it's a screwdriver open it.
 			attacking_item.play_tool_sound(get_turf(src), 75)
 			user.visible_message(SPAN_NOTICE("\The [user] opens \the [src]'s casing."), SPAN_NOTICE("You open \the [src]'s casing."), SPAN_NOTICE("You hear a noise."))
-			var/obj/machinery/light_construct/newlight = null
+			var/obj/structure/machinery/light_construct/newlight = null
 			switch(fitting)
 				if("tube")
-					newlight = new /obj/machinery/light_construct(get_turf(src))
+					newlight = new /obj/structure/machinery/light_construct(get_turf(src))
 					newlight.icon_state = "tube-construct-stage2"
 
 				if("bulb")
-					newlight = new /obj/machinery/light_construct/small(get_turf(src))
+					newlight = new /obj/structure/machinery/light_construct/small(get_turf(src))
 					newlight.icon_state = "bulb-construct-stage2"
 
 				if("large tube")
-					newlight = new /obj/machinery/light_construct/spot(get_turf(src))
+					newlight = new /obj/structure/machinery/light_construct/spot(get_turf(src))
 					newlight.icon_state = "slight-construct-stage2"
 			newlight.dir = src.dir
 			newlight.stage = 2
@@ -413,7 +422,7 @@
 			if(prob(75))
 				electrocute_mob(user, get_area(src), src, rand(0.7,1.0))
 
-/obj/machinery/light/proc/smash_check(var/obj/O, var/mob/living/user, var/others_text, var/self_text, var/only_break)
+/obj/structure/machinery/light/proc/smash_check(var/obj/O, var/mob/living/user, var/others_text, var/self_text, var/only_break)
 	if(prob(1 + O.force * 5))
 		user.visible_message(SPAN_WARNING("\The [user] [others_text] \the [src]!"), SPAN_WARNING("You hit \the [src], and it [self_text]!"), SPAN_WARNING("You hear a tinkle of breaking glass!"))
 		if(!stat && (O.obj_flags & OBJ_FLAG_CONDUCTABLE))
@@ -426,7 +435,7 @@
 	else
 		user.visible_message(SPAN_WARNING("\The [user] hits \the [src], but it doesn't break."), SPAN_WARNING("You hit \the [src], but it doesn't break."), SPAN_WARNING("You hear something hitting against glass."))
 
-/obj/machinery/light/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+/obj/structure/machinery/light/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
 	. = ..()
 	if(. != BULLET_ACT_HIT)
 		return .
@@ -436,11 +445,11 @@
 
 // returns whether this light has power
 // true if area has power
-/obj/machinery/light/proc/has_power()
+/obj/structure/machinery/light/proc/has_power()
 	var/area/A = get_area(src)
 	return A && (!A.requires_power || A.power_light)
 
-/obj/machinery/light/proc/flicker(amount = rand(10,20))
+/obj/structure/machinery/light/proc/flicker(amount = rand(10,20))
 	set waitfor = FALSE
 	if (flickering || stat || status != LIGHT_OK)
 		return
@@ -454,21 +463,21 @@
 
 	addtimer(CALLBACK(src, PROC_REF(end_flicker)), offset)
 
-/obj/machinery/light/proc/handle_flicker()
+/obj/structure/machinery/light/proc/handle_flicker()
 	if (status == LIGHT_OK)
 		stat ^= POWEROFF
 		update(FALSE)
 		if (prob(50))
 			playsound(src.loc, 'sound/effects/light_flicker.ogg', 75, 1)
 
-/obj/machinery/light/proc/end_flicker()
+/obj/structure/machinery/light/proc/end_flicker()
 	stat &= ~POWEROFF
 	update(FALSE)
 	flickering = FALSE
 
 // ai attack - make lights flicker, because why not
 
-/obj/machinery/light/attack_ai(mob/user)
+/obj/structure/machinery/light/attack_ai(mob/user)
 	if(!ai_can_interact(user))
 		return
 	src.flicker(1)
@@ -476,7 +485,7 @@
 
 // attack with hand - remove tube/bulb
 // if hands aren't protected and the light is on, burn the player
-/obj/machinery/light/attack_hand(mob/user)
+/obj/structure/machinery/light/attack_hand(mob/user)
 	add_fingerprint(user)
 
 	if(status == LIGHT_EMPTY)
@@ -524,7 +533,7 @@
 		stat |= MAINT
 		update()
 
-/obj/machinery/light/do_simple_ranged_interaction(var/mob/user)
+/obj/structure/machinery/light/do_simple_ranged_interaction(var/mob/user)
 	if(status == LIGHT_EMPTY)
 		to_chat(user, "There is no [fitting] in this light.")
 		return
@@ -551,7 +560,7 @@
 	status = LIGHT_EMPTY
 	update()
 
-/obj/machinery/light/attack_ghost(mob/user)
+/obj/structure/machinery/light/attack_ghost(mob/user)
 	if(round_is_spooky())
 		flicker(rand(2,5))
 	else
@@ -559,7 +568,7 @@
 
 // break the light and make sparks if was on
 
-/obj/machinery/light/proc/broken(skip_sound_and_sparks = 0)
+/obj/structure/machinery/light/proc/broken(skip_sound_and_sparks = 0)
 	if(status == LIGHT_EMPTY)
 		return
 
@@ -572,7 +581,7 @@
 	stat |= BROKEN
 	update()
 
-/obj/machinery/light/proc/shatter()
+/obj/structure/machinery/light/proc/shatter()
 	if(status == LIGHT_EMPTY)
 		return
 	status = LIGHT_EMPTY
@@ -581,7 +590,7 @@
 	playsound(get_turf(src), 'sound/effects/glass_hit.ogg', 75, TRUE)
 	new /obj/item/material/shard(get_turf(src))
 
-/obj/machinery/light/proc/fix()
+/obj/structure/machinery/light/proc/fix()
 	if(status == LIGHT_OK)
 		return
 	status = LIGHT_OK
@@ -590,7 +599,7 @@
 // explosion effect
 // destroy the whole light fixture or just shatter it
 
-/obj/machinery/light/ex_act(severity)
+/obj/structure/machinery/light/ex_act(severity)
 	switch(severity)
 		if(1.0)
 			qdel(src)
@@ -604,11 +613,11 @@
 	return
 
 // called when area power state changes
-/obj/machinery/light/power_change()
+/obj/structure/machinery/light/power_change()
 	SHOULD_CALL_PARENT(FALSE)
 	addtimer(CALLBACK(src, PROC_REF(handle_power_change)), rand(1, 2 SECONDS), TIMER_UNIQUE | TIMER_NO_HASH_WAIT)
 
-/obj/machinery/light/proc/handle_power_change()
+/obj/structure/machinery/light/proc/handle_power_change()
 	if (has_power())
 		stat &= ~NOPOWER
 	else
@@ -618,7 +627,7 @@
 
 // called when on fire
 
-/obj/machinery/light/fire_act(exposed_temperature, exposed_volume)
+/obj/structure/machinery/light/fire_act(exposed_temperature, exposed_volume)
 	. = ..()
 
 	if(prob(max(0, exposed_temperature - 673)))   //0% at <400C, 100% at >500C
@@ -626,7 +635,7 @@
 
 // explode the light
 
-/obj/machinery/light/proc/explode()
+/obj/structure/machinery/light/proc/explode()
 	set waitfor = FALSE
 	var/turf/T = get_turf(src.loc)
 	broken()	// break it first to give a warning
@@ -635,7 +644,7 @@
 	sleep(1)
 	qdel(src)
 
-/obj/machinery/light/set_emergency_state(var/new_security_level)
+/obj/structure/machinery/light/set_emergency_state(var/new_security_level)
 	var/area/A = get_area(src)
 	if(new_security_level in emergency_lights)
 		if(A.emergency_lights)
@@ -646,7 +655,7 @@
 			brightness_color = default_color
 			update(0)
 
-/obj/machinery/light/clean()
+/obj/structure/machinery/light/clean()
 	. = ..()
 	brightness_color = initial(brightness_color)
 	update()
@@ -659,22 +668,22 @@
 
 //---- Tube lights
 
-/obj/machinery/light/built
+/obj/structure/machinery/light/built
 	start_with_cell = FALSE
 
-/obj/machinery/light/broken
+/obj/structure/machinery/light/broken
 	status = LIGHT_BROKEN
 	icon_state = "tube_broken_preview"
 
-/obj/machinery/light/maybe_broken
+/obj/structure/machinery/light/maybe_broken
 	maybe_broken = TRUE
 	icon_state = "tube_maybe_broken_preview"
 
-/obj/machinery/light/maybe_broken/decayed
+/obj/structure/machinery/light/maybe_broken/decayed
 	brightness_color = LIGHT_COLOR_DECAYED
 	randomize_color = FALSE
 
-/obj/machinery/light/skrell
+/obj/structure/machinery/light/skrell
 	base_state = "skrell"
 	icon_state = "skrell_empty"
 	fitting = "skrell"
@@ -687,13 +696,13 @@
 	pixel_x = dir & (NORTH|SOUTH) ? 0 : (dir == EAST ? 8 : -8)
 	pixel_y = dir & (NORTH|SOUTH) ? (dir == NORTH ? 18 : -2) : 0
 
-/obj/machinery/light/voidtamer
+/obj/structure/machinery/light/voidtamer
 	name = "voidtamer light fixture"
 	base_state = "voidtamer"
 	icon_state = "voidtamer_empty"
 	desc = "A lighting fixture, decorated in gold and carp hide."
 
-/obj/machinery/light/spot
+/obj/structure/machinery/light/spot
 	name = "spotlight fixture"
 	icon_state = "tube_empty"
 	desc = "An extremely powerful lighting fixture."
@@ -704,36 +713,41 @@
 	brightness_power = 3.5
 	supports_nightmode = FALSE
 
-/obj/machinery/light/colored/blue
+/obj/structure/machinery/light/colored/blue
 	brightness_color = LIGHT_COLOR_BLUE
 	randomize_color = FALSE
 
-/obj/machinery/light/colored/red
+/obj/structure/machinery/light/colored/red
 	brightness_color = LIGHT_COLOR_RED
 	randomize_color = FALSE
 	icon_state = "tube_red_preview"
 
-/obj/machinery/light/colored/violet
+/obj/structure/machinery/light/colored/violet
 	brightness_color = LIGHT_COLOR_VIOLET
 	randomize_color = FALSE
 	icon_state = "tube_violet_preview"
 
-/obj/machinery/light/colored/decayed
+/obj/structure/machinery/light/colored/decayed
 	brightness_color = LIGHT_COLOR_DECAYED
 	randomize_color = FALSE
 	icon_state = "tube_decayed_preview"
 
-/obj/machinery/light/colored/dying
+/obj/structure/machinery/light/colored/dying
 	brightness_color = LIGHT_COLOR_DYING
 	randomize_color = FALSE
 	icon_state = "tube_decayed_preview"
 
-/obj/machinery/light/colored/decayed/dimmed
+/obj/structure/machinery/light/colored/decayed/dimmed
 	brightness_power = 0.2
+
+/obj/structure/machinery/light/colored/beige
+	brightness_color = LIGHT_COLOR_BEIGE
+	randomize_color = FALSE
+	icon_state = "tube_decayed_preview"
 
 //---- Floor lights
 
-/obj/machinery/light/floor
+/obj/structure/machinery/light/floor
 	name = "floor lighting fixture"
 	icon_state = "floortube_example"
 	base_state = "floortube"
@@ -742,37 +756,37 @@
 	fitting_has_empty_icon = TRUE
 	fitting_is_on_floor = TRUE
 
-/obj/machinery/light/floor/broken
+/obj/structure/machinery/light/floor/broken
 	status = LIGHT_BROKEN
 	icon_state = "floortube"
 
-/obj/machinery/light/floor/maybe_broken
+/obj/structure/machinery/light/floor/maybe_broken
 	maybe_broken = TRUE
 	icon_state = "floortube_maybe_broken_preview"
 
-/obj/machinery/light/floor/maybe_broken/decayed
+/obj/structure/machinery/light/floor/maybe_broken/decayed
 	brightness_color = LIGHT_COLOR_DECAYED
 	randomize_color = FALSE
 
-/obj/machinery/light/floor/maybe_broken
+/obj/structure/machinery/light/floor/maybe_broken
 	maybe_broken = TRUE
 	icon_state = "floortube_maybe_broken"
 
-/obj/machinery/light/floor/decayed
+/obj/structure/machinery/light/floor/decayed
 	brightness_color = LIGHT_COLOR_DECAYED
 	randomize_color = FALSE
 	brightness_power = 0.3
 
-/obj/machinery/light/floor/decayed/brighter
+/obj/structure/machinery/light/floor/decayed/brighter
 	brightness_power = 0.45
 
-/obj/machinery/light/floor/decayed/brighter/broken
+/obj/structure/machinery/light/floor/decayed/brighter/broken
 	status = LIGHT_BROKEN
 	icon_state = "floortube"
 
 //---- Small bulb lights
 
-/obj/machinery/light/small
+/obj/structure/machinery/light/small
 	icon_state = "bulb_preview"
 	base_state = "bulb"
 	fitting = "bulb"
@@ -785,19 +799,19 @@
 	supports_nightmode = FALSE
 	bulb_is_noisy = FALSE
 
-/obj/machinery/light/small/broken
+/obj/structure/machinery/light/small/broken
 	status = LIGHT_BROKEN
 	icon_state = "bulb_broken_preview"
 
-/obj/machinery/light/small/maybe_broken
+/obj/structure/machinery/light/small/maybe_broken
 	maybe_broken = TRUE
 	icon_state = "bulb_maybe_broken_preview"
 
-/obj/machinery/light/small/maybe_broken/decayed
+/obj/structure/machinery/light/small/maybe_broken/decayed
 	brightness_color = LIGHT_COLOR_DECAYED
 	randomize_color = FALSE
 
-/obj/machinery/light/small/floor
+/obj/structure/machinery/light/small/floor
 	name = "small floor lighting fixture"
 	icon_state = "floor_example"
 	base_state = "floor"
@@ -805,27 +819,31 @@
 	fitting_is_on_floor = TRUE
 	layer = ABOVE_TILE_LAYER
 
-/obj/machinery/light/small/floor/emergency
+/obj/structure/machinery/light/small/floor/emergency
 	icon_state = "floor_emergency"
 	brightness_range = 6
 	brightness_power = 0.45
 	brightness_color = LIGHT_COLOR_EMERGENCY_SOFT
 	randomize_color = FALSE
 
-/obj/machinery/light/small/emergency
+/obj/structure/machinery/light/small/floor/beige
+	brightness_color = LIGHT_COLOR_BEIGE
+	randomize_color = FALSE
+
+/obj/structure/machinery/light/small/emergency
 	icon_state = "bulb_emergency_preview"
 	brightness_range = 6
 	brightness_power = 0.45
 	brightness_color = LIGHT_COLOR_EMERGENCY_SOFT
 	randomize_color = FALSE
 
-/obj/machinery/light/small/red
+/obj/structure/machinery/light/small/red
 	brightness_range = 2.5
 	brightness_power = 0.45
 	brightness_color = LIGHT_COLOR_RED
 	randomize_color = FALSE
 
-/obj/machinery/light/small/decayed
+/obj/structure/machinery/light/small/decayed
 	brightness_range = 6
 	brightness_power = 0.45
 	brightness_color = LIGHT_COLOR_DECAYED

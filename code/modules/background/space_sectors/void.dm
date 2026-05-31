@@ -48,6 +48,7 @@
 		'sound/music/lobby/lights_edge/lights_edge_2.ogg',
 		'sound/music/lobby/dangerous_space/dangerous_space_1.ogg'
 	)
+	hivenet_echoes = FALSE
 
 /datum/space_sector/lemurian_sea/far
 	name = SECTOR_LEMURIAN_SEA_FAR

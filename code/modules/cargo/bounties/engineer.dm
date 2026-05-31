@@ -38,7 +38,7 @@
 	reward_low = 750
 	reward_high = 900
 	required_count = 2
-	wanted_types = list(/obj/machinery/shield)
+	wanted_types = list(/obj/structure/machinery/shield)
 
 /datum/bounty/item/engineer/firesuit
 	name = "Firesuits"
@@ -92,7 +92,7 @@
 	reward_high = 1500
 	required_count = 4
 	random_count = 1
-	wanted_types = list(/obj/machinery/vending)
+	wanted_types = list(/obj/structure/machinery/vending)
 
 /datum/bounty/item/engineer/coffin
 	name = "Coffins"
@@ -109,9 +109,9 @@
 	reward_low = 720
 	reward_high = 880
 	required_count = 3
-	wanted_types = list(/obj/machinery/portable_atmospherics/powered/pump)
+	wanted_types = list(/obj/structure/machinery/portable_atmospherics/powered/pump)
 
-/datum/bounty/item/engineer/pap/applies_to(var/obj/machinery/portable_atmospherics/powered/pump/O)
+/datum/bounty/item/engineer/pap/applies_to(var/obj/structure/machinery/portable_atmospherics/powered/pump/O)
 	if(!..())
 		return FALSE
 	if(!istype(O))
@@ -127,22 +127,22 @@
 	reward_high = 650
 	required_count = 3
 	random_count = 1
-	wanted_types = list(/obj/machinery/space_heater)
+	wanted_types = list(/obj/structure/machinery/space_heater)
 
 /datum/bounty/item/engineer/pipe
 	name = "Atmospheric Pipe Dispenser"
 	description = "We need another pipe dispenser to help expedite an atmospherics project. The station will get a bonus if you send us a pipe dispenser."
 	reward_low = 500
 	reward_high = 570
-	wanted_types = list(/obj/machinery/pipedispenser)
-	exclude_types = list(/obj/machinery/pipedispenser/disposal)
+	wanted_types = list(/obj/structure/machinery/pipedispenser)
+	exclude_types = list(/obj/structure/machinery/pipedispenser/disposal)
 
 /datum/bounty/item/engineer/disposal
 	name = "Disposal Pipe Dispenser"
 	description = "The %DOCKSHORT is undergoing an overhaul of its mail delivery chutes. Lend us a dispenser to help expedite it for a bonus."
 	reward_low = 500
 	reward_high = 570
-	wanted_types = list(/obj/machinery/pipedispenser/disposal)
+	wanted_types = list(/obj/structure/machinery/pipedispenser/disposal)
 
 /datum/bounty/item/engineer/bookcase
 	name = "Bookcases"
@@ -160,7 +160,7 @@
 	reward_high = 620
 	required_count = 2
 	random_count = 1
-	wanted_types = list(/obj/machinery/power/portgen/basic)
+	wanted_types = list(/obj/structure/machinery/power/portgen/basic)
 
 /datum/bounty/item/engineer/crossbow
 	name = "Powered Crossbow"

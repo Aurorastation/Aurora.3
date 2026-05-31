@@ -273,7 +273,7 @@
 							if(O.anchored)
 								continue
 
-							if(istype(O, /obj/item) || istype(O, /obj/structure) || istype(O, /obj/machinery))
+							if(istype(O, /obj/item) || istype(O, /obj/structure))
 								cocoon_target = O
 								busy = MOVING_TO_TARGET
 								stop_automated_movement = 1
@@ -343,11 +343,6 @@
 					if(!S.anchored)
 						S.forceMove(C)
 						large_cocoon = 1
-				if (istype(aa, /obj/machinery))
-					var/obj/machinery/M = aa
-					if(!M.anchored)
-						M.forceMove(C)
-						large_cocoon = 1
 			if(large_cocoon)
 				C.icon_state = pick("cocoon_large1","cocoon_large2","cocoon_large3")
 		busy = 0
@@ -406,11 +401,6 @@
 					var/obj/structure/S = P
 					if(!S.anchored)
 						S.forceMove(C)
-						large_cocoon = 1
-				if (istype(P, /obj/machinery))
-					var/obj/machinery/M = P
-					if(!M.anchored)
-						M.forceMove(C)
 						large_cocoon = 1
 			if(large_cocoon)
 				C.icon_state = pick("cocoon_large1","cocoon_large2","cocoon_large3")
