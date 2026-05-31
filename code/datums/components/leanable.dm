@@ -96,7 +96,8 @@
 	animate(src, pixel_x = shift_pixel_x, pixel_y = shift_pixel_y, time = 1)
 	if(direction == NORTH)
 		src.appearance_flags |= KEEP_TOGETHER
-		src.add_filter("cutout", 1, alpha_mask_filter(icon = icon('icons/effects/effects.dmi', "cutout")))
+		src.add_filter("cutout", 1, alpha_mask_filter(y = 0, icon = icon('icons/effects/effects.dmi', "white")))
+		animate(src.get_filter("cutout"), y = 10, time = 1, flags = ANIMATION_PARALLEL)
 	if(direction == SOUTH)
 		src.layer = ABOVE_DOOR_LAYER
 	set_density(FALSE)
