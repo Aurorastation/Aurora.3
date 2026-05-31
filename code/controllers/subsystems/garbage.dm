@@ -306,7 +306,19 @@ SUBSYSTEM_DEF(garbage)
 
 	if (time > 0.1 SECONDS)
 		postpone(time)
-	var/threshold = 0.2 // Used to be CONFIG_GET(number/hard_deletes_overrun_threshold)
+
+	// Standard sentry logging for hard dels other than the two subsystems that will always hard del every round
+	var/sentry_threshold = 0.2 SECONDS
+	if (time > sentry_threshold && SSsentry)
+		SSsentry.capture_message(
+			"Hard delete: [type] ([refID]) with dump: [detail]",
+			"warning",
+			"garbage",
+			tags = list("datum_type" = "[type]"),
+			extra = list("ref_id" = refID, "time_ms" = tick_usage)
+		)
+
+	var/threshold = 0.5 // Used to be CONFIG_GET(number/hard_deletes_overrun_threshold)
 	if (threshold && (time > threshold SECONDS))
 		if (!(type_info.qdel_flags & QDEL_ITEM_ADMINS_WARNED))
 			log_game("Error: [type]([refID]) took longer than [threshold] seconds to delete (took [round(time/10, 0.1)] seconds to delete)")
