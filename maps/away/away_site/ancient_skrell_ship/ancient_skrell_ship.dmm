@@ -113,7 +113,7 @@
 /obj/structure/lattice/catwalk/indoor/urban{
 	color = "#8a7387"
 	},
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -171,7 +171,7 @@
 	dir = 1
 	},
 /obj/structure/lattice/ceiling,
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 8
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -232,7 +232,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_skrell_ship)
 "aD" = (
-/obj/machinery/door/blast/odin,
+/obj/structure/machinery/door/blast/odin,
 /turf/simulated/floor/carpet/rubber/airless,
 /area/template_noop)
 "aE" = (
@@ -271,7 +271,7 @@
 /turf/simulated/open/airless,
 /area/template_noop)
 "aJ" = (
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 4
 	},
 /turf/simulated/open/airless,
@@ -285,7 +285,7 @@
 /obj/effect/floor_decal/spline/plain/cee/black{
 	dir = 4
 	},
-/obj/machinery/computer/loreconsole/skrell/always_powered{
+/obj/structure/machinery/computer/loreconsole/skrell/always_powered{
 	dir = 1;
 	pixel_y = -10;
 	layer = 2.71;
@@ -309,7 +309,7 @@
 	color = "#574267";
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 1
 	},
 /obj/random/dirt_75,
@@ -323,7 +323,7 @@
 /obj/structure/railing/mapped/no_density/low{
 	dir = 8
 	},
-/obj/machinery/atmospherics/unary/engine{
+/obj/structure/machinery/atmospherics/unary/engine{
 	thrust_limit = 0.25
 	},
 /turf/simulated/floor/reinforced/airless,
@@ -372,7 +372,7 @@
 /obj/structure/platform/ledge/dark{
 	dir = 8
 	},
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 8
 	},
 /turf/simulated/floor/marble/purple,
@@ -390,20 +390,20 @@
 /obj/structure/railing/mapped/no_density/low{
 	dir = 8
 	},
-/obj/machinery/portable_atmospherics/hydroponics,
+/obj/structure/machinery/portable_atmospherics/hydroponics,
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
 "bd" = (
 /obj/structure/lattice/catwalk/indoor/urban{
 	color = "#8a7387"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/abandoned_skrell_ship)
 "be" = (
-/obj/machinery/door/blast/regular/open,
+/obj/structure/machinery/door/blast/regular/open,
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_skrell_ship)
@@ -597,7 +597,7 @@
 /area/abandoned_skrell_ship)
 "bA" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 10
 	},
 /obj/random/dirt_75,
@@ -699,7 +699,7 @@
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/abandoned_skrell_ship)
 "bL" = (
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 1
 	},
 /turf/simulated/floor/cave/shell/dark_purple,
@@ -770,7 +770,7 @@
 	dir = 1
 	},
 /obj/random/dirt_75,
-/obj/machinery/door/blast/odin,
+/obj/structure/machinery/door/blast/odin,
 /turf/simulated/floor/carpet/rubber/airless,
 /area/template_noop)
 "bT" = (
@@ -778,7 +778,7 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 4
 	},
 /turf/simulated/floor/marble/purple,
@@ -1011,7 +1011,7 @@
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/abandoned_skrell_ship)
 "cA" = (
-/obj/machinery/light/skrell,
+/obj/structure/machinery/light/skrell,
 /turf/simulated/floor/marble/dark,
 /area/abandoned_skrell_ship)
 "cB" = (
@@ -1051,7 +1051,7 @@
 /turf/simulated/floor/marble,
 /area/abandoned_skrell_ship)
 "cG" = (
-/obj/machinery/computer/loreconsole/skrell/always_powered{
+/obj/structure/machinery/computer/loreconsole/skrell/always_powered{
 	dir = 4
 	},
 /obj/effect/floor_decal/spline/plain/cee/mauve{
@@ -1137,7 +1137,7 @@
 /turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "cQ" = (
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 4
 	},
 /obj/effect/decal/curb/corner{
@@ -1156,7 +1156,7 @@
 /area/abandoned_skrell_ship)
 "cR" = (
 /obj/random/dirt_75,
-/obj/machinery/door/blast/odin,
+/obj/structure/machinery/door/blast/odin,
 /turf/simulated/floor/carpet/rubber/airless,
 /area/template_noop)
 "cS" = (
@@ -1285,7 +1285,7 @@
 /obj/effect/floor_decal/spline/plain/mauve{
 	dir = 1
 	},
-/obj/machinery/atmospherics/unary/cryo_cell,
+/obj/structure/machinery/atmospherics/unary/cryo_cell,
 /turf/simulated/floor/marble/dark,
 /area/abandoned_skrell_ship)
 "di" = (
@@ -1346,7 +1346,7 @@
 /turf/simulated/floor/carpet/rubber/airless,
 /area/abandoned_skrell_ship)
 "dn" = (
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -1420,7 +1420,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full/airless,
@@ -1437,11 +1437,11 @@
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/abandoned_skrell_ship)
 "dE" = (
-/obj/machinery/door/firedoor/noid,
+/obj/structure/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
 	dir = 1
 	},
-/obj/machinery/door/airlock/hatch,
+/obj/structure/machinery/door/airlock/hatch,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/abandoned_skrell_ship)
@@ -1457,7 +1457,7 @@
 "dG" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
-/obj/machinery/portable_atmospherics/powered/pump/filled,
+/obj/structure/machinery/portable_atmospherics/powered/pump/filled,
 /turf/simulated/floor/airless,
 /area/abandoned_skrell_ship)
 "dH" = (
@@ -1471,7 +1471,7 @@
 /obj/structure/lattice/catwalk/indoor/urban{
 	color = "#8a7387"
 	},
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 4
 	},
 /turf/simulated/floor/airless,
@@ -1504,10 +1504,10 @@
 /area/abandoned_skrell_ship)
 "dN" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/machinery/door/blast/odin,
+/obj/structure/machinery/door/blast/odin,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_skrell_ship)
 "dO" = (
@@ -1589,7 +1589,7 @@
 /turf/simulated/floor/cave/shell/dark_purple,
 /area/abandoned_skrell_ship)
 "dX" = (
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -1654,7 +1654,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch_door/grey,
-/obj/machinery/door/blast/regular{
+/obj/structure/machinery/door/blast/regular{
 	dir = 2;
 	id = "ancient_skrell_ship_freezer_section1"
 	},
@@ -1668,10 +1668,10 @@
 /turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "eh" = (
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 1
 	},
-/obj/machinery/door/airlock/tirakqi,
+/obj/structure/machinery/door/airlock/tirakqi,
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
 "ei" = (
@@ -1699,7 +1699,7 @@
 /obj/structure/platform/ledge/dark{
 	dir = 4
 	},
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/water/smooth/shell,
@@ -1773,7 +1773,7 @@
 	pixel_x = -8;
 	pixel_y = 15
 	},
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
@@ -1815,8 +1815,8 @@
 /turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "eB" = (
-/obj/machinery/door/airlock/glass/tirakqi,
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/airlock/glass/tirakqi,
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 1
 	},
 /obj/effect/map_effect/door_helper/lock,
@@ -1851,7 +1851,7 @@
 	color = "#574267";
 	dir = 1
 	},
-/obj/machinery/door/blast/odin,
+/obj/structure/machinery/door/blast/odin,
 /turf/simulated/floor/carpet/rubber/airless,
 /area/template_noop)
 "eH" = (
@@ -1987,7 +1987,7 @@
 /area/abandoned_skrell_ship)
 "eY" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
 	},
 /turf/simulated/floor/airless,
@@ -2054,7 +2054,7 @@
 /obj/effect/decal/curb{
 	color = "#574267"
 	},
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber/airless,
@@ -2098,7 +2098,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
 "fn" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/hatch_small/grey,
@@ -2253,7 +2253,7 @@
 /obj/effect/floor_decal/industrial/hatch_door/grey{
 	dir = 1
 	},
-/obj/machinery/door/blast/regular{
+/obj/structure/machinery/door/blast/regular{
 	id = "ancient_skrell_ship_freezer_section2";
 	dir = 4
 	},
@@ -2270,7 +2270,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline_door/grey,
-/obj/machinery/computer/loreconsole/skrell/always_powered{
+/obj/structure/machinery/computer/loreconsole/skrell/always_powered{
 	dir = 8
 	},
 /obj/structure/railing/mapped/no_density/low{
@@ -2280,8 +2280,8 @@
 /area/abandoned_skrell_ship)
 "fK" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/airlock/external,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/door/airlock/external,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -2303,7 +2303,7 @@
 	dir = 1
 	},
 /obj/random/dirt_75,
-/obj/machinery/door/blast/odin,
+/obj/structure/machinery/door/blast/odin,
 /turf/simulated/floor/carpet/rubber/airless,
 /area/abandoned_skrell_ship)
 "fO" = (
@@ -2331,7 +2331,7 @@
 /area/abandoned_skrell_ship)
 "fR" = (
 /obj/effect/floor_decal/industrial/hatch_small/grey,
-/obj/machinery/atmospherics/unary/outlet_injector{
+/obj/structure/machinery/atmospherics/unary/outlet_injector{
 	dir = 8
 	},
 /turf/simulated/floor/reinforced/airless,
@@ -2470,7 +2470,7 @@
 /turf/simulated/open,
 /area/abandoned_skrell_ship)
 "gi" = (
-/obj/machinery/computer/terminal/inactive{
+/obj/structure/machinery/computer/terminal/inactive{
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
@@ -2518,17 +2518,17 @@
 /turf/simulated/floor/shuttle/skrell,
 /area/abandoned_skrell_ship)
 "go" = (
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/template_noop)
 "gp" = (
-/obj/machinery/computer/loreconsole/skrell/always_powered{
+/obj/structure/machinery/computer/loreconsole/skrell/always_powered{
 	dir = 4
 	},
 /obj/structure/railing/mapped/no_density/low{
@@ -2568,7 +2568,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
 "gt" = (
-/obj/machinery/door/airlock/external,
+/obj/structure/machinery/door/airlock/external,
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
 	dir = 1
 	},
@@ -2697,7 +2697,7 @@
 	color = "#574267";
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 5
 	},
 /obj/random/dirt_75,
@@ -2739,7 +2739,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/hatch/research,
-/obj/machinery/atmospherics/unary/freezer{
+/obj/structure/machinery/atmospherics/unary/freezer{
 	icon_state = "freezer"
 	},
 /turf/simulated/floor/marble/purple,
@@ -2857,7 +2857,7 @@
 /obj/structure/lattice/catwalk/indoor/urban{
 	color = "#8a7387"
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
@@ -2866,7 +2866,7 @@
 /obj/structure/lattice/catwalk/indoor/urban{
 	color = "#8a7387"
 	},
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 1
 	},
 /turf/simulated/floor/airless,
@@ -2881,7 +2881,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
 "hm" = (
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 4
 	},
 /turf/simulated/open,
@@ -2897,7 +2897,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 1
 	},
 /obj/random/dirt_75,
@@ -3000,7 +3000,7 @@
 /obj/structure/platform/ledge/dark{
 	dir = 1
 	},
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 8
 	},
 /turf/simulated/open,
@@ -3047,7 +3047,7 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber/airless,
@@ -3087,7 +3087,7 @@
 /turf/simulated/floor/exoplanet/water/smooth/shell,
 /area/abandoned_skrell_ship)
 "hK" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4
 	},
 /obj/structure/bed/stool/hover{
@@ -3106,7 +3106,7 @@
 /obj/structure/bed/stool/hover{
 	dir = 8
 	},
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 4
 	},
 /turf/simulated/floor/marble,
@@ -3145,7 +3145,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline_door/grey,
-/obj/machinery/door/airlock/hatch/tirakqi{
+/obj/structure/machinery/door/airlock/hatch/tirakqi{
 	name = "Cargo Bay";
 	dir = 1
 	},
@@ -3160,7 +3160,7 @@
 	color = "#574267";
 	dir = 8
 	},
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber/airless,
@@ -3265,7 +3265,7 @@
 /obj/effect/floor_decal/industrial/warning/dust/corner{
 	dir = 8
 	},
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 1
 	},
 /turf/simulated/floor/cave/shell/dark_purple,
@@ -3306,7 +3306,7 @@
 /obj/structure/railing/mapped/no_density/low{
 	dir = 4
 	},
-/obj/machinery/atmospherics/unary/engine{
+/obj/structure/machinery/atmospherics/unary/engine{
 	thrust_limit = 0.25
 	},
 /turf/simulated/floor/reinforced/airless,
@@ -3396,7 +3396,7 @@
 /area/abandoned_skrell_ship)
 "iz" = (
 /obj/structure/platform/ledge/dark,
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 4
 	},
 /turf/simulated/open,
@@ -3567,7 +3567,7 @@
 	dir = 4
 	},
 /obj/structure/railing/mapped/no_density/low,
-/obj/machinery/portable_atmospherics/hydroponics,
+/obj/structure/machinery/portable_atmospherics/hydroponics,
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
@@ -3623,10 +3623,10 @@
 /turf/simulated/floor/grass1/no_edge,
 /area/abandoned_skrell_ship)
 "jg" = (
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
-/obj/machinery/door/airlock/hatch/tirakqi{
+/obj/structure/machinery/door/airlock/hatch/tirakqi{
 	name = "Cargo Bay";
 	dir = 4
 	},
@@ -3659,7 +3659,7 @@
 /area/abandoned_skrell_ship)
 "jl" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -3737,11 +3737,11 @@
 /turf/simulated/open/airless,
 /area/abandoned_skrell_ship)
 "jw" = (
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -3850,7 +3850,7 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber/airless,
@@ -3859,7 +3859,7 @@
 /obj/structure/lattice/catwalk/indoor/urban{
 	color = "#8a7387"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 10
 	},
 /turf/simulated/floor/airless,
@@ -3935,7 +3935,7 @@
 /area/abandoned_skrell_ship)
 "jT" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/computer/general_air_control/large_tank_control{
+/obj/structure/machinery/computer/general_air_control/large_tank_control{
 	dir = 8
 	},
 /obj/effect/floor_decal/spline/plain/black{
@@ -4039,7 +4039,7 @@
 	frame_color = "#4e4378";
 	color = "#4e4378"
 	},
-/obj/machinery/door/blast/odin,
+/obj/structure/machinery/door/blast/odin,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_skrell_ship)
 "kh" = (
@@ -4067,11 +4067,11 @@
 /turf/simulated/floor/exoplanet/water/smooth/shell,
 /area/abandoned_skrell_ship)
 "kl" = (
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	dir = 4
 	},
 /obj/abstract/footprint_spawner/oil{
@@ -4101,10 +4101,10 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/hatch_door/grey,
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
-/obj/machinery/door/airlock/freezer{
+/obj/structure/machinery/door/airlock/freezer{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -4146,7 +4146,7 @@
 	color = "#574267"
 	},
 /obj/random/dirt_75,
-/obj/machinery/light/skrell,
+/obj/structure/machinery/light/skrell,
 /turf/simulated/floor/carpet/rubber/airless,
 /area/template_noop)
 "kv" = (
@@ -4194,7 +4194,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
 "kC" = (
-/obj/machinery/power/smes/buildable/third_party_shuttle/empty,
+/obj/structure/machinery/power/smes/buildable/third_party_shuttle/empty,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/structure/cable/green{
@@ -4211,7 +4211,7 @@
 	color = "#574267"
 	},
 /obj/random/dirt_75,
-/obj/machinery/light/skrell,
+/obj/structure/machinery/light/skrell,
 /turf/simulated/floor/carpet/rubber/airless,
 /area/abandoned_skrell_ship)
 "kE" = (
@@ -4287,7 +4287,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
 "kP" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
 /turf/simulated/wall/r_wall,
@@ -4345,7 +4345,7 @@
 /area/abandoned_skrell_ship)
 "kV" = (
 /obj/random/dirt_75,
-/obj/machinery/power/terminal{
+/obj/structure/machinery/power/terminal{
 	dir = 4
 	},
 /obj/structure/cable/yellow{
@@ -4463,7 +4463,7 @@
 /obj/structure/lattice/catwalk/indoor/urban{
 	color = "#8a7387"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
@@ -4540,14 +4540,14 @@
 	dir = 8
 	},
 /obj/structure/lattice/ceiling,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 1
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber/airless,
 /area/abandoned_skrell_ship)
 "lz" = (
-/obj/machinery/door/firedoor/multi_tile{
+/obj/structure/machinery/door/firedoor/multi_tile{
 	req_one_access = null;
 	dir = 8
 	},
@@ -4671,7 +4671,7 @@
 /obj/effect/decal/curb{
 	dir = 4
 	},
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 4
 	},
 /obj/structure/flora/kudzu/mycelium,
@@ -4791,7 +4791,7 @@
 /obj/structure/platform/ledge/dark{
 	dir = 1
 	},
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 8
 	},
 /turf/simulated/open/airless,
@@ -4805,7 +4805,7 @@
 /area/abandoned_skrell_ship)
 "mn" = (
 /obj/effect/floor_decal/industrial/hatch_small/grey,
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -4818,7 +4818,7 @@
 /obj/structure/platform/ledge/dark{
 	dir = 8
 	},
-/obj/machinery/floodlight/randomcharge,
+/obj/structure/machinery/floodlight/randomcharge,
 /turf/simulated/floor/cave/shell/dark_purple,
 /area/abandoned_skrell_ship)
 "mp" = (
@@ -4857,7 +4857,7 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber/airless,
@@ -4872,7 +4872,7 @@
 /turf/simulated/floor/airless,
 /area/abandoned_skrell_ship)
 "mv" = (
-/obj/machinery/door/blast/regular/open{
+/obj/structure/machinery/door/blast/regular/open{
 	dir = 4
 	},
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
@@ -4927,7 +4927,7 @@
 	},
 /obj/structure/table/skrell,
 /obj/effect/map_effect/particle_emitter/bar_smoke,
-/obj/machinery/button/remote/blast_door/open_only{
+/obj/structure/machinery/button/remote/blast_door/open_only{
 	dir = 5;
 	pixel_x = -6;
 	pixel_y = 5;
@@ -4961,7 +4961,7 @@
 	dir = 1
 	},
 /obj/random/dirt_75,
-/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/airless,
 /area/abandoned_skrell_ship)
 "mH" = (
@@ -4992,7 +4992,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline_door/grey,
-/obj/machinery/computer/loreconsole/skrell/always_powered{
+/obj/structure/machinery/computer/loreconsole/skrell/always_powered{
 	dir = 8
 	},
 /obj/structure/railing/mapped/no_density/low{
@@ -5042,7 +5042,7 @@
 	},
 /obj/effect/decal/curb,
 /obj/random/dirt_75,
-/obj/machinery/light/skrell,
+/obj/structure/machinery/light/skrell,
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
 "mS" = (
@@ -5086,7 +5086,7 @@
 	color = "#574267";
 	dir = 4
 	},
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -5147,11 +5147,11 @@
 /turf/simulated/open,
 /area/template_noop)
 "ne" = (
-/obj/machinery/door/airlock/hatch/tirakqi{
+/obj/structure/machinery/door/airlock/hatch/tirakqi{
 	name = "Cargo Bay";
 	dir = 1
 	},
-/obj/machinery/door/firedoor/noid,
+/obj/structure/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
 	dir = 1
 	},
@@ -5220,14 +5220,14 @@
 /obj/structure/lattice/catwalk/indoor/urban{
 	color = "#8a7387"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 6
 	},
 /turf/simulated/floor/plating,
 /area/abandoned_skrell_ship)
 "np" = (
 /obj/effect/floor_decal/fungus/random,
-/obj/machinery/light/skrell,
+/obj/structure/machinery/light/skrell,
 /turf/simulated/floor/grass/recolorable/mycelium,
 /area/abandoned_skrell_ship)
 "nq" = (
@@ -5283,11 +5283,11 @@
 /turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "ny" = (
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -5309,7 +5309,7 @@
 /turf/simulated/floor/airless,
 /area/template_noop)
 "nB" = (
-/obj/machinery/floodlight/randomcharge,
+/obj/structure/machinery/floodlight/randomcharge,
 /obj/random/dirt_75,
 /obj/effect/floor_decal/industrial/outline_door/grey{
 	dir = 8
@@ -5406,7 +5406,7 @@
 	frame_color = "#4e4378";
 	color = "#4e4378"
 	},
-/obj/machinery/door/blast/regular/open,
+/obj/structure/machinery/door/blast/regular/open,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/template_noop)
 "nO" = (
@@ -5651,14 +5651,14 @@
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/abandoned_skrell_ship)
 "oq" = (
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full/airless,
@@ -5679,12 +5679,12 @@
 /obj/effect/decal/curb{
 	color = "#574267"
 	},
-/obj/machinery/door/blast/odin,
+/obj/structure/machinery/door/blast/odin,
 /turf/simulated/floor/carpet/rubber/airless,
 /area/abandoned_skrell_ship)
 "ou" = (
 /obj/structure/table/skrell,
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 4;
 	pixel_y = -16
 	},
@@ -5699,7 +5699,7 @@
 /area/abandoned_skrell_ship)
 "ox" = (
 /obj/structure/crate_shelf,
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 4
 	},
 /obj/structure/flora/grass/adhomai,
@@ -5769,7 +5769,7 @@
 /area/abandoned_skrell_ship)
 "oE" = (
 /obj/structure/railing/mapped/no_density/low,
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 4
 	},
 /turf/simulated/floor/marble,
@@ -5810,7 +5810,7 @@
 /turf/simulated/open,
 /area/abandoned_skrell_ship)
 "oJ" = (
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
@@ -5841,7 +5841,7 @@
 	color = "#574267";
 	dir = 4
 	},
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber/airless,
@@ -5854,7 +5854,7 @@
 /turf/simulated/floor/airless,
 /area/template_noop)
 "oQ" = (
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 8
 	},
 /turf/simulated/floor/marble,
@@ -5936,11 +5936,11 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_skrell_ship)
 "oZ" = (
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	dir = 4
 	},
 /obj/abstract/footprint_spawner/oil{
@@ -5963,7 +5963,7 @@
 /obj/effect/decal/curb{
 	color = "#574267"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
 /obj/abstract/footprint_spawner/oil{
@@ -5988,14 +5988,14 @@
 /turf/simulated/floor/shuttle/skrell,
 /area/abandoned_skrell_ship)
 "pe" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
+/obj/structure/machinery/atmospherics/pipe/simple/visible{
 	dir = 8
 	},
 /turf/unsimulated/wall/steel,
 /area/template_noop)
 "pf" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -6025,7 +6025,7 @@
 /obj/effect/decal/curb{
 	color = "#574267"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber/airless,
@@ -6152,7 +6152,7 @@
 	color = "#574267";
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 9
 	},
 /turf/simulated/floor/carpet/rubber/airless,
@@ -6205,7 +6205,7 @@
 	dir = 4
 	},
 /obj/structure/table/skrell,
-/obj/machinery/microscope/science{
+/obj/structure/machinery/microscope/science{
 	pixel_x = 4;
 	pixel_y = 15;
 	dir = 8
@@ -6234,13 +6234,13 @@
 /turf/simulated/floor/exoplanet/crystal,
 /area/abandoned_skrell_ship)
 "pF" = (
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 4
 	},
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 1
 	},
-/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/structure/machinery/portable_atmospherics/canister/oxygen,
 /obj/effect/floor_decal/industrial/hatch_small/research,
 /turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
@@ -6249,7 +6249,7 @@
 	color = "#574267"
 	},
 /obj/random/dirt_75,
-/obj/machinery/door/blast/odin,
+/obj/structure/machinery/door/blast/odin,
 /turf/simulated/floor/carpet/rubber/airless,
 /area/abandoned_skrell_ship)
 "pH" = (
@@ -6322,7 +6322,7 @@
 /turf/unsimulated/mineral/cave/petrified_shell/dark_purple,
 /area/abandoned_skrell_ship)
 "pR" = (
-/obj/machinery/computer/loreconsole/skrell/always_powered{
+/obj/structure/machinery/computer/loreconsole/skrell/always_powered{
 	dir = 4
 	},
 /obj/effect/floor_decal/spline/plain/cee/mauve{
@@ -6406,7 +6406,7 @@
 	dir = 8
 	},
 /obj/structure/lattice/ceiling,
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 8
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -6483,7 +6483,7 @@
 	frame_color = "#4e4378";
 	color = "#4e4378"
 	},
-/obj/machinery/door/blast/odin{
+/obj/structure/machinery/door/blast/odin{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -6506,7 +6506,7 @@
 /area/abandoned_skrell_ship)
 "qn" = (
 /obj/random/dirt_75,
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 1
 	},
 /obj/structure/table/steel,
@@ -6597,10 +6597,10 @@
 /area/abandoned_skrell_ship)
 "qA" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light/small/broken{
+/obj/structure/machinery/light/small/broken{
 	dir = 8
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
 /turf/simulated/floor/airless,
@@ -6651,7 +6651,7 @@
 	dir = 4
 	},
 /obj/structure/closet/crate,
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -6707,7 +6707,7 @@
 /obj/effect/decal/curb{
 	color = "#574267"
 	},
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber/airless,
@@ -6744,10 +6744,10 @@
 /area/abandoned_skrell_ship)
 "qP" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/atmospherics/portables_connector/aux{
+/obj/structure/machinery/atmospherics/portables_connector/aux{
 	dir = 8
 	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
 /obj/random/dirt_75,
 /turf/simulated/floor/airless,
 /area/abandoned_skrell_ship)
@@ -6805,16 +6805,16 @@
 /obj/effect/floor_decal/spline/plain/mauve{
 	dir = 8
 	},
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 4
 	},
 /turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "qX" = (
-/obj/machinery/iv_drip{
+/obj/structure/machinery/iv_drip{
 	pixel_x = -9
 	},
-/obj/machinery/iv_drip{
+/obj/structure/machinery/iv_drip{
 	pixel_x = 8
 	},
 /obj/effect/floor_decal/industrial/outline_door/research,
@@ -6853,7 +6853,7 @@
 /obj/structure/platform/dark{
 	dir = 4
 	},
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 8
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -6939,7 +6939,7 @@
 	color = "#574267";
 	dir = 8
 	},
-/obj/machinery/floodlight/randomcharge,
+/obj/structure/machinery/floodlight/randomcharge,
 /turf/simulated/floor/carpet/rubber/airless,
 /area/abandoned_skrell_ship)
 "rn" = (
@@ -7083,14 +7083,14 @@
 /turf/simulated/wall/r_wall,
 /area/abandoned_skrell_ship)
 "rF" = (
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
 /obj/abstract/footprint_spawner/oil{
@@ -7348,7 +7348,7 @@
 /turf/simulated/floor/exoplanet/water/smooth/shell,
 /area/abandoned_skrell_ship)
 "so" = (
-/obj/machinery/air_sensor,
+/obj/structure/machinery/air_sensor,
 /obj/effect/floor_decal/industrial/outline_door/grey{
 	dir = 1
 	},
@@ -7384,7 +7384,7 @@
 /area/abandoned_skrell_ship)
 "su" = (
 /obj/structure/table/skrell,
-/obj/machinery/microscope/science{
+/obj/structure/machinery/microscope/science{
 	pixel_x = -6;
 	pixel_y = 15
 	},
@@ -7499,7 +7499,7 @@
 /obj/effect/floor_decal/industrial/outline_door/grey{
 	dir = 1
 	},
-/obj/machinery/portable_atmospherics/powered/pump/filled,
+/obj/structure/machinery/portable_atmospherics/powered/pump/filled,
 /obj/structure/flora/kudzu/mycelium,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_skrell_ship)
@@ -7520,7 +7520,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline_door/grey,
-/obj/machinery/computer/loreconsole/skrell/always_powered{
+/obj/structure/machinery/computer/loreconsole/skrell/always_powered{
 	dir = 4
 	},
 /obj/structure/railing/mapped/no_density/low{
@@ -7536,7 +7536,7 @@
 /obj/structure/lattice/catwalk/indoor/urban{
 	color = "#8a7387"
 	},
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/water/smooth/shell,
@@ -7565,7 +7565,7 @@
 /area/abandoned_skrell_ship)
 "sX" = (
 /obj/structure/platform/ledge/dark,
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 4
 	},
 /turf/simulated/open/airless,
@@ -7581,13 +7581,13 @@
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/template_noop)
 "ta" = (
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 8
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
 "tb" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
+/obj/structure/machinery/atmospherics/pipe/simple/visible{
 	dir = 8
 	},
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
@@ -7605,7 +7605,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
 "te" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 1
 	},
 /obj/random/dirt_75,
@@ -7662,7 +7662,7 @@
 /obj/effect/floor_decal/industrial/outline_segment/research{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden,
 /turf/simulated/floor/marble,
 /area/abandoned_skrell_ship)
 "tn" = (
@@ -7752,7 +7752,7 @@
 /turf/simulated/floor/shuttle/skrell,
 /area/abandoned_skrell_ship)
 "tA" = (
-/obj/machinery/computer/loreconsole/skrell/always_powered{
+/obj/structure/machinery/computer/loreconsole/skrell/always_powered{
 	pixel_y = 22;
 	density = 0
 	},
@@ -7969,7 +7969,7 @@
 /area/abandoned_skrell_ship)
 "ue" = (
 /obj/structure/flora/rock/ice,
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/crystal,
@@ -8068,13 +8068,13 @@
 /turf/simulated/floor/shuttle/skrell,
 /area/abandoned_skrell_ship)
 "uq" = (
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -8097,7 +8097,7 @@
 /area/abandoned_skrell_ship)
 "uu" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 8
 	},
 /turf/simulated/floor/airless,
@@ -8257,7 +8257,7 @@
 /turf/simulated/floor/cave/shell/dark_purple,
 /area/abandoned_skrell_ship)
 "uO" = (
-/obj/machinery/atmospherics/unary/engine{
+/obj/structure/machinery/atmospherics/unary/engine{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -8374,7 +8374,7 @@
 	dir = 1;
 	pixel_y = 12
 	},
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 4
 	},
 /turf/simulated/floor/marble/purple,
@@ -8409,7 +8409,7 @@
 /obj/structure/lattice/catwalk/indoor/urban{
 	color = "#8a7387"
 	},
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 8
 	},
 /obj/structure/table/rack,
@@ -8547,7 +8547,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_skrell_ship)
 "vC" = (
-/obj/machinery/atmospherics/unary/engine{
+/obj/structure/machinery/atmospherics/unary/engine{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -8641,7 +8641,7 @@
 /area/abandoned_skrell_ship)
 "vL" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 6
 	},
 /obj/random/dirt_75,
@@ -8663,7 +8663,7 @@
 /area/abandoned_skrell_ship)
 "vN" = (
 /obj/structure/railing/mapped/no_density/low,
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 8
 	},
 /turf/simulated/floor/marble,
@@ -8681,10 +8681,10 @@
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
 "vQ" = (
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
-/obj/machinery/door/airlock/glass/tirakqi{
+/obj/structure/machinery/door/airlock/glass/tirakqi{
 	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -8714,7 +8714,7 @@
 /turf/simulated/floor/shuttle/skrell,
 /area/abandoned_skrell_ship)
 "vU" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
 /obj/effect/floor_decal/spline/plain/black{
@@ -8739,10 +8739,10 @@
 /turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "vY" = (
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 1
 	},
-/obj/machinery/door/airlock/hatch/tirakqi{
+/obj/structure/machinery/door/airlock/hatch/tirakqi{
 	name = "Cargo Bay";
 	dir = 1
 	},
@@ -8750,7 +8750,7 @@
 /area/abandoned_skrell_ship)
 "vZ" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/floodlight/randomcharge,
+/obj/structure/machinery/floodlight/randomcharge,
 /obj/random/dirt_75,
 /turf/simulated/floor/airless,
 /area/template_noop)
@@ -8802,7 +8802,7 @@
 /obj/effect/floor_decal/industrial/hatch_door/grey{
 	dir = 1
 	},
-/obj/machinery/door/blast/regular{
+/obj/structure/machinery/door/blast/regular{
 	id = "ancient_skrell_ship_freezer_section3";
 	dir = 4
 	},
@@ -8835,7 +8835,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
 "wo" = (
-/obj/machinery/light/skrell,
+/obj/structure/machinery/light/skrell,
 /turf/simulated/floor/cave/shell/dark_purple,
 /area/abandoned_skrell_ship)
 "wq" = (
@@ -8912,7 +8912,7 @@
 /turf/simulated/floor/marble/gray,
 /area/abandoned_skrell_ship)
 "wy" = (
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
@@ -9050,7 +9050,7 @@
 /area/abandoned_skrell_ship)
 "wP" = (
 /obj/effect/floor_decal/industrial/hatch_small/grey,
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -9211,7 +9211,7 @@
 /obj/structure/platform/ledge/dark{
 	dir = 8
 	},
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/water/smooth/shell,
@@ -9312,7 +9312,7 @@
 /obj/effect/floor_decal/industrial/hatch_door/grey{
 	dir = 1
 	},
-/obj/machinery/door/blast/regular{
+/obj/structure/machinery/door/blast/regular{
 	id = "ancient_skrell_ship_freezer_junction";
 	dir = 4
 	},
@@ -9409,7 +9409,7 @@
 "xG" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/machinery/mining/drill,
+/obj/structure/machinery/mining/drill,
 /obj/effect/floor_decal/industrial/outline_door/grey{
 	dir = 8
 	},
@@ -9472,7 +9472,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_skrell_ship)
 "xL" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
 /obj/effect/floor_decal/spline/plain/black{
@@ -9492,7 +9492,7 @@
 /obj/effect/floor_decal/industrial/outline_door/grey{
 	dir = 4
 	},
-/obj/machinery/computer/loreconsole/skrell/always_powered{
+/obj/structure/machinery/computer/loreconsole/skrell/always_powered{
 	dir = 1
 	},
 /turf/simulated/floor/marble/purple,
@@ -9537,7 +9537,7 @@
 /obj/structure/platform/ledge/dark{
 	dir = 8
 	},
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/urban{
@@ -9720,7 +9720,7 @@
 /area/abandoned_skrell_ship)
 "yo" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/blast/odin{
+/obj/structure/machinery/door/blast/odin{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full/airless,
@@ -9754,7 +9754,7 @@
 	dir = 1
 	},
 /obj/structure/railing/mapped/no_density/low,
-/obj/machinery/floodlight/randomcharge{
+/obj/structure/machinery/floodlight/randomcharge{
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/skrell,
@@ -9855,12 +9855,12 @@
 /turf/simulated/floor/shuttle/skrell,
 /area/abandoned_skrell_ship)
 "yG" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/aux,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/aux,
 /turf/simulated/wall/r_wall,
 /area/abandoned_skrell_ship)
 "yH" = (
-/obj/machinery/door/airlock/glass/tirakqi,
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/airlock/glass/tirakqi,
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -9958,7 +9958,7 @@
 /turf/simulated/floor/grass/recolorable/mycelium,
 /area/abandoned_skrell_ship)
 "yR" = (
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline_door/research{
@@ -9998,7 +9998,7 @@
 /obj/effect/floor_decal/industrial/outline_door/grey{
 	dir = 4
 	},
-/obj/machinery/computer/loreconsole/skrell/always_powered{
+/obj/structure/machinery/computer/loreconsole/skrell/always_powered{
 	dir = 4
 	},
 /turf/simulated/floor/marble/purple,
@@ -10183,10 +10183,10 @@
 /turf/simulated/floor/shuttle/skrell,
 /area/abandoned_skrell_ship)
 "zw" = (
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
-/obj/machinery/door/airlock/hatch/tirakqi{
+/obj/structure/machinery/door/airlock/hatch/tirakqi{
 	name = "Cargo Bay";
 	dir = 4
 	},
@@ -10200,7 +10200,7 @@
 /obj/effect/floor_decal/industrial/outline_door/grey{
 	dir = 1
 	},
-/obj/machinery/computer/loreconsole/skrell/always_powered,
+/obj/structure/machinery/computer/loreconsole/skrell/always_powered,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_skrell_ship)
 "zy" = (
@@ -10222,7 +10222,7 @@
 	color = "#574267";
 	dir = 4
 	},
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber/airless,
@@ -10246,7 +10246,7 @@
 /turf/simulated/floor/grass/recolorable/mycelium,
 /area/abandoned_skrell_ship)
 "zD" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 6
 	},
 /turf/simulated/wall/r_wall,
@@ -10313,10 +10313,10 @@
 /turf/simulated/floor/exoplanet/water/smooth/shell,
 /area/abandoned_skrell_ship)
 "zO" = (
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
-/obj/machinery/door/airlock/hatch/tirakqi{
+/obj/structure/machinery/door/airlock/hatch/tirakqi{
 	name = "Cargo Bay";
 	dir = 8
 	},
@@ -10448,7 +10448,7 @@
 /turf/simulated/open/airless,
 /area/abandoned_skrell_ship)
 "Af" = (
-/obj/machinery/door/firedoor/noid,
+/obj/structure/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
 	dir = 1
 	},
@@ -10520,7 +10520,7 @@
 /obj/effect/floor_decal/industrial/outline_door/grey{
 	dir = 4
 	},
-/obj/machinery/computer/loreconsole/skrell/always_powered,
+/obj/structure/machinery/computer/loreconsole/skrell/always_powered,
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
 "An" = (
@@ -10529,7 +10529,7 @@
 /turf/simulated/floor/marble/dark,
 /area/abandoned_skrell_ship)
 "Ao" = (
-/obj/machinery/computer/loreconsole/skrell/always_powered{
+/obj/structure/machinery/computer/loreconsole/skrell/always_powered{
 	dir = 1;
 	pixel_y = -10;
 	layer = 2.71;
@@ -10587,7 +10587,7 @@
 	dir = 1
 	},
 /obj/random/dirt_75,
-/obj/machinery/portable_atmospherics/powered/pump/filled,
+/obj/structure/machinery/portable_atmospherics/powered/pump/filled,
 /turf/simulated/floor/airless,
 /area/abandoned_skrell_ship)
 "Ay" = (
@@ -10645,7 +10645,7 @@
 /obj/structure/lattice/catwalk/indoor/urban{
 	color = "#8a7387"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -10748,7 +10748,7 @@
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/abandoned_skrell_ship)
 "AT" = (
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 8
 	},
 /turf/simulated/open/airless,
@@ -10771,7 +10771,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/machinery/door/window/southleft,
+/obj/structure/machinery/door/window/southleft,
 /obj/item/storage/box/beakers,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_skrell_ship)
@@ -10823,10 +10823,10 @@
 /turf/simulated/floor/carpet/rubber/airless,
 /area/template_noop)
 "Bd" = (
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
-/obj/machinery/door/airlock/glass/tirakqi{
+/obj/structure/machinery/door/airlock/glass/tirakqi{
 	dir = 4
 	},
 /obj/effect/map_effect/door_helper/lock,
@@ -10883,7 +10883,7 @@
 /obj/effect/decal/curb{
 	dir = 8
 	},
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 4
 	},
 /turf/simulated/floor/grass/recolorable/mycelium,
@@ -10917,7 +10917,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/machinery/door/window/southleft,
+/obj/structure/machinery/door/window/southleft,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_skrell_ship)
 "Bo" = (
@@ -11054,7 +11054,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch_door/grey,
-/obj/machinery/door/blast/regular{
+/obj/structure/machinery/door/blast/regular{
 	id = "ancient_skrell_ship_freezer_section3";
 	dir = 2
 	},
@@ -11399,7 +11399,7 @@
 	color = "#574267";
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 6
 	},
 /obj/random/dirt_75,
@@ -11470,7 +11470,7 @@
 /obj/structure/crate_shelf,
 /obj/structure/closet/crate,
 /obj/random/dirt_75,
-/obj/machinery/light/skrell,
+/obj/structure/machinery/light/skrell,
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
 "CH" = (
@@ -11479,7 +11479,7 @@
 /area/template_noop)
 "CI" = (
 /obj/structure/railing/mapped/no_density/low,
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 8
 	},
 /turf/simulated/floor/marble,
@@ -11543,13 +11543,13 @@
 	color = "#574267";
 	dir = 4
 	},
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 8
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
 "CQ" = (
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 8
 	},
 /turf/simulated/floor/marble,
@@ -11727,7 +11727,7 @@
 /turf/simulated/floor/carpet/rubber/airless,
 /area/abandoned_skrell_ship)
 "Do" = (
-/obj/machinery/atmospherics/unary/engine/scc_ship_engine,
+/obj/structure/machinery/atmospherics/unary/engine/scc_ship_engine,
 /turf/simulated/floor/reinforced{
 	blocks_air = 1;
 	density = 1;
@@ -11737,7 +11737,7 @@
 "Dp" = (
 /obj/structure/flora/assunzione/grass,
 /obj/structure/flora/assunzione/flowers/lavendergrass,
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 8
 	},
 /turf/simulated/floor/grass1/no_edge,
@@ -11777,17 +11777,17 @@
 	},
 /obj/effect/floor_decal/spline/plain/black,
 /obj/structure/table/skrell,
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	pixel_x = -16
 	},
 /turf/simulated/floor/shuttle/skrell,
 /area/abandoned_skrell_ship)
 "Du" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/atmospherics/portables_connector/aux{
+/obj/structure/machinery/atmospherics/portables_connector/aux{
 	dir = 4
 	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/airless,
 /area/abandoned_skrell_ship)
 "Dv" = (
@@ -11945,7 +11945,7 @@
 	frame_color = "#4e4378";
 	color = "#4e4378"
 	},
-/obj/machinery/door/blast/regular/open{
+/obj/structure/machinery/door/blast/regular/open{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full/airless,
@@ -12032,7 +12032,7 @@
 /turf/simulated/floor/grass/recolorable/mycelium,
 /area/abandoned_skrell_ship)
 "DX" = (
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -12069,7 +12069,7 @@
 /obj/structure/lattice/catwalk/indoor/urban{
 	color = "#8a7387"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 9
 	},
 /turf/simulated/floor/plating,
@@ -12143,10 +12143,10 @@
 /turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "Eo" = (
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 1
 	},
-/obj/machinery/door/airlock/glass/tirakqi{
+/obj/structure/machinery/door/airlock/glass/tirakqi{
 	dir = 1
 	},
 /obj/effect/map_effect/door_helper/lock,
@@ -12183,7 +12183,7 @@
 /obj/effect/floor_decal/spline/plain/mauve{
 	dir = 10
 	},
-/obj/machinery/smartfridge,
+/obj/structure/machinery/smartfridge,
 /turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "Ew" = (
@@ -12217,7 +12217,7 @@
 /area/abandoned_skrell_ship)
 "EB" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/power/portgen/basic,
+/obj/structure/machinery/power/portgen/basic,
 /obj/random/dirt_75,
 /turf/simulated/floor/airless,
 /area/template_noop)
@@ -12239,7 +12239,7 @@
 /turf/simulated/floor/shuttle/skrell,
 /area/abandoned_skrell_ship)
 "EE" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor/urban{
@@ -12321,7 +12321,7 @@
 /turf/simulated/floor/carpet/rubber/airless,
 /area/template_noop)
 "EP" = (
-/obj/machinery/door/blast/regular/open{
+/obj/structure/machinery/door/blast/regular/open{
 	dir = 4
 	},
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
@@ -12353,7 +12353,7 @@
 /obj/effect/floor_decal/industrial/outline_segment/research{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
 /turf/simulated/floor/marble,
@@ -12428,7 +12428,7 @@
 /obj/structure/railing/mapped/no_density/low{
 	dir = 4
 	},
-/obj/machinery/portable_atmospherics/hydroponics,
+/obj/structure/machinery/portable_atmospherics/hydroponics,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber,
@@ -12510,7 +12510,7 @@
 	color = "#574267";
 	dir = 4
 	},
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -12555,7 +12555,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
 "Fq" = (
-/obj/machinery/light/skrell,
+/obj/structure/machinery/light/skrell,
 /turf/simulated/floor/exoplanet/water/smooth/shell,
 /area/abandoned_skrell_ship)
 "Fs" = (
@@ -12566,7 +12566,7 @@
 /obj/effect/decal/curb{
 	color = "#574267"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/blood/oil,
@@ -12750,20 +12750,20 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/hatch_door/grey,
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
-/obj/machinery/door/airlock/freezer{
+/obj/structure/machinery/door/airlock/freezer{
 	dir = 8
 	},
-/obj/machinery/door/blast/regular{
+/obj/structure/machinery/door/blast/regular{
 	id = "ancient_skrell_ship_freezer_entrance";
 	name = "Freezer Room Blast Door"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_skrell_ship)
 "FS" = (
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -12775,7 +12775,7 @@
 /turf/simulated/floor/marble/dark,
 /area/abandoned_skrell_ship)
 "FU" = (
-/obj/machinery/power/smes/buildable/third_party_shuttle/empty,
+/obj/structure/machinery/power/smes/buildable/third_party_shuttle/empty,
 /obj/structure/cable/blue{
 	icon_state = "0-4"
 	},
@@ -12800,7 +12800,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/machinery/door/window/southleft,
+/obj/structure/machinery/door/window/southleft,
 /obj/random/hydroponics,
 /obj/random/hydroponics,
 /turf/simulated/floor/tiled/dark/full,
@@ -12837,7 +12837,7 @@
 /area/abandoned_skrell_ship)
 "Gb" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
-/obj/machinery/door/blast/odin,
+/obj/structure/machinery/door/blast/odin,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_skrell_ship)
 "Ge" = (
@@ -12957,13 +12957,13 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/hatch_door/grey,
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
-/obj/machinery/door/airlock/freezer{
+/obj/structure/machinery/door/airlock/freezer{
 	dir = 8
 	},
-/obj/machinery/door/blast/regular{
+/obj/structure/machinery/door/blast/regular{
 	id = "ancient_skrell_ship_freezer_entrance";
 	name = "Freezer Room Blast Door"
 	},
@@ -13015,7 +13015,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline_door/grey,
-/obj/machinery/computer/loreconsole/skrell/always_powered{
+/obj/structure/machinery/computer/loreconsole/skrell/always_powered{
 	dir = 4
 	},
 /obj/structure/railing/mapped/no_density/low{
@@ -13025,7 +13025,7 @@
 /area/abandoned_skrell_ship)
 "GD" = (
 /obj/effect/floor_decal/industrial/outline_door/grey,
-/obj/machinery/atmospherics/unary/vent_pump/siphon/atmos{
+/obj/structure/machinery/atmospherics/unary/vent_pump/siphon/atmos{
 	dir = 8
 	},
 /turf/simulated/floor/reinforced/airless,
@@ -13077,7 +13077,7 @@
 	dir = 8
 	},
 /obj/structure/table/skrell,
-/obj/machinery/microscope/science{
+/obj/structure/machinery/microscope/science{
 	pixel_x = -2;
 	pixel_y = 16;
 	dir = 8
@@ -13207,7 +13207,7 @@
 	color = "#574267"
 	},
 /obj/random/dirt_75,
-/obj/machinery/door/blast/odin,
+/obj/structure/machinery/door/blast/odin,
 /turf/simulated/floor/carpet/rubber/airless,
 /area/template_noop)
 "Hc" = (
@@ -13253,7 +13253,7 @@
 	dir = 8
 	},
 /obj/structure/lattice/ceiling,
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -13273,7 +13273,7 @@
 /turf/simulated/open,
 /area/template_noop)
 "Hj" = (
-/obj/machinery/floodlight/randomcharge,
+/obj/structure/machinery/floodlight/randomcharge,
 /turf/simulated/floor/cave/shell/dark_blue,
 /area/abandoned_skrell_ship)
 "Hk" = (
@@ -13334,7 +13334,7 @@
 	pixel_x = -10;
 	pixel_y = 5
 	},
-/obj/machinery/microscope/science{
+/obj/structure/machinery/microscope/science{
 	pixel_x = 4;
 	pixel_y = 15
 	},
@@ -13355,7 +13355,7 @@
 	color = "#574267";
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 1
 	},
 /obj/random/dirt_75,
@@ -13448,7 +13448,7 @@
 	color = "#574267"
 	},
 /obj/random/dirt_75,
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber/airless,
@@ -13494,7 +13494,7 @@
 /area/abandoned_skrell_ship)
 "HM" = (
 /obj/structure/flora/rock/ice,
-/obj/machinery/light/skrell,
+/obj/structure/machinery/light/skrell,
 /turf/simulated/floor/exoplanet/crystal,
 /area/abandoned_skrell_ship)
 "HO" = (
@@ -13593,7 +13593,7 @@
 	dir = 1
 	},
 /obj/structure/railing/mapped/no_density/low,
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 1
 	},
 /obj/structure/closet/crate,
@@ -13612,7 +13612,7 @@
 /obj/structure/lattice/catwalk/indoor/urban{
 	color = "#8a7387"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 10
 	},
 /turf/simulated/floor/plating,
@@ -13641,7 +13641,7 @@
 /turf/simulated/floor/marble/dark,
 /area/abandoned_skrell_ship)
 "Ig" = (
-/obj/machinery/computer/terminal/inactive{
+/obj/structure/machinery/computer/terminal/inactive{
 	dir = 4
 	},
 /obj/effect/floor_decal/spline/plain/black{
@@ -13673,7 +13673,7 @@
 /obj/effect/floor_decal/industrial/outline_door/grey{
 	dir = 4
 	},
-/obj/machinery/computer/loreconsole/skrell/always_powered{
+/obj/structure/machinery/computer/loreconsole/skrell/always_powered{
 	dir = 8
 	},
 /obj/structure/platform/dark{
@@ -13866,13 +13866,13 @@
 /turf/simulated/floor/carpet/rubber/airless,
 /area/abandoned_skrell_ship)
 "II" = (
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_skrell_ship)
 "IJ" = (
-/obj/machinery/power/portgen/basic,
+/obj/structure/machinery/power/portgen/basic,
 /obj/random/dirt_75,
 /obj/effect/floor_decal/industrial/outline_door/grey{
 	dir = 8
@@ -13913,7 +13913,7 @@
 	color = "#574267";
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 5
 	},
 /obj/random/dirt_75,
@@ -13949,7 +13949,7 @@
 /obj/effect/decal/curb{
 	color = "#574267"
 	},
-/obj/machinery/door/blast/odin,
+/obj/structure/machinery/door/blast/odin,
 /turf/simulated/floor/carpet/rubber/airless,
 /area/template_noop)
 "IR" = (
@@ -13963,7 +13963,7 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber/airless,
@@ -14013,7 +14013,7 @@
 /obj/structure/lattice/catwalk/indoor/urban{
 	color = "#8a7387"
 	},
-/obj/machinery/door/blast/odin{
+/obj/structure/machinery/door/blast/odin{
 	dir = 8
 	},
 /turf/simulated/floor/airless,
@@ -14025,7 +14025,7 @@
 /area/abandoned_skrell_ship)
 "Ja" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/computer/general_air_control/large_tank_control{
+/obj/structure/machinery/computer/general_air_control/large_tank_control{
 	dir = 8
 	},
 /obj/effect/floor_decal/spline/plain/black{
@@ -14069,7 +14069,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline_door/grey,
-/obj/machinery/door/airlock/hatch/tirakqi{
+/obj/structure/machinery/door/airlock/hatch/tirakqi{
 	name = "Cargo Bay";
 	dir = 4
 	},
@@ -14112,7 +14112,7 @@
 /obj/structure/lattice/catwalk/indoor/urban{
 	color = "#8a7387"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -14191,13 +14191,13 @@
 /area/abandoned_skrell_ship)
 "Jw" = (
 /obj/random/dirt_75,
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_skrell_ship)
 "Jx" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 1
 	},
 /turf/simulated/wall/r_wall,
@@ -14229,15 +14229,15 @@
 /turf/unsimulated/mineral/cave/petrified_shell/dark_purple,
 /area/abandoned_skrell_ship)
 "JD" = (
-/obj/machinery/door/firedoor/noid,
+/obj/structure/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
 	dir = 1
 	},
-/obj/machinery/door/airlock/hatch,
+/obj/structure/machinery/door/airlock/hatch,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/abandoned_skrell_ship)
 "JE" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
+/obj/structure/machinery/atmospherics/pipe/simple/visible{
 	dir = 8
 	},
 /turf/unsimulated/wall/steel,
@@ -14248,7 +14248,7 @@
 /turf/simulated/floor/airless,
 /area/abandoned_skrell_ship)
 "JG" = (
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
@@ -14311,7 +14311,7 @@
 /area/abandoned_skrell_ship)
 "JT" = (
 /obj/structure/table/skrell,
-/obj/machinery/microscope/science{
+/obj/structure/machinery/microscope/science{
 	pixel_x = -6;
 	pixel_y = 15
 	},
@@ -14399,13 +14399,13 @@
 /turf/simulated/floor/airless,
 /area/abandoned_skrell_ship)
 "Kc" = (
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
 	dir = 1
 	},
-/obj/machinery/door/airlock/hatch,
+/obj/structure/machinery/door/airlock/hatch,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/template_noop)
 "Kd" = (
@@ -14580,7 +14580,7 @@
 	color = "#574267";
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/aux,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/aux,
 /obj/abstract/footprint_spawner/oil{
 	dir = 1
 	},
@@ -14676,11 +14676,11 @@
 /turf/simulated/floor/airless,
 /area/template_noop)
 "KJ" = (
-/obj/machinery/door/firedoor/multi_tile{
+/obj/structure/machinery/door/firedoor/multi_tile{
 	req_one_access = null;
 	dir = 8
 	},
-/obj/machinery/door/airlock/multi_tile/glass/tirakqi,
+/obj/structure/machinery/door/airlock/multi_tile/glass/tirakqi,
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
 "KL" = (
@@ -14742,7 +14742,7 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/crate_shelf,
 /obj/structure/closet/crate,
-/obj/machinery/light/skrell,
+/obj/structure/machinery/light/skrell,
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
 "KV" = (
@@ -14788,7 +14788,7 @@
 /area/abandoned_skrell_ship)
 "La" = (
 /obj/structure/railing/mapped/no_density/low,
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 4
 	},
 /turf/simulated/floor/marble,
@@ -14915,7 +14915,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/spline/plain/black,
-/obj/machinery/computer/loreconsole/skrell/always_powered{
+/obj/structure/machinery/computer/loreconsole/skrell/always_powered{
 	dir = 1;
 	pixel_y = -10;
 	layer = 2.71;
@@ -14925,7 +14925,7 @@
 /area/abandoned_skrell_ship)
 "Lt" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -14968,7 +14968,7 @@
 /turf/simulated/floor/carpet/rubber/airless,
 /area/abandoned_skrell_ship)
 "Lz" = (
-/obj/machinery/alarm/north,
+/obj/structure/machinery/alarm/north,
 /obj/structure/table/rack/folding_table,
 /obj/item/storage/bag/inflatable/emergency{
 	pixel_x = -5;
@@ -14982,7 +14982,7 @@
 /area/abandoned_skrell_ship)
 "LB" = (
 /obj/structure/table/skrell,
-/obj/machinery/microscope/science{
+/obj/structure/machinery/microscope/science{
 	pixel_x = 3;
 	pixel_y = 5;
 	dir = 4
@@ -15029,7 +15029,7 @@
 	dir = 4
 	},
 /obj/structure/table/skrell,
-/obj/machinery/microscope/science{
+/obj/structure/machinery/microscope/science{
 	pixel_x = -4;
 	pixel_y = 15;
 	dir = 4
@@ -15156,10 +15156,10 @@
 /obj/effect/floor_decal/industrial/outline_door/research{
 	dir = 8
 	},
-/obj/machinery/iv_drip{
+/obj/structure/machinery/iv_drip{
 	pixel_x = -9
 	},
-/obj/machinery/iv_drip{
+/obj/structure/machinery/iv_drip{
 	pixel_x = 8
 	},
 /turf/simulated/floor/marble,
@@ -15323,18 +15323,18 @@
 /turf/simulated/floor/carpet/rubber/airless,
 /area/abandoned_skrell_ship)
 "MA" = (
-/obj/machinery/computer/terminal/inactive,
+/obj/structure/machinery/computer/terminal/inactive,
 /obj/random/dirt_75,
 /turf/simulated/floor/airless,
 /area/abandoned_skrell_ship)
 "MB" = (
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 1
 	},
 /turf/simulated/floor/marble,
 /area/abandoned_skrell_ship)
 "MC" = (
-/obj/machinery/computer/loreconsole/skrell/always_powered{
+/obj/structure/machinery/computer/loreconsole/skrell/always_powered{
 	pixel_y = 22;
 	density = 0
 	},
@@ -15414,10 +15414,10 @@
 /obj/structure/lattice/catwalk/indoor/urban{
 	color = "#8a7387"
 	},
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 1
 	},
-/obj/machinery/computer/loreconsole/skrell/always_powered,
+/obj/structure/machinery/computer/loreconsole/skrell/always_powered,
 /turf/simulated/floor/airless,
 /area/abandoned_skrell_ship)
 "MQ" = (
@@ -15432,7 +15432,7 @@
 	color = "#574267";
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber/airless,
@@ -15459,7 +15459,7 @@
 /area/abandoned_skrell_ship)
 "MT" = (
 /obj/structure/table/skrell,
-/obj/machinery/recharger{
+/obj/structure/machinery/recharger{
 	pixel_y = 2
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
@@ -15479,7 +15479,7 @@
 /area/abandoned_skrell_ship)
 "MY" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/computer/general_air_control/large_tank_control{
+/obj/structure/machinery/computer/general_air_control/large_tank_control{
 	dir = 8
 	},
 /obj/effect/floor_decal/spline/plain/black{
@@ -15519,7 +15519,7 @@
 /obj/structure/railing/mapped/no_density/low{
 	dir = 4
 	},
-/obj/machinery/portable_atmospherics/hydroponics,
+/obj/structure/machinery/portable_atmospherics/hydroponics,
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
@@ -15550,7 +15550,7 @@
 /turf/simulated/floor/airless,
 /area/abandoned_skrell_ship)
 "Nh" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 5
 	},
 /turf/simulated/wall/r_wall,
@@ -15690,7 +15690,7 @@
 	dir = 1;
 	pixel_y = 12
 	},
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 8
 	},
 /turf/simulated/floor/marble/purple,
@@ -15761,7 +15761,7 @@
 "NH" = (
 /obj/structure/table/skrell,
 /obj/effect/map_effect/particle_emitter/bar_smoke,
-/obj/machinery/button/remote/blast_door/open_only{
+/obj/structure/machinery/button/remote/blast_door/open_only{
 	dir = 1;
 	pixel_x = -5;
 	pixel_y = -2;
@@ -15806,7 +15806,7 @@
 /area/template_noop)
 "NM" = (
 /obj/effect/floor_decal/industrial/warning/dust/corner,
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 1
 	},
 /turf/simulated/floor/cave/shell/dark_purple,
@@ -15878,7 +15878,7 @@
 /area/abandoned_skrell_ship)
 "NW" = (
 /obj/structure/platform/dark,
-/obj/machinery/computer/loreconsole/skrell/always_powered{
+/obj/structure/machinery/computer/loreconsole/skrell/always_powered{
 	density = 0
 	},
 /obj/effect/floor_decal/industrial/outline_door/grey,
@@ -15946,7 +15946,7 @@
 /turf/simulated/floor/carpet/rubber/airless,
 /area/abandoned_skrell_ship)
 "Of" = (
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 8
 	},
 /turf/simulated/open,
@@ -16037,7 +16037,7 @@
 /turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "Or" = (
-/obj/machinery/door/firedoor/noid,
+/obj/structure/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
 	dir = 1
 	},
@@ -16057,8 +16057,8 @@
 /turf/simulated/floor/marble/dark,
 /area/abandoned_skrell_ship)
 "Ot" = (
-/obj/machinery/door/airlock/glass/tirakqi,
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/airlock/glass/tirakqi,
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 1
 	},
 /turf/simulated/floor/marble/dark,
@@ -16216,7 +16216,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline_door/grey,
-/obj/machinery/door/airlock/hatch/tirakqi{
+/obj/structure/machinery/door/airlock/hatch/tirakqi{
 	name = "Cargo Bay";
 	dir = 4
 	},
@@ -16316,7 +16316,7 @@
 	color = "#8a7387"
 	},
 /obj/structure/table/steel,
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 8
 	},
 /turf/simulated/floor/airless,
@@ -16339,14 +16339,14 @@
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
-/obj/machinery/computer/loreconsole/skrell/always_powered{
+/obj/structure/machinery/computer/loreconsole/skrell/always_powered{
 	pixel_y = 22;
 	density = 0
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/abandoned_skrell_ship)
 "Pg" = (
-/obj/machinery/power/smes/buildable/third_party_shuttle/empty,
+/obj/structure/machinery/power/smes/buildable/third_party_shuttle/empty,
 /obj/random/dirt_75,
 /obj/structure/cable/pink{
 	icon_state = "0-4"
@@ -16470,14 +16470,14 @@
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
 "Pt" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 9
 	},
 /obj/effect/decal/exterior_stairs/half/dark/right,
 /turf/simulated/floor/carpet/rubber/airless,
 /area/abandoned_skrell_ship)
 "Pu" = (
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/water/smooth/shell,
@@ -16498,7 +16498,7 @@
 /area/abandoned_skrell_ship)
 "Px" = (
 /obj/structure/table/skrell,
-/obj/machinery/recharger{
+/obj/structure/machinery/recharger{
 	pixel_y = 2
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -16584,7 +16584,7 @@
 /obj/structure/railing/mapped/no_density/low{
 	dir = 8
 	},
-/obj/machinery/portable_atmospherics/hydroponics,
+/obj/structure/machinery/portable_atmospherics/hydroponics,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber,
@@ -16646,11 +16646,11 @@
 /turf/simulated/floor/shuttle/skrell,
 /area/abandoned_skrell_ship)
 "PP" = (
-/obj/machinery/door/firedoor/multi_tile{
+/obj/structure/machinery/door/firedoor/multi_tile{
 	req_one_access = null;
 	dir = 8
 	},
-/obj/machinery/door/airlock/multi_tile/glass/tirakqi,
+/obj/structure/machinery/door/airlock/multi_tile/glass/tirakqi,
 /turf/simulated/floor/carpet/rubber,
 /area/template_noop)
 "PQ" = (
@@ -16663,7 +16663,7 @@
 /area/abandoned_skrell_ship)
 "PR" = (
 /obj/structure/lattice/catwalk/indoor,
-/obj/machinery/floodlight/randomcharge,
+/obj/structure/machinery/floodlight/randomcharge,
 /turf/simulated/floor/exoplanet/water/smooth/shell,
 /area/abandoned_skrell_ship)
 "PS" = (
@@ -16683,10 +16683,10 @@
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
 "PU" = (
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
-/obj/machinery/door/airlock/hatch/tirakqi{
+/obj/structure/machinery/door/airlock/hatch/tirakqi{
 	name = "Cargo Bay";
 	dir = 4
 	},
@@ -16698,7 +16698,7 @@
 	color = "#574267";
 	dir = 1
 	},
-/obj/machinery/door/blast/odin,
+/obj/structure/machinery/door/blast/odin,
 /turf/simulated/floor/carpet/rubber/airless,
 /area/abandoned_skrell_ship)
 "PW" = (
@@ -16826,14 +16826,14 @@
 /obj/effect/floor_decal/spline/plain/mauve{
 	dir = 8
 	},
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 8
 	},
 /turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "Qp" = (
 /obj/effect/floor_decal/crystal/random,
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/crystal,
@@ -17021,7 +17021,7 @@
 /turf/simulated/floor/grass/recolorable/mycelium,
 /area/abandoned_skrell_ship)
 "QN" = (
-/obj/machinery/door/blast/odin,
+/obj/structure/machinery/door/blast/odin,
 /turf/simulated/floor/carpet/rubber/airless,
 /area/abandoned_skrell_ship)
 "QO" = (
@@ -17081,7 +17081,7 @@
 /area/abandoned_skrell_ship)
 "QU" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/airlock/external,
+/obj/structure/machinery/door/airlock/external,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_skrell_ship)
 "QV" = (
@@ -17127,7 +17127,7 @@
 	color = "#574267"
 	},
 /obj/random/dirt_75,
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber/airless,
@@ -17214,7 +17214,7 @@
 /obj/effect/floor_decal/industrial/hatch_door/grey{
 	dir = 1
 	},
-/obj/machinery/door/blast/regular{
+/obj/structure/machinery/door/blast/regular{
 	dir = 4;
 	id = "ancient_skrell_ship_freezer_section1"
 	},
@@ -17320,18 +17320,18 @@
 /turf/simulated/floor/cave/shell/dark_blue,
 /area/abandoned_skrell_ship)
 "Rz" = (
-/obj/machinery/door/airlock/glass/tirakqi,
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/airlock/glass/tirakqi,
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 1
 	},
-/obj/machinery/door/blast/odin{
+/obj/structure/machinery/door/blast/odin{
 	dir = 8
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
 "RA" = (
 /obj/random/dirt_75,
-/obj/machinery/door/blast/odin,
+/obj/structure/machinery/door/blast/odin,
 /turf/simulated/floor/carpet/rubber/airless,
 /area/abandoned_skrell_ship)
 "RB" = (
@@ -17410,7 +17410,7 @@
 /obj/effect/floor_decal/industrial/outline_door/grey{
 	dir = 4
 	},
-/obj/machinery/air_sensor,
+/obj/structure/machinery/air_sensor,
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
 "RL" = (
@@ -17418,13 +17418,13 @@
 /turf/simulated/floor/plating,
 /area/abandoned_skrell_ship)
 "RM" = (
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
 	dir = 1
 	},
-/obj/machinery/door/airlock/hatch,
+/obj/structure/machinery/door/airlock/hatch,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/abandoned_skrell_ship)
 "RN" = (
@@ -17450,7 +17450,7 @@
 /obj/structure/lattice/catwalk/indoor/urban{
 	color = "#8a7387"
 	},
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 8
 	},
 /turf/simulated/floor/airless,
@@ -17595,7 +17595,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
 "Sq" = (
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 8
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -17736,7 +17736,7 @@
 /obj/structure/railing/mapped/no_density/low{
 	dir = 1
 	},
-/obj/machinery/portable_atmospherics/powered/scrubber,
+/obj/structure/machinery/portable_atmospherics/powered/scrubber,
 /turf/simulated/floor/airless,
 /area/abandoned_skrell_ship)
 "SL" = (
@@ -17817,7 +17817,7 @@
 /turf/simulated/floor/grass/recolorable/mycelium,
 /area/abandoned_skrell_ship)
 "SU" = (
-/obj/machinery/computer/loreconsole/skrell/always_powered,
+/obj/structure/machinery/computer/loreconsole/skrell/always_powered,
 /obj/effect/floor_decal/industrial/outline_door/grey{
 	dir = 1
 	},
@@ -17915,7 +17915,7 @@
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 8
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -17991,16 +17991,16 @@
 /area/template_noop)
 "Tq" = (
 /obj/structure/bed/stool/hover,
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
 "Ts" = (
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
-/obj/machinery/door/airlock/glass/tirakqi{
+/obj/structure/machinery/door/airlock/glass/tirakqi{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -18032,7 +18032,7 @@
 /obj/effect/decal/curb{
 	color = "#574267"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -18057,7 +18057,7 @@
 	color = "#574267";
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 9
 	},
 /obj/abstract/footprint_spawner/oil{
@@ -18074,18 +18074,18 @@
 /turf/simulated/floor/airless,
 /area/template_noop)
 "Tz" = (
-/obj/machinery/door/firedoor/multi_tile{
+/obj/structure/machinery/door/firedoor/multi_tile{
 	req_one_access = null;
 	dir = 1
 	},
-/obj/machinery/door/airlock/multi_tile/glass/tirakqi{
+/obj/structure/machinery/door/airlock/multi_tile/glass/tirakqi{
 	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/template_noop)
 "TB" = (
 /obj/effect/floor_decal/spline/plain/black,
-/obj/machinery/light/skrell,
+/obj/structure/machinery/light/skrell,
 /turf/simulated/floor/shuttle/skrell,
 /area/abandoned_skrell_ship)
 "TC" = (
@@ -18119,7 +18119,7 @@
 /area/abandoned_skrell_ship)
 "TG" = (
 /obj/effect/floor_decal/industrial/outline_door/grey,
-/obj/machinery/atmospherics/unary/vent_pump/siphon/atmos{
+/obj/structure/machinery/atmospherics/unary/vent_pump/siphon/atmos{
 	dir = 8
 	},
 /turf/simulated/floor/reinforced/airless,
@@ -18157,11 +18157,11 @@
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
 "TN" = (
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -18178,7 +18178,7 @@
 /obj/effect/floor_decal/industrial/outline_door/grey{
 	dir = 4
 	},
-/obj/machinery/power/radial_floodlight,
+/obj/structure/machinery/power/radial_floodlight,
 /obj/random/dirt_75,
 /obj/structure/flora/kudzu/mycelium,
 /turf/simulated/floor/tiled/dark/full,
@@ -18187,7 +18187,7 @@
 /obj/structure/lattice/catwalk/indoor/urban{
 	color = "#8a7387"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 5
 	},
 /turf/simulated/floor/plating,
@@ -18223,16 +18223,16 @@
 	dir = 8
 	},
 /obj/structure/closet/hazmat/general,
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 8
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
 "TU" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 8
 	},
 /obj/effect/decal/exterior_stairs/half/dark/left,
@@ -18252,7 +18252,7 @@
 /turf/simulated/floor/shuttle/skrell,
 /area/abandoned_skrell_ship)
 "TX" = (
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 8
 	},
 /turf/simulated/open,
@@ -18298,10 +18298,10 @@
 /area/template_noop)
 "Uf" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/atmospherics/portables_connector/aux{
+/obj/structure/machinery/atmospherics/portables_connector/aux{
 	dir = 4
 	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/airless,
@@ -18381,7 +18381,7 @@
 /obj/effect/decal/cleanable/cobweb,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/machinery/power/terminal{
+/obj/structure/machinery/power/terminal{
 	dir = 4
 	},
 /obj/structure/cable/yellow{
@@ -18401,7 +18401,7 @@
 /turf/simulated/floor/cave/shell/dark_purple,
 /area/abandoned_skrell_ship)
 "Uw" = (
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline_door/research{
@@ -18416,7 +18416,7 @@
 /turf/simulated/floor/marble/dark,
 /area/abandoned_skrell_ship)
 "Uy" = (
-/obj/machinery/door/blast/regular/open{
+/obj/structure/machinery/door/blast/regular/open{
 	dir = 2
 	},
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
@@ -18539,7 +18539,7 @@
 /turf/simulated/floor/shuttle/skrell,
 /area/abandoned_skrell_ship)
 "UN" = (
-/obj/machinery/light/skrell,
+/obj/structure/machinery/light/skrell,
 /turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "UO" = (
@@ -18551,7 +18551,7 @@
 	color = "#574267";
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 10
 	},
 /turf/simulated/floor/carpet/rubber/airless,
@@ -18594,7 +18594,7 @@
 /obj/structure/railing/mapped/no_density/low{
 	dir = 4
 	},
-/obj/machinery/portable_atmospherics/hydroponics,
+/obj/structure/machinery/portable_atmospherics/hydroponics,
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
 "UV" = (
@@ -18706,11 +18706,11 @@
 /turf/simulated/floor/plating,
 /area/abandoned_skrell_ship)
 "Vj" = (
-/obj/machinery/door/firedoor/multi_tile{
+/obj/structure/machinery/door/firedoor/multi_tile{
 	req_one_access = null;
 	dir = 1
 	},
-/obj/machinery/door/airlock/multi_tile/glass/tirakqi{
+/obj/structure/machinery/door/airlock/multi_tile/glass/tirakqi{
 	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -18763,7 +18763,7 @@
 /obj/effect/floor_decal/spline/plain/cee/black{
 	dir = 4
 	},
-/obj/machinery/computer/loreconsole/skrell/always_powered{
+/obj/structure/machinery/computer/loreconsole/skrell/always_powered{
 	pixel_y = 22;
 	density = 0
 	},
@@ -18771,7 +18771,7 @@
 /area/abandoned_skrell_ship)
 "Vr" = (
 /obj/structure/table/rack/retail_shelf,
-/obj/machinery/light/skrell,
+/obj/structure/machinery/light/skrell,
 /turf/simulated/floor/marble/dark,
 /area/abandoned_skrell_ship)
 "Vs" = (
@@ -18835,7 +18835,7 @@
 /obj/effect/floor_decal/industrial/outline_door/grey{
 	dir = 1
 	},
-/obj/machinery/floodlight/randomcharge{
+/obj/structure/machinery/floodlight/randomcharge{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -18857,7 +18857,7 @@
 /obj/structure/lattice/catwalk/indoor/urban{
 	color = "#8a7387"
 	},
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 8
 	},
 /turf/simulated/floor/airless,
@@ -18915,7 +18915,7 @@
 	color = "#574267";
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
 /obj/abstract/footprint_spawner/oil{
@@ -18986,7 +18986,7 @@
 /obj/structure/lattice/catwalk/indoor/urban{
 	color = "#8a7387"
 	},
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 1
 	},
 /turf/simulated/floor/airless,
@@ -19073,7 +19073,7 @@
 /turf/simulated/floor/airless,
 /area/template_noop)
 "VY" = (
-/obj/machinery/power/terminal{
+/obj/structure/machinery/power/terminal{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -19104,7 +19104,7 @@
 /turf/simulated/floor/shuttle/skrell,
 /area/abandoned_skrell_ship)
 "We" = (
-/obj/machinery/floodlight/randomcharge{
+/obj/structure/machinery/floodlight/randomcharge{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning/dust,
@@ -19116,7 +19116,7 @@
 /turf/simulated/floor/grass/recolorable/mycelium,
 /area/abandoned_skrell_ship)
 "Wg" = (
-/obj/machinery/door/firedoor/multi_tile{
+/obj/structure/machinery/door/firedoor/multi_tile{
 	req_one_access = null;
 	dir = 1
 	},
@@ -19197,7 +19197,7 @@
 /turf/simulated/floor/grass/recolorable/mycelium,
 /area/abandoned_skrell_ship)
 "Wq" = (
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
@@ -19212,7 +19212,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/template_noop)
 "Wt" = (
-/obj/machinery/atmospherics/unary/engine{
+/obj/structure/machinery/atmospherics/unary/engine{
 	thrust_limit = 0.25
 	},
 /turf/simulated/floor/reinforced/airless,
@@ -19230,7 +19230,7 @@
 	frame_color = "#4e4378";
 	color = "#4e4378"
 	},
-/obj/machinery/door/blast/regular{
+/obj/structure/machinery/door/blast/regular{
 	dir = 4;
 	id = "ancient_skrell_ship_freezer_entrance";
 	name = "Freezer Room Blast Door"
@@ -19266,7 +19266,7 @@
 	dir = 1
 	},
 /obj/structure/lattice/ceiling,
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -19288,7 +19288,7 @@
 /area/abandoned_skrell_ship)
 "WC" = (
 /obj/structure/table/skrell,
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 8;
 	pixel_y = -16
 	},
@@ -19328,7 +19328,7 @@
 /obj/structure/railing/mapped/no_density/low{
 	dir = 8
 	},
-/obj/machinery/portable_atmospherics/hydroponics,
+/obj/structure/machinery/portable_atmospherics/hydroponics,
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
@@ -19429,7 +19429,7 @@
 /area/abandoned_skrell_ship)
 "WS" = (
 /obj/effect/floor_decal/crystal/random,
-/obj/machinery/light/skrell,
+/obj/structure/machinery/light/skrell,
 /turf/simulated/floor/exoplanet/crystal,
 /area/abandoned_skrell_ship)
 "WT" = (
@@ -19465,7 +19465,7 @@
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
 	dir = 1
 	},
-/obj/machinery/door/firedoor/noid/closed,
+/obj/structure/machinery/door/firedoor/noid/closed,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/abandoned_skrell_ship)
 "WZ" = (
@@ -19477,7 +19477,7 @@
 "Xa" = (
 /obj/structure/flora/assunzione/grass,
 /obj/structure/flora/assunzione/bush/lucevine,
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 4
 	},
 /turf/simulated/floor/grass1/no_edge,
@@ -19497,11 +19497,11 @@
 /turf/simulated/floor/plating,
 /area/abandoned_skrell_ship)
 "Xc" = (
-/obj/machinery/door/firedoor/noid,
+/obj/structure/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
 	dir = 1
 	},
-/obj/machinery/door/airlock/hatch,
+/obj/structure/machinery/door/airlock/hatch,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/template_noop)
 "Xd" = (
@@ -19522,7 +19522,7 @@
 /area/template_noop)
 "Xf" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -19629,7 +19629,7 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 8
 	},
 /turf/simulated/floor/carpet/rubber/airless,
@@ -19673,7 +19673,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
 "Xv" = (
-/obj/machinery/optable,
+/obj/structure/machinery/optable,
 /obj/effect/floor_decal/spline/plain/cee/mauve{
 	dir = 1
 	},
@@ -19698,7 +19698,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_skrell_ship)
 "Xz" = (
-/obj/machinery/light/skrell,
+/obj/structure/machinery/light/skrell,
 /obj/random/dirt_75,
 /turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
@@ -19770,7 +19770,7 @@
 /obj/structure/lattice/catwalk/indoor/urban{
 	color = "#8a7387"
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /turf/simulated/floor/plating,
 /area/abandoned_skrell_ship)
 "XI" = (
@@ -19783,11 +19783,11 @@
 /turf/simulated/floor/marble/purple,
 /area/abandoned_skrell_ship)
 "XK" = (
-/obj/machinery/door/airlock/glass/tirakqi,
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/airlock/glass/tirakqi,
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 1
 	},
-/obj/machinery/door/blast/regular{
+/obj/structure/machinery/door/blast/regular{
 	dir = 4;
 	id = "ancient_skrell_ship_freezer_entrance";
 	name = "Freezer Room Blast Door"
@@ -19894,7 +19894,7 @@
 /turf/simulated/floor/airless,
 /area/abandoned_skrell_ship)
 "XX" = (
-/obj/machinery/power/smes/buildable/third_party_shuttle/empty,
+/obj/structure/machinery/power/smes/buildable/third_party_shuttle/empty,
 /obj/random/dirt_75,
 /obj/structure/cable/orange{
 	icon_state = "0-4"
@@ -19932,7 +19932,7 @@
 /obj/effect/decal/curb{
 	dir = 8
 	},
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 4
 	},
 /obj/structure/flora/grass/adhomai,
@@ -20029,10 +20029,10 @@
 /obj/structure/lattice/catwalk/indoor/urban{
 	color = "#8a7387"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 1
 	},
-/obj/machinery/door/blast/odin{
+/obj/structure/machinery/door/blast/odin{
 	dir = 8
 	},
 /turf/simulated/floor/airless,
@@ -20057,7 +20057,7 @@
 	color = "#574267";
 	dir = 4
 	},
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -20072,7 +20072,7 @@
 /turf/simulated/floor/cave/shell/dark_purple,
 /area/abandoned_skrell_ship)
 "Yo" = (
-/obj/machinery/door/blast/regular/open,
+/obj/structure/machinery/door/blast/regular/open,
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
 	spawn_firedoor = 1;
 	spawn_grille = 1;
@@ -20148,7 +20148,7 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
-/obj/machinery/computer/loreconsole/skrell/always_powered{
+/obj/structure/machinery/computer/loreconsole/skrell/always_powered{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full/airless,
@@ -20178,14 +20178,14 @@
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_skrell_ship)
 "YA" = (
 /obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
-/obj/machinery/light/skrell,
+/obj/structure/machinery/light/skrell,
 /turf/simulated/floor/marble/gray,
 /area/abandoned_skrell_ship)
 "YB" = (
@@ -20209,7 +20209,7 @@
 /area/abandoned_skrell_ship)
 "YE" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/airlock/external,
+/obj/structure/machinery/door/airlock/external,
 /turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
 "YF" = (
@@ -20224,7 +20224,7 @@
 /turf/simulated/floor/marble/dark,
 /area/abandoned_skrell_ship)
 "YJ" = (
-/obj/machinery/computer/loreconsole/skrell/always_powered{
+/obj/structure/machinery/computer/loreconsole/skrell/always_powered{
 	pixel_y = 22;
 	density = 0
 	},
@@ -20247,7 +20247,7 @@
 /turf/simulated/open,
 /area/template_noop)
 "YL" = (
-/obj/machinery/computer/loreconsole/skrell/always_powered{
+/obj/structure/machinery/computer/loreconsole/skrell/always_powered{
 	dir = 1;
 	pixel_y = -10;
 	layer = 2.71;
@@ -20295,11 +20295,11 @@
 /turf/simulated/floor/carpet/rubber/airless,
 /area/abandoned_skrell_ship)
 "YU" = (
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full/airless,
@@ -20377,14 +20377,14 @@
 /area/abandoned_skrell_ship)
 "Ze" = (
 /obj/effect/floor_decal/spline/plain/black,
-/obj/machinery/light/skrell,
+/obj/structure/machinery/light/skrell,
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/abandoned_skrell_ship)
 "Zf" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/crate/hydroponics,
 /obj/random/hydroponics,
-/obj/machinery/light/skrell,
+/obj/structure/machinery/light/skrell,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_skrell_ship)
 "Zh" = (
@@ -20464,14 +20464,14 @@
 "Zq" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/railing/mapped/no_density/low,
-/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/airless,
 /area/abandoned_skrell_ship)
 "Zr" = (
 /obj/structure/lattice/catwalk/indoor/urban{
 	color = "#8a7387"
 	},
-/obj/machinery/air_sensor{
+/obj/structure/machinery/air_sensor{
 	pixel_y = -15
 	},
 /turf/simulated/floor/exoplanet/water/smooth/shell,
@@ -20641,7 +20641,7 @@
 /obj/structure/lattice/catwalk/indoor/urban{
 	color = "#8a7387"
 	},
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/water/smooth/shell,
