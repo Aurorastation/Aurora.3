@@ -1,0 +1,4 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - bugfix: "Fixed a runtime error caused by explosive implants lying about being a radio to the Radio Subsystem."
