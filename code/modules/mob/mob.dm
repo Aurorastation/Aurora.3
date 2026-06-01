@@ -916,6 +916,8 @@
 
 	if( lying != lying_prev )
 		update_icon()
+		if(lying)
+			SEND_SIGNAL(src, COMSIG_MOB_LYING_DOWN)
 
 	return canmove
 
