@@ -1,0 +1,8 @@
+author: Batrachophrenoboocosmomachia
+delete-after: True
+changes:
+  - bugfix: "Adds additional safety checks to hardsuit deployment logic to better handle boot checks."
+  - bugfix: "Hardsuit Health Analyzer module works again."
+  - rscadd: "Adds 'Retract All Parts' verb for hardsuits."
+  - rscdel: "Removes Vitals Scanner module; hardsuits which had this module by default have had it replaced with the Health Analzyer module."
+  - rscdel: "Removes hardsuit Maneuvering Jets onmob sprites."
