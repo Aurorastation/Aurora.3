@@ -1328,10 +1328,10 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	. = ..()
 	if(in_inventory || in_storage)
 		var/mob/user = usr
-		if(!(user.client.prefs.toggles_secondary & HIDE_ITEM_TOOLTIPS))
-			tip_timer = addtimer(CALLBACK(src, PROC_REF(openTip), location, control, params, user), 8, TIMER_STOPPABLE)
 		if(QDELETED(src))
 			return
+		if(!(user.client.prefs.toggles_secondary & HIDE_ITEM_TOOLTIPS))
+			tip_timer = addtimer(CALLBACK(src, PROC_REF(openTip), location, control, params, user), 8, TIMER_STOPPABLE)
 		if(!(user.client.prefs.toggles_secondary & SEE_ITEM_OUTLINES))
 			return
 		var/mob/living/L = user
