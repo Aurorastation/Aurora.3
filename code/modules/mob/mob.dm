@@ -1444,7 +1444,7 @@
 
 	if(. && LAZYLEN(spell_list))
 		for(var/spell/S in spell_list)
-			if((!S.connected_button) || !statpanel(S.panel))
+			if(!S.connected_button)
 				continue //Not showing the noclothes spell
 			switch(S.charge_type)
 				if(Sp_RECHARGE)
