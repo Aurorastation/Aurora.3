@@ -1595,7 +1595,7 @@
 			stamina = min(max_stamina, stamina+regen)
 			adjustNutritionLoss(stamina_recovery*0.09)
 			adjustHydrationLoss(stamina_recovery*0.32)
-			if (client)
+			if (client && hud_used && hud_used.move_intent)
 				hud_used.move_intent.update_move_icon(src)
 
 /mob/living/carbon/human/proc/update_oxy_overlay()
