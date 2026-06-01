@@ -73,8 +73,6 @@
 	QDEL_NULL(dna)
 	QDEL_NULL(LAssailant)
 	spell_list?.Cut()
-	QDEL_LIST(viruses)
-	QDEL_LIST(resistances)
 	lastarea = null
 	control_object = null
 	teleop = null
