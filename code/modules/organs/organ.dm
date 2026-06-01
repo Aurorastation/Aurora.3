@@ -251,25 +251,23 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 
 /obj/item/organ/proc/handle_rejection()
 	// Process unsuitable transplants.
-	if(!owner || !owner.dna || !dna)
-		return
-
-	if(!rejecting && blood_incompatible(dna.b_type, owner.dna.b_type, species, owner.species))
-		rejecting = 1
-		return
-
-	rejecting++ //Rejection severity increases over time.
-	if(rejecting % 10 == 0) //Only fire every ten rejection ticks.
-		switch(rejecting)
-			if(1 to 50)
-				germ_level++
-			if(51 to 200)
-				germ_level += rand(1,2)
-			if(201 to 500)
-				germ_level += rand(2,3)
-			if(501 to INFINITY)
-				germ_level += rand(3,5)
-				owner.reagents.add_reagent(/singleton/reagent/toxin, rand(1,2))
+	if(dna)
+		if(!rejecting)
+			if(blood_incompatible(dna.b_type, owner.dna.b_type, species, owner.species))
+				rejecting = 1
+		else
+			rejecting++ //Rejection severity increases over time.
+			if(rejecting % 10 == 0) //Only fire every ten rejection ticks.
+				switch(rejecting)
+					if(1 to 50)
+						germ_level++
+					if(51 to 200)
+						germ_level += rand(1,2)
+					if(201 to 500)
+						germ_level += rand(2,3)
+					if(501 to INFINITY)
+						germ_level += rand(3,5)
+						owner.reagents.add_reagent(/singleton/reagent/toxin, rand(1,2))
 
 /obj/item/organ/proc/receive_chem(chemical as obj)
 	return 0
