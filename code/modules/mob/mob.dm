@@ -6,7 +6,6 @@
 	GLOB.dead_mob_list -= src
 	GLOB.living_mob_list -= src
 	GLOB.player_list -= src
-	hud_used = null
 	QDEL_NULL(hud_used)
 
 	QDEL_NULL(cells)
