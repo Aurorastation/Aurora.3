@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import {
   Box,
   Button,
@@ -252,6 +253,9 @@ const MainSection = (props) => {
 
 const VentsSection = (props) => {
   const { act, data } = useBackend<AirAlarmData>();
+  const [ventOverrides, setVentOverrides] = useState<
+    Record<string, Partial<Pick<VentEntry, 'power' | 'checks'>>>
+  >({});
 
   if (!data.vents.length) {
     return <NoticeBox>No vents connected.</NoticeBox>;
@@ -259,77 +263,98 @@ const VentsSection = (props) => {
 
   return (
     <>
-      {data.vents.map((vent) => (
-        <Section key={vent.id_tag} title={vent.long_name}>
-          <LabeledList>
-            <LabeledList.Item label="Operating">
-              <Button
-                content={vent.power ? 'On' : 'Off'}
-                color={vent.power ? 'default' : 'bad'}
-                disabled={!!data.shorted}
-                onClick={() =>
-                  act('command', {
-                    id_tag: vent.id_tag,
-                    command: 'power',
-                    val: vent.power ? 0 : 1,
-                  })
-                }
-              />
-            </LabeledList.Item>
-            <LabeledList.Item label="Operation Mode">
-              {vent.direction === 'siphon' ? 'Siphoning' : 'Pressurizing'}
-            </LabeledList.Item>
-            <LabeledList.Item label="Pressure Checks">
-              <Button
-                content="External"
-                selected={!!(vent.checks & 1)}
-                disabled={!!data.shorted}
-                onClick={() =>
-                  act('command', {
-                    id_tag: vent.id_tag,
-                    command: 'checks',
-                    val: vent.checks ^ 1,
-                  })
-                }
-              />
-              <Button
-                content="Internal"
-                selected={!!(vent.checks & 2)}
-                disabled={!!data.shorted}
-                onClick={() =>
-                  act('command', {
-                    id_tag: vent.id_tag,
-                    command: 'checks',
-                    val: vent.checks ^ 2,
-                  })
-                }
-              />
-            </LabeledList.Item>
-            <LabeledList.Item label="External Pressure Bound">
-              <Button
-                content={`${vent.external.toFixed(2)} kPa`}
-                disabled={!!data.shorted}
-                onClick={() =>
-                  act('command', {
-                    id_tag: vent.id_tag,
-                    command: 'set_external_pressure',
-                  })
-                }
-              />
-              <Button
-                content="Reset"
-                disabled={!!data.shorted}
-                onClick={() =>
-                  act('command', {
-                    id_tag: vent.id_tag,
-                    command: 'reset_external_pressure',
-                  })
-                }
-              />
-            </LabeledList.Item>
-          </LabeledList>
-        </Section>
-      ))}
+      {data.vents.map((vent) => {
+        const localVent = ventOverrides[vent.id_tag];
+        const power = localVent?.power ?? vent.power;
+        const checks = localVent?.checks ?? vent.checks;
+
+        return (
+          <Section key={vent.id_tag} title={vent.long_name}>
+            <LabeledList>
+              <LabeledList.Item label="Operating">
+                <Button
+                  content={power ? 'On' : 'Off'}
+                  color={power ? 'default' : 'bad'}
+                  disabled={!!data.shorted}
+                  onClick={() => {
+                    const val = power ? 0 : 1;
+                    setVentOverrides((vents) => ({
+                      ...vents,
+                      [vent.id_tag]: { ...vents[vent.id_tag], power: val },
+                    }));
+                    act('command', {
+                      id_tag: vent.id_tag,
+                      command: 'power',
+                      val,
+                    });
+                  }}
+                />
+              </LabeledList.Item>
+              <LabeledList.Item label="Operation Mode">
+                {vent.direction === 'siphon' ? 'Siphoning' : 'Pressurizing'}
+              </LabeledList.Item>
+              <LabeledList.Item label="Pressure Checks">
+                <Button
+                  content="External"
+                  selected={!!(checks & 1)}
+                  disabled={!!data.shorted}
+                  onClick={() => {
+                    const val = checks ^ 1;
+                    setVentOverrides((vents) => ({
+                      ...vents,
+                      [vent.id_tag]: { ...vents[vent.id_tag], checks: val },
+                    }));
+                    act('command', {
+                      id_tag: vent.id_tag,
+                      command: 'checks',
+                      val,
+                    });
+                  }}
+                />
+                <Button
+                  content="Internal"
+                  selected={!!(checks & 2)}
+                  disabled={!!data.shorted}
+                  onClick={() => {
+                    const val = checks ^ 2;
+                    setVentOverrides((vents) => ({
+                      ...vents,
+                      [vent.id_tag]: { ...vents[vent.id_tag], checks: val },
+                    }));
+                    act('command', {
+                      id_tag: vent.id_tag,
+                      command: 'checks',
+                      val,
+                    });
+                  }}
+                />
+              </LabeledList.Item>
+              <LabeledList.Item label="External Pressure Bound">
+                <Button
+                  content={`${vent.external.toFixed(2)} kPa`}
+                  disabled={!!data.shorted}
+                  onClick={() =>
+                    act('command', {
+                      id_tag: vent.id_tag,
+                      command: 'set_external_pressure',
+                    })
+                  }
+                />
+                <Button
+                  content="Reset"
+                  disabled={!!data.shorted}
+                  onClick={() =>
+                    act('command', {
+                      id_tag: vent.id_tag,
+                      command: 'reset_external_pressure',
+                    })
+                  }
+                />
+              </LabeledList.Item>
+            </LabeledList>
+          </Section>
+        );
+      })}
     </>
   );
 };
@@ -338,6 +363,14 @@ const VentsSection = (props) => {
 
 const ScrubbersSection = (props) => {
   const { act, data } = useBackend<AirAlarmData>();
+  const [scrubberOverrides, setScrubberOverrides] = useState<
+    Record<
+      string,
+      Partial<Pick<ScrubberEntry, 'power' | 'scrubbing'>> & {
+        filters?: Record<string, BooleanLike>;
+      }
+    >
+  >({});
 
   if (!data.scrubbers.length) {
     return <NoticeBox>No scrubbers connected.</NoticeBox>;
@@ -345,57 +378,95 @@ const ScrubbersSection = (props) => {
 
   return (
     <>
-      {data.scrubbers.map((scrubber) => (
-        <Section key={scrubber.id_tag} title={scrubber.long_name}>
-          <LabeledList>
-            <LabeledList.Item label="Operating">
-              <Button
-                content={scrubber.power ? 'On' : 'Off'}
-                color={scrubber.power ? 'default' : 'bad'}
-                disabled={!!data.shorted}
-                onClick={() =>
-                  act('command', {
-                    id_tag: scrubber.id_tag,
-                    command: 'power',
-                    val: scrubber.power ? 0 : 1,
-                  })
-                }
-              />
-            </LabeledList.Item>
-            <LabeledList.Item label="Operation Mode">
-              <Button
-                content={scrubber.scrubbing ? 'Scrubbing' : 'Siphoning'}
-                color={scrubber.scrubbing ? 'default' : 'bad'}
-                disabled={!!data.shorted}
-                onClick={() =>
-                  act('command', {
-                    id_tag: scrubber.id_tag,
-                    command: 'scrubbing',
-                    val: scrubber.scrubbing ? 0 : 1,
-                  })
-                }
-              />
-            </LabeledList.Item>
-            <LabeledList.Item label="Filters">
-              {scrubber.filters.map((filter) => (
+      {data.scrubbers.map((scrubber) => {
+        const localScrubber = scrubberOverrides[scrubber.id_tag];
+        const power = localScrubber?.power ?? scrubber.power;
+        const scrubbing = localScrubber?.scrubbing ?? scrubber.scrubbing;
+
+        return (
+          <Section key={scrubber.id_tag} title={scrubber.long_name}>
+            <LabeledList>
+              <LabeledList.Item label="Operating">
                 <Button
-                  key={filter.command}
-                  content={filter.name}
-                  selected={!!filter.val}
+                  content={power ? 'On' : 'Off'}
+                  color={power ? 'default' : 'bad'}
                   disabled={!!data.shorted}
-                  onClick={() =>
+                  onClick={() => {
+                    const val = power ? 0 : 1;
+                    setScrubberOverrides((scrubbers) => ({
+                      ...scrubbers,
+                      [scrubber.id_tag]: {
+                        ...scrubbers[scrubber.id_tag],
+                        power: val,
+                      },
+                    }));
                     act('command', {
                       id_tag: scrubber.id_tag,
-                      command: filter.command,
-                      val: filter.val ? 0 : 1,
-                    })
-                  }
+                      command: 'power',
+                      val,
+                    });
+                  }}
                 />
-              ))}
-            </LabeledList.Item>
-          </LabeledList>
-        </Section>
-      ))}
+              </LabeledList.Item>
+              <LabeledList.Item label="Operation Mode">
+                <Button
+                  content={scrubbing ? 'Scrubbing' : 'Siphoning'}
+                  color={scrubbing ? 'default' : 'bad'}
+                  disabled={!!data.shorted}
+                  onClick={() => {
+                    const val = scrubbing ? 0 : 1;
+                    setScrubberOverrides((scrubbers) => ({
+                      ...scrubbers,
+                      [scrubber.id_tag]: {
+                        ...scrubbers[scrubber.id_tag],
+                        scrubbing: val,
+                      },
+                    }));
+                    act('command', {
+                      id_tag: scrubber.id_tag,
+                      command: 'scrubbing',
+                      val,
+                    });
+                  }}
+                />
+              </LabeledList.Item>
+              <LabeledList.Item label="Filters">
+                {scrubber.filters.map((filter) => {
+                  const filterValue =
+                    localScrubber?.filters?.[filter.command] ?? filter.val;
+
+                  return (
+                    <Button
+                      key={filter.command}
+                      content={filter.name}
+                      selected={!!filterValue}
+                      disabled={!!data.shorted}
+                      onClick={() => {
+                        const val = filterValue ? 0 : 1;
+                        setScrubberOverrides((scrubbers) => ({
+                          ...scrubbers,
+                          [scrubber.id_tag]: {
+                            ...scrubbers[scrubber.id_tag],
+                            filters: {
+                              ...scrubbers[scrubber.id_tag]?.filters,
+                              [filter.command]: val,
+                            },
+                          },
+                        }));
+                        act('command', {
+                          id_tag: scrubber.id_tag,
+                          command: filter.command,
+                          val,
+                        });
+                      }}
+                    />
+                  );
+                })}
+              </LabeledList.Item>
+            </LabeledList>
+          </Section>
+        );
+      })}
     </>
   );
 };
