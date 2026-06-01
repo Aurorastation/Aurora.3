@@ -27,8 +27,8 @@ GLOBAL_LIST_INIT_TYPED(rod_recipes, /datum/stack_recipe, list(
 	throwforce = 15.0
 	throw_speed = 5
 	throw_range = 20
-	drop_sound = 'sound/items/drop/metalweapon.ogg'
-	pickup_sound = 'sound/items/pickup/metalweapon.ogg'
+	drop_sound = 'sound/items/drop/metal_rod.ogg'
+	pickup_sound = 'sound/items/pickup/metal_rod.ogg'
 	matter = list(DEFAULT_WALL_MATERIAL = 937.5)
 	recyclable = TRUE
 	max_amount = 60

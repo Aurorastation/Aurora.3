@@ -22,14 +22,10 @@
 	if (mind)
 		mind.handle_mob_deletion(src)
 
-	for(var/infection in viruses)
-		qdel(infection)
-
 	for(var/cc in client_colors)
 		qdel(cc)
 
 	client_colors = null
-	viruses.Cut()
 	item_verbs = null
 
 	//Added this to prevent nonliving mobs from ghostising
@@ -916,6 +912,8 @@
 
 	if( lying != lying_prev )
 		update_icon()
+		if(lying)
+			SEND_SIGNAL(src, COMSIG_MOB_LYING_DOWN)
 
 	return canmove
 
@@ -1446,7 +1444,7 @@
 
 	if(. && LAZYLEN(spell_list))
 		for(var/spell/S in spell_list)
-			if((!S.connected_button) || !statpanel(S.panel))
+			if(!S.connected_button)
 				continue //Not showing the noclothes spell
 			switch(S.charge_type)
 				if(Sp_RECHARGE)

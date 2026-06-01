@@ -1,10 +1,11 @@
 /singleton/skill/research
 	name = "Research"
-	description = "Not currently implemented"
+	description = "The Research skill governs your ability to conduct scientific research, iterate on designs in R&D and unlock the secrets of the universe. Currently only implemented for modular lasers. "
 	maximum_level = SKILL_LEVEL_PROFESSIONAL
 	uneducated_skill_cap = SKILL_LEVEL_TRAINED
 	category =  /singleton/skill_category/occupational
 	subcategory = SKILL_SUBCATEGORY_SCIENCE
+	required = TRUE
 	component_type = RESEARCH_SKILL_COMPONENT
 
 /singleton/skill/xenobotany

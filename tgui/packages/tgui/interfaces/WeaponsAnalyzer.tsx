@@ -227,24 +227,48 @@ export const GunMods = (props) => {
           {data.gun_mods.map((mod) => (
             <Section key={mod.name} title={capitalizeAll(mod.name)}>
               <LabeledList>
-                <LabeledList.Item label="Reliability">
-                  {mod.reliability}
-                </LabeledList.Item>
-                <LabeledList.Item label="Damage Modifier">
-                  {mod.damage_modifier}
-                </LabeledList.Item>
-                <LabeledList.Item label="Fire Delay Modifier">
-                  {mod.fire_delay_modifier}
-                </LabeledList.Item>
-                <LabeledList.Item label="Shots Modifier">
-                  {mod.shots_modifier}
-                </LabeledList.Item>
-                <LabeledList.Item label="Burst Modifier">
-                  {mod.burst_modifier}
-                </LabeledList.Item>
-                <LabeledList.Item label="Accuracy Modifier">
-                  {mod.accuracy_modifier}
-                </LabeledList.Item>
+                {mod.reliability ? (
+                  <LabeledList.Item label="Reliability">
+                    {mod.reliability}
+                  </LabeledList.Item>
+                ) : (
+                  ''
+                )}
+                {mod.damage_modifier ? (
+                  <LabeledList.Item label="Damage Modifier">
+                    {mod.damage_modifier}
+                  </LabeledList.Item>
+                ) : (
+                  ''
+                )}
+                {mod.fire_delay_modifier ? (
+                  <LabeledList.Item label="Fire Delay Modifier">
+                    {mod.fire_delay_modifier}
+                  </LabeledList.Item>
+                ) : (
+                  ''
+                )}
+                {mod.shots_modifier ? (
+                  <LabeledList.Item label="Shots Modifier">
+                    {mod.shots_modifier}
+                  </LabeledList.Item>
+                ) : (
+                  ''
+                )}
+                {mod.burst_modifier ? (
+                  <LabeledList.Item label="Burst Modifier">
+                    {mod.burst_modifier}
+                  </LabeledList.Item>
+                ) : (
+                  ''
+                )}
+                {mod.accuracy_modifier ? (
+                  <LabeledList.Item label="Accuracy Modifier">
+                    {mod.accuracy_modifier}
+                  </LabeledList.Item>
+                ) : (
+                  ''
+                )}
                 <LabeledList.Item label="Repair Tool">
                   {capitalizeAll(mod.repair_tool)}
                 </LabeledList.Item>

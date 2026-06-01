@@ -420,11 +420,6 @@ ABSTRACT_TYPE(/obj/item/gun)
 	if(!special_check(user))
 		return FALSE
 
-	var/failure_chance = 100 - reliability
-	if(prob(failure_chance))
-		handle_reliability_fail(user)
-		return FALSE
-
 	if(world.time < next_fire_time)
 		if(world.time % 3 && !can_autofire) //to prevent spam
 			to_chat(user, SPAN_WARNING("\The [src] is not ready to fire again!"))
@@ -433,6 +428,11 @@ ABSTRACT_TYPE(/obj/item/gun)
 	var/shoot_time = get_appropriate_delay()
 	user.setClickCooldown(shoot_time)
 	next_fire_time = world.time + shoot_time
+
+	var/failure_chance = 100 - reliability //Here so there is click delay even if the gun malfunctions.
+	if(prob(failure_chance))
+		handle_reliability_fail(user)
+		return FALSE
 
 	user.face_atom(target, TRUE)
 
@@ -702,21 +702,23 @@ ABSTRACT_TYPE(/obj/item/gun)
 		M.visible_message(SPAN_GOOD("\The [user] takes \the [src] out of their mouth."))
 		mouthshoot = FALSE
 		return
+
+	user.visible_message(SPAN_DANGER("\The [user] pulls the trigger."))
+	if (!pin && needspin) // Checks the pin of the gun.
+		handle_click_empty(user)
+		mouthshoot = FALSE
+		return
+	else if (!pin.pin_auth() && needspin)
+		handle_click_empty(user)
+		mouthshoot = FALSE
+		return
+	else if(safety() && user.a_intent != I_HURT)
+		handle_click_empty(user)
+		mouthshoot = FALSE
+		return
+
 	var/obj/projectile/in_chamber = consume_next_projectile()
 	if(istype(in_chamber))
-		user.visible_message(SPAN_DANGER("\The [user] pulls the trigger."))
-		if (!pin && needspin) // Checks the pin of the gun.
-			handle_click_empty(user)
-			mouthshoot = FALSE
-			return
-		if (!pin.pin_auth() && needspin)
-			handle_click_empty(user)
-			mouthshoot = FALSE
-			return
-		if(safety() && user.a_intent != I_HURT)
-			handle_click_empty(user)
-			mouthshoot = FALSE
-			return
 		play_fire_sound()
 
 		in_chamber.on_hit(M)

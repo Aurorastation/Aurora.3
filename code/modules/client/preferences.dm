@@ -527,9 +527,15 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 			if(istype(P) && (P.ability_flags & PSI_FLAG_CANON))
 				P.apply(character)
 
+	// Load all of the player-set skills first.
 	for(var/skill_type in skills)
 		var/singleton/skill/skill = GET_SINGLETON(skill_type)
 		skill.on_spawn(character, skills[skill.type])
+
+	// Attempt to load all the "required" skills.
+	// Player-set skills won't be overwritten here as LoadComponent will never re-initialize a component that already exists.
+	for(var/singleton/skill/required_skill as anything in SSskills.required_skills)
+		character.LoadComponent(required_skill.component_type, SKILL_LEVEL_UNFAMILIAR)
 
 	if(icon_updates)
 		character.force_update_limbs()

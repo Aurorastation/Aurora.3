@@ -439,7 +439,7 @@ SUBSYSTEM_DEF(cargo)
 				new_shipment()
 
 			// Set the elevator movement time.
-			current_shipment.shuttle_time = get_pending_shipment_time()
+			current_shipment.shuttle_time = get_pending_shipment_time() + min_movetime
 			current_shipment.shuttle_fee = shipment_cost
 
 			if(current_shipment.shuttle_time < min_movetime)
@@ -453,7 +453,7 @@ SUBSYSTEM_DEF(cargo)
 			movetime = current_shipment.shuttle_time
 			//Launch it
 			shuttle.launch(src)
-			. = "The cargo elevator has been called and will arrive in approximately [shuttle.eta_seconds()] seconds."
+			. = "The cargo elevator has been called and will arrive in approximately [shuttle.launch_estimate(TRUE)] seconds."
 			current_shipment.shuttle_called_by = requester_name
 
 // Cancels the elevator. Can return a status message.
