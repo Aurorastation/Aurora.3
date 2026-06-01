@@ -1,0 +1,4 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - rscadd: "Tweaked the hard delete logging sensitivity to correctly catch and record typical hard dels to the sentry logs. They will also now provide more usable information in order to help find where the memory leaks are coming from."
