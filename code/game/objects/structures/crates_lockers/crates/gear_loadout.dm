@@ -1500,6 +1500,8 @@
 	new /obj/item/coin/phoron(src)
 	new /obj/item/modkit/multi_species(src)
 	new /obj/item/modkit/multi_species(src)
+	new /obj/item/modkit/multi_species(src)
+	new /obj/item/modkit/multi_species(src)
 
 /obj/structure/closet/crate/secure/gear_loadout/outereyes/single/fill()
 	new /obj/item/clothing/head/helmet/space/void/outereyes(src)
