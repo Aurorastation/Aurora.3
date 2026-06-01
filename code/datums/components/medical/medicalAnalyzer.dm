@@ -84,6 +84,15 @@
 			reagent_results = list()
 			return TRUE
 
+/datum/component/health_analyzer/ui_status(mob/user, datum/ui_state/state)
+	var/obj/item/rig_module/containing_rig_module = owner.loc
+	if(!containing_rig_module)
+		return ..()
+	if(containing_rig_module?.holder?.wearer == user)
+		return UI_INTERACTIVE
+
+	return UI_CLOSE
+
 /datum/component/health_analyzer/proc/attack(mob/living/target_mob, mob/living/user, target_zone)
 	sound_scan = TRUE
 

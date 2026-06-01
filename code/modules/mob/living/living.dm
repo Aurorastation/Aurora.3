@@ -745,10 +745,6 @@ default behaviour is:
 		to_chat(src, SPAN_NOTICE("You can't move..."))
 		return
 	var/resisting = 0
-	for(var/obj/O in requests)
-		requests.Remove(O)
-		qdel(O)
-		resisting++
 	var/resist_power = get_resist_power() // How easily the mob can break out of a grab
 	for(var/obj/item/grab/G in grabbed_by)
 		resisting++

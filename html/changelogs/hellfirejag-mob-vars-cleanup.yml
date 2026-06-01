@@ -1,0 +1,4 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - rscdel: "Removed a couple of completely vestigial global-ish mob vars to save on memory and time."

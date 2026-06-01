@@ -130,6 +130,27 @@
 
 	deploy(wearer)
 
+/obj/item/rig/verb/retract_suit()
+	set name = "Retract All Hardsuit Parts"
+	set desc = "Retracts helmet, gloves and boots."
+	set category = "Hardsuit.Core Functions"
+	set src = usr.contents
+
+	if(!istype(wearer) || !wearer.back == src)
+		to_chat(usr, SPAN_WARNING("The hardsuit is not being worn."))
+		return
+
+	if(use_check_and_message(usr))
+		return
+
+	if(!check_suit_access(usr))
+		return
+
+	if(!check_power_cost(usr))
+		return
+
+	deploy(wearer)
+
 /obj/item/rig/verb/toggle_seals_verb()
 	set name = "Engage/Disengage Hardsuit"
 	set desc = "Activates or deactivates your hardsuit."
