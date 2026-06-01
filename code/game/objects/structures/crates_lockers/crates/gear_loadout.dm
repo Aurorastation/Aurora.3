@@ -1498,6 +1498,8 @@
 	new /obj/item/coin/phoron(src)
 	new /obj/item/coin/phoron(src)
 	new /obj/item/coin/phoron(src)
+	new /obj/item/modkit/multi_species(src)
+	new /obj/item/modkit/multi_species(src)
 
 /obj/structure/closet/crate/secure/gear_loadout/outereyes/single/fill()
 	new /obj/item/clothing/head/helmet/space/void/outereyes(src)
@@ -1514,6 +1516,7 @@
 	new /obj/item/ammo_magazine/c46m/extended(src)
 	new /obj/item/melee/energy/sword/knife(src)
 	new /obj/item/coin/phoron(src)
+	new /obj/item/modkit/multi_species(src)
 
 /obj/structure/closet/crate/secure/gear_loadout/zavodskoi/fill()
 	new /obj/item/rig/combat/zavod_heavy(src)
