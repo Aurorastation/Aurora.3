@@ -133,6 +133,7 @@
 	// And that because a hyperbolic tangent will only ever return a value between -1 and 1,
 	// the range of this equation becomes the set of integers between 1 and 9 inclusive.
 	morale_ui.icon_state = ((morale_ratio > -0.01 && morale_ratio < 0.01) ? "morale_hidden" : "morale" + "[round(morale_ratio * 4) + 5]")
+	morale_ui.update_icon()
 
 /datum/component/morale/proc/set_beta_value(input)
 	beta_value = input
