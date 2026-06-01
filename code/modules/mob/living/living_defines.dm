@@ -102,3 +102,11 @@
 
 	/// Time since last weather effect
 	var/weather_cooldown_time = 0
+
+	var/datum/psi_complexus/psi
+
+	///The obj to overlay on the aim target
+	var/obj/aiming_overlay/aiming
+
+	///A list of mobs the target is being aimed at by
+	var/list/aimed_at_by

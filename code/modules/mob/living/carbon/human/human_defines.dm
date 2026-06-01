@@ -134,3 +134,8 @@
 	var/triage_tag = TRIAGE_NONE
 
 	var/lobotomized = FALSE //additional check for isAdvancedToolUser that can be set manually by things
+
+	var/list/organs = list()
+
+	///Container for blood and BLOOD ONLY. Do not transfer other chems here.
+	var/datum/reagents/vessel

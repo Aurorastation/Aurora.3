@@ -87,6 +87,11 @@
 	/// Whether this atom should have its dir automatically changed when it moves. Setting this to FALSE allows for things such as directional windows to retain dir on moving without snowflake code all of the place.
 	var/set_dir_on_move = TRUE
 
+	var/tmp/turf/airflow_dest
+	var/tmp/airflow_speed = 0
+	var/tmp/airflow_time = 0
+	var/tmp/last_airflow = 0
+
 /atom/movable/Initialize(mapload, ...)
 	. = ..()
 	update_emissive_blocker()
@@ -114,14 +119,11 @@
 
 	QDEL_LAZYLIST(contained_mobs)
 
-	. = ..()
-
 	for(var/movable_content in contents)
 		qdel(movable_content)
 
 	//Pretend this is moveToNullspace()
 	moveToNullspace()
-	loc = null
 
 	//This absolutely must be after moveToNullspace()
 	//We rely on Entered and Exited to manage this list, and the copy of this list that is on any /atom/movable "Containers"
@@ -150,6 +152,9 @@
 
 	QDEL_NULL(light)
 	QDEL_NULL(static_light)
+	airflow_dest = null
+	loc = null
+	return ..()
 
 /atom/movable/proc/moveToNullspace()
 	. = TRUE

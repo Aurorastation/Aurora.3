@@ -288,3 +288,53 @@
 
 	/// A assoc lazylist of to_chat notifications, key = string message, value = world time integer
 	var/list/message_notifications
+
+	var/mob/living/vr_mob = null // In which mob is our mind
+	var/mob/living/old_mob = null // Which mob is our old mob
+
+	/**
+	* LAZYLIST (Instances of `/datum/click_handler`). Click handlers for this mob that should intercept and handle click
+	* calls.
+	*
+	* The 'topmost'/'active' click handler for the mob is the handler currently at index `1`. By default, this will be
+	* `/datum/click_handler/default`.
+	*/
+	var/list/click_handlers
+
+	var/should_add_to_mob_list = TRUE
+
+	/// Integer. Unique sequential ID from the `do_after` proc used to validate `DO_USER_UNIQUE_ACT` flag checks.
+	var/do_unique_user_handle = 0
+
+	var/mob/lastattacker = null
+	var/mob/lastattacked = null
+	var/attack_log = list()
+
+	/// Spam control, can only point when the previous pointer qdels
+	var/obj/effect/decal/point/pointing_effect = null
+
+	/// 1 decisecond click delay (above and beyond mob/next_move)
+	var/next_click = 0
+
+	var/dizziness = 0//Carbon
+	var/is_dizzy = 0
+	var/is_jittery = 0
+	var/jitteriness = 0//Carbon
+
+	//handles up-down floaty effect in space and zero-gravity
+	var/is_floating = FALSE
+
+	// Used by the Nano UI Manager (/datum/SSnanoui) to track UIs opened by this mob
+	var/list/open_nanouis = list()
+
+	var/last_pain_message = ""
+	var/next_pain_time = 0
+
+	/**
+	* global
+	*
+	* Tracks open UIs for a user.
+	*/
+	var/list/tgui_open_uis = list()
+
+	var/tmp/last_airflow_stun = 0

@@ -26,10 +26,10 @@
 /atom/movable/screen/Destroy(force = FALSE)
 	master = null
 	screen_loc = null
-	if(hud?.mymob?.client)
+	if(length(hud?.mymob?.client?.screen))
 		hud.mymob.client.screen -= src
 	hud = null
-	. = ..()
+	return ..()
 
 /// Screen elements are always on top of the players screen and don't move so yes they are adjacent
 /atom/movable/screen/Adjacent(atom/neighbor, atom/target, atom/movable/mover)

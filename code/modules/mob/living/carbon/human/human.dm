@@ -118,9 +118,9 @@
 	// It's actually the set of all Limbs (left arm, head, leg leg, etc) we have. We Qdel and null the set of all limbs, which is unique to /human.
 	QDEL_LIST(organs)
 	// Then also null the associative list of those same limbs, which contains the same references.
-	organs_by_name = null
-	bad_internal_organs = null
-	bad_external_organs = null
+	QDEL_LIST_ASSOC_VAL(organs_by_name)
+	bad_internal_organs?.Cut()
+	bad_external_organs?.Cut()
 
 	QDEL_NULL(vessel)
 
@@ -150,13 +150,14 @@
 	//Yes this is shit, but since someone had the brillant mind to use images for this, we must suffer
 	if(length(hud_list))
 		for(var/image/hud_overlay/an_hud_overlay in hud_list)
-			if(an_hud_overlay.owner)
-				an_hud_overlay.owner.client?.images -= an_hud_overlay
+			if(length(an_hud_overlay.owner?.client?.images))
+				an_hud_overlay.owner.client.images -= an_hud_overlay
 			an_hud_overlay.owner = null
 			qdel(an_hud_overlay)
-		hud_list = null
+		hud_list.Cut()
 
-	. = ..()
+	wearing_rig = null
+	return ..()
 
 /mob/living/carbon/human/can_devour(atom/movable/victim, var/silent = FALSE)
 	if(!should_have_organ(BP_STOMACH))
