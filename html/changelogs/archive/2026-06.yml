@@ -1,0 +1,6 @@
+2026-06-01:
+  Llywelwyn:
+  - bugfix: Leaning on the north side of a wall now correctly hides your lower body
+      behind the wall instead of drawing you on top of it.
+  - code_imp: Adds a COMSIG_MOB_LYING_DOWN signal, sent when a mob transitions into
+      lying down.
