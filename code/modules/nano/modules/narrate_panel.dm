@@ -16,49 +16,50 @@
 	if(.)
 		return
 
-	var/mob/abstract/ghost/ghost = ui.user
-	if(!istype(ghost))
+	var/mob/abstract/ghost/narrate_user = ui.user
+	var/is_admin = check_rights(R_ADMIN, user = ui.user)
+	if(!istype(narrate_user) && !is_admin)
 		return FALSE
 
 	if(action == "narrate")
 		var/narrate_text = sanitizeSafe(params["narrate_text"])
 		if(!length(narrate_text))
-			to_chat(ghost, SPAN_WARNING("No text was supplied!"))
+			to_chat(narrate_user, SPAN_WARNING("No text was supplied!"))
 			return FALSE
 
 		var/narrate_style = params["narrate_style"]
 		if(!narrate_style)
-			to_chat(ghost, SPAN_WARNING("No text style was supplied!"))
+			to_chat(narrate_user, SPAN_WARNING("No text style was supplied!"))
 			return FALSE
 
 		var/narrate_size = text2num(params["narrate_size"])
 		if(!isnum(narrate_size))
-			to_chat(ghost, SPAN_WARNING("No text size was supplied!"))
+			to_chat(narrate_user, SPAN_WARNING("No text size was supplied!"))
 			return FALSE
 
 		var/narrate_range = text2num(params["narrate_range"])
 		if(!isnum(narrate_range))
-			to_chat(ghost, SPAN_WARNING("No narrate range was supplied!"))
+			to_chat(narrate_user, SPAN_WARNING("No narrate range was supplied!"))
 			return FALSE
 
 		var/narrate_location = params["narrate_location"]
 		if(!narrate_location)
-			to_chat(ghost, SPAN_WARNING("No narrate location was supplied!"))
+			to_chat(narrate_user, SPAN_WARNING("No narrate location was supplied!"))
 			return FALSE
 
 		var/list/mobs_to_message = list()
 		switch(narrate_location)
 			if("View")
-				for(var/mob/M in get_hearers_in_view(narrate_range, ghost))
+				for(var/mob/M in get_hearers_in_view(narrate_range, narrate_user))
 					mobs_to_message |= M
 
 			if("Range")
-				for(var/mob/M in get_hearers_in_range(narrate_range, ghost))
+				for(var/mob/M in get_hearers_in_range(narrate_range, narrate_user))
 					mobs_to_message |= M
 
 			if("Z-Level")
 				for(var/mob/M in GLOB.player_list)
-					if(GET_Z(M) == ghost.z)
+					if(GET_Z(M) == narrate_user.z)
 						mobs_to_message |= M
 
 			if("Global")
