@@ -187,3 +187,64 @@
 			return L
 		else
 			return null
+
+/// Splits a message into /datum/say_piece segments, switching language at each spoken prefix.
+/mob/proc/build_say_message(message)
+	RETURN_TYPE(/datum/say_message)
+	var/datum/say_message/say_message = new
+	say_message.speaker = src
+	say_message.raw_message = message
+
+	var/datum/language/current = get_default_language()
+	var/regex/trigger = get_language_trigger_regex()
+	trigger.next = 1
+
+	var/piece_start = 1
+	var/list/say_piece/pieces = list()
+
+	while(trigger.Find(message))
+		var/lead = trigger.group[1]	//empty at the start of the message, otherwise the whitespace before the prefix
+		var/prefix_pos = trigger.index + length(lead)
+		var/key_pos = prefix_pos + 1
+
+		var/key_len = 2
+		var/datum/language/found = resolve_language_key(copytext(message, key_pos, key_pos + 2))
+		if(!found)
+			key_len = 1
+			found = resolve_language_key(copytext(message, key_pos, key_pos + 1))
+		if(!found)
+			continue	//not a language we can speak, leave it as literal text and keep scanning
+
+		pieces += new /datum/say_piece(copytext(message, piece_start, prefix_pos - length(lead)), current)
+
+		var/after = key_pos + key_len
+		if(copytext(message, after, after + 1) == " ")
+			after++
+		piece_start = after
+		current = found
+		trigger.next = after
+
+	pieces += new /datum/say_piece(copytext(message, piece_start), current)
+	say_message.pieces = clean_pieces(pieces)
+	return say_message
+
+/// Returns the language for a prefix key if we can speak it, otherwise null.
+/mob/proc/resolve_language_key(key)
+	RETURN_TYPE(/datum/language)
+	if(!key)
+		return null
+	var/datum/language/found = GLOB.language_keys[lowertext(key)]
+	return (istype(found) && can_speak(found)) ? found : null
+
+/// Drops empty pieces and merges adjacent ones sharing a language.
+/proc/clean_pieces(list/say_piece/pieces)
+	var/list/say_piece/cleaned = list()
+	for(var/datum/say_piece/piece as anything in pieces)
+		if(!length(piece.text))
+			continue
+		var/datum/say_piece/last = cleaned.len ? cleaned[cleaned.len] : null
+		if(last && last.language == piece.language)
+			last.text += piece.text
+		else
+			cleaned += piece
+	return cleaned

@@ -376,6 +376,22 @@
 
 	return prefix in GLOB.config.language_prefixes
 
+/// Caches the trigger regex per prefix-set so it isn't rebuilt each message.
+GLOBAL_LIST_EMPTY(language_trigger_regex_cache)
+
+/// Returns a cached regex matching a language prefix at message start or after whitespace.
+/mob/proc/get_language_trigger_regex()
+	var/list/prefixes = (client?.prefs?.language_prefixes?.len) ? client.prefs.language_prefixes : GLOB.config.language_prefixes
+	var/cache_key = jointext(prefixes, "")
+	. = GLOB.language_trigger_regex_cache[cache_key]
+	if(.)
+		return
+	var/list/escaped = list()
+	for(var/prefix in prefixes)
+		escaped += "\\[prefix]"
+	. = regex("(^|\\s)(\[[jointext(escaped, "")]\])", "g")
+	GLOB.language_trigger_regex_cache[cache_key] = .
+
 /mob/verb/check_languages()
 	set name = "Check Known Languages"
 	set category = "IC.Language"
