@@ -337,6 +337,11 @@
 /obj/structure/flora/bush/konyang_reeds,
 /turf/simulated/floor/exoplanet/konyang/wilting,
 /area/template_noop)
+"eW" = (
+/obj/structure/ladder/away,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/roofing_tiles,
+/area/template_noop)
 "eZ" = (
 /obj/structure/platform{
 	dir = 4
@@ -763,6 +768,13 @@
 	},
 /turf/simulated/floor/sidewalk,
 /area/template_noop)
+"mg" = (
+/obj/structure/ledge/roof{
+	dir = 9
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/roofing_tiles,
+/area/template_noop)
 "mm" = (
 /obj/effect/konyang_waterfall{
 	icon_state = "waterfall_topright";
@@ -897,6 +909,7 @@
 /obj/structure/ledge/roof{
 	dir = 5
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/roofing_tiles,
 /area/template_noop)
 "oC" = (
@@ -1116,7 +1129,7 @@
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 10
 	},
-/obj/structure/decor/fluff_ladder,
+/obj/structure/ladder,
 /turf/simulated/floor/sidewalk/flat,
 /area/template_noop)
 "sn" = (
@@ -1174,6 +1187,14 @@
 /obj/structure/ledge/roof{
 	dir = 6
 	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/roofing_tiles,
+/area/template_noop)
+"sZ" = (
+/obj/structure/ledge/roof{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/roofing_tiles,
 /area/template_noop)
 "te" = (
@@ -1368,6 +1389,13 @@
 /obj/structure/rod_railing,
 /turf/simulated/floor/sidewalk/flat,
 /area/template_noop)
+"vP" = (
+/obj/structure/ledge/roof{
+	dir = 10
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/roofing_tiles,
+/area/template_noop)
 "vQ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/industrial/warning/dust{
@@ -1379,6 +1407,12 @@
 /obj/structure/urban_grate,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/sidewalk,
+/area/template_noop)
+"vT" = (
+/obj/structure/bed/stool/chair/folding{
+	dir = 4
+	},
+/turf/simulated/floor/beach/sand/desert,
 /area/template_noop)
 "wh" = (
 /obj/effect/floor_decal/industrial/warning/dust,
@@ -2030,6 +2064,14 @@
 /obj/structure/undies_wardrobe,
 /turf/simulated/floor/exoplanet/plating,
 /area/template_noop)
+"IJ" = (
+/obj/structure/table/rack/folding_table,
+/obj/item/beach_ball{
+	pixel_x = 1;
+	pixel_y = 12
+	},
+/turf/simulated/floor/beach/sand/desert,
+/area/template_noop)
 "IK" = (
 /obj/structure/platform,
 /turf/simulated/floor/exoplanet/dirt_konyang,
@@ -2249,6 +2291,13 @@
 "LS" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
 /turf/simulated/floor/sidewalk/flat,
+/area/template_noop)
+"LT" = (
+/obj/structure/bed/stool/chair/folding{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/roofing_tiles,
 /area/template_noop)
 "LY" = (
 /obj/effect/decal/cleanable/dirt,
@@ -2578,6 +2627,13 @@
 	},
 /turf/simulated/floor/exoplanet/water/shallow,
 /area/template_noop)
+"QH" = (
+/obj/structure/ledge/roof{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/roofing_tiles,
+/area/template_noop)
 "QK" = (
 /obj/structure/platform,
 /turf/simulated/floor/exoplanet/konyang,
@@ -2749,6 +2805,7 @@
 /obj/structure/ledge/roof{
 	dir = 4
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/roofing_tiles,
 /area/template_noop)
 "Tx" = (
@@ -2836,6 +2893,20 @@
 /area/template_noop)
 "Uu" = (
 /turf/simulated/floor/carpet/aquablue,
+/area/template_noop)
+"Uw" = (
+/obj/structure/table/rack/folding_table,
+/obj/item/material/ashtray{
+	pixel_x = 4;
+	pixel_y = -2
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/roofing_tiles,
+/area/template_noop)
+"Uy" = (
+/obj/structure/ledge/roof,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/roofing_tiles,
 /area/template_noop)
 "UD" = (
 /obj/structure/bed/stool/chair/wood{
@@ -3069,6 +3140,13 @@
 	},
 /turf/simulated/floor/sidewalk/flat,
 /area/template_noop)
+"XV" = (
+/obj/item/towel_flat{
+	accent_color = "#95453D";
+	color = "#2292d2"
+	},
+/turf/simulated/floor/beach/sand/desert,
+/area/template_noop)
 "XW" = (
 /obj/structure/lattice/catwalk/indoor/planks/deep,
 /obj/structure/rope_post{
@@ -3168,6 +3246,10 @@
 /obj/structure/ledge/roof{
 	dir = 10
 	},
+/turf/simulated/floor/roofing_tiles,
+/area/template_noop)
+"Zm" = (
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/roofing_tiles,
 /area/template_noop)
 "Zn" = (
@@ -17038,9 +17120,9 @@ ir
 nx
 ir
 ir
-ir
-ir
-ir
+XV
+XV
+XV
 Jk
 vi
 JC
@@ -17049,10 +17131,10 @@ bj
 Mj
 EM
 ir
-ir
-ir
-ir
-ir
+IJ
+vT
+vT
+vT
 ir
 Jk
 AJ
@@ -73028,11 +73110,11 @@ ak
 ak
 ak
 ak
-rG
-Cw
-Cw
-Cw
-YN
+mg
+QH
+QH
+QH
+vP
 ak
 ak
 ak
@@ -73285,11 +73367,11 @@ ak
 ak
 ak
 ak
-IO
-eG
-eG
-eG
-gx
+sZ
+Zm
+Zm
+Zm
+Uy
 ak
 ak
 ak
@@ -73542,11 +73624,11 @@ ak
 ak
 ak
 ak
-IO
-eG
-eG
-eG
-gx
+sZ
+Zm
+Zm
+Zm
+Uy
 ak
 ak
 ak
@@ -73799,11 +73881,11 @@ ak
 ak
 ak
 ak
-IO
-eG
-eG
-eG
-gx
+sZ
+Zm
+Zm
+Zm
+Uy
 ak
 ak
 ak
@@ -73833,11 +73915,11 @@ ak
 ak
 ak
 ak
-rG
-Cw
-Cw
-Cw
-YN
+mg
+QH
+QH
+QH
+vP
 ak
 ak
 ak
@@ -74056,11 +74138,11 @@ ak
 ak
 ak
 ak
-IO
-eG
-eG
-eG
-gx
+sZ
+Zm
+Zm
+Zm
+Uy
 ak
 ak
 ak
@@ -74090,11 +74172,11 @@ ak
 ak
 ak
 ak
-IO
-eG
-eG
-eG
-gx
+sZ
+Zm
+Zm
+eW
+Uy
 ak
 ak
 ak
@@ -74347,11 +74429,11 @@ ak
 ak
 ak
 ak
-IO
-eG
-eG
-eG
-gx
+sZ
+Zm
+Zm
+Zm
+Uy
 ak
 ak
 ak
@@ -74604,11 +74686,11 @@ ak
 ak
 ak
 ak
-IO
-eG
-eG
-eG
-gx
+sZ
+Uw
+LT
+LT
+Uy
 ak
 ak
 ak
@@ -74861,11 +74943,11 @@ ak
 ak
 ak
 ak
-IO
-eG
-eG
-eG
-gx
+sZ
+Zm
+Zm
+Zm
+Uy
 ak
 ak
 ak
