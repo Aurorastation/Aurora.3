@@ -149,7 +149,7 @@
 		top = typesHistoryCacheSelectTopK(limit, container)
 		if(length(top) == limit) // All X records got hit in cache, return
 			return top
-	else
+	else if (!skip_caching)
 		container = new /datum/persistent_record_container
 		container.type_define = target_type.type
 		container.attribute = attribute
