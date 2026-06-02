@@ -753,6 +753,17 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 	bound_height = 64
 	return INITIALIZE_HINT_NORMAL
 
+obj/structure/sign/generic_memorial
+	name = "memorial"
+	desc = "It's a big stone. Humans have been doing this for ages. \
+		You can't make out what it says, though."
+	icon = 'icons/effects/64x64.dmi'
+	icon_state = "generic_memorial"
+	density = TRUE
+	anchored = TRUE
+	pixel_x = -16
+	layer = ABOVE_HUMAN_LAYER
+
 /obj/structure/sign/urban
 	name = "exit sign"
 	desc = "A sign indicating where you should probably go in a hurry."
