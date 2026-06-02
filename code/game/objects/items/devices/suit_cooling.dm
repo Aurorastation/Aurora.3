@@ -17,14 +17,25 @@
 
 	origin_tech = list(TECH_MAGNET = 2, TECH_MATERIAL = 2)
 
-	var/celltype = /obj/item/cell/high
+	// Type of cell the IPC cooling unit starts with.
+	var/celltype = /obj/item/cell/apc
 
 	matter = list(MATERIAL_ALUMINIUM = 25000, MATERIAL_GLASS = 3500)
-	var/on = 0				//is it turned on?
-	var/cover_open = 0		//is the cover open?
+
+	// Is it turned on?
+	var/on = 0
+	// Is the cover open?
+	var/cover_open = 0
+
 	var/obj/item/cell/cell
-	var/max_cooling = 24				//in degrees kelvin per second - probably don't need to mess with heat capacity here
-	var/charge_consumption = 8.3		//charge per second at max_cooling
+
+	// In degrees kelvin per second - probably don't need to mess with heat capacity here
+	var/max_cooling = 24
+
+	// Base charge consumption per second. Modified by how much cooling work the cooler is doing.
+	var/charge_consumption = 15.4
+
+	// Target to cool an IPC to.
 	var/thermostat = T20C
 
 	//TODO: make it heat up the surroundings when not in space
@@ -241,3 +252,6 @@
 
 /obj/item/suit_cooling_unit/no_cell
 	celltype = null
+
+/obj/item/suit_cooling_unit/hyper_cell // Mostly for special spawns, events, etc., so they don't have to worry about cell charge.
+	celltype = /obj/item/cell/hyper
