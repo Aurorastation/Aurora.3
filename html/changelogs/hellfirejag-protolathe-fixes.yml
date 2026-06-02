@@ -1,4 +1,0 @@
-author: Hellfirejag
-delete-after: True
-changes:
-  - bugfix: "Fixed a runtime error caused by robotics consoles using a protolathe when no circuit imprinter is connected."

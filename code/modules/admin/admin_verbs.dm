@@ -106,7 +106,8 @@ GLOBAL_LIST_INIT(admin_verbs_admin, list(
 	/client/proc/toggle_aooc,
 	/client/proc/force_away_mission,
 	/client/proc/alooc,
-	/client/proc/create_portal
+	/client/proc/create_portal,
+	/datum/admins/proc/open_narrate_panel
 ))
 
 GLOBAL_LIST_INIT(admin_verbs_ban, list(
@@ -428,6 +429,7 @@ GLOBAL_LIST_INIT(admin_verbs_hideable, list(
 	/client/proc/force_away_mission,
 	/client/proc/profiler_start,
 	/client/proc/create_portal,
+	/datum/admins/proc/open_narrate_panel
 	))
 
 GLOBAL_LIST_INIT(admin_verbs_mod, list(
