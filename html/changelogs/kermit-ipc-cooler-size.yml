@@ -1,0 +1,6 @@
+author: kermit
+
+delete-after: True
+
+changes:
+  - qol: "Downsizes the IPC Suit Cooler from Bulky to Normal so they can fit in bags (on par with large oxygen tanks)."
