@@ -189,7 +189,7 @@
 			return null
 
 /// Splits a message into per-language /datum/say_segment, switching language at each spoken prefix.
-/mob/proc/build_say_message(message)
+/mob/living/proc/build_say_message(message)
 	RETURN_TYPE(/datum/say_message)
 	var/datum/say_message/say_message = new
 	say_message.speaker = src
