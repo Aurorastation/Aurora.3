@@ -60,8 +60,8 @@
 
 			robots += list(robotData)
 
-	data["mechs"] = sortByKey(mechs, "pilot")
-	data["robots"] = sortByKey(robots, "pilot")
+	data["mechs"] = sortByKeyText(mechs, "pilot")
+	data["robots"] = sortByKeyText(robots, "pilot")
 
 	data["current_cam_loc"] = current_camera ? "[REF(current_camera.loc)]" : null
 
