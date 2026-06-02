@@ -1,5 +1,5 @@
 /**
- * Helper proc for history/character persistent types to retrieve a character name based of it's character ID.alist
+ * Helper proc for history/character persistent types to retrieve a character name based of it's character ID.
  * PARAMS:
  *  char_id = ID of character.
  * RETURN:
@@ -13,7 +13,7 @@
 	if(char_id_num <= 0)
 		return null
 
-	var/cache_hit = char_cache[char_id_num]
+	var/cache_hit = char_cache["[char_id_num]"]
 	if(cache_hit)
 		return cache_hit
 
@@ -30,7 +30,7 @@
 	if(!char_name)
 		return null
 	else
-		char_cache[char_id_num] = char_name
+		char_cache["[char_id_num]"] = char_name
 		return char_name
 
 /**
@@ -46,23 +46,23 @@
 		return
 
 	var/singleton/persistent_type/type_instance = GET_SINGLETON(target_type)
-	if(type_instance.requires_attribute && !length(attribute))
+	if(type_instance.requires_attribute && length(attribute) > 0)
 		log_subsystem_persistence_warning("Attempted to add history record of type [target_type] without required attribute.")
 		return
 
-	if(!length(value))
+	if(!value)
 		log_subsystem_persistence_warning("Attempted to add history record of type [target_type] with empty value.")
 		return
 
 	// Sanity check if a character record is added using this proc directly instead of the overload historyAddCharacterRecord.
-	if(istype(target_type, /singleton/persistent_type/history/character) && (!length(attribute) || !isnum(attribute)))
+	if(istype(type_instance, /singleton/persistent_type/history/character) && (length(attribute) > 0 || !isnum(attribute)))
 		log_subsystem_persistence_warning("Attempted to add character history record of target type [target_type], but the attribute was either empty or failed the isnum check.")
 		return
 
 	// Add record to cache for DB insert at finalization and quick access
 	// Check if record container exists, if not, create it
 	var/datum/persistent_record_container/container = null
-	attribute = length(attribute) > 0 ? attribute : null
+	attribute = length("[attribute]") > 0 ? attribute : null
 	container = history_cache[typesGetCacheName(target_type, attribute)]
 
 	if(!container)
@@ -89,7 +89,7 @@
  *	value =			Value of the record, cannot be null or empty.
  */
 /datum/controller/subsystem/persistence/proc/historyAddCharacterRecord(var/singleton/persistent_type/history/character/target_type, char_id, value)
-	if(!istype(target_type, /singleton/persistent_type/history/character))
+	if(!ispath(target_type, /singleton/persistent_type/history/character))
 		log_subsystem_persistence_warning("Attempted to add character history record, but the provided target type didn't match a character persistent type, provided was [target_type]")
 		return
 	if(!isnum(char_id))
@@ -139,7 +139,7 @@
 	// 2 - Query database for last X records of type and add it to record container as new cache
 
 	var/datum/persistent_record_container/container = null
-	attribute = length(attribute) > 0 ? attribute : null
+	attribute = length("[attribute]") > 0 ? attribute : null
 	container = history_cache[typesGetCacheName(target_type, attribute)]
 
 	var/list/datum/persistent_record/top = list()
@@ -192,7 +192,7 @@
 	if(length(result) == 0)
 		return null
 	else
-		return result[1]
+		return result
 
 /**
  * Queries the last record of the specified type for all attributes.

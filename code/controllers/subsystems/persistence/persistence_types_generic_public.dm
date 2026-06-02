@@ -22,7 +22,7 @@
 	if(!expires_in_days || expires_in_days <= 0)
 		expires_in_days = PERSISTENT_DEFAULT_EXPIRATION_DAYS
 
-	attribute = length(attribute) > 0 ? attribute : null
+	attribute = length("[attribute]") > 0 ? attribute : null
 	var/datum/persistent_generic/generic = generic_cache[typesGetCacheName(target_type, attribute)]
 	if(generic)
 		generic.content = content
@@ -54,7 +54,7 @@
 		log_subsystem_persistence_warning("Attempted to load generic of type [target_type] without required attribute.")
 		return
 
-	attribute = length(attribute) > 0 ? attribute : null
+	attribute = length("[attribute]") > 0 ? attribute : null
 	var/datum/persistent_generic/generic = generic_cache[typesGetCacheName(target_type, attribute)]
 	if(generic)
 		return generic
