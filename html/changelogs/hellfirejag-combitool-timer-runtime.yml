@@ -1,4 +1,0 @@
-author: Hellfirejag
-delete-after: True
-changes:
-  - bugfix: "Fixed a runtime error on objects caused by timers being created on objects that are already being qdel'ed."

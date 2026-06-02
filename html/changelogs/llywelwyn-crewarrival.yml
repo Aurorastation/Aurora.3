@@ -1,4 +1,0 @@
-author: Llywelwyn
-delete-after: True
-changes:
-  - bugfix: "Fake Crew Arrival Announcement uplink service now works even with an invalid employer faction."

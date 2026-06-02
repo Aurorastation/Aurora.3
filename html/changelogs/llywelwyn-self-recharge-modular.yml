@@ -1,6 +1,0 @@
-author: llywelwyn
-
-delete-after: True
-
-changes:
-  - bugfix: "Modular energy guns with a reactor now self-recharge from assembly, instead of only starting after the first shot is fired."
