@@ -326,3 +326,32 @@
 	var/list/tgui_open_uis = list()
 
 	var/tmp/last_airflow_stun = 0
+
+	//thou shall always be able to see the Geometer of Blood
+	var/image/narsimage = null
+	var/image/narglow = null
+
+	//thou shall always be able to see the rift
+	var/image/riftimage = null
+
+	var/list/client_colors = list()
+
+	var/bloody_hands = null
+	var/datum/weakref/bloody_hands_mob
+	var/track_footprint = 0
+	var/list/feet_blood_DNA
+	var/track_footprint_type
+	var/footprint_color
+
+	var/mob/abstract/eye/eyeobj
+
+	var/mob/living/brain_ghost/bg
+
+	var/list/default_emotes = list()
+	var/list/usable_emotes = list()
+
+	var/client/my_client // Need to keep track of this ourselves, since by the time Logout() is called the client has already been nulled
+
+	var/get_rig_stats = 0
+
+	var/thinking_enabled = FALSE

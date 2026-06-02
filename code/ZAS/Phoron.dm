@@ -20,8 +20,6 @@ GLOBAL_DATUM_INIT(contamination_overlay, /image, image('icons/effects/contaminat
 	///Does being in sleeping gas cause you to hallucinate?
 	var/N2O_HALLUCINATION = TRUE
 
-/obj/var/contaminated = 0
-
 /obj/item/proc/can_contaminate()
 	if(item_flags & ITEM_FLAG_PHORON_GUARD)
 		return FALSE

@@ -110,3 +110,19 @@
 
 	///A list of mobs the target is being aimed at by
 	var/list/aimed_at_by
+
+	var/singleton/maneuver/prepared_maneuver
+	var/list/available_maneuvers = list()
+
+	var/datum/language/default_language
+
+	var/atom/movable/z_observer/z_eye
+
+	atom_flags = CRITICAL_ATOM
+	var/instability = 0
+	var/last_instability = 0 // Used to calculate instability delta.
+	var/last_instability_event = null // most recent world.time that something bad happened due to instability.
+
+	var/datum/weakref/last_weather
+
+	var/tmp/last_push_notif

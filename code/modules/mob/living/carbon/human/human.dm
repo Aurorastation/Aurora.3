@@ -4,21 +4,12 @@
 	voice_name = "unknown"
 	icon = 'icons/mob/human.dmi'
 	icon_state = "body_m_s"
-
 	mob_size = 9 //Based on average weight of a human
-
-	var/pronouns = NEUTER
-
-	/// Used so species that need special items (autoinhalers for vaurca/RMT for offworlders) don't get them twice when they shouldn't.
-	var/species_items_equipped
-
-	var/list/hud_list[11]
-	/// To check if we've need to roll for damage on movement while an item is imbedded in us.
-	var/embedded_flag
-	/// This is very not good, but it's much much better than calling get_rig() every update_canmove() call.
-	var/obj/item/rig/wearing_rig
-	/// Pref holder for the speech bubble style.
-	var/speech_bubble_type
+	mob_bump_flag = HUMAN
+	mob_push_flags = ~HEAVY
+	mob_swap_flags = ~HEAVY
+	light_system = MOVABLE_LIGHT
+	blocks_emissive = EMISSIVE_BLOCK_NONE
 
 /mob/living/carbon/human/Initialize(mapload, var/new_species = null)
 	if(!dna)
@@ -105,7 +96,7 @@
 		set_default_attack(species.unarmed_attacks[1])
 
 /mob/living/carbon/human/Destroy(force)
-	ghost_spawner = null
+	QDEL_NULL(ghost_spawner)
 
 	//Srom (Shared Dreaming)
 	srom_pulled_by = null

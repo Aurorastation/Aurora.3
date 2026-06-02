@@ -110,6 +110,13 @@
 	QDEL_NULL(pointing_effect)
 	QDEL_LIST(open_nanouis)
 	QDEL_LIST(tgui_open_uis)
+	QDEL_NULL(narsimage)
+	QDEL_NULL(narglow)
+	QDEL_NULL(riftimage)
+	QDEL_NULL(bloody_hands_mob)
+	QDEL_NULL(eyeobj)
+	QDEL_NULL(bg)
+	my_client = null
 	return ..()
 
 /mob/New()

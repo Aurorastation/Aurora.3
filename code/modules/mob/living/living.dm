@@ -53,9 +53,6 @@ default behaviour is:
 			return TRUE
 		return FALSE
 
-/mob/living
-	var/tmp/last_push_notif
-
 /mob/living/Collide(atom/movable/target_movable_atom)
 	if(now_pushing || !loc)
 		return
@@ -941,6 +938,11 @@ default behaviour is:
 		for(var/mob/M in contents)
 			qdel(M)
 
+	prepared_maneuver = null
+	available_maneuvers?.Cut()
+	default_language = null
+	QDEL_NULL(z_eye)
+	QDEL_NULL(last_weather)
 	return ..()
 
 /mob/living/proc/nervous_system_failure()
