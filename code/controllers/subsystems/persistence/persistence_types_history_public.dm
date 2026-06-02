@@ -228,11 +228,11 @@
 	var/attributes = historyDatabaseGetAllAttributes(type_instance.database_id)
 	if(attributes && length(attributes) > 0)
 		for(var/attribute in attributes)
-			result += alist("attribute" = attribute, "records" = historyGetAllRecords(target_type, attribute, skip_caching))
+			result += list(alist("attribute" = attribute, "records" = historyGetAllRecords(target_type, attribute, skip_caching)))
 	else
 		var/no_attribute_records = historyGetAllRecords(target_type, null, skip_caching)
 		if(no_attribute_records && length(no_attribute_records) > 0)
-			result = alist("attribute" = null, "records" = no_attribute_records)
+			result = list(alist("attribute" = null, "records" = no_attribute_records))
 	return result
 
 /**
