@@ -1,27 +1,34 @@
-/// A single spoken utterance, modelled as an ordered list of /datum/say_piece
-/// segments so that multiple languages can be interspersed in one message.
-/// A single-language message is just the one-piece case.
+/// A complete audible message made of a list of /datum/say_segment.
 /datum/say_message
-	/// The mob speaking.
+	/// The mob saying the message.
 	var/mob/speaker
 
-	/// Ordered list of /datum/say_piece making up the utterance.
-	var/list/say_piece/pieces = list()
+	/// The raw string that was typed. Used in the admin log.
+	var/raw_message
 
-	/// Resolved once from punctuation and the primary (first) piece's language.
+	/// The list of segments that make up the message body.
+	var/list/say_segment/segments = list()
+
+	/// Which verb to use. Determined by punctuation and language of the first piece.
 	var/verb = "says"
 
-	/// Whether the utterance is whispered.
+	/// Is the message being whispered?
 	var/whisper = FALSE
 
-	/// Whether the utterance is sung (the '%' prefix).
-	var/is_singing = FALSE
+	/// Is the message being sung?
+	var/singing = FALSE
 
-	/// Radio channel mode parsed from the message, if any.
-	var/message_mode
+	/// Should the message render as italic?
+	var/italics = FALSE
 
-	/// How far the utterance carries, in tiles.
+	/// Optional font size override for the rendered message.
+	var/font_size
+
+	/// Optional range limit for hearing the message.
 	var/message_range
+
+	/// The channel used for this message, if any.
+	var/message_mode
 
 	/// Sound played to listeners alongside the message, if any.
 	var/sound/speech_sound
@@ -29,29 +36,33 @@
 	/// Volume of speech_sound.
 	var/sound_vol
 
-	/// Whether the message is rendered in italics.
-	var/italics = FALSE
-
-	/// Optional font size override for the rendered message.
-	var/font_size
-
-	/// Which ghosts hear this utterance.
+	/// Which ghosts can hear this message?
 	var/ghost_hearing = GHOSTS_ALL_HEAR
 
-	/// The typed string after radio-prefix stripping but before language splitting. Used for logging.
-	var/raw_message
 
-/// Returns the flattened raw text of every piece, for logging and language-agnostic consumers.
+/// Returns a flat, language-agnostic string with the message body.
 /datum/say_message/proc/to_string()
 	var/list/out = list()
-	for(var/datum/say_piece/piece as anything in pieces)
-		out += piece.text
+	for(var/datum/say_segment/segment as anything in segments)
+		out += segment.text
 	return jointext(out, "")
 
-/// Returns the first SIGNLANG or HIVEMIND language present in any piece, or null.
-/// Such languages cannot be interspersed and route the whole message to their special path.
+/// Returns the first incompatible language in the message pieces or null.
+/// Incompatible languages like hivenet can't support multi-language messages.
 /datum/say_message/proc/special_language()
-	for(var/datum/say_piece/piece as anything in pieces)
-		if(piece.language && (piece.language.flags & (SIGNLANG|HIVEMIND)))
-			return piece.language
+	for(var/datum/say_segment/segment as anything in segments)
+		if(segment.language && (segment.language.flags & (SIGNLANG|HIVEMIND)))
+			return segment.language
 	return null
+
+/// Returns the complete message as the given listener perceives it.
+/datum/say_message/proc/render_for(mob/listener)
+	var/list/out = list()
+	var/first = TRUE
+	for(var/datum/say_segment/segment as anything in segments)
+		var/rendered = segment.render_for(listener, speaker)
+		if(first)
+			rendered = capitalize(rendered)
+			first = FALSE
+		out += segment.language ? segment.language.colourize(rendered) : rendered
+	return jointext(out, "")

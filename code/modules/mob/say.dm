@@ -188,7 +188,7 @@
 		else
 			return null
 
-/// Splits a message into /datum/say_piece segments, switching language at each spoken prefix.
+/// Splits a message into per-language /datum/say_segment, switching language at each spoken prefix.
 /mob/proc/build_say_message(message)
 	RETURN_TYPE(/datum/say_message)
 	var/datum/say_message/say_message = new
@@ -199,8 +199,8 @@
 	var/regex/trigger = get_language_trigger_regex()
 	trigger.next = 1
 
-	var/piece_start = 1
-	var/list/say_piece/pieces = list()
+	var/segment_start = 1
+	var/list/say_segment/segments = list()
 
 	while(trigger.Find(message))
 		var/lead = trigger.group[1]	//empty at the start of the message, otherwise the whitespace before the prefix
@@ -215,17 +215,17 @@
 		if(!found)
 			continue	//not a language we can speak, leave it as literal text and keep scanning
 
-		pieces += new /datum/say_piece(copytext(message, piece_start, prefix_pos - length(lead)), current)
+		segments += new /datum/say_segment(copytext(message, segment_start, prefix_pos - length(lead)), current)
 
 		var/after = key_pos + key_len
 		if(copytext(message, after, after + 1) == " ")
 			after++
-		piece_start = after
+		segment_start = after
 		current = found
 		trigger.next = after
 
-	pieces += new /datum/say_piece(copytext(message, piece_start), current)
-	say_message.pieces = clean_pieces(pieces)
+	segments += new /datum/say_segment(copytext(message, segment_start), current)
+	say_message.segments = clean_segments(segments)
 	return say_message
 
 /// Returns the language for a prefix key if we can speak it, otherwise null.
@@ -236,15 +236,15 @@
 	var/datum/language/found = GLOB.language_keys[lowertext(key)]
 	return (istype(found) && can_speak(found)) ? found : null
 
-/// Drops empty pieces and merges adjacent ones sharing a language.
-/proc/clean_pieces(list/say_piece/pieces)
-	var/list/say_piece/cleaned = list()
-	for(var/datum/say_piece/piece as anything in pieces)
-		if(!length(piece.text))
+/// Drops empty segments and merges adjacent ones sharing a language.
+/proc/clean_segments(list/say_segment/segments)
+	var/list/say_segment/cleaned = list()
+	for(var/datum/say_segment/segment as anything in segments)
+		if(!length(segment.text))
 			continue
-		var/datum/say_piece/last = cleaned.len ? cleaned[cleaned.len] : null
-		if(last && last.language == piece.language)
-			last.text += piece.text
+		var/datum/say_segment/last = cleaned.len ? cleaned[cleaned.len] : null
+		if(last && last.language == segment.language)
+			last.text += segment.text
 		else
-			cleaned += piece
+			cleaned += segment
 	return cleaned

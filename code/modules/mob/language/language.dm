@@ -202,13 +202,17 @@
 	return input_size
 
 /datum/language/proc/format_message(message, verb)
-	return "[verb], <span class='message'><span class='[colour]'>\"[capitalize(message)]\"</span></span>"
+	return "[verb], <span class='message'>[colourize("\"[capitalize(message)]\"")]</span>"
 
 /datum/language/proc/format_message_plain(message, verb)
 	return "[verb], \"[capitalize(message)]\""
 
 /datum/language/proc/format_message_radio(message, verb)
-	return "[verb], <span class='[colour]'>\"[capitalize(message)]\"</span>"
+	return "[verb], [colourize("\"[capitalize(message)]\"")]"
+
+/// Wraps text in this language's colour span.
+/datum/language/proc/colourize(message)
+	return "<span class='[colour]'>[message]</span>"
 
 /datum/language/proc/get_talkinto_msg_range(message)
 	// if you yell, you'll be heard from two tiles over instead of one
