@@ -239,28 +239,31 @@
 	var/report_text = "<center><img src = orionlogo.png><br />[FONT_LARGE("<b>7-day mining yield report</b>")]<br>"
 	report_text += "Report generated on [worlddate2text()] at [worldtime2text()]</center><br /><br /><hr>"
 
-	var/name_points_kvps = SSpersistence.historyGetAllRecordsForAllAttributes(/singleton/persistent_type/history/character/mining_points)
+	var/list/name_points_kvps = SSpersistence.historyGetAllRecordsForAllAttributes(/singleton/persistent_type/history/character/mining_points)
 	if(name_points_kvps && length(name_points_kvps) > 0)
-		for(var/alist/kvp in name_points_kvps)
-			var/char_name = SSpersistence.historyGetCharnameByID(kvp[1])
+		var/processed_any = FALSE
+		for(var/kvp in name_points_kvps)
+			var/char_name = SSpersistence.historyGetCharnameByID(kvp["attribute"])
 			if(!char_name)
 				continue
 			var/point_sum = 0
-			for(var/datum/persistent_record/r in kvp[2])
+			for(var/datum/persistent_record/r in kvp["records"])
 				point_sum += text2num(r.value)
 			if(point_sum <= 0)
 				continue
 			report_text += "<b>[char_name]</b>: [point_sum] points."
+			processed_any = TRUE
 
-		for(var/obj/machinery/requests_console/console in GLOB.allConsoles)
-			var/area/console_area = get_area(console)
-			if(console_area.type in typesof(/area/horizon/operations/lobby, /area/horizon/operations/office, /area/horizon/operations/mining_main/refinery))
-				if(console.paperstock < 1)
-					continue
-				var/obj/item/paper/P = new(console)
-				P.set_content_unsafe("7-day mining yield report", report_text)
-				console.audible_message("<b>The Requests Console</b> beeps, \"Fax received.\"")
-				console.paperstock -= 1
+		if(processed_any)
+			for(var/obj/machinery/requests_console/console in GLOB.allConsoles)
+				var/area/console_area = get_area(console)
+				if(console_area.type in typesof(/area/horizon/operations/lobby, /area/horizon/operations/office, /area/horizon/operations/mining_main/refinery))
+					if(console.paperstock <= 0)
+						continue
+					var/obj/item/paper/P = new(get_turf(console))
+					P.set_content_unsafe("7-day mining yield report", report_text)
+					console.audible_message("<b>The Requests Console</b> beeps, \"Fax received.\"")
+					console.paperstock -= 1
 
 /datum/map/sccv_horizon/load_holodeck_programs()
 	// loads only if at least two engineers are present
