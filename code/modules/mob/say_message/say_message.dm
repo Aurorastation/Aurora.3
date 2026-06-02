@@ -71,7 +71,7 @@
 	var/first = TRUE
 	for(var/datum/say_segment/segment as anything in segments)
 		var/rendered = segment.render_for(listener, speaker)
-		if(first)
+		if(first && length(rendered))
 			rendered = capitalize(rendered)
 			first = FALSE
 		out += segment.language ? segment.language.colourize(rendered) : rendered
