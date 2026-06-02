@@ -66,8 +66,11 @@
 
 /obj/item/ship_ammunition/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.force > 10 && (ammunition_flags & SHIP_AMMO_FLAG_VERY_FRAGILE))
-		log_and_message_admins("[user] has caused the cookoff of [src] by attacking it with [attacking_item]!", user)
-		cookoff(FALSE)
+		if(istype(attacking_item, /obj/item/mecha_equipment/clamp))
+			return ..()
+		else
+			log_and_message_admins("[user] has caused the cookoff of [src] by attacking it with [attacking_item]!", user)
+			cookoff(FALSE)
 
 	else if(attacking_item.tool_behaviour == TOOL_PEN)
 		var/obj/item/pen/P = attacking_item
