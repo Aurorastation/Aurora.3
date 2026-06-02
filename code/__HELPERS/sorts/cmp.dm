@@ -122,6 +122,3 @@
 
 /proc/cmp_faction(datum/faction/A, datum/faction/B)
 	return A.ui_priority - B.ui_priority
-
-/proc/cmp_persistent_record_id_asc(datum/persistent_record/a, datum/persistent_record/b)
-	return a.id - b.id // TODO - Verify
