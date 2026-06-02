@@ -14,6 +14,8 @@
 
 /// Returns the segment as the given listener perceives it.
 /datum/say_segment/proc/render_for(mob/listener, mob/speaker)
+	if(language && (language.flags & KNOWONLYHEAR) && !listener.say_understands(speaker, language))
+		return ""
 	var/rendered = text
 	if(language && (language.flags & NONVERBAL))
 		if((!speaker || (listener.sdisabilities & BLIND) || listener.blinded || !(speaker in view(listener))) && !isghost(listener))

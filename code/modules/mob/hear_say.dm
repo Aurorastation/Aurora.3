@@ -3,9 +3,11 @@
 /**
  * hear_say's return value determines whether or not the mob in question also receives a langchat image.
  */
-/mob/proc/hear_say(var/message, var/verb = "says", var/datum/language/language = null, var/alt_name = "",var/italics = 0, var/mob/speaker = null, var/sound/speech_sound, var/sound_vol, var/font_size = null)
+/mob/proc/hear_say(datum/say_message/say_message)
 	if(!istype(src, /mob/living/test) && cant_hear())
 		return FALSE
+
+	var/mob/speaker = say_message.speaker
 
 	if(speaker && !istype(speaker, /mob/living/test) && (!speaker.client && istype(src,/mob/abstract/ghost/observer) && client.prefs.toggles & CHAT_GHOSTEARS && !(speaker in view(src))))
 			//Does the speaker have a client?  It's either random stuff that observers won't care about (Experiment 97B says, 'EHEHEHEHEHEHEHE')
@@ -14,7 +16,9 @@
 
 	//make sure the air can transmit speech - hearer's side
 	var/turf/T = get_turf(src)
-	var/vacuum_proof = ((language && (language.flags & PRESSUREPROOF)) || isghost(src))
+	var/vacuum_proof = (say_message.all_segments_flagged(PRESSUREPROOF) || isghost(src))
+	var/italics = say_message.italics
+	var/sound_vol = say_message.sound_vol
 	var/speaker_name = speaker.name
 
 	if(ishuman(speaker))
@@ -35,22 +39,20 @@
 			italics = 1
 			sound_vol *= 0.5 //muffle the sound a bit, so it's like we're actually talking through contact
 
-	if((language && (language.flags & KNOWONLYHEAR)) && !say_understands(speaker, language))
-		return TRUE
-
 	if(!vr_mob && (sleeping || stat == UNCONSCIOUS))
-		hear_sleep(message)
+		hear_sleep(say_message.to_string())
 		return FALSE
 
-	//non-verbal languages are garbled if you can't see the speaker. Yes, this includes if they are inside a closet.
-	if (language && (language.flags & NONVERBAL))
-		if((!speaker || (src.sdisabilities & BLIND || src.blinded) || !(speaker in view(src))) && !isghost(src))
-			message = stars(message)
+	var/message = say_message.render_for(src)
+	if(!length(message))
+		return TRUE	//nothing in this message is audible to us (eg. an unknown know-only-hear language)
 
-	if(!(language && (language.flags & INNATE)) && !say_understands(speaker, language)) // skip understanding checks for INNATE languages
-		message = language ? language.scramble(message, languages) : stars(message)
-
-	var/accent_icon = speaker.get_accent_icon(language, src)
+	var/datum/language/accent_language
+	for(var/datum/say_segment/segment as anything in say_message.segments)
+		if(segment.language?.allow_accents)
+			accent_language = segment.language
+			break
+	var/accent_icon = accent_language ? speaker.get_accent_icon(accent_language, src) : null
 
 	if(italics)
 		message = "<i>[message]</i>"
@@ -64,27 +66,20 @@
 			message = "<b>[message]</b>"
 
 	if(isdeaf(src))
-		if(!language || !(language.flags & INNATE)) // INNATE is the flag for audible-emote-language, so we don't want to show an "x talks but you cannot hear them" message if it's set
+		if(!say_message.all_segments_flagged(INNATE)) // INNATE is the audible-emote flag; skip the "can't hear" message for those
 			if(speaker == src)
 				to_chat(src, SPAN_WARNING("You cannot hear yourself speak!"))
 				return FALSE
 			else
-				to_chat(src, "<span class='name'>[speaker_name]</span>[alt_name] talks but you cannot hear them.")
+				to_chat(src, "<span class='name'>[speaker_name]</span>[say_message.alt_name] talks but you cannot hear them.")
 				return FALSE
 	else
-		if(language)
-			if(font_size)
-				on_hear_say("[track][accent_icon ? accent_icon + " " : ""]<font size='[font_size]'><span class='game say'><span class='name'>[speaker_name]</span>[alt_name] [language.format_message(message, verb)]</span></font>")
-			else
-				on_hear_say("[track][accent_icon ? accent_icon + " " : ""]<span class='game say'><span class='name'>[speaker_name]</span>[alt_name] [language.format_message(message, verb)]</span>")
-		else
-			if(font_size)
-				on_hear_say("[track][accent_icon ? accent_icon + " " : ""]<font size='[font_size]'><span class='game say'><span class='name'>[speaker_name]</span>[alt_name] [verb], <span class='message'><span class='body'>\"[message]\"</span></span></span></font>")
-			else
-				on_hear_say("[track][accent_icon ? accent_icon + " " : ""]<span class='game say'><span class='name'>[speaker_name]</span>[alt_name] [verb], <span class='message'><span class='body'>\"[message]\"</span></span></span>")
-		if (speech_sound && (get_dist(speaker, src) <= world.view && src.z == speaker.z))
-			var/turf/source = speaker? get_turf(speaker) : get_turf(src)
-			playsound(source, speech_sound, sound_vol, vary = TRUE)
+		var/font_open = say_message.font_size ? "<font size='[say_message.font_size]'>" : ""
+		var/font_close = say_message.font_size ? "</font>" : ""
+		on_hear_say("[track][accent_icon ? accent_icon + " " : ""][font_open]<span class='game say'><span class='name'>[speaker_name]</span>[say_message.alt_name] [say_message.verb], <span class='message'>\"[message]\"</span></span>[font_close]")
+		if(say_message.speech_sound && (get_dist(speaker, src) <= world.view && src.z == speaker.z))
+			var/turf/source = speaker ? get_turf(speaker) : get_turf(src)
+			playsound(source, say_message.speech_sound, sound_vol, vary = TRUE)
 		return TRUE
 
 /mob/proc/cant_hear()

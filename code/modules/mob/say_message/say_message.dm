@@ -3,6 +3,9 @@
 	/// The mob saying the message.
 	var/mob/speaker
 
+	/// Name shown instead of the speaker's real name, if any.
+	var/alt_name = ""
+
 	/// The raw string that was typed. Used in the admin log.
 	var/raw_message
 
@@ -54,6 +57,13 @@
 		if(segment.language && (segment.language.flags & (SIGNLANG|HIVEMIND)))
 			return segment.language
 	return null
+
+/// True if every segment's language carries the given flag.
+/datum/say_message/proc/all_segments_flagged(flag)
+	for(var/datum/say_segment/segment as anything in segments)
+		if(!segment.language || !(segment.language.flags & flag))
+			return FALSE
+	return length(segments) > 0
 
 /// Returns the complete message as the given listener perceives it.
 /datum/say_message/proc/render_for(mob/listener)
