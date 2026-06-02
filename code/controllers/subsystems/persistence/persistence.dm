@@ -38,7 +38,7 @@ SUBSYSTEM_DEF(persistence)
  * Subsystem info stub message generation.
  */
 /datum/controller/subsystem/persistence/stat_entry(msg)
-	msg = ("[init_success ? "" : "INIT FAILED!!!|"][prevent_saving ? "SAVING DISABLED!|" : ""]Objects:[length(object_track_register)]|Containers:[length(history_cache)]>Records:[history_cache_count]|Generics:[length(generic_cache)]")
+	msg = ("[init_success ? "" : "INIT FAILED!!!|"][prevent_saving ? "SAVING DISABLED!|" : ""]Objects:[length(object_track_register)]|Containers:[length(history_cache)];Records:[history_cache_count]|Generics:[length(generic_cache)]")
 	return msg
 
 /**
