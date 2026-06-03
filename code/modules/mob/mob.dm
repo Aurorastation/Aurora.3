@@ -1,5 +1,9 @@
 /mob/Destroy()//This makes sure that mobs with clients/keys are not just deleted from the game.
 	MOB_STOP_THINKING(src)
+	pulling?.pulledby = null
+	pulling = null
+	pullin?.icon_state = "pull0"
+	pullin = null
 	// Delete and null the grab objects that are touching this mob.
 	QDEL_LIST(grabbed_by)
 	GLOB.mob_list -= src
@@ -51,11 +55,6 @@
 	QDEL_NULL(ability_master)
 	QDEL_NULL(zone_sel)
 	machine = null
-
-	pulling?.pulledby = null
-	pulling = null
-	pullin?.icon_state = "pull0"
-	pullin = null
 
 	client_colors = null
 	additional_vision_handlers?.Cut()
