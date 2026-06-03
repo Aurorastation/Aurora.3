@@ -350,7 +350,7 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 			var/drink_moodlet_value = 5 * bar_skill.skill_level
 			var/drink_quality = rand(1, 20) + 3 * bar_skill.skill_level
 			if (!isnull(drink_moodlet_value))
-				src.visible_message(SPAN_NOTICE(" [user] stirs the [src] with \the [attacking_item]."))
+				src.visible_message(SPAN_NOTICE("[user] stirs \the [src] with \the [attacking_item]."))
 				src.LoadComponent(/datum/component/drink_moodlet_provider, drink_moodlet_value, FALSE, drink_quality)
 	return ..()
 
