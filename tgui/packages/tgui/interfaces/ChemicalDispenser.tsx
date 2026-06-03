@@ -44,7 +44,7 @@ export const ChemicalDispenser = (props) => {
         <Section>
           <LabeledControls>
             {data.preset_dispense_amounts.map((number) => (
-              <LabeledControls.Item key={number} label={number.toString()}>
+              <LabeledControls.Item key={number} label="">
                 <Button
                   content={number}
                   icon="chevron-circle-down"

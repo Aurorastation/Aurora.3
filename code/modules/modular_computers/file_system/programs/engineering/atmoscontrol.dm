@@ -48,7 +48,7 @@
 		// Opens the interface for the given air alarm.
 		if("alarm")
 			var/obj/structure/machinery/alarm/alarm = locate(params["alarm"]) in (monitored_alarms.len ? monitored_alarms : SSmachinery.processing)
-			if(alarm)
+			if(alarm?.is_remote_visible())
 				alarm.ui_interact(usr)
 			return TRUE
 		// Manually clear and repopulate the alarm list.
@@ -65,6 +65,8 @@
 
 	var/alarms = list()
 	for(var/obj/structure/machinery/alarm/alarm in monitored_alarms)
+		if(!alarm.is_remote_visible())
+			continue
 		alarms += list(list(
 			"deck" = alarm.alarm_area.horizon_deck,
 			"dept" = alarm.alarm_area.department,
@@ -77,4 +79,3 @@
 	data["alarms"] = alarms
 
 	return data
-

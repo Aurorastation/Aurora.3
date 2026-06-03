@@ -23,6 +23,7 @@ type AirAlarmData = {
   target_temperature: number;
   // Access
   locked: BooleanLike;
+  remote_view: BooleanLike;
   shorted: BooleanLike;
   rcon: number;
   // Mode
@@ -107,6 +108,11 @@ const RCON_YES = 3;
 export const AirAlarm = (props) => {
   const { act, data } = useBackend<AirAlarmData>();
   const [tab, setTab] = useLocalState('tab', 'status');
+  const lockedMessage = data.remote_view
+    ? data.rcon === RCON_AUTO
+      ? 'Remote control is available only while this alarm is active.'
+      : 'Remote control is disabled for this alarm.'
+    : 'Swipe ID card to unlock interface.';
 
   const tabs = [
     { id: 'status', label: 'Status' },
@@ -121,7 +127,7 @@ export const AirAlarm = (props) => {
       <Window.Content scrollable>
         <StatusSection />
         {data.locked ? (
-          <NoticeBox>Swipe ID card to unlock interface.</NoticeBox>
+          <NoticeBox>{lockedMessage}</NoticeBox>
         ) : (
           <Section>
             <Tabs>
@@ -187,19 +193,19 @@ const StatusSection = (props) => {
             <Button
               content="Off"
               selected={data.rcon === RCON_NO}
-              disabled={!!data.shorted}
+              disabled={!!data.shorted || !!data.remote_view}
               onClick={() => act('rcon', { value: RCON_NO })}
             />
             <Button
               content="Auto"
               selected={data.rcon === RCON_AUTO}
-              disabled={!!data.shorted}
+              disabled={!!data.shorted || !!data.remote_view}
               onClick={() => act('rcon', { value: RCON_AUTO })}
             />
             <Button
               content="On"
               selected={data.rcon === RCON_YES}
-              disabled={!!data.shorted}
+              disabled={!!data.shorted || !!data.remote_view}
               onClick={() => act('rcon', { value: RCON_YES })}
             />
           </LabeledList.Item>

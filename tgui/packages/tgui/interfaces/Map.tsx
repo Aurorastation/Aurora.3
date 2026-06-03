@@ -1,4 +1,4 @@
-import { NoticeBox, Section, Slider, Table, Tabs } from 'tgui-core/components';
+import { Box, NoticeBox, Section, Slider, Table, Tabs } from 'tgui-core/components';
 import { useBackend, useLocalState } from '../backend';
 import { NtosWindow } from '../layouts';
 
@@ -9,6 +9,7 @@ export type MapData = {
   user_z: number;
   station_levels: number[];
   z_override: number;
+  legend_enabled: boolean;
   dept_colors_map: { d: string; c: string }[];
   pois: { name: string; desc: string; x: number; y: number; z: number }[];
 };
@@ -62,19 +63,23 @@ export const Map = (props) => {
             ) : (
               ''
             )}
-            <Tabs.Tab
-              icon="fa-circle-question"
-              onClick={() => setShowLegend(!showLegend)}
-            >
-              {showLegend ? 'Hide Legend' : 'Show Legend'}
-            </Tabs.Tab>
+            {!!data.legend_enabled && (
+              <Tabs.Tab
+                icon="fa-circle-question"
+                onClick={() => setShowLegend(!showLegend)}
+              >
+                {showLegend ? 'Hide Legend' : 'Show Legend'}
+              </Tabs.Tab>
+            )}
           </Tabs>
-          {showLegend ? (
+          {showLegend && data.legend_enabled ? (
             <NoticeBox color="grey">
               <Table>
-                {data.dept_colors_map.map((a: any) => (
-                  <Table.Row key={a}>
-                    <Table.Cell color={a.d}>{a.c}</Table.Cell>
+                {data.dept_colors_map?.map((department) => (
+                  <Table.Row key={department.d}>
+                    <Table.Cell>
+                      <Box color={department.c}>{department.d}</Box>
+                    </Table.Cell>
                   </Table.Row>
                 ))}
               </Table>
