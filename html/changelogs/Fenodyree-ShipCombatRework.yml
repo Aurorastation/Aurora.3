@@ -1,0 +1,16 @@
+author: Fenodyree
+
+delete-after: True
+
+changes:
+  - rscadd: "Adds spalling when a projectile punches from a solid turf to an open turf. These are big chunks of shrapnel with low damage and high embed chance."
+  - rscadd: "Adds an admin only gun that fires ship weapon ammo."
+  - rscadd: "Makes several indestructible structures breakable: vending machines, computer frames, window frames and watertanks. They now also leave behind shrapnel instead of just steel sheets."
+  - rscadd: "Adds a negative maim chance, which reduces the chance of decapitation or limb loss."
+  - balance: "Reworks shields, they take more power and are generally weaker. In exchange they now block explosions and each generator can be upgraded with research components, in addition to accepting multiple capacitors."
+  - balance: "All non-exoplosive ship projectiles got buffs. All projectiles got additional anti-material. Armour piercing shells now penetrate many more things."
+  - balance: "Reworked overmap targetting. Shots now spawn on the map edge and aim at their target, instead of spawning near their target and aiming straight forwards."
+  - bugfix: "Fixes explosive projectiles destroying the thing they hit before the explosion can happen, causing them not to explode."
+  - bugfix: "Fixes projectiles not penetrating windows, because they hit the window frame which was indestructible."
+  - bugfix: "Fixes shrapnel getting misnamed, or named twice."
+  - bugfix: "Fixes shields having no click delay when attacked with melee weapons."

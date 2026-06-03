@@ -1,0 +1,4 @@
+author: Hellfirejag, TheGreyWolf
+delete-after: True
+changes:
+  - rscadd: "Implemented the Anatomy skill. Anatomy determines the quality of information received when medically examining your own injuries."

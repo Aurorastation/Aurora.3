@@ -76,7 +76,7 @@ export const CapacitorWindow = (props) => {
             minValue={0}
             maxValue={data.max_charge}
           >
-            {data.stored_charge} / {data.max_charge} J
+            {data.stored_charge} / {data.max_charge} MJ
           </ProgressBar>
         </LabeledList.Item>
         <LabeledList.Item label="Charge Rate">
@@ -84,10 +84,12 @@ export const CapacitorWindow = (props) => {
             value={data.charge_rate}
             minValue={0}
             maxValue={data.max_charge_rate}
-            step={10000}
+            step={100}
             stepPixelSize={3}
-            onChange={(v) => act('charge_rate', { charge_rate: v })}
-            unit="W"
+            onChange={(v) =>
+              act('charge_rate', { charge_rate: Math.round(v) })
+            }
+            unit="kW"
           />
         </LabeledList.Item>
       </LabeledList>

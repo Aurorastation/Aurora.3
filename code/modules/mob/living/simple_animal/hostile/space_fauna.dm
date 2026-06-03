@@ -254,7 +254,7 @@
 		return
 
 /mob/living/simple_animal/hostile/carp/bloater/proc/explode()
-	explosion(src, -1, 1, 2)
+	explosion(get_turf(src), -1, 1, 2)
 	src.gib()
 
 /mob/living/simple_animal/hostile/carp/old

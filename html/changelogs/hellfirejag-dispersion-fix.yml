@@ -1,0 +1,4 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - bugfix: "Fixed negative dispersion (from high gun skill) sometimes wrapping back around to inaccurate guns again."
