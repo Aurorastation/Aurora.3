@@ -57,7 +57,7 @@
 	pullin?.icon_state = "pull0"
 	pullin = null
 
-	QDEL_LIST(client_colors)
+	client_colors = null
 	additional_vision_handlers?.Cut()
 	pinned?.Cut()
 	QDEL_LIST(embedded)
