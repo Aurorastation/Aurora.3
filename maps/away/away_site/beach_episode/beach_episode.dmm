@@ -177,8 +177,10 @@
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 1
 	},
-/obj/structure/sign/flag/coalition{
-	pixel_y = 32
+/obj/structure/machinery/atm{
+	dir = 1;
+	pixel_y = 30;
+	pixel_x = 16
 	},
 /turf/simulated/floor/sidewalk/flat,
 /area/template_noop)
@@ -577,6 +579,12 @@
 "ir" = (
 /turf/simulated/floor/beach/sand/desert,
 /area/template_noop)
+"iv" = (
+/obj/structure/lattice/catwalk/indoor/planks/deep,
+/obj/item/bedsheet/brown,
+/obj/structure/bed/padded,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
 "iz" = (
 /obj/structure/machinery/atmospherics/portables_connector{
 	dir = 4
@@ -619,18 +627,12 @@
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/template_noop)
 "jM" = (
+/obj/structure/machinery/vending/frontiervend,
+/obj/effect/floor_decal/industrial/outline/service,
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/floor_decal/industrial/warning/dust{
-	dir = 9
+/obj/structure/sign/flag/coalition{
+	pixel_y = 32
 	},
-/obj/item/versebook/assunzione/pocket{
-	pixel_x = -6;
-	pixel_y = 7
-	},
-/obj/item/versebook/assunzione/pocket{
-	pixel_x = -6
-	},
-/obj/structure/table/reinforced/steel,
 /turf/simulated/floor/sidewalk/flat,
 /area/template_noop)
 "jN" = (
@@ -2097,6 +2099,10 @@
 /obj/structure/bed/stool/bar/padded/black,
 /turf/simulated/floor/carpet/aquablue,
 /area/template_noop)
+"Jo" = (
+/obj/structure/machinery/vending/boozeomat/abandoned,
+/turf/simulated/floor/exoplanet/lino,
+/area/template_noop)
 "Jt" = (
 /obj/effect/konyang_waterfall/mist{
 	pixel_y = -16;
@@ -2678,12 +2684,13 @@
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 1
 	},
-/obj/structure/statue/aec/small{
-	pixel_y = 8;
-	pixel_x = -15
+/obj/item/sticker/flagpole/coalition/assunzione{
+	pixel_x = 11;
+	pixel_y = 25
 	},
-/obj/structure/sign/flag/assunzione{
-	pixel_y = 32
+/obj/item/sticker/flagpole/coalition/assunzione{
+	pixel_x = 14;
+	pixel_y = 39
 	},
 /turf/simulated/floor/sidewalk/flat,
 /area/template_noop)
@@ -3178,29 +3185,11 @@
 	},
 /area/template_noop)
 "Yh" = (
+/obj/structure/machinery/vending/cigarette,
+/obj/effect/floor_decal/industrial/outline/service,
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/floor_decal/industrial/warning/dust{
-	dir = 5
-	},
-/obj/item/sticker/flagpole/coalition/assunzione{
-	pixel_x = -5;
-	pixel_y = 26
-	},
-/obj/item/sticker/flagpole/coalition/assunzione{
-	pixel_x = -8;
-	pixel_y = 38
-	},
-/obj/structure/table/reinforced/steel,
-/obj/item/flame/candle{
-	pixel_x = -8;
-	pixel_y = 6
-	},
-/obj/item/flame/candle{
-	pixel_x = -4;
-	pixel_y = 3
-	},
-/obj/item/flame/candle{
-	pixel_y = 3
+/obj/structure/sign/flag/assunzione{
+	pixel_y = 32
 	},
 /turf/simulated/floor/sidewalk/flat,
 /area/template_noop)
@@ -8603,7 +8592,7 @@ nj
 Nw
 tV
 uR
-NH
+iv
 si
 ki
 uR
@@ -23506,7 +23495,7 @@ tV
 nj
 nj
 US
-qn
+Vf
 qn
 bF
 nj
@@ -81098,7 +81087,7 @@ ro
 zf
 kt
 zf
-nT
+Jo
 Au
 ak
 ak
@@ -88592,9 +88581,9 @@ ak
 ak
 ak
 ak
-ak
-ak
-ak
+RO
+RO
+RO
 ak
 ak
 ak
@@ -88603,9 +88592,9 @@ ak
 ak
 ak
 RO
-ak
-ak
-ak
+RO
+RO
+RO
 RO
 RO
 RO
@@ -88848,9 +88837,9 @@ ak
 ak
 ak
 ak
-ak
-ak
-ak
+RO
+RO
+RO
 ak
 ak
 ak
@@ -88860,9 +88849,9 @@ ak
 ak
 RO
 RO
-ak
-ak
-ak
+RO
+RO
+RO
 RO
 RO
 RO
@@ -89105,8 +89094,8 @@ ak
 ak
 ak
 ak
-ak
-ak
+RO
+RO
 ak
 ak
 ak
@@ -89117,9 +89106,9 @@ RO
 RO
 RO
 RO
-ak
-ak
-ak
+RO
+RO
+RO
 RO
 RO
 RO
@@ -89373,8 +89362,8 @@ RO
 RO
 RO
 RO
-ak
-ak
+RO
+RO
 RO
 RO
 RO
@@ -89628,9 +89617,9 @@ ak
 ak
 RO
 RO
-ak
-ak
-ak
+RO
+RO
+RO
 RO
 RO
 RO
@@ -89885,9 +89874,9 @@ ak
 ak
 RO
 RO
-ak
-ak
-ak
+RO
+RO
+RO
 RO
 RO
 RO
@@ -90141,9 +90130,9 @@ ak
 ak
 ak
 RO
-ak
-ak
-ak
+RO
+RO
+RO
 ak
 ak
 RO
@@ -90646,7 +90635,7 @@ ak
 ak
 ak
 ak
-ak
+RO
 ak
 ak
 ak
@@ -90903,8 +90892,8 @@ ak
 ak
 ak
 ak
-ak
-ak
+RO
+RO
 ak
 ak
 ak
@@ -91159,9 +91148,9 @@ ak
 ak
 ak
 ak
-ak
-ak
-ak
+RO
+RO
+RO
 ak
 ak
 ak
@@ -91416,10 +91405,10 @@ ak
 ak
 ak
 ak
-ak
-ak
-ak
-ak
+RO
+RO
+RO
+RO
 ak
 ak
 ak
@@ -91673,10 +91662,10 @@ ak
 ak
 ak
 ak
-ak
-ak
-ak
-ak
+RO
+RO
+RO
+RO
 ak
 ak
 ak
@@ -91864,6 +91853,7 @@ RO
 RO
 RO
 RO
+RO
 ak
 ak
 ak
@@ -91930,10 +91920,9 @@ ak
 ak
 ak
 ak
-ak
-ak
-ak
-ak
+RO
+RO
+RO
 ak
 ak
 ak
@@ -92121,6 +92110,7 @@ RO
 RO
 RO
 RO
+RO
 ak
 ak
 ak
@@ -92188,8 +92178,7 @@ ak
 ak
 ak
 ak
-ak
-ak
+RO
 ak
 ak
 ak
@@ -92379,7 +92368,7 @@ RO
 RO
 RO
 RO
-ak
+RO
 ak
 ak
 ak
@@ -92636,6 +92625,7 @@ RO
 RO
 RO
 RO
+RO
 ak
 ak
 ak
@@ -92706,10 +92696,9 @@ ak
 ak
 ak
 ak
-ak
-ak
-ak
-ak
+RO
+RO
+RO
 ak
 ak
 ak
@@ -92964,9 +92953,9 @@ ak
 ak
 ak
 ak
-ak
-ak
-ak
+RO
+RO
+RO
 ak
 ak
 ak
@@ -93221,9 +93210,9 @@ ak
 ak
 ak
 ak
-ak
-ak
-ak
+RO
+RO
+RO
 ak
 ak
 ak
@@ -93407,7 +93396,7 @@ RO
 RO
 RO
 RO
-ak
+RO
 ak
 ak
 ak
@@ -93479,7 +93468,7 @@ ak
 ak
 ak
 ak
-ak
+RO
 ak
 ak
 ak
@@ -93920,7 +93909,7 @@ RO
 RO
 RO
 RO
-ak
+RO
 ak
 ak
 ak
