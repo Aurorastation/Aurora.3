@@ -1,4 +1,6 @@
 /datum/condition/organ
+	flags = CONDITION_FLAG_SELF_VISIBLE
+
 	/// The organ this condition is affecting.
 	var/obj/item/organ/organ
 	/// The injury types required to inflict this condition. Must match one from the list.

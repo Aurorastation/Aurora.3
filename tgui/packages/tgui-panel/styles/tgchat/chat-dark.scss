@@ -691,6 +691,11 @@ em {
     @extend .examine_block;
     border-color: #0077ff;
   }
+
+  &--conditions {
+    @extend .examine_block;
+    border-color: #b10824;
+  }
 }
 
 .examine_block .icon {

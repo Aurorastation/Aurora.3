@@ -88,6 +88,19 @@
 	max_condition_amount = 3
 	min_damage_multiplier = 0.75
 
+/datum/condition/organ/fracture/hairline/get_visible_status()
+	var/hurty
+	for(var/datum/condition/organ/fracture/frac in organ.conditions)
+		if(istype(frac, /datum/condition/organ/fracture/hairline))
+			hurty += 1
+	switch(hurty)
+		if(1)
+			return SPAN_WARNING("hurts a bit if I move it around")
+		if(2)
+			return SPAN_WARNING("hurts a lot if I move it around")
+		else
+			return SPAN_DANGER("can't move without writhing in pain")
+
 /datum/condition/organ/fracture/comminuted
 	name = "Comminuted Fracture"
 	desc = "The bone is shattered into several pieces."
@@ -98,6 +111,9 @@
 	fracture_emote = "scream"
 	fracture_volume = 90
 	fracture_pain = 20
+
+/datum/condition/organ/fracture/comminuted/get_visible_status()
+	return SPAN_DANGER("hurts a lot, and I can feel the bone moving around")
 
 /datum/condition/organ/fracture/comminuted/on_apply()
 	. = ..()
@@ -136,6 +152,9 @@
 			FONT_LARGE(SPAN_CONDITION("The bone in your [organ.name] shatters and pierces through!")), \
 			"You hear a sickening, wet crack!")
 
+/datum/condition/organ/fracture/compound/get_visible_status()
+	return SPAN_DANGER("hurts a lot, and the bone is piercing through my [organ.name]")
+
 /datum/condition/organ/blunt/fracture/broken_spine
 	name = "Broken Spine"
 	desc = "The spinal cord has been broken."
@@ -144,7 +163,7 @@
 	injury_types = list(INJURY_TYPE_BRUISE)
 	apply_sound = 'sound/effects/conditions/broken_spine.ogg'
 	max_condition_amount = 1
-	min_damage = 100
+	min_damage = 200
 
 /datum/condition/organ/blunt/fracture/broken_spine/pre_apply(atom/movable/new_parent, injury_type)
 	if(!..())
@@ -157,7 +176,7 @@
 		else
 			frac_count++
 
-	if(frac_count >= 3)
+	if(frac_count >= 4)
 		return TRUE
 	return FALSE
 
@@ -166,6 +185,9 @@
 	organ.owner?.visible_message(SPAN_CONDITION("[organ?.owner]'s spine breaks in half!"), SPAN_CONDITION("Your spine breaks in half!"))
 	organ.owner?.Weaken(3)
 	organ.owner?.make_jittery(20)
+
+/datum/condition/organ/blunt/fracture/broken_spine/get_visible_status()
+	return SPAN_DANGER("feels like it's been broken in half")
 
 //blunt
 /datum/condition/organ/blunt
@@ -220,3 +242,6 @@
 		var/obj/item/organ/internal/brain/sponge = concussee.internal_organs_by_name[BP_BRAIN]
 		if(istype(sponge) && sponge.damage < (sponge.max_damage * 0.5))
 			sponge.take_damage(2)
+
+/datum/condition/organ/blunt/intracranial_bleeding/get_visible_status()
+	return SPAN_DANGER("feels numb and heavy")

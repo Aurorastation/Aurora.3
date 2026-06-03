@@ -69,6 +69,9 @@
 	if(stacks >= 6)
 		REMOVE_TRAIT(parent, TRAIT_FOURTH_DEGREE_ESCHAR, TRAIT_ORIGIN_CONDITION)
 
+/datum/condition/organ/burn/eschar/get_visible_status()
+	return SPAN_DANGER("is badly burned" + (stacks > 1 ? " with " + stacks + " layers of eschar" : ""))
+
 /datum/wound/burn/eschar
 	autoheal_cutoff = 10
 	stages = list(

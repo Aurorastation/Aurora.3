@@ -112,3 +112,10 @@
 /datum/condition/proc/stage_advance()
 	SHOULD_CALL_PARENT(TRUE)
 	stage++
+
+/**
+ * The examine result that a human mob gets when they self-examine. Should be immersive.
+ * Remember this is strictly for self-examine, not for scanners.
+ */
+/datum/condition/proc/get_visible_status()
+	return

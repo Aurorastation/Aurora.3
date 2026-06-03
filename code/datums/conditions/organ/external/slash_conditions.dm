@@ -38,6 +38,12 @@
 	affected.owner.visible_message(SPAN_CONDITION("A giant tear opens up on the flesh of [affected.owner]'s [affected]!"), SPAN_CONDITION("A giant tear opens up on the flesh of your [affected]!"))
 	affected.owner.drip(10)
 
+/datum/condition/organ/slash/incision/get_visible_status()
+	for(var/datum/condition/organ/slash/incision/incision in organ.conditions)
+		if(incision != src)
+			return SPAN_CONDITION("has multiple deep cuts that don't look like they'll stop bleeding")
+	return SPAN_CONDITION("has a deep cut that looks like it won't stop bleeding")
+
 /datum/wound/cut/deep_incision
 	bleed_threshold = 999
 	bleed_timer = 999
@@ -76,3 +82,6 @@
 		"disemboweled guts" = 60,
 		"giant sutured scar" = 10
 	)
+
+/datum/condition/organ/slash/disembowelment/get_visible_status()
+	return SPAN_CONDITION("torn open")

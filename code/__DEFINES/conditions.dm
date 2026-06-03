@@ -3,6 +3,8 @@
 #define CONDITION_FLAG_PROCESS 1
 /// Hidden from standard scanners.
 #define CONDITION_FLAG_HIDDEN 2
+/// Visible to the user when they click their health doll.
+#define CONDITION_FLAG_SELF_VISIBLE 4
 
 // Condition severity.
 /// Low-severity condition.

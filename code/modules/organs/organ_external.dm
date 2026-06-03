@@ -121,7 +121,7 @@
 	/// HP value of the limb's tendon
 	var/tendon_health = 30
 
-	var/list/tendon_msgs = list("tore apart", "ripped away")
+	var/list/tendon_msgs = list("tear apart", "ripped away")
 
 	var/damage_msg = SPAN_WARNING("You feel an intense pain!")
 	var/broken_description
