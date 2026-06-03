@@ -243,7 +243,6 @@
 			handle_spalling(entered_turf, movement_dir, last_thing_pierced)
 			last_thing_pierced = null
 
-
 /**
  * This creates a cone of shrapnel whenever a projectile pierces something dense and then crosses into a non-dense turf.
  * This means that it won't spawn all the shrapnel inside the next thing it penetrates, to simulate spalling.
@@ -264,7 +263,7 @@
 	target_turfs += get_step(get_step(O, turn(shrapnel_dir, 45)), shrapnel_dir)
 
 	for(var/turf/T in target_turfs)
-		var/obj/projectile/bullet/pellet/fragment/P
+		var/obj/projectile/bullet/pellet/fragment/spall/P
 		if(istype(thing_pierced, /obj/structure/window))
 			P = new /obj/projectile/bullet/pellet/fragment/spall/glass(O)
 		else if(istype(thing_pierced, /obj/structure/grille) || istype(thing_pierced, /obj/structure/window_frame))
@@ -274,9 +273,9 @@
 			if(D.window_material && D.window_material == SSmaterials.get_material_by_name(MATERIAL_GLASS))
 				P = new /obj/projectile/bullet/pellet/fragment/spall/glass(O)
 			else
-				P = new(O)
+				P = new /obj/projectile/bullet/pellet/fragment/spall(O)
 		else
-			P = new(O)
+			P = new /obj/projectile/bullet/pellet/fragment/spall(O)
 		P.preparePixelProjectile(T, src)
 		P.firer = src
 		P.fired_from = thing_pierced
