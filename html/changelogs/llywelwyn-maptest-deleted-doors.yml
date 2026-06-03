@@ -1,0 +1,4 @@
+author: Llywelwyn
+delete-after: True
+changes:
+  - code_imp: "Door tests skip qdeleted doors, so they should no longer intermittently fail when landing zone generation clears a ruin."

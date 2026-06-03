@@ -782,9 +782,6 @@
 /mob/fall_get_specs(levels_fallen)
 	return list(mob_size, throw_range)
 
-/mob/living
-	var/atom/movable/z_observer/z_eye
-
 /atom/movable/z_observer
 	name = ""
 	simulated = FALSE

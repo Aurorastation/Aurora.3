@@ -39,14 +39,19 @@
 		. = 1
 
 /mob/living/carbon/Destroy()
-	QDEL_NULL(touching)
+	species = null
+	QDEL_NULL(handcuffed)
+	QDEL_NULL(legcuffed)
+	QDEL_NULL(op_stage)
+	chem_doses?.Cut()
 	QDEL_NULL(bloodstr)
-	QDEL_NULL(dna)
+	QDEL_NULL(touching)
 	QDEL_NULL(breathing)
 	// Delete and null a direct list of references to our internal organs (such as brain, lungs, heart, etc).
 	QDEL_LIST(internal_organs)
 	// Null an Associative list of String = Reference to the same organs.
-	internal_organs_by_name = null
+	internal_organs_by_name?.Cut()
+	QDEL_LIST(hallucinations)
 	return ..()
 
 /mob/living/carbon/rejuvenate()
