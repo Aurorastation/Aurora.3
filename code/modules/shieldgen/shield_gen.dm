@@ -314,8 +314,8 @@
 /obj/structure/machinery/shield_gen/ui_data(mob/user)
 	var/list/data = list()
 
-	data["owned_capacitor"] = (owned_capacitors && owned_capacitors.len > 0)
-	data["owned_capacitor_count"] = owned_capacitors ? owned_capacitors.len : 0
+	data["owned_capacitor"] = length(owned_capacitors)
+	data["owned_capacitor_count"] = length(owned_capacitors)
 	data["active"] = active
 	data["time_since_fail"] = energy_field ? energy_field.time_since_fail : 0
 	data["multiz"] = multiz

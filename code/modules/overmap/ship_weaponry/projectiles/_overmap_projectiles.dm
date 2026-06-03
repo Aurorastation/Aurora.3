@@ -119,7 +119,7 @@
 				widowmaker.primed = TRUE
 
 				if(istype(V, /obj/effect/overmap/visitable/sector/exoplanet) && (ammunition.overmap_behaviour & SHIP_AMMO_CAN_HIT_PLANETS))
-					return check_entry_exoplanet(widowmaker, target_turf, target_turf) //TODO ADD SOME OFFSET HERE, SPAWN IT IN THE NEAREST OPEN TILE
+					return check_entry_exoplanet(widowmaker, target_turf, target_turf)
 				else if(istype(V, /obj/effect/overmap/visitable/ship) && (ammunition.overmap_behaviour & SHIP_AMMO_CAN_HIT_VISITABLES))
 					return check_entry_ship(widowmaker, target_turf, V)
 				else if(ammunition.overmap_behaviour & SHIP_AMMO_CAN_HIT_VISITABLES)

@@ -264,36 +264,48 @@
 	target_turfs += get_step(get_step(O, turn(shrapnel_dir, 45)), shrapnel_dir)
 
 	for(var/turf/T in target_turfs)
-		var/obj/projectile/bullet/pellet/fragment/P = new(O)
-		P.damage = 2 //Between 30 and 3 damage, depending on how close you are. Pilot suits are 30 ballistic armour, so they should survive a lot of spall.
-		P.pellets = 15
-		P.armor_penetration = 10
-		P.range_step = 1
-		P.range = 15
-		P.embed_chance = 80 //Make the people hit pull big chunks of shrapnel out by hand.
-		P.maim_rate = -1 //We don't want this to decapitate people in the unlucky event they get hit by the shell (or shell explosion) directly, then more shrapnel afterwards.
-		P.anti_materiel_potential = 2 //Enough to break windows.
-		P.name = "spall"
-		P.shrapnel_type = /obj/item/material/shard/shrapnel/large
+		var/obj/projectile/bullet/pellet/fragment/P
 		if(istype(thing_pierced, /obj/structure/window))
-			P.shrapnel_type = /obj/item/material/shard
-			P.name = "glass"
-			P.armor_penetration = 5
+			P = new /obj/projectile/bullet/pellet/fragment/spall/glass(O)
 		else if(istype(thing_pierced, /obj/structure/grille) || istype(thing_pierced, /obj/structure/window_frame))
-			P.shrapnel_type = /obj/item/stack/rods
-			P.name = "metal rod"
-			P.armor_penetration = 15 //Giant metal rods can punch through armour better than glass.
+			P = new /obj/projectile/bullet/pellet/fragment/spall/metalrod(O)
 		else if(istype(thing_pierced, /obj/structure/machinery/door/airlock))
 			var/obj/structure/machinery/door/airlock/D = thing_pierced
-			if(D.window_material)
-				if(D.window_material == SSmaterials.get_material_by_name(MATERIAL_GLASS))
-					P.shrapnel_type = /obj/item/material/shard
-					P.name = "glass"
+			if(D.window_material && D.window_material == SSmaterials.get_material_by_name(MATERIAL_GLASS))
+				P = new /obj/projectile/bullet/pellet/fragment/spall/glass(O)
+			else
+				P = new(O)
+		else
+			P = new(O)
 		P.preparePixelProjectile(T, src)
 		P.firer = src
 		P.fired_from = thing_pierced
 		P.fire()
 	return TRUE
+
+/obj/projectile/bullet/pellet/fragment/spall
+		damage = 2 //Between 30 and 3 damage, depending on how close you are. Pilot suits are 30 ballistic armour, so they should survive a lot of spall.
+		pellets = 15
+		armor_penetration = 10
+		range_step = 1
+		range = 15
+		embed_chance = 80 //Make the people hit pull big chunks of shrapnel out by hand.
+		maim_rate = -1 //We don't want this to decapitate people in the unlucky event they get hit by the shell (or shell explosion) directly, then more shrapnel afterwards.
+		anti_materiel_potential = 2 //Enough to break windows.
+		name = "spall"
+		shrapnel_type = /obj/item/material/shard/shrapnel/large
+
+/obj/projectile/bullet/pellet/fragment/spall/glass
+		damage = 1
+		armor_penetration = 5
+		name = "glass"
+		shrapnel_type = /obj/item/material/shard
+
+/obj/projectile/bullet/pellet/fragment/spall/metalrod
+		damage = 3
+		armor_penetration = 15
+		name = "metal rod"
+		shrapnel_type = /obj/item/stack/rods
 
 /obj/projectile/ship_ammo/Destroy()
 	ammo = null
