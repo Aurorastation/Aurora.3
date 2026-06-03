@@ -113,7 +113,7 @@
 	QDEL_NULL(narsimage)
 	QDEL_NULL(narglow)
 	QDEL_NULL(riftimage)
-	QDEL_NULL(bloody_hands_mob)
+	bloody_hands_mob = null
 	QDEL_NULL(eyeobj)
 	QDEL_NULL(bg)
 	my_client = null
