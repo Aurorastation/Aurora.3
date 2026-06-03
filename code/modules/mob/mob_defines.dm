@@ -276,3 +276,82 @@
 
 	/// A assoc lazylist of to_chat notifications, key = string message, value = world time integer
 	var/list/message_notifications
+
+	var/mob/living/vr_mob = null // In which mob is our mind
+	var/mob/living/old_mob = null // Which mob is our old mob
+
+	/**
+	* LAZYLIST (Instances of `/datum/click_handler`). Click handlers for this mob that should intercept and handle click
+	* calls.
+	*
+	* The 'topmost'/'active' click handler for the mob is the handler currently at index `1`. By default, this will be
+	* `/datum/click_handler/default`.
+	*/
+	var/list/click_handlers
+
+	var/should_add_to_mob_list = TRUE
+
+	/// Integer. Unique sequential ID from the `do_after` proc used to validate `DO_USER_UNIQUE_ACT` flag checks.
+	var/do_unique_user_handle = 0
+
+	var/mob/lastattacker = null
+	var/mob/lastattacked = null
+	var/attack_log = list()
+
+	/// Spam control, can only point when the previous pointer qdels
+	var/obj/effect/decal/point/pointing_effect = null
+
+	/// 1 decisecond click delay (above and beyond mob/next_move)
+	var/next_click = 0
+
+	var/dizziness = 0//Carbon
+	var/is_dizzy = 0
+	var/is_jittery = 0
+	var/jitteriness = 0//Carbon
+
+	//handles up-down floaty effect in space and zero-gravity
+	var/is_floating = FALSE
+
+	// Used by the Nano UI Manager (/datum/SSnanoui) to track UIs opened by this mob
+	var/list/open_nanouis = list()
+
+	var/last_pain_message = ""
+	var/next_pain_time = 0
+
+	/**
+	* global
+	*
+	* Tracks open UIs for a user.
+	*/
+	var/list/tgui_open_uis = list()
+
+	var/tmp/last_airflow_stun = 0
+
+	//thou shall always be able to see the Geometer of Blood
+	var/image/narsimage = null
+	var/image/narglow = null
+
+	//thou shall always be able to see the rift
+	var/image/riftimage = null
+
+	var/list/client_colors = list()
+
+	var/bloody_hands = null
+	var/datum/weakref/bloody_hands_mob
+	var/track_footprint = 0
+	var/list/feet_blood_DNA
+	var/track_footprint_type
+	var/footprint_color
+
+	var/mob/abstract/eye/eyeobj
+
+	var/mob/living/brain_ghost/bg
+
+	var/list/default_emotes = list()
+	var/list/usable_emotes = list()
+
+	var/client/my_client // Need to keep track of this ourselves, since by the time Logout() is called the client has already been nulled
+
+	var/get_rig_stats = 0
+
+	var/thinking_enabled = FALSE

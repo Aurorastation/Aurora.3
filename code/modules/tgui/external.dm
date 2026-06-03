@@ -132,13 +132,6 @@
 /**
  * global
  *
- * Tracks open UIs for a user.
- */
-/mob/var/list/tgui_open_uis = list()
-
-/**
- * global
- *
  * Tracks open windows for a user.
  */
 /client/var/list/tgui_windows = list()

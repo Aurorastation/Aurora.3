@@ -27,17 +27,6 @@
 
 #define langchat_client_enabled(M) (M && M.client && M.client.prefs && (M.client.prefs.toggles_secondary & FLOATING_MESSAGES))
 
-/*
- * Duplicate vars and logic created for untranslated images for the sake of getting an untranslated langchat to display for listeners who do not understand
- * the language being spoken. Someone could certainly think of cleaner ways to do this, but for want of a better solution right now, it has been implemented
- * in this rote manner to make it easier to strip out in future if it needs replaced.
- */
-
-/atom/var/image/langchat_image
-/atom/var/image/langchat_image_untranslated
-/atom/var/list/mob/langchat_listeners
-/atom/var/list/mob/langchat_listeners_untranslated
-
 /// Hides the images, if they exist. Do not null the langchat images; they are rotated when the mob is buckled or proned to maintain text orientation.
 /atom/proc/langchat_drop_images()
 	if(langchat_listeners)
