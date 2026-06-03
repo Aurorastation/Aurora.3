@@ -18,6 +18,7 @@
 	var/ticks_recovering = 10
 	/// If strength goes is 1 or above, this is set to TRUE, this is to prevent flickering and animate being called constantly
 	var/is_strong = FALSE
+	pass_flags_self = PASSSHIELD //Currently only ship weapons have this flag.
 
 	atmos_canpass = CANPASS_ALWAYS
 
@@ -43,6 +44,7 @@
 
 /obj/effect/energy_field/attackby(obj/item/attacking_item, mob/user)
 	user.do_attack_animation(src, used_item = attacking_item)
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	if(attacking_item.force < 10)
 		user.visible_message(SPAN_WARNING("[user] harmlessly attacks \the [src] with \the [attacking_item]."),
 								SPAN_WARNING("You attack \the [src] with \the [attacking_item], but it bounces off without doing any damage."))
@@ -65,17 +67,76 @@
 	damage_field(0.5 + severity)
 
 /obj/effect/energy_field/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
-	. = ..()
+
+	var/initial_damage = hitting_projectile.get_structure_damage()
+	/**
+	 * The shield has three possible interactions with a projectile:
+	 *
+	 * If the projectile is piercing (penetrating >= 1 and pierce_flags = PASSSHIELD), the shield will decrease what it can subsequently penetrate.
+	 * The projectile will have it's pierces increased by half the shield's strength. If a projectile's pierces is greater than it's penetrating, it stops.
+	 *
+	 * Eg. A penetrating 10 shot hits a strength 10 shield. It will subsequently go through 4 additional walls (10/2 = 5, +1 for the shield tile), instead of the 10 it would originally.
+	 */
+	if(piercing_hit)
+		hitting_projectile.pierces += round((energy_field.field_strength / 2))
+		if(hitting_projectile.pierces < hitting_projectile.penetrating)
+			visible_message(SPAN_WARNING("\The [src] flickers and fails as it is penetrated by the \the [hitting_projectile]."))
+			damage_field(initial_damage / 20) //The shield takes less damage if it is penetrated like this.
+			return BULLET_ACT_FORCE_PIERCE
+
+	/**
+	 * A projectile without pass_flags = PASSSHIELD will have its damage reduced by the shield, if its damage is reduced to zero it is blocked.
+	 * A strong projectile hitting a weak shield will penetrate it. A strength 10 field will always block a projectile.
+	 * The projectile's damage is multiplied by 1 minus the shield's strength divided by 10, then the shield's strength is subtracted from it's damage.
+	 *
+	 * Eg. A 50 damage projectile hits a 5 strength shield. (damage multiplier: 1 - 5/10 = 0.5), (shot damage: = 50 * 0.5 = 25), (final damage: 25 - 5 = 20). Penetrates.
+	 * Therefore the shot would continue on, but only deal 20 damage when it hits.
+	 *
+	 * Eg. A 50 damage projectile hits a 9 strength shield. (damage multiplier: 1 - 9/10 = 0.1), (shot damage: = 50 * 0.1 = 5), (final damage: 5 - 9 = -4). Blocked.
+	 */
+	if(energy_field.field_strength < 10) //A strength 10 field will always block a projectile. Without modifications to the engines, one or more upgraded SMES units, or upgrades from research the Horizon cannot generate a field of strength 10 that covers the whole ship.
+		hitting_projectile.damage *= 1 - max(0, energy_field.field_strength / 10)
+		hitting_projectile.damage -= energy_field.field_strength
+		if(hitting_projectile.damage >= 0)
+			damage_field(initial_damage / 10)
+			visible_message(SPAN_WARNING("\The [src] flashes and depletes the [hitting_projectile]'s energy, but doesn't fully block it."))
+			return BULLET_ACT_FORCE_PIERCE
+		else
+			visible_message(SPAN_WARNING("\The [src] shimmers and absorbs \the [hitting_projectile]."))
+			return BULLET_ACT_BLOCK
+
+	/**
+	 * An explosive projectile that fails to penetrate will be deleted before it can explode.
+	 * All explosive ship weapons also have high damage, so this only really matters on a strength 10 shield.
+	 * If the projectile is explosive, it deals whatever damage that explosion would have done to the shield.
+	 */
+	if(istype(hitting_projectile, /obj/projectile/ship_ammo))
+		var/obj/projectile/ship_ammo/explosive_projectile = hitting_projectile
+		if(explosive_projectile.explosion_strength[3] || explosive_projectile.explosion_strength[2] || explosive_projectile.explosion_strength[1])
+			for(var/obj/effect/energy_field/shield_tile in energy_field.field)
+				var/distance = get_dist(src, shield_tile)
+				if(distance <= explosive_projectile.explosion_strength[1])
+					shield_tile.damage_field(3)
+				else if(distance <= explosive_projectile.explosion_strength[2])
+					shield_tile.damage_field(2)
+				else if(distance <= explosive_projectile.explosion_strength[3])
+					shield_tile.damage_field(1)
+			// explosive_projectile.explosion_strength = list(0, 0, 0) // Set the explosion strength to 0.
+			visible_message(SPAN_WARNING("\The [src] shimmers and absorbs \the [hitting_projectile]."))
+			return BULLET_ACT_BLOCK
+
+	damage_field(initial_damage / 10)
+
+	. = ..() //If we get down here fall back on normal piercing calculations, for normal projectiles hitting shields.
 	if(. != BULLET_ACT_HIT)
 		return .
-
-	damage_field(hitting_projectile.get_structure_damage() / 10)
 
 /obj/effect/energy_field/proc/damage_field(var/severity)
 	if(!severity)
 		return
 
 	damage += severity
+	energy_field.field_strength = max(energy_field.field_strength - (severity / length(energy_field.field)), 0)
 
 	if(!(datum_flags & DF_ISPROCESSING))
 		// Start processing ONLY when we're damaged. Through processing, we're going to slowly climb back up to field strength.

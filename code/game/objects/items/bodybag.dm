@@ -6,8 +6,8 @@
 	icon = 'icons/obj/bodybag.dmi'
 	icon_state = "bodybag_folded"
 	w_class = WEIGHT_CLASS_SMALL
-	drop_sound = 'sound/items/drop/cloth.ogg'
-	pickup_sound = 'sound/items/pickup/cloth.ogg'
+	drop_sound = SFX_CLOTH_DROP
+	pickup_sound = SFX_CLOTH_PICKUP
 	var/deploy_type = /obj/structure/closet/body_bag
 
 /obj/structure/closet/body_bag/feedback_hints(mob/user, distance, is_adjacent)
@@ -42,7 +42,7 @@
 	var/obj/structure/closet/body_bag/R = new deploy_type(location)
 	R.add_fingerprint(user)
 	tweak_bag(R)
-	playsound(src, 'sound/items/drop/cloth.ogg', 30)
+	playsound(src, drop_sound, 30)
 	qdel(src)
 
 /obj/item/bodybag/proc/tweak_bag(var/obj/structure/closet/body_bag/BB)

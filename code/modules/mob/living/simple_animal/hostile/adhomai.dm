@@ -179,4 +179,4 @@
 /obj/projectile/beam/tesla/plasmageist/on_hit(atom/target, blocked, def_zone)
 	. = ..()
 	if(isliving(target))
-		explosion(target, -1, 0, 2)
+		explosion(get_turf(target), -1, 0, 2)

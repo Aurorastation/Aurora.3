@@ -45,14 +45,6 @@
 ///The maximum dose that can be received, above this level all further radiation is taken as damage directly to the body, ignoring armor. Very rapidly fatal.
 #define RADIATION_MAX_DOSE 1000
 
-/mob/living/carbon/human
-	var/oxygen_alert = 0
-	var/phoron_alert = 0
-	var/co2_alert = 0
-	var/fire_alert = 0
-	var/pressure_alert = 0
-	var/temperature_alert = 0
-
 /mob/living/carbon/human/Life(seconds_per_tick, times_fired)
 	if (transforming)
 		return
@@ -1595,7 +1587,7 @@
 			stamina = min(max_stamina, stamina+regen)
 			adjustNutritionLoss(stamina_recovery*0.09)
 			adjustHydrationLoss(stamina_recovery*0.32)
-			if (client)
+			if (client && hud_used && hud_used.move_intent)
 				hud_used.move_intent.update_move_icon(src)
 
 /mob/living/carbon/human/proc/update_oxy_overlay()

@@ -20,6 +20,8 @@
 	knife_y_offset = 13
 	can_sawoff = TRUE
 	sawnoff_workmsg = "shorten the barrel and stock"
+	drop_sound = 'sound/items/drop/rifle.ogg'
+	pickup_sound = 'sound/items/pickup/rifle.ogg'
 
 /obj/item/gun/projectile/shotgun/pump/rifle/magazine_fed
 	name = "strange rifle"
@@ -173,6 +175,8 @@
 	fire_sound = 'sound/weapons/gunshot/gunshot3.ogg'
 	var/retracted_bolt = 0
 	var/icon_retracted = "pockrifle-empty"
+	drop_sound = 'sound/items/drop/rifle.ogg'
+	pickup_sound = 'sound/items/pickup/rifle.ogg'
 
 /obj/item/gun/projectile/contender/special_check(mob/user)
 	if(retracted_bolt)
@@ -355,6 +359,8 @@
 	accuracy_wielded = 2
 
 	is_wieldable = TRUE
+	drop_sound = 'sound/items/drop/rifle.ogg'
+	pickup_sound = 'sound/items/pickup/rifle.ogg'
 
 /obj/item/gun/projectile/gauss/update_icon()
 	..()
@@ -435,6 +441,8 @@
 	rack_verb = "work the lever on"
 	can_bayonet = FALSE
 	can_sawoff = FALSE
+	drop_sound = 'sound/items/drop/rifle.ogg'
+	pickup_sound = 'sound/items/pickup/rifle.ogg'
 
 /obj/item/gun/projectile/shotgun/pump/rifle/magazine_fed/crackrifle
 	name = "\improper Azarak-96 crack rifle"

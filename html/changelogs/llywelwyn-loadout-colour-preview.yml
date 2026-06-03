@@ -1,0 +1,4 @@
+author: Llywelwyn
+delete-after: True
+changes:
+  - bugfix: "Colour chips in character setup are correctly coloured again."

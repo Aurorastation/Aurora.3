@@ -3,6 +3,7 @@
 #define AB_INNATE 3
 #define AB_GENERIC 4
 #define AB_ITEM_USE_ICON 5
+#define AB_CALL_SELF 6
 
 #define AB_CHECK_RESTRAINED 1
 #define AB_CHECK_STUNNED 2
@@ -90,6 +91,9 @@
 		if(AB_GENERIC)
 			if(target && procname)
 				call(target,procname)(usr)
+		if(AB_CALL_SELF)
+			if (procname)
+				call(src, procname)()
 	return
 
 /datum/action/proc/Activate()
@@ -280,6 +284,22 @@
 	check_flags = AB_CHECK_STUNNED|AB_CHECK_ALIVE|AB_CHECK_INSIDE
 	button_icon_state = "night_eyes"
 
+/datum/action/item_action/organ/night_eyes/Trigger()
+	if(!Checks())
+		return
+	var/obj/item/organ/internal/eyes/night/target_eyes = target
+	target_eyes.night_vision()
+
+/datum/action/item_action/organ/extended_eyes
+	check_flags = AB_CHECK_STUNNED|AB_CHECK_ALIVE|AB_CHECK_INSIDE
+	button_icon_state = "night_eyes"
+
+/datum/action/item_action/organ/extended_eyes/Trigger()
+	if(!Checks())
+		return
+	var/obj/item/organ/internal/eyes/night/target_eyes = target
+	target_eyes.extended_vision()
+
 /datum/action/item_action/organ/night_eyes/rev
 	check_flags = AB_CHECK_ALIVE|AB_CHECK_INSIDE
 	button_icon_state = "rev_eyes"
@@ -337,6 +357,7 @@
 #undef AB_INNATE
 #undef AB_GENERIC
 #undef AB_ITEM_USE_ICON
+#undef AB_CALL_SELF
 
 #undef AB_CHECK_RESTRAINED
 #undef AB_CHECK_STUNNED

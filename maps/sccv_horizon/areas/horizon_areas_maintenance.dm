@@ -2,6 +2,7 @@
 /area/horizon/maintenance
 	name = "Horizon - Maintenance (PARENT AREA - DON'T USE)"
 	icon_state = "maintenance"
+	area_lighting = LIGHT_ENGINEERING_COLORS
 	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_HIDE_FROM_HOLOMAP | AREA_FLAG_PREVENT_PERSISTENT_TRASH
 	sound_environment = SOUND_AREA_TUNNEL_ENCLOSED
 	turf_initializer = new /datum/turf_initializer/maintenance()
