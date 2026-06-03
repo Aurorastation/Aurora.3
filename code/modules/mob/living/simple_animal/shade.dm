@@ -195,10 +195,9 @@
 					to_chat(L, SPAN_NOTICE("[pick(nagging_doubts)]"))
 					possession_heard_message = 1
 
-/mob/living/simple_animal/shade/bluespace/hear_say(var/message, var/verb = "says", var/datum/language/language = null, var/alt_name = "", var/italics = 0, var/mob/speaker = null, var/sound/speech_sound, var/sound_vol)
-	..()
-	if(speaker && speaker != src && !possessive)
-		last_message_heard = message
+/mob/living/simple_animal/shade/bluespace/react_to_message(datum/say_message/msg)
+	if(msg.speaker && msg.speaker != src && !possessive)
+		last_message_heard = msg.to_string()
 		message_countdown = min(300, message_countdown + 35)
 		adjustCloneLoss(-2)
 		if(heard_dying_message)

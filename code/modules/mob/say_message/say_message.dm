@@ -48,20 +48,58 @@
 	/// Say mode.
 	var/mode = SAYMODE_SPOKEN
 
-	/// Reception. A damaged radio message may decrease this, for example.
-	var/reception = RECEPTION_CLEAR
+	/// Initial clarity. Most of the time this is clear. Sometimes the radio will degrade it.
+	var/base_clarity = CLARITY_CLEAR
+
+	/// Radio envelope parts. This must live here for performance reasons pending a telecomms rewrite.
+	var/list/radio_parts
 
 /// Returns the complete message as the given listener perceives it.
-/datum/say_message/proc/render_for(mob/listener)
+/datum/say_message/proc/render_for(mob/listener, clarity = CLARITY_CLEAR)
+	if(clarity == CLARITY_DROWSY)
+		return render_drowsy(listener)
+
+	var/list/plain = list()
+	for(var/datum/say_segment/segment as anything in segments)
+		plain += segment.render_for(listener, speaker)
+
+	// INNATE (audible emotes) are narration, never garbled even when faint
+	if(clarity == CLARITY_FAINT && !(single_language?.flags & INNATE))
+		var/joined = jointext(plain, "")
+		return length(joined) ? stars(joined) : ""
+
 	var/list/out = list()
 	var/first = TRUE
-	for(var/datum/say_segment/segment as anything in segments)
-		var/rendered = segment.render_for(listener, speaker)
+	for(var/i in 1 to length(segments))
+		var/datum/say_segment/segment = segments[i]
+		var/rendered = plain[i]
 		if(first && length(rendered))
 			rendered = capitalize(rendered)
 			first = FALSE
 		out += segment.language ? segment.language.colourize(rendered) : rendered
-	return jointext(out, "")
+	return listener.hallucinate_heard(jointext(out, ""), speaker)
+
+/// Special rendering for drowsy mobs. They almost hear individual words.
+/datum/say_message/proc/render_drowsy(mob/listener)
+	if(isdeaf(listener))
+		return ""
+	if(!prob(15))
+		return "<span class = 'game_say'>...<i>You almost hear someone talking</i>...</span>"
+
+	var/list/plain = list()
+	for(var/datum/say_segment/segment as anything in segments)
+		plain += segment.render_for(listener, speaker)
+	var/list/messages = text2list(jointext(plain, ""), " ")
+	if(!length(messages))
+		return "<span class = 'game_say'>...<i>You almost hear someone talking</i>...</span>"
+
+	var/list/punctuation = list(",", "!", ".", ";", "?")
+	var/heardword = messages[rand(1, messages.len)]
+	if(copytext(heardword, 1, 1) in punctuation)
+		heardword = copytext(heardword, 2)
+	if(copytext(heardword, -1) in punctuation)
+		heardword = copytext(heardword, 1, length(heardword))
+	return "<span class = 'game_say'>...You hear something about...[heardword]</span>"
 
 /// Returns a flat string with languages stripped out.
 /datum/say_message/proc/to_string()

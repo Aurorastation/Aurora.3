@@ -105,11 +105,11 @@
 // These language flags do not support interleaving languages in one message.
 #define LANG_NO_INTERLEAVE (SIGNLANG | HIVEMIND | PRESSUREPROOF | KNOWONLYHEAR | INNATE)
 
-// Reception levels: how clearly one listener hears one message.
-#define RECEPTION_NONE   0   // not perceived (deaf / vacuum / blind-sign)
-#define RECEPTION_FAINT  1   // body stars()-ed (radio static, whisper eavesdrop)
-#define RECEPTION_DROWSY 2   // word-sampled "you almost hear..." (asleep)
-#define RECEPTION_CLEAR  3   // verbatim (subject to comprehension only)
+// Clarity levels: how clearly one listener perceives one message (the acoustic/sight axis).
+#define CLARITY_NONE   0   // not perceived (deaf / vacuum / blind-sign)
+#define CLARITY_FAINT  1   // body stars()-ed (radio static, whisper eavesdrop)
+#define CLARITY_DROWSY 2   // word-sampled "you almost hear..." (asleep)
+#define CLARITY_CLEAR  3   // verbatim (subject to comprehension only)
 
 // Delivery mode: how the message reached the listener. Selects the envelope.
 #define SAYMODE_SPOKEN 1

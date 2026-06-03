@@ -2723,6 +2723,7 @@
 #include "code\modules\mob\mob_movement.dm"
 #include "code\modules\mob\mob_transformation_simple.dm"
 #include "code\modules\mob\say.dm"
+#include "code\modules\mob\say_message\hear_message.dm"
 #include "code\modules\mob\say_message\say_message.dm"
 #include "code\modules\mob\say_message\say_segment.dm"
 #include "code\modules\mob\transform_procs.dm"
