@@ -170,7 +170,7 @@
 			var/oldtext = html_decode(F.stored_data)
 			oldtext = replacetext(oldtext, "\[editorbr\]", "\n")
 
-			var/newtext = sanitize_filename(replacetext(tgui_input_text(usr, "Editing file [open_file]. You may use most tags used in paper formatting:", "Text Editor", oldtext) as message|null, "\n", "\[editorbr\]"), MAX_TEXTFILE_LENGTH)
+			var/newtext = sanitize_filename(replacetext(tgui_input_text(usr, "Editing file [open_file]. You may use most tags used in paper formatting:", "Text Editor", oldtext), "\n", "\[editorbr\]"), MAX_TEXTFILE_LENGTH)
 			if(!newtext)
 				return
 
