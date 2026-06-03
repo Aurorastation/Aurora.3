@@ -327,7 +327,7 @@
 	if(istype(target, /turf/simulated/wall) || istype(target, /obj/structure/machinery/door)) //Stores the last thing we pierced for spalling purposes.
 		last_thing_pierced = target
 	else if (istype(target, /obj/structure)) //If it is a structure on a dense turf, that uses health,
-		if (target.should_use_health == TRUE)
+		if (target.should_use_health)
 			var/turf/T = get_turf(target)
 			if (T.check_density(FALSE, TRUE))
 				last_thing_pierced = target
