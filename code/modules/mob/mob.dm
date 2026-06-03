@@ -70,7 +70,7 @@
 	s_active = null
 	wear_mask = null
 	QDEL_NULL(dna)
-	QDEL_NULL(LAssailant)
+	LAssailant = null
 	spell_list?.Cut()
 	lastarea = null
 	control_object = null
