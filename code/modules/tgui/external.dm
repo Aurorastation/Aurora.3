@@ -71,7 +71,7 @@
  */
 /datum/proc/update_static_data_for_all_viewers()
 	for (var/datum/tgui/window as anything in open_uis)
-		window.send_full_update()
+		window?.send_full_update()
 
 /**
  * public

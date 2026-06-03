@@ -1,0 +1,5 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - bugfix: "Fixed hard dels caused by tgui windows failing to close themselves if their owner was deleted causing a runtime error."
+  - bugfix: "Fixed a runtime error caused when a character with a nonstandard job goes through cryo"

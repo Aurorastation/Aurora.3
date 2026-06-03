@@ -632,7 +632,8 @@ SUBSYSTEM_DEF(jobs)
 	SSrecords.remove_record_by_field("name", H.real_name)
 	SSrecords.reset_manifest()
 
-	log_and_message_admins("([H.mind.role_alt_title]) entered cryostorage.", user = H)
+	if (H.mind)
+		log_and_message_admins("([H.mind.role_alt_title]) entered cryostorage.", user = H)
 
 	//This should guarantee that ghosts don't spawn.
 	H.ckey = null
