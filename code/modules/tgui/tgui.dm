@@ -73,6 +73,7 @@
 		src.window_size = list(ui_x, ui_y)
 
 /datum/tgui/Destroy()
+	SStgui.all_uis -= src
 	user = null
 	src_object = null
 	return ..()
