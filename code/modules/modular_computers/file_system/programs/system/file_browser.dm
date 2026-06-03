@@ -134,8 +134,13 @@
 			var/datum/computer_file/F = HDD.find_file_by_name(params["PRG_clone"])
 			if(!F || !istype(F))
 				return TRUE
+			if(istype(F, /datum/computer_file/program))
+				error = "I/O ERROR: Executable programs cannot be cloned from File Manager."
+				return TRUE
 			var/datum/computer_file/C = F.clone(1)
-			HDD.store_file(C)
+			if(!HDD.store_file(C))
+				qdel(C)
+				error = "I/O ERROR: Unable to clone file. The hard drive may be full, read-only, or contain a conflicting file."
 
 		if("PRG_rename")
 			. = TRUE
@@ -145,7 +150,7 @@
 			var/datum/computer_file/file = HDD.find_file_by_name(params["PRG_rename"])
 			if(!file || !istype(file))
 				return TRUE
-			var/newname = sanitize(input(usr, "Enter new file name:", "File rename", file.filename))
+			var/newname = sanitize_filename(tgui_input_text(usr, "Enter new file name or leave blank to cancel:", "File rename", file.filename))
 			if(file && newname)
 				file.filename = newname
 
@@ -165,7 +170,7 @@
 			var/oldtext = html_decode(F.stored_data)
 			oldtext = replacetext(oldtext, "\[editorbr\]", "\n")
 
-			var/newtext = sanitize(replacetext(input(usr, "Editing file [open_file]. You may use most tags used in paper formatting:", "Text Editor", oldtext) as message|null, "\n", "\[editorbr\]"), MAX_TEXTFILE_LENGTH)
+			var/newtext = sanitize_filename(replacetext(tgui_input_text(usr, "Editing file [open_file]. You may use most tags used in paper formatting:", "Text Editor", oldtext) as message|null, "\n", "\[editorbr\]"), MAX_TEXTFILE_LENGTH)
 			if(!newtext)
 				return
 
@@ -187,10 +192,10 @@
 				return TRUE
 			var/obj/item/computer_hardware/hard_drive/HDD = computer.hard_drive
 			if(!HDD)
-				return TRUE
+				return FALSE
 			if(!computer.nano_printer)
 				error = "Missing Hardware: Your computer does not have required hardware to complete this operation."
-				return TRUE
+				return FALSE
 			var/datum/computer_file/data/F = HDD.find_file_by_name(open_file)
 			var/datum/computer_file/script/S = F
 			if(!F)
@@ -198,21 +203,21 @@
 			if(istype(F))
 				if(!computer.nano_printer.print_text(F.stored_data))
 					error = "Hardware error: Printer was unable to print the file. It may be out of paper."
-					return TRUE
+					return FALSE
 			else if(istype(S))
 				if(!computer.nano_printer.print_text(S.code))
 					error = "Hardware error: Printer was unable to print the file. It may be out of paper."
-					return TRUE
+					return FALSE
 
 		if("PRG_copytousb")
 			. = TRUE
 			var/obj/item/computer_hardware/hard_drive/HDD = computer.hard_drive
 			var/obj/item/computer_hardware/hard_drive/portable/RHDD = computer.portable_drive
 			if(!HDD || !RHDD)
-				return TRUE
+				return FALSE
 			var/datum/computer_file/F = HDD.find_file_by_name(params["PRG_copytousb"])
 			if(!F || !istype(F))
-				return TRUE
+				return FALSE
 			var/is_usr_tech_support = FALSE
 			if(ishuman(usr))
 				var/mob/living/carbon/human/H = usr
@@ -272,7 +277,7 @@
 				return
 			if(F.password)
 				return
-			F.password = sanitize(input(usr, "Enter an encryption key:", "Encrypt File"))
+			F.password = sanitize_filename(tgui_input_text(usr, "Enter an encryption key:", "Encrypt File"))
 
 		if("PRG_decrypt")
 			. = TRUE

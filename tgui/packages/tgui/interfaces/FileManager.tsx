@@ -92,6 +92,7 @@ export const ShowFiles = (props) => {
               />
               <Button
                 content="Clone"
+                disabled={file.type === 'PRG'}
                 onClick={() => act('PRG_clone', { PRG_clone: file.name })}
               />
               <Button
