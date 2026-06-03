@@ -88,7 +88,7 @@
 
 		if("PRG_newtextfile")
 			. = TRUE
-			var/newname = sanitize(input(usr, "Enter file name or leave blank to cancel:", "File rename"))
+			var/newname = sanitize_filename(tgui_input_text(usr, "Enter file name or leave blank to cancel:", "File rename"))
 			if(!newname)
 				return TRUE
 			var/obj/item/computer_hardware/hard_drive/HDD = computer.hard_drive
@@ -97,7 +97,9 @@
 			var/datum/computer_file/data/F = new/datum/computer_file/data()
 			F.filename = newname
 			F.filetype = "TXT"
-			HDD.store_file(F)
+			if(!HDD.store_file(F))
+				qdel(F)
+				error = "I/O ERROR: Unable to create file. The hard drive may be full, read-only, or contain a conflicting file."
 
 		if("PRG_deletefile")
 			. = TRUE

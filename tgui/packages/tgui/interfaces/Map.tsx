@@ -13,7 +13,7 @@ export type MapData = {
   pois: { name: string; desc: string; x: number; y: number; z: number }[];
 };
 
-export const MiniMap = (props) => {
+export const Map = (props) => {
   const { act, data } = useBackend<MapData>();
 
   const [minimapZoom, setMinimapZoom] = useLocalState<number>(

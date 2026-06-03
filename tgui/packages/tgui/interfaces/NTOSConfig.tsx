@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import {
   BlockQuote,
   Box,
@@ -103,6 +104,9 @@ const ResourceUsage = (props) => {
 
 export const NTOSConfig = (props) => {
   const { act, data } = useBackend<NTOSConfigData>();
+  const [hardwareOverrides, setHardwareOverrides] = useState<
+    Record<string, BooleanLike>
+  >({});
   const {
     hardware = [],
     card_slot,
@@ -162,6 +166,8 @@ export const NTOSConfig = (props) => {
             <Stack fill vertical>
               {hardware.map((part) => {
                 const { name, desc, enabled, critical, power_usage } = part;
+                const hardwareEnabled = hardwareOverrides[name] ?? enabled;
+
                 return (
                   <Stack.Item key={name}>
                     <Section
@@ -170,15 +176,19 @@ export const NTOSConfig = (props) => {
                       buttons={
                         <Button
                           disabled={critical}
-                          color={!critical && enabled ? 'bad' : 'good'}
+                          color={!critical && hardwareEnabled ? 'bad' : 'good'}
                           icon="power-off"
-                          onClick={() =>
-                            act('PC_toggle_component', { component: name })
-                          }
+                          onClick={() => {
+                            setHardwareOverrides((hardware) => ({
+                              ...hardware,
+                              [name]: hardwareEnabled ? 0 : 1,
+                            }));
+                            act('PC_toggle_component', { component: name });
+                          }}
                         >
                           {critical
                             ? 'N/A'
-                            : enabled
+                            : hardwareEnabled
                               ? 'Power Off'
                               : 'Power On'}
                         </Button>
