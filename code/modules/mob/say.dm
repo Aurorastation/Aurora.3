@@ -196,6 +196,7 @@
 	say_message.raw_message = message
 
 	var/datum/language/current = get_default_language()
+
 	var/regex/trigger = get_language_trigger_regex()
 	trigger.next = 1
 
@@ -215,17 +216,28 @@
 		if(!found)
 			continue	//not a language we can speak, leave it as literal text and keep scanning
 
-		segments += new /datum/say_segment(copytext(message, segment_start, prefix_pos - length(lead)), current)
+		var/before = copytext(message, segment_start, prefix_pos - length(lead))
 
 		var/after = key_pos + key_len
 		if(copytext(message, after, after + 1) == " ")
 			after++
+
+		// If LANG_NO_INTERLEAVE is present, it must be first. If first,
+		// set the whole message to that language. If not, skip it.
+		if(found.flags & LANG_NO_INTERLEAVE)
+			if(!length(segments) && !length(before))
+				say_message.collapse_to(found, copytext(message, after))
+				return say_message
+			continue
+
+		segments += new /datum/say_segment(before, current)
 		segment_start = after
 		current = found
 		trigger.next = after
 
 	segments += new /datum/say_segment(copytext(message, segment_start), current)
 	say_message.segments = clean_segments(segments)
+	say_message.single_language = (length(say_message.segments) == 1) ? say_message.segments[1].language : null
 	return say_message
 
 /// Returns the language for a prefix key if we can speak it, otherwise null.

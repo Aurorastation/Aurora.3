@@ -102,6 +102,9 @@
 #define PRESSUREPROOF BITFLAG(11) // Pressure doesn't affect hearing
 #define PASSLISTENOBJ BITFLAG(12) // Listening Objs can't hear this language
 
+// These language flags do not support interleaving languages in one message.
+#define LANG_NO_INTERLEAVE (SIGNLANG | HIVEMIND | PRESSUREPROOF | KNOWONLYHEAR | INNATE)
+
 // Reception levels: how clearly one listener hears one message.
 #define RECEPTION_NONE   0   // not perceived (deaf / vacuum / blind-sign)
 #define RECEPTION_FAINT  1   // body stars()-ed (radio static, whisper eavesdrop)
@@ -112,9 +115,6 @@
 #define SAYMODE_SPOKEN 1
 #define SAYMODE_RADIO  2
 #define SAYMODE_SIGN   3
-
-// Languages that never interleave: any one of these in a message collapses the whole message to it.
-#define LANG_NO_INTERLEAVE (SIGNLANG | HIVEMIND | PRESSUREPROOF | KNOWONLYHEAR | INNATE)
 
 // Autohiss
 #define AUTOHISS_OFF 0

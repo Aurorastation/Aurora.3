@@ -12,6 +12,9 @@
 	/// The list of segments that make up the message body.
 	var/list/say_segment/segments = list()
 
+	/// The sole language of this message, or null if it interleaves more than one.
+	var/datum/language/single_language
+
 	/// Which verb to use. Determined by punctuation and language of the first piece.
 	var/verb = "says"
 
@@ -42,28 +45,11 @@
 	/// Which ghosts can hear this message?
 	var/ghost_hearing = GHOSTS_ALL_HEAR
 
+	/// Say mode.
+	var/mode = SAYMODE_SPOKEN
 
-/// Returns a flat, language-agnostic string with the message body.
-/datum/say_message/proc/to_string()
-	var/list/out = list()
-	for(var/datum/say_segment/segment as anything in segments)
-		out += segment.text
-	return jointext(out, "")
-
-/// Returns the first incompatible language in the message pieces or null.
-/// Incompatible languages like hivenet can't support multi-language messages.
-/datum/say_message/proc/special_language()
-	for(var/datum/say_segment/segment as anything in segments)
-		if(segment.language && (segment.language.flags & (SIGNLANG|HIVEMIND)))
-			return segment.language
-	return null
-
-/// True if every segment's language carries the given flag.
-/datum/say_message/proc/all_segments_flagged(flag)
-	for(var/datum/say_segment/segment as anything in segments)
-		if(!segment.language || !(segment.language.flags & flag))
-			return FALSE
-	return length(segments) > 0
+	/// Reception. A damaged radio message may decrease this, for example.
+	var/reception = RECEPTION_CLEAR
 
 /// Returns the complete message as the given listener perceives it.
 /datum/say_message/proc/render_for(mob/listener)
@@ -76,3 +62,15 @@
 			first = FALSE
 		out += segment.language ? segment.language.colourize(rendered) : rendered
 	return jointext(out, "")
+
+/// Returns a flat string with languages stripped out.
+/datum/say_message/proc/to_string()
+	var/list/out = list()
+	for(var/datum/say_segment/segment as anything in segments)
+		out += segment.text
+	return jointext(out, "")
+
+/// Collapses the whole message into a single segment in the given language.
+/datum/say_message/proc/collapse_to(datum/language/language, text)
+	single_language = language
+	segments = list(new /datum/say_segment(text, language))

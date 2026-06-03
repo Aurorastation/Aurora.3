@@ -16,7 +16,7 @@
 
 	//make sure the air can transmit speech - hearer's side
 	var/turf/T = get_turf(src)
-	var/vacuum_proof = (say_message.all_segments_flagged(PRESSUREPROOF) || isghost(src))
+	var/vacuum_proof = ((say_message.single_language?.flags & PRESSUREPROOF) || isghost(src))
 	var/italics = say_message.italics
 	var/sound_vol = say_message.sound_vol
 	var/speaker_name = speaker.name
@@ -66,7 +66,8 @@
 			message = "<b>[message]</b>"
 
 	if(isdeaf(src))
-		if(!say_message.all_segments_flagged(INNATE)) // INNATE is the audible-emote flag; skip the "can't hear" message for those
+		// Skip 'can't hear' message for audible emotes.
+		if(!(say_message.single_language?.flags & INNATE))
 			if(speaker == src)
 				to_chat(src, SPAN_WARNING("You cannot hear yourself speak!"))
 				return FALSE
