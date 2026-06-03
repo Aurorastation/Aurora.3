@@ -32,6 +32,17 @@
 		desc = "Your standard drinking glass."
 		center_of_mass = list("x"=16, "y"=10)
 
+/obj/item/reagent_containers/food/drinks/drinkingglass/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/material/kitchen/utensil/spoon))
+		var/datum/component/skill/bartending/bar_skill = user.GetComponent(BARTENDING_SKILL_COMPONENT)
+		if (bar_skill)
+			var/drink_moodlet_value = 5 * bar_skill.skill_level
+			var/drink_quality = rand(1, 20) + 3 * bar_skill.skill_level
+			if (!isnull(drink_moodlet_value))
+				src.visible_message(SPAN_NOTICE(" [user] stirs the [src] with \the [attacking_item]."))
+				src.LoadComponent(/datum/component/drink_moodlet_provider, drink_moodlet_value, FALSE, drink_quality)
+	return ..()
+
 /obj/item/reagent_containers/food/drinks/drinkingglass/afterattack(var/atom/target, var/mob/user, var/proximity, var/params)
 	if(ishuman(target) && user.a_intent == I_HELP && (user.zone_sel.selecting == BP_L_HAND || user.zone_sel.selecting == BP_R_HAND))
 		if(!user.Adjacent(target))

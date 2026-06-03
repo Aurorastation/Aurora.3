@@ -344,6 +344,14 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 			if("Order")
 				details["Order"] = tgui_input_text(user, "What is the ordered drink?", "Enter Ordered Drink")
 		return
+	if(istype(attacking_item, /obj/item/material/kitchen/utensil/spoon))
+		var/datum/component/skill/bartending/bar_skill = user.GetComponent(BARTENDING_SKILL_COMPONENT)
+		if (bar_skill)
+			var/drink_moodlet_value = 5 * bar_skill.skill_level
+			var/drink_quality = rand(1, 20) + 3 * bar_skill.skill_level
+			if (!isnull(drink_moodlet_value))
+				src.visible_message(SPAN_NOTICE(" [user] stirs the [src] with \the [attacking_item]."))
+				src.LoadComponent(/datum/component/drink_moodlet_provider, drink_moodlet_value, FALSE, drink_quality)
 	return ..()
 
 //////////////////////////drinkingglass and shaker//
