@@ -1,4 +1,3 @@
-import { resolveAsset } from 'tgui/assets';
 import {
   Box,
   Button,
@@ -39,15 +38,14 @@ export const LateJoin = (props) => {
         <Section>
           <Section textAlign="center">
             Welcome, <Box bold>{`${data.character_name}.`}</Box>
-            {
-              <Box as="img" m={0} width="35%" height="35%">
-                <img
-                  src={resolveAsset(`${data.character_image}`)}
-                  width="48px"
-                  height="48px"
-                />
-              </Box>
-            }
+            <Box m={0}>
+              <img
+                src={`data:image/png;base64,${data.character_image}`}
+                alt=""
+                width="96px"
+                height="96px"
+              />
+            </Box>
           </Section>
           <LabeledList>
             <LabeledList.Item label="Round Duration">

@@ -79,6 +79,7 @@
 	var/html = SStgui.basehtml
 	html = replacetextEx(html, "\[tgui:windowId]", id)
 	html = replacetextEx(html, "\[tgui:strictMode]", strict_mode)
+	html = replacetextEx(html, "\[tgui:storagecdn]", GLOB.config.storage_cdn_iframe)
 	// Inject assets
 	var/inline_assets_str = ""
 	for(var/datum/asset/asset in assets)

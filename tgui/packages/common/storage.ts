@@ -173,11 +173,15 @@ class StorageProxy implements StorageBackend {
 
   constructor() {
     this.backendPromise = (async () => {
-      if (Byond.storageCdn && !window.hubStorage) {
-        const iframe = new IFrameIndexedDbBackend();
-        await iframe.ready();
+      if (testHubStorage()) {
+        return new HubStorageBackend();
+      }
 
-        if ((await iframe.ping()) === true) {
+      if (Byond.storageCdn) {
+        const iframe = new IFrameIndexedDbBackend();
+        const iframeReady = await iframe.ready();
+
+        if (iframeReady && (await iframe.ping()) === true) {
           if (await iframe.get('byondstorage-migrated')) return iframe;
 
           Byond.winset(null, 'browser-options', '+byondstorage');
@@ -210,20 +214,21 @@ class StorageProxy implements StorageBackend {
 
         iframe.destroy();
 
-        if (!testHubStorage()) {
-          Byond.winset(null, 'browser-options', '+byondstorage');
-
-          return new Promise((resolve) => {
-            const listener = () => {
-              document.removeEventListener('byondstorageupdated', listener);
-              resolve(new HubStorageBackend());
-            };
-
-            document.addEventListener('byondstorageupdated', listener);
-          });
-        }
-        return new HubStorageBackend();
       }
+
+      if (Byond.IS_BYOND) {
+        Byond.winset(null, 'browser-options', '+byondstorage');
+
+        return new Promise((resolve) => {
+          const listener = () => {
+            document.removeEventListener('byondstorageupdated', listener);
+            resolve(new HubStorageBackend());
+          };
+
+          document.addEventListener('byondstorageupdated', listener);
+        });
+      }
+
       console.warn(
         'No supported storage backend found. Using in-memory storage.',
       );
