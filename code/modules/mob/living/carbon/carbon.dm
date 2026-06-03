@@ -312,7 +312,7 @@
 						status += "bandage-ably cut"
 					// arterial and no bleeding
 					else if(!(org.status & ORGAN_BLEEDING) && (org.status & ORGAN_ARTERY_CUT))
-						status += SPAN_DANGER("swelled from an internal arterial bleed")
+						status += SPAN_DANGER("swollen from an internal arterial bleed")
 				// End of Anatomy 3
 
 				var/output = ""
