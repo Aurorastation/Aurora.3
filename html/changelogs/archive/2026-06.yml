@@ -90,3 +90,8 @@
   llywelwyn:
   - bugfix: Modular energy guns with a reactor now self-recharge from assembly, instead
       of only starting after the first shot is fired.
+2026-06-03:
+  Fenodyree:
+  - bugfix: Fixes Longbow shells exploding when mechs pick them up.
+  MattAtlas:
+  - admin: Added the Storyteller narrate panel for admins.
