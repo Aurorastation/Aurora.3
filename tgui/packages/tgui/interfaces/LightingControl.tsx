@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { Button, LabeledList, Section } from 'tgui-core/components';
 import { useBackend } from '../backend';
 import { NtosWindow } from '../layouts';
@@ -9,6 +10,13 @@ export type LightingData = {
 
 export const LightingControl = (props) => {
   const { act, data } = useBackend<LightingData>();
+  const [context, setContext] = useState(data.context);
+  const [status, setStatus] = useState(data.status);
+
+  useEffect(() => {
+    setContext(data.context);
+    setStatus(data.status);
+  }, [data.context, data.status]);
 
   return (
     <NtosWindow>
@@ -20,7 +28,7 @@ export const LightingControl = (props) => {
               content="Apply"
               color="green"
               icon="check"
-              onClick={() => act('set')}
+              onClick={() => act('set', { context, mode: status })}
             />
           }
         >
@@ -29,28 +37,28 @@ export const LightingControl = (props) => {
               <Button
                 content="Public Hallways"
                 icon="chart-area"
-                selected={data.context === 'pub'}
-                onClick={() => act('context', { context: 'pub' })}
+                selected={context === 'pub'}
+                onClick={() => setContext('pub')}
               />
               <Button
                 content="All Areas"
                 icon="chart-area"
-                selected={data.context === 'all'}
-                onClick={() => act('context', { context: 'all' })}
+                selected={context === 'all'}
+                onClick={() => setContext('all')}
               />
             </LabeledList.Item>
             <LabeledList.Item label="Lighting Mode">
               <Button
                 content="Normal"
                 icon="lightbulb"
-                selected={data.status === 'full'}
-                onClick={() => act('mode', { mode: 'full' })}
+                selected={status === 'full'}
+                onClick={() => setStatus('full')}
               />
               <Button
                 content="Darkened"
                 icon="lightbulb"
-                selected={data.status === 'dark'}
-                onClick={() => act('mode', { mode: 'dark' })}
+                selected={status === 'dark'}
+                onClick={() => setStatus('dark')}
               />
             </LabeledList.Item>
           </LabeledList>

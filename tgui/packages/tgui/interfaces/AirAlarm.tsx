@@ -25,7 +25,7 @@ type AirAlarmData = {
   locked: BooleanLike;
   remote_view: BooleanLike;
   shorted: BooleanLike;
-  rcon: number;
+  rcon: BooleanLike;
   // Mode
   mode: number;
   modes: ModeEntry[];
@@ -99,20 +99,12 @@ const DANGER_LABEL: Record<number, string> = {
   2: 'DANGER: Internals Required',
 };
 
-const RCON_NO = 1;
-const RCON_AUTO = 2;
-const RCON_YES = 3;
-
 // ---- Root component ----
 
 export const AirAlarm = (props) => {
   const { act, data } = useBackend<AirAlarmData>();
   const [tab, setTab] = useLocalState('tab', 'status');
-  const lockedMessage = data.remote_view
-    ? data.rcon === RCON_AUTO
-      ? 'Remote control is available only while this alarm is active.'
-      : 'Remote control is disabled for this alarm.'
-    : 'Swipe ID card to unlock interface.';
+  const lockedMessage = 'Swipe ID card to unlock interface.';
 
   const tabs = [
     { id: 'status', label: 'Status' },
@@ -190,24 +182,11 @@ const StatusSection = (props) => {
       <Box mt={1}>
         <LabeledList>
           <LabeledList.Item label="Remote Control">
-            <Button
-              content="Off"
-              selected={data.rcon === RCON_NO}
-              disabled={!!data.shorted || !!data.remote_view}
-              onClick={() => act('rcon', { value: RCON_NO })}
-            />
-            <Button
-              content="Auto"
-              selected={data.rcon === RCON_AUTO}
-              disabled={!!data.shorted || !!data.remote_view}
-              onClick={() => act('rcon', { value: RCON_AUTO })}
-            />
-            <Button
-              content="On"
-              selected={data.rcon === RCON_YES}
-              disabled={!!data.shorted || !!data.remote_view}
-              onClick={() => act('rcon', { value: RCON_YES })}
-            />
+            {data.rcon ? (
+              <Box color="good">Enabled</Box>
+            ) : (
+              <Box color="bad">Disabled</Box>
+            )}
           </LabeledList.Item>
           <LabeledList.Item label="Thermostat">
             <Button

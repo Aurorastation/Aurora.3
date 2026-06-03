@@ -118,9 +118,8 @@ pixel_x = 10;
 	var/breach_detection = 1
 	//var/skipprocess = 0 //Experimenting
 	var/alarm_frequency = 1437
-	var/remote_control = 0
-	var/rcon_setting = 2
-	var/rcon_time = 0
+	/// If true, RCON is enabled. If false, RCON has been disabled.
+	var/rcon_setting = TRUE
 	var/locked = 1
 	var/aidisabled = 0
 	var/shorted = 0
@@ -475,9 +474,6 @@ pixel_x = 10;
 		mode=AALARM_MODE_FILL
 		apply_mode()
 
-	//atmos computer remote control stuff
-	remote_control = can_remote_control()
-
 	return
 
 /obj/structure/machinery/alarm/proc/handle_heating_cooling(datum/gas_mixture/environment, seconds_per_tick)
@@ -689,21 +685,8 @@ pixel_x = 10;
 
 	frequency.post_signal(src, alert_signal)
 
-/obj/structure/machinery/alarm/proc/is_remote_visible()
-	return rcon_setting != RCON_NO
-
 /obj/structure/machinery/alarm/proc/is_alarming()
 	return max(danger_level, alarm_area?.atmosalm) > 0
-
-/obj/structure/machinery/alarm/proc/can_remote_control()
-	switch(rcon_setting)
-		if(RCON_NO)
-			return FALSE
-		if(RCON_AUTO)
-			return is_alarming()
-		if(RCON_YES)
-			return TRUE
-	return FALSE
 
 /obj/structure/machinery/alarm/proc/is_remote_user(mob/user)
 	if(!user)
@@ -714,8 +697,8 @@ pixel_x = 10;
 	return FALSE
 
 /obj/structure/machinery/alarm/proc/is_unlocked_for(mob/user)
-	if(is_remote_user(user))
-		return can_remote_control()
+	if(is_remote_user(user) && rcon_setting)
+		return TRUE
 	return !locked || issilicon(user)
 
 /obj/structure/machinery/alarm/attack_ai(mob/user)
@@ -869,17 +852,6 @@ pixel_x = 10;
 
 	// Actions available without unlocking
 	switch(action)
-		if("rcon")
-			if(is_remote_user(usr))
-				return TRUE
-			var/new_rcon = text2num(params["value"])
-			switch(new_rcon)
-				if(RCON_NO)  rcon_setting = RCON_NO
-				if(RCON_AUTO) rcon_setting = RCON_AUTO
-				if(RCON_YES) rcon_setting = RCON_YES
-			remote_control = can_remote_control()
-			return TRUE
-
 		if("temperature")
 			var/list/tlv = TLV["temperature"]
 			var/max_temperature = min(tlv[3] - T0C, MAX_TEMPERATURE)
@@ -986,9 +958,9 @@ pixel_x = 10;
 			apply_mode()
 			return TRUE
 
-/// Lets Atmosphere Control users remotely view alarms, while RCON decides whether the full interface is unlocked.
+/// Lets Atmosphere Control users remotely view alarms.
 /obj/structure/machinery/alarm/ui_status(mob/user)
-	if(is_remote_user(user) && is_remote_visible())
+	if(is_remote_user(user) && rcon_setting)
 		return UI_INTERACTIVE
 	return ..()
 

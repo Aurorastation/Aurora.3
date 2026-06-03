@@ -89,14 +89,11 @@
 
 	var/list/tags_list = examine_tags(user)
 	if(length(tags_list))
-		for (var/atom_tag in tags_list)
-			to_chat(world, "tag: [tags_list[atom_tag]], [atom_tag]")
 		var/tag_string = list()
 		for (var/atom_tag in tags_list)
 			tag_string += (isnull(tags_list[atom_tag]) ? atom_tag : SPAN_TOOLTIP(tags_list[atom_tag], atom_tag))
 		// some regex to ensure that we don't add another "and" if the final element's main text (not tooltip) has one
 		tag_string = english_list(tag_string, and_text = (findtext(tag_string[length(tag_string)], regex(@">.*?and .*?<"))) ? " " : " and ")
-		to_chat(world, "tag_string: [tag_string]")
 		. += "It is a [tag_string] [examine_descriptor(user)]."
 
 	// Returns a SPAN_* based on health, if configured.
