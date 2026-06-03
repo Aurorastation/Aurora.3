@@ -397,7 +397,7 @@
 					M.emitter_blasts_taken += 1
 				else if(prob(33))
 					M.emitter_blasts_taken += 1
-	explosion(target, -1, 0, 2)
+	explosion(get_turf(target), -1, 0, 2)
 	. = ..()
 
 /obj/projectile/beam/thermaldrill
