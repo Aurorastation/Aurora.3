@@ -1,5 +1,9 @@
 /mob/Destroy()//This makes sure that mobs with clients/keys are not just deleted from the game.
 	MOB_STOP_THINKING(src)
+	pulling?.pulledby = null
+	pulling = null
+	pullin?.icon_state = "pull0"
+	pullin = null
 	// Delete and null the grab objects that are touching this mob.
 	QDEL_LIST(grabbed_by)
 	GLOB.mob_list -= src
@@ -52,12 +56,7 @@
 	QDEL_NULL(zone_sel)
 	machine = null
 
-	pulling?.pulledby = null
-	pulling = null
-	pullin?.icon_state = "pull0"
-	pullin = null
-
-	QDEL_LIST(client_colors)
+	client_colors = null
 	additional_vision_handlers?.Cut()
 	pinned?.Cut()
 	QDEL_LIST(embedded)
@@ -70,7 +69,7 @@
 	s_active = null
 	wear_mask = null
 	QDEL_NULL(dna)
-	QDEL_NULL(LAssailant)
+	LAssailant = null
 	spell_list?.Cut()
 	lastarea = null
 	control_object = null
@@ -113,7 +112,7 @@
 	QDEL_NULL(narsimage)
 	QDEL_NULL(narglow)
 	QDEL_NULL(riftimage)
-	QDEL_NULL(bloody_hands_mob)
+	bloody_hands_mob = null
 	QDEL_NULL(eyeobj)
 	QDEL_NULL(bg)
 	my_client = null
