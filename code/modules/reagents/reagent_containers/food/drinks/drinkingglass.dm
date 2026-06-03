@@ -43,6 +43,10 @@
 				src.LoadComponent(/datum/component/drink_moodlet_provider, drink_moodlet_value, FALSE, drink_quality)
 	return ..()
 
+/obj/item/reagent_containers/food/drinks/drinkingglass/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Characters with high bartending skill can click on a drink with a spoon to stir it, improving the quality of the drink and the morale boost it provides."
+
 /obj/item/reagent_containers/food/drinks/drinkingglass/afterattack(var/atom/target, var/mob/user, var/proximity, var/params)
 	if(ishuman(target) && user.a_intent == I_HELP && (user.zone_sel.selecting == BP_L_HAND || user.zone_sel.selecting == BP_R_HAND))
 		if(!user.Adjacent(target))
