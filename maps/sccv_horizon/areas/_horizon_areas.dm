@@ -46,3 +46,9 @@
 	ambience = AMBIENCE_SPACE
 	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP | AREA_FLAG_PREVENT_PERSISTENT_TRASH
 	area_blurb = "The sheer scale of the SCCV Horizon is never more apparent when crawling across its hull like an ant."
+
+// Same as above, except shields will not wrap around it.
+// For bits of space that shouldn't be surrounded by shields.
+/area/horizon/exterior/no_shields
+	icon_state = "exterior_noshield"
+	station_area = FALSE
