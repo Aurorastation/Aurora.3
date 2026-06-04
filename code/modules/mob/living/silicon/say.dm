@@ -130,12 +130,14 @@
 					listening_obj |= O
 
 
+			var/datum/say_message/msg = build_say_message(message, speaking)
+			msg.verb = verb
 			for(var/mob/M in GLOB.player_list)
 				if(M.stat == DEAD && M.client?.prefs.toggles & CHAT_GHOSTEARS)
-					M.hear_say(message, verb, speaking, null, null, src)
+					M.hear_message(msg)
 					continue
 				if(M.loc && (get_turf(M) in hearturfs))
-					M.hear_say(message, verb, speaking, null, null, src)
+					M.hear_message(msg)
 	else
 		to_chat(src, SPAN_WARNING("No holopad connected."))
 		return FALSE
