@@ -555,7 +555,7 @@
 
 	if(!handcuff_overlay)
 		var/state = is_left ? "l_hand_hud_handcuffs" : "r_hand_hud_handcuffs"
-		handcuff_overlay = image("icon"='icons/mob/screen_gen.dmi', "icon_state" = state)
+		handcuff_overlay = image("icon"='icons/hud/mob/screen_gen.dmi', "icon_state" = state)
 	if(!disabled_hand_overlay)
 		var/state = is_left ? "l_hand_disabled" : "r_hand_disabled"
 		disabled_hand_overlay = image("icon" = 'icons/mob/screen_gen.dmi', "icon_state" = state)

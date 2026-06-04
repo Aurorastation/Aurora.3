@@ -63,8 +63,8 @@
 		return
 	return ..()
 
-	
-/obj/machinery/power/rtg/advanced
+
+/obj/structure/machinery/power/rtg/advanced
 	desc = "An advanced RTG capable of moderating isotope decay, increasing power output but reducing lifetime. It uses phoron-fueled radiation collectors to increase output even further."
 	power_gen = 5000 // 10000 on T1, 20000 on T4.
 

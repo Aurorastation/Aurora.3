@@ -466,7 +466,7 @@
 		src.OCCUPANT = null //Testing this as a backup sanity test
 	return
 
-/obj/machinery/suit_storage_unit/grab_attack(obj/item/grab/G, mob/user)
+/obj/structure/machinery/suit_storage_unit/grab_attack(obj/item/grab/G, mob/user)
 	var/mob/living/grabbed = G.get_grabbed_mob()
 	if(!istype(grabbed))
 		return FALSE

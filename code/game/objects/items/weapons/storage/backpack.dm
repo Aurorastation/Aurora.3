@@ -151,7 +151,7 @@
 		var/mob/M = loc
 		if(!istype(M))
 			return TRUE //not equipped
-		if(!worn_access && (slot_flags & SLOT_BACK) && M.get_equipped_item(slot_back) == src)
+		if(!worn_access && (slot_flags & SLOT_BACK) && M.get_equipped_item(slot_back_str) == src)
 			if(!no_message)
 				to_chat(M, SPAN_WARNING("Your arms are not long enough to open \the [src] while it is on your back!"))
 				if(use_sound)

@@ -210,13 +210,13 @@
 		return FALSE
 	return TRUE
 
-/obj/machinery/appliance/grab_attack(obj/item/grab/G, mob/user)
+/obj/structure/machinery/appliance/grab_attack(obj/item/grab/G, mob/user)
 	if(can_insert(G, user))
 		cook_mob(G.grabbed, user)
 		return TRUE
 	return FALSE
 
-/obj/machinery/appliance/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/appliance/attackby(obj/item/attacking_item, mob/user)
 	if(!cook_type || (stat & (BROKEN)))
 		to_chat(user, SPAN_WARNING("[src] is not working."))
 		return

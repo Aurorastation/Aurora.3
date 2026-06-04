@@ -235,7 +235,7 @@
 	log_say("[key_name(speaker)] : ([name]) [message]")
 
 	var/mob/living/carbon/human/H = speaker //Check for Preimminent Shaper robes, which obscure Hive affiliation
-	var/obj/item/clothing/head/shaper/helmet = H.get_equipped_item(slot_head)
+	var/obj/item/clothing/head/shaper/helmet = H.get_equipped_item(slot_head_str)
 	if(!speaker_mask)
 		speaker_mask = speaker.real_name
 		if(istype(helmet)) //Then remove their Hive name from Hivenet
