@@ -54,7 +54,7 @@
 			whisper_text = "[speak_text] [adverb]"
 			not_heard = "[speak_text] something [adverb]"
 
-	//Check to see who hears the full whisper message, and who just gets the not_heard message
+	// Check to see who hears the full whisper message, and who just gets the not_heard message
 	var/list/eavesdropping = list()
 	var/list/watching = list()
 	var/list/observers = list()
@@ -78,14 +78,22 @@
 			else
 				watching += M
 
-	if(length(observers)) //For ghosts who do NOT have ghost ears. They will see the whole message if nearby, no *s or not_heard messages.
+	var/datum/say_message/msg = build_say_message(message, speaking)
+	msg.whisper = TRUE
+	msg.mode = SAYMODE_SPOKEN
+	msg.verb = "whispers"
+	msg.italics = TRUE
+
+	if(length(observers))
+		// For ghosts who do NOT have ghost ears.
+		// They will see the whole message if nearby, no *s or not_heard messages.
 		for(var/mob/M in observers)
-			M.hear_say(message, "whispers", speaking, "", TRUE, src)
+			M.hear_message(msg)
 
 	if(length(eavesdropping))
-		var/new_message = stars(message)
+		msg.base_clarity = CLARITY_FAINT
 		for(var/mob/M in eavesdropping)
-			M.hear_say(new_message, "whispers", speaking, "", TRUE, src)
+			M.hear_message(msg)
 
 	if(length(watching))
 		var/rendered = "<span class='game say'><span class='name'>[src.name]</span> [not_heard].</span>"
