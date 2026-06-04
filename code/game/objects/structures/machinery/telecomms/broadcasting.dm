@@ -151,11 +151,9 @@
 		if (TRANSMISSION_SUBSPACE)
 			// Reach any radios on the levels
 			var/list/all_radios_of_our_frequency = SSradio.get_devices(frequency, RADIO_CHAT)
-			radios = all_radios_of_our_frequency.Copy()
-
-			for (var/obj/item/radio/subspace_radio in radios)
-				if(!subspace_radio.can_receive(frequency, signal_reaches_every_z_level))
-					radios -= subspace_radio
+			for (var/obj/item/radio/subspace_radio in all_radios_of_our_frequency)
+				if(subspace_radio.can_receive(frequency, signal_reaches_every_z_level))
+					radios += subspace_radio
 
 			// Cool antag radios can hear all Horizon comms
 			for (var/antag_freq in list(SYND_FREQ, RAID_FREQ, NINJ_FREQ))

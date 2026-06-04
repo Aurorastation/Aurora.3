@@ -42,7 +42,13 @@
 			condition = reliability
 
 /obj/item/laser_components/proc/handle_improvement(var/skill_level, var/mob/user)
-	while (improvement_potential > 0)
+
+	if (total_improved >= IMPROVEMENT_CAP)
+		to_chat(user, SPAN_NOTICE("You don't see any way to improve \the [src] any further."))
+		improvement_potential = 0
+		return
+
+	while (improvement_potential > 0 && total_improved < IMPROVEMENT_CAP)
 
 		var/improvement = min(abs(improvement_potential / 100), 0.2) //Caps improvement from a single repair to 20%. This spreads the effect out across multiple stats
 		var/stat_direction = 1
@@ -66,7 +72,19 @@
 			break //No stats to improve, it shouldn't be possible to have improvement potential and no stats to improve, but just in case.
 
 		if (stat_name in src.vars)
+			var/initial_value = initial(src.vars[stat_name])
 			improvement_potential -= improvement * 100 //Decreases improvement potential before any skill modifiers.
+
+			if (initial_value < 0) //If the stat begins negative, such as base_malus for heat vents, handle comparisons by sign.
+				if (stat_direction > 0 && src.vars[stat_name] >= (initial_value * DECREASE_CAP))
+					continue
+				if (stat_direction < 0 && src.vars[stat_name] <= (initial_value * INCREASE_CAP))
+					continue
+			else
+				if (src.vars[stat_name] >= (initial_value * INCREASE_CAP) && stat_direction > 0) //It is possible to waste improvement potential by hitting the cap on a stat, this is fine, it should be harder to improve a component that's already of high quality.
+					continue
+				if (src.vars[stat_name] <= (initial_value * DECREASE_CAP) && stat_direction < 0)
+					continue
 
 			switch(skill_level ? skill_level : 6)
 				if(-INFINITY to 2)
@@ -80,20 +98,36 @@
 				if(6 to INFINITY)
 					improvement *= (rand(8, 12) / 10)
 
-			if (src.vars[stat_name] > (initial(src.vars[stat_name]) * INCREASE_CAP) && stat_direction > 0) //It is possible to waste improvement potential by hitting the cap on a stat, this is fine, it should be harder to improve a component that's already of high quality.
-				continue
-			if (src.vars[stat_name] < (initial(src.vars[stat_name]) * DECREASE_CAP) && stat_direction < 0)
-				continue
-
-			src.vars[stat_name] += stat_direction * abs(initial(src.vars[stat_name]) * improvement) //Adds improvement % of the initial value to the stat.
+			src.vars[stat_name] += stat_direction * abs(initial_value * improvement) //Adds improvement % of the initial value to the stat.
 
 			if (improvement > 0)
-				to_chat(user, SPAN_NOTICE("Your careful repairs to \the [src] [stat_direction > 0 ? "increase" : "decrease"] its [replacetext(stat_name, "_", " ")] by [improvement * 100] percent!"))
-				total_improved += improvement
+				total_improved += improvement * 100
+				if (initial_value < 0)
+					if (stat_direction > 0 && src.vars[stat_name] >= initial_value * DECREASE_CAP)
+						to_chat(user, SPAN_NOTICE("Your repairs to \the [src] have improved its [replacetext(stat_name, "_", " ")] as far as you think is possible."))
+					else if (stat_direction < 0 && src.vars[stat_name] <= initial_value * INCREASE_CAP)
+						to_chat(user, SPAN_NOTICE("Your repairs to \the [src] have improved its [replacetext(stat_name, "_", " ")] as far as you think is possible."))
+					else
+						to_chat(user, SPAN_NOTICE("Your careful repairs to \the [src] [stat_direction > 0 ? "increase" : "decrease"] its [replacetext(stat_name, "_", " ")] by [improvement * 100] percent!"))
+				else
+					if(src.vars[stat_name] >= initial_value * INCREASE_CAP && stat_direction > 0)
+						to_chat(user, SPAN_NOTICE("Your repairs to \the [src] have improved its [replacetext(stat_name, "_", " ")] as far as you think is possible."))
+					else if(src.vars[stat_name] <= initial_value * DECREASE_CAP && stat_direction < 0)
+						to_chat(user, SPAN_NOTICE("Your repairs to \the [src] have improved its [replacetext(stat_name, "_", " ")] as far as you think is possible."))
+					else
+						to_chat(user, SPAN_NOTICE("Your careful repairs to \the [src] [stat_direction > 0 ? "increase" : "decrease"] its [replacetext(stat_name, "_", " ")] by [improvement * 100] percent!"))
+
 			else if (improvement == 0)
 				to_chat(user, SPAN_NOTICE("Your repairs to \the [src], don't seem to improve it, but at least you didn't make it worse."))
 			else
 				to_chat(user, SPAN_WARNING("Your repairs to \the [src] end up damaging it!"))
+
+		else
+			break //The stat to improve isn't on this component, something went wrong with the lists of stats or the component itself.
+
+		if (total_improved > IMPROVEMENT_CAP)
+			improvement_potential = 0
+			to_chat(user, SPAN_NOTICE("You have improved \the [src] as much as you can."))
 
 /obj/item/laser_components/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
@@ -150,9 +184,21 @@
 	if (condition == 0 && malus == base_malus)
 		to_chat(user, SPAN_WARNING("\The [src] is not damaged."))
 		return ..()
-	to_chat(user, SPAN_WARNING("You begin repairing \the [src]."))
+
 	var/skill_level = (GET_SKILL_LEVEL(user, FIREARMS_SKILL_COMPONENT) + GET_SKILL_LEVEL(user, RESEARCH_SKILL_COMPONENT))
-	if(do_after(user, rand(2 SECONDS, 6 SECONDS), src, DO_UNIQUE) && repair_module(attacking_item, skill_level, user))
+
+	if(attacking_item.tool_behaviour == TOOL_WELDER)
+		var/obj/item/weldingtool/WT = attacking_item
+		if(WT.isOn() && WT.use_tool(src, user, rand(2 SECONDS, (10 - skill_level) SECONDS), volume = 50) && WT.use(0, user) && repair_module(attacking_item, skill_level, user))
+			user.visible_message(
+				SPAN_WARNING("[user] begins repairing \the [src]."),
+				SPAN_NOTICE("You begin repairing \the [src]."),
+				"You hear a welding torch on metal."
+			)
+		else
+			to_chat(user, SPAN_WARNING("You fail to repair \the [src]."))
+
+	else if(do_after(user, rand(2 SECONDS, (10 - skill_level) SECONDS), src, DO_UNIQUE) && repair_module(attacking_item, skill_level, user)) //Used if the repair item is not a tool.
 		to_chat(user, SPAN_NOTICE("You repair \the [src]."))
 	else
 		to_chat(user, SPAN_WARNING("You fail to repair \the [src]."))
@@ -189,7 +235,7 @@
 		return
 	if(malus == base_malus)
 		return 0
-	if(W.use(2))
+	if(W.use(1)) //Welders burn fuel while active
 		handle_improvement(skill_level, user)
 		malus = max(malus - 5, base_malus)
 		return 1
@@ -332,8 +378,10 @@
 	var/success = FALSE
 	if(!istype(A))
 		return ..()
-	if(!ready_to_craft)
-		to_chat(user, SPAN_WARNING("You cannot modify \the [src] by hand, you need to use a weapons analyzer."))
+
+	var/skill_level = (GET_SKILL_LEVEL(user, FIREARMS_SKILL_COMPONENT) + GET_SKILL_LEVEL(user, RESEARCH_SKILL_COMPONENT))
+	if(!ready_to_craft && skill_level < 5)
+		to_chat(user, SPAN_WARNING("You cannot modify \the [src] by hand at your current skill level, you need to use a weapons analyzer."))
 		return
 
 	if(ismodifier(A) && gun_mods.len < modifier_cap)
@@ -389,9 +437,7 @@
 
 /obj/item/laser_assembly/proc/finish()
 
-	var/obj/structure/machinery/r_n_d/weapons_analyzer/an = analyzer.resolve()
-	if(!an)
-		return FALSE
+	var/obj/structure/machinery/r_n_d/weapons_analyzer/an = analyzer ? analyzer.resolve() : null
 
 	var/obj/item/gun/energy/laser/prototype/A = new /obj/item/gun/energy/laser/prototype
 	A.icon_state = icon_state
@@ -410,9 +456,13 @@
 			mod.forceMove(A)
 			if(mod.gun_overlay)
 				A.underlays += mod.gun_overlay
-	A.forceMove(an)
-	an.item = A
+	if(an)
+		A.forceMove(an)
+		an.item = A
+	else
+		A.forceMove(get_turf(src))
 	A.updatetype()
+	A.try_recharge()
 	A.pin = null
 	gun_mods = null
 	focusing_lens = null

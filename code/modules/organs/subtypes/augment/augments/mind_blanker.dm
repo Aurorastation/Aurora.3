@@ -64,7 +64,7 @@
 		return
 
 	to_chat(minister, SPAN_BAD("Why should you care how [ministree] feels?"))
-	*moodlet_value = 0
+	*moodlet_value = *moodlet_value * 0.5
 
 /obj/item/organ/internal/augment/bioaug/mind_blanker/proc/modify_ministry_receiving(ministree, minister, moodlet_value)
 	SIGNAL_HANDLER
@@ -72,7 +72,7 @@
 		return
 
 	to_chat(ministree, SPAN_BAD("You feel nothing from [minister]'s words."))
-	*moodlet_value = 0
+	*moodlet_value = *moodlet_value * 0.5
 
 /obj/item/organ/internal/augment/bioaug/mind_blanker/proc/modify_leadership_empathy(leader, moodlet_value)
 	SIGNAL_HANDLER
@@ -80,7 +80,7 @@
 		return
 
 	to_chat(leader, SPAN_BAD("Why should you care about how others feel?"))
-	*moodlet_value = 0
+	*moodlet_value = *moodlet_value * 0.5
 
 /obj/item/organ/internal/augment/bioaug/mind_blanker_lethal
 	name = "lethal mind blanker"
