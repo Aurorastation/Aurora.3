@@ -1,9 +1,8 @@
 name: "'Do Not Merge' Blockers"
 
 on:
-  merge_group:
-    branches:
-      - master
+  pull_request:
+    types: [synchronize, opened, labeled, unlabeled]
 
 jobs:
   donotmerge-blocker:
