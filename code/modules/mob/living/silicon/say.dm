@@ -15,10 +15,10 @@
 			message = Gibberish(message, damaged - 10)
 
 /mob/living/silicon/robot/handle_message_mode(datum/say_message/msg, datum/language/primary, list/used_radios)
-	var/message = msg.to_string()
+	var/text = msg.to_string()
 	var/message_mode = msg.message_mode
 	if(message_mode == "whisper" && !msg.whisper)
-		whisper(message, primary, say_verb = TRUE)
+		whisper(text, primary, say_verb = TRUE, msg = msg)
 		return TRUE
 	if(message_mode)
 		if(!is_component_functioning("radio"))
@@ -26,41 +26,41 @@
 			return 0
 		if(message_mode == "general")
 			message_mode = null
-		log_say("[key_name(src)] : [message]")
-		return common_radio.talk_into(src, message, message_mode, msg.verb, primary, say_message = msg)
+		log_say("[key_name(src)] : [text]")
+		return common_radio.talk_into(src, text, message_mode, msg.verb, primary, say_message = msg)
 
 /mob/living/silicon/robot/drone/handle_message_mode()
 	return null
 
 /mob/living/silicon/ai/handle_message_mode(datum/say_message/msg, datum/language/primary, list/used_radios)
-	var/message = msg.to_string()
+	var/text = msg.to_string()
 	var/message_mode = msg.message_mode
 	if(message_mode == "whisper" && !msg.whisper)
-		whisper(message, primary, say_verb = TRUE)
+		whisper(text, primary, say_verb = TRUE, msg = msg)
 		return TRUE
 	if(message_mode == "department")
-		log_say("[key_name(src)] : [message]")
-		return holopad_talk(message, msg.verb, primary)
+		log_say("[key_name(src)] : [text]")
+		return holopad_talk(text, msg.verb, primary)
 	else if(message_mode)
 		if(ai_radio.disabledAi || ai_restore_power_routine || stat)
 			to_chat(src, SPAN_DANGER("System Error - Transceiver Disabled."))
 			return FALSE
 		if(message_mode == "general")
 			message_mode = null
-		log_say("[key_name(src)] : [message]")
-		return ai_radio.talk_into(src, message, message_mode, msg.verb, primary, say_message = msg)
+		log_say("[key_name(src)] : [text]")
+		return ai_radio.talk_into(src, text, message_mode, msg.verb, primary, say_message = msg)
 
 /mob/living/silicon/pai/handle_message_mode(datum/say_message/msg, datum/language/primary, list/used_radios)
-	var/message = msg.to_string()
+	var/text = msg.to_string()
 	var/message_mode = msg.message_mode
 	if(message_mode)
 		if(message_mode == "whisper" && !msg.whisper)
-			whisper(message, primary, say_verb = TRUE)
+			whisper(text, primary, say_verb = TRUE, msg = msg)
 			return TRUE
 		if(message_mode == "general")
 			message_mode = null
-		log_say("[key_name(src)] : [message]")
-		return radio.talk_into(src, message, message_mode, msg.verb, primary, say_message = msg)
+		log_say("[key_name(src)] : [text]")
+		return radio.talk_into(src, text, message_mode, msg.verb, primary, say_message = msg)
 
 /mob/living/silicon/say_quote(var/text, var/datum/language/speaking = null, var/singing = FALSE, var/whisper = FALSE)
 	if(singing)

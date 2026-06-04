@@ -146,15 +146,15 @@ var/list/channel_to_radio_key = new
 	return list("stammers", "stutters")
 
 /mob/living/proc/handle_message_mode(datum/say_message/msg, datum/language/primary, list/used_radios)
-	var/message = msg.to_string()
+	var/text = msg.to_string()
 	var/message_mode = msg.message_mode
 	if(message_mode == "intercom")
 		for(var/obj/item/radio/intercom/I in view(1, src))
 			used_radios += I
-			I.talk_into(src, message, msg.verb, primary, say_message = msg)
+			I.talk_into(src, text, msg.verb, primary, say_message = msg)
 
 	if(message_mode == "whisper" && !msg.whisper)
-		whisper(message, primary, say_verb = TRUE)
+		whisper(text, primary, say_verb = TRUE, msg = msg)
 		return TRUE
 
 	return FALSE
@@ -188,6 +188,48 @@ var/list/channel_to_radio_key = new
 		return "exclamation"
 	return "statement"
 
+
+/// Applies final edits to the message like autohiss, then adds markup. Returns false if msg ends empty.
+/mob/living/proc/finalize_say_message(datum/say_message/msg, skip_edit = FALSE)
+	if(!skip_edit)
+		for(var/datum/say_segment/segment as anything in msg.segments)
+			if(segment.language && (segment.language.flags & NO_STUTTER))
+				continue
+			segment.text = handle_autohiss(segment.text, segment.language)
+			var/list/hsp_params = handle_speech_problems(segment.text, msg.verb, msg.message_mode, msg.message_range)
+			if(hsp_params)
+				segment.text = hsp_params[HSP_MSG] || segment.text
+				msg.verb = hsp_params[HSP_VERB] || msg.verb
+				msg.message_mode = hsp_params[HSP_MSGMODE] || msg.message_mode
+				msg.message_range = hsp_params[HSP_MSGRANGE] || msg.message_range
+	for(var/datum/say_segment/segment as anything in msg.segments)
+		segment.text = process_chat_markup(segment.text, list("~", "_"))
+	return length(msg.to_string()) ? TRUE : FALSE
+
+/// Delivers message to each listener. Returns clients that heard it.
+/// Removes delivered mobs from the listeners list.
+/mob/living/proc/deliver_say_message(datum/say_message/msg, list/listeners)
+	var/list/client/heard = list()
+	for(var/mob/M in listeners)
+		if(M.hear_message(msg) && M.client)
+			heard += M.client
+		listeners -= M
+	return heard
+
+/// Builds and animates the speech bubble over the speaker for the given clients.
+/mob/living/proc/show_speech_bubble(datum/say_message/msg, message, list/client/show_to)
+	var/speech_bubble_state = check_speech_punctuation_state(message)
+	var/speech_state_modifier = get_speech_bubble_state_modifier()
+	if(speech_bubble_state && speech_state_modifier)
+		speech_bubble_state = "[speech_state_modifier]_[speech_bubble_state]"
+	if(!speech_bubble_state)
+		return
+	var/image/speech_bubble = image('icons/mob/talk.dmi', src, speech_bubble_state)
+	adjust_typing_indicator_offsets(speech_bubble)
+	speech_bubble.layer = layer
+	speech_bubble.plane = plane
+	speech_bubble.appearance_flags = RESET_COLOR|RESET_ALPHA
+	INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(animate_speechbubble), speech_bubble, show_to, 30)
 
 /mob/living/say(var/message, var/datum/language/speaking = null, var/verb, var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE, var/skip_edit = FALSE)
 	if(stat)
@@ -271,22 +313,7 @@ var/list/channel_to_radio_key = new
 	msg.ghost_hearing = ghost_hearing
 	msg.say_mode = SAYMODE_SPOKEN
 
-	// autohiss and speech problems run per segment, skipping NO_STUTTER languages
-	if(!skip_edit)
-		for(var/datum/say_segment/segment as anything in msg.segments)
-			if(segment.language && (segment.language.flags & NO_STUTTER))
-				continue
-			segment.text = handle_autohiss(segment.text, segment.language)
-			var/list/hsp_params = handle_speech_problems(segment.text, msg.verb, msg.message_mode, msg.message_range)
-			if(hsp_params)
-				segment.text = hsp_params[HSP_MSG] || segment.text
-				msg.verb = hsp_params[HSP_VERB] || msg.verb
-				msg.message_mode = hsp_params[HSP_MSGMODE] || msg.message_mode
-				msg.message_range = hsp_params[HSP_MSGRANGE] || msg.message_range
-	for(var/datum/say_segment/segment as anything in msg.segments)
-		segment.text = process_chat_markup(segment.text, list("~", "_"))
-
-	if(!length(msg.to_string()))
+	if(!finalize_say_message(msg, skip_edit))
 		return FALSE
 
 	if(msg.single_language?.flags & SIGNLANG)
@@ -354,26 +381,9 @@ var/list/channel_to_radio_key = new
 			if(player_mob.client?.prefs.toggles & CHAT_GHOSTEARS)
 				listening |= player_mob
 
-	var/list/hear_clients = list()
-	for(var/mob/M in listening)
-		if(M.hear_message(msg) && M.client)
-			hear_clients += M.client
-		listening -= M
+	var/list/hear_clients = deliver_say_message(msg, listening)
 
-	var/speech_bubble_state = check_speech_punctuation_state(message)
-	var/speech_state_modifier = get_speech_bubble_state_modifier()
-	if(speech_bubble_state && speech_state_modifier)
-		speech_bubble_state = "[speech_state_modifier]_[speech_bubble_state]"
-
-	var/image/speech_bubble
-	if(speech_bubble_state)
-		speech_bubble = image('icons/mob/talk.dmi', src, speech_bubble_state)
-		adjust_typing_indicator_offsets(speech_bubble)
-		speech_bubble.layer = layer
-		speech_bubble.plane = plane
-
-	speech_bubble.appearance_flags = RESET_COLOR|RESET_ALPHA
-	INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(animate_speechbubble), speech_bubble, hear_clients, 30)
+	show_speech_bubble(msg, message, hear_clients)
 
 	var/list/langchat_styles = list()
 	if(istype(primary, /datum/language/noise))
