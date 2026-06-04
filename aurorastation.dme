@@ -2710,7 +2710,6 @@
 #include "code\modules\mob\emote.dm"
 #include "code\modules\mob\examinations.dm"
 #include "code\modules\mob\gender.dm"
-#include "code\modules\mob\hear_say.dm"
 #include "code\modules\mob\holder.dm"
 #include "code\modules\mob\inventory.dm"
 #include "code\modules\mob\login.dm"

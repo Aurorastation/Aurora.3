@@ -88,7 +88,7 @@
 
 /*
 	***Deprecated***
-	let this be handled at the hear_say or hear_radio proc
+	let this be handled at the hear_message proc
 	This is left in for robot speaking when humans gain binary channel access until I get around to rewriting
 	robot_talk() proc.
 	There is no language handling build into it however there is at the /mob level so we accept the call

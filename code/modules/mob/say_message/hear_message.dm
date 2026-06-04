@@ -250,6 +250,9 @@
 		var/turf/source = speaker ? get_turf(speaker) : get_turf(src)
 		playsound(source, msg.speech_sound, sound_vol, vary = TRUE)
 
+/proc/say_timestamp()
+	return "<span class='say_quote'>\[[worldtime2text()]\]</span>"
+
 /// The output sink for a given message.
 /mob/proc/on_hear_message(message)
 	to_chat(src, message)
