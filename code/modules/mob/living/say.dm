@@ -288,7 +288,9 @@ var/list/channel_to_radio_key = new
 		return FALSE
 
 	if(msg.single_language?.flags & SIGNLANG)
-		return say_signlang(msg.to_string(), pick(msg.single_language.signlang_verb), msg.single_language, msg.single_language.sign_adv_length)
+		msg.mode = SAYMODE_SIGN
+		msg.verb = pick(msg.single_language.signlang_verb)
+		return say_signlang(msg)
 	if(primary && (primary.flags & NONVERBAL) && prob(30))
 		custom_emote(VISIBLE_MESSAGE, "[pick(primary.signlang_verb)].")
 
@@ -411,12 +413,12 @@ var/list/channel_to_radio_key = new
 	for(var/client/C in show_to)
 		C.images -= I
 
-/mob/living/proc/say_signlang(var/message, var/verb="gestures", var/datum/language/language, var/list/sign_adv_length)
-	log_say("[key_name(src)] : ([get_lang_name(language)]) [message]")
+/mob/living/proc/say_signlang(datum/say_message/msg)
+	log_say("[key_name(src)] : ([get_lang_name(msg.single_language)]) [msg.raw_message]")
 
-	for (var/mob/O in viewers(src, null))
-		O.hear_signlang(message, verb, language, src, sign_adv_length)
-	return 1
+	for(var/mob/O in viewers(src, null))
+		O.hear_message(msg)
+	return TRUE
 
 /obj/effect/speech_bubble
 	var/mob/parent

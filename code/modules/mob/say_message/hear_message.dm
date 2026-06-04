@@ -175,7 +175,9 @@
 	var/mob/speaker = msg.speaker
 	if(say_understands(speaker, msg.single_language))
 		return "<B>[speaker]</B> [msg.verb], \"[body]\""
-	var/list/sign_adv_length = list(" briefly", " a short message", " a message", " a lengthy message", " a very lengthy message")
+	var/list/sign_adv_length = msg.single_language?.sign_adv_length
+	if(length(sign_adv_length) <= 4)
+		sign_adv_length = list(" briefly", " a short message", " a message", " a lengthy message", " a very lengthy message")
 	var/adverb
 	var/length = length(body) * pick(0.8, 0.9, 1.0, 1.1, 1.2) // a little fuzziness
 	switch(length)
@@ -226,7 +228,15 @@
 			muffled = TRUE
 			sound_vol *= 0.5
 
-	on_hear_message(format_envelope(msg, body, muffled))
+	var/envelope = format_envelope(msg, body, muffled)
+	on_hear_message(envelope)
+	// This is a special case for internal mobs like cortical borers.
+	// They see through the eyes of their host so we must relay the message.
+	if(msg.mode == SAYMODE_SIGN && (status_flags & PASSEMOTES))
+		for(var/obj/item/holder/H in contents)
+			H.show_message(envelope)
+		for(var/mob/living/M in contents)
+			M.show_message(envelope)
 	play_speech_sound(msg, sound_vol)
 
 /// Plays the speech sound for a given message.
