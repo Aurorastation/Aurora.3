@@ -76,7 +76,7 @@ export const CargoDelivery = (props) => {
                   onClick={() =>
                     act('page', {
                       page: 'order_overview',
-                      order_overview: data.order_details.order_id.toString(),
+                      order_overview: data.order_details?.order_id?.toString(),
                     })
                   }
                 >
@@ -86,7 +86,7 @@ export const CargoDelivery = (props) => {
                   onClick={() =>
                     act('page', {
                       page: 'order_payment',
-                      order_payment: data.order_details.order_id.toString(),
+                      order_payment: data.order_details?.order_id?.toString(),
                     })
                   }
                 >

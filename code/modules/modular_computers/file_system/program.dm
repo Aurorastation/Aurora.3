@@ -195,6 +195,14 @@ ABSTRACT_TYPE(/datum/computer_file/program)
 		return computer.get_ntnet_status(specific_action)
 	return FALSE
 
+/// Allows active programs to preserve non-standard user views, such as camera monitors.
+/datum/computer_file/program/proc/check_eye(mob/user)
+	return -1
+
+/// Allows active programs to grant equipment vision while controlling the user's view.
+/datum/computer_file/program/proc/grants_equipment_vision(mob/user)
+	return FALSE
+
 // Called by Process() on device that runs us, once every tick.
 /datum/computer_file/program/proc/process_tick()
 	return TRUE

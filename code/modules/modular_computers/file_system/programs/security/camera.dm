@@ -162,7 +162,9 @@
 		return FALSE
 
 	set_current(C)
-	user.set_machine(ui_host())
+	var/obj/host = ui_host()
+	if(host)
+		user.set_machine(host)
 	user.reset_view(current_camera)
 
 	if(ishuman(user))
@@ -170,6 +172,22 @@
 		H.handle_vision()
 
 	return TRUE
+
+/datum/computer_file/program/camera_monitor/check_eye(mob/user)
+	if(user.stat || user.blinded)
+		return -1
+	if(!current_camera)
+		return 0
+
+	var/viewflag = current_camera.check_eye(user)
+	if(viewflag < 0)
+		reset_current()
+	return viewflag
+
+/datum/computer_file/program/camera_monitor/grants_equipment_vision(mob/user)
+	if(user.stat || user.blinded || !current_camera)
+		return FALSE
+	return current_camera.grants_equipment_vision(user)
 
 /datum/computer_file/program/camera_monitor/proc/set_current(var/obj/structure/machinery/camera/C)
 	if(current_camera == C)

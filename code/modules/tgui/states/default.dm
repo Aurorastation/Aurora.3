@@ -41,6 +41,9 @@ GLOBAL_DATUM_INIT(default_state, /datum/ui_state/default, new)
 	if(. < UI_INTERACTIVE)
 		return
 
+	if(src_object == src)
+		return UI_INTERACTIVE
+
 	// The AI can interact with anything it can see nearby, or with cameras while wireless control is enabled.
 	if(!control_disabled && can_see(src_object))
 		return UI_INTERACTIVE

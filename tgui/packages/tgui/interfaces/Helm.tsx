@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import { Box, Button, Section, Table } from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
@@ -34,6 +35,50 @@ type Location = {
   x: number;
   y: number;
   reference: string;
+};
+
+type ManualControlProps = {
+  children: ReactNode;
+  label: string;
+};
+
+const ManualControl = (props: ManualControlProps) => {
+  const { children, label } = props;
+
+  return (
+    <Box
+      textAlign="center"
+      p={1}
+      style={{
+        alignItems: 'center',
+        background: 'rgba(255, 255, 255, 0.035)',
+        border: '1px solid rgba(255, 255, 255, 0.18)',
+        borderRadius: '4px',
+        boxShadow: 'inset 0 0 0 1px rgba(0, 0, 0, 0.18)',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '0.35rem',
+        minWidth: 0,
+        minHeight: '5.75rem',
+      }}
+    >
+      <Box
+        bold
+        lineHeight={1.15}
+        minHeight="2.4em"
+        style={{
+          alignItems: 'flex-end',
+          display: 'flex',
+          justifyContent: 'center',
+          maxWidth: '8em',
+          overflowWrap: 'break-word',
+        }}
+      >
+        {label}
+      </Box>
+      {children}
+    </Box>
+  );
 };
 
 const bearing_unbounded = (x, y) => {
@@ -209,69 +254,60 @@ const BearingsSection = (act, data) => (
 
 const ManualSection = (act, data) => (
   <Section title="Manual control">
-    <Table>
-      <Table.Row>
-        <Table.Cell width="50%">
-          <Table width={0}>
-            <Table.Row>
-              Controls" align="center"
-              <Table.Cell>
-                Roll Left / Port
-                <Button
-                  icon="angle-double-left"
-                  color="red"
-                  disabled={!data.cancombatroll}
-                  onClick={() => act('roll', { roll: 8 })}
-                />
-              </Table.Cell>
-              <Table.Cell>
-                Burn / Forward
-                <Button
-                  icon="arrow-up"
-                  disabled={!data.canburn}
-                  onClick={() => act('move', { move: 1 })}
-                />
-              </Table.Cell>
-              <Table.Cell>
-                Roll Right / Starboard
-                <Button
-                  icon="angle-double-right"
-                  color="red"
-                  disabled={!data.cancombatroll}
-                  onClick={() => act('roll', { roll: 4 })}
-                />
-              </Table.Cell>
-            </Table.Row>
-            <Table.Row>
-              <Table.Cell>
-                Turn Left / Counterclockwise
-                <Button
-                  icon="undo"
-                  disabled={!data.canturn}
-                  onClick={() => act('turn', { turn: 8 })}
-                />
-              </Table.Cell>
-              <Table.Cell>
-                Slow / Stop / Inertia Dampener
-                <Button
-                  icon="stop"
-                  disabled={!data.canburn || data.speed === 0}
-                  onClick={() => act('brake', { move: 1 })}
-                />
-              </Table.Cell>
-              <Table.Cell>
-                Turn Right / Clockwise
-                <Button
-                  icon="redo"
-                  disabled={!data.canturn}
-                  onClick={() => act('turn', { turn: 4 })}
-                />
-              </Table.Cell>
-            </Table.Row>
-          </Table>
-        </Table.Cell>
-      </Table.Row>
-    </Table>
+    <Box
+      mb={1}
+      style={{
+        display: 'grid',
+        gap: '0.75rem',
+        gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
+      }}
+      border="1px solid"
+    >
+      <ManualControl label="Roll Port">
+        <Button
+          icon="angle-double-left"
+          color="red"
+          disabled={!data.cancombatroll}
+          onClick={() => act('roll', { roll: 8 })}
+        />
+      </ManualControl>
+      <ManualControl label="Burn / Forward">
+        <Button
+          icon="arrow-up"
+          disabled={!data.canburn}
+          onClick={() => act('move', { move: 1 })}
+        />
+      </ManualControl>
+      <ManualControl label="Roll Starboard">
+        <Button
+          icon="angle-double-right"
+          color="red"
+          disabled={!data.cancombatroll}
+          onClick={() => act('roll', { roll: 4 })}
+        />
+      </ManualControl>
+      <ManualControl label="Turn Left">
+        <Button
+          icon="undo"
+          disabled={!data.cancombatturn}
+          onClick={() => act('turn', { turn: 8 })}
+        />
+      </ManualControl>
+      <ManualControl label="Inertial Dampener">
+        <Button
+          icon="stop"
+          disabled={!data.canburn || data.speed === 0}
+          onClick={() => act('brake', { move: 1 })}
+        />
+      </ManualControl>
+      <ManualControl label="Turn Right">
+        <Button
+          icon="redo"
+          disabled={!data.cancombatturn}
+          onClick={() => act('turn', { turn: 4 })}
+        />
+      </ManualControl>
+    </Box>
     <Button
       content={`Manual Control ${data.manual_control ? 'Engaged' : 'Disengaged'}`}
       width="100%"

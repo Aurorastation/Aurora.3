@@ -208,3 +208,13 @@
 	if(. < UI_INTERACTIVE)
 		if(user?.machine)
 			user.unset_machine()
+
+/obj/item/modular_computer/check_eye(mob/user)
+	if(active_program)
+		return active_program.check_eye(user)
+	return ..()
+
+/obj/item/modular_computer/grants_equipment_vision(mob/user)
+	if(active_program)
+		return active_program.grants_equipment_vision(user)
+	return ..()

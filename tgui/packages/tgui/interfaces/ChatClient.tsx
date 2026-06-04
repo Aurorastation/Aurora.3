@@ -72,7 +72,7 @@ export const ChatClient = (props) => {
                 <Input
                   value={data.ringtone}
                   placeholder={data.ringtone}
-                  onChange={(e, v) => act('ringtone', { ringtone: v })}
+                  onEnter={(_, v) => act('ringtone', { ringtone: v })}
                 />
               ) : (
                 ''
@@ -289,8 +289,8 @@ export const Chat = (props) => {
           value={newMessage}
           placeholder="Type your message. Press enter to send."
           width="100%"
-          selfClear
-          onChange={(v) => {
+          selfClear={true}
+          onEnter={(v) => {
             setNewMessage(v);
             act('send', {
               message: v,
