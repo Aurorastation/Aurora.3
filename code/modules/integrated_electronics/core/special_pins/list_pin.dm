@@ -50,7 +50,7 @@
 	if(my_list.len >= IC_MAX_LIST_LENGTH)
 		my_list.Cut(1, 2)
 
-	my_list.Add(new_entry)
+	my_list += list(new_entry)
 	holder.on_data_written()
 
 /datum/integrated_io/list/proc/remove_from_list_by_position(mob/user, position)
@@ -174,7 +174,7 @@
 
 	for(var/value in new_list)
 		if(isnull(value) || isnum(value) || istext(value) || isweakref(value) || islist(value))
-			sanitized.Add(value)
+			sanitized += list(value)
 
 	data = sanitized
 	holder.on_data_written()

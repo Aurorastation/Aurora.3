@@ -303,43 +303,6 @@
 
 	activate_pin(2)
 
-/obj/item/integrated_circuit/converter/radians2degrees
-	name = "radians to degrees converter"
-	desc = "Converts radians to degrees."
-	inputs = list("radian" = IC_PINTYPE_NUMBER)
-	outputs = list("degrees" = IC_PINTYPE_NUMBER)
-	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
-
-/obj/item/integrated_circuit/converter/radians2degrees/do_work()
-	var/result = null
-	pull_data()
-	var/incoming = get_pin_data(IC_INPUT, 1)
-	if(!isnull(incoming))
-		result = TO_DEGREES(incoming)
-
-	set_pin_data(IC_OUTPUT, 1, result)
-	push_data()
-	activate_pin(2)
-
-/obj/item/integrated_circuit/converter/degrees2radians
-	name = "degrees to radians converter"
-	desc = "Converts degrees to radians."
-	inputs = list("degrees" = IC_PINTYPE_NUMBER)
-	outputs = list("radians" = IC_PINTYPE_NUMBER)
-	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
-
-/obj/item/integrated_circuit/converter/degrees2radians/do_work()
-	var/result = null
-	pull_data()
-	var/incoming = get_pin_data(IC_INPUT, 1)
-	if(!isnull(incoming))
-		result = TO_RADIANS(incoming)
-
-	set_pin_data(IC_OUTPUT, 1, result)
-	push_data()
-	activate_pin(2)
-
-
 /obj/item/integrated_circuit/converter/abs_to_rel_coords
 	name = "abs to rel coordinate converter"
 	desc = "Easily convert absolute coordinates to relative coordinates with this."
