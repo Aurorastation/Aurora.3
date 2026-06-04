@@ -80,7 +80,7 @@
 
 	var/datum/say_message/msg = build_say_message(message, speaking)
 	msg.whisper = TRUE
-	msg.mode = SAYMODE_SPOKEN
+	msg.say_mode = SAYMODE_SPOKEN
 	msg.verb = "whispers"
 	msg.italics = TRUE
 

@@ -2,14 +2,14 @@
 /mob/proc/get_clarity(datum/say_message/msg)
 	var/mob/speaker = msg.speaker
 
-	if(msg.mode == SAYMODE_SIGN)
+	if(msg.say_mode == SAYMODE_SIGN)
 		if(isghost(src))
 			return msg.base_clarity
 		if((src.sdisabilities & BLIND) || src.blinded || !speaker || !(speaker in view(src)))
 			return CLARITY_NONE
 		return msg.base_clarity
 
-	if(!(msg.single_language?.flags & PRESSUREPROOF) && !isghost(src))
+	if(msg.say_mode != SAYMODE_RADIO && !(msg.single_language?.flags & PRESSUREPROOF) && !isghost(src))
 		var/turf/T = get_turf(src)
 		if(T)
 			var/pressure = SAFE_XGM_PRESSURE(T.return_air())
@@ -18,14 +18,17 @@
 					to_chat(src, SPAN_NOTICE("[speaker?.name] talks, but you're in a vacuum. Maybe if you were close enough for the sound to transmit through touch..."))
 				return CLARITY_NONE
 
-	// vr_mob entails a Psionic mob. They hear clearly even when not conscious.
+	// vr_mob is a Psionic mob in the dream. They hear clearly even when not conscious.
 	if(!vr_mob && (sleeping || stat == UNCONSCIOUS))
 		return CLARITY_DROWSY
 
 	if(isdeaf(src))
 		// INNATE is an audible emote. Gives no 'cannot hear' message.
 		if(!(msg.single_language?.flags & INNATE))
-			if(speaker == src)
+			if(msg.say_mode == SAYMODE_RADIO)
+				if(prob(20))
+					to_chat(src, SPAN_WARNING("You feel your headset vibrate but can hear nothing from it!"))
+			else if(speaker == src)
 				to_chat(src, SPAN_WARNING("You cannot hear yourself speak!"))
 			else
 				to_chat(src, "<span class='name'>[speaker?.name]</span>[msg.alt_name] talks but you cannot hear them.")
@@ -53,7 +56,7 @@
 
 /// Builds the correct envelope around the body depending on SAYMODE.
 /mob/proc/format_envelope(datum/say_message/msg, body, muffled = FALSE)
-	switch(msg.mode)
+	switch(msg.say_mode)
 		if(SAYMODE_SIGN)
 			return format_envelope_sign(msg, body)
 		if(SAYMODE_RADIO)
@@ -207,7 +210,7 @@
 /mob/proc/display_message(datum/say_message/msg, clarity)
 	var/mob/speaker = msg.speaker
 	// Ghosts skip clientless out-of-view chatter.
-	if(isghost(src) && speaker && !speaker.client && (client?.prefs.toggles & CHAT_GHOSTEARS) && !(speaker in view(src)))
+	if(msg.say_mode != SAYMODE_RADIO && isghost(src) && speaker && !speaker.client && (client?.prefs.toggles & CHAT_GHOSTEARS) && !(speaker in view(src)))
 		return
 
 	var/body = msg.render_for(src, clarity)
@@ -222,7 +225,7 @@
 	// In thin air, non-pressureproof languages are muffled.
 	var/muffled = FALSE
 	var/sound_vol = msg.sound_vol
-	if(!isghost(src) && !(msg.single_language?.flags & PRESSUREPROOF))
+	if(msg.say_mode != SAYMODE_RADIO && !isghost(src) && !(msg.single_language?.flags & PRESSUREPROOF))
 		var/turf/T = get_turf(src)
 		if(T && SAFE_XGM_PRESSURE(T.return_air()) < ONE_ATMOSPHERE * 0.4)
 			muffled = TRUE
@@ -232,12 +235,13 @@
 	on_hear_message(envelope)
 	// This is a special case for internal mobs like cortical borers.
 	// They see through the eyes of their host so we must relay the message.
-	if(msg.mode == SAYMODE_SIGN && (status_flags & PASSEMOTES))
+	if(msg.say_mode == SAYMODE_SIGN && (status_flags & PASSEMOTES))
 		for(var/obj/item/holder/H in contents)
 			H.show_message(envelope)
 		for(var/mob/living/M in contents)
 			M.show_message(envelope)
-	play_speech_sound(msg, sound_vol)
+	if(msg.say_mode != SAYMODE_RADIO)
+		play_speech_sound(msg, sound_vol)
 
 /// Plays the speech sound for a given message.
 /mob/proc/play_speech_sound(datum/say_message/msg, sound_vol)

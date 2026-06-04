@@ -145,14 +145,16 @@ var/list/channel_to_radio_key = new
 /mob/living/proc/get_stutter_verbs()
 	return list("stammers", "stutters")
 
-/mob/living/proc/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, whisper)
+/mob/living/proc/handle_message_mode(datum/say_message/msg, datum/language/primary, list/used_radios)
+	var/message = msg.to_string()
+	var/message_mode = msg.message_mode
 	if(message_mode == "intercom")
 		for(var/obj/item/radio/intercom/I in view(1, src))
 			used_radios += I
-			I.talk_into(src, message, verb, speaking)
+			I.talk_into(src, message, msg.verb, primary, say_message = msg)
 
-	if(message_mode == "whisper" && !whisper)
-		whisper(message, speaking, say_verb = TRUE)
+	if(message_mode == "whisper" && !msg.whisper)
+		whisper(message, primary, say_verb = TRUE)
 		return TRUE
 
 	return FALSE
@@ -267,7 +269,7 @@ var/list/channel_to_radio_key = new
 	msg.whisper = whisper
 	msg.alt_name = alt_name
 	msg.ghost_hearing = ghost_hearing
-	msg.mode = SAYMODE_SPOKEN
+	msg.say_mode = SAYMODE_SPOKEN
 
 	// autohiss and speech problems run per segment, skipping NO_STUTTER languages
 	if(!skip_edit)
@@ -288,7 +290,7 @@ var/list/channel_to_radio_key = new
 		return FALSE
 
 	if(msg.single_language?.flags & SIGNLANG)
-		msg.mode = SAYMODE_SIGN
+		msg.say_mode = SAYMODE_SIGN
 		msg.verb = pick(msg.single_language.signlang_verb)
 		return say_signlang(msg)
 	if(primary && (primary.flags & NONVERBAL) && prob(30))
@@ -297,7 +299,7 @@ var/list/channel_to_radio_key = new
 	message = msg.to_string()
 
 	var/list/obj/item/used_radios = new
-	if(handle_message_mode(msg.message_mode, message, msg.verb, primary, used_radios, alt_name, whisper, msg.singing))
+	if(handle_message_mode(msg, primary, used_radios))
 		return TRUE
 
 	var/list/handle_v = handle_speech_sound()

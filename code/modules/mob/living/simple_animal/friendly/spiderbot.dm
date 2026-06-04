@@ -343,22 +343,24 @@
 /mob/living/simple_animal/spiderbot/get_bullet_impact_effect_type(var/def_zone)
 	return BULLET_IMPACT_METAL
 
-/mob/living/simple_animal/spiderbot/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, whisper)
+/mob/living/simple_animal/spiderbot/handle_message_mode(datum/say_message/msg, datum/language/primary, list/used_radios)
+	var/message = msg.to_string()
+	var/message_mode = msg.message_mode
 	switch(message_mode)
 		if("whisper")
-			if(!whisper)
-				whisper(message, speaking, say_verb = TRUE)
+			if(!msg.whisper)
+				whisper(message, primary, say_verb = TRUE)
 				return TRUE
 		if("headset")
-			radio.talk_into(src, message, null, verb, speaking)
+			radio.talk_into(src, message, null, msg.verb, primary, say_message = msg)
 			used_radios += radio
 		if("intercom")
 			var/turf/T = get_turf(src)
 			for(var/obj/item/radio/intercom/I in view(1, T))
-				I.talk_into(src, message, null, verb, speaking)
+				I.talk_into(src, message, null, msg.verb, primary, say_message = msg)
 				used_radios += I
 	if(message_mode)
-		radio.talk_into(src, message, message_mode, verb, speaking)
+		radio.talk_into(src, message, message_mode, msg.verb, primary, say_message = msg)
 		used_radios += radio
 
 /mob/living/simple_animal/spiderbot/proc/control_integrated_radio()

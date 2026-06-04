@@ -36,7 +36,7 @@
 	/// Optional range limit for hearing the message.
 	var/message_range
 
-	/// The channel used for this message, if any.
+	/// The requested mode for this message.
 	var/message_mode
 
 	/// Sound played to listeners alongside the message, if any.
@@ -48,8 +48,8 @@
 	/// Which ghosts can hear this message?
 	var/ghost_hearing = GHOSTS_ALL_HEAR
 
-	/// Say mode.
-	var/mode = SAYMODE_SPOKEN
+	/// How the message is reaching the listener.
+	var/say_mode = SAYMODE_SPOKEN
 
 	/// Initial clarity. Most of the time this is clear. Sometimes the radio will degrade it.
 	var/base_clarity = CLARITY_CLEAR
@@ -118,3 +118,27 @@
 /datum/say_message/proc/collapse_to(datum/language/language, text)
 	single_language = language
 	segments = list(new /datum/say_segment(text, language))
+
+/// Returns a shallow copy.
+/datum/say_message/proc/copy()
+	var/datum/say_message/copy = new
+	copy.speaker = speaker
+	copy.alt_name = alt_name
+	copy.raw_message = raw_message
+	copy.segments = segments
+	copy.single_language = single_language
+	copy.verb = verb
+	copy.whisper = whisper
+	copy.singing = singing
+	copy.sing_note = sing_note
+	copy.italics = italics
+	copy.font_size = font_size
+	copy.message_range = message_range
+	copy.message_mode = message_mode
+	copy.speech_sound = speech_sound
+	copy.sound_vol = sound_vol
+	copy.ghost_hearing = ghost_hearing
+	copy.say_mode = say_mode
+	copy.base_clarity = base_clarity
+	copy.radio_parts = radio_parts
+	return copy

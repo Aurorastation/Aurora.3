@@ -716,7 +716,7 @@
 
 /mob/living/simple_animal/parrot/react_to_message(datum/say_message/msg)
 	if(prob(50))
-		if(msg.mode == SAYMODE_RADIO)
+		if(msg.say_mode == SAYMODE_RADIO)
 			parrot_hear("[pick(available_channels)] [msg.to_string()]")
 		else
 			parrot_hear(msg.to_string())

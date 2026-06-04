@@ -195,21 +195,23 @@
 		return headsets[headsets[1]]
 	return null
 
-/mob/living/carbon/human/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, whisper, var/is_singing = FALSE)
-	if(!whisper && (paralysis || InStasis()))
-		whisper(message, speaking)
+/mob/living/carbon/human/handle_message_mode(datum/say_message/msg, datum/language/primary, list/used_radios)
+	var/message = msg.to_string()
+	var/message_mode = msg.message_mode
+	if(!msg.whisper && (paralysis || InStasis()))
+		whisper(message, primary)
 		return TRUE
 	switch(message_mode)
 		if("intercom")
 			for(var/obj/item/radio/intercom/I in view(1))
 				I.add_fingerprint(src)
 				used_radios += I
-				I.talk_into(src, message, null, verb, speaking)
+				I.talk_into(src, message, null, msg.verb, primary, say_message = msg)
 		if("headset")
 			var/obj/item/radio/R = get_radio()
 			if(R)
 				used_radios += R
-				R.talk_into(src, message, null, verb, speaking)
+				R.talk_into(src, message, null, msg.verb, primary, say_message = msg)
 		if("right ear")
 			var/obj/item/radio/R
 			var/has_radio = FALSE
@@ -221,7 +223,7 @@
 				has_radio = TRUE
 			if(has_radio)
 				used_radios += R
-				R.talk_into(src,message,null,verb,speaking)
+				R.talk_into(src, message, null, msg.verb, primary, say_message = msg)
 		if("left ear")
 			var/obj/item/radio/R
 			var/has_radio = FALSE
@@ -233,7 +235,7 @@
 				has_radio = TRUE
 			if(has_radio)
 				used_radios += R
-				R.talk_into(src,message,null,verb,speaking)
+				R.talk_into(src, message, null, msg.verb, primary, say_message = msg)
 		if("wrist")
 			var/obj/item/radio/R
 			var/has_radio = FALSE
@@ -245,16 +247,16 @@
 				has_radio = TRUE
 			if(has_radio)
 				used_radios += R
-				R.talk_into(src,message,null,verb,speaking)
+				R.talk_into(src, message, null, msg.verb, primary, say_message = msg)
 		if("whisper")
-			whisper(message, speaking, is_singing, say_verb = TRUE)
+			whisper(message, primary, msg.singing, say_verb = TRUE)
 			return TRUE
 		else
 			if(message_mode)
 				var/obj/item/radio/R = get_radio()
 				if(R)
 					used_radios += R
-					R.talk_into(src, message, message_mode, verb, speaking)
+					R.talk_into(src, message, message_mode, msg.verb, primary, say_message = msg)
 
 /mob/living/carbon/human/handle_speech_sound()
 	var/list/returns = ..()
