@@ -90,7 +90,7 @@
 				A.mode = 1 // AALARM_MODE_SCRUB
 			A.apply_mode()
 
-		if(WIRE_ALARM || WIRE_RCON)
+		if(WIRE_ALARM, WIRE_RCON)
 			if (A.alarm_area.atmosalert(0, A))
 				A.post_alert(0)
 			A.update_icon()
