@@ -391,7 +391,6 @@
 #include "code\controllers\subsystems\radio.dm"
 #include "code\controllers\subsystems\records.dm"
 #include "code\controllers\subsystems\responseteam.dm"
-#include "code\controllers\subsystems\runechat.dm"
 #include "code\controllers\subsystems\sentry.dm"
 #include "code\controllers\subsystems\skills.dm"
 #include "code\controllers\subsystems\skybox.dm"
