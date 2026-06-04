@@ -183,8 +183,8 @@
 		do_animate("deny")
 		return
 
-	if(istype(bumped_atom, /obj/machinery/bot))
-		var/obj/machinery/bot/bot = bumped_atom
+	if(istype(bumped_atom, /obj/structure/machinery/bot))
+		var/obj/structure/machinery/bot/bot = bumped_atom
 		if(src.check_access(bot.botcard))
 			if(density)
 				open()

@@ -136,7 +136,7 @@
 	user.drop_from_inventory(G)
 	return TRUE
 
-/obj/machinery/gibber/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/gibber/attackby(obj/item/attacking_item, mob/user)
 	if(isorgan(attacking_item))
 		user.drop_from_inventory(attacking_item)
 		//TODO: Gibber Animations

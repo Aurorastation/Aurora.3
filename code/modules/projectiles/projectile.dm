@@ -386,11 +386,14 @@
 	if(point_blank || !(M.dir & get_dir(M, starting)))
 		return FALSE
 
-	for(var/obj/item/grab/G in list(M.l_hand, M.r_hand))
-		if(!G?.affecting || G.state < GRAB_NECK || G.affecting.lying)
+	for(var/obj/item/grab/G in M.get_active_grabs(TRUE))
+		if(!isliving(G.grabbed))
 			continue
-		M.visible_message(SPAN_DANGER("\The [M] uses [G.affecting] as a shield!"))
-		return G.affecting
+		var/mob/living/L = G.grabbed
+		if(!HAS_GRAB_FLAGS(G, GRAB_RESTRAINS) || L.lying)
+			continue
+		M.visible_message(SPAN_DANGER("\The [M] uses [G.grabbed] as a shield!"))
+		return G.grabbed
 
 	return FALSE
 

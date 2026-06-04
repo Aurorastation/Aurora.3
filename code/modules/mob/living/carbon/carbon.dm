@@ -163,31 +163,6 @@
 	SHOULD_CALL_PARENT(TRUE)
 	return
 
-/mob/living/carbon/swap_hand()
-	var/obj/item/item_in_hand = src.get_active_hand()
-	if(item_in_hand && !item_in_hand.can_swap_hands(src)) //this segment checks if the item in your hand is twohanded.
-		to_chat(src, SPAN_WARNING("Your other hand is too busy holding \the [item_in_hand]!"))
-		return
-	src.hand = !src.hand
-	if(hud_used.l_hand_hud_object && hud_used.r_hand_hud_object)
-		if(hand)	//This being 1 means the left hand is in use
-			hud_used.l_hand_hud_object.icon_state = "l_hand_active"
-			hud_used.r_hand_hud_object.icon_state = "r_hand_inactive"
-		else
-			hud_used.l_hand_hud_object.icon_state = "l_hand_inactive"
-			hud_used.r_hand_hud_object.icon_state = "r_hand_active"
-
-/mob/living/carbon/proc/activate_hand(var/selhand) //0 or "r" or "right" for right hand; 1 or "l" or "left" for left hand.
-	if(istext(selhand))
-		selhand = lowertext(selhand)
-		if(selhand == "right" || selhand == "r")
-			selhand = 0
-		if(selhand == "left" || selhand == "l")
-			selhand = 1
-
-	if(selhand != src.hand)
-		swap_hand()
-
 /mob/living/carbon/proc/help_shake_act(mob/living/carbon/M)
 	if (on_fire)
 		playsound(src.loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)

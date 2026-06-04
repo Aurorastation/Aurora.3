@@ -333,7 +333,7 @@
 	return TRUE
 
 
-/obj/machinery/optable/grab_attack(obj/item/grab/G, mob/user)
+/obj/structure/machinery/optable/grab_attack(obj/item/grab/G, mob/user)
 	if(isliving(G.grabbed) && check_table(G.grabbed))
 		if(G.grabbed == user)
 			user.visible_message(SPAN_NOTICE("\The [user] starts climbing onto \the [src]."), SPAN_NOTICE("You start climbing onto \the [src]."), range = 3)
@@ -345,7 +345,7 @@
 			return TRUE
 	return ..()
 
-/obj/machinery/optable/attackby(obj/item/attacking_item, mob/user, params)
+/obj/structure/machinery/optable/attackby(obj/item/attacking_item, mob/user, params)
 	if(default_deconstruction_screwdriver(user, attacking_item))
 		return TRUE
 	if(default_deconstruction_crowbar(user, attacking_item))

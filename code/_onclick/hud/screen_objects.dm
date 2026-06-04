@@ -558,10 +558,10 @@
 		handcuff_overlay = image("icon"='icons/hud/mob/screen_gen.dmi', "icon_state" = state)
 	if(!disabled_hand_overlay)
 		var/state = is_left ? "l_hand_disabled" : "r_hand_disabled"
-		disabled_hand_overlay = image("icon" = 'icons/mob/screen_gen.dmi', "icon_state" = state)
+		disabled_hand_overlay = image("icon" = 'icons/hud/mob/screen_gen.dmi', "icon_state" = state)
 	if(!removed_hand_overlay)
 		var/state = is_left ? "l_hand_removed" : "r_hand_removed"
-		removed_hand_overlay = image("icon" = 'icons/mob/screen_gen.dmi', "icon_state" = state)
+		removed_hand_overlay = image("icon" = 'icons/hud/mob/screen_gen.dmi', "icon_state" = state)
 	CutOverlays(list("hand_selected", handcuff_overlay, disabled_hand_overlay, removed_hand_overlay))
 	if(istype(L) && slot_id == L.get_active_held_item_slot())
 		AddOverlays("hand_selected")

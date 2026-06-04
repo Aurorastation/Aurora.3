@@ -143,9 +143,9 @@
 /obj/item/laser_components/capacitor/phoron/medium_fail(var/mob/living/user, var/obj/item/gun/energy/laser/prototype/prototype)
 	if (user)
 		visible_message(SPAN_WARNING("\The [src] powering \the [prototype] hisses in \the [user]'s hand and explosively vents hot phoron!"))
-		if (prototype in list(user.l_hand))
+		if (prototype in user.get_active_hand())
 			user.apply_damage(25*max(prototype.criticality, 1), DAMAGE_BRUTE, BP_L_HAND, prototype, DAMAGE_FLAG_EXPLODE)
-		else if (prototype in list(user.r_hand))
+		else if (prototype in user.get_inactive_held_items())
 			user.apply_damage(25*max(prototype.criticality, 1), DAMAGE_BRUTE, BP_R_HAND, prototype, DAMAGE_FLAG_EXPLODE)
 	else
 		visible_message(SPAN_DANGER("\The [src] powering \the [prototype] hisses and explosively vents hot phoron!"))
@@ -155,9 +155,9 @@
 /obj/item/laser_components/capacitor/phoron/critical_fail(var/mob/living/user, var/obj/item/gun/energy/laser/prototype/prototype)
 	if (user)
 		visible_message(SPAN_DANGER("\The [src] powering \the [prototype] goes critical in \the [user]'s hand causing a massive explosion!"))
-		if (prototype in list(user.l_hand))
+		if (prototype in user.get_active_hand())
 			user.apply_damage(40*max(prototype.criticality, 1), DAMAGE_BRUTE, BP_L_HAND, prototype, DAMAGE_FLAG_EXPLODE)
-		else if (prototype in list(user.r_hand))
+		else if (prototype in user.get_inactive_held_items())
 			user.apply_damage(40*max(prototype.criticality, 1), DAMAGE_BRUTE, BP_R_HAND, prototype, DAMAGE_FLAG_EXPLODE)
 	else
 		visible_message(SPAN_DANGER("\The [src] powering \the [prototype] goes critical causing a massive explosion!"))

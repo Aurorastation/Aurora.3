@@ -207,6 +207,7 @@
 	qp_shop.interact_object(attacking_item, user)
 
 /obj/structure/machinery/commissary_wall_shop/attack_hand(mob/living/user)
+	. = ..()
 	if(!turned_on)
 		balloon_alert(user, "turned off")
 		return

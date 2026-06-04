@@ -20,6 +20,7 @@
 	ui_interact(user)
 
 /obj/structure/machinery/computer/robotics/attack_hand(mob/user)
+	. = ..()
 	ui_interact(user)
 
 /obj/structure/machinery/computer/robotics/ui_interact(mob/user, datum/tgui/ui)

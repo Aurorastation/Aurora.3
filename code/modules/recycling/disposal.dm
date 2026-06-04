@@ -244,7 +244,7 @@
 	user.visible_message("<b>[user]</b> places \the [attacking_item] into \the [src].", SPAN_NOTICE("You place \the [attacking_item] into \the [src]."), range = 3)
 	update()
 
-/obj/machinery/disposal/grab_attack(obj/item/grab/G, mob/user)
+/obj/structure/machinery/disposal/grab_attack(obj/item/grab/G, mob/user)
 	var/mob/living/victim = G.grabbed
 	if(!istype(victim))
 		return FALSE

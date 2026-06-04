@@ -23,6 +23,7 @@ GLOBAL_LIST_EMPTY(minor_air_alarms)
 	return ..()
 
 /obj/structure/machinery/computer/atmos_alert/attack_hand(mob/user)
+	. = ..()
 	ui_interact(user)
 
 /obj/structure/machinery/computer/atmos_alert/ui_interact(mob/user, datum/tgui/ui)

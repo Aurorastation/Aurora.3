@@ -724,6 +724,9 @@
 	var/mob/living/mob_target = target
 	if(!mob_target)
 		return FALSE
-	health_scan_mob(mob_target, owner)
+	var/datum/component/health_analyzer/h_analyzer = src.GetComponent(/datum/component/health_analyzer)
+	if(!h_analyzer)
+		return
+	h_analyzer.health_scan_mob(mob_target, owner, FALSE, TRUE)
 	owner.last_special = world.time + (5 SECONDS)
 	return TRUE

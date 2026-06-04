@@ -159,9 +159,9 @@
 	to_chat(usr, SPAN_NOTICE("You decide to make [choice == "Default" ? "nothing specific" : choice] with [src]."))
 
 //Handles all validity checking and error messages for inserting things
-/obj/structure/machinery/appliance/proc/can_insert(var/obj/item/I, var/mob/user)
-	if(!I.dropsafety())
-		return CANNOT_INSERT
+/obj/structure/machinery/appliance/proc/can_insert(var/atom/movable/AM, var/mob/user)
+	if(!AM.dropsafety())
+		return FALSE
 
 	// We are trying to cook a grabbed mob.
 	var/obj/item/grab/G = AM

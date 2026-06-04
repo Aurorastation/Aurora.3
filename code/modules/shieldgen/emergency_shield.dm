@@ -161,6 +161,7 @@
 	checkhp()
 
 /obj/structure/machinery/shieldgen/attack_hand(mob/user)
+	. = ..()
 	if(locked)
 		balloon_alert(user, "locked")
 		return

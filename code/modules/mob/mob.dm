@@ -12,7 +12,6 @@
 	QDEL_NULL(flash)
 	QDEL_NULL(blind)
 	QDEL_NULL(hands)
-	QDEL_NULL(pullin)
 	QDEL_NULL(purged)
 	QDEL_NULL(internals)
 	QDEL_NULL(oxygen)
@@ -58,8 +57,6 @@
 	QDEL_LIST(embedded)
 	languages?.Cut()
 	holo = null
-	l_hand = null
-	r_hand = null
 	back = null
 	internal = null
 	s_active = null

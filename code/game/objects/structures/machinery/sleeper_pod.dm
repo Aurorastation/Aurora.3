@@ -240,8 +240,6 @@
 		return
 	return attack_hand(user)
 
-	. = ..()
-
 /obj/structure/machinery/sleeper/grab_attack(obj/item/grab/G, mob/user)
 	var/mob/living/victim = G.get_grabbed_mob()
 	if(!istype(victim) || !victim.bucklecheck(user))
@@ -265,7 +263,7 @@
 		return TRUE
 	return FALSE
 
-/obj/machinery/sleeper/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/sleeper/attackby(obj/item/attacking_item, mob/user)
 	. = ..()
 	if(!istype(attacking_item, /obj/item/forensics))
 		add_fingerprint(user)
