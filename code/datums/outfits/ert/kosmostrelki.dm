@@ -73,7 +73,7 @@
 						/obj/item/binoculars = 1,
 						/obj/item/ammo_magazine/submachinedrum = 1)
 
-	l_pocket = /obj/item/device/megaphone
+	l_pocket = /obj/item/megaphone
 	hands = list(/obj/item/martial_manual/tajara)
 
 /obj/outfit/admin/ert/pra_cosmonaut/tesla

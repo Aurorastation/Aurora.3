@@ -553,7 +553,7 @@
 
 		if(!i || !i.tool_behaviour == TOOL_PEN)
 			for (var/obj/item/pen in usr.get_held_items())
-				if(pen.ispen())
+				if(pen.tool_behaviour == TOOL_PEN)
 					i = pen
 					break
 

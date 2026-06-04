@@ -51,10 +51,10 @@ default behaviour is:
 	if(istype(target_movable_atom, /mob/living))
 		var/mob/living/target_mob = target_movable_atom
 
-		for(var/mob/living/M in range(tmob, 1))
-			if(tmob.pinned.len || locate(/obj/item/grab, LAZYLEN(tmob.grabbed_by)))
+		for(var/mob/living/M in range(target_mob, 1))
+			if(target_mob.pinned.len || locate(/obj/item/grab, LAZYLEN(target_mob.grabbed_by)))
 				if (last_push_notif + 0.5 SECONDS <= world.time)
-					to_chat(src, SPAN_WARNING("[tmob] is restrained, you cannot push past."))
+					to_chat(src, SPAN_WARNING("[target_mob] is restrained, you cannot push past."))
 					last_push_notif = world.time
 
 				now_pushing = FALSE
@@ -70,8 +70,8 @@ default behaviour is:
 		if(can_swap_with(target_mob)) // mutual brohugs all around!
 			var/turf/target_mob_oldloc = get_turf(target_mob)
 			var/turf/src_oldloc = get_turf(src)
-			forceMove(tmob_oldloc)
-			tmob.forceMove(src_oldloc)
+			forceMove(target_mob_oldloc)
+			target_mob.forceMove(src_oldloc)
 			now_pushing = FALSE
 			for(var/mob/living/carbon/slime/slime in view(2, target_mob))
 				if(slime.victim == target_mob)
@@ -86,12 +86,7 @@ default behaviour is:
 			now_pushing = FALSE
 			return
 
-		if(istype(target_mob.r_hand, /obj/item/shield/riot))
-			if(prob(99))
-				now_pushing = FALSE
-				return
-
-		if(istype(target_mob.l_hand, /obj/item/shield/riot))
+		if(target_mob.get_type_in_hands(/obj/item/shield/riot))
 			if(prob(99))
 				now_pushing = FALSE
 				return
@@ -122,11 +117,11 @@ default behaviour is:
 					now_pushing = FALSE
 					return
 
-			step(AM, t)
-			if(ishuman(AM))
-				var/mob/living/carbon/human/H = AM
-				for(var/obj/item/grab/G as anything in H.grabbed_by)
-					step(G.grabber, get_dir(G.grabber, H))
+			step(target_movable_atom, target_direction)
+			if(ishuman(target_movable_atom))
+				var/mob/living/carbon/human/target_human = target_movable_atom
+				for(var/obj/item/grab/G as anything in target_human.grabbed_by)
+					step(G.grabber, get_dir(G.grabber, target_human))
 					G.adjust_position()
 
 		now_pushing = FALSE

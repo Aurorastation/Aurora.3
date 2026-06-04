@@ -394,9 +394,6 @@
 
 	return TRUE
 
-		if(is_bruised())
-			spark(get_turf(owner), 3)
-
 /obj/item/organ/external/hand/right/autakh/medical/activate(atom/target)
 	owner.last_special = world.time + 50
 	if(ishuman(target))

@@ -211,7 +211,7 @@
 	name = "Curator - Idris"
 	jobtype = /datum/job/librarian
 
-	r_pocket = /obj/item/device/price_scanner
+	r_pocket = /obj/item/price_scanner
 	hands = null
 
 /obj/outfit/job/librarian/idris/tech_support
@@ -220,7 +220,7 @@
 
 	l_pocket = /obj/item/modular_computer/handheld/preset/generic
 	r_pocket = /obj/item/card/tech_support
-	hands = list(/obj/item/storage/bag/circuits/basic, /obj/item/device/debugger)
+	hands = list(/obj/item/storage/bag/circuits/basic, /obj/item/debugger)
 	wrist = /obj/item/modular_computer/handheld/wristbound/preset/advanced/civilian
 
 /obj/outfit/job/chaplain/idris

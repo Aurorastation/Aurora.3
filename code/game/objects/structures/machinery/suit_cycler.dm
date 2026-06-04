@@ -223,7 +223,7 @@
 		return TRUE
 	return FALSE
 
-/obj/machinery/suit_cycler/grab_attack(obj/item/grab/G, mob/user)
+/obj/structure/machinery/suit_cycler/grab_attack(obj/item/grab/G, mob/user)
 	var/mob/living/victim = G.get_grabbed_mob()
 	if(istype(victim) && try_move_inside(victim, user))
 		qdel(G)
@@ -231,7 +231,7 @@
 		return TRUE
 	return ..()
 
-/obj/machinery/suit_cycler/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/suit_cycler/attackby(obj/item/attacking_item, mob/user)
 	if(electrified != 0)
 		if(src.shock(user, 100))
 			return

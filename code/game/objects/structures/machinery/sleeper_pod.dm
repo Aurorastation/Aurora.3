@@ -263,7 +263,7 @@
 		return TRUE
 	return FALSE
 
-/obj/machinery/sleeper/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/sleeper/attackby(obj/item/attacking_item, mob/user)
 	if(!istype(attacking_item, /obj/item/forensics))
 		add_fingerprint(user)
 	if(istype(attacking_item, /obj/item/reagent_containers/glass))

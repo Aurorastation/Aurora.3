@@ -105,7 +105,7 @@
 		to_chat(user, SPAN_WARNING("You can't fit \the [M] in \the [src]!"))
 	return FALSE
 
-/obj/machinery/washing_machine/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/washing_machine/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item,/obj/item/pen/crayon) || istype(attacking_item,/obj/item/stamp))
 		if( state in list(	1, 3, 6 ) )
 			if(!crayon)

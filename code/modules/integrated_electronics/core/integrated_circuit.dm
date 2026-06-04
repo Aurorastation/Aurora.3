@@ -199,7 +199,7 @@ a creative player the means to solve many problems.  Circuits are held inside an
 		linked = locate(href_list["link"]) in pin.linked
 
 	var/obj/held_item = usr.get_active_hand()
-	var/obj/item/device/multitool/M
+	var/obj/item/multitool/M
 	if(held_item?.tool_behaviour == TOOL_MULTITOOL)
 		M = held_item
 	else

@@ -90,20 +90,20 @@
 		return TRUE
 
 	var/obj/item/grab/G = attacking_item
-	if (!istype(G, /obj/item/grab) || !isliving(G.affecting) )
+	if (!istype(G, /obj/item/grab) || !isliving(G.grabbed) )
 		return
 	if (occupant)
 		to_chat(user, SPAN_WARNING("The scanner is already occupied!"))
 		return TRUE
 
-	var/mob/living/M = G.affecting
+	var/mob/living/M = G.grabbed
 	var/bucklestatus = M.bucklecheck(user)
 	if (!bucklestatus)
 		return TRUE
 
 	user.visible_message(SPAN_NOTICE("\The [user] starts putting \the [M] into \the [src]."), SPAN_NOTICE("You start putting \the [M] into \the [src]."), range = 3)
-	if (do_mob(user, G.affecting, 30, needhand = 0))
-		put_in(G.affecting)
+	if (do_mob(user, G.grabbed, 30, needhand = 0))
+		put_in(G.grabbed)
 	src.add_fingerprint(user)
 	qdel(G)
 	return TRUE

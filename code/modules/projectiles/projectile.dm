@@ -387,7 +387,7 @@
 		return FALSE
 
 	for(var/obj/item/grab/G in list(M.l_hand, M.r_hand))
-		if(!G?.affecting || G.state < GRAB_NECK || G.affecting.lying)
+		if(!G?.affecting || G.state < GRAB_NECK || G.grabbed.lying)
 			continue
 		M.visible_message(SPAN_DANGER("\The [M] uses [G.affecting] as a shield!"))
 		return G.affecting

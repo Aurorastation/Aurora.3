@@ -238,7 +238,7 @@
 	jobtype = /datum/job/librarian
 
 	uniform = /obj/item/clothing/under/suit_jacket
-	r_pocket = /obj/item/device/price_scanner
+	r_pocket = /obj/item/price_scanner
 	hands = null
 
 /obj/outfit/job/librarian/tech_support
@@ -248,7 +248,7 @@
 	uniform = /obj/item/clothing/under/suit_jacket/charcoal
 	l_pocket = /obj/item/modular_computer/handheld/preset/generic
 	r_pocket = /obj/item/card/tech_support
-	hands = list(/obj/item/storage/bag/circuits/basic, /obj/item/device/debugger)
+	hands = list(/obj/item/storage/bag/circuits/basic, /obj/item/debugger)
 	wrist = /obj/item/modular_computer/handheld/wristbound/preset/advanced/civilian
 
 /datum/job/chaplain
@@ -420,9 +420,9 @@
 /obj/outfit/job/hangar_tech/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(istajara(H))
-		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/workboots/tajara(H), slot_shoes)
+		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/workboots/tajara(H), slot_shoes_str)
 	else if(isunathi(H))
-		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/workboots/toeless(H), slot_shoes)
+		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/workboots/toeless(H), slot_shoes_str)
 
 /datum/job/mining
 	title = "Shaft Miner"

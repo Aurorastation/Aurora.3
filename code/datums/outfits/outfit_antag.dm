@@ -146,7 +146,7 @@
 	if(visualsOnly)
 		return
 
-	H.equip_to_slot_or_del(new /obj/item/device/special_uplink/ninja(H, H.mind), slot_l_store_str)
+	H.equip_to_slot_or_del(new /obj/item/special_uplink/ninja(H, H.mind), slot_l_store_str)
 
 /obj/outfit/admin/syndicate/mercenary
 	name = "Mercenary"
@@ -555,7 +555,7 @@
 	uniform = /obj/item/clothing/under/kilt
 	head = /obj/item/clothing/head/beret/red
 	shoes = /obj/item/clothing/shoes/combat
-	l_ear = /obj/item/device/radio/headset/heads/captain
+	l_ear = /obj/item/radio/headset/heads/captain
 	hands = list(/obj/item/material/sword)
 	l_pocket = /obj/item/pinpointer
 

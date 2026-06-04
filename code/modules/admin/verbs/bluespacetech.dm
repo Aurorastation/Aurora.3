@@ -65,7 +65,7 @@
 		bst.put_in_hands_or_del(new /obj/item/storage/box/ids(bst))
 	else
 		bst.equip_to_slot_or_del(new /obj/item/storage/box/ids(bst.back), slot_in_backpack_str)
-		bst.equip_to_slot_or_del(new /obj/item/device/t_scanner(bst.back), slot_in_backpack_str)
+		bst.equip_to_slot_or_del(new /obj/item/t_scanner(bst.back), slot_in_backpack_str)
 		bst.equip_to_slot_or_del(new /obj/item/modular_computer/handheld/pda/command/bst(bst.back), slot_in_backpack_str)
 		bst.equip_to_slot_or_del(new /obj/item/healthanalyzer(bst.back), slot_in_backpack_str)
 		bst.equip_to_slot_or_del(new /obj/item/research(bst.back), slot_in_backpack_str)

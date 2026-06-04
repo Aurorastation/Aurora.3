@@ -161,7 +161,7 @@
 //Handles all validity checking and error messages for inserting things
 /obj/structure/machinery/appliance/proc/can_insert(var/atom/movable/AM, var/mob/user)
 	if(!AM.dropsafety())
-		return CANNOT_INSERT
+		return FALSE
 
 	// We are trying to cook a grabbed mob.
 	var/obj/item/grab/G = AM
@@ -195,9 +195,9 @@
 		return FALSE
 	else if(istype(I, /obj/item/reagent_containers/glass))
 		to_chat(user, SPAN_WARNING("That would probably break [I]."))
-		return CANNOT_INSERT
+		return FALSE
 	else if(I.tool_behaviour == TOOL_CROWBAR || I.tool_behaviour == TOOL_SCREWDRIVER || istype(I, /obj/item/storage/part_replacer))
-		return CANNOT_INSERT
+		return FALSE
 	else if(!istype(check) && !istype(I, /obj/item/holder))
 		to_chat(user, SPAN_WARNING("That's not edible."))
 		return FALSE

@@ -164,7 +164,7 @@
 
 	var/damage = rand(0, 9)
 	if(!damage)
-		playsound(user.loc, /singleton/sound_category/punchmiss_sound, 25, 1, -1)
+		playsound(user.loc, SFX_PUNCH_MISS, 25, 1, -1)
 		visible_message(SPAN_DANGER("[user] has attempted to punch [target]!"))
 		return FALSE
 
@@ -173,7 +173,7 @@
 	if((user.mutations & HULK) || user.is_berserk())
 		damage += 5
 
-	playsound(user.loc, /singleton/sound_category/punch_sound, 25, 1, -1)
+	playsound(user.loc, SFX_PUNCH, 25, 1, -1)
 
 	visible_message(SPAN_DANGER("[user] has punched [target]!"))
 

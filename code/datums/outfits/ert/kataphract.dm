@@ -13,7 +13,7 @@
 	id = /obj/item/card/id/distress/kataphract
 	back = /obj/item/storage/backpack/satchel/hegemony
 
-	l_ear = /obj/item/device/radio/headset/distress
+	l_ear = /obj/item/radio/headset/distress
 	hands = list(/obj/item/martial_manual/swordsmanship)
 
 	r_pocket = /obj/item/radio

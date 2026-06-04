@@ -50,7 +50,7 @@
 	tablet = /obj/item/modular_computer/handheld/preset/civilian/lawyer
 
 	l_pocket = /obj/item/reagent_containers/spray/pepper
-	r_pocket = /obj/item/device/taperecorder/cciaa
+	r_pocket = /obj/item/taperecorder/cciaa
 	hands = list(/obj/item/storage/lockbox/cciaa)
 	id = /obj/item/card/id/scc/gold
 

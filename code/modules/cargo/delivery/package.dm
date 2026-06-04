@@ -8,17 +8,6 @@ ABSTRACT_TYPE(/obj/item/package)
 	force = 15
 	slowdown = 0.5
 
-/obj/item/package/proc/wield(var/mob/living/carbon/human/user)
-	var/obj/A = user.get_inactive_hand()
-	if(A)
-		to_chat(user, SPAN_WARNING("Your other hand is occupied!"))
-		return
-	item_state += "_wielded"
-	var/obj/item/offhand/O = new(user)
-	O.name = "[initial(name)] - offhand"
-	O.desc = "Your second grip on \the [initial(name)]."
-	user.put_in_inactive_hand(O)
-
 /obj/item/package/dropped(mob/user)
 	..()
 	item_state = initial(item_state)

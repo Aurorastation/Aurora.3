@@ -31,7 +31,7 @@
 	name = "Asset Protection Lead"
 
 	l_pocket = /obj/item/pinpointer
-	hands = list(/obj/item/gun/energy/rifle/pulse, /obj/item/device/orbital_dropper/icarus_drones)
+	hands = list(/obj/item/gun/energy/rifle/pulse, /obj/item/orbital_dropper/icarus_drones)
 
 /obj/outfit/admin/deathsquad/get_id_access()
 	return get_all_accesses()

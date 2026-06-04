@@ -738,7 +738,7 @@ GLOBAL_LIST_INIT(slot_flags_enumeration, list(
 				if(!disable_warning)
 					to_chat(usr, SPAN_WARNING("You somehow have a suit with no defined allowed items for suit storage, stop that."))
 				return FALSE
-			if(!istype(src, /obj/item/modular_computer) && !ispen() && !is_type_in_list(src, H.wear_suit.allowed))
+			if(!istype(src, /obj/item/modular_computer) && !tool_behaviour == TOOL_PEN && !is_type_in_list(src, H.wear_suit.allowed))
 				return FALSE
 		if(slot_handcuffed_str)
 			if(!istype(src, /obj/item/handcuffs))

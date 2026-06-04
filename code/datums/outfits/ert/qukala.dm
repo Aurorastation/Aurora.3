@@ -53,7 +53,7 @@
 		B.replaced(H, affectedB)
 		H.update_body()
 	if(H.is_diona())
-		H.equip_or_collect(new /obj/item/device/uv_light(src), slot_in_backpack_str)
+		H.equip_or_collect(new /obj/item/uv_light(src), slot_in_backpack_str)
 	if(H?.shoes)
 		var/obj/item/clothing/shoes/magboots/advance/boots = new(H)
 		H.equip_to_slot_if_possible(boots, slot_shoes_str)

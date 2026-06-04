@@ -127,11 +127,11 @@
 	if(.)
 		playsound(target.loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 	else
-		playsound(target.loc, /singleton/sound_category/punchmiss_sound, 25, 1, -1)
+		playsound(target.loc, SFX_PUNCH_MISS, 25, 1, -1)
 		target.visible_message(SPAN_DANGER("[user] attempted to disarm [target]!"))
 
 /datum/species/machine/before_disarm(mob/living/carbon/human/user, mob/living/carbon/human/target)
-	var/obj/item/organ/internal/cell/cell = user.internal_organs_by_name[BP_CELL]
+	var/obj/item/organ/internal/machine/power_core/cell = user.internal_organs_by_name[BP_CELL]
 	if(!istype(cell))
 		return FALSE
 	var/obj/item/cell/potato = cell.cell

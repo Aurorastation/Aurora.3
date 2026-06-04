@@ -117,7 +117,7 @@
 	glasses = /obj/item/clothing/glasses/sunglasses/sechud
 	head = /obj/item/clothing/head/beret/centcom/officer
 	l_pocket = /obj/item/reagent_containers/spray/pepper
-	r_pocket = /obj/item/device/taperecorder/cciaa
+	r_pocket = /obj/item/taperecorder/cciaa
 	hands = list(/obj/item/storage/lockbox/cciaa)
 	pda = /obj/item/modular_computer/handheld/pda/command/cciaa
 	id = /obj/item/card/id/ccia
@@ -211,7 +211,7 @@
 	gloves = /obj/item/clothing/gloves/black
 
 	l_pocket = /obj/item/reagent_containers/spray/pepper
-	r_pocket = /obj/item/device/taperecorder/cciaa
+	r_pocket = /obj/item/taperecorder/cciaa
 	hands = list(/obj/item/storage/lockbox/cciaa/bssb)
 	id = /obj/item/card/id/ccia/bssb
 
@@ -277,8 +277,8 @@
 	shoes = /obj/item/clothing/shoes/sneakers/black
 	mask = /obj/item/clothing/mask/surgical
 	hands = list(/obj/item/storage/firstaid/adv)
-	headset = /obj/item/device/radio/headset/headset_med
-	bowman = /obj/item/device/radio/headset/headset_med/alt
+	headset = /obj/item/radio/headset/headset_med
+	bowman = /obj/item/radio/headset/headset_med/alt
 	glasses = /obj/item/clothing/glasses/hud/health
 
 	gloves = /obj/item/clothing/gloves/white

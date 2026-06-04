@@ -373,7 +373,7 @@ GLOBAL_LIST_INIT(wire_name_directory, list())
 					for (var/obj/item/_I in L.get_inactive_held_items())
 						if (_I.tool_behaviour == TOOL_WIRECUTTER)
 							I = _I
-			if(I?.tool_behaviour == TOOL_MULTITOOL))
+			if(I?.tool_behaviour == TOOL_MULTITOOL)
 				pulse_color(target_wire, L)
 				holder.add_hiddenprint(L)
 				. = TRUE

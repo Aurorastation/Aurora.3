@@ -268,7 +268,7 @@ GLOBAL_LIST_EMPTY(gps_list)
 		z_coord = held_by.z
 
 	GLOB.gps_list[gpstag] = list("tag" = gpstag, "pos_x" = x_coord, "pos_y" = y_coord, "pos_z" = z_coord, "area" = "[gps_areaname]", "emped" = emped, "compass_color" = compass_color)
-	if(check_held_by && held_by && (src in held_by.get_held_items())
+	if(check_held_by && held_by && (src in held_by.get_held_items()))
 		update_compass(TRUE)
 
 /obj/item/gps/proc/update_compass(var/update_compass_icon)

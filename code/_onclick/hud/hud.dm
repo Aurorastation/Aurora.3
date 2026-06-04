@@ -194,8 +194,6 @@ GLOBAL_LIST(global_huds)
 	mymob = null
 	QDEL_NULL(blobpwrdisplay)
 	QDEL_NULL(blobhealthdisplay)
-	QDEL_NULL(r_hand_hud_object)
-	QDEL_NULL(l_hand_hud_object)
 	QDEL_NULL(action_intent)
 	QDEL_NULL(move_intent)
 	QDEL_NULL(grab_intent)

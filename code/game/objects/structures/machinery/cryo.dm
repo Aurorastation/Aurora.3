@@ -249,7 +249,7 @@
 			return TRUE
 	return FALSE
 
-/obj/machinery/atmospherics/unary/cryo_cell/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/atmospherics/unary/cryo_cell/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/reagent_containers/glass))
 		if(beaker)
 			FEEDBACK_FAILURE(user, "A beaker is already loaded into the machine!")

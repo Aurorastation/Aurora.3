@@ -110,7 +110,7 @@
 	var/receiptname = "Receipt: [machine_id]"
 	R.set_content_unsafe(receiptname, receipt, sum)
 	stamp_receipt(R)
-	usr.put_in_any_hand_if_possible(R)
+	usr.put_in_hands(R)
 
 /// Interact with an object. Papers or payment pethods
 /datum/component/quikpay_shop/proc/interact_object(obj/item/attacking_item, mob/user)
@@ -414,14 +414,14 @@
 	var/receiptname = "Receipt: [machine_id]"
 	R.set_content_unsafe(receiptname, receipt, sum)
 	stamp_receipt(R)
-	usr.put_in_any_hand_if_possible(R)
+	usr.put_in_hands(R)
 	// And now we do it but for the ticket.
 	var/obj/item/paper/notepad/receipt/T = new(owner.loc)
 	var/tickettname = "Order ticket: [ticket_number]"
 	ticket_number++
 	T.set_content_unsafe(tickettname, ticket, sum)
 	stamp_receipt(T)
-	usr.put_in_any_hand_if_possible(T)
+	usr.put_in_hands(T)
 	ticket = ""
 	receipt = ""
 
