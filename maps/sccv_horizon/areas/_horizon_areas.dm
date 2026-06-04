@@ -48,7 +48,6 @@
 	area_blurb = "The sheer scale of the SCCV Horizon is never more apparent when crawling across its hull like an ant."
 
 // Same as above, except shields will not wrap around it.
-// For bits of space that shouldn't be surrounded by shields.
+// For bits of space or the outer hull that shouldn't be covered by shields.
 /area/horizon/exterior/no_shields
 	icon_state = "exterior_noshield"
-	station_area = FALSE
