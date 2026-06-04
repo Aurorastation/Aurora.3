@@ -229,6 +229,7 @@
 
 /// TCOMMS_AREAS
 /area/horizon/tcommsat
+	icon_state = "tcomsatcham"
 	ambience = AMBIENCE_ENGINEERING
 	area_lighting = LIGHT_CLINICAL_COLORS
 	no_light_control = 1
@@ -247,4 +248,3 @@
 
 /area/horizon/tcommsat/chamber
 	name = "Telecomms Central Compartment"
-	icon_state = "tcomsatcham"

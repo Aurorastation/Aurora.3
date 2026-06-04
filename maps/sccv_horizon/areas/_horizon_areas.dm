@@ -22,7 +22,7 @@
 /// SCCV Horizon master areas
 /area/horizon
 	name = "Horizon (PARENT AREA - DON'T USE)"
-	icon_state = "unknown"
+	icon_state = "horizon"
 	station_area = TRUE
 	ambience = AMBIENCE_GENERIC
 	// Remember to set this for new areas!!
