@@ -1,6 +1,3 @@
-/mob/living
-	var/datum/psi_complexus/psi
-
 /mob/living/proc/set_psi_rank(var/rank, var/defer_update, var/temporary)
 	if(HAS_TRAIT(src, TRAIT_PSIONICALLY_DEAF))
 		to_chat(src, SPAN_WARNING("Something tingles in your head."))

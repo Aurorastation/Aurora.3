@@ -380,3 +380,43 @@
   hazelmouse:
   - rscadd: Lighting aboard the SCCV Horizon now varies per area, and is now slightly
       warmer in almost all areas of the game world, including off-sites.
+2026-05-29:
+  CatsinHD:
+  - rscdel: Removes Hephaestus as an option for the New Kingdom of Adhomai citizenship.
+  TheGreyWolf:
+  - rscadd: Increased the time of the cargo elevator to be 30 seconds + 10 per different
+      supplier, instead of going with the higher of the two numbers.
+  - bugfix: Fixed that the cargo control program displayed a negative number when
+      calling the elevator.
+  Wowzewow (Wezzy):
+  - balance: Duffelbags no longer give slowdown. Instead, you have to take them off
+      first before opening them.
+2026-05-30:
+  Hellfirejag:
+  - bugfix: Fixed the Hiskyn Treasure Trove away site not having any ambience.
+  - rscadd: Map Areas will now cause unit tests to fail if given invalid ambience.
+  - bugfix: Hopefully fixed a hard delete with Bluespace Techs.
+  - rscadd: Bluespace Techs now spawn with all skills fully maxed out
+  - rscadd: Upon being promoted to Antagonist, player characters now have certain
+      skills (such as Firearms) always increased to at least a minimum level of competence.
+  - bugfix: Fixed a bug where both Leadership and Ministry could apply to the same
+      mouse click.
+  - bugfix: Fixed Ministry not cancelling if you fail to click on a valid target.
+  - bugfix: Fixed player characters who have never visited the Skills menu failing
+      to generate required skills.
+  - bugfix: Fixed player characters spawning with non-required skills (like Ministry)
+      at rank 1.
+  Kano:
+  - bugfix: Fixed not being able to write messages on longbow shell ammunition.
+  TheGreyWolf:
+  - bugfix: The OM now has access to the spark and canary, as they are meant to have.
+  kermit:
+  - rscadd: Adds 3x PsiProtect Broad Use pill bottles to the Pharmacy retail shelf
+      for prescription refills (and investigation).
+2026-05-31:
+  Kano:
+  - bugfix: Fixed the machinery repath in cryo outpost Odyssey map.
+  TheGreyWolf:
+  - bugfix: Gives the role merchant a EFTPOS.
+  Wowzewow (Wezzy):
+  - soundadd: Adds a whole lot more of pick up, drop, and handling sounds.

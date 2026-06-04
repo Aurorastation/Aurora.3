@@ -1,7 +1,0 @@
-author: TheGreyWolf
-
-delete-after: True
-
-changes:
-  - rscadd: "Increased the time of the cargo elevator to be 30 seconds + 10 per different supplier, instead of going with the higher of the two numbers."
-  - bugfix: "Fixed that the cargo control program displayed a negative number when calling the elevator."
