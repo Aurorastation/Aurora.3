@@ -139,8 +139,6 @@
 	var/image/eye_emissive
 	/// A list of cached eye overlays relevant to the robot's current module
 	var/list/image/cached_eye_overlays = list()
-	/// A cached eye emissive relevant to the robot's current module
-	var/list/image/cached_eye_emissive
 	/// The robot's active panel overlay, used when a robot is open and undergoing maintenance
 	var/image/panel_overlay
 	/// A list of cached panel overlays relevant to the robot's current module.
