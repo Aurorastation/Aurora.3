@@ -58,13 +58,13 @@
 	var/list/radio_parts
 
 /// Returns the complete message as the given listener perceives it.
-/datum/say_message/proc/render_for(mob/listener, clarity = CLARITY_CLEAR)
+/datum/say_message/proc/text_for(mob/listener, clarity = CLARITY_CLEAR)
 	if(clarity == CLARITY_DROWSY)
-		return render_drowsy(listener)
+		return drowsy_text_for(listener)
 
 	var/list/plain = list()
 	for(var/datum/say_segment/segment as anything in segments)
-		plain += segment.render_for(listener, speaker)
+		plain += segment.plain_text_for(listener, speaker)
 
 	// INNATE (audible emotes) are narration, never garbled even when faint
 	if(clarity == CLARITY_FAINT && !(single_language?.flags & INNATE))
@@ -85,17 +85,21 @@
 		body = "[sing_note] <span class='singing'>[body]</span> [sing_note]"
 	return body
 
-/// Special rendering for drowsy mobs. They almost hear individual words.
-/datum/say_message/proc/render_drowsy(mob/listener)
+/// Returns the message as a bare perceived string.
+/datum/say_message/proc/plain_text_for(mob/listener)
+	var/list/plain = list()
+	for(var/datum/say_segment/segment as anything in segments)
+		plain += segment.plain_text_for(listener, speaker)
+	return jointext(plain, "")
+
+/// Returns the message as decorated text for drowsy listeners.
+/datum/say_message/proc/drowsy_text_for(mob/listener)
 	if(isdeaf(listener))
 		return ""
 	if(!prob(15))
 		return "<span class = 'game_say'>...<i>You almost hear someone talking</i>...</span>"
 
-	var/list/plain = list()
-	for(var/datum/say_segment/segment as anything in segments)
-		plain += segment.render_for(listener, speaker)
-	var/list/messages = text2list(jointext(plain, ""), " ")
+	var/list/messages = text2list(plain_text_for(listener), " ")
 	if(!length(messages))
 		return "<span class = 'game_say'>...<i>You almost hear someone talking</i>...</span>"
 

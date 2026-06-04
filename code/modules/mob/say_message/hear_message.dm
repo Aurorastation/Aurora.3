@@ -213,7 +213,7 @@
 	if(msg.say_mode != SAYMODE_RADIO && isghost(src) && speaker && !speaker.client && (client?.prefs.toggles & CHAT_GHOSTEARS) && !(speaker in view(src)))
 		return
 
-	var/body = msg.render_for(src, clarity)
+	var/body = msg.text_for(src, clarity)
 	if(!length(body))
 		return
 

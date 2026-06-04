@@ -13,7 +13,7 @@
 	src.language = language
 
 /// Returns the segment as the given listener perceives it.
-/datum/say_segment/proc/render_for(mob/listener, mob/speaker)
+/datum/say_segment/proc/plain_text_for(mob/listener, mob/speaker)
 	if(language && (language.flags & KNOWONLYHEAR) && !listener.say_understands(speaker, language))
 		return ""
 	var/rendered = text
