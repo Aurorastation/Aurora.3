@@ -10,7 +10,7 @@
 	var/raw_message
 
 	/// The list of segments that make up the message body.
-	var/list/say_segment/segments = list()
+	var/list/datum/say_segment/segments = list()
 
 	/// The sole language of this message, or null if it interleaves more than one.
 	var/datum/language/single_language
@@ -23,6 +23,9 @@
 
 	/// Is the message being sung?
 	var/singing = FALSE
+
+	/// The musical note bracketing a sung message.
+	var/sing_note
 
 	/// Should the message render as italic?
 	var/italics = FALSE
@@ -77,7 +80,10 @@
 			rendered = capitalize(rendered)
 			first = FALSE
 		out += segment.language ? segment.language.colourize(rendered) : rendered
-	return listener.hallucinate_heard(jointext(out, ""), speaker)
+	var/body = listener.hallucinate_heard(jointext(out, ""), speaker)
+	if(singing && length(body))
+		body = "[sing_note] <span class='singing'>[body]</span> [sing_note]"
+	return body
 
 /// Special rendering for drowsy mobs. They almost hear individual words.
 /datum/say_message/proc/render_drowsy(mob/listener)

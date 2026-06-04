@@ -189,11 +189,16 @@
 			return null
 
 /// Splits a message into per-language /datum/say_segment, switching language at each spoken prefix.
-/mob/living/proc/build_say_message(message)
+/// A forced language takes the whole message with no prefix parsing.
+/mob/living/proc/build_say_message(message, datum/language/forced_language)
 	RETURN_TYPE(/datum/say_message)
 	var/datum/say_message/say_message = new
 	say_message.speaker = src
 	say_message.raw_message = message
+
+	if(forced_language)
+		say_message.collapse_to(forced_language, message)
+		return say_message
 
 	var/datum/language/current = get_default_language()
 
@@ -201,7 +206,7 @@
 	trigger.next = 1
 
 	var/segment_start = 1
-	var/list/say_segment/segments = list()
+	var/list/datum/say_segment/segments = list()
 
 	while(trigger.Find(message))
 		var/lead = trigger.group[1]	//empty at the start of the message, otherwise the whitespace before the prefix
@@ -216,7 +221,7 @@
 		if(!found)
 			continue	//not a language we can speak, leave it as literal text and keep scanning
 
-		var/before = copytext(message, segment_start, prefix_pos - length(lead))
+		var/before = copytext(message, segment_start, prefix_pos)
 
 		var/after = key_pos + key_len
 		if(copytext(message, after, after + 1) == " ")
@@ -249,8 +254,8 @@
 	return (istype(found) && can_speak(found)) ? found : null
 
 /// Drops empty segments and merges adjacent ones sharing a language.
-/proc/clean_segments(list/say_segment/segments)
-	var/list/say_segment/cleaned = list()
+/proc/clean_segments(list/datum/say_segment/segments)
+	var/list/datum/say_segment/cleaned = list()
 	for(var/datum/say_segment/segment as anything in segments)
 		if(!length(segment.text))
 			continue

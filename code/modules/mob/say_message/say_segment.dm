@@ -22,4 +22,6 @@
 			rendered = stars(rendered)
 	if(!(language && (language.flags & INNATE)) && !listener.say_understands(speaker, language))
 		rendered = language ? language.scramble(rendered, listener.languages) : stars(rendered)
+	if(copytext(text, length(text)) == " " && copytext(rendered, length(rendered)) != " ")
+		rendered += " "
 	return rendered
