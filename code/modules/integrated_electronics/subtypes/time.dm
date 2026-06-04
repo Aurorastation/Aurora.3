@@ -19,7 +19,7 @@
 	var/delay = 2 SECONDS
 	activators = list("incoming"= IC_PINTYPE_PULSE_IN,"outgoing" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
-	power_draw_per_use = 20
+	power_draw_per_use = 30
 
 /obj/item/integrated_circuit/time/delay/do_work()
 	addtimer(CALLBACK(src, TYPE_PROC_REF(/obj/item/integrated_circuit, activate_pin), 2), delay)
@@ -31,6 +31,7 @@
 	icon_state = "delay-50"
 	delay = 5 SECONDS
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+	power_draw_per_use = 20
 
 /obj/item/integrated_circuit/time/delay/one_sec
 	name = "one-sec delay circuit"
@@ -39,30 +40,37 @@
 	icon_state = "delay-10"
 	delay = 1 SECOND
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+	power_draw_per_use = 40
 
 /obj/item/integrated_circuit/time/delay/half_sec
 	name = "half-sec delay circuit"
 	desc = "This sends a pulse signal out after a delay, critical for ensuring proper control flow in a complex machine.  \
 	This circuit is set to send a pulse after a delay of half a second."
 	icon_state = "delay-5"
+	complexity = 4
 	delay = 5
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+	power_draw_per_use = 60
 
 /obj/item/integrated_circuit/time/delay/tenth_sec
 	name = "tenth-sec delay circuit"
 	desc = "This sends a pulse signal out after a delay, critical for ensuring proper control flow in a complex machine.  \
 	This circuit is set to send a pulse after a delay of 1/10th of a second."
 	icon_state = "delay-1"
+	complexity = 6
 	delay = 1
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+	power_draw_per_use = 100
 
 /obj/item/integrated_circuit/time/delay/custom
 	name = "custom delay circuit"
 	desc = "This sends a pulse signal out after a delay, critical for ensuring proper control flow in a complex machine.  \
 	This circuit's delay can be customized, between 1/10th of a second to one hour.  The delay is updated upon receiving a pulse."
 	icon_state = "delay"
+	complexity = 6
 	inputs = list("delay time" = IC_PINTYPE_NUMBER)
 	spawn_flags = IC_SPAWN_RESEARCH
+	power_draw_per_use = 100
 
 /obj/item/integrated_circuit/time/delay/custom/on_data_written()
 	delay = between(1, get_pin_data(IC_INPUT, 1), 1 HOUR)
@@ -73,7 +81,7 @@
 	desc = "Sends an automatic pulse every ten seconds."
 	icon_state = "tick-m"
 	complexity = 8
-	var/seconds_to_pulse = 10 SECONDS
+	var/seconds_to_pulse = 10
 	var/ticks_completed = 0
 	var/is_running = FALSE
 	inputs = list("enable ticking" = IC_PINTYPE_BOOLEAN)
@@ -90,7 +98,7 @@
 	if(do_tick && !is_running)
 		is_running = TRUE
 		START_PROCESSING(SSelectronics, src)
-	else if(is_running)
+	else if(!do_tick && is_running)
 		is_running = FALSE
 		STOP_PROCESSING(SSelectronics, src)
 		ticks_completed = 0
@@ -103,7 +111,24 @@
 			ticks_completed -= SecondsToTicks(seconds_to_pulse)
 		else
 			ticks_completed = 0
+		if(!check_power())
+			power_fail()
+			return
 		activate_pin(1)
+
+/obj/item/integrated_circuit/time/ticker/power_fail()
+	is_running = FALSE
+	STOP_PROCESSING(SSelectronics, src)
+	ticks_completed = 0
+
+/obj/item/integrated_circuit/time/ticker/rapid
+	name = "one second ticker"
+	desc = "Sends an automatic pulse every second."
+	icon_state = "tick-f"
+	complexity = 18
+	seconds_to_pulse = 1
+	spawn_flags = IC_SPAWN_RESEARCH
+	power_draw_per_use = 240
 
 /obj/item/integrated_circuit/time/ticker/fast
 	name = "two second ticker"
@@ -112,7 +137,7 @@
 	complexity = 12
 	seconds_to_pulse = 2
 	spawn_flags = IC_SPAWN_RESEARCH
-	power_draw_per_use = 80
+	power_draw_per_use = 120
 
 /obj/item/integrated_circuit/time/ticker/slow
 	name = "thirty second ticker"
@@ -139,7 +164,7 @@
 	complexity = 15
 	seconds_to_pulse = 60
 	spawn_flags = IC_SPAWN_RESEARCH
-	power_draw_per_use = 80
+	power_draw_per_use = 120
 	inputs = list("enable ticking" = IC_PINTYPE_BOOLEAN, "ticker time" = IC_PINTYPE_NUMBER)
 
 /obj/item/integrated_circuit/time/ticker/custom/on_data_written()
@@ -175,10 +200,10 @@
 	desc = "A ticker that starts when pulsed, ticks a fixed number of times, then stops."
 	extended_desc = "Useful when you want a signaler, scanner, button, or other pulse source to temporarily enable a repeating circuit chain."
 	icon_state = "clock"
-	complexity = 4
+	complexity = 8
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	category_text = "Time"
-	power_draw_per_use = 50
+	power_draw_per_use = 80
 
 	inputs = list(
 		"delay seconds" = IC_PINTYPE_NUMBER,
@@ -217,12 +242,12 @@
 	var/input_ticks = get_pin_data(IC_INPUT, 2)
 
 	if(isnum(input_delay))
-		input_delay = max(0.1, input_delay)
+		input_delay = between(1, input_delay, 60)
 	else
 		input_delay = 2
 
 	if(isnum(input_ticks))
-		input_ticks = max(1, round(input_ticks))
+		input_ticks = between(1, round(input_ticks), 20)
 	else
 		input_ticks = 4
 
@@ -240,6 +265,10 @@
 
 /obj/item/integrated_circuit/timed/signal_burst_ticker/proc/process_tick()
 	if(!running)
+		return
+
+	if(!check_power())
+		power_fail()
 		return
 
 	current_tick++
@@ -262,3 +291,8 @@
 /obj/item/integrated_circuit/timed/signal_burst_ticker/Destroy()
 	running = FALSE
 	return ..()
+
+/obj/item/integrated_circuit/timed/signal_burst_ticker/power_fail()
+	running = FALSE
+	set_pin_data(IC_OUTPUT, 2, running)
+	push_data()

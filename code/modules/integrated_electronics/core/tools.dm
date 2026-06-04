@@ -377,8 +377,45 @@
 		/obj/item/integrated_circuit/time
 	)
 
+/obj/item/storage/bag/circuits/mini/time/fill()
+	var/list/basic_time_circuits = list(
+		/obj/item/integrated_circuit/time/delay,
+		/obj/item/integrated_circuit/time/delay/five_sec,
+		/obj/item/integrated_circuit/time/delay/one_sec,
+		/obj/item/integrated_circuit/time/delay/half_sec,
+		/obj/item/integrated_circuit/time/delay/tenth_sec,
+		/obj/item/integrated_circuit/time/ticker/fast,
+		/obj/item/integrated_circuit/time/ticker,
+		/obj/item/integrated_circuit/time/ticker/slow,
+		/obj/item/integrated_circuit/time/ticker/very_slow,
+		/obj/item/integrated_circuit/time/clock
+	)
+	for(var/circuit_type in basic_time_circuits)
+		for(var/i in 1 to 4)
+			new circuit_type(src)
+
 /obj/item/storage/bag/circuits/mini/time/all
 	spawn_flags_to_use = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+
+/obj/item/storage/bag/circuits/mini/time/all/fill()
+	var/list/all_time_circuits = list(
+		/obj/item/integrated_circuit/time/delay,
+		/obj/item/integrated_circuit/time/delay/five_sec,
+		/obj/item/integrated_circuit/time/delay/one_sec,
+		/obj/item/integrated_circuit/time/delay/half_sec,
+		/obj/item/integrated_circuit/time/delay/tenth_sec,
+		/obj/item/integrated_circuit/time/delay/custom,
+		/obj/item/integrated_circuit/time/ticker/rapid,
+		/obj/item/integrated_circuit/time/ticker/fast,
+		/obj/item/integrated_circuit/time/ticker,
+		/obj/item/integrated_circuit/time/ticker/slow,
+		/obj/item/integrated_circuit/time/ticker/very_slow,
+		/obj/item/integrated_circuit/time/ticker/custom,
+		/obj/item/integrated_circuit/time/clock
+	)
+	for(var/circuit_type in all_time_circuits)
+		for(var/i in 1 to 4)
+			new circuit_type(src)
 
 /obj/item/storage/bag/circuits/mini/reagents
 	name = "reagent circuit box"

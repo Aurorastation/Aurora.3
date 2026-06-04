@@ -3,7 +3,7 @@
 
 PROCESSING_SUBSYSTEM_DEF(electronics)
 	name = "Electronics"
-	wait = 2 SECONDS
+	wait = 1 SECOND
 	priority = SS_PRIORITY_ELECTRONICS
 	flags = SS_KEEP_TIMING
 	init_order = INIT_ORDER_MISC_FIRST

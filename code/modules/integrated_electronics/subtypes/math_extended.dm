@@ -114,13 +114,84 @@
 	return result
 
 /proc/ic_math_grid(list/input)
+	if(!islist(input) || !length(input) || length(input) > IC_MATH_GRID_LIMIT)
+		return null
+
+	var/width = 0
+	var/list/result = list()
+	for(var/row in input)
+		if(!islist(row))
+			return null
+		var/list/row_list = row
+		if(!length(row_list) || length(row_list) > IC_MATH_GRID_LIMIT)
+			return null
+		if(!width)
+			width = length(row_list)
+		else if(width != length(row_list))
+			return null
+		var/list/grid_row = list()
+		for(var/value in row_list)
+			if(isnum(value))
+				grid_row += value
+			else if(islist(value))
+				var/list/vector = ic_math_numeric_list(value, 2)
+				if(!vector || length(vector) < 2)
+					return null
+				grid_row += list(list(vector[1], vector[2]))
+			else
+				return null
+		result += list(grid_row)
+
+	return result
+
+/proc/ic_math_matrix_dimensions(list/input)
 	var/list/matrix = ic_math_matrix(input)
-	if(!matrix || length(matrix) > IC_MATH_GRID_LIMIT)
+	if(!matrix)
 		return null
-	var/list/first_row = matrix[1]
-	if(length(first_row) > IC_MATH_GRID_LIMIT)
+
+	return list(length(matrix), length(matrix[1]))
+
+/proc/ic_math_grid_dimensions(list/input)
+	var/list/grid = ic_math_grid(input)
+	if(!grid)
 		return null
-	return matrix
+
+	return list(length(grid), length(grid[1]))
+
+/proc/ic_math_matrix_to_text(list/input, limit = MAX_MESSAGE_LEN)
+	var/list/matrix = ic_math_matrix(input)
+	if(!matrix)
+		return null
+
+	var/list/rows = list()
+	for(var/list/row in matrix)
+		rows += "\[[jointext(row, ", ")]\]"
+
+	var/text = jointext(rows, "; ")
+	if(length(text) > limit)
+		return "[copytext(text, 1, limit - 3)]..."
+	return text
+
+/proc/ic_math_grid_to_text(list/input, limit = MAX_MESSAGE_LEN)
+	var/list/grid = ic_math_grid(input)
+	if(!grid)
+		return null
+
+	var/list/rows = list()
+	for(var/list/row in grid)
+		var/list/values = list()
+		for(var/value in row)
+			if(islist(value))
+				var/list/vector = value
+				values += "([vector[1]], [vector[2]])"
+			else
+				values += "[value]"
+		rows += "\[[jointext(values, ", ")]\]"
+
+	var/text = jointext(rows, "; ")
+	if(length(text) > limit)
+		return "[copytext(text, 1, limit - 3)]..."
+	return text
 
 /obj/item/integrated_circuit/math
 	name = "math circuit"
@@ -219,6 +290,12 @@
 			succeed(fcosh(A))
 		if("tanh")
 			succeed(ftanh(A))
+		if("deadband")
+			if(!isnum(A) || !isnum(B))
+				fail()
+				return
+			B = abs(B)
+			succeed(abs(A) <= B ? 0 : A)
 		if("linear")
 			if(!isnum(A) || !isnum(B) || !isnum(C))
 				fail()
@@ -235,7 +312,7 @@
 
 /obj/item/integrated_circuit/math/numeric/clamp
 	name = "clamp circuit"
-	desc = "Restricts a value to an inclusive minimum and maximum."
+	desc = "Restricts a sensor, score, or control value to an inclusive minimum and maximum."
 	inputs = list("value" = IC_PINTYPE_NUMBER, "minimum" = IC_PINTYPE_NUMBER, "maximum" = IC_PINTYPE_NUMBER)
 	operation = "clamp"
 
@@ -253,9 +330,9 @@
 
 /obj/item/integrated_circuit/math/numeric/linear
 	name = "linear function circuit"
-	desc = "Calculates m*x+b."
+	desc = "Applies a linear scale and offset to a sensor value."
 	category_text = "MATH - Algebra"
-	inputs = list("m" = IC_PINTYPE_NUMBER, "x" = IC_PINTYPE_NUMBER, "b" = IC_PINTYPE_NUMBER)
+	inputs = list("scale" = IC_PINTYPE_NUMBER, "value" = IC_PINTYPE_NUMBER, "offset" = IC_PINTYPE_NUMBER)
 	operation = "linear"
 
 /obj/item/integrated_circuit/math/numeric/quadratic
@@ -308,10 +385,17 @@
 
 /obj/item/integrated_circuit/math/numeric/atan2
 	name = "atan2 circuit"
-	desc = "Calculates an angle from X and Y components."
+	desc = "Calculates a direction angle from relative X and Y components for aiming, display, or movement logic."
 	category_text = "MATH - Trigonometry"
-	inputs = list("x" = IC_PINTYPE_NUMBER, "y" = IC_PINTYPE_NUMBER)
+	inputs = list("relative x" = IC_PINTYPE_NUMBER, "relative y" = IC_PINTYPE_NUMBER)
 	operation = "atan2"
+
+/obj/item/integrated_circuit/math/numeric/deadband
+	name = "deadband circuit"
+	desc = "Suppresses small noisy values around zero so sensor-driven controls do not twitch."
+	category_text = "MATH - Signal Processing"
+	inputs = list("value" = IC_PINTYPE_NUMBER, "deadband" = IC_PINTYPE_NUMBER)
+	operation = "deadband"
 
 /obj/item/integrated_circuit/math/numeric/degrees_to_radians
 	name = "degrees to radians circuit"
@@ -439,18 +523,18 @@
 
 /obj/item/integrated_circuit/math/geometry/midpoint
 	name = "midpoint 2D circuit"
-	desc = "Calculates the midpoint between two 2D points."
+	desc = "Finds the center point between two coordinates for patrol, follow, or targeting logic."
 	outputs = list("x" = IC_PINTYPE_NUMBER, "y" = IC_PINTYPE_NUMBER, "status" = IC_PINTYPE_STRING)
 	operation = "midpoint"
 
 /obj/item/integrated_circuit/math/geometry/distance2
 	name = "distance 2D circuit"
-	desc = "Calculates Euclidean distance between two 2D points."
+	desc = "Calculates direct range between two coordinates for follow distance, target scoring, or proximity alarms."
 	operation = "distance2"
 
 /obj/item/integrated_circuit/math/geometry/distance2sq
 	name = "distance squared 2D circuit"
-	desc = "Calculates squared distance between two 2D points."
+	desc = "Calculates squared range for cheaper target comparisons when exact distance is not needed."
 	operation = "distance2sq"
 
 /obj/item/integrated_circuit/math/geometry/distance3
@@ -461,22 +545,22 @@
 
 /obj/item/integrated_circuit/math/geometry/manhattan
 	name = "manhattan distance circuit"
-	desc = "Calculates Manhattan distance between two 2D points."
+	desc = "Calculates grid-step distance between two coordinates for tile movement estimates."
 	operation = "manhattan"
 
 /obj/item/integrated_circuit/math/geometry/chebyshev
 	name = "chebyshev distance circuit"
-	desc = "Calculates Chebyshev distance between two 2D points."
+	desc = "Calculates maximum-axis tile distance for simple range gates and square sensor zones."
 	operation = "chebyshev"
 
 /obj/item/integrated_circuit/math/geometry/slope
 	name = "slope circuit"
-	desc = "Calculates the slope between two 2D points."
+	desc = "Calculates rise over run between two coordinates for directional trend displays."
 	operation = "slope"
 
 /obj/item/integrated_circuit/math/geometry/angle_between_points
 	name = "angle between points circuit"
-	desc = "Calculates the angle from one 2D point to another."
+	desc = "Calculates a heading from one coordinate to another for directional displays or aiming logic."
 	operation = "angle"
 
 /obj/item/integrated_circuit/math/geometry/circle_area
@@ -568,6 +652,16 @@
 			for(var/value in numbers)
 				result += abs(value)
 			succeed(result)
+		if("normalize")
+			var/minimum = min(numbers)
+			var/maximum = max(numbers)
+			if(maximum == minimum)
+				fail("Flat list")
+				return
+			var/list/result = list()
+			for(var/value in numbers)
+				result += (value - minimum) / (maximum - minimum)
+			succeed(result)
 		if("moving_average")
 			if(!isnum(N) || N < 1)
 				fail("Invalid window")
@@ -588,39 +682,45 @@
 
 /obj/item/integrated_circuit/math/list/list_add
 	name = "list add circuit"
-	desc = "Adds two numeric lists element by element."
+	desc = "Adds two matching numeric lists element by element, useful for combining sensor vectors or target scores."
 	operation = "add"
 
 /obj/item/integrated_circuit/math/list/list_subtract
 	name = "list subtract circuit"
-	desc = "Subtracts two numeric lists element by element."
+	desc = "Subtracts matching numeric lists element by element, useful for deltas between sensor samples."
 	operation = "subtract"
 
 /obj/item/integrated_circuit/math/list/list_multiply
 	name = "list multiply circuit"
-	desc = "Multiplies two numeric lists element by element."
+	desc = "Multiplies matching numeric lists element by element, useful for applying per-target weights."
 	operation = "multiply"
 
 /obj/item/integrated_circuit/math/list/list_divide
 	name = "list divide circuit"
-	desc = "Divides two numeric lists element by element."
+	desc = "Divides matching numeric lists element by element, useful for ratios or normalized sensor comparisons."
 	operation = "divide"
 
 /obj/item/integrated_circuit/math/list/list_clamp
 	name = "list clamp circuit"
-	desc = "Clamps every numeric value in a list."
+	desc = "Clamps every numeric value in a list for bounded sensor displays or threat scores."
 	inputs = list("list" = IC_PINTYPE_LIST, "minimum" = IC_PINTYPE_NUMBER, "maximum" = IC_PINTYPE_NUMBER)
 	operation = "clamp"
 
 /obj/item/integrated_circuit/math/list/list_absolute
 	name = "list absolute value circuit"
-	desc = "Returns absolute values for every number in a list."
+	desc = "Returns absolute values for every number in a list, useful for error magnitudes and sensor deltas."
 	inputs = list("list" = IC_PINTYPE_LIST)
 	operation = "abs"
 
+/obj/item/integrated_circuit/math/list/list_normalize
+	name = "list normalize circuit"
+	desc = "Scales a numeric list to 0-1 for target scoring, display bars, and weighted selection."
+	inputs = list("list" = IC_PINTYPE_LIST)
+	operation = "normalize"
+
 /obj/item/integrated_circuit/math/list/moving_average
 	name = "moving average circuit"
-	desc = "Calculates a moving average over a numeric list."
+	desc = "Smooths a numeric sample list for stable sensor displays and non-jittery alarms."
 	category_text = "MATH - Statistics"
 	inputs = list("samples" = IC_PINTYPE_LIST, "window" = IC_PINTYPE_NUMBER)
 	operation = "moving_average"
@@ -693,22 +793,22 @@
 
 /obj/item/integrated_circuit/math/statistics/count
 	name = "count circuit"
-	desc = "Counts list entries."
+	desc = "Counts list entries for target lists, sample buffers, and queue monitors."
 	operation = "count"
 
 /obj/item/integrated_circuit/math/statistics/sum
 	name = "sum circuit"
-	desc = "Sums a numeric list."
+	desc = "Sums numeric samples for total exposure, resource use, or combined score."
 	operation = "sum"
 
 /obj/item/integrated_circuit/math/statistics/mean
 	name = "mean circuit"
-	desc = "Calculates the mean of a numeric list."
+	desc = "Averages sensor samples for stable displays and threshold checks."
 	operation = "mean"
 
 /obj/item/integrated_circuit/math/statistics/median
 	name = "median circuit"
-	desc = "Calculates the median of a numeric list."
+	desc = "Finds the median sample, useful for rejecting one-off sensor spikes."
 	operation = "median"
 
 /obj/item/integrated_circuit/math/statistics/mode
@@ -718,48 +818,48 @@
 
 /obj/item/integrated_circuit/math/statistics/minimum
 	name = "minimum of list circuit"
-	desc = "Finds the smallest number in a list."
+	desc = "Finds the smallest sample or best low-score target in a numeric list."
 	operation = "min"
 
 /obj/item/integrated_circuit/math/statistics/maximum
 	name = "maximum of list circuit"
-	desc = "Finds the largest number in a list."
+	desc = "Finds the largest sample or strongest target score in a numeric list."
 	operation = "max"
 
 /obj/item/integrated_circuit/math/statistics/range
 	name = "range circuit"
-	desc = "Calculates max minus min for a numeric list."
+	desc = "Measures spread between samples for anomaly, noise, or instability detection."
 	operation = "range"
 
 /obj/item/integrated_circuit/math/statistics/variance
 	name = "variance circuit"
-	desc = "Calculates population variance for a numeric list."
+	desc = "Measures sample volatility for unstable sensors, radiation bursts, or target score spread."
 	operation = "variance"
 
 /obj/item/integrated_circuit/math/statistics/standard_deviation
 	name = "standard deviation circuit"
-	desc = "Calculates population standard deviation for a numeric list."
+	desc = "Measures typical sensor noise or target-score spread."
 	operation = "stdev"
 
 /obj/item/integrated_circuit/math/statistics/percentile
 	name = "percentile circuit"
-	desc = "Calculates a percentile from a numeric list."
+	desc = "Calculates a percentile for robust environmental thresholds or ranked target scores."
 	inputs = list("list" = IC_PINTYPE_LIST, "percentile" = IC_PINTYPE_NUMBER)
 	operation = "percentile"
 
 /obj/item/integrated_circuit/math/statistics/index_minimum
 	name = "index of minimum circuit"
-	desc = "Returns the one-based index of the smallest number."
+	desc = "Returns the list position of the smallest value for target cycling or lowest reading selection."
 	operation = "index_min"
 
 /obj/item/integrated_circuit/math/statistics/index_maximum
 	name = "index of maximum circuit"
-	desc = "Returns the one-based index of the largest number."
+	desc = "Returns the list position of the largest value for target cycling or hotspot selection."
 	operation = "index_max"
 
 /obj/item/integrated_circuit/math/statistics/weighted_average
 	name = "weighted average circuit"
-	desc = "Calculates weighted average from values and matching weights."
+	desc = "Combines values with matching weights for target scoring and sensor fusion."
 	inputs = list("values" = IC_PINTYPE_LIST, "weights" = IC_PINTYPE_LIST)
 	operation = "weighted_average"
 
@@ -896,81 +996,81 @@
 
 /obj/item/integrated_circuit/math/vector/create2
 	name = "vector create 2D circuit"
-	desc = "Creates a two-entry vector."
-	inputs = list("x" = IC_PINTYPE_NUMBER, "y" = IC_PINTYPE_NUMBER)
+	desc = "Creates a 2D vector from relative X/Y values for movement, aiming, or field sampling."
+	inputs = list("relative x" = IC_PINTYPE_NUMBER, "relative y" = IC_PINTYPE_NUMBER)
 	operation = "create2"
 
 /obj/item/integrated_circuit/math/vector/create3
 	name = "vector create 3D circuit"
-	desc = "Creates a three-entry vector."
+	desc = "Creates a 3D vector for coordinate deltas or multi-sensor values."
 	inputs = list("x" = IC_PINTYPE_NUMBER, "y" = IC_PINTYPE_NUMBER, "z" = IC_PINTYPE_NUMBER)
 	operation = "create3"
 
 /obj/item/integrated_circuit/math/vector/add
 	name = "vector add circuit"
-	desc = "Adds two vectors."
+	desc = "Adds two vectors for offset movement, steering, or combined sensor direction."
 	operation = "add"
 
 /obj/item/integrated_circuit/math/vector/subtract
 	name = "vector subtract circuit"
-	desc = "Subtracts two vectors."
+	desc = "Subtracts vectors to get relative movement, target offsets, or sample deltas."
 	operation = "subtract"
 
 /obj/item/integrated_circuit/math/vector/scale
 	name = "vector scale circuit"
-	desc = "Scales a vector by a number."
+	desc = "Scales a movement or sensor vector by a numeric strength."
 	inputs = list("vector" = IC_PINTYPE_LIST, "scale" = IC_PINTYPE_NUMBER)
 	operation = "scale"
 
 /obj/item/integrated_circuit/math/vector/magnitude
 	name = "vector magnitude circuit"
-	desc = "Calculates vector magnitude."
+	desc = "Calculates vector length for distance, signal strength, or movement error."
 	inputs = list("vector" = IC_PINTYPE_LIST)
 	operation = "magnitude"
 
 /obj/item/integrated_circuit/math/vector/magnitude_squared
 	name = "vector magnitude squared circuit"
-	desc = "Calculates squared vector magnitude."
+	desc = "Calculates squared vector length for cheap target-distance comparisons."
 	inputs = list("vector" = IC_PINTYPE_LIST)
 	operation = "magnitude_sq"
 
 /obj/item/integrated_circuit/math/vector/normalize
 	name = "vector normalize circuit"
-	desc = "Normalizes a vector."
+	desc = "Turns a movement or gradient vector into a unit direction."
 	inputs = list("vector" = IC_PINTYPE_LIST)
 	operation = "normalize"
 
 /obj/item/integrated_circuit/math/vector/dot
 	name = "dot product circuit"
-	desc = "Calculates vector dot product."
+	desc = "Scores how closely two directions align for targeting, following, and field checks."
 	outputs = list("result" = IC_PINTYPE_NUMBER, "status" = IC_PINTYPE_STRING)
 	operation = "dot"
 
 /obj/item/integrated_circuit/math/vector/cross
 	name = "cross product circuit"
-	desc = "Calculates 3D vector cross product."
+	desc = "Calculates a 3D perpendicular vector for advanced orientation logic."
 	operation = "cross"
 
 /obj/item/integrated_circuit/math/vector/cross2
 	name = "2D scalar cross product circuit"
-	desc = "Calculates scalar 2D cross product."
+	desc = "Calculates 2D turn direction, useful for left/right steering decisions."
 	outputs = list("result" = IC_PINTYPE_NUMBER, "status" = IC_PINTYPE_STRING)
 	operation = "cross2"
 
 /obj/item/integrated_circuit/math/vector/angle
 	name = "angle between vectors circuit"
-	desc = "Calculates the angle between two vectors in degrees."
+	desc = "Calculates angle between two vectors for aim error or heading difference."
 	outputs = list("result" = IC_PINTYPE_NUMBER, "status" = IC_PINTYPE_STRING)
 	operation = "angle"
 
 /obj/item/integrated_circuit/math/vector/projection
 	name = "projection circuit"
-	desc = "Projects vector A onto vector B."
+	desc = "Projects one vector onto another to measure progress along a route or sensor axis."
 	operation = "projection"
 
 /obj/item/integrated_circuit/math/vector/clamp_magnitude
 	name = "vector clamp magnitude circuit"
-	desc = "Limits vector magnitude."
+	desc = "Limits movement or control vector strength without changing direction."
 	inputs = list("vector" = IC_PINTYPE_LIST, "maximum magnitude" = IC_PINTYPE_NUMBER)
 	operation = "clamp_magnitude"
 
@@ -1087,24 +1187,24 @@
 
 /obj/item/integrated_circuit/math/matrix/multiply
 	name = "matrix multiply circuit"
-	desc = "Multiplies two matrices."
+	desc = "Combines numeric transforms for compact coordinate, grid, or vector processing."
 	operation = "multiply"
 
 /obj/item/integrated_circuit/math/matrix/vector_multiply
 	name = "matrix vector multiply circuit"
-	desc = "Multiplies a matrix by a vector."
+	desc = "Applies a matrix transform to a vector for rotation, scaling, or coordinate conversion."
 	inputs = list("matrix" = IC_PINTYPE_LIST, "vector" = IC_PINTYPE_LIST)
 	operation = "matrix_vector"
 
 /obj/item/integrated_circuit/math/matrix/transpose
 	name = "transpose circuit"
-	desc = "Transposes a matrix."
+	desc = "Swaps matrix rows and columns for grid reorientation and row/column inspection."
 	inputs = list("matrix" = IC_PINTYPE_LIST)
 	operation = "transpose"
 
 /obj/item/integrated_circuit/math/matrix/identity
 	name = "identity matrix circuit"
-	desc = "Creates an identity matrix."
+	desc = "Creates a neutral matrix transform for building or testing matrix chains."
 	inputs = list("size" = IC_PINTYPE_NUMBER)
 	operation = "identity"
 
@@ -1130,9 +1230,225 @@
 
 /obj/item/integrated_circuit/math/matrix/rotation2
 	name = "2D rotation transform circuit"
-	desc = "Creates a 2D rotation matrix from degrees."
+	desc = "Creates a 2D rotation matrix from degrees for rotating movement or target vectors."
 	inputs = list("angle" = IC_PINTYPE_NUMBER)
 	operation = "rotation2"
+
+/obj/item/integrated_circuit/math/matrix/from_rows
+	name = "matrix from rows circuit"
+	desc = "Builds a numeric matrix from row lists for transform, grid, and display circuits."
+	inputs = list(
+		"row 1" = IC_PINTYPE_LIST,
+		"row 2" = IC_PINTYPE_LIST,
+		"row 3" = IC_PINTYPE_LIST,
+		"row 4" = IC_PINTYPE_LIST
+	)
+	outputs = list(
+		"matrix" = IC_PINTYPE_LIST,
+		"rows" = IC_PINTYPE_NUMBER,
+		"columns" = IC_PINTYPE_NUMBER,
+		"valid" = IC_PINTYPE_BOOLEAN,
+		"status" = IC_PINTYPE_STRING
+	)
+	complexity = 6
+	operation = "from_rows"
+
+/obj/item/integrated_circuit/math/matrix/from_rows/do_work()
+	var/list/matrix = list()
+
+	for(var/i = 1 to IC_MATH_MATRIX_LIMIT)
+		var/list/row = get_pin_data(IC_INPUT, i)
+		if(!islist(row))
+			continue
+		matrix += list(row)
+
+	matrix = ic_math_matrix(matrix)
+	if(!matrix)
+		set_pin_data(IC_OUTPUT, 4, FALSE)
+		set_pin_data(IC_OUTPUT, 5, "Invalid matrix")
+		push_data()
+		activate_pin(3)
+		return
+
+	set_pin_data(IC_OUTPUT, 1, matrix)
+	set_pin_data(IC_OUTPUT, 2, length(matrix))
+	set_pin_data(IC_OUTPUT, 3, length(matrix[1]))
+	set_pin_data(IC_OUTPUT, 4, TRUE)
+	set_pin_data(IC_OUTPUT, 5, "OK")
+	push_data()
+	activate_pin(2)
+
+/obj/item/integrated_circuit/math/matrix/from_flat_list
+	name = "matrix from flat list circuit"
+	desc = "Builds a numeric matrix from flat samples plus row and column counts."
+	inputs = list(
+		"values" = IC_PINTYPE_LIST,
+		"rows" = IC_PINTYPE_NUMBER,
+		"columns" = IC_PINTYPE_NUMBER
+	)
+	outputs = list(
+		"matrix" = IC_PINTYPE_LIST,
+		"valid" = IC_PINTYPE_BOOLEAN,
+		"status" = IC_PINTYPE_STRING
+	)
+	complexity = 6
+	operation = "from_flat_list"
+
+/obj/item/integrated_circuit/math/matrix/from_flat_list/do_work()
+	var/list/values = ic_math_numeric_list(get_pin_data(IC_INPUT, 1), IC_MATH_MATRIX_LIMIT * IC_MATH_MATRIX_LIMIT)
+	var/rows = round(get_pin_data(IC_INPUT, 2))
+	var/columns = round(get_pin_data(IC_INPUT, 3))
+
+	if(!values || !isnum(rows) || !isnum(columns) || rows < 1 || rows > IC_MATH_MATRIX_LIMIT || columns < 1 || columns > IC_MATH_MATRIX_LIMIT || length(values) != rows * columns)
+		set_pin_data(IC_OUTPUT, 2, FALSE)
+		set_pin_data(IC_OUTPUT, 3, "Invalid matrix dimensions")
+		push_data()
+		activate_pin(3)
+		return
+
+	var/list/matrix = list()
+	var/index = 1
+	for(var/y = 1 to rows)
+		var/list/row = list()
+		for(var/x = 1 to columns)
+			row += values[index++]
+		matrix += list(row)
+
+	set_pin_data(IC_OUTPUT, 1, matrix)
+	set_pin_data(IC_OUTPUT, 2, TRUE)
+	set_pin_data(IC_OUTPUT, 3, "OK")
+	push_data()
+	activate_pin(2)
+
+/obj/item/integrated_circuit/math/matrix/validator
+	name = "matrix validator circuit"
+	desc = "Checks whether a matrix is valid before feeding it into transforms or displays."
+	inputs = list("matrix" = IC_PINTYPE_LIST)
+	outputs = list(
+		"valid" = IC_PINTYPE_BOOLEAN,
+		"rows" = IC_PINTYPE_NUMBER,
+		"columns" = IC_PINTYPE_NUMBER,
+		"status" = IC_PINTYPE_STRING
+	)
+	complexity = 3
+	operation = "validator"
+
+/obj/item/integrated_circuit/math/matrix/validator/do_work()
+	var/list/dimensions = ic_math_matrix_dimensions(get_pin_data(IC_INPUT, 1))
+
+	if(!dimensions)
+		set_pin_data(IC_OUTPUT, 1, FALSE)
+		set_pin_data(IC_OUTPUT, 2, 0)
+		set_pin_data(IC_OUTPUT, 3, 0)
+		set_pin_data(IC_OUTPUT, 4, "Invalid matrix")
+		push_data()
+		activate_pin(3)
+		return
+
+	set_pin_data(IC_OUTPUT, 1, TRUE)
+	set_pin_data(IC_OUTPUT, 2, dimensions[1])
+	set_pin_data(IC_OUTPUT, 3, dimensions[2])
+	set_pin_data(IC_OUTPUT, 4, "OK")
+	push_data()
+	activate_pin(2)
+
+/obj/item/integrated_circuit/math/matrix/set_element
+	name = "matrix element writer circuit"
+	desc = "Writes one reading or transform value into a copied matrix at a row and column."
+	inputs = list(
+		"matrix" = IC_PINTYPE_LIST,
+		"row" = IC_PINTYPE_NUMBER,
+		"column" = IC_PINTYPE_NUMBER,
+		"value" = IC_PINTYPE_NUMBER
+	)
+	outputs = list(
+		"matrix" = IC_PINTYPE_LIST,
+		"changed" = IC_PINTYPE_BOOLEAN,
+		"status" = IC_PINTYPE_STRING
+	)
+	complexity = 5
+	operation = "set_element"
+
+/obj/item/integrated_circuit/math/matrix/set_element/do_work()
+	var/list/matrix = ic_math_matrix(get_pin_data(IC_INPUT, 1))
+	var/row_index = round(get_pin_data(IC_INPUT, 2))
+	var/column_index = round(get_pin_data(IC_INPUT, 3))
+	var/value = get_pin_data(IC_INPUT, 4)
+
+	if(!matrix || !isnum(row_index) || !isnum(column_index) || !isnum(value) || row_index < 1 || row_index > length(matrix) || column_index < 1 || column_index > length(matrix[1]))
+		set_pin_data(IC_OUTPUT, 2, FALSE)
+		set_pin_data(IC_OUTPUT, 3, "Invalid element")
+		push_data()
+		activate_pin(3)
+		return
+
+	var/list/row = matrix[row_index]
+	row[column_index] = value
+
+	set_pin_data(IC_OUTPUT, 1, matrix)
+	set_pin_data(IC_OUTPUT, 2, TRUE)
+	set_pin_data(IC_OUTPUT, 3, "OK")
+	push_data()
+	activate_pin(2)
+
+/obj/item/integrated_circuit/math/matrix/read_element
+	name = "matrix element reader circuit"
+	desc = "Reads one matrix cell for displays, thresholds, or selected grid values."
+	inputs = list(
+		"matrix" = IC_PINTYPE_LIST,
+		"row" = IC_PINTYPE_NUMBER,
+		"column" = IC_PINTYPE_NUMBER
+	)
+	outputs = list(
+		"value" = IC_PINTYPE_NUMBER,
+		"found" = IC_PINTYPE_BOOLEAN,
+		"status" = IC_PINTYPE_STRING
+	)
+	complexity = 3
+	operation = "read_element"
+
+/obj/item/integrated_circuit/math/matrix/read_element/do_work()
+	var/list/matrix = ic_math_matrix(get_pin_data(IC_INPUT, 1))
+	var/row_index = round(get_pin_data(IC_INPUT, 2))
+	var/column_index = round(get_pin_data(IC_INPUT, 3))
+
+	if(!matrix || !isnum(row_index) || !isnum(column_index) || row_index < 1 || row_index > length(matrix) || column_index < 1 || column_index > length(matrix[1]))
+		set_pin_data(IC_OUTPUT, 2, FALSE)
+		set_pin_data(IC_OUTPUT, 3, "Invalid element")
+		push_data()
+		activate_pin(3)
+		return
+
+	set_pin_data(IC_OUTPUT, 1, matrix[row_index][column_index])
+	set_pin_data(IC_OUTPUT, 2, TRUE)
+	set_pin_data(IC_OUTPUT, 3, "OK")
+	push_data()
+	activate_pin(2)
+
+/obj/item/integrated_circuit/math/matrix/to_text
+	name = "matrix to text circuit"
+	desc = "Converts a numeric matrix into compact display text for debugging transforms and grids."
+	inputs = list("matrix" = IC_PINTYPE_LIST)
+	outputs = list(
+		"text" = IC_PINTYPE_STRING,
+		"status" = IC_PINTYPE_STRING
+	)
+	complexity = 4
+	operation = "to_text"
+
+/obj/item/integrated_circuit/math/matrix/to_text/do_work()
+	var/text = ic_math_matrix_to_text(get_pin_data(IC_INPUT, 1), MAX_MESSAGE_LEN)
+
+	if(isnull(text))
+		set_pin_data(IC_OUTPUT, 2, "Invalid matrix")
+		push_data()
+		activate_pin(3)
+		return
+
+	set_pin_data(IC_OUTPUT, 1, text)
+	set_pin_data(IC_OUTPUT, 2, length(text) >= MAX_MESSAGE_LEN - 3 ? "Truncated" : "OK")
+	push_data()
+	activate_pin(2)
 
 // Calculus and interpolation.
 /obj/item/integrated_circuit/math/calculus
@@ -1149,6 +1465,11 @@
 	var/E = get_pin_data(IC_INPUT, 5)
 
 	switch(operation)
+		if("difference")
+			if(!isnum(A) || !isnum(B))
+				fail()
+				return
+			succeed(A - B)
 		if("derivative")
 			if(!isnum(A) || !isnum(B) || !isnum(C) || C == 0)
 				fail("Invalid delta time")
@@ -1180,11 +1501,28 @@
 				for(var/i = 1 to length(samples) - 1)
 					result += ((samples[i] + samples[i + 1]) / 2) * delta
 			succeed(result)
+		if("running_integral")
+			if(!isnum(A) || !isnum(B) || !isnum(C))
+				fail()
+				return
+			succeed(B + (A * C))
 		if("threshold")
 			if(!isnum(A) || !isnum(B) || !isnum(C))
 				fail()
 				return
 			succeed((B < C && A >= C) || (B > C && A <= C))
+		if("hysteresis")
+			if(!isnum(A) || !isnum(B) || !isnum(C) || C < B)
+				fail()
+				return
+			var/previous_state = get_pin_data(IC_INPUT, 4)
+			if(A >= C)
+				succeed(TRUE)
+				return
+			if(A <= B)
+				succeed(FALSE)
+				return
+			succeed(previous_state ? TRUE : FALSE)
 		if("linear_interpolation", "lerp")
 			if(!isnum(A) || !isnum(B) || !isnum(C))
 				fail()
@@ -1215,74 +1553,93 @@
 
 /obj/item/integrated_circuit/math/calculus/derivative
 	name = "derivative approximation circuit"
-	desc = "Calculates (current - previous) / delta time."
+	desc = "Calculates rate of change so circuits can detect rapidly rising or falling sensor values."
 	inputs = list("current" = IC_PINTYPE_NUMBER, "previous" = IC_PINTYPE_NUMBER, "delta time" = IC_PINTYPE_NUMBER)
 	operation = "derivative"
 
+/obj/item/integrated_circuit/math/calculus/difference
+	name = "difference circuit"
+	desc = "Outputs current minus previous for simple rising/falling sensor checks."
+	inputs = list("current" = IC_PINTYPE_NUMBER, "previous" = IC_PINTYPE_NUMBER)
+	operation = "difference"
+
 /obj/item/integrated_circuit/math/calculus/second_derivative
 	name = "second derivative approximation circuit"
-	desc = "Calculates a finite-difference second derivative."
+	desc = "Calculates changing rate of change for acceleration-like trends in sensors or movement."
 	inputs = list("current" = IC_PINTYPE_NUMBER, "previous" = IC_PINTYPE_NUMBER, "older" = IC_PINTYPE_NUMBER, "delta time" = IC_PINTYPE_NUMBER)
 	operation = "second_derivative"
 
 /obj/item/integrated_circuit/math/calculus/average_rate
 	name = "average rate of change circuit"
-	desc = "Calculates average rate of change between two values and times."
+	desc = "Calculates average change over an interval for logged sensor or distance readings."
 	inputs = list("start value" = IC_PINTYPE_NUMBER, "end value" = IC_PINTYPE_NUMBER, "start time" = IC_PINTYPE_NUMBER, "end time" = IC_PINTYPE_NUMBER)
 	operation = "average_rate"
 
 /obj/item/integrated_circuit/math/calculus/integral
 	name = "integral approximation from samples circuit"
-	desc = "Approximates an integral by summing samples times delta."
+	desc = "Totals a sample list over time for accumulated exposure, dose, or resource use."
 	inputs = list("samples" = IC_PINTYPE_LIST, "delta" = IC_PINTYPE_NUMBER)
 	operation = "integral"
 
+/obj/item/integrated_circuit/math/calculus/running_integral
+	name = "running integral circuit"
+	desc = "Adds current value times delta to a previous total for exposure, dose, and accumulated resource tracking."
+	inputs = list("current value" = IC_PINTYPE_NUMBER, "previous total" = IC_PINTYPE_NUMBER, "delta" = IC_PINTYPE_NUMBER)
+	operation = "running_integral"
+
 /obj/item/integrated_circuit/math/calculus/trapezoid
 	name = "trapezoidal integral circuit"
-	desc = "Approximates an integral using the trapezoidal rule."
+	desc = "Totals a changing sample list more smoothly for accumulated exposure or environmental dose."
 	inputs = list("samples" = IC_PINTYPE_LIST, "delta" = IC_PINTYPE_NUMBER)
 	operation = "trapezoid"
 
 /obj/item/integrated_circuit/math/calculus/threshold
 	name = "threshold crossing detector circuit"
-	desc = "Outputs true when a value crosses a threshold."
+	desc = "Pulsed detector for sensor values crossing a threshold in either direction."
 	inputs = list("current" = IC_PINTYPE_NUMBER, "previous" = IC_PINTYPE_NUMBER, "threshold" = IC_PINTYPE_NUMBER)
 	outputs = list("crossed" = IC_PINTYPE_BOOLEAN, "status" = IC_PINTYPE_STRING)
 	operation = "threshold"
 
+/obj/item/integrated_circuit/math/calculus/hysteresis
+	name = "hysteresis circuit"
+	desc = "Keeps alarms and controllers from flickering by switching on at a high threshold and off at a low threshold."
+	inputs = list("value" = IC_PINTYPE_NUMBER, "off threshold" = IC_PINTYPE_NUMBER, "on threshold" = IC_PINTYPE_NUMBER, "previous state" = IC_PINTYPE_BOOLEAN)
+	outputs = list("state" = IC_PINTYPE_BOOLEAN, "status" = IC_PINTYPE_STRING)
+	operation = "hysteresis"
+
 /obj/item/integrated_circuit/math/calculus/linear_interpolation
 	name = "linear interpolation circuit"
-	desc = "Interpolates between start and end by t."
+	desc = "Blends between two values for smooth displays, servo-like controls, or target prediction."
 	inputs = list("start" = IC_PINTYPE_NUMBER, "end" = IC_PINTYPE_NUMBER, "t" = IC_PINTYPE_NUMBER)
 	operation = "linear_interpolation"
 
 /obj/item/integrated_circuit/math/calculus/lerp
 	name = "lerp circuit"
-	desc = "Interpolates between start and end by t."
+	desc = "Blends between two values for smooth displays, servo-like controls, or target prediction."
 	inputs = list("start" = IC_PINTYPE_NUMBER, "end" = IC_PINTYPE_NUMBER, "t" = IC_PINTYPE_NUMBER)
 	operation = "lerp"
 
 /obj/item/integrated_circuit/math/calculus/inverse_lerp
 	name = "inverse lerp circuit"
-	desc = "Calculates t for a value between start and end."
+	desc = "Converts a value inside a range into a 0-1 progress fraction for displays and scoring."
 	inputs = list("start" = IC_PINTYPE_NUMBER, "end" = IC_PINTYPE_NUMBER, "value" = IC_PINTYPE_NUMBER)
 	operation = "inverse_lerp"
 
 /obj/item/integrated_circuit/math/calculus/remap
 	name = "remap circuit"
-	desc = "Maps a value from one range to another."
+	desc = "Converts sensor ranges into display percentages, threat scores, or actuator strengths."
 	inputs = list("value" = IC_PINTYPE_NUMBER, "from min" = IC_PINTYPE_NUMBER, "from max" = IC_PINTYPE_NUMBER, "to min" = IC_PINTYPE_NUMBER, "to max" = IC_PINTYPE_NUMBER)
 	operation = "remap"
 
 /obj/item/integrated_circuit/math/calculus/smoothstep
 	name = "smoothstep circuit"
-	desc = "Calculates smoothstep between two edges."
+	desc = "Produces a smoothed 0-1 transition between two thresholds for gradual control outputs."
 	inputs = list("edge 0" = IC_PINTYPE_NUMBER, "edge 1" = IC_PINTYPE_NUMBER, "value" = IC_PINTYPE_NUMBER)
 	operation = "smoothstep"
 
 /obj/item/integrated_circuit/math/calculus/exponential_smoothing
 	name = "exponential smoothing circuit"
-	desc = "Smooths a current value against a previous output by alpha."
+	desc = "Filters noisy sensor values using the previous output and a tunable alpha."
 	inputs = list("current" = IC_PINTYPE_NUMBER, "previous output" = IC_PINTYPE_NUMBER, "alpha" = IC_PINTYPE_NUMBER)
 	operation = "exp_smoothing"
 
@@ -1360,33 +1717,215 @@
 
 /obj/item/integrated_circuit/math/vector_calculus/gradient
 	name = "gradient circuit"
-	desc = "Approximates a scalar field gradient at an interior grid point."
+	desc = "Finds which direction nearby scalar readings increase, useful for heat, radiation, or signal tracking."
 	operation = "gradient"
 
 /obj/item/integrated_circuit/math/vector_calculus/divergence
 	name = "divergence circuit"
-	desc = "Approximates 2D vector field divergence at an interior grid point."
+	desc = "Measures whether a vector field spreads outward or inward around a point."
 	outputs = list("result" = IC_PINTYPE_NUMBER, "status" = IC_PINTYPE_STRING)
 	operation = "divergence"
 
 /obj/item/integrated_circuit/math/vector_calculus/curl2
 	name = "curl 2D circuit"
-	desc = "Approximates scalar 2D curl at an interior grid point."
+	desc = "Measures local rotation in a 2D vector field for flow or steering analysis."
 	outputs = list("result" = IC_PINTYPE_NUMBER, "status" = IC_PINTYPE_STRING)
 	operation = "curl2"
 
 /obj/item/integrated_circuit/math/vector_calculus/laplacian
 	name = "laplacian circuit"
-	desc = "Approximates scalar field Laplacian at an interior grid point."
+	desc = "Detects hotspots and anomalies where the center reading differs sharply from its neighbors."
 	outputs = list("result" = IC_PINTYPE_NUMBER, "status" = IC_PINTYPE_STRING)
 	operation = "laplacian"
 
 /obj/item/integrated_circuit/math/vector_calculus/directional_derivative
 	name = "directional derivative circuit"
-	desc = "Approximates scalar field derivative along a direction."
+	desc = "Measures whether scalar readings rise or fall along a supplied movement direction."
 	inputs = list("grid" = IC_PINTYPE_LIST, "x" = IC_PINTYPE_NUMBER, "y" = IC_PINTYPE_NUMBER, "step" = IC_PINTYPE_NUMBER, "direction" = IC_PINTYPE_LIST)
 	outputs = list("result" = IC_PINTYPE_NUMBER, "status" = IC_PINTYPE_STRING)
 	operation = "directional"
+
+/obj/item/integrated_circuit/math/vector_calculus/grid_from_rows
+	name = "scalar grid from rows circuit"
+	desc = "Builds a bounded scalar grid from nearby numeric readings for gradient, Laplacian, and hotspot circuits."
+	inputs = list(
+		"row 1" = IC_PINTYPE_LIST,
+		"row 2" = IC_PINTYPE_LIST,
+		"row 3" = IC_PINTYPE_LIST,
+		"row 4" = IC_PINTYPE_LIST,
+		"row 5" = IC_PINTYPE_LIST,
+		"row 6" = IC_PINTYPE_LIST,
+		"row 7" = IC_PINTYPE_LIST
+	)
+	outputs = list(
+		"grid" = IC_PINTYPE_LIST,
+		"rows" = IC_PINTYPE_NUMBER,
+		"columns" = IC_PINTYPE_NUMBER,
+		"valid" = IC_PINTYPE_BOOLEAN,
+		"status" = IC_PINTYPE_STRING
+	)
+	complexity = 8
+	power_draw_per_use = 150
+	operation = "grid_from_rows"
+
+/obj/item/integrated_circuit/math/vector_calculus/grid_from_rows/do_work()
+	var/list/grid = list()
+
+	for(var/i = 1 to IC_MATH_GRID_LIMIT)
+		var/list/row = get_pin_data(IC_INPUT, i)
+		if(!islist(row))
+			continue
+		grid += list(row)
+
+	grid = ic_math_grid(grid)
+	if(!grid)
+		set_pin_data(IC_OUTPUT, 4, FALSE)
+		set_pin_data(IC_OUTPUT, 5, "Invalid grid")
+		push_data()
+		activate_pin(3)
+		return
+
+	set_pin_data(IC_OUTPUT, 1, grid)
+	set_pin_data(IC_OUTPUT, 2, length(grid))
+	set_pin_data(IC_OUTPUT, 3, length(grid[1]))
+	set_pin_data(IC_OUTPUT, 4, TRUE)
+	set_pin_data(IC_OUTPUT, 5, "OK")
+	push_data()
+	activate_pin(2)
+
+/obj/item/integrated_circuit/math/vector_calculus/vector_grid_from_components
+	name = "vector grid from components circuit"
+	desc = "Builds a 2D vector-field grid from matching X and Y component readings."
+	inputs = list(
+		"x component grid" = IC_PINTYPE_LIST,
+		"y component grid" = IC_PINTYPE_LIST
+	)
+	outputs = list(
+		"grid" = IC_PINTYPE_LIST,
+		"rows" = IC_PINTYPE_NUMBER,
+		"columns" = IC_PINTYPE_NUMBER,
+		"valid" = IC_PINTYPE_BOOLEAN,
+		"status" = IC_PINTYPE_STRING
+	)
+	complexity = 10
+	power_draw_per_use = 200
+	operation = "vector_grid_from_components"
+
+/obj/item/integrated_circuit/math/vector_calculus/vector_grid_from_components/do_work()
+	var/list/x_grid = ic_math_grid(get_pin_data(IC_INPUT, 1))
+	var/list/y_grid = ic_math_grid(get_pin_data(IC_INPUT, 2))
+
+	if(!x_grid || !y_grid || length(x_grid) != length(y_grid) || length(x_grid[1]) != length(y_grid[1]))
+		set_pin_data(IC_OUTPUT, 4, FALSE)
+		set_pin_data(IC_OUTPUT, 5, "Mismatched grids")
+		push_data()
+		activate_pin(3)
+		return
+
+	var/list/result = list()
+	for(var/y = 1 to length(x_grid))
+		var/list/x_row = x_grid[y]
+		var/list/y_row = y_grid[y]
+		var/list/row = list()
+		for(var/x = 1 to length(x_row))
+			if(!isnum(x_row[x]) || !isnum(y_row[x]))
+				set_pin_data(IC_OUTPUT, 4, FALSE)
+				set_pin_data(IC_OUTPUT, 5, "Scalar grids required")
+				push_data()
+				activate_pin(3)
+				return
+			row += list(list(x_row[x], y_row[x]))
+		result += list(row)
+
+	set_pin_data(IC_OUTPUT, 1, result)
+	set_pin_data(IC_OUTPUT, 2, length(result))
+	set_pin_data(IC_OUTPUT, 3, length(result[1]))
+	set_pin_data(IC_OUTPUT, 4, TRUE)
+	set_pin_data(IC_OUTPUT, 5, "OK")
+	push_data()
+	activate_pin(2)
+
+/obj/item/integrated_circuit/math/vector_calculus/grid_validator
+	name = "grid validator circuit"
+	desc = "Checks whether a sensor grid is valid before feeding it into field-analysis circuits."
+	inputs = list("grid" = IC_PINTYPE_LIST)
+	outputs = list(
+		"valid" = IC_PINTYPE_BOOLEAN,
+		"rows" = IC_PINTYPE_NUMBER,
+		"columns" = IC_PINTYPE_NUMBER,
+		"status" = IC_PINTYPE_STRING
+	)
+	complexity = 4
+	operation = "grid_validator"
+
+/obj/item/integrated_circuit/math/vector_calculus/grid_validator/do_work()
+	var/list/dimensions = ic_math_grid_dimensions(get_pin_data(IC_INPUT, 1))
+
+	if(!dimensions)
+		set_pin_data(IC_OUTPUT, 1, FALSE)
+		set_pin_data(IC_OUTPUT, 2, 0)
+		set_pin_data(IC_OUTPUT, 3, 0)
+		set_pin_data(IC_OUTPUT, 4, "Invalid grid")
+		push_data()
+		activate_pin(3)
+		return
+
+	set_pin_data(IC_OUTPUT, 1, TRUE)
+	set_pin_data(IC_OUTPUT, 2, dimensions[1])
+	set_pin_data(IC_OUTPUT, 3, dimensions[2])
+	set_pin_data(IC_OUTPUT, 4, "OK")
+	push_data()
+	activate_pin(2)
+
+/obj/item/integrated_circuit/math/vector_calculus/grid_to_text
+	name = "grid to text circuit"
+	desc = "Converts a scalar or 2D vector grid into compact display text for debugging sensor layouts."
+	inputs = list("grid" = IC_PINTYPE_LIST)
+	outputs = list(
+		"text" = IC_PINTYPE_STRING,
+		"status" = IC_PINTYPE_STRING
+	)
+	complexity = 5
+	operation = "grid_to_text"
+
+/obj/item/integrated_circuit/math/vector_calculus/grid_to_text/do_work()
+	var/text = ic_math_grid_to_text(get_pin_data(IC_INPUT, 1), MAX_MESSAGE_LEN)
+
+	if(isnull(text))
+		set_pin_data(IC_OUTPUT, 2, "Invalid grid")
+		push_data()
+		activate_pin(3)
+		return
+
+	set_pin_data(IC_OUTPUT, 1, text)
+	set_pin_data(IC_OUTPUT, 2, length(text) >= MAX_MESSAGE_LEN - 3 ? "Truncated" : "OK")
+	push_data()
+	activate_pin(2)
+
+/obj/item/integrated_circuit/math/vector/to_text
+	name = "vector to text circuit"
+	desc = "Converts a numeric vector into compact display text for movement and field-analysis debugging."
+	inputs = list("vector" = IC_PINTYPE_LIST)
+	outputs = list(
+		"text" = IC_PINTYPE_STRING,
+		"status" = IC_PINTYPE_STRING
+	)
+	complexity = 3
+	operation = "to_text"
+
+/obj/item/integrated_circuit/math/vector/to_text/do_work()
+	var/list/vector = ic_math_numeric_list(get_pin_data(IC_INPUT, 1), IC_MATH_VECTOR_LIMIT)
+
+	if(!vector)
+		set_pin_data(IC_OUTPUT, 2, "Invalid vector")
+		push_data()
+		activate_pin(3)
+		return
+
+	set_pin_data(IC_OUTPUT, 1, "([jointext(vector, ", ")])")
+	set_pin_data(IC_OUTPUT, 2, "OK")
+	push_data()
+	activate_pin(2)
 
 #undef IC_MATH_LIST_LIMIT
 #undef IC_MATH_VECTOR_LIMIT

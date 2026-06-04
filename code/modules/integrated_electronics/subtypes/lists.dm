@@ -70,7 +70,7 @@
 	var/list/output_list = input_list.Copy()
 	var/new_entry = get_pin_data(IC_INPUT, 2, FALSE)
 
-	output_list.Add(new_entry)
+	output_list += list(new_entry)
 
 	set_pin_data(IC_OUTPUT, 1, output_list)
 	push_data()
