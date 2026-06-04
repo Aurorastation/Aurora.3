@@ -1,10 +1,10 @@
-/mob/living/carbon/slime/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE, var/skip_edit = FALSE)
-	verb = say_quote(message)
+/mob/living/carbon/slime/say(var/text, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE, var/skip_edit = FALSE)
+	verb = say_quote(text)
 
-	if(copytext(message,1,2) == "*")
-		return emote(copytext(message,2))
+	if(copytext(text,1,2) == "*")
+		return emote(copytext(text,2))
 
-	return ..(message, null, verb)
+	return ..(text, null, verb)
 
 /mob/living/carbon/slime/say_quote(var/text)
 	var/ending = copytext(text, length(text))

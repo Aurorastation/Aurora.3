@@ -681,7 +681,7 @@
 	to_chat(src, SPAN_WARNING("There is no perch nearby to sit on."))
 	return
 
-/mob/living/simple_animal/parrot/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE, var/skip_edit = FALSE)
+/mob/living/simple_animal/parrot/say(var/text, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE, var/skip_edit = FALSE)
 
 	if(stat)
 		return
@@ -691,27 +691,27 @@
 
 
 	var/message_mode=""
-	if(copytext(message,1,2) == ";")
+	if(copytext(text,1,2) == ";")
 		message_mode = "headset"
-		message = copytext(message,2)
+		text = copytext(text,2)
 
-	if(length(message) >= 2)
-		var/channel_prefix = copytext(message, 1 ,3)
+	if(length(text) >= 2)
+		var/channel_prefix = copytext(text, 1 ,3)
 		message_mode = department_radio_keys[channel_prefix]
 
-	if(copytext(message,1,2) == ":")
+	if(copytext(text,1,2) == ":")
 		var/positioncut = 3
-		message = trim(copytext(message,positioncut))
+		text = trim(copytext(text,positioncut))
 
-	message = capitalize(trim_left(message))
+	text = capitalize(trim_left(text))
 
 	if(message_mode)
 		if(message_mode in radiochannels)
 			if(ears && istype(ears,/obj/item/radio))
-				ears.talk_into(src,sanitize(message), message_mode, verb, null)
+				ears.talk_into(src,sanitize(text), message_mode, verb, null)
 
 
-	..(message)
+	..(text)
 
 
 /mob/living/simple_animal/parrot/react_to_message(datum/say_message/msg)

@@ -65,9 +65,9 @@
 
 	return ..()
 
-/mob/living/carbon/human/say(message, datum/language/speaking, verb, alt_name, ghost_hearing, whisper, skip_edit)
+/mob/living/carbon/human/say(text, datum/language/speaking, verb, alt_name, ghost_hearing, whisper, skip_edit)
 	// Messaging the user is handled by the species proc.
-	if(!species.can_speak(src, speaking, message))
+	if(!species.can_speak(src, speaking, text))
 		return FALSE
 	. = ..()
 

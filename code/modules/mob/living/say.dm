@@ -231,43 +231,43 @@ var/list/channel_to_radio_key = new
 	speech_bubble.appearance_flags = RESET_COLOR|RESET_ALPHA
 	INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(animate_speechbubble), speech_bubble, show_to, 30)
 
-/mob/living/say(var/message, var/datum/language/speaking = null, var/verb, var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE, var/skip_edit = FALSE)
+/mob/living/say(var/text, var/datum/language/speaking = null, var/verb, var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE, var/skip_edit = FALSE)
 	if(stat)
 		if(stat == DEAD)
-			return say_dead(message)
+			return say_dead(text)
 		return
 
 	if(silent)
 		to_chat(src, SPAN_WARNING("You try to speak, but nothing comes out!"))
 		return
 
-	var/message_mode = parse_message_mode(message, "headset")
+	var/message_mode = parse_message_mode(text, "headset")
 
 	var/regex/emote = regex("^(\[\\*^\])\[^*\]+$")
 
-	if(emote.Find(message))
-		if(emote.group[1] == "*") return client_emote(copytext(message, 2))
-		if(emote.group[1] == "^") return custom_emote(VISIBLE_MESSAGE, copytext(message,2))
+	if(emote.Find(text))
+		if(emote.group[1] == "*") return client_emote(copytext(text, 2))
+		if(emote.group[1] == "^") return custom_emote(VISIBLE_MESSAGE, copytext(text,2))
 
 	//parse the radio code and consume it
 	if (message_mode)
 		if (message_mode == "headset")
-			message = copytext(message,2)	//it would be really nice if the parse procs could do this for us.
+			text = copytext(text,2)	//it would be really nice if the parse procs could do this for us.
 		else
-			message = copytext(message,3)
+			text = copytext(text,3)
 
-	message = trim(message)
-	message = formalize_text(message)
+	text = trim(text)
+	text = formalize_text(text)
 
 	var/datum/say_message/msg
-	if(copytext(message, 1, 2) == "!")	// audible emote
+	if(copytext(text, 1, 2) == "!")	// audible emote
 		msg = new
 		msg.speaker = src
-		msg.raw_message = message
-		msg.collapse_to(GLOB.all_languages[LANGUAGE_NOISE], trim_left(copytext(message, 2)))
+		msg.raw_message = text
+		msg.collapse_to(GLOB.all_languages[LANGUAGE_NOISE], trim_left(copytext(text, 2)))
 	else
 		var/datum/language/forced = (speaking && !speaking.always_parse_language) ? speaking : null
-		msg = build_say_message(message, forced)
+		msg = build_say_message(text, forced)
 
 	if(!length(msg.to_string()))
 		return FALSE
@@ -323,7 +323,7 @@ var/list/channel_to_radio_key = new
 	if(primary && (primary.flags & NONVERBAL) && prob(30))
 		custom_emote(VISIBLE_MESSAGE, "[pick(primary.signlang_verb)].")
 
-	message = msg.to_string()
+	text = msg.to_string()
 
 	var/list/obj/item/used_radios = new
 	if(handle_message_mode(msg, primary, used_radios))
@@ -340,7 +340,7 @@ var/list/channel_to_radio_key = new
 		msg.italics = TRUE
 		msg.message_range = 1
 		if(primary)
-			msg.message_range = primary.get_talkinto_msg_range(message)
+			msg.message_range = primary.get_talkinto_msg_range(text)
 		if(!primary || !(primary.flags & NO_TALK_MSG))
 			var/talk_msg = SPAN_NOTICE("\The [src] talks into \the [used_radios[1]].")
 			for (var/mob/living/L in get_hearers_in_view(5, src) - src)
@@ -383,7 +383,7 @@ var/list/channel_to_radio_key = new
 
 	var/list/hear_clients = deliver_say_message(msg, listening)
 
-	show_speech_bubble(msg, message, hear_clients)
+	show_speech_bubble(msg, text, hear_clients)
 
 	var/list/langchat_styles = list()
 	if(istype(primary, /datum/language/noise))
@@ -399,10 +399,10 @@ var/list/channel_to_radio_key = new
 	if(!bypass_listen_obj)
 		for(var/obj/O as anything in listening)
 			if(O) //It's possible that it could be deleted in the meantime.
-				INVOKE_ASYNC(O, TYPE_PROC_REF(/obj, hear_talk), src, message, msg.verb, primary)
+				INVOKE_ASYNC(O, TYPE_PROC_REF(/obj, hear_talk), src, text, msg.verb, primary)
 
 	if(mind)
-		mind.last_words = message
+		mind.last_words = text
 
 	if(whisper)
 		log_whisper("[key_name(src)] : [msg.raw_message]")
