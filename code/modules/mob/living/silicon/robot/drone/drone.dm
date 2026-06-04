@@ -94,6 +94,7 @@
 	default_language = GLOB.all_languages[LANGUAGE_LOCAL_DRONE]
 
 	add_verb(src, /mob/living/proc/hide)
+	RegisterSignal(src, COMSIG_MOB_ON_HIDE, PROC_REF(on_hide))
 	remove_language(LANGUAGE_ROBOT)
 	add_language(LANGUAGE_ROBOT, FALSE)
 	add_language(LANGUAGE_DRONE, TRUE)
@@ -305,7 +306,7 @@
 		CutOverlays(list(eye_overlay, eye_emissive))
 	eye_overlay = cached_eye_overlays[a_intent]
 	// Disables emissives while hiding due to table-clipping issues
-	eye_emissive = emissive_appearance(icon, "[icon_state]-eyes_help", alpha = (src.layer == MOB_LAYER ? 255 : 0))
+	eye_emissive = (layer == MOB_LAYER ? emissive_appearance(icon, "[icon_state]-eyes_help") : null)
 	AddOverlays(list(eye_overlay, eye_emissive))
 
 /mob/living/silicon/robot/drone/setup_panel_cache()

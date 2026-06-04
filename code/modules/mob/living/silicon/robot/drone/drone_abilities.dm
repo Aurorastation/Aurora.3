@@ -24,8 +24,8 @@
 		D.flush_count = D.flush_every_ticks
 
 /// Override to allow us to process our eye cache
-/mob/living/silicon/robot/drone/hide()
-	. = ..()
+/mob/living/silicon/robot/drone/proc/on_hide()
+	SIGNAL_HANDLER
 	setup_eye_cache()
 
 /mob/living/silicon/robot/drone/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
