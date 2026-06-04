@@ -1,9 +1,9 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aaa" = (
-/obj/machinery/door/airlock/glass_mining{
+/obj/structure/machinery/door/airlock/glass_mining{
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/storage)
 "afk" = (
@@ -45,7 +45,7 @@
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/space)
 "asH" = (
-/obj/machinery/portable_atmospherics/canister/phoron_scarce,
+/obj/structure/machinery/portable_atmospherics/canister/phoron_scarce,
 /obj/structure/window/borosilicate/reinforced{
 	dir = 1
 	},
@@ -63,7 +63,7 @@
 /area/cursed/living_area)
 "axb" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
 /obj/structure/cable{
@@ -81,13 +81,13 @@
 /turf/simulated/floor,
 /area/cursed/eva_storage)
 "aBB" = (
-/obj/machinery/atmospherics/pipe/manifold/visible{
+/obj/structure/machinery/atmospherics/pipe/manifold/visible{
 	dir = 4
 	},
 /turf/simulated/floor,
 /area/cursed/hangar)
 "aDS" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -95,7 +95,7 @@
 /area/cursed/hangar)
 "aDY" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/appliance/cooker/stove,
+/obj/structure/machinery/appliance/cooker/stove,
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/living_area)
 "aEa" = (
@@ -124,10 +124,10 @@
 /area/cursed/storage)
 "aHj" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/alarm/west{
+/obj/structure/machinery/alarm/west{
 	pixel_x = -28
 	},
 /obj/structure/cable{
@@ -173,13 +173,13 @@
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "aQn" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
 /turf/simulated/floor,
 /area/cursed/hangar)
 "aRg" = (
-/obj/machinery/atmospherics/pipe/simple/visible/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/visible/supply,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 8;
@@ -196,15 +196,15 @@
 /turf/simulated/floor/wood,
 /area/cursed/living_area)
 "aUP" = (
-/obj/machinery/door/blast/regular{
+/obj/structure/machinery/door/blast/regular{
 	id = "cursedarmory";
 	name = "Anti-Piracy Armory Blast Door"
 	},
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/cursed/bridge)
 "aYb" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -212,26 +212,26 @@
 /area/cursed/hangar)
 "aZo" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/cursed/hangar)
 "bbT" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/visible/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/supply{
 	dir = 6
 	},
 /turf/simulated/floor,
 /area/cursed/hangar)
 "bcv" = (
-/obj/machinery/light/colored/red{
+/obj/structure/machinery/light/colored/red{
 	dir = 8
 	},
 /turf/simulated/floor,
 /area/cursed/hangar)
 "beQ" = (
 /obj/item/mmi/digital/posibrain,
-/obj/machinery/constructable_frame/temp_deco,
+/obj/structure/machinery/constructable_frame/temp_deco,
 /obj/item/stack/material/plasteel/full,
 /obj/item/circuitboard/aicore,
 /obj/structure/AIcore,
@@ -265,11 +265,11 @@
 /turf/simulated/wall/r_wall,
 /area/cursed/computer_core)
 "bvb" = (
-/obj/machinery/door/blast/regular{
+/obj/structure/machinery/door/blast/regular{
 	id = "cursedairlock";
 	name = "Exterior Airlock Blast Door"
 	},
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/cursed/hangar)
 "bwI" = (
@@ -294,7 +294,7 @@
 	},
 /area/cursed/bridge)
 "bBh" = (
-/obj/machinery/atmospherics/unary/freezer{
+/obj/structure/machinery/atmospherics/unary/freezer{
 	dir = 4;
 	icon_state = "freezer"
 	},
@@ -317,13 +317,13 @@
 /turf/simulated/floor,
 /area/cursed/hangar)
 "bIf" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
-/obj/machinery/light/colored/red{
+/obj/structure/machinery/light/colored/red{
 	dir = 4
 	},
-/obj/machinery/alarm/east{
+/obj/structure/machinery/alarm/east{
 	pixel_x = 28;
 	req_one_access = list(24,11,55)
 	},
@@ -331,7 +331,7 @@
 /area/cursed/hangar)
 "bIU" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/mineral/stacking_unit_console{
+/obj/structure/machinery/mineral/stacking_unit_console{
 	pixel_x = 32
 	},
 /obj/structure/cable{
@@ -342,10 +342,10 @@
 /turf/simulated/floor,
 /area/cursed/mineral_processing)
 "bIX" = (
-/obj/machinery/light/colored/red{
+/obj/structure/machinery/light/colored/red{
 	dir = 4
 	},
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/structure/window/borosilicate/reinforced{
 	dir = 8
 	},
@@ -360,7 +360,7 @@
 /area/cursed/bridge)
 "bPz" = (
 /mob/living/simple_animal/rat/white,
-/obj/machinery/power/portgen/basic,
+/obj/structure/machinery/power/portgen/basic,
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/bridge)
 "bPX" = (
@@ -370,15 +370,15 @@
 /turf/simulated/floor/wood,
 /area/cursed/living_area)
 "bQs" = (
-/obj/machinery/light/spot,
+/obj/structure/machinery/light/spot,
 /turf/simulated/floor,
 /area/cursed/hangar)
 "bQC" = (
-/obj/machinery/door/airlock/glass_mining{
+/obj/structure/machinery/door/airlock/glass_mining{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/visible/supply,
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/atmospherics/pipe/simple/visible/supply,
+/obj/structure/machinery/door/firedoor,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
@@ -389,18 +389,18 @@
 "bQS" = (
 /obj/structure/table/rack,
 /obj/item/bodybag/cryobag,
-/obj/machinery/alarm/north,
+/obj/structure/machinery/alarm/north,
 /obj/item/reagent_containers/glass/beaker/cryoxadone,
 /turf/simulated/floor/tiled/white,
 /area/cursed/medical)
 "bTA" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
+/obj/structure/machinery/atmospherics/pipe/simple/visible{
 	dir = 9
 	},
 /turf/simulated/wall,
 /area/cursed/engineering)
 "bXM" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
@@ -410,7 +410,7 @@
 /area/cursed/engineering)
 "bYO" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/visible/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/supply{
 	dir = 9
 	},
 /turf/simulated/floor,
@@ -427,7 +427,7 @@
 /turf/template_noop,
 /area/space)
 "cjM" = (
-/obj/machinery/atmospherics/pipe/tank/air,
+/obj/structure/machinery/atmospherics/pipe/tank/air,
 /turf/simulated/floor,
 /area/cursed/eva_storage)
 "cjO" = (
@@ -435,7 +435,7 @@
 /turf/simulated/floor/tiled/white,
 /area/cursed/medical)
 "cjQ" = (
-/obj/machinery/alarm/east{
+/obj/structure/machinery/alarm/east{
 	pixel_x = 28;
 	req_one_access = list(24,11,55)
 	},
@@ -443,7 +443,7 @@
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/mineral_processing)
 "ckH" = (
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/light/small/emergency{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -451,7 +451,7 @@
 /area/cursed/hangar)
 "clQ" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/visible/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/visible/supply,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
@@ -460,7 +460,7 @@
 /turf/simulated/floor,
 /area/cursed/mineral_processing)
 "cmr" = (
-/obj/machinery/door/airlock/security{
+/obj/structure/machinery/door/airlock/security{
 	dir = 1
 	},
 /turf/simulated/floor,
@@ -470,22 +470,22 @@
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/living_area)
 "cxl" = (
-/obj/machinery/atmospherics/pipe/manifold/visible{
+/obj/structure/machinery/atmospherics/pipe/manifold/visible{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate/light,
 /turf/simulated/floor,
 /area/cursed/medical)
 "czQ" = (
-/obj/machinery/hologram/holopad/long_range,
+/obj/structure/machinery/hologram/holopad/long_range,
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/bridge)
 "czV" = (
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	dir = 1;
 	id = "freighter_mining"
 	},
-/obj/machinery/mineral/stacking_machine,
+/obj/structure/machinery/mineral/stacking_machine,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
@@ -502,7 +502,7 @@
 /area/cursed/mineral_processing)
 "cBh" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/visible/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/visible/supply,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
@@ -512,18 +512,18 @@
 /area/cursed/engineering)
 "cBi" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/cursed/bridge)
 "cEa" = (
-/obj/machinery/light/spot,
+/obj/structure/machinery/light/spot,
 /turf/simulated/floor/airless,
 /area/cursed/bridge)
 "cGx" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -541,7 +541,7 @@
 /turf/simulated/floor/wood,
 /area/cursed/living_area)
 "cUB" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/yellow,
@@ -560,7 +560,7 @@
 /turf/simulated/floor/carpet,
 /area/cursed/living_area)
 "dcH" = (
-/obj/machinery/computer/ship/sensors{
+/obj/structure/machinery/computer/ship/sensors{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/yellow,
@@ -573,7 +573,7 @@
 /turf/simulated/wall/r_wall,
 /area/cursed/hangar)
 "dhA" = (
-/obj/machinery/alarm/west{
+/obj/structure/machinery/alarm/west{
 	pixel_x = -28
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -581,16 +581,16 @@
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/living_area)
 "diI" = (
-/obj/machinery/suit_storage_unit/standard_unit,
+/obj/structure/machinery/suit_storage_unit/standard_unit,
 /turf/simulated/floor,
 /area/cursed/eva_storage)
 "dnD" = (
-/obj/machinery/atmospherics/pipe/simple/visible/supply,
-/obj/machinery/door/blast/regular/open{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/supply,
+/obj/structure/machinery/door/blast/regular/open{
 	id = "cursedint1";
 	name = "Interior Blast Doors"
 	},
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/cursed/hangar)
 "drU" = (
@@ -598,7 +598,7 @@
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "dsM" = (
-/obj/machinery/recharger/wallcharger{
+/obj/structure/machinery/recharger/wallcharger{
 	pixel_x = 4;
 	pixel_y = 30
 	},
@@ -627,12 +627,12 @@
 /turf/simulated/floor/reinforced,
 /area/cursed/computer_core)
 "dBJ" = (
-/obj/machinery/light/colored/red,
+/obj/structure/machinery/light/colored/red,
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/storage)
 "dBX" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/visible/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/visible/supply,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable{
 	d1 = 1;
@@ -642,22 +642,22 @@
 /turf/simulated/floor,
 /area/cursed/mineral_processing)
 "dEv" = (
-/obj/machinery/door/airlock/glass_mining{
+/obj/structure/machinery/door/airlock/glass_mining{
 	dir = 1
 	},
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/mineral_processing)
 "dEW" = (
 /turf/simulated/wall,
 /area/space)
 "dHO" = (
-/obj/machinery/alarm/north,
-/obj/machinery/washing_machine,
+/obj/structure/machinery/alarm/north,
+/obj/structure/machinery/washing_machine,
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/bridge)
 "dLD" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/yellow,
@@ -670,8 +670,8 @@
 /area/cursed/living_area)
 "dLX" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/power/apc/low/west,
-/obj/machinery/light_switch{
+/obj/structure/machinery/power/apc/low/west,
+/obj/structure/machinery/light_switch{
 	pixel_x = -35
 	},
 /obj/structure/cable{
@@ -703,11 +703,11 @@
 /turf/simulated/floor/reinforced/airless,
 /area/cursed/eva_storage)
 "dWW" = (
-/obj/machinery/atmospherics/pipe/simple/visible/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/visible/supply,
 /turf/simulated/floor/wood,
 /area/cursed/living_area)
 "edv" = (
-/obj/machinery/mineral/rigpress,
+/obj/structure/machinery/mineral/rigpress,
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/mineral_processing)
 "enS" = (
@@ -715,7 +715,7 @@
 /turf/simulated/floor/wood,
 /area/cursed/hangar)
 "epW" = (
-/obj/machinery/atmospherics/pipe/simple/visible/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/supply{
 	dir = 6
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -737,7 +737,7 @@
 /turf/simulated/floor/wood,
 /area/cursed/living_area)
 "eyg" = (
-/obj/machinery/door/blast/regular/open{
+/obj/structure/machinery/door/blast/regular/open{
 	name = "Hangar Blast Door";
 	id = "cursedlockdown"
 	},
@@ -784,7 +784,7 @@
 /turf/simulated/mineral,
 /area/mine)
 "eMN" = (
-/obj/machinery/atmospherics/pipe/simple/visible/universal{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/universal{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -797,12 +797,12 @@
 /turf/template_noop,
 /area/space)
 "eUG" = (
-/obj/machinery/space_heater,
+/obj/structure/machinery/space_heater,
 /turf/simulated/floor/wood,
 /area/cursed/living_area)
 "eWF" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/visible/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/visible/supply,
 /mob/living/simple_animal/rat/brown/Tom,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable{
@@ -813,11 +813,11 @@
 /turf/simulated/floor,
 /area/cursed/living_area)
 "faM" = (
-/obj/machinery/artifact,
+/obj/structure/machinery/artifact,
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/storage)
 "fbt" = (
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/light/small/emergency{
 	dir = 1
 	},
 /obj/structure/cable{
@@ -850,10 +850,10 @@
 /area/cursed/living_area)
 "fiI" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/meter,
+/obj/structure/machinery/meter,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
@@ -862,7 +862,7 @@
 /turf/simulated/floor,
 /area/cursed/engineering)
 "flr" = (
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	pixel_x = 10;
 	name = "Airlock Interior";
 	id = "cursedint2"
@@ -881,10 +881,10 @@
 /area/cursed/living_area)
 "fmN" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/visible/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/supply{
 	dir = 8
 	},
-/obj/machinery/alarm/north,
+/obj/structure/machinery/alarm/north,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -899,7 +899,7 @@
 /turf/simulated/floor/reinforced/airless,
 /area/cursed/eva_storage)
 "fpi" = (
-/obj/machinery/shipsensors,
+/obj/structure/machinery/shipsensors,
 /obj/structure/railing/mapped{
 	dir = 4
 	},
@@ -912,13 +912,13 @@
 /turf/simulated/floor/airless,
 /area/cursed/bridge)
 "fuu" = (
-/obj/machinery/door/airlock/glass_mining{
+/obj/structure/machinery/door/airlock/glass_mining{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/visible/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/supply{
 	dir = 8
 	},
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -927,7 +927,7 @@
 /turf/simulated/floor,
 /area/cursed/storage)
 "fuF" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/yellow,
@@ -949,7 +949,7 @@
 	pixel_x = 13
 	},
 /mob/living/simple_animal/rat/white,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -960,7 +960,7 @@
 /area/mine)
 "fyv" = (
 /obj/structure/closet,
-/obj/machinery/light/colored/red,
+/obj/structure/machinery/light/colored/red,
 /turf/simulated/floor/airless,
 /area/cursed/bridge)
 "fzz" = (
@@ -968,7 +968,7 @@
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "fDg" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/yellow,
@@ -983,7 +983,7 @@
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/living_area)
 "fMC" = (
-/obj/machinery/light/colored/red{
+/obj/structure/machinery/light/colored/red{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -995,13 +995,13 @@
 /turf/simulated/floor/wood,
 /area/cursed/living_area)
 "fNj" = (
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	pixel_x = 25;
 	name = "Interior Blast Doors";
 	id = "cursedint1";
 	pixel_y = -5
 	},
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	pixel_y = 8;
 	pixel_x = 25;
 	name = "Shutters Control";
@@ -1013,7 +1013,7 @@
 /area/cursed/hangar)
 "fPW" = (
 /obj/structure/plasticflaps,
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	dir = 1;
 	id = "freighter_mining"
 	},
@@ -1035,11 +1035,11 @@
 /turf/simulated/floor,
 /area/cursed/hangar)
 "fWE" = (
-/obj/machinery/door/airlock/glass_mining{
+/obj/structure/machinery/door/airlock/glass_mining{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/visible/supply,
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/atmospherics/pipe/simple/visible/supply,
+/obj/structure/machinery/door/firedoor,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
@@ -1056,31 +1056,31 @@
 /turf/simulated/floor/tiled/white,
 /area/cursed/medical)
 "gkr" = (
-/obj/machinery/mining/brace{
+/obj/structure/machinery/mining/brace{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "goD" = (
-/obj/machinery/atmospherics/pipe/simple/visible,
-/obj/machinery/body_scanconsole{
+/obj/structure/machinery/atmospherics/pipe/simple/visible,
+/obj/structure/machinery/body_scanconsole{
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate/light,
 /turf/simulated/floor,
 /area/cursed/medical)
 "gpv" = (
-/obj/machinery/mining/drill,
+/obj/structure/machinery/mining/drill,
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/mineral_processing)
 "gqk" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/light/spot,
+/obj/structure/machinery/light/spot,
 /turf/simulated/floor/reinforced/airless,
 /area/cursed/eva_storage)
 "gqw" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/visible/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/supply{
 	dir = 8
 	},
 /obj/structure/cable{
@@ -1095,7 +1095,7 @@
 /turf/simulated/floor/carpet,
 /area/cursed/living_area)
 "gtw" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/red,
@@ -1106,7 +1106,7 @@
 /turf/simulated/mineral/random/higher_chance,
 /area/mine)
 "gzl" = (
-/obj/machinery/recharge_station,
+/obj/structure/machinery/recharge_station,
 /turf/simulated/floor,
 /area/cursed/eva_storage)
 "gEH" = (
@@ -1114,15 +1114,15 @@
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/living_area)
 "gGl" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/structure/machinery/atmospherics/pipe/tank/air{
 	dir = 8
 	},
 /turf/simulated/floor,
 /area/cursed/engineering)
 "gIW" = (
-/obj/machinery/alarm/north,
+/obj/structure/machinery/alarm/north,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor/wood,
@@ -1136,7 +1136,7 @@
 /turf/simulated/floor,
 /area/cursed/hangar)
 "gLP" = (
-/obj/machinery/iv_drip,
+/obj/structure/machinery/iv_drip,
 /obj/structure/closet/walllocker/medical{
 	pixel_y = 31
 	},
@@ -1155,7 +1155,7 @@
 /turf/simulated/floor/wood,
 /area/cursed/living_area)
 "gOm" = (
-/obj/machinery/portable_atmospherics/powered/pump/filled,
+/obj/structure/machinery/portable_atmospherics/powered/pump/filled,
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/space)
 "gQU" = (
@@ -1173,7 +1173,7 @@
 /obj/item/material/shard{
 	icon_state = "small"
 	},
-/obj/machinery/giga_drill{
+/obj/structure/machinery/giga_drill{
 	name = "himean drill";
 	desc = "A giant, Himean drill - usually digging tunnels deep beneath the planet Himeo."
 	},
@@ -1204,7 +1204,7 @@
 /turf/template_noop,
 /area/space)
 "hdf" = (
-/obj/machinery/mining/brace,
+/obj/structure/machinery/mining/brace,
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/mineral_processing)
 "hfc" = (
@@ -1216,7 +1216,7 @@
 /area/cursed/hangar)
 "hhs" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/manifold4w/visible/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/visible/supply,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/cursed/hangar)
@@ -1247,11 +1247,11 @@
 /obj/item/spacecash/c1000{
 	pixel_x = 3
 	},
-/obj/item/gun/energy/lawgiver,
+/obj/item/gun/energy/acp,
 /turf/simulated/floor/wood,
 /area/cursed/living_area)
 "hkX" = (
-/obj/machinery/atmospherics/pipe/simple/visible/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/supply{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/yellow,
@@ -1259,13 +1259,13 @@
 "huo" = (
 /obj/structure/table/stone/marble,
 /obj/item/toy/comic,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/cursed/living_area)
 "hDm" = (
-/obj/machinery/suit_cycler/mining{
+/obj/structure/machinery/suit_cycler/mining{
 	locked = 0
 	},
 /turf/simulated/floor,
@@ -1275,19 +1275,19 @@
 /turf/simulated/floor/tiled/white,
 /area/cursed/medical)
 "hEN" = (
-/obj/machinery/floodlight,
+/obj/structure/machinery/floodlight,
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "hEW" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
 /turf/simulated/floor,
 /area/cursed/hangar)
 "hIh" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/visible/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/visible/supply,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
@@ -1296,10 +1296,10 @@
 /turf/simulated/floor,
 /area/cursed/storage)
 "hON" = (
-/obj/machinery/door/airlock/glass_mining{
+/obj/structure/machinery/door/airlock/glass_mining{
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/cursed/engineering)
 "hPn" = (
@@ -1309,18 +1309,18 @@
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/storage)
 "hQR" = (
-/obj/machinery/light/colored/red,
+/obj/structure/machinery/light/colored/red,
 /turf/simulated/floor,
 /area/cursed/hangar)
 "hRl" = (
-/obj/machinery/door/airlock/glass_mining{
+/obj/structure/machinery/door/airlock/glass_mining{
 	dir = 4
 	},
-/obj/machinery/door/blast/regular/open{
+/obj/structure/machinery/door/blast/regular/open{
 	name = "Hangar Blast Door";
 	id = "cursedlockdown"
 	},
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/cursed/engineering)
 "idh" = (
@@ -1332,13 +1332,13 @@
 /turf/simulated/floor/reinforced,
 /area/cursed/computer_core)
 "idV" = (
-/obj/machinery/atmospherics/pipe/simple/visible/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/supply{
 	dir = 5
 	},
 /turf/simulated/wall,
 /area/cursed/engineering)
 "iee" = (
-/obj/machinery/alarm/east{
+/obj/structure/machinery/alarm/east{
 	pixel_x = 28;
 	req_one_access = list(24,11,55)
 	},
@@ -1350,14 +1350,14 @@
 /turf/simulated/floor/reinforced,
 /area/cursed/computer_core)
 "ihW" = (
-/obj/machinery/door/blast/shutters{
+/obj/structure/machinery/door/blast/shutters{
 	id = "cursedshutters"
 	},
 /obj/structure/table/reinforced,
-/obj/machinery/door/window{
+/obj/structure/machinery/door/window{
 	dir = 8
 	},
-/obj/machinery/door/window{
+/obj/structure/machinery/door/window{
 	dir = 4
 	},
 /turf/simulated/floor,
@@ -1371,7 +1371,7 @@
 /area/cursed/mineral_processing)
 "inc" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/mineral/processing_unit_console{
+/obj/structure/machinery/mineral/processing_unit_console{
 	pixel_x = 32
 	},
 /turf/simulated/floor,
@@ -1386,20 +1386,20 @@
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "iqg" = (
-/obj/machinery/power/smes/buildable/horizon_shuttle,
+/obj/structure/machinery/power/smes/buildable/horizon_shuttle,
 /obj/structure/cable,
 /turf/simulated/floor,
 /area/cursed/computer_core)
 "iqF" = (
-/obj/machinery/appliance/cooker/oven,
+/obj/structure/machinery/appliance/cooker/oven,
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/living_area)
 "iqG" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/visible/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/supply{
 	dir = 9
 	},
-/obj/machinery/light/colored/red{
+/obj/structure/machinery/light/colored/red{
 	dir = 4
 	},
 /obj/structure/cable{
@@ -1440,7 +1440,7 @@
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/mineral_processing)
 "iJt" = (
-/obj/machinery/washing_machine,
+/obj/structure/machinery/washing_machine,
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/living_area)
 "iKq" = (
@@ -1468,11 +1468,11 @@
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/space)
 "jaT" = (
-/obj/machinery/door/blast/regular/open{
+/obj/structure/machinery/door/blast/regular/open{
 	name = "Hangar Blast Door";
 	id = "cursedlockdown"
 	},
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor,
 /area/cursed/hangar)
@@ -1488,7 +1488,7 @@
 /area/space)
 "jjm" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/manifold/visible/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/visible/supply{
 	dir = 4
 	},
 /turf/simulated/floor,
@@ -1501,34 +1501,34 @@
 /turf/simulated/wall,
 /area/cursed/mineral_processing)
 "jnE" = (
-/obj/machinery/portable_atmospherics/powered/pump/filled,
+/obj/structure/machinery/portable_atmospherics/powered/pump/filled,
 /turf/simulated/floor,
 /area/cursed/hangar)
 "jpT" = (
 /mob/living/simple_animal/rat/brown,
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/structure/window/borosilicate/reinforced{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/mineral_processing)
 "jqt" = (
-/obj/machinery/door/airlock/glass_mining{
+/obj/structure/machinery/door/airlock/glass_mining{
 	dir = 1
 	},
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/storage)
 "jsF" = (
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/structure/window/borosilicate/reinforced{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/mineral_processing)
 "jue" = (
-/obj/machinery/computer/ship/sensors,
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/computer/ship/sensors,
+/obj/structure/machinery/button/remote/blast_door{
 	pixel_y = 9;
 	pixel_x = 32;
 	id = "cursedlockdown";
@@ -1537,7 +1537,7 @@
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/bridge)
 "juT" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
+/obj/structure/machinery/atmospherics/pipe/simple/visible{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -1546,7 +1546,7 @@
 /area/cursed/eva_storage)
 "jyl" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/visible/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/supply{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -1567,14 +1567,14 @@
 /turf/simulated/floor,
 /area/cursed/storage)
 "jFG" = (
-/obj/machinery/mineral/unloading_machine,
+/obj/structure/machinery/mineral/unloading_machine,
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 1
 	},
 /turf/simulated/floor,
 /area/cursed/mineral_processing)
 "jGB" = (
-/obj/machinery/atmospherics/pipe/simple/visible/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/supply{
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -1586,14 +1586,14 @@
 /turf/simulated/floor,
 /area/cursed/engineering)
 "jKY" = (
-/obj/machinery/atmospherics/pipe/simple/visible/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/supply{
 	dir = 8
 	},
-/obj/machinery/door/blast/regular/open{
+/obj/structure/machinery/door/blast/regular/open{
 	name = "Hangar Blast Door";
 	id = "cursedlockdown"
 	},
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/cursed/mineral_processing)
 "jLz" = (
@@ -1603,8 +1603,8 @@
 /turf/simulated/floor/greengrid,
 /area/cursed/computer_core)
 "jRp" = (
-/obj/machinery/mining/brace,
-/obj/machinery/light/colored/red{
+/obj/structure/machinery/mining/brace,
+/obj/structure/machinery/light/colored/red{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/yellow,
@@ -1613,21 +1613,21 @@
 /obj/structure/sign/poster{
 	pixel_y = 31
 	},
-/obj/machinery/alarm/north,
+/obj/structure/machinery/alarm/north,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor/wood,
 /area/cursed/living_area)
 "jSI" = (
-/obj/machinery/mining/drill,
+/obj/structure/machinery/mining/drill,
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "jTy" = (
 /obj/structure/window/reinforced/tinted/frosted,
 /obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -1638,7 +1638,7 @@
 /area/cursed/computer_core)
 "jUt" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
 /obj/structure/cable{
@@ -1652,11 +1652,11 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 6
 	},
-/obj/machinery/power/apc/low/north,
-/obj/machinery/light/small{
+/obj/structure/machinery/power/apc/low/north,
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
-/obj/machinery/light_switch{
+/obj/structure/machinery/light_switch{
 	pixel_y = 34
 	},
 /obj/structure/cable{
@@ -1666,7 +1666,7 @@
 /turf/simulated/floor/tiled/white,
 /area/cursed/medical)
 "kaJ" = (
-/obj/machinery/floodlight{
+/obj/structure/machinery/floodlight{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
@@ -1677,7 +1677,7 @@
 /area/space)
 "kqQ" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/visible/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/supply{
 	dir = 8
 	},
 /obj/structure/cable{
@@ -1700,7 +1700,7 @@
 	pixel_x = -13;
 	pixel_y = 5
 	},
-/obj/machinery/artifact,
+/obj/structure/machinery/artifact,
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "ksd" = (
@@ -1715,7 +1715,7 @@
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "kwn" = (
-/obj/machinery/atmospherics/pipe/simple/visible/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/visible/supply,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/cursed/living_area)
@@ -1727,10 +1727,10 @@
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/storage)
 "kGw" = (
-/obj/machinery/door/airlock/glass_mining{
+/obj/structure/machinery/door/airlock/glass_mining{
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -1749,8 +1749,8 @@
 /turf/simulated/floor/wood,
 /area/cursed/living_area)
 "kKB" = (
-/obj/machinery/porta_turret,
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/porta_turret,
+/obj/structure/machinery/light/small/emergency{
 	dir = 8
 	},
 /turf/simulated/floor/greengrid,
@@ -1772,7 +1772,7 @@
 /area/cursed/eva_storage)
 "kNW" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/visible/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/supply{
 	dir = 10
 	},
 /obj/structure/cable{
@@ -1783,11 +1783,11 @@
 /turf/simulated/floor,
 /area/cursed/engineering)
 "kPZ" = (
-/obj/machinery/door/airlock/glass_mining{
+/obj/structure/machinery/door/airlock/glass_mining{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/visible/supply,
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/atmospherics/pipe/simple/visible/supply,
+/obj/structure/machinery/door/firedoor,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
@@ -1811,7 +1811,7 @@
 /area/cursed/hangar)
 "ljw" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/visible/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/supply{
 	dir = 6
 	},
 /turf/simulated/floor,
@@ -1820,8 +1820,8 @@
 /turf/simulated/floor/wood,
 /area/cursed/hangar)
 "loq" = (
-/obj/machinery/power/apc/low/north,
-/obj/machinery/light_switch{
+/obj/structure/machinery/power/apc/low/north,
+/obj/structure/machinery/light_switch{
 	pixel_y = 34
 	},
 /obj/structure/cable{
@@ -1840,10 +1840,10 @@
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/living_area)
 "lrD" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
-/obj/machinery/portable_atmospherics/powered/pump/filled,
+/obj/structure/machinery/portable_atmospherics/powered/pump/filled,
 /turf/simulated/floor,
 /area/cursed/hangar)
 "luL" = (
@@ -1891,14 +1891,14 @@
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/mineral_processing)
 "lDe" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/living_area)
 "lEx" = (
-/obj/machinery/power/terminal{
+/obj/structure/machinery/power/terminal{
 	dir = 8
 	},
 /turf/simulated/floor/reinforced,
@@ -1912,7 +1912,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/machinery/alarm/east{
+/obj/structure/machinery/alarm/east{
 	pixel_x = 28;
 	req_one_access = list(24,11,55)
 	},
@@ -1923,11 +1923,11 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/smes/buildable/horizon_shuttle,
+/obj/structure/machinery/power/smes/buildable/horizon_shuttle,
 /turf/simulated/floor,
 /area/cursed/engineering)
 "lIW" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
+/obj/structure/machinery/atmospherics/pipe/simple/visible{
 	dir = 9
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -1938,10 +1938,10 @@
 /turf/simulated/wall,
 /area/cursed/hangar)
 "lLh" = (
-/obj/machinery/door/airlock/glass_mining{
+/obj/structure/machinery/door/airlock/glass_mining{
 	dir = 1
 	},
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/cursed/bridge)
 "lNC" = (
@@ -1966,7 +1966,7 @@
 /turf/simulated/floor/wood,
 /area/cursed/living_area)
 "lOl" = (
-/obj/machinery/floodlight,
+/obj/structure/machinery/floodlight,
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/mineral_processing)
 "lPH" = (
@@ -1975,8 +1975,8 @@
 /turf/simulated/floor,
 /area/cursed/hangar)
 "lQd" = (
-/obj/machinery/power/apc/low/north,
-/obj/machinery/light_switch{
+/obj/structure/machinery/power/apc/low/north,
+/obj/structure/machinery/light_switch{
 	pixel_y = 34
 	},
 /obj/structure/cable{
@@ -1987,7 +1987,7 @@
 /area/cursed/computer_core)
 "lRB" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/visible/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/supply{
 	dir = 8
 	},
 /obj/structure/cable{
@@ -1998,7 +1998,7 @@
 /turf/simulated/floor,
 /area/cursed/storage)
 "lUq" = (
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	id = "cursedbaydoors";
 	name = "DANGER! Hangar Bay Doors"
 	},
@@ -2034,7 +2034,7 @@
 /turf/template_noop,
 /area/space)
 "mes" = (
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	dir = 1;
 	id = "freighter_mining"
 	},
@@ -2048,28 +2048,28 @@
 /turf/simulated/floor,
 /area/cursed/mineral_processing)
 "meO" = (
-/obj/machinery/mech_recharger/hephaestus,
+/obj/structure/machinery/mech_recharger/hephaestus,
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/mineral_processing)
 "meW" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/obj/machinery/alarm/west{
+/obj/structure/machinery/alarm/west{
 	pixel_x = -28
 	},
 /turf/simulated/floor,
 /area/cursed/hangar)
 "mgV" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/obj/machinery/light/colored/red,
+/obj/structure/machinery/light/colored/red,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/living_area)
 "mjp" = (
-/obj/machinery/floodlight{
+/obj/structure/machinery/floodlight{
 	dir = 4
 	},
 /obj/structure/lattice,
@@ -2088,8 +2088,8 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/obj/machinery/light/small/emergency,
-/obj/machinery/porta_turret/xray,
+/obj/structure/machinery/light/small/emergency,
+/obj/structure/machinery/porta_turret/xray,
 /turf/simulated/floor/greengrid,
 /area/cursed/computer_core)
 "mqj" = (
@@ -2104,24 +2104,24 @@
 /area/cursed/living_area)
 "mqr" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/door/blast/regular/open{
+/obj/structure/machinery/door/blast/regular/open{
 	name = "Hangar Blast Door";
 	id = "cursedlockdown"
 	},
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/cursed/mineral_processing)
 "msI" = (
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/machinery/light/colored/red{
+/obj/structure/machinery/light/colored/red{
 	dir = 4
 	},
 /turf/simulated/floor,
 /area/cursed/bridge)
 "mux" = (
-/obj/machinery/photocopier,
+/obj/structure/machinery/photocopier,
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/bridge)
 "mxK" = (
@@ -2129,7 +2129,7 @@
 /area/cursed/bridge)
 "mxO" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/visible/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/supply{
 	dir = 9
 	},
 /obj/structure/cable{
@@ -2172,14 +2172,14 @@
 /turf/simulated/floor,
 /area/cursed/mineral_processing)
 "mTG" = (
-/obj/machinery/atmospherics/binary/pump/high_power{
+/obj/structure/machinery/atmospherics/binary/pump/high_power{
 	dir = 8
 	},
 /turf/simulated/floor,
 /area/cursed/engineering)
 "mWr" = (
-/obj/machinery/power/apc/west,
-/obj/machinery/light_switch{
+/obj/structure/machinery/power/apc/west,
+/obj/structure/machinery/light_switch{
 	pixel_x = -34
 	},
 /obj/structure/cable{
@@ -2197,14 +2197,14 @@
 /turf/simulated/wall,
 /area/cursed/eva_storage)
 "mYB" = (
-/obj/machinery/door/airlock/glass_mining{
+/obj/structure/machinery/door/airlock/glass_mining{
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/living_area)
 "mZz" = (
-/obj/machinery/atmospherics/pipe/simple/visible/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/supply{
 	dir = 10
 	},
 /turf/simulated/wall,
@@ -2217,7 +2217,7 @@
 /area/cursed/computer_core)
 "nha" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable{
 	d1 = 4;
@@ -2231,19 +2231,19 @@
 /area/cursed/computer_core)
 "nkC" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/visible/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/supply{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/cursed/hangar)
 "nkM" = (
-/obj/machinery/artifact,
+/obj/structure/machinery/artifact,
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "nmn" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/visible/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/supply{
 	dir = 8
 	},
 /obj/structure/cable{
@@ -2263,11 +2263,11 @@
 /area/space)
 "npR" = (
 /mob/living/simple_animal/hostile/gnat,
-/obj/machinery/light/spot,
+/obj/structure/machinery/light/spot,
 /turf/simulated/floor,
 /area/cursed/hangar)
 "nqE" = (
-/obj/machinery/atmospherics/unary/cryo_cell,
+/obj/structure/machinery/atmospherics/unary/cryo_cell,
 /obj/structure/lattice/catwalk/indoor/grate/light,
 /turf/simulated/floor,
 /area/cursed/medical)
@@ -2297,7 +2297,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/light/colored/red{
+/obj/structure/machinery/light/colored/red{
 	dir = 4
 	},
 /turf/simulated/floor/reinforced/airless,
@@ -2310,7 +2310,7 @@
 /turf/simulated/wall,
 /area/cursed/engineering)
 "nEK" = (
-/obj/machinery/light/colored/red{
+/obj/structure/machinery/light/colored/red{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/yellow,
@@ -2326,7 +2326,7 @@
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/space)
 "nUF" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
 	d1 = 1;
@@ -2346,7 +2346,7 @@
 /turf/simulated/floor,
 /area/cursed/eva_storage)
 "nVP" = (
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	pixel_x = 9;
 	name = "DANGER! Airlock Exterior";
 	id = "cursedairlock"
@@ -2356,20 +2356,20 @@
 /turf/simulated/floor/wood,
 /area/cursed/hangar)
 "nXT" = (
-/obj/machinery/atmospherics/pipe/simple/visible/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/visible/supply,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/storage)
 "nYp" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/visible/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/visible/supply,
 /turf/simulated/floor,
 /area/cursed/hangar)
 "oar" = (
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/light/small/emergency{
 	dir = 4
 	},
-/obj/machinery/porta_turret/xray,
+/obj/structure/machinery/porta_turret/xray,
 /turf/simulated/floor/reinforced,
 /area/cursed/computer_core)
 "oet" = (
@@ -2377,7 +2377,7 @@
 /turf/simulated/floor/airless,
 /area/cursed/bridge)
 "omB" = (
-/obj/machinery/atmospherics/pipe/simple/visible/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/supply{
 	dir = 6
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -2387,13 +2387,13 @@
 /turf/simulated/wall,
 /area/cursed/computer_core)
 "onA" = (
-/obj/machinery/door/blast/shutters{
+/obj/structure/machinery/door/blast/shutters{
 	id = "cursedshutters"
 	},
-/obj/machinery/door/airlock/glass_mining{
+/obj/structure/machinery/door/airlock/glass_mining{
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/cursed/hangar)
 "orR" = (
@@ -2403,7 +2403,7 @@
 /area/cursed/storage)
 "owa" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/manifold4w/visible/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/visible/supply,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -2421,10 +2421,10 @@
 /turf/simulated/floor/greengrid,
 /area/cursed/computer_core)
 "oAe" = (
-/obj/machinery/door/airlock/glass_mining{
+/obj/structure/machinery/door/airlock/glass_mining{
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -2433,7 +2433,7 @@
 /turf/simulated/floor,
 /area/cursed/engineering)
 "oDz" = (
-/obj/machinery/alarm/east{
+/obj/structure/machinery/alarm/east{
 	pixel_x = 28;
 	req_one_access = list(24,11,55)
 	},
@@ -2442,7 +2442,7 @@
 /area/cursed/engineering)
 "oFM" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/visible/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/supply{
 	dir = 8
 	},
 /obj/structure/cable{
@@ -2450,7 +2450,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/light/spot,
+/obj/structure/machinery/light/spot,
 /turf/simulated/floor,
 /area/cursed/engineering)
 "oHu" = (
@@ -2459,7 +2459,7 @@
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "oIi" = (
-/obj/machinery/mech_recharger/hephaestus,
+/obj/structure/machinery/mech_recharger/hephaestus,
 /turf/simulated/floor,
 /area/cursed/hangar)
 "oJh" = (
@@ -2474,7 +2474,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/machinery/conveyor_switch{
+/obj/structure/machinery/conveyor_switch{
 	id = "freighter_mining"
 	},
 /obj/effect/floor_decal/industrial/outline/red,
@@ -2486,16 +2486,16 @@
 /turf/simulated/floor/tiled/white,
 /area/cursed/living_area)
 "oRK" = (
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/visible/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/visible/supply,
 /turf/simulated/floor,
 /area/cursed/living_area)
 "oUb" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/visible/supply,
-/obj/machinery/light/colored/red{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/supply,
+/obj/structure/machinery/light/colored/red{
 	dir = 8
 	},
 /obj/structure/cable{
@@ -2506,7 +2506,7 @@
 /turf/simulated/floor,
 /area/cursed/engineering)
 "oVt" = (
-/obj/machinery/door/blast/shutters{
+/obj/structure/machinery/door/blast/shutters{
 	id = "cursedshutters"
 	},
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
@@ -2519,30 +2519,30 @@
 /area/cursed/bridge)
 "oVJ" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/manifold4w/visible/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/visible/supply,
 /turf/simulated/floor,
 /area/cursed/hangar)
 "paz" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/visible/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/visible/supply,
 /turf/simulated/floor,
 /area/cursed/bridge)
 "pco" = (
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/light/small/emergency{
 	dir = 8
 	},
-/obj/machinery/porta_turret/xray,
+/obj/structure/machinery/porta_turret/xray,
 /turf/simulated/floor/reinforced,
 /area/cursed/computer_core)
 "pdA" = (
 /turf/simulated/floor,
 /area/cursed/engineering)
 "phX" = (
-/obj/machinery/door/airlock/highsecurity{
+/obj/structure/machinery/door/airlock/highsecurity{
 	bolt_cut_state = 1;
 	dir = 1
 	},
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /turf/simulated/floor/reinforced,
 /area/cursed/computer_core)
 "pkp" = (
@@ -2550,7 +2550,7 @@
 /turf/simulated/floor/tiled/white,
 /area/cursed/living_area)
 "pkF" = (
-/obj/machinery/shower{
+/obj/structure/machinery/shower{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/paleblue/diagonal,
@@ -2561,12 +2561,12 @@
 /turf/simulated/floor/tiled/white,
 /area/cursed/living_area)
 "pmj" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
+/obj/structure/machinery/atmospherics/pipe/simple/visible{
 	dir = 9
 	},
 /obj/structure/lattice/catwalk/indoor/grate/light,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /turf/simulated/floor,
 /area/cursed/medical)
 "poY" = (
@@ -2588,19 +2588,19 @@
 /turf/simulated/wall,
 /area/cursed/mineral_processing)
 "pra" = (
-/obj/machinery/door/blast/regular/open{
+/obj/structure/machinery/door/blast/regular/open{
 	id = "cursedint2";
 	name = "Airlock Interior Blast Doors"
 	},
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/cursed/hangar)
 "prv" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/manifold/visible/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/visible/supply{
 	dir = 1
 	},
-/obj/machinery/alarm/north,
+/obj/structure/machinery/alarm/north,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -2609,7 +2609,7 @@
 /turf/simulated/floor,
 /area/cursed/storage)
 "psc" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor,
@@ -2622,17 +2622,17 @@
 /area/cursed/bridge)
 "pxi" = (
 /obj/item/stack/material/graphite/full,
-/obj/machinery/power/portgen/basic,
+/obj/structure/machinery/power/portgen/basic,
 /obj/structure/cable,
 /turf/simulated/floor,
 /area/cursed/computer_core)
 "pBw" = (
-/obj/machinery/door/blast/regular/open{
+/obj/structure/machinery/door/blast/regular/open{
 	id = "cursedint1";
 	name = "Interior Blast Doors"
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/cursed/hangar)
 "pCb" = (
@@ -2640,7 +2640,7 @@
 /area/cursed/engineering)
 "pHQ" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/manifold/visible/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/visible/supply{
 	dir = 4
 	},
 /obj/structure/cable{
@@ -2660,11 +2660,11 @@
 /area/cursed/engineering)
 "pIR" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/visible/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/supply{
 	dir = 8
 	},
-/obj/machinery/power/apc/low/north,
-/obj/machinery/light_switch{
+/obj/structure/machinery/power/apc/low/north,
+/obj/structure/machinery/light_switch{
 	pixel_y = 34
 	},
 /obj/structure/cable{
@@ -2683,19 +2683,19 @@
 /area/cursed/hangar)
 "pJr" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
 /turf/simulated/floor,
 /area/cursed/hangar)
 "pJA" = (
-/obj/machinery/light/colored/red{
+/obj/structure/machinery/light/colored/red{
 	dir = 4
 	},
 /turf/simulated/floor,
 /area/cursed/hangar)
 "pLR" = (
-/obj/machinery/hologram/holopad/long_range,
+/obj/structure/machinery/hologram/holopad/long_range,
 /turf/simulated/floor/reinforced,
 /area/cursed/computer_core)
 "pOw" = (
@@ -2704,8 +2704,8 @@
 /turf/simulated/floor,
 /area/cursed/hangar)
 "pPP" = (
-/obj/machinery/mineral/processing_unit,
-/obj/machinery/conveyor{
+/obj/structure/machinery/mineral/processing_unit,
+/obj/structure/machinery/conveyor{
 	dir = 1;
 	id = "freighter_mining"
 	},
@@ -2718,18 +2718,18 @@
 /turf/simulated/floor,
 /area/cursed/mineral_processing)
 "pUH" = (
-/obj/machinery/door/blast/regular/open{
+/obj/structure/machinery/door/blast/regular/open{
 	name = "Hangar Blast Door";
 	id = "cursedlockdown"
 	},
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor,
 /area/cursed/bridge)
 "pWK" = (
 /obj/structure/curtain/open/shower,
 /obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
@@ -2743,11 +2743,11 @@
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/space)
 "qaz" = (
-/obj/machinery/door/blast/regular/open{
+/obj/structure/machinery/door/blast/regular/open{
 	name = "Hangar Blast Door";
 	id = "cursedlockdown"
 	},
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/cursed/mineral_processing)
 "qbe" = (
@@ -2762,16 +2762,16 @@
 /turf/simulated/floor,
 /area/cursed/mineral_processing)
 "qdT" = (
-/obj/machinery/atmospherics/pipe/simple/visible/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/visible/supply,
 /obj/item/trash/cigbutt/roll,
 /turf/simulated/floor/wood,
 /area/cursed/living_area)
 "qeX" = (
-/obj/machinery/atmospherics/pipe/simple/visible/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/supply{
 	dir = 10
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /obj/structure/cable{
@@ -2788,18 +2788,18 @@
 /turf/simulated/floor/wood,
 /area/cursed/living_area)
 "qhY" = (
-/obj/machinery/atmospherics/portables_connector,
+/obj/structure/machinery/atmospherics/portables_connector,
 /obj/structure/lattice/catwalk/indoor/grate/light,
 /turf/simulated/floor,
 /area/cursed/medical)
 "qiJ" = (
-/obj/machinery/alarm/north,
-/obj/machinery/light/small,
+/obj/structure/machinery/alarm/north,
+/obj/structure/machinery/light/small,
 /turf/simulated/floor/wood,
 /area/cursed/living_area)
 "qiT" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/visible/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/supply{
 	dir = 6
 	},
 /obj/structure/cable{
@@ -2810,22 +2810,22 @@
 /turf/simulated/floor,
 /area/cursed/living_area)
 "qjt" = (
-/obj/machinery/cell_charger,
+/obj/structure/machinery/cell_charger,
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/storage)
 "qpd" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
+/obj/structure/machinery/atmospherics/pipe/simple/visible{
 	dir = 5
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/structure/machinery/recharger/wallcharger{
 	pixel_x = -23
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/cursed/eva_storage)
 "qqY" = (
-/obj/machinery/door/blast/regular,
+/obj/structure/machinery/door/blast/regular,
 /turf/simulated/floor,
 /area/cursed/hangar)
 "qri" = (
@@ -2846,7 +2846,7 @@
 "qwO" = (
 /obj/structure/table/stone/marble,
 /obj/item/towel/random,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
@@ -2856,10 +2856,10 @@
 /turf/simulated/floor,
 /area/cursed/hangar)
 "qCg" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 1
 	},
-/obj/machinery/portable_atmospherics/powered/pump/filled,
+/obj/structure/machinery/portable_atmospherics/powered/pump/filled,
 /turf/simulated/floor,
 /area/cursed/hangar)
 "qDT" = (
@@ -2895,7 +2895,7 @@
 /turf/simulated/floor/wood,
 /area/cursed/living_area)
 "qGF" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
 /obj/structure/sign/poster{
@@ -2915,17 +2915,17 @@
 /turf/simulated/floor/greengrid,
 /area/cursed/computer_core)
 "qKC" = (
-/obj/machinery/door/airlock/glass_mining{
+/obj/structure/machinery/door/airlock/glass_mining{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/visible/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/supply{
 	dir = 8
 	},
-/obj/machinery/door/blast/regular/open{
+/obj/structure/machinery/door/blast/regular/open{
 	name = "Hangar Blast Door";
 	id = "cursedlockdown"
 	},
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -2935,7 +2935,7 @@
 /area/cursed/engineering)
 "qLL" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/visible/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/supply{
 	dir = 10
 	},
 /turf/simulated/floor,
@@ -2947,7 +2947,7 @@
 /turf/simulated/wall,
 /area/cursed/mineral_processing)
 "qPP" = (
-/obj/machinery/alarm/west{
+/obj/structure/machinery/alarm/west{
 	pixel_x = -28
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -2961,14 +2961,14 @@
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/mineral_processing)
 "qUl" = (
-/obj/machinery/alarm/east{
+/obj/structure/machinery/alarm/east{
 	pixel_x = 28;
 	req_one_access = list(24,11,55)
 	},
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/bridge)
 "qUP" = (
-/obj/machinery/light/colored/red,
+/obj/structure/machinery/light/colored/red,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/storage)
@@ -3013,7 +3013,7 @@
 /area/cursed/medical)
 "rdP" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/visible/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/supply{
 	dir = 8
 	},
 /obj/structure/cable{
@@ -3028,12 +3028,12 @@
 /turf/simulated/wall,
 /area/cursed/hangar)
 "rfA" = (
-/obj/machinery/light/colored/red,
+/obj/structure/machinery/light/colored/red,
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/living_area)
 "rfI" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/manifold/visible/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/visible/supply{
 	dir = 4
 	},
 /obj/structure/cable{
@@ -3072,18 +3072,18 @@
 /turf/simulated/wall,
 /area/cursed/mineral_processing)
 "rsM" = (
-/obj/machinery/floodlight{
+/obj/structure/machinery/floodlight{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "rvg" = (
-/obj/machinery/atmospherics/pipe/simple/visible/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/visible/supply,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/living_area)
 "rwC" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/structure/machinery/atmospherics/pipe/tank/air{
 	start_pressure = 5066.26;
 	dir = 4
 	},
@@ -3099,7 +3099,7 @@
 /area/space)
 "rAA" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/visible/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/supply{
 	dir = 10
 	},
 /obj/structure/cable{
@@ -3110,7 +3110,7 @@
 /turf/simulated/floor,
 /area/cursed/eva_storage)
 "rEd" = (
-/obj/machinery/mining/brace{
+/obj/structure/machinery/mining/brace{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
@@ -3132,21 +3132,21 @@
 /area/cursed/eva_storage)
 "rJw" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/visible/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/supply{
 	dir = 8
 	},
-/obj/machinery/light/spot,
+/obj/structure/machinery/light/spot,
 /turf/simulated/floor,
 /area/cursed/mineral_processing)
 "rLf" = (
-/obj/machinery/cryopod{
+/obj/structure/machinery/cryopod{
 	dir = 4
 	},
 /turf/simulated/floor/wood,
 /area/cursed/living_area)
 "rMm" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor,
@@ -3163,7 +3163,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	dir = 1;
 	id = "freighter_mining"
 	},
@@ -3174,13 +3174,13 @@
 /turf/simulated/floor,
 /area/cursed/mineral_processing)
 "rRn" = (
-/obj/machinery/mech_recharger,
+/obj/structure/machinery/mech_recharger,
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/mineral_processing)
 "rSt" = (
 /obj/structure/table/wood,
 /obj/item/camera,
-/obj/machinery/chemical_dispenser/coffee{
+/obj/structure/machinery/chemical_dispenser/coffee{
 	pixel_y = 17;
 	pixel_x = -26
 	},
@@ -3191,7 +3191,7 @@
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/bridge)
 "rWw" = (
-/obj/machinery/atmospherics/pipe/simple/visible/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/supply{
 	dir = 8
 	},
 /obj/structure/cable{
@@ -3219,9 +3219,9 @@
 /area/cursed/medical)
 "sjW" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/visible/supply,
-/obj/machinery/power/apc/low/west,
-/obj/machinery/light_switch{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/supply,
+/obj/structure/machinery/power/apc/low/west,
+/obj/structure/machinery/light_switch{
 	pixel_x = -35
 	},
 /obj/structure/cable{
@@ -3232,7 +3232,7 @@
 /area/cursed/bridge)
 "skQ" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/visible/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/supply{
 	dir = 8
 	},
 /obj/structure/cable{
@@ -3244,7 +3244,7 @@
 /area/cursed/storage)
 "snd" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/visible/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/visible/supply,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
@@ -3264,10 +3264,10 @@
 /area/cursed/engineering)
 "stt" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/obj/machinery/alarm/north,
+/obj/structure/machinery/alarm/north,
 /turf/simulated/floor,
 /area/cursed/eva_storage)
 "swq" = (
@@ -3275,14 +3275,14 @@
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "sxL" = (
-/obj/machinery/atmospherics/pipe/tank/carbon_dioxide,
+/obj/structure/machinery/atmospherics/pipe/tank/carbon_dioxide,
 /turf/simulated/floor,
 /area/cursed/hangar)
 "syg" = (
-/obj/machinery/door/blast/regular{
+/obj/structure/machinery/door/blast/regular{
 	id = "cursedarmory"
 	},
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/cursed/bridge)
 "szF" = (
@@ -3315,7 +3315,7 @@
 /area/cursed/living_area)
 "sNG" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/visible/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/visible/supply,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
@@ -3324,7 +3324,7 @@
 /turf/simulated/floor,
 /area/cursed/living_area)
 "sRm" = (
-/obj/machinery/light/colored/red{
+/obj/structure/machinery/light/colored/red{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/yellow,
@@ -3338,7 +3338,7 @@
 /turf/simulated/wall/r_wall,
 /area/cursed/computer_core)
 "sUr" = (
-/obj/machinery/power/emitter,
+/obj/structure/machinery/power/emitter,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
@@ -3365,11 +3365,11 @@
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/space)
 "tcu" = (
-/obj/machinery/door/airlock/glass_mining{
+/obj/structure/machinery/door/airlock/glass_mining{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/visible/supply,
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/atmospherics/pipe/simple/visible/supply,
+/obj/structure/machinery/door/firedoor,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
@@ -3388,7 +3388,7 @@
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/storage)
 "tiz" = (
-/obj/machinery/atmospherics/pipe/simple/visible/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/visible/supply,
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/storage)
 "tkd" = (
@@ -3397,7 +3397,7 @@
 /area/cursed/hangar)
 "tqe" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light/colored/red{
+/obj/structure/machinery/light/colored/red{
 	dir = 8
 	},
 /turf/simulated/floor,
@@ -3413,7 +3413,7 @@
 /area/cursed/living_area)
 "tuf" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/porta_turret/sniper,
+/obj/structure/machinery/porta_turret/sniper,
 /turf/simulated/floor/reinforced/airless,
 /area/cursed/eva_storage)
 "tyS" = (
@@ -3426,11 +3426,11 @@
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/hangar)
 "tDC" = (
-/obj/machinery/door/airlock/medical{
+/obj/structure/machinery/door/airlock/medical{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/visible/supply,
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/atmospherics/pipe/simple/visible/supply,
+/obj/structure/machinery/door/firedoor,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
@@ -3439,7 +3439,7 @@
 /turf/simulated/floor/tiled/white,
 /area/cursed/medical)
 "tLw" = (
-/obj/machinery/suit_cycler{
+/obj/structure/machinery/suit_cycler{
 	locked = 0
 	},
 /turf/simulated/floor,
@@ -3455,7 +3455,7 @@
 /obj/item/material/twohanded/spear/diamond,
 /obj/effect/decal/cleanable/blood,
 /obj/structure/lattice/catwalk/indoor/grate/damaged,
-/obj/machinery/atmospherics/pipe/manifold4w/visible/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/visible/supply,
 /turf/simulated/floor,
 /area/cursed/hangar)
 "tOD" = (
@@ -3467,11 +3467,11 @@
 /turf/simulated/floor,
 /area/cursed/mineral_processing)
 "tRM" = (
-/obj/machinery/door/airlock/glass_mining{
+/obj/structure/machinery/door/airlock/glass_mining{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/visible/supply,
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/atmospherics/pipe/simple/visible/supply,
+/obj/structure/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/cursed/bridge)
 "tTd" = (
@@ -3484,7 +3484,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 6
 	},
-/obj/machinery/bodyscanner{
+/obj/structure/machinery/bodyscanner{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -3510,7 +3510,7 @@
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/space)
 "ubu" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
+/obj/structure/machinery/atmospherics/pipe/simple/visible{
 	dir = 6
 	},
 /turf/simulated/wall,
@@ -3521,13 +3521,13 @@
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/bridge)
 "udM" = (
-/obj/machinery/artifact,
+/obj/structure/machinery/artifact,
 /obj/structure/boulder,
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "ueM" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light/colored/red{
+/obj/structure/machinery/light/colored/red{
 	dir = 8
 	},
 /obj/structure/cable{
@@ -3538,32 +3538,32 @@
 /turf/simulated/floor,
 /area/cursed/mineral_processing)
 "ujv" = (
-/obj/machinery/door/airlock/glass_mining{
+/obj/structure/machinery/door/airlock/glass_mining{
 	dir = 1
 	},
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/cursed/living_area)
 "umC" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/manifold/visible/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold/visible/supply,
 /turf/simulated/floor,
 /area/cursed/hangar)
 "unv" = (
-/obj/machinery/atmospherics/portables_connector,
-/obj/machinery/portable_atmospherics/powered/pump/filled,
+/obj/structure/machinery/atmospherics/portables_connector,
+/obj/structure/machinery/portable_atmospherics/powered/pump/filled,
 /turf/simulated/floor,
 /area/cursed/hangar)
 "uod" = (
-/obj/machinery/portable_atmospherics/powered/scrubber,
+/obj/structure/machinery/portable_atmospherics/powered/scrubber,
 /turf/simulated/floor,
 /area/cursed/hangar)
 "usy" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/white,
 /area/cursed/living_area)
 "uwc" = (
-/obj/machinery/cell_charger,
+/obj/structure/machinery/cell_charger,
 /obj/structure/table/steel,
 /obj/item/orbital_dropper/drill,
 /turf/simulated/floor/tiled/yellow,
@@ -3574,12 +3574,12 @@
 /area/cursed/living_area)
 "uxw" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor,
 /area/cursed/hangar)
 "uBx" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/visible/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/visible/supply,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
@@ -3589,7 +3589,7 @@
 /area/cursed/bridge)
 "uBC" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/visible/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/visible/supply,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
@@ -3635,7 +3635,7 @@
 /area/cursed/living_area)
 "uIL" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/manifold4w/visible/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/visible/supply,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -3644,16 +3644,16 @@
 /turf/simulated/floor,
 /area/cursed/living_area)
 "uJy" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/engineering)
 "uJN" = (
-/obj/machinery/power/terminal{
+/obj/structure/machinery/power/terminal{
 	dir = 1
 	},
-/obj/machinery/power/portgen/basic,
+/obj/structure/machinery/power/portgen/basic,
 /obj/item/stack/material/graphite/full,
 /turf/simulated/floor,
 /area/cursed/engineering)
@@ -3667,7 +3667,7 @@
 /area/cursed/storage)
 "uPc" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
 /obj/structure/cable{
@@ -3695,10 +3695,10 @@
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "uSF" = (
-/obj/machinery/atmospherics/pipe/manifold/visible{
+/obj/structure/machinery/atmospherics/pipe/manifold/visible{
 	dir = 8
 	},
-/obj/machinery/meter,
+/obj/structure/machinery/meter,
 /turf/simulated/floor,
 /area/cursed/hangar)
 "uSR" = (
@@ -3760,15 +3760,15 @@
 /turf/simulated/wall,
 /area/cursed/bridge)
 "vAa" = (
-/obj/machinery/alarm/north,
+/obj/structure/machinery/alarm/north,
 /turf/simulated/floor/tiled/white,
 /area/cursed/living_area)
 "vFJ" = (
-/obj/machinery/door/airlock/highsecurity{
+/obj/structure/machinery/door/airlock/highsecurity{
 	bolt_cut_state = 1;
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/computer_core)
 "vHw" = (
@@ -3789,7 +3789,7 @@
 /turf/simulated/floor,
 /area/cursed/eva_storage)
 "vIS" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /obj/structure/bed/stool/chair/wood{
 	dir = 8
 	},
@@ -3797,8 +3797,8 @@
 /turf/simulated/floor/wood,
 /area/cursed/living_area)
 "vLT" = (
-/obj/machinery/power/apc/low/east,
-/obj/machinery/light_switch{
+/obj/structure/machinery/power/apc/low/east,
+/obj/structure/machinery/light_switch{
 	pixel_x = 35
 	},
 /obj/structure/cable{
@@ -3831,7 +3831,7 @@
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/mineral_processing)
 "vXq" = (
-/obj/machinery/atmospherics/pipe/simple/visible/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/supply{
 	dir = 9
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -3845,11 +3845,11 @@
 /area/cursed/living_area)
 "vZS" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/door/blast/regular/open{
+/obj/structure/machinery/door/blast/regular/open{
 	id = "cursedint2";
 	name = "Airlock Interior Blast Doors"
 	},
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/cursed/hangar)
 "wkw" = (
@@ -3871,10 +3871,10 @@
 /turf/simulated/floor/airless,
 /area/cursed/hangar)
 "wrR" = (
-/obj/machinery/atmospherics/pipe/simple/visible/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/supply{
 	dir = 5
 	},
-/obj/machinery/light/colored/red,
+/obj/structure/machinery/light/colored/red,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable{
 	d1 = 1;
@@ -3895,22 +3895,22 @@
 /turf/simulated/floor,
 /area/cursed/hangar)
 "wxD" = (
-/obj/machinery/light/colored/red,
+/obj/structure/machinery/light/colored/red,
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/bridge)
 "wzD" = (
-/obj/machinery/door/blast/regular/open{
+/obj/structure/machinery/door/blast/regular/open{
 	id = "cursedint1";
 	name = "Interior Blast Doors"
 	},
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/cursed/hangar)
 "wzV" = (
-/obj/machinery/alarm/west{
+/obj/structure/machinery/alarm/west{
 	pixel_x = -28
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/yellow,
@@ -3930,33 +3930,33 @@
 /turf/simulated/floor,
 /area/cursed/hangar)
 "wZV" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/obj/machinery/light/colored/red{
+/obj/structure/machinery/light/colored/red{
 	dir = 8
 	},
 /turf/simulated/floor,
 /area/cursed/hangar)
 "xbd" = (
-/obj/machinery/power/apc/hyper/east,
-/obj/machinery/light_switch{
+/obj/structure/machinery/power/apc/hyper/east,
+/obj/structure/machinery/light_switch{
 	pixel_x = 35
 	},
 /obj/structure/cable,
 /turf/simulated/floor,
 /area/cursed/hangar)
 "xbU" = (
-/obj/machinery/door/blast/regular/open{
+/obj/structure/machinery/door/blast/regular/open{
 	name = "Hangar Blast Door";
 	id = "cursedlockdown"
 	},
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/cursed/hangar)
 "xcg" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/manifold/visible/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/visible/supply{
 	dir = 8
 	},
 /obj/structure/cable{
@@ -3967,7 +3967,7 @@
 /turf/simulated/floor,
 /area/cursed/mineral_processing)
 "xdi" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /turf/simulated/floor,
@@ -3980,7 +3980,7 @@
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/engineering)
 "xmi" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -3998,21 +3998,21 @@
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/mineral_processing)
 "xug" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /turf/simulated/floor,
 /area/cursed/hangar)
 "xuu" = (
 /obj/structure/railing/mapped,
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/light/small/emergency{
 	dir = 1
 	},
-/obj/machinery/porta_turret/xray,
+/obj/structure/machinery/porta_turret/xray,
 /turf/simulated/floor/greengrid,
 /area/cursed/computer_core)
 "xvo" = (
-/obj/machinery/recharger/wallcharger{
+/obj/structure/machinery/recharger/wallcharger{
 	pixel_x = 4;
 	pixel_y = 30
 	},
@@ -4025,7 +4025,7 @@
 /area/cursed/engineering)
 "xwF" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -4052,11 +4052,11 @@
 /turf/simulated/wall/r_wall,
 /area/cursed/mineral_processing)
 "xPp" = (
-/obj/machinery/cablelayer,
+/obj/structure/machinery/cablelayer,
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/bridge)
 "xPt" = (
-/obj/machinery/artifact,
+/obj/structure/machinery/artifact,
 /turf/simulated/floor/phoron,
 /area/mine)
 "xRX" = (
@@ -4072,7 +4072,7 @@
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/living_area)
 "xWU" = (
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	pixel_y = 23;
 	name = "Anti-Piracy Armory";
 	id = "cursedarmory"
@@ -4087,13 +4087,13 @@
 /turf/simulated/floor,
 /area/cursed/hangar)
 "yaP" = (
-/obj/machinery/door/airlock/glass_mining{
+/obj/structure/machinery/door/airlock/glass_mining{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/visible/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/supply{
 	dir = 8
 	},
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -4110,10 +4110,10 @@
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/living_area)
 "yip" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
+/obj/structure/machinery/atmospherics/pipe/simple/visible{
 	dir = 5
 	},
-/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/structure/machinery/portable_atmospherics/canister/oxygen,
 /obj/structure/lattice/catwalk/indoor/grate/light,
 /turf/simulated/floor,
 /area/cursed/medical)

@@ -507,7 +507,7 @@
 	sleep(10)
 	playsound(src, 'sound/items/countdown.ogg', 125, 1)
 	sleep(20)
-	explosion(src, -1, 1, 5)
+	explosion(get_turf(src), -1, 1, 5)
 	src.gib()
 
 /mob/living/carbon/human/proc/hivenet()
@@ -612,7 +612,7 @@
 		else if (T in range(src, 2))
 			earpain(1, TRUE, 1)
 
-	for(var/obj/machinery/light/L in range(7))
+	for(var/obj/structure/machinery/light/L in range(7))
 		L.broken()
 		CHECK_TICK
 
@@ -631,7 +631,7 @@
 
 	src.set_light(4,-20)
 
-	addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, set_light), 0), 30 SECONDS)
+	addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, set_light), 0), 30 SECONDS, TIMER_STOPPABLE|TIMER_DELETE_ME)
 
 /mob/living/carbon/human/proc/darkness_eyes()
 	set category = "Abilities"
@@ -749,7 +749,7 @@
 		playsound(src,'sound/mecha/mechstep.ogg',25,1)
 		if (brokesomething)
 			src.visible_message(SPAN_DANGER("[src.name] breaks through!"))
-		addtimer(CALLBACK(src, PROC_REF(trampling)), 1)
+		addtimer(CALLBACK(src, PROC_REF(trampling)), 1, TIMER_STOPPABLE|TIMER_DELETE_ME)
 
 	else
 		target = get_step(src, dir)
@@ -822,7 +822,7 @@
 	for (var/obj/structure/window/W in view(2))
 		W.shatter()
 
-	for (var/obj/machinery/light/L in view(4))
+	for (var/obj/structure/machinery/light/L in view(4))
 		L.broken()
 
 	if (victims.len)

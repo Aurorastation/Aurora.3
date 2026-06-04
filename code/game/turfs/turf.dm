@@ -242,9 +242,15 @@
 	if(!(user.canmove) || user.restrained())
 		return FALSE
 
-	// Check if objects in the turf want to slap the attacker back.
-	for (var/atom/target_atom in src)
-		SEND_SIGNAL(target_atom, COMSIG_HANDLE_HAND_INTERCEPTION, user, src)
+	// Check if objects in the turf want to intercept the click.
+	var/datum/component/turf_hand/best_interceptor
+	for(var/atom/A in src)
+		var/datum/component/turf_hand/TH = A.GetComponent(/datum/component/turf_hand)
+		if(TH && (!best_interceptor || TH.priority > best_interceptor.priority))
+			best_interceptor = TH
+
+	if(best_interceptor)
+		best_interceptor.OnHandInterception(user)
 
 	return TRUE
 
@@ -270,8 +276,8 @@
 
 		if(is_new_area_valid)
 			new_area.Entered(AM)
-			if(istype(AM, /obj/machinery))
-				var/obj/machinery/M = AM
+			if(istype(AM, /obj/structure/machinery))
+				var/obj/structure/machinery/M = AM
 				M.shuttle_move(src)
 
 	last_outside_check = OUTSIDE_UNCERTAIN
@@ -654,11 +660,10 @@
 	var/static/list/allowed = typecacheof(list(
 		/obj/structure/table,
 		/obj/structure/closet,
-		/obj/machinery/constructable_frame,
 		/obj/structure/target_stake,
 		/obj/structure/cable,
 		/obj/structure/disposalpipe,
-		/obj/machinery,
+		/obj/structure/machinery,
 		/mob
 	))
 
@@ -675,7 +680,7 @@
 				if(!O.density)
 					add = 1
 					break
-				if(istype(O, /obj/machinery/door))
+				if(istype(O, /obj/structure/machinery/door))
 					//not sure why this doesn't fire on LinkBlocked()
 					add = 0
 					break

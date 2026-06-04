@@ -154,6 +154,9 @@
 	/// The message displayed to a player who successfully uses a psionic jumpstarter.
 	var/awakening_message = SPAN_NOTICE("You've awakened your psionic potential. Note that you have a reduced point pool than usual.")
 
+	/// Optionally also give the user specific additional psi-power datums
+	var/list/singleton/psionic_power/additional_powers = list()
+
 /obj/item/psionic_jumpstarter/attack_self(mob/user)
 	. = ..()
 	if(!ishuman(user))
@@ -173,6 +176,10 @@
 		H.psi.psi_points = psi_points_override
 
 	to_chat(H, awakening_message)
+
+	for (var/power in additional_powers)
+		astype(GET_SINGLETON(power), /singleton/psionic_power)?.apply(H)
+
 	qdel(src)
 
 /obj/item/psionic_jumpstarter/sensitive
@@ -182,3 +189,24 @@
 	psi_rank_to_set = PSI_RANK_SENSITIVE
 	psi_points_override = 3
 	awakening_message = SPAN_NOTICE("You've awakened your psionic potential.")
+
+/obj/item/psionic_jumpstarter/loner
+	name = "loner jumpstarter"
+	desc = "Use this to gain the powers of a Loner, enabling you to use the Psionic Point Shop, as well as the Zona Absorbtion, Awaken, and Drain powers. \
+			This won't work on species with no Zona Bovinae, like synthetics, vaurcae or dionae! This item is definitely not canon."
+	psi_points_override = 10
+	awakening_message = SPAN_DANGER("The curtain of reality parts before your mind, revealing the truth of all existence.")
+
+	/// Same as Loner bonus powers
+	additional_powers = list(
+		/singleton/psionic_power/zona_absorption,
+		/singleton/psionic_power/awaken,
+		/singleton/psionic_power/psi_drain)
+
+/obj/item/psionic_jumpstarter/loner/attack_self(mob/user)
+	. = ..()
+	if (!ishuman(user))
+		return
+
+	var/mob/living/carbon/human/character = user
+	GLOB.loners.add_antagonist(character.mind, do_not_equip = TRUE, do_not_announce = TRUE, preserve_appearance = TRUE)

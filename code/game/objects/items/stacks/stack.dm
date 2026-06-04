@@ -99,11 +99,43 @@
 	if(locate(/datum/stack_recipe) in recipes_sublist)
 		var/sublist_title = sublist ? " ([capitalize_first_letters(sublist.title)])" : ""
 		t1 += "<h2>Recipes[sublist_title]</h2>"
+
+	// Cache "skill visits" to avoid having to constantly recheck for components.
+	var/alist/checked_skills = alist()
+	var/visited_skill = null // Trinary boolean as null/0/nonzero
+
 	for(var/datum/stack_recipe/R in recipes_sublist)
+		var/lacks_skill = FALSE
+		// If you put anything other than a skill component in the required skills for a recipe, I will destroy you.
+		for(var/skill_comp, skill_level_requirement in R.required_skills_hard)
+			visited_skill = checked_skills[skill_comp]
+			// ** Trinary Check for Null, 0, or Nonzero. **
+			// Case for skill hasn't been checked yet.
+			if (isnull(visited_skill))
+				// null if no component at all, otherwise equal to the skill level (which can be any real number).
+				var/visited_comp = astype(user.GetComponent(skill_comp), SKILL_COMPONENT)?.skill_level
+
+				// Case for "Non-Player Characters", which will never have the component at all.
+				if (isnull(visited_comp))
+					checked_skills[skill_comp] = SKILL_LEVEL_PROFESSIONAL
+					continue // Not a player character, just assume they can craft everything.
+
+				// Player characters will always have the component if relevant.
+				checked_skills[skill_comp] = visited_comp
+				if (visited_comp < skill_level_requirement)
+					lacks_skill = TRUE
+					break
+			// Case for skill has been checked AND the character has the component.
+			else if (visited_skill < skill_level_requirement)
+				lacks_skill = TRUE
+				break
+
 		var/max_multiplier = round(src.get_amount() / R.req_amount)
 		var/title = ""
 		var/can_build = TRUE
 		can_build = (max_multiplier > 0)
+		if(lacks_skill)
+			can_build = FALSE
 
 		if(R.res_amount > 1)
 			title += "[R.res_amount]x [R.title]\s"
@@ -116,7 +148,7 @@
 			var/sublist_var = sublist ? "[REF(sublist)]" : ""
 			t1 += "<a href='byond://?src=[REF(src)];make=[REF(R)];sublist=[sublist_var];multiplier=1'>[title]</a>"
 		else
-			t1 += "<div class='no-build inline'>[title]</div><br>"
+			t1 += "[lacks_skill ? "<span class='warning'>Missing Skill — " : ""]<div class='no-build inline'>[title]</div>[lacks_skill ? "</span>" : ""]<br>"
 			continue
 
 		if(R.max_res_amount > 1 && max_multiplier > 1)
@@ -157,14 +189,22 @@
 	if (recipe.on_floor && !isfloor(user.loc))
 		to_chat(user, SPAN_WARNING("\The [recipe.title] must be constructed on the floor!"))
 		return
+	var/skill_diff = 0
+	for (var/skill_type, required_level in recipe.required_skills_soft)
+		skill_diff += required_level - astype(user.GetComponent(skill_type), SKILL_COMPONENT)?.skill_level
 
 	to_chat(user, SPAN_NOTICE("Building [recipe.title]..."))
-	if (recipe.time)
-		if (!do_after(user, recipe.time, do_flags = DO_REPAIR_CONSTRUCT))
+	var/doafter_time = recipe.time
+	if (doafter_time)
+
+		// Approximately no crafting time if you beat the skill req by 4, approximately twice as long to craft if you're under by 4.
+		// No need to do an expensive min because it is mathematically impossible for this to ever be negative.
+		doafter_time += doafter_time * ftanh(0.5 * skill_diff)
+		if (!do_after(user, doafter_time, do_flags = DO_REPAIR_CONSTRUCT))
 			return
 
 	if (use(required))
-		recipe.Produce(produced, user.loc, user.dir, user)
+		recipe.Produce(produced, user.loc, user.dir, user, skill_diff)
 
 /obj/item/stack/Topic(href, href_list)
 	..()
@@ -365,8 +405,21 @@
 	var/one_per_turf = 0
 	var/on_floor = 0
 	var/use_material
+	/**
+	 * Assoc list of required skills to required skill levels. Requirements are taken as a "soft" requirement used to generate a "skill difference", which is applied as a modifier to a d20 roll.
+	 * This roll currently just affects the name of the resulting item and is for fun, but should be later expanded to have more unique effects.
+	 * THIS MAY ONLY HAVE /datum/component/skill/skill_name in it. I WILL DESTROY YOU IF YOU PUT ANYTHING ELSE IN HERE.
+	 */
+	var/alist/required_skills_soft
 
-/datum/stack_recipe/New(title, result_type, req_amount = 1, res_amount = 1, max_res_amount = 1, time = 0, one_per_turf = 0, on_floor = 0, supplied_material = null)
+	/**
+	 * Assoc list of required skills to required skill levels. This is the MINIMUM to craft the item.
+	 * You must have ALL these skills at that level to see the item as craftable.
+	 * THIS MAY ONLY HAVE /datum/component/skill/skill_name in it. I WILL DESTROY YOU IF YOU PUT ANYTHING ELSE IN HERE.
+	 */
+	var/alist/required_skills_hard
+
+/datum/stack_recipe/New(title, result_type, req_amount = 1, res_amount = 1, max_res_amount = 1, time = 0, one_per_turf = 0, on_floor = 0, supplied_material = null, alist/required_skills_soft, alist/required_skills_hard)
 	src.title = title
 	src.result_type = result_type
 	if(ispath(result_type, /obj/structure))
@@ -380,8 +433,10 @@
 	src.one_per_turf = one_per_turf
 	src.on_floor = on_floor
 	src.use_material = supplied_material
+	src.required_skills_soft = required_skills_soft
+	src.required_skills_hard = required_skills_hard
 
-/datum/stack_recipe/proc/Produce(var/amount = 1, var/loc = null, var/dir = NORTH, var/user = null)
+/datum/stack_recipe/proc/Produce(var/amount = 1, var/loc = null, var/dir = NORTH, var/user = null, var/skill_diff = 0)
 	if(amount < 1)
 		return null
 

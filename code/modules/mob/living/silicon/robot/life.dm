@@ -273,7 +273,7 @@
 	if(client)
 		client.screen -= contents
 		for(var/obj/I in contents)
-			if(I && !(istype(I, /obj/item/cell) || istype(I, /obj/item/radio) || istype(I, /obj/machinery/camera) || istype(I, /obj/item/mmi)))
+			if(I && !(istype(I, /obj/item/cell) || istype(I, /obj/item/radio) || istype(I, /obj/structure/machinery/camera) || istype(I, /obj/item/mmi)))
 				client.screen += I
 	if(module_state_1)
 		module_state_1.screen_loc = ui_inv1
@@ -332,6 +332,9 @@
 	if(on_fire)
 		AddOverlays(image("icon" = 'icons/mob/burning/burning_generic.dmi', "icon_state" = "upper"))
 		AddOverlays(image("icon" = 'icons/mob/burning/burning_generic.dmi', "icon_state" = "lower"))
+		throw_alert(ALERT_FIRE, /atom/movable/screen/alert/fire)
+	else
+		clear_alert(ALERT_FIRE)
 
 /mob/living/silicon/robot/fire_act(exposed_temperature, exposed_volume)
 	. = ..()

@@ -24,10 +24,10 @@ SUBSYSTEM_DEF(cargo)
 	var/list/all_orders = list() // All orders.
 
 	// Fee Variables
-	var/credits_per_crate = 30 // "Cost / Payment" per crate shipped from or to centcomm.
+	var/credits_per_crate = 15 // "Cost / Payment" per crate shipped from or to centcomm.
 	var/credits_per_platinum = 140 // Per sheet.
 	var/credits_per_phoron = 100 // Per sheet.
-	var/cargo_handlingfee = 20 // The handling fee cargo takes per crate.
+	var/cargo_handlingfee = 5 // The handling fee cargo takes per crate, as a percentage of the order's value.
 	var/cargo_handlingfee_min = 0 // The minimum handling fee.
 	var/cargo_handlingfee_max = 500 // The maximum handling fee.
 	var/cargo_handlingfee_change = 1 // If the handling fee can be changed -> for a random event.
@@ -285,13 +285,15 @@ SUBSYSTEM_DEF(cargo)
 	Submitting, Approving, Rejecting and Shipping Orders
 */
 // Gets the orders based on their status (submitted, approved, shipped).
-/datum/controller/subsystem/cargo/proc/get_orders_by_status(var/status, var/data_list=0)
+/datum/controller/subsystem/cargo/proc/get_orders_by_status(status, data_list = FALSE, list/avoid)
 	if(!status)
 		log_subsystem_cargo("get_orders_by_status has been called with a invalid status")
 		return list()
 	var/list/orders = list()
 	for (var/datum/cargo_order/co in all_orders)
-		if(co.status == status)
+		if(co.status == status || co.get_payment_status() == status)
+			if(avoid && (avoid.Find(co.status) || avoid.Find(co.get_payment_status())))
+				continue
 			if(data_list)
 				orders.Add(list(co.get_list()))
 			else
@@ -356,6 +358,11 @@ SUBSYSTEM_DEF(cargo)
 // Gets the current handlingfee.
 /datum/controller/subsystem/cargo/proc/get_handlingfee()
 	return cargo_handlingfee
+
+/datum/controller/subsystem/cargo/proc/get_handlingfee_cost(shipment_cost)
+	if(shipment_cost)
+		return (cargo_handlingfee / 100) * shipment_cost
+	return 0
 
 // Sets the handling fee and returns a status message.
 /datum/controller/subsystem/cargo/proc/set_handlingfee(var/fee)
@@ -432,7 +439,7 @@ SUBSYSTEM_DEF(cargo)
 				new_shipment()
 
 			// Set the elevator movement time.
-			current_shipment.shuttle_time = get_pending_shipment_time()
+			current_shipment.shuttle_time = get_pending_shipment_time() + min_movetime
 			current_shipment.shuttle_fee = shipment_cost
 
 			if(current_shipment.shuttle_time < min_movetime)
@@ -446,7 +453,7 @@ SUBSYSTEM_DEF(cargo)
 			movetime = current_shipment.shuttle_time
 			//Launch it
 			shuttle.launch(src)
-			. = "The cargo elevator has been called and will arrive in approximately [round(SScargo.movetime/600, 2)] minutes."
+			. = "The cargo elevator has been called and will arrive in approximately [shuttle.launch_estimate(TRUE)] seconds."
 			current_shipment.shuttle_called_by = requester_name
 
 // Cancels the elevator. Can return a status message.
@@ -471,7 +478,7 @@ SUBSYSTEM_DEF(cargo)
 			return 1
 	if(istype(A, /obj/item/disk/nuclear))
 		return 1
-	if(istype(A, /obj/machinery/nuclearbomb))
+	if(istype(A, /obj/structure/machinery/nuclearbomb))
 		return 1
 	if(istype(A, /obj/item/radio/beacon))
 		return 1

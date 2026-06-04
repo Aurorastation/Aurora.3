@@ -40,6 +40,10 @@
 	species_restricted = list(BODYTYPE_VAURCA, BODYTYPE_VAURCA_BULWARK)
 	body_parts_covered = HEAD|EYES
 
+/obj/item/clothing/head/shaper/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Wearing this will remove your Hive name and color from Hivenet messages."
+
 /obj/item/clothing/head/expression
 	name = "human expression mask"
 	desc = "A mask that allows emotively challenged aliens to convey facial expressions. This one depicts a human."
@@ -217,7 +221,7 @@
 /obj/item/grenade/spawnergrenade/vaurca
 	name = "K'ois delivery pod"
 	desc = "A sophisticated K'ois delivery pod, for seeding a planet from the comfort of space."
-	spawner_type = /obj/machinery/portable_atmospherics/hydroponics/soil/invisible
+	spawner_type = /obj/structure/machinery/portable_atmospherics/hydroponics/soil/invisible
 	deliveryamt = 7
 	contained_sprite = 1
 	icon = 'icons/obj/vaurca_items.dmi'
@@ -236,7 +240,7 @@
 			M.flash_act(ignore_inherent = TRUE)
 
 		for(var/i=1, i<=deliveryamt, i++)
-			var/obj/machinery/portable_atmospherics/hydroponics/soil/invisible/x = new spawner_type(T, new seed())
+			var/obj/structure/machinery/portable_atmospherics/hydroponics/soil/invisible/x = new spawner_type(T, new seed())
 			x.tumble(4)
 	qdel(src)
 	return
@@ -296,7 +300,7 @@
 	icon_state = "scout"
 	item_state = "scout"
 	desc = "Armor designed for K'laxan scouts, made of lightweight sturdy material that does not restrict movement."
-	slowdown = -0.2
+	slowdown = -0.1
 
 	species_restricted = list(BODYTYPE_VAURCA)
 	armor = list(
@@ -399,6 +403,7 @@
 	throw_speed = 5
 	throw_range = 10
 	w_class = WEIGHT_CLASS_BULKY
+	slot_flags = list(SLOT_BACK, SLOT_BELT)
 	atom_flags = ATOM_FLAG_NO_BLOOD
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	attack_verb = list("stabbed", "chopped", "sliced", "cleaved", "slashed", "cut")

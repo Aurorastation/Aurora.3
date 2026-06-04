@@ -12,11 +12,11 @@
 	to_chat(user, SPAN_NOTICE("You start assembling \the [src]..."))
 	if(do_after(user, 30))
 		user.visible_message(SPAN_NOTICE("\The [user] constructs a beehive."), SPAN_NOTICE("You construct a beehive."))
-		new /obj/machinery/beehive(get_turf(user))
+		new /obj/structure/machinery/beehive(get_turf(user))
 		qdel(src)
 	return
 
-/obj/machinery/beehive
+/obj/structure/machinery/beehive
 	name = "beehive"
 	desc = "They make honey in these, allegedly."
 	icon = 'icons/obj/beekeeping.dmi'
@@ -33,18 +33,18 @@
 
 	var/list/owned_bee_swarms = list()
 
-/obj/machinery/beehive/mechanics_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/beehive/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Use a <b>crowbar</b> to open a beehive, and then retrieve the frames from inside with an open hand."
 	. += "You can populate a beehive using a <b>bee pack</b>, and review the status of the hive inside with a <b>plant analyzer</b>."
 	. += "While occupied by bees and within several turfs of a growing plant, bees will increase the health of the adjacent plant. This can be particularly \
 	useful if you're low on fertiliser and need to keep your crops alive!"
 
-/obj/machinery/beehive/disassembly_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/beehive/disassembly_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "This can be dismantled with a <b>screwdriver</b>."
 
-/obj/machinery/beehive/feedback_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/beehive/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += SPAN_NOTICE("\The [src] is holding <b>[frames]/[maxFrames]</b> frames.")
 	if(is_adjacent)
@@ -62,7 +62,7 @@
 		if(honeycombs / 100 > 1)
 			. += SPAN_NOTICE("\The [src] has a frame full of honeycombs which you can harvest.")
 
-/obj/machinery/beehive/update_icon()
+/obj/structure/machinery/beehive/update_icon()
 	ClearOverlays()
 	icon_state = "beehive"
 	if(closed)
@@ -80,7 +80,7 @@
 			if(81 to 100)
 				AddOverlays("bees3")
 
-/obj/machinery/beehive/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/beehive/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 		closed = !closed
 		user.visible_message(SPAN_NOTICE("\The [user] [closed ? "closes" : "opens"] \the [src]."), SPAN_NOTICE("You [closed ? "close" : "open"] \the [src]."))
@@ -156,7 +156,7 @@
 			qdel(src)
 		return
 
-/obj/machinery/beehive/attack_hand(mob/user)
+/obj/structure/machinery/beehive/attack_hand(mob/user)
 	. = ..()
 	if(!closed)
 		if(honeycombs < 100)
@@ -175,7 +175,7 @@
 			to_chat(user, SPAN_NOTICE("You take all filled honeycombs out."))
 		return
 
-/obj/machinery/beehive/process()
+/obj/structure/machinery/beehive/process()
 	if(closed && !smoked && bee_count)
 		pollinate_flowers()
 		update_icon()
@@ -189,17 +189,17 @@
 		bee_count = min(bee_count * 1.004, 100)
 		update_icon()
 
-/obj/machinery/beehive/proc/pollinate_flowers()
+/obj/structure/machinery/beehive/proc/pollinate_flowers()
 	var/coef = bee_count *0.01
 	var/trays = 0
-	for(var/obj/machinery/portable_atmospherics/hydroponics/H in view(7, src))
+	for(var/obj/structure/machinery/portable_atmospherics/hydroponics/H in view(7, src))
 		if(H.seed && !H.dead)
 			H.health += 0.05 * coef
 			H.yield_mod = min(10, H.yield_mod + coef)
 			trays++
 	honeycombs = min(honeycombs + 0.12 * coef * min(trays, 5), frames * 100)
 
-/obj/machinery/beehive/proc/release_bees(var/severity, var/angry, var/swarmsize = 6)
+/obj/structure/machinery/beehive/proc/release_bees(var/severity, var/angry, var/swarmsize = 6)
 	if(bee_count < 1)
 		return
 

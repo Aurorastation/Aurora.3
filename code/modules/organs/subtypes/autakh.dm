@@ -190,6 +190,7 @@
 	action_button_icon = "hunterseye"
 	cooldown = 30
 	activable = TRUE
+	zoom_out_message = " eyes whirrs loudly as the zoom lenses retract."
 
 /obj/item/organ/internal/augment/farseer_eye/attack_self(var/mob/user)
 	. = ..()
@@ -363,6 +364,10 @@
 /obj/item/organ/external/hand/right/autakh/medical
 	name = "medical grasper"
 	action_button_name = "Deploy Mounted Health Scanner"
+
+/obj/item/organ/external/hand/right/autakh/medical/Initialize(mapload)
+	. = ..()
+	src.LoadComponent(/datum/component/health_analyzer)
 
 /obj/item/organ/external/hand/right/autakh/medical/refresh_action_button()
 	. = ..()

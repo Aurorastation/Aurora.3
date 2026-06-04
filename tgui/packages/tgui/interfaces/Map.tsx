@@ -2,6 +2,7 @@ import { paginate } from 'common/collections';
 import { useBackend, useLocalState } from '../backend';
 import { Tabs, Slider, Section, NoticeBox, Table } from '../components';
 import { NtosWindow } from '../layouts';
+import { BooleanLike } from '../../common/react';
 
 export type MapData = {
   map_image: any; // base64 icon
@@ -12,6 +13,7 @@ export type MapData = {
   z_override: number;
   dept_colors_map: { d: string; c: string }[];
   pois: { name: string; desc: string; x: number; y: number; z: number }[];
+  legend_enabled: BooleanLike;
 };
 
 export const Map = (props, context) => {
@@ -65,12 +67,16 @@ export const Map = (props, context) => {
             ) : (
               ''
             )}
-            <Tabs.Tab
-              icon="fa-circle-question"
-              onClick={() => setShowLegend(!showLegend)}
-            >
-              {showLegend ? 'Hide Legend' : 'Show Legend'}
-            </Tabs.Tab>
+            {data.legend_enabled ? (
+              <Tabs.Tab
+                icon="fa-circle-question"
+                onClick={() => setShowLegend(!showLegend)}
+              >
+                {showLegend ? 'Hide Legend' : 'Show Legend'}
+              </Tabs.Tab>
+            ) : (
+              ''
+            )}
           </Tabs>
           {showLegend ? (
             <NoticeBox color="grey">

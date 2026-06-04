@@ -15,7 +15,7 @@
 	suit_store = /obj/item/gun/energy/rifle
 	accessory = /obj/item/clothing/accessory/holster/hip
 	accessory_contents = list(
-		/obj/item/gun/energy/toxgun = 1
+		/obj/item/gun/energy/pistol = 1
 	)
 	belt_contents = list(
 			/obj/item/shield/energy = 1,
@@ -44,7 +44,7 @@
 		/obj/item/stack/medical/advanced/ointment = 1,
 		/obj/item/melee/baton/loaded = 1,
 		/obj/item/shield/energy = 1,
-		/obj/item/gun/energy/toxgun = 1
+		/obj/item/gun/energy/pistol = 1
 	)
 
 	belt_contents = list(
@@ -72,7 +72,7 @@
 		/obj/item/handcuffs/ziptie = 1,
 		/obj/item/melee/baton/loaded = 1,
 		/obj/item/clothing/glasses/welding/superior = 1,
-		/obj/item/gun/energy/toxgun = 1
+		/obj/item/gun/energy/pistol = 1
 	)
 	belt_contents = null
 

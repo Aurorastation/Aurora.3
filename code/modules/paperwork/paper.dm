@@ -66,6 +66,18 @@
 	var/can_change_icon_state = TRUE
 	var/set_unsafe_on_init = FALSE
 
+	persistant_objects_expiration_time_days = 180
+
+/obj/item/paper/Destroy()
+	info = null
+	info_links = null
+	stamps = null
+	ico = null
+	offset_x = null
+	offset_y = null
+	stamped = null
+	return ..()
+
 /obj/item/paper/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	if (old_name && (icon_state == "paper_plane" || icon_state == "paper_swan"))
@@ -91,13 +103,13 @@
 		if (mapload)
 			update_icon()
 		else
-			addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, update_icon)), 1)
+			addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, update_icon)), 1, TIMER_STOPPABLE | TIMER_DELETE_ME)
 
-/obj/item/paper/proc/set_content(title, text)
+/obj/item/paper/proc/set_content(title, text, adddefaultfont = TRUE)
 	if(title)
 		name = title
 	if (text && length(text))
-		info = parsepencode(text)
+		info = parsepencode(text, skipdefaultfont = !adddefaultfont)
 	else
 		info = ""
 
@@ -143,7 +155,7 @@
 /obj/item/paper/proc/show_content(mob/user, forceshow)
 	simple_asset_ensure_is_sent(user, /datum/asset/simple/paper)
 	var/datum/browser/paper_win = new(user, name, null, 450, 500, null, TRUE)
-	paper_win.set_content(get_content(user, can_read(user, forceshow)))
+	paper_win.set_content(get_content(user, can_read(user, forceshow), forceshow))
 	paper_win.add_stylesheet("paper_languages", 'html/browser/paper_languages.css')
 	paper_win.open()
 
@@ -154,8 +166,8 @@
 		can_read = get_dist(src, AI.camera) < 2
 	return can_read
 
-/obj/item/paper/proc/get_content(var/mob/user, var/can_read = TRUE)
-	return "<head><title>[capitalize_first_letters(name)]</title><style>body {background-color: [color];}</style></head><body>[can_read ? parse_languages(user, info) : stars(info)][stamps]</body>"
+/obj/item/paper/proc/get_content(var/mob/user, var/can_read = TRUE, var/ignore_languages = FALSE)
+	return "<head><title>[capitalize_first_letters(name)]</title><style>body {background-color: [color];}</style></head><body>[can_read ? parse_languages(user, info, FALSE, ignore_languages) : stars(info)][stamps]</body>"
 
 /obj/item/paper/verb/rename()
 	set name = "Rename paper"
@@ -188,15 +200,7 @@
 			user.show_message(SPAN_WARNING("\The [src] is already crumpled."))
 			return
 		//crumple dat paper
-		info = stars(info,85)
-		user.visible_message("\The [user] crumples \the [src] into a ball!", "You crumple \the [src] into a ball.")
-		playsound(src, 'sound/items/bureaucracy/papercrumple.ogg', 50, 1)
-		if(istype(src, /obj/item/paper/stickynotes))
-			icon_state = "stickynote_scrap"
-		else
-			icon_state = "scrap"
-		throw_range = 4 //you can now make epic paper ball hoops into the disposals (kinda dumb that you could only throw crumpled paper 1 tile) -wezzy
-		crumpled = TRUE
+		crumple(user)
 		return
 
 	if (user.a_intent == I_GRAB && !crumpled && can_fold)
@@ -243,6 +247,17 @@
 			last_honk = world.time
 			playsound(src.loc, 'sound/items/bikehorn.ogg', 50, 1)
 		src.add_fingerprint(user)
+
+/**
+ * Turns a paper into a crumpled ball. Only prints a message and makes a sound if user is present.
+ */
+/obj/item/paper/proc/crumple(mob/user)
+	info = stars(info,85)
+	if(user)
+		user.visible_message("\The [user] crumples \the [src] into a ball!", "You crumple \the [src] into a ball.")
+		playsound(src, 'sound/items/bureaucracy/papercrumple.ogg', 50, 1)
+	icon_state = "scrap"
+	throw_range = 4
 
 /obj/item/paper/attack_ai(var/mob/living/silicon/ai/user)
 	show_content(user)
@@ -344,7 +359,7 @@
 
 	return signfont
 
-/obj/item/paper/proc/parsepencode(t, obj/item/pen/P, mob/user, iscrayon, isfountain, istypewriter)
+/obj/item/paper/proc/parsepencode(t, obj/item/pen/P, mob/user, iscrayon, isfountain, istypewriter, skipdefaultfont = FALSE)
 	if(user)
 		t = parse_languages(user, t, TRUE)
 	if(P)
@@ -400,14 +415,15 @@
 		t = replacetext(t, "\[cell\]", "")
 		t = replacetext(t, "\[barcode\]", "")
 
-	if(iscrayon)
-		t = "<font face=\"[crayonfont]\" color=[P ? P.colour : "black"]><b>[t]</b></font>"
-	else if(isfountain)
-		t = "<font face=\"[fountainfont]\" color=[P ? P.colour : "black"]><i>[t]</i></font>"
-	else if(istypewriter)
-		t = "<font face=\"[typewriterfont]\" color=[P ? P.colour : "black"]><i>[t]</i></font>"
-	else
-		t = "<font face=\"[deffont]\" color=[P ? P.colour : "black"]>[t]</font>"
+	if(!skipdefaultfont)
+		if(iscrayon)
+			t = "<font face=\"[crayonfont]\" color=[P ? P.colour : "black"]><b>[t]</b></font>"
+		else if(isfountain)
+			t = "<font face=\"[fountainfont]\" color=[P ? P.colour : "black"]><i>[t]</i></font>"
+		else if(istypewriter)
+			t = "<font face=\"[typewriterfont]\" color=[P ? P.colour : "black"]><i>[t]</i></font>"
+		else
+			t = "<font face=\"[deffont]\" color=[P ? P.colour : "black"]>[t]</font>"
 
 	t = pencode2html(t)
 
@@ -439,7 +455,7 @@
 		else
 			flick("paper_onfire", src)
 
-		addtimer(CALLBACK(src, PROC_REF(burnpaper_callback), P, user, class), 20, TIMER_UNIQUE)
+		addtimer(CALLBACK(src, PROC_REF(burnpaper_callback), P, user, class), 20, TIMER_UNIQUE | TIMER_STOPPABLE | TIMER_DELETE_ME)
 
 /obj/item/paper/proc/burnpaper_callback(obj/item/P, mob/user, class = "warning")
 	if (QDELETED(user) || QDELETED(src))
@@ -474,7 +490,7 @@
  * @return	An HTML string where all of the [lang][/lang] marker contents are replaced
  * with scrambled and properly fonted content depending on what languages the user knows.
  */
-/obj/item/paper/proc/parse_languages(mob/user, input, language_check = FALSE)
+/obj/item/paper/proc/parse_languages(mob/user, input, language_check = FALSE, ignore_languages = FALSE)
 	// Just a safety fallback.
 	if (!user)
 		return input
@@ -492,7 +508,7 @@
 			continue
 
 		var/content = written_lang_regex.group[3]
-		var/reader_understands = user.say_understands(null, L)
+		var/reader_understands = ignore_languages || user.say_understands(null, L)
 
 		// Replace the content with <p>content here</p>
 		if(!reader_understands)
@@ -824,14 +840,14 @@
 				PERSISTENT
 #############################################*/
 
-/obj/item/paper/persistence_get_content()
+/obj/item/paper/persistent_objects_get_content()
 	var/list/content = list()
 	content["title"] = name
 	content["text"] = info
 	return content
 
-/obj/item/paper/persistence_apply_content(content, x, y, z)
-	set_content(content["title"], content["text"])
+/obj/item/paper/persistent_objects_apply_content(content, x, y, z)
+	set_content(content["title"], content["text"], adddefaultfont = FALSE)
 	src.x = x
 	src.y = y
 	src.z = z
@@ -867,14 +883,14 @@
 
 	icon_state = info ? "stickynote_words" : "stickynote"
 
-/obj/item/paper/stickynotes/persistence_get_content()
+/obj/item/paper/stickynotes/persistent_objects_get_content()
 	var/list/content = ..()
 	content["color"] = color
 	content["pixel_x"] = pixel_x
 	content["pixel_y"] = pixel_y
 	return content
 
-/obj/item/paper/stickynotes/persistence_apply_content(content, x, y, z)
+/obj/item/paper/stickynotes/persistent_objects_apply_content(content, x, y, z)
 	src.name = content["title"]
 	src.info = content["text"]
 	src.color = content["color"]
@@ -885,11 +901,11 @@
 	src.z = z
 
 /obj/item/paper/stickynotes/pickup()
-	SSpersistence.deregister_track(src)
+	SSpersistence.objectsDeregisterTrack(src)
 	..()
 
 /obj/item/paper/stickynotes/afterattack(var/A, mob/user, var/prox, var/params)
-	if(!in_range(user, A) || istype(A, /obj/machinery) || istype(A, /obj/item/paper) || crumpled)
+	if(!in_range(user, A) || istype(A, /obj/structure/machinery) || istype(A, /obj/item/paper) || crumpled)
 		return
 
 	var/turf/target_turf = get_turf(A)
@@ -902,7 +918,7 @@
 	if(!params || !prox)
 		return
 
-	SSpersistence.register_track(src, ckey(user.key))
+	SSpersistence.objectsRegisterTrack(src, ckey(user.key))
 	user.drop_from_inventory(src,source_turf)
 	if(params) //Parallels taped paper placement method, and avoids seeing stickynotes through walls
 		var/list/mouse_control = mouse_safe_xy(params)

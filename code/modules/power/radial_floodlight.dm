@@ -1,4 +1,4 @@
-/obj/machinery/power/radial_floodlight
+/obj/structure/machinery/power/radial_floodlight
 	name = "radial floodlight"
 	desc = "A floodlight that illuminates a wide area around it. It has to be wrenched down on top of a knot to work."
 	icon = 'icons/obj/machinery/floodlight.dmi'
@@ -13,7 +13,7 @@
 
 	var/on = FALSE
 
-/obj/machinery/power/radial_floodlight/proc/toggle_active(var/force_state)
+/obj/structure/machinery/power/radial_floodlight/proc/toggle_active(var/force_state)
 	if(!isnull(force_state))
 		on = force_state
 	else
@@ -27,7 +27,7 @@
 	set_light_on(on)
 	update_icon()
 
-/obj/machinery/power/radial_floodlight/process()
+/obj/structure/machinery/power/radial_floodlight/process()
 	var/actual_load = POWER_DRAW(src, active_power_usage)
 	DRAW_POWER(src, active_power_usage)
 	if(!on || !anchored || (stat & BROKEN) || !powernet || actual_load < active_power_usage)
@@ -36,7 +36,7 @@
 		toggle_active(FALSE)
 		return
 
-/obj/machinery/power/radial_floodlight/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/power/radial_floodlight/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		anchored = !anchored
 		user.visible_message(SPAN_NOTICE("\The [user] [anchored ? "" : "un"]secures \the [src] [anchored ? "to" : "from"] the floor."),
@@ -50,7 +50,7 @@
 		return
 	return ..()
 
-/obj/machinery/power/radial_floodlight/attack_hand(mob/user)
+/obj/structure/machinery/power/radial_floodlight/attack_hand(mob/user)
 	. = ..()
 	if(!anchored)
 		to_chat(user, SPAN_WARNING("\The [src] isn't anchored."))
@@ -64,7 +64,7 @@
 	toggle_active()
 	update_icon()
 
-/obj/machinery/power/radial_floodlight/update_icon()
+/obj/structure/machinery/power/radial_floodlight/update_icon()
 	ClearOverlays()
 	if(on)
 		var/image/light = image(icon, src, "[icon_state]-light")

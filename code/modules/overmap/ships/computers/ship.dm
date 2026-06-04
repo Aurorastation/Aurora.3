@@ -3,7 +3,7 @@ While these computers can be placed anywhere, they will only function if placed 
 with an /obj/effect/overmap/visitable/ship present elsewhere on that z level, or else placed in a shuttle area with an /obj/effect/overmap/visitable/ship
 somewhere on that shuttle. Subtypes of these can be then used to perform ship overmap movement functions.
 */
-/obj/machinery/computer/ship
+/obj/structure/machinery/computer/ship
 	/// Weakrefs to mobs in direct-view mode.
 	var/list/viewers
 	/// How much the view is increased by when the mob is in overmap mode.
@@ -17,17 +17,17 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 	/// For hotwiring, how many cycles are needed. This decreases by 1 each cycle and triggers at 0
 	var/hotwire_progress = 8
 
-/obj/machinery/computer/antagonist_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/computer/antagonist_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Consoles like these are typically access-locked."
 	. += "You can remove this lock with <b>wirecutters</b>, but it would take awhile! Alternatively, you can also use a cryptographic sequencer (emag) for instant removal."
 
-/obj/machinery/computer/ship/proc/display_reconnect_dialog(var/mob/user, var/flavor)
+/obj/structure/machinery/computer/ship/proc/display_reconnect_dialog(var/mob/user, var/flavor)
 	var/datum/browser/popup = new (user, "[src]", "[src]")
 	popup.set_content("<center><strong><font color = 'red'>Error</strong></font><br>Unable to connect to [flavor].<br><a href='byond://?src=[REF(src)];sync=1'>Reconnect</a></center>")
 	popup.open()
 
-/obj/machinery/computer/ship/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/computer/ship/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.tool_behaviour == TOOL_CABLECOIL) // Repair from hotwire
 		var/obj/item/stack/cable_coil/C = attacking_item
 		if(hotwire_progress >= initial(hotwire_progress))
@@ -64,8 +64,17 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 				return
 	return ..()
 
-/obj/machinery/computer/ship/attack_hand(mob/user)
+/obj/structure/machinery/computer/ship/attack_hand(mob/user)
 	. = ..()
+	if(stat & (NOPOWER|BROKEN))
+		return FALSE
+	// Snowflake case for checking player characters for a Pilot Spacecraft Skill.
+	// Only player characters will have the component. Which will both always be present on them, and will only enable its own return logic if it exists.
+	// NPCs, Ghostroles, and Offship Antags that don't generate skills are unaffected by this check by intentional design so that we don't have to account for them.
+	if (user.GetComponent(PILOT_SPACECRAFT_SKILL_COMPONENT)?.skill_level == SKILL_LEVEL_UNFAMILIAR)
+		to_chat(user, SPAN_WARNING("There's just so many buttons... You have no idea where to even begin."))
+		return FALSE
+
 	if(use_check_and_message(user))
 		return
 	if(!emagged && !allowed(user))
@@ -74,13 +83,13 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 	user.set_machine(src)
 	ui_interact(user)
 
-/obj/machinery/computer/ship/attack_ai(mob/user)
+/obj/structure/machinery/computer/ship/attack_ai(mob/user)
 	if(!ai_can_interact(user))
 		return
 	src.add_hiddenprint(user)
 	ui_interact(user)
 
-/obj/machinery/computer/ship/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+/obj/structure/machinery/computer/ship/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(initial(hotwire_progress) != hotwire_progress)
 		if(hotwire_progress != 0)
@@ -88,7 +97,7 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 		else
 			. += SPAN_ITALIC("The bottom panel appears open with wires hanging out. It can be repaired with additional cabling.")
 
-/obj/machinery/computer/ship/emag_act(var/remaining_charges, var/mob/user, var/emag_source, var/hotwired = FALSE)
+/obj/structure/machinery/computer/ship/emag_act(var/remaining_charges, var/mob/user, var/emag_source, var/hotwired = FALSE)
 	if(emagged)
 		to_chat(user, SPAN_WARNING("\The [src] has already been subverted."))
 		return FALSE
@@ -102,7 +111,7 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 	return TRUE
 
 /// Used to restore access removed from emag_act() by setting access from req_access_old and req_one_access_old
-/obj/machinery/computer/ship/proc/restore_access(var/mob/user)
+/obj/structure/machinery/computer/ship/proc/restore_access(var/mob/user)
 	if(!emagged)
 		to_chat(user, SPAN_WARNING("There is no access to restore for \the [src]!"))
 		return FALSE
@@ -112,7 +121,7 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 	hotwire_progress = initial(hotwire_progress)
 	return TRUE
 
-/obj/machinery/computer/ship/Topic(href, href_list)
+/obj/structure/machinery/computer/ship/Topic(href, href_list)
 	if(..())
 		return TOPIC_HANDLED
 	if(href_list["sync"])
@@ -124,14 +133,14 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 		return TOPIC_HANDLED
 	return TOPIC_NOACTION
 
-/obj/machinery/computer/ship/sync_linked()
+/obj/structure/machinery/computer/ship/sync_linked()
 	. = ..()
 	if(istype(linked, linked_type))
 		connected = linked
 
 // Management of mob view displacement. look to shift view to the ship on the overmap; unlook to shift back.
 
-/obj/machinery/computer/ship/proc/look(var/mob/user)
+/obj/structure/machinery/computer/ship/proc/look(var/mob/user)
 	if(linked)
 		user.reset_view(linked)
 	if(user.client)
@@ -145,12 +154,12 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 	ADD_TRAIT(user, TRAIT_COMPUTER_VIEW, REF(src))
 
 /// Handles disabling the user's overmap view when a signal comes in, primarily used when the TGUI is closed, see helm.dm and sensors.dm
-/obj/machinery/computer/ship/proc/handle_unlook_signal(var/datum/source, var/mob/user)
+/obj/structure/machinery/computer/ship/proc/handle_unlook_signal(var/datum/source, var/mob/user)
 	SIGNAL_HANDLER
 
 	unlook(user)
 
-/obj/machinery/computer/ship/proc/unlook(var/mob/user)
+/obj/structure/machinery/computer/ship/proc/unlook(var/mob/user)
 	user.reset_view()
 	var/client/c = user.client
 
@@ -175,24 +184,24 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 		LAZYREMOVE(linked.navigation_viewers, WEAKREF(user))
 
 	if(linked)
-		for(var/obj/machinery/computer/ship/sensors/sensor in linked.consoles)
+		for(var/obj/structure/machinery/computer/ship/sensors/sensor in linked.consoles)
 			sensor.hide_contacts(user)
 
 	REMOVE_TRAIT(user, TRAIT_COMPUTER_VIEW, REF(src))
 
-/obj/machinery/computer/ship/proc/viewing_overmap(mob/user)
+/obj/structure/machinery/computer/ship/proc/viewing_overmap(mob/user)
 	return (WEAKREF(user) in viewers) || (linked && (WEAKREF(user) in linked.navigation_viewers))
 
-/obj/machinery/computer/ship/CouldNotUseTopic(mob/user)
+/obj/structure/machinery/computer/ship/CouldNotUseTopic(mob/user)
 	. = ..()
 	unlook(user)
 
-/obj/machinery/computer/ship/CouldUseTopic(mob/user)
+/obj/structure/machinery/computer/ship/CouldUseTopic(mob/user)
 	. = ..()
 	if(viewing_overmap(user))
 		look(user)
 
-/obj/machinery/computer/ship/check_eye(var/mob/user)
+/obj/structure/machinery/computer/ship/check_eye(var/mob/user)
 	if(!viewing_overmap(user))
 		return FALSE
 
@@ -202,14 +211,14 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 	else
 		return SEE_THRU
 
-/obj/machinery/computer/ship/Destroy()
+/obj/structure/machinery/computer/ship/Destroy()
 	if(linked)
 		linked = null
 	if(connected)
 		LAZYREMOVE(connected.consoles, src)
 	. = ..()
 
-/obj/machinery/computer/ship/sensors/Destroy()
+/obj/structure/machinery/computer/ship/sensors/Destroy()
 	sensor_ref = null
 	identification = null
 	QDEL_NULL(sound_token)
@@ -222,10 +231,10 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 					LAZYREMOVE(linked.navigation_viewers, W)
 	. = ..()
 
-/obj/machinery/computer/ship/on_user_login(mob/M)
+/obj/structure/machinery/computer/ship/on_user_login(mob/M)
 	unlook(M)
 
-/obj/machinery/computer/ship/attempt_hook_up(var/obj/effect/overmap/visitable/sector)
+/obj/structure/machinery/computer/ship/attempt_hook_up(var/obj/effect/overmap/visitable/sector)
 	. = ..()
 
 	if(.)
@@ -234,7 +243,7 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 			if(istype(connected)) // we do a little type abuse
 				LAZYSET(connected.consoles, src, TRUE)
 
-/obj/machinery/computer/ship/Initialize()
+/obj/structure/machinery/computer/ship/Initialize()
 	. = ..()
 	if(SSatlas.current_map.use_overmap && !linked)
 		var/my_sector = GLOB.map_sectors["[z]"]

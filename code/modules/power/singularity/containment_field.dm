@@ -1,4 +1,4 @@
-/obj/machinery/containment_field
+/obj/structure/machinery/containment_field
 	name = "containment field"
 	desc = "An energy field."
 	icon = 'icons/effects/effects.dmi'
@@ -9,18 +9,18 @@
 	use_power = POWER_USE_OFF
 	light_range = 4
 	movable_flags = MOVABLE_FLAG_PROXMOVE
-	var/obj/machinery/field_generator/FG1 = null
-	var/obj/machinery/field_generator/FG2 = null
+	var/obj/structure/machinery/field_generator/FG1 = null
+	var/obj/structure/machinery/field_generator/FG2 = null
 	var/has_shocked = 0 //Used to add a delay between shocks. In some cases this used to crash servers by spawning hundreds of sparks every second.
 
-/obj/machinery/containment_field/Destroy()
+/obj/structure/machinery/containment_field/Destroy()
 	if(FG1 && !FG1.clean_up)
 		FG1.cleanup()
 	if(FG2 && !FG2.clean_up)
 		FG2.cleanup()
 	return ..()
 
-/obj/machinery/containment_field/attack_hand(mob/user as mob)
+/obj/structure/machinery/containment_field/attack_hand(mob/user as mob)
 	. = ..()
 	if(get_dist(src, user) > 1)
 		return 0
@@ -29,10 +29,10 @@
 		return 1
 
 
-/obj/machinery/containment_field/ex_act(severity)
+/obj/structure/machinery/containment_field/ex_act(severity)
 	return 0
 
-/obj/machinery/containment_field/HasProximity(atom/movable/AM as mob|obj)
+/obj/structure/machinery/containment_field/HasProximity(atom/movable/AM as mob|obj)
 	if(istype(AM,/mob/living/silicon) && prob(40))
 		shock(AM)
 		return 1
@@ -43,7 +43,7 @@
 
 
 
-/obj/machinery/containment_field/shock(mob/living/user as mob)
+/obj/structure/machinery/containment_field/shock(mob/living/user as mob)
 	if(has_shocked)
 		return 0
 	if(!FG1 || !FG2)
@@ -62,7 +62,7 @@
 		has_shocked = 0
 	return
 
-/obj/machinery/containment_field/proc/set_master(var/master1,var/master2)
+/obj/structure/machinery/containment_field/proc/set_master(var/master1,var/master2)
 	if(!master1 || !master2)
 		return 0
 	FG1 = master1

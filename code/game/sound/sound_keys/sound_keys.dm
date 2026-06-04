@@ -213,15 +213,6 @@
 		'sound/ambience/fire/Fire_Ambient_03.ogg'
 	)
 
-/datum/sound_effect/hiss_sound
-	key = SFX_HISS
-	file_paths = list(
-		'sound/voice/hiss1.ogg',
-		'sound/voice/hiss2.ogg',
-		'sound/voice/hiss3.ogg',
-		'sound/voice/hiss4.ogg'
-	)
-
 /datum/sound_effect/page_sound
 	key = SFX_PAGE_TURN
 	file_paths = list(
@@ -417,6 +408,14 @@
 	key = SFX_OUT_OF_AMMO_SHOTGUN
 	file_paths = list(
 		'sound/weapons/empty/empty_shotgun1.ogg'
+	)
+
+/datum/sound_effect/plastic_dry_fire
+	key = SFX_PLASTIC_DRY_FIRE
+	file_paths = list(
+		'sound/weapons/empty/dryfire_plastic_01.ogg',
+		'sound/weapons/empty/dryfire_plastic_02.ogg',
+		'sound/weapons/empty/dryfire_plastic_03.ogg'
 	)
 
 /datum/sound_effect/metal_slide_reload
@@ -895,4 +894,60 @@
 	file_paths = list(
 		'sound/effects/creatures/robot_talk_1.ogg',
 		'sound/effects/creatures/robot_talk_2.ogg'
+	)
+
+/datum/sound_effect/whiteboard_scribble
+	key = SFX_WHITEBOARD_SCRIBBLE
+	file_paths = list(
+		'sound/effects/whiteboard_scribble_1.ogg',
+		'sound/effects/whiteboard_scribble_2.ogg',
+		'sound/effects/whiteboard_scribble_3.ogg'
+	)
+
+/datum/sound_effect/headset_equip
+	key = SFX_HEADSET_EQUIP
+	file_paths = list(
+		'sound/items/equip/headset1.ogg',
+		'sound/items/equip/headset2.ogg',
+	)
+
+/datum/sound_effect/headset_pickup
+	key = SFX_HEADSET_PICKUP
+	file_paths = list(
+		'sound/items/pickup/headset1.ogg',
+		'sound/items/pickup/headset2.ogg',
+		'sound/items/pickup/headset3.ogg',
+	)
+
+/datum/sound_effect/cloth_drop
+	key = SFX_CLOTH_DROP
+	file_paths = list(
+		'sound/items/drop/cloth1.ogg',
+		'sound/items/drop/cloth2.ogg',
+		'sound/items/drop/cloth3.ogg',
+		'sound/items/drop/cloth4.ogg',
+	)
+
+/datum/sound_effect/cloth_pickup
+	key = SFX_CLOTH_PICKUP
+	file_paths = list(
+		'sound/items/pickup/cloth1.ogg',
+		'sound/items/pickup/cloth2.ogg',
+		'sound/items/pickup/cloth3.ogg',
+		'sound/items/pickup/cloth4.ogg',
+	)
+
+/datum/sound_effect/visor_down
+	key = SFX_VISOR_DOWN
+	file_paths = list(
+		'sound/items/do_flip/visor_down1.ogg',
+		'sound/items/do_flip/visor_down2.ogg',
+		'sound/items/do_flip/visor_down3.ogg',
+	)
+
+/datum/sound_effect/visor_up
+	key = SFX_VISOR_UP
+	file_paths = list(
+		'sound/items/do_flip/visor_up1.ogg',
+		'sound/items/do_flip/visor_up2.ogg',
 	)

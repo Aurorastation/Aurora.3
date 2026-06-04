@@ -20,7 +20,7 @@
 	var/offset_y = 0
 
 	var/obj/item/radio/exosuit/radio
-	var/obj/machinery/camera/camera
+	var/obj/structure/machinery/camera/camera
 
 	var/wreckage_path = /obj/structure/mech_wreckage
 
@@ -233,7 +233,7 @@
 		radio = new(src)
 
 	if(!camera)
-		camera = new /obj/machinery/camera(src, 0, TRUE, TRUE)
+		camera = new /obj/structure/machinery/camera(src, 0, TRUE, TRUE)
 		camera.c_tag = name
 		camera.replace_networks(list(NETWORK_MECHS))
 
@@ -249,7 +249,7 @@
 	. = INITIALIZE_HINT_LATELOAD
 
 /mob/living/heavy_vehicle/LateInitialize()
-	var/obj/machinery/mech_recharger/MR = locate() in get_turf(src)
+	var/obj/structure/machinery/mech_recharger/MR = locate() in get_turf(src)
 	if(MR)
 		MR.start_charging(src)
 
@@ -263,6 +263,13 @@
 /// `var/remote` can be set to TRUE to have proc adjust where messages and hud elements are presented
 /// If `remote` is TRUE, messages and other hud elements are called on the exosuit itself to prevent wierdness, and errors are handled in `handle_hear_say()`
 /mob/living/heavy_vehicle/proc/toggle_power(var/mob/user, var/remote = FALSE)
+	var/cancelled = FALSE
+	var/delay = 0
+	SEND_SIGNAL(user, COMSIG_MECH_TOGGLE_POWER, &cancelled, &delay)
+	if (cancelled || delay && !do_after(user, delay))
+		to_chat(user, SPAN_WARNING("There's just too many buttons! You fail to find the power switch!"))
+		return
+
 	// if remotely called, send these messages to the exosuit, not the person calling this proc
 	var/reciever = user
 	if(remote)

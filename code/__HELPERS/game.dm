@@ -435,7 +435,7 @@
 	visual.appearance = passed_appearance
 	visual.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	// I hate /area
-	lies_to_children.vis_contents += visual
+	lies_to_children.add_vis_contents(visual)
 	QDEL_IN_CLIENT_TIME(visual, duration)
 	return visual
 

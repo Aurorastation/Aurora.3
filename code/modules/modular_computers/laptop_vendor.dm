@@ -1,6 +1,18 @@
 // A vendor machine for modular computer portable devices - Laptops and Tablets
 
-/obj/machinery/lapvend
+// Vendor machine state
+#define LAPVEND_STATE_SELECT   0	// Select device type
+#define LAPVEND_STATE_CONFIGURE 1	// Select hardware loadout
+#define LAPVEND_STATE_PAYMENT  2	// Awaiting payment
+#define LAPVEND_STATE_COMPLETE 3	// Thank-you screen
+
+// Device types
+#define LAPVEND_DEVICE_NONE   0
+#define LAPVEND_DEVICE_LAPTOP 1
+#define LAPVEND_DEVICE_TABLET 2
+#define LAPVEND_DEVICE_PDA    3
+
+/obj/structure/machinery/lapvend
 	name = "computer vendor"
 	desc = "A vending machine with microfabricator capable of dispensing various NT-branded computers."
 	icon = 'icons/obj/vending.dmi'
@@ -14,8 +26,8 @@
 	var/obj/item/modular_computer/handheld/pda/fabricated_pda
 
 	// Utility vars
-	var/state = 0							// 0: Select device type, 1: Select loadout, 2: Payment, 3: Thankyou screen
-	var/devtype = 0							// 0: None(unselected), 1: Laptop, 2: Tablet
+	var/state = LAPVEND_STATE_SELECT
+	var/devtype = LAPVEND_DEVICE_NONE
 	var/total_price = 0						// Price of currently vended device.
 
 	// Device loadout
@@ -29,9 +41,9 @@
 	var/dev_aislot = 0						// 0: None, 1: Standard
 
 // Removes all traces of old order and allows you to begin configuration from scratch.
-/obj/machinery/lapvend/proc/reset_order()
-	state = 0
-	devtype = 0
+/obj/structure/machinery/lapvend/proc/reset_order()
+	state = LAPVEND_STATE_SELECT
+	devtype = LAPVEND_DEVICE_NONE
 	if(fabricated_laptop)
 		qdel(fabricated_laptop)
 		fabricated_laptop = null
@@ -51,9 +63,9 @@
 	dev_aislot = 0
 
 // Recalculates the price and optionally even fabricates the device.
-/obj/machinery/lapvend/proc/fabricate_and_recalc_price(var/fabricate = 0)
+/obj/structure/machinery/lapvend/proc/fabricate_and_recalc_price(fabricate = FALSE)
 	total_price = 0
-	if(devtype == 1) 		// Laptop, generally cheaper to make it accessible for most station roles
+	if(devtype == LAPVEND_DEVICE_LAPTOP) 		// Laptop, generally cheaper to make it accessible for most station roles
 		if(fabricate)
 			fabricated_laptop = new(src)
 		total_price = 99
@@ -116,7 +128,7 @@
 				fabricated_laptop.ai_slot = new/obj/item/computer_hardware/ai_slot(fabricated_laptop)
 
 		return total_price
-	else if(devtype == 2) 	// Tablet more expensive, not everyone could probably afford this.
+	else if(devtype == LAPVEND_DEVICE_TABLET) 	// Tablet more expensive, not everyone could probably afford this.
 		if(fabricate)
 			fabricated_tablet = new(src)
 		total_price = 199
@@ -178,7 +190,7 @@
 			if(fabricate)
 				fabricated_tablet.ai_slot = new/obj/item/computer_hardware/ai_slot(fabricated_tablet)
 		return total_price
-	else if(devtype == 3) 	// PDA, same cost as tablet but smaller form factor
+	else if(devtype == LAPVEND_DEVICE_PDA) 	// PDA, same cost as tablet but smaller form factor
 		if(fabricate)
 			fabricated_pda = new(src)
 		total_price = 199
@@ -243,99 +255,88 @@
 	return 0
 
 
+/obj/structure/machinery/lapvend/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
+		return
 
+	switch(action)
+		if("pick_device")
+			if(src.state) // We've already picked a device type
+				return TRUE
+			devtype = text2num(params["devtype"])
+			src.state = LAPVEND_STATE_CONFIGURE
+			fabricate_and_recalc_price(FALSE)
+			return TRUE
 
+		if("clean_order")
+			reset_order()
+			return TRUE
 
-/obj/machinery/lapvend/Topic(href, href_list)
-	if(..())
-		return 1
+		if("confirm_order")
+			if(src.state != LAPVEND_STATE_CONFIGURE || !devtype)
+				return TRUE
+			src.state = LAPVEND_STATE_PAYMENT
+			fabricate_and_recalc_price(FALSE)
+			return TRUE
 
-	if(href_list["pick_device"])
-		if(state) // We've already picked a device type
-			return 0
-		devtype = text2num(href_list["pick_device"])
-		state = 1
-		fabricate_and_recalc_price(0)
-		return 1
-	if(href_list["clean_order"])
-		reset_order()
-		return 1
-	if((state != 1) && devtype) // Following IFs should only be usable when in the Select Loadout mode
-		return 0
-	if(href_list["confirm_order"])
-		state = 2 // Wait for ID swipe for payment processing
-		fabricate_and_recalc_price(0)
-		return 1
-	if(href_list["hw_cpu"])
-		dev_cpu = text2num(href_list["hw_cpu"])
-		fabricate_and_recalc_price(0)
-		return 1
-	if(href_list["hw_battery"])
-		dev_battery = text2num(href_list["hw_battery"])
-		fabricate_and_recalc_price(0)
-		return 1
-	if(href_list["hw_disk"])
-		dev_disk = text2num(href_list["hw_disk"])
-		fabricate_and_recalc_price(0)
-		return 1
-	if(href_list["hw_netcard"])
-		dev_netcard = text2num(href_list["hw_netcard"])
-		fabricate_and_recalc_price(0)
-		return 1
-	if(href_list["hw_tesla"])
-		dev_tesla = text2num(href_list["hw_tesla"])
-		fabricate_and_recalc_price(0)
-		return 1
-	if(href_list["hw_nanoprint"])
-		dev_nanoprint = text2num(href_list["hw_nanoprint"])
-		fabricate_and_recalc_price(0)
-		return 1
-	if(href_list["hw_card"])
-		dev_card = text2num(href_list["hw_card"])
-		fabricate_and_recalc_price(0)
-		return 1
-	if(href_list["hw_aislot"])
-		dev_aislot = text2num(href_list["hw_aislot"])
-		fabricate_and_recalc_price(0)
-		return 1
-	return 0
+		if("set_hw")
+			if(src.state != LAPVEND_STATE_CONFIGURE || !devtype)
+				return TRUE
+			var/hw = params["hw"]
+			var/val = text2num(params["val"])
+			switch(hw)
+				if("cpu")
+					dev_cpu = val
+				if("battery")
+					dev_battery = val
+				if("disk")
+					dev_disk = val
+				if("netcard")
+					dev_netcard = val
+				if("tesla")
+					dev_tesla = val
+				if("nanoprint")
+					dev_nanoprint = val
+				if("card")
+					dev_card = val
+				if("aislot")
+					dev_aislot = val
+			fabricate_and_recalc_price(FALSE)
+			return TRUE
 
-/obj/machinery/lapvend/attack_hand(var/mob/user)
+/obj/structure/machinery/lapvend/attack_hand(mob/user)
 	. = ..()
 	if(anchored)
 		ui_interact(user)
 	else
 		to_chat(user, SPAN_NOTICE("\The [src] needs to be anchored to the floor to function!"))
 
-/obj/machinery/lapvend/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
+/obj/structure/machinery/lapvend/ui_interact(mob/user, datum/tgui/ui)
 	if(stat & (BROKEN | NOPOWER | MAINT))
-		if(ui)
-			ui.close()
-		return 0
+		return
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "ComputerFabricator", "Personal Computer Vendor")
+		ui.open()
 
-	var/list/data[0]
-	data["state"] = state
-	if(state == 1)
+/obj/structure/machinery/lapvend/ui_data(mob/user)
+	var/list/data = list("state" = src.state)
+	if(src.state == LAPVEND_STATE_CONFIGURE)
 		data["devtype"] = devtype
+		data["hw_cpu"] = dev_cpu
 		data["hw_battery"] = dev_battery
 		data["hw_disk"] = dev_disk
 		data["hw_netcard"] = dev_netcard
 		data["hw_tesla"] = dev_tesla
 		data["hw_nanoprint"] = dev_nanoprint
 		data["hw_card"] = dev_card
-		data["hw_cpu"] = dev_cpu
 		data["hw_aislot"] = dev_aislot
-	if(state == 1 || state == 2)
+	if(src.state == LAPVEND_STATE_CONFIGURE || src.state == LAPVEND_STATE_PAYMENT)
 		data["totalprice"] = total_price
+	return data
 
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
-		ui = new(user, src, ui_key, "computer_fabricator.tmpl", "Personal Computer Vendor", 500, 400)
-		ui.set_initial_data(data)
-		ui.open()
-		ui.set_auto_update(1)
-
-/obj/machinery/lapvend/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/lapvend/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		if(anchored)
@@ -350,10 +351,10 @@
 			to_chat(user, SPAN_NOTICE("You [anchored ? "un" : ""]secured \the [src]!"))
 			anchored = !anchored
 		return
-	else if(state == 2) // awaiting payment state
-		var/obj/item/card/id/I = attacking_item.GetID()
-		if(I)
-			if(process_payment(I, attacking_item))
+	else if(state == LAPVEND_STATE_PAYMENT) // awaiting payment state
+		var/obj/item/card/id/id_card = attacking_item.GetID()
+		if(id_card)
+			if(process_payment(id_card, attacking_item))
 				create_device(user)
 				return TRUE
 		else if(istype(attacking_item, /obj/item/card/tech_support))
@@ -361,9 +362,9 @@
 			return TRUE
 	return ..()
 
-/obj/machinery/lapvend/proc/create_device(mob/user, var/message = "Enjoy your new product!")
+/obj/structure/machinery/lapvend/proc/create_device(mob/user, message = "Enjoy your new product!")
 	fabricate_and_recalc_price(TRUE)
-	if((devtype == 1) && fabricated_laptop)
+	if((devtype == LAPVEND_DEVICE_LAPTOP) && fabricated_laptop)
 		fabricated_laptop.forceMove(src.loc)
 		if(fabricated_laptop.battery_module)
 			fabricated_laptop.battery_module.charge_to_full()
@@ -373,14 +374,14 @@
 		if(Adjacent(user))
 			user.put_in_hands(fabricated_laptop)
 		fabricated_laptop = null
-	else if((devtype == 2) && fabricated_tablet)
+	else if((devtype == LAPVEND_DEVICE_TABLET) && fabricated_tablet)
 		fabricated_tablet.forceMove(src.loc)
 		if(fabricated_tablet.battery_module)
 			fabricated_tablet.battery_module.charge_to_full()
 		if(Adjacent(user))
 			user.put_in_hands(fabricated_tablet)
 		fabricated_tablet = null
-	else if ((devtype == 3) && fabricated_pda)
+	else if((devtype == LAPVEND_DEVICE_PDA) && fabricated_pda)
 		fabricated_pda.forceMove(src.loc)
 		if(fabricated_pda.battery_module)
 			fabricated_pda.battery_module.charge_to_full()
@@ -389,61 +390,70 @@
 		fabricated_pda = null
 	ping(message)
 	intent_message(MACHINE_SOUND)
-	state = 3
+	state = LAPVEND_STATE_COMPLETE
 
-// Simplified payment processing, returns 1 on success.
-/obj/machinery/lapvend/proc/process_payment(var/obj/item/card/id/I, var/obj/item/ID_container)
-	var/obj/item/spacecash/S = null
-	if (istype(ID_container, /obj/item/spacecash))
-		S = ID_container
-	if(I==ID_container || ID_container == null)
-		visible_message("<span class='info'>\The [usr] swipes \the [I] through \the [src].</span>")
+// Simplified payment processing, returns TRUE on success.
+/obj/structure/machinery/lapvend/proc/process_payment(obj/item/card/id/id_card, obj/item/id_container)
+	var/obj/item/spacecash/cash = null
+	if(istype(id_container, /obj/item/spacecash))
+		cash = id_container
+	if(id_card == id_container || !id_container)
+		visible_message("<span class='info'>\The [usr] swipes \the [id_card] through \the [src].</span>")
 	else
-		visible_message("<span class='info'>\The [usr] swipes \the [ID_container] through \the [src].</span>")
+		visible_message("<span class='info'>\The [usr] swipes \the [id_container] through \the [src].</span>")
 	playsound(src.loc, 'sound/machines/id_swipe.ogg', 50, 1)
-	if(I)
+	if(id_card)
 		//Allow BSTs to take stuff from vendors, for debugging and adminbus purposes
-		if (istype(I, /obj/item/card/id/bst))
-			return 1
-		var/datum/money_account/customer_account = SSeconomy.get_account(I.associated_account_number)
-		if (!customer_account || customer_account.suspended)
+		if(istype(id_card, /obj/item/card/id/bst))
+			return TRUE
+		var/datum/money_account/customer_account = SSeconomy.get_account(id_card.associated_account_number)
+		if(!customer_account || customer_account.suspended)
 			ping("Connection error. Unable to connect to account.")
-			return 0
+			return FALSE
 
 		if(customer_account.security_level != 0) //If card requires pin authentication (ie seclevel 1 or 2)
 			var/attempt_pin = input("Enter pin code", "Vendor transaction") as num
-			customer_account = SSeconomy.attempt_account_access(I.associated_account_number, attempt_pin, 2)
+			customer_account = SSeconomy.attempt_account_access(id_card.associated_account_number, attempt_pin, 2)
 
 			if(!customer_account)
 				ping("Unable to access account: incorrect credentials.")
-				return 0
+				return FALSE
 
 		if(total_price > customer_account.money)
 			ping("Insufficient funds in account.")
-			return 0
+			return FALSE
 		else
 			customer_account.money -= total_price
-			var/datum/transaction/T = new()
-			T.target_name = "Computer Manufacturer (via [src.name])"
-			T.purpose = "Purchase of [(devtype == 1) ? "laptop computer" : "tablet microcomputer"]."
-			T.amount = total_price
-			T.source_terminal = src.name
-			T.date = worlddate2text()
-			T.time = worldtime2text()
-			SSeconomy.add_transaction_log(customer_account,T)
-			return 1
-	else if(S)
-		if(total_price > S.worth)
+			var/datum/transaction/transaction = new()
+			transaction.target_name = "Computer Manufacturer (via [src.name])"
+			transaction.purpose = "Purchase of [(devtype == LAPVEND_DEVICE_LAPTOP) ? "laptop computer" : "tablet microcomputer"]."
+			transaction.amount = total_price
+			transaction.source_terminal = src.name
+			transaction.date = worlddate2text()
+			transaction.time = worldtime2text()
+			SSeconomy.add_transaction_log(customer_account, transaction)
+			return TRUE
+	else if(cash)
+		if(total_price > cash.worth)
 			ping("Insufficient funds!")
-			return 0
+			return FALSE
 		else
-			S.worth -= total_price
-			if(S.worth <= 0)
-				qdel(S)
+			cash.worth -= total_price
+			if(cash.worth <= 0)
+				qdel(cash)
 			else
-				S.update_icon()
-			return 1
+				cash.update_icon()
+			return TRUE
 
 	else // just incase
 		ping("You cannot pay with this!")
-		return 0
+		return FALSE
+
+#undef LAPVEND_STATE_SELECT
+#undef LAPVEND_STATE_CONFIGURE
+#undef LAPVEND_STATE_PAYMENT
+#undef LAPVEND_STATE_COMPLETE
+#undef LAPVEND_DEVICE_NONE
+#undef LAPVEND_DEVICE_LAPTOP
+#undef LAPVEND_DEVICE_TABLET
+#undef LAPVEND_DEVICE_PDA

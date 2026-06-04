@@ -1,7 +1,7 @@
 //--------------------------------------------
 // Gas mixer - omni variant
 //--------------------------------------------
-/obj/machinery/atmospherics/omni/mixer
+/obj/structure/machinery/atmospherics/omni/mixer
 	name = "omni gas mixer"
 	icon_state = "map_mixer"
 	base_icon = "mixer"
@@ -24,11 +24,11 @@
 
 	var/list/mixing_inputs = list()
 
-/obj/machinery/atmospherics/omni/mixer/mechanics_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/atmospherics/omni/mixer/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Combines gas from custom input and output directions. The percentage of combined gas can be defined."
 
-/obj/machinery/atmospherics/omni/mixer/Initialize()
+/obj/structure/machinery/atmospherics/omni/mixer/Initialize()
 	. = ..()
 	if(mapper_set())
 		var/con = 0
@@ -54,13 +54,13 @@
 	for(var/datum/omni_port/P in ports)
 		P.air.volume = ATMOS_DEFAULT_VOLUME_MIXER
 
-/obj/machinery/atmospherics/omni/mixer/Destroy()
+/obj/structure/machinery/atmospherics/omni/mixer/Destroy()
 	inputs.Cut()
 	// this gets qdel'd in omni/Destroy()
 	output = null
 	return ..()
 
-/obj/machinery/atmospherics/omni/mixer/sort_ports()
+/obj/structure/machinery/atmospherics/omni/mixer/sort_ports()
 	for(var/datum/omni_port/P in ports)
 		if(P.update)
 			if(output == P)
@@ -84,10 +84,10 @@
 
 	rebuild_mixing_inputs()
 
-/obj/machinery/atmospherics/omni/mixer/proc/mapper_set()
+/obj/structure/machinery/atmospherics/omni/mixer/proc/mapper_set()
 	return (tag_north_con || tag_south_con || tag_east_con || tag_west_con)
 
-/obj/machinery/atmospherics/omni/mixer/error_check()
+/obj/structure/machinery/atmospherics/omni/mixer/error_check()
 	if(!output || !inputs)
 		return 1
 	if(inputs.len < 2) //requires at least 2 inputs ~otherwise why are you using a mixer?
@@ -103,7 +103,7 @@
 
 	return 0
 
-/obj/machinery/atmospherics/omni/mixer/process()
+/obj/structure/machinery/atmospherics/omni/mixer/process()
 	if(!..())
 		return 0
 
@@ -129,88 +129,105 @@
 
 	return 1
 
-/obj/machinery/atmospherics/omni/mixer/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
-	user.set_machine(src)
-
-	var/list/data = new()
-
-	data = build_uidata()
-
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
-
-	if (!ui)
-		ui = new(user, src, ui_key, "omni_mixer.tmpl", "Omni Mixer Control", 470, 330)
-		ui.set_initial_data(data)
-
+/obj/structure/machinery/atmospherics/omni/mixer/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "OmniMixer")
 		ui.open()
 
-/obj/machinery/atmospherics/omni/mixer/proc/build_uidata()
-	var/list/data = new()
-
+/obj/structure/machinery/atmospherics/omni/mixer/ui_data(mob/user)
+	var/list/data = list()
 	data["power"] = use_power
 	data["config"] = configuring
 	data["last_power_draw"] = last_power_draw
 	data["max_power_draw"] = power_rating
 
-	var/portData[0]
+	var/list/port_data = list()
 	for(var/datum/omni_port/P in ports)
-		if(!configuring && P.mode == 0)
+		if(!configuring && P.mode == ATM_NONE)
 			continue
+		port_data += list(list(
+			"dir"           = dir_name(P.dir, capitalize = 1),
+			"concentration" = P.concentration,
+			"input"         = P.mode == ATM_INPUT,
+			"output"        = P.mode == ATM_OUTPUT,
+			"con_lock"      = P.con_lock
+		))
+	data["ports"] = port_data
 
-		var/input = 0
-		var/output = 0
-		switch(P.mode)
-			if(ATM_INPUT)
-				input = 1
-			if(ATM_OUTPUT)
-				output = 1
-
-		portData[++portData.len] = list("dir" = dir_name(P.dir, capitalize = 1), \
-										"concentration" = P.concentration, \
-										"input" = input, \
-										"output" = output, \
-										"con_lock" = P.con_lock)
-
-	if(portData.len)
-		data["ports"] = portData
-	if(output)
-		data["set_flow_rate"] = round(set_flow_rate*10)		//because nanoui can't handle rounded decimals.
-		data["last_flow_rate"] = round(last_flow_rate*10)
+	data["set_flow_rate"] = set_flow_rate
+	data["max_flow_rate"] = max_flow_rate
+	data["last_flow_rate"] = last_flow_rate
 
 	return data
 
-/obj/machinery/atmospherics/omni/mixer/Topic(href, href_list)
-	if(..()) return 1
+/obj/structure/machinery/atmospherics/omni/mixer/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
+		return
 
-	switch(href_list["command"])
+	switch(action)
 		if("power")
 			if(!configuring)
 				update_use_power(!use_power)
 			else
 				update_use_power(POWER_USE_OFF)
+			update_icon()
+			return TRUE
+
 		if("configure")
 			configuring = !configuring
 			if(configuring)
 				update_use_power(POWER_USE_OFF)
+			update_icon()
+			return TRUE
 
-	//only allows config changes when in configuring mode ~otherwise you'll get weird pressure stuff going on
-	if(configuring && !use_power)
-		switch(href_list["command"])
-			if("set_flow_rate")
-				var/new_flow_rate = input(usr,"Enter new flow rate limit (0-[max_flow_rate]L/s)","Flow Rate Control",set_flow_rate) as num
-				set_flow_rate = between(0, new_flow_rate, max_flow_rate)
-			if("switch_mode")
-				switch_mode(dir_flag(href_list["dir"]), href_list["mode"])
-			if("switch_con")
-				change_concentration(dir_flag(href_list["dir"]))
-			if("switch_conlock")
-				con_lock(dir_flag(href_list["dir"]))
+	if(!configuring || use_power)
+		return
 
-	update_icon()
-	SSnanoui.update_uis(src)
-	return
+	switch(action)
+		if("set_flow_rate")
+			var/new_rate = tgui_input_number(usr, "Enter new flow rate limit (0-[max_flow_rate] L/s)", "Flow Rate Control", set_flow_rate, max_flow_rate, 0)
+			if(isnum(new_rate))
+				set_flow_rate = between(0, new_rate, max_flow_rate)
+			return TRUE
 
-/obj/machinery/atmospherics/omni/mixer/proc/switch_mode(var/port = NORTH, var/mode = ATM_NONE)
+		if("switch_mode")
+			switch_mode(dir_flag(params["dir"]), params["mode"])
+			return TRUE
+
+		if("set_concentration")
+			var/port_dir = dir_flag(params["dir"])
+			var/old_con = 0
+			var/non_locked = 0
+			var/remain_con = 1
+			for(var/datum/omni_port/P in inputs)
+				if(P.dir == port_dir)
+					old_con = P.concentration
+				else if(!P.con_lock)
+					non_locked++
+				else
+					remain_con -= P.concentration
+			if(non_locked < 1)
+				return TRUE
+			var/new_con = tgui_input_number(usr, "Enter a new concentration (0-[round(remain_con * 100, 0.5)])%", "Concentration Control", min(remain_con, old_con) * 100, remain_con * 100, 0) / 100
+			if(isnull(new_con))
+				return TRUE
+			new_con = between(0, new_con, remain_con)
+			remain_con = max(0, remain_con - new_con) / max(1, non_locked)
+			for(var/datum/omni_port/P in inputs)
+				if(P.dir == port_dir)
+					P.concentration = new_con
+				else if(!P.con_lock)
+					P.concentration = remain_con
+			rebuild_mixing_inputs()
+			return TRUE
+
+		if("toggle_con_lock")
+			con_lock(dir_flag(params["dir"]))
+			return TRUE
+
+/obj/structure/machinery/atmospherics/omni/mixer/proc/switch_mode(var/port = NORTH, var/mode = ATM_NONE)
 	if(mode != ATM_INPUT && mode != ATM_OUTPUT)
 		switch(mode)
 			if("in")
@@ -250,7 +267,7 @@
 	update_ports()
 	rebuild_mixing_inputs()
 
-/obj/machinery/atmospherics/omni/mixer/proc/change_concentration(var/port = NORTH)
+/obj/structure/machinery/atmospherics/omni/mixer/proc/change_concentration(var/port = NORTH)
 	tag_north_con = null
 	tag_south_con = null
 	tag_east_con = null
@@ -293,12 +310,12 @@
 
 	rebuild_mixing_inputs()
 
-/obj/machinery/atmospherics/omni/mixer/proc/rebuild_mixing_inputs()
+/obj/structure/machinery/atmospherics/omni/mixer/proc/rebuild_mixing_inputs()
 	mixing_inputs.Cut()
 	for(var/datum/omni_port/P in inputs)
 		mixing_inputs[P.air] = P.concentration
 
-/obj/machinery/atmospherics/omni/mixer/proc/con_lock(var/port = NORTH)
+/obj/structure/machinery/atmospherics/omni/mixer/proc/con_lock(var/port = NORTH)
 	for(var/datum/omni_port/P in inputs)
 		if(P.dir == port)
 			P.con_lock = !P.con_lock

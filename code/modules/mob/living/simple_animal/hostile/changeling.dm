@@ -21,7 +21,7 @@
 	response_disarm = "shoves"
 	response_harm   = "harmlessly punches"
 	blood_amount = 1000
-	maxHealth = 1250
+	maxhealth = 1250
 	health = 1250
 	harm_intent_damage = 0
 	melee_damage_lower = 30
@@ -33,7 +33,7 @@
 	mob_strength = MOB_STRENGTH_VERY_STRONG
 	mob_size = 25
 	environment_smash = 2
-	attacktext = "mangled"
+	attacktext = "mangles"
 	attack_sound = 'sound/weapons/bloodyslice.ogg'
 	emote_sounds = list('sound/effects/creatures/bear_loud_1.ogg', 'sound/effects/creatures/bear_loud_2.ogg', 'sound/effects/creatures/bear_loud_3.ogg', 'sound/effects/creatures/bear_loud_4.ogg')
 
@@ -158,13 +158,13 @@
 	response_help  = "pets"
 	response_disarm = "shoves"
 	response_harm   = "harmlessly punches"
-	maxHealth = 50
+	maxhealth = 50
 	health = 50
 	harm_intent_damage = 5
 	melee_damage_lower = 5
 	melee_damage_upper = 10
 	mob_size = 15
-	attacktext = "mangled"
+	attacktext = "mangles"
 	attack_sound = 'sound/weapons/bloodyslice.ogg'
 
 	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
@@ -204,9 +204,9 @@
 	mind.assigned_role = "Changeling"
 
 /mob/living/simple_animal/hostile/lesser_changeling/Destroy()
-	. = ..()
 	QDEL_NULL(occupant)
 	QDEL_NULL(untransform_occupant)
+	return ..()
 
 /mob/living/simple_animal/hostile/lesser_changeling/proc/add_untransform_verb()
 	if(!occupant)

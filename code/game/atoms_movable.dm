@@ -105,6 +105,11 @@
 	var/buckle_delay = 0 //How much extra time to buckle someone to this object.
 	/* END BUCKLING VARS */
 
+	var/tmp/turf/airflow_dest
+	var/tmp/airflow_speed = 0
+	var/tmp/airflow_time = 0
+	var/tmp/last_airflow = 0
+
 /atom/movable/Initialize(mapload, ...)
 	. = ..()
 	update_emissive_blocker()
@@ -132,14 +137,11 @@
 
 	QDEL_LAZYLIST(contained_mobs)
 
-	. = ..()
-
 	for(var/movable_content in contents)
 		qdel(movable_content)
 
 	//Pretend this is moveToNullspace()
 	moveToNullspace()
-	loc = null
 
 	//This absolutely must be after moveToNullspace()
 	//We rely on Entered and Exited to manage this list, and the copy of this list that is on any /atom/movable "Containers"
@@ -163,6 +165,9 @@
 
 	QDEL_NULL(light)
 	QDEL_NULL(static_light)
+	airflow_dest = null
+	loc = null
+	return ..()
 
 /atom/movable/proc/moveToNullspace()
 	. = TRUE
@@ -744,11 +749,19 @@
 	/* END Spatial grid stuffs */
 
 	for(var/datum/dynamic_light_source/light as anything in hybrid_light_sources)
+		if(!light) // datum was deleted but list entry not yet pruned
+			LAZYREMOVE(hybrid_light_sources, light)
+			continue
+		if(!light.source_atom)
+			continue
 		light.source_atom.update_light()
 		if(!isturf(loc))
 			light.find_containing_atom()
 	for(var/datum/static_light_source/L as anything in static_light_sources) // Cycle through the light sources on this atom and tell them to update.
-		L.source_atom.static_update_light()
+		if(!L) // datum was deleted but list entry not yet pruned
+			LAZYREMOVE(static_light_sources, L)
+			continue
+		L.source_atom?.static_update_light()
 
 /atom/movable/Exited(atom/movable/gone, direction)
 	. = ..()

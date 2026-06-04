@@ -2059,6 +2059,17 @@
 /obj/structure/sign/flag/assunzione/large/west/Initialize(mapload)
 	. = ..(mapload, WEST)
 
+/obj/item/flag/luceist/l
+	name = "large Luceian flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/luceist/large
+
+/obj/structure/sign/flag/luceist/large
+	icon_state = "luceist_l"
+	flag_path = "luceist"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/luceist/l
+
 // Port Antillia
 
 /obj/item/flag/portantillia
@@ -4072,6 +4083,55 @@
 
 /obj/structure/sign/flag/narrows/large/west/Initialize(mapload)
 	. = ..(mapload, WEST)
+
+// Voidtamer Banners
+/obj/item/flag/voidtamer
+	name = "voidtamer banner"
+	desc = "A banner of the Voidtamer Confluence, being made of a simple dried carp hide."
+	flag_path = "voidtamer"
+	flag_structure = /obj/structure/sign/flag/voidtamer
+
+/obj/structure/sign/flag/voidtamer
+	name = "voidtamer banner"
+	desc = "A banner of the Voidtamer Confluence, being made of a simple dried carp hide."
+	icon_state = "voidtamer_banner"
+	flag_item = /obj/item/flag/voidtamer
+
+/obj/item/flag/voidtamer_decorated
+	name = "decorated voidtamer banner"
+	desc = "A banner of the Voidtamer Confluence, being made of a simple dried carp hide and adorned with a golden pattern."
+	flag_path = "voidtamer_decorated"
+	flag_structure = /obj/structure/sign/flag/voidtamer_decorated
+
+/obj/structure/sign/flag/voidtamer_decorated
+	name = "decorated voidtamer banner"
+	desc = "A banner of the Voidtamer Confluence, being made of a simple dried carp hide and adorned with a golden pattern."
+	icon_state = "voidtamer_banner2"
+	flag_item = /obj/item/flag/voidtamer_decorated
+
+/obj/item/flag/voidtamer_star
+	name = "decorated voidtamer banner"
+	desc = "A banner of the Voidtamer Confluence, being made of a simple dried carp hide and adorned with gold in the rough style of a star."
+	flag_path = "voidtamer_star"
+	flag_structure = /obj/structure/sign/flag/voidtamer_star
+
+/obj/structure/sign/flag/voidtamer_star
+	name = "decorated voidtamer banner"
+	desc = "A banner of the Voidtamer Confluence, being made of a simple dried carp hide and adorned with gold in the rough style of a star."
+	icon_state = "voidtamer_banner3"
+	flag_item = /obj/item/flag/voidtamer_star
+
+/obj/item/flag/voidtamer_eye
+	name = "decorated voidtamer banner"
+	desc = "A banner of the Voidtamer Confluence, being made of a simple dried carp hide and adorned with gold in the rough style of an eye."
+	flag_path = "voidtamer_eye"
+	flag_structure = /obj/structure/sign/flag/voidtamer_eye
+
+/obj/structure/sign/flag/voidtamer_eye
+	name = "decorated voidtamer banner"
+	desc = "A banner of the Voidtamer Confluence, being made of a simple dried carp hide and adorned with gold in the rough style of an eye."
+	icon_state = "voidtamer_banner4"
+	flag_item = /obj/item/flag/voidtamer_eye
 
 // Zhurong
 

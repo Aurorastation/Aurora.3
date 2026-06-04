@@ -6,7 +6,7 @@
 	icon_dead = "tomato_dead"
 	speak_chance = 0
 	turns_per_move = 5
-	maxHealth = 15
+	maxhealth = 15
 	health = 15
 	meat_type = /obj/item/reagent_containers/food/snacks/tomatomeat
 	organ_names = list("head")
@@ -16,5 +16,5 @@
 	harm_intent_damage = 5
 	melee_damage_upper = 15
 	melee_damage_lower = 10
-	attacktext = "mauled"
+	attacktext = "mauls"
 	mob_size = 2

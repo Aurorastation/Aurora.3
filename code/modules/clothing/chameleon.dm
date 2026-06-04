@@ -270,8 +270,10 @@
 //*******************
 /obj/item/clothing/shoes/chameleon
 	name = "black shoes"
+	icon = 'icons/obj/item/clothing/shoes/sneakers.dmi'
 	icon_state = "black"
 	item_state = "black"
+	contained_sprite = TRUE
 	desc = "They're comfy black shoes, with clever cloaking technology built in. It seems to have a small dial on the back of each shoe."
 	silent = 1
 	origin_tech = list(TECH_ILLEGAL = 3)
@@ -289,8 +291,10 @@
 
 	name = "black shoes"
 	desc = "A pair of black shoes."
+	icon = 'icons/obj/item/clothing/shoes/sneakers.dmi'
 	icon_state = "black"
 	item_state = "black"
+	contained_sprite = TRUE
 	update_icon()
 	update_clothing_icon()
 
@@ -479,9 +483,9 @@
 //**Chameleon Gun**
 //*****************
 /obj/item/gun/energy/chameleon
-	name = "desert eagle"
+	name = "\improper Desert Eagle pistol"
 	desc = null
-	icon = 'icons/obj/guns/deagle.dmi'
+	icon = 'icons/obj/guns/faction/antique/deagle.dmi'
 	icon_state = "deagle"
 	w_class = WEIGHT_CLASS_NORMAL
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2, TECH_ILLEGAL = 8)

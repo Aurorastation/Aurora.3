@@ -6,7 +6,7 @@
 	// The cameras on the map, no matter if they work or not.
 	var/list/cameras
 	chunk_type = /datum/chunk/camera
-	valid_source_types = list(/obj/machinery/camera, /mob/living/silicon/ai)
+	valid_source_types = list(/obj/structure/machinery/camera, /mob/living/silicon/ai)
 
 /datum/visualnet/camera/New()
 	cameras = list()
@@ -14,9 +14,9 @@
 
 /datum/visualnet/camera/Destroy()
 	cameras.Cut()
-	. = ..()
+	return ..()
 
-/datum/visualnet/camera/add_source(obj/machinery/camera/c)
+/datum/visualnet/camera/add_source(obj/structure/machinery/camera/c)
 	if(istype(c))
 		if(c in cameras)
 			return FALSE
@@ -29,7 +29,7 @@
 	else
 		..()
 
-/datum/visualnet/camera/remove_source(obj/machinery/camera/c)
+/datum/visualnet/camera/remove_source(obj/structure/machinery/camera/c)
 	if(istype(c) && cameras.Remove(c))
 		. = ..(c, c.can_use())
 	if(isAI(c))

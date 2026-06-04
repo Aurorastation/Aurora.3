@@ -1,5 +1,5 @@
 
-/obj/machinery/artifact_analyser
+/obj/structure/machinery/artifact_analyser
 	name = "anomaly analyzer"
 	desc = "Studies the emissions of anomalous materials to discover their uses."
 	icon = 'icons/obj/xenoarchaeology.dmi'
@@ -9,28 +9,28 @@
 	var/scan_in_progress = 0
 	var/scan_num = 0
 	var/obj/scanned_obj
-	var/obj/machinery/artifact_scanpad/owned_scanner = null
+	var/obj/structure/machinery/artifact_scanpad/owned_scanner = null
 	var/scan_completion_time = 0
 	var/scan_duration = 120
 	var/obj/scanned_object
 	var/report_num = 0
 
-/obj/machinery/artifact_analyser/Initialize()
+/obj/structure/machinery/artifact_analyser/Initialize()
 	. = ..()
 	reconnect_scanner()
 
-/obj/machinery/artifact_analyser/proc/reconnect_scanner()
+/obj/structure/machinery/artifact_analyser/proc/reconnect_scanner()
 	//connect to a nearby scanner pad
-	owned_scanner = locate(/obj/machinery/artifact_scanpad) in get_step(src, dir)
+	owned_scanner = locate(/obj/structure/machinery/artifact_scanpad) in get_step(src, dir)
 	if(!owned_scanner)
-		owned_scanner = locate(/obj/machinery/artifact_scanpad) in orange(1, src)
+		owned_scanner = locate(/obj/structure/machinery/artifact_scanpad) in orange(1, src)
 
-/obj/machinery/artifact_analyser/attack_hand(var/mob/user as mob)
+/obj/structure/machinery/artifact_analyser/attack_hand(var/mob/user as mob)
 	. = ..()
 	src.add_fingerprint(user)
 	interact(user)
 
-/obj/machinery/artifact_analyser/interact(mob/user)
+/obj/structure/machinery/artifact_analyser/interact(mob/user)
 	if(stat & (NOPOWER|BROKEN) || get_dist(src, user) > 1)
 		user.unset_machine(src)
 		return
@@ -59,7 +59,7 @@
 	analyzer_win.set_content(dat)
 	analyzer_win.open()
 
-/obj/machinery/artifact_analyser/process()
+/obj/structure/machinery/artifact_analyser/process()
 	if(scan_in_progress && world.time > scan_completion_time)
 		//finish scanning
 		scan_in_progress = 0
@@ -87,13 +87,13 @@
 		P.set_content_unsafe(pname, info)
 		print(P, user = usr)
 
-		if(scanned_object && istype(scanned_object, /obj/machinery/artifact))
-			var/obj/machinery/artifact/A = scanned_object
+		if(scanned_object && istype(scanned_object, /obj/structure/machinery/artifact))
+			var/obj/structure/machinery/artifact/A = scanned_object
 			A.anchored = 0
 			A.being_used = 0
 			scanned_object = null
 
-/obj/machinery/artifact_analyser/Topic(href, href_list)
+/obj/structure/machinery/artifact_analyser/Topic(href, href_list)
 	if(href_list["begin_scan"])
 		if(!owned_scanner)
 			reconnect_scanner()
@@ -104,8 +104,8 @@
 					continue
 				if(O.invisibility)
 					continue
-				if(istype(O, /obj/machinery/artifact))
-					var/obj/machinery/artifact/A = O
+				if(istype(O, /obj/structure/machinery/artifact))
+					var/obj/structure/machinery/artifact/A = O
 					if(A.being_used)
 						artifact_in_use = 1
 					else
@@ -134,33 +134,33 @@
 	updateDialog()
 
 //hardcoded responses, oh well
-/obj/machinery/artifact_analyser/proc/get_scan_info(var/obj/scanned_obj)
+/obj/structure/machinery/artifact_analyser/proc/get_scan_info(var/obj/scanned_obj)
 	switch(scanned_obj.type)
-		if(/obj/machinery/auto_cloner)
+		if(/obj/structure/machinery/auto_cloner)
 			return "Automated cloning pod - appears to rely on organic nanomachines with a self perpetuating \
 			ecosystem involving self cannibalism and a symbiotic relationship with the contained liquid.<br><br>\
 			Structure is composed of a carbo-titanium alloy with interlaced reinforcing energy fields, and the contained liquid \
 			resembles proto-plasmic residue supportive of single cellular developmental conditions."
-		if(/obj/machinery/power/supermatter)
+		if(/obj/structure/machinery/power/supermatter)
 			return "Super dense phoron clump - Appears to have been shaped or hewn, structure is composed of matter 2000% denser than ordinary carbon matter residue.\
 			Potential application as unrefined phoron source."
 		if(/obj/structure/constructshell)
 			return "Tribal idol - Item resembles statues/emblems built by superstitious pre-warp civilisations to honour their gods. Material appears to be a \
 			rock/plastcrete composite."
-		if(/obj/machinery/giga_drill)
+		if(/obj/structure/machinery/giga_drill)
 			return "Automated mining drill - structure composed of titanium-carbide alloy, with tip and drill lines edged in an alloy of diamond and phoron."
 		if(/obj/structure/cult/pylon)
 			return "Tribal pylon - Item resembles statues/emblems built by cargo cult civilisations to honour energy systems from post-warp civilisations."
-		if(/obj/machinery/replicator)
+		if(/obj/structure/machinery/replicator)
 			return "Automated construction unit - Item appears to be able to synthesize synthetic items, some with simple internal circuitry. Method unknown, \
 			phasing suggested?"
 		if(/obj/structure/crystal)
 			return "Crystal formation - Pseudo organic crystalline matrix, unlikely to have formed naturally. No known technology exists to synthesize this exact composition."
 		if(/obj/structure/hivebot_head)
 			return "Transmission drone core - composed of unidentified alien alloy consistent with hivebot construction patterns. Internal systems appear to be designed for obfuscation and amplification of a master control system. Severe damage consistent with repeated gunfire logged. Signal obfuscation appears to be inactive - the primary source can now be located."
-		if(/obj/machinery/artifact)
+		if(/obj/structure/machinery/artifact)
 			//the fun one
-			var/obj/machinery/artifact/A = scanned_obj
+			var/obj/structure/machinery/artifact/A = scanned_obj
 			var/out = "Anomalous alien device - Composed of an unknown alloy, "
 
 			//primary effect

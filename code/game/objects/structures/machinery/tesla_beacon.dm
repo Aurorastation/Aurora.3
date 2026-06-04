@@ -1,0 +1,87 @@
+//
+// Tesla Beacon
+//
+
+/obj/structure/machinery/power/tesla_beacon
+	name = "emergency tesla beacon"
+	desc = "A beacon that is designed to be used as last resort to contain a tesla reactor's energy ball. " + SPAN_DANGER("A one time use device.")
+	icon = 'icons/obj/tesla_beacon.dmi'
+	icon_state = "beacon_off"
+	anchored = FALSE
+	density = TRUE
+
+	var/active = FALSE
+
+/obj/structure/machinery/power/tesla_beacon/proc/activate(mob/user = null)
+	if(POWER_SURPLUS(src) < 1500)
+		if(user) to_chat(user, SPAN_NOTICE("The connected wire doesn't have enough current."))
+		return
+	for(var/A in SScalamity.singularities)
+		var/obj/singularity/singulo = A
+		if(singulo.z == z)
+			singulo.target = src
+	icon_state = "beacon_on"
+	active = TRUE
+	START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
+	if(user)
+		to_chat(user, SPAN_NOTICE("You activate \the [src]."))
+
+
+/obj/structure/machinery/power/tesla_beacon/proc/deactivate(mob/user = null)
+	for(var/A in SScalamity.singularities)
+		var/obj/singularity/singulo = A
+		if(singulo.target == src)
+			singulo.target = null
+	icon_state = "beacon_off"
+	active = FALSE
+	STOP_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
+	if(user)
+		to_chat(user, SPAN_NOTICE("You deactivate \the [src]."))
+
+/obj/structure/machinery/power/tesla_beacon/attack_ai(mob/user)
+	if(Adjacent(user))
+		return attack_hand(user)
+	else
+		to_chat(user, SPAN_WARNING("You need to be adjacent to \the [src] to activate it!"))
+
+/obj/structure/machinery/power/tesla_beacon/attack_hand(mob/user)
+	. = ..()
+	if(anchored)
+		return active ? deactivate(user) : activate(user)
+	else
+		to_chat(user, SPAN_WARNING("You need to screw \the [src] to the floor first!"))
+		return
+
+/obj/structure/machinery/power/tesla_beacon/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
+		if(active)
+			to_chat(user, SPAN_WARNING("You need to deactivate \the [src] first!"))
+			return TRUE
+
+		if(anchored)
+			anchored = 0
+			to_chat(user, SPAN_NOTICE("You unscrew \the [src] from the floor."))
+			disconnect_from_network()
+			return TRUE
+		else
+			if(!connect_to_network())
+				to_chat(user, SPAN_NOTICE("\The [src] must be placed over an exposed cable."))
+				return TRUE
+			anchored = 1
+			to_chat(user, SPAN_NOTICE("You screw \the [src] to the floor and attach the cable."))
+			return TRUE
+	return ..()
+
+/obj/structure/machinery/power/tesla_beacon/Destroy()
+	if(active)
+		deactivate()
+	return ..()
+
+//stealth direct power usage
+/obj/structure/machinery/power/tesla_beacon/process()
+	if(!active)
+		return PROCESS_KILL
+	var/can_draw = POWER_DRAW(src, 1500) >= 1500
+	DRAW_POWER(src, can_draw)
+	if(!can_draw)
+		deactivate()

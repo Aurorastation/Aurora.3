@@ -798,7 +798,7 @@
 		to_chat(M, SPAN_DANGER(pick("Your heart is beating rapidly!", "Your chest hurts!", "You've totally over-exerted yourself!")))
 	if(prob(M.chem_doses[type] / 3))
 		M.visible_message("<b>[M]</b> twitches violently, grimacing.", "You twitch violently and feel yourself sprain a joint.")
-		M.take_organ_damage(5 * removed, 0)
+		M.take_organ_damage(5 * removed, 0, used_weapon = "Hyperzine overdose", damage_flags = DAMAGE_FLAG_IGNORE_PROSTHETICS, silent = TRUE)
 		M.adjustHalLoss(15)
 
 /singleton/reagent/hyperzine/final_effect(mob/living/carbon/M, datum/reagents/holder)
@@ -888,11 +888,11 @@
 		//metabolism = REM * 0.22
 		M.adjustToxLoss(45 * removed * (0.22/0.25)) // Multiplier is to replace the above line
 	else
-		M.apply_radiation(-30 * removed)
+		M.apply_radiation(-90 * removed)
 
 /singleton/reagent/hyronalin/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(prob(60))
-		M.take_organ_damage(4 * removed, 0) //Hyronaline OD deals brute damage to the same degree as Arithrazine
+		M.take_organ_damage(8 * removed, 0, used_weapon = "Hyronaline overdose", damage_flags = DAMAGE_FLAG_IGNORE_PROSTHETICS, silent = TRUE)
 
 /singleton/reagent/arithrazine
 	name = "Arithrazine"
@@ -919,14 +919,14 @@
 		//metabolism = REM * 0.195
 		M.adjustToxLoss(115 * removed * (0.195/0.25)) // Multiplier is to replace the above line
 	else
-		M.apply_radiation(-70 * removed)
+		M.apply_radiation(-280 * removed)
 		M.add_chemical_effect(CE_ITCH, M.chem_doses[type]/2)
 		if(prob(60))
-			M.take_organ_damage(4 * removed, 0)
+			M.take_organ_damage(8 * removed, 0, used_weapon = "Arithrazine tissue damage", damage_flags = DAMAGE_FLAG_IGNORE_PROSTHETICS, silent = TRUE)
 
 /singleton/reagent/arithrazine/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(prob(50))
-		M.take_organ_damage(6 * removed, 0) //Even more collateral damage dealt by arithrazine when overdosed.
+		M.take_organ_damage(6 * removed, 0, used_weapon = "Arithrazine overdose", damage_flags = DAMAGE_FLAG_IGNORE_PROSTHETICS, silent = TRUE) //Even more collateral damage dealt by arithrazine when overdosed.
 
 /singleton/reagent/thetamycin
 	name = "Thetamycin"
@@ -1232,9 +1232,10 @@
 	if(alchohol_affected && bac > 0.03)
 		H.hallucination = max(H.hallucination, bac * 400)
 
-	if(H.chem_doses[type] < overdose && H.shock_stage < 5) //Don't want feel-good messages when we're suffering an OD or particularly hurt/injured
+	if(H.chem_doses[type] < overdose && H.shock_stage < 5 && REALTIMEOFDAY >= H.next_drug_message)
 		message = feedback_message(H)
 		to_chat(H, SPAN_GOOD("[message]"))
+		H.next_drug_message = REALTIMEOFDAY + DRUG_MESSAGE_COOLDOWN
 
 	LAZYSET(holder.reagent_data[type], "last_tick_time", world.time + (messagedelay))
 
@@ -1615,13 +1616,13 @@
 
 /singleton/reagent/pneumalin/affect_breathe(var/mob/living/carbon/human/H, var/alien, var/removed, var/datum/reagents/holder)
 	H.adjustOxyLoss(removed) //Every unit heals 1 oxy damage
-	H.add_chemical_effect(CE_PNEUMOTOXIC, -removed * 1.5)
+	H.remove_chemical_effect(CE_PNEUMOTOXIC, removed * 1.5)
 	H.add_chemical_effect(CE_PULSE, -1)
 
 	var/obj/item/organ/internal/lungs/L = H.internal_organs_by_name[BP_LUNGS]
 	if(istype(L) && !BP_IS_ROBOTIC(L))
 		L.rescued = FALSE
-		L.damage = max(L.damage - (removed * 1.5), 0)
+		L.heal_damage(removed * 1.5)
 
 	. = ..()
 
@@ -2080,7 +2081,7 @@
 		to_chat(M, SPAN_WARNING(pick("You have a headache!", "Energy, energy, energy - so much energy!", "You can't sit still!", "It's difficult to focus right now... but that's not important!", "Your heart is beating rapidly!", "Your chest hurts!", "You've totally over-exerted yourself!")))
 	if(prob(M.chem_doses[type] / 3))
 		M.emote(pick("twitch", "blink_r", "shiver"))
-		M.take_organ_damage(5 * removed, 0)
+		M.take_organ_damage(5 * removed, 0, used_weapon = "Caffeine overdose", damage_flags = DAMAGE_FLAG_IGNORE_PROSTHETICS, silent = TRUE)
 		M.adjustHalLoss(15)
 
 /singleton/reagent/caffeine/final_effect(mob/living/carbon/M, alien, removed, datum/reagents/holder)

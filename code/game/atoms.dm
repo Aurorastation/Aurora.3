@@ -543,6 +543,18 @@
 				if(src.z == H.z && get_dist(src, H) <= range)
 					H.intent_listen(src, message)
 
+/proc/get_intent_listeners(var/atom/source, var/range = 7, var/list/hearers = list())
+	SHOULD_NOT_SLEEP(TRUE)
+	var/list/listeners = list()
+	if(air_sound(source))
+		if(!length(hearers))
+			hearers = get_hearers_in_view(range, source)
+		for(var/mob/living/carbon/human/H as anything in GLOB.intent_listener)
+			if((H in hearers))
+				if(source.z == H.z && get_dist(source, H) <= range)
+					listeners += H
+	return listeners
+
 /atom/movable/proc/dropInto(var/atom/destination)
 	while(istype(destination))
 		var/atom/drop_destination = destination.onDropInto(src)

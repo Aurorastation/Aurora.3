@@ -31,7 +31,7 @@
 
 		//make vine zero start off fully matured
 		var/obj/effect/plant/vine = new(T,seed)
-		vine.health = vine.max_health
+		vine.health = vine.maxhealth
 		vine.mature_time = 0
 		vine.process()
 		var/area_display_name = get_area_display_name(get_area(T))
@@ -67,9 +67,7 @@
 	movable_flags = MOVABLE_FLAG_PROXMOVE
 	pass_flags = PASSTABLE
 	mouse_opacity = MOUSE_OPACITY_OPAQUE
-
-	var/health = 10
-	var/max_health = 100
+	maxhealth = 100
 	var/growth_threshold = 0
 	var/growth_type = 0
 
@@ -85,7 +83,7 @@
 	var/evolve_chance = 2
 	var/mature_time		//minimum maturation time
 	var/last_tick = 0
-	var/obj/machinery/portable_atmospherics/hydroponics/soil/invisible/plant
+	var/obj/structure/machinery/portable_atmospherics/hydroponics/soil/invisible/plant
 	var/last_biolum = null
 
 /obj/effect/plant/Destroy()
@@ -93,6 +91,7 @@
 	for(var/obj/effect/plant/neighbor in range(1,src))
 		if (!QDELETED(neighbor))
 			SSplants.add_plant(neighbor)
+	QDEL_NULL(plant)
 	return ..()
 
 /obj/effect/plant/single
@@ -119,15 +118,15 @@
 		return
 
 	name = seed.display_name
-	max_health = round(GET_SEED_TRAIT(seed, TRAIT_ENDURANCE)/2)
+	maxhealth = round(GET_SEED_TRAIT(seed, TRAIT_ENDURANCE)/2)
 	if(GET_SEED_TRAIT(seed, TRAIT_SPREAD) == 2)
 		mouse_opacity = 2
 		max_growth = VINE_GROWTH_STAGES
-		growth_threshold = max_health/VINE_GROWTH_STAGES
+		growth_threshold = maxhealth/VINE_GROWTH_STAGES
 		growth_type = seed.get_growth_type()
 	else
 		max_growth = seed.growth_stages
-		growth_threshold = max_health/seed.growth_stages
+		growth_threshold = maxhealth/seed.growth_stages
 
 	if(max_growth > 2 && prob(50))
 		max_growth-- //Ensure some variation in final sprite, makes the carpet of crap look less wonky.
@@ -189,15 +188,17 @@
 	SHOULD_NOT_SLEEP(TRUE)
 
 	overlays.Cut()
-	var/growth = 0
-	if(growth_threshold)
-		growth = min(max_growth, round(health/growth_threshold))
+	var/effective_max = max_growth
 	var/at_fringe = get_dist(src,parent)
 	if(spread_distance > 5)
 		if(at_fringe >= (spread_distance-3))
-			max_growth--
+			effective_max--
 		if(at_fringe >= (spread_distance-2))
-			max_growth--
+			effective_max--
+
+	var/growth = 0
+	if(growth_threshold)
+		growth = min(effective_max, round(health/growth_threshold))
 
 	var/image/our_icon = seed.get_icon(growth)
 
@@ -206,7 +207,7 @@
 
 	AddOverlays(our_icon)
 
-	if(growth>2 && growth == max_growth)
+	if(growth>2 && growth == effective_max)
 		layer = (seed && seed.force_layer) ? seed.force_layer : 5
 		if(growth_type in list(GROWTH_VINES,GROWTH_BIOMASS))
 			opacity = 1
@@ -322,7 +323,7 @@
 		die_off()
 
 /obj/effect/plant/proc/is_mature()
-	return (health >= (max_health/3) && world.time > mature_time)
+	return (health >= (maxhealth/3) && world.time > mature_time)
 
 
 #undef DEFAULT_SEED

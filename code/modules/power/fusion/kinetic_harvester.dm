@@ -1,4 +1,4 @@
-/obj/machinery/kinetic_harvester
+/obj/structure/machinery/kinetic_harvester
 	name = "kinetic harvester"
 	desc = "A complicated mechanism for harvesting rapidly moving particles from a fusion toroid and condensing them into a usable form."
 	density = TRUE
@@ -10,15 +10,15 @@
 	var/initial_id_tag
 	var/list/stored =     list()
 	var/list/harvesting = list()
-	var/obj/machinery/power/fusion_core/harvest_from
+	var/obj/structure/machinery/power/fusion_core/harvest_from
 
-/obj/machinery/kinetic_harvester/Initialize()
+/obj/structure/machinery/kinetic_harvester/Initialize()
 	AddComponent(/datum/component/local_network_member, initial_id_tag)
 	find_core()
 	queue_icon_update()
 	. = ..()
 
-/obj/machinery/kinetic_harvester/attack_hand(mob/user)
+/obj/structure/machinery/kinetic_harvester/attack_hand(mob/user)
 	. = ..()
 	if(.)
 		return
@@ -26,7 +26,7 @@
 	ui_interact(user)
 	return TRUE
 
-/obj/machinery/kinetic_harvester/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/kinetic_harvester/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.tool_behaviour == TOOL_MULTITOOL)
 		var/datum/component/local_network_member/lanm = GetComponent(/datum/component/local_network_member)
 		if(lanm.get_new_tag(user))
@@ -34,18 +34,18 @@
 		return
 	return ..()
 
-/obj/machinery/kinetic_harvester/proc/find_core()
+/obj/structure/machinery/kinetic_harvester/proc/find_core()
 	harvest_from = null
 	var/datum/component/local_network_member/lanm = GetComponent(/datum/component/local_network_member)
 	var/datum/local_network/lan = lanm.get_local_network()
 
 	if(lan)
-		var/list/fusion_cores = lan.get_devices(/obj/machinery/power/fusion_core)
+		var/list/fusion_cores = lan.get_devices(/obj/structure/machinery/power/fusion_core)
 		if(fusion_cores && length(fusion_cores))
 			harvest_from = fusion_cores[1]
 	return harvest_from
 
-/obj/machinery/kinetic_harvester/ui_interact(mob/user, datum/tgui/ui)
+/obj/structure/machinery/kinetic_harvester/ui_interact(mob/user, datum/tgui/ui)
 
 	if(!harvest_from && !find_core())
 		to_chat(user, SPAN_WARNING("This machine cannot locate a fusion core. Please ensure the machine is correctly configured to share a fusion plant network."))
@@ -56,7 +56,7 @@
 		ui = new(user, src, "KineticHarvester", "Kinetic Harvester")
 		ui.open()
 
-/obj/machinery/kinetic_harvester/ui_data(mob/user)
+/obj/structure/machinery/kinetic_harvester/ui_data(mob/user)
 	. = ..()
 	var/datum/component/local_network_member/fusion = GetComponent(/datum/component/local_network_member)
 	var/datum/local_network/plant = fusion.get_local_network()
@@ -73,7 +73,7 @@
 			data["materials"] += list(list("material" = mat, "rawamount" = stored[mat], "amount" = sheets, "harvest" = harvesting[mat]))
 	return data
 
-/obj/machinery/kinetic_harvester/process()
+/obj/structure/machinery/kinetic_harvester/process()
 	if(harvest_from && get_dist(src, harvest_from) > 10)
 		harvest_from = null
 
@@ -83,9 +83,9 @@
 				if(SSmaterials.materials_by_name[mat] && !stored[mat])
 					stored[mat] = 0
 			for(var/mat in harvesting)
-				if(!SSmaterials.materials_by_name[mat] || !harvest_from.owned_field.reactants[mat])
+				if(!SSmaterials.materials_by_name[mat])
 					harvesting -= mat
-				else
+				else if(mat in harvest_from.owned_field.reactants)
 					var/harvest = min(harvest_from.owned_field.reactants[mat], rand(100,200))
 					// Leave a few counts of the reactant to avoid deactivating harvest mode
 					harvest_from.owned_field.reactants[mat] -= (harvest - rand(0,5))
@@ -95,7 +95,7 @@
 		else
 			harvesting.Cut()
 
-/obj/machinery/kinetic_harvester/update_icon()
+/obj/structure/machinery/kinetic_harvester/update_icon()
 	if(!operable())
 		icon_state = "broken"
 	else if(use_power >= POWER_USE_ACTIVE)
@@ -103,7 +103,7 @@
 	else
 		icon_state = "off"
 
-/obj/machinery/kinetic_harvester/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/obj/structure/machinery/kinetic_harvester/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return

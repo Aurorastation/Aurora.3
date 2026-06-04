@@ -3,7 +3,7 @@
 // # FUNCTION: Generate infinite electricity. Used for map testing.              #
 // ###############################################################################
 
-/obj/machinery/power/fractal_reactor
+/obj/structure/machinery/power/fractal_reactor
 	name = "Fractal Energy Reactor"
 	desc = "This thing drains power from fractal-subspace." // (DEBUG ITEM: INFINITE POWERSOURCE FOR MAP TESTING. CONTACT DEVELOPERS IF FOUND.)"
 	icon = 'icons/obj/power.dmi'
@@ -15,12 +15,12 @@
 	var/mapped_in = 0					//Do not announce creation when it's mapped in.
 
 	// This should be only used on Dev for testing purposes.
-/obj/machinery/power/fractal_reactor/New()
+/obj/structure/machinery/power/fractal_reactor/New()
 	..()
 	if(!mapped_in)
 		log_and_message_admins("<b><span class='alert'>WARNING:</span> Map testing power source activated at: X:[src.loc.x] Y:[src.loc.y] Z:[src.loc.z]</b>")
 
-/obj/machinery/power/fractal_reactor/process()
+/obj/structure/machinery/power/fractal_reactor/process()
 	if(!powernet && !powernet_connection_failed)
 		if(!connect_to_network())
 			powernet_connection_failed = 1

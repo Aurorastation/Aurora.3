@@ -1,4 +1,4 @@
-/obj/machinery/power/generator
+/obj/structure/machinery/power/generator
 	name = "\improper Stirling engine"
 	desc = "It's a high efficiency Stirling engine. This model produces electricity from the temperature and differential between two gas loops."
 	icon_state = "teg-unassembled"
@@ -12,8 +12,8 @@
 	var/max_power = 2500000
 	var/thermal_efficiency = 0.65
 
-	var/obj/machinery/atmospherics/binary/circulator/circ1
-	var/obj/machinery/atmospherics/binary/circulator/circ2
+	var/obj/structure/machinery/atmospherics/binary/circulator/circ1
+	var/obj/structure/machinery/atmospherics/binary/circulator/circ2
 
 	var/last_circ1_gen = 0
 	var/last_circ2_gen = 0
@@ -26,7 +26,7 @@
 
 	var/datum/effect_system/sparks/spark_system
 
-/obj/machinery/power/generator/Initialize()
+/obj/structure/machinery/power/generator/Initialize()
 	. = ..()
 	desc = initial(desc) + " Rated for [round(max_power/1000)] kW."
 	var/dirs
@@ -38,7 +38,7 @@
 	spark_system = bind_spark(src, 3, dirs)
 	reconnect()
 
-/obj/machinery/power/generator/Destroy()
+/obj/structure/machinery/power/generator/Destroy()
 	QDEL_NULL(spark_system)
 	circ1 = null
 	circ2 = null
@@ -51,7 +51,7 @@
  * and a circulator to the WEST of the generator connects first to the NORTH, then to the SOUTH.
  * Note that the circulator's outlet dir is it's always facing dir, and it's inlet is always the reverse
  */
-/obj/machinery/power/generator/proc/reconnect()
+/obj/structure/machinery/power/generator/proc/reconnect()
 	if(circ1)
 		circ1.temperature_overlay = null
 	if(circ2)
@@ -60,8 +60,8 @@
 	circ2 = null
 	if(src.loc && anchored)
 		if(src.dir & (EAST|WEST))
-			circ1 = locate(/obj/machinery/atmospherics/binary/circulator) in get_step(src,WEST)
-			circ2 = locate(/obj/machinery/atmospherics/binary/circulator) in get_step(src,EAST)
+			circ1 = locate(/obj/structure/machinery/atmospherics/binary/circulator) in get_step(src,WEST)
+			circ2 = locate(/obj/structure/machinery/atmospherics/binary/circulator) in get_step(src,EAST)
 
 			if(circ1 && circ2)
 				if(circ1.dir != NORTH || circ2.dir != SOUTH)
@@ -69,15 +69,15 @@
 					circ2 = null
 
 		else if(src.dir & (NORTH|SOUTH))
-			circ1 = locate(/obj/machinery/atmospherics/binary/circulator) in get_step(src,NORTH)
-			circ2 = locate(/obj/machinery/atmospherics/binary/circulator) in get_step(src,SOUTH)
+			circ1 = locate(/obj/structure/machinery/atmospherics/binary/circulator) in get_step(src,NORTH)
+			circ2 = locate(/obj/structure/machinery/atmospherics/binary/circulator) in get_step(src,SOUTH)
 
 			if(circ1 && circ2 && (circ1.dir != EAST || circ2.dir != WEST))
 				circ1 = null
 				circ2 = null
 	update_icon()
 
-/obj/machinery/power/generator/update_icon()
+/obj/structure/machinery/power/generator/update_icon()
 	icon_state = anchored ? "teg-assembled" : "teg-unassembled"
 	ClearOverlays()
 	if(circ1)
@@ -103,7 +103,7 @@
 					circ2.is_hot_loop = FALSE
 		return TRUE
 
-/obj/machinery/power/generator/process()
+/obj/structure/machinery/power/generator/process()
 	if(!circ1 || !circ2 || !anchored || stat & (BROKEN|NOPOWER))
 		stored_energy = 0
 		return
@@ -169,12 +169,12 @@
 		update_icon()
 	ADD_TO_POWERNET(src, effective_gen)
 
-/obj/machinery/power/generator/attack_ai(mob/user)
+/obj/structure/machinery/power/generator/attack_ai(mob/user)
 	if(!ai_can_interact(user))
 		return
 	attack_hand(user)
 
-/obj/machinery/power/generator/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/power/generator/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		attacking_item.play_tool_sound(get_turf(src), 75)
 		anchored = !anchored
@@ -191,7 +191,7 @@
 	else
 		..()
 
-/obj/machinery/power/generator/attack_hand(mob/user)
+/obj/structure/machinery/power/generator/attack_hand(mob/user)
 	. = ..()
 	add_fingerprint(user)
 	if(stat & (BROKEN|NOPOWER) || !anchored) return
@@ -199,14 +199,14 @@
 		reconnect()
 	ui_interact(user)
 
-/obj/machinery/power/generator/ui_interact(mob/user, datum/tgui/ui)
+/obj/structure/machinery/power/generator/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		// Interface ID should match your tgui route registration/name.
 		ui = new(user, src, "StirlingEngine", "Stirling Engine")
 		ui.open()
 
-/obj/machinery/power/generator/ui_data(mob/user)
+/obj/structure/machinery/power/generator/ui_data(mob/user)
 	var/list/data = list()
 
 	var/vertical = FALSE
@@ -244,6 +244,6 @@
 
 	return data
 
-/obj/machinery/power/generator/power_change()
+/obj/structure/machinery/power/generator/power_change()
 	..()
 	update_icon()

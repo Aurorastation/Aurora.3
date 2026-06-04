@@ -128,7 +128,7 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
 
 		//Something blocked us, look for a different target, we might come back to this in a while
 		else
-			for(var/obj/machinery/door/a_door in path[1])
+			for(var/obj/structure/machinery/door/a_door in path[1])
 				if(last_movement_failure_turf != path[1])
 					last_movement_failure_turf = path[1]
 					return

@@ -69,13 +69,14 @@
 /obj/projectile/beam/plasmacutter
 	name = "plasma arc"
 	icon_state = "omnilaser"
-	damage = 20
+	damage = 32
 	damage_type = DAMAGE_BURN
 	check_armor = LASER
-	range = 5
+	range = 3
 	pass_flags = PASSTABLE|PASSRAILING
 
-	var/mineral_passes = 2 // amount of mineral turfs it passes through before ending
+	/// Number of mineral turfs it passes through before ending.
+	var/mineral_passes = 2
 
 	muzzle_type = /obj/effect/projectile/muzzle/plasma_cutter
 	tracer_type = /obj/effect/projectile/tracer/plasma_cutter

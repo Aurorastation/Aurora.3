@@ -20,7 +20,7 @@
 	if(embedded_flag)
 		handle_embedded_objects() //Moving with objects stuck in you can cause bad times.
 
-	var/health_deficiency = maxHealth - health
+	var/health_deficiency = maxhealth - health
 	if(health_deficiency >= 40)
 		tally += (health_deficiency / 25)
 
@@ -104,7 +104,8 @@
 	return max(prob_slip, 0)
 
 /mob/living/carbon/human/Check_Shoegrip(checkSpecies = TRUE)
-	if(shoes && (shoes.item_flags & ITEM_FLAG_NO_SLIP) && istype(shoes, /obj/item/clothing/shoes/magboots) && !lying && !buckled_to && !length(grabbed_by))  //magboots + dense_object = no floating. Doesn't work if lying. Grabbedby and buckled_to are for mob carrying, wheelchairs, roller beds, etc.
+	//magboots + dense_object = no floating. Doesn't work if lying. Grabbedby and buckled_to are for mob carrying, wheelchairs, roller beds, etc.
+	if(shoes && (shoes.item_flags & ITEM_FLAG_NO_SLIP) && istype(shoes, /obj/item/clothing/shoes/magboots) && !lying && !buckled_to && !length(grabbed_by))
 		return TRUE
 	if(HAS_TRAIT(src, TRAIT_SHOE_GRIP))
 		return TRUE
@@ -131,7 +132,7 @@
 		if(!footsound)
 			footsound = T.footstep_sound
 
-	if (client)
+	if (client && T)
 		var/turf/T1 = GET_TURF_ABOVE(T)
 		if(up_hint)
 			up_hint.icon_state = "uphint[(T1 ? !!isopenturf(T1) : 0)]"

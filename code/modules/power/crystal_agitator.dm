@@ -1,4 +1,4 @@
-/obj/machinery/power/crystal_agitator
+/obj/structure/machinery/power/crystal_agitator
 	name = "crystal agitator"
 	desc = "A device of incredibly niche design. This agitator disturbs the ashy turf around it, causing chemical crystals to form."
 	icon = 'icons/obj/crystal_agitator.dmi'
@@ -28,27 +28,27 @@
 
 	parts_power_mgmt = FALSE
 
-/obj/machinery/power/crystal_agitator/upgrade_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/power/crystal_agitator/upgrade_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Upgraded <b>capacitors</b> will reduce active power usage."
 	. += "Upgraded <b>manipulators</b> will increase agitation speed."
 
-/obj/machinery/power/crystal_agitator/Initialize()
+/obj/structure/machinery/power/crystal_agitator/Initialize()
 	. = ..()
 	connect_to_network()
 
-/obj/machinery/power/crystal_agitator/attack_hand(mob/user)
+/obj/structure/machinery/power/crystal_agitator/attack_hand(mob/user)
 	. = ..()
 	toggle_active()
 	visible_message("<b>[user]</b> turns \the [src] [active ? "on" : "off"].", SPAN_NOTICE("You turn \the [src] [active ? "on" : "off"]."))
 
-/obj/machinery/power/crystal_agitator/proc/toggle_active()
+/obj/structure/machinery/power/crystal_agitator/proc/toggle_active()
 	active = !active
 	icon_state = "[initial(icon_state)][active ? "-active": ""]"
 	if(active)
 		check_turfs()
 
-/obj/machinery/power/crystal_agitator/proc/check_turfs()
+/obj/structure/machinery/power/crystal_agitator/proc/check_turfs()
 	var/turf/our_turf = get_turf(src)
 	var/list/grow_turfs = list()
 	for(var/thing in RANGE_TURFS(agitation_range, our_turf))
@@ -63,7 +63,7 @@
 	agitation_turfs = grow_turfs
 	last_turf_check = world.time + turf_check_rate
 
-/obj/machinery/power/crystal_agitator/process()
+/obj/structure/machinery/power/crystal_agitator/process()
 	if(!active)
 		return
 	if(stat & (BROKEN) || !powernet)
@@ -95,7 +95,7 @@
 		new /obj/structure/reagent_crystal(selected_turf, null, src)
 	last_agitation = world.time
 
-/obj/machinery/power/crystal_agitator/RefreshParts()
+/obj/structure/machinery/power/crystal_agitator/RefreshParts()
 	..()
 	for(var/obj/item/stock_parts/SP in component_parts)
 		if(ismanipulator(SP))
@@ -103,7 +103,7 @@
 		if(iscapacitor(SP))
 			change_power_consumption((initial(active_power_usage) - (SP.rating * 500)), POWER_USE_ACTIVE)
 
-/obj/machinery/power/crystal_agitator/attackby(obj/item/attacking_item, mob/user, params)
+/obj/structure/machinery/power/crystal_agitator/attackby(obj/item/attacking_item, mob/user, params)
 	if(default_part_replacement(user, attacking_item))
 		return
 	else if(default_deconstruction_screwdriver(user, attacking_item))
@@ -114,7 +114,7 @@
 
 /obj/item/circuitboard/crystal_agitator
 	name = T_BOARD("Crystal Agitator")
-	build_path = /obj/machinery/power/crystal_agitator
+	build_path = /obj/structure/machinery/power/crystal_agitator
 	board_type = BOARD_MACHINE
 	origin_tech = list(
 		TECH_ENGINEERING = 3,

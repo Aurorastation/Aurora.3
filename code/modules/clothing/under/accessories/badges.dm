@@ -165,23 +165,31 @@
 /obj/item/clothing/accessory/badge/officer
 	name = "security officer's badge"
 	desc = "A bronze security badge."
-	icon_state = "bronzebadge"
-	overlay_state = "bronzebadge"
-	slot_flags = SLOT_TIE
+	icon_state = "officerbadge"
+	item_state = "officerbadge"
+	overlay_state = "officerbadge"
 
 /obj/item/clothing/accessory/badge/warden
 	name = "warden's badge"
 	desc = "A silver security badge."
-	icon_state = "silverbadge"
-	overlay_state = "silverbadge"
-	slot_flags = SLOT_TIE
+	icon_state = "wardenbadge"
+	item_state = "wardenbadge"
+	overlay_state = "wardenbadge"
 
 /obj/item/clothing/accessory/badge/hos
 	name = "head of security's badge"
 	desc = "An immaculately polished gold security badge."
-	icon_state = "goldbadge"
-	overlay_state = "goldbadge"
-	slot_flags = SLOT_TIE
+	icon_state = "hosbadge"
+	item_state = "hosbadge"
+	overlay_state = "hosbadge"
+
+/obj/item/clothing/accessory/badge/investigator
+	name = "\improper investigator badge"
+	desc = "This badge marks the holder as an investigative agent."
+	icon_state = "invbadge"
+	overlay_state = "invbadge"
+	badge_string = "Corporate Investigator"
+
 
 /obj/item/clothing/accessory/badge/bssb
 	name = "\improper BSSB agent's badge"
@@ -251,13 +259,6 @@
 	desc = "A hefty gold-plated badge which tells you who's in charge."
 	icon_state = "marshalbadge"
 	badge_string = "Federal Marshal"
-
-/obj/item/clothing/accessory/badge/investigator
-	name = "\improper investigator badge"
-	desc = "This badge marks the holder as an investigative agent."
-	icon_state = "invbadge"
-	overlay_state = "invbadge"
-	badge_string = "Corporate Investigator"
 
 /obj/item/clothing/accessory/badge/idbadge
 	name = "\improper ID badge"
@@ -502,6 +503,22 @@
 	icon_state = "passcard_coc"
 	item_state = "passcard_coc"
 
+/obj/item/clothing/accessory/badge/passcard/coalition/xanu
+	name = "xanu passcard"
+	desc = "An identity document, or 'passcard' issued to citizens of the All-Xanu Republic."
+	desc_extended = "The principal identification document issued by the government of the All-Xanu Republic, this passcard is embedded with encrypted biometric, demographic, and civil registry data, serving as secure proof of identity and citizenship. \
+	A security hologram of the Xanan Feather is centered within the background, its iridescent contours shifting subtly with movement. The Republic's motto 'Liberty, Equality, Solidarity' is displayed both above, and beneath the emblem."
+	icon_state = "xanu_passcard"
+	item_state = "xanu_passcard"
+
+/obj/item/clothing/accessory/badge/passcard/coalition/xanu/military
+	name = "xanu militia reservist card"
+	desc = "An identification document issued to reservists of the All-Xanu National Militia."
+	desc_extended = "A form of identification certifying its bearer as a reservist within Xanu's National Militia. Embedded with encrypted biometric identifiers, service status, and mobilization data, it functions as proof of militia affiliation and the holder's military status.\
+	A subdued security-hologram of the Militia Crest is set into the background. Fine-lined guilloche patterns and spectral watermarking reinforce the card's anti-tamper features."
+	icon_state = "nationa_militia"
+	item_state = "nationa_militia"
+
 /obj/item/clothing/accessory/badge/passcard/himeo
 	name = "himean passcard"
 	desc = "A passcard issued to a citizen of the planet Himeo."
@@ -615,12 +632,9 @@
 	flippable = FALSE
 	v_flippable = FALSE
 	badge_string = null
-
 	var/open = CANT_OPEN
-
-	drop_sound = 'sound/items/drop/cloth.ogg'
-
-	pickup_sound = 'sound/items/pickup/cloth.ogg'
+	drop_sound = 'sound/items/drop/clothing.ogg'
+	pickup_sound = 'sound/items/pickup/clothing.ogg'
 
 /obj/item/clothing/accessory/badge/passport/Initialize()
 	. = ..()

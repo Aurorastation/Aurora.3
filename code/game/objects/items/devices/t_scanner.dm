@@ -24,9 +24,9 @@
 	var/global/list/overlay_cache = list()
 
 /obj/item/t_scanner/Destroy()
-	. = ..()
 	if(on)
 		set_active(FALSE)
+	return ..()
 
 /obj/item/t_scanner/update_icon()
 	icon_state = "t-ray[on]"
@@ -100,8 +100,8 @@
 		I.plane = HUD_PLANE
 
 		//Pipes are special
-		if(istype(scanned, /obj/machinery/atmospherics/pipe))
-			var/obj/machinery/atmospherics/pipe/P = scanned
+		if(istype(scanned, /obj/structure/machinery/atmospherics/pipe))
+			var/obj/structure/machinery/atmospherics/pipe/P = scanned
 			I.color = P.pipe_color
 			I.overlays += P.overlays
 			I.underlays += P.underlays

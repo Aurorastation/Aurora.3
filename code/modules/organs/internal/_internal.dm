@@ -49,7 +49,6 @@
 
 	..()
 
-	STOP_PROCESSING(SSprocessing, src)
 	target.internal_organs |= src
 	affected.internal_organs |= src
 	target.internal_organs_by_name[organ_tag] = src
@@ -168,7 +167,7 @@
 		take_damage(owner.chem_effects[toxin_type] * seconds_per_tick)
 
 	handle_regeneration(seconds_per_tick)
-	tick_surge_damage() //Yes, this is intentional.
+	tick_surge_damage(seconds_per_tick) //Yes, this is intentional.
 
 /obj/item/organ/internal/proc/handle_regeneration(seconds_per_tick)
 	SHOULD_CALL_PARENT(TRUE)

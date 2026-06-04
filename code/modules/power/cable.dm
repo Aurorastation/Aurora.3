@@ -33,19 +33,21 @@ If d1 = dir1 and d2 = dir2, it's a full X-X cable, getting from dir1 to dir2
 By design, d1 is the smallest direction and d2 is the highest
 */
 /obj/structure/cable
-	level = 1
-	anchored =1
-	var/datum/powernet/powernet
 	name = "power cable"
 	desc = "A flexible superconducting cable for heavy-duty power transfer."
 	icon = 'icons/obj/power_cond_white.dmi'
 	icon_state = "0-1"
+	level = 1
+	anchored = TRUE
+	maxhealth = null //why is this even a structure?
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
-	var/d1 = 0
-	var/d2 = 1
 	layer = EXPOSED_WIRE_LAYER
 	color = COLOR_RED
-	var/obj/machinery/power/breakerbox/breaker_box
+
+	var/datum/powernet/powernet
+	var/obj/structure/machinery/power/breakerbox/breaker_box
+	var/d1 = 0
+	var/d2 = 1
 
 /obj/structure/cable/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -348,8 +350,8 @@ By design, d1 is the smallest direction and d2 is the highest
 				else
 					powernet.add_cable(C) //the cable was powernetless, let's just add it to our powernet
 
-		else if(istype(AM,/obj/machinery/power/apc))
-			var/obj/machinery/power/apc/N = AM
+		else if(istype(AM,/obj/structure/machinery/power/apc))
+			var/obj/structure/machinery/power/apc/N = AM
 			if(!N.terminal)	continue // APC are connected through their terminal
 
 			if(N.terminal.powernet == powernet)
@@ -357,8 +359,8 @@ By design, d1 is the smallest direction and d2 is the highest
 
 			to_connect += N.terminal //we'll connect the machines after all cables are merged
 
-		else if(istype(AM,/obj/machinery/power)) //other power machines
-			var/obj/machinery/power/M = AM
+		else if(istype(AM,/obj/structure/machinery/power)) //other power machines
+			var/obj/structure/machinery/power/M = AM
 
 			if(M.powernet == powernet)
 				continue
@@ -366,7 +368,7 @@ By design, d1 is the smallest direction and d2 is the highest
 			to_connect += M //we'll connect the machines after all cables are merged
 
 	//now that cables are done, let's connect found machines
-	for(var/obj/machinery/power/PM in to_connect)
+	for(var/obj/structure/machinery/power/PM in to_connect)
 		if(!PM.connect_to_network())
 			PM.disconnect_from_network() //if we somehow can't connect the machine to the new powernet, remove it from the old nonetheless
 
@@ -417,7 +419,7 @@ By design, d1 is the smallest direction and d2 is the highest
 			. += C
 
 	if(d1 == 0)
-		for(var/obj/machinery/power/P in loc)
+		for(var/obj/structure/machinery/power/P in loc)
 			if(P.powernet == 0) continue // exclude APCs with powernet=0
 			if(!powernetless_only || !P.powernet)
 				. += P
@@ -465,7 +467,7 @@ By design, d1 is the smallest direction and d2 is the highest
 	loc = null
 	powernet.remove_cable(src) //remove the cut cable from its powernet
 
-	for(var/obj/machinery/power/P in T1)
+	for(var/obj/structure/machinery/power/P in T1)
 		if(!P.connect_to_network()) //can't find a node cable on a the turf to connect to
 			P.disconnect_from_network() //remove from current network
 

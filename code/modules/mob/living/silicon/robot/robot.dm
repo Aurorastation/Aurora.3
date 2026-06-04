@@ -25,7 +25,7 @@
 	var/wires_exposed = FALSE
 
 	// Health and interaction
-	maxHealth = 200
+	maxhealth = 200
 	health = 200
 	mob_size = 16 //robots are heavy
 	mob_bump_flag = ROBOT
@@ -81,7 +81,7 @@
 	// Internal components (non-datum)
 	var/obj/item/cell/cell
 	var/obj/item/radio/borg/radio
-	var/obj/machinery/camera/camera
+	var/obj/structure/machinery/camera/camera
 	var/obj/item/mmi/mmi
 	var/obj/item/stock_parts/matter_bin/storage
 	var/obj/item/tank/jetpack/carbondioxide/synthetic/jetpack
@@ -162,7 +162,7 @@
 	common_radio = radio
 
 	if(!camera)
-		camera = new /obj/machinery/camera(src, 0, TRUE, TRUE)
+		camera = new /obj/structure/machinery/camera(src, 0, TRUE, TRUE)
 		camera.c_tag = real_name
 		if(!scrambled_codes)
 			camera.replace_networks(list(NETWORK_STATION, NETWORK_ROBOTS))
@@ -217,7 +217,7 @@
 
 		for(var/job_type in module.specialized_access_types)
 			var/datum/job/job = new job_type()
-			id_card.access |= job.access
+			id_card.access |= job.job_access
 
 		to_chat(src, SPAN_NOTICE("Access set to the department the role belongs to."))
 
@@ -1222,7 +1222,7 @@
 
 /mob/living/silicon/robot/succumb()
 	set hidden = TRUE
-	if(health < maxHealth / 3)
+	if(health < maxhealth / 3)
 		death()
 		to_chat(src, SPAN_NOTICE("You have given up life and succumbed to death."))
 	else

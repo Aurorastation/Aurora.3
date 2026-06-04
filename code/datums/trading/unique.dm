@@ -52,7 +52,7 @@
 		/obj/item/rig/light/stealth                  = TRADER_THIS_TYPE,
 		/obj/item/rig/light/hacker                   = TRADER_THIS_TYPE,
 		/obj/item/gun/launcher/grenade               = TRADER_THIS_TYPE,
-		/obj/item/gun/energy/sniperrifle             = TRADER_THIS_TYPE,
+		/obj/item/gun/energy/rifle/laser/sniper             = TRADER_THIS_TYPE,
 		/obj/item/gun/projectile/automatic           = TRADER_SUBTYPES_ONLY,
 		/mob/living/heavy_vehicle/premade/combat     = TRADER_THIS_TYPE
 	)
@@ -120,7 +120,7 @@
 		/obj/item/ore = TRADER_ALL
 	)
 	possible_trading_items = list(
-		/obj/machinery/power/supermatter                = TRADER_ALL,
+		/obj/structure/machinery/power/supermatter                = TRADER_ALL,
 		/obj/item/custom_ka_upgrade/barrels/supermatter = TRADER_THIS_TYPE,
 		/obj/item/aiModule                       = TRADER_SUBTYPES_ONLY
 	)
@@ -147,7 +147,7 @@
 
 	possible_wanted_items = list(
 		/obj/item/bluespace_crystal                   = TRADER_ALL,
-		/obj/machinery/bluespacerelay                 = TRADER_ALL,
+		/obj/structure/machinery/bluespacerelay                 = TRADER_ALL,
 		/obj/item/stack/telecrystal                   = TRADER_THIS_TYPE,
 		/obj/item/organ/internal/brain/golem                   = TRADER_THIS_TYPE,
 		/obj/item/soulstone                    = TRADER_THIS_TYPE,

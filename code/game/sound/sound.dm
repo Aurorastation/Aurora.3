@@ -131,7 +131,7 @@
 		if(istype(inbetween_turf, /turf/simulated/wall))
 			vol *= 0.6
 
-		if(locate(/obj/machinery/door) in inbetween_turf)
+		if(locate(/obj/structure/machinery/door) in inbetween_turf)
 			vol *= 0.7
 
 		if(locate(/obj/structure/window) in inbetween_turf)

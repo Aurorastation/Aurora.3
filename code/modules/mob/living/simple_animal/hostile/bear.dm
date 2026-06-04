@@ -22,7 +22,7 @@
 	response_disarm = "gently pushes aside"
 	response_harm   = "hits"
 	stop_automated_movement_when_pulled = 0
-	maxHealth = 80
+	maxhealth = 80
 	melee_damage_lower = 10
 	melee_damage_upper = 18
 	armor_penetration = 30 //Standard armor probably doesn't help against a bear, does it?
@@ -212,8 +212,8 @@
 						nearest_downed_dist = dist
 
 
-		if(istype(A, /obj/machinery/bot))
-			var/obj/machinery/bot/B = A
+		if(istype(A, /obj/structure/machinery/bot))
+			var/obj/structure/machinery/bot/B = A
 			if (B.health > 0)
 				if (dist < nearest_dist)
 					nearest_target = B
@@ -236,8 +236,8 @@
 		var/mob/living/L = target_mob
 		if((L.stat != DEAD))
 			return (0)
-	if (istype(target_mob,/obj/machinery/bot))
-		var/obj/machinery/bot/B = target_mob
+	if (istype(target_mob,/obj/structure/machinery/bot))
+		var/obj/structure/machinery/bot/B = target_mob
 		if(B.health > 0)
 			return (0)
 	return 1
@@ -355,18 +355,18 @@
 		var/healthpercent
 		if (bearmode == BEARMODE_SPACE)
 			custom_emote(VISIBLE_MESSAGE, "looks bright, energised and aggressive!" )
-			healthpercent = health / maxHealth
-			maxHealth = initial(maxHealth) * 1.5
-			health = maxHealth * healthpercent
+			healthpercent = health / maxhealth
+			maxhealth = initial(maxhealth) * 1.5
+			health = maxhealth * healthpercent
 			melee_damage_lower = initial(melee_damage_lower)*1.2
 			melee_damage_upper = initial(melee_damage_upper)*1.2
 			turns_per_move -= 2
 			growl_loud()
 		else
 			custom_emote(VISIBLE_MESSAGE, "looks darker and more subdued." )
-			healthpercent = health / maxHealth
-			maxHealth = initial(maxHealth)
-			health = maxHealth * healthpercent
+			healthpercent = health / maxhealth
+			maxhealth = initial(maxhealth)
+			health = maxhealth * healthpercent
 			melee_damage_lower = initial(melee_damage_lower)
 			melee_damage_upper = initial(melee_damage_upper)
 			growl_soft()
@@ -409,7 +409,7 @@
 /mob/living/simple_animal/hostile/bear/spatial
 	name = "bluespace bear"
 	desc = "*bzzt*..Rawr!!"
-	maxHealth = 130
+	maxhealth = 130
 	turns_per_move = 7
 	break_stuff_probability = 100//Constantly smashing everything nearby
 	speak_chance = 15

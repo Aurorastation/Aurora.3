@@ -28,7 +28,7 @@
 	blood_type = "#51C404"
 	blood_amount = 150
 	stop_automated_movement_when_pulled = 0
-	maxHealth = 200
+	maxhealth = 200
 	health = 200
 	melee_damage_lower = 15
 	melee_damage_upper = 20
@@ -44,7 +44,7 @@
 	mob_size = 6
 	smart_melee = FALSE
 
-	attacktext = "bitten"
+	attacktext = "bites"
 	attack_emote = "skitters toward"
 	attack_sound = 'sound/weapons/bite.ogg'
 	emote_sounds = list('sound/effects/creatures/spider_critter.ogg')
@@ -58,7 +58,7 @@
 	icon_living = "greimorian_worker"
 	icon_dead = "greimorian_worker_dead"
 	blood_amount = 50
-	maxHealth = 40
+	maxhealth = 40
 	health = 40
 	melee_damage_lower = 5
 	melee_damage_upper = 10
@@ -76,7 +76,7 @@
 	icon_living = "greimorian_servant"
 	icon_dead = "greimorian_servant_dead"
 	blood_amount = 150
-	maxHealth = 200
+	maxhealth = 200
 	health = 200
 	melee_damage_lower = 15
 	melee_damage_upper = 20
@@ -101,7 +101,7 @@
 	icon_living = "greimorian_hunter"
 	icon_dead = "greimorian_hunter_dead"
 	blood_amount = 90
-	maxHealth = 120
+	maxhealth = 120
 	health = 120
 	melee_damage_lower = 10
 	melee_damage_upper = 20
@@ -117,7 +117,7 @@
 	icon_state = "greimorian_jackal"
 	icon_living = "greimorian_jackal"
 	icon_dead = "greimorian_jackal_dead"
-	maxHealth = 100
+	maxhealth = 100
 	health = 100
 	melee_damage_lower = 5
 	melee_damage_upper = 10
@@ -134,7 +134,7 @@
 	icon_state = "greimorian_bombardier"
 	icon_living = "greimorian_bombardier"
 	icon_dead = "greimorian_bombardier_dead"
-	maxHealth = 60
+	maxhealth = 60
 	health = 60
 	melee_damage_lower = 5
 	melee_damage_upper = 10
@@ -178,8 +178,8 @@
 		SSghostroles.add_spawn_atom("servant", src)
 
 /mob/living/simple_animal/hostile/giant_spider/nurse/servant/Destroy()
-	. = ..()
 	SSghostroles.remove_spawn_atom("servant", src)
+	return ..()
 
 /mob/living/simple_animal/hostile/giant_spider/on_attack_mob(var/mob/hit_mob, var/obj/item/organ/external/limb)
 	. = ..()
@@ -272,7 +272,7 @@
 							if(O.anchored)
 								continue
 
-							if(istype(O, /obj/item) || istype(O, /obj/structure) || istype(O, /obj/machinery))
+							if(istype(O, /obj/item) || istype(O, /obj/structure))
 								cocoon_target = O
 								busy = MOVING_TO_TARGET
 								stop_automated_movement = 1
@@ -342,11 +342,6 @@
 					if(!S.anchored)
 						S.forceMove(C)
 						large_cocoon = 1
-				if (istype(aa, /obj/machinery))
-					var/obj/machinery/M = aa
-					if(!M.anchored)
-						M.forceMove(C)
-						large_cocoon = 1
 			if(large_cocoon)
 				C.icon_state = pick("cocoon_large1","cocoon_large2","cocoon_large3")
 		busy = 0
@@ -405,11 +400,6 @@
 					var/obj/structure/S = P
 					if(!S.anchored)
 						S.forceMove(C)
-						large_cocoon = 1
-				if (istype(P, /obj/machinery))
-					var/obj/machinery/M = P
-					if(!M.anchored)
-						M.forceMove(C)
 						large_cocoon = 1
 			if(large_cocoon)
 				C.icon_state = pick("cocoon_large1","cocoon_large2","cocoon_large3")

@@ -2,18 +2,18 @@
 
 //All devices that link into the R&D console fall into thise type for easy identification and some shared procs.
 
-/obj/machinery/r_n_d
+/obj/structure/machinery/r_n_d
 	name = "R&D device"
 	icon = 'icons/obj/machinery/research.dmi'
 	density = TRUE
 	anchored = TRUE
 	var/busy = 0
-	var/obj/machinery/computer/rdconsole/linked_console
+	var/obj/structure/machinery/computer/rdconsole/linked_console
 
-/obj/machinery/r_n_d/attack_hand(mob/user as mob)
+/obj/structure/machinery/r_n_d/attack_hand(mob/user as mob)
 	. = ..()
 
-/obj/machinery/r_n_d/proc/getMaterialType(var/name)
+/obj/structure/machinery/r_n_d/proc/getMaterialType(var/name)
 	switch(name)
 		if(DEFAULT_WALL_MATERIAL)
 			return /obj/item/stack/material/steel

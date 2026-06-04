@@ -70,7 +70,7 @@
 		BOMB = ARMOR_BOMB_PADDED,
 	)
 	contained_sprite = TRUE
-	slowdown = 1
+	slowdown = 0.5
 	allowed = list(/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 
 /obj/item/clothing/mask/exclusionist

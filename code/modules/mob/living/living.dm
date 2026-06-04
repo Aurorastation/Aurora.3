@@ -43,9 +43,6 @@ default behaviour is:
 			return TRUE
 		return FALSE
 
-/mob/living
-	var/tmp/last_push_notif
-
 /mob/living/Collide(atom/movable/target_movable_atom)
 	if(now_pushing || !loc)
 		return
@@ -178,8 +175,8 @@ default behaviour is:
 
 /mob/living/verb/succumb()
 	set hidden = 1
-	if(health < maxHealth / 3)
-		adjustBrainLoss(health + maxHealth * 2) // Deal 2x health in BrainLoss damage, as before but variable.
+	if(health < maxhealth / 3)
+		adjustBrainLoss(health + maxhealth * 2) // Deal 2x health in BrainLoss damage, as before but variable.
 		to_chat(src, SPAN_NOTICE("You have given up life and succumbed to death."))
 	else
 		to_chat(src, SPAN_WARNING("You are not injured enough to succumb to death!"))
@@ -187,10 +184,10 @@ default behaviour is:
 
 /mob/living/proc/updatehealth()
 	if(status_flags & GODMODE)
-		health = maxHealth
+		health = maxhealth
 		set_stat(CONSCIOUS)
 	else
-		health = maxHealth - getOxyLoss() - getToxLoss() - getFireLoss() - getBruteLoss() - getCloneLoss()
+		health = maxhealth - getOxyLoss() - getToxLoss() - getFireLoss() - getBruteLoss() - getCloneLoss()
 
 //This proc is used for mobs which are affected by pressure to calculate the amount of pressure that actually
 //affects them once clothing is factored in. ~Errorage
@@ -235,12 +232,12 @@ default behaviour is:
 // I touched them without asking... I'm soooo edgy ~Erro (added nodamage checks)
 
 /mob/living/proc/getBruteLoss()
-	return maxHealth - health
+	return maxhealth - health
 
 /mob/living/proc/adjustBruteLoss(var/amount)
 	if(status_flags & GODMODE)
 		return
-	health = clamp(health - amount, 0, maxHealth)
+	health = clamp(health - amount, 0, maxhealth)
 
 /mob/living/proc/getOxyLoss()
 	return 0
@@ -300,10 +297,10 @@ default behaviour is:
 	adjustBruteLoss((amount * 0.5)-getBruteLoss())
 
 /mob/living/proc/getMaxHealth()
-	return maxHealth
+	return maxhealth
 
 /mob/living/proc/setMaxHealth(var/newMaxHealth)
-	maxHealth = newMaxHealth
+	maxhealth = newMaxHealth
 
 // ++++ROCKDTBEN++++ MOB PROCS //END
 
@@ -378,7 +375,7 @@ default behaviour is:
 	src.updatehealth()
 
 // damage ONE external organ, organ gets randomly selected from damaged ones.
-/mob/living/proc/take_organ_damage(var/brute, var/burn, var/emp=0)
+/mob/living/proc/take_organ_damage(var/brute, var/burn, var/emp=0, var/used_weapon = null, var/damage_flags, var/silent)
 	if(status_flags & GODMODE)	return 0	//godmode
 	adjustBruteLoss(brute)
 	adjustFireLoss(burn)
@@ -637,7 +634,7 @@ default behaviour is:
 /mob/living/proc/escape_inventory(obj/item/holder/H)
 	if(H != src.loc)
 		return
-	if(health < maxHealth * 0.6)
+	if(health < maxhealth * 0.6)
 		to_chat(src, SPAN_WARNING("You're too injured to escape..."))
 		return
 
@@ -819,24 +816,17 @@ default behaviour is:
 	AddElement(/datum/element/connect_loc, loc_connections)
 
 /mob/living/Destroy()
+	cameraFollow = null
+	if (length(actions))
+		for (var/datum/action/action in actions)
+			action.Remove(src)
+			actions -= action
 
-	//Aiming overlay
-	QDEL_NULL(aiming)
-	QDEL_LIST(aimed_at_by)
-
-	for(var/slot in held_item_slots)
-		qdel(held_item_slots[slot])
-	held_item_slots = null
-	held_item_slot_selected = null
-
-	//Psi complexus
+	QDEL_NULL(stamina_bar)
+	QDEL_LIST(auras)
 	QDEL_NULL(psi)
-
-	if(vr_mob)
-		vr_mob = null
-	if(old_mob)
-		old_mob = null
-
+	QDEL_NULL(aiming)
+	aimed_at_by?.Cut()
 	//Remove contained mobs
 	if(loc)
 		for(var/mob/M in contents)
@@ -845,12 +835,11 @@ default behaviour is:
 		for(var/mob/M in contents)
 			qdel(M)
 
-	QDEL_NULL(reagents)
-
-	if(auras)
-		for(var/a in auras)
-			remove_aura(a)
-
+	prepared_maneuver = null
+	available_maneuvers?.Cut()
+	default_language = null
+	QDEL_NULL(z_eye)
+	last_weather = null
 	return ..()
 
 /mob/living/proc/nervous_system_failure()

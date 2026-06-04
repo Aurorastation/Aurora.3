@@ -72,6 +72,8 @@
 		if(istype(back,/obj/item/rig))
 			process_rig(back)
 
+	SEND_SIGNAL(src, COMSIG_MOB_UPDATE_VISION)
+
 /mob/living/carbon/human/proc/process_glasses(var/obj/item/clothing/glasses/G)
 	if(G && G.active)
 		equipment_darkness_modifier += G.darkness_view
@@ -91,10 +93,10 @@
 		G.process_hud(src)
 
 /mob/living/carbon/human/proc/process_rig(var/obj/item/rig/O)
-	if(O.visor && O.visor.active && O.visor.vision && O.visor.vision.glasses && (!O.helmet || (head && O.helmet == head)))
-		process_glasses(O.visor.vision.glasses)
+	if(O.visor && O.visor.active && O.visor.vision_mode && O.visor.vision_mode.glasses && (!O.helmet || (head && O.helmet == head)))
+		process_glasses(O.visor.vision_mode.glasses)
 
-// Applies organ/markings prefs to this mob.
+/// Applies organ/markings prefs to this mob.
 /mob/living/carbon/human/proc/sync_organ_prefs_to_mob(datum/preferences/prefs, apply_prosthetics = TRUE, apply_markings = TRUE)
 	if (apply_prosthetics)
 		var/list/rlimb_data = prefs.rlimb_data
@@ -188,18 +190,20 @@
 		var/datum/character_disabilities/trait = GLOB.chargen_disabilities_list[M]
 		trait.apply_self(src)
 
-// Helper proc that grabs whatever organ this humantype uses to see.
-// Usually eyes, but can be something else.
-// If `no_synthetic` is TRUE, returns null for mobs that are mechanical, or for mechanical eyes.
+/**
+ * Helper proc that grabs whatever organ this humantype uses to see.
+ * Usually eyes, but can be something else.
+ * If `no_synthetic` is TRUE, returns null for mobs that are mechanical, or for mechanical eyes.
+ */
 /mob/living/carbon/human/proc/get_eyes(no_synthetic = FALSE)
 	if (!species.vision_organ || !species.has_organ[species.vision_organ] || (no_synthetic && (species.flags & IS_MECHANICAL)))
 		return null
 
-	var/obj/item/organ/O = internal_organs_by_name[species.vision_organ]
-	if (!istype(O, /obj/item/organ/internal/eyes) || (no_synthetic && (O.status & ORGAN_ROBOT)))
+	var/obj/item/organ/eyes = internal_organs_by_name[species.vision_organ]
+	if (!istype(eyes, /obj/item/organ/internal/eyes) || (no_synthetic && (eyes.status & ORGAN_ROBOT)))
 		return null
 
-	return O
+	return eyes
 
 /mob/living/carbon/human/proc/awaken_psi_basic(var/source)
 	var/static/list/psi_operancy_messages = list(
@@ -215,12 +219,12 @@
 	seizure()
 	custom_pain(SPAN_DANGER(FONT_LARGE("[pick(psi_operancy_messages)]")), 25)
 	sleep(30)
-	addtimer(CALLBACK(psi, TYPE_PROC_REF(/datum/psi_complexus, check_psionic_trigger), 100, source, TRUE), 4.5 SECONDS)
+	addtimer(CALLBACK(psi, TYPE_PROC_REF(/datum/psi_complexus, check_psionic_trigger), 100, source, TRUE), 4.5 SECONDS, TIMER_STOPPABLE|TIMER_DELETE_ME)
 
 /mob/living/carbon/human/get_resist_power()
 	return species.mob_strength + species.mob_weight
 
-// Handle cases where the mob's awareness may reside in another mob, but still cares about how its brain is doing
+/// Handle cases where the mob's awareness may reside in another mob, but still cares about how its brain is doing
 /mob/living/carbon/human/proc/find_mob_consciousness()
 	if(istype(bg) && bg.client)
 		return bg
@@ -271,8 +275,8 @@
 	else
 		. = 80 * (1 - bodytemperature / species.cold_level_3)
 		. = max(20, .) //stasis factor range: 20 to 80 after rounding. irl cryonics ''achieves full stasis'' in bodies at 80K.
-	if(istype(loc, /obj/machinery/atmospherics/unary/cryo_cell))
-		var/obj/machinery/atmospherics/unary/cryo_cell/cryo = loc
+	if(istype(loc, /obj/structure/machinery/atmospherics/unary/cryo_cell))
+		var/obj/structure/machinery/atmospherics/unary/cryo_cell/cryo = loc
 		if(cryo.current_stasis_mult)
 			var/gcf_stasis_mult = cryo.current_stasis_mult
 			. = . * gcf_stasis_mult

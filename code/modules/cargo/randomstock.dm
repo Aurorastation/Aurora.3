@@ -243,7 +243,7 @@ GLOBAL_LIST_EMPTY_TYPED(large_stock_markers, /obj/effect/large_stock_marker)
 /obj/effect/large_stock_marker
 	name = "Large Stock Marker"
 	desc = "This marks a place where a large object could spawn in cargo"
-	icon = 'icons/mob/screen/generic.dmi'
+	icon = 'icons/hud/mob/generic.dmi'
 	icon_state = "x3"
 
 /obj/effect/large_stock_marker/Initialize(mapload, ...)

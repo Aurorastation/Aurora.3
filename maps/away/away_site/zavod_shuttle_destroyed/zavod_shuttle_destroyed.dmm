@@ -4,7 +4,7 @@
 /turf/simulated/floor/tiled/white,
 /area/zavod_shuttle_destroyed)
 "ac" = (
-/obj/machinery/vending/tool,
+/obj/structure/machinery/vending/tool,
 /turf/simulated/floor/tiled/steel/airless,
 /area/zavod_shuttle_destroyed)
 "al" = (
@@ -26,7 +26,7 @@
 /turf/simulated/floor/tiled/red,
 /area/zavod_shuttle_destroyed)
 "bb" = (
-/obj/machinery/mech_recharger,
+/obj/structure/machinery/mech_recharger,
 /mob/living/heavy_vehicle/premade/ripley/loader,
 /turf/simulated/floor/tiled/white,
 /area/zavod_shuttle_destroyed)
@@ -50,7 +50,7 @@
 /turf/template_noop,
 /area/space)
 "bE" = (
-/obj/machinery/recharge_station,
+/obj/structure/machinery/recharge_station,
 /obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/tiled/red,
 /area/zavod_shuttle_destroyed)
@@ -72,7 +72,7 @@
 /turf/simulated/floor/tiled/white,
 /area/zavod_shuttle_destroyed)
 "cf" = (
-/obj/machinery/porta_turret_construct,
+/obj/structure/machinery/porta_turret_construct,
 /turf/simulated/floor/tiled/white,
 /area/zavod_shuttle_destroyed)
 "cE" = (
@@ -134,7 +134,7 @@
 /turf/simulated/floor/tiled/red,
 /area/zavod_shuttle_destroyed)
 "ei" = (
-/obj/machinery/appliance/cooker/stove,
+/obj/structure/machinery/appliance/cooker/stove,
 /obj/effect/decal/cleanable/cobweb2,
 /turf/simulated/floor/tiled/white,
 /area/zavod_shuttle_destroyed)
@@ -144,7 +144,7 @@
 /area/zavod_shuttle_destroyed)
 "es" = (
 /obj/effect/decal/cleanable/floor_damage/rust,
-/obj/machinery/recharger/wallcharger{
+/obj/structure/machinery/recharger/wallcharger{
 	pixel_y = -29
 	},
 /obj/structure/table/standard,
@@ -173,7 +173,7 @@
 /turf/simulated/floor/tiled/steel,
 /area/zavod_shuttle_destroyed)
 "fj" = (
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/floor_damage/rust,
@@ -210,12 +210,12 @@
 /turf/simulated/floor/tiled/steel,
 /area/zavod_shuttle_destroyed)
 "gz" = (
-/obj/machinery/vending/engivend,
+/obj/structure/machinery/vending/engivend,
 /obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/tiled/steel/airless,
 /area/zavod_shuttle_destroyed)
 "gH" = (
-/obj/machinery/power/smes/buildable/third_party_shuttle/empty,
+/obj/structure/machinery/power/smes/buildable/third_party_shuttle/empty,
 /turf/simulated/floor/tiled/steel/airless,
 /area/zavod_shuttle_destroyed)
 "gR" = (
@@ -236,7 +236,7 @@
 /turf/simulated/floor/tiled/steel/airless,
 /area/zavod_shuttle_destroyed)
 "hk" = (
-/obj/machinery/door/airlock/hatch,
+/obj/structure/machinery/door/airlock/hatch,
 /obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/lino,
 /area/zavod_shuttle_destroyed)
@@ -245,7 +245,7 @@
 /turf/simulated/floor/tiled/steel/airless,
 /area/zavod_shuttle_destroyed)
 "hq" = (
-/obj/machinery/door/airlock/hatch,
+/obj/structure/machinery/door/airlock/hatch,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
@@ -257,7 +257,7 @@
 /turf/simulated/floor/tiled/white,
 /area/zavod_shuttle_destroyed)
 "hF" = (
-/obj/machinery/portable_atmospherics/canister/air,
+/obj/structure/machinery/portable_atmospherics/canister/air,
 /turf/template_noop,
 /area/space)
 "hH" = (
@@ -285,7 +285,7 @@
 /turf/simulated/floor/tiled/steel/airless,
 /area/zavod_shuttle_destroyed)
 "iv" = (
-/obj/machinery/power/portgen/basic,
+/obj/structure/machinery/power/portgen/basic,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
@@ -351,13 +351,13 @@
 /turf/simulated/floor/tiled/steel/airless,
 /area/zavod_shuttle_destroyed)
 "jI" = (
-/obj/machinery/atmospherics/unary/engine{
+/obj/structure/machinery/atmospherics/unary/engine{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/airless,
 /area/zavod_shuttle_destroyed)
 "jJ" = (
-/obj/machinery/vending/dinnerware,
+/obj/structure/machinery/vending/dinnerware,
 /obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/tiled/steel,
 /area/zavod_shuttle_destroyed)
@@ -395,7 +395,7 @@
 /turf/simulated/floor/tiled/slate,
 /area/zavod_shuttle_destroyed)
 "kx" = (
-/obj/machinery/door/airlock/highsecurity,
+/obj/structure/machinery/door/airlock/highsecurity,
 /turf/simulated/floor/tiled/white,
 /area/zavod_shuttle_destroyed)
 "lc" = (
@@ -412,7 +412,7 @@
 /turf/simulated/floor/tiled/white/airless,
 /area/zavod_shuttle_destroyed)
 "lV" = (
-/obj/machinery/door/airlock/hatch,
+/obj/structure/machinery/door/airlock/hatch,
 /obj/structure/inflatable/door,
 /obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/tiled/steel/airless,
@@ -446,11 +446,11 @@
 /turf/simulated/floor/tiled/steel,
 /area/zavod_shuttle_destroyed)
 "ms" = (
-/obj/machinery/suit_cycler/engineering/prepared,
+/obj/structure/machinery/suit_cycler/engineering/prepared,
 /turf/simulated/floor/tiled/steel/airless,
 /area/zavod_shuttle_destroyed)
 "mE" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
 /turf/simulated/floor/airless,
@@ -495,7 +495,7 @@
 /area/zavod_shuttle_destroyed)
 "nv" = (
 /obj/effect/decal/cleanable/floor_damage/rust,
-/obj/machinery/porta_turret/ballistic,
+/obj/structure/machinery/porta_turret/ballistic,
 /turf/simulated/floor/tiled/steel,
 /area/zavod_shuttle_destroyed)
 "nw" = (
@@ -538,7 +538,7 @@
 /turf/simulated/floor/tiled/white,
 /area/zavod_shuttle_destroyed)
 "qk" = (
-/obj/machinery/portable_atmospherics/canister/phoron_scarce,
+/obj/structure/machinery/portable_atmospherics/canister/phoron_scarce,
 /obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/tiled/steel/airless,
 /area/zavod_shuttle_destroyed)
@@ -563,7 +563,7 @@
 /turf/simulated/floor/tiled/steel,
 /area/zavod_shuttle_destroyed)
 "rv" = (
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/tiled/steel/airless,
 /area/zavod_shuttle_destroyed)
@@ -592,7 +592,7 @@
 /turf/simulated/floor/tiled/steel/airless,
 /area/zavod_shuttle_destroyed)
 "rM" = (
-/obj/machinery/recharge_station,
+/obj/structure/machinery/recharge_station,
 /turf/simulated/floor/tiled/red,
 /area/zavod_shuttle_destroyed)
 "rQ" = (
@@ -604,7 +604,7 @@
 /turf/simulated/floor/tiled/slate/full,
 /area/zavod_shuttle_destroyed)
 "sp" = (
-/obj/machinery/suit_cycler/engineering/prepared,
+/obj/structure/machinery/suit_cycler/engineering/prepared,
 /obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/tiled/steel/airless,
 /area/zavod_shuttle_destroyed)
@@ -759,13 +759,13 @@
 /turf/simulated/floor/tiled/white,
 /area/zavod_shuttle_destroyed)
 "xC" = (
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/steel,
 /area/zavod_shuttle_destroyed)
 "xT" = (
-/obj/machinery/door/airlock/hatch,
+/obj/structure/machinery/door/airlock/hatch,
 /obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/tiled/steel,
 /area/zavod_shuttle_destroyed)
@@ -775,7 +775,7 @@
 /turf/simulated/floor/tiled/white,
 /area/zavod_shuttle_destroyed)
 "yp" = (
-/obj/machinery/appliance/cooker/oven,
+/obj/structure/machinery/appliance/cooker/oven,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/zavod_shuttle_destroyed)
@@ -806,7 +806,7 @@
 /turf/template_noop,
 /area/space)
 "zb" = (
-/obj/machinery/porta_turret/ballistic,
+/obj/structure/machinery/porta_turret/ballistic,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/zavod_shuttle_destroyed)
@@ -819,8 +819,6 @@
 /area/zavod_shuttle_destroyed)
 "zV" = (
 /obj/structure/closet/crate/drop/grey,
-/obj/item/circuitboard/mecha,
-/obj/item/circuitboard/mecha,
 /obj/item/robot_parts/robot_component/actuator,
 /obj/item/robot_parts/robot_component/actuator,
 /obj/item/robot_parts/robot_component/actuator,
@@ -862,7 +860,7 @@
 /turf/simulated/floor/tiled/steel,
 /area/zavod_shuttle_destroyed)
 "BH" = (
-/obj/machinery/mech_recharger,
+/obj/structure/machinery/mech_recharger,
 /mob/living/heavy_vehicle/premade/firefighter,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
@@ -936,7 +934,7 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/zavod_shuttle_destroyed)
 "Ep" = (
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	dir = 8
 	},
 /obj/structure/cable{
@@ -954,14 +952,14 @@
 /turf/simulated/floor/tiled/slate/full,
 /area/zavod_shuttle_destroyed)
 "EZ" = (
-/obj/machinery/door/airlock/hatch,
+/obj/structure/machinery/door/airlock/hatch,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/steel/airless,
 /area/zavod_shuttle_destroyed)
 "Fn" = (
-/obj/machinery/computer/ship/sensors,
+/obj/structure/machinery/computer/ship/sensors,
 /turf/simulated/floor/tiled/slate,
 /area/zavod_shuttle_destroyed)
 "Fu" = (
@@ -985,7 +983,7 @@
 /turf/simulated/floor/tiled/steel,
 /area/zavod_shuttle_destroyed)
 "Gv" = (
-/obj/machinery/door/airlock/freezer{
+/obj/structure/machinery/door/airlock/freezer{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
@@ -998,7 +996,7 @@
 /area/zavod_shuttle_destroyed)
 "GZ" = (
 /obj/structure/table/reinforced/steel,
-/obj/machinery/recharger,
+/obj/structure/machinery/recharger,
 /obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/tiled/red,
 /area/zavod_shuttle_destroyed)
@@ -1047,12 +1045,12 @@
 /turf/simulated/floor/plating,
 /area/zavod_shuttle_destroyed)
 "Io" = (
-/obj/machinery/porta_turret/cannon,
+/obj/structure/machinery/porta_turret/cannon,
 /obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/tiled/red,
 /area/zavod_shuttle_destroyed)
 "Ip" = (
-/obj/machinery/door/airlock/hatch,
+/obj/structure/machinery/door/airlock/hatch,
 /obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/tiled/white,
 /area/zavod_shuttle_destroyed)
@@ -1074,13 +1072,13 @@
 /turf/simulated/floor/tiled/steel/airless,
 /area/zavod_shuttle_destroyed)
 "ID" = (
-/obj/machinery/door/airlock/security{
+/obj/structure/machinery/door/airlock/security{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/red,
 /area/zavod_shuttle_destroyed)
 "IE" = (
-/obj/machinery/door/airlock/hatch,
+/obj/structure/machinery/door/airlock/hatch,
 /turf/simulated/floor/tiled/steel,
 /area/zavod_shuttle_destroyed)
 "IG" = (
@@ -1093,7 +1091,7 @@
 /turf/simulated/floor/tiled/white/airless,
 /area/zavod_shuttle_destroyed)
 "Jm" = (
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/floor_damage/rust,
@@ -1232,7 +1230,7 @@
 /turf/simulated/floor/tiled/red,
 /area/zavod_shuttle_destroyed)
 "Mm" = (
-/obj/machinery/recharge_station,
+/obj/structure/machinery/recharge_station,
 /turf/simulated/floor/tiled/techmaint,
 /area/zavod_shuttle_destroyed)
 "ML" = (
@@ -1312,7 +1310,7 @@
 /turf/simulated/floor/tiled/steel/airless,
 /area/zavod_shuttle_destroyed)
 "OP" = (
-/obj/machinery/mech_recharger,
+/obj/structure/machinery/mech_recharger,
 /mob/living/heavy_vehicle/premade/random/boring,
 /obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/tiled/white,
@@ -1336,7 +1334,7 @@
 /area/zavod_shuttle_destroyed)
 "PC" = (
 /obj/structure/table/standard,
-/obj/machinery/ship_weapon/francisca/compact{
+/obj/structure/machinery/ship_weapon/francisca/compact{
 	pixel_y = -24;
 	pixel_x = -39
 	},
@@ -1345,7 +1343,7 @@
 /turf/simulated/floor/tiled/white,
 /area/zavod_shuttle_destroyed)
 "PH" = (
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/floor_damage/rust,
@@ -1407,7 +1405,7 @@
 /turf/simulated/floor/tiled/white/airless,
 /area/zavod_shuttle_destroyed)
 "Sk" = (
-/obj/machinery/porta_turret/cannon,
+/obj/structure/machinery/porta_turret/cannon,
 /turf/simulated/floor/tiled/white,
 /area/zavod_shuttle_destroyed)
 "Sn" = (
@@ -1416,7 +1414,7 @@
 /turf/simulated/floor/tiled/steel,
 /area/zavod_shuttle_destroyed)
 "SI" = (
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/floor_damage/rust,
@@ -1532,7 +1530,7 @@
 /turf/simulated/floor/tiled/steel,
 /area/zavod_shuttle_destroyed)
 "VS" = (
-/obj/machinery/door/airlock/hatch,
+/obj/structure/machinery/door/airlock/hatch,
 /obj/effect/decal/cleanable/floor_damage/rust,
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -1547,7 +1545,7 @@
 /turf/simulated/floor/tiled/steel,
 /area/zavod_shuttle_destroyed)
 "Wj" = (
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/steel/airless,
@@ -1633,7 +1631,7 @@
 /turf/simulated/wall/r_wall,
 /area/zavod_shuttle_destroyed)
 "YY" = (
-/obj/machinery/atmospherics/unary/engine{
+/obj/structure/machinery/atmospherics/unary/engine{
 	dir = 1
 	},
 /turf/template_noop,

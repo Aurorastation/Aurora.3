@@ -9,7 +9,7 @@
 
 #define isanimal(A) istype(A, /mob/living/simple_animal)
 
-#define isairlock(A) istype(A, /obj/machinery/door/airlock)
+#define isairlock(A) istype(A, /obj/structure/machinery/door/airlock)
 
 #define isbrain(A) istype(A, /mob/living/carbon/brain)
 
@@ -22,6 +22,12 @@
 #define isEye(A) istype(A, /mob/abstract/eye)
 
 #define ishuman(A) istype(A, /mob/living/carbon/human)
+/**
+ * Astype() variant of ishuman(), for use in inlining the check when you only need it once.
+ * This is equal to null if the target is not of the type /mob/living/carbon/human.
+ * And is automatically typecast as a /mob/living/carbon/human if the check passes.
+ */
+#define ashuman(A) astype(A, /mob/living/carbon/human)
 
 #define ismech(A) istype(A, /mob/living/heavy_vehicle)
 

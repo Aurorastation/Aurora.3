@@ -2,8 +2,8 @@
 	name = "tank"
 	icon = 'icons/obj/tank.dmi'
 	contained_sprite = TRUE
-	drop_sound = 'sound/items/drop/gascan.ogg'
-	pickup_sound = 'sound/items/pickup/gascan.ogg'
+	drop_sound = 'sound/items/drop/gas_tank.ogg'
+	pickup_sound = 'sound/items/pickup/gas_tank.ogg'
 
 	var/gauge_icon = "indicator_tank"
 	var/last_gauge_pressure
@@ -12,6 +12,8 @@
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BACK
 	w_class = WEIGHT_CLASS_NORMAL
+
+	permeability_coefficient = 0 //So your oxygen tank doesn't get contaminated by phoron in the air.
 
 	force = 11
 	throwforce = 10.0
@@ -27,6 +29,8 @@
 
 /obj/item/tank/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
+	if(distribute_pressure == 0)
+		. += SPAN_ALERT("This tank's hardware configuration prevents it from being used for Internals, even if filled with compatible gas.")
 	if(distance <= 0)
 		var/celsius_temperature = air_contents.temperature - T0C
 		switch(celsius_temperature)
@@ -69,6 +73,7 @@
 	..()
 	if ((istype(attacking_item, /obj/item/analyzer)) && get_dist(user, src) <= 1)
 		var/obj/item/analyzer/A = attacking_item
+		src.manipulated_by = user
 		A.analyze_gases(src, user)
 
 	if (istype(attacking_item, /obj/item/toy/balloon))

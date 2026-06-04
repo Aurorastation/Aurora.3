@@ -2,7 +2,7 @@
 #define REGULATE_INPUT	1	//shuts off when input side is below the target pressure
 #define REGULATE_OUTPUT	2	//shuts off when output side is above the target pressure
 
-/obj/machinery/atmospherics/binary/passive_gate
+/obj/structure/machinery/atmospherics/binary/passive_gate
 	name = "pressure regulator"
 	desc = "A one-way air valve that can be used to regulate input or output pressure, and flow rate. Does not require power."
 	icon = 'icons/atmos/passive_gate.dmi'
@@ -25,26 +25,26 @@
 
 	var/broadcast_status_next_process = FALSE
 
-/obj/machinery/atmospherics/binary/passive_gate/mechanics_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/atmospherics/binary/passive_gate/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "This is a one-way regulator, allowing gas to flow only at a specific pressure and flow rate."
 	. += "If the light is green, it is flowing."
 
-/obj/machinery/atmospherics/binary/passive_gate/on
+/obj/structure/machinery/atmospherics/binary/passive_gate/on
 	unlocked = 1
 
-/obj/machinery/atmospherics/binary/passive_gate/on/input
+/obj/structure/machinery/atmospherics/binary/passive_gate/on/input
 	regulate_mode = REGULATE_INPUT
 
-/obj/machinery/atmospherics/binary/passive_gate/on/output/max/Initialize()
+/obj/structure/machinery/atmospherics/binary/passive_gate/on/output/max/Initialize()
 	. = ..()
 	target_pressure = max_pressure_setting
 
-/obj/machinery/atmospherics/binary/passive_gate/on/input/max/Initialize()
+/obj/structure/machinery/atmospherics/binary/passive_gate/on/input/max/Initialize()
 	. = ..()
 	target_pressure = max_pressure_setting
 
-/obj/machinery/atmospherics/binary/passive_gate/scrubbers
+/obj/structure/machinery/atmospherics/binary/passive_gate/scrubbers
 	name = "scrubbers pressure regulator"
 	desc = "A one-way air valve that can be used to regulate input or output pressure, and flow rate. This is one is for scrubber pipes."
 	icon_state = "map-scrubbers"
@@ -54,7 +54,7 @@
 	unlocked = TRUE
 	target_pressure = 200
 
-/obj/machinery/atmospherics/binary/passive_gate/supply
+/obj/structure/machinery/atmospherics/binary/passive_gate/supply
 	name = "supply pressure regulator"
 	desc = "A one-way air valve that can be used to regulate input or output pressure, and flow rate. This is one is for supply pipes."
 	icon_state = "map-supply"
@@ -64,7 +64,7 @@
 	unlocked = TRUE
 	target_pressure = 200
 
-/obj/machinery/atmospherics/binary/passive_gate/fuel
+/obj/structure/machinery/atmospherics/binary/passive_gate/fuel
 	name = "fuel pressure regulator"
 	desc = "A one-way air valve that can be used to regulate input or output pressure, and flow rate. This is one is for fuel pipes."
 	icon_state = "map-fuel"
@@ -74,7 +74,7 @@
 	unlocked = TRUE
 	target_pressure = 200
 
-/obj/machinery/atmospherics/binary/passive_gate/aux
+/obj/structure/machinery/atmospherics/binary/passive_gate/aux
 	name = "auxiliary pressure regulator"
 	desc = "A one-way air valve that can be used to regulate input or output pressure, and flow rate. This is one is for auxiliary pipes."
 	icon_state = "map-aux"
@@ -84,15 +84,15 @@
 	unlocked = TRUE
 	target_pressure = 200
 
-/obj/machinery/atmospherics/binary/passive_gate/Initialize()
+/obj/structure/machinery/atmospherics/binary/passive_gate/Initialize()
 	. = ..()
 	air1.volume = ATMOS_DEFAULT_VOLUME_PUMP * 2.5
 	air2.volume = ATMOS_DEFAULT_VOLUME_PUMP * 2.5
 
-/obj/machinery/atmospherics/binary/passive_gate/update_icon()
+/obj/structure/machinery/atmospherics/binary/passive_gate/update_icon()
 	icon_state = (unlocked && flowing)? "on" + icon_connect_type : "off" + icon_connect_type
 
-/obj/machinery/atmospherics/binary/passive_gate/update_underlays()
+/obj/structure/machinery/atmospherics/binary/passive_gate/update_underlays()
 	if(..())
 		underlays.Cut()
 		var/turf/T = get_turf(src)
@@ -101,10 +101,10 @@
 		add_underlay(T, node1, turn(dir, 180), icon_connect_type)
 		add_underlay(T, node2, dir, icon_connect_type)
 
-/obj/machinery/atmospherics/binary/passive_gate/hide(var/i)
+/obj/structure/machinery/atmospherics/binary/passive_gate/hide(var/i)
 	update_underlays()
 
-/obj/machinery/atmospherics/binary/passive_gate/process()
+/obj/structure/machinery/atmospherics/binary/passive_gate/process()
 	..()
 
 	if (broadcast_status_next_process)
@@ -112,6 +112,7 @@
 		broadcast_status_next_process = FALSE
 
 	last_flow_rate = 0
+	last_mole_transfer = 0
 
 	if(!unlocked)
 		return 0
@@ -159,13 +160,13 @@
 
 //Radio remote control
 
-/obj/machinery/atmospherics/binary/passive_gate/proc/set_frequency(new_frequency)
+/obj/structure/machinery/atmospherics/binary/passive_gate/proc/set_frequency(new_frequency)
 	SSradio.remove_object(src, frequency)
 	frequency = new_frequency
 	if(frequency)
 		radio_connection = SSradio.add_object(src, frequency, filter = RADIO_ATMOSIA)
 
-/obj/machinery/atmospherics/binary/passive_gate/proc/broadcast_status()
+/obj/structure/machinery/atmospherics/binary/passive_gate/proc/broadcast_status()
 	if(!radio_connection)
 		return 0
 
@@ -187,12 +188,12 @@
 
 	return 1
 
-/obj/machinery/atmospherics/binary/passive_gate/atmos_init()
+/obj/structure/machinery/atmospherics/binary/passive_gate/atmos_init()
 	..()
 	if(frequency)
 		set_frequency(frequency)
 
-/obj/machinery/atmospherics/binary/passive_gate/receive_signal(datum/signal/signal)
+/obj/structure/machinery/atmospherics/binary/passive_gate/receive_signal(datum/signal/signal)
 	if(!signal.data["tag"] || (signal.data["tag"] != id) || (signal.data["sigtype"]!="command"))
 		return 0
 
@@ -220,7 +221,7 @@
 	update_icon()
 	return
 
-/obj/machinery/atmospherics/binary/passive_gate/attack_hand(user as mob)
+/obj/structure/machinery/atmospherics/binary/passive_gate/attack_hand(user as mob)
 	if(..())
 		return
 	src.add_fingerprint(usr)
@@ -231,13 +232,13 @@
 	ui_interact(user)
 	return
 
-/obj/machinery/atmospherics/binary/passive_gate/ui_interact(mob/user, datum/tgui/ui)
+/obj/structure/machinery/atmospherics/binary/passive_gate/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "AtmosPressureRegulator", capitalize_first_letters(name))
 		ui.open()
 
-/obj/machinery/atmospherics/binary/passive_gate/ui_data()
+/obj/structure/machinery/atmospherics/binary/passive_gate/ui_data()
 	var/data = list()
 	data["on"] = unlocked
 	data["pressure"] = round(target_pressure)
@@ -248,7 +249,7 @@
 	data["regulate_mode"] = regulate_mode
 	return data
 
-/obj/machinery/atmospherics/binary/passive_gate/ui_act(action, params)
+/obj/structure/machinery/atmospherics/binary/passive_gate/ui_act(action, params)
 	. = ..()
 	if(.)
 		return
@@ -288,42 +289,8 @@
 	update_icon()
 
 
-/obj/machinery/atmospherics/binary/passive_gate/Topic(href,href_list)
-	if(..()) return 1
 
-	if(href_list["toggle_valve"])
-		unlocked = !unlocked
-
-	if(href_list["regulate_mode"])
-		switch(href_list["regulate_mode"])
-			if ("off") regulate_mode = REGULATE_NONE
-			if ("input") regulate_mode = REGULATE_INPUT
-			if ("output") regulate_mode = REGULATE_OUTPUT
-
-	switch(href_list["set_press"])
-		if ("min")
-			target_pressure = 0
-		if ("max")
-			target_pressure = max_pressure_setting
-		if ("set")
-			var/new_pressure = input(usr,"Enter new output pressure (0-[max_pressure_setting]kPa)","Pressure Control",src.target_pressure) as num
-			src.target_pressure = between(0, new_pressure, max_pressure_setting)
-
-	switch(href_list["set_flow_rate"])
-		if ("min")
-			set_flow_rate = 0
-		if ("max")
-			set_flow_rate = air1.volume
-		if ("set")
-			var/new_flow_rate = input(usr,"Enter new flow rate limit (0-[air1.volume]kPa)","Flow Rate Control",src.set_flow_rate) as num
-			src.set_flow_rate = between(0, new_flow_rate, air1.volume)
-
-	usr.set_machine(src)	//Is this even needed with NanoUI?
-	src.update_icon()
-	src.add_fingerprint(usr)
-	return
-
-/obj/machinery/atmospherics/binary/passive_gate/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/atmospherics/binary/passive_gate/attackby(obj/item/attacking_item, mob/user)
 	if (attacking_item.tool_behaviour != TOOL_WRENCH)
 		return ..()
 	if (unlocked)

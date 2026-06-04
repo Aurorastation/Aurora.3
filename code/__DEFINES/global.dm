@@ -111,9 +111,9 @@ GLOBAL_VAR(custom_event_msg)
 GLOBAL_DATUM(dbcon, /DBConnection)
 GLOBAL_PROTECT(dbcon)
 
-// Persistence subsystem track register - List of all persistent data tracks managed by the subsystem.
-GLOBAL_LIST_EMPTY(persistence_register)
-GLOBAL_PROTECT(persistence_register)
+// Persistence subsystem object track register - List of all persistent objects tracked by the subsystem.
+GLOBAL_LIST_EMPTY(persistence_object_track_register)
+GLOBAL_PROTECT(persistence_object_track_register)
 
 // Added for Xenoarchaeology, might be useful for other stuff.
 GLOBAL_LIST_INIT(alphabet_uppercase, list("A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"))
@@ -136,12 +136,6 @@ GLOBAL_LIST_INIT(scarySounds, list(
 	'sound/weapons/thudswoosh.ogg',
 	'sound/weapons/Taser.ogg',
 	'sound/weapons/armbomb.ogg',
-	'sound/voice/hiss1.ogg',
-	'sound/voice/hiss2.ogg',
-	'sound/voice/hiss3.ogg',
-	'sound/voice/hiss4.ogg',
-	'sound/voice/hiss5.ogg',
-	'sound/voice/hiss6.ogg',
 	'sound/effects/glass_break1.ogg',
 	'sound/effects/glass_break2.ogg',
 	'sound/effects/glass_break3.ogg',
@@ -173,3 +167,6 @@ GLOBAL_LIST_INIT(department_funds, list(
 GLOBAL_LIST_EMPTY(exo_beacons)
 
 GLOBAL_VAR_INIT(minimum_exterior_lighting_alpha, 255)
+
+/// The minimum amount of armour for objects in the game. Stops things from being destroyed by objects with a small force.
+GLOBAL_LIST_INIT(default_object_armor, list(MELEE = ARMOR_MELEE_MINOR))

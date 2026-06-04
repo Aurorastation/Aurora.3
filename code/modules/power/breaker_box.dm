@@ -4,7 +4,7 @@
 // Humans need 30 seconds (AI is faster when it comes to complex electronics)
 // Used for advanced grid control (read: Substations)
 
-/obj/machinery/power/breakerbox
+/obj/structure/machinery/power/breakerbox
 	name = "breaker box"
 	desc = "A large machine with heavy duty switching circuits used for advanced grid control."
 	icon = 'icons/obj/power.dmi'
@@ -18,43 +18,43 @@
 	var/RCon_tag = "NO_TAG"
 	var/update_locked = 0
 
-/obj/machinery/power/breakerbox/mechanics_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/power/breakerbox/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "A breaker brox functions as an electrical passthrough; if enabled, power will flow freely around it. In substations, this means that the PSU/SMES will be bypassed."
 	. += "Toggling the breaker box has a sixty-second cooldown time."
 	. += "A multitool can be used to update or clear the breaker's RCON tag."
 
-/obj/machinery/power/breakerbox/feedback_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/power/breakerbox/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	if(on)
 		. += "It seems to be online."
 	else
 		. += "It seems to be offline."
 
-/obj/machinery/power/breakerbox/Initialize()
+/obj/structure/machinery/power/breakerbox/Initialize()
 	LAZYADD(SSmachinery.breaker_boxes, src)
 	return ..()
 
-/obj/machinery/power/breakerbox/update_icon()
+/obj/structure/machinery/power/breakerbox/update_icon()
 	icon_state = "bbox_[on ? "on" : "off"]"
 
-/obj/machinery/power/breakerbox/Destroy()
+/obj/structure/machinery/power/breakerbox/Destroy()
 	LAZYREMOVE(SSmachinery.breaker_boxes, src)
 	return ..()
 
-/obj/machinery/power/breakerbox/activated
+/obj/structure/machinery/power/breakerbox/activated
 	icon_state = "bbox_on"
 
 	// Enabled on server startup. Used in substations to keep them in bypass mode.
-/obj/machinery/power/breakerbox/activated/Initialize()
+/obj/structure/machinery/power/breakerbox/activated/Initialize()
 	..()
 	return INITIALIZE_HINT_LATELOAD
 
-/obj/machinery/power/breakerbox/activated/LateInitialize()
+/obj/structure/machinery/power/breakerbox/activated/LateInitialize()
 	. = ..()
 	set_state(1)
 
-/obj/machinery/power/breakerbox/attack_ai(mob/user)
+/obj/structure/machinery/power/breakerbox/attack_ai(mob/user)
 	if(!ai_can_interact(user))
 		return
 	if(update_locked)
@@ -74,11 +74,11 @@
 		addtimer(CALLBACK(src, PROC_REF(reset_locked)), 600)
 	busy = 0
 
-/obj/machinery/power/breakerbox/proc/reset_locked()
+/obj/structure/machinery/power/breakerbox/proc/reset_locked()
 	update_locked = 0
 
 
-/obj/machinery/power/breakerbox/attack_hand(mob/user)
+/obj/structure/machinery/power/breakerbox/attack_hand(mob/user)
 	. = ..()
 	if(update_locked)
 		to_chat(user, SPAN_BAD("System locked. Please try again later."))
@@ -100,14 +100,14 @@
 		addtimer(CALLBACK(src, PROC_REF(reset_locked)), 600)
 	busy = 0
 
-/obj/machinery/power/breakerbox/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/power/breakerbox/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.tool_behaviour == TOOL_MULTITOOL)
 		var/newtag = input(user, "Enter new RCON tag. Use \"NO_TAG\" to disable RCON or leave empty to cancel.", "SMES RCON system") as text
 		if(newtag)
 			RCon_tag = newtag
 			to_chat(user, SPAN_NOTICE("You changed the RCON tag to: [newtag]"))
 
-/obj/machinery/power/breakerbox/proc/set_state(var/state)
+/obj/structure/machinery/power/breakerbox/proc/set_state(var/state)
 	on = state
 	update_icon()
 	if(on)
@@ -139,11 +139,11 @@
 			qdel(C)
 
 // Used by RCON to toggle the breaker box.
-/obj/machinery/power/breakerbox/proc/auto_toggle()
+/obj/structure/machinery/power/breakerbox/proc/auto_toggle()
 	if(!update_locked)
 		set_state(!on)
 		update_locked = 1
 		addtimer(CALLBACK(src, PROC_REF(reset_locked)), 600)
 
-/obj/machinery/power/breakerbox/activated
+/obj/structure/machinery/power/breakerbox/activated
 	icon_state = "bbox_on"

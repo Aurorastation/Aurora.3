@@ -180,10 +180,6 @@ emp_act
 	if(emp_protect_ipc)
 		RemoveElement(/datum/element/empprotection, emp_protect_ipc)
 
-	if(!(.|emp_protect_ipc & EMP_PROTECT_CONTENTS))
-		for(var/obj/O in src)
-			O.emp_act(severity)
-
 /mob/living/carbon/human/get_attack_victim(obj/item/I, mob/living/user, var/target_zone)
 	if(a_intent != I_HELP)
 		var/active_hand = get_active_hand()

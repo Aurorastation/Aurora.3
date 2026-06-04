@@ -363,6 +363,7 @@
 	attack_verb = list("bashed", "bludgeoned", "thrashed", "whacked", "slashed", "cut")
 	sharp = TRUE
 	tool_behaviour = TOOL_CROWBAR
+	tool_quality = STANDARD_TOOL_LEVEL - 2
 
 // Flags.
 
@@ -930,7 +931,7 @@ GLOBAL_LIST_INIT_TYPED(total_extraction_beacons, /obj/structure/extraction_point
 			return
 		var/turf/T = get_turf(A)
 		for(var/found_inhibitor in GLOB.bluespace_inhibitors)
-			var/obj/machinery/anti_bluespace/AB = found_inhibitor
+			var/obj/structure/machinery/anti_bluespace/AB = found_inhibitor
 			if(T.z != AB.z || get_dist(T, AB) > 8 || (AB.stat & (NOPOWER | BROKEN)))
 				continue
 			AB.use_power_oneoff(AB.active_power_usage)

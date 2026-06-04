@@ -17,7 +17,7 @@
 /obj/effect/floor_decal/corner_wide/green/full{
 	dir = 1
 	},
-/obj/machinery/iv_drip,
+/obj/structure/machinery/iv_drip,
 /turf/simulated/floor/tiled/white,
 /area/city/medical)
 "aj" = (
@@ -191,7 +191,7 @@
 /obj/structure/bed/stool/chair/padded/red{
 	dir = 8
 	},
-/obj/machinery/media/jukebox/audioconsole/wall{
+/obj/structure/machinery/media/jukebox/audioconsole/wall{
 	pixel_x = 31
 	},
 /turf/simulated/floor/carpet/red,
@@ -422,7 +422,7 @@
 /turf/simulated/floor/tiled,
 /area/city/hallway)
 "bm" = (
-/obj/machinery/floor_light/dance/alternate{
+/obj/structure/machinery/floor_light/dance/alternate{
 	default_light_colour = "#300056";
 	color = "#811e73";
 	light_color = "#811e73"
@@ -504,7 +504,7 @@
 /turf/simulated/floor/tiled/full,
 /area/city/bar)
 "bK" = (
-/obj/machinery/button/remote/airlock{
+/obj/structure/machinery/button/remote/airlock{
 	dir = 4;
 	id = "c5";
 	name = "Door Lock";
@@ -524,7 +524,7 @@
 /turf/simulated/floor/tiled,
 /area/city/outside)
 "bO" = (
-/obj/machinery/door/airlock/multi_tile/glass{
+/obj/structure/machinery/door/airlock/multi_tile/glass{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -806,10 +806,10 @@
 	},
 /area/city/hallway)
 "bU" = (
-/obj/machinery/media/jukebox/audioconsole/wall{
+/obj/structure/machinery/media/jukebox/audioconsole/wall{
 	pixel_y = 33
 	},
-/obj/machinery/floor_light/dance/alternate{
+/obj/structure/machinery/floor_light/dance/alternate{
 	color = "#8B0000";
 	light_color = "#8B0000";
 	default_light_colour = "#8B0000"
@@ -831,7 +831,7 @@
 /turf/simulated/floor/tiled/white,
 /area/city/pool)
 "cf" = (
-/obj/machinery/button/remote/airlock{
+/obj/structure/machinery/button/remote/airlock{
 	dir = 4;
 	id = "c3";
 	name = "Door Lock";
@@ -854,7 +854,7 @@
 /turf/simulated/floor/wood/mahogany,
 /area/city/pool)
 "cj" = (
-/obj/machinery/door/blast/regular{
+/obj/structure/machinery/door/blast/regular{
 	dir = 8;
 	name = "Extreme Measures";
 	tag = "blast";
@@ -886,7 +886,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/machinery/floor_light/dance/alternate{
+/obj/structure/machinery/floor_light/dance/alternate{
 	color = "#8B0000";
 	light_color = "#8B0000";
 	default_light_colour = "#8B0000"
@@ -913,7 +913,7 @@
 /turf/simulated/floor/tiled,
 /area/city/hallway)
 "cz" = (
-/obj/machinery/sleeper{
+/obj/structure/machinery/sleeper{
 	dir = 8
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -998,7 +998,7 @@
 /turf/simulated/floor/grass,
 /area/city/outside)
 "cQ" = (
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	name = "Changing Room";
 	id_tag = "c2"
 	},
@@ -1021,7 +1021,7 @@
 /turf/simulated/wall,
 /area/city/pool)
 "cW" = (
-/obj/machinery/appliance/cooker/fryer,
+/obj/structure/machinery/appliance/cooker/fryer,
 /turf/simulated/floor/carpet/rubber,
 /area/city/kitchen)
 "cZ" = (
@@ -1054,7 +1054,7 @@
 /turf/simulated/floor/wood,
 /area/city/outside)
 "dh" = (
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	dir = 1;
 	id = "blast";
 	name = "Blast Doors";
@@ -1183,7 +1183,7 @@
 /area/city/costumeroom)
 "dv" = (
 /obj/structure/platform,
-/obj/machinery/media/jukebox/audioconsole{
+/obj/structure/machinery/media/jukebox/audioconsole{
 	pixel_x = 15;
 	anchored = 1
 	},
@@ -1191,7 +1191,7 @@
 /area/city/dining)
 "dE" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/machinery/computer/operating,
+/obj/structure/machinery/computer/operating,
 /turf/simulated/floor/tiled/white,
 /area/city/medical)
 "dJ" = (
@@ -1268,7 +1268,7 @@
 /turf/simulated/floor/wood/mahogany,
 /area/city/dining)
 "dS" = (
-/obj/machinery/vending/boozeomat{
+/obj/structure/machinery/vending/boozeomat{
 	opacity = 1;
 	req_access = null;
 	pixel_y = 23;
@@ -1430,7 +1430,7 @@
 /turf/simulated/floor/wood,
 /area/city/horrorhouse)
 "ed" = (
-/obj/machinery/door/airlock/multi_tile/glass{
+/obj/structure/machinery/door/airlock/multi_tile/glass{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -1452,7 +1452,7 @@
 /turf/simulated/floor/tiled/full,
 /area/city/security)
 "ei" = (
-/obj/machinery/constructable_frame/machine_frame,
+/obj/structure/machinery/constructable_frame/machine_frame,
 /turf/simulated/floor/tiled/white,
 /area/city/horrorhouse)
 "ek" = (
@@ -1537,14 +1537,14 @@
 /turf/simulated/floor/concrete,
 /area/city/hallway)
 "ey" = (
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	name = "Changing Room";
 	id_tag = "c5"
 	},
 /turf/simulated/floor/wood,
 /area/city/costumeroom)
 "ez" = (
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	name = "Changing Room";
 	id_tag = "c3"
 	},
@@ -1573,7 +1573,7 @@
 /area/city/outside)
 "eF" = (
 /obj/structure/platform,
-/obj/machinery/media/jukebox/audioconsole{
+/obj/structure/machinery/media/jukebox/audioconsole{
 	pixel_x = -1;
 	anchored = 1
 	},
@@ -1610,7 +1610,7 @@
 /turf/simulated/floor/carpet/red,
 /area/city/dining)
 "eY" = (
-/obj/machinery/light/colored/red,
+/obj/structure/machinery/light/colored/red,
 /turf/simulated/floor/beach/water/alt,
 /area/city/outside)
 "eZ" = (
@@ -1621,7 +1621,7 @@
 /turf/simulated/floor/wood,
 /area/city/outside)
 "fa" = (
-/obj/machinery/floor_light/dance/alternate{
+/obj/structure/machinery/floor_light/dance/alternate{
 	color = "#8B0000";
 	light_color = "#8B0000";
 	default_light_colour = "#8B0000"
@@ -1639,7 +1639,7 @@
 /area/city/kitchen)
 "fc" = (
 /obj/structure/railing/mapped,
-/obj/machinery/vending/coffee/free,
+/obj/structure/machinery/vending/coffee/free,
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 10
 	},
@@ -1675,7 +1675,7 @@
 /turf/simulated/floor/carpet/red,
 /area/city/dining)
 "fl" = (
-/obj/machinery/light/colored/red{
+/obj/structure/machinery/light/colored/red{
 	dir = 4;
 	pixel_y = 15
 	},
@@ -1685,13 +1685,13 @@
 /obj/structure/railing/mapped,
 /obj/structure/table/wood,
 /obj/item/flame/candle,
-/obj/machinery/media/jukebox/audioconsole/wall{
+/obj/structure/machinery/media/jukebox/audioconsole/wall{
 	pixel_x = 31
 	},
 /turf/simulated/floor/carpet/red,
 /area/city/dining)
 "fn" = (
-/obj/machinery/door/airlock/multi_tile/glass{
+/obj/structure/machinery/door/airlock/multi_tile/glass{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -1729,17 +1729,17 @@
 /turf/simulated/floor/beach/water/pool,
 /area/city/pool)
 "fy" = (
-/obj/machinery/floor_light/dance/alternate{
+/obj/structure/machinery/floor_light/dance/alternate{
 	default_light_colour = "#300056";
 	color = "#811e73";
 	light_color = "#811e73"
 	},
-/obj/machinery/floor_light/dance/alternate{
+/obj/structure/machinery/floor_light/dance/alternate{
 	default_light_colour = "#300056";
 	light_color = "#d400ff";
 	color = "#d400ff"
 	},
-/obj/machinery/floor_light/dance/alternate{
+/obj/structure/machinery/floor_light/dance/alternate{
 	default_light_colour = "#300056";
 	light_color = "#d400ff";
 	color = "#d400ff"
@@ -1776,7 +1776,7 @@
 /obj/item/toy/balloon/ghost{
 	color = "#d400ff"
 	},
-/obj/machinery/floor_light/dance/alternate{
+/obj/structure/machinery/floor_light/dance/alternate{
 	default_light_colour = "#300056";
 	color = "#300056";
 	light_color = "#300056"
@@ -1788,13 +1788,13 @@
 	dir = 8
 	},
 /obj/structure/railing/mapped,
-/obj/machinery/media/jukebox/audioconsole/wall{
+/obj/structure/machinery/media/jukebox/audioconsole/wall{
 	pixel_x = 31
 	},
 /turf/simulated/floor/carpet/red,
 /area/city/dining)
 "fM" = (
-/obj/machinery/disposal/small{
+/obj/structure/machinery/disposal/small{
 	pixel_y = 18
 	},
 /turf/simulated/floor/marble/dark,
@@ -1826,7 +1826,7 @@
 /turf/simulated/floor/marble/dark,
 /area/city/bar)
 "fY" = (
-/obj/machinery/vending/hydronutrients,
+/obj/structure/machinery/vending/hydronutrients,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/city/garden)
@@ -1878,7 +1878,7 @@
 /turf/simulated/floor/cult,
 /area/city/horrorhouse)
 "gp" = (
-/obj/machinery/button/remote/airlock{
+/obj/structure/machinery/button/remote/airlock{
 	dir = 4;
 	id = "c2";
 	name = "Door Lock";
@@ -1935,7 +1935,7 @@
 /turf/simulated/floor/tiled/full,
 /area/city/hallway)
 "gG" = (
-/obj/machinery/seed_storage/garden,
+/obj/structure/machinery/seed_storage/garden,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/city/garden)
@@ -2102,7 +2102,7 @@
 	dir = 4
 	},
 /obj/structure/railing/mapped,
-/obj/machinery/floor_light/dance/alternate{
+/obj/structure/machinery/floor_light/dance/alternate{
 	color = "#8B0000";
 	light_color = "#8B0000";
 	default_light_colour = "#8B0000"
@@ -2157,7 +2157,7 @@
 /area/city/bar)
 "hl" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/airlock/multi_tile/glass,
+/obj/structure/machinery/door/airlock/multi_tile/glass,
 /turf/simulated/floor/tiled/red{
 	color = "#8B0000";
 	base_color = "#8B0000"
@@ -2175,7 +2175,7 @@
 /turf/simulated/floor/beach/water/pool,
 /area/city/hallway)
 "hq" = (
-/obj/machinery/floor_light/dance/alternate{
+/obj/structure/machinery/floor_light/dance/alternate{
 	color = "#8B0000";
 	light_color = "#8B0000"
 	},
@@ -2220,7 +2220,7 @@
 /turf/simulated/floor/carpet/red,
 /area/city/dining)
 "hy" = (
-/obj/machinery/door/airlock/glass{
+/obj/structure/machinery/door/airlock/glass{
 	dir = 1;
 	locked = 1
 	},
@@ -2230,7 +2230,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/machinery/floor_light/dance/alternate{
+/obj/structure/machinery/floor_light/dance/alternate{
 	default_light_colour = "#300056";
 	color = "#300056";
 	light_color = "#300056"
@@ -2245,7 +2245,7 @@
 /turf/simulated/floor/wood,
 /area/city/bar)
 "hC" = (
-/obj/machinery/door/airlock/multi_tile/glass{
+/obj/structure/machinery/door/airlock/multi_tile/glass{
 	dir = 2
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -2348,7 +2348,7 @@
 /turf/simulated/floor/wood/mahogany,
 /area/city/bar)
 "hP" = (
-/obj/machinery/door/airlock/multi_tile/glass{
+/obj/structure/machinery/door/airlock/multi_tile/glass{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -2406,20 +2406,20 @@
 /turf/simulated/floor/grass,
 /area/city/outside)
 "ia" = (
-/obj/machinery/vending/medical{
+/obj/structure/machinery/vending/medical{
 	pixel_y = -31;
 	req_access = null
 	},
 /obj/effect/floor_decal/corner_wide/green/full{
 	dir = 4
 	},
-/obj/machinery/body_scanconsole{
+/obj/structure/machinery/body_scanconsole{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/city/medical)
 "ic" = (
-/obj/machinery/floor_light/dance/alternate{
+/obj/structure/machinery/floor_light/dance/alternate{
 	color = "#8B0000";
 	light_color = "#8B0000";
 	default_light_colour = "#8B0000"
@@ -2628,7 +2628,7 @@
 /turf/simulated/floor/wood,
 /area/city/costumeroom)
 "iz" = (
-/obj/machinery/media/jukebox/audioconsole/wall{
+/obj/structure/machinery/media/jukebox/audioconsole/wall{
 	pixel_x = 31
 	},
 /turf/simulated/floor/marble/dark,
@@ -2737,7 +2737,7 @@
 /turf/simulated/floor/wood,
 /area/city/hallway)
 "jn" = (
-/obj/machinery/door/airlock/multi_tile/glass{
+/obj/structure/machinery/door/airlock/multi_tile/glass{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/full,
@@ -2780,13 +2780,13 @@
 /turf/simulated/floor/tiled/full,
 /area/city/hallway)
 "ju" = (
-/obj/machinery/door/airlock/multi_tile/glass{
+/obj/structure/machinery/door/airlock/multi_tile/glass{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/full,
 /area/city/pool)
 "jv" = (
-/obj/machinery/light/colored/red,
+/obj/structure/machinery/light/colored/red,
 /obj/effect/floor_decal/spline/plain/brown{
 	dir = 10
 	},
@@ -2803,13 +2803,13 @@
 /area/city/hallway)
 "jy" = (
 /obj/item/trash/can,
-/obj/machinery/light/colored/red{
+/obj/structure/machinery/light/colored/red{
 	pixel_y = -15
 	},
 /turf/simulated/floor/tiled/white,
 /area/city/horrorhouse)
 "jB" = (
-/obj/machinery/vending/cola{
+/obj/structure/machinery/vending/cola{
 	name = "Free Robust Softdrinks";
 	prices = list();
 	pixel_y = 16
@@ -2974,7 +2974,7 @@
 /turf/simulated/floor/grass,
 /area/city/outside)
 "kt" = (
-/obj/machinery/button/remote/airlock{
+/obj/structure/machinery/button/remote/airlock{
 	dir = 4;
 	id = "c4";
 	name = "Door Lock";
@@ -2987,7 +2987,7 @@
 /turf/simulated/floor/wood,
 /area/city/costumeroom)
 "kv" = (
-/obj/machinery/floor_light/dance/alternate{
+/obj/structure/machinery/floor_light/dance/alternate{
 	color = "#8B0000";
 	light_color = "#8B0000"
 	},
@@ -3028,7 +3028,7 @@
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 1
 	},
-/obj/machinery/floor_light/dance/alternate{
+/obj/structure/machinery/floor_light/dance/alternate{
 	color = "#8B0000";
 	light_color = "#8B0000";
 	default_light_colour = "#8B0000"
@@ -3081,7 +3081,7 @@
 "li" = (
 /obj/effect/floor_decal/corner_wide/green/diagonal,
 /obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/machinery/computer/operating,
+/obj/structure/machinery/computer/operating,
 /obj/effect/map_effect/perma_light/brighter,
 /turf/simulated/floor/tiled/white,
 /area/city/medical)
@@ -3125,12 +3125,12 @@
 /turf/simulated/floor/carpet/red,
 /area/city/dining)
 "lt" = (
-/obj/machinery/door/airlock/multi_tile/glass,
+/obj/structure/machinery/door/airlock/multi_tile/glass,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/city/costumeroom)
 "ly" = (
-/obj/machinery/door/blast/regular{
+/obj/structure/machinery/door/blast/regular{
 	dir = 8;
 	name = "Hotel Security";
 	tag = "blast";
@@ -3168,7 +3168,7 @@
 /turf/simulated/floor/wood,
 /area/city/horrorhouse)
 "lJ" = (
-/obj/machinery/appliance/cooker/stove,
+/obj/structure/machinery/appliance/cooker/stove,
 /turf/simulated/floor/carpet/rubber,
 /area/city/kitchen)
 "lK" = (
@@ -3182,7 +3182,7 @@
 /area/city/outside)
 "lN" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/hydroponics{
+/obj/structure/machinery/portable_atmospherics/hydroponics{
 	pixel_y = 9
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -3409,11 +3409,11 @@
 /turf/simulated/floor/beach/water/pool,
 /area/city/pool)
 "om" = (
-/obj/machinery/vending/tacticool/ert,
+/obj/structure/machinery/vending/tacticool/ert,
 /turf/simulated/floor/tiled/full,
 /area/city/security)
 "op" = (
-/obj/machinery/door/airlock/multi_tile/glass{
+/obj/structure/machinery/door/airlock/multi_tile/glass{
 	dir = 1;
 	name = "Community Garden"
 	},
@@ -3433,7 +3433,7 @@
 	icon_state = "cocoon_large1";
 	name = "Large Cocoon"
 	},
-/obj/machinery/atm{
+/obj/structure/machinery/atm{
 	dir = 1;
 	pixel_y = 32
 	},
@@ -3467,11 +3467,11 @@
 /turf/simulated/floor/carpet/red,
 /area/city/bar)
 "oy" = (
-/obj/machinery/floor_light/dance/alternate{
+/obj/structure/machinery/floor_light/dance/alternate{
 	color = "#8B0000";
 	light_color = "#8B0000"
 	},
-/obj/machinery/button/switch/windowtint{
+/obj/structure/machinery/button/switch/windowtint{
 	dir = 1;
 	pixel_y = 24;
 	id = "tint2"
@@ -3487,7 +3487,7 @@
 /area/city/horrorhouse)
 "oD" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/airlock/multi_tile/glass,
+/obj/structure/machinery/door/airlock/multi_tile/glass,
 /turf/simulated/floor/tiled/full,
 /area/city/pool)
 "oF" = (
@@ -3512,7 +3512,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/machinery/floor_light/dance/alternate{
+/obj/structure/machinery/floor_light/dance/alternate{
 	default_light_colour = "#300056";
 	color = "#300056";
 	light_color = "#300056"
@@ -3567,7 +3567,7 @@
 /turf/simulated/floor/marble/dark,
 /area/city/bar)
 "pe" = (
-/obj/machinery/floor_light/dance/alternate{
+/obj/structure/machinery/floor_light/dance/alternate{
 	default_light_colour = "#6350c5";
 	color = "#400000";
 	light_color = "#400000"
@@ -3682,7 +3682,7 @@
 	color = "#300056";
 	light_color = "#300056"
 	},
-/obj/machinery/floor_light/dance/alternate{
+/obj/structure/machinery/floor_light/dance/alternate{
 	default_light_colour = "#300056";
 	light_color = "#d400ff";
 	color = "#d400ff"
@@ -3715,7 +3715,7 @@
 	color = "#300056";
 	light_color = "#300056"
 	},
-/obj/machinery/floor_light/dance/alternate{
+/obj/structure/machinery/floor_light/dance/alternate{
 	default_light_colour = "#300056";
 	color = "#6350c5";
 	light_color = "#6350c5"
@@ -3819,12 +3819,12 @@
 /turf/simulated/floor/wood,
 /area/city/horrorhouse)
 "qz" = (
-/obj/machinery/floor_light/dance/alternate{
+/obj/structure/machinery/floor_light/dance/alternate{
 	default_light_colour = "#300056";
 	color = "#6350c5";
 	light_color = "#6350c5"
 	},
-/obj/machinery/button/switch/windowtint{
+/obj/structure/machinery/button/switch/windowtint{
 	dir = 1;
 	pixel_y = 24;
 	id = "tint1"
@@ -3998,7 +3998,7 @@
 /turf/simulated/floor/tiled/white,
 /area/city/medical)
 "qV" = (
-/obj/machinery/door/airlock/multi_tile/glass,
+/obj/structure/machinery/door/airlock/multi_tile/glass,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/full,
 /area/city/pool)
@@ -4119,7 +4119,7 @@
 	color = "#d400ff";
 	light_color = "#d400ff"
 	},
-/obj/machinery/floor_light/dance/alternate{
+/obj/structure/machinery/floor_light/dance/alternate{
 	default_light_colour = "#300056";
 	color = "#6350c5";
 	light_color = "#6350c5"
@@ -4355,7 +4355,7 @@
 /turf/simulated/floor/grass,
 /area/city/hallway)
 "rZ" = (
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	name = "Changing Room";
 	id_tag = "c1"
 	},
@@ -4370,7 +4370,7 @@
 /area/city/bar)
 "sg" = (
 /obj/structure/platform,
-/obj/machinery/media/jukebox/audioconsole{
+/obj/structure/machinery/media/jukebox/audioconsole{
 	pixel_x = -14;
 	anchored = 1;
 	density = 0
@@ -4409,7 +4409,7 @@
 /turf/simulated/floor/carpet/red,
 /area/city/bar)
 "sr" = (
-/obj/machinery/recharge_station,
+/obj/structure/machinery/recharge_station,
 /turf/simulated/floor/tiled/full,
 /area/city/hallway)
 "sw" = (
@@ -4421,7 +4421,7 @@
 /turf/simulated/floor/tiled/white,
 /area/city/pool)
 "sC" = (
-/obj/machinery/atm{
+/obj/structure/machinery/atm{
 	dir = 4;
 	pixel_y = 32;
 	pixel_x = 21
@@ -4449,7 +4449,7 @@
 	dir = 9;
 	color = "#400000"
 	},
-/obj/machinery/disposal/small{
+/obj/structure/machinery/disposal/small{
 	dir = 4;
 	pixel_x = -17
 	},
@@ -4468,7 +4468,7 @@
 /turf/simulated/floor/carpet/red,
 /area/city/dining)
 "sM" = (
-/obj/machinery/disposal/small{
+/obj/structure/machinery/disposal/small{
 	dir = 4;
 	pixel_x = -15;
 	pixel_y = -9
@@ -4552,7 +4552,7 @@
 /turf/simulated/floor/wood,
 /area/city/hallway)
 "te" = (
-/obj/machinery/floor_light/dance/alternate{
+/obj/structure/machinery/floor_light/dance/alternate{
 	color = "#8B0000";
 	light_color = "#8B0000";
 	default_light_colour = "#8B0000"
@@ -4629,7 +4629,7 @@
 /turf/simulated/floor/tiled,
 /area/city/horrorhouse)
 "tz" = (
-/obj/machinery/door/airlock/multi_tile/glass,
+/obj/structure/machinery/door/airlock/multi_tile/glass,
 /turf/simulated/floor/tiled/full,
 /area/city/kitchen)
 "tB" = (
@@ -4662,7 +4662,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/city/port)
 "tI" = (
-/obj/machinery/door/airlock/glass_medical{
+/obj/structure/machinery/door/airlock/glass_medical{
 	dir = 1;
 	name = "Medical"
 	},
@@ -4674,7 +4674,7 @@
 /turf/simulated/floor/wood,
 /area/city/outside)
 "tL" = (
-/obj/machinery/door/airlock/glass_medical{
+/obj/structure/machinery/door/airlock/glass_medical{
 	dir = 1;
 	name = "Medical"
 	},
@@ -4706,7 +4706,7 @@
 /turf/simulated/floor/marble/dark,
 /area/city/security)
 "tS" = (
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	name = "Changing Room";
 	id_tag = "c4"
 	},
@@ -4761,7 +4761,7 @@
 /obj/item/toy/balloon/ghost{
 	color = "#6350c5"
 	},
-/obj/machinery/disposal/small{
+/obj/structure/machinery/disposal/small{
 	pixel_y = 18
 	},
 /turf/simulated/floor/marble/dark,
@@ -5035,7 +5035,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/city/kitchen)
 "vg" = (
-/obj/machinery/door/airlock/multi_tile/glass{
+/obj/structure/machinery/door/airlock/multi_tile/glass{
 	dir = 1;
 	name = "Community Garden"
 	},
@@ -5071,7 +5071,7 @@
 /turf/simulated/floor/wood/mahogany,
 /area/city/pool)
 "vp" = (
-/obj/machinery/vending/security,
+/obj/structure/machinery/vending/security,
 /turf/simulated/floor/tiled/full,
 /area/city/security)
 "vq" = (
@@ -5081,7 +5081,7 @@
 /turf/simulated/floor/tiled/full,
 /area/city/outside)
 "vs" = (
-/obj/machinery/button/remote/airlock{
+/obj/structure/machinery/button/remote/airlock{
 	dir = 4;
 	id = "c1";
 	name = "Door Lock";
@@ -5132,7 +5132,7 @@
 /turf/simulated/floor/wood,
 /area/city/bar)
 "vD" = (
-/obj/machinery/appliance/cooker/oven,
+/obj/structure/machinery/appliance/cooker/oven,
 /turf/simulated/floor/tiled/white,
 /area/city/horrorhouse)
 "vF" = (
@@ -5146,7 +5146,7 @@
 /turf/simulated/floor/tiled/white,
 /area/city/pool)
 "vI" = (
-/obj/machinery/atm{
+/obj/structure/machinery/atm{
 	dir = 1;
 	pixel_y = 32
 	},
@@ -5636,7 +5636,7 @@
 /turf/simulated/floor/tiled/full,
 /area/city/outside)
 "wh" = (
-/obj/machinery/sleeper{
+/obj/structure/machinery/sleeper{
 	dir = 4
 	},
 /obj/effect/map_effect/perma_light/brighter,
@@ -5650,12 +5650,12 @@
 /turf/simulated/floor/concrete,
 /area/city/hallway)
 "wm" = (
-/obj/machinery/floor_light/dance/alternate{
+/obj/structure/machinery/floor_light/dance/alternate{
 	default_light_colour = "#300056";
 	light_color = "#d400ff";
 	color = "#d400ff"
 	},
-/obj/machinery/media/jukebox/audioconsole/wall{
+/obj/structure/machinery/media/jukebox/audioconsole/wall{
 	pixel_y = 33
 	},
 /turf/simulated/floor/tiled/dark,
@@ -5672,7 +5672,7 @@
 /obj/effect/floor_decal/corner_wide/green/full{
 	dir = 8
 	},
-/obj/machinery/iv_drip,
+/obj/structure/machinery/iv_drip,
 /obj/effect/map_effect/perma_light/brighter,
 /turf/simulated/floor/tiled/white,
 /area/city/medical)
@@ -5680,7 +5680,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/machinery/floor_light/dance/alternate{
+/obj/structure/machinery/floor_light/dance/alternate{
 	default_light_colour = "#300056";
 	light_color = "#d400ff";
 	color = "#d400ff"
@@ -5795,7 +5795,7 @@
 /turf/simulated/floor/marble/dark,
 /area/city/bar)
 "xh" = (
-/obj/machinery/bodyscanner{
+/obj/structure/machinery/bodyscanner{
 	dir = 8
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -5847,7 +5847,7 @@
 /turf/simulated/floor/wood,
 /area/city/dining)
 "xs" = (
-/obj/machinery/biogenerator{
+/obj/structure/machinery/biogenerator{
 	icon_state = "biogen-empty"
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -5961,7 +5961,7 @@
 /turf/simulated/floor/wood,
 /area/city/horrorhouse)
 "xW" = (
-/obj/machinery/cryopod/living_quarters{
+/obj/structure/machinery/cryopod/living_quarters{
 	pixel_y = 1
 	},
 /obj/effect/map_effect/perma_light/brighter,
@@ -6058,7 +6058,7 @@
 /turf/simulated/floor/marble/dark,
 /area/city/costumeroom)
 "yH" = (
-/obj/machinery/vending/cigarette/hacked{
+/obj/structure/machinery/vending/cigarette/hacked{
 	pixel_y = 15;
 	pixel_x = -5;
 	density = 0
@@ -6077,12 +6077,12 @@
 /turf/simulated/floor/tiled/white,
 /area/city/horrorhouse)
 "yQ" = (
-/obj/machinery/vending/medical{
+/obj/structure/machinery/vending/medical{
 	pixel_y = -31;
 	req_access = null
 	},
 /obj/effect/floor_decal/corner_wide/green/full,
-/obj/machinery/body_scanconsole{
+/obj/structure/machinery/body_scanconsole{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
@@ -6214,7 +6214,7 @@
 	},
 /area/city/horrorhouse)
 "zJ" = (
-/obj/machinery/atm{
+/obj/structure/machinery/atm{
 	dir = 1;
 	pixel_y = 32
 	},
@@ -6343,7 +6343,7 @@
 /area/city/horrorhouse)
 "Ao" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/machinery/optable,
+/obj/structure/machinery/optable,
 /turf/simulated/floor/tiled/white,
 /area/city/medical)
 "Ar" = (
@@ -6433,7 +6433,7 @@
 /obj/structure/bed/stool/chair/padded/red{
 	dir = 4
 	},
-/obj/machinery/media/jukebox/audioconsole/wall{
+/obj/structure/machinery/media/jukebox/audioconsole/wall{
 	pixel_x = 1;
 	pixel_y = 31
 	},
@@ -6458,7 +6458,7 @@
 /turf/simulated/floor/wood,
 /area/city/costumeroom)
 "AP" = (
-/obj/machinery/floor_light/dance/alternate{
+/obj/structure/machinery/floor_light/dance/alternate{
 	default_light_colour = "#300056";
 	light_color = "#d400ff";
 	color = "#d400ff"
@@ -6548,7 +6548,7 @@
 /area/city/pool)
 "Bg" = (
 /obj/structure/table/stone/marble,
-/obj/machinery/reagentgrinder{
+/obj/structure/machinery/reagentgrinder{
 	pixel_x = 4;
 	pixel_y = 16
 	},
@@ -6583,7 +6583,7 @@
 /obj/item/toy/balloon/ghost{
 	color = "#d400ff"
 	},
-/obj/machinery/floor_light/dance/alternate{
+/obj/structure/machinery/floor_light/dance/alternate{
 	default_light_colour = "#300056";
 	color = "#6350c5";
 	light_color = "#6350c5"
@@ -6614,7 +6614,7 @@
 /turf/simulated/floor/carpet/red,
 /area/city/dining)
 "BA" = (
-/obj/machinery/appliance/cooker/grill,
+/obj/structure/machinery/appliance/cooker/grill,
 /turf/simulated/floor/tiled/white,
 /area/city/horrorhouse)
 "BB" = (
@@ -6711,7 +6711,7 @@
 /turf/simulated/floor/carpet/red,
 /area/city/dining)
 "BY" = (
-/obj/machinery/floor_light/dance/alternate{
+/obj/structure/machinery/floor_light/dance/alternate{
 	default_light_colour = "#6350c5";
 	color = "#400000";
 	light_color = "#400000"
@@ -6762,7 +6762,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
 	},
-/obj/machinery/atm{
+/obj/structure/machinery/atm{
 	dir = 1;
 	pixel_y = 32
 	},
@@ -6789,7 +6789,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/city/medical)
 "Co" = (
-/obj/machinery/button/remote/airlock{
+/obj/structure/machinery/button/remote/airlock{
 	dir = 4;
 	id = "c6";
 	name = "Door Lock";
@@ -6860,16 +6860,16 @@
 /turf/simulated/floor/grass,
 /area/city/hallway)
 "CN" = (
-/obj/machinery/iv_drip,
-/obj/machinery/iv_drip,
-/obj/machinery/iv_drip,
-/obj/machinery/iv_drip,
-/obj/machinery/iv_drip,
-/obj/machinery/iv_drip,
-/obj/machinery/iv_drip,
-/obj/machinery/iv_drip,
-/obj/machinery/iv_drip,
-/obj/machinery/iv_drip,
+/obj/structure/machinery/iv_drip,
+/obj/structure/machinery/iv_drip,
+/obj/structure/machinery/iv_drip,
+/obj/structure/machinery/iv_drip,
+/obj/structure/machinery/iv_drip,
+/obj/structure/machinery/iv_drip,
+/obj/structure/machinery/iv_drip,
+/obj/structure/machinery/iv_drip,
+/obj/structure/machinery/iv_drip,
+/obj/structure/machinery/iv_drip,
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/city/medical)
@@ -6935,7 +6935,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/machinery/floor_light/dance/alternate{
+/obj/structure/machinery/floor_light/dance/alternate{
 	default_light_colour = "#300056";
 	light_color = "#d400ff";
 	color = "#d400ff"
@@ -6943,7 +6943,7 @@
 /turf/simulated/floor/marble/dark,
 /area/city/bar)
 "CY" = (
-/obj/machinery/door/airlock/glass_service{
+/obj/structure/machinery/door/airlock/glass_service{
 	dir = 1;
 	name = "Kitchen"
 	},
@@ -6954,7 +6954,7 @@
 	color = "#d400ff";
 	light_color = "#d400ff"
 	},
-/obj/machinery/media/jukebox/audioconsole/wall{
+/obj/structure/machinery/media/jukebox/audioconsole/wall{
 	pixel_x = 1;
 	pixel_y = -29
 	},
@@ -7063,7 +7063,7 @@
 /turf/simulated/floor/tiled,
 /area/city/outside)
 "Dw" = (
-/obj/machinery/atm{
+/obj/structure/machinery/atm{
 	dir = 1;
 	pixel_y = 32
 	},
@@ -7074,7 +7074,7 @@
 /area/city/kitchen)
 "DA" = (
 /obj/structure/table/stone/marble,
-/obj/machinery/chemical_dispenser/bar_soft/full{
+/obj/structure/machinery/chemical_dispenser/bar_soft/full{
 	pixel_x = -2;
 	dir = 1
 	},
@@ -7082,7 +7082,7 @@
 /area/city/bar)
 "DD" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/appliance/cooker/oven,
+/obj/structure/machinery/appliance/cooker/oven,
 /turf/simulated/floor/carpet/rubber,
 /area/city/kitchen)
 "DE" = (
@@ -7143,7 +7143,7 @@
 /turf/simulated/floor/grass,
 /area/city/outside)
 "DS" = (
-/obj/machinery/media/jukebox/audioconsole{
+/obj/structure/machinery/media/jukebox/audioconsole{
 	pixel_x = -1;
 	anchored = 1
 	},
@@ -7184,7 +7184,7 @@
 /area/city/hallway)
 "Eh" = (
 /obj/structure/table/stone/marble,
-/obj/machinery/chemical_dispenser/bar_alc/full{
+/obj/structure/machinery/chemical_dispenser/bar_alc/full{
 	pixel_x = -1;
 	pixel_y = 16
 	},
@@ -7202,7 +7202,7 @@
 /obj/structure/railing/fence{
 	dir = 8
 	},
-/obj/machinery/vending/battlemonsters{
+/obj/structure/machinery/vending/battlemonsters{
 	pixel_y = 9
 	},
 /turf/simulated/floor/tiled/red,
@@ -7894,7 +7894,7 @@
 /turf/simulated/floor/marble/dark,
 /area/city/bar)
 "Fi" = (
-/obj/machinery/door/airlock/multi_tile/glass{
+/obj/structure/machinery/door/airlock/multi_tile/glass{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -7946,7 +7946,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/machinery/floor_light/dance/alternate{
+/obj/structure/machinery/floor_light/dance/alternate{
 	default_light_colour = "#6350c5";
 	color = "#400000";
 	light_color = "#400000"
@@ -7974,7 +7974,7 @@
 	},
 /area/city/bar)
 "FJ" = (
-/obj/machinery/door/airlock/freezer{
+/obj/structure/machinery/door/airlock/freezer{
 	dir = 4;
 	name = "Freezer"
 	},
@@ -7999,7 +7999,7 @@
 /obj/structure/rod_railing{
 	dir = 10
 	},
-/obj/machinery/vending/snack{
+/obj/structure/machinery/vending/snack{
 	name = "Free Chocolate Corp";
 	prices = list()
 	},
@@ -8013,7 +8013,7 @@
 /turf/simulated/floor/tiled,
 /area/city/horrorhouse)
 "FV" = (
-/obj/machinery/vending/boozeomat{
+/obj/structure/machinery/vending/boozeomat{
 	opacity = 1;
 	req_access = null
 	},
@@ -8049,7 +8049,7 @@
 /turf/simulated/floor/marble/dark,
 /area/city/bar)
 "Gg" = (
-/obj/machinery/floor_light/dance/alternate{
+/obj/structure/machinery/floor_light/dance/alternate{
 	default_light_colour = "#300056";
 	color = "#6350c5";
 	light_color = "#6350c5"
@@ -8205,7 +8205,7 @@
 /area/city/pool)
 "GO" = (
 /obj/structure/railing/mapped,
-/obj/machinery/media/jukebox/audioconsole{
+/obj/structure/machinery/media/jukebox/audioconsole{
 	pixel_x = -1;
 	anchored = 1
 	},
@@ -8214,7 +8214,7 @@
 "GP" = (
 /obj/effect/floor_decal/corner_wide/green/diagonal,
 /obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/machinery/optable,
+/obj/structure/machinery/optable,
 /obj/effect/map_effect/perma_light/brighter,
 /turf/simulated/floor/tiled/white,
 /area/city/medical)
@@ -8340,7 +8340,7 @@
 /turf/simulated/floor/tiled/full,
 /area/city/hallway)
 "Hr" = (
-/obj/machinery/floor_light/dance/alternate{
+/obj/structure/machinery/floor_light/dance/alternate{
 	default_light_colour = "#300056";
 	light_color = "#d400ff";
 	color = "#d400ff"
@@ -8385,7 +8385,7 @@
 	},
 /area/city/kitchen)
 "HF" = (
-/obj/machinery/door/airlock/multi_tile/glass,
+/obj/structure/machinery/door/airlock/multi_tile/glass,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/city/bar)
@@ -8413,13 +8413,13 @@
 /turf/simulated/floor/wood,
 /area/city/hallway)
 "HJ" = (
-/obj/machinery/vending/dinnerware{
+/obj/structure/machinery/vending/dinnerware{
 	density = 0
 	},
 /turf/simulated/floor/carpet,
 /area/city/bar)
 "HK" = (
-/obj/machinery/portable_atmospherics/hydroponics{
+/obj/structure/machinery/portable_atmospherics/hydroponics{
 	pixel_y = 9
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -8503,7 +8503,7 @@
 /area/city/bar)
 "Ib" = (
 /obj/structure/table/stone/marble,
-/obj/machinery/chemical_dispenser/bar_soft/full{
+/obj/structure/machinery/chemical_dispenser/bar_soft/full{
 	pixel_x = -8;
 	pixel_y = 16
 	},
@@ -8560,7 +8560,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/machinery/floor_light/dance/alternate{
+/obj/structure/machinery/floor_light/dance/alternate{
 	default_light_colour = "#300056";
 	color = "#6350c5";
 	light_color = "#6350c5"
@@ -8623,7 +8623,7 @@
 /turf/simulated/floor/tiled,
 /area/city/costumeroom)
 "IF" = (
-/obj/machinery/computer/cryopod/living_quarters{
+/obj/structure/machinery/computer/cryopod/living_quarters{
 	pixel_y = 26
 	},
 /turf/simulated/floor/tiled,
@@ -8751,7 +8751,7 @@
 /area/city/costumeroom)
 "IM" = (
 /obj/structure/platform,
-/obj/machinery/disposal/small{
+/obj/structure/machinery/disposal/small{
 	dir = 4;
 	pixel_x = -15;
 	pixel_y = -9
@@ -8759,7 +8759,7 @@
 /turf/simulated/floor/concrete,
 /area/city/horrorhouse)
 "IR" = (
-/obj/machinery/floor_light/dance/alternate{
+/obj/structure/machinery/floor_light/dance/alternate{
 	default_light_colour = "#6350c5";
 	color = "#400000";
 	light_color = "#400000"
@@ -8767,19 +8767,19 @@
 /turf/simulated/floor/marble/dark,
 /area/city/bar)
 "IS" = (
-/obj/machinery/floor_light/dance/alternate{
+/obj/structure/machinery/floor_light/dance/alternate{
 	default_light_colour = "#6350c5";
 	color = "#400000";
 	light_color = "#400000"
 	},
-/obj/machinery/media/jukebox/audioconsole/wall{
+/obj/structure/machinery/media/jukebox/audioconsole/wall{
 	pixel_y = 33
 	},
 /turf/simulated/floor/tiled/dark,
 /area/city/bar)
 "IT" = (
 /obj/effect/map_effect/perma_light/brighter,
-/obj/machinery/vending/dinnerware{
+/obj/structure/machinery/vending/dinnerware{
 	density = 0
 	},
 /turf/simulated/floor/carpet,
@@ -8854,7 +8854,7 @@
 /area/city/horrorhouse)
 "Jy" = (
 /obj/structure/platform,
-/obj/machinery/disposal/small{
+/obj/structure/machinery/disposal/small{
 	dir = 4;
 	pixel_x = -15;
 	pixel_y = -9
@@ -8939,7 +8939,7 @@
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 10
 	},
-/obj/machinery/bodyscanner{
+/obj/structure/machinery/bodyscanner{
 	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -8972,7 +8972,7 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/obj/machinery/computer/arcade/battle,
+/obj/structure/machinery/computer/arcade/battle,
 /turf/simulated/floor/wood,
 /area/city/outside)
 "Ka" = (
@@ -9028,7 +9028,7 @@
 	},
 /area/city/horrorhouse)
 "Kh" = (
-/obj/machinery/floor_light/dance/alternate{
+/obj/structure/machinery/floor_light/dance/alternate{
 	default_light_colour = "#300056";
 	color = "#6350c5";
 	light_color = "#6350c5"
@@ -9131,7 +9131,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/machinery/floor_light/dance/alternate{
+/obj/structure/machinery/floor_light/dance/alternate{
 	default_light_colour = "#300056";
 	color = "#6350c5";
 	light_color = "#6350c5"
@@ -9146,13 +9146,13 @@
 	dir = 5;
 	color = "#400000"
 	},
-/obj/machinery/disposal/small{
+/obj/structure/machinery/disposal/small{
 	pixel_y = 18
 	},
 /turf/simulated/floor/marble/dark,
 /area/city/bar)
 "KD" = (
-/obj/machinery/floor_light/dance/alternate{
+/obj/structure/machinery/floor_light/dance/alternate{
 	default_light_colour = "#300056";
 	light_color = "#d400ff";
 	color = "#d400ff"
@@ -9279,7 +9279,7 @@
 /area/city/kitchen)
 "La" = (
 /obj/structure/table/stone/marble,
-/obj/machinery/chemical_dispenser/bar_alc/full{
+/obj/structure/machinery/chemical_dispenser/bar_alc/full{
 	pixel_x = -1;
 	pixel_y = -1;
 	dir = 1
@@ -9320,7 +9320,7 @@
 /turf/simulated/floor/tiled/full,
 /area/city/pool)
 "Lk" = (
-/obj/machinery/atm{
+/obj/structure/machinery/atm{
 	dir = 1;
 	pixel_y = 32
 	},
@@ -9440,7 +9440,7 @@
 /turf/simulated/floor/wood,
 /area/city/outside)
 "Mf" = (
-/obj/machinery/vending/cola{
+/obj/structure/machinery/vending/cola{
 	name = "Free Robust Softdrinks";
 	prices = list();
 	pixel_y = 16
@@ -9448,7 +9448,7 @@
 /turf/simulated/floor/tiled/full,
 /area/city/hallway)
 "Mg" = (
-/obj/machinery/floor_light/dance/alternate{
+/obj/structure/machinery/floor_light/dance/alternate{
 	default_light_colour = "#300056";
 	color = "#811e73";
 	light_color = "#811e73"
@@ -9476,7 +9476,7 @@
 /turf/simulated/floor/wood,
 /area/city/dining)
 "Mv" = (
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	name = "Changing Room";
 	id_tag = "c6"
 	},
@@ -9487,7 +9487,7 @@
 /turf/simulated/floor/tiled,
 /area/city/port)
 "My" = (
-/obj/machinery/door/airlock/multi_tile/glass,
+/obj/structure/machinery/door/airlock/multi_tile/glass,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/full,
 /area/city/bar)
@@ -9564,7 +9564,7 @@
 /turf/simulated/floor/marble/dark,
 /area/city/bar)
 "MO" = (
-/obj/machinery/door/airlock/multi_tile/glass,
+/obj/structure/machinery/door/airlock/multi_tile/glass,
 /turf/simulated/floor/tiled/full,
 /area/city/dining)
 "MP" = (
@@ -9834,7 +9834,7 @@
 /area/city/hallway)
 "NV" = (
 /obj/structure/railing/mapped,
-/obj/machinery/floor_light/dance/alternate{
+/obj/structure/machinery/floor_light/dance/alternate{
 	default_light_colour = "#300056";
 	color = "#300056";
 	light_color = "#300056"
@@ -9848,7 +9848,7 @@
 /turf/simulated/floor/beach/water/pool,
 /area/city/hallway)
 "Oa" = (
-/obj/machinery/cryopod/living_quarters{
+/obj/structure/machinery/cryopod/living_quarters{
 	pixel_y = 1
 	},
 /turf/simulated/floor/tiled,
@@ -9973,7 +9973,7 @@
 	dir = 8
 	},
 /obj/structure/railing/mapped,
-/obj/machinery/vending/cigarette/hacked,
+/obj/structure/machinery/vending/cigarette/hacked,
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 6
 	},
@@ -10053,7 +10053,7 @@
 /turf/simulated/floor/carpet/red,
 /area/city/dining)
 "ON" = (
-/obj/machinery/honey_extractor{
+/obj/structure/machinery/honey_extractor{
 	density = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -10095,7 +10095,7 @@
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 5
 	},
-/obj/machinery/disposal/small{
+/obj/structure/machinery/disposal/small{
 	pixel_y = 18
 	},
 /turf/simulated/floor/tiled,
@@ -10157,7 +10157,7 @@
 /turf/simulated/floor/wood,
 /area/city/hallway)
 "Pl" = (
-/obj/machinery/floor_light/dance/alternate{
+/obj/structure/machinery/floor_light/dance/alternate{
 	default_light_colour = "#6350c5";
 	color = "#400000";
 	light_color = "#400000"
@@ -10285,7 +10285,7 @@
 /area/city/medical)
 "PS" = (
 /obj/structure/table/stone/marble,
-/obj/machinery/chemical_dispenser/coffeemaster/full{
+/obj/structure/machinery/chemical_dispenser/coffeemaster/full{
 	pixel_x = -16;
 	pixel_y = 16
 	},
@@ -10510,7 +10510,7 @@
 /turf/simulated/floor/wood,
 /area/city/outside)
 "Qp" = (
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	dir = 4;
 	id = "blast1";
 	name = "Blast Doors";
@@ -10564,14 +10564,14 @@
 	color = "#811e73";
 	light_color = "#811e73"
 	},
-/obj/machinery/media/jukebox/audioconsole{
+/obj/structure/machinery/media/jukebox/audioconsole{
 	pixel_x = -1;
 	anchored = 1
 	},
 /turf/simulated/floor/marble/dark,
 /area/city/bar)
 "Qy" = (
-/obj/machinery/door/airlock/multi_tile/glass{
+/obj/structure/machinery/door/airlock/multi_tile/glass{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -10903,7 +10903,7 @@
 /turf/simulated/floor/wood,
 /area/city/costumeroom)
 "Rs" = (
-/obj/machinery/light/colored/red{
+/obj/structure/machinery/light/colored/red{
 	dir = 4;
 	pixel_y = 15
 	},
@@ -11046,7 +11046,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
 	},
-/obj/machinery/disposal/small{
+/obj/structure/machinery/disposal/small{
 	pixel_y = 18
 	},
 /turf/simulated/floor/wood,
@@ -11060,7 +11060,7 @@
 /turf/simulated/floor/grass,
 /area/city/hallway)
 "RM" = (
-/obj/machinery/door/airlock/multi_tile/glass,
+/obj/structure/machinery/door/airlock/multi_tile/glass,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/city/outside)
@@ -11526,7 +11526,7 @@
 /area/city/costumeroom)
 "Sl" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/airlock/multi_tile/glass,
+/obj/structure/machinery/door/airlock/multi_tile/glass,
 /turf/simulated/floor/tiled,
 /area/city/costumeroom)
 "Sm" = (
@@ -11576,7 +11576,7 @@
 /turf/simulated/floor/carpet/red,
 /area/city/dining)
 "Ss" = (
-/obj/machinery/vending/coffee/free{
+/obj/structure/machinery/vending/coffee/free{
 	pixel_y = 16;
 	density = 0
 	},
@@ -11595,7 +11595,7 @@
 /turf/simulated/floor/carpet/red,
 /area/city/bar)
 "Sw" = (
-/obj/machinery/icecream_vat,
+/obj/structure/machinery/icecream_vat,
 /turf/simulated/floor/lino,
 /area/city/kitchen)
 "Sy" = (
@@ -11643,7 +11643,7 @@
 /turf/simulated/floor/tiled/full,
 /area/city/outside)
 "SK" = (
-/obj/machinery/vending/snack{
+/obj/structure/machinery/vending/snack{
 	name = "Free Chocolate Corp";
 	prices = list()
 	},
@@ -11694,7 +11694,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/machinery/floor_light/dance/alternate{
+/obj/structure/machinery/floor_light/dance/alternate{
 	color = "#8B0000";
 	light_color = "#8B0000"
 	},
@@ -11714,7 +11714,7 @@
 /turf/simulated/floor/beach/water/pool,
 /area/city/hallway)
 "Tg" = (
-/obj/machinery/door/airlock/glass_security{
+/obj/structure/machinery/door/airlock/glass_security{
 	dir = 1;
 	id_tag = "BrigFoyer";
 	name = "Security Wing";
@@ -11746,7 +11746,7 @@
 /obj/structure/railing/fence{
 	dir = 4
 	},
-/obj/machinery/floor_light/dance/alternate{
+/obj/structure/machinery/floor_light/dance/alternate{
 	color = "#8B0000";
 	light_color = "#8B0000";
 	default_light_colour = "#8B0000"
@@ -11778,7 +11778,7 @@
 /turf/simulated/floor/carpet/red,
 /area/city/dining)
 "Tv" = (
-/obj/machinery/floor_light/dance/alternate{
+/obj/structure/machinery/floor_light/dance/alternate{
 	default_light_colour = "#300056";
 	color = "#300056";
 	light_color = "#300056"
@@ -11786,7 +11786,7 @@
 /turf/simulated/floor/tiled/full,
 /area/city/bar)
 "Tz" = (
-/obj/machinery/media/jukebox/audioconsole{
+/obj/structure/machinery/media/jukebox/audioconsole{
 	anchored = 1
 	},
 /obj/effect/floor_decal/spline/plain/cee/blue,
@@ -11839,7 +11839,7 @@
 /turf/simulated/floor/grass,
 /area/city/hallway)
 "TR" = (
-/obj/machinery/vending/boozeomat{
+/obj/structure/machinery/vending/boozeomat{
 	opacity = 1;
 	req_access = null;
 	pixel_y = 18
@@ -12171,12 +12171,12 @@
 /turf/simulated/floor/marble/dark,
 /area/city/bar)
 "Vm" = (
-/obj/machinery/button/switch/windowtint{
+/obj/structure/machinery/button/switch/windowtint{
 	dir = 1;
 	pixel_y = 24;
 	id = "tint3"
 	},
-/obj/machinery/floor_light/dance/alternate{
+/obj/structure/machinery/floor_light/dance/alternate{
 	default_light_colour = "#300056";
 	color = "#300056";
 	light_color = "#300056"
@@ -12267,7 +12267,7 @@
 /turf/simulated/floor/carpet/red,
 /area/city/dining)
 "VH" = (
-/obj/machinery/vending/snack{
+/obj/structure/machinery/vending/snack{
 	pixel_y = 16
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -12290,7 +12290,7 @@
 /area/city/pool)
 "VK" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/airlock/multi_tile/glass{
+/obj/structure/machinery/door/airlock/multi_tile/glass{
 	dir = 2
 	},
 /turf/simulated/floor/tiled,
@@ -12311,7 +12311,7 @@
 /turf/simulated/floor/grass,
 /area/city/outside)
 "VY" = (
-/obj/machinery/computer/arcade/orion_trail,
+/obj/structure/machinery/computer/arcade/orion_trail,
 /obj/structure/railing/mapped{
 	dir = 1
 	},
@@ -12463,7 +12463,7 @@
 /turf/simulated/floor/wood,
 /area/city/costumeroom)
 "WU" = (
-/obj/machinery/disposal/small{
+/obj/structure/machinery/disposal/small{
 	pixel_y = 18
 	},
 /turf/simulated/floor/tiled/full,
@@ -12770,7 +12770,7 @@
 /turf/simulated/floor/wood,
 /area/city/costumeroom)
 "Xm" = (
-/obj/machinery/vending/boozeomat{
+/obj/structure/machinery/vending/boozeomat{
 	opacity = 1;
 	req_access = null
 	},
@@ -12798,7 +12798,7 @@
 /turf/simulated/floor/tiled/full,
 /area/city/kitchen)
 "Xx" = (
-/obj/machinery/vending/snack{
+/obj/structure/machinery/vending/snack{
 	pixel_y = 16
 	},
 /turf/simulated/floor/tiled/full,
@@ -12839,7 +12839,7 @@
 /turf/simulated/floor/tiled,
 /area/city/hallway)
 "XG" = (
-/obj/machinery/light/colored/red{
+/obj/structure/machinery/light/colored/red{
 	pixel_y = -15
 	},
 /turf/simulated/floor/wood,
@@ -13174,7 +13174,7 @@
 /area/city/hallway)
 "Yp" = (
 /obj/structure/railing/mapped,
-/obj/machinery/floor_light/dance/alternate{
+/obj/structure/machinery/floor_light/dance/alternate{
 	color = "#8B0000";
 	light_color = "#8B0000";
 	default_light_colour = "#8B0000"
@@ -13255,7 +13255,7 @@
 /turf/simulated/floor/concrete,
 /area/city/outside)
 "YQ" = (
-/obj/machinery/light/colored/red{
+/obj/structure/machinery/light/colored/red{
 	dir = 1;
 	pixel_y = 15
 	},
@@ -13513,7 +13513,7 @@
 /turf/simulated/floor/tiled,
 /area/city/port)
 "ZF" = (
-/obj/machinery/recharge_station,
+/obj/structure/machinery/recharge_station,
 /turf/simulated/floor/carpet/rubber,
 /area/city/hallway)
 "ZK" = (
@@ -13639,7 +13639,7 @@
 /turf/simulated/floor/marble/dark,
 /area/city/bar)
 "ZU" = (
-/obj/machinery/media/jukebox/audioconsole{
+/obj/structure/machinery/media/jukebox/audioconsole{
 	pixel_x = -1;
 	anchored = 1;
 	pixel_y = 7

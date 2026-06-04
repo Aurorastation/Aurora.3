@@ -10,7 +10,7 @@
 	icon = 'icons/mob/npc/aibots.dmi'
 	icon_state = "farmbot0"
 	health = 50
-	maxHealth = 50
+	maxhealth = 50
 	req_one_access = list(ACCESS_HYDROPONICS, ACCESS_ROBOTICS, ACCESS_XENOBOTANY)
 
 	var/action = "" // Used to update icon
@@ -176,7 +176,7 @@
 						frustration = 0
 						break
 			else
-				for(var/obj/machinery/portable_atmospherics/hydroponics/tray in view(7, src))
+				for(var/obj/structure/machinery/portable_atmospherics/hydroponics/tray in view(7, src))
 					if(!tray.seed) //No seed? We don't care.
 						continue
 					if(!process_tray(tray)) //If there's nothing for us to do with the plant, ignore this tray.
@@ -211,8 +211,8 @@
 	if(attacking)
 		return
 
-	if(istype(A, /obj/machinery/portable_atmospherics/hydroponics))
-		var/obj/machinery/portable_atmospherics/hydroponics/T = A
+	if(istype(A, /obj/structure/machinery/portable_atmospherics/hydroponics))
+		var/obj/structure/machinery/portable_atmospherics/hydroponics/T = A
 		var/t = process_tray(T)
 		switch(t)
 			if(0)
@@ -281,7 +281,7 @@
  *
  * Remember to set `attacking = TRUE` before doing so, so multiple actions won't be queued at the same time
  */
-/mob/living/bot/farmbot/proc/do_action_on_tray(action_to_take, obj/machinery/portable_atmospherics/hydroponics/T)
+/mob/living/bot/farmbot/proc/do_action_on_tray(action_to_take, obj/structure/machinery/portable_atmospherics/hydroponics/T)
 	if(!QDELETED(T))
 		switch(action_to_take)
 			if(FARMBOT_COLLECT)
@@ -338,7 +338,7 @@
 	qdel(src)
 	return
 
-/mob/living/bot/farmbot/proc/process_tray(var/obj/machinery/portable_atmospherics/hydroponics/tray)
+/mob/living/bot/farmbot/proc/process_tray(var/obj/structure/machinery/portable_atmospherics/hydroponics/tray)
 	if(!tray || !istype(tray))
 		return FALSE
 	if(tray.closed_system || !tray.seed)

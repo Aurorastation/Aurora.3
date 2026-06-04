@@ -15,7 +15,7 @@
 		RAD = ARMOR_RAD_RESISTANT
 	)
 	siemens_coefficient = 0 // Ok this is the only exception. Got it? Good.
-	offline_slowdown = 3
+	offline_slowdown = 1.5
 	offline_vision_restriction = TINT_HEAVY
 	has_sealed_state = TRUE
 

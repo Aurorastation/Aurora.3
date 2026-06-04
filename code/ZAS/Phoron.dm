@@ -1,47 +1,29 @@
 GLOBAL_DATUM_INIT(contamination_overlay, /image, image('icons/effects/contamination.dmi'))
 
 /pl_control
+	///Self Descriptive
 	var/PHORON_DMG = 3
-	var/PHORON_DMG_NAME = "Phoron Damage Amount"
-	var/PHORON_DMG_DESC = "Self Descriptive"
-
+	///If this is on, phoron does damage by getting into cloth.
 	var/CLOTH_CONTAMINATION = TRUE
-	var/CLOTH_CONTAMINATION_NAME = "Cloth Contamination"
-	var/CLOTH_CONTAMINATION_DESC = "If this is on, phoron does damage by getting into cloth."
-
+	///If this is on, only biosuits and spacesuits protect against contamination and ill effects.
 	var/PHORONGUARD_ONLY = FALSE
-	var/PHORONGUARD_ONLY_NAME = "\"PhoronGuard Only\""
-	var/PHORONGUARD_ONLY_DESC = "If this is on, only biosuits and spacesuits protect against contamination and ill effects."
-
+	///Chance of genetic corruption as well as toxic damage, X in 10,000.
 	var/GENETIC_CORRUPTION = FALSE
-	var/GENETIC_CORRUPTION_NAME = "Genetic Corruption Chance"
-	var/GENETIC_CORRUPTION_DESC = "Chance of genetic corruption as well as toxic damage, X in 10,000."
-
+	///Phoron has an effect similar to mustard gas on the un-suited.
 	var/SKIN_BURNS = TRUE
-	var/SKIN_BURNS_DESC = "Phoron has an effect similar to mustard gas on the un-suited."
-	var/SKIN_BURNS_NAME = "Skin Burns"
-
+	///Phoron burns the eyes of anyone not wearing eye protection.
 	var/EYE_BURNS = TRUE
-	var/EYE_BURNS_NAME = "Eye Burns"
-	var/EYE_BURNS_DESC = "Phoron burns the eyes of anyone not wearing eye protection."
-
-	var/CONTAMINATION_LOSS = 2
-	var/CONTAMINATION_LOSS_NAME = "Contamination Loss"
-	var/CONTAMINATION_LOSS_DESC = "How much fire damage is dealt from contaminated clothing, per life process."
-
+	///How much fire damage is dealt from contaminated clothing to each covered body part per life process.
+	var/CONTAMINATION_LOSS = 0.2 //This is no longer divided between all body parts, the whole value is instead applied to all covered body parts, for each piece of contaminated clothing.
+	///Does being in phoron cause you to hallucinate?
 	var/PHORON_HALLUCINATION = FALSE
-	var/PHORON_HALLUCINATION_NAME = "Phoron Hallucination"
-	var/PHORON_HALLUCINATION_DESC = "Does being in phoron cause you to hallucinate?"
-
+	///Does being in sleeping gas cause you to hallucinate?
 	var/N2O_HALLUCINATION = TRUE
-	var/N2O_HALLUCINATION_NAME = "N2O Hallucination"
-	var/N2O_HALLUCINATION_DESC = "Does being in sleeping gas cause you to hallucinate?"
-
-
-/obj/var/contaminated = 0
 
 /obj/item/proc/can_contaminate()
 	if(item_flags & ITEM_FLAG_PHORON_GUARD)
+		return FALSE
+	if(!(prob(100 * min(gas_transfer_coefficient, permeability_coefficient))))
 		return FALSE
 	return TRUE
 
@@ -88,7 +70,7 @@ GLOBAL_DATUM_INIT(contamination_overlay, /image, image('icons/effects/contaminat
 	//Burn skin if exposed.
 	if(GLOB.vsc.plc.SKIN_BURNS)
 		if(!pl_head_protected() || !pl_suit_protected())
-			burn_skin(3)
+			apply_damage(2, DAMAGE_BURN, null, "Chemical burns", DAMAGE_FLAG_DISPERSED | DAMAGE_FLAG_IGNORE_PROSTHETICS, 100, TRUE)
 			if(prob(20))
 				to_chat(src, SPAN_DANGER("Your skin burns!"))
 			updatehealth()

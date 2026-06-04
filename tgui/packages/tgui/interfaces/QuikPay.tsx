@@ -1,5 +1,5 @@
 import { BooleanLike } from '../../common/react';
-import { useBackend } from '../backend';
+import { useBackend, useLocalState } from '../backend';
 import {
   LabeledList,
   Button,
@@ -17,6 +17,7 @@ export type PayData = {
   buying: ItemBuy[];
   new_item: string;
   new_price: number;
+  new_category: string;
   sum: number;
   editmode: BooleanLike;
   destinationact: number;
@@ -25,6 +26,7 @@ export type PayData = {
 type Item = {
   name: string;
   price: number;
+  category: string;
 };
 
 type ItemBuy = {
@@ -78,53 +80,111 @@ export const QuikPay = (props, context) => {
 
 export const ItemWindow = (props, context) => {
   const { act, data } = useBackend<PayData>(context);
+  const [searchTerm, setSearchTerm] = useLocalState<string>(
+    context,
+    `searchTerm`,
+    ``,
+  );
+  const normalizedSearchTerm = searchTerm.toLowerCase();
+
+  const groupedItems = data.items.reduce((groups, item) => {
+    const category = item.category || 'Uncategorized';
+    if (!groups[category]) {
+      groups[category] = [];
+    }
+    groups[category].push(item);
+    return groups;
+  }, {});
+
+  const sortedCategories = Object.keys(groupedItems).sort();
+  const filteredCategories = sortedCategories
+    .map((category) => {
+      const categoryMatches =
+        category.toLowerCase().indexOf(normalizedSearchTerm) > -1;
+      const items = categoryMatches
+        ? groupedItems[category]
+        : groupedItems[category].filter(
+            (item) =>
+              item.name?.toLowerCase().indexOf(normalizedSearchTerm) > -1,
+          );
+
+      return { category, items };
+    })
+    .filter((group) => group.items.length > 0);
 
   return (
-    <Section>
+    <Section
+      title="Items"
+      buttons={
+        <Input
+          autoFocus
+          autoSelect
+          placeholder="Search categories or items"
+          maxLength={512}
+          onInput={(e, value) => {
+            setSearchTerm(value);
+          }}
+          value={searchTerm}
+        />
+      }
+    >
       <Flex direction="row">
         <Flex.Item grow={1}>
-          <Section title="For sale" fill>
-            <Table>
-              {data.items.map((item) => (
-                <Table.Row key={item.name}>
-                  <Table.Cell>{item.name}</Table.Cell>
-                  <Table.Cell align="right">
-                    {item.price.toFixed(2)}电 &nbsp;
-                  </Table.Cell>
-                  <Table.Cell>
-                    {!data.editmode ? (
-                      <Button
-                        content="Buy"
-                        icon="calendar"
-                        onClick={() =>
-                          act('buy', { buying: item.name, amount: 1 })
-                        }
-                      />
-                    ) : (
-                      <>
-                        &nbsp;
-                        <Button
-                          content="Delete"
-                          icon="trash"
-                          color="bad"
-                          onClick={() => act('remove', { removing: item.name })}
-                        />
-                      </>
-                    )}
-                  </Table.Cell>
-                </Table.Row>
-              ))}
-            </Table>
-          </Section>
+          {filteredCategories.length < 1 ? (
+            <Section>No items found.</Section>
+          ) : (
+            filteredCategories.map(({ category, items }) => (
+              <Section key={category} title={category}>
+                <Table>
+                  {items.map((item) => (
+                    <Table.Row key={`${category}-${item.name}`}>
+                      <Table.Cell>{item.name}</Table.Cell>
+                      <Table.Cell align="right">
+                        {item.price.toFixed(2)}电 &nbsp;
+                      </Table.Cell>
+                      <Table.Cell>
+                        {!data.editmode ? (
+                          <Button
+                            content="Buy"
+                            icon="calendar"
+                            onClick={() =>
+                              act('buy', {
+                                buying: item.name,
+                                amount: 1,
+                                price: item.price,
+                              })
+                            }
+                          />
+                        ) : (
+                          <>
+                            &nbsp;
+                            <Button
+                              content="Delete"
+                              icon="trash"
+                              color="bad"
+                              onClick={() =>
+                                act('remove', { removing: item.name })
+                              }
+                            />
+                          </>
+                        )}
+                      </Table.Cell>
+                    </Table.Row>
+                  ))}
+                </Table>
+              </Section>
+            ))
+          )}
         </Flex.Item>
+
         <Box width="1px" backgroundColor="rgba(255, 255, 255, 0.15)" mx={2} />
+
         <Flex.Item grow={1}>
           <Section
             fill
             title="Cart"
             buttons={
               <>
-                {' '}
                 <Button
                   content="Clear"
                   icon="trash"
@@ -155,10 +215,18 @@ export const ItemWindow = (props, context) => {
 export const AddItems = (props, context) => {
   const { act, data } = useBackend<PayData>(context);
   return (
-    <Section>
+    <Section title="Add Item">
       <Input
+        placeholder="Item name"
         value={data.new_item}
         onChange={(e, value) => act('set_new_item', { set_new_item: value })}
+      />
+      <Input
+        placeholder="Category"
+        value={data.new_category}
+        onChange={(e, value) =>
+          act('set_new_category', { set_new_category: value })
+        }
       />
       <NumberInput
         value={data.new_price}

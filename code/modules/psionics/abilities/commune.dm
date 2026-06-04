@@ -1,6 +1,6 @@
 /singleton/psionic_power/commune
 	name = "Commune"
-	desc = "Psionically commune with the target."
+	desc = "Psionically commune with the target. Use on an adjacent object to store a mental image for sending. Use in hand with a mental image to warp and add to its description, or clear a warped one."
 	icon_state = "tech_audibledeception"
 	point_cost = 0
 	ability_flags = PSI_FLAG_FOUNDATIONAL
@@ -11,16 +11,128 @@
 	desc = "Déjà-vu."
 	icon_state = "overload"
 	item_icons = null
-	cast_methods = CAST_RANGED|CAST_MELEE
+	cast_methods = CAST_RANGED|CAST_MELEE|CAST_USE
 	aspect = ASPECT_PSIONIC
 	cooldown = 10
 	psi_cost = 15
+//For shared/remote-examine Communes, similar to Show-Held-Object
+	var/object
+	var/note //desc
+	var/image //chat icon
+	var/warpdesc //Custom text added right after normal note desc
+
+	var/popup //Remote popups like paper & photos
+	var/obj/item/photo/psiphoto
+	var/savedscribble
+	var/realscribble
+	var/obj/item/paper/psipaper
+	var/savedinfo
+	var/realinfo
+
+/obj/item/spell/commune/proc/ShowSavedScribble(mob/target, saved, psi_deaf = FALSE)
+//Likely a better way, but the trick is quickly swapping real and saved
+	realscribble = "[psiphoto.scribble]"
+	psiphoto.scribble = "[(saved)]"
+	if(psi_deaf && prob(60)) //Psi-deaf targets that do receieve a photo, have it in black & white more than not
+		var/icon/realimg = icon(psiphoto.img)
+		psiphoto.img.MapColors(rgb(77,77,77), rgb(150,150,150), rgb(28,28,28), rgb(0,0,0))
+		psiphoto.show(target)
+		psiphoto.img = icon(realimg)
+		to_chat(target, SPAN_ALIEN("...Even the colors are half-formed."))
+	else if(psi_deaf && prob(60)) //Or with random colors
+		var/icon/realimg = icon(psiphoto.img)
+		psiphoto.img.MapColors(rgb(rand(0,255), rand(0,255), rand(0,255)), rgb(rand(0,255), rand(0, 255), rand(0,255)), rgb(rand(0,255), rand(0,255), rand(0,255)), rgb(rand(0,255), rand(0,255), rand(0,255)))
+		psiphoto.show(target)
+		psiphoto.img = icon(realimg)
+		to_chat(target, SPAN_ALIEN("...Even the colors are off."))
+	else if(prob(10) && (SSatlas.current_sector.name in list(SECTOR_LEMURIAN_SEA, SECTOR_LEMURIAN_SEA_FAR))) //Lemurian Sea jumpscare!
+		var/icon/realimg = icon(psiphoto.img)
+		psiphoto.img.MapColors(rgb(0,0,0), rgb(0,0,0), rgb(0,0,0), rgb(0,0,0))
+		target.eye_blind += 20
+		psiphoto.show(target)
+		psiphoto.img = icon(realimg)
+		to_chat(target, SPAN_ALIEN("An eerie void momentarily blanks your perception."))
+		sleep(50)
+		target.eye_blind -= 20
+	else
+		psiphoto.show(target)
+	psiphoto.scribble = "[realscribble]"
+
+/obj/item/spell/commune/proc/ShowSavedInfo(var/mob/target, saved)
+	realinfo = "[psipaper.info]"
+	psipaper.info = "[(saved)]"
+	psipaper.show_content(target)
+	psipaper.info = "[realinfo]"
+
+/obj/item/spell/commune/proc/TranslateWritten(mob/target, mob/user, can_read = TRUE)
+//This is just parse_languages() & paperwork reuse
+	var/regex/written_lang_regex = new(@"(\[lang=([#_a-zA-Z0-9\^]{1})])(.*?)(\[\/lang])", "g")
+	while(written_lang_regex.Find(psipaper.info))
+		var/datum/language/L = GLOB.language_keys[written_lang_regex.group[2]]
+		if(!L || !L.written_style)
+			continue
+
+		var/content = written_lang_regex.group[3]
+		var/user_understands = user.say_understands(null, L)
+
+		if(!user_understands)
+			content = L.scramble(content)
+		psipaper.info = replacetext(psipaper.info, written_lang_regex.match, "<span class='[L.written_style] [user_understands ? "understood" : "scramble"]'>[L.short && user_understands ? "([L.short]) [content]" : content]</span>")
+
+	simple_asset_ensure_is_sent(target, /datum/asset/simple/paper)
+	var/datum/browser/paper_win = new(target, "Mental Image", null, 450, 500, null, TRUE)
+	paper_win.set_content("<head><title>(Mental Image)</title><style>body {background-color: [color];}</style></head><body>[can_read ? psipaper.info : stars(psipaper.info)][psipaper.stamps]</body>")
+	paper_win.add_stylesheet("paper_languages", 'html/browser/paper_languages.css')
+	paper_win.open()
+
+/obj/item/spell/commune/Destroy()
+	object = null
+	note = null
+	psiphoto = null
+	psipaper = null
+	return ..()
+
+/obj/item/spell/commune/on_use_cast(mob/user)
+	. = ..()
+	if(warpdesc)
+		warpdesc = null
+		to_chat(user, SPAN_NOTICE("You rein back to your initial mental image of \the [object], clearing the warped additions."))
+	else if(warpdesc == null && (object))
+		warpdesc = tgui_input_text(user, "How would you warp the mental image of \the [object]? This will only add to its existing description, never override or delete.", "Warp Mental Image", "", MAX_MESSAGE_LEN, TRUE)
+		if(!warpdesc)
+			warpdesc = null
+			return
+		to_chat(user, SPAN_NOTICE("You rethink your mental image of \the [object], warping in additions to its details."))
+	else return
 
 /obj/item/spell/commune/on_melee_cast(atom/hit_atom, mob/living/user, def_zone)
 	. = ..()
 	if(!.)
 		return
-	commune(hit_atom, user)
+	if(object)
+		to_chat(user, SPAN_NOTICE("You already have a mental image in mind of \the [object]."))
+		return
+	else if(istype(hit_atom, /obj/item/photo) && !object)
+		psiphoto = hit_atom
+		object = "[hit_atom.name]"
+		note = ("[hit_atom.desc]" + " [psiphoto.picture_desc]")
+		savedscribble = "[psiphoto.scribble]" //To later compare & prevent displaying a new scribble the psion never saved
+		image = icon2html(psiphoto, user)
+		popup = TRUE
+		to_chat(user, SPAN_NOTICE("You note and refine a mental replica of \the [object] for sending."))
+	else if(istype(hit_atom, /obj/item/paper) && !object)
+		psipaper = hit_atom
+		object = "[hit_atom.name]"
+		note = "[hit_atom.desc]"
+		savedinfo = "[psipaper.info]"
+		image = icon2html(psipaper, user)
+		popup = TRUE
+		to_chat(user, SPAN_NOTICE("You note and refine a mental copy of \the [object] for sending."))
+	else if(isobj(hit_atom) && !object)
+		object = "[hit_atom.name]" //Save a snapshot of its info so they don't auto-update.
+		note = ("[hit_atom.desc]" + " [hit_atom.desc_feedback]")
+		image = icon2html(hit_atom, user)
+		to_chat(user, SPAN_NOTICE("You note and refine a mental image of \the [object] for sending."))
 
 /obj/item/spell/commune/on_ranged_cast(atom/hit_atom, mob/user)
 	. = ..()
@@ -31,7 +143,6 @@
 /obj/item/spell/commune/proc/commune(atom/hit_atom, mob/user)
 	if(!isliving(hit_atom))
 		return
-
 	var/mob/living/target = hit_atom
 	if(target.stat == DEAD)
 		to_chat(user, SPAN_WARNING("Not even a psion of your level can speak to the dead."))
@@ -42,6 +153,50 @@
 		to_chat(user, psi_blocked)
 		return
 
+//Checks psi-sensitivity for remote item examines, because normal Commune gets blocked
+	if(object)
+		to_chat(user, SPAN_CULT("You psionically project to [target]: [image] [object]\n[note]" + " [warpdesc]"))
+		var/mob/living/carbon/human/T = target
+		var/target_sensitivity = T.check_psi_sensitivity()
+		if(target_sensitivity >= 1) //Small detail, psions can subtly tell apart warped descriptions easier with the new line.
+			to_chat(T, SPAN_NOTICE("<i>[user] blinks, their eyes briefly developing an unnatural shine.</i>"))
+			to_chat(T, SPAN_CULT("What must be [user]'s mental image of \a [image] [object] appears in your mind.\n[note]\n[warpdesc]"))
+			if(popup)
+				if(psipaper)
+					realinfo = "[psipaper.info]"
+					psipaper.info = "[savedinfo]"
+					TranslateWritten(T, user) //High-sensitives get papers translated to what the psion knew
+					to_chat(T, SPAN_NOTICE("You sense [user]'s psyche link so well, you understand the sheet just as they do."))
+					psipaper.info = "[realinfo]"
+				else
+					ShowSavedScribble(T, savedscribble)
+		else if(target_sensitivity >= 0) //Info span so it feels like an actual examine at a glance
+			to_chat(T, SPAN_INFO("<b>A mental image of \a [image] [object] suddenly builds in your mind.</b>\n[note]" + " [warpdesc]"))
+			if(popup)
+				if(psipaper)
+					ShowSavedInfo(T, savedinfo)
+				else
+					ShowSavedScribble(T, savedscribble)
+		else //60% chance low-targets don't even get the icon. 35% (per point) of the object's name is scrambled, but base desc can still clue the item
+			var/scrmbldobject = stars(object, (abs(target_sensitivity) * 35))
+			var/scrmbldnote = stars(note, (abs(target_sensitivity) * 25))
+			var/scrmbldwarp = stars(warpdesc, (abs(target_sensitivity) * 45)) //Warped descriptions are even more abnormal, so extra scrambled
+			to_chat(T, SPAN_ALIEN("<b>A mental image of \a [prob(40)?"[image] ":""][scrmbldobject] attempts to form in your mind.</b>\n[scrmbldnote]" + " [scrmbldwarp]"))
+			if(prob(45) && popup)
+				if(psipaper)
+					var/scrmbldinfo = stars(psipaper.info, (abs(target_sensitivity) * 35)) //upped ratio as pencode itself gets scrambled too
+					ShowSavedInfo(T, scrmbldinfo) //that technically makes text in other langs slightly decipherable ICly, buuut...
+					to_chat(T, SPAN_ALIEN("It's so nonsensical, you can't tell what's even real.")) //plant doubt by saying it's nonsense.
+				else
+					var/scrmbldscribble = stars(psiphoto.scribble, (abs(target_sensitivity) * 25))
+					ShowSavedScribble(T, scrmbldscribble, TRUE)
+
+		log_say("[key_name(user)] communed to [key_name(target)]: [image] [object]\n[note]" + " [warpdesc]")
+
+		for(var/mob/M as anything in GLOB.player_list)
+			if(M.stat == DEAD && M.client.prefs.toggles & CHAT_GHOSTEARS)
+				to_chat(M, "<span class='notice'>[user] psionically says to [target]:</span> [image] [object]\n[note]" + " [warpdesc]")
+		return
 	var/text = tgui_input_text(user, "What would you like to say?", "Commune", "", MAX_MESSAGE_LEN, TRUE)
 	if(!text)
 		return

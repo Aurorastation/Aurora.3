@@ -2,7 +2,6 @@
 Contains helper procs for airflow, handled in /connection_group.
 */
 
-/mob/var/tmp/last_airflow_stun = 0
 /mob/proc/airflow_stun()
 	if(stat == 2)
 		return 0
@@ -26,8 +25,8 @@ Contains helper procs for airflow, handled in /connection_group.
 	return
 
 /mob/living/carbon/human/airflow_stun()
-	if(shoes)
-		if(shoes.item_flags & ITEM_FLAG_NO_SLIP) return 0
+	if(Check_Shoegrip())
+		return FALSE
 	..()
 
 /atom/movable/proc/check_airflow_movable(n)
@@ -60,11 +59,6 @@ Contains helper procs for airflow, handled in /connection_group.
 		if(4,5)
 			if(n < GLOB.vsc.airflow_medium_pressure) return 0
 
-/atom/movable/var/tmp/turf/airflow_dest
-/atom/movable/var/tmp/airflow_speed = 0
-/atom/movable/var/tmp/airflow_time = 0
-/atom/movable/var/tmp/last_airflow = 0
-
 /atom/movable/proc/AirflowCanMove(n)
 	return 1
 
@@ -73,8 +67,7 @@ Contains helper procs for airflow, handled in /connection_group.
 		return 0
 	if(buckled_to)
 		return 0
-	var/obj/item/shoes = get_equipped_item(slot_shoes_str)
-	if(istype(shoes) && (shoes.item_flags & ITEM_FLAG_NO_SLIP))
+	if(Check_Shoegrip())
 		return 0
 	return 1
 

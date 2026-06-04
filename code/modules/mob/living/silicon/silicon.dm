@@ -50,7 +50,7 @@
 
 	/// ACCENT_ALL_IPC with the added consideration that this selection can be used by the ship AI itself, and should not look bad for the SCC. No dregs, Himeans, Trinarists, etc.
 	var/list/possible_accents = list(ACCENT_CETI, ACCENT_TTS, ACCENT_XANU, ACCENT_COC, ACCENT_ELYRA, ACCENT_ERIDANI, ACCENT_SOL, ACCENT_SILVERSUN_EXPATRIATE, ACCENT_SILVERSUN_ORIGINAL,
-	ACCENT_PHONG, ACCENT_MARTIAN, ACCENT_KONYAN, ACCENT_LUNA, ACCENT_GIBSON_OVAN, ACCENT_GIBSON_UNDIR, ACCENT_VYSOKA, ACCENT_VENUS, ACCENT_VENUSJIN, ACCENT_JUPITER, ACCENT_CALLISTO,
+	ACCENT_PHONG, ACCENT_MARTIAN, ACCENT_KONYAN, ACCENT_LUNA, ACCENT_GIBSON, ACCENT_VYSOKA, ACCENT_VENUS, ACCENT_VENUSJIN, ACCENT_JUPITER, ACCENT_CALLISTO,
 	ACCENT_EUROPA, ACCENT_EARTH, ACCENT_ASSUNZIONE, ACCENT_VISEGRAD, ACCENT_SANCOLETTE, ACCENT_VALKYRIE, ACCENT_MICTLAN, ACCENT_PERSEPOLIS, ACCENT_MEDINA, ACCENT_NEWSUEZ, ACCENT_AEMAQ, ACCENT_DAMASCUS)
 
 	var/can_hear_hivenet = TRUE
@@ -73,7 +73,6 @@
 
 /mob/living/silicon/Destroy()
 	GLOB.silicon_mob_list -= src
-	QDEL_NULL(computer)
 	QDEL_NULL(computer)
 	QDEL_NULL(id_card)
 	QDEL_NULL(common_radio)
@@ -122,7 +121,7 @@
 	return	//immune
 
 /mob/living/silicon/electrocute_act(shock_damage, obj/source, siemens_coeff = 1.0, var/def_zone = null, tesla_shock = FALSE, ground_zero)
-	if(istype(source, /obj/machinery/containment_field))
+	if(istype(source, /obj/structure/machinery/containment_field))
 		spark(loc, 5, GLOB.alldirs)
 
 		shock_damage *= 0.75	//take reduced damage
@@ -187,7 +186,7 @@
 		. += ""
 
 	if(!stat)
-		. += "System Integrity: [round((health/maxHealth)*100)]%"
+		. += "System Integrity: [round((health/maxhealth)*100)]%"
 	else
 		. += "System Integrity: NON-FUNCTIONAL"
 		show_malf_ai()
@@ -343,7 +342,7 @@
 
 /mob/living/silicon/ai/raised_alarm(var/datum/alarm/A)
 	var/cameratext = ""
-	for(var/obj/machinery/camera/C in A.cameras())
+	for(var/obj/structure/machinery/camera/C in A.cameras())
 		cameratext += "[(cameratext == "")? "" : "|"]<A href='byond://?src=[REF(src)];switchcamera=[REF(C)]'>[C.c_tag]</A>"
 	to_chat(src, "[A.alarm_name()]! ([(cameratext)? cameratext : "No Camera"])")
 
@@ -383,7 +382,7 @@
 	if(underdoor)
 		underdoor = FALSE
 		if((layer == UNDERDOOR))//if this is false, then we must have used hide, or had our layer changed by something else. We wont do anymore checks for this move proc
-			for(var/obj/machinery/door/D in loc)
+			for(var/obj/structure/machinery/door/D in loc)
 				if(D.hashatch)
 					underdoor = TRUE
 					break

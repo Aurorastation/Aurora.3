@@ -181,7 +181,7 @@
 		draw_card(user)
 		return
 
-	if((istype(get_step(target,target.dir), /obj/machinery/door/window) || istype(get_step(target,target.dir), /obj/structure/window)) && target.density)
+	if((istype(get_step(target,target.dir), /obj/structure/machinery/door/window) || istype(get_step(target,target.dir), /obj/structure/window)) && target.density)
 		return // should stop you from dragging through windows
 
 	if(!length(cards))

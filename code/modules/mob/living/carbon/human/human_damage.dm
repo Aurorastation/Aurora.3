@@ -4,11 +4,11 @@
 		return ..()
 
 	if(status_flags & GODMODE)
-		health = maxHealth
+		health = maxhealth
 		set_stat(CONSCIOUS)
 		return
 
-	health = maxHealth - getBrainLoss()
+	health = maxhealth - getBrainLoss()
 
 	if(stat == DEAD)
 		var/genetic_damage = getCloneLoss()
@@ -17,15 +17,15 @@
 			ChangeToSkeleton(FALSE)
 		else
 			var/fire_dmg = getFireLoss()
-			if(fire_dmg > maxHealth * 3)
+			if(fire_dmg > maxhealth * 3)
 				ChangeToSkeleton(FALSE)
-			else if(fire_dmg > maxHealth * 1.5)
+			else if(fire_dmg > maxhealth * 1.5)
 				ChangeToHusk()
 
 	UpdateDamageIcon() // to fix that darn overlay bug
 
 /mob/living/carbon/human/proc/get_total_health()
-	var/amount = maxHealth - getFireLoss() - getBruteLoss() - getOxyLoss() - getToxLoss() - getBrainLoss()
+	var/amount = maxhealth - getFireLoss() - getBruteLoss() - getOxyLoss() - getToxLoss() - getBrainLoss()
 	return amount
 
 /mob/living/carbon/human/adjustBrainLoss(var/amount)
@@ -164,7 +164,7 @@
 			breathe_organ = internal_organs_by_name[species.breathing_organ]
 
 		if(!breathe_organ)
-			return maxHealth/2
+			return maxhealth/2
 		return breathe_organ.get_oxygen_deprivation()
 
 /mob/living/carbon/human/setOxyLoss(var/amount)
@@ -269,6 +269,8 @@
 		adjustToxLoss(getToxLoss()-amount)
 
 /mob/living/carbon/human/adjustHalLoss(var/amount)
+	if (!amount)
+		return
 	var/heal = (amount < 0)
 	amount = abs(amount)
 	var/list/pick_organs = organs.Copy()
@@ -279,7 +281,8 @@
 			continue
 
 		if(heal)
-			amount -= E.remove_pain(amount)
+			if(E.get_pain() > 0)
+				amount -= E.remove_pain(amount)
 		else
 			amount -= E.add_pain(amount)
 	BITSET(hud_updateflag, HEALTH_HUD)
@@ -333,12 +336,12 @@ In most cases it makes more sense to use apply_damage() instead! And make sure t
 //Damages ONE external organ, organ gets randomly selected from damagable ones.
 //It automatically updates damage overlays if necesary
 //It automatically updates health status
-/mob/living/carbon/human/take_organ_damage(var/brute, var/burn, var/damage_flags)
+/mob/living/carbon/human/take_organ_damage(var/brute, var/burn, var/damage_flags, var/used_weapon = null, var/silent)
 	var/list/obj/item/organ/external/parts = get_damageable_organs()
 	if(!parts.len)
 		return
 	var/obj/item/organ/external/picked = pick(parts)
-	if(picked.take_damage(brute, burn, damage_flags))
+	if(picked.take_damage(brute, burn, damage_flags, used_weapon, silent))
 		UpdateDamageIcon()
 		BITSET(hud_updateflag, HEALTH_HUD)
 	updatehealth()
@@ -453,7 +456,17 @@ This function restores all organs.
 			to_chat(src, SPAN_DANGER("You are now visible."))
 			set_invisibility(0)
 
-	var/obj/item/organ/external/organ = isorgan(def_zone) ? def_zone : (isnull(def_zone) ? get_organ(BP_CHEST) : get_organ(def_zone))
+	var/obj/item/organ/external/organ
+	if(isorgan(def_zone))
+		organ = def_zone
+	else if(isnull(def_zone))
+		if(damage_flags & DAMAGE_FLAG_DISPERSED)
+			organ = null
+		else
+			organ = get_organ(BP_CHEST) //Default to the chest if there is no zone, and its not dispersed damage.
+	else
+		organ = get_organ(def_zone)
+
 	if(!organ)
 		if(!def_zone)
 			if(damage_flags & DAMAGE_FLAG_DISPERSED)
@@ -469,6 +482,10 @@ This function restores all organs.
 				return
 			def_zone = ran_zone(src, def_zone)
 		organ = get_organ(check_zone(def_zone, src))
+
+	if(damage_flags & DAMAGE_FLAG_IGNORE_PROSTHETICS)
+		if(BP_IS_ROBOTIC(organ))
+			return FALSE
 
 	//Handle other types of damage
 	if(!(damagetype in list(DAMAGE_BRUTE, DAMAGE_BURN, DAMAGE_PAIN, DAMAGE_CLONE)))

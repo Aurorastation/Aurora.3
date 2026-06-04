@@ -23,6 +23,7 @@
 #define DAMAGE_FLAG_DISPERSED 32 // Makes apply_damage calls without specified zone distribute damage rather than randomly choose organ (for humans)
 #define DAMAGE_FLAG_BIO       64
 #define DAMAGE_FLAG_PSIONIC   128
+#define DAMAGE_FLAG_IGNORE_PROSTHETICS 256 // Ignores prosthetics when applying damage, for things like radiation poisoning and toxins.
 
 #define STUN      "stun"
 #define WEAKEN    "weaken"

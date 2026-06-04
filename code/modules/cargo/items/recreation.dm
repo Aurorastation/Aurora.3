@@ -162,7 +162,7 @@
 	description = "A common sight in any modern space bar, this jukebox has all the space classics."
 	price = 500
 	items = list(
-		/obj/machinery/media/jukebox
+		/obj/structure/machinery/media/jukebox
 	)
 	access = 0
 	container_type = "box"
@@ -176,7 +176,7 @@
 	description = "An Adhomian record player."
 	price = 700
 	items = list(
-		/obj/machinery/media/jukebox/phonograph
+		/obj/structure/machinery/media/jukebox/phonograph
 	)
 	access = 0
 	container_type = "box"
@@ -377,6 +377,34 @@
 	price = 150
 	items = list(
 		/obj/item/gamehelm
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/whiteboard
+	category = "recreation"
+	name = "whiteboard"
+	supplier = "orion"
+	description = "A standard whiteboard."
+	price = 100
+	items = list(
+		/obj/structure/whiteboard
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/whiteboard_portable
+	category = "recreation"
+	name = "portable whiteboard"
+	supplier = "orion"
+	description = "A portable whiteboard, smaller than the standard alternatives."
+	price = 75
+	items = list(
+		/obj/item/portable_whiteboard
 	)
 	access = 0
 	container_type = "crate"

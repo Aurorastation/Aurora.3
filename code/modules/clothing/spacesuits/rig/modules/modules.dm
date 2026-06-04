@@ -15,7 +15,9 @@
 	icon_state = "generic"
 	matter = list(DEFAULT_WALL_MATERIAL = 20000, MATERIAL_PLASTIC = 30000, MATERIAL_GLASS = 5000)
 
+	/// This is literally never read anywhere. All construction cost info lives within the /design. Due for removal.
 	var/list/construction_cost = list(DEFAULT_WALL_MATERIAL=7000, MATERIAL_GLASS =7000)
+	/// This is literally never read anywhere. All construction cost info lives within the /design. Due for removal.
 	var/construction_time = 100
 
 	var/damage = 0
@@ -24,42 +26,67 @@
 	var/module_cooldown = 10
 	var/next_use = 0
 
-	var/engage_on_activate = TRUE       // Whether the rig should call engage() in its activate() proc
-	var/toggleable                      // Set to 1 for the device to show up as an active effect.
-	var/usable                          // Set to 1 for the device to have an on-use effect.
-	var/selectable                      // Set to 1 to be able to assign the device as primary system.
-	var/redundant                       // Set to 1 to ignore duplicate module checking when installing.
-	var/permanent                       // If set, the module can't be removed.
-	var/disruptive = 1                  // Can disrupt by other effects.
-	var/activates_on_touch              // If set, unarmed attacks will call engage() on the target.
-	var/confined_use = FALSE				// If set, can be used inside mechs and other vehicles.
+	/// The type of module this is.
+	var/module_type
+	/// Set TRUE to ignore duplicate module checking when installing.
+	var/redundant
+	/// If set, the module can't be removed.
+	var/permanent
+	/// Can disrupt by other effects.
+	var/disruptive = 1
+	/// If set, unarmed attacks will call engage() on the target.
+	var/activates_on_touch
+	/// If set, can be used inside mechs and other vehicles.
+	var/confined_use = FALSE
 
-	var/active                          // Basic module status
-	var/disruptable                     // Will deactivate if some other powers are used.
-	var/attackdisrupts = 0             // Will deactivate if user attacks
+	/// Basic module status
+	var/active
+	/// Will deactivate if some other powers are used.
+	var/disruptable
+	/// Will deactivate if user attacks
+	var/attackdisrupts = 0
 
-	var/use_power_cost = 0              // Power used when single-use ability called.
-	var/active_power_cost = 0           // Power used when turned on.
-	var/passive_power_cost = 0          // Power used when turned off.
+	/// Power used when single-use ability called.
+	var/use_power_cost = 0
+	/// Power used when turned on.
+	var/active_power_cost = 0
+	/// Power used when turned off.
+	var/passive_power_cost = 0
 
-	var/list/charges                    // Associative list of charge types and remaining numbers.
-	var/charge_selected                 // Currently selected option used for charge dispensing.
+	/// Associative list of charge types and remaining numbers.
+	var/list/charges
+	/// Currently selected option used for charge dispensing.
+	var/charge_selected
 
 	// Icons.
 	var/suit_overlay
-	var/suit_overlay_active             // If set, drawn over icon and mob when effect is active.
-	var/suit_overlay_inactive           // As above, inactive.
-	var/suit_overlay_used               // As above, when engaged.
+	/// If set, drawn over icon and mob when module is active OR selected.
+	var/suit_overlay_active
+	/// As above, when inactive.
+	var/suit_overlay_inactive
+	/// As above, when engaged. Not currently used, but in future should be a flick animation.
+	var/suit_overlay_used
 
 	//Display fluff
 	var/interface_name = "hardsuit upgrade"
 	var/interface_desc = "A generic hardsuit upgrade."
+	/// This is a string when a module with an active use is engaged, fire and forget-style. The UI will default to 'Engage' if this value is somehow nulled.
 	var/engage_string = "Engage"
+	/// This is when a module is toggled on. The UI will default to 'Activate' if this value is somehow nulled.
 	var/activate_string = "Activate"
+	/// This is when a module is toggled off. The UI will default to 'Deactivate' if this value is somehow nulled.
 	var/deactivate_string = "Deactivate"
 
 	var/list/stat_rig_module/stat_modules = new()
-	var/category	// Use for restricting modules for specific suits, to specialize
+	/// Use for restricting modules for specific suits, to specialize
+	var/category
+
+	/// Sound played (to user only) when user changes a module configuration setting.
+	var/sound_config = 'sound/machines/terminal/terminal_select.ogg'
+	/// Sound played (to user only) when user activates a module.
+	var/sound_activate = 'sound/machines/terminal/terminal_prompt_confirm.ogg'
+	/// Sound played (to user only) when user deactivates a module.
+	var/sound_deactivate = 'sound/machines/terminal/terminal_prompt_deny.ogg'
 
 /obj/item/rig_module/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
@@ -160,22 +187,24 @@
 			if(B)
 				B.set_color_for(COLOR_RED, module_cooldown)
 
-//Proc for one-use abilities like teleport.
-/obj/item/rig_module/proc/engage(atom/target, mob/user)
+/// Handles all usage checks for rig module use; both engage and activate use this.
+/obj/item/rig_module/proc/check_can_use(mob/user)
 	if(damage >= 2)
-		to_chat(user, SPAN_WARNING("\The [interface_name] is damaged beyond use!"))
+		sound_to(user, 'sound/machines/terminal/terminal_error.ogg')
+		balloon_alert(user, "[interface_name] is damaged!")
 		return FALSE
 
 	if(world.time < next_use)
-		to_chat(user, SPAN_WARNING("You cannot use \the [interface_name] again so soon."))
+		sound_to(user, 'sound/machines/terminal/terminal_error.ogg')
+		balloon_alert(user, "[interface_name] on cooldown!")
 		return FALSE
 
 	if(!holder || holder.canremove)
-		to_chat(user, SPAN_WARNING("The suit is not initialized."))
+		sound_to(user, 'sound/machines/terminal/terminal_error.ogg')
+		balloon_alert(user, "suit not initialized!")
 		return FALSE
 
-	if(user.lying || user.stat || user.stunned || user.paralysis || user.weakened)
-		to_chat(user, SPAN_WARNING("You cannot use the suit in this state."))
+	if(use_check_and_message(user, USE_ALLOW_NON_ADJACENT))
 		return FALSE
 
 	if(holder.wearer && holder.wearer.lying)
@@ -183,26 +212,39 @@
 		return FALSE
 
 	if(holder.security_check_enabled && holder.locked && !holder.check_suit_access(user))
-		to_chat(user, SPAN_DANGER("Access denied."))
+		// No sound or balloon alert here, because they live in check_suit_access()
 		return FALSE
 
-	if(!holder.check_power_cost(user, use_power_cost, 0, src, (istype(user,/mob/living/silicon ? 1 : 0) ) ) )
+	if(holder.sealing)
+		sound_to(user, 'sound/machines/terminal/terminal_error.ogg')
+		balloon_alert(user, "suit busy adjusting seals!")
 		return FALSE
 
-	if(!confined_use && istype(user.loc, /mob/living/heavy_vehicle))
-		to_chat(user, SPAN_DANGER("You cannot use the suit in the confined space."))
+	var/is_user_silicon = issilicon(user)
+	if(!holder.check_power_cost(user, use_power_cost, 0, src, is_user_silicon) || !holder.check_power_cost(user, active_power_cost, 0, src, is_user_silicon))
+		sound_to(user, 'sound/effects/pop.ogg')
+		balloon_alert(user, "insufficient power!")
 		return FALSE
 
 	return TRUE
 
-// Proc for toggling on active abilities.
+/// Proc for one-use abilities like teleport.
+/obj/item/rig_module/proc/engage(atom/target, mob/user)
+	if(!check_can_use(user))
+		return FALSE
+
+	if(!confined_use && !isturf(user.loc))
+		to_chat(user, SPAN_DANGER("You cannot use the suit in a confined space."))
+		return FALSE
+
+	return TRUE
+
+/// Proc for toggling on active abilities.
 /obj/item/rig_module/proc/activate(mob/user)
 	if(active)
 		return FALSE
-	if(engage_on_activate && !do_engage(null, user))
-		return FALSE
 
-	if(use_check_and_message(user, USE_ALLOW_NON_ADJACENT))
+	if(!check_can_use(user))
 		return FALSE
 
 	active = TRUE
@@ -211,7 +253,8 @@
 		suit_overlay = suit_overlay_active
 	else
 		suit_overlay = null
-	holder.update_icon()
+
+	holder?.update_icon(TRUE)
 
 	return TRUE
 
@@ -229,8 +272,8 @@
 		suit_overlay = suit_overlay_inactive
 	else
 		suit_overlay = null
-	if(holder)
-		holder.update_icon()
+
+	holder?.update_icon(TRUE)
 
 	return TRUE
 
@@ -259,10 +302,33 @@
 		to_chat(holder.wearer, wearer_text)
 		return
 
+/// Creates a list of configuring options for this module. Possible configs include number, bool, color, list, button.
+/obj/item/rig_module/proc/get_configuration(mob/user)
+	return list()
+
+/// Generates an element of the get_configuration list with a display name, type and value
+/obj/item/rig_module/proc/add_ui_configuration(display_name, type, value, list/values)
+	return list("display_name" = display_name, "type" = type, "value" = value, "values" = values)
+
+/// Receives configure edits from the TGUI and edits the vars
+/obj/item/rig_module/proc/configure_edit(key, value, mob/user)
+	return
+
+// Procs handling the statpanel 'Hardsuit Modules' tab, which is auto-populated by controls for all modules.
 /mob/living/carbon/human/get_actions_for_statpanel()
 	var/list/data = ..()
 	if(istype(back,/obj/item/rig))
 		var/obj/item/rig/R = back
+		for(var/obj/item/rig_module/module in R.installed_modules)
+			for(var/stat_rig_module/SRM in module.stat_modules)
+				if(SRM.CanUse())
+					data += list(list("Hardsuit Modules", "[SRM.module.interface_name]", "[SRM]", REF(SRM)))
+	return data
+
+/mob/living/silicon/get_actions_for_statpanel()
+	var/list/data = ..()
+	var/obj/item/rig/R = get_rig()
+	if(istype(R))
 		for(var/obj/item/rig_module/module in R.installed_modules)
 			for(var/stat_rig_module/SRM in module.stat_modules)
 				if(SRM.CanUse())
@@ -304,33 +370,33 @@
 	..()
 	name = module.activate_string
 	if(module.active_power_cost)
-		name += " ([module.active_power_cost*10]A)"
+		name += " ([module.active_power_cost]A)"
 	module_mode = "activate"
 
 /stat_rig_module/activate/CanUse()
-	return module.toggleable && !module.active
+	return (module.module_type == MODULETYPE_TOGGLE) && !module.active
 
 /stat_rig_module/deactivate/New(var/obj/item/rig_module/module)
 	..()
 	name = module.deactivate_string
 	// Show cost despite being 0, if it means changing from an active cost.
 	if(module.active_power_cost || module.passive_power_cost)
-		name += " ([module.passive_power_cost*10]P)"
+		name += " ([module.passive_power_cost]P)"
 
 	module_mode = "deactivate"
 
 /stat_rig_module/deactivate/CanUse()
-	return module.toggleable && module.active
+	return (module.module_type == MODULETYPE_TOGGLE) && module.active
 
 /stat_rig_module/engage/New(var/obj/item/rig_module/module)
 	..()
 	name = module.engage_string
 	if(module.use_power_cost)
-		name += " ([module.use_power_cost*10]E)"
+		name += " ([module.use_power_cost]E)"
 	module_mode = "engage"
 
 /stat_rig_module/engage/CanUse()
-	return module.usable
+	return module.module_type == MODULETYPE_USABLE && !module.active
 
 /stat_rig_module/select/New()
 	..()
@@ -338,7 +404,7 @@
 	module_mode = "select"
 
 /stat_rig_module/select/CanUse()
-	if(module.selectable)
+	if(module.module_type == MODULETYPE_USABLE_ACTIVE)
 		name = module.holder.selected_module == module ? "Selected" : "Select"
 		return TRUE
 	return FALSE

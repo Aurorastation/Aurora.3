@@ -5,7 +5,7 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 /datum/gear/shoes/tajara/boots
 	display_name = "tajaran boots selection"
 	description = "A selection of shoes and boots fitted for Tajara."
-	path = /obj/item/clothing/shoes/tajara
+	path = /obj/item/clothing/shoes/jackboots/tajara
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	sort_category = "Xenowear - Tajara"
 
@@ -143,14 +143,18 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 /datum/gear/uniform/tajara_colorable
 	display_name = "tajaran uniform and dress selection (colorable)"
 	description = "A selection of colorable tajaran native uniforms and dresses."
-	path = /obj/item/clothing/under/dress/tajaran/long
+	path = /obj/item/clothing/under/tajaran/fancy/colorable
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
-	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
 	sort_category = "Xenowear - Tajara"
 
 /datum/gear/uniform/tajara_colorable/New()
 	..()
 	var/list/uniform = list()
+	uniform["fancy uniform"] = /obj/item/clothing/under/tajaran/fancy/colorable
+	uniform["fancy uniform, silver buttons"] = /obj/item/clothing/under/tajaran/fancy/colorable/silver
+	uniform["fancy uniform with skirt"] = /obj/item/clothing/under/dress/tajaran/formal/colorable
+	uniform["fancy uniform with skirt, silver buttons"] = /obj/item/clothing/under/dress/tajaran/formal/colorable/silver
 	uniform["tajaran long dress"] = /obj/item/clothing/under/dress/tajaran/long
 	uniform["new kingdom noble clothes"] = /obj/item/clothing/under/tajaran/nka_noble
 	gear_tweaks += new /datum/gear_tweak/path(uniform)
@@ -190,6 +194,7 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	coat["fine blue coat"] = /obj/item/clothing/suit/storage/tajaran/finecoat/blue
 	coat["fancy royalist jacket"] = /obj/item/clothing/suit/storage/tajaran/fancy
 	coat["adhomian hunting coat"] = /obj/item/clothing/suit/storage/tajaran/hunting
+	coat["PRA submariner coat"] = /obj/item/clothing/suit/storage/toggle/tajaran/pra_submarine
 	gear_tweaks += new /datum/gear_tweak/path(coat)
 
 /datum/gear/suit/tajaran_labcoat

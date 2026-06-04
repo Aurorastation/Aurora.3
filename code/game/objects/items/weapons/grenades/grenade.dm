@@ -18,6 +18,8 @@
 	var/det_time = 30
 	var/fake = FALSE
 	var/activation_sound = 'sound/weapons/armbomb.ogg'
+	pickup_sound = 'sound/items/pickup/grenade.ogg'
+	drop_sound = 'sound/items/drop/grenade.ogg'
 
 /obj/item/grenade/Destroy()
 	// Stop all animations to prevent a hard delete.
@@ -96,11 +98,11 @@
 		var/obj/item/organ/external/exploded_hand = victim.get_organ_holding(src)
 		explode_in_hand(victim, exploded_hand)
 
-/// This proc is called when the grenade explodes in your hand or on you. Exploded_hand can be null in case the grenade explodes in a pocket or something.
-/obj/item/grenade/proc/explode_in_hand(var/mob/living/carbon/human/victim, var/obj/item/organ/external/exploded_hand)
+/// This proc is called when the grenade explodes in your hand or on you. Exploded_organ can be null in case the grenade explodes in a pocket or something.
+/obj/item/grenade/proc/explode_in_hand(var/mob/living/carbon/human/victim, var/obj/item/organ/external/exploded_organ)
 	SHOULD_CALL_PARENT(TRUE)
-	if(exploded_hand)
-		to_chat(victim, SPAN_HIGHDANGER("\The [src] goes off in your hand!"))
+	if(exploded_organ)
+		victim.visible_message(SPAN_DANGER("\The [src] goes off in \the [victim]'s hands!"), SPAN_HIGHDANGER("\The [src] goes off in your hand!"))
 	else
 		to_chat(victim, SPAN_HIGHDANGER("\The [src] goes off on you!"))
 
@@ -109,5 +111,5 @@
 	..()
 	return
 
-/obj/item/grenade/vendor_action(var/obj/machinery/vending/V)
+/obj/item/grenade/vendor_action(var/obj/structure/machinery/vending/V)
 	activate(V)

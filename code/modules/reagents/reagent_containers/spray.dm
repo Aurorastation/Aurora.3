@@ -177,6 +177,8 @@
 	volume = 40
 	safety = 1
 	reagents_to_add = list(/singleton/reagent/capsaicin/condensed = 40)
+	drop_sound = 'sound/items/drop/pepper_spray.ogg'
+	pickup_sound = 'sound/items/pickup/pepper_spray.ogg'
 
 /obj/item/reagent_containers/spray/pepper/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -261,7 +263,7 @@
 /obj/item/reagent_containers/spray/chemsprayer/xenobiology
 	name = "xenoblaster"
 	desc = "A child's plastic watergun repurposed for the use in pacifying slimes. Has an adjustable nozzle that controls precision as well as strength."
-	icon = 'icons/obj/guns/xenoblaster.dmi'
+	icon = 'icons/obj/guns/faction/toy/xenoblaster.dmi'
 	icon_state = "xenoblaster"
 	item_state = "xenoblaster"
 	contained_sprite = TRUE

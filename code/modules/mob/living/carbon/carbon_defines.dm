@@ -38,6 +38,10 @@
 	var/coughedtime = null
 
 	var/willfully_sleeping = FALSE
+	/// Internal time limit based on next REALTIMEOFDAY after which a drug message can play. See #define DRUG_MESSAGE_COOLDOWN
+	var/next_drug_message = 0
+	/// Internal time limit based on next REALTIMEOFDAY after which a sobriety/crash message from drugs can play.
+	var/next_sober_message = 0
 	/// Used by Diona.
 	var/consume_nutrition_from_air = FALSE
 
@@ -46,7 +50,9 @@
 
 	/// Map organ names to organs.
 	var/list/organs_by_name = list()
-	/// So internal organs have less ickiness too.
+	/// List of references to all internal organs
+	var/list/internal_organs = list()
+	/// Associative List of "name" = ref
 	var/list/internal_organs_by_name = list()
 
 	var/list/stasis_sources = list()
@@ -54,3 +60,8 @@
 	/// For special cases where something permanently removes a mob's ability to feel pain.
 	var/pain_immune = FALSE
 
+	/// Hallucination spam limit var
+	var/next_hallucination = 0
+	/// Hallucinations currently affecting the mob. Not to be confused with singular "hallucination" which is a NUM variable like confused/drowsy/eye_blind etc
+	var/list/hallucinations = list()
+	var/shock_stage = 0

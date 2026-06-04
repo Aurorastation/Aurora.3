@@ -34,10 +34,11 @@
 	return
 
 /obj/item/tank/atmosanalyze(var/mob/user)
+	src.manipulated_by = user
 	return atmosanalyzer_scan(src, src.air_contents, user)
 
-/obj/machinery/portable_atmospherics/atmosanalyze(var/mob/user)
+/obj/structure/machinery/portable_atmospherics/atmosanalyze(var/mob/user)
 	return atmosanalyzer_scan(src, src.air_contents, user)
 
-/obj/machinery/atmospherics/pipe/atmosanalyze(var/mob/user)
+/obj/structure/machinery/atmospherics/pipe/atmosanalyze(var/mob/user)
 	return atmosanalyzer_scan(src, src.parent.air, user)

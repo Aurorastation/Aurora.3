@@ -105,8 +105,8 @@
 	var/golem = null
 
 	//automatic-ness for giving drop n' pickup sounds on init.
-	var/drop_sound = 'sound/items/drop/axe.ogg'
-	var/pickup_sound = 'sound/items/pickup/axe.ogg'
+	var/drop_sound = 'sound/items/drop/metal_sheet.ogg'
+	var/pickup_sound = 'sound/items/pickup/metal_sheet.ogg'
 
 	//for use in material weapons. because tiles and stacks sound different. since cardboard baseball bats sound different from wooden ones and et cetera.
 	var/weapon_drop_sound = 'sound/items/drop/metalweapon.ogg'
@@ -280,7 +280,7 @@
 /material/uranium
 	name = MATERIAL_URANIUM
 	stack_type = /obj/item/stack/material/uranium
-	radioactivity = 12
+	radioactivity = RAD_LEVEL_LOW
 	icon_base = "stone"
 	reinf_icon = "reinf_stone"
 	icon_colour = "#007A00"
@@ -377,7 +377,7 @@
 /material/phoron/supermatter
 	name = MATERIAL_SUPERMATTER
 	icon_colour = "#ffff00"
-	radioactivity = 20
+	radioactivity = RAD_LEVEL_MODERATE
 	conductivity = 100
 	integrity = 10
 	luminescence = 3
@@ -418,6 +418,16 @@
 	golem = SPECIES_GOLEM_MARBLE
 	drop_sound = 'sound/items/drop/boots.ogg'
 	pickup_sound = 'sound/items/pickup/boots.ogg'
+
+/material/stone/brick
+	name = MATERIAL_BRICK
+	reinf_icon = "reinf_stone"
+	icon_colour = COLOR_GRAY30
+	wall_colour = COLOR_GRAY30
+	wall_icon = 'icons/turf/smooth/composite_brick.dmi'
+	multipart_reinf_icon = 'icons/turf/smooth/composite_brick.dmi'
+	hardness = 70
+	golem = SPECIES_GOLEM_MARBLE
 
 /material/concrete
 	name = MATERIAL_CONCRETE
@@ -683,8 +693,8 @@
 	melting_point = T0C+371 //assuming heat resistant plastic
 	stack_origin_tech = list(TECH_MATERIAL = 3)
 	golem = SPECIES_GOLEM_PLASTIC
-	drop_sound = 'sound/items/drop/card.ogg'
-	pickup_sound = 'sound/items/pickup/card.ogg'
+	drop_sound = 'sound/items/drop/plastic_sheet.ogg'
+	pickup_sound = 'sound/items/pickup/plastic_sheet.ogg'
 
 /material/plastic/holographic
 	name = MATERIAL_PLASTIC_HOLO
@@ -796,8 +806,8 @@
 	sheet_plural_name = "planks"
 	golem = SPECIES_GOLEM_WOOD
 	hitsound = 'sound/effects/woodhit.ogg'
-	drop_sound = 'sound/items/drop/wooden.ogg'
-	pickup_sound = 'sound/items/pickup/wooden.ogg'
+	drop_sound = 'sound/items/drop/wood_sheet.ogg'
+	pickup_sound = 'sound/items/pickup/wood_sheet.ogg'
 	weapon_drop_sound = 'sound/items/drop/woodweapon.ogg'
 	weapon_pickup_sound = 'sound/items/pickup/woodweapon.ogg'
 	weapon_hitsound = 'sound/weapons/woodenhit.ogg'
@@ -902,8 +912,8 @@
 	destruction_desc = "crumples"
 	shatter_sound = SFX_BREAK_CARDBOARD
 	golem = SPECIES_GOLEM_CARDBOARD
-	drop_sound = 'sound/items/drop/cardboardbox.ogg'
-	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
+	drop_sound = 'sound/items/drop/cardboard_sheet.ogg'
+	pickup_sound = 'sound/items/pickup/cardboard_sheet.ogg'
 	weapon_hitsound = 'sound/weapons/cardboardhit.ogg'
 
 /material/cult
@@ -956,8 +966,8 @@
 	melting_point = T0C+300
 	protectiveness = 3 // 13%
 	golem = SPECIES_GOLEM_MEAT
-	drop_sound = 'sound/items/drop/leather.ogg'
-	pickup_sound = 'sound/items/pickup/leather.ogg'
+	drop_sound = 'sound/items/drop/skin_sheet.ogg'
+	pickup_sound = 'sound/items/pickup/skin_sheet.ogg'
 
 /material/leather/fine
 	name = MATERIAL_LEATHER_FINE
@@ -977,8 +987,8 @@
 	hardness = 1
 	weight = 1
 	golem = SPECIES_GOLEM_CLOTH
-	drop_sound = 'sound/items/drop/cloth.ogg'
-	pickup_sound = 'sound/items/pickup/cloth.ogg'
+	drop_sound = SFX_CLOTH_DROP
+	pickup_sound = SFX_CLOTH_PICKUP
 	weapon_hitsound = 'sound/weapons/towelwhip.ogg'
 
 /material/carpet
@@ -998,8 +1008,8 @@
 	icon_base = "carpet"
 	table_icon = 'icons/obj/structure/tables/fancy_table.dmi'
 	golem = SPECIES_GOLEM_CLOTH
-	drop_sound = 'sound/items/drop/cloth.ogg'
-	pickup_sound = 'sound/items/pickup/cloth.ogg'
+	drop_sound = SFX_CLOTH_DROP
+	pickup_sound = SFX_CLOTH_PICKUP
 	weapon_hitsound = 'sound/weapons/towelwhip.ogg'
 
 /material/carpet/black
@@ -1069,8 +1079,8 @@
 	hardness = 1
 	weight = 1
 	golem = SPECIES_GOLEM_CLOTH
-	drop_sound = 'sound/items/drop/cloth.ogg'
-	pickup_sound = 'sound/items/pickup/cloth.ogg'
+	drop_sound = SFX_CLOTH_DROP
+	pickup_sound = SFX_CLOTH_PICKUP
 	weapon_hitsound = 'sound/weapons/towelwhip.ogg'
 
 /material/hide //TODO make different hides somewhat different among them
@@ -1086,8 +1096,8 @@
 	weight = 1
 	protectiveness = 3 // 13%
 	golem = SPECIES_GOLEM_MEAT
-	drop_sound = 'sound/items/drop/leather.ogg'
-	pickup_sound = 'sound/items/pickup/leather.ogg'
+	drop_sound = 'sound/items/drop/skin_sheet.ogg'
+	pickup_sound = 'sound/items/pickup/skin_sheet.ogg'
 	value = 5
 
 /material/hide/corgi

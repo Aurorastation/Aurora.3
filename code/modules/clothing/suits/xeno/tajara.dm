@@ -432,3 +432,15 @@
 	desc = "A jacket with the markings of the PRA national police department that can commonly be found in the rural parts of the PRA."
 	icon_state = "taj_cop_suit_rural"
 	item_state = "taj_cop_suit_rural"
+
+/obj/item/clothing/suit/storage/toggle/tajaran/pra_submarine
+	name = "\improper PRA submariner coat"
+	desc = "A black leather coat with a Zshram fur lining and collar found in use by the People's Republic of Adhomai's submarine service."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "pra_submarine_coat"
+	item_state = "pra_submarine_coat"
+	contained_sprite = TRUE
+	desc_extended = "The Miraniye T’varrnav Varrom, translated as Miran’miran Submarine Coat, is the standard overcoat supplied to the Republican Navy’s submarine service. Designed to \
+	insulate and protect the wearer against the ice-cold water of the Adhomian seas, the black leather coat is a source of pride among submariners and coveted by Al’mariist and Royalist \
+	sailors as a war trophy. Once produced within the port city of Miran’mir it is named after, the war forced production to move to the Ardiye Romanqri Khaz’tra in Nal’tor. Despite this, \
+	the coat had only minor changes, remaining constant throughout as a symbol of the Hadiist menace across the waves."

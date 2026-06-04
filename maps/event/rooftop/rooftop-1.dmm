@@ -3,7 +3,7 @@
 /obj/effect/map_effect/door_helper/unres{
 	dir = 8
 	},
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	name = "VR Preparation Room Passage";
 	req_access = list(12)
 	},
@@ -13,7 +13,7 @@
 	},
 /area/city/mendell)
 "ab" = (
-/obj/machinery/door/airlock/centcom{
+/obj/structure/machinery/door/airlock/centcom{
 	name = "Administrative Wing";
 	req_access = list(101);
 	dir = 1
@@ -21,7 +21,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell)
 "ac" = (
-/obj/machinery/door/airlock/glass_centcom{
+/obj/structure/machinery/door/airlock/glass_centcom{
 	dir = 1
 	},
 /turf/simulated/floor/marble/dark,
@@ -37,7 +37,7 @@
 /turf/simulated/floor/marble/dark,
 /area/city/mendell/interior)
 "ae" = (
-/obj/machinery/door/airlock/centcom{
+/obj/structure/machinery/door/airlock/centcom{
 	name = "Administrative Wing";
 	req_access = list(101);
 	dir = 4
@@ -45,7 +45,7 @@
 /turf/simulated/floor/tiled/white,
 /area/city/mendell/interior)
 "ag" = (
-/obj/machinery/door/airlock/glass_centcom{
+/obj/structure/machinery/door/airlock/glass_centcom{
 	name = "Kitchen";
 	req_access = list(101);
 	dir = 4
@@ -64,7 +64,7 @@
 /area/city/mendell/interior)
 "aj" = (
 /obj/effect/floor_decal/industrial/warning,
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 1
 	},
 /turf/simulated/floor/reinforced,
@@ -73,13 +73,13 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/wood,
 /area/city/mendell/interior)
 "al" = (
-/obj/machinery/door/airlock/centcom{
+/obj/structure/machinery/door/airlock/centcom{
 	name = "VR Checkpoint";
 	req_access = list(101);
 	dir = 1
@@ -105,7 +105,7 @@
 /area/city/mendell)
 "ao" = (
 /obj/effect/floor_decal/industrial/warning,
-/obj/machinery/door/airlock/glass_security{
+/obj/structure/machinery/door/airlock/glass_security{
 	dir = 1
 	},
 /turf/simulated/floor/reinforced,
@@ -147,8 +147,8 @@
 /turf/simulated/floor/wood,
 /area/city/mendell)
 "av" = (
-/obj/machinery/vending/zora,
-/obj/machinery/light/small{
+/obj/structure/machinery/vending/zora,
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/lino,
@@ -192,21 +192,21 @@
 /area/city/mendell)
 "aM" = (
 /obj/structure/table/stone/marble,
-/obj/machinery/chemical_dispenser/bar_alc/full,
+/obj/structure/machinery/chemical_dispenser/bar_alc/full,
 /turf/unsimulated/floor{
 	icon_state = "tiles_hex";
 	name = "hex flooring"
 	},
 /area/city/mendell/interior)
 "aP" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /obj/random/pottedplant,
 /turf/simulated/floor/lino,
 /area/city/mendell/interior)
 "aW" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	name = "Solarian Base Entry";
 	req_access = list(12);
 	dir = 1
@@ -217,7 +217,7 @@
 	},
 /area/city/mendell)
 "aZ" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/freezer,
@@ -250,7 +250,7 @@
 	},
 /area/city/mendell)
 "bg" = (
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /turf/simulated/floor/tiled/white,
 /area/city/mendell/interior)
 "bj" = (
@@ -295,7 +295,7 @@
 /turf/simulated/floor/wood,
 /area/city/mendell/interior)
 "bv" = (
-/obj/machinery/button/remote/airlock{
+/obj/structure/machinery/button/remote/airlock{
 	dir = 8;
 	id = "qs2";
 	name = "Door Bolt Control";
@@ -408,7 +408,7 @@
 /turf/simulated/floor/reinforced,
 /area/city/mendell)
 "bZ" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /obj/structure/railing/mapped{
@@ -420,7 +420,7 @@
 	},
 /area/city/mendell/interior)
 "cd" = (
-/obj/machinery/button/remote/airlock{
+/obj/structure/machinery/button/remote/airlock{
 	dir = 8;
 	id = "q5";
 	name = "Door Bolt Control";
@@ -433,7 +433,7 @@
 	},
 /area/city/mendell/interior)
 "cj" = (
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /obj/structure/closet/secure_closet/cabinet/bar,
 /turf/simulated/floor/tiled/white,
 /area/city/mendell/interior)
@@ -466,20 +466,20 @@
 /area/city/mendell/interior)
 "cz" = (
 /obj/structure/toilet,
-/obj/machinery/button/remote/airlock{
+/obj/structure/machinery/button/remote/airlock{
 	id = "main_unit_3";
 	name = "Door Bolt Control";
 	pixel_x = 5;
 	pixel_y = 25;
 	specialfunctions = 4
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/city/mendell/interior)
 "cG" = (
-/obj/machinery/chemical_dispenser/bar_soft/full{
+/obj/structure/machinery/chemical_dispenser/bar_soft/full{
 	pixel_y = 6
 	},
 /obj/structure/table/stone/marble,
@@ -506,7 +506,7 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /turf/simulated/floor/tiled/ramp/bottom{
 	dir = 8
 	},
@@ -611,14 +611,14 @@
 /turf/simulated/floor/lino,
 /area/city/mendell/interior)
 "dh" = (
-/obj/machinery/smartfridge/foodheater,
+/obj/structure/machinery/smartfridge/foodheater,
 /turf/unsimulated/floor{
 	icon_state = "tiles_small";
 	name = "small tiles"
 	},
 /area/city/mendell/interior)
 "di" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	id_tag = "city_shuttle";
 	dir = 4
 	},
@@ -635,7 +635,7 @@
 /turf/simulated/floor/beach/water/pool,
 /area/city/mendell/interior)
 "dn" = (
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /turf/unsimulated/floor{
 	icon_state = "wood_willow"
 	},
@@ -667,7 +667,7 @@
 /turf/simulated/floor/carpet,
 /area/city/mendell/interior)
 "dC" = (
-/obj/machinery/door/airlock/centcom{
+/obj/structure/machinery/door/airlock/centcom{
 	id_tag = "q7";
 	name = "Duo Suite Seven"
 	},
@@ -680,14 +680,14 @@
 /area/city/mendell)
 "dG" = (
 /obj/structure/toilet,
-/obj/machinery/button/remote/airlock{
+/obj/structure/machinery/button/remote/airlock{
 	id = "main_unit_2";
 	name = "Door Bolt Control";
 	pixel_x = 5;
 	pixel_y = 25;
 	specialfunctions = 4
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/freezer,
@@ -700,7 +700,7 @@
 	},
 /area/city/mendell)
 "dI" = (
-/obj/machinery/door/airlock/centcom{
+/obj/structure/machinery/door/airlock/centcom{
 	id_tag = "q1";
 	name = "Duo Suite One"
 	},
@@ -726,7 +726,7 @@
 /turf/simulated/floor/wood,
 /area/city/mendell/interior)
 "dS" = (
-/obj/machinery/door/airlock/glass_centcom{
+/obj/structure/machinery/door/airlock/glass_centcom{
 	name = "Kitchen";
 	req_access = list(101);
 	dir = 1
@@ -742,7 +742,7 @@
 /turf/simulated/floor/carpet,
 /area/city/mendell/interior)
 "dZ" = (
-/obj/machinery/door/airlock/centcom{
+/obj/structure/machinery/door/airlock/centcom{
 	id_tag = "q9";
 	name = "Duo Suite Nine"
 	},
@@ -751,7 +751,7 @@
 	},
 /area/city/mendell/interior)
 "ea" = (
-/obj/machinery/button/remote/airlock{
+/obj/structure/machinery/button/remote/airlock{
 	dir = 8;
 	id = "qs6";
 	name = "Door Bolt Control";
@@ -781,13 +781,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell)
 "ej" = (
-/obj/machinery/cryopod{
+/obj/structure/machinery/cryopod{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/city/mendell)
 "ek" = (
-/obj/machinery/door/airlock/centcom{
+/obj/structure/machinery/door/airlock/centcom{
 	id_tag = "qs9";
 	name = "Solo Suite Nine"
 	},
@@ -796,7 +796,7 @@
 	},
 /area/city/mendell/interior)
 "em" = (
-/obj/machinery/atm{
+/obj/structure/machinery/atm{
 	pixel_y = 30
 	},
 /turf/simulated/floor/lino,
@@ -855,13 +855,13 @@
 "eG" = (
 /obj/structure/table/wood,
 /obj/structure/bedsheetbin,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/wood,
 /area/city/mendell/interior)
 "eH" = (
-/obj/machinery/vending/boozeomat,
+/obj/structure/machinery/vending/boozeomat,
 /turf/unsimulated/floor{
 	icon_state = "tiles_small";
 	name = "small tiles"
@@ -888,18 +888,18 @@
 /turf/simulated/floor/reinforced,
 /area/city/mendell)
 "eJ" = (
-/obj/machinery/telecomms/allinone,
+/obj/structure/machinery/telecomms/allinone,
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell)
 "eK" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/structure/machinery/recharger/wallcharger{
 	pixel_x = 36;
 	pixel_y = 1
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/structure/machinery/recharger/wallcharger{
 	pixel_x = 36;
 	pixel_y = -9
 	},
@@ -916,7 +916,7 @@
 /area/city/mendell/interior)
 "eS" = (
 /obj/structure/table/reinforced,
-/obj/machinery/door/window/brigdoor/eastright{
+/obj/structure/machinery/door/window/brigdoor/eastright{
 	req_access = list(103)
 	},
 /turf/simulated/floor/reinforced,
@@ -931,7 +931,7 @@
 /turf/simulated/floor/lino,
 /area/city/mendell)
 "eV" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/lino,
@@ -947,7 +947,7 @@
 /turf/simulated/floor/wood,
 /area/city/mendell/interior)
 "eZ" = (
-/obj/machinery/cryopod,
+/obj/structure/machinery/cryopod,
 /turf/simulated/floor/plating,
 /area/city/mendell)
 "fa" = (
@@ -965,7 +965,7 @@
 	},
 /area/city/mendell/interior)
 "fd" = (
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /obj/structure/table/rack,
 /obj/item/lightreplacer/advanced,
 /obj/item/lightreplacer/advanced,
@@ -984,7 +984,7 @@
 	},
 /area/city/mendell)
 "fg" = (
-/obj/machinery/door/window/eastleft,
+/obj/structure/machinery/door/window/eastleft,
 /turf/unsimulated/floor{
 	icon_state = "wood_preview"
 	},
@@ -1100,7 +1100,7 @@
 /obj/effect/floor_decal/corner/lime{
 	dir = 10
 	},
-/obj/machinery/door/window/eastleft{
+/obj/structure/machinery/door/window/eastleft{
 	name = "dispensary";
 	req_one_access = list(33,104)
 	},
@@ -1112,7 +1112,7 @@
 	},
 /area/city/mendell)
 "fA" = (
-/obj/machinery/door/airlock/centcom{
+/obj/structure/machinery/door/airlock/centcom{
 	name = "Executive Supreme Prime Membership Restroom";
 	dir = 4
 	},
@@ -1128,7 +1128,7 @@
 	},
 /area/city/mendell)
 "fH" = (
-/obj/machinery/recharge_station,
+/obj/structure/machinery/recharge_station,
 /turf/unsimulated/floor{
 	icon_state = "wood_willow"
 	},
@@ -1181,7 +1181,7 @@
 /turf/simulated/floor/marble/dark,
 /area/city/mendell/interior)
 "fZ" = (
-/obj/machinery/button/remote/airlock{
+/obj/structure/machinery/button/remote/airlock{
 	dir = 8;
 	id = "q2";
 	name = "Door Bolt Control";
@@ -1194,7 +1194,7 @@
 	},
 /area/city/mendell/interior)
 "gb" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/ramp,
@@ -1219,7 +1219,7 @@
 /turf/simulated/floor/reinforced,
 /area/city/mendell)
 "gd" = (
-/obj/machinery/recharge_station,
+/obj/structure/machinery/recharge_station,
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell)
 "gf" = (
@@ -1255,7 +1255,7 @@
 	},
 /area/city/mendell/interior)
 "go" = (
-/obj/machinery/vending/dinnerware,
+/obj/structure/machinery/vending/dinnerware,
 /turf/simulated/floor/tiled/white,
 /area/city/mendell/interior)
 "gp" = (
@@ -1279,7 +1279,7 @@
 /turf/simulated/floor/marble/dark,
 /area/city/mendell/interior)
 "gD" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -1319,7 +1319,7 @@
 	},
 /area/city/mendell/interior)
 "gG" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /obj/structure/bed/stool/chair/office/bridge/generic{
@@ -1365,13 +1365,13 @@
 /obj/item/storage/box/lights,
 /obj/item/storage/box/lights,
 /obj/item/storage/box/lights,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell/interior)
 "hb" = (
-/obj/machinery/bodyscanner{
+/obj/structure/machinery/bodyscanner{
 	dir = 4
 	},
 /turf/unsimulated/floor{
@@ -1380,7 +1380,7 @@
 	},
 /area/city/mendell)
 "hd" = (
-/obj/machinery/floor_light/prebuilt,
+/obj/structure/machinery/floor_light/prebuilt,
 /turf/simulated/floor/marble/dark,
 /area/city/mendell/interior)
 "he" = (
@@ -1411,7 +1411,7 @@
 /turf/simulated/floor/reinforced,
 /area/city/mendell)
 "hk" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /turf/unsimulated/floor{
@@ -1475,7 +1475,7 @@
 /area/city/mendell/interior)
 "hy" = (
 /obj/structure/bed/stool/bar/padded/red,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/lino,
@@ -1507,7 +1507,7 @@
 	},
 /area/city/mendell)
 "hK" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/ramp,
@@ -1537,14 +1537,14 @@
 /turf/unsimulated/wall/darkshuttlewall,
 /area/city/mendell)
 "hQ" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/marble/dark,
 /area/city/mendell/interior)
 "hV" = (
 /obj/effect/floor_decal/industrial/hatch,
-/obj/machinery/floodlight,
+/obj/structure/machinery/floodlight,
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell/interior)
 "hW" = (
@@ -1608,7 +1608,7 @@
 /turf/simulated/floor/wood,
 /area/city/mendell)
 "iu" = (
-/obj/machinery/door/airlock/centcom{
+/obj/structure/machinery/door/airlock/centcom{
 	name = "Executive Suite 2"
 	},
 /turf/unsimulated/floor{
@@ -1622,7 +1622,7 @@
 /turf/simulated/floor/wood,
 /area/city/mendell)
 "iB" = (
-/obj/machinery/door/airlock/centcom{
+/obj/structure/machinery/door/airlock/centcom{
 	id_tag = "qs4";
 	name = "Solo Suite Four"
 	},
@@ -1637,7 +1637,7 @@
 /turf/simulated/floor/lino,
 /area/city/mendell)
 "iM" = (
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /turf/simulated/floor/carpet,
 /area/city/mendell/interior)
 "iO" = (
@@ -1667,7 +1667,7 @@
 	},
 /area/city/mendell)
 "iQ" = (
-/obj/machinery/button/remote/airlock{
+/obj/structure/machinery/button/remote/airlock{
 	dir = 8;
 	id = "qs3";
 	name = "Door Bolt Control";
@@ -1693,7 +1693,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell/interior)
@@ -1725,8 +1725,8 @@
 "jd" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/hatch,
-/obj/item/gun/energy/disruptorpistol/magnum,
-/obj/item/gun/energy/disruptorpistol/magnum,
+/obj/item/gun/projectile/sec/lethal,
+/obj/item/gun/projectile/sec/lethal,
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell)
 "je" = (
@@ -1809,7 +1809,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /turf/simulated/floor/wood,
 /area/city/mendell/interior)
 "jq" = (
@@ -1831,7 +1831,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell/interior)
 "jB" = (
-/obj/machinery/floor_light/dance,
+/obj/structure/machinery/floor_light/dance,
 /turf/simulated/floor/marble/dark,
 /area/city/mendell/interior)
 "jF" = (
@@ -1855,7 +1855,7 @@
 /turf/simulated/floor/wood,
 /area/city/mendell)
 "jH" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -1868,7 +1868,7 @@
 /turf/simulated/floor/shuttle/black,
 /area/city/mendell)
 "jS" = (
-/obj/machinery/door/airlock/centcom{
+/obj/structure/machinery/door/airlock/centcom{
 	name = "VR Checkpoint";
 	req_access = list(101);
 	dir = 4
@@ -1880,13 +1880,13 @@
 /turf/simulated/floor/gold,
 /area/city/mendell)
 "jX" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor/carpet/art,
 /area/city/mendell/interior)
 "jZ" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/carpet,
@@ -1906,7 +1906,7 @@
 /turf/simulated/floor/shuttle/black,
 /area/city/mendell)
 "kj" = (
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	name = "VR Preparation Room Passage";
 	req_access = list(12)
 	},
@@ -1943,7 +1943,7 @@
 	},
 /area/city/mendell/interior)
 "kC" = (
-/obj/machinery/sleeper{
+/obj/structure/machinery/sleeper{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
@@ -1988,7 +1988,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell)
 "kO" = (
-/obj/machinery/icecream_vat,
+/obj/structure/machinery/icecream_vat,
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
 	temperature = 278
@@ -2005,13 +2005,13 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell/interior)
 "kX" = (
-/obj/machinery/body_scanconsole{
+/obj/structure/machinery/body_scanconsole{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
@@ -2036,7 +2036,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell/interior)
 "la" = (
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /obj/structure/curtain/black{
 	icon_state = "open";
 	opacity = 0
@@ -2082,7 +2082,7 @@
 	},
 /area/city/mendell/interior)
 "ls" = (
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /turf/simulated/floor/beach/water/pool,
 /area/city/mendell/interior)
 "lu" = (
@@ -2118,11 +2118,11 @@
 /area/city/mendell)
 "lz" = (
 /obj/structure/table/stone/marble,
-/obj/machinery/chemical_dispenser/coffee/full,
+/obj/structure/machinery/chemical_dispenser/coffee/full,
 /turf/simulated/floor/wood,
 /area/city/mendell/interior)
 "lA" = (
-/obj/machinery/smartfridge/foodheater,
+/obj/structure/machinery/smartfridge/foodheater,
 /turf/simulated/floor/marble/dark,
 /area/city/mendell/interior)
 "lC" = (
@@ -2145,13 +2145,13 @@
 	},
 /area/city/mendell)
 "lL" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/marble/dark,
 /area/city/mendell/interior)
 "lP" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /obj/effect/decal/fake_object{
@@ -2186,7 +2186,7 @@
 /area/city/mendell/interior)
 "ma" = (
 /obj/structure/table/standard,
-/obj/machinery/vending/wallmed1{
+/obj/structure/machinery/vending/wallmed1{
 	pixel_x = 27;
 	req_access = null
 	},
@@ -2274,7 +2274,7 @@
 	},
 /area/city/mendell/interior)
 "mx" = (
-/obj/machinery/vending/cola,
+/obj/structure/machinery/vending/cola,
 /turf/unsimulated/floor{
 	icon_state = "wood_cherry"
 	},
@@ -2320,7 +2320,7 @@
 /turf/simulated/floor/shuttle/dark_blue,
 /area/city/mendell)
 "mR" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/black,
@@ -2353,7 +2353,7 @@
 /turf/simulated/floor/wood,
 /area/city/mendell/interior)
 "mV" = (
-/obj/machinery/door/airlock/centcom{
+/obj/structure/machinery/door/airlock/centcom{
 	name = "Executive Suite 4"
 	},
 /turf/unsimulated/floor{
@@ -2365,14 +2365,14 @@
 /turf/simulated/floor/bluegrid,
 /area/city/mendell)
 "nk" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /obj/random/pottedplant,
 /turf/simulated/floor/lino,
 /area/city/mendell/interior)
 "nm" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/carpet,
@@ -2415,7 +2415,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell/interior)
 "nH" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/ramp/bottom{
@@ -2428,13 +2428,13 @@
 	},
 /area/city/mendell)
 "nQ" = (
-/obj/machinery/computer/guestpass{
+/obj/structure/machinery/computer/guestpass{
 	pixel_y = 32
 	},
 /turf/simulated/floor/reinforced,
 /area/city/mendell)
 "nR" = (
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	id = "front_doors";
 	pixel_x = 25;
 	req_access = list(101)
@@ -2444,7 +2444,7 @@
 /turf/simulated/floor/wood,
 /area/city/mendell/interior)
 "nS" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/unsimulated/floor{
@@ -2466,12 +2466,12 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell/interior)
 "ob" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/unsimulated/floor{
@@ -2481,7 +2481,7 @@
 /area/city/mendell/interior)
 "oc" = (
 /obj/structure/table/stone/marble,
-/obj/machinery/reagentgrinder{
+/obj/structure/machinery/reagentgrinder{
 	pixel_y = 6
 	},
 /turf/unsimulated/floor{
@@ -2497,13 +2497,13 @@
 	},
 /area/city/mendell/interior)
 "ok" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/beach/water/pool,
@@ -2517,8 +2517,8 @@
 	},
 /area/city/mendell/interior)
 "ox" = (
-/obj/machinery/door/window/northright,
-/obj/machinery/light/small{
+/obj/structure/machinery/door/window/northright,
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/carpet,
@@ -2544,14 +2544,14 @@
 	},
 /area/city/mendell/interior)
 "oC" = (
-/obj/machinery/iv_drip,
+/obj/structure/machinery/iv_drip,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
 	},
 /area/city/mendell)
 "oD" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/beach/water/pool,
@@ -2570,7 +2570,7 @@
 	},
 /area/city/mendell)
 "oK" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /obj/structure/bed/stool/chair/padded/blue{
@@ -2585,11 +2585,11 @@
 	},
 /area/city/mendell/interior)
 "oN" = (
-/obj/machinery/door/airlock/centcom{
+/obj/structure/machinery/door/airlock/centcom{
 	name = "Special Operations";
 	req_access = list(109)
 	},
-/obj/machinery/door/blast/odin{
+/obj/structure/machinery/door/blast/odin{
 	id = "CCIAReadyRoom";
 	name = "Special Operations Blast Door"
 	},
@@ -2598,11 +2598,11 @@
 	},
 /area/city/mendell)
 "oQ" = (
-/obj/machinery/vending/cigarette,
+/obj/structure/machinery/vending/cigarette,
 /turf/simulated/floor/lino,
 /area/city/mendell/interior)
 "oT" = (
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /turf/unsimulated/floor{
 	icon_state = "tiles_small";
 	name = "small tiles"
@@ -2620,7 +2620,7 @@
 /turf/simulated/floor/marble/dark,
 /area/city/mendell/interior)
 "oZ" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/beach/water/pool,
@@ -2643,7 +2643,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/city/mendell/interior)
 "pf" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/freezer{
@@ -2659,7 +2659,7 @@
 	},
 /area/city/mendell)
 "po" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /obj/structure/railing/mapped{
@@ -2668,7 +2668,7 @@
 /turf/simulated/floor/beach/water/pool,
 /area/city/mendell/interior)
 "pp" = (
-/obj/machinery/door/airlock/glass_centcom{
+/obj/structure/machinery/door/airlock/glass_centcom{
 	name = "Hotel Suites";
 	dir = 1
 	},
@@ -2677,7 +2677,7 @@
 	},
 /area/city/mendell/interior)
 "pt" = (
-/obj/machinery/door/window/northright{
+/obj/structure/machinery/door/window/northright{
 	name = "dispensary";
 	req_one_access = list(33,104)
 	},
@@ -2719,7 +2719,7 @@
 /obj/structure/bed/stool/chair/padded/blue{
 	dir = 8
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/unsimulated/floor{
@@ -2764,19 +2764,19 @@
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell)
 "qh" = (
-/obj/machinery/door/airlock/glass_centcom{
+/obj/structure/machinery/door/airlock/glass_centcom{
 	dir = 1
 	},
 /turf/simulated/floor/wood,
 /area/city/mendell/interior)
 "qn" = (
-/obj/machinery/door/blast/odin{
+/obj/structure/machinery/door/blast/odin{
 	id = "front_doors"
 	},
 /turf/simulated/floor/marble/dark,
 /area/city/mendell/interior)
 "qo" = (
-/obj/machinery/door/airlock/centcom{
+/obj/structure/machinery/door/airlock/centcom{
 	id_tag = "q6";
 	name = "Duo Suite Six"
 	},
@@ -2823,13 +2823,13 @@
 /obj/item/storage/firstaid,
 /obj/item/storage/firstaid,
 /obj/structure/table/rack,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell/interior)
 "qH" = (
-/obj/machinery/door/airlock/centcom{
+/obj/structure/machinery/door/airlock/centcom{
 	name = "Executive Suite Prime"
 	},
 /turf/unsimulated/floor{
@@ -2880,7 +2880,7 @@
 	},
 /area/city/mendell)
 "qY" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /obj/structure/curtain/black{
@@ -2902,10 +2902,10 @@
 	},
 /area/city/mendell/interior)
 "rh" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
-/obj/machinery/icecream_vat,
+/obj/structure/machinery/icecream_vat,
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
 	temperature = 278
@@ -2921,7 +2921,7 @@
 /turf/simulated/floor/marble/dark,
 /area/city/mendell/interior)
 "rk" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor/beach/water/pool,
@@ -3046,7 +3046,7 @@
 /turf/simulated/floor/marble/dark,
 /area/city/mendell/interior)
 "ru" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /obj/structure/table/wood,
@@ -3121,7 +3121,7 @@
 	},
 /area/city/mendell/interior)
 "rN" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/unsimulated/floor{
@@ -3133,7 +3133,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell)
 "rP" = (
-/obj/machinery/button/remote/airlock{
+/obj/structure/machinery/button/remote/airlock{
 	dir = 8;
 	id = "q6";
 	name = "Door Bolt Control";
@@ -3167,7 +3167,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell)
 "rU" = (
-/obj/machinery/acting/changer,
+/obj/structure/machinery/acting/changer,
 /obj/effect/floor_decal/industrial/hatch,
 /turf/simulated/floor/reinforced,
 /area/city/mendell)
@@ -3180,7 +3180,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell)
 "sc" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/unsimulated/floor{
@@ -3193,7 +3193,7 @@
 /turf/simulated/floor/plating,
 /area/city/mendell/interior)
 "sj" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/ramp{
@@ -3229,17 +3229,17 @@
 /turf/simulated/floor/carpet,
 /area/city/mendell/interior)
 "su" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
-/obj/machinery/shower{
+/obj/structure/machinery/shower{
 	dir = 8
 	},
 /obj/structure/curtain/open/shower,
 /turf/simulated/floor/tiled/freezer,
 /area/city/mendell/interior)
 "sw" = (
-/obj/machinery/door/airlock/centcom{
+/obj/structure/machinery/door/airlock/centcom{
 	id_tag = "q2";
 	name = "Duo Suite 2"
 	},
@@ -3248,7 +3248,7 @@
 	},
 /area/city/mendell/interior)
 "sB" = (
-/obj/machinery/door/airlock/glass_centcom{
+/obj/structure/machinery/door/airlock/glass_centcom{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3270,7 +3270,7 @@
 /area/city/mendell)
 "sP" = (
 /obj/structure/bed/stool/chair/wood,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/marble/dark,
@@ -3284,7 +3284,7 @@
 /area/city/mendell/interior)
 "td" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/machinery/iv_drip,
+/obj/structure/machinery/iv_drip,
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
@@ -3344,7 +3344,7 @@
 /turf/simulated/floor/plating,
 /area/city/mendell/interior)
 "tC" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	name = "Solarian Base Entry";
 	req_access = list(12);
 	dir = 1
@@ -3371,7 +3371,7 @@
 /area/city/mendell/interior)
 "tK" = (
 /obj/structure/railing/mapped,
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /turf/simulated/floor/tiled,
 /area/city/mendell/interior)
 "tM" = (
@@ -3388,7 +3388,7 @@
 /area/city/mendell/interior)
 "tO" = (
 /obj/structure/bed/stool/chair/wood,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/marble/dark,
@@ -3404,14 +3404,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell/interior)
 "tQ" = (
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /turf/simulated/floor/marble/dark,
 /area/city/mendell/interior)
 "tS" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
-/obj/machinery/vending/cola,
+/obj/structure/machinery/vending/cola,
 /turf/unsimulated/floor{
 	icon_state = "tiles_small";
 	name = "small tiles"
@@ -3425,7 +3425,7 @@
 /obj/structure/bed/stool/chair/office/light{
 	dir = 4
 	},
-/obj/machinery/button/remote/airlock{
+/obj/structure/machinery/button/remote/airlock{
 	dir = 4;
 	id = "exec_suite";
 	name = "executive suite door control";
@@ -3446,7 +3446,7 @@
 	},
 /area/city/mendell)
 "ue" = (
-/obj/machinery/door/airlock/centcom{
+/obj/structure/machinery/door/airlock/centcom{
 	name = "Administrative Wing";
 	req_access = list(101);
 	dir = 1
@@ -3481,7 +3481,7 @@
 	},
 /area/city/mendell/interior)
 "up" = (
-/obj/machinery/door/airlock/centcom{
+/obj/structure/machinery/door/airlock/centcom{
 	name = "Executive Suite 6"
 	},
 /turf/unsimulated/floor{
@@ -3509,7 +3509,7 @@
 	},
 /area/city/mendell/interior)
 "uz" = (
-/obj/machinery/vending/snack,
+/obj/structure/machinery/vending/snack,
 /turf/unsimulated/floor{
 	icon_state = "wood_cherry"
 	},
@@ -3553,7 +3553,7 @@
 	},
 /area/city/mendell/interior)
 "uS" = (
-/obj/machinery/iv_drip,
+/obj/structure/machinery/iv_drip,
 /obj/effect/floor_decal/corner/lime/diagonal,
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
@@ -3575,7 +3575,7 @@
 	},
 /area/city/mendell)
 "vk" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /obj/structure/railing/mapped,
@@ -3633,10 +3633,10 @@
 	},
 /area/city/mendell/interior)
 "vt" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
-/obj/machinery/washing_machine,
+/obj/structure/machinery/washing_machine,
 /turf/unsimulated/floor{
 	icon_state = "wood_preview"
 	},
@@ -3670,7 +3670,7 @@
 	},
 /area/city/mendell)
 "vy" = (
-/obj/machinery/door/airlock/centcom{
+/obj/structure/machinery/door/airlock/centcom{
 	name = "Administrative Wing";
 	req_access = list(101);
 	dir = 1
@@ -3729,7 +3729,7 @@
 /obj/structure/bed/stool/chair/wood{
 	dir = 4
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/unsimulated/floor{
@@ -3744,7 +3744,7 @@
 /turf/simulated/floor/lino,
 /area/city/mendell/interior)
 "vT" = (
-/obj/machinery/door/airlock/centcom{
+/obj/structure/machinery/door/airlock/centcom{
 	id_tag = "qs7";
 	name = "Solo Suite Seven"
 	},
@@ -3756,7 +3756,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
 	},
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	dir = 4;
 	id = "CCIAReadyRoom";
 	name = "Ready Room";
@@ -3807,7 +3807,7 @@
 	},
 /area/city/mendell/interior)
 "wk" = (
-/obj/machinery/body_scanconsole{
+/obj/structure/machinery/body_scanconsole{
 	dir = 8
 	},
 /turf/unsimulated/floor{
@@ -3841,7 +3841,7 @@
 /area/city/mendell/interior)
 "ws" = (
 /obj/structure/table/stone/marble,
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /turf/simulated/floor/marble/dark,
 /area/city/mendell/interior)
 "wx" = (
@@ -3853,7 +3853,7 @@
 	},
 /area/city/mendell)
 "wG" = (
-/obj/machinery/door/window/northright,
+/obj/structure/machinery/door/window/northright,
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell/interior)
 "wI" = (
@@ -3865,7 +3865,7 @@
 	},
 /area/city/mendell)
 "wJ" = (
-/obj/machinery/recharge_station,
+/obj/structure/machinery/recharge_station,
 /turf/simulated/floor/tiled/freezer,
 /area/city/mendell/interior)
 "wK" = (
@@ -3882,18 +3882,18 @@
 /turf/simulated/floor/reinforced,
 /area/city/mendell)
 "wO" = (
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /turf/simulated/floor/wood,
 /area/city/mendell/interior)
 "wP" = (
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /turf/simulated/floor/tiled,
 /area/city/mendell/interior)
 "wQ" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/machinery/door/window/southright,
+/obj/structure/machinery/door/window/southright,
 /turf/simulated/floor/plating,
 /area/city/mendell)
 "wS" = (
@@ -3904,13 +3904,13 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell/interior)
 "xj" = (
-/obj/machinery/bodyscanner{
+/obj/structure/machinery/bodyscanner{
 	dir = 8
 	},
 /turf/unsimulated/floor{
@@ -3946,13 +3946,13 @@
 	},
 /area/city/mendell)
 "xw" = (
-/obj/machinery/door/airlock/glass_centcom{
+/obj/structure/machinery/door/airlock/glass_centcom{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell)
 "xx" = (
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /turf/simulated/floor/lino,
 /area/city/mendell/interior)
 "xz" = (
@@ -3994,13 +3994,13 @@
 	},
 /area/city/mendell)
 "xI" = (
-/obj/machinery/computer/arcade/battle,
+/obj/structure/machinery/computer/arcade/battle,
 /turf/unsimulated/floor{
 	icon_state = "wood_birch"
 	},
 /area/city/mendell/interior)
 "xK" = (
-/obj/machinery/chem_master{
+/obj/structure/machinery/chem_master{
 	dir = 4;
 	pixel_x = -2;
 	pixel_y = -3
@@ -4136,7 +4136,7 @@
 	},
 /area/city/mendell/interior)
 "yb" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /obj/structure/curtain/black{
@@ -4161,7 +4161,7 @@
 /turf/simulated/floor/reinforced,
 /area/city/mendell)
 "yi" = (
-/obj/machinery/door/airlock/centcom{
+/obj/structure/machinery/door/airlock/centcom{
 	id_tag = "q3";
 	name = "Duo Suite Three"
 	},
@@ -4180,7 +4180,7 @@
 /turf/simulated/floor/tiled,
 /area/city/mendell/interior)
 "yk" = (
-/obj/machinery/door/airlock/glass_centcom{
+/obj/structure/machinery/door/airlock/glass_centcom{
 	name = "Custodial Access"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -4196,7 +4196,7 @@
 	},
 /area/city/mendell/interior)
 "yo" = (
-/obj/machinery/recharge_station,
+/obj/structure/machinery/recharge_station,
 /turf/unsimulated/floor{
 	icon_state = "wood_cherry"
 	},
@@ -4213,7 +4213,7 @@
 /turf/simulated/floor/lino,
 /area/city/mendell/interior)
 "yu" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /obj/structure/curtain/black{
@@ -4229,13 +4229,13 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell/interior)
 "yz" = (
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /turf/simulated/floor/tiled/ramp/bottom{
 	dir = 8
 	},
@@ -4256,14 +4256,14 @@
 	pixel_x = 8;
 	pixel_y = 8
 	},
-/obj/machinery/recharger{
+/obj/structure/machinery/recharger{
 	pixel_x = -5;
 	pixel_y = 4
 	},
 /turf/simulated/floor/carpet,
 /area/city/mendell/interior)
 "yL" = (
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
@@ -4275,17 +4275,17 @@
 	},
 /area/city/mendell/interior)
 "yU" = (
-/obj/machinery/cryopod{
+/obj/structure/machinery/cryopod{
 	dir = 4
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/lino,
 /area/city/mendell/interior)
 "yW" = (
-/obj/machinery/vending/boozeomat,
-/obj/machinery/light/small{
+/obj/structure/machinery/vending/boozeomat,
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/marble/dark,
@@ -4307,7 +4307,7 @@
 "zb" = (
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/food/snacks/chipplate,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/marble/dark,
@@ -4345,7 +4345,7 @@
 /turf/simulated/floor/greengrid,
 /area/city/mendell)
 "zp" = (
-/obj/machinery/door/airlock/centcom{
+/obj/structure/machinery/door/airlock/centcom{
 	name = "Administrative Wing";
 	req_access = list(101)
 	},
@@ -4412,7 +4412,7 @@
 	},
 /area/city/mendell/interior)
 "zJ" = (
-/obj/machinery/door/window/northright,
+/obj/structure/machinery/door/window/northright,
 /turf/unsimulated/floor{
 	icon_state = "wood_preview"
 	},
@@ -4423,13 +4423,13 @@
 /turf/simulated/floor/carpet/art,
 /area/city/mendell/interior)
 "zP" = (
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /turf/unsimulated/floor{
 	icon_state = "wood_birch"
 	},
 /area/city/mendell/interior)
 "zU" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /turf/unsimulated/floor{
@@ -4477,7 +4477,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell/interior)
 "Al" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/unsimulated/floor{
@@ -4506,7 +4506,7 @@
 /turf/simulated/floor/carpet,
 /area/city/mendell/interior)
 "At" = (
-/obj/machinery/recharge_station,
+/obj/structure/machinery/recharge_station,
 /obj/effect/decal/fake_object{
 	desc = "A window overlooking the pristine Mendell City.";
 	icon = 'icons/effects/city.dmi';
@@ -4524,7 +4524,7 @@
 	},
 /area/city/mendell/interior)
 "AD" = (
-/obj/machinery/button/remote/airlock{
+/obj/structure/machinery/button/remote/airlock{
 	dir = 8;
 	id = "q10";
 	name = "Door Bolt Control";
@@ -4543,13 +4543,13 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/beach/water/pool,
 /area/city/mendell/interior)
 "AI" = (
-/obj/machinery/atm{
+/obj/structure/machinery/atm{
 	pixel_x = 28;
 	pixel_y = -2
 	},
@@ -4557,7 +4557,7 @@
 /area/city/mendell/interior)
 "AN" = (
 /obj/random/pottedplant,
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /turf/unsimulated/floor{
 	icon_state = "wood_cherry"
 	},
@@ -4566,7 +4566,7 @@
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 4
 	},
-/obj/machinery/door/blast/odin{
+/obj/structure/machinery/door/blast/odin{
 	id = "briefing_incoming"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -4581,11 +4581,11 @@
 /turf/simulated/floor/wood,
 /area/city/mendell/interior)
 "AV" = (
-/obj/machinery/chemical_dispenser/bar_soft/full{
+/obj/structure/machinery/chemical_dispenser/bar_soft/full{
 	pixel_y = 6
 	},
 /obj/structure/table/stone/marble,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/unsimulated/floor{
@@ -4621,7 +4621,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell)
 "Bl" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /obj/effect/floor_decal/spline/fancy/wood/cee{
@@ -4635,7 +4635,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -4661,7 +4661,7 @@
 /turf/simulated/floor/lino,
 /area/city/mendell/interior)
 "Bx" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -4673,7 +4673,7 @@
 	},
 /area/city/mendell/interior)
 "BA" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/unsimulated/floor{
@@ -4691,7 +4691,7 @@
 /turf/simulated/floor/marble/dark,
 /area/city/mendell/interior)
 "BD" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /obj/effect/floor_decal/spline/fancy/wood/cee{
@@ -4738,13 +4738,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell/interior)
 "BL" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/city/mendell/interior)
 "BO" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/unsimulated/floor{
@@ -4797,7 +4797,7 @@
 	},
 /area/city/mendell)
 "Cd" = (
-/obj/machinery/button/remote/airlock{
+/obj/structure/machinery/button/remote/airlock{
 	dir = 8;
 	id = "q1";
 	name = "Door Bolt Control";
@@ -4824,7 +4824,7 @@
 	},
 /area/city/mendell/interior)
 "Cx" = (
-/obj/machinery/door/airlock/centcom{
+/obj/structure/machinery/door/airlock/centcom{
 	id_tag = "qs5";
 	name = "Solo Suite Five"
 	},
@@ -4833,7 +4833,7 @@
 	},
 /area/city/mendell/interior)
 "Cz" = (
-/obj/machinery/door/airlock/centcom{
+/obj/structure/machinery/door/airlock/centcom{
 	id_tag = "q4";
 	name = "Duo Suite Four"
 	},
@@ -4854,7 +4854,7 @@
 /turf/simulated/floor/beach/water/pool,
 /area/city/mendell/interior)
 "CB" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/unsimulated/floor{
@@ -4862,7 +4862,7 @@
 	},
 /area/city/mendell/interior)
 "CD" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /obj/structure/table/rack,
@@ -4894,7 +4894,7 @@
 	},
 /area/city/mendell/interior)
 "CI" = (
-/obj/machinery/recharge_station,
+/obj/structure/machinery/recharge_station,
 /obj/effect/decal/fake_object{
 	desc = "A window overlooking the pristine Mendell City.";
 	icon = 'icons/effects/city.dmi';
@@ -4934,13 +4934,13 @@
 /turf/unsimulated/wall/steel,
 /area/city/mendell/interior)
 "CR" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/cryopod{
+/obj/structure/machinery/cryopod{
 	dir = 2
 	},
 /turf/unsimulated/floor{
@@ -4948,7 +4948,7 @@
 	},
 /area/city/mendell/interior)
 "CT" = (
-/obj/machinery/button/remote/airlock{
+/obj/structure/machinery/button/remote/airlock{
 	dir = 8;
 	id = "qs1";
 	name = "Door Bolt Control";
@@ -4961,7 +4961,7 @@
 	},
 /area/city/mendell/interior)
 "CU" = (
-/obj/machinery/door/airlock/centcom{
+/obj/structure/machinery/door/airlock/centcom{
 	name = "VR Control Center";
 	req_access = list(101);
 	dir = 4
@@ -4976,13 +4976,13 @@
 /turf/simulated/floor/wood,
 /area/city/mendell/interior)
 "CY" = (
-/obj/machinery/cryopod{
+/obj/structure/machinery/cryopod{
 	dir = 4
 	},
 /turf/simulated/floor/lino,
 /area/city/mendell/interior)
 "Da" = (
-/obj/machinery/door/airlock/centcom{
+/obj/structure/machinery/door/airlock/centcom{
 	id_tag = "q5";
 	name = "Duo Suite Five"
 	},
@@ -4994,11 +4994,11 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/structure/machinery/recharger/wallcharger{
 	pixel_x = 36;
 	pixel_y = -9
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/structure/machinery/recharger/wallcharger{
 	pixel_x = 36;
 	pixel_y = 1
 	},
@@ -5010,7 +5010,7 @@
 /obj/effect/map_effect/door_helper/unres{
 	dir = 8
 	},
-/obj/machinery/door/airlock/glass_security{
+/obj/structure/machinery/door/airlock/glass_security{
 	name = "Coalition Base Entry";
 	req_access = list(12);
 	dir = 4
@@ -5026,7 +5026,7 @@
 	},
 /area/city/mendell/interior)
 "Dg" = (
-/obj/machinery/button/remote/airlock{
+/obj/structure/machinery/button/remote/airlock{
 	dir = 8;
 	id = "qs7";
 	name = "Door Bolt Control";
@@ -5115,7 +5115,7 @@
 /turf/simulated/floor/lino,
 /area/city/mendell/interior)
 "Dw" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /obj/effect/decal/fake_object{
@@ -5143,7 +5143,7 @@
 	},
 /area/city/mendell)
 "DG" = (
-/obj/machinery/cryopod,
+/obj/structure/machinery/cryopod,
 /turf/simulated/floor/lino,
 /area/city/mendell/interior)
 "DH" = (
@@ -5181,7 +5181,7 @@
 /turf/simulated/floor/lino,
 /area/city/mendell/interior)
 "DJ" = (
-/obj/machinery/acting/changer,
+/obj/structure/machinery/acting/changer,
 /turf/simulated/floor/gold,
 /area/city/mendell)
 "DK" = (
@@ -5239,7 +5239,7 @@
 	},
 /area/city/mendell)
 "Ed" = (
-/obj/machinery/door/airlock/centcom{
+/obj/structure/machinery/door/airlock/centcom{
 	name = "Executive Suite 7"
 	},
 /turf/unsimulated/floor{
@@ -5247,10 +5247,10 @@
 	},
 /area/city/mendell/interior)
 "Ee" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /turf/simulated/floor/tiled,
 /area/city/mendell/interior)
 "Eh" = (
@@ -5330,7 +5330,7 @@
 	},
 /area/city/mendell/interior)
 "EM" = (
-/obj/machinery/door/airlock/centcom{
+/obj/structure/machinery/door/airlock/centcom{
 	id_tag = "qs3";
 	name = "Solo Suite Three"
 	},
@@ -5353,7 +5353,7 @@
 	},
 /area/city/mendell/interior)
 "EZ" = (
-/obj/machinery/door/window/eastleft,
+/obj/structure/machinery/door/window/eastleft,
 /turf/simulated/floor/wood,
 /area/city/mendell/interior)
 "Fb" = (
@@ -5361,14 +5361,14 @@
 /turf/unsimulated/floor/plating,
 /area/city/mendell)
 "Fe" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /obj/structure/bed/stool/chair/padded/blue,
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell/interior)
 "Fm" = (
-/obj/machinery/door/airlock/centcom{
+/obj/structure/machinery/door/airlock/centcom{
 	name = "Administrative Wing";
 	req_access = list(101);
 	dir = 4
@@ -5377,7 +5377,7 @@
 /area/city/mendell)
 "Fn" = (
 /obj/structure/curtain/open/shower,
-/obj/machinery/shower{
+/obj/structure/machinery/shower{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/freezer,
@@ -5416,7 +5416,7 @@
 	},
 /area/city/mendell/interior)
 "FG" = (
-/obj/machinery/door/airlock/glass_centcom,
+/obj/structure/machinery/door/airlock/glass_centcom,
 /turf/unsimulated/floor{
 	icon_state = "tiles_hex";
 	name = "hex flooring"
@@ -5452,7 +5452,7 @@
 	},
 /area/city/mendell)
 "FW" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/unsimulated/floor{
@@ -5480,7 +5480,7 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/city)
 "Gf" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /obj/structure/bed/stool/chair/office/bridge/generic{
@@ -5528,7 +5528,7 @@
 /turf/simulated/floor/lino,
 /area/city/mendell/interior)
 "Gx" = (
-/obj/machinery/photocopier,
+/obj/structure/machinery/photocopier,
 /turf/simulated/floor/wood,
 /area/city/mendell/interior)
 "GA" = (
@@ -5544,7 +5544,7 @@
 /turf/simulated/floor/reinforced,
 /area/city/mendell)
 "GC" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/unsimulated/floor{
@@ -5553,7 +5553,7 @@
 	},
 /area/city/mendell/interior)
 "GF" = (
-/obj/machinery/door/airlock/centcom{
+/obj/structure/machinery/door/airlock/centcom{
 	name = "Administrative Wing";
 	req_access = list(101);
 	dir = 1
@@ -5577,7 +5577,7 @@
 /turf/simulated/floor/bluegrid,
 /area/city/mendell)
 "GQ" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/unsimulated/floor{
@@ -5589,7 +5589,7 @@
 /turf/simulated/floor/tiled,
 /area/city/mendell/interior)
 "GY" = (
-/obj/machinery/door/airlock/centcom{
+/obj/structure/machinery/door/airlock/centcom{
 	name = "Executive Restroom"
 	},
 /turf/unsimulated/floor{
@@ -5719,7 +5719,7 @@
 	},
 /area/city/mendell/interior)
 "HO" = (
-/obj/machinery/button/remote/airlock{
+/obj/structure/machinery/button/remote/airlock{
 	dir = 8;
 	id = "qs9";
 	name = "Door Bolt Control";
@@ -5749,33 +5749,33 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/wood,
 /area/city/mendell/interior)
 "HZ" = (
-/obj/machinery/atm{
+/obj/structure/machinery/atm{
 	pixel_x = 28;
 	pixel_y = -2
 	},
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell)
 "If" = (
-/obj/machinery/vending/cola,
+/obj/structure/machinery/vending/cola,
 /turf/unsimulated/floor{
 	icon_state = "tiles_small";
 	name = "small tiles"
 	},
 /area/city/mendell/interior)
 "Ij" = (
-/obj/machinery/door/airlock/centcom{
+/obj/structure/machinery/door/airlock/centcom{
 	name = "Executive Suite 1"
 	},
 /turf/simulated/floor/wood,
 /area/city/mendell/interior)
 "Io" = (
-/obj/machinery/door/window/brigdoor/eastright{
+/obj/structure/machinery/door/window/brigdoor/eastright{
 	req_access = list(103)
 	},
 /turf/simulated/floor/greengrid,
@@ -5787,7 +5787,7 @@
 	},
 /area/city/mendell/interior)
 "Iw" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /obj/structure/window/reinforced{
@@ -5801,7 +5801,7 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell/interior)
 "IC" = (
@@ -5817,7 +5817,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell)
 "IH" = (
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
 	},
@@ -5843,13 +5843,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell)
 "IS" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/city/mendell/interior)
 "IU" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /obj/effect/decal/fake_object{
@@ -5868,7 +5868,7 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -5917,7 +5917,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell)
 "Je" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /obj/structure/table/stone/marble,
@@ -5933,7 +5933,7 @@
 /area/city/mendell/interior)
 "Jk" = (
 /obj/structure/table/stone/marble,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /turf/unsimulated/floor{
@@ -5957,7 +5957,7 @@
 /obj/structure/bed/stool/chair/wood{
 	dir = 4
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor/lino,
@@ -6002,7 +6002,7 @@
 /turf/simulated/floor/lino,
 /area/city/mendell/interior)
 "JF" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /obj/structure/table/wood,
@@ -6022,7 +6022,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell)
 "JI" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/grass{
@@ -6070,7 +6070,7 @@
 	},
 /area/city/mendell/interior)
 "JX" = (
-/obj/machinery/door/airlock/command{
+/obj/structure/machinery/door/airlock/command{
 	name = "Conference Room";
 	req_access = list(19);
 	dir = 1
@@ -6078,7 +6078,7 @@
 /turf/simulated/floor/wood,
 /area/city/mendell)
 "Ka" = (
-/obj/machinery/vending/snack,
+/obj/structure/machinery/vending/snack,
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell)
 "Kg" = (
@@ -6091,7 +6091,7 @@
 	},
 /area/city/mendell)
 "Kk" = (
-/obj/machinery/chemical_dispenser/coffeemaster/full,
+/obj/structure/machinery/chemical_dispenser/coffeemaster/full,
 /obj/structure/table/stone/marble,
 /turf/unsimulated/floor{
 	icon_state = "tiles_hex";
@@ -6099,7 +6099,7 @@
 	},
 /area/city/mendell/interior)
 "Kp" = (
-/obj/machinery/button/remote/airlock{
+/obj/structure/machinery/button/remote/airlock{
 	dir = 8;
 	id = "q7";
 	name = "Door Bolt Control";
@@ -6112,7 +6112,7 @@
 	},
 /area/city/mendell/interior)
 "Kr" = (
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /turf/simulated/floor/tiled/freezer,
 /area/city/mendell/interior)
 "Kt" = (
@@ -6143,7 +6143,7 @@
 	pixel_x = -5;
 	pixel_y = 4
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/marble/dark,
@@ -6175,7 +6175,7 @@
 	},
 /area/city/mendell)
 "KP" = (
-/obj/machinery/vending/snack,
+/obj/structure/machinery/vending/snack,
 /turf/unsimulated/floor{
 	icon_state = "tiles_small";
 	name = "small tiles"
@@ -6206,7 +6206,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /turf/unsimulated/floor{
@@ -6215,7 +6215,7 @@
 	},
 /area/city/mendell/interior)
 "KX" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /obj/structure/table/wood,
@@ -6245,7 +6245,7 @@
 	},
 /area/city/mendell)
 "Ln" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -6294,13 +6294,13 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/wood,
 /area/city/mendell/interior)
 "Ly" = (
-/obj/machinery/vending/coffee,
+/obj/structure/machinery/vending/coffee,
 /turf/unsimulated/floor{
 	icon_state = "tiles_small";
 	name = "small tiles"
@@ -6328,7 +6328,7 @@
 	},
 /area/city/mendell/interior)
 "LB" = (
-/obj/machinery/vending/cola,
+/obj/structure/machinery/vending/cola,
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell)
 "LD" = (
@@ -6360,7 +6360,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell)
 "LR" = (
-/obj/machinery/button/remote/airlock{
+/obj/structure/machinery/button/remote/airlock{
 	dir = 8;
 	id = "q8";
 	name = "Door Bolt Control";
@@ -6495,8 +6495,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell)
 "Mi" = (
-/obj/machinery/vending/dinnerware,
-/obj/machinery/light/small{
+/obj/structure/machinery/vending/dinnerware,
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -6524,7 +6524,7 @@
 /turf/simulated/floor/marble/dark,
 /area/city/mendell/interior)
 "Mr" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor/lino,
@@ -6560,7 +6560,7 @@
 /obj/structure/bed/stool/chair/wood{
 	dir = 4
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/lino,
@@ -6581,7 +6581,7 @@
 	},
 /area/city/mendell/interior)
 "MC" = (
-/obj/machinery/door/airlock/centcom{
+/obj/structure/machinery/door/airlock/centcom{
 	id_tag = "qs8";
 	name = "Solo Suite Eight"
 	},
@@ -6590,7 +6590,7 @@
 	},
 /area/city/mendell/interior)
 "ME" = (
-/obj/machinery/door/airlock/centcom{
+/obj/structure/machinery/door/airlock/centcom{
 	name = "Executive Suite 5"
 	},
 /turf/unsimulated/floor{
@@ -6616,15 +6616,18 @@
 	name = "CCIA Bodyguard Sidearm";
 	req_access = list(109)
 	},
-/obj/item/gun/energy/disruptorpistol/magnum,
-/obj/item/gun/energy/disruptorpistol/magnum,
-/obj/item/gun/energy/disruptorpistol/magnum,
+/obj/item/gun/projectile/sec/lethal,
+/obj/item/gun/projectile/sec/lethal,
+/obj/item/gun/projectile/sec/lethal,
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m,
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
 	},
 /area/city/mendell)
 "MN" = (
-/obj/machinery/button/remote/airlock{
+/obj/structure/machinery/button/remote/airlock{
 	dir = 8;
 	id = "qs8";
 	name = "Door Bolt Control";
@@ -6669,7 +6672,7 @@
 	},
 /area/city/mendell/interior)
 "MS" = (
-/obj/machinery/door/airlock/centcom{
+/obj/structure/machinery/door/airlock/centcom{
 	id_tag = "qs6";
 	name = "Solo Suite Six"
 	},
@@ -6678,13 +6681,13 @@
 	},
 /area/city/mendell/interior)
 "MT" = (
-/obj/machinery/door/window{
+/obj/structure/machinery/door/window{
 	req_access = list(101)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell)
 "MY" = (
-/obj/machinery/sleeper{
+/obj/structure/machinery/sleeper{
 	dir = 8
 	},
 /turf/unsimulated/floor{
@@ -6693,7 +6696,7 @@
 	},
 /area/city/mendell)
 "Nb" = (
-/obj/machinery/door/window/eastleft,
+/obj/structure/machinery/door/window/eastleft,
 /obj/effect/decal/fake_object{
 	desc = "Power outlets, in space!";
 	icon = 'icons/effects/city.dmi';
@@ -6761,7 +6764,7 @@
 /turf/simulated/floor/reinforced,
 /area/city/mendell)
 "Nt" = (
-/obj/machinery/vending/security,
+/obj/structure/machinery/vending/security,
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
 	},
@@ -6770,7 +6773,7 @@
 /turf/simulated/floor/tiled/white,
 /area/city/mendell/interior)
 "Nz" = (
-/obj/machinery/bodyscanner{
+/obj/structure/machinery/bodyscanner{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
@@ -6806,7 +6809,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell)
 "NO" = (
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /turf/unsimulated/floor{
 	icon_state = "concrete";
 	name = "concrete"
@@ -6816,7 +6819,7 @@
 /turf/simulated/wall/elevator,
 /area/city/mendell)
 "NW" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
@@ -6829,7 +6832,7 @@
 /turf/simulated/floor/beach/water/pool,
 /area/city/mendell/interior)
 "NZ" = (
-/obj/machinery/vending/dinnerware,
+/obj/structure/machinery/vending/dinnerware,
 /turf/unsimulated/floor{
 	icon_state = "tiles_small";
 	name = "small tiles"
@@ -6871,7 +6874,7 @@
 /obj/effect/map_effect/door_helper/unres{
 	dir = 4
 	},
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	name = "Solarian Base Entry";
 	req_access = list(12);
 	dir = 4
@@ -6895,7 +6898,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell)
 "Ov" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/freezer,
@@ -6909,7 +6912,7 @@
 	},
 /area/city/mendell/interior)
 "OA" = (
-/obj/machinery/button/remote/airlock{
+/obj/structure/machinery/button/remote/airlock{
 	dir = 8;
 	id = "qs4";
 	name = "Door Bolt Control";
@@ -6931,7 +6934,7 @@
 /area/city/mendell/interior)
 "OE" = (
 /obj/structure/table/standard,
-/obj/machinery/vending/wallmed1{
+/obj/structure/machinery/vending/wallmed1{
 	pixel_x = 27;
 	pixel_y = -1;
 	req_access = null
@@ -7023,7 +7026,7 @@
 /obj/structure/lattice/catwalk/indoor,
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/railing/mapped,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
@@ -7034,7 +7037,7 @@
 /turf/simulated/floor/marble/dark,
 /area/city/mendell/interior)
 "OR" = (
-/obj/machinery/door/airlock/centcom{
+/obj/structure/machinery/door/airlock/centcom{
 	id_tag = "exec_suite";
 	name = "Command Lounge and Suite";
 	req_access = list(101)
@@ -7049,11 +7052,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell)
 "OU" = (
-/obj/machinery/vending/cola,
+/obj/structure/machinery/vending/cola,
 /turf/simulated/floor/lino,
 /area/city/mendell/interior)
 "OZ" = (
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /turf/unsimulated/floor{
 	icon_state = "wood_cherry"
 	},
@@ -7084,7 +7087,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell/interior)
 "Ph" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/lino,
@@ -7093,7 +7096,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /turf/unsimulated/floor{
 	icon_state = "concrete";
 	name = "concrete"
@@ -7123,7 +7126,7 @@
 /obj/item/storage/box/fancy/candle_box,
 /obj/item/storage/box/fancy/candle_box,
 /obj/item/storage/firstaid,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /obj/item/reagent_containers/food/drinks/waterbottle,
@@ -7136,7 +7139,7 @@
 	},
 /area/city/mendell/interior)
 "Pq" = (
-/obj/machinery/button/remote/airlock{
+/obj/structure/machinery/button/remote/airlock{
 	dir = 8;
 	id = "q3";
 	name = "Door Bolt Control";
@@ -7149,14 +7152,14 @@
 	},
 /area/city/mendell/interior)
 "Pr" = (
-/obj/machinery/acting/changer,
+/obj/structure/machinery/acting/changer,
 /turf/unsimulated/floor{
 	icon_state = "wood_preview"
 	},
 /area/city/mendell)
 "Pu" = (
 /obj/effect/map_effect/door_helper/unres,
-/obj/machinery/door/airlock/glass_security{
+/obj/structure/machinery/door/airlock/glass_security{
 	name = "Coalition Base Entry";
 	req_access = list(12);
 	dir = 1
@@ -7192,7 +7195,7 @@
 	},
 /area/city/mendell/interior)
 "PB" = (
-/obj/machinery/door/airlock/freezer{
+/obj/structure/machinery/door/airlock/freezer{
 	id_tag = "main_unit_2";
 	name = "Unit 2";
 	dir = 1
@@ -7200,7 +7203,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/city/mendell/interior)
 "PE" = (
-/obj/machinery/washing_machine,
+/obj/structure/machinery/washing_machine,
 /turf/simulated/floor/wood,
 /area/city/mendell/interior)
 "PF" = (
@@ -7216,7 +7219,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell)
 "PM" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /obj/structure/bed/stool/padded/red,
@@ -7264,7 +7267,7 @@
 /obj/structure/bed/stool/chair/wood{
 	dir = 8
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor/lino,
@@ -7285,7 +7288,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/orange/diagonal,
-/obj/machinery/door/window/eastleft{
+/obj/structure/machinery/door/window/eastleft{
 	name = "dispensary";
 	req_one_access = list(33,104)
 	},
@@ -7321,7 +7324,7 @@
 /area/city/mendell/interior)
 "Qs" = (
 /obj/structure/bed/stool/chair/remote/human,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/bluegrid,
@@ -7329,7 +7332,7 @@
 "Qu" = (
 /obj/effect/floor_decal/spline/fancy/wood/full,
 /obj/random/pottedplant,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor/wood,
@@ -7342,7 +7345,7 @@
 /turf/simulated/floor/lino,
 /area/city/mendell/interior)
 "Qx" = (
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /turf/simulated/floor/tiled/ramp{
 	dir = 8
 	},
@@ -7368,7 +7371,7 @@
 /area/city/mendell)
 "QB" = (
 /obj/structure/table/stone/marble,
-/obj/machinery/chemical_dispenser/bar_alc/full,
+/obj/structure/machinery/chemical_dispenser/bar_alc/full,
 /turf/unsimulated/floor{
 	icon_state = "tiles_small";
 	name = "small tiles"
@@ -7393,7 +7396,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell/interior)
 "QK" = (
-/obj/machinery/door/airlock/freezer{
+/obj/structure/machinery/door/airlock/freezer{
 	id_tag = "main_unit_1";
 	name = "Unit 1";
 	dir = 1
@@ -7418,7 +7421,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell)
 "QP" = (
-/obj/machinery/chemical_dispenser/ert{
+/obj/structure/machinery/chemical_dispenser/ert{
 	pixel_x = -3
 	},
 /obj/effect/floor_decal/corner/orange/diagonal,
@@ -7441,7 +7444,7 @@
 /area/city/mendell)
 "QV" = (
 /obj/structure/bed/stool/chair/remote/human,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/greengrid,
@@ -7480,7 +7483,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell)
 "Rb" = (
-/obj/machinery/door/window/westleft,
+/obj/structure/machinery/door/window/westleft,
 /turf/unsimulated/floor{
 	icon_state = "wood_preview"
 	},
@@ -7490,13 +7493,13 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 4
 	},
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	id = "vr_inner"
 	},
 /turf/simulated/floor/reinforced,
 /area/city/mendell)
 "Rh" = (
-/obj/machinery/door/airlock/centcom{
+/obj/structure/machinery/door/airlock/centcom{
 	id_tag = "q8";
 	name = "Duo Suite Eight"
 	},
@@ -7505,7 +7508,7 @@
 	},
 /area/city/mendell/interior)
 "Rj" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /obj/structure/railing/mapped{
@@ -7537,20 +7540,20 @@
 	},
 /area/city/mendell)
 "Rs" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor/marble/dark,
 /area/city/mendell/interior)
 "Ru" = (
 /obj/structure/bed/stool/bar/padded/red,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/lino,
 /area/city/mendell/interior)
 "Rx" = (
-/obj/machinery/door/airlock/glass_centcom{
+/obj/structure/machinery/door/airlock/glass_centcom{
 	name = "Kitchen";
 	req_access = list(101)
 	},
@@ -7558,14 +7561,14 @@
 /area/city/mendell/interior)
 "Ry" = (
 /obj/structure/toilet,
-/obj/machinery/button/remote/airlock{
+/obj/structure/machinery/button/remote/airlock{
 	id = "main_unit_1";
 	name = "Door Bolt Control";
 	pixel_x = 5;
 	pixel_y = 25;
 	specialfunctions = 4
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/freezer,
@@ -7604,7 +7607,7 @@
 /turf/simulated/floor/lino,
 /area/city/mendell)
 "RI" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /turf/unsimulated/floor{
@@ -7638,7 +7641,7 @@
 /obj/structure/bed/stool/chair/sofa/corner{
 	dir = 4
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/unsimulated/floor{
@@ -7666,7 +7669,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/machinery/recharge_station,
+/obj/structure/machinery/recharge_station,
 /turf/simulated/floor/carpet,
 /area/city/mendell/interior)
 "Sp" = (
@@ -7719,7 +7722,7 @@
 	dir = 4;
 	pixel_y = 1
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/freezer,
@@ -7736,19 +7739,19 @@
 /area/city/mendell)
 "SV" = (
 /obj/structure/bed/stool/chair/office/hover/command,
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	id = "travel";
 	name = "Transit Doors";
 	pixel_x = 13;
 	pixel_y = -4
 	},
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	id = "briefing_incoming";
 	name = "Incoming";
 	pixel_x = 13;
 	pixel_y = 13
 	},
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	id = "briefing_outgoing";
 	name = "Outgoing";
 	pixel_x = 13;
@@ -7765,7 +7768,7 @@
 /turf/simulated/floor/marble/dark,
 /area/city/mendell/interior)
 "Tc" = (
-/obj/machinery/door/airlock/centcom{
+/obj/structure/machinery/door/airlock/centcom{
 	id_tag = "qs1";
 	name = "Solo Suite One"
 	},
@@ -7795,7 +7798,7 @@
 /area/city/mendell/interior)
 "Ti" = (
 /obj/structure/table/stone/marble,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/unsimulated/floor{
@@ -7856,14 +7859,14 @@
 /turf/simulated/floor/marble/dark,
 /area/city/mendell/interior)
 "TG" = (
-/obj/machinery/door/airlock/multi_tile/glass,
+/obj/structure/machinery/door/airlock/multi_tile/glass,
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell)
 "TK" = (
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -7914,7 +7917,7 @@
 	},
 /area/city/mendell)
 "TN" = (
-/obj/machinery/body_scanconsole{
+/obj/structure/machinery/body_scanconsole{
 	dir = 4
 	},
 /turf/unsimulated/floor{
@@ -7931,7 +7934,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor/wood,
@@ -7943,7 +7946,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell/interior)
 "Uf" = (
-/obj/machinery/sleeper{
+/obj/structure/machinery/sleeper{
 	dir = 4
 	},
 /turf/unsimulated/floor{
@@ -7953,13 +7956,13 @@
 /area/city/mendell)
 "Uh" = (
 /obj/structure/bookcase,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor/wood,
 /area/city/mendell/interior)
 "Ui" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/unsimulated/floor{
@@ -7977,7 +7980,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/city/mendell/interior)
 "Ul" = (
-/obj/machinery/door/window{
+/obj/structure/machinery/door/window{
 	req_access = list(101)
 	},
 /turf/simulated/floor/tiled/ramp,
@@ -7987,7 +7990,7 @@
 	dir = 8
 	},
 /obj/structure/railing/mapped,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/beach/water/pool,
@@ -7997,7 +8000,7 @@
 	dir = 4
 	},
 /obj/structure/railing/mapped,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/beach/water/pool,
@@ -8038,7 +8041,7 @@
 	},
 /area/city/mendell/interior)
 "UF" = (
-/obj/machinery/cryopod{
+/obj/structure/machinery/cryopod{
 	dir = 2
 	},
 /turf/unsimulated/floor{
@@ -8057,10 +8060,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell)
 "UL" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /turf/unsimulated/floor{
@@ -8092,7 +8095,7 @@
 /area/city/mendell/interior)
 "Va" = (
 /obj/structure/table/stone/marble,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor/grass{
@@ -8106,7 +8109,7 @@
 	},
 /area/city/mendell)
 "Vd" = (
-/obj/machinery/door/airlock/centcom{
+/obj/structure/machinery/door/airlock/centcom{
 	name = "Executive Suite 3"
 	},
 /turf/unsimulated/floor{
@@ -8135,7 +8138,7 @@
 /turf/simulated/floor/marble/dark,
 /area/city/mendell/interior)
 "Vi" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /obj/effect/decal/fake_object{
@@ -8160,7 +8163,7 @@
 /turf/simulated/floor/wood,
 /area/city/mendell/interior)
 "Vv" = (
-/obj/machinery/door/airlock/centcom{
+/obj/structure/machinery/door/airlock/centcom{
 	id_tag = "qs2";
 	name = "Solo Suite Two"
 	},
@@ -8169,7 +8172,7 @@
 	},
 /area/city/mendell/interior)
 "Vy" = (
-/obj/machinery/button/remote/airlock{
+/obj/structure/machinery/button/remote/airlock{
 	dir = 8;
 	id = "qs5";
 	name = "Door Bolt Control";
@@ -8194,7 +8197,7 @@
 	},
 /area/city/mendell/interior)
 "VA" = (
-/obj/machinery/door/airlock/centcom{
+/obj/structure/machinery/door/airlock/centcom{
 	name = "Administrative Wing";
 	req_access = list(101);
 	dir = 1
@@ -8203,13 +8206,13 @@
 /area/city/mendell/interior)
 "VB" = (
 /obj/structure/flora/grass/jungle,
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/city/mendell/interior)
 "VH" = (
-/obj/machinery/door/airlock/centcom{
+/obj/structure/machinery/door/airlock/centcom{
 	id_tag = "q10";
 	name = "Duo Suite Ten"
 	},
@@ -8218,7 +8221,7 @@
 	},
 /area/city/mendell/interior)
 "VL" = (
-/obj/machinery/recharge_station,
+/obj/structure/machinery/recharge_station,
 /turf/simulated/floor/wood,
 /area/city/mendell/interior)
 "VM" = (
@@ -8235,7 +8238,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell)
 "VP" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor/grass{
@@ -8243,7 +8246,7 @@
 	},
 /area/city/mendell/interior)
 "VV" = (
-/obj/machinery/button/remote/airlock{
+/obj/structure/machinery/button/remote/airlock{
 	dir = 8;
 	id = "q4";
 	name = "Door Bolt Control";
@@ -8256,7 +8259,7 @@
 	},
 /area/city/mendell/interior)
 "VW" = (
-/obj/machinery/shower{
+/obj/structure/machinery/shower{
 	dir = 8
 	},
 /obj/structure/curtain/open/shower,
@@ -8268,7 +8271,7 @@
 	},
 /area/city/mendell/interior)
 "Wb" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /obj/effect/decal/fake_object{
@@ -8360,14 +8363,14 @@
 	},
 /area/shuttle/city)
 "WA" = (
-/obj/machinery/door/window/eastright,
+/obj/structure/machinery/door/window/eastright,
 /turf/unsimulated/floor{
 	icon_state = "wood_preview"
 	},
 /area/city/mendell/interior)
 "WB" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/blast/odin/open{
+/obj/structure/machinery/door/blast/odin/open{
 	id = "vr_inner"
 	},
 /turf/simulated/floor/reinforced,
@@ -8385,7 +8388,7 @@
 	},
 /area/city/mendell/interior)
 "WF" = (
-/obj/machinery/door/airlock/multi_tile/glass{
+/obj/structure/machinery/door/airlock/multi_tile/glass{
 	dir = 1;
 	name = "Emergency Room"
 	},
@@ -8397,10 +8400,10 @@
 	},
 /area/city/mendell)
 "WG" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -8466,14 +8469,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell/interior)
 "Xb" = (
-/obj/machinery/door/window/northleft,
+/obj/structure/machinery/door/window/northleft,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
 /turf/simulated/floor/wood,
 /area/city/mendell/interior)
 "Xc" = (
-/obj/machinery/door/airlock/freezer{
+/obj/structure/machinery/door/airlock/freezer{
 	id_tag = "main_unit_3";
 	name = "Unit 3";
 	dir = 1
@@ -8560,7 +8563,7 @@
 /turf/simulated/floor/wood,
 /area/city/mendell)
 "XI" = (
-/obj/machinery/vending/tacticool,
+/obj/structure/machinery/vending/tacticool,
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell)
 "XK" = (
@@ -8571,14 +8574,14 @@
 /turf/simulated/floor/plating,
 /area/city/mendell/interior)
 "XL" = (
-/obj/machinery/door/blast/odin/open{
+/obj/structure/machinery/door/blast/odin/open{
 	id = "travel"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell)
 "XO" = (
 /obj/effect/floor_decal/industrial/loading/yellow,
-/obj/machinery/door/blast/odin{
+/obj/structure/machinery/door/blast/odin{
 	dir = 4;
 	id = "briefing_outgoing"
 	},
@@ -8619,12 +8622,12 @@
 /turf/simulated/floor/marble/dark,
 /area/city/mendell/interior)
 "Ym" = (
-/obj/machinery/vending/tool,
+/obj/structure/machinery/vending/tool,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/reinforced,
 /area/city/mendell)
 "Yq" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/unsimulated/floor{
@@ -8632,7 +8635,7 @@
 	},
 /area/city/mendell/interior)
 "Yu" = (
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /obj/structure/railing/mapped{
 	dir = 1
 	},
@@ -8783,7 +8786,7 @@
 	},
 /area/city/mendell)
 "YX" = (
-/obj/machinery/door/window/eastright,
+/obj/structure/machinery/door/window/eastright,
 /turf/simulated/floor/tiled/ramp{
 	dir = 8
 	},
@@ -8795,7 +8798,7 @@
 /turf/simulated/floor/bluegrid,
 /area/city/mendell)
 "Za" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /turf/unsimulated/floor{
@@ -8812,7 +8815,7 @@
 /obj/structure/table/standard,
 /obj/structure/window/reinforced/crescent,
 /obj/effect/floor_decal/corner/orange/diagonal,
-/obj/machinery/door/window/eastright{
+/obj/structure/machinery/door/window/eastright{
 	name = "dispensary";
 	req_one_access = list(33,104)
 	},
@@ -8854,7 +8857,7 @@
 /turf/simulated/floor/tiled/white,
 /area/city/mendell/interior)
 "Zu" = (
-/obj/machinery/computer/shuttle_control/city,
+/obj/structure/machinery/computer/shuttle_control/city,
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/city)
 "Zy" = (
@@ -8887,7 +8890,7 @@
 	},
 /area/city/mendell)
 "ZM" = (
-/obj/machinery/door/window/westright,
+/obj/structure/machinery/door/window/westright,
 /turf/unsimulated/floor{
 	icon_state = "wood_preview"
 	},
@@ -8937,7 +8940,7 @@
 /turf/simulated/floor/wood,
 /area/city/mendell/interior)
 "ZZ" = (
-/obj/machinery/optable,
+/obj/structure/machinery/optable,
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},

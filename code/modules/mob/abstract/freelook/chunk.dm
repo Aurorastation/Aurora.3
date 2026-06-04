@@ -19,7 +19,7 @@
 
 /datum/obfuscation/Destroy()
 	obfuscation_images.Cut()
-	. = ..()
+	return ..()
 
 /datum/obfuscation/proc/has_obfuscation(var/turf/T)
 	return !isnull(obfuscation_images[T])
@@ -88,7 +88,7 @@
 
 /datum/chunk/Destroy()
 	visualnet = null
-	. = ..()
+	return ..()
 
 /datum/chunk/proc/add_sources(var/list/sources)
 	var/turf/center = locate(x + 8, y + 8, z)

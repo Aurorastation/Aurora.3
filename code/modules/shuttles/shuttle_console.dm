@@ -1,4 +1,4 @@
-/obj/machinery/computer/shuttle_control
+/obj/structure/machinery/computer/shuttle_control
 	name = "shuttle control console"
 	icon_screen = "shuttle"
 	icon_keyboard = "cyan_key"
@@ -15,7 +15,12 @@
 	/// For hotwiring, how many cycles are needed. This decreases by 1 each cycle and triggers at 0
 	var/hotwire_progress = 8
 
-/obj/machinery/computer/shuttle_control/feedback_hints(mob/user, distance, is_adjacent)
+	/// Skill needed to use this computer.
+	var/required_skill = PILOT_SPACECRAFT_SKILL_COMPONENT
+	/// Skill level needed to use this computer, see required_skill
+	var/required_skill_level = SKILL_LEVEL_FAMILIAR
+
+/obj/structure/machinery/computer/shuttle_control/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	if(initial(hotwire_progress) != hotwire_progress)
 		if(hotwire_progress != 0)
@@ -23,7 +28,7 @@
 		else
 			. += SPAN_NOTICE("The bottom panel appears open with wires hanging out. It can be repaired with additional cabling.")
 
-/obj/machinery/computer/shuttle_control/Initialize()
+/obj/structure/machinery/computer/shuttle_control/Initialize()
 	. = ..()
 	if(SSshuttle.shuttles[shuttle_tag])
 		var/datum/shuttle/shuttle = SSshuttle.shuttles[shuttle_tag]
@@ -33,7 +38,7 @@
 
 	RegisterSignal(src, COMSIG_ATOM_PRE_BULLET_ACT, PROC_REF(handle_bullet_act))
 
-/obj/machinery/computer/shuttle_control/Destroy()
+/obj/structure/machinery/computer/shuttle_control/Destroy()
 	SSshuttle.lonely_shuttle_computers -= src
 	var/datum/shuttle/shuttle = SSshuttle.shuttles[shuttle_tag]
 	shuttle.shuttle_computers -= src
@@ -41,7 +46,7 @@
 		PH.linked_console = null
 	return ..()
 
-/obj/machinery/computer/shuttle_control/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/computer/shuttle_control/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/clothing/head/helmet/pilot))
 		var/obj/item/clothing/head/helmet/pilot/PH = attacking_item
 		if(attacking_item in linked_helmets)
@@ -88,8 +93,17 @@
 				return
 	return ..()
 
-/obj/machinery/computer/shuttle_control/attack_hand(mob/user)
+/obj/structure/machinery/computer/shuttle_control/attack_hand(mob/user)
+	// Snowflake case for checking player characters for a Pilot Spacecraft Skill.
+	// Only player characters will have the component. Which will both always be present on them, and will only enable its own return logic if it exists.
+	// NPCs, Ghostroles, and Offship Antags that don't generate skills are unaffected by this check by intentional design so that we don't have to account for them.
 	. = ..()
+	if (required_skill)
+		var/datum/component/skill/skill_check = user.GetComponent(astype(required_skill, SKILL_COMPONENT))
+		if (skill_check && skill_check.skill_level < required_skill_level)
+			to_chat(user, SPAN_WARNING("There's just so many buttons... You have no idea where to even begin."))
+			return
+
 	if(use_check_and_message(user))
 		return
 	if(!emagged && !allowed(user))
@@ -98,16 +112,16 @@
 	user.set_machine(src)
 	ui_interact(user)
 
-/obj/machinery/computer/shuttle_control/attack_ai(mob/user)
+/obj/structure/machinery/computer/shuttle_control/attack_ai(mob/user)
 	if(!ai_can_interact(user))
 		return
 	ui_interact(user)
 
-/obj/machinery/computer/shuttle_control/attack_ghost(var/mob/abstract/ghost/observer/user)
+/obj/structure/machinery/computer/shuttle_control/attack_ghost(var/mob/abstract/ghost/observer/user)
 	if(check_rights(R_ADMIN, 0, user))
 		ui_interact(user)
 
-/obj/machinery/computer/shuttle_control/proc/get_shuttle_status(var/datum/shuttle/autodock/shuttle)
+/obj/structure/machinery/computer/shuttle_control/proc/get_shuttle_status(var/datum/shuttle/autodock/shuttle)
 	switch(shuttle.process_state)
 		if(IDLE_STATE)
 			var/cannot_depart = shuttle.current_location.cannot_depart(shuttle)
@@ -126,7 +140,7 @@
 			. = "Arriving at destination now."
 
 // This is a subset of the actual checks; contains those that give messages to the user.
-/obj/machinery/computer/shuttle_control/proc/can_move(var/datum/shuttle/autodock/shuttle, var/user)
+/obj/structure/machinery/computer/shuttle_control/proc/can_move(var/datum/shuttle/autodock/shuttle, var/user)
 	var/cannot_depart = shuttle.current_location.cannot_depart(shuttle)
 	if(cannot_depart)
 		to_chat(user, SPAN_WARNING(cannot_depart))
@@ -140,7 +154,7 @@
 			return FALSE
 	return TRUE
 
-/obj/machinery/computer/shuttle_control/ui_interact(mob/user, datum/tgui/ui)
+/obj/structure/machinery/computer/shuttle_control/ui_interact(mob/user, datum/tgui/ui)
 	var/datum/shuttle/autodock/shuttle = SSshuttle.shuttles[shuttle_tag]
 	if(!istype(shuttle))
 		to_chat(user, SPAN_WARNING("Unable to establish link with the shuttle."))
@@ -151,7 +165,7 @@
 		ui = new(user, src, ui_template, "[shuttle_tag] Shuttle Control", ui_x=470, ui_y=450)
 		ui.open()
 
-/obj/machinery/computer/shuttle_control/ui_data(mob/user)
+/obj/structure/machinery/computer/shuttle_control/ui_data(mob/user)
 	var/datum/shuttle/autodock/shuttle = SSshuttle.shuttles[shuttle_tag]
 
 	var/shuttle_state
@@ -174,14 +188,14 @@
 		"current_location" = shuttle.get_location_name(),
 	)
 
-/obj/machinery/computer/shuttle_control/ui_act(action, params)
+/obj/structure/machinery/computer/shuttle_control/ui_act(action, params)
 	. = ..()
 	if(.)
 		return
 
 	return handle_topic_href(usr, SSshuttle.shuttles[shuttle_tag], action, params)
 
-/obj/machinery/computer/shuttle_control/proc/handle_topic_href(var/mob/user, var/datum/shuttle/autodock/shuttle, var/action, var/list/params)
+/obj/structure/machinery/computer/shuttle_control/proc/handle_topic_href(var/mob/user, var/datum/shuttle/autodock/shuttle, var/action, var/list/params)
 	if(!istype(shuttle))
 		return FALSE
 
@@ -207,12 +221,12 @@
 			shuttle.name = new_name
 		return TRUE
 
-/obj/machinery/computer/shuttle_control/proc/update_helmets(var/datum/shuttle/autodock/shuttle)
+/obj/structure/machinery/computer/shuttle_control/proc/update_helmets(var/datum/shuttle/autodock/shuttle)
 	var/shuttle_status = get_shuttle_status(shuttle)
 	for(var/obj/item/clothing/head/helmet/pilot/PH as anything in linked_helmets)
 		PH.set_hud_maptext("Shuttle Status: [shuttle_status]")
 
-/obj/machinery/computer/shuttle_control/emag_act(var/remaining_charges, var/mob/user, var/emag_source, var/hotwired = FALSE)
+/obj/structure/machinery/computer/shuttle_control/emag_act(var/remaining_charges, var/mob/user, var/emag_source, var/hotwired = FALSE)
 	if(emagged)
 		to_chat(user, SPAN_WARNING("\The [src] has already been subverted."))
 		return FALSE
@@ -226,7 +240,7 @@
 	return TRUE
 
 /// Used to restore access removed from emag_act() by setting access from req_access_old and req_one_access_old
-/obj/machinery/computer/shuttle_control/proc/restore_access(var/mob/user)
+/obj/structure/machinery/computer/shuttle_control/proc/restore_access(var/mob/user)
 	if(!emagged)
 		to_chat(user, SPAN_WARNING("There is no access to restore for \the [src]!"))
 		return FALSE
@@ -236,15 +250,15 @@
 	hotwire_progress = initial(hotwire_progress)
 	return TRUE
 
-/obj/machinery/computer/shuttle_control/ex_act()
+/obj/structure/machinery/computer/shuttle_control/ex_act()
 	return
 
-/obj/machinery/computer/shuttle_control/emp_act(severity)
+/obj/structure/machinery/computer/shuttle_control/emp_act(severity)
 	. = ..()
 
 	return
 
-/obj/machinery/computer/shuttle_control/proc/handle_bullet_act(datum/source, obj/projectile/projectile)
+/obj/structure/machinery/computer/shuttle_control/proc/handle_bullet_act(datum/source, obj/projectile/projectile)
 	SIGNAL_HANDLER
 
 	visible_message("\The [projectile] ricochets off \the [src]!")

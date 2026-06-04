@@ -29,6 +29,7 @@
 	icon_state = "box"
 	item_state = "box"
 	contained_sprite = TRUE
+	maxhealth = OBJECT_HEALTH_EXTREMELY_LOW
 	color = COLOR_CARDBOARD
 	var/label = "label"
 	var/illustration = "writing"
@@ -40,18 +41,18 @@
 	var/trash = null
 
 	var/maxHealth = 20	//health is already defined
-	use_sound = 'sound/items/storage/box.ogg'
+	use_sound = 'sound/items/storage/cardboardbox.ogg'
+	rustle_sound = 'sound/items/rustle/cardboardbox.ogg'
 	drop_sound = 'sound/items/drop/cardboardbox.ogg'
 	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
 	var/chewable = TRUE
 
-/obj/item/storage/box/condition_hints(mob/user, distance, is_adjacent)
-	. += ..()
-	if (health < maxHealth)
-		if (health >= (maxHealth * 0.5))
-			. += SPAN_WARNING("It is slightly torn.")
+/obj/item/storage/box/get_damage_condition_hints(mob/user, distance, is_adjacent)
+	if (health < maxhealth)
+		if (health >= (maxhealth * 0.5))
+			. = SPAN_WARNING("It is slightly torn.")
 		else
-			. += SPAN_DANGER("It is full of tears and holes.")
+			. = SPAN_DANGER("It is full of tears and holes.")
 
 /obj/item/storage/box/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -74,7 +75,8 @@
 
 /obj/item/storage/box/Initialize()
 	. = ..()
-	health = maxHealth
+	if(illustration)
+		AddOverlays(illustration)
 	update_icon()
 
 /obj/item/storage/box/proc/damage(var/severity)
@@ -169,6 +171,19 @@
 /obj/item/storage/box/blank
 	label = null
 	illustration = null
+
+/obj/item/storage/box/large/blank
+	label = null
+	illustration = null
+
+/obj/item/storage/box/blank/teabox
+	max_storage_space = 12
+	can_hold = list(
+		/obj/item/storage/box/unique/tea,
+		/obj/item/reagent_containers/glass/beaker/teapot,
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/teacup,
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/konyang
+		)
 
 /obj/item/storage/box/survival
 	name = "emergency survival box"
@@ -278,10 +293,10 @@
 	foldable = null
 	chewable = FALSE
 
-/obj/item/storage/box/ammo/tungstenslugs
-	name = "box of compact tungsten slugs"
-	desc = "A box with several compact tungsten slugs, aimed for use in gauss carbines."
-	starts_with = list(/obj/item/ammo_casing/gauss/carbine = 4)
+/obj/item/storage/box/ammo/duslugs
+	name = "box of depleted uranium slugs"
+	desc = "A box with several depleted uranium slugs, aimed for use in older gauss rifles."
+	starts_with = list(/obj/item/ammo_casing/gauss/old = 4)
 
 /obj/item/storage/box/ammo/sniperammo
 	name = "box of 14.5mm shells"
@@ -500,6 +515,77 @@
 	illustration = "firingpin"
 	starts_with = list(/obj/item/firing_pin = 2, /obj/item/firing_pin/access = 2, /obj/item/firing_pin/implant/loyalty = 2, /obj/item/firing_pin/psionic = 1, /obj/item/firing_pin/dna = 1)
 
+/obj/item/storage/box/modlaser
+	name = "box of modular laser capacitors"
+	desc = "A box full of laser capacitors, used to build laser weapons."
+	color = COLOR_PURPLE_GRAY
+	illustration = "scicircuit"
+	starts_with = list(
+		/obj/item/laser_components/capacitor = 1,
+		/obj/item/laser_components/capacitor/potato = 1,
+		/obj/item/laser_components/capacitor/reinforced = 1,
+		/obj/item/laser_components/capacitor/nuclear = 1,
+		/obj/item/laser_components/capacitor/teranium = 1,
+		/obj/item/laser_components/capacitor/phoron = 2,
+		/obj/item/laser_components/capacitor/bluespace = 2
+	)
+
+/obj/item/storage/box/modlaser/modulators
+	name = "box of modular laser modulators"
+	desc = "A box full of laser modulators, used to build laser weapons."
+	illustration = "firecracker"
+	starts_with = list(
+		/obj/item/laser_components/modulator = 1,
+		/obj/item/laser_components/modulator/taser = 1,
+		/obj/item/laser_components/modulator/tesla = 1,
+		/obj/item/laser_components/modulator/ion = 1,
+		/obj/item/laser_components/modulator/floramut = 1,
+		/obj/item/laser_components/modulator/floramut2 = 1,
+		/obj/item/laser_components/modulator/xenovermin = 1,
+		/obj/item/laser_components/modulator/mindflayer = 1,
+		/obj/item/laser_components/modulator/decloner = 1,
+		/obj/item/laser_components/modulator/ebow = 1,
+		/obj/item/laser_components/modulator/blaster = 1,
+		/obj/item/laser_components/modulator/tox = 1,
+		/obj/item/laser_components/modulator/net = 1,
+		/obj/item/laser_components/modulator/freeze = 1
+	)
+
+/obj/item/storage/box/modlaser/modifiers
+	name = "box of modular laser mods"
+	desc = "A box full of laser mods, used to build laser weapons."
+	illustration = "circuit"
+	starts_with = list(
+		/obj/item/laser_components/modifier/silencer = 1,
+		/obj/item/laser_components/modifier/aeg = 1,
+		/obj/item/laser_components/modifier/surge = 1,
+		/obj/item/laser_components/modifier/repeater = 1,
+		/obj/item/laser_components/modifier/auxiliarycap = 1,
+		/obj/item/laser_components/modifier/overcharge = 1,
+		/obj/item/laser_components/modifier/gatling = 1,
+		/obj/item/laser_components/modifier/scope = 1,
+		/obj/item/laser_components/modifier/barrel = 1,
+		/obj/item/laser_components/modifier/barrel/nano = 1,
+		/obj/item/laser_components/modifier/vents = 1,
+		/obj/item/laser_components/modifier/grip = 1,
+		/obj/item/laser_components/modifier/grip/improved = 1,
+		/obj/item/laser_components/modifier/stock = 1,
+		/obj/item/laser_components/modifier/stock/gyro = 1,
+		/obj/item/laser_components/modifier/bayonet = 1,
+		/obj/item/laser_components/modifier/ebayonet = 1
+	)
+
+/obj/item/storage/box/modlaser/lens
+	name = "box of modular laser lenses"
+	desc = "A box full of laser lenses, used to build laser weapons."
+	illustration = "petridish"
+	starts_with = list(
+		/obj/item/laser_components/focusing_lens = 2,
+		/obj/item/laser_components/focusing_lens/shotgun = 2,
+		/obj/item/laser_components/focusing_lens/sniper = 2,
+		/obj/item/laser_components/focusing_lens/strong = 2
+	)
+
 /obj/item/storage/box/unique/freezer/organcooler/psireceiver
 	name = "psionic receivers cooler"
 	desc = "A cooling box for psionic receivers, which can be surgically implanted to act as a replacement for an underdeveloped or non-existent zona bovinae. This one has a large sticker on the side reading FOR RESEARCH USE ONLY."
@@ -560,7 +646,14 @@
 	desc = "It has a large ketchup smear on it."
 	color = COLOR_YELLOW_GRAY
 	illustration = "condiment"
-	starts_with = list(/obj/item/reagent_containers/food/condiment = 6)
+	starts_with = list(
+		/obj/item/reagent_containers/food/condiment/ketchup = 1,
+		/obj/item/reagent_containers/food/condiment/barbecue = 1,
+		/obj/item/reagent_containers/food/condiment/soysauce = 1,
+		/obj/item/reagent_containers/food/condiment/mayonnaise = 1,
+		/obj/item/reagent_containers/food/condiment/hot_sauce = 1,
+		/obj/item/reagent_containers/food/condiment/ntella = 1
+	)
 
 /obj/item/storage/box/cups
 	name = "box of paper cups"
@@ -779,7 +872,7 @@
 		/obj/item/light/tube/colored/blue,
 		/obj/item/light/tube/colored/magenta,
 		/obj/item/light/tube/colored/yellow,
-		/obj/item/light/tube/colored/cyan
+		/obj/item/light/tube/colored/pale_purple
 	)
 	var/static/list/bulbs_colors = list(
 		/obj/item/light/bulb/colored/red,
@@ -787,7 +880,7 @@
 		/obj/item/light/bulb/colored/blue,
 		/obj/item/light/bulb/colored/magenta,
 		/obj/item/light/bulb/colored/yellow,
-		/obj/item/light/bulb/colored/cyan
+		/obj/item/light/bulb/colored/pale_purple
 	)
 	for(var/i = 0, i < 14, i++)
 		var/type = pick(tube_colors)
@@ -826,11 +919,23 @@
 	color = COLOR_YELLOW_GRAY
 	starts_with = list(/obj/item/light/tube/colored/yellow = 14, /obj/item/light/bulb/colored/yellow = 7)
 
+/obj/item/storage/box/lights/colored/pale_purple
+	name = "box of pale purple lights"
+	illustration = "lightmixed"
+	color = COLOR_PURPLE_GRAY
+	starts_with = list(/obj/item/light/tube/colored/pale_purple = 14, /obj/item/light/bulb/colored/pale_purple = 7)
+
 /obj/item/storage/box/lights/colored/magenta
 	name = "box of magenta lights"
 	illustration = "lightmixed"
 	color = COLOR_PALE_PINK
 	starts_with = list(/obj/item/light/tube/colored/magenta = 14, /obj/item/light/bulb/colored/magenta = 7)
+
+/obj/item/storage/box/lights/colored/beige
+	name = "box of beige lights"
+	illustration = "lightmixed"
+	color = COLOR_BEIGE
+	starts_with = list(/obj/item/light/tube/colored/beige = 14, /obj/item/light/bulb/colored/beige = 7)
 
 /obj/item/storage/box/kitchen
 	name = "galley supplies"
@@ -1612,6 +1717,7 @@
 		/obj/item/reagent_containers/food/snacks/grown/konyang_tea = 12
 	)
 	foldable = null
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/storage/box/unique/tea/tieguanyin
 	name = "tieguanyin cha-tin"
@@ -1812,3 +1918,14 @@
 	starts_with = list(
 		/obj/item/cane/crutch/forearm = 2
 	)
+
+/obj/item/storage/box/unique/freezer/organcooler/mind_blanker
+	name = "mind blanker cooler"
+	desc = "A cooling box for mind blankers, which can be surgically implanted to protect the patient from unwanted psionic interference."
+	color = COLOR_PURPLE_GRAY
+	illustration = "implant"
+	starts_with = list(/obj/item/organ/internal/augment/bioaug/mind_blanker = 1)
+	can_hold = list(
+		/obj/item/organ/internal/augment/bioaug/mind_blanker
+	)
+	storage_slots = 4

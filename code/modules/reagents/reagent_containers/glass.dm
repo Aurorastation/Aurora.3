@@ -105,8 +105,8 @@
 	filling_states = "20;40;60;80;100"
 	center_of_mass = list("x" = 16,"y" = 13)
 	matter = list(MATERIAL_GLASS = 500)
-	drop_sound = 'sound/items/drop/drinkglass.ogg'
-	pickup_sound = 'sound/items/pickup/drinkglass.ogg'
+	drop_sound = 'sound/items/drop/beaker.ogg'
+	pickup_sound = 'sound/items/pickup/beaker.ogg'
 	fragile = TRUE
 	storage_slot_sort_by_name = TRUE
 

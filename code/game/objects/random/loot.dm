@@ -116,6 +116,7 @@
 		/obj/item/storage/box/lights/colored/cyan = 0.1,
 		/obj/item/storage/box/lights/colored/green = 0.1,
 		/obj/item/storage/box/lights/colored/magenta = 0.1,
+		/obj/item/storage/box/lights/colored/pale_purple = 0.1,
 		/obj/item/storage/box/lights/colored/red = 0.1,
 		/obj/item/storage/box/lights/colored/yellow = 0.1,
 		/obj/item/storage/box/lights/coloredmixed = 0.2,
@@ -177,11 +178,10 @@
 		/obj/random/telecrystals = 0.1,
 		/obj/item/gun/projectile/automatic/rifle/shotgun = 0.1,
 		/obj/random/melee = 0.3,
-		/obj/item/gun/energy/lawgiver = 0.1,
+		/obj/item/gun/energy/acp = 0.1,
 		/obj/item/gun/projectile/automatic/terminator = 0.1,
 		/obj/item/personal_shield = 0.4,
 		/obj/random/safe_rig = 0.4,
-		/obj/item/gun/energy/disruptorpistol/magnum = 0.3,
 		/obj/item/gun/projectile/shotgun/pump/combat = 0.2,
 		/obj/item/clothing/glasses/thermal = 0.5
 	)
@@ -192,7 +192,7 @@
 		/obj/item/clothing/glasses/thermal = 0.5,
 		/obj/item/gun/projectile/automatic/rifle/shotgun = 0.5,
 		/obj/random/sword = 0.5,
-		/obj/item/gun/energy/lawgiver = 0.5,
+		/obj/item/gun/energy/acp = 0.5,
 		/obj/item/melee/energy/axe = 0.5,
 		/obj/item/gun/projectile/automatic/terminator = 0.5,
 		/obj/item/rig/military = 0.5,
@@ -238,9 +238,8 @@
 		/obj/item/clothing/glasses/thermal = 0.3,
 		/obj/item/storage/toolbox/infiltration = 0.3,
 		/obj/random/melee/highvalue = 0.3,
-		/obj/item/gun/energy/disruptorpistol/magnum = 0.3,
 		/obj/item/gun/projectile/shotgun/pump/combat = 0.2,
-		/obj/item/gun/energy/lawgiver = 0.1,
+		/obj/item/gun/energy/acp = 0.1,
 		/obj/item/gun/projectile/automatic/terminator = 0.1,
 		/obj/item/gun/projectile/automatic/rifle/shotgun = 0.1
 	)
@@ -338,34 +337,34 @@
 		/obj/item/reagent_containers/hypospray/autoinjector/krokjuice = 2,
 		/obj/item/reagent_containers/hypospray/autoinjector/impedrezene = 0.4,
 		/obj/item/reagent_containers/hypospray/autoinjector/night_juice = 1,
-		/obj/item/reagent_containers/hypospray/autoinjector/snowflake = 1,
+		/obj/item/reagent_containers/hypospray/autoinjector/snowflake = 2,
 		/obj/item/storage/box/syndie_kit/syringe_gun = 0.5,
 		/obj/item/reagent_containers/syringe/drugs = 1,
-		/obj/item/reagent_containers/syringe/raskara_dust = 1,
+		/obj/item/reagent_containers/syringe/raskara_dust = 0.5,
 		/obj/item/reagent_containers/syringe/heroin = 1,
-		/obj/item/reagent_containers/inhaler/raskara_dust = 2,
+		/obj/item/reagent_containers/inhaler/raskara_dust = 1,
 		/obj/item/reagent_containers/inhaler/space_drugs = 2,
 		/obj/item/storage/box/tactical/smokes = 0.7,
-		/obj/item/grenade/napalm = 0.4,
+		/obj/item/storage/box/tactical/flashbangs = 0.05,
+		/obj/random/grenade = 0.4,
 		/obj/item/reagent_containers/glass/beaker/vial/random/toxin = 1,
 		/obj/item/material/knife/butterfly = 2,
 		/obj/item/material/butterflyblade = 3,
 		/obj/item/material/butterflyhandle = 3,
-		/obj/item/material/wirerod = 3,
+		/obj/item/material/wirerod = 2,
 		/obj/item/melee/baton/cattleprod = 1,
+		/obj/item/melee/baton/stunrod = 0.05,
 		/obj/item/material/knife/tacknife = 1,
 		/obj/item/material/knife/bayonet = 2,
 		/obj/item/material/kitchen/utensil/knife/boot = 2,
-		/obj/item/storage/secure/briefcase/money = 1,
 		/obj/item/gun/projectile/pistol = 0.2,
 		/obj/item/gun/projectile/revolver/derringer = 0.4,
 		/obj/item/gun/projectile/shotgun/improvised/sawn = 0.3,
 		/obj/random/contraband/pillbottle = 1,
 		/obj/item/material/knife/butterfly/switchblade = 1,
-		/obj/item/clothing/mask/gas/voice = 1,
 		/obj/item/clothing/gloves/brassknuckles = 2,
 		/obj/item/reagent_containers/inhaler/xuxigas = 1,
-		/obj/item/toy/balloon/syndicate = 4
+		/obj/item/toy/balloon/syndicate = 3
 	)
 
 /obj/random/contraband/pill
@@ -652,4 +651,15 @@
 		/obj/item/stack/barricade/random = 1,
 		/obj/item/stack/barricade/wood/random = 0.5,
 		/obj/item/stack/barricade/plasteel/random = 0.25
+	)
+
+/obj/random/grenade
+	name = "random grenade"
+	desc = "This is a random grenade."
+	icon_state = "syrup"
+	problist = list(
+		/obj/item/grenade/frag = 5,
+		/obj/item/grenade/stinger = 4,
+		/obj/item/grenade/napalm = 2,
+		/obj/item/grenade/empgrenade = 2
 	)

@@ -95,7 +95,7 @@
 	belt = /obj/item/storage/belt/medical/paramedic/combat
 	back = /obj/item/storage/backpack/satchel/med
 	accessory = /obj/item/clothing/accessory/holster/thigh
-	accessory_contents = list(/obj/item/gun/energy/disruptorpistol/magnum = 1)
+	accessory_contents = list(/obj/item/gun/projectile/plasma/bolter/pistol = 1)
 	r_ear = /obj/item/flashlight/pen
 	l_pocket = /obj/item/healthanalyzer
 	r_pocket = /obj/item/melee/telebaton
@@ -110,7 +110,8 @@
 		/obj/item/clothing/accessory/storage/pouches/black = 1,
 		/obj/item/reagent_containers/glass/bottle/thetamycin = 1,
 		/obj/item/surgery/scalpel/manager = 1,
-		/obj/item/tank/emergency_oxygen/double = 1
+		/obj/item/tank/emergency_oxygen/double = 1,
+		/obj/item/ammo_magazine/plasma/light/pistol = 2
 	)
 
 	belt_contents = list(
@@ -138,7 +139,7 @@
 	back = /obj/item/storage/backpack/messenger/med
 	belt = /obj/item/storage/belt/medical/paramedic/combat
 	accessory = /obj/item/clothing/accessory/holster/thigh
-	accessory_contents = list(/obj/item/gun/energy/disruptorpistol/magnum = 1)
+	accessory_contents = list(/obj/item/gun/projectile/plasma/bolter/pistol = 1)
 	l_pocket = /obj/item/healthanalyzer
 	r_pocket = /obj/item/crowbar
 	hands= list(/obj/item/storage/firstaid/adv)
@@ -149,7 +150,8 @@
 		/obj/item/storage/firstaid/combat = 1,
 		/obj/item/clothing/accessory/storage/pouches/black = 1,
 		/obj/item/reagent_containers/glass/bottle/thetamycin = 1,
-		/obj/item/storage/pill_bottle/mortaphenyl = 1
+		/obj/item/storage/pill_bottle/mortaphenyl = 1,
+		/obj/item/ammo_magazine/plasma/light/pistol = 2
 	)
 
 	belt_contents = list(

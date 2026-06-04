@@ -46,7 +46,7 @@
 	selected_turfs = null
 	valid_z_levels = null
 	last_selected_turf = null
-	. = ..()
+	return ..()
 
 /mob/abstract/eye/blueprints/release(var/mob/user)
 	if(owner && owner.client && user == owner)
@@ -117,13 +117,13 @@
 
 	// Adjusting titles in the old area.
 	var/static/list/types_to_rename = list(
-		/obj/machinery/alarm,
-		/obj/machinery/power/apc,
-		/obj/machinery/atmospherics/unary/vent_pump,
-		/obj/machinery/atmospherics/unary/vent_pump,
-		/obj/machinery/door
+		/obj/structure/machinery/alarm,
+		/obj/structure/machinery/power/apc,
+		/obj/structure/machinery/atmospherics/unary/vent_pump,
+		/obj/structure/machinery/atmospherics/unary/vent_pump,
+		/obj/structure/machinery/door
 	)
-	for(var/obj/machinery/M in A)
+	for(var/obj/structure/machinery/M in A)
 		if(is_type_in_list(M, types_to_rename))
 			M.name = replacetext(M.name, prevname, new_area_name)
 	A.name = new_area_name

@@ -795,10 +795,18 @@
 	description = "An intravenous drip stand used for hooking up IV bags. It also features an emergency positive pressure system for breathing-compromised patients. Comes with a breath mask. Tank or IV bags not included."
 	price = 150
 	items = list(
-		/obj/machinery/iv_drip,
+		/obj/structure/machinery/iv_drip,
 		/obj/item/clothing/mask/breath/medical
 	)
 	access = ACCESS_MEDICAL
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
+
+/singleton/cargo_item/organcooler/mind_blanker
+	name = "mind blanker cooler"
+	description = "An organ cooler containing a single Zeng-Hu Mind Blanker. Their cost has been subsidized by ZH for Operation Deep Dive."
+	price = 500
+	items = list(
+		/obj/item/storage/box/unique/freezer/organcooler/mind_blanker
+	)

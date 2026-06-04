@@ -148,10 +148,6 @@
 	default_genders = list(FEMALE)
 	economic_modifier = 12
 
-	speech_sounds = list('sound/voice/hiss1.ogg','sound/voice/hiss2.ogg','sound/voice/hiss3.ogg','sound/voice/hiss4.ogg')
-	speech_chance = 100
-
-	death_sound = 'sound/voice/hiss6.ogg'
 	damage_overlays = 'icons/mob/human_races/masks/dam_breeder.dmi'
 	damage_mask = 'icons/mob/human_races/masks/dam_mask_breeder.dmi'
 	blood_mask = 'icons/mob/human_races/masks/blood_breeder.dmi'
@@ -264,10 +260,6 @@
 	mob_weight = MOB_WEIGHT_SUPERHEAVY
 	mob_strength = MOB_STRENGTH_VERY_STRONG
 
-	speech_sounds = list('sound/voice/hiss1.ogg','sound/voice/hiss2.ogg','sound/voice/hiss3.ogg','sound/voice/hiss4.ogg')
-	speech_chance = 100
-
-	death_sound = 'sound/voice/hiss6.ogg'
 	damage_overlays = 'icons/mob/human_races/masks/dam_mask_warform.dmi'
 	damage_mask = 'icons/mob/human_races/masks/dam_mask_warform.dmi'
 	blood_mask = 'icons/mob/human_races/masks/dam_mask_warform.dmi'
@@ -317,6 +309,9 @@
 /datum/species/bug/type_big/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.mutations |= HULK
 	return ..()
+
+/datum/species/bug/type_big/New()
+	..()
 
 /datum/species/bug/type_e
 	name = SPECIES_VAURCA_BULWARK

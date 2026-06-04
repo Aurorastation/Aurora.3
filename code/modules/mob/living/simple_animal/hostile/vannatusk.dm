@@ -15,7 +15,7 @@
 	response_help  = "pets"
 	response_disarm = "shoves"
 	response_harm   = "harmlessly punches"
-	maxHealth = 350
+	maxhealth = 350
 	health = 350
 	harm_intent_damage = 5
 	melee_damage_lower = 30
@@ -25,7 +25,7 @@
 	mob_strength = MOB_STRENGTH_STRONG
 	mob_size = 15
 	environment_smash = 2
-	attacktext = "mangled"
+	attacktext = "mangles"
 	attack_emote = "charges toward"
 	attack_sound = 'sound/effects/creatures/vannatusk_attack.ogg'
 	emote_sounds = list('sound/effects/creatures/vannatusk_sound.ogg', 'sound/effects/creatures/vannatusk_sound_2.ogg')

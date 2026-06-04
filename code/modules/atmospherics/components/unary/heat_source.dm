@@ -1,7 +1,7 @@
 //TODO: Put this under a common parent type with freezers to cut down on the copypasta
 #define HEATER_PERF_MULT 2.5
 
-/obj/machinery/atmospherics/unary/heater
+/obj/structure/machinery/atmospherics/unary/heater
 	name = "gas heating system"
 	desc = "Heats gas when connected to a pipe network."
 	icon = 'icons/obj/machinery/sleeper.dmi'
@@ -27,34 +27,34 @@
 		/obj/item/stack/cable_coil{amount = 5}
 	)
 
-/obj/machinery/atmospherics/unary/heater/mechanics_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/atmospherics/unary/heater/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "heats up the gas of the pipe it is connected to. It uses massive amounts of electricity while on."
 
-/obj/machinery/atmospherics/unary/heater/upgrade_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/atmospherics/unary/heater/upgrade_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Upgraded <b>matter bins</b> will increase maximum temperature setting and the volume of air it can heat at once."
 	. += "Upgraded <b>capacitors</b> will increase maximum power setting and maximum temperature setting."
 
-/obj/machinery/atmospherics/unary/heater/Initialize()
+/obj/structure/machinery/atmospherics/unary/heater/Initialize()
 	initialize_directions = dir
 	. = ..()
 
-/obj/machinery/atmospherics/unary/heater/atmos_init()
+/obj/structure/machinery/atmospherics/unary/heater/atmos_init()
 	if(node)
 		return
 
 	var/node_connect = dir
 
 	//check that there is something to connect to
-	for(var/obj/machinery/atmospherics/target in get_step(src, node_connect))
+	for(var/obj/structure/machinery/atmospherics/target in get_step(src, node_connect))
 		if(target.initialize_directions & get_dir(target, src))
 			node = target
 			break
 
 	//copied from pipe construction code since heaters/freezers don't use fittings and weren't doing this check - this all really really needs to be refactored someday.
 	//check that there are no incompatible pipes/machinery in our own location
-	for(var/obj/machinery/atmospherics/M in src.loc)
+	for(var/obj/structure/machinery/atmospherics/M in src.loc)
 		if(M != src && (M.initialize_directions & node_connect) && M.check_connect_types(M,src))	// matches at least one direction on either type of pipe & same connection type
 			node = null
 			break
@@ -62,7 +62,7 @@
 	update_icon()
 
 
-/obj/machinery/atmospherics/unary/heater/update_icon()
+/obj/structure/machinery/atmospherics/unary/heater/update_icon()
 	if(node)
 		if(use_power && heating)
 			icon_state = "heater_1"
@@ -73,7 +73,7 @@
 	return
 
 
-/obj/machinery/atmospherics/unary/heater/process()
+/obj/structure/machinery/atmospherics/unary/heater/process()
 	..()
 
 	if(stat & (NOPOWER|BROKEN) || !use_power)
@@ -92,22 +92,22 @@
 
 	update_icon()
 
-/obj/machinery/atmospherics/unary/heater/attack_ai(mob/user as mob)
+/obj/structure/machinery/atmospherics/unary/heater/attack_ai(mob/user as mob)
 	if(!ai_can_interact(user))
 		return
 	ui_interact(user)
 
-/obj/machinery/atmospherics/unary/heater/attack_hand(mob/user as mob)
+/obj/structure/machinery/atmospherics/unary/heater/attack_hand(mob/user as mob)
 	. = ..()
 	ui_interact(user)
 
-/obj/machinery/atmospherics/unary/heater/ui_interact(mob/user, var/datum/tgui/ui)
+/obj/structure/machinery/atmospherics/unary/heater/ui_interact(mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "Freezer", "Gas Heating System", 440, 300)
 		ui.open()
 
-/obj/machinery/atmospherics/unary/heater/ui_data(mob/user)
+/obj/structure/machinery/atmospherics/unary/heater/ui_data(mob/user)
 	var/list/data = list()
 
 	data["on"] = !!use_power
@@ -125,7 +125,7 @@
 
 	return data
 
-/obj/machinery/atmospherics/unary/heater/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/obj/structure/machinery/atmospherics/unary/heater/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return TRUE
@@ -147,7 +147,7 @@
 	add_fingerprint(usr)
 
 //upgrading parts
-/obj/machinery/atmospherics/unary/heater/RefreshParts()
+/obj/structure/machinery/atmospherics/unary/heater/RefreshParts()
 	..()
 	var/cap_rating = 0
 	var/bin_rating = 0
@@ -162,11 +162,11 @@
 	air_contents.volume = max(initial(internal_volume) - 200, 0) + 200 * bin_rating
 	set_power_level(power_setting)
 
-/obj/machinery/atmospherics/unary/heater/proc/set_power_level(var/new_power_setting)
+/obj/structure/machinery/atmospherics/unary/heater/proc/set_power_level(var/new_power_setting)
 	power_setting = new_power_setting
 	power_rating = max_power_rating * (power_setting/100)
 
-/obj/machinery/atmospherics/unary/heater/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/atmospherics/unary/heater/attackby(obj/item/attacking_item, mob/user)
 	if(default_deconstruction_screwdriver(user, attacking_item))
 		return TRUE
 	if(default_deconstruction_crowbar(user, attacking_item))

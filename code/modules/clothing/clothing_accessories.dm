@@ -145,6 +145,9 @@
 
 	remove_accessory_handler(usr, FALSE)
 
+/obj/item/clothing/AltShiftClick(user)
+	remove_accessory_handler(usr, FALSE)
+
 /obj/item/clothing/proc/remove_accessory_handler(var/mob/living/user, var/force_radial = FALSE)
 	if(!isliving(user))
 		return

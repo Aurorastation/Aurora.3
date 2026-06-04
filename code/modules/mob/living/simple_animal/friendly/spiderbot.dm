@@ -11,7 +11,7 @@
 	var/obj/item/radio/borg/radio = null
 	var/mob/living/silicon/ai/connected_ai = null
 	var/obj/item/cell/cell = null
-	var/obj/machinery/camera/camera = null
+	var/obj/structure/machinery/camera/camera = null
 	var/obj/item/mmi/mmi = null
 	var/obj/item/card/id/internal_id = null
 	var/list/req_access = list(ACCESS_ROBOTICS) //Access needed to pop out the brain.
@@ -29,10 +29,10 @@
 	wander = 0
 	density = 0
 	health = 25
-	maxHealth = 25
+	maxhealth = 25
 	hunger_enabled = 0
 
-	attacktext = "shocked"
+	attacktext = "shocks"
 	melee_damage_lower = 1
 	melee_damage_upper = 3
 
@@ -63,7 +63,7 @@
 	voice_name = name
 
 	radio = new radio_type(src)
-	camera = new /obj/machinery/camera(src, 0, TRUE, TRUE)
+	camera = new /obj/structure/machinery/camera(src, 0, TRUE, TRUE)
 	camera.c_tag = "spiderbot-[real_name]"
 	camera.replace_networks(list("SS13"))
 
@@ -122,10 +122,10 @@
 	if (attacking_item.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/WT = attacking_item
 		if (WT.use(0))
-			if(health < maxHealth)
+			if(health < maxhealth)
 				health += pick(1,1,1,2,2,3)
-				if(health > maxHealth)
-					health = maxHealth
+				if(health > maxhealth)
+					health = maxhealth
 				add_fingerprint(user)
 				src.visible_message(SPAN_NOTICE("\The [user] has spot-welded some of the damage to \the [src]!"))
 			else
@@ -238,7 +238,7 @@
 		held_item = null
 
 	eject_brain()
-	gibs(loc, viruses, null, /obj/effect/gibspawner/robot) //TODO: use gib() or refactor spiderbots into synthetics.
+	gibs(loc, null, /obj/effect/gibspawner/robot) //TODO: use gib() or refactor spiderbots into synthetics.
 	qdel(src)
 	return
 
@@ -324,7 +324,7 @@
 	if (underdoor)
 		underdoor = 0
 		if ((layer == UNDERDOOR))//if this is false, then we must have used hide, or had our layer changed by something else. We wont do anymore checks for this move proc
-			for (var/obj/machinery/door/D in loc)
+			for (var/obj/structure/machinery/door/D in loc)
 				if (D.hashatch)
 					underdoor = 1
 					break

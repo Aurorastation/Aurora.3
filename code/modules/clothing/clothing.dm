@@ -1,8 +1,8 @@
 /obj/item/clothing
 	name = "clothing"
 	siemens_coefficient = 0.9
-	drop_sound = 'sound/items/drop/cloth.ogg'
-	pickup_sound = 'sound/items/pickup/cloth.ogg'
+	drop_sound = 'sound/items/drop/clothing.ogg'
+	pickup_sound = 'sound/items/pickup/clothing.ogg'
 	var/flash_protection = FLASH_PROTECTION_NONE	// Sets the item's level of flash protection.
 	var/tint = TINT_NONE							// Sets the item's level of visual impairment tint.
 	var/list/species_restricted = null 				//Only these species can wear this kit.
@@ -60,6 +60,11 @@
 		else
 			refit_for_species(refit_initialize)
 	update_icon()
+
+/obj/item/clothing/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "You can <b>Alt-Click</b> to adjust \the [src]'s layer, if it's applicable to this item."
+	. += "You can <b>Alt-Shift-Click</b> to remove any attached accessories."
 
 /obj/item/clothing/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
@@ -357,10 +362,9 @@
 	result = abs(result - 100)
 	return round(result)
 
-
 /obj/item/clothing/proc/update_armor()
 	if(material)
-		var/melee_armor = 0, bullet_armor = 0, laser_armor = 0, energy_armor = 0, bomb_armor = 0
+		var/melee_armor = 0, bullet_armor = 0, laser_armor = 0, energy_armor = 0, bomb_armor = 0, rad_armor = 0
 
 		melee_armor = calculate_material_armor(material.protectiveness * material_armor_modifer)
 
@@ -374,8 +378,9 @@
 
 		bomb_armor = calculate_material_armor((material.protectiveness * material_armor_modifer) * 0.5)
 
+		rad_armor = calculate_material_armor(((material.weight * material_armor_modifer) * 5) - 70) //Weight 15 (glass): 5%, Weight 23(steel): 45%, Weight 32 (lead): 90%. Material armour doesn't cover limbs, so 90% isn't as good as it seems.
 		// Makes sure the numbers stay capped.
-		for(var/number in list(melee_armor, bullet_armor, laser_armor, energy_armor, bomb_armor))
+		for(var/number in list(melee_armor, bullet_armor, laser_armor, energy_armor, bomb_armor, rad_armor))
 			number = between(0, number, 100)
 
 		var/datum/component/armor/armor_component = GetComponent(/datum/component/armor)
@@ -386,7 +391,8 @@
 			bullet = bullet_armor,
 			laser = laser_armor,
 			energy = energy_armor,
-			bomb = bomb_armor
+			bomb = bomb_armor,
+			rad = rad_armor
 		)
 		AddComponent(/datum/component/armor, armor_list)
 
@@ -459,7 +465,7 @@
 /obj/item/clothing/ears/offear
 	name = "Other ear"
 	w_class = WEIGHT_CLASS_HUGE
-	icon = 'icons/mob/screen/midnight.dmi'
+	icon = 'icons/hud/mob/midnight.dmi'
 	icon_state = "blocked"
 	slot_flags = SLOT_EARS | SLOT_TWOEARS
 
@@ -514,6 +520,7 @@
 	species_restricted = list("exclude",BODYTYPE_UNATHI,BODYTYPE_TAJARA,BODYTYPE_VAURCA, BODYTYPE_GOLEM,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_VAURCA_BULWARK,BODYTYPE_TESLA_BODY)
 	drop_sound = 'sound/items/drop/gloves.ogg'
 	pickup_sound = 'sound/items/pickup/gloves.ogg'
+	equip_sound = 'sound/items/equip/gloves.ogg'
 
 /obj/item/clothing/gloves/update_clothing_icon()
 	if (ismob(src.loc))
@@ -639,22 +646,37 @@
 	var/light_applied
 	var/on = FALSE
 	var/protects_against_weather = FALSE
+	/// Boolean. If set, uses `HEAD_LAYER_ALT` for mob sprite layering.
+	var/use_alt_layer = FALSE
 
 /obj/item/clothing/head/Initialize(mapload, material_key)
 	. = ..()
 	if(allow_hair_covering)
 		verbs += /obj/item/clothing/head/proc/toggle_block_hair
 
+/obj/item/clothing/head/mechanics_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += "You can <b>Alt-Click</b> to adjust hair coverage."
+
 /obj/item/clothing/head/proc/toggle_block_hair()
 	set name = "Toggle Hair Coverage"
 	set category = "Object.Equipped"
 	set src in usr
 
+	handle_toggle_block_hair(usr)
+
+/obj/item/clothing/head/AltClick(user)
+	handle_toggle_block_hair(user)
+
+/obj/item/clothing/head/proc/handle_toggle_block_hair(mob/user)
+	if(use_check_and_message(user))
+		return
+
 	if(allow_hair_covering)
 		flags_inv ^= BLOCKHEADHAIR
-		to_chat(usr, SPAN_NOTICE("[src] will now [flags_inv & BLOCKHEADHAIR ? "hide" : "show"] hair."))
-		if(ishuman(usr))
-			var/mob/living/carbon/human/H = usr
+		to_chat(user, SPAN_NOTICE("[src] will now [flags_inv & BLOCKHEADHAIR ? "hide" : "show"] hair."))
+		if(ishuman(user))
+			var/mob/living/carbon/human/H = user
 			H.update_hair()
 
 /obj/item/clothing/head/get_image_key_mod()
@@ -926,6 +948,7 @@
 	var/blood_overlay_type = "shoe"
 	drop_sound = 'sound/items/drop/shoes.ogg'
 	pickup_sound = 'sound/items/pickup/shoes.ogg'
+	equip_sound = 'sound/items/equip/sneakers.ogg'
 
 	var/can_hold_knife
 	var/footstep = 1
@@ -988,11 +1011,17 @@
 	set category = "Object.Equipped"
 	set src in usr
 
-	if(use_check_and_message(usr))
-		return 0
+	handle_toggle_layer(usr)
+
+/obj/item/clothing/shoes/AltClick(user)
+	handle_toggle_layer(user)
+
+/obj/item/clothing/shoes/proc/handle_toggle_layer(mob/user)
+	if(use_check_and_message(user))
+		return
 
 	if(shoes_under_pants == -1)
-		to_chat(usr, SPAN_NOTICE("[src] cannot be worn above your suit!"))
+		to_chat(user, SPAN_NOTICE("[src] cannot be worn above your suit!"))
 		return
 	shoes_under_pants = !shoes_under_pants
 	update_icon()

@@ -139,7 +139,7 @@
 /datum/tgui_module/moderator/shared/player_panel/ui_interact(mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "PlayerPanel", "Player Panel", 800, 600)
+		ui = new(user, src, "PlayerPanel", "Player Panel", 960, 600)
 		ui.open()
 
 /datum/tgui_module/moderator/shared/player_panel/ui_data(mob/user)

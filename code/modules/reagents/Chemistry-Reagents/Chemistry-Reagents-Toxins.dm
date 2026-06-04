@@ -37,7 +37,7 @@
 				var/obj/item/organ/external/O = organ
 				var/obj/effect/spider/eggcluster/C = locate() in O
 				if(C)
-					C.take_damage(removed * 2)
+					C.add_damage(removed * 2)
 		if(dam)
 			M.adjustToxLoss(target_organ ? (dam * 0.5) : dam)
 			M.add_chemical_effect(CE_TOXIN, removed * strength)
@@ -183,7 +183,7 @@
 		if((alien == IS_VAURCA) || (istype(P) && P.stage >= 3))
 			return
 
-	M.take_organ_damage(0, removed * 0.3) //being splashed directly with phoron causes minor chemical burns
+	M.take_organ_damage(0, removed * 0.3, used_weapon = "Phoron chemical burns", damage_flags = DAMAGE_FLAG_IGNORE_PROSTHETICS, silent = TRUE) //being splashed directly with phoron causes minor chemical burns
 	if(prob(50))
 		M.pl_effects()
 
@@ -194,7 +194,7 @@
 		if((alien == IS_VAURCA) || (istype(P) && P.stage >= 3))
 			return
 
-	M.take_organ_damage(0, removed * 0.6) //Breathing phoron? Oh hell no boy my boy.
+	M.take_organ_damage(0, removed * 0.6, used_weapon = "Phoron inhalation", damage_flags = DAMAGE_FLAG_IGNORE_PROSTHETICS, silent = TRUE) //Breathing phoron? Oh hell no boy my boy.
 	if(prob(50))
 		M.pl_effects()
 
@@ -238,12 +238,12 @@
 		for(var/obj/item/reagent_containers/food/snacks/grown/K in T)
 			if((K.plantname == "koisspore" || K.plantname == "blackkois") || (K.name == "kois" || K.name == "black kois"))
 				qdel(K)
-		for(var/obj/machinery/portable_atmospherics/hydroponics/H in T)
+		for(var/obj/structure/machinery/portable_atmospherics/hydroponics/H in T)
 			if(((H.name == "kois" || H.name == "black kois") || H.seed == /datum/seed/koisspore) && !(H.closed_system))
 				H.health = 0 // kill this boi - geeves
 				H.force_update = TRUE // and quick
 				H.process()
-				if(istype(H, /obj/machinery/portable_atmospherics/hydroponics/soil/invisible))
+				if(istype(H, /obj/structure/machinery/portable_atmospherics/hydroponics/soil/invisible))
 					qdel(H)
 
 	if(istype(T))

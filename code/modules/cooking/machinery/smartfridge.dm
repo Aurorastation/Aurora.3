@@ -1,6 +1,6 @@
 /* SmartFridge.  Much todo
 */
-/obj/machinery/smartfridge
+/obj/structure/machinery/smartfridge
 	name = "\improper SmartFridge"
 	icon = 'icons/obj/machinery/smartfridge.dmi'
 	icon_state = "smartfridge"
@@ -20,6 +20,7 @@
 	var/scan_id = 1
 	var/is_secure = 0
 	var/machineselect = 0
+	var/visible_takeout = FALSE
 
 	var/list/accepted_items = list(/obj/item/reagent_containers/food/snacks/grown, /obj/item/seeds, /obj/item/mollusc)
 	/// List of items that the machine starts with upon spawn
@@ -50,10 +51,10 @@
 
 	VAR_PRIVATE/static/list/base64_cache = list()
 
-/obj/machinery/smartfridge/secure
+/obj/structure/machinery/smartfridge/secure
 	is_secure = 1
 
-/obj/machinery/smartfridge/stocked
+/obj/structure/machinery/smartfridge/stocked
 	var/list/starting_produce = list(
 		"apple" = 24,
 		"banana" = 24,
@@ -90,7 +91,7 @@
 		"wulumunusha" = 24
 	)
 
-/obj/machinery/smartfridge/stocked/Initialize()
+/obj/structure/machinery/smartfridge/stocked/Initialize()
 	. = ..()
 	for(var/seed in starting_produce)
 		var/produce_amount = starting_produce[seed]
@@ -104,7 +105,7 @@
 	update_overlays()
 	update_static_data_for_all_viewers()
 
-/obj/machinery/smartfridge/Initialize(mapload)
+/obj/structure/machinery/smartfridge/Initialize(mapload)
 	. = ..()
 	if(is_secure)
 		wires = new/datum/wires/smartfridge/secure(src)
@@ -120,37 +121,37 @@
 				item_quants[typekey.name]++
 	update_icon()
 
-/obj/machinery/smartfridge/Destroy()
+/obj/structure/machinery/smartfridge/Destroy()
 	qdel(wires)
 	wires = null
 	return ..()
 
-/obj/machinery/smartfridge/proc/accept_check(var/obj/item/O)
+/obj/structure/machinery/smartfridge/proc/accept_check(var/obj/item/O)
 	if(is_type_in_list(O, accepted_items))
 		return TRUE
 	return FALSE
 
-/obj/machinery/smartfridge/foodheater
+/obj/structure/machinery/smartfridge/foodheater
 	name = "\improper SmartHeater"
 	desc = "To keep the food warm!"
 	contents_path = "-food"
 	accepted_items = list(/obj/item/reagent_containers/food/snacks)
 
-/obj/machinery/smartfridge/foodheater/stand
+/obj/structure/machinery/smartfridge/foodheater/stand
 	desc = "A more commercialized version of your traditional SmartHeater. Nothing like stale, heat-lamp warmed food."
 	use_power = POWER_USE_OFF
 	idle_power_usage = 0
 	active_power_usage = 0
 
-/obj/machinery/smartfridge/foodheater/stand/powered()
+/obj/structure/machinery/smartfridge/foodheater/stand/powered()
 	return TRUE
 
-/obj/machinery/smartfridge/foodheater/abandoned
+/obj/structure/machinery/smartfridge/foodheater/abandoned
 	// badly stocked, with trash, junk, etc
 	desc = "Used to keep food nice and warm in the past, now it is all dirty, and doesn't look like it'll ever run again."
 	use_power = POWER_USE_OFF
 
-/obj/machinery/smartfridge/seeds
+/obj/structure/machinery/smartfridge/seeds
 	name = "\improper MegaSeed Storage"
 	desc = "When you need seeds fast!"
 	icon = 'icons/obj/vending.dmi'
@@ -159,18 +160,18 @@
 	contents_path = null
 	accepted_items = list(/obj/item/seeds)
 
-/obj/machinery/smartfridge/secure/extract
+/obj/structure/machinery/smartfridge/secure/extract
 	name = "\improper Slime Extract Storage"
 	desc = "A refrigerated storage unit for slime extracts"
 	contents_path = "-slime"
 	req_access = list(ACCESS_RESEARCH)
 	accepted_items = list(/obj/item/slime_extract)
 
-/obj/machinery/smartfridge/secure/extract/Initialize()
+/obj/structure/machinery/smartfridge/secure/extract/Initialize()
 	. = ..()
 	new/obj/item/storage/slimes(src)
 
-/obj/machinery/smartfridge/secure/medbay
+/obj/structure/machinery/smartfridge/secure/medbay
 	name = "\improper Refrigerated Chemical Storage"
 	desc = "A refrigerated storage unit for storing medicine and chemicals."
 	contents_path = "-chem"
@@ -184,19 +185,19 @@
 						/obj/item/personal_inhaler)
 
 //Variant of medical fridge, but with some starting gear
-/obj/machinery/smartfridge/secure/medbay/horizon
+/obj/structure/machinery/smartfridge/secure/medbay/horizon
 	initial_contents = list(/obj/item/reagent_containers/glass/bottle/bicaridine = 1,
 						/obj/item/reagent_containers/glass/bottle/kelotane = 1,
 						/obj/item/reagent_containers/glass/bottle/dexalin = 1)
 
-/obj/machinery/smartfridge/secure/virology
+/obj/structure/machinery/smartfridge/secure/virology
 	name = "\improper Refrigerated Virus Storage"
 	desc = "A refrigerated storage unit for storing viral material."
 	contents_path = "-viro"
 	req_access = list(ACCESS_VIROLOGY)
 	accepted_items = list(/obj/item/reagent_containers/glass/beaker/vial)
 
-/obj/machinery/smartfridge/chemistry
+/obj/structure/machinery/smartfridge/chemistry
 	name = "\improper Smart Chemical Storage"
 	desc = "A refrigerated storage unit for medicine and chemical storage."
 	contents_path = "-chem"
@@ -208,12 +209,12 @@
 						/obj/item/reagent_containers/hypospray/autoinjector,
 						/obj/item/personal_inhaler)
 
-/obj/machinery/smartfridge/chemistry/virology
+/obj/structure/machinery/smartfridge/chemistry/virology
 	name = "\improper Smart Virus Storage"
 	desc = "A refrigerated storage unit for volatile sample storage."
 	contents_path = "-viro"
 
-/obj/machinery/smartfridge/drinks
+/obj/structure/machinery/smartfridge/drinks
 	name = "\improper Drink Showcase"
 	desc = "A refrigerated storage unit for tasty tasty alcohol."
 	contents_path = "-drink"
@@ -222,11 +223,11 @@
 						/obj/item/reagent_containers/food/drinks,
 						/obj/item/reagent_containers/food/condiment)
 
-/obj/machinery/smartfridge/drinks/bar
+/obj/structure/machinery/smartfridge/drinks/bar
 	density = FALSE
 	layer = BELOW_TABLE_LAYER
 
-/obj/machinery/smartfridge/drying_rack
+/obj/structure/machinery/smartfridge/drying_rack
 	name = "\improper Drying Rack"
 	desc = "A machine for drying plants."
 	icon_state = "drying_rack"
@@ -234,19 +235,19 @@
 	contents_path = null
 	has_emissive = FALSE
 
-/obj/machinery/smartfridge/drying_rack/accept_check(var/obj/item/O)
+/obj/structure/machinery/smartfridge/drying_rack/accept_check(var/obj/item/O)
 	if(!..())
 		return FALSE
 	var/obj/item/reagent_containers/food/snacks/S = O
 	if (S.dried_type)
 		return TRUE
 
-/obj/machinery/smartfridge/drying_rack/process()
+/obj/structure/machinery/smartfridge/drying_rack/process()
 	..()
 	if(length(contents))
 		dry()
 
-/obj/machinery/smartfridge/drying_rack/proc/dry()
+/obj/structure/machinery/smartfridge/drying_rack/proc/dry()
 	for(var/obj/item/reagent_containers/food/snacks/S in contents)
 		if(S.dry) continue
 		var/old_name = S.name
@@ -259,7 +260,7 @@
 					item_quants -= old_name
 	return
 
-/obj/machinery/smartfridge/drying_rack/update_overlays()
+/obj/structure/machinery/smartfridge/drying_rack/update_overlays()
 	ClearOverlays()
 	if(length(contents))
 		AddOverlays("drying_rack_drying")
@@ -267,7 +268,7 @@
 	if(shown_contents.len)
 		AddOverlays("drying_rack_filled")
 
-/obj/machinery/smartfridge/process()
+/obj/structure/machinery/smartfridge/process()
 	if(stat & (BROKEN|NOPOWER))
 		seconds_electrified = 0
 		return
@@ -294,20 +295,20 @@
 		I.reagents.add_thermal_energy(thermal_energy_change)
 		use_power_oneoff(active_power_usage)
 
-/obj/machinery/smartfridge/power_change()
+/obj/structure/machinery/smartfridge/power_change()
 	..()
 	if(!anchored)
 		stat |= NOPOWER
 	update_icon()
 
-/obj/machinery/smartfridge/update_icon()
+/obj/structure/machinery/smartfridge/update_icon()
 	if(stat & (BROKEN|NOPOWER))
 		icon_state = "[initial(icon_state)]-off"
 	else
 		icon_state = "[initial(icon_state)]"
 	update_overlays()
 
-/obj/machinery/smartfridge/proc/update_overlays()
+/obj/structure/machinery/smartfridge/proc/update_overlays()
 	ClearOverlays()
 	if(panel_open)
 		AddOverlays("[initial(icon_state)]-panel")
@@ -319,7 +320,7 @@
 	if(has_emissive && powered() && !(stat & BROKEN))
 		AddOverlays(emissive_appearance(icon, "[initial(icon_state)]-light-mask", src, alpha = src.alpha))
 
-/obj/machinery/smartfridge/proc/change_display(var/length)
+/obj/structure/machinery/smartfridge/proc/change_display(var/length)
 	var/tier = clamp((floor(length / display_tier_amt) + 1), 1, display_tiers)
 	return "-[num2text(tier)]"
 
@@ -327,7 +328,7 @@
 *   Item Adding
 ********************/
 
-/obj/machinery/smartfridge/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/smartfridge/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		panel_open = !panel_open
 		user.visible_message("\The [user] [panel_open ? "opens" : "closes"] the maintenance panel of \the [src].",
@@ -347,31 +348,31 @@
 		if(panel_open)
 			switch(input(user, "What would you like to select?", "Machine Debug Software") as null|anything in list("SmartHeater", "MegaSeed Storage", "Slime Extract Storage", "Refrigerated Chemical Storage", "Refrigerated Virus Storage", "Drink Showcase", "Drying Rack"))
 				if("SmartHeater")
-					new /obj/machinery/smartfridge/foodheater(loc)
+					new /obj/structure/machinery/smartfridge/foodheater(loc)
 					qdel(src)
 
 				if("MegaSeed Storage")
-					new /obj/machinery/smartfridge/seeds(loc)
+					new /obj/structure/machinery/smartfridge/seeds(loc)
 					qdel(src)
 
 				if("Slime Extract Storage")
-					new /obj/machinery/smartfridge/secure/extract(loc)
+					new /obj/structure/machinery/smartfridge/secure/extract(loc)
 					qdel(src)
 
 				if("Refrigerated Chemical Storage")
-					new /obj/machinery/smartfridge/secure/medbay(loc)
+					new /obj/structure/machinery/smartfridge/secure/medbay(loc)
 					qdel(src)
 
 				if("Refrigerated Virus Storage")
-					new /obj/machinery/smartfridge/secure/virology(loc)
+					new /obj/structure/machinery/smartfridge/secure/virology(loc)
 					qdel(src)
 
 				if("Drink Showcase")
-					new /obj/machinery/smartfridge/drinks(loc)
+					new /obj/structure/machinery/smartfridge/drinks(loc)
 					qdel(src)
 
 				if("Drying Rack")
-					new /obj/machinery/smartfridge/drying_rack(loc)
+					new /obj/structure/machinery/smartfridge/drying_rack(loc)
 					qdel(src)
 
 
@@ -415,11 +416,13 @@
 			update_overlays()
 		if(update_static_data)
 			update_static_data_for_all_viewers()
+		astype(P, /obj/item/storage/box/fancy)?.opened = TRUE
+		P.update_icon()
 		return TRUE
 	to_chat(user, SPAN_NOTICE("[src] smartly refuses [attacking_item]."))
 	return TRUE
 
-/obj/machinery/smartfridge/secure/emag_act(var/remaining_charges, var/mob/user)
+/obj/structure/machinery/smartfridge/secure/emag_act(var/remaining_charges, var/mob/user)
 	if(emagged)
 		return FALSE
 	emagged = 1
@@ -427,12 +430,12 @@
 	to_chat(user, SPAN_NOTICE("You short out the product lock on [src]."))
 	return TRUE
 
-/obj/machinery/smartfridge/attack_ai(mob/user)
+/obj/structure/machinery/smartfridge/attack_ai(mob/user)
 	if(!ai_can_interact(user))
 		return
 	attack_hand(user)
 
-/obj/machinery/smartfridge/attack_hand(mob/user)
+/obj/structure/machinery/smartfridge/attack_hand(mob/user)
 	. = ..()
 	if(stat & (NOPOWER|BROKEN))
 		return
@@ -444,13 +447,13 @@
 *   SmartFridge Menu
 ********************/
 
-/obj/machinery/smartfridge/ui_interact(mob/user, var/datum/tgui/ui)
+/obj/structure/machinery/smartfridge/ui_interact(mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "SmartFridge", name, 400, 500)
 		ui.open()
 
-/obj/machinery/smartfridge/ui_data(mob/user)
+/obj/structure/machinery/smartfridge/ui_data(mob/user)
 	var/list/data = list()
 
 	data["electrified"] = seconds_electrified > 0
@@ -470,7 +473,7 @@
 
 	return data
 
-/obj/machinery/smartfridge/ui_static_data(mob/user)
+/obj/structure/machinery/smartfridge/ui_static_data(mob/user)
 	var/list/data = list()
 	data["contents"] = null
 
@@ -508,7 +511,7 @@
 
 	return data
 
-/obj/machinery/smartfridge/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/obj/structure/machinery/smartfridge/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
@@ -537,15 +540,20 @@
 
 				var/i = amount
 				for(var/obj/O in contents)
-					if(O.name == K)
-						if(Adjacent(user))
-							user.put_in_hands(O)
-						else
-							O.forceMove(loc)
-						i--
-						update_overlays()
-						if(i <= 0)
-							break
+					if(O.name != K)
+						continue
+					if(Adjacent(user))
+						user.put_in_hands(O)
+						if(visible_takeout)
+							user.visible_message(
+								"[SPAN_BOLD("[user]")] takes \a [O] from \the [src].",
+								SPAN_NOTICE("You take \a [O] from \the [src]."))
+					else
+						O.forceMove(loc)
+					i--
+					update_overlays()
+					if(i <= 0)
+						break
 
 				if(item_quants[K] <= 0)
 					update_static_data_for_all_viewers()
@@ -555,7 +563,7 @@
 
 	. = TRUE
 
-/obj/machinery/smartfridge/proc/throw_item()
+/obj/structure/machinery/smartfridge/proc/throw_item()
 	var/obj/throw_item = null
 	var/mob/living/target = locate() in view(7,src)
 	if(!target)
@@ -587,7 +595,7 @@
 *   Secure SmartFridges
 *************************/
 
-/obj/machinery/smartfridge/secure/Topic(href, href_list)
+/obj/structure/machinery/smartfridge/secure/Topic(href, href_list)
 	if(stat & (NOPOWER|BROKEN) || !anchored) return FALSE
 	if(usr.contents.Find(src) || (in_range(src, usr) && isturf(loc)))
 		if(!allowed(usr) && !emagged && locked != -1 && href_list["vendItem"])
@@ -597,18 +605,18 @@
 
 // Konyang
 
-/obj/machinery/smartfridge/foodheater/buffet
+/obj/structure/machinery/smartfridge/foodheater/buffet
 	name = "buffet trays"
 	icon = 'icons/obj/structure/urban/restaurant.dmi'
 	icon_state = "buffet"
 	contents_path = null
 	has_emissive = FALSE
 
-/obj/machinery/smartfridge/foodheater/buffet/Initialize()
+/obj/structure/machinery/smartfridge/foodheater/buffet/Initialize()
 	. = ..()
 	contents_path = "[rand(1, 4)]" // overriding the update icon anyway, so this var is free.
 
-/obj/machinery/smartfridge/foodheater/buffet/update_icon()
+/obj/structure/machinery/smartfridge/foodheater/buffet/update_icon()
 	if(stat & (BROKEN|NOPOWER))
 		icon_state = "[initial(icon_state)]"
 	else

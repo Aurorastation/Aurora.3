@@ -36,7 +36,7 @@
 	// and actually set them up
 	for(var/thing in loc)
 		// set up the controller
-		var/obj/machinery/embedded_controller/radio/airlock/docking_port/controller = thing
+		var/obj/structure/machinery/embedded_controller/radio/airlock/docking_port/controller = thing
 		if(istype(controller))
 			// common controller vars
 			controller.set_frequency(frequency)
@@ -60,7 +60,7 @@
 
 		// and all the other airlock components
 
-		var/obj/machinery/door/airlock/door = thing
+		var/obj/structure/machinery/door/airlock/door = thing
 		if(istype(door))
 			door.set_frequency(frequency)
 			door.req_access = req_access
@@ -72,7 +72,7 @@
 				door.id_tag = MARKER_AIRLOCK_TAG_DOOR_EXTERIOR
 			continue
 
-		var/obj/machinery/airlock_sensor/sensor = thing
+		var/obj/structure/machinery/airlock_sensor/sensor = thing
 		if(istype(sensor))
 			sensor.set_frequency(frequency)
 			sensor.master_tag = MARKER_AIRLOCK_TAG_MASTER
@@ -84,7 +84,7 @@
 				sensor.id_tag = MARKER_AIRLOCK_TAG_SENSOR_CHAMBER
 			continue
 
-		var/obj/machinery/atmospherics/unary/vent_pump/pump = thing
+		var/obj/structure/machinery/atmospherics/unary/vent_pump/pump = thing
 		if(istype(pump))
 			pump.frequency = frequency
 			unregister_radio(pump, frequency)
@@ -97,7 +97,7 @@
 				pump.id_tag = MARKER_AIRLOCK_TAG_AIRPUMP_CHAMBER
 			continue
 
-		var/obj/machinery/access_button/button = thing
+		var/obj/structure/machinery/access_button/button = thing
 		if(istype(button))
 			button.set_frequency(frequency)
 			button.master_tag = MARKER_AIRLOCK_TAG_MASTER

@@ -10,6 +10,9 @@
 
 #define FRACTURE_AND_TENDON_DAM_THRESHOLD 30 // if a weapon does more than this amount of damage, it's powerful enough to sever the tendon AND fracture the bone, if it's a sharp weapon
 
+///How long before a wound starts autohealing without treatment
+#define HEALING_DELAY 60 SECONDS
+
 /obj/item/organ/external
 	name = "external"
 	min_broken_damage = 30
@@ -224,8 +227,6 @@
 
 /obj/item/organ/external/Destroy()
 
-	. = ..()
-
 	if(parent?.children)
 		parent.children -= src
 
@@ -262,7 +263,7 @@
 	QDEL_NULL(nymph)
 
 	QDEL_NULL(tendon)
-
+	return ..()
 
 /obj/item/organ/external/proc/invalidate_marking_cache()
 	cached_markings = null
@@ -395,9 +396,8 @@
 				return
 		remove_verb(owner, /mob/living/carbon/human/proc/undislocate)
 
-/obj/item/organ/external/update_health()
+/obj/item/organ/external/update_organ_health()
 	damage = min(max_damage, (brute_dam + burn_dam))
-	return
 
 /obj/item/organ/external/replaced(var/mob/living/carbon/human/target)
 	..()
@@ -450,6 +450,9 @@
 	brute = round(brute * brute_mod, 0.1)
 	burn = round(burn * burn_mod, 0.1)
 	if((brute <= 0) && (burn <= 0))
+		return 0
+
+	if(damage_flags & DAMAGE_FLAG_IGNORE_PROSTHETICS && BP_IS_ROBOTIC(src))
 		return 0
 
 	var/laser = (damage_flags & DAMAGE_FLAG_LASER)
@@ -514,7 +517,7 @@
 	add_pain(0.6 * burn + 0.4 * brute)
 
 	if(owner)
-		SEND_SIGNAL(owner, COMSIG_EXTERNAL_ORGAN_DAMAGE, burn + brute)
+		SEND_SIGNAL(owner, COMSIG_DAMAGE_TO_ENDOSKELETON, burn + brute)
 
 	//If there are still hurties to dispense
 	if (spillover)
@@ -524,7 +527,8 @@
 	update_damages()
 	if(owner)
 		owner.updatehealth() //droplimb will call updatehealth() again if it does end up being called
-	update_icon()
+	if (update_icon())
+		SEND_SIGNAL(src, COMSIG_UPDATE_LIMB_IMAGE)
 
 	return created_wound
 
@@ -602,13 +606,13 @@
 					if(W.w_class >= w_class && (dam_flags & DAMAGE_FLAG_EDGE))
 						edge_eligible = TRUE
 
-				if(!blunt_eligible && edge_eligible && (brute >= max_damage / (DROPLIMB_THRESHOLD_EDGE + maim_bonus_to_add)))
+				if(!blunt_eligible && edge_eligible && (brute >= max_damage / max((DROPLIMB_THRESHOLD_EDGE + maim_bonus_to_add), 0.1)))
 					droplimb(0, DROPLIMB_EDGE)
-				else if(burn >= max_damage / ((dam_flags & DAMAGE_FLAG_LASER ? DROPLIMB_THRESHOLD_DESTROY_PROJECTILE :  DROPLIMB_THRESHOLD_DESTROY) + maim_bonus_to_add))
+				else if(burn >= max_damage / max((dam_flags & DAMAGE_FLAG_LASER ? DROPLIMB_THRESHOLD_DESTROY_PROJECTILE :  DROPLIMB_THRESHOLD_DESTROY) + maim_bonus_to_add, 0.1))
 					droplimb(0, DROPLIMB_BURN)
-				else if(blunt_eligible && brute >= max_damage / ((dam_flags & DAMAGE_FLAG_BULLET ? DROPLIMB_THRESHOLD_DESTROY_PROJECTILE :  DROPLIMB_THRESHOLD_DESTROY) + maim_bonus_to_add))
+				else if(blunt_eligible && brute >= max_damage / max((dam_flags & DAMAGE_FLAG_BULLET ? DROPLIMB_THRESHOLD_DESTROY_PROJECTILE :  DROPLIMB_THRESHOLD_DESTROY) + maim_bonus_to_add, 0.1))
 					droplimb(0, DROPLIMB_BLUNT)
-				else if(brute >= max_damage / (DROPLIMB_THRESHOLD_TEAROFF + maim_bonus_to_add))
+				else if(brute >= max_damage / max((DROPLIMB_THRESHOLD_TEAROFF + maim_bonus_to_add), 0.1))
 					droplimb(0, DROPLIMB_EDGE)
 
 /obj/item/organ/external/heal_damage(brute, burn, internal = 0, robo_repair = 0)
@@ -698,7 +702,7 @@ This function completely restores a damaged organ to perfect condition.
 				fluid_loss_severity = FLUIDLOSS_WIDE_BURN
 			if(INJURY_TYPE_LASER)
 				fluid_loss_severity = FLUIDLOSS_CONC_BURN
-		var/fluid_loss = (damage/(owner.maxHealth - GLOB.config.health_threshold_dead)) * DEFAULT_BLOOD_AMOUNT * fluid_loss_severity
+		var/fluid_loss = (damage/(owner.maxhealth - GLOB.config.health_threshold_dead)) * DEFAULT_BLOOD_AMOUNT * fluid_loss_severity
 		owner.remove_blood_simple(fluid_loss)
 
 	// first check whether we can widen an existing wound
@@ -797,7 +801,7 @@ This function completely restores a damaged organ to perfect condition.
 		return TRUE
 	return FALSE
 
-/obj/item/organ/external/process()
+/obj/item/organ/external/process(seconds_per_tick)
 	if(owner)
 		//Specialized handling for tesla limbs. Checks if the limb currently has an associated tesla spine. Else, will disable the emissive and active overlays
 		if(is_tesla)
@@ -829,7 +833,7 @@ This function completely restores a damaged organ to perfect condition.
 			N.handle_nymph(src)
 
 		if(surge_damage && (status & ORGAN_ASSISTED))
-			tick_surge_damage() //Yes, this being here is intentional since this proc does not call ..() unless the owner is null.
+			tick_surge_damage(seconds_per_tick) //Yes, this being here is intentional since this proc does not call ..() unless the owner is null.
 
 		//Infections
 		update_germs()
@@ -1007,8 +1011,10 @@ Note that amputating the affected organ does in fact remove the infection from t
 		var/heal_amt = 0
 
 		// if damage >= 50 AFTER treatment then it's probably too severe to heal within the timeframe of a round.
+		// Only autoheal if wound was created or enlarged more than 10 seconds ago, this is so damage over time effects don't need to be larger than the autoheal speed
 		if (updatehud && brute_ratio < 50 && burn_ratio < 50 && W.can_autoheal())
-			heal_amt += 0.5
+			if (W.created + HEALING_DELAY <= world.time || W.bandaged || W.salved)
+				heal_amt += 0.5
 
 		//we only update wounds once in [wound_update_accuracy] ticks so have to emulate realtime
 		heal_amt *= wound_update_accuracy
@@ -1371,6 +1377,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 			burn_mod = R.burn_mod
 			robotize_type = company
 			augment_limit += 1	//robotic limbs get one extra augment capacity
+			SEND_SIGNAL(src, COMSIG_UPDATE_LIMB_IMAGE)
 
 	dislocated = -1 //TODO, make robotic limbs a separate type, remove snowflake
 	limb_flags &= ~ORGAN_CAN_BREAK
@@ -1723,6 +1730,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 		return
 	var/last_pain = pain
 	pain = max(0, min(species.total_health * 2, pain - amount))
+	SEND_SIGNAL(src, COMSIG_UPDATE_LIMB_IMAGE)
 	return -(pain-last_pain)
 
 /obj/item/organ/external/proc/add_pain(var/amount)

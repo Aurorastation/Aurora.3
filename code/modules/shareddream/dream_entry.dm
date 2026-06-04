@@ -1,13 +1,6 @@
 ///A list of `/turf` where the Srom is located, and people entering the shared dream (presumably Skrells sleeping) will be casted to
 GLOBAL_LIST_EMPTY_TYPED(dream_entries, /turf)
 
-/mob
-	var/mob/living/brain_ghost/bg
-
-/mob/living/carbon/human
-	var/datum/weakref/srom_pulled_by
-	var/datum/weakref/srom_pulling
-
 /mob/living/carbon/human/proc/handle_shared_dreaming(var/force_wakeup = FALSE)
 	SHOULD_NOT_SLEEP(TRUE)
 	if(is_psi_blocked(src)) // Can't enter the dream if the caster is blocked from RECEIVING. It's a two-way street.

@@ -1,7 +1,7 @@
 //--------------------------------------------
 // Base omni device
 //--------------------------------------------
-/obj/machinery/atmospherics/omni
+/obj/structure/machinery/atmospherics/omni
 	name = "omni device"
 	icon = 'icons/atmos/omni_devices.dmi'
 	icon_state = "base"
@@ -26,7 +26,7 @@
 
 	var/list/ports = new()
 
-/obj/machinery/atmospherics/omni/Initialize()
+/obj/structure/machinery/atmospherics/omni/Initialize()
 	icon_state = "base"
 	ports = new()
 	for(var/d in GLOB.cardinals)
@@ -45,7 +45,7 @@
 		ports += new_port
 	. = ..()
 
-/obj/machinery/atmospherics/omni/update_icon()
+/obj/structure/machinery/atmospherics/omni/update_icon()
 	ClearOverlays()
 	var/list/to_add = list(base_icon)
 	if(stat & NOPOWER)
@@ -62,12 +62,13 @@
 
 	underlays = underlays_current
 
-/obj/machinery/atmospherics/omni/proc/error_check()
+/obj/structure/machinery/atmospherics/omni/proc/error_check()
 	return
 
-/obj/machinery/atmospherics/omni/process()
+/obj/structure/machinery/atmospherics/omni/process()
 	last_power_draw = 0
 	last_flow_rate = 0
+	last_mole_transfer = 0
 
 	if(error_check())
 		update_use_power(POWER_USE_OFF)
@@ -76,13 +77,13 @@
 		return 0
 	return 1
 
-/obj/machinery/atmospherics/omni/power_change()
+/obj/structure/machinery/atmospherics/omni/power_change()
 	var/old_stat = stat
 	..()
 	if(old_stat != stat)
 		update_icon()
 
-/obj/machinery/atmospherics/omni/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/atmospherics/omni/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.tool_behaviour != TOOL_WRENCH)
 		return ..()
 
@@ -105,7 +106,7 @@
 		qdel(src)
 		return TRUE
 
-/obj/machinery/atmospherics/omni/attack_hand(user as mob)
+/obj/structure/machinery/atmospherics/omni/attack_hand(user as mob)
 	if(..())
 		return
 
@@ -113,7 +114,7 @@
 	ui_interact(user)
 	return
 
-/obj/machinery/atmospherics/omni/proc/update_port_icons()
+/obj/structure/machinery/atmospherics/omni/proc/update_port_icons()
 	if(!check_icon_cache())
 		return
 
@@ -147,7 +148,7 @@
 	update_icon()
 
 // Assumes on_states and off_states have been cut if required.
-/obj/machinery/atmospherics/omni/proc/select_port_icons(datum/omni_port/P)
+/obj/structure/machinery/atmospherics/omni/proc/select_port_icons(datum/omni_port/P)
 	if(!istype(P))
 		return
 
@@ -172,32 +173,32 @@
 		var/turf/T = get_turf(src)
 		if(!istype(T))
 			return
-		if(!T.is_plating() && istype(P.node, /obj/machinery/atmospherics/pipe) && P.node.level == 1 )
+		if(!T.is_plating() && istype(P.node, /obj/structure/machinery/atmospherics/pipe) && P.node.level == 1 )
 			. = icon_manager.get_atmos_icon("underlay", P.dir, color_cache_name(P.node), "down")
 		else
 			. = icon_manager.get_atmos_icon("underlay", P.dir, color_cache_name(P.node), "intact")
 
-/obj/machinery/atmospherics/omni/update_underlays()
+/obj/structure/machinery/atmospherics/omni/update_underlays()
 	for(var/datum/omni_port/P in ports)
 		P.update = 1
 	update_ports()
 
-/obj/machinery/atmospherics/omni/hide(var/i)
+/obj/structure/machinery/atmospherics/omni/hide(var/i)
 	update_underlays()
 
-/obj/machinery/atmospherics/omni/proc/update_ports()
+/obj/structure/machinery/atmospherics/omni/proc/update_ports()
 	sort_ports()
 	update_port_icons()
 	for(var/datum/omni_port/P in ports)
 		P.update = 0
 
-/obj/machinery/atmospherics/omni/proc/sort_ports()
+/obj/structure/machinery/atmospherics/omni/proc/sort_ports()
 	return
 
 
 // Housekeeping and pipe network stuff below
 
-/obj/machinery/atmospherics/omni/network_expand(datum/pipe_network/new_network, obj/machinery/atmospherics/pipe/reference)
+/obj/structure/machinery/atmospherics/omni/network_expand(datum/pipe_network/new_network, obj/structure/machinery/atmospherics/pipe/reference)
 	for(var/datum/omni_port/P in ports)
 		if(reference == P.node)
 			P.network = new_network
@@ -210,17 +211,17 @@
 
 	return null
 
-/obj/machinery/atmospherics/omni/Destroy()
+/obj/structure/machinery/atmospherics/omni/Destroy()
 	loc = null
 	QDEL_LIST(ports)
 
 	. = ..()
 
-/obj/machinery/atmospherics/omni/atmos_init()
+/obj/structure/machinery/atmospherics/omni/atmos_init()
 	for(var/datum/omni_port/P in ports)
 		if(P.node || P.mode == 0)
 			continue
-		for(var/obj/machinery/atmospherics/target in get_step(src, P.dir))
+		for(var/obj/structure/machinery/atmospherics/target in get_step(src, P.dir))
 			if(target.initialize_directions & get_dir(target,src))
 				if (check_connect_types(target,src))
 					P.node = target
@@ -231,14 +232,14 @@
 
 	update_ports()
 
-/obj/machinery/atmospherics/omni/build_network()
+/obj/structure/machinery/atmospherics/omni/build_network()
 	for(var/datum/omni_port/P in ports)
 		if(!P.network && P.node)
 			P.network = new /datum/pipe_network()
 			P.network.normal_members += src
 			P.network.build_network(P.node, src)
 
-/obj/machinery/atmospherics/omni/return_network(obj/machinery/atmospherics/reference)
+/obj/structure/machinery/atmospherics/omni/return_network(obj/structure/machinery/atmospherics/reference)
 	build_network()
 
 	for(var/datum/omni_port/P in ports)
@@ -247,14 +248,14 @@
 
 	return null
 
-/obj/machinery/atmospherics/omni/reassign_network(datum/pipe_network/old_network, datum/pipe_network/new_network)
+/obj/structure/machinery/atmospherics/omni/reassign_network(datum/pipe_network/old_network, datum/pipe_network/new_network)
 	for(var/datum/omni_port/P in ports)
 		if(P.network == old_network)
 			P.network = new_network
 
 	return 1
 
-/obj/machinery/atmospherics/omni/return_network_air(datum/pipe_network/reference)
+/obj/structure/machinery/atmospherics/omni/return_network_air(datum/pipe_network/reference)
 	var/list/results = list()
 
 	for(var/datum/omni_port/P in ports)
@@ -263,7 +264,7 @@
 
 	return results
 
-/obj/machinery/atmospherics/omni/disconnect(obj/machinery/atmospherics/reference)
+/obj/structure/machinery/atmospherics/omni/disconnect(obj/structure/machinery/atmospherics/reference)
 	for(var/datum/omni_port/P in ports)
 		if(reference == P.node)
 			qdel(P.network)
@@ -275,7 +276,7 @@
 
 	return null
 
-/obj/machinery/atmospherics/omni/AltClick(var/mob/user)
+/obj/structure/machinery/atmospherics/omni/AltClick(var/mob/user)
 	if(!allowed(user))
 		to_chat(user, SPAN_WARNING("Access denied."))
 		return

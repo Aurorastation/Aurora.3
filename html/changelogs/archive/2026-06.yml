@@ -1,0 +1,153 @@
+2026-06-01:
+  Llywelwyn:
+  - bugfix: Leaning on the north side of a wall now correctly hides your lower body
+      behind the wall instead of drawing you on top of it.
+  - code_imp: Adds a COMSIG_MOB_LYING_DOWN signal, sent when a mob transitions into
+      lying down.
+2026-06-02:
+  Batrachophrenoboocosmomachia:
+  - bugfix: 'Reverts #22556 (organ rejection changes).'
+  - bugfix: Fixes non-hardsuit health analyzer runtime.
+  - bugfix: Fixes hardsuit health analyzer not reliably self-scanning.
+  - bugfix: Adds additional safety checks to hardsuit deployment logic to better handle
+      boot checks.
+  - bugfix: Hardsuit Health Analyzer module works again.
+  - rscadd: Adds 'Retract All Parts' verb for hardsuits.
+  - rscdel: Removes Vitals Scanner module; hardsuits which had this module by default
+      have had it replaced with the Health Analzyer module.
+  - rscdel: Removes hardsuit Maneuvering Jets onmob sprites.
+  ElorgRHG:
+  - imageadd: Tweaked the sprites for security badge accessories and added belt sprites
+      for them.
+  Greenjoe:
+  - rscadd: Adds clothing item versions of various undershirt items. They can be selected
+      in the loadout. The undershirt versions of them are removed from the game. Some
+      other undershirts are removed outright.
+  Hellfirejag:
+  - rscdel: Removed a couple of completely vestigial global-ish mob vars to save on
+      memory and time.
+  - bugfix: Fixed a runtime error caused by giving any mob spell objects.
+  - bugfix: Fixed a runtime error caused by shift clicking a turf after logging out
+      and relogging.
+  - bugfix: Fixed some situations where an IPC datacable can get 'stuck'.
+  - bugfix: Fixed a runtime error caused by robotics consoles using a protolathe when
+      no circuit imprinter is connected.
+  - bugfix: Fixed a runtime error on objects caused by timers being created on objects
+      that are already being qdel'ed.
+  - rscadd: Tweaked the hard delete logging sensitivity to correctly catch and record
+      typical hard dels to the sentry logs. They will also now provide more usable
+      information in order to help find where the memory leaks are coming from.
+  - bugfix: Fixed a runtime error in organ rejection.
+  - bugfix: Fixed vines spamming runtime errors after they are 'damaged' by a player.
+  - bugfix: Fixed a runtime error related to the stamina bar.
+  - bugfix: Fixed a runtime regularly caused by flashlights.
+  - bugfix: Fixed a runtime error caused by explosive implants lying about being a
+      radio to the Radio Subsystem.
+  Llywelwyn:
+  - bugfix: Fake Crew Arrival Announcement uplink service now works even with an invalid
+      employer faction.
+  MattAtlas:
+  - bugfix: Synthetic external armour now deteriorates with the actual damage taken.
+      Previously, the calculation led to the armour instead taking less damage the
+      less it was blocked.
+  - bugfix: Fixing the synthetic endoskeleton now fixes the permanent paincrit effect
+      on IPCs. This was caused by the self preservation status being toggled when
+      the endoskeleton was destroyed, but it was never reset when the endoskeleton
+      was fixed.
+  - bugfix: Species components are now added and removed properly, meaning you can
+      switch from IPC to human and back and forth as a mercenary once more.
+  - bugfix: The Bishop internal PDA now uses your actual ID on your person as its
+      own ID.
+  - bugfix: Fixed the endoskeleton welder repair surgery. You can do this surgery
+      by using a welder while aiming chest and after having opened the chest fully.
+  - bugfix: The endoskeleton now takes damage from EMPs as well. This should make
+      them A LOT more effective against IPCs.
+  - qol: The posibrain will now show up in diagnostics.
+  - rscadd: Posibrains can now be destroyed by hitting them. This will completely
+      kill the IPC's consciousness!
+  TheGreyWolf:
+  - balance: Tajara brute mods were changed from 10%, 20% and 30% for zhan, base tajara
+      and m'sai to 5%, 10%, 15%.
+  - balance: Flashbangs no longer stun tajara unless they have sensitive hearing on.
+  - rscadd: The height difference between hharar, m'sai and zhan were tweaked to not
+      be identical.
+  - rscadd: Tajara eyes can now extend their vision, somewhat similarly to using a
+      binocular.
+  - rscadd: Tajara with sensitive hearing on can now hear whispers and people talking
+      into radios from 2 turfs away.
+  - bugfix: Fixed a bug with the autakh farseer eyes causing them to give the improper
+      message if retracted by movement or other sources.
+  hazelmouse:
+  - rscadd: Implemented a large revision of maintenance, in the hope of establishing
+      a more coherent style to be followed into the future. Expect slightly brighter
+      lighting and a more consistent use of decals.
+  - rscadd: Turrets now produce less light.
+  - rscadd: Telecommunications is no longer lit with blue lighting.
+  - rscadd: Several dark spots on the map are now better lit, including medical's
+      GTR and the INDRA chamber in engineering.
+  - rscadd: Implemented a few very ancillary changes to the Horizon's mapping outside
+      of maintenance, including adding tiles to all airlocks.
+  llywelwyn:
+  - bugfix: Modular energy guns with a reactor now self-recharge from assembly, instead
+      of only starting after the first shot is fired.
+2026-06-03:
+  Fenodyree:
+  - bugfix: Fixes Longbow shells exploding when mechs pick them up.
+  MattAtlas:
+  - admin: Added the Storyteller narrate panel for admins.
+2026-06-04:
+  Fenodyree:
+  - bugfix: Fixes modular lasers improvement cap.
+  - bugfix: Fixes negative initial values being handled incorrectly.
+  - bugfix: Fixes some repair edge cases.
+  - bugfix: Fixes welding repairs not needing eye protection.
+  - bugfix: Fixes gattling laser mod having the wrong improvable variables.
+  - bugfix: Fixes the weapon analyzer printout calculating modlaser stats incorrectly.
+  - bugfix: Fixes high skill users not being able to field repair modlasers.
+  - bugfix: Fixes the weapon analyzer ripping your combitool out of your hand.
+  - bugfix: Fixes the weapon analyzer not being deconstructable.
+  - balance: Drops the per var improvement cap by 50%, multiplicative scaling is no
+      joke.
+  - rscadd: Adds spalling when a projectile punches from a solid turf to an open turf.
+      These are big chunks of shrapnel with low damage and high embed chance.
+  - rscadd: Adds an admin only gun that fires ship weapon ammo.
+  - rscadd: 'Makes several indestructible structures breakable: vending machines,
+      computer frames, window frames and watertanks. They now also leave behind shrapnel
+      instead of just steel sheets.'
+  - rscadd: Adds a negative maim chance, which reduces the chance of decapitation
+      or limb loss.
+  - balance: Reworks shields, they take more power and are generally weaker. In exchange
+      they now block explosions and each generator can be upgraded with research components,
+      in addition to accepting multiple capacitors.
+  - balance: All non-exoplosive ship projectiles got buffs. All projectiles got additional
+      anti-material. Armour piercing shells now penetrate many more things.
+  - balance: Reworked overmap targetting. Shots now spawn on the map edge and aim
+      at their target, instead of spawning near their target and aiming straight forwards.
+  - bugfix: Fixes explosive projectiles destroying the thing they hit before the explosion
+      can happen, causing them not to explode.
+  - bugfix: Fixes projectiles not penetrating windows, because they hit the window
+      frame which was indestructible.
+  - bugfix: Fixes shrapnel getting misnamed, or named twice.
+  - bugfix: Fixes shields having no click delay when attacked with melee weapons.
+  Hellfirejag:
+  - bugfix: Fixed a hard delete caused by worm monsters.
+  - bugfix: Fixed negative dispersion (from high gun skill) sometimes wrapping back
+      around to inaccurate guns again.
+  - bugfix: Comprehensively destroyed an extremely large number of niche hard dels
+      across the entire Atom-Human Hierarchy.
+  - bugfix: Fixed some references being deleted instead of nulled.
+  Hellfirejag, TheGreyWolf:
+  - rscadd: Implemented the Anatomy skill. Anatomy determines the quality of information
+      received when medically examining your own injuries.
+  Llywelwyn:
+  - bugfix: Saved chat logs are now written with the correct text/html file type.
+  - bugfix: Emote markup like *bold* and /italics/ once again renders in chat instead
+      of showing literal tags.
+  - code_imp: Door tests skip qdeleted doors, so they should no longer intermittently
+      fail when landing zone generation clears a ruin.
+  - bugfix: Colour chips in character setup are correctly coloured again.
+  hazelmouse:
+  - bugfix: Removed an erroneous scrubber in the bar.
+  kermit, louiseisnthome:
+  - imageadd: Changes the Reade accent icon from purple splodges to one that represents
+      the gas giant.

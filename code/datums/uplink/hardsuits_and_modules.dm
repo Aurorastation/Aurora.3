@@ -104,13 +104,6 @@
 	path = /obj/item/rig_module/storage
 	desc = "A small hardsuit mounted storage unit, capable of holding a few items."
 
-/datum/uplink_item/item/hardsuit_modules/vitalscanner
-	name = "Vitals Tracker Module"
-	telecrystal_cost = 1
-	bluecrystal_cost = 1
-	path = /obj/item/rig_module/device/healthscanner/vitalscanner
-	desc = "A module that allows a hardsuit to scan the users vitals, and give readouts of them."
-
 /datum/uplink_item/item/hardsuit_modules/basicinjector
 	name = "Emergency Chemical Injector"
 	telecrystal_cost = 2
@@ -227,3 +220,11 @@
 	telecrystal_cost = 10
 	path = /obj/item/rig/vaurca/minimal
 	desc = "An ancient piece of equipment from a bygone age, This highly advanced Vaurcan technology rarely sees use outside of a battlefield. Only wearable by vaurca."
+
+/datum/uplink_item/item/hardsuit_modules/suit/zavod_heavy
+	name = "Zavodskoi Reaper Hardsuit"
+	telecrystal_cost = 8
+	bluecrystal_cost = 8
+	path = /obj/item/rig/combat/zavod_heavy
+	desc = "A heavily armored hardsuit manufactured and used by Zavodskoi operatives, the K2-98Z \"Reaper\" is employed by Zavodskoi's elite asset protection, as well as in corporate-sponsored police forces. " \
+		+ "Only wearable by humans."

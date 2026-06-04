@@ -8,7 +8,7 @@
 	name = "animal"
 	icon = 'icons/mob/npc/animal.dmi'
 	health = 20
-	maxHealth = 20
+	maxhealth = 20
 
 	mob_bump_flag = SIMPLE_ANIMAL
 	mob_swap_flags = MONKEY|SLIME|SIMPLE_ANIMAL
@@ -121,7 +121,7 @@
 	var/melee_reach = 1
 	var/armor_penetration = 0
 	var/attack_flags = 0
-	var/attacktext = "attacked"
+	var/attacktext = "attacks"
 	var/attack_sound = SFX_SWING_HIT
 	var/friendly = "nuzzles"
 	var/environment_smash = 0
@@ -223,9 +223,9 @@
 	. = ..()
 	seek_move_delay = (1 / seek_speed) * 10	//number of ds between moves
 	turns_since_scan = rand(min_scan_interval, max_scan_interval)//Randomise this at the start so animals don't sync up
-	health = maxHealth
+	health = maxhealth
 	remove_verb(src, /mob/verb/observe)
-	health = maxHealth
+	health = maxhealth
 	if (mob_size)
 		update_nutrition_stats()
 		reagents = new/datum/reagents(stomach_size_mult*mob_size, src)
@@ -249,6 +249,7 @@
 
 /mob/living/simple_animal/Destroy()
 	CutOverlays(blood_overlay)
+	QDEL_NULL(blood_overlay)
 	lostMovementTarget()
 	QDEL_NULL(udder)
 
@@ -290,9 +291,9 @@
 	. = ..()
 	if (stat == DEAD)
 		. += SPAN_DANGER("It looks dead.")
-	if (health < maxHealth * 0.5)
+	if (health < maxhealth * 0.5)
 		. += SPAN_DANGER("It looks badly wounded.")
-	else if (health < maxHealth)
+	else if (health < maxhealth)
 		. += SPAN_WARNING("It looks wounded.")
 
 /mob/living/simple_animal/can_name(var/mob/living/M)
@@ -312,8 +313,8 @@
 	//Health
 	updatehealth()
 
-	if(health > maxHealth)
-		health = maxHealth
+	if(health > maxhealth)
+		health = maxhealth
 
 	handle_blood()
 	handle_stunned()
@@ -447,7 +448,7 @@
 		death()
 
 	var/current_blood_state = blood_state
-	var/blood_mod = health / maxHealth
+	var/blood_mod = health / maxhealth
 	if(blood_mod > 0.9)
 		blood_state = BLOOD_NONE
 	else if(blood_mod >= 0.7)
@@ -530,7 +531,7 @@
 	if (!hunger_enabled || nutrition > max_nutrition * 0.9)
 		return 0//full
 
-	else if ((nutrition > max_nutrition * 0.8) || health < maxHealth)
+	else if ((nutrition > max_nutrition * 0.8) || health < maxhealth)
 		return 1//content
 
 	else return 2//hungry
@@ -625,7 +626,7 @@
 	if(istype(attacking_item, /obj/item/saddle) && vehicle_version && (stat != DEAD))
 		var/obj/vehicle/V = new vehicle_version (get_turf(src))
 		V.health = health
-		V.maxhealth = maxHealth
+		V.maxhealth = maxhealth
 		to_chat(user, SPAN_WARNING("You place \the [attacking_item] on the \the [src]."))
 		user.drop_from_inventory(attacking_item)
 		attacking_item.forceMove(get_turf(src))
@@ -765,7 +766,7 @@
 	. = ..()
 
 	if(show_stat_health)
-		. += "Health: [round((health / maxHealth) * 100)]%"
+		. += "Health: [round((health / maxhealth) * 100)]%"
 		. += "Nutrition: [nutrition]/[max_nutrition]"
 
 /mob/living/simple_animal/updatehealth()
@@ -804,12 +805,12 @@
 		var/mob/living/L = target_mob
 		if(!L.stat)
 			return FALSE
-	else if(istype(target_mob, /obj/machinery/bot))
-		var/obj/machinery/bot/B = target_mob
+	else if(istype(target_mob, /obj/structure/machinery/bot))
+		var/obj/structure/machinery/bot/B = target_mob
 		if(B.health > 0)
 			return FALSE
-	else if(istype(target_mob, /obj/machinery/porta_turret))
-		var/obj/machinery/porta_turret/T = target_mob
+	else if(istype(target_mob, /obj/structure/machinery/porta_turret))
+		var/obj/structure/machinery/porta_turret/T = target_mob
 		if(T.health > 0)
 			return FALSE
 	else if(istype(target_mob, /obj/effect/energy_field))
@@ -1064,6 +1065,9 @@
 		AddOverlays(upper_fire_emissive)
 		AddOverlays(lower_fire_overlay)
 		AddOverlays(lower_fire_emissive)
+		throw_alert(ALERT_FIRE, /atom/movable/screen/alert/fire)
+	else
+		clear_alert(ALERT_FIRE)
 
 
 /mob/living/simple_animal/get_gibs_type()

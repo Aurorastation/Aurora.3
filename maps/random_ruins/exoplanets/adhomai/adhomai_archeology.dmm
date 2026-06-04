@@ -56,14 +56,14 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/machinery/artifact_analyser,
+/obj/structure/machinery/artifact_analyser,
 /obj/effect/floor_decal/spline/plain/cee/black{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/carpet/rubber,
 /area/adhomai_archeology)
 "o" = (
-/obj/machinery/artifact_scanpad,
+/obj/structure/machinery/artifact_scanpad,
 /obj/effect/floor_decal/spline/plain/cee/black,
 /turf/simulated/floor/exoplanet/carpet/rubber,
 /area/adhomai_archeology)
@@ -93,7 +93,7 @@
 /turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "t" = (
-/obj/machinery/floodlight,
+/obj/structure/machinery/floodlight,
 /obj/structure/sign/flag/nka{
 	pixel_y = 32;
 	stand_icon = null
@@ -133,13 +133,13 @@
 /obj/item/flashlight/lantern,
 /obj/item/flashlight/lantern,
 /obj/item/flashlight/lantern,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/carpet/rubber,
 /area/adhomai_archeology)
 "A" = (
-/obj/machinery/suspension_gen,
+/obj/structure/machinery/suspension_gen,
 /turf/simulated/floor/exoplanet/carpet/rubber,
 /area/adhomai_archeology)
 "B" = (
@@ -167,10 +167,10 @@
 /turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "I" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
-/obj/machinery/radiocarbon_spectrometer,
+/obj/structure/machinery/radiocarbon_spectrometer,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/exoplanet/carpet/rubber,
 /area/adhomai_archeology)
@@ -200,14 +200,14 @@
 /turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "Q" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /obj/structure/closet/excavation,
 /turf/simulated/floor/exoplanet/carpet/rubber,
 /area/adhomai_archeology)
 "R" = (
-/obj/machinery/floodlight,
+/obj/structure/machinery/floodlight,
 /turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "S" = (

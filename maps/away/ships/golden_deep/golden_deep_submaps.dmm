@@ -125,7 +125,7 @@
 /turf/template_noop,
 /area/template_noop)
 "gP" = (
-/obj/machinery/chem_heater,
+/obj/structure/machinery/chem_heater,
 /obj/random/dirt_75,
 /turf/template_noop,
 /area/template_noop)
@@ -139,7 +139,7 @@
 /area/template_noop)
 "hN" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/golden_deep,
-/obj/machinery/reagentgrinder{
+/obj/structure/machinery/reagentgrinder{
 	pixel_y = 17;
 	pixel_x = 6
 	},
@@ -180,7 +180,7 @@
 /area/template_noop)
 "jV" = (
 /obj/random/dirt_75,
-/obj/machinery/portable_atmospherics/canister/phoron,
+/obj/structure/machinery/portable_atmospherics/canister/phoron,
 /turf/template_noop,
 /area/template_noop)
 "kI" = (
@@ -228,7 +228,7 @@
 /turf/template_noop,
 /area/template_noop)
 "pe" = (
-/obj/machinery/suspension_gen,
+/obj/structure/machinery/suspension_gen,
 /turf/template_noop,
 /area/template_noop)
 "rg" = (
@@ -242,7 +242,7 @@
 /turf/template_noop,
 /area/template_noop)
 "rC" = (
-/obj/machinery/portable_atmospherics/canister/chlorine,
+/obj/structure/machinery/portable_atmospherics/canister/chlorine,
 /turf/template_noop,
 /area/template_noop)
 "sq" = (
@@ -430,7 +430,7 @@
 /turf/template_noop,
 /area/template_noop)
 "BP" = (
-/obj/machinery/shieldwallgen,
+/obj/structure/machinery/shieldwallgen,
 /turf/template_noop,
 /area/template_noop)
 "CF" = (
@@ -451,7 +451,7 @@
 /turf/template_noop,
 /area/template_noop)
 "DM" = (
-/obj/machinery/power/portgen/basic/advanced,
+/obj/structure/machinery/power/portgen/basic/advanced,
 /turf/template_noop,
 /area/template_noop)
 "Fw" = (
@@ -535,7 +535,7 @@
 /turf/template_noop,
 /area/template_noop)
 "GF" = (
-/obj/machinery/stasis_cage{
+/obj/structure/machinery/stasis_cage{
 	req_access = list()
 	},
 /turf/template_noop,
@@ -567,7 +567,7 @@
 /turf/template_noop,
 /area/template_noop)
 "HK" = (
-/obj/machinery/chemical_dispenser/full{
+/obj/structure/machinery/chemical_dispenser/full{
 	dir = 1
 	},
 /turf/template_noop,
@@ -596,7 +596,7 @@
 /area/template_noop)
 "IT" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/golden_deep,
-/obj/machinery/shieldwallgen,
+/obj/structure/machinery/shieldwallgen,
 /turf/template_noop,
 /area/template_noop)
 "Ja" = (
@@ -608,23 +608,23 @@
 /turf/template_noop,
 /area/template_noop)
 "Ky" = (
-/obj/machinery/portable_atmospherics/hydroponics,
+/obj/structure/machinery/portable_atmospherics/hydroponics,
 /obj/random/dirt_75,
 /turf/template_noop,
 /area/template_noop)
 "KW" = (
-/obj/machinery/stasis_cage{
+/obj/structure/machinery/stasis_cage{
 	req_access = list()
 	},
 /obj/effect/map_effect/marker/mapmanip/submap/extract/golden_deep,
 /turf/template_noop,
 /area/template_noop)
 "Ld" = (
-/obj/machinery/vending/dinnerware,
+/obj/structure/machinery/vending/dinnerware,
 /turf/template_noop,
 /area/template_noop)
 "LF" = (
-/obj/machinery/portable_atmospherics/hydroponics,
+/obj/structure/machinery/portable_atmospherics/hydroponics,
 /turf/template_noop,
 /area/template_noop)
 "LS" = (
@@ -647,7 +647,7 @@
 /turf/template_noop,
 /area/template_noop)
 "MJ" = (
-/obj/machinery/vending/security{
+/obj/structure/machinery/vending/security{
 	req_access = null
 	},
 /turf/template_noop,
@@ -662,7 +662,7 @@
 /area/template_noop)
 "OR" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/golden_deep,
-/obj/machinery/vending/hydronutrients,
+/obj/structure/machinery/vending/hydronutrients,
 /turf/template_noop,
 /area/template_noop)
 "Qz" = (
@@ -676,7 +676,7 @@
 /turf/template_noop,
 /area/template_noop)
 "Sh" = (
-/obj/machinery/chem_master,
+/obj/structure/machinery/chem_master,
 /obj/random/dirt_75,
 /turf/template_noop,
 /area/template_noop)
@@ -736,7 +736,7 @@
 /turf/template_noop,
 /area/template_noop)
 "VD" = (
-/obj/machinery/vending/hydroseeds,
+/obj/structure/machinery/vending/hydroseeds,
 /obj/random/dirt_75,
 /turf/template_noop,
 /area/template_noop)
@@ -808,8 +808,9 @@
 	name = "secure crate";
 	req_one_access = list(229, 217)
 	},
-/obj/item/rig/tesla,
 /obj/random/dirt_75,
+/obj/item/rig/hazard,
+/obj/item/rig/hazmat,
 /turf/template_noop,
 /area/template_noop)
 "ZZ" = (

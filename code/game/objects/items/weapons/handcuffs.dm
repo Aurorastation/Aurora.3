@@ -22,8 +22,8 @@
 	var/breakouttime = 2 MINUTES
 	var/cuff_sound = 'sound/weapons/handcuffs.ogg'
 	var/cuff_type = "handcuffs"
-	drop_sound = 'sound/items/drop/accessory.ogg'
-	pickup_sound = 'sound/items/pickup/accessory.ogg'
+	drop_sound = 'sound/items/drop/handcuffs.ogg'
+	pickup_sound = 'sound/items/pickup/handcuffs.ogg'
 
 /obj/item/handcuffs/attack(mob/living/target_mob, mob/living/user, target_zone)
 	var/mob/living/carbon/C = target_mob
@@ -111,10 +111,10 @@
 
 	if(!legcuff)
 		target.handcuffed = cuffs
-		target.update_inv_handcuffed()
+		target.handcuff_update()
 	else
 		target.legcuffed = cuffs
-		target.update_inv_legcuffed()
+		target.legcuff_update()
 	return TRUE
 
 /mob/living/carbon/human/RestrainedClickOn(var/atom/A)

@@ -44,7 +44,8 @@
 	anchored = TRUE
 	mouse_opacity = MOUSE_OPACITY_ICON
 
-	var/health = 50
+	maxhealth = OBJECT_HEALTH_VERY_LOW
+
 	var/mob/living/affecting = null //Who it is currently affecting, if anyone.
 
 /obj/effect/energy_net/Initialize()
@@ -109,6 +110,7 @@
 	health_check()
 
 /obj/effect/energy_net/attackby(obj/item/attacking_item, mob/user)
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	user.do_attack_animation(src, attacking_item)
 	var/attack_force = attacking_item.force
 	if(user == affecting)

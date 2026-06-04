@@ -16,4 +16,6 @@
 	src.priority = priority
 
 /datum/component/turf_hand/proc/OnHandInterception(var/mob/user)
+	if(QDELETED(our_owner))
+		return FALSE
 	return our_owner.attack_hand(user)

@@ -89,6 +89,9 @@
 	if(type == "audio/setAdminMusicVolume")
 		client.admin_music_volume = payload["volume"]
 		return TRUE
+	if(type == "telemetry")
+		analyze_telemetry(payload)
+		return TRUE
 /**
  * public
  *

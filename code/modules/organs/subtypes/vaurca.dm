@@ -691,6 +691,10 @@
 	encased = "support frame"
 	robotize_type = PROSTHETIC_VAURCA
 
+/obj/item/organ/external/hand/right/vaurca/medical/Initialize(mapload)
+	. = ..()
+	src.LoadComponent(/datum/component/health_analyzer)
+
 /obj/item/organ/external/hand/right/vaurca/medical/refresh_action_button()
 	. = ..()
 	if(.)

@@ -1,5 +1,5 @@
 /obj/item/clothing/head/helmet/space/rig/industrial
-	camera = /obj/machinery/camera/network/mining
+	camera = /obj/structure/machinery/camera/network/mining
 	light_overlay = "helmet_light_dual"
 	light_color = "#ffcf2f"
 	light_range = 6
@@ -11,22 +11,22 @@
 	flags_inv = HIDEEARS|BLOCKHEADHAIR|HIDETAIL
 
 /obj/item/clothing/head/helmet/space/rig/ce
-	camera = /obj/machinery/camera/network/engineering
+	camera = /obj/structure/machinery/camera/network/engineering
 
 /obj/item/clothing/head/helmet/space/rig/eva
 	light_overlay = "helmet_light_dual"
-	camera = /obj/machinery/camera/network/engineering
+	camera = /obj/structure/machinery/camera/network/engineering
 
 /obj/item/clothing/head/helmet/space/rig/hazmat
 	light_overlay = "hardhat_light"
-	camera = /obj/machinery/camera/network/research
+	camera = /obj/structure/machinery/camera/network/research
 
 /obj/item/clothing/head/helmet/space/rig/medical
-	camera = /obj/machinery/camera/network/medbay
+	camera = /obj/structure/machinery/camera/network/medbay
 
 /obj/item/clothing/head/helmet/space/rig/hazard
 	light_overlay = "helmet_light_dual"
-	camera = /obj/machinery/camera/network/security
+	camera = /obj/structure/machinery/camera/network/security
 
 /obj/item/rig/internalaffairs
 	name = "augmented tie"
@@ -85,8 +85,8 @@
 		RAD = ARMOR_RAD_RESISTANT
 	)
 	siemens_coefficient = 0.35
-	slowdown = 2
-	offline_slowdown = 7
+	slowdown = 1
+	offline_slowdown = 3.5
 	offline_vision_restriction = TINT_HEAVY
 	emp_protection = -20
 	max_pressure_protection = FIRESUIT_MAX_PRESSURE
@@ -169,7 +169,7 @@
 		RAD = ARMOR_RAD_SHIELDED
 	)
 	slowdown = 0
-	offline_slowdown = 3
+	offline_slowdown = 1.5
 	offline_vision_restriction = TINT_HEAVY
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/eva
@@ -200,7 +200,7 @@
 	helm_type = /obj/item/clothing/head/helmet/space/rig/eva/pirate
 
 /obj/item/clothing/head/helmet/space/rig/eva/pirate
-	camera = /obj/machinery/camera/network/mercenary
+	camera = /obj/structure/machinery/camera/network/mercenary
 
 /obj/item/rig/eva/pilot
 	name = "pilot suit control module"
@@ -246,7 +246,7 @@
 		RAD = ARMOR_RAD_SHIELDED
 	)
 	slowdown = 0
-	offline_slowdown = 3
+	offline_slowdown = 1.5
 	offline_vision_restriction = 0
 	max_heat_protection_temperature = FIRESUIT_MAX_HEAT_PROTECTION_TEMPERATURE / 1.5 // Good against fires, but not as good as a proper firesuit / atmos voidsuit
 	max_pressure_protection = FIRESUIT_MAX_PRESSURE
@@ -336,8 +336,8 @@
 		RAD = ARMOR_RAD_SHIELDED
 	)
 	siemens_coefficient = 0.50
-	slowdown = 1
-	offline_slowdown = 2
+	slowdown = 0.5
+	offline_slowdown = 1
 	offline_vision_restriction = TINT_HEAVY
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/medical
@@ -378,7 +378,7 @@
 		BIO = ARMOR_BIO_SHIELDED,
 		RAD = ARMOR_RAD_RESISTANT
 	)
-	offline_slowdown = 3
+	offline_slowdown = 1.5
 	offline_vision_restriction = TINT_HEAVY
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/hazard
@@ -407,7 +407,7 @@
 	helm_type = /obj/item/clothing/head/helmet/space/rig/hazard/pirate
 
 /obj/item/clothing/head/helmet/space/rig/hazard/pirate
-	camera = /obj/machinery/camera/network/mercenary
+	camera = /obj/structure/machinery/camera/network/mercenary
 
 /obj/item/rig/diving
 	name = "diving suit control module"
@@ -424,8 +424,8 @@
 		BIO = ARMOR_BIO_SHIELDED,
 		RAD = ARMOR_RAD_SHIELDED
 	)
-	slowdown = 3
-	offline_slowdown = 4
+	slowdown = 1.5
+	offline_slowdown = 2
 	offline_vision_restriction = TINT_HEAVY
 	boot_type =  /obj/item/clothing/shoes/magboots/rig/chonk
 

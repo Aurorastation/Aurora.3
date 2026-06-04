@@ -241,7 +241,7 @@
 		/obj/item/clothing/under/syndicate/tacticool = 7,
 		/obj/item/toy/sword = 22,
 		/obj/item/gun/projectile/revolver/capgun = 11,
-		/obj/item/gun/bang = 22,
+		/obj/item/gun/bang/deagle = 22,
 		/obj/item/toy/crossbow = 11,
 		/obj/random/action_figure = 11,
 		/obj/item/toy/cultsword = 7,
@@ -408,24 +408,24 @@
 	var/depleted = FALSE
 	var/scan_id = TRUE // Should the spawned vendor check IDs
 	problist = list(
-		/obj/machinery/vending/boozeomat = 1,
-		/obj/machinery/vending/coffee = 1,
-		/obj/machinery/vending/snack = 1,
-		/obj/machinery/vending/cola = 1,
-		/obj/machinery/vending/cigarette = 1,
-		/obj/machinery/vending/medical = 1.2,
-		/obj/machinery/vending/phoronresearch = 0.7,
-		/obj/machinery/vending/security = 0.3,
-		/obj/machinery/vending/hydronutrients = 1,
-		/obj/machinery/vending/hydroseeds = 1,
-		/obj/machinery/vending/dinnerware = 1,
-		/obj/machinery/vending/sovietsoda = 2,
-		/obj/machinery/vending/tool = 1,
-		/obj/machinery/vending/engivend = 0.6,
-		/obj/machinery/vending/engineering = 1,
-		/obj/machinery/vending/robotics = 1,
-		/obj/machinery/vending/tacticool = 0.2,
-		/obj/machinery/vending/tacticool/ert = 0.1
+		/obj/structure/machinery/vending/boozeomat = 1,
+		/obj/structure/machinery/vending/coffee = 1,
+		/obj/structure/machinery/vending/snack = 1,
+		/obj/structure/machinery/vending/cola = 1,
+		/obj/structure/machinery/vending/cigarette = 1,
+		/obj/structure/machinery/vending/medical = 1.2,
+		/obj/structure/machinery/vending/phoronresearch = 0.7,
+		/obj/structure/machinery/vending/security = 0.3,
+		/obj/structure/machinery/vending/hydronutrients = 1,
+		/obj/structure/machinery/vending/hydroseeds = 1,
+		/obj/structure/machinery/vending/dinnerware = 1,
+		/obj/structure/machinery/vending/sovietsoda = 2,
+		/obj/structure/machinery/vending/tool = 1,
+		/obj/structure/machinery/vending/engivend = 0.6,
+		/obj/structure/machinery/vending/engineering = 1,
+		/obj/structure/machinery/vending/robotics = 1,
+		/obj/structure/machinery/vending/tacticool = 0.2,
+		/obj/structure/machinery/vending/tacticool/ert = 0.1
 	)
 	has_postspawn = TRUE
 
@@ -433,7 +433,7 @@
 	depleted = _depleted
 	. = ..()
 
-/obj/random/vendor/post_spawn(obj/machinery/vending/V)
+/obj/random/vendor/post_spawn(obj/structure/machinery/vending/V)
 	if (!depleted)
 		return
 
@@ -566,20 +566,22 @@
 	name = "random maintenance junk or loot"
 	desc = "Spawns any of: junk, loot, trash, trash pile, locker with junk or loot, (or other things)."
 	icon_state = "maint_junk_loot"
-	spawn_nothing_percentage = 25
+	spawn_nothing_percentage = 45
 	has_postspawn = TRUE
 	problist = list(
 		// spawn just one thing:
-		/obj/random/junk = 3,
+		/obj/random/junk = 2,
 		/obj/random/dirt_75 = 1,
-		/obj/random/loot = 1,
-		/obj/structure/trash_pile = 1,
-		/obj/random/tool = 0.2,
-		/obj/random/tech_supply = 0.1,
-		/obj/structure/girder = 0.1,
-		/obj/random/canister/empty = 0.1,
-		/obj/random/canister/filled = 0.05,
-		/obj/structure/closet/crate/loot = 0.01,
+		/obj/random/loot = 1.2,
+		/obj/structure/trash_pile = 1.1,
+		/obj/random/tool = 0.5,
+		/obj/random/tech_supply = 0.2,
+		/obj/structure/girder = 0.2,
+		/obj/random/canister/empty = 0.2,
+		/obj/structure/reagent_dispensers/fueltank = 0.1,
+		/obj/random/canister/filled/restricted = 0.1,
+		/obj/structure/closet/crate/loot = 0.05,
+		/obj/random/contraband = 0.2,
 
 		// spawn a container and maybe fill it with more junk:
 		/obj/structure/table/rack = 1,
@@ -590,10 +592,11 @@
 	)
 
 	var/list/more_junk_problist = list(
-		/obj/random/junk = 2,
-		/obj/random/loot = 1,
+		/obj/random/junk = 1,
+		/obj/random/loot = 1.2,
 		/obj/random/tech_supply = 0.2,
 		/obj/random/tool = 0.2,
+		/obj/random/contraband = 0.2,
 	)
 
 /obj/random/maintenance_junk_or_loot/post_spawn(var/obj/spawned)
@@ -607,6 +610,11 @@
 			for(var/i in 1 to i_max)
 				var/obj/more_junk = pickweight(more_junk_problist)
 				new more_junk(spawned.loc)
+	else if(prob(10) && !spawned.density)
+		var/i_max = rand(1, 2)
+		for(var/i in 1 to i_max)
+			var/obj/more_junk = pickweight(more_junk_problist)
+			new more_junk(spawned.loc)
 
 /obj/random/yarn
 	name = "random yarn"
@@ -664,6 +672,6 @@
 	desc = "This is a random turret item. It could be active or simply a statue."
 	icon_state = "holoturret"
 	problist = list(
-		/obj/machinery/porta_turret/hologram = 1,
+		/obj/structure/machinery/porta_turret/hologram = 1,
 		/obj/structure/unathi_statue/warrior/right = 1,
 	)

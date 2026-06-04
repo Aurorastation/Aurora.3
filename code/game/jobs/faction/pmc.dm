@@ -59,6 +59,18 @@
 		"Medical Personnel" = /obj/outfit/job/med_tech/event/pmc
 	)
 
+/datum/faction/pmc/get_corporate_objectives(var/mission_level)
+	switch(mission_level)
+		if(REPRESENTATIVE_MISSION_HIGH)
+			return pick("Ensure PMCG contractors are integrating properly into the [station_name()]'s corporate environment")
+		if(REPRESENTATIVE_MISSION_MEDIUM)
+			return pick("Encourage team-building exercises between PMCG subcontractors",
+						"Have a PMCG employee sign a contract extension")
+		else
+			return pick("Conduct a survey on Private Military Contracting Group employee morale",
+						"Identify and resolve a complaint of a Private Military Contracting Group employee [station_name()]")
+
+
 /obj/outfit/job/officer/pmc
 	name = "Security Officer - PMC"
 

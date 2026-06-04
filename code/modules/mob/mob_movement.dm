@@ -194,10 +194,10 @@
 				if(item.zoom)
 					item.zoom(mob)
 					break
-		if(istype(mob.machine,/obj/machinery/computer/security))
+		if(istype(mob.machine,/obj/structure/machinery/computer/security))
 			// Has to be here specfically to allow WASD/arrow movement of cameras while buckled.
 			// TODO: Remove when machinery/computer finally dies.
-			var/obj/machinery/computer/security/console = mob.machine
+			var/obj/structure/machinery/computer/security/console = mob.machine
 			if(console.current_camera)
 				var/turf/T = get_turf(console.current_camera)
 				for(var/i;i<10;i++)
@@ -264,6 +264,11 @@
 				return mob.buckled_to.relaymove(mob,direct)
 
 		var/tally = mob.movement_delay() + GLOB.config.walk_speed
+
+		// Factor in delay from sources handled by the mob's movespeed_modifier datum (this is what we Should be using).
+		var/movespeed_modifier_delay = mob.cached_multiplicative_slowdown
+
+		move_delay += movespeed_modifier_delay
 
 		// Apply human specific modifiers.
 		var/mob_is_human = ishuman(mob)	// Only check this once and just reuse the value.

@@ -461,6 +461,13 @@
 	/// Which species-unique robolimb types can this species take?
 	var/list/valid_prosthetics
 
+	/// Modifiers for the available skill points for this species. Assoc list of SKILL_CATEGORY to number.
+	var/list/skill_points_modifiers = list(
+		SKILL_CATEGORY_EVERYDAY = 1,
+		SKILL_CATEGORY_OCCUPATIONAL = 1,
+		SKILL_CATEGORY_COMBAT = 1
+	)
+
 	//Sleeping stuff
 	/// Does this species sleep standing up?
 	var/sleeps_upright = FALSE
@@ -472,6 +479,12 @@
 	var/indefinite_sleep = FALSE
 	/// The default lighting alpha of this species. Override to set innate NVGs.
 	var/default_lighting_alpha = LIGHTING_PLANE_ALPHA_VISIBLE
+
+	/// Controls whether this species spawns with a Morale Component.
+	var/has_morale = TRUE
+
+	/// A list of species components that should only EVER apply to this species. This is because some components must be removed if the species changes (imagine changing from IPC to human as a merc).
+	var/list/species_components
 
 /datum/species/proc/get_eyes(var/mob/living/carbon/human/H)
 	return
@@ -607,6 +620,9 @@
 	if(natural_armor)
 		H.AddComponent(natural_armor_type, natural_armor)
 
+	if(has_morale)
+		H.LoadComponent(MORALE_COMPONENT)
+
 /datum/species/proc/tap(var/mob/living/carbon/human/H,var/mob/living/target)
 	if(H.on_fire)
 		target.fire_stacks += 1
@@ -628,7 +644,11 @@
 			for(var/spell/spell in H.spell_list)
 				if(istype(spell, spell_path))
 					H.remove_spell(spell)
-	return
+
+	if(length(species_components))
+		for(var/comp_type in species_components)
+			for(var/datum/component/comp in H.GetComponents(comp_type))
+				qdel(comp)
 
 /datum/species/proc/add_inherent_verbs(var/mob/living/carbon/human/H)
 	if(inherent_verbs)
@@ -662,6 +682,10 @@
 		H.pronouns = H.gender
 	if(has_psionics)
 		H.set_psi_rank(has_psionics)
+
+	if(length(species_components))
+		for(var/comp_type in species_components)
+			H.AddComponent(comp_type)
 
 /datum/species/proc/handle_death(var/mob/living/carbon/human/H, var/gibbed = 0) //Handles any species-specific death events (such as dionaea nymph spawns).
 	return
@@ -1096,8 +1120,21 @@
  * This proc handles the species temperature regulation. By default, it just adds `passive_temp_gain` to the human's bodytemperature.
  * Can be overridden for more complex calculations.
  */
+
 /datum/species/proc/handle_temperature_regulation(mob/living/carbon/human/human, seconds_per_tick)
 	human.bodytemperature += passive_temp_gain * seconds_per_tick
+
+/**
+ * Gets a modifier for a skill category based on the character age or other species things.
+ * Must return a list with all three skill categories to a modifier (example: list(SKILL_CATEGORY_EVERYDAY = 1.5) )
+ */
+/datum/species/proc/modify_skill_points(singleton/skill_category/skill_category, age)
+	var/list/skill_age_modifiers = list(
+		SKILL_CATEGORY_EVERYDAY = 1,
+		SKILL_CATEGORY_OCCUPATIONAL = 1,
+		SKILL_CATEGORY_COMBAT = 1
+	)
+	return skill_age_modifiers
 
 /datum/species/proc/get_limb_from_zone(var/limb)
 	. = length(LAZYACCESS(limb_mapping, limb)) ? pick(limb_mapping[limb]) : limb

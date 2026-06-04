@@ -4,21 +4,21 @@
 #define SMELTER_MODE_COMPRESSING BITFLAG(2)
 #define SMELTER_MODE_SMELTING BITFLAG(3)
 
-/obj/machinery/mineral
+/obj/structure/machinery/mineral
 	var/id //used for linking machines to consoles
 	var/is_processing_machine = FALSE //used to check for initializing machines
 	var/turf/input_turf
 	var/turf/output_turf
 
 // Locate our output and input machinery.
-/obj/machinery/mineral/proc/setup_io()
+/obj/structure/machinery/mineral/proc/setup_io()
 	for(var/dir in GLOB.cardinals)
-		var/input_spot = locate(/obj/machinery/mineral/input, get_step(src, dir))
+		var/input_spot = locate(/obj/structure/machinery/mineral/input, get_step(src, dir))
 		if(input_spot)
 			input_turf = get_turf(input_spot) // thought of qdeling the spots here, but it's useful when rebuilding a destroyed machine
 			break
 	for(var/dir in GLOB.cardinals)
-		var/output_spot = locate(/obj/machinery/mineral/output, get_step(src, dir))
+		var/output_spot = locate(/obj/structure/machinery/mineral/output, get_step(src, dir))
 		if(output_turf)
 			output_turf = get_turf(output_spot)
 			break
@@ -28,19 +28,19 @@
 	if(!output_turf)
 		output_turf = get_step(src, dir)
 
-/obj/machinery/mineral/proc/reset_io()
+/obj/structure/machinery/mineral/proc/reset_io()
 	input_turf = null
 	output_turf = null
 
 	setup_io()
 
-/obj/machinery/mineral/Initialize()
+/obj/structure/machinery/mineral/Initialize()
 	. = ..()
 	if(is_processing_machine)
 		// checks for movement (i.e. shuttles) and calls reset_io()
 		RegisterSignal(src, COMSIG_MOVABLE_MOVED, PROC_REF(reset_io))
 
-/obj/machinery/mineral/Destroy()
+/obj/structure/machinery/mineral/Destroy()
 	if(is_processing_machine)
 		UnregisterSignal(src, COMSIG_MOVABLE_MOVED, PROC_REF(reset_io))
 
@@ -48,7 +48,7 @@
 
 /**********************Mineral processing unit console**************************/
 
-/obj/machinery/mineral/processing_unit_console
+/obj/structure/machinery/mineral/processing_unit_console
 	name = "ore redemption console"
 	desc = "A handy console which can be use to retrieve mining points for use in the mining vendor, or to set processing values for various ore types."
 	icon = 'icons/obj/machinery/wall/terminals.dmi'
@@ -58,7 +58,7 @@
 	idle_power_usage = 15
 	active_power_usage = 50
 
-	var/obj/machinery/mineral/processing_unit/machine
+	var/obj/structure/machinery/mineral/processing_unit/machine
 	var/show_all_ores = TRUE
 	var/points = 0
 
@@ -74,13 +74,13 @@
 		/obj/item/stock_parts/console_screen
 	)
 
-/obj/machinery/mineral/processing_unit_console/upgrade_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/mineral/processing_unit_console/upgrade_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Upgraded <b>capacitors</b> will increase the amount of ore smelted per second."
 	. += "Upgraded <b>micro-lasers</b> will increase the amount of ore smelted per second."
 	. += "Upgraded <b>scanning modules</b> will increase the amount of ore smelted per second."
 
-/obj/machinery/mineral/processing_unit_console/Initialize(mapload, d, populate_components)
+/obj/structure/machinery/mineral/processing_unit_console/Initialize(mapload, d, populate_components)
 	. = ..()
 	var/mutable_appearance/screen_overlay = mutable_appearance(icon, "production_console-screen", plane = ABOVE_LIGHTING_PLANE)
 	AddOverlays(screen_overlay)
@@ -88,24 +88,24 @@
 
 	return INITIALIZE_HINT_LATELOAD
 
-/obj/machinery/mineral/processing_unit_console/LateInitialize()
+/obj/structure/machinery/mineral/processing_unit_console/LateInitialize()
 	. = ..()
 	setup_machine()
 
-/obj/machinery/mineral/processing_unit_console/Destroy()
+/obj/structure/machinery/mineral/processing_unit_console/Destroy()
 	if(machine)
 		machine.console = null
 	return ..()
 
-/obj/machinery/mineral/processing_unit_console/proc/handle_machine_deletion()
+/obj/structure/machinery/mineral/processing_unit_console/proc/handle_machine_deletion()
 	SIGNAL_HANDLER
 	machine = null
 
-/obj/machinery/mineral/processing_unit_console/proc/setup_machine(mob/user)
+/obj/structure/machinery/mineral/processing_unit_console/proc/setup_machine(mob/user)
 	if(!machine)
 		var/area/A = get_area(src)
 		var/best_distance = INFINITY
-		for(var/obj/machinery/mineral/processing_unit/checked_machine in SSmachinery.machinery)
+		for(var/obj/structure/machinery/mineral/processing_unit/checked_machine in SSmachinery.machinery)
 			if(id)
 				if(checked_machine.id == id)
 					machine = checked_machine
@@ -124,7 +124,7 @@
 
 	return machine
 
-/obj/machinery/mineral/processing_unit_console/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/mineral/processing_unit_console/attackby(obj/item/attacking_item, mob/user)
 	if(default_deconstruction_screwdriver(user, attacking_item))
 		return
 	if(default_deconstruction_crowbar(user, attacking_item))
@@ -133,21 +133,21 @@
 		return
 	return ..()
 
-/obj/machinery/mineral/processing_unit_console/attack_hand(mob/user)
+/obj/structure/machinery/mineral/processing_unit_console/attack_hand(mob/user)
 	. = ..()
 	add_fingerprint(user)
 	if(!setup_machine(user))
 		return
 	ui_interact(user)
 
-/obj/machinery/mineral/processing_unit_console/ui_interact(mob/user, datum/tgui/ui)
+/obj/structure/machinery/mineral/processing_unit_console/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "MiningProcessor", "Ore Redemption Console", ui_x=500, ui_y=575)
 		ui.autoupdate = FALSE
 		ui.open()
 
-/obj/machinery/mineral/processing_unit_console/ui_data(mob/user)
+/obj/structure/machinery/mineral/processing_unit_console/ui_data(mob/user)
 	var/list/data = list()
 	var/obj/item/card/id/ID = user.GetIdCard()
 	if(ID)
@@ -181,7 +181,7 @@
 	data["oreList"] = ore_list
 	return data
 
-/obj/machinery/mineral/processing_unit_console/ui_act(action, params)
+/obj/structure/machinery/mineral/processing_unit_console/ui_act(action, params)
 	if(..())
 		return TRUE
 
@@ -232,7 +232,7 @@
 		show_all_ores = !show_all_ores
 		return TRUE
 
-/obj/machinery/mineral/processing_unit_console/proc/print_report(var/mob/living/user)
+/obj/structure/machinery/mineral/processing_unit_console/proc/print_report(var/mob/living/user)
 	var/obj/item/card/id/ID = user.GetIdCard()
 	if(!ID)
 		to_chat(user, SPAN_WARNING("No ID detected. Cannot digitally sign."))
@@ -343,11 +343,11 @@
 /**********************Mineral processing unit**************************/
 
 /**
- * A list containing alloy data, initialized only once by the first `/obj/machinery/mineral/processing_unit` that initializes
+ * A list containing alloy data, initialized only once by the first `/obj/structure/machinery/mineral/processing_unit` that initializes
  */
 GLOBAL_LIST_EMPTY_TYPED(alloy_data, /datum/alloy)
 
-/obj/machinery/mineral/processing_unit
+/obj/structure/machinery/mineral/processing_unit
 	name = "industrial smelter" //This isn't actually a goddamn furnace, we're in space and it's processing platinum and flammable phoron... //lol fuk u bay it is //i'm gay // based and redpilled
 	desc = "A large smelter and compression machine which heats up ore, then applies the process specified within the ore redemption console, outputting the result to the other side."
 	icon = 'icons/obj/machinery/mining_machines.dmi'
@@ -358,7 +358,7 @@ GLOBAL_LIST_EMPTY_TYPED(alloy_data, /datum/alloy)
 	light_range = 3
 
 	///The ore redemption console that is linked to us
-	var/obj/machinery/mineral/processing_unit_console/console
+	var/obj/structure/machinery/mineral/processing_unit_console/console
 
 	///How many sheets in a second this smelter can make (more or less, rounded up depending on ticklag)
 	var/sheets_per_second = 50
@@ -393,7 +393,7 @@ GLOBAL_LIST_EMPTY_TYPED(alloy_data, /datum/alloy)
 			/obj/item/stock_parts/matter_bin
 		)
 
-/obj/machinery/mineral/processing_unit/Initialize()
+/obj/structure/machinery/mineral/processing_unit/Initialize()
 	. = ..()
 
 	// initialize static alloy_data list, if it's not already initialized
@@ -408,16 +408,16 @@ GLOBAL_LIST_EMPTY_TYPED(alloy_data, /datum/alloy)
 	return INITIALIZE_HINT_LATELOAD
 
 
-/obj/machinery/mineral/processing_unit/LateInitialize()
+/obj/structure/machinery/mineral/processing_unit/LateInitialize()
 	. = ..()
 	setup_io()
 
-/obj/machinery/mineral/processing_unit/Destroy()
+/obj/structure/machinery/mineral/processing_unit/Destroy()
 	if(console)
 		console.machine = null
 	return ..()
 
-/obj/machinery/mineral/processing_unit/proc/link_console(obj/machinery/mineral/processing_unit_console/console_to_link)
+/obj/structure/machinery/mineral/processing_unit/proc/link_console(obj/structure/machinery/mineral/processing_unit_console/console_to_link)
 	if(console)
 		UnregisterSignal(console, COMSIG_QDELETING)
 		console = null
@@ -425,12 +425,12 @@ GLOBAL_LIST_EMPTY_TYPED(alloy_data, /datum/alloy)
 	console = console_to_link
 	RegisterSignal(console, COMSIG_QDELETING, PROC_REF(handle_console_deletion))
 
-/obj/machinery/mineral/processing_unit/proc/handle_console_deletion()
+/obj/structure/machinery/mineral/processing_unit/proc/handle_console_deletion()
 	SIGNAL_HANDLER
 
 	console = null
 
-/obj/machinery/mineral/processing_unit/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/mineral/processing_unit/attackby(obj/item/attacking_item, mob/user)
 	if(default_deconstruction_screwdriver(user, attacking_item))
 		return
 	if(default_deconstruction_crowbar(user, attacking_item))
@@ -440,7 +440,7 @@ GLOBAL_LIST_EMPTY_TYPED(alloy_data, /datum/alloy)
 	return ..()
 
 
-/obj/machinery/mineral/processing_unit/process(seconds_per_tick)
+/obj/structure/machinery/mineral/processing_unit/process(seconds_per_tick)
 	..()
 
 	if(!src.output_turf || !src.input_turf)
@@ -567,9 +567,9 @@ GLOBAL_LIST_EMPTY_TYPED(alloy_data, /datum/alloy)
 				new /obj/item/ore/slag(output_turf)
 
 	if(console)
-		console.updateUsrDialog()
+		SStgui.update_uis(console)
 
-/obj/machinery/mineral/processing_unit/RefreshParts()
+/obj/structure/machinery/mineral/processing_unit/RefreshParts()
 	..()
 	var/scan_rating = 0
 	var/cap_rating = 0

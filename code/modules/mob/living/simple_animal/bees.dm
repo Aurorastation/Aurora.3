@@ -7,7 +7,7 @@
 	icon_dead = "bees1"
 	mob_size = 0.5
 	unsuitable_atoms_damage = 2.5
-	maxHealth = 20
+	maxhealth = 20
 	density = 0
 	var/strength = 1
 	var/feral = 0
@@ -15,14 +15,14 @@
 	var/toxic = 0
 	var/turf/target_turf
 	var/mob/target_mob
-	var/obj/machinery/beehive/parent
+	var/obj/structure/machinery/beehive/parent
 	var/loner = 0
 	pass_flags = PASSTABLE | PASSRAILING
 	turns_per_move = 6
-	var/obj/machinery/portable_atmospherics/hydroponics/my_hydrotray
+	var/obj/structure/machinery/portable_atmospherics/hydroponics/my_hydrotray
 	emote_sounds = list('sound/effects/creatures/bees.ogg')
 
-/mob/living/simple_animal/bee/Initialize(mapload, var/obj/machinery/beehive/new_parent)
+/mob/living/simple_animal/bee/Initialize(mapload, var/obj/structure/machinery/beehive/new_parent)
 	. = ..()
 	parent = new_parent
 
@@ -51,7 +51,7 @@
 			qdel(src)
 			return
 		else
-			health = maxHealth
+			health = maxhealth
 			if (prob(25))//probability to reduce spam
 				src.visible_message(SPAN_WARNING("The bee swarm starts to thin out a little."))
 
@@ -228,7 +228,7 @@
 		else if(feral < 0)
 			turns_since_move = 0
 		else if(!my_hydrotray || my_hydrotray.loc != src.loc || my_hydrotray.dead || !my_hydrotray.seed)
-			var/obj/machinery/portable_atmospherics/hydroponics/my_hydrotray = locate() in src.loc
+			var/obj/structure/machinery/portable_atmospherics/hydroponics/my_hydrotray = locate() in src.loc
 			if(my_hydrotray)
 				if(!my_hydrotray.dead && my_hydrotray.seed)
 					turns_per_move = rand(20,50)
@@ -273,13 +273,13 @@
 /mob/living/simple_animal/bee/standalone
 	loner = 1
 
-/mob/living/simple_animal/bee/standalone/Initialize(mapload, var/obj/machinery/beehive/new_parent)
+/mob/living/simple_animal/bee/standalone/Initialize(mapload, var/obj/structure/machinery/beehive/new_parent)
 	. = ..()
 	strength = rand(4,8)
 	update_icon()
 
 /mob/living/simple_animal/bee/beegun
-	maxHealth = 30
+	maxhealth = 30
 	strength = 5
 	feral = 30
 

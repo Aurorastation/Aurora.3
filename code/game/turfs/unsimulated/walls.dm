@@ -25,11 +25,12 @@
 	smoothing_flags = SMOOTH_TRUE
 	canSmoothWith = list(
 		/turf/unsimulated/wall/riveted,
-		/obj/machinery/door/airlock/centcom,
+		/obj/structure/machinery/door/airlock/centcom,
 		/turf/unsimulated/wall/fakepdoor,
 		/obj/structure/window_frame,
 		/obj/structure/window_frame/unanchored,
-		/obj/structure/window_frame/empty
+		/obj/structure/window_frame/empty,
+		/obj/structure/arch
 	)
 
 /turf/unsimulated/wall/fakepdoor
@@ -56,6 +57,7 @@
 	icon_state = "map-shuttle"
 	desc = "It's a wall. It appears to be composed of a highly durable alloy."
 	smoothing_flags = SMOOTH_TRUE
+	color = COLOR_WALL_GUNMETAL
 	canSmoothWith = list(
 		/turf/unsimulated/wall/darkshuttlewall,
 		/turf/unsimulated/wall/riveted,
@@ -81,8 +83,8 @@
 		/obj/structure/window_frame,
 		/obj/structure/window_frame/unanchored,
 		/obj/structure/window_frame/empty,
-		/obj/machinery/door,
-		/obj/machinery/door/airlock
+		/obj/structure/machinery/door,
+		/obj/structure/machinery/door/airlock
 	)
 	smoothing_flags = SMOOTH_MORE
 	icon_state = "map_white"
@@ -99,6 +101,6 @@
 		/turf/unsimulated/wall/shuttle/scc_space_ship,
 		/turf/simulated/wall/shuttle/scc_space_ship,
 		/obj/structure/window/shuttle/scc_space_ship,
-		/obj/machinery/door/airlock
+		/obj/structure/machinery/door/airlock
 	)
 

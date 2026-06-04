@@ -1,10 +1,10 @@
-/obj/machinery/ship_weapon/leviathan
+/obj/structure/machinery/ship_weapon/leviathan
 	name = "leviathan zero-point artillery"
 	desc = "A hulking structure made up of an uncalculable amount of moving parts, components and capacitors. It has no branding other than the \"ZAT\" inscription on the sides."
 	icon = 'icons/obj/machinery/ship_guns/leviathan.dmi'
 	icon_state = "weapon_off"
 	special_firing_mechanism = TRUE
-	max_damage = 10000
+	maxhealth = 10000
 
 	projectile_type = /obj/projectile/ship_ammo/leviathan
 	use_ammunition = FALSE
@@ -17,20 +17,20 @@
 	use_power = POWER_USE_OFF //Start off.
 	idle_power_usage = 100 KILO WATTS
 	active_power_usage = 20 MEGA WATTS
-	var/obj/machinery/power/smes/buildable/smes
+	var/obj/structure/machinery/power/smes/buildable/smes
 
-/obj/machinery/ship_weapon/leviathan/Destroy()
+/obj/structure/machinery/ship_weapon/leviathan/Destroy()
 	smes = null
 	return ..()
 
-/obj/machinery/ship_weapon/leviathan/LateInitialize()
+/obj/structure/machinery/ship_weapon/leviathan/LateInitialize()
 	. = ..()
 	couple_to_smes()
 
-/obj/machinery/ship_weapon/leviathan/ex_act(severity)
+/obj/structure/machinery/ship_weapon/leviathan/ex_act(severity)
 	return //Not happening bro.
 
-/obj/machinery/ship_weapon/leviathan/firing_checks()
+/obj/structure/machinery/ship_weapon/leviathan/firing_checks()
 	if(use_power == POWER_USE_OFF)
 		return FALSE
 	if(!istype(smes))
@@ -39,7 +39,7 @@
 		return FALSE
 	. = ..()
 
-/obj/machinery/ship_weapon/leviathan/pre_fire(atom/target, obj/effect/landmark/landmark)
+/obj/structure/machinery/ship_weapon/leviathan/pre_fire(atom/target, obj/effect/landmark/landmark)
 	firing = TRUE
 	icon_state = "weapon_on"
 	visible_message(SPAN_DANGER("<font size=5>\The [src] begins lighting up with a powerful hum...</font>"))
@@ -65,23 +65,23 @@
 		. = FALSE
 	disable()
 
-/obj/machinery/ship_weapon/leviathan/process()
+/obj/structure/machinery/ship_weapon/leviathan/process()
 	if(firing)
 		for(var/mob/M in GLOB.living_mob_list)
 			if(AreConnectedZLevels(GET_Z(M), z))
 				shake_camera(M, 3, 3)
 
-/obj/machinery/ship_weapon/leviathan/power_change()
+/obj/structure/machinery/ship_weapon/leviathan/power_change()
 	. = ..()
 	if((stat & NOPOWER) && .)
 		disable()
 
-/obj/machinery/ship_weapon/leviathan/update_use_power(new_use_power)
+/obj/structure/machinery/ship_weapon/leviathan/update_use_power(new_use_power)
 	. = ..()
 	if(new_use_power == POWER_USE_OFF && (use_power != POWER_USE_OFF))
 		disable()
 
-/obj/machinery/ship_weapon/leviathan/disable()
+/obj/structure/machinery/ship_weapon/leviathan/disable()
 	firing = FALSE
 	if(use_power != POWER_USE_OFF)
 		visible_message(SPAN_DANGER("<font size=4>\The [src]'s humming comes to an abrupt halt.</font>"))
@@ -92,7 +92,7 @@
 		update_use_power(POWER_USE_OFF)
 	icon_state = "weapon_off"
 
-/obj/machinery/ship_weapon/leviathan/enable()
+/obj/structure/machinery/ship_weapon/leviathan/enable()
 	couple_to_smes()
 	if(!smes)
 		visible_message(SPAN_DANGER("\The [src] doesn't light up at all! Its maintenance display indicates there is no SMES to draw power from."))
@@ -105,18 +105,18 @@
 	update_use_power(POWER_USE_IDLE)
 	icon_state = "weapon_on"
 
-/obj/machinery/ship_weapon/leviathan/proc/couple_to_smes()
+/obj/structure/machinery/ship_weapon/leviathan/proc/couple_to_smes()
 	if(smes)
 		return
-	var/list/obj/machinery/power/smes/candidates = list()
-	for(var/obj/machinery/power/smes/S in SSmachinery.machinery)
+	var/list/obj/structure/machinery/power/smes/candidates = list()
+	for(var/obj/structure/machinery/power/smes/S in SSmachinery.machinery)
 		if(get_area(S) == get_area(src))
 			candidates += S
-	for(var/obj/machinery/power/smes/buildable/superconducting/SC in candidates)
+	for(var/obj/structure/machinery/power/smes/buildable/superconducting/SC in candidates)
 		if(istype(SC))
 			smes = SC
 			return
-	for(var/obj/machinery/power/smes/buildable/SM in candidates)
+	for(var/obj/structure/machinery/power/smes/buildable/SM in candidates)
 		if(istype(SM))
 			smes = SM
 			return
@@ -159,35 +159,35 @@
 			M.visible_message(SPAN_DANGER("<font size=6>[M] evaporates as they are engulfed by the beam!</font>"))
 			M.dust()
 			return
-		explosion(target, 6, 6, 6)
+		explosion(get_turf(target), 6, 6, 6)
 	else
 		target.visible_message(SPAN_DANGER("<font size=6>A giant, purple laser descends from the sky!</font>"))
-		explosion(target, 30, 30, 30)
+		explosion(get_turf(target), 30, 30, 30)
 
-/obj/machinery/zat_lever
+/obj/structure/machinery/zat_lever
 	name = "activation lever"
 	desc = "An old-style lever that couples the Leviathan's capacitors. <span class='danger'>Flicking this will result in extreme power usage!</span>"
 	icon = 'icons/obj/power.dmi'
 	icon_state = "lever1"
-	var/obj/machinery/ship_weapon/leviathan/ZAT
+	var/obj/structure/machinery/ship_weapon/leviathan/ZAT
 	var/toggled = FALSE
 	var/cooldown = 0
 
-/obj/machinery/zat_lever/Initialize(mapload, d, populate_components, is_internal)
+/obj/structure/machinery/zat_lever/Initialize(mapload, d, populate_components, is_internal)
 	..()
 	return INITIALIZE_HINT_LATELOAD
 
-/obj/machinery/zat_lever/LateInitialize()
+/obj/structure/machinery/zat_lever/LateInitialize()
 	. = ..()
-	for(var/obj/machinery/ship_weapon/leviathan/cannon in get_area(src))
+	for(var/obj/structure/machinery/ship_weapon/leviathan/cannon in get_area(src))
 		ZAT = cannon
 		break
 
-/obj/machinery/zat_lever/Destroy()
+/obj/structure/machinery/zat_lever/Destroy()
 	ZAT = null
 	return..()
 
-/obj/machinery/zat_lever/attack_hand(mob/user)
+/obj/structure/machinery/zat_lever/attack_hand(mob/user)
 	. = ..()
 	if(!use_check_and_message(user, USE_DISALLOW_SILICONS) && !stat && (cooldown + 10 SECONDS < world.time))
 		if(do_after(user, 1 SECOND))
@@ -272,7 +272,7 @@
 			user.drop_from_inventory(key, src)
 			icon_state = "key_case-o"
 
-/obj/machinery/leviathan_safeguard
+/obj/structure/machinery/leviathan_safeguard
 	name = "leviathan activation terminal"
 	desc = "The terminal used to confirm if you really want to wipe someone out."
 	icon = 'icons/obj/machinery/ship_guns/zat_confirmation_terminals.dmi'
@@ -282,13 +282,13 @@
 	var/opened = FALSE
 	var/locked = FALSE
 	var/obj/item/leviathan_key/key
-	var/obj/machinery/leviathan_button/button
+	var/obj/structure/machinery/leviathan_button/button
 
-/obj/machinery/leviathan_safeguard/Initialize(mapload, d, populate_components, is_internal)
+/obj/structure/machinery/leviathan_safeguard/Initialize(mapload, d, populate_components, is_internal)
 	..()
 	return INITIALIZE_HINT_LATELOAD
 
-/obj/machinery/leviathan_safeguard/LateInitialize()
+/obj/structure/machinery/leviathan_safeguard/LateInitialize()
 	. = ..()
 	if(SSatlas.current_map.use_overmap && !linked)
 		var/my_sector = GLOB.map_sectors["[z]"]
@@ -297,11 +297,11 @@
 	if(linked)
 		ASSERT(isnull(linked.levi_safeguard)) //There should only ever be one
 		linked.levi_safeguard = src
-	for(var/obj/machinery/leviathan_button/LB in range(3, src))
+	for(var/obj/structure/machinery/leviathan_button/LB in range(3, src))
 		if(istype(LB))
 			button = LB
 
-/obj/machinery/leviathan_safeguard/Destroy()
+/obj/structure/machinery/leviathan_safeguard/Destroy()
 	if(linked)
 		linked.levi_safeguard = null
 
@@ -310,20 +310,20 @@
 
 	. = ..()
 
-/obj/machinery/leviathan_safeguard/ex_act(severity)
+/obj/structure/machinery/leviathan_safeguard/ex_act(severity)
 	return
 
-/obj/machinery/leviathan_safeguard/emp_act(severity)
+/obj/structure/machinery/leviathan_safeguard/emp_act(severity)
 	. = ..()
 
 	return
 
-/obj/machinery/leviathan_safeguard/proc/open()
+/obj/structure/machinery/leviathan_safeguard/proc/open()
 	opened = TRUE
 	flick("safeguard_opening", src)
 	icon_state = "safeguard_open"
 
-/obj/machinery/leviathan_safeguard/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/leviathan_safeguard/attackby(obj/item/attacking_item, mob/user)
 	if(!opened || locked)
 		return
 	if(istype(attacking_item, /obj/item/leviathan_key) && !key && !stat)
@@ -337,7 +337,7 @@
 			icon_state = "safeguard_open"
 			playsound(src, 'sound/effects/ship_weapons/levi_key_insert.ogg', 50)
 
-/obj/machinery/leviathan_safeguard/attack_hand(mob/user)
+/obj/structure/machinery/leviathan_safeguard/attack_hand(mob/user)
 	. = ..()
 	if(key && !stat && opened && !locked)
 		if(use_check_and_message(user))
@@ -350,7 +350,7 @@
 			playsound(src, 'sound/effects/ship_weapons/levi_key_twist.ogg', 50)
 			button.open()
 
-/obj/machinery/leviathan_button
+/obj/structure/machinery/leviathan_button
 	name = "leviathan fire button"
 	desc = "The button that controls the Leviathan's firing mechanism."
 	icon = 'icons/obj/machinery/ship_guns/zat_confirmation_terminals.dmi'
@@ -358,30 +358,30 @@
 	anchored = TRUE
 	var/open = FALSE
 
-/obj/machinery/leviathan_button/Initialize()
+/obj/structure/machinery/leviathan_button/Initialize()
 	..()
 	return INITIALIZE_HINT_LATELOAD
 
-/obj/machinery/leviathan_button/LateInitialize()
+/obj/structure/machinery/leviathan_button/LateInitialize()
 	. = ..()
 	if(SSatlas.current_map.use_overmap && !linked)
 		var/my_sector = GLOB.map_sectors["[z]"]
 		if (istype(my_sector, /obj/effect/overmap/visitable))
 			attempt_hook_up(my_sector)
 
-/obj/machinery/leviathan_button/ex_act(severity)
+/obj/structure/machinery/leviathan_button/ex_act(severity)
 	return
 
-/obj/machinery/leviathan_button/emp_act(severity)
+/obj/structure/machinery/leviathan_button/emp_act(severity)
 	. = ..()
 
 	return
 
-/obj/machinery/leviathan_button/proc/open()
+/obj/structure/machinery/leviathan_button/proc/open()
 	icon_state = "button_open"
 	open = TRUE
 
-/obj/machinery/leviathan_button/attack_hand(mob/user)
+/obj/structure/machinery/leviathan_button/attack_hand(mob/user)
 	set waitfor = FALSE
 	. = ..()
 	if(open)
@@ -407,6 +407,6 @@
 			if(do_after(user, 1 SECOND) && !use_check_and_message(user))
 				playsound(src, 'sound/effects/ship_weapons/levi_button_press.ogg', 50)
 				visible_message(SPAN_DANGER("[user] presses \the [src]!"))
-				for(var/obj/machinery/ship_weapon/leviathan/LT in linked.ship_weapons)
+				for(var/obj/structure/machinery/ship_weapon/leviathan/LT in linked.ship_weapons)
 					if(istype(LT))
 						LT.firing_command(linked.targeting, landmark)

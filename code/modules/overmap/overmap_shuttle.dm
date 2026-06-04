@@ -105,7 +105,7 @@
 
 /datum/shuttle/autodock/overmap/on_move_interim()
 	..()
-	for(var/obj/machinery/computer/shuttle_control/explore/E in shuttle_computers)
+	for(var/obj/structure/machinery/computer/shuttle_control/explore/E in shuttle_computers)
 		var/obj/effect/overmap/visitable/ship/S = E.connected
 		if(S)
 			S.halt()

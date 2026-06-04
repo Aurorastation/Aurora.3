@@ -9,7 +9,7 @@
 /turf/simulated/wall/r_wall,
 /area/turret_protected/corp_vault)
 "d" = (
-/obj/machinery/power/portgen/basic,
+/obj/structure/machinery/power/portgen/basic,
 /obj/structure/cable/yellow{
 	d2 = 4;
 	icon_state = "0-4"
@@ -17,7 +17,7 @@
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/turret_protected/corp_vault)
 "e" = (
-/obj/machinery/power/smes/buildable{
+/obj/structure/machinery/power/smes/buildable{
 	RCon = 0;
 	charge = 5000000;
 	input_level = 200000;
@@ -31,7 +31,7 @@
 /obj/structure/cable/blue{
 	icon_state = "0-4"
 	},
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/light/small/emergency{
 	dir = 1
 	},
 /turf/simulated/floor/holofloor/tiled/dark,
@@ -53,7 +53,7 @@
 /area/turret_protected/corp_vault)
 "h" = (
 /obj/structure/table/reinforced,
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/light/small/emergency{
 	dir = 1
 	},
 /obj/item/stack/material/phoron{
@@ -83,14 +83,14 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/item/gun/energy/toxgun,
+/obj/item/gun/energy/pistol,
 /obj/item/frame/apc,
 /obj/item/trash/broken_electronics,
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/turret_protected/corp_vault)
 "m" = (
 /obj/structure/table/reinforced,
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/light/small/emergency{
 	dir = 8
 	},
 /obj/item/stack/material/phoron{
@@ -100,7 +100,7 @@
 /area/turret_protected/corp_vault)
 "n" = (
 /obj/effect/decal/warning_stripes,
-/obj/machinery/porta_turret/ballistic,
+/obj/structure/machinery/porta_turret/ballistic,
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/turret_protected/corp_vault)
 "o" = (
@@ -109,7 +109,7 @@
 /area/turret_protected/corp_vault)
 "p" = (
 /obj/structure/table/reinforced,
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/light/small/emergency{
 	dir = 4
 	},
 /obj/item/stack/material/phoron{
@@ -118,7 +118,7 @@
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/turret_protected/corp_vault)
 "q" = (
-/obj/machinery/light/small/emergency,
+/obj/structure/machinery/light/small/emergency,
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/turret_protected/corp_vault)
 "r" = (
@@ -126,46 +126,46 @@
 /turf/simulated/wall/r_wall,
 /area/turret_protected/corp_vault)
 "s" = (
-/obj/machinery/door/airlock/vault/bolted{
+/obj/structure/machinery/door/airlock/vault/bolted{
 	dir = 1
 	},
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/turret_protected/corp_vault)
 "t" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/turret_protected/corp_vault)
 "u" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/turret_protected/corp_vault)
 "v" = (
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/light/small/emergency{
 	dir = 1
 	},
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/turret_protected/corp_vault)
 "w" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden,
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/turret_protected/corp_vault)
 "x" = (
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 "y" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
-/obj/machinery/light/small/emergency,
+/obj/structure/machinery/light/small/emergency,
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/turret_protected/corp_vault)
 "z" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
 /turf/simulated/floor/holofloor/tiled/dark,
@@ -185,8 +185,8 @@
 /turf/simulated/floor,
 /area/turret_protected/corp_vault)
 "B" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/machinery/door/airlock/external{
 	frequency = 1379;
 	icon_state = "door_locked";
 	id_tag = "hidden_vault_inner";
@@ -195,7 +195,7 @@
 	req_access = list(13);
 	dir = 1
 	},
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	command = "cycle_interior";
 	frequency = 1379;
 	master_tag = "hidden_vault_airlock";
@@ -206,29 +206,29 @@
 /turf/simulated/floor,
 /area/turret_protected/corp_vault)
 "C" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
 	frequency = 1380;
 	id_tag = "hidden_vault_airpump"
 	},
-/obj/machinery/airlock_sensor{
+/obj/structure/machinery/airlock_sensor{
 	id_tag = "hidden_vault_airlock_sensor";
 	pixel_x = -24
 	},
-/obj/machinery/light/small/emergency,
+/obj/structure/machinery/light/small/emergency,
 /turf/simulated/floor,
 /area/turret_protected/corp_vault)
 "D" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden,
 /turf/simulated/floor,
 /area/turret_protected/corp_vault)
 "E" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
 	frequency = 1380;
 	id_tag = "hidden_vault_airpump"
 	},
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
+/obj/structure/machinery/embedded_controller/radio/airlock/docking_port{
 	id_tag = "hidden_vault_airlock";
 	pixel_x = 30;
 	req_one_access = list(13);
@@ -237,11 +237,11 @@
 	tag_exterior_door = "hidden_vault_outer";
 	tag_interior_door = "hidden_vault_inner"
 	},
-/obj/machinery/light/small/emergency,
+/obj/structure/machinery/light/small/emergency,
 /turf/simulated/floor,
 /area/turret_protected/corp_vault)
 "F" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	frequency = 1379;
 	icon_state = "door_locked";
 	id_tag = "hidden_vault_outer";
@@ -250,7 +250,7 @@
 	req_access = list(13);
 	dir = 1
 	},
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	command = "cycle_exterior";
 	frequency = 1379;
 	master_tag = "hidden_vault_airlock";
@@ -261,7 +261,7 @@
 /turf/simulated/floor,
 /area/turret_protected/corp_vault)
 "G" = (
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/light/small/emergency{
 	dir = 1
 	},
 /turf/simulated/floor/airless{
@@ -274,7 +274,7 @@
 	},
 /area/turret_protected/corp_vault)
 "I" = (
-/obj/machinery/turretid/lethal{
+/obj/structure/machinery/turretid/lethal{
 	ailock = 1;
 	check_synth = 1;
 	control_area = "\improper *CLASSIFIED*";

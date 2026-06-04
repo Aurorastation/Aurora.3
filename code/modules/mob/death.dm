@@ -18,7 +18,7 @@
 	flick(anim, animation)
 
 	if(do_gibs)
-		gibs(loc, viruses, dna, get_gibs_type())
+		gibs(loc, dna, get_gibs_type())
 
 	QDEL_IN(animation, 15)
 	QDEL_IN(src, 15)

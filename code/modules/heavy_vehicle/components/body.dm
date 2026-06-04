@@ -20,7 +20,7 @@
 	var/obj/item/cell/mecha/cell
 	var/cell_type = /obj/item/cell/mecha
 	var/obj/item/robot_parts/robot_component/armor/mech_armor
-	var/obj/machinery/portable_atmospherics/canister/air_supply
+	var/obj/structure/machinery/portable_atmospherics/canister/air_supply
 	var/datum/gas_mixture/cockpit
 	var/pilot_offset_x = 0
 	var/pilot_offset_y = 0
@@ -31,6 +31,13 @@
 	var/transparent_cabin = FALSE
 	var/hide_pilot = TRUE
 	has_hardpoints = list(HARDPOINT_BACK, HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
+
+	/**
+	 * Maximum % chance for an ejection to fail based on how much damage the mech's torso has taken.
+	 * If you're stuck, better hope there's a friend available to bail you out..
+	 * Or you can keep the hatch open if you would rather risk getting zipped by incoming fire.
+	 */
+	var/ejection_fail_chance = 75
 
 /obj/item/mech_component/chassis/Initialize()
 	. = ..()
@@ -48,7 +55,7 @@
 	cockpit = new
 	if(loc)
 		cockpit.copy_from(loc.return_air())
-	air_supply = new /obj/machinery/portable_atmospherics/canister/air(src)
+	air_supply = new /obj/structure/machinery/portable_atmospherics/canister/air(src)
 
 /obj/item/mech_component/chassis/update_components()
 	diagnostics = locate() in src
@@ -148,7 +155,7 @@
 		return ..()
 
 /obj/item/mech_component/chassis/mouse_drop_receive(atom/dropped, mob/user, params)
-	var/obj/machinery/portable_atmospherics/canister/C = dropped
+	var/obj/structure/machinery/portable_atmospherics/canister/C = dropped
 	if(istype(C) && do_after(user, 5, src))
 		to_chat(user, SPAN_NOTICE("You install the canister into \the [src]."))
 		if(air_supply)

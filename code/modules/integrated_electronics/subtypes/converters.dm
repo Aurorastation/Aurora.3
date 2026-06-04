@@ -5,12 +5,13 @@
 	outputs = list("output")
 	activators = list("convert" = IC_PINTYPE_PULSE_IN, "on convert" = IC_PINTYPE_PULSE_OUT)
 	category_text = "Converter"
-	power_draw_per_use = 10
+	power_draw_per_use = 100
 
 /obj/item/integrated_circuit/converter/num2text
 	name = "number to string"
 	desc = "This circuit can convert a number variable into a string."
 	extended_desc = "Because of game limitations null/false variables will output a '0' string."
+	complexity = 1
 	icon_state = "num-string"
 	inputs = list("input" = IC_PINTYPE_NUMBER)
 	outputs = list("output" = IC_PINTYPE_STRING)
@@ -26,6 +27,87 @@
 		result = "0"
 
 	set_pin_data(IC_OUTPUT, 1, result)
+	push_data()
+	activate_pin(2)
+
+/obj/item/integrated_circuit/converter/num2text4
+	name = "4-way number to string"
+	desc = "This circuit can convert up to four number variables into strings."
+	extended_desc = "Because of game limitations null/false variables will output a '0' string."
+	icon_state = "num-string"
+	inputs = list(
+		"input 1" = IC_PINTYPE_NUMBER,
+		"input 2" = IC_PINTYPE_NUMBER,
+		"input 3" = IC_PINTYPE_NUMBER,
+		"input 4" = IC_PINTYPE_NUMBER
+	)
+	outputs = list(
+		"output 1" = IC_PINTYPE_STRING,
+		"output 2" = IC_PINTYPE_STRING,
+		"output 3" = IC_PINTYPE_STRING,
+		"output 4" = IC_PINTYPE_STRING
+	)
+	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+
+/obj/item/integrated_circuit/converter/num2text4/do_work()
+	pull_data()
+
+	for(var/i = 1 to 4)
+		var/result = null
+		var/incoming = get_pin_data(IC_INPUT, i)
+
+		if(!isnull(incoming))
+			result = num2text(incoming)
+		else if(!incoming)
+			result = "0"
+
+		set_pin_data(IC_OUTPUT, i, result)
+
+	push_data()
+	activate_pin(2)
+
+/obj/item/integrated_circuit/converter/num2text8
+	name = "8-way number to string"
+	desc = "This circuit can convert up to eight number variables into strings."
+	extended_desc = "Because of game limitations null/false variables will output a '0' string."
+	complexity = 4
+	icon_state = "num-string"
+	inputs = list(
+		"input 1" = IC_PINTYPE_NUMBER,
+		"input 2" = IC_PINTYPE_NUMBER,
+		"input 3" = IC_PINTYPE_NUMBER,
+		"input 4" = IC_PINTYPE_NUMBER,
+		"input 5" = IC_PINTYPE_NUMBER,
+		"input 6" = IC_PINTYPE_NUMBER,
+		"input 7" = IC_PINTYPE_NUMBER,
+		"input 8" = IC_PINTYPE_NUMBER
+	)
+	outputs = list(
+		"output 1" = IC_PINTYPE_STRING,
+		"output 2" = IC_PINTYPE_STRING,
+		"output 3" = IC_PINTYPE_STRING,
+		"output 4" = IC_PINTYPE_STRING,
+		"output 5" = IC_PINTYPE_STRING,
+		"output 6" = IC_PINTYPE_STRING,
+		"output 7" = IC_PINTYPE_STRING,
+		"output 8" = IC_PINTYPE_STRING
+	)
+	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+
+/obj/item/integrated_circuit/converter/num2text8/do_work()
+	pull_data()
+
+	for(var/i = 1 to 8)
+		var/result = null
+		var/incoming = get_pin_data(IC_INPUT, i)
+
+		if(!isnull(incoming))
+			result = num2text(incoming)
+		else if(!incoming)
+			result = "0"
+
+		set_pin_data(IC_OUTPUT, i, result)
+
 	push_data()
 	activate_pin(2)
 

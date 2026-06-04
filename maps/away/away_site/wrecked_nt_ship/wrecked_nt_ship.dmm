@@ -1,6 +1,6 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aa" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/airless{
@@ -19,11 +19,11 @@
 /area/wrecked_nt_ship)
 "ag" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
-/obj/machinery/door/blast/regular,
+/obj/structure/machinery/door/blast/regular,
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "ah" = (
-/obj/machinery/door/airlock/centcom{
+/obj/structure/machinery/door/airlock/centcom{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/steel/airless,
@@ -35,13 +35,13 @@
 /turf/simulated/floor/wood/airless,
 /area/wrecked_nt_ship)
 "aj" = (
-/obj/machinery/shower,
+/obj/structure/machinery/shower,
 /obj/effect/decal/cleanable/dirt,
 /obj/random/soap,
 /turf/simulated/floor/tiled/white/airless,
 /area/wrecked_nt_ship)
 "ak" = (
-/obj/machinery/door/airlock/centcom{
+/obj/structure/machinery/door/airlock/centcom{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white/airless,
@@ -75,7 +75,7 @@
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "as" = (
-/obj/machinery/door/airlock/glass{
+/obj/structure/machinery/door/airlock/glass{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/steel/airless,
@@ -101,8 +101,8 @@
 /turf/simulated/wall/r_wall,
 /area/wrecked_nt_ship)
 "aU" = (
-/obj/machinery/portable_atmospherics/hydroponics,
-/obj/machinery/portable_atmospherics/hydroponics,
+/obj/structure/machinery/portable_atmospherics/hydroponics,
+/obj/structure/machinery/portable_atmospherics/hydroponics,
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "aY" = (
@@ -115,7 +115,7 @@
 /area/wrecked_nt_ship)
 "bn" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/portable_atmospherics/canister/empty/phoron,
+/obj/structure/machinery/portable_atmospherics/canister/empty/phoron,
 /turf/simulated/floor/tiled/airless,
 /area/wrecked_nt_ship)
 "bs" = (
@@ -155,7 +155,7 @@
 /turf/simulated/wall/r_wall,
 /area/wrecked_nt_ship)
 "bT" = (
-/obj/machinery/door/airlock/glass{
+/obj/structure/machinery/door/airlock/glass{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/steel/airless,
@@ -167,7 +167,7 @@
 /turf/simulated/wall/r_wall,
 /area/wrecked_nt_ship)
 "ca" = (
-/obj/machinery/constructable_frame/temp_deco{
+/obj/structure/machinery/constructable_frame/temp_deco{
 	icon_state = "box_2"
 	},
 /obj/item/stack/cable_coil/random,
@@ -185,7 +185,7 @@
 /area/wrecked_nt_ship)
 "cm" = (
 /obj/structure/table/reinforced/steel,
-/obj/machinery/recharger,
+/obj/structure/machinery/recharger,
 /turf/simulated/floor/airless,
 /area/wrecked_nt_ship)
 "cA" = (
@@ -198,7 +198,7 @@
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "dh" = (
-/obj/machinery/portable_atmospherics/canister/empty/phoron{
+/obj/structure/machinery/portable_atmospherics/canister/empty/phoron{
 	icon_state = "orange-1"
 	},
 /turf/template_noop,
@@ -245,11 +245,11 @@
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship/exterior)
 "eQ" = (
-/obj/machinery/portable_atmospherics/hydroponics,
+/obj/structure/machinery/portable_atmospherics/hydroponics,
 /turf/simulated/floor/airless,
 /area/wrecked_nt_ship)
 "eZ" = (
-/obj/machinery/shower,
+/obj/structure/machinery/shower,
 /obj/item/bikehorn/rubberducky{
 	name = "Lucie"
 	},
@@ -272,16 +272,16 @@
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "fg" = (
-/obj/machinery/recharge_station,
+/obj/structure/machinery/recharge_station,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "fi" = (
-/obj/machinery/floodlight,
+/obj/structure/machinery/floodlight,
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "fo" = (
-/obj/machinery/power/smes/batteryrack/makeshift,
+/obj/structure/machinery/power/smes/batteryrack/makeshift,
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
@@ -324,7 +324,7 @@
 /turf/simulated/wall/r_wall,
 /area/wrecked_nt_ship)
 "gn" = (
-/obj/machinery/mech_recharger,
+/obj/structure/machinery/mech_recharger,
 /obj/structure/mech_wreckage,
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
@@ -350,7 +350,7 @@
 /obj/item/material/shard/shrapnel{
 	icon_state = "shrapnelmedium"
 	},
-/obj/machinery/constructable_frame/temp_deco{
+/obj/structure/machinery/constructable_frame/temp_deco{
 	icon_state = "vbox_0"
 	},
 /obj/item/stack/cable_coil/random{
@@ -372,7 +372,7 @@
 /area/wrecked_nt_ship)
 "hu" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/artifact,
+/obj/structure/machinery/artifact,
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "hw" = (
@@ -381,7 +381,7 @@
 /turf/simulated/floor/airless,
 /area/wrecked_nt_ship)
 "hC" = (
-/obj/machinery/fabricator/autolathe,
+/obj/structure/machinery/fabricator/autolathe,
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
@@ -404,7 +404,7 @@
 /turf/template_noop,
 /area/wrecked_nt_ship)
 "is" = (
-/obj/machinery/vending/cigarette,
+/obj/structure/machinery/vending/cigarette,
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "iv" = (
@@ -428,7 +428,7 @@
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "iF" = (
-/obj/machinery/vending/snack,
+/obj/structure/machinery/vending/snack,
 /turf/simulated/floor/wood/airless,
 /area/wrecked_nt_ship)
 "iI" = (
@@ -441,7 +441,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/wrecked_nt_ship)
 "iR" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/airless,
@@ -493,19 +493,19 @@
 /turf/simulated/floor/airless,
 /area/wrecked_nt_ship)
 "ki" = (
-/obj/machinery/slime_extractor,
+/obj/structure/machinery/slime_extractor,
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "ko" = (
-/obj/machinery/vending/boozeomat,
+/obj/structure/machinery/vending/boozeomat,
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship/exterior)
 "kt" = (
-/obj/machinery/portable_atmospherics/hydroponics,
+/obj/structure/machinery/portable_atmospherics/hydroponics,
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "kC" = (
-/obj/machinery/constructable_frame/temp_deco,
+/obj/structure/machinery/constructable_frame/temp_deco,
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "kD" = (
@@ -516,7 +516,7 @@
 /area/wrecked_nt_ship/exterior)
 "kE" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/crystal,
+/obj/structure/machinery/crystal,
 /obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
@@ -542,7 +542,7 @@
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship/exterior)
 "lC" = (
-/obj/machinery/light/colored/red{
+/obj/structure/machinery/light/colored/red{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/steel/airless,
@@ -551,7 +551,7 @@
 /obj/item/stack/rods{
 	icon_state = "rods-1"
 	},
-/obj/machinery/portable_atmospherics/canister/empty/phoron{
+/obj/structure/machinery/portable_atmospherics/canister/empty/phoron{
 	icon_state = "orange-1"
 	},
 /turf/template_noop,
@@ -583,7 +583,7 @@
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "mt" = (
-/obj/machinery/portable_atmospherics/canister/empty/phoron{
+/obj/structure/machinery/portable_atmospherics/canister/empty/phoron{
 	icon_state = "orange-1"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -591,7 +591,7 @@
 /area/wrecked_nt_ship)
 "mF" = (
 /obj/structure/table/reinforced/steel,
-/obj/machinery/light/colored/red{
+/obj/structure/machinery/light/colored/red{
 	dir = 8
 	},
 /obj/item/reagent_containers/food/snacks/soup/kois,
@@ -599,19 +599,19 @@
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "mT" = (
-/obj/machinery/portable_atmospherics/hydroponics,
+/obj/structure/machinery/portable_atmospherics/hydroponics,
 /obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "mX" = (
-/obj/machinery/constructable_frame/temp_deco{
+/obj/structure/machinery/constructable_frame/temp_deco{
 	icon_state = "vbox_0"
 	},
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship/exterior)
 "nf" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/portable_atmospherics/canister/empty/phoron,
+/obj/structure/machinery/portable_atmospherics/canister/empty/phoron,
 /turf/simulated/floor/tiled/airless{
 	burnt = 3
 	},
@@ -621,8 +621,8 @@
 /turf/simulated/floor/airless,
 /area/wrecked_nt_ship)
 "nk" = (
-/obj/machinery/portable_atmospherics/hydroponics,
-/obj/machinery/portable_atmospherics/hydroponics,
+/obj/structure/machinery/portable_atmospherics/hydroponics,
+/obj/structure/machinery/portable_atmospherics/hydroponics,
 /obj/item/seeds/koisspore,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/steel/airless,
@@ -633,11 +633,11 @@
 /area/space)
 "nF" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
-/obj/machinery/door/blast/regular/open,
+/obj/structure/machinery/door/blast/regular/open,
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "nI" = (
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/steel/airless,
@@ -663,7 +663,7 @@
 /area/space)
 "nZ" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/portable_atmospherics/canister/phoron,
+/obj/structure/machinery/portable_atmospherics/canister/phoron,
 /turf/simulated/floor/tiled/airless,
 /area/wrecked_nt_ship)
 "os" = (
@@ -681,7 +681,7 @@
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "oz" = (
-/obj/machinery/light/colored/red,
+/obj/structure/machinery/light/colored/red,
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "oM" = (
@@ -716,7 +716,7 @@
 /turf/simulated/floor/airless,
 /area/wrecked_nt_ship)
 "pw" = (
-/obj/machinery/vending/tool,
+/obj/structure/machinery/vending/tool,
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "px" = (
@@ -729,7 +729,7 @@
 /area/wrecked_nt_ship)
 "py" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/portable_atmospherics/canister/empty/phoron{
+/obj/structure/machinery/portable_atmospherics/canister/empty/phoron{
 	icon_state = "orange-1"
 	},
 /turf/simulated/floor/tiled/airless,
@@ -761,11 +761,11 @@
 /area/space)
 "qo" = (
 /obj/random/seed,
-/obj/machinery/space_heater,
+/obj/structure/machinery/space_heater,
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "qq" = (
-/obj/machinery/door/airlock/highsecurity{
+/obj/structure/machinery/door/airlock/highsecurity{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/steel/airless,
@@ -810,7 +810,7 @@
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "rA" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/airless{
@@ -830,12 +830,11 @@
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "rG" = (
-/obj/item/circuitboard/mecha/phazon/peripherals,
 /obj/structure/largecrate/hoverpod,
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "rN" = (
-/obj/machinery/constructable_frame/temp_deco{
+/obj/structure/machinery/constructable_frame/temp_deco{
 	icon_state = "vbox_2"
 	},
 /turf/simulated/floor/tiled/steel/airless,
@@ -866,7 +865,7 @@
 /turf/simulated/floor/airless,
 /area/wrecked_nt_ship)
 "sp" = (
-/obj/machinery/papershredder,
+/obj/structure/machinery/papershredder,
 /turf/simulated/floor/airless,
 /area/wrecked_nt_ship)
 "su" = (
@@ -899,11 +898,11 @@
 /turf/simulated/floor/wood/airless,
 /area/wrecked_nt_ship)
 "tg" = (
-/obj/machinery/vending/coffee,
+/obj/structure/machinery/vending/coffee,
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "th" = (
-/obj/machinery/portable_atmospherics/hydroponics,
+/obj/structure/machinery/portable_atmospherics/hydroponics,
 /obj/item/seeds/koisspore,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/steel/airless,
@@ -914,7 +913,7 @@
 /area/space)
 "to" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/portable_atmospherics/canister/phoron_scarce,
+/obj/structure/machinery/portable_atmospherics/canister/phoron_scarce,
 /turf/simulated/floor/tiled/airless,
 /area/wrecked_nt_ship)
 "tp" = (
@@ -946,7 +945,7 @@
 /turf/simulated/floor/wood/airless,
 /area/wrecked_nt_ship)
 "tY" = (
-/obj/machinery/mech_recharger,
+/obj/structure/machinery/mech_recharger,
 /obj/item/robot_parts/robot_component/armor/mech/combat,
 /obj/item/stack/cable_coil/random,
 /turf/simulated/floor/airless,
@@ -958,13 +957,13 @@
 /turf/simulated/floor/wood/airless,
 /area/wrecked_nt_ship)
 "ug" = (
-/obj/machinery/constructable_frame/temp_deco{
+/obj/structure/machinery/constructable_frame/temp_deco{
 	icon_state = "vbox_0"
 	},
 /turf/simulated/floor/tiled/white/airless,
 /area/wrecked_nt_ship)
 "uk" = (
-/obj/machinery/constructable_frame/temp_deco{
+/obj/structure/machinery/constructable_frame/temp_deco{
 	icon_state = "vbox_0"
 	},
 /obj/item/stack/cable_coil/random{
@@ -976,7 +975,7 @@
 /turf/simulated/floor/wood/airless,
 /area/wrecked_nt_ship)
 "uD" = (
-/obj/machinery/portable_atmospherics/hydroponics,
+/obj/structure/machinery/portable_atmospherics/hydroponics,
 /obj/structure/diona/bulb,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/steel/airless,
@@ -986,7 +985,6 @@
 /obj/structure/window/reinforced/tinted{
 	dir = 8
 	},
-/obj/item/circuitboard/mecha/phazon/main,
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "uR" = (
@@ -1040,7 +1038,7 @@
 /turf/simulated/floor/airless,
 /area/wrecked_nt_ship/exterior)
 "wO" = (
-/obj/machinery/portable_atmospherics/hydroponics,
+/obj/structure/machinery/portable_atmospherics/hydroponics,
 /obj/item/seeds/wulumunushaseed{
 	icon_state = ""
 	},
@@ -1051,13 +1049,13 @@
 /obj/item/material/shard/shrapnel{
 	icon_state = "shrapnelmedium"
 	},
-/obj/machinery/constructable_frame/temp_deco{
+/obj/structure/machinery/constructable_frame/temp_deco{
 	icon_state = "box_1"
 	},
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "wY" = (
-/obj/machinery/portable_atmospherics/hydroponics,
+/obj/structure/machinery/portable_atmospherics/hydroponics,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/airless,
 /area/wrecked_nt_ship)
@@ -1129,7 +1127,7 @@
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "yV" = (
-/obj/machinery/atmospherics/unary/outlet_injector,
+/obj/structure/machinery/atmospherics/unary/outlet_injector,
 /turf/simulated/floor/airless,
 /area/wrecked_nt_ship)
 "zc" = (
@@ -1161,7 +1159,7 @@
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "zP" = (
-/obj/machinery/constructable_frame/temp_deco{
+/obj/structure/machinery/constructable_frame/temp_deco{
 	icon_state = "vbox_0"
 	},
 /turf/simulated/floor/airless,
@@ -1216,7 +1214,7 @@
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "BC" = (
-/obj/machinery/door/airlock/centcom{
+/obj/structure/machinery/door/airlock/centcom{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/steel/airless,
@@ -1233,7 +1231,7 @@
 /turf/simulated/floor/airless,
 /area/wrecked_nt_ship/exterior)
 "BR" = (
-/obj/machinery/constructable_frame/temp_deco,
+/obj/structure/machinery/constructable_frame/temp_deco,
 /turf/simulated/floor/airless,
 /area/wrecked_nt_ship)
 "BS" = (
@@ -1251,7 +1249,7 @@
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "Cd" = (
-/obj/machinery/seed_storage/xenobotany,
+/obj/structure/machinery/seed_storage/garden/xenobotany,
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "Cf" = (
@@ -1288,7 +1286,7 @@
 /area/wrecked_nt_ship)
 "Di" = (
 /obj/item/crowbar/rescue_axe/red,
-/obj/machinery/constructable_frame/temp_deco{
+/obj/structure/machinery/constructable_frame/temp_deco{
 	icon_state = "vbox_2"
 	},
 /turf/simulated/floor/airless,
@@ -1306,11 +1304,11 @@
 /turf/simulated/floor/wood/airless,
 /area/wrecked_nt_ship)
 "DT" = (
-/obj/machinery/vending/cola,
+/obj/structure/machinery/vending/cola,
 /turf/simulated/floor/wood/airless,
 /area/wrecked_nt_ship)
 "Eg" = (
-/obj/machinery/vending/tool,
+/obj/structure/machinery/vending/tool,
 /turf/simulated/floor/airless,
 /area/wrecked_nt_ship)
 "Ej" = (
@@ -1335,7 +1333,7 @@
 /turf/simulated/floor/airless,
 /area/wrecked_nt_ship)
 "Fw" = (
-/obj/machinery/door/airlock/centcom{
+/obj/structure/machinery/door/airlock/centcom{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white/airless{
@@ -1357,7 +1355,7 @@
 /turf/template_noop,
 /area/wrecked_nt_ship)
 "FS" = (
-/obj/machinery/portable_atmospherics/hydroponics,
+/obj/structure/machinery/portable_atmospherics/hydroponics,
 /obj/item/seeds/replicapod{
 	icon_state = ""
 	},
@@ -1389,7 +1387,7 @@
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/wrecked_nt_ship/exterior)
 "GK" = (
-/obj/machinery/constructable_frame/temp_deco{
+/obj/structure/machinery/constructable_frame/temp_deco{
 	icon_state = "vbox_2"
 	},
 /turf/simulated/floor/tiled/white/airless,
@@ -1432,7 +1430,7 @@
 /turf/template_noop,
 /area/space)
 "Hn" = (
-/obj/machinery/constructable_frame/temp_deco{
+/obj/structure/machinery/constructable_frame/temp_deco{
 	icon_state = "box_1"
 	},
 /turf/simulated/floor/tiled/steel/airless,
@@ -1531,7 +1529,6 @@
 /area/wrecked_nt_ship)
 "Jc" = (
 /obj/structure/table/reinforced/steel,
-/obj/item/circuitboard/mecha/phazon,
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "Jw" = (
@@ -1607,7 +1604,7 @@
 /obj/item/material/shard/shrapnel{
 	icon_state = "shrapnelsmall"
 	},
-/obj/machinery/constructable_frame/temp_deco{
+/obj/structure/machinery/constructable_frame/temp_deco{
 	icon_state = "box_1"
 	},
 /turf/simulated/floor/tiled/steel/airless,
@@ -1622,7 +1619,7 @@
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "LQ" = (
-/obj/machinery/constructable_frame/temp_deco{
+/obj/structure/machinery/constructable_frame/temp_deco{
 	icon_state = "box_2"
 	},
 /turf/simulated/floor/tiled/airless,
@@ -1653,7 +1650,7 @@
 /turf/simulated/floor/airless,
 /area/wrecked_nt_ship)
 "MW" = (
-/obj/machinery/portable_atmospherics/hydroponics,
+/obj/structure/machinery/portable_atmospherics/hydroponics,
 /obj/item/seeds/koisspore,
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
@@ -1668,7 +1665,7 @@
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "Nf" = (
-/obj/machinery/artifact,
+/obj/structure/machinery/artifact,
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/wrecked_nt_ship/exterior)
 "Ni" = (
@@ -1687,7 +1684,7 @@
 /turf/unsimulated/mineral/asteroid,
 /area/wrecked_nt_ship/exterior)
 "Nr" = (
-/obj/machinery/recharge_station,
+/obj/structure/machinery/recharge_station,
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "Ny" = (
@@ -1699,7 +1696,7 @@
 /turf/simulated/floor/airless,
 /area/wrecked_nt_ship)
 "NS" = (
-/obj/machinery/seed_extractor,
+/obj/structure/machinery/seed_extractor,
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "NX" = (
@@ -1739,8 +1736,8 @@
 /turf/template_noop,
 /area/space)
 "OQ" = (
-/obj/machinery/portable_atmospherics/hydroponics,
-/obj/machinery/light/colored/red{
+/obj/structure/machinery/portable_atmospherics/hydroponics,
+/obj/structure/machinery/light/colored/red{
 	dir = 4
 	},
 /obj/random/seed,
@@ -1786,7 +1783,7 @@
 /area/space)
 "PK" = (
 /obj/structure/table/reinforced/steel,
-/obj/machinery/light/colored/red{
+/obj/structure/machinery/light/colored/red{
 	dir = 8
 	},
 /obj/item/seeds/koisspore,
@@ -1806,8 +1803,8 @@
 /turf/template_noop,
 /area/space)
 "Qb" = (
-/obj/machinery/atmospherics/unary/outlet_injector,
-/obj/machinery/portable_atmospherics/canister/empty/phoron{
+/obj/structure/machinery/atmospherics/unary/outlet_injector,
+/obj/structure/machinery/portable_atmospherics/canister/empty/phoron{
 	icon_state = "orange-1"
 	},
 /turf/simulated/floor/tiled/airless,
@@ -1823,7 +1820,7 @@
 /turf/simulated/floor/airless,
 /area/wrecked_nt_ship)
 "Qo" = (
-/obj/machinery/vending/dinnerware,
+/obj/structure/machinery/vending/dinnerware,
 /turf/simulated/floor/wood/airless,
 /area/wrecked_nt_ship)
 "QJ" = (
@@ -1848,7 +1845,7 @@
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "QV" = (
-/obj/machinery/mech_recharger,
+/obj/structure/machinery/mech_recharger,
 /obj/item/anomaly_core,
 /mob/living/heavy_vehicle/premade/random/extra,
 /turf/simulated/floor/airless,
@@ -1865,7 +1862,7 @@
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "RS" = (
-/obj/machinery/portable_atmospherics/hydroponics,
+/obj/structure/machinery/portable_atmospherics/hydroponics,
 /obj/item/seeds/koisspore,
 /turf/simulated/floor/airless,
 /area/wrecked_nt_ship)
@@ -1883,7 +1880,7 @@
 /turf/simulated/floor/wood/airless,
 /area/wrecked_nt_ship)
 "St" = (
-/obj/machinery/constructable_frame/temp_deco,
+/obj/structure/machinery/constructable_frame/temp_deco,
 /obj/item/stack/cable_coil/random,
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
@@ -1912,7 +1909,7 @@
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "Th" = (
-/obj/machinery/constructable_frame/temp_deco{
+/obj/structure/machinery/constructable_frame/temp_deco{
 	icon_state = "box_2"
 	},
 /turf/simulated/floor/airless,
@@ -1955,7 +1952,7 @@
 /area/wrecked_nt_ship)
 "Ub" = (
 /obj/structure/table/reinforced/steel,
-/obj/machinery/cell_charger,
+/obj/structure/machinery/cell_charger,
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "Uf" = (
@@ -1987,16 +1984,16 @@
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "UP" = (
-/obj/machinery/portable_atmospherics/hydroponics,
+/obj/structure/machinery/portable_atmospherics/hydroponics,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "UR" = (
-/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/structure/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "UW" = (
-/obj/machinery/constructable_frame/temp_deco{
+/obj/structure/machinery/constructable_frame/temp_deco{
 	icon_state = "vbox_0"
 	},
 /turf/simulated/floor/airless,
@@ -2006,7 +2003,7 @@
 /turf/simulated/floor/tiled/white/airless,
 /area/wrecked_nt_ship)
 "Vl" = (
-/obj/machinery/optable,
+/obj/structure/machinery/optable,
 /obj/effect/decal/remains/human,
 /obj/item/organ/internal/parasite/kois,
 /turf/simulated/floor/tiled/white/airless,
@@ -2042,7 +2039,7 @@
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "Wl" = (
-/obj/machinery/constructable_frame/temp_deco,
+/obj/structure/machinery/constructable_frame/temp_deco,
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship/exterior)
 "Wo" = (
@@ -2171,7 +2168,7 @@
 /turf/simulated/floor/tiled/white/airless,
 /area/wrecked_nt_ship)
 "ZE" = (
-/obj/machinery/portable_atmospherics/hydroponics,
+/obj/structure/machinery/portable_atmospherics/hydroponics,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/steel/airless,

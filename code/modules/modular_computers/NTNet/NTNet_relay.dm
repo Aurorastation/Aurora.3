@@ -1,5 +1,5 @@
 // Relays don't handle any actual communication. Global NTNet datum does that, relays only tell the datum if it should or shouldn't work.
-/obj/machinery/ntnet_relay
+/obj/structure/machinery/ntnet_relay
 	name = "NTNet Quantum Relay"
 	desc = "A very complex router and transmitter capable of connecting electronic devices together. Looks fragile."
 	use_power = POWER_USE_ACTIVE
@@ -25,7 +25,7 @@
 	)
 
 // TODO: Implement more logic here. For now it's only a placeholder.
-/obj/machinery/ntnet_relay/operable()
+/obj/structure/machinery/ntnet_relay/operable()
 	if(!..(EMPED))
 		return FALSE
 	if(dos_failure)
@@ -34,7 +34,7 @@
 		return FALSE
 	return TRUE
 
-/obj/machinery/ntnet_relay/update_icon()
+/obj/structure/machinery/ntnet_relay/update_icon()
 	ClearOverlays()
 	if(operable())
 		AddOverlays(emissive_appearance(icon, "[icon_state]_lights"))
@@ -48,7 +48,7 @@
 	if(panel_open)
 		AddOverlays("[icon_state]_panel")
 
-/obj/machinery/ntnet_relay/process()
+/obj/structure/machinery/ntnet_relay/process()
 	if(operable())
 		update_use_power(POWER_USE_ACTIVE)
 	else
@@ -69,13 +69,13 @@
 		GLOB.ntnet_global.add_log("Quantum relay switched from overload recovery mode to normal operation mode.")
 	..()
 
-/obj/machinery/ntnet_relay/ui_interact(mob/user, datum/tgui/ui)
+/obj/structure/machinery/ntnet_relay/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "NTNetRelay")
 		ui.open()
 
-/obj/machinery/ntnet_relay/ui_data(mob/user)
+/obj/structure/machinery/ntnet_relay/ui_data(mob/user)
 	var/list/data = list()
 	data["enabled"] = enabled
 	data["dos_capacity"] = dos_capacity
@@ -84,7 +84,7 @@
 
 	return data
 
-/obj/machinery/ntnet_relay/ui_act(action, params)
+/obj/structure/machinery/ntnet_relay/ui_act(action, params)
 	. = ..()
 	if(.)
 		return
@@ -100,11 +100,11 @@
 		update_icon()
 		. = TRUE
 
-/obj/machinery/ntnet_relay/attack_hand(var/mob/living/user)
+/obj/structure/machinery/ntnet_relay/attack_hand(var/mob/living/user)
 	. = ..()
 	ui_interact(user)
 
-/obj/machinery/ntnet_relay/Initialize()
+/obj/structure/machinery/ntnet_relay/Initialize()
 	. = ..()
 	uid = gl_uid
 	gl_uid++
@@ -116,13 +116,13 @@
 		NTNet = GLOB.ntnet_global
 		GLOB.ntnet_global.add_log("New quantum relay activated. Current amount of linked relays: [NTNet.relays.len]")
 
-/obj/machinery/ntnet_relay/Destroy()
+/obj/structure/machinery/ntnet_relay/Destroy()
 	if(GLOB.ntnet_global)
 		GLOB.ntnet_global.relays.Remove(src)
 		GLOB.ntnet_global.add_log("Quantum relay connection severed. Current amount of linked relays: [NTNet.relays.len]")
 	return ..()
 
-/obj/machinery/ntnet_relay/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/ntnet_relay/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		attacking_item.play_tool_sound(get_turf(src), 50)
 		panel_open = !panel_open
@@ -137,7 +137,7 @@
 
 		for(var/atom/movable/A in component_parts)
 			A.forceMove(get_turf(src))
-		new /obj/machinery/constructable_frame/machine_frame(get_turf(src))
+		new /obj/structure/machinery/constructable_frame/machine_frame(get_turf(src))
 		qdel(src)
 		return
 	..()

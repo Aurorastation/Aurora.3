@@ -39,7 +39,7 @@ export type CargoData = {
   have_printer: BooleanLike;
   shuttle_available: BooleanLike;
   shuttle_has_arrive_time: BooleanLike;
-  shuttle_eta_minutes: number;
+  shuttle_eta_seconds: string;
   shuttle_can_launch: BooleanLike;
   shuttle_can_cancel: BooleanLike;
   shuttle_can_force: BooleanLike;
@@ -135,6 +135,14 @@ export const CargoControl = (props, context) => {
             </>
           }
         >
+          <Box
+            mb={2}
+            p={1}
+            backgroundColor="rgba(255,255,255,0.05)"
+            textColor="yellow"
+          >
+            {data.status_message}
+          </Box>
           <Tabs>
             <Tabs.Tab
               onClick={() => act('page', { page: 'overview_main' })}
@@ -212,9 +220,6 @@ export const CargoControl = (props, context) => {
               </LabeledList.Item>
               <LabeledList.Item label="Operations Expense">
                 {data.order_details.price_cargo.toFixed(2)}电
-              </LabeledList.Item>
-              <LabeledList.Item label="Personal Expense">
-                {data.order_details.price_customer.toFixed(2)}电
               </LabeledList.Item>
               <LabeledList.Item label="Personal Expense">
                 {data.order_details.price_customer.toFixed(2)}电
@@ -303,7 +308,7 @@ export const MainWindow = (props, context) => {
         <Section title="Elevator Information">
           <LabeledList>
             <LabeledList.Item label="ETA">
-              {data.shuttle_eta_minutes} minutes
+              {data.shuttle_eta_seconds}
             </LabeledList.Item>
           </LabeledList>
         </Section>
@@ -418,6 +423,15 @@ export const OverviewApproved = (props, context) => {
             <Table.Cell>{order.ordered_by}</Table.Cell>
             <Table.Cell>{order.price_cargo.toFixed(2)}电</Table.Cell>
             <Table.Cell>
+              <Button
+                content="Reject"
+                color="red"
+                onClick={() =>
+                  act('order_reject', {
+                    order_reject: order.order_id.toString(),
+                  })
+                }
+              />
               <Button
                 content="Details"
                 onClick={() =>
@@ -629,7 +643,7 @@ export const Settings = (props, context) => {
       <LabeledList>
         <LabeledList.Item label="Handling Fee">
           <Button
-            content={data.handling_fee}
+            content={`${data.handling_fee}%`}
             icon="edit"
             onClick={() => act('handling_fee')}
           />

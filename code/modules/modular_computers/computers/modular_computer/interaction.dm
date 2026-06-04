@@ -166,12 +166,11 @@
 	eject_item()
 
 /obj/item/modular_computer/attack(mob/living/target_mob, mob/living/user, target_zone)
-	var/sound_scan = FALSE
-	if(last_scan <= world.time - 20) //Spam limiter.
-		last_scan = world.time
-		sound_scan = TRUE
 	if(scan_mode == SCANNER_MEDICAL)
-		health_scan_mob(target_mob, user, TRUE, sound_scan = sound_scan)
+		var/datum/component/health_analyzer/h_analyzer = src.GetComponent(/datum/component/health_analyzer)
+		if(!h_analyzer)
+			return
+		h_analyzer.attack(target_mob, user)
 
 /obj/item/modular_computer/afterattack(atom/A, mob/user, proximity_flag, click_parameters)
 	. = ..()
@@ -311,14 +310,15 @@
 			to_chat(user, SPAN_WARNING("\The [attacking_item] is off."))
 			return TRUE
 
-		if(!damage)
+		if(health >= maxhealth)
 			to_chat(user, SPAN_WARNING("\The [src] does not require repairs."))
 			return TRUE
 
 		to_chat(user, SPAN_NOTICE("You begin repairing the damage to \the [src]..."))
 		playsound(get_turf(src), 'sound/items/Welder.ogg', 100, 1)
+		var/damage = maxhealth - health
 		if(WT.use(round(damage / 75)) && do_after(user, damage / 10, src, DO_REPAIR_CONSTRUCT))
-			damage = 0
+			health = maxhealth
 			to_chat(user, SPAN_NOTICE("You fully repair \the [src]."))
 		update_icon()
 		return TRUE
@@ -354,13 +354,22 @@
 		if(do_after(user, 1 SECONDS))
 			visible_message(SPAN_NOTICE("[user] slots \the [access_cable] into \the [src]."))
 			universal_port.insert_cable(access_cable, user)
+
+	if(user?.a_intent == I_HURT && maxhealth)
+		user.do_attack_animation(src)
+		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+		visible_message(SPAN_DANGER("[user] [pick(attacking_item.attack_verb)] \the [src]!"))
+		add_damage(attacking_item.force, attacking_item.damage_flags(), attacking_item.damtype, attacking_item.armor_penetration, attacking_item)
+		playsound(user, 'sound/effects/metalhit.ogg', attacking_item.get_clamped_volume())
+		return TRUE
+
 	return ..()
 
 /obj/item/modular_computer/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	var/mob/M = user
 	if(use_check_and_message(M))
 		return
-	if(istype(over, /obj/machinery/power/apc) && tesla_link)
+	if(istype(over, /obj/structure/machinery/power/apc) && tesla_link)
 		return over.attackby(src, M)
 	if(!istype(over, /atom/movable/screen) && !(over == src))
 		return attack_self(M)

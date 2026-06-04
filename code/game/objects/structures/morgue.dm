@@ -213,7 +213,7 @@
 		icon_state = "crema_active"
 		set_light(3, 1, LIGHT_COLOR_FIRE)
 		return
-	for(var/obj/machinery/button/switch/crematorium/C in range(3, src))
+	for(var/obj/structure/machinery/button/switch/crematorium/C in range(3, src))
 		C.active = FALSE
 		C.update_icon()
 	if(connected)
@@ -344,14 +344,14 @@
  * Crematorium switch
  */
 
-/obj/machinery/button/switch/crematorium
+/obj/structure/machinery/button/switch/crematorium
 	name = "crematorium igniter"
 	desc = "Burn baby burn!"
 	req_access = list(ACCESS_CREMATORIUM)
 	id = 1
 	var/cremate_dir // something for mappers, setting will make a crematorium in one step in this direction toggle
 
-/obj/machinery/button/switch/crematorium/attack_hand(mob/user)
+/obj/structure/machinery/button/switch/crematorium/attack_hand(mob/user)
 	..()
 	if(!allowed(user))
 		to_chat(user, SPAN_WARNING("Access denied."))

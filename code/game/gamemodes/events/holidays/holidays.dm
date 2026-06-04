@@ -43,7 +43,9 @@ var/global/Holiday = null
 				if(1)							Holiday = "C'thur Independence Day"
 				if(3)							Holiday = "Dominian Feast of Devotion"
 				if(10)
-					if(YY==24)					Holiday = "Lunarian Zhongqiu Jie Festival"
+					if(YY==24)					Holiday = "Lunarian Zhongqiu Jie Festival and New Gibson Thorrablot"
+					else						Holiday = "New Gisbon Thorrablot"
+
 				if(14)							Holiday = "Valentine's Day"
 				if(29)							Holiday = "Leap Day"
 
@@ -86,6 +88,7 @@ var/global/Holiday = null
 					Holiday = "New Gibson Remembrance Day"
 					if(prob(50))				Holiday = "Skrell Qu'Qyu-Poxii"
 				if(15)							Holiday = "Colettish Republic Day"
+				if(19) Holiday = "Thyellan Neon Night Rememberance Day"
 				if(18)							Holiday = "Callistean Landfall Day"
 				if(22)							Holiday = "Colettish Civil Guard Day"
 				if(26)							Holiday = "Callistean Pigeon Day"
@@ -114,7 +117,6 @@ var/global/Holiday = null
 			switch(DD)
 				if(3)							Holiday = "Dominian Feast of Joy"
 				if(5)							Holiday = "Si'akh Final Judgement Day"
-				if(6)							Holiday = "New Gibson Celebration of the Solstice"
 				if(19)							Holiday = "Talk-Like-a-Pirate Day"
 				if(24)							Holiday = "Tau Ceti Heritage Day"
 

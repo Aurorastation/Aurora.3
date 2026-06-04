@@ -80,10 +80,14 @@
 		return
 
 	var/obj/item/reagent_containers/food/drinks/cans/C = cans[length(cans)]
-	cans -= C
 	remove_from_storage(C, get_turf(user))
 	user.put_in_hands(C)
 	update_icon()
+
+/obj/item/storage/box/fancy/yoke/remove_from_storage(obj/item/W, atom/new_location)
+	. = ..()
+	if(.)
+		cans -= W
 
 /obj/item/storage/box/fancy/yoke/attackby(obj/item/attacking_item, mob/user)
 	to_chat(user, SPAN_WARNING("\The [src] cannot be refilled with items!"))
@@ -103,6 +107,7 @@
 			/obj/item/reagent_containers/food/drinks/cans/lemon_lime,
 			/obj/item/reagent_containers/food/drinks/cans/iced_tea,
 			/obj/item/reagent_containers/food/drinks/cans/grape_juice,
+			/obj/item/reagent_containers/food/drinks/cans/cherry_juice,
 			/obj/item/reagent_containers/food/drinks/cans/tonic,
 			/obj/item/reagent_containers/food/drinks/cans/sodawater,
 			/obj/item/reagent_containers/food/drinks/cans/root_beer,
@@ -171,6 +176,9 @@
 
 /obj/item/storage/box/fancy/yoke/grape_juice
 	starts_with = list(/obj/item/reagent_containers/food/drinks/cans/grape_juice = 6)
+
+/obj/item/storage/box/fancy/yoke/cherry_juice
+	starts_with = list(/obj/item/reagent_containers/food/drinks/cans/cherry_juice = 6)
 
 /obj/item/storage/box/fancy/yoke/tonic
 	starts_with = list(/obj/item/reagent_containers/food/drinks/cans/tonic = 6)

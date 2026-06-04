@@ -370,15 +370,14 @@ and some alternative things that are toxic to other life, such as radium and mut
 
 	updatehealth()
 
-/mob/living/carbon/human/proc/diona_regen_progress(var/datum/dionastats/DS)
+/mob/living/carbon/human/proc/diona_regen_progress(datum/dionastats/DS)
 	if(!DS)
 		return
 	if(DS.regen_limb_progress > LIMB_REGROW_REQUIREMENT)
-		DS.regen_limb.Invoke()
+		DS.regen_limb?.Invoke()
 		DS.regen_limb = null
-		if(DS.regen_extra)
-			DS.regen_extra.Invoke()
-			DS.regen_extra = null
+		DS.regen_extra?.Invoke()
+		DS.regen_extra = null
 	var/progress = nutrition * 0.45
 	adjustNutritionLoss(nutrition * 0.15)
 	progress += DS.stored_energy * 0.3
@@ -501,7 +500,7 @@ Lightstates:
 	if (DS.dionatype == 0)
 		return health
 	else
-		return health+(maxHealth*0.5)
+		return health+(maxhealth*0.5)
 
 /mob/living/carbon/proc/get_dionastats()
 	return

@@ -243,7 +243,13 @@
 	locked = TRUE
 	secure = TRUE
 	secure_lights = TRUE
-	health = 200
+	maxhealth = OBJECT_HEALTH_VERY_HIGH
+	armor = list(
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
+		LASER = ARMOR_LASER_MEDIUM,
+		ENERGY = ARMOR_ENERGY_RESISTANT,
+	)
 
 /obj/structure/closet/crate/plastic
 	name = "plastic crate"
@@ -548,7 +554,7 @@
 				S.forceMove(src)
 				break
 		if(!found)
-			for(var/obj/machinery/M in loc)
+			for(var/obj/structure/machinery/M in loc)
 				if(!M.anchored)
 					M.forceMove(src)
 					break
@@ -575,7 +581,7 @@
 				S.forceMove(src)
 				break
 		if(!found)
-			for(var/obj/machinery/M in loc)
+			for(var/obj/structure/machinery/M in loc)
 				if(!M.anchored)
 					M.forceMove(src)
 					break

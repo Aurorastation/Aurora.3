@@ -1,9 +1,9 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aa" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 8
 	},
-/obj/machinery/meter,
+/obj/structure/machinery/meter,
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
@@ -19,7 +19,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/door/window/southleft{
+/obj/structure/machinery/door/window/southleft{
 	name = "display case";
 	req_access = list(110)
 	},
@@ -51,7 +51,7 @@
 /turf/simulated/floor/exoplanet/basalt,
 /area/trove/beach)
 "an" = (
-/obj/machinery/power/supermatter/shard,
+/obj/structure/machinery/power/supermatter/shard,
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/art,
 /area/trove/vault)
@@ -92,7 +92,7 @@
 /turf/simulated/floor/exoplanet/grass/moghes,
 /area/trove/beach/landing)
 "az" = (
-/obj/machinery/door/blast/regular/open{
+/obj/structure/machinery/door/blast/regular/open{
 	dir = 2;
 	name = "Safety Blast Doors";
 	id = "idriscruiser_shuttle_blast"
@@ -119,7 +119,7 @@
 /turf/simulated/floor/exoplanet/water/shallow/konyang/beach,
 /area/trove/beach)
 "aC" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8;
 	level = 2
 	},
@@ -134,10 +134,10 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 1
 	},
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	pixel_x = -28;
 	pixel_y = -5;
 	req_access = list(222)
@@ -157,7 +157,7 @@
 /turf/unsimulated/mineral/konyang,
 /area/trove/tunnels)
 "aI" = (
-/obj/machinery/atmospherics/binary/pump/on{
+/obj/structure/machinery/atmospherics/binary/pump/on{
 	name = "Scrubbers to Waste"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -168,7 +168,7 @@
 /area/trove/beach)
 "aO" = (
 /obj/structure/extinguisher_cabinet/west,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
 /obj/random/highvalue/cash,
 /obj/random/highvalue/cash,
@@ -186,10 +186,10 @@
 	icon_state = "4-8"
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -221,7 +221,7 @@
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
 "bf" = (
-/obj/machinery/door/urban{
+/obj/structure/machinery/door/urban{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/wood/walnut,
@@ -233,7 +233,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/door/window/southleft{
+/obj/structure/machinery/door/window/southleft{
 	name = "display case";
 	req_access = list(110)
 	},
@@ -250,7 +250,7 @@
 /turf/simulated/floor/exoplanet/dirt_konyang/sand,
 /area/trove/beach)
 "bo" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	icon_state = "2-8"
 	},
@@ -274,7 +274,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/closet/walllocker/emerglocker/east,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
@@ -289,7 +289,7 @@
 /turf/simulated/floor/carpet/red,
 /area/trove/vault)
 "br" = (
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	pixel_y = -5;
 	pixel_x = -30
 	},
@@ -302,7 +302,7 @@
 /turf/simulated/floor/exoplanet/asphalt,
 /area/trove/tunnels)
 "bC" = (
-/obj/machinery/light/small/floor,
+/obj/structure/machinery/light/small/floor,
 /obj/structure/bed/stool/bar/padded/brown{
 	dir = 8
 	},
@@ -331,7 +331,7 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/trove/vault)
@@ -375,7 +375,7 @@
 /turf/simulated/floor/exoplanet/asphalt,
 /area/trove/tunnels)
 "cf" = (
-/obj/item/gun/energy/lasercannon,
+/obj/item/gun/energy/rifle/laser/heavy,
 /obj/random/dirt_75,
 /turf/simulated/floor/wood/mahogany,
 /area/trove/vault)
@@ -388,10 +388,10 @@
 /turf/simulated/floor/exoplanet/basalt,
 /area/trove/beach)
 "ck" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
@@ -410,13 +410,13 @@
 /area/trove/vault)
 "cw" = (
 /obj/random/dirt_75,
-/obj/machinery/ammunition_loader/bruiser{
+/obj/structure/machinery/ammunition_loader/bruiser{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/barren/cave,
 /area/trove/vault)
 "cA" = (
-/obj/machinery/atmospherics/unary/engine{
+/obj/structure/machinery/atmospherics/unary/engine{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/plating,
@@ -440,7 +440,7 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced,
-/obj/machinery/door/window/southleft{
+/obj/structure/machinery/door/window/southleft{
 	name = "display case";
 	req_access = list(110);
 	dir = 1
@@ -477,7 +477,7 @@
 /turf/simulated/floor/lino/diamond,
 /area/trove/vault)
 "cJ" = (
-/obj/machinery/atmospherics/pipe/tank/carbon_dioxide,
+/obj/structure/machinery/atmospherics/pipe/tank/carbon_dioxide,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/trove/vault)
@@ -489,13 +489,13 @@
 "cO" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/machinery/computer/terminal/inactive{
+/obj/structure/machinery/computer/terminal/inactive{
 	dir = 8
 	},
 /turf/simulated/floor/marble/dark,
 /area/trove/vault)
 "cR" = (
-/obj/machinery/recharge_station,
+/obj/structure/machinery/recharge_station,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/sign/nosmoking_1{
 	pixel_x = -26
@@ -532,12 +532,12 @@
 /turf/template_noop,
 /area/trove/tunnels)
 "dh" = (
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/light/small/emergency{
 	dir = 8;
 	pixel_x = -11
 	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/atmospherics/portables_connector/aux{
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/atmospherics/portables_connector/aux{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -554,7 +554,7 @@
 /turf/simulated/floor/exoplanet/water/shallow/konyang/beach,
 /area/trove/beach)
 "dj" = (
-/obj/machinery/hologram/holopad/long_range,
+/obj/structure/machinery/hologram/holopad/long_range,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/lino/diamond,
@@ -567,7 +567,7 @@
 /turf/simulated/floor/carpet/red,
 /area/trove/vault)
 "dl" = (
-/obj/machinery/alarm/south{
+/obj/structure/machinery/alarm/south{
 	req_one_access = list(229, 217)
 	},
 /obj/structure/bed/stool/chair/padded/red{
@@ -616,7 +616,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/door/window/southleft{
+/obj/structure/machinery/door/window/southleft{
 	name = "display case";
 	req_access = list(110)
 	},
@@ -630,7 +630,7 @@
 /turf/simulated/floor/exoplanet/barren,
 /area/trove/vault)
 "dw" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 9
 	},
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
@@ -654,7 +654,7 @@
 /turf/simulated/floor/exoplanet/asphalt,
 /area/trove/tunnels)
 "dB" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -671,7 +671,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	pixel_x = 12;
 	pixel_y = -28;
 	dir = 4
@@ -680,7 +680,7 @@
 /turf/simulated/floor/tiled/full,
 /area/trove/vault)
 "dF" = (
-/obj/machinery/alarm/south{
+/obj/structure/machinery/alarm/south{
 	req_one_access = list(229, 217)
 	},
 /obj/structure/bed/stool/chair/shuttle{
@@ -700,12 +700,12 @@
 	},
 /area/trove/vault)
 "dK" = (
-/obj/machinery/vending/cola,
+/obj/structure/machinery/vending/cola,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/full,
 /area/trove/vault)
 "dQ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable{
@@ -714,7 +714,7 @@
 /obj/structure/cable{
 	icon_state = "2-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /obj/random/highvalue/cash,
@@ -745,11 +745,11 @@
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4;
 	pixel_x = 12
 	},
@@ -785,12 +785,12 @@
 /turf/simulated/floor/carpet/red,
 /area/trove/vault)
 "ea" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/vending/wallmed1{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/vending/wallmed1{
 	pixel_x = 24;
 	req_access = null
 	},
@@ -835,7 +835,7 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced,
-/obj/machinery/door/window/southleft{
+/obj/structure/machinery/door/window/southleft{
 	name = "display case";
 	req_access = list(110);
 	dir = 1
@@ -845,7 +845,7 @@
 /turf/simulated/floor/exoplanet/barren/cave,
 /area/trove/vault)
 "eq" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 8
 	},
 /turf/simulated/wall/shuttle/idris,
@@ -858,10 +858,10 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/random/highvalue/cash,
 /obj/random/highvalue/cash,
 /obj/random/highvalue/cash,
@@ -880,10 +880,10 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 1
 	},
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
+/obj/structure/machinery/embedded_controller/radio/airlock/docking_port{
 	pixel_x = 24;
 	dir = 8;
 	frequency = 1380
@@ -907,10 +907,10 @@
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -937,15 +937,15 @@
 /turf/simulated/floor/exoplanet/water/konyang,
 /area/trove/beach)
 "eL" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8;
 	must_start_working = 1
 	},
-/obj/machinery/airlock_sensor{
+/obj/structure/machinery/airlock_sensor{
 	pixel_x = -24;
 	dir = 4
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
@@ -958,7 +958,7 @@
 	dir = 6
 	},
 /obj/random/dirt_75,
-/obj/machinery/computer/terminal/inactive{
+/obj/structure/machinery/computer/terminal/inactive{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1013,7 +1013,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/door/window/southleft{
+/obj/structure/machinery/door/window/southleft{
 	name = "display case";
 	req_access = list(110)
 	},
@@ -1078,12 +1078,12 @@
 	dir = 6
 	},
 /obj/effect/floor_decal/industrial/warning/full,
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 8
 	},
-/obj/machinery/alarm/east,
+/obj/structure/machinery/alarm/east,
 /obj/random/dirt_75,
-/obj/machinery/power/smes/batteryrack/makeshift,
+/obj/structure/machinery/power/smes/batteryrack/makeshift,
 /turf/simulated/floor/tiled/dark,
 /area/trove/vault)
 "fK" = (
@@ -1109,7 +1109,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/door/window/southleft{
+/obj/structure/machinery/door/window/southleft{
 	name = "display case";
 	req_access = list(110)
 	},
@@ -1118,7 +1118,7 @@
 /turf/simulated/floor/exoplanet/barren/cave,
 /area/trove/vault)
 "fS" = (
-/obj/machinery/ship_weapon/grauwolf,
+/obj/structure/machinery/ship_weapon/grauwolf,
 /turf/simulated/floor/plating/asteroid,
 /area/trove/vault)
 "fU" = (
@@ -1129,7 +1129,7 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced,
-/obj/machinery/door/window/southleft{
+/obj/structure/machinery/door/window/southleft{
 	name = "display case";
 	req_access = list(110);
 	dir = 1
@@ -1144,7 +1144,7 @@
 /area/trove/beach)
 "fX" = (
 /obj/random/dirt_75,
-/obj/machinery/portable_atmospherics/canister/phoron,
+/obj/structure/machinery/portable_atmospherics/canister/phoron,
 /turf/simulated/floor/plating/asteroid,
 /area/trove/vault)
 "fY" = (
@@ -1153,7 +1153,7 @@
 /turf/simulated/floor/exoplanet/marble/dark,
 /area/trove/vault)
 "fZ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
 /turf/simulated/wall/shuttle/dark/cardinal/red,
@@ -1177,14 +1177,14 @@
 "gf" = (
 /obj/random/dirt_75,
 /obj/random/ammo,
-/obj/item/gun/energy/lawgiver,
+/obj/item/gun/energy/acp,
 /turf/simulated/floor/wood/mahogany,
 /area/trove/vault)
 "gh" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
-/obj/machinery/iff_beacon/name_change,
+/obj/structure/machinery/iff_beacon/name_change,
 /obj/random/dirt_75,
 /turf/simulated/floor/reinforced/airless,
 /area/trove/vault)
@@ -1247,7 +1247,7 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced,
-/obj/machinery/door/window/southleft{
+/obj/structure/machinery/door/window/southleft{
 	name = "display case";
 	req_access = list(110);
 	dir = 1
@@ -1274,14 +1274,14 @@
 "gG" = (
 /obj/structure/cable/green,
 /obj/random/dirt_75,
-/obj/machinery/constructable_frame/machine_frame,
+/obj/structure/machinery/constructable_frame/machine_frame,
 /turf/simulated/floor/tiled,
 /area/trove/vault)
 "gH" = (
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -1326,10 +1326,10 @@
 	dir = 4
 	},
 /obj/structure/extinguisher_cabinet/west,
-/obj/machinery/atmospherics/pipe/manifold/visible/black{
+/obj/structure/machinery/atmospherics/pipe/manifold/visible/black{
 	dir = 4
 	},
-/obj/machinery/meter{
+/obj/structure/machinery/meter{
 	name = "Fuel Reserve"
 	},
 /obj/random/dirt_75,
@@ -1341,7 +1341,7 @@
 /area/trove/beach)
 "he" = (
 /obj/structure/bed/stool/chair/shuttle,
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 7
 	},
@@ -1350,7 +1350,7 @@
 /area/trove/vault)
 "hf" = (
 /obj/random/dirt_75,
-/obj/machinery/computer/terminal/inactive,
+/obj/structure/machinery/computer/terminal/inactive,
 /turf/simulated/floor/tiled/full,
 /area/trove/vault)
 "hi" = (
@@ -1386,7 +1386,7 @@
 /turf/simulated/floor/plating/asteroid,
 /area/trove/vault)
 "hn" = (
-/obj/machinery/atmospherics/pipe/manifold/visible/black{
+/obj/structure/machinery/atmospherics/pipe/manifold/visible/black{
 	dir = 4
 	},
 /turf/simulated/wall/shuttle/idris,
@@ -1479,7 +1479,7 @@
 /turf/template_noop,
 /area/trove/tunnels)
 "hY" = (
-/obj/machinery/door/blast/regular/open{
+/obj/structure/machinery/door/blast/regular/open{
 	dir = 4;
 	name = "Safety Blast Doors";
 	id = "idriscruiser_shuttle_blast"
@@ -1538,10 +1538,10 @@
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
 /obj/random/dirt_75,
@@ -1555,7 +1555,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/door/window/southleft{
+/obj/structure/machinery/door/window/southleft{
 	name = "display case";
 	req_access = list(110)
 	},
@@ -1567,10 +1567,10 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	dir = 6;
 	id = "gd_shuttle";
 	name = "Desk Shutters";
@@ -1614,14 +1614,14 @@
 /turf/simulated/floor/wood/mahogany,
 /area/trove/vault)
 "iK" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 8
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/trove/vault)
 "iL" = (
-/obj/machinery/atmospherics/pipe/manifold/visible/black{
+/obj/structure/machinery/atmospherics/pipe/manifold/visible/black{
 	dir = 1
 	},
 /turf/simulated/wall/shuttle/idris,
@@ -1669,12 +1669,12 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
-/obj/machinery/media/jukebox/gramophone{
+/obj/structure/machinery/media/jukebox/gramophone{
 	anchored = 1
 	},
 /obj/random/dirt_75,
@@ -1696,7 +1696,7 @@
 /turf/simulated/floor/exoplanet/water/konyang,
 /area/trove/ocean)
 "jb" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/universal,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/universal,
 /turf/simulated/wall/shuttle/dark/cardinal/red,
 /area/trove/vault)
 "jc" = (
@@ -1718,7 +1718,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/door/window/southleft{
+/obj/structure/machinery/door/window/southleft{
 	name = "display case";
 	req_access = list(110)
 	},
@@ -1735,7 +1735,7 @@
 /area/trove/vault)
 "jh" = (
 /obj/effect/floor_decal/industrial/warning/full,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -1783,7 +1783,7 @@
 /turf/simulated/floor/exoplanet/water/konyang,
 /area/trove/ocean)
 "jz" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 10
 	},
 /turf/simulated/wall/shuttle/dark/cardinal/coalition,
@@ -1832,17 +1832,17 @@
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
 "kc" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/trove/vault)
 "ke" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/yellow,
-/obj/machinery/meter,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/yellow,
+/obj/structure/machinery/meter,
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
@@ -1888,7 +1888,7 @@
 /turf/simulated/floor/wood/mahogany,
 /area/trove/vault)
 "km" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/operations,
@@ -1898,7 +1898,7 @@
 "kn" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/table/rack,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /obj/item/rig/zero/xanu{
@@ -1971,21 +1971,21 @@
 /area/trove/tunnels)
 "kM" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atmospherics/portables_connector/aux,
-/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/atmospherics/portables_connector/aux,
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/trove/vault)
 "kN" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/cable,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/machinery/constructable_frame/machine_frame,
+/obj/structure/machinery/constructable_frame/machine_frame,
 /turf/simulated/floor/plating,
 /area/trove/vault)
 "kO" = (
@@ -2013,7 +2013,7 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
-/obj/machinery/computer/terminal/inactive,
+/obj/structure/machinery/computer/terminal/inactive,
 /turf/simulated/floor/marble/dark,
 /area/trove/vault)
 "lb" = (
@@ -2117,7 +2117,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/airlock_sensor/airlock_interior{
+/obj/structure/machinery/airlock_sensor/airlock_interior{
 	pixel_x = 27;
 	pixel_y = -6
 	},
@@ -2127,16 +2127,16 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/trove/vault)
 "lH" = (
-/obj/machinery/disposal/small/east,
+/obj/structure/machinery/disposal/small/east,
 /obj/structure/disposalpipe/trunk,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/random/highvalue/cash,
 /obj/random/highvalue/cash,
 /obj/random/highvalue/cash,
@@ -2151,7 +2151,7 @@
 /turf/simulated/floor/wood,
 /area/trove/vault)
 "lL" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1;
 	frequency = 1337;
 	id_tag = "merchant_shuttle_dock_pump"
@@ -2164,11 +2164,11 @@
 /obj/structure/bed/handrail{
 	dir = 4
 	},
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
+/obj/structure/machinery/embedded_controller/radio/airlock/docking_port{
 	dir = 4;
 	pixel_x = -22
 	},
-/obj/machinery/airlock_sensor{
+/obj/structure/machinery/airlock_sensor{
 	frequency = 1380;
 	id_tag = "centcom_shuttle_dock_sensor";
 	pixel_x = -22;
@@ -2192,7 +2192,7 @@
 	dir = 1;
 	icon_state = "pipe-c"
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /obj/structure/extinguisher_cabinet/west,
@@ -2222,10 +2222,10 @@
 /obj/structure/cable/green{
 	icon_state = "2-4"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
 /obj/item/stack/material/gold/full,
@@ -2264,9 +2264,9 @@
 /obj/item/ammo_magazine/c762,
 /obj/item/ammo_magazine/c762,
 /obj/item/gun/projectile/shotgun/pump,
-/obj/item/storage/box/shotgunshells,
-/obj/item/storage/box/flashshells,
-/obj/item/storage/box/beanbags,
+/obj/item/storage/box/shells/shotgunshells,
+/obj/item/storage/box/shells/flashshells,
+/obj/item/storage/box/shells/beanbags,
 /obj/item/gun/projectile/automatic/tommygun,
 /obj/item/ammo_magazine/submachinemag,
 /obj/item/ammo_magazine/submachinemag,
@@ -2276,7 +2276,7 @@
 /obj/item/ammo_magazine/mc10mm,
 /obj/item/gun/projectile/gauss,
 /obj/item/ammo_magazine/gauss,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8;
 	icon_state = "tube_empty"
 	},
@@ -2341,7 +2341,7 @@
 /turf/simulated/floor/exoplanet/grass/moghes,
 /area/trove/beach)
 "mx" = (
-/obj/item/gun/energy/sniperrifle,
+/obj/item/gun/energy/rifle/laser/sniper,
 /obj/random/dirt_75,
 /turf/simulated/floor/wood/mahogany,
 /area/trove/vault)
@@ -2364,13 +2364,13 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 8
 	},
-/obj/machinery/airlock_sensor/airlock_interior{
+/obj/structure/machinery/airlock_sensor/airlock_interior{
 	pixel_y = 33;
 	pixel_x = -29
 	},
@@ -2409,10 +2409,10 @@
 /turf/simulated/floor/wood/mahogany,
 /area/trove/vault)
 "mZ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/door/firedoor{
+/obj/structure/machinery/door/firedoor{
 	dir = 4;
 	req_one_access = list(220)
 	},
@@ -2423,7 +2423,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/machinery/door/airlock/command{
+/obj/structure/machinery/door/airlock/command{
 	dir = 4;
 	req_access = list(220);
 	name = "Cockpit"
@@ -2440,18 +2440,18 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 8
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
-/obj/machinery/light{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/obj/structure/machinery/light{
 	dir = 4
 	},
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
+/obj/structure/machinery/embedded_controller/radio/airlock/docking_port{
 	dir = 4;
 	pixel_x = -22
 	},
-/obj/machinery/airlock_sensor{
+/obj/structure/machinery/airlock_sensor{
 	frequency = 1380;
 	id_tag = "centcom_shuttle_dock_sensor";
 	pixel_x = -22;
@@ -2489,7 +2489,7 @@
 /turf/simulated/floor/exoplanet/barren/cave,
 /area/trove/vault)
 "nw" = (
-/obj/machinery/door/urban,
+/obj/structure/machinery/door/urban,
 /turf/simulated/floor/exoplanet/wood/walnut,
 /area/trove/jungle)
 "nz" = (
@@ -2510,7 +2510,7 @@
 /obj/item/storage/bag/inflatable{
 	pixel_y = 4
 	},
-/obj/machinery/embedded_controller/radio/simple_docking_controller{
+/obj/structure/machinery/embedded_controller/radio/simple_docking_controller{
 	pixel_x = 24;
 	id_tag = "ranger_shuttle_dock";
 	name = "Ranger Shuttle docking port controller";
@@ -2525,7 +2525,7 @@
 /turf/simulated/floor/exoplanet/grass/moghes,
 /area/trove/beach)
 "nI" = (
-/obj/machinery/iff_beacon/name_change,
+/obj/structure/machinery/iff_beacon/name_change,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
@@ -2612,7 +2612,7 @@
 /turf/simulated/floor/wood/mahogany,
 /area/trove/vault)
 "oi" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang/sand,
@@ -2639,12 +2639,12 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	dir = 1;
 	pixel_x = -28;
 	pixel_y = 12
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/trove/vault)
@@ -2715,14 +2715,14 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/machinery/door/firedoor{
+/obj/structure/machinery/door/firedoor{
 	dir = 4;
 	req_one_access = list(220)
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
 	},
-/obj/machinery/door/airlock/maintenance_hatch{
+/obj/structure/machinery/door/airlock/maintenance_hatch{
 	dir = 8;
 	req_access = list(220);
 	name = "Engine Compartment"
@@ -2732,9 +2732,9 @@
 /turf/simulated/floor/plating,
 /area/trove/vault)
 "oQ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
-/obj/machinery/vending/wallmed1{
+/obj/structure/machinery/vending/wallmed1{
 	name = "Medical Supplies";
 	req_access = null;
 	pixel_x = -32
@@ -2748,7 +2748,7 @@
 /obj/effect/floor_decal/spline/plain/orange{
 	dir = 6
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	use_power = 1;
 	icon_state = "map_vent_out";
 	dir = 8
@@ -2789,7 +2789,7 @@
 /turf/simulated/floor/plating/asteroid,
 /area/trove/vault)
 "pe" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -2848,7 +2848,7 @@
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
 "pP" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 6
 	},
 /obj/random/dirt_75,
@@ -2893,7 +2893,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/door/window/southleft{
+/obj/structure/machinery/door/window/southleft{
 	name = "display case";
 	req_access = list(110)
 	},
@@ -2914,9 +2914,9 @@
 /turf/simulated/floor/exoplanet/asphalt,
 /area/trove/tunnels)
 "qn" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/effect/floor_decal/corner/orange/diagonal,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -2927,7 +2927,7 @@
 	dir = 10
 	},
 /obj/random/dirt_75,
-/obj/machinery/computer/terminal/inactive{
+/obj/structure/machinery/computer/terminal/inactive{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2945,7 +2945,7 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced,
-/obj/machinery/door/window/southleft{
+/obj/structure/machinery/door/window/southleft{
 	name = "display case";
 	req_access = list(110);
 	dir = 1
@@ -2956,11 +2956,11 @@
 /area/trove/vault)
 "qx" = (
 /obj/structure/table/reinforced/steel,
-/obj/machinery/door/window/southleft{
+/obj/structure/machinery/door/window/southleft{
 	name = "display case";
 	req_one_access = list(229, 217)
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /obj/item/gun/energy/pistol/goldendeep,
@@ -2969,7 +2969,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/trove/vault)
 "qz" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
@@ -2991,8 +2991,8 @@
 /turf/simulated/floor/exoplanet/grass/moghes,
 /area/trove/beach/landing)
 "qD" = (
-/obj/machinery/portable_atmospherics/canister/air,
-/obj/machinery/atmospherics/portables_connector/aux{
+/obj/structure/machinery/portable_atmospherics/canister/air,
+/obj/structure/machinery/atmospherics/portables_connector/aux{
 	dir = 1
 	},
 /obj/random/dirt_75,
@@ -3026,7 +3026,7 @@
 /turf/simulated/floor/exoplanet/grass/moghes,
 /area/trove/beach)
 "qO" = (
-/obj/machinery/portable_atmospherics/canister/empty/oxygen{
+/obj/structure/machinery/portable_atmospherics/canister/empty/oxygen{
 	icon_state = "blue-1"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -3036,7 +3036,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/random/dirt_75,
 /turf/simulated/floor/lino/diamond,
 /area/trove/vault)
@@ -3054,7 +3054,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/door/window/southleft{
+/obj/structure/machinery/door/window/southleft{
 	name = "display case";
 	req_access = list(110)
 	},
@@ -3104,13 +3104,13 @@
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 5
 	},
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
 	},
-/obj/machinery/vending/wallmed1{
+/obj/structure/machinery/vending/wallmed1{
 	pixel_x = -28;
 	name = "\improper Coalition NanoMed";
 	req_access = list(222)
@@ -3162,7 +3162,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/door/window/southleft{
+/obj/structure/machinery/door/window/southleft{
 	name = "display case";
 	req_access = list(110)
 	},
@@ -3204,7 +3204,7 @@
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/orange/diagonal,
@@ -3212,10 +3212,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/trove/vault)
 "rF" = (
-/obj/machinery/computer/ship/engines{
+/obj/structure/machinery/computer/ship/engines{
 	dir = 8
 	},
-/obj/machinery/alarm/east{
+/obj/structure/machinery/alarm/east{
 	req_one_access = list(221,222)
 	},
 /obj/structure/cable/green{
@@ -3235,9 +3235,9 @@
 /turf/simulated/floor/wood/mahogany,
 /area/trove/vault)
 "rP" = (
-/obj/machinery/suit_storage_unit/standard_unit,
+/obj/structure/machinery/suit_storage_unit/standard_unit,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/alarm/north{
+/obj/structure/machinery/alarm/north{
 	req_one_access = list(220)
 	},
 /obj/random/dirt_75,
@@ -3266,7 +3266,7 @@
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
 "rY" = (
-/obj/machinery/atmospherics/unary/engine{
+/obj/structure/machinery/atmospherics/unary/engine{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -3283,13 +3283,13 @@
 /turf/simulated/floor/exoplanet/water/shallow/konyang/beach,
 /area/trove/ocean)
 "sd" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
 /obj/structure/bed/handrail{
 	dir = 4
 	},
-/obj/machinery/airlock_sensor/airlock_exterior{
+/obj/structure/machinery/airlock_sensor/airlock_exterior{
 	dir = 4;
 	pixel_x = -21;
 	pixel_y = 4
@@ -3311,7 +3311,7 @@
 /turf/simulated/floor/exoplanet/asphalt,
 /area/trove/vault)
 "sl" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 5
 	},
 /turf/simulated/wall/shuttle/dark/cardinal/coalition,
@@ -3339,7 +3339,7 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced,
-/obj/machinery/door/window/southleft{
+/obj/structure/machinery/door/window/southleft{
 	name = "display case";
 	req_access = list(110);
 	dir = 1
@@ -3369,7 +3369,7 @@
 /obj/item/stack/cable_coil{
 	pixel_y = -6
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /obj/item/cell/high,
@@ -3387,7 +3387,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/door/window/southleft{
+/obj/structure/machinery/door/window/southleft{
 	name = "display case";
 	req_access = list(110)
 	},
@@ -3405,15 +3405,15 @@
 	},
 /area/trove/vault)
 "sM" = (
-/obj/machinery/mining/drill,
+/obj/structure/machinery/mining/drill,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
 "sN" = (
-/obj/machinery/portable_atmospherics/canister/air,
-/obj/machinery/atmospherics/portables_connector/aux{
+/obj/structure/machinery/portable_atmospherics/canister/air,
+/obj/structure/machinery/atmospherics/portables_connector/aux{
 	dir = 1
 	},
-/obj/machinery/alarm/south{
+/obj/structure/machinery/alarm/south{
 	req_one_access = list(220)
 	},
 /obj/random/dirt_75,
@@ -3506,7 +3506,7 @@
 /area/trove/beach)
 "tq" = (
 /obj/item/gun/bang/colt,
-/obj/machinery/floor_light/dance,
+/obj/structure/machinery/floor_light/dance,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/marble/dark,
 /area/trove/vault)
@@ -3552,7 +3552,7 @@
 /area/trove/vault)
 "tK" = (
 /obj/random/dirt_75,
-/obj/machinery/ship_weapon/blaster,
+/obj/structure/machinery/ship_weapon/blaster,
 /turf/simulated/floor/plating/asteroid,
 /area/trove/vault)
 "tO" = (
@@ -3631,7 +3631,7 @@
 /turf/simulated/mineral/lava,
 /area/trove/vault)
 "uE" = (
-/obj/machinery/portable_atmospherics/canister/phoron,
+/obj/structure/machinery/portable_atmospherics/canister/phoron,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating/asteroid,
 /area/trove/vault)
@@ -3679,10 +3679,10 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/alarm/west{
+/obj/structure/machinery/alarm/west{
 	req_one_access = list(229, 217)
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -3746,7 +3746,7 @@
 /turf/simulated/floor/exoplanet/wood/walnut,
 /area/trove/beach)
 "vm" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
 /turf/simulated/wall/shuttle/dark/cardinal/red,
@@ -3837,18 +3837,18 @@
 /turf/simulated/floor/exoplanet/grass/moghes,
 /area/trove/beach)
 "vO" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/trove/beach)
 "vP" = (
-/obj/machinery/atmospherics/pipe/simple/visible/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/fuel{
 	dir = 10
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/trove/vault)
 "vU" = (
-/obj/machinery/shipsensors/weak,
+/obj/structure/machinery/shipsensors/weak,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
@@ -3860,7 +3860,7 @@
 /turf/simulated/floor/exoplanet/grass/moghes,
 /area/trove/beach)
 "vX" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/random/dirt_75,
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/trove/vault)
@@ -3907,13 +3907,13 @@
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
-/obj/machinery/light/small/floor,
+/obj/structure/machinery/light/small/floor,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
 	},
@@ -3932,7 +3932,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/hologram/holopad/long_range,
+/obj/structure/machinery/hologram/holopad/long_range,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/trove/vault)
@@ -3958,7 +3958,7 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/blue{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/blue{
 	dir = 5
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -4012,7 +4012,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/door/window/southleft{
+/obj/structure/machinery/door/window/southleft{
 	name = "display case";
 	req_access = list(110)
 	},
@@ -4100,7 +4100,7 @@
 /area/trove/beach)
 "xl" = (
 /obj/effect/decal/cleanable/vomit,
-/obj/machinery/floor_light/dance,
+/obj/structure/machinery/floor_light/dance,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/marble/dark,
 /area/trove/vault)
@@ -4135,7 +4135,7 @@
 /turf/simulated/floor/asphalt,
 /area/trove/tunnels)
 "xv" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -4162,7 +4162,7 @@
 	dir = 10
 	},
 /obj/random/dirt_75,
-/obj/machinery/portable_atmospherics/canister/phoron,
+/obj/structure/machinery/portable_atmospherics/canister/phoron,
 /turf/simulated/floor/reinforced/airless,
 /area/trove/vault)
 "xJ" = (
@@ -4174,7 +4174,7 @@
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
 "xQ" = (
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	electrified_until = -1
 	},
 /obj/effect/decal/cleanable/liquid_fuel,
@@ -4188,7 +4188,7 @@
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
 "xU" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/trove/vault)
 "xX" = (
@@ -4223,7 +4223,7 @@
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},
-/obj/machinery/door/blast/regular/open{
+/obj/structure/machinery/door/blast/regular/open{
 	id = "gd_shuttle_windows";
 	dir = 4
 	},
@@ -4264,8 +4264,8 @@
 /turf/simulated/floor/exoplanet/wood/walnut,
 /area/trove/jungle)
 "yS" = (
-/obj/machinery/atmospherics/portables_connector,
-/obj/machinery/portable_atmospherics/canister/air,
+/obj/structure/machinery/atmospherics/portables_connector,
+/obj/structure/machinery/portable_atmospherics/canister/air,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -4276,10 +4276,10 @@
 	icon_state = "4-8"
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -4294,13 +4294,13 @@
 /turf/simulated/floor/wood,
 /area/trove/vault)
 "zc" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /obj/random/highvalue/cash,
@@ -4373,7 +4373,7 @@
 /turf/simulated/floor/exoplanet/grass/moghes,
 /area/trove/beach)
 "zH" = (
-/obj/machinery/floor_light/dance,
+/obj/structure/machinery/floor_light/dance,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/marble/dark,
 /area/trove/vault)
@@ -4383,7 +4383,7 @@
 /turf/simulated/floor/wood/mahogany,
 /area/trove/vault)
 "zL" = (
-/obj/machinery/computer/ship/engines{
+/obj/structure/machinery/computer/ship/engines{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -4405,9 +4405,9 @@
 /turf/simulated/floor/exoplanet/barren,
 /area/trove/beach)
 "zX" = (
-/obj/machinery/atmospherics/binary/pump/scrubber/on,
+/obj/structure/machinery/atmospherics/binary/pump/scrubber/on,
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/trove/vault)
@@ -4460,7 +4460,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/door/window/southleft{
+/obj/structure/machinery/door/window/southleft{
 	name = "display case";
 	req_access = list(110)
 	},
@@ -4503,9 +4503,9 @@
 /area/trove/beach)
 "AE" = (
 /obj/structure/cable/green,
-/obj/machinery/power/apc/super/east,
+/obj/structure/machinery/power/apc/super/east,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/powered/scrubber,
+/obj/structure/machinery/portable_atmospherics/powered/scrubber,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/trove/vault)
@@ -4523,7 +4523,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/door/window/southleft{
+/obj/structure/machinery/door/window/southleft{
 	name = "display case";
 	req_one_access = list(229, 217)
 	},
@@ -4571,7 +4571,7 @@
 /turf/simulated/floor/exoplanet/barren,
 /area/trove/beach/landing)
 "AX" = (
-/obj/machinery/power/terminal{
+/obj/structure/machinery/power/terminal{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -4589,13 +4589,13 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /obj/random/highvalue/cash,
@@ -4643,15 +4643,15 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8;
 	must_start_working = 1
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/structure/machinery/recharger/wallcharger{
 	pixel_y = -26;
 	pixel_x = 3
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/structure/machinery/recharger/wallcharger{
 	pixel_y = -36;
 	pixel_x = 3
 	},
@@ -4676,7 +4676,7 @@
 /area/trove/beach)
 "By" = (
 /obj/effect/floor_decal/industrial/warning/full,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -4736,13 +4736,13 @@
 	dir = 9
 	},
 /obj/random/dirt_75,
-/obj/machinery/computer/terminal/inactive{
+/obj/structure/machinery/computer/terminal/inactive{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/trove/vault)
 "BN" = (
-/obj/machinery/ammunition_loader/francisca{
+/obj/structure/machinery/ammunition_loader/francisca{
 	weapon_id = "Xanu Fighter Francisca"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -4768,10 +4768,10 @@
 	icon_state = "4-8"
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -4796,7 +4796,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/door/window/southleft{
+/obj/structure/machinery/door/window/southleft{
 	name = "display case";
 	req_one_access = list(229, 217)
 	},
@@ -4823,13 +4823,13 @@
 	dir = 8;
 	icon_state = "pipe-c"
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/obj/machinery/atm{
+/obj/structure/machinery/atm{
 	dir = 4;
 	pixel_x = 16
 	},
@@ -4849,7 +4849,7 @@
 /area/trove/tunnels)
 "Ci" = (
 /obj/structure/table/reinforced/steel,
-/obj/machinery/door/window/southleft{
+/obj/structure/machinery/door/window/southleft{
 	name = "display case";
 	req_one_access = list(229, 217)
 	},
@@ -4862,7 +4862,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/trove/vault)
 "Co" = (
-/obj/machinery/atmospherics/unary/engine{
+/obj/structure/machinery/atmospherics/unary/engine{
 	dir = 1
 	},
 /obj/random/dirt_75,
@@ -4905,7 +4905,7 @@
 /obj/structure/cable/green{
 	icon_state = "2-4"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -4939,7 +4939,7 @@
 /obj/effect/floor_decal/spline/plain/orange{
 	dir = 8
 	},
-/obj/machinery/ship_weapon/francisca/compact{
+/obj/structure/machinery/ship_weapon/francisca/compact{
 	pixel_x = -40;
 	pixel_y = -54;
 	weapon_id = "Xanu Fighter Francisca"
@@ -4954,7 +4954,7 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced,
-/obj/machinery/door/window/southleft{
+/obj/structure/machinery/door/window/southleft{
 	name = "display case";
 	req_access = list(110);
 	dir = 1
@@ -4968,7 +4968,7 @@
 /turf/simulated/floor/asphalt,
 /area/trove/tunnels)
 "CO" = (
-/obj/machinery/iff_beacon,
+/obj/structure/machinery/iff_beacon,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
@@ -4990,11 +4990,11 @@
 /turf/simulated/floor/wood/mahogany,
 /area/trove/vault)
 "CQ" = (
-/obj/machinery/atmospherics/pipe/manifold4w/visible/fuel,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/visible/fuel,
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/trove/vault)
 "CR" = (
-/obj/machinery/light/small/floor,
+/obj/structure/machinery/light/small/floor,
 /obj/structure/bed/stool/bar/padded/brown{
 	dir = 4
 	},
@@ -5039,7 +5039,7 @@
 /area/trove/ocean)
 "Dc" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
@@ -5124,7 +5124,7 @@
 /turf/simulated/floor/exoplanet/grass/moghes,
 /area/trove/jungle)
 "DK" = (
-/obj/machinery/floor_light/dance,
+/obj/structure/machinery/floor_light/dance,
 /obj/random/dirt_75,
 /obj/random/contraband/pillbottle,
 /turf/simulated/floor/exoplanet/marble/dark,
@@ -5187,10 +5187,10 @@
 /turf/simulated/floor/exoplanet/dirt_konyang/sand,
 /area/trove/beach)
 "Em" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/wall/shuttle/dark/cardinal/red,
 /area/trove/vault)
 "Et" = (
@@ -5205,7 +5205,7 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced,
-/obj/machinery/door/window/southleft{
+/obj/structure/machinery/door/window/southleft{
 	name = "display case";
 	req_access = list(110);
 	dir = 1
@@ -5220,7 +5220,7 @@
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
 "Ey" = (
-/obj/machinery/hologram/holopad/long_range,
+/obj/structure/machinery/hologram/holopad/long_range,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/bed/handrail{
 	dir = 4
@@ -5298,7 +5298,7 @@
 /turf/simulated/floor/exoplanet/grass/moghes,
 /area/trove/beach/landing)
 "EU" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
 /obj/structure/cable{
@@ -5307,10 +5307,10 @@
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -5340,7 +5340,7 @@
 /obj/structure/cable,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/machinery/power/smes/batteryrack/makeshift,
+/obj/structure/machinery/power/smes/batteryrack/makeshift,
 /turf/simulated/floor/tiled/dark/full,
 /area/trove/vault)
 "Fh" = (
@@ -5369,11 +5369,11 @@
 /turf/simulated/floor/exoplanet/desert/rough,
 /area/trove/jungle)
 "Fs" = (
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 1
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -5412,10 +5412,10 @@
 /obj/structure/disposalpipe/segment{
 	icon_state = "pipe-c"
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -5440,7 +5440,7 @@
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
 "FM" = (
-/obj/machinery/atmospherics/unary/engine,
+/obj/structure/machinery/atmospherics/unary/engine,
 /turf/simulated/floor/exoplanet/plating,
 /area/trove/vault)
 "FN" = (
@@ -5465,7 +5465,7 @@
 /turf/simulated/floor/exoplanet/grass/moghes,
 /area/trove/beach)
 "FS" = (
-/obj/machinery/vending/snack,
+/obj/structure/machinery/vending/snack,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/full,
 /area/trove/vault)
@@ -5487,7 +5487,7 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced,
-/obj/machinery/door/window/southleft{
+/obj/structure/machinery/door/window/southleft{
 	name = "display case";
 	req_access = list(110);
 	dir = 1
@@ -5513,7 +5513,7 @@
 /obj/structure/bed/stool/chair/padded/red{
 	dir = 1
 	},
-/obj/machinery/atm{
+/obj/structure/machinery/atm{
 	pixel_y = -5
 	},
 /obj/random/dirt_75,
@@ -5521,7 +5521,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/trove/vault)
 "Gc" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 9
 	},
 /turf/simulated/wall/shuttle/dark/cardinal/coalition,
@@ -5538,10 +5538,10 @@
 /turf/simulated/floor/wood/mahogany,
 /area/trove/vault)
 "Gi" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /turf/simulated/wall/shuttle/dark/cardinal/red,
@@ -5669,9 +5669,9 @@
 /turf/simulated/floor/exoplanet/barren/cave,
 /area/trove/vault)
 "Gz" = (
-/obj/machinery/hologram/holopad/long_range,
+/obj/structure/machinery/hologram/holopad/long_range,
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/random/highvalue/cash,
 /obj/random/highvalue/cash,
 /obj/random/dirt_75,
@@ -5685,7 +5685,7 @@
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/vault)
 "GF" = (
-/obj/machinery/atmospherics/binary/pump/fuel,
+/obj/structure/machinery/atmospherics/binary/pump/fuel,
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
 /obj/item/stack/material/silver/full,
 /obj/random/dirt_75,
@@ -5751,7 +5751,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
@@ -5763,7 +5763,7 @@
 /turf/simulated/floor/exoplanet/asphalt,
 /area/trove/tunnels)
 "GY" = (
-/obj/machinery/shipsensors/weak,
+/obj/structure/machinery/shipsensors/weak,
 /obj/structure/railing/mapped{
 	dir = 4
 	},
@@ -5790,10 +5790,10 @@
 /turf/simulated/floor/plating/asteroid,
 /area/trove/vault)
 "Hd" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 1
 	},
-/obj/machinery/airlock_sensor{
+/obj/structure/machinery/airlock_sensor{
 	pixel_x = 24;
 	pixel_y = 6;
 	dir = 8
@@ -5844,7 +5844,7 @@
 /turf/simulated/floor/exoplanet/water/konyang,
 /area/trove/beach)
 "Ht" = (
-/obj/machinery/atmospherics/binary/pump/high_power{
+/obj/structure/machinery/atmospherics/binary/pump/high_power{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -5866,13 +5866,13 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/power/terminal{
+/obj/structure/machinery/power/terminal{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /obj/random/dirt_75,
@@ -5889,10 +5889,10 @@
 /turf/simulated/floor/exoplanet/wood/walnut,
 /area/trove/beach)
 "HK" = (
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	pixel_x = 28
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 5
 	},
 /obj/random/dirt_75,
@@ -5927,19 +5927,19 @@
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
 "Ic" = (
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/light/small/emergency{
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
+/obj/structure/machinery/embedded_controller/radio/airlock/docking_port{
 	pixel_y = 28;
 	frequency = 1395
 	},
-/obj/machinery/airlock_sensor{
+/obj/structure/machinery/airlock_sensor{
 	pixel_y = 20;
 	frequency = 1395
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -5953,7 +5953,7 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced,
-/obj/machinery/door/window/southleft{
+/obj/structure/machinery/door/window/southleft{
 	name = "display case";
 	req_access = list(110);
 	dir = 1
@@ -5997,11 +5997,11 @@
 	},
 /area/trove/tunnels)
 "Iq" = (
-/obj/machinery/disposal/small/east,
+/obj/structure/machinery/disposal/small/east,
 /obj/structure/disposalpipe/trunk{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 6
 	},
 /obj/random/dirt_75,
@@ -6013,11 +6013,11 @@
 /turf/simulated/floor/wood/mahogany,
 /area/trove/vault)
 "Iu" = (
-/obj/machinery/iff_beacon/name_change,
+/obj/structure/machinery/iff_beacon/name_change,
 /obj/effect/floor_decal/spline/plain/orange{
 	dir = 4
 	},
-/obj/machinery/airlock_sensor/airlock_exterior{
+/obj/structure/machinery/airlock_sensor/airlock_exterior{
 	dir = 4;
 	pixel_x = -21;
 	pixel_y = 4
@@ -6049,20 +6049,20 @@
 /area/trove/jungle)
 "Iz" = (
 /obj/effect/decal/cleanable/spiderling_remains,
-/obj/machinery/floor_light/dance,
+/obj/structure/machinery/floor_light/dance,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/marble/dark,
 /area/trove/vault)
 "IC" = (
 /obj/structure/bed/stool/chair/shuttle,
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	dir = 1;
 	pixel_y = 26;
 	pixel_x = -32;
 	id = "xanufighter_blast";
 	name = "Windshield Blast Doors"
 	},
-/obj/machinery/door/window/brigdoor/northleft{
+/obj/structure/machinery/door/window/brigdoor/northleft{
 	name = "Cockpit";
 	req_access = list(222)
 	},
@@ -6070,17 +6070,17 @@
 /turf/simulated/floor/tiled/dark,
 /area/trove/vault)
 "IE" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/trove/vault)
 "II" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	dir = 6;
 	id = "gd_shuttle_windows";
 	name = "Window Shutters";
@@ -6106,7 +6106,7 @@
 /turf/simulated/floor/exoplanet/grass/moghes,
 /area/trove/beach/landing)
 "IO" = (
-/obj/machinery/atmospherics/binary/pump/high_power{
+/obj/structure/machinery/atmospherics/binary/pump/high_power{
 	dir = 8;
 	name = "Fuel Tank to Thrusters"
 	},
@@ -6135,7 +6135,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -6204,16 +6204,16 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	door_color = "#8c792e";
 	dir = 4;
 	name = "Cargo Hold";
 	req_one_access = list(229, 217)
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -6233,7 +6233,7 @@
 /area/trove/beach)
 "JA" = (
 /obj/random/dirt_75,
-/obj/machinery/ship_weapon/autocannon,
+/obj/structure/machinery/ship_weapon/autocannon,
 /turf/simulated/floor/plating/asteroid,
 /area/trove/vault)
 "JD" = (
@@ -6250,7 +6250,7 @@
 	dir = 1
 	},
 /obj/random/dirt_75,
-/obj/machinery/computer/terminal/inactive{
+/obj/structure/machinery/computer/terminal/inactive{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -6269,10 +6269,10 @@
 	pixel_y = 32
 	},
 /obj/effect/floor_decal/industrial/outline/operations,
-/obj/machinery/atmospherics/portables_connector/fuel{
+/obj/structure/machinery/atmospherics/portables_connector/fuel{
 	dir = 4
 	},
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/full,
 /area/trove/vault)
@@ -6281,7 +6281,7 @@
 /turf/simulated/floor/exoplanet/grass/moghes,
 /area/trove/jungle)
 "JS" = (
-/obj/machinery/portable_atmospherics/powered/pump/filled,
+/obj/structure/machinery/portable_atmospherics/powered/pump/filled,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/trove/vault)
@@ -6298,13 +6298,13 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
-/obj/machinery/door/airlock/glass{
+/obj/structure/machinery/door/airlock/glass{
 	dir = 4;
 	name = "Cockpit";
 	door_color = "#8c792e";
@@ -6347,10 +6347,10 @@
 /turf/simulated/mineral/lava,
 /area/trove/tunnels)
 "Ky" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/trove/vault)
@@ -6361,7 +6361,7 @@
 "KB" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/machinery/computer/terminal/inactive,
+/obj/structure/machinery/computer/terminal/inactive,
 /turf/simulated/floor/tiled/dark/full,
 /area/trove/vault)
 "KE" = (
@@ -6373,7 +6373,7 @@
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 4
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -6394,7 +6394,7 @@
 /turf/simulated/floor/exoplanet/desert/rough,
 /area/trove/jungle)
 "KT" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 10
 	},
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
@@ -6404,7 +6404,7 @@
 /turf/simulated/floor/tiled,
 /area/trove/vault)
 "KU" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /obj/structure/cable{
@@ -6423,7 +6423,7 @@
 /turf/simulated/floor/wood/mahogany,
 /area/trove/vault)
 "La" = (
-/obj/machinery/media/jukebox{
+/obj/structure/machinery/media/jukebox{
 	anchored = 1
 	},
 /obj/random/dirt_75,
@@ -6445,10 +6445,10 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
@@ -6462,7 +6462,7 @@
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
 "Lh" = (
-/obj/machinery/power/terminal,
+/obj/structure/machinery/power/terminal,
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
@@ -6509,7 +6509,7 @@
 /area/trove/jungle)
 "Lr" = (
 /obj/random/dirt_75,
-/obj/machinery/computer/terminal/inactive{
+/obj/structure/machinery/computer/terminal/inactive{
 	dir = 8
 	},
 /turf/simulated/floor/marble/dark,
@@ -6522,7 +6522,7 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced,
-/obj/machinery/door/window/southleft{
+/obj/structure/machinery/door/window/southleft{
 	name = "display case";
 	req_access = list(110);
 	dir = 1
@@ -6558,7 +6558,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/door/window/southleft{
+/obj/structure/machinery/door/window/southleft{
 	name = "display case";
 	req_access = list(110)
 	},
@@ -6574,13 +6574,13 @@
 	icon_state = "4-8"
 	},
 /obj/effect/floor_decal/spline/fancy/wood/corner,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/obj/machinery/light/small/floor,
+/obj/structure/machinery/light/small/floor,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
 	},
@@ -6610,7 +6610,7 @@
 /turf/simulated/floor/carpet/red,
 /area/trove/vault)
 "LT" = (
-/obj/machinery/door/blast/regular/open{
+/obj/structure/machinery/door/blast/regular/open{
 	dir = 2;
 	name = "Safety Shutters";
 	id = "xanufighter_blast"
@@ -6619,10 +6619,10 @@
 /turf/simulated/floor/plating,
 /area/trove/vault)
 "LU" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 5
 	},
 /obj/item/stack/material/gold/full,
@@ -6701,7 +6701,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/door/window/southleft{
+/obj/structure/machinery/door/window/southleft{
 	name = "display case";
 	req_access = list(110)
 	},
@@ -6725,7 +6725,7 @@
 /obj/item/ship_ammunition/bruiser/real/ap{
 	pixel_x = 7
 	},
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/light/small/emergency{
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -6758,8 +6758,8 @@
 /turf/simulated/floor/plating/asteroid,
 /area/trove/vault)
 "MP" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/universal,
-/obj/machinery/door/blast/regular/open{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/universal,
+/obj/structure/machinery/door/blast/regular/open{
 	dir = 4;
 	name = "Safety Blast Doors";
 	id = "idriscruiser_shuttle_blast"
@@ -6828,13 +6828,13 @@
 /turf/simulated/floor/plating/asteroid,
 /area/trove/vault)
 "Nl" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/yellow{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/yellow{
 	dir = 8
 	},
 /turf/simulated/wall/shuttle/dark/cardinal/coalition,
 /area/trove/vault)
 "Nm" = (
-/obj/machinery/atmospherics/pipe/simple/visible/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/fuel{
 	dir = 6
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
@@ -6856,7 +6856,7 @@
 /obj/structure/bed/handrail{
 	dir = 8
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
 	level = 2
 	},
@@ -6879,7 +6879,7 @@
 /area/trove/vault)
 "Nw" = (
 /obj/random/contraband/pillbottle,
-/obj/machinery/floor_light/dance,
+/obj/structure/machinery/floor_light/dance,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/marble/dark,
 /area/trove/vault)
@@ -6915,7 +6915,7 @@
 	dir = 6
 	},
 /obj/random/dirt_75,
-/obj/machinery/computer/terminal/inactive{
+/obj/structure/machinery/computer/terminal/inactive{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -6924,13 +6924,13 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/binary/passive_gate/on{
+/obj/structure/machinery/atmospherics/binary/passive_gate/on{
 	dir = 4;
 	target_pressure = 300;
 	name = "Canister to Distribution"
 	},
 /obj/effect/floor_decal/industrial/hatch_tiny/yellow,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/item/stack/material/gold/full,
 /obj/item/stack/material/gold/full{
 	pixel_x = 6
@@ -6941,10 +6941,10 @@
 /area/trove/vault)
 "NK" = (
 /obj/effect/floor_decal/industrial/outline/blue,
-/obj/machinery/atmospherics/portables_connector/supply{
+/obj/structure/machinery/atmospherics/portables_connector/supply{
 	dir = 4
 	},
-/obj/machinery/portable_atmospherics/canister/air,
+/obj/structure/machinery/portable_atmospherics/canister/air,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/full,
 /area/trove/vault)
@@ -6962,7 +6962,7 @@
 "NN" = (
 /obj/structure/bed/stool/chair/shuttle,
 /obj/structure/disposalpipe/segment,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -7006,10 +7006,10 @@
 /turf/simulated/floor/exoplanet/water/konyang,
 /area/trove/ocean)
 "Oa" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/binary/passive_gate/supply{
+/obj/structure/machinery/atmospherics/binary/passive_gate/supply{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
@@ -7018,7 +7018,7 @@
 /turf/simulated/floor/tiled,
 /area/trove/vault)
 "Oc" = (
-/obj/machinery/floor_light/dance,
+/obj/structure/machinery/floor_light/dance,
 /obj/effect/landmark/corpse/unathi_pirate,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/marble/dark,
@@ -7039,7 +7039,7 @@
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},
-/obj/machinery/door/blast/regular/open{
+/obj/structure/machinery/door/blast/regular/open{
 	id = "gd_shuttle_windows";
 	dir = 4
 	},
@@ -7076,10 +7076,10 @@
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -7100,10 +7100,10 @@
 	icon_state = "4-8"
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -7127,11 +7127,11 @@
 /turf/simulated/floor/wood,
 /area/trove/vault)
 "OA" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow,
-/obj/machinery/atmospherics/portables_connector/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/yellow,
+/obj/structure/machinery/atmospherics/portables_connector/aux{
 	name = "Air Connector Port"
 	},
-/obj/machinery/portable_atmospherics/canister/air,
+/obj/structure/machinery/portable_atmospherics/canister/air,
 /obj/effect/floor_decal/industrial/outline,
 /turf/simulated/floor/plating,
 /area/trove/vault)
@@ -7161,7 +7161,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
-/obj/machinery/shipsensors,
+/obj/structure/machinery/shipsensors,
 /obj/random/dirt_75,
 /turf/simulated/floor/reinforced/airless,
 /area/trove/vault)
@@ -7196,7 +7196,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/door/window/southleft{
+/obj/structure/machinery/door/window/southleft{
 	name = "display case";
 	req_one_access = list(229, 217)
 	},
@@ -7235,7 +7235,7 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced,
-/obj/machinery/door/window/southleft{
+/obj/structure/machinery/door/window/southleft{
 	name = "display case";
 	req_access = list(110);
 	dir = 1
@@ -7274,10 +7274,10 @@
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/trove/beach)
 "Pf" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/bed/handrail,
-/obj/machinery/recharge_station,
+/obj/structure/machinery/recharge_station,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/trove/vault)
@@ -7300,10 +7300,10 @@
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
 "Pl" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	name = "Fuel Connector Port"
 	},
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/plating,
 /area/trove/vault)
@@ -7341,7 +7341,7 @@
 /turf/template_noop,
 /area/trove/tunnels)
 "Pz" = (
-/obj/machinery/door/blast/regular/open{
+/obj/structure/machinery/door/blast/regular/open{
 	dir = 4;
 	name = "Safety Blast Doors";
 	id = "idriscruiser_shuttle_blast"
@@ -7383,7 +7383,7 @@
 /turf/simulated/floor/exoplanet/barren/cave,
 /area/trove/vault)
 "PJ" = (
-/obj/machinery/atmospherics/binary/pump/aux/on{
+/obj/structure/machinery/atmospherics/binary/pump/aux/on{
 	name = "Air to Distribution";
 	dir = 1
 	},
@@ -7391,7 +7391,7 @@
 /turf/simulated/floor/plating,
 /area/trove/vault)
 "PL" = (
-/obj/machinery/door/blast/regular/open{
+/obj/structure/machinery/door/blast/regular/open{
 	dir = 2;
 	name = "Safety Blast Doors";
 	id = "idriscruiser_shuttle_blast"
@@ -7410,10 +7410,10 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 4
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -7450,7 +7450,7 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced,
-/obj/machinery/door/window/southleft{
+/obj/structure/machinery/door/window/southleft{
 	name = "display case";
 	req_access = list(110);
 	dir = 1
@@ -7475,7 +7475,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	dir = 1;
 	pixel_x = -28;
 	pixel_y = 12;
@@ -7496,7 +7496,7 @@
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
 "Qd" = (
-/obj/machinery/door/blast/regular/open{
+/obj/structure/machinery/door/blast/regular/open{
 	dir = 4;
 	name = "Safety Shutters";
 	id = "xanufighter_blast"
@@ -7522,13 +7522,13 @@
 /turf/simulated/floor/plating/asteroid,
 /area/trove/vault)
 "Qn" = (
-/obj/machinery/atmospherics/binary/pump/high_power{
+/obj/structure/machinery/atmospherics/binary/pump/high_power{
 	name = "Canister to Thrusters";
 	target_pressure = 15000;
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/hatch_tiny/yellow,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/item/stack/material/gold/full,
 /obj/item/stack/material/gold/full,
 /obj/item/stack/material/gold/full{
@@ -7549,7 +7549,7 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced,
-/obj/machinery/door/window/southleft{
+/obj/structure/machinery/door/window/southleft{
 	name = "display case";
 	req_access = list(110);
 	dir = 1
@@ -7582,11 +7582,11 @@
 	dir = 4;
 	icon_state = "pipe-j2"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
 /obj/random/highvalue/cash,
@@ -7609,7 +7609,7 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced,
-/obj/machinery/door/window/southleft{
+/obj/structure/machinery/door/window/southleft{
 	name = "display case";
 	req_access = list(110);
 	dir = 1
@@ -7646,7 +7646,7 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced,
-/obj/machinery/door/window/southleft{
+/obj/structure/machinery/door/window/southleft{
 	name = "display case";
 	req_access = list(110);
 	dir = 1
@@ -7668,7 +7668,7 @@
 /area/trove/jungle)
 "Rh" = (
 /obj/random/dirt_75,
-/obj/machinery/ship_weapon/bruiser,
+/obj/structure/machinery/ship_weapon/bruiser,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/vault)
 "Ri" = (
@@ -7677,7 +7677,7 @@
 /area/trove/jungle)
 "Rm" = (
 /obj/random/dirt_75,
-/obj/machinery/porta_turret/hologram,
+/obj/structure/machinery/porta_turret/hologram,
 /obj/effect/decal/fake_object/light_source/invisible{
 	light_color = "#C98C2C";
 	light_range = 2
@@ -7718,7 +7718,7 @@
 /area/trove/beach)
 "Ru" = (
 /obj/random/dirt_75,
-/obj/machinery/porta_turret/hologram,
+/obj/structure/machinery/porta_turret/hologram,
 /turf/simulated/floor/exoplanet/asphalt,
 /area/trove/tunnels)
 "RD" = (
@@ -7750,7 +7750,7 @@
 /turf/simulated/floor/exoplanet/barren/cave,
 /area/trove/vault)
 "RU" = (
-/obj/machinery/light/floor,
+/obj/structure/machinery/light/floor,
 /obj/random/dirt_75,
 /obj/structure/platform_deco/ledge{
 	dir = 8
@@ -7801,7 +7801,7 @@
 /turf/simulated/floor/exoplanet/water/konyang,
 /area/trove/beach)
 "Sp" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
@@ -7809,13 +7809,13 @@
 /turf/simulated/floor/tiled,
 /area/trove/vault)
 "Sq" = (
-/obj/machinery/atmospherics/unary/engine{
+/obj/structure/machinery/atmospherics/unary/engine{
 	dir = 4
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/trove/vault)
 "Sr" = (
-/obj/machinery/power/terminal{
+/obj/structure/machinery/power/terminal{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -7889,7 +7889,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -7901,7 +7901,7 @@
 /turf/simulated/floor/exoplanet/grass/moghes,
 /area/trove/beach)
 "SR" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/item/ipc_overloader/rainbow,
 /obj/item/ipc_overloader/rainbow,
 /obj/random/dirt_75,
@@ -7913,13 +7913,13 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/machinery/computer/terminal/inactive{
+/obj/structure/machinery/computer/terminal/inactive{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/trove/vault)
 "ST" = (
-/obj/machinery/atmospherics/pipe/manifold/visible{
+/obj/structure/machinery/atmospherics/pipe/manifold/visible{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -7942,7 +7942,7 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced,
-/obj/machinery/door/window/southleft{
+/obj/structure/machinery/door/window/southleft{
 	name = "display case";
 	req_access = list(110);
 	dir = 1
@@ -7968,7 +7968,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/door/window/southleft{
+/obj/structure/machinery/door/window/southleft{
 	name = "display case";
 	req_one_access = list(229, 217)
 	},
@@ -8008,7 +8008,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
@@ -8094,26 +8094,25 @@
 /obj/structure/disposalpipe/trunk{
 	dir = 1
 	},
-/obj/machinery/disposal/small/east,
-/obj/machinery/light,
+/obj/structure/machinery/disposal/small/east,
+/obj/structure/machinery/light,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/trove/vault)
 "TI" = (
-/obj/machinery/atmospherics/pipe/tank/carbon_dioxide{
+/obj/structure/machinery/atmospherics/pipe/tank/carbon_dioxide{
 	dir = 8
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/trove/vault)
 "TL" = (
-/obj/item/gun/energy/noisecannon,
 /obj/random/dirt_75,
 /turf/simulated/floor/wood/mahogany,
 /area/trove/vault)
 "TO" = (
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
 /obj/random/highvalue/cash,
@@ -8142,13 +8141,13 @@
 /turf/simulated/floor/exoplanet/asphalt,
 /area/trove/tunnels)
 "Ud" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /obj/random/highvalue/cash{
@@ -8242,7 +8241,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/bed/stool/chair/office/bridge/generic{
 	dir = 8
 	},
@@ -8264,7 +8263,7 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced,
-/obj/machinery/door/window/southleft{
+/obj/structure/machinery/door/window/southleft{
 	name = "display case";
 	req_access = list(110);
 	dir = 1
@@ -8299,13 +8298,13 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	pixel_x = 29;
 	pixel_y = 6;
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/trove/vault)
@@ -8319,20 +8318,20 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/door/firedoor{
+/obj/structure/machinery/door/firedoor{
 	dir = 4;
 	req_one_access = list(220)
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
-/obj/machinery/door/airlock/maintenance_hatch{
+/obj/structure/machinery/door/airlock/maintenance_hatch{
 	dir = 8;
 	req_access = list(220);
 	name = "Engine Compartment"
@@ -8357,7 +8356,7 @@
 /turf/simulated/floor/exoplanet/water/shallow/konyang/beach,
 /area/trove/beach)
 "Vf" = (
-/obj/machinery/door/blast/shutters{
+/obj/structure/machinery/door/blast/shutters{
 	dir = 4;
 	id = "gd_shuttle"
 	},
@@ -8383,7 +8382,7 @@
 /turf/simulated/floor/wood/mahogany,
 /area/trove/vault)
 "Vl" = (
-/obj/machinery/atmospherics/unary/engine{
+/obj/structure/machinery/atmospherics/unary/engine{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang/sand,
@@ -8395,7 +8394,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/door/window/southleft{
+/obj/structure/machinery/door/window/southleft{
 	name = "display case";
 	req_access = list(110)
 	},
@@ -8410,7 +8409,7 @@
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},
-/obj/machinery/door/blast/regular/open{
+/obj/structure/machinery/door/blast/regular/open{
 	id = "gd_shuttle_windows"
 	},
 /obj/random/dirt_75,
@@ -8433,7 +8432,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/door/window/southleft{
+/obj/structure/machinery/door/window/southleft{
 	name = "display case";
 	req_access = list(110)
 	},
@@ -8442,7 +8441,7 @@
 /turf/simulated/floor/exoplanet/barren/cave,
 /area/trove/vault)
 "VD" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
 /turf/simulated/wall/shuttle/dark/cardinal/red,
@@ -8483,12 +8482,12 @@
 /turf/simulated/floor/carpet/green,
 /area/trove/vault)
 "VH" = (
-/obj/machinery/portable_atmospherics/canister/empty,
+/obj/structure/machinery/portable_atmospherics/canister/empty,
 /obj/effect/floor_decal/industrial/outline/red,
-/obj/machinery/atmospherics/portables_connector/scrubber{
+/obj/structure/machinery/atmospherics/portables_connector/scrubber{
 	dir = 4
 	},
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/light/small/emergency{
 	dir = 8;
 	pixel_x = -11
 	},
@@ -8496,7 +8495,7 @@
 /turf/simulated/floor/tiled/full,
 /area/trove/vault)
 "VI" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	frequency = 1337;
 	id_tag = "merchant_shuttle_dock_pump"
 	},
@@ -8507,8 +8506,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/trove/vault)
 "VJ" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/yellow,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/yellow,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/wall/shuttle/dark/cardinal/red,
 /area/trove/vault)
 "VK" = (
@@ -8531,12 +8530,12 @@
 /turf/simulated/floor/exoplanet/grass/moghes,
 /area/trove/beach)
 "VT" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
@@ -8591,10 +8590,10 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
 	},
-/obj/machinery/airlock_sensor/airlock_exterior{
+/obj/structure/machinery/airlock_sensor/airlock_exterior{
 	pixel_y = 24
 	},
 /obj/random/dirt_75,
@@ -8611,7 +8610,7 @@
 /turf/simulated/floor/exoplanet/grass/moghes,
 /area/trove/jungle)
 "Wu" = (
-/obj/machinery/atmospherics/unary/engine{
+/obj/structure/machinery/atmospherics/unary/engine{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/plating,
@@ -8621,7 +8620,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 10
 	},
 /obj/random/highvalue/cash,
@@ -8643,12 +8642,12 @@
 /area/trove/vault)
 "WF" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/hidden/universal,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/universal,
 /turf/simulated/floor/exoplanet/dirt_konyang/sand,
 /area/trove/beach)
 "WG" = (
 /obj/random/plushie,
-/obj/machinery/light/floor,
+/obj/structure/machinery/light/floor,
 /obj/random/dirt_75,
 /obj/structure/platform_deco/ledge{
 	dir = 4
@@ -8656,7 +8655,7 @@
 /turf/simulated/floor/plating/asteroid,
 /area/trove/vault)
 "WI" = (
-/obj/machinery/ammunition_loader/grauwolf,
+/obj/structure/machinery/ammunition_loader/grauwolf,
 /turf/simulated/floor/plating/asteroid,
 /area/trove/vault)
 "WJ" = (
@@ -8669,7 +8668,7 @@
 	pixel_x = -5;
 	pixel_y = 3
 	},
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	pixel_x = 6;
 	pixel_y = 7;
 	id = "idriscruiser_shuttle_blast";
@@ -8765,13 +8764,13 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	door_color = "#8c792e";
 	dir = 4;
 	name = "Cargo Hold";
 	req_one_access = list(229, 217)
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -8782,7 +8781,7 @@
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/structure/machinery/recharger/wallcharger{
 	pixel_x = 32;
 	pixel_y = 2
 	},
@@ -8796,7 +8795,7 @@
 /turf/simulated/floor/exoplanet/barren,
 /area/trove/vault)
 "Xn" = (
-/obj/machinery/mech_recharger,
+/obj/structure/machinery/mech_recharger,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
@@ -8824,7 +8823,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/door/window/southleft{
+/obj/structure/machinery/door/window/southleft{
 	name = "display case";
 	req_access = list(110)
 	},
@@ -8845,7 +8844,7 @@
 /turf/simulated/floor/exoplanet/grass/moghes,
 /area/trove/jungle)
 "XK" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 9
 	},
 /turf/simulated/wall/shuttle/idris,
@@ -8864,7 +8863,7 @@
 /turf/simulated/floor/plating/asteroid,
 /area/trove/vault)
 "XR" = (
-/obj/machinery/recharger/wallcharger{
+/obj/structure/machinery/recharger/wallcharger{
 	pixel_y = 24
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
@@ -8900,7 +8899,7 @@
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 8
 	},
-/obj/machinery/cell_charger{
+/obj/structure/machinery/cell_charger{
 	pixel_y = 4;
 	pixel_x = 1
 	},
@@ -8917,7 +8916,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -8976,17 +8975,17 @@
 /turf/simulated/floor/tiled/full,
 /area/trove/vault)
 "Yy" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 1
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/trove/vault)
 "Yz" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 1
 	},
-/obj/machinery/light/broken,
+/obj/structure/machinery/light/broken,
 /turf/simulated/floor/tiled/dark,
 /area/trove/beach)
 "YD" = (
@@ -8995,7 +8994,7 @@
 /turf/simulated/floor/wood/mahogany,
 /area/trove/vault)
 "YF" = (
-/obj/machinery/shipsensors/weak,
+/obj/structure/machinery/shipsensors/weak,
 /obj/effect/floor_decal/spline/plain/orange{
 	dir = 8
 	},
@@ -9007,7 +9006,7 @@
 /turf/simulated/floor/plating/asteroid,
 /area/trove/vault)
 "YO" = (
-/obj/machinery/alarm/north{
+/obj/structure/machinery/alarm/north{
 	req_one_access = list(220)
 	},
 /obj/structure/bed/stool/chair/shuttle,
@@ -9036,7 +9035,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 10
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
@@ -9057,7 +9056,7 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced,
-/obj/machinery/door/window/southleft{
+/obj/structure/machinery/door/window/southleft{
 	name = "display case";
 	req_access = list(110);
 	dir = 1
@@ -9067,7 +9066,7 @@
 /turf/simulated/floor/exoplanet/barren/cave,
 /area/trove/vault)
 "Zh" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 8
 	},
 /turf/simulated/wall/shuttle/dark/cardinal/coalition,
@@ -9080,7 +9079,7 @@
 /turf/simulated/floor/lino/diamond,
 /area/trove/vault)
 "Zk" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/item/stack/material/gold/full,
 /obj/item/stack/material/gold/full{
 	pixel_x = 6
@@ -9090,14 +9089,14 @@
 /turf/simulated/floor/lino/diamond,
 /area/trove/vault)
 "Zn" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
 /obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /obj/random/highvalue/cash,
@@ -9143,7 +9142,7 @@
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},
-/obj/machinery/door/blast/regular/open{
+/obj/structure/machinery/door/blast/regular/open{
 	id = "gd_shuttle_windows"
 	},
 /obj/random/dirt_75,
@@ -9180,14 +9179,14 @@
 /turf/simulated/floor/exoplanet/water/konyang,
 /area/trove/ocean)
 "ZO" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
 /obj/effect/floor_decal/spline/fancy/wood/corner{
@@ -9198,13 +9197,13 @@
 /turf/simulated/floor/wood,
 /area/trove/vault)
 "ZS" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/effect/landmark/corpse/idris/robot,
 /obj/random/highvalue/cash,
 /obj/random/highvalue/cash{
@@ -9235,7 +9234,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/blue,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/blue,
 /obj/item/stack/material/gold/full,
 /obj/item/stack/material/gold/full{
 	pixel_x = 6
@@ -9245,7 +9244,7 @@
 /area/trove/vault)
 "ZZ" = (
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/random/highvalue/cash,
 /obj/random/highvalue/cash,
 /obj/random/dirt_75,

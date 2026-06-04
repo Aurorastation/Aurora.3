@@ -159,9 +159,9 @@
 	if (message)
 		log_emote("[name]/[key] : [message]")
 
-	message = process_chat_markup(message, list("~", "_"))
-	var/langchat_message = message
+	var/langchat_message = process_chat_markup(message, list("~", "_"))
 	message = format_emote(src, message)
+	message = process_chat_markup(message, list("~", "_"))
 	var/list/emote_viewers = list()
 	if(m_type == VISIBLE_MESSAGE)
 		visible_message(message, show_observers = do_show_observers)
@@ -174,7 +174,7 @@
 
 // Specific mob type exceptions below.
 /mob/living/silicon/ai/emote(var/act, var/type, var/message)
-	var/obj/machinery/hologram/holopad/T = src.holo
+	var/obj/structure/machinery/hologram/holopad/T = src.holo
 	if(T?.active_holograms[src]) //Is the AI using a holopad?
 		src.holopad_emote(message)
 	else //Emote normally, then.

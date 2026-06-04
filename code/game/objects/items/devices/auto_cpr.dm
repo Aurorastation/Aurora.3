@@ -274,8 +274,8 @@
 		update_icon()
 		return
 	var/list/options = list(
-		"Toggle CPR" = image('icons/mob/screen/radial.dmi', "cpr_mode"),
-		"Toggle EPP" = image('icons/mob/screen/radial.dmi', "iv_epp"))
+		"Toggle CPR" = image('icons/hud/mob/radial.dmi', "cpr_mode"),
+		"Toggle EPP" = image('icons/hud/mob/radial.dmi', "iv_epp"))
 	var/chosen_action = show_radial_menu(user, src, options, require_near = TRUE, radius = 42, tooltips = TRUE)
 	if(!chosen_action)
 		return

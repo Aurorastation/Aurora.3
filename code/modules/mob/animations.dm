@@ -7,10 +7,6 @@ currently only humans get dizzy
 value of dizziness ranges from 0 to 1000
 below 100 is not dizzy
 */
-
-/mob/var/dizziness = 0//Carbon
-/mob/var/is_dizzy = 0
-
 /mob/proc/make_dizzy(var/amount)
 	if(!istype(src, /mob/living/carbon/human)) // for the moment, only humans get dizzy
 		return
@@ -43,8 +39,6 @@ note dizziness decrements automatically in the mob's Life() proc.
 		client.pixel_y = 0
 
 // jitteriness - copy+paste of dizziness
-/mob/var/is_jittery = 0
-/mob/var/jitteriness = 0//Carbon
 /mob/proc/make_jittery(var/amount)
 	return
 
@@ -68,10 +62,6 @@ note dizziness decrements automatically in the mob's Life() proc.
 	is_jittery = FALSE
 	pixel_x = old_x
 	pixel_y = old_y
-
-
-//handles up-down floaty effect in space and zero-gravity
-/mob/var/is_floating = FALSE
 
 /mob/proc/update_floating()
 	if(anchored || buckled_to)

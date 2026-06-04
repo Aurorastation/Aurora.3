@@ -1,0 +1,110 @@
+/**
+ * Container for a single moodlet to be associated with a Morale Component.
+ * Only one of each type of moodlet is allowed to exist in a mood component at a time.
+ * If you're making a new source of moodlets, add a new child of this type.
+ */
+ABSTRACT_TYPE(/datum/moodlet)
+	/**
+	 * How much this moodlet modifies its owner's morale by.
+	 * This is simple summed exactly once when the moodlet is created.
+	 * If anything needs to Set the value of a moodlet, they have to do so by calling set_moodlet().
+	 * You may only Get this value by calling get_morale_modifier().
+	 *
+	 * This is similar to { get; private set; }. Under no circumstances are outside functions ever allowed to directly change this var because other vars depend on it.
+	 * But there are public procs available to interact with it which obey its own internal rules.
+	 */
+	VAR_PRIVATE/morale_modifier = 0.0 // Positive and negative floating points are allowed.
+
+	/// The moodlet description to display to chat when someone with a morale component clicks on their morale icon.
+	var/moodlet_descriptor = SPAN_GOOD("It's a moodlet!")
+
+	/// The moodlet description that gets sent to the chat of someone when they first obtain a moodlet.
+	var/initial_descriptor = SPAN_GOOD("You have gained a morale modifier from a moodlet!")
+
+	/**
+	 * How long this moodlet will last if not refreshed. For Aurora's purposes, moodlets are targeted as having "Small effect, extreme duration".
+	 * This is by design to encourage players to "Visit the chef at least once a round to do a little RP", while avoiding having moodlet collection interrupt the flow of expeditions.
+	 */
+	var/duration = 2.0 HOURS
+
+	/**
+	 * The target time (in real life seconds) that the moodlet will self-terminate on.
+	 * This is set automatically during the New() creation of moodlets.
+	 * This can be updated by calling refresh_moodlet() to reset the time to die.
+	 */
+	var/time_to_die = 0.0
+
+	/**
+	 * Moodlets should always have an associated morale component, but the component owns the moodlets, not the other way around.
+	 * For the convenience of refreshing individual moodlets, they hold a weakref to their owner.
+	 * This is set to private here so that we can assert that it will always be a morale component.
+	 */
+	VAR_PRIVATE/datum/weakref/morale_component
+
+/datum/moodlet/New(datum/component/morale/_morale_component, set_points)
+	time_to_die = duration + REALTIMEOFDAY
+	morale_component = WEAKREF(_morale_component)
+	if (set_points) morale_modifier = set_points
+	_morale_component.add_morale_points(morale_modifier)
+	send_initial_description(_morale_component.parent)
+
+/datum/moodlet/Destroy(force)
+	if (force)
+		// This will be forced when a Morale Component is deleted directly, as it QDEL_NULL_LIST's its own moodlets.
+		morale_component = null
+		return ..()
+
+	// Else if the moodlet is deleted directly rather than its parent.
+	var/datum/component/morale/parent = morale_component.resolve()
+	if (!parent || !parent.moodlets[src])
+		morale_component = null
+		return ..()
+
+	// Clean the effects of this moodlet from the parent.
+	parent.moodlets -= src
+	parent.add_morale_points(-morale_modifier)
+	morale_component = null
+	return ..()
+
+/datum/moodlet/proc/get_morale_modifier()
+	return morale_modifier
+
+/datum/moodlet/proc/set_moodlet(new_modifier)
+	// We can skip the istype() in this case since the held weakref is asserted by VAR_PRIVATE to always be a morale component.
+	var/datum/component/morale/possible_morale = morale_component.resolve()
+	if (!possible_morale && !QDELING(src))
+		// Owner didn't exist, the moodlet has no need to exist either.
+		qdel(src)
+		return
+
+	// Add the difference between the new modifier and the old morale points.
+	// This should come out to no change if old and new are the same.
+	possible_morale.add_morale_points(new_modifier - morale_modifier)
+
+	// Then set the current morale points to the new ones.
+	morale_modifier = new_modifier
+
+/datum/moodlet/proc/refresh_moodlet()
+	time_to_die = REALTIMEOFDAY + duration
+
+/**
+ * Returns a descriptor for the moodlet.
+ *
+ * Before you ask why this exists,
+ * know that some moodlets will override this with more complicated logic.
+ */
+/datum/moodlet/proc/get_moodlet_descriptor()
+	var/remaining_duration = time_to_die - REALTIMEOFDAY
+	var/seconds = round(remaining_duration % 600)
+	var/minutes = round((remaining_duration - seconds) / 600)
+
+	return "\t [moodlet_descriptor]\n" \
+		+ "\t - worth [morale_modifier] points\n" \
+		+ "\t - remaining duration: [minutes] minutes, [round(seconds / 10)] seconds"
+
+/**
+ * Similarly to get_moodlet_descriptor(), some moodlets are going to want to override this with more complicated effects.
+ * By default, this just sends an initial descriptor.
+ */
+/datum/moodlet/proc/send_initial_description(datum/owner)
+	to_chat(owner, initial_descriptor)

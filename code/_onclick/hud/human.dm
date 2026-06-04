@@ -197,28 +197,21 @@
 
 	if(hud_data.has_warnings)
 		mymob.oxygen = new /atom/movable/screen/oxygen()
-		mymob.oxygen.icon = 'icons/mob/status_indicators.dmi'
+		mymob.oxygen.icon = 'icons/hud/mob/status_indicators.dmi'
 		mymob.oxygen.icon_state = "oxy0"
 		mymob.oxygen.name = "oxygen"
 		mymob.oxygen.screen_loc = ui_temp
 		hud_elements |= mymob.oxygen
 
 		mymob.toxin = new /atom/movable/screen/toxins()
-		mymob.toxin.icon = 'icons/mob/status_indicators.dmi'
+		mymob.toxin.icon = 'icons/hud/mob/status_indicators.dmi'
 		mymob.toxin.icon_state = "tox0"
 		mymob.toxin.name = "toxin"
 		mymob.toxin.screen_loc = ui_temp
 		hud_elements |= mymob.toxin
 
-		mymob.fire = new /atom/movable/screen()
-		mymob.fire.icon = ui_style
-		mymob.fire.icon_state = "fire0"
-		mymob.fire.name = "fire"
-		mymob.fire.screen_loc = ui_fire
-		hud_elements |= mymob.fire
-
 		mymob.paralysis_indicator = new /atom/movable/screen/paralysis()
-		mymob.paralysis_indicator.icon = 'icons/mob/status_indicators.dmi'
+		mymob.paralysis_indicator.icon = 'icons/hud/mob/status_indicators.dmi'
 		mymob.paralysis_indicator.icon_state = "paralysis0"
 		mymob.paralysis_indicator.name = "paralysis"
 		mymob.paralysis_indicator.screen_loc = ui_paralysis
@@ -236,7 +229,7 @@
 
 	if(hud_data.has_pressure)
 		mymob.pressure = new /atom/movable/screen/pressure()
-		mymob.pressure.icon = 'icons/mob/status_indicators.dmi'
+		mymob.pressure.icon = 'icons/hud/mob/status_indicators.dmi'
 		mymob.pressure.icon_state = "pressure0"
 		mymob.pressure.name = "pressure"
 		mymob.pressure.screen_loc = ui_temp
@@ -244,7 +237,7 @@
 
 	if(hud_data.has_bodytemp)
 		mymob.bodytemp = new /atom/movable/screen/bodytemp()
-		mymob.bodytemp.icon = 'icons/mob/status_indicators.dmi'
+		mymob.bodytemp.icon = 'icons/hud/mob/status_indicators.dmi'
 		mymob.bodytemp.icon_state = "temp1"
 		mymob.bodytemp.name = "body temperature"
 		mymob.bodytemp.screen_loc = ui_temp
@@ -252,7 +245,7 @@
 
 	if(hud_data.has_cell)
 		mymob.cells = new /atom/movable/screen()
-		mymob.cells.icon = 'icons/mob/screen/robot.dmi'
+		mymob.cells.icon = 'icons/hud/mob/robot.dmi'
 		mymob.cells.icon_state = "charge-empty"
 		mymob.cells.name = "cell"
 		mymob.cells.screen_loc = ui_nutrition
@@ -260,7 +253,7 @@
 
 	if(hud_data.has_nutrition)
 		mymob.nutrition_icon = new /atom/movable/screen/food()
-		mymob.nutrition_icon.icon = 'icons/mob/status_hunger.dmi'
+		mymob.nutrition_icon.icon = 'icons/hud/mob/status_hunger.dmi'
 		mymob.nutrition_icon.pixel_w = 8
 		mymob.nutrition_icon.icon_state = "nutrition0"
 		mymob.nutrition_icon.name = "nutrition"
@@ -269,7 +262,7 @@
 
 	if(hud_data.has_hydration)
 		mymob.hydration_icon = new /atom/movable/screen/thirst()
-		mymob.hydration_icon.icon = 'icons/mob/status_hunger.dmi'
+		mymob.hydration_icon.icon = 'icons/hud/mob/status_hunger.dmi'
 		mymob.hydration_icon.icon_state = "thirst0"
 		mymob.hydration_icon.name = "thirst"
 		mymob.hydration_icon.screen_loc = ui_nutrition
@@ -305,7 +298,7 @@
 	mymob.zone_sel.color = ui_color
 	mymob.zone_sel.alpha = ui_alpha
 	mymob.zone_sel.ClearOverlays()
-	mymob.zone_sel.AddOverlays(image('icons/mob/zone_sel.dmi', "[mymob.zone_sel.selecting]"))
+	mymob.zone_sel.AddOverlays(image('icons/hud/mob/zone_sel.dmi', "[mymob.zone_sel.selecting]"))
 	hud_elements |= mymob.zone_sel
 
 	//Handle the gun settings buttons
@@ -478,24 +471,24 @@
 
 /atom/movable/screen/instability
 	name = "instability"
-	icon = 'icons/mob/screen_gen.dmi'
+	icon = 'icons/hud/mob/screen_gen.dmi'
 	icon_state = "instability-1"
 	invisibility = 101
 
 /atom/movable/screen/energy
 	name = "energy"
-	icon = 'icons/mob/screen_gen.dmi'
+	icon = 'icons/hud/mob/screen_gen.dmi'
 	icon_state = "wiz_energy"
 	invisibility = 101
 
 /atom/movable/screen/status
-	icon = 'icons/mob/screen/midnight.dmi'
+	icon = 'icons/hud/mob/midnight.dmi'
 	icon_state = "status_template"
 	var/status_message
 
 /atom/movable/screen/status/Initialize(mapload, var/set_icon, var/set_overlay, var/set_status_message)
 	icon = set_icon
-	var/image/status_overlay = image('icons/mob/screen/hud_status.dmi', null, set_overlay)
+	var/image/status_overlay = image('icons/hud/mob/hud_status.dmi', null, set_overlay)
 	status_overlay.appearance_flags = RESET_COLOR
 	AddOverlays(status_overlay)
 	status_message = set_status_message

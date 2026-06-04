@@ -79,7 +79,8 @@ STOCK_ITEM_COMMON(light, 1.8)
 			/obj/item/storage/box/lights/colored/blue, \
 			/obj/item/storage/box/lights/colored/cyan, \
 			/obj/item/storage/box/lights/colored/yellow, \
-			/obj/item/storage/box/lights/colored/magenta \
+			/obj/item/storage/box/lights/colored/magenta, \
+			/obj/item/storage/box/lights/colored/pale_purple \
 		)
 		new type(L)
 
@@ -137,9 +138,15 @@ STOCK_ITEM_COMMON(circuitboard, 1)
 	var/list/allboards = subtypesof(/obj/item/circuitboard)
 	var/list/exclusion = list(
 		/obj/item/circuitboard/unary_atmos,
-		/obj/item/circuitboard/telecomms
+		/obj/item/circuitboard/telecomms,
+		/* Remove abstract hardsuit circuit boards.
+			These 4 aren't used in hardsuit construction.
+			Their children are used instead. */
+		/obj/item/circuitboard/rig_assembly,
+		/obj/item/circuitboard/rig_assembly/civilian,
+		/obj/item/circuitboard/rig_assembly/combat,
+		/obj/item/circuitboard/rig_assembly/illegal
 	)
-	exclusion += typesof(/obj/item/circuitboard/mecha)
 
 	allboards -= exclusion
 	var/type = pick(allboards)
@@ -291,8 +298,8 @@ STOCK_ITEM_COMMON(bsdm, 1.5)
 		new /obj/item/clothing/suit/straight_jacket(L)
 
 STOCK_ITEM_COMMON(charger, 2)
-	var/newtype = pick(/obj/machinery/cell_charger, /obj/machinery/recharger)
-	var/obj/machinery/ma = new newtype(L)
+	var/newtype = pick(/obj/structure/machinery/cell_charger, /obj/structure/machinery/recharger)
+	var/obj/structure/machinery/ma = new newtype(L)
 	ma.anchored = FALSE
 	ma.update_use_power(POWER_USE_OFF)
 
