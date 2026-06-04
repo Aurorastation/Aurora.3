@@ -383,7 +383,7 @@ var/list/channel_to_radio_key = new
 	if(is_shouting)
 		langchat_styles = list("langchat_yell")
 
-	langchat_speech(message, get_hearers_in_view(msg.message_range, src), primary, additional_styles = langchat_styles)
+	langchat_say_message(msg, get_hearers_in_view(msg.message_range, src), additional_styles = langchat_styles)
 
 	var/bypass_listen_obj = (msg.single_language && (msg.single_language.flags & PASSLISTENOBJ))
 	if(!bypass_listen_obj)

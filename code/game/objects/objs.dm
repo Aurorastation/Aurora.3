@@ -385,7 +385,7 @@
 			if(mob.client)
 				clients_in_hearers += mob.client
 		if(length(clients_in_hearers))
-			langchat_speech(message, hearers, GLOB.all_languages, skip_language_check = TRUE)
+			langchat_speech(message, hearers)
 
 /// Override this to customize the effects an activated signaler has.
 /obj/proc/do_signaler()

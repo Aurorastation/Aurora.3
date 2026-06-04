@@ -170,7 +170,7 @@
 		audible_message(message, ghost_hearing = do_show_observers)
 		emote_viewers = get_hearers_in_LOS(world.view, src)
 
-	langchat_speech(langchat_message, emote_viewers, GLOB.all_languages, skip_language_check = TRUE, additional_styles = list("emote", "langchat_small"))
+	langchat_speech(langchat_message, emote_viewers, additional_styles = list("emote", "langchat_small"))
 
 // Specific mob type exceptions below.
 /mob/living/silicon/ai/emote(var/act, var/type, var/message)

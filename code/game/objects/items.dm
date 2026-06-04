@@ -932,7 +932,7 @@ GLOBAL_LIST_INIT(slot_flags_enumeration, list(
 
 /obj/item/proc/showoff(mob/user)
 	var/list/viewers = get_hearers_in_view(world.view, src)
-	user.langchat_speech("holds up [src].", viewers, GLOB.all_languages, skip_language_check = TRUE, animation_style = LANGCHAT_FAST_POP, additional_styles = list("langchat_small", "emote"))
+	user.langchat_speech("holds up [src].", viewers, animation_style = LANGCHAT_FAST_POP, additional_styles = list("langchat_small", "emote"))
 	for (var/mob/M in viewers)
 		if(!user.is_invisible_to(M))
 			M.show_message("<b>[user]</b> holds up [icon2html(src, M)] [src]. <a href='byond://?src=[REF(M)];lookitem=[REF(src)]'>Take a closer look.</a>",1)
