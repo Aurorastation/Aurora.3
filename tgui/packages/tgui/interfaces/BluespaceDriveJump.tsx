@@ -1,5 +1,6 @@
 import {
   Button,
+  Box,
   Knob,
   LabeledControls,
   LabeledList,
@@ -40,19 +41,22 @@ export const BluespaceDriveJump = (props) => {
             ''
           )}
           <LabeledControls>
-            <LabeledControls.Item label="Rotation">
+            <LabeledControls.Item label="">
+              <Box>
+                Rotation: {data.rotation.toString() + '°'}
+              </Box>
               <Knob
-                animated
+                size={1.2}
                 value={data.rotation}
                 unit="°"
                 minValue={0}
                 maxValue={359}
-                onChange={(value) => act('set_rotation', { rotation: value })}
+                onChange={(_, value) => act('set_rotation', { rotation: value })}
               />
             </LabeledControls.Item>
-            <LabeledControls.Item label="Jump">
+            <LabeledControls.Item label="">
               <Button
-                content="Jump"
+                content="Engage Drive"
                 color="green"
                 disabled={!data.charge || data.jumping || !data.primed}
                 onClick={() => act('jump')}

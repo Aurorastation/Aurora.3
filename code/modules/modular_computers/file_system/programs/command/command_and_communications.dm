@@ -12,7 +12,6 @@
 	network_destination = "station long-range communication array"
 	color = LIGHT_COLOR_BLUE
 	tgui_id = "CommandCommunications"
-	ui_auto_update = FALSE
 	var/datum/comm_message_listener/message_core
 	var/intercept = FALSE
 	var/can_call_shuttle = FALSE //If calling the shuttle should be available from this console
