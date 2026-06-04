@@ -37,7 +37,7 @@ export const pAIRecruitment = (props) => {
             <Box>
               <Input
                 value={data.name}
-                onChange={(e, value) => act('name', { name: value })}
+                onChange={(value) => act('name', { name: value })}
               />
             </Box>
           </Section>
@@ -48,7 +48,7 @@ export const pAIRecruitment = (props) => {
               <Input
                 value={data.description}
                 fluid={true}
-                onChange={(e, value) =>
+                onChange={(value) =>
                   act('description', { description: value })
                 }
               />
@@ -64,7 +64,7 @@ export const pAIRecruitment = (props) => {
               <Input
                 value={data.role}
                 fluid={true}
-                onChange={(e, value) => act('role', { role: value })}
+                onChange={(value) => act('role', { role: value })}
               />
             </Box>
           </Section>
@@ -77,7 +77,7 @@ export const pAIRecruitment = (props) => {
               <Input
                 value={data.comments}
                 fluid={true}
-                onChange={(e, value) => act('comments', { comments: value })}
+                onChange={(value) => act('comments', { comments: value })}
               />
             </Box>
           </Section>

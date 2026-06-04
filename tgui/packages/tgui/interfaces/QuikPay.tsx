@@ -215,12 +215,12 @@ export const AddItems = (props) => {
       <Input
         placeholder="Item name"
         value={data.new_item}
-        onChange={(_, value) => act('set_new_item', { set_new_item: value })}
+        onChange={(value) => act('set_new_item', { set_new_item: value })}
       />
       <Input
         placeholder="Category"
         value={data.new_category}
-        onChange={(_, value) =>
+        onChange={(value) =>
           act('set_new_category', { set_new_category: value })
         }
       />

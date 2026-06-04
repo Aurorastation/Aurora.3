@@ -49,12 +49,12 @@ export const GPS = (props) => {
             <LabeledControls.Item label="Set New Tag">
               <Input
                 placeholder={data.own_tag}
-                onChange={(e, value) => act('tag', { tag: value })}
+                onChange={(value) => act('tag', { tag: value })}
               />
             </LabeledControls.Item>
             <LabeledControls.Item label="Track New Tag">
               <Input
-                onChange={(e, value) => act('add_tag', { add_tag: value })}
+                onChange={(value) => act('add_tag', { add_tag: value })}
               />
             </LabeledControls.Item>
           </LabeledControls>

@@ -47,7 +47,7 @@ export const AgentID = (props) => {
                 value={data.name}
                 placeholder="Input the desired value, then press enter."
                 width="100%"
-                onChange={(_, value) => act('setName', { name: value })}
+                onChange={(value) => act('setName', { name: value })}
               />
             </LabeledList.Item>
             <LabeledList.Item label="Age">
@@ -65,7 +65,7 @@ export const AgentID = (props) => {
                 value={data.sex}
                 placeholder="Input the desired value, then press enter."
                 width="100%"
-                onChange={(_, value) => act('setSex', { sex: value })}
+                onChange={(value) => act('setSex', { sex: value })}
               />
             </LabeledList.Item>
             <LabeledList.Item label="Photo">
@@ -83,7 +83,7 @@ export const AgentID = (props) => {
                 value={data.blood_type}
                 placeholder="Input the desired value, then press enter."
                 width="20%"
-                onChange={(_, value) => act('setBloodType', { bloodtype: value })}
+                onChange={(value) => act('setBloodType', { bloodtype: value })}
               />
             </LabeledList.Item>
             <LabeledList.Item label="DNA Hash">
@@ -91,7 +91,7 @@ export const AgentID = (props) => {
                 value={data.dna_hash}
                 placeholder="Input the desired value, then press enter."
                 width="100%"
-                onChange={(_, value) => act('setDNAHash', { dnahash: value })}
+                onChange={(value) => act('setDNAHash', { dnahash: value })}
               />
             </LabeledList.Item>
             <LabeledList.Item label="Fingerprint Hash">
@@ -99,7 +99,7 @@ export const AgentID = (props) => {
                 value={data.fingerprint_hash}
                 placeholder="Input the desired value, then press enter."
                 width="100%"
-                onChange={(_, value) =>
+                onChange={(value) =>
                   act('setFingerprintHash', { fingerprinthash: value })
                 }
               />
@@ -113,7 +113,7 @@ export const AgentID = (props) => {
                 value={data.employer_faction}
                 placeholder="Input the desired value, then press enter."
                 width="100%"
-                onChange={(_, value) => act('setEmployer', { employer: value })}
+                onChange={(value) => act('setEmployer', { employer: value })}
               />
             </LabeledList.Item>
             <LabeledList.Item label="Assignment">
@@ -121,7 +121,7 @@ export const AgentID = (props) => {
                 value={data.assignment}
                 placeholder="Input the desired value, then press enter."
                 width="100%"
-                onChange={(_, value) =>
+                onChange={(value) =>
                   act('setAssignment', { assignment: value })
                 }
               />
@@ -131,7 +131,7 @@ export const AgentID = (props) => {
                 value={data.citizenship}
                 placeholder="Input the desired value, then press enter."
                 width="100%"
-                onChange={(_, value) =>
+                onChange={(value) =>
                   act('setCitizenship', { citizenship: value })
                 }
               />
