@@ -55,6 +55,6 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Added a new exterior area subtype which shields cannot form around. Used to force shields to wrap around the actual walls and windows on deck three, rather than around the entirety of the Horizon's wings.."
+  - rscadd: "Added a new exterior area subtype which shields cannot form around. Used to force shields to wrap around the actual walls and windows on deck three, rather than around the entirety of the Horizon's wings."
   - imageadd: "Added several area sprites. Makes the map prettier in map editing programs."
   - bugfix: "Shields no longer wrap in a large arc around the starboard thrusters."
