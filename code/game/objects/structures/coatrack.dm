@@ -3,11 +3,27 @@
 	desc = "Rack that holds coats, or hats, if you're so inclined. Well, exactly one coat and one hat, at least."
 	icon = 'icons/obj/coatrack.dmi'
 	icon_state = "coatrack"
-	layer = ABOVE_HUMAN_LAYER
+	layer = STRUCTURE_LAYER
+	maxhealth = OBJECT_HEALTH_VERY_LOW
 	var/obj/item/clothing/coat
 	var/obj/item/clothing/head/hat
 	/// Custom manual sprite override.
 	var/list/custom_sprites = list(/obj/item/clothing/head/beret/security, /obj/item/clothing/accessory/poncho/tajarancloak)
+
+/obj/structure/coatrack/Initialize()
+	. = ..()
+	var/turf/T = get_turf(src)
+	if(locate(/obj/item/clothing) in T)
+		for(var/obj/item/found_item in T)
+			if(!hat && istype(found_item, /obj/item/clothing/head) && !istype(found_item, /obj/item/clothing/head/helmet))
+				hat = found_item
+			else if (!coat && istype(found_item, /obj/item/clothing/suit/storage/toggle) || istype(found_item, /obj/item/clothing/accessory/poncho))
+				coat = found_item
+			else
+				continue // found_item wasn't a type we were looking for, moving on
+
+			found_item.forceMove(src)
+			update_icon()
 
 /obj/structure/coatrack/attack_hand(mob/user as mob)
 	. = ..()

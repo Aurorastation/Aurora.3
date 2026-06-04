@@ -14,7 +14,7 @@
 	desc = "A robust hardsuit-integrated stealth module."
 	icon_state = "cloak"
 
-	toggleable = TRUE
+	module_type = MODULETYPE_TOGGLE
 	disruptable = TRUE
 	disruptive = FALSE
 	attackdisrupts = TRUE
@@ -69,9 +69,8 @@
 	desc = "A complex, sleek-looking, hardsuit-integrated teleportation module that exploits bluespace energy to phase from one location to another instantaneously."
 	icon_state = "teleporter"
 	use_power_cost = 40
-	redundant = 1
-	usable = TRUE
-	selectable = 1
+	redundant = TRUE
+	module_type = MODULETYPE_USABLE_ACTIVE
 	var/lastteleport
 	var/phase_in_visual = /obj/effect/temp_visual/phase
 	var/phase_out_visual = /obj/effect/temp_visual/phase/out
@@ -96,7 +95,7 @@
 	if(!M || !T)
 		return
 
-	playsound(T, /singleton/sound_category/spark_sound, 50, 1)
+	playsound(T, SFX_SPARKS, 50, 1)
 	new phase_out_visual(T, M.dir)
 
 /obj/item/rig_module/teleporter/engage(atom/target, mob/user, var/notify_ai)
@@ -186,8 +185,7 @@
 	name = "self-destruct module"
 	desc = "Oh my God, Captain. A bomb."
 	icon_state = "deadman"
-	usable = TRUE
-	active = TRUE
+	module_type = MODULETYPE_USABLE
 	permanent = TRUE
 
 	engage_string = "Detonate"
@@ -230,7 +228,7 @@
 	name = "anti-theft system"
 	desc = "An advanced anti-theft system that tracks the user's lifesigns."
 	icon_state = "deadman"
-	usable = FALSE
+	module_type = MODULETYPE_PASSIVE
 	active = FALSE
 	permanent = FALSE
 
@@ -249,8 +247,7 @@
 	name = "EMP dissipation module"
 	desc = "A bewilderingly complex bundle of fiber optics and chips. Seems like it uses a good deal of power."
 	active_power_cost = 10
-	toggleable = TRUE
-	usable = FALSE
+	module_type = MODULETYPE_TOGGLE
 	use_power_cost = 70
 	module_cooldown = 30
 
@@ -279,8 +276,7 @@
 	name = "emergency power generator"
 	desc = "A high yield power generating device that takes a long time to recharge."
 	active_power_cost = 0
-	toggleable = FALSE
-	usable = TRUE
+	module_type = MODULETYPE_USABLE
 	confined_use = TRUE
 	var/cooldown = 0
 
@@ -337,10 +333,7 @@
 	desc = "An advanced door hacking tool that sports a low power cost and incredibly quick door hacking time. The device also supports hacking several signals at once remotely, and the last 10 doors hacked can be instantly accessed."
 	use_power_cost = 10
 	module_cooldown = 5
-
-	usable = FALSE
-	selectable = 0
-	toggleable = TRUE
+	module_type = MODULETYPE_TOGGLE
 
 	interface_name = "advanced door hacking tool"
 	interface_desc = "An advanced door hacking tool that sports a low power cost and incredibly quick door hacking time. The device also supports hacking several signals at once remotely, and the last 10 doors hacked can be instantly accessed."
@@ -349,7 +342,7 @@
 
 /obj/item/rig_module/device/door_hack/process()
 	if(holder && holder.wearer)
-		if(!(locate(/obj/item/device/multitool/hacktool/rig) in holder.wearer))
+		if(!(locate(/obj/item/multitool/hacktool/rig) in holder.wearer))
 			deactivate()
 			return FALSE
 
@@ -368,7 +361,7 @@
 		deactivate()
 		return
 
-	var/obj/item/device/multitool/hacktool/rig/hacktool = new(M)
+	var/obj/item/multitool/hacktool/rig/hacktool = new(M)
 	hacktool.creator = M
 	M.put_in_hands(hacktool)
 
@@ -380,5 +373,5 @@
 	if(!M)
 		return
 
-	for(var/obj/item/device/multitool/hacktool/rig/hacktool in M.contents)
+	for(var/obj/item/multitool/hacktool/rig/hacktool in M.contents)
 		qdel(hacktool)

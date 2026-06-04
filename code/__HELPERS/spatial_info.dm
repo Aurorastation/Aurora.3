@@ -197,25 +197,25 @@
 				. -= target
 				break
 
-/proc/get_hearers_in_radio_ranges(list/obj/item/device/radios)
+/proc/get_hearers_in_radio_ranges(list/obj/item/radios)
 	. = list()
 	// Returns a list of mobs who can hear any of the radios given in @radios
-	for(var/obj/item/device/radio/radio as anything in radios)
+	for(var/obj/item/radio/radio as anything in radios)
 		. |= get_hearers_in_LOS(radio.canhear_range, radio, FALSE)
 
 ///Calculate if two atoms are in sight, returns TRUE or FALSE
 /proc/inLineOfSight(X1,Y1,X2,Y2,Z=1,PX1=16.5,PY1=16.5,PX2=16.5,PY2=16.5)
 	var/turf/T
-	if(X1 == X2)
-		if(Y1 == Y2)
-			return TRUE //Light cannot be blocked on same tile
+	if(X1==X2)
+		if(Y1==Y2)
+			return 1 //Light cannot be blocked on same tile
 		else
 			var/s = SIGN(Y2-Y1)
 			Y1+=s
-			while(Y1 != Y2)
+			while(Y1!=Y2)
 				T=locate(X1,Y1,Z)
-				if(IS_OPAQUE_TURF(T))
-					return FALSE
+				if(T.opacity)
+					return 0
 				Y1+=s
 	else
 		var/m=(32*(Y2-Y1)+(PY2-PY1))/(32*(X2-X1)+(PX2-PX1))
@@ -224,16 +224,15 @@
 		var/signY = SIGN(Y2-Y1)
 		if(X1<X2)
 			b+=m
-		while(X1 != X2 || Y1 != Y2)
-			if(round(m*X1+b-Y1))
+		while(X1!=X2 || Y1!=Y2)
+			if(floor(m*X1+b-Y1))
 				Y1+=signY //Line exits tile vertically
 			else
 				X1+=signX //Line exits tile horizontally
 			T=locate(X1,Y1,Z)
-			if(IS_OPAQUE_TURF(T))
-				return FALSE
+			if(T.opacity)
+				return 0
 	return TRUE
-
 
 /proc/is_in_sight(atom/first_atom, atom/second_atom)
 	var/turf/first_turf = get_turf(first_atom)

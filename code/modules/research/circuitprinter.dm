@@ -4,7 +4,7 @@ a /datum/desgin on the linked R&D console. You can then print them out in a fasi
 using metal and glass, it uses glass and reagents (usually sulphuric acid).
 */
 
-/obj/machinery/r_n_d/circuit_imprinter
+/obj/structure/machinery/r_n_d/circuit_imprinter
 	name = "circuit imprinter"
 	desc = "An advanced device that can only be operated via a nearby RnD console, it can print any circuitboard the user requests, provided it has the correct materials to do so."
 	icon_state = "circuit_imprinter"
@@ -45,12 +45,15 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 	var/build_callback_timer
 
 
-/obj/machinery/r_n_d/circuit_imprinter/upgrade_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/r_n_d/circuit_imprinter/upgrade_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	. += "Upgraded <b>matter bins</b> will increase material storage capacity."
-	. += "Upgraded <b>manipulators</b> will improve material use efficiency and increase fabrication speed."
+	. += "- Upgraded <b>matter bins</b> will increase material storage capacity."
+	. += SPAN_NOTICE("	- The current storage capacity is <b>[max_material_storage / 2000]</b> sheets")
+	. += "- Upgraded <b>manipulators</b> will improve material use efficiency and increase fabrication speed."
+	. += SPAN_NOTICE("	- The current speed increase is <b>[round((1 - (1 / production_speed)) * 100)]%</b>")
+	. += SPAN_NOTICE("	- The current cost reduction is <b>[round((1 - mat_efficiency) * 100)]%</b>")
 
-/obj/machinery/r_n_d/circuit_imprinter/RefreshParts()
+/obj/structure/machinery/r_n_d/circuit_imprinter/RefreshParts()
 	..()
 	// Adjust reagent container volume to match combined volume of the inserted beakers
 	var/T = 0
@@ -73,7 +76,7 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 	mat_efficiency = 1 - (T - 1) / 4
 	production_speed = T
 
-/obj/machinery/r_n_d/circuit_imprinter/update_icon()
+/obj/structure/machinery/r_n_d/circuit_imprinter/update_icon()
 	if(panel_open)
 		icon_state = "circuit_imprinter_t"
 	else if(build_callback_timer)
@@ -81,13 +84,13 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 	else
 		icon_state = "circuit_imprinter"
 
-/obj/machinery/r_n_d/circuit_imprinter/proc/TotalMaterials()
+/obj/structure/machinery/r_n_d/circuit_imprinter/proc/TotalMaterials()
 	var/t = 0
 	for(var/f in materials)
 		t += materials[f]
 	return t
 
-/obj/machinery/r_n_d/circuit_imprinter/dismantle()
+/obj/structure/machinery/r_n_d/circuit_imprinter/dismantle()
 	for(var/obj/I in component_parts)
 		// This will distribute all reagents amongst the contained beakers
 		if(istype(I, /obj/item/reagent_containers/glass/beaker))
@@ -100,7 +103,7 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 				S.amount = round(materials[f] / SHEET_MATERIAL_AMOUNT)
 	..()
 
-/obj/machinery/r_n_d/circuit_imprinter/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/r_n_d/circuit_imprinter/attackby(obj/item/attacking_item, mob/user)
 	//No touch the machine while it's working!
 	if(build_callback_timer)
 		to_chat(user, SPAN_NOTICE("\The [src] is busy. Please wait for completion of previous operation."))
@@ -173,7 +176,7 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
  *
  * * design_to_add: The design to add
  */
-/obj/machinery/r_n_d/circuit_imprinter/proc/addToQueue(datum/design/design_to_add)
+/obj/structure/machinery/r_n_d/circuit_imprinter/proc/addToQueue(datum/design/design_to_add)
 	queue += design_to_add
 
 	//Wake up, we have things to do
@@ -185,7 +188,7 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
  *
  * * index: The index of the design to remove
  */
-/obj/machinery/r_n_d/circuit_imprinter/proc/removeFromQueue(index)
+/obj/structure/machinery/r_n_d/circuit_imprinter/proc/removeFromQueue(index)
 	queue.Cut(index, index + 1)
 
 	//Wake up, we have things to do
@@ -195,7 +198,7 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 /**
  * Handle the construction queue
  */
-/obj/machinery/r_n_d/circuit_imprinter/proc/handle_queue()
+/obj/structure/machinery/r_n_d/circuit_imprinter/proc/handle_queue()
 	//No work to do or already busy, stop
 	if(!length(queue) || build_callback_timer)
 		update_icon()
@@ -226,7 +229,7 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
  *
  * Returns `TRUE` if the design can be built, `FALSE` otherwise
  */
-/obj/machinery/r_n_d/circuit_imprinter/proc/canBuild(datum/design/design_to_check)
+/obj/structure/machinery/r_n_d/circuit_imprinter/proc/canBuild(datum/design/design_to_check)
 	for(var/M in design_to_check.materials)
 		if(materials[M] < design_to_check.materials[M])
 			return FALSE
@@ -244,7 +247,7 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
  *
  * Returns a string of the materials that are missing
  */
-/obj/machinery/r_n_d/circuit_imprinter/proc/getLackingMaterials(datum/design/design_to_check)
+/obj/structure/machinery/r_n_d/circuit_imprinter/proc/getLackingMaterials(datum/design/design_to_check)
 	var/ret = ""
 
 	for(var/M in design_to_check.materials)
@@ -267,7 +270,7 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
  *
  * * design_to_build: The design to build
  */
-/obj/machinery/r_n_d/circuit_imprinter/proc/build(datum/design/design_to_build)
+/obj/structure/machinery/r_n_d/circuit_imprinter/proc/build(datum/design/design_to_build)
 	//Consume some power
 	var/power = active_power_usage
 	for(var/M in design_to_build.materials)
@@ -300,7 +303,7 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 	handle_queue()
 
 
-/obj/machinery/r_n_d/circuit_imprinter/is_open_container()
+/obj/structure/machinery/r_n_d/circuit_imprinter/is_open_container()
 	. = ..()
 
 	//This is to recheck the queue when acid is added to the reagent container that we have

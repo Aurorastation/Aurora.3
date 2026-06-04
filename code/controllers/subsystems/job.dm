@@ -122,10 +122,10 @@ SUBSYSTEM_DEF(jobs)
 	Debug("AR has failed, Player: [player], Rank: [rank]")
 	return FALSE
 
-/datum/controller/subsystem/jobs/proc/FreeRole(var/rank)
-	var/datum/job/job = GetJob(rank)
-	if(!istype(job))
-		return
+/datum/controller/subsystem/jobs/proc/FreeRole(rank)
+	astype(GetJob(rank), /datum/job)?.current_positions--
+
+/datum/controller/subsystem/jobs/proc/FreeJob(datum/job/job)
 	job.current_positions--
 
 /datum/controller/subsystem/jobs/proc/FindOccupationCandidates(datum/job/job, level, flag)
@@ -311,7 +311,6 @@ SUBSYSTEM_DEF(jobs)
 		EquipCustom(H, job, H.client.prefs, custom_equip_leftovers, spawn_in_storage, custom_equip_slots)
 
 		job.equip(H)
-		UniformReturn(H, H.client.prefs, job)
 
 		spawn_in_storage += EquipCustomDeferred(H, H.client.prefs, custom_equip_leftovers, custom_equip_slots)
 	else
@@ -410,9 +409,6 @@ SUBSYSTEM_DEF(jobs)
 
 	Debug("ER/([H]): Completed.")
 	return H
-
-/mob/living/carbon/human
-	var/tmp/centcomm_despawn_timer
 
 /mob/living/proc/centcomm_timeout()
 	if (!istype(get_area(src), /area/centcom/spawning))
@@ -621,13 +617,12 @@ SUBSYSTEM_DEF(jobs)
 
 	//Handle job slot/tater cleanup.
 	if (H.mind)
-		var/role = H.mind.assigned_role
 		var/datum/job/job = GetJob(H.mind.assigned_role)
-		job.on_despawn(H)
-		FreeRole(role)
-		if(H.mind.objectives.len)
-			qdel(H.mind.objectives)
-			H.mind.special_role = null
+		if (job)
+			job.on_despawn(H)
+			FreeJob(job)
+		QDEL_LIST(H.mind.objectives)
+		H.mind.special_role = null
 
 	// Delete them from datacore.
 	if(ishuman(H))
@@ -691,7 +686,7 @@ SUBSYSTEM_DEF(jobs)
 				// This is a miserable way to fix the loadout overwrite bug, but the alternative requires
 				// adding an arg to a bunch of different procs. Will look into it after this merge. ~ Z
 				var/obj/item/CI = G.spawn_item(null,metadata, H)
-				if (H.equip_to_slot_or_del(CI, G.slot))
+				if (H.equip_to_slot_or_del(CI, G.slot, TRUE))
 					to_chat(H, SPAN_NOTICE("Equipping you with [thing]!"))
 					if(G.slot != slot_tie_str)
 						custom_equip_slots += G.slot
@@ -752,7 +747,7 @@ SUBSYSTEM_DEF(jobs)
 							equip_slot = slot_wear_suit_str
 
 			if(!handled_accessory)
-				if (H.equip_to_slot_or_del(CI, equip_slot))
+				if (H.equip_to_slot_or_del(CI, equip_slot, TRUE))
 					to_chat(H, SPAN_NOTICE("Equipping you with [thing]!"))
 					used_slots += equip_slot
 					log_loadout("ECD/([H]): Equipped [thing] successfully.")
@@ -861,7 +856,7 @@ SUBSYSTEM_DEF(jobs)
 	set waitfor = 0
 
 	var/style = "font-family: 'Fixedsys'; -dm-text-outline: 1 black; font-size: 11px;"
-	var/text = "[worlddate2text()], [worldtime2text()]\n[station_name()], [SSatlas.current_sector.name]"
+	var/text = "[worlddate2text()] [worldtime2text()]\n[station_name()], [SSatlas.current_sector.name]"
 	text = uppertext(text)
 
 	var/obj/effect/overlay/T = new()

@@ -52,7 +52,7 @@
 				TEST_FAIL(TEST_OUTPUT_RED("[bad_msg] lacks an air vent."))
 				bad_airv++
 
-			if(!(locate(/obj/machinery/firealarm) in A) && !is_type_in_typecache(A, exempt_from_fire))
+			if(!(locate(/obj/structure/machinery/firealarm) in A) && !is_type_in_typecache(A, exempt_from_fire))
 				TEST_FAIL(TEST_OUTPUT_RED("[bad_msg] lacks a fire alarm."))
 				bad_fire++
 
@@ -158,7 +158,9 @@
 /datum/unit_test/map_test/bad_doors/start_test()
 	var/checks = 0
 	var/failed_checks = 0
-	for(var/obj/machinery/door/airlock/A in world)
+	for(var/obj/structure/machinery/door/airlock/A in world)
+		if(QDELETED(A))
+			continue
 		var/turf/T = get_turf(A)
 		checks++
 		TEST_ASSERT_NOTNULL(T, "A turf does not exist under the door at [A.x],[A.y],[A.z]")
@@ -179,11 +181,14 @@
 /datum/unit_test/map_test/bad_firedoors/start_test()
 	var/checks = 0
 	var/failed_checks = 0
-	for(var/obj/machinery/door/firedoor/F in world)
+	for(var/obj/structure/machinery/door/firedoor/F in world)
+		if(QDELETED(F))
+			continue
 		var/turf/T = get_turf(F)
 		checks++
+		TEST_ASSERT_NOTNULL(T, "A turf does not exist under the firedoor at [F.x],[F.y],[F.z]")
 		var/firelock_increment = 0
-		for(var/obj/machinery/door/firedoor/FD in T)
+		for(var/obj/structure/machinery/door/firedoor/FD in T)
 			firelock_increment += 1
 		if(firelock_increment > 1)
 			failed_checks++
@@ -207,7 +212,7 @@
 	var/failed_checks = 0
 
 	//all plumbing - yes, some things might get stated twice, doesn't matter.
-	for (var/obj/machinery/atmospherics/plumbing in world)
+	for (var/obj/structure/machinery/atmospherics/plumbing in world)
 		if(!is_station_level(plumbing.z))
 			continue
 		checks++
@@ -216,7 +221,7 @@
 			TEST_FAIL("Unconnected [plumbing.name] located at [plumbing.x],[plumbing.y],[plumbing.z] ([get_area(plumbing.loc)])")
 
 	//Manifolds
-	for (var/obj/machinery/atmospherics/pipe/manifold/pipe in world)
+	for (var/obj/structure/machinery/atmospherics/pipe/manifold/pipe in world)
 		if(!is_station_level(pipe.z))
 			continue
 		checks++
@@ -225,7 +230,7 @@
 			TEST_FAIL("Unconnected [pipe.name] located at [pipe.x],[pipe.y],[pipe.z] ([get_area(pipe.loc)])")
 
 	//Pipes
-	for (var/obj/machinery/atmospherics/pipe/simple/pipe in world)
+	for (var/obj/structure/machinery/atmospherics/pipe/simple/pipe in world)
 		if(!is_station_level(pipe.z))
 			continue
 		checks++
@@ -236,8 +241,8 @@
 	next_turf:
 		for(var/turf/T in world)
 			for(var/dir in GLOB.cardinals)
-				var/list/connect_types = list(1 = 0, 2 = 0, 3 = 0)
-				for(var/obj/machinery/atmospherics/pipe in T)
+				var/alist/connect_types = alist(1 = 0, 2 = 0, 3 = 0)
+				for(var/obj/structure/machinery/atmospherics/pipe in T)
 					checks++
 					if(dir & pipe.initialize_directions)
 						for(var/connect_type in pipe.connect_types)
@@ -258,13 +263,13 @@
 /datum/unit_test/map_test/mapped_products/start_test()
 	var/checks = 0
 	var/failed_checks = 0
-	var/list/obj/machinery/vending/V_to_test = list()
+	var/list/obj/structure/machinery/vending/V_to_test = list()
 
-	for(var/obj/machinery/vending/T in world)
+	for(var/obj/structure/machinery/vending/T in world)
 		checks++
 		V_to_test += T
-	for(var/obj/machinery/vending/V in V_to_test)
-		var/obj/machinery/vending/temp_V = new V.type
+	for(var/obj/structure/machinery/vending/V in V_to_test)
+		var/obj/structure/machinery/vending/temp_V = new V.type
 		if(length(difflist(V.products, temp_V.products)) || length(difflist(V.contraband, temp_V.contraband)) || length(difflist(V.premium, temp_V.premium)))
 			failed_checks++
 
@@ -376,6 +381,7 @@
 		/area/space,
 		/area/shuttle,
 		/area/template_noop,
+		/area/supply/dock, // this is exempt because runtime has this area in its z-level for the sake of not having an additional non-station z-level, since we care about short boot time
 	)
 
 /datum/unit_test/map_test/areas_in_station_zlevels_must_be_marked_as_station_areas/start_test()
@@ -457,19 +463,19 @@
 	var/firealarm_increment
 	var/turf/T
 
-	for(var/obj/machinery/firealarm/F in world)
+	for(var/obj/structure/machinery/firealarm/F in world)
 		T = get_turf(F)
 		firealarm_increment = 0
-		if(istype(F, /obj/machinery/firealarm/north))
+		if(istype(F, /obj/structure/machinery/firealarm/north))
 			if(F.dir != NORTH)
 				firealarm_increment++
-		if(istype(F, /obj/machinery/firealarm/south))
+		if(istype(F, /obj/structure/machinery/firealarm/south))
 			if(F.dir != SOUTH)
 				firealarm_increment++
-		if(istype(F, /obj/machinery/firealarm/east))
+		if(istype(F, /obj/structure/machinery/firealarm/east))
 			if(F.dir != EAST)
 				firealarm_increment++
-		if(istype(F, /obj/machinery/firealarm/west))
+		if(istype(F, /obj/structure/machinery/firealarm/west))
 			if(F.dir != WEST)
 				firealarm_increment++
 		checks++

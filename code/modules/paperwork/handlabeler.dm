@@ -26,21 +26,22 @@
 
 	return TRUE
 
-/obj/item/device/hand_labeler
+/obj/item/hand_labeler
 	name = "hand labeler"
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "labeler0"
 	item_state = "labeler0"
+	contained_sprite = TRUE
 	w_class = WEIGHT_CLASS_SMALL
 	var/label = null
 	var/labels_left = 30
 	var/mode = 0	//off or on.
 	matter = list(DEFAULT_WALL_MATERIAL = 120, MATERIAL_GLASS = 80)
 
-/obj/item/device/hand_labeler/attack(mob/living/target_mob, mob/living/user, target_zone)
+/obj/item/hand_labeler/attack(mob/living/target_mob, mob/living/user, target_zone)
 	return
 
-/obj/item/device/hand_labeler/afterattack(atom/A, mob/user as mob, proximity)
+/obj/item/hand_labeler/afterattack(atom/A, mob/user as mob, proximity)
 	if(!proximity)
 		return
 	if(!mode)	//if it's off, give up.
@@ -71,8 +72,8 @@
 	if(istype(A, /obj/item/reagent_containers/glass))
 		to_chat(user, SPAN_NOTICE("The label can't stick to the [A.name]. (Try using a pen!)"))
 		return
-	if(istype(A, /obj/machinery/portable_atmospherics/hydroponics))
-		var/obj/machinery/portable_atmospherics/hydroponics/tray = A
+	if(istype(A, /obj/structure/machinery/portable_atmospherics/hydroponics))
+		var/obj/structure/machinery/portable_atmospherics/hydroponics/tray = A
 		if(!tray.mechanical)
 			to_chat(user, SPAN_NOTICE("How are you going to label that?"))
 			return
@@ -90,7 +91,7 @@
 
 	A.name = "[A.name] ([label])"
 
-/obj/item/device/hand_labeler/attack_self(mob/user as mob)
+/obj/item/hand_labeler/attack_self(mob/user as mob)
 	mode = !mode
 	icon_state = "labeler[mode]"
 	item_state = icon_state

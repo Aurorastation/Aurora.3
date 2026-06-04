@@ -22,8 +22,10 @@
 
 	var/tmp/list/climbers
 
-// An override of turf/Enter() to make it so that magboots allow you to stop
-// falling off the damned rock.
+/**
+ * An override of turf/Enter() to make it so that magboots allow you to stop
+ * falling off the damned rock.
+ */
 /turf/simulated/open/Enter(mob/living/carbon/human/mover, atom/oldloc)
 	if (istype(mover) && isturf(oldloc))
 		if (mover.Check_Shoegrip(FALSE) && mover.can_fall(below, src))
@@ -74,10 +76,11 @@
 		return catwalk
 	return src
 
-
-// Add a falling atom by default. Even if it's not an atom that can actually fall.
-// SSfalling will check this on its own and remove if necessary. This is saner, as it
-// centralizes control to SSfalling.
+/**
+ * Add a falling atom by default. Even if it's not an atom that can actually fall.
+ * SSfalling will check this on its own and remove if necessary. This is saner, as it
+ * centralizes control to SSfalling.
+ */
 /turf/simulated/open/Entered(atom/movable/mover)
 	..()
 	if (is_hole)
@@ -175,8 +178,9 @@
 /turf/simulated/open/Initialize(mapload)
 	. = ..()
 	icon_state = ""	// Clear out the debug icon.
-
+	ADD_TRAIT(src, TURF_Z_TRANSPARENT_TRAIT, TRAIT_SOURCE_INHERENT)
 	update(mapload)
+
 
 /**
  * Updates the turf with open turf's variables and basically resets it properly.
@@ -259,7 +263,7 @@
 			to_chat(user, SPAN_WARNING("The plating is going to need some support."))
 
 	//To lay cable.
-	if(attacking_item.iscoil())
+	if(attacking_item.tool_behaviour == TOOL_CABLECOIL)
 		var/obj/item/stack/cable_coil/coil = attacking_item
 		coil.turf_place(src, user)
 		return

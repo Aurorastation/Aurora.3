@@ -344,3 +344,6 @@
 /obj/item/reagent_containers/chem_disp_cartridge/sanasomnum
 	spawn_reagent = /singleton/reagent/sanasomnum
 
+// Antagonist/EXTREMELY UNSAFE
+/obj/item/reagent_containers/chem_disp_cartridge/radioactive_waste
+	spawn_reagent = /singleton/reagent/radioactive_waste

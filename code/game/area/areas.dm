@@ -6,18 +6,15 @@
 #define VOLUME_AMBIENT_HUM 18
 #define VOLUME_MUSIC 30
 
-/// This list of names is here to make sure we don't state the area blurb to a mob more than once.
-GLOBAL_LIST_INIT(area_blurb_stated_to, list())
-
 /area
 	var/global/global_uid = 0
 	var/uid
-	///Bitflag (Any of `AREA_FLAG_*`). See `code\__DEFINES\misc.dm`.
+	/// Bitflag (Any of `AREA_FLAG_*`). See "code\__DEFINES\misc.dm".
 	var/area_flags
 	/// Color of this area on the holomap. Must be a hex color (as string) or null.
 	var/holomap_color
 
-	///Do we have an active fire alarm?
+	/// Do we have an active fire alarm?
 	var/fire = FALSE
 
 	var/atmosalm = 0
@@ -29,15 +26,16 @@ GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 	icon = 'icons/turf/areas.dmi'
 	icon_state = "unknown"
 	layer = AREA_LAYER
-	luminosity = 0
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	invisibility = INVISIBILITY_LIGHTING
+	plane = BLACKNESS_PLANE
 
-	var/obj/machinery/power/apc/apc = null
+	var/obj/structure/machinery/power/apc/apc = null
 	/// The base turf type of the area, which can be used to override the z-level's base turf.
 	var/turf/base_turf
 
-	var/lightswitch = FALSE
+	/// If this area has a light switch (or multiple), do the lights start on or off? FALSE = off, TRUE = on.
+	var/lightswitch = TRUE
 
 	var/eject = null
 
@@ -58,23 +56,24 @@ GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 	var/oneoff_light 	= 0
 	var/oneoff_environ 	= 0
 
-	///Boolean, if this area has gravity
+	/// Boolean, if this area has gravity
 	var/has_gravity = TRUE
 
-	///Boolean, if this area always has gravity
+	/// Boolean, if this area always has gravity
 	var/alwaysgravity = FALSE
 
-	///Boolean, if this area never has gravity
+	/// Boolean, if this area never has gravity
 	var/nevergravity = FALSE
 
-	var/list/all_doors = list() //Added by Strumpetplaya - Alarm Change - Contains a list of doors adjacent to this area
+	/// Contains a list of doors adjacent to this area.
+	var/list/all_doors = list()
 	var/air_doors_activated = FALSE
 
 	var/list/ambience = list()
 	var/list/forced_ambience = null
 	var/list/music = list()
 
-	///Used to decide what kind of reverb the area makes sound have
+	/// Used to decide what kind of reverb the area makes sound have
 	var/sound_environment = SOUND_AREA_STANDARD_STATION
 
 	/// If TRUE, lights in area cannot be toggled with light controller.
@@ -96,13 +95,14 @@ GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 	// 'amidships' belongs to location_ew
 	var/location_ew = null
 	var/location_ns = null
+	/// What colors should the area's light fixtures emit, if any?
+	/// Only applies to light fixtures which are set to use randomized lighting!
+	var/list/area_lighting = LIGHT_WARM_COLORS
 
 	var/centcomm_area = FALSE
 
 	/// A text-based description of the area, can be used for sounds, notable things in the room, etc.
 	var/area_blurb
-	/// Used to filter description showing across subareas.
-	var/area_blurb_category
 
 	var/tmp/is_outside = OUTSIDE_NO
 
@@ -110,6 +110,9 @@ GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 	/// This is intended for use with EVA areas of ships - such as the wings of the Horizon, for instance.
 	/// You probably shouldn't be setting this to true on any planet-based maps, or on any indoors areas.
 	var/needs_starlight = FALSE
+
+	/// defaults to TRUE, false disables hostile events (like drone uprising).
+	var/hostile_events = TRUE
 
 /**
  * Don't move this to Initialize(). Things in here need to run before SSatoms does.
@@ -121,11 +124,14 @@ GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 	GLOB.areas += src
 	// Atmos code needs this, so we need to make sure this is done by the time they initialize.
 	uid = ++global_uid
-	if(isnull(area_blurb_category))
-		area_blurb_category = type
 	. = ..()
 
 /area/Initialize(mapload)
+#ifdef UNIT_TEST
+	if (!islist(ambience))
+		log_error("Area: [src.type] set list/ambience with [ambience] instead of a list. This var MUST be a list().")
+#endif
+
 	icon_state = "white"
 	color = null
 
@@ -135,11 +141,6 @@ GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 		power_light = 0
 		power_equip = 0
 		power_environ = 0
-
-	if(dynamic_lighting)
-		luminosity = 0
-	else
-		luminosity = 1
 
 	if(centcomm_area)
 		GLOB.centcom_areas[src] = TRUE
@@ -154,12 +155,11 @@ GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 		power_environ = 0
 
 	if (!mapload)
-		power_change()		// All machines set to current power level.
+		SEND_SIGNAL(src, COMSIG_AREA_POWER_CHANGE)	// All machines set to current power level.
 
 	. = ..()
 
-	if(dynamic_lighting)
-		luminosity = FALSE
+	update_base_lighting()
 
 	if (mapload && turf_initializer)
 		for(var/turf/T in src)
@@ -199,7 +199,7 @@ GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 		state = initial(lightswitch)
 
 	lightswitch = state
-	var/obj/machinery/light_switch/L = locate() in src
+	var/obj/structure/machinery/light_switch/L = locate() in src
 	if(L)
 		L.on = state
 		L.sync_lights()
@@ -207,7 +207,7 @@ GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 /area/proc/get_cameras()
 	. = list()
 	for (var/thing in SSmachinery.all_cameras)
-		var/obj/machinery/camera/C = thing
+		var/obj/structure/machinery/camera/C = thing
 		if (!isturf(C.loc))
 			continue
 
@@ -221,7 +221,7 @@ GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 		GLOB.atmosphere_alarm.triggerAlarm(src, alarm_source, severity = danger_level)
 
 	//Check all the alarms before lowering atmosalm. Raising is perfectly fine.
-	for (var/obj/machinery/alarm/AA in src)
+	for (var/obj/structure/machinery/alarm/AA in src)
 		if (!(AA.stat & (NOPOWER|BROKEN)) && !AA.shorted && AA.report_danger_level)
 			danger_level = max(danger_level, AA.danger_level)
 
@@ -233,7 +233,7 @@ GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 			air_doors_close()
 
 		atmosalm = danger_level
-		for (var/obj/machinery/alarm/AA in src)
+		for (var/obj/structure/machinery/alarm/AA in src)
 			AA.update_icon()
 
 		return 1
@@ -242,46 +242,46 @@ GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 /area/proc/air_doors_close()
 	if(!air_doors_activated)
 		air_doors_activated = 1
-		for(var/obj/machinery/door/firedoor/E in all_doors)
+		for(var/obj/structure/machinery/door/firedoor/E in all_doors)
 			if(!E.blocked)
 				if(E.operating)
 					E.nextstate = FIREDOOR_CLOSED
 				else if(!E.density)
-					INVOKE_ASYNC(E, TYPE_PROC_REF(/obj/machinery/door, close))
+					INVOKE_ASYNC(E, TYPE_PROC_REF(/obj/structure/machinery/door, close))
 
 /area/proc/air_doors_open()
 	if(air_doors_activated)
 		air_doors_activated = 0
-		for(var/obj/machinery/door/firedoor/E in all_doors)
+		for(var/obj/structure/machinery/door/firedoor/E in all_doors)
 			if(!E.blocked)
 				if(E.operating)
 					E.nextstate = FIREDOOR_OPEN
 				else if(E.density)
-					INVOKE_ASYNC(E, TYPE_PROC_REF(/obj/machinery/door, open))
+					INVOKE_ASYNC(E, TYPE_PROC_REF(/obj/structure/machinery/door, open))
 
 /area/proc/fire_alert()
 	if(!fire)
 		fire = 1	//used for firedoor checks
 		update_icon()
 		mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-		for(var/obj/machinery/door/firedoor/D in all_doors)
+		for(var/obj/structure/machinery/door/firedoor/D in all_doors)
 			if(!D.blocked)
 				if(D.operating)
 					D.nextstate = FIREDOOR_CLOSED
 				else if(!D.density)
-					INVOKE_ASYNC(D, TYPE_PROC_REF(/obj/machinery/door, close))
+					INVOKE_ASYNC(D, TYPE_PROC_REF(/obj/structure/machinery/door, close))
 
 /area/proc/fire_reset()
 	if (fire)
 		fire = 0	//used for firedoor checks
 		update_icon()
 		mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-		for(var/obj/machinery/door/firedoor/D in all_doors)
+		for(var/obj/structure/machinery/door/firedoor/D in all_doors)
 			if(!D.blocked)
 				if(D.operating)
 					D.nextstate = FIREDOOR_OPEN
 				else if(D.density)
-					INVOKE_ASYNC(D, TYPE_PROC_REF(/obj/machinery/door, open))
+					INVOKE_ASYNC(D, TYPE_PROC_REF(/obj/structure/machinery/door, open))
 
 /area/proc/readyalert()
 	if(!eject)
@@ -304,12 +304,12 @@ GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 		party = 0
 		mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 		update_icon()
-		for(var/obj/machinery/door/firedoor/D in all_doors)
+		for(var/obj/structure/machinery/door/firedoor/D in all_doors)
 			if(!D.blocked)
 				if(D.operating)
 					D.nextstate = FIREDOOR_OPEN
 				else if(D.density)
-					INVOKE_ASYNC(D, TYPE_PROC_REF(/obj/machinery/door, open))
+					INVOKE_ASYNC(D, TYPE_PROC_REF(/obj/structure/machinery/door, open))
 
 #define DO_PARTY(COLOR) animate(color = COLOR, time = 0.5 SECONDS, easing = QUAD_EASING)
 
@@ -386,7 +386,7 @@ GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 	L.lastarea = newarea
 
 	// Start playing ambience.
-	if(src.ambience.len && L && L.client && (L.client.prefs.sfx_toggles & ASFX_AMBIENCE) && !L.ear_deaf)
+	if(length(src.ambience) && L && L.client && (L.client.prefs.sfx_toggles & ASFX_AMBIENCE) && !L.ear_deaf)
 		play_ambience(L)
 	else
 		stop_ambience(L)
@@ -410,7 +410,6 @@ GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 	// Stop playing music.
 	else
 		stop_music(L)
-	do_area_blurb(L)
 
 	/* END aurora snowflake code */
 
@@ -433,7 +432,7 @@ GLOBAL_LIST_INIT(area_blurb_stated_to, list())
  * * mob/living/L - Affected mob.
  */
 /area/proc/play_ambience(var/mob/living/L)
-	if((world.time >= L.client.ambience_last_played_time + 5 MINUTES) && prob(20))
+	if((world.time >= L.client.ambience_last_played_time + 3 MINUTES) && prob(30))
 		var/picked_ambience = pick(ambience)
 		L << sound(picked_ambience, volume = VOLUME_AMBIENCE, channel = CHANNEL_AMBIENCE)
 		L.client.ambience_last_played_time = world.time
@@ -492,11 +491,11 @@ GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 		to_chat(mob, SPAN_WARNING("The sudden appearance of gravity makes you fall to the floor!"))
 
 /area/proc/prison_break()
-	for(var/obj/machinery/power/apc/temp_apc in src)
+	for(var/obj/structure/machinery/power/apc/temp_apc in src)
 		temp_apc.overload_lighting(70)
-	for(var/obj/machinery/door/airlock/temp_airlock in src)
+	for(var/obj/structure/machinery/door/airlock/temp_airlock in src)
 		temp_airlock.prison_open()
-	for(var/obj/machinery/door/window/temp_windoor in src)
+	for(var/obj/structure/machinery/door/window/temp_windoor in src)
 		temp_windoor.open()
 
 /area/has_gravity(turf/gravity_turf)
@@ -544,6 +543,9 @@ GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 		if (istype(A, /area/turret_protected) || LAZYLEN(A.turret_controls))
 			continue
 
+		if(!A.hostile_events)
+			continue
+
 		if(filter_players)
 			var/should_continue = FALSE
 			for(var/mob/living/carbon/human/H in GLOB.human_mob_list)
@@ -568,43 +570,6 @@ GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 	if (turfs.len)
 		return pick(turfs)
 	else return null
-
-/**
-* Displays an area blurb on a mob's screen.
-*
-* Areas with blurbs set [/area/var/area_blurb] will display their blurb. Otherwise no blurb will be shown. Contains checks to avoid duplicate blurbs, pass the `override` variable to bypass this. If passed when an area has no blurb, will show a generic "no blurb" message.
-*
-* * `target_mob` - The mob to show an area blurb.
-* * `override` - Pass `TRUE` to override duplicate checks, for usage with verbs, etc.
-*/
-/area/proc/do_area_blurb(mob/living/target_mob, override)
-	if(isnull(area_blurb))
-		if(override)
-			to_chat(target_mob, EXAMINE_BLOCK_GREY("There's nothing particularly noteworthy about this area."))
-		return
-
-	if(!(target_mob.ckey in GLOB.area_blurb_stated_to[area_blurb_category]) || override)
-		LAZYADD(GLOB.area_blurb_stated_to[area_blurb_category], target_mob.ckey)
-		to_chat(target_mob, EXAMINE_BLOCK_GREY(area_blurb))
-
-/// A verb to view an area's blurb on demand. Overrides the check for if you have seen the blurb before so you can always see it when used.
-/mob/living/verb/show_area_blurb()
-	set name = "Show Area Blurb"
-	set category = "IC"
-
-	if(!incapacitated(INCAPACITATION_KNOCKOUT))
-		var/area/blurb_verb = get_area(src)
-		if(blurb_verb)
-			blurb_verb.do_area_blurb(src, TRUE)
-
-/// A ghost version of the view area blurb verb so you can view it while observing.
-/mob/abstract/ghost/observer/verb/ghost_show_area_blurb()
-	set name = "Show Area Blurb"
-	set category = "IC"
-
-	var/area/blurb_verb = get_area(src)
-	if(blurb_verb)
-		blurb_verb.do_area_blurb(src, TRUE)
 
 #undef VOLUME_AMBIENCE
 #undef VOLUME_AMBIENT_HUM

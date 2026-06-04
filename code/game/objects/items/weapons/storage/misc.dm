@@ -3,7 +3,7 @@
 	desc = "It's a small container with dice inside."
 	icon = 'icons/obj/dice.dmi'
 	icon_state = "dicebag"
-	use_sound = /singleton/sound_category/rustle_sound
+	use_sound = SFX_RUSTLE
 	drop_sound = 'sound/items/drop/hat.ogg'
 	pickup_sound = 'sound/items/pickup/hat.ogg'
 	starts_with = list(
@@ -172,7 +172,7 @@
 	storage_slots = 6
 	drop_sound = 'sound/items/drop/cardboardbox.ogg'
 	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
-	use_sound = 'sound/items/storage/box.ogg'
+	use_sound = 'sound/items/storage/cardboardbox.ogg'
 
 /obj/item/storage/box/fancy/chewables/tobacco/update_icon()
 	if(opened) //use the open icon.
@@ -195,7 +195,7 @@
 	w_class = WEIGHT_CLASS_TINY
 	drop_sound = 'sound/items/drop/cardboardbox.ogg'
 	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
-	use_sound = 'sound/items/storage/box.ogg'
+	use_sound = 'sound/items/storage/cardboardbox.ogg'
 
 /obj/item/storage/chewables/rollable/unathi
 	name = "box of S'th Kasavakh tobacco leaves"
@@ -231,3 +231,21 @@
 	starts_with = list(/obj/item/reagent_containers/food/snacks/grown/dried_oracle/fine = 8)
 	icon_state = "roll_vedamor"
 	item_state = "Epacket"
+
+//solar salve
+/obj/item/storage/chewables/solar_salve
+	name = "adhomian tin"
+	desc = "A tin labeled in Siik'maas. It has a picture of an icy harbour on it."
+	icon_state = "solar_salve"
+	drop_sound = 'sound/items/drop/metal_pot.ogg'
+	pickup_sound = 'sound/items/drop/metal_pot.ogg'
+	use_sound = 'sound/items/storage/cardboardbox.ogg'
+	w_class = WEIGHT_CLASS_NORMAL
+	throwforce = 2
+	starts_with = list(/obj/item/clothing/mask/chewable/solar_salve = 6)
+	make_exact_fit = TRUE
+
+/obj/item/storage/chewables/solar_salve/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	if(GLOB.all_languages[LANGUAGE_SIIK_MAAS] in user.languages)
+		. += SPAN_NOTICE("The label says: \"Solar Salve\" and then goes on to describe how it helps against the tiredness of long shifts and cold nights.")

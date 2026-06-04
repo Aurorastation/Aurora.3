@@ -72,7 +72,7 @@
 	//Pass the status message along
 	data["status_message"] = status_message
 
-	data["handling_fee"] = SScargo.get_handlingfee()
+	data["handling_fee"] = SScargo.get_handlingfee_cost(co.get_value(2))
 	data["crate_fee"] = SScargo.get_cratefee()
 
 	return data

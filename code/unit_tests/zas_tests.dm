@@ -74,7 +74,7 @@ GLOBAL_LIST_EMPTY(turfs_to_map_type)
 		var/t_msg = "Turf: [T] |  Location: [T.x] // [T.y] // [T.z]"
 
 		var/datum/gas_mixture/GM = T.return_air()
-		var/pressure = GM.return_pressure()
+		var/pressure = XGM_PRESSURE(GM)
 		var/temp = GM.temperature
 
 
@@ -124,7 +124,6 @@ GLOBAL_LIST_EMPTY(turfs_to_map_type)
 /datum/unit_test/zas_area_test/ai_chamber
 	name = "ZAS: AI Chamber"
 	area_path = /area/horizon/ai/chamber
-	expectation = UT_NORMAL_COOL
 
 /datum/unit_test/zas_area_test/xenobio
 	name = "ZAS: Xenobiology"

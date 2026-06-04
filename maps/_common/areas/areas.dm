@@ -30,7 +30,6 @@ Generally you don't want to put your areas in here; if the area is only used in 
 	icon_state = "space"
 	requires_power = 1
 	always_unpowered = 1
-	dynamic_lighting = 1
 	power_light = 0
 	power_equip = 0
 	power_environ = 0
@@ -38,7 +37,7 @@ Generally you don't want to put your areas in here; if the area is only used in 
 	no_light_control = 1
 	base_turf = /turf/space
 	is_outside = OUTSIDE_YES
-	area_flags = AREA_FLAG_IS_BACKGROUND | AREA_FLAG_HIDE_FROM_HOLOMAP
+	area_flags = AREA_FLAG_IS_BACKGROUND | AREA_FLAG_HIDE_FROM_HOLOMAP | AREA_FLAG_PREVENT_PERSISTENT_TRASH
 	nevergravity = TRUE //There's no gravity in space
 
 /area/space/atmosalert()

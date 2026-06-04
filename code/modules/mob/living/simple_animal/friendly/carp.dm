@@ -101,12 +101,13 @@
 				//walk to friend
 				stop_automated_movement = 1
 				movement_target = friend
+				RegisterSignal(movement_target, COMSIG_QDELETING, PROC_REF(lostMovementTarget))
 				GLOB.move_manager.move_to(src, movement_target, near_dist, seek_move_delay)
 
 		//already following and close enough, stop
 		else if(current_dist <= near_dist)
 			GLOB.move_manager.stop_looping(src)
-			movement_target = null
+			lostMovementTarget()
 			stop_automated_movement = 0
 			if(prob(10))
 				say("Glub!")

@@ -119,7 +119,7 @@
 	name = "Port Stairwell"
 	horizon_deck = 3
 
-// Bridge Stairwell (Captain/Kitchen/Hydro)
+// Bridge Stairwell (Captain/Galley/Hydro)
 /area/horizon/stairwell/bridge
 	name = "Horizon - Bridge Stairwell (PARENT AREA - DON'T USE)"
 	icon_state = "bridge_stairs"
@@ -201,11 +201,13 @@
 /area/horizon/repoffice
 	name = "Representative Office (PARENT AREA - DON'T USE)"
 	icon_state = "law"
+	area_lighting = LIGHT_HIGHSEC_COLORS
 	sound_environment = SOUND_AREA_MEDIUM_SOFTFLOOR
 	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
 	horizon_deck = 3
 	department = LOC_COMMAND
 	area_blurb = "An office well-suited to the powerful: a useful lair for the consular or representative to withdraw with victims found after prowling the ship for themselves."
+	lightswitch = FALSE
 
 /area/horizon/repoffice/consular_one
 	name = "Consular Office A"
@@ -228,6 +230,7 @@
 	name = "Journalist's Office"
 	sound_environment = SOUND_AREA_SMALL_SOFTFLOOR
 	horizon_deck = 3
+	lightswitch = FALSE
 
 /area/horizon/crew/lounge
 	name = "Crew Lounge"
@@ -240,21 +243,29 @@
 	horizon_deck = 1
 	area_blurb = "A discrete compartment frequented by the ship's many synthetics and IPCs."
 
+// In case we make all the supply closets their own /areas in future.
+/area/horizon/crew/emergency_closet/deck_2/starboard
+	name = "Emergency Supply Closet"
+	icon_state = "maintenance"
+	horizon_deck = 2
+	area_blurb = "Contains emergency supplies, surprisingly enough."
+
 // Rad shielded because common afk area.
 /area/horizon/crew/washroom
-	name = "Horizon - Washroom (PARENT AREA - DON'T USE)"
+	name = "Horizon - Head (PARENT AREA - DON'T USE)"
 	icon_state = "washroom"
 	area_flags = AREA_FLAG_RAD_SHIELDED
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+	lightswitch = FALSE
 
 /area/horizon/crew/washroom/deck_2
-	name = "Washroom"
+	name = "Head"
 	icon_state = "washroom"
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 	horizon_deck = 2
 
 /area/horizon/crew/washroom/deck_3
-	name = "Washroom"
+	name = "Head"
 	icon_state = "washroom"
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 	horizon_deck = 3
@@ -263,3 +274,4 @@
 	name = "Vacant Office"
 	no_light_control = 0
 	horizon_deck = 3
+	lightswitch = FALSE

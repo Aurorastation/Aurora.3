@@ -120,11 +120,11 @@
 	sizeclass = "Huriya-class Transport Craft"
 	shiptype = "All-environment troop transport"
 
-/obj/machinery/computer/shuttle_control/explore/elyran_shuttle
+/obj/structure/machinery/computer/shuttle_control/explore/elyran_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Elyran Naval Shuttle"
 	req_access = list(ACCESS_ELYRAN_NAVAL_INFANTRY_SHIP)
-	icon = 'icons/obj/machinery/modular_terminal.dmi'
+	icon = 'icons/obj/modular_computers/modular_terminal.dmi'
 	icon_screen = "helm"
 	icon_keyboard = "security_key"
 	icon_keyboard_emis = "security_key_mask"

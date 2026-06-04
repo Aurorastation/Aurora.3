@@ -11,7 +11,7 @@
  */
 /proc/check_inhibitors(var/turf/T)
 	for(var/found_inhibitor in GLOB.bluespace_inhibitors)
-		var/obj/machinery/anti_bluespace/AB = found_inhibitor
+		var/obj/structure/machinery/anti_bluespace/AB = found_inhibitor
 		if(T.z != AB.z || get_dist(T, AB) > 8 || (AB.stat & (NOPOWER | BROKEN)))
 			continue
 		else
@@ -76,7 +76,7 @@ Frequency:
 			if (sr)
 				src.temp += "<B>Located Beacons:</B><BR>"
 
-				for(var/obj/item/device/radio/beacon/W in GLOB.teleportbeacons)
+				for(var/obj/item/radio/beacon/W in GLOB.teleportbeacons)
 					if (W.get_frequency() == src.frequency)
 						var/turf/tr = get_turf(W)
 						if (tr.z == sr.z && tr)
@@ -152,7 +152,7 @@ Frequency:
 	origin_tech = list(TECH_MAGNET = 1, TECH_BLUESPACE = 3)
 	matter = list(DEFAULT_WALL_MATERIAL = 10000)
 
-	var/obj/machinery/teleport/pad/linked_pad
+	var/obj/structure/machinery/teleport/pad/linked_pad
 	var/list/active_teleporters
 
 	var/max_portals = 2
@@ -237,7 +237,7 @@ Frequency:
 	if(user == loc)
 		var/turf/current_location = get_turf(src)
 		var/list/teleport_options = list()
-		for(var/obj/machinery/teleport/pad/P in SSmachinery.machinery)
+		for(var/obj/structure/machinery/teleport/pad/P in SSmachinery.machinery)
 			if(AreConnectedZLevels(current_location.z, P.z))
 				var/area/A = get_area(P)
 				var/display_name = get_area_display_name(A)
@@ -273,7 +273,7 @@ Frequency:
 /obj/item/closet_teleporter
 	name = "closet teleporter"
 	desc = "A device that allows a user to connect two closets into a bluespace network."
-	icon = 'icons/obj/modular_components.dmi'
+	icon = 'icons/obj/modular_computers/modular_components.dmi'
 	icon_state = "cpu_normal_photonic"
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	w_class = WEIGHT_CLASS_SMALL

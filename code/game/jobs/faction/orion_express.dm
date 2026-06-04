@@ -1,15 +1,16 @@
 /datum/faction/orion_express
 	name = "Orion Express"
-	description = {"<p>
+	description = {"
 	Founded in 2464, the Orion Express is a corporation designed to handle logistics for the
 	Stellar Corporate Conglomerate in the wake of the Phoron Scarcity and the sudden issues
-	the Conglomeration of the megacorporations presented. It consists of its main branch, dedicated
+	the Conglomeration of the megacorporations presented.<br> It consists of its main branch, dedicated
 	to cargo services and transport, but also features a fledgling robotics division, mainly focused
-	on industrial synthetics to aid in its logistics missions. The Orion Express is expected to become an
+	on industrial synthetics to aid in its logistics missions.<br> The Orion Express is expected to become an
 	integral part of the Stellar Corporate Conglomerate's future through delivering supplies and merchandise throughout the Orion Spur.
-	</p>"}
-	departments = {"Operations<br>Service"}
+	"}
+	departments = list(DEPARTMENT_CARGO, DEPARTMENT_SERVICE)
 	title_suffix = "Orion"
+	wiki_page = "Orion_Express"
 
 	allowed_role_types = ORION_ROLES
 
@@ -58,6 +59,20 @@
 		"Operations Personnel" = /obj/outfit/job/hangar_tech/event/orion,
 		"Service Personnel" = /obj/outfit/job/bartender/orion
 	)
+
+/datum/faction/orion_express/get_corporate_objectives(var/mission_level)
+	switch(mission_level)
+		if(REPRESENTATIVE_MISSION_HIGH)
+			return pick("Identify and document Orion Express employees slowing or impeding company operations (IE. inadequate mining yields; slow order deliveries; slow service catering)")
+		if(REPRESENTATIVE_MISSION_MEDIUM)
+			return pick("Promote competitiveness and the setting personal of goals among Orion Express employees",
+						"Ensure all outbound Orion Express packages aboard the [station_name()] are delivered",
+						"Evaluate crew opinions on Quick-E-Burger catering aboard the [station_name()]")
+		else
+			return pick("Conduct a survey on Orion Express employee morale",
+						"Survey crew members on their typical package delivery times",
+						"Identify and resolve a complaint of an Orion Express employee")
+
 
 /obj/outfit/job/hangar_tech/orion
 	name = "Hangar Technician - Orion Express"

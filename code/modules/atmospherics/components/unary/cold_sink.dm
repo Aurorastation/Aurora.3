@@ -1,7 +1,7 @@
 //TODO: Put this under a common parent type with heaters to cut down on the copypasta
 #define FREEZER_PERF_MULT 2.5
 
-/obj/machinery/atmospherics/unary/freezer
+/obj/structure/machinery/atmospherics/unary/freezer
 	name = "gas cooling system"
 	desc = "Cools gas when connected to pipe network."
 	icon = 'icons/obj/machinery/sleeper.dmi'
@@ -30,41 +30,41 @@
 
 	parts_power_mgmt = FALSE
 
-/obj/machinery/atmospherics/unary/freezer/mechanics_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/atmospherics/unary/freezer/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Cools down the gas of the pipe it is connected to. It uses massive amounts of electricity while on."
 
-/obj/machinery/atmospherics/unary/freezer/upgrade_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/atmospherics/unary/freezer/upgrade_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Upgraded <b>matter bins</b> will improve cooling efficiency and increase the volume of air it can cool at once."
 	. += "Upgraded <b>capacitors</b> will increase maximum power setting."
 	. += "Upgraded <b>manipulators</b> will improve cooling efficiency."
 
-/obj/machinery/atmospherics/unary/freezer/Initialize()
+/obj/structure/machinery/atmospherics/unary/freezer/Initialize()
 	initialize_directions = dir
 	. = ..()
 
-/obj/machinery/atmospherics/unary/freezer/atmos_init()
+/obj/structure/machinery/atmospherics/unary/freezer/atmos_init()
 	if(node)
 		return
 
 	var/node_connect = dir
 
-	for(var/obj/machinery/atmospherics/target in get_step(src, node_connect))
+	for(var/obj/structure/machinery/atmospherics/target in get_step(src, node_connect))
 		if(target.initialize_directions & get_dir(target, src))
 			node = target
 			break
 
 	//copied from pipe construction code since heaters/freezers don't use fittings and weren't doing this check - this all really really needs to be refactored someday.
 	//check that there are no incompatible pipes/machinery in our own location
-	for(var/obj/machinery/atmospherics/M in src.loc)
+	for(var/obj/structure/machinery/atmospherics/M in src.loc)
 		if(M != src && (M.initialize_directions & node_connect) && M.check_connect_types(M,src))	// matches at least one direction on either type of pipe & same connection type
 			node = null
 			break
 
 	update_icon()
 
-/obj/machinery/atmospherics/unary/freezer/update_icon()
+/obj/structure/machinery/atmospherics/unary/freezer/update_icon()
 	if(node)
 		if(use_power && cooling)
 			icon_state = "freezer_1"
@@ -74,26 +74,26 @@
 		icon_state = "freezer_0"
 	return
 
-/obj/machinery/atmospherics/unary/freezer/attack_ai(mob/user)
+/obj/structure/machinery/atmospherics/unary/freezer/attack_ai(mob/user)
 	if(!ai_can_interact(user))
 		return
 	ui_interact(user)
 
-/obj/machinery/atmospherics/unary/freezer/attack_hand(mob/user)
+/obj/structure/machinery/atmospherics/unary/freezer/attack_hand(mob/user)
 	. = ..()
 	ui_interact(user)
 
-/obj/machinery/atmospherics/unary/freezer/ui_interact(mob/user, var/datum/tgui/ui)
+/obj/structure/machinery/atmospherics/unary/freezer/ui_interact(mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "Freezer", "Gas Cooling System", 440, 300)
 		ui.open()
 
-/obj/machinery/atmospherics/unary/freezer/ui_data(mob/user)
+/obj/structure/machinery/atmospherics/unary/freezer/ui_data(mob/user)
 	var/list/data = list()
 
 	data["on"] = !!use_power
-	data["gasPressure"] = round(air_contents.return_pressure())
+	data["gasPressure"] = round(XGM_PRESSURE(air_contents))
 	data["gasTemperature"] = round(air_contents.temperature)
 	data["minGasTemperature"] = 0
 	data["maxGasTemperature"] = round(T20C+500)
@@ -107,7 +107,7 @@
 
 	return data
 
-/obj/machinery/atmospherics/unary/freezer/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/obj/structure/machinery/atmospherics/unary/freezer/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return TRUE
@@ -128,7 +128,7 @@
 
 	add_fingerprint(usr)
 
-/obj/machinery/atmospherics/unary/freezer/process(seconds_per_tick)
+/obj/structure/machinery/atmospherics/unary/freezer/process(seconds_per_tick)
 	..()
 
 	if(stat & (NOPOWER|BROKEN) || !use_power)
@@ -159,7 +159,7 @@
 	update_icon()
 
 //upgrading parts
-/obj/machinery/atmospherics/unary/freezer/RefreshParts()
+/obj/structure/machinery/atmospherics/unary/freezer/RefreshParts()
 	..()
 	var/cap_rating = 0
 	var/manip_rating = 0
@@ -177,11 +177,11 @@
 	air_contents.volume = max(initial(internal_volume) - 200, 0) + 200 * bin_rating
 	set_power_level(power_setting)
 
-/obj/machinery/atmospherics/unary/freezer/proc/set_power_level(var/new_power_setting)
+/obj/structure/machinery/atmospherics/unary/freezer/proc/set_power_level(var/new_power_setting)
 	power_setting = new_power_setting
 	power_rating = max_power_rating * (power_setting/100)
 
-/obj/machinery/atmospherics/unary/freezer/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/atmospherics/unary/freezer/attackby(obj/item/attacking_item, mob/user)
 	if(default_deconstruction_screwdriver(user, attacking_item))
 		return TRUE
 	if(default_deconstruction_crowbar(user, attacking_item))

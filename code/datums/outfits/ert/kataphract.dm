@@ -16,7 +16,7 @@
 	l_ear = /obj/item/device/radio/headset/distress
 	hands = list(/obj/item/martial_manual/swordsmanship)
 
-	r_pocket = /obj/item/device/radio
+	r_pocket = /obj/item/radio
 
 	belt_contents = null
 
@@ -102,7 +102,7 @@
 		/obj/item/storage/box/unique/donkpockets = 1,
 		/obj/item/crowbar = 1,
 		/obj/item/storage/firstaid/adv = 1,
-		/obj/item/device/healthanalyzer = 1,
+		/obj/item/healthanalyzer = 1,
 		/obj/item/reagent_containers/glass/bottle/thetamycin = 1,
 		/obj/item/reagent_containers/hypospray/autoinjector/coagzolug = 1
 	)

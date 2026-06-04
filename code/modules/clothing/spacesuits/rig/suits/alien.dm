@@ -15,15 +15,15 @@
 	)
 	siemens_coefficient = 0.1
 	emp_protection = -20
-	slowdown = 6
-	offline_slowdown = 10
+	slowdown = 3
+	offline_slowdown = 5
 	vision_restriction = TINT_HEAVY
 	offline_vision_restriction = TINT_BLIND
 	boot_type =  /obj/item/clothing/shoes/magboots/rig/chonk
 
 	species_restricted = list(BODYTYPE_UNATHI)
 
-	allowed = list(/obj/item/gun,/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/melee/baton,/obj/item/melee/energy)
+	allowed = list(/obj/item/gun,/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/melee/baton,/obj/item/melee/energy)
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT
 
@@ -44,7 +44,7 @@
 	)
 	siemens_coefficient = 0.1
 	vision_restriction = TINT_NONE
-	slowdown = 4
+	slowdown = 2
 	glove_type = /obj/item/clothing/gloves/powerfist
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL
@@ -91,8 +91,8 @@
 	)
 	vision_restriction = TINT_NONE
 	offline_vision_restriction = TINT_BLIND
-	slowdown = 4
-	offline_slowdown = 3
+	slowdown = 2
+	offline_slowdown = 2.5
 	siemens_coefficient = 0.1
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL
 	glove_type = /obj/item/clothing/gloves/powerfist
@@ -127,15 +127,15 @@
 	)
 	siemens_coefficient = 0.1
 	vision_restriction = 0
-	slowdown = 2
-	offline_slowdown = 3
+	slowdown = 1
+	offline_slowdown = 1.5
 
 	species_restricted = list(BODYTYPE_VAURCA)
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/vaurca
 	air_type =   /obj/item/tank/phoron
 
-	allowed = list(/obj/item/gun,/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/melee/baton,/obj/item/melee/energy)
+	allowed = list(/obj/item/gun,/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/melee/baton,/obj/item/melee/energy)
 
 	initial_modules = list(
 		/obj/item/rig_module/actuators/combat,
@@ -190,12 +190,12 @@
 	)
 	siemens_coefficient = 0
 	vision_restriction = 0
-	slowdown = 2
-	offline_slowdown = 3
+	slowdown = 1
+	offline_slowdown = 1.5
 
 	species_restricted = list(BODYTYPE_TAJARA)
 
-	allowed = list(/obj/item/gun,/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/melee/baton,/obj/item/melee/energy)
+	allowed = list(/obj/item/gun,/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/melee/baton,/obj/item/melee/energy)
 
 	initial_modules = list(
 		/obj/item/rig_module/actuators/combat,
@@ -209,9 +209,17 @@
 	..()
 	if(wearer)
 		var/obj/item/organ/internal/augment/tesla/T = wearer.internal_organs_by_name[BP_AUG_TESLA]
-		if(T && !T.is_broken())
+		if(istype(T, /obj/item/organ/internal/augment/tesla/advanced) && !T.is_broken())
 			if(cell)
 				cell.give(T.max_charges)
+
+/obj/item/rig/tesla/toggle_seals(mob/initiator, instant)
+	var/obj/item/organ/internal/augment/tesla/T = wearer.internal_organs_by_name[BP_AUG_TESLA]
+	if(istype(T, /obj/item/organ/internal/augment/tesla/advanced) && !T.is_broken())
+		. = ..()
+	else
+		to_chat(initiator, SPAN_DANGER("Cannot toggle suit: A functional, military grade tesla spine is required to use the suit."))
+		return FALSE
 
 /obj/item/rig/tesla/ninja
 

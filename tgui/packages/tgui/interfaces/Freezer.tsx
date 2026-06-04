@@ -32,7 +32,8 @@ export const Freezer = (props, context) => {
               color={!data.on && 'danger'}
               onClick={() => act('power')}
             />
-          }>
+          }
+        >
           <Box textAlign="center">
             <b>Gas Pressure: </b> {data.gasPressure} kPa
           </Box>
@@ -63,7 +64,8 @@ export const Freezer = (props, context) => {
             }}
             value={data.gasTemperature}
             minValue={data.minGasTemperature}
-            maxValue={data.maxGasTemperature}>
+            maxValue={data.maxGasTemperature}
+          >
             <Box>{data.gasTemperature} K</Box>
           </ProgressBar>
           <Box>
@@ -80,7 +82,8 @@ export const Freezer = (props, context) => {
             }}
             value={data.targetGasTemperature}
             minValue={data.minGasTemperature}
-            maxValue={data.maxGasTemperature}>
+            maxValue={data.maxGasTemperature}
+          >
             <Box>{data.targetGasTemperature} K</Box>
           </ProgressBar>
           <Knob

@@ -25,6 +25,10 @@
 #define SPAN_CAUTION(str) ("<span class='caution'>" + str + "</span>")
 #define SPAN_STORYTELLER(str) ("<span class='storyteller'>" + str + "</span>")
 
+#define SPAN_MACHINE_WARNING(str) ("<span class='machine-warning'>" + str + "</span>")
+#define SPAN_MACHINE_DANGER(str) ("<span class='machine-danger'>" + str + "</span>")
+#define SPAN_MACHINE_VISION(str) ("<span class='machine-vision'>" + str + "</span>")
+
 #define SPAN_RED(str) "<span style='color:[COLOR_RED]'>[str]</span>"
 #define SPAN_YELLOW(str) "<span style='color:[COLOR_YELLOW]'>[str]</span>"
 #define SPAN_GREEN(str) "<span style='color:[COLOR_GREEN]'>[str]</span>"
@@ -34,6 +38,9 @@
 #define SPAN_HIGHDANGER(str) (FONT_LARGE(SPAN_DANGER(str)))
 
 #define SPAN_LANGCHAT(X) "<span class='langchat'>[X]</span>"
+
+#define SPAN_BOLDNOTICE(str) ("<span class='boldnotice'>" + str + "</span>")
+#define SPAN_BOLDWARNING(X) "<span class='boldwarning'>[X]</span>"
 
 /*
 #####################

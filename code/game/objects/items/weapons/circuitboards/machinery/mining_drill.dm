@@ -1,10 +1,6 @@
-#ifndef T_BOARD
-#error T_BOARD macro is not defined but we need it!
-#endif
-
 /obj/item/circuitboard/miningdrill
 	name = T_BOARD("mining drill head")
-	build_path = /obj/machinery/mining/drill
+	build_path = /obj/structure/machinery/mining/drill
 	board_type = BOARD_MACHINE
 	origin_tech = list(TECH_DATA = 1, TECH_ENGINEERING = 1)
 	req_components = list(
@@ -15,7 +11,7 @@
 
 /obj/item/circuitboard/miningdrillbrace
 	name = T_BOARD("mining drill brace")
-	build_path = /obj/machinery/mining/brace
+	build_path = /obj/structure/machinery/mining/brace
 	board_type = BOARD_MACHINE
 	origin_tech = list(TECH_DATA = 1, TECH_ENGINEERING = 1)
 	req_components = list()

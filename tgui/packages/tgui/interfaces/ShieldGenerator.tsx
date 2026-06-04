@@ -5,6 +5,7 @@ import { Window } from '../layouts';
 
 export type ShieldData = {
   owned_capacitor: BooleanLike;
+  owned_capacitor_count: number;
   active: BooleanLike;
   time_since_fail: number;
   multiz: BooleanLike;
@@ -35,11 +36,12 @@ export const ShieldGenerator = (props, context) => {
               icon={data.active ? 'power-off' : 'times'}
               onClick={() => act('toggle')}
             />
-          }>
+          }
+        >
           <LabeledList>
-            <LabeledList.Item label="Capacitor">
+            <LabeledList.Item label="Capacitors">
               {data.owned_capacitor ? (
-                <Box color="good">Connected</Box>
+                <Box color="good">Connected ({data.owned_capacitor_count})</Box>
               ) : (
                 <Box color="bad">Not Found</Box>
               )}
@@ -63,10 +65,10 @@ export const ShieldGenerator = (props, context) => {
               {data.average_field} Renwick ({data.progress_field}%)
             </LabeledList.Item>
             <LabeledList.Item label="Upkeep Power">
-              {data.power_take} W
+              {data.power_take} kW
             </LabeledList.Item>
             <LabeledList.Item label="Shield Generation Power">
-              {data.shield_power} W
+              {data.shield_power} kW
             </LabeledList.Item>
           </LabeledList>
           <Section title="Settings">

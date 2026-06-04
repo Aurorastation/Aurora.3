@@ -22,8 +22,8 @@
 	var/breakouttime = 2 MINUTES
 	var/cuff_sound = 'sound/weapons/handcuffs.ogg'
 	var/cuff_type = "handcuffs"
-	drop_sound = 'sound/items/drop/accessory.ogg'
-	pickup_sound = 'sound/items/pickup/accessory.ogg'
+	drop_sound = 'sound/items/drop/handcuffs.ogg'
+	pickup_sound = 'sound/items/pickup/handcuffs.ogg'
 
 /obj/item/handcuffs/attack(mob/living/target_mob, mob/living/user, target_zone)
 	var/mob/living/carbon/C = target_mob
@@ -97,9 +97,6 @@
 		user.do_attack_animation(H)
 		user.visible_message(SPAN_DANGER("\The [user] has put [cuff_type] on \the [H]!"))
 
-	if(!legcuff)
-		target.drop_held_items()
-
 	// Apply cuffs.
 	var/obj/item/handcuffs/cuffs = src
 	if(dispenser)
@@ -111,10 +108,10 @@
 
 	if(!legcuff)
 		target.handcuffed = cuffs
-		target.update_inv_handcuffed()
+		target.handcuff_update()
 	else
 		target.legcuffed = cuffs
-		target.update_inv_legcuffed()
+		target.legcuff_update()
 	return TRUE
 
 /mob/living/carbon/human/RestrainedClickOn(var/atom/A)
@@ -219,7 +216,7 @@
 			to_chat(user, SPAN_NOTICE("You wrap \the [src] around the top of the rod."))
 			qdel(src)
 			update_icon(user)
-	else if(can_be_cut && attacking_item.iswirecutter())
+	else if(can_be_cut && attacking_item.tool_behaviour == TOOL_WIRECUTTER)
 		user.visible_message("[user] cuts the [src].", SPAN_NOTICE("You cut the [src]."))
 		playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
 		new/obj/item/stack/cable_coil(get_turf(src), 15, color)

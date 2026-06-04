@@ -1,6 +1,12 @@
 import { BooleanLike } from '../../common/react';
 import { useBackend } from '../backend';
-import { Button, LabeledList, NoticeBox, NumberInput, Section } from '../components';
+import {
+  Button,
+  LabeledList,
+  NoticeBox,
+  NumberInput,
+  Section,
+} from '../components';
 import { Window } from '../layouts';
 
 export type FusionGyrotronData = {
@@ -36,7 +42,8 @@ export const FusionGyrotronControl = (props, context) => {
                   color={gyrotron.active ? 'good' : 'bad'}
                   onClick={() => act('toggle', { machine: gyrotron.ref })}
                 />
-              }>
+              }
+            >
               <NoticeBox>
                 Power consumption per shot: {gyrotron.power_status}
               </NoticeBox>

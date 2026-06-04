@@ -35,16 +35,6 @@
 	icon_state = "shorts_s_black"
 	item_state = "shorts_s_black"
 
-/obj/item/clothing/pants/shorts/khaki
-	name = "khaki shorts"
-	desc = "For that island getaway. It's five o'clock somewhere, right?"
-	icon_state = "shorts_khaki"
-	item_state = "shorts_khaki"
-
-/obj/item/clothing/pants/shorts/khaki/short
-	name = "khaki short shorts"
-	icon_state = "shorts_s_khaki"
-	item_state = "shorts_s_khaki"
 /********** Shorts End **********/
 
 /********** Jeans Shorts Start **********/
@@ -90,15 +80,6 @@
 	icon_state = "shorts_s_jeans_black"
 	item_state = "shorts_s_jeans_black"
 
-/obj/item/clothing/pants/shorts/jeans/grey
-	name = "grey jeans shorts"
-	icon_state = "shorts_jeans_grey"
-	item_state = "shorts_jeans_grey"
-
-/obj/item/clothing/pants/shorts/jeans/grey/short
-	name = "grey jeans short shorts"
-	icon_state = "shorts_s_jeans_grey"
-	item_state = "shorts_s_jeans_grey"
 /********** Jeans Shorts End **********/
 
 /********** Athletic Shorts Start **********/

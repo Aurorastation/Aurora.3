@@ -19,6 +19,9 @@
 #define MAX_PILL_SPRITE 20 //max icon state of the pill sprites
 
 #define REAGENTS_OVERDOSE 20
+/// The time limit between allowed drug messages, to prevent drugs from spamming your chat with "YOU FEEL GREAT!" etc.
+#define DRUG_MESSAGE_COOLDOWN 30 SECONDS
+#define SOBER_MESSAGE_COOLDOWN 1 MINUTE
 #define REAGENTS_BURNING_TEMP_HIGH T0C + 65 //Temperature at which high temperature burns occur
 #define REAGENTS_BURNING_TEMP_HIGH_DAMAGE 0.1 //Damage per celcius per unit above the REAGENTS_BURNING_TEMP_HIGH define per unit.
 #define REAGENTS_BURNING_TEMP_HIGH_DAMAGE_CAP 40 //Maximum amount of burn damage to deal due to high temperature reagents.

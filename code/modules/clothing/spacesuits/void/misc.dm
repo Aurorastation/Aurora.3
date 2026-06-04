@@ -17,7 +17,7 @@
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN)
 
-	brightness_on = 6
+	light_range = 6
 	refittable = FALSE
 
 /obj/item/clothing/suit/space/void/sol
@@ -36,8 +36,8 @@
 		BIO = ARMOR_BIO_SHIELDED,
 		RAD = ARMOR_RAD_SMALL
 	)
-	slowdown = 1
-	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
+	slowdown = 0.5
+	allowed = list(/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN)
 	refittable = FALSE
@@ -65,7 +65,7 @@
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_IPC, BODYTYPE_SKRELL)
 
 
-	brightness_on = 6
+	light_range = 6
 
 /obj/item/clothing/suit/space/void/coalition
 	name = "coalition vulture voidsuit"
@@ -75,7 +75,7 @@
 	icon_state = "vulture"
 	item_state = "vulture"
 	contained_sprite = TRUE
-	slowdown = 1
+	slowdown = 0.5
 	armor = list(
 		MELEE = ARMOR_MELEE_RESISTANT,
 		BULLET = ARMOR_BALLISTIC_MEDIUM,
@@ -85,7 +85,7 @@
 		BIO = ARMOR_BIO_SHIELDED,
 		RAD = ARMOR_RAD_SMALL
 	)
-	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
+	allowed = list(/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL)
 	icon_supported_species_tags = list("ipc", "skr", "taj")
@@ -101,7 +101,7 @@
 	species_restricted = list(BODYTYPE_HUMAN)
 
 	light_overlay = "helmet_light_xanu_voidsuit"
-	brightness_on = 6
+	light_range = 6
 
 /obj/item/clothing/suit/space/void/coalition/xanu
 	name = "\improper Xanan eagle voidsuit"
@@ -110,8 +110,8 @@
 	icon_state = "xanu_voidsuit"
 	item_state = "xanu_voidsuit"
 	contained_sprite = TRUE
-	slowdown = 1
-	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
+	slowdown = 0.5
+	allowed = list(/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN)
 
@@ -139,7 +139,7 @@
 
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_IPC)
 	icon_supported_species_tags = list("taj")
-	brightness_on = 6
+	light_range = 6
 	light_color = "#ffce01"
 
 /obj/item/clothing/head/helmet/space/void/coalition/galatea
@@ -184,7 +184,7 @@
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN)
 	w_class = WEIGHT_CLASS_NORMAL
-	brightness_on = 6
+	light_range = 6
 	refittable = FALSE
 
 /obj/item/clothing/suit/space/void/cruiser
@@ -203,8 +203,8 @@
 		BIO = ARMOR_BIO_SHIELDED,
 		RAD = ARMOR_RAD_SMALL
 	)
-	slowdown = 1
-	allowed = list(/obj/item/tank,/obj/item/device/flashlight,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
+	slowdown = 0.5
+	allowed = list(/obj/item/tank,/obj/item/flashlight,/obj/item/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN)
 	refittable = FALSE
@@ -228,7 +228,7 @@
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN)
 	max_heat_protection_temperature = FIRE_HELMET_MAX_HEAT_PROTECTION_TEMPERATURE + 10000
-	brightness_on = 6
+	light_range = 6
 	icon_supported_species_tags = list("ipc")
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_IPC)
 
@@ -239,7 +239,7 @@
 	item_state = "valkyrie"
 	icon = 'icons/obj/clothing/voidsuit/elyra.dmi'
 	contained_sprite = TRUE
-	slowdown = 1
+	slowdown = 0.5
 	armor = list(
 		MELEE = ARMOR_MELEE_RESISTANT,
 		BULLET = ARMOR_BALLISTIC_MEDIUM,
@@ -249,7 +249,7 @@
 		BIO = ARMOR_BIO_SHIELDED,
 		RAD = ARMOR_RAD_SMALL
 	)
-	allowed = list(/obj/item/tank,/obj/item/device/flashlight,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
+	allowed = list(/obj/item/tank,/obj/item/flashlight,/obj/item/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN)
 	icon_supported_species_tags = list("ipc")
@@ -289,7 +289,7 @@
 	item_state = "lancer"
 	icon_supported_species_tags = list("una")
 	contained_sprite = TRUE
-	slowdown = 1
+	slowdown = 0.65
 	w_class = WEIGHT_CLASS_NORMAL
 	armor = list(
 		MELEE = ARMOR_MELEE_RESISTANT,
@@ -300,7 +300,7 @@
 		BIO = ARMOR_BIO_SHIELDED,
 		RAD = ARMOR_RAD_SMALL
 	)
-	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
+	allowed = list(/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN)
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_UNATHI)
@@ -330,7 +330,7 @@
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN)
 	light_overlay = "helmet_light_banshee"
-	brightness_on = 6
+	light_range = 6
 	light_color = "#7ffbf7"
 	desc_extended = "An easily recognized Einstein Engines-made PMC voidsuit piece. It is a telltale mark of corporate espionage and more often than not ends up buried with its user."
 	icon_supported_species_tags = list("skr", "ipc")
@@ -344,7 +344,7 @@
 	item_state = "banshee"
 	contained_sprite = 1
 
-	slowdown = 1
+	slowdown = 0.1
 	armor = list(
 		MELEE = ARMOR_MELEE_RESISTANT,
 		BULLET = ARMOR_BALLISTIC_MEDIUM,
@@ -354,7 +354,7 @@
 		BIO = ARMOR_BIO_SHIELDED,
 		RAD = ARMOR_RAD_SMALL
 	)
-	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
+	allowed = list(/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN)
 	desc_extended = "An easily recognized Einstein Engines-made PMC voidsuit piece. It is a telltale mark of corporate espionage and more often than not ends up buried with its user."
@@ -382,7 +382,7 @@
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN)
 	light_overlay = "helmet_light_dragon"
-	brightness_on = 6
+	light_range = 6
 	light_color = "#7ffbf7"
 	desc_extended = "An easily recognized Zeng-Hu Pharmaceuticals biohazard control suit helmet. Its bug-eyed goggle visor design is unique among its class, alongside cutting-edge radiation protection."
 	icon_supported_species_tags = list("skr", "ipc")
@@ -396,7 +396,7 @@
 	item_state = "dragon"
 	contained_sprite = 1
 
-	slowdown = 1
+	slowdown = 0.25
 	armor = list(
 		MELEE = ARMOR_MELEE_RESISTANT,
 		BULLET = ARMOR_BALLISTIC_MEDIUM,
@@ -406,7 +406,7 @@
 		BIO = ARMOR_BIO_SHIELDED,
 		RAD = ARMOR_RAD_SMALL
 	)
-	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
+	allowed = list(/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL)
 	desc_extended = "An easily recognized Zeng-Hu Pharmaceuticals biohazard control suit. It is relatively fragile but has very apparent radiation shielding. Most often seen in the hands of post-disaster cleanup teams and private military contractors."
@@ -434,7 +434,7 @@
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN)
 	light_overlay = "helmet_light_caiman"
-	brightness_on = 6
+	light_range = 6
 	light_color = "#ffce01"
 	desc_extended = "An easily recognized Hephaestus terraforming suit helmet. Its low, protruding brow and heavy plating is useful in the event you happen to be cutting down things. Mostly trees. Hopefully trees."
 	icon_supported_species_tags = list("una")
@@ -448,7 +448,7 @@
 	item_state = "caiman"
 	contained_sprite = 1
 
-	slowdown = 1
+	slowdown = 0.75
 	armor = list(
 		MELEE = ARMOR_MELEE_RESISTANT,
 		BULLET = ARMOR_BALLISTIC_MEDIUM,
@@ -458,7 +458,7 @@
 		BIO = ARMOR_BIO_SHIELDED,
 		RAD = ARMOR_RAD_SMALL
 	)
-	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
+	allowed = list(/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN)
 	desc_extended = "An easily recognized Hephaestus terraforming suit. Used often on jungle worlds to handle local wildlife and safely deforest areas in hostile environments. It found recent popularity due to its combat effectiveness that resulted in its proliferation in the hands of Hephaestus private military."
@@ -486,7 +486,7 @@
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN)
 	light_overlay = "helmet_light_revenant"
-	brightness_on = 6
+	light_range = 6
 	light_color = "#f65858"
 	desc_extended = "An ominous helmet of Zavodskoi Interstellar make with its past veiled in mystery, used for high-end corporate backstabbing and secret operations."
 
@@ -508,8 +508,8 @@
 		BIO = ARMOR_BIO_SHIELDED,
 		RAD = ARMOR_RAD_SMALL
 	)
-	slowdown = 1
-	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
+	slowdown = 0.3
+	allowed = list(/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN)
 	desc_extended = "A portable, sleek combat suit utilized in excess by Zavodskoi Interstellar private military contractors. It is known to be utilized by the company's most secretive sectors explicitly for espionage."
@@ -535,7 +535,7 @@
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN)
 	light_overlay = "freelancer_light"
-	brightness_on = 6
+	light_range = 6
 	light_color = "#7ffbf7"
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_IPC, BODYTYPE_UNATHI, BODYTYPE_SKRELL)
 
@@ -547,7 +547,7 @@
 	item_state = "freelancer"
 	contained_sprite = TRUE
 	icon_supported_species_tags = list("skr", "taj", "una", "ipc")
-	slowdown = 1
+	slowdown = 0.5
 	w_class = WEIGHT_CLASS_NORMAL
 	armor = list(
 		MELEE = ARMOR_MELEE_RESISTANT,
@@ -558,7 +558,7 @@
 		BIO = ARMOR_BIO_SHIELDED,
 		RAD = ARMOR_RAD_SMALL
 	)
-	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
+	allowed = list(/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL)
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_IPC, BODYTYPE_UNATHI, BODYTYPE_SKRELL)
@@ -582,7 +582,7 @@
 	)
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_UNATHI)
-	brightness_on = 6
+	light_range = 6
 	icon_supported_species_tags = list("una")
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_UNATHI)
 
@@ -601,7 +601,7 @@
 	icon_state = "dvoidsuit"
 	item_state = "dvoidsuit"
 	contained_sprite = 1
-	slowdown = 1
+	slowdown = 0.5
 
 	w_class = WEIGHT_CLASS_NORMAL
 	armor = list(
@@ -613,7 +613,7 @@
 		BIO = ARMOR_BIO_SHIELDED,
 		RAD = ARMOR_RAD_SMALL
 	)
-	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
+	allowed = list(/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN)
 	icon_supported_species_tags = list("una")
@@ -648,7 +648,7 @@
 	)
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP)
-	brightness_on = 6
+	light_range = 6
 
 /obj/item/clothing/suit/space/void/golden_deep
 	name = "golden suit"
@@ -657,7 +657,7 @@
 	icon_state = "goldsuit"
 	item_state = "goldsuit"
 	contained_sprite = 1
-	slowdown = 1
+	slowdown = 1.0
 
 	armor = list(
 		MELEE = ARMOR_MELEE_RESISTANT,
@@ -668,7 +668,7 @@
 		BIO = ARMOR_BIO_SHIELDED,
 		RAD = ARMOR_RAD_SMALL
 	)
-	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
+	allowed = list(/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP)
 
@@ -1022,7 +1022,7 @@
 	item_state = "gadpathur_vulture_helm"
 	species_restricted = list(BODYTYPE_HUMAN)
 
-	brightness_on = 6
+	light_range = 6
 
 /obj/item/clothing/suit/space/void/coalition/gadpathur
 	name = "coalition vulture-GP voidsuit"
@@ -1068,8 +1068,8 @@
 		BIO = ARMOR_BIO_SHIELDED,
 		RAD = ARMOR_RAD_SMALL
 	)
-	slowdown = 1
-	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
+	slowdown = 0.5
+	allowed = list(/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL)
 	contained_sprite = TRUE
@@ -1095,7 +1095,7 @@
 	contained_sprite = TRUE
 	icon_supported_species_tags = list("ipc", "skr", "taj", "una", "vau", "vaw")
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_IPC, BODYTYPE_TAJARA, BODYTYPE_UNATHI, BODYTYPE_SKRELL, BODYTYPE_VAURCA)
-	brightness_on = 6
+	light_range = 6
 	siemens_coefficient = 0.35
 
 /obj/item/clothing/head/helmet/space/void/sci/assunzione
@@ -1125,3 +1125,53 @@
 	icon_state = "ipc_assunzione_suit"
 	item_state = "ipc_assunzione_suit"
 	species_restricted = list(BODYTYPE_IPC, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP)
+
+// Outer Eyes armoured voidsuit, for their elites only (and antags of course)
+/obj/item/clothing/suit/space/void/outereyes
+	name = "\improper Outer Eyes voidsuit"
+	desc = "A royal burgandy undersuit and black armour plate of the mysterious Outer Eyes. The suit takes design cues from all over the Spur."
+	desc_extended = "While the Outer Eyes work mostly unseen as agents and infiltrators, getting third parties to perform most direct confrontations, occationally the situation calls for the deployment of a fanatically loyal core of enforcers sporting this suit. Those who live to tell of them learn to fear the suit."
+	icon = 'icons/obj/clothing/voidsuit/outereyes.dmi'
+	icon_state = "outer_eyes_suit"
+	item_state = "outer_eyes_suit"
+	armor = list(
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
+		LASER = ARMOR_LASER_PISTOL,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_SMALL
+	)
+	species_restricted = list(BODYTYPE_HUMAN)
+	icon_supported_species_tags = list("taj", "una", "skr")
+	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_UNATHI, BODYTYPE_SKRELL)
+	slowdown = 0.5
+	allowed = list(/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
+	siemens_coefficient = 0.35
+	contained_sprite = TRUE
+
+/obj/item/clothing/head/helmet/space/void/outereyes
+	name = "\improper Outer Eyes voidsuit helmet"
+	desc = "A royal burgandy and black armoured helmet of the mysterious Outer Eyes. At the center of the helmet, a single white eye."
+	desc_extended = "While the Outer Eyes work mostly unseen as agents and infiltrators, getting third parties to perform most direct confrontations, occationally the situation calls for the deployment of a fanatically loyal core of enforcers sporting this suit. Those who live to tell of them learn to the mask, with it's leering eye."
+	icon = 'icons/obj/clothing/voidsuit/outereyes.dmi'
+	icon_state = "outer_eyes_helmet"
+	item_state = "outer_eyes_helmet"
+	armor = list(
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
+		LASER = ARMOR_LASER_PISTOL,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_SMALL
+	)
+	species_restricted = list(BODYTYPE_HUMAN)
+	icon_supported_species_tags = list("taj", "una", "skr")
+	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_UNATHI, BODYTYPE_SKRELL)
+	contained_sprite = TRUE
+	light_overlay = "helmet_light_outer_eyes"
+	light_range = 6
+	light_color = "#FFFFFF"
+	siemens_coefficient = 0.35

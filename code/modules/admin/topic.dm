@@ -833,7 +833,7 @@
 			dat += "Special Role Desc: [special_role_description]<br>"
 		dat += "(<a href='byond://?src=[REF(usr)];priv_msg=[REF(M)]'>PM</a>) (<A href='byond://?src=[REF(src)];adminplayeropts=[REF(M)]'>PP</A>) (<A href='byond://?_src_=vars;Vars=[REF(M)]'>VV</A>) (<A href='byond://?src=[REF(src)];subtlemessage=[REF(M)]'>SM</A>) ([admin_jump_link(M, src)]) (<A href='byond://?src=[REF(src)];secretsadmin=check_antagonist'>CA</A>)"
 
-		var/datum/browser/extrainfo_win = new(usr, "extrainfo", "Extra Info (M.name)", 450, 500)
+		var/datum/browser/extrainfo_win = new(usr, "extrainfo", "Extra Info", 450, 500)
 		extrainfo_win.set_content(dat)
 		extrainfo_win.open()
 
@@ -943,7 +943,7 @@
 		if(!istype(H))
 			to_chat(usr, "This can only be used on instances of type /mob/living/carbon/human")
 			return
-		if(!istype(H.l_ear, /obj/item/device/radio/headset) && !istype(H.r_ear, /obj/item/device/radio/headset))
+		if(!istype(H.l_ear, /obj/item/radio/headset) && !istype(H.r_ear, /obj/item/radio/headset))
 			to_chat(usr, "The person you are trying to contact is not wearing a headset")
 			return
 
@@ -995,7 +995,7 @@
 
 		var/department = null
 		if (href_list["faxMachine"])
-			var/obj/machinery/photocopier/faxmachine/fax = locate(href_list["faxMachine"])
+			var/obj/structure/machinery/photocopier/faxmachine/fax = locate(href_list["faxMachine"])
 			department = fax.department
 		else
 			department = input("Choose the target department.", "Target Department", null) in GLOB.alldepartments
@@ -1295,7 +1295,7 @@
 					WANTED.backup_author = src.admincaster_signature                  //Submitted by
 					WANTED.is_admin_message = 1
 					SSnews.wanted_issue = WANTED
-					for(var/obj/machinery/newscaster/NEWSCASTER in GLOB.allCasters)
+					for(var/obj/structure/machinery/newscaster/NEWSCASTER in GLOB.allCasters)
 						NEWSCASTER.newsAlert()
 						NEWSCASTER.update_icon()
 					src.admincaster_screen = 15
@@ -1311,7 +1311,7 @@
 		var/choice = alert("Please confirm Wanted Issue removal","Network Security Handler","Confirm","Cancel")
 		if(choice=="Confirm")
 			SSnews.wanted_issue = null
-			for(var/obj/machinery/newscaster/NEWSCASTER in GLOB.allCasters)
+			for(var/obj/structure/machinery/newscaster/NEWSCASTER in GLOB.allCasters)
 				NEWSCASTER.update_icon()
 			src.admincaster_screen=17
 		src.access_news_network()
@@ -1581,7 +1581,7 @@
 	return 0
 
 /mob/living/carbon/human/can_centcom_reply()
-	return istype(l_ear, /obj/item/device/radio/headset) || istype(r_ear, /obj/item/device/radio/headset)
+	return istype(l_ear, /obj/item/radio/headset) || istype(r_ear, /obj/item/radio/headset)
 
 /mob/living/silicon/ai/can_centcom_reply()
 	return common_radio != null && !check_unable(2)

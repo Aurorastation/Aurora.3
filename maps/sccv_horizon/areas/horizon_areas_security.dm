@@ -1,6 +1,7 @@
 /// SECURITY_AREAS
 /area/horizon/security
 	name = "Security (PARENT AREA - DON'T USE)"
+	area_lighting = LIGHT_WARM_COLORS
 	holomap_color = HOLOMAP_AREACOLOR_SECURITY
 	department = LOC_SECURITY
 	area_blurb = "Every sound seems to echo just a little louder and more threateningly in the Security sectors of the SCCV Horizon."
@@ -25,13 +26,15 @@
 	name = "Equipment Room"
 	icon_state = "security"
 	horizon_deck = 2
+	lightswitch = FALSE
 
 /area/horizon/security/washroom
-	name = "Washroom"
+	name = "Head"
 	icon_state = "security"
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 	area_flags = AREA_FLAG_RAD_SHIELDED
 	horizon_deck = 2
+	lightswitch = FALSE
 
 /area/horizon/security/brig
 	name = "Brig"
@@ -57,6 +60,7 @@
 	ambience = AMBIENCE_HIGHSEC
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 	horizon_deck = 2
+	lightswitch = FALSE
 
 /area/horizon/security/armoury
 	name = "Armoury"
@@ -88,6 +92,7 @@
 	icon_state = "investigations_office"
 	sound_environment = SOUND_AREA_MEDIUM_SOFTFLOOR
 	horizon_deck = 3
+	lightswitch = FALSE
 
 /area/horizon/security/interrogation
 	name = "Interrogation"
@@ -95,6 +100,7 @@
 	ambience = list(AMBIENCE_HIGHSEC, AMBIENCE_FOREBODING)
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 	horizon_deck = 3
+	lightswitch = FALSE
 
 /area/horizon/security/interrogation/monitoring
 	name = "Interrogation Monitoring"
@@ -119,6 +125,15 @@
 	ambience = AMBIENCE_FOREBODING
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 	horizon_deck = 3
+	lightswitch = FALSE
+
+/area/horizon/security/custodial
+	name = "Security Custodial Closet"
+	icon_state = "security"
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+	area_blurb = "A strong, concentrated smell of many cleaning supplies linger within this room."
+	horizon_deck = 3
+	lightswitch = FALSE
 
 /area/horizon/security/checkpoint
 	name = "Hangar Checkpoint"

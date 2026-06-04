@@ -340,6 +340,13 @@
 
 	gear_tweaks += new /datum/gear_tweak/path(dress_colorable)
 
+/datum/gear/uniform/miscellaneous/medical_gown
+	display_name = "medical gown"
+	description = "A loose piece of clothing, commonly worn by medical patients."
+	path = /obj/item/clothing/under/medical_gown
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+	allowed_roles = list("Off-Duty Crew Member", "Passenger")
+
 /*
 	Uniform Rolled State Adjustment
 */

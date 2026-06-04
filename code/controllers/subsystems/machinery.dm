@@ -44,12 +44,12 @@ SUBSYSTEM_DEF(machinery)
 	var/static/tmp/list/queue = list()
 
 	var/list/all_cameras = list()
-	var/list/obj/machinery/hologram/holopad/all_holopads = list()
-	var/list/obj/machinery/power/apc/all_apcs = list()
+	var/list/obj/structure/machinery/hologram/holopad/all_holopads = list()
+	var/list/obj/structure/machinery/power/apc/all_apcs = list()
 	var/list/all_status_displays = list()	// Note: This contains both ai_status_display and status_display.
 	var/list/gravity_generators = list()
-	var/list/obj/machinery/telecomms/all_telecomms = list()
-	var/list/obj/machinery/telecomms/all_receivers = list()
+	var/list/obj/structure/machinery/telecomms/all_telecomms = list()
+	var/list/obj/structure/machinery/telecomms/all_receivers = list()
 
 	var/list/rcon_smes_units = list()
 	var/list/rcon_smes_units_by_tag = list()
@@ -132,18 +132,18 @@ SUBSYSTEM_DEF(machinery)
 
 /datum/controller/subsystem/machinery/proc/setup_atmos_machinery(list/machines)
 	var/list/atmos_machines = list()
-	for (var/obj/machinery/atmospherics/machine in machines)
+	for (var/obj/structure/machinery/atmospherics/machine in machines)
 		if(QDELETED(machine))
 			continue
 		atmos_machines += machine
 	admin_notice(SPAN_DANGER("Initializing atmos machinery."), R_DEBUG)
 	log_subsystem("machinery", "Initializing atmos machinery.")
-	for (var/obj/machinery/atmospherics/machine as anything in atmos_machines)
+	for (var/obj/structure/machinery/atmospherics/machine as anything in atmos_machines)
 		machine.atmos_init()
 		CHECK_TICK
 	admin_notice(SPAN_DANGER("Initializing pipe networks."), R_DEBUG)
 	log_subsystem("machinery", "Initializing pipe networks.")
-	for (var/obj/machinery/atmospherics/machine as anything in atmos_machines)
+	for (var/obj/structure/machinery/atmospherics/machine as anything in atmos_machines)
 		machine.build_network()
 		CHECK_TICK
 
@@ -151,6 +151,7 @@ SUBSYSTEM_DEF(machinery)
 	if (!resumed)
 		queue = pipenets.Copy()
 	var/datum/pipe_network/network
+	var/seconds_per_tick = wait * 0.1
 	for (var/i = queue.len to 1 step -1)
 		network = queue[i]
 		if (QDELETED(network))
@@ -158,7 +159,7 @@ SUBSYSTEM_DEF(machinery)
 				network.datum_flags &= ~DF_ISPROCESSING
 			pipenets -= network
 			continue
-		network.process(wait * 0.1)
+		network.process(seconds_per_tick)
 		if (no_mc_tick)
 			CHECK_TICK
 		else if (MC_TICK_CHECK)
@@ -168,7 +169,8 @@ SUBSYSTEM_DEF(machinery)
 /datum/controller/subsystem/machinery/proc/process_machinery(resumed, no_mc_tick)
 	if (!resumed)
 		queue = processing.Copy()
-	var/obj/machinery/machine
+	var/obj/structure/machinery/machine
+	var/seconds_per_tick = wait * 0.1
 	for (var/i = queue.len to 1 step -1)
 		machine = queue[i]
 
@@ -196,7 +198,7 @@ SUBSYSTEM_DEF(machinery)
 			continue
 		//process_all was moved here because of calls overhead for no benefits
 		if((machine.processing_flags & MACHINERY_PROCESS_SELF))
-			if(machine.process(wait * 0.1) == PROCESS_KILL)
+			if(machine.process(seconds_per_tick) == PROCESS_KILL)
 				STOP_PROCESSING_MACHINE(machine, MACHINERY_PROCESS_SELF)
 				processing -= machine
 		if (no_mc_tick)
@@ -248,12 +250,12 @@ SUBSYSTEM_DEF(machinery)
 	rcon_breaker_units.Cut()
 	rcon_breaker_units_by_tag.Cut()
 
-	for(var/obj/machinery/power/smes/buildable/SMES in smes_units)
+	for(var/obj/structure/machinery/power/smes/buildable/SMES in smes_units)
 		if(SMES.RCon_tag && (SMES.RCon_tag != "NO_TAG") && SMES.RCon)
 			rcon_smes_units += SMES
 			rcon_smes_units_by_tag[SMES.RCon_tag] = SMES
 
-	for(var/obj/machinery/power/breakerbox/breaker in breaker_boxes)
+	for(var/obj/structure/machinery/power/breakerbox/breaker in breaker_boxes)
 		if(breaker.RCon_tag != "NO_TAG")
 			rcon_breaker_units += breaker
 			rcon_breaker_units_by_tag[breaker.RCon_tag] = breaker

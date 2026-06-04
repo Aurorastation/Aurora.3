@@ -505,15 +505,20 @@
 
 /obj/item/clothing/under/medical_gown
 	name = "medical gown"
-	desc = "A loose pieces of clothing, commonly worn by medical patients."
+	desc = "A loose piece of clothing, commonly worn by medical patients."
 	icon_state = "medicalgown"
 	item_state = "medicalgown"
 	has_sensor = SUIT_LOCKED_SENSORS
 	sensor_mode = SUIT_SENSOR_TRACKING
 
-/obj/item/clothing/under/medical_gown/white
-	icon_state = "whitemedicalgown"
-	worn_state = "whitemedicalgown"
+/obj/item/clothing/under/medical_gown/blue
+	color = "#99ccff"
+
+/obj/item/clothing/under/medical_gown/green
+	color = "#8dd7a3"
+
+/obj/item/clothing/under/medical_gown/pink
+	color = "#ffb7db"
 
 /obj/item/clothing/under/legion
 	name = "Tau Ceti Foreign Legion uniform"
@@ -612,7 +617,6 @@
 /obj/item/clothing/under/rank/elyran_fatigues
 	name = "elyran navy uniform"
 	desc = "An utility uniform worn by Elyran navy staff serving aboard ships and in the field."
-	icon = ""
 	icon_state = "elyran_fatigues"
 	item_state = "elyran_fatigues"
 	armor = list(
@@ -903,3 +907,13 @@
 	desc = "Tough synthetic fibres make up the bulk of this Himean planetary guard naval uniform, dyed a deep navy blue. It is embellished with red detailing, signalling the wearer as a fighter pilot."
 	icon_state = "himeo_coveralls_pilot"
 	item_state = "himeo_coveralls_pilot"
+
+// Assunzione
+/obj/item/clothing/under/rank/assunzione/stafylia
+	name = "\improper Stafylia uniform"
+	desc = "Only true masters of the art of gyro have the right to wear this uniform. Only at Stafylia will you find such ones."
+	icon = 'icons/obj/item/clothing/under/human/coc/assunzione.dmi'
+	icon_state = "stafylia"
+	item_state = "stafylia"
+	contained_sprite = TRUE
+	has_sensor = SUIT_NO_SENSORS

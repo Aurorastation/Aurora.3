@@ -7,33 +7,44 @@
 	icon = 'icons/obj/projectiles.dmi'
 	icon_state = "bullet"
 	density = FALSE
-	anchored = TRUE				//There's a reason this is here, Mport. God fucking damn it -Agouri. Find&Fix by Pete. The reason this is here is to stop the curving of emitter shots.
+	anchored = TRUE
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	movement_type = FLYING
 	blocks_emissive = EMISSIVE_BLOCK_GENERIC
 	layer = MOB_LAYER
 	var/hitsound_wall = ""
 
-	unacidable = TRUE //should be `resistance_flags` but we don't have it yet
-	var/def_zone = ""	//Aiming at
-	var/atom/movable/firer = null//Who shot it
-	var/datum/fired_from = null // the thing that the projectile was fired from (gun, turret, spell)
-	var/suppressed = FALSE	//Attack message
+	/// Should be `resistance_flags` but we don't have it yet.
+	unacidable = TRUE
+	/// What body part/area we're aiming at.
+	var/def_zone = ""
+	/// Who shot it.
+	var/atom/movable/firer = null
+	/// The thing that the projectile was fired from (gun, turret, spell).
+	var/datum/fired_from = null
+	/// Attack message.
+	var/suppressed = FALSE
 	var/yo = null
 	var/xo = null
-	var/atom/original // the original target clicked
-	var/turf/starting // the projectile's starting turf
+	/// The original target clicked.
+	var/atom/original
+	/// The projectile's starting turf.
+	var/turf/starting
 	var/p_x = 16
-	var/p_y = 16 // the pixel location of the tile that the player clicked. Default is the center
+	/// The pixel location of the tile that the player clicked. Default is the center.
+	var/p_y = 16
 
 	//Fired processing vars
-	var/fired = FALSE //Have we been fired yet
-	var/paused = FALSE //for suspending the projectile midair
+	/// Have we been fired yet
+	var/fired = FALSE
+	/// For suspending the projectile midair
+	var/paused = FALSE
 	var/last_projectile_move = 0
 	var/last_process = 0
 	var/time_offset = 0
 	var/datum/point/vector/trajectory
-	var/trajectory_ignore_forcemove = FALSE	//instructs forceMove to NOT reset our trajectory to the new location!
+	/// Instructs forceMove to NOT reset our trajectory to the new location!
+	var/trajectory_ignore_forcemove = FALSE
 	/// We already impacted these things, do not impact them again. Used to make sure we can pierce things we want to pierce. Lazylist, typecache style (object = TRUE) for performance.
 	var/list/impacted = list()
 	/// If TRUE, we can hit our firer.
@@ -55,16 +66,21 @@
 	 */
 	/// The "usual" flags of pass_flags is used in that can_hit_target ignores these unless they're specifically targeted/clicked on. This behavior entirely bypasses process_hit if triggered, rather than phasing which uses prehit_pierce() to check.
 	pass_flags = PASSTABLE|PASSRAILING
-	/// If FALSE, allow us to hit something directly targeted/clicked/whatnot even if we're able to phase through it
+	/// If FALSE, allow us to hit something directly targeted/clicked/whatnot even if we're able to phase through it.
 	var/phasing_ignore_direct_target = FALSE
 	/// Bitflag for things the projectile should just phase through entirely - No hitting unless direct target and [phasing_ignore_direct_target] is FALSE. Uses pass_flags flags.
 	var/projectile_phasing = NONE
 	/// Bitflag for things the projectile should hit, but pierce through without deleting itself. Defers to projectile_phasing. Uses pass_flags flags.
 	var/projectile_piercing = NONE
-	/// number of times we've pierced something. Incremented BEFORE bullet_act and on_hit proc!
+	/// Number of times we've pierced something. Incremented BEFORE bullet_act and on_hit proc!
 	var/pierces = 0
-
-	/// If objects are below this layer, we pass through them
+	///The base chance that a projectile capable of piercing will actually pierce.
+	var/pierce_chance = 0
+	/// 0-1 multiplier, the projectile's damage is modified by multiplying this after each pierce.
+	var/pierce_decay_damage = 0.7
+	///Used to determine whether or not to apply embed chances on hit, also used in ship weapons for spalling.
+	var/last_hit_pierced = FALSE
+	/// If objects are below this layer, we pass through them.
 	var/hit_threshhold = PROJECTILE_HIT_THRESHHOLD_LAYER
 
 	/// During each fire of SSprojectiles, the number of deciseconds since the last fire of SSprojectiles
@@ -82,38 +98,45 @@
 
 	/// The current angle of the projectile. Initially null, so if the arg is missing from [/fire()], we can calculate it from firer and target as fallback.
 	var/Angle
-	var/original_angle = 0 //Angle at firing
-	var/nondirectional_sprite = FALSE //Set TRUE to prevent projectiles from having their sprites rotated based on firing angle
-	var/spread = 0 //amount (in degrees) of projectile spread
-	animate_movement = NO_STEPS //Use SLIDE_STEPS in conjunction with legacy
-	/// how many times we've ricochet'd so far (instance variable, not a stat)
+	/// Angle at firing.
+	var/original_angle = 0
+	/// Set TRUE to prevent projectiles from having their sprites rotated based on firing angle.
+	var/nondirectional_sprite = FALSE
+	/// Amount (in degrees) of projectile spread.
+	var/spread = 0
+	/// Use SLIDE_STEPS in conjunction with legacy.
+	animate_movement = NO_STEPS
+	/// How many times we've ricochet'd so far (instance variable, not a stat).
 	var/ricochets = 0
-	/// how many times we can ricochet max
+	/// How many times we can ricochet max.
 	var/ricochets_max = 0
-	/// how many times we have to ricochet min (unless we hit an atom we can ricochet off)
+	/// How many times we have to ricochet min (unless we hit an atom we can ricochet off).
 	var/min_ricochets = 0
-	/// 0-100 (or more, I guess), the base chance of ricocheting, before being modified by the atom we shoot and our chance decay
+	/// 0-100 (or more, I guess), the base chance of ricocheting, before being modified by the atom we shoot and our chance decay.
 	var/ricochet_chance = 0
-	/// 0-1 (or more, I guess) multiplier, the ricochet_chance is modified by multiplying this after each ricochet
+	/// 0-1 (or more, I guess) multiplier, the ricochet_chance is modified by multiplying this after each ricochet.
 	var/ricochet_decay_chance = 0.7
-	/// 0-1 (or more, I guess) multiplier, the projectile's damage is modified by multiplying this after each ricochet
+	/// 0-1 (or more, I guess) multiplier, the projectile's damage is modified by multiplying this after each ricochet.
 	var/ricochet_decay_damage = 0.7
-	/// On ricochet, if nonzero, we consider all mobs within this range of our projectile at the time of ricochet to home in on like Revolver Ocelot, as governed by ricochet_auto_aim_angle
+	/// On ricochet, if nonzero, we consider all mobs within this range of our projectile at the time of ricochet to home in on like Revolver Ocelot, as governed by ricochet_auto_aim_angle.
 	var/ricochet_auto_aim_range = 0
-	/// On ricochet, if ricochet_auto_aim_range is nonzero, we'll consider any mobs within this range of the normal angle of incidence to home in on, higher = more auto aim
+	/// On ricochet, if ricochet_auto_aim_range is nonzero, we'll consider any mobs within this range of the normal angle of incidence to home in on, higher = more auto aim.
 	var/ricochet_auto_aim_angle = 30
-	/// the angle of impact must be within this many degrees of the struck surface, set to 0 to allow any angle
+	/// The angle of impact must be within this many degrees of the struck surface, set to 0 to allow any angle.
 	var/ricochet_incidence_leeway = 40
 	/// Can our ricochet autoaim hit our firer?
 	var/ricochet_shoots_firer = TRUE
 
 	//Hitscan
-	var/hitscan = FALSE		//Whether this is hitscan. If it is, speed is basically ignored.
-	var/list/beam_segments	//assoc list of datum/point or datum/point/vector, start = end. Used for hitscan effect generation.
+	/// Whether this is hitscan. If it is, speed is basically ignored.
+	var/hitscan = FALSE
+	/// Assoc list of datum/point or datum/point/vector, start = end. Used for hitscan effect generation.
+	var/list/beam_segments
 	/// Last turf an angle was changed in for hitscan projectiles.
 	var/turf/last_angle_set_hitscan_store
 	var/datum/point/beam_index
-	var/turf/hitscan_last	//last turf touched during hitscanning.
+	/// Last turf touched during hitscanning.
+	var/turf/hitscan_last
 	var/tracer_type
 	var/muzzle_type
 	var/impact_type
@@ -132,38 +155,47 @@
 	//Homing
 	var/homing = FALSE
 	var/atom/homing_target
-	var/homing_turn_speed = 10 //Angle per tick.
-	var/homing_inaccuracy_min = 0 //in pixels for these. offsets are set once when setting target.
+	/// Angle per tick.
+	var/homing_turn_speed = 10
+	/// In pixels for these. offsets are set once when setting target.
+	var/homing_inaccuracy_min = 0
 	var/homing_inaccuracy_max = 0
 	var/homing_offset_x = 0
 	var/homing_offset_y = 0
 
 	var/damage = 10
-	var/damage_type = DAMAGE_BRUTE		//DAMAGE_BRUTE, DAMAGE_BURN, DAMAGE_TOXIN, DAMAGE_OXY, DAMAGE_CLONE, DAMAGE_PAIN are the only things that should be in here
+	/// DAMAGE_BRUTE, DAMAGE_BURN, DAMAGE_TOXIN, DAMAGE_OXY, DAMAGE_CLONE, DAMAGE_PAIN are the only things that should be in here.
+	var/damage_type = DAMAGE_BRUTE
 
-	var/range = 50 //This will de-increment every step. When 0, it will deletze the projectile.
-	var/decayedRange //stores original range
-	var/reflect_range_decrease = 5 //amount of original range that falls off when reflecting, so it doesn't go forever
+	/// This will de-increment every step. When 0, it will deletze the projectile.
+	var/range = 50
+	/// Stores original range.
+	var/decayedRange
+	/// Amount of original range that falls off when reflecting, so it doesn't go forever.
+	var/reflect_range_decrease = 5
 
-	var/impact_effect_type //what type of impact effect to show when hitting something
-	var/log_override = FALSE //is this type spammed enough to not log? (KAs)
+	/// What type of impact effect to show when hitting something.
+	var/impact_effect_type
+	/// Is this type spammed enough to not log? (KAs).
+	var/log_override = FALSE
 	/// If true, the projectile won't cause any logging. Used for hallucinations and shit.
 	var/do_not_log = FALSE
 
-	var/shrapnel_type //type of shrapnel the projectile leaves in its target.
+	/// Type of shrapnel the projectile leaves in its target.
+	var/shrapnel_type
 
-	///If TRUE, hit mobs, even if they are lying on the floor and are not our target within MAX_RANGE_HIT_PRONE_TARGETS tiles
+	/// If TRUE, hit mobs, even if they are lying on the floor and are not our target within MAX_RANGE_HIT_PRONE_TARGETS tiles.
 	var/hit_prone_targets = FALSE
-	///if TRUE, ignores the range of MAX_RANGE_HIT_PRONE_TARGETS tiles of hit_prone_targets
+	/// If TRUE, ignores the range of MAX_RANGE_HIT_PRONE_TARGETS tiles of hit_prone_targets.
 	var/ignore_range_hit_prone_targets = FALSE
-	///How much we want to drop damage per tile as it travels through the air
+	/// How much we want to drop damage per tile as it travels through the air.
 	var/damage_falloff_tile
-	///How much accuracy is lost for each tile travelled
+	/// How much accuracy is lost for each tile travelled.
 	var/accuracy_falloff = 7
-	///How much accuracy before falloff starts to matter. Formula is range - falloff * tiles travelled
+	/// How much accuracy before falloff starts to matter. Formula is range - falloff * tiles travelled.
 	var/accurate_range = 100
 	var/static/list/projectile_connections = list(COMSIG_ATOM_ENTERED = PROC_REF(on_entered))
-	/// If true directly targeted turfs can be hit
+	/// If TRUE, directly targeted turfs can be hit.
 	var/can_hit_turfs = FALSE
 
 
@@ -171,18 +203,21 @@
 		START AURORA SNOWFLAKE VARS SECTION
 	#########################################*/
 
-	var/ping_effect = "ping_b" //Effect displayed when a bullet hits a barricade. See atom/proc/bullet_ping.
+	/// Effect displayed when a bullet hits a barricade. See atom/proc/bullet_ping.
+	var/ping_effect = "ping_b"
 
-	///How accurate a bullet is *if it's hitting a mob* at getting the zone aimed at
+	/// How accurate a bullet is *if it's hitting a mob* at getting the zone aimed at.
 	var/accuracy = 0
 
-	//used for shooting at blank range, you shouldn't be able to miss
+	/// Used for shooting at blank range, you shouldn't be able to miss.
 	var/point_blank = FALSE
 
-	//Effects
+	/// Effects (bio and rad are also valid)
 	var/damage_flags = DAMAGE_FLAG_BULLET
-	var/check_armor = BULLET //Defines what armor to use when it hits things.  Must be set to bullet, laser, energy,or bomb	//Cael - bio and rad are also valid
-	var/list/impact_sounds	//for different categories, IMPACT_MEAT etc
+	/// Defines what armor to use when it hits things.  Must be set to bullet, laser, energy,or bomb
+	var/check_armor = BULLET
+	/// For different categories, IMPACT_MEAT etc
+	var/list/impact_sounds
 
 	var/stun = 0
 	var/weaken = 0
@@ -194,20 +229,24 @@
 	var/agony = 0
 
 	var/incinerate = 0
-	var/embed = 0 // whether or not the projectile can embed itself in the mob
-	var/embed_chance = 0 // a flat bonus to the % chance to embed
+	/// Whether or not the projectile can embed itself in the mob
+	var/embed = 0
+	/// A flat bonus to the % chance to embed
+	var/embed_chance = 0
 
-	//For Maim / Maiming.
-	var/maim_rate = 0 //Factor that the recipiant will be maimed by the projectile (NOT OUT OF 100%.)
+	/// For maiming. Factor that the recipiant will be maimed by the projectile (NOT OUT OF 100%.)
+	var/maim_rate = 0
 
 	var/reflected = FALSE
 
-	var/penetrating = 0			//If greater than zero, the projectile will pass through dense objects as specified by on_penetrate()
+	/// If greater than zero, the projectile will pass through dense objects as specified by prehit_pierce()
+	var/penetrating = 0
 
+	/// For KAs, really.
+	var/aoe = 0
 
-	var/aoe = 0 //For KAs, really
-
-	var/anti_materiel_potential = 1 //how much the damage of this bullet is increased against mechs
+	/// How much the damage of this bullet is increased against mechs.
+	var/anti_materiel_potential = 1
 
 	/*########################################
 		END AURORA SNOWFLAKE VARS SECTION
@@ -309,6 +348,12 @@
 	else
 		return 50 //if the projectile doesn't do damage, play its hitsound at 50% volume
 
+/obj/projectile/proc/get_structure_damage_sound()
+	if(damage_type == DAMAGE_BRUTE)
+		return 'sound/effects/metalping.ogg'
+	else if(damage_type == DAMAGE_BURN)
+		return pick(SOUNDS_LASER_METAL)
+
 /obj/projectile/proc/on_ricochet(atom/A)
 	if(!ricochet_auto_aim_angle || !ricochet_auto_aim_range)
 		return
@@ -333,12 +378,27 @@
 	beam_index = point_cache
 	beam_segments[beam_index] = null
 
+/obj/projectile/proc/check_human_shield(atom/A)
+	if(!isliving(A) || !starting)
+		return FALSE
+
+	var/mob/living/M = A
+	if(point_blank || !(M.dir & get_dir(M, starting)))
+		return FALSE
+
+	for(var/obj/item/grab/G in list(M.l_hand, M.r_hand))
+		if(!G?.affecting || G.state < GRAB_NECK || G.affecting.lying)
+			continue
+		M.visible_message(SPAN_DANGER("\The [M] uses [G.affecting] as a shield!"))
+		return G.affecting
+
+	return FALSE
+
 /obj/projectile/Collide(atom/A)
 	SEND_SIGNAL(src, COMSIG_MOVABLE_BUMP, A)
 	if(!can_hit_target(A, A == original, TRUE, TRUE))
 		return
 	Impact(A)
-
 
 /**
  * Called when the projectile hits something
@@ -352,13 +412,21 @@
  * Also, we select_target to find what to process_hit first.
  */
 /obj/projectile/proc/Impact(atom/A)
+	if(QDELETED(src))
+		return TRUE
 	if(!trajectory)
 		qdel(src)
 		return FALSE
 	if(impacted[A.weak_reference]) // NEVER doublehit
 		return FALSE
-	var/datum/point/point_cache = trajectory.copy_to()
 	var/turf/T = get_turf(A)
+	var/atom/shield_target = check_human_shield(A)
+	if(shield_target)
+		var/datum/weakref/original_ref = A.weak_reference
+		impacted[original_ref] = TRUE
+		process_hit(T, shield_target, A)
+		impacted -= original_ref
+	var/datum/point/point_cache = trajectory.copy_to()
 	if(ricochets < ricochets_max && check_ricochet_flag(A) && check_ricochet(A))
 		ricochets++
 		if(A.handle_ricochet(src))
@@ -380,6 +448,9 @@
 	if(ismob(A))
 		var/miss_modifier = max(15*(distance-1) - round(25*accuracy), 0)
 		def_zone = get_zone_with_miss_chance(def_zone, A, miss_modifier, (distance > 1 || original != A), point_blank)
+		if (!def_zone)
+			A.visible_message(SPAN_NOTICE("\The [src] misses [A] narrowly!"))
+			return FALSE
 	else
 		def_zone = ran_zone(A, def_zone, clamp(accurate_range - (accuracy_falloff * distance), 5, 100)) //Lower accurancy/longer range tradeoff. 7 is a balanced number to use.
 
@@ -488,11 +559,14 @@
 	// 6. nothing
 		// (returns null)
 
-
-//Returns true if the target atom is on our current turf and above the right layer
-//If direct target is true it's the originally clicked target.
+/**
+ * Returns true if the target atom is on our current turf and above the right layer
+ * If direct target is true it's the originally clicked target.
+ */
 /obj/projectile/proc/can_hit_target(atom/target, direct_target = FALSE, ignore_loc = FALSE, cross_failed = FALSE)
 	if(QDELETED(target) || impacted[target.weak_reference])
+		return FALSE
+	if(target == firer && !ignore_source_check)
 		return FALSE
 	if(!ignore_loc && (loc != target.loc) && !(can_hit_turfs && direct_target && loc == target))
 		return FALSE
@@ -613,11 +687,18 @@
 	if((projectile_phasing & A.pass_flags_self) && (phasing_ignore_direct_target || original != A))
 		return PROJECTILE_PIERCE_PHASE
 	if(projectile_piercing & A.pass_flags_self)
-		return PROJECTILE_PIERCE_HIT
+		if (penetrating > pierces)
+			if(prob(min(100, (pierce_chance + (damage/4) + armor_penetration) * anti_materiel_potential))) //Base pierce_chance is 0. This gives the STS a 30% chance to pierce once.
+				damage *= pierce_decay_damage
+				penetrating--
+				last_hit_pierced = TRUE
+				return PROJECTILE_PIERCE_HIT
+
 	if(ismovable(A))
 		var/atom/movable/AM = A
 		if(AM.throwing)
 			return (projectile_phasing & LETPASSTHROW) ? PROJECTILE_PIERCE_PHASE : ((projectile_piercing & LETPASSTHROW)? PROJECTILE_PIERCE_HIT : PROJECTILE_PIERCE_NONE)
+	last_hit_pierced = FALSE
 	return PROJECTILE_PIERCE_NONE
 
 /obj/projectile/proc/check_ricochet(atom/A)
@@ -683,6 +764,8 @@
 		pixel_move(pixel_speed_multiplier, FALSE)
 
 /obj/projectile/proc/fire(angle, atom/direct_target)
+	if(QDELETED(src))
+		return
 	LAZYINITLIST(impacted)
 	if(fired_from)
 		SEND_SIGNAL(fired_from, COMSIG_PROJECTILE_BEFORE_FIRE, src, original)
@@ -691,8 +774,9 @@
 	if(!log_override && firer && original && !do_not_log)
 		log_combat(firer, original, "fired at", src, "from [get_area_name(src, TRUE)]")
 			//note: mecha projectile logging is handled in /obj/item/mecha_parts/mecha_equipment/weapon/action(). try to keep these messages roughly the sameish just for consistency's sake.
-	if(direct_target && (get_dist(direct_target, get_turf(src)) <= 1)) // point blank shots
-		process_hit(get_turf(direct_target), direct_target)
+	var/atom/pb_target = direct_target || original
+	if(pb_target && (get_dist(pb_target, get_turf(src)) == 0)) // point blank shots
+		process_hit(get_turf(pb_target), pb_target)
 		if(QDELETED(src))
 			return
 	var/turf/starting = get_turf(src)
@@ -720,6 +804,8 @@
 		process_hitscan()
 		if(QDELETED(src))
 			return
+	else
+		generate_muzzle_flash()
 	if(!(datum_flags & DF_ISPROCESSING))
 		START_PROCESSING(SSprojectiles, src)
 	pixel_move(pixel_speed_multiplier, FALSE) //move it now!
@@ -900,8 +986,7 @@
  */
 /obj/projectile/proc/preparePixelProjectile(atom/target, atom/source, list/modifiers = null, deviation = 0)
 	if(!(isnull(modifiers) || islist(modifiers)))
-		stack_trace("WARNING: Projectile [type] fired with non-list modifiers, likely was passed click params.")
-		modifiers = null
+		modifiers = params2list(modifiers)
 
 	var/turf/source_loc = get_turf(source)
 	var/turf/target_loc = get_turf(target)
@@ -933,7 +1018,10 @@
 	if(target_loc)
 		yo = target_loc.y - source_loc.y
 		xo = target_loc.x - source_loc.x
-		set_angle(get_angle(src, target_loc) + deviation)
+		if(target_loc == source_loc)
+			set_angle(dir2angle(source_position.dir) + deviation)
+		else
+			set_angle(get_angle(src, target_loc) + deviation)
 		return TRUE
 
 	stack_trace("WARNING: Projectile [type] fired without a target or mouse parameters to aim with.")
@@ -959,7 +1047,10 @@
 		var/turf/target_loc = get_turf(target)
 		var/dx = ((target_loc.x - source_loc.x) * world.icon_size) + (target.pixel_x - source.pixel_x) + (p_x - (world.icon_size / 2))
 		var/dy = ((target_loc.y - source_loc.y) * world.icon_size) + (target.pixel_y - source.pixel_y) + (target.pixel_z - source.pixel_z) + (p_y - (world.icon_size / 2))
-		angle = ATAN2(dy, dx)
+		if(!dx && !dy)
+			angle = dir2angle(source.dir)
+		else
+			angle = ATAN2(dy, dx)
 		return list(angle, p_x, p_y)
 
 	if(!ismob(source) || !LAZYACCESS(modifiers, SCREEN_LOC))
@@ -969,19 +1060,19 @@
 	if(!user.client)
 		CRASH("Can't make trajectory calculations without a target or click modifiers and a client.")
 
-	//Split screen-loc up into X+Pixel_X and Y+Pixel_Y
+	/// Split screen-loc up into X+Pixel_X and Y+Pixel_Y
 	var/list/screen_loc_params = splittext(LAZYACCESS(modifiers, SCREEN_LOC), ",")
-	//Split X+Pixel_X up into list(X, Pixel_X)
+	/// Split X+Pixel_X up into list(X, Pixel_X)
 	var/list/screen_loc_X = splittext(screen_loc_params[1],":")
-	//Split Y+Pixel_Y up into list(Y, Pixel_Y)
+	/// Split Y+Pixel_Y up into list(Y, Pixel_Y)
 	var/list/screen_loc_Y = splittext(screen_loc_params[2],":")
 
 	var/tx = (text2num(screen_loc_X[1]) - 1) * world.icon_size + text2num(screen_loc_X[2])
-	// We are here trying to lower our target location by the firing source's visual offset
-	// So visually things make a nice straight line while properly accounting for actual physical position
+	/// We are here trying to lower our target location by the firing source's visual offset
+	/// So visually things make a nice straight line while properly accounting for actual physical position
 	var/ty = (text2num(screen_loc_Y[1]) - 1) * world.icon_size + text2num(screen_loc_Y[2]) - source.pixel_z
 
-	//Calculate the "resolution" of screen based on client's view and world's icon size. This will work if the user can view more tiles than average.
+	/// Calculate the "resolution" of screen based on client's view and world's icon size. This will work if the user can view more tiles than average.
 	var/list/screenview = view_to_pixels(user.client.view)
 
 	var/ox = round(screenview[1] / 2) - user.client.pixel_x //"origin" x
@@ -994,8 +1085,13 @@
 		finalize_hitscan_and_generate_tracers()
 	STOP_PROCESSING(SSprojectiles, src)
 	cleanup_beam_segments()
-	if(trajectory)
-		QDEL_NULL(trajectory)
+	QDEL_NULL(trajectory)
+	firer = null
+	fired_from = null
+	original = null
+	starting = null
+	homing_target = null
+	impacted.Cut()
 	return ..()
 
 /obj/projectile/proc/cleanup_beam_segments()
@@ -1008,6 +1104,19 @@
 		var/datum/point/point_cache = trajectory.copy_to()
 		beam_segments[beam_index] = point_cache
 	generate_hitscan_tracers(null, null, impacting)
+
+/obj/projectile/proc/generate_muzzle_flash(duration = 3)
+	if(duration <= 0)
+		return
+	if(!muzzle_type || suppressed)
+		return
+	var/datum/point/p = trajectory
+	var/atom/movable/thing = new muzzle_type
+	p.move_atom_to_src(thing)
+	var/matrix/M = new
+	M.Turn(original_angle)
+	thing.transform = M
+	QDEL_IN(thing, duration)
 
 /obj/projectile/proc/generate_hitscan_tracers(cleanup = TRUE, duration = 3, impacting = TRUE)
 	if(!length(beam_segments))
@@ -1024,7 +1133,8 @@
 		matrix.Turn(original_angle)
 		thing.transform = matrix
 		thing.color = color
-		thing.set_light(muzzle_flash_range, muzzle_flash_intensity, muzzle_flash_color_override? muzzle_flash_color_override : color)
+		thing.set_light_range_power_color(muzzle_flash_range, muzzle_flash_intensity, muzzle_flash_color_override ? muzzle_flash_color_override : color)
+		thing.set_light_on(TRUE)
 		QDEL_IN(thing, duration)
 	if(impacting && impact_type && duration > 0)
 		var/datum/point/p = beam_segments[beam_segments[beam_segments.len]]
@@ -1034,7 +1144,8 @@
 		matrix.Turn(Angle)
 		thing.transform = matrix
 		thing.color = color
-		thing.set_light(impact_light_range, impact_light_intensity, impact_light_color_override? impact_light_color_override : color)
+		thing.set_light_range_power_color(impact_light_range, impact_light_intensity, impact_light_color_override? impact_light_color_override : color)
+		thing.set_light_on(TRUE)
 		QDEL_IN(thing, duration)
 	if(cleanup)
 		cleanup_beam_segments()
@@ -1075,6 +1186,7 @@
 	bullet.original = target
 	bullet.preparePixelProjectile(target, src)
 	bullet.fire()
+
 	return bullet
 
 
@@ -1082,9 +1194,12 @@
 	AURORA SNOWFLAKE SECTION
 ##############################*/
 
-//Checks if the projectile is eligible for embedding. Not that it necessarily will.
+/// Checks if the projectile is eligible for embedding. Not that it necessarily will.
 /obj/projectile/proc/can_embed()
 	//embed must be enabled and damage type must be brute
+	if (projectile_piercing & PASSMOB) //If the shot passes through you it can't embed.
+		if (last_hit_pierced)
+			return FALSE
 	if(!embed || damage_type != DAMAGE_BRUTE)
 		return FALSE
 	return TRUE
@@ -1100,14 +1215,13 @@
 		return damage * anti_materiel_potential
 	return FALSE
 
-//Because I don't want to rewrite half the world to use embed_data just yet,
-//this is left as is, praise be the omnissiah
+/// Because I don't want to rewrite half the world to use embed_data just yet, this is left as is, praise be the omnissiah
 /obj/projectile/proc/do_embed(var/obj/item/organ/external/organ)
 	var/obj/item/SP = new shrapnel_type(organ)
 	SP.edge = TRUE
 	SP.sharp = TRUE
-	SP.name = (name != "shrapnel") ? "[initial(name)] shrapnel" : "shrapnel"
-	SP.desc += " It looks like it was fired from [fired_from]."
+	SP.name = (name != "shrapnel") ? "[name] shrapnel" : "shrapnel"
+	SP.desc += " It looks like it came from from \a [fired_from]."
 	SP.forceMove(organ)
 	organ.embed(SP)
 	return SP
@@ -1119,7 +1233,8 @@
 	original = target
 	setAngle(get_projectile_angle(source, target))
 
-/obj/projectile/proc/setAngle(new_angle)	//wrapper for overrides.
+/// wrapper for overrides.
+/obj/projectile/proc/setAngle(new_angle)
 	Angle = new_angle
 	if(!nondirectional_sprite)
 		var/matrix/M = new
@@ -1143,12 +1258,12 @@
 		. += "Shrapnel Type: [shrapnel.name]<br>"
 	. += "Armor Penetration: [initial(armor_penetration)]%<br>"
 
-//This is where the bullet bounces off.
+/// This is where the bullet bounces off.
 /atom/proc/bullet_ping(obj/projectile/P, var/pixel_x_offset, var/pixel_y_offset)
 	if(!P || !P.ping_effect)
 		return
 
-	var/image/I = image('icons/obj/projectiles.dmi', src,P.ping_effect,10, pixel_x = pixel_x_offset, pixel_y = pixel_y_offset)
+	var/image/I = image('icons/obj/projectiles.dmi', src, P.ping_effect, 10, pixel_x = pixel_x_offset, pixel_y = pixel_y_offset)
 	var/angle = (P.firer && prob(60)) ? round(get_angle(P.firer,src)) : round(rand(1,359))
 	I.pixel_x += rand(-6,6)
 	I.pixel_y += rand(-6,6)
@@ -1157,6 +1272,7 @@
 	rotate.Turn(angle)
 	I.transform = rotate
 	// Need to do this in order to prevent the ping from being deleted
+	playsound(src, P.get_structure_damage_sound(), P.vol_by_damage())
 	addtimer(CALLBACK(I, TYPE_PROC_REF(/image, flick_overlay), src, 3), 1)
 
 /image/proc/flick_overlay(var/atom/A, var/duration)

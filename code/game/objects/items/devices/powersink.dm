@@ -1,9 +1,9 @@
 // Powersink - used to drain station power
 
-/obj/item/device/powersink
+/obj/item/powersink
 	name = "power sink"
 	desc = "A nulling power sink which drains energy from electrical systems."
-	icon = 'icons/obj/item/device/powersink.dmi'
+	icon = 'icons/obj/item/powersink.dmi'
 	icon_state = "powersink0"
 	item_state = "powersink0"
 	w_class = WEIGHT_CLASS_BULKY
@@ -37,18 +37,18 @@
 	var/datum/powernet/PN			// Our powernet
 	var/obj/structure/cable/attached		// the attached cable
 
-/obj/item/device/powersink/antagonist_hints(mob/user, distance, is_adjacent)
+/obj/item/powersink/antagonist_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Dead APCs means their emergency shutters won't automatically close pressure loss. You could rapidly vent an entire department this way."
 
-/obj/item/device/powersink/Destroy()
+/obj/item/powersink/Destroy()
 	PN = null
 	attached = null
 
 	return ..()
 
-/obj/item/device/powersink/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.isscrewdriver())
+/obj/item/powersink/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(mode == 0)
 			var/turf/T = loc
 			if(isturf(T) && !!T.is_plating())
@@ -76,17 +76,17 @@
 	else
 		return ..()
 
-/obj/item/device/powersink/attack_ai()
+/obj/item/powersink/attack_ai()
 	return
 
-/obj/item/device/powersink/attack_hand(var/mob/user)
+/obj/item/powersink/attack_hand(var/mob/user)
 	if(!mode)
 		..()
 	else
 		toggle_mode(user)
 
 /// Used to be handled in attack_hand(), but moved to its own proc to handle future signaler usage.
-/obj/item/device/powersink/proc/toggle_mode(var/mob/user)
+/obj/item/powersink/proc/toggle_mode(var/mob/user)
 	switch(mode)
 		if(1)
 			if(user)
@@ -108,7 +108,7 @@
 			item_state = "powersink0"
 			STOP_PROCESSING(SSprocessing, src)
 
-/obj/item/device/powersink/proc/siphon_power(seconds_per_tick)
+/obj/item/powersink/proc/siphon_power(seconds_per_tick)
 	if(!attached)
 		return 0
 
@@ -121,19 +121,19 @@
 	if(!PN)
 		return 1
 
-	set_light(12)
 	PN.trigger_warning()
 	// found a powernet, so drain up to max power from it
-	drained = PN.draw_power(drain_rate * seconds_per_tick)
+	drained = POWERNET_POWER_DRAW(PN, drain_rate * seconds_per_tick)
+	DRAW_FROM_POWERNET(PN, drained)
 	// if tried to drain more than available on powernet
 	// now look for APCs and drain their cells
 	if(drained < drain_rate * seconds_per_tick)
-		for(var/obj/machinery/power/terminal/T in PN.nodes)
+		for(var/obj/structure/machinery/power/terminal/T in PN.nodes)
 			// Enough power drained this tick, no need to torture more APCs
 			if(drained >= drain_rate * seconds_per_tick)
 				break
-			if(istype(T.master, /obj/machinery/power/apc))
-				var/obj/machinery/power/apc/A = T.master
+			if(istype(T.master, /obj/structure/machinery/power/apc))
+				var/obj/structure/machinery/power/apc/A = T.master
 				if(A.operating && A.cell)
 					var/cur_charge = A.cell.charge / CELLRATE
 					var/drain_val = min(apc_drain_rate * seconds_per_tick, cur_charge)
@@ -142,7 +142,7 @@
 	power_drained += drained
 	return 1
 
-/obj/item/device/powersink/process(seconds_per_tick)
+/obj/item/powersink/process(seconds_per_tick)
 	drained_this_tick = 0
 	power_drained -= min(dissipation_rate, power_drained)
 
@@ -161,7 +161,7 @@
 
 	siphon_power(seconds_per_tick)
 
-/obj/item/device/powersink/proc/handle_overload()
+/obj/item/powersink/proc/handle_overload()
 	if (QDELETED(src))
 		return
 
@@ -187,10 +187,10 @@
 
 		// Check for terminals and affect their master nodes. Also add a special
 		// case for APCs whereby their lights are popped or flicked.
-		if (istype(A, /obj/machinery/power/terminal))
-			var/obj/machinery/power/terminal/T = A
-			if (istype(T.master, /obj/machinery/power/apc))
-				var/obj/machinery/power/apc/AP = T.master
+		if (istype(A, /obj/structure/machinery/power/terminal))
+			var/obj/structure/machinery/power/terminal/T = A
+			if (istype(T.master, /obj/structure/machinery/power/apc))
+				var/obj/structure/machinery/power/apc/AP = T.master
 				if (dist > 1)
 					AP.overload_lighting(100, TRUE)
 				else

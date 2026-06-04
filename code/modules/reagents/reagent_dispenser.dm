@@ -12,11 +12,14 @@
 	var/capacity = 1000
 	var/can_tamper = TRUE
 	var/is_leaking = FALSE
+	maxhealth = OBJECT_HEALTH_HIGH
 
 /obj/structure/reagent_dispensers/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Use Help intent to fill a container in your hand from this, and use any other intent to empty the container into this."
-	. += "Right-click this to change the amount transferred per use."
+	. += "In the right-click menu, you can set the amount transferred per use."
+	if(can_tamper)
+		. += "Using a wrench on this with the Harm intent will open or close the faucet; an open faucet will cause it to continuously leak its contents."
 
 /obj/structure/reagent_dispensers/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -63,7 +66,7 @@
 			else
 				to_chat(user,SPAN_NOTICE("The inlet cap on \the [src] is wrenched on tight!"))
 
-	if (attacking_item.iswrench())
+	if (attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(use_check(user, USE_DISALLOW_SPECIALS))
 			to_chat(user, SPAN_WARNING("A strange force prevents you from doing this.")) //there is no way to justify this icly
 			return
@@ -94,6 +97,15 @@
 
 	var/splash_amount = min(amount_per_transfer_from_this,60) //Hard limit of 60 per process
 	reagents.trans_to_turf(get_turf(src),splash_amount)
+
+/obj/structure/reagent_dispensers/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
+	if(!should_use_health)
+		return FALSE
+	if(reagents.total_volume > 0)
+		var/splash_area = max(1, round(sqrt(reagents.total_volume / 60.0))) //Splash roughly 60u on every turf.
+		reagents.splash_area(get_turf(src), splash_area, reagents.total_volume)
+		visible_message(SPAN_WARNING("As \the [src] is destroyed, it spills [reagents.get_primary_reagent_name()] everywhere!"))
+	dismantle()
 
 //Fire extinguisher tank
 
@@ -130,7 +142,7 @@
 	amount_per_transfer_from_this = 30
 	var/defuse = 0
 	var/armed = 0
-	var/obj/item/device/assembly_holder/rig = null
+	var/obj/item/assembly_holder/rig = null
 	reagents_to_add = list(/singleton/reagent/fuel = 1000)
 	movable_flags = MOVABLE_FLAG_WHEELED
 
@@ -165,7 +177,7 @@
 		user.put_in_hands(rig)
 		rig = null
 		overlays = new/list()
-	if (istype(attacking_item,/obj/item/device/assembly_holder))
+	if (istype(attacking_item,/obj/item/assembly_holder))
 		if (rig)
 			to_chat(user, SPAN_WARNING("There is another device in the way."))
 			return ..()
@@ -174,8 +186,8 @@
 			user.visible_message(SPAN_NOTICE("[user] rigs [attacking_item] to \the [src]."),
 									SPAN_NOTICE("You rig [attacking_item] to \the [src]"))
 
-			var/obj/item/device/assembly_holder/H = attacking_item
-			if (istype(H.a_left,/obj/item/device/assembly/igniter) || istype(H.a_right,/obj/item/device/assembly/igniter))
+			var/obj/item/assembly_holder/H = attacking_item
+			if (istype(H.a_left,/obj/item/assembly/igniter) || istype(H.a_right,/obj/item/assembly/igniter))
 				message_admins("[key_name_admin(user)] rigged fueltank at [loc.loc.name] ([loc.x],[loc.y],[loc.z]) for explosion. (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[loc.x];Y=[loc.y];Z=[loc.z]'>JMP</a>)")
 				log_game("[key_name(user)] rigged fueltank at [loc.loc.name] ([loc.x],[loc.y],[loc.z]) for explosion.")
 
@@ -228,10 +240,10 @@
 
 	..()
 
-/obj/structure/reagent_dispensers/fueltank/fire_act(temperature, volume)
+/obj/structure/reagent_dispensers/fueltank/fire_act(exposed_temperature, exposed_volume)
 	if (is_leaking)
 		ex_act(2.0)
-	else if (temperature > T0C+500)
+	else if (exposed_temperature > T0C+500)
 		ex_act(2.0)
 	return ..()
 
@@ -259,6 +271,8 @@
 	amount_per_transfer_from_this = 45
 	can_tamper = FALSE
 	reagents_to_add = list(/singleton/reagent/capsaicin/condensed = 1000)
+	maxhealth = OBJECT_HEALTH_VERY_LOW //Made of glass.
+	material = MATERIAL_GLASS
 
 /obj/structure/reagent_dispensers/virusfood
 	name = "virus food dispenser"
@@ -269,6 +283,8 @@
 	density = 0
 	can_tamper = FALSE
 	reagents_to_add = list(/singleton/reagent/nutriment/virusfood = 1000)
+	maxhealth = OBJECT_HEALTH_VERY_LOW //Made of glass.
+	material = MATERIAL_GLASS
 
 /obj/structure/reagent_dispensers/acid
 	name = "sulphuric acid dispenser"
@@ -279,6 +295,8 @@
 	density = 0
 	can_tamper = FALSE
 	reagents_to_add = list(/singleton/reagent/acid = 1000)
+	maxhealth = OBJECT_HEALTH_VERY_LOW //Made of glass.
+	material = MATERIAL_GLASS
 
 /obj/structure/reagent_dispensers/peppertank/luminol
 	name = "luminol dispenser"
@@ -286,6 +304,8 @@
 	icon_state = "luminoltank"
 	amount_per_transfer_from_this = 50
 	reagents_to_add = list(/singleton/reagent/luminol = 1000)
+	maxhealth = OBJECT_HEALTH_VERY_LOW //Made of glass.
+	material = MATERIAL_GLASS
 
 /obj/structure/reagent_dispensers/peppertank/spacecleaner
 	name = "cleaner dispenser"
@@ -293,6 +313,8 @@
 	icon_state = "cleanertank"
 	amount_per_transfer_from_this = 250
 	reagents_to_add = list(/singleton/reagent/spacecleaner = 1000)
+	maxhealth = OBJECT_HEALTH_VERY_LOW //Made of glass.
+	material = MATERIAL_GLASS
 
 //Water Cooler
 
@@ -309,6 +331,8 @@
 	reagents_to_add = list(/singleton/reagent/water = 500)
 	var/cups = 12
 	var/cup_type = /obj/item/reagent_containers/food/drinks/sillycup
+	maxhealth = OBJECT_HEALTH_LOW //Made of plastic.
+	material = MATERIAL_PLASTIC
 
 /obj/structure/reagent_dispensers/water_cooler/attack_hand(var/mob/user)
 	. = ..()
@@ -328,7 +352,7 @@
 	return "[src]'s cup dispenser is empty."
 
 /obj/structure/reagent_dispensers/water_cooler/attackby(obj/item/attacking_item, mob/user)
-	if (attacking_item.isscrewdriver())
+	if (attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		src.add_fingerprint(user)
 		attacking_item.play_tool_sound(get_turf(src), 100)
 		if(do_after(user, 20))
@@ -353,6 +377,8 @@
 	desc = "An empty keg."
 	icon_state = "keg"
 	amount_per_transfer_from_this = 10
+	maxhealth = OBJECT_HEALTH_LOW //Made of wood
+	material = MATERIAL_WOOD
 
 /obj/structure/reagent_dispensers/keg/attackby(obj/item/attacking_item, mob/user)
 	if (istype(attacking_item, /obj/item/stack/rods))
@@ -474,9 +500,10 @@
 
 /obj/structure/reagent_dispensers/acid_barrel
 	name = "chemical barrel"
-	desc = "A metal barrel containing some unknown chemical."
+	desc = "A metal barrel filled with deadly sulfuric acid."
 	icon_state = "acid_barrel"
 	amount_per_transfer_from_this = 300
+	reagents_to_add = list(/singleton/reagent/acid = 1000)
 
 /obj/structure/reagent_dispensers/radioactive_waste
 	name = "radioactive waste barrel"
@@ -484,3 +511,87 @@
 	icon_state = "chemical_barrel"
 	amount_per_transfer_from_this = 300
 	reagents_to_add = list(/singleton/reagent/radioactive_waste = 1000)
+	maxhealth = OBJECT_HEALTH_VERY_HIGH //Made of plasteel, because it's dangerous to break.
+	material = MATERIAL_PLASTEEL
+
+/obj/structure/reagent_dispensers/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(can_tamper)
+		. += "Using a wrench on this with the Harm intent will open or close the faucet; an open faucet will cause it to continuously leak its contents."
+		. += "This hint is being repeated for emphasis. MAKING THIS LEAK WILL CAUSE EVERYONE NEARBY TO HAVE A BAD TIME."
+
+/// Only use this if you want active radiation.
+ABSTRACT_TYPE(/obj/structure/reagent_dispensers/radioactive_waste/hazardous)
+	name = "leaking radioactive waste barrel"
+	desc = "A metal barrel containing radioactive waste; the seals on this one seem to have failed and noxious fumes are escaping!"
+	light_range = 2
+	light_power = 0.6
+	light_color = "#64C864"
+	/// Radiation generated by SSradiation.radiate each process() tick.
+	var/radioactivity
+
+/obj/structure/reagent_dispensers/radioactive_waste/hazardous/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Characters directly adjacent to this object will be exposed to <b>[radioactivity] IU/s</b> of radiation. Radiation falls off (approximately) by 75% for every tile away you move."
+
+/obj/structure/reagent_dispensers/radioactive_waste/hazardous/low
+	radioactivity = RAD_LEVEL_LOW
+
+/obj/structure/reagent_dispensers/radioactive_waste/hazardous/low/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Geiger counters will start clicking at ~3 tiles away from this object."
+	. += "Almost all voidsuits, including softsuits, provide sufficient protection to move safely adjacent to it."
+
+/obj/structure/reagent_dispensers/radioactive_waste/hazardous/medium
+	radioactivity = RAD_LEVEL_MODERATE
+
+/obj/structure/reagent_dispensers/radioactive_waste/hazardous/medium/antagonist_hints(mob/user, distance, is_adjacent)
+	. += "Geiger counters will start clicking at ~5 tiles away from this object."
+	. += "An engineering voidsuit is necessary to move safely adjacent to it."
+
+/obj/structure/reagent_dispensers/radioactive_waste/hazardous/high
+	/// This is as high as radsuits can absorb! Use with caution.
+	radioactivity = RAD_LEVEL_HIGH
+
+/obj/structure/reagent_dispensers/radioactive_waste/hazardous/high/antagonist_hints(mob/user, distance, is_adjacent)
+	. += "Geiger counters will start clicking at ~7 tiles away from this object."
+	. += "A radsuit is necessary to move safely adjacent to it."
+
+/obj/structure/reagent_dispensers/radioactive_waste/hazardous/very_high
+	/// This is as high as radsuits can absorb! Use with caution.
+	radioactivity = RAD_LEVEL_VERY_HIGH
+
+/obj/structure/reagent_dispensers/radioactive_waste/hazardous/very_high/antagonist_hints(mob/user, distance, is_adjacent)
+	. += "Geiger counters will start clicking at ~11 tiles away from this object."
+	. += "A radsuit is necessary to move safely adjacent to it."
+
+/obj/structure/reagent_dispensers/radioactive_waste/hazardous/extreme
+	/// This is higher than radsuits can absorb! Use with caution.
+	radioactivity = RAD_LEVEL_CATASTROPHIC
+
+/obj/structure/reagent_dispensers/radioactive_waste/hazardous/extreme/antagonist_hints(mob/user, distance, is_adjacent)
+	. += "Geiger counters will start clicking at ~11 tiles away from this object."
+	. += "No living thing can safely stand next to this object! Borgs or IPCs only!"
+
+/obj/structure/reagent_dispensers/radioactive_waste/hazardous/Initialize()
+	. = ..()
+	if(radioactivity)
+		START_PROCESSING(SSprocessing, src)
+
+/obj/structure/reagent_dispensers/radioactive_waste/hazardous/process()
+	if(!is_leaking && reagents.total_volume <= 0)
+		STOP_PROCESSING(SSprocessing,src)
+		return
+
+	else
+		if(reagents.total_volume > 0)
+			SSradiation.radiate(src, radioactivity)
+
+		/// The residue probably still isn't very nice.
+		else
+			SSradiation.radiate(src, radioactivity / 4)
+
+		if(is_leaking && prob(10))
+			var/splash_amount = min(amount_per_transfer_from_this, rand(2,10))
+			reagents.trans_to_turf(get_turf(src), splash_amount)
+			return

@@ -1,0 +1,313 @@
+////////////////////////
+//Turret Control Panel//
+////////////////////////
+/area
+	// Turrets use this list to see if individual power/lethal settings are allowed
+	var/list/turret_controls = list()
+	var/list/turrets = list()
+
+
+/obj/structure/machinery/turretid
+	name = "turret control panel"
+	desc = "Used to control a compartment's automated defenses."
+	icon = 'icons/obj/machinery/turret_control.dmi'
+	icon_state = "control_standby"
+	anchored = 1
+	density = 0
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
+	var/enabled = 0
+	var/lethal = 0
+	var/locked = 1
+	/// if the control panel can switch lethal and stun modes
+	var/egun = 1
+	/// can be area name, path or nothing.
+	var/area/control_area
+
+	/// checks if the perp is set to arrest
+	var/check_arrest = 1
+	/// checks if a security record exists at all
+	var/check_records = 1
+	/// checks if it can shoot people that have a weapon they aren't authorized to have
+	var/check_weapons = 0
+	/// if this is active, the turret shoots everything that does not meet the access requirements
+	var/check_access = 1
+	/// checks if it can shoot at simple animals or anything that passes issmall
+	var/check_wildlife = 1
+	/// if active, will shoot at anything not an AI or cyborg
+	var/check_synth = 0
+	/// if active, will shoot at borgs
+	var/target_borgs = FALSE
+	/// Silicons cannot use this
+	var/ailock = 0
+	req_access = list(ACCESS_AI_UPLOAD)
+
+/obj/structure/machinery/turretid/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "ALT-click the [src] to lock or unlock it (if you have the appropriate ID access)."
+
+/obj/structure/machinery/turretid/stun
+	enabled = 1
+	icon_state = "control_stun"
+
+/obj/structure/machinery/turretid/lethal
+	enabled = 1
+	lethal = 1
+	icon_state = "control_kill"
+
+/obj/structure/machinery/turretid/Destroy()
+	if(control_area)
+		var/area/A = control_area
+		if(A && istype(A))
+			A.turret_controls -= src
+	return ..()
+
+/obj/structure/machinery/turretid/Initialize(mapload)
+	. = ..()
+	if(!control_area)
+		control_area = get_area(src)
+	else if(istext(control_area))
+		for(var/area/A in get_sorted_areas())
+			if(A.name && A.name==control_area)
+				control_area = A
+				break
+
+	if(control_area)
+		var/area/A = control_area
+		if(istype(A))
+			A.turret_controls += src
+		else
+			control_area = null
+	updateTurrets()
+	if (!mapload)
+		power_change() //Checks power and initial settings
+		turretModes()
+	else
+		return INITIALIZE_HINT_LATELOAD
+
+/obj/structure/machinery/turretid/LateInitialize()
+	. = ..()
+	power_change()
+	turretModes()
+
+/obj/structure/machinery/turretid/proc/isLocked(mob/user)
+	if(ailock && issilicon(user))
+		to_chat(user, SPAN_WARNING("There seems to be a firewall preventing you from accessing this device."))
+		return TRUE
+
+	if(!issilicon(user))
+		if(locked && !allowed(user))
+			to_chat(user, SPAN_WARNING("Access denied."))
+			return TRUE
+
+	return FALSE
+
+/obj/structure/machinery/turretid/CanUseTopic(mob/user)
+	if(isLocked(user))
+		return STATUS_CLOSE
+
+	return ..()
+
+/obj/structure/machinery/turretid/AltClick(mob/user)
+	if(Adjacent(user))
+		add_fingerprint(user)
+		if(emagged)
+			to_chat(user, SPAN_NOTICE("The turret control is unresponsive."))
+		else if(allowed(user))
+			locked = !locked
+			if(locked)
+				playsound(src, 'sound/machines/terminal/terminal_button03.ogg', 35, FALSE)
+			else
+				playsound(src, 'sound/machines/terminal/terminal_button01.ogg', 35, FALSE)
+			balloon_alert(user, locked ? "locked" : "unlocked")
+		else
+			to_chat(user, SPAN_WARNING("Access denied."))
+			playsound(src, 'sound/machines/terminal/terminal_error.ogg', 25, FALSE)
+			balloon_alert(user, "access denied!")
+	return
+
+/obj/structure/machinery/turretid/emag_act(var/remaining_charges, var/mob/user)
+	if(!emagged)
+		to_chat(user, SPAN_DANGER("You short out the turret controls' access analysis module."))
+		emagged = 1
+		locked = 0
+		ailock = 0
+		return 1
+
+/obj/structure/machinery/turretid/attack_ai(mob/user as mob)
+	if(!ai_can_interact(user))
+		return
+	if(isLocked(user))
+		return
+
+	ui_interact(user)
+
+/obj/structure/machinery/turretid/attack_hand(mob/user as mob)
+	. = ..()
+	if(isLocked(user))
+		return
+
+	ui_interact(user)
+
+/obj/structure/machinery/turretid/ui_data(mob/user)
+	var/list/data = list()
+	data["turrets"] = list()
+	data["locked"] = isAI(user) ? FALSE : locked
+	data["enabled"] = enabled
+	data["is_lethal"] = TRUE
+	data["lethal"] = lethal
+	data["can_switch"] = egun
+
+	var/usedSettings = list(
+		"check_synth" = "Neutralize All Non-Synthetics",
+		"target_borgs" = "Neutralize All Cyborg-likes",
+		"check_wildlife" = "Neutralize All Wildlife",
+		"check_weapons" = "Check Weapon Authorization",
+		"check_records" = "Check Security Records",
+		"check_arrest" = "Check Arrest Status",
+		"check_access" = "Check Access Authorization"
+	)
+	data["settings"] = list()
+	for(var/v in usedSettings)
+		var/name = usedSettings[v]
+		data["settings"] += list(list("category" = name, "value" = vars[v], "variable_name" = v))
+
+	if(istype(control_area))
+		if(control_area.turrets.len != LAZYLEN(data["turrets"]))
+			data["turrets"] = list()
+		for(var/obj/structure/machinery/porta_turret/aTurret in control_area.turrets)
+			var/ref = "[REF(aTurret)]"
+			data["turrets"] += list(list("name" = sanitize(aTurret.name + " [LAZYLEN(data["turrets"])]"), "ref" = ref, "settings" = aTurret.get_settings(), "enabled" = aTurret.enabled, "lethal" = aTurret.lethal))
+	return data
+
+/obj/structure/machinery/turretid/ui_interact(mob/user, var/datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "TurretControl", "Defense Systems Control Panel", 375, 725)
+		ui.open()
+
+/obj/structure/machinery/turretid/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
+		return
+
+	switch(action)
+		if("command")
+			if(params["turret_ref"] == "this")
+				if(!isnull(params["value"]))
+					var/value = text2num(params["value"])
+					switch(params["command"])
+						if("enable")
+							enabled = value
+						if("lethal")
+							lethal = value
+						if("check_synth")
+							check_synth = value
+						if("target_borgs")
+							target_borgs = value
+						if("check_weapons")
+							check_weapons = value
+						if("check_records")
+							check_records = value
+						if("check_arrest")
+							check_arrest = value
+						if("check_access")
+							check_access = value
+						if("check_wildlife")
+							check_wildlife = value
+					updateTurrets()
+					. = TRUE
+			else
+				var/obj/structure/machinery/porta_turret/aTurret = locate(params["turret_ref"]) in (control_area.turrets)
+				if(!aTurret)
+					return
+				. = aTurret.ui_act(action, params, ui, state)
+
+/obj/structure/machinery/turretid/proc/updateTurrets()
+	var/datum/turret_checks/TC = getState()
+	if(istype(control_area))
+		for (var/obj/structure/machinery/porta_turret/aTurret in control_area.turrets)
+			if (aTurret.lethal == lethal || aTurret.egun)
+				TC.enabled = enabled
+				aTurret.setState(TC)
+			else
+				TC.enabled = 0
+				aTurret.setState(TC)
+
+	queue_icon_update()
+
+/obj/structure/machinery/turretid/proc/getState()
+	var/datum/turret_checks/TC = new
+	TC.enabled = enabled
+	TC.lethal = lethal
+	TC.check_synth = check_synth
+	TC.target_borgs = target_borgs
+	TC.check_access = check_access
+	TC.check_records = check_records
+	TC.check_arrest = check_arrest
+	TC.check_weapons = check_weapons
+	TC.check_wildlife = check_wildlife
+	TC.ailock = ailock
+
+	return TC
+
+/obj/structure/machinery/turretid/proc/turretModes()
+	if (!istype(control_area))
+		return
+	var/one_mode = 0 // Is there general one mode only turret
+	var/both_mode = 0 // Is there both mode turrets
+	for (var/obj/structure/machinery/porta_turret/aTurret in control_area.turrets)
+		// If turret only has lethal mode - lock switching modes
+		if(!aTurret.egun)
+			one_mode = 1
+			egun = 0
+		else
+			both_mode = 1
+	// If there is a turret with lethal mode only, and turret with both modes. Disable turrets with lethality that is not same as current control setting.
+	if(both_mode && one_mode)
+		egun = 1
+	else if (LAZYLEN(control_area.turrets)) // If we just have turrets with one mode, ensure that panel's lethal variable is same as Turrets.
+		var/obj/structure/machinery/porta_turret/aTurret = control_area.turrets[1]
+		lethal = aTurret.lethal
+		updateTurrets()
+
+/obj/structure/machinery/turretid/power_change()
+	..()
+	updateTurrets()
+
+/obj/structure/machinery/turretid/update_icon()
+	..()
+	if(stat & NOPOWER)
+		icon_state = "control_off"
+		set_light(0)
+	else if (enabled)
+		if (lethal)
+			icon_state = "control_kill"
+			set_light(1.5, 1,"#990000")
+		else
+			icon_state = "control_stun"
+			set_light(1.5, 1,"#FF9900")
+	else
+		icon_state = "control_standby"
+		set_light(1.5, 1,"#003300")
+
+/obj/structure/machinery/turretid/emp_act(severity)
+	. = ..()
+
+	if(enabled)
+		//if the turret is on, the EMP no matter how severe disables the turret for a while
+		//and scrambles its settings, with a slight chance of having an emag effect
+
+		check_arrest = pick(0, 1)
+		check_records = pick(0, 1)
+		check_weapons = pick(0, 1)
+		check_access = pick(0, 0, 0, 0, 1)	// check_access is a pretty big deal, so it's least likely to get turned on
+		check_wildlife = pick(0, 1)
+
+		enabled=0
+		updateTurrets()
+
+		spawn(rand(60,600))
+			if(!enabled)
+				enabled=1
+				updateTurrets()
+

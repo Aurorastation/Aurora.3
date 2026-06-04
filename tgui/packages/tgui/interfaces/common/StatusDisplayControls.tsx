@@ -18,12 +18,12 @@ export const StatusDisplayControls = (props, context) => {
   const [upperText, setUpperText] = useSharedState(
     context,
     'statusUpperText',
-    initialUpper
+    initialUpper,
   );
   const [lowerText, setLowerText] = useSharedState(
     context,
     'statusLowerText',
-    initialLower
+    initialLower,
   );
 
   return (

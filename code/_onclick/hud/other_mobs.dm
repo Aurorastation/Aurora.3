@@ -14,7 +14,7 @@
 /mob/living/silicon/ai/instantiate_hud(datum/hud/HUD)
 	HUD.ai_hud()
 
-/datum/hud/proc/blob_hud(ui_style = 'icons/mob/screen/midnight.dmi')
+/datum/hud/proc/blob_hud(ui_style = 'icons/hud/mob/midnight.dmi')
 
 	blobpwrdisplay = new /atom/movable/screen()
 	blobpwrdisplay.name = "blob power"
@@ -33,7 +33,7 @@
 /mob/living/carbon/slime/instantiate_hud(datum/hud/HUD)
 	HUD.slime_hud()
 
-/datum/hud/proc/slime_hud(ui_style = 'icons/mob/screen/midnight.dmi')
+/datum/hud/proc/slime_hud(ui_style = 'icons/hud/mob/midnight.dmi')
 
 	src.adding = list()
 
@@ -112,26 +112,21 @@
 		constructtype = "harvester"
 
 	if(constructtype)
-		mymob.fire = new /atom/movable/screen()
-		mymob.fire.icon = 'icons/mob/screen/construct.dmi'
-		mymob.fire.icon_state = "fire0"
-		mymob.fire.name = "fire"
-		mymob.fire.screen_loc = ui_construct_fire
 
 		mymob.healths = new /atom/movable/screen()
-		mymob.healths.icon = 'icons/mob/screen/construct.dmi'
+		mymob.healths.icon = 'icons/hud/mob/construct.dmi'
 		mymob.healths.icon_state = "[constructtype]_health0"
 		mymob.healths.name = "health"
 		mymob.healths.screen_loc = ui_construct_health
 
 		mymob.zone_sel = new /atom/movable/screen/zone_sel()
 
-		mymob.zone_sel.icon = 'icons/mob/screen/construct.dmi'
+		mymob.zone_sel.icon = 'icons/hud/mob/construct.dmi'
 		mymob.zone_sel.ClearOverlays()
-		mymob.zone_sel.AddOverlays(image('icons/mob/zone_sel.dmi', "[mymob.zone_sel.selecting]"))
+		mymob.zone_sel.AddOverlays(image('icons/hud/mob/zone_sel.dmi', "[mymob.zone_sel.selecting]"))
 
 		mymob.purged = new /atom/movable/screen()
-		mymob.purged.icon = 'icons/mob/screen/construct.dmi'
+		mymob.purged.icon = 'icons/hud/mob/construct.dmi'
 		mymob.purged.icon_state = "purge0"
 		mymob.purged.name = "purged"
 		mymob.purged.screen_loc = ui_construct_purge

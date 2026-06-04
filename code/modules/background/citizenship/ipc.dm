@@ -57,6 +57,9 @@
 
 /obj/outfit/job/diplomatic_bodyguard/golden
 	name = "Golden Deep Diplomatic Bodyguard"
+	uniform = /obj/item/clothing/under/goldendeep/hoplan
+	head = /obj/item/clothing/head/goldendeep/hoplan
+	shoes = /obj/item/clothing/shoes/jackboots
 	backpack_contents = list(
 		/obj/item/gun/energy/pistol/goldendeep = 1
 	)

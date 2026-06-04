@@ -1,6 +1,6 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "ah" = (
-/obj/machinery/appliance/cooker/oven/adhomai,
+/obj/structure/machinery/appliance/cooker/oven/adhomai,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/exoplanet/concrete,
 /area/adhomai_raskariim_hideout)
@@ -56,7 +56,7 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_raskariim_hideout)
 "da" = (
-/obj/machinery/door/urban{
+/obj/structure/machinery/door/urban{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/wood,
@@ -85,7 +85,7 @@
 /obj/structure/table/wood,
 /obj/item/paper_bin,
 /obj/item/pen/red,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/wood,
@@ -143,13 +143,13 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_raskariim_hideout)
 "lI" = (
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /obj/structure/table/wood,
 /turf/simulated/floor/exoplanet/carpet/art,
 /area/adhomai_raskariim_hideout)
 "nm" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	brightness_color = "#FA8282";
 	dir = 1
 	},
@@ -196,7 +196,7 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_raskariim_hideout)
 "ri" = (
-/obj/machinery/door/urban,
+/obj/structure/machinery/door/urban,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_raskariim_hideout)
 "rw" = (
@@ -206,13 +206,13 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_raskariim_hideout)
 "rA" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_raskariim_hideout)
 "rG" = (
-/obj/machinery/door/urban{
+/obj/structure/machinery/door/urban{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/wood,
@@ -240,7 +240,7 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_raskariim_hideout)
 "tY" = (
-/obj/machinery/light/small/red,
+/obj/structure/machinery/light/small/red,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_raskariim_hideout)
 "tZ" = (
@@ -251,7 +251,7 @@
 /turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "uQ" = (
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_raskariim_hideout)
 "vc" = (
@@ -268,7 +268,7 @@
 	pixel_x = -4;
 	pixel_y = 9
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/wood,
@@ -373,7 +373,7 @@
 	pixel_x = 7;
 	pixel_y = 8
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /obj/item/reagent_containers/food/drinks/drinkingglass{
@@ -393,7 +393,7 @@
 /area/adhomai_raskariim_hideout)
 "zd" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp{
+/obj/item/flashlight/lamp{
 	pixel_y = 6;
 	pixel_x = 5
 	},
@@ -403,7 +403,7 @@
 /turf/simulated/floor/exoplanet/carpet/art,
 /area/adhomai_raskariim_hideout)
 "zC" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/wood,
@@ -452,7 +452,7 @@
 /obj/structure/closet/cabinet,
 /obj/item/clothing/suit/storage/tajaran/raskara,
 /obj/item/clothing/head/tajaran/raskara,
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /obj/item/material/knife/raskariim,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_raskariim_hideout)
@@ -479,7 +479,7 @@
 "HE" = (
 /obj/item/handcuffs/cable/random,
 /obj/item/handcuffs/cable/random,
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_raskariim_hideout)
 "HG" = (
@@ -490,7 +490,7 @@
 	pixel_y = -2;
 	pixel_x = -7
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/wood,
@@ -498,7 +498,7 @@
 "Ig" = (
 /obj/structure/table/stone/marble,
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/chemical_dispenser/coffee/full,
+/obj/structure/machinery/chemical_dispenser/coffee/full,
 /turf/simulated/floor/exoplanet/concrete,
 /area/adhomai_raskariim_hideout)
 "Io" = (
@@ -543,7 +543,7 @@
 	pixel_x = 7
 	},
 /obj/item/material/kitchen/utensil/knife,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/wood,
@@ -627,7 +627,7 @@
 /obj/structure/bed/stool/bar/padded/red,
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/item/poppet,
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_raskariim_hideout)
 "PT" = (
@@ -651,9 +651,9 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_raskariim_hideout)
 "UC" = (
-/obj/machinery/appliance/cooker/stove/adhomai,
+/obj/structure/machinery/appliance/cooker/stove/adhomai,
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/concrete,

@@ -372,10 +372,10 @@
 	..()
 	var/obj/icon = src
 
-	if ((istype(attacking_item, /obj/item/device/analyzer)) && get_dist(user, src) <= 1)
+	if ((istype(attacking_item, /obj/item/analyzer)) && get_dist(user, src) <= 1)
 		user.visible_message(SPAN_WARNING("[user] has used [attacking_item] on [icon2html(icon, viewers(get_turf(user)))] [src]."))
 
-		var/pressure = air_contents.return_pressure()
+		var/pressure = XGM_PRESSURE(air_contents)
 		manipulated_by = user.real_name			//This person is aware of the contents of the tank.
 		var/total_moles = air_contents.total_moles
 
@@ -409,7 +409,7 @@
 
 	// this is the data which will be sent to the ui
 	var/data[0]
-	data["tankPressure"] = round(air_contents.return_pressure() ? air_contents.return_pressure() : 0)
+	data["tankPressure"] = round(SAFE_XGM_PRESSURE(air_contents))
 	data["releasePressure"] = round(distribute_pressure ? distribute_pressure : 0)
 	data["defaultReleasePressure"] = round(TANK_DEFAULT_RELEASE_PRESSURE)
 	data["maxReleasePressure"] = round(TANK_MAX_RELEASE_PRESSURE)
@@ -513,7 +513,7 @@
 	if(!air_contents)
 		return null
 
-	var/tank_pressure = air_contents.return_pressure()
+	var/tank_pressure = XGM_PRESSURE(air_contents)
 	if((tank_pressure < distribute_pressure) && prob(5))
 		to_chat(owner, SPAN_WARNING("There is a buzzing in your [parent_organ]."))
 
@@ -534,9 +534,9 @@
 	if(!air_contents)
 		return 0
 
-	var/pressure = air_contents.return_pressure()
+	var/pressure = XGM_PRESSURE(air_contents)
 	if(pressure > TANK_FRAGMENT_PRESSURE)
-		if(!istype(src.loc,/obj/item/device/transfer_valve))
+		if(!istype(src.loc,/obj/item/transfer_valve))
 			message_admins("Explosive tank rupture! last key to touch the tank was [src.fingerprintslast].")
 			log_game("Explosive tank rupture! last key to touch the tank was [src.fingerprintslast].")
 
@@ -545,7 +545,7 @@
 		air_contents.react()
 		air_contents.react()
 
-		pressure = air_contents.return_pressure()
+		pressure = XGM_PRESSURE(air_contents)
 		var/range = (pressure-TANK_FRAGMENT_PRESSURE)/TANK_FRAGMENT_SCALE
 
 		explosion(
@@ -685,6 +685,10 @@
 	encased = "support frame"
 	robotize_type = PROSTHETIC_VAURCA
 
+/obj/item/organ/external/hand/right/vaurca/medical/Initialize(mapload)
+	. = ..()
+	src.LoadComponent(/datum/component/health_analyzer)
+
 /obj/item/organ/external/hand/right/vaurca/medical/refresh_action_button()
 	. = ..()
 	if(.)
@@ -714,6 +718,9 @@
 	var/mob/living/mob_target = target
 	if(!mob_target)
 		return FALSE
-	health_scan_mob(mob_target, owner)
+	var/datum/component/health_analyzer/h_analyzer = src.GetComponent(/datum/component/health_analyzer)
+	if(!h_analyzer)
+		return
+	h_analyzer.health_scan_mob(mob_target, owner, FALSE, TRUE)
 	owner.last_special = world.time + (5 SECONDS)
 	return TRUE

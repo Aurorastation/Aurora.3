@@ -120,6 +120,8 @@
 /obj/item/organ/internal/heart/process(seconds_per_tick)
 	if(!owner)
 		return ..()
+	if(owner.stasis_value > 0) // Decrease the effective tickrate when in stasis.
+		seconds_per_tick /= owner.stasis_value
 	handle_pulse()
 	if(pulse)
 		if(pulse == PULSE_2FAST)
@@ -173,7 +175,7 @@
 		return
 	else //and if it's beating, let's see if it should
 		var/should_stop = prob(80) && circulation < BLOOD_VOLUME_SURVIVE //cardiovascular shock, not enough liquid to pump
-		should_stop = should_stop || prob(max(0, owner.getBrainLoss() - owner.maxHealth * 0.75)) //brain failing to work heart properly
+		should_stop = should_stop || prob(max(0, owner.getBrainLoss() - owner.maxhealth * 0.75)) //brain failing to work heart properly
 		should_stop = should_stop || (prob(fibrillation_stop_risk) && pulse == PULSE_THREADY) //erratic heart patterns, usually caused by oxyloss
 		should_stop = should_stop || owner.chem_effects[CE_NOPULSE]
 		if(should_stop) // The heart has stopped due to going into traumatic or cardiovascular shock.
@@ -245,7 +247,7 @@
 		var/list/do_spray = list()
 		for(var/obj/item/organ/external/temp in owner.bad_external_organs)
 			if((temp.status & ORGAN_BLEEDING) && !BP_IS_ROBOTIC(temp))
-				for(var/datum/wound/W in temp.wounds)
+				for(var/datum/wound/W as anything in temp.wounds)
 					if(W.bleeding())
 						open_wound = TRUE
 						if(temp.applied_pressure)
@@ -346,9 +348,7 @@
 
 	. = "[pulsesound] pulse"
 
-// Example heart item that has significantly higher statistics.
-// Also to be used for the Galatean Bio-augments PRs.
-// TODO: After refactoring the organ selector, make it so that this is a selectable heart type(For Galateans)
+// Galatean boosted heart
 /obj/item/organ/internal/heart/boosted_heart
 	name = "boosted heart"
 	desc = "Intended for athletes, some workers, and soldiers, this improved heart increases blood flow and circulation." \

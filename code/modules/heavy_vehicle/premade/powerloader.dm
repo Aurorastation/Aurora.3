@@ -42,7 +42,7 @@
 /obj/item/mech_component/manipulators/ripley
 	name = "exosuit arms"
 	exosuit_desc_string = "heavy-duty industrial lifters"
-	max_damage = 150
+	max_damage = 225
 	power_use = 1000
 	melee_damage = 40
 	desc = "The Xion Manufacturing Group Digital Interaction Manifolds allow you poke untold dangers from the relative safety of your cockpit."
@@ -160,7 +160,7 @@
 	gender = PLURAL
 	power_use = 50000
 	vision_flags = SEE_MOBS
-	see_invisible = SEE_INVISIBLE_NOLIGHTING
+	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
 
 /obj/item/mech_component/sensors/combatripley/prebuild()
 	..()

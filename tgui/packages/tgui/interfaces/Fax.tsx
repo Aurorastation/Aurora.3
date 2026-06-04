@@ -2,7 +2,14 @@ import { useBackend } from '../backend';
 import { BooleanLike } from '../../common/react';
 import { round } from '../../common/math';
 import { capitalizeAll } from '../../common/string';
-import { Section, Box, Button, BlockQuote, Dropdown, LabeledList } from '../components';
+import {
+  Section,
+  Box,
+  Button,
+  BlockQuote,
+  Dropdown,
+  LabeledList,
+} from '../components';
 import { Window } from '../layouts';
 
 type PDA = {

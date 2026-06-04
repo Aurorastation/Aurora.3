@@ -20,7 +20,7 @@
 #define MODE_READY			2
 #define MODE_FLUSHING		3
 
-/obj/machinery/disposal
+/obj/structure/machinery/disposal
 	name = "disposal unit"
 	desc = "A pneumatic waste disposal unit."
 	icon = 'icons/obj/disposals.dmi'
@@ -56,36 +56,36 @@
 	active_power_usage = 2200
 	idle_power_usage = 100
 
-/obj/machinery/disposal/airless
+/obj/structure/machinery/disposal/airless
 	uses_air = FALSE
 
-/obj/machinery/disposal/small
+/obj/structure/machinery/disposal/small
 	desc = "A compact pneumatic waste disposal unit."
 	icon_state = "disposal_small"
 	density = FALSE
 
-/obj/machinery/disposal/small/north
+/obj/structure/machinery/disposal/small/north
 	dir = NORTH
 	pixel_y = -13
 	layer = MOB_LAYER + 0.1
 
-/obj/machinery/disposal/small/south
+/obj/structure/machinery/disposal/small/south
 	dir = SOUTH
 	pixel_y = 20
 	layer = OBJ_LAYER + 0.3
 
-/obj/machinery/disposal/small/east
+/obj/structure/machinery/disposal/small/east
 	dir = EAST
 	pixel_x = -12
 
-/obj/machinery/disposal/small/west
+/obj/structure/machinery/disposal/small/west
 	dir = WEST
 	pixel_x = 11
 
-/obj/machinery/disposal/small/airless
+/obj/structure/machinery/disposal/small/airless
 	uses_air = FALSE
 
-/obj/machinery/disposal/small/Initialize()
+/obj/structure/machinery/disposal/small/Initialize()
 	. = ..()
 	if(pixel_x || pixel_y)
 		return
@@ -102,7 +102,7 @@
 			if(WEST)
 				pixel_x = 11
 
-/obj/machinery/disposal/small/check_mob_size(mob/target)
+/obj/structure/machinery/disposal/small/check_mob_size(mob/target)
 	if(target.mob_size > MOB_SMALL)
 		return FALSE
 	return TRUE
@@ -111,7 +111,7 @@
  * Create a new disposal:
  * Find the attached trunk (if present), and initialize gas reservoir.
  */
-/obj/machinery/disposal/Initialize()
+/obj/structure/machinery/disposal/Initialize()
 	. = ..()
 	trunk = locate() in src.loc
 	if(!trunk)
@@ -125,17 +125,17 @@
 	air_contents = new/datum/gas_mixture(PRESSURE_TANK_VOLUME)
 	update()
 
-/obj/machinery/disposal/Destroy()
+/obj/structure/machinery/disposal/Destroy()
 	eject()
 	if(trunk)
 		trunk.linked = null
 	return ..()
 
-/obj/machinery/disposal/proc/contents_count()
+/obj/structure/machinery/disposal/proc/contents_count()
 	var/things = 0
 	for(var/thing in contents)
-		if(istype(thing, /obj/item/device/assembly/signaler))
-			var/obj/item/device/assembly/signaler/S = thing
+		if(istype(thing, /obj/item/assembly/signaler))
+			var/obj/item/assembly/signaler/S = thing
 			if(S.connected == wires)
 				continue
 		things++
@@ -144,7 +144,7 @@
 /**
  * Attack by an item places it into the disposal.
  */
-/obj/machinery/disposal/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/disposal/attackby(obj/item/attacking_item, mob/user)
 	if(stat & BROKEN || !attacking_item || !user)
 		return
 
@@ -153,14 +153,14 @@
 	src.add_fingerprint(user)
 	if(!is_on)
 		has_contents = contents_count()
-		if(attacking_item.isscrewdriver())
+		if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 			if(has_contents)
 				to_chat(user, SPAN_WARNING("Eject the items first!"))
 				return TRUE
 			else if(default_deconstruction_screwdriver(user, attacking_item))
 				update()
 				return TRUE
-		else if(attacking_item.iswelder() && panel_open)
+		else if(attacking_item.tool_behaviour == TOOL_WELDER && panel_open)
 			if(has_contents)
 				to_chat(user, SPAN_WARNING("Eject the items first!"))
 				return TRUE
@@ -171,7 +171,7 @@
 					if(!src || !W.isOn())
 						return TRUE
 					to_chat(user, SPAN_NOTICE("You sliced the floorweld off the disposal unit."))
-					if(!istype(src, /obj/machinery/disposal/small))
+					if(!istype(src, /obj/structure/machinery/disposal/small))
 						var/obj/structure/disposalconstruct/C = new (src.loc)
 						src.transfer_fingerprints_to(C)
 						C.ptype = 6 // 6 = disposal unit
@@ -210,15 +210,17 @@
 		update()
 		return TRUE
 
-	else if (istype (attacking_item, /obj/item/material/ashtray) && user.a_intent != I_HURT)
+	else if(istype(attacking_item, /obj/item/material/ashtray) && user.a_intent != I_HURT) // If attacked with ashtray on harm intent.
 		var/obj/item/material/ashtray/A = attacking_item
-		if(A.emptyout(src))
-			user.visible_message("<b>[user]</b> pours [attacking_item] out into [src].", SPAN_NOTICE("You pour [attacking_item] out into [src]."))
+		if(A.emptyout(src)) // Ashtray has contents.
+			user.visible_message("<b>[user]</b> pours \the [attacking_item] out into \the [src].", SPAN_NOTICE("You pour \the [attacking_item] out into \the [src]."))
+		else // Ashtray has no contents.
+			to_chat(user, SPAN_NOTICE("\The [attacking_item] is empty."))
 		return TRUE
 
-	else if (istype (attacking_item, /obj/item/device/lightreplacer))
+	else if (istype (attacking_item, /obj/item/lightreplacer))
 		var/count = 0
-		var/obj/item/device/lightreplacer/R = attacking_item
+		var/obj/item/lightreplacer/R = attacking_item
 		if (R.store_broken)
 			for(var/obj/item/light/L in R.contents)
 				count++
@@ -239,7 +241,7 @@
 
 	user.drop_from_inventory(attacking_item, src)
 
-	user.visible_message("<b>[user]</b> places \the [attacking_item] into \the [src].", SPAN_NOTICE("You place \the [attacking_item] into the [src]."), range = 3)
+	user.visible_message("<b>[user]</b> places \the [attacking_item] into \the [src].", SPAN_NOTICE("You place \the [attacking_item] into \the [src]."), range = 3)
 	update()
 
 /obj/machinery/disposal/grab_attack(obj/item/grab/G, mob/user)
@@ -269,7 +271,7 @@
 /**
  * Handles mouse-dropping another mob or self onto disposal.
  */
-/obj/machinery/disposal/mouse_drop_receive(atom/dropped, mob/user, params)
+/obj/structure/machinery/disposal/mouse_drop_receive(atom/dropped, mob/user, params)
 	var/mob/target = dropped
 	if(!istype(target))
 		return
@@ -331,13 +333,13 @@
 
 	update()
 
-/obj/machinery/disposal/proc/check_mob_size(mob/target)
+/obj/structure/machinery/disposal/proc/check_mob_size(mob/target)
 	return 1
 
 /**
  * Attempt to move while inside.
  */
-/obj/machinery/disposal/relaymove(mob/living/user, direction)
+/obj/structure/machinery/disposal/relaymove(mob/living/user, direction)
 	. = ..()
 
 	if(user.stat || src.mode == MODE_FLUSHING)
@@ -349,7 +351,7 @@
 /**
  * Leave the disposal.
  */
-/obj/machinery/disposal/proc/go_out(mob/user)
+/obj/structure/machinery/disposal/proc/go_out(mob/user)
 
 	if (user.client)
 		user.client.eye = user.client.mob
@@ -361,7 +363,7 @@
 /**
  * AI: as human but can't flush.
  */
-/obj/machinery/disposal/attack_ai(mob/user as mob)
+/obj/structure/machinery/disposal/attack_ai(mob/user as mob)
 	if(!ai_can_interact(user))
 		return
 	var/inside_bin = (user.loc == src)
@@ -370,7 +372,7 @@
 /**
  * Human interacts with machine.
  */
-/obj/machinery/disposal/attack_hand(mob/user as mob)
+/obj/structure/machinery/disposal/attack_hand(mob/user as mob)
 	. = ..()
 	if(stat & BROKEN)
 		return
@@ -381,7 +383,7 @@
 
 	interact(user)
 
-/obj/machinery/disposal/interact(mob/user)
+/obj/structure/machinery/disposal/interact(mob/user)
 	if(!user)
 		return
 
@@ -392,23 +394,23 @@
 
 	return ui_interact(user)
 
-/obj/machinery/disposal/ui_interact(mob/user, datum/tgui/ui)
+/obj/structure/machinery/disposal/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "DisposalUnit", "Disposal Unit", 320, 200)
 		ui.open()
 
-/obj/machinery/disposal/ui_data(mob/user)
+/obj/structure/machinery/disposal/ui_data(mob/user)
 	var/list/data = list()
 	data["is_on"] = is_on
 	data["flush"] = flush
 	data["mode"] = mode
 	data["uses_air"] = uses_air
 	data["panel_open"] = panel_open
-	data["pressure"] = CLAMP01(air_contents.return_pressure() / (SEND_PRESSURE))
+	data["pressure"] = CLAMP01(XGM_PRESSURE(air_contents) / (SEND_PRESSURE))
 	return data
 
-/obj/machinery/disposal/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/obj/structure/machinery/disposal/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
@@ -433,7 +435,7 @@
 /**
  * Eject the contents of the disposal unit.
  */
-/obj/machinery/disposal/proc/eject()
+/obj/structure/machinery/disposal/proc/eject()
 	for(var/atom/movable/AM in src)
 		AM.forceMove(src.loc)
 		AM.pipe_eject(0)
@@ -442,7 +444,7 @@
 /**
  * Update the icon & overlays to reflect mode & status
  */
-/obj/machinery/disposal/proc/update()
+/obj/structure/machinery/disposal/proc/update()
 	if(!isnull(mode_icon) && (stat & BROKEN))
 		ClearOverlays()
 		icon_state = "[icon_state]-broken"
@@ -484,7 +486,7 @@
 /**
  * Timed process. Charge the gas reservoir and perform flush if ready.
  */
-/obj/machinery/disposal/process()
+/obj/structure/machinery/disposal/process()
 	if((stat & BROKEN) || !is_on)
 		update_use_power(POWER_USE_OFF)
 		return
@@ -510,13 +512,13 @@
 		update()
 
 	// Validate whether we're pressurized or not.
-	if(mode == MODE_PRESSURIZING && air_contents.return_pressure() >= SEND_PRESSURE)
+	if(mode == MODE_PRESSURIZING && XGM_PRESSURE(air_contents) >= SEND_PRESSURE)
 		mode = MODE_READY
 		update()
 		return
 
 	// If you turn this into a bare 'else' statement it just tries to pressurize infinitely and I don't know why.
-	else if(mode == MODE_PRESSURIZING && air_contents.return_pressure() < SEND_PRESSURE)
+	else if(mode == MODE_PRESSURIZING && XGM_PRESSURE(air_contents) < SEND_PRESSURE)
 		src.pressurize()
 		update()
 		return
@@ -524,7 +526,7 @@
 /**
  * If powered and working, transfer gas from local env to internal reservoir and use the required power to do so.
  */
-/obj/machinery/disposal/proc/pressurize()
+/obj/structure/machinery/disposal/proc/pressurize()
 	// Don't pressurize if there's no power.
 	if(stat & NOPOWER)
 		update_use_power(POWER_USE_OFF)
@@ -544,13 +546,13 @@
 	if (power_draw > 0)
 		use_power_oneoff(power_draw)
 		// If we've reached the target pressure, we're ready to flush
-		if(air_contents.return_pressure() >= SEND_PRESSURE)
+		if(XGM_PRESSURE(air_contents) >= SEND_PRESSURE)
 			mode = MODE_READY
 
 /**
  * Attempt to flush. If able, create a virtual holder object containing disposal bin & gas reservoir contents to ship through disposals network
  */
-/obj/machinery/disposal/proc/flush()
+/obj/structure/machinery/disposal/proc/flush()
 	set waitfor = FALSE
 
 	if(!can_flush)
@@ -605,7 +607,7 @@
 /**
  * Called when area power changes.
  */
-/obj/machinery/disposal/power_change()
+/obj/structure/machinery/disposal/power_change()
 	// do default setting/reset of stat NOPOWER bit
 	..()
 	// update icon
@@ -615,7 +617,7 @@
 /**
  * Called when holder is expelled from a disposal- should usually only occur if the pipe network is modified
  */
-/obj/machinery/disposal/proc/expel(var/obj/disposalholder/H)
+/obj/structure/machinery/disposal/proc/expel(var/obj/disposalholder/H)
 
 	var/turf/target
 	playsound(src, 'sound/machines/hiss.ogg', 50, 0, 0)
@@ -633,7 +635,7 @@
 		H.vent_gas(loc)
 		qdel(H)
 
-/obj/machinery/disposal/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
+/obj/structure/machinery/disposal/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(mover?.movement_type & PHASING)
 		return TRUE
 	if(istype(mover, /obj/projectile))
@@ -644,7 +646,7 @@
 	else
 		return ..(mover, target, height, air_group)
 
-/obj/machinery/disposal/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
+/obj/structure/machinery/disposal/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	if(isitem(hitting_atom))
 		if(prob(75))
 			hitting_atom.forceMove(src)
@@ -684,7 +686,7 @@
 /**
  * Initialize a holder from the contents of a disposal unit.
  */
-/obj/disposalholder/proc/init(var/obj/machinery/disposal/D, var/datum/gas_mixture/flush_gas)
+/obj/disposalholder/proc/init(var/obj/structure/machinery/disposal/D, var/datum/gas_mixture/flush_gas)
 	gas = flush_gas// transfer gas resv. into holder object -- let's be explicit about the data this proc consumes, please.
 
 	//Check for any living mobs trigger hasmob.
@@ -704,8 +706,8 @@
 	// now everything inside the disposal gets put into the holder
 	// note AM since can contain mobs or objs
 	for(var/atom/movable/AM in D)
-		if(istype(AM, /obj/item/device/assembly/signaler))
-			var/obj/item/device/assembly/signaler/S = AM
+		if(istype(AM, /obj/item/assembly/signaler))
+			var/obj/item/assembly/signaler/S = AM
 			if(S.connected == D.wires)
 				continue
 		AM.forceMove(src)
@@ -725,7 +727,7 @@
  * Start the movement process
  * Argument is the disposal unit the holder started in
  */
-/obj/disposalholder/proc/start(var/obj/machinery/disposal/D)
+/obj/disposalholder/proc/start(var/obj/structure/machinery/disposal/D)
 	// No trunk connected, so expel immediately
 	if(!D.trunk)
 		D.expel(src)
@@ -858,11 +860,12 @@
 	desc = "An underfloor disposal pipe."
 	anchored = 1
 	density = 0
+	maxhealth = OBJECT_HEALTH_FRAGILE
 
 	level = 1			// underfloor only
+
 	var/dpdir = 0		// bitmask of pipe directions
 	//dir = 0				// dir will contain dominant direction for junction pipes
-	var/health = 10 	// health points 0-10
 	layer = EXPOSED_DISPOSALS_PIPE_LAYER
 	var/sortType = ""
 	var/subtype = 0
@@ -1004,7 +1007,7 @@
  * Call to break the pipe: will expel any holder inside at the time then delete the pipe
  * remains: Set to leave broken pipe pieces in place.
  */
-/obj/structure/disposalpipe/proc/broken(var/remains = 0)
+/obj/structure/disposalpipe/proc/broken(var/remains = FALSE)
 	if(remains)
 		for(var/D in GLOB.cardinals)
 			if(D & dpdir)
@@ -1040,26 +1043,17 @@
 /obj/structure/disposalpipe/ex_act(severity)
 	switch(severity)
 		if(1.0)
-			broken(0)
-			return
+			broken(FALSE)
 		if(2.0)
-			health -= rand(5,15)
-			healthcheck()
-			return
+			add_damage(rand(5,15))
 		if(3.0)
-			health -= rand(0,15)
-			healthcheck()
-			return
+			add_damage(rand(0,15))
 
-
-/**
- * Test pipe's health. Am I broken?
- */
-/obj/structure/disposalpipe/proc/healthcheck()
+/obj/structure/disposalpipe/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
 	if(health < -2)
-		broken(0)
-	else if(health<1)
-		broken(1)
+		broken(FALSE)
+	else if(health < 1)
+		broken(TRUE)
 
 /**
  * Attack by item
@@ -1070,7 +1064,7 @@
 	if(!T.is_plating())
 		return		// prevent interaction with T-scanner revealed pipes
 	src.add_fingerprint(user)
-	if(attacking_item.iswelder())
+	if(attacking_item.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/W = attacking_item
 
 		if(W.use(0,user))
@@ -1329,8 +1323,8 @@
 	if(..())
 		return
 
-	if(istype(attacking_item, /obj/item/device/destTagger))
-		var/obj/item/device/destTagger/O = attacking_item
+	if(istype(attacking_item, /obj/item/destTagger))
+		var/obj/item/destTagger/O = attacking_item
 
 		if(O.currTag)// Tag set
 			sort_tag = O.currTag
@@ -1400,8 +1394,8 @@
 	if(..())
 		return
 
-	if(istype(attacking_item, /obj/item/device/destTagger))
-		var/obj/item/device/destTagger/O = attacking_item
+	if(istype(attacking_item, /obj/item/destTagger))
+		var/obj/item/destTagger/O = attacking_item
 
 		if(O.currTag)// Tag set
 			sortType = O.currTag
@@ -1478,7 +1472,7 @@
 /// a trunk joining to a disposal bin or outlet on the same turf
 /obj/structure/disposalpipe/trunk
 	icon_state = "pipe-t"
-	var/obj/linked 	// the linked obj/machinery/disposal or obj/disposaloutlet
+	var/obj/linked 	// the linked obj/structure/machinery/disposal or obj/disposaloutlet
 
 /obj/structure/disposalpipe/trunk/Initialize()
 	. = ..()
@@ -1490,7 +1484,7 @@
 
 /obj/structure/disposalpipe/trunk/proc/getlinked()
 	linked = null
-	var/obj/machinery/disposal/D = locate() in src.loc
+	var/obj/structure/machinery/disposal/D = locate() in src.loc
 	if(D)
 		linked = D
 		if (!D.trunk)
@@ -1510,7 +1504,7 @@
 	//Disposal bins or chutes
 	/*
 	These shouldn't be required
-	var/obj/machinery/disposal/D = locate() in src.loc
+	var/obj/structure/machinery/disposal/D = locate() in src.loc
 	if(D && D.anchored)
 		return
 
@@ -1529,7 +1523,7 @@
 	if(!T.is_plating())
 		return		// prevent interaction with T-scanner revealed pipes
 	src.add_fingerprint(user)
-	if(attacking_item.iswelder())
+	if(attacking_item.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/W = attacking_item
 
 		if(W.use(0,user))
@@ -1558,7 +1552,7 @@
 		if(istype(O) && (H))
 			O.expel(H)	// expel at outlet
 		else
-			var/obj/machinery/disposal/D = linked
+			var/obj/structure/machinery/disposal/D = linked
 			if(H)
 				D.expel(H)	// expel at disposal
 	else
@@ -1687,7 +1681,7 @@
 	if(!attacking_item || !user)
 		return
 	src.add_fingerprint(user)
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(mode==0)
 			mode=1
 			attacking_item.play_tool_sound(get_turf(src), 50)
@@ -1698,7 +1692,7 @@
 			attacking_item.play_tool_sound(get_turf(src), 50)
 			to_chat(user, "You attach the screws around the power connection.")
 			return
-	else if(attacking_item.iswelder() && mode==1)
+	else if(attacking_item.tool_behaviour == TOOL_WELDER && mode==1)
 		var/obj/item/weldingtool/W = attacking_item
 		if(W.use(0,user))
 			to_chat(user, "You start slicing the floorweld off the disposal outlet.")

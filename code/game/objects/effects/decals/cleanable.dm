@@ -5,7 +5,7 @@
 
 /obj/effect/decal/cleanable/attack_hand(mob/user)
 	if(!swept_away && layer == DECAL_LAYER) // have to check layer otherwise more vars need to be added to determine whether it CAN be sweeped
-		if((locate(/obj/machinery/atmospherics) in get_turf(src)) || (locate(/obj/machinery/hologram/holopad) in get_turf(src)))
+		if((locate(/obj/structure/machinery/atmospherics) in get_turf(src)) || (locate(/obj/structure/machinery/hologram/holopad) in get_turf(src)))
 			to_chat(user, SPAN_NOTICE("You brush \the [src] away with your hand."))
 			layer = TURF_DETAIL_LAYER
 			swept_away = TRUE
@@ -28,7 +28,9 @@
 		SSstatistics.IncrementSimpleStat("messes_made")
 
 	var/turf/T = get_turf(src)
-	if(!T?.is_space())
-		return
-	animate(src, alpha = 0, time = 5 SECONDS)
-	QDEL_IN(src, 5 SECONDS)
+	if(T)
+		if(T.above?.is_open())
+			T.above.update_mimic()
+		if(T.is_space() || T.is_open())
+			animate(src, alpha = 0, time = 5 SECONDS)
+			QDEL_IN(src, 5 SECONDS)

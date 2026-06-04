@@ -15,10 +15,16 @@
 
 // /atom signals
 
+/// Called from atom/Initialize() of target: (atom/target)
+#define COMSIG_ATOM_INITIALIZED_ON "atom_initialized_on"
+
 // /area signals
 #define COMSIG_AREA_FIRE_ALARM "fire_alarm"
 
 // /turf signals
+
+/// From base of turf/ChangeTurf(): (path)
+#define COMSIG_TURF_CHANGE "turf_change"
 
 // /atom/movable signals
 
@@ -35,6 +41,8 @@
 #define COMSIG_MOB_ZONE_SEL_CHANGE "mob_zone_sel_change"
 ///from base of /mob/Login(): ()
 #define COMSIG_MOB_LOGIN "mob_login"
+/// Sent at the end of /mob/LateLogin() after the client is fully initialized.
+#define COMSIG_MOB_AFTER_LOGIN "mob_after_login"
 ///from base of /mob/Logout(): ()
 #define COMSIG_MOB_LOGOUT "mob_logout"
 /// from mob/get_status_tab_items(): (list/items)
@@ -60,6 +68,8 @@
 #define COMSIG_ITEM_UPDATE_STATE "update_state"
 /// updates sprites
 #define COMSIG_ITEM_ICON_UPDATE "icon_update"
+/// when a gun mag is emptied
+#define COMSIG_EMPTIED_MAGAZINE "emptied_magazine"
 
 #define COMSIG_ORGAN_DISMEMBERED "organ_dismembered"
 
@@ -70,4 +80,65 @@
 /// Raised on the target of a "mind-affecting" psionic power.
 #define COMSIG_PSI_MIND_POWER "psi_block_check"
 
+/// Raised on a mob to check it's psi-sensitivity rating. This is not the same thing as checking if someone is psionic, but psionic people have an innate bonus to the check.
+#define COMSIG_PSI_CHECK_SENSITIVITY "psi_check_sensitivity"
+
+// directional input signals.
+// TODO: Please rework these if you are porting actual keybindings.
+/// Raised on a mob when receiving a "Northeast" input key, typically the 'e' key.
+#define COMSIG_INPUT_KEY_QUICK_EQUIP "quick-equip_key_pressed"
+
+/// Raised on a mob when receiving a "Northwest" input key, typically the 'q' key.
+#define COMSIG_INPUT_KEY_DROP "drop_key_pressed"
+
 /*******Component Specific Signals*******/
+
+// /obj/item/gun signals
+
+#define COMSIG_GUN_TOGGLE_FIRING_MODE "gun_toggle_firing_mode"
+
+#define COMSIG_BEFORE_GUN_FIRE "before_gun_fire"
+
+// Mech signals
+
+#define COMSIG_MECH_MOVE_WASD "mech_move_wasd"
+
+#define COMSIG_MECH_MOVE_STRAFE "mech_move_strafe"
+
+#define COMSIG_MECH_TOGGLE_POWER "mech_toggle_power"
+
+// Unarmed Combat Signals
+
+#define COMSIG_UNARMED_HARM_ATTACKER "unarmed_harm_attacker"
+#define COMSIG_UNARMED_HARM_DEFENDER "unarmed_harm_defender"
+#define COMSIG_UNARMED_DISARM_ATTACKER "unarmed_disarm_attacker"
+#define COMSIG_UNARMED_DISARM_DEFENDER "unarmed_disarm_defender"
+
+// Bartending Skill Signals
+
+#define COMSIG_CONTAINER_DRANK "container_drank"
+
+// Hydroponics Signals
+/// Signal raised against the harvester of a plant during the Harvest() proc.
+#define COMSIG_PLANT_HARVESTER "plant_harvester"
+/// Signal raised against the plant being harvested during the Harvest() proc.
+#define COMSIG_PLANT_HARVESTED "plant_harvested"
+
+// Armed Combat Signals
+#define COMSIG_APPLY_HIT_EFFECT "apply_hit_effect"
+
+// Various computer signals for interrupting via skill or other effects.
+#define COMSIG_USE_REACTOR_COMPUTER "use_reactor_computer"
+#define COMSIG_USE_MECH_FAB "use_mech_fab"
+
+// Surgery Signals
+/// Signal raised against the surgeon attempting to perform a surgery to query their components for any rate mods.
+#define COMSIG_GET_SURGERY_SUCCESS_MODIFIERS "get_surgery_success_modifiers"
+
+/// Signal raised against a character attempting to give a ministry moodlet to someone.
+#define COMSIG_GET_MINISTRY_MODIFIERS "get_ministry_modifiers"
+/// Signal raised against the recipient of the Ministry skill action, allowing effects to interrupt the received moodlet.
+#define COMSIG_RECEIVE_MINISTRY_MODIFIERS "receive_ministry_modifiers"
+
+/// Signal raised against a character attempting to deliver a speech.
+#define COMSIG_GET_LEADERSHIP_MODIFIERS "get_leadership_modifiers"

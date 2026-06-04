@@ -9,7 +9,7 @@
 	mob_size = 4
 	composition_reagent = /singleton/reagent/slimejelly
 	layer = MOB_LAYER
-	maxHealth = 150
+	maxhealth = 150
 	health = 150
 	gender = NEUTER
 	accent = ACCENT_BLUESPACE
@@ -94,6 +94,7 @@
 	for(var/mob/friend in friends)
 		friends -= friend
 	friends.Cut()
+	speech_buffer.Cut()
 	QDEL_NULL(ingested)
 	return ..()
 
@@ -155,7 +156,7 @@
 	return toxloss
 
 /mob/living/carbon/slime/adjustToxLoss(var/amount)
-	toxloss = clamp(toxloss + amount, 0, maxHealth)
+	toxloss = clamp(toxloss + amount, 0, maxhealth)
 
 /mob/living/carbon/slime/setToxLoss(var/amount)
 	adjustToxLoss(amount-getToxLoss())
@@ -166,7 +167,7 @@
 
 	var/tally = 0
 
-	var/health_deficiency = (maxHealth - health)
+	var/health_deficiency = (maxhealth - health)
 	if(health_deficiency >= 30)
 		tally += (health_deficiency / 25)
 
@@ -214,7 +215,7 @@
 					if(is_adult || prob(5))
 						INVOKE_ASYNC(src, PROC_REF(UnarmedAttack), AM)
 						Atkcool = TRUE
-						addtimer(CALLBACK(src, PROC_REF(reset_atkcooldown)), 45)
+						addtimer(CALLBACK(src, PROC_REF(reset_atkcooldown)), 45, TIMER_DELETE_ME)
 
 	if(ismob(AM))
 		var/mob/tmob = AM
@@ -239,7 +240,7 @@
 /mob/living/carbon/slime/get_status_tab_items()
 	. = ..()
 
-	. += "Health: [round((health / maxHealth) * 100)]%"
+	. += "Health: [round((health / maxhealth) * 100)]%"
 	. += "Intent: [a_intent]"
 
 	if(client.statpanel == "Status")
@@ -298,7 +299,7 @@
 		if(victim == M)
 			if(prob(60))
 				visible_message(SPAN_WARNING("[M] attempts to wrestle \the [name] off!"))
-				playsound(loc, /singleton/sound_category/punchmiss_sound, 25, 1, -1)
+				playsound(loc, SFX_PUNCH_MISS, 25, 1, -1)
 			else
 				visible_message(SPAN_WARNING("[M] manages to wrestle \the [name] off!"))
 				playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
@@ -319,7 +320,7 @@
 		else
 			if(prob(30))
 				visible_message(SPAN_WARNING("[M] attempts to wrestle \the [name] off of [victim]!"))
-				playsound(loc, /singleton/sound_category/punchmiss_sound, 25, 1, -1)
+				playsound(loc, SFX_PUNCH_MISS, 25, 1, -1)
 			else
 				visible_message(SPAN_WARNING("[M] manages to wrestle \the [name] off of [victim]!"))
 				playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)

@@ -38,7 +38,7 @@
 	gfi_layer_rotation = GFI_ROTATION_DEFDIR
 	var/makes_rolling_sound = FALSE
 	var/held_item = null // Set to null if you don't want people to pick this up.
-	slowdown = 5
+	slowdown = 2.5
 
 	var/driving = FALSE // Shit for wheelchairs. Doesn't really get used here, but it's for code cleanliness.
 	var/propelled = 0 // Check for fire-extinguisher-driven chairs
@@ -46,13 +46,15 @@
 /obj/structure/bed/mechanics_hints()
 	. = list()
 	. += ..()
-	. += "Click and drag yourself (or anyone) to this to buckle in."
+	. += "Click-drag yourself (or anyone) to this to buckle in."
 	. += "Click on this with an empty hand to undo the buckles."
 	. += "Anyone with restraints, such as handcuffs, will not be able to unbuckle themselves. They must use the Resist button, or verb, to break free of \
 	the buckles instead."
 	. += "To unbuckle people as a stationbound, click the bed with an empty gripper."
 	if(held_item)
-		. += "Click and drag this onto yourself to pick it up."
+		. += "Click-drag this onto yourself to pick it up, remove an attached item, or to change the IV flow rate."
+		. += "Vitals monitors, blood bags, beakers, bottles, and medical scans can be attached by clicking this with the object in your active hand."
+		. += "ALT+click this to lock or unlock it in place."
 
 /obj/structure/bed/assembly_hints()
 	. = list()
@@ -70,6 +72,7 @@
 /obj/structure/bed/Initialize()
 	. = ..()
 	LAZYADD(can_buckle, /mob/living)
+	generate_strings()
 
 /obj/structure/bed/New(newloc, new_material = MATERIAL_STEEL, new_padding_material, new_painted_colour)
 	..(newloc)
@@ -90,7 +93,6 @@
 
 // Reuse the cache/code from stools, todo maybe unify.
 /obj/structure/bed/update_icon()
-	generate_strings()
 	// Prep icon.
 	icon_state = ""
 	ClearOverlays()
@@ -122,13 +124,15 @@
 		furniture_cache[cache_key] = I
 	AddOverlays(furniture_cache[cache_key]) // Use image from cache key!
 
-/obj/structure/bed/proc/generate_strings()
+/obj/structure/bed/proc/generate_strings(padding_update = FALSE)
 	if(material_alteration & MATERIAL_ALTERATION_NAME)
-		name = padding_material ? "[padding_material.adjective_name] padded [material.adjective_name] [initial(name)]" : "[material.adjective_name] [initial(name)]" //this is not perfect but it will do for now.
+		// pad addition/removal is the only instance we change the name after initialize, in which case we'll need the initial name to avoid "steel steel steel chair"s
+		var/base_name = padding_update ? initial(name) : name
+		name = "[padding_material ? "[padding_material.adjective_name] padded " : ""][material?.adjective_name] [base_name]"
 
 	if(material_alteration & MATERIAL_ALTERATION_DESC)
 		desc = initial(desc)
-		desc += padding_material ? " It's made of [material.use_name] and covered with [padding_material.use_name][painted_colour ? ", colored in <font color='[painted_colour]'>[painted_colour]</font>" : ""]." : " It's made of [material.use_name]." //Yeah plain hex codes suck but at least it's a little funny and less of a headache for players.
+		desc += padding_material ? " It's made of [material?.use_name] and covered with [padding_material.use_name][painted_colour ? ", colored in <font color='[painted_colour]'>[painted_colour]</font>" : ""]." : " It's made of [material?.use_name]." //Yeah plain hex codes suck but at least it's a little funny and less of a headache for players.
 
 /obj/structure/bed/proc/set_colour(new_colour)
 	if(padding_material)
@@ -175,7 +179,7 @@
 	return FALSE
 
 /obj/structure/bed/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(can_dismantle)
 			dismantle(attacking_item, user)
 	else if(istype(attacking_item,/obj/item/stack))
@@ -207,7 +211,7 @@
 		add_padding(padding_type)
 		return
 
-	else if (attacking_item.iswirecutter())
+	else if (attacking_item.tool_behaviour == TOOL_WIRECUTTER)
 		if(!can_pad)
 			return
 		if(!padding_material)
@@ -218,7 +222,7 @@
 		painted_colour = null
 		remove_padding()
 
-	else if (attacking_item.isscrewdriver())
+	else if (attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(anchored)
 			anchored = FALSE
 			to_chat(user, "You unfasten \the [src] from floor.")
@@ -237,7 +241,7 @@
 		attacking_item.pixel_x = 10 //make sure they reach the pillow
 		attacking_item.pixel_y = -6
 
-	else if(istype(attacking_item, /obj/item/device/paint_sprayer))
+	else if(istype(attacking_item, /obj/item/paint_sprayer))
 		return
 
 	else if(!istype(attacking_item, /obj/item/bedsheet))
@@ -247,19 +251,24 @@
 	if(padding_material)
 		padding_material.place_sheet(get_turf(src))
 		padding_material = null
+		generate_strings(TRUE)
 	update_icon()
 
-/obj/structure/bed/proc/add_padding(var/padding_type)
+/obj/structure/bed/proc/add_padding(padding_type)
 	padding_material = SSmaterials.get_material_by_name(padding_type)
+	generate_strings(TRUE)
 	update_icon()
 
 /obj/structure/bed/dismantle(obj/item/W, mob/user)
-	user.visible_message("<b>[user]</b> begins dismantling \the [src].", SPAN_NOTICE("You begin dismantling \the [src]."))
-	if(W.use_tool(src, user, 20, volume = 50))
-		user.visible_message("\The [user] dismantles \the [src].", SPAN_NOTICE("You dismantle \the [src]."))
-		if(padding_material)
-			padding_material.place_sheet(get_turf(src))
-		..()
+	if(user)
+		user.visible_message("<b>[user]</b> begins dismantling \the [src].", SPAN_NOTICE("You begin dismantling \the [src]."))
+		if(W.use_tool(src, user, 20, volume = 50))
+			user.visible_message("\The [user] dismantles \the [src].", SPAN_NOTICE("You dismantle \the [src]."))
+		else
+			return FALSE
+	if(padding_material)
+		padding_material.place_sheet(get_turf(src))
+	..()
 
 /obj/structure/bed/Move()
 	. = ..()
@@ -390,10 +399,18 @@
 	movable_flags = MOVABLE_FLAG_WHEELED
 	var/obj/item/reagent_containers/beaker
 	var/obj/item/vitals_monitor/vitals
+	var/obj/item/paper/medscan
 	var/iv_attached = 0
 	var/iv_stand = TRUE
 	var/iv_transfer_rate = 4 //Same as max for regular IV drips
+	var/iv_transfer_rate_lowerlimit = 0.001
+	var/iv_transfer_rate_upperlimit = 4
 	var/has_iv_light = TRUE
+	var/medscan_view_distance = 2
+	var/scan_pixel_offset_y = -7
+	var/scan_pixel_offset_x = 0
+	var/iv_pixel_offset_y = 7
+	var/iv_pixel_offset_x = 0
 	//Items that can be attached to an IV
 	var/list/accepted_containers = list(
 		/obj/item/reagent_containers/blood,
@@ -409,6 +426,7 @@
 /obj/structure/bed/roller/Destroy()
 	QDEL_NULL(beaker)
 	QDEL_NULL(vitals)
+	QDEL_NULL(medscan)
 	return ..()
 
 /obj/structure/bed/roller/update_icon()
@@ -430,7 +448,7 @@
 		if(percentage < 25)
 			iv.AddOverlays(image(icon, "light_low"))
 		if(density)
-			iv.pixel_y = 7
+			iv.pixel_y = iv_pixel_offset_y
 		AddOverlays(iv)
 		if(has_iv_light)
 			var/image/light = image(icon, "iv[iv_attached]_l")
@@ -438,9 +456,20 @@
 	if(vitals)
 		vitals.update_monitor()
 		add_vis_contents(vitals)
+	if(medscan)
+		var/image/scan = image(icon, "holder_medscan")
+		if(!density)
+			scan.pixel_y = scan_pixel_offset_y
+		AddOverlays(scan)
+
+/obj/structure/bed/roller/feedback_hints(mob/user, distance, show_extended)
+	if(medscan && distance<=medscan_view_distance)
+		var/obj/item/paper/H = medscan
+		H.show_content(usr)
+	.=..()
 
 /obj/structure/bed/roller/attackby(obj/item/attacking_item, mob/user)
-	if(iswrench(attacking_item) || istype(attacking_item, /obj/item/stack) || iswirecutter(attacking_item))
+	if(attacking_item.tool_behaviour == TOOL_WRENCH || istype(attacking_item, /obj/item/stack) || attacking_item.tool_behaviour == TOOL_WIRECUTTER)
 		return 1
 	if(istype(attacking_item, /obj/item/vitals_monitor))
 		if(vitals)
@@ -457,6 +486,15 @@
 			return
 		to_chat(user, SPAN_NOTICE("You attach \the [attacking_item] to \the [src]."))
 		beaker = attacking_item
+		update_icon()
+		return 1
+	if(istype(attacking_item, /obj/item/paper/medscan))
+		if(medscan)
+			to_chat(user, SPAN_WARNING("\The [src] already has a medical scan attached!"))
+			return
+		to_chat(user, SPAN_NOTICE("You attach \the [attacking_item] to \the [src]."))
+		user.drop_from_inventory(attacking_item, src)
+		medscan = attacking_item
 		update_icon()
 		return 1
 	..()
@@ -507,6 +545,12 @@
 	vitals = null
 	update_icon()
 
+/obj/structure/bed/roller/proc/remove_paper(mob/user)
+	to_chat(user, SPAN_NOTICE("You detach \the [medscan] from \the [src]."))
+	user.put_in_hands(medscan)
+	medscan = null
+	update_icon()
+
 /obj/structure/bed/roller/proc/attach_iv(mob/living/carbon/human/target, mob/user)
 	if(!beaker)
 		return
@@ -538,21 +582,68 @@
 		if(user_buckle(over, user))
 			attach_iv(buckled, user)
 			return
-	if(beaker)
-		remove_beaker(user)
-		return
-	if(vitals)
-		remove_vitals(user)
-		return
 	if(buckled)
-		to_chat(user, SPAN_WARNING("\The [buckled] is on \the [src]. Remove them first."))
+		var/list/options = list(
+			"Transfer Rate" = image('icons/hud/mob/radial.dmi', "radial_transrate"),
+			"Remove Container" = image('icons/hud/mob/radial.dmi', "iv_beaker"),
+			"Remove Vitals Monitor" = image('icons/hud/mob/radial.dmi', "vitals_monitor"),
+			"Remove Scan" = image('icons/hud/mob/radial.dmi', "med_scan"))
+		var/chosen_action = show_radial_menu(user, src, options, require_near = TRUE, radius = 42, tooltips = TRUE)
+		if(!chosen_action)
+			return
+		switch(chosen_action)
+			if("Transfer Rate")
+				transfer_rate()
+			if("Remove Container")
+				if(!beaker)
+					to_chat(user, SPAN_NOTICE("There is no reagent container to remove."))
+					return
+				remove_beaker(user)
+				return
+			if("Remove Vitals Monitor")
+				if(!vitals)
+					to_chat(user, SPAN_NOTICE("There is no vitals monitor to remove."))
+					return
+				remove_vitals(user)
+				return
+			if("Remove Scan")
+				if(!medscan)
+					to_chat(user, SPAN_NOTICE("There is no medical scan to remove."))
+					return
+				remove_paper(user)
+				return
+	if(!buckled)
+		if(medscan)
+			remove_paper(user)
+		if(vitals)
+			remove_vitals(user)
+		if(beaker)
+			remove_beaker(user)
+		collapse()
+
+/obj/structure/bed/roller/verb/transfer_rate()
+	set category = "Object.IV Drip"
+	set name = "Set Transfer Rate"
+	set src in view(1)
+
+	if(use_check_and_message(usr))
 		return
-	collapse()
+
+	iv_transfer_rate = tgui_input_number( \
+		usr, \
+		"Set the IV drip's transfer rate between [iv_transfer_rate_lowerlimit] and [iv_transfer_rate_upperlimit].", \
+		"IV Drip", \
+		iv_transfer_rate, \
+		iv_transfer_rate_upperlimit, \
+		iv_transfer_rate_lowerlimit, \
+		round_value = FALSE)
+	to_chat(usr, SPAN_NOTICE("Transfer rate set to [src.iv_transfer_rate] u/sec."))
 
 /obj/structure/bed/roller/Move()
 	. = ..()
 	if(buckled)
 		if(buckled.buckled_to == src)
+			buckled.set_glide_size(glide_size)
 			buckled.forceMove(src.loc)
 		else
 			buckled = null
@@ -726,7 +817,7 @@
 	update_icon()
 
 /obj/structure/roller_rack/attackby(obj/item/attacking_item, mob/user)
-	if(iswrench(attacking_item))
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		anchored = !anchored
 		to_chat(user, SPAN_NOTICE("You [anchored ? "bolt" : "unbolt"] \the [src] [anchored ? "to" : "from"] the ground."))
 

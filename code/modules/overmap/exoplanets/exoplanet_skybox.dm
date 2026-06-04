@@ -21,7 +21,7 @@
 		water.SetTransform(rotation = rand(0, 360))
 		skybox_image.overlays += water
 
-	if (atmosphere && atmosphere.return_pressure() > SOUND_MINIMUM_PRESSURE)
+	if (SAFE_XGM_PRESSURE(atmosphere) > SOUND_MINIMUM_PRESSURE)
 
 		var/atmo_color = get_atmosphere_color()
 		if (!atmo_color)

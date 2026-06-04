@@ -7,7 +7,6 @@
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT | SLOT_EARS
 	throwforce = 1
-	layer = BELOW_TABLE_LAYER
 	w_class = WEIGHT_CLASS_TINY
 
 	var/leaves_residue = 1
@@ -17,7 +16,7 @@
 	var/obj/projectile/BB = null	//The loaded bullet - make it so that the projectiles are created only when needed?
 	var/spent_icon = "s-casing-spent"
 
-	drop_sound = /singleton/sound_category/casing_drop_sound
+	drop_sound = SFX_CASING_DROP
 	pickup_sound = 'sound/items/pickup/ring.ogg'
 	var/reload_sound = 'sound/weapons/reload_bullet.ogg' //sound that plays when inserted into gun.
 
@@ -47,7 +46,7 @@
 	update_icon()
 
 /obj/item/ammo_casing/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(!BB)
 			to_chat(user, SPAN_NOTICE("There is no bullet in the casing to inscribe anything into."))
 			return
@@ -69,11 +68,11 @@
 		if(max_stack == 1)
 			to_chat(user, SPAN_WARNING("\The [src] cannot be stacked!"))
 			return
-		if(!src.BB)
+		var/obj/item/ammo_casing/B = attacking_item
+		if(!src.BB && B.BB)
 			to_chat(user, SPAN_WARNING("That round is spent!"))
 			return
-		var/obj/item/ammo_casing/B = attacking_item
-		if(!B.BB)
+		if(!B.BB && src.BB)
 			to_chat(user, SPAN_WARNING("Your round is spent!"))
 			return
 		var/obj/item/ammo_pile/pile = new /obj/item/ammo_pile(get_turf(user), list(src, attacking_item))
@@ -119,9 +118,11 @@
 	var/list/ammo_states = list()	//values
 
 	/// sound item plays when it is inserted into a gun.
-	var/insert_sound = /singleton/sound_category/metal_slide_reload
+	var/insert_sound = SFX_RELOAD_METAL_SLIDE
 	/// sound item plays when it is ejected from a gun.
 	var/eject_sound = 'sound/weapons/magazine_eject.ogg'
+	drop_sound = 'sound/items/drop/ammo_magazine.ogg'
+	pickup_sound = 'sound/items/pickup/ammo_magazine.ogg'
 
 /obj/item/ammo_magazine/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -169,7 +170,7 @@
 	to_chat(user, SPAN_NOTICE("You empty [src]."))
 	for(var/obj/item/ammo_casing/C in stored_ammo)
 		C.forceMove(user.loc)
-		playsound(C, /singleton/sound_category/casing_drop_sound, 50, FALSE)
+		playsound(C, SFX_CASING_DROP, 50, FALSE)
 		C.set_dir(pick(GLOB.alldirs))
 	stored_ammo.Cut()
 	update_icon()

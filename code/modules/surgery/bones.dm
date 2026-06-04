@@ -14,6 +14,7 @@
 
 	min_duration = 30
 	max_duration = 40
+	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 
 /singleton/surgery_step/glue_bone/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -44,12 +45,13 @@
 /singleton/surgery_step/set_bone
 	name = "Set Broken Bone"
 	allowed_tools = list(
-	/obj/item/surgery/bonesetter = 100,	\
-	WRENCH = 75		\
+	TOOL_BONESET = 100,	\
+	TOOL_WRENCH = 75		\
 	)
 
 	min_duration = 30
 	max_duration = 50
+	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 
 /singleton/surgery_step/set_bone/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -84,12 +86,13 @@
 /singleton/surgery_step/mend_skull
 	name = "Repair Broken Skull"
 	allowed_tools = list(
-	/obj/item/surgery/bonesetter = 100,	\
-	WRENCH = 75		\
+	TOOL_BONESET = 100,	\
+	TOOL_WRENCH = 75		\
 	)
 
 	min_duration = 40
 	max_duration = 50
+	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 
 /singleton/surgery_step/mend_skull/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -127,6 +130,7 @@
 
 	min_duration = 30
 	max_duration = 40
+	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 
 /singleton/surgery_step/finish_bone/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())

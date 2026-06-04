@@ -42,13 +42,13 @@
 	},
 /area/moghes_reclaimer)
 "u" = (
-/obj/machinery/recharger,
+/obj/structure/machinery/recharger,
 /turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
 /area/moghes_reclaimer)
 "v" = (
-/obj/machinery/light/colored/red{
+/obj/structure/machinery/light/colored/red{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/desert{
@@ -66,10 +66,10 @@
 /obj/item/material/hatchet/machete/steel,
 /obj/item/clothing/accessory/holster/utility/machete,
 /obj/item/clothing/accessory/holster/utility/machete,
-/obj/item/device/geiger,
-/obj/item/device/geiger,
-/obj/item/device/geiger,
-/obj/item/device/geiger,
+/obj/item/geiger,
+/obj/item/geiger,
+/obj/item/geiger,
+/obj/item/geiger,
 /obj/item/gun/projectile/pistol/spitter,
 /obj/item/ammo_magazine/spitterpistol,
 /obj/item/gun/projectile/shotgun/pump/rifle/magazine_fed/crackrifle,
@@ -97,7 +97,7 @@
 	name = "igs - moghes_reclaimer";
 	identifier = "moghes_reclaimer"
 	},
-/obj/machinery/light/colored/red{
+/obj/structure/machinery/light/colored/red{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/tiled{
@@ -108,7 +108,7 @@
 /turf/simulated/wall/rusty,
 /area/moghes_reclaimer)
 "J" = (
-/obj/machinery/light/colored/red{
+/obj/structure/machinery/light/colored/red{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/tiled{

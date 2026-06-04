@@ -95,7 +95,7 @@
 			icon = flag_icon
 			return
 		for(var/obj/A in T)
-			if(istype(A, /obj/structure/window))
+			if(istype(A, /obj/structure/window) || istype(A, /obj/effect/map_effect/window_spawner))
 				icon = flag_icon
 				return
 		banner_icon = new('icons/obj/structure/flags.dmi', stand_icon)
@@ -1402,30 +1402,26 @@
 
 /obj/item/flag/strelitz
 	name = "\improper House Strelitz standard"
-	desc = "A red-and-dark standard with a gold trim that represents House Strelitz, one of the great houses of the Empire of Dominia. \
-	They are known for their military service and emphasis on personal bravery."
+	desc = "The red and gold standard of House Strelitz represents loyalty and bravery. It proudly flies above thousands of military facilities across the Empire and beyond."
 	flag_path = "strelitz"
 	flag_structure = /obj/structure/sign/flag/strelitz
 
 /obj/structure/sign/flag/strelitz
 	name = "\improper House Strelitz standard"
-	desc = "A red-and-dark standard with a gold trim that represents House Strelitz, one of the great houses of the Empire of Dominia. \
-	They are known for their military service and emphasis on personal bravery."
+	desc = "The red and gold standard of House Strelitz represents loyalty and bravery. It proudly flies above thousands of military facilities across the Empire and beyond."
 	icon_state = "strelitz"
 	flag_path = "strelitz"
 	flag_item = /obj/item/flag/strelitz
 
 /obj/item/flag/volvalaad
 	name = "\improper House Volvalaad standard"
-	desc = "A blue-and-black standard which represents House Volvalaad, one of the great houses of the Empire of Dominia. \
-	They are known for their reformist ideals, and scientific prowess."
+	desc = "The black and dark blue hues of House Volvalaad's standard go hand-in-hand with the Empire's greatest scientific accomplishment: geneboosting. May Crown Princess Keeser live for a thousand years!"
 	flag_path = "volvalaad"
 	flag_structure = /obj/structure/sign/flag/volvalaad
 
 /obj/structure/sign/flag/volvalaad
 	name = "\improper House Volvalaad standard"
-	desc = "A blue-and-black standard which represents House Volvalaad, one of the great houses of the Empire of Dominia. \
-	They are known for their reformist ideals and scientific prowess."
+	desc = "The black and dark blue hues of House Volvalaad's standard go hand-in-hand with the Empire's greatest scientific accomplishment: geneboosting. May Crown Princess Keeser live for a thousand years!"
 	flag_path = "volvalaad"
 	icon_state = "volvalaad"
 	flag_item = /obj/item/flag/volvalaad
@@ -1462,33 +1458,83 @@
 
 /obj/item/flag/caladius
 	name = "\improper House Caladius standard"
-	desc = "A purple standard which represents House Caladius, one of the great houses of the Empire of Dominia. They are \
-	known for their support of the Dominian clergy as well as the skill of their bureaucrats and economists."
+	desc = "The purple standard of House Caladius flies proudly from Imperial government buildings, colonies, and merchant vessels. Known for its meritocracy, it also flies above many schools for gifted Ma'zals -- the future of the Imperial colonial bureaucracy."
 	flag_path = "caladius"
 	flag_structure = /obj/structure/sign/flag/caladius
 
 /obj/structure/sign/flag/caladius
 	name = "\improper House Caladius standard"
-	desc = "A purple standard which represents House Caladius, one of the great houses of the Empire of Dominia. They are \
-	known for their support of the Dominian clergy as well as the skill of their bureaucrats and economists."
+	desc = "The purple standard of House Caladius flies proudly from Imperial government buildings, colonies, and merchant vessels. Known for its meritocracy, it also flies above many schools for gifted Ma'zals -- the future of the Imperial colonial bureaucracy."
 	flag_path = "caladius"
 	icon_state = "caladius"
 	flag_item = /obj/item/flag/caladius
 
 /obj/item/flag/zhao
 	name = "\improper House Zhao standard"
-	desc = "A white Dominian standard with a prominent grey circle which represents House Zhao, one of the great houses of the Empire of Dominia,\
-	known for its naval officers and patronage of the Dominian shipbuilding industry."
+	desc = "Renowned for their naval and engineering prowess, the white-and-silver standard of House Zhao flies proudly from Imperial Fleet facilities and colonial holdings across the southern Spur. Long live the Grand Admiral and the Empire!"
 	flag_path = "zhao"
 	flag_structure = /obj/structure/sign/flag/zhao
 
 /obj/structure/sign/flag/zhao
 	name = "\improper House Zhao standard"
-	desc = "A white Dominian standard with a prominent grey circle which represents House Zhao, one of the great houses of  the Empire of Dominia,\
-	known for its naval officers and patronage of the Dominian shipbuilding and naval industries."
+	desc = "Renowned for their naval and engineering prowess, the white-and-silver standard of House Zhao flies proudly from Imperial Fleet facilities and colonial holdings across the southern Spur. Long live the Grand Admiral and the Empire!"
 	flag_path = "zhao"
 	icon_state = "zhao"
 	flag_item = /obj/item/flag/zhao
+
+/obj/item/flag/seok
+	name = "\improper House Seok standard"
+	desc = "The red-black-red banner of House Seok. Long live the Empress and her family!"
+	desc_extended = "House Seok symbolizes itself with a traditional character roughly translating as ancient, signifying its venerable history and \
+	ties to the Imperial Household. Many Imperial cultural buildings, from libraries to opera houses, have this symbol engraved somewhere inside them as \
+	an enduring testament to House Seok's generosity."
+	flag_path = "seok"
+	flag_structure = /obj/structure/sign/flag/seok
+
+/obj/structure/sign/flag/seok
+	name = "\improper House Seok standard"
+	desc = "The red-black-red banner of House Seok. Long live the Empress and her family!"
+	desc_extended = "House Seok symbolizes itself with a traditional character roughly translating as ancient, signifying its venerable history and \
+	ties to the Imperial Household. Many Imperial cultural buildings, from libraries to opera houses, have this symbol engraved somewhere inside them as \
+	an enduring testament to House Seok's generosity."
+	icon_state = "seok"
+	flag_item = /obj/item/flag/seok
+
+/obj/item/flag/kaneko
+	name = "\improper House Kaneko standard"
+	desc = "The gold-and-silver banner of House Kaneko. Long live Zhurong and Count Kaneko!"
+	desc_extended = "The sixth great houses' symbol, a golden crysanthemum, symbolises the long history of House Kaneko and its great potential - and ambition. \
+	This symbol is often stamped on the support beams of Zhurong's structures and on the interior of Imperial Fleet hulls, symbolizing the steel used to construct \
+	it draws from the same great strength as House Kaneko."
+	flag_path = "kaneko"
+	flag_structure = /obj/structure/sign/flag/kaneko
+
+/obj/structure/sign/flag/kaneko
+	name = "\improper House Kaneko standard"
+	desc = "The gold-and-silver banner of House Kaneko. Long live Zhurong and Count Kaneko!"
+	desc_extended = "The sixth great houses' symbol, a golden crysanthemum, symbolises the long history of House Kaneko and its great potential - and ambition. \
+	This symbol is often stamped on the support beams of Zhurong's structures and on the interior of Imperial Fleet hulls, symbolizing the steel used to construct \
+	it draws from the same great strength as House Kaneko."
+	icon_state = "kaneko"
+	flag_item = /obj/item/flag/kaneko
+
+/obj/item/flag/sinzendorf
+	name = "\improper House von Sinzendorf standard"
+	desc = "The black-and-red banner of House von Sinzendorf. En garde!"
+	desc_extended = "The crossed swords and Imperial Eye of House von Sinzendorf’s crest feature prominently on its banner. The swords symbolize duty, honour, \
+	and loyalty until the end. The Imperial Eye symbolizes the Imperial Household, their masters. The Imperial Household's guard is closely associated with the \
+	von Sinzendorf's symbol, due to their long history as the Imperial family's bodyguards."
+	flag_path = "sinzendorf"
+	flag_structure = /obj/structure/sign/flag/sinzendorf
+
+/obj/structure/sign/flag/sinzendorf
+	name = "\improper House von Sinzendorf standard"
+	desc = "The black-and-red banner of House von Sinzendorf. En garde!"
+	desc_extended = "The crossed swords and Imperial Eye of House von Sinzendorf’s crest feature prominently on its banner. The swords symbolize duty, honour, \
+	and loyalty until the end. The Imperial Eye symbolizes the Imperial Household, their masters. The Imperial Household's guard is closely associated with the \
+	von Sinzendorf's symbol, due to their long history as the Imperial family's bodyguards."
+	icon_state = "sinzendorf"
+	flag_item = /obj/item/flag/sinzendorf
 
 // Biesel.
 
@@ -2012,6 +2058,17 @@
 
 /obj/structure/sign/flag/assunzione/large/west/Initialize(mapload)
 	. = ..(mapload, WEST)
+
+/obj/item/flag/luceist/l
+	name = "large Luceian flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/luceist/large
+
+/obj/structure/sign/flag/luceist/large
+	icon_state = "luceist_l"
+	flag_path = "luceist"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/luceist/l
 
 // Port Antillia
 
@@ -4027,6 +4084,55 @@
 /obj/structure/sign/flag/narrows/large/west/Initialize(mapload)
 	. = ..(mapload, WEST)
 
+// Voidtamer Banners
+/obj/item/flag/voidtamer
+	name = "voidtamer banner"
+	desc = "A banner of the Voidtamer Confluence, being made of a simple dried carp hide."
+	flag_path = "voidtamer"
+	flag_structure = /obj/structure/sign/flag/voidtamer
+
+/obj/structure/sign/flag/voidtamer
+	name = "voidtamer banner"
+	desc = "A banner of the Voidtamer Confluence, being made of a simple dried carp hide."
+	icon_state = "voidtamer_banner"
+	flag_item = /obj/item/flag/voidtamer
+
+/obj/item/flag/voidtamer_decorated
+	name = "decorated voidtamer banner"
+	desc = "A banner of the Voidtamer Confluence, being made of a simple dried carp hide and adorned with a golden pattern."
+	flag_path = "voidtamer_decorated"
+	flag_structure = /obj/structure/sign/flag/voidtamer_decorated
+
+/obj/structure/sign/flag/voidtamer_decorated
+	name = "decorated voidtamer banner"
+	desc = "A banner of the Voidtamer Confluence, being made of a simple dried carp hide and adorned with a golden pattern."
+	icon_state = "voidtamer_banner2"
+	flag_item = /obj/item/flag/voidtamer_decorated
+
+/obj/item/flag/voidtamer_star
+	name = "decorated voidtamer banner"
+	desc = "A banner of the Voidtamer Confluence, being made of a simple dried carp hide and adorned with gold in the rough style of a star."
+	flag_path = "voidtamer_star"
+	flag_structure = /obj/structure/sign/flag/voidtamer_star
+
+/obj/structure/sign/flag/voidtamer_star
+	name = "decorated voidtamer banner"
+	desc = "A banner of the Voidtamer Confluence, being made of a simple dried carp hide and adorned with gold in the rough style of a star."
+	icon_state = "voidtamer_banner3"
+	flag_item = /obj/item/flag/voidtamer_star
+
+/obj/item/flag/voidtamer_eye
+	name = "decorated voidtamer banner"
+	desc = "A banner of the Voidtamer Confluence, being made of a simple dried carp hide and adorned with gold in the rough style of an eye."
+	flag_path = "voidtamer_eye"
+	flag_structure = /obj/structure/sign/flag/voidtamer_eye
+
+/obj/structure/sign/flag/voidtamer_eye
+	name = "decorated voidtamer banner"
+	desc = "A banner of the Voidtamer Confluence, being made of a simple dried carp hide and adorned with gold in the rough style of an eye."
+	icon_state = "voidtamer_banner4"
+	flag_item = /obj/item/flag/voidtamer_eye
+
 // Zhurong
 
 /obj/item/flag/zhurong
@@ -4068,4 +4174,91 @@
 	. = ..(mapload, EAST)
 
 /obj/structure/sign/flag/zhurong/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
+
+// Sankt Frederick
+/obj/structure/sign/flag/sfk
+	name = "\improper Sankt Frederick banner"
+	desc = "The banner of Sankt Frederick, the steadfast breadbasket of the Solarian Wildlands."
+	desc_extended = "The banner of Sankt Frederick features a vertical tricolor of black, white, and blue, representing the planet’s rich soil, the people’s unity and perseverance, and its many lakes and rivers. At its center lies a blue escutcheon bearing a white wheat stalk, symbolizing Sankt Frederick’s agricultural heritage and its vital role in sustaining the wider Alliance."
+	icon_state = "sfk"
+	flag_item = /obj/item/flag/sfk
+
+/obj/item/flag/sfk
+	name = "\improper Sankt Frederick banner"
+	desc = "The banner of Sankt Frederick, the steadfast breadbasket of the Solarian Wildlands."
+	desc_extended = "The banner of Sankt Frederick features a vertical tricolor of black, white, and blue, representing the planet’s rich soil, the people’s unity and perseverance, and its many lakes and rivers. At its center lies a blue escutcheon bearing a white wheat stalk, symbolizing Sankt Frederick’s agricultural heritage and its vital role in sustaining the wider Alliance."
+	flag_path = "sfk"
+	flag_structure = /obj/structure/sign/flag/sfk
+
+/obj/item/flag/sfk/l
+	name = "\improper Sankt Frederick flag"
+	desc =  "The flag of Sankt Frederick, the steadfast breadbasket of the Solarian Wildlands."
+	desc_extended = "The flag of Sankt Frederick features a horizontal tricolor of black, white, and blue, representing the planet’s rich soil, the people’s unity and perseverance, and its many lakes and rivers. At its center lies a blue escutcheon bearing a white wheat stalk, symbolizing Sankt Frederick’s agricultural heritage and its vital role in sustaining the wider Alliance."
+	flag_path = "sfk"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/sfk/large
+
+/obj/structure/sign/flag/sfk/large
+	name = "\improper Sankt Frederick flag"
+	desc =  "The flag of Sankt Frederick, the steadfast breadbasket of the Solarian Wildlands."
+	desc_extended = "The flag of Sankt Frederick features a horizontal tricolor of black, white, and blue, representing the planet’s rich soil, the people’s unity and perseverance, and its many lakes and rivers. At its center lies a blue escutcheon bearing a white wheat stalk, symbolizing Sankt Frederick’s agricultural heritage and its vital role in sustaining the wider Alliance."
+	icon_state = "sfk_l"
+	flag_path = "sfk"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/sfk/l
+
+/obj/structure/sign/flag/sfk/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/sfk/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/sfk/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/sfk/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
+
+// Outer Eyes
+
+/obj/item/flag/outer_eyes
+	name = "\improper Outer Eyes flag"
+	desc = "The staring eyes icon of that mysterious group, the Outer Eyes."
+	desc_extended = "This representation of the Eyes only hints at the provost's inner circle, allowing the larger eye to dominate."
+	flag_path = "outer_eyes"
+	flag_structure = /obj/structure/sign/flag/outer_eyes
+
+/obj/structure/sign/flag/outer_eyes
+	name = "\improper Outer Eyes flag"
+	desc = "The staring eyes icon of that mysterious group, the Outer Eyes."
+	desc_extended = "This representation of the Eyes only hints at the provost's inner circle, allowing the larger eye to dominate."
+	flag_path = "outer_eyes"
+	icon_state = "outer_eyes"
+	flag_item = /obj/item/flag/outer_eyes
+
+/obj/structure/sign/flag/outer_eyes/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/outer_eyes/l
+	name = "large Outer Eyes flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/outer_eyes/large
+
+/obj/structure/sign/flag/outer_eyes/large
+	icon_state = "outer_eyes_l"
+	flag_path = "outer_eyes"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/outer_eyes/l
+
+/obj/structure/sign/flag/outer_eyes/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/outer_eyes/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/outer_eyes/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/outer_eyes/large/west/Initialize(mapload)
 	. = ..(mapload, WEST)

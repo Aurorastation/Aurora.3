@@ -8,7 +8,7 @@
 			return
 
 	// Pass repair items on to the chestpiece.
-	if(chest && (istype(attacking_item, /obj/item/stack/material) || attacking_item.iswelder()))
+	if(chest && (istype(attacking_item, /obj/item/stack/material) || attacking_item.tool_behaviour == TOOL_WELDER))
 		return chest.attackby(attacking_item, user)
 
 	// Lock or unlock the access panel.
@@ -31,7 +31,7 @@
 		to_chat(user, SPAN_NOTICE("You [locked ? "lock" : "unlock"] \the [src] access panel."))
 		return
 
-	else if(attacking_item.iscrowbar())
+	else if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 
 		if(!open && locked)
 			//Ask to confirm the attempt, otherwise leave
@@ -83,20 +83,20 @@
 				var/mob/living/carbon/human/H = src.loc
 				if(H.back == src)
 					to_chat(user, SPAN_DANGER("You can't install a hardsuit module while the suit is being worn."))
-					return 1
+					return TRUE
 
 			if(!installed_modules) installed_modules = list()
 
 			if(!(module.category & allowed_module_types))
 				var/mod_name = get_module_category(module.category)
 				to_chat(user, SPAN_WARNING("\The [src] does not support [mod_name] modules!"))
-				return 0
+				return FALSE
 
 			if(installed_modules.len)
 				for(var/obj/item/rig_module/installed_mod in installed_modules)
 					if(!installed_mod.redundant && istype(installed_mod, attacking_item))
 						to_chat(user, SPAN_NOTICE("The hardsuit already has a module of that class installed."))
-						return 1
+						return TRUE
 
 			var/obj/item/rig_module/mod = attacking_item
 			to_chat(user, SPAN_NOTICE("You begin installing \the [mod] into \the [src]."))
@@ -113,7 +113,7 @@
 			mod.forceMove(src)
 			mod.installed(src)
 			update_icon()
-			return 1
+			return TRUE
 
 		else if(!cell && istype(attacking_item,/obj/item/cell))
 
@@ -123,7 +123,7 @@
 			src.cell = attacking_item
 			return
 
-		else if(attacking_item.iswrench())
+		else if(attacking_item.tool_behaviour == TOOL_WRENCH)
 
 			if(!air_supply)
 				to_chat(user, SPAN_WARNING("There is no tank to remove."))
@@ -137,7 +137,7 @@
 			air_supply = null
 			return
 
-		else if(attacking_item.isscrewdriver())
+		else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 
 			var/list/current_mounts = list()
 			if(cell) current_mounts   += "cell"
@@ -222,6 +222,10 @@
 			return
 	..()
 
+/obj/item/rig/attack_self(var/mob/user)
+	if(wearer && wearer.back == src)
+		ui_interact(usr)
+
 /obj/item/rig/emag_act(var/remaining_charges, var/mob/user)
 	if(!subverted)
 		req_access.Cut()
@@ -229,7 +233,7 @@
 		locked = FALSE
 		subverted = 1
 		to_chat(user, SPAN_DANGER("You short out the access protocol for the suit."))
-		return 1
+		return TRUE
 
 /obj/item/rig/proc/get_module_category(var/category)
 	switch(category)

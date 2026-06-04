@@ -1,5 +1,11 @@
 import { useBackend } from '../../backend';
-import { AnimatedNumber, Box, Button, LabeledList, Section } from '../../components';
+import {
+  AnimatedNumber,
+  Box,
+  Button,
+  LabeledList,
+  Section,
+} from '../../components';
 
 export const PortableBasicInfo = (props, context) => {
   const { act, data } = useBackend(context);
@@ -22,7 +28,8 @@ export const PortableBasicInfo = (props, context) => {
             selected={on}
             onClick={() => act('power')}
           />
-        }>
+        }
+      >
         <LabeledList>
           <LabeledList.Item label="Pressure">
             <AnimatedNumber value={pressure} />
@@ -55,7 +62,8 @@ export const PortableBasicInfo = (props, context) => {
             disabled={!holding}
             onClick={() => act('eject')}
           />
-        }>
+        }
+      >
         {holding ? (
           <LabeledList>
             <LabeledList.Item label="Label">{holding.name}</LabeledList.Item>

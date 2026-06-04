@@ -74,14 +74,17 @@
 	if(harmed_atom && isturf(harmed_atom.loc))
 		step(harmed_atom, REVERSE_DIR(harmed_atom.dir))
 
-
-/*
-	THESE ARE LEGACY ONES, NOT UPDATED YET
-*/
-
-/atom/proc/ex_act()
+/**
+ * Respond to an explosion affecting our atom. Generally gets overwritten.
+ * This is a legacy proc, to be updated.
+ */
+/atom/proc/ex_act(severity, target)
 	set waitfor = FALSE
 	return
 
+/**
+ * Respond to an emag being used on our atom. Generally gets overwritten.
+ * This is a legacy proc, to be updated.
+ */
 /atom/proc/emag_act(var/remaining_charges, var/mob/user, var/emag_source)
 	return NO_EMAG_ACT

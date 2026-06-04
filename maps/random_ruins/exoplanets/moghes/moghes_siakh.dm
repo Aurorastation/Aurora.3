@@ -57,7 +57,7 @@
 	accessory_contents = list(/obj/item/gun/projectile/pistol/spitter = 1)
 	backpack_contents = list(
 		/obj/item/ammo_magazine/spitterpistol = 1,
-		/obj/item/device/versebook/siakh = 1,
+		/obj/item/versebook/siakh = 1,
 		/obj/item/clothing/suit/armor/unathi = 1,
 		/obj/item/clothing/head/helmet/unathi = 1
 	)

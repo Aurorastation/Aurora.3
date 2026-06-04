@@ -31,9 +31,18 @@
 /datum/event/electrical_storm/start()
 	..()
 	valid_apcs = list()
-	for(var/obj/machinery/power/apc/valid_apc in SSmachinery.apc_units)
+	for(var/obj/structure/machinery/power/apc/valid_apc in SSmachinery.apc_units)
 		if((valid_apc.z in affecting_z) && !valid_apc.is_critical)
 			valid_apcs += valid_apc
+	for(var/mob/living/carbon/human/victim_ipc in GLOB.human_mob_list)
+		if(!isipc(victim_ipc))
+			continue
+		if(!(victim_ipc.z in affecting_z))
+			continue
+		var/obj/item/organ/internal/machine/posibrain/brain = victim_ipc.internal_organs_by_name[BP_BRAIN]
+		if(istype(brain))
+			to_chat(victim_ipc, SPAN_MACHINE_WARNING("A jolt of ambient electricity rumbles through your circuitry! Your processors go to work putting the bits back together..."))
+			brain.brain_scrambling += rand(severity * 35, severity * 45)
 	endWhen = (severity * 35) + startWhen
 
 /datum/event/electrical_storm/end(faked)
@@ -60,11 +69,10 @@
 
 	var/list/picked_apcs = list()
 	// Up to 2/4/6 APCs per tick depending on severity
-	for(var/i = 0, i < ((severity + 1)), i++)
 	for(var/i = 0, i < (severity * 2), i++)
 		picked_apcs |= pick(valid_apcs)
 
-	for(var/obj/machinery/power/apc/victim_apc in picked_apcs)
+	for(var/obj/structure/machinery/power/apc/victim_apc in picked_apcs)
 		// Determine what each APC does. Depending on how bad they roll, might be nothing or might blow out the entire thing.
 		// Mundane storm:  0-55 nothing, 56+ lights flicker, 86+ damage (2 APC at a time)
 		// Moderate storm: 0-30 nothing, 31+ lights flicker, 81+ damage (3 APCs at a time)
@@ -74,7 +82,7 @@
 
 		// We don't want to obliterate small offships (lucky 7 APCs or fewer).
 		if(LAZYLEN(valid_apcs) < 8)
-			LAZYREMOVE(victim_apc, valid_apcs)
+			LAZYREMOVE(valid_apcs, victim_apc)
 
 		// Main breaker is turned off, or we rolled lucky. Consider this APC protected.
 		if(!victim_apc.operating || storm_damage <= (80 - (severity * 25)))

@@ -8,7 +8,7 @@
 	var/carrying_capacity = 5
 	var/list/obj/carrying = list()
 	origin_tech = list(TECH_MATERIAL = 2, TECH_ENGINEERING = 2)
-	var/list/afterattack_types = list(/obj/structure/closet, /obj/machinery/door/airlock)
+	var/list/afterattack_types = list(/obj/structure/closet, /obj/structure/machinery/door/airlock)
 	module_hints = list(
 		"<b>Attack(Harm):</b> Swing the claw at a target to deal damage.",
 		"<b>Attack(Non-Harm):</b> Shove the target backwards,",
@@ -36,15 +36,15 @@
 /obj/item/mecha_equipment/clamp/afterattack(var/atom/target, var/mob/living/user, var/inrange, var/params)
 	. = ..()
 	if(.)
-		if(istype(target, /obj/machinery/door/firedoor))
-			var/obj/machinery/door/firedoor/FD = target
+		if(istype(target, /obj/structure/machinery/door/firedoor))
+			var/obj/structure/machinery/door/firedoor/FD = target
 			if(FD.blocked)
 				FD.visible_message(SPAN_WARNING("\The [owner] begins prying on \the [FD]!"))
 				if(do_after(user, 10 SECONDS, owner, (DO_DEFAULT & ~DO_USER_CAN_TURN) | DO_USER_UNIQUE_ACT, extra_checks = CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(atom_maintain_position), FD, FD.loc)) && FD.blocked)
 					playsound(FD, 'sound/effects/meteorimpact.ogg', 100, 1)
 					playsound(FD, 'sound/machines/airlock_open_force.ogg', 100, 1)
 					FD.blocked = FALSE
-					INVOKE_ASYNC(FD, TYPE_PROC_REF(/obj/machinery/door/firedoor, open))
+					INVOKE_ASYNC(FD, TYPE_PROC_REF(/obj/structure/machinery/door/firedoor, open))
 					FD.visible_message(SPAN_WARNING("\The [owner] tears \the [FD] open!"))
 			else
 				FD.visible_message(SPAN_WARNING("\The [owner] begins forcing \the [FD]!"))
@@ -52,17 +52,17 @@
 					if(FD.density)
 						FD.visible_message(SPAN_WARNING("\The [owner] forces \the [FD] open!"))
 						playsound(FD, 'sound/machines/airlock_open_force.ogg', 100, 1)
-						INVOKE_ASYNC(FD, TYPE_PROC_REF(/obj/machinery/door/firedoor, open))
+						INVOKE_ASYNC(FD, TYPE_PROC_REF(/obj/structure/machinery/door/firedoor, open))
 					else
 						FD.visible_message(SPAN_WARNING("\The [owner] forces \the [FD] closed!"))
 						playsound(FD, 'sound/machines/airlock_close_force.ogg', 100, 1)
-						INVOKE_ASYNC(FD, TYPE_PROC_REF(/obj/machinery/door/firedoor, close))
+						INVOKE_ASYNC(FD, TYPE_PROC_REF(/obj/structure/machinery/door/firedoor, close))
 			return
-		else if(istype(target, /obj/machinery/door/airlock))
-			if(istype(target, /obj/machinery/door/airlock/centcom))
+		else if(istype(target, /obj/structure/machinery/door/airlock))
+			if(istype(target, /obj/structure/machinery/door/airlock/centcom))
 				to_chat(user, SPAN_WARNING("You can't force these airlocks!"))
 				return
-			var/obj/machinery/door/airlock/AD = target
+			var/obj/structure/machinery/door/airlock/AD = target
 			if(!AD.operating)
 				playsound(src.loc, 'sound/machines/hydraulic_long.ogg', 100, 1, ignore_walls = TRUE)
 				if(AD.welded || AD.locked)
@@ -76,18 +76,18 @@
 						AD.update_icon()
 						playsound(AD, 'sound/machines/airlock_open_force.ogg', 100, 1)
 						AD.visible_message(SPAN_WARNING("\The [owner] tears \the [AD] open!"))
-						INVOKE_ASYNC(AD, TYPE_PROC_REF(/obj/machinery/door/airlock, open), TRUE)
+						INVOKE_ASYNC(AD, TYPE_PROC_REF(/obj/structure/machinery/door/airlock, open), TRUE)
 						break_door(AD)
 				else
 					AD.visible_message(SPAN_WARNING("\The [owner] begins forcing \the [AD]!"))
 					if(do_after(user, 5 SECONDS, owner, (DO_DEFAULT & ~DO_USER_CAN_TURN) | DO_USER_UNIQUE_ACT, extra_checks = CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(atom_maintain_position), AD, AD.loc)) && !(AD.operating || AD.welded || AD.locked))
 						if(AD.density)
-							INVOKE_ASYNC(AD, TYPE_PROC_REF(/obj/machinery/door/airlock, open), TRUE)
+							INVOKE_ASYNC(AD, TYPE_PROC_REF(/obj/structure/machinery/door/airlock, open), TRUE)
 							playsound(AD, 'sound/machines/airlock_open_force.ogg', 100, 1)
 							AD.visible_message(SPAN_DANGER("\The [owner] forces \the [AD] open!"))
 							break_door(AD)
 						else
-							INVOKE_ASYNC(AD, TYPE_PROC_REF(/obj/machinery/door/airlock, close), TRUE)
+							INVOKE_ASYNC(AD, TYPE_PROC_REF(/obj/structure/machinery/door/airlock, close), TRUE)
 							playsound(AD, 'sound/machines/airlock_close_force.ogg', 100, 1)
 							AD.visible_message(SPAN_DANGER("\The [owner] forces \the [AD] closed!"))
 							break_door(AD)
@@ -133,7 +133,7 @@
 				to_chat(user, SPAN_NOTICE("You push [target] out of the way."))
 				owner.visible_message(SPAN_NOTICE("[owner] pushes [target] out of the way."))
 
-/obj/item/mecha_equipment/clamp/proc/break_door(var/obj/machinery/door/airlock/Airlock)
+/obj/item/mecha_equipment/clamp/proc/break_door(var/obj/structure/machinery/door/airlock/Airlock)
 	if(Airlock.bolt_cut_state == 2)
 		return
 
@@ -221,13 +221,14 @@
 	mech_layer = MECH_GEAR_LAYER
 
 	var/on = 0
-	var/brightness_on = 12		//can't remember what the maxed out value is
+	light_range = 8
 	light_color = LIGHT_COLOR_TUNGSTEN
-	light_wedge = LIGHT_WIDE
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1)
 	module_hints = list(
 		"<b>Alt Click(Icon):</b> Light up a large area in front of the mech.",
 	)
+
+	light_system = MOVABLE_LIGHT
 
 /obj/item/mecha_equipment/light/attack_self(var/mob/user)
 	. = ..()
@@ -250,10 +251,10 @@
 /obj/item/mecha_equipment/light/update_icon()
 	if(on)
 		icon_state = "[initial(icon_state)]-on"
-		set_light(brightness_on, 1)
 	else
 		icon_state = "[initial(icon_state)]"
-		set_light(0)
+	set_light_on(on)
+
 
 /obj/item/mecha_equipment/light/uninstalled()
 	on = FALSE
@@ -278,14 +279,14 @@
 	///For when targetting a single object, will create a warp beam
 	var/datum/beam = null
 	var/max_dist = 6
-	var/obj/effect/effect/warp/small/warpeffect = null
+	var/obj/effect/warp/small/warpeffect = null
 
 /obj/effect/ebeam/warp
 	plane = WARP_EFFECT_PLANE
 	appearance_flags = DEFAULT_APPEARANCE_FLAGS | TILE_BOUND | NO_CLIENT_COLOR
 	z_flags = ZMM_IGNORE
 
-/obj/effect/effect/warp/small
+/obj/effect/warp/small
 	plane = WARP_EFFECT_PLANE
 	appearance_flags = PIXEL_SCALE | NO_CLIENT_COLOR
 	icon = 'icons/effects/96x96.dmi'
@@ -588,12 +589,12 @@
 
 /obj/item/gun/launcher/mech/flarelauncher/consume_next_projectile()
 	if(proj < 1) return null
-	var/obj/item/device/flashlight/flare/mech/g = new (src)
+	var/obj/item/flashlight/flare/mech/g = new (src)
 	proj--
 	addtimer(CALLBACK(src, PROC_REF(regen_proj)), proj_gen_time, TIMER_UNIQUE)
 	return g
 
-/obj/item/device/flashlight/flare/mech/Initialize()
+/obj/item/flashlight/flare/mech/Initialize()
 	fuel = rand(800, 1000) // Sorry for changing this so much but I keep under-estimating how long X number of ticks last in seconds.
 	on = 1
 	src.force = on_damage
@@ -649,7 +650,7 @@
 	restricted_hardpoints = list(HARDPOINT_BACK)
 	restricted_software = list(MECH_SOFTWARE_UTILITY)
 	origin_tech = list(TECH_MATERIAL = 2, TECH_ENGINEERING = 2)
-	var/obj/machinery/autolathe/mounted/lathe
+	var/obj/structure/machinery/fabricator/mounted/lathe
 	module_hints = list(
 		"<b>Left Click (Target Materials):</b> Load materials into the autolathe.",
 		"<b>Alt Click (Icon):</b> Open the autolathe's UI.",
@@ -657,12 +658,12 @@
 
 /obj/item/mecha_equipment/autolathe/get_hardpoint_maptext()
 	if(lathe?.currently_printing)
-		return lathe.currently_printing.recipe.name
+		return lathe.currently_printing.target_recipe.name
 	. = ..()
 
 /obj/item/mecha_equipment/autolathe/Initialize()
 	. = ..()
-	lathe = new /obj/machinery/autolathe/mounted(src)
+	lathe = new /obj/structure/machinery/fabricator/mounted(src)
 
 /obj/item/mecha_equipment/autolathe/installed()
 	..()
@@ -688,7 +689,7 @@
 		lathe.attackby(target, owner)
 
 /obj/item/mecha_equipment/autolathe/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.isscrewdriver() || attacking_item.ismultitool() || attacking_item.iswirecutter() || istype(attacking_item, /obj/item/storage/part_replacer))
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER || attacking_item.tool_behaviour == TOOL_MULTITOOL || attacking_item.tool_behaviour == TOOL_WIRECUTTER || istype(attacking_item, /obj/item/storage/part_replacer))
 		lathe.attackby(attacking_item, user)
 		update_icon()
 		return TRUE
@@ -735,6 +736,7 @@
 			if(!selected_tool)
 				return
 			mounted_tool.current_tool = 1
+			tool_behaviour = mounted_tool.current_tool
 			for(var/tool in mounted_tool.tools)
 				if(mounted_tool.tools[mounted_tool.current_tool] == selected_tool)
 					break
@@ -751,21 +753,12 @@
 		var/tool_name = capitalize(replacetext(mounted_tool.tools[mounted_tool.current_tool], "bit", ""))
 		return "Tool: [tool_name]"
 
-/obj/item/mecha_equipment/toolset/isscrewdriver()
-	return mounted_tool.tools[mounted_tool.current_tool] == "screwdriverbit"
-
-/obj/item/mecha_equipment/toolset/iswrench()
-	return mounted_tool.tools[mounted_tool.current_tool] == "wrenchbit"
-
-/obj/item/mecha_equipment/toolset/iscrowbar()
-	return mounted_tool.tools[mounted_tool.current_tool] == "crowbarbit"
-
 /obj/item/powerdrill/mech
 	name = "mounted toolset"
 	tools = list(
-		"screwdriverbit",
-		"wrenchbit",
-		"crowbarbit"
+		"screwdriver",
+		"wrench",
+		"crowbar"
 		)
 
 /obj/item/mecha_equipment/quick_enter
@@ -833,7 +826,7 @@
 		anomaly_overlay.pixel_y = 3
 		AddOverlays(anomaly_overlay)
 		return TRUE
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(!AC)
 			to_chat(user, SPAN_WARNING("\The [src] doesn't have an anomaly core installed!"))
 			return TRUE

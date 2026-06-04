@@ -56,9 +56,9 @@
 	else icon_state = "trashbag3"
 
 /obj/item/storage/bag/trash/attackby(obj/item/attacking_item, mob/user)
-	if (istype (attacking_item, /obj/item/device/lightreplacer))
+	if (istype (attacking_item, /obj/item/lightreplacer))
 		var/count = 0
-		var/obj/item/device/lightreplacer/R = attacking_item
+		var/obj/item/lightreplacer/R = attacking_item
 		var/bagfull = 0
 		if (R.store_broken)
 			for(var/obj/item/light/L in R.contents)
@@ -108,7 +108,7 @@
 	item_state = "plasticbag"
 	storage_slots = null
 	w_class = WEIGHT_CLASS_BULKY
-	max_w_class = WEIGHT_CLASS_SMALL
+	storage_slots = DEFAULT_LARGEBOX_STORAGE
 	can_hold = null // any
 	cant_hold = list(/obj/item/disk/nuclear)
 	drop_sound = 'sound/items/drop/wrapper.ogg'
@@ -127,7 +127,7 @@
 	max_storage_space = 100
 	max_w_class = WEIGHT_CLASS_NORMAL
 	w_class = WEIGHT_CLASS_SMALL
-	can_hold = list(/obj/item/reagent_containers/food/snacks/grown,/obj/item/seeds,/obj/item/grown)
+	can_hold = list(/obj/item/reagent_containers/food/snacks/grown, /obj/item/seeds, /obj/item/grown, /obj/item/mollusc)
 
 /obj/item/storage/bag/plants/full
 	starts_with = list(/obj/random_produce/box = 50)
@@ -152,8 +152,6 @@
 
 /obj/item/storage/bag/sheetsnatcher/can_be_inserted(obj/item/W as obj, stop_messages = 0)
 	if(!istype(W,/obj/item/stack/material))
-		if(!stop_messages)
-			to_chat(usr, "The snatcher does not accept [W].")
 		return 0
 	var/current = 0
 	for(var/obj/item/stack/material/S in contents)
@@ -163,6 +161,19 @@
 			to_chat(usr, SPAN_WARNING("The snatcher is full."))
 		return 0
 	return 1
+
+// This is pretty much a copy of it, but sends it to handle_item_insertion instead.
+/obj/item/storage/bag/sheetsnatcher/handle_item_insertion_deferred(obj/item/W, mob/user)
+	if (!istype(W))
+		return FALSE
+
+	if (user)
+		user.prepare_for_slotmove(W)
+
+	if (user)
+		W.dropped(user)
+
+	handle_item_insertion(W)
 
 
 // Modified handle_item_insertion.  Would prefer not to, but...
@@ -181,10 +192,11 @@
 		amount = S.amount
 
 	for(var/obj/item/stack/material/sheet in contents)
-		if(S.type == sheet.type) // we are violating the amount limitation because these are not sane objects
+		if(S.material == sheet.material) // we are violating the amount limitation because these are not sane objects
 			sheet.amount += amount	// they should only be removed through procs in this file, which split them up.
 			S.amount -= amount
-			inserted = 1
+			sheet.update_icon()
+			inserted = TRUE
 			break
 
 	if(!inserted || !S.amount)
@@ -202,7 +214,7 @@
 	if(usr.s_active)
 		usr.s_active.show_to(usr)
 	update_icon()
-	return 1
+	return TRUE
 
 
 // Sets up numbered display to show the stack size of each stored mineral
@@ -228,15 +240,13 @@
 	src.slot_orient_objs(row_num, col_count, numbered_contents)
 	return
 
-
 // Modified quick_empty verb drops appropriate sized stacks
 /obj/item/storage/bag/sheetsnatcher/quick_empty()
 	var/location = get_turf(src)
 	for(var/obj/item/stack/material/S in contents)
 		while(S.amount)
-			var/obj/item/stack/material/N = new S.type(location)
-			var/stacksize = min(S.amount,N.max_amount)
-			N.amount = stacksize
+			var/stacksize = min(S.amount,S.max_amount)
+			new S.stacktype(location, stacksize)
 			S.amount -= stacksize
 		if(!S.amount)
 			qdel(S) // todo: there's probably something missing here
@@ -256,9 +266,11 @@
 	// -Sayu
 
 	if(S.amount > S.max_amount)
-		var/obj/item/stack/material/temp = new S.type(src)
+		var/obj/item/stack/material/temp = new S.stacktype(src)
 		temp.amount = S.amount - S.max_amount
 		S.amount = S.max_amount
+		S.update_icon()
+		temp.update_icon()
 
 	return ..(S,new_location)
 
@@ -324,7 +336,7 @@
 	storage_slots = 100
 	max_storage_space = 200
 	w_class = WEIGHT_CLASS_BULKY
-	slowdown = 1
+	slowdown = 0.5
 	can_hold = list(
 		/obj/item/reagent_containers/pill,
 		/obj/item/reagent_containers/glass/beaker,

@@ -6,12 +6,12 @@
 	icon_dead = "baseline_grey_off"
 	blood_type = COLOR_OIL
 	health = 100
-	maxHealth = 100
+	maxhealth = 100
 	melee_damage_lower = 15
 	melee_damage_upper = 20
 	armor_penetration = 20
 	attack_sound = 'sound/weapons/smash.ogg'
-	attacktext = "smashed"
+	attacktext = "smashes"
 	faction = "hivebot"
 	min_oxy = 0
 	max_oxy = 0
@@ -41,9 +41,6 @@
 	///Overlay of a screen to display on the zombie's monitor
 	var/image/screen_overlay
 
-	///Emissive overlay of above
-	var/image/emissive_overlay
-
 	///IPC corpse to spawn on the simplemob's death
 	var/corpse = /obj/effect/landmark/corpse/ipc_zombie
 
@@ -58,6 +55,10 @@
 	emissive_overlay = emissive_appearance('icons/mob/npc/ipc_zombie.dmi', "[screen]")
 	AddOverlays(emissive_overlay)
 	set_light(MINIMUM_USEFUL_LIGHT_RANGE, 2, LIGHT_COLOR_TUNGSTEN)
+
+/mob/living/simple_animal/hostile/ipc_zombie/Destroy()
+	QDEL_NULL(screen_overlay)
+	return ..()
 
 /mob/living/simple_animal/hostile/ipc_zombie/update_icon()
 	ClearOverlays()
@@ -94,7 +95,7 @@
 	species = SPECIES_IPC
 
 /obj/effect/landmark/corpse/ipc_zombie/do_extra_customization(mob/living/carbon/human/M)
-	var/obj/item/organ/internal/ipc_tag/tag = M.internal_organs_by_name[BP_IPCTAG]
+	var/obj/item/organ/internal/machine/ipc_tag/tag = M.internal_organs_by_name[BP_IPCTAG]
 	if(istype(tag))
 		tag.serial_number = uppertext(dd_limittext(md5(M.real_name), 12))
 		tag.ownership_info = IPC_OWNERSHIP_SELF

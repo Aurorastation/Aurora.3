@@ -6,6 +6,7 @@
 	suffix = "miners_guild_station.dmm"
 
 	spawn_weight = 1
+	template_flags = TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED // Disabled for debloating. Feel free to enable again if reworked or relevant.
 	ship_cost = 1
 	sectors = list(SECTOR_BADLANDS, SECTOR_UUEOAESA)
 	spawn_weight_sector_dependent = list(SECTOR_UUEOAESA = 1.5)
@@ -106,7 +107,7 @@
 	designation = "[pick("Stonebreaker", "Son of Kutah", "Asteroid's Bane", "Sinta Pride", "Ancestors' Glory", "Azhal's Blessing", "Fires of Sk'akh", "Pickaxe", "Where's The Phoron", "How Do I Reset The IFF")]"
 	..()
 
-/obj/machinery/computer/shuttle_control/explore/terminal/miners_guild
+/obj/structure/machinery/computer/shuttle_control/explore/terminal/miners_guild
 	name = "shuttle control console"
 	shuttle_tag = "Miners' Guild Shuttle"
 

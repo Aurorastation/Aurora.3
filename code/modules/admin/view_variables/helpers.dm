@@ -17,7 +17,7 @@
 		<br>
 		BRUTE:<a href='byond://?_src_=vars;mobToDamage=[REF(src)];adjustDamage=brute'>[getBruteLoss()]</a>
 		FIRE:<a href='byond://?_src_=vars;mobToDamage=[REF(src)];adjustDamage=fire'>[getFireLoss()]</a>
-		TOXIN:<a href='byond://?_src_=vars;mobToDamage=[REF(src)];adjustDamage=toxin'>[getToxLoss()]</a>
+		ORGAN:<a href='byond://?_src_=vars;mobToDamage=[REF(src)];adjustDamage=toxin'>[getToxLoss()]</a>
 		OXY:<a href='byond://?_src_=vars;mobToDamage=[REF(src)];adjustDamage=oxygen'>[getOxyLoss()]</a>
 		CLONE:<a href='byond://?_src_=vars;mobToDamage=[REF(src)];adjustDamage=clone'>[getCloneLoss()]</a>
 		BRAIN:<a href='byond://?_src_=vars;mobToDamage=[REF(src)];adjustDamage=brain'>[getBrainLoss()]</a>

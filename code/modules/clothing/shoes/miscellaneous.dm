@@ -12,7 +12,7 @@
 	icon_state = "flippers"
 	item_state = "flippers"
 	item_flags = ITEM_FLAG_NO_SLIP
-	slowdown = 1
+	slowdown = 0.5
 
 /obj/item/clothing/shoes/footwraps
 	name = "cloth footwraps"
@@ -25,8 +25,8 @@
 	species_restricted = null
 	icon_auto_adapt = TRUE
 	silent = 1
-	drop_sound = 'sound/items/drop/cloth.ogg'
-	pickup_sound = 'sound/items/pickup/cloth.ogg'
+	drop_sound = SFX_CLOTH_DROP
+	pickup_sound = SFX_CLOTH_PICKUP
 	move_trail = null
 	sprite_sheets = list(
 		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/shoes.dmi' //depreceated, only used for bulwarks due to their size
@@ -64,7 +64,7 @@
 	item_state = "galoshes"
 	permeability_coefficient = 0.05
 	item_flags = ITEM_FLAG_NO_SLIP
-	slowdown = 1
+	slowdown = 0.5
 	species_restricted = null
 	icon_auto_adapt = TRUE
 	icon_supported_species_tags = list("taj")
@@ -104,7 +104,7 @@
 		LASER = ARMOR_LASER_SMALL
 	)
 	drop_sound = 'sound/items/drop/sword.ogg'
-	pickup_sound = /singleton/sound_category/sword_pickup_sound
+	pickup_sound = SFX_PICKUP_SWORD
 	matter = list(MATERIAL_BRONZE = 1000)
 
 /obj/item/clothing/shoes/ancient_unathi/mador

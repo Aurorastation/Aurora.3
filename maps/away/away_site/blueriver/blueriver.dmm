@@ -1,16 +1,16 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "as" = (
-/obj/item/device/camera,
+/obj/item/camera,
 /turf/simulated/floor/away/blueriver/alienfloor{
 	light_range = 5
 	},
 /area/bluespaceriver/underground)
 "aR" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4;
 	level = 2
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -21,7 +21,7 @@
 	},
 /area/bluespaceriver/underground)
 "br" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -33,7 +33,7 @@
 	},
 /area/bluespaceriver/ground)
 "cv" = (
-/obj/machinery/artifact_scanpad,
+/obj/structure/machinery/artifact_scanpad,
 /turf/simulated/floor/exoplanet/barren{
 	temperature = 250
 	},
@@ -43,7 +43,7 @@
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "dh" = (
-/obj/machinery/light/spot{
+/obj/structure/machinery/light/spot{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/snow{
@@ -59,20 +59,20 @@
 /area/bluespaceriver/ship)
 "dH" = (
 /obj/structure/table/standard,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /turf/simulated/floor/exoplanet/barren{
 	temperature = 250
 	},
 /area/bluespaceriver/underground)
 "dI" = (
 /obj/structure/table/steel,
-/obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/machinery/light{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/light{
 	dir = 4;
 	icon_state = "tube_empty"
 	},
 /obj/random/loot,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -82,12 +82,12 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/power/terminal,
+/obj/structure/machinery/power/terminal,
 /obj/structure/cable{
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
@@ -97,32 +97,32 @@
 /turf/simulated/floor,
 /area/bluespaceriver/ship)
 "ef" = (
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	dir = 4
 	},
-/obj/machinery/door/firedoor/noid,
+/obj/structure/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled,
 /area/bluespaceriver/ship)
 "es" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/structure/machinery/atmospherics/pipe/tank/air{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "ez" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/sign/flag/sol{
 	pixel_y = 31
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "eF" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/bluespaceriver/ship)
 "eQ" = (
@@ -132,33 +132,33 @@
 	},
 /area/bluespaceriver/underground)
 "gh" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "gm" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/wall/titanium,
 /area/bluespaceriver/ship)
 "gX" = (
-/obj/machinery/atmospherics/unary/outlet_injector{
+/obj/structure/machinery/atmospherics/unary/outlet_injector{
 	dir = 1;
 	use_power = 1
 	},
 /turf/simulated/floor,
 /area/bluespaceriver/ship)
 "hT" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/obj/machinery/suspension_gen,
+/obj/structure/machinery/suspension_gen,
 /turf/simulated/floor/tiled/dark,
 /area/bluespaceriver/ship)
 "is" = (
@@ -170,16 +170,16 @@
 /turf/simulated/floor/plating,
 /area/bluespaceriver/ship)
 "iJ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "jx" = (
-/obj/machinery/artifact{
+/obj/structure/machinery/artifact{
 	alpha = 123;
 	color = "BLUE"
 	},
@@ -188,20 +188,20 @@
 	},
 /area/bluespaceriver/underground)
 "jU" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/bed/stool/padded/red,
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "ke" = (
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/door/firedoor/noid,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled,
 /area/bluespaceriver/ship)
 "ki" = (
-/obj/machinery/smartfridge/chemistry,
+/obj/structure/machinery/smartfridge/chemistry,
 /turf/simulated/wall/titanium,
 /area/bluespaceriver/ship)
 "ks" = (
@@ -213,8 +213,8 @@
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "mp" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/machinery/light,
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "mI" = (
@@ -229,15 +229,15 @@
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "nq" = (
-/obj/machinery/door/airlock/command{
+/obj/structure/machinery/door/airlock/command{
 	dir = 1
 	},
-/obj/machinery/door/firedoor/noid,
+/obj/structure/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "nz" = (
 /obj/structure/fuel_port,
-/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
 	},
 /turf/simulated/wall/titanium,
@@ -266,7 +266,7 @@
 	},
 /area/bluespaceriver/underground)
 "oT" = (
-/obj/machinery/replicator{
+/obj/structure/machinery/replicator{
 	alpha = 150;
 	anchored = 1;
 	color = "BLUE"
@@ -283,13 +283,13 @@
 /obj/structure/sink{
 	pixel_y = 27
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/bluespaceriver/ship)
 "pI" = (
-/obj/machinery/alarm/north{
+/obj/structure/machinery/alarm/north{
 	req_one_access = list(24,11,55)
 	},
 /turf/simulated/floor/tiled/dark,
@@ -303,32 +303,32 @@
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "qM" = (
-/obj/machinery/power/smes/buildable,
+/obj/structure/machinery/power/smes/buildable,
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "qU" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "rl" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/rd,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8;
 	level = 2
 	},
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "rq" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/alarm/west{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/alarm/west{
 	pixel_x = -25;
 	rcon_setting = 3
 	},
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "rr" = (
-/obj/machinery/artifact_analyser,
+/obj/structure/machinery/artifact_analyser,
 /obj/structure/table/standard,
 /turf/simulated/floor/exoplanet/barren{
 	temperature = 250
@@ -336,7 +336,7 @@
 /area/bluespaceriver/underground)
 "rF" = (
 /obj/item/gun/energy/plasmacutter,
-/obj/item/device/depth_scanner,
+/obj/item/depth_scanner,
 /turf/simulated/floor/exoplanet/barren{
 	temperature = 250
 	},
@@ -347,7 +347,7 @@
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "rN" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor/reinforced,
@@ -359,16 +359,16 @@
 /turf/simulated/wall/titanium,
 /area/bluespaceriver/ship)
 "rX" = (
-/obj/machinery/computer/ship/engines,
+/obj/structure/machinery/computer/ship/engines,
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "sg" = (
 /obj/structure/table/standard,
-/obj/machinery/artifact_analyser,
+/obj/structure/machinery/artifact_analyser,
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "si" = (
-/obj/machinery/r_n_d/protolathe,
+/obj/structure/machinery/r_n_d/protolathe,
 /obj/item/paper/blueriver/expedition_log_4,
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
@@ -392,11 +392,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/bluespaceriver/ship)
 "tG" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/obj/machinery/alarm/east{
+/obj/structure/machinery/alarm/east{
 	req_one_access = list(24,11,55)
 	},
 /turf/simulated/floor/tiled/white,
@@ -406,17 +406,17 @@
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "uw" = (
-/obj/machinery/r_n_d/circuit_imprinter,
-/obj/item/device/ano_scanner,
+/obj/structure/machinery/r_n_d/circuit_imprinter,
+/obj/item/ano_scanner,
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "uM" = (
-/obj/machinery/vending/wallmed1{
+/obj/structure/machinery/vending/wallmed1{
 	name = "Emergency NanoMed";
 	pixel_y = 29
 	},
 /obj/item/pizzabox/meat,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/structure/table/wood,
@@ -424,7 +424,7 @@
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "vy" = (
-/obj/machinery/alarm/north{
+/obj/structure/machinery/alarm/north{
 	req_one_access = list(24,11,55)
 	},
 /turf/simulated/floor/tiled/white,
@@ -438,14 +438,14 @@
 	},
 /area/bluespaceriver/underground)
 "vI" = (
-/obj/machinery/door/airlock/research{
+/obj/structure/machinery/door/airlock/research{
 	dir = 4
 	},
-/obj/machinery/door/firedoor/noid,
+/obj/structure/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "vV" = (
-/obj/item/device/flashlight/flare/glowstick/random{
+/obj/item/flashlight/flare/glowstick/random{
 	fuel = 100000
 	},
 /turf/simulated/floor/away/blueriver/alienfloor{
@@ -454,7 +454,7 @@
 /area/bluespaceriver/underground)
 "vZ" = (
 /obj/structure/table/reinforced,
-/obj/machinery/recharger/wallcharger{
+/obj/structure/machinery/recharger/wallcharger{
 	pixel_y = -24
 	},
 /obj/item/paper/blueriver/expedition_log_1,
@@ -466,14 +466,14 @@
 	},
 /area/bluespaceriver/ground)
 "wK" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /obj/item/reagent_containers/spray,
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "xc" = (
-/obj/machinery/floodlight,
+/obj/structure/machinery/floodlight,
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 250
 	},
@@ -486,27 +486,27 @@
 /area/bluespaceriver/ground)
 "xL" = (
 /obj/structure/bookcase/libraryspawn/reference,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "xU" = (
-/obj/machinery/r_n_d/destructive_analyzer,
+/obj/structure/machinery/r_n_d/destructive_analyzer,
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "xW" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "yp" = (
-/obj/machinery/vending/boozeomat{
+/obj/structure/machinery/vending/boozeomat{
 	req_access = list()
 	},
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "yz" = (
-/obj/machinery/light/spot{
+/obj/structure/machinery/light/spot{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/snow{
@@ -514,14 +514,14 @@
 	},
 /area/bluespaceriver/ship)
 "yH" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/artifact_harvester,
-/obj/machinery/light{
+/obj/structure/machinery/artifact_harvester,
+/obj/structure/machinery/light{
 	dir = 4;
 	icon_state = "tube_empty"
 	},
@@ -529,7 +529,7 @@
 /area/bluespaceriver/ship)
 "yS" = (
 /obj/structure/table/steel,
-/obj/machinery/chemical_dispenser/coffeemaster/full,
+/obj/structure/machinery/chemical_dispenser/coffeemaster/full,
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "zF" = (
@@ -537,7 +537,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/bluespaceriver/ship)
 "zM" = (
-/obj/machinery/chem_master,
+/obj/structure/machinery/chem_master,
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "zO" = (
@@ -569,7 +569,7 @@
 	},
 /area/bluespaceriver/underground)
 "AQ" = (
-/obj/item/device/camera,
+/obj/item/camera,
 /turf/simulated/floor/exoplanet/barren{
 	temperature = 250
 	},
@@ -583,7 +583,7 @@
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "Dz" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/universal,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/universal,
 /turf/simulated/wall/titanium,
 /area/bluespaceriver/ship)
 "Ek" = (
@@ -643,23 +643,23 @@
 	},
 /area/bluespaceriver/ground)
 "GF" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /obj/structure/bed/stool/chair/office/bridge/generic{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "GX" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/structure/filingcabinet,
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "Ho" = (
-/obj/machinery/mining/drill,
+/obj/structure/machinery/mining/drill,
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 250
 	},
@@ -675,8 +675,8 @@
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "HF" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/shieldwallgen,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/shieldwallgen,
 /turf/simulated/floor/tiled/dark,
 /area/bluespaceriver/ship)
 "HL" = (
@@ -686,7 +686,7 @@
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "IE" = (
-/obj/machinery/mining/brace,
+/obj/structure/machinery/mining/brace,
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 250
 	},
@@ -698,7 +698,7 @@
 	},
 /area/bluespaceriver/ground)
 "Jc" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/structure/closet/emcloset,
@@ -714,14 +714,14 @@
 	},
 /area/bluespaceriver/underground)
 "JS" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "Ku" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/wall/titanium,
@@ -752,7 +752,7 @@
 	},
 /area/bluespaceriver/underground)
 "KY" = (
-/obj/machinery/giga_drill{
+/obj/structure/machinery/giga_drill{
 	alpha = 129;
 	color = "BLUE"
 	},
@@ -761,26 +761,26 @@
 	},
 /area/bluespaceriver/underground)
 "Lo" = (
-/obj/machinery/door/window/northright,
-/obj/machinery/door/window/southleft,
+/obj/structure/machinery/door/window/northright,
+/obj/structure/machinery/door/window/southleft,
 /turf/simulated/floor/reinforced,
 /area/bluespaceriver/ship)
 "Lz" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
-/obj/machinery/shieldwallgen,
+/obj/structure/machinery/shieldwallgen,
 /turf/simulated/floor/tiled/dark,
 /area/bluespaceriver/ship)
 "LF" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "LO" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/effect/decal/fake_object{
@@ -800,7 +800,7 @@
 /area/bluespaceriver/ground)
 "MF" = (
 /obj/structure/bookcase/manuals/research_and_development,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
@@ -817,14 +817,14 @@
 /turf/simulated/open,
 /area/bluespaceriver/ground)
 "NH" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "NN" = (
-/obj/machinery/light/spot,
+/obj/structure/machinery/light/spot,
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 250
 	},
@@ -837,13 +837,13 @@
 	},
 /area/bluespaceriver/ground)
 "OG" = (
-/obj/machinery/door/airlock/research{
+/obj/structure/machinery/door/airlock/research{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/machinery/door/firedoor/noid,
+/obj/structure/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "OL" = (
@@ -860,7 +860,7 @@
 	},
 /area/bluespaceriver/ground)
 "Pu" = (
-/obj/machinery/computer/ship/helm,
+/obj/structure/machinery/computer/ship/helm,
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "Pv" = (
@@ -872,12 +872,12 @@
 	},
 /area/bluespaceriver/ground)
 "PO" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "PR" = (
 /obj/structure/bookcase/manuals/medical,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
@@ -889,16 +889,16 @@
 	},
 /area/bluespaceriver/ground)
 "QN" = (
-/obj/machinery/door/blast/shutters,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/door/blast/shutters,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/bluespaceriver/ship)
 "Ra" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/wall/titanium,
 /area/bluespaceriver/ship)
 "Re" = (
-/obj/machinery/alarm/south{
+/obj/structure/machinery/alarm/south{
 	req_one_access = list(24,11,55)
 	},
 /turf/simulated/floor/tiled/white,
@@ -938,37 +938,37 @@
 /obj/random/contraband,
 /obj/structure/table/wood,
 /obj/item/gun/energy/pistol,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "Sq" = (
-/obj/machinery/computer/ship/sensors,
+/obj/structure/machinery/computer/ship/sensors,
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "St" = (
-/obj/machinery/door/blast/regular{
+/obj/structure/machinery/door/blast/regular{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bluespaceriver/ship)
 "SM" = (
-/obj/machinery/artifact_scanpad,
+/obj/structure/machinery/artifact_scanpad,
 /turf/simulated/floor/reinforced,
 /area/bluespaceriver/ship)
 "ST" = (
 /obj/structure/shuttle/engine/propulsion{
 	icon_state = "propulsion_l"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /turf/simulated/wall/titanium,
 /area/bluespaceriver/ship)
 "Tk" = (
 /obj/structure/dispenser/oxygen,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	icon_state = "tube_empty"
 	},
@@ -980,16 +980,16 @@
 	},
 /area/bluespaceriver/ground)
 "Uc" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "Uo" = (
-/obj/machinery/chemical_dispenser,
+/obj/structure/machinery/chemical_dispenser,
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "Uv" = (
@@ -1001,26 +1001,26 @@
 	},
 /area/bluespaceriver/underground)
 "UI" = (
-/obj/machinery/vending/wallmed1{
+/obj/structure/machinery/vending/wallmed1{
 	name = "Emergency NanoMed";
 	pixel_x = 28;
 	req_access = null
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8;
 	level = 2
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/item/mop,
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "UN" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/bluespaceriver/ship)
 "UZ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/light{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/light{
 	dir = 4;
 	icon_state = "tube_empty"
 	},
@@ -1035,17 +1035,17 @@
 	},
 /area/bluespaceriver/underground)
 "VA" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "Wj" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
 	level = 2
 	},
-/obj/machinery/floodlight,
+/obj/structure/machinery/floodlight,
 /turf/simulated/floor/tiled/dark,
 /area/bluespaceriver/ship)
 "Wp" = (
@@ -1053,21 +1053,21 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/high/north,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/power/apc/high/north,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "WC" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/door/blast/shutters/open,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/door/blast/shutters/open,
 /turf/simulated/floor/tiled,
 /area/bluespaceriver/ship)
 "WR" = (
 /obj/structure/curtain/open/bed,
-/obj/machinery/alarm/north{
+/obj/structure/machinery/alarm/north{
 	req_one_access = list(24,11,55)
 	},
 /turf/simulated/floor/tiled/white,
@@ -1078,19 +1078,19 @@
 	},
 /area/bluespaceriver/underground)
 "XH" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/sign/flag/sol{
 	pixel_y = 31
 	},
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "XL" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/structure/bed/stool/padded/red,
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "XM" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "XQ" = (
@@ -1103,7 +1103,7 @@
 /turf/simulated/floor/reinforced,
 /area/bluespaceriver/ship)
 "Yn" = (
-/obj/machinery/computer/rdconsole,
+/obj/structure/machinery/computer/rdconsole,
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "Yu" = (
@@ -1117,13 +1117,13 @@
 	},
 /area/bluespaceriver/underground)
 "YP" = (
-/obj/item/device/measuring_tape,
+/obj/item/measuring_tape,
 /turf/simulated/floor/away/blueriver/alienfloor{
 	light_range = 5
 	},
 /area/bluespaceriver/underground)
 "ZB" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/wall/titanium,
 /area/bluespaceriver/ship)
 

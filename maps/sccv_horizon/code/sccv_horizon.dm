@@ -14,12 +14,7 @@
 		ZTRAITS_CENTCOM
 	)
 
-	lobby_icon_image_paths = list(
-								list('icons/misc/titlescreens/tajara/taj1.png', 'icons/misc/titlescreens/tajara/taj2.png', 'icons/misc/titlescreens/tajara/taj3.png', 'icons/misc/titlescreens/tajara/taj4.png', 'icons/misc/titlescreens/tajara/Ghostsofwar.png', 'icons/misc/titlescreens/tajara/crack.png', 'icons/misc/titlescreens/tajara/blind_eye.png', 'icons/misc/titlescreens/tajara/RoyalGrenadier.png', 'icons/misc/titlescreens/tajara/For_the_King.png'),
-								list('icons/misc/titlescreens/synths/baseline.png', 'icons/misc/titlescreens/synths/bishop.png', 'icons/misc/titlescreens/synths/g2.png', 'icons/misc/titlescreens/synths/shell.png', 'icons/misc/titlescreens/synths/zenghu.png', 'icons/misc/titlescreens/synths/hazelchibi.png'),
-								list('icons/misc/titlescreens/vaurca/cthur.png', 'icons/misc/titlescreens/vaurca/klax.png', 'icons/misc/titlescreens/vaurca/liidra.png', 'icons/misc/titlescreens/vaurca/zora.png'),
-								list('icons/misc/titlescreens/space/odin.png', 'icons/misc/titlescreens/space/starmap.png', 'icons/misc/titlescreens/space/undocking.png', 'icons/misc/titlescreens/space/voyage.png')
-								)
+	lobby_icons = list('icons/misc/titlescreens/sccv_horizon/sccv_horizon.dmi', 'icons/misc/titlescreens/aurora/synthetics.dmi', 'icons/misc/titlescreens/aurora/tajara.dmi', 'icons/misc/titlescreens/aurora/vaurca.dmi')
 
 	lobby_transitions = 10 SECONDS
 
@@ -217,8 +212,8 @@
 	// so as to not drain power on deadpop
 	// also only loads if no program is loaded already
 	var/list/roles = number_active_with_role()
-	if(roles && roles["Engineer"] && roles["Engineer"] >= 2)
-		for(var/obj/machinery/computer/holodeck_control/holo in GLOB.holodeck_controls)
+	if(roles && roles["Ship Engineer"] && roles["Ship Engineer"] >= 2)
+		for(var/obj/structure/machinery/computer/holodeck_control/holo in GLOB.holodeck_controls)
 			if(!holo.active)
 				holo.load_random_program()
 

@@ -1,7 +1,7 @@
 #define ASSIGNMENT_ANY "Any"
 #define ASSIGNMENT_AI "AI"
 #define ASSIGNMENT_CYBORG "Cyborg"
-#define ASSIGNMENT_ENGINEER "Engineer"
+#define ASSIGNMENT_ENGINEER "Ship Engineer"
 #define ASSIGNMENT_GARDENER "Gardener"
 #define ASSIGNMENT_JANITOR "Janitor"
 #define ASSIGNMENT_MEDICAL "Medical"
@@ -11,7 +11,7 @@
 #define ASSIGNMENT_COMMAND_SUPPORT "Command Support"
 #define ASSIGNMENT_BRIDGE_CREW "Bridge Crew"
 
-GLOBAL_LIST_INIT(severity_to_string, list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT_LEVEL_MODERATE = "Moderate", EVENT_LEVEL_MAJOR = "Major"))
+GLOBAL_LIST_INIT(severity_to_string, alist(EVENT_LEVEL_MUNDANE = "Mundane", EVENT_LEVEL_MODERATE = "Moderate", EVENT_LEVEL_MAJOR = "Major"))
 
 /datum/event_container
 	var/severity = -1

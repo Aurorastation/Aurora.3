@@ -1,4 +1,4 @@
-/obj/machinery/acting/wardrobe
+/obj/structure/machinery/acting/wardrobe
 	name = "wardrobe dispenser"
 	desc = "A machine that dispenses holo-clothing for those in need."
 	icon = 'icons/obj/vending.dmi'
@@ -7,7 +7,7 @@
 	density = 1
 	var/active = 1
 
-/obj/machinery/acting/wardrobe/attack_hand(var/mob/user as mob)
+/obj/structure/machinery/acting/wardrobe/attack_hand(var/mob/user as mob)
 	. = ..()
 	user.show_message("You push a button and watch patiently as the machine begins to hum.")
 	if(active)
@@ -17,7 +17,7 @@
 			src.visible_message("\The [src] beeps, dispensing a small box onto the floor.", "You hear a beeping sound followed by a thumping noise of some kind.")
 			active = 1
 
-/obj/machinery/acting/changer
+/obj/structure/machinery/acting/changer
 	name = "Quickee's Plastic Surgeon"
 	desc = "For when you need to be someone else right now."
 	icon = 'icons/obj/surgery.dmi'
@@ -25,7 +25,7 @@
 	anchored = 1
 	density = 1
 
-/obj/machinery/acting/changer/attack_hand(var/mob/living/carbon/human/H)
+/obj/structure/machinery/acting/changer/attack_hand(var/mob/living/carbon/human/H)
 	. = ..()
 	if(!istype(H))
 		return

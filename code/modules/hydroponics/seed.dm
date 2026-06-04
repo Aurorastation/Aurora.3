@@ -59,6 +59,9 @@
 	var/force_layer
 	var/hydrotray_only
 
+	/// The amount of time it takes to harvest this plant.
+	var/harvest_time = 2 SECONDS
+
 /datum/seed/proc/setup_traits()
 
 /datum/seed/New()
@@ -322,7 +325,7 @@
 			health_change += missing_gas * HYDRO_SPEED_MULTIPLIER
 
 	// Process it.
-	var/pressure = environment.return_pressure()
+	var/pressure = XGM_PRESSURE(environment)
 	if(pressure < GET_SEED_TRAIT(src, TRAIT_LOWKPA_TOLERANCE)|| pressure > GET_SEED_TRAIT(src, TRAIT_HIGHKPA_TOLERANCE))
 		health_change += rand(1,3) * HYDRO_SPEED_MULTIPLIER
 
@@ -338,10 +341,7 @@
 
 	// Handle light requirements.
 	if(!light_supplied)
-		if (TURF_IS_DYNAMICALLY_LIT(current_turf))
-			light_supplied = current_turf.get_lumcount(0, 3) * 10
-		else
-			light_supplied = 5
+		light_supplied = current_turf.get_lumcount(0, 3) * 10
 
 	if(light_supplied)
 		if(check_light_tolerances(light_supplied))
@@ -382,10 +382,7 @@
 
 	// Handle light requirements.
 	if(!light_supplied)
-		if (TURF_IS_DYNAMICALLY_LIT(current_turf))
-			light_supplied = current_turf.get_lumcount(0, 3) * 10
-		else
-			light_supplied = 5
+		light_supplied = current_turf.get_lumcount(0, 3) * 10
 
 	// Are we within the preference zone for temperature? If so, add to the chance of growth.
 	if(check_heat_preferences(environment))
@@ -779,13 +776,28 @@
 
 /// Place the plant products at the feet of the user.
 /datum/seed/proc/harvest(var/mob/user,var/yield_mod,var/harvest_sample,var/force_amount,var/stunted_status = FALSE)
-	if(!user)
+	if(!istype(user))
+		return
+
+	var/total_yield = 0
+	var/cancelled = FALSE
+	var/doafter = harvest_time
+	// Check if any components on the user wish to modify the harvest.
+	SEND_SIGNAL(user, COMSIG_PLANT_HARVESTER, src, &total_yield, &cancelled, &doafter)
+	// And check if any components on the plant wish to modify the harvest.
+	SEND_SIGNAL(src, COMSIG_PLANT_HARVESTED, user, &total_yield, &cancelled, &doafter)
+	if (cancelled)
+		return
+
+	user.visible_message(SPAN_WARNING("[user] starts harvesting \the [display_name]"))
+	if (doafter > 0 && !do_after(user, doafter))
+		to_chat(user, SPAN_DANGER("You were interrupted while trying to harvest \the [display_name]"))
 		return
 
 	if(!force_amount && GET_SEED_TRAIT(src, TRAIT_YIELD) == 0 && !harvest_sample)
-		if(istype(user)) to_chat(user, SPAN_DANGER("You fail to harvest anything useful."))
+		to_chat(user, SPAN_DANGER("You fail to harvest anything useful."))
 	else
-		if(istype(user)) to_chat(user, "You [harvest_sample ? "take a sample" : "harvest"] from the [display_name].")
+		to_chat(user, "You [harvest_sample ? "take a sample" : "harvest"] from the [display_name].")
 
 		//This may be a new line. Update the global if it is.
 		if(name == "new line" || !(name in SSplants.seeds))
@@ -799,16 +811,15 @@
 			seeds.update_seed()
 			return
 
-		var/total_yield = 0
 		if(!isnull(force_amount))
 			total_yield = force_amount
 		else
 			if(GET_SEED_TRAIT(src, TRAIT_YIELD) > -1)
 				if(isnull(yield_mod) || yield_mod < 1)
 					yield_mod = 0
-					total_yield = GET_SEED_TRAIT(src, TRAIT_YIELD)
+					total_yield += GET_SEED_TRAIT(src, TRAIT_YIELD)
 				else
-					total_yield = GET_SEED_TRAIT(src, TRAIT_YIELD) + rand(yield_mod)
+					total_yield += GET_SEED_TRAIT(src, TRAIT_YIELD) + rand(yield_mod)
 				total_yield = max(1,total_yield)
 
 		// If the plant is stunted, you get half the yield.

@@ -31,7 +31,8 @@ export const HivenetManifest = (props, context) => {
               title={hive}
               textAlign="center"
               className={'border-dept-' + hiveData.color.toLowerCase()}
-              backgroundColor="rgba(10, 10, 10, 0.7)">
+              backgroundColor="rgba(10, 10, 10, 0.7)"
+            >
               <Table>
                 {hiveData.vaurca.map((vaurca) => {
                   return (
@@ -39,7 +40,8 @@ export const HivenetManifest = (props, context) => {
                       pb={1}
                       key={vaurca.name}
                       bold={vaurca.bold}
-                      overflow="hidden">
+                      overflow="hidden"
+                    >
                       <TableCell>
                         <Box fontSize="1.5rem" textAlign="center">
                           {' - '}

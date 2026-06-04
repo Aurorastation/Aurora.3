@@ -1,0 +1,263 @@
+#define MESSAGE_SERVER_SPAM_REJECT 1
+#define MESSAGE_SERVER_DEFAULT_SPAM_LIMIT 10
+
+/**
+ * Log datums stored by the message server
+ */
+/datum/data_pda_msg
+	var/sender = "Unspecified"
+	var/recipient = "Unspecified"
+	var/message = "Blank"  // transferred message
+	var/icon/photo  // attached photo
+
+/datum/data_pda_msg/New(param_rec, param_sender, param_message, param_photo)
+	if(param_rec)
+		recipient = param_rec
+	if(param_sender)
+		sender = param_sender
+	if(param_message)
+		message = param_message
+	if(param_photo)
+		photo = param_photo
+
+/datum/data_pda_msg/proc/get_photo_ref()
+	if(photo)
+		return "<a href='byond://?src=["[REF(src)]"];photo=1'>(Photo)</a>"
+	return ""
+
+/datum/data_pda_msg/Topic(href,href_list)
+	..()
+	if(href_list["photo"])
+		var/mob/M = usr
+		M << browse_rsc(photo, "pda_photo.png")
+		M << browse("<html><head><title>PDA Photo</title></head>" \
+		+ "<body style='overflow:hidden;margin:0;text-align:center'>" \
+		+ "<img src='pda_photo.png' width='192' style='-ms-interpolation-mode:nearest-neighbor' />" \
+		+ "</body></html>", "window=pdaphoto;size=192x192")
+		onclose(M, "pdaphoto")
+
+/datum/data_rc_msg
+	var/rec_dpt = "Unspecified"  // receiving department
+	var/send_dpt = "Unspecified"  // sending department
+	var/message = "Blank"
+	var/stamp = "Unstamped"
+	var/id_auth = "Unauthenticated"
+	var/priority = "Normal"
+
+/datum/data_rc_msg/New(param_rec, param_sender, param_message, param_stamp, param_id_auth, param_priority)
+	if(param_rec)
+		rec_dpt = param_rec
+	if(param_sender)
+		send_dpt = param_sender
+	if(param_message)
+		message = param_message
+	if(param_stamp)
+		stamp = param_stamp
+	if(param_id_auth)
+		id_auth = param_id_auth
+	if(param_priority)
+		switch(param_priority)
+			if(1)
+				priority = "Normal"
+			if(2)
+				priority = "High"
+			if(3)
+				priority = "Extreme"
+			else
+				priority = "Undetermined"
+
+/obj/structure/machinery/telecomms/message_server
+	name = "messaging server"
+	desc = "A machine that processes and routes request console messages."
+	icon_state = "message_server"
+	telecomms_type = /obj/structure/machinery/telecomms/message_server
+	idle_power_usage = 10
+	active_power_usage = 100
+
+	var/list/datum/data_pda_msg/pda_msgs = list() // TODO: actually re-link modular PDAs to the message servers
+	var/list/datum/data_rc_msg/rc_msgs = list()
+	var/decryptkey = ""
+
+	//Spam filtering stuff
+	var/list/spamfilter = list("You have won", "your prize", "male enhancement", "shitcurity", \
+			"are happy to inform you", "account number", "enter your PIN")
+			//Messages having theese tokens will be rejected by server. Case sensitive
+	var/spamfilter_limit = MESSAGE_SERVER_DEFAULT_SPAM_LIMIT	//Maximal amount of tokens
+
+/obj/structure/machinery/telecomms/message_server/Initialize()
+	. = ..()
+	if(!decryptkey)
+		decryptkey = GenerateKey()
+	// send_pda_message("System Administrator", "system", "This is an automated message. The messaging system is functioning correctly.")
+
+/obj/structure/machinery/telecomms/message_server/proc/GenerateKey()
+	//Feel free to move to Helpers.
+	var/newKey
+	newKey += pick("the", "if", "of", "as", "in", "a", "you", "from", "to", "an", "too", "little", "snow", "dead", "drunk", "rosebud", "duck", "al", "le")
+	newKey += pick("diamond", "beer", "mushroom", "assistant", "clown", "captain", "twinkie", "security", "nuke", "small", "big", "escape", "yellow", "gloves", "monkey", "engine", "nuclear", "ai")
+	newKey += pick("1", "2", "3", "4", "5", "6", "7", "8", "9", "0")
+	return newKey
+
+/obj/structure/machinery/telecomms/message_server/receive_information(datum/signal/subspace/pda/signal, obj/structure/machinery/telecomms/machine_from)
+	// can't log non-PDA signals
+	if(!istype(signal) || !signal.data["message"] || !use_power || !operable())
+		return
+
+	// log the signal
+	pda_msgs += new /datum/data_pda_msg(signal.format_target(), "[signal.data["name"]] ([signal.data["job"]])", signal.data["message"], signal.data["photo"])
+	signal.data -= "reject"  // only gets through if it's logged
+
+	// pass it along to either the hub or the broadcaster
+	if(!relay_information(signal, /obj/structure/machinery/telecomms/hub))
+		relay_information(signal, /obj/structure/machinery/telecomms/broadcaster)
+
+/// Display label for a message category code ("assist"/"supply"/"info"/"reply").
+/obj/structure/machinery/telecomms/message_server/proc/rc_category_label(category)
+	switch(category)
+		if("assist")
+			return "Assistance Request"
+		if("supply")
+			return "Supply Request"
+		if("reply")
+			return "Reply"
+		else
+			return "Message"
+
+/obj/structure/machinery/telecomms/message_server/proc/send_rc_message(recipient = "", sender = "", message = "", stamp = "", id_auth = "", priority = 1, category = "info")
+	rc_msgs += new/datum/data_rc_msg(recipient, sender, message, stamp, id_auth)
+	var/category_label = rc_category_label(category)
+	for(var/obj/structure/machinery/requests_console/Console in GLOB.allConsoles)
+		if(ckey(Console.department) != ckey(recipient))
+			continue
+		if(!Console.operable())
+			Console.message_log += list(list(
+				"type" = "error",
+				"body" = "Message lost due to console failure. Please contact [station_name()] system administrator or AI for technical assistance."
+			))
+			continue
+		if(Console.newmessagepriority < priority)
+			Console.newmessagepriority = priority
+			Console.update_icon()
+		var/list/entry = list(
+			"type" = "received",
+			"category" = category,
+			"priority" = priority >= 2 ? "high" : "normal",
+			"sender" = sender,
+			"body" = message,
+			"stamp" = stamp,
+			"id_auth" = id_auth
+		)
+		Console.message_log += list(entry)
+		if(!Console.silent)
+			playsound(Console.loc, 'sound/machines/twobeep.ogg', 50, 1)
+			if(priority >= 2)
+				Console.audible_message("[icon2html(Console, viewers(get_turf(Console)))] *The Requests Console beeps: 'PRIORITY [category_label] from [sender]'",, 5)
+			else
+				Console.audible_message("[icon2html(Console, viewers(get_turf(Console)))] *The Requests Console beeps: '[category_label] from [sender]'",, 4)
+		var/notification_text = priority >= 2 ? "A high priority [lowertext(category_label)] has arrived!" : "A new [lowertext(category_label)] has arrived!"
+		for(var/datum/weakref/ref in Console.alert_pdas)
+			var/obj/item/modular_computer/pda = ref.resolve()
+			if(pda)
+				pda.get_notification(notification_text, 1, "[Console.department] Requests Console")
+		SStgui.update_uis(Console)
+		Console.set_light(2)
+
+
+/obj/structure/machinery/telecomms/message_server/attack_hand(user as mob)
+	. = ..()
+//	to_chat(user, "\blue There seem to be some parts missing from this server. They should arrive on the station in a few days, give or take a few CentCom delays.")
+	to_chat(user, "You toggle request console message passing from [use_power ? "On" : "Off"] to [use_power ? "Off" : "On"]")
+	toggle_power()
+	update_icon()
+
+	return
+
+/obj/structure/machinery/telecomms/message_server/attackby(obj/item/attacking_item, mob/user)
+	if (use_power && operable(EMPED) && (spamfilter_limit < MESSAGE_SERVER_DEFAULT_SPAM_LIMIT*2) && \
+		istype(attacking_item, /obj/item/circuitboard/message_monitor) && istype(user))
+		spamfilter_limit += round(MESSAGE_SERVER_DEFAULT_SPAM_LIMIT / 2)
+		user.drop_from_inventory(attacking_item, get_turf(src))
+		qdel(attacking_item)
+		to_chat(user, "You install additional memory and processors into message server. Its filtering capabilities been enhanced.")
+	else
+		..()
+
+/datum/signal/subspace/pda
+	frequency = PUB_FREQ
+	server_type = /obj/structure/machinery/telecomms/message_server
+
+/datum/signal/subspace/pda/New(obj/source, data)
+	. = ..(source, frequency, data = data)
+	src.source = source
+	src.data = data
+	var/turf/T = get_turf(source)
+	levels = list(T.z)
+	data["reject"] = TRUE  // set to FALSE if a messaging server logs it
+
+/datum/signal/subspace/pda/copy()
+	var/datum/signal/subspace/pda/copy = new(source, data.Copy())
+	copy.original = src
+	copy.levels = levels
+	return copy
+
+/datum/signal/subspace/pda/proc/format_target()
+	if (length(data["targets"]) > 1)
+		return "Everyone"
+	return data["targets"][1]
+
+/datum/signal/subspace/pda/proc/format_message()
+	if (data["photo"])
+		return "[data["message"]] <a href='byond://?src=["[REF(src)]"];photo=1'>(Photo)</a>"
+	return data["message"]
+
+/datum/signal/subspace/pda/broadcast()
+	// TODO: need an iterable list of available PDAs
+	// for (var/obj/item/modular_computer in SSmachinery.machinery)
+	// 	if ("[P.owner] ([P.ownjob])" in data["targets"])
+	// 		P.receive_message(src)
+
+/datum/signal/subspace/pda/Topic(href, href_list)
+	..()
+	if (href_list["photo"])
+		var/mob/M = usr
+		M << browse_rsc(data["photo"], "pda_photo.png")
+		M << browse("<html><head><title>PDA Photo</title></head>" \
+		+ "<body style='overflow:hidden;margin:0;text-align:center'>" \
+		+ "<img src='pda_photo.png' width='192' style='-ms-interpolation-mode:nearest-neighbor' />" \
+		+ "</body></html>", "window=pdaphoto;size=192x192")
+		onclose(M, "pdaphoto")
+
+GLOBAL_DATUM(blackbox, /obj/structure/machinery/blackbox_recorder)
+
+/obj/structure/machinery/blackbox_recorder
+	icon = 'icons/obj/machinery/telecomms.dmi'
+	icon_state = "blackbox"
+	name = "blackbox recorder"
+	density = TRUE
+	anchored = TRUE
+	idle_power_usage = 10
+	active_power_usage = 100
+
+	// Note: actual logging has been moved to SSstatistics.
+
+	//Only one can exist in the world!
+/obj/structure/machinery/blackbox_recorder/Initialize()
+	. = ..()
+	if(GLOB.blackbox)
+		if(istype(GLOB.blackbox,/obj/structure/machinery/blackbox_recorder))
+			qdel(src)
+	else
+		GLOB.blackbox = src
+
+/obj/structure/machinery/blackbox_recorder/Destroy()
+	feedback_set_details("blackbox_destroyed","true")
+	feedback_set("blackbox_destroyed",1)
+
+	if(GLOB.blackbox == src)
+		GLOB.blackbox = null
+
+	. = ..()
+
+
+#undef MESSAGE_SERVER_SPAM_REJECT
+#undef MESSAGE_SERVER_DEFAULT_SPAM_LIMIT

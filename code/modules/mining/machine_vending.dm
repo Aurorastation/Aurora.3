@@ -17,8 +17,8 @@ GLOBAL_LIST_INIT(minevendor_list, list(
 	new /datum/data/mining_equipment(/obj/item/stack/flag/yellow,								10,					50),
 	new /datum/data/mining_equipment(/obj/item/stack/flag/purple,								10,					50),
 	new /datum/data/mining_equipment(/obj/item/storage/bag/ore,									25,					50),
-	new /datum/data/mining_equipment(pick(subtypesof(/obj/item/pizzabox)), 									25,					50),
-	new /datum/data/mining_equipment(/obj/item/device/flashlight/lantern,						10,					75),
+	new /datum/data/mining_equipment(pick(subtypesof(/obj/item/pizzabox)), 						2, 					50),
+	new /datum/data/mining_equipment(/obj/item/flashlight/lantern,						10,					75),
 	new /datum/data/mining_equipment(/obj/item/shovel,											15,					100),
 	new /datum/data/mining_equipment(/obj/item/pickaxe,											10,					100),
 	new /datum/data/mining_equipment(/obj/item/rfd_ammo,										50,					100),
@@ -35,35 +35,35 @@ GLOBAL_LIST_INIT(minevendor_list, list(
 	new /datum/data/mining_equipment(/obj/item/gun/custom_ka/frame02/prebuilt,					12,					400),
 	new /datum/data/mining_equipment(/obj/item/autochisel,										10,					400),
 	new /datum/data/mining_equipment(/obj/item/tank/jetpack,									10,					400),
-	new /datum/data/mining_equipment(/obj/item/device/mine_bot_upgrade,							10,					400),
-	new /datum/data/mining_equipment(/obj/machinery/mining/brace,								-1,					500,	1),
+	new /datum/data/mining_equipment(/obj/item/mine_bot_upgrade,							10,					400),
+	new /datum/data/mining_equipment(/obj/structure/machinery/mining/brace,								-1,					500,	1),
 	new /datum/data/mining_equipment(/obj/item/card/mining_point_card,							-1,					500),
 	new /datum/data/mining_equipment(/obj/item/storage/belt/mining,								10,					500),
 	new /datum/data/mining_equipment(/obj/item/warp_core,										25,					500),
 	new /datum/data/mining_equipment(/obj/item/extraction_pack,									25,					600),
-	new /datum/data/mining_equipment(/obj/item/device/mine_bot_upgrade/health,					20,					600),
+	new /datum/data/mining_equipment(/obj/item/mine_bot_upgrade/health,					20,					600),
 	new /datum/data/mining_equipment(/obj/item/storage/firstaid/trauma,							30,					600),
 	new /datum/data/mining_equipment(/obj/item/oremagnet,										10,					600),
 	new /datum/data/mining_equipment(/obj/item/resonator,										10,					700),
-	new /datum/data/mining_equipment(/obj/item/device/wormhole_jaunter,							20,					750),
+	new /datum/data/mining_equipment(/obj/item/wormhole_jaunter,							20,					750),
 	new /datum/data/mining_equipment(/obj/item/rig/industrial,									5,					1000),
 	new /datum/data/mining_equipment(/obj/item/mass_driver_diy,									5,					800),
 	new /datum/data/mining_equipment(/mob/living/silicon/robot/drone/mining,					15,					800),
-	new /datum/data/mining_equipment(/obj/item/device/mine_bot_upgrade/ka,						10,					800),
+	new /datum/data/mining_equipment(/obj/item/mine_bot_upgrade/ka,						10,					800),
 	new /datum/data/mining_equipment(/obj/item/oreportal,										35,					800),
-	new /datum/data/mining_equipment(/obj/item/device/spaceflare,								5,					800),
+	new /datum/data/mining_equipment(/obj/item/spaceflare,								5,					800),
 	new /datum/data/mining_equipment(/obj/item/lazarus_injector,								25,					1000),
 	new /datum/data/mining_equipment(/obj/item/storage/backpack/cell,							5,					1000),
-	new /datum/data/mining_equipment(/obj/machinery/mining/drill,								-1,					1000,	1),
+	new /datum/data/mining_equipment(/obj/structure/machinery/mining/drill,								-1,					1000,	1),
 	new /datum/data/mining_equipment(/obj/item/resonator/upgraded,								10,					1250),
 	new /datum/data/mining_equipment(/obj/item/pickaxe/diamond,									10,					1500),
 	new /datum/data/mining_equipment(/obj/item/gun/energy/vaurca/thermaldrill,					5,					1750),
-	new /datum/data/mining_equipment(/obj/item/device/orbital_dropper/minecart,					5,					2000),
-	new /datum/data/mining_equipment(/obj/item/device/orbital_dropper/drill,					10,					3250),
-	new /datum/data/mining_equipment(/obj/item/device/orbital_dropper/mecha/miner,				2,					3500)
+	new /datum/data/mining_equipment(/obj/item/orbital_dropper/minecart,					5,					2000),
+	new /datum/data/mining_equipment(/obj/item/orbital_dropper/drill,					10,					3250),
+	new /datum/data/mining_equipment(/obj/item/orbital_dropper/mecha/miner,				2,					3500)
 	))
 
-/obj/machinery/mineral/equipment_vendor
+/obj/structure/machinery/mineral/equipment_vendor
 	name = "mining equipment vendor"
 	desc = "An equipment vendor for miners, points collected at an ore redemption machine can be spent here."
 	icon = 'icons/obj/machinery/mining_machines.dmi'
@@ -89,36 +89,36 @@ GLOBAL_LIST_INIT(minevendor_list, list(
 	shuttle = set_shuttle
 
 /obj/item/circuitboard/machine/mining_equipment_vendor
-	name = "circuit board (Mining Equipment Vendor)"
-	build_path = /obj/machinery/mineral/equipment_vendor
+	name = T_BOARD("Mining Equipment Vendor")
+	build_path = /obj/structure/machinery/mineral/equipment_vendor
 	origin_tech = list(TECH_DATA = 1, TECH_ENGINEERING = 1)
 	req_components = list(	/obj/item/stock_parts/console_screen = 1,
 							/obj/item/stock_parts/matter_bin = 3)
 
-/obj/machinery/mineral/equipment_vendor/power_change()
+/obj/structure/machinery/mineral/equipment_vendor/power_change()
 	..()
 	update_icon()
 
-/obj/machinery/mineral/equipment_vendor/update_icon()
+/obj/structure/machinery/mineral/equipment_vendor/update_icon()
 	if(powered())
 		icon_state = initial(icon_state)
 	else
 		icon_state = "[initial(icon_state)]-off"
 	return
 
-/obj/machinery/mineral/equipment_vendor/attack_hand(mob/user)
+/obj/structure/machinery/mineral/equipment_vendor/attack_hand(mob/user)
 	if(..())
 		return
 	ui_interact(user)
 
-/obj/machinery/mineral/equipment_vendor/ui_interact(mob/user, datum/tgui/ui)
+/obj/structure/machinery/mineral/equipment_vendor/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "MiningVendor", "Mining Equipment Vendor", ui_x=500, ui_y=500)
 		ui.autoupdate = FALSE
 		ui.open()
 
-/obj/machinery/mineral/equipment_vendor/ui_data(mob/user)
+/obj/structure/machinery/mineral/equipment_vendor/ui_data(mob/user)
 	var/list/data = list()
 	var/obj/item/card/id/ID = user.GetIdCard()
 	if(ID)
@@ -132,7 +132,7 @@ GLOBAL_LIST_INIT(minevendor_list, list(
 	data["prizeList"] = prize_list
 	return data
 
-/obj/machinery/mineral/equipment_vendor/ui_act(action, params)
+/obj/structure/machinery/mineral/equipment_vendor/ui_act(action, params)
 	. = ..()
 	if(.)
 		return
@@ -160,7 +160,7 @@ GLOBAL_LIST_INIT(minevendor_list, list(
 					intent_message(MACHINE_SOUND)
 		return TRUE
 
-/obj/machinery/mineral/equipment_vendor/attackby(obj/item/attacking_item, mob/user, params)
+/obj/structure/machinery/mineral/equipment_vendor/attackby(obj/item/attacking_item, mob/user, params)
 	if(istype(attacking_item, /obj/item/coin/mining))
 		var/list/equipment_choices = list(
 			"Kinetic Accelerator Kit" = /obj/item/storage/toolbox/ka,
@@ -179,7 +179,7 @@ GLOBAL_LIST_INIT(minevendor_list, list(
 				user.put_in_hands(dispensed_equipment)
 		return
 	if(default_deconstruction_screwdriver(user, "mining-open", "mining", attacking_item))
-		updateUsrDialog()
+		SStgui.update_uis(src)
 		return
 	if(default_deconstruction_crowbar(attacking_item))
 		return

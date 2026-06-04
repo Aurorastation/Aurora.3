@@ -181,7 +181,7 @@
 	return ..()
 
 /obj/item/reagent_containers/hypospray/autoinjector/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.isscrewdriver() && !is_open_container())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER && !is_open_container())
 		to_chat(user, SPAN_NOTICE("Using \the [attacking_item], you unsecure the autoinjector's lid.")) // it locks shut after being secured
 		atom_flags |= ATOM_FLAG_OPEN_CONTAINER
 		update_icon()

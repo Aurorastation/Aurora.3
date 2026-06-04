@@ -3,10 +3,10 @@
 #define MODKIT_RIG 3
 #define MODKIT_FULL 6
 
-/obj/item/device/modkit
+/obj/item/modkit
 	name = "voidsuit modification kit"
 	desc = "A kit containing all the needed tools and parts to modify a voidsuit for another user."
-	icon = 'icons/obj/item/device/modkit.dmi'
+	icon = 'icons/obj/item/modkit.dmi'
 	icon_state = "modkit"
 	item_state = "restock_unit"
 	var/parts = MODKIT_FULL
@@ -19,11 +19,11 @@
 		/obj/item/rig_assembly
 		)
 
-/obj/item/device/modkit/feedback_hints(mob/user, distance, is_adjacent)
+/obj/item/modkit/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "It looks as though it modifies voidsuits to fit [is_multi_species ? "users of multiple species" : "[target_species] users"]."
 
-/obj/item/device/modkit/afterattack(obj/O, mob/user as mob, proximity)
+/obj/item/modkit/afterattack(obj/O, mob/user as mob, proximity)
 	if(!proximity)
 		return
 
@@ -83,31 +83,31 @@
 		user.drop_from_inventory(src,O)
 		qdel(src)
 
-/obj/item/device/modkit/tajaran
+/obj/item/modkit/tajaran
 	name = "tajaran voidsuit modification kit"
 	desc = "A kit containing all the needed tools and parts to modify a voidsuit for another user. This one looks like it's meant for tajara."
 	target_species = BODYTYPE_TAJARA
 
-/obj/item/device/modkit/unathi
+/obj/item/modkit/unathi
 	name = "unathi voidsuit modification kit"
 	target_species = BODYTYPE_UNATHI
 
-/obj/item/device/modkit/skrell
+/obj/item/modkit/skrell
 	name = "skrell voidsuit modification kit"
 	target_species = BODYTYPE_SKRELL
 
-/obj/item/device/modkit/ipc
+/obj/item/modkit/ipc
 	name = "ipc voidsuit modification kit"
 	target_species = BODYTYPE_IPC
 
-/obj/item/device/modkit/multi_species
+/obj/item/modkit/multi_species
 	name = "multi-species voidsuit modification kit"
 	desc = "A kit containing all the needed tools and parts to modify a voidsuit for another user. This one looks like it's meant for a wide range of alien species."
 	is_multi_species = TRUE
 
 /obj/item/voidsuit_modkit
 	name = "voidsuit kit"
-	icon = 'icons/obj/item/device/modkit.dmi'
+	icon = 'icons/obj/item/modkit.dmi'
 	icon_state = "modkit"
 	item_state = "restock_unit"
 	contained_sprite = TRUE
@@ -271,21 +271,21 @@
 /obj/item/storage/box/species_modkit
 	name = "multi-species modkit box"
 	desc = "Contains modkits to convert a voidsuit to a wide range of available species."
-	starts_with = list(/obj/item/device/modkit/multi_species = 4)
+	starts_with = list(/obj/item/modkit/multi_species = 4)
 
 /obj/item/storage/box/unathi_modkit
 	name = "multi-species modkit box"
 	desc = "Contains modkits to convert a voidsuit for an Unathi wearer."
-	starts_with = list(/obj/item/device/modkit/unathi = 4)
+	starts_with = list(/obj/item/modkit/unathi = 4)
 
 /obj/item/storage/box/ipc_modkit
 	name = "ipc modkit box"
 	desc = "Contains modkits to convert a voidsuit for an IPC wearer."
-	starts_with = list(/obj/item/device/modkit/ipc = 4)
+	starts_with = list(/obj/item/modkit/ipc = 4)
 
 /obj/item/voidsuit_modkit_multi //for converting between a large range of options instead of having 5000 subtypes
 	name = "voidsuit kit"
-	icon = 'icons/obj/item/device/modkit.dmi'
+	icon = 'icons/obj/item/modkit.dmi'
 	icon_state = "modkit"
 	item_state = "restock_unit"
 	contained_sprite = TRUE

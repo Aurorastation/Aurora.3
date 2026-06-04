@@ -207,7 +207,7 @@
 	slice_path = /obj/item/reagent_containers/food/snacks/lasagna_meat_slice
 	slices_num = 6
 	trash = /obj/item/trash/grease
-	drop_sound = /singleton/sound_category/tray_hit_sound
+	drop_sound = SFX_TRAY_HIT
 	center_of_mass = list("x"=16, "y"=17)
 	filling_color = "#e08b2a"
 	reagents_to_add = list(/singleton/reagent/nutriment = 24, /singleton/reagent/nutriment/protein = 24, /singleton/reagent/nutriment/protein/cheese = 12)
@@ -240,7 +240,7 @@
 	slice_path = /obj/item/reagent_containers/food/snacks/lasagna_veggie_slice
 	slices_num = 6
 	trash = /obj/item/trash/grease
-	drop_sound = /singleton/sound_category/tray_hit_sound
+	drop_sound = SFX_TRAY_HIT
 	center_of_mass = list("x"=16, "y"=17)
 	filling_color = "#e08b2a"
 	reagents_to_add = list(/singleton/reagent/nutriment = 48, /singleton/reagent/nutriment/protein/cheese = 12)

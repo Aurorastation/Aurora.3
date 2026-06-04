@@ -11,16 +11,17 @@
 	throw_speed = 3
 	throw_range = 5
 	w_class = WEIGHT_CLASS_NORMAL
+	matter = list(DEFAULT_WALL_MATERIAL = 700, MATERIAL_GLASS = 50)
+	recyclable = TRUE
+
 	/// Note %age converted to actual charge in New()
 	var/charge = 0
-	var/maxcharge = 2500
+	/// Maximum cell charge.
+	var/maxcharge = 1000
 	/// True if rigged to explode
 	var/rigged = FALSE
 	/// If not 100% reliable, it will build up faults.
 	var/minor_fault = 0
-	matter = list(DEFAULT_WALL_MATERIAL = 700, MATERIAL_GLASS = 50)
-	recyclable = TRUE
-
 	/// Percentage of maxcharge to recharge per minute, though it will trickle charge every process tick (every ~2 seconds), leave null for no self-recharge
 	var/self_charge_percentage
 
@@ -51,9 +52,16 @@
 /obj/item/cell/crap
 	name = "old power cell"
 	desc = "A cheap, old power cell. It's probably been in use for quite some time now."
+	icon_state = "ocell"
 	origin_tech = list(TECH_POWER = 0)
-	maxcharge = 1500
+	maxcharge = 900
 	matter = list(DEFAULT_WALL_MATERIAL = 700, MATERIAL_GLASS = 40)
+
+/obj/item/cell/crap/Initialize()
+	. = ..()
+	// 5% chance to make the cell rigged.
+	if(prob(5))
+		rigged = TRUE
 
 /obj/item/cell/crap/empty/Initialize()
 	. = ..()
@@ -78,14 +86,16 @@
 
 /obj/item/cell/apc
 	name = "heavy-duty power cell"
+	desc = "A rechargeable electrochemical power cell. This variant is rated for use in APCs and other high-draw electronics in industrial environments. Environments like, say, a space ship."
 	origin_tech = list(TECH_POWER = 1)
+	icon_state = "hcell"
 	maxcharge = 15000
 	matter = list(DEFAULT_WALL_MATERIAL = 700, MATERIAL_GLASS = 50)
 
 /obj/item/cell/high
 	name = "high-capacity power cell"
 	origin_tech = list(TECH_POWER = 2)
-	icon_state = "hcell"
+	icon_state = "h+cell"
 	maxcharge = 30000
 	matter = list(DEFAULT_WALL_MATERIAL = 700, MATERIAL_GLASS = 60)
 
@@ -126,10 +136,10 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 700, MATERIAL_GLASS = 80)
 
 /obj/item/cell/infinite/check_charge()
-		return 1
+	return 1
 
 /obj/item/cell/infinite/use()
-		return 1
+	return 1
 
 /obj/item/cell/potato
 	name = "potato battery"
@@ -139,8 +149,6 @@
 	icon_state = "potato_cell" //"potato_battery"
 	charge = 100
 	maxcharge = 300
-	minor_fault = 1
-
 
 /obj/item/cell/slime
 	name = "charged slime core"
@@ -206,8 +214,8 @@
 	maxcharge = 10000
 	matter = list(DEFAULT_WALL_MATERIAL = 700, MATERIAL_GLASS = 70)
 	w_class = WEIGHT_CLASS_SMALL
-	drop_sound = 'sound/items/drop/gascan.ogg'
-	pickup_sound = 'sound/items/pickup/gascan.ogg'
+	drop_sound = 'sound/items/drop/gas_tank.ogg'
+	pickup_sound = 'sound/items/pickup/gas_tank.ogg'
 	origin_tech = list(TECH_POWER = 4)
 
 /obj/item/cell/mecha

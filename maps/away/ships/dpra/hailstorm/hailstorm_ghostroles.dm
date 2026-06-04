@@ -22,7 +22,7 @@
 	name = "People's Volunteer Spacer Militia Crew"
 
 	id = /obj/item/card/id
-	l_ear = /obj/item/device/radio/headset/ship
+	l_ear = /obj/item/radio/headset/ship
 	mask = /obj/item/clothing/accessory/dogtags/adhomai
 	shoes = /obj/item/clothing/shoes/jackboots/tajara
 

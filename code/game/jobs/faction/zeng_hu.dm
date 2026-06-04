@@ -1,18 +1,18 @@
 /datum/faction/zeng_hu
 	name = "Zeng-Hu Pharmaceuticals"
-	description = {"<p>
+	description = {"
 	Zeng-Hu Pharmaceuticals, born of a merger of two major biotech companies on
 	Earth in 2032, was the first to successfully develop cryogenics in the 21st
 	century for the purposes of space travel. This development, crucial to
 	interstellar colonization, helped propel them to their current position as the
-	largest pharmaceutical and medical corporation in the Orion Spur. In more recent
+	largest pharmaceutical and medical corporation in the Orion Spur.<br> In more recent
 	years, they were also the first mega-corporation to partner with the newly-discovered
 	Skrell, working closely with this alien species to pioneer cloning, a once
 	controversial field that is now more accepted today.
-	</p>"}
-
-	departments = {"Medical<br>Research"}
+	"}
+	departments = list(DEPARTMENT_MEDICAL, DEPARTMENT_SCIENCE)
 	title_suffix = "Zeng"
+	wiki_page = "Zeng-Hu_Pharmaceuticals"
 
 	allowed_role_types = ZENG_ROLES
 
@@ -65,6 +65,22 @@
 		"Science Personnel" = /obj/outfit/job/scientist/event/zeng_hu,
 		"Medical Personnel" = /obj/outfit/job/med_tech/event/zeng_hu
 	)
+
+/datum/faction/zeng_hu/get_corporate_objectives(var/mission_level)
+	switch(mission_level)
+		if(REPRESENTATIVE_MISSION_HIGH)
+			return pick("Obtain copies of research documentation from the [station_name()] Science Department",
+						"Identify veteran NanoTrasen Corporation employees willing to seek employment with Zeng-Hu Pharmaceuticals in exchange for transhuman benefits",
+						"Obtain research prototypes or pharmaceutical products produced by NanoTrasen Corporation employees for analysis")
+		if(REPRESENTATIVE_MISSION_MEDIUM)
+			return pick("Have a Zeng-Hu Pharmaceuticals employee sign a contract extension in exchange for company-covered cyber- or bio-augmentation",
+						"Award a seniority or veterancy plate to Zeng-Hu—loaned command personnel. If refused, identify and report why",
+						"Evaluate crew opinions on keiretsu member products and brands")
+		else
+			return pick("Conduct a survey on Zeng-Hu Pharmaceuticals employee morale",
+						"Evaluate crew views towards transhumanity, and preferences towards bioaugmentation or cyberaugmentation",
+						"Identify and resolve a complaint of a Zeng-Hu Pharmaceuticals employee")
+
 
 /obj/outfit/job/doctor/zeng_hu
 	name = "Physician - Zeng-Hu"
@@ -240,7 +256,7 @@
 	messengerbag_faction = /obj/item/storage/backpack/messenger/zeng
 
 	backpack_contents = list(
-		/obj/item/device/camera = 1,
+		/obj/item/camera = 1,
 		/obj/item/gun/energy/pistol = 1,
 		/obj/item/stamp/zeng_hu = 1
 	)

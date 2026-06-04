@@ -30,6 +30,8 @@
 	priority = 2
 	min_duration = 50
 	max_duration = 70
+	// Basic procedure any novice can do
+	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR)
 
 /singleton/surgery_step/generic/cut_with_laser/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -73,6 +75,8 @@
 	priority = 2
 	min_duration = 60
 	max_duration = 80
+	// Automated tool that requires no skill
+	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_UNFAMILIAR)
 
 /singleton/surgery_step/generic/incision_manager/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -110,13 +114,15 @@
 /singleton/surgery_step/generic/cut_open
 	name = "Make Incision"
 	allowed_tools = list(
-	/obj/item/surgery/scalpel = 100,
+	TOOL_SCALPEL = 100,
 	/obj/item/material/knife = 75,
 	/obj/item/material/shard = 50
 	)
 
 	min_duration = 60
 	max_duration = 80
+	// Basic surgery any novice surgeon can do
+	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR)
 
 /singleton/surgery_step/generic/cut_open/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -155,12 +161,14 @@
 /singleton/surgery_step/generic/cut_open_vaurca
 	name = "Cut Open Vaurca"
 	allowed_tools = list(
-	/obj/item/surgery/surgicaldrill = 100,
+	TOOL_DRILL = 100,
 	/obj/item/pickaxe/ = 15
 	)
 
 	min_duration = 80
 	max_duration = 100
+	// Basic surgery any novice surgeon can do
+	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR)
 
 /singleton/surgery_step/generic/cut_open_vaurca/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -198,13 +206,15 @@
 /singleton/surgery_step/generic/clamp_bleeders
 	name = "Clamp Bleeders"
 	allowed_tools = list(
-	/obj/item/surgery/hemostat = 100,	\
-	/obj/item/stack/cable_coil = 75, 	\
-	/obj/item/device/assembly/mousetrap = 20
+	TOOL_HEMOSTAT = 100,	\
+	TOOL_CABLECOIL = 75, 	\
+	/obj/item/assembly/mousetrap = 20
 	)
 
 	min_duration = 20
 	max_duration = 30
+	// Basic surgery any novice surgeon can do
+	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR)
 
 /singleton/surgery_step/generic/clamp_bleeders/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -237,13 +247,15 @@
 /singleton/surgery_step/generic/retract_skin
 	name = "Widen Incision"
 	allowed_tools = list(
-	/obj/item/surgery/retractor = 100, 	\
-	/obj/item/crowbar = 75,	\
+	TOOL_RETRACTOR = 100, 	\
+	TOOL_CROWBAR = 75,	\
 	/obj/item/material/kitchen/utensil/fork = 50
 	)
 
 	min_duration = 20
 	max_duration = 30
+	// Basic surgery any novice surgeon can do
+	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR)
 
 /singleton/surgery_step/generic/retract_skin/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -299,7 +311,7 @@
 /singleton/surgery_step/generic/cauterize
 	name = "Cauterize Incision"
 	allowed_tools = list(
-	/obj/item/surgery/cautery = 100,
+	TOOL_CAUTERY = 100,
 	/obj/item/clothing/mask/smokable/cigarette = 25,
 	/obj/item/flame/lighter = 50,
 	/obj/item/weldingtool = 75
@@ -307,6 +319,8 @@
 
 	min_duration = 40
 	max_duration = 70
+	// Basic surgery any novice surgeon can do
+	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR)
 
 /singleton/surgery_step/generic/cauterize/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())

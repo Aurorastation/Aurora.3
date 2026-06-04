@@ -20,7 +20,6 @@
 	name = "Listening Post Installation"
 	icon_state = "bluenew"
 	requires_power = TRUE
-	dynamic_lighting = TRUE
 	no_light_control = TRUE
 	is_outside = OUTSIDE_NO
 

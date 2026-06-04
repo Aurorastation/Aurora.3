@@ -2,32 +2,48 @@
 
 //NOTE: Breathing happens once per FOUR TICKS, unless the last breath fails. In which case it happens once per ONE TICK! So oxyloss healing is done once per 4 ticks while oxyloss damage is applied once per tick!
 
-#define HEAT_DAMAGE_LEVEL_1 2 //Amount of damage applied when your body temperature just passes the 360.15k safety point
-#define HEAT_DAMAGE_LEVEL_2 4 //Amount of damage applied when your body temperature passes the 400K point
-#define HEAT_DAMAGE_LEVEL_3 8 //Amount of damage applied when your body temperature passes the 1000K point
+///Amount of damage applied when your body temperature just passes the 360.15k safety point
+#define HEAT_DAMAGE_LEVEL_1 2
+///Amount of damage applied when your body temperature passes the 400K point
+#define HEAT_DAMAGE_LEVEL_2 4
+///Amount of damage applied when your body temperature passes the 1000K point
+#define HEAT_DAMAGE_LEVEL_3 8
 
-#define COLD_DAMAGE_LEVEL_1 0.5 //Amount of damage applied when your body temperature just passes the 260.15k safety point
-#define COLD_DAMAGE_LEVEL_2 1.5 //Amount of damage applied when your body temperature passes the 200K point
-#define COLD_DAMAGE_LEVEL_3 3 //Amount of damage applied when your body temperature passes the 120K point
+///Amount of damage applied when your body temperature just passes the 260.15k safety point
+#define COLD_DAMAGE_LEVEL_1 0.5
+///Amount of damage applied when your body temperature passes the 200K point
+#define COLD_DAMAGE_LEVEL_2 1.5
+///Amount of damage applied when your body temperature passes the 120K point
+#define COLD_DAMAGE_LEVEL_3 3
 
 //Note that gas heat damage is only applied once every FOUR ticks.
-#define HEAT_GAS_DAMAGE_LEVEL_1 2 //Amount of damage applied when the current breath's temperature just passes the 360.15k safety point
-#define HEAT_GAS_DAMAGE_LEVEL_2 4 //Amount of damage applied when the current breath's temperature passes the 400K point
-#define HEAT_GAS_DAMAGE_LEVEL_3 8 //Amount of damage applied when the current breath's temperature passes the 1000K point
+///Amount of damage applied when the current breath's temperature just passes the 360.15k safety point
+#define HEAT_GAS_DAMAGE_LEVEL_1 2
+///Amount of damage applied when the current breath's temperature passes the 400K point
+#define HEAT_GAS_DAMAGE_LEVEL_2 4
+///Amount of damage applied when the current breath's temperature passes the 1000K point
+#define HEAT_GAS_DAMAGE_LEVEL_3 8
 
-#define COLD_GAS_DAMAGE_LEVEL_1 0.5 //Amount of damage applied when the current breath's temperature just passes the 260.15k safety point
-#define COLD_GAS_DAMAGE_LEVEL_2 1.5 //Amount of damage applied when the current breath's temperature passes the 200K point
-#define COLD_GAS_DAMAGE_LEVEL_3 3 //Amount of damage applied when the current breath's temperature passes the 120K point
+///Amount of damage applied when the current breath's temperature just passes the 260.15k safety point
+#define COLD_GAS_DAMAGE_LEVEL_1 0.5
+///Amount of damage applied when the current breath's temperature passes the 200K point
+#define COLD_GAS_DAMAGE_LEVEL_2 1.5
+///Amount of damage applied when the current breath's temperature passes the 120K point
+#define COLD_GAS_DAMAGE_LEVEL_3 3
 
+///Multiplies the speed at which radiation is processed.
 #define RADIATION_SPEED_COEFFICIENT 0.1
 
-/mob/living/carbon/human
-	var/oxygen_alert = 0
-	var/phoron_alert = 0
-	var/co2_alert = 0
-	var/fire_alert = 0
-	var/pressure_alert = 0
-	var/temperature_alert = 0
+///A dose below this level causes no symptoms.
+#define RADIATION_NEGLIGABLE_DOSE 100
+///A dose above this level causes minor symptoms; nausea, vomiting, headaches.
+#define RADIATION_MINOR_DOSE 250
+///A dose above this level causes slight organ damage and major symptoms; slowdown, confusion, hallucinations. Usually survivable with consequences.
+#define RADIATION_MAJOR_DOSE 500
+///A dose above this level causes heavy organ damage and debilitating symptoms, bleeding, weakness, cloneloss. Usually fatal without treatment.
+#define RADIATION_DEADLY_DOSE 750
+///The maximum dose that can be received, above this level all further radiation is taken as damage directly to the body, ignoring armor. Very rapidly fatal.
+#define RADIATION_MAX_DOSE 1000
 
 /mob/living/carbon/human/Life(seconds_per_tick, times_fired)
 	if (transforming)
@@ -59,7 +75,7 @@
 
 		//Organs
 		handle_organs(seconds_per_tick)
-		stabilize_body_temperature() //Body temperature adjusts itself (self-regulation)
+		stabilize_body_temperature(seconds_per_tick) //Body temperature adjusts itself (self-regulation)
 
 		//Random events (vomiting etc)
 		handle_random_events()
@@ -199,7 +215,7 @@
 		if(aid < 3 && prob(10/aid)) //NOSTUTTER at 2 or above prevents it completely.
 			stuttering = max(10/aid, stuttering)
 
-/mob/living/carbon/human/handle_mutations_and_radiation()
+/mob/living/carbon/human/handle_mutations_and_radiation(seconds_per_tick)
 	if(InStasis())
 		return
 
@@ -214,53 +230,85 @@
 		if(gene.is_active(src))
 			gene.OnMobLife(src)
 
-	total_radiation = clamp(total_radiation,0,100)
+	/** radiation damage **/
 
 	if (total_radiation)
 		if(src.is_diona())
+			total_radiation = clamp(total_radiation,0,100) //Dionae processing assumes the radiation will cap at 100.
 			diona_handle_regeneration(get_dionastats())
 			return
-		else
-			var/damage = 0
-			total_radiation -= 1 * RADIATION_SPEED_COEFFICIENT
-			if(prob(25))
-				damage = 2
 
-			if (total_radiation > 50)
-				damage = 3
-				total_radiation -= 1 * RADIATION_SPEED_COEFFICIENT
-				if(prob(5) && prob(100 * RADIATION_SPEED_COEFFICIENT))
-					src.apply_radiation(-5 * RADIATION_SPEED_COEFFICIENT)
-					to_chat(src, SPAN_WARNING("You feel weak."))
-					Weaken(3)
-					if(!lying)
-						emote("collapse")
-				if(prob(5) && prob(100 * RADIATION_SPEED_COEFFICIENT) && species.name == SPECIES_HUMAN) //apes go bald
-					if((h_style != "Bald" || f_style != "Shaved" ))
-						to_chat(src, SPAN_WARNING("Your hair falls out."))
-						h_style = "Bald"
-						f_style = "Shaved"
-						update_hair()
+		if (total_radiation > RADIATION_MAX_DOSE) //Radiation exceeding the maximum threshold causes immediate burns, ignoring armour.
+			apply_damage(max((total_radiation - RADIATION_MAX_DOSE) * RADIATION_SPEED_COEFFICIENT, 0), DAMAGE_BURN, null, "Radiation Burns", DAMAGE_FLAG_DISPERSED | DAMAGE_FLAG_IGNORE_PROSTHETICS)
 
-			if (total_radiation > 75)
-				src.apply_radiation(-1 * RADIATION_SPEED_COEFFICIENT)
-				damage = 7
-				if(prob(5))
-					take_overall_damage(0, 10 * RADIATION_SPEED_COEFFICIENT, used_weapon = "Radiation Burns")
-					to_chat(src, SPAN_WARNING("You feel a burning sensation!"))
-				if(prob(1))
-					to_chat(src, SPAN_WARNING("You feel strange!"))
-					adjustCloneLoss(5 * RADIATION_SPEED_COEFFICIENT)
-					emote("gasp")
-				hallucination = max(hallucination, 20) //At this level, you're in a constant state of low-level hallucinations. As if you didn't have enough problems.
+		total_radiation = clamp(total_radiation,0,RADIATION_MAX_DOSE) //The maximum dose that can be received, above this level all further radiation is taken as damage directly to the body, ignoring armor. Very rapidly fatal.
 
+		var/damage = 0
 
-			if(damage)
-				adjustToxLoss(damage * RADIATION_SPEED_COEFFICIENT)
-				updatehealth()
-				if(organs.len)
-					var/obj/item/organ/external/O = pick(organs)
-					if(istype(O)) O.add_autopsy_data("Radiation Poisoning", damage)
+		src.apply_radiation(-1 * RADIATION_SPEED_COEFFICIENT * seconds_per_tick)
+
+		if (total_radiation >= RADIATION_DEADLY_DOSE && total_radiation <= RADIATION_MAX_DOSE) //A dose above this level causes heavy organ damage and debilitating symptoms, bleeding, weakness, cloneloss. Usually fatal without treatment.
+			damage = 3.6 //Net 1.2 damage per second on a healthy liver, because the liver heals for 6 and net 0.1 damage on a victim with dylovene.
+			hallucination = max(hallucination, 20)
+			sprint_speed_factor -= 0.3
+			sprint_cost_factor += 0.5
+			if (prob(total_radiation/200)) //3.75 to 5% chance, scaling with rad level.
+				adjustCloneLoss(5)
+			if (prob(total_radiation/200))
+				Weaken(3)
+				if(!lying)
+					emote("collapse")
+			if (prob(total_radiation/200))
+				to_chat(src, SPAN_DANGER("Patches of your skin burn and slough off!"))
+				apply_damage(30, DAMAGE_BURN, null, "Radiation Sickness", DAMAGE_FLAG_DISPERSED | DAMAGE_FLAG_IGNORE_PROSTHETICS)
+			if (prob(total_radiation/200))
+				to_chat(src, SPAN_WARNING("You feel terribly sick, everything aches!"))
+				apply_damage(30, DAMAGE_PAIN, null, "Radiation Sickness", DAMAGE_FLAG_DISPERSED)
+				delayed_vomit()
+			if (prob(total_radiation/200))
+				to_chat(src, SPAN_WARNING("Your head aches horribly and it's getting hard to walk straight!"))
+				confused = max(confused, 100)
+				apply_damage(15, DAMAGE_PAIN, BP_HEAD, "Radiation Sickness")
+
+		else if (total_radiation >= RADIATION_MAJOR_DOSE && total_radiation < RADIATION_DEADLY_DOSE) //A dose above this level causes slight organ damage and major symptoms; slowdown, confusion, hallucinations. Usually survivable with consequences.
+			damage = 3.1 //Net 0.2 damage per second on a healthy liver, because it heals for 6.
+			hallucination = max(hallucination, 20)
+			sprint_speed_factor -= 0.1
+			sprint_cost_factor += 0.25
+
+			if (prob(total_radiation/200)) //2.5 to 3.75% chance, scaling with rad level.
+				to_chat(src, SPAN_WARNING("Your head aches horribly and your vision blurrs!"))
+				eye_blurry = max(eye_blurry, 50)
+				apply_damage(15, DAMAGE_PAIN, BP_HEAD, "Radiation Sickness")
+			if (prob(total_radiation/200))
+				to_chat(src, SPAN_WARNING("You ache all over and it's getting hard to walk straight!"))
+				confused = max(confused, 50)
+				apply_damage(10, DAMAGE_PAIN, null, "Radiation Sickness", DAMAGE_FLAG_DISPERSED)
+			if (prob(total_radiation/200))
+				to_chat(src, SPAN_WARNING("You feel terribly sick; your stomach twists painfully!"))
+				apply_damage(10, DAMAGE_PAIN, BP_CHEST, "Radiation Sickness")
+				delayed_vomit()
+
+		else if (total_radiation >= RADIATION_MINOR_DOSE && total_radiation < RADIATION_MAJOR_DOSE) //A dose above this level causes minor symptoms; nausea, vomiting, headaches, tiredness.
+			damage = 2.1 //Net 0.2 damage per second on a damaged liver, because it heals for 4.
+			sprint_cost_factor += 0.15
+			if (prob(total_radiation/100)) //2.5 to 5% chance, scaling with rad level.
+				to_chat(src, SPAN_WARNING("You feel sick!"))
+				delayed_vomit()
+			if (prob(total_radiation/100))
+				to_chat(src, SPAN_WARNING("You have a splitting headache!"))
+				apply_damage(10, DAMAGE_PAIN, BP_HEAD, "Radiation Sickness")
+
+		else if (total_radiation >= RADIATION_NEGLIGABLE_DOSE && total_radiation < RADIATION_MINOR_DOSE) //A dose below this level causes no symptoms.
+			if(prob(3))
+				to_chat(src, SPAN_NOTICE("You feel a little sick."))
+
+		if(damage)
+			adjustToxLoss(damage * RADIATION_SPEED_COEFFICIENT * seconds_per_tick)
+			updatehealth()
+			if(organs.len)
+				var/obj/item/organ/external/O = pick(organs)
+				if(istype(O)) O.add_autopsy_data("Radiation Poisoning", damage)
 
 	/** breathing **/
 
@@ -296,14 +344,14 @@
 
 	if(breath)
 		//exposure to extreme pressures can rupture lungs
-		var/check_pressure = breath.return_pressure()
+		var/check_pressure = XGM_PRESSURE(breath)
 		if(check_pressure < ONE_ATMOSPHERE / 5 || check_pressure > ONE_ATMOSPHERE * 5)
 			if(!is_lung_ruptured() && prob(5))
 				rupture_lung()
 
 	return breath
 
-/mob/living/carbon/human/handle_environment(datum/gas_mixture/environment)
+/mob/living/carbon/human/handle_environment(datum/gas_mixture/environment, seconds_per_tick)
 	..()
 
 	if(!environment)
@@ -313,7 +361,7 @@
 	species.handle_environment_special(src)
 
 	//Moved pressure calculations here for use in skip-processing check.
-	var/pressure = environment.return_pressure()
+	var/pressure = XGM_PRESSURE(environment)
 	var/adjusted_pressure = calculate_affecting_pressure(pressure)
 
 	if (consume_nutrition_from_air)
@@ -330,12 +378,14 @@
 		if(bodytemperature > (0.1 * HUMAN_HEAT_CAPACITY/(HUMAN_EXPOSED_SURFACE_AREA*STEFAN_BOLTZMANN_CONSTANT))**(1/4) + COSMIC_RADIATION_TEMPERATURE)
 			//Thermal radiation into space
 			var/heat_loss = HUMAN_EXPOSED_SURFACE_AREA * STEFAN_BOLTZMANN_CONSTANT * ((bodytemperature - COSMIC_RADIATION_TEMPERATURE)**4)
+			// Temperature loss in Watts (kgm^2/s^3)
 			var/temperature_loss = heat_loss/HUMAN_HEAT_CAPACITY
-			bodytemperature -= temperature_loss
+			// Since body temperature is in Joules (kgm^2/s^2), we multiply temperature loss by DT (in seconds) to convert from Watts to Joules before subtracting.
+			bodytemperature -= temperature_loss * seconds_per_tick
 	else
 		var/loc_temp = T0C
-		if(istype(loc, /obj/machinery/atmospherics/unary/cryo_cell))
-			var/obj/machinery/atmospherics/unary/cryo_cell/C = loc
+		if(istype(loc, /obj/structure/machinery/atmospherics/unary/cryo_cell))
+			var/obj/structure/machinery/atmospherics/unary/cryo_cell/C = loc
 			loc_temp = C.air_contents?.temperature
 		else
 			loc_temp = environment.temperature
@@ -437,9 +487,10 @@
 		baseline += clothing.body_temperature_change
 	return baseline
 
-/mob/living/carbon/human/proc/stabilize_body_temperature()
+/mob/living/carbon/human/proc/stabilize_body_temperature(seconds_per_tick)
 	if (species.passive_temp_gain) // We produce heat naturally.
-		bodytemperature += species.passive_temp_gain
+		species.handle_temperature_regulation(src, seconds_per_tick)
+
 	if (species.body_temperature == null)
 		return //this species doesn't have metabolic thermoregulation
 
@@ -452,19 +503,16 @@
 
 	if(bodytemperature < species.cold_level_1) //260.15 is 310.15 - 50, the temperature where you start to feel effects.
 		if(nutrition >= 2) //If we are very, very cold we'll use up quite a bit of nutriment to heat us up.
-			adjustNutritionLoss(2)
-		var/recovery_amt = max((body_temperature_difference / BODYTEMP_AUTORECOVERY_DIVISOR), BODYTEMP_AUTORECOVERY_MINIMUM)
-		bodytemperature += recovery_amt
+			adjustNutritionLoss(seconds_per_tick)
+		bodytemperature += max((body_temperature_difference / BODYTEMP_AUTORECOVERY_DIVISOR * seconds_per_tick), BODYTEMP_AUTORECOVERY_MINIMUM * seconds_per_tick)
 	else if(species.cold_level_1 <= bodytemperature && bodytemperature <= species.heat_level_1)
-		var/recovery_amt = body_temperature_difference / BODYTEMP_AUTORECOVERY_DIVISOR
-		bodytemperature += recovery_amt
+		bodytemperature += body_temperature_difference / BODYTEMP_AUTORECOVERY_DIVISOR * seconds_per_tick
 	else if(bodytemperature > species.heat_level_1) //360.15 is 310.15 + 50, the temperature where you start to feel effects.
 		if(hydration >= 2)
-			adjustHydrationLoss(2)
+			adjustHydrationLoss(seconds_per_tick)
 			if((species.flags & CAN_SWEAT) && fire_stacks == 0)
 				fire_stacks = -1
-		var/recovery_amt = min((body_temperature_difference / BODYTEMP_AUTORECOVERY_DIVISOR), -BODYTEMP_AUTORECOVERY_MINIMUM)	//We're dealing with negative numbers
-		bodytemperature += recovery_amt
+		bodytemperature += min((body_temperature_difference * seconds_per_tick / BODYTEMP_AUTORECOVERY_DIVISOR), -BODYTEMP_AUTORECOVERY_MINIMUM * seconds_per_tick)	//We're dealing with negative numbers
 
 /**
  * Returns a bitflag for the body parts currently heat-protected. Called and used by get_heat_protection()
@@ -664,16 +712,40 @@
 			sprint_cost_factor -= 0.35 * chem_effects[CE_ADRENALINE]
 			stamina_recovery += max ((stamina_recovery * 0.7 * chem_effects[CE_ADRENALINE]), 5)
 
-		var/obj/item/clothing/C = wear_suit
-		if(!(C && (C.body_parts_covered & HANDS) && !(C.heat_protection & HANDS)) && !gloves)
-			for(var/obj/item/I in src)
-				if(I.contaminated && !(species.flags & PHORON_IMMUNE))
-					if(I == r_hand)
-						apply_damage(GLOB.vsc.plc.CONTAMINATION_LOSS, DAMAGE_BURN, BP_R_HAND)
-					else if(I == l_hand)
-						apply_damage(GLOB.vsc.plc.CONTAMINATION_LOSS, DAMAGE_BURN, BP_L_HAND)
-					else
-						adjustFireLoss(GLOB.vsc.plc.CONTAMINATION_LOSS)
+		var/obj/item/clothing/suit = wear_suit
+		var/protected = FALSE
+		if(suit && (suit.body_parts_covered & HANDS) && (suit.heat_protection & HANDS))
+			protected = TRUE
+
+		if(gloves && (gloves.heat_protection & HANDS))
+			protected = TRUE
+
+		if(!(species.flags & PHORON_IMMUNE))
+			for(var/obj/item/held_item in list(r_hand, l_hand, wear_suit, head, wear_mask, w_uniform, gloves, shoes))
+				if(held_item.contaminated)
+					if(held_item.body_parts_covered & HEAD)
+						apply_damage(GLOB.vsc.plc.CONTAMINATION_LOSS, DAMAGE_BURN, BP_HEAD, "Contamination burns", DAMAGE_FLAG_IGNORE_PROSTHETICS, 100, TRUE)
+					if (held_item.body_parts_covered & UPPER_TORSO)
+						apply_damage(GLOB.vsc.plc.CONTAMINATION_LOSS, DAMAGE_BURN, BP_CHEST, "Contamination burns", DAMAGE_FLAG_IGNORE_PROSTHETICS, 100, TRUE)
+					if (held_item.body_parts_covered & LOWER_TORSO)
+						apply_damage(GLOB.vsc.plc.CONTAMINATION_LOSS, DAMAGE_BURN, BP_GROIN, "Contamination burns", DAMAGE_FLAG_IGNORE_PROSTHETICS, 100, TRUE)
+					if (held_item.body_parts_covered & LEG_LEFT)
+						apply_damage(GLOB.vsc.plc.CONTAMINATION_LOSS, DAMAGE_BURN, BP_L_LEG, "Contamination burns", DAMAGE_FLAG_IGNORE_PROSTHETICS, 100, TRUE)
+					if (held_item.body_parts_covered & LEG_RIGHT)
+						apply_damage(GLOB.vsc.plc.CONTAMINATION_LOSS, DAMAGE_BURN, BP_R_LEG, "Contamination burns", DAMAGE_FLAG_IGNORE_PROSTHETICS, 100, TRUE)
+					if (held_item.body_parts_covered & ARM_LEFT)
+						apply_damage(GLOB.vsc.plc.CONTAMINATION_LOSS, DAMAGE_BURN, BP_L_ARM, "Contamination burns", DAMAGE_FLAG_IGNORE_PROSTHETICS, 100, TRUE)
+					if (held_item.body_parts_covered & ARM_RIGHT)
+						apply_damage(GLOB.vsc.plc.CONTAMINATION_LOSS, DAMAGE_BURN, BP_R_ARM, "Contamination burns", DAMAGE_FLAG_IGNORE_PROSTHETICS, 100, TRUE)
+					if (held_item.body_parts_covered & HAND_LEFT)
+						apply_damage(GLOB.vsc.plc.CONTAMINATION_LOSS, DAMAGE_BURN, BP_L_HAND, "Contamination burns", DAMAGE_FLAG_IGNORE_PROSTHETICS, 100, TRUE)
+					if (held_item.body_parts_covered & HAND_RIGHT)
+						apply_damage(GLOB.vsc.plc.CONTAMINATION_LOSS, DAMAGE_BURN, BP_R_HAND, "Contamination burns", DAMAGE_FLAG_IGNORE_PROSTHETICS, 100, TRUE)
+					if(!protected)
+						if(held_item == r_hand)
+							apply_damage(GLOB.vsc.plc.CONTAMINATION_LOSS * gloves.permeability_coefficient, DAMAGE_BURN, BP_R_HAND, "Contamination burns", DAMAGE_FLAG_IGNORE_PROSTHETICS, 100, TRUE)
+						else if(held_item == l_hand)
+							apply_damage(GLOB.vsc.plc.CONTAMINATION_LOSS * gloves.permeability_coefficient, DAMAGE_BURN, BP_L_HAND, "Contamination burns", DAMAGE_FLAG_IGNORE_PROSTHETICS, 100, TRUE)
 
 	if (intoxication)
 		handle_intoxication()
@@ -771,11 +843,11 @@
 		if(paralysis || sleeping || InStasis())
 			blinded = TRUE
 			if(sleeping && !stat)
-				species.sleep_msg(src)
 				set_stat(UNCONSCIOUS)
+				species.sleep_msg(src)
 				if(!sleeping_msg_debounce)
 					sleeping_msg_debounce = TRUE
-					to_chat(src, SPAN_NOTICE(FONT_LARGE("You are now unconscious.<br>You will not remember anything you \"see\" happening around you until you regain consciousness.")))
+					to_chat(src, EXAMINE_BLOCK_BLUE(SPAN_NOTICE(FONT_LARGE("You are now unconscious. You will not remember anything you see, hear, or feel happening around you until you regain consciousness."))))
 
 			adjustHalLoss(-3)
 			if (species.tail)
@@ -865,6 +937,7 @@
 #define DRUNK_STRING "drunk"
 #define BLEEDING_STRING "bleeding"
 #define POSING_STRING "posing"
+#define STASIS_STRING "stasis"
 
 /mob/living/carbon/human/handle_regular_hud_updates()
 	if(hud_updateflag) // update our mob's hud overlays, AKA what others see flaoting above our head
@@ -875,10 +948,10 @@
 		return
 
 	if(stat != DEAD)
-		if((stat == UNCONSCIOUS && health < maxHealth / 2) || paralysis || InStasis())
+		if((stat == UNCONSCIOUS && health < maxhealth / 2) || paralysis || InStasis())
 			//Critical damage passage overlay
 			var/severity = 0
-			switch(health - maxHealth/2)
+			switch(health - maxhealth/2)
 				if(-20 to -10)			severity = 1
 				if(-30 to -20)			severity = 2
 				if(-40 to -30)			severity = 3
@@ -973,24 +1046,24 @@
 
 				// Apply a fire overlay if we're burning.
 				if(on_fire)
-					var/image/burning_image = image('icons/mob/screen1_health.dmi', "burning", pixel_x = species.healths_overlay_x)
+					var/image/burning_image = image('icons/hud/mob/screen1_health.dmi', "burning", pixel_x = species.healths_overlay_x)
 					var/midway_point = FIRE_MAX_STACKS / 2
 					burning_image.color = color_rotation((midway_point - fire_stacks) * 3)
 
 				// Show a general pain/crit indicator if needed.
 				if(is_asystole())
-					var/image/hardcrit_image = image('icons/mob/screen1_health.dmi', "hardcrit", pixel_x = species.healths_overlay_x)
+					var/image/hardcrit_image = image('icons/hud/mob/screen1_health.dmi', "hardcrit", pixel_x = species.healths_overlay_x)
 					health_images += hardcrit_image
 				else if(trauma_val)
 					if(can_feel_pain())
 						if(trauma_val > 0.7)
-							var/image/softcrit_image = image('icons/mob/screen1_health.dmi', "softcrit", pixel_x = species.healths_overlay_x)
+							var/image/softcrit_image = image('icons/hud/mob/screen1_health.dmi', "softcrit", pixel_x = species.healths_overlay_x)
 							health_images += softcrit_image
 						if(trauma_val >= 1)
-							var/image/hardcrit_image = image('icons/mob/screen1_health.dmi', "hardcrit", pixel_x = species.healths_overlay_x)
+							var/image/hardcrit_image = image('icons/hud/mob/screen1_health.dmi', "hardcrit", pixel_x = species.healths_overlay_x)
 							health_images += hardcrit_image
 				else if(no_damage)
-					var/image/fullhealth_image = image('icons/mob/screen1_health.dmi', "fullhealth", pixel_x = species.healths_overlay_x)
+					var/image/fullhealth_image = image('icons/hud/mob/screen1_health.dmi', "fullhealth", pixel_x = species.healths_overlay_x)
 					health_images += fullhealth_image
 
 				healths.overlays += health_images
@@ -1008,7 +1081,7 @@
 					nut_icon = 2
 				else if (nut_factor >= CREW_NUTRITION_HUNGRY)
 					nut_icon = 3
-				else if (nut_factor >= CREW_NUTRITION_VERYHUNGRY )
+				else if (nut_factor >= CREW_NUTRITION_VERYHUNGRY)
 					nut_icon = 4
 				var/new_val = "[isSynthetic() ? "charge" : "nutrition"][nut_icon]"
 				if (nutrition_icon.icon_state != new_val)
@@ -1032,7 +1105,7 @@
 					hydration_icon.icon_state = new_val
 
 			if(isSynthetic())
-				var/obj/item/organ/internal/cell/IC = internal_organs_by_name[BP_CELL]
+				var/obj/item/organ/internal/machine/power_core/IC = internal_organs_by_name[BP_CELL]
 				if(istype(IC) && IC.is_usable())
 					var/chargeNum = clamp(Ceiling(IC.percent()/25), 0, 4)	//0-100 maps to 0-4, but give it a paranoid clamp just in case.
 					cells.icon_state = "charge[chargeNum]"
@@ -1053,12 +1126,6 @@
 			var/new_oxy = (oxygen_alert) ? "oxy1" : "oxy0"
 			if (oxygen.icon_state != new_oxy)
 				oxygen.icon_state = new_oxy
-
-		if(fire)
-			//fire_alert is either 0 if no alert, 1 for cold and 2 for heat.
-			var/new_fire = fire_alert ? "fire[fire_alert]" : "fire0"
-			if (fire.icon_state != new_fire)
-				fire.icon_state = new_fire
 
 		if(bodytemp)
 			var/new_temp
@@ -1126,8 +1193,18 @@
 				if(!has_drunk_status)
 					add_status_to_hud(DRUNK_STRING, SPAN_GOOD("You are drunk. Your words are slurred, and your movements are uncoordinated."))
 			else if(has_drunk_status)
+				client.screen -= status_overlays[DRUNK_STRING]
 				qdel(status_overlays[DRUNK_STRING])
 				status_overlays -= DRUNK_STRING
+
+			var/has_stasis_status = LAZYISIN(status_overlays, STASIS_STRING)
+			if(InStasis())
+				if(!has_stasis_status)
+					add_status_to_hud(STASIS_STRING, "Your biological functions are slowed. You can't interact with much in this state.")
+			else if(has_stasis_status)
+				client.screen -= status_overlays[STASIS_STRING]
+				qdel(status_overlays[STASIS_STRING])
+				status_overlays -= STASIS_STRING
 
 			var/has_bleeding_limb = FALSE
 			var/has_bleeding_status = LAZYISIN(status_overlays, BLEEDING_STRING)
@@ -1139,6 +1216,7 @@
 				if(!has_bleeding_status)
 					add_status_to_hud(BLEEDING_STRING, SPAN_HIGHDANGER("Blood gushes from one of your bodyparts, inspect yourself and seal the wound."))
 			else if(has_bleeding_status)
+				client.screen -= status_overlays[BLEEDING_STRING]
 				qdel(status_overlays[BLEEDING_STRING])
 				status_overlays -= BLEEDING_STRING
 
@@ -1147,6 +1225,7 @@
 				if(!has_posing_status)
 					add_status_to_hud(POSING_STRING, SPAN_NOTICE("You are posing. Your current pose is \"[pose]\""))
 			else if(has_posing_status)
+				client.screen -= status_overlays[POSING_STRING]
 				qdel(status_overlays[POSING_STRING])
 				status_overlays -= POSING_STRING
 
@@ -1160,6 +1239,7 @@
 #undef DRUNK_STRING
 #undef BLEEDING_STRING
 #undef POSING_STRING
+#undef STASIS_STRING
 
 /mob/living/carbon/human/proc/add_status_to_hud(var/set_overlay, var/set_status_message)
 	var/atom/movable/screen/status/new_status = new /atom/movable/screen/status(null, ui_style2icon(client.prefs.UI_style), set_overlay, set_status_message)
@@ -1180,9 +1260,6 @@
 	return "EAST[coord_col]:[coord_col_offset],NORTH[coord_row]:[coord_row_offset]"
 
 /mob/living/carbon/human/handle_random_events()
-	if(InStasis())
-		return
-
 	// Puke if toxloss is too high
 	if(!stat)
 		if (getToxLoss() >= 45 && !lastpuke)
@@ -1191,33 +1268,14 @@
 			else if (prob(1))
 				vomit()
 
-	//0.1% chance of playing a scary sound to someone who's in complete darkness
-	if(isturf(loc) && rand(1,1000) == 1)
-		var/turf/T = loc
-		if (T.get_lumcount() < 0.01)	// give a little bit of tolerance for near-dark areas.
-			playsound(null, pick(GLOB.scarySounds), 50, TRUE)
-
-		if(HAS_TRAIT(src, TRAIT_ORIGIN_DARK_AFRAID))
-			if(T.get_lumcount() < 0.1)
-				if(prob(2))
-					var/list/assunzione_messages = list(
-						"You feel a bit afraid...",
-						"You feel somewhat nervous...",
-						"You could use a little light here...",
-						"Ennoia be with you, it's a bit too dark..."
-					)
-					to_chat(src, SPAN_WARNING(pick(assunzione_messages)))
-
-		if(HAS_TRAIT(src, TRAIT_ORIGIN_LIGHT_SENSITIVE))
-			if(T.get_lumcount() > 0.8)
-				if(prob(1))
-					if(prob(5))
-						var/list/eye_sensitivity_messages = list(
-							"Your eyes tire a bit.",
-							"Your eyes sting a little.",
-							"Your vision feels a bit strained."
-						)
-						to_chat(src, SPAN_WARNING(pick(eye_sensitivity_messages)))
+	// Handle turf brightness behavior:
+	if(isturf(loc))
+		var/turf/T
+		// 0.1% chance of playing a scary sound to someone who's in complete darkness
+		if(rand(1,1000) == 1)
+			T = loc
+			if(T.get_lumcount() < 0.05)	// give a little bit of tolerance for near-dark areas.
+				playsound(null, pick(GLOB.scarySounds), 50, TRUE)
 
 /mob/living/carbon/human/proc/handle_changeling()
 	if(mind)
@@ -1239,7 +1297,7 @@
 		Paralyse(3)
 		return
 	if(!can_feel_pain())
-		if(isSynthetic() &&(get_total_health() < maxHealth * 0.5))
+		if(isSynthetic() &&(get_total_health() < maxhealth * 0.5))
 			stuttering = max(stuttering, 5)
 		return
 
@@ -1490,6 +1548,7 @@
 		return
 	if((mutations & XRAY))
 		set_sight(sight|SEE_TURFS|SEE_MOBS|SEE_OBJS)
+	lighting_alpha = default_lighting_alpha
 
 /**
  * This proc assumes that if shock_value = null, then a shock value was NOT passed in, and thus it calculates it itself.
@@ -1528,7 +1587,7 @@
 			stamina = min(max_stamina, stamina+regen)
 			adjustNutritionLoss(stamina_recovery*0.09)
 			adjustHydrationLoss(stamina_recovery*0.32)
-			if (client)
+			if (client && hud_used && hud_used.move_intent)
 				hud_used.move_intent.update_move_icon(src)
 
 /mob/living/carbon/human/proc/update_oxy_overlay()

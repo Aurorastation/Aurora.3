@@ -2,14 +2,14 @@
 @use 'sass:meta';
 
 @use '../colors.scss' with (
-  $primary: #DB6700,
+  $primary: #db6700,
   $bad: #991100,
   $fg-map-keys: (),
-  $bg-map-keys: (),
+  $bg-map-keys: ()
 );
 @use '../base.scss' with (
   $color-bg: #192616,
-  $color-bg-grad-spread: 6%,
+  $color-bg-grad-spread: 6%
 );
 
 .theme-hephaestus {
@@ -17,6 +17,16 @@
   @include meta.load-css('../atomic/color.scss');
 
   // Components
+  @include meta.load-css(
+    '../components/Button.scss',
+    $with: (
+      'color-default': #db6700,
+      'color-disabled': #a54a00,
+      'color-selected': #ffffff,
+      'color-caution': #be6209,
+      'color-danger': #991100
+    )
+  );
   @include meta.load-css(
     '../components/Input.scss',
     $with: ('border-color': #db6700)

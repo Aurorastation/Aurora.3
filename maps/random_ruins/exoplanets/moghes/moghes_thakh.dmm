@@ -20,7 +20,7 @@
 /obj/structure/railing/fence{
 	dir = 4
 	},
-/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/structure/machinery/portable_atmospherics/hydroponics/soil,
 /turf/simulated/floor/exoplanet/grass/moghes,
 /area/moghes_thakh)
 "dz" = (
@@ -92,7 +92,7 @@
 /turf/simulated/floor/exoplanet/water/shallow/moghes,
 /area/moghes_thakh)
 "oC" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/exoplanet/wood/walnut{
 	temperature = 303.15
 	},
@@ -176,7 +176,7 @@
 /obj/structure/railing/fence{
 	dir = 1
 	},
-/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/structure/machinery/portable_atmospherics/hydroponics/soil,
 /turf/simulated/floor/exoplanet/grass/moghes,
 /area/moghes_thakh)
 "EP" = (
@@ -193,7 +193,7 @@
 /turf/simulated/floor/exoplanet/grass/moghes,
 /area/moghes_thakh)
 "Gm" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -203,7 +203,7 @@
 /area/moghes_thakh)
 "HI" = (
 /obj/structure/railing/fence,
-/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/structure/machinery/portable_atmospherics/hydroponics/soil,
 /turf/simulated/floor/exoplanet/grass/moghes,
 /area/moghes_thakh)
 "Ij" = (
@@ -215,7 +215,7 @@
 	},
 /area/moghes_thakh)
 "Ir" = (
-/obj/item/device/versebook/thakh,
+/obj/item/versebook/thakh,
 /obj/structure/table/fancy/black,
 /turf/simulated/floor/exoplanet/wood/walnut{
 	temperature = 303.15
@@ -271,13 +271,13 @@
 /area/moghes_thakh)
 "Ou" = (
 /obj/structure/closet/cabinet,
-/obj/item/device/versebook/thakh,
-/obj/item/device/versebook/thakh,
-/obj/item/device/versebook/thakh,
-/obj/item/device/versebook/thakh,
-/obj/item/device/versebook/thakh,
-/obj/item/device/versebook/thakh,
-/obj/item/device/versebook/thakh,
+/obj/item/versebook/thakh,
+/obj/item/versebook/thakh,
+/obj/item/versebook/thakh,
+/obj/item/versebook/thakh,
+/obj/item/versebook/thakh,
+/obj/item/versebook/thakh,
+/obj/item/versebook/thakh,
 /turf/simulated/floor/exoplanet/wood/walnut{
 	temperature = 303.15
 	},
@@ -298,7 +298,7 @@
 /obj/structure/railing/fence{
 	dir = 4
 	},
-/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/structure/machinery/portable_atmospherics/hydroponics/soil,
 /turf/simulated/floor/exoplanet/grass/moghes,
 /area/moghes_thakh)
 "QY" = (
@@ -311,7 +311,7 @@
 /obj/structure/railing/fence{
 	dir = 8
 	},
-/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/structure/machinery/portable_atmospherics/hydroponics/soil,
 /turf/simulated/floor/exoplanet/grass/moghes,
 /area/moghes_thakh)
 "Sl" = (
@@ -347,7 +347,7 @@
 	},
 /area/moghes_thakh)
 "Vj" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/wood/walnut{
@@ -364,12 +364,12 @@
 /obj/structure/railing/fence{
 	dir = 1
 	},
-/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/structure/machinery/portable_atmospherics/hydroponics/soil,
 /turf/simulated/floor/exoplanet/grass/moghes,
 /area/moghes_thakh)
 "Zn" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /turf/simulated/floor/exoplanet/wood/walnut{
 	temperature = 303.15
 	},

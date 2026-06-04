@@ -31,8 +31,7 @@
 			SPECIES_VAURCA_ATTENDANT,
 			SPECIES_VAURCA_BULWARK,
 			SPECIES_VAURCA_BREEDER,
-			SPECIES_TAJARA_ZHAN,
-			SPECIES_TAJARA_MSAI
+			SPECIES_TAJARA_ZHAN
 		),
 		"Diplomatic Aide" = list(
 			SPECIES_HUMAN,
@@ -54,8 +53,7 @@
 			SPECIES_VAURCA_WARRIOR,
 			SPECIES_VAURCA_ATTENDANT,
 			SPECIES_VAURCA_BULWARK,
-			SPECIES_VAURCA_BREEDER,
-			SPECIES_TAJARA_ZHAN
+			SPECIES_VAURCA_BREEDER
 		),
 		"Diplomatic Bodyguard" = list(
 			SPECIES_HUMAN,
@@ -77,8 +75,7 @@
 			SPECIES_VAURCA_WARRIOR,
 			SPECIES_VAURCA_ATTENDANT,
 			SPECIES_VAURCA_BULWARK,
-			SPECIES_VAURCA_BREEDER,
-			SPECIES_TAJARA_ZHAN
+			SPECIES_VAURCA_BREEDER
 		)
 	)
 
@@ -92,6 +89,7 @@
 
 	glasses = null
 	uniform = /obj/item/clothing/under/tajaran/consular
+	suit = /obj/item/clothing/suit/storage/toggle/tajaran/consular
 	head = /obj/item/clothing/head/tajaran/consular
 	backpack_contents = list(
 		/obj/item/storage/box/hadii_card = 1,
@@ -116,11 +114,13 @@
 
 /obj/outfit/job/diplomatic_bodyguard/pra
 	name = "PRA Diplomatic Bodyguard"
-	uniform = /obj/item/clothing/under/tajaran/fancy/alt2
+	uniform = /obj/item/clothing/under/tajaran/pra_cop
+	suit = /obj/item/clothing/suit/storage/tajaran/pra_cop
+	head = /obj/item/clothing/head/tajaran/pra_cop
+	shoes = /obj/item/clothing/shoes/jackboots/tajara
 	backpack_contents = list(
 		/obj/item/gun/projectile/pistol/adhomai = 1
 	)
-	accessory = /obj/item/clothing/accessory/hadii_pin
 
 /datum/citizenship/dpra
 	name = CITIZENSHIP_DPRA
@@ -156,8 +156,7 @@
 			SPECIES_VAURCA_ATTENDANT,
 			SPECIES_VAURCA_BULWARK,
 			SPECIES_VAURCA_BREEDER,
-			SPECIES_TAJARA_ZHAN,
-			SPECIES_TAJARA_MSAI
+			SPECIES_TAJARA_ZHAN
 		),
 		"Diplomatic Aide" = list(
 			SPECIES_HUMAN,
@@ -179,8 +178,7 @@
 			SPECIES_VAURCA_WARRIOR,
 			SPECIES_VAURCA_ATTENDANT,
 			SPECIES_VAURCA_BULWARK,
-			SPECIES_VAURCA_BREEDER,
-			SPECIES_TAJARA_ZHAN
+			SPECIES_VAURCA_BREEDER
 		),
 		"Diplomatic Bodyguard" = list(
 			SPECIES_HUMAN,
@@ -202,8 +200,7 @@
 			SPECIES_VAURCA_WARRIOR,
 			SPECIES_VAURCA_ATTENDANT,
 			SPECIES_VAURCA_BULWARK,
-			SPECIES_VAURCA_BREEDER,
-			SPECIES_TAJARA_ZHAN
+			SPECIES_VAURCA_BREEDER
 		)
 	)
 
@@ -217,6 +214,7 @@
 
 	glasses = null
 	uniform = /obj/item/clothing/under/tajaran/consular/dpra
+	suit = /obj/item/clothing/suit/storage/toggle/tajaran/consular/dpra
 	head = /obj/item/clothing/head/tajaran/consular/dpra
 	backpack_contents = list(
 		/obj/item/gun/projectile/silenced = 1,
@@ -238,7 +236,9 @@
 
 /obj/outfit/job/diplomatic_bodyguard/dpra
 	name = "DPRA Diplomatic Bodyguard"
-	uniform = /obj/item/clothing/under/tajaran/fancy/alt2
+	uniform = /obj/item/clothing/under/tajaran/ala/black/dress/ajic
+	shoes = /obj/item/clothing/shoes/jackboots/tajara
+	head = /obj/item/clothing/head/beret/tajaran/dpra/ajic
 	backpack_contents = list(
 		/obj/item/gun/projectile/silenced = 1,
 	)
@@ -279,8 +279,7 @@
 			SPECIES_VAURCA_ATTENDANT,
 			SPECIES_VAURCA_BULWARK,
 			SPECIES_VAURCA_BREEDER,
-			SPECIES_TAJARA_ZHAN,
-			SPECIES_TAJARA_MSAI
+			SPECIES_TAJARA_ZHAN
 		),
 		"Diplomatic Aide" = list(
 			SPECIES_HUMAN,
@@ -303,6 +302,7 @@
 			SPECIES_VAURCA_ATTENDANT,
 			SPECIES_VAURCA_BULWARK,
 			SPECIES_VAURCA_BREEDER,
+			SPECIES_TAJARA_MSAI,
 			SPECIES_TAJARA_ZHAN
 		),
 		"Diplomatic Bodyguard" = list(
@@ -340,6 +340,7 @@
 
 	glasses = null
 	uniform = /obj/item/clothing/under/tajaran/consular/nka
+	suit = /obj/item/clothing/suit/storage/toggle/tajaran/consular/nka
 	head = /obj/item/clothing/head/tajaran/consular/nka
 	backpack_contents = list(
 		/obj/item/folder/blue/nka = 1,
@@ -358,11 +359,12 @@
 		/obj/item/storage/box/nka_manifesto = 1,
 		/obj/item/storage/field_ration/nka = 1
 	)
-	accessory = /obj/item/clothing/accessory/nka_pin
 
 /obj/outfit/job/diplomatic_bodyguard/nka
 	name = "NKA Diplomatic Bodyguard"
-	uniform = /obj/item/clothing/under/tajaran/fancy/alt2
+	uniform = /obj/item/clothing/under/tajaran/nka_uniform/nosheath
+	head = /obj/item/clothing/head/tajaran/nka_cap
+	shoes = /obj/item/clothing/shoes/jackboots/tajara
 	backpack_contents = list(
 		/obj/item/gun/projectile/revolver/adhomian = 1
 	)

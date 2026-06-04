@@ -17,7 +17,7 @@
 
 	if(isipc(target))
 		var/mob/living/carbon/human/H = target
-		var/obj/item/organ/internal/surge/s = H.internal_organs_by_name["surge"]
+		var/obj/item/organ/internal/machine/surge/s = H.internal_organs_by_name[BP_SURGE_PROTECTOR]
 		if(!isnull(s))
 			if(s.surge_left >= 0.5)
 				playsound(src.loc, 'sound/magic/LightningShock.ogg', 25, 1)
@@ -76,7 +76,7 @@
 	edge = TRUE
 
 /obj/projectile/bullet/gyro/on_hit(atom/target, blocked, def_zone)
-	explosion(target, -1, 0, 2)
+	explosion(get_turf(target), -1, 0, 2)
 	. = ..()
 
 /obj/projectile/bullet/gyro/law
@@ -87,7 +87,7 @@
 /obj/projectile/bullet/gyro/law/on_hit(atom/target, blocked, def_zone)
 	. = ..()
 
-	explosion(target, -1, 0, 2)
+	explosion(get_turf(target), -1, 0, 2)
 	var/obj/T = target
 	var/throwdir = get_dir(firer,target)
 	T.throw_at(get_edge_target_turf(target, throwdir),3,3)
@@ -215,7 +215,7 @@
 	edge = TRUE
 
 /obj/projectile/bullet/trod/on_hit(atom/target, blocked, def_zone)
-	explosion(target, 0, 0, 4)
+	explosion(get_turf(target), 0, 0, 4)
 	. = ..()
 
 /obj/projectile/chameleon
@@ -235,7 +235,7 @@
 	penetrating = 1
 
 /obj/projectile/bullet/cannon/on_hit(atom/target, blocked, def_zone)
-	explosion(target, 1, 2, 3, 3)
+	explosion(get_turf(target), 1, 2, 3, 3)
 	. = ..()
 
 //magic
@@ -256,7 +256,7 @@
 	damage_type = DAMAGE_BURN
 
 /obj/projectile/magic/fireball/on_hit(atom/target, blocked, def_zone)
-	explosion(target, 0, 0, 4)
+	explosion(get_turf(target), 0, 0, 4)
 	. = ..()
 
 /obj/projectile/magic/teleport //literaly bluespace crystal code, because i am lazy and it seems to work
@@ -268,7 +268,7 @@
 /obj/projectile/magic/teleport/on_hit(atom/target, blocked, def_zone)
 	var/turf/T = get_turf(target)
 	single_spark(T)
-	playsound(src.loc, /singleton/sound_category/spark_sound, 50, 1)
+	playsound(src.loc, SFX_SPARKS, 50, 1)
 	if(isliving(target))
 		blink_mob(target)
 	return ..()
@@ -283,7 +283,7 @@
 	damage_type = DAMAGE_BRUTE
 	damage_flags = DAMAGE_FLAG_LASER
 	check_armor = ENERGY
-	incinerate = 10
+	incinerate = 2
 	armor_penetration = 60
 	penetrating = 1
 
@@ -291,7 +291,7 @@
 	name = "plasma bolt"
 	damage = 15
 	armor_penetration = 60
-	incinerate = 8
+	incinerate = 1
 
 /obj/item/missile
 	icon = 'icons/obj/grenade.dmi'
@@ -301,7 +301,7 @@
 
 /obj/item/missile/throw_impact(atom/hit_atom)
 	if(primed)
-		explosion(hit_atom, 0, 1, 2, 4)
+		explosion(get_turf(hit_atom), 0, 1, 2, 4)
 		qdel(src)
 	else
 		..()

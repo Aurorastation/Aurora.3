@@ -7,12 +7,12 @@
 	maxbodytemp = 500
 	mob_size = MOB_TINY
 
-	var/radio_type = /obj/item/device/radio/borg
-	var/obj/item/device/radio/borg/radio = null
+	var/radio_type = /obj/item/radio/borg
+	var/obj/item/radio/borg/radio = null
 	var/mob/living/silicon/ai/connected_ai = null
 	var/obj/item/cell/cell = null
-	var/obj/machinery/camera/camera = null
-	var/obj/item/device/mmi/mmi = null
+	var/obj/structure/machinery/camera/camera = null
+	var/obj/item/mmi/mmi = null
 	var/obj/item/card/id/internal_id = null
 	var/list/req_access = list(ACCESS_ROBOTICS) //Access needed to pop out the brain.
 	var/positronic
@@ -29,10 +29,10 @@
 	wander = 0
 	density = 0
 	health = 25
-	maxHealth = 25
+	maxhealth = 25
 	hunger_enabled = 0
 
-	attacktext = "shocked"
+	attacktext = "shocks"
 	melee_damage_lower = 1
 	melee_damage_upper = 3
 
@@ -63,7 +63,7 @@
 	voice_name = name
 
 	radio = new radio_type(src)
-	camera = new /obj/machinery/camera(src, 0, TRUE, TRUE)
+	camera = new /obj/structure/machinery/camera(src, 0, TRUE, TRUE)
 	camera.c_tag = "spiderbot-[real_name]"
 	camera.replace_networks(list("SS13"))
 
@@ -79,8 +79,8 @@
 
 /mob/living/simple_animal/spiderbot/attackby(obj/item/attacking_item, mob/user)
 
-	if(istype(attacking_item, /obj/item/device/mmi))
-		var/obj/item/device/mmi/B = attacking_item
+	if(istype(attacking_item, /obj/item/mmi))
+		var/obj/item/mmi/B = attacking_item
 		if(src.mmi)
 			to_chat(user, SPAN_WARNING("There's already a brain in [src]!"))
 			return
@@ -108,7 +108,7 @@
 
 		to_chat(user, SPAN_NOTICE("You install \the [attacking_item] in \the [src]!"))
 
-		if(istype(attacking_item, /obj/item/device/mmi/digital))
+		if(istype(attacking_item, /obj/item/mmi/digital))
 			positronic = 1
 			add_language("Robot Talk")
 
@@ -119,13 +119,13 @@
 		src.update_icon()
 		return 1
 
-	if (attacking_item.iswelder())
+	if (attacking_item.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/WT = attacking_item
 		if (WT.use(0))
-			if(health < maxHealth)
+			if(health < maxhealth)
 				health += pick(1,1,1,2,2,3)
-				if(health > maxHealth)
-					health = maxHealth
+				if(health > maxhealth)
+					health = maxhealth
 				add_fingerprint(user)
 				src.visible_message(SPAN_NOTICE("\The [user] has spot-welded some of the damage to \the [src]!"))
 			else
@@ -183,7 +183,7 @@
 		spawn(200)	to_chat(src, SPAN_DANGER("Internal heat sensors are spiking! Something is badly wrong with your cell!"))
 		spawn(300)	src.explode()
 
-/mob/living/simple_animal/spiderbot/proc/transfer_personality(var/obj/item/device/mmi/M as obj)
+/mob/living/simple_animal/spiderbot/proc/transfer_personality(var/obj/item/mmi/M as obj)
 	src.mind = M.brainmob.mind
 	src.mind.key = M.brainmob.key
 	src.ckey = M.brainmob.ckey
@@ -238,7 +238,7 @@
 		held_item = null
 
 	eject_brain()
-	gibs(loc, viruses, null, /obj/effect/gibspawner/robot) //TODO: use gib() or refactor spiderbots into synthetics.
+	gibs(loc, null, /obj/effect/gibspawner/robot) //TODO: use gib() or refactor spiderbots into synthetics.
 	qdel(src)
 	return
 
@@ -324,7 +324,7 @@
 	if (underdoor)
 		underdoor = 0
 		if ((layer == UNDERDOOR))//if this is false, then we must have used hide, or had our layer changed by something else. We wont do anymore checks for this move proc
-			for (var/obj/machinery/door/D in loc)
+			for (var/obj/structure/machinery/door/D in loc)
 				if (D.hashatch)
 					underdoor = 1
 					break
@@ -354,7 +354,7 @@
 			used_radios += radio
 		if("intercom")
 			var/turf/T = get_turf(src)
-			for(var/obj/item/device/radio/intercom/I in view(1, T))
+			for(var/obj/item/radio/intercom/I in view(1, T))
 				I.talk_into(src, message, null, verb, speaking)
 				used_radios += I
 	if(message_mode)
@@ -371,7 +371,7 @@
 		radio.interact(src)
 
 /mob/living/simple_animal/spiderbot/ai
-	radio_type = /obj/item/device/radio/headset/heads/ai_integrated
+	radio_type = /obj/item/radio/headset/heads/ai_integrated
 
 /mob/living/simple_animal/spiderbot/ai/Initialize()
 	. = ..()

@@ -6,7 +6,7 @@
 	icon = 'icons/turf/space.dmi'
 	icon_state = "bluespace-n"
 
-	plane = EFFECTS_ABOVE_LIGHTING_PLANE
+	plane = ABOVE_LIGHTING_PLANE
 	layer = SUPERMATTER_WALL_LAYER
 	light_color = COLOR_CYAN_BLUE
 	light_power = 6
@@ -49,7 +49,6 @@
 		STOP_PROCESSING(SScalamity, src)
 
 /turf/unsimulated/wall/supermatter/proc/after_tick(turf/T)
-	T.lighting_clear_overlay()
 	for(var/atom/movable/A in T)
 		if (A && A.simulated)	// No eating lighting overlays.
 			if(istype(A, /mob/living))

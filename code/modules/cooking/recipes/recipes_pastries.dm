@@ -230,10 +230,7 @@
 	result = /obj/item/reagent_containers/food/snacks/sliceable/cake/carrot
 
 /singleton/recipe/cake/cheese
-	items = list(
-		/obj/item/reagent_containers/food/snacks/cheesewedge,
-		/obj/item/reagent_containers/food/snacks/cheesewedge
-	)
+	reagents = list(/singleton/reagent/drink/milk = 5, /singleton/reagent/nutriment/flour = 15, /singleton/reagent/sugar = 15, /singleton/reagent/nutriment/protein/egg = 9, /singleton/reagent/nutriment/protein/cream_cheese = 10)
 	result = /obj/item/reagent_containers/food/snacks/sliceable/cake/cheese
 
 /singleton/recipe/cake/orange
@@ -269,9 +266,8 @@
 	result = /obj/item/reagent_containers/food/snacks/sliceable/cake/apple
 
 /singleton/recipe/cake/ntella_cheesecake
-	reagents = list(/singleton/reagent/drink/milk = 5, /singleton/reagent/nutriment/choconutspread = 15, /singleton/reagent/sugar = 10)
+	reagents = list(/singleton/reagent/drink/milk = 5, /singleton/reagent/nutriment/choconutspread = 15, /singleton/reagent/sugar = 10, /singleton/reagent/nutriment/protein/cream_cheese = 10)
 	items = list(
-		/obj/item/reagent_containers/food/snacks/cheesewedge,
 		/obj/item/reagent_containers/food/snacks/cookiesnack,
 		/obj/item/reagent_containers/food/snacks/cookiesnack,
 		/obj/item/reagent_containers/food/snacks/cookiesnack,

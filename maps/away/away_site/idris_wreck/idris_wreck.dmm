@@ -7,7 +7,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/captain)
 "ad" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner{
@@ -17,8 +17,8 @@
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/central)
 "ae" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -51,15 +51,15 @@
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/starbthrust)
 "aC" = (
-/obj/machinery/anti_bluespace,
+/obj/structure/machinery/anti_bluespace,
 /obj/effect/floor_decal/industrial/hatch/red,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/idris_wreck/vault)
 "aJ" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/diagonal{
@@ -68,16 +68,16 @@
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/atmos)
 "aK" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/item/organ/external/arm,
 /obj/effect/decal/cleanable/blood/splatter,
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/starbthrust)
 "aL" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -97,7 +97,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/central)
 "aQ" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/full,
@@ -110,8 +110,8 @@
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/cryo)
 "bh" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
@@ -123,7 +123,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/starbthrust)
 "bo" = (
-/obj/machinery/power/terminal{
+/obj/structure/machinery/power/terminal{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -148,7 +148,7 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/power/portgen/basic/advanced,
+/obj/structure/machinery/power/portgen/basic/advanced,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
@@ -161,31 +161,31 @@
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/idris_wreck/engi)
 "bw" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/idris_wreck/central)
 "bz" = (
-/obj/machinery/door/airlock/atmos{
+/obj/structure/machinery/door/airlock/atmos{
 	dir = 8;
 	name = "Atmospherics";
 	req_access = list(220)
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full/airless,
@@ -200,10 +200,10 @@
 /area/idris_wreck/central)
 "bB" = (
 /obj/structure/table/stone/marble,
-/obj/machinery/chemical_dispenser/bar_alc/full{
+/obj/structure/machinery/chemical_dispenser/bar_alc/full{
 	dir = 1
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/lino{
 	initial_gas = null
 	},
@@ -230,8 +230,8 @@
 /turf/simulated/floor/tiled,
 /area/idris_wreck/bridge)
 "bJ" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -248,19 +248,19 @@
 /turf/template_noop,
 /area/space)
 "bR" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
@@ -281,14 +281,14 @@
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/central)
 "bW" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/armory)
 "bX" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /obj/effect/landmark/scorcher,
@@ -305,7 +305,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/porta_turret/stationary{
+/obj/structure/machinery/porta_turret/stationary{
 	req_access = list(103);
 	req_one_access = null
 	},
@@ -332,11 +332,11 @@
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/central)
 "cx" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
 	},
-/obj/machinery/door/firedoor/noid,
+/obj/structure/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/full,
 /area/idris_wreck/central)
 "cB" = (
@@ -346,16 +346,16 @@
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/portthrust)
 "cF" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -365,14 +365,14 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 10
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/airless,
 /area/idris_wreck/starbthrust)
 "da" = (
-/obj/machinery/door/firedoor/noid/closed,
+/obj/structure/machinery/door/firedoor/noid/closed,
 /obj/effect/floor_decal/corner{
 	color = "#4B7A73";
 	dir = 6
@@ -380,8 +380,8 @@
 /turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/forehall)
 "df" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -394,15 +394,15 @@
 "du" = (
 /obj/effect/landmark/corpse/izharshan,
 /obj/random/civgun/rifle,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/blood/splatter,
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/full,
 /area/idris_wreck/central)
 "dx" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner{
@@ -423,18 +423,18 @@
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/captain)
 "dF" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
 	},
-/obj/machinery/door/firedoor/noid/closed,
+/obj/structure/machinery/door/firedoor/noid/closed,
 /turf/simulated/floor/tiled/full,
 /area/idris_wreck/central)
 "dM" = (
 /turf/simulated/floor/reinforced/airless,
 /area/idris_wreck/atmos)
 "dU" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -451,18 +451,18 @@
 /turf/simulated/floor/tiled,
 /area/idris_wreck/armory)
 "ei" = (
-/obj/machinery/atmospherics/portables_connector,
-/obj/machinery/portable_atmospherics/canister/empty{
+/obj/structure/machinery/atmospherics/portables_connector,
+/obj/structure/machinery/portable_atmospherics/canister/empty{
 	name = "waste canister"
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/atmos)
 "ek" = (
-/obj/machinery/porta_turret/stationary{
+/obj/structure/machinery/porta_turret/stationary{
 	req_access = list(103);
 	req_one_access = null
 	},
@@ -472,16 +472,16 @@
 /turf/simulated/floor/tiled,
 /area/idris_wreck/vault)
 "el" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/door/airlock/glass_security{
+/obj/structure/machinery/door/airlock/glass_security{
 	dir = 4;
 	name = "EVA Storage";
 	req_access = list(220)
@@ -492,14 +492,14 @@
 /turf/simulated/wall/shuttle/idris,
 /area/idris_wreck/atmos)
 "et" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /obj/effect/landmark/scorcher,
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/portthrust)
 "eJ" = (
-/obj/machinery/cryopod,
+/obj/structure/machinery/cryopod,
 /obj/structure/sign/flag/idris/large/east{
 	pixel_x = 32
 	},
@@ -509,7 +509,7 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/portgen/basic/fusion,
+/obj/structure/machinery/power/portgen/basic/fusion,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
@@ -532,7 +532,7 @@
 /turf/simulated/floor/tiled,
 /area/idris_wreck/bridge)
 "fj" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/full,
 /area/idris_wreck/eva)
 "fo" = (
@@ -544,7 +544,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/central)
 "fs" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -581,21 +581,21 @@
 /area/idris_wreck/armory)
 "fD" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
-/obj/machinery/atmospherics/pipe/simple/visible/fuel,
+/obj/structure/machinery/atmospherics/pipe/simple/visible/fuel,
 /turf/simulated/floor/plating,
 /area/idris_wreck/atmos)
 "fF" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 6
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/airless,
 /area/idris_wreck/portthrust)
 "fH" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 9
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -603,15 +603,15 @@
 /turf/simulated/floor/airless,
 /area/idris_wreck/starbthrust)
 "fI" = (
-/obj/machinery/cryopod,
-/obj/machinery/computer/cryopod{
+/obj/structure/machinery/cryopod,
+/obj/structure/machinery/computer/cryopod{
 	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/cryo)
 "fJ" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/portable_atmospherics/canister/empty/phoron,
+/obj/structure/machinery/portable_atmospherics/canister/empty/phoron,
 /turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/atmos)
 "fK" = (
@@ -637,10 +637,10 @@
 /turf/simulated/floor/tiled,
 /area/idris_wreck/central)
 "fM" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -665,7 +665,7 @@
 /turf/simulated/floor/tiled,
 /area/idris_wreck/eva)
 "gu" = (
-/obj/machinery/vending/snack,
+/obj/structure/machinery/vending/snack,
 /obj/effect/floor_decal/corner/full{
 	color = "#4B7A73";
 	dir = 1
@@ -676,14 +676,14 @@
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/empty/east,
+/obj/structure/machinery/power/apc/empty/east,
 /obj/effect/floor_decal/corner/diagonal{
 	color = "#4B7A73"
 	},
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/atmos)
 "gF" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/full{
@@ -701,10 +701,10 @@
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/portthrust)
 "gJ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
 /obj/structure/cable/green{
@@ -735,14 +735,14 @@
 /turf/simulated/floor/airless,
 /area/idris_wreck/engi)
 "gN" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/effect/landmark/scorcher,
 /turf/simulated/floor/airless,
 /area/idris_wreck/central)
 "gS" = (
-/obj/machinery/door/airlock/vault/bolted{
+/obj/structure/machinery/door/airlock/vault/bolted{
 	req_access = list(103);
 	id_tag = "idris_wreck_vault";
 	name = "Vault"
@@ -753,7 +753,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/door/airlock/vault/bolted{
+/obj/structure/machinery/door/airlock/vault/bolted{
 	req_access = list(103);
 	id_tag = "idris_wreck_vault1";
 	name = "Vault"
@@ -766,7 +766,7 @@
 /turf/simulated/floor/tiled,
 /area/idris_wreck/bridge)
 "gX" = (
-/obj/machinery/telecomms/allinone/ship,
+/obj/structure/machinery/telecomms/allinone/ship,
 /turf/simulated/floor/tiled/cooled,
 /area/idris_wreck/engi)
 "ha" = (
@@ -780,7 +780,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/captain)
 "he" = (
-/obj/machinery/hologram/holopad/long_range,
+/obj/structure/machinery/hologram/holopad/long_range,
 /obj/effect/overmap/visitable/idris_wreck,
 /turf/simulated/floor/tiled,
 /area/idris_wreck/bridge)
@@ -799,10 +799,10 @@
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/portthrust)
 "ht" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /obj/structure/cable/green{
@@ -815,16 +815,16 @@
 /turf/simulated/floor/plating,
 /area/idris_wreck/eva)
 "hz" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -834,10 +834,10 @@
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -851,7 +851,7 @@
 /turf/simulated/floor/tiled,
 /area/idris_wreck/bridge)
 "hL" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /obj/structure/bed/stool/chair/padded/teal,
@@ -859,17 +859,17 @@
 /turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/cryo)
 "hQ" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
 /area/idris_wreck/armory)
 "hT" = (
-/obj/machinery/recharger/wallcharger{
+/obj/structure/machinery/recharger/wallcharger{
 	pixel_x = 32;
 	pixel_y = 5
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/structure/machinery/recharger/wallcharger{
 	pixel_x = 32;
 	pixel_y = -5
 	},
@@ -904,8 +904,8 @@
 /turf/simulated/floor/airless,
 /area/idris_wreck/central)
 "id" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -930,21 +930,21 @@
 /turf/simulated/floor/reinforced/airless,
 /area/idris_wreck/atmos)
 "iu" = (
-/obj/machinery/atmospherics/pipe/simple/visible/red{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/red{
 	dir = 9
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/atmos)
 "iA" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -952,11 +952,11 @@
 /turf/simulated/floor/plating,
 /area/idris_wreck/mainthall)
 "iE" = (
-/obj/machinery/atmospherics/unary/engine,
+/obj/structure/machinery/atmospherics/unary/engine,
 /turf/simulated/floor/airless,
 /area/idris_wreck/portthrust)
 "iN" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full/airless,
@@ -975,10 +975,10 @@
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -1021,13 +1021,13 @@
 /turf/simulated/floor/tiled,
 /area/idris_wreck/armory)
 "jo" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/kitchen)
 "jt" = (
-/obj/machinery/turretid/lethal{
+/obj/structure/machinery/turretid/lethal{
 	dir = 4;
 	name = "Vault Turret Control";
 	pixel_x = 1;
@@ -1035,18 +1035,18 @@
 	req_access = null;
 	req_one_access = list(103)
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled,
 /area/idris_wreck/vault)
 "jx" = (
-/obj/machinery/door/airlock/security{
+/obj/structure/machinery/door/airlock/security{
 	req_access = list(220);
 	name = "Security Unit Storage"
 	},
 /turf/simulated/floor/tiled/full,
 /area/idris_wreck/armory)
 "jy" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full/airless,
@@ -1061,7 +1061,7 @@
 	},
 /area/idris_wreck/kitchen)
 "jF" = (
-/obj/machinery/atmospherics/pipe/tank/air,
+/obj/structure/machinery/atmospherics/pipe/tank/air,
 /turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/atmos)
 "jU" = (
@@ -1092,7 +1092,7 @@
 /turf/simulated/floor/tiled,
 /area/idris_wreck/engi)
 "kg" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner{
@@ -1118,7 +1118,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/captain)
 "kK" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner{
@@ -1135,31 +1135,31 @@
 /turf/simulated/wall/shuttle/idris,
 /area/idris_wreck/armory)
 "kX" = (
-/obj/machinery/atmospherics/pipe/tank/air,
-/obj/machinery/light{
+/obj/structure/machinery/atmospherics/pipe/tank/air,
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/atmos)
 "kZ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/door/firedoor/noid,
+/obj/structure/machinery/door/firedoor/noid,
 /turf/simulated/floor/plating,
 /area/idris_wreck/forehall)
 "li" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/forehall)
 "ln" = (
 /obj/structure/table/wood/mahogany,
-/obj/machinery/photocopier/faxmachine{
+/obj/structure/machinery/photocopier/faxmachine{
 	department = "Idris Vault Ship - Captain's Office"
 	},
 /obj/effect/floor_decal/corner{
@@ -1195,13 +1195,13 @@
 /obj/item/clothing/suit/space/void/security,
 /obj/item/clothing/head/helmet/space/void/security,
 /obj/item/clothing/shoes/magboots,
-/obj/item/device/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
 /obj/item/clothing/mask/breath,
 /turf/simulated/floor/tiled,
 /area/idris_wreck/eva)
 "md" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
 /obj/structure/cable/green{
@@ -1211,7 +1211,7 @@
 /turf/simulated/floor/plating,
 /area/idris_wreck/eva)
 "me" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -1225,13 +1225,13 @@
 /turf/simulated/floor/tiled,
 /area/idris_wreck/bridge)
 "mh" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/diagonal{
@@ -1242,7 +1242,7 @@
 /area/idris_wreck/atmos)
 "mn" = (
 /obj/effect/landmark/corpse/idris,
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/effect/floor_decal/corner/full{
 	color = "#4B7A73"
 	},
@@ -1257,7 +1257,7 @@
 /turf/simulated/floor/tiled,
 /area/idris_wreck/bridge)
 "mp" = (
-/obj/machinery/door/firedoor/noid,
+/obj/structure/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/full,
 /area/idris_wreck/central)
 "mq" = (
@@ -1285,12 +1285,12 @@
 /area/space)
 "mP" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/portable_atmospherics/canister/phoron_scarce,
+/obj/structure/machinery/portable_atmospherics/canister/phoron_scarce,
 /turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/atmos)
 "mW" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -1298,13 +1298,13 @@
 /turf/simulated/floor/airless,
 /area/idris_wreck/central)
 "na" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/diagonal{
@@ -1317,7 +1317,7 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/empty/north,
+/obj/structure/machinery/power/apc/empty/north,
 /obj/effect/floor_decal/corner{
 	color = "#4B7A73";
 	dir = 5
@@ -1325,16 +1325,16 @@
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/portthrust)
 "nm" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/cryo)
 "nw" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/full/airless,
@@ -1370,11 +1370,11 @@
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/forehall)
 "oa" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
 /turf/simulated/wall/shuttle/idris,
 /area/idris_wreck/portthrust)
 "od" = (
-/obj/machinery/button/remote/airlock{
+/obj/structure/machinery/button/remote/airlock{
 	dir = 1;
 	id = "idris_wreck_vault1";
 	name = "Door Bolt Control";
@@ -1383,25 +1383,25 @@
 	specialfunctions = 4;
 	req_access = list(220)
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled,
 /area/idris_wreck/vault)
 "og" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/effect/landmark/scorcher,
 /obj/random/dirt_75,
 /turf/simulated/floor/airless,
 /area/idris_wreck/starbthrust)
 "om" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "2-4"
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/idris_wreck/afthall)
@@ -1425,7 +1425,7 @@
 /area/idris_wreck/kitchen)
 "oC" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/portable_atmospherics/canister/empty/phoron,
+/obj/structure/machinery/portable_atmospherics/canister/empty/phoron,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/atmos)
@@ -1433,7 +1433,7 @@
 /turf/simulated/wall/shuttle/idris,
 /area/idris_wreck/portthrust)
 "oJ" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/effect/floor_decal/corner{
 	color = "#4B7A73";
 	dir = 10
@@ -1448,7 +1448,7 @@
 /turf/simulated/floor/tiled,
 /area/idris_wreck/bridge)
 "oM" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner{
@@ -1459,8 +1459,8 @@
 /turf/simulated/floor/tiled,
 /area/idris_wreck/mainthall)
 "oO" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -1488,14 +1488,14 @@
 /turf/template_noop,
 /area/space)
 "pg" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/door/airlock/service{
+/obj/structure/machinery/door/airlock/service{
 	name = "Cryogenics";
 	req_access = list(220)
 	},
@@ -1509,8 +1509,8 @@
 /turf/template_noop,
 /area/space)
 "ps" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -1524,7 +1524,7 @@
 /turf/simulated/floor/tiled,
 /area/idris_wreck/vault)
 "py" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner{
@@ -1541,7 +1541,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/atmos)
 "pI" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/full/airless,
@@ -1554,19 +1554,19 @@
 /turf/simulated/floor/tiled,
 /area/idris_wreck/engi)
 "pL" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
-/obj/machinery/door/airlock/engineering{
+/obj/structure/machinery/door/airlock/engineering{
 	dir = 4;
 	req_access = list(220);
 	name = "Port Nacelle"
@@ -1581,10 +1581,10 @@
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/kitchen)
 "pX" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -1603,7 +1603,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
 	},
-/obj/machinery/door/window/brigdoor/southleft,
+/obj/structure/machinery/door/window/brigdoor/southleft,
 /turf/simulated/floor/lino{
 	initial_gas = null
 	},
@@ -1624,7 +1624,7 @@
 /obj/item/clothing/suit/space/void/security,
 /obj/item/clothing/head/helmet/space/void/security,
 /obj/item/clothing/shoes/magboots,
-/obj/item/device/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
 /obj/item/clothing/mask/breath,
 /turf/simulated/floor/tiled,
 /area/idris_wreck/eva)
@@ -1636,9 +1636,9 @@
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/hyper/east,
+/obj/structure/machinery/power/apc/hyper/east,
 /obj/structure/cable,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -1648,10 +1648,10 @@
 /turf/template_noop,
 /area/space)
 "rd" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -1663,10 +1663,10 @@
 /turf/simulated/floor/tiled,
 /area/idris_wreck/engi)
 "rp" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -1687,16 +1687,16 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/idris_wreck/vault)
 "rB" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -1706,7 +1706,7 @@
 /turf/simulated/floor/airless,
 /area/idris_wreck/kitchen)
 "rD" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/airless,
@@ -1731,10 +1731,10 @@
 /turf/simulated/floor/tiled,
 /area/idris_wreck/mainthall)
 "sg" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/diagonal{
@@ -1785,13 +1785,13 @@
 /turf/simulated/floor/tiled,
 /area/idris_wreck/vault)
 "sx" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
 /area/idris_wreck/bridge)
 "sC" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/effect/landmark/scorcher,
 /obj/effect/floor_decal/corner{
 	color = "#4B7A73";
@@ -1801,12 +1801,12 @@
 /area/idris_wreck/central)
 "sI" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/portable_atmospherics/canister/empty/oxygen,
+/obj/structure/machinery/portable_atmospherics/canister/empty/oxygen,
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/starbthrust)
 "sO" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/recharge_station,
+/obj/structure/machinery/recharge_station,
 /turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/armory)
 "sV" = (
@@ -1816,7 +1816,7 @@
 /turf/simulated/floor/tiled,
 /area/idris_wreck/engi)
 "ta" = (
-/obj/machinery/porta_turret/stationary{
+/obj/structure/machinery/porta_turret/stationary{
 	req_access = list(103);
 	req_one_access = null
 	},
@@ -1826,8 +1826,8 @@
 /turf/simulated/floor/tiled,
 /area/idris_wreck/vault)
 "tb" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
 /obj/structure/cable/green{
@@ -1884,17 +1884,17 @@
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/airless,
 /area/idris_wreck/forehall)
 "tC" = (
-/obj/machinery/computer/ship/engines{
+/obj/structure/machinery/computer/ship/engines{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner{
@@ -1904,16 +1904,16 @@
 /turf/simulated/floor/tiled,
 /area/idris_wreck/bridge)
 "tF" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/door/airlock/service{
+/obj/structure/machinery/door/airlock/service{
 	dir = 4;
 	name = "Cafeteria";
 	req_access = list(220)
@@ -1926,7 +1926,7 @@
 /area/idris_wreck/kitchen)
 "tQ" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
+/obj/structure/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/starbthrust)
 "tV" = (
@@ -1964,10 +1964,10 @@
 /turf/simulated/floor/tiled,
 /area/idris_wreck/vault)
 "ug" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
 /obj/structure/cable/green{
@@ -1979,7 +1979,7 @@
 /obj/structure/cable/green{
 	icon_state = "2-8"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/fuel{
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -1997,14 +1997,14 @@
 /turf/template_noop,
 /area/space)
 "uH" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 9
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/airless,
 /area/idris_wreck/portthrust)
 "uI" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -2012,21 +2012,21 @@
 /turf/simulated/floor/airless,
 /area/idris_wreck/portthrust)
 "uM" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/idris_wreck/vault)
 "uO" = (
-/obj/machinery/atmospherics/pipe/simple/visible/universal,
+/obj/structure/machinery/atmospherics/pipe/simple/visible/universal,
 /obj/effect/floor_decal/corner/diagonal{
 	color = "#4B7A73"
 	},
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/atmos)
 "uS" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/idris_wreck/armory)
@@ -2038,16 +2038,16 @@
 /turf/simulated/floor/tiled,
 /area/idris_wreck/cryoentrance)
 "uW" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -2066,7 +2066,7 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc/empty/north,
+/obj/structure/machinery/power/apc/empty/north,
 /obj/effect/floor_decal/corner{
 	color = "#4B7A73";
 	dir = 5
@@ -2086,7 +2086,7 @@
 /turf/simulated/floor/tiled,
 /area/idris_wreck/afthall)
 "vJ" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/full,
@@ -2107,10 +2107,10 @@
 	},
 /area/idris_wreck/kitchen)
 "vV" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -2118,7 +2118,7 @@
 /area/idris_wreck/armory)
 "vZ" = (
 /obj/effect/floor_decal/industrial/hatch/grey,
-/obj/machinery/portable_atmospherics/canister/empty/phoron,
+/obj/structure/machinery/portable_atmospherics/canister/empty/phoron,
 /turf/simulated/floor/tiled,
 /area/idris_wreck/vault)
 "wc" = (
@@ -2128,7 +2128,7 @@
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/idris_wreck/engi)
 "wd" = (
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
@@ -2137,7 +2137,7 @@
 /obj/effect/landmark/corpse/izharshan,
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/item/gun/projectile/shotgun/pump/combat,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /obj/effect/landmark/scorcher,
@@ -2148,16 +2148,16 @@
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/forehall)
 "wn" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/door/firedoor/noid/closed,
+/obj/structure/machinery/door/firedoor/noid/closed,
 /turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/central)
 "wo" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner{
@@ -2178,7 +2178,7 @@
 /turf/simulated/floor/tiled,
 /area/idris_wreck/vault)
 "ws" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner{
@@ -2207,7 +2207,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/starbthrust)
 "wD" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/diagonal{
@@ -2217,10 +2217,10 @@
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/atmos)
 "wI" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -2230,13 +2230,13 @@
 /turf/simulated/floor/airless,
 /area/idris_wreck/central)
 "wX" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
@@ -2255,7 +2255,7 @@
 	},
 /area/idris_wreck/kitchen)
 "xr" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/effect/floor_decal/corner{
 	color = "#4B7A73";
 	dir = 10
@@ -2285,7 +2285,7 @@
 	dir = 9
 	},
 /obj/structure/table/stone/marble,
-/obj/machinery/chemical_dispenser/coffeemaster/full{
+/obj/structure/machinery/chemical_dispenser/coffeemaster/full{
 	pixel_y = 7
 	},
 /turf/simulated/floor/lino{
@@ -2293,10 +2293,10 @@
 	},
 /area/idris_wreck/kitchen)
 "xN" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -2314,13 +2314,13 @@
 /turf/simulated/floor/plating,
 /area/idris_wreck/afthall)
 "xO" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/airless,
 /area/idris_wreck/portthrust)
 "xP" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
@@ -2330,28 +2330,28 @@
 /obj/structure/cable/green{
 	icon_state = "2-4"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 9
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/idris_wreck/afthall)
 "xQ" = (
-/obj/machinery/atmospherics/binary/passive_gate/on,
+/obj/structure/machinery/atmospherics/binary/passive_gate/on,
 /obj/effect/floor_decal/corner/diagonal{
 	color = "#4B7A73"
 	},
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/atmos)
 "xW" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /obj/structure/sign/flag/idris/large/north{
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/central)
 "yb" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
@@ -2379,7 +2379,7 @@
 /turf/simulated/floor/tiled,
 /area/idris_wreck/mainthall)
 "yu" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/full,
@@ -2389,7 +2389,7 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/empty/north,
+/obj/structure/machinery/power/apc/empty/north,
 /obj/structure/reagent_dispensers/water_cooler,
 /obj/effect/floor_decal/corner{
 	color = "#4B7A73";
@@ -2398,10 +2398,10 @@
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/captain)
 "yC" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -2411,12 +2411,12 @@
 /turf/simulated/floor/plating,
 /area/idris_wreck/cryoentrance)
 "yK" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/door/airlock/command{
+/obj/structure/machinery/door/airlock/command{
 	name = "Bridge";
 	req_access = list(220)
 	},
@@ -2426,16 +2426,16 @@
 /turf/simulated/floor/tiled,
 /area/idris_wreck/armory)
 "yR" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -2443,7 +2443,7 @@
 /area/idris_wreck/mainthall)
 "yW" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/portable_atmospherics/canister/empty/air,
+/obj/structure/machinery/portable_atmospherics/canister/empty/air,
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/starbthrust)
 "za" = (
@@ -2451,10 +2451,10 @@
 /turf/simulated/floor/airless,
 /area/space)
 "zb" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -2479,7 +2479,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/captain)
 "zu" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -2487,7 +2487,7 @@
 /turf/simulated/floor/airless,
 /area/idris_wreck/starbthrust)
 "zv" = (
-/obj/machinery/power/apc/empty/east,
+/obj/structure/machinery/power/apc/empty/east,
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
@@ -2501,22 +2501,22 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/door/airlock/highsecurity{
+/obj/structure/machinery/door/airlock/highsecurity{
 	name = "Reactor Array";
 	req_access = list(220)
 	},
 /turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/engi)
 "zG" = (
-/obj/machinery/computer/ship/engines,
+/obj/structure/machinery/computer/ship/engines,
 /obj/effect/floor_decal/corner/full{
 	color = "#4B7A73"
 	},
 /turf/simulated/floor/tiled,
 /area/idris_wreck/bridge)
 "zI" = (
-/obj/machinery/photocopier,
-/obj/machinery/light{
+/obj/structure/machinery/photocopier,
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/full{
@@ -2544,7 +2544,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc/empty/west,
+/obj/structure/machinery/power/apc/empty/west,
 /obj/effect/floor_decal/corner/diagonal{
 	color = "#4B7A73"
 	},
@@ -2579,16 +2579,16 @@
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/central)
 "An" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/door/airlock/command{
+/obj/structure/machinery/door/airlock/command{
 	name = "Captain's Office";
 	req_access = list(220);
 	dir = 4
@@ -2600,7 +2600,7 @@
 /turf/simulated/floor/airless,
 /area/idris_wreck/atmos)
 "AE" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/full/airless,
@@ -2610,32 +2610,32 @@
 	color = "#4B7A73";
 	dir = 10
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled,
 /area/idris_wreck/mainthall)
 "AJ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/door/airlock/security{
+/obj/structure/machinery/door/airlock/security{
 	req_access = list(220);
 	name = "Armory"
 	},
 /turf/simulated/floor/tiled/full,
 /area/idris_wreck/armory)
 "AL" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/airlock/security{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/door/airlock/security{
 	req_access = list(220);
 	name = "Security Unit Storage"
 	},
 /turf/simulated/floor/tiled/full,
 /area/idris_wreck/armory)
 "AM" = (
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
@@ -2650,7 +2650,7 @@
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/idris_wreck/engi)
 "AO" = (
-/obj/machinery/atmospherics/pipe/simple/visible/blue{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/blue{
 	dir = 9
 	},
 /obj/effect/floor_decal/corner/diagonal{
@@ -2661,13 +2661,13 @@
 /area/idris_wreck/atmos)
 "AQ" = (
 /obj/effect/landmark/scorcher,
-/obj/machinery/atmospherics/pipe/simple/visible/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/fuel{
 	dir = 6
 	},
 /turf/simulated/floor/airless,
 /area/idris_wreck/atmos)
 "AS" = (
-/obj/machinery/atmospherics/pipe/manifold/visible/red{
+/obj/structure/machinery/atmospherics/pipe/manifold/visible/red{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/diagonal{
@@ -2676,7 +2676,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/atmos)
 "AU" = (
-/obj/machinery/vending/cola,
+/obj/structure/machinery/vending/cola,
 /obj/effect/floor_decal/corner/full{
 	color = "#4B7A73";
 	dir = 8
@@ -2712,10 +2712,10 @@
 /turf/simulated/floor/tiled,
 /area/idris_wreck/bridge)
 "Bj" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -2727,35 +2727,35 @@
 /turf/simulated/floor/tiled,
 /area/idris_wreck/engi)
 "Bp" = (
-/obj/machinery/door/firedoor/noid/closed,
+/obj/structure/machinery/door/firedoor/noid/closed,
 /turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/forehall)
 "Bt" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/airless,
 /area/idris_wreck/portthrust)
 "Bu" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/idris_wreck/central)
 "Bz" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/diagonal{
@@ -2764,13 +2764,13 @@
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/atmos)
 "BB" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/landmark/scorcher,
 /obj/random/dirt_75,
@@ -2784,7 +2784,7 @@
 /area/idris_wreck/afthall)
 "BU" = (
 /obj/structure/table/wood/mahogany,
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/effect/floor_decal/corner/full{
 	color = "#4B7A73";
 	dir = 4
@@ -2792,15 +2792,15 @@
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/captain)
 "BX" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/airless,
 /area/idris_wreck/central)
 "BY" = (
-/obj/machinery/computer/ship/navigation{
+/obj/structure/machinery/computer/ship/navigation{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/full{
@@ -2824,7 +2824,7 @@
 	},
 /area/idris_wreck/kitchen)
 "Ch" = (
-/obj/machinery/vending/dinnerware,
+/obj/structure/machinery/vending/dinnerware,
 /obj/effect/floor_decal/corner/full{
 	color = "#4B7A73";
 	dir = 8
@@ -2835,8 +2835,8 @@
 /turf/simulated/floor/airless,
 /area/idris_wreck/central)
 "Cw" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -2863,7 +2863,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/door/airlock/vault/bolted{
+/obj/structure/machinery/door/airlock/vault/bolted{
 	req_access = list(103);
 	id_tag = "idris_wreck_vault";
 	name = "Vault"
@@ -2871,8 +2871,8 @@
 /turf/simulated/floor/tiled/full,
 /area/idris_wreck/central)
 "CS" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
@@ -2892,7 +2892,7 @@
 /area/idris_wreck/atmos)
 "Dc" = (
 /obj/structure/table/steel,
-/obj/machinery/chemical_dispenser/coffeemaster/full{
+/obj/structure/machinery/chemical_dispenser/coffeemaster/full{
 	pixel_y = 7
 	},
 /obj/effect/floor_decal/corner{
@@ -2902,7 +2902,7 @@
 /turf/simulated/floor/tiled,
 /area/idris_wreck/bridge)
 "Dd" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -2916,23 +2916,23 @@
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/central)
 "Dh" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 5
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/airless,
 /area/idris_wreck/portthrust)
 "Di" = (
-/obj/machinery/appliance/cooker/stove,
+/obj/structure/machinery/appliance/cooker/stove,
 /turf/simulated/floor/lino{
 	initial_gas = null
 	},
 /area/idris_wreck/kitchen)
 "Dm" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -2948,7 +2948,7 @@
 /area/idris_wreck/afthall)
 "Dx" = (
 /obj/structure/table/steel,
-/obj/machinery/photocopier/faxmachine{
+/obj/structure/machinery/photocopier/faxmachine{
 	department = "Idris Vault Ship - Bridge"
 	},
 /obj/effect/floor_decal/corner/full{
@@ -2964,14 +2964,14 @@
 /turf/simulated/floor/tiled,
 /area/idris_wreck/cryoentrance)
 "DJ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/airless,
 /area/idris_wreck/cryo)
 "DN" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/atmos)
 "DR" = (
@@ -2994,8 +2994,8 @@
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/cryo)
 "Ea" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -3005,7 +3005,7 @@
 /turf/simulated/floor/plating,
 /area/idris_wreck/cryoentrance)
 "Eb" = (
-/obj/machinery/door/firedoor/noid/closed{
+/obj/structure/machinery/door/firedoor/noid/closed{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
@@ -3018,7 +3018,7 @@
 /obj/structure/bed/stool/chair/sofa/right/teal{
 	dir = 1
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/effect/floor_decal/corner{
 	color = "#4B7A73";
 	dir = 10
@@ -3050,7 +3050,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/empty/east,
+/obj/structure/machinery/power/apc/empty/east,
 /obj/effect/floor_decal/corner{
 	color = "#4B7A73";
 	dir = 6
@@ -3058,19 +3058,19 @@
 /turf/simulated/floor/tiled,
 /area/idris_wreck/eva)
 "Ey" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
@@ -3090,16 +3090,16 @@
 /turf/template_noop,
 /area/space)
 "EH" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -3126,7 +3126,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/captain)
 "EZ" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/airless,
@@ -3135,8 +3135,8 @@
 /turf/simulated/wall/shuttle/idris,
 /area/idris_wreck/captain)
 "Fh" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -3144,12 +3144,12 @@
 /turf/simulated/floor/plating,
 /area/idris_wreck/eva)
 "Fk" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
@@ -3158,17 +3158,17 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/machinery/porta_turret/stationary{
+/obj/structure/machinery/porta_turret/stationary{
 	req_access = list(103);
 	req_one_access = null
 	},
 /turf/simulated/floor/reinforced,
 /area/idris_wreck/vault)
 "Fx" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -3183,7 +3183,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/central)
 "FD" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/fuel,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/fuel,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/airless,
 /area/idris_wreck/portthrust)
@@ -3197,7 +3197,7 @@
 /turf/template_noop,
 /area/space)
 "FL" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -3213,16 +3213,16 @@
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/starbthrust)
 "FU" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/door/airlock/engineering{
+/obj/structure/machinery/door/airlock/engineering{
 	dir = 4;
 	req_access = list(220);
 	name = "Engineering"
@@ -3233,7 +3233,7 @@
 /turf/simulated/wall/shuttle/idris,
 /area/idris_wreck/cryoentrance)
 "Gc" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -3247,10 +3247,10 @@
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/central)
 "Gg" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -3260,7 +3260,7 @@
 /turf/simulated/floor/plating,
 /area/idris_wreck/central)
 "Gl" = (
-/obj/machinery/door/firedoor/noid,
+/obj/structure/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/corner{
 	color = "#4B7A73";
 	dir = 6
@@ -3282,20 +3282,20 @@
 /turf/simulated/floor/tiled,
 /area/idris_wreck/bridge)
 "GU" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
-/obj/machinery/door/airlock/engineering{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/machinery/door/airlock/engineering{
 	name = "Thrusters";
 	req_access = list(220)
 	},
 /turf/simulated/floor/tiled/full,
 /area/idris_wreck/afthall)
 "GV" = (
-/obj/machinery/vending/cigarette,
+/obj/structure/machinery/vending/cigarette,
 /obj/effect/floor_decal/corner{
 	color = "#4B7A73";
 	dir = 5
@@ -3303,10 +3303,10 @@
 /turf/simulated/floor/tiled,
 /area/idris_wreck/cryoentrance)
 "GW" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/binary/pump/fuel{
+/obj/structure/machinery/atmospherics/binary/pump/fuel{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/diagonal{
@@ -3321,10 +3321,10 @@
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/starbthrust)
 "Hi" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -3355,7 +3355,7 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/empty/north,
+/obj/structure/machinery/power/apc/empty/north,
 /obj/effect/floor_decal/corner{
 	color = "#4B7A73";
 	dir = 5
@@ -3363,7 +3363,7 @@
 /turf/simulated/floor/tiled,
 /area/idris_wreck/central)
 "HF" = (
-/obj/machinery/button/remote/airlock{
+/obj/structure/machinery/button/remote/airlock{
 	dir = 1;
 	id = "idris_wreck_vault";
 	name = "Door Bolt Control";
@@ -3384,14 +3384,14 @@
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/starbthrust)
 "HJ" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/structure/machinery/recharger/wallcharger{
 	pixel_x = 32;
 	pixel_y = -5
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/structure/machinery/recharger/wallcharger{
 	pixel_x = 32;
 	pixel_y = 5
 	},
@@ -3401,7 +3401,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/captain)
 "HM" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
 /turf/simulated/floor/airless,
@@ -3413,31 +3413,31 @@
 /turf/simulated/wall/shuttle/idris,
 /area/idris_wreck/cryo)
 "HY" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/effect/landmark/scorcher,
 /turf/simulated/floor/airless,
 /area/idris_wreck/portthrust)
 "Ia" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/door/firedoor/noid/closed,
+/obj/structure/machinery/door/firedoor/noid/closed,
 /turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/forehall)
 "Ib" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -3452,7 +3452,7 @@
 /area/space)
 "Ij" = (
 /obj/structure/bed/stool/chair/sofa/left/teal,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner{
@@ -3480,7 +3480,7 @@
 /turf/simulated/floor/tiled,
 /area/idris_wreck/central)
 "Iv" = (
-/obj/machinery/computer/ship/sensors,
+/obj/structure/machinery/computer/ship/sensors,
 /obj/effect/floor_decal/corner/full{
 	color = "#4B7A73";
 	dir = 4
@@ -3488,8 +3488,8 @@
 /turf/simulated/floor/tiled,
 /area/idris_wreck/bridge)
 "Iy" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -3498,11 +3498,11 @@
 /turf/simulated/floor/airless,
 /area/idris_wreck/central)
 "IB" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/random/dirt_75,
@@ -3539,7 +3539,7 @@
 /turf/simulated/floor/tiled,
 /area/idris_wreck/mainthall)
 "Jc" = (
-/obj/machinery/door/firedoor/noid/closed,
+/obj/structure/machinery/door/firedoor/noid/closed,
 /turf/simulated/floor/tiled/full,
 /area/idris_wreck/central)
 "Je" = (
@@ -3557,27 +3557,27 @@
 /turf/simulated/floor/tiled,
 /area/idris_wreck/engi)
 "Jm" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/idris_wreck/central)
 "Jo" = (
-/obj/machinery/atmospherics/pipe/tank,
+/obj/structure/machinery/atmospherics/pipe/tank,
 /turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/atmos)
 "Jr" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/fuel,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/fuel,
 /obj/effect/landmark/scorcher,
 /turf/simulated/floor/airless,
 /area/idris_wreck/starbthrust)
 "JE" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -3586,10 +3586,10 @@
 /turf/simulated/floor/plating,
 /area/idris_wreck/forehall)
 "JF" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -3599,7 +3599,7 @@
 /turf/simulated/floor/plating,
 /area/idris_wreck/afthall)
 "JK" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/airless,
@@ -3619,7 +3619,7 @@
 	dir = 8
 	},
 /obj/structure/table/stone/marble,
-/obj/machinery/chemical_dispenser/bar_soft/full{
+/obj/structure/machinery/chemical_dispenser/bar_soft/full{
 	dir = 1
 	},
 /turf/simulated/floor/lino{
@@ -3643,7 +3643,7 @@
 /obj/structure/filingcabinet/filingcabinet{
 	pixel_x = 6
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner{
@@ -3687,18 +3687,18 @@
 /turf/template_noop,
 /area/space)
 "Kr" = (
-/obj/machinery/atmospherics/unary/engine,
+/obj/structure/machinery/atmospherics/unary/engine,
 /turf/simulated/floor/airless,
 /area/idris_wreck/starbthrust)
 "Ku" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/airless,
 /area/idris_wreck/portthrust)
 "Kz" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner{
@@ -3708,13 +3708,13 @@
 /turf/simulated/floor/tiled,
 /area/idris_wreck/mainthall)
 "KA" = (
-/obj/machinery/appliance/cooker/oven,
+/obj/structure/machinery/appliance/cooker/oven,
 /turf/simulated/floor/lino{
 	initial_gas = null
 	},
 /area/idris_wreck/kitchen)
 "KB" = (
-/obj/machinery/computer/ship/sensors{
+/obj/structure/machinery/computer/ship/sensors{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner{
@@ -3724,7 +3724,7 @@
 /turf/simulated/floor/tiled,
 /area/idris_wreck/bridge)
 "KD" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /obj/structure/bed/stool/chair/padded/teal{
@@ -3737,15 +3737,15 @@
 /turf/simulated/floor/carpet/brown,
 /area/idris_wreck/captain)
 "KP" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
 /obj/effect/landmark/scorcher,
 /turf/simulated/floor/airless,
 /area/idris_wreck/starbthrust)
 "KQ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -3794,17 +3794,17 @@
 /turf/template_noop,
 /area/space)
 "Lh" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -3818,7 +3818,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/kitchen)
 "Ll" = (
-/obj/machinery/appliance/cooker/fryer,
+/obj/structure/machinery/appliance/cooker/fryer,
 /turf/simulated/floor/lino{
 	initial_gas = null
 	},
@@ -3837,19 +3837,19 @@
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/portthrust)
 "Lt" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/full,
 /area/idris_wreck/central)
 "Lz" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 6
 	},
 /obj/effect/floor_decal/corner/diagonal{
@@ -3858,14 +3858,14 @@
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/atmos)
 "LH" = (
-/obj/machinery/vending/boozeomat/abandoned,
+/obj/structure/machinery/vending/boozeomat/abandoned,
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/captain)
 "LI" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -3875,7 +3875,7 @@
 /turf/simulated/floor/plating,
 /area/idris_wreck/eva)
 "LL" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/effect/floor_decal/corner{
 	color = "#4B7A73";
 	dir = 10
@@ -3883,16 +3883,16 @@
 /turf/simulated/floor/tiled,
 /area/idris_wreck/mainthall)
 "LN" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/door/firedoor/noid/closed{
+/obj/structure/machinery/door/firedoor/noid/closed{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
@@ -3904,14 +3904,14 @@
 /area/idris_wreck/vault)
 "Mf" = (
 /obj/structure/cable,
-/obj/machinery/power/portgen/basic/fusion,
+/obj/structure/machinery/power/portgen/basic/fusion,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
 /turf/simulated/floor/airless,
 /area/idris_wreck/engi)
 "Mh" = (
-/obj/machinery/atmospherics/pipe/manifold4w/visible/blue,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/visible/blue,
 /obj/effect/floor_decal/corner/diagonal{
 	color = "#4B7A73"
 	},
@@ -3952,10 +3952,10 @@
 /turf/simulated/wall/shuttle/idris,
 /area/idris_wreck/atmos)
 "MB" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -3996,8 +3996,8 @@
 /turf/simulated/wall/shuttle/idris,
 /area/idris_wreck/starbthrust)
 "MY" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/idris_wreck/bridge)
@@ -4005,13 +4005,13 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/idris_wreck/vault)
 "Nr" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/effect/floor_decal/corner{
 	color = "#4B7A73";
 	dir = 10
@@ -4034,11 +4034,11 @@
 /turf/simulated/floor/airless,
 /area/idris_wreck/armory)
 "NL" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/airless,
@@ -4054,7 +4054,7 @@
 /turf/simulated/floor/tiled,
 /area/idris_wreck/bridge)
 "Oh" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 5
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -4062,12 +4062,12 @@
 /area/idris_wreck/starbthrust)
 "Ok" = (
 /obj/effect/landmark/scorcher,
-/obj/machinery/atmospherics/pipe/simple/visible/fuel,
+/obj/structure/machinery/atmospherics/pipe/simple/visible/fuel,
 /turf/simulated/floor/reinforced/airless,
 /area/idris_wreck/atmos)
 "Or" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -4092,7 +4092,7 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc/empty/west,
+/obj/structure/machinery/power/apc/empty/west,
 /obj/effect/floor_decal/corner{
 	color = "#4B7A73";
 	dir = 9
@@ -4110,16 +4110,16 @@
 /turf/simulated/floor/tiled,
 /area/idris_wreck/central)
 "OT" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/door/airlock/service{
+/obj/structure/machinery/door/airlock/service{
 	dir = 4;
 	name = "Cryogenics";
 	req_access = list(220)
@@ -4128,7 +4128,7 @@
 /area/idris_wreck/cryoentrance)
 "Pb" = (
 /obj/structure/bed/stool/chair/padded/teal,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner{
@@ -4145,10 +4145,10 @@
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/forehall)
 "Pg" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -4161,7 +4161,7 @@
 /turf/simulated/floor/airless,
 /area/idris_wreck/kitchen)
 "Pj" = (
-/obj/machinery/cryopod,
+/obj/structure/machinery/cryopod,
 /turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/cryo)
 "Pn" = (
@@ -4178,13 +4178,13 @@
 /turf/simulated/floor/tiled,
 /area/idris_wreck/cryoentrance)
 "PB" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/atmos)
 "PF" = (
-/obj/machinery/door/airlock/vault/bolted{
+/obj/structure/machinery/door/airlock/vault/bolted{
 	req_access = list(103);
 	id_tag = "idris_wreck_vault1";
 	name = "Vault"
@@ -4192,19 +4192,19 @@
 /turf/simulated/floor/tiled/full,
 /area/idris_wreck/vault)
 "PT" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
-/obj/machinery/door/airlock/engineering{
+/obj/structure/machinery/door/airlock/engineering{
 	dir = 4;
 	req_access = list(220);
 	name = "Starboard Nacelle"
@@ -4212,10 +4212,10 @@
 /turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/mainthall)
 "PU" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full/airless,
@@ -4224,7 +4224,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/captain)
 "Qe" = (
@@ -4269,7 +4269,7 @@
 /area/idris_wreck/afthall)
 "QD" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/recharge_station,
+/obj/structure/machinery/recharge_station,
 /obj/effect/landmark/scorcher,
 /turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/armory)
@@ -4277,7 +4277,7 @@
 /turf/simulated/wall/shuttle/idris,
 /area/idris_wreck/afthall)
 "QF" = (
-/obj/machinery/computer/ship/navigation{
+/obj/structure/machinery/computer/ship/navigation{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/full{
@@ -4287,7 +4287,7 @@
 /turf/simulated/floor/tiled,
 /area/idris_wreck/bridge)
 "QG" = (
-/obj/machinery/power/smes/buildable/main_engine,
+/obj/structure/machinery/power/smes/buildable/main_engine,
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
@@ -4307,7 +4307,7 @@
 /obj/item/clothing/accessory/tie/corporate/idris,
 /obj/item/gun/energy/pistol,
 /obj/item/clothing/accessory/holster/armpit,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/carpet/brown,
@@ -4324,16 +4324,16 @@
 /turf/simulated/floor/tiled,
 /area/idris_wreck/bridge)
 "QU" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 5
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -4345,7 +4345,7 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/empty/north,
+/obj/structure/machinery/power/apc/empty/north,
 /obj/effect/floor_decal/corner{
 	color = "#4B7A73";
 	dir = 5
@@ -4353,7 +4353,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/starbthrust)
 "Ra" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
@@ -4362,7 +4362,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/empty/north,
+/obj/structure/machinery/power/apc/empty/north,
 /obj/effect/floor_decal/corner{
 	color = "#4B7A73";
 	dir = 5
@@ -4371,14 +4371,14 @@
 /area/idris_wreck/cryo)
 "Rj" = (
 /obj/structure/cable,
-/obj/machinery/power/portgen/basic/fusion,
+/obj/structure/machinery/power/portgen/basic/fusion,
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 1
 	},
 /turf/simulated/floor/airless,
 /area/idris_wreck/engi)
 "Rn" = (
-/obj/machinery/atmospherics/binary/pump{
+/obj/structure/machinery/atmospherics/binary/pump{
 	name = "scrubbers to waste";
 	dir = 1
 	},
@@ -4391,8 +4391,8 @@
 /turf/simulated/wall/shuttle/idris,
 /area/idris_wreck/kitchen)
 "Rq" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
 /obj/structure/cable/green{
@@ -4402,20 +4402,20 @@
 /turf/simulated/floor/plating,
 /area/idris_wreck/central)
 "Rt" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/airless,
 /area/idris_wreck/central)
 "Ry" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -4427,7 +4427,7 @@
 /turf/simulated/floor/airless,
 /area/idris_wreck/starbthrust)
 "RM" = (
-/obj/machinery/computer/ship/helm,
+/obj/structure/machinery/computer/ship/helm,
 /obj/effect/floor_decal/corner{
 	color = "#4B7A73";
 	dir = 10
@@ -4435,16 +4435,16 @@
 /turf/simulated/floor/tiled,
 /area/idris_wreck/bridge)
 "RQ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -4454,10 +4454,10 @@
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
 /obj/effect/floor_decal/corner/diagonal{
@@ -4469,7 +4469,7 @@
 /turf/simulated/floor/tiled,
 /area/idris_wreck/bridge)
 "RZ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
 /turf/simulated/wall/shuttle/idris,
 /area/idris_wreck/starbthrust)
 "Sb" = (
@@ -4514,15 +4514,15 @@
 /turf/simulated/floor/tiled,
 /area/idris_wreck/bridge)
 "Sq" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/full,
 /area/idris_wreck/mainthall)
 "St" = (
-/obj/machinery/atmospherics/portables_connector,
-/obj/machinery/portable_atmospherics/canister/air,
+/obj/structure/machinery/atmospherics/portables_connector,
+/obj/structure/machinery/portable_atmospherics/canister/air,
 /turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/atmos)
 "SB" = (
@@ -4539,10 +4539,10 @@
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/central)
 "SD" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /obj/structure/cable/green{
@@ -4555,15 +4555,15 @@
 /turf/simulated/floor/plating,
 /area/idris_wreck/cryoentrance)
 "SH" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/idris_wreck/central)
 "SO" = (
-/obj/machinery/power/smes/buildable,
+/obj/structure/machinery/power/smes/buildable,
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
@@ -4573,7 +4573,7 @@
 /turf/simulated/floor,
 /area/idris_wreck/engi)
 "SP" = (
-/obj/machinery/door/airlock/command{
+/obj/structure/machinery/door/airlock/command{
 	name = "Captain's Quarters";
 	req_access = list(220)
 	},
@@ -4592,7 +4592,7 @@
 /turf/simulated/floor/airless,
 /area/idris_wreck/cryo)
 "SW" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -4628,8 +4628,8 @@
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/forehall)
 "Tn" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/machinery/light{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/full,
@@ -4640,8 +4640,8 @@
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/captain)
 "Tt" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/corner/diagonal{
 	color = "#4B7A73"
 	},
@@ -4655,30 +4655,30 @@
 /turf/simulated/wall/shuttle/idris,
 /area/idris_wreck/mainthall)
 "TB" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/idris_wreck/mainthall)
 "TE" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /turf/simulated/floor/airless,
 /area/idris_wreck/central)
 "TN" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /obj/effect/floor_decal/corner/diagonal{
@@ -4694,12 +4694,12 @@
 /turf/simulated/floor/tiled,
 /area/idris_wreck/bridge)
 "TU" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/idris_wreck/afthall)
@@ -4715,27 +4715,27 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/portgen/basic/fusion,
+/obj/structure/machinery/power/portgen/basic/fusion,
 /obj/effect/floor_decal/industrial/warning/cee,
 /turf/simulated/floor/airless,
 /area/idris_wreck/engi)
 "UC" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/door/airlock/glass_command{
+/obj/structure/machinery/door/airlock/glass_command{
 	name = "Central Ring";
 	req_access = list(220)
 	},
 /turf/simulated/floor/tiled/full,
 /area/idris_wreck/central)
 "UH" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -4754,7 +4754,7 @@
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/idris_wreck/engi)
 "UP" = (
-/obj/machinery/door/firedoor/noid/closed,
+/obj/structure/machinery/door/firedoor/noid/closed,
 /turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/central)
 "UR" = (
@@ -4768,7 +4768,7 @@
 /turf/simulated/wall/shuttle/idris,
 /area/idris_wreck/engi)
 "UT" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner{
@@ -4778,7 +4778,7 @@
 /turf/simulated/floor/tiled,
 /area/idris_wreck/central)
 "UU" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/full,
 /area/idris_wreck/cryoentrance)
@@ -4791,22 +4791,22 @@
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/central)
 "Vl" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/structure/machinery/portable_atmospherics/canister/oxygen,
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled/full,
 /area/idris_wreck/eva)
 "Vq" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/full,
 /area/idris_wreck/mainthall)
 "Vv" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -4816,10 +4816,10 @@
 /turf/simulated/floor/airless,
 /area/idris_wreck/captain)
 "Vy" = (
-/obj/machinery/atmospherics/pipe/simple/visible/blue{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/blue{
 	dir = 5
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/diagonal{
@@ -4839,16 +4839,16 @@
 /turf/simulated/floor/plating,
 /area/idris_wreck/captain)
 "VI" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/airless,
 /area/idris_wreck/armory)
 "VN" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
@@ -4857,11 +4857,11 @@
 /area/idris_wreck/bridge)
 "VO" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/portable_atmospherics/canister/empty/phoron,
+/obj/structure/machinery/portable_atmospherics/canister/empty/phoron,
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/starbthrust)
 "VP" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/template_noop,
@@ -4870,7 +4870,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/empty/north,
+/obj/structure/machinery/power/apc/empty/north,
 /obj/effect/floor_decal/corner{
 	color = "#4B7A73";
 	dir = 5
@@ -4890,7 +4890,7 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc/empty/north,
+/obj/structure/machinery/power/apc/empty/north,
 /turf/simulated/floor/tiled,
 /area/idris_wreck/armory)
 "Wd" = (
@@ -4914,10 +4914,10 @@
 /turf/template_noop,
 /area/space)
 "Wk" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /obj/structure/cable/green{
@@ -4928,8 +4928,8 @@
 /turf/simulated/floor/airless,
 /area/idris_wreck/central)
 "Wm" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
@@ -4940,10 +4940,10 @@
 /turf/simulated/floor/plating,
 /area/idris_wreck/central)
 "Wn" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /obj/effect/floor_decal/corner/diagonal{
@@ -4952,25 +4952,25 @@
 /turf/simulated/floor/tiled,
 /area/idris_wreck/engi)
 "Wr" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/airless,
 /area/idris_wreck/starbthrust)
 "Wu" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/airless,
 /area/idris_wreck/starbthrust)
@@ -4982,39 +4982,39 @@
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/portthrust)
 "Wy" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/forehall)
 "WA" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/airless,
 /area/idris_wreck/cryo)
 "WC" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled,
 /area/idris_wreck/vault)
 "WD" = (
-/obj/machinery/suit_cycler/security,
+/obj/structure/machinery/suit_cycler/security,
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled,
 /area/idris_wreck/eva)
 "WE" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/airless,
 /area/idris_wreck/starbthrust)
 "WM" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/fuel,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/fuel,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/airless,
 /area/idris_wreck/portthrust)
@@ -5023,7 +5023,7 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc/empty/west,
+/obj/structure/machinery/power/apc/empty/west,
 /obj/effect/floor_decal/corner{
 	color = "#4B7A73";
 	dir = 9
@@ -5032,7 +5032,7 @@
 /turf/simulated/floor/tiled,
 /area/idris_wreck/cryoentrance)
 "WR" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/full,
@@ -5061,13 +5061,13 @@
 /turf/simulated/floor/tiled,
 /area/idris_wreck/central)
 "Xu" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 9
 	},
 /obj/effect/floor_decal/corner/diagonal{
@@ -5100,7 +5100,7 @@
 /turf/simulated/floor/tiled,
 /area/idris_wreck/central)
 "XS" = (
-/obj/machinery/power/terminal{
+/obj/structure/machinery/power/terminal{
 	dir = 1
 	},
 /obj/structure/cable{
@@ -5123,7 +5123,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/central)
 "XX" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/effect/landmark/scorcher,
@@ -5155,7 +5155,7 @@
 /obj/structure/sign/flag/idris/large/west{
 	pixel_x = -32
 	},
-/obj/machinery/door/firedoor/noid/closed,
+/obj/structure/machinery/door/firedoor/noid/closed,
 /turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/central)
 "Yt" = (
@@ -5172,7 +5172,7 @@
 /obj/structure/table/stone/marble,
 /obj/item/storage/backpack/service,
 /obj/item/rfd/service,
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/lino{
 	initial_gas = null
 	},
@@ -5182,10 +5182,10 @@
 /turf/template_noop,
 /area/space)
 "YF" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
 /obj/effect/floor_decal/corner/diagonal{
@@ -5202,10 +5202,10 @@
 /turf/simulated/floor/airless,
 /area/idris_wreck/cryo)
 "Zg" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -5217,7 +5217,7 @@
 /turf/template_noop,
 /area/space)
 "Zr" = (
-/obj/machinery/vending/coffee,
+/obj/structure/machinery/vending/coffee,
 /obj/structure/sign/flag/idris/large/north{
 	pixel_y = 32
 	},
@@ -5247,10 +5247,10 @@
 /turf/simulated/floor/tiled,
 /area/idris_wreck/central)
 "ZE" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -5260,14 +5260,14 @@
 /turf/simulated/floor/plating,
 /area/idris_wreck/forehall)
 "ZF" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/full,
 /area/idris_wreck/engi)
 "ZN" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/effect/floor_decal/corner{
 	color = "#4B7A73";
 	dir = 10
@@ -5292,8 +5292,8 @@
 /turf/simulated/floor/tiled,
 /area/idris_wreck/mainthall)
 "ZU" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},

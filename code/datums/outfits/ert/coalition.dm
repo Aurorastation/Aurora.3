@@ -3,7 +3,7 @@
 	uniform = /obj/item/clothing/under/tactical
 	shoes = /obj/item/clothing/shoes/magboots
 	gloves = /obj/item/clothing/gloves/combat
-	l_ear = /obj/item/device/radio/headset/distress
+	l_ear = /obj/item/radio/headset/distress
 	l_pocket = /obj/item/tank/emergency_oxygen/double
 	r_pocket = /obj/item/crowbar/red
 	id = /obj/item/card/id/ert
@@ -38,7 +38,7 @@
 		/obj/item/ammo_magazine/c45m = 3,
 		/obj/item/storage/firstaid/adv = 1,
 		/obj/item/handcuffs/ziptie = 1,
-		/obj/item/device/healthanalyzer = 1,
+		/obj/item/healthanalyzer = 1,
 		/obj/item/stack/medical/advanced/bruise_pack = 1,
 		/obj/item/stack/medical/advanced/ointment = 1,
 		/obj/item/material/knife/tacknife = 1
@@ -99,7 +99,7 @@
 	back = /obj/item/tank/jetpack/carbondioxide
 	l_pocket = /obj/item/tank/emergency_oxygen/double
 	r_pocket = /obj/item/crowbar/red
-	l_ear = /obj/item/device/radio/headset/distress
+	l_ear = /obj/item/radio/headset/distress
 	gloves = /obj/item/clothing/gloves/swat/ert
 	mask = /obj/item/clothing/mask/gas/tactical
 	suit_store = /obj/item/gun/projectile/automatic/rifle/konyang/k556
@@ -117,7 +117,7 @@
 	)
 
 /obj/outfit/admin/ert/konyang/get_id_access()
-	return list(ACCESS_DISTRESS, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_COALITION, ACCESS_COALITION_NAVY, ACCESS_KONYANG_POLICE)
+	return list(ACCESS_DISTRESS, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_COALITION, ACCESS_COALITION_NAVY, ACCESS_PORTOFCALL_POLICE)
 
 /obj/outfit/admin/ert/konyang/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
@@ -147,7 +147,7 @@
 		/obj/item/ammo_magazine/mc9mm = 2,
 		/obj/item/storage/firstaid/adv = 1,
 		/obj/item/handcuffs/ziptie = 1,
-		/obj/item/device/healthanalyzer = 1,
+		/obj/item/healthanalyzer = 1,
 		/obj/item/stack/medical/advanced/bruise_pack = 1,
 		/obj/item/stack/medical/advanced/ointment = 1,
 		/obj/item/melee/energy/sword/knife/sol = 1

@@ -6,6 +6,9 @@
  */
 
 /atom
+	plane = GAME_PLANE
+	layer = TURF_LAYER
+	appearance_flags = DEFAULT_APPEARANCE_FLAGS
 
 	/// pass_flags that we are. If any of this matches a pass_flag on a moving thing, by default, we let them through.
 	var/pass_flags_self = NONE
@@ -23,9 +26,6 @@
 	var/receive_ricochet_damage_coeff = 0.33
 
 	var/update_icon_on_init	= FALSE // Default to 'no'.
-
-	layer = TURF_LAYER
-	appearance_flags = DEFAULT_APPEARANCE_FLAGS
 
 	var/level = 2
 	var/atom_flags = 0
@@ -60,6 +60,36 @@
 	var/tmp/default_pixel_y
 	var/tmp/default_pixel_z
 	var/tmp/default_pixel_w
+
+	//light stuff
+
+	///Light systems, only one of the three should be active at the same time.
+	var/light_system = STATIC_LIGHT
+	///Range of the light in tiles. Zero means no light.
+	var/light_range = 0
+	///Intensity of the light. The stronger, the less shadows you will see on the lit area.
+	var/light_power = 1
+	///Hexadecimal RGB string representing the colour of the light. White by default.
+	var/light_color = COLOR_WHITE
+	///Boolean variable for toggleable lights. Has no effect without the proper light_system, light_range and light_power values.
+	var/light_on = FALSE
+	///Bitflags to determine lighting-related atom properties.
+	var/light_flags = NONE
+	///Our light source. Don't fuck with this directly unless you have a good reason!
+	var/tmp/datum/dynamic_light_source/light
+	///Any light sources that are "inside" of us, for example, if src here was a mob that's carrying a flashlight, that flashlight's light source would be part of this list.
+	var/tmp/list/hybrid_light_sources
+
+	//Values should avoid being close to -16, 16, -48, 48 etc.
+	//Best keep them within 10 units of a multiple of 32, as when the light is closer to a wall, the probability
+	//that a shadow extends to opposite corners of the light mask square is increased, resulting in more shadow
+	//overlays.
+	///x offset for dynamic lights on this atom
+	var/light_pixel_x
+	///y offset for dynamic lights on this atom
+	var/light_pixel_y
+	///typepath for the lighting maskfor dynamic light sources
+	var/light_mask_type = null
 
 	/*
 	 * EXTRA DESCRIPTIONS
@@ -113,22 +143,31 @@
 	/// This atom's cache of overlays that can only be removed explicitly, like C4. Do not manipulate directly- See SSoverlays.
 	var/list/atom_protected_overlay_cache
 
+	/// The mob currently interacting with the atom during a `do_after` timer. Used to validate `DO_TARGET_UNIQUE_ACT` flag checks.
+	var/mob/do_unique_target_user
+
+	/*
+	* Duplicate vars and logic created for untranslated images for the sake of getting an untranslated langchat to display for listeners who do not understand
+	* the language being spoken. Someone could certainly think of cleaner ways to do this, but for want of a better solution right now, it has been implemented
+	* in this rote manner to make it easier to strip out in future if it needs replaced.
+	*/
+
+	var/image/langchat_image
+	var/image/langchat_image_untranslated
+	var/list/mob/langchat_listeners
+	var/list/mob/langchat_listeners_untranslated
+
 /atom/Destroy(force)
 	if(opacity)
 		updateVisibility(src)
 
-	if(reagents)
-		QDEL_NULL(reagents)
+	QDEL_NULL(reagents)
 
 	// Checking length(overlays) before cutting has significant speed benefits
 	if(length(overlays))
 		overlays.Cut()
 
-	if(light)
-		QDEL_NULL(light)
-
-	if(length(light_sources))
-		light_sources.Cut()
+	QDEL_NULL(light)
 
 	if(smoothing_flags & SMOOTH_QUEUED)
 		SSicon_smooth.remove_from_queues(src)
@@ -145,8 +184,12 @@
 
 	// The component is attached to us normaly and will be deleted elsewhere
 	orbiters = null
-
-	. = ..()
+	do_unique_target_user = null
+	QDEL_NULL(langchat_image)
+	QDEL_NULL(langchat_image_untranslated)
+	langchat_listeners?.Cut()
+	langchat_listeners_untranslated?.Cut()
+	return ..()
 
 /atom/proc/handle_ricochet(obj/projectile/ricocheting_projectile)
 	var/turf/p_turf = get_turf(ricocheting_projectile)

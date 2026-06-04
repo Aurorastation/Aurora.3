@@ -190,6 +190,7 @@
 	action_button_icon = "hunterseye"
 	cooldown = 30
 	activable = TRUE
+	zoom_out_message = " eyes whirrs loudly as the zoom lenses retract."
 
 /obj/item/organ/internal/augment/farseer_eye/attack_self(var/mob/user)
 	. = ..()
@@ -226,7 +227,7 @@
 		return FALSE
 
 	if(!online)
-		set_light(3, 2, LIGHT_COLOR_RED, uv = 0, angle = LIGHT_WIDE)
+		set_light(3, 2, LIGHT_COLOR_RED)
 		owner.change_eye_color(250, 130, 130)
 		owner.update_eyes()
 		online = TRUE
@@ -364,6 +365,10 @@
 	name = "medical grasper"
 	action_button_name = "Deploy Mounted Health Scanner"
 
+/obj/item/organ/external/hand/right/autakh/medical/Initialize(mapload)
+	. = ..()
+	src.LoadComponent(/datum/component/health_analyzer)
+
 /obj/item/organ/external/hand/right/autakh/medical/refresh_action_button()
 	. = ..()
 	if(.)
@@ -389,13 +394,17 @@
 
 	return TRUE
 
+		if(is_bruised())
+			spark(get_turf(owner), 3)
+
 /obj/item/organ/external/hand/right/autakh/medical/activate(atom/target)
-	var/mob/living/mob_target = target
-	if(!mob_target)
-		return FALSE
-	health_scan_mob(mob_target, owner)
-	owner.last_special = world.time + (5 SECONDS)
-	return TRUE
+	owner.last_special = world.time + 50
+	if(ishuman(target))
+		var/mob/living/carbon/human/H = target
+		var/datum/component/health_analyzer/h_analyzer = src.GetComponent(/datum/component/health_analyzer)
+		if(!h_analyzer)
+			return
+		h_analyzer.health_scan_mob(H, owner, FALSE, TRUE)
 
 /obj/item/organ/external/hand/right/autakh/security
 	name = "security grasper"

@@ -12,13 +12,14 @@
 /singleton/surgery_step/slime/cut_flesh
 	name = "Open Slime"
 	allowed_tools = list(
-	/obj/item/surgery/scalpel = 100,
+	TOOL_SCALPEL = 100,
 	/obj/item/material/knife = 75,
 	/obj/item/material/shard = 50
 	)
 
 	min_duration = 10
 	max_duration = 35
+	skill_requirements = alist(XENOBIOLOGY_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 
 /singleton/surgery_step/slime/cut_flesh/can_use(mob/living/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)
 	return ..() && istype(target) && target.core_removal_stage == ORGAN_CLOSED
@@ -40,13 +41,14 @@
 /singleton/surgery_step/slime/cut_innards
 	name = "Cut Innards"
 	allowed_tools = list(
-	/obj/item/surgery/scalpel = 100,
+	TOOL_SCALPEL = 100,
 	/obj/item/material/knife = 75,
 	/obj/item/material/shard = 50
 	)
 
 	min_duration = 20
 	max_duration = 45
+	skill_requirements = alist(XENOBIOLOGY_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 
 /singleton/surgery_step/slime/cut_innards/can_use(mob/living/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)
 	return ..() && istype(target) && target.core_removal_stage == ORGAN_OPEN_INCISION
@@ -68,12 +70,13 @@
 /singleton/surgery_step/slime/saw_core
 	name = "Detach Core"
 	allowed_tools = list(
-	/obj/item/surgery/circular_saw = 100, \
+	TOOL_SAW = 100, \
 	/obj/item/material/hatchet = 75
 	)
 
 	min_duration = 35
 	max_duration = 55
+	skill_requirements = alist(XENOBIOLOGY_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 
 /singleton/surgery_step/slime/saw_core/can_use(mob/living/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)
 	return ..() && (istype(target) && target.core_removal_stage == ORGAN_OPEN_RETRACTED && target.cores > 0) //This is being passed a human as target, unsure why.

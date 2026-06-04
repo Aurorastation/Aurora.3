@@ -133,7 +133,7 @@
 /obj/effect/ghostspawpoint/repeat
 	name = "invisible ghost spawner - repeat"
 	desc = "A Invisible ghost spawner"
-	icon = 'icons/mob/screen/generic.dmi'
+	icon = 'icons/hud/mob/generic.dmi'
 	icon_state = "x3"
 
 	icon_unavailable = "x3" //Icon to use when unavailable

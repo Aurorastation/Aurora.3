@@ -1,33 +1,33 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aaa" = (
-/obj/machinery/light/spot{
+/obj/structure/machinery/light/spot{
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/ship/tcfl_peacekeeper_ship)
 "aab" = (
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	name = "Prefect's Quarters";
 	req_access = list(204);
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /turf/simulated/floor/wood,
 /area/ship/tcfl_peacekeeper_ship)
 "aac" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8;
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/ship/tcfl_peacekeeper_ship)
 "aad" = (
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	name = "Cockpit";
 	req_access = list(204);
 	dir = 1
 	},
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "aaI" = (
@@ -48,7 +48,7 @@
 /turf/simulated/floor,
 /area/ship/tcfl_peacekeeper_ship)
 "agx" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	icon_state = "tube_empty"
 	},
@@ -61,11 +61,11 @@
 /turf/simulated/wall/shuttle/legion,
 /area/shuttle/tcfl_shuttle)
 "aiG" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor,
-/obj/machinery/meter,
+/obj/structure/machinery/meter,
 /turf/simulated/floor,
 /area/ship/tcfl_peacekeeper_ship)
 "aow" = (
@@ -78,27 +78,27 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8;
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor,
 /area/ship/tcfl_peacekeeper_ship)
 "arF" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
-/obj/machinery/meter,
+/obj/structure/machinery/meter,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor,
 /area/ship/tcfl_peacekeeper_ship)
 "atj" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/ship/tcfl_peacekeeper_ship)
 "auP" = (
-/obj/machinery/shipsensors/weak,
+/obj/structure/machinery/shipsensors/weak,
 /obj/structure/railing/mapped{
 	dir = 1
 	},
@@ -118,14 +118,14 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor,
 /area/ship/tcfl_peacekeeper_ship)
 "aAS" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor,
@@ -142,7 +142,7 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
 	},
-/obj/machinery/button/distress{
+/obj/structure/machinery/button/distress{
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark,
@@ -159,7 +159,7 @@
 /obj/item/roller,
 /obj/item/roller,
 /obj/item/storage/firstaid/adv,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/white,
@@ -173,7 +173,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "aTI" = (
-/obj/machinery/computer/ship/engines{
+/obj/structure/machinery/computer/ship/engines{
 	dir = 4
 	},
 /turf/simulated/floor,
@@ -188,14 +188,14 @@
 /turf/simulated/floor/wood,
 /area/ship/tcfl_peacekeeper_ship)
 "beE" = (
-/obj/machinery/computer/ship/helm{
+/obj/structure/machinery/computer/ship/helm{
 	req_access = list(204)
 	},
 /turf/simulated/floor/shuttle/tan,
 /area/shuttle/tcfl_shuttle)
 "bge" = (
 /obj/effect/floor_decal/industrial/outline/blue,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8;
 	icon_state = "tube_empty"
 	},
@@ -207,7 +207,7 @@
 /area/ship/tcfl_peacekeeper_ship)
 "bkQ" = (
 /obj/effect/floor_decal/industrial/outline/blue,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	icon_state = "tube_empty"
 	},
@@ -215,20 +215,20 @@
 /turf/simulated/floor,
 /area/ship/tcfl_peacekeeper_ship)
 "bty" = (
-/obj/machinery/atmospherics/portables_connector,
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/atmospherics/portables_connector,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor,
 /area/shuttle/tcfl_shuttle)
 "btE" = (
-/obj/machinery/atmospherics/portables_connector,
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/obj/machinery/light/small{
+/obj/structure/machinery/atmospherics/portables_connector,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor,
 /area/shuttle/tcfl_shuttle)
 "bzd" = (
-/obj/machinery/floodlight,
+/obj/structure/machinery/floodlight,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/tcfl_shuttle)
 "bWS" = (
@@ -236,13 +236,13 @@
 	dir = 5
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "bYX" = (
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "cnD" = (
@@ -266,14 +266,14 @@
 /turf/simulated/floor/shuttle/white,
 /area/shuttle/tcfl_shuttle)
 "cwQ" = (
-/obj/machinery/light/small/emergency,
+/obj/structure/machinery/light/small/emergency,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "cBz" = (
 /turf/simulated/floor/shuttle/white,
 /area/shuttle/tcfl_shuttle)
 "cFC" = (
-/obj/machinery/recharge_station,
+/obj/structure/machinery/recharge_station,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/tcfl_peacekeeper_ship)
 "cIZ" = (
@@ -298,8 +298,8 @@
 /turf/simulated/floor,
 /area/ship/tcfl_peacekeeper_ship)
 "cPz" = (
-/obj/machinery/computer/shuttle_control/explore/tcfl_shuttle,
-/obj/machinery/light/small{
+/obj/structure/machinery/computer/shuttle_control/explore/tcfl_shuttle,
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/tan,
@@ -311,7 +311,7 @@
 	identifier = "tcfl_peacekeeper_prefect";
 	name = "igs - tcfl_peacekeeper_prefect"
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/structure/machinery/recharger/wallcharger{
 	pixel_x = -27
 	},
 /turf/simulated/floor/carpet,
@@ -326,7 +326,7 @@
 /obj/vehicle/bike/speeder{
 	dir = 4
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8;
 	icon_state = "tube_empty"
 	},
@@ -339,10 +339,10 @@
 /turf/simulated/floor/shuttle/tan,
 /area/shuttle/tcfl_shuttle)
 "daz" = (
-/obj/machinery/computer/ship/sensors{
+/obj/structure/machinery/computer/ship/sensors{
 	dir = 8
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /obj/structure/window/reinforced{
@@ -356,7 +356,7 @@
 "dbt" = (
 /obj/structure/railing/mapped,
 /obj/structure/lattice/catwalk/indoor,
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
 	},
 /turf/simulated/floor,
@@ -365,7 +365,7 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/tcfl_shuttle)
 "dcC" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
+/obj/structure/machinery/atmospherics/pipe/simple/visible{
 	dir = 5
 	},
 /obj/structure/lattice/catwalk/indoor,
@@ -386,7 +386,7 @@
 /turf/simulated/floor/shuttle/tan,
 /area/ship/tcfl_peacekeeper_ship)
 "dkC" = (
-/obj/machinery/atmospherics/pipe/manifold/visible{
+/obj/structure/machinery/atmospherics/pipe/manifold/visible{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor,
@@ -404,14 +404,14 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/tcfl_shuttle)
 "dyN" = (
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/effect/floor_decal/industrial/outline/blue,
 /turf/simulated/floor,
 /area/shuttle/tcfl_shuttle)
 "dze" = (
 /obj/structure/window/shuttle/legion,
 /obj/structure/grille,
-/obj/machinery/door/blast/shutters/open{
+/obj/structure/machinery/door/blast/shutters/open{
 	dir = 2;
 	id = "tcfl_defense";
 	name = "defense shutters"
@@ -419,7 +419,7 @@
 /turf/simulated/floor/plating,
 /area/ship/tcfl_peacekeeper_ship)
 "dCR" = (
-/obj/machinery/vending/engivend{
+/obj/structure/machinery/vending/engivend{
 	req_access = list(204)
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -433,7 +433,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor,
@@ -450,7 +450,7 @@
 /area/ship/tcfl_peacekeeper_ship)
 "dXB" = (
 /obj/effect/floor_decal/industrial/outline/blue,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	icon_state = "tube_empty"
 	},
@@ -488,36 +488,36 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/item/device/gps,
-/obj/item/device/gps,
+/obj/item/gps,
+/obj/item/gps,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "ehg" = (
-/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/structure/machinery/portable_atmospherics/canister/oxygen,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1;
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "ehA" = (
-/obj/machinery/recharger/wallcharger{
+/obj/structure/machinery/recharger/wallcharger{
 	pixel_x = 4;
 	pixel_y = 24
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/structure/machinery/recharger/wallcharger{
 	pixel_x = 4;
 	pixel_y = 33
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "eib" = (
-/obj/machinery/recharger/wallcharger{
+/obj/structure/machinery/recharger/wallcharger{
 	pixel_x = 4;
 	pixel_y = 33
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/structure/machinery/recharger/wallcharger{
 	pixel_x = 4;
 	pixel_y = 24
 	},
@@ -555,7 +555,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	icon_state = "tube_empty"
 	},
@@ -563,17 +563,17 @@
 /area/ship/tcfl_peacekeeper_ship)
 "epw" = (
 /obj/structure/extinguisher_cabinet/east,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/ship/tcfl_peacekeeper_ship)
 "erL" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
 /obj/structure/lattice/catwalk/indoor,
@@ -587,7 +587,7 @@
 	dir = 8
 	},
 /obj/structure/table/steel,
-/obj/item/device/flashlight/maglight,
+/obj/item/flashlight/maglight,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/tcfl_shuttle)
 "ett" = (
@@ -606,13 +606,13 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "ewn" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/carpet,
@@ -635,13 +635,13 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "eyj" = (
-/obj/machinery/computer/ship/engines{
+/obj/structure/machinery/computer/ship/engines{
 	dir = 8
 	},
 /obj/structure/window/reinforced{
@@ -659,7 +659,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "eCV" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8;
 	icon_state = "tube_empty"
 	},
@@ -667,11 +667,11 @@
 /area/ship/tcfl_peacekeeper_ship)
 "eDP" = (
 /obj/effect/floor_decal/industrial/outline/blue,
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/tcfl_peacekeeper_ship)
 "eGO" = (
-/obj/machinery/atmospherics/binary/pump/high_power,
+/obj/structure/machinery/atmospherics/binary/pump/high_power,
 /obj/effect/floor_decal/industrial/outline/blue,
 /turf/simulated/floor,
 /area/shuttle/tcfl_shuttle)
@@ -682,7 +682,7 @@
 /turf/simulated/floor/shuttle/dark_blue,
 /area/ship/tcfl_peacekeeper_ship)
 "eKc" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
+/obj/structure/machinery/atmospherics/pipe/simple/visible{
 	dir = 6
 	},
 /obj/structure/lattice/catwalk/indoor,
@@ -699,20 +699,20 @@
 /area/ship/tcfl_peacekeeper_ship)
 "eOz" = (
 /obj/effect/floor_decal/industrial/outline/blue,
-/obj/machinery/door/blast/shutters{
+/obj/structure/machinery/door/blast/shutters{
 	dir = 2;
 	id = "tcfl_hangar";
 	name = "Hangar Cargo Doors"
 	},
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/tcfl_peacekeeper_ship)
 "eOJ" = (
-/obj/machinery/atmospherics/pipe/manifold/visible{
+/obj/structure/machinery/atmospherics/pipe/manifold/visible{
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor,
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /turf/simulated/floor,
 /area/shuttle/tcfl_shuttle)
 "eQn" = (
@@ -720,15 +720,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "eTH" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "eUC" = (
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -739,14 +739,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "fhi" = (
-/obj/machinery/atmospherics/pipe/manifold/visible{
+/obj/structure/machinery/atmospherics/pipe/manifold/visible{
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor,
 /area/shuttle/tcfl_shuttle)
 "fnS" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /obj/structure/railing/mapped,
 /obj/item/cell/high,
 /obj/item/cell/high,
@@ -769,13 +769,13 @@
 /area/ship/tcfl_peacekeeper_ship)
 "frn" = (
 /obj/structure/closet/crate/loot,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "frB" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
+/obj/structure/machinery/atmospherics/pipe/simple/visible{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor,
@@ -785,11 +785,11 @@
 /obj/structure/table/rack,
 /obj/item/deployable_kit/legion_barrier,
 /obj/item/deployable_kit/legion_barrier,
-/obj/item/device/magnetic_lock/security/legion,
-/obj/item/device/magnetic_lock/security/legion,
+/obj/item/magnetic_lock/security/legion,
+/obj/item/magnetic_lock/security/legion,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/extinguisher_cabinet/west,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8;
 	icon_state = "tube_empty"
 	},
@@ -800,7 +800,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "fws" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	icon_state = "tube_empty"
 	},
@@ -808,22 +808,22 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "fBo" = (
-/obj/machinery/atmospherics/pipe/manifold4w/visible,
-/obj/machinery/meter,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/visible,
+/obj/structure/machinery/meter,
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor,
 /area/shuttle/tcfl_shuttle)
 "fEr" = (
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1;
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor,
 /area/ship/tcfl_peacekeeper_ship)
 "fFu" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8;
 	icon_state = "tube_empty"
 	},
@@ -836,21 +836,21 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8;
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor,
 /area/ship/tcfl_peacekeeper_ship)
 "fHl" = (
-/obj/machinery/optable,
+/obj/structure/machinery/optable,
 /turf/simulated/floor/shuttle/white,
 /area/ship/tcfl_peacekeeper_ship)
 "fLz" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	icon_state = "tube_empty"
 	},
@@ -864,11 +864,11 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/machinery/iff_beacon/name_change,
+/obj/structure/machinery/iff_beacon/name_change,
 /turf/simulated/floor,
 /area/shuttle/tcfl_shuttle)
 "fNN" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	icon_state = "tube_empty"
 	},
@@ -878,14 +878,14 @@
 /turf/simulated/floor/shuttle/dark_blue,
 /area/ship/tcfl_peacekeeper_ship)
 "fNZ" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "fQo" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
+/obj/structure/machinery/atmospherics/pipe/simple/visible{
 	dir = 10
 	},
 /obj/structure/lattice/catwalk/indoor,
@@ -894,23 +894,23 @@
 "fQq" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "fQL" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "fRD" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	icon_state = "tube_empty"
 	},
-/obj/machinery/mech_recharger,
+/obj/structure/machinery/mech_recharger,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "fTp" = (
@@ -921,7 +921,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "fVv" = (
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /turf/simulated/floor/shuttle/dark_blue,
 /area/ship/tcfl_peacekeeper_ship)
 "fZq" = (
@@ -931,7 +931,7 @@
 /turf/simulated/floor/shuttle/dark_blue,
 /area/ship/tcfl_peacekeeper_ship)
 "gaB" = (
-/obj/machinery/atmospherics/pipe/simple/visible,
+/obj/structure/machinery/atmospherics/pipe/simple/visible,
 /turf/simulated/wall/shuttle/legion,
 /area/shuttle/tcfl_shuttle)
 "gaY" = (
@@ -966,12 +966,12 @@
 /area/ship/tcfl_peacekeeper_ship)
 "gkc" = (
 /obj/effect/floor_decal/industrial/warning,
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "gmy" = (
-/obj/machinery/computer/ship/navigation,
+/obj/structure/machinery/computer/ship/navigation,
 /obj/structure/window/reinforced{
 	dir = 1
 	},
@@ -1010,39 +1010,39 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "gvM" = (
-/obj/machinery/atmospherics/unary/engine{
+/obj/structure/machinery/atmospherics/unary/engine{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/blue,
 /turf/unsimulated/floor/plating,
 /area/shuttle/tcfl_shuttle)
 "gxW" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/ship/tcfl_peacekeeper_ship)
 "gyl" = (
-/obj/machinery/door/airlock/multi_tile/glass{
+/obj/structure/machinery/door/airlock/multi_tile/glass{
 	name = "Gear Room";
 	req_access = list(204)
 	},
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/tcfl_peacekeeper_ship)
 "gAJ" = (
-/obj/machinery/atmospherics/unary/engine{
+/obj/structure/machinery/atmospherics/unary/engine{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/blue,
-/obj/machinery/light/spot{
+/obj/structure/machinery/light/spot{
 	dir = 1
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/tcfl_shuttle)
 "gGC" = (
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/tcfl_peacekeeper_ship)
 "gHC" = (
@@ -1054,50 +1054,50 @@
 	dir = 6
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "gJE" = (
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	name = "Hangar";
 	req_access = list(204);
 	dir = 1
 	},
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "gMA" = (
 /obj/effect/floor_decal/industrial/outline/blue,
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	name = "Hangar";
 	req_access = list(204);
 	dir = 1
 	},
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "gNW" = (
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	name = "Cargo Bay";
 	req_access = list(204);
 	dir = 1
 	},
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/tcfl_peacekeeper_ship)
 "gRK" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/tcfl_peacekeeper_ship)
 "gXh" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor,
 /area/ship/tcfl_peacekeeper_ship)
 "gZm" = (
-/obj/machinery/door/window/southright,
-/obj/machinery/light/small{
+/obj/structure/machinery/door/window/southright,
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/ramp{
@@ -1106,16 +1106,16 @@
 /area/shuttle/tcfl_shuttle)
 "haL" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/computer/ship/sensors{
+/obj/structure/machinery/computer/ship/sensors{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "hdb" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
-/obj/machinery/portable_atmospherics/powered/pump/filled,
+/obj/structure/machinery/portable_atmospherics/powered/pump/filled,
 /turf/simulated/floor,
 /area/ship/tcfl_peacekeeper_ship)
 "hdd" = (
@@ -1128,12 +1128,12 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/tcfl_shuttle)
 "hfR" = (
-/obj/machinery/hologram/holopad/long_range,
+/obj/structure/machinery/hologram/holopad/long_range,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/tcfl_shuttle)
 "hhf" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1;
 	icon_state = "tube_empty"
 	},
@@ -1141,7 +1141,7 @@
 /turf/simulated/floor,
 /area/ship/tcfl_peacekeeper_ship)
 "hiw" = (
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor,
 /area/ship/tcfl_peacekeeper_ship)
@@ -1150,7 +1150,7 @@
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
-/obj/machinery/vending/wallmed1{
+/obj/structure/machinery/vending/wallmed1{
 	name = "Medical Supplies";
 	pixel_x = -26;
 	pixel_y = -1;
@@ -1159,7 +1159,7 @@
 /turf/simulated/floor/shuttle/white,
 /area/ship/tcfl_peacekeeper_ship)
 "hsz" = (
-/obj/machinery/bodyscanner,
+/obj/structure/machinery/bodyscanner,
 /turf/simulated/floor/shuttle/white,
 /area/ship/tcfl_peacekeeper_ship)
 "hsG" = (
@@ -1169,13 +1169,13 @@
 /turf/simulated/floor/shuttle/white,
 /area/ship/tcfl_peacekeeper_ship)
 "hud" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1196,8 +1196,8 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/tcfl_shuttle)
 "hxC" = (
-/obj/machinery/door/window/southleft,
-/obj/machinery/light/small{
+/obj/structure/machinery/door/window/southleft,
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/ramp{
@@ -1211,7 +1211,7 @@
 /area/ship/tcfl_peacekeeper_ship)
 "hzX" = (
 /obj/structure/sign/flag/biesel/large/north,
-/obj/machinery/recharge_station,
+/obj/structure/machinery/recharge_station,
 /turf/simulated/floor/shuttle/tan,
 /area/ship/tcfl_peacekeeper_ship)
 "hBS" = (
@@ -1228,7 +1228,7 @@
 "hEj" = (
 /obj/structure/sign/flag/biesel/large/north,
 /obj/structure/bed/stool,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/tan,
@@ -1246,7 +1246,7 @@
 /turf/simulated/floor/shuttle/tan,
 /area/ship/tcfl_peacekeeper_ship)
 "hFX" = (
-/obj/machinery/washing_machine,
+/obj/structure/machinery/washing_machine,
 /turf/simulated/floor/shuttle/tan,
 /area/ship/tcfl_peacekeeper_ship)
 "hGt" = (
@@ -1254,10 +1254,10 @@
 /turf/simulated/floor/carpet,
 /area/ship/tcfl_peacekeeper_ship)
 "hJC" = (
-/obj/machinery/recharger/wallcharger{
+/obj/structure/machinery/recharger/wallcharger{
 	pixel_x = 32
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/structure/machinery/recharger/wallcharger{
 	pixel_x = 32;
 	pixel_y = 10
 	},
@@ -1265,7 +1265,7 @@
 /area/shuttle/tcfl_shuttle)
 "hLc" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/computer/ship/helm{
+/obj/structure/machinery/computer/ship/helm{
 	dir = 8;
 	req_access = list(204)
 	},
@@ -1278,11 +1278,11 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/tcfl_shuttle)
 "hNy" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "hNH" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /obj/structure/bed/stool/chair/sofa/corner/concave/red,
@@ -1292,7 +1292,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
 	},
@@ -1303,7 +1303,7 @@
 /obj/structure/mopbucket,
 /obj/item/reagent_containers/glass/bucket,
 /obj/item/mop,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/dark_blue{
@@ -1312,8 +1312,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "hRT" = (
-/obj/machinery/vending/tool,
-/obj/machinery/light/small/emergency,
+/obj/structure/machinery/vending/tool,
+/obj/structure/machinery/light/small/emergency,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "hSW" = (
@@ -1321,7 +1321,7 @@
 /turf/template_noop,
 /area/ship/tcfl_peacekeeper_ship)
 "hUJ" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -1332,7 +1332,7 @@
 /turf/simulated/floor,
 /area/ship/tcfl_peacekeeper_ship)
 "hXr" = (
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
 	},
@@ -1346,36 +1346,36 @@
 /turf/simulated/floor,
 /area/ship/tcfl_peacekeeper_ship)
 "iaK" = (
-/obj/machinery/door/window/westleft,
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/window/westleft,
+/obj/structure/machinery/door/firedoor,
 /turf/simulated/floor/shuttle/dark_blue,
 /area/ship/tcfl_peacekeeper_ship)
 "iaO" = (
-/obj/machinery/body_scanconsole{
+/obj/structure/machinery/body_scanconsole{
 	dir = 1;
 	pixel_y = 6
 	},
 /turf/simulated/floor/shuttle/white,
 /area/ship/tcfl_peacekeeper_ship)
 "ibU" = (
-/obj/machinery/iv_drip,
+/obj/structure/machinery/iv_drip,
 /turf/simulated/floor/shuttle/white,
 /area/ship/tcfl_peacekeeper_ship)
 "ijB" = (
-/obj/machinery/mech_recharger,
+/obj/structure/machinery/mech_recharger,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/tcfl_shuttle)
 "ilG" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "ilM" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -1389,7 +1389,7 @@
 /area/ship/tcfl_peacekeeper_ship)
 "ina" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/vending/tool,
+/obj/structure/machinery/vending/tool,
 /turf/simulated/floor,
 /area/ship/tcfl_peacekeeper_ship)
 "iqy" = (
@@ -1397,7 +1397,7 @@
 	dir = 6
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1452,7 +1452,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /obj/effect/floor_decal/corner/dark_blue/full,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
@@ -1477,7 +1477,7 @@
 "iQk" = (
 /obj/effect/floor_decal/industrial/outline/blue,
 /obj/structure/table/rack,
-/obj/item/device/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/tcfl_shuttle)
 "iSW" = (
@@ -1487,7 +1487,7 @@
 /turf/template_noop,
 /area/space)
 "iVq" = (
-/obj/machinery/mech_recharger,
+/obj/structure/machinery/mech_recharger,
 /mob/living/heavy_vehicle/premade/combatripley{
 	h_r_hand = /obj/item/mecha_equipment/clamp
 	},
@@ -1510,20 +1510,20 @@
 "jbQ" = (
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/floodlight,
+/obj/structure/machinery/floodlight,
 /turf/simulated/floor,
 /area/ship/tcfl_peacekeeper_ship)
 "jcg" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 4
 	},
-/obj/machinery/vending/wallmed1{
+/obj/structure/machinery/vending/wallmed1{
 	name = "Medical Supplies";
 	pixel_x = -26;
 	pixel_y = -1;
 	req_access = null
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/black,
@@ -1531,7 +1531,7 @@
 "jdc" = (
 /obj/structure/extinguisher_cabinet/west,
 /obj/structure/railing/mapped,
-/obj/machinery/computer/ship/engines{
+/obj/structure/machinery/computer/ship/engines{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1553,7 +1553,7 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/tcfl_shuttle)
 "jnu" = (
-/obj/machinery/door/blast/shutters{
+/obj/structure/machinery/door/blast/shutters{
 	dir = 4;
 	id = "tcfl_shuttle_rear";
 	name = "Rear Cargo Doors"
@@ -1569,23 +1569,23 @@
 /area/shuttle/tcfl_shuttle)
 "jnZ" = (
 /obj/effect/floor_decal/industrial/outline/blue,
-/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/structure/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/tcfl_shuttle)
 "jqE" = (
 /obj/structure/closet/crate/freezer/rations,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/tcfl_shuttle)
 "jrp" = (
-/obj/machinery/door/blast/shutters{
+/obj/structure/machinery/door/blast/shutters{
 	dir = 4;
 	id = "tcfl_shuttle_rear";
 	name = "Rear Cargo Doors"
 	},
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	id = "tcfl_shuttle_rear";
 	name = "Cargo Bay Doors";
 	pixel_y = -23;
@@ -1595,19 +1595,19 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/tcfl_shuttle)
 "jrJ" = (
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	name = "Maintenance";
 	req_access = list(204);
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/door/firedoor,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/tcfl_peacekeeper_ship)
 "jvL" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	icon_state = "tube_empty"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -1630,8 +1630,8 @@
 /turf/simulated/floor/shuttle/tan,
 /area/ship/tcfl_peacekeeper_ship)
 "jGx" = (
-/obj/machinery/recharge_station,
-/obj/machinery/light/small{
+/obj/structure/machinery/recharge_station,
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/black,
@@ -1641,21 +1641,21 @@
 	dir = 9
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "jMm" = (
 /obj/structure/bookcase/manuals,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1;
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/wood,
 /area/ship/tcfl_peacekeeper_ship)
 "jNr" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /obj/structure/bed/stool/chair/sofa/left/red{
@@ -1676,13 +1676,13 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/tcfl_shuttle)
 "jQY" = (
-/obj/machinery/ammunition_loader/francisca{
+/obj/structure/machinery/ammunition_loader/francisca{
 	weapon_id = "TCFL Francisca Rotary Gun"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "jRX" = (
-/obj/machinery/embedded_controller/radio/simple_docking_controller{
+/obj/structure/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1380;
 	id_tag = "tcfl_shuttle";
 	name = "Port docking controller";
@@ -1698,19 +1698,19 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "kaR" = (
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	name = "Maintenance";
 	req_access = list(204);
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/door/firedoor,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "kdK" = (
-/obj/machinery/door/blast/shutters{
+/obj/structure/machinery/door/blast/shutters{
 	dir = 2;
 	id = "tcfl_shuttle_fore";
 	name = "Fore Docking Doors"
@@ -1725,7 +1725,7 @@
 	},
 /area/ship/tcfl_peacekeeper_ship)
 "kgv" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -1735,17 +1735,17 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "kgR" = (
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "kiO" = (
 /obj/structure/table/wood,
 /obj/item/clothing/suit/storage/legion,
-/obj/item/device/versebook/biesel{
+/obj/item/versebook/biesel{
 	pixel_y = -6
 	},
 /turf/simulated/floor/wood,
@@ -1753,7 +1753,7 @@
 "kkM" = (
 /obj/structure/window/shuttle/legion,
 /obj/structure/grille,
-/obj/machinery/door/blast/shutters/open{
+/obj/structure/machinery/door/blast/shutters/open{
 	dir = 2;
 	id = "tcfl_defense";
 	name = "defense shutters"
@@ -1765,12 +1765,12 @@
 /area/ship/tcfl_peacekeeper_ship)
 "kkV" = (
 /obj/structure/window/reinforced,
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /turf/simulated/floor/shuttle/dark_blue,
 /area/ship/tcfl_peacekeeper_ship)
 "kpn" = (
-/obj/machinery/door/window/southright,
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/window/southright,
+/obj/structure/machinery/door/firedoor,
 /turf/simulated/floor/shuttle/dark_blue,
 /area/ship/tcfl_peacekeeper_ship)
 "kpR" = (
@@ -1781,7 +1781,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "kqx" = (
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/ramp{
 	dir = 8
@@ -1795,7 +1795,7 @@
 /area/ship/tcfl_peacekeeper_ship)
 "krH" = (
 /obj/structure/railing/mapped,
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor,
@@ -1805,20 +1805,20 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "ktN" = (
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /turf/simulated/floor/shuttle/tan,
 /area/ship/tcfl_peacekeeper_ship)
 "kwe" = (
 /obj/structure/closet/crate/bin{
 	name = "trashbin"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor,
@@ -1837,18 +1837,18 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "kyw" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/computer/ship/targeting{
+/obj/structure/machinery/computer/ship/targeting{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "kzm" = (
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
@@ -1856,19 +1856,19 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "kAt" = (
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "kJI" = (
-/obj/machinery/door/blast/shutters{
+/obj/structure/machinery/door/blast/shutters{
 	dir = 2;
 	id = "tcfl_shuttle_fore";
 	name = "Fore Docking Doors"
 	},
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	dir = 8;
 	id = "tcfl_shuttle_fore";
 	name = "Docking Bay Doors";
@@ -1880,7 +1880,7 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/tcfl_shuttle)
 "kOF" = (
-/obj/machinery/door/airlock/silver{
+/obj/structure/machinery/door/airlock/silver{
 	name = "Kitchen";
 	req_access = list(204);
 	dir = 1
@@ -1909,7 +1909,7 @@
 /obj/item/storage/toolbox/electrical,
 /obj/item/storage/toolbox/mechanical,
 /obj/item/storage/bag/inflatable,
-/obj/item/device/lightreplacer,
+/obj/item/lightreplacer,
 /obj/item/storage/belt/utility,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor,
@@ -1933,7 +1933,7 @@
 /turf/simulated/floor,
 /area/ship/tcfl_peacekeeper_ship)
 "lej" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "tcfl_shuttle_out";
@@ -1943,12 +1943,12 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/tcfl_shuttle)
 "lev" = (
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	name = "Legion Quarters";
 	req_access = list(204);
 	dir = 1
 	},
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /turf/simulated/floor/shuttle/tan,
 /area/ship/tcfl_peacekeeper_ship)
 "lhC" = (
@@ -1969,11 +1969,11 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/tcfl_peacekeeper_ship)
 "lmc" = (
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /turf/simulated/floor/shuttle/tan,
 /area/ship/tcfl_peacekeeper_ship)
 "lmS" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -1991,22 +1991,22 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/tcfl_peacekeeper_ship)
 "ltf" = (
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "lva" = (
-/obj/machinery/door/airlock/multi_tile/glass{
+/obj/structure/machinery/door/airlock/multi_tile/glass{
 	dir = 2;
 	req_access = list(204)
 	},
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /turf/simulated/floor/shuttle/tan,
 /area/ship/tcfl_peacekeeper_ship)
 "lwj" = (
@@ -2027,13 +2027,13 @@
 /turf/simulated/floor,
 /area/ship/tcfl_peacekeeper_ship)
 "lCc" = (
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "lEL" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atmospherics/pipe/tank/carbon_dioxide,
+/obj/structure/machinery/atmospherics/pipe/tank/carbon_dioxide,
 /turf/simulated/floor,
 /area/ship/tcfl_peacekeeper_ship)
 "lKK" = (
@@ -2045,7 +2045,7 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/tcfl_peacekeeper_ship)
 "lLn" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
 /obj/structure/railing/mapped{
@@ -2084,7 +2084,7 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2099,7 +2099,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "mmq" = (
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/light/small/emergency{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -2109,13 +2109,13 @@
 /area/ship/tcfl_peacekeeper_ship)
 "mnC" = (
 /obj/effect/floor_decal/industrial/outline/blue,
-/obj/machinery/door/blast/shutters{
+/obj/structure/machinery/door/blast/shutters{
 	dir = 2;
 	id = "tcfl_hangar";
 	name = "Hangar Cargo Doors"
 	},
-/obj/machinery/door/firedoor,
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/door/firedoor,
+/obj/structure/machinery/button/remote/blast_door{
 	id = "tcfl_hangar";
 	name = "Cargo Bay Doors";
 	pixel_y = -23;
@@ -2128,7 +2128,7 @@
 /turf/space/transit/north,
 /area/space)
 "msG" = (
-/obj/machinery/atmospherics/unary/engine,
+/obj/structure/machinery/atmospherics/unary/engine,
 /obj/structure/window/reinforced,
 /obj/effect/landmark/entry_point/aft{
 	name = "aft, starboard engine"
@@ -2136,19 +2136,19 @@
 /turf/simulated/floor,
 /area/ship/tcfl_peacekeeper_ship)
 "mtM" = (
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	name = "Weapon Bay";
 	req_access = list(204);
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/door/firedoor,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/tcfl_peacekeeper_ship)
 "mwP" = (
-/obj/machinery/ship_weapon/grauwolf{
+/obj/structure/machinery/ship_weapon/grauwolf{
 	pixel_x = -32;
 	pixel_y = -192;
 	weapon_id = "TCFL Grauwolf Flak Battery"
@@ -2180,7 +2180,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/machinery/shower{
+/obj/structure/machinery/shower{
 	pixel_y = 20
 	},
 /turf/simulated/floor/tiled/white,
@@ -2204,9 +2204,9 @@
 /area/ship/tcfl_peacekeeper_ship)
 "mPM" = (
 /obj/structure/table/steel,
-/obj/item/device/versebook/biesel,
-/obj/item/device/flashlight/maglight,
-/obj/machinery/light{
+/obj/item/versebook/biesel,
+/obj/item/flashlight/maglight,
+/obj/structure/machinery/light{
 	dir = 1;
 	icon_state = "tube_empty"
 	},
@@ -2223,7 +2223,7 @@
 /turf/simulated/floor/carpet,
 /area/ship/tcfl_peacekeeper_ship)
 "mTR" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -2231,7 +2231,7 @@
 "mZb" = (
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/structure/table/stone/marble,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
@@ -2239,7 +2239,7 @@
 "nap" = (
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/structure/table/stone/marble,
-/obj/machinery/chemical_dispenser/bar_soft/full{
+/obj/structure/machinery/chemical_dispenser/bar_soft/full{
 	dir = 8;
 	pixel_x = -5;
 	pixel_y = 4
@@ -2253,7 +2253,7 @@
 /turf/simulated/wall/shuttle/legion,
 /area/ship/tcfl_peacekeeper_ship)
 "naU" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -2271,39 +2271,39 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/tcfl_peacekeeper_ship)
 "ngE" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/tcfl_peacekeeper_ship)
 "nhU" = (
-/obj/machinery/door/airlock/multi_tile/glass{
+/obj/structure/machinery/door/airlock/multi_tile/glass{
 	req_access = list(204)
 	},
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/tcfl_peacekeeper_ship)
 "npn" = (
 /turf/simulated/floor/tiled/white,
 /area/ship/tcfl_peacekeeper_ship)
 "npq" = (
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	name = "Restroom";
 	req_access = list(204);
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /turf/simulated/floor/tiled/white,
 /area/ship/tcfl_peacekeeper_ship)
 "nsw" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/powered/pump/filled,
+/obj/structure/machinery/portable_atmospherics/powered/pump/filled,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "ntt" = (
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/structure/table/stone/marble,
-/obj/machinery/reagentgrinder{
+/obj/structure/machinery/reagentgrinder{
 	pixel_x = 4;
 	pixel_y = 6
 	},
@@ -2312,7 +2312,7 @@
 "nty" = (
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/structure/table/stone/marble,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /obj/item/reagent_containers/glass/beaker/large,
@@ -2329,7 +2329,7 @@
 /area/ship/tcfl_peacekeeper_ship)
 "nFw" = (
 /obj/structure/table/steel,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /turf/simulated/floor/shuttle/tan,
 /area/ship/tcfl_peacekeeper_ship)
 "nJs" = (
@@ -2346,25 +2346,25 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/tcfl_peacekeeper_ship)
 "nNA" = (
-/obj/machinery/ammunition_loader/grauwolf{
+/obj/structure/machinery/ammunition_loader/grauwolf{
 	weapon_id = "TCFL Grauwolf Flak Battery"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "nTM" = (
 /obj/structure/plasticflaps/airtight,
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	name = "Telecomms";
 	dir = 1
 	},
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "nVi" = (
-/obj/machinery/cryopod{
+/obj/structure/machinery/cryopod{
 	dir = 4
 	},
-/obj/machinery/computer/cryopod{
+/obj/structure/machinery/computer/cryopod{
 	pixel_x = -28
 	},
 /turf/simulated/floor/shuttle/tan,
@@ -2376,14 +2376,14 @@
 	},
 /area/ship/tcfl_peacekeeper_ship)
 "oge" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "opS" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/lava/blue,
+/obj/item/flashlight/lamp/lava/blue,
 /obj/structure/sign/flag/biesel{
 	pixel_x = -32;
 	pixel_y = 32
@@ -2397,7 +2397,7 @@
 /turf/simulated/floor/wood,
 /area/ship/tcfl_peacekeeper_ship)
 "oyy" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/shuttle/tan,
@@ -2415,7 +2415,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "oAV" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/dark_blue/full,
@@ -2431,7 +2431,7 @@
 	},
 /area/ship/tcfl_peacekeeper_ship)
 "oJg" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "tcfl_peacekeeper_ship_out";
@@ -2441,8 +2441,8 @@
 /turf/simulated/floor,
 /area/ship/tcfl_peacekeeper_ship)
 "oLC" = (
-/obj/machinery/light/small,
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/light/small,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor,
@@ -2450,23 +2450,23 @@
 /area/ship/tcfl_peacekeeper_ship)
 "oMU" = (
 /obj/structure/extinguisher_cabinet/east,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/tcfl_peacekeeper_ship)
 "oNi" = (
 /obj/effect/floor_decal/corner/black/diagonal,
-/obj/machinery/appliance/cooker/oven,
+/obj/structure/machinery/appliance/cooker/oven,
 /turf/simulated/floor/tiled/white,
 /area/ship/tcfl_peacekeeper_ship)
 "oYH" = (
-/obj/machinery/floodlight,
+/obj/structure/machinery/floodlight,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/ship/tcfl_peacekeeper_ship)
 "oYU" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
@@ -2474,7 +2474,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "pcu" = (
-/obj/machinery/light/small/emergency,
+/obj/structure/machinery/light/small/emergency,
 /obj/structure/table/steel,
 /obj/item/clothing/ears/earmuffs,
 /turf/simulated/floor/tiled/dark,
@@ -2488,8 +2488,8 @@
 /turf/simulated/floor/plating,
 /area/ship/tcfl_peacekeeper_ship)
 "pfE" = (
-/obj/machinery/appliance/cooker/fryer,
-/obj/machinery/light{
+/obj/structure/machinery/appliance/cooker/fryer,
+/obj/structure/machinery/light{
 	dir = 1;
 	icon_state = "tube_empty"
 	},
@@ -2497,15 +2497,15 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/tcfl_peacekeeper_ship)
 "pim" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "piw" = (
-/obj/machinery/appliance/cooker/stove,
+/obj/structure/machinery/appliance/cooker/stove,
 /obj/effect/floor_decal/corner/black/diagonal,
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /turf/simulated/floor/tiled/white,
 /area/ship/tcfl_peacekeeper_ship)
 "pjY" = (
@@ -2517,11 +2517,11 @@
 /turf/simulated/floor/plating,
 /area/ship/tcfl_peacekeeper_ship)
 "pke" = (
-/obj/machinery/computer/ship/navigation,
+/obj/structure/machinery/computer/ship/navigation,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "ppZ" = (
-/obj/machinery/vending/dinnerware,
+/obj/structure/machinery/vending/dinnerware,
 /obj/effect/floor_decal/corner/black/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/ship/tcfl_peacekeeper_ship)
@@ -2549,14 +2549,14 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/tcfl_peacekeeper_ship)
 "pse" = (
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
 	},
 /area/ship/tcfl_peacekeeper_ship)
 "pwR" = (
-/obj/machinery/telecomms/allinone/ship,
+/obj/structure/machinery/telecomms/allinone/ship,
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
@@ -2588,7 +2588,7 @@
 /area/ship/tcfl_peacekeeper_ship)
 "pCa" = (
 /obj/structure/table/standard,
-/obj/item/device/megaphone/red{
+/obj/item/megaphone/red{
 	pixel_y = -4
 	},
 /obj/item/paper_bin{
@@ -2606,7 +2606,7 @@
 /area/ship/tcfl_peacekeeper_ship)
 "pIz" = (
 /obj/structure/table/standard,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 8
 	},
@@ -2615,7 +2615,7 @@
 "pJZ" = (
 /obj/structure/bed,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2626,7 +2626,7 @@
 /area/ship/tcfl_peacekeeper_ship)
 "pLb" = (
 /obj/structure/closet/crate/loot,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -2640,7 +2640,7 @@
 /turf/simulated/floor,
 /area/ship/tcfl_peacekeeper_ship)
 "pPW" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -2657,9 +2657,9 @@
 /obj/item/gun/energy/stunrevolver,
 /obj/item/gun/energy/taser,
 /obj/item/storage/box/zipties,
-/obj/item/device/flash,
+/obj/item/flash,
 /obj/item/reagent_containers/spray/pepper,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /obj/item/storage/box/tactical/flashbangs,
@@ -2674,16 +2674,16 @@
 /obj/item/gun/energy/stunrevolver,
 /obj/item/gun/energy/taser,
 /obj/item/storage/box/zipties,
-/obj/item/device/flash,
+/obj/item/flash,
 /obj/item/reagent_containers/spray/pepper,
 /obj/item/storage/box/tactical/smokebombs,
 /obj/item/storage/belt/security,
 /turf/simulated/floor/shuttle/tan,
 /area/ship/tcfl_peacekeeper_ship)
 "pVN" = (
-/obj/machinery/atmospherics/portables_connector,
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/light/small{
+/obj/structure/machinery/atmospherics/portables_connector,
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor,
@@ -2701,19 +2701,19 @@
 /turf/simulated/floor/wood,
 /area/ship/tcfl_peacekeeper_ship)
 "qds" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/ship/tcfl_peacekeeper_ship)
 "qfE" = (
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	name = "Prefect's Quarters";
 	req_access = list(204);
 	dir = 1
 	},
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /turf/simulated/floor/wood,
 /area/ship/tcfl_peacekeeper_ship)
 "qhu" = (
@@ -2721,9 +2721,9 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/tcfl_shuttle)
 "qil" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden,
-/obj/machinery/meter,
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden,
+/obj/structure/machinery/meter,
+/obj/structure/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/ship/tcfl_peacekeeper_ship)
 "qlz" = (
@@ -2739,7 +2739,7 @@
 /obj/structure/bed/stool/chair/office/bridge/generic{
 	dir = 8
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/dark_blue/full{
@@ -2757,9 +2757,9 @@
 /turf/space/transit/north,
 /area/space)
 "quF" = (
-/obj/machinery/door/window/westright,
-/obj/machinery/door/firedoor,
-/obj/machinery/light{
+/obj/structure/machinery/door/window/westright,
+/obj/structure/machinery/door/firedoor,
+/obj/structure/machinery/light{
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/shuttle/dark_blue,
@@ -2771,7 +2771,7 @@
 /turf/simulated/floor,
 /area/ship/tcfl_peacekeeper_ship)
 "qFi" = (
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /turf/simulated/floor/tiled/ramp,
 /area/ship/tcfl_peacekeeper_ship)
 "qHm" = (
@@ -2793,10 +2793,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "qPL" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
-/obj/machinery/vending/engivend{
+/obj/structure/machinery/vending/engivend{
 	req_access = list(204)
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2809,22 +2809,22 @@
 /turf/simulated/floor/shuttle/tan,
 /area/ship/tcfl_peacekeeper_ship)
 "qUg" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "qXd" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
-/obj/machinery/door/firedoor,
-/obj/machinery/portable_atmospherics/powered/scrubber/huge,
+/obj/structure/machinery/door/firedoor,
+/obj/structure/machinery/portable_atmospherics/powered/scrubber/huge,
 /turf/simulated/floor,
 /area/ship/tcfl_peacekeeper_ship)
 "qXw" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/machinery/access_button{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/machinery/access_button{
 	command = "cycle_interior";
 	frequency = 1380;
 	master_tag = "tcfl_peacekeeper_ship_port";
@@ -2843,7 +2843,7 @@
 /turf/simulated/floor/plating,
 /area/ship/tcfl_peacekeeper_ship)
 "rdB" = (
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	command = "cycle_exterior";
 	frequency = 1380;
 	master_tag = "tcfl_peacekeeper_ship_port";
@@ -2946,7 +2946,7 @@
 /turf/template_noop,
 /area/space)
 "rxc" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -2961,7 +2961,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/tcfl_shuttle)
 "ryh" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/shuttle/tan,
 /area/ship/tcfl_peacekeeper_ship)
 "rCW" = (
@@ -2970,10 +2970,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "rWf" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "tcfl_peacekeeper_ship_in";
@@ -2991,7 +2991,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "rYF" = (
-/obj/machinery/atmospherics/binary/pump/high_power{
+/obj/structure/machinery/atmospherics/binary/pump/high_power{
 	dir = 1;
 	name = "primary engine control pump"
 	},
@@ -3009,16 +3009,16 @@
 /turf/simulated/floor/carpet,
 /area/ship/tcfl_peacekeeper_ship)
 "sfQ" = (
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /turf/simulated/floor,
 /area/ship/tcfl_peacekeeper_ship)
 "siz" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
 	frequency = 1380;
 	id_tag = "tcfl_peacekeeper_ship_pump"
 	},
-/obj/machinery/airlock_sensor{
+/obj/structure/machinery/airlock_sensor{
 	frequency = 1380;
 	id_tag = "tcfl_peacekeeper_ship_sensor";
 	pixel_y = 26
@@ -3026,7 +3026,7 @@
 /turf/simulated/floor,
 /area/ship/tcfl_peacekeeper_ship)
 "smb" = (
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
+/obj/structure/machinery/embedded_controller/radio/airlock/docking_port{
 	frequency = 1380;
 	id_tag = "tcfl_peacekeeper_ship_port";
 	pixel_y = 28;
@@ -3038,7 +3038,7 @@
 /turf/simulated/floor,
 /area/ship/tcfl_peacekeeper_ship)
 "soZ" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "tcfl_peacekeeper_ship_out";
@@ -3050,19 +3050,19 @@
 /turf/simulated/floor,
 /area/ship/tcfl_peacekeeper_ship)
 "spX" = (
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /obj/effect/floor_decal/corner/dark_blue/full,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "sqr" = (
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "stc" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/dark_blue{
@@ -3071,7 +3071,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "stK" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/dark_blue/full{
@@ -3081,21 +3081,21 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "sxG" = (
-/obj/machinery/cryopod{
+/obj/structure/machinery/cryopod{
 	dir = 4
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "szY" = (
-/obj/machinery/door/airlock/glass_security{
+/obj/structure/machinery/door/airlock/glass_security{
 	name = "Cell";
 	req_access = list(204);
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "sBp" = (
@@ -3105,7 +3105,7 @@
 	},
 /area/ship/tcfl_peacekeeper_ship)
 "sBA" = (
-/obj/machinery/atmospherics/unary/engine,
+/obj/structure/machinery/atmospherics/unary/engine,
 /obj/structure/window/reinforced,
 /turf/simulated/floor,
 /area/ship/tcfl_peacekeeper_ship)
@@ -3116,14 +3116,14 @@
 /turf/simulated/floor/shuttle/tan,
 /area/ship/tcfl_peacekeeper_ship)
 "sFI" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
 /turf/simulated/floor/shuttle/tan,
 /area/ship/tcfl_peacekeeper_ship)
 "sGi" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden,
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden,
+/obj/structure/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "tcfl_peacekeeper_ship_in";
@@ -3132,7 +3132,7 @@
 /turf/simulated/floor,
 /area/ship/tcfl_peacekeeper_ship)
 "sJV" = (
-/obj/machinery/ship_weapon/francisca{
+/obj/structure/machinery/ship_weapon/francisca{
 	pixel_x = -64;
 	pixel_y = -162;
 	weapon_id = "TCFL Francisca Rotary Gun"
@@ -3152,13 +3152,13 @@
 /turf/space/transit/north,
 /area/space)
 "sOz" = (
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/light/small/emergency{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "sPy" = (
-/obj/machinery/atmospherics/unary/engine,
+/obj/structure/machinery/atmospherics/unary/engine,
 /obj/structure/window/reinforced,
 /obj/effect/landmark/entry_point/aft{
 	name = "aft, port engine"
@@ -3166,8 +3166,8 @@
 /turf/simulated/floor,
 /area/ship/tcfl_peacekeeper_ship)
 "sQT" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/door/firedoor,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
 /obj/structure/railing/mapped{
@@ -3176,7 +3176,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "sRH" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
 	frequency = 1380;
 	id_tag = "tcfl_peacekeeper_ship_pump"
@@ -3184,7 +3184,7 @@
 /turf/simulated/floor,
 /area/ship/tcfl_peacekeeper_ship)
 "sTl" = (
-/obj/machinery/portable_atmospherics/powered/pump/filled,
+/obj/structure/machinery/portable_atmospherics/powered/pump/filled,
 /turf/simulated/floor,
 /area/ship/tcfl_peacekeeper_ship)
 "sWY" = (
@@ -3199,7 +3199,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/tcfl_shuttle)
 "taa" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /obj/structure/table/standard,
@@ -3214,30 +3214,30 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "tis" = (
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	name = "Maintenance/Backup Controls";
 	req_access = list(204);
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/door/firedoor,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "tkU" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/tan,
 /area/ship/tcfl_peacekeeper_ship)
 "tmI" = (
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /obj/structure/table/steel,
 /turf/simulated/floor/shuttle/tan,
 /area/ship/tcfl_peacekeeper_ship)
 "tnP" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /obj/structure/closet/crate/trashcart,
@@ -3248,8 +3248,8 @@
 	dir = 10
 	},
 /obj/structure/table/standard,
-/obj/item/device/magnetic_lock/security/legion,
-/obj/item/device/magnetic_lock/security/legion,
+/obj/item/magnetic_lock/security/legion,
+/obj/item/magnetic_lock/security/legion,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "tqn" = (
@@ -3259,12 +3259,12 @@
 /turf/simulated/wall/shuttle/legion,
 /area/ship/tcfl_peacekeeper_ship)
 "tra" = (
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	name = "Cockpit";
 	req_access = list(204);
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "trs" = (
@@ -3276,7 +3276,7 @@
 "ttR" = (
 /obj/structure/window/shuttle/legion,
 /obj/structure/grille,
-/obj/machinery/door/blast/shutters/open{
+/obj/structure/machinery/door/blast/shutters/open{
 	dir = 2;
 	id = "tcfl_defense";
 	name = "defense shutters"
@@ -3287,7 +3287,7 @@
 /turf/simulated/floor/plating,
 /area/ship/tcfl_peacekeeper_ship)
 "tuA" = (
-/obj/machinery/vending/cigarette,
+/obj/structure/machinery/vending/cigarette,
 /turf/simulated/floor/shuttle/tan,
 /area/ship/tcfl_peacekeeper_ship)
 "twq" = (
@@ -3310,7 +3310,7 @@
 /area/ship/tcfl_peacekeeper_ship)
 "tNm" = (
 /obj/structure/extinguisher_cabinet/north,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /obj/structure/table/standard,
@@ -3318,7 +3318,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "tOF" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor,
@@ -3326,7 +3326,7 @@
 /area/ship/tcfl_peacekeeper_ship)
 "tQp" = (
 /obj/effect/floor_decal/industrial/outline/blue,
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/tcfl_peacekeeper_ship)
@@ -3347,7 +3347,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/door/window{
+/obj/structure/machinery/door/window{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3391,7 +3391,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "ucw" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/dark_blue{
@@ -3408,11 +3408,11 @@
 	dir = 5
 	},
 /obj/structure/table/standard,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "urq" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor,
@@ -3422,7 +3422,7 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/structure/machinery/recharger/wallcharger{
 	pixel_y = 24
 	},
 /obj/structure/table/standard,
@@ -3432,10 +3432,10 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/structure/machinery/recharger/wallcharger{
 	pixel_y = 24
 	},
-/obj/machinery/computer/ship/targeting{
+/obj/structure/machinery/computer/ship/targeting{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3460,7 +3460,7 @@
 /turf/simulated/wall/shuttle/legion,
 /area/shuttle/tcfl_shuttle)
 "uIP" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/dark_blue{
@@ -3469,7 +3469,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "uNk" = (
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "uNN" = (
@@ -3483,7 +3483,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "uWn" = (
-/obj/machinery/hologram/holopad/long_range,
+/obj/structure/machinery/hologram/holopad/long_range,
 /obj/effect/floor_decal/industrial/warning/full,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
@@ -3498,7 +3498,7 @@
 /obj/item/gun/energy/blaster/carbine,
 /obj/item/gun/energy/blaster/carbine,
 /obj/item/gun/energy/blaster/carbine,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /obj/item/ammo_magazine/gauss,
@@ -3524,25 +3524,25 @@
 /area/ship/tcfl_peacekeeper_ship)
 "vgx" = (
 /obj/structure/table/standard,
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	id = "tcfl_defense";
 	name = "Cockpit Defense Shutters"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "vjD" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
-/obj/machinery/door/firedoor,
-/obj/machinery/portable_atmospherics/powered/pump/filled,
+/obj/structure/machinery/door/firedoor,
+/obj/structure/machinery/portable_atmospherics/powered/pump/filled,
 /turf/simulated/floor,
 /area/ship/tcfl_peacekeeper_ship)
 "vnW" = (
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "vqr" = (
@@ -3556,8 +3556,8 @@
 /turf/simulated/wall/shuttle/legion,
 /area/ship/tcfl_peacekeeper_ship)
 "vrU" = (
-/obj/machinery/door/window/southleft,
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/window/southleft,
+/obj/structure/machinery/door/firedoor,
 /turf/simulated/floor/shuttle/dark_blue,
 /area/ship/tcfl_peacekeeper_ship)
 "vwF" = (
@@ -3569,7 +3569,7 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "vxN" = (
@@ -3592,7 +3592,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "vCD" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /obj/structure/table/standard,
@@ -3610,7 +3610,7 @@
 /obj/item/paper_bin,
 /obj/item/pen/blue,
 /obj/item/pen/black,
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
 	},
@@ -3620,19 +3620,19 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "vMq" = (
-/obj/machinery/computer/ship/sensors{
+/obj/structure/machinery/computer/ship/sensors{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "vMw" = (
-/obj/machinery/computer/ship/helm{
+/obj/structure/machinery/computer/ship/helm{
 	dir = 1;
 	req_access = list(204)
 	},
@@ -3643,7 +3643,7 @@
 /turf/simulated/floor/shuttle/white,
 /area/ship/tcfl_peacekeeper_ship)
 "vTv" = (
-/obj/machinery/computer/ship/engines,
+/obj/structure/machinery/computer/ship/engines,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "vUm" = (
@@ -3651,10 +3651,11 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
 	},
+/obj/item/eftpos,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "vUu" = (
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
 	},
@@ -3668,7 +3669,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "wdh" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden,
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor,
 /area/ship/tcfl_peacekeeper_ship)
@@ -3678,7 +3679,7 @@
 /turf/simulated/floor/shuttle/tan,
 /area/ship/tcfl_peacekeeper_ship)
 "wji" = (
-/obj/machinery/shipsensors/weak,
+/obj/structure/machinery/shipsensors/weak,
 /obj/structure/railing/mapped,
 /turf/simulated/floor/airless,
 /area/ship/tcfl_peacekeeper_ship)
@@ -3693,8 +3694,8 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
-/obj/machinery/light/small{
+/obj/structure/machinery/door/firedoor,
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3736,7 +3737,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/tcfl_peacekeeper_ship)
 "xAs" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /obj/item/storage/bag/inflatable,
@@ -3745,14 +3746,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "xFD" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
 	},
 /turf/simulated/floor,
 /area/ship/tcfl_peacekeeper_ship)
 "xMF" = (
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/obj/machinery/atmospherics/portables_connector,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/atmospherics/portables_connector,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor,
 /area/ship/tcfl_peacekeeper_ship)
@@ -3779,14 +3780,14 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
 	},
-/obj/item/device/gps,
-/obj/item/device/gps,
+/obj/item/gps,
+/obj/item/gps,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "yiy" = (
 /obj/structure/window/shuttle/legion,
 /obj/structure/grille,
-/obj/machinery/door/blast/shutters/open{
+/obj/structure/machinery/door/blast/shutters/open{
 	dir = 2;
 	id = "tcfl_defense";
 	name = "defense shutters"
@@ -3804,7 +3805,7 @@
 /turf/simulated/floor/shuttle/tan,
 /area/ship/tcfl_peacekeeper_ship)
 "ymi" = (
-/obj/machinery/iff_beacon/name_change,
+/obj/structure/machinery/iff_beacon/name_change,
 /obj/structure/railing/mapped{
 	dir = 8
 	},

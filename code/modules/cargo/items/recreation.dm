@@ -78,7 +78,7 @@
 	description = "A trumpet for those triumphant tooting sessions."
 	price = 300
 	items = list(
-		/obj/item/device/synthesized_instrument/trumpet
+		/obj/item/synthesized_instrument/trumpet
 	)
 	access = 0
 	container_type = "crate"
@@ -92,7 +92,7 @@
 	description = "An acoustic guitar for those balcony serenades."
 	price = 190
 	items = list(
-		/obj/item/device/synthesized_instrument/guitar
+		/obj/item/synthesized_instrument/guitar
 	)
 	access = 0
 	container_type = "crate"
@@ -106,7 +106,7 @@
 	description = "A wooden musical instrument with four strings and a bow."
 	price = 250
 	items = list(
-		/obj/item/device/synthesized_instrument/violin
+		/obj/item/synthesized_instrument/violin
 	)
 	access = 0
 	container_type = "crate"
@@ -120,7 +120,7 @@
 	description = "An electric polyguitar. 100% digital audio."
 	price = 250
 	items = list(
-		/obj/item/device/synthesized_instrument/guitar/multi
+		/obj/item/synthesized_instrument/guitar/multi
 	)
 	access = 0
 	container_type = "crate"
@@ -162,7 +162,7 @@
 	description = "A common sight in any modern space bar, this jukebox has all the space classics."
 	price = 500
 	items = list(
-		/obj/machinery/media/jukebox
+		/obj/structure/machinery/media/jukebox
 	)
 	access = 0
 	container_type = "box"
@@ -176,7 +176,7 @@
 	description = "An Adhomian record player."
 	price = 700
 	items = list(
-		/obj/machinery/media/jukebox/phonograph
+		/obj/structure/machinery/media/jukebox/phonograph
 	)
 	access = 0
 	container_type = "box"
@@ -363,6 +363,48 @@
 	price = 120 //It's a niche novelty thing made in relatively small export quantities
 	items = list(
 		/obj/item/storage/box/lyodii
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/game_helm
+	category = "recreation"
+	name = "InUs Game-Helm"
+	supplier = "orion"
+	description = "A popular portable gaming console with thousands of games available for play."
+	price = 150
+	items = list(
+		/obj/item/gamehelm
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/whiteboard
+	category = "recreation"
+	name = "whiteboard"
+	supplier = "orion"
+	description = "A standard whiteboard."
+	price = 100
+	items = list(
+		/obj/structure/whiteboard
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/whiteboard_portable
+	category = "recreation"
+	name = "portable whiteboard"
+	supplier = "orion"
+	description = "A portable whiteboard, smaller than the standard alternatives."
+	price = 75
+	items = list(
+		/obj/item/portable_whiteboard
 	)
 	access = 0
 	container_type = "crate"

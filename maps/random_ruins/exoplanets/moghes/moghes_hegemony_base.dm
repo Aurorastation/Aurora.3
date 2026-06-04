@@ -15,7 +15,6 @@
 	name = "Hegemony Base"
 	icon_state = "red"
 	requires_power = FALSE
-	dynamic_lighting = TRUE
 	no_light_control = FALSE
 	is_outside = OUTSIDE_NO
 	base_turf = /turf/simulated/floor/exoplanet/grass/moghes/dirt

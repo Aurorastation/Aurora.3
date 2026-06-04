@@ -1,11 +1,11 @@
-/obj/machinery/computer/ship/sensors
+/obj/structure/machinery/computer/ship/sensors
 	name = "sensors console"
 	icon_screen = "sensors"
 	icon_keyboard = "cyan_key"
 	icon_keyboard_emis = "cyan_key_mask"
 	light_color = LIGHT_COLOR_CYAN
 	extra_view = 4
-	var/obj/machinery/iff_beacon/identification
+	var/obj/structure/machinery/iff_beacon/identification
 	circuit = /obj/item/circuitboard/ship/sensors
 	linked_type = /obj/effect/overmap/visitable
 	var/contact_details = null
@@ -18,7 +18,7 @@
 	var/datum/weakref/sensor_ref
 	var/list/last_scan
 
-/obj/machinery/computer/ship/sensors/cockpit
+/obj/structure/machinery/computer/ship/sensors/cockpit
 	density = 0
 	icon = 'icons/obj/cockpit_console.dmi'
 	working_sound = 'sound/machines/sensors/ping.ogg'
@@ -27,7 +27,7 @@
 	icon_keyboard = null
 	circuit = null
 
-/obj/machinery/computer/ship/sensors/cockpit/right
+/obj/structure/machinery/computer/ship/sensors/cockpit/right
 	density = 0
 	icon = 'icons/obj/cockpit_console.dmi'
 	working_sound = 'sound/machines/sensors/ping.ogg'
@@ -36,9 +36,9 @@
 	icon_keyboard = null
 	circuit = null
 
-/obj/machinery/computer/ship/sensors/terminal
+/obj/structure/machinery/computer/ship/sensors/terminal
 	name = "sensors terminal"
-	icon = 'icons/obj/machinery/modular_terminal.dmi'
+	icon = 'icons/obj/modular_computers/modular_terminal.dmi'
 	icon_screen = "teleport"
 	icon_keyboard = "teleport_key"
 	icon_keyboard_emis = "teleport_key_mask"
@@ -47,13 +47,13 @@
 	can_pass_under = FALSE
 	light_power_on = 1
 
-/obj/machinery/computer/ship/sensors/proc/get_sensors()
-	var/obj/machinery/shipsensors/sensors = sensor_ref?.resolve()
+/obj/structure/machinery/computer/ship/sensors/proc/get_sensors()
+	var/obj/structure/machinery/shipsensors/sensors = sensor_ref?.resolve()
 	if(!istype(sensors) || QDELETED(sensors))
 		sensor_ref = null
 	return sensors
 
-/obj/machinery/computer/ship/sensors/attempt_hook_up(var/obj/effect/overmap/visitable/sector)
+/obj/structure/machinery/computer/ship/sensors/attempt_hook_up(var/obj/effect/overmap/visitable/sector)
 	. = ..()
 	if(.)
 		if(linked && !contact_datums[linked])
@@ -62,25 +62,25 @@
 			record.marker.alpha = 255
 		find_sensors_and_iff()
 
-/obj/machinery/computer/ship/sensors/proc/find_sensors_and_iff()
+/obj/structure/machinery/computer/ship/sensors/proc/find_sensors_and_iff()
 	if(!linked)
 		return
-	for(var/obj/machinery/shipsensors/S in SSmachinery.machinery)
+	for(var/obj/structure/machinery/shipsensors/S in SSmachinery.machinery)
 		if(linked.check_ownership(S))
 			sensor_ref = WEAKREF(S)
 			break
-	for(var/obj/machinery/iff_beacon/IB in SSmachinery.machinery)
+	for(var/obj/structure/machinery/iff_beacon/IB in SSmachinery.machinery)
 		if(linked.check_ownership(IB))
 			identification = IB
 			break
 
-/obj/machinery/computer/ship/sensors/proc/update_sound()
+/obj/structure/machinery/computer/ship/sensors/proc/update_sound()
 	if(!working_sound)
 		return
 	if(!sound_id)
-		sound_id = "[type]_[sequential_id(/obj/machinery/computer/ship/sensors)]"
+		sound_id = "[type]_[sequential_id(/obj/structure/machinery/computer/ship/sensors)]"
 
-	var/obj/machinery/shipsensors/sensors = get_sensors()
+	var/obj/structure/machinery/shipsensors/sensors = get_sensors()
 	if(linked && sensors?.use_power && !(sensors.stat & NOPOWER))
 		var/volume = 15
 		if(!sound_token)
@@ -89,22 +89,22 @@
 	else if(sound_token)
 		QDEL_NULL(sound_token)
 
-/obj/machinery/computer/ship/sensors/proc/display_message(var/message)
+/obj/structure/machinery/computer/ship/sensors/proc/display_message(var/message)
 	if(OPERABLE(src))
 		playsound(src, 'sound/machines/triplebeep.ogg', 50)
 		visible_message(SPAN_NOTICE("\The [src] beeps, [SPAN_ITALIC("\"" + message + "\"")]"))
 
-/obj/machinery/computer/ship/sensors/ui_interact(mob/user, datum/tgui/ui)
+/obj/structure/machinery/computer/ship/sensors/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "Sensors", capitalize_first_letters(name))
 		RegisterSignal(ui, COMSIG_TGUI_CLOSE, PROC_REF(handle_unlook_signal))
 		ui.open()
 
-/obj/machinery/computer/ship/sensors/ui_data(mob/user)
+/obj/structure/machinery/computer/ship/sensors/ui_data(mob/user)
 
 	simple_asset_ensure_is_sent(user, /datum/asset/simple/paper)
-	var/obj/machinery/shipsensors/sensors = get_sensors()
+	var/obj/structure/machinery/shipsensors/sensors = get_sensors()
 	var/data = list()
 
 	data["viewing"] = viewing_overmap(user)
@@ -130,8 +130,8 @@
 	if(sensors)
 		data["on"] = sensors.use_power
 		data["range"] = sensors.range
-		data["health"] = sensors.health
-		data["max_health"] = sensors.max_health
+		data["integrity"] = sensors.health
+		data["max_health"] = sensors.maxhealth
 		data["deep_scan_name"] = sensors.deep_scan_sensor_name
 		data["deep_scan_range"] = sensors.deep_scan_range
 		data["deep_scan_toggled"] = sensors.deep_scan_toggled
@@ -250,7 +250,7 @@
 
 	return data
 
-/obj/machinery/computer/ship/sensors/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/obj/structure/machinery/computer/ship/sensors/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	if (..())
 		return TRUE
 
@@ -265,7 +265,7 @@
 	if (action == "link")
 		find_sensors_and_iff()
 		return TRUE
-	var/obj/machinery/shipsensors/sensors = get_sensors()
+	var/obj/structure/machinery/shipsensors/sensors = get_sensors()
 	if(sensors)
 		if (action == "range")
 			var/nrange = tgui_input_number("Set new sensors range", "Sensor range", sensors.range, sensors.max_range, 1)
@@ -354,13 +354,13 @@
 		if(istype(O) && !QDELETED(O))
 			if((O in view(7,linked)) || (O in contact_datums))
 
-				for(var/obj/machinery/computer/ship/sensors/sensor_console in O.consoles)
+				for(var/obj/structure/machinery/computer/ship/sensors/sensor_console in O.consoles)
 					sensor_console.connected.datalink_requests |= src.connected
 		return TRUE
 
 	if (action == "accept_datalink_requests")
 		var/obj/effect/overmap/visitable/O = locate(params["accept_datalink_requests"])
-		for(var/obj/machinery/computer/ship/sensors/sensor_console in src.connected.consoles)
+		for(var/obj/structure/machinery/computer/ship/sensors/sensor_console in src.connected.consoles)
 			sensor_console.datalink_add_ship_datalink(O)
 			break
 		src.connected.datalink_requests -= O	// Remove the request
@@ -372,7 +372,7 @@
 
 	if (action == "remove_datalink")
 		var/obj/effect/overmap/visitable/O = locate(params["remove_datalink"])
-		for(var/obj/machinery/computer/ship/sensors/rescinder_sensor_console in src.connected.consoles)	// Get sensor console from the rescinder
+		for(var/obj/structure/machinery/computer/ship/sensors/rescinder_sensor_console in src.connected.consoles)	// Get sensor console from the rescinder
 			rescinder_sensor_console.datalink_remove_ship_datalink(O, TRUE)
 			return TRUE
 
@@ -392,17 +392,16 @@
 		if(direction != "clear")
 			security_announcement.Announce("Enemy fire inbound, enemy fire inbound! [sanitizeSafe(direction)]!", "Brace for shock!", sound('sound/mecha/internaldmgalarm.ogg', volume = 90), 0)
 		else
-			security_announcement.Announce("No fire is incoming at the current moment, resume damage control.", "Space clear!", sound('sound/misc/announcements/security_level_old.ogg'), 0)
+			security_announcement.Announce("No fire is incoming at the current moment, resume damage control.", "Space clear!", sound('sound/ai/announcements/security_level_old.ogg'), 0)
 		return TRUE
 
-/obj/machinery/shipsensors
+/obj/structure/machinery/shipsensors
 	name = "sensors suite"
 	desc = "Long range gravity scanner with various other sensors, used to detect irregularities in surrounding space. Can only run in vacuum to protect delicate quantum BS elements."
 	icon = 'icons/obj/machinery/sensors.dmi'
 	icon_state = "sensors"
 	anchored = 1
-	var/max_health = 200
-	var/health = 200
+	maxhealth = OBJECT_HEALTH_HIGH
 	var/critical_heat = 50 // sparks and takes damage when active & above this heat
 	var/heat_reduction = 1.7 // mitigates this much heat per tick - can sustain range 4
 	var/heat = 0
@@ -427,19 +426,19 @@
 
 	var/base_icon_state
 
-/obj/machinery/shipsensors/Initialize(mapload, d, populate_components, is_internal)
+/obj/structure/machinery/shipsensors/Initialize(mapload, d, populate_components, is_internal)
 	base_icon_state = icon_state
 	return ..()
 
-/obj/machinery/shipsensors/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/shipsensors/attackby(obj/item/attacking_item, mob/user)
 	if(default_deconstruction_screwdriver(user, attacking_item))
 		return TRUE
 	if(default_deconstruction_crowbar(user, attacking_item))
 		return TRUE
 	if(default_part_replacement(user, attacking_item))
 		return TRUE
-	var/damage = max_health - health
-	if(damage && attacking_item.iswelder())
+	var/damage = maxhealth - health
+	if(damage && attacking_item.tool_behaviour == TOOL_WELDER)
 
 		var/obj/item/weldingtool/WT = attacking_item
 
@@ -458,15 +457,15 @@
 		return
 	..()
 
-/obj/machinery/shipsensors/proc/in_vacuum()
+/obj/structure/machinery/shipsensors/proc/in_vacuum()
 	var/turf/T=get_turf(src)
 	if(istype(T))
 		var/datum/gas_mixture/environment = T.return_air()
-		if(environment && environment.return_pressure() > MINIMUM_PRESSURE_DIFFERENCE_TO_SUSPEND)
+		if(SAFE_XGM_PRESSURE(environment) > MINIMUM_PRESSURE_DIFFERENCE_TO_SUSPEND)
 			return 0
 	return 1
 
-/obj/machinery/shipsensors/update_icon()
+/obj/structure/machinery/shipsensors/update_icon()
 	icon_state = "[base_icon_state]_off"
 	if(!use_power)
 		ClearOverlays()
@@ -496,25 +495,14 @@
 	if(heat_percentage > 85)
 		AddOverlays("sensors-effect-hot")
 
-/obj/machinery/shipsensors/condition_hints(mob/user, distance, is_adjacent)
-	. += ..()
-	if(health <= 0)
-		. += "\The [src] is wrecked."
-	else if(health < max_health * 0.25)
-		. += SPAN_DANGER("\The [src] looks like it's about to break!")
-	else if(health < max_health * 0.5)
-		. += SPAN_ALERT("\The [src] looks seriously damaged!")
-	else if(health < max_health * 0.75)
-		. += "\The [src] shows signs of damage!"
-
-/obj/machinery/shipsensors/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+/obj/structure/machinery/shipsensors/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
 	. = ..()
 	if(. != BULLET_ACT_HIT)
 		return .
 
 	take_damage(hitting_projectile.get_structure_damage())
 
-/obj/machinery/shipsensors/proc/toggle()
+/obj/structure/machinery/shipsensors/proc/toggle()
 	if(use_power) // reset desired range when turning off
 		set_desired_range(1)
 	if(!use_power && (health == 0 || !in_vacuum()))
@@ -524,7 +512,7 @@
 	update_use_power(!use_power)
 	queue_icon_update()
 
-/obj/machinery/shipsensors/process()
+/obj/structure/machinery/shipsensors/process()
 	..()
 	if(use_power) //can't run in non-vacuum
 		if(!in_vacuum())
@@ -551,21 +539,21 @@
 
 	update_icon()
 
-/obj/machinery/shipsensors/power_change()
+/obj/structure/machinery/shipsensors/power_change()
 	. = ..()
 	if(use_power && !powered())
 		toggle()
 
-/obj/machinery/shipsensors/proc/set_desired_range(nrange)
+/obj/structure/machinery/shipsensors/proc/set_desired_range(nrange)
 	desired_range = nrange
 	if(desired_range_instant)
 		set_range(nrange)
 
-/obj/machinery/shipsensors/proc/set_range(nrange)
+/obj/structure/machinery/shipsensors/proc/set_range(nrange)
 	range = nrange
 	change_power_consumption(1500 * (range**2), POWER_USE_ACTIVE)
 
-/obj/machinery/shipsensors/emp_act(severity)
+/obj/structure/machinery/shipsensors/emp_act(severity)
 	. = ..()
 
 	if(!use_power)
@@ -574,13 +562,13 @@
 	take_damage(20/severity)
 	toggle()
 
-/obj/machinery/shipsensors/proc/take_damage(value)
-	health = min(max(health - value, 0),max_health)
+/obj/structure/machinery/shipsensors/proc/take_damage(value)
+	health = min(max(health - value, 0), maxhealth)
 	if(use_power && health == 0)
 		toggle()
 
 // For small shuttles
-/obj/machinery/shipsensors/weak
+/obj/structure/machinery/shipsensors/weak
 	heat_reduction = 1.7 // Can sustain range 4
 	max_range = 7
 	desc = "Miniaturized gravity scanner with various other sensors, used to detect irregularities in surrounding space. Can only run in vacuum to protect delicate quantum BS elements."
@@ -594,7 +582,7 @@
 		/obj/item/stock_parts/manipulator = 3
 	)
 
-/obj/machinery/shipsensors/weak/scc_shuttle
+/obj/structure/machinery/shipsensors/weak/scc_shuttle
 	icon_state = "sensors"
 	icon = 'icons/obj/spaceship/scc/helm_pieces.dmi'
 	component_types = list(
@@ -606,7 +594,7 @@
 		/obj/item/stock_parts/manipulator = 3
 	)
 
-/obj/machinery/shipsensors/strong
+/obj/structure/machinery/shipsensors/strong
 	desc = "An upgrade to the standard ship-mounted sensor array, this beast has massive cooling systems running beneath it, allowing it to run hotter for much longer. Can only run in vacuum to protect delicate quantum BS elements."
 	heat_reduction = 3.7 // can sustain range 6
 	max_range = 14
@@ -623,7 +611,7 @@
 		/obj/item/stack/cable_coil = 30
 	)
 
-/obj/machinery/shipsensors/strong/scc_shuttle //Exclusively for the Horizon scout shuttle.
+/obj/structure/machinery/shipsensors/strong/scc_shuttle //Exclusively for the Horizon scout shuttle.
 	icon_state = "sensors"
 	icon = 'icons/obj/spaceship/scc/shuttle_sensors.dmi'
 	component_types = list(
@@ -637,7 +625,7 @@
 		/obj/item/stack/cable_coil = 30
 	)
 
-/obj/machinery/shipsensors/strong/venator
+/obj/structure/machinery/shipsensors/strong/venator
 	name = "venator-class quantum sensor array"
 	desc = "An incredibly advanced sensor array, created using top of the line technology in every conceivable area. Not only does it far outperform and outclass every other sensors system, it also boasts revolutionary quantum long-range sensors."
 	icon = 'icons/obj/machinery/sensors_venator.dmi'
@@ -659,7 +647,7 @@
 		/obj/item/stack/cable_coil = 30
 	)
 
-/obj/machinery/shipsensors/strong/relay
+/obj/structure/machinery/shipsensors/strong/relay
 	name = "\improper S-24 Beacon sensor array"
 	desc = "A vintage sensor array of Solarian design. While it lacks deep scanning capabilities, it does have a high heat capacity."
 	icon = 'icons/obj/machinery/sensors_relay.dmi'
@@ -681,7 +669,7 @@
 	pixel_x = -32
 	pixel_y = -16
 
-/obj/machinery/shipsensors/strong/relay/sol
+/obj/structure/machinery/shipsensors/strong/relay/sol
 	name = "\improper S-24M Beacon sensor array"
 	desc = "A vintage sensor array found on Solarian sensor relays throughout the galaxy. While it lacks deep scanning capabilities, it does have a high heat capacity. This one is emblazoned with the fading flag of the pre-war Solarian Alliance."
 	icon = 'icons/obj/machinery/sensors_relay_sol.dmi'

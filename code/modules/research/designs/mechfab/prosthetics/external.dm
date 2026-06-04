@@ -4,9 +4,9 @@
 
 //if the fabricator is a mech fab we need to construct the proper typepath for the manufacturer
 /datum/design/item/mechfab/prosthetic/Fabricate(var/newloc, var/fabricator)
-	if(istype(fabricator, /obj/machinery/mecha_part_fabricator))
+	if(istype(fabricator, /obj/structure/machinery/mecha_part_fabricator))
 		if(!use_direct_buildpath)
-			var/obj/machinery/mecha_part_fabricator/mechfab = fabricator
+			var/obj/structure/machinery/mecha_part_fabricator/mechfab = fabricator
 			for(var/model_path in subtypesof(build_path))
 				var/obj/item/organ/external/E = new model_path
 				if(E.robotize_type == mechfab.limb_manufacturer)

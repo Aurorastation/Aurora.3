@@ -106,6 +106,9 @@
 /proc/is_not_maint_area(var/area/A)
 	. = !is_maint_area(A)
 
+/proc/allows_hostile_events(var/area/A)
+	. = A.hostile_events
+
 /*
 	Area Sorting
 */

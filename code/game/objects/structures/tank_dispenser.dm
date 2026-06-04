@@ -109,7 +109,7 @@
 				update_icon()
 		else
 			to_chat(user, SPAN_WARNING("\The [src] is full."))
-		updateUsrDialog()
+		SStgui.update_uis(src)
 		return
 	if(istype(attacking_item, /obj/item/tank/phoron))
 		if(tanks_phoron < max_tanks)
@@ -121,9 +121,9 @@
 				update_icon()
 		else
 			to_chat(user, SPAN_WARNING("\The [src] is full."))
-		updateUsrDialog()
+		SStgui.update_uis(src)
 		return
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(anchored)
 			to_chat(user, SPAN_NOTICE("You lean down and unwrench \the [src]."))
 			anchored = FALSE

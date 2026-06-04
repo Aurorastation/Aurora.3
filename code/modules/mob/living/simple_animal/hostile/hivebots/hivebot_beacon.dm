@@ -12,7 +12,7 @@
 	icon_state = "hivebotbeacon_active"
 	icon_living = "hivebotbeacon_active"
 	health = 300
-	maxHealth = 300
+	maxhealth = 300
 	blood_type = COLOR_OIL
 	projectilesound = 'sound/weapons/taser2.ogg'
 	projectiletype = /obj/projectile/beam/hivebot
@@ -69,7 +69,7 @@
 	var/maximum_linked_and_alive_hivebots_to_playing_players_scaling_factor = 1
 
 	///A list of `/mob/living/simple_animal/hostile` hivebots that are linked to this beacon
-	var/list/mob/living/simple_animal/hostile/hivebot/linked_bots = list()
+	var/list/mob/living/simple_animal/hostile/linked_bots = list()
 
 	///Amount of hivebots spawned and alive linked to this beacon, guardian type
 	var/guard_amt = 0
@@ -127,17 +127,12 @@
 	set_light(6,0.5,LIGHT_COLOR_GREEN)
 
 /mob/living/simple_animal/hostile/hivebotbeacon/Destroy()
-	//Remove the reference from all linked bots to us
-	for(var/mob/living/simple_animal/hostile/hivebot/latest_child in linked_bots)
-		latest_child.linked_parent = null
 	linked_bots.Cut()
+	destinations.Cut()
+	close_destinations.Cut()
+	latest_area = null
 
-	//Smoke effect, we disappear in a smoke
-	var/datum/effect/effect/system/smoke_spread/S = new /datum/effect/effect/system/smoke_spread()
-	S.set_up(5, 0, src.loc)
-	S.start()
-
-	. = ..()
+	return ..()
 
 /mob/living/simple_animal/hostile/hivebotbeacon/proc/generate_warp_destinations()
 
@@ -170,7 +165,11 @@
 	var/T = get_turf(src)
 	new /obj/effect/gibspawner/robot(T)
 	spark(T, 3, GLOB.alldirs)
-	qdel(src)
+	//Smoke effect, we disappear in a smoke
+	var/datum/effect/effect/system/smoke_spread/S = new /datum/effect/effect/system/smoke_spread()
+	S.set_up(5, 0, src.loc)
+	S.start()
+	QDEL_IN(src, 0)
 	return
 
 /mob/living/simple_animal/hostile/hivebotbeacon/think()
@@ -183,9 +182,7 @@
 /mob/living/simple_animal/hostile/hivebotbeacon/MoveToTarget()
 	if(!stop_automated_movement)
 		stop_automated_movement = 1
-	if(QDELETED(last_found_target) || SA_attackable(last_found_target))
-		LoseTarget()
-	if(!see_target(last_found_target))
+	if(last_found_target && (QDELETED(last_found_target) || SA_attackable(last_found_target) || !see_target(last_found_target)))
 		LoseTarget()
 	if(last_found_target in targets)
 		if(get_dist(src, last_found_target) <= 6)
@@ -236,6 +233,9 @@
 		do_teleport(src, random_turf)
 
 /mob/living/simple_animal/hostile/hivebotbeacon/proc/wakeup()
+	if(QDELETED(src))
+		return
+
 	change_stance(HOSTILE_STANCE_IDLE)
 	activated = 0
 	activate_beacon()
@@ -245,7 +245,7 @@
 		visible_message(SPAN_DANGER("[src] disappears in a cloud of smoke!"))
 		playsound(src.loc, 'sound/effects/teleport.ogg', 25, 1)
 		new /obj/effect/decal/cleanable/greenglow(src.loc)
-		qdel(src)
+		QDEL_IN(src, 0)
 		return
 
 	if(activated == -1)

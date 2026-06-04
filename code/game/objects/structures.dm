@@ -4,10 +4,10 @@
 	layer = STRUCTURE_LAYER
 	blocks_emissive = EMISSIVE_BLOCK_GENERIC
 	pass_flags_self = PASSSTRUCTURE
+	should_use_health = TRUE
 
 	var/material_alteration = MATERIAL_ALTERATION_ALL // Overrides for material shit. Set them manually if you don't want colors etc. See wood chairs/office chairs.
 	var/climbable
-	var/breakable
 	var/parts
 	var/list/climbers
 	var/list/footstep_sound	//footstep sounds when stepped on
@@ -37,18 +37,26 @@
 		QUEUE_SMOOTH_NEIGHBORS(src)
 
 	climbers = null
-
+	material = null
 	return ..()
 
+/obj/structure/attackby(obj/item/attacking_item, mob/user, params)
+	. = ..()
+	if(user?.a_intent == I_HURT && maxhealth)
+		user.do_attack_animation(src)
+		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+		add_damage(attacking_item.force, attacking_item.damage_flags(), attacking_item.damtype, attacking_item.armor_penetration, attacking_item)
+		if(hitsound)
+			playsound(user, hitsound, attacking_item.get_clamped_volume())
+
 /obj/structure/attack_hand(mob/living/user)
-	if(breakable)
-		if((user.mutations & HULK) && !(user.isSynthetic()) && !(isvaurca(user)))
-			user.say(pick(";RAAAAAAAARGH!", ";HNNNNNNNNNGGGGGGH!", ";GWAAAAAAAARRRHHH!", "NNNNNNNNGGGGGGGGHH!", ";AAAAAAARRRGH!" ))
-			attack_generic(user,1,"smashes")
-		else if(istype(user,/mob/living/carbon/human))
-			var/mob/living/carbon/human/H = user
-			if(H.species.can_shred(user))
-				attack_generic(user,1,"slices")
+	if((user.mutations & HULK) && !(user.isSynthetic()) && !(isvaurca(user)))
+		user.say(pick("RAAAAAAAARGH!!!", "HNNNNNNNNNGGGGGGH!!!", "GWAAAAAAAARRRHHH!!!", "NNNNNNNNGGGGGGGGHH!!!", "AAAAAAARRRGH!!!" ))
+		attack_generic(user, 25, "smashes")
+	else if(istype(user,/mob/living/carbon/human))
+		var/mob/living/carbon/human/H = user
+		if(H.species.can_shred(user))
+			attack_generic(user, 25, "slices")
 
 	if(LAZYLEN(climbers) && !(user in climbers))
 		user.visible_message(SPAN_WARNING("[user] shakes \the [src]."), \
@@ -61,16 +69,27 @@
 	return ..() || (direction == DOWN && climbable)
 
 /obj/structure/ex_act(severity)
-	switch(severity)
-		if(1.0)
-			qdel(src)
-			return
-		if(2.0)
-			if(prob(50))
+	// If this object doesn't use health for whatever reason, default to ancient ex_act() code.
+	if(!should_use_health)
+		switch(severity)
+			if(1.0)
 				qdel(src)
 				return
-		if(3.0)
-			return
+			if(2.0)
+				if(prob(50))
+					qdel(src)
+					return
+			if(3.0)
+				return
+	// If we do use health, normal atom health behavior.
+	else
+		switch(severity)
+			if(1)
+				add_damage(maxhealth)
+			if(2)
+				add_damage(maxhealth * 0.5)
+			if(3)
+				add_damage(maxhealth * 0.25)
 
 /obj/structure/proc/dismantle()
 	var/material/dismantle_material
@@ -78,8 +97,14 @@
 		dismantle_material = SSmaterials.get_material_by_name(DEFAULT_WALL_MATERIAL) //if there is no defined material, it will use steel
 	else
 		dismantle_material = get_material()
-	for(var/i = 1 to build_amt)
-		dismantle_material.place_sheet(loc)
+	if(should_use_health && health <= 0)
+		build_amt /= rand(2, 4) //if the structure is destroyed by damage, it will yield less materials.
+		build_amt = max(1, min(build_amt, 5)) //Bound between 5 and 1, as shards don't stack into sheets.
+		for(var/i = 1 to build_amt)
+			dismantle_material.place_shard(loc)
+	else
+		for(var/i = 1 to build_amt)
+			dismantle_material.place_sheet(loc)
 	qdel(src)
 
 /obj/structure/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
@@ -87,7 +112,10 @@
 	if(. != BULLET_ACT_HIT)
 		return .
 
-	bullet_ping(hitting_projectile)
+	if(hitting_projectile.get_structure_damage() > 5)
+		bullet_ping(hitting_projectile)
+
+	add_damage(hitting_projectile.damage, hitting_projectile.damage_flags(), hitting_projectile.damage_type, hitting_projectile.armor_penetration, hitting_projectile)
 
 /obj/structure/proc/climb_on()
 
@@ -230,13 +258,8 @@
 		return 0
 	return 1
 
-/obj/structure/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
-	if(!breakable || !damage || !environment_smash)
-		return 0
-	visible_message(SPAN_DANGER("[user] [attack_verb] the [src] apart!"))
-	user.do_attack_animation(src)
-	qdel(src)
-	return 1
+/obj/structure/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
+	dismantle()
 
 /obj/structure/get_material()
 	return material

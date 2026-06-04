@@ -217,3 +217,110 @@
   - rscadd: Species capable of indefinite sleep, can now voluntarily wake up from
       sleeping at will by pressing 'Sleep' again.
   - sounddel: IPCs will no longer beep when sleeping.
+2025-10-15:
+  JohnWildkins:
+  - rscdel: Reverts to 2024-style lobby screens due to performance concerns.
+2025-10-17:
+  Evandorf:
+  - rscadd: Added a new away site; Hiskyn Pirate Treasure Trove. Intended to be a
+      high risk, high reward dive into boobytrapped ruins. Be warned and have fun.
+  - rscadd: Lava is now more dangerous and you will suffer immediate burns from stepping
+      in it. Don't step in lava.
+  - bugfix: Adjusted random item spawning to prevent null errors and adjusted some
+      random items to use problists.
+  - rscadd: Created pre-deployed and random variants of certain things like mines
+      and shield wall generators.
+  - bugfix: Radioactive spills will give off radiation correctly, and some radioactive
+      waste barrels are more hazardous, though labelled appropriately.
+  - rscadd: Added a handful of environmental traps and sprites where appropriately.
+  - bugfix: Fixed some corpse spawners not updating the sprites correctly after load.
+  - bugfix: Set correct icons for certain step triggers. Doing so caused dirty var
+      errors in some existing maps and those were corrected as well.
+  FabianK3:
+  - rscadd: Update the repositories triage bot to run every full hour with an adjusted
+      rate limit.
+  FlamingLily:
+  - bugfix: Replaces the generic smartfridge in the hydroponics mini-chemlab with
+      an !insecure! chemistry smartfridge.
+  Hellfirejag:
+  - bugfix: Fixed upgrade hints for chemical heaters.
+  - rscadd: Improved upgrade hints for chemical heaters, autolathes, mechfabs, protolathes,
+      and circuit imprinters. Their mechanics hints now state the actual current numerical
+      effects.
+  JohnWildkins:
+  - server: Increased TGUI connection lost timer from 20s to 45s, making it more likely
+      to auto-reconnect after server restart.
+  MattAtlas (porting), CM and /tg/ coders (original code):
+  - experiment: Replaced our renderer system with TG and CM's planemasters.
+  - rscadd: Open space now has a gaussian blur filter.
+  - bugfix: Fixed esoteric smoothing behaviour that was a bug for a long time; lattices
+      should no longer smooth with nothing.
+  TheGreyWolf:
+  - bugfix: Fixed crafting a janitorial cart also gave several janitorial supplies
+      with it.
+  - rscadd: Crates now takes half as long to hoist up on tables.
+  - rscadd: Crates now have a message when put on a table.
+  - rscadd: Cargo packages and other heavy objects can now be put beside you without
+      risking the health of your foot.
+  - rscadd: The cargo and janitorial tugs are now faster, but don't gain speed when
+      emagged.
+  - rscadd: Added a hint to the cargo, janitorial and mining tugs that they can run
+      over people when emagged.
+  nauticall:
+  - rscadd: 'The following items have been added to cargo (1): pig, Cleanbot, Farmbot,
+      Medibot, autopsy scanner, package/gift wrapping paper, PDA, universal (tape)
+      recorder.'
+  - rscadd: 'The following items have been added to cargo (2): IV stand, camping set
+      & sleeping bags, InUs Game-Helm, paper scanner, data drives, produce boxes.'
+  - qol: Moved certain cargo items to other categories.
+  - qol: Modified the pricing of blood, hydroponics trays, certain drink canisters,
+      organ coolers, animals, and some security items. Made folders and SBS blood
+      come in multiple per order.
+  - spellcheck: Miscellaneous spellchecks and grammar fixes in cargo.
+  - rscdel: Capped the amount of pizza boxes available in mining vendors to 2.
+2025-10-20:
+  Ben10083:
+  - rscadd: AI can can now be fixed with Nanopaste.
+  - bugfix: Adds missing blast door to AI Core area.
+  Kano:
+  - rscadd: Added an interactive away site, Outpost Nemora. Lot's of traps, horde
+      cleaning and some story!
+  - rscadd: Ported storytelling holopads from Paradise Station.
+  Mneme:
+  - bugfix: Fixed a broken pipe at the upper bar disposal.
+  - rscadd: Created a control hub system that allows for the control of multiple different
+      types of buttons from one location.
+  - rscadd: Created a light switch variant that can control the color and brightness
+      of the lighting.
+  - rscadd: Created a new secure safe variant that is controlled with an ID card.
+  - qol: Remodeled the Bar
+  - qol: Connected the Deck Two Stairwell and the Bar via maintenance.
+  TheGreyWolf:
+  - rscadd: The light replacer is now much faster when loading from a box of lights.
+2025-10-23:
+  4000daniel1:
+  - balance: Implemented a delay to loading the PEAC. This delay can be bypassed by
+      having someone else click on you with the ammo in their hand, performing an
+      'assisted reload'.
+  FlamingLily:
+  - bugfix: Punji sticks no longer infect prosthetic limbs.
+  Hellfirejag:
+  - bugfix: Fixed upgrade hints for biogenerators. Upgrade hints now show the actual
+      current numerical effects of parts.
+  - rscadd: Added mechanics hints for biogenerators.
+  - rscadd: Biogenerators now also require capacitors, which increase their processing
+      speed.
+  - rscadd: Biogenerators can now produce splints, as well as more variety of stickers.
+  - balance: Small biogenerators such as the one in the garden aren't as strongly
+      upgraded by better parts as the full-sized biogenerator.
+  - bugfix: Wulumunusha now plays its psionic-specific messages for anyone at least
+      psi-sensitive, not just skrell.
+  Hellfirejag & The Ill-Fated:
+  - rscadd: Added a large number of new passcards for a variety of Solarian states.
+  Mneme:
+  - bugfix: Removed an errant holopad under a scrubber from the bar.
+  - bugfix: Added a check to areas to prevent hostile events from spawning in areas
+      that are not intended to have them.
+  - qol: Relocated the bar's smartfridge interaction point.
+  TheGreyWolf:
+  - rscadd: The display in the operations lobby now show the elevator status.

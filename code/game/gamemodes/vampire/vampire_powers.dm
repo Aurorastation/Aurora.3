@@ -69,7 +69,7 @@
 	vampire.status |= VAMP_DRAINING
 
 	visible_message(SPAN_DANGER("[src] bites \the [T]'s neck!"), SPAN_DANGER("You bite \the [T]'s neck and begin to drain their blood."), SPAN_NOTICE("You hear a soft puncture and a wet sucking noise."))
-	if(T.mind.assigned_role == "Chaplain" && !(vampire.status & VAMP_FULLPOWER))
+	if(T.mind?.assigned_role == "Chaplain" && !(vampire.status & VAMP_FULLPOWER))
 		to_chat(src, SPAN_DANGER("\The [T]'s blood burns like venom in your throat! Your stomach churns with sickness, and you fall to the ground, retching in disgust!"))
 		to_chat(T, SPAN_DANGER("[src] sinks [src.get_pronoun("his")] fangs into your neck, and you feel your blood draining - before [src.get_pronoun("he")] collapses, gagging and choking!"))
 		src.adjustToxLoss(rand(10,20))
@@ -382,13 +382,13 @@
 	for(var/obj/structure/window/W in view(7))
 		W.shatter()
 
-	for(var/obj/machinery/door/window/WD in view(7))
+	for(var/obj/structure/machinery/door/window/WD in view(7))
 		if(get_dist(src, WD) > 5) //Windoors are strong, may only take damage instead of break if far away.
-			WD.take_damage(rand(12, 16) * 10)
+			WD.add_damage(rand(12, 16) * 10)
 		else
-			WD.shatter()
+			WD.add_damage(WD.health)
 
-	for(var/obj/machinery/light/L in view(7))
+	for(var/obj/structure/machinery/light/L in view(7))
 		L.broken()
 		CHECK_TICK
 
@@ -670,7 +670,7 @@
 				else
 					E.germ_level = 0
 					blood_used += 0.25
-			for(var/datum/wound/W in E.wounds)
+			for(var/datum/wound/W as anything in E.wounds)
 				if(W.germ_level > 0)
 					W.germ_level = max(0, W.germ_level - 50)
 					blood_used += 0.5

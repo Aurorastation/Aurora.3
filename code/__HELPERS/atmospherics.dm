@@ -15,7 +15,7 @@
 	return 0
 
 /proc/atmosanalyzer_scan(var/obj/target, var/datum/gas_mixture/mixture, var/mob/user)
-	var/pressure = mixture.return_pressure()
+	var/pressure = XGM_PRESSURE(mixture)
 	var/total_moles = mixture.total_moles
 
 	var/list/results = list()
@@ -34,13 +34,11 @@
 	return
 
 /obj/item/tank/atmosanalyze(var/mob/user)
+	src.manipulated_by = user
 	return atmosanalyzer_scan(src, src.air_contents, user)
 
-/obj/machinery/portable_atmospherics/atmosanalyze(var/mob/user)
+/obj/structure/machinery/portable_atmospherics/atmosanalyze(var/mob/user)
 	return atmosanalyzer_scan(src, src.air_contents, user)
 
-/obj/machinery/atmospherics/pipe/atmosanalyze(var/mob/user)
+/obj/structure/machinery/atmospherics/pipe/atmosanalyze(var/mob/user)
 	return atmosanalyzer_scan(src, src.parent.air, user)
-
-/obj/item/flamethrower/atmosanalyze(var/mob/user)
-	if(gas_tank)	return atmosanalyzer_scan(src, gas_tank.air_contents, user)

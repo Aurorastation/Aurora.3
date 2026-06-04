@@ -41,14 +41,14 @@
 /turf/simulated/floor/exoplanet/lino,
 /area/konyang/office)
 "cd" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/lino,
 /area/konyang/office)
 "cN" = (
 /obj/structure/table/standard,
-/obj/machinery/recharger{
+/obj/structure/machinery/recharger{
 	pixel_x = 7;
 	pixel_y = 9
 	},
@@ -62,7 +62,7 @@
 "fb" = (
 /obj/structure/closet/crate/bin,
 /obj/random/dirt_75,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/lino,
@@ -75,7 +75,7 @@
 /obj/effect/decal/cleanable/generic,
 /obj/structure/table/standard,
 /obj/item/folder/red,
-/obj/item/device/radio/off{
+/obj/item/radio/off{
 	pixel_y = 5;
 	pixel_x = 13
 	},
@@ -106,7 +106,7 @@
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/exoplanet/grass/konyang)
 "ic" = (
-/obj/machinery/door/urban,
+/obj/structure/machinery/door/urban,
 /obj/effect/decal/exterior_stairs/half/center,
 /turf/simulated/floor/exoplanet/lino,
 /area/konyang/office)
@@ -122,7 +122,7 @@
 "jb" = (
 /obj/random/dirt_75,
 /obj/structure/table/standard,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/lino,
@@ -170,7 +170,7 @@
 /turf/simulated/floor/exoplanet/foundation,
 /area/konyang/office)
 "mT" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/lino,
@@ -349,11 +349,11 @@
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/konyang/office)
 "zG" = (
-/obj/machinery/photocopier,
+/obj/structure/machinery/photocopier,
 /turf/simulated/floor/exoplanet/lino,
 /area/konyang/office)
 "Ah" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/lino,
@@ -370,7 +370,7 @@
 	pixel_y = 1;
 	pixel_x = -10
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/lino,
@@ -491,7 +491,7 @@
 /area/konyang/office)
 "IE" = (
 /obj/structure/trash_pile,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/lino,
@@ -511,7 +511,7 @@
 /turf/simulated/floor/exoplanet/lino,
 /area/konyang/office)
 "JO" = (
-/obj/machinery/door/urban,
+/obj/structure/machinery/door/urban,
 /obj/effect/decal/exterior_stairs/half/center,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/sidewalk/blocks,
@@ -554,7 +554,7 @@
 /turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "Pf" = (
-/obj/machinery/light_switch{
+/obj/structure/machinery/light_switch{
 	dir = 1;
 	pixel_y = 26;
 	pixel_x = -5
@@ -563,7 +563,7 @@
 /area/konyang/office)
 "Px" = (
 /obj/structure/table/standard,
-/obj/machinery/recharger,
+/obj/structure/machinery/recharger,
 /turf/simulated/floor/exoplanet/foundation,
 /area/konyang/office)
 "PM" = (
@@ -604,7 +604,7 @@
 /turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "Re" = (
-/obj/machinery/papershredder,
+/obj/structure/machinery/papershredder,
 /turf/simulated/floor/exoplanet/lino,
 /area/konyang/office)
 "Rn" = (
@@ -636,20 +636,20 @@
 /area/exoplanet/grass/konyang)
 "Tl" = (
 /obj/random/dirt_75,
-/obj/machinery/photocopier,
+/obj/structure/machinery/photocopier,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/konyang/office)
 "Tp" = (
 /obj/random/junk,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/lino,
 /area/konyang/office)
 "TX" = (
 /obj/random/dirt_75,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/lino,
@@ -671,7 +671,7 @@
 /area/exoplanet/grass/konyang)
 "VB" = (
 /obj/random/dirt_75,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/lino,

@@ -24,7 +24,7 @@
 		return TRUE
 	return FALSE
 
-/obj/machinery/seed_storage
+/obj/structure/machinery/seed_storage
 	name = "seed storage"
 	desc = "It stores, sorts, and dispenses seeds."
 	icon = 'icons/obj/vending.dmi'
@@ -42,7 +42,7 @@
 	/// What properties we can view.
 	var/list/scanner = list()
 
-/obj/machinery/seed_storage/Initialize()
+/obj/structure/machinery/seed_storage/Initialize()
 	. = ..()
 	for(var/typepath in starting_seeds)
 		var/amount = starting_seeds[typepath]
@@ -52,22 +52,22 @@
 			var/O = new typepath
 			add(O)
 
-/obj/machinery/seed_storage/Destroy()
+/obj/structure/machinery/seed_storage/Destroy()
 	QDEL_LIST(piles)
 
 	. = ..()
 
-/obj/machinery/seed_storage/attack_hand(mob/user)
+/obj/structure/machinery/seed_storage/attack_hand(mob/user)
 	. = ..()
 	ui_interact(user)
 
-/obj/machinery/seed_storage/ui_interact(mob/user, datum/tgui/ui)
+/obj/structure/machinery/seed_storage/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "SeedStorage", "Seed Storage", screen_x, screen_y)
 		ui.open()
 
-/obj/machinery/seed_storage/ui_data(mob/user)
+/obj/structure/machinery/seed_storage/ui_data(mob/user)
 	var/list/data = list()
 	data["seeds"] = list()
 	for(var/datum/seed_pile/S in piles)
@@ -181,7 +181,7 @@
 		data["seeds"] += list(seed_type)
 	return data
 
-/obj/machinery/seed_storage/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/obj/structure/machinery/seed_storage/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if (.)
 		return
@@ -210,7 +210,7 @@
 					qdel(N)
 			. = TRUE
 
-/obj/machinery/seed_storage/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/seed_storage/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/seeds))
 		add(attacking_item)
 		user.visible_message(SPAN_NOTICE("[user] puts \the [attacking_item.name] into \the [src]."), SPAN_NOTICE("You put \the [attacking_item] into \the [src]."))
@@ -227,12 +227,12 @@
 		else
 			to_chat(user, SPAN_WARNING("There are no seeds in \the [attacking_item.name]."))
 
-	else if(attacking_item.iswrench())
+	else if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		attacking_item.play_tool_sound(get_turf(src), 50)
 		anchored = !anchored
 		to_chat(user, SPAN_NOTICE("You [anchored ? "wrench" : "unwrench"] \the [src]."))
 
-/obj/machinery/seed_storage/proc/add(obj/item/seeds/O)
+/obj/structure/machinery/seed_storage/proc/add(obj/item/seeds/O)
 	if (istype(O.loc, /mob))
 		var/mob/user = O.loc
 		user.remove_from_mob(O)
@@ -267,12 +267,12 @@
 			SUBTYPES
 ################################*/
 
-/obj/machinery/seed_storage/random // This is mostly for testing, but I guess admins could spawn it
+/obj/structure/machinery/seed_storage/random // This is mostly for testing, but I guess admins could spawn it
 	name = "random seed storage"
 	scanner = list("stats", "produce", "soil", "temperature", "light")
 	starting_seeds = list(/obj/item/seeds/random = 50)
 
-/obj/machinery/seed_storage/garden
+/obj/structure/machinery/seed_storage/garden
 	name = "garden seed storage"
 	scanner = list("stats")
 	starting_seeds = list(
@@ -297,6 +297,7 @@
 		/obj/item/seeds/cocoapodseed = 3,
 		/obj/item/seeds/coffeeseed = 3,
 		/obj/item/seeds/cornseed = 3,
+		/obj/item/seeds/cucumberseed = 3,
 		/obj/item/seeds/cranberryseed = 2,
 		/obj/item/seeds/dirtberries = 2,
 		/obj/item/seeds/dynseed = 3,
@@ -359,13 +360,13 @@
 		/obj/item/seeds/ylpha = 2
 	)
 
-/obj/machinery/seed_storage/garden/hydroponics
+/obj/structure/machinery/seed_storage/garden/hydroponics
 	name = "Hydroponics seed storage"
 	scanner = list("stats", "produce", "soil", "temperature", "light")
 	screen_x = 1000
 	screen_y = 700
 
-/obj/machinery/seed_storage/garden/hydroponics/Initialize()
+/obj/structure/machinery/seed_storage/garden/hydroponics/Initialize()
 	starting_seeds = src.starting_seeds.Copy() + list(
 		/obj/item/seeds/libertymycelium = 2,
 		/obj/item/seeds/koisspore = 3,
@@ -374,13 +375,13 @@
 	)
 	return ..()
 
-/obj/machinery/seed_storage/garden/xenobotany
+/obj/structure/machinery/seed_storage/garden/xenobotany
 	name = "Xenobotany seed storage"
 	scanner = list("stats", "produce", "soil", "temperature", "light")
 	screen_x = 1000
 	screen_y = 700
 
-/obj/machinery/seed_storage/garden/xenobotany/Initialize()
+/obj/structure/machinery/seed_storage/garden/xenobotany/Initialize()
 	starting_seeds = src.starting_seeds.Copy() + list(
 		/obj/item/seeds/libertymycelium = 2,
 		/obj/item/seeds/cocaseed = 3,

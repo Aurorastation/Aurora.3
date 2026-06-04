@@ -20,8 +20,8 @@ LINEN BINS
 	throw_speed = 1
 	throw_range = 2
 	w_class = WEIGHT_CLASS_BULKY
-	drop_sound = 'sound/items/drop/cloth.ogg'
-	pickup_sound = 'sound/items/pickup/cloth.ogg'
+	drop_sound = SFX_CLOTH_DROP
+	pickup_sound = SFX_CLOTH_PICKUP
 	randpixel = 0
 	center_of_mass = null
 	var/roll = FALSE
@@ -136,7 +136,7 @@ LINEN BINS
 	if (do_after(user, 25, src))
 		if(user.loc != loc)
 			user.do_attack_animation(src)
-		playsound(get_turf(loc), /singleton/sound_category/rustle_sound, 15, 1, -5)
+		playsound(get_turf(loc), SFX_RUSTLE, 15, 1, -5)
 		var/folds = fold
 		user.visible_message(SPAN_NOTICE("\The [user] [folds ? "unfolds" : "folds"] \the [src]."),
 				SPAN_NOTICE("You [fold ? "unfold" : "fold"] \the [src]."))
@@ -170,7 +170,7 @@ LINEN BINS
 	if (do_after(user, 6, src))
 		if(user.loc != loc)
 			user.do_attack_animation(src)
-		playsound(get_turf(loc), /singleton/sound_category/rustle_sound, 15, 1, -5)
+		playsound(get_turf(loc), SFX_RUSTLE, 15, 1, -5)
 		var/rolls = roll
 		user.visible_message(SPAN_NOTICE("\The [user] [rolls ? "unrolls" : "rolls"] \the [src]."),
 							SPAN_NOTICE("You [roll ? "unroll" : "roll"] \the [src]."))
@@ -196,7 +196,7 @@ LINEN BINS
 	return FALSE
 
 /obj/item/bedsheet/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		user.visible_message(SPAN_NOTICE("\The [user] begins poking eyeholes in \the [src] with \the [attacking_item]."),
 							SPAN_NOTICE("You begin poking eyeholes in \the [src] with \the [attacking_item]."))
 		if(attacking_item.use_tool(src, user, 50, volume = 50))

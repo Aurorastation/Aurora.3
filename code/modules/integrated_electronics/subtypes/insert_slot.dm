@@ -7,7 +7,7 @@
 	var/list/items_contained = list()
 	activators = list("eject contents" = IC_PINTYPE_PULSE_IN)
 	outputs = list("has item" = IC_PINTYPE_BOOLEAN)
-	power_draw_per_use = 1
+	power_draw_per_use = 10
 	w_class = WEIGHT_CLASS_NORMAL
 	size = 5
 	complexity = 1
@@ -53,7 +53,7 @@
 	Paper can be inserted through a slot in the casing. Holds 10 sheets"
 	capacity = 10
 	size = 8
-	power_draw_per_use = 3
+	power_draw_per_use = 30
 	allowed_types = list(/obj/item/paper)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	origin_tech = list(TECH_ENGINEERING = 2, TECH_MATERIAL = 2)

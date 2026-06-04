@@ -1,7 +1,4 @@
 /mob/living/carbon/human
-
-	blocks_emissive = EMISSIVE_BLOCK_NONE
-
 	// Tail Style
 	var/tail_style = null
 
@@ -37,7 +34,8 @@
 
 	var/size_multiplier = 1 //multiplier for the mob's icon size
 	var/damage_multiplier = 1 //multiplies melee combat damage
-	var/icon_update = 1 //whether icon updating shall take place
+
+	var/default_lighting_alpha = LIGHTING_PLANE_ALPHA_VISIBLE
 
 	var/lipstick_color = null	//no lipstick by default
 
@@ -101,10 +99,6 @@
 	var/list/gunshot_residue
 	var/pulling_punches // Are you trying not to hurt your opponent?
 
-	mob_bump_flag = HUMAN
-	mob_push_flags = ~HEAVY
-	mob_swap_flags = ~HEAVY
-
 	var/flash_protection = 0				// Total level of flash protection
 	var/equipment_tint_total = 0			// Total level of visualy impairing items
 	var/equipment_darkness_modifier			// Darkvision modifier from equipped items
@@ -114,8 +108,8 @@
 	var/list/equipment_overlays = list()	// Extra overlays from equipped items
 
 	var/is_noisy = FALSE		// if TRUE, movement should make sound.
-	var/bodyfall_sound = /singleton/sound_category/bodyfall_sound
-	var/footsound = /singleton/sound_category/blank_footsteps
+	var/bodyfall_sound = SFX_BODYFALL
+	var/footsound = SFX_FOOTSTEP_BLANK
 
 	var/last_x = 0
 	var/last_y = 0
@@ -132,3 +126,48 @@
 	var/triage_tag = TRIAGE_NONE
 
 	var/lobotomized = FALSE //additional check for isAdvancedToolUser that can be set manually by things
+
+	var/list/organs = list()
+
+	///Container for blood and BLOOD ONLY. Do not transfer other chems here.
+	var/datum/reagents/vessel
+
+	/// Used for cryo to free up a slot when a ghost cryos.
+	var/datum/weakref/ghost_spawner
+
+	var/next_stance_collapse = 0
+
+	var/datum/dionastats/DS
+
+	var/oxygen_alert = 0
+	var/phoron_alert = 0
+	var/co2_alert = 0
+	var/fire_alert = 0
+	var/pressure_alert = 0
+	var/temperature_alert = 0
+
+	var/datum/weakref/srom_pulled_by
+	var/datum/weakref/srom_pulling
+
+	/// Our set of "raw" overlays that can be modified, but cannot be directly applied to the mob without preprocessing.
+	var/list/overlays_raw[TOTAL_LAYERS]
+	/// store what the body last looked like, so we only have to update it if something changed
+	var/previous_damage_appearance
+
+	var/singleton/origin_item/culture/culture
+	var/singleton/origin_item/origin/origin
+
+	var/tmp/centcomm_despawn_timer
+
+	var/pronouns = NEUTER
+
+	/// Used so species that need special items (autoinhalers for vaurca/RMT for offworlders) don't get them twice when they shouldn't.
+	var/species_items_equipped
+
+	var/list/hud_list[11]
+	/// To check if we've need to roll for damage on movement while an item is imbedded in us.
+	var/embedded_flag
+	/// This is very not good, but it's much much better than calling get_rig() every update_canmove() call.
+	var/obj/item/rig/wearing_rig
+	/// Pref holder for the speech bubble style.
+	var/speech_bubble_type

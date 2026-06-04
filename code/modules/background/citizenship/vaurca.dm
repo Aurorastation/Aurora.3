@@ -89,7 +89,7 @@
 	mask = /obj/item/clothing/mask/gas/vaurca/filter
 	suit = /obj/item/clothing/suit/vaurca/breeder
 
-	backpack_contents = list(/obj/item/device/camera = 1) // Redefined so they do not inherit the extra energy pistol from the parent representative outfit.
+	backpack_contents = list(/obj/item/camera = 1) // Redefined so they do not inherit the extra energy pistol from the parent representative outfit.
 
 /obj/outfit/job/representative/consular/zora/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H)
@@ -192,7 +192,7 @@
 	mask = /obj/item/clothing/mask/gas/vaurca/filter
 	suit = /obj/item/clothing/suit/vaurca/breeder/klax
 
-	backpack_contents = list(/obj/item/device/camera = 1) // Redefined so they do not inherit the extra energy pistol from the parent representative outfit.
+	backpack_contents = list(/obj/item/camera = 1) // Redefined so they do not inherit the extra energy pistol from the parent representative outfit.
 
 /obj/outfit/job/representative/consular/klax/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H)
@@ -294,7 +294,7 @@
 	mask = /obj/item/clothing/mask/gas/vaurca/filter
 	suit = /obj/item/clothing/suit/vaurca/breeder/cthur
 
-	backpack_contents = list(/obj/item/device/camera = 1) // Redefined so they do not inherit the extra energy pistol from the parent representative outfit.
+	backpack_contents = list(/obj/item/camera = 1) // Redefined so they do not inherit the extra energy pistol from the parent representative outfit.
 
 /obj/outfit/job/representative/consular/cthur/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H)

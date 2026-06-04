@@ -1,14 +1,14 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "ab" = (
-/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/structure/machinery/portable_atmospherics/canister/oxygen,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
 /area/raskara_okon/eva)
 "am" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -21,25 +21,25 @@
 	},
 /area/raskara_okon/barracks)
 "aB" = (
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
 /area/raskara_okon/barracks)
 "aD" = (
-/obj/machinery/door/airlock/engineering{
+/obj/structure/machinery/door/airlock/engineering{
 	req_access = list(209);
 	name = "Engine";
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/door/firedoor{
+/obj/structure/machinery/door/firedoor{
 	req_one_access = list(24,11,67,209)
 	},
 /turf/simulated/floor/tiled/dark{
@@ -47,7 +47,7 @@
 	},
 /area/raskara_okon/engineer)
 "aN" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -58,15 +58,15 @@
 	},
 /area/raskara_okon/eva)
 "aO" = (
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	req_access = list(209);
 	name = "Mess Hall";
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -74,7 +74,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/door/firedoor{
+/obj/structure/machinery/door/firedoor{
 	dir = 8;
 	req_one_access = list(24,11,67,209)
 	},
@@ -83,7 +83,7 @@
 	},
 /area/raskara_okon/mess_hall)
 "aX" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark{
@@ -91,7 +91,7 @@
 	},
 /area/raskara_okon/entry)
 "bf" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/rust{
@@ -99,7 +99,7 @@
 	},
 /area/raskara_okon/mining)
 "bk" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/cyan{
 	dir = 9
 	},
 /turf/simulated/floor{
@@ -122,7 +122,7 @@
 /obj/item/storage/bag/ore,
 /obj/item/storage/bag/ore,
 /obj/item/storage/bag/ore,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/rust{
@@ -130,7 +130,7 @@
 	},
 /area/raskara_okon/mining)
 "bF" = (
-/obj/machinery/chem_master,
+/obj/structure/machinery/chem_master,
 /obj/effect/floor_decal/corner/mauve{
 	dir = 10
 	},
@@ -139,7 +139,7 @@
 	},
 /area/raskara_okon/laboratory)
 "bH" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 4;
@@ -153,10 +153,10 @@
 /obj/effect/floor_decal/corner/red/full{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -183,7 +183,7 @@
 	},
 /area/raskara_okon/laboratory)
 "cw" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
 	},
 /turf/simulated/floor{
@@ -194,8 +194,8 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -211,10 +211,10 @@
 	},
 /area/raskara_okon)
 "cE" = (
-/obj/machinery/body_scanconsole{
+/obj/structure/machinery/body_scanconsole{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -227,8 +227,8 @@
 	},
 /area/raskara_okon/medbay)
 "de" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /obj/structure/cable/green{
@@ -283,7 +283,7 @@
 "dG" = (
 /obj/structure/plasticflaps,
 /obj/effect/floor_decal/industrial/warning/cee,
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	id = "okon_base_belt"
 	},
 /turf/simulated/floor/plating{
@@ -329,7 +329,7 @@
 /obj/item/clothing/suit/space/void/okon/purple,
 /obj/item/clothing/head/helmet/space/void/okon/purple,
 /obj/item/clothing/mask/breath,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
@@ -337,7 +337,7 @@
 	},
 /area/raskara_okon/eva)
 "ei" = (
-/obj/machinery/shower{
+/obj/structure/machinery/shower{
 	pixel_y = 15
 	},
 /obj/structure/curtain/open/shower,
@@ -350,7 +350,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
@@ -358,7 +358,7 @@
 	},
 /area/raskara_okon/observatory)
 "ew" = (
-/obj/machinery/vending/medical{
+/obj/structure/machinery/vending/medical{
 	density = 0;
 	req_access = null
 	},
@@ -370,7 +370,7 @@
 /obj/structure/table/standard,
 /obj/item/material/ashtray,
 /obj/effect/floor_decal/corner/brown/diagonal,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
@@ -379,7 +379,7 @@
 /area/raskara_okon/mess_hall)
 "eQ" = (
 /obj/structure/table/reinforced/steel,
-/obj/machinery/recharger,
+/obj/structure/machinery/recharger,
 /obj/item/melee/baton/loaded,
 /obj/item/reagent_containers/dropper{
 	pixel_y = -4
@@ -394,10 +394,10 @@
 /obj/effect/floor_decal/corner/mauve{
 	dir = 6
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/obj/machinery/alarm/cold/east{
+/obj/structure/machinery/alarm/cold/east{
 	req_one_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
@@ -420,7 +420,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/plating{
@@ -428,7 +428,7 @@
 	},
 /area/raskara_okon/engineer)
 "fb" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
 /turf/simulated/floor{
@@ -451,7 +451,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/high/east{
+/obj/structure/machinery/power/apc/high/east{
 	req_access = list(209)
 	},
 /obj/item/clothing/accessory/badge/pra_passport,
@@ -470,7 +470,7 @@
 	},
 /area/raskara_okon/medbay)
 "fZ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/rust{
@@ -479,7 +479,7 @@
 /area/raskara_okon/mining)
 "ga" = (
 /obj/structure/railing/mapped,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
@@ -488,7 +488,7 @@
 /area/raskara_okon/observatory)
 "gk" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/mining/drill,
+/obj/structure/machinery/mining/drill,
 /turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
@@ -517,7 +517,7 @@
 	dir = 9
 	},
 /obj/effect/floor_decal/industrial/warning/corner,
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	dir = 10;
 	id = "okon_base_belt";
 	reversed = 1
@@ -530,7 +530,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
@@ -553,10 +553,10 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -579,11 +579,11 @@
 	name = "airlock_okon";
 	frequency = 1004
 	},
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
+/obj/structure/machinery/embedded_controller/radio/airlock/docking_port{
 	dir = 4;
 	pixel_x = -25
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
 /turf/simulated/floor{
@@ -591,7 +591,7 @@
 	},
 /area/raskara_okon/entry)
 "hI" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -611,10 +611,10 @@
 	},
 /area/raskara_okon/observatory)
 "hO" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -629,7 +629,7 @@
 "is" = (
 /obj/structure/table/stone/marble,
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/reagentgrinder{
+/obj/structure/machinery/reagentgrinder{
 	pixel_y = 6
 	},
 /turf/simulated/floor/tiled/white{
@@ -640,10 +640,10 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /obj/structure/cable/green{
@@ -672,7 +672,7 @@
 /area/raskara_okon/eva)
 "iP" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/appliance/cooker/oven,
+/obj/structure/machinery/appliance/cooker/oven,
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
@@ -683,10 +683,10 @@
 	},
 /area/raskara_okon/engineer)
 "jg" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -709,7 +709,7 @@
 	},
 /area/raskara_okon/laboratory)
 "jl" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -718,7 +718,7 @@
 	},
 /area/raskara_okon/eva)
 "jr" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
 /obj/structure/cable/green{
@@ -745,7 +745,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 6
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /obj/item/blueprints/outpost{
@@ -760,19 +760,19 @@
 	},
 /area/raskara_okon/observatory)
 "jJ" = (
-/obj/machinery/door/airlock/glass_medical{
+/obj/structure/machinery/door/airlock/glass_medical{
 	req_access = list(209);
 	name = "Medbay";
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/door/firedoor{
+/obj/structure/machinery/door/firedoor{
 	req_one_access = list(24,11,67,209)
 	},
 /turf/simulated/floor/tiled/white{
@@ -780,12 +780,12 @@
 	},
 /area/raskara_okon/medbay)
 "jP" = (
-/obj/machinery/suspension_gen,
+/obj/structure/machinery/suspension_gen,
 /obj/effect/floor_decal/corner/mauve{
 	dir = 5
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
@@ -795,25 +795,25 @@
 "jV" = (
 /obj/structure/bed/stool/bar/padded/red,
 /obj/effect/floor_decal/corner/brown/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
 /area/raskara_okon/mess_hall)
 "kd" = (
-/obj/machinery/door/airlock/engineering{
+/obj/structure/machinery/door/airlock/engineering{
 	req_access = list(209);
 	name = "Engineering";
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/door/firedoor{
+/obj/structure/machinery/door/firedoor{
 	req_one_access = list(24,11,67,209)
 	},
 /turf/simulated/floor/tiled/dark{
@@ -837,7 +837,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/sign/flag/pra/large/east,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -850,7 +850,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 9
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
@@ -858,16 +858,16 @@
 	},
 /area/raskara_okon/observatory)
 "kL" = (
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
 /obj/structure/table/standard,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/obj/machinery/alarm/cold/south{
+/obj/structure/machinery/alarm/cold/south{
 	req_one_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
@@ -878,7 +878,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -889,7 +889,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 9
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/pra,
@@ -951,7 +951,7 @@
 /area/raskara_okon/mess_hall)
 "lm" = (
 /obj/structure/closet/crate/miningcart,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -961,16 +961,16 @@
 /area/raskara_okon/eva)
 "lq" = (
 /obj/structure/table/standard,
-/obj/item/device/flashlight/heavy,
-/obj/item/device/flashlight/heavy,
-/obj/item/device/flashlight/heavy,
+/obj/item/flashlight/heavy,
+/obj/item/flashlight/heavy,
+/obj/item/flashlight/heavy,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
 /area/raskara_okon/eva)
 "lr" = (
 /obj/effect/floor_decal/corner/brown/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
 /obj/structure/cable/green{
@@ -987,11 +987,11 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/item/sign/painting_frame/hadii{
 	pixel_x = 32
 	},
@@ -1001,13 +1001,13 @@
 	},
 /area/raskara_okon/mess_hall)
 "lO" = (
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/light/small/emergency{
 	dir = 8
 	},
 /turf/simulated/floor/airless,
 /area/raskara_okon/entry)
 "lR" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
@@ -1026,13 +1026,13 @@
 /area/raskara_okon/laboratory)
 "mk" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/structure/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
 /area/raskara_okon/engineer)
 "ml" = (
-/obj/machinery/atmospherics/binary/pump/on{
+/obj/structure/machinery/atmospherics/binary/pump/on{
 	dir = 8
 	},
 /turf/simulated/floor{
@@ -1040,20 +1040,20 @@
 	},
 /area/raskara_okon/engineer)
 "ms" = (
-/obj/machinery/mineral/unloading_machine,
+/obj/structure/machinery/mineral/unloading_machine,
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 1
 	},
 /turf/simulated/floor/airless,
 /area/raskara_okon/mining)
 "mF" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/cyan,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/cyan,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
 /area/raskara_okon/engineer)
 "mL" = (
-/obj/machinery/atmospherics/pipe/manifold/visible/red{
+/obj/structure/machinery/atmospherics/pipe/manifold/visible/red{
 	dir = 1
 	},
 /turf/simulated/floor{
@@ -1061,13 +1061,13 @@
 	},
 /area/raskara_okon/engineer)
 "mS" = (
-/obj/machinery/bodyscanner,
+/obj/structure/machinery/bodyscanner,
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
 /area/raskara_okon/medbay)
 "mV" = (
-/obj/machinery/alarm/cold/south{
+/obj/structure/machinery/alarm/cold/south{
 	req_one_access = list(209)
 	},
 /turf/simulated/floor/tiled/white{
@@ -1088,7 +1088,7 @@
 /obj/item/clothing/suit/space/void/okon/blue,
 /obj/item/clothing/head/helmet/space/void/okon/blue,
 /obj/item/clothing/mask/breath,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
@@ -1117,10 +1117,10 @@
 	},
 /area/raskara_okon/medbay)
 "ob" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /obj/structure/cable/green{
@@ -1138,10 +1138,10 @@
 	},
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/railing/mapped,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	dir = 8;
 	id = "okon_base_belt"
 	},
@@ -1151,11 +1151,11 @@
 /area/raskara_okon/mining)
 "ow" = (
 /obj/structure/table/standard,
-/obj/machinery/recharger,
+/obj/structure/machinery/recharger,
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/obj/machinery/alarm/cold/north{
+/obj/structure/machinery/alarm/cold/north{
 	req_one_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
@@ -1176,8 +1176,8 @@
 	},
 /area/raskara_okon/mess_hall)
 "oE" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -1188,8 +1188,8 @@
 	},
 /area/raskara_okon/medbay)
 "oL" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 2;
 	d2 = 8;
@@ -1208,11 +1208,11 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 9
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -1249,8 +1249,8 @@
 	},
 /area/raskara_okon)
 "pP" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/rust{
@@ -1269,7 +1269,7 @@
 	},
 /area/raskara_okon)
 "pV" = (
-/obj/machinery/conveyor_switch/oneway{
+/obj/structure/machinery/conveyor_switch/oneway{
 	id = "okon_base_belt"
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -1298,10 +1298,10 @@
 	},
 /area/raskara_okon/laboratory)
 "qm" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -1316,7 +1316,7 @@
 "qr" = (
 /obj/structure/reagent_dispensers/fueltank,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
@@ -1328,7 +1328,7 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc/high/west{
+/obj/structure/machinery/power/apc/high/west{
 	req_access = list(209)
 	},
 /turf/simulated/floor/tiled/rust{
@@ -1336,19 +1336,19 @@
 	},
 /area/raskara_okon/mining)
 "qJ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
 /area/raskara_okon/eva)
 "qM" = (
-/obj/machinery/vending/wallmed2{
+/obj/structure/machinery/vending/wallmed2{
 	req_access = null;
 	pixel_y = -28
 	},
 /obj/structure/closet/crate/freezer,
 /obj/item/storage/box/unique/freezer/organcooler,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white{
@@ -1360,8 +1360,8 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/alarm/cold/east{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/alarm/cold/east{
 	req_one_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
@@ -1372,10 +1372,10 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -1390,7 +1390,7 @@
 "rf" = (
 /obj/structure/table/stone/marble,
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/chemical_dispenser/bar_soft/full{
+/obj/structure/machinery/chemical_dispenser/bar_soft/full{
 	dir = 4;
 	pixel_x = -4;
 	pixel_y = 4
@@ -1400,7 +1400,7 @@
 	},
 /area/raskara_okon/mess_hall)
 "rn" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark{
@@ -1408,13 +1408,13 @@
 	},
 /area/raskara_okon/observatory)
 "rM" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
 /area/raskara_okon/medbay)
 "rX" = (
-/obj/machinery/chemical_dispenser/full,
+/obj/structure/machinery/chemical_dispenser/full,
 /obj/effect/floor_decal/corner/mauve{
 	dir = 10
 	},
@@ -1426,8 +1426,8 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -1441,10 +1441,10 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /obj/structure/cable/green{
@@ -1473,7 +1473,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc/high/north{
+/obj/structure/machinery/power/apc/high/north{
 	req_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
@@ -1488,10 +1488,10 @@
 	},
 /area/raskara_okon/mess_hall)
 "td" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/obj/machinery/meter,
+/obj/structure/machinery/meter,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -1502,10 +1502,10 @@
 	},
 /area/raskara_okon/engineer)
 "tj" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 5
 	},
-/obj/machinery/meter,
+/obj/structure/machinery/meter,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -1519,10 +1519,10 @@
 	},
 /area/raskara_okon)
 "tF" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -1536,7 +1536,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
-/obj/machinery/alarm/cold/south{
+/obj/structure/machinery/alarm/cold/south{
 	req_one_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
@@ -1551,7 +1551,7 @@
 	},
 /area/raskara_okon/eva)
 "tL" = (
-/obj/machinery/alarm/cold/east{
+/obj/structure/machinery/alarm/cold/east{
 	req_one_access = list(209)
 	},
 /turf/simulated/floor/tiled/rust{
@@ -1571,13 +1571,13 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -1608,7 +1608,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
@@ -1619,7 +1619,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
-/obj/machinery/photocopier,
+/obj/structure/machinery/photocopier,
 /obj/structure/sign/flag/pra{
 	pixel_y = -32;
 	stand_icon = null
@@ -1632,7 +1632,7 @@
 /obj/structure/bed/stool/chair/office/bridge/generic{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -1651,7 +1651,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -1670,7 +1670,7 @@
 	},
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/railing/mapped,
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	dir = 8;
 	id = "okon_base_belt"
 	},
@@ -1689,15 +1689,15 @@
 	},
 /area/raskara_okon/engineer)
 "vJ" = (
-/obj/machinery/door/airlock/research{
+/obj/structure/machinery/door/airlock/research{
 	req_access = list(209);
 	name = "Laboratory";
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -1705,7 +1705,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/door/firedoor{
+/obj/structure/machinery/door/firedoor{
 	dir = 8;
 	req_one_access = list(24,11,67,209)
 	},
@@ -1727,13 +1727,13 @@
 	},
 /area/raskara_okon/mess_hall)
 "wj" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -1753,7 +1753,7 @@
 	},
 /area/raskara_okon/mess_hall)
 "wK" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -1766,10 +1766,10 @@
 	},
 /area/raskara_okon/entry)
 "wO" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /obj/structure/cable/green{
@@ -1790,7 +1790,7 @@
 	},
 /area/raskara_okon/observatory)
 "xg" = (
-/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor{
 	temperature = 278.15
@@ -1809,7 +1809,7 @@
 /obj/item/clothing/accessory/badge/pra_passport,
 /obj/item/clothing/accessory/flagpatch/pra,
 /obj/item/clothing/accessory/flagpatch/pra,
-/obj/machinery/alarm/cold/east{
+/obj/structure/machinery/alarm/cold/east{
 	req_one_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
@@ -1822,7 +1822,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /obj/item/sign/painting_frame/hadii{
@@ -1833,7 +1833,7 @@
 	},
 /area/raskara_okon/mess_hall)
 "xI" = (
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/light/small/emergency{
 	dir = 1
 	},
 /obj/structure/cargo_receptacle{
@@ -1851,7 +1851,7 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
 	},
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	dir = 5;
 	id = "okon_base_belt";
 	reversed = 0
@@ -1861,7 +1861,7 @@
 	},
 /area/raskara_okon/mining)
 "yd" = (
-/obj/machinery/atmospherics/binary/pump{
+/obj/structure/machinery/atmospherics/binary/pump{
 	dir = 8;
 	name = "pump to waste"
 	},
@@ -1885,10 +1885,10 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -1911,7 +1911,7 @@
 	},
 /area/raskara_okon/engineer)
 "yR" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
@@ -1928,13 +1928,13 @@
 /obj/item/crowbar/red,
 /obj/item/crowbar/red,
 /obj/item/crowbar/red,
-/obj/item/device/analyzer,
-/obj/item/device/analyzer,
-/obj/item/device/analyzer,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/item/analyzer,
+/obj/item/analyzer,
+/obj/item/analyzer,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
@@ -1943,10 +1943,10 @@
 /obj/structure/closet/cabinet,
 /obj/item/clothing/shoes/jackboots/tajara,
 /obj/item/clothing/under/tajaran/database_freighter,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /obj/item/clothing/accessory/badge/pra_passport,
@@ -1958,10 +1958,10 @@
 	},
 /area/raskara_okon/barracks)
 "zf" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/obj/machinery/alarm/cold/south{
+/obj/structure/machinery/alarm/cold/south{
 	req_one_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
@@ -1976,7 +1976,7 @@
 	dir = 8
 	},
 /obj/structure/plasticflaps/mining,
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	id = "okon_base_belt"
 	},
 /turf/simulated/floor/plating{
@@ -2018,7 +2018,7 @@
 /area/raskara_okon/barracks)
 "zt" = (
 /obj/structure/closet/emcloset,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
@@ -2033,7 +2033,7 @@
 /obj/item/storage/toolbox/electrical{
 	pixel_y = -5
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -2041,7 +2041,7 @@
 "zA" = (
 /obj/structure/table/standard,
 /obj/item/storage/pill_bottle/dice/tajara,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /obj/structure/sign/flag/pra{
@@ -2057,8 +2057,8 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -2069,10 +2069,10 @@
 	},
 /area/raskara_okon/observatory)
 "zF" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
 /obj/structure/cable/green{
@@ -2092,17 +2092,17 @@
 /area/raskara_okon/medbay)
 "zI" = (
 /obj/structure/closet/emcloset,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
 /area/raskara_okon/entry)
 "zM" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -2115,15 +2115,15 @@
 	},
 /area/raskara_okon/eva)
 "Ac" = (
-/obj/machinery/door/airlock/mining{
+/obj/structure/machinery/door/airlock/mining{
 	name = "Eva Storage";
 	req_access = list(209);
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -2131,7 +2131,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/door/firedoor{
+/obj/structure/machinery/door/firedoor{
 	dir = 8;
 	req_one_access = list(24,11,67,209)
 	},
@@ -2175,13 +2175,13 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /obj/structure/cable/green{
@@ -2201,7 +2201,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/high/east{
+/obj/structure/machinery/power/apc/high/east{
 	req_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
@@ -2209,7 +2209,7 @@
 	},
 /area/raskara_okon/laboratory)
 "AS" = (
-/obj/machinery/vending/engineering{
+/obj/structure/machinery/vending/engineering{
 	req_access = list(209)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -2232,13 +2232,13 @@
 	frequency = 1004
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/machinery/door/airlock/external,
-/obj/machinery/access_button{
+/obj/structure/machinery/door/airlock/external,
+/obj/structure/machinery/access_button{
 	pixel_x = -28;
 	pixel_y = 11;
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -2256,25 +2256,25 @@
 	frequency = 1004
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/machinery/door/airlock/external,
+/obj/structure/machinery/door/airlock/external,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
 /area/raskara_okon/entry)
 "BR" = (
-/obj/machinery/door/airlock/mining{
+/obj/structure/machinery/door/airlock/mining{
 	name = "Eva Storage";
 	req_access = list(209);
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/door/firedoor{
+/obj/structure/machinery/door/firedoor{
 	req_one_access = list(24,11,67,209)
 	},
 /turf/simulated/floor/tiled/dark{
@@ -2287,7 +2287,7 @@
 	name = "airlock_okon";
 	frequency = 1004
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
 /turf/simulated/floor{
@@ -2313,8 +2313,8 @@
 	},
 /area/raskara_okon/eva)
 "BZ" = (
-/obj/machinery/vending/cigarette,
-/obj/machinery/light{
+/obj/structure/machinery/vending/cigarette,
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
@@ -2322,9 +2322,9 @@
 	},
 /area/raskara_okon/entry)
 "Cc" = (
-/obj/machinery/appliance/cooker/stove,
+/obj/structure/machinery/appliance/cooker/stove,
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white{
@@ -2338,17 +2338,17 @@
 /obj/item/clothing/gloves/yellow/specialt,
 /obj/item/clothing/gloves/yellow/specialt,
 /obj/item/clothing/gloves/yellow/specialt,
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled,
 /area/raskara_okon/engineer)
 "Co" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -2365,7 +2365,7 @@
 	},
 /area/raskara_okon)
 "Cp" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -2384,7 +2384,7 @@
 	},
 /area/raskara_okon/mess_hall)
 "Cw" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
@@ -2392,8 +2392,8 @@
 	},
 /area/raskara_okon/laboratory)
 "CO" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -2404,7 +2404,7 @@
 	},
 /area/raskara_okon/mining)
 "CW" = (
-/obj/machinery/papershredder,
+/obj/structure/machinery/papershredder,
 /obj/effect/floor_decal/corner/red{
 	dir = 9
 	},
@@ -2413,7 +2413,7 @@
 	},
 /area/raskara_okon/observatory)
 "De" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -2426,7 +2426,7 @@
 	},
 /area/raskara_okon/observatory)
 "Dm" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -2439,7 +2439,7 @@
 	},
 /area/raskara_okon/barracks)
 "Dy" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor{
@@ -2453,7 +2453,7 @@
 	},
 /area/raskara_okon/mess_hall)
 "DS" = (
-/obj/machinery/atmospherics/binary/passive_gate/supply{
+/obj/structure/machinery/atmospherics/binary/passive_gate/supply{
 	dir = 8;
 	target_pressure = 250
 	},
@@ -2462,10 +2462,10 @@
 	},
 /area/raskara_okon/engineer)
 "Ea" = (
-/obj/machinery/mineral/processing_unit_console{
+/obj/structure/machinery/mineral/processing_unit_console{
 	pixel_y = 28
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/rust{
@@ -2473,7 +2473,7 @@
 	},
 /area/raskara_okon/mining)
 "Ef" = (
-/obj/machinery/artifact_scanpad,
+/obj/structure/machinery/artifact_scanpad,
 /obj/effect/floor_decal/spline/plain/cee/black,
 /turf/simulated/floor/bluegrid{
 	temperature = 278.15
@@ -2483,14 +2483,14 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
 /area/raskara_okon/observatory)
 "EF" = (
 /obj/structure/bed/stool/chair/office/dark,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
@@ -2498,7 +2498,7 @@
 	},
 /area/raskara_okon/laboratory)
 "EL" = (
-/obj/machinery/power/emitter,
+/obj/structure/machinery/power/emitter,
 /obj/effect/floor_decal/corner/mauve{
 	dir = 9
 	},
@@ -2508,7 +2508,7 @@
 	},
 /area/raskara_okon/laboratory)
 "EM" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark{
@@ -2516,7 +2516,7 @@
 	},
 /area/raskara_okon/laboratory)
 "Fz" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
@@ -2527,10 +2527,10 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /obj/structure/cable/green{
@@ -2546,12 +2546,12 @@
 	},
 /area/raskara_okon)
 "Gh" = (
-/obj/machinery/door/airlock/glass_medical{
+/obj/structure/machinery/door/airlock/glass_medical{
 	req_access = list(209);
 	name = "Medbay";
 	dir = 4
 	},
-/obj/machinery/door/firedoor{
+/obj/structure/machinery/door/firedoor{
 	dir = 8;
 	req_one_access = list(24,11,67,209)
 	},
@@ -2569,7 +2569,7 @@
 /obj/effect/floor_decal/corner/mauve{
 	dir = 9
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
@@ -2583,8 +2583,8 @@
 	frequency = 1004
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/machinery/door/airlock/external,
-/obj/machinery/access_button{
+/obj/structure/machinery/door/airlock/external,
+/obj/structure/machinery/access_button{
 	pixel_x = 28;
 	pixel_y = -9
 	},
@@ -2593,10 +2593,10 @@
 	},
 /area/raskara_okon/entry)
 "GF" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/rust{
@@ -2604,10 +2604,10 @@
 	},
 /area/raskara_okon/mining)
 "GR" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /obj/structure/cable/green{
@@ -2629,7 +2629,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
@@ -2638,7 +2638,7 @@
 /area/raskara_okon/laboratory)
 "GW" = (
 /obj/structure/table/standard,
-/obj/machinery/photocopier/faxmachine{
+/obj/structure/machinery/photocopier/faxmachine{
 	req_one_access = list(209);
 	department = "Okon 001 Observation Outpost"
 	},
@@ -2650,7 +2650,7 @@
 	},
 /area/raskara_okon/observatory)
 "Hc" = (
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/light/small/emergency{
 	dir = 4
 	},
 /turf/simulated/floor/airless,
@@ -2677,7 +2677,7 @@
 	},
 /area/raskara_okon/mess_hall)
 "HB" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
@@ -2685,10 +2685,10 @@
 	},
 /area/raskara_okon/entry)
 "HJ" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /obj/structure/cable/green{
@@ -2742,7 +2742,7 @@
 /area/raskara_okon/mining)
 "IO" = (
 /obj/structure/table/standard,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /obj/effect/floor_decal/corner/red/full{
 	dir = 1
 	},
@@ -2758,13 +2758,13 @@
 /area/raskara_okon/observatory)
 "Je" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/vending/dinnerware,
+/obj/structure/machinery/vending/dinnerware,
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
 /area/raskara_okon/mess_hall)
 "Jw" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
@@ -2783,16 +2783,16 @@
 /area/raskara_okon/engineer)
 "JD" = (
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/machinery/stargazer,
+/obj/structure/machinery/stargazer,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
 /area/raskara_okon/observatory)
 "JM" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /obj/structure/cable/green{
@@ -2800,15 +2800,15 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/obj/machinery/hologram/holopad/long_range,
+/obj/structure/machinery/hologram/holopad/long_range,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
 /area/raskara_okon/observatory)
 "JO" = (
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
 /obj/structure/closet/toolcloset/empty,
 /obj/item/ore_detector,
 /obj/item/ore_detector,
@@ -2816,11 +2816,11 @@
 /obj/item/pickaxe/drill,
 /obj/item/pickaxe/drill,
 /obj/item/pickaxe/drill,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/rust{
@@ -2828,7 +2828,7 @@
 	},
 /area/raskara_okon/mining)
 "JQ" = (
-/obj/machinery/power/smes/buildable/horizon_shuttle,
+/obj/structure/machinery/power/smes/buildable/horizon_shuttle,
 /obj/structure/cable/green{
 	d2 = 4;
 	icon_state = "0-4"
@@ -2851,12 +2851,12 @@
 	},
 /area/raskara_okon/medbay)
 "Ky" = (
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	req_access = list(209);
 	name = "Restroom";
 	dir = 1
 	},
-/obj/machinery/door/firedoor{
+/obj/structure/machinery/door/firedoor{
 	req_one_access = list(24,11,67,209)
 	},
 /turf/simulated/floor/tiled/freezer{
@@ -2876,7 +2876,7 @@
 	pixel_x = -4;
 	pixel_y = -3
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -2886,33 +2886,33 @@
 /turf/simulated/floor/tiled/dark,
 /area/raskara_okon/laboratory)
 "Ld" = (
-/obj/machinery/optable,
-/obj/machinery/light/small,
+/obj/structure/machinery/optable,
+/obj/structure/machinery/light/small,
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
 /area/raskara_okon/medbay)
 "Lk" = (
-/obj/machinery/appliance/cooker/grill,
+/obj/structure/machinery/appliance/cooker/grill,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
 /area/raskara_okon/mess_hall)
 "Lu" = (
-/obj/machinery/door/airlock/mining{
+/obj/structure/machinery/door/airlock/mining{
 	req_access = list(209);
 	name = "Mining";
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/door/firedoor{
+/obj/structure/machinery/door/firedoor{
 	req_one_access = list(24,11,67,209)
 	},
 /turf/simulated/floor/tiled/dark{
@@ -2929,10 +2929,10 @@
 	},
 /area/raskara_okon/entry)
 "Lx" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /obj/structure/cable/green{
@@ -2967,14 +2967,14 @@
 	},
 /area/raskara_okon/engineer)
 "LR" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
 /area/raskara_okon/laboratory)
 "Mc" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -2985,7 +2985,7 @@
 	},
 /area/raskara_okon/engineer)
 "Me" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock{
@@ -2993,7 +2993,7 @@
 	name = "airlock_okon";
 	frequency = 1004
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
 /turf/simulated/floor{
@@ -3002,7 +3002,7 @@
 /area/raskara_okon/entry)
 "Mf" = (
 /obj/structure/table/standard,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /obj/effect/floor_decal/corner/red/full{
 	dir = 4
 	},
@@ -3011,10 +3011,10 @@
 	},
 /area/raskara_okon/observatory)
 "Mo" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
@@ -3033,16 +3033,16 @@
 /area/raskara_okon/laboratory)
 "Mu" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/mining/brace{
+/obj/structure/machinery/mining/brace{
 	dir = 8
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/raskara_okon/mining)
 "MG" = (
-/obj/machinery/vending/snack,
+/obj/structure/machinery/vending/snack,
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
 	},
@@ -3051,14 +3051,14 @@
 	},
 /area/raskara_okon/mess_hall)
 "MQ" = (
-/obj/machinery/mineral/stacking_machine{
+/obj/structure/machinery/mineral/stacking_machine{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning,
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	dir = 8;
 	id = "okon_base_belt"
 	},
@@ -3078,7 +3078,7 @@
 /obj/effect/floor_decal/corner/mauve{
 	dir = 10
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -3088,7 +3088,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -3100,7 +3100,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 6
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -3111,7 +3111,7 @@
 "NC" = (
 /obj/structure/table/stone/marble,
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/chemical_dispenser/bar_alc/full{
+/obj/structure/machinery/chemical_dispenser/bar_alc/full{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white{
@@ -3127,7 +3127,7 @@
 	},
 /area/raskara_okon/mess_hall)
 "NG" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -3141,7 +3141,7 @@
 /area/raskara_okon/entry)
 "NY" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/mining/brace{
+/obj/structure/machinery/mining/brace{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/rust{
@@ -3158,7 +3158,7 @@
 /turf/simulated/wall/shuttle/raider,
 /area/raskara_okon/observatory)
 "Of" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark{
@@ -3166,7 +3166,7 @@
 	},
 /area/raskara_okon/entry)
 "Ol" = (
-/obj/machinery/power/terminal,
+/obj/structure/machinery/power/terminal,
 /obj/structure/cable/green{
 	d2 = 8;
 	icon_state = "0-8"
@@ -3179,10 +3179,10 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -3200,7 +3200,7 @@
 	},
 /area/raskara_okon)
 "Os" = (
-/obj/machinery/power/apc/high/north{
+/obj/structure/machinery/power/apc/high/north{
 	req_access = list(209)
 	},
 /obj/structure/cable/green{
@@ -3224,7 +3224,7 @@
 /turf/simulated/wall/shuttle/raider,
 /area/raskara_okon/engineer)
 "OL" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/cooking_container/board/bowl,
@@ -3248,7 +3248,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/high/east{
+/obj/structure/machinery/power/apc/high/east{
 	req_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
@@ -3266,13 +3266,13 @@
 	},
 /area/raskara_okon/observatory)
 "OZ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
 /area/raskara_okon/medbay)
 "Pa" = (
-/obj/machinery/suspension_gen,
+/obj/structure/machinery/suspension_gen,
 /obj/effect/floor_decal/corner/mauve{
 	dir = 5
 	},
@@ -3295,7 +3295,7 @@
 /turf/simulated/floor/tiled,
 /area/raskara_okon/engineer)
 "Pj" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 9
 	},
 /turf/simulated/floor{
@@ -3349,7 +3349,7 @@
 	dir = 10
 	},
 /obj/structure/cable/green,
-/obj/machinery/power/apc/high/south{
+/obj/structure/machinery/power/apc/high/south{
 	req_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
@@ -3357,7 +3357,7 @@
 	},
 /area/raskara_okon/mess_hall)
 "QN" = (
-/obj/machinery/conveyor_switch/oneway{
+/obj/structure/machinery/conveyor_switch/oneway{
 	id = "okon_base_belt"
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -3366,7 +3366,7 @@
 	},
 /area/raskara_okon/mining)
 "QO" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 4;
@@ -3377,10 +3377,10 @@
 	},
 /area/raskara_okon/eva)
 "Re" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/obj/machinery/alarm/cold/south{
+/obj/structure/machinery/alarm/cold/south{
 	req_one_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
@@ -3388,15 +3388,15 @@
 	},
 /area/raskara_okon/engineer)
 "Rh" = (
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	req_access = list(209);
 	name = "Barracks";
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -3404,7 +3404,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/door/firedoor{
+/obj/structure/machinery/door/firedoor{
 	dir = 8;
 	req_one_access = list(24,11,67,209)
 	},
@@ -3417,7 +3417,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/high/east{
+/obj/structure/machinery/power/apc/high/east{
 	req_access = list(209)
 	},
 /turf/simulated/floor/tiled/white{
@@ -3433,7 +3433,7 @@
 	},
 /area/raskara_okon)
 "Rw" = (
-/obj/machinery/atmospherics/pipe/tank/air,
+/obj/structure/machinery/atmospherics/pipe/tank/air,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -3442,7 +3442,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 6
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
@@ -3453,7 +3453,7 @@
 /turf/simulated/wall/shuttle/raider,
 /area/raskara_okon/entry)
 "RJ" = (
-/obj/machinery/power/portgen/basic/fusion,
+/obj/structure/machinery/power/portgen/basic/fusion,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
@@ -3469,7 +3469,7 @@
 	},
 /area/raskara_okon/engineer)
 "RO" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/rust{
@@ -3480,7 +3480,7 @@
 /turf/simulated/floor/airless,
 /area/raskara_okon/entry)
 "Sz" = (
-/obj/machinery/vending/cigarette,
+/obj/structure/machinery/vending/cigarette,
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 1
 	},
@@ -3496,7 +3496,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/high/north{
+/obj/structure/machinery/power/apc/high/north{
 	req_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
@@ -3504,12 +3504,12 @@
 	},
 /area/raskara_okon/observatory)
 "SS" = (
-/obj/machinery/mineral/processing_unit{
+/obj/structure/machinery/mineral/processing_unit{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/structure/railing/mapped,
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	dir = 8;
 	id = "okon_base_belt"
 	},
@@ -3518,7 +3518,7 @@
 	},
 /area/raskara_okon/mining)
 "Ti" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -3531,7 +3531,7 @@
 	},
 /area/raskara_okon/medbay)
 "TD" = (
-/obj/machinery/vending/tool{
+/obj/structure/machinery/vending/tool{
 	req_access = list(209)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -3540,16 +3540,16 @@
 	},
 /area/raskara_okon/engineer)
 "TF" = (
-/obj/machinery/atmospherics/portables_connector,
+/obj/structure/machinery/atmospherics/portables_connector,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
 /area/raskara_okon/engineer)
 "TG" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -3573,7 +3573,7 @@
 /area/raskara_okon/laboratory)
 "TS" = (
 /obj/structure/table/standard,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /obj/effect/floor_decal/corner/red/full,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -3583,10 +3583,10 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
 /obj/structure/cable/green{
@@ -3602,8 +3602,8 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -3619,11 +3619,11 @@
 	name = "airlock_okon";
 	frequency = 1004
 	},
-/obj/machinery/airlock_sensor{
+/obj/structure/machinery/airlock_sensor{
 	pixel_x = -25;
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8
 	},
 /turf/simulated/floor{
@@ -3631,14 +3631,14 @@
 	},
 /area/raskara_okon/entry)
 "UC" = (
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/light/small/emergency{
 	dir = 1
 	},
 /turf/simulated/floor/airless,
 /area/raskara_okon/entry)
 "UQ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -3656,7 +3656,7 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/high/north{
+/obj/structure/machinery/power/apc/high/north{
 	req_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
@@ -3668,7 +3668,7 @@
 /turf/template_noop,
 /area/exoplanet/barren/raskara)
 "VA" = (
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /turf/simulated/floor/tiled/freezer{
 	temperature = 278.15
 	},
@@ -3694,7 +3694,7 @@
 /area/raskara_okon/laboratory)
 "VR" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/door/window/brigdoor/eastleft{
+/obj/structure/machinery/door/window/brigdoor/eastleft{
 	req_access = list(209);
 	name = "Kitchen"
 	},
@@ -3705,21 +3705,21 @@
 "VV" = (
 /obj/structure/table/glass,
 /obj/item/storage/box/bodybags,
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
 /area/raskara_okon/medbay)
 "VY" = (
-/obj/machinery/atmospherics/portables_connector,
-/obj/machinery/portable_atmospherics/canister/air,
+/obj/structure/machinery/atmospherics/portables_connector,
+/obj/structure/machinery/portable_atmospherics/canister/air,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
 /area/raskara_okon/engineer)
 "Wa" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /obj/structure/cable/green{
@@ -3742,8 +3742,8 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -3754,11 +3754,11 @@
 	},
 /area/raskara_okon)
 "Wp" = (
-/obj/machinery/artifact_analyser,
+/obj/structure/machinery/artifact_analyser,
 /obj/effect/floor_decal/spline/plain/cee/black{
 	dir = 1
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -3790,10 +3790,10 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -3804,7 +3804,7 @@
 	},
 /area/raskara_okon)
 "WG" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/rust{
@@ -3812,7 +3812,7 @@
 	},
 /area/raskara_okon/mining)
 "WI" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
@@ -3828,8 +3828,8 @@
 	},
 /area/raskara_okon/laboratory)
 "WL" = (
-/obj/machinery/iv_drip,
-/obj/machinery/light{
+/obj/structure/machinery/iv_drip,
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -3838,7 +3838,7 @@
 	},
 /area/raskara_okon/medbay)
 "Xd" = (
-/obj/machinery/atmospherics/pipe/tank{
+/obj/structure/machinery/atmospherics/pipe/tank{
 	dir = 4
 	},
 /turf/simulated/floor{
@@ -3873,14 +3873,14 @@
 	frequency = 1004
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/machinery/door/airlock/external,
+/obj/structure/machinery/door/airlock/external,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
 /area/raskara_okon/entry)
 "Xq" = (
-/obj/machinery/sleeper,
-/obj/machinery/light{
+/obj/structure/machinery/sleeper,
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white{
@@ -3899,10 +3899,10 @@
 /obj/effect/floor_decal/corner/mauve{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -3948,10 +3948,10 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -3964,19 +3964,19 @@
 	},
 /area/raskara_okon)
 "Yr" = (
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	req_access = list(209);
 	name = "Observatory";
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/door/firedoor{
+/obj/structure/machinery/door/firedoor{
 	req_one_access = list(24,11,67,209)
 	},
 /turf/simulated/floor/tiled/dark{
@@ -3990,7 +3990,7 @@
 /obj/structure/bed/stool/chair/office/bridge/generic{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -4001,11 +4001,11 @@
 	},
 /area/raskara_okon/observatory)
 "YN" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/door/window{
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/door/window{
 	dir = 4;
 	req_access = list(209)
 	},
@@ -4022,7 +4022,7 @@
 /area/raskara_okon/entry)
 "YQ" = (
 /obj/structure/bed/stool/bar/padded/red,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -4031,7 +4031,7 @@
 /turf/simulated/wall/shuttle/raider,
 /area/raskara_okon/barracks)
 "YV" = (
-/obj/machinery/door/airlock/engineering{
+/obj/structure/machinery/door/airlock/engineering{
 	req_access = list(209);
 	name = "Atmospherics";
 	dir = 4
@@ -4041,7 +4041,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/door/firedoor{
+/obj/structure/machinery/door/firedoor{
 	dir = 8;
 	req_one_access = list(24,11,67,209)
 	},
@@ -4050,7 +4050,7 @@
 	},
 /area/raskara_okon/engineer)
 "YY" = (
-/obj/machinery/vending/engivend{
+/obj/structure/machinery/vending/engivend{
 	req_access = list(209)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -4059,13 +4059,13 @@
 	},
 /area/raskara_okon/engineer)
 "Zd" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
 /area/raskara_okon/entry)
 "Ze" = (
-/obj/machinery/appliance/cooker/fryer,
+/obj/structure/machinery/appliance/cooker/fryer,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
@@ -4077,7 +4077,7 @@
 	},
 /area/raskara_okon/barracks)
 "Zm" = (
-/obj/machinery/mineral/stacking_unit_console{
+/obj/structure/machinery/mineral/stacking_unit_console{
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/rust{
@@ -4089,7 +4089,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},

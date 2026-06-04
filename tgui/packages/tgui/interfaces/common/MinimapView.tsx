@@ -16,7 +16,8 @@ export const MinimapView = (props: MinimapViewProps) => {
       height={'250px'}
       width={'100%'}
       viewBox={`0 0 ${map_size} ${map_size}`}
-      overflow={'hidden'}>
+      overflow={'hidden'}
+    >
       <g
         transform={`translate(
           ${(map_size * (zoom_mod - 1.0)) / -2 + (255 / 2 - center_point_x)}
@@ -24,7 +25,8 @@ export const MinimapView = (props: MinimapViewProps) => {
             (map_size * (zoom_mod - 1.0)) / -2 +
             (255 / 2 - (map_size - center_point_y))
           }
-        )`}>
+        )`}
+      >
         <image
           width={map_size * zoom_mod}
           height={map_size * zoom_mod}
@@ -74,7 +76,8 @@ export const MinimapView = (props: MinimapViewProps) => {
           transform={`translate(
               ${center_point_x * zoom_mod}
               ${(map_size - center_point_y) * zoom_mod}
-            )`}>
+            )`}
+        >
           {props.x}
         </text>
         <text
@@ -86,7 +89,8 @@ export const MinimapView = (props: MinimapViewProps) => {
           transform={`translate(
               ${center_point_x * zoom_mod}
               ${(map_size - center_point_y) * zoom_mod}
-            )`}>
+            )`}
+        >
           {props.y}
         </text>
       </g>

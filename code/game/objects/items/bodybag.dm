@@ -6,8 +6,8 @@
 	icon = 'icons/obj/bodybag.dmi'
 	icon_state = "bodybag_folded"
 	w_class = WEIGHT_CLASS_SMALL
-	drop_sound = 'sound/items/drop/cloth.ogg'
-	pickup_sound = 'sound/items/pickup/cloth.ogg'
+	drop_sound = SFX_CLOTH_DROP
+	pickup_sound = SFX_CLOTH_PICKUP
 	var/deploy_type = /obj/structure/closet/body_bag
 
 /obj/structure/closet/body_bag/feedback_hints(mob/user, distance, is_adjacent)
@@ -42,7 +42,7 @@
 	var/obj/structure/closet/body_bag/R = new deploy_type(location)
 	R.add_fingerprint(user)
 	tweak_bag(R)
-	playsound(src, 'sound/items/drop/cloth.ogg', 30)
+	playsound(src, drop_sound, 30)
 	qdel(src)
 
 /obj/item/bodybag/proc/tweak_bag(var/obj/structure/closet/body_bag/BB)
@@ -77,7 +77,7 @@
 	can_be_buckled = TRUE
 
 /obj/structure/closet/body_bag/attackby(obj/item/attacking_item, mob/user)
-	if (attacking_item.ispen())
+	if (attacking_item.tool_behaviour == TOOL_PEN)
 		var/t = tgui_input_text(user, "What would you like the label to be?", name)
 		if (user.get_active_hand() != attacking_item)
 			return TRUE
@@ -87,12 +87,12 @@
 		if (t)
 			src.name = "body bag - "
 			src.name += t
-			playsound(src, pick('sound/bureaucracy/pen1.ogg','sound/bureaucracy/pen2.ogg'), 20)
+			playsound(src, pick('sound/items/bureaucracy/pen1.ogg','sound/items/bureaucracy/pen2.ogg'), 20)
 			LAZYADD(overlays, image(icon, "bodybag_label"))
 		else
 			src.name = "body bag"
 		return TRUE
-	else if(attacking_item.iswirecutter())
+	else if(attacking_item.tool_behaviour == TOOL_WIRECUTTER)
 		to_chat(user, "You cut the tag off the bodybag.")
 		playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
 		src.name = "body bag"
@@ -159,6 +159,10 @@
 	if(stasis_power)
 		C.stasis_power = stasis_power
 
+/obj/item/bodybag/cryobag/Destroy()
+	color = null
+	return ..()
+
 /obj/structure/closet/body_bag/cryobag
 	name = "stasis bag"
 	desc = "A reusable plastic bag designed to prevent additional damage to an occupant, especially useful if short on time or in \
@@ -195,6 +199,7 @@
 /obj/structure/closet/body_bag/cryobag/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
 	QDEL_NULL(airtank)
+	overlays.Cut()
 	return ..()
 
 /obj/structure/closet/body_bag/cryobag/Entered(atom/movable/AM)

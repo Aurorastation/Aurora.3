@@ -17,9 +17,9 @@
 		RAD = ARMOR_RAD_SMALL
 	)
 	allowed = list(
-		/obj/item/device/flashlight,
+		/obj/item/flashlight,
 		/obj/item/tank,
-		/obj/item/device/suit_cooling_unit,
+		/obj/item/suit_cooling_unit,
 		/obj/item/gun,
 		/obj/item/ammo_magazine,
 		/obj/item/ammo_casing,
@@ -64,9 +64,9 @@
 	item_state = "okonsuit-red"
 	contained_sprite = TRUE
 	allowed = list(
-		/obj/item/device/flashlight,
+		/obj/item/flashlight,
 		/obj/item/tank,
-		/obj/item/device/suit_cooling_unit,
+		/obj/item/suit_cooling_unit,
 		/obj/item/gun,
 		/obj/item/ammo_magazine,
 		/obj/item/ammo_casing,
@@ -139,9 +139,9 @@
 		RAD = ARMOR_RAD_SMALL
 	)
 	allowed = list(
-		/obj/item/device/flashlight,
+		/obj/item/flashlight,
 		/obj/item/tank,
-		/obj/item/device/suit_cooling_unit,
+		/obj/item/suit_cooling_unit,
 		/obj/item/gun,
 		/obj/item/ammo_magazine,
 		/obj/item/ammo_casing,
@@ -188,9 +188,9 @@
 		RAD = ARMOR_RAD_SMALL
 	)
 	allowed = list(
-		/obj/item/device/flashlight,
+		/obj/item/flashlight,
 		/obj/item/tank,
-		/obj/item/device/suit_cooling_unit,
+		/obj/item/suit_cooling_unit,
 		/obj/item/gun,
 		/obj/item/ammo_magazine,
 		/obj/item/ammo_casing,

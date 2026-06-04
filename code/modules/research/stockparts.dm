@@ -33,7 +33,7 @@
 	storage_slots = 25
 	can_hold = list(
 				/obj/item/stock_parts,
-				/obj/item/device/multitool,
+				/obj/item/multitool,
 				/obj/item/stack/cable_coil
 					)
 	max_w_class = WEIGHT_CLASS_SMALL

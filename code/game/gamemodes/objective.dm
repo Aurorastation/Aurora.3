@@ -627,7 +627,7 @@ GLOBAL_LIST_EMPTY(process_objectives)
 /datum/objective/heist/kidnap
 
 /datum/objective/heist/kidnap/choose_target()
-	var/list/roles = list("Chief Engineer","Research Director","Machinist","Pharmacist","Engineer")
+	var/list/roles = list("Chief Engineer","Research Director","Machinist","Pharmacist","Ship Engineer")
 	var/list/possible_targets = list()
 	var/list/priority_targets = list()
 
@@ -674,15 +674,15 @@ GLOBAL_LIST_EMPTY(process_objectives)
 			target_amount = 6
 			loot = "a complete particle accelerator"
 		if(2)
-			target = /obj/machinery/the_singularitygen
+			target = /obj/structure/machinery/the_singularitygen
 			target_amount = 1
 			loot = "a gravitational generator"
 		if(3)
-			target = /obj/machinery/power/emitter
+			target = /obj/structure/machinery/power/emitter
 			target_amount = 4
 			loot = "four emitters"
 		if(4)
-			target = /obj/machinery/nuclearbomb
+			target = /obj/structure/machinery/nuclearbomb
 			target_amount = 1
 			loot = "a nuclear bomb"
 		if(5)
@@ -694,7 +694,7 @@ GLOBAL_LIST_EMPTY(process_objectives)
 			target_amount = 4
 			loot = "four energy guns"
 		if(7)
-			target = /obj/item/gun/energy/laser
+			target = /obj/item/gun/energy/rifle/laser
 			target_amount = 2
 			loot = "two laser guns"
 		if(8)

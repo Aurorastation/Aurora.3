@@ -5,6 +5,7 @@ SUBSYSTEM_DEF(dbcore)
 	wait = 10 // Not seconds because we're running on SS_TICKER
 	runlevels = RUNLEVEL_LOBBY|RUNLEVELS_DEFAULT
 	init_order = INIT_ORDER_DBCORE
+	init_stage = INITSTAGE_FIRST
 	priority = FIRE_PRIORITY_DATABASE
 
 
@@ -308,6 +309,8 @@ SUBSYSTEM_DEF(dbcore)
 
 /// Check if we have established a DB Connection
 /datum/controller/subsystem/dbcore/proc/IsConnected()
+	PRIVATE_PROC(TRUE)
+
 	if(!GLOB.config.sql_enabled)
 		return FALSE
 	if (!connection)
@@ -370,7 +373,7 @@ SUBSYSTEM_DEF(dbcore)
  *
  */
 /datum/db_query_template/proc/Execute(arguments, allow_during_shutdown=FALSE)
-	var/datum/db_query/query =  SSdbcore.NewQuery(sql, arguments, allow_during_shutdown)
+	var/datum/db_query/query = SSdbcore.NewQuery(sql, arguments, allow_during_shutdown)
 	return query.Execute()
 
 /datum/db_query
@@ -489,7 +492,7 @@ SUBSYSTEM_DEF(dbcore)
 	if(status == DB_QUERY_STARTED)
 		CRASH("Attempted to start a new query while waiting on the old one")
 
-	if(!SSdbcore.IsConnected())
+	if(!SSdbcore.Connect())
 		last_error = "No connection!"
 		return FALSE
 
@@ -528,7 +531,7 @@ SUBSYSTEM_DEF(dbcore)
 	if(status == DB_QUERY_STARTED)
 		CRASH("Attempted to start a new query while waiting on the old one")
 
-	if(!SSdbcore.IsConnected())
+	if(!SSdbcore.Connect())
 		last_error = "No connection!"
 		return FALSE
 
@@ -547,6 +550,107 @@ SUBSYSTEM_DEF(dbcore)
 /datum/db_query/proc/sync()
 	while(status < DB_QUERY_FINISHED)
 		stoplag()
+
+
+/** QuerySelect
+	Run a list of query datums in parallel, blocking until they all complete.
+	* queries - List of queries or single query datum to run.
+	* warn - Controls rather warn_execute() or Execute() is called.
+	* qdel - If you don't care about the result or checking for errors, you can have the queries be deleted afterwards.
+		This can be combined with invoke_async as a way of running queries async without having to care about waiting for them to finish so they can be deleted,
+		however you should probably just use FireAndForget instead if it's just a single query.
+*/
+/datum/controller/subsystem/dbcore/proc/QuerySelect(list/queries, warn = FALSE, qdel = FALSE)
+	if (!islist(queries))
+		if (!istype(queries, /datum/db_query))
+			CRASH("Invalid query passed to QuerySelect: [queries]")
+		queries = list(queries)
+	else
+		queries = queries.Copy() //we don't want to hide bugs in the parent caller by removing invalid values from this list.
+
+	for (var/datum/db_query/query as anything in queries)
+		if (!istype(query))
+			queries -= query
+			stack_trace("Invalid query passed to QuerySelect: `[query]` [REF(query)]")
+			continue
+
+		if (warn)
+			INVOKE_ASYNC(query, TYPE_PROC_REF(/datum/db_query, warn_execute))
+		else
+			INVOKE_ASYNC(query, TYPE_PROC_REF(/datum/db_query, Execute))
+
+	for (var/datum/db_query/query as anything in queries)
+		query.sync()
+		if (qdel)
+			qdel(query)
+
+/*
+Takes a list of rows (each row being an associated list of column => value) and inserts them via a single mass query.
+Rows missing columns present in other rows will resolve to SQL NULL
+You are expected to do your own escaping of the data, and expected to provide your own quotes for strings.
+The duplicate_key arg can be true to automatically generate this part of the query
+	or set to a string that is appended to the end of the query
+Ignore_errors instructes mysql to continue inserting rows if some of them have errors.
+	the erroneous row(s) aren't inserted and there isn't really any way to know why or why errored
+*/
+/datum/controller/subsystem/dbcore/proc/MassInsert(table, list/rows, duplicate_key = FALSE, ignore_errors = FALSE, warn = FALSE, async = TRUE, special_columns = null)
+	if (!table || !rows || !istype(rows))
+		return
+
+	// Prepare column list
+	var/list/columns = list()
+	var/list/has_question_mark = list()
+	for (var/list/row in rows)
+		for (var/column in row)
+			columns[column] = "?"
+			has_question_mark[column] = TRUE
+	for (var/column in special_columns)
+		columns[column] = special_columns[column]
+		has_question_mark[column] = findtext(special_columns[column], "?")
+
+	// Prepare SQL query full of placeholders
+	var/list/query_parts = list("INSERT")
+	if (ignore_errors)
+		query_parts += " IGNORE"
+	query_parts += " INTO "
+	query_parts += table
+	query_parts += "\n([columns.Join(", ")])\nVALUES"
+
+	var/list/arguments = list()
+	var/has_row = FALSE
+	for (var/list/row in rows)
+		if (has_row)
+			query_parts += ","
+		query_parts += "\n  ("
+		var/has_col = FALSE
+		for (var/column in columns)
+			if (has_col)
+				query_parts += ", "
+			if (has_question_mark[column])
+				var/name = "p[arguments.len]"
+				query_parts += replacetext(columns[column], "?", ":[name]")
+				arguments[name] = row[column]
+			else
+				query_parts += columns[column]
+			has_col = TRUE
+		query_parts += ")"
+		has_row = TRUE
+
+	if (duplicate_key == TRUE)
+		var/list/column_list = list()
+		for (var/column in columns)
+			column_list += "[column] = VALUES([column])"
+		query_parts += "\nON DUPLICATE KEY UPDATE [column_list.Join(", ")]"
+	else if (duplicate_key != FALSE)
+		query_parts += duplicate_key
+
+	var/datum/db_query/Query = NewQuery(query_parts.Join(), arguments)
+	if (warn)
+		. = Query.warn_execute(async)
+	else
+		. = Query.Execute(async)
+	qdel(Query)
+
 
 /**
  * process

@@ -18,7 +18,7 @@
 	icon_state = "light_arms"
 	melee_damage = 15
 	action_delay = 15
-	max_damage = 100
+	max_damage = 150
 	power_use = 1500
 	desc = "As flexible as they are fragile, these Bishop Cybernetics manipulators can follow a pilot's movements in close to real time."
 	punch_sound = 'sound/mecha/mech_punch_fast.ogg'
@@ -29,6 +29,7 @@
 	icon_state = "light_legs"
 	move_delay = 2
 	turn_delay = 2
+	damaged_delay = 4
 	max_damage = 100
 	power_use = 1500
 	desc = "The electrical systems driving these legs are almost totally silent. Unfortunately slamming a plate of metal against the ground is not."
@@ -42,7 +43,7 @@
 	power_use = 12000
 	desc = "A series of high resolution optical sensors."
 	vision_flags = SEE_TURFS
-	see_invisible = SEE_INVISIBLE_NOLIGHTING
+	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
 
 /obj/item/mech_component/sensors/light/prebuild()
 	..()

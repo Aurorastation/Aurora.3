@@ -2,7 +2,7 @@
 "aj" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/random/dirt_75,
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/light/small/emergency{
 	dir = 8
 	},
 /obj/structure/cable{
@@ -18,7 +18,7 @@
 	pixel_x = 13;
 	pixel_y = -3
 	},
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/light/small/emergency{
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -70,7 +70,7 @@
 /area/template_noop)
 "dC" = (
 /obj/effect/floor_decal/crystal/random/dark,
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/light/small/emergency{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/basalt/crystal,
@@ -91,7 +91,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/machinery/floodlight/randomcharge,
+/obj/structure/machinery/floodlight/randomcharge,
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
@@ -140,7 +140,7 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
 	},
-/obj/machinery/floodlight/randomcharge,
+/obj/structure/machinery/floodlight/randomcharge,
 /obj/structure/cable{
 	icon_state = "2-8"
 	},
@@ -156,7 +156,7 @@
 /turf/simulated/floor/exoplanet/plating,
 /area/template_noop)
 "ga" = (
-/obj/machinery/power/portgen/basic,
+/obj/structure/machinery/power/portgen/basic,
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
@@ -168,7 +168,7 @@
 	dir = 5
 	},
 /obj/structure/flora/pottedplant/unusual,
-/obj/machinery/light/broken{
+/obj/structure/machinery/light/broken{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -192,10 +192,10 @@
 /obj/effect/floor_decal/corner_wide/grey{
 	dir = 10
 	},
-/obj/machinery/light/colored/dying{
+/obj/structure/machinery/light/colored/dying{
 	dir = 4
 	},
-/obj/machinery/space_heater,
+/obj/structure/machinery/space_heater,
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "hT" = (
@@ -235,7 +235,7 @@
 /turf/simulated/wall,
 /area/template_noop)
 "jO" = (
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/light/small/emergency{
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -251,7 +251,7 @@
 "kB" = (
 /obj/structure/structural_support,
 /obj/random/dirt_75,
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/light/small/emergency{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/basalt/crystal,
@@ -260,7 +260,7 @@
 /obj/effect/floor_decal/corner_wide/grey{
 	dir = 10
 	},
-/obj/machinery/space_heater,
+/obj/structure/machinery/space_heater,
 /obj/effect/map_effect/marker/mapmanip/submap/extract/crystal_planet_outpost/crew_room_n,
 /turf/simulated/floor/tiled,
 /area/template_noop)
@@ -296,7 +296,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/light/small/emergency{
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -324,7 +324,7 @@
 /turf/simulated/floor/exoplanet/basalt/crystal,
 /area/template_noop)
 "mq" = (
-/obj/machinery/floodlight/randomcharge{
+/obj/structure/machinery/floodlight/randomcharge{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/basalt/crystal,
@@ -465,7 +465,7 @@
 /turf/simulated/floor/wood,
 /area/template_noop)
 "qd" = (
-/obj/machinery/floodlight/randomcharge{
+/obj/structure/machinery/floodlight/randomcharge{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/basalt/crystal,
@@ -504,7 +504,7 @@
 /area/template_noop)
 "rh" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/floodlight/randomcharge,
+/obj/structure/machinery/floodlight/randomcharge,
 /turf/simulated/floor/exoplanet/basalt/crystal,
 /area/template_noop)
 "ri" = (
@@ -526,13 +526,13 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
-/obj/machinery/floodlight/randomcharge,
+/obj/structure/machinery/floodlight/randomcharge,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "sk" = (
 /obj/structure/structural_support,
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/light/small/emergency{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -547,7 +547,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/light/small/emergency{
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -572,7 +572,7 @@
 /obj/effect/floor_decal/corner_wide/grey{
 	dir = 10
 	},
-/obj/machinery/light/broken{
+/obj/structure/machinery/light/broken{
 	dir = 4
 	},
 /obj/item/storage/box/fancy/chips/cucumber{
@@ -598,7 +598,7 @@
 "ua" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/table/steel,
-/obj/item/device/flashlight{
+/obj/item/flashlight{
 	pixel_x = -4;
 	pixel_y = 5
 	},
@@ -618,7 +618,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "uS" = (
-/obj/machinery/shieldgen,
+/obj/structure/machinery/shieldgen,
 /turf/simulated/floor/exoplanet/basalt/crystal,
 /area/template_noop)
 "uT" = (
@@ -706,7 +706,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/light/small/emergency{
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -727,7 +727,7 @@
 "zm" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/random/dirt_75,
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/light/small/emergency{
 	dir = 8
 	},
 /obj/structure/cable{
@@ -758,7 +758,7 @@
 /area/template_noop)
 "Ap" = (
 /obj/random/dirt_75,
-/obj/machinery/floodlight/randomcharge,
+/obj/structure/machinery/floodlight/randomcharge,
 /turf/simulated/floor/exoplanet/basalt/crystal,
 /area/template_noop)
 "Aw" = (
@@ -820,11 +820,11 @@
 /obj/random/dirt_75,
 /obj/item/storage/belt/archaeology,
 /obj/item/storage/box/unique/excavation,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/ano_scanner,
-/obj/item/device/depth_scanner,
-/obj/item/device/core_sampler,
-/obj/item/device/measuring_tape,
+/obj/item/flashlight/lantern,
+/obj/item/ano_scanner,
+/obj/item/depth_scanner,
+/obj/item/core_sampler,
+/obj/item/measuring_tape,
 /obj/item/pickaxe/hand,
 /obj/item/storage/bag/fossils,
 /obj/item/stack/flag/green,
@@ -837,7 +837,7 @@
 /obj/structure/cable{
 	icon_state = "2-8"
 	},
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/light/small/emergency{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -862,7 +862,7 @@
 /turf/simulated/floor/exoplanet/basalt/crystal,
 /area/template_noop)
 "BD" = (
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/light/small/emergency{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -880,7 +880,7 @@
 /turf/simulated/floor/exoplanet/basalt/crystal,
 /area/template_noop)
 "Cy" = (
-/obj/machinery/shieldgen,
+/obj/structure/machinery/shieldgen,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/basalt/crystal,
 /area/template_noop)
@@ -942,7 +942,7 @@
 /obj/effect/floor_decal/corner_wide/grey{
 	dir = 5
 	},
-/obj/machinery/space_heater,
+/obj/structure/machinery/space_heater,
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "Dw" = (
@@ -966,7 +966,7 @@
 "DK" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/floodlight/randomcharge{
+/obj/structure/machinery/floodlight/randomcharge{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/basalt/crystal,
@@ -1055,7 +1055,7 @@
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "GC" = (
-/obj/machinery/power/emitter{
+/obj/structure/machinery/power/emitter{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -1068,7 +1068,7 @@
 /turf/simulated/floor/exoplanet/plating,
 /area/template_noop)
 "GG" = (
-/obj/machinery/power/emitter{
+/obj/structure/machinery/power/emitter{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -1084,11 +1084,11 @@
 "GP" = (
 /obj/item/storage/belt/archaeology,
 /obj/item/storage/box/unique/excavation,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/ano_scanner,
-/obj/item/device/depth_scanner,
-/obj/item/device/core_sampler,
-/obj/item/device/measuring_tape,
+/obj/item/flashlight/lantern,
+/obj/item/ano_scanner,
+/obj/item/depth_scanner,
+/obj/item/core_sampler,
+/obj/item/measuring_tape,
 /obj/item/pickaxe/hand,
 /obj/item/storage/bag/fossils,
 /obj/item/stack/flag/green,
@@ -1101,7 +1101,7 @@
 /obj/effect/floor_decal/corner_wide/grey{
 	dir = 10
 	},
-/obj/machinery/light/colored/dying{
+/obj/structure/machinery/light/colored/dying{
 	dir = 4
 	},
 /obj/item/clothing/shoes/workboots{
@@ -1122,7 +1122,7 @@
 /obj/effect/floor_decal/corner_wide/grey{
 	dir = 10
 	},
-/obj/machinery/light/broken{
+/obj/structure/machinery/light/broken{
 	dir = 4
 	},
 /obj/random/lavalamp{
@@ -1132,7 +1132,7 @@
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "Ii" = (
-/obj/machinery/floodlight/randomcharge{
+/obj/structure/machinery/floodlight/randomcharge{
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -1153,13 +1153,13 @@
 /obj/effect/floor_decal/corner_wide/grey{
 	dir = 10
 	},
-/obj/machinery/light/colored/dying{
+/obj/structure/machinery/light/colored/dying{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "IP" = (
-/obj/machinery/floodlight/randomcharge,
+/obj/structure/machinery/floodlight/randomcharge,
 /turf/simulated/floor/exoplanet/basalt/crystal,
 /area/template_noop)
 "IX" = (
@@ -1197,7 +1197,7 @@
 "JF" = (
 /obj/structure/structural_support,
 /obj/random/dirt_75,
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/light/small/emergency{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/basalt/crystal,
@@ -1252,7 +1252,7 @@
 /area/template_noop)
 "KS" = (
 /obj/random/dirt_75,
-/obj/machinery/space_heater,
+/obj/structure/machinery/space_heater,
 /turf/simulated/floor/wood,
 /area/template_noop)
 "LM" = (
@@ -1332,7 +1332,7 @@
 /area/template_noop)
 "OI" = (
 /obj/structure/table/steel,
-/obj/item/device/flashlight/lamp/off{
+/obj/item/flashlight/lamp/off{
 	pixel_x = 4;
 	pixel_y = 11
 	},
@@ -1343,7 +1343,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/machinery/floodlight/randomcharge{
+/obj/structure/machinery/floodlight/randomcharge{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -1432,7 +1432,7 @@
 "Sb" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/floodlight/randomcharge,
+/obj/structure/machinery/floodlight/randomcharge,
 /turf/simulated/floor/exoplanet/basalt/crystal,
 /area/template_noop)
 "Ss" = (
@@ -1507,7 +1507,7 @@
 	dir = 5
 	},
 /obj/structure/closet/cabinet,
-/obj/machinery/light/broken{
+/obj/structure/machinery/light/broken{
 	dir = 4
 	},
 /obj/random/suit,
@@ -1522,7 +1522,7 @@
 /area/template_noop)
 "Vv" = (
 /obj/random/dirt_75,
-/obj/machinery/light/small/emergency,
+/obj/structure/machinery/light/small/emergency,
 /turf/simulated/floor/exoplanet/basalt/crystal,
 /area/template_noop)
 "Vz" = (
@@ -1544,7 +1544,7 @@
 /area/template_noop)
 "VV" = (
 /obj/random/dirt_75,
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/light/small/emergency{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/basalt/crystal,
@@ -1579,7 +1579,7 @@
 /turf/template_noop,
 /area/template_noop)
 "Wr" = (
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/light/small/emergency{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/basalt/crystal,
@@ -1650,7 +1650,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/light/small/emergency{
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -1659,7 +1659,7 @@
 /area/template_noop)
 "ZM" = (
 /obj/random/dirt_75,
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/light/small/emergency{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/basalt/crystal,
@@ -1679,7 +1679,7 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/empty/north{
+/obj/structure/machinery/power/apc/empty/north{
 	req_access = null
 	},
 /obj/structure/lattice/catwalk/indoor,

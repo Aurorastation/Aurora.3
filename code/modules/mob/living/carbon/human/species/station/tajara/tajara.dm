@@ -5,8 +5,8 @@
 	category_name = "Tajara"
 	bodytype = BODYTYPE_TAJARA
 	species_height = HEIGHT_CLASS_SHORT
-	height_min = 150
-	height_max = 190
+	height_min = 145 // human default: 145
+	height_max = 180 // human default: 203
 	icobase = 'icons/mob/human_races/tajara/r_tajaran.dmi'
 	deform = 'icons/mob/human_races/tajara/r_def_tajaran.dmi'
 	preview_icon = 'icons/mob/human_races/tajara/tajaran_preview.dmi'
@@ -25,9 +25,9 @@
 		/singleton/maneuver/leap/tajara
 	)
 	darksight = 8
-	slowdown = -1
+	slowdown = -0.4
 
-	brute_mod = 1.2
+	brute_mod = 1.1
 	fall_mod = 0.5
 
 	grab_mod = 1.25 // Fur easy to cling onto
@@ -38,8 +38,9 @@
 	damage_mask = 'icons/mob/human_races/masks/dam_mask_tajara.dmi'
 	blood_mask = 'icons/mob/human_races/masks/blood_tajara.dmi'
 
+	language = LANGUAGE_SIIK_MAAS
 	num_alternate_languages = 2
-	secondary_langs = list(LANGUAGE_SIIK_MAAS, LANGUAGE_SIIK_TAJR, LANGUAGE_YA_SSA)
+	secondary_langs = list(LANGUAGE_SIIK_TAJR, LANGUAGE_YA_SSA)
 	name_language = LANGUAGE_SIIK_MAAS
 	ethanol_resistance = 0.9//Gets drunk a little faster
 	rarity_value = 2
@@ -134,5 +135,5 @@
 	. = ..()
 	if(H.shoes)
 		return
-	var/obj/item/clothing/shoes/sandals/S = new /obj/item/clothing/shoes/sandals(H)
+	var/obj/item/clothing/shoes/tajara/footwraps/S = new /obj/item/clothing/shoes/tajara/footwraps(H)
 	H.equip_to_slot_or_del(S,slot_shoes_str)

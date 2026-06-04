@@ -23,7 +23,7 @@
 		return "This subject is too far away..."
 	if(ishuman(M) && !istype(M, /mob/living/carbon/human/monkey) && content) // don't eat humans while content
 		return "I'm already content..."
-	if(istype(M, /mob/living/carbon) && M.getCloneLoss() >= M.maxHealth * 2 || istype(M, /mob/living/simple_animal) && M.stat == DEAD)
+	if(istype(M, /mob/living/carbon) && M.getCloneLoss() >= M.maxhealth * 2 || istype(M, /mob/living/simple_animal) && M.stat == DEAD)
 		return "This subject does not have any edible life energy..."
 	if(istype(M, /mob/living/carbon))
 		var/mob/living/carbon/human/H = M
@@ -123,14 +123,14 @@
 		if(amount_grown >= 5)
 			is_adult = TRUE
 			mob_size = 6 // Adult slimes are bigger
-			maxHealth = 200
-			health = maxHealth
+			maxhealth = 200
+			health = maxhealth
 			amount_grown = 0
 			regenerate_icons()
 			name = "[colour] [is_adult ? "adult" : "baby"] slime ([number])"
 			real_name = name
 			set_content(TRUE)
-			addtimer(CALLBACK(src, PROC_REF(set_content), FALSE), 1200) // You get two minutes of safety
+			addtimer(CALLBACK(src, PROC_REF(set_content), FALSE), 1200, TIMER_DELETE_ME) // You get two minutes of safety
 		else
 			to_chat(src, SPAN_NOTICE("I am not ready to evolve yet..."))
 	else

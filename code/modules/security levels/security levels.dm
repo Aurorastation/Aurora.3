@@ -6,8 +6,8 @@ GLOBAL_VAR_INIT(security_level, SEC_LEVEL_GREEN)
 //4 = code delta
 
 //config.alert_desc_blue_downto
-/var/datum/announcement/priority/security/security_announcement_sound = new(do_log = 0, do_newscast = 1, new_sound = sound('sound/misc/announcements/security_level.ogg'))
-/var/datum/announcement/priority/security/security_announcement = new(do_log = 0, do_newscast = 1)
+/var/datum/announcement/priority/security/security_announcement_sound = new(do_log = FALSE, do_newscast = TRUE, new_sound = sound('sound/ai/announcements/security_level.ogg'))
+/var/datum/announcement/priority/security/security_announcement = new(do_log = FALSE, do_newscast = TRUE)
 
 /proc/set_security_level(var/level)
 	switch(level)
@@ -54,7 +54,7 @@ GLOBAL_VAR_INIT(security_level, SEC_LEVEL_GREEN)
 				SSnightlight.temp_disable()
 
 		var/newlevel = get_security_level()
-		for(var/obj/machinery/power/apc/powercontrol in SSmachinery.processing)
+		for(var/obj/structure/machinery/power/apc/powercontrol in SSmachinery.processing)
 			if(isContactLevel(powercontrol.z))
 				powercontrol.manage_emergency(newlevel)
 

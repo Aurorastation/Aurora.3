@@ -28,7 +28,7 @@ GLOBAL_VAR_INIT(file_uid, 0)
 	if(!hard_drive)
 		return ..()
 
-	hard_drive.remove_file(src)
+	hard_drive.remove_file(src, TRUE)
 	// hard_drive.hard_drive is the computer that has drive installed. If we are Destroy()ing program that's currently running kill it.
 	if(hard_drive.parent_computer?.active_program == src)
 		hard_drive.parent_computer.kill_program(TRUE)

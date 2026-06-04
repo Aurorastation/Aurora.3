@@ -56,7 +56,8 @@ export const PussyWagon = (props, context) => {
                   }}
                   value={data.cell_charge}
                   minValue={0}
-                  maxValue={100}>
+                  maxValue={100}
+                >
                   {Math.round(data.cell_charge)}%
                 </ProgressBar>
               ) : (
@@ -112,7 +113,8 @@ export const ControlsWindow = (props, context) => {
           }}
           value={data.vacuum_capacity}
           minValue={0}
-          maxValue={data.max_vacuum_capacity}>
+          maxValue={data.max_vacuum_capacity}
+        >
           {data.vacuum_capacity} L
         </ProgressBar>
       </LabeledList.Item>
@@ -139,7 +141,8 @@ export const ControlsWindow = (props, context) => {
             }}
             value={data.bucket_capacity}
             minValue={0}
-            maxValue={data.max_bucket_capacity}>
+            maxValue={data.max_bucket_capacity}
+          >
             {data.bucket_capacity} cl
           </ProgressBar>
         ) : (

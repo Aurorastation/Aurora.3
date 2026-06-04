@@ -5,8 +5,8 @@
 	icon_state = "sheet-hide"
 	default_type = MATERIAL_HIDE
 	icon_has_variants = TRUE
-	drop_sound = 'sound/items/drop/cloth.ogg'
-	pickup_sound = 'sound/items/pickup/cloth.ogg'
+	drop_sound = 'sound/items/drop/clothing.ogg'
+	pickup_sound = 'sound/items/pickup/clothing.ogg'
 	var/bare = FALSE //is this hair devoid of fur, hair, scales, carapace? Prevents re-stripping. Can also apply it to a hide type if we don't want to tan, like, xeno hide.
 	var/hide_type = "hair" //type of skin this animal has; scales for lizard, carapace for xeno.
 
@@ -90,7 +90,7 @@
 //Animal Hide to leather steps
 //Step one - dehairing.
 /obj/item/stack/material/animalhide/attackby(obj/item/attacking_item, mob/user)
-	if(is_sharp(attacking_item) && !attacking_item.noslice && !attacking_item.iswirecutter()) //Can we cut and slice with the item? And does the hide still have something to remove? Say no to wirecutters since it's more about bladed items.
+	if(is_sharp(attacking_item) && !attacking_item.noslice && attacking_item.tool_behaviour != TOOL_WIRECUTTER) //Can we cut and slice with the item? And does the hide still have something to remove? Say no to wirecutters since it's more about bladed items.
 		if(bare)
 			to_chat(user, SPAN_WARNING("There's nothing left to remove from \the [src]!"))
 			return
@@ -131,7 +131,7 @@
 			make_leather()
 
 /obj/item/stack/material/animalhide/wetleather/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iswelder())
+	if(attacking_item.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/WT = attacking_item
 		if(WT.isOn())
 			if(being_dried)

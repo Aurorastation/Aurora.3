@@ -13,6 +13,7 @@
 	generate_linkages_for_z_level(new_z)
 	adding_new_zlevel = FALSE
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_NEW_Z, S)
+	SSzcopy.calculate_zstack_limits()
 	return S
 
 /datum/controller/subsystem/mapping/proc/get_level(z)

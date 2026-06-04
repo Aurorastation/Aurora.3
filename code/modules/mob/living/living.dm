@@ -9,10 +9,15 @@
 	if(.)
 		visible_message("<b>\The [src]</b> points to \the [pointing_at].")
 
-/mob/living/drop_from_inventory(var/obj/item/W, var/atom/target)
-	. = ..(W, target)
-	if(W && W.GetID())
+/mob/living/drop_from_inventory(var/obj/item/item, var/atom/target, update_icons = TRUE, force = FALSE)
+	. = ..()
+	if(item?.GetID())
 		BITSET(hud_updateflag, ID_HUD) //If we drop our ID, update ID HUD
+
+/mob/living/carbon/drop_from_inventory(obj/item/W, atom/target, update_icons = TRUE, force = FALSE)
+	if(!force && (W in internal_organs))
+		return
+	return ..()
 
 /*one proc, four uses
 swapping: if it's 1, the mobs are trying to switch, if 0, non-passive is pushing passive
@@ -38,16 +43,13 @@ default behaviour is:
 			return TRUE
 		return FALSE
 
-/mob/living
-	var/tmp/last_push_notif
-
-/mob/living/Collide(atom/movable/AM)
-	if (now_pushing || !loc)
+/mob/living/Collide(atom/movable/target_movable_atom)
+	if(now_pushing || !loc)
 		return
 
 	now_pushing = TRUE
-	if (istype(AM, /mob/living))
-		var/mob/living/tmob = AM
+	if(istype(target_movable_atom, /mob/living))
+		var/mob/living/target_mob = target_movable_atom
 
 		for(var/mob/living/M in range(tmob, 1))
 			if(tmob.pinned.len || locate(/obj/item/grab, LAZYLEN(tmob.grabbed_by)))
@@ -60,23 +62,23 @@ default behaviour is:
 
 		//Leaping mobs just land on the tile, no pushing, no anything.
 		if(status_flags & LEAPING)
-			forceMove(tmob.loc)
+			forceMove(target_mob.loc)
 			status_flags &= ~LEAPING
 			now_pushing = FALSE
 			return
 
-		if(can_swap_with(tmob)) // mutual brohugs all around!
-			var/turf/tmob_oldloc = get_turf(tmob)
+		if(can_swap_with(target_mob)) // mutual brohugs all around!
+			var/turf/target_mob_oldloc = get_turf(target_mob)
 			var/turf/src_oldloc = get_turf(src)
 			forceMove(tmob_oldloc)
 			tmob.forceMove(src_oldloc)
 			now_pushing = FALSE
-			for(var/mob/living/carbon/slime/slime in view(2, tmob))
-				if(slime.victim == tmob)
+			for(var/mob/living/carbon/slime/slime in view(2, target_mob))
+				if(slime.victim == target_mob)
 					slime.UpdateFeed()
 			return
 
-		if(!can_move_mob(tmob, 0, 0))
+		if(!can_move_mob(target_mob, 0, 0))
 			now_pushing = FALSE
 			return
 
@@ -84,45 +86,39 @@ default behaviour is:
 			now_pushing = FALSE
 			return
 
-		if(istype(tmob, /mob/living/carbon/human) && (tmob.mutations & FAT))
-			if(prob(40) && !(mutations & FAT))
-				to_chat(src, SPAN_DANGER("You fail to push [tmob]'s fat ass out of the way."))
-				now_pushing = FALSE
-				return
-
-		if(istype(tmob.r_hand, /obj/item/shield/riot))
+		if(istype(target_mob.r_hand, /obj/item/shield/riot))
 			if(prob(99))
 				now_pushing = FALSE
 				return
 
-		if(istype(tmob.l_hand, /obj/item/shield/riot))
+		if(istype(target_mob.l_hand, /obj/item/shield/riot))
 			if(prob(99))
 				now_pushing = FALSE
 				return
 
-		if(!(tmob.status_flags & CANPUSH))
+		if(!(target_mob.status_flags & CANPUSH))
 			now_pushing = FALSE
 			return
 
-		tmob.LAssailant = WEAKREF(src)
+		target_mob.LAssailant = WEAKREF(src)
 
 	now_pushing = FALSE
 	. = ..()
-	if (!istype(AM, /atom/movable))
+	if(!istype(target_movable_atom, /atom/movable))
 		return
-	if (!now_pushing)
+	if(!now_pushing)
 		now_pushing = TRUE
 
-		if (!AM.anchored)
-			if(isobj(AM))
-				var/obj/O = AM
-				if ((can_pull_size == 0) || (can_pull_size < O.w_class))
+		if(!target_movable_atom.anchored)
+			if(isobj(target_movable_atom))
+				var/obj/object = target_movable_atom
+				if((can_pull_size == 0) || (can_pull_size < object.w_class))
 					now_pushing = FALSE
 					return
 
-			var/t = get_dir(src, AM)
-			if (istype(AM, /obj/structure/window))
-				for(var/obj/structure/window/win in get_step(AM,t))
+			var/target_direction = get_dir(src, target_movable_atom)
+			if(istype(target_movable_atom, /obj/structure/window))
+				for(var/obj/structure/window/win in get_step(target_movable_atom,target_direction))
 					now_pushing = FALSE
 					return
 
@@ -163,29 +159,29 @@ default behaviour is:
 		if(!A.CanPass(swapee, T, 1))
 			return TRUE
 
-/mob/living/proc/can_swap_with(var/mob/living/tmob)
-	if(tmob.buckled_to || buckled_to)
+/mob/living/proc/can_swap_with(var/mob/living/target_mob)
+	if(target_mob.buckled_to || buckled_to)
 		return FALSE
 
 	//BubbleWrap: people in handcuffs are always switched around as if they were on 'help' intent to prevent a person being pulled from being seperated from their puller
-	if(!(tmob.mob_always_swap || (tmob.a_intent == I_HELP || tmob.restrained()) && (a_intent == I_HELP || src.restrained())))
+	if(!(target_mob.mob_always_swap || (target_mob.a_intent == I_HELP || target_mob.restrained()) && (a_intent == I_HELP || src.restrained())))
 		return FALSE
 
-	if(!tmob.canmove || !canmove)
+	if(!target_mob.canmove || !canmove)
 		return FALSE
 
-	if(swap_density_check(src, tmob))
+	if(swap_density_check(src, target_mob))
 		return FALSE
 
-	if(swap_density_check(tmob, src))
+	if(swap_density_check(target_mob, src))
 		return FALSE
 
 	return can_move_mob(tmob, 1, 0)
 
 /mob/living/verb/succumb()
 	set hidden = 1
-	if (health < maxHealth / 3)
-		adjustBrainLoss(health + maxHealth * 2) // Deal 2x health in BrainLoss damage, as before but variable.
+	if(health < maxhealth / 3)
+		adjustBrainLoss(health + maxhealth * 2) // Deal 2x health in BrainLoss damage, as before but variable.
 		to_chat(src, SPAN_NOTICE("You have given up life and succumbed to death."))
 	else
 		to_chat(src, SPAN_WARNING("You are not injured enough to succumb to death!"))
@@ -193,10 +189,10 @@ default behaviour is:
 
 /mob/living/proc/updatehealth()
 	if(status_flags & GODMODE)
-		health = maxHealth
+		health = maxhealth
 		set_stat(CONSCIOUS)
 	else
-		health = maxHealth - getOxyLoss() - getToxLoss() - getFireLoss() - getBruteLoss() - getCloneLoss()
+		health = maxhealth - getOxyLoss() - getToxLoss() - getFireLoss() - getBruteLoss() - getCloneLoss()
 
 //This proc is used for mobs which are affected by pressure to calculate the amount of pressure that actually
 //affects them once clothing is factored in. ~Errorage
@@ -241,12 +237,12 @@ default behaviour is:
 // I touched them without asking... I'm soooo edgy ~Erro (added nodamage checks)
 
 /mob/living/proc/getBruteLoss()
-	return maxHealth - health
+	return maxhealth - health
 
 /mob/living/proc/adjustBruteLoss(var/amount)
-	if (status_flags & GODMODE)
+	if(status_flags & GODMODE)
 		return
-	health = clamp(health - amount, 0, maxHealth)
+	health = clamp(health - amount, 0, maxhealth)
 
 /mob/living/proc/getOxyLoss()
 	return 0
@@ -306,10 +302,10 @@ default behaviour is:
 	adjustBruteLoss((amount * 0.5)-getBruteLoss())
 
 /mob/living/proc/getMaxHealth()
-	return maxHealth
+	return maxhealth
 
 /mob/living/proc/setMaxHealth(var/newMaxHealth)
-	maxHealth = newMaxHealth
+	maxhealth = newMaxHealth
 
 // ++++ROCKDTBEN++++ MOB PROCS //END
 
@@ -371,7 +367,7 @@ default behaviour is:
 /mob/living/proc/get_organ_target()
 	var/mob/shooter = src
 	var/t = shooter.zone_sel?.selecting
-	if ((t in list( BP_EYES, BP_MOUTH )))
+	if((t in list( BP_EYES, BP_MOUTH )))
 		t = BP_HEAD
 	var/obj/item/organ/external/def_zone = ran_zone(src, t)
 	return def_zone
@@ -384,7 +380,7 @@ default behaviour is:
 	src.updatehealth()
 
 // damage ONE external organ, organ gets randomly selected from damaged ones.
-/mob/living/proc/take_organ_damage(var/brute, var/burn, var/emp=0)
+/mob/living/proc/take_organ_damage(var/brute, var/burn, var/emp=0, var/used_weapon = null, var/damage_flags, var/silent)
 	if(status_flags & GODMODE)	return 0	//godmode
 	adjustBruteLoss(brute)
 	adjustFireLoss(burn)
@@ -425,11 +421,11 @@ default behaviour is:
 	if(iscarbon(src))
 		var/mob/living/carbon/C = src
 
-		if (C.handcuffed && !initial(C.handcuffed))
+		if(C.handcuffed && !initial(C.handcuffed))
 			C.drop_from_inventory(C.handcuffed)
 		C.handcuffed = initial(C.handcuffed)
 
-		if (C.legcuffed && !initial(C.legcuffed))
+		if(C.legcuffed && !initial(C.legcuffed))
 			C.drop_from_inventory(C.legcuffed)
 		C.legcuffed = initial(C.legcuffed)
 	BITSET(hud_updateflag, HEALTH_HUD)
@@ -598,7 +594,7 @@ default behaviour is:
 				grabbed_mob.handle_grab_damage()
 
 /mob/living/Move(atom/newloc, direct)
-	if (buckled_to)
+	if(buckled_to)
 		return
 
 	var/turf/old_loc = loc
@@ -646,7 +642,7 @@ default behaviour is:
 /mob/living/proc/escape_inventory(obj/item/holder/H)
 	if(H != src.loc)
 		return
-	if(health < maxHealth * 0.6)
+	if(health < maxhealth * 0.6)
 		to_chat(src, SPAN_WARNING("You're too injured to escape..."))
 		return
 
@@ -699,6 +695,7 @@ default behaviour is:
 	last_special = world.time
 	resting = !resting
 	to_chat(src, SPAN_NOTICE("You are now [resting ? "resting" : "getting up"]."))
+	SEND_SIGNAL(src, COMSIG_MOB_RESTED)
 	update_canmove()
 	update_icon()
 
@@ -721,14 +718,9 @@ default behaviour is:
 
 /mob/living/proc/under_door()
 	//This function puts a silicon on a layer that makes it draw under doors, then periodically checks if its still standing on a door
-	if (layer > UNDERDOOR)//Don't toggle it if we're hiding
+	if(layer > UNDERDOOR)//Don't toggle it if we're hiding
 		layer = UNDERDOOR
 		underdoor = 1
-
-/mob/living/carbon/drop_from_inventory(var/obj/item/W, var/atom/target = null)
-	if(W in internal_organs)
-		return
-	..()
 
 /mob/living/touch_map_edge()
 
@@ -753,15 +745,15 @@ default behaviour is:
 //damage/heal the mob ears and adjust the deaf amount
 /mob/living/adjustEarDamage(var/damage, var/deaf, var/ringing = FALSE)
 	var/alreadydeaf = FALSE
-	if (ear_deaf)
+	if(ear_deaf)
 		alreadydeaf = TRUE
 
 	ear_damage = max(0, ear_damage + damage)
 	ear_deaf = max(0, ear_deaf + deaf)
 
-	if (ringing && !alreadydeaf)
-		if (ear_damage >= 5)
-			if (ear_damage >= 15)
+	if(ringing && !alreadydeaf)
+		if(ear_damage >= 5)
+			if(ear_damage >= 15)
 				to_chat(src, SPAN_DANGER("Your ears start to ring badly!"))
 			else
 				to_chat(src, SPAN_DANGER("Your ears start to ring!"))
@@ -832,19 +824,17 @@ default behaviour is:
 	AddElement(/datum/element/connect_loc, loc_connections)
 
 /mob/living/Destroy()
+	cameraFollow = null
+	if (length(actions))
+		for (var/datum/action/action in actions)
+			action.Remove(src)
+			actions -= action
 
-	//Aiming overlay
-	QDEL_NULL(aiming)
-	QDEL_LIST(aimed_at_by)
-
-	//Psi complexus
+	QDEL_NULL(stamina_bar)
+	QDEL_LIST(auras)
 	QDEL_NULL(psi)
-
-	if(vr_mob)
-		vr_mob = null
-	if(old_mob)
-		old_mob = null
-
+	QDEL_NULL(aiming)
+	aimed_at_by?.Cut()
 	//Remove contained mobs
 	if(loc)
 		for(var/mob/M in contents)
@@ -853,12 +843,11 @@ default behaviour is:
 		for(var/mob/M in contents)
 			qdel(M)
 
-	QDEL_NULL(reagents)
-
-	if(auras)
-		for(var/a in auras)
-			remove_aura(a)
-
+	prepared_maneuver = null
+	available_maneuvers?.Cut()
+	default_language = null
+	QDEL_NULL(z_eye)
+	last_weather = null
 	return ..()
 
 /mob/living/proc/nervous_system_failure()
@@ -881,23 +870,23 @@ default behaviour is:
 
 #define PPM 9	//Protein per meat, used for calculating the quantity of protein in an animal
 /mob/living/proc/calculate_composition()
-	if (!composition_reagent)//if no reagent has been set, then we'll set one
+	if(!composition_reagent)//if no reagent has been set, then we'll set one
 		var/type = find_type(src)
-		if (type & TYPE_SYNTHETIC)
+		if(type & TYPE_SYNTHETIC)
 			src.composition_reagent = /singleton/reagent/iron
 		else
 			src.composition_reagent = /singleton/reagent/nutriment/protein
 
 	//if the mob is a simple animal with a defined meat quantity
-	if (istype(src, /mob/living/simple_animal))
+	if(istype(src, /mob/living/simple_animal))
 		var/mob/living/simple_animal/SA = src
-		if (SA.meat_amount)
+		if(SA.meat_amount)
 			src.composition_reagent_quantity = SA.meat_amount*2*PPM
 
 		//The quantity of protein is based on the meat_amount, but multiplied by 2
 
 	var/size_reagent = (src.mob_size * src.mob_size) * 3//The quantity of protein is set to 3x mob size squared
-	if (size_reagent > src.composition_reagent_quantity)//We take the larger of the two
+	if(size_reagent > src.composition_reagent_quantity)//We take the larger of the two
 		src.composition_reagent_quantity = size_reagent
 #undef PPM
 

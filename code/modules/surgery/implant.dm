@@ -6,6 +6,7 @@
 
 /singleton/surgery_step/cavity
 	priority = 1
+	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 
 /singleton/surgery_step/cavity/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -42,13 +43,14 @@
 /singleton/surgery_step/cavity/make_space
 	name = "Hollow Out Cavity"
 	allowed_tools = list(
-	/obj/item/surgery/surgicaldrill = 100,	\
+	TOOL_DRILL = 100,	\
 	/obj/item/pen = 75,	\
 	/obj/item/stack/rods = 50
 	)
 
 	min_duration = 50
 	max_duration = 70
+	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 
 /singleton/surgery_step/cavity/make_space/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -73,7 +75,7 @@
 	name = "Close Cavity"
 	priority = 2
 	allowed_tools = list(
-	/obj/item/surgery/cautery = 100,			\
+	TOOL_CAUTERY = 100,			\
 	/obj/item/clothing/mask/smokable/cigarette = 75,	\
 	/obj/item/flame/lighter = 50,			\
 	/obj/item/weldingtool = 25
@@ -81,6 +83,7 @@
 
 	min_duration = 50
 	max_duration = 70
+	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 
 /singleton/surgery_step/cavity/close_space/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -108,6 +111,7 @@
 
 	min_duration = 60
 	max_duration = 80
+	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 
 /singleton/surgery_step/cavity/place_item/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -152,13 +156,14 @@
 /singleton/surgery_step/cavity/implant_removal
 	name = "Remove Foreign Body"
 	allowed_tools = list(
-	/obj/item/surgery/hemostat = 100,	\
-	WIRECUTTER = 75,	\
+	TOOL_HEMOSTAT = 100,	\
+	TOOL_WIRECUTTER = 75,	\
 	/obj/item/material/kitchen/utensil/fork = 20
 	)
 
 	min_duration = 60
 	max_duration = 80
+	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 
 /singleton/surgery_step/cavity/implant_removal/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())

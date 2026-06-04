@@ -7,9 +7,10 @@
 	var/list/image/ammo_overlays = list()
 	var/ammo_type // the type of ammo this ammo pile accepts
 	var/max_ammo = 5
+	var/spent_ammo = FALSE
 
 /obj/item/ammo_pile/Destroy()
-	ammo.Cut()
+	QDEL_LIST(ammo)
 	ammo_overlays.Cut()
 	. = ..()
 
@@ -21,20 +22,26 @@
 /obj/item/ammo_pile/Initialize(mapload, var/list/provided_ammo)
 	. = ..()
 	if(islist(provided_ammo))
-		var/obj/first_round = provided_ammo[1]
+		if(!istype(provided_ammo[1], /obj/item/ammo_casing))
+			return
+		var/obj/item/ammo_casing/first_round = provided_ammo[1]
 		add_ammo(first_round)
 		check_name_and_ammo()
+		if(!first_round.BB)
+			spent_ammo = TRUE
 		provided_ammo -= first_round
-		for(var/obj/rounds in provided_ammo)
+		for(var/obj/item/ammo_casing/rounds in provided_ammo)
 			add_ammo(rounds)
 	else if(ammo_type)
-		var/obj/first_round = new ammo_type()
+		var/obj/item/ammo_casing/first_round = new ammo_type()
 		add_ammo(first_round)
 		check_name_and_ammo()
+		if(!first_round.BB)
+			spent_ammo = TRUE
 		for(var/i = 1, i <= max_ammo - 1, i++)
-			var/obj/C = new ammo_type()
+			var/obj/item/ammo_casing/C = new ammo_type()
 			add_ammo(C)
-	addtimer(CALLBACK(src, PROC_REF(check_ammo)), 5) // if we don't have any ammo in 5 deciseconds, we're an empty pile, which is worthless, so self-delete
+	check_ammo()
 
 /obj/item/ammo_pile/attack(mob/living/target_mob, mob/living/user, target_zone)
 	return
@@ -50,11 +57,18 @@
 			to_chat(user, SPAN_WARNING("\The [src] is already fully stacked."))
 			return
 		var/obj/item/ammo_casing/B = A
-		if(!B.BB)
+		if(!B.BB && !spent_ammo)
 			to_chat(user, SPAN_WARNING("\The [B] is spent!"))
+			return
+		if(B.BB && spent_ammo)
+			to_chat(user, SPAN_WARNING("\The [src] is spent!"))
 			return
 		to_chat(user, SPAN_NOTICE("You add \the [A] to \the [src]."))
 		add_ammo(A)
+		return
+	else if(istype(A, /obj/item/ammo_casing))
+		to_chat(user, SPAN_WARNING("\The [A] has a different type of ammunition!"))
+		return
 	else if(istype(A, /obj/item/ammo_pile))
 		if(length(ammo) >= max_ammo)
 			to_chat(user, SPAN_WARNING("\The [src] is already fully stacked."))
@@ -62,6 +76,12 @@
 		var/obj/item/ammo_pile/target_pile = A
 		if(target_pile.ammo_type != src.ammo_type)
 			to_chat(user, SPAN_WARNING("\The [target_pile] has a different type of ammunition!"))
+			return
+		if(target_pile.spent_ammo && !spent_ammo)
+			to_chat(user, SPAN_WARNING("\The [target_pile] is spent!"))
+			return
+		if(!target_pile.spent_ammo && spent_ammo)
+			to_chat(user, SPAN_WARNING("\The [src] is spent!"))
 			return
 		var/amount_taken = 0
 		for(var/obj/bullet in target_pile.ammo)
@@ -71,11 +91,14 @@
 			target_pile.remove_ammo()
 			amount_taken++
 		to_chat(user, SPAN_NOTICE("You take [amount_taken] rounds from the other pile and add it to yours."))
+		return
 	else if(istype(A, /obj/item/gun) || istype(A, /obj/item/ammo_magazine))
 		var/obj/bullet = get_next_ammo()
 		A.attackby(bullet, user)
-		if(!(bullet in src)) // if the gun / mag accepted the bullet, it will no longer be in our pile
+		// if the gun / mag accepted the bullet, it will no longer be in our pile
+		if(!(bullet in src))
 			remove_ammo()
+		return
 
 /obj/item/ammo_pile/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/ammo_casing))
@@ -86,8 +109,11 @@
 			to_chat(user, SPAN_WARNING("\The [src] is already fully stacked."))
 			return TRUE
 		var/obj/item/ammo_casing/B = attacking_item
-		if(!B.BB)
-			to_chat(user, SPAN_WARNING("\The [B] is spent!"))
+		if(!B.BB && !spent_ammo)
+			to_chat(user, SPAN_WARNING("Your round is spent!"))
+			return TRUE
+		else if(B.BB && spent_ammo)
+			to_chat(user, SPAN_WARNING("\The [src] is spent!"))
 			return TRUE
 		to_chat(user, SPAN_NOTICE("You add \the [attacking_item] to \the [src]."))
 		add_ammo(attacking_item)
@@ -110,7 +136,8 @@
 		ammo_type = first_round.type
 		max_ammo = first_round.max_stack
 
-/obj/item/ammo_pile/proc/get_next_ammo() //Returns the next shell to be used.
+/// Returns the next shell to be used.
+/obj/item/ammo_pile/proc/get_next_ammo()
 	if(!length(ammo))
 		qdel(src)
 		return null
@@ -119,27 +146,30 @@
 
 /obj/item/ammo_pile/proc/check_ammo()
 	var/ammo_amount = length(ammo)
+	if(ammo_amount > 1)
+		var/obj/first_round = ammo[1]
+		if(ammo_amount >= 6)
+			// too many to fit in your pockets, generally
+			w_class = first_round.w_class + 2
+		else
+			w_class = first_round.w_class + 1
+		return
+
 	switch(ammo_amount)
 		if(0)
 			qdel(src)
 		if(1)
 			var/obj/bullet = ammo[1]
+			ammo -= bullet
 			bullet.forceMove(get_turf(src))
-			var/mob/gunman
-			if(ismob(loc))
-				gunman = loc
+			var/mob/gunman = ismob(loc) ? loc : null
 			qdel(src)
 			if(gunman)
+				// Do this after qdeleting the pile so that they have a free hand.
 				gunman.put_in_hands(bullet)
-	if(ammo_amount)
-		var/obj/first_round = ammo[1]
-		if(ammo_amount > 7)
-			w_class = first_round.w_class + 2 // too many to fit in your pockets, generally
-		else
-			w_class = first_round.w_class + 1
 
 /obj/item/ammo_pile/proc/add_ammo(var/obj/item/ammo_casing/bullet)
-	if(!bullet.BB)
+	if((!bullet.BB && !spent_ammo) && (bullet.BB && spent_ammo))
 		return
 	RegisterSignal(bullet, COMSIG_QDELETING, PROC_REF(clear_ammo))
 	if(ismob(bullet.loc))
@@ -155,6 +185,8 @@
 	ammo_picture.pixel_y = rand(-6, 6)
 	ammo_overlays[bullet] = ammo_picture
 	AddOverlays(ammo_overlays[bullet])
+	if(length(ammo) >= 2)
+		check_ammo()
 
 /// Called when one of our contained bullets is qdel'd -- why does this happen? it is a mystery
 /obj/item/ammo_pile/proc/clear_ammo(datum/source)
@@ -200,6 +232,9 @@
 
 /obj/item/ammo_pile/shotgun_stunshell
 	ammo_type = /obj/item/ammo_casing/shotgun/stunshell
+
+/obj/item/ammo_pile/shotgun_practice
+	ammo_type = /obj/item/ammo_casing/shotgun/practice
 
 /obj/item/ammo_pile/fourty_five
 	ammo_type = /obj/item/ammo_casing/c45

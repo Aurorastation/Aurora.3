@@ -5,7 +5,7 @@
 	icon_state = "cosmozoan"
 	icon_living = "cosmozoan"
 	icon_dead = "cosmozoan_dead"
-	maxHealth = 15
+	maxhealth = 15
 	health = 15
 	meat_type = /obj/item/reagent_containers/food/snacks/fish/cosmozoan
 	meat_amount = 2
@@ -31,7 +31,7 @@
 	minbodytemp = 0
 
 	flying = TRUE
-	see_invisible = SEE_INVISIBLE_NOLIGHTING
+	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
 	sample_data = list("Cellular biochemistry include bioluminescent reactions", "Tissue sample contains micro-gas release structures")
 
 /mob/living/simple_animal/cosmozoan/Initialize()

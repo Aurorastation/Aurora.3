@@ -15,7 +15,7 @@ If nothing is chosen, reload sounds revert to the default, which is metal_slide_
 	name = "speed loader (.357)"
 	icon_state = "T38"
 	caliber = "357"
-	insert_sound = /singleton/sound_category/revolver_reload
+	insert_sound = SFX_RELOAD_REVOLVER
 	ammo_type = /obj/item/ammo_casing/a357
 	matter = list(DEFAULT_WALL_MATERIAL = 1260)
 	max_ammo = 8
@@ -25,7 +25,7 @@ If nothing is chosen, reload sounds revert to the default, which is metal_slide_
 	name = "speed loader (.454)"
 	icon_state = "a454"
 	caliber = "454"
-	insert_sound = /singleton/sound_category/revolver_reload
+	insert_sound = SFX_RELOAD_REVOLVER
 	ammo_type = /obj/item/ammo_casing/a454
 	matter = list(DEFAULT_WALL_MATERIAL = 1260)
 	max_ammo = 7
@@ -35,7 +35,7 @@ If nothing is chosen, reload sounds revert to the default, which is metal_slide_
 	name = "speed loader (.38)"
 	icon_state = "38"
 	caliber = "38"
-	insert_sound = /singleton/sound_category/revolver_reload
+	insert_sound = SFX_RELOAD_REVOLVER
 	matter = list(DEFAULT_WALL_MATERIAL = 360)
 	ammo_type = /obj/item/ammo_casing/c38
 	max_ammo = 6
@@ -54,9 +54,21 @@ If nothing is chosen, reload sounds revert to the default, which is metal_slide_
 	name = "speed loader (.45)"
 	icon_state = "a454"
 	caliber = ".45"
-	ammo_type = /obj/item/ammo_casing/c45/revolver
+	ammo_type = /obj/item/ammo_casing/c45
 	max_ammo = 6
 	multiple_sprites = TRUE
+
+/obj/item/ammo_magazine/c45/revolver/rubber
+	name = "speed loader (.45 rubber)"
+	ammo_type = /obj/item/ammo_casing/c45/rubber
+
+/obj/item/ammo_magazine/c45/revolver/flash
+	name = "speed loader (.45 flash)"
+	ammo_type = /obj/item/ammo_casing/c45/flash
+
+/obj/item/ammo_magazine/c45/revolver/practice
+	name = "speed loader (.45 practice)"
+	ammo_type = /obj/item/ammo_casing/c45/practice
 
 // End of Revolvos //
 
@@ -151,7 +163,7 @@ If nothing is chosen, reload sounds revert to the default, which is metal_slide_
 /obj/item/ammo_magazine/c45m/dominia
 	name = "dominian service pistol magazine (.45)"
 	desc = "A magazine specifically designed for a Dominian service pistol."
-	icon = 'icons/obj/guns/dominia_pistol.dmi'
+	icon = 'icons/obj/guns/faction/dominian_empire/dominia_pistol.dmi'
 	icon_state = "dom_pistol_mag"
 	max_ammo = 11
 
@@ -246,7 +258,7 @@ If nothing is chosen, reload sounds revert to the default, which is metal_slide_
 	origin_tech = list(TECH_COMBAT = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 1800)
 	caliber = "9mm"
-	insert_sound = /singleton/sound_category/polymer_slide_reload
+	insert_sound = SFX_RELOAD_POLYMER_SLIDE
 	ammo_type = /obj/item/ammo_casing/c9mm
 	max_ammo = 30
 
@@ -260,7 +272,7 @@ If nothing is chosen, reload sounds revert to the default, which is metal_slide_
 	ammo_type = /obj/item/ammo_casing/c9mm
 	matter = list(DEFAULT_WALL_MATERIAL = 1200)
 	caliber = "9mm"
-	insert_sound = /singleton/sound_category/polymer_slide_reload
+	insert_sound = SFX_RELOAD_POLYMER_SLIDE
 	max_ammo = 20
 	multiple_sprites = 1
 
@@ -293,7 +305,7 @@ If nothing is chosen, reload sounds revert to the default, which is metal_slide_
 	origin_tech = list(TECH_COMBAT = 2)
 	mag_type = MAGAZINE
 	caliber = "10mm"
-	insert_sound = /singleton/sound_category/polymer_slide_reload
+	insert_sound = SFX_RELOAD_POLYMER_SLIDE
 	matter = list(DEFAULT_WALL_MATERIAL = 1500)
 	ammo_type = /obj/item/ammo_casing/c10mm
 	max_ammo = 20
@@ -310,7 +322,7 @@ If nothing is chosen, reload sounds revert to the default, which is metal_slide_
 	matter = list(DEFAULT_WALL_MATERIAL = 1200)
 	caliber = ".45"
 	max_ammo = 16
-	insert_sound = /singleton/sound_category/polymer_slide_reload
+	insert_sound = SFX_RELOAD_POLYMER_SLIDE
 	multiple_sprites = 1
 
 /obj/item/ammo_magazine/c45uzi/empty
@@ -323,7 +335,7 @@ If nothing is chosen, reload sounds revert to the default, which is metal_slide_
 	ammo_type = /obj/item/ammo_casing/c45
 	matter = list(DEFAULT_WALL_MATERIAL = 1500)
 	caliber = ".45"
-	insert_sound = /singleton/sound_category/polymer_slide_reload
+	insert_sound = SFX_RELOAD_POLYMER_SLIDE
 	max_ammo = 20
 
 /obj/item/ammo_magazine/submachinemag/empty
@@ -336,7 +348,7 @@ If nothing is chosen, reload sounds revert to the default, which is metal_slide_
 	ammo_type = /obj/item/ammo_casing/c6mm
 	matter = list(DEFAULT_WALL_MATERIAL = 1500)
 	caliber = "6mm"
-	insert_sound = /singleton/sound_category/polymer_slide_reload
+	insert_sound = SFX_RELOAD_POLYMER_SLIDE
 	max_ammo = 30
 
 /obj/item/ammo_magazine/submachinedrum
@@ -347,7 +359,7 @@ If nothing is chosen, reload sounds revert to the default, which is metal_slide_
 	ammo_type = /obj/item/ammo_casing/c45
 	matter = list(DEFAULT_WALL_MATERIAL = 3750)
 	caliber = ".45"
-	insert_sound = /singleton/sound_category/polymer_slide_reload
+	insert_sound = SFX_RELOAD_POLYMER_SLIDE
 	max_ammo = 50
 
 /obj/item/ammo_magazine/smg10mm
@@ -369,7 +381,7 @@ If nothing is chosen, reload sounds revert to the default, which is metal_slide_
 	origin_tech = list(TECH_COMBAT = 2)
 	mag_type = MAGAZINE
 	caliber = "a556"
-	insert_sound = /singleton/sound_category/rifle_slide_reload
+	insert_sound = SFX_RELOAD_RIFLE_SLIDE
 	matter = list(DEFAULT_WALL_MATERIAL = 1800)
 	ammo_type = /obj/item/ammo_casing/a556
 	max_ammo = 30
@@ -445,7 +457,7 @@ If nothing is chosen, reload sounds revert to the default, which is metal_slide_
 /obj/item/ammo_magazine/a556/dlmg
 	name = "MPR-24/5 light machine gun magazine (5.56mm)"
 	max_ammo = 50
-	icon = 'icons/obj/guns/dominia_lmg.dmi'
+	icon = 'icons/obj/guns/faction/dominian_empire/dominia_lmg.dmi'
 	icon_state = "dom_lmg_mag"
 
 /obj/item/ammo_magazine/a65
@@ -454,7 +466,7 @@ If nothing is chosen, reload sounds revert to the default, which is metal_slide_
 	origin_tech = list(TECH_COMBAT = 3)
 	mag_type = MAGAZINE
 	caliber = "a65"
-	insert_sound = /singleton/sound_category/rifle_slide_reload
+	insert_sound = SFX_RELOAD_RIFLE_SLIDE
 	matter = list(DEFAULT_WALL_MATERIAL = 1800)
 	ammo_type = /obj/item/ammo_casing/a65
 	max_ammo = 20
@@ -468,7 +480,7 @@ If nothing is chosen, reload sounds revert to the default, which is metal_slide_
 	icon_state = "75"
 	mag_type = MAGAZINE
 	caliber = "75"
-	insert_sound = /singleton/sound_category/rifle_slide_reload
+	insert_sound = SFX_RELOAD_RIFLE_SLIDE
 	ammo_type = /obj/item/ammo_casing/a75
 	multiple_sprites = 1
 	max_ammo = 4
@@ -495,7 +507,7 @@ If nothing is chosen, reload sounds revert to the default, which is metal_slide_
 	origin_tech = list(TECH_COMBAT = 2)
 	mag_type = MAGAZINE
 	caliber = "a762"
-	insert_sound = /singleton/sound_category/rifle_slide_reload
+	insert_sound = SFX_RELOAD_RIFLE_SLIDE
 	matter = list(DEFAULT_WALL_MATERIAL = 4500)
 	ammo_type = /obj/item/ammo_casing/a762
 	max_ammo = 50
@@ -509,7 +521,7 @@ If nothing is chosen, reload sounds revert to the default, which is metal_slide_
 	icon_state = "c762"
 	mag_type = MAGAZINE
 	caliber = "a762"
-	insert_sound = /singleton/sound_category/rifle_slide_reload
+	insert_sound = SFX_RELOAD_RIFLE_SLIDE
 	matter = list(DEFAULT_WALL_MATERIAL = 1800)
 	ammo_type = /obj/item/ammo_casing/a762
 	max_ammo = 20
@@ -524,7 +536,7 @@ If nothing is chosen, reload sounds revert to the default, which is metal_slide_
 
 /obj/item/ammo_magazine/c762/dominia
 	name = "mpr-24/5 carbine magazine (7.62mm)"
-	icon = 'icons/obj/guns/dominia_carbine.dmi'
+	icon = 'icons/obj/guns/faction/dominian_empire/dominia_carbine.dmi'
 	icon_state = "dom_carbine_mag"
 
 /obj/item/ammo_magazine/boltaction
@@ -545,6 +557,15 @@ If nothing is chosen, reload sounds revert to the default, which is metal_slide_
 	ammo_type = /obj/item/ammo_casing/vintage
 	caliber = "vintage"
 
+/obj/item/ammo_magazine/boltaction/adhomai
+	name = "ammo clip (6.8mm)"
+	icon_state = "762"
+	ammo_type = /obj/item/ammo_casing/a68
+	caliber = "6.8mm"
+
+/obj/item/ammo_magazine/boltaction/adhomai/blank
+	ammo_type = /obj/item/ammo_casing/a68/blank
+
 /obj/item/ammo_magazine/d762
 	name = "magazine (7.62mm)"
 	icon_state = "SVD"
@@ -558,6 +579,29 @@ If nothing is chosen, reload sounds revert to the default, which is metal_slide_
 /obj/item/ammo_magazine/d762/empty
 	initial_ammo = 0
 
+/obj/item/ammo_magazine/a68
+	name = "magazine (6.8mm)"
+	icon_state = "a68"
+	mag_type = MAGAZINE
+	caliber = "6.8mm"
+	matter = list(DEFAULT_WALL_MATERIAL = 1800)
+	ammo_type = /obj/item/ammo_casing/a68/
+	max_ammo = 25
+	multiple_sprites = 1
+	insert_sound = SFX_RELOAD_RIFLE_SLIDE
+
+/obj/item/ammo_magazine/a68/empty
+	initial_ammo = 0
+
+/obj/item/ammo_magazine/a68/ap
+	name = "magazine (6.8mm AP)"
+	ammo_type = /obj/item/ammo_casing/a68/ap
+
+/obj/item/ammo_magazine/a68/hotaki
+	icon_state = "SVD"
+	ammo_type = /obj/item/ammo_casing/a68/ap
+	max_ammo = 10
+
 // Shotguns and special //
 /obj/item/ammo_magazine/flechette
 	name = "flechette rounds"
@@ -565,7 +609,7 @@ If nothing is chosen, reload sounds revert to the default, which is metal_slide_
 	icon_state = "flechette"
 	mag_type = MAGAZINE
 	caliber = "flechette"
-	insert_sound = /singleton/sound_category/rifle_slide_reload
+	insert_sound = SFX_RELOAD_RIFLE_SLIDE
 	matter = list(DEFAULT_WALL_MATERIAL = 1200)
 	ammo_type = /obj/item/ammo_casing/flechette
 	max_ammo = 40
@@ -593,7 +637,7 @@ If nothing is chosen, reload sounds revert to the default, which is metal_slide_
 	name = "magazine (slug)"
 	icon_state = "csmb"
 	caliber = "shotgun"
-	insert_sound = /singleton/sound_category/rifle_slide_reload
+	insert_sound = SFX_RELOAD_RIFLE_SLIDE
 	mag_type = MAGAZINE
 	ammo_type = /obj/item/ammo_casing/shotgun
 	max_ammo = 8
@@ -620,10 +664,10 @@ If nothing is chosen, reload sounds revert to the default, which is metal_slide_
 /obj/item/ammo_magazine/xanan_shotgun
 	name = "magazine"
 	desc = "A magazine for the dNAC-12 combat shotgun."
-	icon = 'icons/obj/guns/xanu_shotgun_mags.dmi'
+	icon = 'icons/obj/guns/faction/dna_defense/xanu_shotgun_mags.dmi'
 	icon_state = "xanu_shell_magazine"
 	caliber = "shotgun"
-	insert_sound = /singleton/sound_category/rifle_slide_reload
+	insert_sound = SFX_RELOAD_RIFLE_SLIDE
 	mag_type = MAGAZINE
 	ammo_type = /obj/item/ammo_casing/shotgun
 	max_ammo = 8
@@ -736,7 +780,7 @@ If nothing is chosen, reload sounds revert to the default, which is metal_slide_
 	name = "konyang shotgun magazine"
 	icon_state = "konyang_shotgun"
 	caliber = "shotgun"
-	insert_sound = /singleton/sound_category/rifle_slide_reload
+	insert_sound = SFX_RELOAD_RIFLE_SLIDE
 	mag_type = MAGAZINE
 	ammo_type = /obj/item/ammo_casing/shotgun
 	max_ammo = 9

@@ -47,10 +47,10 @@
 		return A && PrivIsValidEnvironment(A.sound_environment) ? A.sound_environment : sound.environment
 
 /datum/sound_token/instrument/Stop()
-	player.unsubscribe(src)
+	if(player)
+		player.unsubscribe(src)
+		player = null
 	. = ..()
 
 /datum/sound_token/instrument/Destroy()
-	. = ..()
-	player.unsubscribe(src)
-	player = null
+	return ..()

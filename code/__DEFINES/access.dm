@@ -193,10 +193,10 @@
 	desc = "Crematorium"
 	region = ACCESS_REGION_GENERAL
 
-#define ACCESS_KITCHEN 28
-/datum/access/kitchen
-	id = ACCESS_KITCHEN
-	desc = "Kitchen"
+#define ACCESS_GALLEY 28
+/datum/access/galley
+	id = ACCESS_GALLEY
+	desc = "Galley"
 	region = ACCESS_REGION_GENERAL
 
 #define ACCESS_ROBOTICS 29
@@ -695,14 +695,14 @@
 	access_type = ACCESS_TYPE_CENTCOM
 	desc = "Golden Deep"
 
-#define ACCESS_KONYANG_POLICE 218
-/datum/access/konyang_police
-	id = ACCESS_KONYANG_POLICE
+#define ACCESS_PORTOFCALL_POLICE 218
+/datum/access/portofcall_police
+	id = ACCESS_PORTOFCALL_POLICE
 	access_type = ACCESS_TYPE_CENTCOM
 
-#define ACCESS_KONYANG_VENDORS 219
-/datum/access/konyang_vendors
-	id = ACCESS_KONYANG_VENDORS
+#define ACCESS_PORTOFCALL_VENDORS 219
+/datum/access/portofcall_vendors
+	id = ACCESS_PORTOFCALL_VENDORS
 	access_type = ACCESS_TYPE_CENTCOM
 
 #define ACCESS_IDRIS 220
@@ -733,9 +733,9 @@
 	id = ACCESS_GADPATHUR_NAVY_OFFICER
 	access_type = ACCESS_TYPE_CENTCOM
 
-#define ACCESS_KONYANG_CORPORATE 225
-/datum/access/konyang_corporate
-	id = ACCESS_KONYANG_CORPORATE
+#define ACCESS_PORTOFCALL_CORPORATE 225
+/datum/access/portofcall_corporate
+	id = ACCESS_PORTOFCALL_CORPORATE
 	access_type = ACCESS_TYPE_CENTCOM
 
 #define ACCESS_HOUSE_VOLVALAAD_SHIP 226
@@ -886,3 +886,23 @@
 #define ACCESS_HIMEO_PATROL_SHIP 253
 	id = ACCESS_HIMEO_PATROL_SHIP
 	desc = "Himean Military Patrol Vessel"
+
+#define ACCESS_QUARANTINED_OUTPOST_ENGINEER 254
+/datum/access/quarantined_outpost_engineer
+	id = ACCESS_QUARANTINED_OUTPOST_ENGINEER
+	desc = "Outpost Nemora, Engineering Clearance"
+
+#define ACCESS_DECREPIT_SHIPYARD_STAFF 255
+/datum/access/decrepit_shipyard_staff
+	id = ACCESS_DECREPIT_SHIPYARD_STAFF
+	desc = "Decrepit Shipyard, Staff Access"
+
+#define ACCESS_VOIDTAMER_SHIP 256
+/datum/access/voidtamer_ship
+	id = ACCESS_VOIDTAMER_SHIP
+	access_type = ACCESS_TYPE_CENTCOM
+
+#define ACCESS_ABANDONED_CASINO_STAFF 257
+/datum/access/abandoned_casino
+	id = ACCESS_ABANDONED_CASINO_STAFF
+

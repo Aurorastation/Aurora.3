@@ -16,6 +16,9 @@
 	icon_state = "filingcabinet"
 	density = 1
 	anchored = 1
+	maxhealth = OBJECT_HEALTH_VERY_LOW
+	armor = list(MELEE = ARMOR_MELEE_SMALL, BULLET = ARMOR_BALLISTIC_MINOR)
+
 	var/static/list/accepted_items = list(
 		/obj/item/paper,
 		/obj/item/folder,
@@ -46,30 +49,37 @@
 /obj/structure/filingcabinet/filingcabinet	//not changing the path to avoid unecessary map issues, but please don't name stuff like this in the future -Pete
 	icon_state = "tallcabinet"
 
-
 /obj/structure/filingcabinet/Initialize()
 	. = ..()
 	for(var/obj/item/I in loc)
 		if(is_type_in_list(I, accepted_items))
 			I.forceMove(src)
 
-
 /obj/structure/filingcabinet/attackby(obj/item/attacking_item, mob/user)
 	if(is_type_in_list(attacking_item, accepted_items))
 		to_chat(user, SPAN_NOTICE("You put [attacking_item] in [src]."))
 		user.drop_from_inventory(attacking_item, src)
 		flick("[initial(icon_state)]-open", src)
-		playsound(loc, 'sound/bureaucracy/filingcabinet.ogg', 50, 1)
+		playsound(loc, 'sound/items/bureaucracy/filingcabinet.ogg', 50, 1)
 		sleep(40)
 		icon_state = initial(icon_state)
 		updateUsrDialog()
-	else if(attacking_item.iswrench())
+	else if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		attacking_item.play_tool_sound(get_turf(src), 50)
 		anchored = !anchored
 		to_chat(user, SPAN_NOTICE("You [anchored ? "wrench" : "unwrench"] \the [src]."))
 	else
 		to_chat(user, SPAN_NOTICE("You can't put [attacking_item] in [src]!"))
 
+/obj/structure/filingcabinet/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
+	for(var/obj/item/thing in src)
+		if(prob(25))
+			if(istype(thing, /obj/item/paper))
+				if(prob(50))
+					var/obj/item/paper/paper = thing
+					paper.crumple()
+			thing.forceMove(get_turf(src))
+	. = ..()
 
 /obj/structure/filingcabinet/attack_hand(mob/user as mob)
 	. = ..()
@@ -84,8 +94,6 @@
 	dat += "</table></center>"
 	user << browse("<html><head><title>[name]</title></head><body>[dat]</body></html>", "window=filingcabinet;size=350x300")
 
-	return
-
 /obj/structure/filingcabinet/Topic(href, href_list)
 	if(href_list["retrieve"])
 		usr << browse("", "window=filingcabinet") // Close the menu)
@@ -96,7 +104,7 @@
 			usr.put_in_hands(P)
 			updateUsrDialog()
 			flick("[initial(icon_state)]-open",src)
-			playsound(loc, 'sound/bureaucracy/filingcabinet.ogg', 50, 1)
+			playsound(loc, 'sound/items/bureaucracy/filingcabinet.ogg', 50, 1)
 			spawn(0)
 				sleep(20)
 				icon_state = initial(icon_state)
@@ -168,9 +176,6 @@ Mental Status: [R.mental_status]<BR>
 <CENTER><B>Medical Data</B></CENTER><BR>
 Blood Type: [R.medical.blood_type]<BR>
 DNA: [R.medical.blood_dna]<BR><BR>
-Disabilities: [R.medical.disabilities]<BR><BR>
-Allergies: [R.medical.allergies]<BR>
-Current Diseases: [R.medical.diseases] (per disease info placed in log/comment section)<BR><BR>
 Important Notes:<BR>
 [replacetext(R.medical.notes, "\n", "<BR>")]<BR><BR>
 <CENTER><B>Comments/Log</B></CENTER><BR>

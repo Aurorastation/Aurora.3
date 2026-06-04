@@ -2,7 +2,10 @@
 	name = "item"
 	icon = 'icons/obj/items.dmi'
 	w_class = WEIGHT_CLASS_NORMAL
+	light_system = MOVABLE_LIGHT
 	blocks_emissive = EMISSIVE_BLOCK_GENERIC
+	/// Generic hit sound
+	hitsound = SFX_SWING_HIT
 
 	/// This saves our blood splatter overlay, which will be processed not to go over the edges of the sprite
 	var/image/blood_overlay
@@ -10,12 +13,8 @@
 	var/randpixel = 6
 	var/abstract = 0
 	var/r_speed = 1.0
-	var/health
 	var/burn_point
 	var/burning
-
-	/// Generic hit sound
-	var/hitsound = /singleton/sound_category/swing_hit_sound
 
 	var/storage_cost
 
@@ -131,12 +130,14 @@
 	var/list/allowed = null
 
 	/// All items can have an uplink hidden inside, just remember to add the triggers.
-	var/obj/item/device/uplink/hidden/hidden_uplink
+	var/obj/item/uplink/hidden/hidden_uplink
 
 	/// Name used for message when binoculars/scope is used
 	var/zoomdevicename
 	/// Boolean, `TRUE` if item is actively being used to zoom. For scoped guns and binoculars.
 	var/zoom = FALSE
+	/// The message used when stopping looking through a pair of binoculars/scope
+	var/zoom_out_message
 
 	/// Boolean, if item_state, lefthand, righthand, and worn sprite are all in one dmi
 	var/contained_sprite = FALSE
@@ -146,13 +147,9 @@
 	/// Sound used when equipping the item into a valid slot
 	var/equip_sound = null
 	/// Sound uses when picking the item up (into your hands)
-	var/pickup_sound = /singleton/sound_category/generic_pickup_sound
+	var/pickup_sound = SFX_PICKUP
 	/// Sound uses when dropping the item, or when its thrown.
-	var/drop_sound = /singleton/sound_category/generic_drop_sound
-
-	var/list/armor
-	/// How fast armor will degrade, multiplier to blocked damage to get armor damage value.
-	var/armor_degradation_speed
+	var/drop_sound = SFX_DROP
 
 	//Item_state definition moved to /obj
 	//var/item_state = null // Used to specify the item state for the on-mob overlays.
@@ -233,21 +230,30 @@
 	/// Holder var for the item outline filter, null when no outline filter on the item.
 	var/outline_filter
 
-	// Persistency
-	// Set this to true if you want the item to become persistent trash
-	// Requires the usual implementation requirements for new persistent types but provides a single implementation for trash logic
+	/// Persistency
+	/// Set this to true if you want the item to become persistent trash
+	/// Requires the usual implementation requirements for new persistent types but provides a single implementation for trash logic
 	var/persistency_considered_trash = FALSE
+
+	/**
+	 * How a tool acts when you use it on something, such as wirecutters cutting wires while multitools measure power.
+	 * This merely sets the initial starting tool quality for a given tool.
+	 * If a tool wants to have more than one quality, it can do so via SET_TOOL_QUALITIES() in its own Initialize() call
+	 *
+	 * Do note that this is merely just an expedience for /obj/item. Any /atom/ is allowed to have tool qualities.
+	 */
+	var/tool_behaviour = null
+	/// Determines the starting tool level for a tool's basic use if any. tool_behavior must be set for this to apply.
+	var/tool_quality = STANDARD_TOOL_LEVEL
 
 /obj/item/Initialize(mapload, ...)
 	. = ..()
-	if(islist(armor))
-		for(var/type in armor)
-			if(armor[type])
-				AddComponent(/datum/component/armor, armor)
-				break
 	if(item_flags & ITEM_FLAG_HELD_MAP_TEXT)
 		set_initial_maptext()
 		check_maptext()
+
+	if (tool_behaviour)
+		LOAD_TOOL_QUALITIES(src, alist(tool_behavior = tool_quality), toolComp)
 
 /obj/item/Destroy()
 	if(ismob(loc))
@@ -256,8 +262,16 @@
 		m.update_inv_hands()
 		src.loc = null
 
-	if(!QDELETED(action))
+	if(islist(action))
+		var/list/action_list = action
+		for(var/i in 1 to action_list.len)
+			var/datum/action/A = action_list[i]
+			if(!QDELETED(A))
+				QDEL_NULL(A)
+		action_list.Cut()
+	else if(!QDELETED(action))
 		QDEL_NULL(action) // /mob/living/proc/handle_actions() creates it, for ungodly reasons
+
 	action = null
 
 	if(!QDELETED(hidden_uplink))
@@ -339,7 +353,7 @@
 
 	. = ..(user, distance, is_adjacent, "It is a [size] item.", get_extended = get_extended)
 	var/datum/component/armor/armor_component = GetComponent(/datum/component/armor)
-	if(armor_component)
+	if(armor_component && !armor_component.hidden)
 		. += FONT_SMALL(SPAN_NOTICE("\[?\] This item has armor values. <a href='byond://?src=[REF(src)];examine_armor=1'>\[Show Armor Values\]</a>"))
 
 /obj/item/Topic(href, href_list)
@@ -487,9 +501,6 @@
 	SEND_SIGNAL(src, COMSIG_ITEM_DROPPED, user)
 	in_inventory = FALSE
 
-	if(user && (z_flags & ZMM_MANGLE_PLANES))
-		addtimer(CALLBACK(user, /mob/proc/check_emissive_equipment), 0, TIMER_UNIQUE)
-
 	user?.update_equipment_speed_mods()
 	try_make_persistent_trash()
 
@@ -504,8 +515,8 @@
 	if(!persistency_considered_trash)
 		return
 
-	if(in_storage) // Items getting moved into storages (lunchboxes, backpacks) triggers the dropped handler and requires no persistency as a result
-		SSpersistence.deregister_track(src)
+	if(in_storage || in_inventory) // Items getting moved into storages (lunchboxes, backpacks) triggers the dropped handler and requires no persistency as a result
+		SSpersistence.objectsDeregisterTrack(src)
 		return
 
 	// Trash-like items should become only persistent when they are not dropped in an area flagged with AREA_FLAG_PREVENT_PERSISTENT_TRASH
@@ -513,12 +524,12 @@
 	if(T)
 		var/area/A = get_area(T)
 		if(A && !(A.area_flags & AREA_FLAG_PREVENT_PERSISTENT_TRASH))
-			persistance_expiration_time_days = 3 // Ensure expiration date is set to prevent long term trash
-			SSpersistence.register_track(src, usr == null ? null : ckey(usr.key))
+			persistant_objects_expiration_time_days = 3 // Ensure expiration date is set to prevent long term trash
+			SSpersistence.objectsRegisterTrack(src, usr == null ? null : ckey(usr.key))
 			return
 
 	// Fallback - No persistency
-	SSpersistence.deregister_track(src)
+	SSpersistence.objectsDeregisterTrack(src)
 
 /obj/item/proc/remove_item_verbs(mob/user)
 	if(ismech(user)) //very snowflake, but necessary due to how mechs work
@@ -552,6 +563,7 @@
 		addtimer(CALLBACK(src, PROC_REF(check_maptext)), 1) // invoke async does not work here
 	in_inventory = TRUE
 	do_pickup_animation(user)
+	try_make_persistent_trash()
 
 // called when this item is removed from a storage item, which is passed on as S. The loc variable is already set to the new destination before this is called.
 /obj/item/proc/on_exit_storage(obj/item/storage/S as obj)
@@ -626,13 +638,7 @@
 	//Ěent for observable
 	SEND_SIGNAL(src, COMSIG_ITEM_REMOVE, src)
 
-	if(user && (z_flags & ZMM_MANGLE_PLANES))
-		addtimer(CALLBACK(user, /mob/proc/check_emissive_equipment), 0, TIMER_UNIQUE)
-
 	user.update_equipment_speed_mods()
-
-	if(persistency_considered_trash || persistence_track_active) // The moment trash like items get picked up they are no longer persistent
-		SSpersistence.deregister_track(src)
 
 /obj/item/proc/check_equipped(var/mob/user, var/slot, var/assisted_equip = FALSE)
 	return TRUE
@@ -920,7 +926,7 @@ GLOBAL_LIST_INIT(slot_flags_enumeration, list(
 	user.langchat_speech("holds up [src].", viewers, GLOB.all_languages, skip_language_check = TRUE, animation_style = LANGCHAT_FAST_POP, additional_styles = list("langchat_small", "emote"))
 	for (var/mob/M in viewers)
 		if(!user.is_invisible_to(M))
-			M.show_message("<b>[user]</b> holds up [icon2html(src, viewers)] [src]. <a href='byond://?src=[REF(M)];lookitem=[REF(src)]'>Take a closer look.</a>",1)
+			M.show_message("<b>[user]</b> holds up [icon2html(src, M)] [src]. <a href='byond://?src=[REF(M)];lookitem=[REF(src)]'>Take a closer look.</a>",1)
 
 /mob/living/carbon/verb/showoff()
 	set name = "Show Held Item"
@@ -1000,9 +1006,11 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 		M.client.pixel_x = 0
 		M.client.pixel_y = 0
 
-		if(!cannotzoom)
-			if(show_zoom_message)
+		if(!cannotzoom && show_zoom_message)
+			if(!zoom_out_message)
 				M.visible_message("[zoomdevicename ? "<b>[M]</b> looks up from \the [src.name]" : "<b>[M]</b> lowers \the [src.name]"].")
+			else
+				M.visible_message("[zoomdevicename ? "<b>[M]</b>[zoom_out_message] \the [src.name]." : "<b>[M]</b>[zoom_out_message]"]")
 
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
@@ -1234,7 +1242,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	return
 
 // this gets called when the item gets chucked by the vending machine
-/obj/item/proc/vendor_action(var/obj/machinery/vending/V)
+/obj/item/proc/vendor_action(var/obj/structure/machinery/vending/V)
 	return
 
 /obj/item/proc/set_initial_maptext()
@@ -1315,10 +1323,10 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	. = ..()
 	if(in_inventory || in_storage)
 		var/mob/user = usr
-		if(!(user.client.prefs.toggles_secondary & HIDE_ITEM_TOOLTIPS))
-			tip_timer = addtimer(CALLBACK(src, PROC_REF(openTip), location, control, params, user), 8, TIMER_STOPPABLE)
 		if(QDELETED(src))
 			return
+		if(!(user.client.prefs.toggles_secondary & HIDE_ITEM_TOOLTIPS))
+			tip_timer = addtimer(CALLBACK(src, PROC_REF(openTip), location, control, params, user), 8, TIMER_STOPPABLE)
 		if(!(user.client.prefs.toggles_secondary & SEE_ITEM_OUTLINES))
 			return
 		var/mob/living/L = user

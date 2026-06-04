@@ -2,14 +2,16 @@
 	name = "light sensitive eyes"
 	desc = "A pair of Tajaran eyes accustomed to the low light conditions of Adhomai."
 	icon = 'icons/obj/organs/tajara_organs.dmi'
-	action_button_name = "Activate Low Light Vision"
-	default_action_type = /datum/action/item_action/organ/night_eyes
+	action_button_name = list("Activate Low Light Vision", "Extend vision")
+	default_action_type = list(/datum/action/item_action/organ/night_eyes, /datum/action/item_action/organ/extended_eyes)
 	relative_size = 8
 	var/night_vision = FALSE
 	var/datum/client_color/vision_color = /datum/client_color/monochrome
 	var/datum/client_color/vision_mechanical_color = /datum/client_color/monochrome
 	var/eye_emote = "'s eyes dilate!"
 	var/allowed_model = PROSTHETIC_TESLA //what robotic model allows this eyes to use the night vision
+	var/cooldown = 30
+	zoom_out_message = "'s eyes widens as they stop focusing ahead."
 
 /obj/item/organ/internal/eyes/night/Destroy()
 	disable_night_vision()
@@ -25,25 +27,49 @@
 
 /obj/item/organ/internal/eyes/night/attack_self(var/mob/user)
 	. = ..()
+
+/obj/item/organ/internal/eyes/night/proc/ability_check()
 	if(owner.last_special > world.time)
-		return
+		return FALSE
 
 	if(owner.stat || owner.paralysis || owner.stunned || owner.weakened)
-		return
+		return FALSE
 
 	if(is_broken())
-		return
+		return FALSE
 
 	if(status & ORGAN_ROBOT)
 		if(!robotic_check())
-			return
+			return FALSE
 
+	owner.last_special = world.time + 20
+	return TRUE
+
+/obj/item/organ/internal/eyes/night/proc/night_vision()
+	if(attack_self())
+		return
+	if(!ability_check())
+		return
 	if(!night_vision)
 		enable_night_vision()
 	else
 		disable_night_vision()
 
-	owner.last_special = world.time + 20
+/obj/item/organ/internal/eyes/night/proc/extended_vision()
+	if(attack_self())
+		return
+	if(!ability_check())
+		return
+	if(zoom)
+		owner.visible_message("[SPAN_BOLD("\The [owner]")]'s eyes widens as they stop focusing ahead.", range = 3)
+	else
+		owner.visible_message("[SPAN_BOLD("\The [owner]")]'s eyes begins to narrow as they focus on something in the distance.", range = 3)
+		if(!do_after(owner, 1.5 SECONDS))
+			owner.visible_message("[SPAN_BOLD("\The [owner]")]'s eyes stop focusing.", range = 3)
+			return
+		owner.visible_message("[SPAN_BOLD("\The [owner]")]'s eyes narrows as their lenses shift to focus ahead.", range = 3)
+
+	zoom(owner, 3, 7, FALSE, FALSE)
 
 /obj/item/organ/internal/eyes/night/proc/robotic_check(var/mob/user)
 	if(robotize_type == allowed_model)
@@ -89,17 +115,18 @@
 			show_message = FALSE
 			break
 	if(show_message && eye_emote)
-		owner.visible_message("<b>[owner]</b>[eye_emote]")
+		owner.visible_message("[SPAN_BOLD("\The [owner]")][eye_emote]")
 
 	night_vision = TRUE
 	if(can_change_invisible())
-		owner.set_see_invisible(SEE_INVISIBLE_NOLIGHTING)
+		owner.lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
 	if(status & ORGAN_ROBOT)
 		if(vision_mechanical_color)
 			owner.add_client_color(vision_mechanical_color)
 	else
 		if(vision_color)
 			owner.add_client_color(vision_color)
+	owner.update_sight()
 
 /obj/item/organ/internal/eyes/night/proc/disable_night_vision()
 	if(!owner)
@@ -108,13 +135,14 @@
 		return
 	night_vision = FALSE
 	if(can_change_invisible())
-		owner.set_see_invisible(SEE_INVISIBLE_LIVING)
+		owner.lighting_alpha = LIGHTING_PLANE_ALPHA_VISIBLE
 	if(status & ORGAN_ROBOT)
 		if(vision_mechanical_color)
 			owner.remove_client_color(vision_mechanical_color)
 	else
 		if(vision_color)
 			owner.remove_client_color(vision_color)
+	owner.update_sight()
 
 /obj/item/organ/internal/stomach/tajara
 	name = "reinforced stomach"

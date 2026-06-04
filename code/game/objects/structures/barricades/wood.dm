@@ -29,9 +29,17 @@
 			visible_message(SPAN_NOTICE("[user] begins to repair [src]."))
 			if(do_after(user, 2 SECONDS, src, DO_REPAIR_CONSTRUCT) && (health < maxhealth))
 				if(D.use(1))
-					update_health(-0.5*maxhealth)
+					add_health(maxhealth*0.5)
 					update_damage_state()
 					visible_message(SPAN_NOTICE("[user] haphazardly repairs [src]."))
 		return
 
 	. = ..()
+
+/obj/structure/barricade/wooden/road
+	name = "road barrier"
+	desc = "A barrier made of wood. Someone didn't want you crossing this without thought."
+	icon_state = "roadbarrierwood"
+	barricade_type = "roadbarrierwood"
+	health = 50
+	maxhealth = 50

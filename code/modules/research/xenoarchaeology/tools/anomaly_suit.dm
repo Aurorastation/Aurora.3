@@ -50,7 +50,7 @@
 		BIO = 100,
 		RAD = 100,
 	)
-	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit)
+	allowed = list(/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit)
 	contained_sprite = FALSE
 	icon = 'icons/obj/clothing/suits.dmi'
 	anomaly_protection = 0.5

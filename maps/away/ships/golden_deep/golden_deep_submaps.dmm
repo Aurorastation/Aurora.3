@@ -32,19 +32,19 @@
 "by" = (
 /obj/random/dirt_75,
 /obj/structure/closet/cabinet,
-/obj/item/device/versebook/trinary,
-/obj/item/device/versebook/templeist,
-/obj/item/device/versebook/gadpathur,
-/obj/item/device/versebook/dpra,
-/obj/item/device/versebook/biesel,
-/obj/item/device/versebook/autakh,
-/obj/item/device/versebook/assunzione,
-/obj/item/device/versebook/tribunal,
-/obj/item/device/versebook/thakh,
-/obj/item/device/versebook/skakh,
-/obj/item/device/versebook/siakh,
-/obj/item/device/versebook/pra,
-/obj/item/device/versebook/nka,
+/obj/item/versebook/trinary,
+/obj/item/versebook/templeist,
+/obj/item/versebook/gadpathur,
+/obj/item/versebook/dpra,
+/obj/item/versebook/biesel,
+/obj/item/versebook/autakh,
+/obj/item/versebook/assunzione,
+/obj/item/versebook/tribunal,
+/obj/item/versebook/thakh,
+/obj/item/versebook/skakh,
+/obj/item/versebook/siakh,
+/obj/item/versebook/pra,
+/obj/item/versebook/nka,
 /turf/template_noop,
 /area/template_noop)
 "ci" = (
@@ -125,7 +125,7 @@
 /turf/template_noop,
 /area/template_noop)
 "gP" = (
-/obj/machinery/chem_heater,
+/obj/structure/machinery/chem_heater,
 /obj/random/dirt_75,
 /turf/template_noop,
 /area/template_noop)
@@ -139,7 +139,7 @@
 /area/template_noop)
 "hN" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/golden_deep,
-/obj/machinery/reagentgrinder{
+/obj/structure/machinery/reagentgrinder{
 	pixel_y = 17;
 	pixel_x = 6
 	},
@@ -172,7 +172,7 @@
 /obj/item/clothing/mask/skrell/thirdeye,
 /obj/item/clothing/mask/skrell/weeping,
 /obj/item/clothing/under/skrell/qeblak,
-/obj/item/device/hearing_aid/skrell,
+/obj/item/hearing_aid/skrell,
 /obj/item/reagent_containers/food/drinks/bottle/skrellwineylpha,
 /obj/item/skrell_projector,
 /obj/item/toy/plushie/axic,
@@ -180,7 +180,7 @@
 /area/template_noop)
 "jV" = (
 /obj/random/dirt_75,
-/obj/machinery/portable_atmospherics/canister/phoron,
+/obj/structure/machinery/portable_atmospherics/canister/phoron,
 /turf/template_noop,
 /area/template_noop)
 "kI" = (
@@ -228,7 +228,7 @@
 /turf/template_noop,
 /area/template_noop)
 "pe" = (
-/obj/machinery/suspension_gen,
+/obj/structure/machinery/suspension_gen,
 /turf/template_noop,
 /area/template_noop)
 "rg" = (
@@ -242,7 +242,7 @@
 /turf/template_noop,
 /area/template_noop)
 "rC" = (
-/obj/machinery/portable_atmospherics/canister/chlorine,
+/obj/structure/machinery/portable_atmospherics/canister/chlorine,
 /turf/template_noop,
 /area/template_noop)
 "sq" = (
@@ -310,11 +310,11 @@
 /obj/item/clothing/glasses/safety/goggles,
 /obj/structure/closet/toolcloset/empty,
 /obj/item/storage/belt/archaeology,
-/obj/item/device/ano_scanner,
+/obj/item/ano_scanner,
 /obj/item/storage/bag/fossils,
-/obj/item/device/measuring_tape,
-/obj/item/device/core_sampler,
-/obj/item/device/depth_scanner,
+/obj/item/measuring_tape,
+/obj/item/core_sampler,
+/obj/item/depth_scanner,
 /obj/item/storage/box/unique/excavation,
 /obj/item/book/manual/excavation,
 /obj/item/pickaxe/hand,
@@ -430,7 +430,7 @@
 /turf/template_noop,
 /area/template_noop)
 "BP" = (
-/obj/machinery/shieldwallgen,
+/obj/structure/machinery/shieldwallgen,
 /turf/template_noop,
 /area/template_noop)
 "CF" = (
@@ -451,7 +451,7 @@
 /turf/template_noop,
 /area/template_noop)
 "DM" = (
-/obj/machinery/power/portgen/basic/advanced,
+/obj/structure/machinery/power/portgen/basic/advanced,
 /turf/template_noop,
 /area/template_noop)
 "Fw" = (
@@ -535,7 +535,7 @@
 /turf/template_noop,
 /area/template_noop)
 "GF" = (
-/obj/machinery/stasis_cage{
+/obj/structure/machinery/stasis_cage{
 	req_access = list()
 	},
 /turf/template_noop,
@@ -567,7 +567,7 @@
 /turf/template_noop,
 /area/template_noop)
 "HK" = (
-/obj/machinery/chemical_dispenser/full{
+/obj/structure/machinery/chemical_dispenser/full{
 	dir = 1
 	},
 /turf/template_noop,
@@ -581,14 +581,14 @@
 /obj/item/grenade/chem_grenade,
 /obj/item/grenade/chem_grenade,
 /obj/item/grenade/chem_grenade,
-/obj/item/device/assembly/igniter,
-/obj/item/device/assembly/igniter,
-/obj/item/device/assembly/igniter,
-/obj/item/device/assembly/igniter,
-/obj/item/device/assembly/timer,
-/obj/item/device/assembly/timer,
-/obj/item/device/assembly/timer,
-/obj/item/device/assembly/timer,
+/obj/item/assembly/igniter,
+/obj/item/assembly/igniter,
+/obj/item/assembly/igniter,
+/obj/item/assembly/igniter,
+/obj/item/assembly/timer,
+/obj/item/assembly/timer,
+/obj/item/assembly/timer,
+/obj/item/assembly/timer,
 /obj/item/storage/box/autoinjectors,
 /obj/item/storage/box/inhalers_auto,
 /obj/random/dirt_75,
@@ -596,7 +596,7 @@
 /area/template_noop)
 "IT" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/golden_deep,
-/obj/machinery/shieldwallgen,
+/obj/structure/machinery/shieldwallgen,
 /turf/template_noop,
 /area/template_noop)
 "Ja" = (
@@ -608,23 +608,23 @@
 /turf/template_noop,
 /area/template_noop)
 "Ky" = (
-/obj/machinery/portable_atmospherics/hydroponics,
+/obj/structure/machinery/portable_atmospherics/hydroponics,
 /obj/random/dirt_75,
 /turf/template_noop,
 /area/template_noop)
 "KW" = (
-/obj/machinery/stasis_cage{
+/obj/structure/machinery/stasis_cage{
 	req_access = list()
 	},
 /obj/effect/map_effect/marker/mapmanip/submap/extract/golden_deep,
 /turf/template_noop,
 /area/template_noop)
 "Ld" = (
-/obj/machinery/vending/dinnerware,
+/obj/structure/machinery/vending/dinnerware,
 /turf/template_noop,
 /area/template_noop)
 "LF" = (
-/obj/machinery/portable_atmospherics/hydroponics,
+/obj/structure/machinery/portable_atmospherics/hydroponics,
 /turf/template_noop,
 /area/template_noop)
 "LS" = (
@@ -647,7 +647,7 @@
 /turf/template_noop,
 /area/template_noop)
 "MJ" = (
-/obj/machinery/vending/security{
+/obj/structure/machinery/vending/security{
 	req_access = null
 	},
 /turf/template_noop,
@@ -662,7 +662,7 @@
 /area/template_noop)
 "OR" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/golden_deep,
-/obj/machinery/vending/hydronutrients,
+/obj/structure/machinery/vending/hydronutrients,
 /turf/template_noop,
 /area/template_noop)
 "Qz" = (
@@ -676,12 +676,12 @@
 /turf/template_noop,
 /area/template_noop)
 "Sh" = (
-/obj/machinery/chem_master,
+/obj/structure/machinery/chem_master,
 /obj/random/dirt_75,
 /turf/template_noop,
 /area/template_noop)
 "Th" = (
-/obj/item/device/versebook/biesel,
+/obj/item/versebook/biesel,
 /obj/item/storage/stickersheet/biesel,
 /obj/item/clothing/accessory/poncho/shouldercape/nationcapes/biesel,
 /obj/item/clothing/suit/storage/legion/tcaf{
@@ -736,7 +736,7 @@
 /turf/template_noop,
 /area/template_noop)
 "VD" = (
-/obj/machinery/vending/hydroseeds,
+/obj/structure/machinery/vending/hydroseeds,
 /obj/random/dirt_75,
 /turf/template_noop,
 /area/template_noop)
@@ -808,8 +808,9 @@
 	name = "secure crate";
 	req_one_access = list(229, 217)
 	},
-/obj/item/rig/tesla,
 /obj/random/dirt_75,
+/obj/item/rig/hazard,
+/obj/item/rig/hazmat,
 /turf/template_noop,
 /area/template_noop)
 "ZZ" = (

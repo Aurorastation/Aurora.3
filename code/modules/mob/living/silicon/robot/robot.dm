@@ -25,7 +25,7 @@
 	var/wires_exposed = FALSE
 
 	// Health and interaction
-	maxHealth = 200
+	maxhealth = 200
 	health = 200
 	mob_size = 16 //robots are heavy
 	mob_bump_flag = ROBOT
@@ -34,7 +34,6 @@
 	var/speed = 0
 
 	// Lighting and sight
-	light_wedge = LIGHT_WIDE
 	var/lights_on = FALSE // Is our integrated light on?
 	var/intense_light = FALSE	// Whether cyborg's integrated light was upgraded
 	var/sight_mode = NO_HUD
@@ -81,9 +80,9 @@
 
 	// Internal components (non-datum)
 	var/obj/item/cell/cell
-	var/obj/item/device/radio/borg/radio
-	var/obj/machinery/camera/camera
-	var/obj/item/device/mmi/mmi
+	var/obj/item/radio/borg/radio
+	var/obj/structure/machinery/camera/camera
+	var/obj/item/mmi/mmi
 	var/obj/item/stock_parts/matter_bin/storage
 	var/obj/item/tank/jetpack/carbondioxide/synthetic/jetpack
 
@@ -159,11 +158,11 @@
 		mmi.brainmob.real_name = src.name
 		mmi.name = "[initial(mmi.name)]: [src.name]"
 
-	radio = new /obj/item/device/radio/borg(src)
+	radio = new /obj/item/radio/borg(src)
 	common_radio = radio
 
 	if(!camera)
-		camera = new /obj/machinery/camera(src, 0, TRUE, TRUE)
+		camera = new /obj/structure/machinery/camera(src, 0, TRUE, TRUE)
 		camera.c_tag = real_name
 		if(!scrambled_codes)
 			camera.replace_networks(list(NETWORK_STATION, NETWORK_ROBOTS))
@@ -218,7 +217,7 @@
 
 		for(var/job_type in module.specialized_access_types)
 			var/datum/job/job = new job_type()
-			id_card.access |= job.access
+			id_card.access |= job.job_access
 
 		to_chat(src, SPAN_NOTICE("Access set to the department the role belongs to."))
 
@@ -236,13 +235,13 @@
 	update_access()
 
 /mob/living/silicon/robot/proc/init()
-	ai_camera = new /obj/item/device/camera/siliconcam/robot_camera(src)
+	ai_camera = new /obj/item/camera/siliconcam/robot_camera(src)
 	laws = new law_preset()
 	if(spawn_module)
 		new spawn_module(src, src)
 	if(key_type)
 		radio.keyslot = new key_type(radio)
-		INVOKE_ASYNC(radio, TYPE_PROC_REF(/obj/item/device/radio/borg, recalculateChannels))
+		INVOKE_ASYNC(radio, TYPE_PROC_REF(/obj/item/radio/borg, recalculateChannels))
 	if(law_update)
 		var/new_ai = select_active_ai_with_fewest_borgs()
 		if(new_ai)
@@ -369,7 +368,7 @@
 	if(prefix)
 		mod_type = prefix
 
-	if(istype(mmi, /obj/item/device/mmi/digital/robot))
+	if(istype(mmi, /obj/item/mmi/digital/robot))
 		braintype = "Robot"
 	else
 		braintype = "Cyborg"
@@ -538,7 +537,6 @@
 			set_light(integrated_light_power)
 	else
 		set_light(0)
-	setup_eye_cache() //update eyes
 
 /mob/living/silicon/robot/proc/show_access()
 	if(!module)
@@ -559,7 +557,7 @@
 
 	if(jetpack)
 		. += "Internal Atmosphere Info: [jetpack.name]"
-		. += "Tank Pressure: [jetpack.air_contents.return_pressure()]"
+		. += "Tank Pressure: [XGM_PRESSURE(jetpack.air_contents)]"
 	. += "Lights: [lights_on ? "ON" : "OFF"]"
 	if(module)
 		for(var/datum/matter_synth/ms in module.synths)
@@ -624,7 +622,7 @@
 	if(user.a_intent == I_HELP)
 		if(wires_exposed)
 			wires.interact(user)
-		if(attacking_item.iswelder())
+		if(attacking_item.tool_behaviour == TOOL_WELDER)
 			if(src == user)
 				to_chat(user, SPAN_WARNING("You lack the reach to be able to repair yourself."))
 				return
@@ -642,7 +640,7 @@
 				add_fingerprint(user)
 				visible_message(SPAN_WARNING("\The [user] has fixed some of the dents on \the [src]!"))
 				return
-		else if(attacking_item.iscoil() && (wires_exposed || istype(src,/mob/living/silicon/robot/drone)))
+		else if(attacking_item.tool_behaviour == TOOL_CABLECOIL && (wires_exposed || istype(src,/mob/living/silicon/robot/drone)))
 			if(!getFireLoss())
 				to_chat(user, SPAN_WARNING("There is nothing to fix here!"))
 				return
@@ -653,7 +651,7 @@
 				updatehealth()
 				visible_message(SPAN_WARNING("\The [user] has fixed some of the burnt wires on \the [src]!"))
 				return
-		else if(attacking_item.iscrowbar())	// crowbar means open or close the cover
+		else if(attacking_item.tool_behaviour == TOOL_CROWBAR)	// crowbar means open or close the cover
 			if(opened)
 				if(cell)
 					user.visible_message(SPAN_NOTICE("\The [user] begins clasping shut \the [src]'s maintenance hatch."), SPAN_NOTICE("You begin closing up \the [src]'s maintenance hatch."))
@@ -745,17 +743,17 @@
 				C.brute_damage = 0
 				C.electronics_damage = 0
 				handle_panel_overlay()
-		else if(attacking_item.isscrewdriver() && opened && !cell)	// haxing
+		else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER && opened && !cell)	// haxing
 			wires_exposed = !wires_exposed
 			user.visible_message(SPAN_NOTICE("\The [user] [wires_exposed ? "exposes" : "covers"] \the [src]'s wires."), SPAN_NOTICE("You [wires_exposed ? "expose" : "cover"] \the [src]'s wires."))
 			handle_panel_overlay()
-		else if(attacking_item.isscrewdriver() && opened && cell)	// radio
+		else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER && opened && cell)	// radio
 			if(radio)
 				radio.attackby(attacking_item, user) //Push it to the radio to let it handle everything
 			else
 				to_chat(user, SPAN_WARNING("\The [src] does not have a radio installed!"))
 				return
-		else if(istype(attacking_item, /obj/item/device/encryptionkey) && opened)
+		else if(istype(attacking_item, /obj/item/encryptionkey) && opened)
 			if(radio) //sanityyyyyy
 				radio.attackby(attacking_item, user) //GTFO, you have your own procs
 			else
@@ -790,7 +788,7 @@
 					user.drop_from_inventory(U, src)
 				return
 		else
-			if(attacking_item.force && !(istype(attacking_item, /obj/item/device/robotanalyzer) || istype(attacking_item, /obj/item/device/healthanalyzer)) )
+			if(attacking_item.force && !(istype(attacking_item, /obj/item/robotanalyzer) || istype(attacking_item, /obj/item/healthanalyzer)) )
 				spark_system.queue()
 			return ..()
 	else
@@ -1224,7 +1222,7 @@
 
 /mob/living/silicon/robot/succumb()
 	set hidden = TRUE
-	if(health < maxHealth / 3)
+	if(health < maxhealth / 3)
 		death()
 		to_chat(src, SPAN_NOTICE("You have given up life and succumbed to death."))
 	else

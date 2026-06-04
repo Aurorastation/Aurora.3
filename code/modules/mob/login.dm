@@ -25,9 +25,6 @@
 						message_admins(SPAN_WARNING("<B>Notice: </B></span><span class='notice'><A href='byond://?src=[REF(usr)];priv_msg=[REF(src)]'>[key_name_admin(src)]</A> has the same [matches] as [key_name_admin(M)] (no longer logged in). "), 1)
 						log_access("Notice: [key_name(src)] has the same [matches] as [key_name(M)] (no longer logged in).")
 
-/mob
-	var/client/my_client // Need to keep track of this ourselves, since by the time Logout() is called the client has already been nulled
-
 /**
  * Currently marked as SHOULD_NOT_OVERRIDE.
  *
@@ -100,8 +97,7 @@
 	clear_important_client_contents()
 	enable_client_mobs_in_contents()
 
-	AddDefaultRenderers()
-	update_client_color()
+	update_client_color(no_animate = TRUE)
 	add_click_catcher()
 
 	if(client) //Should work based on "change_view" but we lack the infrastructure behind to make it useful, for now
@@ -120,3 +116,5 @@
 		for(var/atom/movable/screen/movable/spell_master/spell_master in spell_masters)
 			spell_master.toggle_open(1)
 			client.screen -= spell_master
+
+	SEND_SIGNAL(src, COMSIG_MOB_AFTER_LOGIN)

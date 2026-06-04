@@ -11,33 +11,34 @@
 	var/filling_states				// List of percentages full that have icons
 	var/accuracy = 1
 	var/fragile = 0        // If nonzero, above what force do we shatter?
-	var/shatter_sound = /singleton/sound_category/glass_break_sound
+	var/shatter_sound = SFX_BREAK_GLASS
 	var/material/shatter_material = MATERIAL_GLASS //slight typecasting abuse here, gets converted to a material in initializee
 	var/can_be_placed_into = list(
-		/obj/machinery/chem_master,
-		/obj/machinery/chem_heater,
-		/obj/machinery/chemical_dispenser,
+		/obj/structure/machinery/chem_master,
+		/obj/structure/machinery/chem_heater,
+		/obj/structure/machinery/chemical_dispenser,
 		/obj/structure/reagent_dispensers,
-		/obj/machinery/reagentgrinder,
+		/obj/structure/machinery/reagentgrinder,
 		/obj/structure/table,
 		/obj/structure/closet,
 		/obj/structure/sink,
 		/obj/item/storage,
-		/obj/machinery/atmospherics/unary/cryo_cell,
-		/obj/machinery/dna_scannernew,
+		/obj/structure/machinery/atmospherics/unary/cryo_cell,
+		/obj/structure/machinery/dna_scannernew,
 		/obj/item/grenade/chem_grenade,
 		/mob/living/bot/medbot,
 		/obj/item/storage/secure/safe,
-		/obj/machinery/iv_drip,
-		/obj/machinery/disposal,
+		/obj/structure/machinery/iv_drip,
+		/obj/structure/machinery/disposal,
 		/mob/living/simple_animal/cow,
 		/mob/living/simple_animal/hostile/retaliate/goat,
-		/obj/machinery/sleeper,
-		/obj/machinery/smartfridge,
-		/obj/machinery/biogenerator,
-		/obj/machinery/constructable_frame,
-		/obj/machinery/radiocarbon_spectrometer,
-		/obj/item/storage/part_replacer
+		/obj/structure/machinery/sleeper,
+		/obj/structure/machinery/smartfridge,
+		/obj/structure/machinery/biogenerator,
+		/obj/structure/machinery/constructable_frame,
+		/obj/structure/machinery/radiocarbon_spectrometer,
+		/obj/item/storage/part_replacer,
+		/obj/structure/cart/storage/janitorialcart
 	)
 	//The above list a misnomer. This basically means that anything in this list has their own way of handling reagent transfers and should be ignored in afterattack.
 
@@ -247,6 +248,7 @@
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN) //puts a limit on how fast people can eat/drink things
 		self_feed_message(user)
 		reagents.trans_to_mob(user, min(10,amount_per_transfer_from_this), CHEM_INGEST) //A sane limiter. So you don't go drinking 300u all at once.
+		SEND_SIGNAL(src, COMSIG_CONTAINER_DRANK, user)
 		feed_sound(user)
 		return TRUE
 	else
@@ -349,8 +351,8 @@
 
 	var/trans = reagents.trans_to(target, amount_per_transfer_from_this)
 	to_chat(user, SPAN_NOTICE("You transfer [trans] units of the solution to [target]."))
-	on_pour()
+	on_pour(target)
 	return 1
 
-/obj/item/reagent_containers/proc/on_pour()
-	playsound(src, /singleton/sound_category/generic_pour_sound, 25, 1)
+/obj/item/reagent_containers/proc/on_pour(atom/target)
+	playsound(src, SFX_POUR, 25, 1)

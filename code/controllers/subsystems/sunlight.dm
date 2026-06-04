@@ -53,7 +53,6 @@ SUBSYSTEM_DEF(sunlight)
 /atom/movable/sunobj
 	name = "sunlight emitter"
 	desc = DESC_PARENT
-	light_novis = TRUE
 	light_range = 16
 	simulated = FALSE
 	mouse_opacity = FALSE

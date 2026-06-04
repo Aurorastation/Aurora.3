@@ -31,7 +31,7 @@
 	shoes = /obj/item/clothing/shoes/sandals/caligae/socks
 	suit = /obj/item/clothing/accessory/poncho/unathimantle/miner
 	back = /obj/item/storage/backpack/satchel/eng
-	l_ear = /obj/item/device/radio/headset/ship
+	l_ear = /obj/item/radio/headset/ship
 	id = /obj/item/card/id
 	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/storage/wallet/random = 1)
 

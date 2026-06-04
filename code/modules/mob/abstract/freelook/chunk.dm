@@ -19,7 +19,7 @@
 
 /datum/obfuscation/Destroy()
 	obfuscation_images.Cut()
-	. = ..()
+	return ..()
 
 /datum/obfuscation/proc/has_obfuscation(var/turf/T)
 	return !isnull(obfuscation_images[T])
@@ -29,7 +29,7 @@
 	if(!obfuscation)
 		obfuscation = image(icon, T, icon_state)
 		obfuscation.layer = OBFUSCATION_LAYER
-		obfuscation.plane = DEFAULT_PLANE
+		obfuscation.plane = GAME_PLANE
 		if(!obfuscation_underlay)
 			// Creating a new icon of a fairly common icon state, adding some random color to prevent address searching, and hoping being static kills memory locality
 			var/turf/floor = /turf/simulated/floor/tiled
@@ -88,7 +88,7 @@
 
 /datum/chunk/Destroy()
 	visualnet = null
-	. = ..()
+	return ..()
 
 /datum/chunk/proc/add_sources(var/list/sources)
 	var/turf/center = locate(x + 8, y + 8, z)

@@ -97,16 +97,28 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 	var/machine_ownership_status = IPC_OWNERSHIP_COMPANY
 	var/hidden_shell_status = FALSE
 
-		//Some faction information.
-	var/home_system = "Unset"           //System of birth.
-	var/citizenship = "None"            //Current home system.
-	var/faction = "None"                //Antag faction/general associated faction.
-	var/religion = "None"               //Religious association.
-	var/accent = "None"               //Character accent.
+	/// Character citizenship.
+	var/citizenship = "None"
+	/// Antag faction/general associated faction.
+	var/faction = "None"
+	/// Religious association.
+	var/religion = "None"
+	/// Character accent.
+	var/accent = "None"
 
+	/// The character's culture singleton.
 	var/culture
+	/// The character's origin singleton.
 	var/origin
+	/// The character's education singleton.
+	var/education
 
+	/// The character's skills list. JSON.
+	var/list/skills = list()
+	/// The character's current spent skill points. Assoc list of SKILL_CATEGORY define to number of remaining skill points.
+	var/list/skill_points_remaining
+
+	/// The character's psionics. JSON.
 	var/list/psionics = list()
 
 	var/list/char_render_holders		//Should only be a key-value list of north/south/east/west = obj/screen.
@@ -224,8 +236,8 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 			load_and_update_character()
 
 /datum/preferences/Destroy()
-	. = ..()
 	QDEL_LIST(char_render_holders)
+	return ..()
 
 /datum/preferences/proc/load_and_update_character(var/slot)
 	load_character(slot)
@@ -311,7 +323,6 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 		O.appearance = MA
 		O.dir = D
 		O.hud_layerise()
-		O.plane = 11 //THIS IS DUMB. Figure out a way to remove emissive blockers from the mob and their overlays.
 		var/list/screen_locs = preview_screen_locs["[D]"]
 		var/screen_x = screen_locs[1]
 		var/screen_x_minor = screen_locs[2]
@@ -477,7 +488,6 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 	character.set_culture(GET_SINGLETON(text2path(culture)))
 	character.set_origin(GET_SINGLETON(text2path(origin)))
 
-
 	// Destroy/cyborgize organs & setup body markings
 	character.sync_organ_prefs_to_mob(src)
 
@@ -517,6 +527,16 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 			var/singleton/psionic_power/P = GET_SINGLETON(text2path(power))
 			if(istype(P) && (P.ability_flags & PSI_FLAG_CANON))
 				P.apply(character)
+
+	// Load all of the player-set skills first.
+	for(var/skill_type in skills)
+		var/singleton/skill/skill = GET_SINGLETON(skill_type)
+		skill.on_spawn(character, skills[skill.type])
+
+	// Attempt to load all the "required" skills.
+	// Player-set skills won't be overwritten here as LoadComponent will never re-initialize a component that already exists.
+	for(var/singleton/skill/required_skill as anything in SSskills.required_skills)
+		character.LoadComponent(required_skill.component_type, SKILL_LEVEL_UNFAMILIAR)
 
 	if(icon_updates)
 		character.force_update_limbs()
@@ -652,7 +672,6 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 		b_eyes = 0
 
 		species = SPECIES_HUMAN
-		home_system = "Unset"
 		citizenship = "None"
 		faction = "None"
 		religion = "None"

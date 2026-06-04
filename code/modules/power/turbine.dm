@@ -31,7 +31,7 @@
 #define OVERHEAT_THRESHOLD 200 //measured in cycles of 2 seconds
 #define OVERHEAT_MESSAGE "Alert! The gas turbine generator's bearings have overheated. Initiating automatic cooling procedures. Manual restart is required."
 
-/obj/machinery/power/compressor
+/obj/structure/machinery/power/compressor
 	name = "gas turbine compressor"
 	desc = "The compressor stage of a gas turbine generator. A data panel for linking with a to a computer can be accessed with a screwdriver."
 	icon = 'icons/obj/pipeturbine.dmi'
@@ -39,7 +39,7 @@
 	anchored = TRUE
 	density = TRUE
 	atmos_canpass = CANPASS_DENSITY
-	var/obj/machinery/power/turbine/turbine
+	var/obj/structure/machinery/power/turbine/turbine
 	var/datum/gas_mixture/gas_contained
 	var/turf/simulated/inturf
 	var/starter = FALSE
@@ -60,14 +60,14 @@
 	/// This value needs to be zero. It represents seconds since the last overheat event
 	var/last_overheat = 0
 	/// Internal radio, used to alert engineers of turbine trip!
-	var/obj/item/device/radio/radio
+	var/obj/item/radio/radio
 
 	component_types = list(
 		/obj/item/stock_parts/manipulator = 6,
 		/obj/item/stack/cable_coil = 5
 	)
 
-/obj/machinery/power/turbine
+/obj/structure/machinery/power/turbine
 	name = "gas turbine generator"
 	desc = "A gas turbine used for backup power generation."
 	icon = 'icons/obj/pipeturbine.dmi'
@@ -75,8 +75,8 @@
 	anchored = TRUE
 	density = TRUE
 	atmos_canpass = CANPASS_DENSITY
-	/// Linked [/obj/machinery/power/compressor]. Should not be manipulated directly.
-	var/obj/machinery/power/compressor/compressor
+	/// Linked [/obj/structure/machinery/power/compressor]. Should not be manipulated directly.
+	var/obj/structure/machinery/power/compressor/compressor
 	/// Turf to output air to. Should not be manipulated directly
 	var/turf/simulated/outturf
 	/// Last value of power the generator outputted
@@ -90,23 +90,23 @@
 		/obj/item/stack/cable_coil = 5
 	)
 
-/obj/machinery/computer/terminal/turbine_computer
+/obj/structure/machinery/computer/terminal/turbine_computer
 	name = "gas turbine control computer"
 	desc = "A computer to remotely control a gas turbine. Link it to a turbine via use of a multitool."
 	icon_screen = "turbinecomp"
 	icon_keyboard = "tech_key"
-	/// Linked [/obj/machinery/power/compressor]. Should not be manipulated directly.
-	var/obj/machinery/power/compressor/compressor
+	/// Linked [/obj/structure/machinery/power/compressor]. Should not be manipulated directly.
+	var/obj/structure/machinery/power/compressor/compressor
 	/// Linked blast doors, currently unused. Should not be manipulated directly
-	var/list/obj/machinery/door/blast/doors
-	/// ID of the computer. Tied to var/comp_id in [/obj/machinery/power/compressor]
+	var/list/obj/structure/machinery/door/blast/doors
+	/// ID of the computer. Tied to var/comp_id in [/obj/structure/machinery/power/compressor]
 	var/id = 0
 	/// Currently unused. Intended for control of blast doors in a fully functional turbine setup
 	var/door_status = 0
 
 // the inlet stage of the gas turbine electricity generator
 
-/obj/machinery/power/compressor/Initialize(mapload)
+/obj/structure/machinery/power/compressor/Initialize(mapload)
 	. = ..()
 // The inlet of the compressor is the direction it faces
 	gas_contained = new
@@ -128,24 +128,24 @@
 
 // Crucial to make things work!!!!
 // OLD FIX - explanation given down below.
-// /obj/machinery/power/compressor/CanPass(atom/movable/mover, turf/target, height=0)
+// /obj/structure/machinery/power/compressor/CanPass(atom/movable/mover, turf/target, height=0)
 // 		return !density
 
-/obj/machinery/power/compressor/proc/locate_machinery()
+/obj/structure/machinery/power/compressor/proc/locate_machinery()
 	if(turbine)
 		return
 	turbine = locate() in get_step(src, get_dir(inturf, src))
 	if(turbine)
 		turbine.locate_machinery()
 
-/obj/machinery/power/compressor/RefreshParts()
+/obj/structure/machinery/power/compressor/RefreshParts()
 	var/E = 0
 	for(var/obj/item/stock_parts/manipulator/M in component_parts)
 		E += M.rating
 	efficiency = E / 6
 
-/obj/machinery/power/compressor/attackby(obj/item/attacking_item, mob/user, params)
-	if(attacking_item.iswrench())
+/obj/structure/machinery/power/compressor/attackby(obj/item/attacking_item, mob/user, params)
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		turbine = null
 		inturf = get_step(src, dir)
 		locate_machinery()
@@ -165,17 +165,17 @@
 
 	return ..()
 
-/obj/machinery/power/compressor/proc/trigger_overheat()
+/obj/structure/machinery/power/compressor/proc/trigger_overheat()
 	starter = FALSE
 	last_overheat = world.time
 	overheat -= 50
 	radio.autosay(OVERHEAT_MESSAGE, name, "Engineering")
 	playsound(src, 'sound/machines/buzz-two.ogg', 100, FALSE, 40, 30, falloff_distance = 10)
 
-/obj/machinery/power/compressor/proc/time_until_overheat_done()
+/obj/structure/machinery/power/compressor/proc/time_until_overheat_done()
 	return max(last_overheat + OVERHEAT_TIME - world.time, 0)
 
-/obj/machinery/power/compressor/process(seconds_per_tick)
+/obj/structure/machinery/power/compressor/process(seconds_per_tick)
 	if(!turbine)
 		stat |= BROKEN
 	if(!starter)
@@ -200,7 +200,7 @@
 	rpm = max(0, rpm - (rpm*rpm)/(COMPFRICTION*efficiency))
 
 	if(!(stat & NOPOWER))
-		draw_power(2800)
+		DRAW_POWER(src, 2800)
 		if(rpm < 1000)
 			rpmtarget = 1000
 	else
@@ -234,7 +234,7 @@
 #define TURBCURVESHAPE 0.5
 #define POWER_CURVE_MOD 1.7 // Used to form the turbine power generation curve
 
-/obj/machinery/power/turbine/Initialize(mapload)
+/obj/structure/machinery/power/turbine/Initialize(mapload)
 	. = ..()
 // The outlet is pointed at the direction of the turbine component
 	outturf = get_step(src, dir)
@@ -242,20 +242,20 @@
 
 	return INITIALIZE_HINT_LATELOAD
 
-/obj/machinery/power/turbine/RefreshParts()
+/obj/structure/machinery/power/turbine/RefreshParts()
 	var/P = 0
 	for(var/obj/item/stock_parts/capacitor/C in component_parts)
 		P += C.rating
 	productivity = P / 6
 
-/obj/machinery/power/turbine/proc/locate_machinery()
+/obj/structure/machinery/power/turbine/proc/locate_machinery()
 	if(compressor)
 		return
 	compressor = locate() in get_step(src, get_dir(outturf, src))
 	if(compressor)
 		compressor.locate_machinery()
 
-/obj/machinery/power/turbine/process(seconds_per_tick)
+/obj/structure/machinery/power/turbine/process(seconds_per_tick)
 	if(!compressor)
 		stat |= BROKEN
 
@@ -272,7 +272,7 @@
 	else
 		lastgen = ((compressor.rpm / TURBPOWER) ** TURBCURVESHAPE) * TURBPOWER * productivity * POWER_CURVE_MOD
 
-	add_avail(lastgen)
+	ADD_TO_POWERNET(src, lastgen)
 
 	var/newrpm = (compressor.gas_contained.temperature * compressor.gas_contained.total_moles) / 4
 
@@ -292,11 +292,11 @@
 
 	updateDialog()
 
-/obj/machinery/power/turbine/attackby(obj/item/attacking_item, mob/user, params)
+/obj/structure/machinery/power/turbine/attackby(obj/item/attacking_item, mob/user, params)
 	if(default_deconstruction_screwdriver(user, attacking_item))
 		return
 
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		compressor = null
 		outturf = get_step(src, dir)
 		locate_machinery()
@@ -313,20 +313,20 @@
 
 	return ..()
 
-/obj/machinery/power/turbine/attack_hand(mob/user)
+/obj/structure/machinery/power/turbine/attack_hand(mob/user)
 	. = ..()
 	ui_interact(user)
 
-/obj/machinery/power/turbine/ui_state(mob/user)
+/obj/structure/machinery/power/turbine/ui_state(mob/user)
 	return GLOB.default_state
 
-/obj/machinery/power/turbine/ui_interact(mob/user, datum/tgui/ui = null)
+/obj/structure/machinery/power/turbine/ui_interact(mob/user, datum/tgui/ui = null)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "TurbineComputer", name)
 		ui.open()
 
-/obj/machinery/power/turbine/ui_data(mob/user)
+/obj/structure/machinery/power/turbine/ui_data(mob/user)
 	var/list/data = list()
 	data["compressor"] = !isnull(compressor)
 	data["compressor_broken"] = (!compressor || (compressor.stat & BROKEN))
@@ -340,7 +340,7 @@
 		data["temperature"] = compressor.gas_contained.temperature
 	return data
 
-/obj/machinery/power/turbine/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/obj/structure/machinery/power/turbine/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	if(..())
 		return
 
@@ -364,38 +364,38 @@
 /////COMPUTER/////
 /////////////////
 
-/obj/machinery/computer/terminal/turbine_computer/Initialize()
+/obj/structure/machinery/computer/terminal/turbine_computer/Initialize()
 	..()
 	return INITIALIZE_HINT_LATELOAD
 
-/obj/machinery/computer/terminal/turbine_computer/LateInitialize()
+/obj/structure/machinery/computer/terminal/turbine_computer/LateInitialize()
 	. = ..()
-	for(var/obj/machinery/power/compressor/C in SSmachinery.machinery)
+	for(var/obj/structure/machinery/power/compressor/C in SSmachinery.machinery)
 		if(id == C.comp_id)
 			compressor = C
 	doors = list()
-	for(var/obj/machinery/door/blast/P in SSmachinery.machinery)
+	for(var/obj/structure/machinery/door/blast/P in SSmachinery.machinery)
 		if(P.id == id)
 			doors += P
 
-/obj/machinery/computer/terminal/turbine_computer/proc/disconnect()
+/obj/structure/machinery/computer/terminal/turbine_computer/proc/disconnect()
 	//this disconnects the computer from the turbine, good for resets.
 	compressor = null
 
-/obj/machinery/computer/terminal/turbine_computer/attack_hand(mob/user)
+/obj/structure/machinery/computer/terminal/turbine_computer/attack_hand(mob/user)
 	. = ..()
 	ui_interact(user)
 
-/obj/machinery/computer/terminal/turbine_computer/ui_state(mob/user)
+/obj/structure/machinery/computer/terminal/turbine_computer/ui_state(mob/user)
 	return GLOB.default_state
 
-/obj/machinery/computer/terminal/turbine_computer/ui_interact(mob/user, datum/tgui/ui = null)
+/obj/structure/machinery/computer/terminal/turbine_computer/ui_interact(mob/user, datum/tgui/ui = null)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "TurbineComputer", name)
 		ui.open()
 
-/obj/machinery/computer/terminal/turbine_computer/ui_data(mob/user)
+/obj/structure/machinery/computer/terminal/turbine_computer/ui_data(mob/user)
 	var/list/data = list()
 	data["compressor"] = !isnull(compressor)
 	data["compressor_broken"] = (compressor?.stat & BROKEN)
@@ -410,7 +410,7 @@
 		data["bearing_heat"] = clamp((compressor.overheat / OVERHEAT_THRESHOLD) * 100, 0, 100)
 	return data
 
-/obj/machinery/computer/terminal/turbine_computer/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/obj/structure/machinery/computer/terminal/turbine_computer/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	if(..())
 		return
 
@@ -428,7 +428,7 @@
 				compressor.starter = !compressor.starter
 				. = TRUE
 
-/obj/machinery/computer/terminal/turbine_computer/process(seconds_per_tick)
+/obj/structure/machinery/computer/terminal/turbine_computer/process(seconds_per_tick)
 	src.updateDialog()
 	return
 

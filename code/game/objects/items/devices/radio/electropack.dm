@@ -1,4 +1,4 @@
-/obj/item/device/radio/electropack
+/obj/item/radio/electropack
 	name = "electropack"
 	desc = "Dance my monkeys! DANCE!!!"
 	icon_state = "electropack0"
@@ -11,17 +11,17 @@
 
 	var/code = 2
 
-/obj/item/device/radio/electropack/Initialize()
+/obj/item/radio/electropack/Initialize()
 	. = ..()
 	set_frequency(1449)
 
-/obj/item/device/radio/electropack/attack_hand(mob/user as mob)
+/obj/item/radio/electropack/attack_hand(mob/user as mob)
 	if(src == user.back)
 		to_chat(user, SPAN_NOTICE("You need help taking this off!"))
 		return
 	..()
 
-/obj/item/device/radio/electropack/Topic(href, href_list)
+/obj/item/radio/electropack/Topic(href, href_list)
 	//..()
 	if(usr.stat || usr.restrained())
 		return
@@ -59,7 +59,7 @@
 		return
 	return
 
-/obj/item/device/radio/electropack/receive_signal(datum/signal/signal)
+/obj/item/radio/electropack/receive_signal(datum/signal/signal)
 	if(!signal || signal.encryption != code)
 		return
 
@@ -80,14 +80,14 @@
 		master.receive_signal()
 	return
 
-/obj/item/device/radio/electropack/proc/update_move_recently()
+/obj/item/radio/electropack/proc/update_move_recently()
 	var/mob/M = loc
 
 	if(M)
 		M.moved_recently = 0
 
 
-/obj/item/device/radio/electropack/attack_self(mob/user as mob, flag1)
+/obj/item/radio/electropack/attack_self(mob/user as mob, flag1)
 
 	if(!istype(user, /mob/living/carbon/human))
 		return

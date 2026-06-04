@@ -18,7 +18,7 @@
 	icon = 'icons/turf/flooring/carpet.dmi'
 	icon_state = "carpet"
 	initial_flooring = /singleton/flooring/carpet
-	footstep_sound = /singleton/sound_category/carpet_footstep
+	footstep_sound = SFX_FOOTSTEP_CARPET
 
 /turf/simulated/floor/holofloor/carpet/rubber
 	name = "rubber carpet"
@@ -83,7 +83,7 @@
 	initial_flooring = /singleton/flooring/reinforced
 	name = "reinforced holofloor"
 	icon_state = "reinforced"
-	footstep_sound = /singleton/sound_category/tiles_footstep
+	footstep_sound = SFX_FOOTSTEP_TILES
 
 /turf/simulated/floor/holofloor/space
 	icon = 'icons/turf/space.dmi'
@@ -91,7 +91,6 @@
 	icon_state = "0"
 	footstep_sound = null
 	plane = SPACE_PLANE
-	dynamic_lighting = 0
 
 /turf/simulated/floor/holofloor/space/Initialize()
 	. = ..()
@@ -110,7 +109,7 @@
 	base_icon_state = "sand"
 	base_icon = 'icons/misc/beach.dmi'
 	initial_flooring = null
-	footstep_sound = /singleton/sound_category/sand_footstep
+	footstep_sound = SFX_FOOTSTEP_SAND
 
 /turf/simulated/floor/holofloor/beach/sand
 	name = "sand"
@@ -120,13 +119,13 @@
 	icon = 'icons/misc/beach2.dmi'
 	icon_state = "sandwater"
 	base_icon_state = "sandwater"
-	footstep_sound = /singleton/sound_category/water_footstep
+	footstep_sound = SFX_FOOTSTEP_WATER
 
 /turf/simulated/floor/holofloor/beach/water
 	name = "water"
 	icon_state = "seashallow"
 	base_icon_state = "seashallow"
-	footstep_sound = /singleton/sound_category/water_footstep
+	footstep_sound = SFX_FOOTSTEP_WATER
 
 /turf/simulated/floor/holofloor/desert
 	name = "desert sand"
@@ -138,7 +137,7 @@
 	icon = 'icons/turf/flooring/asteroid.dmi'
 	base_icon = 'icons/turf/flooring/asteroid.dmi'
 	initial_flooring = null
-	footstep_sound = /singleton/sound_category/sand_footstep
+	footstep_sound = SFX_FOOTSTEP_SAND
 
 /turf/simulated/floor/holofloor/desert/Initialize()
 	. = ..()
@@ -194,11 +193,11 @@
 
 	if(attacking_item.item_flags & ITEM_FLAG_NO_BLUDGEON) return
 
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		to_chat(user, (SPAN_NOTICE("It's a holowindow, you can't unfasten it!")))
-	else if(attacking_item.iscrowbar() && reinf && state <= 1)
+	else if(attacking_item.tool_behaviour == TOOL_CROWBAR && reinf && state <= 1)
 		to_chat(user, (SPAN_NOTICE("It's a holowindow, you can't pry it!")))
-	else if(attacking_item.iswrench() && !anchored && (!state || !reinf))
+	else if(attacking_item.tool_behaviour == TOOL_WRENCH && !anchored && (!state || !reinf))
 		to_chat(user, (SPAN_NOTICE("It's a holowindow, you can't dismantle it!")))
 	else
 		if(attacking_item.damtype == DAMAGE_BRUTE || attacking_item.damtype == DAMAGE_BURN)
@@ -213,7 +212,7 @@
 	return
 
 /obj/structure/window/reinforced/holowindow/shatter(var/display_message = 1)
-	playsound(src, /singleton/sound_category/glass_break_sound, 70, 1)
+	playsound(src, SFX_BREAK_GLASS, 70, 1)
 	if(display_message)
 		visible_message("[src] fades away as it shatters!")
 	qdel(src)
@@ -222,10 +221,10 @@
 /obj/structure/window/reinforced/holowindow/disappearing/Destroy()
 	return ..()
 
-/obj/machinery/door/window/holowindoor/Destroy()
+/obj/structure/machinery/door/window/holowindoor/Destroy()
 	return ..()
 
-/obj/machinery/door/window/holowindoor/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/door/window/holowindoor/attackby(obj/item/attacking_item, mob/user)
 
 	if (src.operating == 1)
 		return
@@ -235,7 +234,7 @@
 		playsound(src.loc, 'sound/effects/glass_hit.ogg', 75, 1)
 		visible_message(SPAN_DANGER("[src] was hit by [attacking_item]."))
 		if(attacking_item.damtype == DAMAGE_BRUTE || attacking_item.damtype == DAMAGE_BURN)
-			take_damage(aforce)
+			add_damage(aforce)
 		return
 
 	src.add_fingerprint(user)
@@ -253,12 +252,12 @@
 
 	return
 
-/obj/machinery/door/window/holowindoor/shatter(var/display_message = 1)
-	src.density = 0
-	playsound(src, /singleton/sound_category/glass_break_sound, 70, 1)
+/obj/structure/machinery/door/window/holowindoor/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon, display_message = TRUE)
+	density = FALSE
+	playsound(src, SFX_BREAK_GLASS, 70, 1)
 	if(display_message)
-		visible_message("[src] fades away as it shatters!")
-	qdel(src)
+		visible_message(SPAN_WARNING("[src] fades away as it shatters!"))
+	. = ..()
 
 /obj/structure/bed/stool/chair/holochair
 	held_item = null
@@ -267,7 +266,7 @@
 	return ..()
 
 /obj/structure/bed/stool/chair/holochair/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		to_chat(user, (SPAN_NOTICE("It's a holochair, you can't dismantle it!")))
 	return
 
@@ -351,8 +350,8 @@
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	can_embed = 0
 	drop_sound = 'sound/items/drop/sword.ogg'
-	pickup_sound = /singleton/sound_category/sword_pickup_sound
-	equip_sound = /singleton/sound_category/sword_equip_sound
+	pickup_sound = SFX_PICKUP_SWORD
+	equip_sound = SFX_EQUIP_SWORD
 
 /obj/item/holo/practicesword/holorapier
 	name = "fencing rapier"
@@ -429,7 +428,7 @@
 		return ..()
 
 
-/obj/machinery/readybutton
+/obj/structure/machinery/readybutton
 	name = "Ready Declaration Device"
 	desc = "This device is used to declare ready. If all devices in an area are ready, the event will begin!"
 	icon = 'icons/obj/monitors.dmi'
@@ -441,14 +440,14 @@
 	anchored = 1.0
 	use_power = POWER_USE_OFF // reason is because the holodeck already takes power so this can be powered as a result.
 
-/obj/machinery/readybutton/attack_ai(mob/user as mob)
+/obj/structure/machinery/readybutton/attack_ai(mob/user as mob)
 	to_chat(user, "The AI is not to interact with these devices!")
 	return
 
-/obj/machinery/readybutton/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/readybutton/attackby(obj/item/attacking_item, mob/user)
 	to_chat(user, "The device is a solid button, there's nothing you can do with it!")
 
-/obj/machinery/readybutton/attack_hand(mob/user as mob)
+/obj/structure/machinery/readybutton/attack_hand(mob/user as mob)
 	. = ..()
 
 	if(user.stat || stat & (NOPOWER|BROKEN))
@@ -472,7 +471,7 @@
 
 	var/numbuttons = 0
 	var/numready = 0
-	for(var/obj/machinery/readybutton/button in currentarea)
+	for(var/obj/structure/machinery/readybutton/button in currentarea)
 		numbuttons++
 		if (button.ready)
 			numready++
@@ -480,13 +479,13 @@
 	if(numbuttons == numready)
 		begin_event()
 
-/obj/machinery/readybutton/update_icon()
+/obj/structure/machinery/readybutton/update_icon()
 	if(ready)
 		icon_state = "auth_on"
 	else
 		icon_state = "auth_off"
 
-/obj/machinery/readybutton/proc/begin_event()
+/obj/structure/machinery/readybutton/proc/begin_event()
 
 	eventstarted = 1
 
@@ -509,6 +508,19 @@
 	meat_type = null
 	light_range = 2
 	smart_melee = TRUE
+	blood_overlay_icon = null
+	blood_type = null
+
+/mob/living/simple_animal/hostile/carp/holodeck/Initialize()
+	. = ..()
+	atom_flags |= ATOM_FLAG_NO_BLOOD
+
+/mob/living/simple_animal/hostile/carp/holodeck/handle_bleeding_timer(var/damage_inflicted)
+	return
+/mob/living/simple_animal/hostile/carp/holodeck/handle_blood(var/force_reset = FALSE)
+	return
+/mob/living/simple_animal/hostile/carp/holodeck/bullet_impact_visuals(obj/projectile/impacting_projectile, def_zone, damage, blocked)
+	return
 
 /mob/living/simple_animal/hostile/carp/holodeck/proc/set_safety(var/safe)
 	if (safe)
@@ -614,3 +626,14 @@
 /mob/living/simple_animal/cat/kitten/holodeck/death()
 	..()
 	derez()
+
+//Holo xenofauna gun
+
+/obj/item/gun/energy/mousegun/xenofauna/holo
+	projectile_type = /obj/projectile/beam/mousegun/xenofauna_holo
+	name = "holo xenofauna gun"
+	desc = "The NT \"Arodentia\" Pesti-Shock is a highly sophisticated and probably safe beamgun designed for rapid pest-control. This one is holographic and harmless to actual lifeforms."
+	max_shots = 100
+	recharge_time = 1
+	self_recharge = TRUE
+	recharge_multiplier = 5

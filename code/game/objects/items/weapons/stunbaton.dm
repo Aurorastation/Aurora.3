@@ -89,7 +89,7 @@
 		else
 			to_chat(user, SPAN_NOTICE("[src] already has a cell."))
 
-	else if(attacking_item.isscrewdriver())
+	else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(bcell)
 			bcell.update_icon()
 			bcell.forceMove(get_turf(src))
@@ -105,7 +105,7 @@
 	if(bcell && bcell.charge > hitcost)
 		status = !status
 		to_chat(user, SPAN_NOTICE("[src] is now [status ? "on" : "off"]."))
-		playsound(loc, /singleton/sound_category/spark_sound, 75, 1, -1)
+		playsound(loc, SFX_SPARKS, 75, 1, -1)
 		update_icon()
 	else
 		status = 0

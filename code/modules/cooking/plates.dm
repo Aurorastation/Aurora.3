@@ -32,7 +32,7 @@ Plates that can hold your cooking stuff
 		var/obj/item/material/kitchen/utensil/U = attacking_item
 		if(istype(attacking_item,/obj/item/material/kitchen/utensil/fork))
 			to_chat(user, SPAN_NOTICE("You uselessly pass \the [U] through \the [src]'s contents."))
-			playsound(user.loc, /singleton/sound_category/generic_pour_sound, 50, 1)
+			playsound(user.loc, SFX_POUR, 50, 1)
 			return
 		else
 			if(U.scoop_food)
@@ -84,7 +84,7 @@ Plates that can hold your cooking stuff
 	return
 
 /obj/item/reagent_containers/bowl/on_rag_wipe(obj/item/reagent_containers/glass/rag/R)
-	. = ..()
+	clean_blood()
 	if(grease)
 		grease = FALSE
 		update_icon()
@@ -215,7 +215,7 @@ Plates that can hold your cooking stuff
 			"[SPAN_BOLD("[user]")] pours onto \the [target] from \the [src].",
 			SPAN_NOTICE("You transfer [trans] units of the solution.")
 		)
-		playsound(get_turf(user), /singleton/sound_category/generic_pour_sound, 10, TRUE)
+		playsound(get_turf(user), SFX_POUR, 10, TRUE)
 	return TRUE
 
 /obj/item/reagent_containers/bowl/gravy_boat/on_reagent_change()

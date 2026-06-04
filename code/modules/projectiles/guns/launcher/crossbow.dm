@@ -11,23 +11,10 @@
 	sharp = TRUE
 	edge = FALSE
 	drop_sound = 'sound/items/drop/sword.ogg'
-	pickup_sound = /singleton/sound_category/sword_pickup_sound
+	pickup_sound = SFX_PICKUP_SWORD
 
 /obj/item/arrow/proc/removed() //Helper for metal rods falling apart.
 	return
-
-/obj/item/spike
-	name = "alloy spike"
-	desc = "It's about a foot of weird silver metal with a wicked point."
-	sharp = TRUE
-	edge = FALSE
-	throwforce = 5
-	w_class = WEIGHT_CLASS_SMALL
-	icon = 'icons/obj/weapons.dmi'
-	icon_state = "metal-rod"
-	item_state = "bolt"
-	drop_sound = 'sound/items/drop/sword.ogg'
-	pickup_sound = /singleton/sound_category/sword_pickup_sound
 
 /obj/item/arrow/quill
 	name = "alien quill"
@@ -169,7 +156,7 @@
 		else
 			to_chat(user, SPAN_NOTICE("\The [src] already has a cell installed."))
 
-	else if(attacking_item.isscrewdriver())
+	else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(cell)
 			var/obj/item/C = cell
 			C.forceMove(get_turf(user))
@@ -244,7 +231,7 @@
 			else
 				to_chat(user, SPAN_NOTICE("You need at least three rods to complete this task."))
 			return
-	else if(attacking_item.iswelder())
+	else if(attacking_item.tool_behaviour == TOOL_WELDER)
 		if(buildstate == 1)
 			var/obj/item/weldingtool/T = attacking_item
 			if(T.use(0,user))
@@ -254,7 +241,7 @@
 			buildstate++
 			update_icon()
 		return
-	else if(attacking_item.iscoil())
+	else if(attacking_item.tool_behaviour == TOOL_CABLECOIL)
 		var/obj/item/stack/cable_coil/C = attacking_item
 		if(buildstate == 2)
 			if(C.use(5))
@@ -282,7 +269,7 @@
 			else
 				to_chat(user, SPAN_NOTICE("You need at least three plastic sheets to complete this task."))
 			return
-	else if(attacking_item.isscrewdriver())
+	else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(buildstate == 5)
 			to_chat(user, SPAN_NOTICE("You secure the crossbow's various parts."))
 			new /obj/item/gun/launcher/crossbow(get_turf(src))

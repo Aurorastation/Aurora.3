@@ -17,7 +17,7 @@
 		/obj/item/clothing/suit/storage/toggle/leather_jacket/military/tan,
 		/obj/item/clothing/suit/storage/toggle/highvis,
 		/obj/item/clothing/suit/storage/toggle/highvis,
-		/obj/item/clothing/suit/storage/toggle/highvis_alt,
+		/obj/item/clothing/suit/storage/toggle/highvis/alt,
 		/obj/item/clothing/suit/storage/toggle/track,
 		/obj/item/clothing/suit/storage/hazardvest,
 		/obj/item/clothing/suit/storage/hazardvest/green,

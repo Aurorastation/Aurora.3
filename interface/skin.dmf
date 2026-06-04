@@ -664,7 +664,7 @@ macro "hotkeymode"
 macro "borgmacro"
 	elem
 		name = "TAB"
-		command = ".winset \"mainwindow.macro=borghotkeymode hotkey_toggle.is-checked=true mapwindow.map.focus=true""
+		command = ".winset \"mainwindow.macro=borghotkeymode hotkey_toggle.is-checked=true mapwindow.map.focus=true \""
 	elem
 		name = "CENTER+REP"
 		command = ".center"
@@ -1281,6 +1281,7 @@ window "output_browser"
 		size = 640x456
 		anchor1 = 0,0
 		anchor2 = 100,100
+		background-color = none
 		saved-params = ""
 
 window "preferences_window"

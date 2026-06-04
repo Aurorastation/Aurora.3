@@ -1,6 +1,6 @@
 /obj/random/smokable
-	name = "random smokable"
-	desc = "This is a random smoking item."
+	name = "random smokable/chewable"
+	desc = "This is a random smoking/chewing item."
 	icon_state = "cigarettes"
 	problist = list(
 		/obj/item/storage/box/fancy/cigarettes = 30,
@@ -14,7 +14,24 @@
 		/obj/item/storage/box/fancy/cigarettes/dpra = 2,
 		/obj/item/storage/box/fancy/cigarettes/nka = 2,
 		/obj/item/storage/box/fancy/cigarettes/federation = 2,
-		/obj/item/storage/box/fancy/cigarettes/dyn = 2
+		/obj/item/storage/box/fancy/cigarettes/dyn = 2,
+		/obj/item/storage/box/fancy/cigarettes/oracle = 3,
+		/obj/item/storage/box/fancy/cigarettes/koko = 1,
+		/obj/item/storage/chewables/rollable = 3,
+		/obj/item/storage/chewables/rollable/unathi = 1,
+		/obj/item/storage/chewables/rollable/fine = 1,
+		/obj/item/storage/chewables/rollable/nico = 1,
+		/obj/item/storage/chewables/rollable/oracle = 2,
+		/obj/item/storage/chewables/rollable/vedamor = 1,
+		/obj/item/storage/chewables/tobacco/bad = 4,
+		/obj/item/storage/chewables/tobacco = 3,
+		/obj/item/storage/chewables/tobacco/fine = 2,
+		/obj/item/storage/chewables/tobacco/federation = 1,
+		/obj/item/storage/chewables/tobacco/dyn = 1,
+		/obj/item/storage/chewables/tobacco/koko = 1,
+		/obj/item/storage/chewables/oracle = 3,
+		/obj/item/storage/box/fancy/chewables/tobacco/nico = 3,
+		/obj/item/storage/chewables/solar_salve = 1
 	)
 
 /obj/random/action_figure
@@ -123,7 +140,9 @@
 		/obj/item/toy/balloon/bat = 1,
 		/obj/item/toy/balloon/ghost = 1,
 		/obj/item/toy/balloon/xmastree = 1,
-		/obj/item/toy/balloon/candycane = 1
+		/obj/item/toy/balloon/candycane = 1,
+		/obj/item/toy/balloon/heart/red = 2,
+		/obj/item/toy/balloon/heart/pink = 2
 	)
 
 /obj/random/desktoy
@@ -142,15 +161,15 @@
 	desc = "This is a random lava lamp."
 	icon_state = "lavalamp"
 	spawnlist = list(
-		/obj/item/device/flashlight/lamp/lava,
-		/obj/item/device/flashlight/lamp/lava/red,
-		/obj/item/device/flashlight/lamp/lava/orange,
-		/obj/item/device/flashlight/lamp/lava/yellow,
-		/obj/item/device/flashlight/lamp/lava/green,
-		/obj/item/device/flashlight/lamp/lava/cyan,
-		/obj/item/device/flashlight/lamp/lava/blue,
-		/obj/item/device/flashlight/lamp/lava/purple,
-		/obj/item/device/flashlight/lamp/lava/pink
+		/obj/item/flashlight/lamp/lava,
+		/obj/item/flashlight/lamp/lava/red,
+		/obj/item/flashlight/lamp/lava/orange,
+		/obj/item/flashlight/lamp/lava/yellow,
+		/obj/item/flashlight/lamp/lava/green,
+		/obj/item/flashlight/lamp/lava/cyan,
+		/obj/item/flashlight/lamp/lava/blue,
+		/obj/item/flashlight/lamp/lava/purple,
+		/obj/item/flashlight/lamp/lava/pink
 	)
 
 /obj/random/glowstick
@@ -158,11 +177,11 @@
 	desc = "This is a random glowstick."
 	icon_state = "glowstick"
 	spawnlist = list(
-		/obj/item/device/flashlight/flare/glowstick,
-		/obj/item/device/flashlight/flare/glowstick/red,
-		/obj/item/device/flashlight/flare/glowstick/blue,
-		/obj/item/device/flashlight/flare/glowstick/orange,
-		/obj/item/device/flashlight/flare/glowstick/yellow
+		/obj/item/flashlight/flare/glowstick,
+		/obj/item/flashlight/flare/glowstick/red,
+		/obj/item/flashlight/flare/glowstick/blue,
+		/obj/item/flashlight/flare/glowstick/orange,
+		/obj/item/flashlight/flare/glowstick/yellow
 	)
 
 /obj/random/arcade
@@ -203,13 +222,13 @@
 		/obj/item/clothing/mask/gas/mime = 11,
 		/obj/item/clothing/shoes/slippers/carp = 9,
 		/obj/item/gun/energy/wand/toy = 5,
-		/obj/item/device/binoculars = 11,
-		/obj/item/device/megaphone = 11,
+		/obj/item/binoculars = 11,
+		/obj/item/megaphone = 11,
 		/obj/item/eightball = 11,
 		/obj/item/eightball/haunted = 1,
 		/obj/item/eightball/broken = 1,
 		/obj/item/spirit_board = 5,
-		/obj/item/device/laser_pointer = 1,
+		/obj/item/laser_pointer = 1,
 		/obj/item/clothing/accessory/badge/press/plastic = 2,
 		/obj/item/storage/box/partypopper = 11
 	)
@@ -222,7 +241,7 @@
 		/obj/item/clothing/under/syndicate/tacticool = 7,
 		/obj/item/toy/sword = 22,
 		/obj/item/gun/projectile/revolver/capgun = 11,
-		/obj/item/gun/bang = 22,
+		/obj/item/gun/bang/deagle = 22,
 		/obj/item/toy/crossbow = 11,
 		/obj/random/action_figure = 11,
 		/obj/item/toy/cultsword = 7,
@@ -233,8 +252,8 @@
 		/obj/item/pen/invisible = 10,
 		/obj/item/grenade/fake = 7,
 		/obj/item/gun/energy/wand/toy = 7,
-		/obj/item/device/binoculars = 11,
-		/obj/item/device/megaphone = 11,
+		/obj/item/binoculars = 11,
+		/obj/item/megaphone = 11,
 		/obj/item/eightball = 11,
 		/obj/item/eightball/haunted = 5,
 		/obj/item/spirit_board = 5,
@@ -336,6 +355,7 @@
 		/obj/item/trash/meatsnack = 0.5,
 		/obj/item/trash/maps = 0.5,
 		/obj/item/trash/tuna = 0.5,
+		/obj/item/trash/algaechips = 0.5,
 		/obj/effect/decal/cleanable/ash = 1.5,
 		/obj/effect/decal/cleanable/dirt = 2,
 		/obj/effect/decal/cleanable/flour = 1,
@@ -363,7 +383,7 @@
 		/obj/item/lipstick/random = 0.25,
 		/obj/item/reagent_containers/glass/beaker/vial/random = 0.1,
 		/obj/item/towel/random = 0.1,
-		/obj/item/device/flashlight/flare/glowstick/random = 0.25,
+		/obj/item/flashlight/flare/glowstick/random = 0.25,
 		/obj/item/stack/cable_coil/random/ = 0.1,
 		/obj/item/bananapeel = 0.1, //honk,
 		/obj/item/key = 0.1,
@@ -388,24 +408,24 @@
 	var/depleted = FALSE
 	var/scan_id = TRUE // Should the spawned vendor check IDs
 	problist = list(
-		/obj/machinery/vending/boozeomat = 1,
-		/obj/machinery/vending/coffee = 1,
-		/obj/machinery/vending/snack = 1,
-		/obj/machinery/vending/cola = 1,
-		/obj/machinery/vending/cigarette = 1,
-		/obj/machinery/vending/medical = 1.2,
-		/obj/machinery/vending/phoronresearch = 0.7,
-		/obj/machinery/vending/security = 0.3,
-		/obj/machinery/vending/hydronutrients = 1,
-		/obj/machinery/vending/hydroseeds = 1,
-		/obj/machinery/vending/dinnerware = 1,
-		/obj/machinery/vending/sovietsoda = 2,
-		/obj/machinery/vending/tool = 1,
-		/obj/machinery/vending/engivend = 0.6,
-		/obj/machinery/vending/engineering = 1,
-		/obj/machinery/vending/robotics = 1,
-		/obj/machinery/vending/tacticool = 0.2,
-		/obj/machinery/vending/tacticool/ert = 0.1
+		/obj/structure/machinery/vending/boozeomat = 1,
+		/obj/structure/machinery/vending/coffee = 1,
+		/obj/structure/machinery/vending/snack = 1,
+		/obj/structure/machinery/vending/cola = 1,
+		/obj/structure/machinery/vending/cigarette = 1,
+		/obj/structure/machinery/vending/medical = 1.2,
+		/obj/structure/machinery/vending/phoronresearch = 0.7,
+		/obj/structure/machinery/vending/security = 0.3,
+		/obj/structure/machinery/vending/hydronutrients = 1,
+		/obj/structure/machinery/vending/hydroseeds = 1,
+		/obj/structure/machinery/vending/dinnerware = 1,
+		/obj/structure/machinery/vending/sovietsoda = 2,
+		/obj/structure/machinery/vending/tool = 1,
+		/obj/structure/machinery/vending/engivend = 0.6,
+		/obj/structure/machinery/vending/engineering = 1,
+		/obj/structure/machinery/vending/robotics = 1,
+		/obj/structure/machinery/vending/tacticool = 0.2,
+		/obj/structure/machinery/vending/tacticool/ert = 0.1
 	)
 	has_postspawn = TRUE
 
@@ -413,7 +433,7 @@
 	depleted = _depleted
 	. = ..()
 
-/obj/random/vendor/post_spawn(obj/machinery/vending/V)
+/obj/random/vendor/post_spawn(obj/structure/machinery/vending/V)
 	if (!depleted)
 		return
 
@@ -438,14 +458,11 @@
 /obj/random/smalltank
 	name = "random small tank"
 	icon_state = "airtank"
-
-/obj/random/smalltank/item_to_spawn()
-	if (prob(40))
-		return /obj/item/tank/emergency_oxygen
-	else if (prob(60))
-		return /obj/item/tank/emergency_oxygen/engi
-	else
-		return /obj/item/tank/emergency_oxygen/double
+	problist = list(
+		/obj/item/tank/emergency_oxygen = 3,
+		/obj/item/tank/emergency_oxygen/engi = 2,
+		/obj/item/tank/emergency_oxygen/double = 1,
+	)
 
 /obj/random/pottedplant
 	name = "random potted plant, big"
@@ -511,7 +528,7 @@
 
 /obj/random/condiment
 	name = "random condiments and sauces"
-	desc = "Contains random condiments for use in the kitchen."
+	desc = "Contains random condiments for use in the galley."
 	icon_state = "condiment"
 	spawn_nothing_percentage = 10
 	problist = list(
@@ -531,8 +548,8 @@
 	)
 
 /obj/random/kitchen_staples
-	name = "random kitchen staples"
-	desc = "Contains random ingredients that are handy in the kitchen"
+	name = "random galley staples"
+	desc = "Contains random ingredients that are handy in the galley"
 	icon_state = "ingredient_bag"
 	spawn_nothing_percentage = 20
 	problist = list(
@@ -540,29 +557,31 @@
 		/obj/item/reagent_containers/food/condiment/batter = 1,
 		/obj/item/reagent_containers/food/condiment/syrup_simple = 1,
 		/obj/item/reagent_containers/food/condiment/vanilla = 1,
-		/obj/item/reagent_containers/food/condiment/rice = 1,
 		/obj/item/storage/box/fancy/food/sliced_bread = 1,
-		/obj/item/reagent_containers/food/condiment/cocoa = 1
+		/obj/item/reagent_containers/food/condiment/cocoa = 1,
+		/obj/item/reagent_containers/food/condiment/cream_cheese = 1
 	)
 
 /obj/random/maintenance_junk_or_loot
 	name = "random maintenance junk or loot"
 	desc = "Spawns any of: junk, loot, trash, trash pile, locker with junk or loot, (or other things)."
 	icon_state = "maint_junk_loot"
-	spawn_nothing_percentage = 25
+	spawn_nothing_percentage = 45
 	has_postspawn = TRUE
 	problist = list(
 		// spawn just one thing:
-		/obj/random/junk = 3,
+		/obj/random/junk = 2,
 		/obj/random/dirt_75 = 1,
-		/obj/random/loot = 1,
-		/obj/structure/trash_pile = 1,
-		/obj/random/tool = 0.2,
-		/obj/random/tech_supply = 0.1,
-		/obj/structure/girder = 0.1,
-		/obj/random/canister/empty = 0.1,
-		/obj/random/canister/filled = 0.05,
-		/obj/structure/closet/crate/loot = 0.01,
+		/obj/random/loot = 1.2,
+		/obj/structure/trash_pile = 1.1,
+		/obj/random/tool = 0.5,
+		/obj/random/tech_supply = 0.2,
+		/obj/structure/girder = 0.2,
+		/obj/random/canister/empty = 0.2,
+		/obj/structure/reagent_dispensers/fueltank = 0.1,
+		/obj/random/canister/filled/restricted = 0.1,
+		/obj/structure/closet/crate/loot = 0.05,
+		/obj/random/contraband = 0.2,
 
 		// spawn a container and maybe fill it with more junk:
 		/obj/structure/table/rack = 1,
@@ -573,10 +592,11 @@
 	)
 
 	var/list/more_junk_problist = list(
-		/obj/random/junk = 2,
-		/obj/random/loot = 1,
+		/obj/random/junk = 1,
+		/obj/random/loot = 1.2,
 		/obj/random/tech_supply = 0.2,
 		/obj/random/tool = 0.2,
+		/obj/random/contraband = 0.2,
 	)
 
 /obj/random/maintenance_junk_or_loot/post_spawn(var/obj/spawned)
@@ -590,6 +610,11 @@
 			for(var/i in 1 to i_max)
 				var/obj/more_junk = pickweight(more_junk_problist)
 				new more_junk(spawned.loc)
+	else if(prob(10) && !spawned.density)
+		var/i_max = rand(1, 2)
+		for(var/i in 1 to i_max)
+			var/obj/more_junk = pickweight(more_junk_problist)
+			new more_junk(spawned.loc)
 
 /obj/random/yarn
 	name = "random yarn"
@@ -640,4 +665,13 @@
 		/obj/random/plushie = 1,
 		/obj/random/med_stack = 1,
 		/obj/item/reagent_containers/glass/bottle/ammonia = 1,
+	)
+
+/obj/random/holoturret
+	name = "random holoturret"
+	desc = "This is a random turret item. It could be active or simply a statue."
+	icon_state = "holoturret"
+	problist = list(
+		/obj/structure/machinery/porta_turret/hologram = 1,
+		/obj/structure/unathi_statue/warrior/right = 1,
 	)

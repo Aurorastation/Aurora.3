@@ -17,7 +17,7 @@
 		alpha = 125
 
 /obj/effect/overlay/burnt_wall/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iswelder())
+	if(attacking_item.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/WT = attacking_item
 		if(!WT.isOn())
 			return TRUE
@@ -35,8 +35,8 @@
 	return ..()
 
 /obj/effect/overlay/thermite
-	name = "burning thermite"
-	desc = "It's flaming ball of thermite!"
+	name = "blazing heat"
+	desc = "It's blazing wall of heat!"
 	icon = 'icons/effects/fire.dmi'
 	icon_state = "2"
 	anchored = TRUE

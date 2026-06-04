@@ -336,13 +336,13 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 	. += "For: [details["Customer"]]"
 
 /obj/item/reagent_containers/food/drinks/takeaway_cup_idris/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.ispen() && !use_check_and_message(user))
+	if(attacking_item.tool_behaviour == TOOL_PEN && !use_check_and_message(user))
 		var/choice = tgui_input_list(user, "Which detail do you want to edit?", "Detail Editor", list("Customer", "Order"))
 		switch(choice)
 			if("Customer")
-				details["Customer"] = sanitize(tgui_input_text(user, "What is the customer's name?", "Enter Customer Name"))
+				details["Customer"] = tgui_input_text(user, "What is the customer's name?", "Enter Customer Name")
 			if("Order")
-				details["Order"] = sanitize(tgui_input_text(user, "What is the ordered drink?", "Enter Ordered Drink"))
+				details["Order"] = tgui_input_text(user, "What is the ordered drink?", "Enter Ordered Drink")
 		return
 	return ..()
 
@@ -368,6 +368,9 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 	var/twisted = FALSE
 	var/obj/item/shaker_top/top
 	var/obj/item/reagent_containers/food/drinks/shaker_cup/cap
+	var/drink_quality = null
+	var/drink_moodlet_value = null
+	var/moodlet_value_per_bartending_rank = 5
 
 /obj/item/reagent_containers/food/drinks/shaker/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -421,7 +424,7 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 			user.put_in_inactive_hand(cap)
 			atom_flags |= ATOM_FLAG_OPEN_CONTAINER
 			cap = null
-			playsound(src.loc, /singleton/sound_category/shaker_lid_off, 50, 1)
+			playsound(src.loc, SFX_SHAKER_LID_OFF, 50, 1)
 			update_icon()
 			return
 		if(top)
@@ -431,7 +434,17 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 		return
 	if(last_shake <= world.time - 10) //Spam limiter.
 		last_shake = world.time
-		playsound(src.loc, /singleton/sound_category/shaker_shaking, 50, 1)
+		playsound(src.loc, SFX_SHAKER_SHAKING, 50, 1)
+
+		/**
+					------------	Bartender Skill Handling	------------
+		 */
+		var/datum/component/skill/bartending/bar_skill = user.GetComponent(BARTENDING_SKILL_COMPONENT)
+		if (bar_skill)
+			drink_moodlet_value = moodlet_value_per_bartending_rank * bar_skill.skill_level
+			if (isnull(drink_quality))
+				drink_quality = rand(1, 20) + 3 * bar_skill.skill_level
+
 	src.add_fingerprint(user)
 	return
 
@@ -451,7 +464,7 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 		user.drop_from_inventory(attacking_item, src)
 		atom_flags ^= ATOM_FLAG_OPEN_CONTAINER
 		cap = attacking_item
-		playsound(src.loc, /singleton/sound_category/shaker_lid_off, 50, 1)
+		playsound(src.loc, SFX_SHAKER_LID_OFF, 50, 1)
 		update_icon()
 		return TRUE
 	if(istype(attacking_item, /obj/item/shaker_top))
@@ -462,12 +475,20 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 		amount_per_transfer_from_this = 10
 		user.drop_from_inventory(attacking_item, src)
 		top = attacking_item
-		playsound(src.loc, /singleton/sound_category/shaker_lid_off, 50, 1)
+		playsound(src.loc, SFX_SHAKER_LID_OFF, 50, 1)
 		update_icon()
 		return TRUE
 	return ..()
 
-/obj/item/reagent_containers/food/drinks/shaker/on_pour()
+/obj/item/reagent_containers/food/drinks/shaker/on_pour(atom/target)
+	if (!isnull(drink_moodlet_value))
+		target.LoadComponent(/datum/component/drink_moodlet_provider, drink_moodlet_value, FALSE, drink_quality)
+
+	// Bartender has finished pouring a drink, prepare the shaker to make the next one.
+	if (!reagents.total_volume)
+		drink_quality = null
+		drink_moodlet_value = null
+
 	if(!top)
 		playsound(src, 'sound/effects/pour_big.ogg', 50, 1)
 		return
@@ -500,7 +521,7 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 	amount_per_transfer_from_this = 120
 	usr.put_in_hands(top)
 	top = null
-	playsound(src.loc, /singleton/sound_category/shaker_lid_off, 50, 1)
+	playsound(src.loc, SFX_SHAKER_LID_OFF, 50, 1)
 	update_icon()
 
 /obj/item/shaker_top

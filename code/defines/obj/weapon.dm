@@ -258,12 +258,12 @@
 	icon_state = "forearm_crutch"
 	item_state = "forearm_crutch"
 
-/obj/item/cane/shillelagh
-	name = "adhomian shillelagh"
-	desc = "A sturdy walking stick made from adhomian wood."
+/obj/item/cane/maikahar
+	name = "adhomian maikahar"
+	desc = "A sturdy walking stick made from Adhomian wood. The name translates roughly to 'Stick of earth walk'."
 	icon = 'icons/obj/tajara_items.dmi'
-	icon_state = "shillelagh"
-	item_state = "shillelagh"
+	icon_state = "maikahar"
+	item_state = "maikahar"
 	contained_sprite = TRUE
 
 /obj/item/cane/telecane
@@ -315,8 +315,8 @@
 	desc = "A white cane, used by the visually impaired."
 	icon = 'icons/obj/item/whitecane.dmi'
 	icon_state = "whitecane"
-	drop_sound =  /singleton/sound_category/generic_drop_sound
-	pickup_sound =  /singleton/sound_category/generic_pickup_sound
+	drop_sound = SFX_DROP
+	pickup_sound = SFX_PICKUP
 	extended_icon_state = "whitecane_extended"
 	extended_item_state = "whitecane"
 	retracted_icon_state = "whitecane"
@@ -358,7 +358,7 @@
 	var/uses = 4.0
 	var/selfdestruct = 0.0
 	var/traitor_frequency = 0.0
-	var/obj/item/device/radio/origradio = null
+	var/obj/item/radio/origradio = null
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	throwforce = 5
@@ -426,7 +426,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 50, MATERIAL_GLASS = 50)
 
 /obj/item/module/power_control/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.ismultitool())
+	if(attacking_item.tool_behaviour == TOOL_MULTITOOL)
 		var/obj/item/circuitboard/ghettosmes/new_circuit = new /obj/item/circuitboard/ghettosmes(get_turf(src))
 		to_chat(user, SPAN_NOTICE("You modify \the [src] into a makeshift PSU circuitboard."))
 		qdel(src)
@@ -448,9 +448,9 @@
 	icon_state = "power_mod"
 	desc = "Charging circuits for power cells."
 
-/obj/item/device/camera_bug
+/obj/item/camera_bug
 	name = "camera bug"
-	icon = 'icons/obj/item/device/flash.dmi'
+	icon = 'icons/obj/item/flash.dmi'
 	icon_state = "flash"
 	item_state = "flash"
 	w_class = WEIGHT_CLASS_TINY
@@ -459,7 +459,7 @@
 
 /obj/item/camera_bug/attack_self(mob/user as mob)
 	var/list/cameras = new/list()
-	for (var/obj/machinery/camera/C in GLOB.cameranet.cameras)
+	for (var/obj/structure/machinery/camera/C in GLOB.cameranet.cameras)
 		if (C.bugged && C.status)
 			cameras.Add(C)
 	if (length(cameras) == 0)
@@ -468,13 +468,13 @@
 
 	var/list/friendly_cameras = new/list()
 
-	for (var/obj/machinery/camera/C in cameras)
+	for (var/obj/structure/machinery/camera/C in cameras)
 		friendly_cameras.Add(C.c_tag)
 
 	var/target = tgui_input_list(user, "Select the camera to observe", "Camera Bug", friendly_cameras)
 	if (!target)
 		return
-	for (var/obj/machinery/camera/C in cameras)
+	for (var/obj/structure/machinery/camera/C in cameras)
 		if (C.c_tag == target)
 			target = C
 			break
@@ -488,7 +488,7 @@
 	icon = 'icons/obj/power.dmi'
 	icon_state = "wire1"
 
-	var/obj/machinery/machine
+	var/obj/structure/machinery/machine
 
 /obj/item/neuralbroke
 	name = "fried neural socket"
@@ -497,8 +497,8 @@
 	icon_state = "neuralbroke"
 
 /obj/item/neuralbroke/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.isscrewdriver())
-		new /obj/item/device/encryptionkey/hivenet(user.loc)
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
+		new /obj/item/encryptionkey/hivenet(user.loc)
 		attacking_item.play_tool_sound(get_turf(src), 50)
 		to_chat(user, "You bypass the fried security chip and extract the encryption key.")
 		to_chat(user, "The fried neural socket crumbles away like dust.")
@@ -522,6 +522,20 @@
 	display_contents_with_number = TRUE
 	max_w_class = WEIGHT_CLASS_NORMAL
 	max_storage_space = 100
+
+/obj/item/storage/part_replacer/full
+	starts_with = list(
+		/obj/item/stock_parts/capacitor/adv = 5,
+		/obj/item/stock_parts/capacitor/super = 5,
+		/obj/item/stock_parts/manipulator/nano = 5,
+		/obj/item/stock_parts/manipulator/pico = 5,
+		/obj/item/stock_parts/scanning_module/adv = 5,
+		/obj/item/stock_parts/scanning_module/phasic = 5,
+		/obj/item/stock_parts/matter_bin/adv = 5,
+		/obj/item/stock_parts/matter_bin/super = 5,
+		/obj/item/stock_parts/micro_laser/high = 5,
+		/obj/item/stock_parts/micro_laser/ultra = 5,
+	)
 
 /obj/item/ectoplasm
 	name = "ectoplasm"

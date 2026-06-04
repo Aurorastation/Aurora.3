@@ -18,7 +18,7 @@
 	pixel_x = 7;
 	pixel_y = 8
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/wood/birch{
@@ -46,7 +46,7 @@
 	},
 /area/ouerea_village)
 "ds" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/exoplanet/grass{
 	temperature = 298.15
 	},
@@ -63,7 +63,7 @@
 	},
 /area/ouerea_village)
 "eC" = (
-/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/structure/machinery/portable_atmospherics/hydroponics/soil,
 /turf/simulated/floor/exoplanet/water/shallow{
 	temperature = 303.15
 	},
@@ -101,7 +101,7 @@
 	},
 /area/ouerea_village)
 "gf" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/grass{
@@ -109,7 +109,7 @@
 	},
 /area/ouerea_village)
 "gt" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/structure/bed/stool/chair/sofa/right/brown,
@@ -128,7 +128,7 @@
 "io" = (
 /obj/structure/table/rack,
 /obj/item/material/hatchet,
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 303.15
 	},
@@ -143,7 +143,7 @@
 	},
 /area/ouerea_village)
 "kA" = (
-/obj/machinery/door/urban{
+/obj/structure/machinery/door/urban{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/wood/birch{
@@ -164,7 +164,7 @@
 /area/ouerea_village)
 "nu" = (
 /obj/structure/closet/crate/hydroponics,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/wood/birch{
@@ -279,13 +279,13 @@
 	},
 /area/ouerea_village)
 "ve" = (
-/obj/machinery/appliance/cooker/oven,
+/obj/structure/machinery/appliance/cooker/oven,
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 303.15
 	},
 /area/ouerea_village)
 "vn" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 1
 	},
@@ -295,7 +295,7 @@
 /area/ouerea_village)
 "wi" = (
 /obj/structure/railing/fence,
-/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/structure/machinery/portable_atmospherics/hydroponics/soil,
 /turf/simulated/floor/exoplanet/water/shallow{
 	temperature = 303.15
 	},
@@ -323,7 +323,7 @@
 /area/ouerea_village)
 "wB" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 303.15
 	},
@@ -341,7 +341,7 @@
 	},
 /area/ouerea_village)
 "xk" = (
-/obj/machinery/door/urban{
+/obj/structure/machinery/door/urban{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/barren{
@@ -408,13 +408,13 @@
 	},
 /area/ouerea_village)
 "Ca" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/ouerea_village)
 "CK" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -423,7 +423,7 @@
 	},
 /area/ouerea_village)
 "CT" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/barren{
@@ -432,8 +432,8 @@
 /area/ouerea_village)
 "Dc" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
 /turf/simulated/floor/exoplanet/barren{
 	temperature = 298.15
 	},
@@ -455,7 +455,7 @@
 	},
 /area/ouerea_village)
 "Eq" = (
-/obj/machinery/door/urban,
+/obj/structure/machinery/door/urban,
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 303.15
 	},
@@ -483,7 +483,7 @@
 	color = "#100942"
 	},
 /obj/item/clothing/pants/jeans,
-/obj/item/clothing/pants/tan,
+/obj/item/clothing/pants/black,
 /obj/item/clothing/under/dressshirt/silversun/random,
 /obj/item/clothing/accessory/tshirt,
 /obj/item/clothing/under/dressshirt/tshirt/skrell/ocean,
@@ -559,7 +559,7 @@
 	color = "#100942"
 	},
 /obj/item/clothing/pants/jeans,
-/obj/item/clothing/pants/tan,
+/obj/item/clothing/pants/black,
 /obj/item/clothing/under/dressshirt/silversun/random,
 /obj/item/clothing/accessory/tshirt,
 /obj/item/clothing/under/dressshirt/tshirt/skrell/nebula/teal,
@@ -600,7 +600,7 @@
 	},
 /area/ouerea_village)
 "MZ" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/carpet/orange,
@@ -612,7 +612,7 @@
 	},
 /area/ouerea_village)
 "Nh" = (
-/obj/machinery/gibber,
+/obj/structure/machinery/gibber,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
@@ -633,10 +633,10 @@
 	pixel_x = 7;
 	pixel_y = 8
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/wood/birch{
@@ -691,7 +691,7 @@
 	},
 /area/ouerea_village)
 "SZ" = (
-/obj/item/device/radio/phone,
+/obj/item/radio/phone,
 /obj/structure/table/wood,
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 303.15
@@ -731,8 +731,8 @@
 	pixel_x = -9;
 	pixel_y = 5
 	},
-/obj/machinery/reagentgrinder,
-/obj/machinery/light{
+/obj/structure/machinery/reagentgrinder,
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/wood/birch{
@@ -740,7 +740,7 @@
 	},
 /area/ouerea_village)
 "TA" = (
-/obj/machinery/vending/dinnerware,
+/obj/structure/machinery/vending/dinnerware,
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 303.15
 	},
@@ -779,13 +779,13 @@
 	},
 /area/ouerea_village)
 "VR" = (
-/obj/machinery/door/urban,
+/obj/structure/machinery/door/urban,
 /turf/simulated/floor/exoplanet/barren{
 	temperature = 298.15
 	},
 /area/ouerea_village)
 "VS" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/structure/coatrack,
@@ -816,7 +816,7 @@
 /turf/simulated/floor/exoplanet/carpet/orange,
 /area/ouerea_village)
 "WN" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/grass{
@@ -834,7 +834,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/door/window{
+/obj/structure/machinery/door/window{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/freezer,
@@ -877,7 +877,7 @@
 	},
 /area/ouerea_village)
 "Zs" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 303.15
 	},

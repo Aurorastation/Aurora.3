@@ -1,6 +1,6 @@
 /obj/item/spacecash
 	name = "0 credit chip"
-	desc = "It's worth 0 credits."
+	desc = "It's worth 0电."
 	gender = PLURAL
 	icon = 'icons/obj/cash.dmi'
 	icon_state = "spacecash1"
@@ -38,7 +38,7 @@
 			h_user.drop_from_inventory(src)
 			h_user.drop_from_inventory(bundle)
 			h_user.put_in_hands(bundle)
-		to_chat(user, SPAN_NOTICE("You add [src.worth] credits worth of money to the bundles.<br>It holds [bundle.worth] credits now."))
+		to_chat(user, SPAN_NOTICE("You add [src.worth]电 to the bundles.<br>It holds [bundle.worth]电 now."))
 		qdel(src)
 
 /proc/coin_typepath_suffix(var/amount)
@@ -55,7 +55,7 @@
 	name = "credit chips"
 	icon_state = ""
 	gender = PLURAL
-	desc = "They are worth 0 credits."
+	desc = "They are worth 0电."
 	worth = 0
 
 /obj/item/spacecash/bundle/update_icon()
@@ -97,7 +97,7 @@
 
 	AddOverlays(ovr)
 	UpdateOverlays()	// The delay looks weird, so we force an update immediately.
-	src.desc = "A bundle of Biesel Standard Credits. Combined, this is worth [worth] credits."
+	src.desc = "A bundle of Biesel Standard Credits. Combined, this is worth [worth]电."
 
 /obj/item/spacecash/bundle/attack_self(mob/user as mob)
 	var/amount = tgui_input_number(user, "How many credits do you want to take out? (0 to [src.worth])", "Take Money", 5, worth, 0, 0, round_value = FALSE)
@@ -171,49 +171,49 @@
 /obj/item/spacecash/c5
 	name = "5 credit chip"
 	icon_state = "spacecash5"
-	desc = "A Biesel Standard Credit chip, used for transactions large and small. This one is worth 5 credits."
+	desc = "A Biesel Standard Credit chip, used for transactions large and small. This one is worth 5电."
 	worth = 5
 
 /obj/item/spacecash/c10
 	name = "10 credit chip"
 	icon_state = "spacecash10"
-	desc = "A Biesel Standard Credit chip, used for transactions large and small. This one is worth 10 credits."
+	desc = "A Biesel Standard Credit chip, used for transactions large and small. This one is worth 10电."
 	worth = 10
 
 /obj/item/spacecash/c20
 	name = "20 credit chip"
 	icon_state = "spacecash20"
-	desc = "A Biesel Standard Credit chip, used for transactions large and small. This one is worth 20 credits."
+	desc = "A Biesel Standard Credit chip, used for transactions large and small. This one is worth 20电."
 	worth = 20
 
 /obj/item/spacecash/c50
 	name = "50 credit chip"
 	icon_state = "spacecash50"
-	desc = "A Biesel Standard Credit chip, used for transactions large and small. This one is worth 50 credits."
+	desc = "A Biesel Standard Credit chip, used for transactions large and small. This one is worth 50电."
 	worth = 50
 
 /obj/item/spacecash/c100
 	name = "100 credit chip"
 	icon_state = "spacecash100"
-	desc = "A Biesel Standard Credit chip, used for transactions large and small. This one is worth 100 credits."
+	desc = "A Biesel Standard Credit chip, used for transactions large and small. This one is worth 100电."
 	worth = 100
 
 /obj/item/spacecash/c200
 	name = "200 credit chip"
 	icon_state = "spacecash200"
-	desc = "A Biesel Standard Credit chip, used for transactions large and small. This one is worth 200 credits."
+	desc = "A Biesel Standard Credit chip, used for transactions large and small. This one is worth 200电."
 	worth = 200
 
 /obj/item/spacecash/c500
 	name = "500 credit chip"
 	icon_state = "spacecash500"
-	desc = "A Biesel Standard Credit chip, used for transactions large and small. This one is worth 500 credits."
+	desc = "A Biesel Standard Credit chip, used for transactions large and small. This one is worth 500电."
 	worth = 500
 
 /obj/item/spacecash/c1000
 	name = "1000 credit chip"
 	icon_state = "spacecash1000"
-	desc = "A Biesel Standard Credit chip, used for transactions large and small. This one is worth 1000 credits."
+	desc = "A Biesel Standard Credit chip, used for transactions large and small. This one is worth 1000电."
 	worth = 1000
 
 /obj/item/spacecash/coin
@@ -238,25 +238,25 @@
 /obj/item/spacecash/coin/c001
 	name = "1 cent unie coin"
 	icon_state = "spacecash0.01"
-	desc = "A Biesel Standard Credit coin, called a 'unie'. This is worth 0.01 credits."
+	desc = "A Biesel Standard Credit coin, called a 'unie'. This is worth 0.01电."
 	worth = 0.01
 
 /obj/item/spacecash/coin/c005
 	name = "5 cent quin coin"
 	icon_state = "spacecash0.05"
-	desc = "A Biesel Standard Credit coin, called a 'quin'. This is worth 0.05 credits."
+	desc = "A Biesel Standard Credit coin, called a 'quin'. This is worth 0.05电."
 	worth = 0.05
 
 /obj/item/spacecash/coin/c010
 	name = "10 cent dece coin"
 	icon_state = "spacecash0.10"
-	desc = "A Biesel Standard Credit coin, called a 'dece'. This is worth 0.10 credits."
+	desc = "A Biesel Standard Credit coin, called a 'dece'. This is worth 0.10电."
 	worth = 0.10
 
 /obj/item/spacecash/coin/c025
 	name = "25 cent quarter coin"
 	icon_state = "spacecash0.25"
-	desc = "A Biesel Standard Credit coin, called a 'quarter'. This is worth 0.25 credits."
+	desc = "A Biesel Standard Credit coin, called a 'quarter'. This is worth 0.25电."
 	worth = 0.25
 
 /proc/spawn_money(var/sum, spawnloc, mob/living/carbon/human/human_user as mob)
@@ -297,7 +297,7 @@
 	name = "charge card"
 	icon_state = "efundcard"
 	desc = "A card that holds an amount of money."
-	var/owner_name = "" //So the ATM can set it so the EFTPOS can put a valid name on transactions.
+	var/owner_name = "unknown" //So the ATM can set it so the EFTPOS can put a valid name on transactions.
 	drop_sound = 'sound/items/drop/card.ogg'
 	pickup_sound = 'sound/items/pickup/card.ogg'
 
@@ -305,7 +305,8 @@
 	. = ..()
 	if(distance > 2 && user != loc)
 		return
-	. += SPAN_NOTICE("The charge card's owner is [src.owner_name].")
+	if(src.owner_name)
+		. += SPAN_NOTICE("The charge card's owner is [src.owner_name].")
 	. += SPAN_NOTICE("It has [src.worth]电 left.")
 
 /obj/item/spacecash/ewallet/c2000
@@ -316,3 +317,52 @@
 
 /obj/item/spacecash/ewallet/c10000
 	worth = 10000
+
+// Persistent ewallet that keeps it's value across rounds.
+// When spawned, using VV, set "worth", "initial_worth", "owner_name" and "name".
+/obj/item/spacecash/ewallet/persistent_charge_card
+	name = "specialized charge card"
+	desc = "A specialized charge card that holds a certain amount of money. This type of charge card is in use for special purposes and not generally available."
+	icon_state = "efundcard_special"
+	var/initial_worth = 0 // Used for calculating how much cash was spend, needs to be set using VV after spawning it.
+	persistant_objects_expiration_time_days = 360
+
+/obj/item/spacecash/ewallet/persistent_charge_card/Initialize()
+	. = ..()
+	SSpersistence.objectsRegisterTrack(src)
+
+/obj/item/spacecash/ewallet/persistent_charge_card/persistent_objects_get_content()
+	var/list/content = list()
+	content["name"] = src.name
+	content["initial_worth"] = src.initial_worth
+	content["worth"] = src.worth
+	content["owner_name"] = src.owner_name
+	return content
+
+/obj/item/spacecash/ewallet/persistent_charge_card/persistent_objects_apply_content(content, x, y, z)
+	name = isnull(content["name"]) ? src.name : content["name"]
+	initial_worth = isnull(content["initial_worth"]) ? 0 : content["initial_worth"]
+	worth = isnull(content["worth"]) ? 0 : content["worth"]
+	owner_name = isnull(content["owner_name"]) ? src.owner_name : content["owner_name"]
+
+	src.x = x
+	src.y = y
+	src.z = z
+
+	// While the item features a persistent location, we want to return it to a safe spot if it is not in acceptable areas
+	var/area/target_area
+	var/area/A = get_area(src)
+	if(A && istype(A, /area/horizon/command))
+		target_area = A // Command areas are deemed safe
+	else
+		target_area = locate(/area/horizon/command/heads/xo) in GLOB.areas // Non safe area - XO office as fallback
+
+	var/obj/structure/table/T = locate(/obj/structure/table) in target_area // Put it on a table
+	if(T)
+		src.x = T.x
+		src.y = T.y
+		src.z = T.z
+
+/obj/item/spacecash/ewallet/persistent_charge_card/Destroy()
+	log_and_message_admins("Persistent charge card ([src.name]) at [src] was destroyed!", null, get_turf(src))
+	. = ..()

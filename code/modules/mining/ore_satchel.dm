@@ -74,7 +74,7 @@
 		linked_beacon_uses = E.uses_left
 		to_chat(user, SPAN_NOTICE("You attach \the [E] to \the [src]."))
 		qdel(E)
-	else if(attacking_item.isscrewdriver())
+	else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(!linked_beacon)
 			to_chat(user, SPAN_WARNING("\The [src] doesn't have a linked extraction pack!"))
 			return

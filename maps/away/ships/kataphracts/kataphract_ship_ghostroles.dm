@@ -79,7 +79,7 @@
 	back = /obj/item/storage/backpack/satchel/hegemony
 
 
-	l_ear = /obj/item/device/radio/headset/ship
+	l_ear = /obj/item/radio/headset/ship
 
 	backpack_contents = list(
 		/obj/item/storage/box/unique/donkpockets = 1

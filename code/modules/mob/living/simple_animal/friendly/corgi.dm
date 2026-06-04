@@ -79,7 +79,7 @@
 				SPAN_ALERT("[user] baps you on the nose with the rolled up [attacking_item.name]!")
 			)
 			scan_interval = max_scan_interval
-			movement_target = null
+			lostMovementTarget()
 			stop_automated_movement = 0
 			turns_since_scan = 0
 

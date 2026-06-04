@@ -11,8 +11,8 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	attack_verb = list("whipped")
 	hitsound = 'sound/weapons/towelwhip.ogg'
-	drop_sound = 'sound/items/drop/cloth.ogg'
-	pickup_sound = 'sound/items/pickup/cloth.ogg'
+	drop_sound = SFX_CLOTH_DROP
+	pickup_sound = SFX_CLOTH_PICKUP
 
 /obj/item/towel/attack_self(mob/living/user)
 	attack(user, user)
@@ -48,6 +48,8 @@
 	to_chat(usr, SPAN_NOTICE("You lay out \the [src] flat on the ground."))
 	var/obj/item/towel_flat/T = new /obj/item/towel_flat(usr.loc)
 	T.color = src.color
+	T.name = src.name
+	T.desc = src.desc
 	qdel(src)
 
 /obj/item/towel_flat
@@ -61,5 +63,7 @@
 	to_chat(user, SPAN_NOTICE("You pick up and fold \the [src]."))
 	var/obj/item/towel/T = new /obj/item/towel(user)
 	T.color = src.color
+	T.name = src.name
+	T.desc = src.desc
 	user.put_in_hands(T)
 	qdel(src)

@@ -18,6 +18,10 @@
 	var/obj/item/key/key
 	var/key_type = /obj/item/key/cargo_train
 
+/obj/vehicle/train/cargo/engine/Destroy()
+	QDEL_NULL(key)
+	return ..()
+
 /obj/vehicle/train/cargo/engine/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Click-drag yourself onto the truck to climb onto it."
@@ -144,7 +148,7 @@
 	return ..()
 
 /obj/vehicle/train/cargo/trolley/attackby(obj/item/attacking_item, mob/user)
-	if(open && attacking_item.iswirecutter())
+	if(open && attacking_item.tool_behaviour == TOOL_WIRECUTTER)
 		passenger_allowed = !passenger_allowed
 		user.visible_message(SPAN_NOTICE("[user] [passenger_allowed ? "cuts" : "mends"] a cable in [src]."),
 								SPAN_NOTICE("You [passenger_allowed ? "cut" : "mend"] the load limiter cable."))
@@ -189,7 +193,7 @@
 	update_stats()
 
 /obj/vehicle/train/cargo/engine/Collide(atom/Obstacle)
-	var/obj/machinery/door/D = Obstacle
+	var/obj/structure/machinery/door/D = Obstacle
 	var/mob/living/carbon/human/H = load
 	if(istype(D) && istype(H))
 		H.Collide(D)		//a little hacky, but hey, it works, and respects access rights
@@ -223,6 +227,9 @@
 	playsound(src, 'sound/machines/vehicles/button.ogg', 50, FALSE)
 
 /obj/vehicle/train/cargo/RunOver(var/mob/living/carbon/human/H)
+	if(HAS_TRAIT(H, TRAIT_LEANING))
+		return
+
 	var/list/parts = list(BP_HEAD, BP_CHEST, BP_L_LEG, BP_R_LEG, BP_L_ARM, BP_R_ARM)
 
 	H.apply_effects(5, 5)
@@ -232,10 +239,15 @@
 
 /obj/vehicle/train/cargo/trolley/RunOver(var/mob/living/carbon/human/H)
 	..()
+	if(HAS_TRAIT(H, TRAIT_LEANING))
+		return
 	attack_log += "\[[time_stamp()]\] <span class='warning'>ran over [H.name] ([H.ckey])</span>"
 
 /obj/vehicle/train/cargo/engine/RunOver(var/mob/living/carbon/human/H)
 	..()
+
+	if(HAS_TRAIT(H, TRAIT_LEANING))
+		return
 
 	if(is_train_head() && istype(load, /mob/living/carbon/human))
 		var/mob/living/carbon/human/D = load
@@ -314,23 +326,18 @@
 	user.put_in_hands(key)
 	key = null
 
-/obj/vehicle/train/cargo/engine/emag_act(var/remaining_charges, mob/user)
-	. = ..()
-	if(.)
-		update_car(train_length, active_engines)
-
 //-------------------------------------------
 // Loading/unloading procs
 //-------------------------------------------
 /obj/vehicle/train/cargo/trolley/load(var/atom/movable/C)
 	if(ismob(C) && !passenger_allowed)
 		return 0
-	if(!istype(C,/obj/machinery) && !istype(C,/obj/structure/closet) && !istype(C,/obj/structure/largecrate) && !istype(C,/obj/structure/reagent_dispensers) && !istype(C,/obj/structure/ore_box) && !istype(C, /mob/living/carbon/human))
+	if(!istype(C,/obj/structure/machinery) && !istype(C,/obj/structure/closet) && !istype(C,/obj/structure/largecrate) && !istype(C,/obj/structure/reagent_dispensers) && !istype(C,/obj/structure/ore_box) && !istype(C, /mob/living/carbon/human))
 		return 0
 
 	//if there are any items you don't want to be able to interact with, add them to this check
 	// ~no more shielded, emitter armed death trains
-	if(istype(C, /obj/machinery))
+	if(istype(C, /obj/structure/machinery))
 		load_object(C)
 	else
 		..()
@@ -402,8 +409,7 @@
 		move_delay *= (1 / max(1, active_engines)) * 2 										//overweight penalty (scaled by the number of engines)
 		move_delay += GLOB.config.walk_speed 													//base reference speed
 		move_delay *= GLOB.config.vehicle_delay_multiplier												//makes cargo trains 10% slower than running when not overweight
-		if(emagged)
-			move_delay -= 2
+		move_delay -= 1
 
 /obj/vehicle/train/cargo/trolley/update_car(var/train_length, var/active_engines)
 	src.train_length = train_length

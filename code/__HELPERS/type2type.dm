@@ -109,6 +109,21 @@
 	if (degree < 315) return WEST
 	return NORTH|WEST
 
+/**
+ * Returns the trigonometric degrees of a given direction.
+ * Use this instead of dir2angle if you're using cos() and sin() to generate a velocity or acceleration vector.
+ */
+/proc/dir2degree(var/D)
+	switch (D) // Starting from 0 on a Unit Circle
+		if (EAST) 		return 0
+		if (NORTHEAST)  return 45
+		if (NORTH) 		return 90
+		if (NORTHWEST)  return 135
+		if (WEST) 		return 180
+		if (SOUTHWEST)  return 225
+		if (SOUTH) 		return 270
+		if (SOUTHEAST)  return 315
+
 // Returns the north-zero clockwise angle in degrees, given a direction
 /proc/dir2angle(var/D)
 	switch (D)

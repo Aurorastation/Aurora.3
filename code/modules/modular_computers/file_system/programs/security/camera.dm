@@ -42,8 +42,10 @@
 	color = LIGHT_COLOR_ORANGE
 	usage_flags = PROGRAM_CONSOLE | PROGRAM_LAPTOP
 	tgui_id = "CameraMonitoring"
-	var/obj/machinery/camera/current_camera
+	var/obj/structure/machinery/camera/current_camera
 	var/current_network
+	/// Used for camera monitor consoles from which this interface can be launched. If it exists, only provide that console's "console_networks" networks.
+	var/list/monitored_networks = list()
 
 /datum/computer_file/program/camera_monitor/ui_data(mob/user)
 	var/list/data = initial_data()
@@ -52,7 +54,17 @@
 	data["current_network"] = current_network
 
 	var/list/all_networks = list()
-	for(var/network in SSatlas.current_map.station_networks)
+	var/list/available_networks = list()
+
+	// If this UI was generated from a camera monitoring console, then only that console's networks will be available...
+	if(monitored_networks && (length(monitored_networks) >= 1))
+		available_networks = monitored_networks
+
+	// ...otherwise (if it was launched from a standard modular computer), get all networks to which the user has access.
+	else
+		available_networks = SSatlas.current_map.station_networks
+
+	for(var/network in available_networks)
 		all_networks += list(
 			list(
 				"tag" = network,
@@ -103,7 +115,7 @@
 
 	switch(action)
 		if("switch_camera")
-			var/obj/machinery/camera/C = locate(params["switch_camera"]) in GLOB.cameranet.cameras
+			var/obj/structure/machinery/camera/C = locate(params["switch_camera"]) in GLOB.cameranet.cameras
 			if(!C)
 				return
 			if(!(current_network in C.network))
@@ -133,7 +145,7 @@
 			usr.reset_view(current_camera)
 			return TRUE
 
-/datum/computer_file/program/camera_monitor/proc/switch_to_camera(var/mob/user, var/obj/machinery/camera/C)
+/datum/computer_file/program/camera_monitor/proc/switch_to_camera(var/mob/user, var/obj/structure/machinery/camera/C)
 	//don't need to check if the camera works for AI because the AI jumps to the camera location and doesn't actually look through cameras.
 	if(isAI(user))
 		var/mob/living/silicon/ai/A = user
@@ -160,7 +172,7 @@
 
 	return TRUE
 
-/datum/computer_file/program/camera_monitor/proc/set_current(var/obj/machinery/camera/C)
+/datum/computer_file/program/camera_monitor/proc/set_current(var/obj/structure/machinery/camera/C)
 	if(current_camera == C)
 		return
 
@@ -204,7 +216,6 @@
 	if (viewflag < 0) //camera doesn't work
 		return FALSE
 	return TRUE
-
 
 // ERT Variant of the program
 /datum/computer_file/program/camera_monitor/ert

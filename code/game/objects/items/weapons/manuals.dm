@@ -1524,7 +1524,8 @@
 	name = "tau ceti armed forces pamphlet"
 	desc = "A simple pamphlet containing information about the Tau Ceti Armed Forces."
 	icon_state = "tcfl_pamphlet"
-	item_state = "paper"
+	item_state = "tcfl_pamphlet"
+	contained_sprite = TRUE
 	title = "Tau Ceti Armed Forces pamphlet"
 	author = "Tau Ceti Armed Forces recruitment center"
 	pickup_sound = 'sound/items/drop/paper.ogg'
@@ -1585,6 +1586,6 @@
 	if(src.dat)
 		user << browse(HTML_SKELETON("<TT><I>Penned by [author].</I></TT> <BR>" + "[dat]"), "window=book")
 		user.visible_message("[user] opens a pamphlet titled \"[src.title]\" and begins reading intently.")
-		playsound(loc, 'sound/bureaucracy/paperfold.ogg', 50, 1)
+		playsound(loc, 'sound/items/bureaucracy/paperfold.ogg', 50, 1)
 		onclose(user, "book")
-		onclose(playsound(loc, 'sound/bureaucracy/paperfold.ogg', 50, 1))
+		onclose(playsound(loc, 'sound/items/bureaucracy/paperfold.ogg', 50, 1))

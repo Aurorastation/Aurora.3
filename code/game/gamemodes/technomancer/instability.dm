@@ -8,12 +8,6 @@
 #define TECHNOMANCER_INSTABILITY_PRECISION			0.1 	// Instability is rounded to this.
 #define TECHNOMANCER_INSTABILITY_MIN_GLOW			10		// When above this number, the entity starts glowing, affecting others.
 
-
-/mob/living
-	var/instability = 0
-	var/last_instability = 0 // Used to calculate instability delta.
-	var/last_instability_event = null // most recent world.time that something bad happened due to instability.
-
 // Proc: adjust_instability()
 // Parameters: 0
 // Description: Does nothing, because inheritance.

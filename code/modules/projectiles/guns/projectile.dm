@@ -1,4 +1,4 @@
-/obj/item/gun/projectile
+ABSTRACT_TYPE(/obj/item/gun/projectile)
 	name = "gun"
 	desc = "A gun that fires bullets."
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
@@ -71,7 +71,7 @@
 /obj/item/gun/projectile/update_icon()
 	..()
 	if(suppressed)
-		var/mutable_appearance/MA = mutable_appearance('icons/obj/guns/suppressor.dmi', "suppressor")
+		var/mutable_appearance/MA = mutable_appearance('icons/obj/guns/attachments/suppressor.dmi', "suppressor")
 		if(suppressor_x_offset)
 			MA.pixel_x = suppressor_x_offset
 		if(suppressor_y_offset)
@@ -141,7 +141,7 @@
 		if(EJECT_CASINGS) //eject casing onto ground.
 			chambered.forceMove(get_turf(src))
 			chambered.throw_at(get_ranged_target_turf(get_turf(src),turn(loc.dir,270),1), rand(0,1), 5)
-			playsound(chambered, /singleton/sound_category/casing_drop_sound, 50, FALSE)
+			playsound(chambered, SFX_CASING_DROP, 50, FALSE)
 		if(CYCLE_CASINGS) //cycle the casing back to the end.
 			if(ammo_magazine)
 				ammo_magazine.stored_ammo += chambered
@@ -208,7 +208,7 @@
 	update_icon()
 
 //attempts to unload src. If allow_dump is set to 0, the speedloader unloading method will be disabled
-/obj/item/gun/projectile/proc/unload_ammo(mob/user, var/allow_dump = 1, var/drop_mag = FALSE)
+/obj/item/gun/projectile/proc/unload_ammo(mob/user, allow_dump = TRUE, drop_mag = FALSE)
 	if(ammo_magazine)
 		if(drop_mag)
 			ammo_magazine.forceMove(user.loc)
@@ -226,7 +226,7 @@
 			if(T)
 				for(var/obj/item/ammo_casing/C in loaded)
 					C.forceMove(T)
-					playsound(C, /singleton/sound_category/casing_drop_sound, 50, extrarange = SILENCED_SOUND_EXTRARANGE, falloff_exponent = (SOUND_FALLOFF_EXPONENT+2))
+					playsound(C, SFX_CASING_DROP, 50, extrarange = SILENCED_SOUND_EXTRARANGE, falloff_exponent = (SOUND_FALLOFF_EXPONENT+2))
 					count++
 				loaded.Cut()
 			if(count)

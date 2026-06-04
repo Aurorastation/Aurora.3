@@ -82,7 +82,7 @@ const setupApp = () => {
   // Resize the panel to match the non-browser output
   Byond.winget('output').then((output) => {
     Byond.winset('browseroutput', {
-      'size': output.size,
+      size: output.size,
     });
   });
 

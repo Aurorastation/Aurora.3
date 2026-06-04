@@ -1,5 +1,5 @@
 
-/obj/machinery/artifact
+/obj/structure/machinery/artifact
 	name = "alien artifact"
 	desc = "A large alien device."
 	icon = 'icons/obj/xenoarchaeology.dmi'
@@ -10,7 +10,7 @@
 	var/datum/artifact_effect/secondary_effect
 	var/being_used = 0
 
-/obj/machinery/artifact/Initialize()
+/obj/structure/machinery/artifact/Initialize()
 	. = ..()
 
 	//setup primary effect - these are the main ones (mixed)
@@ -52,13 +52,13 @@
 		if(prob(75))
 			my_effect.trigger = rand(1,4)
 
-/obj/machinery/artifact/Destroy()
+/obj/structure/machinery/artifact/Destroy()
 	QDEL_NULL(my_effect)
 	QDEL_NULL(secondary_effect)
 
 	. = ..()
 
-/obj/machinery/artifact/process()
+/obj/structure/machinery/artifact/process()
 
 	var/turf/L = loc
 	if(isnull(L) || !istype(L)) 	// We're inside a container or on null turf, either way stop processing effects
@@ -170,7 +170,7 @@
 		if(secondary_effect?.trigger == TRIGGER_NITRO && secondary_effect.activated)
 			secondary_effect.ToggleActivate()
 
-/obj/machinery/artifact/attack_hand(mob/user)
+/obj/structure/machinery/artifact/attack_hand(mob/user)
 	. = ..()
 	if(use_check_and_message(user, USE_ALLOW_NON_ADV_TOOL_USR))
 		return
@@ -198,7 +198,7 @@
 	if(secondary_effect?.effect == EFFECT_TOUCH && secondary_effect.activated)
 		secondary_effect.DoEffectTouch(user)
 
-/obj/machinery/artifact/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/artifact/attackby(obj/item/attacking_item, mob/user)
 
 	if (istype(attacking_item, /obj/item/reagent_containers/))
 		if(attacking_item.reagents.has_reagent(/singleton/reagent/hydrazine, 1) || attacking_item.reagents.has_reagent(/singleton/reagent/water, 1))
@@ -228,14 +228,14 @@
 			istype(attacking_item,/obj/item/melee/energy) ||\
 			istype(attacking_item,/obj/item/melee/cultblade) ||\
 			istype(attacking_item,/obj/item/card/emag) ||\
-			attacking_item.ismultitool())
+			attacking_item.tool_behaviour == TOOL_MULTITOOL)
 		if (my_effect.trigger == TRIGGER_ENERGY)
 			my_effect.ToggleActivate()
 		if(secondary_effect?.trigger == TRIGGER_ENERGY)
 			secondary_effect.ToggleActivate()
 
 	else if (istype(attacking_item,/obj/item/flame) && attacking_item:lit ||\
-			attacking_item.iswelder() && attacking_item:welding)
+			attacking_item.tool_behaviour == TOOL_WELDER && attacking_item:welding)
 		if(my_effect.trigger == TRIGGER_HEAT)
 			my_effect.ToggleActivate()
 		if(secondary_effect?.trigger == TRIGGER_HEAT)
@@ -247,7 +247,7 @@
 		if(secondary_effect?.trigger == TRIGGER_FORCE)
 			secondary_effect.ToggleActivate()
 
-/obj/machinery/artifact/CollidedWith(atom/bumped_atom)
+/obj/structure/machinery/artifact/CollidedWith(atom/bumped_atom)
 	..()
 	if(istype(bumped_atom, /obj))
 		var/obj/O = bumped_atom
@@ -282,7 +282,7 @@
 				to_chat(H, "<b>You accidentally touch [src].</b>")
 	..()
 
-/obj/machinery/artifact/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+/obj/structure/machinery/artifact/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
 	. = ..()
 	if(. != BULLET_ACT_HIT)
 		return .
@@ -299,7 +299,7 @@
 		if(secondary_effect?.trigger == TRIGGER_ENERGY)
 			secondary_effect.ToggleActivate()
 
-/obj/machinery/artifact/ex_act(severity)
+/obj/structure/machinery/artifact/ex_act(severity)
 	switch(severity)
 		if(1.0) qdel(src)
 		if(2.0)
@@ -317,14 +317,14 @@
 				secondary_effect.ToggleActivate(0)
 	return
 
-/obj/machinery/artifact/Move()
+/obj/structure/machinery/artifact/Move()
 	. = ..()
 	if(my_effect)
 		my_effect.UpdateMove()
 	if(secondary_effect)
 		secondary_effect.UpdateMove()
 
-/obj/machinery/artifact/attack_ai(mob/user) //AI can't interfact with weird artifacts. Borgs can but not remotely.
+/obj/structure/machinery/artifact/attack_ai(mob/user) //AI can't interfact with weird artifacts. Borgs can but not remotely.
 	if(!isrobot(user) || !Adjacent(user))
 		return
 	return ..()

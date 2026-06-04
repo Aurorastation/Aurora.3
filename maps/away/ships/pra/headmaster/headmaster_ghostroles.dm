@@ -22,7 +22,7 @@
 	name = "Kosmostrelki"
 
 	id = /obj/item/card/id
-	l_ear = /obj/item/device/radio/headset/ship
+	l_ear = /obj/item/radio/headset/ship
 	shoes = /obj/item/clothing/shoes/jackboots/tajara
 	uniform = /obj/item/clothing/under/tajaran/cosmonaut
 	accessory = /obj/item/clothing/accessory/badge/pra_passport

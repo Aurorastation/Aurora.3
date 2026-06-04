@@ -1,6 +1,6 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
-/obj/machinery/power/emitter{
+/obj/structure/machinery/power/emitter{
 	req_access = list(111)
 	},
 /obj/effect/floor_decal/industrial/warning/full,
@@ -59,15 +59,15 @@
 /obj/item/deployable_kit/legion_barrier,
 /obj/item/deployable_kit/legion_barrier,
 /obj/item/deployable_kit/legion_barrier,
-/obj/item/device/magnetic_lock/security/legion,
-/obj/item/device/magnetic_lock/security/legion,
-/obj/item/device/magnetic_lock/security/legion,
-/obj/item/device/magnetic_lock/security/legion,
-/obj/item/device/magnetic_lock/security/legion,
-/obj/item/device/magnetic_lock/security/legion,
-/obj/item/device/magnetic_lock/security/legion,
-/obj/item/device/magnetic_lock/security/legion,
-/obj/item/device/magnetic_lock/security/legion,
+/obj/item/magnetic_lock/security/legion,
+/obj/item/magnetic_lock/security/legion,
+/obj/item/magnetic_lock/security/legion,
+/obj/item/magnetic_lock/security/legion,
+/obj/item/magnetic_lock/security/legion,
+/obj/item/magnetic_lock/security/legion,
+/obj/item/magnetic_lock/security/legion,
+/obj/item/magnetic_lock/security/legion,
+/obj/item/magnetic_lock/security/legion,
 /obj/item/deployable_kit/legion_turret{
 	name = "blaster turret assembly kit"
 	},
@@ -86,7 +86,7 @@
 /turf/unsimulated/floor,
 /area/centcom/distress_prep)
 "V" = (
-/obj/machinery/mech_recharger,
+/obj/structure/machinery/mech_recharger,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /mob/living/heavy_vehicle/premade/combat/tcaf,
 /turf/unsimulated/floor,

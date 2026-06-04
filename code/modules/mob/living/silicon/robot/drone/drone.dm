@@ -35,7 +35,7 @@
 	gender = NEUTER
 
 	// Health
-	maxHealth = 35
+	maxhealth = 35
 	health = 35
 
 	// Components
@@ -73,7 +73,7 @@
 
 	// Laws
 	var/datum/drone_matrix/master_matrix
-	var/obj/machinery/drone_fabricator/master_fabricator
+	var/obj/structure/machinery/drone_fabricator/master_fabricator
 	var/law_type = /datum/ai_laws/drone
 
 	// Self-Mailing
@@ -227,7 +227,7 @@
 	module_type = /obj/item/robot_module/drone/construction/matriarch
 	law_type = /datum/ai_laws/matriarch_drone
 	can_swipe = FALSE
-	maxHealth = 50
+	maxhealth = 50
 	health = 50
 
 	var/matrix_tag
@@ -264,14 +264,14 @@
 		request_player()
 
 /mob/living/silicon/robot/drone/construction/matriarch/Destroy()
-	. = ..()
 	SSghostroles.remove_spawn_atom("matriarchmaintdrone", src)
+	return ..()
 
 /mob/living/silicon/robot/drone/construction/matriarch/request_player()
 	SSghostroles.add_spawn_atom("matriarchmaintdrone", src)
 
 /mob/living/silicon/robot/drone/init()
-	ai_camera = new /obj/item/device/camera/siliconcam/drone_camera(src)
+	ai_camera = new /obj/item/camera/siliconcam/drone_camera(src)
 	additional_law_channels["Drone"] = ":d"
 	if(!laws)
 		laws = new law_type
@@ -348,7 +348,7 @@
 	else if(istype(attacking_item, /obj/item/borg/upgrade/))
 		to_chat(user, SPAN_WARNING("\The [src] is not compatible with \the [attacking_item]."))
 		return
-	else if(attacking_item.iscrowbar())
+	else if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 		to_chat(user, SPAN_WARNING("\The [src] is hermetically sealed. You can't open the case."))
 		return
 	else if(attacking_item.GetID() || istype(attacking_item, /obj/item/card/robot))
@@ -356,7 +356,7 @@
 			to_chat(user, SPAN_WARNING("\The [src] doesn't have an ID swipe interface."))
 			return
 		if(stat == DEAD)
-			if(!GLOB.config.allow_drone_spawn || emagged || health < -maxHealth) //It's dead, Dave.
+			if(!GLOB.config.allow_drone_spawn || emagged || health < -maxhealth) //It's dead, Dave.
 				to_chat(user, SPAN_WARNING("The interface is fried, and a distressing burned smell wafts from the robot's interior. You're not rebooting this one."))
 				return
 			if(!allowed(usr))
@@ -454,17 +454,17 @@
 //For some goddamn reason robots have this hardcoded. Redefining it for our fragile friends here.
 /mob/living/silicon/robot/drone/updatehealth()
 	if(status_flags & GODMODE)
-		health = maxHealth
+		health = maxhealth
 		set_stat(CONSCIOUS)
 		return
-	health = maxHealth - (getBruteLoss() + getFireLoss())
+	health = maxhealth - (getBruteLoss() + getFireLoss())
 	return
 
 //Easiest to check this here, then check again in the robot proc.
 //Standard robots use config for crit, which is somewhat excessive for these guys.
 //Drones killed by damage will gib.
 /mob/living/silicon/robot/drone/handle_regular_status_updates()
-	if(health <= -maxHealth && src.stat != DEAD)
+	if(health <= -maxhealth && src.stat != DEAD)
 		gib()
 		return
 	..()

@@ -4,25 +4,29 @@
 /datum/design/item/modular_weapon/firing_pin
 	req_tech = list(TECH_MATERIAL = 1)
 	materials = list(DEFAULT_WALL_MATERIAL = 500)
-	build_path = /obj/item/device/firing_pin/test_range
+	build_path = /obj/item/firing_pin/test_range
 
 /datum/design/item/modular_weapon/firing_pin/away
-	build_path = /obj/item/device/firing_pin/away_site
+	build_path = /obj/item/firing_pin/away_site
+
+/datum/design/item/modular_weapon/firing_pin/access
+	req_tech = list(TECH_MATERIAL = 3, TECH_DATA = 4)
+	build_path = /obj/item/firing_pin/access
 
 /datum/design/item/modular_weapon/modular_small
 	req_tech = list(TECH_MATERIAL = 1)
 	materials = list(DEFAULT_WALL_MATERIAL = 2000)
-	build_path = /obj/item/device/laser_assembly
+	build_path = /obj/item/laser_assembly
 
 /datum/design/item/modular_weapon/modular_medium
 	req_tech = list(TECH_MATERIAL = 1)
 	materials = list(DEFAULT_WALL_MATERIAL = 4000)
-	build_path = /obj/item/device/laser_assembly/medium
+	build_path = /obj/item/laser_assembly/medium
 
 /datum/design/item/modular_weapon/modular_large
 	req_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 2)
 	materials = list(DEFAULT_WALL_MATERIAL = 8000)
-	build_path = /obj/item/device/laser_assembly/large
+	build_path = /obj/item/laser_assembly/large
 
 /datum/design/item/modular_weapon/modular_cap
 	req_tech = list(TECH_POWER = 2, TECH_ENGINEERING = 2)
@@ -38,6 +42,16 @@
 	req_tech = list(TECH_POWER = 5, TECH_ENGINEERING = 3)
 	materials = list(DEFAULT_WALL_MATERIAL = 4000)
 	build_path = /obj/item/laser_components/capacitor/reinforced
+
+/datum/design/item/modular_weapon/modular_capacitor_highcap
+	req_tech = list(TECH_POWER = 3, TECH_ENGINEERING = 3)
+	materials = list(DEFAULT_WALL_MATERIAL = 4000, MATERIAL_GLASS = 1000, MATERIAL_PHORON = 500)
+	build_path = /obj/item/laser_components/capacitor/highcap
+
+/datum/design/item/modular_weapon/modular_capacitor_highpower
+	req_tech = list(TECH_POWER = 3, TECH_ENGINEERING = 3)
+	materials = list(DEFAULT_WALL_MATERIAL = 4000, MATERIAL_GLASS = 1000, MATERIAL_PHORON = 500)
+	build_path = /obj/item/laser_components/capacitor/highpower
 
 /datum/design/item/modular_weapon/modular_nuke
 	req_tech = list(TECH_POWER = 5, TECH_ENGINEERING = 5)
@@ -192,27 +206,7 @@
 /datum/design/item/modular_weapon/modular_pest
 	req_tech = list(TECH_MATERIAL = 1, TECH_BIO = 4, TECH_POWER = 3)
 	materials = list(DEFAULT_WALL_MATERIAL = 2000, MATERIAL_GLASS = 1000, MATERIAL_URANIUM = 500)
-	build_path = /obj/item/laser_components/modulator/arodentia
-
-/datum/design/item/modular_weapon/modular_tag1
-	req_tech = list(TECH_COMBAT = 1, TECH_MATERIAL = 1)
-	materials = list(DEFAULT_WALL_MATERIAL = 2000)
-	build_path = /obj/item/laser_components/modulator/red
-
-/datum/design/item/modular_weapon/modular_tag2
-	req_tech = list(TECH_COMBAT = 1, TECH_MATERIAL = 1)
-	materials = list(DEFAULT_WALL_MATERIAL = 2000)
-	build_path = /obj/item/laser_components/modulator/blue
-
-/datum/design/item/modular_weapon/modular_tag3
-	req_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 1)
-	materials = list(DEFAULT_WALL_MATERIAL = 2000)
-	build_path = /obj/item/laser_components/modulator/omni
-
-/datum/design/item/modular_weapon/modular_practice
-	req_tech = list(TECH_MATERIAL = 1)
-	materials = list(DEFAULT_WALL_MATERIAL = 2000)
-	build_path = /obj/item/laser_components/modulator/practice
+	build_path = /obj/item/laser_components/modulator/xenovermin
 
 /datum/design/item/modular_weapon/modular_decloner
 	req_tech = list(TECH_COMBAT = 5, TECH_PHORON = 4)

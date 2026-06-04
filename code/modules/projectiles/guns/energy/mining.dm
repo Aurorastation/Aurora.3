@@ -30,7 +30,7 @@
 			. += FONT_SMALL(SPAN_WARNING("It has no power supply installed."))
 
 /obj/item/gun/energy/plasmacutter/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(power_supply)
 			to_chat(user, SPAN_NOTICE("You uninstall \the [power_supply]."))
 			power_supply.forceMove(get_turf(src))
@@ -69,13 +69,14 @@
 /obj/projectile/beam/plasmacutter
 	name = "plasma arc"
 	icon_state = "omnilaser"
-	damage = 20
+	damage = 32
 	damage_type = DAMAGE_BURN
 	check_armor = LASER
-	range = 5
+	range = 3
 	pass_flags = PASSTABLE|PASSRAILING
 
-	var/mineral_passes = 2 // amount of mineral turfs it passes through before ending
+	/// Number of mineral turfs it passes through before ending.
+	var/mineral_passes = 2
 
 	muzzle_type = /obj/effect/projectile/muzzle/plasma_cutter
 	tracer_type = /obj/effect/projectile/tracer/plasma_cutter

@@ -17,13 +17,7 @@
 		SPECIES_SKRELL_AXIORI = 80
 	)
 
-	access = list(
-		ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_MORGUE, ACCESS_GENETICS, ACCESS_HEADS,
-		ACCESS_PHARMACY, ACCESS_VIROLOGY, ACCESS_CMO, ACCESS_SURGERY, ACCESS_RC_ANNOUNCE, ACCESS_ENGINE, ACCESS_SHIP_WEAPONS, ACCESS_CONSTRUCTION,
-		ACCESS_KEYCARD_AUTH, ACCESS_SEC_DOORS, ACCESS_PSYCHIATRIST, ACCESS_EVA, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_RESEARCH, ACCESS_MINING, ACCESS_MAILSORTING,
-		ACCESS_PARAMEDIC, ACCESS_MAINT_TUNNELS, ACCESS_INTREPID, ACCESS_SPARK, ACCESS_QUARK, ACCESS_CANARY, ACCESS_TELEPORTER
-	)
-	minimal_access = list(
+	job_access = list(
 		ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_MORGUE, ACCESS_GENETICS, ACCESS_HEADS,
 		ACCESS_PHARMACY, ACCESS_VIROLOGY, ACCESS_CMO, ACCESS_SURGERY, ACCESS_RC_ANNOUNCE, ACCESS_ENGINE, ACCESS_SHIP_WEAPONS, ACCESS_CONSTRUCTION,
 		ACCESS_KEYCARD_AUTH, ACCESS_SEC_DOORS, ACCESS_PSYCHIATRIST, ACCESS_EVA, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_RESEARCH, ACCESS_MINING, ACCESS_MAILSORTING,
@@ -41,16 +35,16 @@
 
 	uniform = /obj/item/clothing/under/rank/chief_medical_officer
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/cmo
-	suit_store = /obj/item/device/flashlight/pen
+	suit_store = /obj/item/flashlight/pen
 	shoes = /obj/item/clothing/shoes/sneakers/brown
 	id = /obj/item/card/id/scc/silver
 	hands = list(/obj/item/storage/firstaid/adv)
 
-	headset = /obj/item/device/radio/headset/heads/cmo
-	bowman = /obj/item/device/radio/headset/heads/cmo/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/cmo
-	wrist_radio = /obj/item/device/radio/headset/wrist/cmo
-	clipon_radio = /obj/item/device/radio/headset/wrist/clip/cmo
+	headset = /obj/item/radio/headset/heads/cmo
+	bowman = /obj/item/radio/headset/heads/cmo/alt
+	double_headset = /obj/item/radio/headset/alt/double/cmo
+	wrist_radio = /obj/item/radio/headset/wrist/cmo
+	clipon_radio = /obj/item/radio/headset/wrist/clip/cmo
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/medical/cmo
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/medical/cmo
@@ -79,10 +73,12 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 
-	access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_MORGUE, ACCESS_SURGERY, ACCESS_PHARMACY, ACCESS_VIROLOGY, ACCESS_GENETICS, ACCESS_EVA)
-	minimal_access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_MORGUE, ACCESS_SURGERY, ACCESS_GENETICS, ACCESS_EVA)
+	job_access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_MORGUE, ACCESS_SURGERY, ACCESS_GENETICS, ACCESS_EVA)
 	outfit = /obj/outfit/job/doctor
 	blacklisted_species = list(SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
+	skill_requirements = alist(
+		/singleton/skill/surgery = SKILL_LEVEL_TRAINED
+	)
 
 /datum/job/surgeon
 	title = "Surgeon"
@@ -103,10 +99,12 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 
-	access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_MORGUE, ACCESS_SURGERY, ACCESS_PHARMACY, ACCESS_VIROLOGY, ACCESS_GENETICS, ACCESS_EVA)
-	minimal_access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_MORGUE, ACCESS_SURGERY, ACCESS_GENETICS, ACCESS_EVA)
+	job_access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_MORGUE, ACCESS_SURGERY, ACCESS_GENETICS, ACCESS_EVA)
 	outfit = /obj/outfit/job/doctor/surgeon
 	blacklisted_species = list(SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
+	skill_requirements = alist(
+		/singleton/skill/surgery = SKILL_LEVEL_PROFESSIONAL
+	)
 
 /obj/outfit/job/doctor
 	name = "Physician"
@@ -117,13 +115,13 @@
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/nt
 	shoes = /obj/item/clothing/shoes/sneakers/medsci
 	id = /obj/item/card/id/white
-	suit_store = /obj/item/device/flashlight/pen
+	suit_store = /obj/item/flashlight/pen
 
-	headset = /obj/item/device/radio/headset/headset_med
-	bowman = /obj/item/device/radio/headset/headset_med/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/med
-	wrist_radio = /obj/item/device/radio/headset/wrist/med
-	clipon_radio = /obj/item/device/radio/headset/wrist/clip/med
+	headset = /obj/item/radio/headset/headset_med
+	bowman = /obj/item/radio/headset/headset_med/alt
+	double_headset = /obj/item/radio/headset/alt/double/med
+	wrist_radio = /obj/item/radio/headset/wrist/med
+	clipon_radio = /obj/item/radio/headset/wrist/clip/med
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/medical
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/medical
@@ -168,8 +166,7 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 
-	access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_MORGUE, ACCESS_SURGERY, ACCESS_PHARMACY, ACCESS_VIROLOGY, ACCESS_GENETICS)
-	minimal_access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_PHARMACY, ACCESS_VIROLOGY)
+	job_access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_PHARMACY, ACCESS_VIROLOGY)
 	outfit = /obj/outfit/job/pharmacist
 	blacklisted_species = list(SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
@@ -182,11 +179,11 @@
 	shoes = /obj/item/clothing/shoes/sneakers/medsci
 	id = /obj/item/card/id/white
 
-	headset = /obj/item/device/radio/headset/headset_med
-	bowman = /obj/item/device/radio/headset/headset_med/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/med
-	wrist_radio = /obj/item/device/radio/headset/wrist/med
-	clipon_radio = /obj/item/device/radio/headset/wrist/clip/med
+	headset = /obj/item/radio/headset/headset_med
+	bowman = /obj/item/radio/headset/headset_med/alt
+	double_headset = /obj/item/radio/headset/alt/double/med
+	wrist_radio = /obj/item/radio/headset/wrist/med
+	clipon_radio = /obj/item/radio/headset/wrist/clip/med
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/medical
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/medical
@@ -209,6 +206,8 @@
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
+	supervisors = "the chief medical officer"
+	selection_color = "#15903a"
 	economic_modifier = 5
 
 	minimum_character_age = list(
@@ -217,10 +216,7 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 
-	supervisors = "the chief medical officer"
-	selection_color = "#15903a"
-	access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_MORGUE, ACCESS_SURGERY, ACCESS_PHARMACY, ACCESS_VIROLOGY, ACCESS_GENETICS, ACCESS_PSYCHIATRIST)
-	minimal_access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_PSYCHIATRIST)
+	job_access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_PSYCHIATRIST)
 	alt_titles = list("Psychologist")
 	outfit = /obj/outfit/job/psychiatrist
 	alt_outfits = list("Psychologist" = /obj/outfit/job/psychiatrist/psycho)
@@ -236,11 +232,11 @@
 	shoes = /obj/item/clothing/shoes/sneakers/medsci
 	id = /obj/item/card/id/white
 
-	headset = /obj/item/device/radio/headset/headset_med
-	bowman = /obj/item/device/radio/headset/headset_med/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/med
-	wrist_radio = /obj/item/device/radio/headset/wrist/med
-	clipon_radio = /obj/item/device/radio/headset/wrist/clip/med
+	headset = /obj/item/radio/headset/headset_med
+	bowman = /obj/item/radio/headset/headset_med/alt
+	double_headset = /obj/item/radio/headset/alt/double/med
+	wrist_radio = /obj/item/radio/headset/wrist/med
+	clipon_radio = /obj/item/radio/headset/wrist/clip/med
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/medical/psych
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/medical/psych
@@ -277,11 +273,13 @@
 		SPECIES_SKRELL_AXIORI = 55
 	)
 
-	access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_MORGUE, ACCESS_SURGERY, ACCESS_PHARMACY, ACCESS_VIROLOGY, ACCESS_EVA, ACCESS_MAINT_TUNNELS, ACCESS_ENGINE, ACCESS_RESEARCH, ACCESS_SEC_DOORS, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_PSYCHIATRIST, ACCESS_PARAMEDIC)
-	minimal_access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_MORGUE, ACCESS_SURGERY, ACCESS_EVA, ACCESS_MAINT_TUNNELS, ACCESS_ENGINE, ACCESS_RESEARCH, ACCESS_SEC_DOORS, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_PARAMEDIC)
+	job_access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_MORGUE, ACCESS_SURGERY, ACCESS_EVA, ACCESS_MAINT_TUNNELS, ACCESS_ENGINE, ACCESS_RESEARCH, ACCESS_SEC_DOORS, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_PARAMEDIC)
 	outfit = /obj/outfit/job/med_tech
 
 	blacklisted_species = list(SPECIES_DIONA, SPECIES_DIONA_COEUS, SPECIES_IPC_G2, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
+	skill_requirements = alist(
+		/singleton/skill/surgery = SKILL_LEVEL_FAMILIAR
+	)
 
 /obj/outfit/job/med_tech
 	name = "Paramedic"
@@ -294,11 +292,11 @@
 	shoes = /obj/item/clothing/shoes/jackboots
 	id = /obj/item/card/id/white
 
-	headset = /obj/item/device/radio/headset/headset_med
-	bowman = /obj/item/device/radio/headset/headset_med/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/med
-	wrist_radio = /obj/item/device/radio/headset/wrist/med
-	clipon_radio = /obj/item/device/radio/headset/wrist/clip/med
+	headset = /obj/item/radio/headset/headset_med
+	bowman = /obj/item/radio/headset/headset_med/alt
+	double_headset = /obj/item/radio/headset/alt/double/med
+	wrist_radio = /obj/item/radio/headset/wrist/med
+	clipon_radio = /obj/item/radio/headset/wrist/clip/med
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/medical
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/medical
@@ -349,15 +347,19 @@
 	spawn_positions = 2
 	supervisors = "the Chief Medical Officer"
 	selection_color = "#15903a"
-	access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP)
-	minimal_access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP)
+
 	minimum_character_age = list(
 		SPECIES_HUMAN = 18,
 		SPECIES_SKRELL = 50,
 		SPECIES_SKRELL_AXIORI = 50
 	)
+
+	job_access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP)
 	outfit = /obj/outfit/job/intern_med
 	blacklisted_species = list(SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
+	skill_requirements = alist(
+		/singleton/skill/surgery = SKILL_LEVEL_FAMILIAR
+	)
 
 /obj/outfit/job/intern_med
 	name = "Medical Intern"
@@ -365,11 +367,11 @@
 
 	uniform = /obj/item/clothing/under/rank/medical/intern
 	shoes = /obj/item/clothing/shoes/sneakers/medsci
-	headset = /obj/item/device/radio/headset/headset_med
-	bowman = /obj/item/device/radio/headset/headset_med/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/med
-	wrist_radio = /obj/item/device/radio/headset/wrist/med
-	clipon_radio = /obj/item/device/radio/headset/wrist/clip/med
+	headset = /obj/item/radio/headset/headset_med
+	bowman = /obj/item/radio/headset/headset_med/alt
+	double_headset = /obj/item/radio/headset/alt/double/med
+	wrist_radio = /obj/item/radio/headset/wrist/med
+	clipon_radio = /obj/item/radio/headset/wrist/clip/med
 
 	backpack = /obj/item/storage/backpack/medic
 	backpack_faction = /obj/item/storage/backpack/nt

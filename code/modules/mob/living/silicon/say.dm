@@ -9,7 +9,7 @@
 			. = TRUE
 			message = Gibberish(message, C.max_damage / C.get_damage())
 	else
-		var/damaged = 100 - (clamp(health, 0, maxHealth) / maxHealth) * 100
+		var/damaged = 100 - (clamp(health, 0, maxhealth) / maxhealth) * 100
 		if(damaged > 40)
 			. = TRUE
 			message = Gibberish(message, damaged - 10)
@@ -99,7 +99,7 @@
 	if(!message)
 		return
 
-	var/obj/machinery/hologram/holopad/H = src.holo
+	var/obj/structure/machinery/hologram/holopad/H = src.holo
 	if(H?.active_holograms[src])//If there is a hologram and its master is the user.
 		// AI can hear their own message, this formats it for them.
 		if(speaking)
@@ -148,7 +148,7 @@
 	if(!message)
 		return
 
-	var/obj/machinery/hologram/holopad/T = src.holo
+	var/obj/structure/machinery/hologram/holopad/T = src.holo
 	if(T?.active_holograms[src])
 		var/rendered = "<span class='game say'><span class='name'>[name]</span> <span class='message'>[message]</span></span>"
 		to_chat(src, "<i><span class='game say'>Holopad action relayed, <span class='name'>[real_name]</span> <span class='message'>[message]</span></span></i>")

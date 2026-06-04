@@ -3,6 +3,8 @@
 	priority = 2
 	can_infect = TRUE
 	blood_level = 1
+	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
+	skill_diff_fail_modifier = SURGERY_DIFFICULTY_EXTREME
 
 /singleton/surgery_step/internal/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -28,6 +30,7 @@
 
 	min_duration = 50
 	max_duration = 70
+	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 
 /singleton/surgery_step/internal/fix_organ/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -111,11 +114,12 @@
 	allowed_tools = list(
 	/obj/item/stack/nanopaste = 100,
 	/obj/item/surgery/bone_gel = 30,
-	SCREWDRIVER = 70
+	TOOL_SCREWDRIVER = 70
 	)
 
 	min_duration = 50
 	max_duration = 70
+	skill_requirements = alist(ROBOTICS_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR)
 
 /singleton/surgery_step/internal/fix_organ_robotic/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -180,13 +184,14 @@
 	name = "Separate Organ"
 	priority = 1
 	allowed_tools = list(
-	/obj/item/surgery/scalpel = 100,
+	TOOL_SCALPEL = 100,
 	/obj/item/material/knife = 75,
 	/obj/item/material/shard = 50
 	)
 
 	min_duration = 70
 	max_duration = 90
+	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 
 /singleton/surgery_step/internal/detach_organ/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -246,13 +251,14 @@
 /singleton/surgery_step/internal/remove_organ
 	name = "Remove Organ"
 	allowed_tools = list(
-	/obj/item/surgery/hemostat = 100,	\
-	WIRECUTTER = 75,	\
+	TOOL_HEMOSTAT = 100,	\
+	TOOL_WIRECUTTER = 75,	\
 	/obj/item/material/kitchen/utensil/fork = 20
 	)
 
 	min_duration = 40
 	max_duration = 60
+	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 
 /singleton/surgery_step/internal/remove_organ/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -312,6 +318,7 @@
 
 	min_duration = 40
 	max_duration = 60
+	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 
 /singleton/surgery_step/internal/replace_organ/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -412,11 +419,12 @@
 	name = "Attach Organ"
 	allowed_tools = list(
 	/obj/item/surgery/fix_o_vein = 100, \
-	/obj/item/stack/cable_coil = 75
+	TOOL_CABLECOIL = 75
 	)
 
 	min_duration = 80
 	max_duration = 100
+	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 
 /singleton/surgery_step/internal/attach_organ/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -465,12 +473,13 @@
 	name = "Prepare Brain"
 	allowed_tools = list(
 	/obj/item/surgery/scalpel/manager = 95,
-	/obj/item/surgery/surgicaldrill = 75,
+	TOOL_DRILL = 75,
 	/obj/item/pickaxe/ = 5
 	)
 
 	min_duration = 80
 	max_duration = 100
+	skill_requirements = alist(ROBOTICS_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 
 /singleton/surgery_step/internal/prepare/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())

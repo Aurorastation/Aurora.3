@@ -3,6 +3,8 @@
 /obj/item/modular_computer
 	name = "Modular Computer"
 	desc = DESC_PARENT
+	maxhealth = OBJECT_HEALTH_MEDIUM
+	should_use_health = TRUE
 
 	var/lexical_name = "computer"
 	/// Whether the computer is turned on.
@@ -94,13 +96,8 @@
 	var/power_has_failed = FALSE
 	var/is_holographic = FALSE
 
-	/// Damage of the chassis. If the chassis takes too much damage it will break apart.
-	/// Current damage level
-	var/damage = 0
 	/// Damage level at which the computer ceases to operate
 	var/broken_damage = 50
-	/// Damage level at which the computer breaks apart.
-	var/max_damage = 100
 
 	/// Important hardware (must be installed for computer to work)
 	/// CPU. Without it the computer won't run. Better CPUs can run more programs at once.
@@ -124,7 +121,11 @@
 	/// Tesla Link, Allows remote charging from nearest APC.
 	var/obj/item/computer_hardware/tesla_link/tesla_link
 	/// Personal AI, can control the device via a verb when installed
-	var/obj/item/device/paicard/personal_ai
+	var/obj/item/paicard/personal_ai
+	/// The universal port. Allows connection from IPCs through access cables.
+	var/obj/item/computer_hardware/universal_port/universal_port
+	/// The access cable dongle. Allows the computer to have its very own access cable.
+	var/obj/item/computer_hardware/access_cable_dongle/access_cable_dongle
 	var/obj/item/computer_hardware/flashlight/flashlight
 	var/listener/listener
 

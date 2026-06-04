@@ -78,7 +78,7 @@
 	fore_dir = EAST
 	vessel_size = SHIP_SIZE_TINY
 
-/obj/machinery/computer/shuttle_control/explore/terminal/golden_deep
+/obj/structure/machinery/computer/shuttle_control/explore/terminal/golden_deep
 	name = "shuttle control console"
 	shuttle_tag = "Golden Deep Shuttle"
 	req_one_access = list(ACCESS_GOLDEN_DEEP, ACCESS_GOLDEN_DEEP_OWNED)

@@ -11,11 +11,16 @@
 	name = "skinsight"
 	desc = "A health analyzer, but cooler."
 	icon_state = "blink"
+	item_icons = null
 	cast_methods = CAST_MELEE|CAST_USE
 	aspect = ASPECT_PSIONIC
 	cooldown = 10
 	psi_cost = 10
 	var/body_scan_mode = FALSE
+
+/obj/item/spell/skinsight/Initialize()
+	. = ..()
+	src.LoadComponent(/datum/component/health_analyzer)
 
 /obj/item/spell/skinsight/on_use_cast(mob/user)
 	. = ..()
@@ -49,7 +54,10 @@
 
 	if(!body_scan_mode)
 		user.visible_message(SPAN_NOTICE("[user] passes [user.get_pronoun("his")] hand over [target]."), SPAN_NOTICE("You pass your hand over [target]."))
-		health_scan_mob(target, user, TRUE, TRUE)
+		var/datum/component/health_analyzer/h_analyzer = src.GetComponent(/datum/component/health_analyzer)
+		if(!h_analyzer)
+			return
+		h_analyzer.health_scan_mob(target, user, TRUE, FALSE)
 	else
 		user.visible_message(SPAN_NOTICE("[user] slowly passes [user.get_pronoun("his")] hand over [target]..."),
 							SPAN_NOTICE("You slowly pass your hand over [target]..."))

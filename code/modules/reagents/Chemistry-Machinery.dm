@@ -9,7 +9,7 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-/obj/machinery/chem_master
+/obj/structure/machinery/chem_master
 	name = "ChemMaster 3000"
 	density = 1
 	anchored = 1
@@ -18,7 +18,7 @@
 	use_power = POWER_USE_IDLE
 	idle_power_usage = 20
 	layer = BELOW_OBJ_LAYER
-	clicksound = /singleton/sound_category/button_sound
+	clicksound = SFX_BUTTON
 
 	var/obj/item/reagent_containers/glass/beaker = null
 	var/obj/item/storage/pill_bottle/loaded_pill_bottle = null
@@ -35,11 +35,11 @@
 	var/datum/tgui/ui = null
 	var/list/analysis = list()
 
-/obj/machinery/chem_master/Initialize()
+/obj/structure/machinery/chem_master/Initialize()
 	. = ..()
 	create_reagents(300)
 
-/obj/machinery/chem_master/ex_act(severity)
+/obj/structure/machinery/chem_master/ex_act(severity)
 	switch(severity)
 		if(1.0)
 			qdel(src)
@@ -49,7 +49,7 @@
 				qdel(src)
 				return
 
-/obj/machinery/chem_master/proc/eject()
+/obj/structure/machinery/chem_master/proc/eject()
 	if(beaker && usr)
 		if(!use_check_and_message(usr))
 			usr.put_in_hands(beaker, TRUE)
@@ -60,11 +60,11 @@
 		icon_state = "mixer0"
 		return TRUE
 
-/obj/machinery/chem_master/AltClick()
+/obj/structure/machinery/chem_master/AltClick()
 	if(!use_check_and_message(usr))
 		eject()
 
-/obj/machinery/chem_master/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/chem_master/attackby(obj/item/attacking_item, mob/user)
 
 	if(istype(attacking_item, /obj/item/reagent_containers/glass))
 
@@ -77,7 +77,7 @@
 		src.beaker = attacking_item
 		user.drop_from_inventory(attacking_item, src)
 		to_chat(user, "You add the beaker to the machine!")
-		src.updateUsrDialog()
+		SStgui.update_uis(src)
 		icon_state = "mixer1"
 		CHEMMASTER_BOTTLE_SOUND
 
@@ -91,8 +91,8 @@
 		src.loaded_pill_bottle = attacking_item
 		user.drop_from_inventory(attacking_item, src)
 		to_chat(user, "You add the pill bottle into the dispenser slot!")
-		src.updateUsrDialog()
-	else if(attacking_item.iswrench())
+		SStgui.update_uis(src)
+	else if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		anchored = !anchored
 		to_chat(user, "You [anchored ? "attach" : "detach"] the [src] [anchored ? "to" : "from"] the ground")
 		attacking_item.play_tool_sound(get_turf(src), 75)
@@ -101,13 +101,13 @@
 		ui = SStgui.try_update_ui(user, src, ui)
 
 
-/obj/machinery/chem_master/ui_interact(mob/user, datum/tgui/ui)
+/obj/structure/machinery/chem_master/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "ChemMaster")
 		ui.open()
 
-/obj/machinery/chem_master/ui_data(mob/user)
+/obj/structure/machinery/chem_master/ui_data(mob/user)
 	var/list/data = list()
 
 	var/list/reagents_in_internal_storage = list()
@@ -140,17 +140,17 @@
 
 	return data
 
-/obj/machinery/chem_master/LateInitialize()
+/obj/structure/machinery/chem_master/LateInitialize()
 	. = ..()
 	if(!chem_asset)
 		chem_asset = get_asset_datum(/datum/asset/spritesheet/chem_master)
 
-/obj/machinery/chem_master/ui_assets(mob/user)
+/obj/structure/machinery/chem_master/ui_assets(mob/user)
 	return list(
 		get_asset_datum(/datum/asset/spritesheet/chem_master)
 	)
 
-/obj/machinery/chem_master/ui_static_data(mob/user)
+/obj/structure/machinery/chem_master/ui_static_data(mob/user)
 	. = ..()
 	var/list/data = list()
 
@@ -176,7 +176,7 @@
 	return data
 
 
-/obj/machinery/chem_master/ui_act(action, params)
+/obj/structure/machinery/chem_master/ui_act(action, params)
 	. = ..()
 
 	if(.)
@@ -300,37 +300,37 @@
 		return TRUE
 	return TRUE
 
-/obj/machinery/chem_master/ui_status(mob/user, datum/ui_state/state)
+/obj/structure/machinery/chem_master/ui_status(mob/user, datum/ui_state/state)
 	if(!operable())
 		return UI_DISABLED
 
 	. = ..()
 
 
-/obj/machinery/chem_master/Topic(href, href_list)
+/obj/structure/machinery/chem_master/Topic(href, href_list)
 	if(..())
 		return 1
 	return
 
-/obj/machinery/chem_master/attack_ai(mob/user as mob)
+/obj/structure/machinery/chem_master/attack_ai(mob/user as mob)
 	if(!ai_can_interact(user))
 		return
 	return src.attack_hand(user)
 
-/obj/machinery/chem_master/attack_hand(mob/user as mob)
+/obj/structure/machinery/chem_master/attack_hand(mob/user as mob)
 	. = ..()
 	if(!operable())
 		return
 	user.set_machine(src)
 	ui_interact(user)
 
-/obj/machinery/chem_master/condimaster
+/obj/structure/machinery/chem_master/condimaster
 	name = "CondiMaster 3000"
 	condi = 1
 
 ////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////
-/obj/machinery/reagentgrinder
+/obj/structure/machinery/reagentgrinder
 
 	name = "All-In-One Grinder"
 	icon = 'icons/obj/machinery/cooking_machines.dmi'
@@ -366,15 +366,15 @@
 		/obj/item/reagent_containers/cooking_container
 	)
 
-/obj/machinery/reagentgrinder/Initialize()
+/obj/structure/machinery/reagentgrinder/Initialize()
 	. = ..()
 	beaker = new /obj/item/reagent_containers/glass/beaker/large(src)
 
-/obj/machinery/reagentgrinder/update_icon()
+/obj/structure/machinery/reagentgrinder/update_icon()
 	icon_state = "juicer"+num2text(!isnull(beaker))
 	return
 
-/obj/machinery/reagentgrinder/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/reagentgrinder/attackby(obj/item/attacking_item, mob/user)
 	if (is_type_in_list(attacking_item, beaker_types))
 		if (beaker)
 			return 1
@@ -382,7 +382,7 @@
 			src.beaker =  attacking_item
 			user.drop_from_inventory(attacking_item,src)
 			update_icon()
-			src.updateUsrDialog()
+			SStgui.update_uis(src)
 			return 0
 
 	if(holdingitems && holdingitems.len >= limit)
@@ -413,7 +413,7 @@
 		else
 			to_chat(user, "You fill \the [src] from \the [attacking_item].")
 
-		src.updateUsrDialog()
+		SStgui.update_uis(src)
 		return 0
 
 	if(!sheet_reagents[attacking_item.type] && (!attacking_item.reagents || !attacking_item.reagents.total_volume))
@@ -423,19 +423,19 @@
 	user.remove_from_mob(attacking_item)
 	attacking_item.forceMove(src)
 	holdingitems += attacking_item
-	src.updateUsrDialog()
+	SStgui.update_uis(src)
 	return 0
 
-/obj/machinery/reagentgrinder/attack_ai(mob/user as mob)
+/obj/structure/machinery/reagentgrinder/attack_ai(mob/user as mob)
 	if(!ai_can_interact(user))
 		return
 	interact(user)
 
-/obj/machinery/reagentgrinder/attack_hand(mob/user as mob)
+/obj/structure/machinery/reagentgrinder/attack_hand(mob/user as mob)
 	. = ..()
 	interact(user)
 
-/obj/machinery/reagentgrinder/interact(mob/user as mob) // The microwave Menu
+/obj/structure/machinery/reagentgrinder/interact(mob/user as mob) // The microwave Menu
 	if(!operable())
 		return
 	user.set_machine(src)
@@ -482,7 +482,7 @@
 	grindr_win.set_content(dat)
 	grindr_win.open()
 
-/obj/machinery/reagentgrinder/Topic(href, href_list)
+/obj/structure/machinery/reagentgrinder/Topic(href, href_list)
 	if(..())
 		return 1
 
@@ -493,10 +493,10 @@
 			eject()
 		if ("detach")
 			detach(usr)
-	src.updateUsrDialog()
+	SStgui.update_uis(src)
 	return 1
 
-/obj/machinery/reagentgrinder/proc/detach(var/mob/user)
+/obj/structure/machinery/reagentgrinder/proc/detach(var/mob/user)
 	if(!beaker)
 		return
 
@@ -512,7 +512,7 @@
 	beaker = null
 	update_icon()
 
-/obj/machinery/reagentgrinder/proc/eject()
+/obj/structure/machinery/reagentgrinder/proc/eject()
 
 	if (usr.stat != 0)
 		return
@@ -524,7 +524,7 @@
 		holdingitems -= O
 	holdingitems.Cut()
 
-/obj/machinery/reagentgrinder/proc/grind(mob/user)
+/obj/structure/machinery/reagentgrinder/proc/grind(mob/user)
 
 	power_change()
 	if(stat & (NOPOWER|BROKEN))
@@ -576,12 +576,12 @@
 			if (beaker.reagents.total_volume >= beaker.reagents.maximum_volume)
 				break
 
-/obj/machinery/reagentgrinder/proc/grind_reset()
+/obj/structure/machinery/reagentgrinder/proc/grind_reset()
 	inuse = FALSE
-	updateUsrDialog()
+	SStgui.update_uis(src)
 
 
-/obj/machinery/reagentgrinder/mouse_drop_receive(atom/dropped, mob/user, params)
+/obj/structure/machinery/reagentgrinder/mouse_drop_receive(atom/dropped, mob/user, params)
 	var/mob/living/carbon/human/target = dropped
 	if (!istype(target) || target.buckled_to || get_dist(user, src) > 1 || get_dist(user, target) > 1 || user.stat || istype(user, /mob/living/silicon/ai))
 		return
@@ -626,7 +626,7 @@
 			user.visible_message(SPAN_WARNING("[user] stops the [src] and leaves [target] resting as they are."),
 									SPAN_WARNING("You turn the [src] off and let go of [target]."))
 
-/obj/machinery/reagentgrinder/verb/Eject()
+/obj/structure/machinery/reagentgrinder/verb/Eject()
 	set src in oview(1)
 	set category = "Object"
 	set name = "Eject contents"

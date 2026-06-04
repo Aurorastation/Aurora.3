@@ -1,13 +1,9 @@
-#ifndef T_BOARD
-#error T_BOARD macro is not defined but we need it!
-#endif
-
 /obj/item/circuitboard/telecomms
 	board_type = BOARD_MACHINE
 
 /obj/item/circuitboard/telecomms/receiver
 	name = T_BOARD("subspace receiver")
-	build_path = /obj/machinery/telecomms/receiver
+	build_path = /obj/structure/machinery/telecomms/receiver
 	origin_tech = list(TECH_DATA = 4, TECH_ENGINEERING = 3, TECH_BLUESPACE = 2)
 	req_components = list(
 							"/obj/item/stock_parts/subspace/ansible" = 1,
@@ -17,7 +13,7 @@
 
 /obj/item/circuitboard/telecomms/hub
 	name = T_BOARD("hub mainframe")
-	build_path = /obj/machinery/telecomms/hub
+	build_path = /obj/structure/machinery/telecomms/hub
 	origin_tech = list(TECH_DATA = 4, TECH_ENGINEERING = 4)
 	req_components = list(
 							"/obj/item/stock_parts/manipulator" = 2,
@@ -26,7 +22,7 @@
 
 /obj/item/circuitboard/telecomms/bus
 	name = T_BOARD("bus mainframe")
-	build_path = /obj/machinery/telecomms/bus
+	build_path = /obj/structure/machinery/telecomms/bus
 	origin_tech = list(TECH_DATA = 4, TECH_ENGINEERING = 4)
 	req_components = list(
 							"/obj/item/stock_parts/manipulator" = 2,
@@ -35,7 +31,7 @@
 
 /obj/item/circuitboard/telecomms/processor
 	name = T_BOARD("processor unit")
-	build_path = /obj/machinery/telecomms/processor
+	build_path = /obj/structure/machinery/telecomms/processor
 	origin_tech = list(TECH_DATA = 4, TECH_ENGINEERING = 4)
 	req_components = list(
 							"/obj/item/stock_parts/manipulator" = 3,
@@ -47,7 +43,7 @@
 
 /obj/item/circuitboard/telecomms/server
 	name = T_BOARD("telecommunication server")
-	build_path = /obj/machinery/telecomms/server
+	build_path = /obj/structure/machinery/telecomms/server
 	origin_tech = list(TECH_DATA = 4, TECH_ENGINEERING = 4)
 	req_components = list(
 							"/obj/item/stock_parts/manipulator" = 2,
@@ -56,7 +52,7 @@
 
 /obj/item/circuitboard/telecomms/broadcaster
 	name = T_BOARD("subspace broadcaster")
-	build_path = /obj/machinery/telecomms/broadcaster
+	build_path = /obj/structure/machinery/telecomms/broadcaster
 	origin_tech = list(TECH_DATA = 4, TECH_ENGINEERING = 4, TECH_BLUESPACE = 2)
 	req_components = list(
 							"/obj/item/stock_parts/manipulator" = 2,

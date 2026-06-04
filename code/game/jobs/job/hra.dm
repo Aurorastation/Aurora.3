@@ -12,13 +12,7 @@
 
 	selection_color = "#c9ad12"
 
-	access = list(
-		ACCESS_SEC_DOORS, ACCESS_MEDICAL, ACCESS_ENGINE, ACCESS_EVA, ACCESS_HEADS, ACCESS_MAINT_TUNNELS,
-		ACCESS_CONSTRUCTION, ACCESS_RESEARCH, ACCESS_GATEWAY, ACCESS_WEAPONS, ACCESS_BRIDGE_CREW, ACCESS_INTREPID,
-		ACCESS_SPARK, ACCESS_QUARK, ACCESS_CANARY, ACCESS_CENT_CCIA
-	)
-
-	minimal_access = list(
+	job_access = list(
 		ACCESS_SEC_DOORS, ACCESS_MEDICAL, ACCESS_ENGINE, ACCESS_EVA, ACCESS_HEADS, ACCESS_MAINT_TUNNELS,
 		ACCESS_CONSTRUCTION, ACCESS_RESEARCH, ACCESS_GATEWAY, ACCESS_WEAPONS, ACCESS_BRIDGE_CREW, ACCESS_INTREPID,
 		ACCESS_SPARK, ACCESS_QUARK, ACCESS_CANARY, ACCESS_CENT_CCIA
@@ -27,9 +21,8 @@
 	outfit = /obj/outfit/job/hra
 	blacklisted_species = list(
 		SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_UNATHI,
-		SPECIES_DIONA, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU,
-		SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT,
-		SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER, SPECIES_DIONA, SPECIES_DIONA_COEUS
+		SPECIES_DIONA, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT,
+		SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER, SPECIES_DIONA_COEUS
 	)
 
 
@@ -47,10 +40,10 @@
 	head = /obj/item/clothing/head/beret/scc/alt
 	belt = /obj/item/melee/telebaton
 
-	headset = /obj/item/device/radio/headset/representative
-	bowman = /obj/item/device/radio/headset/representative/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/command/representative
-	wrist_radio = /obj/item/device/radio/headset/wrist/command/representative
+	headset = /obj/item/radio/headset/representative
+	bowman = /obj/item/radio/headset/representative/alt
+	double_headset = /obj/item/radio/headset/alt/double/command/representative
+	wrist_radio = /obj/item/radio/headset/wrist/command/representative
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/civilian/lawyer
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/lawyer

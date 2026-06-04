@@ -74,7 +74,7 @@
 
 /singleton/cargo_item/oxygendeprivationfirstaid
 	category = "medical"
-	name = "oxygen deprivation first aid"
+	name = "oxygen deprivation first aid kit"
 	supplier = "nanotrasen"
 	description = "An emergency medical kit for oxygen deprivation, including cardiac arrest."
 	price = 150
@@ -88,7 +88,7 @@
 
 /singleton/cargo_item/toxinfirstaid
 	category = "medical"
-	name = "toxin first aid"
+	name = "toxin first aid kit"
 	supplier = "nanotrasen"
 	description = "An emergency medical kit for toxin exposure."
 	price = 150
@@ -102,7 +102,7 @@
 
 /singleton/cargo_item/radfirstaid
 	category = "medical"
-	name = "radiation first aid"
+	name = "radiation first aid kit"
 	supplier = "nanotrasen"
 	description = "An emergency medical kit for severe radiation exposure."
 	price = 150
@@ -119,7 +119,7 @@
 	name = "O- blood pack (x2)"
 	supplier = "zeng_hu"
 	description = "A blood pack filled with universally-compatible O- Blood."
-	price = 800
+	price = 600
 	items = list(
 		/obj/item/reagent_containers/blood/OMinus
 	)
@@ -130,17 +130,17 @@
 
 /singleton/cargo_item/bloodpack_sbs
 	category = "medical"
-	name = "SBS blood pack (x1)"
+	name = "SBS blood pack (x2)"
 	supplier = "zeng_hu"
 	description = "A blood pack filled with Synthetic Blood Substitute. WARNING: Not compatible with organic blood!"
-	price = 675
+	price = 475
 	items = list(
 		/obj/item/reagent_containers/blood/sbs
 	)
 	access = ACCESS_MEDICAL
 	container_type = "freezer"
 	groupable = TRUE
-	spawn_amount = 1
+	spawn_amount = 2
 
 /singleton/cargo_item/bloodpacksbags
 	category = "medical"
@@ -154,35 +154,7 @@
 	access = ACCESS_MEDICAL
 	container_type = "crate"
 	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/dexplus_vial
-	category = "medical"
-	name = "dexalin plus vial"
-	supplier = "nanotrasen"
-	description = "A vial that comes with 15 units of Dexalin Plus, an advanced chemical used to rapidly oxygenate blood cells."
-	price = 900
-	items = list(
-		/obj/item/reagent_containers/glass/beaker/vial/dexalin_plus
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/peridaxon_vial
-	category = "medical"
-	name = "peridaxon vial"
-	supplier = "nanotrasen"
-	description = "A vial that comes with 15 units of Peridaxon, an advanced organ regenerative compound."
-	price = 1300
-	items = list(
-		/obj/item/reagent_containers/glass/beaker/vial/peridaxon
-	)
-	access = ACCESS_MEDICAL
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
+	spawn_amount = 3
 
 /singleton/cargo_item/pneumalin_inhalers
 	category = "medical"
@@ -268,12 +240,40 @@
 	groupable = TRUE
 	spawn_amount = 1
 
+/singleton/cargo_item/tricordrazine
+	category = "medical"
+	name = "tricordrazine bottle"
+	supplier = "nanotrasen"
+	description = "A bottle of tricordrazine, a medicine used to treat various wounds."
+	price = 175
+	items = list(
+		/obj/item/reagent_containers/glass/bottle/tricordrazine
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/bicaridine_bottle
+	category = "medical"
+	name = "bicaridine bottle"
+	supplier = "nanotrasen"
+	description = "A bottle of bicaridine, a medicine used to treat trauma."
+	price = 250
+	items = list(
+		/obj/item/reagent_containers/glass/bottle/bicaridine
+	)
+	access = ACCESS_MEDICAL
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
 /singleton/cargo_item/butazoline_bottle
 	category = "medical"
 	name = "butazoline bottle"
-	supplier = "nanotrasen"
+	supplier = "zeng_hu"
 	description = "A bottle of butazoline, a medicine used to treat severe trauma."
-	price = 250
+	price = 525
 	items = list(
 		/obj/item/reagent_containers/glass/bottle/butazoline
 	)
@@ -286,12 +286,26 @@
 	category = "medical"
 	name = "kelotane bottle"
 	supplier = "nanotrasen"
-	description = "A bottle of kelotane, a medicine used to treat severe burns."
+	description = "A bottle of kelotane, a medicine used to treat burns."
 	price = 250
 	items = list(
 		/obj/item/reagent_containers/glass/bottle/kelotane
 	)
 	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/dermaline_bottle
+	category = "medical"
+	name = "dermaline bottle"
+	supplier = "zeng_hu"
+	description = "A bottle of dermaline, a medicine used to treat severe burns."
+	price = 525
+	items = list(
+		/obj/item/reagent_containers/glass/bottle/dermaline
+	)
+	access = ACCESS_MEDICAL
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -318,20 +332,6 @@
 	price = 375
 	items = list(
 		/obj/item/reagent_containers/glass/bottle/hyronalin
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/arithrazine_vial
-	category = "medical"
-	name = "arithrazine vial"
-	supplier = "nanotrasen"
-	description = "A bottle containing Arithrazine, a potent anti-radiation medication."
-	price = 750
-	items = list(
-		/obj/item/reagent_containers/glass/beaker/vial/arithrazine
 	)
 	access = 0
 	container_type = "crate"
@@ -370,7 +370,7 @@
 	category = "medical"
 	name = "mortaphenyl bottle"
 	supplier = "nanotrasen"
-	description = "A bottle of mortaphenyl, a strong non-opioid painkiller."
+	description = "A bottle of mortaphenyl, a weak, synthetic, opioid painkiller."
 	price = 455
 	items = list(
 		/obj/item/reagent_containers/glass/bottle/mortaphenyl
@@ -388,6 +388,48 @@
 	price = 350
 	items = list(
 		/obj/item/reagent_containers/glass/bottle/thetamycin
+	)
+	access = ACCESS_MEDICAL
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/arithrazine_vial
+	category = "medical"
+	name = "arithrazine vial"
+	supplier = "nanotrasen"
+	description = "A bottle containing Arithrazine, a potent anti-radiation medication."
+	price = 750
+	items = list(
+		/obj/item/reagent_containers/glass/beaker/vial/arithrazine
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/dexplus_vial
+	category = "medical"
+	name = "dexalin plus vial"
+	supplier = "nanotrasen"
+	description = "A vial that comes with 15 units of Dexalin Plus, an advanced chemical used to rapidly oxygenate blood cells."
+	price = 900
+	items = list(
+		/obj/item/reagent_containers/glass/beaker/vial/dexalin_plus
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/peridaxon_vial
+	category = "medical"
+	name = "peridaxon vial"
+	supplier = "nanotrasen"
+	description = "A vial that comes with 15 units of Peridaxon, an advanced organ regenerative compound."
+	price = 1300
+	items = list(
+		/obj/item/reagent_containers/glass/beaker/vial/peridaxon
 	)
 	access = ACCESS_MEDICAL
 	container_type = "crate"
@@ -488,20 +530,6 @@
 		/obj/item/clothing/head/helmet/space/void/medical
 	)
 	access = ACCESS_MEDICAL
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/nanopaste
-	category = "medical"
-	name = "nanopaste"
-	supplier = "zeng_hu"
-	description = "A tube of paste containing swarms of repair nanites. Very effective in repairing robotic machinery."
-	price = 750
-	items = list(
-		/obj/item/stack/nanopaste
-	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -751,7 +779,7 @@
 	name = "organ cooler"
 	supplier = "zeng_hu"
 	description = "A sealed, cooled container to keep organs from decaying."
-	price = 300
+	price = 80
 	items = list(
 		/obj/item/storage/box/unique/freezer/organcooler
 	)
@@ -759,3 +787,26 @@
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
+
+/singleton/cargo_item/iv_stand
+	category = "medical"
+	name = "IV stand"
+	supplier = "zeng_hu"
+	description = "An intravenous drip stand used for hooking up IV bags. It also features an emergency positive pressure system for breathing-compromised patients. Comes with a breath mask. Tank or IV bags not included."
+	price = 150
+	items = list(
+		/obj/structure/machinery/iv_drip,
+		/obj/item/clothing/mask/breath/medical
+	)
+	access = ACCESS_MEDICAL
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/organcooler/mind_blanker
+	name = "mind blanker cooler"
+	description = "An organ cooler containing a single Zeng-Hu Mind Blanker. Their cost has been subsidized by ZH for Operation Deep Dive."
+	price = 500
+	items = list(
+		/obj/item/storage/box/unique/freezer/organcooler/mind_blanker
+	)

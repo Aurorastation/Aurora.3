@@ -1,5 +1,5 @@
 /obj/item/clothing/shoes/tajara/footwraps
-	name = "native tajaran foot-wear"
+	name = "kah'romra"
 	desc = "Native foot and leg wear worn by Tajara, completely covering the legs in wraps and the feet in adhomian fabric."
 	icon = 'icons/obj/tajara_items.dmi'
 	icon_state = "adhomai_shoes"
@@ -8,11 +8,11 @@
 	species_restricted = list(BODYTYPE_TAJARA)
 	contained_sprite = TRUE
 	move_trail = null
-	desc_extended = "Today the fashion that dominates Adhomai shares few similarities to the clothing of old Furs, linen, hemp, silk and other such fabrics were traded for \
-	synthetic versions, creating a massive boom in the nylon industry and textile industry in the cities. Jeans, overcoats, army uniforms, parade uniforms, flags, pants, shirts, ties, \
-	suspenders, overalls are now the fashion of every Tajara from Nal'Tor to Kaltir. The protests of \"Old fashion\" supporters can't stand against how undeniably effective and cheap \
-	to produce Human clothes are. There are a few notable branches, the long-coat and fedora \"gangster style\". Leather jacket wearing \"Greaser\" or the popular amongst females, short \
-	and colorful dress wearing \"Flapper\" variety of clothing."
+	desc_extended = "Kahriye Romra, often shortened to Kah'Romra or just Romra, are a traditional set of Adhomian fabrics \
+	and leathers that wrap the legs and feet. The style of footwear has existed on Adhomai for longer than recorded history \
+	and continues to survive well into the modern eras of Tajaran history. The combination of tough leathers on the feet, and \
+	insulating fabrics and furs along the legs combine the warmth and protection needed to cross Adhomai's rugged terrain. \
+	Modern Kah'Romra utilize treated fabrics and leathers for increased durability."
 
 // Flats.
 // since everything except the onmob is a carbon copy, we just add another onmob sprite with the proper suffix and the species restriction to avoid bloat
@@ -98,24 +98,24 @@
 	item_state = "ridingboots"
 
 /obj/item/clothing/shoes/workboots/tajara
-	name = "workboots"
+	name = "tajaran workboots"
 	desc = "A pair of steel-toed work boots designed for use in industrial settings. Safety first. Fitted for Tajara."
 	species_restricted = list(BODYTYPE_TAJARA)
 
 /obj/item/clothing/shoes/workboots/tajara/brown
-	name = "brown workboots"
+	name = "brown tajaran workboots"
 	desc = "A pair of brown steel-toed work boots designed for use in industrial settings. Safety first. Fitted for Tajara."
 	icon_state = "workboots_brown"
 	item_state = "workboots_brown"
 
 /obj/item/clothing/shoes/workboots/tajara/grey
-	name = "grey workboots"
+	name = "grey tajaran workboots"
 	desc = "A pair of grey steel-toed work boots designed for use in industrial settings. Safety first. Fitted for Tajara."
 	icon_state = "workboots_grey"
 	item_state = "workboots_grey"
 
 /obj/item/clothing/shoes/workboots/tajara/dark
-	name = "dark workboots"
+	name = "dark tajaran workboots"
 	desc = "A pair of dark steel-toed work boots designed for use in industrial settings. Safety first. Fitted for Tajara."
 	icon_state = "workboots_dark"
 	item_state = "workboots_dark"

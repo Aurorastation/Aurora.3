@@ -6,7 +6,7 @@
 	hardware_flag = PROGRAM_LAPTOP
 	can_reset = TRUE
 	icon_state_unpowered = "laptop-open"
-	icon = 'icons/obj/modular_laptop.dmi'
+	icon = 'icons/obj/modular_computers/modular_laptop.dmi'
 	icon_state = "laptop-open"
 	icon_state_broken = "laptop-broken"
 	randpixel = 6
@@ -16,7 +16,7 @@
 	message_output_range = 1
 	max_hardware_size = 2
 	light_range = 3
-	max_damage = 50
+	maxhealth = OBJECT_HEALTH_VERY_LOW
 	broken_damage = 25
 	var/icon_state_closed = "laptop-closed"
 
@@ -43,7 +43,7 @@
 		..()
 	else
 		ClearOverlays()
-		if(damage >= broken_damage)
+		if(health <= broken_damage)
 			icon_state = icon_state_broken + "-closed"
 		else
 			icon_state = icon_state_closed

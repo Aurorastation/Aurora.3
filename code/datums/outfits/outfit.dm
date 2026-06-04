@@ -89,11 +89,11 @@
 	var/wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian
 
 	var/allow_headset_choice = FALSE
-	var/headset = /obj/item/device/radio/headset
-	var/bowman = /obj/item/device/radio/headset/alt
-	var/double_headset = /obj/item/device/radio/headset/alt/double
-	var/wrist_radio = /obj/item/device/radio/headset/wrist
-	var/clipon_radio = /obj/item/device/radio/headset/wrist/clip
+	var/headset = /obj/item/radio/headset
+	var/bowman = /obj/item/radio/headset/alt
+	var/double_headset = /obj/item/radio/headset/alt/double
+	var/wrist_radio = /obj/item/radio/headset/wrist
+	var/clipon_radio = /obj/item/radio/headset/wrist/clip
 
 	/// When spawning in, the ID will be set to this iff, preventing friendly fire.
 	var/id_iff = IFF_DEFAULT
@@ -331,7 +331,7 @@
 	else if (wrist)
 		equip_item(H, wrist, slot_wrists_str, callback = radio_callback)
 
-/obj/outfit/proc/turn_into_thinset(var/obj/item/device/radio/headset/wrist/radio)
+/obj/outfit/proc/turn_into_thinset(var/obj/item/radio/headset/wrist/radio)
 	if(istype(radio))
 		radio.icon_state = replacetext(radio.icon_state, "wrist", "thin")
 		radio.item_state = replacetext(radio.item_state, "wrist", "thin")
@@ -518,16 +518,16 @@
 			if(OUTFIT_TAB_PDA)
 				I.desc_extended += "For its many years of service, this model has held a virtual monopoly for PDA models for NanoTrasen. The secret? A lapel pin affixed to the back."
 			if(OUTFIT_PDA_OLD)
-				I.icon = 'icons/obj/pda_old.dmi'
+				I.icon = 'icons/obj/modular_computers/pda_old.dmi'
 				I.desc_extended += "Nicknamed affectionately as the 'Brick', PDA enthusiasts rejoice with the return of an old favorite, retrofitted to new modular computing standards."
 			if(OUTFIT_PDA_RUGGED)
-				I.icon = 'icons/obj/pda_rugged.dmi'
+				I.icon = 'icons/obj/modular_computers/pda_rugged.dmi'
 				I.desc_extended += "EVA enthusiasts and owners of fat fingers just LOVE the huge tactile buttons provided by this model. Prone to butt-dialing, but don't let that hold you back."
 			if(OUTFIT_PDA_SLATE)
-				I.icon = 'icons/obj/pda_slate.dmi'
+				I.icon = 'icons/obj/modular_computers/pda_slate.dmi'
 				I.desc_extended += "A bet between an engineer and a disgruntled scientist, it turns out you CAN make a PDA out of an atmospherics scanner. Also, probably don't tell management, just enjoy."
 			if(OUTFIT_PDA_SMART)
-				I.icon = 'icons/obj/pda_smart.dmi'
+				I.icon = 'icons/obj/modular_computers/pda_smart.dmi'
 				I.desc_extended += "NanoTrasen originally designed this as a portable media player. Unfortunately, Royalty-free and corporate-approved ukulele isn't particularly popular."
 		I.update_icon()
 		if(!H.wrists && H.pda_choice == OUTFIT_WRISTBOUND)
@@ -567,7 +567,7 @@
 			var/obj/item/ID = new id(H)
 			imprint_idcard(H, ID)
 			if(personal_computer?.card_slot)
-				addtimer(CALLBACK(src, PROC_REF(register_pda), personal_computer, ID), 2 SECOND)
+				addtimer(CALLBACK(src, PROC_REF(register_pda), personal_computer, ID), 2 SECOND, TIMER_STOPPABLE | TIMER_DELETE_ME)
 			else
 				H.equip_or_collect(ID, slot_wear_id_str)
 
@@ -642,6 +642,8 @@
 		H.gloves.add_fingerprint(H, 1)
 	if(H.wrists)
 		H.wrists.add_fingerprint(H, 1)
+	if(H.pants)
+		H.pants.add_fingerprint(H, 1)
 	if(H.l_ear)
 		H.l_ear.add_fingerprint(H, 1)
 	if(H.r_ear)
@@ -665,7 +667,7 @@
 		C.access = get_id_access(H)
 		C.rank = get_id_rank(H)
 		C.assignment = get_id_assignment(H)
-		addtimer(CALLBACK(H, TYPE_PROC_REF(/mob, set_id_info), C), 1 SECOND)	// Delay a moment to allow an icon update to happen.
+		addtimer(CALLBACK(H, TYPE_PROC_REF(/mob, set_id_info), C), 1 SECOND, TIMER_STOPPABLE | TIMER_DELETE_ME)	// Delay a moment to allow an icon update to happen.
 
 		if(H.mind && H.mind.initial_account)
 			C.associated_account_number = H.mind.initial_account.account_number

@@ -1,8 +1,8 @@
-/obj/machinery/chemical_dispenser
+/obj/structure/machinery/chemical_dispenser
 	name = "chemical dispenser"
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "dispenser"
-	clicksound = /singleton/sound_category/button_sound
+	clicksound = SFX_BUTTON
 	idle_power_usage = 100
 	density = TRUE
 	anchored = TRUE
@@ -31,17 +31,17 @@
 	/// Allow these cans/glasses/condiment bottles but forbid ACTUAL food.
 	var/list/drink_accepted = list(/obj/item/reagent_containers/food/drinks, /obj/item/reagent_containers/food/condiment)
 
-/obj/machinery/chemical_dispenser/feedback_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/chemical_dispenser/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "It has [cartridges.len] cartridges installed, and has space for [DISPENSER_MAX_CARTRIDGES - cartridges.len] more."
 
-/obj/machinery/chemical_dispenser/Initialize()
+/obj/structure/machinery/chemical_dispenser/Initialize()
 	. = ..()
 	if(spawn_cartridges)
 		for(var/type in spawn_cartridges)
 			add_cartridge(new type(src))
 
-/obj/machinery/chemical_dispenser/proc/add_cartridge(obj/item/reagent_containers/chem_disp_cartridge/C, mob/user)
+/obj/structure/machinery/chemical_dispenser/proc/add_cartridge(obj/item/reagent_containers/chem_disp_cartridge/C, mob/user)
 	if(!istype(C))
 		if(user)
 			to_chat(user, SPAN_WARNING("[C] will not fit in [src]!"))
@@ -72,12 +72,12 @@
 	sortTim(cartridges, GLOBAL_PROC_REF(cmp_text_asc))
 	SStgui.update_uis(src)
 
-/obj/machinery/chemical_dispenser/proc/remove_cartridge(label)
+/obj/structure/machinery/chemical_dispenser/proc/remove_cartridge(label)
 	. = cartridges[label]
 	cartridges -= label
 	SStgui.update_uis(src)
 
-/obj/machinery/chemical_dispenser/proc/eject()
+/obj/structure/machinery/chemical_dispenser/proc/eject()
 	if(container && usr)
 		var/obj/item/reagent_containers/B = container
 		if(!use_check_and_message(usr))
@@ -89,12 +89,12 @@
 			icon_state = initial(icon_state)
 		return TRUE
 
-/obj/machinery/chemical_dispenser/AltClick(mob/user)
+/obj/structure/machinery/chemical_dispenser/AltClick(mob/user)
 	if(use_check_and_message(usr))
 		eject()
 
-/obj/machinery/chemical_dispenser/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iswrench())
+/obj/structure/machinery/chemical_dispenser/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		to_chat(user, SPAN_NOTICE("You begin to [anchored ? "un" : ""]fasten [src]."))
 		if(attacking_item.use_tool(src, user, 20, volume = 50))
 			user.visible_message(
@@ -108,7 +108,7 @@
 	else if(istype(attacking_item, /obj/item/reagent_containers/chem_disp_cartridge))
 		add_cartridge(attacking_item, user)
 
-	else if(attacking_item.isscrewdriver())
+	else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		var/label = tgui_input_list(user, "Which cartridge would you like to remove?", "Chemical Dispenser", cartridges)
 		if(!label)
 			return
@@ -146,7 +146,7 @@
 	else
 		return ..()
 
-/obj/machinery/chemical_dispenser/ui_data(mob/user)
+/obj/structure/machinery/chemical_dispenser/ui_data(mob/user)
 	var/list/data =  list()
 
 	data["manufacturer"] = manufacturer
@@ -169,13 +169,13 @@
 	data["chemicals"] = chemicals
 	return data
 
-/obj/machinery/chemical_dispenser/ui_interact(mob/user, var/datum/tgui/ui)
+/obj/structure/machinery/chemical_dispenser/ui_interact(mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "ChemicalDispenser", ui_title, 400, 680)
 		ui.open()
 
-/obj/machinery/chemical_dispenser/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/obj/structure/machinery/chemical_dispenser/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
@@ -200,17 +200,17 @@
 
 	add_fingerprint(usr)
 
-/obj/machinery/chemical_dispenser/ui_status(mob/user, datum/ui_state/state)
+/obj/structure/machinery/chemical_dispenser/ui_status(mob/user, datum/ui_state/state)
 	if(!operable())
 		return UI_DISABLED
 
 	. = ..()
 
-/obj/machinery/chemical_dispenser/attack_ai(mob/user as mob)
+/obj/structure/machinery/chemical_dispenser/attack_ai(mob/user as mob)
 	if(!ai_can_interact(user))
 		return
 	ui_interact(user)
 
-/obj/machinery/chemical_dispenser/attack_hand(mob/user as mob)
+/obj/structure/machinery/chemical_dispenser/attack_hand(mob/user as mob)
 	. = ..()
 	ui_interact(user)

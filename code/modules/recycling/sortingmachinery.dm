@@ -39,8 +39,8 @@
 	qdel(src)
 
 /obj/structure/bigDelivery/attackby(obj/item/attacking_item, mob/user)
-	if(istype(attacking_item, /obj/item/device/destTagger))
-		var/obj/item/device/destTagger/O = attacking_item
+	if(istype(attacking_item, /obj/item/destTagger))
+		var/obj/item/destTagger/O = attacking_item
 		if(O.currTag)
 			if(src.sortTag != O.currTag)
 				to_chat(user, SPAN_NOTICE("You have labeled the destination as [O.currTag]."))
@@ -55,7 +55,7 @@
 		else
 			to_chat(user, SPAN_WARNING("You need to set a destination first!"))
 
-	else if(attacking_item.ispen())
+	else if(attacking_item.tool_behaviour == TOOL_PEN)
 		switch(alert("What would you like to alter?",,"Title","Description", "Cancel"))
 			if("Title")
 				var/str = sanitizeSafe(input(usr,"Label text?","Set label",""), MAX_NAME_LEN)
@@ -65,7 +65,7 @@
 				user.visible_message("\The [user] titles \the [src] with \a [attacking_item], marking down: \"[str]\"",\
 				SPAN_NOTICE("You title \the [src]: \"[str]\""),\
 				"You hear someone scribbling a note.")
-				playsound(src, pick('sound/bureaucracy/pen1.ogg','sound/bureaucracy/pen2.ogg'), 20)
+				playsound(src, pick('sound/items/bureaucracy/pen1.ogg','sound/items/bureaucracy/pen2.ogg'), 20)
 				name = "[name] ([str])"
 				if(!examtext && !nameset)
 					nameset = 1
@@ -85,7 +85,7 @@
 				user.visible_message("\The [user] labels \the [src] with \a [attacking_item], scribbling down: \"[examtext]\"",\
 				SPAN_NOTICE("You label \the [src]: \"[examtext]\""),\
 				"You hear someone scribbling a note.")
-				playsound(src, pick('sound/bureaucracy/pen1.ogg','sound/bureaucracy/pen2.ogg'), 20)
+				playsound(src, pick('sound/items/bureaucracy/pen1.ogg','sound/items/bureaucracy/pen2.ogg'), 20)
 	return
 
 /obj/structure/bigDelivery/update_icon()
@@ -154,8 +154,8 @@
 	return
 
 /obj/item/smallDelivery/attackby(obj/item/attacking_item, mob/user)
-	if(istype(attacking_item, /obj/item/device/destTagger))
-		var/obj/item/device/destTagger/O = attacking_item
+	if(istype(attacking_item, /obj/item/destTagger))
+		var/obj/item/destTagger/O = attacking_item
 		if(O.currTag)
 			if(src.sortTag != O.currTag)
 				to_chat(user, SPAN_NOTICE("You have labeled the destination as [O.currTag]."))
@@ -170,7 +170,7 @@
 		else
 			to_chat(user, SPAN_WARNING("You need to set a destination first!"))
 
-	else if(attacking_item.ispen())
+	else if(attacking_item.tool_behaviour == TOOL_PEN)
 		switch(tgui_input_list(user, "What would you like to alter?", null, list("Title", "Description"), "Cancel"))
 			if("Title")
 				var/str = sanitizeSafe( tgui_input_text(usr, "Label text?", "Set label", "", MAX_NAME_LEN), MAX_NAME_LEN )
@@ -180,7 +180,7 @@
 				user.visible_message("\The [user] titles \the [src] with \a [attacking_item], marking down: \"[str]\"",\
 				SPAN_NOTICE("You title \the [src]: \"[str]\""),\
 				"You hear someone scribbling a note.")
-				playsound(src, pick('sound/bureaucracy/pen1.ogg','sound/bureaucracy/pen2.ogg'), 20)
+				playsound(src, pick('sound/items/bureaucracy/pen1.ogg','sound/items/bureaucracy/pen2.ogg'), 20)
 				name = "[name] ([str])"
 				if(!examtext && !nameset)
 					nameset = 1
@@ -201,7 +201,7 @@
 				user.visible_message("\The [user] labels \the [src] with \a [attacking_item], scribbling down: \"[examtext]\"",\
 				SPAN_NOTICE("You label \the [src]: \"[examtext]\""),\
 				"You hear someone scribbling a note.")
-				playsound(src, pick('sound/bureaucracy/pen1.ogg','sound/bureaucracy/pen2.ogg'), 20)
+				playsound(src, pick('sound/items/bureaucracy/pen1.ogg','sound/items/bureaucracy/pen2.ogg'), 20)
 	return
 
 /obj/item/smallDelivery/feedback_hints(mob/user, distance, is_adjacent)
@@ -248,18 +248,20 @@
 		AM.forceMove(T)
 	return ..()
 
-/obj/item/device/destTagger
+/obj/item/destTagger
 	name = "destination tagger"
 	desc = "Used to set the destination of properly wrapped packages."
-	icon = 'icons/obj/item/device/dest_tagger.dmi'
+	icon = 'icons/obj/item/dest_tagger.dmi'
 	icon_state = "dest_tagger"
+	item_state = "dest_tagger"
+	contained_sprite = TRUE
 	var/currTag = 0
 	matter = list(DEFAULT_WALL_MATERIAL = 250, MATERIAL_GLASS = 140)
 	w_class = WEIGHT_CLASS_SMALL
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 
-/obj/item/device/destTagger/proc/openwindow(mob/user)
+/obj/item/destTagger/proc/openwindow(mob/user)
 	var/dat = "<tt><center><h1><b>TagMaster 2.3</b></h1></center>"
 	var/ui_ref = REF(src)
 
@@ -275,26 +277,28 @@
 	user << browse(HTML_SKELETON(dat), "window=destTagScreen;size=450x375")
 	onclose(user, "destTagScreen")
 
-/obj/item/device/destTagger/attack_self(mob/user)
+/obj/item/destTagger/attack_self(mob/user)
 	openwindow(user)
 	return
 
-/obj/item/device/destTagger/Topic(href, href_list)
-	src.add_fingerprint(usr)
+/obj/item/destTagger/Topic(href, href_list)
+	. = ..()
+	if(!.)
+		src.add_fingerprint(usr)
 
-	if(href_list["nextTag"] && (html_decode(href_list["nextTag"]) in SSdisposals.tagger_locations))
-		src.currTag = html_decode(href_list["nextTag"])
+		if(href_list["nextTag"] && (html_decode(href_list["nextTag"]) in SSdisposals.tagger_locations))
+			src.currTag = html_decode(href_list["nextTag"])
 
-	if(href_list["nextTag"] == "CUSTOM")
-		var/dest = input("Please enter custom location.", "Location", src.currTag ? src.currTag : "None")
-		if(dest != "None")
-			src.currTag = dest
-		else
-			src.currTag = 0
+		if(href_list["nextTag"] == "CUSTOM")
+			var/dest = input("Please enter custom location.", "Location", src.currTag ? src.currTag : "None")
+			if(dest != "None")
+				src.currTag = dest
+			else
+				src.currTag = 0
 
-	openwindow(usr)
+		openwindow(usr)
 
-/obj/machinery/disposal/deliveryChute
+/obj/structure/machinery/disposal/deliveryChute
 	name = "delivery chute"
 	desc = "A chute for big and small packages alike!"
 	density = 1
@@ -302,19 +306,19 @@
 
 	var/c_mode = 0
 
-/obj/machinery/disposal/deliveryChute/Initialize()
+/obj/structure/machinery/disposal/deliveryChute/Initialize()
 	. = ..()
 	trunk = locate() in src.loc
 	if(trunk)
 		trunk.linked = src	// link the pipe trunk to self
 
-/obj/machinery/disposal/deliveryChute/interact()
+/obj/structure/machinery/disposal/deliveryChute/interact()
 	return
 
-/obj/machinery/disposal/deliveryChute/update()
+/obj/structure/machinery/disposal/deliveryChute/update()
 	return
 
-/obj/machinery/disposal/deliveryChute/CollidedWith(atom/bumped_atom) //Go straight into the chute
+/obj/structure/machinery/disposal/deliveryChute/CollidedWith(atom/bumped_atom) //Go straight into the chute
 	. = ..()
 
 	if(istype(bumped_atom, /obj/projectile) || istype(bumped_atom, /obj/effect))
@@ -338,7 +342,7 @@
 		M.forceMove(src)
 	INVOKE_ASYNC(src, PROC_REF(flush))
 
-/obj/machinery/disposal/deliveryChute/flush()
+/obj/structure/machinery/disposal/deliveryChute/flush()
 	flushing = TRUE
 	flick("intake-closing", src)
 	var/obj/disposalholder/H = new()	// virtual holder object which actually
@@ -360,7 +364,7 @@
 	update()
 	return
 
-/obj/machinery/disposal/deliveryChute/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/disposal/deliveryChute/attackby(obj/item/attacking_item, mob/user)
 	if(!attacking_item || !user)
 		return
 
@@ -368,7 +372,7 @@
 		user.drop_item(attacking_item)
 		CollidedWith(attacking_item)
 
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(c_mode==0)
 			c_mode=1
 			attacking_item.play_tool_sound(get_turf(src), 50)
@@ -379,7 +383,7 @@
 			attacking_item.play_tool_sound(get_turf(src), 50)
 			to_chat(user, "You attach the screws around the power connection.")
 			return
-	else if(attacking_item.iswelder() && c_mode==1)
+	else if(attacking_item.tool_behaviour == TOOL_WELDER && c_mode==1)
 		var/obj/item/weldingtool/W = attacking_item
 		if(W.use(1,user))
 			to_chat(user, "You start slicing the floorweld off the delivery chute.")
@@ -397,7 +401,7 @@
 			to_chat(user, "You need more welding fuel to complete this task.")
 			return
 
-/obj/machinery/disposal/deliveryChute/Destroy()
+/obj/structure/machinery/disposal/deliveryChute/Destroy()
 	if(trunk)
 		trunk.linked = null
 	return ..()

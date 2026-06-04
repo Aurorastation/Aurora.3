@@ -61,7 +61,8 @@ export const Vent = (props: VentProps, context) => {
             })
           }
         />
-      }>
+      }
+    >
       <LabeledList>
         <LabeledList.Item label="Mode">
           <Button
@@ -179,7 +180,8 @@ export const Scrubber = (props: ScrubberProps, context) => {
             })
           }
         />
-      }>
+      }
+    >
       <LabeledList>
         <LabeledList.Item label="Mode">
           <Button

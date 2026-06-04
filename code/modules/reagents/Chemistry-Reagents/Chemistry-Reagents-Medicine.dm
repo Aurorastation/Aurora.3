@@ -328,7 +328,7 @@
 
 /singleton/reagent/mortaphenyl
 	name = "Mortaphenyl"
-	description = "Mortaphenyl is an advanced, powerful analgesic medication which is highly effective at treating mild-severe pain as a result of severe, physical injury. Mortaphenyl is not effective when inhaled."
+	description = "Mortaphenyl is a weak, synthetic, analgesic opioid which is highly effective at treating mild-severe pain as a result of severe, physical injury. Mortaphenyl is not effective when inhaled."
 	reagent_state = LIQUID
 	color = "#CB68FC"
 	overdose = 15
@@ -443,7 +443,7 @@
 
 /singleton/reagent/tramarine
 	name = "Tramarine"
-	description = "Tramarine is a synthetic form of morphine developed by NanoTrasen early in its history, that can be used in its place for most medical purposes. It is known to be more dangerous however with alcohol, other opiods, or an overdose."
+	description = "Tramarine is a synthetic form of morphine developed by NanoTrasen early in its history, that can be used in its place for most medical purposes. It is known to be more dangerous however with alcohol, other opioids, or an overdose."
 	reagent_state = LIQUID
 	color = "#c4a05d"
 	overdose = 15
@@ -798,7 +798,7 @@
 		to_chat(M, SPAN_DANGER(pick("Your heart is beating rapidly!", "Your chest hurts!", "You've totally over-exerted yourself!")))
 	if(prob(M.chem_doses[type] / 3))
 		M.visible_message("<b>[M]</b> twitches violently, grimacing.", "You twitch violently and feel yourself sprain a joint.")
-		M.take_organ_damage(5 * removed, 0)
+		M.take_organ_damage(5 * removed, 0, used_weapon = "Hyperzine overdose", damage_flags = DAMAGE_FLAG_IGNORE_PROSTHETICS, silent = TRUE)
 		M.adjustHalLoss(15)
 
 /singleton/reagent/hyperzine/final_effect(mob/living/carbon/M, datum/reagents/holder)
@@ -815,7 +815,7 @@
 	description = "Ethylredoxrazine is a powerful medication which oxidises ethanol in the bloodstream, reducing the burden on the liver to complete this task. Ethylredoxrazine also blocks the reuptake of neurotransmitters responsible for symptoms of alcohol intoxication."
 	reagent_state = SOLID
 	color = "#605048"
-	metabolism = REM * 0.3
+	metabolism = REM
 	overdose = REAGENTS_OVERDOSE
 	scannable = TRUE
 	taste_description = "bitterness"
@@ -888,11 +888,11 @@
 		//metabolism = REM * 0.22
 		M.adjustToxLoss(45 * removed * (0.22/0.25)) // Multiplier is to replace the above line
 	else
-		M.apply_radiation(-30 * removed)
+		M.apply_radiation(-90 * removed)
 
 /singleton/reagent/hyronalin/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(prob(60))
-		M.take_organ_damage(4 * removed, 0) //Hyronaline OD deals brute damage to the same degree as Arithrazine
+		M.take_organ_damage(8 * removed, 0, used_weapon = "Hyronaline overdose", damage_flags = DAMAGE_FLAG_IGNORE_PROSTHETICS, silent = TRUE)
 
 /singleton/reagent/arithrazine
 	name = "Arithrazine"
@@ -919,14 +919,14 @@
 		//metabolism = REM * 0.195
 		M.adjustToxLoss(115 * removed * (0.195/0.25)) // Multiplier is to replace the above line
 	else
-		M.apply_radiation(-70 * removed)
+		M.apply_radiation(-280 * removed)
 		M.add_chemical_effect(CE_ITCH, M.chem_doses[type]/2)
 		if(prob(60))
-			M.take_organ_damage(4 * removed, 0)
+			M.take_organ_damage(8 * removed, 0, used_weapon = "Arithrazine tissue damage", damage_flags = DAMAGE_FLAG_IGNORE_PROSTHETICS, silent = TRUE)
 
 /singleton/reagent/arithrazine/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(prob(50))
-		M.take_organ_damage(6 * removed, 0) //Even more collateral damage dealt by arithrazine when overdosed.
+		M.take_organ_damage(6 * removed, 0, used_weapon = "Arithrazine overdose", damage_flags = DAMAGE_FLAG_IGNORE_PROSTHETICS, silent = TRUE) //Even more collateral damage dealt by arithrazine when overdosed.
 
 /singleton/reagent/thetamycin
 	name = "Thetamycin"
@@ -1232,9 +1232,10 @@
 	if(alchohol_affected && bac > 0.03)
 		H.hallucination = max(H.hallucination, bac * 400)
 
-	if(H.chem_doses[type] < overdose && H.shock_stage < 5) //Don't want feel-good messages when we're suffering an OD or particularly hurt/injured
+	if(H.chem_doses[type] < overdose && H.shock_stage < 5 && REALTIMEOFDAY >= H.next_drug_message)
 		message = feedback_message(H)
 		to_chat(H, SPAN_GOOD("[message]"))
+		H.next_drug_message = REALTIMEOFDAY + DRUG_MESSAGE_COOLDOWN
 
 	LAZYSET(holder.reagent_data[type], "last_tick_time", world.time + (messagedelay))
 
@@ -1615,13 +1616,13 @@
 
 /singleton/reagent/pneumalin/affect_breathe(var/mob/living/carbon/human/H, var/alien, var/removed, var/datum/reagents/holder)
 	H.adjustOxyLoss(removed) //Every unit heals 1 oxy damage
-	H.add_chemical_effect(CE_PNEUMOTOXIC, -removed * 1.5)
+	H.remove_chemical_effect(CE_PNEUMOTOXIC, removed * 1.5)
 	H.add_chemical_effect(CE_PULSE, -1)
 
 	var/obj/item/organ/internal/lungs/L = H.internal_organs_by_name[BP_LUNGS]
 	if(istype(L) && !BP_IS_ROBOTIC(L))
 		L.rescued = FALSE
-		L.damage = max(L.damage - (removed * 1.5), 0)
+		L.heal_damage(removed * 1.5)
 
 	. = ..()
 
@@ -1641,7 +1642,7 @@
 /singleton/reagent/rezadone/affect_chem_effect(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	. = ..()
 	if(.)
-		M.add_chemical_effect(CE_ORGANREPAIR, 1)
+		M.add_chemical_effect(CE_ORGANREPAIR, 2)
 		M.add_chemical_effect(CE_BLOODRESTORE, 15)
 
 /singleton/reagent/rezadone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
@@ -1674,7 +1675,7 @@
 /singleton/reagent/sanasomnum/affect_chem_effect(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	. = ..()
 	if(.)
-		M.add_chemical_effect(CE_ORGANREPAIR, 20)
+		M.add_chemical_effect(CE_ORGANREPAIR, 40)
 		M.add_chemical_effect(CE_BLOODRESTORE, 15)
 		M.add_chemical_effect(CE_BLOODCLOT, 15)
 		M.add_chemical_effect(CE_BRAIN_REGEN, 20)
@@ -2015,13 +2016,12 @@
 		M.add_chemical_effect(CE_EMETIC, M.chem_doses[type]/2)
 
 /singleton/reagent/antiparasitic/overdose(mob/living/carbon/M, alien, removed, scale, datum/reagents/holder)
-	if(istype(M,/mob/living/carbon/human))
-		var/mob/living/carbon/human/H = M
-
-		for(var/obj/item/organ/internal/parasite/P in H.internal_organs)
-			if(P)
-				if(P.drug_resistance == 0)
-					P.drug_resistance = 1
+	M.dizziness = max(50, M.dizziness)
+	M.make_dizzy(5)
+	M.adjustHydrationLoss(2*removed)
+	M.adjustNutritionLoss(8*removed)
+	M.adjustHalLoss(5)
+	to_chat(M, SPAN_WARNING(pick("You feel flushed and woozy.", "Your guts feel like they're crawling.")))
 
 /singleton/reagent/antibodies
 	name = "Hylemnomil-Zeta Antibodies"
@@ -2031,6 +2031,7 @@
 	metabolism = REM*0.0001
 	scannable = TRUE
 	taste_description = "pure death"
+	fallback_specific_heat = 1
 
 /singleton/reagent/antibodies/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
 	. = ..()
@@ -2042,7 +2043,8 @@
 			Z.curing = TRUE
 			to_chat(M, SPAN_WARNING("Your [E.name] tightens, pulses, and squirms as \the [Z] fights back against the antibodies!"))
 
-/singleton/reagent/caffeine // Copied from Hyperzine
+/// Copied from Hyperzine
+/singleton/reagent/caffeine
 	name = "Caffeine"
 	description = "Caffeine is a central nervous system stimulant found naturally in many plants. It's used as a mild cognitive enhancer to increase alertness, attentional performance, and improve cardiovascular health."
 	reagent_state = SOLID
@@ -2053,6 +2055,7 @@
 	taste_description = "bitter"
 	metabolism_min = REM * 0.025
 	breathe_met = REM * 0.15 * 0.5
+	fallback_specific_heat = 1
 
 /singleton/reagent/caffeine/initial_effect(mob/living/carbon/M, alien, datum/reagents/holder)
 	. = ..()
@@ -2078,7 +2081,7 @@
 		to_chat(M, SPAN_WARNING(pick("You have a headache!", "Energy, energy, energy - so much energy!", "You can't sit still!", "It's difficult to focus right now... but that's not important!", "Your heart is beating rapidly!", "Your chest hurts!", "You've totally over-exerted yourself!")))
 	if(prob(M.chem_doses[type] / 3))
 		M.emote(pick("twitch", "blink_r", "shiver"))
-		M.take_organ_damage(5 * removed, 0)
+		M.take_organ_damage(5 * removed, 0, used_weapon = "Caffeine overdose", damage_flags = DAMAGE_FLAG_IGNORE_PROSTHETICS, silent = TRUE)
 		M.adjustHalLoss(15)
 
 /singleton/reagent/caffeine/final_effect(mob/living/carbon/M, alien, removed, datum/reagents/holder)

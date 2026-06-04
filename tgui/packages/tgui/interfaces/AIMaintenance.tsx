@@ -1,6 +1,13 @@
 import { BooleanLike } from '../../common/react';
 import { useBackend } from '../backend';
-import { Button, LabeledList, NoticeBox, ProgressBar, Section, Table } from '../components';
+import {
+  Button,
+  LabeledList,
+  NoticeBox,
+  ProgressBar,
+  Section,
+  Table,
+} from '../components';
 import { NtosWindow } from '../layouts';
 
 export type AIData = {
@@ -100,7 +107,8 @@ export const MaintenanceWindow = (props, context) => {
               onClick={() => act('PRG_uploadNTDefault')}
             />
           </>
-        }>
+        }
+      >
         {data.ai_laws && data.ai_laws.length ? (
           <Table>
             <Table.Row header>

@@ -4,13 +4,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "ac" = (
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "ad" = (
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/freezer,
@@ -22,7 +22,7 @@
 /area/tajara_safehouse/hangar)
 "aM" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/appliance/cooker/fryer{
+/obj/structure/machinery/appliance/cooker/fryer{
 	pixel_y = 2
 	},
 /turf/simulated/floor/tiled/white,
@@ -47,19 +47,19 @@
 /area/tajara_safehouse)
 "bg" = (
 /obj/structure/table/steel,
-/obj/item/device/flashlight/lantern,
+/obj/item/flashlight/lantern,
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse/hangar)
 "bt" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atmospherics/pipe/manifold/visible{
+/obj/structure/machinery/atmospherics/pipe/manifold/visible{
 	dir = 4
 	},
-/obj/machinery/meter,
+/obj/structure/machinery/meter,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/tajara_safehouse_shuttle)
 "bC" = (
-/obj/machinery/seed_storage/garden,
+/obj/structure/machinery/seed_storage/garden,
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "bF" = (
@@ -70,15 +70,15 @@
 /area/tajara_safehouse)
 "bO" = (
 /obj/structure/closet/crate,
-/obj/item/device/magnetic_lock,
-/obj/item/device/magnetic_lock,
-/obj/item/device/magnetic_lock,
-/obj/item/device/magnetic_lock,
-/obj/item/device/magnetic_lock,
+/obj/item/magnetic_lock,
+/obj/item/magnetic_lock,
+/obj/item/magnetic_lock,
+/obj/item/magnetic_lock,
+/obj/item/magnetic_lock,
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "bP" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -89,23 +89,23 @@
 /turf/space/transit/north,
 /area/space)
 "bV" = (
-/obj/machinery/computer/shuttle_control/explore/tajara_safehouse_shuttle{
+/obj/structure/machinery/computer/shuttle_control/explore/tajara_safehouse_shuttle{
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/tajara_safehouse_shuttle)
 "ch" = (
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse/hangar)
 "cm" = (
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "cs" = (
-/obj/machinery/portable_atmospherics/hydroponics,
+/obj/structure/machinery/portable_atmospherics/hydroponics,
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "cJ" = (
@@ -132,7 +132,7 @@
 /turf/simulated/floor/tiled/white,
 /area/tajara_safehouse)
 "dK" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -145,7 +145,7 @@
 /turf/simulated/floor/tiled/white,
 /area/tajara_safehouse)
 "dR" = (
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "dU" = (
@@ -174,14 +174,14 @@
 	},
 /area/shuttle/tajara_safehouse_shuttle)
 "eQ" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_color = "#FA8282";
 	dir = 4
 	},
 /turf/simulated/floor,
 /area/tajara_safehouse/hangar)
 "eZ" = (
-/obj/machinery/vending/boozeomat{
+/obj/structure/machinery/vending/boozeomat{
 	req_access = null
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -191,7 +191,7 @@
 /turf/unsimulated/wall/fakepdoor,
 /area/tajara_safehouse/hangar)
 "fb" = (
-/obj/machinery/telecomms/allinone/ship,
+/obj/structure/machinery/telecomms/allinone/ship,
 /turf/simulated/floor,
 /area/tajara_safehouse)
 "fg" = (
@@ -223,13 +223,13 @@
 /obj/structure/mirror{
 	pixel_y = 34
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/tajara_safehouse)
 "fG" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -245,7 +245,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/tajara_safehouse)
 "gn" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/wood,
@@ -267,17 +267,17 @@
 /area/tajara_safehouse)
 "hp" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/appliance/cooker/stove,
+/obj/structure/machinery/appliance/cooker/stove,
 /turf/simulated/floor/tiled/white,
 /area/tajara_safehouse)
 "hw" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "hH" = (
-/obj/machinery/vending/snack,
+/obj/structure/machinery/vending/snack,
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "hJ" = (
@@ -316,7 +316,7 @@
 /obj/item/reagent_containers/food/snacks/meat/adhomai,
 /obj/item/reagent_containers/food/snacks/meat/adhomai,
 /obj/item/reagent_containers/food/snacks/meat/adhomai,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	brightness_color = "#FA8282"
 	},
 /turf/simulated/floor/tiled/freezer,
@@ -357,7 +357,7 @@
 /area/tajara_safehouse)
 "jR" = (
 /obj/structure/extinguisher_cabinet/west,
-/obj/machinery/computer/ship/engines{
+/obj/structure/machinery/computer/ship/engines{
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/black,
@@ -388,7 +388,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/tajara_safehouse)
 "ko" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor,
@@ -423,13 +423,13 @@
 /turf/simulated/floor/wood,
 /area/tajara_safehouse)
 "mt" = (
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/tajara_safehouse)
 "nf" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor,
@@ -438,11 +438,11 @@
 /turf/simulated/wall,
 /area/tajara_safehouse)
 "nW" = (
-/obj/machinery/washing_machine,
+/obj/structure/machinery/washing_machine,
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "nY" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "tajara_safehouse_shuttle_out";
@@ -457,7 +457,7 @@
 /turf/simulated/floor,
 /area/tajara_safehouse/hangar)
 "os" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -468,29 +468,29 @@
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "ox" = (
-/obj/machinery/vending/wallmed1{
+/obj/structure/machinery/vending/wallmed1{
 	name = "Medical Supplies";
 	pixel_x = -26;
 	pixel_y = -1;
 	req_access = null
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atmospherics/pipe/simple/visible{
+/obj/structure/machinery/atmospherics/pipe/simple/visible{
 	dir = 6
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/tajara_safehouse_shuttle)
 "oz" = (
-/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/structure/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse/hangar)
 "pg" = (
-/obj/machinery/floodlight,
+/obj/structure/machinery/floodlight,
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse/hangar)
 "pp" = (
 /obj/structure/table/stone/marble,
-/obj/machinery/chemical_dispenser/bar_alc/full{
+/obj/structure/machinery/chemical_dispenser/bar_alc/full{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -523,11 +523,11 @@
 "pF" = (
 /obj/structure/table/wood,
 /obj/item/material/knife/bayonet,
-/obj/item/device/radio/phone,
+/obj/item/radio/phone,
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "pL" = (
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -546,7 +546,7 @@
 "qo" = (
 /obj/structure/ore_box,
 /obj/effect/floor_decal/industrial/outline/operations,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -568,7 +568,7 @@
 /turf/simulated/floor,
 /area/tajara_safehouse/hangar)
 "qK" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -603,7 +603,7 @@
 /area/tajara_safehouse)
 "rY" = (
 /obj/structure/table/wood,
-/obj/machinery/media/jukebox/phonograph,
+/obj/structure/machinery/media/jukebox/phonograph,
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "sb" = (
@@ -616,14 +616,14 @@
 /turf/simulated/floor/wood,
 /area/tajara_safehouse)
 "sp" = (
-/obj/machinery/vending/coffee,
+/obj/structure/machinery/vending/coffee,
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "su" = (
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/machinery/vending/tool,
+/obj/structure/machinery/vending/tool,
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse/hangar)
 "sE" = (
@@ -631,7 +631,7 @@
 	dir = 4
 	},
 /obj/structure/bed/stool/bar/padded/black,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /obj/effect/ghostspawpoint{
@@ -645,7 +645,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "sM" = (
-/obj/machinery/suit_cycler/engineering{
+/obj/structure/machinery/suit_cycler/engineering{
 	req_access = null
 	},
 /obj/structure/window/reinforced{
@@ -654,16 +654,16 @@
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse/hangar)
 "ta" = (
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse/hangar)
 "th" = (
-/obj/machinery/atmospherics/portables_connector,
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/atmospherics/portables_connector,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/tajara_safehouse_shuttle)
 "to" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "tp" = (
@@ -691,13 +691,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "uC" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	brightness_color = "#FA8282"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "uR" = (
-/obj/machinery/embedded_controller/radio/simple_docking_controller{
+/obj/structure/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1380;
 	id_tag = "tajara_safehouse_shuttle_dock";
 	pixel_y = 24
@@ -720,7 +720,7 @@
 /area/tajara_safehouse/hangar)
 "vj" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/computer/cryopod{
+/obj/structure/machinery/computer/cryopod{
 	pixel_y = -32
 	},
 /turf/simulated/floor/tiled/dark,
@@ -742,13 +742,13 @@
 /turf/simulated/floor/wood,
 /area/tajara_safehouse)
 "wj" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor,
 /area/tajara_safehouse/hangar)
 "wt" = (
-/obj/machinery/recharge_station,
+/obj/structure/machinery/recharge_station,
 /obj/effect/decal/cleanable/cobweb2,
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse/hangar)
@@ -757,7 +757,7 @@
 /turf/simulated/wall,
 /area/tajara_safehouse)
 "wY" = (
-/obj/machinery/atm{
+/obj/structure/machinery/atm{
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark,
@@ -779,7 +779,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse/hangar)
 "yd" = (
-/obj/machinery/hologram/holopad/long_range,
+/obj/structure/machinery/hologram/holopad/long_range,
 /obj/effect/overmap/visitable/ship/landable/tajara_safehouse_shuttle,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/tajara_safehouse_shuttle)
@@ -790,7 +790,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "yu" = (
-/obj/machinery/computer/ship/helm,
+/obj/structure/machinery/computer/ship/helm,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/tajara_safehouse_shuttle)
 "yw" = (
@@ -804,7 +804,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "yK" = (
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	dir = 1
 	},
 /turf/simulated/floor/wood,
@@ -825,7 +825,7 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/tajara_safehouse_shuttle)
 "zn" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /obj/structure/bed/stool/chair/padded/black{
@@ -841,8 +841,8 @@
 /obj/structure/closet/cabinet,
 /obj/item/storage/firstaid,
 /obj/item/storage/firstaid,
-/obj/item/device/megaphone,
-/obj/item/device/binoculars,
+/obj/item/megaphone,
+/obj/item/binoculars,
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "zP" = (
@@ -852,7 +852,7 @@
 /area/tajara_safehouse)
 "zU" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/appliance/cooker/oven,
+/obj/structure/machinery/appliance/cooker/oven,
 /turf/simulated/floor/tiled/white,
 /area/tajara_safehouse)
 "zZ" = (
@@ -864,7 +864,7 @@
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/space)
 "AT" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -875,14 +875,14 @@
 /turf/simulated/floor/wood,
 /area/tajara_safehouse)
 "Bi" = (
-/obj/machinery/computer/arcade/orion_trail,
+/obj/structure/machinery/computer/arcade/orion_trail,
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "BF" = (
 /turf/simulated/wall,
 /area/tajara_safehouse/hangar)
 "BS" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /obj/structure/closet/cabinet,
@@ -908,9 +908,9 @@
 /turf/simulated/floor/wood,
 /area/tajara_safehouse)
 "CN" = (
-/obj/machinery/vending/dinnerware,
+/obj/structure/machinery/vending/dinnerware,
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
@@ -932,7 +932,7 @@
 "DI" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
-/obj/machinery/appliance/mixer/candy{
+/obj/structure/machinery/appliance/mixer/candy{
 	pixel_y = 12
 	},
 /turf/simulated/floor/tiled/white,
@@ -946,7 +946,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse/hangar)
 "FA" = (
-/obj/machinery/photocopier,
+/obj/structure/machinery/photocopier,
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "FN" = (
@@ -960,7 +960,7 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/tajara_safehouse_shuttle)
 "Gl" = (
-/obj/machinery/shipsensors/weak,
+/obj/structure/machinery/shipsensors/weak,
 /obj/structure/railing/mapped{
 	dir = 4
 	},
@@ -996,13 +996,13 @@
 /turf/template_noop,
 /area/space)
 "Hc" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "Hj" = (
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/light/small/emergency{
 	dir = 4
 	},
 /obj/structure/bed/stool/chair/shuttle{
@@ -1012,18 +1012,18 @@
 /area/shuttle/tajara_safehouse_shuttle)
 "Hp" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "Hr" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "IB" = (
-/obj/machinery/embedded_controller/radio/simple_docking_controller{
+/obj/structure/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1380;
 	id_tag = "tajara_safehouse_shuttle";
 	name = "Port docking controller";
@@ -1031,7 +1031,7 @@
 	pixel_y = 28;
 	tag_door = "tajara_safehouse_shuttle_out"
 	},
-/obj/machinery/computer/ship/sensors{
+/obj/structure/machinery/computer/ship/sensors{
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/black,
@@ -1049,7 +1049,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse/hangar)
 "JG" = (
-/obj/machinery/vending/hydronutrients,
+/obj/structure/machinery/vending/hydronutrients,
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "JZ" = (
@@ -1059,7 +1059,7 @@
 /turf/simulated/floor/wood,
 /area/tajara_safehouse)
 "Ke" = (
-/obj/machinery/atmospherics/unary/engine{
+/obj/structure/machinery/atmospherics/unary/engine{
 	dir = 1
 	},
 /turf/unsimulated/floor/plating,
@@ -1068,7 +1068,7 @@
 /turf/template_noop,
 /area/space)
 "KI" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "tajara_safehouse_shuttle_out";
@@ -1081,7 +1081,7 @@
 /area/shuttle/tajara_safehouse_shuttle)
 "Lb" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -1104,11 +1104,11 @@
 /turf/simulated/floor/wood,
 /area/tajara_safehouse)
 "LI" = (
-/obj/machinery/mech_recharger,
+/obj/structure/machinery/mech_recharger,
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse/hangar)
 "Mc" = (
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	dir = 1
 	},
 /turf/simulated/floor,
@@ -1124,7 +1124,7 @@
 	pixel_x = 2;
 	pixel_y = 4
 	},
-/obj/machinery/reagentgrinder{
+/obj/structure/machinery/reagentgrinder{
 	pixel_y = 7
 	},
 /turf/simulated/floor/tiled/white,
@@ -1168,7 +1168,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "Pl" = (
-/obj/machinery/atmospherics/unary/engine{
+/obj/structure/machinery/atmospherics/unary/engine{
 	dir = 1
 	},
 /obj/effect/landmark/entry_point/north{
@@ -1178,7 +1178,7 @@
 /area/shuttle/tajara_safehouse_shuttle)
 "Pp" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atmospherics/pipe/manifold/visible{
+/obj/structure/machinery/atmospherics/pipe/manifold/visible{
 	dir = 1
 	},
 /obj/structure/table/steel,
@@ -1203,14 +1203,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "Qo" = (
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/wood,
 /obj/item/pen/black,
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "QK" = (
-/obj/machinery/vending/cigarette,
+/obj/structure/machinery/vending/cigarette,
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "RS" = (
@@ -1238,7 +1238,7 @@
 "Sw" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
-/obj/machinery/appliance/mixer/cereal{
+/obj/structure/machinery/appliance/mixer/cereal{
 	pixel_y = 7
 	},
 /turf/simulated/floor/tiled/white,
@@ -1248,7 +1248,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "SJ" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /obj/structure/toilet{
@@ -1263,7 +1263,7 @@
 /turf/simulated/floor,
 /area/tajara_safehouse)
 "Tw" = (
-/obj/machinery/atmospherics/binary/pump/high_power,
+/obj/structure/machinery/atmospherics/binary/pump/high_power,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/tajara_safehouse_shuttle)
 "TC" = (
@@ -1277,16 +1277,21 @@
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse/hangar)
 "Uf" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_color = "#FA8282"
 	},
 /turf/simulated/floor,
 /area/tajara_safehouse/hangar)
 "Uk" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
+/turf/simulated/floor/tiled/dark,
+/area/tajara_safehouse)
+"UD" = (
+/obj/structure/table/wood,
+/obj/item/eftpos,
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "UH" = (
@@ -1299,7 +1304,7 @@
 /turf/simulated/floor/tiled/white,
 /area/tajara_safehouse)
 "UW" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1317,11 +1322,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "Vr" = (
-/obj/machinery/vending/cola,
+/obj/structure/machinery/vending/cola,
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "VG" = (
-/obj/machinery/cryopod{
+/obj/structure/machinery/cryopod{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1331,7 +1336,7 @@
 /turf/simulated/floor,
 /area/tajara_safehouse)
 "Wp" = (
-/obj/machinery/atmospherics/pipe/simple/visible,
+/obj/structure/machinery/atmospherics/pipe/simple/visible,
 /turf/simulated/wall/shuttle/space_ship/mercenary{
 	name = "military hull"
 	},
@@ -1382,17 +1387,17 @@
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse/hangar)
 "YT" = (
-/obj/machinery/door/window{
+/obj/structure/machinery/door/window{
 	dir = 8;
 	req_one_access = list(150)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "Zh" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
-/obj/machinery/computer/arcade/battle,
+/obj/structure/machinery/computer/arcade/battle,
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "Zq" = (
@@ -1406,7 +1411,7 @@
 /turf/simulated/floor,
 /area/tajara_safehouse/hangar)
 "ZM" = (
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /obj/structure/dispenser/oxygen,
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse/hangar)
@@ -28768,7 +28773,7 @@ lH
 lH
 nk
 hZ
-kc
+UD
 Hp
 lH
 iK

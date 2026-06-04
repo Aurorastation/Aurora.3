@@ -221,8 +221,12 @@
 	if(grabbed.stat == 2)
 		grabbed.gib()
 
-// Simple mobs cannot use Skrellepathy
-/mob/proc/has_psionics()
+/**
+ * A binary yes or no check as to whether or not a target has a Psi Complexus.
+ * This proc is to be DEPRECATED, nothing new should check it.
+ * Use check_psi_sensitivity() instead for all your psionic interactions.
+ */
+/atom/movable/proc/has_psionics()
 	return FALSE
 
 /mob/living/carbon/human/has_psionics()
@@ -307,15 +311,13 @@
 			to_chat(M,"<span class='notice'>[src] telepathically says to [target]:</span> [text]")
 
 	var/mob/living/carbon/human/H = target
-	if (target.has_psionics())
+	if (target.check_psi_sensitivity())
 		to_chat(H,"<span class='psychic'>You instinctively sense [src] sending their thoughts into your mind, hearing:</span> [text]")
 	else if(prob(25) && (target.mind && target.mind.assigned_role=="Chaplain"))
 		to_chat(H,"<span class='changeling'>You sense [src]'s thoughts enter your mind, whispering quietly:</span> [text]")
 	else
 		to_chat(H,"<span class='alium'>You feel pressure behind your eyes as alien thoughts enter your mind:</span> [text]")
 		if(istype(H))
-			if (target.has_psionics())
-				return
 			if(prob(10) && !(H.species.flags & NO_BLOOD))
 				to_chat(H,SPAN_WARNING("Your nose begins to bleed..."))
 				H.drip(3)
@@ -505,7 +507,7 @@
 	sleep(10)
 	playsound(src, 'sound/items/countdown.ogg', 125, 1)
 	sleep(20)
-	explosion(src, -1, 1, 5)
+	explosion(get_turf(src), -1, 1, 5)
 	src.gib()
 
 /mob/living/carbon/human/proc/hivenet()
@@ -610,7 +612,7 @@
 		else if (T in range(src, 2))
 			earpain(1, TRUE, 1)
 
-	for(var/obj/machinery/light/L in range(7))
+	for(var/obj/structure/machinery/light/L in range(7))
 		L.broken()
 		CHECK_TICK
 
@@ -629,7 +631,7 @@
 
 	src.set_light(4,-20)
 
-	addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, set_light), 0), 30 SECONDS)
+	addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, set_light), 0), 30 SECONDS, TIMER_STOPPABLE|TIMER_DELETE_ME)
 
 /mob/living/carbon/human/proc/darkness_eyes()
 	set category = "Abilities"
@@ -639,7 +641,7 @@
 	if (!stop_sight_update)
 		to_chat(src, SPAN_NOTICE("Your eyes shift around, allowing you to see in the dark."))
 		src.stop_sight_update = 1
-		src.see_invisible = SEE_INVISIBLE_NOLIGHTING
+		src.lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
 
 	else
 		to_chat(src, SPAN_NOTICE("You return your vision to normal."))
@@ -747,7 +749,7 @@
 		playsound(src,'sound/mecha/mechstep.ogg',25,1)
 		if (brokesomething)
 			src.visible_message(SPAN_DANGER("[src.name] breaks through!"))
-		addtimer(CALLBACK(src, PROC_REF(trampling)), 1)
+		addtimer(CALLBACK(src, PROC_REF(trampling)), 1, TIMER_STOPPABLE|TIMER_DELETE_ME)
 
 	else
 		target = get_step(src, dir)
@@ -820,7 +822,7 @@
 	for (var/obj/structure/window/W in view(2))
 		W.shatter()
 
-	for (var/obj/machinery/light/L in view(4))
+	for (var/obj/structure/machinery/light/L in view(4))
 		L.broken()
 
 	if (victims.len)
@@ -1029,9 +1031,6 @@
 
 		drop_from_inventory(O)
 		O.replaced(src)
-		update_body()
-		updatehealth()
-		UpdateDamageIcon()
 
 		update_body()
 		updatehealth()
@@ -1039,45 +1038,6 @@
 
 		visible_message(SPAN_NOTICE("\The [src] attaches \the [O] to [get_pronoun("his")] body!"),
 				SPAN_NOTICE("You attach \the [O] to your body!"))
-
-/mob/living/carbon/human/proc/self_diagnostics()
-	set name = "Self-Diagnostics"
-	set desc = "Run an internal self-diagnostic to check for damage."
-	set category = "Abilities"
-
-	if(stat == DEAD) return
-
-	to_chat(src, SPAN_NOTICE("Performing self-diagnostic, please wait..."))
-	if (do_after(src, 10))
-		var/output = SPAN_NOTICE("Self-Diagnostic Results:\n")
-
-		output += "Internal Temperature: [convert_k2c(bodytemperature)] Degrees Celsius\n"
-
-		var/obj/item/organ/internal/cell/C = internal_organs_by_name[BP_CELL]
-		if(!C || !C.cell)
-			output += SPAN_DANGER("ERROR: NO BATTERY DETECTED")
-		else
-			output += "Current Charge Level: [C.percent()]\n"
-
-		var/toxDam = getToxLoss()
-		if(toxDam)
-			output += "Blood Toxicity: <span class='warning'>[toxDam > 25 ? "Severe" : "Moderate"]</span>. Seek medical facilities for cleanup.\n"
-		else
-			output += "Blood Toxicity: <span style='color:green;'>OK</span>\n"
-
-		for(var/obj/item/organ/external/EO in organs)
-			if(EO.brute_dam || EO.burn_dam)
-				output += "[EO.name] - <span class='warning'>[EO.burn_dam + EO.brute_dam > ROBOLIMB_SELF_REPAIR_CAP ? "Heavy Damage" : "Light Damage"]</span>\n"
-			else
-				output += "[EO.name] - <span style='color:green;'>OK</span>\n"
-
-		for(var/obj/item/organ/IO in internal_organs)
-			if(IO.damage)
-				output += "[IO.name] - <span class='warning'>[IO.damage > 10 ? "Heavy Damage" : "Light Damage"]</span>\n"
-			else
-				output += "[IO.name] - <span style='color:green;'>OK</span>\n"
-
-		to_chat(src, output)
 
 /mob/living/carbon/human/proc/check_tag()
 	set name = "Check Tag"
@@ -1087,7 +1047,7 @@
 	if(use_check_and_message(usr))
 		return
 
-	var/obj/item/organ/internal/ipc_tag/tag = internal_organs_by_name[BP_IPCTAG]
+	var/obj/item/organ/internal/machine/ipc_tag/tag = internal_organs_by_name[BP_IPCTAG]
 	if(isnull(tag) || !tag)
 		to_chat(src, SPAN_WARNING("Error: No Tag Found."))
 		return
@@ -1379,15 +1339,15 @@
 			var/player_surname = player_fullname[2]
 			if(player_surname == surname || HAS_TRAIT(src, TRAIT_ORIGIN_ELECTRONIC_WARFARE))
 				LAZYADD(available_vaurca, player)
-		if(player.internal_organs_by_name[BP_AUG_LANGUAGE])
-			var/obj/item/organ/internal/augment/language/vekatak/V = player.internal_organs_by_name[BP_AUG_LANGUAGE]
+		if(player.internal_organs_by_name[BP_AUG_LANGUAGE_VEKATAK])
+			var/obj/item/organ/internal/augment/language/vekatak/V = player.internal_organs_by_name[BP_AUG_LANGUAGE_VEKATAK]
 			if(istype(V))
 				LAZYADD(available_vaurca, player)
 	var/mob/living/carbon/human/target = tgui_input_list(src, "Select a target to ban", "Hivenet Ban", available_vaurca)
 	if(!target)
 		return
 	var/obj/item/organ/internal/vaurca/neuralsocket/S = target.internal_organs_by_name[BP_NEURAL_SOCKET]
-	var/obj/item/organ/internal/augment/language/vekatak/V = target.internal_organs_by_name[BP_AUG_LANGUAGE]
+	var/obj/item/organ/internal/augment/language/vekatak/V = target.internal_organs_by_name[BP_AUG_LANGUAGE_VEKATAK]
 	var/list/target_fullname = splittext(target.name, " ")
 	var/target_surname = target_fullname[target_fullname.len]
 	if(istype(V))
@@ -1559,8 +1519,8 @@
 			var/player_surname = player_fullname[player_fullname.len]
 			if(player_surname == surname || HAS_TRAIT(src, TRAIT_ORIGIN_ELECTRONIC_WARFARE))
 				LAZYADD(available_vaurca, player)
-		if(player.internal_organs_by_name[BP_AUG_LANGUAGE])
-			var/obj/item/organ/internal/augment/language/vekatak/V = player.internal_organs_by_name[BP_AUG_LANGUAGE]
+		if(player.internal_organs_by_name[BP_AUG_LANGUAGE_VEKATAK])
+			var/obj/item/organ/internal/augment/language/vekatak/V = player.internal_organs_by_name[BP_AUG_LANGUAGE_VEKATAK]
 			if(istype(V))
 				LAZYADD(available_vaurca, player)
 
@@ -1568,7 +1528,7 @@
 	if(!target)
 		return
 	var/obj/item/organ/internal/vaurca/neuralsocket/S = target.internal_organs_by_name[BP_NEURAL_SOCKET]
-	var/obj/item/organ/internal/augment/language/vekatak/V = target.internal_organs_by_name[BP_AUG_LANGUAGE]
+	var/obj/item/organ/internal/augment/language/vekatak/V = target.internal_organs_by_name[BP_AUG_LANGUAGE_VEKATAK]
 	var/list/target_fullname = splittext(target.name, " ")
 	var/target_surname = target_fullname[target_fullname.len]
 	if(istype(V))
@@ -1652,7 +1612,7 @@
 	set category = "Hivenet"
 
 	var/obj/item/organ/internal/vaurca/neuralsocket/S = src.internal_organs_by_name[BP_NEURAL_SOCKET]
-	var/obj/item/organ/internal/augment/language/vekatak/V = src.internal_organs_by_name[BP_AUG_LANGUAGE]
+	var/obj/item/organ/internal/augment/language/vekatak/V = src.internal_organs_by_name[BP_AUG_LANGUAGE_VEKATAK]
 	if(src.stat != CONSCIOUS)
 		to_chat(src, SPAN_WARNING("You must be conscious to use this ability!"))
 		return
@@ -1743,8 +1703,8 @@
 			continue
 		if(isvaurca(player) && player.internal_organs_by_name[BP_NEURAL_SOCKET])
 			LAZYADD(available_vaurca, player)
-		if(player.internal_organs_by_name[BP_AUG_LANGUAGE])
-			var/obj/item/organ/internal/augment/language/vekatak/V = player.internal_organs_by_name[BP_AUG_LANGUAGE]
+		if(player.internal_organs_by_name[BP_AUG_LANGUAGE_VEKATAK])
+			var/obj/item/organ/internal/augment/language/vekatak/V = player.internal_organs_by_name[BP_AUG_LANGUAGE_VEKATAK]
 			if(istype(V))
 				LAZYADD(available_vaurca, player)
 	var/mob/living/carbon/human/target = tgui_input_list(src, "Select a Vaurca to observe.", "Hivenet Remote Observation", available_vaurca)
@@ -1752,7 +1712,7 @@
 		remoteview_target = null
 		reset_view(0)
 		return
-	var/obj/item/organ/internal/augment/language/vekatak/V = target.internal_organs_by_name[BP_AUG_LANGUAGE]
+	var/obj/item/organ/internal/augment/language/vekatak/V = target.internal_organs_by_name[BP_AUG_LANGUAGE_VEKATAK]
 	if(istype(V))
 		to_chat(src, SPAN_NOTICE("You extend your mind into the Hivenet, accessing [target]'s senses. Use this verb again to cancel."))
 		remoteview_target = target
@@ -1813,14 +1773,14 @@
 			var/player_surname = player_fullname[player_fullname.len]
 			if(player_surname == surname || HAS_TRAIT(src, TRAIT_ORIGIN_ELECTRONIC_WARFARE))
 				LAZYADD(available_vaurca, player)
-		if(player.internal_organs_by_name[BP_AUG_LANGUAGE])
-			var/obj/item/organ/internal/augment/language/vekatak/V = player.internal_organs_by_name[BP_AUG_LANGUAGE]
+		if(player.internal_organs_by_name[BP_AUG_LANGUAGE_VEKATAK])
+			var/obj/item/organ/internal/augment/language/vekatak/V = player.internal_organs_by_name[BP_AUG_LANGUAGE_VEKATAK]
 			if(istype(V))
 				LAZYADD(available_vaurca, player)
 	var/mob/living/carbon/human/target = tgui_input_list(src, "Select a target to shock", "Neural Shock", available_vaurca)
 	if(!target)
 		return
-	var/obj/item/organ/internal/augment/language/vekatak/V = target.internal_organs_by_name[BP_AUG_LANGUAGE]
+	var/obj/item/organ/internal/augment/language/vekatak/V = target.internal_organs_by_name[BP_AUG_LANGUAGE_VEKATAK]
 	if(istype(V))
 		to_chat(src, SPAN_WARNING("You lash out over the Hivenet, delivering a neural shock to [target]!"))
 		to_chat(target, SPAN_DANGER("You feel [src]'s will strike out at you, pain burning inside your head!"))
@@ -1927,15 +1887,15 @@
 			continue
 		if(isvaurca(player) && player.internal_organs_by_name[BP_NEURAL_SOCKET])
 			LAZYADD(available_vaurca, player)
-		if(player.internal_organs_by_name[BP_AUG_LANGUAGE])
-			var/obj/item/organ/internal/augment/language/vekatak/V = player.internal_organs_by_name[BP_AUG_LANGUAGE]
+		if(player.internal_organs_by_name[BP_AUG_LANGUAGE_VEKATAK])
+			var/obj/item/organ/internal/augment/language/vekatak/V = player.internal_organs_by_name[BP_AUG_LANGUAGE_VEKATAK]
 			if(istype(V))
 				LAZYADD(available_vaurca, player)
 	LAZYADD(available_vaurca, "Cancel")
 	var/mob/living/carbon/human/target = tgui_input_list(src, "Select a target to disrupt", "Hivenet Disrupt", available_vaurca)
 	if(!istype(target))
 		return
-	var/obj/item/organ/internal/augment/language/vekatak/V = target.internal_organs_by_name[BP_AUG_LANGUAGE]
+	var/obj/item/organ/internal/augment/language/vekatak/V = target.internal_organs_by_name[BP_AUG_LANGUAGE_VEKATAK]
 	if(istype(V))
 		if(prob(35))
 			to_chat(src, SPAN_DANGER("Your disruption attempt fails, [target]'s countermeasures repelling your assault! You can feel their defenses spring to life, tracing your location!"))
@@ -2161,7 +2121,7 @@
 	set desc = "Make a preset transmission over the Hivenet."
 	set category = "Hivenet"
 
-	var/obj/item/organ/internal/augment/language/vekatak/V = src.internal_organs_by_name[BP_AUG_LANGUAGE]
+	var/obj/item/organ/internal/augment/language/vekatak/V = src.internal_organs_by_name[BP_AUG_LANGUAGE_VEKATAK]
 	var/list/messages = list(
 		"I am operational.",
 		"I am on standby.",

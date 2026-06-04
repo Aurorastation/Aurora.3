@@ -23,7 +23,7 @@
 		. = data
 
 	var/turf/T = get_turf(computer.loc)
-	var/obj/machinery/teleport/pad/linked_pad
+	var/obj/structure/machinery/teleport/pad/linked_pad
 	if(pad_ref)
 		linked_pad = pad_ref.resolve()
 	if(QDELETED(linked_pad))
@@ -40,7 +40,7 @@
 
 	if(!linked_pad)
 		var/list/near_pads_info = list()
-		for(var/obj/machinery/teleport/pad/S in range(3, T))
+		for(var/obj/structure/machinery/teleport/pad/S in range(3, T))
 			var/list/pad_info = list(
 				"name" = "[S.name] ([S.x]-[S.y][S.z])",
 				"ref" = "[REF(S)]"
@@ -56,7 +56,7 @@
 		var/list/area_index = list()
 
 		var/list/teleport_beacon_info = list()
-		for(var/obj/item/device/radio/beacon/R as anything in GLOB.teleportbeacons)
+		for(var/obj/item/radio/beacon/R as anything in GLOB.teleportbeacons)
 			var/turf/BT = get_turf(R)
 			if(!BT)
 				continue
@@ -113,17 +113,17 @@
 
 	switch(action)
 		if("pad")
-			var/obj/machinery/teleport/pad/linked_pad = locate(params["pad"]) in range(3, get_turf(computer.loc))
+			var/obj/structure/machinery/teleport/pad/linked_pad = locate(params["pad"]) in range(3, get_turf(computer.loc))
 			pad_ref = WEAKREF(linked_pad)
 			. = TRUE
 
 		if("recalibrate")
-			var/obj/machinery/teleport/pad/linked_pad = pad_ref.resolve()
+			var/obj/structure/machinery/teleport/pad/linked_pad = pad_ref.resolve()
 			linked_pad.start_recalibration()
 			. = TRUE
 
 		if("beacon")
-			var/obj/machinery/teleport/pad/linked_pad = pad_ref.resolve()
+			var/obj/structure/machinery/teleport/pad/linked_pad = pad_ref.resolve()
 			var/obj/O = locate(params["beacon"]) in GLOB.teleportbeacons
 			if(linked_pad.locked_obj)
 				var/obj/LO = linked_pad.locked_obj.resolve()
@@ -138,7 +138,7 @@
 			. = TRUE
 
 		if("implant")
-			var/obj/machinery/teleport/pad/linked_pad = pad_ref.resolve()
+			var/obj/structure/machinery/teleport/pad/linked_pad = pad_ref.resolve()
 			var/obj/O = locate(params["implant"]) in GLOB.implants
 			if(linked_pad.locked_obj)
 				var/obj/LO = linked_pad.locked_obj.resolve()

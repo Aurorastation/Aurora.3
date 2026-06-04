@@ -32,6 +32,9 @@
 		\[field\] : Inserts an invisible field which lets you start type from there. Useful for forms.
 		\[date\] : Inserts today's date.
 		\[time\] : Inserts the current station time.
+		\[cr\] : Inserts the credit symbol.
+		\[tajdate\] : Inserts the current date on Adhomai.
+		\[tajtime\] : Inserts the current time on Adhomai.
 		<br>
 		Pen Exclusive Commands
 		\[small\] - \[/small\] : Decreases the size of the text.
@@ -54,13 +57,11 @@
 	var/colour = "black"
 	/// Done here so other pen variants can access the cursive variable.
 	var/cursive = FALSE
+	tool_behaviour = TOOL_PEN
 
 /obj/item/pen/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Pens can be used on paper to write, or on a wide variety of objects, machinery, etc. to label or rename them."
-
-/obj/item/pen/ispen()
-	return TRUE
 
 /*
  * PDA Pens

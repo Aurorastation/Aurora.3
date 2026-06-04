@@ -146,7 +146,7 @@
 	sizeclass = "Mattock-class Mining Shuttle"
 	shiptype = "Mineral exploitation and salvage operations"
 
-/obj/machinery/computer/shuttle_control/explore/terminal/scarab_shuttle
+/obj/structure/machinery/computer/shuttle_control/explore/terminal/scarab_shuttle
 	name = "shuttle control terminal"
 	shuttle_tag = "Scarab Shuttle"
 
@@ -194,19 +194,10 @@
 	base_area = /area/ship/coc_scarab/cargobay
 	base_turf = /turf/simulated/open
 
-/obj/machinery/computer/shuttle_control/multi/lift/scarab
+/obj/structure/machinery/computer/shuttle_control/multi/lift/scarab
 	shuttle_tag = "Scarab Lift"
 
 // CUSTOM STUFF
-// Dimmed yellow lights
-/obj/machinery/light/floor/decayed
-	brightness_color = "#fabd6d"
-	randomize_color = FALSE
-	brightness_power = 0.3
-
-/obj/machinery/light/colored/decayed/dimmed
-	brightness_power = 0.2
-
 // Guide to the combustion engine
 /obj/item/paper/fluff/scarabengine
 	name = "Burrow-class Freighter Engine Field Guide"

@@ -77,7 +77,7 @@
 	if(istype(attacking_item,/obj/item/storage/part_replacer))
 		if(!reagents || !reagents.total_volume)
 			return ..()
-	if(attacking_item.ispen() || istype(attacking_item, /obj/item/device/flashlight/pen))
+	if(attacking_item.tool_behaviour == TOOL_PEN || istype(attacking_item, /obj/item/flashlight/pen))
 		var/tmp_label = sanitizeSafe( tgui_input_text(user, "Enter a label for [name]", "Label", label_text, MAX_NAME_LEN), MAX_NAME_LEN )
 		if(length(tmp_label) > 15)
 			to_chat(user, SPAN_NOTICE("The label can be at most 15 characters long."))
@@ -105,8 +105,8 @@
 	filling_states = "20;40;60;80;100"
 	center_of_mass = list("x" = 16,"y" = 13)
 	matter = list(MATERIAL_GLASS = 500)
-	drop_sound = 'sound/items/drop/drinkglass.ogg'
-	pickup_sound = 'sound/items/pickup/drinkglass.ogg'
+	drop_sound = 'sound/items/drop/beaker.ogg'
+	pickup_sound = 'sound/items/pickup/beaker.ogg'
 	fragile = TRUE
 	storage_slot_sort_by_name = TRUE
 
@@ -282,7 +282,7 @@
 		user.put_in_hands(new /obj/item/bucket_sensor)
 		qdel(src)
 		return
-	else if(attacking_item.iswirecutter())
+	else if(attacking_item.tool_behaviour == TOOL_WIRECUTTER)
 		to_chat(user, SPAN_NOTICE("You cut a big hole in \the [src] with \the [attacking_item]."))
 		user.put_in_hands(new helmet_type)
 		qdel(src)

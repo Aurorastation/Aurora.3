@@ -5,7 +5,7 @@
 	desc = "These basic, heavy plasteel mounts are used for mounting only the meanest weapons. Probably good at breaking things, too."
 	melee_damage = 50
 	action_delay = 15
-	max_damage = 4000
+	max_damage = 900
 	power_use = 3500
 	has_hardpoints = list(HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
 	punch_sound = 'sound/mecha/mech_punch_slow.ogg'
@@ -16,6 +16,8 @@
 	desc = "Four utterly goliath stump-like pistons hold this propulsion mechanism together."
 	icon_state = "strider_legs"
 	move_delay = 5
+	damaged_delay = 5
+	damaged_delay_slope = 0.5
 	max_damage = 650
 	power_use = 2500
 	trample_damage = 45

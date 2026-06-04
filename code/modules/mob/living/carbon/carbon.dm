@@ -39,12 +39,19 @@
 		. = 1
 
 /mob/living/carbon/Destroy()
-	QDEL_NULL(touching)
+	species = null
+	QDEL_NULL(handcuffed)
+	QDEL_NULL(legcuffed)
+	QDEL_NULL(op_stage)
+	chem_doses?.Cut()
 	QDEL_NULL(bloodstr)
-	QDEL_NULL(dna)
+	QDEL_NULL(touching)
 	QDEL_NULL(breathing)
-	for(var/guts in internal_organs)
-		qdel(guts)
+	// Delete and null a direct list of references to our internal organs (such as brain, lungs, heart, etc).
+	QDEL_LIST(internal_organs)
+	// Null an Associative list of String = Reference to the same organs.
+	internal_organs_by_name?.Cut()
+	QDEL_LIST(hallucinations)
 	return ..()
 
 /mob/living/carbon/rejuvenate()
@@ -134,7 +141,7 @@
 		return 0
 
 	src.apply_damage(shock_damage, DAMAGE_BURN, def_zone, used_weapon="Electrocution")
-	playsound(loc, /singleton/sound_category/spark_sound, 50, 1, -1)
+	playsound(loc, SFX_SPARKS, 50, 1, -1)
 	if(shock_damage > 15 || tesla_shock)
 		src.visible_message(
 			SPAN_WARNING("[src] was shocked by the [source]!"), \
@@ -237,11 +244,6 @@
 		willfully_sleeping = TRUE
 		usr.sleeping = 20 // Short nap.
 		usr.eye_blurry = 20
-
-/mob/living/carbon/sleeps_horizontal()
-	if(species && species.sleeps_upright)
-		return FALSE
-	return ..()
 
 /verb/toggle_indefinite_sleep()
 	set name = "Toggle Indefinite Sleep"
@@ -386,6 +388,13 @@
 	for(var/source in stasis_sources)
 		stasis_value += stasis_sources[source]
 	stasis_sources.Cut()
+	if(stasis_value == 0)
+		remove_filter("stasis_status_ripple")
+	else if(!get_filter("stasis_status_ripple"))
+		add_filter("stasis_status_ripple", 2, ripple_filter(flags = WAVE_BOUNDED, radius = 0, size = 2))
+		var/filter = get_filter("stasis_status_ripple")
+		animate(filter, radius = 0, time = 0.2 SECONDS, size = 2, easing = JUMP_EASING, loop = -1, flags = ANIMATION_PARALLEL)
+		animate(radius = 32, time = 1.5 SECONDS, size = 0)
 
 /mob/living/carbon/get_contained_external_atoms()
 	. = contents - internal_organs

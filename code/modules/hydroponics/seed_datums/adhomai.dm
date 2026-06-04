@@ -138,7 +138,7 @@
 	seed_type = "nfrihi"
 
 /datum/seed/sugartree
-	name = "sugar tree"
+	name = "sugartree"
 	seed_name = "sugar tree"
 	display_name = "sugar trees"
 	product_desc = "The fruit of the Sugar Tree, native to Adhomai. It is sweet and commonly used in candies."
@@ -154,13 +154,40 @@
 	SET_SEED_TRAIT(src, TRAIT_MATURATION, 9)
 	SET_SEED_TRAIT(src, TRAIT_PRODUCTION, 5)
 	SET_SEED_TRAIT(src, TRAIT_YIELD, 2)
-	SET_SEED_TRAIT(src, TRAIT_PRODUCT_ICON, "nmshaan")
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_ICON, "sugartree")
 	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, "#fffdf7")
 	SET_SEED_TRAIT(src, TRAIT_PLANT_COLOUR, "#31331c")
-	SET_SEED_TRAIT(src, TRAIT_PLANT_ICON, "nmshaan")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_ICON, "sugartree")
 	SET_SEED_TRAIT(src, TRAIT_IDEAL_HEAT, IDEAL_HEAT_ADHOMAI)
 	SET_SEED_TRAIT(src, TRAIT_WATER_CONSUMPTION, 4)
 	SET_SEED_TRAIT(src, TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_DIM)
 
 /obj/item/seeds/sugartree
-	seed_type = "sugar tree"
+	seed_type = "sugartree"
+
+/obj/item/reagent_containers/food/snacks/grown/messas_tear_tea
+	name = "messa's tear leaves"
+	desc = "Messa's tears are a medicinal herb found across Adhomai and its many Twin Suns churches. \
+			Its leaves, while traditionally used for treating burns, is a common choice for making traditional teas."
+	plantname = "mtear"
+	icon = 'icons/obj/item/reagent_containers/teaware.dmi'
+	icon_state = "messas_tear"
+	color = "#4CC5C7"
+
+/obj/item/reagent_containers/food/snacks/grown/messas_tear_tea/Initialize()
+	. = ..()
+	reagents.clear_reagents()
+	reagents.add_reagent(/singleton/reagent/nutriment/teagrounds/messa, 5)
+
+/obj/item/reagent_containers/food/snacks/grown/messas_tear_tea/update_desc()
+	return
+
+/obj/item/reagent_containers/food/snacks/grown/messas_tear_tea/afterattack(atom/target, mob/user, proximity, params)
+	if(proximity && target.is_open_container() && target.reagents)
+		if(!target.reagents.total_volume)
+			to_chat(user, SPAN_WARNING("You can't steep tea inside of an empty pot!"))
+			return
+		to_chat(user, SPAN_NOTICE("You steep \the [src] inside \the [target]."))
+
+		reagents.trans_to(target, reagents.total_volume)
+		qdel(src)

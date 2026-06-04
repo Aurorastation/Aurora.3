@@ -63,7 +63,7 @@
 	if (!.)
 		. = B.qdels - A.qdels
 
-/proc/cmp_camera(obj/machinery/camera/a, obj/machinery/camera/b)
+/proc/cmp_camera(obj/structure/machinery/camera/a, obj/structure/machinery/camera/b)
 	if (a.c_tag_order != b.c_tag_order)
 		return b.c_tag_order - a.c_tag_order
 	return sorttext(b.c_tag, a.c_tag)
@@ -94,10 +94,10 @@
 /proc/cmp_supply_drop(datum/supply_drop_loot/a, datum/supply_drop_loot/b)
 	return sorttext(b.name, a.name)
 
-/proc/cmp_rcon_smes(obj/machinery/power/smes/buildable/S1, obj/machinery/power/smes/buildable/S2)
+/proc/cmp_rcon_smes(obj/structure/machinery/power/smes/buildable/S1, obj/structure/machinery/power/smes/buildable/S2)
 	return sorttext(S2.RCon_tag, S1.RCon_tag)
 
-/proc/cmp_rcon_bbox(obj/machinery/power/breakerbox/BR1, obj/machinery/power/breakerbox/BR2)
+/proc/cmp_rcon_bbox(obj/structure/machinery/power/breakerbox/BR1, obj/structure/machinery/power/breakerbox/BR2)
 	return sorttext(BR2.RCon_tag, BR1.RCon_tag)
 
 /proc/cmp_recipe_complexity_dsc(singleton/recipe/A, singleton/recipe/B)
@@ -119,3 +119,6 @@
 
 /proc/cmp_fusion_reaction_des(singleton/fusion_reaction/A, singleton/fusion_reaction/B)
 	return B.priority - A.priority
+
+/proc/cmp_faction(datum/faction/A, datum/faction/B)
+	return A.ui_priority - B.ui_priority

@@ -7,7 +7,7 @@
 	shoes = null
 	gloves = null
 	mask = /obj/item/clothing/mask/gas/swat
-	l_ear = /obj/item/device/radio/headset/ert
+	l_ear = /obj/item/radio/headset/ert
 	glasses = /obj/item/clothing/glasses/sunglasses/sechud/tactical
 	id = /obj/item/card/id/asset_protection
 	l_pocket = /obj/item/plastique

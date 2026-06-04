@@ -302,6 +302,27 @@
 		unpopped = max(0, unpopped-1)
 	..()
 
+/obj/item/reagent_containers/food/snacks/popcorn/caramel
+	name = "caramel popcorn"
+	desc = "Salty and sweet, gets stuck in your teeth while also ruining them! Yum!"
+	icon_state = "popcorn_caramel"
+	bitesize = 0.4
+	reagent_data = list(/singleton/reagent/nutriment = list("caramel" = 3, "popcorn" = 3))
+
+/obj/item/reagent_containers/food/snacks/popcorn/cheese
+	name = "cheese popcorn"
+	desc = "For the absolutely cheesiest movies."
+	icon_state = "popcorn_cheese"
+	bitesize = 0.4
+	reagent_data = list(/singleton/reagent/nutriment = list("cheese" = 3, "popcorn" = 3))
+
+/obj/item/reagent_containers/food/snacks/popcorn/chocolate
+	name = "chocolate popcorn"
+	desc = "Cocoacorn, if you will."
+	icon_state = "popcorn_chocolate"
+	bitesize = 0.4
+	reagent_data = list(/singleton/reagent/nutriment = list("chocolate" = 3, "popcorn" = 3))
+
 /obj/item/reagent_containers/food/snacks/sosjerky
 	name = "Scaredy's Private Reserve beef jerky"
 	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
@@ -828,6 +849,18 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("light cocoa" = 2))
 	bitesize = 1
 
+//Dominia Snacks?!
+//By the Goddess, pass the Algae chips I'm on a killstreak in Reign of Steel
+
+/obj/item/reagent_containers/food/snacks/algaechips
+	name = "\improper Soostatom Bites Algae Chips"
+	desc = "Cripsy batter fried algae chips from Sun Reach. Soostatom Bites, snapping good snacks!"
+	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
+	icon_state = "algaechips"
+	trash = /obj/item/trash/algaechips
+	reagents_to_add = list(/singleton/reagent/nutriment = 3)
+	reagent_data = list(/singleton/reagent/nutriment = list("salty algae" = 3))
+
 //Microwave food packages
 
 /obj/item/storage/box/fancy/quick_microwave_pizza
@@ -1027,6 +1060,7 @@
 	icon_state = "toptart_strawberry_box"
 	icon_type = "toptart"
 	storage_type = "box"
+	w_class = WEIGHT_CLASS_SMALL
 	starts_with = list(/obj/item/reagent_containers/food/snacks/toptart_strawberry_raw = 4)
 	can_hold = list(
 		/obj/item/reagent_containers/food/snacks/toptart_strawberry_raw,
@@ -1046,6 +1080,7 @@
 	icon_state = "toptart_chocolate_box"
 	icon_type = "toptart"
 	storage_type = "box"
+	w_class = WEIGHT_CLASS_SMALL
 	starts_with = list(/obj/item/reagent_containers/food/snacks/toptart_chocolate_peanutbutter_raw = 4)
 	can_hold = list(
 		/obj/item/reagent_containers/food/snacks/toptart_strawberry_raw,
@@ -1065,6 +1100,7 @@
 	icon_state = "toptart_blueberry_box"
 	icon_type = "toptart"
 	storage_type = "box"
+	w_class = WEIGHT_CLASS_SMALL
 	starts_with = list(/obj/item/reagent_containers/food/snacks/toptart_blueberry_raw = 4)
 	can_hold = list(
 		/obj/item/reagent_containers/food/snacks/toptart_strawberry_raw,

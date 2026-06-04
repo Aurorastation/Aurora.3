@@ -19,7 +19,7 @@ GLOBAL_DATUM(robot_inventory, /atom/movable/screen)
 	using = new /atom/movable/screen()
 	using.name = "radio"
 	using.set_dir(SOUTHWEST)
-	using.icon = 'icons/mob/screen/robot.dmi'
+	using.icon = 'icons/hud/mob/robot.dmi'
 	using.icon_state = "radio"
 	using.screen_loc = ui_movi
 	src.adding += using
@@ -44,7 +44,7 @@ GLOBAL_DATUM(robot_inventory, /atom/movable/screen)
 	using = new /atom/movable/screen()
 	using.name = "act_intent"
 	using.set_dir(SOUTHWEST)
-	using.icon = 'icons/mob/screen/robot.dmi'
+	using.icon = 'icons/hud/mob/robot.dmi'
 	using.icon_state = mymob.a_intent
 	using.screen_loc = ui_acti
 	src.adding += using
@@ -52,28 +52,28 @@ GLOBAL_DATUM(robot_inventory, /atom/movable/screen)
 
 // Up Hint
 	mymob.up_hint = new /atom/movable/screen()
-	mymob.up_hint.icon = 'icons/mob/screen/robot.dmi'
+	mymob.up_hint.icon = 'icons/hud/mob/robot.dmi'
 	mymob.up_hint.icon_state = "uphint0"
 	mymob.up_hint.name = "up hint"
 	mymob.up_hint.screen_loc = ui_up_hint
 
 //Cell
 	r.cells = new /atom/movable/screen()
-	r.cells.icon = 'icons/mob/screen/robot.dmi'
+	r.cells.icon = 'icons/hud/mob/robot.dmi'
 	r.cells.icon_state = "charge-empty"
 	r.cells.name = "cell"
 	r.cells.screen_loc = ui_toxin
 
 //Health
 	mymob.healths = new /atom/movable/screen()
-	mymob.healths.icon = 'icons/mob/screen/robot.dmi'
+	mymob.healths.icon = 'icons/hud/mob/robot.dmi'
 	mymob.healths.icon_state = "health0"
 	mymob.healths.name = "health"
 	mymob.healths.screen_loc = ui_borg_health
 
 //Installed Module
 	mymob.hands = new /atom/movable/screen()
-	mymob.hands.icon = 'icons/mob/screen/robot.dmi'
+	mymob.hands.icon = 'icons/hud/mob/robot.dmi'
 	mymob.hands.icon_state = "nomod"
 	mymob.hands.name = "module"
 	mymob.hands.screen_loc = ui_borg_module
@@ -82,21 +82,21 @@ GLOBAL_DATUM(robot_inventory, /atom/movable/screen)
 		mymob.hands.icon_state = lowertext(r.mod_type)
 
 	if (istype(mymob, /mob/living/silicon/robot/shell))
-		mymob.hands.icon = 'icons/mob/screen/ai.dmi'
+		mymob.hands.icon = 'icons/hud/mob/ai.dmi'
 		mymob.hands.icon_state = "remote_mech"
 		mymob.hands.name = "Return-to-core"
 
 //Module Panel
 	using = new /atom/movable/screen()
 	using.name = "panel"
-	using.icon = 'icons/mob/screen/robot.dmi'
+	using.icon = 'icons/hud/mob/robot.dmi'
 	using.icon_state = "panel"
 	using.screen_loc = ui_borg_panel
 	src.adding += using
 
 //Store
 	mymob.throw_icon = new /atom/movable/screen()
-	mymob.throw_icon.icon = 'icons/mob/screen/robot.dmi'
+	mymob.throw_icon.icon = 'icons/hud/mob/robot.dmi'
 	mymob.throw_icon.icon_state = "store"
 	mymob.throw_icon.name = "store"
 	mymob.throw_icon.screen_loc = ui_borg_store
@@ -104,16 +104,16 @@ GLOBAL_DATUM(robot_inventory, /atom/movable/screen)
 //Inventory
 	GLOB.robot_inventory = new /atom/movable/screen()
 	GLOB.robot_inventory.name = "inventory"
-	GLOB.robot_inventory.icon = 'icons/mob/screen/robot.dmi'
+	GLOB.robot_inventory.icon = 'icons/hud/mob/robot.dmi'
 	GLOB.robot_inventory.icon_state = "inventory"
 	GLOB.robot_inventory.screen_loc = ui_borg_inventory
 
 //Temp
 
 	mymob.zone_sel = new /atom/movable/screen/zone_sel()
-	mymob.zone_sel.icon = 'icons/mob/screen/robot.dmi'
+	mymob.zone_sel.icon = 'icons/hud/mob/robot.dmi'
 	mymob.zone_sel.ClearOverlays()
-	mymob.zone_sel.AddOverlays(image('icons/mob/zone_sel.dmi', "[mymob.zone_sel.selecting]"))
+	mymob.zone_sel.AddOverlays(image('icons/hud/mob/zone_sel.dmi', "[mymob.zone_sel.selecting]"))
 
 	// Computer device hud
 	if(r.computer)

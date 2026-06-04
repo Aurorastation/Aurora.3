@@ -1,4 +1,5 @@
 /datum/antagonist/proc/create_antagonist(var/datum/mind/target, var/move, var/gag_announcement, var/preserve_appearance)
+	SHOULD_CALL_PARENT(TRUE)
 
 	if(!target)
 		return
@@ -18,6 +19,14 @@
 	if(!gag_announcement)
 		announce_antagonist_spawn()
 	LAZYDISTINCTADD(SSticker.mode.antag_templates, src)
+
+	// Antags are always guaranteed certain minimum skill levels.
+	// Such that if a player character is promoted to an antagonist, they are always boosted up to a minimum competence required for antagging.
+	for(var/singleton/skill/skill as anything in SSskills.required_skills)
+		var/antag_skill_rank = skill.antag_level
+		var/datum/component/skill/skill_comp = target.current.LoadComponent(skill.component_type, antag_skill_rank)
+		if (skill_comp.skill_level < antag_skill_rank)
+			skill_comp.skill_level = antag_skill_rank
 
 /datum/antagonist/proc/create_default(var/mob/source)
 	var/mob/living/M
@@ -42,21 +51,21 @@
 	return W
 
 /datum/antagonist/proc/create_radio(var/freq, var/mob/living/carbon/human/player)
-	var/obj/item/device/radio/R
+	var/obj/item/radio/R
 
 	switch(freq)
 		if(NINJ_FREQ)
-			R = new /obj/item/device/radio/headset/ninja(player)
+			R = new /obj/item/radio/headset/ninja(player)
 		if(BLSP_FREQ)
-			R = new /obj/item/device/radio/headset/bluespace(player)
+			R = new /obj/item/radio/headset/bluespace(player)
 		if(BURG_FREQ)
-			R = new /obj/item/device/radio/headset/burglar(player)
+			R = new /obj/item/radio/headset/burglar(player)
 		if(SYND_FREQ)
-			R = new /obj/item/device/radio/headset/syndicate(player)
+			R = new /obj/item/radio/headset/syndicate(player)
 		if(RAID_FREQ)
-			R = new /obj/item/device/radio/headset/raider(player)
+			R = new /obj/item/radio/headset/raider(player)
 		else
-			R = new /obj/item/device/radio/headset(player)
+			R = new /obj/item/radio/headset(player)
 			R.set_frequency(freq)
 
 	R.set_frequency(freq)
@@ -70,7 +79,7 @@
 
 	var/code
 	if(nuke_spawn)
-		var/obj/machinery/nuclearbomb/nuke = new(get_turf(nuke_spawn))
+		var/obj/structure/machinery/nuclearbomb/nuke = new(get_turf(nuke_spawn))
 		code = "[rand(10000, 99999)]"
 		nuke.r_code = code
 

@@ -1,106 +1,107 @@
-/datum/nano_module/song_editor
+/datum/instrument_ui/song_editor
 	name = "Song Editor"
-	available_to_ai = 0
 	var/datum/synthesized_song/song
 	var/show_help = 0
 	var/page = 1
 
 
-/datum/nano_module/song_editor/New(host, topic_manager, datum/synthesized_song/song)
+/datum/instrument_ui/song_editor/New(host, datum/synthesized_song/song)
 	..()
 	src.host = host
 	src.song = song
 
+/datum/instrument_ui/song_editor/Destroy()
+	song = null
+	return ..()
 
-/datum/nano_module/song_editor/proc/pages()
+/datum/instrument_ui/song_editor/proc/pages()
 	return Ceil(src.song.lines.len / GLOB.musical_config.song_editor_lines_per_page)
 
 
-/datum/nano_module/song_editor/proc/current_page()
+/datum/instrument_ui/song_editor/proc/current_page()
 	return src.song.current_line > 0 ? Ceil(src.song.current_line / GLOB.musical_config.song_editor_lines_per_page) : min(src.page, pages())
 
 
-/datum/nano_module/song_editor/proc/page_bounds(page_num)
+/datum/instrument_ui/song_editor/proc/page_bounds(page_num)
 	return list(
 		max(min(1 + GLOB.musical_config.song_editor_lines_per_page * (page_num-1), src.song.lines.len), 1),
 		min(GLOB.musical_config.song_editor_lines_per_page * page_num, src.song.lines.len))
 
-/datum/nano_module/song_editor/ui_interact(mob/user, ui_key = "song_editor", datum/nanoui/ui = null, force_open = 0)
-	var/list/data = list()
-
-	var/current_page = src.current_page()
-	var/list/line_bounds = src.page_bounds(src.current_page())
-
-	data["lines"] = src.song.lines.Copy(line_bounds[1], line_bounds[2]+1)
-	data["active_line"] = src.song.current_line
-	data["max_lines"] = GLOB.musical_config.max_lines
-	data["max_line_length"] = GLOB.musical_config.max_line_length
-	data["tick_lag"] = world.tick_lag
-	data["show_help"] = src.show_help
-	data["page_num"] = current_page
-	data["page_offset"] = GLOB.musical_config.song_editor_lines_per_page * (current_page-1)
-
-	ui =  SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
-		ui = new (user, src, ui_key, "song_editor.tmpl", "Song Editor", 550, 600)
-		ui.set_initial_data(data)
+/datum/instrument_ui/song_editor/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "SongEditor", "Song Editor")
 		ui.open()
 
+/datum/instrument_ui/song_editor/ui_data(mob/user)
+	var/current_page = src.current_page()
+	var/list/line_bounds = src.page_bounds(current_page)
+	return list(
+		"lines"          = src.song.lines.Copy(line_bounds[1], line_bounds[2]+1),
+		"active_line"    = src.song.current_line,
+		"max_lines"      = GLOB.musical_config.max_lines,
+		"max_line_length"= GLOB.musical_config.max_line_length,
+		"tick_lag"       = world.tick_lag,
+		"show_help"      = src.show_help,
+		"page_num"       = current_page,
+		"page_offset"    = GLOB.musical_config.song_editor_lines_per_page * (current_page-1),
+		"total_pages"    = src.pages()
+	)
 
-/datum/nano_module/song_editor/Topic(href, href_list)
-	if (..())
-		return 1
+/datum/instrument_ui/song_editor/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
+		return
 
-	var/target = href_list["target"]
-	var/value = text2num(href_list["value"])
-	if (href_list["value"] && !isnum(value))
-		to_chat(usr, "Non-numeric value was supplied")
-		return 0
-
-	switch (target)
+	switch(action)
 		if("newline")
-			var/newline = html_encode(input(usr, "Enter your line: ") as text|null)
+			var/newline = tgui_input_text(usr, "Enter your line:", "New Line")
 			if(!newline)
-				return
-			if(src.song.lines.len > GLOB.musical_config.max_lines)
-				return
+				return TRUE
+			if(src.song.lines.len >= GLOB.musical_config.max_lines)
+				return TRUE
 			if(length(newline) > GLOB.musical_config.max_line_length)
 				newline = copytext(newline, 1, GLOB.musical_config.max_line_length)
 			src.song.lines.Add(newline)
+			return TRUE
 
 		if("deleteline")
 			// This could kill the server if the synthesizer was playing, props to BeTePb
 			// Impossible to do now. Dumbing down this section.
-			var/num = round(value)
-			if(num > src.song.lines.len || num < 1)
-				return
+			var/num = round(text2num(params["value"]))
+			if(num < 1 || num > src.song.lines.len)
+				return TRUE
 			src.song.lines.Cut(num, num+1)
+			return TRUE
 
 		if("modifyline")
-			var/num = round(value)
-			if(num > src.song.lines.len || num < 1)
-				return
-			var/content = html_encode(input(usr, "Enter your line: ", "Edit line", src.song.lines[num]) as text|null)
-			if(num > src.song.lines.len || num < 1)
-				return
-			if(!content)
-				return
+			var/num = round(text2num(params["value"]))
+			if(num < 1 || num > src.song.lines.len)
+				return TRUE
+			var/content = tgui_input_text(usr, "Enter your line:", "Edit Line", src.song.lines[num])
+			if(!content || num < 1 || num > src.song.lines.len)
+				return TRUE
 			if(length(content) > GLOB.musical_config.max_line_length)
 				content = copytext(content, 1, GLOB.musical_config.max_line_length)
 			src.song.lines[num] = content
+			return TRUE
 
-		if ("help")
-			src.show_help = value
+		if("help")
+			src.show_help = text2num(params["value"]) ? 1 : 0
+			return TRUE
 
-		if ("next_page")
+		if("next_page")
 			src.page = max(min(src.page + 1, src.pages()), 1)
+			return TRUE
 
-		if ("prev_page")
+		if("prev_page")
 			src.page = max(min(src.page - 1, src.pages()), 1)
+			return TRUE
 
-		if ("last_page")
+		if("last_page")
 			src.page = src.pages()
-		if ("first_page")
-			src.page = 1
+			return TRUE
 
-	return 1
+		if("first_page")
+			src.page = 1
+			return TRUE

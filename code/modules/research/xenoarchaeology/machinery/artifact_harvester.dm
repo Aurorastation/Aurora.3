@@ -1,5 +1,5 @@
 
-/obj/machinery/artifact_harvester
+/obj/structure/machinery/artifact_harvester
 	name = "exotic particle harvester"
 	icon = 'icons/obj/xenoarchaeology.dmi'
 	icon_state = "harvester"
@@ -9,18 +9,18 @@
 	active_power_usage = 750
 	var/harvesting = 0
 	var/obj/item/anobattery/inserted_battery
-	var/obj/machinery/artifact/cur_artifact
-	var/obj/machinery/artifact_scanpad/owned_scanner = null
+	var/obj/structure/machinery/artifact/cur_artifact
+	var/obj/structure/machinery/artifact_scanpad/owned_scanner = null
 	var/last_process = 0
 
-/obj/machinery/artifact_harvester/Initialize()
+/obj/structure/machinery/artifact_harvester/Initialize()
 	. = ..()
 	//connect to a nearby scanner pad
-	owned_scanner = locate(/obj/machinery/artifact_scanpad) in get_step(src, dir)
+	owned_scanner = locate(/obj/structure/machinery/artifact_scanpad) in get_step(src, dir)
 	if(!owned_scanner)
-		owned_scanner = locate(/obj/machinery/artifact_scanpad) in orange(1, src)
+		owned_scanner = locate(/obj/structure/machinery/artifact_scanpad) in orange(1, src)
 
-/obj/machinery/artifact_harvester/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/artifact_harvester/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/anobattery))
 		if(!inserted_battery)
 			to_chat(user, SPAN_NOTICE("You insert [attacking_item] into [src]."))
@@ -32,12 +32,12 @@
 	else
 		return..()
 
-/obj/machinery/artifact_harvester/attack_hand(var/mob/user as mob)
+/obj/structure/machinery/artifact_harvester/attack_hand(var/mob/user as mob)
 	. = ..()
 	src.add_fingerprint(user)
 	interact(user)
 
-/obj/machinery/artifact_harvester/interact(var/mob/user as mob)
+/obj/structure/machinery/artifact_harvester/interact(var/mob/user as mob)
 	if(stat & (NOPOWER|BROKEN))
 		return
 	user.set_machine(src)
@@ -71,7 +71,7 @@
 	harvester_win.set_content(dat)
 	harvester_win.open()
 
-/obj/machinery/artifact_harvester/process()
+/obj/structure/machinery/artifact_harvester/process()
 	if(stat & (NOPOWER|BROKEN))
 		return
 
@@ -115,7 +115,7 @@
 			src.visible_message("<b>[name]</b> states, \"Battery dump completed.\"")
 			icon_state = "harvester"
 
-/obj/machinery/artifact_harvester/Topic(href, href_list)
+/obj/structure/machinery/artifact_harvester/Topic(href, href_list)
 
 	if (href_list["harvest"])
 		if(!inserted_battery)
@@ -129,8 +129,8 @@
 			//locate artifact on analysis pad
 			cur_artifact = null
 			var/articount = 0
-			var/obj/machinery/artifact/analysed
-			for(var/obj/machinery/artifact/A in get_turf(owned_scanner))
+			var/obj/structure/machinery/artifact/analysed
+			for(var/obj/structure/machinery/artifact/A in get_turf(owned_scanner))
 				analysed = A
 				articount++
 

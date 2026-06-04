@@ -6,7 +6,7 @@
 	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_VAURCA_BULWARK)
 
 /obj/item/clothing/gloves/boxing/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iswirecutter() || istype(attacking_item, /obj/item/surgery/scalpel))
+	if(attacking_item.tool_behaviour == TOOL_WIRECUTTER || istype(attacking_item, /obj/item/surgery/scalpel))
 		to_chat(user, SPAN_NOTICE("That won't work."))	//Nope)
 		return
 	..()

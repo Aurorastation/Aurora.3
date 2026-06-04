@@ -171,7 +171,7 @@
 
 		drop_from_inventory(legcuffed)
 		legcuffed = null
-		update_inv_legcuffed()
+		legcuff_update()
 
 /mob/living/carbon/proc/can_break_cuffs()
 	if((mutations & HULK))
@@ -206,9 +206,7 @@
 
 		qdel(handcuffed)
 		handcuffed = null
-		if(buckled_to)
-			buckled_to.unbuckle()
-		update_inv_handcuffed()
+		handcuff_update()
 
 /mob/living/carbon/proc/break_legcuffs()
 	to_chat(src, SPAN_WARNING("You attempt to break your legcuffs. (This will take around 5 seconds and you need to stand still)"))
@@ -227,7 +225,7 @@
 
 		qdel(legcuffed)
 		legcuffed = null
-		update_inv_legcuffed()
+		legcuff_update()
 
 /mob/living/carbon/human/can_break_cuffs()
 	if(species.can_shred(src,1))

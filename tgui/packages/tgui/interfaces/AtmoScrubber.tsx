@@ -1,6 +1,12 @@
 import { useBackend } from '../backend';
 import { useLocalState } from '../backend';
-import { Button, Section, LabeledList, ProgressBar, Slider } from '../components';
+import {
+  Button,
+  Section,
+  LabeledList,
+  ProgressBar,
+  Slider,
+} from '../components';
 import { Window } from '../layouts';
 import { BooleanLike } from '../../common/react';
 
@@ -28,22 +34,22 @@ export const AtmoScrubber = (props, context) => {
   const tank_presure_color = tank_color
     ? { color: tank_color }
     : {
-      ranges: {
-        good: [-Infinity, 500],
-        bad: [750, Infinity],
-        average: [500, 750],
-      },
-    };
+        ranges: {
+          good: [-Infinity, 500],
+          bad: [750, Infinity],
+          average: [500, 750],
+        },
+      };
 
   const cell_charge_color = cell_color
     ? { color: cell_color }
     : {
-      ranges: {
-        good: [data.cellMaxCharge / 2, Infinity],
-        bad: [-Infinity, data.cellMaxCharge / 4],
-        average: [data.cellMaxCharge / 4, data.cellMaxCharge / 2],
-      },
-    };
+        ranges: {
+          good: [data.cellMaxCharge / 2, Infinity],
+          bad: [-Infinity, data.cellMaxCharge / 4],
+          average: [data.cellMaxCharge / 4, data.cellMaxCharge / 2],
+        },
+      };
 
   return (
     <Window>
@@ -55,7 +61,8 @@ export const AtmoScrubber = (props, context) => {
                 {...tank_presure_color}
                 minValue={0}
                 maxValue={1024}
-                value={data.tankPressure}>
+                value={data.tankPressure}
+              >
                 {data.tankPressure} kPa
               </ProgressBar>
             </LabeledList.Item>
@@ -68,7 +75,8 @@ export const AtmoScrubber = (props, context) => {
                 {...cell_charge_color}
                 minValue={0}
                 maxValue={data.cellMaxCharge}
-                value={data.cellCharge}>
+                value={data.cellCharge}
+              >
                 {data.cellCharge}
               </ProgressBar>
             </LabeledList.Item>
@@ -81,7 +89,8 @@ export const AtmoScrubber = (props, context) => {
                 label="Tank Label"
                 buttons={
                   <Button icon="eject" onClick={() => act('removeTank')} />
-                }>
+                }
+              >
                 {data.holdingTankName}
               </LabeledList.Item>
               <LabeledList.Item label="Tank Pressure">
@@ -89,7 +98,8 @@ export const AtmoScrubber = (props, context) => {
                   {...tank_presure_color}
                   minValue={0}
                   maxValue={1024}
-                  value={data.holdingTankPressure}>
+                  value={data.holdingTankPressure}
+                >
                   {data.holdingTankPressure} kPa
                 </ProgressBar>
               </LabeledList.Item>
@@ -110,7 +120,8 @@ export const AtmoScrubber = (props, context) => {
                 maxValue={data.maxrate}
                 onChange={(e, value) =>
                   act('setVolume', { targetVolume: value })
-                }>
+                }
+              >
                 {data.rate}
               </Slider>
             </LabeledList.Item>

@@ -185,7 +185,7 @@
 	if(!ishuman(speaker))
 		return FALSE
 	var/mob/living/carbon/human/H = speaker
-	var/obj/item/organ/internal/augment/language/zeng/aug = H.internal_organs_by_name[BP_AUG_LANGUAGE]
+	var/obj/item/organ/internal/augment/language/zeng/aug = H.internal_organs_by_name[BP_AUG_LANGUAGE_ZENG]
 	if(istype(aug) && !isskrell(H))
 		to_chat(speaker, SPAN_WARNING("You are not capable of speaking Nral'malic!"))
 		return FALSE
@@ -226,7 +226,7 @@
 /datum/language/bug/get_random_name()
 	var/new_name = "[pick(list("Ka'","Za'","Ka'"))]"
 	new_name += "[pick(list("Akaix'","Viax'"))]"
-	new_name += "[pick(list("Uyek","Uyit","Avek","Theth","Ztak","Teth","Zir","Yek","Zirk","Ayek","Yir","Kig","Yol","'Zrk","Nazgr","Yet","Nak","Kiihr","Gruz","Guurz","Nagr","Zkk","Zohd","Norc","Agraz","Yizgr","Yinzr","Nuurg","Iii","Lix","Nhagh","Xir","Z'zit","Zhul","Zgr","Na'k","Isk'yet","Aaaa"))]"
+	new_name += "[pick(list("Uyek","Uyit","Avek","Theth","Ztak","Teth","Zir","Yek","Zirk","Ayek","Yir","Kig","Yol","'Zrk","Nazgr","Yet","Nak","Kiihr","Gruz","Guurz","Nagr","Zkk","Zohd","Norc","Agraz","Yizgr","Yinzr","Nuurg","Iii","Lix","Nhagh","Xir","Z'zit","Zhul","Zgr","Na'k","Isk'yet","Agha"))]"
 	var/list/hive_names = list("Zo'ra" = 3, "K'lax" = 1, "C'thur" = 1)
 	new_name += " [pickweight(hive_names)]"
 	return new_name
@@ -234,11 +234,16 @@
 /datum/language/bug/broadcast(var/mob/living/speaker,var/message,var/speaker_mask)
 	log_say("[key_name(speaker)] : ([name]) [message]")
 
+	var/mob/living/carbon/human/H = speaker //Check for Preimminent Shaper robes, which obscure Hive affiliation
+	var/obj/item/clothing/head/shaper/helmet = H.get_equipped_item(slot_head)
 	if(!speaker_mask)
 		speaker_mask = speaker.real_name
+		if(istype(helmet)) //Then remove their Hive name from Hivenet
+			var/list/speaker_surname = splittext(speaker_mask, " ")
+			speaker_mask = speaker_surname[1]
 
-	var/msg = "<i><span class='game say'>[name], <span class='name'>[speaker_mask]</span>[format_message(message, get_spoken_verb(message), speaker_mask)]</span></i>"
-	var/encrypted_msg =  "<i><span class='game say'>[name], <span class='name'>[speaker_mask]</span>[format_message("!a surge of encrypted data", get_spoken_verb(message), speaker_mask)]</span></i>"
+	var/msg = "<i><span class='game say'>[name], <span class='name'>[speaker_mask]</span>[format_message(message, get_spoken_verb(message), speaker_mask, speaker)]</span></i>"
+	var/encrypted_msg =  "<i><span class='game say'>[name], <span class='name'>[speaker_mask]</span>[format_message("!a surge of encrypted data", get_spoken_verb(message), speaker_mask, speaker)]</span></i>"
 
 	if(isvaurca(speaker))
 		speaker.custom_emote(VISIBLE_MESSAGE, "[pick("twitches their antennae", "twitches their antennae rhythmically")].")
@@ -268,7 +273,7 @@
 					to_chat(player, encrypted_msg)
 					continue
 				var/obj/item/organ/internal/vaurca/neuralsocket/listener_socket = listener_human.internal_organs_by_name[BP_NEURAL_SOCKET]
-				var/obj/item/organ/internal/augment/language/vekatak/receiver = listener_human.internal_organs_by_name[BP_AUG_LANGUAGE]
+				var/obj/item/organ/internal/augment/language/vekatak/receiver = listener_human.internal_organs_by_name[BP_AUG_LANGUAGE_VEKATAK]
 				if(listener_socket)
 					if(listener_socket.decryption_key == speaker_encryption_key)
 						to_chat(player, msg)
@@ -281,7 +286,7 @@
 				continue
 			to_chat(player, msg)
 
-/datum/language/bug/format_message(message, verb, speaker_mask)
+/datum/language/bug/format_message(message, verb, speaker_mask, speaker)
 	var/message_color = colour
 	var/list/speaker_surname = splittext(speaker_mask, " ")
 	if(length(speaker_surname) > 1)
@@ -313,16 +318,16 @@
 		return 0
 	if(M.internal_organs_by_name[BP_NEURAL_SOCKET] && (GLOB.all_languages[LANGUAGE_VAURCA] in M.languages))
 		return 1
-	if(M.internal_organs_by_name[BP_AUG_LANGUAGE])
-		var/obj/item/organ/internal/augment/language/vekatak/V = M.internal_organs_by_name[BP_AUG_LANGUAGE]
+	if(M.internal_organs_by_name[BP_AUG_LANGUAGE_VEKATAK])
+		var/obj/item/organ/internal/augment/language/vekatak/V = M.internal_organs_by_name[BP_AUG_LANGUAGE_VEKATAK]
 		if(istype(V) && (GLOB.all_languages[LANGUAGE_VAURCA] in M.languages))
 			return 1
 	if(M.internal_organs_by_name["blackkois"])
 		return 1
 
 	if (M.l_ear || M.r_ear)
-		var/obj/item/device/radio/headset/dongle
-		if(istype(M.l_ear,/obj/item/device/radio/headset))
+		var/obj/item/radio/headset/dongle
+		if(istype(M.l_ear,/obj/item/radio/headset))
 			dongle = M.l_ear
 		else
 			dongle = M.r_ear
@@ -337,7 +342,7 @@
 /datum/language/bug/check_speech_restrict(var/mob/speaker)
 	var/mob/living/carbon/human/H = speaker
 	var/obj/item/organ/internal/vaurca/neuralsocket/S = H.internal_organs_by_name[BP_NEURAL_SOCKET]
-	var/obj/item/organ/internal/augment/language/vekatak/V = H.internal_organs_by_name[BP_AUG_LANGUAGE]
+	var/obj/item/organ/internal/augment/language/vekatak/V = H.internal_organs_by_name[BP_AUG_LANGUAGE_VEKATAK]
 
 	//Black k'ois zombies don't have neural sockets but need to talk, hence check if the socket exists, or it will runtime for them
 	if(S && (S.muted || S.disrupted))

@@ -5,13 +5,14 @@
 
 /singleton/surgery_step/generic/cut_face
 	allowed_tools = list(
-	/obj/item/surgery/scalpel = 100,
+	TOOL_SCALPEL = 100,
 	/obj/item/material/knife = 75,
 	/obj/item/material/shard = 50
 	)
 
 	min_duration = 70
 	max_duration = 90
+	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 
 /singleton/surgery_step/generic/cut_face/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	return ..() && target_zone == BP_MOUTH && target.op_stage.face == FACE_NORMAL
@@ -35,13 +36,14 @@
 
 /singleton/surgery_step/robotics/face/synthskin
 	allowed_tools = list(
-	/obj/item/surgery/scalpel = 100,
+	TOOL_SCALPEL = 100,
 	/obj/item/material/knife = 75,
 	/obj/item/material/shard = 50
 	)
 
 	min_duration = 70
 	max_duration = 90
+	skill_requirements = alist(ROBOTICS_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 
 /singleton/surgery_step/robotics/face/synthskin/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	return ..() && target.op_stage.face == FACE_NORMAL && target.get_species() == SPECIES_IPC_SHELL

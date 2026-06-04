@@ -534,6 +534,12 @@ GLOBAL_LIST_EMPTY(asset_datums)
 		"goldenlogo_small.png" = 'html/images/factions/goldenlogo_small.png',
 		"pvpolicelogo.png" = 'html/images/pvpolicelogo.png',
 		"pvpolicelogo_small.png" = 'html/images/pvpolicelogo_small.png',
+		"outereyeslogo.png" = 'html/images/outereyeslogo.png',
+		"outereyeslogo_small.png" = 'html/images/outereyeslogo_small.png',
+		"twinsuns.png" = 'html/images/twinsuns.png',
+		"twinsuns_small.png" = 'html/images/twinsuns_small.png',
+		"raskara_sigil.png" = 'html/images/raskara_sigil.png',
+		"raskara_sigil_small.png" = 'html/images/raskara_sigil_small.png',
 		//scan images that appear on sensors
 		"no_data.png" = 'html/images/scans/no_data.png',
 		"horizon.png" = 'html/images/scans/horizon.png',
@@ -578,6 +584,7 @@ GLOBAL_LIST_EMPTY(asset_datums)
 		"biesel.png" = 'html/images/scans/exoplanets/biesel.png',
 		"moghes.png" = 'html/images/scans/exoplanets/moghes.png',
 		"chanterel.png" = 'html/images/scans/exoplanets/chanterel.png',
+		"assunzione.png" = 'html/images/scans/exoplanets/assunzione.png',
 		//end scan images
 		"bluebird.woff" = 'html/fonts/OFL/Bluebird.woff',
 		"grandhotel.woff" = 'html/fonts/OFL/GrandHotel.woff',
@@ -614,7 +621,7 @@ GLOBAL_LIST_EMPTY(asset_datums)
 
 /datum/asset/spritesheet/vending/create_spritesheets()
 	var/vending_products = list()
-	for(var/obj/machinery/vending/vendor as anything in typesof(/obj/machinery/vending))
+	for(var/obj/structure/machinery/vending/vendor as anything in typesof(/obj/structure/machinery/vending))
 		vendor = new vendor()
 		for(var/each in list(vendor.products, vendor.contraband, vendor.premium))
 			vending_products |= each

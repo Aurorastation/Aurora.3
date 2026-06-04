@@ -20,8 +20,8 @@
 	var/list/construction_options = list("One Direction", "Full Window")
 	default_type = "glass"
 	icon_has_variants = TRUE
-	drop_sound = 'sound/items/drop/glass.ogg'
-	pickup_sound = 'sound/items/pickup/glass.ogg'
+	drop_sound = 'sound/items/drop/glass_sheet.ogg'
+	pickup_sound = 'sound/items/pickup/glass_sheet.ogg'
 
 /obj/item/stack/material/glass/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -91,7 +91,7 @@
 				to_chat(user, SPAN_WARNING("There is already a windoor assembly in that location."))
 				return 1
 
-			if(isturf(user.loc) && locate(/obj/machinery/door/window/, user.loc))
+			if(isturf(user.loc) && locate(/obj/structure/machinery/door/window/, user.loc))
 				to_chat(user, SPAN_WARNING("There is already a windoor in that location."))
 				return 1
 
@@ -142,7 +142,7 @@
 		else
 			to_chat(user, SPAN_WARNING("You need one metal sheet to finish the light tile!"))
 
-	else if(attacking_item.iswirecutter())
+	else if(attacking_item.tool_behaviour == TOOL_WIRECUTTER)
 		user.drop_from_inventory(attacking_item, get_turf(src))
 		to_chat(user, SPAN_NOTICE("You detach the wire from the [name]."))
 		playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)

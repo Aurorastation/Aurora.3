@@ -1,27 +1,27 @@
 //Shuttle controller computer for shuttles going between sectors
-/obj/machinery/computer/shuttle_control/explore
+/obj/structure/machinery/computer/shuttle_control/explore
 	name = "general shuttle control console"
 	ui_template = "ShuttleControlConsoleMultiExplore"
 	var/obj/effect/overmap/visitable/ship/connected //Ship we're connected to
 
-/obj/machinery/computer/shuttle_control/explore/Initialize()
+/obj/structure/machinery/computer/shuttle_control/explore/Initialize()
 	. = ..()
 	if(istype(linked, /obj/effect/overmap/visitable/ship))
 		connected = linked
 
-/obj/machinery/computer/shuttle_control/explore/attempt_hook_up(var/obj/effect/overmap/visitable/sector)
+/obj/structure/machinery/computer/shuttle_control/explore/attempt_hook_up(var/obj/effect/overmap/visitable/sector)
 	. = ..()
 
 	if(.)
 		connected = linked
 		LAZYSET(connected.consoles, src, TRUE)
 
-/obj/machinery/computer/shuttle_control/explore/Destroy()
+/obj/structure/machinery/computer/shuttle_control/explore/Destroy()
 	if(connected)
 		LAZYREMOVE(connected.consoles, src)
 	. = ..()
 
-/obj/machinery/computer/shuttle_control/explore/ui_data(mob/user)
+/obj/structure/machinery/computer/shuttle_control/explore/ui_data(mob/user)
 	. = ..()
 
 	var/datum/shuttle/autodock/overmap/shuttle = SSshuttle.shuttles[shuttle_tag]
@@ -47,7 +47,7 @@
 			"fuel_span" = fuel_span
 		)
 
-/obj/machinery/computer/shuttle_control/explore/handle_topic_href(var/mob/user, var/datum/shuttle/autodock/overmap/shuttle, var/action, var/list/params)
+/obj/structure/machinery/computer/shuttle_control/explore/handle_topic_href(var/mob/user, var/datum/shuttle/autodock/overmap/shuttle, var/action, var/list/params)
 	. = ..()
 	if(. != null)
 		return
@@ -63,9 +63,9 @@
 			shuttle.set_destination(possible_d[D])
 		return TRUE
 
-/obj/machinery/computer/shuttle_control/explore/terminal
+/obj/structure/machinery/computer/shuttle_control/explore/terminal
 	name = "shuttle control terminal"
-	icon = 'icons/obj/machinery/modular_terminal.dmi'
+	icon = 'icons/obj/modular_computers/modular_terminal.dmi'
 	icon_screen = "helm"
 	icon_keyboard = "tech_key"
 	icon_keyboard_emis = "tech_key_mask"

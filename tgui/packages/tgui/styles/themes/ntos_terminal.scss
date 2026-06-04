@@ -7,16 +7,16 @@
 @use 'sass:meta';
 
 @use '../colors.scss' with (
-   $primary: #24e87e,
-   $label: #24e87e,
-   $good: rgba(36, 232, 127, 0.50),
-   // $fg-map-keys: (),
+  $primary: #24e87e,
+  $label: #24e87e,
+  $good: rgba(36, 232, 127, 0.5),
+  // $fg-map-keys: (),
    // $bg-map-keys: (),
- );
+);
 @use '../base.scss' with (
-   $color-bg: #121b12,
-   $color-bg-grad-spread: 0%,
- );
+  $color-bg: #121b12,
+  $color-bg-grad-spread: 0%
+);
 
 .theme-ntos_terminal {
   // Atomic classes
@@ -55,7 +55,8 @@
 
   .Layout__content {
     //background-image: none;
-    background-image: repeating-linear-gradient(
+    background-image:
+      repeating-linear-gradient(
         0deg,
         rgba(black, 0.15),
         rgba(black, 0.15) 1px,

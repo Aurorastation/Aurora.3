@@ -98,7 +98,7 @@
 			Stun(2)
 
 		//Being hit while using a deadman switch
-		var/obj/item/device/assembly/signaler/signaler = get_active_hand()
+		var/obj/item/assembly/signaler/signaler = get_active_hand()
 		if(istype(signaler))
 			if(signaler.deadman && prob(80))
 				log_and_message_admins("has triggered a signaler deadman's switch")
@@ -120,7 +120,7 @@
 		//If the projectile was blocked and it's not at point blank range, then it missed
 		if(blocked >= 100 && !hitting_projectile.point_blank)
 			src.visible_message(SPAN_NOTICE("\The [hitting_projectile] misses [src] narrowly!"))
-			playsound(src, /singleton/sound_category/bulletflyby_sound, 50, 1)
+			playsound(src, SFX_BULLET_MISS, 50, 1)
 
 		//Otherwise it hit
 		else
@@ -326,7 +326,7 @@
 					src.anchored = 1
 					src.pinned += O
 
-/mob/living/proc/embed(var/obj/O, var/def_zone=null)
+/mob/living/proc/embed(obj/O, def_zone=null, datum/wound/supplied_wound)
 	O.forceMove(src)
 	src.embedded += O
 	add_verb(src, /mob/proc/yank_out_object)
@@ -446,14 +446,19 @@
 		fire_stacks = min(0, ++fire_stacks) //If we've doused ourselves in water to avoid fire, dry off slowly
 
 	if(!on_fire)
-		return 1
+		return TRUE
+
+	// If we're dead, slowly put out the fire.
+	if(((stat & DEAD) || (status_flags & FAKEDEATH)) && fire_stacks > 0 )
+		fire_stacks--
+
 	else if(fire_stacks <= 0)
 		ExtinguishMobCompletely() //Fire's been put out.
-		return 1
+		return TRUE
 
 	if(environment.gas[GAS_OXYGEN] < 1)
 		ExtinguishMobCompletely() //If there's no oxygen in the tile we're on, put out the fire
-		return 1
+		return TRUE
 
 	var/turf/location = get_turf(src)
 	location.hotspot_expose(fire_burn_temperature(environment), 50, 1)
@@ -502,19 +507,50 @@
 			A.Remove(src)
 
 	for(var/obj/item/I in src)
-		if(I.action_button_name)
+		if(!I.action_button_name)
+			continue
 
-			//If the item_action object does not exist, try to create it
+		var/list/action_names = islist(I.action_button_name) ? I.action_button_name : list(I.action_button_name)
+		var/list/action_types = islist(I.default_action_type) ? I.default_action_type : list(I.default_action_type)
+
+		if(action_names.len > 1)
+			if(!islist(I.action))
+				I.action = I.action ? list(I.action) : list()
+
+			var/list/actions_list = I.action
+
+			for(var/i in 1 to action_names.len)
+				var/action_name = action_names[i]
+				if(!action_name)
+					continue
+
+				var/datum/action/item_action = (i <= actions_list.len) ? actions_list[i] : null
+
+				if(!item_action)
+					var/action_type = action_types.len >= i ? action_types[i] : action_types[1]
+					if(!action_type)
+						continue
+
+					item_action = new action_type
+					actions_list.Add(item_action)
+
+				item_action.name = action_name
+				item_action.SetTarget(I)
+				item_action.Grant(src)
+
+		else
 			if(!I.action)
-				//Try to use the default action type, if there is none, skip this implant
-				if(I.default_action_type)
-					I.action = new I.default_action_type
+				var/action_type = action_types.len ? action_types[1] : null
+				if(action_type)
+					I.action = new action_type
 				else
 					continue
 
-			I.action.name = I.action_button_name
-			I.action.SetTarget(I)
-			I.action.Grant(src)
+			var/datum/action/item_action = I.action
+			item_action.name = action_names[1]
+			item_action.SetTarget(I)
+			item_action.Grant(src)
+
 	return
 
 /mob/living/update_action_buttons()

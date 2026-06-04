@@ -1,14 +1,14 @@
-/obj/machinery/atmospherics/unary/heat_exchanger
+/obj/structure/machinery/atmospherics/unary/heat_exchanger
 	name = "heat exchanger"
 	desc = "Exchanges heat between two input gases."
 	icon = 'icons/atmos/heat_exchanger.dmi'
 	icon_state = "intact"
 	density = TRUE
 
-	var/obj/machinery/atmospherics/unary/heat_exchanger/partner = null
+	var/obj/structure/machinery/atmospherics/unary/heat_exchanger/partner = null
 	var/update_cycle
 
-/obj/machinery/atmospherics/unary/heat_exchanger/update_icon()
+/obj/structure/machinery/atmospherics/unary/heat_exchanger/update_icon()
 	if(node)
 		icon_state = "intact"
 	else
@@ -16,11 +16,11 @@
 
 	return
 
-/obj/machinery/atmospherics/unary/heat_exchanger/atmos_init()
+/obj/structure/machinery/atmospherics/unary/heat_exchanger/atmos_init()
 	if(!partner)
 		var/partner_connect = turn(dir,180)
 
-		for(var/obj/machinery/atmospherics/unary/heat_exchanger/target in get_step(src,partner_connect))
+		for(var/obj/structure/machinery/atmospherics/unary/heat_exchanger/target in get_step(src,partner_connect))
 			if(target.dir & get_dir(src,target))
 				partner = target
 				partner.partner = src
@@ -28,7 +28,7 @@
 
 	..()
 
-/obj/machinery/atmospherics/unary/heat_exchanger/process()
+/obj/structure/machinery/atmospherics/unary/heat_exchanger/process()
 	..()
 	if(QDELETED(partner))
 		return FALSE
@@ -63,8 +63,8 @@
 
 	return TRUE
 
-/obj/machinery/atmospherics/unary/heat_exchanger/attackby(obj/item/attacking_item, mob/user)
-	if(!attacking_item.iswrench())
+/obj/structure/machinery/atmospherics/unary/heat_exchanger/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.tool_behaviour != TOOL_WRENCH)
 		return ..()
 	var/turf/T = src.loc
 	if(level == 1 && isturf(T) && !T.is_plating())
@@ -73,7 +73,7 @@
 	var/datum/gas_mixture/int_air = return_air()
 	if(!loc) return FALSE
 	var/datum/gas_mixture/env_air = loc.return_air()
-	if((int_air.return_pressure() - env_air.return_pressure()) > PRESSURE_EXERTED)
+	if((XGM_PRESSURE(int_air) - XGM_PRESSURE(env_air)) > PRESSURE_EXERTED)
 		to_chat(user, SPAN_WARNING("You cannot unwrench \the [src], it is too exerted due to internal pressure."))
 		add_fingerprint(user)
 		return TRUE

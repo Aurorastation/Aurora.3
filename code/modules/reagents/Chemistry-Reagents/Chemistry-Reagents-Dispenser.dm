@@ -8,11 +8,12 @@
 	fallback_specific_heat = 0.567
 
 	value = 0.27
+	accelerant_quality = 3
 
 /singleton/reagent/acetone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.adjustToxLoss(removed * 3)
 
-/singleton/reagent/acetone/touch_obj(var/obj/O, var/amount, var/datum/reagents/holder)	//I copied this wholesale from ethanol and could likely be converted into a shared proc. ~Techhead
+/singleton/reagent/acetone/touch_obj(var/obj/O, var/amount, var/datum/reagents/holder)
 	if(istype(O, /obj/item/paper))
 		var/obj/item/paper/paperaffected = O
 		paperaffected.clearpaper()
@@ -159,6 +160,9 @@ ABSTRACT_TYPE(/singleton/reagent/alcohol)
 	glass_icon_state = "glass_clear"
 	glass_name = "glass of coder fuckups"
 	glass_desc = "A glass of distilled maintainer tears."
+
+	accelerant_quality = 5
+	fire_color = COLOR_CYAN_BLUE
 
 	var/hydration_factor = 1 //How much hydration to add per unit.
 	var/nutriment_factor = 0.5 //How much nutrition to add per unit.
@@ -444,7 +448,7 @@ ABSTRACT_TYPE(/singleton/reagent/alcohol)
 		if(!istype(T, /turf/space))
 			var/obj/effect/decal/cleanable/greenglow/glow = locate(/obj/effect/decal/cleanable/greenglow, T)
 			if(!glow)
-				new /obj/effect/decal/cleanable/greenglow(T)
+				new /obj/effect/decal/cleanable/greenglow/radioactive/low(T)
 			return
 
 /singleton/reagent/acid
@@ -462,7 +466,8 @@ ABSTRACT_TYPE(/singleton/reagent/alcohol)
 	value = 0.2
 
 /singleton/reagent/acid/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	M.take_organ_damage(0, removed * power)
+	M.take_organ_damage(0, removed * power, used_weapon = "Acid burns", damage_flags = DAMAGE_FLAG_IGNORE_PROSTHETICS, silent = TRUE)
+
 
 /singleton/reagent/acid/affect_breathe(var/mob/living/carbon/human/H, var/alien, var/removed, var/datum/reagents/holder)
 	. = ..()
@@ -512,7 +517,7 @@ ABSTRACT_TYPE(/singleton/reagent/alcohol)
 			return
 
 	if(REAGENT_VOLUME(holder, type) < meltdose) // Not enough to melt anything
-		M.take_organ_damage(0, removed * power * 0.2) //burn damage, since it causes chemical burns. Acid doesn't make bones shatter, like brute trauma would.
+		M.take_organ_damage(0, removed * power * 0.2, used_weapon = "Acid burns", damage_flags = DAMAGE_FLAG_IGNORE_PROSTHETICS, silent = TRUE) //burn damage, since it causes chemical burns. Acid doesn't make bones shatter, like brute trauma would.
 		return
 	if(!M.unacidable && removed > 0)
 		if(ishuman(M) && REAGENT_VOLUME(holder, type) >= meltdose)
@@ -525,7 +530,7 @@ ABSTRACT_TYPE(/singleton/reagent/alcohol)
 					H.emote("scream")
 					H.status_flags |= DISFIGURED
 		else
-			M.take_organ_damage(0, removed * power * 0.1) // Balance. The damage is instant, so it's weaker. 10 units -> 5 damage, double for pacid. 120 units beaker could deal 60, but a) it's burn, which is not as dangerous, b) it's a one-use weapon, c) missing with it will splash it over the ground and d) clothes give some protection, so not everything will hit
+			M.take_organ_damage(0, removed * power * 0.1, used_weapon = "Acid burns", damage_flags = DAMAGE_FLAG_IGNORE_PROSTHETICS, silent = TRUE) // Balance. The damage is instant, so it's weaker. 10 units -> 5 damage, double for pacid. 120 units beaker could deal 60, but a) it's burn, which is not as dangerous, b) it's a one-use weapon, c) missing with it will splash it over the ground and d) clothes give some protection, so not everything will hit
 
 /singleton/reagent/acid/touch_obj(var/obj/O,  var/amount, var/datum/reagents/holder)
 	if(O.unacidable)

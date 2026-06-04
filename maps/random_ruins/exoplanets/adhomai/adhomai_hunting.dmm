@@ -14,7 +14,7 @@
 /turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "dy" = (
-/obj/machinery/door/urban,
+/obj/structure/machinery/door/urban,
 /turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "ey" = (
@@ -43,7 +43,7 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_hunting)
 "jh" = (
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "jk" = (
@@ -128,8 +128,8 @@
 /area/adhomai_hunting)
 "pI" = (
 /obj/structure/closet/crate/drop,
-/obj/item/device/binoculars,
-/obj/item/device/binoculars,
+/obj/item/binoculars,
+/obj/item/binoculars,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_hunting)
 "qU" = (
@@ -201,7 +201,7 @@
 /area/exoplanet/adhomai)
 "BM" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_hunting)
 "Cy" = (
@@ -220,7 +220,7 @@
 /turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "Dt" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/snow/cold,
@@ -239,22 +239,22 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_hunting)
 "DY" = (
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_hunting)
 "EB" = (
-/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/structure/machinery/portable_atmospherics/hydroponics/soil,
 /turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "Hj" = (
 /turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "HC" = (
-/obj/machinery/appliance/cooker/oven/adhomai,
+/obj/structure/machinery/appliance/cooker/oven/adhomai,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_hunting)
 "IE" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/wood,
@@ -275,7 +275,7 @@
 /obj/item/ammo_magazine/boltaction,
 /obj/item/ammo_magazine/boltaction,
 /obj/item/clothing/suit/storage/tajaran/hunting,
-/obj/item/device/flashlight/heavy,
+/obj/item/flashlight/heavy,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_hunting)
 "Nd" = (
@@ -302,7 +302,7 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_hunting)
 "Nu" = (
-/obj/machinery/door/urban{
+/obj/structure/machinery/door/urban{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/wood,
@@ -312,7 +312,7 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_hunting)
 "Sm" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/wood,
@@ -344,7 +344,7 @@
 /turf/simulated/floor/exoplanet/ice/cold,
 /area/exoplanet/adhomai)
 "VL" = (
-/obj/machinery/door/urban,
+/obj/structure/machinery/door/urban,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_hunting)
 "VU" = (

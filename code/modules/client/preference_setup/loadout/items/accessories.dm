@@ -34,29 +34,39 @@ ABSTRACT_TYPE(/datum/gear/accessory)
 	chaps["chaps, black"] = /obj/item/clothing/accessory/chaps/black
 	gear_tweaks += new /datum/gear_tweak/path(chaps)
 
+/datum/gear/accessory/armband_colourable
+	display_name = "armband selection (colourable)"
+	path = /obj/item/clothing/accessory/armband/colourable
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/accessory/armband_colourable/New()
+	..()
+	var/list/armbands_colourable = list()
+	armbands_colourable["colourable armband"] = /obj/item/clothing/accessory/armband/colourable
+	armbands_colourable["colourable armband, double"] = /obj/item/clothing/accessory/armband/colourable/double
+	gear_tweaks += new /datum/gear_tweak/path(armbands_colourable)
+
 /datum/gear/accessory/armband
 	display_name = "armband selection"
-	path = /obj/item/clothing/accessory/armband
+	path = /obj/item/clothing/accessory/armband/white
 
 /datum/gear/accessory/armband/New()
 	..()
 	var/list/armbands = list()
-	armbands["red armband"] = /obj/item/clothing/accessory/armband
-	armbands["security armband"] = /obj/item/clothing/accessory/armband/sec
-	armbands["operations armband"] = /obj/item/clothing/accessory/armband/operations
-	armbands["paramedic armband"] = /obj/item/clothing/accessory/armband/medgreen
+	armbands["white armband"] = /obj/item/clothing/accessory/armband/white
+	armbands["black armband"] = /obj/item/clothing/accessory/armband/black
+	armbands["red armband"] = /obj/item/clothing/accessory/armband/red
+
+	armbands["research armband"] = /obj/item/clothing/accessory/armband/science
 	armbands["medical armband"] = /obj/item/clothing/accessory/armband/med
 	armbands["engineering armband"] = /obj/item/clothing/accessory/armband/engine
+	armbands["security armband"] = /obj/item/clothing/accessory/armband/sec
 	armbands["hydroponics armband"] = /obj/item/clothing/accessory/armband/hydro
-	armbands["science armband"] = /obj/item/clothing/accessory/armband/science
-	armbands["IAC armband"] = /obj/item/clothing/accessory/armband/iac
-	armbands["tau ceti armband"] = /obj/item/clothing/accessory/armband/tauceti
-	gear_tweaks += new /datum/gear_tweak/path(armbands)
+	armbands["operations armband"] = /obj/item/clothing/accessory/armband/operations
 
-/datum/gear/accessory/armband_coloured
-	display_name = "armband (colourable)"
-	path = /obj/item/clothing/accessory/armband/colourable
-	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+	armbands["IAC armband"] = /obj/item/clothing/accessory/armband/iac
+	armbands["Tau Ceti armband"] = /obj/item/clothing/accessory/armband/tauceti
+	gear_tweaks += new /datum/gear_tweak/path(armbands)
 
 /datum/gear/accessory/holster
 	display_name = "holster selection"
@@ -111,7 +121,7 @@ ABSTRACT_TYPE(/datum/gear/accessory)
 /datum/gear/accessory/brown_vest
 	display_name = "webbing, engineering"
 	path = /obj/item/clothing/accessory/storage/brown_vest
-	allowed_roles = list("Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice", "Engineering Personnel")
+	allowed_roles = list("Ship Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice", "Engineering Personnel")
 
 /datum/gear/accessory/black_vest
 	display_name = "webbing, security"
@@ -158,7 +168,7 @@ ABSTRACT_TYPE(/datum/gear/accessory)
 /datum/gear/accessory/brown_pouches
 	display_name = "drop pouches, engineering"
 	path = /obj/item/clothing/accessory/storage/pouches/brown
-	allowed_roles = list("Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice", "Engineering Personnel")
+	allowed_roles = list("Ship Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice", "Engineering Personnel")
 
 /datum/gear/accessory/black_pouches
 	display_name = "drop pouches, security"
@@ -179,7 +189,7 @@ ABSTRACT_TYPE(/datum/gear/accessory)
 /datum/gear/accessory/overalls_engineer
 	display_name = "overalls, engineering"
 	path = /obj/item/clothing/accessory/storage/overalls/engineer
-	allowed_roles = list("Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice", "Engineering Personnel")
+	allowed_roles = list("Ship Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice", "Engineering Personnel")
 	cost = 2
 
 /datum/gear/accessory/overalls_mining
@@ -407,22 +417,30 @@ ABSTRACT_TYPE(/datum/gear/accessory)
 	var/list/passcard = list()
 	passcard["passcard, tau ceti"] = /obj/item/clothing/accessory/badge/passcard
 	passcard["passcard, sol"] = /obj/item/clothing/accessory/badge/passcard/sol
-	passcard["passcard, pluto"] = /obj/item/clothing/accessory/badge/passcard/sol/pluto
-	passcard["passcard, jovian"] = /obj/item/clothing/accessory/badge/passcard/sol/jupiter
-	passcard["passcard, luna"] = /obj/item/clothing/accessory/badge/passcard/sol/luna
+	passcard["passcard, callisto"] = /obj/item/clothing/accessory/badge/passcard/sol/callisto
 	passcard["passcard, europa"] = /obj/item/clothing/accessory/badge/passcard/sol/europa
-	passcard["passcard, cytherean"] = /obj/item/clothing/accessory/badge/passcard/sol/cytherean
-	passcard["passcard, jintarian"] = /obj/item/clothing/accessory/badge/passcard/sol/jintarian
+	passcard["passcard, solarian konyang"] = /obj/item/clothing/accessory/badge/passcard/sol/konyang
+	passcard["passcard, luna"] = /obj/item/clothing/accessory/badge/passcard/sol/luna
+	passcard["passcard, solarian mictlan"] = /obj/item/clothing/accessory/badge/passcard/sol/mictlan
+	passcard["passcard, new hai phong"] = /obj/item/clothing/accessory/badge/passcard/sol/new_hai_phong
+	passcard["passcard, pluto"] = /obj/item/clothing/accessory/badge/passcard/sol/pluto
+	passcard["passcard, reconstruction mandate"] = /obj/item/clothing/accessory/badge/passcard/sol/restricted_mandate
+	passcard["passcard, mars"] = /obj/item/clothing/accessory/badge/passcard/sol/restricted_mars
+	passcard["passcard, san colette"] = /obj/item/clothing/accessory/badge/passcard/sol/san_colette
+	passcard["passcard, sankt frederick"] = /obj/item/clothing/accessory/badge/passcard/sol/sankt_frederick
+	passcard["passcard, silversun"] = /obj/item/clothing/accessory/badge/passcard/sol/silversun
+	passcard["passcard, venus"] = /obj/item/clothing/accessory/badge/passcard/sol/venus
+	passcard["passcard, visegrad"] = /obj/item/clothing/accessory/badge/passcard/sol/visegrad
 	passcard["passcard, eridani"] = /obj/item/clothing/accessory/badge/passcard/eridani
 	passcard["passcard, elyra"] = /obj/item/clothing/accessory/badge/passcard/elyra
 	passcard["passcard, dominia"] = /obj/item/clothing/accessory/badge/passcard/dominia
 	passcard["passcard, coalition"] = /obj/item/clothing/accessory/badge/passcard/coalition
+	passcard["passcard, xanu"] = /obj/item/clothing/accessory/badge/passcard/coalition/xanu
 	passcard["passcard, himeo"] = /obj/item/clothing/accessory/badge/passcard/himeo
 	passcard["passcard, vysoka"] = /obj/item/clothing/accessory/badge/passcard/vysoka
 	passcard["passcard, gadpathur"] = /obj/item/clothing/accessory/badge/passcard/gad
 	passcard["passcard, assunzione"] = /obj/item/clothing/accessory/badge/passcard/assu
 	passcard["passcard, konyang"] = /obj/item/clothing/accessory/badge/passcard/konyang
-	passcard["passcard, visegrad"] = /obj/item/clothing/accessory/badge/passcard/sol/visegrad
 	gear_tweaks += new /datum/gear_tweak/path(passcard)
 
 /datum/gear/accessory/workvisa
@@ -457,6 +475,12 @@ ABSTRACT_TYPE(/datum/gear/accessory)
 	TCAFcard["reservist"] = /obj/item/clothing/accessory/badge/tcaf_papers/service/reservist
 	TCAFcard["veteran"] = /obj/item/clothing/accessory/badge/tcaf_papers/service/veteran
 	gear_tweaks += new /datum/gear_tweak/path(TCAFcard)
+
+/datum/gear/accessory/xanu_mil_card
+	display_name = "xanu militia reservist card"
+	description = "An identification document issued to reservists of the All-Xanu National Militia."
+	path = /obj/item/clothing/accessory/badge/passcard/coalition/xanu/military
+	citizenship = CITIZENSHIP_COALITION
 
 /datum/gear/accessory/kneepads
 	display_name = "kneepads"

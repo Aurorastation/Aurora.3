@@ -166,10 +166,10 @@
 	)
 	hands = list(
 		list(
-			/obj/item/device/flashlight/on,
-			/obj/item/device/flashlight/lantern/on,
-			/obj/item/device/flashlight/maglight/on,
-			/obj/item/device/flashlight/heavy/on,
+			/obj/item/flashlight/on,
+			/obj/item/flashlight/lantern/on,
+			/obj/item/flashlight/maglight/on,
+			/obj/item/flashlight/heavy/on,
 		),
 		list(
 			/obj/item/melee/cultblade,
@@ -185,7 +185,7 @@
 	)
 	backpack_contents = list(
 		/obj/item/storage/box/survival = 1,
-		/obj/item/device/flashlight/flare/glowstick/random = 1,
+		/obj/item/flashlight/flare/glowstick/random = 1,
 		/obj/random/junk = 1,
 		/obj/item/material/knife/ritual = 1,
 	)

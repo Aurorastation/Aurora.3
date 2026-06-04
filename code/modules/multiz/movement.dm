@@ -31,8 +31,9 @@
  *			FALSE otherwise.
  */
 /mob/proc/zMove(direction)
-	// In the case of an active eyeobj, move that instead.
-	if (eyeobj)
+	// If the calling mob has an active eyeobj reference, we move it instead.
+	// This is important because zMove is called from the actual mob and not the eyeobj they're controlling.
+	if(eyeobj)
 		return eyeobj.zMove(direction)
 
 	// Check if we can actually travel a Z-level.
@@ -92,7 +93,7 @@
 
 /mob/living/zMove(direction)
 	if (is_ventcrawling)
-		var/obj/machinery/atmospherics/pipe/zpipe/P = loc
+		var/obj/structure/machinery/atmospherics/pipe/zpipe/P = loc
 		if (istype(P) && P.can_z_crawl(src, direction))
 			return P.handle_z_crawl(src, direction)
 
@@ -223,7 +224,7 @@
 	return 1
 
 /mob/living/silicon/robot/can_ztravel(var/direction)
-	if(incapacitated() || is_dead())
+	if(incapacitated() || (stat == DEAD))
 		return FALSE
 
 	if(Allow_Spacemove()) //Checks for active jetpack
@@ -325,7 +326,7 @@
 /obj/item/pipe/can_fall(turf/below, turf/simulated/open/dest = src.loc)
 	. = ..()
 
-	if((locate(/obj/structure/disposalpipe/up) in below) || (locate(/obj/machinery/atmospherics/pipe/zpipe/up) in below))
+	if((locate(/obj/structure/disposalpipe/up) in below) || (locate(/obj/structure/machinery/atmospherics/pipe/zpipe/up) in below))
 		return FALSE
 
 /mob/can_fall()
@@ -452,7 +453,7 @@
 
 	if(status_flags & GODMODE) // Godmode
 		visible_message(SPAN_NOTICE("\The [src] lands flawlessly on their legs, bending their knee to the floor. They promptly stand up."))
-		playsound(src.loc, /singleton/sound_category/swing_hit_sound, 50, 1)
+		playsound(src.loc, SFX_SWING_HIT, 50, 1)
 		return FALSE
 
 	visible_message("\The [src] falls and lands on \the [loc]!",
@@ -475,7 +476,7 @@
 			if(51 to INFINITY)
 				playsound(src.loc, 'sound/weapons/heavysmash.ogg', 100, 1)
 			else
-				playsound(src.loc, /singleton/sound_category/swing_hit_sound, 75, 1)
+				playsound(src.loc, SFX_SWING_HIT, 75, 1)
 	else
 		playsound(src.loc, 'sound/weapons/smash.ogg', 75, 1)
 
@@ -496,7 +497,7 @@
 
 	if(status_flags & GODMODE) // Godmode
 		visible_message(SPAN_NOTICE("\The [src] lands flawlessly on their legs, bending their knee to the floor. They promptly stand up."))
-		playsound(src.loc, /singleton/sound_category/swing_hit_sound, 50, 1)
+		playsound(src.loc, SFX_SWING_HIT, 50, 1)
 		return FALSE
 
 	var/combat_roll = 1
@@ -631,11 +632,11 @@
 			if(-INFINITY to 10)
 				playsound(src.loc, 'sound/weapons/bladeslice.ogg', 50, 1)
 			if(11 to 50)
-				playsound(src.loc, /singleton/sound_category/punch_sound, 75, 1)
+				playsound(src.loc, SFX_PUNCH, 75, 1)
 			if(51 to INFINITY)
 				playsound(src.loc, 'sound/weapons/heavysmash.ogg', 100, 1)
 			else
-				playsound(src.loc, /singleton/sound_category/swing_hit_sound, 75, 1)
+				playsound(src.loc, SFX_SWING_HIT, 75, 1)
 	else
 		playsound(src.loc, 'sound/weapons/smash.ogg', 75, 1)
 
@@ -773,9 +774,6 @@
 
 /mob/fall_get_specs(levels_fallen)
 	return list(mob_size, throw_range)
-
-/mob/living
-	var/atom/movable/z_observer/z_eye
 
 /atom/movable/z_observer
 	name = ""

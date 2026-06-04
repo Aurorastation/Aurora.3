@@ -2,11 +2,8 @@
 	/// The name of the job.
 	var/title = "NOPE"
 
-	/// Job access. The use of minimal_access or access is determined by a config setting: config.jobs_have_minimal_access
-	/// Useful for servers which prefer to only have access given to the places a job absolutely needs (Larger server population)
-	var/list/minimal_access = list()
-	/// Useful for servers which either have fewer players, so each person needs to fill more than one role, or servers which like to give more access, so players can't hide forever in their super secure departments (I'm looking at you, chemistry!)
-	var/list/access = list()
+	/// Job access.
+	var/list/job_access = list()
 
 	/// Bitflags for the job.
 	var/flag = 0
@@ -46,6 +43,8 @@
 	var/list/alt_ages = null
 	/// Assoc list of alt titles (as strings) to a list of faction titles (as strings). Defines what alt title can belong to what faction. Remains Null if no restrictions in use.
 	var/list/alt_factions = null
+	/// Assoc list of alt titles (as strings) to a list of citizenships (as strings). Defines what alt title can belong to what citizenship. Remains Null if no restrictions in use.
+	var/list/alt_citizenships = null
 
 	/// If this job should use roundstart spawnpoints for latejoin (offstation jobs etc)
 	var/latejoin_at_spawnpoints = FALSE
@@ -73,6 +72,19 @@
 	/// The job name of the aide and bodyguard slots. Used for consulars and representatives.
 	var/aide_job
 	var/bodyguard_job
+
+	/**
+	 * Associated list of /singleton/skill/skill_name = skill_level that this job requires.
+	 * This should only be used for skills that have "Mechanical Hard Requirements"
+	 * EG: Surgery is literally impossible without the skill,
+	 * Thus a surgeon would be actually unplayable if they lacked it.
+	 * This is only intended to prevent situations where a player forgets to set a skill a job NEEDS
+	 * And then tries to join a round as a surgeon who can't do surgery.
+	 *
+	 * If a skill is "hard required" but later gets reworked to only have "soft requirements"
+	 * Then every job listing it should have the requirement removed.
+	 */
+	var/alist/skill_requirements = alist()
 
 //Only override this proc
 /datum/job/proc/pre_spawn(mob/abstract/new_player/player)
@@ -157,11 +169,6 @@
 					var/obj/outfit/O = new new_outfit
 					O.pre_equip(H, TRUE)
 					O.equip(H, TRUE)
-					return
-
-	var/pre_hat_ref = H.head ? REF(H.head) : null
-	var/pre_uniform_ref = H.w_uniform ? REF(H.w_uniform) : null
-	var/pre_suit_ref = H.wear_suit ? REF(H.wear_suit) : null
 
 	pre_equip(H, TRUE)
 	. = equip(H, TRUE, FALSE, alt_title=alt_title)
@@ -169,29 +176,25 @@
 	// slightly hacky, but effectively what we're doing here is checking whether we want this preview mob to actually have the uniform we're putting onto it
 	// if not, we drop it from the inventory into nullspace, and then deleting it
 	// i don't THINK this'll make performance that much worse, considering how much we already do to equip the mob in the first place
-	// the reasoning for the ref checks is that we don't want to delete loadout uniforms, just the job ones, so we need to confirm the before and after
 
 	var/equip_preview_mob = prefs.equip_preview_mob
 
-	if(!(equip_preview_mob & EQUIP_PREVIEW_JOB_HAT) && H.head && REF(H.head) != pre_hat_ref)
+	if(!(equip_preview_mob & EQUIP_PREVIEW_JOB_HAT) && H.head)
 		H.drop_from_inventory(H.head)
 		qdel(H.head)
 
-	if(!(equip_preview_mob & EQUIP_PREVIEW_JOB_UNIFORM) && H.w_uniform && REF(H.w_uniform) != pre_uniform_ref)
+	if(!(equip_preview_mob & EQUIP_PREVIEW_JOB_UNIFORM) && H.w_uniform)
 		H.drop_from_inventory(H.w_uniform)
 		qdel(H.w_uniform)
 
-	if(!(equip_preview_mob & EQUIP_PREVIEW_JOB_SUIT) && H.wear_suit && REF(H.wear_suit) != pre_suit_ref)
+	if(!(equip_preview_mob & EQUIP_PREVIEW_JOB_SUIT) && H.wear_suit)
 		H.drop_from_inventory(H.wear_suit)
 		qdel(H.wear_suit)
 
 /datum/job/proc/get_access(selected_title)
 	SHOULD_NOT_SLEEP(TRUE)
 
-	if(!GLOB.config || GLOB.config.jobs_have_minimal_access)
-		. = minimal_access.Copy()
-	else
-		. = access.Copy()
+	. = job_access.Copy()
 
 	if (LAZYLEN(title_accesses) && title_accesses[selected_title])
 		. += title_accesses[selected_title]
@@ -359,11 +362,11 @@
 	back = /obj/item/storage/backpack
 	shoes = /obj/item/clothing/shoes/sneakers/black
 
-	headset = /obj/item/device/radio/headset
-	bowman = /obj/item/device/radio/headset/alt
-	double_headset = /obj/item/device/radio/headset/alt/double
-	wrist_radio = /obj/item/device/radio/headset/wrist
-	clipon_radio = /obj/item/device/radio/headset/wrist/clip
+	headset = /obj/item/radio/headset
+	bowman = /obj/item/radio/headset/alt
+	double_headset = /obj/item/radio/headset/alt/double
+	wrist_radio = /obj/item/radio/headset/wrist
+	clipon_radio = /obj/item/radio/headset/wrist/clip
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/civilian
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian

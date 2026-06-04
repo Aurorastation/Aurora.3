@@ -70,7 +70,7 @@ export const DamageMenu = (props, context) => {
                 </Table.Row>
               ) : (
                 ''
-              )
+              ),
             )}
           </Table>
         </Section>
@@ -119,7 +119,7 @@ export const DamageMenu = (props, context) => {
                 </Table.Row>
               ) : (
                 ''
-              )
+              ),
             )}
           </Table>
         </Section>

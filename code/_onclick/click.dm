@@ -3,10 +3,6 @@
 	~Sayu
 */
 
-// 1 decisecond click delay (above and beyond mob/next_move)
-/mob/var/next_click = 0
-
-
 /**
  * Before anything else, defer these calls to a per-mobtype handler.  This allows us to
  * remove istype() spaghetti code, but requires the addition of other handler procs to simplify it.
@@ -31,8 +27,8 @@
 		click_handler.OnDblClick(src, params)
 
 		//Why god why
-		if(istype(usr.machine, /obj/machinery/computer/security))
-			var/obj/machinery/computer/security/console = usr.machine
+		if(istype(usr.machine, /obj/structure/machinery/computer/security))
+			var/obj/structure/machinery/computer/security/console = usr.machine
 			console.jump_on_click(usr,src)
 
 /atom/MouseWheel(delta_x,delta_y,location,control,params)
@@ -84,6 +80,9 @@
 			return
 		if(LAZYACCESS(modifiers, CTRL_CLICK))
 			CtrlShiftClickOn(A)
+			return
+		if(LAZYACCESS(modifiers, ALT_CLICK))
+			AltShiftClickOn(A)
 			return
 		ShiftClickOn(A)
 		return
@@ -167,11 +166,12 @@
 	if(!isturf(loc)) // This is going to stop you from telekinesing from inside a closet, but I don't shed many tears for that
 		return
 
+	var/mob/living/simple_animal/simple_mob = istype(src, /mob/living/simple_animal) ? src : null
 	//Atoms on turfs (not on your person)
 	// A is a turf or is on a turf, or in something on a turf (pen in a box); but not something in something on a turf (pen in a box in a backpack)
 	sdepth = A.storage_depth_turf()
 	if(isturf(A) || isturf(A.loc) || (sdepth != -1 && sdepth <= 1))
-		if(A.Adjacent(src) || (W && W.attack_can_reach(src, A, W.reach)) ) // see adjacent.dm
+		if(A.Adjacent(src) || (W && W.attack_can_reach(src, A, W.reach)) || (simple_mob && simple_mob.attack_can_reach(src, A, simple_mob.melee_reach))) // see adjacent.dm
 			if(W)
 				// Return 1 in attackby() to prevent afterattack() effects (when safely moving items for example)
 				var/resolved = W.resolve_attackby(A,src, params)
@@ -308,19 +308,29 @@
 	Alt click
 	Unused except for AI
 */
-/mob/proc/AltClickOn(var/atom/A)
+/mob/proc/AltClickOn(atom/A)
 	A.AltClick(src)
 	return
 
-/atom/proc/AltClick(var/mob/user)
+/atom/proc/AltClick(mob/user)
 	var/turf/T = get_turf(src)
 	if(!T || !user.TurfAdjacent(T))
 		return FALSE
 	if(T && (isturf(loc) || isturf(src)) && user.TurfAdjacent(T))
 		user.set_listed_turf(T)
 
-/mob/proc/TurfAdjacent(var/turf/T)
+/mob/proc/TurfAdjacent(turf/T)
 	return T.AdjacentQuick(src)
+
+/**
+ * Alt Shift click
+ * Currently only used for removing accessories from clothing.
+ */
+/mob/proc/AltShiftClickOn(atom/A)
+	A.AltShiftClick(src)
+
+/atom/proc/AltShiftClick(mob/user)
+	return
 
 /mob/proc/RightClickOn(atom/A)
 	A.RightClick(src)
@@ -414,7 +424,7 @@
 GLOBAL_LIST(click_catchers)
 
 /atom/movable/screen/click_catcher
-	icon = 'icons/mob/screen_gen.dmi'
+	icon = 'icons/hud/mob/screen_gen.dmi'
 	icon_state = "click_catcher"
 	plane = CLICKCATCHER_PLANE
 	mouse_opacity = MOUSE_OPACITY_OPAQUE

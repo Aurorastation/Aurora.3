@@ -3,7 +3,7 @@
 /obj/item/gun/projectile/shotgun/improvised //similar to the double barrel, but without the option to fire both barrels
 	name = "improvised shotgun"
 	desc = "An improvised pipe assembly that can fire shotgun shells."
-	icon = 'icons/obj/guns/ishotgun.dmi'
+	icon = 'icons/obj/guns/faction/improvised/ishotgun.dmi'
 	icon_state = "ishotgun"
 	item_state = "ishotgun"
 	max_shells = 2
@@ -141,7 +141,7 @@
 			buildstate++
 			update_icon()
 			return
-	else if(attacking_item.iscoil())
+	else if(attacking_item.tool_behaviour == TOOL_CABLECOIL)
 		var/obj/item/stack/cable_coil/C = attacking_item
 		if(buildstate == 3)
 			if(C.use(10))
@@ -164,7 +164,7 @@
 	accuracy = -1
 	offhand_accuracy = 1
 	fire_delay = ROF_PISTOL
-	icon = 'icons/obj/guns/ipistol.dmi'
+	icon = 'icons/obj/guns/faction/improvised/ipistol.dmi'
 	icon_state = "ipistol"
 	item_state = "ipistol"
 	caliber = ".45"
@@ -216,7 +216,7 @@
 			buildstate++
 			update_icon()
 			return
-	else if(attacking_item.iswelder())
+	else if(attacking_item.tool_behaviour == TOOL_WELDER)
 		if(buildstate == 3)
 			var/obj/item/weldingtool/T = attacking_item
 			if(T.use(0,user))
@@ -231,7 +231,7 @@
 /obj/item/gun/projectile/automatic/improvised
 	name = "improvised machine pistol"
 	desc = "An improvised automatic handgun."
-	icon = 'icons/obj/guns/ismg.dmi'
+	icon = 'icons/obj/guns/faction/improvised/ismg.dmi'
 	icon_state = "ismg"
 	item_state = "ismg"
 	load_method = MAGAZINE

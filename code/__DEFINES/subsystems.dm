@@ -1,6 +1,6 @@
 /// START specific to SSmachinery
 #define START_PROCESSING_MACHINE(machine, flag)\
-	if(!istype(machine, /obj/machinery)) CRASH("A non-machine [log_info_line(machine)] was queued to process on the machinery subsystem.");\
+	if(!istype(machine, /obj/structure/machinery)) CRASH("A non-machine [log_info_line(machine)] was queued to process on the machinery subsystem.");\
 	machine.processing_flags |= flag;\
 	START_PROCESSING(SSmachinery, machine)
 
@@ -90,6 +90,12 @@
  * The item will be added to the late_loaders list, this is iterated over after
  * initalization of subsystems is complete and calls LateInitalize on the atom
  * see [this file for the LateIntialize proc](atom.html#proc/LateInitialize)
+ *
+ * It's worth noting that LateInitialize will allow the persistence subsystem to apply content,
+ * which might be needed during the objects init process supplied via Init arguments,
+ * as the init by the persistence subsystems doesn't provide init arguments.
+ * Persistence subsystem instanciates object -> LateInit is returned
+ * -> Persistence subsystem applies content -> LateInit is called to finish the whole init process.
  */
 #define INITIALIZE_HINT_LATELOAD 1
 
@@ -113,8 +119,8 @@
 // Effect helpers.
 #define QUEUE_EFFECT(effect) if (!(effect.datum_flags & DF_ISPROCESSING)) {effect.datum_flags |= DF_ISPROCESSING; SSeffects.effect_systems += effect;}
 #define QUEUE_VISUAL(visual) if (!(visual.datum_flags & DF_ISPROCESSING)) {visual.datum_flags |= DF_ISPROCESSING; SSeffects.visuals += visual;}
-#define STOP_EFFECT(effect) effect.datum_flags &= ~DF_ISPROCESSING; SSeffects.effect_systems -= effect;
-#define STOP_VISUAL(visual)	visual.datum_flags &= ~DF_ISPROCESSING; SSeffects.visuals -= visual;
+#define STOP_EFFECT(effect) SSeffects.effect_systems -= effect;
+#define STOP_VISUAL(visual)	SSeffects.visuals -= visual;
 
 // -- SSfalling --
 #define ADD_FALLING_ATOM(atom) if (!atom.multiz_falling) { atom.multiz_falling = 1; SSfalling.falling[atom] = 0; }
@@ -161,6 +167,7 @@
 #define DEPARTMENT_CIVILIAN "Civilian"
 #define DEPARTMENT_EQUIPMENT "Equipment"
 #define DEPARTMENT_MISCELLANEOUS "Miscellaneous"
+#define DEPARTMENT_OFFSHIP "Off-ship"
 #define DEPARTMENTS_LIST_INIT list(\
 	DEPARTMENT_COMMAND = list(),\
 	DEPARTMENT_COMMAND_SUPPORT = list(),\
@@ -173,6 +180,7 @@
 	DEPARTMENT_CIVILIAN = list(),\
 	DEPARTMENT_EQUIPMENT = list(),\
 	DEPARTMENT_MISCELLANEOUS = list(),\
+	DEPARTMENT_OFFSHIP = list(),\
 )
 
 // job roles within departments
@@ -215,7 +223,9 @@
 #define INIT_ORDER_PROFILER 101
 #define INIT_ORDER_GARBAGE 99
 #define INIT_ORDER_DBCORE 95
+#define INIT_ORDER_AUTH 94 //Admin permissions should be loaded early on
 #define INIT_ORDER_SOUNDS 83
+#define INIT_ORDER_SENTRY 79
 #define INIT_ORDER_DISCORD 78
 #define INIT_ORDER_JOBS 65 // Must init before atoms, to set up properly the dynamic job lists.
 #define INIT_ORDER_AI_CONTROLLERS 55 //So the controller can get the ref

@@ -1,8 +1,8 @@
 /obj/item/clothing
 	name = "clothing"
 	siemens_coefficient = 0.9
-	drop_sound = 'sound/items/drop/cloth.ogg'
-	pickup_sound = 'sound/items/pickup/cloth.ogg'
+	drop_sound = 'sound/items/drop/clothing.ogg'
+	pickup_sound = 'sound/items/pickup/clothing.ogg'
 	var/flash_protection = FLASH_PROTECTION_NONE	// Sets the item's level of flash protection.
 	var/tint = TINT_NONE							// Sets the item's level of visual impairment tint.
 	var/list/species_restricted = null 				//Only these species can wear this kit.
@@ -60,6 +60,11 @@
 		else
 			refit_for_species(refit_initialize)
 	update_icon()
+
+/obj/item/clothing/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "You can <b>Alt-Click</b> to adjust \the [src]'s layer, if it's applicable to this item."
+	. += "You can <b>Alt-Shift-Click</b> to remove any attached accessories."
 
 /obj/item/clothing/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
@@ -322,7 +327,7 @@
 			var/obj/item/material/shard/S = material.place_shard(T)
 			M.embed(S)
 
-	playsound(src.loc, /singleton/sound_category/glass_break_sound, 70, 1)
+	playsound(src.loc, SFX_BREAK_GLASS, 70, 1)
 	qdel(src)
 
 /obj/item/clothing/suit/armor/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
@@ -357,10 +362,9 @@
 	result = abs(result - 100)
 	return round(result)
 
-
 /obj/item/clothing/proc/update_armor()
 	if(material)
-		var/melee_armor = 0, bullet_armor = 0, laser_armor = 0, energy_armor = 0, bomb_armor = 0
+		var/melee_armor = 0, bullet_armor = 0, laser_armor = 0, energy_armor = 0, bomb_armor = 0, rad_armor = 0
 
 		melee_armor = calculate_material_armor(material.protectiveness * material_armor_modifer)
 
@@ -374,8 +378,9 @@
 
 		bomb_armor = calculate_material_armor((material.protectiveness * material_armor_modifer) * 0.5)
 
+		rad_armor = calculate_material_armor(((material.weight * material_armor_modifer) * 5) - 70) //Weight 15 (glass): 5%, Weight 23(steel): 45%, Weight 32 (lead): 90%. Material armour doesn't cover limbs, so 90% isn't as good as it seems.
 		// Makes sure the numbers stay capped.
-		for(var/number in list(melee_armor, bullet_armor, laser_armor, energy_armor, bomb_armor))
+		for(var/number in list(melee_armor, bullet_armor, laser_armor, energy_armor, bomb_armor, rad_armor))
 			number = between(0, number, 100)
 
 		var/datum/component/armor/armor_component = GetComponent(/datum/component/armor)
@@ -386,7 +391,8 @@
 			bullet = bullet_armor,
 			laser = laser_armor,
 			energy = energy_armor,
-			bomb = bomb_armor
+			bomb = bomb_armor,
+			rad = rad_armor
 		)
 		AddComponent(/datum/component/armor, armor_list)
 
@@ -427,10 +433,6 @@
 	throwforce = 2
 	slot_flags = SLOT_EARS
 
-	sprite_sheets = list(
-		BODYTYPE_TAJARA = 'icons/mob/species/tajaran/l_ear.dmi',
-		)
-
 /obj/item/clothing/ears/attack_hand(mob/user as mob)
 	if (!user) return
 
@@ -463,7 +465,7 @@
 /obj/item/clothing/ears/offear
 	name = "Other ear"
 	w_class = WEIGHT_CLASS_HUGE
-	icon = 'icons/mob/screen/midnight.dmi'
+	icon = 'icons/hud/mob/midnight.dmi'
 	icon_state = "blocked"
 	slot_flags = SLOT_EARS | SLOT_TWOEARS
 
@@ -518,6 +520,7 @@
 	species_restricted = list("exclude",BODYTYPE_UNATHI,BODYTYPE_TAJARA,BODYTYPE_VAURCA, BODYTYPE_GOLEM,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_VAURCA_BULWARK,BODYTYPE_TESLA_BODY)
 	drop_sound = 'sound/items/drop/gloves.ogg'
 	pickup_sound = 'sound/items/pickup/gloves.ogg'
+	equip_sound = 'sound/items/equip/gloves.ogg'
 
 /obj/item/clothing/gloves/update_clothing_icon()
 	if (ismob(src.loc))
@@ -627,7 +630,6 @@
 	body_parts_covered = HEAD
 	slot_flags = SLOT_HEAD
 	w_class = WEIGHT_CLASS_SMALL
-	uv_intensity = 50 //Light emitted by this object or creature has limited interaction with diona
 	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_TESLA_BODY)
 
 	drop_sound = 'sound/items/drop/hat.ogg'
@@ -635,52 +637,68 @@
 
 	valid_accessory_slots = list(ACCESSORY_SLOT_HEAD)
 
+	light_system = DIRECTIONAL_LIGHT
+
 	/// In case if you want to allow someone to switch the BLOCKHEADHAIR var from the helmet or not
 	var/allow_hair_covering = TRUE
 
 	var/light_overlay = "helmet_light"
 	var/light_applied
-	var/brightness_on
-	var/on = 0
+	var/on = FALSE
 	var/protects_against_weather = FALSE
+	/// Boolean. If set, uses `HEAD_LAYER_ALT` for mob sprite layering.
+	var/use_alt_layer = FALSE
 
 /obj/item/clothing/head/Initialize(mapload, material_key)
 	. = ..()
 	if(allow_hair_covering)
 		verbs += /obj/item/clothing/head/proc/toggle_block_hair
 
+/obj/item/clothing/head/mechanics_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += "You can <b>Alt-Click</b> to adjust hair coverage."
+
 /obj/item/clothing/head/proc/toggle_block_hair()
 	set name = "Toggle Hair Coverage"
 	set category = "Object.Equipped"
 	set src in usr
 
+	handle_toggle_block_hair(usr)
+
+/obj/item/clothing/head/AltClick(user)
+	handle_toggle_block_hair(user)
+
+/obj/item/clothing/head/proc/handle_toggle_block_hair(mob/user)
+	if(use_check_and_message(user))
+		return
+
 	if(allow_hair_covering)
 		flags_inv ^= BLOCKHEADHAIR
-		to_chat(usr, SPAN_NOTICE("[src] will now [flags_inv & BLOCKHEADHAIR ? "hide" : "show"] hair."))
-		if(ishuman(usr))
-			var/mob/living/carbon/human/H = usr
+		to_chat(user, SPAN_NOTICE("[src] will now [flags_inv & BLOCKHEADHAIR ? "hide" : "show"] hair."))
+		if(ishuman(user))
+			var/mob/living/carbon/human/H = user
 			H.update_hair()
 
 /obj/item/clothing/head/get_image_key_mod()
 	return on
 
 /obj/item/clothing/head/attack_self(mob/user)
-	if(brightness_on)
+	if(light_range)
 		if(!isturf(user.loc))
 			to_chat(user, "You cannot turn the light on while in this [user.loc]")
 			return
 		on = !on
-		to_chat(user, "You [on ? "enable" : "disable"] the helmet light.")
+		to_chat(user, SPAN_NOTICE("You [on ? "enable" : "disable"] the helmet light."))
 		update_flashlight(user)
 	else
 		return ..(user)
 
 /obj/item/clothing/head/proc/update_flashlight(var/mob/user = null)
 	if(on && !light_applied)
-		set_light(brightness_on)
+		set_light_on(on)
 		light_applied = 1
 	else if(!on && light_applied)
-		set_light(0)
+		set_light_on(on)
 		light_applied = 0
 	update_icon(user)
 	user.update_action_buttons()
@@ -930,6 +948,7 @@
 	var/blood_overlay_type = "shoe"
 	drop_sound = 'sound/items/drop/shoes.ogg'
 	pickup_sound = 'sound/items/pickup/shoes.ogg'
+	equip_sound = 'sound/items/equip/sneakers.ogg'
 
 	var/can_hold_knife
 	var/footstep = 1
@@ -992,11 +1011,17 @@
 	set category = "Object.Equipped"
 	set src in usr
 
-	if(use_check_and_message(usr))
-		return 0
+	handle_toggle_layer(usr)
+
+/obj/item/clothing/shoes/AltClick(user)
+	handle_toggle_layer(user)
+
+/obj/item/clothing/shoes/proc/handle_toggle_layer(mob/user)
+	if(use_check_and_message(user))
+		return
 
 	if(shoes_under_pants == -1)
-		to_chat(usr, SPAN_NOTICE("[src] cannot be worn above your suit!"))
+		to_chat(user, SPAN_NOTICE("[src] cannot be worn above your suit!"))
 		return
 	shoes_under_pants = !shoes_under_pants
 	update_icon()
@@ -1172,7 +1197,7 @@
 	///Convenience var for defining the icon state for the overlay used when the clothing is worn. Also used by rolling/unrolling.
 	var/worn_state = null
 
-	valid_accessory_slots = list(ACCESSORY_SLOT_UTILITY, ACCESSORY_SLOT_UTILITY_MINOR, ACCESSORY_SLOT_ARMBAND, ACCESSORY_SLOT_GENERIC, ACCESSORY_SLOT_CAPE)
+	valid_accessory_slots = list(ACCESSORY_SLOT_UTILITY, ACCESSORY_SLOT_UTILITY_MINOR, ACCESSORY_SLOT_ARMBAND, ACCESSORY_SLOT_GENERIC, ACCESSORY_SLOT_CAPE, ACCESSORY_SLOT_PANTS)
 	restricted_accessory_slots = list(ACCESSORY_SLOT_UTILITY)
 
 /obj/item/clothing/under/feedback_hints(mob/user, distance, is_adjacent)
@@ -1309,7 +1334,7 @@
 	if(ismob(src.loc))
 		var/mob/M = src.loc
 		M.update_inv_w_uniform()
-		playsound(M, /singleton/sound_category/rustle_sound, 15, TRUE, SILENCED_SOUND_EXTRARANGE, ignore_walls = FALSE)
+		playsound(M, SFX_RUSTLE, 15, TRUE, SILENCED_SOUND_EXTRARANGE, ignore_walls = FALSE)
 
 /obj/item/clothing/under/proc/set_sensors(mob/user as mob)
 	var/mob/M = user
@@ -1390,7 +1415,7 @@
 		else
 			item_state_slots[slot_w_uniform_str] = "[worn_state]_d"
 		if(user)
-			to_chat(user, SPAN_NOTICE("You roll up \the [src]."))
+			to_chat(user, SPAN_NOTICE("You roll down \the [src]."))
 	else
 		body_parts_covered = initial(body_parts_covered)
 		if(contained_sprite || !LAZYLEN(item_state_slots))
@@ -1401,7 +1426,7 @@
 		else
 			item_state_slots[slot_w_uniform_str] = "[worn_state]"
 		if(user)
-			to_chat(user, SPAN_NOTICE("You roll down \the [src]."))
+			to_chat(user, SPAN_NOTICE("You roll up \the [src]."))
 	update_clothing_icon()
 
 /obj/item/clothing/under/proc/rollsleeves()

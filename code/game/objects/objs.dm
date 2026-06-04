@@ -2,68 +2,113 @@
 	layer = OBJ_LAYER
 	animate_movement = 2
 
-	var/list/matter //Used to store information about the contents of the object.
-	var/recyclable = FALSE //Whether the object can be recycled (eaten) by something like the Autolathe
-	var/w_class // Size of the object.
-	var/list/origin_tech = null	//Used by R&D to determine what research bonuses it grants.
-	var/unacidable = 0 //universal "unacidabliness" var, here so you can use it in any obj.
+	/// Used to store information about the contents of the object.
+	var/list/matter
+	/// Whether the object can be recycled (eaten) by something like the Autolathe.
+	var/recyclable = FALSE
+	/// Size of the object.
+	var/w_class
+	/// Used by R&D to determine what research bonuses it grants.
+	var/list/origin_tech = null
+	/// Universal "unacidabliness" var, here so you can use it in any obj. As xeno acid is gone, this is now only used for chemistry acid.
+	var/unacidable = 0
 
-	var/obj_flags //Special flags such as whether or not this object can be rotated.
+	/// Special flags such as whether or not this object can be rotated.
+	var/obj_flags
+	/// Integer. Used for varied damage and item volume calculations.
 	var/throwforce = 1
-	var/list/attack_verb //Used in attackby() to say how something was attacked "[x] has been [z.attack_verb] by [y] with [z]"
-	var/sharp = 0		// whether this object cuts
-	var/edge = FALSE	// whether this object is more likely to dismember
-	var/in_use = 0 // If we have a user using us, this will be set on. We will check if the user has stopped using us, and thus stop updating and LAGGING EVERYTHING!
+	/// Used in attackby() to say how something was attacked "[x] has been [z.attack_verb] by [y] with [z]".
+	var/list/attack_verb
+	/// Whether this object creates CUT wounds.
+	var/sharp = 0
+	/// Whether this object is more likely to dismember.
+	var/edge = FALSE
+	/// If we have a user using us, this will be set on. We will check if the user has stopped using us, and thus stop updating and LAGGING EVERYTHING!
+	var/in_use = 0
+	/// The type of damage this object deals.
 	var/damtype = DAMAGE_BRUTE
+	/// The damage this object deals.
 	var/force = 0
+	/// The armour penetration this object has.
 	var/armor_penetration = 0
-	var/noslice = 0 // To make it not able to slice things.
+	/// To make it not able to slice things. Used for curtains, flaps, pumpkins... why aren't you just using edge?
+	var/noslice = FALSE
+	/// The armor of this object, turned into an armor component.
+	var/list/armor
+	/// Set to TRUE when shocked by the tesla ball, to not repeatedly shock the object.
+	var/being_shocked = FALSE
 
-	var/being_shocked = 0
-
-	var/icon_species_tag = ""//If set, this holds the 3-letter shortname of a species, used for species-specific worn icons
-	var/icon_auto_adapt = 0//If 1, this item will automatically change its species tag to match the wearer's species.
-	//requires that the wearer's species is listed in icon_supported_species_tags
+	/// The slot the object will equip to.
+	var/equip_slot = 0
+	/// If set, this holds the 3-letter shortname of a species, used for species-specific worn icons
+	var/icon_species_tag = ""
+	/// If 1, this item will automatically change its species tag to match the wearer's species. Requires that the wearer's species is listed in icon_supported_species_tags.
+	var/icon_auto_adapt = 0
 
 	/**
 	 * A list of strings used with icon_auto_adapt, a list of species which have differing appearances for this item,
-	 * based on the specie short name
+	 * based on the species short name
 	 */
 	var/list/icon_supported_species_tags
 
-	///If `TRUE`, will use the `icon_species_tag` var for rendering this item in the left/right hand
+	/// If `TRUE`, will use the `icon_species_tag` var for rendering this item in the left/right hand.
 	var/icon_species_in_hand = FALSE
 
-	var/equip_slot = 0
 	///Played when the item is used, for example tools
 	var/usesound
-
+	/// The speed of the tool. This is generally a divisor.
 	var/toolspeed = 1
 
+	/// The sound this tool makes in surgery.
 	var/surgerysound
 
 	/* START ACCESS VARS */
+	/// Required access.
 	var/list/req_access
+	/// Only require one of these accesses.
 	var/list/req_one_access
 	/* END ACCESS VARS */
 
 	/* START PERSISTENCE VARS */
 	// State check if the subsystem is tracking the object, used for easy state checking without iterating the register
-	var/persistence_track_active = FALSE
+	var/persistent_objects_track_active = FALSE
 	// Tracking ID of the object used by the persistence subsystem
-	var/persistence_track_id = 0
+	var/persistent_objects_track_id = 0
 	// Author ckey of the object used in persistence subsystem
 	// Note: Not every type can have an author, like generated dirt for example
 	// Additionally, the ckey is only an indicator, for example: A player could pin a paper without having written it
 	// This should be considered for any moderation purpose
-	var/persistence_author_ckey = null
+	var/persistent_objects_author_ckey = null
 	// Expiration time used when saving/updating a persistent type, this can be changed depending on the use case by assigning a new value
-	var/persistance_expiration_time_days = PERSISTENT_DEFAULT_EXPIRATION_DAYS
+	var/persistant_objects_expiration_time_days = PERSISTENT_DEFAULT_EXPIRATION_DAYS
 	/* END PERSISTENCE VARS */
 
+	/// for easy reference of talking atoms
+	var/datum/talking_atom/talking_atom
+
+	/// Whether this object has been contaminated by atmos gasses like chlorine or phoron.
+	var/contaminated = FALSE
+
+	/// Allow overriding rad resistance.
+	var/rad_resistance_modifier = 1
+
+/obj/Initialize(mapload, ...)
+	. = ..()
+	if(maxhealth)
+		if(!health)
+			// Allows you to set dynamic health states on initialize.
+			health = maxhealth
+	if(islist(armor))
+		for(var/type in armor)
+			if(armor[type])
+				AddComponent(/datum/component/armor, armor)
+				break
+	else if(should_use_health)
+		AddComponent(/datum/component/armor, GLOB.default_object_armor, TRUE)
+
 /obj/Destroy()
-	if(persistence_track_active) // Prevent hard deletion of references in the persistence register by removing it preemptively
-		SSpersistence.deregister_track(src)
+	if(persistent_objects_track_active) // Prevent hard deletion of references in the persistence register by removing it preemptively
+		SSpersistence.objectsDeregisterTrack(src)
 	STOP_PROCESSING(SSprocessing, src)
 	unbuckle()
 	QDEL_NULL(talking_atom)
@@ -94,6 +139,8 @@
 
 /mob/proc/CanUseObjTopic()
 	return 1
+
+
 
 /obj/proc/CouldUseTopic(var/mob/user)
 	user.AddTopicPrint(src)
@@ -136,6 +183,11 @@
 /obj/return_air()
 	if(loc)
 		return loc.return_air()
+
+/obj/condition_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(health < maxhealth)
+		. += get_damage_condition_hints(user, distance, is_adjacent)
 
 /obj/proc/updateUsrDialog()
 	if(in_use)
@@ -323,6 +375,30 @@
 /obj/proc/do_signaler()
 	return
 
+
+/**
+ * Called when an access cable - from an IPC or from a roboticist tool - is inserted into an object.
+ */
+/obj/proc/insert_cable(obj/item/access_cable/cable, mob/user)
+	user.drop_from_inventory(cable)
+	cable.forceMove(src)
+	cable.target = src
+
+/**
+ * Called when an access cable is removed from something, forcibly or not.
+ * Override as needed to clear variables up.
+ */
+/obj/proc/remove_cable(obj/item/access_cable/cable)
+	SHOULD_CALL_PARENT(TRUE)
+	cable.target = null
+
+/**
+ * Called when an access cable - from an IPC or from a roboticist tool - is used on an object to interact with it.
+ * For example, brings up diagnostics for an access port if it's hooked into one.
+ */
+/obj/proc/cable_interact(obj/item/access_cable/cable, mob/user)
+	return
+
 /*#############################################
 				PERSISTENT
 #############################################*/
@@ -332,8 +408,8 @@
  * Expected to be overriden by derived objects.
  * RETURN: Associated list with custom information (e.g.: ["test" = "abc", "counter" = 123])
  */
-/obj/proc/persistence_get_content()
-	return
+/obj/proc/persistent_objects_get_content()
+	return list()
 
 /**
  * Called by the persistence subsystem to apply persistent data on the created object.
@@ -342,7 +418,7 @@
  * 	content = Associated list with custom information (e.g.: ["test" = "abc", "counter" = 123]).
  *	x,y,z = x-y-z coordinates of object, can be null.
  */
-/obj/proc/persistence_apply_content(content, x, y, z)
+/obj/proc/persistent_objects_apply_content(content, x, y, z)
 	return
 
 /obj/get_object_size()

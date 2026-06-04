@@ -41,7 +41,7 @@
 	var/T = get_turf(usr)
 	var/mob/living/carbon/human/bst/bst = new(T)
 	if(istype(mob, /mob/living))
-		bst.original_mob = mob
+		bst.original_mob = WEAKREF(mob)
 
 	bst.anchored = 1
 	bst.ckey = usr.ckey
@@ -53,7 +53,7 @@
 	//Items
 	var/obj/item/clothing/under/U = new /obj/item/clothing/under/rank/centcom_officer/bst(bst)
 	bst.equip_to_slot_or_del(U, slot_w_uniform_str)
-	bst.equip_to_slot_or_del(new /obj/item/device/radio/headset/ert/bst(bst), slot_l_ear_str)
+	bst.equip_to_slot_or_del(new /obj/item/radio/headset/ert/bst(bst), slot_l_ear_str)
 	bst.equip_to_slot_or_del(new /obj/item/storage/backpack/holding/bst(bst), slot_back_str)
 	bst.equip_to_slot_or_del(new /obj/item/storage/box/survival(bst.back), slot_in_backpack_str)
 	bst.equip_to_slot_or_del(new /obj/item/clothing/shoes/sneakers/black/bst(bst), slot_shoes_str)
@@ -67,7 +67,7 @@
 		bst.equip_to_slot_or_del(new /obj/item/storage/box/ids(bst.back), slot_in_backpack_str)
 		bst.equip_to_slot_or_del(new /obj/item/device/t_scanner(bst.back), slot_in_backpack_str)
 		bst.equip_to_slot_or_del(new /obj/item/modular_computer/handheld/pda/command/bst(bst.back), slot_in_backpack_str)
-		bst.equip_to_slot_or_del(new /obj/item/device/healthanalyzer(bst.back), slot_in_backpack_str)
+		bst.equip_to_slot_or_del(new /obj/item/healthanalyzer(bst.back), slot_in_backpack_str)
 		bst.equip_to_slot_or_del(new /obj/item/research(bst.back), slot_in_backpack_str)
 
 		var/obj/item/storage/box/pills = new /obj/item/storage/box(null, TRUE)
@@ -127,6 +127,10 @@
 
 	feedback_add_details("admin_verb","BST")
 
+	// Load all skills as max for a bst
+	for (var/singleton/skill/skill as anything in SSskills.all_skills)
+		skill.on_spawn(bst, skill.maximum_level)
+
 	return 1
 
 /client/proc/bst_post_spawn(mob/living/carbon/human/bst/bst)
@@ -138,10 +142,10 @@
 	status_flags = GODMODE|NOFALL
 
 	/// The BST's original mob. Moved here from /datum/holder to support storytellers.
-	var/mob/original_mob
+	var/datum/weakref/original_mob
 
 /mob/living/carbon/human/bst/Destroy(force)
-	original_mob = null
+	QDEL_NULL(original_mob)
 	return ..()
 
 /mob/living/carbon/human/bst/can_inject(var/mob/user, var/error_msg, var/target_zone)
@@ -174,8 +178,10 @@
 	QDEL_IN(src, 10)
 	animate(src, alpha = 0, time = 9, easing = QUAD_EASING)
 	if(key)
-		if(original_mob)
-			client.key = key
+		var/mob/living/origin = original_mob?.resolve()
+		if(origin)
+			origin.key = key
+			original_mob = null
 			client.init_verbs()
 		else
 			var/mob/abstract/ghost/observer/ghost = new(src, src)	//Transfer safety to observer spawning proc.
@@ -326,12 +332,13 @@
 	set desc = "Jump into bluespace and continue wherever you left off. Deletes the BSTech and returns to your original mob if you have one."
 	set category = "BST"
 
-	if(original_mob)
-		if(original_mob.key)//Thanks for kicking Tish off the Server Meow, wouldn't have spotted this otherwise.
+	var/mob/living/origin = original_mob?.resolve()
+	if(origin)
+		if(origin.key)//Thanks for kicking Tish off the Server Meow, wouldn't have spotted this otherwise.
 			//suicide()
 			return
 
-		original_mob.key = key
+		origin.key = key
 		original_mob = null
 	suicide()
 
@@ -353,16 +360,16 @@
 	max_w_class = WEIGHT_CLASS_GIGANTIC
 
 //Headset
-/obj/item/device/radio/headset/ert/bst
+/obj/item/radio/headset/ert/bst
 	name = "bluespace technician's headset"
 	desc = "A Bluespace Technician's headset. The letters 'BST' are stamped on the side."
 	translate_binary = 1
 	translate_hivenet = 1
 	canremove = 0
-	keyslot1 = new /obj/item/device/encryptionkey/binary
-	keyslot2 = new /obj/item/device/encryptionkey/ert
+	keyslot1 = new /obj/item/encryptionkey/binary
+	keyslot2 = new /obj/item/encryptionkey/ert
 
-/obj/item/device/radio/headset/ert/bst/attack_hand()
+/obj/item/radio/headset/ert/bst/attack_hand()
 	if(!usr)
 		return
 	if(!istype(usr, /mob/living/carbon/human/bst))
@@ -372,7 +379,7 @@
 		..()
 
 // overload this so we can force translate flags without the required keys
-/obj/item/device/radio/headset/ert/bst/recalculateChannels(var/setDescription = 0)
+/obj/item/radio/headset/ert/bst/recalculateChannels(var/setDescription = 0)
 	..(setDescription)
 	translate_binary = 1
 	translate_hivenet = 1
@@ -419,7 +426,7 @@
 	name = "bluespace technician's glasses"
 	desc = "A pair of modified sunglasses. The word 'BST' is stamped on the side."
 	vision_flags = (SEE_TURFS|SEE_OBJS|SEE_MOBS)
-	see_invisible = SEE_INVISIBLE_NOLIGHTING
+	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
 	canremove = 0
 	flash_protection = FLASH_PROTECTION_MAJOR
 
@@ -431,17 +438,17 @@
 
 	switch (mode)
 		if ("X-Ray without Lighting")
-			vision_flags = SEE_TURFS|SEE_OBJS|SEE_MOBS|SEE_BLACKNESS|SEE_SELF
-			see_invisible = SEE_INVISIBLE_NOLIGHTING
+			vision_flags = SEE_TURFS|SEE_OBJS|SEE_MOBS|SEE_SELF
+			lighting_alpha = LIGHTING_PLANE_ALPHA_INVISIBLE
 		if ("X-Ray with Lighting")
-			vision_flags = SEE_TURFS|SEE_OBJS|SEE_MOBS|SEE_BLACKNESS|SEE_SELF
-			see_invisible = -1
+			vision_flags = SEE_TURFS|SEE_OBJS|SEE_MOBS|SEE_SELF
+			lighting_alpha = LIGHTING_PLANE_ALPHA_VISIBLE
 		if ("Darkvision")
-			vision_flags = SEE_BLACKNESS|SEE_SELF
-			see_invisible = SEE_INVISIBLE_NOLIGHTING
+			vision_flags = SEE_SELF
+			lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
 		if ("Normal vision")
 			vision_flags = 0
-			see_invisible = -1
+			lighting_alpha = LIGHTING_PLANE_ALPHA_VISIBLE
 
 	to_chat(usr, SPAN_NOTICE("\The [src]'s vision mode is now <b>[mode]</b>."))
 
@@ -508,7 +515,7 @@
 	possible_access["== Default BSTech =="] = get_all_accesses() + get_all_centcom_access() + get_all_syndicate_access()
 	for(var/job in subtypesof(/datum/job))
 		var/datum/job/J = new job
-		possible_access[J.title] = J.access
+		possible_access[J.title] = J.job_access
 	var/chosen_access = input(usr, "Which access do you want your ID to have?", "ID Access") as null|anything in possible_access
 	if(!chosen_access)
 		return

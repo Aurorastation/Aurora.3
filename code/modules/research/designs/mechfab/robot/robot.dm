@@ -7,8 +7,8 @@
 
 //if the fabricator is a mech fab pass the manufacturer info over to the robot part constructor
 /datum/design/item/mechfab/robot/Fabricate(var/newloc, var/fabricator)
-	if(istype(fabricator, /obj/machinery/mecha_part_fabricator))
-		var/obj/machinery/mecha_part_fabricator/mechfab = fabricator
+	if(istype(fabricator, /obj/structure/machinery/mecha_part_fabricator))
+		var/obj/structure/machinery/mecha_part_fabricator/mechfab = fabricator
 		return new build_path(newloc, mechfab.manufacturer)
 	return ..()
 
@@ -62,7 +62,7 @@
 	name = "Synthetic Flash"
 	req_tech = list(TECH_MAGNET = 3, TECH_COMBAT = 2)
 	materials = list(DEFAULT_WALL_MATERIAL = 750, MATERIAL_GLASS = 750)
-	build_path = /obj/item/device/flash/synthetic
+	build_path = /obj/item/flash/synthetic
 
 /datum/design/item/mechfab/robot/component/binary_communication_device
 	name = "Binary Communication Device"

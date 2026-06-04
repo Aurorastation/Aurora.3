@@ -1,4 +1,4 @@
-/obj/machinery/r_n_d/weapons_analyzer
+/obj/structure/machinery/r_n_d/weapons_analyzer
 	name = "weapons analyzer"
 	desc = "A research device which can be used to put together modular energy weapons, or to gain knowledge about the effectiveness of various objects as weaponry."
 	icon_state = "weapon_analyzer"
@@ -13,15 +13,22 @@
 			/obj/item/stock_parts/console_screen = 1
 		)
 
-/obj/machinery/r_n_d/weapons_analyzer/feedback_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/r_n_d/weapons_analyzer/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += SPAN_NOTICE("It has [item ? "[item.name]" : "nothing"] attached.")
 
-/obj/machinery/r_n_d/weapons_analyzer/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/r_n_d/weapons_analyzer/attackby(obj/item/attacking_item, mob/user)
 	if(!attacking_item || !user || !ishuman(user))
 		return
 
 	var/mob/living/carbon/human/H = user
+
+	if(default_deconstruction_screwdriver(user, attacking_item))
+		return TRUE
+	if(default_deconstruction_crowbar(user, attacking_item))
+		return TRUE
+	if(default_part_replacement(user, attacking_item))
+		return TRUE
 
 	if(istype(attacking_item, /obj/item/gun))
 		check_swap(user, attacking_item)
@@ -29,20 +36,20 @@
 		H.drop_from_inventory(attacking_item)
 		attacking_item.forceMove(src)
 		update_icon()
-	else if(istype(attacking_item, /obj/item/device/laser_assembly))
+	else if(istype(attacking_item, /obj/item/laser_assembly))
 		check_swap(user, attacking_item)
-		var/obj/item/device/laser_assembly/A = attacking_item
+		var/obj/item/laser_assembly/A = attacking_item
 		A.ready_to_craft = TRUE
 		item = A
 		H.drop_from_inventory(attacking_item)
 		attacking_item.forceMove(src)
 		A.analyzer = WEAKREF(src)
 		update_icon()
-	else if(istype(attacking_item, /obj/item/laser_components) && istype(item, /obj/item/device/laser_assembly))
+	else if(istype(attacking_item, /obj/item/laser_components) && istype(item, /obj/item/laser_assembly))
 		if(process)
 			to_chat(user, SPAN_WARNING("\The [src] is busy installing a component already."))
 			return
-		var/obj/item/device/laser_assembly/A = item
+		var/obj/item/laser_assembly/A = item
 		var/success = A.attackby(attacking_item, user)
 		if(!success)
 			return
@@ -55,27 +62,31 @@
 			addtimer(CALLBACK(src, PROC_REF(reset)), 15)
 		process = TRUE
 		update_icon()
+	else if(istype(attacking_item, /obj/item/combitool))
+		return
 	else if(attacking_item)
 		check_swap(user, attacking_item)
 		item = attacking_item
 		H.drop_from_inventory(attacking_item)
 		attacking_item.forceMove(src)
 		update_icon()
+	ui_interact(user)
 
-/obj/machinery/r_n_d/weapons_analyzer/attack_hand(mob/user)
+/obj/structure/machinery/r_n_d/weapons_analyzer/attack_hand(mob/user)
 	. = ..()
 	user.set_machine(src)
 	ui_interact(user)
 
-/obj/machinery/r_n_d/weapons_analyzer/proc/reset()
+/obj/structure/machinery/r_n_d/weapons_analyzer/proc/reset()
 	process = FALSE
 	update_icon()
+	SStgui.update_uis(src)
 
-/obj/machinery/r_n_d/weapons_analyzer/proc/check_swap(var/mob/user, var/obj/I)
+/obj/structure/machinery/r_n_d/weapons_analyzer/proc/check_swap(var/mob/user, var/obj/I)
 	if(item)
 		to_chat(user, SPAN_NOTICE("You swap \the [item] out for \the [I]."))
-		if(istype(item, /obj/item/device/laser_assembly))
-			var/obj/item/device/laser_assembly/A = item
+		if(istype(item, /obj/item/laser_assembly))
+			var/obj/item/laser_assembly/A = item
 			A.ready_to_craft = FALSE
 			A.analyzer = null
 		item.forceMove(get_turf(src))
@@ -83,7 +94,7 @@
 		item = null
 		update_icon()
 
-/obj/machinery/r_n_d/weapons_analyzer/verb/eject()
+/obj/structure/machinery/r_n_d/weapons_analyzer/verb/eject()
 	set name = "Eject Inserted Item"
 	set category = "Object"
 	set src in view(1)
@@ -91,32 +102,34 @@
 	if(use_check_and_message(usr))
 		return
 
-	if(istype(item, /obj/item/device/laser_assembly))
-		var/obj/item/device/laser_assembly/A = item
+	if(istype(item, /obj/item/laser_assembly))
+		var/obj/item/laser_assembly/A = item
 		A.ready_to_craft = FALSE
 		A.analyzer = null
 		A.forceMove(get_turf(src))
 		item = null
 		update_icon()
+		SStgui.update_uis(src)
 
 	else if(item)
 		item.forceMove(get_turf(src))
 		item = null
 		update_icon()
+		SStgui.update_uis(src)
 
 	else
 		to_chat(usr, SPAN_WARNING("There is nothing in \the [src]."))
 
-/obj/machinery/r_n_d/weapons_analyzer/update_icon()
+/obj/structure/machinery/r_n_d/weapons_analyzer/update_icon()
 	icon_state = initial(icon_state)
 	ClearOverlays()
 
 	var/icon/Icon_used
 
-	if(istype(item, /obj/item/device/laser_assembly))
-		var/obj/item/device/laser_assembly/A = item
+	if(istype(item, /obj/item/laser_assembly))
+		var/obj/item/laser_assembly/A = item
 		A.update_icon()
-		icon_state = process ?  "[icon_state]_working" : "[icon_state]_on"
+		icon_state = process ? "[icon_state]_working" : "[icon_state]_on"
 		Icon_used = new /icon(item.icon, item.icon_state)
 	else if(item)
 		icon_state = "[icon_state]_on"
@@ -130,11 +143,15 @@
 		gun_overlay.pixel_y += 12
 		AddOverlays(gun_overlay)
 
-/obj/machinery/r_n_d/weapons_analyzer/ui_data(mob/user)
+/obj/structure/machinery/r_n_d/weapons_analyzer/ui_data(mob/user)
 	var/list/data = list()
+	data["laser_assembly"] = null
+	data["gun"] = null
+	data["item"] = null
+	data["gun_mods"] = null
 
-	if(istype(item, /obj/item/device/laser_assembly))
-		var/obj/item/device/laser_assembly/assembly = item
+	if(istype(item, /obj/item/laser_assembly))
+		var/obj/item/laser_assembly/assembly = item
 		var/list/mods = list()
 		for(var/i in list(assembly.capacitor, assembly.focusing_lens, assembly.modulator) + assembly.gun_mods)
 			var/obj/item/laser_components/l_component = i
@@ -142,16 +159,24 @@
 				continue
 
 			var/l_repair_name = initial(l_component.repair_item.name) ? initial(l_component.repair_item.name) : "nothing"
-			mods += list(list(
+			var/list/mod = list(
 				"name" = initial(l_component.name),
-				"reliability" = initial(l_component.reliability),
-				"damage_modifier" = initial(l_component.damage),
-				"fire_delay_modifier" = initial(l_component.fire_delay),
-				"shots_modifier" = initial(l_component.shots),
-				"burst_modifier" = initial(l_component.burst),
-				"accuracy_modifier" = initial(l_component.accuracy),
 				"repair_tool" = l_repair_name
-			))
+			)
+			if(l_component.reliability != 0)
+				mod["reliability"] = l_component.reliability
+			if(l_component.damage != 1)
+				mod["damage_modifier"] = l_component.damage
+			if(l_component.fire_delay != 1)
+				mod["fire_delay_modifier"] = l_component.fire_delay
+			if(l_component.shots != 1)
+				mod["shots_modifier"] = l_component.shots
+			if(l_component.burst != 0)
+				mod["burst_modifier"] = l_component.burst
+			if(l_component.accuracy != 0)
+				mod["accuracy_modifier"] = l_component.accuracy
+			mods += list(mod)
+
 		data["gun_mods"] = mods
 		data["laser_assembly"] = list("name" = assembly.name)
 
@@ -172,8 +197,8 @@
 		if(istype(gun, /obj/item/gun/energy))
 			var/obj/item/gun/energy/E = gun
 			var/obj/projectile/P = new E.projectile_type
-			data["gun"]["max_shots"] = initial(E.max_shots)
-			data["gun"]["recharge"] = initial(E.self_recharge) ? "self recharging" : "not self recharging"
+			data["gun"]["max_shots"] = E.max_shots
+			data["gun"]["recharge"] = E.self_recharge ? "self recharging" : "not self recharging" //Not initial because modular guns are not self charging at initialization
 			data["gun"]["recharge_time"] = initial(E.recharge_time)
 			data["gun"]["damage"] = initial(P.damage)
 			data["gun"]["damage_type"] = initial(P.damage_type)
@@ -189,19 +214,35 @@
 			if(istype(gun, /obj/item/gun/energy/laser/prototype))
 				var/obj/item/gun/energy/laser/prototype/E_prototype = gun
 				var/list/mods = list()
+				var/l_modified_damage = 1 / (max(1, gun.burst - 1)) //E_prototype.capacitor.damage * E_prototype.modulator.damage
+				var/l_modified_max_shots = 1 //E_prototype.capacitor.shots
 				for(var/i in list(E_prototype.capacitor, E_prototype.focusing_lens, E_prototype.modulator) + E_prototype.gun_mods)
 					var/obj/item/laser_components/l_component = i
+					if (l_component.damage != 0)
+						l_modified_damage *= l_component.damage
+					if (l_component.shots != 0)
+						l_modified_max_shots *= l_component.shots
 					var/l_repair_name = initial(l_component.repair_item.name) ? initial(l_component.repair_item.name) : "nothing"
-					mods += list(list(
+					var/list/mod = list(
 						"name" = initial(l_component.name),
-						"reliability" = initial(l_component.reliability),
-						"damage_modifier" = initial(l_component.damage),
-						"fire_delay_modifier" = initial(l_component.fire_delay),
-						"shots_modifier" = initial(l_component.shots),
-						"burst_modifier" = initial(l_component.burst),
-						"accuracy_modifier" = initial(l_component.accuracy),
 						"repair_tool" = l_repair_name
-					))
+					)
+					if(l_component.reliability != 0)
+						mod["reliability"] = round(l_component.reliability, 1) //only show these if they do something
+					if(l_component.damage != 1)
+						mod["damage_modifier"] = round(l_component.damage, 0.1)
+					if(l_component.fire_delay != 1)
+						mod["fire_delay_modifier"] = round(l_component.fire_delay, 0.1)
+					if(l_component.shots != 1)
+						mod["shots_modifier"] = round(l_component.shots, 0.1)
+					if(l_component.burst != 0)
+						mod["burst_modifier"] = round(l_component.burst, 1)
+					if(l_component.accuracy != 0)
+						mod["accuracy_modifier"] = round(l_component.accuracy, 0.1)
+					mods += list(mod)
+
+				data["gun"]["damage"] = round(min(60, l_modified_damage), 1)
+				data["gun"]["max_shots"] = round(l_modified_max_shots)
 				data["gun_mods"] = mods
 
 			if(E.secondary_projectile_type)
@@ -250,20 +291,13 @@
 			data["item"]["shield_power"] = E_item.shield_power
 	return data
 
-/obj/machinery/r_n_d/weapons_analyzer/ui_interact(mob/user, var/datum/tgui/ui)
-	var/height = item ? 600: 300
-	var/width = item ? 500 : 300
-	if(istype(item, /obj/item/gun/energy/laser/prototype) || istype(item, /obj/item/device/laser_assembly))
-		width = 600
-
+/obj/structure/machinery/r_n_d/weapons_analyzer/ui_interact(mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "WeaponsAnalyzer", "Weapons Analyzer", width, height)
+		ui = new(user, src, "WeaponsAnalyzer", "Weapons Analyzer", 600, 600)
 		ui.open()
 
-	ui.open()
-
-/obj/machinery/r_n_d/weapons_analyzer/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/obj/structure/machinery/r_n_d/weapons_analyzer/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
@@ -272,13 +306,13 @@
 		do_print()
 		. = TRUE
 
-/obj/machinery/r_n_d/weapons_analyzer/proc/do_print()
+/obj/structure/machinery/r_n_d/weapons_analyzer/proc/do_print()
 	var/obj/item/paper/R = new /obj/item/paper(get_turf(src))
 	R.color = "#fef8ff"
 	R.set_content_unsafe("Weapon Analysis ([item.name])", get_print_info(item))
 	print(R, message = "\The [src] beeps, printing \the [R] after a moment.", user = usr)
 
-/obj/machinery/r_n_d/weapons_analyzer/proc/get_print_info(var/obj/item/device)
+/obj/structure/machinery/r_n_d/weapons_analyzer/proc/get_print_info(var/obj/item/device)
 	var/dat = "<span class='notice'><b>Analysis performed at [worldtime2text()]</b></span><br>"
 	dat += "<span class='notice'><b>Analyzer Item: [device.name]</b></span><br><br>"
 	dat += device.get_print_info()

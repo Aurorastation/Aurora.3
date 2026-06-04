@@ -73,7 +73,10 @@
 	var/collection_mode = TRUE
 
 	///Sound played when used. null for no sound.
-	var/use_sound = /singleton/sound_category/rustle_sound
+	var/use_sound = SFX_RUSTLE
+
+	///Sound played when item inserted. null for no sound.
+	var/rustle_sound = SFX_RUSTLE
 
 	/// List of pre-filled items
 	var/list/starts_with
@@ -93,6 +96,9 @@
 
 /obj/item/storage/Destroy()
 	close_all()
+	for(var/mob/M in is_seeing)
+		if(M.s_active == src)
+			M.s_active = null
 	QDEL_NULL(boxes)
 	QDEL_NULL(storage_start)
 	QDEL_NULL(storage_continue)
@@ -305,7 +311,8 @@
 	hide_from(user)
 	user.s_active = null
 	if(!length(can_see_contents()))
-		storage_start.vis_contents = list()
+		if(storage_start)
+			storage_start.vis_contents = list()
 		QDEL_LIST(storage_screens)
 		storage_screens = list()
 
@@ -529,12 +536,12 @@
 	if(LAZYLEN(can_hold))
 		var/can_hold_item = can_hold_strict ? (item_to_check.type in can_hold) : is_type_in_list(item_to_check, can_hold)
 		if(!can_hold_item)
-			if(!stop_messages && ! istype(item_to_check, /obj/item/device/hand_labeler))
+			if(!stop_messages && ! istype(item_to_check, /obj/item/hand_labeler))
 				to_chat(usr, SPAN_NOTICE("\The [src] cannot hold \the [item_to_check]."))
 			return FALSE
 		var/max_instances = can_hold[item_to_check.type]
 		if(max_instances && instances_of_type_in_list(item_to_check, contents, TRUE) >= max_instances)
-			if(!stop_messages && !istype(item_to_check, /obj/item/device/hand_labeler))
+			if(!stop_messages && !istype(item_to_check, /obj/item/hand_labeler))
 				to_chat(usr, SPAN_NOTICE("\The [src] has no more space specifically for \the [item_to_check]."))
 			return FALSE
 
@@ -576,8 +583,8 @@
 		user.prepare_for_slotmove(W)
 	W.forceMove(src)
 	W.on_enter_storage(src)
-	if(use_sound)
-		playsound(src.loc, src.use_sound, 50, 0, -5)
+	if(rustle_sound)
+		playsound(src.loc, src.rustle_sound, 50, 0, -5)
 	if(animated)
 		animate_parent()
 	if(user)
@@ -725,8 +732,8 @@
 			to_chat(user, SPAN_WARNING("Trying to place a loaded tray into [src] was a bad idea."))
 			return
 
-	if(istype(attacking_item, /obj/item/device/hand_labeler))
-		var/obj/item/device/hand_labeler/HL = attacking_item
+	if(istype(attacking_item, /obj/item/hand_labeler))
+		var/obj/item/hand_labeler/HL = attacking_item
 		if(HL.mode == 1)
 			return
 

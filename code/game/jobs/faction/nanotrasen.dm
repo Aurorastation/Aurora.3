@@ -1,15 +1,18 @@
 /datum/faction/nano_trasen
 	name = "NanoTrasen"
-	description = {"<p>
-	Considered the largest megacorporation within the Orion Spur, many will find themselves doing the biddings of NanoTrasen.
+	description = {"
+	Considered the largest megacorporation within the Orion Spur, many will find themselves doing the biddings of NanoTrasen.<br>
 	Initially a biotechnical research company, it rapidly grew in size after the discovery of phoron.
-	NanoTrasen's continued monopoly on the resource catapulted it into the limelight, where it has remained for the last forty-odd years.
+	NanoTrasen's continued monopoly on the resource catapulted it into the limelight, where it has remained for the last forty-odd years.<br><br>
 	During the Phoron Scarcity, NanoTrasen's power has since begun to waver, resulting in their profit margins diminishing considerably.
 	Nonetheless, NanoTrasen has managed to secure itself as a crucial member of the newly-founded Stellar Corporate Conglomerate
 	allowing themselves to remain as a dominant corporate presence within the Orion Spur.
-	</p>"}
-	departments = {"Medical<br>Research<br>Service"}
+	"}
+	departments = list(DEPARTMENT_MEDICAL, DEPARTMENT_SCIENCE, DEPARTMENT_SERVICE)
 	title_suffix = "NT"
+	wiki_page = "NanoTrasen_Corporation"
+
+	ui_priority = -1
 
 	is_default = TRUE
 
@@ -35,22 +38,21 @@
 	allowed_role_types = NT_ROLES
 
 /datum/faction/nano_trasen/get_corporate_objectives(var/mission_level)
-	var/objective
 	switch(mission_level)
 		if(REPRESENTATIVE_MISSION_HIGH)
-			objective = pick("Have [rand(1,4)] crewmember sign NT apprenticeship contracts",
-						"Make sure that the [station_name()] fullfils [rand(4,12)] cargo bounties",
-						"Make sure that the [station_name()] raises [rand(5000,12000)] credits by the end of the shift")
+			return pick("Obtain 2000 moles of gaseous Phoron or 20x Phoron Crystals for shipping to NanoTrasen Corporation.",
+						"Identify and report SCC command staff who are overtly favouring their origin state or company (IE. displaying origin state/corporation iconography) in breach of Conglomerate ideals",
+						"Identify and report any acts of inter-SCC conflict or espionage")
 		if(REPRESENTATIVE_MISSION_MEDIUM)
-			objective = pick("Have [rand(2,5)] crewmembers sign contract extensions",
-						"Have [rand(2,5)] crewmembers buy Odin real estate",
-						"[rand(3,10)] crewmember must buy Getmore products from the vendors")
+			return pick("Have any crew member enroll onto a paid NanoTrasen Academy online learning course",
+						"Have a NanoTrasen employee sign a contract extension",
+						"Evaluate crew opinions on GetMore Corporation products available on the [station_name()]",
+						"Ensure Hazel! Limited positronics are compliant with brand standards",
+						"Evaluate crew opinions on Ingi Usang Entertainment Company products and brands")
 		else
-			objective = pick("Conduct and present a survey on crew morale and content",
-						"Make sure that [rand(2,4)] complaints are solved on the [station_name()]",
-						"Have [rand(3,10)] crewmembers buy Getmore products from the vendors")
-
-	return objective
+			return pick("Conduct a survey on NanoTrasen Corporation employee morale",
+						"Identify and resolve a complaint of a NanoTrasen Corporation employee",
+						"Emphasise the importance of phoronic technologies aboard the [station_name()] and around the Orion Spur")
 
 /obj/outfit/job/visitor/nanotrasen
 	name = "Off-Duty Crew Member - NanoTrasen"

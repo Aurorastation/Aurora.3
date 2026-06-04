@@ -33,19 +33,21 @@ If d1 = dir1 and d2 = dir2, it's a full X-X cable, getting from dir1 to dir2
 By design, d1 is the smallest direction and d2 is the highest
 */
 /obj/structure/cable
-	level = 1
-	anchored =1
-	var/datum/powernet/powernet
 	name = "power cable"
 	desc = "A flexible superconducting cable for heavy-duty power transfer."
 	icon = 'icons/obj/power_cond_white.dmi'
 	icon_state = "0-1"
+	level = 1
+	anchored = TRUE
+	maxhealth = null //why is this even a structure?
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
-	var/d1 = 0
-	var/d2 = 1
 	layer = EXPOSED_WIRE_LAYER
 	color = COLOR_RED
-	var/obj/machinery/power/breakerbox/breaker_box
+
+	var/datum/powernet/powernet
+	var/obj/structure/machinery/power/breakerbox/breaker_box
+	var/d1 = 0
+	var/d2 = 1
 
 /obj/structure/cable/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -62,10 +64,9 @@ By design, d1 is the smallest direction and d2 is the highest
 	if(drain_check)
 		return TRUE
 
-	var/datum/powernet/PN = powernet
-	if(!PN) return FALSE
+	. = POWERNET_POWER_DRAW(powernet, amount)
 
-	return PN.draw_power(amount)
+	DRAW_FROM_POWERNET(powernet, .)
 
 /obj/structure/cable/yellow
 	color = COLOR_YELLOW
@@ -107,7 +108,7 @@ By design, d1 is the smallest direction and d2 is the highest
 
 	if(mapload)
 		var/image/I = image(icon, T, icon_state, dir, pixel_x, pixel_y)
-		I.plane = EFFECTS_ABOVE_LIGHTING_PLANE
+		I.plane = ABOVE_LIGHTING_PLANE
 		I.alpha = 125
 		I.color = color
 		LAZYADD(T.blueprints, I)
@@ -150,9 +151,9 @@ By design, d1 is the smallest direction and d2 is the highest
 	if(!T.can_have_cabling())
 		return
 
-	if(attacking_item.iswirecutter() || (attacking_item.sharp || attacking_item.edge))
+	if(attacking_item.tool_behaviour == TOOL_WIRECUTTER || (attacking_item.sharp || attacking_item.edge))
 
-		if(!attacking_item.iswirecutter())
+		if(attacking_item.tool_behaviour != TOOL_WIRECUTTER)
 			if(user.a_intent != I_HELP)
 				return
 
@@ -192,14 +193,14 @@ By design, d1 is the smallest direction and d2 is the highest
 		return
 
 
-	else if(attacking_item.iscoil())
+	else if(attacking_item.tool_behaviour == TOOL_CABLECOIL)
 		var/obj/item/stack/cable_coil/coil = attacking_item
 		if (coil.get_amount() < 1)
 			to_chat(user, "You don't have enough cable.")
 			return
 		coil.cable_join(src, user)
 
-	else if(attacking_item.ismultitool())
+	else if(attacking_item.tool_behaviour == TOOL_MULTITOOL)
 
 		if(powernet && (powernet.avail > 0))		// is it powered?
 			to_chat(user, SPAN_WARNING("[powernet.avail]W in power network."))
@@ -349,8 +350,8 @@ By design, d1 is the smallest direction and d2 is the highest
 				else
 					powernet.add_cable(C) //the cable was powernetless, let's just add it to our powernet
 
-		else if(istype(AM,/obj/machinery/power/apc))
-			var/obj/machinery/power/apc/N = AM
+		else if(istype(AM,/obj/structure/machinery/power/apc))
+			var/obj/structure/machinery/power/apc/N = AM
 			if(!N.terminal)	continue // APC are connected through their terminal
 
 			if(N.terminal.powernet == powernet)
@@ -358,8 +359,8 @@ By design, d1 is the smallest direction and d2 is the highest
 
 			to_connect += N.terminal //we'll connect the machines after all cables are merged
 
-		else if(istype(AM,/obj/machinery/power)) //other power machines
-			var/obj/machinery/power/M = AM
+		else if(istype(AM,/obj/structure/machinery/power)) //other power machines
+			var/obj/structure/machinery/power/M = AM
 
 			if(M.powernet == powernet)
 				continue
@@ -367,7 +368,7 @@ By design, d1 is the smallest direction and d2 is the highest
 			to_connect += M //we'll connect the machines after all cables are merged
 
 	//now that cables are done, let's connect found machines
-	for(var/obj/machinery/power/PM in to_connect)
+	for(var/obj/structure/machinery/power/PM in to_connect)
 		if(!PM.connect_to_network())
 			PM.disconnect_from_network() //if we somehow can't connect the machine to the new powernet, remove it from the old nonetheless
 
@@ -418,7 +419,7 @@ By design, d1 is the smallest direction and d2 is the highest
 			. += C
 
 	if(d1 == 0)
-		for(var/obj/machinery/power/P in loc)
+		for(var/obj/structure/machinery/power/P in loc)
 			if(P.powernet == 0) continue // exclude APCs with powernet=0
 			if(!powernetless_only || !P.powernet)
 				. += P
@@ -466,7 +467,7 @@ By design, d1 is the smallest direction and d2 is the highest
 	loc = null
 	powernet.remove_cable(src) //remove the cut cable from its powernet
 
-	for(var/obj/machinery/power/P in T1)
+	for(var/obj/structure/machinery/power/P in T1)
 		if(!P.connect_to_network()) //can't find a node cable on a the turf to connect to
 			P.disconnect_from_network() //remove from current network
 
@@ -516,9 +517,7 @@ By design, d1 is the smallest direction and d2 is the highest
 	contained_sprite = TRUE
 	build_from_parts = TRUE
 	worn_overlay = "end"
-
-/obj/item/stack/cable_coil/iscoil()
-	return TRUE
+	tool_behaviour = TOOL_CABLECOIL
 
 /obj/item/stack/cable_coil/Initialize(mapload, amt, param_color = null)
 	. = ..(mapload, amt)
@@ -565,7 +564,7 @@ By design, d1 is the smallest direction and d2 is the highest
 						to_chat(user, SPAN_NOTICE("You don't have enough coils for this!"))
 						return
 					user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-					for(var/datum/wound/W in affecting.wounds)
+					for(var/datum/wound/W as anything in affecting.wounds)
 						if(W.bandaged)
 							continue
 						if(W.current_stage <= W.max_bleeding_stage)
@@ -578,7 +577,7 @@ By design, d1 is the smallest direction and d2 is the highest
 								break
 							user.visible_message(SPAN_NOTICE("\The [user] barely manages to stitch \a [W.desc] on [target_mob]'s [affecting.name]."), \
 														SPAN_NOTICE("You barely manage to stitch \a [W.desc] on [target_mob]'s [affecting.name].") )
-							W.bandage("cable-stitched")
+							W.bandage()
 							use(10)
 							affecting.add_pain(25)
 							if(prob(min(30 + (germ_level/5), 65))) //Less chance of infection if you clean the coil. Coil's germ level is set to GERM_LEVEL_AMBIENT
@@ -659,7 +658,7 @@ By design, d1 is the smallest direction and d2 is the highest
 	check_maptext(SMALL_FONTS(7, get_amount()))
 
 /obj/item/stack/cable_coil/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.ismultitool())
+	if(attacking_item.tool_behaviour == TOOL_MULTITOOL)
 		choose_cable_color(user)
 	return ..()
 
@@ -1065,7 +1064,7 @@ By design, d1 is the smallest direction and d2 is the highest
 	return ..()
 
 /obj/structure/noose/attackby(obj/item/attacking_item, mob/user, params)
-	if(attacking_item.iswirecutter())
+	if(attacking_item.tool_behaviour == TOOL_WIRECUTTER)
 		user.visible_message("<b>[user]</b> cuts \the [src].", SPAN_NOTICE("You cut \the [src]."))
 		playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
 		if(istype(buckled, /mob/living))

@@ -41,7 +41,7 @@
 /singleton/recipe/father_breakfast
 	items = list(
 		/obj/item/reagent_containers/food/snacks/sausage,
-		/obj/item/reagent_containers/food/snacks/omelette,
+		/obj/item/reagent_containers/food/snacks/omelette/fromage,
 		/obj/item/reagent_containers/food/snacks/meatsteak
 	)
 	result = /obj/item/reagent_containers/food/snacks/father_breakfast
@@ -81,7 +81,7 @@
 		/obj/item/reagent_containers/food/snacks/meatball,
 		/obj/item/reagent_containers/food/snacks/meatball,
 		/obj/item/reagent_containers/food/snacks/meatball,
-		/obj/item/reagent_containers/food/snacks/omelette
+		/obj/item/reagent_containers/food/snacks/omelette/fromage
 	)
 	result = /obj/item/reagent_containers/food/snacks/egg_pancake
 

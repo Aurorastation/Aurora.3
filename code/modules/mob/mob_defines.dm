@@ -6,6 +6,8 @@
 	sight = DEFAULT_SIGHT
 	blocks_emissive = EMISSIVE_BLOCK_GENERIC
 	pass_flags_self = PASSMOB
+	// Determines what the alpha of the lighting is to this mob.
+	var/lighting_alpha = LIGHTING_PLANE_ALPHA_VISIBLE
 	var/datum/mind/mind
 	var/static/next_mob_id = 0
 
@@ -34,7 +36,6 @@
 	var/atom/movable/screen/i_select = null
 	var/atom/movable/screen/m_select = null
 	var/atom/movable/screen/toxin = null
-	var/atom/movable/screen/fire = null
 	var/atom/movable/screen/bodytemp = null
 	var/atom/movable/screen/healths = null
 	var/atom/movable/screen/throw_icon = null
@@ -52,6 +53,8 @@
 	var/atom/movable/screen/energy/energy_display = null
 	var/atom/movable/screen/instability/instability_display = null
 	var/atom/movable/screen/up_hint = null
+	/// The IPC version of the fullscreen pain texture.
+	var/atom/movable/screen/fullscreen/robot_pain
 
 	//spells hud icons - this interacts with add_spell and remove_spell
 	var/list/atom/movable/screen/movable/spell_master/spell_masters = null
@@ -69,7 +72,7 @@
 	var/damageoverlaytemp = 0
 	var/computer_id = null
 	var/character_id = 0
-	var/obj/machinery/machine = null
+	var/obj/structure/machinery/machine = null
 	var/height = HEIGHT_NOT_USED
 	var/sdisabilities = 0				//Carbon
 	var/disabilities = 0				//Carbon
@@ -122,7 +125,7 @@
 	var/emote_type = 1		// Define emote default type, 1 for seen emotes, 2 for heard emotes
 	var/facing_dir = null   // Used for the ancient art of moonwalking.
 
-	var/obj/machinery/hologram/holopad/holo = null
+	var/obj/structure/machinery/hologram/holopad/holo = null
 
 	var/name_archive //For admin things like possession
 
@@ -162,6 +165,8 @@
 	var/obj/item/storage/s_active = null//Carbon
 	var/obj/item/clothing/mask/wear_mask = null//Carbon
 
+	/// contains [/atom/movable/screen/alert only] // On /mob so clientless mobs will throw alerts properly
+	var/list/alerts = list()
 	var/list/screens = list()
 
 	var/seer = 0 //for cult//Carbon, probably Human
@@ -177,10 +182,6 @@
 	var/inertia_dir = 0
 
 	var/job = null//Living
-
-	var/const/blindness = 1//Carbon
-	var/const/deafness = 2//Carbon
-	var/const/muteness = 4//Carbon
 
 	var/can_pull_size = 10              // Maximum w_class the mob can pull.
 	var/can_pull_mobs = MOB_PULL_LARGER // Whether or not the mob can pull other mobs.
@@ -216,13 +217,6 @@
 //Wizard mode, but can be used in other modes thanks to the brand new "Give Spell" badmin button
 	var/list/spell/spell_list
 
-//List of active diseases
-
-	var/list/viruses = list() // replaces var/datum/disease/virus
-
-//Monkey/infected mode
-	var/list/resistances = list()
-
 	mouse_drag_pointer = MOUSE_ACTIVE_POINTER
 
 	var/update_icon = 1 //Set to 1 to trigger update_icon() at the next life() call
@@ -247,10 +241,16 @@
 	var/list/item_verbs = list()
 	var/list/shouldnt_see = list()	//typecache of objects that this mob shouldn't see in the stat panel. this silliness is needed because of AI alt+click and cult blood runes
 
-	var/list/active_genes=list()
+	var/list/active_genes = list()
+
 	var/mob_size = MOB_MEDIUM
 	/// The icon size width of the mob. Used for langchat resizing.
 	var/icon_size = 32
+
+	/// The weight of the mob. Affects if the mob can be easily lifted or not. Separate from size, as some mobs may be big but not particularly heavy.
+	var/mob_weight = MOB_WEIGHT_LIGHT
+	/// The strength of the mob. Affects what kind of mobs can be thrown or carried. By default, does not give any buff.
+	var/mob_strength = MOB_STRENGTH_NORMAL
 
 	var/list/progressbars
 
@@ -274,3 +274,82 @@
 
 	/// A assoc lazylist of to_chat notifications, key = string message, value = world time integer
 	var/list/message_notifications
+
+	var/mob/living/vr_mob = null // In which mob is our mind
+	var/mob/living/old_mob = null // Which mob is our old mob
+
+	/**
+	* LAZYLIST (Instances of `/datum/click_handler`). Click handlers for this mob that should intercept and handle click
+	* calls.
+	*
+	* The 'topmost'/'active' click handler for the mob is the handler currently at index `1`. By default, this will be
+	* `/datum/click_handler/default`.
+	*/
+	var/list/click_handlers
+
+	var/should_add_to_mob_list = TRUE
+
+	/// Integer. Unique sequential ID from the `do_after` proc used to validate `DO_USER_UNIQUE_ACT` flag checks.
+	var/do_unique_user_handle = 0
+
+	var/mob/lastattacker = null
+	var/mob/lastattacked = null
+	var/attack_log = list()
+
+	/// Spam control, can only point when the previous pointer qdels
+	var/obj/effect/decal/point/pointing_effect = null
+
+	/// 1 decisecond click delay (above and beyond mob/next_move)
+	var/next_click = 0
+
+	var/dizziness = 0//Carbon
+	var/is_dizzy = 0
+	var/is_jittery = 0
+	var/jitteriness = 0//Carbon
+
+	//handles up-down floaty effect in space and zero-gravity
+	var/is_floating = FALSE
+
+	// Used by the Nano UI Manager (/datum/SSnanoui) to track UIs opened by this mob
+	var/list/open_nanouis = list()
+
+	var/last_pain_message = ""
+	var/next_pain_time = 0
+
+	/**
+	* global
+	*
+	* Tracks open UIs for a user.
+	*/
+	var/list/tgui_open_uis = list()
+
+	var/tmp/last_airflow_stun = 0
+
+	//thou shall always be able to see the Geometer of Blood
+	var/image/narsimage = null
+	var/image/narglow = null
+
+	//thou shall always be able to see the rift
+	var/image/riftimage = null
+
+	var/list/client_colors = list()
+
+	var/bloody_hands = null
+	var/datum/weakref/bloody_hands_mob
+	var/track_footprint = 0
+	var/list/feet_blood_DNA
+	var/track_footprint_type
+	var/footprint_color
+
+	var/mob/abstract/eye/eyeobj
+
+	var/mob/living/brain_ghost/bg
+
+	var/list/default_emotes = list()
+	var/list/usable_emotes = list()
+
+	var/client/my_client // Need to keep track of this ourselves, since by the time Logout() is called the client has already been nulled
+
+	var/get_rig_stats = 0
+
+	var/thinking_enabled = FALSE

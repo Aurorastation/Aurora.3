@@ -7,6 +7,7 @@
 	suffix = "unathi_pirate_izharshan.dmm"
 
 	spawn_weight = 1
+	template_flags = TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED // Disabled for debloating. Feel free to enable again if reworked or relevant.
 	ship_cost = 1
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/unathi_pirate_izharshan)
 	sectors = list(SECTOR_NRRAHRAHUL, SECTOR_BADLANDS, SECTOR_GAKAL, SECTOR_UUEOAESA)
@@ -45,7 +46,7 @@
 	/obj/item/spacecash/c20 = 1
 	)
 
-/obj/machinery/vending/boozeomat/unathi_pirate
+/obj/structure/machinery/vending/boozeomat/unathi_pirate
 	products = list(
 		/obj/item/reagent_containers/food/drinks/shaker = 2,
 		/obj/item/reagent_containers/food/drinks/drinkingglass = 4,
@@ -93,7 +94,7 @@
 	skybox_image.pixel_y = rand(128,256)
 	return skybox_image
 
-/obj/machinery/computer/shuttle_control/explore/unathi_pirate_izharshan
+/obj/structure/machinery/computer/shuttle_control/explore/unathi_pirate_izharshan
 	name = "shuttle control console"
 	shuttle_tag = "Izharshan Freighter"
 

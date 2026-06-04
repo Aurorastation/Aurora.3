@@ -1,14 +1,12 @@
 /**********************Mint**************************/
 
 
-/obj/machinery/mineral/mint
+/obj/structure/machinery/mineral/mint
 	name = "coin press"
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "coinpress0"
 	density = TRUE
 	anchored = TRUE
-	var/obj/machinery/mineral/input
-	var/obj/machinery/mineral/output
 	var/amt_silver = 0 //amount of silver
 	var/amt_gold = 0   //amount of gold
 	var/amt_diamond = 0
@@ -20,22 +18,15 @@
 	var/chosen = DEFAULT_WALL_MATERIAL //which material will be used to make coins
 	var/coinsToProduce = 10
 
-/obj/machinery/mineral/mint/Initialize()
+/obj/structure/machinery/mineral/mint/Initialize()
 	. = ..()
-	for(var/dir in GLOB.cardinals)
-		src.input = locate(/obj/machinery/mineral/input, get_step(src, dir))
-		if(src.input)
-			break
-	for(var/dir in GLOB.cardinals)
-		src.output = locate(/obj/machinery/mineral/output, get_step(src, dir))
-		if(src.output)
-			break
 	START_PROCESSING(SSprocessing, src)
+	setup_io()
 
-/obj/machinery/mineral/mint/process()
-	if(input)
+/obj/structure/machinery/mineral/mint/process()
+	if(input_turf)
 		var/obj/item/stack/O
-		O = locate(/obj/item/stack, get_turf(input))
+		O = locate(/obj/item/stack, get_turf(input_turf))
 		if(O)
 			var/processed = TRUE
 			switch(O.get_material_name())
@@ -56,15 +47,15 @@
 			if(processed)
 				qdel(O)
 
-/obj/machinery/mineral/mint/attack_hand(user)
+/obj/structure/machinery/mineral/mint/attack_hand(user)
 	. = ..()
 	var/dat = "<b>Coin Press</b><br>"
 
-	if(!input)
+	if(!input_turf)
 		dat += "input connection status: "
 		dat += "<b><span class='warning'>NOT CONNECTED</span></b><br>"
-	if(!output)
-		dat += "<br>output connection status: "
+	if(!output_turf)
+		dat += "<br>output_turf connection status: "
 		dat += "<b><span class='warning'>NOT CONNECTED</span></b><br>"
 
 	dat += "<br><font color='#ffcc00'><b>Gold inserted: </b>[amt_gold]</font> "
@@ -110,7 +101,7 @@
 	dat += "<br><A href='byond://?src=[REF(src)];makeCoins=[1]'>Make coins</A>"
 	user << browse(HTML_SKELETON(dat), "window=mint")
 
-/obj/machinery/mineral/mint/Topic(href, href_list)
+/obj/structure/machinery/mineral/mint/Topic(href, href_list)
 	if(..())
 		return TRUE
 	usr.set_machine(src)
@@ -124,17 +115,17 @@
 		coinsToProduce = between(0, coinsToProduce + text2num(href_list["chooseAmt"]), 1000)
 	if(href_list["makeCoins"])
 		var/temp_coins = coinsToProduce
-		if(output)
+		if(output_turf)
 			processing = TRUE
 			icon_state = "coinpress1"
 			var/obj/item/storage/bag/money/M
 			switch(chosen)
 				if(DEFAULT_WALL_MATERIAL)
 					while(amt_iron && coinsToProduce)
-						if(locate(/obj/item/storage/bag/money, get_turf(output)))
-							M = locate(/obj/item/storage/bag/money, get_turf(output))
+						if(locate(/obj/item/storage/bag/money, get_turf(output_turf)))
+							M = locate(/obj/item/storage/bag/money, get_turf(output_turf))
 						else
-							M = new/obj/item/storage/bag/money(get_turf(output))
+							M = new/obj/item/storage/bag/money(get_turf(output_turf))
 						new /obj/item/coin/iron(M)
 						amt_iron -= 20
 						coinsToProduce--
@@ -143,10 +134,10 @@
 						sleep(5)
 				if("gold")
 					while(amt_gold && coinsToProduce)
-						if(locate(/obj/item/storage/bag/money, get_turf(output)))
-							M = locate(/obj/item/storage/bag/money, get_turf(output))
+						if(locate(/obj/item/storage/bag/money, get_turf(output_turf)))
+							M = locate(/obj/item/storage/bag/money, get_turf(output_turf))
 						else
-							M = new/obj/item/storage/bag/money(get_turf(output))
+							M = new/obj/item/storage/bag/money(get_turf(output_turf))
 						new /obj/item/coin/gold(M)
 						amt_gold -= 20
 						coinsToProduce--
@@ -155,10 +146,10 @@
 						sleep(5)
 				if("silver")
 					while(amt_silver && coinsToProduce)
-						if(locate(/obj/item/storage/bag/money, get_turf(output)))
-							M = locate(/obj/item/storage/bag/money, get_turf(output))
+						if(locate(/obj/item/storage/bag/money, get_turf(output_turf)))
+							M = locate(/obj/item/storage/bag/money, get_turf(output_turf))
 						else
-							M = new/obj/item/storage/bag/money(get_turf(output))
+							M = new/obj/item/storage/bag/money(get_turf(output_turf))
 						new /obj/item/coin/silver(M)
 						amt_silver -= 20
 						coinsToProduce--
@@ -167,10 +158,10 @@
 						sleep(5)
 				if("diamond")
 					while(amt_diamond && coinsToProduce)
-						if(locate(/obj/item/storage/bag/money, get_turf(output)))
-							M = locate(/obj/item/storage/bag/money, get_turf(output))
+						if(locate(/obj/item/storage/bag/money, get_turf(output_turf)))
+							M = locate(/obj/item/storage/bag/money, get_turf(output_turf))
 						else
-							M = new/obj/item/storage/bag/money(get_turf(output))
+							M = new/obj/item/storage/bag/money(get_turf(output_turf))
 						new /obj/item/coin/diamond(M)
 						amt_diamond -= 20
 						coinsToProduce--
@@ -179,10 +170,10 @@
 						sleep(5)
 				if("phoron")
 					while(amt_phoron && coinsToProduce)
-						if(locate(/obj/item/storage/bag/money, get_turf(output)))
-							M = locate(/obj/item/storage/bag/money, get_turf(output))
+						if(locate(/obj/item/storage/bag/money, get_turf(output_turf)))
+							M = locate(/obj/item/storage/bag/money, get_turf(output_turf))
 						else
-							M = new/obj/item/storage/bag/money(get_turf(output))
+							M = new/obj/item/storage/bag/money(get_turf(output_turf))
 						new /obj/item/coin/phoron(M)
 						amt_phoron -= 20
 						coinsToProduce--
@@ -191,10 +182,10 @@
 						sleep(5)
 				if("uranium")
 					while(amt_uranium && coinsToProduce)
-						if(locate(/obj/item/storage/bag/money, get_turf(output)))
-							M = locate(/obj/item/storage/bag/money, get_turf(output))
+						if(locate(/obj/item/storage/bag/money, get_turf(output_turf)))
+							M = locate(/obj/item/storage/bag/money, get_turf(output_turf))
 						else
-							M = new /obj/item/storage/bag/money(get_turf(output))
+							M = new /obj/item/storage/bag/money(get_turf(output_turf))
 						new /obj/item/coin/uranium(M)
 						amt_uranium -= 20
 						coinsToProduce--

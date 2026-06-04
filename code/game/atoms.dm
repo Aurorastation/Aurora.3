@@ -239,14 +239,9 @@
 	var/old_dir = dir
 	dir = new_dir
 
-	// Lighting.
+	SEND_SIGNAL(src, COMSIG_ATOM_DIR_CHANGE, dir, new_dir)
 	if (.)
-		var/datum/light_source/L
-		for (var/thing in light_sources)
-			L = thing
-			if (L.light_angle)
-				L.source_atom.update_light()
-		GLOB.dir_set_event.raise_event(src, old_dir, dir)
+		GLOB.dir_set_event.raise_event(src, old_dir, dir) //todomat: probaly get ird of this shit
 
 /atom/proc/melt()
 	return
@@ -547,6 +542,18 @@
 			if(!(H in hearers))
 				if(src.z == H.z && get_dist(src, H) <= range)
 					H.intent_listen(src, message)
+
+/proc/get_intent_listeners(var/atom/source, var/range = 7, var/list/hearers = list())
+	SHOULD_NOT_SLEEP(TRUE)
+	var/list/listeners = list()
+	if(air_sound(source))
+		if(!length(hearers))
+			hearers = get_hearers_in_view(range, source)
+		for(var/mob/living/carbon/human/H as anything in GLOB.intent_listener)
+			if((H in hearers))
+				if(source.z == H.z && get_dist(source, H) <= range)
+					listeners += H
+	return listeners
 
 /atom/movable/proc/dropInto(var/atom/destination)
 	while(istype(destination))

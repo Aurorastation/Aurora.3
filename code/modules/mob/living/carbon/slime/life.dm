@@ -27,8 +27,8 @@
 		//environment_heat_capacity = loc:heat_capacity
 		var/turf/heat_turf = get_turf(src)
 		loc_temp = heat_turf.temperature
-	else if(istype(loc, /obj/machinery/atmospherics/unary/cryo_cell))
-		var/obj/machinery/atmospherics/unary/cryo_cell/C = loc
+	else if(istype(loc, /obj/structure/machinery/atmospherics/unary/cryo_cell))
+		var/obj/structure/machinery/atmospherics/unary/cryo_cell/C = loc
 		loc_temp = C.air_contents?.temperature
 	else
 		loc_temp = environment.temperature
@@ -94,7 +94,7 @@
 
 	src.blinded = null
 
-	health = maxHealth - (getOxyLoss() + getToxLoss() + getFireLoss() + getBruteLoss() + getCloneLoss())
+	health = maxhealth - (getOxyLoss() + getToxLoss() + getFireLoss() + getBruteLoss() + getCloneLoss())
 
 	if(health < 0 && stat != DEAD)
 		death()
@@ -314,14 +314,14 @@
 					set_intent(I_HURT)
 					UnarmedAttack(target)
 					Atkcool = TRUE
-					addtimer(CALLBACK(src, PROC_REF(disable_attack_cooldown)), 4.5 SECONDS)
+					addtimer(CALLBACK(src, PROC_REF(disable_attack_cooldown)), 4.5 SECONDS, TIMER_DELETE_ME)
 				AIproc = FALSE
 				return
 
 			if(target.client && !target.lying && prob(60 + powerlevel * 4)) // Try to take down the target first
 				if(!Atkcool)
 					Atkcool = TRUE
-					addtimer(CALLBACK(src, PROC_REF(disable_attack_cooldown)), 4.5 SECONDS)
+					addtimer(CALLBACK(src, PROC_REF(disable_attack_cooldown)), 4.5 SECONDS, TIMER_DELETE_ME)
 
 					set_intent(I_DISARM)
 					UnarmedAttack(target)

@@ -2,8 +2,8 @@
 /datum/pipeline
 	var/datum/gas_mixture/air
 
-	var/list/obj/machinery/atmospherics/pipe/members
-	var/list/obj/machinery/atmospherics/pipe/edges //Used for building networks
+	var/list/obj/structure/machinery/atmospherics/pipe/members
+	var/list/obj/structure/machinery/atmospherics/pipe/edges //Used for building networks
 
 	var/datum/pipe_network/network
 
@@ -17,7 +17,7 @@
 		temporarily_store_air()
 		QDEL_NULL(air)
 
-	for (var/obj/machinery/atmospherics/pipe/thing in members)
+	for (var/obj/structure/machinery/atmospherics/pipe/thing in members)
 		thing.parent = null
 
 	members = null
@@ -27,22 +27,22 @@
 
 /datum/pipeline/process()//This use to be called called from the pipe networks
 	//Check to see if pressure is within acceptable limits
-	var/pressure = air.return_pressure()
+	var/pressure = XGM_PRESSURE(air)
 	if(pressure > alert_pressure)
-		for(var/obj/machinery/atmospherics/pipe/member in members)
+		for(var/obj/structure/machinery/atmospherics/pipe/member in members)
 			if(!member.check_pressure(pressure))
 				break //Only delete 1 pipe per process
 
 /datum/pipeline/proc/temporarily_store_air()
 	//Update individual gas_mixtures by volume ratio
 
-	for(var/obj/machinery/atmospherics/pipe/member in members)
+	for(var/obj/structure/machinery/atmospherics/pipe/member in members)
 		member.air_temporary = new
 		member.air_temporary.copy_from(air)
 		member.air_temporary.volume = member.volume
 		member.air_temporary.multiply(member.volume / air.volume)
 
-/datum/pipeline/proc/build_pipeline(obj/machinery/atmospherics/pipe/base)
+/datum/pipeline/proc/build_pipeline(obj/structure/machinery/atmospherics/pipe/base)
 	air = new
 
 	var/list/possible_expansions = list(base)
@@ -60,13 +60,13 @@
 		air = new
 
 	while(possible_expansions.len>0)
-		for(var/obj/machinery/atmospherics/pipe/borderline in possible_expansions)
+		for(var/obj/structure/machinery/atmospherics/pipe/borderline in possible_expansions)
 
 			var/list/result = borderline.pipeline_expansion()
 			var/edge_check = result.len
 
 			if(result.len>0)
-				for(var/obj/machinery/atmospherics/pipe/item in result)
+				for(var/obj/structure/machinery/atmospherics/pipe/item in result)
 					if(!members.Find(item))
 						members += item
 						possible_expansions += item
@@ -88,7 +88,7 @@
 
 	air.volume = volume
 
-/datum/pipeline/proc/network_expand(datum/pipe_network/new_network, obj/machinery/atmospherics/pipe/reference)
+/datum/pipeline/proc/network_expand(datum/pipe_network/new_network, obj/structure/machinery/atmospherics/pipe/reference)
 
 	if(new_network.line_members.Find(src))
 		return 0
@@ -97,14 +97,14 @@
 
 	network = new_network
 
-	for(var/obj/machinery/atmospherics/pipe/edge in edges)
-		for(var/obj/machinery/atmospherics/result in edge.pipeline_expansion())
-			if(!istype(result,/obj/machinery/atmospherics/pipe) && (result!=reference))
+	for(var/obj/structure/machinery/atmospherics/pipe/edge in edges)
+		for(var/obj/structure/machinery/atmospherics/result in edge.pipeline_expansion())
+			if(!istype(result,/obj/structure/machinery/atmospherics/pipe) && (result!=reference))
 				result.network_expand(new_network, edge)
 
 	return 1
 
-/datum/pipeline/proc/return_network(obj/machinery/atmospherics/reference)
+/datum/pipeline/proc/return_network(obj/structure/machinery/atmospherics/reference)
 	if(!network)
 		network = new /datum/pipe_network
 		network.build_network(src, null)
@@ -115,24 +115,28 @@
 	return network
 
 /datum/pipeline/proc/mingle_with_turf(turf/simulated/target, mingle_volume)
+	if(!isturf(target))
+		return
+
 	var/datum/gas_mixture/air_sample = air.remove_ratio(mingle_volume/air.volume)
 	air_sample.volume = mingle_volume
 
-	if(istype(target) && target.zone)
+	if(target.zone)
 		//Have to consider preservation of group statuses
 		var/datum/gas_mixture/turf_copy = new
+		var/datum/gas_mixture/turf_original = new
 
 		turf_copy.copy_from(target.zone.air)
 		turf_copy.volume = target.zone.air.volume //Copy a good representation of the turf from parent group
+		turf_original.copy_from(turf_copy)
 
 		equalize_gases(list(air_sample, turf_copy))
 		air.merge(air_sample)
 
-		turf_copy.subtract(target.zone.air)
-
+		target.zone.air.remove(turf_original.total_moles)
 		target.zone.air.merge(turf_copy)
 
-	else if(target)
+	else
 		var/datum/gas_mixture/turf_air = target.return_air()
 
 		equalize_gases(list(air_sample, turf_air))

@@ -18,9 +18,10 @@
 	max_heat_protection_temperature = HELMET_MAX_HEAT_PROTECTION_TEMPERATURE
 	siemens_coefficient = 0.5
 	w_class = WEIGHT_CLASS_NORMAL
-	var/obj/machinery/camera/camera
+	var/obj/structure/machinery/camera/camera
 	drop_sound = 'sound/items/drop/helm.ogg'
 	pickup_sound = 'sound/items/pickup/helm.ogg'
+	equip_sound = 'sound/items/equip/helm.ogg'
 	protects_against_weather = TRUE
 
 	var/has_storage = TRUE
@@ -155,25 +156,34 @@
 	flags_inv = HIDEEARS
 	action_button_name = "Toggle Visor"
 
+/obj/item/clothing/head/helmet/riot/mechanics_hints(mob/user, distance, is_adjacent)
+	. = ..()
+	. += "You can <b>Alt-Shift-Click</b> to [icon_state == initial(icon_state) ? "raise" : "lower"] the visor."
+
+/obj/item/clothing/head/helmet/riot/AltShiftClick(user)
+	do_flip(user)
+
 /obj/item/clothing/head/helmet/riot/attack_self(mob/user as mob)
-	if (use_check_and_message(user))
+	do_flip(user)
+
+/obj/item/clothing/head/helmet/riot/proc/do_flip(mob/user)
+	if(use_check_and_message(user))
 		return
 
-	do_flip(user)
-	update_clothing_icon()
-
-/obj/item/clothing/head/helmet/riot/proc/do_flip(var/mob/user)
 	if(icon_state == initial(icon_state))
 		icon_state = "[icon_state]-up"
 		item_state = icon_state
+		playsound(src, SFX_VISOR_UP, 20, TRUE, -1)
 		to_chat(user, SPAN_NOTICE("You raise the visor on \the [src]."))
 		body_parts_covered = HEAD
 	else
 		icon_state = initial(icon_state)
 		item_state = icon_state
+		playsound(src, SFX_VISOR_DOWN, 20, TRUE, -1)
 		to_chat(user, SPAN_NOTICE("You lower the visor on \the [src]."))
 		body_parts_covered = HEAD|FACE|EYES
 
+	update_clothing_icon()
 
 /obj/item/clothing/head/helmet/ablative
 	name = "ablative helmet"
@@ -259,10 +269,12 @@
 
 	if(src.icon_state == initial(icon_state))
 		src.icon_state = "[icon_state]-up"
+		playsound(src, SFX_VISOR_UP, 20, TRUE, -1)
 		to_chat(user, "You raise the visor on \the [src].")
 		body_parts_covered = HEAD
 	else
 		src.icon_state = initial(icon_state)
+		playsound(src, SFX_VISOR_DOWN, 20, TRUE, -1)
 		to_chat(user, "You lower the visor on \the [src].")
 		body_parts_covered = HEAD|FACE|EYES
 	update_clothing_icon()
@@ -469,7 +481,6 @@
 
 	action_button_name = "Toggle Helmet Light"
 	light_overlay = "helmet_light_dual"
-	brightness_on = 6
-	light_wedge = LIGHT_WIDE
-	camera = /obj/machinery/camera/network/tcfl
+	light_range = 6
+	camera = /obj/structure/machinery/camera/network/tcfl
 	on = 0

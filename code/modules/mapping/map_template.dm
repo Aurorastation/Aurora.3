@@ -54,7 +54,6 @@
 /datum/map_template/proc/load_new_z(var/no_changeturf = TRUE)
 	var/x = round((world.maxx - width)/2)
 	var/y = round((world.maxy - height)/2)
-	var/initial_z = world.maxz + 1
 
 	if (x < 1) x = 1
 	if (y < 1) y = 1
@@ -97,8 +96,6 @@
 	//initialize things that are normally initialized after map load
 	init_atoms(atoms_to_initialise)
 	init_shuttles(shuttle_state)
-	for(var/light_z = initial_z to world.maxz)
-		create_lighting_overlays_zlevel(light_z)
 	log_game("Z-level [name] loaded at [x], [y], [world.maxz]")
 	message_admins("Z-level [name] loaded at [x], [y], [world.maxz]")
 	SSicon_smooth.can_fire = TRUE
@@ -121,10 +118,10 @@
 		return // let proper initialisation handle it later
 
 	var/list/turf/turfs = list()
-	var/list/obj/machinery/atmospherics/atmos_machines = list()
-	var/list/obj/machinery/machines = list()
+	var/list/obj/structure/machinery/atmospherics/atmos_machines = list()
+	var/list/obj/structure/machinery/machines = list()
 	var/list/obj/structure/cable/cables = list()
-	var/list/obj/machinery/power/apc/apcs = list()
+	var/list/obj/structure/machinery/power/apc/apcs = list()
 
 	for(var/atom/A as anything in atoms)
 		if(isnull(A) || (A.flags_1 & INITIALIZED_1))
@@ -135,11 +132,11 @@
 			cables += A
 
 		//Not mutually exclusive anymore section, pay close attention!
-		if(istype(A, /obj/machinery))
+		if(istype(A, /obj/structure/machinery))
 			machines += A
-			if(istype(A, /obj/machinery/atmospherics))
+			if(istype(A, /obj/structure/machinery/atmospherics))
 				atmos_machines += A
-			else if(istype(A, /obj/machinery/power/apc))
+			else if(istype(A, /obj/structure/machinery/power/apc))
 				apcs += A
 
 	var/notsuspended
@@ -154,19 +151,26 @@
 	if(notsuspended)
 		SSmachinery.can_fire = TRUE
 
-	for (var/obj/machinery/power/apc/apc as anything in apcs)
+	for (var/obj/structure/machinery/power/apc/apc as anything in apcs)
 		apc.update() // map-loading areas and APCs is weird, okay
 
-	for (var/obj/machinery/machine as anything in machines)
+	for (var/obj/structure/machinery/machine as anything in machines)
 		machine.power_change()
 
 	for (var/turf/T as anything in turfs)
 		T.post_change(FALSE)
 		if(template_flags & TEMPLATE_FLAG_NO_RUINS)
 			T.turf_flags |= TURF_NORUINS
+
 		if(istype(T,/turf/simulated))
 			var/turf/simulated/sim = T
 			sim.update_air_properties()
+
+		if(SSlighting.initialized) //don't generate lighting overlays before SSlighting in case these templates are loaded before
+			var/area/A = T.loc
+			if(A?.area_has_base_lighting)
+				continue
+			T.static_lighting_build_overlay()
 
 /datum/map_template/proc/load(turf/T, centered = FALSE)
 	if(centered)

@@ -231,17 +231,22 @@
 		return
 	else if (starting)
 		var/list/options = list(
-			"Full CPR" = image('icons/mob/screen/radial.dmi', "cpro2"),
-			"Compressions" = image('icons/mob/screen/generic.dmi', "cpr"),
-			"Mouth-to-Mouth" = image('icons/mob/screen/radial.dmi', "iv_tank")
+			"Full CPR" = image('icons/hud/mob/radial.dmi', "cpro2"),
+			"Compressions" = image('icons/hud/mob/generic.dmi', "cpr"),
+			"Mouth-to-Mouth" = image('icons/hud/mob/radial.dmi', "iv_tank")
 		)
 		cpr_mode = show_radial_menu(H, src, options, require_near = TRUE, tooltips = TRUE, no_repeat_close = TRUE)
 		if(!cpr_mode)
 			cpr = FALSE
 			return
-		to_chat(H, SPAN_NOTICE("You begin performing [cpr_mode] on \the [src]."))
 
-	H.do_attack_animation(src, null, image('icons/mob/screen/generic.dmi', src, "cpr", src.layer + 1))
+		var/cpr_attempt_message = SPAN_DANGER("You have no idea how to perform CPR on \the [src]... but you're going to try your best!")
+		if(medicine_skill > SKILL_LEVEL_UNFAMILIAR)
+			cpr_attempt_message = SPAN_NOTICE("You begin performing [cpr_mode] on \the [src].")
+
+		to_chat(H, cpr_attempt_message)
+
+	H.do_attack_animation(src, null, image('icons/hud/mob/generic.dmi', src, "cpr", src.layer + 1))
 	var/starting_pixel_y = pixel_y
 	animate(src, pixel_y = starting_pixel_y + 4, time = 2)
 	animate(src, pixel_y = starting_pixel_y, time = 2)
@@ -251,23 +256,31 @@
 		cpr = FALSE //If it cancelled, cancel it. Simple.
 
 	if(cpr_mode == "Full CPR")
-		cpr_compressions(H)
-		cpr_ventilation(H)
+		cpr_compressions(H, medicine_skill)
+		cpr_ventilation(H, medicine_skill)
 
 	if(cpr_mode == "Compressions")
-		cpr_compressions(H)
+		cpr_compressions(H, medicine_skill)
 
 	if(cpr_mode == "Mouth-to-Mouth")
-		cpr_ventilation(H)
+		cpr_ventilation(H, medicine_skill)
 
 	cpr(H, FALSE, cpr_mode) //Again.
 
-/mob/living/carbon/human/proc/cpr_compressions(mob/living/carbon/human/H)
+/mob/living/carbon/human/proc/cpr_compressions(mob/living/carbon/human/H, medicine_skill)
 	if(is_asystole())
-		if(prob(5 * rand(2, 3)))
+		var/break_probability = 5 * rand(2,3)
+		if(medicine_skill < SKILL_LEVEL_FAMILIAR)
+			break_probability *= 3
+		else if(medicine_skill < SKILL_LEVEL_TRAINED)
+			break_probability *= 1.5
+
+		if(prob(break_probability))
 			var/obj/item/organ/external/chest = get_organ(BP_CHEST)
 			if(chest)
 				chest.fracture()
+				if(medicine_skill < SKILL_LEVEL_FAMILIAR)
+					to_chat(H, FONT_HUGE(SPAN_DANGER("Something crunches under your hands...!")))
 
 		var/obj/item/organ/internal/heart/heart = internal_organs_by_name[BP_HEART]
 		if(heart)
@@ -276,7 +289,7 @@
 		if(stat != DEAD && prob(10 * rand(0.5, 1)))
 			resuscitate()
 
-/mob/living/carbon/human/proc/cpr_ventilation(mob/living/carbon/human/H)
+/mob/living/carbon/human/proc/cpr_ventilation(mob/living/carbon/human/H, medicine_skill)
 	if(!H.check_has_mouth())
 		to_chat(H, SPAN_WARNING("You don't have a mouth, you cannot do mouth-to-mouth resuscitation!"))
 		return
@@ -298,6 +311,12 @@
 	if(L)
 		var/datum/gas_mixture/breath = H.get_breath_from_environment()
 		var/fail = L.handle_breath(breath, 1)
+
+		if(medicine_skill == SKILL_LEVEL_UNFAMILIAR)
+			fail = prob(80)
+			if(fail)
+				to_chat(H, SPAN_DANGER("No... that wasn't how you do it!"))
+
 		if(!fail)
 			if(!L.is_bruised() || (L.is_bruised() && L.rescued))
 				losebreath = 0

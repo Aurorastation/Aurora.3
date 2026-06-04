@@ -6,12 +6,13 @@
 	name = "pylon"
 	desc = "A floating crystal that hums with an unearthly energy."
 	icon_state = "pylonbase"
-	var/isbroken = FALSE
+	light_system = MOVABLE_LIGHT
 	light_range = 5
 	light_color = "#3e0000"
-	var/pylonmode = PYLON_IDLE
+	maxhealth = 30
+	anchored = FALSE
 
-	var/damagetaken = 0
+	var/pylonmode = PYLON_IDLE
 
 	///Number of empowered, higher-damage shots remaining
 	var/empowered = 0
@@ -28,6 +29,8 @@
 
 	var/mob/living/target
 
+	var/isbroken = FALSE
+
 	/**
 	 * Number of times handle_firing has been called without finding anything to shoot at
 	 *
@@ -42,21 +45,17 @@
 
 	var/process_interval = 1
 	var/ticks
-	anchored = FALSE
 
-/obj/structure/cult/pylon/condition_hints(mob/user, distance, is_adjacent)
-	. = list()
-	. = ..()
-	if(damagetaken)
-		switch(damagetaken)
-			if(1 to 8)
-				. += SPAN_WARNING("It has very faint hairline fractures.")
-			if(8 to 20)
-				. += SPAN_WARNING("It has several cracks across its surface.")
-			if(20 to 30)
-				. += SPAN_WARNING("It is chipped and deeply cracked, it may shatter with much more pressure.")
-			if(30 to INFINITY)
-				. += SPAN_DANGER("It is almost cleaved in two, the pylon looks like it will fall to shards under its own weight.")
+/obj/structure/cult/pylon/get_damage_condition_hints(mob/user, distance, is_adjacent)
+	switch(health)
+		if(26 to 30)
+			. = SPAN_WARNING("It has very faint hairline fractures.")
+		if(16 to 25)
+			. = SPAN_WARNING("It has several cracks across its surface.")
+		if(8 to 15)
+			. = SPAN_WARNING("It is chipped and deeply cracked, it may shatter with much more pressure.")
+		if(1 to 7)
+			. = SPAN_DANGER("It is almost cleaved in two, the pylon looks like it will fall to shards under its own weight.")
 
 /obj/structure/cult/pylon/antagonist_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -154,8 +153,8 @@
 		if(2)
 			if((ticks % process_interval) == 0)
 				handle_firing()
-				if(damagetaken && prob(50) && empowered > 0)
-					damagetaken = max(0, damagetaken-1) //An empowered pylon slowly self repairs
+				if(prob(50) && empowered > 0)
+					add_health(1)
 					empowered = max(0, empowered - 0.2)
 					if(prob(10))
 						visible_message(SPAN_WARNING("Cracks in the [src] gradually seal as new crystalline matter grows to fill them."))
@@ -442,19 +441,19 @@
 	if(!damage)
 		return
 
-	damagetaken += damage
+	add_damage(damage, weapon = source)
 
 	if(!isbroken)
 		if(user)
 			user.do_attack_animation(src)
-		if(prob(damagetaken * 0.75))
+		if(prob(maxhealth - health * 0.75))
 			shatter()
 		else
 			if(user && !ranged)
 				to_chat(user, SPAN_WARNING("You hit the pylon!"))
 			playsound(get_turf(src), 'sound/effects/glass_hit.ogg', 75, 1)
 	else
-		if(prob(damagetaken))
+		if(prob(health))
 			if(user)
 				to_chat(user, SPAN_WARNING("You pulverize what was left of the pylon!"))
 			qdel(src)
@@ -466,15 +465,14 @@
 
 /obj/structure/cult/pylon/proc/shatter()
 	visible_message(SPAN_DANGER("The pylon shatters into shards of crystal!"), SPAN_WARNING("You hear a tinkle of crystal shards."))
-	playsound(get_turf(src), /singleton/sound_category/glass_break_sound, 75, 1)
+	playsound(get_turf(src), SFX_BREAK_GLASS, 75, 1)
 	isbroken = TRUE
 	if(pylonmode == PYLON_TURRET)
 		//If the pylon had a soul in it then it plays a creepy evil sound as the soul is released
 		var/list/possibles = list('sound/hallucinations/far_noise.ogg',
 		'sound/hallucinations/growl3.ogg',
 		'sound/hallucinations/veryfar_noise.ogg',
-		'sound/hallucinations/wail.ogg',
-		'sound/voice/hiss5.ogg')
+		'sound/hallucinations/wail.ogg')
 		playsound(get_turf(src), pick(possibles), 50, 1)
 
 	pylonmode = PYLON_IDLE //A broken pylon loses its soul. Even if repaired it will need a new sacrifice to re-empower it
@@ -497,14 +495,14 @@
 			to_chat(user, SPAN_NOTICE("You weave forgotten magic, summoning the shards of the crystal and knitting them anew, until it hovers flawless once more."))
 		isbroken = 0
 		density = 1
-	else if(damagetaken > 0)
+	else if(health < maxhealth)
 		to_chat(user, SPAN_NOTICE("You meld the crystal lattice back into integrity, sealing over the cracks until they never were."))
 	else
 		to_chat(user, SPAN_NOTICE("The crystal lights up at your touch."))
 
 	process_interval = 1 //Wake up the crystal
 	notarget = 0
-	damagetaken = 0
+	set_health(maxhealth)
 	update_icon()
 
 /obj/structure/cult/pylon/update_icon()
@@ -513,12 +511,14 @@
 		anchored = TRUE
 		if(empowered)
 			AddOverlays("crystal_overcharge")
-			set_light(7, 3, l_color = "#a160bf")
+			set_light_range_power_color(4, 1.5, "#a160bf")
 		else
-			set_light(6, 3, l_color = "#3e0000")
+			set_light_range_power_color(3, 1.5, "#3e0000")
 			AddOverlays("crystal_turret")
+		set_light_on(TRUE)
 	else if(!isbroken)
-		set_light(5, 2, l_color = "#3e0000")
+		set_light_range_power_color(2, 1, "#3e0000")
+		set_light_on(TRUE)
 		AddOverlays("crystal_idle")
 		if(pylonmode == PYLON_AWAITING_SACRIFICE)
 			anchored = TRUE
@@ -526,7 +526,7 @@
 			anchored = FALSE
 	else
 		anchored = FALSE
-		set_light(0)
+		set_light_on(FALSE)
 
 #undef PYLON_IDLE
 #undef PYLON_AWAITING_SACRIFICE

@@ -5,11 +5,6 @@
 GLOBAL_DATUM_INIT(global_hud, /datum/global_hud, new)
 GLOBAL_LIST(global_huds)
 
-/datum/hud/var/atom/movable/screen/grab_intent
-/datum/hud/var/atom/movable/screen/hurt_intent
-/datum/hud/var/atom/movable/screen/disarm_intent
-/datum/hud/var/atom/movable/screen/help_intent
-
 /datum/global_hud
 	var/atom/movable/screen/vr_control
 	var/atom/movable/screen/druggy
@@ -51,7 +46,7 @@ GLOBAL_LIST(global_huds)
 	blurry.alpha = 100
 
 	vr_control = new /atom/movable/screen()
-	vr_control.icon = 'icons/mob/screen/full.dmi'
+	vr_control.icon = 'icons/hud/mob/full.dmi'
 	vr_control.icon_state = "vr_control"
 	vr_control.screen_loc = "1,1"
 	vr_control.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
@@ -111,12 +106,11 @@ GLOBAL_LIST(global_huds)
 		O.layer = IMPAIRED_LAYER
 		O.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
-/*
-	The hud datum
-	Used to show and hide huds for all the different mob types,
-	including inventories and item quick actions.
-*/
-
+/**
+ *	The hud datum
+ *	Used to show and hide huds for all the different mob types,
+ *	including inventories and item quick actions.
+ */
 /datum/hud
 	///The mob that possesses the HUD
 	var/mob/mymob
@@ -136,20 +130,51 @@ GLOBAL_LIST(global_huds)
 	///Boolean, if the action buttons are hidden
 	var/action_buttons_hidden = FALSE
 
+	/*
+		STOP ADDING SNOWFLAKE HUD ELEMENTS LIKE /datum/hud/var/atom/movable/screen/help_intent
+		IN DIFFERENT FILES ENTIRELY. IF YOU ARE ADDING A NEW HUD ELEMENT TO THIS, PUT IT IN THIS FILE UNDER THIS LIST,
+		AND INCLUDE A QDEL_NULL() FOR IT IN THE DESTROY PROC.
+																														*/
 	var/atom/movable/screen/blobpwrdisplay
 	var/atom/movable/screen/blobhealthdisplay
 	var/atom/movable/screen/action_intent
 	var/atom/movable/screen/movement_intent/move_intent
+	var/atom/movable/screen/grab_intent
+	var/atom/movable/screen/hurt_intent
+	var/atom/movable/screen/disarm_intent
+	var/atom/movable/screen/help_intent
 	var/list/hand_hud_objects
 
 	var/list/adding
 	var/list/other
 	var/list/atom/movable/screen/hotkeybuttons
 
+	/// See "appearance_flags" in the ref, assoc list of "[plane]" = object
+	var/list/atom/movable/screen/plane_master/plane_masters = list()
+	///Assoc list of controller groups, associated with key string group name with value of the plane master controller ref
+	var/list/atom/movable/plane_master_controller/plane_master_controllers = list()
+
 	var/atom/movable/screen/movable/action_button/hide_toggle/hide_actions_toggle
 
 /datum/hud/New(mob/owner)
 	mymob = owner
+
+	for(var/mytype in subtypesof(/atom/movable/screen/plane_master) - /atom/movable/screen/plane_master/rendering_plate - /atom/movable/screen/plane_master/open_space)
+		var/atom/movable/screen/plane_master/instance = new mytype()
+		plane_masters["[instance.plane]"] = instance
+		if(owner.client)
+			instance.backdrop(mymob)
+
+	for(var/z_level in 0 to OPEN_SPACE_PLANE_END - OPEN_SPACE_PLANE_START) //aurora snowflake: our openspace system works bottom up, not top down like CM's
+		var/atom/movable/screen/plane_master/open_space/instance = new(null, z_level)
+		plane_masters["[instance.plane]"] = instance
+		if(owner.client)
+			instance.backdrop(mymob)
+
+	for(var/mytype in subtypesof(/atom/movable/plane_master_controller))
+		var/atom/movable/plane_master_controller/controller_instance = new mytype(null,src)
+		plane_master_controllers[controller_instance.name] = controller_instance
+
 	instantiate()
 	..()
 
@@ -167,7 +192,26 @@ GLOBAL_LIST(global_huds)
 	hotkeybuttons = null
 //	item_action_list = null // ?
 	mymob = null
+	QDEL_NULL(blobpwrdisplay)
+	QDEL_NULL(blobhealthdisplay)
+	QDEL_NULL(r_hand_hud_object)
+	QDEL_NULL(l_hand_hud_object)
+	QDEL_NULL(action_intent)
+	QDEL_NULL(move_intent)
+	QDEL_NULL(grab_intent)
+	QDEL_NULL(hurt_intent)
+	QDEL_NULL(disarm_intent)
+	QDEL_NULL(help_intent)
 
+	adding?.Cut()
+	other?.Cut()
+	QDEL_LIST(hotkeybuttons)
+
+	QDEL_LIST_ASSOC_VAL(plane_masters)
+	QDEL_LIST_ASSOC_VAL(plane_master_controllers)
+	QDEL_NULL(hide_actions_toggle)
+
+	return ..()
 	QDEL_NULL_LIST(hand_hud_objects)
 
 	. = ..()
@@ -322,6 +366,15 @@ GLOBAL_LIST(global_huds)
 
 	mymob.instantiate_hud(src, ui_style, ui_color, ui_alpha)
 
+	plane_masters_update()
+
+/datum/hud/proc/plane_masters_update()
+	// Plane masters are always shown to OUR mob, never to observers
+	for(var/thing in plane_masters)
+		var/atom/movable/screen/plane_master/PM = plane_masters[thing]
+		PM.backdrop(mymob)
+		mymob.client.add_to_screen(PM)
+
 /datum/hud/proc/rebuild_hands(list/adding, list/removing, skip_client_update = FALSE)
 	if(isnull(removing))
 		if(!skip_client_update)
@@ -446,6 +499,7 @@ GLOBAL_LIST(global_huds)
 
 	hud_used.hidden_inventory_update()
 	hud_used.persistant_inventory_update()
+	hud_used.reorganize_alerts()
 	update_action_buttons()
 
 //Similar to button_pressed_F12() but keeps zone_sel, gun_setting_icon, and healths.
