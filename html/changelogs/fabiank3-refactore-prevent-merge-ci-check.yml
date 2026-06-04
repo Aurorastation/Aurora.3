@@ -1,0 +1,6 @@
+author: FabianK3
+
+delete-after: True
+
+changes:
+  - refactor: "Update the do-not-merge GitHub CI check to fail on merge, not while the PR is open."
