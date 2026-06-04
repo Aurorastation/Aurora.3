@@ -179,9 +179,6 @@
 	psych_meds["Orastabin pills"] = /obj/item/storage/pill_bottle/orastabin
 	psych_meds["Parvosil pills"] = /obj/item/storage/pill_bottle/parvosil
 	psych_meds["Corophenidate pills"] = /obj/item/storage/pill_bottle/corophenidate
-	psych_meds["Psi-protect pills"] = /obj/item/storage/pill_bottle/psi_protect/yomi_genetics
-	psych_meds["Psi-protect pills (cheap)"] = /obj/item/storage/pill_bottle/psi_protect/yomi_genetics/cheap
-	psych_meds["Psi-protect pills (expensive)"] = /obj/item/storage/pill_bottle/psi_protect/yomi_genetics/expensive
 	gear_tweaks += new /datum/gear_tweak/path(psych_meds)
 
 /datum/gear/drugs_meds/otc
@@ -217,3 +214,16 @@
 	legal_rec["Wulumunusha extract bottle"] = /obj/item/reagent_containers/food/condiment/wulumunusha
 	legal_rec["Ambrosia extract bottle"] = /obj/item/reagent_containers/food/condiment/ambrosia
 	gear_tweaks += new /datum/gear_tweak/path(legal_rec)
+
+/datum/gear/drugs_meds/psi_pills
+	display_name = "psi-protect pill selection"
+	description = "Select from the different kinds of YomiGenetics Psi-protect pills, used to protect against Acute Debilitating Psionic Interference and to treat other psionic related conditions such as psionic echoes."
+	path = /obj/item/storage/pill_bottle/psi_protect/yomi_genetics
+
+/datum/gear/drugs_meds/psi_pills/New()
+	..()
+	var/list/psipills = list()
+	psipills["Psi-protect Broad-Use pills"] = /obj/item/storage/pill_bottle/psi_protect/yomi_genetics/cheap
+	psipills["Psi-protect Personalized pills"] = /obj/item/storage/pill_bottle/psi_protect/yomi_genetics
+	psipills["Psi-protect Personalized Gold pills"] = /obj/item/storage/pill_bottle/psi_protect/yomi_genetics/expensive
+	gear_tweaks += new /datum/gear_tweak/path(psipills)
