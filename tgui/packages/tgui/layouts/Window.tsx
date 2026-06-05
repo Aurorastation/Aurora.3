@@ -75,7 +75,7 @@ export function Window(props: Props) {
       const updateGeometry = () => {
         const options = {
           ...config.window,
-          size: DEFAULT_SIZE,
+          size: config.window?.size ?? DEFAULT_SIZE,
         };
 
         if (width && height) {

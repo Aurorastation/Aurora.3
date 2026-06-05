@@ -28,7 +28,7 @@ export const PlayerPanel = (props) => {
   const [searchTerm, setSearchTerm] = useLocalState<string>(`searchTerm`, ``);
 
   return (
-    <Window theme="admin" height={960} width={600}>
+    <Window theme="admin">
       <Window.Content scrollable>
         <Section
           title="Players"
