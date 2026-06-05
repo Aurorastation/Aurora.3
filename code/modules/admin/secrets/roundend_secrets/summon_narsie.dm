@@ -1,7 +1,7 @@
-/datum/admin_secret_item/final_solution/summon_narsie
+/datum/admin_secret_item/roundend_secret/summon_narsie
 	name = "Summon Nar-Sie"
 
-/datum/admin_secret_item/final_solution/summon_narsie/execute(var/mob/user)
+/datum/admin_secret_item/roundend_secret/summon_narsie/execute(var/mob/user)
 	. = ..()
 	if(!.)
 		return

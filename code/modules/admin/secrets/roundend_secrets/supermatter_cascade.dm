@@ -1,7 +1,7 @@
-/datum/admin_secret_item/final_solution/supermatter_cascade
+/datum/admin_secret_item/roundend_secret/supermatter_cascade
 	name = "Supermatter Cascade"
 
-/datum/admin_secret_item/final_solution/supermatter_cascade/execute(var/mob/user)
+/datum/admin_secret_item/roundend_secret/supermatter_cascade/execute(var/mob/user)
 	. = ..()
 	if(!.)
 		return
