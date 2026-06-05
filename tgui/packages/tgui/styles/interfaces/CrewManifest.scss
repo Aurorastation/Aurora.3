@@ -1,29 +1,52 @@
 $department_map: (
-  'Cargo': var(--color-brown),
-  'Command': var(--color-yellow),
-  'Security': var(--color-red),
-  'Engineering': var(--color-orange),
-  'Medical': var(--color-teal),
-  'Misc': var(--color-white),
-  'Science': var(--color-purple),
-  'Service': var(--color-green),
-  'Silicon': var(--color-pink),
+  'cargo': var(--color-brown),
+  'operations': var(--color-brown),
+  'command': var(--color-yellow),
+  'command-support': var(--color-blue),
+  'security': var(--color-red),
+  'engineering': var(--color-orange),
+  'medical': var(--color-teal),
+  'misc': var(--color-white),
+  'miscellaneous': var(--color-white),
+  'science': var(--color-purple),
+  'service': var(--color-green),
+  'civilian': var(--color-green),
+  'silicon': var(--color-pink),
+  'equipment': var(--color-pink),
+  'off-ship': var(--color-white),
 );
 
-.CrewManifest {
-  @each $department-name, $color-value in $department_map {
-    &--#{$department-name} {
-      .Section {
-        &__title {
-          border-color: $color-value;
-        }
-        &__titleText {
-          color: $color-value;
-        }
+$manifest_status_map: (
+  'active': var(--color-green),
+  'online': var(--color-green),
+  'away-mission': var(--color-blue),
+  'ssd': var(--color-yellow),
+  'deceased': var(--color-red),
+  'missing': var(--color-orange),
+  'physically-unfit': var(--color-orange),
+  'disabled': var(--color-grey),
+);
+
+@each $department-name, $color-value in $department_map {
+  .border-dept-#{$department-name} {
+    .Section {
+      &__title {
+        border-color: $color-value;
+      }
+      &__titleText {
+        color: $color-value;
       }
     }
   }
+}
 
+@each $status-name, $color-value in $manifest_status_map {
+  .manifest-indicator-#{$status-name} {
+    color: $color-value;
+  }
+}
+
+.CrewManifest {
   &__Cell {
     padding: var(--space-s) 0;
 
