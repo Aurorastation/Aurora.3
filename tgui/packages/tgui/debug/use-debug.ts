@@ -1,7 +1,7 @@
 import { globalEvents } from 'tgui-core/events';
 import { acquireHotKey } from 'tgui-core/hotkeys';
 import { KEY_BACKSPACE, KEY_F11, KEY_F12 } from 'tgui-core/keycodes';
-import { debugLayoutAtom, kitchenSinkAtom, store } from '../events/store';
+import { kitchenSinkAtom, store } from '../events/store';
 
 export function setDebugHotKeys(): void {
   acquireHotKey(KEY_F11);
@@ -10,10 +10,6 @@ export function setDebugHotKeys(): void {
   globalEvents.on('keydown', (evt) => {
     if (evt.code === KEY_F11) {
       store.set(kitchenSinkAtom, (prev) => !prev);
-    }
-
-    if (evt.code === KEY_F12) {
-      store.set(debugLayoutAtom, (prev) => !prev);
     }
 
     if (evt.ctrl && evt.alt && evt.code === KEY_BACKSPACE) {
