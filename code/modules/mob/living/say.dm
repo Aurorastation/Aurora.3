@@ -259,15 +259,8 @@ var/list/channel_to_radio_key = new
 	text = trim(text)
 	text = formalize_text(text)
 
-	var/datum/say_message/msg
-	if(copytext(text, 1, 2) == "!")	// audible emote
-		msg = new
-		msg.speaker = src
-		msg.raw_message = text
-		msg.collapse_to(GLOB.all_languages[LANGUAGE_NOISE], trim_left(copytext(text, 2)))
-	else
-		var/datum/language/forced = (speaking && !speaking.always_parse_language) ? speaking : null
-		msg = build_say_message(text, forced)
+	var/datum/language/forced = (speaking && !speaking.always_parse_language) ? speaking : null
+	var/datum/say_message/msg = build_say_message(text, forced)
 
 	if(!length(msg.to_string()))
 		return FALSE

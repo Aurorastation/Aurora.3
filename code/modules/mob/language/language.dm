@@ -207,9 +207,6 @@
 /datum/language/proc/format_message_plain(message, verb)
 	return "[verb], \"[capitalize(message)]\""
 
-/datum/language/proc/format_message_radio(message, verb)
-	return "[verb], [colourize("\"[capitalize(message)]\"")]"
-
 /// Wraps text in this language's colour span.
 /datum/language/proc/colourize(message)
 	return "<span class='[colour]'>[message]</span>"

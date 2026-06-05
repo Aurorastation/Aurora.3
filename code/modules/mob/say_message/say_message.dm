@@ -57,29 +57,71 @@
 	/// Radio envelope parts. This must live here for performance reasons pending a telecomms rewrite.
 	var/list/radio_parts
 
+/// Renders each segment as the listener perceives it. Returns list(text, is_emote) per segment.
+/datum/say_message/proc/render_pieces(mob/listener, clarity = CLARITY_CLEAR)
+	var/list/pieces = list()
+	var/cap_next = TRUE
+	for(var/datum/say_segment/segment as anything in segments)
+		var/is_emote = (segment.language?.flags & INNATE) ? TRUE : FALSE
+		var/rendered = segment.plain_text_for(listener, speaker)
+		if(clarity == CLARITY_FAINT && !is_emote)
+			rendered = length(rendered) ? stars(rendered) : ""
+		if(!length(rendered))
+			continue
+		if(is_emote)
+			cap_next = TRUE			// emote re-arms caps for the next spoken run
+		else if(cap_next)
+			rendered = capitalize(rendered)
+			cap_next = FALSE
+		if(segment.language)
+			rendered = segment.language.colourize(rendered)
+		pieces += list(list(rendered, is_emote))
+	return pieces
+
+/// Quotes the given text if it's not an emote.
+/proc/quote_run(text, emote)
+	text = trim(text)
+	if(!length(text))
+		return ""
+	return emote ? text : "\"[text]\""
+
+/// Renders the body. Speech is quoted. Returns list(body, leads_with_emote).
+/datum/say_message/proc/render_body(mob/listener, clarity = CLARITY_CLEAR)
+	var/list/pieces = render_pieces(listener, clarity)
+	if(!length(pieces))
+		return list("", FALSE)
+
+	var/leads_with_emote = pieces[1][2]
+	var/list/runs = list()
+	var/list/cur = list()
+	var/cur_emote = pieces[1][2]
+	for(var/list/piece in pieces)
+		if(length(cur) && piece[2] != cur_emote)
+			var/q = quote_run(jointext(cur, ""), cur_emote)
+			if(length(q))
+				runs += q
+			cur = list()
+		cur_emote = piece[2]
+		cur += piece[1]
+	var/last = quote_run(jointext(cur, ""), cur_emote)
+	if(length(last))
+		runs += last
+
+	var/body = listener.hallucinate_heard(jointext(runs, " "), speaker)
+	if(singing && length(body))
+		body = "[sing_note] <span class='singing'>[body]</span> [sing_note]"
+	return list(body, leads_with_emote)
+
 /// Returns the complete message as the given listener perceives it.
 /datum/say_message/proc/text_for(mob/listener, clarity = CLARITY_CLEAR)
 	if(clarity == CLARITY_DROWSY)
 		return drowsy_text_for(listener)
 
-	var/list/plain = list()
-	for(var/datum/say_segment/segment as anything in segments)
-		plain += segment.plain_text_for(listener, speaker)
-
-	// INNATE (audible emotes) are narration, never garbled even when faint
-	if(clarity == CLARITY_FAINT && !(single_language?.flags & INNATE))
-		var/joined = jointext(plain, "")
-		return length(joined) ? stars(joined) : ""
-
 	var/list/out = list()
-	var/first = TRUE
-	for(var/i in 1 to length(segments))
-		var/datum/say_segment/segment = segments[i]
-		var/rendered = plain[i]
-		if(first && length(rendered))
-			rendered = capitalize(rendered)
-			first = FALSE
-		out += segment.language ? segment.language.colourize(rendered) : rendered
+	for(var/list/piece in render_pieces(listener, clarity))
+		out += piece[1]
+	if(!length(out))
+		return ""
 	var/body = listener.hallucinate_heard(jointext(out, ""), speaker)
 	if(singing && length(body))
 		body = "[sing_note] <span class='singing'>[body]</span> [sing_note]"

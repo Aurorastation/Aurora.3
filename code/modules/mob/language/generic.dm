@@ -2,8 +2,8 @@
 /datum/language/noise
 	name = LANGUAGE_NOISE
 	desc = "Noises."
-	key = ""
-	flags = RESTRICTED | NONGLOBAL | INNATE | NO_TALK_MSG | NO_STUTTER | TCOMSSIM
+	key = "e"
+	flags = RESTRICTED | INNATE | NO_TALK_MSG | NO_STUTTER | TCOMSSIM
 	allow_accents = TRUE
 
 /datum/language/noise/format_message(message, verb)
@@ -11,9 +11,6 @@
 
 /datum/language/noise/format_message_plain(message, verb)
 	return message
-
-/datum/language/noise/format_message_radio(message, verb, accent)
-	return colourize(message)
 
 /datum/language/noise/get_talkinto_msg_range(message)
 	// if you make a loud noise (screams etc), you'll be heard from 4 tiles over instead of two

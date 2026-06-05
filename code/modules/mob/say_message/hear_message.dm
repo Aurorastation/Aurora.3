@@ -12,7 +12,8 @@
 	if(msg.say_mode != SAYMODE_RADIO && !(msg.single_language?.flags & PRESSUREPROOF) && !isghost(src))
 		var/turf/T = get_turf(src)
 		if(T)
-			var/pressure = SAFE_XGM_PRESSURE(T.return_air())
+			var/datum/gas_mixture/air = T.return_air()
+			var/pressure = SAFE_XGM_PRESSURE(air)
 			if(pressure < SOUND_MINIMUM_PRESSURE && get_dist(speaker, src) > 1)
 				if(get_dist(speaker, src) <= 4 && !msg.italics)
 					to_chat(src, SPAN_NOTICE("[speaker?.name] talks, but you're in a vacuum. Maybe if you were close enough for the sound to transmit through touch..."))
@@ -55,17 +56,23 @@
 	return (detached && gestalt) ? TRUE : FALSE
 
 /// Builds the correct envelope around the body depending on SAYMODE.
-/mob/proc/format_envelope(datum/say_message/msg, body, muffled = FALSE)
+/mob/proc/format_envelope(datum/say_message/msg, muffled = FALSE, clarity = CLARITY_CLEAR)
 	switch(msg.say_mode)
 		if(SAYMODE_SIGN)
-			return format_envelope_sign(msg, body)
+			return format_envelope_sign(msg, msg.text_for(src, clarity))
 		if(SAYMODE_RADIO)
-			return format_envelope_radio(msg, body)
+			return format_envelope_radio(msg, clarity)
 		else
-			return format_envelope_spoken(msg, body, muffled)
+			return format_envelope_spoken(msg, clarity, muffled)
 
 /// Wraps a say envelope around the message body.
-/mob/proc/format_envelope_spoken(datum/say_message/msg, body, muffled = FALSE)
+/mob/proc/format_envelope_spoken(datum/say_message/msg, clarity = CLARITY_CLEAR, muffled = FALSE)
+	var/list/rendered = msg.render_body(src, clarity)
+	var/body = rendered[1]
+	if(!length(body))
+		return ""
+	var/emote_led = rendered[2]
+
 	var/mob/speaker = msg.speaker
 	var/speaker_name = speaker?.name
 	if(ishuman(speaker))
@@ -90,12 +97,13 @@
 		if((client.prefs.toggles & CHAT_GHOSTEARS) && (get_turf(speaker) in view(src)))
 			body = "<b>[body]</b>"
 
+	var/leading = emote_led ? "" : "[msg.verb], "
 	var/font_open = msg.font_size ? "<font size='[msg.font_size]'>" : ""
 	var/font_close = msg.font_size ? "</font>" : ""
-	return "[track][accent_icon ? accent_icon + " " : ""][font_open]<span class='game say'><span class='name'>[speaker_name]</span>[msg.alt_name] [msg.verb], <span class='message'>\"[body]\"</span></span>[font_close]"
+	return "[track][accent_icon ? accent_icon + " " : ""][font_open]<span class='game say'><span class='name'>[speaker_name]</span>[msg.alt_name] [leading]<span class='message'>[body]</span></span>[font_close]"
 
 /// Wraps a radio envelope around the message body.
-/mob/proc/format_envelope_radio(datum/say_message/msg, body)
+/mob/proc/format_envelope_radio(datum/say_message/msg, clarity = CLARITY_CLEAR)
 	var/mob/speaker = msg.speaker
 	var/hard_to_hear = (msg.base_clarity == CLARITY_FAINT)
 	var/list/radio_parts = msg.radio_parts
@@ -161,12 +169,12 @@
 				speaker_name = "[speaker.real_name] ([speaker_name])"
 		track = "[ghost_follow_link(speaker, src)] "
 
-	var/formatted
-	if(language)
-		formatted = language.format_message_radio(body, msg.verb)
-	else
-		formatted = "[msg.verb], <span class=\"body\">\"[body]\"</span>"
-	formatted += part_c
+	var/list/rendered = msg.render_body(src, clarity)
+	var/body = rendered[1]
+	if(!length(body))
+		return ""
+	var/leading = rendered[2] ? "" : "[msg.verb], "
+	var/formatted = "[leading]<span class='message'>[body]</span>[part_c]"
 
 	if(istype(src, /mob/living/silicon/ai) && track && !hard_to_hear)
 		return "[part_a][track][part_b][formatted]"
@@ -213,25 +221,26 @@
 	if(msg.say_mode != SAYMODE_RADIO && isghost(src) && speaker && !speaker.client && (client?.prefs.toggles & CHAT_GHOSTEARS) && !(speaker in view(src)))
 		return
 
-	var/body = msg.text_for(src, clarity)
-	if(!length(body))
-		return
-
 	if(clarity == CLARITY_DROWSY)
-		on_hear_message(body)
+		var/drowsy = msg.text_for(src, clarity)
+		if(length(drowsy))
+			on_hear_message(drowsy)
 		return
-
 
 	// In thin air, non-pressureproof languages are muffled.
 	var/muffled = FALSE
 	var/sound_vol = msg.sound_vol
 	if(msg.say_mode != SAYMODE_RADIO && !isghost(src) && !(msg.single_language?.flags & PRESSUREPROOF))
 		var/turf/T = get_turf(src)
-		if(T && SAFE_XGM_PRESSURE(T.return_air()) < ONE_ATMOSPHERE * 0.4)
-			muffled = TRUE
-			sound_vol *= 0.5
+		if(T)
+			var/datum/gas_mixture/air = T.return_air()
+			if(SAFE_XGM_PRESSURE(air) < ONE_ATMOSPHERE * 0.4)
+				muffled = TRUE
+				sound_vol *= 0.5
 
-	var/envelope = format_envelope(msg, body, muffled)
+	var/envelope = format_envelope(msg, muffled, clarity)
+	if(!length(envelope))
+		return
 	on_hear_message(envelope)
 	// This is a special case for internal mobs like cortical borers.
 	// They see through the eyes of their host so we must relay the message.

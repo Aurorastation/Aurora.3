@@ -201,6 +201,9 @@
 		return say_message
 
 	var/datum/language/current = get_default_language()
+	if(copytext(message, 1, 2) == "!")
+		current = GLOB.all_languages[LANGUAGE_NOISE]
+		message = trim_left(copytext(message, 2))
 
 	var/regex/trigger = get_language_trigger_regex()
 	trigger.next = 1
