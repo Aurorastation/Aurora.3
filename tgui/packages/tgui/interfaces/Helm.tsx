@@ -261,7 +261,6 @@ const ManualSection = (act, data) => (
         gap: '0.75rem',
         gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
       }}
-      border="1px solid"
     >
       <ManualControl label="Roll Port">
         <Button
