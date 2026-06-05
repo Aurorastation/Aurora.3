@@ -58,6 +58,8 @@ SUBSYSTEM_DEF(plants)
 	for(var/type in typesof(/datum/seed)-/datum/seed)
 		var/datum/seed/S = new type
 		seeds[S.name] = S
+		if(S.kitchen_tag)
+			seeds_by_kitchen_tag[S.kitchen_tag] = S
 		S.uid = "[seeds.len]"
 		S.roundstart = 1
 
