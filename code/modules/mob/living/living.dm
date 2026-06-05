@@ -929,7 +929,7 @@ default behaviour is:
 	QDEL_LIST(auras)
 	QDEL_NULL(psi)
 	QDEL_NULL(aiming)
-	QDEL_LIST(aimed_at_by)
+	aimed_at_by?.Cut()
 	//Remove contained mobs
 	if(loc)
 		for(var/mob/M in contents)
@@ -942,7 +942,7 @@ default behaviour is:
 	available_maneuvers?.Cut()
 	default_language = null
 	QDEL_NULL(z_eye)
-	QDEL_NULL(last_weather)
+	last_weather = null
 	return ..()
 
 /mob/living/proc/nervous_system_failure()

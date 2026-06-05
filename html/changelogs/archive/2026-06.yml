@@ -95,3 +95,70 @@
   - bugfix: Fixes Longbow shells exploding when mechs pick them up.
   MattAtlas:
   - admin: Added the Storyteller narrate panel for admins.
+2026-06-04:
+  Fenodyree:
+  - bugfix: Fixes modular lasers improvement cap.
+  - bugfix: Fixes negative initial values being handled incorrectly.
+  - bugfix: Fixes some repair edge cases.
+  - bugfix: Fixes welding repairs not needing eye protection.
+  - bugfix: Fixes gattling laser mod having the wrong improvable variables.
+  - bugfix: Fixes the weapon analyzer printout calculating modlaser stats incorrectly.
+  - bugfix: Fixes high skill users not being able to field repair modlasers.
+  - bugfix: Fixes the weapon analyzer ripping your combitool out of your hand.
+  - bugfix: Fixes the weapon analyzer not being deconstructable.
+  - balance: Drops the per var improvement cap by 50%, multiplicative scaling is no
+      joke.
+  - rscadd: Adds spalling when a projectile punches from a solid turf to an open turf.
+      These are big chunks of shrapnel with low damage and high embed chance.
+  - rscadd: Adds an admin only gun that fires ship weapon ammo.
+  - rscadd: 'Makes several indestructible structures breakable: vending machines,
+      computer frames, window frames and watertanks. They now also leave behind shrapnel
+      instead of just steel sheets.'
+  - rscadd: Adds a negative maim chance, which reduces the chance of decapitation
+      or limb loss.
+  - balance: Reworks shields, they take more power and are generally weaker. In exchange
+      they now block explosions and each generator can be upgraded with research components,
+      in addition to accepting multiple capacitors.
+  - balance: All non-exoplosive ship projectiles got buffs. All projectiles got additional
+      anti-material. Armour piercing shells now penetrate many more things.
+  - balance: Reworked overmap targetting. Shots now spawn on the map edge and aim
+      at their target, instead of spawning near their target and aiming straight forwards.
+  - bugfix: Fixes explosive projectiles destroying the thing they hit before the explosion
+      can happen, causing them not to explode.
+  - bugfix: Fixes projectiles not penetrating windows, because they hit the window
+      frame which was indestructible.
+  - bugfix: Fixes shrapnel getting misnamed, or named twice.
+  - bugfix: Fixes shields having no click delay when attacked with melee weapons.
+  Hellfirejag:
+  - bugfix: Fixed a hard delete caused by worm monsters.
+  - bugfix: Fixed negative dispersion (from high gun skill) sometimes wrapping back
+      around to inaccurate guns again.
+  - bugfix: Comprehensively destroyed an extremely large number of niche hard dels
+      across the entire Atom-Human Hierarchy.
+  - bugfix: Fixed some references being deleted instead of nulled.
+  Hellfirejag, TheGreyWolf:
+  - rscadd: Implemented the Anatomy skill. Anatomy determines the quality of information
+      received when medically examining your own injuries.
+  Llywelwyn:
+  - bugfix: Saved chat logs are now written with the correct text/html file type.
+  - bugfix: Emote markup like *bold* and /italics/ once again renders in chat instead
+      of showing literal tags.
+  - code_imp: Door tests skip qdeleted doors, so they should no longer intermittently
+      fail when landing zone generation clears a ruin.
+  - bugfix: Colour chips in character setup are correctly coloured again.
+  hazelmouse:
+  - bugfix: Removed an erroneous scrubber in the bar.
+  kermit, louiseisnthome:
+  - imageadd: Changes the Reade accent icon from purple splodges to one that represents
+      the gas giant.
+2026-06-05:
+  Baldos:
+  - balance: Added a new box to the uplink that contains 8 shotgun slugs for 2 TC,
+      and reduced the cost of Assault Shotgun's magazines.
+  Hellfirejag:
+  - balance: Tweaked the empathy penalty from mindblankers and PsiProtect drugs to
+      only cut the morale modifiers from Ministry and Leadership in half, rather than
+      fully negate them.
+  TheGreyWolf:
+  - bugfix: Added a changelog editing system that should cause fewer conflicts and
+      more accurate timestamps.

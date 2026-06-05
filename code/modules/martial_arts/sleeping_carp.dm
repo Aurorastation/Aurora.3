@@ -37,7 +37,7 @@
 
 /datum/martial_art/the_sleeping_carp/proc/wristWrench(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	if(!D.stat && !D.stunned && !D.weakened)
-		A.do_attack_animation(D)
+		A.do_attack_animation(D, ATTACK_EFFECT_DISARM)
 		D.visible_message(SPAN_WARNING("[A] grabs [D]'s wrist and wrenches it sideways!"))
 		playsound(get_turf(A), 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 		D.drop_item()
@@ -48,7 +48,7 @@
 
 /datum/martial_art/the_sleeping_carp/proc/backKick(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	if(A.dir == D.dir && !D.stat && !D.weakened)
-		A.do_attack_animation(D)
+		A.do_attack_animation(D, ATTACK_EFFECT_KICK)
 		D.visible_message(SPAN_WARNING("[A] kicks [D] in the back!"))
 		step_to(D,get_step(D,D.dir),1)
 		D.Weaken(4)
@@ -59,7 +59,7 @@
 
 /datum/martial_art/the_sleeping_carp/proc/kneeStomach(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	if(!D.stat && !D.weakened)
-		A.do_attack_animation(D)
+		A.do_attack_animation(D, ATTACK_EFFECT_KICK)
 		D.visible_message(SPAN_WARNING("[A] knees [D] in the stomach!"), \
 							SPAN_DANGER("[A] winds you with a knee in the stomach!"))
 		D.audible_message("<b>[D]</b> gags!")
@@ -73,7 +73,7 @@
 
 /datum/martial_art/the_sleeping_carp/proc/headKick(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	if(!D.stat && !D.weakened)
-		A.do_attack_animation(D)
+		A.do_attack_animation(D, ATTACK_EFFECT_KICK)
 		D.visible_message(SPAN_WARNING("[A] kicks [D] in the head!"), \
 							SPAN_DANGER("[A] kicks you in the jaw!"))
 		D.apply_damage(20, DAMAGE_BRUTE, BP_HEAD)
@@ -86,7 +86,7 @@
 
 /datum/martial_art/the_sleeping_carp/proc/elbowDrop(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	if(D.weakened || D.resting || D.stat)
-		A.do_attack_animation(D)
+		A.do_attack_animation(D, ATTACK_EFFECT_SMASH)
 		D.visible_message(SPAN_DANGER("[A] elbow drops [D]!"))
 		if(D.shock_stage >= 60)
 			D.death() //FINISH HIM!

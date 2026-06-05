@@ -1,5 +1,0 @@
-author: Llywelwyn
-delete-after: True
-changes:
-  - bugfix: "Saved chat logs are now written with the correct text/html file type."
-  - bugfix: "Emote markup like *bold* and /italics/ once again renders in chat instead of showing literal tags."

@@ -96,7 +96,7 @@
 		set_default_attack(species.unarmed_attacks[1])
 
 /mob/living/carbon/human/Destroy(force)
-	QDEL_NULL(ghost_spawner)
+	ghost_spawner = null
 
 	//Srom (Shared Dreaming)
 	srom_pulled_by = null

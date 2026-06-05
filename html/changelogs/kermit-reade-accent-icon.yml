@@ -1,7 +1,0 @@
-################################
-author: kermit, louiseisnthome
-
-delete-after: True
-
-changes:
-  - imageadd: "Changes the Reade accent icon from purple splodges to one that represents the gas giant."
