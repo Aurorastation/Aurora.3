@@ -323,7 +323,7 @@ export function TguiSay() {
           onInput={handleInput}
           onKeyDown={handleKeyDown}
           ref={innerRef}
-          spellCheck={false}
+          spellCheck={true}
           value={value}
         />
       </div>
