@@ -420,18 +420,120 @@
 	default_attack = u_attack
 
 /mob/living/carbon/human/proc/check_self_injuries(include_pain = TRUE, include_visible = TRUE)
-	if(include_visible)
-		visible_message("[src] examines [get_pronoun("himself")].", SPAN_NOTICE("You check yourself for injuries."))
-	else if(include_pain)
-		to_chat(src, SPAN_NOTICE("You take note of how your body feels..."))
+	if (!is_asystole())
+		src.visible_message(
+			SPAN_NOTICE("[src] examines [src.get_pronoun("himself")]."), \
+			SPAN_NOTICE("You start checking yourself for injuries.") \
+			)
 
-	for(var/obj/item/organ/external/org in organs)
-		var/list/status = org.get_injury_status(include_pain, include_visible)
-		if(length(status))
-			to_chat(src, "Your [org.name] is [SPAN_WARNING(english_list(status))].")
-		else if(is_blind() || !include_visible)
-			to_chat(src, "You [SPAN_NOTICE("can't feel anything wrong")] with your [org.name].")
-		else if(!include_pain)
-			to_chat(src, "You [SPAN_NOTICE("can't see anything wrong")] with your [org.name].")
-		else
-			to_chat(src, "Your [org.name] is [SPAN_NOTICE("OK")].")
+		var/anatomy = GET_SKILL_LEVEL(src, ANATOMY_SKILL_COMPONENT)
+		if (!do_after(src, 5 SECONDS * (1 / (anatomy ? anatomy : 1))))
+			to_chat(src, SPAN_WARNING("You must stand still to examine yourself for injuries."))
+			return
+
+		// Set to vanilla-equivalent for people without the skill.
+		if(!anatomy)
+			anatomy = 2
+		var/painful_check = FALSE
+		for(var/obj/item/organ/external/org in organs)
+			var/list/status = list()
+			var/brutedamage = org.brute_dam
+			var/burndamage = org.burn_dam
+
+			// Basic Anatomy 1: All the obvious stuff
+			// Damaged and missing limbs
+			switch(brutedamage)
+				if(1 to 10)
+					status += (anatomy < 3 ? "bruised" : "superficially cut")
+				if(10 to 25)
+					status += (anatomy < 3 ? "wounded" : "moderately injured")
+				if(25 to 50)
+					status += (anatomy < 3 ? "badly injured" : "significantly injured")
+				if(50 to 75)
+					status += (anatomy < 3 ? "severely injured" : "mangled and difficult to move")
+				if(75 to 100)
+					status += (anatomy < 3 ? "extremely injured" : SPAN_DANGER("horribly mangled, and it feels like it may give out at any moment"))
+				if(100 to INFINITY)
+					status += (anatomy < 3 ? "critically injured" : SPAN_DANGER("ruined beyond recognition, and you can barely feel it at all"))
+
+			switch(burndamage)
+				if(1 to 10)
+					status += (anatomy < 3 ? "numb" : "lightly burned")
+				if(10 to 25)
+					status += (anatomy < 3 ? "blistered" : "moderately burned")
+				if(25 to 50)
+					status += (anatomy < 3 ? "peeling away" : "marked by notable partial-thickness burns")
+				if(50 to 75)
+					status += (anatomy < 3 ? "visibly charred" : "covered in extensive partial-thickness burns")
+				if(75 to 100)
+					status += (anatomy < 3 ? "like black leather" : SPAN_DANGER("burned down to deadened, leathery tissue and looks close to being unrecoverable"))
+				if(100 to INFINITY)
+					status += (anatomy < 3 ? "like charcoal" : SPAN_DANGER("charred beyond recognition and may be beyond saving"))
+
+			if(org.is_stump())
+				status += SPAN_DANGER("MISSING")
+			if(org.status & ORGAN_MUTATED)
+				status += "weirdly shapen"
+			if(!org.is_usable())
+				status += "dangling uselessly"
+			// End of basic Anatomy 1.
+
+			// Advanced Anatomy 1: Slightly harder.
+			// Dislocation
+			// Broken limbs
+			// Regular and arterial bleeding are vague
+			// Necrotic is vague
+			if(org.dislocated == 2)
+				status += (anatomy >= 2 ? "dislocated" : "hanging oddly")
+			if(org.status & ORGAN_BROKEN)
+				status += (anatomy < 3 ? "hurts when touched" : "broken")
+				painful_check = TRUE
+			// Anatomy 2 can't distinguish between regular bleeding and arterial.
+			// Bleeding without arterial
+			if(anatomy < 3 && ((org.status & ORGAN_BLEEDING) && !(org.status & ORGAN_ARTERY_CUT)))
+				status += "bleeding"
+			// Bleeding and arterial
+			else if(anatomy < 3 && ((org.status & ORGAN_BLEEDING) && (org.status & ORGAN_ARTERY_CUT)))
+				status += SPAN_DANGER("gushing with blood")
+			// Arterial without bleeding
+			else if(anatomy < 3 && (!(org.status & ORGAN_BLEEDING) && (org.status & ORGAN_ARTERY_CUT)))
+				if(!(org.status & (ORGAN_DEAD | ORGAN_BROKEN)))
+					status += "hurts when touched"
+					painful_check = TRUE
+				status += "swelled and has darkly discolored spots"
+
+			if(anatomy < 3 && (org.status & ORGAN_DEAD))
+				status += "feels numb and pale"
+			// End of advanced Anatomy 1.
+
+			// Anatomy 3: Descriptions start to get more medical.
+			// Necrotic and arterials are plainly visible
+			// Bleeding gets an extra description
+			if(anatomy >= 3)
+				if(org.status & ORGAN_DEAD)
+					status += (anatomy < 4 ? "possibly necrotic" : "visible discoloration of skin that indicates tissue necrosis")
+				// Bleeding & arterial
+				if((org.status & ORGAN_BLEEDING) && (org.status & ORGAN_ARTERY_CUT))
+					status += SPAN_DANGER("spraying blood from a severed artery")
+				// bleeding and no arterial
+				else if((org.status & ORGAN_BLEEDING) && !(org.status & ORGAN_ARTERY_CUT))
+					status += "bandage-ably cut"
+				// arterial and no bleeding
+				else if(!(org.status & ORGAN_BLEEDING) && (org.status & ORGAN_ARTERY_CUT))
+					status += SPAN_DANGER("swollen from an internal arterial bleed")
+			// End of Anatomy 3
+
+			var/output = ""
+			if(length(status))
+				output = "My [org.name] is [SPAN_WARNING("[english_list(status)].")]"
+			else
+				output = (anatomy < 3 ? "My [org.name] feels [SPAN_NOTICE("OK.")]" : "My [org.name] has [SPAN_NOTICE("no visible signs of injuries.")]")
+			if(length(org.implants))
+				output += " [SPAN_WARNING("I can feel something inside it.")]"
+			to_chat(src, output)
+
+		if(painful_check)
+			custom_pain("Pain jolts through your body", 10, FALSE, null, TRUE)
+
+		if((isskeleton(src)) && (!src.w_uniform) && (!src.wear_suit))
+			play_xylophone()
