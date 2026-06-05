@@ -57,7 +57,7 @@ export function relayMiddleware(store) {
   } else {
     acquireHotKey(KEY_F10);
     globalEvents.on('keydown', (key) => {
-      if (key === KEY_F10) {
+      if (key.code === KEY_F10) {
         store.dispatch(openExternalBrowser());
       }
     });
