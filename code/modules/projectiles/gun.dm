@@ -461,7 +461,7 @@ ABSTRACT_TYPE(/obj/item/gun)
 			break
 
 		var/acc = burst_accuracy[min(i, burst_accuracy.len)] - accuracy_decrease
-		var/disp = dispersion[min(i, dispersion.len)] + dispersion_increase
+		var/disp = max(0, dispersion[min(i, dispersion.len)] + dispersion_increase)
 		process_accuracy(projectile, user, target, acc, disp)
 
 		if(pointblank)
