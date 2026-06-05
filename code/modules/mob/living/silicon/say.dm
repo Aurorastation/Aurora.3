@@ -39,8 +39,7 @@
 		whisper(text, primary, say_verb = TRUE, msg = msg)
 		return TRUE
 	if(message_mode == "department")
-		log_say("[key_name(src)] : [text]")
-		return holopad_talk(text, msg.verb, primary)
+		return holopad_talk(msg)
 	else if(message_mode)
 		if(ai_radio.disabledAi || ai_restore_power_routine || stat)
 			to_chat(src, SPAN_DANGER("System Error - Transceiver Disabled."))
@@ -99,19 +98,15 @@
 	return ..()
 
 //For holopads only. Usable by AI.
-/mob/living/silicon/ai/proc/holopad_talk(var/message, verb, datum/language/speaking)
-	log_say("[key_name(src)] : [message]")
-	message = trim(message)
-	if(!message)
+/mob/living/silicon/ai/proc/holopad_talk(datum/say_message/msg)
+	log_say("[key_name(src)] : [msg.raw_message]")
+	if(!length(msg.to_string()))
 		return
 
 	var/obj/structure/machinery/hologram/holopad/H = src.holo
 	if(H?.active_holograms[src])//If there is a hologram and its master is the user.
-		// AI can hear their own message, this formats it for them.
-		if(speaking)
-			to_chat(src, "<i><span class='game say'>Holopad transmitted, <span class='name'>[real_name]</span> [speaking.format_message(message, verb)]</span></i>")
-		else
-			to_chat(src, "<i><span class='game say'>Holopad transmitted, <span class='name'>[real_name]</span> [verb], <span class='message'><span class='body'>\"[message]\"</span></span></span></i>")
+		// AI hears its own message. text_for keeps each language.
+		to_chat(src, "<i><span class='game say'>Holopad transmitted, <span class='name'>[real_name]</span> [msg.verb], <span class='message'><span class='body'>\"[msg.text_for(src)]\"</span></span></span></i>")
 
 		//This is so pAI's and people inside lockers/boxes,etc can hear the AI Holopad, the alternative being recursion through contents.
 		//This is much faster.
@@ -135,9 +130,6 @@
 					hearturfs += get_turf(O)
 					listening_obj |= O
 
-
-			var/datum/say_message/msg = build_say_message(message, speaking)
-			msg.verb = verb
 			for(var/mob/M in GLOB.player_list)
 				if(M.stat == DEAD && M.client?.prefs.toggles & CHAT_GHOSTEARS)
 					M.hear_message(msg)
