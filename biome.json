@@ -64,6 +64,9 @@
 			"complexity": {
 				"noImportantStyles": "off",
 				"useOptionalChain": "off"
+			},
+			"suppressions": {
+				"unused": "off"
 			}
 		}
 	},
