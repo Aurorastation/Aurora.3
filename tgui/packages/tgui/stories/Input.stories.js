@@ -9,11 +9,9 @@ import {
   DraggableControl,
   Icon,
   Input,
-  Knob,
   LabeledList,
   NumberInput,
   Section,
-  Slider,
 } from 'tgui-core/components';
 import { useLocalState } from '../backend';
 
