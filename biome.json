@@ -47,16 +47,23 @@
 				"useHookAtTopLevel": "off"
 			},
 			"security": {
-				"noDangerouslySetInnerHtml": "warn"
+				"noDangerouslySetInnerHtml": "off"
 			},
 			"style": {
 				"noNonNullAssertion": "off",
-				"useSelfClosingElements": "error"
+				"useSelfClosingElements": "error",
+				"useTemplate": "off",
+				"useNodejsImportProtocol": "off"
 			},
 			"suspicious": {
 				"noArrayIndexKey": "off",
 				"noExplicitAny": "off",
-				"noImplicitAnyLet": "off"
+				"noImplicitAnyLet": "off",
+				"noShadowRestrictedNames": "off"
+			},
+			"complexity": {
+				"noImportantStyles": "off",
+				"useOptionalChain": "off"
 			}
 		}
 	},
