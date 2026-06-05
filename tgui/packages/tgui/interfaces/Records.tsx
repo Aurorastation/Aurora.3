@@ -298,13 +298,13 @@ export const ListActive = (props) => {
         )}
       </Tabs>
       <Image
-        width="${64}px"
-        height="${64}px"
+        width="64px"
+        height="64px"
         src={`data:image/jpeg;base64,${data.front}`}
       />
       <Image
-        width="${64}px"
-        height="${64}px"
+        width="64px"
+        height="64px"
         src={`data:image/jpeg;base64,${data.side}`}
       />
       <LabeledList>
