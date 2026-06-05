@@ -87,6 +87,15 @@
 	if(src.desc)
 		. += src.desc
 
+	var/list/tags_list = examine_tags(user)
+	if(length(tags_list))
+		var/tag_string = list()
+		for (var/atom_tag in tags_list)
+			tag_string += (isnull(tags_list[atom_tag]) ? atom_tag : SPAN_TOOLTIP(tags_list[atom_tag], atom_tag))
+		// some regex to ensure that we don't add another "and" if the final element's main text (not tooltip) has one
+		tag_string = english_list(tag_string, and_text = (findtext(tag_string[length(tag_string)], regex(@">.*?and .*?<"))) ? " " : " and ")
+		. += "It is a [tag_string] [examine_descriptor(user)]."
+
 	// Returns a SPAN_* based on health, if configured.
 	var/list/condition_hints = src.condition_hints()
 	if(length(condition_hints))
@@ -144,6 +153,35 @@
 		var/mob/living/carbon/human/H = user
 		if(H.glasses)
 			H.glasses.glasses_examine_atom(src, H)
+
+/// What this atom should be called in examine tags
+/atom/proc/examine_descriptor(mob/user)
+	return "object"
+
+/**
+ * A list of "tags" displayed after atom's description in examine.
+ * This should return an assoc list of tags -> tooltips for them. If item is null, then no tooltip is assigned.
+ *
+ * * TGUI tooltips (not the main text) in chat cannot use HTML stuff at all, so
+ * trying something like `<b><big>ffff</big></b>` will not work for tooltips.
+ *
+ * For example:
+ * ```byond
+ * . = list()
+ * .["small"] = "It is a small item."
+ * .["fireproof"] = "It is made of fire-retardant materials."
+ * .["and conductive"] = "It's made of conductive materials and whatnot. Blah blah blah." // having "and " in the end tag's main text/key works too!
+ * ```
+ * will result in
+ *
+ * It is a *small*, *fireproof* *and conductive* item.
+ *
+ * where "item" is pulled from [/atom/proc/examine_descriptor]
+ */
+/atom/proc/examine_tags(mob/user)
+	. = list()
+
+	SEND_SIGNAL(src, COMSIG_ATOM_EXAMINE_TAGS, user, .)
 
 /**
  * Used to check if "examine_fluff" from the HTML link in examine() is true, i.e. if it was clicked.

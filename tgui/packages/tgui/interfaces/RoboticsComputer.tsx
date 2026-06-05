@@ -1,5 +1,5 @@
+import { NoticeBox } from 'tgui-core/components';
 import { useBackend } from '../backend';
-import { NoticeBox } from '../components';
 import { NtosWindow } from '../layouts';
 import { IPCDiagnostics } from './IPCDiagnostics';
 
@@ -45,8 +45,8 @@ type Limb = {
   max_damage: number;
 };
 
-export const RoboticsComputer = (props, context) => {
-  const { act, data } = useBackend<DiagnosticsData>(context);
+export const RoboticsComputer = (props) => {
+  const { act, data } = useBackend<DiagnosticsData>();
 
   return (
     <NtosWindow resizable>

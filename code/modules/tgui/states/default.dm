@@ -13,7 +13,7 @@
 GLOBAL_DATUM_INIT(default_state, /datum/ui_state/default, new)
 
 /datum/ui_state/default/can_use_topic(src_object, mob/user)
-	return user.default_can_use_topic(src_object) // Call the individual mob-overridden procs.
+	return user?.default_can_use_topic(src_object) // Call the individual mob-overridden procs.
 
 /mob/proc/default_can_use_topic(src_object)
 	return UI_CLOSE // Don't allow interaction by default.
@@ -41,8 +41,11 @@ GLOBAL_DATUM_INIT(default_state, /datum/ui_state/default, new)
 	if(. < UI_INTERACTIVE)
 		return
 
+	if(src_object == src)
+		return UI_INTERACTIVE
+
 	// The AI can interact with anything it can see nearby, or with cameras while wireless control is enabled.
-	if(!control_disabled)
+	if(!control_disabled && can_see(src_object))
 		return UI_INTERACTIVE
 	return UI_CLOSE
 
