@@ -151,3 +151,14 @@
   kermit, louiseisnthome:
   - imageadd: Changes the Reade accent icon from purple splodges to one that represents
       the gas giant.
+2026-06-05:
+  Baldos:
+  - balance: Added a new box to the uplink that contains 8 shotgun slugs for 2 TC,
+      and reduced the cost of Assault Shotgun's magazines.
+  Hellfirejag:
+  - balance: Tweaked the empathy penalty from mindblankers and PsiProtect drugs to
+      only cut the morale modifiers from Ministry and Leadership in half, rather than
+      fully negate them.
+  TheGreyWolf:
+  - bugfix: Added a changelog editing system that should cause fewer conflicts and
+      more accurate timestamps.
