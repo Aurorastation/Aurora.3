@@ -1,6 +1,6 @@
-import { BooleanLike } from '../../common/react';
+import { Button, LabeledList, Section } from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Button, LabeledList, Section } from '../components';
 import { Window } from '../layouts';
 
 type OxyRegeneratorData = {
@@ -16,8 +16,8 @@ type OxyRegeneratorData = {
   o2: number;
 };
 
-export const OxyRegenerator = (props, context) => {
-  const { act, data } = useBackend<OxyRegeneratorData>(context);
+export const OxyRegenerator = (props) => {
+  const { act, data } = useBackend<OxyRegeneratorData>();
 
   return (
     <Window

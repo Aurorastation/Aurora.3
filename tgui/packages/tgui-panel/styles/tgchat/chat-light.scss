@@ -714,6 +714,11 @@ h2.alert {
   padding: 0;
 }
 
+.tooltip {
+  font-style: italic;
+  border-bottom: 1px dashed;
+}
+
 @keyframes glitch {
   0% {
     text-shadow:

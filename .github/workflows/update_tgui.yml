@@ -1,0 +1,31 @@
+name: "Build TGUI"
+on:
+  workflow_dispatch:
+
+jobs:
+  update-tgui:
+    concurrency: tgui
+    permissions:
+      contents: read
+      pull-requests: write
+    runs-on: ubuntu-24.04
+    steps:
+    - name: Install Bun
+      uses: ./.github/actions/setup_bun
+
+    - name: Update TGUI
+      run: |
+        tools/bootstrap/javascript tools/build/build.sh tgui
+
+    - name: Commit TGUI
+      run: |
+        git pull origin master
+        git config --local user.email "action@github.com"
+        git config --local user.name "AuroraBuildBot"
+        git add --force tgui/public/*
+        git commit -m "Automatic TGUI compile [ci skip]" -a || true
+
+    - name: Push
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.BOT_TOKEN_AURORA }}

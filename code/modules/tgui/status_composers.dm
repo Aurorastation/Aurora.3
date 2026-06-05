@@ -83,6 +83,9 @@
 	return UI_DISABLED // Otherwise they can keep the UI open.
 
 /mob/living/silicon/ai/get_ui_access(atom/source)
+	if(source == src)
+		return UI_INTERACTIVE
+
 	// The AI can interact with anything it can see nearby, or with cameras while wireless control is enabled.
 	if(!control_disabled && can_see(source))
 		return UI_INTERACTIVE
@@ -113,3 +116,11 @@
 		return UI_CLOSE
 
 	return UI_INTERACTIVE
+
+/// Return UI_INTERACTIVE if the user is inside the target atom, whether they can see it or not.
+/// Return UI_CLOSE otherwise.
+/proc/ui_status_user_inside(mob/user, atom/target)
+	if(target.contains(user))
+		return UI_INTERACTIVE
+
+	return UI_CLOSE
