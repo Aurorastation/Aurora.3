@@ -55,8 +55,5 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - wip: "Kitchen and bar now located in Central Ring, no more dead-end hallway"
-  - wip: "Chapel and library moved to the ship's snoot"
-  - wip: "Added a small bar to the ship's snoot, with more of a cozy lounge vibe"
-  - wip: "Machinist workshop moved to where the chapel used to be, now it's next to Operations"
-  - qol: "The bartenders and chefs no longer have to fight over RP"
+  - wip: "im doing unspeakable things to the Horizon's layout, moved a lot of stuff around"
+  - wip: "this changelog lol"
