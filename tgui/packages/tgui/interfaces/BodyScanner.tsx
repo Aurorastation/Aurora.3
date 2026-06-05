@@ -99,7 +99,7 @@ export const InvalidWindow = (props) => {
           <Section>
             <BlockQuote>
               {data.nocons
-                ? 'No scanner bed detected.'
+                ? 'No scanner bed detected. TEST EDIT'
                 : !data.occupied
                   ? 'No occupant detected.'
                   : data.ipc
