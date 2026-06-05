@@ -249,10 +249,7 @@
 /obj/structure/machinery/computer/scan_consolenew/attackby(obj/item/attacking_item, mob/user)
 	if (istype(attacking_item, /obj/item/disk/data)) //INSERT SOME diskS
 		if (!src.disk)
-			user.drop_from_inventory(attacking_item, src)
-			src.disk = attacking_item
-			to_chat(user, "You insert [attacking_item].")
-			SSnanoui.update_uis(src) // update all UIs attached to src
+			to_chat(user, "You try to insert [attacking_item], but the drive seems jammed.")
 			return TRUE
 	else
 		return ..()

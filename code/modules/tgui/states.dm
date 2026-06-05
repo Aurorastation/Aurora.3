@@ -70,7 +70,7 @@
 	// Disable UIs if unconscious.
 	else if(stat)
 		return UI_DISABLED
-	// Update UIs if incapicitated but concious.
+	// Update UIs if incapicitated but conscious.
 	else if(incapacitated())
 		return UI_UPDATE
 	return UI_INTERACTIVE
@@ -129,6 +129,3 @@
 
 /datum/ui_state/proc/href_list(mob/user)
 	return list()
-
-/datum/proc/nano_container()
-	return src

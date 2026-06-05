@@ -1,12 +1,10 @@
-import { BooleanLike } from '../../../common/react';
+import { Button, Icon, Section, Table, Tooltip } from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../../backend';
-import { Button, Icon, Section, Table, Tooltip } from '../../components';
-import { TableCell, TableRow } from '../../components/Table';
 
 type ManifestData = {
   manifest: { department: Crew[] };
   allow_follow: BooleanLike;
-  show_ooc_roles: BooleanLike;
 };
 
 type Crew = {
@@ -14,40 +12,37 @@ type Crew = {
   rank: string;
   active: string;
   head: BooleanLike;
-  ooc_role: BooleanLike;
 };
 
-export const ManifestSection = (props, context) => {
-  const { act, data } = useBackend<ManifestData>(context);
+export const ManifestSection = (props) => {
+  const { act, data } = useBackend<ManifestData>();
   const manifest = data.manifest || {};
   const allow_follow = data.allow_follow;
-  const show_ooc_roles = data.show_ooc_roles;
   return (
     <Section>
       {Object.keys(manifest).length === 0 && 'There are no crew active.'}
       {Object.keys(manifest).map((dept) => {
         const deptCrew = manifest[dept];
-        if (dept === 'Off-ship' && !show_ooc_roles) return;
         return (
           <Section
             key={dept}
             title={dept}
             textAlign="center"
-            className={'border-dept-' + dept.toLowerCase()}
+            className={`border-dept-${dept.toLowerCase()}`}
             backgroundColor="rgba(10, 10, 10, 0.75)"
           >
             <Table>
               {deptCrew.map((crewmate) => {
                 return (
-                  <TableRow
+                  <Table.Row
                     key={crewmate.name}
                     bold={crewmate.head}
                     overflow="hidden"
                   >
-                    <TableCell width="50%" textAlign="center" pt="10px" nowrap>
+                    <Table.Cell width="50%" textAlign="center" pt="10px" nowrap>
                       {crewmate.name}
-                    </TableCell>
-                    <TableCell
+                    </Table.Cell>
+                    <Table.Cell
                       width="45%"
                       textAlign="right"
                       pr="2%"
@@ -55,8 +50,8 @@ export const ManifestSection = (props, context) => {
                       nowrap
                     >
                       {crewmate.rank}
-                    </TableCell>
-                    <TableCell textAlign="right" width="5%" pr="3%" pt="10px">
+                    </Table.Cell>
+                    <Table.Cell textAlign="right" width="5%" pr="3%" pt="10px">
                       <Tooltip content={crewmate.active}>
                         <Icon
                           name="circle"
@@ -70,9 +65,9 @@ export const ManifestSection = (props, context) => {
                           }
                         />
                       </Tooltip>
-                    </TableCell>
+                    </Table.Cell>
                     {allow_follow ? (
-                      <TableCell textAlign="right">
+                      <Table.Cell textAlign="right">
                         <Tooltip content="Follow Mob">
                           <Button
                             content="F"
@@ -81,11 +76,11 @@ export const ManifestSection = (props, context) => {
                             }
                           />
                         </Tooltip>
-                      </TableCell>
+                      </Table.Cell>
                     ) : (
                       ''
                     )}
-                  </TableRow>
+                  </Table.Row>
                 );
               })}
             </Table>

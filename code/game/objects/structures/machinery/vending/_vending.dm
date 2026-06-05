@@ -97,7 +97,7 @@
 	var/categories = CAT_NORMAL
 	/// What we're requesting payment for right now
 	var/datum/data/vending_product/currently_vending = null
-	/// Status screen messages like "insufficient funds", displayed in NanoUI
+	/// Status screen messages like "insufficient funds", displayed in UI
 	var/status_message = ""
 	/// Set to 1 if status_message is an error
 	var/status_error = 0
@@ -771,7 +771,6 @@
 			sel_key = params["vendItem"]
 			var/datum/data/vending_product/R = product_records[key]
 
-			// This should not happen unless the request from NanoUI was bad
 			if(!(R.category & categories))
 				return
 

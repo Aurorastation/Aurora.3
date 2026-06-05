@@ -1,6 +1,12 @@
-import { BooleanLike } from '../../common/react';
+import {
+  Box,
+  Button,
+  LabeledList,
+  NumberInput,
+  Section,
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Button, Box, LabeledList, Section, NumberInput } from '../components';
 import { Window } from '../layouts';
 
 export type ShieldData = {
@@ -21,11 +27,11 @@ export type ShieldData = {
   target_field_strength: number;
 };
 
-export const ShieldGenerator = (props, context) => {
-  const { act, data } = useBackend<ShieldData>(context);
+export const ShieldGenerator = (props) => {
+  const { act, data } = useBackend<ShieldData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section
           title="Shield Information"
@@ -78,7 +84,7 @@ export const ShieldGenerator = (props, context) => {
                   value={data.field_radius}
                   minValue={data.min_field_radius}
                   maxValue={data.max_field_radius}
-                  onDrag={(e, value) => act('size_set', { size_set: value })}
+                  onChange={(value) => act('size_set', { size_set: value })}
                 />
               </LabeledList.Item>
               <LabeledList.Item label="Charge Rate">
@@ -87,9 +93,7 @@ export const ShieldGenerator = (props, context) => {
                   minValue={1}
                   maxValue={data.max_strengthen_rate}
                   stepPixelSize={20}
-                  onDrag={(e, value) =>
-                    act('charge_set', { charge_set: value })
-                  }
+                  onChange={(value) => act('charge_set', { charge_set: value })}
                 />
               </LabeledList.Item>
               <LabeledList.Item label="Maximum Field Strength">
@@ -98,7 +102,7 @@ export const ShieldGenerator = (props, context) => {
                   minValue={1}
                   maxValue={10}
                   stepPixelSize={10}
-                  onDrag={(e, value) => act('field_set', { field_set: value })}
+                  onChange={(value) => act('field_set', { field_set: value })}
                 />
               </LabeledList.Item>
             </LabeledList>
