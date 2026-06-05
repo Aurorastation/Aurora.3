@@ -271,7 +271,12 @@ GLOBAL_VAR_INIT(last_message_id, 0)
 /datum/comm_message_listener/proc/Add(var/list/message)
 	messages[++messages.len] = message
 
-/datum/comm_message_listener/proc/Remove(var/list/message)
+/datum/comm_message_listener/proc/Remove(var/message)
+	if(isnum(message))
+		for(var/list/stored_message in messages)
+			if(stored_message["id"] == message)
+				message = stored_message
+				break
 	messages -= list(message)
 /*
 Command action procs

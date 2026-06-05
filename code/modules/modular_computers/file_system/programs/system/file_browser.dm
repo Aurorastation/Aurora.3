@@ -12,6 +12,7 @@
 	undeletable = TRUE
 	tgui_id = "FileManager"
 	var/open_file
+	var/open_file_is_usb = FALSE
 	var/error
 
 /datum/computer_file/program/filemanager/ui_data(mob/user)
@@ -27,7 +28,11 @@
 		if(!computer || !computer.hard_drive)
 			data["error"] = "I/O ERROR: Unable to access hard drive."
 		else
-			HDD = computer.hard_drive
+			HDD = open_file_is_usb ? computer.portable_drive : computer.hard_drive
+			data["file_is_usb"] = open_file_is_usb
+			if(!HDD)
+				data["error"] = "I/O ERROR: Unable to open file."
+				return data
 			file = HDD.find_file_by_name(open_file)
 			script = file
 			if(!istype(file))
@@ -45,6 +50,7 @@
 		else
 			data["scriptdata"] = null
 			data["filedata"] = null
+			data["file_is_usb"] = FALSE
 			data["filename"] = null
 			HDD = computer.hard_drive
 			RHDD = computer.portable_drive
@@ -85,6 +91,19 @@
 				return
 			if(F.can_access_file(usr))
 				open_file = params["PRG_openfile"]
+				open_file_is_usb = FALSE
+
+		if("PRG_usbopenfile")
+			. = TRUE
+			var/obj/item/computer_hardware/hard_drive/RHDD = computer.portable_drive
+			if(!RHDD)
+				return
+			var/datum/computer_file/F = RHDD.find_file_by_name(params["PRG_usbopenfile"])
+			if(!F)
+				return
+			if(F.can_access_file(usr))
+				open_file = params["PRG_usbopenfile"]
+				open_file_is_usb = TRUE
 
 		if("PRG_newtextfile")
 			. = TRUE
@@ -124,6 +143,7 @@
 		if("PRG_closefile")
 			. = TRUE
 			open_file = null
+			open_file_is_usb = FALSE
 			error = null
 
 		if("PRG_clone")

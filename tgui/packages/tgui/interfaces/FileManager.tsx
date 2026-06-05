@@ -9,6 +9,7 @@ export type FileData = {
   usbconnected: BooleanLike;
   scriptdata: string;
   filedata: string;
+  file_is_usb: BooleanLike;
   filename: string;
   files: File[];
   usbfiles: File[];
@@ -129,14 +130,14 @@ export const ShowFiles = (props) => {
                   <Button
                     content="View"
                     onClick={() =>
-                      act('PRG_openfile', { PRG_openfile: file.name })
+                      act('PRG_usbopenfile', { PRG_usbopenfile: file.name })
                     }
                   />
                   <Button
                     content="Delete"
                     color="red"
                     onClick={() =>
-                      act('PRG_deletefile', { PRG_deletefile: file.name })
+                      act('PRG_usbdeletefile', { PRG_usbdeletefile: file.name })
                     }
                   />
                   <Button
@@ -173,11 +174,13 @@ export const ShowFile = (props) => {
           <Button
             content="Edit"
             icon="edit"
+            disabled={data.file_is_usb}
             onClick={() => act('PRG_edit', { PRG_edit: data.filename })}
           />{' '}
           <Button
             content="Print"
             icon="print"
+            disabled={data.file_is_usb}
             onClick={() =>
               act('PRG_printfile', { PRG_printfile: data.filename })
             }

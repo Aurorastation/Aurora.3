@@ -287,7 +287,7 @@ export const SpecificAccountData = (props) => {
                         onClick={() =>
                           act('remove_funds', {
                             account: account.account_number,
-                            amount: funds_to_add,
+                            amount: funds_to_remove,
                           })
                         }
                       />

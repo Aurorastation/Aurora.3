@@ -72,7 +72,7 @@ export const ChatClient = (props) => {
                 <Input
                   value={data.ringtone}
                   placeholder={data.ringtone}
-                  onEnter={(_, v) => act('ringtone', { ringtone: v })}
+                  onEnter={(v) => act('ringtone', { ringtone: v })}
                 />
               ) : (
                 ''
@@ -366,7 +366,7 @@ export const ChannelsWindow = (props) => {
               value={channelName}
               onEnter={(v) => {
                 setChannelName(v);
-                act('new_channel', { new_channel: channelName });
+                act('new_channel', { new_channel: v });
                 setCreatingChannelName(0);
               }}
             />
@@ -417,7 +417,7 @@ export const ChannelsWindow = (props) => {
                             setJoinPassword(v);
                             act('join', {
                               target: channel.ref,
-                              password: joinPassword,
+                              password: v,
                             });
                             setEnteringJoinPassword(0);
                           }}
