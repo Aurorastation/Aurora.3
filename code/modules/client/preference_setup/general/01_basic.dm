@@ -127,13 +127,13 @@
 	pref.can_edit_ipc_tag = TRUE
 
 	if (GLOB.config.sql_saves && pref.current_character)
-		if (!establish_db_connection(GLOB.dbcon))
+		if (!SSdbcore.Connect())
 			return
 
 		// Called /after/ loading and /before/ sanitization.
 		// So we have pref.current_character. It's just in text format.
-		var/DBQuery/query = GLOB.dbcon.NewQuery("SELECT DATEDIFF(NOW(), created_at) AS DiffDate FROM ss13_characters WHERE id = :id:")
-		query.Execute(list("id" = text2num(pref.current_character)))
+		var/datum/db_query/query = SSdbcore.NewQuery("SELECT DATEDIFF(NOW(), created_at) AS DiffDate FROM ss13_characters WHERE id = :id",list("id" = text2num(pref.current_character)))
+		query.Execute()
 
 		if (query.NextRow())
 			if (text2num(query.item[1]) > 5)
@@ -141,7 +141,8 @@
 				if(GLOB.config.ipc_timelock_active)
 					pref.can_edit_ipc_tag = FALSE
 		else
-			log_world("ERROR: SQL CHARACTER LOAD: Logic error, general/basic/load_character_special() didn't return any rows when it should have. Character ID: [pref.current_character].")
+			log_module_preferences("ERROR: SQL CHARACTER LOAD: Logic error, general/basic/load_character_special() didn't return any rows when it should have. Character ID: [pref.current_character].")
+		qdel(query)
 
 /datum/category_item/player_setup_item/general/basic/sanitize_character()
 	if(!pref.species)
@@ -230,10 +231,11 @@
 					return TOPIC_NOACTION //If the name is the same do nothing
 				if(GLOB.config.sql_saves)
 					//Check if the player already has a character with the same name. (We dont have to account for the current char in that query, as that is already handled by the condition above)
-					var/DBQuery/query = GLOB.dbcon.NewQuery("SELECT COUNT(*) FROM ss13_characters WHERE ckey = :ckey: and name = :char_name:")
-					query.Execute(list("ckey" = user.client.ckey, "char_name" = new_name))
+					var/datum/db_query/query = SSdbcore.NewQuery("SELECT COUNT(*) FROM ss13_characters WHERE ckey = :ckey and name = :char_name",list("ckey" = user.client.ckey, "char_name" = new_name))
+					query.Execute()
 					query.NextRow()
 					var/count = text2num(query.item[1])
+					qdel(query)
 					if(count > 0)
 						to_chat(user, SPAN_WARNING("Invalid name. You have already used this name for another character. If you have deleted the character contact an admin to restore it."))
 						return TOPIC_NOACTION

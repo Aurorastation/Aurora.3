@@ -231,7 +231,7 @@
 		return "Holding until Transfer"
 
 /datum/record/char_infraction/proc/saveToDB()
-	if(!establish_db_connection(GLOB.dbcon))
+	if(!SSdbcore.Connect())
 		log_world("ERROR: SQL database connection failed. Infractions Datum failed to save information")
 		return
 
@@ -261,25 +261,26 @@
 		"game_id" = GLOB.round_id
 	)
 	//Insert a new entry into the db. Upate if a entry with the same chard_id and UID already exists
-	var/DBQuery/infraction_insert_query = GLOB.dbcon.NewQuery({"INSERT INTO ss13_character_incidents
+	var/datum/db_query/infraction_insert_query = SSdbcore.NewQuery({"INSERT INTO ss13_character_incidents
 		(char_id,  UID, datetime, notes, charges, evidence, arbiters, brig_sentence, fine, felony, created_by, game_id)
 	VALUES
-		(:char_id:, :uid:, :datetime:, :notes:, :charges:, :evidence:, :arbiters:, :brig_sentence:, :fine:, :felony:, :created_by:, :game_id:)
+		(:char_id, :uid, :datetime, :notes, :charges, :evidence, :arbiters, :brig_sentence, :fine, :felony, :created_by, :game_id)
 	ON DUPLICATE KEY UPDATE
-		notes = :notes:,
-		charges = :charges:,
-		evidence = :evidence:,
-		arbiters = :arbiters:,
-		brig_sentence = :brig_sentence:,
-		fine = :fine:,
-		felony = :felony:,
-		created_by = :created_by:,
-		game_id = :game_id:
-	"})
-	infraction_insert_query.Execute(sql_args)
+		notes = :notes,
+		charges = :charges,
+		evidence = :evidence,
+		arbiters = :arbiters,
+		brig_sentence = :brig_sentence,
+		fine = :fine,
+		felony = :felony,
+		created_by = :created_by,
+		game_id = :game_id
+	"},sql_args)
+	infraction_insert_query.Execute()
+	qdel(infraction_insert_query)
 
 /datum/record/char_infraction/proc/deleteFromDB(var/deleted_by)
-	if(!establish_db_connection(GLOB.dbcon))
+	if(!SSdbcore.Connect())
 		log_world("ERROR: SQL database connection failed. Infractions Datum failed to save information")
 		return
 
@@ -292,15 +293,16 @@
 	if(db_id == 0)
 		LOG_DEBUG("Infraction: Not deleted from the db - db_id 0")
 
-	var/list/sql_args[] = list(
+	//Insert a new entry into the db. Upate if a entry with the same chard_id and UID already exists
+	var/datum/db_query/infraction_delete_query = SSdbcore.NewQuery({"UPDATE ss13_character_incidents
+		SET
+			deleted_by=:deleted_by,
+			deleted_at=NOW()
+		WHERE
+			id = :id"},
+		list(
 		"id" = db_id,
 		"deleted_by" = deleted_by
-	)
-	//Insert a new entry into the db. Upate if a entry with the same chard_id and UID already exists
-	var/DBQuery/infraction_delete_query = GLOB.dbcon.NewQuery({"UPDATE ss13_character_incidents
-	SET
-		deleted_by=:deleted_by:,
-		deleted_at=NOW()
-	WHERE
-		id = :id:"})
-	infraction_delete_query.Execute(sql_args)
+	))
+	infraction_delete_query.Execute()
+	qdel(infraction_delete_query)
