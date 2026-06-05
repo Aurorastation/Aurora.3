@@ -1,5 +1,3 @@
-import { BooleanLike } from '../../common/react';
-import { useBackend, useLocalState } from '../backend';
 import {
   Box,
   Button,
@@ -10,7 +8,9 @@ import {
   NumberInput,
   ProgressBar,
   Section,
-} from '../components';
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
+import { useBackend, useLocalState } from '../backend';
 import { NtosWindow } from '../layouts';
 
 export type RCONData = {
@@ -36,18 +36,18 @@ type Breaker = {
   update_locked: BooleanLike;
 };
 
-export const RCON = (props, context) => {
-  const { act, data } = useBackend<RCONData>(context);
+export const RCON = (props) => {
+  const { act, data } = useBackend<RCONData>();
 
   return (
-    <NtosWindow resizable>
+    <NtosWindow>
       <NtosWindow.Content scrollable>
-        {data.smes_info && data.smes_info.length ? (
+        {data.smes_info?.length ? (
           <SMESInfo />
         ) : (
           <NoticeBox>No SMES units found.</NoticeBox>
         )}
-        {data.breaker_info && data.breaker_info.length ? (
+        {data.breaker_info?.length ? (
           <BreakerInfo />
         ) : (
           <NoticeBox>No breaker boxes found.</NoticeBox>
@@ -57,10 +57,9 @@ export const RCON = (props, context) => {
   );
 };
 
-export const SMESInfo = (props, context) => {
-  const { act, data } = useBackend<RCONData>(context);
+export const SMESInfo = (props) => {
+  const { act, data } = useBackend<RCONData>();
   const [smesSearchTerm, setSmesSearchTerm] = useLocalState<string>(
-    context,
     `smesSearchTerm`,
     ``,
   );
@@ -74,7 +73,7 @@ export const SMESInfo = (props, context) => {
             placeholder="Search by SMES name"
             width="40vw"
             maxLength={512}
-            onInput={(e, value) => {
+            onChange={(value) => {
               setSmesSearchTerm(value);
             }}
             value={smesSearchTerm}
@@ -108,9 +107,9 @@ export const SMESInfo = (props, context) => {
                     maxValue={smes.input_level_max}
                     width={8}
                     unit="W"
-                    step="50000"
+                    step={50000}
                     stepPixelSize={10}
-                    onChange={(e, v) =>
+                    onChange={(v) =>
                       act('smes_in_set', {
                         smes_in_set: smes.RCON_tag,
                         value: v,
@@ -155,10 +154,10 @@ export const SMESInfo = (props, context) => {
                     minValue={0}
                     maxValue={smes.output_level_max}
                     unit="W"
-                    step="50000"
+                    step={50000}
                     width={8}
                     stepPixelSize={10}
-                    onChange={(e, v) =>
+                    onChange={(v) =>
                       act('smes_out_set', {
                         smes_out_set: smes.RCON_tag,
                         value: v,
@@ -205,10 +204,9 @@ export const SMESInfo = (props, context) => {
   );
 };
 
-export const BreakerInfo = (props, context) => {
-  const { act, data } = useBackend<RCONData>(context);
+export const BreakerInfo = (props) => {
+  const { act, data } = useBackend<RCONData>();
   const [breakerSearchTerm, setBreakerSearchTerm] = useLocalState<string>(
-    context,
     `breakerSearchTerm`,
     ``,
   );
@@ -222,7 +220,7 @@ export const BreakerInfo = (props, context) => {
             placeholder="Search by breaker name"
             width="40vw"
             maxLength={512}
-            onInput={(e, value) => {
+            onChange={(value) => {
               setBreakerSearchTerm(value);
             }}
             value={breakerSearchTerm}

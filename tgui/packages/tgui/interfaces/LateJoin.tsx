@@ -1,6 +1,12 @@
-import { BooleanLike } from '../../common/react';
+import {
+  Box,
+  Button,
+  LabeledList,
+  NoticeBox,
+  Section,
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Box, Button, LabeledList, NoticeBox, Section } from '../components';
 import { Window } from '../layouts';
 
 export type LateJoinData = {
@@ -23,27 +29,23 @@ type Job = {
   current_positions: number;
 };
 
-export const LateJoin = (props, context) => {
-  const { act, data } = useBackend<LateJoinData>(context);
+export const LateJoin = (props) => {
+  const { act, data } = useBackend<LateJoinData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section>
           <Section textAlign="center">
-            Welcome, <Box bold>{data.character_name + '.'}</Box>
-            {
-              <Box
-                as="img"
-                m={0}
-                src={`data:image/jpeg;base64,${data.character_image}`}
-                width="35%"
-                height="35%"
-                style={{
-                  '-ms-interpolation-mode': 'nearest-neighbor',
-                }}
+            Welcome, <Box bold>{`${data.character_name}.`}</Box>
+            <Box m={0}>
+              <img
+                src={`data:image/png;base64,${data.character_image}`}
+                alt=""
+                width="96px"
+                height="96px"
               />
-            }
+            </Box>
           </Section>
           <LabeledList>
             <LabeledList.Item label="Round Duration">
@@ -79,8 +81,8 @@ export const LateJoin = (props, context) => {
   );
 };
 
-export const JobsList = (props, context) => {
-  const { act, data } = useBackend<LateJoinData>(context);
+export const JobsList = (props) => {
+  const { act, data } = useBackend<LateJoinData>();
 
   return (
     <Section textAlign="center">
@@ -105,7 +107,6 @@ export const JobsList = (props, context) => {
                       ')'
                     : job.title
                 }
-                bold={job.head}
                 width="100%"
                 onClick={() => act('SelectedJob', { SelectedJob: job.title })}
               />

@@ -1,7 +1,0 @@
-author: Fenodyree
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixes Longbow shells exploding when mechs pick them up."
-

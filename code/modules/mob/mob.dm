@@ -1,32 +1,89 @@
 /mob/Destroy()//This makes sure that mobs with clients/keys are not just deleted from the game.
 	MOB_STOP_THINKING(src)
-	// Tell any mobs touching us that they're not pulling us anymore.
-	stop_pulling()
+	pulling?.pulledby = null
+	pulling = null
+	pullin?.icon_state = "pull0"
+	pullin = null
 	// Delete and null the grab objects that are touching this mob.
 	QDEL_LIST(grabbed_by)
 	GLOB.mob_list -= src
 	GLOB.dead_mob_list -= src
 	GLOB.living_mob_list -= src
 	GLOB.player_list -= src
-	unset_machine()
 	QDEL_NULL(hud_used)
 
+	QDEL_NULL(cells)
+	QDEL_NULL(flash)
+	QDEL_NULL(blind)
+	QDEL_NULL(hands)
+	QDEL_NULL(pullin)
+	QDEL_NULL(purged)
+	QDEL_NULL(internals)
+	QDEL_NULL(oxygen)
+	QDEL_NULL(paralysis_indicator)
+	QDEL_NULL(i_select)
+	QDEL_NULL(m_select)
+	QDEL_NULL(toxin)
+	QDEL_NULL(bodytemp)
+	QDEL_NULL(healths)
+	QDEL_NULL(throw_icon)
+	QDEL_NULL(nutrition_icon)
+	QDEL_NULL(hydration_icon)
+	QDEL_NULL(pressure)
+	QDEL_NULL(damageoverlay)
+	QDEL_NULL(pain)
+	QDEL_NULL(item_use_icon)
+	QDEL_NULL(radio_use_icon)
+	QDEL_NULL(gun_move_icon)
+	QDEL_NULL(gun_setting_icon)
+	QDEL_NULL(unique_action_icon)
+	QDEL_NULL(toggle_firing_mode)
+	QDEL_NULL(energy_display)
+	QDEL_NULL(instability_display)
+	QDEL_NULL(up_hint)
+	QDEL_NULL(robot_pain)
 	QDEL_LIST(spell_masters)
-	remove_screen_obj_references()
-
 	if(client)
 		for(var/atom/movable/AM in client.screen)
-			qdel(AM)
+			if (!QDELING(AM))
+				qdel(AM)
 		client.screen = list()
 
-	if (mind)
-		mind.handle_mob_deletion(src)
+	mind?.handle_mob_deletion(src)
+	mind = null
 
-	for(var/cc in client_colors)
-		qdel(cc)
+	QDEL_NULL(ability_master)
+	QDEL_NULL(zone_sel)
+	machine = null
 
 	client_colors = null
+	additional_vision_handlers?.Cut()
+	pinned?.Cut()
+	QDEL_LIST(embedded)
+	languages?.Cut()
+	holo = null
+	l_hand = null
+	r_hand = null
+	back = null
+	internal = null
+	s_active = null
+	wear_mask = null
+	QDEL_NULL(dna)
+	LAssailant = null
+	spell_list?.Cut()
+	lastarea = null
+	control_object = null
+	teleop = null
+	listed_turf = null
 	item_verbs = null
+	// This is a nested assoc list, which must be cleared outside-in
+	if (length(progressbars))
+		for (var/location in progressbars)
+			for (var/ref in progressbars[location])
+				qdel(ref)
+		progressbars.Cut()
+
+	QDEL_NULL(typing_indicator)
 
 	//Added this to prevent nonliving mobs from ghostising
 	//The only non 'living' mobs are:
@@ -44,11 +101,21 @@
 		var/atom/movable/AM = src.loc
 		LAZYREMOVE(AM.contained_mobs, src)
 
-	QDEL_NULL(ability_master)
-
-	if(click_handlers)
-		QDEL_LIST(click_handlers)
-
+	QDEL_LIST(click_handlers)
+	vr_mob = null
+	old_mob = null
+	lastattacker = null
+	lastattacked = null
+	QDEL_NULL(pointing_effect)
+	QDEL_LIST(open_nanouis)
+	QDEL_LIST(tgui_open_uis)
+	QDEL_NULL(narsimage)
+	QDEL_NULL(narglow)
+	QDEL_NULL(riftimage)
+	bloody_hands_mob = null
+	QDEL_NULL(eyeobj)
+	QDEL_NULL(bg)
+	my_client = null
 	return ..()
 
 /mob/New()
@@ -56,32 +123,6 @@
 	GenerateTag()
 	return ..()
 
-/mob/proc/remove_screen_obj_references()
-	flash = null
-	blind = null
-	hands = null
-	pullin = null
-	purged = null
-	internals = null
-	oxygen = null
-	i_select = null
-	m_select = null
-	toxin = null
-	bodytemp = null
-	healths = null
-	throw_icon = null
-	nutrition_icon = null
-	hydration_icon = null
-	pressure = null
-	damageoverlay = null
-	pain = null
-	item_use_icon = null
-	gun_move_icon = null
-	gun_setting_icon = null
-	spell_masters = null
-	zone_sel = null
-
-/mob/var/should_add_to_mob_list = TRUE
 /mob/Initialize(mapload)
 	. = ..()
 	if(should_add_to_mob_list)
@@ -399,8 +440,6 @@
 	. = ..()
 	if(!. && iscarbon(loc) && isturf(loc.loc)) // We're inside someone, let us examine still.
 		return TRUE
-
-/mob/var/obj/effect/decal/point/pointing_effect = null//Spam control, can only point when the previous pointer qdels
 
 /mob/verb/pointed(atom/A as mob|obj|turf in view())
 	set name = "Point To"
@@ -730,8 +769,8 @@
 	if(pulling)
 		pulling.pulledby = null
 		pulling = null
-		if(pullin)
-			pullin.icon_state = "pull0"
+	if(pullin)
+		pullin.icon_state = "pull0"
 
 /mob/proc/start_pulling(var/atom/movable/AM)
 

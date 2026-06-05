@@ -1,6 +1,11 @@
-import { BooleanLike } from '../../common/react';
+import {
+  Button,
+  LabeledList,
+  ProgressBar,
+  Section,
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Button, LabeledList, ProgressBar, Section } from '../components';
 import { Window } from '../layouts';
 
 export type PrinterData = {
@@ -21,11 +26,11 @@ type Circuit = {
   category: string;
 };
 
-export const CircuitPrinter = (props, context) => {
-  const { act, data } = useBackend<PrinterData>(context);
+export const CircuitPrinter = (props) => {
+  const { act, data } = useBackend<PrinterData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section title="Status">
           <LabeledList>
@@ -53,9 +58,11 @@ export const CircuitPrinter = (props, context) => {
             {data.circuits.map((circuit) =>
               circuit.category === category ? (
                 <Button
-                  content={circuit.name}
+                  key={circuit.name}
                   onClick={() => act('build', { build: circuit.path })}
-                />
+                >
+                  {circuit.name}
+                </Button>
               ) : (
                 ''
               ),

@@ -387,9 +387,12 @@
 
 	while(improvement_potential > 0 && damaged_components.len)
 		var/list/upgradable_components = list()
-		for(var/obj/item/laser_components/component in damaged_components)
-			if(component.total_improved < IMPROVEMENT_CAP)
-				upgradable_components += component
+		for(var/obj/item/laser_components/component in damaged_components) //Only give it improvement potential if it's damaged.
+			if((component.total_improved + component.improvement_potential) < IMPROVEMENT_CAP) //Only give it improvement potential if it doesn't have enough to hit cap.
+				if(component.increasable_stats.len || component.decreaseable_stats.len) //Don't give it to components with nothing to improve.
+					upgradable_components += component
+			else
+				damaged_components.Remove(component) //If a component has reached the improvement cap, it can't be improved anymore.
 
 		if(!upgradable_components.len)
 			to_chat(user, SPAN_WARNING("There's nothing to improve on the components of this gun."))
@@ -527,10 +530,55 @@
 		return 1
 
 /obj/item/gun/energy/laser/prototype/get_print_info()
-	. = ..(FALSE)
+	. = ""
+
+	var/l_modified_damage = 1 / max(1, burst - 1)
+	var/l_modified_max_shots = 1
+	for(var/i in list(capacitor, focusing_lens, modulator) + gun_mods)
+		var/obj/item/laser_components/l_component = i
+		if(!l_component)
+			continue
+
+		if(l_component.damage != 0)
+			l_modified_damage *= l_component.damage
+		if(l_component.shots != 0)
+			l_modified_max_shots *= l_component.shots
+
+	var/obj/projectile/P = new projectile_type
+	. += "Max Shots: [round(l_modified_max_shots)]<br>"
+	. += "Recharge Type: [self_recharge ? "self recharging" : "not self recharging"]<br>"
+	if(self_recharge)
+		. += "Recharge Time: [initial(recharge_time)]<br>"
+	. += "<br><b>Primary Projectile</b><br>"
+	. += "Damage: [round(min(60, l_modified_damage), 1)]<br>"
+	. += "Damage Type: [initial(P.damage_type)]<br>"
+	. += "Blocked by Armor Type: [initial(P.check_armor)]<br>"
+	. += "Stuns: [initial(P.stun) ? "true" : "false"]<br>"
+	if(initial(P.shrapnel_type))
+		var/obj/shrapnel = new P.shrapnel_type
+		. += "Shrapnel Type: [shrapnel.name]<br>"
+	. += "Armor Penetration: [initial(P.armor_penetration)]%<br>"
+	. += "Burst: [burst]<br>"
+	. += "Reliability: [reliability]<br>"
+
+	if(secondary_projectile_type)
+		var/obj/projectile/P_second = new secondary_projectile_type
+		. += "<br><b>Secondary Projectile</b><br>"
+		. += "Damage: [initial(P_second.damage)]<br>"
+		. += "Damage Type: [initial(P_second.damage_type)]<br>"
+		. += "Blocked by Armor Type: [initial(P_second.check_armor)]<br>"
+		. += "Stuns: [initial(P_second.stun) ? "true" : "false"]<br>"
+		if(initial(P_second.shrapnel_type))
+			var/obj/shrapnel_second = new P_second.shrapnel_type
+			. += "Shrapnel Type: [shrapnel_second.name]<br>"
+		. += "Armor Penetration: [initial(P_second.armor_penetration)]%<br>"
+
+	. += "<br>"
 
 	for(var/i in list(capacitor, focusing_lens, modulator) + gun_mods)
 		var/obj/item/laser_components/l_component = i
+		if(!l_component)
+			continue
 
 		. += "<br>Component Name: [initial(l_component.name)]</br><br>"
 		var/l_repair_name = initial(l_component.repair_item.name) ? initial(l_component.repair_item.name) : "nothing"
