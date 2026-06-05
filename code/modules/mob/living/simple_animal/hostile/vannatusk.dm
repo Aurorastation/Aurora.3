@@ -26,6 +26,7 @@
 	mob_size = 15
 	environment_smash = 2
 	attacktext = "mangles"
+	attack_vis_effect = ATTACK_EFFECT_CLAW
 	attack_emote = "charges toward"
 	attack_sound = 'sound/effects/creatures/vannatusk_attack.ogg'
 	emote_sounds = list('sound/effects/creatures/vannatusk_sound.ogg', 'sound/effects/creatures/vannatusk_sound_2.ogg')

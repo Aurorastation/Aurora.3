@@ -9,6 +9,8 @@ GLOBAL_LIST_EMPTY(sparring_attack_cache)
 	var/armor_penetration = 0
 	var/attack_sound = SFX_PUNCH
 	var/miss_sound = SFX_PUNCH_MISS
+	/// The attack effect played with this attack.
+	var/attack_effect = ATTACK_EFFECT_PUNCH
 	var/shredding = 0 // Calls the old attack_alien() behavior on objects/mobs when on harm intent.
 	var/attack_door = 0 // Whether the attack can damage airlocks and how much damage it does
 	var/crowbar_door = FALSE
@@ -163,6 +165,7 @@ GLOBAL_LIST_EMPTY(sparring_attack_cache)
 	sharp = 0
 	edge = FALSE
 	attack_name = "bite"
+	attack_effect = ATTACK_EFFECT_BITE
 
 /datum/unarmed_attack/bite/is_usable(var/mob/living/carbon/human/user, var/mob/living/carbon/human/target, var/zone)
 	if(user.incapacitated())
@@ -251,6 +254,7 @@ GLOBAL_LIST_EMPTY(sparring_attack_cache)
 	desc = "A high risk, pretty low reward move. It could be useful if your shoes has a knife sticking out the front, or if you're a trained martial arts master. Make sure to target the lower parts of the body, or else you won't be able to reach!"
 	damage = 0
 	attack_name = "kick"
+	attack_effect = ATTACK_EFFECT_KICK
 
 /datum/unarmed_attack/kick/is_usable(var/mob/living/carbon/human/user, var/mob/living/carbon/human/target, var/zone)
 	if(user.legcuffed || user.incapacitated())

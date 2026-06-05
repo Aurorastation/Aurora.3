@@ -50,7 +50,7 @@
 /datum/martial_art/kis_khan/simple_animal_basic_disarm(var/mob/living/carbon/human/A, var/mob/living/simple_animal/D)
 	if(!D.paralysis)
 		A.visible_message("[SPAN_BOLD("[A]")] delivers a blow to \the [SPAN_BOLD("[D]")]'s head, making [D.get_pronoun("him")] fall unconscious!")
-		A.do_attack_animation(D)
+		A.do_attack_animation(D, ATTACK_EFFECT_DISARM)
 		playsound(D.loc, SFX_PUNCH, 25, TRUE, MEDIUM_RANGE_SOUND_EXTRARANGE+4)
 		D.AdjustParalysis(5)
 	else
@@ -70,7 +70,7 @@
 	return 1
 
 /datum/martial_art/kis_khan/proc/swift_disarm(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
-	A.do_attack_animation(D)
+	A.do_attack_animation(D, ATTACK_EFFECT_DISARM)
 	var/obj/item/I = D.get_active_hand()
 	if(I && prob(80))
 		D.drop_from_hand(D.get_active_held_item_slot(), get_turf(D))
@@ -83,7 +83,7 @@
 	return 1
 
 /datum/martial_art/kis_khan/proc/hammering_strike(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
-	A.do_attack_animation(D)
+	A.do_attack_animation(D, ATTACK_EFFECT_SMASH)
 	A.visible_message(SPAN_DANGER("[A] slams [D] away!"))
 	playsound(D.loc, "punch", 50, 1, -1)
 	D.apply_effect(2, WEAKEN)

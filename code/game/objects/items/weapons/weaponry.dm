@@ -90,7 +90,7 @@
 /obj/effect/energy_net/attack_hand(var/mob/user)
 	. = ..()
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	user.do_attack_animation(src, FIST_ATTACK_ANIMATION)
+	user.do_attack_animation(src)
 	if(user == affecting)
 		to_chat(user, SPAN_WARNING("You can't claw at \the [src] while trapped inside it! You need to use a weapon."))
 		return
@@ -111,7 +111,7 @@
 
 /obj/effect/energy_net/attackby(obj/item/attacking_item, mob/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	user.do_attack_animation(src, attacking_item)
+	user.do_attack_animation(src, used_item = attacking_item)
 	var/attack_force = attacking_item.force
 	if(user == affecting)
 		attack_force /= 2

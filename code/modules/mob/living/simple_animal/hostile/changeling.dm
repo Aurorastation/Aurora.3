@@ -34,6 +34,7 @@
 	mob_size = 25
 	environment_smash = 2
 	attacktext = "mangles"
+	attack_vis_effect = ATTACK_EFFECT_SLASH
 	attack_sound = 'sound/weapons/bloodyslice.ogg'
 	emote_sounds = list('sound/effects/creatures/bear_loud_1.ogg', 'sound/effects/creatures/bear_loud_2.ogg', 'sound/effects/creatures/bear_loud_3.ogg', 'sound/effects/creatures/bear_loud_4.ogg')
 
@@ -166,6 +167,7 @@
 	mob_size = 15
 	attacktext = "mangles"
 	attack_sound = 'sound/weapons/bloodyslice.ogg'
+	attack_vis_effect = ATTACK_EFFECT_SLASH
 
 	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
 

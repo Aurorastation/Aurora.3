@@ -85,7 +85,7 @@
 			return TRUE
 
 /datum/component/health_analyzer/ui_status(mob/user, datum/ui_state/state)
-	var/obj/item/rig_module/containing_rig_module = owner.loc
+	var/obj/item/rig_module/containing_rig_module = owner?.loc
 	if(!containing_rig_module)
 		return ..()
 	else if(containing_rig_module)

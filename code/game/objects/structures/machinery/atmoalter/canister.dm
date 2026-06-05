@@ -441,7 +441,7 @@ update_flag
 		if(attacking_item.item_flags & ITEM_FLAG_NO_BLUDGEON)
 			return TRUE
 		visible_message(SPAN_WARNING("\The [user] hits \the [src] with \the [attacking_item]!"), SPAN_NOTICE("You hit \the [src] with \the [attacking_item]."))
-		user.do_attack_animation(src, attacking_item)
+		user.do_attack_animation(src, used_item = attacking_item)
 		playsound(src, 'sound/weapons/smash.ogg', 60, 1)
 		add_damage(attacking_item.force)
 		if(!istype(attacking_item, /obj/item/forensics))

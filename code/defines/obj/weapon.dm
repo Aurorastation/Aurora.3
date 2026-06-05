@@ -193,7 +193,7 @@
 		target_mob.standard_weapon_hit_effects(src, user, damageamount, armorpercent, target_zone)
 
 	user.visible_message("<span class='[class]'>[endmessage3rd][punct]</span>", "<span class='[class]'>[endmessage1st][punct]</span>")
-	user.do_attack_animation(target_mob)
+	user.do_attack_animation(target_mob, used_item = src)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 
 	if(soundname)

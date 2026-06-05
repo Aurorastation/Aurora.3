@@ -30,6 +30,7 @@
 	mob_size = 30
 	environment_smash = 2
 	attacktext = "chomps"
+	attack_vis_effect = ATTACK_EFFECT_BITE
 	attack_sound = 'sound/weapons/bloodyslice.ogg'
 
 	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
@@ -160,6 +161,7 @@
 	melee_damage_lower = 5
 	melee_damage_upper = 8
 	attacktext = "rams"
+	attack_vis_effect = ATTACK_EFFECT_SLASH
 	attack_sound = 'sound/weapons/punch4_bass.ogg'
 
 	environment_smash = 1

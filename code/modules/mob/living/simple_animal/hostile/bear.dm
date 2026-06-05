@@ -36,6 +36,7 @@
 	var/turns_since_hit = 0//If the bear chases someone too long without hitting them, it will try to change to another nearby target instead
 
 	attacktext = null//This allows custom attacking emotes
+	attack_vis_effect = ATTACK_EFFECT_CLAW
 
 	var/quiet_sounds = list('sound/effects/creatures/bear_quiet_1.ogg',
 	'sound/effects/creatures/bear_quiet_2.ogg',

@@ -612,14 +612,14 @@
 		if(!actual_damage)
 			actual_damage = harm_intent_damage ? rand(1, harm_intent_damage) : 0
 		apply_damage(actual_damage, attack.damage_type)
-		user.do_attack_animation(src, FIST_ATTACK_ANIMATION)
+		user.do_attack_animation(src)
 		return
 	simple_harm_attack(user)
 
 /mob/living/simple_animal/proc/simple_harm_attack(var/mob/living/user)
 	apply_damage(harm_intent_damage, damage_type, used_weapon = "Attack by [user.name]")
 	user.visible_message(SPAN_WARNING("<b>\The [user]</b> [response_harm] \the [src]!"), SPAN_WARNING("You [response_harm] \the [src]!"))
-	user.do_attack_animation(src, FIST_ATTACK_ANIMATION)
+	user.do_attack_animation(src)
 	poke(TRUE)
 
 /mob/living/simple_animal/attackby(obj/item/attacking_item, mob/user)
@@ -1122,6 +1122,16 @@
 	if(AStar(get_turf(us), get_turf(them), /turf/proc/AdjacentTurfsRanged, /turf/proc/Distance, max_nodes=25, max_node_depth=range))
 		return TRUE
 	return FALSE
+
+/mob/living/simple_animal/do_attack_animation(atom/attacked_atom, visual_effect_icon, used_item, no_effect)
+	if(!no_effect && !visual_effect_icon && melee_damage_upper)
+		if(attack_vis_effect && !iswall(attacked_atom)) // override the standard visual effect.
+			visual_effect_icon = attack_vis_effect
+		else if(melee_damage_upper < 10)
+			visual_effect_icon = ATTACK_EFFECT_PUNCH
+		else
+			visual_effect_icon = ATTACK_EFFECT_SMASH
+	..()
 
 #undef BLOOD_NONE
 #undef BLOOD_LIGHT
