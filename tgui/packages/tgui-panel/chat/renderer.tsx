@@ -427,6 +427,10 @@ class ChatRenderer {
             childNode.removeChild(childNode.firstChild);
           }
           const Element = TGUI_CHAT_COMPONENTS[targetName];
+          if (!Element) {
+            logger.error(`Unknown chat component: ${targetName}`);
+            continue;
+          }
 
           const reactRoot = createRoot(childNode);
 
