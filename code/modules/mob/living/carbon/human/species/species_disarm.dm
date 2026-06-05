@@ -1,8 +1,8 @@
 /// Return TRUE if resolved successfully. Return FALSE if resolved unsuccessfully. Return NULL if ready to continue with disarm.
-/datum/species/proc/before_disarm(mob/living/carbon/human/user, mob/living/carbon/human/target)
+/datum/species/proc/before_disarm(mob/living/carbon/human/user, mob/living/carbon/human/target, skill_difference, disarm_cost)
 	var/datum/martial_art/attacker_style = user.primary_martial_art
 	var/has_stamina = user.max_stamina > 0
-	var/disarm_cost = has_stamina ? user.max_stamina / 6 : user.max_nutrition / 6
+
 	if(has_stamina && attacker_style && attacker_style.disarm_act(user, target))
 		return TRUE
 
@@ -12,6 +12,9 @@
 		if(user.stamina <= disarm_cost)
 			to_chat(user, SPAN_DANGER("You're too tired to disarm [target]!"))
 			return FALSE
+		// Skill difference will be negative if the opponent is stronger than us.
+		if(skill_difference < 0)
+			disarm_cost = max(0, disarm_cost - (skill_difference * 5))
 		user.stamina = clamp(user.stamina - disarm_cost, 0, user.max_stamina)
 	else
 		if(user.nutrition <= disarm_cost)
@@ -27,7 +30,16 @@
 		to_chat(user, SPAN_NOTICE("You don't want to risk hurting [target]!"))
 		return FALSE
 
-	var/disarm_status = before_disarm(user, target)
+	var/attacker_skill_level = SKILL_LEVEL_UNFAMILIAR
+	var/defender_skill_level = SKILL_LEVEL_UNFAMILIAR
+	var/push_chance = 25
+	var/disarm_chance = 25
+	var/disarm_cost = 0
+	SEND_SIGNAL(user, COMSIG_UNARMED_DISARM_ATTACKER, target, &attacker_skill_level, &disarm_cost, &push_chance, &disarm_chance)
+	SEND_SIGNAL(target, COMSIG_UNARMED_DISARM_DEFENDER, user, &defender_skill_level, &disarm_cost, &push_chance, &disarm_chance)
+	var/skill_difference = attacker_skill_level - defender_skill_level
+
+	var/disarm_status = before_disarm(user, target, skill_difference, disarm_cost)
 
 	if(!isnull(disarm_status))
 		return disarm_status
@@ -36,7 +48,7 @@
 	target.attack_log += "\[[time_stamp()]\] <font color='orange'>Has been disarmed by [user.name] ([user.ckey])</font>"
 
 	msg_admin_attack("[key_name(user)] disarmed [target.name] ([target.ckey]) (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target))
-	user.do_attack_animation(target)
+	user.do_attack_animation(target, ATTACK_EFFECT_DISARM)
 
 	if(target.w_uniform)
 		target.w_uniform.add_fingerprint(user)
@@ -48,7 +60,8 @@
 
 	if(target.a_intent != I_HELP)
 		for(var/obj/item/W in holding)
-			if(W && prob(holding[W]))
+			var/misfire_chance = holding[W] + -(skill_difference * 10)
+			if(W && prob(misfire_chance))
 				var/obj/item/grab/grab = W
 				var/obj/item/gun/gun = W
 				if(istype(grab) && grab.has_grab_flags(GRAB_SHIELDS_YOU) && grab.grabbed != user && grab.grabbed != target)
@@ -128,7 +141,7 @@
 		playsound(target.loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 	else
 		playsound(target.loc, SFX_PUNCH_MISS, 25, 1, -1)
-		target.visible_message(SPAN_DANGER("[user] attempted to disarm [target]!"))
+		user.visible_message(SPAN_DANGER("[user] [attacker_skill_level == SKILL_LEVEL_UNFAMILIAR ? "[pick("inexpertly", "clumsily")] disarm" : "disarm"] attempted to disarm [target]!"))
 
 /datum/species/machine/before_disarm(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	var/obj/item/organ/internal/machine/power_core/cell = user.internal_organs_by_name[BP_CELL]

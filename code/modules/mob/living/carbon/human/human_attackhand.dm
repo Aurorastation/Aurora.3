@@ -91,6 +91,15 @@
 	var/accurate = 0
 	var/hit_zone = H.zone_sel.selecting
 	var/obj/item/organ/external/affecting = get_organ(hit_zone)
+	// Check both "attacker" and "defender" for component based responses to unarmed attacks.
+	var/attacker_skill_level = SKILL_LEVEL_UNFAMILIAR // Lacking any component responses, treat the attacker as 'rank 1'
+	var/defender_skill_level = SKILL_LEVEL_UNFAMILIAR // Lacking any component responses, treat the defender as 'rank 1'
+	var/miss_chance = 15 // Base chance for melee attacks targeting body parts other than the torso to fail.
+	var/block_chance = 20 // Chance to block incoming attacks when in Harm or Grab intent.
+	SEND_SIGNAL(H, COMSIG_UNARMED_HARM_ATTACKER, src, &attacker_skill_level, &miss_chance, &rand_damage, &block_chance)
+	SEND_SIGNAL(src, COMSIG_UNARMED_HARM_DEFENDER, H, &defender_skill_level, &miss_chance, &rand_damage, &block_chance)
+	if (miss_chance < 1)
+		accurate = TRUE
 
 	if(!affecting || affecting.is_stump())
 		to_chat(H, SPAN_DANGER("They are missing that limb!"))
@@ -144,9 +153,10 @@
 		*/
 		if(prob(80))
 			hit_zone = ran_zone(src, hit_zone)
-		if(prob(15) && hit_zone != BP_CHEST) // Missed!
+
+		if(prob(miss_chance) && hit_zone != BP_CHEST) // Missed!
 			if(!src.lying)
-				attack_message = "[H] attempted to strike [src], but missed!"
+				attack_message = "[H] attempted to strike [src], [attacker_skill_level - defender_skill_level <= -1 ? "but [src] [pick("dodged", "ducked")] out of the way!" : "but missed!"]"
 			else
 				attack_message = "[H] attempted to strike [src], but [src.get_pronoun("he")] rolled out of the way!"
 				src.set_dir(pick(GLOB.cardinals))
@@ -161,7 +171,7 @@
 	if(!attack)
 		return 0
 
-	H.do_attack_animation(src)
+	H.do_attack_animation(src, attack.attack_effect)
 	if(!attack_message)
 		attack.show_attack(H, src, hit_zone, rand_damage)
 	else
