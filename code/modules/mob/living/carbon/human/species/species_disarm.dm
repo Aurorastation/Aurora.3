@@ -111,11 +111,11 @@
 
 	var/obj/item/clothing/gloves/force/fgloves = user.gloves
 	if(istype(fgloves))
-		. = fgloves.try_shove(user, target)
+		. = fgloves.try_shove(user, target, disarm_chance)
 		if(!.)
-			. = fgloves.try_throw(user, target)
+			. = fgloves.try_throw(user, target, disarm_chance)
 		return
-	else if(prob(25))
+	else if(prob(push_chance))
 		// push instead of disarm
 		var/armor_check = 100 * target.get_blocked_ratio(limb, DAMAGE_BRUTE, damage = 20)
 		target.apply_effect(3, WEAKEN, armor_check)

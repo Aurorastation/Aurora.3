@@ -112,7 +112,7 @@
 			accurate = 1
 		if(I_HURT, I_GRAB)
 			// We're in a fighting stance, there's a chance we block
-			if(src.canmove && src!=H && prob(20))
+			if(src.canmove && src !=H && prob(block_chance))
 				block = 1
 
 	if (LAZYLEN(H.grabbed_by))
