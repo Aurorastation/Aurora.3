@@ -69,6 +69,7 @@ jobs:
           bash tools/ci/check_filedirs.sh aurorastation.dme
           bash tools/ci/check_changelogs.sh
           bash tools/ci/check_grep.sh $PWD
+          bash tools/ci/check_shell_scripts.sh
           awk -f tools/indentation.awk **/*.dm
 
       - name: "Check if running CI"
