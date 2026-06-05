@@ -443,7 +443,8 @@ function iconError(e) {
 
 function draw_listedturf() {
   statcontentdiv.textContent = '';
-  var table = document.createElement('table');
+  var list = document.createElement('div');
+  list.className = 'listed-turf-list';
   for (var i = 0; i < turfcontents.length; i++) {
     var part = turfcontents[i];
     var clickfunc = ((part) => {
@@ -474,31 +475,31 @@ function draw_listedturf() {
         window.location.href = clickcatcher;
       };
     })(part);
+    var row = document.createElement('div');
+    row.className = 'listed-turf-item';
+    row.onmousedown = clickfunc;
     if (storedimages[part[1]] == null && part[2]) {
       var img = document.createElement('img');
       img.src = part[2];
       img.id = part[1];
       storedimages[part[1]] = part[2];
       img.onerror = iconError;
-      img.onmousedown = clickfunc;
-      table.appendChild(img);
+      row.appendChild(img);
     } else {
       var img = document.createElement('img');
       img.onerror = iconError;
-      img.onmousedown = clickfunc;
       img.src = storedimages[part[1]];
       img.id = part[1];
-      table.appendChild(img);
+      row.appendChild(img);
     }
     var b = document.createElement('div');
     var clickcatcher = '';
     b.className = 'link';
-    b.onmousedown = clickfunc;
     b.textContent = part[0];
-    table.appendChild(b);
-    table.appendChild(document.createElement('br'));
+    row.appendChild(b);
+    list.appendChild(row);
   }
-  document.getElementById('statcontent').appendChild(table);
+  document.getElementById('statcontent').appendChild(list);
 }
 
 function remove_listedturf() {

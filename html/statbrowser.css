@@ -37,6 +37,28 @@ img {
   image-rendering: pixelated;
 }
 
+.listed-turf-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25em;
+}
+
+.listed-turf-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  width: 100%;
+  cursor: pointer;
+}
+
+.listed-turf-item img {
+  flex: 0 0 auto;
+}
+
+.listed-turf-item .link {
+  min-width: 0;
+}
+
 .stat-container {
   display: flex;
   flex-direction: column;
