@@ -213,7 +213,7 @@ SUBSYSTEM_DEF(records)
 	return GLOB.always_state
 
 /datum/controller/subsystem/records/ui_status(mob/user, datum/ui_state/state)
-	return (isnewplayer(user) || isghost(user) || issilicon(user)) ? UI_INTERACTIVE : UI_CLOSE
+	return (isnewplayer(user) || isghost(user) || tgui_silicon_user(user)) ? UI_INTERACTIVE : UI_CLOSE
 
 /datum/controller/subsystem/records/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()

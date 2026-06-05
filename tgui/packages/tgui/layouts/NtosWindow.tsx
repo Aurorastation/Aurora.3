@@ -24,6 +24,8 @@ export type NTOSData = {
   PC_batteryicon: string | null;
   PC_batterypercent: string | null;
   PC_device_theme: string;
+  PC_haslight: BooleanLike;
+  PC_lighton: BooleanLike;
   PC_lowpower_mode: BooleanLike;
   PC_ntneticon: string;
   PC_programheaders: Program[];
@@ -58,6 +60,8 @@ export const NtosWindow = (props) => {
     PC_device_theme,
     PC_batteryicon,
     PC_batterypercent,
+    PC_haslight,
+    PC_lighton,
     PC_ntneticon,
     PC_stationdate,
     PC_stationtime,
@@ -113,6 +117,15 @@ export const NtosWindow = (props) => {
                 />
                 {PC_batterypercent}
               </Box>
+            )}
+            {!!PC_haslight && (
+              <Button
+                color={PC_lighton ? 'yellow' : 'transparent'}
+                icon="lightbulb"
+                tooltip={`Flashlight ${PC_lighton ? 'on' : 'off'}`}
+                tooltipPosition="bottom"
+                onClick={() => act('PC_togglelight')}
+              />
             )}
             {!!PC_showexitprogram && (
               <Button
