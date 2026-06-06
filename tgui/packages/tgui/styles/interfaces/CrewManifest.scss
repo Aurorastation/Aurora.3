@@ -1,21 +1,3 @@
-$department_map: (
-  'cargo': var(--color-brown),
-  'operations': var(--color-brown),
-  'command': var(--color-yellow),
-  'command-support': var(--color-blue),
-  'security': var(--color-red),
-  'engineering': var(--color-orange),
-  'medical': var(--color-teal),
-  'misc': var(--color-white),
-  'miscellaneous': var(--color-white),
-  'science': var(--color-purple),
-  'service': var(--color-green),
-  'civilian': var(--color-green),
-  'silicon': var(--color-pink),
-  'equipment': var(--color-pink),
-  'off-ship': var(--color-white),
-);
-
 $manifest_status_map: (
   'active': var(--color-green),
   'online': var(--color-green),
@@ -27,15 +9,13 @@ $manifest_status_map: (
   'disabled': var(--color-grey),
 );
 
-@each $department-name, $color-value in $department_map {
-  .border-dept-#{$department-name} {
-    .Section {
-      &__title {
-        border-color: $color-value;
-      }
-      &__titleText {
-        color: $color-value;
-      }
+.border-dept {
+  .Section {
+    &__title {
+      border-color: var(--department-color);
+    }
+    &__titleText {
+      color: var(--department-color);
     }
   }
 }

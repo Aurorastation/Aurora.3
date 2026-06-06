@@ -1,7 +1,7 @@
 import { Button, Icon, Section, Table, Tooltip } from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../../backend';
-import { departmentClass } from './departmentClass';
+import { departmentClass, departmentStyle } from './departmentClass';
 
 type ManifestData = {
   manifest: { department: Crew[] };
@@ -29,7 +29,8 @@ export const ManifestSection = (props) => {
             key={dept}
             title={dept}
             textAlign="center"
-            className={departmentClass(dept)}
+            className={departmentClass()}
+            style={departmentStyle(dept)}
             backgroundColor="rgba(10, 10, 10, 0.75)"
           >
             <Table>
