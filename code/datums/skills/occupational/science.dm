@@ -32,7 +32,7 @@
 		+ "It is necessary not only for the proper detailing of alien creatures, but also for their processing, such as with slimes. " \
 		+ "Having this skill at least at the \"Trained\" rank is required to extract cores from slimes."
 	maximum_level = SKILL_LEVEL_PROFESSIONAL
-	uneducated_skill_cap = SKILL_LEVEL_TRAINED
+	uneducated_skill_cap = SKILL_LEVEL_PROFESSIONAL
 	category =  /singleton/skill_category/occupational
 	subcategory = SKILL_SUBCATEGORY_SCIENCE
 	component_type = XENOBOTANY_SKILL_COMPONENT
