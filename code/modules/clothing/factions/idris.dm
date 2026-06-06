@@ -26,11 +26,11 @@
 	icon_state = "idris_coat_white"
 	item_state = "idris_coat_white"
 
-/obj/item/clothing/suit/storage/toggle/armor/vest/idris/brown
-	name = "brown Idris Unit coat"
+/obj/item/clothing/suit/storage/toggle/armor/vest/idris/teal
+	name = "teal Idris Unit coat"
 	desc = "A coat worn by the Idris units, notorious across space. This one is white."
-	icon_state = "idris_coat_brown"
-	item_state = "idris_coat_brown"
+	icon_state = "idris_coat_teal"
+	item_state = "idris_coat_teal"
 
 /obj/item/clothing/suit/storage/toggle/armor/vest/idris/longcoat
 	name = "black Idris Unit long coat"
@@ -45,11 +45,11 @@
 	icon_state = "idris_longcoat_white"
 	item_state = "idris_longcoat_white"
 
-/obj/item/clothing/suit/storage/toggle/armor/vest/idris/longcoat/brown
-	name = "brown Idris Unit long coat"
-	desc = "A long coat worn by the Idris units, notorious across space. This one is brown."
-	icon_state = "idris_longcoat_brown"
-	item_state = "idris_longcoat_brown"
+/obj/item/clothing/suit/storage/toggle/armor/vest/idris/longcoat/teal
+	name = "teal Idris Unit long coat"
+	desc = "A long coat worn by the Idris units, notorious across space. This one is teal."
+	icon_state = "idris_longcoat_teal"
+	item_state = "idris_longcoat_teal"
 
 /obj/item/clothing/suit/storage/toggle/armor/vest/idris/trenchcoat
 	name = "black Idris Unit trench coat"
@@ -64,11 +64,11 @@
 	icon_state = "idris_trenchcoat_white"
 	item_state = "idris_trenchcoat_white"
 
-/obj/item/clothing/suit/storage/toggle/armor/vest/idris/trenchcoat/brown
-	name = "brown Idris Unit trench coat"
-	desc = "A trench coat worn by the Idris units, notorious across space. This one is brown."
-	icon_state = "idris_trenchcoat_brown"
-	item_state = "idris_trenchcoat_brown"
+/obj/item/clothing/suit/storage/toggle/armor/vest/idris/trenchcoat/teal
+	name = "teal Idris Unit trench coat"
+	desc = "A trench coat worn by the Idris units, notorious across space. This one is teal."
+	icon_state = "idris_trenchcoat_teal"
+	item_state = "idris_trenchcoat_teal"
 
 /obj/item/clothing/suit/storage/toggle/armor/vest/idris/duster
 	name = "black Idris Unit duster coat"
@@ -83,11 +83,11 @@
 	icon_state = "idris_duster_white"
 	item_state = "idris_duster_white"
 
-/obj/item/clothing/suit/storage/toggle/armor/vest/idris/duster/brown
-	name = "brown Idris Unit duster coat"
-	desc = "A duster coat worn by the Idris units, notorious across space. This one is brown."
-	icon_state = "idris_duster_brown"
-	item_state = "idris_duster_brown"
+/obj/item/clothing/suit/storage/toggle/armor/vest/idris/duster/teal
+	name = "teal Idris Unit duster coat"
+	desc = "A duster coat worn by the Idris units, notorious across space. This one is teal."
+	icon_state = "idris_duster_teal"
+	item_state = "idris_duster_teal"
 
 //windbreaker
 
