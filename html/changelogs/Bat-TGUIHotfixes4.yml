@@ -7,3 +7,7 @@ changes:
   - bugfix: "Corrects some mismapped and missing scss files as well as removing temporary working files leftover in PR."
   - bugfix: "Fixes silicons/AI being unable to interact remotely with shield capacitor and shield generator machinery."
   - bugfix: "Fixes gene data disks produced by xenobotany's lysis-isolation centrifuge machine not displaying gene names."
+  - bugfix: "Makes AI remote access to machinery TGUIs more consistent."
+  - bugfix: "Fixes the Sensors interface not displaying sensor machinery's current health."
+  - bugfix: "Fixes the Sensors interface displaying strange values for current range."
+  - bugfix: "Fixes modular computer software displaying device themes instead of explicit software themes."
