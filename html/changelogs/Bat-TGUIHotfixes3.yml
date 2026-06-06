@@ -2,3 +2,4 @@ author: Batrachophrenoboocosmomachia
 delete-after: True
 changes:
   - bugfix: "Fixes SmartFridge interface crashing with stored items due to malformed image rendering."
+  - bugfix: "Forces chat pane to re-render immediately when filters are changed."
