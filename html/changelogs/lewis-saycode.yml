@@ -5,6 +5,7 @@ delete-after: True
 changes:
   - rscadd: "Adds code-switching: you can now speak in multiple languages in the same message."
   - rscadd: "Adds audible emotes to the language list. They can be triggered with ,e."
+  - rscdel: "Removed SSrunechat."
   - refactor: "Rewrote langchat in order to support multiple languages and partial comprehension."
   - refactor: "Rewrote a vast majority of all saycode and the code responsible for displaying saytext to clients."
   - bugfix: "Sleeping mobs are no longer able to understand all languages."
