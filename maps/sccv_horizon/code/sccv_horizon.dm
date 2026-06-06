@@ -172,7 +172,7 @@
 
 /datum/map/sccv_horizon/post_gamemode_setup()
 	// ##### Set persistent Horizon position on the overmap
-	var/datum/persistent_generic/horizon_location_generic = SSpersistence.genericLoad(/singleton/persistent_type/generic/horizon_overmap_position, null)
+	var/datum/persistent_generic/horizon_location_generic = SSpersistence.genericLoad(/singleton/persistent_type/generic/horizon_overmap_position)
 	if(horizon_location_generic)
 		var/area/overmap/map = GLOB.map_overmap
 		// Set Horizon location

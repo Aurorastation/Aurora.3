@@ -40,11 +40,11 @@
  * Retrieve/Loads generic content of a type(+attribute)
  * PARAMS:
  * 	target_type =	Singleton persistent type definition. See /singleton/persistent_type/generic and subtypes.
- *  attribute =		Custom attribute of the generic, can be null if the type definition doesn't require it.
+ *  attribute =		Custom attribute of the generic, can be null if the type definition doesn't require it. Defaults to null.
  * RETURN:
  *	/persistent_generic or null if not available.
  */
-/datum/controller/subsystem/persistence/proc/genericLoad(var/singleton/persistent_type/generic/target_type, attribute)
+/datum/controller/subsystem/persistence/proc/genericLoad(var/singleton/persistent_type/generic/target_type, attribute = null)
 	if(!target_type)
 		log_subsystem_persistence_warning("Attempted to load generic with null target type.")
 		return
