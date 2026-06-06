@@ -66,6 +66,7 @@
 		var/rendered = segment.plain_text_for(listener, speaker)
 		if(clarity == CLARITY_FAINT && !is_emote)
 			rendered = length(rendered) ? stars(rendered) : ""
+		rendered = trim(rendered)	// Strip whitespace for quoting. We'll re-add it later.
 		if(!length(rendered))
 			continue
 		if(is_emote)
@@ -97,13 +98,13 @@
 	var/cur_emote = pieces[1][2]
 	for(var/list/piece in pieces)
 		if(length(cur) && piece[2] != cur_emote)
-			var/q = quote_run(jointext(cur, ""), cur_emote)
+			var/q = quote_run(jointext(cur, " "), cur_emote)
 			if(length(q))
 				runs += q
 			cur = list()
 		cur_emote = piece[2]
 		cur += piece[1]
-	var/last = quote_run(jointext(cur, ""), cur_emote)
+	var/last = quote_run(jointext(cur, " "), cur_emote)
 	if(length(last))
 		runs += last
 
