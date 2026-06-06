@@ -1,0 +1,9 @@
+author: Batrachophrenoboocosmomachia
+delete-after: True
+changes:
+  - bugfix: "Restores chat highlight background color selection functionality (PR #20701)"
+  - bugfix: "Restores chat message retention settings."
+  - bugfix: "Updates recommended vscode extension config file."
+  - bugfix: "Corrects some mismapped and missing scss files as well as removing temporary working files leftover in PR."
+  - bugfix: "Fixes silicons/AI being unable to interact remotely with shield capacitor and shield generator machinery."
+  - bugfix: "Fixes gene data disks produced by xenobotany's lysis-isolation centrifuge machine not displaying gene names."

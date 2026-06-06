@@ -12,6 +12,7 @@ export const settingsSchema = z.object({
   fontSize: z.number(),
   initialized: z.boolean(),
   lineHeight: z.number(),
+  maxMessages: z.number(),
   statFontSize: z.number(),
   statLinked: z.boolean(),
   statTabsStyle: z.string(),
