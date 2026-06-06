@@ -1,61 +1,26 @@
-@use 'sass:color';
-@use 'sass:meta';
 
-@use '../colors.scss' with (
-  $primary: #ffffff,
-  $bad: #ad2727,
-  $fg-map-keys: (),
-  $bg-map-keys: ()
-);
-@use '../base.scss' with (
-  $color-bg: #274646,
-  $color-bg-grad-spread: 6%
-);
 
 .theme-idris {
-  // Atomic classes
-  @include meta.load-css('../atomic/color.scss');
-
-  // Components
-  @include meta.load-css(
-    '../components/Button.scss',
-    $with: (
-      'color-default': #297676,
-      'color-disabled': #363636,
-      'color-selected': #ffffff,
-      'color-caution': #be6209,
-      'color-danger': #ad2727
-    )
-  );
-  @include meta.load-css(
-    '../components/Input.scss',
-    $with: ('border-color': #ffffff)
-  );
-  @include meta.load-css(
-    '../components/NoticeBox.scss',
-    $with: ('background-color': #284d4d)
-  );
-  @include meta.load-css(
-    '../components/NumberInput.scss',
-    $with: ('border-color': #ffffff)
-  );
-  @include meta.load-css(
-    '../components/ProgressBar.scss',
-    $with: ('background-color': rgba(0, 0, 0, 0.5))
-  );
-  @include meta.load-css('../components/Section.scss');
-  @include meta.load-css(
-    '../components/Tooltip.scss',
-    $with: ('background-color': #284d4d)
-  );
-
-  // Layouts
-  @include meta.load-css('../layouts/Layout.scss');
-  @include meta.load-css('../layouts/Window.scss');
-  @include meta.load-css(
-    '../layouts/TitleBar.scss',
-    $with: ('background-color': #284d4d)
-  );
+  --button-background-default: #297676;
+  --button-background-disabled: #363636;
+  --button-background-selected: #66ddff;
+  --button-background-caution: #be6209;
+  --button-background-danger: #ad2727;
+  --input-border-color: #ffffff;
+  --input-border-color-focus: #ffffff;
+  --number-input-border-color: #ffffff;
+  --number-input-border-color-active: #ffffff;
+  --notice-box-background: #284d4d;
+  --notice-box-color: var(--color-text-fixed-white);
+  --progress-bar-background: rgba(0, 0, 0, 0.5);
+  --progress-bar-fill: #297676;
+  --tooltip-background: #284d4d;
+  --titlebar-background: #284d4d;
+  --color-base: #274646;
+  --color-primary: #ffffff;
+  --color-bad: #ad2727;
+  --base-gradient-spread: 6;
+  --section-background: rgba(0, 0, 0, 0.33);
 
   .Layout__content {
     background-image: url('../../assets/bg-idris.svg');

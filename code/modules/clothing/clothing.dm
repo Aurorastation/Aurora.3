@@ -1,8 +1,8 @@
 /obj/item/clothing
 	name = "clothing"
 	siemens_coefficient = 0.9
-	drop_sound = 'sound/items/drop/cloth.ogg'
-	pickup_sound = 'sound/items/pickup/cloth.ogg'
+	drop_sound = 'sound/items/drop/clothing.ogg'
+	pickup_sound = 'sound/items/pickup/clothing.ogg'
 	var/flash_protection = FLASH_PROTECTION_NONE	// Sets the item's level of flash protection.
 	var/tint = TINT_NONE							// Sets the item's level of visual impairment tint.
 	var/list/species_restricted = null 				//Only these species can wear this kit.
@@ -76,6 +76,16 @@
 
 	QDEL_LIST(accessories)
 	return ..()
+
+/obj/item/clothing/examine_descriptor(mob/user)
+	return "clothing"
+
+/obj/item/clothing/examine_tags(mob/user)
+	. = ..()
+	if(item_flags & ITEM_FLAG_THICK_MATERIAL)
+		.["thick"] = "Stops or slows minor piercing effects, such as from injectors."
+	if(item_flags & ITEM_FLAG_INJECTION_PORT)
+		.["port-enabled"] = "Has a dedicated injection port for syringes and hypo-sprays to be used on the wearer."
 
 //Updates the icons of the mob wearing the clothing item, if any.
 /obj/item/clothing/proc/update_clothing_icon()
@@ -516,6 +526,7 @@
 	species_restricted = list("exclude",BODYTYPE_UNATHI,BODYTYPE_TAJARA,BODYTYPE_VAURCA, BODYTYPE_GOLEM,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_VAURCA_BULWARK,BODYTYPE_TESLA_BODY)
 	drop_sound = 'sound/items/drop/gloves.ogg'
 	pickup_sound = 'sound/items/pickup/gloves.ogg'
+	equip_sound = 'sound/items/equip/gloves.ogg'
 
 /obj/item/clothing/gloves/update_clothing_icon()
 	if (ismob(src.loc))
@@ -920,6 +931,7 @@
 	var/blood_overlay_type = "shoe"
 	drop_sound = 'sound/items/drop/shoes.ogg'
 	pickup_sound = 'sound/items/pickup/shoes.ogg'
+	equip_sound = 'sound/items/equip/sneakers.ogg'
 
 	var/can_hold_knife
 	var/footstep = 1

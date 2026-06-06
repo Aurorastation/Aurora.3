@@ -23,37 +23,50 @@ SUBSYSTEM_DEF(atlas)
 	/**
 	 * Note that the dirs here are REVERSE because they're used for entry points, so it'd be the dir facing starboard for example.
 	 * These are strings because otherwise the list indexes would be out of bounds. Thanks BYOND.
+	 *
+	 * SOUTH = 1, NORTH = 2, WEST = 4, EAST = 8,
+	 * NORTH-EAST = 5, SOUTH-EAST = 6, NORTH-WEST = 9, SOUTH-WEST = 10,
 	 */
 	var/list/naval_to_dir = list(
-		"1" = list(
+		"1" = list( //Ship Fore is facing North. (These are reversed, a shot travelling south would enter from the north.)
 			"starboard" = WEST,
 			"port" = EAST,
 			"fore" = SOUTH,
-			"aft" = NORTH
+			"aft" = NORTH,
+			"aft-starboard" = NORTH|WEST,
+			"fore-starboard" = SOUTH|WEST,
+			"aft-port" = NORTH|EAST,
+			"fore-port" = SOUTH|EAST
 		),
-		"2" = list(
+		"2" = list( //Ship Fore is facing South.
 			"starboard" = EAST,
 			"port" = WEST,
 			"fore" = NORTH,
-			"aft" = SOUTH
+			"aft" = SOUTH,
+			"aft-starboard" = SOUTH|EAST,
+			"fore-starboard" = NORTH|EAST,
+			"aft-port" = SOUTH|WEST,
+			"fore-port" = NORTH|WEST
 		),
-		"4" = list(
+		"4" = list( //Ship Fore is facing West.
 			"starboard" = NORTH,
 			"port" = SOUTH,
 			"fore" = WEST,
-			"aft" = EAST
+			"aft" = EAST,
+			"aft-starboard" = EAST|NORTH,
+			"fore-starboard" = WEST|NORTH,
+			"aft-port" = EAST|SOUTH,
+			"fore-port" = WEST|SOUTH
 		),
-		"4" = list(
-			"starboard" = NORTH,
-			"port" = SOUTH,
-			"fore" = WEST,
-			"aft" = EAST
-		),
-		"8" = list(
+		"8" = list( //Ship Fore is facing East.
 			"starboard" = SOUTH,
 			"port" = NORTH,
 			"fore" = EAST,
-			"aft" = WEST
+			"aft" = WEST,
+			"aft-starboard" = WEST|SOUTH,
+			"fore-starboard" = EAST|SOUTH,
+			"aft-port" = WEST|NORTH,
+			"fore-port" = EAST|NORTH
 		)
 	)
 
@@ -62,49 +75,49 @@ SUBSYSTEM_DEF(atlas)
 			"1" = "aft",
 			"2" = "fore",
 			"4" = "port",
-			"5" = "port",
-			"6" = "port",
+			"5" = "aft-port",
+			"6" = "fore-port",
 			"8" = "starboard",
-			"9" = "starboard",
-			"10" = "starboard"
+			"9" = "aft-starboard",
+			"10" = "fore-starboard"
 		),
 		"2" = list(
 			"1" = "fore",
 			"2" = "aft",
 			"4" = "starboard",
-			"5" = "starboard",
-			"6" = "starboard",
+			"5" = "fore-starboard",
+			"6" = "aft-starboard",
 			"8" = "port",
-			"9" = "port",
-			"10" = "port"
+			"9" = "fore-port",
+			"10" = "aft-port"
 		),
 		"4" = list(
 			"1" = "starboard",
 			"2" = "port",
 			"4" = "aft",
-			"5" = "starboard",
-			"6" = "port",
+			"5" = "starboard-aft",
+			"6" = "port-aft",
 			"8" = "fore",
-			"9" = "starboard",
-			"10" = "port"
+			"9" = "starboard-fore",
+			"10" = "port-fore"
 		),
 		"5" = list( //northeast
-			"1" = "starboard",
-			"2" = "port",
-			"4" = "port",
+			"1" = "aft-starboard",
+			"2" = "fore-port",
+			"4" = "aft-port",
 			"5" = "aft",
 			"6" = "port",
-			"8" = "starboard",
+			"8" = "fore-starboard",
 			"9" = "starboard",
 			"10" = "fore"
 		),
 		"6" = list( //southeast
-			"1" = "starboard",
-			"2" = "port",
-			"4" = "starboard",
+			"1" = "fore-starboard",
+			"2" = "aft-port",
+			"4" = "aft-starboard",
 			"5" = "starboard",
 			"6" = "aft",
-			"8" = "port",
+			"8" = "fore-port",
 			"9" = "fore",
 			"10" = "port"
 		),
@@ -112,31 +125,31 @@ SUBSYSTEM_DEF(atlas)
 			"1" = "port",
 			"2" = "starboard",
 			"4" = "fore",
-			"5" = "port",
-			"6" = "starboard",
+			"5" = "port-fore",
+			"6" = "starboard-fore",
 			"8" = "aft",
-			"9" = "port",
-			"10" = "starboard"
+			"9" = "port-aft",
+			"10" = "starboard-aft"
 		),
 		"9" = list(  //northwest
-			"1" = "port",
-			"2" = "starboard",
-			"4" = "port",
+			"1" = "aft-port",
+			"2" = "fore-starboard",
+			"4" = "fore-port",
 			"5" = "port",
-			"6" = "fore",
-			"8" = "starboard",
+			"6" = "aft-starboard",
+			"8" = "fore",
 			"9" = "aft",
 			"10" = "starboard"
 		),
 		"10" = list( //southwest
-			"1" = "port",
-			"2" = "starboard",
-			"4" = "starboard",
+			"1" = "fore-port",
+			"2" = "aft-starboard",
+			"4" = "fore-starboard",
 			"5" = "fore",
 			"6" = "starboard",
-			"8" = "port",
-			"9" = "port",
-			"10" = "aft"
+			"8" = "aft-port",
+			"9" = "aft",
+			"10" = "port"
 		)
 	)
 

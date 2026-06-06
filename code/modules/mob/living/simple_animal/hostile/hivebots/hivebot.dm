@@ -43,6 +43,8 @@
 	psi_pingable = FALSE
 	sample_data = null
 
+	attack_vis_effect = ATTACK_EFFECT_SLASH
+
 	/// Weakref to the beacon that potentially spawned us.
 	var/datum/weakref/parent_beacon
 

@@ -1,10 +1,9 @@
-import { capitalize } from '../../common/string';
-import { BooleanLike } from '../../common/react';
-import { useBackend, useLocalState } from '../backend';
 import {
   Box,
   Button,
   Collapsible,
+  Dropdown,
+  Image,
   Input,
   LabeledList,
   NoticeBox,
@@ -12,13 +11,14 @@ import {
   Stack,
   Tabs,
   Tooltip,
-} from '../components';
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
+import { capitalize } from 'tgui-core/string';
+import { useBackend, useLocalState } from '../backend';
 import { NtosWindow } from '../layouts';
-import { Dropdown } from '../components/Dropdown';
 
 export type RecordsData = {
   activeview: string;
-  defaultview: string;
   editingvalue: string;
   physical_status_options: string[];
   criminal_status_options: string[];
@@ -79,6 +79,9 @@ type Incident = {
 
 type Medical = {
   notes: string;
+  disabilities: string;
+  allergies: string;
+  diseases: string;
   blood_type: string;
   blood_dna: string;
 };
@@ -89,16 +92,12 @@ type RecordLocked = {
   rank: string;
 };
 
-export const Records = (props, context) => {
-  const { act, data } = useBackend<RecordsData>(context);
-  const [searchTerm, setSearchTerm] = useLocalState<string>(
-    context,
-    `searchTerm`,
-    ``,
-  );
+export const Records = (props) => {
+  const { act, data } = useBackend<RecordsData>();
+  const [searchTerm, setSearchTerm] = useLocalState<string>(`searchTerm`, ``);
 
   return (
-    <NtosWindow resizable width={900} height={900}>
+    <NtosWindow width={900} height={900}>
       <NtosWindow.Content scrollable>
         {!data.authenticated ? (
           <NoticeBox color="white">
@@ -117,9 +116,9 @@ export const Records = (props, context) => {
   );
 };
 
-export const RecordsView = (props, context) => {
-  const { act, data } = useBackend<RecordsData>(context);
-  const [recordTab, setRecordTab] = useLocalState(context, 'recordTab', 'All');
+export const RecordsView = (props) => {
+  const { act, data } = useBackend<RecordsData>();
+  const [recordTab, setRecordTab] = useLocalState('recordTab', 'All');
 
   return (
     <Stack>
@@ -131,14 +130,10 @@ export const RecordsView = (props, context) => {
   );
 };
 
-export const ListAllRecords = (props, context) => {
-  const { act, data } = useBackend<RecordsData>(context);
-  const [recordTab, setRecordTab] = useLocalState(context, 'recordTab', 'All');
-  const [searchTerm, setSearchTerm] = useLocalState<string>(
-    context,
-    `searchTerm`,
-    ``,
-  );
+export const ListAllRecords = (props) => {
+  const { act, data } = useBackend<RecordsData>();
+  const [recordTab, setRecordTab] = useLocalState('recordTab', 'All');
+  const [searchTerm, setSearchTerm] = useLocalState<string>(`searchTerm`, ``);
 
   return (
     <Section
@@ -150,7 +145,7 @@ export const ListAllRecords = (props, context) => {
             autoFocus
             autoSelect
             maxLength={512}
-            onInput={(e, value) => {
+            onChange={(value) => {
               setSearchTerm(value);
             }}
             value={searchTerm}
@@ -182,7 +177,7 @@ export const ListAllRecords = (props, context) => {
               }
               onClick={() => act('setactive', { setactive: record.id })}
             >
-              {record.id + ': ' + record.name + ' (' + record.rank + ')'}
+              {`${record.id}: ${record.name} (${record.rank})`}
             </Tabs.Tab>
           ))}
       </Tabs>
@@ -191,58 +186,58 @@ export const ListAllRecords = (props, context) => {
 };
 
 // Omega shitcode ahead but this is my like 56th UI and I don't give a fuck anymore.
-export const ListActive = (props, context) => {
-  const { act, data } = useBackend<RecordsData>(context);
-  const [recordTab, setRecordTab] = useLocalState(
-    context,
-    'recordTab',
-    data.defaultview,
-  );
+export const ListActive = (props) => {
+  const { act, data } = useBackend<RecordsData>();
+  const [recordTab, setRecordTab] = useLocalState('recordTab', 'All');
   const [editingPhysStatus, setEditingPhysStatus] = useLocalState<boolean>(
-    context,
     'editingPhysStatus',
     false,
   );
   const [editingMentalStatus, setEditingMentalStatus] = useLocalState<boolean>(
-    context,
     'editingMentalStatus',
     false,
   );
   const [editingBloodType, setEditingBloodType] = useLocalState<boolean>(
-    context,
     'editingBloodType',
     false,
   );
   const [editingFingerprint, setEditingFingerprint] = useLocalState<boolean>(
-    context,
     'editingFingerprint',
     false,
   );
   const [editingCriminalStatus, setEditingCriminalStatus] =
-    useLocalState<boolean>(context, 'editingCriminalStatus', false);
+    useLocalState<boolean>('editingCriminalStatus', false);
   const [editingSpecies, setEditingSpecies] = useLocalState<boolean>(
-    context,
     'editingSpecies',
     false,
   );
   const [editingCitizenship, setEditingCitizenship] = useLocalState<boolean>(
-    context,
     'editingCitizenship',
     false,
   );
   const [editingReligion, setEditingReligion] = useLocalState<boolean>(
-    context,
     'editingReligion',
     false,
   );
   const [editingEmployer, setEditingEmployer] = useLocalState<boolean>(
-    context,
     'editingEmployer',
     false,
   );
   const [editingDNA, setEditingDNA] = useLocalState<boolean>(
-    context,
     'editingDNA',
+    false,
+  );
+
+  const [editingDisabilities, setEditingDisabilities] = useLocalState<boolean>(
+    'editingDisabilities',
+    false,
+  );
+  const [editingAllergies, setEditingAllergies] = useLocalState<boolean>(
+    'editingAllergies',
+    false,
+  );
+  const [editingDisease, setEditingDisease] = useLocalState<boolean>(
+    'editingDisease',
     false,
   );
 
@@ -302,31 +297,15 @@ export const ListActive = (props, context) => {
           ''
         )}
       </Tabs>
-      <Box
-        as="img"
-        m={0}
+      <Image
+        width="64px"
+        height="64px"
         src={`data:image/jpeg;base64,${data.front}`}
-        width="30%"
-        height="30%"
-        style={{
-          '-ms-interpolation-mode': 'nearest-neighbor',
-          'pointer-events': 'none',
-          width: `${64}px`,
-          height: `${64}px`,
-        }}
       />
-      <Box
-        as="img"
-        m={0}
+      <Image
+        width="64px"
+        height="64px"
         src={`data:image/jpeg;base64,${data.side}`}
-        width="30%"
-        height="30%"
-        style={{
-          '-ms-interpolation-mode': 'nearest-neighbor',
-          'pointer-events': 'none',
-          width: `${64}px`,
-          height: `${64}px`,
-        }}
       />
       <LabeledList>
         <LabeledList.Item label="ID">#{data.active.id}</LabeledList.Item>
@@ -342,7 +321,7 @@ export const ListActive = (props, context) => {
                 <Input
                   placeholder={data.active.species}
                   width="100%"
-                  onInput={(e, v) =>
+                  onChange={(v) =>
                     act('editrecord', {
                       key: 'species',
                       value: v,
@@ -463,7 +442,7 @@ export const ListActive = (props, context) => {
                 <Input
                   placeholder={data.active.fingerprint}
                   width="100%"
-                  onInput={(e, v) =>
+                  onChange={(v) =>
                     act('editrecord', {
                       key: 'fingerprint',
                       value: v,
@@ -484,71 +463,6 @@ export const ListActive = (props, context) => {
             data.active.fingerprint
           )}
         </LabeledList.Item>
-        {data.active.medical && recordTab === 'Medical' ? (
-          <>
-            <LabeledList.Item label="Blood Type">
-              {data.editable & 1 || data.editable & 2 ? (
-                <Box>
-                  {editingBloodType ? (
-                    <Dropdown
-                      options={data.blood_type_options}
-                      displayText={data.active.medical.blood_type}
-                      selected={data.active.medical.blood_type}
-                      onSelected={(v) =>
-                        act('editrecord', {
-                          record_type: 'medical',
-                          key: 'blood_type',
-                          value: v,
-                        })
-                      }
-                    />
-                  ) : (
-                    <Box>
-                      {data.active.medical.blood_type}&nbsp;
-                      <Button
-                        icon="pencil-ruler"
-                        onClick={() => setEditingBloodType(true)}
-                      />
-                    </Box>
-                  )}
-                </Box>
-              ) : (
-                data.active.medical.blood_type
-              )}
-            </LabeledList.Item>
-            <LabeledList.Item label="DNA">
-              {data.editable & 2 ? (
-                <Box>
-                  {editingDNA ? (
-                    <Input
-                      placeholder={data.active.medical.blood_dna}
-                      width="100%"
-                      onInput={(e, v) =>
-                        act('editrecord', {
-                          record_type: 'medical',
-                          key: 'blood_dna',
-                          value: v,
-                        })
-                      }
-                    />
-                  ) : (
-                    <Box>
-                      {data.active.medical.blood_dna}&nbsp;
-                      <Button
-                        icon="pencil-ruler"
-                        onClick={() => setEditingDNA(true)}
-                      />
-                    </Box>
-                  )}
-                </Box>
-              ) : (
-                data.active.medical.blood_dna
-              )}
-            </LabeledList.Item>
-          </>
-        ) : (
-          ''
-        )}
         {data.available_types & 1 && recordTab === 'General' ? (
           <>
             <LabeledList.Item label="Citizenship">
@@ -558,7 +472,7 @@ export const ListActive = (props, context) => {
                     <Input
                       placeholder={data.active.citizenship}
                       width="100%"
-                      onInput={(e, v) =>
+                      onChange={(v) =>
                         act('editrecord', {
                           key: 'citizenship',
                           value: v,
@@ -586,7 +500,7 @@ export const ListActive = (props, context) => {
                     <Input
                       placeholder={data.active.religion}
                       width="100%"
-                      onInput={(e, v) =>
+                      onChange={(v) =>
                         act('editrecord', {
                           key: 'religion',
                           value: v,
@@ -614,7 +528,7 @@ export const ListActive = (props, context) => {
                     <Input
                       placeholder={data.active.employer}
                       width="100%"
-                      onInput={(e, v) =>
+                      onChange={(v) =>
                         act('editrecord', {
                           key: 'employer',
                           value: v,
@@ -665,8 +579,7 @@ export const ListActive = (props, context) => {
       {recordTab === 'Security' ? (
         <>
           <Section title="Incidents">
-            {data.active.security.incidents &&
-            data.active.security.incidents.length
+            {data.active.security.incidents?.length
               ? data.active.security.incidents.map((incident) => (
                   <Box backgroundColor="#223449" key={incident.id}>
                     <Collapsible title={incident.datetime}>
@@ -675,7 +588,7 @@ export const ListActive = (props, context) => {
                       </Box>
                       <Box color="red">
                         {incident.fine
-                          ? 'Fined ' + incident.fine.toFixed(2) + '电.'
+                          ? `Fined ${incident.fine.toFixed(2)}电.`
                           : 'Sentenced to ' +
                             incident.brig_sentence +
                             ' minutes of brig time.'}

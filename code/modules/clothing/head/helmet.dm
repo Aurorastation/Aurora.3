@@ -21,6 +21,7 @@
 	var/obj/structure/machinery/camera/camera
 	drop_sound = 'sound/items/drop/helm.ogg'
 	pickup_sound = 'sound/items/pickup/helm.ogg'
+	equip_sound = 'sound/items/equip/helm.ogg'
 	protects_against_weather = TRUE
 
 	var/has_storage = TRUE
@@ -172,11 +173,13 @@
 	if(icon_state == initial(icon_state))
 		icon_state = "[icon_state]-up"
 		item_state = icon_state
+		playsound(src, SFX_VISOR_UP, 20, TRUE, -1)
 		to_chat(user, SPAN_NOTICE("You raise the visor on \the [src]."))
 		body_parts_covered = HEAD
 	else
 		icon_state = initial(icon_state)
 		item_state = icon_state
+		playsound(src, SFX_VISOR_DOWN, 20, TRUE, -1)
 		to_chat(user, SPAN_NOTICE("You lower the visor on \the [src]."))
 		body_parts_covered = HEAD|FACE|EYES
 
@@ -266,10 +269,12 @@
 
 	if(src.icon_state == initial(icon_state))
 		src.icon_state = "[icon_state]-up"
+		playsound(src, SFX_VISOR_UP, 20, TRUE, -1)
 		to_chat(user, "You raise the visor on \the [src].")
 		body_parts_covered = HEAD
 	else
 		src.icon_state = initial(icon_state)
+		playsound(src, SFX_VISOR_DOWN, 20, TRUE, -1)
 		to_chat(user, "You lower the visor on \the [src].")
 		body_parts_covered = HEAD|FACE|EYES
 	update_clothing_icon()

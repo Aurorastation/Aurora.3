@@ -1,5 +1,3 @@
-import { BooleanLike } from '../../common/react';
-import { useBackend, useLocalState } from '../backend';
 import {
   Button,
   Input,
@@ -7,7 +5,9 @@ import {
   ProgressBar,
   Section,
   TextArea,
-} from '../components';
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
+import { useBackend, useLocalState } from '../backend';
 import { Window } from '../layouts';
 
 const BLUEPRINT_IMPORT_CHUNK_DELAY = 250;
@@ -78,29 +78,23 @@ const splitCircuitCategory = (category: string) => {
   };
 };
 
-export const CircuitPrinter = (props, context) => {
-  const { act, data } = useBackend<PrinterData>(context);
+export const CircuitPrinter = (props) => {
+  const { act, data } = useBackend<PrinterData>();
 
-  const [searchTerm, setSearchTerm] = useLocalState<string>(
-    context,
-    'searchTerm',
-    '',
-  );
+  const [searchTerm, setSearchTerm] = useLocalState<string>('searchTerm', '');
   const [blueprintText, setBlueprintText] = useLocalState<string>(
-    context,
     'blueprintText',
     '',
   );
   const [showBlueprintImport, setShowBlueprintImport] = useLocalState<boolean>(
-    context,
     'showBlueprintImport',
     false,
   );
   const [isImportingBlueprint, setIsImportingBlueprint] =
-    useLocalState<boolean>(context, 'isImportingBlueprint', false);
+    useLocalState<boolean>('isImportingBlueprint', false);
   const [collapsedCategories, setCollapsedCategories] = useLocalState<
     Record<string, boolean>
-  >(context, 'collapsedCategories', {});
+  >('collapsedCategories', {});
 
   const normalizedSearchTerm = searchTerm.toLowerCase();
   const categories = [...data.categories].sort();
@@ -205,7 +199,7 @@ export const CircuitPrinter = (props, context) => {
   };
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section title="Status">
           <LabeledList>
