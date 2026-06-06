@@ -107,7 +107,7 @@ ABSTRACT_TYPE(/singleton/persistent_type/history/character)
 		title = #TITLE; \
 		description = #DESCRIPTION; \
 		requires_attribute = ##REQUIRES_ATTRIBUTE; \
-		expiration_rule = #EXPIRATION_RULE; \
+		expiration_rule = ##EXPIRATION_RULE; \
 	}
 
 // Character history persistent type definition - Enforces character ID validation when used
@@ -117,7 +117,7 @@ ABSTRACT_TYPE(/singleton/persistent_type/history/character)
 		title = #TITLE; \
 		description = #DESCRIPTION; \
 		requires_attribute = TRUE; \
-		expiration_rule = #EXPIRATION_RULE; \
+		expiration_rule = ##EXPIRATION_RULE; \
 	}
 
 // ##### List of custom type definitions using the macros above
