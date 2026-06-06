@@ -1,17 +1,27 @@
-// ##### List of custom type definitions using the macros above
+/*###################################################
+	Type definitions
+###################################################*/
 
-// Singleton list of generic persistent type definitions, created by the macro above.
-// CREATE_PERSISTENT_TYPE_GENERIC(basic, "Title", "A persistent generic with no special properties.", FALSE)
-// => creates /singleton/persistent_type/generic/basic
+// Type definitions using macros - This file contains all types getting made accessible in code and later in database during first subsystem run
+// See macros for detailed information on parameters and the underlaying types
+// Generally, after being released (as in, run against the database once), these should NOT be modified if possible, explicit warnings:
+
+//		+------------------------------------------------------------------------------------------------------------------+
+//		| MODIFYING THE TYPE NAME OF EXISTING DEFINES WILL CREATE A NEW TYPE DEFINITION IN THE DATABASE                    |
+//		+------------------------------------------------------------------------------------------------------------------+
+//		| MODIFYING THE ATTRIBUTE FLAG OF EXISTING DEFINES CAN HAVE BREAKING CONSEQUENCES, TESTING REQUIRED BEFORE RELEASE +
+//		+------------------------------------------------------------------------------------------------------------------|
+
+// Below are the defines for generics, history and history with character validation
+
+// ##### Persistent generics
 
 CREATE_PERSISTENT_TYPE_GENERIC(horizon_overmap_position, "SCCV Horizon sector position", "Position of the SCCV Horizon on the overmap.", FALSE)
 
-// Singleton list of history persistent type definitions, created by the macro above.
-// CREATE_PERSISTENT_TYPE_HISTORY(basic, "Title", "A persistent record type with no special properties.", FALSE, /singleton/persistent_type_history_expiration_rule/row_count/hundred)
-// => creates /singleton/persistent_type/history/basic with an expiration rule of 100 rows
+// ##### Persistent history
 
-// Singleton list of history persistent type definitions, created by the macro above.
-// CREATE_PERSISTENT_TYPE_HISTORY_CHARACTER(basic, "Title", "A persistent record type with no special properties.", /singleton/persistent_type_history_expiration_rule/age/year)
-// => creates /singleton/persistent_type/history/character/basic with an expiration age rule of 365 days and mandatory attribute (character ID)
+
+
+// ##### Persistent history with character validation
 
 CREATE_PERSISTENT_TYPE_HISTORY_CHARACTER(mining_points, "Mining yield history", "History of mining points yield of individual miners.", /singleton/persistent_type_history_expiration_rule/age/week)

@@ -1,35 +1,36 @@
 /*###################################################
-	Defines for type definitions
+	Base types and macros for type definitions
 ###################################################*/
 
 // ##### Base type definitions
 
 // Persistent type definition found in database
 ABSTRACT_TYPE(/singleton/persistent_type)
-	var/database_id = 0 // Set during subsystem init
-	var/definition_type_value = 0 // Hard coded in "ss13_persistent_type_definitions.definition_type", DO NOT MODIFY - Database constant
+	var/database_id = 0 // Set during subsystem init - DO NOT MODIFY
+	var/definition_type_value = 0 // Hard coded in "ss13_persistent_type_definitions.definition_type", DO NOT MODIFY - DATABASE CONSTANT
 	var/title = ""
 	var/description = ""
-	var/requires_attribute = FALSE
+	var/requires_attribute = FALSE // Whether or not this type requires/has an attribute, relevant for subsystem when saving or pulling type data - Should not be changed after release for the given type
 
 /**
- *	Hook proc that is called by the subsystem starting finalization.
+ *	Hook proc that is called by the subsystem starting finalization on each persistent type definition.
  *  Hooks are used for implementing finalization logic for mechanics that either
  *  don't have a single trigger to save or where repetitive saving would be too costly.
  *  Should return nothing, returned values are discarded.
+ *  Implementation can be put where applicable, e.g. next to loading logic of the type.
  */
 /singleton/persistent_type/proc/finalization_hook()
 	SHOULD_CALL_PARENT(FALSE)
 	return
 
-ABSTRACT_TYPE(/singleton/persistent_type/generic)
-	definition_type_value = 1 // DO NOT MODIFY - Database constant
+ABSTRACT_TYPE(/singleton/persistent_type/generic) // Base type for "persistent generics"
+	definition_type_value = 1 // DO NOT MODIFY - DATABASE CONSTANT
 
-ABSTRACT_TYPE(/singleton/persistent_type/history)
-	definition_type_value = 2 // DO NOT MODIFY - Database constant
+ABSTRACT_TYPE(/singleton/persistent_type/history) // Base type for "persistent history"
+	definition_type_value = 2 // DO NOT MODIFY - DATABASE CONSTANT
 	var/singleton/persistent_type_history_expiration_rule/expiration_rule = null
 
-ABSTRACT_TYPE(/singleton/persistent_type/history/character)
+ABSTRACT_TYPE(/singleton/persistent_type/history/character) // Base type of extended validation for persistent history in relation to characters
 	// Empty stub
 
 // ##### Macros for new custom type definitions
@@ -40,7 +41,8 @@ ABSTRACT_TYPE(/singleton/persistent_type/history/character)
 // - EXPIRATION_RULE = For history type definitions, the expiration rule to apply to records of this type.
 //					   See /singleton/persistent_type_history_expiration_rule and subtypes for available rules.
 
-// Basic generic persistent type definition
+// Persistent generic
+// CREATE_PERSISTENT_TYPE_GENERIC(my_type_name, "My custom type", "This type is a test and has no purpose", TRUE)
 #define CREATE_PERSISTENT_TYPE_GENERIC(TYPE_NAME, TITLE, DESCRIPTION, REQUIRES_ATTRIBUTE) \
 	/singleton/persistent_type/generic/##TYPE_NAME \
 	{ \
@@ -49,7 +51,8 @@ ABSTRACT_TYPE(/singleton/persistent_type/history/character)
 		requires_attribute = ##REQUIRES_ATTRIBUTE; \
 	}
 
-// Basic history persistent type definition
+// Persistent history
+// CREATE_PERSISTENT_TYPE_HISTORY(my_type_name, "My custom type", "This type is a test and has no purpose", TRUE, /singleton/persistent_type_history_expiration_rule/age/default)
 #define CREATE_PERSISTENT_TYPE_HISTORY(TYPE_NAME, TITLE, DESCRIPTION, REQUIRES_ATTRIBUTE, EXPIRATION_RULE) \
 	/singleton/persistent_type/history/##TYPE_NAME \
 	{ \
@@ -59,7 +62,8 @@ ABSTRACT_TYPE(/singleton/persistent_type/history/character)
 		expiration_rule = ##EXPIRATION_RULE; \
 	}
 
-// Character history persistent type definition - Enforces character ID validation when used
+// Persistent history with extended validation on character relation - Attribute automatically required compared to parent persistent history type definition
+// CREATE_PERSISTENT_TYPE_HISTORY(my_type_name, "My custom type", "This type is a test and has no purpose", /singleton/persistent_type_history_expiration_rule/age/default)
 #define CREATE_PERSISTENT_TYPE_HISTORY_CHARACTER(TYPE_NAME, TITLE, DESCRIPTION, EXPIRATION_RULE) \
 	/singleton/persistent_type/history/character/##TYPE_NAME \
 	{ \
