@@ -370,3 +370,29 @@
 		BOMB = ARMOR_BOMB_PADDED,
 	)
 	slowdown = 0.15
+
+/obj/item/clothing/accessory/arm_guard/riot/lancer
+	name = "ceres lance arm guards"
+	desc = "A pair of the state-of-the-art arm guards used by Ceres Lance on low-intensity missions. They are made with additional layers of padding and are designed to protect operatives attempting to physically restrain hostile IPCs but have poor heat dissipation characteristics as a result."
+	icon_state = "armguards_lancer"
+	item_state = "armguards_lancer"
+	armor = list(
+		MELEE = ARMOR_MELEE_VERY_HIGH,
+		BULLET = ARMOR_BALLISTIC_MAJOR,
+		LASER = ARMOR_LASER_SMALL,
+		ENERGY = ARMOR_ENERGY_RESISTANT,
+		BOMB = ARMOR_BOMB_PADDED,
+	)
+
+/obj/item/clothing/accessory/leg_guard/riot/lancer
+	name = "ceres lance leg guards"
+	desc = "A pair of the state-of-the-art leg guards used by Ceres Lance on low-intensity missions. They are made with additional layers of padding and are designed to protect operatives attempting to physically restrain hostile IPCs but have poor heat dissipation characteristics as a result."
+	icon_state = "legguards_lancer"
+	item_state = "legguards_lancer"
+	armor = list(
+		MELEE = ARMOR_MELEE_VERY_HIGH,
+		BULLET = ARMOR_BALLISTIC_MAJOR,
+		LASER = ARMOR_LASER_SMALL,
+		ENERGY = ARMOR_ENERGY_RESISTANT,
+		BOMB = ARMOR_BOMB_PADDED,
+	)
