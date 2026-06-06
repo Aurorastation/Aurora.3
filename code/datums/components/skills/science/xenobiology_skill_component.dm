@@ -14,7 +14,7 @@
 
 /datum/component/skill/xenobiology/proc/modify_hit_effect(owner, mob/living/target, obj/item/weapon, power, hit_zone)
 	SIGNAL_HANDLER
-	if (!HAS_TRAIT(target, TRAIT_MC_SPACE_FAUNA))
+	if (target.ckey || !HAS_TRAIT(target, TRAIT_MC_SPACE_FAUNA))
 		return
 
 	if (prob(20))
