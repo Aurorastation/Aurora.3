@@ -431,6 +431,9 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 /mob/abstract/new_player/Move()
 	return TRUE
 
+/mob/abstract/new_player/hear_message(datum/say_message/msg)
+	return FALSE
+
 /mob/abstract/new_player/proc/close_spawn_windows()
 	src << browse(null, "window=playersetup") //closes the player setup window
 
