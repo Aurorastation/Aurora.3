@@ -91,8 +91,12 @@
 		"\
 			DELETE FROM ss13_persistent_history \
 			WHERE type = :type_id AND attribute <=> :attribute \
-			ORDER BY created_at DESC, id DESC \
-			LIMIT :row_count",
+			AND id NOT IN ( \
+				SELECT id FROM ss13_persistent_history \
+				WHERE type = :type_id AND attribute <=> :attribute \
+				ORDER BY created_at DESC, id DESC \
+				LIMIT :row_count \
+			)",
 		list(
 			"type_id" = type_id,
 			"attribute" = attribute,
@@ -120,15 +124,14 @@
 		"\
 			DELETE FROM ss13_persistent_history \
 			WHERE type = :type_id AND attribute <=> :attribute \
-			AND game_id IN ( \
+			AND game_id NOT IN ( \
 				SELECT game_id FROM ( \
-					SELECT game_id \
-					FROM ss13_persistent_history \
+					SELECT game_id FROM ss13_persistent_history \
 					WHERE type = :type_id AND attribute <=> :attribute \
 					GROUP BY game_id \
 					ORDER BY MAX(created_at) DESC, game_id DESC \
 					LIMIT :round_count \
-				) AS mirror \
+				) AS recent_games \
 			)",
 		list(
 			"type_id" = type_id,
