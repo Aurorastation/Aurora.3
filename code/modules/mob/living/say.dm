@@ -303,7 +303,6 @@ var/list/channel_to_radio_key = new
 	msg.message_range = world.view
 	msg.whisper = whisper
 	msg.alt_name = alt_name
-	msg.ghost_hearing = ghost_hearing
 	msg.say_mode = SAYMODE_SPOKEN
 
 	if(!finalize_say_message(msg, skip_edit))

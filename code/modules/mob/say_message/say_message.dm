@@ -45,9 +45,6 @@
 	/// Volume of speech_sound.
 	var/sound_vol
 
-	/// Which ghosts can hear this message?
-	var/ghost_hearing = GHOSTS_ALL_HEAR
-
 	/// How the message is reaching the listener.
 	var/say_mode = SAYMODE_SPOKEN
 
@@ -184,7 +181,6 @@
 	copy.message_mode = message_mode
 	copy.speech_sound = speech_sound
 	copy.sound_vol = sound_vol
-	copy.ghost_hearing = ghost_hearing
 	copy.say_mode = say_mode
 	copy.base_clarity = base_clarity
 	copy.radio_parts = radio_parts
