@@ -56,6 +56,12 @@
 	},
 /turf/simulated/floor/exoplanet/konyang/wilting,
 /area/template_noop)
+"aY" = (
+/obj/structure/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/lino/diamond,
+/area/template_noop)
 "aZ" = (
 /obj/structure/flora/rock/konyang,
 /turf/simulated/floor/exoplanet/konyang,
@@ -102,6 +108,13 @@
 /turf/simulated/floor/tiled/ramp{
 	dir = 4
 	},
+/area/template_noop)
+"bk" = (
+/obj/item/trash/mollusc_shell/clam{
+	pixel_x = -10;
+	pixel_y = -7
+	},
+/turf/simulated/floor/beach/sand/desert,
 /area/template_noop)
 "bl" = (
 /obj/structure/flora/rock/konyang/small,
@@ -300,6 +313,14 @@
 /obj/structure/lattice/catwalk/indoor/planks/deep,
 /turf/simulated/floor/beach/sand/desert,
 /area/template_noop)
+"es" = (
+/obj/structure/table/rack,
+/obj/item/flashlight/lantern/on{
+	pixel_x = 2;
+	pixel_y = 6
+	},
+/turf/simulated/floor/exoplanet/lino,
+/area/template_noop)
 "ex" = (
 /turf/simulated/floor/beach/sand{
 	dir = 8;
@@ -386,6 +407,13 @@
 /obj/structure/flora/bush/mushroom,
 /turf/simulated/floor/exoplanet/konyang/wilting,
 /area/template_noop)
+"gb" = (
+/obj/item/trash/mollusc_shell/clam{
+	pixel_x = -4;
+	pixel_y = -7
+	},
+/turf/simulated/floor/beach/sand/desert,
+/area/template_noop)
 "gc" = (
 /obj/effect/decal/curb{
 	dir = 8
@@ -436,6 +464,13 @@
 /obj/structure/rod_railing,
 /turf/simulated/floor/wood,
 /area/template_noop)
+"gF" = (
+/obj/item/trash/mollusc_shell/barnacle{
+	pixel_x = 10;
+	pixel_y = -7
+	},
+/turf/simulated/floor/beach/sand/desert,
+/area/template_noop)
 "gK" = (
 /obj/effect/decal/curb/corner,
 /obj/effect/decal/curb/corner{
@@ -449,8 +484,8 @@
 /area/template_noop)
 "gN" = (
 /obj/structure/sign/generic_memorial{
-	name = "Welcome to Agaricus VI";
-	desc = "It's a really big stone. It seems to be welcoming you to a planet named 'Agaricus', which it clarifies further is overseen by the Coalition of Colonies and the Republic of Assunzione in the absence of any local government. It depicts a simplified map of the planet, warning hikers and hermits of the locations of hazards or impediments they may encounter. It also helpfully informs the reader that all mushrooms on the planet are invasive, and are causing the planet to undergo a nearly total ecological collapse which will render its ecosystem devastated within a century. Stomping mushrooms is strictly good for the environment, but it isn't realistically going to change anything. Thankfully, most visitors care much more about this planet's beautiful beaches and amiable coastal climate than such worrisome things as a mass extinction. It isn't like anyone lives here permanently."
+	name = "Welcome to Sandbox";
+	desc = "It's a really big stone. It seems to be welcoming you to a planet named 'Sandbox', which it clarifies further is overseen by the Coalition of Colonies and the Republic of Assunzione in the absence of any local government. It depicts a simplified map of the planet, warning hikers and hermits of the locations of hazards or impediments they may encounter. It also helpfully informs the reader that all mushrooms on the planet are invasive, and are causing the planet to undergo a nearly total ecological collapse which will render its ecosystem devastated within a century. Stomping mushrooms is strictly good for the environment, but it isn't realistically going to change anything. Thankfully, most visitors care much more about this planet's beautiful beaches and amiable coastal climate than such worrisome things as a mass extinction. It isn't like anyone lives here permanently."
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/sidewalk/detail,
@@ -569,6 +604,13 @@
 	},
 /turf/simulated/floor/exoplanet/konyang,
 /area/template_noop)
+"io" = (
+/obj/item/trash/mollusc_shell{
+	pixel_x = 11;
+	pixel_y = 11
+	},
+/turf/simulated/floor/beach/sand/desert,
+/area/template_noop)
 "iq" = (
 /obj/structure/platform{
 	dir = 4
@@ -626,6 +668,22 @@
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/template_noop)
+"iR" = (
+/obj/item/flashlight/lantern/on{
+	pixel_x = -5;
+	pixel_y = 13
+	},
+/obj/structure/table/rack/folding_table,
+/obj/item/trash/candle{
+	pixel_x = 9;
+	pixel_y = 13
+	},
+/obj/item/trash/candle{
+	pixel_x = 7;
+	pixel_y = 4
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang/cave,
+/area/template_noop)
 "jM" = (
 /obj/structure/machinery/vending/frontiervend,
 /obj/effect/floor_decal/industrial/outline/service,
@@ -638,6 +696,13 @@
 "jN" = (
 /obj/structure/konyang_cliff{
 	icon_state = "innercorner3"
+	},
+/turf/simulated/floor/beach/sand/desert,
+/area/template_noop)
+"jO" = (
+/obj/item/trash/mollusc_shell{
+	pixel_x = -10;
+	pixel_y = 5
 	},
 /turf/simulated/floor/beach/sand/desert,
 /area/template_noop)
@@ -719,6 +784,10 @@
 /area/template_noop)
 "lh" = (
 /obj/structure/table/rack,
+/obj/item/flashlight/lantern/on{
+	pixel_x = -3;
+	pixel_y = 10
+	},
 /turf/simulated/floor/exoplanet/lino,
 /area/template_noop)
 "ln" = (
@@ -735,6 +804,12 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/sidewalk/detail,
 /area/template_noop)
+"lz" = (
+/obj/structure/bed/stool/chair/folding{
+	dir = 8
+	},
+/turf/simulated/floor/beach/sand/desert,
+/area/template_noop)
 "lA" = (
 /obj/structure/lattice/catwalk/indoor/planks/deep,
 /obj/structure/rope_post,
@@ -750,6 +825,18 @@
 	icon_state = "beach";
 	name = "coast"
 	},
+/area/template_noop)
+"lM" = (
+/mob/living/simple_animal/aquatic/fish/gupper,
+/turf/simulated/floor/exoplanet/water/shallow,
+/area/template_noop)
+"lR" = (
+/obj/structure/table/fancy/blue,
+/obj/item/flashlight/lantern/on{
+	pixel_x = -8;
+	pixel_y = 14
+	},
+/turf/simulated/floor/exoplanet/lino/diamond,
 /area/template_noop)
 "mc" = (
 /obj/effect/floor_decal/industrial/warning/dust{
@@ -783,6 +870,10 @@
 	pixel_y = -16
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/template_noop)
+"ms" = (
+/obj/structure/bonfire/light_up,
+/turf/simulated/floor/beach/sand/desert,
 /area/template_noop)
 "mt" = (
 /obj/structure/sign/billboard,
@@ -855,6 +946,13 @@
 /obj/effect/floor_decal/fungus/random,
 /turf/simulated/floor/exoplanet/konyang/wilting,
 /area/template_noop)
+"nB" = (
+/obj/item/trash/mollusc_shell/clam{
+	pixel_x = -10;
+	pixel_y = 3
+	},
+/turf/simulated/floor/beach/sand/desert,
+/area/template_noop)
 "nD" = (
 /obj/structure/platform{
 	dir = 4
@@ -897,6 +995,13 @@
 	dir = 6;
 	icon_state = "beach"
 	},
+/area/template_noop)
+"ob" = (
+/obj/item/trash/match{
+	pixel_x = -17;
+	pixel_y = 17
+	},
+/turf/simulated/floor/beach/sand/desert,
 /area/template_noop)
 "oc" = (
 /obj/structure/platform{
@@ -993,11 +1098,25 @@
 /obj/structure/sign/flag/assunzione,
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/template_noop)
+"pE" = (
+/obj/item/towel_flat{
+	accent_color = "#95453D";
+	color = "#419a4d"
+	},
+/turf/simulated/floor/beach/sand/desert,
+/area/template_noop)
 "pQ" = (
 /turf/simulated/floor/beach/sand{
 	dir = 4;
 	icon_state = "beach"
 	},
+/area/template_noop)
+"pR" = (
+/obj/item/trash/coffee{
+	pixel_x = 8;
+	pixel_y = 9
+	},
+/turf/simulated/floor/exoplanet/konyang,
 /area/template_noop)
 "pT" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1025,6 +1144,13 @@
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/template_noop)
+"qE" = (
+/obj/item/trash/mollusc_shell/clam{
+	pixel_x = 8;
+	pixel_y = 3
+	},
+/turf/simulated/floor/beach/sand/desert,
+/area/template_noop)
 "qF" = (
 /obj/structure/flora/rock/konyang/small,
 /obj/structure/flora/bush/konyang_reeds,
@@ -1049,6 +1175,10 @@
 /area/template_noop)
 "rk" = (
 /obj/structure/table/rack/cafe_table,
+/obj/item/flashlight/lantern/on{
+	pixel_x = -6;
+	pixel_y = 13
+	},
 /turf/simulated/floor/exoplanet/lino/diamond,
 /area/template_noop)
 "ro" = (
@@ -1174,6 +1304,19 @@
 	dir = 4
 	},
 /area/template_noop)
+"sF" = (
+/mob/living/simple_animal/tindalos{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/konyang/wilting,
+/area/template_noop)
+"sI" = (
+/obj/item/trash/mollusc_shell{
+	pixel_x = 7;
+	pixel_y = 4
+	},
+/turf/simulated/floor/beach/sand/desert,
+/area/template_noop)
 "sP" = (
 /turf/simulated/floor/beach/sand{
 	icon_state = "beach"
@@ -1184,6 +1327,13 @@
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/lino,
+/area/template_noop)
+"sU" = (
+/obj/item/trash/coffee{
+	pixel_x = 9;
+	pixel_y = 12
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
 /area/template_noop)
 "sY" = (
 /obj/structure/ledge/roof{
@@ -1332,6 +1482,13 @@
 	},
 /turf/simulated/floor/beach/sand/desert,
 /area/template_noop)
+"vf" = (
+/obj/effect/decal/curb,
+/obj/structure/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/lino/diamond,
+/area/template_noop)
 "vi" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff-east"
@@ -1448,7 +1605,17 @@
 /obj/structure/toilet{
 	dir = 4
 	},
+/obj/structure/machinery/light/small{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/freezer,
+/area/template_noop)
+"xt" = (
+/obj/item/trash/cigbutt{
+	pixel_x = -15;
+	pixel_y = 10
+	},
+/turf/simulated/floor/beach/sand/desert,
 /area/template_noop)
 "xy" = (
 /obj/structure/platform,
@@ -1461,6 +1628,13 @@
 	},
 /turf/simulated/floor/sidewalk/detail,
 /area/template_noop)
+"xO" = (
+/obj/item/trash/coffee{
+	pixel_x = 4;
+	pixel_y = -12
+	},
+/turf/simulated/floor/beach/sand/desert,
+/area/template_noop)
 "xP" = (
 /obj/structure/machinery/atmospherics/pipe/manifold4w/visible/yellow,
 /obj/structure/machinery/meter,
@@ -1472,8 +1646,22 @@
 /obj/structure/machinery/washing_machine,
 /turf/simulated/floor/exoplanet/plating,
 /area/template_noop)
+"xX" = (
+/obj/item/trash/mollusc_shell/clam{
+	pixel_x = 10;
+	pixel_y = 13
+	},
+/turf/simulated/floor/beach/sand/desert,
+/area/template_noop)
 "ye" = (
 /obj/structure/beach_umbrella,
+/turf/simulated/floor/beach/sand/desert,
+/area/template_noop)
+"yf" = (
+/obj/item/trash/mollusc_shell/barnacle{
+	pixel_x = 7;
+	pixel_y = 7
+	},
 /turf/simulated/floor/beach/sand/desert,
 /area/template_noop)
 "yj" = (
@@ -1495,6 +1683,14 @@
 /obj/structure/flora/rock/konyang/water,
 /turf/simulated/floor/exoplanet/water/shallow,
 /area/template_noop)
+"yH" = (
+/obj/structure/beach_umbrella/alt,
+/obj/item/towel_flat{
+	accent_color = "#95453D";
+	color = "#2292d2"
+	},
+/turf/simulated/floor/beach/sand/desert,
+/area/template_noop)
 "yP" = (
 /obj/structure/rope_post,
 /obj/structure/rope_post{
@@ -1505,8 +1701,21 @@
 	},
 /turf/simulated/floor/exoplanet/water/shallow,
 /area/template_noop)
+"yW" = (
+/obj/effect/decal/curb,
+/obj/structure/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/lino/diamond,
+/area/template_noop)
 "zf" = (
 /turf/simulated/floor/exoplanet/lino/diamond,
+/area/template_noop)
+"zg" = (
+/obj/structure/bed/sleeping_bag{
+	color = "#2c5732"
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang/cave,
 /area/template_noop)
 "zq" = (
 /obj/structure/lattice/catwalk/indoor/planks/stairs{
@@ -1546,11 +1755,23 @@
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/template_noop)
+"Ac" = (
+/obj/structure/beach_umbrella/alt,
+/obj/item/towel_flat{
+	accent_color = "#95453D";
+	color = "#419a4d"
+	},
+/turf/simulated/floor/beach/sand/desert,
+/area/template_noop)
 "An" = (
 /obj/effect/floor_decal/industrial/outline_straight/yellow,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/rod_railing,
 /turf/simulated/floor/sidewalk/flat,
+/area/template_noop)
+"Aq" = (
+/mob/living/simple_animal/snake,
+/turf/simulated/floor/exoplanet/konyang,
 /area/template_noop)
 "Au" = (
 /obj/effect/map_effect/window_spawner/full/wood,
@@ -1596,6 +1817,13 @@
 "AM" = (
 /obj/structure/lattice/catwalk/indoor/planks/deep,
 /turf/simulated/floor/exoplanet/water/shallow,
+/area/template_noop)
+"AN" = (
+/obj/item/trash/mollusc_shell/barnacle{
+	pixel_x = -4;
+	pixel_y = 8
+	},
+/turf/simulated/floor/beach/sand/desert,
 /area/template_noop)
 "AX" = (
 /obj/structure/sign/billboard{
@@ -1745,6 +1973,20 @@
 /obj/effect/decal/curb,
 /turf/simulated/floor/exoplanet/lino,
 /area/template_noop)
+"Dz" = (
+/obj/item/trash/mollusc_shell/barnacle{
+	pixel_x = 11;
+	pixel_y = 4
+	},
+/turf/simulated/floor/beach/sand/desert,
+/area/template_noop)
+"DB" = (
+/obj/item/trash/mollusc_shell/barnacle{
+	pixel_x = -6;
+	pixel_y = 6
+	},
+/turf/simulated/floor/beach/sand/desert,
+/area/template_noop)
 "DD" = (
 /obj/effect/decal/curb{
 	dir = 4
@@ -1773,7 +2015,10 @@
 /turf/simulated/floor/exoplanet/konyang,
 /area/template_noop)
 "Ep" = (
-/obj/item/stack/rods,
+/obj/item/stack/rods{
+	pixel_x = 5;
+	pixel_y = 3
+	},
 /turf/simulated/floor/beach/sand/desert,
 /area/template_noop)
 "EB" = (
@@ -1783,6 +2028,13 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"ED" = (
+/obj/item/trash/mollusc_shell{
+	pixel_x = 6;
+	pixel_y = -5
+	},
+/turf/simulated/floor/beach/sand/desert,
 /area/template_noop)
 "EG" = (
 /obj/structure/rope_railing{
@@ -1911,6 +2163,13 @@
 /obj/effect/decal/curb/corner,
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/template_noop)
+"GK" = (
+/obj/item/trash/mollusc_shell{
+	pixel_x = 4;
+	pixel_y = 7
+	},
+/turf/simulated/floor/beach/sand/desert,
+/area/template_noop)
 "GN" = (
 /obj/structure/machinery/media/jukebox{
 	anchored = 1
@@ -1992,6 +2251,19 @@
 	},
 /turf/simulated/floor/exoplanet/konyang,
 /area/template_noop)
+"HV" = (
+/mob/living/simple_animal/tindalos{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/template_noop)
+"HW" = (
+/obj/item/clothing/head/cone{
+	pixel_x = 7;
+	pixel_y = 12
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang/cave,
+/area/template_noop)
 "Ib" = (
 /obj/structure/machinery/atmospherics/portables_connector,
 /obj/effect/floor_decal/industrial/warning/dust{
@@ -2040,6 +2312,12 @@
 /obj/structure/machinery/atmospherics/pipe/simple/visible/yellow,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/sidewalk/detail,
+/area/template_noop)
+"Ix" = (
+/obj/structure/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/lino,
 /area/template_noop)
 "Iz" = (
 /obj/structure/rope_post{
@@ -2102,6 +2380,13 @@
 "Jo" = (
 /obj/structure/machinery/vending/boozeomat/abandoned,
 /turf/simulated/floor/exoplanet/lino,
+/area/template_noop)
+"Jq" = (
+/obj/item/trash/coffee{
+	pixel_x = -4;
+	pixel_y = -8
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
 /area/template_noop)
 "Jt" = (
 /obj/effect/konyang_waterfall/mist{
@@ -2186,6 +2471,15 @@
 	icon_state = "beachcorner";
 	name = "coast"
 	},
+/area/template_noop)
+"KB" = (
+/obj/structure/platform{
+	dir = 8
+	},
+/mob/living/simple_animal/tindalos{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/konyang,
 /area/template_noop)
 "KC" = (
 /obj/structure/rope_post{
@@ -2320,6 +2614,13 @@
 /obj/structure/curtain/open/bed,
 /turf/simulated/floor/exoplanet/lino/diamond,
 /area/template_noop)
+"Mf" = (
+/obj/item/trash/mollusc_shell/clam{
+	pixel_x = 3;
+	pixel_y = 5
+	},
+/turf/simulated/floor/beach/sand/desert,
+/area/template_noop)
 "Mj" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff-east"
@@ -2345,6 +2646,19 @@
 	icon_state = "innercorner1"
 	},
 /turf/simulated/floor/beach/sand/desert,
+/area/template_noop)
+"Mw" = (
+/obj/effect/map_effect/window_spawner/full/wood,
+/obj/structure/curtain/open/bed,
+/turf/simulated/floor/exoplanet/lino/diamond,
+/area/template_noop)
+"My" = (
+/obj/structure/flora/rock/konyang/small,
+/obj/item/clothing/head/cone{
+	pixel_x = -7;
+	pixel_y = 17
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang/cave,
 /area/template_noop)
 "Mz" = (
 /obj/effect/decal/curb{
@@ -2386,6 +2700,10 @@
 	},
 /obj/structure/platform_deco{
 	dir = 8
+	},
+/obj/item/trash/match{
+	pixel_x = 6;
+	pixel_y = 3
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/template_noop)
@@ -2444,6 +2762,21 @@
 	icon_state = "beach";
 	name = "coast"
 	},
+/area/template_noop)
+"NC" = (
+/obj/item/trash/mollusc_shell{
+	pixel_x = -12;
+	pixel_y = -5
+	},
+/turf/simulated/floor/beach/sand/desert,
+/area/template_noop)
+"NF" = (
+/obj/structure/table/wood,
+/obj/item/flashlight/lamp/green{
+	pixel_x = 5;
+	pixel_y = 7
+	},
+/turf/simulated/floor/exoplanet/lino,
 /area/template_noop)
 "NH" = (
 /obj/structure/lattice/catwalk/indoor/planks/deep,
@@ -2508,6 +2841,13 @@
 /obj/structure/machinery/recharge_station,
 /turf/simulated/floor/sidewalk/flat,
 /area/template_noop)
+"Oz" = (
+/obj/structure/bed/stool/bar/padded/black,
+/obj/structure/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/aquablue,
+/area/template_noop)
 "OA" = (
 /obj/structure/lattice/catwalk/indoor/planks/deep,
 /obj/structure/rope_post{
@@ -2558,6 +2898,20 @@
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/template_noop)
+"PB" = (
+/obj/structure/bed/stool/chair/folding{
+	dir = 4
+	},
+/obj/item/trash/cigbutt{
+	pixel_x = 11;
+	pixel_y = 8
+	},
+/obj/item/trash/cigbutt{
+	pixel_x = 2;
+	pixel_y = 9
+	},
+/turf/simulated/floor/beach/sand/desert,
+/area/template_noop)
 "PE" = (
 /obj/structure/lattice/catwalk/indoor/planks/deep,
 /turf/simulated/floor/beach/sand{
@@ -2575,6 +2929,12 @@
 	},
 /obj/structure/flora/bush/mushroom,
 /turf/simulated/floor/exoplanet/konyang/wilting,
+/area/template_noop)
+"PT" = (
+/obj/structure/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
 /area/template_noop)
 "PW" = (
 /obj/structure/flora/rock/konyang/small,
@@ -2644,6 +3004,16 @@
 /obj/structure/platform,
 /turf/simulated/floor/exoplanet/konyang,
 /area/template_noop)
+"QU" = (
+/obj/item/trash/cigbutt{
+	pixel_x = 5;
+	pixel_y = 12
+	},
+/obj/item/trash/cigbutt{
+	pixel_y = 15
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang/cave,
+/area/template_noop)
 "Rc" = (
 /obj/structure/lattice/catwalk/indoor/planks/deep,
 /obj/structure/rope_post{
@@ -2658,6 +3028,12 @@
 /turf/simulated/floor/beach/sand{
 	icon_state = "beach"
 	},
+/area/template_noop)
+"Rg" = (
+/mob/living/simple_animal/aquatic/fish/gupper{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/water/shallow,
 /area/template_noop)
 "Rj" = (
 /obj/structure/konyang_cliff{
@@ -2747,6 +3123,12 @@
 	icon_state = "beach"
 	},
 /area/template_noop)
+"SC" = (
+/obj/structure/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/open,
+/area/template_noop)
 "SD" = (
 /turf/simulated/floor/exoplanet/water/shallow{
 	icon = 'icons/turf/flooring/exoplanet/konyang.dmi';
@@ -2777,6 +3159,17 @@
 /turf/simulated/floor/beach/sand{
 	icon_state = "beach"
 	},
+/area/template_noop)
+"SQ" = (
+/obj/item/trash/match{
+	pixel_x = -5;
+	pixel_y = 16
+	},
+/obj/item/trash/match{
+	pixel_x = -6;
+	pixel_y = 3
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
 /area/template_noop)
 "Tf" = (
 /obj/effect/decal/curb,
@@ -2878,6 +3271,13 @@
 	},
 /obj/structure/rod_railing,
 /turf/simulated/open,
+/area/template_noop)
+"Uh" = (
+/obj/item/trash/mollusc_shell/barnacle{
+	pixel_x = -10;
+	pixel_y = -3
+	},
+/turf/simulated/floor/beach/sand/desert,
 /area/template_noop)
 "Uj" = (
 /obj/structure/flora/rock/konyang/water,
@@ -3028,6 +3428,13 @@
 /obj/item/stack/rods,
 /turf/simulated/floor/sidewalk/flat,
 /area/template_noop)
+"VH" = (
+/obj/item/trash/coffee{
+	pixel_x = -3;
+	pixel_y = 12
+	},
+/turf/simulated/floor/beach/sand/desert,
+/area/template_noop)
 "VN" = (
 /obj/structure/flora/rock/konyang/small,
 /turf/simulated/floor/exoplanet/dirt_konyang/cave,
@@ -3116,6 +3523,10 @@
 	name = "coast"
 	},
 /area/template_noop)
+"Xt" = (
+/mob/living/simple_animal/hostile/retaliate/royalcrab,
+/turf/simulated/floor/exoplanet/dirt_konyang/cave,
+/area/template_noop)
 "Xu" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
@@ -3174,6 +3585,12 @@
 "Yb" = (
 /obj/structure/bonfire/light_up,
 /turf/simulated/floor/exoplanet/dirt_konyang,
+/area/template_noop)
+"Ye" = (
+/obj/item/trash/match{
+	pixel_x = -8
+	},
+/turf/simulated/floor/beach/sand/desert,
 /area/template_noop)
 "Yf" = (
 /obj/structure/chainlink_fence,
@@ -3237,6 +3654,13 @@
 	},
 /turf/simulated/floor/roofing_tiles,
 /area/template_noop)
+"YR" = (
+/obj/structure/platform,
+/obj/structure/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/lino/diamond,
+/area/template_noop)
 "Zm" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/roofing_tiles,
@@ -3261,6 +3685,13 @@
 /obj/structure/rod_railing,
 /turf/simulated/floor/sidewalk/flat,
 /area/template_noop)
+"Zw" = (
+/obj/item/trash/mollusc_shell/clam{
+	pixel_x = -10;
+	pixel_y = -5
+	},
+/turf/simulated/floor/beach/sand/desert,
+/area/template_noop)
 "ZJ" = (
 /obj/effect/step_trigger/thrower,
 /turf/simulated/floor/exoplanet/water/shallow{
@@ -3273,6 +3704,17 @@
 "ZL" = (
 /obj/effect/floor_decal/konyang_flowers,
 /turf/simulated/floor/exoplanet/konyang/wilting,
+/area/template_noop)
+"ZZ" = (
+/obj/item/trash/algaechips{
+	pixel_x = -7;
+	pixel_y = 16
+	},
+/obj/item/trash/liquidfood{
+	pixel_x = 12;
+	pixel_y = 12
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang/cave,
 /area/template_noop)
 
 (1,1,1) = {"
@@ -3700,7 +4142,7 @@ RO
 RO
 te
 te
-te
+Nq
 RO
 RO
 RO
@@ -3958,6 +4400,10 @@ te
 te
 te
 te
+RO
+RO
+VN
+dN
 te
 RO
 RO
@@ -3970,14 +4416,10 @@ RO
 RO
 RO
 RO
-RO
-RO
-RO
-RO
 te
 te
 te
-te
+VN
 RO
 RO
 RO
@@ -4210,30 +4652,30 @@ IG
 IG
 IG
 RO
+Nq
+te
+VN
 te
 te
+RO
+RO
 te
-te
-te
-te
-RO
-RO
-RO
-RO
-RO
-RO
-RO
-RO
-RO
-RO
-RO
-RO
-RO
 RO
 te
 te
 RO
 RO
+zg
+ZZ
+Nq
+RO
+RO
+RO
+RO
+te
+te
+RO
+Nq
 te
 RO
 RO
@@ -4468,26 +4910,26 @@ IG
 IG
 RO
 te
+Xt
 te
 te
 te
 te
 te
-RO
-RO
-RO
-RO
-RO
-RO
-RO
-RO
-RO
-RO
-RO
-RO
+te
 RO
 RO
 te
+te
+RO
+iR
+QU
+te
+te
+RO
+RO
+RO
+VN
 RO
 RO
 RO
@@ -4724,23 +5166,23 @@ IG
 IG
 IG
 RO
+Nq
+te
+te
+te
+te
+RO
+RO
+RO
+RO
+RO
+RO
 te
 te
 te
 te
 te
-te
-te
-te
-te
-te
-te
-te
-te
-te
-te
-te
-te
+VN
 te
 te
 te
@@ -4984,9 +5426,9 @@ RO
 RO
 te
 te
+VN
 te
-te
-te
+RO
 RO
 RO
 RO
@@ -5242,7 +5684,7 @@ RO
 RO
 RO
 te
-te
+Nq
 RO
 RO
 RO
@@ -5522,8 +5964,8 @@ RO
 RO
 RO
 RO
-te
-te
+HW
+My
 RO
 RO
 RO
@@ -6061,7 +6503,7 @@ Ef
 ar
 iz
 no
-tV
+Jq
 nj
 nj
 nj
@@ -6275,7 +6717,7 @@ RO
 tV
 tV
 tV
-nj
+HV
 nj
 tV
 qn
@@ -7572,7 +8014,7 @@ KW
 nj
 nj
 nj
-nj
+HV
 qn
 qn
 qn
@@ -8588,7 +9030,7 @@ gL
 tV
 nj
 nj
-nj
+Aq
 Nw
 tV
 uR
@@ -8607,7 +9049,7 @@ Xo
 Nw
 nj
 Nw
-nj
+HV
 nj
 Nw
 nj
@@ -8857,7 +9299,7 @@ Pi
 hA
 gL
 nj
-nj
+UF
 US
 Nw
 Nw
@@ -11431,7 +11873,7 @@ nj
 tV
 nj
 qn
-nj
+LM
 XZ
 nj
 nj
@@ -11689,7 +12131,7 @@ gL
 tV
 nj
 nj
-LM
+nj
 nj
 nj
 uR
@@ -12443,7 +12885,7 @@ tV
 tV
 qn
 qn
-nj
+HV
 XZ
 NB
 Ns
@@ -12467,7 +12909,7 @@ uR
 CW
 kT
 Xb
-uR
+Mw
 qn
 qn
 nA
@@ -12510,7 +12952,7 @@ Pd
 Pd
 fX
 fX
-fX
+KB
 rY
 nj
 nj
@@ -12742,9 +13184,9 @@ nj
 qn
 eT
 qn
-qn
+sF
 Wb
-nj
+pR
 tV
 tV
 bF
@@ -14000,7 +14442,7 @@ qn
 bF
 nj
 uR
-nT
+Ix
 nT
 jX
 KE
@@ -14246,7 +14688,7 @@ qn
 qn
 gL
 tV
-tV
+SQ
 tV
 tV
 nj
@@ -14536,7 +14978,7 @@ BZ
 na
 nj
 Wb
-qn
+sF
 qn
 qn
 qn
@@ -14777,9 +15219,9 @@ uR
 rU
 NH
 tI
-Db
+yW
 zf
-lh
+es
 uR
 tV
 tV
@@ -15543,7 +15985,7 @@ he
 gL
 uR
 gz
-mH
+YR
 uR
 uR
 uR
@@ -15795,7 +16237,7 @@ EM
 ir
 sP
 BZ
-ir
+qE
 na
 tV
 uR
@@ -16062,7 +16504,7 @@ uR
 xS
 NH
 tI
-Db
+vf
 zf
 lh
 uR
@@ -16839,7 +17281,7 @@ UV
 UV
 UV
 EM
-ir
+xX
 sP
 gZ
 gZ
@@ -16854,7 +17296,7 @@ UV
 EM
 vj
 ir
-ir
+gb
 he
 Qv
 KE
@@ -17089,11 +17531,11 @@ ir
 ir
 ir
 ir
-ir
-ir
-ir
-ir
-ir
+vj
+vT
+vT
+IJ
+DB
 ir
 ir
 ir
@@ -17108,10 +17550,10 @@ vj
 ir
 nx
 ir
-ir
+VH
 XV
 XV
-XV
+pE
 Jk
 vi
 JC
@@ -17333,9 +17775,9 @@ tV
 Mu
 EM
 ir
-ir
-ir
-ir
+xO
+vT
+PB
 ir
 ir
 ir
@@ -17346,7 +17788,7 @@ ir
 nx
 ir
 ir
-vj
+ir
 ir
 ir
 ir
@@ -17584,12 +18026,13 @@ tV
 UF
 Nw
 Nw
-qn
+sF
 qn
 tV
 dC
 ir
 ir
+vj
 ir
 ir
 ir
@@ -17597,8 +18040,7 @@ ir
 ir
 ir
 ir
-ir
-ir
+nB
 ir
 ir
 ir
@@ -17848,12 +18290,12 @@ dC
 vj
 ir
 ir
+ms
+xt
 ir
 ir
 ir
 ir
-ir
-ye
 ir
 ir
 ir
@@ -17881,7 +18323,7 @@ ir
 ir
 ir
 vj
-ir
+gF
 ir
 ir
 ir
@@ -18102,16 +18544,16 @@ qn
 XZ
 tV
 dC
+qE
 ir
 ir
-ir
-ir
-ir
+Ye
+ob
 ir
 vj
 ir
 ir
-ir
+ye
 ir
 vj
 ir
@@ -18361,18 +18803,18 @@ nj
 dC
 ir
 ir
+lz
+lz
+lz
 ir
 ir
 ir
 ir
+pE
 ir
 ir
 ir
-ir
-ir
-ir
-ir
-Ma
+yH
 ir
 ir
 ir
@@ -18403,7 +18845,7 @@ ir
 ir
 ir
 ir
-ir
+Uh
 ir
 ir
 ir
@@ -18617,7 +19059,7 @@ Nw
 Nw
 dC
 ir
-ir
+AN
 ir
 vj
 ir
@@ -18680,7 +19122,7 @@ nj
 nj
 nj
 nj
-nj
+HV
 nj
 nj
 nj
@@ -18905,7 +19347,7 @@ ir
 ir
 ir
 ir
-Ma
+Ac
 ir
 ir
 ir
@@ -18914,7 +19356,7 @@ ir
 ir
 ir
 ir
-ir
+XV
 ir
 ir
 ir
@@ -19150,7 +19592,7 @@ ir
 ir
 ir
 ir
-Ma
+Ac
 ir
 vj
 sP
@@ -19159,7 +19601,7 @@ gZ
 yB
 tq
 ex
-ir
+NC
 ir
 ir
 ir
@@ -19681,6 +20123,7 @@ ir
 ir
 ir
 ir
+XV
 ir
 ir
 ir
@@ -19689,8 +20132,7 @@ ir
 ir
 ir
 ir
-ir
-ir
+pE
 ir
 ir
 ir
@@ -19917,10 +20359,10 @@ ir
 ir
 ir
 ir
+XV
 ir
 ir
-ir
-ir
+GK
 tZ
 nZ
 gZ
@@ -19943,7 +20385,7 @@ ir
 ir
 ir
 ir
-Ma
+Ac
 ir
 ir
 ir
@@ -20203,7 +20645,7 @@ ir
 ir
 ir
 ir
-ir
+io
 ir
 tZ
 nZ
@@ -20985,7 +21427,7 @@ gZ
 BZ
 ir
 ir
-ir
+sI
 ir
 ir
 ir
@@ -21447,7 +21889,7 @@ tV
 cs
 ir
 ir
-ir
+bk
 nx
 ir
 ir
@@ -21503,12 +21945,12 @@ gZ
 tq
 pQ
 ex
-ir
+pE
 ir
 vj
 ir
 ir
-Ma
+yH
 ir
 ir
 ir
@@ -21954,7 +22396,7 @@ tV
 nj
 ga
 bF
-tV
+sU
 tV
 Nw
 gL
@@ -21964,10 +22406,10 @@ dw
 dw
 va
 ir
+yf
 ir
 ir
-ir
-ir
+pE
 ir
 ir
 ir
@@ -22754,7 +23196,7 @@ Tm
 gZ
 gZ
 gZ
-gZ
+lM
 gZ
 gZ
 gZ
@@ -22981,7 +23423,7 @@ tV
 nL
 nj
 nj
-nj
+HV
 qn
 qn
 bF
@@ -24532,7 +24974,7 @@ UV
 UV
 UV
 EM
-ir
+Zw
 ir
 ir
 sP
@@ -24565,7 +25007,7 @@ gZ
 gZ
 gZ
 gZ
-gZ
+Rg
 gZ
 gZ
 gZ
@@ -25033,7 +25475,7 @@ te
 RO
 RO
 RO
-ir
+Mf
 ir
 AD
 YG
@@ -25048,7 +25490,7 @@ tr
 ir
 BS
 ir
-ir
+Dz
 sP
 gZ
 gZ
@@ -25105,7 +25547,7 @@ gZ
 yB
 gZ
 BZ
-ir
+jO
 ir
 ir
 ir
@@ -25548,7 +25990,7 @@ RO
 RO
 ir
 nx
-ir
+ED
 ir
 ir
 ir
@@ -25601,7 +26043,7 @@ gZ
 gZ
 gZ
 gZ
-gZ
+lM
 gZ
 gZ
 gZ
@@ -28695,7 +29137,7 @@ gZ
 gZ
 gZ
 gZ
-gZ
+Rg
 gZ
 gZ
 gZ
@@ -28907,7 +29349,7 @@ gZ
 gZ
 gZ
 gZ
-gZ
+Rg
 gZ
 gZ
 gZ
@@ -29661,7 +30103,7 @@ gZ
 gZ
 gZ
 gZ
-gZ
+Rg
 gZ
 gZ
 gZ
@@ -80311,7 +80753,7 @@ ak
 zu
 sp
 ki
-ki
+PT
 jX
 nT
 nT
@@ -80564,7 +81006,7 @@ ak
 ak
 ak
 uR
-ak
+SC
 zu
 BV
 ki
@@ -80573,7 +81015,7 @@ uR
 HM
 zf
 zf
-co
+NF
 Au
 ak
 ak
@@ -81083,7 +81525,7 @@ TZ
 si
 Uu
 Jl
-ro
+lR
 zf
 kt
 zf
@@ -81335,7 +81777,7 @@ ak
 ak
 ak
 uR
-zf
+aY
 zf
 si
 Uu
@@ -81596,7 +82038,7 @@ GN
 Lr
 si
 Uu
-Jl
+Oz
 ro
 nT
 nT
