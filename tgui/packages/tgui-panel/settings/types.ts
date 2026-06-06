@@ -21,6 +21,8 @@ export const settingsSchema = z.object({
 });
 
 export type HighlightSetting = {
+  backgroundHighlightColor: string;
+  backgroundHighlightOpacity: number;
   highlightColor: string;
   highlightText: string;
   highlightWholeMessage: boolean;
