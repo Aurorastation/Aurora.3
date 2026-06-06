@@ -25,14 +25,14 @@
 	attribute = length("[attribute]") > 0 ? attribute : null
 	var/datum/persistent_generic/generic = generic_cache[typesGetCacheName(target_type, attribute)]
 	if(generic)
-		generic.content = content
+		generic.content = json_encode(content)
 		generic.expires_in_days = expires_in_days
 		return
 
 	var/datum/persistent_generic/new_generic = new /datum/persistent_generic/
 	new_generic.type_define = target_type
 	new_generic.attribute = attribute
-	new_generic.content = content
+	new_generic.content = json_encode(content)
 	new_generic.expires_in_days = expires_in_days
 	generic_cache[typesGetCacheName(target_type, attribute)] = new_generic
 

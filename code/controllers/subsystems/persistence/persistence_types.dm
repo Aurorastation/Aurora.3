@@ -119,7 +119,7 @@
 		CHECK_TICK
 		var/datum/persistent_generic/container = generic_cache[key] // Dictionary<"[type](+[attribute])", container>
 		var/singleton/persistent_type/type_instance = GET_SINGLETON(container.type_define)
-		genericDatabaseSave(type_instance.database_id, container.attribute, container.expires_in_days, json_encode(container.content))
+		genericDatabaseSave(type_instance.database_id, container.attribute, container.expires_in_days, container.content)
 
 	log_subsystem_persistence_info("Saved [length(generic_cache)] persistent generics.")
 
