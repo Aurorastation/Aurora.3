@@ -11,6 +11,5 @@ changes:
   - bugfix: "Fixes the Sensors interface not displaying sensor machinery's current health."
   - bugfix: "Fixes the Sensors interface displaying strange values for current range."
   - bugfix: "Fixes modular computer software displaying device themes instead of explicit software themes."
-  - bugfix: "Fixes whiteboard overlay selection UI image rendering."
   - bugfix: "Fixes MC tab links."
   - spellcheck: "Fixes a typo in the TGUI fatal error message."
