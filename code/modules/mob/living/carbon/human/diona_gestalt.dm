@@ -7,10 +7,6 @@
 #define COLD_DAMAGE_LEVEL_2 1.5
 #define COLD_DAMAGE_LEVEL_3 3
 
-/mob/living/carbon/human
-	var/datum/dionastats/DS
-
-
 /mob/living/carbon/human/proc/setup_gestalt()
 	composition_reagent = /singleton/reagent/nutriment //Dionae aren't animals, so eating them doesn't give animal protein
 	setup_dionastats()

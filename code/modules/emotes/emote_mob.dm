@@ -159,9 +159,9 @@
 	if (message)
 		log_emote("[name]/[key] : [message]")
 
-	message = process_chat_markup(message, list("~", "_"))
-	var/langchat_message = message
+	var/langchat_message = process_chat_markup(message, list("~", "_"))
 	message = format_emote(src, message)
+	message = process_chat_markup(message, list("~", "_"))
 	var/list/emote_viewers = list()
 	if(m_type == VISIBLE_MESSAGE)
 		visible_message(message, show_observers = do_show_observers)

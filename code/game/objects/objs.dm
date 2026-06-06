@@ -108,6 +108,15 @@
 	var/persistant_objects_expiration_time_days = PERSISTENT_DEFAULT_EXPIRATION_DAYS
 	/* END PERSISTENCE VARS */
 
+	/// for easy reference of talking atoms
+	var/datum/talking_atom/talking_atom
+
+	/// Whether this object has been contaminated by atmos gasses like chlorine or phoron.
+	var/contaminated = FALSE
+
+	/// Allow overriding rad resistance.
+	var/rad_resistance_modifier = 1
+
 /obj/Initialize(mapload, ...)
 	. = ..()
 	if(maxhealth)

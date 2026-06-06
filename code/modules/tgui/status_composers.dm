@@ -11,6 +11,16 @@
 		)
 	)
 
+/// Returns the silicon mob represented by a TGUI user, including an AI using its camera eye.
+/proc/tgui_silicon_user(mob/user)
+	if(issilicon(user))
+		return user
+
+	if(istype(user, /mob/abstract/eye/freelook/aiEye))
+		var/mob/abstract/eye/freelook/aiEye/eye = user
+		if(issilicon(eye.owner))
+			return eye.owner
+
 /// Returns a UI status such that users adjacent to source will be able to interact,
 /// far away users will be able to see, and anyone farther won't see anything.
 /// Dead users will receive updates no matter what, though you likely want to add
@@ -24,6 +34,9 @@
 
 /// Returns a UI status such that the dead will be able to watch, but not interact.
 /proc/ui_status_only_living(mob/user, source)
+	if(tgui_silicon_user(user))
+		return UI_INTERACTIVE
+
 	if (isliving(user))
 		return UI_INTERACTIVE
 
@@ -49,25 +62,33 @@
 /// Being dead will disable UI, being incapacitated will continue updating it,
 /// and anything else will make it interactive.
 /proc/ui_status_user_is_abled(mob/user, atom/source)
+	var/mob/living/silicon/silicon_user = tgui_silicon_user(user)
+	if(silicon_user && silicon_user != user)
+		return silicon_user.shared_ui_interaction(source)
 	return user.shared_ui_interaction(source)
 
 /// Returns a UI status such that those without blocked hands will be able to interact,
 /// but everyone else can only watch.
 /proc/ui_status_user_has_free_hands(mob/user, atom/source)
+	if(tgui_silicon_user(user))
+		return UI_INTERACTIVE
 	return user.use_check() ? UI_UPDATE : UI_INTERACTIVE
 
 /// Returns a UI status such that advanced tool users will be able to interact,
 /// but everyone else can only watch.
 /proc/ui_status_user_is_advanced_tool_user(mob/user)
+	var/mob/living/silicon/silicon_user = tgui_silicon_user(user)
+	if(silicon_user)
+		return silicon_user.IsAdvancedToolUser() ? UI_INTERACTIVE : UI_UPDATE
 	return user.IsAdvancedToolUser() ? UI_INTERACTIVE : UI_UPDATE
 
 /// Returns a UI status such that silicons will be able to interact with whatever
 /// they would have access to if this was a machine. For example, AIs can
 /// interact if there's cameras with wireless control is enabled.
 /proc/ui_status_silicon_has_access(mob/user, atom/source)
-	if (!issilicon(user))
+	var/mob/living/silicon/silicon_user = tgui_silicon_user(user)
+	if(!silicon_user)
 		return UI_CLOSE
-	var/mob/living/silicon/silicon_user = user
 	return silicon_user.get_ui_access(source)
 
 /// Returns a UI status representing this silicon's capability to access
@@ -83,8 +104,12 @@
 	return UI_DISABLED // Otherwise they can keep the UI open.
 
 /mob/living/silicon/ai/get_ui_access(atom/source)
+	if(source == src)
+		return UI_INTERACTIVE
+
 	// The AI can interact with anything it can see nearby, or with cameras while wireless control is enabled.
-	if(!control_disabled && can_see(source))
+	var/atom/interaction_source = eyeobj || src
+	if(!control_disabled && can_see(interaction_source, source))
 		return UI_INTERACTIVE
 	return UI_CLOSE
 
@@ -113,3 +138,11 @@
 		return UI_CLOSE
 
 	return UI_INTERACTIVE
+
+/// Return UI_INTERACTIVE if the user is inside the target atom, whether they can see it or not.
+/// Return UI_CLOSE otherwise.
+/proc/ui_status_user_inside(mob/user, atom/target)
+	if(target.contains(user))
+		return UI_INTERACTIVE
+
+	return UI_CLOSE

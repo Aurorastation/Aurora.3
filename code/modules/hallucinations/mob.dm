@@ -1,7 +1,3 @@
-/mob/living/carbon
-	var/next_hallucination = 0		//Hallucination spam limit var
-	var/list/hallucinations = list()	//Hallucinations currently affecting the mob. Not to be confused with singular "hallucination" which is a NUM variable like confused/drowsy/eye_blind etc
-
 //Hallucinated hearing: a chance to mishear the body entirely
 /mob/proc/hallucinate_heard(text, mob/speaker)
 	return text

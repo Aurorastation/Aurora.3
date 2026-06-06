@@ -1,12 +1,12 @@
-import { BooleanLike } from '../../common/react';
-import { useBackend } from '../backend';
 import {
   Button,
   LabeledList,
   ProgressBar,
   Section,
   Table,
-} from '../components';
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
+import { useBackend } from '../backend';
 import { Window } from '../layouts';
 
 type OmniFilterData = {
@@ -29,8 +29,8 @@ type PortEntry = {
   f_type: string | null;
 };
 
-export const OmniFilter = (props, context) => {
-  const { act, data } = useBackend<OmniFilterData>(context);
+export const OmniFilter = (props) => {
+  const { act, data } = useBackend<OmniFilterData>();
 
   return (
     <Window

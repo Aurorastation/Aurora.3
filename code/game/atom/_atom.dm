@@ -138,19 +138,20 @@
 	/// This atom's cache of overlays that can only be removed explicitly, like C4. Do not manipulate directly- See SSoverlays.
 	var/list/atom_protected_overlay_cache
 
+	/// The mob currently interacting with the atom during a `do_after` timer. Used to validate `DO_TARGET_UNIQUE_ACT` flag checks.
+	var/mob/do_unique_target_user
+
 /atom/Destroy(force)
 	if(opacity)
 		updateVisibility(src)
 
-	if(reagents)
-		QDEL_NULL(reagents)
+	QDEL_NULL(reagents)
 
 	// Checking length(overlays) before cutting has significant speed benefits
 	if(length(overlays))
 		overlays.Cut()
 
-	if(light)
-		QDEL_NULL(light)
+	QDEL_NULL(light)
 
 	if(smoothing_flags & SMOOTH_QUEUED)
 		SSicon_smooth.remove_from_queues(src)
@@ -167,8 +168,9 @@
 
 	// The component is attached to us normaly and will be deleted elsewhere
 	orbiters = null
-
-	. = ..()
+	do_unique_target_user = null
+	langchat_drop_images()
+	return ..()
 
 /atom/proc/handle_ricochet(obj/projectile/ricocheting_projectile)
 	var/turf/p_turf = get_turf(ricocheting_projectile)

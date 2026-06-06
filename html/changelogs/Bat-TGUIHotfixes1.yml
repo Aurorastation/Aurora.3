@@ -1,0 +1,6 @@
+author: Batrachophrenoboocosmomachia
+delete-after: True
+changes:
+  - bugfix: "Fixes TGUI windows having their dimensions provided from datum init being overridden."
+  - bugfix: "Increases say window width."
+  - bugfix: "Re-enables spellcheck in tgui-say."
