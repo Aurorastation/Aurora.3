@@ -397,7 +397,7 @@
 					M.emitter_blasts_taken += 1
 				else if(prob(33))
 					M.emitter_blasts_taken += 1
-	explosion(target, -1, 0, 2)
+	explosion(get_turf(target), -1, 0, 2)
 	. = ..()
 
 /obj/projectile/beam/thermaldrill
@@ -506,6 +506,7 @@
 	damage = 15
 	damage_type = DAMAGE_BURN
 	check_armor = ENERGY
+	var/temperature_damage = 40
 
 	muzzle_type = /obj/effect/projectile/muzzle/laser/blue
 	tracer_type = /obj/effect/projectile/tracer/laser/blue
@@ -515,7 +516,7 @@
 	. = ..()
 	if(isliving(target))
 		var/mob/living/L = target
-		L.bodytemperature -= 40
+		L.bodytemperature -= temperature_damage
 
 		if(ishuman(L))
 			var/mob/living/carbon/human/H = L

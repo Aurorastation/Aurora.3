@@ -2,6 +2,7 @@
 /area/horizon/operations
 	name = "Ops (PARENT AREA - DON'T USE)"
 	icon_state = "dark"
+	area_lighting = LIGHT_ENGINEERING_COLORS
 	ambience = AMBIENCE_ENGINEERING
 	holomap_color = HOLOMAP_AREACOLOR_OPERATIONS
 	department = LOC_OPERATIONS
@@ -75,6 +76,7 @@
 /area/horizon/hangar
 	name = "Hangar (PARENT AREA - DON'T USE)"
 	icon_state = "bluenew"
+	area_lighting = LIGHT_ENGINEERING_COLORS
 	ambience = AMBIENCE_HANGAR
 	sound_environment = SOUND_ENVIRONMENT_HANGAR
 	holomap_color = HOLOMAP_AREACOLOR_HANGAR
@@ -140,12 +142,15 @@
 	horizon_deck = 1
 
 /// WEAPONS_AREAS
-/area/horizon/weapons/longbow
-	name = "Longbow Weapon System"
-	icon_state = "bridge_weapon"
+/area/horizon/weapons
+	area_lighting = LIGHT_ENGINEERING_COLORS
 	sound_environment = SOUND_AREA_LARGE_ENCLOSED
 	ambience = AMBIENCE_HIGHSEC
 	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
+
+/area/horizon/weapons/longbow
+	name = "Longbow Weapon System"
+	icon_state = "bridge_weapon"
 	horizon_deck = 3
 	area_blurb = "One of the SCCV Horizon's daunting weapons bays."
 	department = LOC_COMMAND
@@ -154,9 +159,6 @@
 /area/horizon/weapons/grauwolf
 	name = "Grauwolf Weapon System"
 	icon_state = "bridge_weapon"
-	sound_environment = SOUND_AREA_LARGE_ENCLOSED
-	ambience = AMBIENCE_HIGHSEC
-	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
 	horizon_deck = 2
 	area_blurb = "One of the SCCV Horizon's daunting weapons bays."
 	department = LOC_COMMAND
@@ -165,6 +167,7 @@
 /// STORAGE_AREAS
 /area/horizon/storage
 	name = "Storage (PARENT AREA - DON'T USE)"
+	area_lighting = LIGHT_ENGINEERING_COLORS
 	department = LOC_CREW
 	lightswitch = FALSE
 
@@ -192,6 +195,7 @@
 /area/horizon/storage/secure/ops_vault
 	name = "Secure Operational Storage"
 	icon_state = "storage"
+	area_lighting = LIGHT_HIGHSEC_COLORS
 	horizon_deck = 2
 	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
 	department = LOC_COMMAND
@@ -201,6 +205,7 @@
 /area/horizon/storage/secure/tech_vault
 	name = "Secure Technical Storage"
 	icon_state = "storage"
+	area_lighting = LIGHT_HIGHSEC_COLORS
 	horizon_deck = 3
 	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
 	department = LOC_COMMAND

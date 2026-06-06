@@ -92,8 +92,12 @@
 	possible_accents = list(ACCENT_EUROPA)
 	possible_citizenships = CITIZENSHIPS_SOLARIAN
 	possible_religions = RELIGIONS_SOLARIAN
-	origin_traits = list(TRAIT_ORIGIN_COLD_RESISTANCE, TRAIT_ORIGIN_LIGHT_SENSITIVE)
+	origin_traits = list(TRAIT_ORIGIN_COLD_RESISTANCE)
 	origin_traits_descriptions = list("are more acclimatised to the cold.", "are more sensitive to bright lights")
+
+/singleton/origin_item/origin/jupiter_eur/on_apply(mob/living/carbon/human/H)
+	. = ..()
+	H.AddElement(/datum/element/light_sensitivity)
 
 /singleton/origin_item/origin/saturn
 	name = "Saturn"

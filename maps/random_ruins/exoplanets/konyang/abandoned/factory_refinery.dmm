@@ -1,7 +1,7 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aJ" = (
 /obj/structure/closet/crate/large,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/sidewalk/dark,
@@ -9,13 +9,13 @@
 "aO" = (
 /obj/structure/lattice/catwalk/indoor/urban,
 /obj/random/junk,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/refinery)
 "aS" = (
-/obj/machinery/mining/brace,
+/obj/structure/machinery/mining/brace,
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/refinery)
 "aY" = (
@@ -29,14 +29,14 @@
 /turf/simulated/floor/concrete,
 /area/konyang/refinery)
 "cb" = (
-/obj/machinery/mineral/unloading_machine,
+/obj/structure/machinery/mineral/unloading_machine,
 /turf/simulated/floor/concrete,
 /area/exoplanet/grass/konyang)
 "ch" = (
-/obj/machinery/mining/brace{
+/obj/structure/machinery/mining/brace{
 	dir = 8
 	},
-/obj/machinery/light_switch{
+/obj/structure/machinery/light_switch{
 	dir = 1;
 	pixel_y = 26;
 	pixel_x = -5
@@ -48,7 +48,7 @@
 /turf/simulated/floor/sidewalk/flat,
 /area/exoplanet/grass/konyang)
 "cu" = (
-/obj/machinery/floodlight/randomcharge,
+/obj/structure/machinery/floodlight/randomcharge,
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/refinery)
 "cx" = (
@@ -133,7 +133,7 @@
 /obj/random/dirt_75,
 /obj/structure/table/rack,
 /obj/item/ore_detector,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/sidewalk/dark,
@@ -145,7 +145,7 @@
 /turf/simulated/floor/sidewalk/flat,
 /area/exoplanet/grass/konyang)
 "fy" = (
-/obj/machinery/mining/brace{
+/obj/structure/machinery/mining/brace{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -225,7 +225,7 @@
 /area/exoplanet/grass/konyang)
 "ii" = (
 /obj/structure/lattice/catwalk/indoor/urban,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/sidewalk/dark,
@@ -283,7 +283,7 @@
 /turf/simulated/floor/asphalt,
 /area/exoplanet/grass/konyang)
 "lQ" = (
-/obj/machinery/mineral/processing_unit{
+/obj/structure/machinery/mineral/processing_unit{
 	dir = 8;
 	id = "processing_s"
 	},
@@ -330,7 +330,7 @@
 /turf/simulated/wall/r_wall,
 /area/konyang/refinery)
 "ns" = (
-/obj/machinery/mining/brace{
+/obj/structure/machinery/mining/brace{
 	dir = 4
 	},
 /turf/simulated/floor/sidewalk/dark,
@@ -347,13 +347,13 @@
 "oj" = (
 /obj/structure/table/rack,
 /obj/item/oremagnet,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/refinery)
 "oZ" = (
-/obj/machinery/mining/drill,
+/obj/structure/machinery/mining/drill,
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/refinery)
 "pi" = (
@@ -396,7 +396,7 @@
 /area/exoplanet/grass/konyang)
 "sp" = (
 /obj/structure/lattice/catwalk/indoor/urban,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/sidewalk/dark,
@@ -413,7 +413,7 @@
 /turf/simulated/floor/asphalt,
 /area/exoplanet/grass/konyang)
 "sI" = (
-/obj/machinery/mining/drill,
+/obj/structure/machinery/mining/drill,
 /obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/refinery)
@@ -432,7 +432,7 @@
 /turf/simulated/floor/exoplanet/konyang/pink,
 /area/exoplanet/grass/konyang)
 "tm" = (
-/obj/machinery/mineral/processing_unit{
+/obj/structure/machinery/mineral/processing_unit{
 	dir = 8;
 	id = "processing_s"
 	},
@@ -471,7 +471,7 @@
 /turf/simulated/floor/concrete,
 /area/konyang/refinery)
 "tP" = (
-/obj/machinery/mining/brace,
+/obj/structure/machinery/mining/brace,
 /obj/random/dirt_75,
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/refinery)
@@ -575,7 +575,7 @@
 /area/exoplanet/grass/konyang)
 "yt" = (
 /obj/effect/decal/cleanable/blood/oil,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/sidewalk/dark,
@@ -670,7 +670,7 @@
 /area/konyang/refinery)
 "Dq" = (
 /obj/item/ore_radar,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/sidewalk/dark,
@@ -890,7 +890,7 @@
 /turf/simulated/floor/concrete,
 /area/exoplanet/grass/konyang)
 "Mu" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/sidewalk/dark,
@@ -928,7 +928,7 @@
 /turf/simulated/floor/sidewalk/flat,
 /area/exoplanet/grass/konyang)
 "NB" = (
-/obj/machinery/floodlight/randomcharge{
+/obj/structure/machinery/floodlight/randomcharge{
 	dir = 8
 	},
 /turf/simulated/floor/sidewalk/dark,
@@ -1012,7 +1012,7 @@
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/exoplanet/grass/konyang)
 "PU" = (
-/obj/machinery/mech_recharger,
+/obj/structure/machinery/mech_recharger,
 /obj/random/junk,
 /obj/effect/decal/cleanable/generic,
 /turf/simulated/floor/sidewalk/dark,
@@ -1033,16 +1033,16 @@
 /area/exoplanet/grass/konyang)
 "Qq" = (
 /obj/structure/ore_box,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/refinery)
 "Qx" = (
-/obj/machinery/mining/brace{
+/obj/structure/machinery/mining/brace{
 	dir = 8
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/sidewalk/dark,
@@ -1088,7 +1088,7 @@
 /turf/simulated/floor/asphalt,
 /area/exoplanet/grass/konyang)
 "Sc" = (
-/obj/machinery/mineral/stacking_machine{
+/obj/structure/machinery/mineral/stacking_machine{
 	id = "stacking_e"
 	},
 /obj/structure/rod_railing,
@@ -1129,14 +1129,14 @@
 /turf/simulated/floor/sidewalk/flat,
 /area/exoplanet/grass/konyang)
 "TC" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/refinery)
 "TE" = (
 /obj/effect/floor_decal/industrial/warning,
-/obj/machinery/mineral/rigpress,
+/obj/structure/machinery/mineral/rigpress,
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/refinery)
 "Ud" = (
@@ -1163,7 +1163,7 @@
 /turf/simulated/floor/sidewalk/flat,
 /area/exoplanet/grass/konyang)
 "Wi" = (
-/obj/machinery/mech_recharger,
+/obj/structure/machinery/mech_recharger,
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/refinery)
 "WG" = (

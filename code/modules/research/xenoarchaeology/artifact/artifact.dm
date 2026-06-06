@@ -13,16 +13,16 @@
 	artifact_id = "[pick("kappa","sigma","antaeres","beta","omicron","iota","epsilon","omega","gamma","delta","tau","alpha")]-[rand(100,999)]"
 
 	artifact_find_type = pick(
-		5;/obj/machinery/power/supermatter,
+		5;/obj/structure/machinery/power/supermatter,
 		5;/obj/structure/constructshell,
-		25;/obj/machinery/power/supermatter/shard,
+		25;/obj/structure/machinery/power/supermatter/shard,
 		50;/obj/structure/cult/pylon,
-		100;/obj/machinery/auto_cloner,
-		100;/obj/machinery/giga_drill,
-		100;/obj/machinery/replicator,
+		100;/obj/structure/machinery/auto_cloner,
+		100;/obj/structure/machinery/giga_drill,
+		100;/obj/structure/machinery/replicator,
 		150;/obj/structure/crystal_madness,
 		150;/obj/structure/crystal,
-		1000;/obj/machinery/artifact,
+		1000;/obj/structure/machinery/artifact,
 	)
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -101,8 +101,8 @@
 			if(artifact_find)
 				var/spawn_type = artifact_find.artifact_find_type
 				var/obj/O = new spawn_type(get_turf(src))
-				if(istype(O,/obj/machinery/artifact))
-					var/obj/machinery/artifact/X = O
+				if(istype(O,/obj/structure/machinery/artifact))
+					var/obj/structure/machinery/artifact/X = O
 					if(X.my_effect)
 						X.my_effect.artifact_id = artifact_find.artifact_id
 				src.visible_message(SPAN_WARNING("<b>[src] suddenly crumbles away.</b>"))

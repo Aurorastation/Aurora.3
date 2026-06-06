@@ -15,6 +15,7 @@
 /// Head of Staff offices
 /area/horizon/command/heads
 	name = "Head of Staff's Office (PARENT AREA - DON'T USE)"
+	area_lighting = LIGHT_HIGHSEC_COLORS
 	area_flags = AREA_FLAG_RAD_SHIELDED
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 	lightswitch = FALSE
@@ -67,6 +68,8 @@
 /area/horizon/command/bridge
 	name = "Bridge"
 	icon_state = "bridge"
+	area_lighting = LIGHT_CLINICAL_COLORS
+	department = LOC_COMMAND
 	no_light_control = 1
 	area_blurb = "The sound here seems to carry more than others, every click of a shoe or clearing of a throat amplified. \
 	The smell of ink, written and printed, wafts notably through the air."
@@ -91,6 +94,7 @@
 /area/horizon/command/bridge/aibunker
 	name = "Command Bunker"
 	icon_state = "ai_foyer"
+	area_lighting = LIGHT_HIGHSEC_COLORS
 	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_HIDE_FROM_HOLOMAP
 	area_blurb = "Heavily armored and internal, the Combat Information Center is the secondary nerve center of the ship; the responsibility of the place weighs heavily."
 
@@ -105,6 +109,7 @@
 /area/horizon/command/bridge/cciaroom
 	name = "Human Resources Meeting Room"
 	icon_state = "hr"
+	area_lighting = LIGHT_HIGHSEC_COLORS
 	sound_environment = SOUND_AREA_MEDIUM_SOFTFLOOR
 	area_blurb = "You might feel dread when you enter this meeting room."
 	area_flags = AREA_FLAG_RAD_SHIELDED
@@ -119,6 +124,7 @@
 /area/horizon/command/bridge/selfdestruct
 	name = "Authentication Terminal Safe"
 	icon_state = "bridge"
+	area_lighting = LIGHT_HIGHSEC_COLORS
 	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_HIDE_FROM_HOLOMAP
 	area_blurb = "The air veritably throbs with doom."
 
@@ -130,6 +136,7 @@
 //Teleporter
 /area/horizon/command/teleporter
 	name = "Teleporter"
+	area_lighting = LIGHT_HIGHSEC_COLORS
 	icon_state = "teleporter"
 	horizon_deck = 1
 	area_blurb = "The air in here always feels charged with the subdued crackle of electricity, tasting faintly of ozone."

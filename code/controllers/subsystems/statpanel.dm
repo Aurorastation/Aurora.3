@@ -186,6 +186,11 @@ SUBSYSTEM_DEF(statpanels)
 		atoms_to_display += turf_content
 
 	/// Set the atoms we're meant to display
+	// Lazy-init: SSstatpanels can fire for a client whose obj_window was never
+	// created (mob transfer / relogin) or was nulled by /datum/object_window_info/Destroy()
+	// while mob.listed_turf survived. Without this guard we'd null-deref atoms_to_show.
+	if(!target.obj_window)
+		target.obj_window = new /datum/object_window_info(target)
 	var/datum/object_window_info/obj_window = target.obj_window
 	obj_window.atoms_to_show = atoms_to_display
 	START_PROCESSING(SSobj_tab_items, obj_window)
@@ -210,6 +215,9 @@ SUBSYSTEM_DEF(statpanels)
 	// No turf? go away
 	if(!load_from.mob?.listed_turf)
 		return list()
+	// Lazy-init for the same lifecycle reasons as set_turf_examine_tab
+	if(!load_from.obj_window)
+		load_from.obj_window = new /datum/object_window_info(load_from)
 	var/datum/object_window_info/obj_window = load_from.obj_window
 	var/list/already_seen = obj_window.atoms_to_images
 	var/list/to_make = obj_window.atoms_to_imagify

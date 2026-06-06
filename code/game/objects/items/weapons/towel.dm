@@ -11,8 +11,8 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	attack_verb = list("whipped")
 	hitsound = 'sound/weapons/towelwhip.ogg'
-	drop_sound = 'sound/items/drop/cloth.ogg'
-	pickup_sound = 'sound/items/pickup/cloth.ogg'
+	drop_sound = SFX_CLOTH_DROP
+	pickup_sound = SFX_CLOTH_PICKUP
 
 /obj/item/towel/attack_self(mob/living/user)
 	attack(user, user)

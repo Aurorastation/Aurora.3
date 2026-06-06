@@ -125,3 +125,298 @@
       see it in greyscale or with randomized colors.
   - qol: Writing scribbles on the back of photos can be done while just adjacent,
       rather than needing it and the pen in hand.
+2026-05-19:
+  Banditoz:
+  - rscadd: Enable find (Ctrl+F) and refresh (F5) on browser windows.
+  Batrachophrenoboocosmomachia:
+  - code_imp: Moves scattered HUD screen object icon files to dedicated HUD folder.
+  - bugfix: Agent ID name set action ACTUALLY works now.
+  - refactor: Migrates Hardsuit NanoUI to TGUI.
+  - refactor: Updates Hardsuit module type definitions, configuration data, many misc
+      other functions for the purpose of the UI refactor (general utility and readability
+      improvements).
+  - balance: Hardsuits now passively consume a small amount of energy while online,
+      even when retracted.
+  - balance: Hardsuit boots can no longer be retracted without also retracting the
+      chest piece first.
+  - balance: Mounted hardsuit storage module max space increased from 9 to 14.
+  - balance: Plasma cutter (standalone and mounted) damage increased and range decreased
+      by 50% each.
+  - soundadd: Adds several new sounds for hardsuit use (attribution located w/ files).
+  - code_imp: Makes power_wattage_readable() a global proc and adds power_joules_readable().
+  - code_imp: Lots of misc DMdoc updates.
+  - bugfix: Synthetic Charging Stations now charge hardsuit power cells as intended.
+  - bugfix: Agent ID name changes now correctly set both internal name variables.
+  Fenodyree:
+  - rscadd: Adds a 60 second delay before wounds start autohealing. This allows dps
+      to be less than 1, as autoheal is 1HP/s.
+  - bugfix: Fixes chemicals that deal brute or burn damage doing nothing, they dealt
+      less than 1 dps, so they were healing faster than they hurt.
+  - bugfix: Fixes chemicals that deal brute or burn damaging your robotic limbs. They
+      still damage robotic internal organs, if they did already.
+  - bugfix: Fixes contamination checking if your internal organs are contaminated.
+  - bugfix: Fixes contamination damaging all bodyparts, not just the ones covered.
+  - bugfix: Fixes contamination damaging hands, even when wearing gloves that should
+      protect you.
+  - bugfix: Fixes impermeable items, like oxygen tanks, immediately getting contaminated.
+      It is now a 10% chance per tick, multiplied by item permeability.
+  Hellfirejag:
+  - bugfix: Fixed a hard delete caused by ship overmap projectiles.
+  - rscadd: Added a new type of component called Timed Life Component, which will
+      delete itself after a certain amount of time has passed. Effectively a timer
+      that can interact with signals.
+  - refactor: Refactored light sensitivity and dark phobia traits to cut down on Life()
+      performance costs by making them elements instead of hardcoded checks for every
+      mob.
+  - rscadd: Added disability selections for Photosensitivity and Nyctophobia
+  - rscadd: Photosensitivity and Nyctopyobia now also apply a short duration negative
+      morale modifier in addition to displaying their flavor text when activating.
+  - rscadd: Added new Yomi Genetics brand Psi-protect drugs to the Psychiatric Drugs
+      loadout selection. These pills provide temporary protection against psionic
+      effects.
+  Hellfirejag and Remratsuken:
+  - rscadd: Added a new Zavodskoi Heavy Hardsuit to the uplink.
+  Kano:
+  - rscadd: Remapped casino.dmm.
+  - rscadd: Coat racks can now hold mapped-in clothings.
+  - code_imp: Removed a duplicate grate object from the code (gunmetal).
+  TheGreyWolf:
+  - rscadd: Health analyzers now use a TGUI instead of outputting to the chat.
+  - rscadd: The handheld health analyzer now takes time to use, depending on the user's
+      anatomy skill level.
+  - rscadd: It is now possible to pull up the last scan on the handheld health analyzer.
+  - rscdel: It is no longer possible to switch limb mode on the handheld health analyzer.
+  - rscadd: An announcement message has been added when the hangar lockdown is initiated.
+  - rscdel: The hangar lockdown button has been removed from the pilot lounge.
+  - rscadd: A hangar lockdown button has been added to the OM office.
+  - rscadd: The hangar security checkpoint now has different buttons for the entrance
+      shutters and the window shutters.
+  Yonnimer:
+  - bugfix: Removes the armored carp's attack sound to not be a bark.
+  - spellcheck: Changes 'befriend dog' to 'befriend creature'.
+  diggiez:
+  - rscadd: Added Hivenet echoes only Vaurcae can hear. Representing the wider Hivenet,
+      it's a hugely varied pool with 120 projections and over 300 phrases, triggered
+      every 4-8m for projections and 3-5 for broadcasts. Never will Hivenet feel empty
+      again!
+  - rscadd: Hivenet echoes are automatically disabled in the Lemurian Sea due to its
+      peculiar Fog.
+  - server: There are serverside toggles for Hivenet echoes to be used by Admins &
+      Storytellers for events or gimmicks.
+  - qol: Changed the OOCly-invalid 'Aaaa' randomgen Vaurca name to Agha. RIP.
+  fyni:
+  - rscadd: Adds more available accents for ZH owned IPCs after a chat with synth
+      lore.
+  - rscadd: Changed the respawn message to be inline with rules updates.
+  hazelmouse:
+  - bugfix: Resolved unusual-looking lighting around diagonal hull walls and the supermatter
+      radiators of the Horizon.
+  mineymonkey:
+  - bugfix: Allows the ability for reading off what IC components are in an assembly
+      when opened and used the examine function on it. Examine function doesn't show
+      the circuits when closed.
+  - rscadd: Added in two new converter integrated circuits based off of the num-to-string
+      circuit. Instead of just a 1 I/O there is now a 4 and 8 I/O version.
+  - qol: Changed weight class on integrated circuit printer from BULKY to NORMAL.
+  - qol: Changed integrated circuit advanced med scanner from NUM to Severity based
+      detection to further align with the current health scanners.
+2026-05-22:
+  Hellfirejag:
+  - bugfix: Fixed a very expensive (lags the server during ship combat) runtime error
+      related to ship sensors.
+  - rscadd: Added a UI indicator for Morale modifiers.
+2026-05-23:
+  Batrachophrenoboocosmomachia:
+  - balance: Decreases size of Dosimeter from Normal to Small.
+  - balance: Decreases size of Bomb Defusal Wirecutters and Music Cartridge from Small
+      to Tiny.
+  - balance: Increases size of Airlock Electronics from Tiny to Small (matches other
+      circuitboards).
+2026-05-24:
+  Dessysalta:
+  - rscadd: Adds Zavod Asset Crates to the uplink, and the suit itself to the hardsuit
+      token for Operatives.
+  ElorgRHG:
+  - rscadd: Added colorable cargo pants to the loadout.
+  Fenodyree:
+  - bugfix: Fixes all hostile simple mobs shooting the base projectile, instead of
+      their specified projectile.
+  Hellfirejag:
+  - code_imp: Added an ENFORCE_CALCULUS(seconds_per_tick) macro to help spot bugs
+      in procs that use calculus methods.
+  Kano:
+  - rscadd: Ported 6 hairstyles from Shiptest.
+  TheGreyWolf:
+  - rscadd: Added a search function to the quikpay, commissary register and other
+      devices using that system.
+  Wowzewow (Wezzy):
+  - bugfix: Fixes ATK and ABK stack overlays
+  hazelmouse:
+  - rscadd: Added a second shaker to the Horizon's bar.
+  - bugfix: BarDrobes now contain every service corporation's uniform.
+2026-05-27:
+  Batrachophrenoboocosmomachia:
+  - refactor: Repaths /obj/machinery to /obj/structure/machinery.
+  Fenodyree:
+  - bugfix: Fixes EMPs affecting human mobs twice. Light EMPs now need two hits to
+      explode your PDA.
+  - bugfix: Fixes energy guns not being disabled by EMPs and gives more feedback when
+      it happens.
+  Hellfirejag:
+  - bugfix: Fixed a runtime error caused by a diona entering a cryopod.
+  - bugfix: Fixed a runtime error caused by vampires trying to drink from a blood
+      bag.
+  - bugfix: Fixed a niche runtime error that occurs occasionally during late spawns.
+  - bugfix: Fixed a runtime when harvesting plants.
+  - bugfix: Fixed a runtime caused when a player disconnects while a tgui input window
+      is open.
+  TheGreyWolf:
+  - bugfix: Fixed that certain health analyzer stuff never showed limb damage and
+      other advanced injuries.
+  - qol: Improved the readability of the health analyzer UI.
+  - bugfix: Fixed carts to no longer make noise when they don't move, such as trying
+      to push them past a wall.
+  arrow768:
+  - refactor: Updates the Computer Fabricator to TGUI
+  - refactor: Updates the Instruments to TGUI
+  - refactor: Updates the Geo Scanner to TGUI
+  - refactor: Updates the Stacking Machine to TGUI
+  - refactor: Updates the Robotics Console to TGUI
+  - refactor: Updates the Requests Console to TGUI
+  - refactor: Updates the Synthesizer/Instrument main panel to TGUI
+  - refactor: Updates the Nuclear Bomb control panel to TGUI
+  - rscadd: Requests Console messages are now typed (Assistance Request, Supply Request,
+      Information, Reply); the type is shown in the recipient's log, audible alert,
+      and PDA notification.
+  - rscadd: "Reconstructs the Synthesizer's Virtual Environment Editor (was broken\
+      \ since added \u2014 its NanoUI template never existed). The Custom environment\
+      \ preset that depends on it is gated behind a new musical_config.can_use_custom\
+      \ flag (default off, matching prior behavior)."
+  - bugfix: Fixes the Autolathe UI re-opening after every print job.
+  - bugfix: Fixes the Song Editor's currently-playing line indicator not advancing
+      during playback.
+  - bugfix: Fixes a class of bugs where TGUI windows for the Air Alarm, Portable Turret,
+      Mining Vendor, Mineral Processor, Tank Dispenser, Helm Console, all Chemistry
+      machines, and Suit Cycler would force themselves back open after every action,
+      even when the player had closed them.
+  - bugfix: Fixes the spatial sound system silently dropping every sound that used
+      the 'None' (-1) environment id or a 23-element custom environment list. The
+      validator was rejecting both as invalid, so synthesizer notes played with Custom
+      or None mode produced no audible output at all.
+  - admin: Adds two requests consoles and two fax machines to the bridge on the runtime
+      test map.
+  mineymonkey:
+  - bugfix: Assigned a proper icon_state to the chameleon shoes and fixed the emp
+      issue not disabling them properly.
+2026-05-28:
+  ArbiterAmbrose:
+  - rscadd: Adds new and exciting silicon descriptions for the helm console aswell
+      as targetting console.
+  - rscdel: Removes restrictions on the helm console.
+  Batrachophrenoboocosmomachia:
+  - balance: Rare gas isotopes are no longer present in the atmospheres of randomly-generated
+      exoplanets.
+  ElorgRHG:
+  - rscadd: Added species variants to the Outer Eyes voidsuit.
+  - rscadd: Added an Outer Eyes suit cycler.
+  - imageadd: Added a proper object sprite to the Outer Eyes voidsuit helmet.
+  Fenodyree:
+  - bugfix: Fixes mech rechargers being impossible to deconstruct or upgrade.
+  - bugfix: Fixes mech rechargers upgrades not applying.
+  - rscadd: Adds a pre-filled part changer for testing purposes, or maybe loot in
+      away missions.
+  - rscadd: Adds skill checks to all modular laser examine texts, obscuring information
+      from low skill levels and giving more detail to high skill levels.
+  - rscadd: Adds a skill based upgrade system to modular lasers. This allows high
+      research & firearm skill characters to upgrade weapons. This requires they take
+      damage through use, with more improvement coming from real use against living
+      targets.
+  - rscadd: Adds two sidegrade capacitor designs, buildable with roundstart materials
+      and max tech.
+  - rscadd: Adds the interior of research to the allowed areas of the firing range
+      pin and renames it.
+  - rscdel: Removes the practice laser and laser tag emitters. They were broken and
+      cluttered the research menu.
+  - balance: Nerfs the starting stats of the most powerful modular laser components
+      and modifiers. They can be upgraded to slightly higher than their previous starting
+      stats.
+  - balance: Nerfs the three strongest modifiers, aux capacitor, capacitor overcharge
+      and heat vents. It is now impossible to build unbreakable guns.
+  - balance: Buffs the gattling modifier, low damage shots struggle against armour,
+      so it was a downgrade in every way previously.
+  - bugfix: Fixes the weapon analyzer UI not updating.
+  - bugfix: Fixes the weapon printout.
+  - bugfix: Fixes click delay not happening on malfunction.
+  - bugfix: Fixes the radiation and electrocution damage on malfunction.
+  - bugfix: Fixes the xenozapper modulator to use the correct projectile.
+  Hellfirejag:
+  - refactor: Fixed a small handful of code errors that prevented OpenDream from compiling.
+  - bugfix: Fixed a hard del caused by storage items (like satchels).
+  - rscadd: Added a new skill called Ministry.
+  - rscadd: Added a new skill called Leadership.
+  - bugfix: Fixed a runtime error that occurs sometimes when a character despawns
+      via cryopod.
+  Kano:
+  - qol: Added various clothing shortcuts. You can now Alt-Click to adjust layers,
+      Alt-Shit-Click to remove accessories, etc. on most clothings.
+  - rscadd: Tweaked inventory HUD icon frames to process shortcut clicks (Alt-Click
+      and Shift-Alt-Click for now). This means you no longer have to click specifically
+      on item icons to use shortcuts.
+  - code_imp: Moved a block of code to where it belongs, minor code improvements.
+  TheGreyWolf:
+  - rscadd: Added the ability to stack spent bullet casings.
+  - balance: Ammo piles now increase in size the second time when there is 6 items
+      in the pile, rather than 8
+  - bugfix: Fixed bullet casings being ejected when trying to suicide with a gun on
+      safety.
+  - bugfix: Fixed that shotgun shell piles didn't update their size correctly.
+  - bugfix: Fixed that shotgun practice shells were labelled incorrectly in the autolathe.
+  - bugfix: Singular bullets no longer layer under tables.
+  - bugfix: Fixed that picking up the destination tagger in the alt click menu was
+      bugged.
+  diggiez:
+  - qol: Hivenet Echoes won't process if lists aren't detected.
+  - bugfix: An extra broadcast echo no longer occasionally generates.
+  hazelmouse:
+  - rscadd: Lighting aboard the SCCV Horizon now varies per area, and is now slightly
+      warmer in almost all areas of the game world, including off-sites.
+2026-05-29:
+  CatsinHD:
+  - rscdel: Removes Hephaestus as an option for the New Kingdom of Adhomai citizenship.
+  TheGreyWolf:
+  - rscadd: Increased the time of the cargo elevator to be 30 seconds + 10 per different
+      supplier, instead of going with the higher of the two numbers.
+  - bugfix: Fixed that the cargo control program displayed a negative number when
+      calling the elevator.
+  Wowzewow (Wezzy):
+  - balance: Duffelbags no longer give slowdown. Instead, you have to take them off
+      first before opening them.
+2026-05-30:
+  Hellfirejag:
+  - bugfix: Fixed the Hiskyn Treasure Trove away site not having any ambience.
+  - rscadd: Map Areas will now cause unit tests to fail if given invalid ambience.
+  - bugfix: Hopefully fixed a hard delete with Bluespace Techs.
+  - rscadd: Bluespace Techs now spawn with all skills fully maxed out
+  - rscadd: Upon being promoted to Antagonist, player characters now have certain
+      skills (such as Firearms) always increased to at least a minimum level of competence.
+  - bugfix: Fixed a bug where both Leadership and Ministry could apply to the same
+      mouse click.
+  - bugfix: Fixed Ministry not cancelling if you fail to click on a valid target.
+  - bugfix: Fixed player characters who have never visited the Skills menu failing
+      to generate required skills.
+  - bugfix: Fixed player characters spawning with non-required skills (like Ministry)
+      at rank 1.
+  Kano:
+  - bugfix: Fixed not being able to write messages on longbow shell ammunition.
+  TheGreyWolf:
+  - bugfix: The OM now has access to the spark and canary, as they are meant to have.
+  kermit:
+  - rscadd: Adds 3x PsiProtect Broad Use pill bottles to the Pharmacy retail shelf
+      for prescription refills (and investigation).
+2026-05-31:
+  Kano:
+  - bugfix: Fixed the machinery repath in cryo outpost Odyssey map.
+  TheGreyWolf:
+  - bugfix: Gives the role merchant a EFTPOS.
+  Wowzewow (Wezzy):
+  - soundadd: Adds a whole lot more of pick up, drop, and handling sounds.

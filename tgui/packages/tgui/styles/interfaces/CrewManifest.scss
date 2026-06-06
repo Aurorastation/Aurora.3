@@ -1,51 +1,79 @@
-@use '../colors.scss';
-
-$departmental-colors: (
-  'Command': #114dc1,
-  'Command Support': #114dc1,
-  'Security': #991818,
-  'Engineering': #c67519,
-  'Medical': #15903a,
-  'Science': #a44799,
-  'Operations': #593616,
-  'Service': #90524b,
-  'Civilian': #999999,
-  'Equipment': #6c5b73,
-  'Miscellaneous': #5d6a67,
+$department_map: (
+  'cargo': var(--color-brown),
+  'operations': var(--color-brown),
+  'command': var(--color-yellow),
+  'command-support': var(--color-blue),
+  'security': var(--color-red),
+  'engineering': var(--color-orange),
+  'medical': var(--color-teal),
+  'misc': var(--color-white),
+  'miscellaneous': var(--color-white),
+  'science': var(--color-purple),
+  'service': var(--color-green),
+  'civilian': var(--color-green),
+  'silicon': var(--color-pink),
+  'equipment': var(--color-pink),
+  'off-ship': var(--color-white),
 );
 
-$status-colors: (
-  'active': colors.$green,
-  'ssd': colors.$orange,
-  'missing': colors.$orange,
-  'deceased': colors.$red,
-  'physically-unfit': colors.$yellow,
-  'disabled': colors.$yellow,
-  'away-mission': colors.$blue,
+$manifest_status_map: (
+  'active': var(--color-green),
+  'online': var(--color-green),
+  'away-mission': var(--color-blue),
+  'ssd': var(--color-yellow),
+  'deceased': var(--color-red),
+  'missing': var(--color-orange),
+  'physically-unfit': var(--color-orange),
+  'disabled': var(--color-grey),
 );
 
-@each $dept, $color in $departmental-colors {
-  .text-dept-#{to-lower-case($dept)} {
-    color: $color !important;
-  }
-  .bg-dept-#{to-lower-case($dept)} {
-    background-color: $color !important;
-  }
-  .border-dept-#{to-lower-case($dept)} {
-    border-color: $color !important;
+@each $department-name, $color-value in $department_map {
+  .border-dept-#{$department-name} {
     .Section {
       &__title {
-        border-color: $color;
+        border-color: $color-value;
       }
       &__titleText {
-        color: $color;
+        color: $color-value;
       }
     }
   }
 }
 
-@each $status, $color in $status-colors {
-  .manifest-indicator-#{$status} {
-    color: $color !important;
+@each $status-name, $color-value in $manifest_status_map {
+  .manifest-indicator-#{$status-name} {
+    color: $color-value;
+  }
+}
+
+.CrewManifest {
+  &__Cell {
+    padding: var(--space-s) 0;
+
+    &--Rank {
+      color: var(--color-label);
+    }
+  }
+
+  &__Icons {
+    padding: var(--space-s) var(--space-l);
+    text-align: right;
+  }
+
+  &__Icon {
+    color: var(--color-label);
+    position: relative;
+
+    &:not(:last-child) {
+      margin-right: var(--space-m);
+    }
+
+    &--Chevron {
+      padding-right: var(--space-xs);
+    }
+
+    &--Command {
+      color: var(--color-yellow);
+    }
   }
 }

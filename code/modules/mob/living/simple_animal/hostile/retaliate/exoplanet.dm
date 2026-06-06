@@ -27,6 +27,7 @@
 		)
 
 	emote_see = list("skitters","oozes liquid from its mouth", "scratches at the ground", "clicks its claws")
+	attack_vis_effect = ATTACK_EFFECT_CLAW
 
 /mob/living/simple_animal/hostile/retaliate/beast/charbaby
 	name = "charbaby"
@@ -66,5 +67,6 @@
 	icon_state = "lavadog"
 	icon_living = "lavadog"
 	icon_dead = "lavadog_dead"
+	attack_vis_effect = ATTACK_EFFECT_BITE
 
 	speak = list("Karuph!", "Karump!")

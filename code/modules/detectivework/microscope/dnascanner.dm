@@ -1,5 +1,5 @@
 //DNA machine
-/obj/machinery/dnaforensics
+/obj/structure/machinery/dnaforensics
 	name = "DNA analyzer"
 	desc = "A high tech machine that is designed to read DNA samples properly."
 	icon = 'icons/obj/forensics.dmi'
@@ -15,7 +15,7 @@
 	var/last_process_worldtime = 0
 	var/report_num = 0
 
-/obj/machinery/dnaforensics/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/dnaforensics/attackby(obj/item/attacking_item, mob/user)
 	var/obj/item/forensics/swab/swab = attacking_item
 	// General intended use (w swabs)
 	if(istype(swab))
@@ -50,7 +50,7 @@
 		return TRUE
 	return ..()
 
-/obj/machinery/dnaforensics/ui_interact(mob/user, datum/tgui/ui)
+/obj/structure/machinery/dnaforensics/ui_interact(mob/user, datum/tgui/ui)
 	if(stat & NOPOWER)
 		return
 	if(use_check_and_message(user))
@@ -61,7 +61,7 @@
 		ui.open()
 		ui.set_autoupdate(TRUE)
 
-/obj/machinery/dnaforensics/ui_data(mob/user)
+/obj/structure/machinery/dnaforensics/ui_data(mob/user)
 	var/list/data = list()
 
 	data["scan_progress"] = round(scanner_progress)
@@ -72,7 +72,7 @@
 
 	return data
 
-/obj/machinery/dnaforensics/ui_act(action, params)
+/obj/structure/machinery/dnaforensics/ui_act(action, params)
 	. = ..()
 	if(.)
 		return
@@ -110,7 +110,7 @@
 
 	return FALSE
 
-/obj/machinery/dnaforensics/process()
+/obj/structure/machinery/dnaforensics/process()
 	if(scanning)
 		if(!bloodsamp || bloodsamp.loc != src)
 			bloodsamp = null
@@ -124,7 +124,7 @@
 			scanner_progress = min(100, scanner_progress + scanner_rate * deltaT)
 	last_process_worldtime = world.time
 
-/obj/machinery/dnaforensics/proc/complete_scan()
+/obj/structure/machinery/dnaforensics/proc/complete_scan()
 	visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] makes an insistent chime."), range = 2)
 	update_icon()
 	if(bloodsamp)
@@ -152,15 +152,15 @@
 		update_icon()
 	return
 
-/obj/machinery/dnaforensics/attack_ai(mob/user as mob)
+/obj/structure/machinery/dnaforensics/attack_ai(mob/user as mob)
 	if(!ai_can_interact(user))
 		return
 	ui_interact(user)
 
-/obj/machinery/dnaforensics/attack_hand(mob/user as mob)
+/obj/structure/machinery/dnaforensics/attack_hand(mob/user as mob)
 	ui_interact(user)
 
-/obj/machinery/dnaforensics/verb/toggle_lid()
+/obj/structure/machinery/dnaforensics/verb/toggle_lid()
 	set category = "Object"
 	set name = "Toggle Lid"
 	set src in oview(1)
@@ -175,7 +175,7 @@
 	closed = !closed
 	src.update_icon()
 
-/obj/machinery/dnaforensics/update_icon()
+/obj/structure/machinery/dnaforensics/update_icon()
 	..()
 	if(!(stat & NOPOWER) && scanning)
 		icon_state = "dnaworking"

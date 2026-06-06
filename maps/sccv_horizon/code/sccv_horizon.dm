@@ -290,7 +290,7 @@
 	// also only loads if no program is loaded already
 	var/list/roles = number_active_with_role()
 	if(roles && roles["Ship Engineer"] && roles["Ship Engineer"] >= 2)
-		for(var/obj/machinery/computer/holodeck_control/holo in GLOB.holodeck_controls)
+		for(var/obj/structure/machinery/computer/holodeck_control/holo in GLOB.holodeck_controls)
 			if(!holo.active)
 				holo.load_random_program()
 

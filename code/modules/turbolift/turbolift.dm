@@ -23,17 +23,17 @@
 	open_doors()
 
 /datum/turbolift/proc/doors_are_open(datum/turbolift_floor/use_floor = current_floor)
-	for(var/obj/machinery/door/airlock/door in (use_floor ? (doors + use_floor.doors) : doors))
+	for(var/obj/structure/machinery/door/airlock/door in (use_floor ? (doors + use_floor.doors) : doors))
 		if(!door.density)
 			return 1
 	return 0
 
 /datum/turbolift/proc/open_doors(datum/turbolift_floor/use_floor = current_floor)
-	for(var/obj/machinery/door/airlock/door in (use_floor ? (doors + use_floor.doors) : doors))
+	for(var/obj/structure/machinery/door/airlock/door in (use_floor ? (doors + use_floor.doors) : doors))
 		door.command("open")
 
 /datum/turbolift/proc/close_doors(datum/turbolift_floor/use_floor = current_floor)
-	for(var/obj/machinery/door/airlock/door in (use_floor ? (doors + use_floor.doors) : doors))
+	for(var/obj/structure/machinery/door/airlock/door in (use_floor ? (doors + use_floor.doors) : doors))
 		door.command("close")
 
 /datum/turbolift/proc/do_work()

@@ -1,6 +1,12 @@
-import { BooleanLike } from '../../common/react';
+import {
+  Button,
+  LabeledList,
+  Section,
+  Table,
+  Tabs,
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Button, LabeledList, Section, Table, Tabs } from '../components';
 import { NtosWindow } from '../layouts';
 
 export type CargoData = {
@@ -52,8 +58,8 @@ type Item = {
   supplier_name: string;
 };
 
-export const CargoDelivery = (props, context) => {
-  const { act, data } = useBackend<CargoData>(context);
+export const CargoDelivery = (props) => {
+  const { act, data } = useBackend<CargoData>();
 
   return (
     <NtosWindow resizable>
@@ -70,7 +76,7 @@ export const CargoDelivery = (props, context) => {
                   onClick={() =>
                     act('page', {
                       page: 'order_overview',
-                      order_overview: data.order_details.order_id.toString(),
+                      order_overview: data.order_details?.order_id?.toString(),
                     })
                   }
                 >
@@ -80,7 +86,7 @@ export const CargoDelivery = (props, context) => {
                   onClick={() =>
                     act('page', {
                       page: 'order_payment',
-                      order_payment: data.order_details.order_id.toString(),
+                      order_payment: data.order_details?.order_id?.toString(),
                     })
                   }
                 >
@@ -102,8 +108,8 @@ export const CargoDelivery = (props, context) => {
   );
 };
 
-export const MainView = (props, context) => {
-  const { act, data } = useBackend<CargoData>(context);
+export const MainView = (props) => {
+  const { act, data } = useBackend<CargoData>();
 
   return (
     <Section>
@@ -137,8 +143,8 @@ export const MainView = (props, context) => {
   );
 };
 
-export const Overview = (props, context) => {
-  const { act, data } = useBackend<CargoData>(context);
+export const Overview = (props) => {
+  const { act, data } = useBackend<CargoData>();
 
   return (
     <Section title="Overview">
@@ -214,12 +220,12 @@ export const Overview = (props, context) => {
   );
 };
 
-export const Payment = (props, context) => {
-  const { act, data } = useBackend<CargoData>(context);
+export const Payment = (props) => {
+  const { act, data } = useBackend<CargoData>();
 
   return (
     <Section
-      title={'Payment: Order No. ' + data.order_details.order_id}
+      title={`Payment: Order No. ${data.order_details.order_id}`}
       buttons={
         <>
           <Button

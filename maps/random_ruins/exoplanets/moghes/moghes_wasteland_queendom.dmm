@@ -186,7 +186,7 @@
 /obj/item/reagent_containers/food/drinks/waterbottle,
 /obj/item/reagent_containers/food/drinks/waterbottle,
 /obj/item/reagent_containers/food/drinks/waterbottle,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/carpet/darkblue,
@@ -200,7 +200,7 @@
 /turf/simulated/floor/exoplanet/carpet/lightblue,
 /area/moghes_queendom)
 "G" = (
-/obj/machinery/door/urban{
+/obj/structure/machinery/door/urban{
 	dir = 4;
 	pixel_x = -29
 	},
@@ -239,7 +239,7 @@
 /obj/item/saddle,
 /obj/item/saddle,
 /obj/item/saddle,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /obj/item/material/hatchet/lumber,

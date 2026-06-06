@@ -1,15 +1,15 @@
-import { BooleanLike } from '../../common/react';
-import { useBackend } from '../backend';
 import {
-  LabeledList,
+  Box,
   Button,
+  Flex,
   Input,
+  LabeledList,
   NumberInput,
   Section,
-  Flex,
   Table,
-  Box,
-} from '../components';
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
+import { useBackend, useLocalState } from '../backend';
 import { Window } from '../layouts';
 
 export type PayData = {
@@ -35,11 +35,11 @@ type ItemBuy = {
   price: number;
 };
 
-export const QuikPay = (props, context) => {
-  const { act, data } = useBackend<PayData>(context);
+export const QuikPay = (props) => {
+  const { act, data } = useBackend<PayData>();
 
   return (
-    <Window resizable theme="idris">
+    <Window theme="idris">
       <Window.Content scrollable>
         <Section
           title="Ordering"
@@ -78,8 +78,10 @@ export const QuikPay = (props, context) => {
   );
 };
 
-export const ItemWindow = (props, context) => {
-  const { act, data } = useBackend<PayData>(context);
+export const ItemWindow = (props) => {
+  const { act, data } = useBackend<PayData>();
+  const [searchTerm, setSearchTerm] = useLocalState<string>(`searchTerm`, ``);
+  const normalizedSearchTerm = searchTerm.toLowerCase();
 
   const groupedItems = data.items.reduce((groups, item) => {
     const category = item.category || 'Uncategorized';
@@ -91,52 +93,84 @@ export const ItemWindow = (props, context) => {
   }, {});
 
   const sortedCategories = Object.keys(groupedItems).sort();
+  const filteredCategories = sortedCategories
+    .map((category) => {
+      const categoryMatches =
+        category.toLowerCase().indexOf(normalizedSearchTerm) > -1;
+      const items = categoryMatches
+        ? groupedItems[category]
+        : groupedItems[category].filter(
+            (item) =>
+              item.name?.toLowerCase().indexOf(normalizedSearchTerm) > -1,
+          );
+
+      return { category, items };
+    })
+    .filter((group) => group.items.length > 0);
 
   return (
-    <Section>
+    <Section
+      title="Items"
+      buttons={
+        <Input
+          autoFocus
+          autoSelect
+          placeholder="Search categories or items"
+          maxLength={512}
+          onChange={(value) => {
+            setSearchTerm(value);
+          }}
+          value={searchTerm}
+        />
+      }
+    >
       <Flex direction="row">
         <Flex.Item grow={1}>
-          {sortedCategories.map((category) => (
-            <Section key={category} title={category}>
-              <Table>
-                {groupedItems[category].map((item) => (
-                  <Table.Row key={`${category}-${item.name}`}>
-                    <Table.Cell>{item.name}</Table.Cell>
-                    <Table.Cell align="right">
-                      {item.price.toFixed(2)}电 &nbsp;
-                    </Table.Cell>
-                    <Table.Cell>
-                      {!data.editmode ? (
-                        <Button
-                          content="Buy"
-                          icon="calendar"
-                          onClick={() =>
-                            act('buy', {
-                              buying: item.name,
-                              amount: 1,
-                              price: item.price,
-                            })
-                          }
-                        />
-                      ) : (
-                        <>
-                          &nbsp;
+          {filteredCategories.length < 1 ? (
+            <Section>No items found.</Section>
+          ) : (
+            filteredCategories.map(({ category, items }) => (
+              <Section key={category} title={category}>
+                <Table>
+                  {items.map((item) => (
+                    <Table.Row key={`${category}-${item.name}`}>
+                      <Table.Cell>{item.name}</Table.Cell>
+                      <Table.Cell align="right">
+                        {item.price.toFixed(2)}电 &nbsp;
+                      </Table.Cell>
+                      <Table.Cell>
+                        {!data.editmode ? (
                           <Button
-                            content="Delete"
-                            icon="trash"
-                            color="bad"
+                            content="Buy"
+                            icon="calendar"
                             onClick={() =>
-                              act('remove', { removing: item.name })
+                              act('buy', {
+                                buying: item.name,
+                                amount: 1,
+                                price: item.price,
+                              })
                             }
                           />
-                        </>
-                      )}
-                    </Table.Cell>
-                  </Table.Row>
-                ))}
-              </Table>
-            </Section>
-          ))}
+                        ) : (
+                          <>
+                            &nbsp;
+                            <Button
+                              content="Delete"
+                              icon="trash"
+                              color="bad"
+                              onClick={() =>
+                                act('remove', { removing: item.name })
+                              }
+                            />
+                          </>
+                        )}
+                      </Table.Cell>
+                    </Table.Row>
+                  ))}
+                </Table>
+              </Section>
+            ))
+          )}
         </Flex.Item>
 
         <Box width="1px" backgroundColor="rgba(255, 255, 255, 0.15)" mx={2} />
@@ -174,19 +208,19 @@ export const ItemWindow = (props, context) => {
   );
 };
 
-export const AddItems = (props, context) => {
-  const { act, data } = useBackend<PayData>(context);
+export const AddItems = (props) => {
+  const { act, data } = useBackend<PayData>();
   return (
     <Section title="Add Item">
       <Input
         placeholder="Item name"
         value={data.new_item}
-        onChange={(e, value) => act('set_new_item', { set_new_item: value })}
+        onChange={(value) => act('set_new_item', { set_new_item: value })}
       />
       <Input
         placeholder="Category"
         value={data.new_category}
-        onChange={(e, value) =>
+        onChange={(value) =>
           act('set_new_category', { set_new_category: value })
         }
       />
@@ -195,15 +229,15 @@ export const AddItems = (props, context) => {
         minValue={0}
         maxValue={100}
         stepPixelSize={5}
-        onDrag={(e, value) => act('set_new_price', { set_new_price: value })}
+        onChange={(value) => act('set_new_price', { set_new_price: value })}
       />
       <Button content="Add" onClick={() => act('add')} />
     </Section>
   );
 };
 
-export const CartWindow = (props, context) => {
-  const { act, data } = useBackend<PayData>(context);
+export const CartWindow = (props) => {
+  const { act, data } = useBackend<PayData>();
   return (
     <Section>
       <LabeledList>

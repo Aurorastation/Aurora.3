@@ -8,7 +8,7 @@
 */
 /atom/movable/screen
 	name = ""
-	icon = 'icons/mob/screen/generic.dmi'
+	icon = 'icons/hud/mob/generic.dmi'
 	plane = HUD_PLANE
 	layer = HUD_BASE_LAYER
 	/// A reference to the object in the slot. Grabs or items, generally.
@@ -26,10 +26,10 @@
 /atom/movable/screen/Destroy(force = FALSE)
 	master = null
 	screen_loc = null
-	if(hud?.mymob?.client)
+	if(length(hud?.mymob?.client?.screen))
 		hud.mymob.client.screen -= src
 	hud = null
-	. = ..()
+	return ..()
 
 /// Screen elements are always on top of the players screen and don't move so yes they are adjacent
 /atom/movable/screen/Adjacent(atom/neighbor, atom/target, atom/movable/mover)
@@ -228,7 +228,7 @@
 
 
 /obj/effect/overlay/zone_sel
-	icon = 'icons/mob/zone_sel.dmi'
+	icon = 'icons/hud/mob/zone_sel.dmi'
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	alpha = 128
 	anchored = TRUE
@@ -293,7 +293,7 @@
 
 /atom/movable/screen/zone_sel/update_icon()
 	ClearOverlays()
-	selecting_appearance = mutable_appearance('icons/mob/zone_sel.dmi', "[selecting]")
+	selecting_appearance = mutable_appearance('icons/hud/mob/zone_sel.dmi', "[selecting]")
 	AddOverlays(selecting_appearance)
 
 /atom/movable/screen/Click(location, control, params)
@@ -361,7 +361,7 @@
 					var/turf/above_turf = GET_TURF_ABOVE(T)
 					if(!isopenturf(above_turf))
 						continue
-					var/image/point_up = image(icon = 'icons/mob/screen/generic.dmi', icon_state = "arrow_up", loc = T)
+					var/image/point_up = image(icon = 'icons/hud/mob/generic.dmi', icon_state = "arrow_up", loc = T)
 					point_up.plane = GAME_PLANE
 					point_up.layer = POINTER_LAYER
 					viewer_client?.images += point_up
@@ -443,11 +443,27 @@
 			return 0
 	return 1
 
-/atom/movable/screen/inventory/Click()
+/atom/movable/screen/inventory/Click(location, control, params)
 	// At this point in client Click() code we have passed the 1/10 sec check and little else
 	// We don't even know if it's a middle click
 	if(!usr.canClick())
 		return TRUE
+
+	var/obj/item/worn_item = usr.get_equipped_item(slot_id)
+	if(istype(worn_item))
+		var/list/modifiers = params2list(params)
+		if(LAZYACCESS(modifiers, ALT_CLICK)) // --- Alt click combinations
+			if(LAZYACCESS(modifiers, SHIFT_CLICK)) // Alt-Shift click
+				worn_item.AltShiftClick(usr)
+				return TRUE
+
+			worn_item.AltClick(usr) // Alt click
+			return TRUE
+
+		if(LAZYACCESS(modifiers, SHIFT_CLICK)) // Shift click
+			worn_item.ShiftClick(usr)
+			return TRUE
+
 	if(use_check_and_message(usr, USE_ALLOW_NON_ADJACENT|USE_ALLOW_NON_ADV_TOOL_USR)) //You're always adjacent to your inventory in practice.
 		return TRUE
 	switch(name)
@@ -468,7 +484,7 @@
 				usr.update_inv_l_hand(0)
 				usr.update_inv_r_hand(0)
 
-	return 1
+	return TRUE
 
 /atom/movable/screen/movement_intent
 	name = "mov_intent"
@@ -553,13 +569,13 @@
 		return
 	if(!handcuff_overlay)
 		var/state = (hud.l_hand_hud_object == src) ? "l_hand_hud_handcuffs" : "r_hand_hud_handcuffs"
-		handcuff_overlay = image("icon"='icons/mob/screen_gen.dmi', "icon_state" = state)
+		handcuff_overlay = image("icon"='icons/hud/mob/screen_gen.dmi', "icon_state" = state)
 	if(!disabled_hand_overlay)
 		var/state = (hud.l_hand_hud_object == src) ? "l_hand_disabled" : "r_hand_disabled"
-		disabled_hand_overlay = image("icon" = 'icons/mob/screen_gen.dmi', "icon_state" = state)
+		disabled_hand_overlay = image("icon" = 'icons/hud/mob/screen_gen.dmi', "icon_state" = state)
 	if(!removed_hand_overlay)
 		var/state = (hud.l_hand_hud_object == src) ? "l_hand_removed" : "r_hand_removed"
-		removed_hand_overlay = image("icon" = 'icons/mob/screen_gen.dmi', "icon_state" = state)
+		removed_hand_overlay = image("icon" = 'icons/hud/mob/screen_gen.dmi', "icon_state" = state)
 	ClearOverlays()
 	if(hud.mymob && ishuman(hud.mymob))
 		var/mob/living/carbon/human/H = hud.mymob

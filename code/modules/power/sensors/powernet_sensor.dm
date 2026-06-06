@@ -5,9 +5,8 @@
 // Powernet sensors are devices which relay information about connected powernet. This information may be relayed
 // via two procs. Proc return_reading_text will return fully HTML styled string which contains all information. This
 // may be used in PDAs or similar applications. Second proc, return_reading_data will return list containing needed data.
-// This is used in NanoUI, for example.
 
-/obj/machinery/power/sensor
+/obj/structure/machinery/power/sensor
 	name = "Powernet Sensor"
 	desc = "Small machine which transmits data about specific powernet"
 	anchored = 1
@@ -22,25 +21,25 @@
 // Proc: New()
 // Parameters: None
 // Description: Automatically assigns name according to ID tag.
-/obj/machinery/power/sensor/Initialize()
+/obj/structure/machinery/power/sensor/Initialize()
 	. = ..()
 	auto_set_name()
 	SSmachinery.all_sensors += src
 
-/obj/machinery/power/sensor/Destroy()
+/obj/structure/machinery/power/sensor/Destroy()
 	SSmachinery.all_sensors -= src
 	return ..()
 
 // Proc: auto_set_name()
 // Parameters: None
 // Description: Sets name of this sensor according to the ID tag.
-/obj/machinery/power/sensor/proc/auto_set_name()
+/obj/structure/machinery/power/sensor/proc/auto_set_name()
 	name = "[name_tag] - Powernet Sensor"
 
 // Proc: check_grid_warning()
 // Parameters: None
 // Description: Checks connected powernet for warnings. If warning is found returns 1
-/obj/machinery/power/sensor/proc/check_grid_warning()
+/obj/structure/machinery/power/sensor/proc/check_grid_warning()
 	connect_to_network()
 	if(powernet)
 		if(powernet.problem)
@@ -50,14 +49,14 @@
 // Proc: find_apcs()
 // Parameters: None
 // Description: Searches powernet for APCs and returns them in a list.
-/obj/machinery/power/sensor/proc/find_apcs()
+/obj/structure/machinery/power/sensor/proc/find_apcs()
 	if(!powernet)
 		return
 
 	var/list/L = list()
-	for(var/obj/machinery/power/terminal/term in powernet.nodes)
-		if(istype(term.master, /obj/machinery/power/apc))
-			var/obj/machinery/power/apc/A = term.master
+	for(var/obj/structure/machinery/power/terminal/term in powernet.nodes)
+		if(istype(term.master, /obj/structure/machinery/power/apc))
+			var/obj/structure/machinery/power/apc/A = term.master
 			L += A
 
 	return L
@@ -66,7 +65,7 @@
 // Proc: return_reading_text()
 // Parameters: None
 // Description: Generates string which contains HTML table with reading data.
-/obj/machinery/power/sensor/proc/return_reading_text()
+/obj/structure/machinery/power/sensor/proc/return_reading_text()
 	// No powernet. Try to connect to one first.
 	if(!powernet)
 		connect_to_network()
@@ -89,7 +88,7 @@
 		var/list/chg = list("N","C","F")
 
 		// Split to multiple lines to make it more readable
-		for(var/obj/machinery/power/apc/A in L)
+		for(var/obj/structure/machinery/power/apc/A in L)
 			out += "<tr><td>\The [A.area]" 															// Add area name
 			out += "<td>[S[A.equipment+1]]<td>[S[A.lighting+1]]<td>[S[A.environ+1]]" 				// Show status of channels
 			if(A.cell)
@@ -113,7 +112,7 @@
 // Proc: return_reading_data()
 // Parameters: None
 // Description: Generates list containing all powernet data. Optimised for usage with NanoUI
-/obj/machinery/power/sensor/proc/return_reading_data()
+/obj/structure/machinery/power/sensor/proc/return_reading_data()
 	// No powernet. Try to connect to one first.
 	if(!powernet)
 		connect_to_network()
@@ -132,7 +131,7 @@
 		var/list/S = list("M-OFF","A-OFF","M-ON", "A-ON")
 		var/list/chg = list("N","C","F")
 
-		for(var/obj/machinery/power/apc/A in L)
+		for(var/obj/structure/machinery/power/apc/A in L)
 			var/list/APC_entry = list()
 			// Channel Statuses
 			APC_entry["s_equipment"] = S[A.equipment+1]

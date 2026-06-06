@@ -96,6 +96,7 @@
 	initial_name = name
 	listener = new("modular_computers", src)
 	sync_linked()
+	src.LoadComponent(/datum/component/health_analyzer)
 
 /obj/item/modular_computer/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
@@ -415,13 +416,10 @@
 
 /obj/item/modular_computer/proc/update_uis()
 	if(active_program) //Should we update program ui or computer ui?
-		SSnanoui.update_uis(active_program)
-		SStgui.update_uis(src)
-		if(active_program.NM)
-			SSnanoui.update_uis(active_program.NM)
+		if(active_program)
+			SStgui.update_uis(active_program)
 	else
 		SStgui.update_uis(src)
-		SSnanoui.update_uis(src)
 
 /obj/item/modular_computer/proc/check_update_ui_need()
 	var/ui_update_needed = FALSE
@@ -456,18 +454,6 @@
 
 	if(ui_update_needed)
 		update_uis()
-
-// Used by camera monitor program
-/obj/item/modular_computer/check_eye(var/mob/user)
-	if(active_program)
-		return active_program.check_eye(user)
-	return ..()
-
-// Used by camera monitor program
-/obj/item/modular_computer/grants_equipment_vision(var/mob/user)
-	if(active_program)
-		return active_program.grants_equipment_vision(user)
-	return ..()
 
 /obj/item/modular_computer/get_cell()
 	return battery_module ? battery_module.get_cell() : DEVICE_NO_CELL

@@ -21,6 +21,8 @@
 	new /obj/item/laser_assembly(src)
 	new /obj/item/laser_assembly/medium(src)
 	new /obj/item/laser_assembly/large(src)
+	new /obj/item/firing_pin(src)
+	new /obj/item/firing_pin(src)
 	new /obj/item/storage/box/modlaser(src)
 	new /obj/item/storage/box/modlaser/modulators(src)
 	new /obj/item/storage/box/modlaser/lens(src)

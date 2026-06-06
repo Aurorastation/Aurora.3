@@ -903,7 +903,7 @@
 	..()
 
 /obj/item/paper/stickynotes/afterattack(var/A, mob/user, var/prox, var/params)
-	if(!in_range(user, A) || istype(A, /obj/machinery) || istype(A, /obj/item/paper) || crumpled)
+	if(!in_range(user, A) || istype(A, /obj/structure/machinery) || istype(A, /obj/item/paper) || crumpled)
 		return
 
 	var/turf/target_turf = get_turf(A)

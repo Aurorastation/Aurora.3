@@ -51,7 +51,7 @@
 
 	req_access = list(ACCESS_SYNDICATE)
 
-	airtight = 0
+	airtight = FALSE
 	seal_delay = 5 //not being vaccum-proof has an upside I guess
 
 	helm_type = /obj/item/clothing/head/lightrig/hacker
@@ -215,7 +215,7 @@
 		RAD = ARMOR_RAD_MINOR
 	)
 	slowdown = 0
-	airtight = 0
+	airtight = FALSE
 	seal_delay = 5
 	helm_type = /obj/item/clothing/head/lightrig/offworlder
 	chest_type = /obj/item/clothing/suit/lightrig/offworlder
@@ -223,7 +223,7 @@
 	boot_type = null
 
 	initial_modules = list(
-		/obj/item/rig_module/device/healthscanner/vitalscanner,
+		/obj/item/rig_module/device/healthscanner,
 		/obj/item/rig_module/chem_dispenser/offworlder,
 		/obj/item/rig_module/storage
 		)
@@ -262,7 +262,7 @@
 	)
 	slowdown = -0.3
 	offline_slowdown = 0
-	airtight = 1
+	airtight = TRUE
 	offline_vision_restriction = TINT_HEAVY
 	siemens_coefficient = 0.2
 	icon_supported_species_tags = null
@@ -278,7 +278,7 @@
 	)
 
 	initial_modules = list(
-		/obj/item/rig_module/device/healthscanner/vitalscanner,
+		/obj/item/rig_module/device/healthscanner,
 		/obj/item/rig_module/chem_dispenser/offworlder,
 		/obj/item/rig_module/actuators/combat,
 		/obj/item/rig_module/chem_dispenser/combat
@@ -293,7 +293,7 @@
 
 /obj/item/rig/light/offworlder/frontier/equipped
 	initial_modules = list(
-		/obj/item/rig_module/device/healthscanner/vitalscanner,
+		/obj/item/rig_module/device/healthscanner,
 		/obj/item/rig_module/chem_dispenser/offworlder,
 		/obj/item/rig_module/actuators/combat,
 		/obj/item/rig_module/fabricator/energy_net,
@@ -302,7 +302,7 @@
 		)
 /obj/item/rig/light/offworlder/frontier/ninja
 	initial_modules = list(
-		/obj/item/rig_module/device/healthscanner/vitalscanner,
+		/obj/item/rig_module/device/healthscanner,
 		/obj/item/rig_module/chem_dispenser/offworlder,
 		/obj/item/rig_module/actuators/combat,
 		/obj/item/rig_module/fabricator/energy_net,

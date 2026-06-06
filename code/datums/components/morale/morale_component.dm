@@ -1,3 +1,30 @@
+/// Screen space movable object for the morale component.
+/atom/movable/screen/morale
+	name = "morale"
+	icon = 'icons/mob/screen/morale_ui.dmi'
+	icon_state = "morale_hidden"
+	screen_loc = UI_MORALE_LOCATION
+
+/atom/movable/screen/morale/Click(location, control, params)
+	if (!istype(usr))
+		return
+
+	var/datum/component/morale/morale_comp = usr.GetComponent(MORALE_COMPONENT)
+	if (!morale_comp)
+		qdel(src) // whoops the attached mob doesn't have a morale component.
+		return
+
+	if (!length(morale_comp.moodlets))
+		to_chat(usr, SPAN_NOTICE("You currently have no morale modifiers."))
+		return
+
+	// This section is Unlinted since we need to access a same-file PRIVATE var
+	// and for whatever ungodly reason strongdmm doesn't allow same-file to touch VAR_PRIVATE
+	UNLINT(to_chat(usr, SPAN_NOTICE("Your current morale bonus is [morale_comp.morale_ratio * 100]%")))
+	to_chat(usr, SPAN_NOTICE("You have the following morale modifiers: "))
+	for (var/datum/moodlet/moodlet as anything in morale_comp.moodlets)
+		to_chat(usr, moodlet.get_moodlet_descriptor())
+
 /**
  * Having a Morale Component allows a character to receive and benefit from Moodlets, providing a variety of buffs(or debuffs) depending on the total morale points.
  * This component acts as both proof a mob can be affected by morale, as well as a method of tracking the effects of morale on each system.
@@ -38,6 +65,15 @@
 	 */
 	VAR_PRIVATE/beta_value = 0.0195
 
+	/**
+	 * UI element stored for the morale component,
+	 * which is attached to the screen of a client controlling a character with this component.
+	 * Its lifecycle is strictly controlled by this component, do not under any circumstances touch it from outside this file.
+	 *
+	 * You have been warned.
+	 */
+	VAR_PRIVATE/atom/movable/screen/morale/morale_ui
+
 	// By default, all of these values are roughly equivalent to "up to half" a skill rank.
 	/// How much this morale component contributes to signal based unarmed values.
 	var/unarmed_chance_contribution = 2.5
@@ -64,6 +100,12 @@
 	morale_points += input
 	morale_ratio = ftanh(beta_value * morale_points)
 
+	// I get to do this freakishly compact state setting because I can
+	// logically prove via VAR_PRIVATE that this is only ever set via a hyperbolic tangent
+	// And that because a hyperbolic tangent will only ever return a value between -1 and 1,
+	// the range of this equation becomes the set of integers between 1 and 9 inclusive.
+	morale_ui.icon_state = ((morale_ratio > -0.0001 && morale_ratio < 0.0001) ? "morale_hidden" : "morale" + "[round(morale_ratio * 4) + 5]")
+
 /datum/component/morale/proc/set_beta_value(input)
 	beta_value = input
 	morale_ratio = ftanh(beta_value * morale_points)
@@ -78,6 +120,7 @@
 	if (!loaded_moodlet)
 		loaded_moodlet = new moodlet_type(src, set_points)
 		moodlets.Add(loaded_moodlet)
+		START_PROCESSING(SSprocessing, src)
 		return loaded_moodlet
 
 	if (set_points) loaded_moodlet.set_moodlet(set_points)
@@ -87,6 +130,11 @@
 	. = ..()
 	if (!parent)
 		return
+
+	// Generate the morale UI in advance.
+	morale_ui = new /atom/movable/screen/morale()
+	// Separate from the general morale interactions, this one is special for generating the morale HUD elements.
+	RegisterSignal(parent, COMSIG_MOB_UPDATE_VISION, PROC_REF(get_morale_hud), override = TRUE)
 
 	// Behold my wall of RegisterSignal()
 	RegisterSignal(parent, COMSIG_APPLY_HIT_EFFECT, PROC_REF(modify_hit_effect), override = TRUE)
@@ -106,6 +154,10 @@
 	if (!parent)
 		return ..()
 
+	// Cleanup morale HUD elements.
+	UnregisterSignal(parent, COMSIG_MOB_UPDATE_VISION)
+	QDEL_NULL(morale_ui)
+
 	// Behold my wall of UnregisterSignal()
 	UnregisterSignal(parent, COMSIG_APPLY_HIT_EFFECT)
 	UnregisterSignal(parent, COMSIG_BEFORE_GUN_FIRE)
@@ -121,10 +173,13 @@
 	return ..()
 
 /datum/component/morale/process(seconds_per_tick)
+	if (!length(moodlets))
+		return PROCESS_KILL
+
 	var/current_time = REALTIMEOFDAY
 	var/list_trimmed = FALSE
 	for (var/datum/moodlet/moodlet as anything in moodlets)
-		if (moodlet.time_to_die < current_time || QDELING(moodlet))
+		if (moodlet.time_to_die > current_time || QDELING(moodlet))
 			continue
 
 		morale_points -= moodlet.get_morale_modifier()
@@ -237,3 +292,10 @@
 /datum/component/morale/proc/handle_surgery_modifiers(mob/living/user, success_rate)
 	SIGNAL_HANDLER
 	*success_rate = *success_rate + surgery_success_contribution * morale_ratio
+
+/datum/component/morale/proc/get_morale_hud(mob/living/carbon/human/user)
+	SIGNAL_HANDLER
+	if (QDELING(src))
+		return // draw nothing.
+
+	user.client?.screen |= morale_ui
