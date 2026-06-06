@@ -102,7 +102,7 @@
 	langchat_drop_images()
 
 	var/list/mob/shown = list()
-	for(var/mob/listener as anything in listeners)
+	for(var/mob/listener in listeners)
 		if(!LANGCHAT_CLIENT_ENABLED(listener) || listener.ear_deaf)
 			continue
 		shown += listener
@@ -121,7 +121,7 @@
 
 	// Group listeners by exact text perceived.
 	var/list/groups = list()
-	for(var/mob/listener as anything in listeners)
+	for(var/mob/listener in listeners)
 		if(!LANGCHAT_CLIENT_ENABLED(listener) || listener.ear_deaf)
 			continue
 		var/perceived = msg.plain_text_for(listener)
