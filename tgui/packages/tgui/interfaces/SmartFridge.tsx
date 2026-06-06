@@ -110,12 +110,11 @@ export const ContentsWindow = (props) => {
             >
               {/* Item icon */}
               {item.icon ? (
-                <Box as="img">
-                  <Image>
-                    width="32px" height="32px" src=
-                    {`data:image/png;base64,${item.icon}`}
-                  </Image>
-                </Box>
+                <Image
+                  width="32px"
+                  height="32px"
+                  src={`data:image/png;base64,${item.icon}`}
+                />
               ) : null}
               {/* Name stuff */}
               <Box
