@@ -36,7 +36,7 @@
 	history_cache = list()
 
 	// Clean history records
-	for(var/alist/type_combination in historyDatabaseGetTypeAttributeCombinations()) // Iterate through each distinct type+attribute combination
+	for(var/type_combination in historyDatabaseGetTypeAttributeCombinations()) // Iterate through each distinct type+attribute combination
 		CHECK_TICK
 		var/type_id = type_combination["type_id"]
 		var/attribute = type_combination["attribute"]
@@ -47,16 +47,19 @@
 				found_type = T
 		if(!found_type)
 			continue // The type found in the database is no longer available in the codebase
+
 		// Clean by the individual cleanup rule
-		if(istype(found_type.expiration_rule, /singleton/persistent_type_history_expiration_rule/row_count))
-			var/max_row_count = astype(found_type.expiration_rule, /singleton/persistent_type_history_expiration_rule/row_count).max_row_count
-			historyDatabaseCleanByRowCount(found_type.database_id, attribute, max_row_count)
-		if(istype(found_type.expiration_rule, /singleton/persistent_type_history_expiration_rule/round_count))
-			var/max_round_count = astype(found_type.expiration_rule, /singleton/persistent_type_history_expiration_rule/round_count).max_round_count
-			historyDatabaseCleanByRoundCount(found_type.database_id, attribute, max_round_count)
-		if(istype(found_type.expiration_rule, /singleton/persistent_type_history_expiration_rule/age))
-			var/max_age_days = astype(found_type.expiration_rule, /singleton/persistent_type_history_expiration_rule/age).max_age_days
-			historyDatabaseCleanByMaxAgeDays(found_type.database_id, attribute, max_age_days)
+		if(ispath(found_type.expiration_rule, /singleton/persistent_type_history_expiration_rule/row_count)) // row_count
+			var/singleton/persistent_type_history_expiration_rule/row_count/rule = GET_SINGLETON(found_type.expiration_rule)
+			historyDatabaseCleanByRowCount(found_type.database_id, attribute, rule.max_row_count)
+
+		if(ispath(found_type.expiration_rule, /singleton/persistent_type_history_expiration_rule/round_count)) // round_count
+			var/singleton/persistent_type_history_expiration_rule/round_count/rule = GET_SINGLETON(found_type.expiration_rule)
+			historyDatabaseCleanByRoundCount(found_type.database_id, attribute, rule.max_round_count)
+
+		if(ispath(found_type.expiration_rule, /singleton/persistent_type_history_expiration_rule/age)) // age
+			var/singleton/persistent_type_history_expiration_rule/age/rule = GET_SINGLETON(found_type.expiration_rule)
+			historyDatabaseCleanByMaxAgeDays(found_type.database_id, attribute, rule.max_age_days)
 
 	// ### Generics
 
