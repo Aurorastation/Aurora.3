@@ -88,26 +88,13 @@
 		return
 
 	var/datum/db_query/query = SSdbcore.NewQuery(
-		"DELETE FROM ss13_persistent_history \
-		WHERE type = :type_id \
-		AND ( \
-				attribute <=> :attribute \
-			) \
-		AND id NOT IN ( \
-				SELECT id FROM ( \
-					SELECT id \
-					FROM ss13_persistent_history \
-					WHERE type = :type_id \
-						) \
-					AND ( \
-							attribute <=> :attribute \
-						) \
-					ORDER BY id DESC \
-					LIMIT :row_count \
-				) AS keep_ids \
-		);",
+		"\
+			DELETE FROM ss13_persistent_history \
+			WHERE type = :type_id AND attribute <=> :attribute \
+			ORDER BY created_at DESC, id DESC \
+			LIMIT :row_count",
 		list(
-			":type_id" = type_id,
+			"type_id" = type_id,
 			"attribute" = attribute,
 			"row_count" = row_count
 		)
@@ -130,45 +117,21 @@
 		return
 
 	var/datum/db_query/query = SSdbcore.NewQuery(
-		"DELETE h \
-		FROM ss13_persistent_history h \
-		JOIN ( \
-			SELECT DISTINCT h2.type, \
-				h2.attribute, \
-				h2.game_id \
-			FROM ss13_persistent_history h2 \
-			JOIN ( \
-				SELECT type, \
-					attribute, \
-					game_id \
-				FROM ss13_persistent_history \
-				GROUP BY type, attribute, game_id \
-			) g \
-			ON g.type = h2.type \
-			AND g.attribute <=> h2.attribute \
-			JOIN ( \
-				SELECT type, \
-					attribute, \
-					game_id, \
-					ROW_NUMBER() OVER ( \
-						PARTITION BY type, attribute \
-						ORDER BY game_id DESC \
-					) AS rn \
-				FROM ( \
-					SELECT DISTINCT type, attribute, game_id \
+		"\
+			DELETE FROM ss13_persistent_history \
+			WHERE type = :type_id AND attribute <=> :attribute \
+			AND game_id IN ( \
+				SELECT game_id FROM ( \
+					SELECT game_id \
 					FROM ss13_persistent_history \
-				) x \
-			) ranked \
-			ON ranked.type = h2.type \
-			AND ranked.game_id = h2.game_id \
-			AND ranked.attribute <=> h2.attribute \
-			WHERE ranked.rn > :round_count \
-		) to_delete \
-		ON to_delete.type = h.type \
-		AND to_delete.game_id = h.game_id \
-		AND to_delete.attribute <=> h.attribute;",
+					WHERE type = :type_id AND attribute <=> :attribute \
+					GROUP BY game_id \
+					ORDER BY MAX(created_at) DESC, game_id DESC \
+					LIMIT :round_count \
+				) AS mirror \
+			)",
 		list(
-			":type_id" = type_id,
+			"type_id" = type_id,
 			"attribute" = attribute,
 			"round_count" = round_count
 		)
@@ -191,18 +154,10 @@
 		return
 
 	var/datum/db_query/query = SSdbcore.NewQuery(
-		"DELETE h \
-		FROM ss13_persistent_history h \
-		JOIN ( \
-			SELECT type, \
-				attribute, \
-				NOW() - INTERVAL :max_age_days DAY AS cutoff \
-			FROM ss13_persistent_history \
-			GROUP BY type, attribute \
-		) g \
-		ON g.type = h.type \
-		AND g.attribute <=> h.attribute \
-		WHERE h.created_at < g.cutoff;",
+		"\
+			DELETE FROM ss13_persistent_history \
+			WHERE type = :type_id AND attribute <=> :attribute \
+			AND created_at < (NOW() - INTERVAL :max_age_days DAY)",
 		list(
 			"type_id" = type_id,
 			"attribute" = attribute,
