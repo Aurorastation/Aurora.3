@@ -5,7 +5,6 @@
 	uneducated_skill_cap = SKILL_LEVEL_TRAINED
 	category =  /singleton/skill_category/occupational
 	subcategory = SKILL_SUBCATEGORY_SCIENCE
-	required = TRUE
 	component_type = RESEARCH_SKILL_COMPONENT
 
 /singleton/skill/xenobotany
@@ -36,7 +35,6 @@
 	category =  /singleton/skill_category/occupational
 	subcategory = SKILL_SUBCATEGORY_SCIENCE
 	component_type = XENOBOTANY_SKILL_COMPONENT
-	required = TRUE
 	skill_level_descriptions = alist(
 		SKILL_LEVEL_UNFAMILIAR = "You have little to no knowledge of Xenobiology",
 		SKILL_LEVEL_FAMILIAR = "You have a passing experience with Xenobiology.<br>" \
