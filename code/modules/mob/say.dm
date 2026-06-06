@@ -230,9 +230,9 @@
 		if(copytext(message, after, after + 1) == " ")
 			after++
 
-		// If LANG_NO_INTERLEAVE is present, it must be first. If first,
+		// If LANG_NO_MULTILANG is present, it must be first. If first,
 		// set the whole message to that language. If not, skip it.
-		if(found.flags & LANG_NO_INTERLEAVE)
+		if(found.flags & LANG_NO_MULTILANG)
 			if(!length(segments) && !length(before))
 				say_message.collapse_to(found, copytext(message, after))
 				return say_message

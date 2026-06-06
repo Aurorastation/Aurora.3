@@ -12,7 +12,7 @@
 	/// The list of segments that make up the message body.
 	var/list/datum/say_segment/segments = list()
 
-	/// The sole language of this message, or null if it interleaves more than one.
+	/// The sole language of this message, or null.
 	var/datum/language/single_language
 
 	/// Which verb to use. Determined by punctuation and language of the first piece.

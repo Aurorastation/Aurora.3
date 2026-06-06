@@ -102,8 +102,8 @@
 #define PRESSUREPROOF BITFLAG(11) // Pressure doesn't affect hearing
 #define PASSLISTENOBJ BITFLAG(12) // Listening Objs can't hear this language
 
-// These language flags do not support interleaving languages in one message.
-#define LANG_NO_INTERLEAVE (SIGNLANG | HIVEMIND | PRESSUREPROOF | KNOWONLYHEAR)
+// These language flags do not support multiple languages in one message.
+#define LANG_NO_MULTILANG (SIGNLANG | HIVEMIND | PRESSUREPROOF | KNOWONLYHEAR)
 
 // Clarity levels: how clearly one listener perceives one message (the acoustic/sight axis).
 #define CLARITY_NONE   0   // not perceived (deaf / vacuum / blind-sign)
