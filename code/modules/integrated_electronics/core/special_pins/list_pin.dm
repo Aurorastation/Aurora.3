@@ -173,6 +173,8 @@
 	var/list/sanitized = list()
 
 	for(var/value in new_list)
+		if(sanitized.len >= IC_MAX_LIST_LENGTH)
+			break
 		if(isnull(value) || isnum(value) || istext(value) || isweakref(value) || islist(value))
 			sanitized += list(value)
 

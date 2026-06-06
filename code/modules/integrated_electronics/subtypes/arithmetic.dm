@@ -217,6 +217,64 @@
 	push_data()
 	activate_pin(2)
 
+// Clamp and deadband //
+
+/obj/item/integrated_circuit/arithmetic/clamp_deadband
+	name = "clamp and deadband circuit"
+	desc = "Clamps a number to a range and reports whether it is inside an optional deadband."
+	extended_desc = "If minimum and maximum are entered backward, they are swapped. Deadband radius values at or below zero disable the deadband check."
+	icon_state = "comparator"
+	complexity = 2
+	inputs = list(
+		"value" = IC_PINTYPE_NUMBER,
+		"minimum" = IC_PINTYPE_NUMBER,
+		"maximum" = IC_PINTYPE_NUMBER,
+		"deadband center" = IC_PINTYPE_NUMBER,
+		"deadband radius" = IC_PINTYPE_NUMBER
+	)
+	outputs = list(
+		"clamped value" = IC_PINTYPE_NUMBER,
+		"in range" = IC_PINTYPE_BOOLEAN,
+		"inside deadband" = IC_PINTYPE_BOOLEAN
+	)
+	activators = list(
+		"process" = IC_PINTYPE_PULSE_IN,
+		"on processed" = IC_PINTYPE_PULSE_OUT
+	)
+	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+
+/obj/item/integrated_circuit/arithmetic/clamp_deadband/do_work()
+	var/value = get_pin_data(IC_INPUT, 1)
+	var/minimum = get_pin_data(IC_INPUT, 2)
+	var/maximum = get_pin_data(IC_INPUT, 3)
+	var/deadband_center = get_pin_data(IC_INPUT, 4)
+	var/deadband_radius = get_pin_data(IC_INPUT, 5)
+
+	if(!isnum(value))
+		value = 0
+	if(!isnum(minimum))
+		minimum = value
+	if(!isnum(maximum))
+		maximum = value
+
+	if(minimum > maximum)
+		var/swap_value = minimum
+		minimum = maximum
+		maximum = swap_value
+
+	var/clamped_value = clamp(value, minimum, maximum)
+	var/in_range = (value >= minimum && value <= maximum)
+	var/inside_deadband = FALSE
+
+	if(isnum(deadband_center) && isnum(deadband_radius) && deadband_radius > 0)
+		inside_deadband = abs(value - deadband_center) <= abs(deadband_radius)
+
+	set_pin_data(IC_OUTPUT, 1, clamped_value)
+	set_pin_data(IC_OUTPUT, 2, in_range)
+	set_pin_data(IC_OUTPUT, 3, inside_deadband)
+	push_data()
+	activate_pin(2)
+
 // Averaging //
 
 /obj/item/integrated_circuit/arithmetic/average

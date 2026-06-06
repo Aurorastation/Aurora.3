@@ -327,7 +327,7 @@
 
 /obj/item/storage/bag/circuits/mini/input
 	name = "input circuit box"
-	desc = "Contains data storage circuits."
+	desc = "Contains circuits that read data from the surrounding environment."
 	icon_state = "box_input"
 	spawn_types = list(
 		/obj/item/integrated_circuit/input
@@ -338,7 +338,7 @@
 
 /obj/item/storage/bag/circuits/mini/output
 	name = "output circuit box"
-	desc = "Contains input circuits that read from the surrounding environment."
+	desc = "Contains circuits that display, announce, or transmit data."
 	icon_state = "box_output"
 	spawn_types = list(
 		/obj/item/integrated_circuit/output
@@ -463,7 +463,7 @@
 
 /obj/item/storage/bag/circuits/mini/manipulation
 	name = "manipulation box"
-	desc = "Contains output circuits that display data or perform visible actions."
+	desc = "Contains circuits that perform physical actions through an assembly."
 	icon_state = "box_manipulation"
 	spawn_types = list(
 		/obj/item/integrated_circuit/manipulation

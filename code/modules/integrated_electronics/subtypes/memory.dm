@@ -45,6 +45,9 @@
 /obj/item/integrated_circuit/memory/storage/do_work()
 	for(var/i = 1 to inputs.len)
 		var/data = get_pin_data(IC_INPUT, i)
+		if(islist(data))
+			var/list/list_data = data
+			data = list_data.Copy()
 		set_pin_data(IC_OUTPUT, i, data)
 	push_data()
 	activate_pin(2)
@@ -89,7 +92,11 @@
 	var/data
 
 /obj/item/integrated_circuit/memory/constant/do_work()
-	set_pin_data(IC_OUTPUT, 1, data)
+	var/output_data = data
+	if(islist(output_data))
+		var/list/list_data = output_data
+		output_data = list_data.Copy()
+	set_pin_data(IC_OUTPUT, 1, output_data)
 	push_data()
 	activate_pin(2)
 

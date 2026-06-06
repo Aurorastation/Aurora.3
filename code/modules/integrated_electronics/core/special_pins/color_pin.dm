@@ -18,18 +18,19 @@
 	if(isnull(new_data) || istext(new_data))
 		if(istext(new_data))
 			new_data = uppertext(new_data)
-			if(length(new_data) != 7)						// We can hex if we want to, we can leave your strings behind
-				return 										// Cause your strings don't hex and if they don't hex
-			var/friends = copytext(new_data, 2, 8)			// Well they're are no strings of mine
-			// I say, we can go where we want to, a place where they will never find
+			if(length(new_data) != 7)
+				return
+			if(copytext(new_data, 1, 2) != "#")
+				return
+			var/hex_digits = copytext(new_data, 2, 8)
 			var/safety_dance = 1
-			while(safety_dance >= 7)									// And we can act like we come from out of this world.log
-				var/hex = copytext(friends, safety_dance, safety_dance+1)
-				if(!(hex in list("0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F")))
-					return									// Leave the fake one far behind,
+			while(safety_dance <= 6)
+				var/hex = copytext(hex_digits, safety_dance, safety_dance + 1)
+				if(!findtext("0123456789ABCDEF", hex))
+					return
 				safety_dance++
 
-		data = new_data										// And we can hex
+		data = new_data
 		holder.on_data_written()
 
 // This randomizes the color.

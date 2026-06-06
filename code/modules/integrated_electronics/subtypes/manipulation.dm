@@ -1093,8 +1093,8 @@
 
 /obj/item/integrated_circuit/manipulation/ai
 	name = "integrated intelligence control circuit"
-	desc = "Similar in structure to an intellicard, this circuit allows an AI to pulse four different activators for control of a circuit."
-	extended_desc = "Load an AI by inserting the container into the device slot. Unload by using the circuit in-hand."
+	desc = "Similar in structure to an intellicard, this circuit allows a stored intelligence to pulse four different activators for control of a circuit."
+	extended_desc = "Load a compatible card by inserting the container into the device slot. Unload by using the circuit in-hand."
 	icon_state = "ai"
 	complexity = 15
 	cooldown_per_use = 1 SECOND

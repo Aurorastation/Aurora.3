@@ -205,7 +205,13 @@
 		"amount of reagents"    = IC_PINTYPE_NUMBER,
 		"density"				= IC_PINTYPE_BOOLEAN,
 		"opacity"				= IC_PINTYPE_BOOLEAN,
-		"occupied turf"			= IC_PINTYPE_REF
+		"occupied turf"			= IC_PINTYPE_REF,
+		"target"				= IC_PINTYPE_REF,
+		"absolute X"			= IC_PINTYPE_NUMBER,
+		"absolute Y"			= IC_PINTYPE_NUMBER,
+		"absolute Z"			= IC_PINTYPE_NUMBER,
+		"valid"					= IC_PINTYPE_BOOLEAN,
+		"status"				= IC_PINTYPE_STRING
 	)
 	activators = list("scan" = IC_PINTYPE_PULSE_IN, "on scanned" = IC_PINTYPE_PULSE_OUT, "not scanned" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_RESEARCH
@@ -216,6 +222,10 @@
 	var/atom/H = get_pin_data_as_type(IC_INPUT, 1, /atom)
 	var/turf/T = get_turf(src)
 	if(!istype(H)) //Invalid input
+		set_pin_data(IC_OUTPUT, 15, FALSE)
+		set_pin_data(IC_OUTPUT, 16, "Invalid target.")
+		push_data()
+		activate_pin(3)
 		return
 
 	if((H in view(T)) || (get_turf(H) == T))
@@ -236,9 +246,18 @@
 		set_pin_data(IC_OUTPUT, 8, H.density)
 		set_pin_data(IC_OUTPUT, 9, H.opacity)
 		set_pin_data(IC_OUTPUT, 10, get_turf(H))
+		set_pin_data(IC_OUTPUT, 11, H)
+		set_pin_data(IC_OUTPUT, 12, H.x)
+		set_pin_data(IC_OUTPUT, 13, H.y)
+		set_pin_data(IC_OUTPUT, 14, H.z)
+		set_pin_data(IC_OUTPUT, 15, TRUE)
+		set_pin_data(IC_OUTPUT, 16, "Scanned.")
 		push_data()
 		activate_pin(2)
 	else
+		set_pin_data(IC_OUTPUT, 15, FALSE)
+		set_pin_data(IC_OUTPUT, 16, "Target out of scanner view.")
+		push_data()
 		activate_pin(3)
 
 /obj/item/integrated_circuit/input/local_locator
@@ -422,8 +441,10 @@
 
 	activate_pin(3)
 
-	for(var/mob/O in hearers(1, get_turf(src)))
-		O.show_message("[icon2html(src, viewers(get_turf(src)))] *beep* *beep*", 3, "*beep* *beep*", 2)
+	var/turf/T = get_turf(src)
+	var/list/viewing = viewers(T)
+	for(var/mob/O in hearers(1, T))
+		O.show_message("[icon2html(src, viewing)] *beep* *beep*", 3, "*beep* *beep*", 2)
 
 //This circuit gives information on where the machine is.
 /obj/item/integrated_circuit/input/gps
@@ -439,7 +460,9 @@
 	outputs = list(
 		"X"= IC_PINTYPE_NUMBER,
 		"Y" = IC_PINTYPE_NUMBER,
-		"Z" = IC_PINTYPE_NUMBER
+		"Z" = IC_PINTYPE_NUMBER,
+		"valid" = IC_PINTYPE_BOOLEAN,
+		"status" = IC_PINTYPE_STRING
 	)
 	activators = list(
 		"get coordinates" = IC_PINTYPE_PULSE_IN,
@@ -454,12 +477,17 @@
 	set_pin_data(IC_OUTPUT, 1, null)
 	set_pin_data(IC_OUTPUT, 2, null)
 	set_pin_data(IC_OUTPUT, 3, null)
+	set_pin_data(IC_OUTPUT, 4, FALSE)
+	set_pin_data(IC_OUTPUT, 5, "No turf.")
 	if(!T)
+		push_data()
 		return
 
 	set_pin_data(IC_OUTPUT, 1, T.x)
 	set_pin_data(IC_OUTPUT, 2, T.y)
 	set_pin_data(IC_OUTPUT, 3, T.z)
+	set_pin_data(IC_OUTPUT, 4, TRUE)
+	set_pin_data(IC_OUTPUT, 5, "Coordinates acquired.")
 
 	push_data()
 	activate_pin(2)
@@ -587,7 +615,10 @@
 		GAS_NO2				= IC_PINTYPE_NUMBER,
 		GAS_CHLORINE		= IC_PINTYPE_NUMBER,
 		GAS_WATERVAPOR		= IC_PINTYPE_NUMBER,
-		"other"				= IC_PINTYPE_NUMBER
+		"other"				= IC_PINTYPE_NUMBER,
+		"total moles"		= IC_PINTYPE_NUMBER,
+		"valid"				= IC_PINTYPE_BOOLEAN,
+		"status"			= IC_PINTYPE_STRING
 	)
 	activators = list("scan" = IC_PINTYPE_PULSE_IN, "on scanned" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_RESEARCH
@@ -606,7 +637,7 @@
 		"cell charge" = IC_PINTYPE_NUMBER,
 		"max charge" = IC_PINTYPE_NUMBER,
 		"percentage" = IC_PINTYPE_NUMBER,
-		"refference to assembly" = IC_PINTYPE_REF
+		"reference to assembly" = IC_PINTYPE_REF
 		)
 	activators = list("read" = IC_PINTYPE_PULSE_IN, "on read" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
@@ -624,6 +655,55 @@
 			set_pin_data(IC_OUTPUT, 1, assembly.battery.charge)
 			set_pin_data(IC_OUTPUT, 2, assembly.battery.maxcharge)
 			set_pin_data(IC_OUTPUT, 3, 100*assembly.battery.charge/assembly.battery.maxcharge)
+	push_data()
+	activate_pin(2)
+
+/obj/item/integrated_circuit/input/assembly_state
+	name = "assembly state monitor"
+	desc = "Reports basic state for the assembly containing this circuit."
+	icon_state = "internalbm"
+	extended_desc = "Reports assembly charge, maximum charge, charge percentage, open state, and holder reference. It only reads the current assembly."
+	w_class = WEIGHT_CLASS_TINY
+	complexity = 2
+	inputs = list()
+	outputs = list(
+		"cell charge" = IC_PINTYPE_NUMBER,
+		"max charge" = IC_PINTYPE_NUMBER,
+		"percentage" = IC_PINTYPE_NUMBER,
+		"opened" = IC_PINTYPE_BOOLEAN,
+		"holder ref" = IC_PINTYPE_REF,
+		"valid" = IC_PINTYPE_BOOLEAN
+	)
+	activators = list(
+		"read" = IC_PINTYPE_PULSE_IN,
+		"on read" = IC_PINTYPE_PULSE_OUT,
+		"on invalid" = IC_PINTYPE_PULSE_OUT
+	)
+	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+	power_draw_per_use = 20
+
+/obj/item/integrated_circuit/input/assembly_state/do_work()
+	set_pin_data(IC_OUTPUT, 1, null)
+	set_pin_data(IC_OUTPUT, 2, null)
+	set_pin_data(IC_OUTPUT, 3, null)
+	set_pin_data(IC_OUTPUT, 4, FALSE)
+	set_pin_data(IC_OUTPUT, 5, null)
+	set_pin_data(IC_OUTPUT, 6, FALSE)
+
+	if(!assembly)
+		push_data()
+		activate_pin(3)
+		return
+
+	set_pin_data(IC_OUTPUT, 4, assembly.opened)
+	set_pin_data(IC_OUTPUT, 5, assembly.get_assembly_holder())
+	set_pin_data(IC_OUTPUT, 6, TRUE)
+
+	if(assembly.battery)
+		set_pin_data(IC_OUTPUT, 1, assembly.battery.charge)
+		set_pin_data(IC_OUTPUT, 2, assembly.battery.maxcharge)
+		set_pin_data(IC_OUTPUT, 3, assembly.battery.maxcharge ? 100 * assembly.battery.charge / assembly.battery.maxcharge : 0)
+
 	push_data()
 	activate_pin(2)
 
@@ -666,7 +746,6 @@
 
 			var/turf/A = get_turf(src)
 			if(AM in view(A))
-				push_data()
 				set_pin_data(IC_OUTPUT, 1, cell.charge)
 				set_pin_data(IC_OUTPUT, 2, cell.maxcharge)
 				set_pin_data(IC_OUTPUT, 3, cell.percent())
@@ -676,6 +755,9 @@
 /obj/item/integrated_circuit/input/atmo_scanner/do_work()
 	var/turf/T = get_turf(src)
 	if(!istype(T)) //Invalid input
+		set_pin_data(IC_OUTPUT, 18, FALSE)
+		set_pin_data(IC_OUTPUT, 19, "No turf.")
+		push_data()
 		return
 	var/datum/gas_mixture/environment = T.return_air()
 
@@ -715,7 +797,9 @@
 		set_pin_data(IC_OUTPUT, 14, round(chlorine_level*100,0.01))
 		set_pin_data(IC_OUTPUT, 15, round(watervapor_level*100,0.01))
 		set_pin_data(IC_OUTPUT, 16, round(unknown_level, 0.01))
-		set_pin_data(IC_OUTPUT, 17, round(unknown_level, 0.01))
+		set_pin_data(IC_OUTPUT, 17, round(total_moles, 0.01))
+		set_pin_data(IC_OUTPUT, 18, TRUE)
+		set_pin_data(IC_OUTPUT, 19, "Atmosphere scanned.")
 	else
 		set_pin_data(IC_OUTPUT, 1, 0)
 		set_pin_data(IC_OUTPUT, 2, -273.15)
@@ -734,6 +818,8 @@
 		set_pin_data(IC_OUTPUT, 15, 0)
 		set_pin_data(IC_OUTPUT, 16, 0)
 		set_pin_data(IC_OUTPUT, 17, 0)
+		set_pin_data(IC_OUTPUT, 18, TRUE)
+		set_pin_data(IC_OUTPUT, 19, "Vacuum scanned.")
 	push_data()
 	activate_pin(2)
 
@@ -744,7 +830,9 @@
 	complexity = 3
 	inputs = list()
 	outputs = list(
-		"pressure"       = IC_PINTYPE_NUMBER
+		"pressure"       = IC_PINTYPE_NUMBER,
+		"valid"          = IC_PINTYPE_BOOLEAN,
+		"status"         = IC_PINTYPE_STRING
 	)
 	activators = list("scan" = IC_PINTYPE_PULSE_IN, "on scanned" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_RESEARCH
@@ -754,6 +842,9 @@
 /obj/item/integrated_circuit/input/pressure_sensor/do_work()
 	var/turf/T = get_turf(src)
 	if(!istype(T)) //Invalid input
+		set_pin_data(IC_OUTPUT, 2, FALSE)
+		set_pin_data(IC_OUTPUT, 3, "No turf.")
+		push_data()
 		return
 	var/datum/gas_mixture/environment = T.return_air()
 
@@ -764,6 +855,8 @@
 		set_pin_data(IC_OUTPUT, 1, pressure)
 	else
 		set_pin_data(IC_OUTPUT, 1, 0)
+	set_pin_data(IC_OUTPUT, 2, TRUE)
+	set_pin_data(IC_OUTPUT, 3, "Pressure scanned.")
 	push_data()
 	activate_pin(2)
 
@@ -774,7 +867,9 @@
 	complexity = 3
 	inputs = list()
 	outputs = list(
-		"temperature"       = IC_PINTYPE_NUMBER
+		"temperature"       = IC_PINTYPE_NUMBER,
+		"valid"             = IC_PINTYPE_BOOLEAN,
+		"status"            = IC_PINTYPE_STRING
 	)
 	activators = list("scan" = IC_PINTYPE_PULSE_IN, "on scanned" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_RESEARCH
@@ -784,6 +879,9 @@
 /obj/item/integrated_circuit/input/temperature_sensor/do_work()
 	var/turf/T = get_turf(src)
 	if(!istype(T)) //Invalid input
+		set_pin_data(IC_OUTPUT, 2, FALSE)
+		set_pin_data(IC_OUTPUT, 3, "No turf.")
+		push_data()
 		return
 	var/datum/gas_mixture/environment = T.return_air()
 
@@ -793,6 +891,8 @@
 		set_pin_data(IC_OUTPUT, 1, round(environment.temperature-T0C,0.1))
 	else
 		set_pin_data(IC_OUTPUT, 1, -273.15)
+	set_pin_data(IC_OUTPUT, 2, TRUE)
+	set_pin_data(IC_OUTPUT, 3, "Temperature scanned.")
 	push_data()
 	activate_pin(2)
 
@@ -811,13 +911,18 @@
 
 /obj/item/integrated_circuit/input/gas_sensor/Initialize()
 	outputs = list(
-		gas_name = IC_PINTYPE_NUMBER
+		gas_name = IC_PINTYPE_NUMBER,
+		"valid" = IC_PINTYPE_BOOLEAN,
+		"status" = IC_PINTYPE_STRING
 	)
 	. = ..()
 
 /obj/item/integrated_circuit/input/gas_sensor/do_work()
 	var/turf/T = get_turf(src)
 	if(!istype(T)) //Invalid input
+		set_pin_data(IC_OUTPUT, 2, FALSE)
+		set_pin_data(IC_OUTPUT, 3, "No turf.")
+		push_data()
 		return
 	var/datum/gas_mixture/environment = T.return_air()
 
@@ -828,6 +933,8 @@
 		set_pin_data(IC_OUTPUT, 1, round(gas_level*100,0.1))
 	else
 		set_pin_data(IC_OUTPUT, 1, 0)
+	set_pin_data(IC_OUTPUT, 2, TRUE)
+	set_pin_data(IC_OUTPUT, 3, "[gas_display_name] scanned.")
 	push_data()
 	activate_pin(2)
 
@@ -956,7 +1063,13 @@
 	outputs = list(
 		"located ref" 		= IC_PINTYPE_LIST,
 		"Written letters" 	= IC_PINTYPE_STRING,
-		"area"				= IC_PINTYPE_STRING
+		"area"				= IC_PINTYPE_STRING,
+		"target X"			= IC_PINTYPE_NUMBER,
+		"target Y"			= IC_PINTYPE_NUMBER,
+		"target Z"			= IC_PINTYPE_NUMBER,
+		"content count"		= IC_PINTYPE_NUMBER,
+		"valid"				= IC_PINTYPE_BOOLEAN,
+		"status"			= IC_PINTYPE_STRING
 		)
 	activators = list(
 		"scan" = IC_PINTYPE_PULSE_IN,
@@ -972,6 +1085,9 @@
 	var/turf/circuit_turf = get_turf(src)
 	var/area_name = get_area_name(scanned_turf)
 	if(!istype(scanned_turf)) //Invalid input
+		set_pin_data(IC_OUTPUT, 8, FALSE)
+		set_pin_data(IC_OUTPUT, 9, "Invalid turf.")
+		push_data()
 		activate_pin(3)
 		return
 
@@ -983,6 +1099,12 @@
 			turf_contents += WEAKREF(U)
 		set_pin_data(IC_OUTPUT, 1, turf_contents)
 		set_pin_data(IC_OUTPUT, 3, area_name)
+		set_pin_data(IC_OUTPUT, 4, scanned_turf.x)
+		set_pin_data(IC_OUTPUT, 5, scanned_turf.y)
+		set_pin_data(IC_OUTPUT, 6, scanned_turf.z)
+		set_pin_data(IC_OUTPUT, 7, length(turf_contents))
+		set_pin_data(IC_OUTPUT, 8, TRUE)
+		set_pin_data(IC_OUTPUT, 9, "Tile scanned.")
 		var/list/St = new()
 		for(var/obj/effect/decal/cleanable/crayon/I in scanned_turf)
 			St.Add(I.icon_state)
@@ -991,6 +1113,9 @@
 		push_data()
 		activate_pin(2)
 	else
+		set_pin_data(IC_OUTPUT, 8, FALSE)
+		set_pin_data(IC_OUTPUT, 9, "Target out of scanner view.")
+		push_data()
 		activate_pin(3)
 
 /obj/item/integrated_circuit/input/advanced_locator_list
@@ -1002,7 +1127,7 @@
 	and will then provide a list of all found objects which are similar. \
 	The second pin is a radius."
 	inputs = list("desired type ref list" = IC_PINTYPE_LIST, "radius" = IC_PINTYPE_NUMBER)
-	outputs = list("located ref" = IC_PINTYPE_LIST)
+	outputs = list("located ref" = IC_PINTYPE_LIST, "count" = IC_PINTYPE_NUMBER)
 	activators = list("locate" = IC_PINTYPE_PULSE_IN,"found" = IC_PINTYPE_PULSE_OUT,"not found" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	power_draw_per_use = 300
@@ -1018,6 +1143,7 @@
 
 /obj/item/integrated_circuit/input/advanced_locator_list/do_work()
 	set_pin_data(IC_OUTPUT, 1, null)
+	set_pin_data(IC_OUTPUT, 2, 0)
 	var/list/input_list = list()
 	input_list = get_pin_data(IC_INPUT, 1)
 	if(length(input_list))	//if there is no input don't do anything.
@@ -1045,6 +1171,7 @@
 						valid_things.Add(WEAKREF(thing))
 		if(valid_things.len)
 			set_pin_data(IC_OUTPUT, 1, valid_things)
+			set_pin_data(IC_OUTPUT, 2, length(valid_things))
 			activate_pin(2)
 		else
 			activate_pin(3)
@@ -1199,7 +1326,9 @@
 	complexity = 3
 	inputs = list()
 	outputs = list(
-		"radiation" = IC_PINTYPE_NUMBER
+		"radiation" = IC_PINTYPE_NUMBER,
+		"valid" = IC_PINTYPE_BOOLEAN,
+		"status" = IC_PINTYPE_STRING
 	)
 	activators = list("scan" = IC_PINTYPE_PULSE_IN, "on scanned" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT
@@ -1209,6 +1338,9 @@
 /obj/item/integrated_circuit/input/radiation_sensor/do_work()
 	var/turf/T = get_turf(src)
 	if(!istype(T)) //Invalid input
+		set_pin_data(IC_OUTPUT, 2, FALSE)
+		set_pin_data(IC_OUTPUT, 3, "No turf.")
+		push_data()
 		return
 
 	var/radiation_count = SSradiation.get_rads_at_turf(get_turf(src))
@@ -1217,7 +1349,10 @@
 		set_pin_data(IC_OUTPUT, 1, round(radiation_count,0.1))
 	else
 		set_pin_data(IC_OUTPUT, 1, 0)
+	set_pin_data(IC_OUTPUT, 2, TRUE)
+	set_pin_data(IC_OUTPUT, 3, "Radiation scanned.")
 	push_data()
+	activate_pin(2)
 
 /obj/item/integrated_circuit/input/light_sensor
 	name = "light sensor"
@@ -1226,7 +1361,9 @@
 	complexity = 3
 	inputs = list()
 	outputs = list(
-		"lumens" = IC_PINTYPE_NUMBER
+		"lumens" = IC_PINTYPE_NUMBER,
+		"valid" = IC_PINTYPE_BOOLEAN,
+		"status" = IC_PINTYPE_STRING
 	)
 	activators = list("scan" = IC_PINTYPE_PULSE_IN, "on scanned" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT
@@ -1236,6 +1373,9 @@
 /obj/item/integrated_circuit/input/light_sensor/do_work()
 	var/turf/T = get_turf(src)
 	if(!istype(T)) //Invalid input
+		set_pin_data(IC_OUTPUT, 2, FALSE)
+		set_pin_data(IC_OUTPUT, 3, "No turf.")
+		push_data()
 		return
 
 	var/lumens = T.get_lumcount(0, 3) * 5
@@ -1243,7 +1383,10 @@
 		set_pin_data(IC_OUTPUT, 1, round(lumens,0.1))
 	else
 		set_pin_data(IC_OUTPUT, 1, 0)
+	set_pin_data(IC_OUTPUT, 2, TRUE)
+	set_pin_data(IC_OUTPUT, 3, "Light scanned.")
 	push_data()
+	activate_pin(2)
 
 /obj/item/integrated_circuit/input/face_scanner
 	name = "face scanner"
@@ -1293,9 +1436,16 @@
 	complexity = 12
 	outputs = list(
 		"exotic particle type" = IC_PINTYPE_STRING,
-		"range detected at" = IC_PINTYPE_NUMBER
+		"range detected at" = IC_PINTYPE_NUMBER,
+		"target turf" = IC_PINTYPE_REF,
+		"target X" = IC_PINTYPE_NUMBER,
+		"target Y" = IC_PINTYPE_NUMBER,
+		"target Z" = IC_PINTYPE_NUMBER,
+		"direction" = IC_PINTYPE_DIR,
+		"valid" = IC_PINTYPE_BOOLEAN,
+		"status" = IC_PINTYPE_STRING
 	)
-	activators = list("scan" = IC_PINTYPE_PULSE_IN, "anomaly found" = IC_PINTYPE_PULSE_OUT)
+	activators = list("scan" = IC_PINTYPE_PULSE_IN, "anomaly found" = IC_PINTYPE_PULSE_OUT, "nothing found" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_RESEARCH
 	origin_tech = list(TECH_ENGINEERING = 4, TECH_DATA = 4, TECH_MAGNET = 6, TECH_BLUESPACE = 4)
 	power_draw_per_use = 2000
@@ -1303,19 +1453,44 @@
 
 /obj/item/integrated_circuit/input/anomaly_scanner/do_work()
 	if(!SSxenoarch)
+		set_pin_data(IC_OUTPUT, 8, FALSE)
+		set_pin_data(IC_OUTPUT, 9, "Xenoarchaeology subsystem unavailable.")
+		push_data()
+		activate_pin(3)
 		return
 
 	var/turf/our_turf = get_turf(src)
+	var/found_anomaly = FALSE
 	for(var/turf/simulated/mineral/scanned_turf in view(our_turf)) // Restrict range to only visible tiles, instead of the entire Z-level like standalone AS counters
 		if(scanned_turf.artifact_find)
+			found_anomaly = TRUE
 			if(scanned_turf.artifact_find.artifact_id)
 				set_pin_data(IC_OUTPUT, 1, scanned_turf.artifact_find.artifact_id)
 			else
 				set_pin_data(IC_OUTPUT, 1, "Exotic Particles (Various)")
 			set_pin_data(IC_OUTPUT, 2, get_dist(our_turf, scanned_turf))
+			set_pin_data(IC_OUTPUT, 3, scanned_turf)
+			set_pin_data(IC_OUTPUT, 4, scanned_turf.x)
+			set_pin_data(IC_OUTPUT, 5, scanned_turf.y)
+			set_pin_data(IC_OUTPUT, 6, scanned_turf.z)
+			set_pin_data(IC_OUTPUT, 7, get_dir(our_turf, scanned_turf))
+			set_pin_data(IC_OUTPUT, 8, TRUE)
+			set_pin_data(IC_OUTPUT, 9, "Anomaly found.")
 			push_data()
 			activate_pin(2)
 			break
+	if(!found_anomaly)
+		set_pin_data(IC_OUTPUT, 1, null)
+		set_pin_data(IC_OUTPUT, 2, null)
+		set_pin_data(IC_OUTPUT, 3, null)
+		set_pin_data(IC_OUTPUT, 4, null)
+		set_pin_data(IC_OUTPUT, 5, null)
+		set_pin_data(IC_OUTPUT, 6, null)
+		set_pin_data(IC_OUTPUT, 7, null)
+		set_pin_data(IC_OUTPUT, 8, FALSE)
+		set_pin_data(IC_OUTPUT, 9, "No anomaly found.")
+		push_data()
+		activate_pin(3)
 	..()
 
 /obj/item/integrated_circuit/input/depth_scanner
@@ -1335,7 +1510,11 @@
 		"safe depth" = IC_PINTYPE_NUMBER,
 		"material" = IC_PINTYPE_STRING,
 		"coordinates" = IC_PINTYPE_STRING,
-		"status" = IC_PINTYPE_STRING
+		"status" = IC_PINTYPE_STRING,
+		"target X" = IC_PINTYPE_NUMBER,
+		"target Y" = IC_PINTYPE_NUMBER,
+		"target Z" = IC_PINTYPE_NUMBER,
+		"valid" = IC_PINTYPE_BOOLEAN
 	)
 	activators = list(
 		"scan" = IC_PINTYPE_PULSE_IN,
@@ -1358,6 +1537,10 @@
 	set_pin_data(IC_OUTPUT, 6, null)
 	set_pin_data(IC_OUTPUT, 7, null)
 	set_pin_data(IC_OUTPUT, 8, "No valid mineral turf scanned.")
+	set_pin_data(IC_OUTPUT, 9, null)
+	set_pin_data(IC_OUTPUT, 10, null)
+	set_pin_data(IC_OUTPUT, 11, null)
+	set_pin_data(IC_OUTPUT, 12, FALSE)
 
 	if(!istype(scanned_turf))
 		push_data()
@@ -1375,6 +1558,10 @@
 		set_pin_data(IC_OUTPUT, 1, scanned_turf)
 		set_pin_data(IC_OUTPUT, 7, "[scanned_turf.x], [scanned_turf.y], [scanned_turf.z]")
 		set_pin_data(IC_OUTPUT, 8, "No subsurface find detected.")
+		set_pin_data(IC_OUTPUT, 9, scanned_turf.x)
+		set_pin_data(IC_OUTPUT, 10, scanned_turf.y)
+		set_pin_data(IC_OUTPUT, 11, scanned_turf.z)
+		set_pin_data(IC_OUTPUT, 12, TRUE)
 		push_data()
 		activate_pin(3)
 		return
@@ -1404,6 +1591,10 @@
 	set_pin_data(IC_OUTPUT, 6, material)
 	set_pin_data(IC_OUTPUT, 7, "[scanned_turf.x], [scanned_turf.y], [scanned_turf.z]")
 	set_pin_data(IC_OUTPUT, 8, "Find detected.")
+	set_pin_data(IC_OUTPUT, 9, scanned_turf.x)
+	set_pin_data(IC_OUTPUT, 10, scanned_turf.y)
+	set_pin_data(IC_OUTPUT, 11, scanned_turf.z)
+	set_pin_data(IC_OUTPUT, 12, TRUE)
 
 	push_data()
 	activate_pin(2)
@@ -1474,7 +1665,11 @@
 		"distance" = IC_PINTYPE_NUMBER,
 		"adjacent" = IC_PINTYPE_BOOLEAN,
 		"same tile" = IC_PINTYPE_BOOLEAN,
-		"same z-level" = IC_PINTYPE_BOOLEAN
+		"same z-level" = IC_PINTYPE_BOOLEAN,
+		"delta X" = IC_PINTYPE_NUMBER,
+		"delta Y" = IC_PINTYPE_NUMBER,
+		"valid" = IC_PINTYPE_BOOLEAN,
+		"status" = IC_PINTYPE_STRING
 	)
 	activators = list(
 		"check" = IC_PINTYPE_PULSE_IN,
@@ -1492,6 +1687,8 @@
 		set_pin_data(IC_OUTPUT, 2, FALSE)
 		set_pin_data(IC_OUTPUT, 3, FALSE)
 		set_pin_data(IC_OUTPUT, 4, FALSE)
+		set_pin_data(IC_OUTPUT, 7, FALSE)
+		set_pin_data(IC_OUTPUT, 8, "Invalid reference A.")
 		push_data()
 		activate_pin(3)
 		return
@@ -1506,6 +1703,8 @@
 		set_pin_data(IC_OUTPUT, 2, FALSE)
 		set_pin_data(IC_OUTPUT, 3, FALSE)
 		set_pin_data(IC_OUTPUT, 4, FALSE)
+		set_pin_data(IC_OUTPUT, 7, FALSE)
+		set_pin_data(IC_OUTPUT, 8, "Reference has no turf.")
 		push_data()
 		activate_pin(3)
 		return
@@ -1517,6 +1716,10 @@
 	set_pin_data(IC_OUTPUT, 2, same_z && distance <= 1)
 	set_pin_data(IC_OUTPUT, 3, TA == TB)
 	set_pin_data(IC_OUTPUT, 4, same_z)
+	set_pin_data(IC_OUTPUT, 5, TB.x - TA.x)
+	set_pin_data(IC_OUTPUT, 6, TB.y - TA.y)
+	set_pin_data(IC_OUTPUT, 7, TRUE)
+	set_pin_data(IC_OUTPUT, 8, "Distance checked.")
 
 	push_data()
 	activate_pin(2)
@@ -1533,7 +1736,11 @@
 	)
 	outputs = list(
 		"direction" = IC_PINTYPE_NUMBER,
-		"direction text" = IC_PINTYPE_STRING
+		"direction text" = IC_PINTYPE_STRING,
+		"delta X" = IC_PINTYPE_NUMBER,
+		"delta Y" = IC_PINTYPE_NUMBER,
+		"valid" = IC_PINTYPE_BOOLEAN,
+		"status" = IC_PINTYPE_STRING
 	)
 	activators = list(
 		"calculate" = IC_PINTYPE_PULSE_IN,
@@ -1549,14 +1756,30 @@
 	if(!source || !target)
 		set_pin_data(IC_OUTPUT, 1, null)
 		set_pin_data(IC_OUTPUT, 2, null)
+		set_pin_data(IC_OUTPUT, 5, FALSE)
+		set_pin_data(IC_OUTPUT, 6, "Invalid source or target.")
 		push_data()
 		activate_pin(3)
 		return
 
 	var/direction = get_dir(source, target)
+	var/turf/source_turf = get_turf(source)
+	var/turf/target_turf = get_turf(target)
+	if(!source_turf || !target_turf)
+		set_pin_data(IC_OUTPUT, 1, null)
+		set_pin_data(IC_OUTPUT, 2, null)
+		set_pin_data(IC_OUTPUT, 5, FALSE)
+		set_pin_data(IC_OUTPUT, 6, "Source or target has no turf.")
+		push_data()
+		activate_pin(3)
+		return
 
 	set_pin_data(IC_OUTPUT, 1, direction)
 	set_pin_data(IC_OUTPUT, 2, dir2text(direction))
+	set_pin_data(IC_OUTPUT, 3, target_turf.x - source_turf.x)
+	set_pin_data(IC_OUTPUT, 4, target_turf.y - source_turf.y)
+	set_pin_data(IC_OUTPUT, 5, TRUE)
+	set_pin_data(IC_OUTPUT, 6, "Direction calculated.")
 
 	push_data()
 	activate_pin(2)
