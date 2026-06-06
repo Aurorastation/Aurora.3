@@ -43,7 +43,7 @@
 	var/result = null
 	var/list/input_list = get_pin_data(IC_INPUT, 1)
 
-	if(input_list.len)
+	if(islist(input_list) && input_list.len)
 		result = pick(input_list)
 
 	set_pin_data(IC_OUTPUT, 1, result)
@@ -67,12 +67,101 @@
 
 /obj/item/integrated_circuit/list/append/do_work()
 	var/list/input_list = get_pin_data(IC_INPUT, 1)
-	var/list/output_list = input_list.Copy()
+	var/list/output_list = islist(input_list) ? input_list.Copy() : list()
 	var/new_entry = get_pin_data(IC_INPUT, 2, FALSE)
 
 	output_list += list(new_entry)
 
 	set_pin_data(IC_OUTPUT, 1, output_list)
+	push_data()
+	activate_pin(2)
+
+
+/obj/item/integrated_circuit/list/unique_append
+	name = "unique append circuit"
+	desc = "Appends a value only if the list does not already contain it."
+	extended_desc = "The output list is copied from the input list and capped at the requested max length, up to a hard maximum of 64 entries."
+	inputs = list(
+		"list to append" = IC_PINTYPE_LIST,
+		"input" = IC_PINTYPE_ANY,
+		"max length" = IC_PINTYPE_NUMBER
+	)
+	inputs_default = list(
+		"3" = 16
+	)
+	outputs = list(
+		"appended list" = IC_PINTYPE_LIST,
+		"appended" = IC_PINTYPE_BOOLEAN,
+		"duplicate" = IC_PINTYPE_BOOLEAN,
+		"full" = IC_PINTYPE_BOOLEAN,
+		"length" = IC_PINTYPE_NUMBER
+	)
+	activators = list(
+		"append" = IC_PINTYPE_PULSE_IN,
+		"on appended" = IC_PINTYPE_PULSE_OUT,
+		"on duplicate" = IC_PINTYPE_PULSE_OUT,
+		"on full" = IC_PINTYPE_PULSE_OUT,
+		"on invalid" = IC_PINTYPE_PULSE_OUT
+	)
+	icon_state = "addition"
+	complexity = 3
+	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+
+/obj/item/integrated_circuit/list/unique_append/do_work()
+	var/list/input_list = get_pin_data(IC_INPUT, 1)
+	var/new_entry = get_pin_data(IC_INPUT, 2, FALSE)
+	var/max_length = get_pin_data(IC_INPUT, 3)
+
+	if(!islist(input_list))
+		set_pin_data(IC_OUTPUT, 1, list())
+		set_pin_data(IC_OUTPUT, 2, FALSE)
+		set_pin_data(IC_OUTPUT, 3, FALSE)
+		set_pin_data(IC_OUTPUT, 4, FALSE)
+		set_pin_data(IC_OUTPUT, 5, 0)
+		push_data()
+		activate_pin(5)
+		return
+
+	if(!isnum(max_length))
+		max_length = 16
+	max_length = clamp(round(max_length), 1, 64)
+
+	var/list/output_list = list()
+	for(var/i = 1 to min(input_list.len, max_length))
+		output_list += list(input_list[i])
+
+	var/appended = FALSE
+
+	// Match list_contains behavior so refs and display-equivalent primitive values do not create accidental duplicates.
+	for(var/item in output_list)
+		if(item == new_entry || "[item]" == "[new_entry]")
+			set_pin_data(IC_OUTPUT, 1, output_list)
+			set_pin_data(IC_OUTPUT, 2, FALSE)
+			set_pin_data(IC_OUTPUT, 3, TRUE)
+			set_pin_data(IC_OUTPUT, 4, FALSE)
+			set_pin_data(IC_OUTPUT, 5, output_list.len)
+			push_data()
+			activate_pin(3)
+			return
+
+	if(output_list.len >= max_length)
+		set_pin_data(IC_OUTPUT, 1, output_list)
+		set_pin_data(IC_OUTPUT, 2, FALSE)
+		set_pin_data(IC_OUTPUT, 3, FALSE)
+		set_pin_data(IC_OUTPUT, 4, TRUE)
+		set_pin_data(IC_OUTPUT, 5, output_list.len)
+		push_data()
+		activate_pin(4)
+		return
+
+	output_list += list(new_entry)
+	appended = TRUE
+
+	set_pin_data(IC_OUTPUT, 1, output_list)
+	set_pin_data(IC_OUTPUT, 2, appended)
+	set_pin_data(IC_OUTPUT, 3, FALSE)
+	set_pin_data(IC_OUTPUT, 4, FALSE)
+	set_pin_data(IC_OUTPUT, 5, output_list.len)
 	push_data()
 	activate_pin(2)
 
@@ -95,7 +184,7 @@
 	var/list/input_list = get_pin_data(IC_INPUT, 1)
 	var/item = get_pin_data(IC_INPUT, 2)
 
-	set_pin_data(IC_OUTPUT, 1, input_list.Find(item))
+	set_pin_data(IC_OUTPUT, 1, islist(input_list) ? input_list.Find(item) : 0)
 	push_data()
 	activate_pin(2)
 
@@ -108,7 +197,11 @@
 		"list" = IC_PINTYPE_LIST,
 		"index" = IC_PINTYPE_NUMBER
 	)
-	outputs = list("item" = IC_PINTYPE_ANY)
+	outputs = list(
+		"item" = IC_PINTYPE_ANY,
+		"valid" = IC_PINTYPE_BOOLEAN,
+		"status" = IC_PINTYPE_STRING
+	)
 	icon_state = "addition"
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
@@ -116,14 +209,86 @@
 	var/list/input_list = get_pin_data(IC_INPUT, 1)
 	var/index = get_pin_data(IC_INPUT, 2)
 	var/item = null
+	var/valid = FALSE
+	var/status = "Invalid index."
+
+	if(!islist(input_list))
+		input_list = list()
 
 	if(!isnull(index))
 		index = round(index)
 
 		if(index >= 1 && index <= input_list.len)
 			item = input_list[index]
+			valid = TRUE
+			status = "Item read."
+		else
+			status = "Index out of range."
 
 	set_pin_data(IC_OUTPUT, 1, item)
+	set_pin_data(IC_OUTPUT, 2, valid)
+	set_pin_data(IC_OUTPUT, 3, status)
+	push_data()
+	activate_pin(2)
+
+
+/obj/item/integrated_circuit/list/ring_index
+	name = "ring index circuit"
+	desc = "Advances an index through a list and wraps safely at either end."
+	extended_desc = "Outputs the wrapped next index and selected value. Empty lists return invalid without changing anything."
+	inputs = list(
+		"list" = IC_PINTYPE_LIST,
+		"current index" = IC_PINTYPE_NUMBER,
+		"step" = IC_PINTYPE_NUMBER
+	)
+	inputs_default = list(
+		"2" = 0,
+		"3" = 1
+	)
+	outputs = list(
+		"next index" = IC_PINTYPE_NUMBER,
+		"selected value" = IC_PINTYPE_ANY,
+		"length" = IC_PINTYPE_NUMBER,
+		"valid" = IC_PINTYPE_BOOLEAN
+	)
+	activators = list(
+		"select" = IC_PINTYPE_PULSE_IN,
+		"on selected" = IC_PINTYPE_PULSE_OUT,
+		"on invalid" = IC_PINTYPE_PULSE_OUT
+	)
+	icon_state = "addition"
+	complexity = 2
+	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+
+/obj/item/integrated_circuit/list/ring_index/do_work()
+	var/list/input_list = get_pin_data(IC_INPUT, 1)
+	var/list_length = islist(input_list) ? input_list.len : 0
+
+	if(!list_length)
+		set_pin_data(IC_OUTPUT, 1, null)
+		set_pin_data(IC_OUTPUT, 2, null)
+		set_pin_data(IC_OUTPUT, 3, 0)
+		set_pin_data(IC_OUTPUT, 4, FALSE)
+		push_data()
+		activate_pin(3)
+		return
+
+	var/current_index = get_pin_data(IC_INPUT, 2)
+	var/step = get_pin_data(IC_INPUT, 3)
+
+	if(!isnum(current_index))
+		current_index = 0
+	if(!isnum(step))
+		step = 1
+
+	var/next_index = ((round(current_index) + round(step) - 1) % list_length) + 1
+	if(next_index < 1)
+		next_index += list_length
+
+	set_pin_data(IC_OUTPUT, 1, next_index)
+	set_pin_data(IC_OUTPUT, 2, input_list[next_index])
+	set_pin_data(IC_OUTPUT, 3, list_length)
+	set_pin_data(IC_OUTPUT, 4, TRUE)
 	push_data()
 	activate_pin(2)
 
@@ -137,23 +302,33 @@
 		"index" = IC_PINTYPE_NUMBER
 	)
 	outputs = list(
-		"redacted list" = IC_PINTYPE_LIST
+		"redacted list" = IC_PINTYPE_LIST,
+		"deleted" = IC_PINTYPE_BOOLEAN,
+		"status" = IC_PINTYPE_STRING
 	)
 	icon_state = "addition"
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
 /obj/item/integrated_circuit/list/delete/do_work()
 	var/list/input_list = get_pin_data(IC_INPUT, 1)
-	var/list/output_list = input_list.Copy()
+	var/list/output_list = islist(input_list) ? input_list.Copy() : list()
 	var/index = get_pin_data(IC_INPUT, 2)
+	var/deleted = FALSE
+	var/status = "Invalid index."
 
 	if(!isnull(index))
 		index = round(index)
 
 		if(index >= 1 && index <= output_list.len)
 			output_list.Cut(index, index + 1)
+			deleted = TRUE
+			status = "Item deleted."
+		else
+			status = "Index out of range."
 
 	set_pin_data(IC_OUTPUT, 1, output_list)
+	set_pin_data(IC_OUTPUT, 2, deleted)
+	set_pin_data(IC_OUTPUT, 3, status)
 	push_data()
 	activate_pin(2)
 
@@ -168,27 +343,37 @@
 		"item" = IC_PINTYPE_ANY
 	)
 	outputs = list(
-		"redacted list" = IC_PINTYPE_LIST
+		"redacted list" = IC_PINTYPE_LIST,
+		"written" = IC_PINTYPE_BOOLEAN,
+		"status" = IC_PINTYPE_STRING
 	)
 	icon_state = "addition"
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
 /obj/item/integrated_circuit/list/write/do_work()
 	var/list/input_list = get_pin_data(IC_INPUT, 1)
-	var/list/output_list = input_list.Copy()
+	var/list/output_list = islist(input_list) ? input_list.Copy() : list()
 	var/index = get_pin_data(IC_INPUT, 2)
 	var/item = get_pin_data(IC_INPUT, 3)
+	var/written = FALSE
+	var/status = "Invalid index."
 
 	if(!isnull(index))
 		index = round(index)
 
-		if(index >= 1)
+		if(index >= 1 && index <= IC_MAX_LIST_LENGTH)
 			while(output_list.len < index)
 				output_list.Add(null)
 
 			output_list[index] = item
+			written = TRUE
+			status = "Item written."
+		else
+			status = "Index out of range."
 
 	set_pin_data(IC_OUTPUT, 1, output_list)
+	set_pin_data(IC_OUTPUT, 2, written)
+	set_pin_data(IC_OUTPUT, 3, status)
 	push_data()
 	activate_pin(2)
 
@@ -213,7 +398,7 @@
 
 /obj/item/integrated_circuit/list/write4/do_work()
 	var/list/input_list = get_pin_data(IC_INPUT, 1)
-	var/list/output_list = input_list.Copy()
+	var/list/output_list = islist(input_list) ? input_list.Copy() : list()
 
 	for(var/i = 1; i <= 4; i++)
 		var/item = get_pin_data(IC_INPUT, i + 1)
@@ -252,7 +437,7 @@
 
 /obj/item/integrated_circuit/list/write8/do_work()
 	var/list/input_list = get_pin_data(IC_INPUT, 1)
-	var/list/output_list = input_list.Copy()
+	var/list/output_list = islist(input_list) ? input_list.Copy() : list()
 
 	for(var/i = 1; i <= 8; i++)
 		var/item = get_pin_data(IC_INPUT, i + 1)
@@ -282,7 +467,7 @@
 /obj/item/integrated_circuit/list/len/do_work()
 	var/list/input_list = get_pin_data(IC_INPUT, 1)
 
-	set_pin_data(IC_OUTPUT, 1, input_list.len)
+	set_pin_data(IC_OUTPUT, 1, islist(input_list) ? input_list.len : 0)
 	push_data()
 	activate_pin(2)
 
@@ -316,7 +501,7 @@
 
 	var/result = null
 
-	if(input_list.len && !isnull(delimiter) && !isnull(start) && !isnull(end))
+	if(islist(input_list) && input_list.len && !isnull(delimiter) && !isnull(start) && !isnull(end))
 		var/list/filtered_list = list()
 		for(var/item in input_list)
 			if(!isnull(item))
@@ -355,7 +540,7 @@
 
 	var/result = FALSE
 
-	if(!isnull(compare_value))
+	if(islist(input_list) && !isnull(compare_value))
 		for(var/value in input_list)
 			if(!isnum(value))
 				continue
@@ -400,7 +585,7 @@
 
 	var/result = FALSE
 
-	if(!isnull(compare_value))
+	if(islist(input_list) && !isnull(compare_value))
 		for(var/value in input_list)
 			if(!isnum(value))
 				continue
@@ -445,10 +630,11 @@
 
 	var/result = FALSE
 
-	for(var/value in input_list)
-		if(value == compare_value)
-			result = TRUE
-			break
+	if(islist(input_list))
+		for(var/value in input_list)
+			if(value == compare_value)
+				result = TRUE
+				break
 
 	set_pin_data(IC_OUTPUT, 1, result)
 	push_data()
@@ -733,14 +919,15 @@
 /obj/item/integrated_circuit/list/random_selector/do_work()
 	var/list/input_list = get_pin_data(IC_INPUT, 1)
 
-	if(!islist(input_list) || !length(input_list))
+	var/list_length = islist(input_list) ? input_list.len : 0
+	if(!list_length)
 		set_pin_data(IC_OUTPUT, 1, null)
 		set_pin_data(IC_OUTPUT, 2, null)
 		push_data()
 		activate_pin(3)
 		return
 
-	var/index = rand(1, length(input_list))
+	var/index = rand(1, list_length)
 
 	set_pin_data(IC_OUTPUT, 1, input_list[index])
 	set_pin_data(IC_OUTPUT, 2, index)
@@ -779,9 +966,10 @@
 		activate_pin(3)
 		return
 
+	var/selection_count = min(values.len, weights.len)
 	var/total_weight = 0
 
-	for(var/i = 1 to min(length(values), length(weights)))
+	for(var/i = 1 to selection_count)
 		var/weight = weights[i]
 		if(isnum(weight) && weight > 0)
 			total_weight += weight
@@ -794,7 +982,7 @@
 	var/roll = rand(1, total_weight)
 	var/current_weight = 0
 
-	for(var/i = 1 to min(length(values), length(weights)))
+	for(var/i = 1 to selection_count)
 		var/weight = weights[i]
 
 		if(!isnum(weight) || weight <= 0)

@@ -105,10 +105,11 @@
 
 /obj/item/integrated_circuit/time/ticker/process()
 	var/process_ticks = SSelectronics.wait
+	var/pulse_ticks = SecondsToTicks(seconds_to_pulse)
 	ticks_completed += process_ticks
-	if(ticks_completed >= SecondsToTicks(seconds_to_pulse))
-		if(SecondsToTicks(seconds_to_pulse) >= process_ticks)
-			ticks_completed -= SecondsToTicks(seconds_to_pulse)
+	if(ticks_completed >= pulse_ticks)
+		if(pulse_ticks >= process_ticks)
+			ticks_completed -= pulse_ticks
 		else
 			ticks_completed = 0
 		if(!check_power())
@@ -123,7 +124,7 @@
 
 /obj/item/integrated_circuit/time/ticker/rapid
 	name = "one second ticker"
-	desc = "Sends an automatic pulse every second."
+	desc = "Sends a high-speed automatic pulse every second."
 	icon_state = "tick-f"
 	complexity = 18
 	seconds_to_pulse = 1
@@ -136,7 +137,7 @@
 	icon_state = "tick-f"
 	complexity = 12
 	seconds_to_pulse = 2
-	spawn_flags = IC_SPAWN_RESEARCH
+	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	power_draw_per_use = 120
 
 /obj/item/integrated_circuit/time/ticker/slow
@@ -198,31 +199,34 @@
 /obj/item/integrated_circuit/timed/signal_burst_ticker
 	name = "signal burst ticker"
 	desc = "A ticker that starts when pulsed, ticks a fixed number of times, then stops."
-	extended_desc = "Useful when you want a signaler, scanner, button, or other pulse source to temporarily enable a repeating circuit chain."
+	extended_desc = "Useful when you want a signaler, scanner, button, or other pulse source to temporarily enable a repeating circuit chain. Pulse count is clamped from 1 to 20, and interval is clamped from 1 to 60 seconds."
 	icon_state = "clock"
-	complexity = 8
-	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+	complexity = 10
+	spawn_flags = IC_SPAWN_RESEARCH
 	category_text = "Time"
-	power_draw_per_use = 80
+	power_draw_per_use = 160
 
 	inputs = list(
-		"delay seconds" = IC_PINTYPE_NUMBER,
-		"tick count" = IC_PINTYPE_NUMBER
+		"pulse count" = IC_PINTYPE_NUMBER,
+		"interval seconds" = IC_PINTYPE_NUMBER,
+		"enabled" = IC_PINTYPE_BOOLEAN
 	)
 
 	inputs_default = list(
-		"1" = 2,
-		"2" = 4
+		"1" = 4,
+		"2" = 2,
+		"3" = TRUE
 	)
 
 	outputs = list(
-		"current tick" = IC_PINTYPE_NUMBER,
+		"current pulse" = IC_PINTYPE_NUMBER,
 		"running" = IC_PINTYPE_BOOLEAN
 	)
 
 	activators = list(
 		"start" = IC_PINTYPE_PULSE_IN,
-		"on tick" = IC_PINTYPE_PULSE_OUT,
+		"stop" = IC_PINTYPE_PULSE_IN,
+		"on pulse" = IC_PINTYPE_PULSE_OUT,
 		"on finished" = IC_PINTYPE_PULSE_OUT
 	)
 
@@ -230,16 +234,33 @@
 	var/current_tick = 0
 	var/max_ticks = 4
 	var/delay_time = 2 SECONDS
+	var/burst_id = 0
 
 
-/obj/item/integrated_circuit/timed/signal_burst_ticker/do_work()
+/obj/item/integrated_circuit/timed/signal_burst_ticker/do_work(activator_id)
+	var/active_pin = activator_id
+
+	if(istype(active_pin, /datum/integrated_io))
+		active_pin = activators.Find(active_pin)
+
+	if(!isnum(active_pin))
+		active_pin = 1
+
+	if(active_pin == 2)
+		stop_burst(FALSE)
+		return
+
 	if(running)
 		return
 
 	pull_data()
 
-	var/input_delay = get_pin_data(IC_INPUT, 1)
-	var/input_ticks = get_pin_data(IC_INPUT, 2)
+	if(!get_pin_data(IC_INPUT, 3))
+		stop_burst(FALSE)
+		return
+
+	var/input_ticks = get_pin_data(IC_INPUT, 1)
+	var/input_delay = get_pin_data(IC_INPUT, 2)
 
 	if(isnum(input_delay))
 		input_delay = between(1, input_delay, 60)
@@ -255,16 +276,18 @@
 	max_ticks = input_ticks
 	current_tick = 0
 	running = TRUE
+	burst_id++
 
 	set_pin_data(IC_OUTPUT, 1, current_tick)
 	set_pin_data(IC_OUTPUT, 2, running)
 	push_data()
 
-	addtimer(CALLBACK(src, PROC_REF(process_tick)), delay_time)
+	// Timer IDs make old callbacks harmless after stop/restart or deletion.
+	addtimer(CALLBACK(src, PROC_REF(process_tick), burst_id), delay_time)
 
 
-/obj/item/integrated_circuit/timed/signal_burst_ticker/proc/process_tick()
-	if(!running)
+/obj/item/integrated_circuit/timed/signal_burst_ticker/proc/process_tick(expected_burst_id)
+	if(!running || expected_burst_id != burst_id)
 		return
 
 	if(!check_power())
@@ -276,23 +299,33 @@
 	set_pin_data(IC_OUTPUT, 1, current_tick)
 	set_pin_data(IC_OUTPUT, 2, running)
 	push_data()
-	activate_pin(2)
+	activate_pin(3)
 
 	if(current_tick >= max_ticks)
-		running = FALSE
-		set_pin_data(IC_OUTPUT, 2, running)
-		push_data()
-		activate_pin(3)
+		stop_burst(TRUE)
 		return
 
-	addtimer(CALLBACK(src, PROC_REF(process_tick)), delay_time)
+	addtimer(CALLBACK(src, PROC_REF(process_tick), expected_burst_id), delay_time)
+
+/obj/item/integrated_circuit/timed/signal_burst_ticker/proc/stop_burst(finished)
+	if(!running && !finished)
+		set_pin_data(IC_OUTPUT, 2, FALSE)
+		push_data()
+		return
+
+	running = FALSE
+	burst_id++
+	set_pin_data(IC_OUTPUT, 2, running)
+	push_data()
+
+	if(finished)
+		activate_pin(4)
 
 
 /obj/item/integrated_circuit/timed/signal_burst_ticker/Destroy()
 	running = FALSE
+	burst_id++
 	return ..()
 
 /obj/item/integrated_circuit/timed/signal_burst_ticker/power_fail()
-	running = FALSE
-	set_pin_data(IC_OUTPUT, 2, running)
-	push_data()
+	stop_burst(FALSE)

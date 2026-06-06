@@ -215,7 +215,7 @@
 /obj/item/integrated_circuit/math/get_printer_spawn_flags()
 	if(isnull(operation))
 		return null
-	return IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+	return IC_SPAWN_RESEARCH
 
 /obj/item/integrated_circuit/math/proc/succeed(result, status = "OK")
 	set_pin_data(IC_OUTPUT, 1, result)
@@ -262,6 +262,9 @@
 				return
 			succeed(log(A))
 		if("exp")
+			if(A > 100 || A < -100)
+				fail("Out of range")
+				return
 			succeed(NUM_E ** A)
 		if("arcsin")
 			if(A < -1 || A > 1)
@@ -608,12 +611,13 @@
 	var/list/B = get_pin_data(IC_INPUT, 2)
 	var/N = get_pin_data(IC_INPUT, 3)
 
-	if(operation in list("add", "subtract", "multiply", "divide"))
+	if(operation == "add" || operation == "subtract" || operation == "multiply" || operation == "divide")
 		if(!ic_math_same_length_lists(A, B))
 			fail("Mismatched or invalid lists")
 			return
+		var/list_length = length(A)
 		var/list/result = list()
-		for(var/i = 1 to length(A))
+		for(var/i = 1 to list_length)
 			var/a = A[i]
 			var/b = B[i]
 			if(!isnum(a) || !isnum(b) || (operation == "divide" && b == 0))
@@ -667,8 +671,9 @@
 				fail("Invalid window")
 				return
 			N = round(N)
+			var/list_length = length(numbers)
 			var/list/result = list()
-			for(var/i = 1 to length(numbers))
+			for(var/i = 1 to list_length)
 				var/start = max(1, i - N + 1)
 				var/total = 0
 				var/count = 0
@@ -778,12 +783,13 @@
 			succeed(numbers.Find(max(numbers)))
 		if("weighted_average")
 			var/list/weights = ic_math_numeric_list(get_pin_data(IC_INPUT, 2))
-			if(!weights || length(weights) != length(numbers))
+			var/list_length = length(numbers)
+			if(!weights || length(weights) != list_length)
 				fail("Invalid weights")
 				return
 			var/weighted_total = 0
 			var/weight_total = 0
-			for(var/i = 1 to length(numbers))
+			for(var/i = 1 to list_length)
 				weighted_total += numbers[i] * weights[i]
 				weight_total += weights[i]
 			if(weight_total == 0)
@@ -898,14 +904,15 @@
 			if(!A || !B || length(A) != length(B))
 				fail("Mismatched vectors")
 				return
+			var/vector_length = length(A)
 			if(operation == "dot")
 				var/result = 0
-				for(var/i = 1 to length(A))
+				for(var/i = 1 to vector_length)
 					result += A[i] * B[i]
 				succeed(result)
 				return
 			var/list/result = list()
-			for(var/i = 1 to length(A))
+			for(var/i = 1 to vector_length)
 				result += operation == "add" ? A[i] + B[i] : A[i] - B[i]
 			succeed(result)
 		if("scale")
@@ -955,8 +962,9 @@
 			if(!A || !B || length(A) != length(B))
 				fail("Mismatched vectors")
 				return
+			var/vector_length = length(A)
 			var/dot = 0
-			for(var/i = 1 to length(A))
+			for(var/i = 1 to vector_length)
 				dot += A[i] * B[i]
 			var/mag = ic_math_vector_magnitude(A) * ic_math_vector_magnitude(B)
 			if(mag == 0)
@@ -967,9 +975,10 @@
 			if(!A || !B || length(A) != length(B))
 				fail("Mismatched vectors")
 				return
+			var/vector_length = length(A)
 			var/dot_ab = 0
 			var/dot_bb = 0
-			for(var/i = 1 to length(A))
+			for(var/i = 1 to vector_length)
 				dot_ab += A[i] * B[i]
 				dot_bb += B[i] * B[i]
 			if(dot_bb == 0)

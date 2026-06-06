@@ -239,6 +239,53 @@
 /obj/item/integrated_circuit/logic/unary/not/do_check(A)
 	return !A
 
+/obj/item/integrated_circuit/logic/edge_detector
+	name = "edge detector"
+	desc = "Turns a changing boolean signal into one-shot output pulses."
+	extended_desc = "Stores the previous signal state internally. It only pulses when the input changes, making it useful for preventing ticker-fed logic from repeatedly firing the same action."
+	icon_state = "template"
+	complexity = 2
+	inputs = list(
+		"signal" = IC_PINTYPE_BOOLEAN
+	)
+	outputs = list(
+		"current state" = IC_PINTYPE_BOOLEAN,
+		"previous state" = IC_PINTYPE_BOOLEAN
+	)
+	activators = list(
+		"check" = IC_PINTYPE_PULSE_IN,
+		"on rising edge" = IC_PINTYPE_PULSE_OUT,
+		"on falling edge" = IC_PINTYPE_PULSE_OUT,
+		"on changed" = IC_PINTYPE_PULSE_OUT,
+		"on unchanged" = IC_PINTYPE_PULSE_OUT
+	)
+	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+
+	var/previous_state = FALSE
+	var/has_previous_state = FALSE
+
+/obj/item/integrated_circuit/logic/edge_detector/do_work()
+	var/current_state = get_pin_data(IC_INPUT, 1) ? TRUE : FALSE
+	var/old_state = previous_state
+
+	set_pin_data(IC_OUTPUT, 1, current_state)
+	set_pin_data(IC_OUTPUT, 2, old_state)
+	push_data()
+
+	if(!has_previous_state)
+		previous_state = current_state
+		has_previous_state = TRUE
+		activate_pin(5)
+		return
+
+	if(current_state == previous_state)
+		activate_pin(5)
+		return
+
+	previous_state = current_state
+	activate_pin(current_state ? 2 : 3)
+	activate_pin(4)
+
 /obj/item/integrated_circuit/logic/threshold_comparator
 	name = "threshold comparator"
 	desc = "Checks whether a number is below, inside, or above a range."
@@ -366,76 +413,123 @@
 /obj/item/integrated_circuit/logic/cooldown_limiter
 	name = "cooldown limiter"
 	desc = "Allows a pulse through only when its cooldown has expired."
+	extended_desc = "Cooldown is clamped between 1 and 600 seconds. Disabled gates block incoming pulses without updating their cooldown."
 	icon_state = "template"
 	complexity = 4
 	inputs = list(
-		"cooldown seconds" = IC_PINTYPE_NUMBER
+		"cooldown seconds" = IC_PINTYPE_NUMBER,
+		"enabled" = IC_PINTYPE_BOOLEAN
+	)
+	inputs_default = list(
+		"1" = 2,
+		"2" = TRUE
 	)
 	outputs = list(
+		"ready" = IC_PINTYPE_BOOLEAN,
 		"remaining cooldown" = IC_PINTYPE_NUMBER
 	)
 	activators = list(
-		"attempt pulse" = IC_PINTYPE_PULSE_IN,
-		"allowed pulse" = IC_PINTYPE_PULSE_OUT,
-		"blocked pulse" = IC_PINTYPE_PULSE_OUT
+		"pulse in" = IC_PINTYPE_PULSE_IN,
+		"pulse out" = IC_PINTYPE_PULSE_OUT,
+		"on blocked" = IC_PINTYPE_PULSE_OUT
 	)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+	power_draw_per_use = 20
 
 	var/next_allowed_time = 0
 
 /obj/item/integrated_circuit/logic/cooldown_limiter/do_work()
 	var/cooldown_seconds = get_pin_data(IC_INPUT, 1)
+	var/enabled = get_pin_data(IC_INPUT, 2)
 
 	if(!isnum(cooldown_seconds))
-		cooldown_seconds = 1
+		cooldown_seconds = 2
 
-	cooldown_seconds = max(cooldown_seconds, 0)
+	cooldown_seconds = between(1, cooldown_seconds, 600)
+
+	if(!enabled)
+		set_pin_data(IC_OUTPUT, 1, FALSE)
+		set_pin_data(IC_OUTPUT, 2, 0)
+		push_data()
+		activate_pin(3)
+		return
 
 	if(world.time >= next_allowed_time)
 		next_allowed_time = world.time + cooldown_seconds SECONDS
-		set_pin_data(IC_OUTPUT, 1, 0)
+		set_pin_data(IC_OUTPUT, 1, TRUE)
+		set_pin_data(IC_OUTPUT, 2, 0)
 		push_data()
 		activate_pin(2)
 		return
 
 	var/remaining = max(round((next_allowed_time - world.time) / 10, 0.1), 0)
-	set_pin_data(IC_OUTPUT, 1, remaining)
+	set_pin_data(IC_OUTPUT, 1, FALSE)
+	set_pin_data(IC_OUTPUT, 2, remaining)
 	push_data()
 	activate_pin(3)
 
 
 /obj/item/integrated_circuit/logic/pulse_counter
-	name = "pulse counter"
-	desc = "Counts incoming pulses. If reset is true when pulsed, the count resets instead."
+	name = "threshold pulse counter"
+	desc = "Counts incoming pulses and reports when a threshold has been reached."
+	extended_desc = "Count is clamped between -100000 and 100000. Use the reset pulse to set the count to the configured reset value."
 	icon_state = "counter"
-	complexity = 2
+	complexity = 3
 	inputs = list(
-		"reset" = IC_PINTYPE_BOOLEAN
+		"threshold" = IC_PINTYPE_NUMBER,
+		"reset value" = IC_PINTYPE_NUMBER
+	)
+	inputs_default = list(
+		"1" = 1,
+		"2" = 0
 	)
 	outputs = list(
-		"count" = IC_PINTYPE_NUMBER
+		"count" = IC_PINTYPE_NUMBER,
+		"threshold met" = IC_PINTYPE_BOOLEAN
 	)
 	activators = list(
-		"pulse" = IC_PINTYPE_PULSE_IN,
+		"increment" = IC_PINTYPE_PULSE_IN,
+		"decrement" = IC_PINTYPE_PULSE_IN,
+		"reset" = IC_PINTYPE_PULSE_IN,
 		"on count changed" = IC_PINTYPE_PULSE_OUT,
-		"on reset" = IC_PINTYPE_PULSE_OUT
+		"on threshold met" = IC_PINTYPE_PULSE_OUT
 	)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+	power_draw_per_use = 20
 
 	var/count = 0
 
-/obj/item/integrated_circuit/logic/pulse_counter/do_work()
-	if(get_pin_data(IC_INPUT, 1))
-		count = 0
-		set_pin_data(IC_OUTPUT, 1, count)
-		push_data()
-		activate_pin(3)
-		return
+/obj/item/integrated_circuit/logic/pulse_counter/do_work(activator_id)
+	var/active_pin = activator_id
 
-	count++
+	if(istype(active_pin, /datum/integrated_io))
+		active_pin = activators.Find(active_pin)
+
+	if(!isnum(active_pin))
+		active_pin = 1
+
+	switch(active_pin)
+		if(2)
+			count--
+		if(3)
+			var/reset_value = get_pin_data(IC_INPUT, 2)
+			count = isnum(reset_value) ? round(reset_value) : 0
+		else
+			count++
+
+	count = clamp(count, -100000, 100000)
+	var/threshold = get_pin_data(IC_INPUT, 1)
+	if(!isnum(threshold))
+		threshold = 1
+	threshold = clamp(round(threshold), -100000, 100000)
+	var/threshold_met = count >= threshold
+
 	set_pin_data(IC_OUTPUT, 1, count)
+	set_pin_data(IC_OUTPUT, 2, threshold_met)
 	push_data()
-	activate_pin(2)
+	activate_pin(4)
+	if(threshold_met)
+		activate_pin(5)
 
 
 /obj/item/integrated_circuit/logic/pulse_sequencer

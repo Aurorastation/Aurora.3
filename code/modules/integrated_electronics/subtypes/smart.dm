@@ -44,15 +44,18 @@
 		activate_pin(3)
 		return
 
-	if(!(A in view(get_turf(src))))
+	var/turf/start = get_turf(src)
+	var/turf/target_turf = get_turf(A)
+
+	if(!start || !target_turf || !(A in view(start)))
 		push_data()
 		activate_pin(3)
 		return
 
 	if(get_pin_data(IC_INPUT, 2))
-		set_pin_data(IC_OUTPUT, 1, get_dir(get_turf(src), get_turf(A)))
+		set_pin_data(IC_OUTPUT, 1, get_dir(start, target_turf))
 	else
-		set_pin_data(IC_OUTPUT, 1, get_dir(get_turf(src), get_step_towards2(get_turf(src), A)))
+		set_pin_data(IC_OUTPUT, 1, get_dir(start, get_step_towards2(start, A)))
 
 	push_data()
 	activate_pin(2)
@@ -110,6 +113,62 @@
 	set_pin_data(IC_OUTPUT, 2, sqrt((A.x - T.x) * (A.x - T.x) + (A.y - T.y) * (A.y - T.y)))
 	push_data()
 	activate_pin(2)
+
+/obj/item/integrated_circuit/smart/relative_position
+	name = "relative position calculator"
+	desc = "Calculates relative coordinates between two supplied references."
+	extended_desc = "This does not scan, pathfind, or move anything. It only compares refs already supplied to the circuit and fails safely if either ref is invalid."
+	icon_state = "numberpad"
+	complexity = 5
+	inputs = list(
+		"origin ref" = IC_PINTYPE_REF,
+		"target ref" = IC_PINTYPE_REF
+	)
+	outputs = list(
+		"relative X" = IC_PINTYPE_NUMBER,
+		"relative Y" = IC_PINTYPE_NUMBER,
+		"relative Z" = IC_PINTYPE_NUMBER,
+		"distance" = IC_PINTYPE_NUMBER,
+		"valid" = IC_PINTYPE_BOOLEAN
+	)
+	activators = list(
+		"calculate" = IC_PINTYPE_PULSE_IN,
+		"on valid" = IC_PINTYPE_PULSE_OUT,
+		"on invalid" = IC_PINTYPE_PULSE_OUT
+	)
+	spawn_flags = IC_SPAWN_RESEARCH
+	power_draw_per_use = 200
+
+/obj/item/integrated_circuit/smart/relative_position/do_work()
+	var/origin = get_pin_data(IC_INPUT, 1)
+	var/target = get_pin_data(IC_INPUT, 2)
+
+	if(!istype(origin, /atom) || !istype(target, /atom))
+		set_relative_position_result(null, null, null, null, FALSE)
+		return
+
+	var/turf/origin_turf = get_turf(origin)
+	var/turf/target_turf = get_turf(target)
+
+	if(!origin_turf || !target_turf)
+		set_relative_position_result(null, null, null, null, FALSE)
+		return
+
+	var/dx = target_turf.x - origin_turf.x
+	var/dy = target_turf.y - origin_turf.y
+	var/dz = target_turf.z - origin_turf.z
+	var/distance = sqrt(dx * dx + dy * dy + dz * dz)
+
+	set_relative_position_result(dx, dy, dz, distance, TRUE)
+
+/obj/item/integrated_circuit/smart/relative_position/proc/set_relative_position_result(dx, dy, dz, distance, valid)
+	set_pin_data(IC_OUTPUT, 1, dx)
+	set_pin_data(IC_OUTPUT, 2, dy)
+	set_pin_data(IC_OUTPUT, 3, dz)
+	set_pin_data(IC_OUTPUT, 4, distance)
+	set_pin_data(IC_OUTPUT, 5, valid)
+	push_data()
+	activate_pin(valid ? 2 : 3)
 
 /obj/item/integrated_circuit/smart/coordinate_navigator
 	name = "coordinate navigator"

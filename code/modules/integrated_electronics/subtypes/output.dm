@@ -45,10 +45,14 @@
 
 /obj/item/integrated_circuit/output/screen/medium/do_work()
 	..()
-	var/list/nearby_things = range(0, get_turf(src))
+	var/turf/T = get_turf(src)
+	if(!T)
+		return
+	var/list/nearby_things = range(0, T)
+	var/list/viewing = viewers(T)
 	for(var/mob/M in nearby_things)
 		var/obj/O = assembly ? assembly : src
-		to_chat(M, SPAN_NOTICE("[icon2html(O, viewers(get_turf(src)))] [stuff_to_display]"))
+		to_chat(M, SPAN_NOTICE("[icon2html(O, viewing)] [stuff_to_display]"))
 
 /obj/item/integrated_circuit/output/screen/large
 	name = "large screen"
@@ -58,8 +62,103 @@
 
 /obj/item/integrated_circuit/output/screen/large/do_work()
 	..()
-	var/obj/O = assembly ? loc : assembly
-	O.visible_message(SPAN_NOTICE("[icon2html(O, viewers(get_turf(src)))] [stuff_to_display]"))
+	var/obj/O = assembly ? assembly : src
+	var/turf/T = get_turf(src)
+	if(!O || !T)
+		return
+	O.visible_message(SPAN_NOTICE("[icon2html(O, viewers(T))] [stuff_to_display]"))
+
+/obj/item/integrated_circuit/output/state_display
+	name = "state display"
+	desc = "Displays a compact label and value when the assembly is examined closely."
+	icon_state = "screen"
+	complexity = 2
+	inputs = list(
+		"label" = IC_PINTYPE_STRING,
+		"value" = IC_PINTYPE_ANY,
+		"enabled" = IC_PINTYPE_BOOLEAN
+	)
+	inputs_default = list(
+		"1" = "Status",
+		"3" = TRUE
+	)
+	outputs = list(
+		"displayed" = IC_PINTYPE_BOOLEAN
+	)
+	activators = list(
+		"update" = IC_PINTYPE_PULSE_IN,
+		"on updated" = IC_PINTYPE_PULSE_OUT,
+		"on invalid" = IC_PINTYPE_PULSE_OUT
+	)
+	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+	power_draw_per_use = 100
+
+	var/stuff_to_display = null
+
+/obj/item/integrated_circuit/output/state_display/disconnect_all()
+	..()
+	stuff_to_display = null
+
+/obj/item/integrated_circuit/output/state_display/any_examine(mob/user)
+	. = ..()
+	if(!isnull(stuff_to_display))
+		. += "There is a little status display reading '[stuff_to_display]'."
+
+/obj/item/integrated_circuit/output/state_display/do_work()
+	if(!get_pin_data(IC_INPUT, 3))
+		stuff_to_display = null
+		set_pin_data(IC_OUTPUT, 1, FALSE)
+		push_data()
+		activate_pin(3)
+		return
+
+	var/label = get_pin_data(IC_INPUT, 1)
+	var/value = get_pin_data(IC_INPUT, 2, FALSE)
+
+	if(isnull(value))
+		stuff_to_display = null
+		set_pin_data(IC_OUTPUT, 1, FALSE)
+		push_data()
+		activate_pin(3)
+		return
+
+	stuff_to_display = sanitizeSafe("[ic_safe_text(label, "Status")]: [ic_display_value(value)]", MAX_MESSAGE_LEN)
+	set_pin_data(IC_OUTPUT, 1, TRUE)
+	push_data()
+	activate_pin(2)
+
+/obj/item/integrated_circuit/output/pulse_result
+	name = "pulse result router"
+	desc = "Routes a value into true, false, or invalid pulse outputs."
+	icon_state = "template"
+	complexity = 1
+	inputs = list(
+		"value" = IC_PINTYPE_ANY
+	)
+	outputs = list(
+		"value" = IC_PINTYPE_ANY
+	)
+	activators = list(
+		"evaluate" = IC_PINTYPE_PULSE_IN,
+		"on true" = IC_PINTYPE_PULSE_OUT,
+		"on false" = IC_PINTYPE_PULSE_OUT,
+		"on invalid" = IC_PINTYPE_PULSE_OUT
+	)
+	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+	power_draw_per_use = 10
+
+/obj/item/integrated_circuit/output/pulse_result/do_work()
+	var/value = get_pin_data(IC_INPUT, 1, FALSE)
+
+	set_pin_data(IC_OUTPUT, 1, value)
+	push_data()
+
+	if(isnull(value))
+		activate_pin(4)
+	else if(ic_truthy(value))
+		activate_pin(2)
+	else
+		activate_pin(3)
 
 /obj/item/integrated_circuit/output/light
 	name = "light"
@@ -183,7 +282,8 @@
 	 * Fallback behavior for every TTS circuit outside the electronic radio headset.
 	 */
 	var/obj/O = loc ? loc : src
-	audible_message("[icon2html(O, viewers(get_turf(O)))] \The [O.name] states, \"[text]\"")
+	var/turf/T = get_turf(O)
+	audible_message("[icon2html(O, viewers(T))] \The [O.name] states, \"[text]\"")
 
 /obj/item/integrated_circuit/output/sound/Initialize()
 	. = ..()
@@ -434,6 +534,8 @@
 			paper_sheet.set_content(null, copytext(stuff_to_print, 1, MAX_PAPER_MESSAGE_LEN))
 			stuff_to_print = copytext(stuff_to_print, MAX_PAPER_MESSAGE_LEN)
 			if(stuff_to_print || eject)
+				if(!using_tray)
+					return
 				paper_sheet = paper_source.get_item(TRUE)
 				audible_message(SPAN_NOTICE("\The [src] buzzes and spits out a sheet of paper."))
 				paper_sheet.forceMove(get_turf(src))

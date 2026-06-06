@@ -377,13 +377,7 @@
 			to_chat(usr, SPAN_WARNING("No blueprint chunk text was received from the UI."))
 			return FALSE
 
-		to_chat(usr, SPAN_NOTICE("Received blueprint chunk length: [length(import_chunk)]."))
-
-		var/import_result = append_clone_blueprint_chunk(import_chunk, usr)
-		if(import_result)
-			to_chat(usr, SPAN_NOTICE("Blueprint import buffer: [length(clone_blueprint_import_buffer)] / [IC_BLUEPRINT_BUFFER_LIMIT] characters."))
-
-		return import_result
+		return append_clone_blueprint_chunk(import_chunk, usr)
 
 	if(action == "reject_oversized_import_tgui")
 		var/blueprint_length = text2num(params["length"])
@@ -1186,9 +1180,10 @@
 
 /obj/item/integrated_circuit_printer/proc/can_print(build_type)
 	var/list/recipes = upgraded ? SSelectronics.printer_recipe_list_upgraded : SSelectronics.printer_recipe_list_basic
+	var/build_path = "[build_type]"
 
 	for(var/list/recipe in recipes)
-		if(text2path(recipe["path"]) == build_type)
+		if(recipe["path"] == build_path)
 			return TRUE
 
 	return FALSE

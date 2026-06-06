@@ -400,7 +400,7 @@
 
 	var/number_index = round(ic_safe_number(index, 0))
 
-	if(number_index < 1)
+	if(number_index < 1 || number_index > IC_MAX_LIST_LENGTH)
 		return L
 
 	while(L.len < number_index)
