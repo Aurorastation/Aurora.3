@@ -2,11 +2,11 @@
  * Saves or overrides generic content for a type(+attribute)
  * PARAMS:
  * 	target_type =		Singleton persistent type definition. See /singleton/persistent_type/generic and subtypes.
- *  attribute =			Custom attribute of the generic, can be null if the type definition doesn't require it.
  *  content = 			List of associative values to be saved. ("id" = 123, "value" = "lorem ipsum")
- *	expires_in_days =	Days until the content is deemed expired. Defaults to PERSISTENT_DEFAULT_EXPIRATION_DAYS
+ *  attribute =			Custom attribute of the generic, can be null if the type definition doesn't require it. Defaults to null.
+ *	expires_in_days =	Days until the content is deemed expired. Defaults to PERSISTENT_DEFAULT_EXPIRATION_DAYS.
  */
-/datum/controller/subsystem/persistence/proc/genericSave(var/singleton/persistent_type/generic/target_type, attribute, content, expires_in_days = PERSISTENT_DEFAULT_EXPIRATION_DAYS)
+/datum/controller/subsystem/persistence/proc/genericSave(var/singleton/persistent_type/generic/target_type, content, attribute = null, expires_in_days = PERSISTENT_DEFAULT_EXPIRATION_DAYS)
 	if(!content || !length(content))
 		return
 

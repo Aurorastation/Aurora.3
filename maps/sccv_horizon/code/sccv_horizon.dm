@@ -168,7 +168,7 @@
 	if(SSatlas.current_map.use_overmap)
 		var/obj/effect/overmap/visitable/ship/sccv_horizon/ship = locate(/obj/effect/overmap/visitable/ship/sccv_horizon) in GLOB.map_overmap
 		if(ship)
-			SSpersistence.genericSave(/singleton/persistent_type/generic/horizon_overmap_position, null, list("x" = ship.x, "y" = ship.y), 1)
+			SSpersistence.genericSave(/singleton/persistent_type/generic/horizon_overmap_position, list("x" = ship.x, "y" = ship.y), 1)
 
 /datum/map/sccv_horizon/post_gamemode_setup()
 	// ##### Set persistent Horizon position on the overmap
