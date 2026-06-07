@@ -1,7 +1,6 @@
 import {
   Box,
   Button,
-  Input,
   LabeledList,
   NoticeBox,
   ProgressBar,
@@ -15,6 +14,7 @@ import type { BooleanLike } from 'tgui-core/react';
 import { capitalizeAll } from 'tgui-core/string';
 import { useBackend, useLocalState } from '../backend';
 import { Window } from '../layouts';
+import { SearchBar } from './common/SearchBar';
 
 export type AutolatheData = {
   manufacturer: string;
@@ -149,13 +149,11 @@ export const CategoryData = (props) => {
       fill
       title={tab}
       buttons={
-        <Input
+        <SearchBar
           autoFocus
-          autoSelect
           placeholder="Search by name"
-          maxLength={512}
-          onChange={(value) => setSearchTerm(value)}
-          value={searchTerm}
+          query={searchTerm}
+          onSearch={(value) => setSearchTerm(value)}
         />
       }
     >

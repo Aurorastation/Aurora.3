@@ -17,6 +17,8 @@ type OptionalProps = Partial<{
   noIcon: boolean;
   /** The placeholder text. */
   placeholder: string;
+  /** The function to call when the user presses Enter. */
+  onEnter: (query: string) => void;
   /** Override styles of the search bar. */
   style: CSSProperties;
 }>;
@@ -33,6 +35,7 @@ export function SearchBar(props: Props) {
     expensive,
     noIcon = false,
     onSearch,
+    onEnter,
     placeholder = 'Search...',
     query = '',
     style,
@@ -49,6 +52,7 @@ export function SearchBar(props: Props) {
           expensive={expensive}
           fluid
           onChange={onSearch}
+          onEnter={onEnter}
           placeholder={placeholder}
           value={query}
         />

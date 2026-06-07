@@ -1,6 +1,7 @@
-import { Box, Flex, Input, LabeledList, Section } from 'tgui-core/components';
+import { Box, Flex, LabeledList, Section } from 'tgui-core/components';
 import { useBackend, useLocalState } from '../backend';
 import { NtosWindow } from '../layouts';
+import { SearchBar } from './common/SearchBar';
 
 export type CodexData = {
   reactions: Reaction[];
@@ -38,16 +39,14 @@ export const FusionCodex = (props) => {
           title="Codex Search"
           fitted
           buttons={
-            <Input
+            <SearchBar
               autoFocus
-              autoSelect
               placeholder="Search by name"
-              width="40vw"
-              maxLength={512}
-              onChange={(value) => {
+              query={searchTerm}
+              onSearch={(value) => {
                 setSearchTerm(value);
               }}
-              value={searchTerm}
+              style={{ width: '40vw' }}
             />
           }
         >
