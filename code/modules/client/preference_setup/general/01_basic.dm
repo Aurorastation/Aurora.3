@@ -165,7 +165,8 @@
 	if(isnull(calculated_age))
 		pref.birthdate = birthdate_from_age(pref.age)
 		calculated_age = birthdate_to_age(pref.birthdate)
-		to_chat(pref.client, SPAN_WARNING("Age couldn't be calculated, birthday has been reset!"))
+		if(pref.client)
+			to_chat(pref.client, SPAN_WARNING("Age couldn't be calculated, birthday has been reset!"))
 
 	if(calculated_age > pref.getMaxAge())
 		var/year_shift = calculated_age - pref.getMaxAge()
@@ -321,18 +322,18 @@
 		var/current_month = parsed_birthdate ? parsed_birthdate["month"] : 1
 		var/current_day = parsed_birthdate ? parsed_birthdate["day"] : 1
 
-		var/minimum_birth_year = GLOB.game_year - pref.getMaxAge()
+		var/minimum_birth_year = GLOB.game_year - pref.getMaxAge() - 1
 		var/maximum_birth_year = GLOB.game_year - pref.getMinAge()
 
-		var/new_year = input(user, "Choose your character's birth year:\n([minimum_birth_year]-[maximum_birth_year])", "Character Preference", current_year) as num|null
+		var/new_year = tgui_input_number(user, "Choose your character's birth year:\n([minimum_birth_year]-[maximum_birth_year])", "Character Preference", current_year, maximum_birth_year, minimum_birth_year)
 		if(isnull(new_year) || !CanUseTopic(user))
 			return TOPIC_NOACTION
 
-		var/new_month = input(user, "Choose your character's birth month:", "Character Preference", current_month) as num|null
+		var/new_month = tgui_input_number(user, "Choose your character's birth month:", "Character Preference", current_month, 12, 1)
 		if(isnull(new_month) || !CanUseTopic(user))
 			return TOPIC_NOACTION
 
-		var/new_day = input(user, "Choose your character's birth day:", "Character Preference", current_day) as num|null
+		var/new_day = tgui_input_number(user, "Choose your character's birth day:", "Character Preference", current_day, 31, 1)
 		if(isnull(new_day) || !CanUseTopic(user))
 			return TOPIC_NOACTION
 

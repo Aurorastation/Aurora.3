@@ -5,9 +5,8 @@ changes:
   - rscadd: "Added character birthdates as the editable source for character age."
   - qol: "Character setup now displays calculated age from the selected birthdate."
   - qol: "Birthdate selection now uses separate year, month, and day inputs."
-  - qol: "Characters that exceed their species' maximum age due to birthday progression now have their birth year automatically adjusted backwards by a year (so characters can no longer be aged beyond the max age)."
+  - qol: "Characters that exceed their species' maximum age due to birthday progression now have their birth year automatically adjusted forward (so characters can no longer be aged beyond the max age)."
   - qol: "Players are notified when their character's birthdate is adjusted due to exceeding their species' maximum age."
   - backend: "Existing age-only characters now migrate to a default birthdate based on their current age."
   - backend: "Added support for signed birth years so long-lived species can use ancient birthdates."
   - backend: "Negative birth years are stored numerically and displayed as BCE in character setup."
-
