@@ -188,15 +188,17 @@
 	SHOULD_NOT_SLEEP(TRUE)
 
 	overlays.Cut()
-	var/growth = 0
-	if(growth_threshold)
-		growth = min(max_growth, round(health/growth_threshold))
+	var/effective_max = max_growth
 	var/at_fringe = get_dist(src,parent)
 	if(spread_distance > 5)
 		if(at_fringe >= (spread_distance-3))
-			max_growth--
+			effective_max--
 		if(at_fringe >= (spread_distance-2))
-			max_growth--
+			effective_max--
+
+	var/growth = 0
+	if(growth_threshold)
+		growth = min(effective_max, round(health/growth_threshold))
 
 	var/image/our_icon = seed.get_icon(growth)
 
@@ -205,7 +207,7 @@
 
 	AddOverlays(our_icon)
 
-	if(growth>2 && growth == max_growth)
+	if(growth>2 && growth == effective_max)
 		layer = (seed && seed.force_layer) ? seed.force_layer : 5
 		if(growth_type in list(GROWTH_VINES,GROWTH_BIOMASS))
 			opacity = 1

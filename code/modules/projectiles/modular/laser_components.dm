@@ -303,7 +303,7 @@
 	accuracy = -1
 	icon_state = "rotating_lens"
 	increasable_stats = list()
-	decreaseable_stats = list("fire_delay", "chargetime")
+	decreaseable_stats = list("burst_delay", "chargetime")
 
 /obj/item/laser_components/modifier/scope
 	name = "telescopic sight"

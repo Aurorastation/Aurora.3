@@ -138,19 +138,31 @@
 	/// This atom's cache of overlays that can only be removed explicitly, like C4. Do not manipulate directly- See SSoverlays.
 	var/list/atom_protected_overlay_cache
 
+	/// The mob currently interacting with the atom during a `do_after` timer. Used to validate `DO_TARGET_UNIQUE_ACT` flag checks.
+	var/mob/do_unique_target_user
+
+	/*
+	* Duplicate vars and logic created for untranslated images for the sake of getting an untranslated langchat to display for listeners who do not understand
+	* the language being spoken. Someone could certainly think of cleaner ways to do this, but for want of a better solution right now, it has been implemented
+	* in this rote manner to make it easier to strip out in future if it needs replaced.
+	*/
+
+	var/image/langchat_image
+	var/image/langchat_image_untranslated
+	var/list/mob/langchat_listeners
+	var/list/mob/langchat_listeners_untranslated
+
 /atom/Destroy(force)
 	if(opacity)
 		updateVisibility(src)
 
-	if(reagents)
-		QDEL_NULL(reagents)
+	QDEL_NULL(reagents)
 
 	// Checking length(overlays) before cutting has significant speed benefits
 	if(length(overlays))
 		overlays.Cut()
 
-	if(light)
-		QDEL_NULL(light)
+	QDEL_NULL(light)
 
 	if(smoothing_flags & SMOOTH_QUEUED)
 		SSicon_smooth.remove_from_queues(src)
@@ -167,8 +179,12 @@
 
 	// The component is attached to us normaly and will be deleted elsewhere
 	orbiters = null
-
-	. = ..()
+	do_unique_target_user = null
+	QDEL_NULL(langchat_image)
+	QDEL_NULL(langchat_image_untranslated)
+	langchat_listeners?.Cut()
+	langchat_listeners_untranslated?.Cut()
+	return ..()
 
 /atom/proc/handle_ricochet(obj/projectile/ricocheting_projectile)
 	var/turf/p_turf = get_turf(ricocheting_projectile)

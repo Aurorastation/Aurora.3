@@ -330,6 +330,9 @@ var/list/channel_to_radio_key = new
 
 		listening = get_hearers_in_view(message_range, src)
 
+		var/sensitive_listener = get_intent_listeners(src, message_range + 1)
+		listening = mergelists(listening, sensitive_listener, TRUE)
+
 	if(client)
 		for (var/mob/player_mob in GLOB.player_list)
 			if(!player_mob || player_mob.stat != DEAD || (player_mob in listening))

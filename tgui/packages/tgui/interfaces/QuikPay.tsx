@@ -1,15 +1,15 @@
-import { BooleanLike } from '../../common/react';
-import { useBackend, useLocalState } from '../backend';
 import {
-  LabeledList,
+  Box,
   Button,
+  Flex,
   Input,
+  LabeledList,
   NumberInput,
   Section,
-  Flex,
   Table,
-  Box,
-} from '../components';
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
+import { useBackend, useLocalState } from '../backend';
 import { Window } from '../layouts';
 
 export type PayData = {
@@ -35,11 +35,11 @@ type ItemBuy = {
   price: number;
 };
 
-export const QuikPay = (props, context) => {
-  const { act, data } = useBackend<PayData>(context);
+export const QuikPay = (props) => {
+  const { act, data } = useBackend<PayData>();
 
   return (
-    <Window resizable theme="idris">
+    <Window theme="idris">
       <Window.Content scrollable>
         <Section
           title="Ordering"
@@ -78,13 +78,9 @@ export const QuikPay = (props, context) => {
   );
 };
 
-export const ItemWindow = (props, context) => {
-  const { act, data } = useBackend<PayData>(context);
-  const [searchTerm, setSearchTerm] = useLocalState<string>(
-    context,
-    `searchTerm`,
-    ``,
-  );
+export const ItemWindow = (props) => {
+  const { act, data } = useBackend<PayData>();
+  const [searchTerm, setSearchTerm] = useLocalState<string>(`searchTerm`, ``);
   const normalizedSearchTerm = searchTerm.toLowerCase();
 
   const groupedItems = data.items.reduce((groups, item) => {
@@ -121,7 +117,7 @@ export const ItemWindow = (props, context) => {
           autoSelect
           placeholder="Search categories or items"
           maxLength={512}
-          onInput={(e, value) => {
+          onChange={(value) => {
             setSearchTerm(value);
           }}
           value={searchTerm}
@@ -212,19 +208,19 @@ export const ItemWindow = (props, context) => {
   );
 };
 
-export const AddItems = (props, context) => {
-  const { act, data } = useBackend<PayData>(context);
+export const AddItems = (props) => {
+  const { act, data } = useBackend<PayData>();
   return (
     <Section title="Add Item">
       <Input
         placeholder="Item name"
         value={data.new_item}
-        onChange={(e, value) => act('set_new_item', { set_new_item: value })}
+        onChange={(value) => act('set_new_item', { set_new_item: value })}
       />
       <Input
         placeholder="Category"
         value={data.new_category}
-        onChange={(e, value) =>
+        onChange={(value) =>
           act('set_new_category', { set_new_category: value })
         }
       />
@@ -233,15 +229,15 @@ export const AddItems = (props, context) => {
         minValue={0}
         maxValue={100}
         stepPixelSize={5}
-        onDrag={(e, value) => act('set_new_price', { set_new_price: value })}
+        onChange={(value) => act('set_new_price', { set_new_price: value })}
       />
       <Button content="Add" onClick={() => act('add')} />
     </Section>
   );
 };
 
-export const CartWindow = (props, context) => {
-  const { act, data } = useBackend<PayData>(context);
+export const CartWindow = (props) => {
+  const { act, data } = useBackend<PayData>();
   return (
     <Section>
       <LabeledList>

@@ -1,10 +1,15 @@
+import {
+  Button,
+  LabeledList,
+  ProgressBar,
+  Section,
+} from 'tgui-core/components';
+import { toFixed } from 'tgui-core/math';
 import { useBackend } from '../backend';
-import { Button, LabeledList, Section, ProgressBar } from '../components';
 import { Window } from '../layouts';
-import { toFixed } from 'common/math';
 
-export const TurbineComputer = (props, context) => {
-  const { act, data } = useBackend(context);
+export const TurbineComputer = (props) => {
+  const { act, data } = useBackend();
   const { compressor, compressor_broken, turbine, turbine_broken, online } =
     data;
   const operational = Boolean(
@@ -33,8 +38,8 @@ export const TurbineComputer = (props, context) => {
 };
 
 // Element Tree for if the turbine is broken
-const TurbineBroken = (props, context) => {
-  const { data } = useBackend(context);
+const TurbineBroken = (props) => {
+  const { data } = useBackend();
   const { compressor, compressor_broken, turbine, turbine_broken, online } =
     data;
   return (
@@ -56,8 +61,8 @@ const TurbineBroken = (props, context) => {
 };
 
 // Element Tree for if the turbine is working
-const TurbineWorking = (props, context) => {
-  const { data } = useBackend(context);
+const TurbineWorking = (props) => {
+  const { data } = useBackend();
   const { rpm, temperature, power, bearing_heat } = data;
   return (
     <LabeledList>
@@ -75,7 +80,7 @@ const TurbineWorking = (props, context) => {
             bad: [90, Infinity],
           }}
         >
-          {toFixed(bearing_heat) + '%'}
+          {`${toFixed(bearing_heat)}%`}
         </ProgressBar>
       </LabeledList.Item>
     </LabeledList>
