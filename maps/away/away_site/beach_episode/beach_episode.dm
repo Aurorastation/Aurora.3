@@ -32,19 +32,11 @@
 	name = "LES YT-U 13029 'Sandbox'"
 	desc = "A remote world within the political orbit of Assunzione, \
 	home to a small population of travellers and backpackers. Known \
-	for its natural beauty."
+	for its natural beauty. Data courtesy of the local Coalition \
+	authorities informs the reader that this planet wholly lacks a \
+	fully fledged power grid, and that any visitors should bring their \
+	own generators if they wish for mains electricity during their visit."
 	alignment = "Republic of Assunzione"
 	icon_state = "globe3"
 	color = "#c2b280"
-	initial_generic_waypoints = list(
-		"sandbox_1",
-		"sandbox_2"
-	)
-
-/obj/effect/shuttle_landmark/beach_episode
-	base_area = /area/beach_episode
-	base_turf = /turf/simulated/floor/exoplanet/sidewalk/paved
-
-/obj/effect/shuttle_landmark/beach_episode/small
-	base_area = /area/beach_episode
-	base_turf = /turf/simulated/floor/exoplanet/sidewalk/paved
+	place_near_main = list(3,3)
