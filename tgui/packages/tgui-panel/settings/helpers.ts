@@ -5,6 +5,11 @@
  */
 
 import { FONTS_DISABLED } from './constants';
+import {
+  MAX_CONFIGURABLE_MESSAGES,
+  MIN_CONFIGURABLE_MESSAGES,
+} from '../chat/constants';
+import { chatRenderer } from '../chat/renderer';
 import { setClientTheme } from './themes';
 import type { SettingsState } from './types';
 
@@ -12,6 +17,13 @@ let statFontTimer: NodeJS.Timeout;
 let statTabsTimer: NodeJS.Timeout;
 let overrideFontFamily: string | undefined;
 let overrideFontSize: string;
+
+export function clampMaxMessages(maxMessages: number): number {
+  return Math.min(
+    MAX_CONFIGURABLE_MESSAGES,
+    Math.max(MIN_CONFIGURABLE_MESSAGES, maxMessages),
+  );
+}
 
 /** Updates the global CSS rule to override the font family and size. */
 function updateGlobalOverrideRule(): void {
@@ -58,6 +70,9 @@ function setStatTabsStyle(style: string): void {
 }
 
 export function generalSettingsHandler(update: SettingsState): void {
+  update.maxMessages = clampMaxMessages(update.maxMessages);
+  chatRenderer.setMaxMessages(update.maxMessages);
+
   // Set client theme
   const theme = update?.theme;
   if (theme) {

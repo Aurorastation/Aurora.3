@@ -64,7 +64,10 @@ export const BotanyIsolator = (_props) => {
                                 content={`Extract ${entry.mask}`}
                                 icon="arrow-down"
                                 onClick={() =>
-                                  act('get_gene', { gene: entry.tag })
+                                  act('get_gene', {
+                                    gene: entry.tag,
+                                    gene_label: entry.mask,
+                                  })
                                 }
                               />
                             </Box>

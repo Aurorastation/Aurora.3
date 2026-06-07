@@ -7,9 +7,11 @@ import {
   Icon,
   Input,
   Section,
+  Slider,
   Stack,
   TextArea,
 } from 'tgui-core/components';
+import { toFixed } from 'tgui-core/math';
 import { chatRenderer } from '../chat/renderer';
 import { WARN_AFTER_HIGHLIGHT_AMT } from './constants';
 import { useHighlights } from './use-highlights';
@@ -86,6 +88,8 @@ function TextHighlightSetting(props) {
     removeHighlight,
   } = useHighlights();
   const {
+    backgroundHighlightColor,
+    backgroundHighlightOpacity,
     enabled,
     highlightColor,
     highlightText,
@@ -133,10 +137,50 @@ function TextHighlightSetting(props) {
             Delete
           </Button>
         </Stack.Item>
+        {highlightWholeMessage && (
+          <Stack.Item>
+            <Stack align="center">
+              <Stack.Item>
+                <Slider
+                  width="7em"
+                  step={1}
+                  stepPixelSize={5}
+                  minValue={1}
+                  maxValue={100}
+                  unit="%"
+                  value={backgroundHighlightOpacity}
+                  format={(value) => toFixed(value)}
+                  onChange={(_, value) =>
+                    updateHighlight({
+                      id,
+                      backgroundHighlightOpacity: value,
+                    })
+                  }
+                />
+              </Stack.Item>
+              <Stack.Item>
+                <ColorBox mr={1} color={backgroundHighlightColor} />
+                <Input
+                  mr={1}
+                  width="5em"
+                  monospace
+                  placeholder="#ffdd44"
+                  value={backgroundHighlightColor}
+                  onBlur={(value) =>
+                    updateHighlight({
+                      id,
+                      backgroundHighlightColor: value,
+                    })
+                  }
+                />
+              </Stack.Item>
+            </Stack>
+          </Stack.Item>
+        )}
         <Stack.Item>
           <Button.Checkbox
             checked={highlightWholeMessage}
-            tooltip="If this option is selected, the entire message will be highlighted in yellow."
+            tooltip="If this option is selected, the entire message will be highlighted in the color defined to the left."
             onClick={() =>
               updateHighlight({
                 id,

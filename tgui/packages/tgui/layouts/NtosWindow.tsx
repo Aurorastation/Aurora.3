@@ -54,7 +54,7 @@ type Login = {
 };
 
 export const NtosWindow = (props) => {
-  const { title, width = 575, height = 700, children } = props;
+  const { title, width = 575, height = 700, theme, children } = props;
   const { act, data } = useBackend<NTOSData>();
   const {
     PC_device_theme,
@@ -71,7 +71,12 @@ export const NtosWindow = (props) => {
   } = data;
 
   return (
-    <Window title={title} width={width} height={height} theme={PC_device_theme}>
+    <Window
+      title={title}
+      width={width}
+      height={height}
+      theme={theme ?? PC_device_theme}
+    >
       <div className="NtosWindow">
         <div className="NtosWindow__header NtosHeader">
           <div className="NtosHeader__left">
