@@ -21,6 +21,10 @@
 	jobs = list("Physician")
 	minimum_character_age = list(
 		SPECIES_HUMAN = 30,
+		SPECIES_TAJARA = 30,
+		SPECIES_TAJARA_MSAI = 30,
+		SPECIES_TAJARA_ZHAN = 30,
+		SPECIES_UNATHI = 30,
 		SPECIES_SKRELL = 60,
 		SPECIES_SKRELL_AXIORI = 60
 	)
@@ -37,6 +41,10 @@
 	jobs = list("Pharmacist")
 	minimum_character_age = list(
 		SPECIES_HUMAN = 30,
+		SPECIES_TAJARA = 30,
+		SPECIES_TAJARA_MSAI = 30,
+		SPECIES_TAJARA_ZHAN = 30,
+		SPECIES_UNATHI = 30,
 		SPECIES_SKRELL = 60,
 		SPECIES_SKRELL_AXIORI = 60
 	)
@@ -55,6 +63,10 @@
 	jobs = list("Psychologist")
 	minimum_character_age = list(
 		SPECIES_HUMAN = 30,
+		SPECIES_TAJARA = 30,
+		SPECIES_TAJARA_MSAI = 30,
+		SPECIES_TAJARA_ZHAN = 30,
+		SPECIES_UNATHI = 30,
 		SPECIES_SKRELL = 60,
 		SPECIES_SKRELL_AXIORI = 60
 	)
@@ -75,6 +87,10 @@
 	jobs = list("Psychiatrist")
 	minimum_character_age = list(
 		SPECIES_HUMAN = 30,
+		SPECIES_TAJARA = 30,
+		SPECIES_TAJARA_MSAI = 30,
+		SPECIES_TAJARA_ZHAN = 30,
+		SPECIES_UNATHI = 30,
 		SPECIES_SKRELL = 60,
 		SPECIES_SKRELL_AXIORI = 60
 	)
@@ -91,6 +107,10 @@
 	jobs = list("Paramedic")
 	minimum_character_age = list(
 		SPECIES_HUMAN = 18,
+		SPECIES_TAJARA = 18,
+		SPECIES_TAJARA_MSAI = 18,
+		SPECIES_TAJARA_ZHAN = 18,
+		SPECIES_UNATHI = 18,
 		SPECIES_SKRELL = 55,
 		SPECIES_SKRELL_AXIORI = 55
 	)
