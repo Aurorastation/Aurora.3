@@ -81,10 +81,7 @@ const splitCircuitCategory = (category: string) => {
 export const CircuitPrinter = (props) => {
   const { act, data } = useBackend<PrinterData>();
 
-  const [searchTerm, setSearchTerm] = useLocalState<string>(
-    'searchTerm',
-    '',
-  );
+  const [searchTerm, setSearchTerm] = useLocalState<string>('searchTerm', '');
   const [blueprintText, setBlueprintText] = useLocalState<string>(
     'blueprintText',
     '',
