@@ -62,7 +62,7 @@
 	UnregisterSignal(src, COMSIG_PROJECTILE_ON_HIT)
 	return ..()
 
- ///This handles the improvement potential gain from firing the weapon. The actual improvement is handled in repair of the individual compoents, this just determines how much improvement potential is gained.
+///This handles the improvement potential gain from firing the weapon. The actual improvement is handled in repair of the individual compoents, this just determines how much improvement potential is gained.
 /obj/item/gun/energy/laser/prototype/proc/on_projectile_hit(fired_from, atom/movable/firer, atom/target, angle, def_zone, blocked)
 	SIGNAL_HANDLER
 	if(!target || target == firer)
