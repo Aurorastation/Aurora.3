@@ -109,6 +109,7 @@ SUBSYSTEM_DEF(persistence)
 		return SS_INIT_SUCCESS
 
 	if(!databaseCheckConnection("subsystem init"))
+		log_subsystem_persistence_error("SQL connection unavailable. Init not possible.")
 		return SS_INIT_FAILURE
 
 	try

@@ -163,6 +163,7 @@
 	return top
 
 /datum/controller/subsystem/persistence/proc/typesGetCacheName(var/singleton/persistent_type/target_type, var/attribute)
+	PRIVATE_PROC(TRUE)
 	if(attribute && length(attribute) > 0)
 		return "[target_type]+[attribute]"
 	else
