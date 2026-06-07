@@ -179,7 +179,7 @@
 			var/obj/item/computer_hardware/hard_drive/HDD = computer.hard_drive
 			if(!HDD)
 				return TRUE
-			var/datum/computer_file/file = HDD.find_file_by_name(params["PRG_deletefile"])
+			var/datum/computer_file/file = HDD.find_file_by_name(params["PRG_delete_file"])
 			if(!file || file.undeletable)
 				return TRUE
 			HDD.remove_file(file)
@@ -270,11 +270,11 @@
 			if(!F)
 				return TRUE
 			if(istype(F))
-				if(!computer.nano_printer.print_text(F.stored_data))
+				if(!computer.nano_printer.print_text(F.stored_data, F.filename))
 					error = "Hardware error: Printer was unable to print the file. It may be out of paper."
 					return FALSE
 			else if(istype(S))
-				if(!computer.nano_printer.print_text(S.code))
+				if(!computer.nano_printer.print_text(S.code, S.filename))
 					error = "Hardware error: Printer was unable to print the file. It may be out of paper."
 					return FALSE
 
@@ -288,11 +288,8 @@
 			if(!F || !istype(F))
 				return FALSE
 			var/is_usr_tech_support = FALSE
-			if(ishuman(usr))
-				var/mob/living/carbon/human/H = usr
-				var/obj/item/card/id/ID = H.GetIdCard()
-				if(ACCESS_IT in ID.access)
-					is_usr_tech_support = TRUE
+			if(can_run(usr,FALSE,ACCESS_IT))
+				is_usr_tech_support = TRUE
 			if(!is_usr_tech_support && computer.enrolled != DEVICE_PRIVATE && istype(F, /datum/computer_file/program))
 				to_chat(usr, SPAN_WARNING("Work devices can't export programs to portable drives! Contact Tech Support to get them to load it."))
 				return TRUE
@@ -317,11 +314,8 @@
 			if(!F || !istype(F))
 				return TRUE
 			var/is_usr_tech_support = FALSE
-			if(ishuman(usr))
-				var/mob/living/carbon/human/H = usr
-				var/obj/item/card/id/ID = H.GetIdCard()
-				if(ACCESS_IT in ID.access)
-					is_usr_tech_support = TRUE
+			if(can_run(usr,FALSE,ACCESS_IT))
+				is_usr_tech_support = TRUE
 			if(!is_usr_tech_support && computer.enrolled != DEVICE_PRIVATE && istype(F, /datum/computer_file/program))
 				to_chat(usr, SPAN_WARNING("Work devices can't import programs from portable drives! Contact Tech Support to get them to load it."))
 				return TRUE
@@ -418,5 +412,17 @@
 			qdel(query)
 			usr << browse(HTML_SKELETON(dat), "window=Information;size=560x240")
 			return TRUE
+
+		if("edit_field")
+			var/obj/item/computer_hardware/hard_drive/HDD = computer.hard_drive
+			if(!HDD)
+				return TRUE
+			var/datum/computer_file/file = HDD.find_file_by_name(open_file)
+			if(!file || !istype(file))
+				return TRUE
+			var/newname = sanitize_filename(params["value"])
+			if(file && newname)
+				file.filename = newname
+				open_file = newname
 
 #undef MAX_TEXTFILE_LENGTH

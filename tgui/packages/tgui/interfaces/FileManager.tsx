@@ -6,6 +6,7 @@ import {
   NoticeBox,
   Section,
   Table,
+  Divider,
 } from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
 import { useBackend, useSharedState } from '../backend';
@@ -200,7 +201,7 @@ export const ShowFile = (props) => {
             icon="print"
             disabled={data.file_is_usb}
             onClick={() =>
-              act('PRG_printfile', { PRG_printfile: data.file_name })
+              act('PRG_print_file', { PRG_print_file: data.file_name })
             }
           />
         </>
@@ -210,9 +211,9 @@ export const ShowFile = (props) => {
       <NoticeBox danger>
         {data.error}
       </NoticeBox>
-      ) : (
+      ) : ('')}
       <Box dangerouslySetInnerHTML={contentHtml} />
-      )}
+
     </Section>
   );
 };
@@ -291,26 +292,31 @@ export const File_Edit = (props) => {
 
   return (
     <Section
-      title={`${data.file_name}.${data.file_type}`} >
+      title={<Input
+          value={data.file_name}
+          placeholder="Enter file name..."
+          onEnter={(e) => act('PRG_rename', { PRG_new_file_name: e })}
+        />}
+      buttons={
+      <>
         <Button
           icon="arrow-left"
           children="Back"
           onClick={() => act('set_screen', { screen: FMS_FILEBROWSER })}
-          />
+          /> {''}
         <Button
           icon="eye"
           children="Preview"
           onClick={() => act('PRG_open_file', { PRG_open_file: data.file_name })}
-        />
-        <Input
-          value={data.file_name}
-          placeholder="Enter file name..."
-          onEnter={(e) => act('PRG_rename', { PRG_new_file_name: e })}
-        />
+        /> {''}
+        </>
+      }
+      >
         <TextArea
           fluid
           spellcheck
           value={data.file_data}
+          maxLength = {MAX_TEXTFILE_LENGTH}
           placeholder="Type something here..."
           onEnter={(e) => act('PRG_edit', { PRG_edit: e })}
         />
