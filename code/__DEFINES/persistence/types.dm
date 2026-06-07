@@ -9,8 +9,8 @@
 //		+------------------------------------------------------------------------------------------------------------------+
 //		| MODIFYING THE TYPE NAME OF EXISTING DEFINES WILL CREATE A NEW TYPE DEFINITION IN THE DATABASE                    |
 //		+------------------------------------------------------------------------------------------------------------------+
-//		| MODIFYING THE ATTRIBUTE FLAG OF EXISTING DEFINES CAN HAVE BREAKING CONSEQUENCES, TESTING REQUIRED BEFORE RELEASE +
-//		+------------------------------------------------------------------------------------------------------------------|
+//		| MODIFYING THE ATTRIBUTE FLAG OF EXISTING DEFINES CAN HAVE BREAKING CONSEQUENCES, TESTING REQUIRED BEFORE RELEASE |
+//		+------------------------------------------------------------------------------------------------------------------+
 
 // Below are the defines for generics, history and history with character validation
 

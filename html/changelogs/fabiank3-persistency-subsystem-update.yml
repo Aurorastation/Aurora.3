@@ -18,6 +18,6 @@ changes:
   - code_imp: "Misc. changes to file structures, defines and the persistence subsystem related to the persistence framework update."
   - rscadd: "New persistent mechanics: Persistent Horizon position (persistent generic example mechanic) - The SCCV Horizon will now retain its position on the overmap from round to round. Where did we park again?"
   - rscadd: "New persistent mechanics: Persistent records of mining yields (persistent history example mechanic) - When miners claim their ore points using the ore console, the points will be saved. Every shift a report will be generated based of the points collected by each individual miner over the last 7 days. Who met their quota last week?"
-  - bugfix: "Added a init flag to the persistence subsystem to verify init success. If any issues arise during the subsystems init, saving at round end will be skipped (panic mode)."
+  - bugfix: "Added an init flag to the persistence subsystem to verify init success. If any issues arise during the subsystems init, saving at round end will be skipped (panic mode)."
   - rscadd: "Implemented numeric version of list insert sort, based of existing test list insert sort."
   - rscadd: "Implemented top K insertion sort selection for persistence subsystem cache."
