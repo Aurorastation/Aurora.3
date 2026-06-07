@@ -882,22 +882,3 @@ SUBSYSTEM_DEF(jobs)
 	if(C)
 		C.screen -= T
 	qdel(T)
-
-/datum/controller/subsystem/jobs/proc/UniformReturn(mob/living/carbon/human/H, datum/preferences/prefs, datum/job/job)
-	var/uniform = job.get_outfit(H)
-	if(!uniform) // silicons don't have uniforms or gear
-		return
-	var/obj/outfit/U = new uniform
-	var/spawned_uniform = FALSE
-	var/spawned_suit = FALSE
-	for(var/item in prefs.gear)
-		var/datum/gear/L = GLOB.gear_datums[item]
-		if(L.slot == slot_w_uniform_str)
-			if(U.uniform && !spawned_uniform && !istype(H.w_uniform, U.uniform))
-				H.equip_or_collect(new U.uniform(H), H.back)
-				spawned_uniform = TRUE
-		if(L.slot == slot_wear_suit_str)
-			if(U.suit && !spawned_suit && !istype(H.wear_suit, U.suit))
-				H.equip_or_collect(new U.suit(H), H.back)
-				spawned_suit = TRUE
-#undef Debug
