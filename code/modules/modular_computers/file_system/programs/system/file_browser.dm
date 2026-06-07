@@ -20,7 +20,6 @@
 	var/screen = FMS_FILEBROWSER
 	//Department filter for forms browser.
 	var/sql_filter_dept = ""
-	var/open_form
 	var/open_file
 	var/open_file_is_usb = FALSE
 	var/error
@@ -41,7 +40,6 @@
 			data["file_data"] = null
 			data["file_is_usb"] = FALSE
 			data["file_name"] = null
-			data["do_not_edit"] = null
 			HDD = computer.hard_drive
 			RHDD = computer.portable_drive
 			var/list/files = list()
