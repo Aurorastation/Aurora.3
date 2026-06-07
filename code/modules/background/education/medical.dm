@@ -40,11 +40,11 @@
 					accredited hospital or clinic."
 	jobs = list("Pharmacist")
 	minimum_character_age = list(
-		SPECIES_HUMAN = 30,
-		SPECIES_TAJARA = 30,
-		SPECIES_TAJARA_MSAI = 30,
-		SPECIES_TAJARA_ZHAN = 30,
-		SPECIES_UNATHI = 30,
+		SPECIES_HUMAN = 25,
+		SPECIES_TAJARA = 25,
+		SPECIES_TAJARA_MSAI = 25,
+		SPECIES_TAJARA_ZHAN = 25,
+		SPECIES_UNATHI = 25,
 		SPECIES_SKRELL = 60,
 		SPECIES_SKRELL_AXIORI = 60
 	)
