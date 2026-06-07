@@ -4095,6 +4095,8 @@
 #include "maps\away\away_site\assunzione\port_volturno\port_volturno_areas.dm"
 #include "maps\away\away_site\assunzione\port_volturno\port_volturno_ghostroles.dm"
 #include "maps\away\away_site\assunzione\port_volturno\port_volturno_landmarks.dm"
+#include "maps\away\away_site\beach_episode\beach_episode.dm"
+#include "maps\away\away_site\beach_episode\beach_episode_areas.dm"
 #include "maps\away\away_site\big_derelict\bigderelict.dm"
 #include "maps\away\away_site\blueriver\blueriver.dm"
 #include "maps\away\away_site\blueriver\blueriver_areas.dm"

@@ -11,6 +11,14 @@
 	. = ..()
 	icon_state = "desert[rand(1,4)]"
 
+/turf/simulated/floor/exoplanet/beach/
+	name = "sand"
+	gender = PLURAL
+	desc = "It's coarse and gets everywhere."
+	icon_state = "beach"
+	icon = 'icons/misc/beach.dmi'
+	footstep_sound = SFX_FOOTSTEP_SAND
+
 // TODO: Need additional desert turf sprites to distinguish the rough subtype, currently goes no higher than desert4.
 /turf/simulated/floor/exoplanet/desert/rough/Initialize()
 	. = ..()
