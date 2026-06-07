@@ -46,7 +46,7 @@ export const ManifestSection = (props) => {
                 return (
                   <Table.Row
                     key={crewmate.name}
-                    bold={crewmate.head}
+                    bold={Boolean(crewmate.head)}
                     overflow="hidden"
                   >
                     <Table.Cell width="50%" textAlign="center" pt="10px" nowrap>
