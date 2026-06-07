@@ -1,4 +1,11 @@
 #define MAX_TEXTFILE_LENGTH 128000		// 512GQ file
+#define FMS_FILEBROWSER 0
+#define FMS_SHOWFILE 1
+#define FMS_FORMS 2
+#define FMS_NEWFILE 3
+#define FMS_FOLDER 4
+#define FMS_EDIT 5
+
 /datum/computer_file/program/filemanager
 	filename = "filemanager"
 	filedesc = "NTOS File Manager"
@@ -11,6 +18,11 @@
 	available_on_ntnet = FALSE
 	undeletable = TRUE
 	tgui_id = "FileManager"
+	//Current screen of file manager.
+	var/screen = FMS_FILEBROWSER
+	//Department filter for forms browser.
+	var/sql_filter_dept = ""
+	var/open_form
 	var/open_file
 	var/open_file_is_usb = FALSE
 	var/error
@@ -21,30 +33,8 @@
 	var/obj/item/computer_hardware/hard_drive/HDD
 	var/obj/item/computer_hardware/hard_drive/portable/RHDD
 	data["error"] = error
-	if(open_file)
-		var/datum/computer_file/data/file
-		var/datum/computer_file/script/script
 
-		if(!computer || !computer.hard_drive)
-			data["error"] = "I/O ERROR: Unable to access hard drive."
-		else
-			HDD = open_file_is_usb ? computer.portable_drive : computer.hard_drive
-			data["file_is_usb"] = open_file_is_usb
-			if(!HDD)
-				data["error"] = "I/O ERROR: Unable to open file."
-				return data
-			file = HDD.find_file_by_name(open_file)
-			script = file
-			if(!istype(file))
-				if(!istype(script))
-					data["error"] = "I/O ERROR: Unable to open file."
-				else
-					data["scriptdata"] = html_encode(script.code)
-					data["filename"] = "[script.filename].[script.filetype]"
-			else
-				data["filedata"] = pencode2html(file.stored_data)
-				data["filename"] = "[file.filename].[file.filetype]"
-	else
+	if(screen == FMS_FILEBROWSER)
 		if(!computer || !computer.hard_drive)
 			data["error"] = "I/O ERROR: Unable to access hard drive."
 		else
@@ -52,6 +42,7 @@
 			data["filedata"] = null
 			data["file_is_usb"] = FALSE
 			data["filename"] = null
+			data["do_not_edit"] = null
 			HDD = computer.hard_drive
 			RHDD = computer.portable_drive
 			var/list/files = list()
@@ -76,6 +67,50 @@
 						"encrypted" = !!F.password
 					)))
 				data["usbfiles"] = usbfiles
+	if(screen == FMS_FORMS)
+		if(!SSdbcore.Connect())
+			data["sql_error"] = 1
+		else
+			var/datum/db_query/query
+			if(sql_filter_dept)
+				query = SSdbcore.NewQuery(
+					"SELECT id, name, department FROM ss13_forms WHERE department LIKE :filter ORDER BY id",
+					list("filter" = "%[sql_filter_dept]%"))
+			else
+				query = SSdbcore.NewQuery("SELECT id, name, department FROM ss13_forms ORDER BY id")
+			if(!query.Execute())
+				data["sql_error"] = 1
+			else
+				var/list/forms = list()
+				while(query.NextRow())
+					forms += list(list("id" = query.item[1], "name" = query.item[2], "department" = query.item[3]))
+				if(!forms.len)
+					data["sql_error"] = 1
+				data["forms"] = forms
+			qdel(query)
+	if(open_file)
+		var/datum/computer_file/data/file
+		var/datum/computer_file/script/script
+
+		if(!computer || !computer.hard_drive)
+			data["error"] = "I/O ERROR: Unable to access hard drive."
+		else
+			HDD = open_file_is_usb ? computer.portable_drive : computer.hard_drive
+			data["file_is_usb"] = open_file_is_usb
+			if(!HDD)
+				data["error"] = "I/O ERROR: Unable to open file."
+				return data
+			file = HDD.find_file_by_name(open_file)
+			script = file
+			if(!istype(file))
+				if(!istype(script))
+					data["error"] = "I/O ERROR: Unable to open file."
+				else
+					data["scriptdata"] = html_encode(script.code)
+					data["filename"] = "[script.filename].[script.filetype]"
+			else
+				data["filedata"] = pencode2html(file.stored_data)
+				data["filename"] = "[file.filename].[file.filetype]"
 	return data
 
 /datum/computer_file/program/filemanager/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
@@ -92,6 +127,7 @@
 			if(F.can_access_file(usr))
 				open_file = params["PRG_openfile"]
 				open_file_is_usb = FALSE
+				screen = FMS_SHOWFILE
 
 		if("PRG_usbopenfile")
 			. = TRUE
@@ -104,10 +140,11 @@
 			if(F.can_access_file(usr))
 				open_file = params["PRG_usbopenfile"]
 				open_file_is_usb = TRUE
+				screen = FMS_SHOWFILE
 
 		if("PRG_newtextfile")
 			. = TRUE
-			var/newname = sanitize_filename(tgui_input_text(usr, "Enter file name or leave blank to cancel:", "File rename"))
+			var/newname = sanitize_filename(params["PRG_newfilename"])
 			if(!newname)
 				return TRUE
 			var/obj/item/computer_hardware/hard_drive/HDD = computer.hard_drive
@@ -116,6 +153,7 @@
 			var/datum/computer_file/data/F = new/datum/computer_file/data()
 			F.filename = newname
 			F.filetype = "TXT"
+			F.stored_data = params["PRG_newfiletext"]
 			if(!HDD.store_file(F))
 				qdel(F)
 				error = "I/O ERROR: Unable to create file. The hard drive may be full, read-only, or contain a conflicting file."
@@ -187,10 +225,10 @@
 			if(F.do_not_edit && (alert("WARNING: This file is not compatible with editor. Editing it may result in permanently corrupted formatting or damaged data consistency. Edit anyway?", "Incompatible File", "No", "Yes") == "No"))
 				return TRUE
 
-			var/oldtext = html_decode(F.stored_data)
-			oldtext = replacetext(oldtext, "\[editorbr\]", "\n")
+			//var/oldtext = html_decode(F.stored_data)
+			//oldtext = replacetext(oldtext, "\[editorbr\]", "\n")
 
-			var/newtext = sanitize_filename(replacetext(tgui_input_text(usr, "Editing file [open_file]. You may use most tags used in paper formatting:", "Text Editor", oldtext), "\n", "\[editorbr\]"), MAX_TEXTFILE_LENGTH)
+			var/newtext = sanitize_filename(params["PRG_edit"])
 			if(!newtext)
 				return
 
@@ -309,5 +347,64 @@
 				return
 			if (F.can_access_file(usr))
 				F.password = ""
+
+		if("PRG_sort_forms")
+			sql_filter_dept = sanitize(params["department"])
+			return TRUE
+
+		if("PRG_reset_sql")
+			sql_filter_dept = ""
+			return TRUE
+
+		if("PRG_generate_form")
+			var/obj/item/computer_hardware/hard_drive/HDD = computer.hard_drive
+			var/printid = text2num(params["id"])
+			if(!printid)
+				return TRUE
+			if(!SSdbcore.Connect())
+				to_chat(usr, SPAN_WARNING("Connection to the database lost. Aborting."))
+				return TRUE
+			var/datum/db_query/query = SSdbcore.NewQuery(
+				"SELECT id, name, data FROM ss13_forms WHERE id = :id",
+				list("id" = printid))
+			if(!query.Execute())
+				to_chat(usr, SPAN_WARNING("Connection to the database lost. Aborting."))
+				qdel(query)
+				return TRUE
+			while(query.NextRow())
+				var/datum/computer_file/data/F = new/datum/computer_file/data()
+				F.filename = "SCCF-[query.item[1]]-[query.item[2]]"
+				F.filetype = "TXT"
+				F.stored_data = query.item[3]
+				if(!HDD.store_file(F))
+					qdel(F)
+					error = "I/O ERROR: Unable to create file. The hard drive may be full, read-only, or contain a conflicting file."
+			qdel(query)
+			return TRUE
+
+		if("PRG_whatis")
+			var/whatisid = text2num(params["id"])
+			if(!whatisid)
+				return TRUE
+			if(!SSdbcore.Connect())
+				to_chat(usr, SPAN_WARNING("Connection to the database lost. Aborting."))
+				return TRUE
+			var/datum/db_query/query = SSdbcore.NewQuery(
+				"SELECT id, name, department, info FROM ss13_forms WHERE id = :id",
+				list("id" = whatisid))
+			if(!query.Execute())
+				to_chat(usr, SPAN_WARNING("Connection to the database lost. Aborting."))
+				qdel(query)
+				return TRUE
+			var/dat = "<center><b>Stellar Corporate Conglomerate Form</b><br>"
+			while(query.NextRow())
+				dat += "<b>SCCF-[query.item[1]]</b><br><br>"
+				dat += "<b>[query.item[2]]</b><br>"
+				dat += "<b>[query.item[3]] Department</b><hr>"
+				dat += "[query.item[4]]"
+			dat += "</center>"
+			qdel(query)
+			usr << browse(HTML_SKELETON(dat), "window=Information;size=560x240")
+			return TRUE
 
 #undef MAX_TEXTFILE_LENGTH
