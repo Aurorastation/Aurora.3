@@ -2,9 +2,7 @@
 #define FMS_FILEBROWSER 0
 #define FMS_SHOWFILE 1
 #define FMS_FORMS 2
-#define FMS_NEWFILE 3
-#define FMS_FOLDER 4
-#define FMS_EDIT 5
+#define FMS_EDIT 3
 
 /datum/computer_file/program/filemanager
 	filename = "filemanager"
@@ -33,15 +31,16 @@
 	var/obj/item/computer_hardware/hard_drive/HDD
 	var/obj/item/computer_hardware/hard_drive/portable/RHDD
 	data["error"] = error
+	data["screen"] = screen
 
 	if(screen == FMS_FILEBROWSER)
 		if(!computer || !computer.hard_drive)
 			data["error"] = "I/O ERROR: Unable to access hard drive."
 		else
-			data["scriptdata"] = null
-			data["filedata"] = null
+			data["script_data"] = null
+			data["file_data"] = null
 			data["file_is_usb"] = FALSE
-			data["filename"] = null
+			data["file_name"] = null
 			data["do_not_edit"] = null
 			HDD = computer.hard_drive
 			RHDD = computer.portable_drive
@@ -50,6 +49,7 @@
 				files.Add(list(list(
 					"name" = F.filename,
 					"type" = F.filetype,
+					"desc" = F.filedesc,
 					"size" = F.size,
 					"undeletable" = F.undeletable,
 					"encrypted" = !!F.password
@@ -62,6 +62,7 @@
 					usbfiles.Add(list(list(
 						"name" = F.filename,
 						"type" = F.filetype,
+						"desc" = F.filedesc,
 						"size" = F.size,
 						"undeletable" = F.undeletable,
 						"encrypted" = !!F.password
@@ -102,15 +103,15 @@
 				return data
 			file = HDD.find_file_by_name(open_file)
 			script = file
+			data["file_name"] = "[file.filename]"
+			data["file_type"] = "[file.filetype]"
 			if(!istype(file))
 				if(!istype(script))
 					data["error"] = "I/O ERROR: Unable to open file."
 				else
-					data["scriptdata"] = html_encode(script.code)
-					data["filename"] = "[script.filename].[script.filetype]"
+					data["script_data"] = html_encode(script.code)
 			else
-				data["filedata"] = pencode2html(file.stored_data)
-				data["filename"] = "[file.filename].[file.filetype]"
+				data["file_data"] = pencode2html(file.stored_data)
 	return data
 
 /datum/computer_file/program/filemanager/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
@@ -118,47 +119,62 @@
 		return
 
 	switch(action)
-		if("PRG_openfile")
+		if("set_screen")
+			. = TRUE
+			var/new_screen = text2num(params["screen"])
+			if(new_screen == FMS_EDIT)
+				if(!open_file)
+					return TRUE
+				var/obj/item/computer_hardware/hard_drive/HDD = computer.hard_drive
+				if(!HDD)
+					return TRUE
+				var/datum/computer_file/data/F = HDD.find_file_by_name(open_file)
+				if(!F || !istype(F))
+					return TRUE
+				if(F.do_not_edit && (alert("WARNING: This file is not compatible with editor. Editing it may result in permanently corrupted formatting or damaged data consistency. Edit anyway?", "Incompatible File", "No", "Yes") == "No"))
+					return TRUE
+			screen = new_screen
+
+		if("PRG_open_file")
 			. = TRUE
 			var/obj/item/computer_hardware/hard_drive/HDD = computer.hard_drive
-			var/datum/computer_file/F = HDD.find_file_by_name(params["PRG_openfile"])
+			var/datum/computer_file/F = HDD.find_file_by_name(params["PRG_open_file"])
 			if(!F)
 				return
 			if(F.can_access_file(usr))
-				open_file = params["PRG_openfile"]
+				open_file = params["PRG_open_file"]
 				open_file_is_usb = FALSE
 				screen = FMS_SHOWFILE
 
-		if("PRG_usbopenfile")
+		if("PRG_usb_open_file")
 			. = TRUE
 			var/obj/item/computer_hardware/hard_drive/RHDD = computer.portable_drive
 			if(!RHDD)
 				return
-			var/datum/computer_file/F = RHDD.find_file_by_name(params["PRG_usbopenfile"])
+			var/datum/computer_file/F = RHDD.find_file_by_name(params["PRG_usb_open_file"])
 			if(!F)
 				return
 			if(F.can_access_file(usr))
-				open_file = params["PRG_usbopenfile"]
+				open_file = params["PRG_usb_open_file"]
 				open_file_is_usb = TRUE
 				screen = FMS_SHOWFILE
 
-		if("PRG_newtextfile")
+		if("PRG_new_text_file")
 			. = TRUE
-			var/newname = sanitize_filename(params["PRG_newfilename"])
-			if(!newname)
-				return TRUE
 			var/obj/item/computer_hardware/hard_drive/HDD = computer.hard_drive
 			if(!HDD)
 				return TRUE
 			var/datum/computer_file/data/F = new/datum/computer_file/data()
-			F.filename = newname
+			F.filename = "NewFile"
 			F.filetype = "TXT"
-			F.stored_data = params["PRG_newfiletext"]
+			F.stored_data = ""
 			if(!HDD.store_file(F))
 				qdel(F)
 				error = "I/O ERROR: Unable to create file. The hard drive may be full, read-only, or contain a conflicting file."
+			open_file = F.filename
+			screen = FMS_EDIT
 
-		if("PRG_deletefile")
+		if("PRG_delete_file")
 			. = TRUE
 			var/obj/item/computer_hardware/hard_drive/HDD = computer.hard_drive
 			if(!HDD)
@@ -168,21 +184,22 @@
 				return TRUE
 			HDD.remove_file(file)
 
-		if("PRG_usbdeletefile")
+		if("PRG_usb_delete_file")
 			. = TRUE
 			var/obj/item/computer_hardware/hard_drive/RHDD = computer.portable_drive
 			if(!RHDD)
 				return TRUE
-			var/datum/computer_file/file = RHDD.find_file_by_name(params["PRG_usbdeletefile"])
+			var/datum/computer_file/file = RHDD.find_file_by_name(params["PRG_usb_delete_file"])
 			if(!file || file.undeletable)
 				return TRUE
 			RHDD.remove_file(file)
 
-		if("PRG_closefile")
+		if("PRG_close_file")
 			. = TRUE
 			open_file = null
 			open_file_is_usb = FALSE
 			error = null
+			screen = FMS_FILEBROWSER
 
 		if("PRG_clone")
 			. = TRUE
@@ -205,28 +222,22 @@
 			var/obj/item/computer_hardware/hard_drive/HDD = computer.hard_drive
 			if(!HDD)
 				return TRUE
-			var/datum/computer_file/file = HDD.find_file_by_name(params["PRG_rename"])
+			var/datum/computer_file/file = HDD.find_file_by_name(open_file)
 			if(!file || !istype(file))
 				return TRUE
-			var/newname = sanitize_filename(tgui_input_text(usr, "Enter new file name or leave blank to cancel:", "File rename", file.filename))
+			var/newname = sanitize_filename(params["PRG_new_file_name"])
 			if(file && newname)
 				file.filename = newname
+				open_file = newname
 
 		if("PRG_edit")
 			. = TRUE
-			if(!open_file)
-				return TRUE
 			var/obj/item/computer_hardware/hard_drive/HDD = computer.hard_drive
 			if(!HDD)
 				return TRUE
 			var/datum/computer_file/data/F = HDD.find_file_by_name(open_file)
 			if(!F || !istype(F))
 				return TRUE
-			if(F.do_not_edit && (alert("WARNING: This file is not compatible with editor. Editing it may result in permanently corrupted formatting or damaged data consistency. Edit anyway?", "Incompatible File", "No", "Yes") == "No"))
-				return TRUE
-
-			//var/oldtext = html_decode(F.stored_data)
-			//oldtext = replacetext(oldtext, "\[editorbr\]", "\n")
 
 			var/newtext = sanitize_filename(params["PRG_edit"])
 			if(!newtext)
@@ -244,7 +255,7 @@
 					error = "I/O error: Unable to overwrite file. Hard drive is probably full. You may want to backup your changes before closing this window:<br><br>[html_decode(F.stored_data)]<br><br>"
 					HDD.store_file(backup)
 
-		if("PRG_printfile")
+		if("PRG_print_file")
 			. = TRUE
 			if(!open_file)
 				return TRUE
@@ -267,13 +278,13 @@
 					error = "Hardware error: Printer was unable to print the file. It may be out of paper."
 					return FALSE
 
-		if("PRG_copytousb")
+		if("PRG_copy_to_usb")
 			. = TRUE
 			var/obj/item/computer_hardware/hard_drive/HDD = computer.hard_drive
 			var/obj/item/computer_hardware/hard_drive/portable/RHDD = computer.portable_drive
 			if(!HDD || !RHDD)
 				return FALSE
-			var/datum/computer_file/F = HDD.find_file_by_name(params["PRG_copytousb"])
+			var/datum/computer_file/F = HDD.find_file_by_name(params["PRG_copy_to_usb"])
 			if(!F || !istype(F))
 				return FALSE
 			var/is_usr_tech_support = FALSE
@@ -296,13 +307,13 @@
 					return
 			RHDD.store_file(C)
 
-		if("PRG_copyfromusb")
+		if("PRG_copy_from_usb")
 			. = TRUE
 			var/obj/item/computer_hardware/hard_drive/HDD = computer.hard_drive
 			var/obj/item/computer_hardware/hard_drive/portable/RHDD = computer.portable_drive
 			if(!HDD || !RHDD)
 				return TRUE
-			var/datum/computer_file/F = RHDD.find_file_by_name(params["PRG_copyfromusb"])
+			var/datum/computer_file/F = RHDD.find_file_by_name(params["PRG_copy_from_usb"])
 			if(!F || !istype(F))
 				return TRUE
 			var/is_usr_tech_support = FALSE
@@ -380,6 +391,7 @@
 					qdel(F)
 					error = "I/O ERROR: Unable to create file. The hard drive may be full, read-only, or contain a conflicting file."
 			qdel(query)
+			screen = FMS_FILEBROWSER
 			return TRUE
 
 		if("PRG_whatis")

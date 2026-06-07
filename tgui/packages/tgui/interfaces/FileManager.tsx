@@ -6,7 +6,6 @@ import {
   NoticeBox,
   Section,
   Table,
-  Divider,
 } from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
 import { useBackend, useSharedState } from '../backend';
@@ -17,20 +16,18 @@ import { sanitizeText } from '../sanitize';
 const FMS_FILEBROWSER = 0;
 const FMS_SHOWFILE = 1;
 const FMS_FORMS = 2;
-const FMS_NEWFILE = 3;
-const FMS_FOLDER = 4;
-const FMS_EDIT = 5;
+const FMS_EDIT = 3;
 
 const MAX_TEXTFILE_LENGTH = 128000;
 
-export type FileData = {
+type FileData = {
   error: string;
   sql_error?: BooleanLike;
   usbconnected: BooleanLike;
-  scriptdata: string;
-  filedata: string;
+  script_data: string;
+  file_data: string;
   file_is_usb: BooleanLike;
-  filename: string;
+  file_name: string;
   files: File[];
   forms?: FormEntry[];
   usbfiles: File[];
@@ -41,6 +38,7 @@ type File = {
   name: string;
   type: string;
   size: number;
+  desc: string;
   undeletable: BooleanLike;
   password: BooleanLike;
 };
@@ -53,35 +51,33 @@ type FormEntry = {
 
 export const FileManager = (props) => {
   const { act, data } = useBackend<FileData>();
+  const {screen} = data;
 
   return (
     <NtosWindow resizable
-          title={`File_Manager`}
+          title={`File Manager`}
           width={670}
           height={700}
         >
           <NtosWindow.Content scrollable>
-            {data.screen === FMS_FILEBROWSER && <FileBrowser act={act} data={data} />}
-            {data.screen === FMS_FORMS && <FormBrowser act={act} data={data} />}
-            {data.screen === FMS_SHOWFILE && <ShowFile act={act} data={data} />}
-            {data.screen === FMS_NEWFILE && <NewFile act={act} data={data} />}
-            {data.screen === FMS_EDIT && <File_Edit act={act} data={data} />}
+            {screen === FMS_FILEBROWSER && <FileBrowser act={act} data={data} />}
+            {screen === FMS_FORMS && <FormBrowser act={act} data={data} />}
+            {screen === FMS_SHOWFILE && <ShowFile act={act} data={data} />}
+            {screen === FMS_EDIT && <File_Edit act={act} data={data} />}
           </NtosWindow.Content>
-        </NtosWindow>
+      </NtosWindow>
   );
 };
 
-export const FileBrowser = (props) => {
-  const { act, data } = useBackend<FileData>();
+export const FileBrowser = ({ act, data } : {act: any; data: FileData}) => (
 
-  return (
     <Section
       title="Avilable Files (Local)"
     >
       <Button
           children="New File"
           icon="folder"
-          onClick={() => act('set_screen', { screen: FMS_NEWFILE })}
+          onClick={() => act('PRG_new_text_file')}
         />
         <Button
           children="New Form"
@@ -92,6 +88,7 @@ export const FileBrowser = (props) => {
         <Table.Row header>
           <Table.Cell>Name</Table.Cell>
           <Table.Cell>Type</Table.Cell>
+          <Table.Cell>Description</Table.Cell>
           <Table.Cell>Size</Table.Cell>
           <Table.Cell>Operations</Table.Cell>
         </Table.Row>
@@ -99,22 +96,19 @@ export const FileBrowser = (props) => {
           <Table.Row key={file.name}>
             <Table.Cell>{file.name}</Table.Cell>
             <Table.Cell>{file.type}</Table.Cell>
+            <Table.Cell>{file.desc}</Table.Cell>
             <Table.Cell>{file.size} GQ</Table.Cell>
             <Table.Cell>
               <Button
                 children="View"
-                onClick={() => act('PRG_openfile', { PRG_openfile: file.name })}
+                onClick={() => act('PRG_open_file', { PRG_open_file: file.name })}
               />
               <Button
                 children="Delete"
                 color="red"
                 onClick={() =>
-                  act('PRG_deletefile', { PRG_deletefile: file.name })
+                  act('PRG_delete_file', { PRG_delete_file: file.name })
                 }
-              />
-              <Button
-                children="Rename"
-                onClick={() => act('PRG_rename', { PRG_rename: file.name })}
               />
               <Button
                 children="Clone"
@@ -129,7 +123,7 @@ export const FileBrowser = (props) => {
                 <Button
                   children="Export"
                   onClick={() =>
-                    act('PRG_copytousb', { PRG_copytousb: file.name })
+                    act('PRG_copy_to_usb', { PRG_copy_to_usb: file.name })
                   }
                 />
               )}
@@ -155,20 +149,20 @@ export const FileBrowser = (props) => {
                   <Button
                     children="View"
                     onClick={() =>
-                      act('PRG_usbopenfile', { PRG_usbopenfile: file.name })
+                      act('PRG_usb_open_file', { PRG_usb_open_file: file.name })
                     }
                   />
                   <Button
                     children="Delete"
                     color="red"
                     onClick={() =>
-                      act('PRG_usbdeletefile', { PRG_usbdeletefile: file.name })
+                      act('PRG_usb_delete_file', { PRG_usb_delete_file: file.name })
                     }
                   />
                   <Button
                     children="Import"
                     onClick={() =>
-                      act('PRG_copyfromusb', { PRG_copyfromusb: file.name })
+                      act('PRG_copy_from_usb', { PRG_copy_from_usb: file.name })
                     }
                   />
                 </Table.Cell>
@@ -178,23 +172,22 @@ export const FileBrowser = (props) => {
         </Section>
       )}
     </Section>
-  );
-};
+);
 
 export const ShowFile = (props) => {
   const { act, data } = useBackend<FileData>();
-  const contentHtml = { __html: sanitizeText(data.filedata) };
+  const contentHtml = { __html: sanitizeText(data.file_data) };
 
   return (
     <Section
-      title={data.filename}
+      title={`${data.file_name}.${data.file_type}`}
       buttons={
         <>
           <Button
             children="Close"
             icon="times"
             color="red"
-            onClick={() => act('PRG_closefile')}
+            onClick={() => act('PRG_close_file')}
           />{' '}
           <Button
             children="Edit"
@@ -207,14 +200,19 @@ export const ShowFile = (props) => {
             icon="print"
             disabled={data.file_is_usb}
             onClick={() =>
-              act('PRG_printfile', { PRG_printfile: data.filename })
+              act('PRG_printfile', { PRG_printfile: data.file_name })
             }
           />
         </>
       }
     >
-      {/** biome-ignore lint/security/noDangerouslySetInnerHtml: Is sanitized by DOMPurify. */}
+      {data.error ? (
+      <NoticeBox danger>
+        {data.error}
+      </NoticeBox>
+      ) : (
       <Box dangerouslySetInnerHTML={contentHtml} />
+      )}
     </Section>
   );
 };
@@ -293,7 +291,7 @@ export const File_Edit = (props) => {
 
   return (
     <Section
-      title={`File - ${data.filename}`} >
+      title={`${data.file_name}.${data.file_type}`} >
         <Button
           icon="arrow-left"
           children="Back"
@@ -301,48 +299,21 @@ export const File_Edit = (props) => {
           />
         <Button
           icon="eye"
-          tooltip="Preview"
-          onClick={() => act('set_screen', { screen: FMS_SHOWFILE })}
+          children="Preview"
+          onClick={() => act('PRG_open_file', { PRG_open_file: data.file_name })}
+        />
+        <Input
+          value={data.file_name}
+          placeholder="Enter file name..."
+          onEnter={(e) => act('PRG_rename', { PRG_new_file_name: e })}
         />
         <TextArea
           fluid
           spellcheck
-          value={data.filedata}
+          value={data.file_data}
           placeholder="Type something here..."
-          onEnter={(e) => act('PRG_edit', { PRG_edit: e.valueOf() })}
+          onEnter={(e) => act('PRG_edit', { PRG_edit: e })}
         />
-      </Section>
-  );
-};
-
-export const NewFile = (props) => {
-  const { act, data } = useBackend<FileData>();
-  let name = 'NewFile';
-  let filedata = '';
-
-  return (
-    <Section
-      title="New File"
-      >
-      <Button
-        icon="arrow-left"
-        children="Back"
-        onClick={() => act('set_screen', { screen: FMS_FILEBROWSER })}
-      />
-      <Input
-        placeholder="Enter file name..."
-        onChange={(filename) => name = filename.valueOf() }
-      />
-      <TextArea
-        fluid
-        spellcheck
-        placeholder="Type something here..."
-        onChange={(text) => filedata = text.valueOf() }
-      />
-      <Button
-        children="Create"
-        onClick={() => act('PRG_newtextfile', { PRG_newfilename: name, PRG_newfiletext: filedata })}
-      />
       </Section>
   );
 };

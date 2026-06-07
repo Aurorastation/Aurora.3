@@ -5,6 +5,7 @@ GLOBAL_VAR_INIT(file_uid, 0)
 	var/filename = "NewFile"
 	/// File full names are [filename].[filetype] so like NewFile.XXX in this case
 	var/filetype = "XXX"
+	/// Description of the file, shown in file browser.
 	var/filedesc = null
 	/// File size in GQ. Integers only!
 	var/size = 1
