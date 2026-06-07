@@ -5,3 +5,4 @@ delete-after: True
 changes:
   - bugfix: "Moved improvement cap from a define to the base component. Fixes components that had too few upgradable variables never counting as fully upgraded."
   - bugfix: "Fixes weapons improving even if they miss their targets. Now they only improve if they hit something. Prevents infinite upgrades by deliberately shooting walls."
+  - bugfix: "Fixes ions doing damage, in addition to EMPing their target. Also reduces the shot capacity of modular Ion guns to better match existing ones."
