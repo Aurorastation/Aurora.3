@@ -109,24 +109,6 @@
 		add_fingerprint(usr)
 		return TRUE
 
-/obj/structure/machinery/keycard_auth/Topic(href, href_list)
-	..()
-	if(busy)
-		to_chat(usr, "This device is busy.")
-		return
-	if(usr.stat || stat & (BROKEN|NOPOWER))
-		to_chat(usr, "This device is without power.")
-		return
-	if(href_list["triggerevent"])
-		event = href_list["triggerevent"]
-		screen = 2
-	if(href_list["reset"])
-		reset()
-
-	updateUsrDialog()
-	add_fingerprint(usr)
-	return
-
 /obj/structure/machinery/keycard_auth/proc/reset()
 	active = FALSE
 	event = ""
