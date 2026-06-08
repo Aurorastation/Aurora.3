@@ -1,4 +1,4 @@
-#define PERSISTENCE_INTERNAL_MAX_RECORD_QUERY_COUNT 1000 // Max record row count to allowed to draw
+#define PERSISTENCE_INTERNAL_MAX_RECORD_QUERY_COUNT 1000 // Max row count of records allowed to be drawn from database for performance reasons
 
 /**
  * Helper proc for history/character persistent types to retrieve a character name based of it's character ID.
