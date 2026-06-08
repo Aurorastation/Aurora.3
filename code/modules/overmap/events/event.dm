@@ -195,6 +195,8 @@
 	var/ship_delay_time = 10
 	/// Ticks up each process until move speed is matched, at which point the event will move
 	var/ship_delay_counter = 0
+	/// Text that appears in the tooltip.
+	var/tooltip_text = "A hazard."
 
 /obj/effect/overmap/event/Initialize()
 	. = ..()
@@ -266,6 +268,7 @@
 	opacity = 1
 	event_icon_states = list("meteor1", "meteor2", "meteor3", "meteor4")
 	difficulty = EVENT_LEVEL_MAJOR
+	tooltip_text = "Large rocks and debris traveling at high speed that can destroy entire hull sections."
 
 /obj/effect/overmap/event/electric
 	name = "electrical storm"
@@ -273,6 +276,7 @@
 	event_icon_states = list("electrical1", "electrical2")
 	difficulty = EVENT_LEVEL_MAJOR
 	can_be_destroyed = FALSE
+	tooltip_text = "Electromagnetic storm effects that can damage or disable electrical grids."
 
 /obj/effect/overmap/event/dust
 	name = "dust cloud"
@@ -280,6 +284,7 @@
 	opacity = 1
 	event_icon_states = list("dust1", "dust2", "dust3", "dust4")
 	can_be_destroyed = FALSE
+	tooltip_text = "Small dust and debris traveling at high speed that can damage or destroy external windows."
 
 /obj/effect/overmap/event/ion
 	name = "ion cloud"
@@ -287,6 +292,7 @@
 	event_icon_states = list("ion1", "ion2", "ion3", "ion4")
 	difficulty = EVENT_LEVEL_MAJOR
 	can_be_destroyed = FALSE
+	tooltip_text = "Ionic effects that can damage synthetics like IPCs or AI, as well as disrupt telecommunications."
 
 /obj/effect/overmap/event/carp
 	name = "carp shoal"
@@ -294,6 +300,7 @@
 	difficulty = EVENT_LEVEL_MODERATE
 	event_icon_states = list("carp")
 	movable_event_chance = 30
+	tooltip_text = "Xenofauna: usually hostile."
 
 /obj/effect/overmap/event/carp/major
 	name = "carp school"
@@ -303,12 +310,19 @@
 
 /obj/effect/overmap/event/gravity_anomaly
 	name = "gravitic anomaly"
-	events = list(/datum/event/gravity_anomaly/overmap)
+	events = list(/datum/event/gravity_anomaly)
 	difficulty = EVENT_LEVEL_MODERATE
-	event_icon_states = list("grav")
+	event_icon_states = list("grav1")
 	can_be_destroyed = FALSE
+	tooltip_text = "Unstable gravity effects that <b>only</b> affect ships with wide-field gravity generators (unless powered off)."
 
-/datum/event/gravity_anomaly/overmap
+/obj/effect/overmap/event/MouseEntered(location, control, params)
+	. = ..()
+	openToolTip(usr, src, params, tooltip_text)
+
+/obj/effect/overmap/event/MouseExited(location, control, params)
+	. = ..()
+	closeToolTip(usr)
 
 ///These now are basically only used to spawn hazards. Will be useful when we need to spawn group of moving hazards
 /datum/overmap_event

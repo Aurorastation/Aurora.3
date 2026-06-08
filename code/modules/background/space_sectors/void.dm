@@ -66,8 +66,11 @@
 		'sound/music/lobby/lights_edge/lights_edge_2.ogg',
 		'sound/music/lobby/dangerous_space/dangerous_space_1.ogg'
 	)
+
+	sector_welcome_message = 'sound/AI/welcome_lemurian_sea_outer.ogg'
 	hivenet_echoes = FALSE
 
 /datum/space_sector/lemurian_sea/far
 	name = SECTOR_LEMURIAN_SEA_FAR
 	ccia_link = FALSE
+	sector_welcome_message = 'sound/AI/welcome_lemurian_sea_inner.ogg'
