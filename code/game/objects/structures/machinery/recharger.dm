@@ -7,10 +7,16 @@
 	icon_state = "recharger_off"
 	anchored = 1
 	idle_power_usage = 6
-	active_power_usage = 45 KILO WATTS
+	active_power_usage = 50 KILO WATTS
 	pass_flags = PASSTABLE
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
-	var/charging_efficiency = 1.3
+	var/charging_efficiency = 1
+	var/charging_efficiency_per_capacitor = 0.1
+	var/charging_speed_per_capacitor = 25 KILO WATTS
+	component_types = list(
+		/obj/item/circuitboard/recharger,
+		/obj/item/stock_parts/capacitor = 2
+	)
 	//Entropy. The charge put into the cell is multiplied by this
 	var/obj/item/charging
 
@@ -58,6 +64,17 @@
 		LAZYREMOVE(chargebars, bar)
 		qdel(bar)
 
+/obj/structure/machinery/recharger/RefreshParts()
+	..()
+
+	var/cap_rating = 0
+	for(var/obj/item/stock_parts/P in component_parts)
+		if(iscapacitor(P))
+			cap_rating += P.rating
+
+	charging_efficiency += cap_rating * charging_efficiency_per_capacitor
+	active_power_usage = cap_rating * charging_speed_per_capacitor
+
 /obj/structure/machinery/recharger/attackby(obj/item/attacking_item, mob/user)
 	if(portable && attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(charging)
@@ -76,6 +93,11 @@
 				update_icon()
 			else
 				to_chat(user, SPAN_DANGER("Your gripper cannot hold \the [charging]."))
+		return TRUE
+
+	if(default_part_replacement(user, attacking_item))
+		return TRUE
+	else if(default_deconstruction_screwdriver(user, attacking_item))
 		return TRUE
 
 	if(!attacking_item.dropsafety())
@@ -197,6 +219,10 @@
 	icon_state_idle = "wrecharger_off"
 	appearance_flags = TILE_BOUND // prevents people from viewing us through a wall
 	portable = FALSE
+	component_types = list(
+		/obj/item/circuitboard/recharger/wall,
+		/obj/item/stock_parts/capacitor = 3
+	)
 
 /obj/structure/machinery/recharger/wallcharger/mechanics_hints(mob/user, distance, is_adjacent)
 	. = list()
