@@ -133,7 +133,7 @@
 
 	if(limit > PERSISTENCE_INTERNAL_MAX_RECORD_QUERY_COUNT)
 		limit = PERSISTENCE_INTERNAL_MAX_RECORD_QUERY_COUNT
-		log_subsystem_persistence_panic("Attempted to draw more records then allowed for target type [target_type].")
+		log_subsystem_persistence_warning("Attempted to draw more records then allowed for target type [target_type].")
 
 	var/singleton/persistent_type/type_instance = GET_SINGLETON(target_type)
 	if(type_instance.requires_attribute && !attribute)
@@ -230,7 +230,7 @@
 
 	if(limit > PERSISTENCE_INTERNAL_MAX_RECORD_QUERY_COUNT)
 		limit = PERSISTENCE_INTERNAL_MAX_RECORD_QUERY_COUNT
-		log_subsystem_persistence_panic("Attempted to draw more records then allowed for target type [target_type].")
+		log_subsystem_persistence_warning("Attempted to draw more records then allowed for target type [target_type].")
 
 	var/singleton/persistent_type/type_instance = GET_SINGLETON(target_type)
 	var/list/result = list()
