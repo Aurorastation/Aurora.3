@@ -67,7 +67,7 @@ ABSTRACT_TYPE(/singleton/persistent_type/history/character) // Base type with ex
 	}
 
 // Persistent history with extended validation on character relation - Attribute automatically required compared to parent persistent history type definition
-// CREATE_PERSISTENT_TYPE_HISTORY(my_type_name, "My custom type", "This type is a test and has no purpose", /singleton/persistent_type_history_expiration_rule/age/default)
+// CREATE_PERSISTENT_TYPE_HISTORY_CHARACTER(my_type_name, "My custom type", "This type is a test and has no purpose", /singleton/persistent_type_history_expiration_rule/age/default)
 #define CREATE_PERSISTENT_TYPE_HISTORY_CHARACTER(TYPE_NAME, TITLE, DESCRIPTION, EXPIRATION_RULE) \
 	/singleton/persistent_type/history/character/##TYPE_NAME \
 	{ \
