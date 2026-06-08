@@ -86,8 +86,8 @@
 	device_theme = "orion"
 
 /obj/item/modular_computer/handheld/preset/supply/cargo_delivery/install_default_hardware()
-    . = ..()
-    nano_printer = new /obj/item/computer_hardware/nano_printer(src)
+	. = ..()
+	nano_printer = new /obj/item/computer_hardware/nano_printer(src)
 
 // Medical
 

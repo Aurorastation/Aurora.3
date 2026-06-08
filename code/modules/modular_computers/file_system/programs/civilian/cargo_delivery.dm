@@ -185,7 +185,7 @@
 		return TRUE
 
 	//Print functions
-	if("order_print")
+	if(action == "order_print")
 		if(!access_check(I))
 			return FALSE
 		//Get the order
@@ -200,7 +200,7 @@
 
 // Cargo access check
 /datum/computer_file/program/civilian/cargodelivery/proc/access_check(var/obj/item/card/id/I)
-    if(!istype(I) || !I.registered_name || !(ACCESS_CARGO in I.access) || issilicon(usr))
-        to_chat(usr, SPAN_WARNING("Authentication error: Unable to locate ID with appropriate access to allow this operation."))
-        return FALSE
-    return TRUE
+	if(!istype(I) || !I.registered_name || !(ACCESS_CARGO in I.access) || issilicon(usr))
+		to_chat(usr, SPAN_WARNING("Authentication error: Unable to locate ID with appropriate access to allow this operation."))
+		return FALSE
+	return TRUE
