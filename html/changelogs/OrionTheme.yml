@@ -7,3 +7,4 @@ changes:
   - rscadd: "Modular computers can now have a front page theme defined. Currently this is only applied to the operations delivery tablets."
   - bugfix: "Fixed some issues with the cargo programs displaying the wrong delivery time."
   - rscadd: "Added the ability to clear the currently selected order in the delivery program and cargo control program."
+  - rscadd: "It is now possible to print invoices from the cargo delivery program."

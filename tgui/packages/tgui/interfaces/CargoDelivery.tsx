@@ -64,7 +64,7 @@ export const CargoDelivery = (props) => {
   const { act, data } = useBackend<CargoData>();
 
   return (
-    <NtosWindow resizable theme="orion" width={610} height={800}>
+    <NtosWindow resizable theme="orion" width={620} height={800}>
       <NtosWindow.Content scrollable>
         <Section>
           <Tabs>
@@ -262,9 +262,9 @@ export const Payment = (props) => {
             onClick={() => act('deliver', { deliver: 'true' })}
           >
             {data.order_details.status === 'shipped'
-              ? 'Confirm Delivery'
+              ? 'Deliver'
               : data.order_details.status === 'delivered'
-                ? 'Delivered Already'
+                ? 'Delivered'
                 : 'Not Shipped'}
           </Button>
           <Button
@@ -273,6 +273,14 @@ export const Payment = (props) => {
             icon="credit-card"
             color="approve"
             onClick={() => act('pay', { deliver: 'true' })}
+          />
+          <Button
+            content="Print"
+            onClick={() =>
+              act('order_print', {
+                order_print: data.order_details.order_id.toString(),
+              })
+            }
           />
         </>
       }

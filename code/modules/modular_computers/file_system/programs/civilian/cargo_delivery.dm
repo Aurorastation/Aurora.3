@@ -74,7 +74,6 @@
 			//Check if its already delivered
 			if(order_details["status"] == "delivered")
 				status_message = "Unable to Deliver - Order has already been delivered."
-				return TRUE
 
 			//If a payment is not needed and we are at the status shipped, then confirm the delivery
 			else if(order_details["status"] == "shipped")
@@ -83,10 +82,9 @@
 				order_details = co.get_list()
 			else
 				status_message = "The order is not yet shipped."
-				return TRUE
 		else
 			status_message = "Unable to process - Network Card or Card Reader Missing"
-			return TRUE
+		return TRUE
 
 	if(action == "pay")
 		if(computer && computer.card_slot && computer.network_card)
@@ -144,9 +142,10 @@
 				playsound(computer, 'sound/machines/chime.ogg', 50, TRUE)
 				status_message = co.set_paid(GetNameAndAssignmentFromId(id_card), usr.character_id, destinationact)
 				order_details = co.get_list()
+			return TRUE
 		else
 			status_message = "Unable to process - Network Card or Card Reader Missing"
-			return TRUE
+			return FALSE
 
 	if(action == "clear_order")
 		co = null
@@ -175,9 +174,8 @@
 
 	if(action == "accountselect")
 		// Only cargo can switch between the paying accounts
-		if(!istype(I) || !I.registered_name || !(ACCESS_CARGO in I.access) || issilicon(usr))
-			to_chat(usr, SPAN_WARNING("Authentication error: Unable to locate ID with appropriate access to allow this operation."))
-			return
+		if(!access_check(I))
+			return FALSE
 		var/list/choices = assoc_to_keys(SSeconomy.department_accounts)
 		choices += "Personal"
 		var/dest = tgui_input_list(usr, "What account would you like to select?", "Destination Account", choices)
@@ -185,3 +183,24 @@
 			return FALSE
 		destinationact = dest
 		return TRUE
+
+	//Print functions
+	if("order_print")
+		if(!access_check(I))
+			return FALSE
+		//Get the order
+		var/datum/cargo_order/co = SScargo.get_order_by_id(text2num(params["order_print"]))
+		if(co && computer.nano_printer)
+			if(!computer.nano_printer.print_text(co.get_report_invoice(),"Order Invoice #[co.order_id]"))
+				to_chat(usr, SPAN_WARNING("Hardware error: Printer was unable to print the file. It may be out of paper."))
+				return
+			else
+				computer.visible_message(SPAN_NOTICE("\The [computer] prints out paper."))
+		return TRUE
+
+// Cargo access check
+/datum/computer_file/program/civilian/cargodelivery/proc/access_check(var/obj/item/card/id/I)
+    if(!istype(I) || !I.registered_name || !(ACCESS_CARGO in I.access) || issilicon(usr))
+        to_chat(usr, SPAN_WARNING("Authentication error: Unable to locate ID with appropriate access to allow this operation."))
+        return FALSE
+    return TRUE

@@ -85,6 +85,10 @@
 	_app_preset_type = /datum/modular_computer_app_presets/cargo_delivery
 	device_theme = "orion"
 
+/obj/item/modular_computer/handheld/preset/supply/cargo_delivery/install_default_hardware()
+    . = ..()
+    nano_printer = new /obj/item/computer_hardware/nano_printer(src)
+
 // Medical
 
 /obj/item/modular_computer/handheld/preset/medical
