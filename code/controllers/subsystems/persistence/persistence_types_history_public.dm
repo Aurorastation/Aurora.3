@@ -259,3 +259,5 @@
 		return null
 	else
 		return result
+
+#undef PERSISTENCE_INTERNAL_MAX_RECORD_QUERY_COUNT
