@@ -35,7 +35,10 @@ SUBSYSTEM_DEF(events)
 	initialized = TRUE
 
 	if(SSatlas.current_map.use_overmap)
-		overmap_event_handler.create_events(SSatlas.current_map.overmap_z, SSatlas.current_map.overmap_size, SSatlas.current_map.overmap_event_areas)
+		var/overmap_event_areas = SSatlas.current_map.overmap_event_areas
+		if(SSatlas.current_sector)
+			overmap_event_areas = round(overmap_event_areas * SSatlas.current_sector.overmap_hazards_multiplier)
+		overmap_event_handler.create_events(SSatlas.current_map.overmap_z, SSatlas.current_map.overmap_size, overmap_event_areas)
 
 	return SS_INIT_SUCCESS
 

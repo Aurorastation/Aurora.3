@@ -12,7 +12,8 @@
 	var/list/possible_exoplanets = list(/obj/effect/overmap/visitable/sector/exoplanet/snow, /obj/effect/overmap/visitable/sector/exoplanet/desert)
 	///Guaranteed planets to spawn. This ignores the map exoplanet limit, so don't put too many planets in here.
 	var/list/guaranteed_exoplanets = list()
-	var/list/cargo_price_coef = list( //how much the space sector afffects how expensive is ordering from that cargo supplier
+	/// How much the space sector afffects how expensive is ordering from that cargo supplier
+	var/list/cargo_price_coef = list(
 		"nanotrasen" = 1,
 		"orion" = 1,
 		"hephaestus" = 1,
@@ -63,6 +64,8 @@
 	///Does this sector allow Vaurcae catch fluff echoes of the greater Hivenet? Primarily for Lemurian Sea, but some super remote areas also fit. Obviously, consult w/ lore.
 	var/hivenet_echoes = TRUE
 
+	/// This variable is a multiplier applied to the 'overmap_event_areas' datum/map/var to increase or decrease the total number of hazards spawned in the sector.
+	var/overmap_hazards_multiplier = 1.0
 	//vars used by the meteor random event
 
 	var/list/meteors_minor = list(

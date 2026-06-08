@@ -301,12 +301,14 @@
 	difficulty = EVENT_LEVEL_MAJOR
 	movable_event_chance = 15
 
-// see comment at code/modules/events/gravity.dm
-// tl;dr gravity is handled globally, meaning if the horizon loses gravity, everyone does
-// /obj/effect/overmap/event/gravity
-// 	name = "dark matter influx"
-// 	events = list(/datum/event/gravity)
-// 	can_be_destroyed = FALSE
+/obj/effect/overmap/event/gravity_anomaly
+	name = "gravitic anomaly"
+	events = list(/datum/event/gravity_anomaly/overmap)
+	difficulty = EVENT_LEVEL_MODERATE
+	event_icon_states = list("grav")
+	can_be_destroyed = FALSE
+
+/datum/event/gravity_anomaly/overmap
 
 ///These now are basically only used to spawn hazards. Will be useful when we need to spawn group of moving hazards
 /datum/overmap_event
@@ -359,11 +361,8 @@
 	opacity = 1
 	hazards = /obj/effect/overmap/event/carp/major
 
-// see comment at code/modules/events/gravity.dm
-// tl;dr gravity is handled globally, meaning if the horizon loses gravity, everyone does
-// this needs to be fixed before we can uncomment this
-// /datum/overmap_event/gravity
-// 	name = "dark matter influx"
-// 	count = 12
-// 	radius = 4
-// 	hazards = /obj/effect/overmap/event/gravity
+/datum/overmap_event/gravity
+	name = "dark matter influx"
+	count = 15
+	radius = 8
+	hazards = /obj/effect/overmap/event/gravity_anomaly
