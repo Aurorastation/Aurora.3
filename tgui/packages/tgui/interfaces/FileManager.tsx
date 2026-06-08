@@ -12,6 +12,7 @@ import type { BooleanLike } from 'tgui-core/react';
 import { useBackend, useSharedState } from '../backend';
 import { NtosWindow } from '../layouts';
 import { sanitizeText } from '../sanitize';
+import { useState } from 'react';
 
 // Screen constants (must match DM defines)
 const FMS_FILEBROWSER = 0;
@@ -24,14 +25,14 @@ const MAX_TEXTFILE_LENGTH = 128000;
 type FileData = {
   error: string;
   sql_error?: BooleanLike;
-  usbconnected: BooleanLike;
+  usb_connected: BooleanLike;
   script_data: string;
   file_data: string;
   file_is_usb: BooleanLike;
   file_name: string;
   files: File[];
   forms?: FormEntry[];
-  usbfiles: File[];
+  usb_files: File[];
   screen: number;
 };
 
@@ -70,18 +71,22 @@ export const FileManager = (props) => {
   );
 };
 
-export const FileBrowser = ({ act, data } : {act: any; data: FileData}) => (
+export const FileBrowser = (props) => {
+  const { act, data } = useBackend<FileData>();
+  const [encrypt, setEncrypting] = useState(false);
+  let [file_to_encrypt] = '';
 
+  return (
     <Section
       title="Avilable Files (Local)"
     >
       <Button
-          children="New File"
+          content="New File"
           icon="folder"
           onClick={() => act('PRG_new_text_file')}
         />
         <Button
-          children="New Form"
+          content="New Form"
           icon="folder"
           onClick={() => act('set_screen', { screen: FMS_FORMS })}
         />
@@ -101,28 +106,43 @@ export const FileBrowser = ({ act, data } : {act: any; data: FileData}) => (
             <Table.Cell>{file.size} GQ</Table.Cell>
             <Table.Cell>
               <Button
-                children="View"
+                content="View"
+                color = {file.password? "grey" : "default"}
                 onClick={() => act('PRG_open_file', { PRG_open_file: file.name })}
               />
               <Button
-                children="Delete"
+                content="Delete"
                 color="red"
                 onClick={() =>
                   act('PRG_delete_file', { PRG_delete_file: file.name })
                 }
               />
               <Button
-                children="Clone"
+                content="Clone"
                 disabled={file.type === 'PRG'}
                 onClick={() => act('PRG_clone', { PRG_clone: file.name })}
               />
+              {encrypt && file_to_encrypt === file.name ? (
+                  <Input
+                  autoFocus
+                  autoSelect
+                  maxLength={512}
+                  width = "25%"
+                  placeholder='Enter an encryption key.'
+                  onEnter={(value) => {
+                    setEncrypting(false);
+                    act('PRG_encrypt', { PRG_file_to_encrypt : file.name, PRG_encrypt : value })}
+                  }
+                  />
+              ) : (
               <Button
-                children="Encrypt"
-                onClick={() => act('PRG_encrypt', { PRG_encrypt: file.name })}
+                content= {file.password? "Decrypt" : "Encrypt"}
+                onClick={() => {setEncrypting(true), file_to_encrypt = file.name}}
               />
-              {data.usbconnected && (
+              )}
+              {data.usb_connected && (
                 <Button
-                  children="Export"
+                  content="Export"
                   onClick={() =>
                     act('PRG_copy_to_usb', { PRG_copy_to_usb: file.name })
                   }
@@ -132,7 +152,7 @@ export const FileBrowser = ({ act, data } : {act: any; data: FileData}) => (
           </Table.Row>
         ))}
       </Table>
-      {data.usbconnected && data.usbfiles.length && (
+      {data.usb_connected && data.usb_files.length && (
         <Section title="USB Files">
           <Table>
             <Table.Row header>
@@ -141,27 +161,27 @@ export const FileBrowser = ({ act, data } : {act: any; data: FileData}) => (
               <Table.Cell>Size</Table.Cell>
               <Table.Cell>Operations</Table.Cell>
             </Table.Row>
-            {data.usbfiles.map((file) => (
+            {data.usb_files.map((file) => (
               <Table.Row key={file.name}>
                 <Table.Cell>{file.name}</Table.Cell>
                 <Table.Cell>{file.type}</Table.Cell>
                 <Table.Cell>{file.size} GQ</Table.Cell>
                 <Table.Cell>
                   <Button
-                    children="View"
+                    content="View"
                     onClick={() =>
                       act('PRG_usb_open_file', { PRG_usb_open_file: file.name })
                     }
                   />
                   <Button
-                    children="Delete"
+                    content="Delete"
                     color="red"
                     onClick={() =>
                       act('PRG_usb_delete_file', { PRG_usb_delete_file: file.name })
                     }
                   />
                   <Button
-                    children="Import"
+                    content="Import"
                     onClick={() =>
                       act('PRG_copy_from_usb', { PRG_copy_from_usb: file.name })
                     }
@@ -173,7 +193,8 @@ export const FileBrowser = ({ act, data } : {act: any; data: FileData}) => (
         </Section>
       )}
     </Section>
-);
+  )
+};
 
 export const ShowFile = (props) => {
   const { act, data } = useBackend<FileData>();
@@ -185,19 +206,19 @@ export const ShowFile = (props) => {
       buttons={
         <>
           <Button
-            children="Close"
+            content="Close"
             icon="times"
             color="red"
             onClick={() => act('PRG_close_file')}
           />{' '}
           <Button
-            children="Edit"
+            content="Edit"
             icon="edit"
             disabled={data.file_is_usb}
             onClick={() => act('set_screen', { screen: FMS_EDIT })}
           />{' '}
           <Button
-            children="Print"
+            content="Print"
             icon="print"
             disabled={data.file_is_usb}
             onClick={() =>
@@ -227,7 +248,7 @@ return (
     buttons={
       <Button
         icon="arrow-left"
-        children="Back"
+        content="Back"
         onClick={() => act('set_screen', { screen: FMS_FILEBROWSER })}
       />
     }
@@ -243,7 +264,7 @@ return (
         <Box mb={1}>
           <Button
             icon="sync"
-            children="Show All"
+            content="Show All"
             onClick={() => act('reset_sql')}
           />
         </Box>
@@ -260,7 +281,7 @@ return (
               <Table.Cell>{form.name}</Table.Cell>
               <Table.Cell>
                 <Button
-                  children={form.department}
+                  content={form.department}
                   onClick={() =>
                     act('sort_forms', { department: form.department })
                   }
@@ -296,17 +317,17 @@ export const File_Edit = (props) => {
           value={data.file_name}
           placeholder="Enter file name..."
           onEnter={(e) => act('PRG_rename', { PRG_new_file_name: e })}
-        />}
+        /> }
       buttons={
       <>
         <Button
           icon="arrow-left"
-          children="Back"
+          content="Back"
           onClick={() => act('set_screen', { screen: FMS_FILEBROWSER })}
           /> {''}
         <Button
           icon="eye"
-          children="Preview"
+          content="Preview"
           onClick={() => act('PRG_open_file', { PRG_open_file: data.file_name })}
         /> {''}
         </>
@@ -315,6 +336,7 @@ export const File_Edit = (props) => {
         <TextArea
           fluid
           spellcheck
+          height = {45}
           value={data.file_data}
           maxLength = {MAX_TEXTFILE_LENGTH}
           placeholder="Type something here..."

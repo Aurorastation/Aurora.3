@@ -32,40 +32,42 @@
 	data["error"] = error
 	data["screen"] = screen
 
+	if(!computer || !computer.hard_drive)
+		data["error"] = "I/O ERROR: Unable to access hard drive."
+		return data
 	if(screen == FMS_FILEBROWSER)
-		if(!computer || !computer.hard_drive)
-			data["error"] = "I/O ERROR: Unable to access hard drive."
-		else
-			data["script_data"] = null
-			data["file_data"] = null
-			data["file_is_usb"] = FALSE
-			data["file_name"] = null
-			HDD = computer.hard_drive
-			RHDD = computer.portable_drive
-			var/list/files = list()
-			for(var/datum/computer_file/F in HDD.stored_files)
-				files.Add(list(list(
+		data["script_data"] = null
+		data["file_data"] = null
+		data["file_is_usb"] = FALSE
+		data["file_name"] = null
+		HDD = computer.hard_drive
+		RHDD = computer.portable_drive
+		var/list/files = list()
+		for(var/datum/computer_file/F in HDD.stored_files)
+			files.Add(list(list(
+				"name" = F.filename,
+				"type" = F.filetype,
+				"desc" = F.filedesc,
+				"size" = F.size,
+				"undeletable" = F.undeletable,
+				"password" = !!F.password
+			)))
+		data["files"] = files
+		if(RHDD)
+			data["usb_connected"] = TRUE
+			var/list/usb_files = list()
+			for(var/datum/computer_file/F in RHDD.stored_files)
+				usb_files.Add(list(list(
 					"name" = F.filename,
 					"type" = F.filetype,
 					"desc" = F.filedesc,
 					"size" = F.size,
 					"undeletable" = F.undeletable,
-					"encrypted" = !!F.password
+					"password" = !!F.password
 				)))
-			data["files"] = files
-			if(RHDD)
-				data["usbconnected"] = TRUE
-				var/list/usbfiles = list()
-				for(var/datum/computer_file/F in RHDD.stored_files)
-					usbfiles.Add(list(list(
-						"name" = F.filename,
-						"type" = F.filetype,
-						"desc" = F.filedesc,
-						"size" = F.size,
-						"undeletable" = F.undeletable,
-						"encrypted" = !!F.password
-					)))
-				data["usbfiles"] = usbfiles
+			data["usb_files"] = usb_files
+		else
+			data["usb_connected"] = FALSE
 	if(screen == FMS_FORMS)
 		if(!SSdbcore.Connect())
 			data["sql_error"] = 1
@@ -90,26 +92,26 @@
 	if(open_file)
 		var/datum/computer_file/data/file
 		var/datum/computer_file/script/script
-
-		if(!computer || !computer.hard_drive)
-			data["error"] = "I/O ERROR: Unable to access hard drive."
-		else
-			HDD = open_file_is_usb ? computer.portable_drive : computer.hard_drive
-			data["file_is_usb"] = open_file_is_usb
-			if(!HDD)
+		HDD = open_file_is_usb ? computer.portable_drive : computer.hard_drive
+		data["file_is_usb"] = open_file_is_usb
+		if(!HDD)
+			data["error"] = "I/O ERROR: Unable to open file."
+			return data
+		file = HDD.find_file_by_name(open_file)
+		script = file
+		data["file_name"] = "[file.filename]"
+		data["file_type"] = "[file.filetype]"
+		if(!istype(file))
+			if(!istype(script))
 				data["error"] = "I/O ERROR: Unable to open file."
 				return data
-			file = HDD.find_file_by_name(open_file)
-			script = file
-			data["file_name"] = "[file.filename]"
-			data["file_type"] = "[file.filetype]"
-			if(!istype(file))
-				if(!istype(script))
-					data["error"] = "I/O ERROR: Unable to open file."
-				else
-					data["script_data"] = html_encode(script.code)
 			else
-				data["file_data"] = pencode2html(file.stored_data)
+				data["script_data"] = html_encode(script.code)
+				return data
+		if(screen == FMS_EDIT)
+			data["file_data"] = file.stored_data
+		else
+			data["file_data"] = pencode2html(file.stored_data)
 	return data
 
 /datum/computer_file/program/filemanager/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
@@ -237,7 +239,7 @@
 			if(!F || !istype(F))
 				return TRUE
 
-			var/newtext = sanitize_filename(params["PRG_edit"])
+			var/newtext = params["PRG_edit"]
 			if(!newtext)
 				return
 
@@ -333,23 +335,13 @@
 			var/obj/item/computer_hardware/hard_drive/HDD = computer.hard_drive
 			if (!HDD)
 				return
-			var/datum/computer_file/F = HDD.find_file_by_name(params["PRG_encrypt"])
+			var/datum/computer_file/F = HDD.find_file_by_name(params["PRG_file_to_encrypt"])
 			if(!F || F.undeletable)
 				return
-			if(F.password)
-				return
-			F.password = sanitize_filename(tgui_input_text(usr, "Enter an encryption key:", "Encrypt File"))
-
-		if("PRG_decrypt")
-			. = TRUE
-			var/obj/item/computer_hardware/hard_drive/HDD = computer.hard_drive
-			if (!HDD)
-				return
-			var/datum/computer_file/F = HDD.find_file_by_name(params["PRG_encrypt"])
-			if(!F || F.undeletable)
-				return
-			if (F.can_access_file(usr))
+			if(F.password && F.password == params["PRG_encrypt"])
 				F.password = ""
+				return
+			F.password = params["PRG_encrypt"]
 
 		if("PRG_sort_forms")
 			sql_filter_dept = sanitize(params["department"])
