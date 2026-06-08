@@ -220,7 +220,7 @@
 	appearance_flags = TILE_BOUND // prevents people from viewing us through a wall
 	portable = FALSE
 	component_types = list(
-		/obj/item/circuitboard/recharger/wall,
+		/obj/item/circuitboard/recharger/wallcharger,
 		/obj/item/stock_parts/capacitor = 3
 	)
 
