@@ -17,8 +17,7 @@ export const KeycardAuth = () => {
       <Window.Content scrollable>
         <Section title="Keycard Authentication Device">
           <BlockQuote>
-            This device requires two valid high-level ID cards to authorize a
-            station event.
+            This device requires the simultaneous swipe of two Command level ID cards to trigger high security events.
           </BlockQuote>
 
           {data.busy ? (
