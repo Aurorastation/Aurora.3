@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Autofocus, Button, Section, Stack } from 'tgui-core/components';
+import { Autofocus, Button, Input, Section, Stack } from 'tgui-core/components';
 import {
   KEY_A,
   KEY_DOWN,
@@ -10,7 +10,6 @@ import {
 } from 'tgui-core/keycodes';
 
 import { InputButtons } from '../common/InputButtons';
-import { SearchBar } from '../common/SearchBar';
 
 type ListInputModalProps = {
   items: string[];
@@ -148,12 +147,14 @@ export const ListInputModal = (props: ListInputModalProps) => {
           />
         </Stack.Item>
         {searchBarVisible && (
-          <SearchBar
+          <Input
             autoFocus
+            autoSelect
+            fluid
             onEnter={() => on_selected(filteredItems[selected])}
-            onSearch={onSearch}
+            onChange={onSearch}
             placeholder="Search..."
-            query={searchQuery}
+            value={searchQuery}
           />
         )}
         <Stack.Item>
