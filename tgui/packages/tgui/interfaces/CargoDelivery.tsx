@@ -64,7 +64,7 @@ export const CargoDelivery = (props) => {
   const { act, data } = useBackend<CargoData>();
 
   return (
-    <NtosWindow resizable theme="orion">
+    <NtosWindow resizable theme="orion" width={610} height={800}>
       <NtosWindow.Content scrollable>
         <Section>
           <Tabs>
