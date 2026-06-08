@@ -86,18 +86,17 @@
 		attacking_item.play_tool_sound(get_turf(src), 75)
 		return TRUE
 
-	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
-		if(charging)
-			to_chat(user, SPAN_WARNING("You can't modify \the [src] while it has something charging inside."))
-		else
-			if(default_deconstruction_screwdriver(user, attacking_item))
-				update_icon()
-				return TRUE
-
-	if(default_part_replacement(user, attacking_item))
+	if(charging && (attacking_item.tool_behaviour == TOOL_SCREWDRIVER || attacking_item.tool_behaviour == TOOL_CROWBAR))
+		to_chat(user, SPAN_WARNING("You can't modify \the [src] while it has something charging inside."))
 		return TRUE
-	else if(default_deconstruction_crowbar(user, attacking_item))
-		return TRUE
+	else
+		if(default_deconstruction_screwdriver(user, attacking_item))
+			update_icon()
+			return TRUE
+		else if(default_deconstruction_crowbar(user, attacking_item))
+			return TRUE
+		else if(default_part_replacement(user, attacking_item))
+			return TRUE
 
 	if (istype(attacking_item, /obj/item/gripper))//Code for allowing cyborgs to use rechargers
 		var/obj/item/gripper/Gri = attacking_item
@@ -114,6 +113,7 @@
 
 	if (panel_open)
 		to_chat(user, SPAN_WARNING("You can't insert items into \the [src] while the panel is open."))
+		return TRUE
 	else
 		if(is_type_in_list(attacking_item, allowed_devices))
 			if (attacking_item.get_cell() == DEVICE_NO_CELL)
@@ -128,10 +128,10 @@
 				to_chat(user, SPAN_WARNING("\The [name] blinks red as you try to insert the item!"))
 				return TRUE
 
-		user.drop_from_inventory(attacking_item,src)
-		charging = attacking_item
-		update_icon()
-		return TRUE
+			user.drop_from_inventory(attacking_item,src)
+			charging = attacking_item
+			update_icon()
+			return TRUE
 
 /obj/structure/machinery/recharger/attack_hand(mob/user as mob)
 	if(istype(user,/mob/living/silicon))
@@ -210,6 +210,9 @@
 			B.bcell.charge = 0
 
 /obj/structure/machinery/recharger/update_icon()	//we have an update_icon() in addition to the stuff in process to make it feel a tiny bit snappier.
+	ClearOverlays()
+	if (panel_open)
+		AddOverlays(image(icon, "npanel_open", pixel_x = -2, pixel_y = 11))
 	if(charging)
 		icon_state = icon_state_charging + "0"
 	else
@@ -239,3 +242,12 @@
 /obj/structure/machinery/recharger/wallcharger/mechanics_hints(mob/user, distance, is_adjacent)
 	. = list()
 	. += "This device can recharge energy weapons, stun batons, and flashlights."
+
+/obj/structure/machinery/recharger/wallcharger/update_icon()	//we have an update_icon() in addition to the stuff in process to make it feel a tiny bit snappier.
+	ClearOverlays()
+	if (panel_open)
+		AddOverlays(image(icon, "npanel_open", pixel_x = -1, pixel_y = 12))
+	if(charging)
+		icon_state = icon_state_charging + "0"
+	else
+		icon_state = icon_state_idle

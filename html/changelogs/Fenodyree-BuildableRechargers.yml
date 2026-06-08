@@ -1,0 +1,6 @@
+author: Fenodyree
+
+delete-after: True
+
+changes:
+  - rscadd: "Makes rechargers buildable and upgradable. Circuits to build them can be printed in a circuit printer."
