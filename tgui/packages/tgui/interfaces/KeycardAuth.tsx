@@ -1,4 +1,4 @@
-import { BlockQuote, Button, LabeledList, Section } from 'tgui-core/components';
+import { Button, LabeledList, NoticeBox, Section } from 'tgui-core/components';
 import { useBackend } from '../backend';
 import { Window } from '../layouts';
 
@@ -16,14 +16,15 @@ export const KeycardAuth = () => {
     <Window theme="scc">
       <Window.Content scrollable>
         <Section title="Keycard Authentication Device">
-          <BlockQuote>
-            This device requires the simultaneous swipe of two Command level ID cards to trigger high security events.
-          </BlockQuote>
+          <NoticeBox>
+            This device requires the simultaneous swipe of two Command level ID
+            cards to trigger high security events.
+          </NoticeBox>
 
           {data.busy ? (
-            <BlockQuote>
+            <NoticeBox>
               Waiting for the other device to confirm the request.
-            </BlockQuote>
+            </NoticeBox>
           ) : data.screen === 1 ? (
             <LabeledList>
               <LabeledList.Item label="Red Alert">
@@ -60,18 +61,19 @@ export const KeycardAuth = () => {
               </LabeledList.Item>
             </LabeledList>
           ) : (
-            <Section title="Swipe to Authorize">
-              <BlockQuote>
+            <Section
+              title="Swipe to Authorize"
+              buttons={
+                <Button color="average" onClick={() => act('reset')}>
+                  Back
+                </Button>
+              }
+            >
+              <NoticeBox>
                 Please swipe your card to authorize the following event:
                 <br />
                 <b>{data.event || 'Unknown event'}</b>
-              </BlockQuote>
-
-              <div>
-                <Button color="secondary" onClick={() => act('reset')}>
-                  Back
-                </Button>
-              </div>
+              </NoticeBox>
             </Section>
           )}
         </Section>

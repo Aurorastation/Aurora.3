@@ -80,7 +80,7 @@
 /obj/structure/machinery/keycard_auth/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "KeycardAuth", src.name, 500, 350)
+		ui = new(user, src, "KeycardAuth", src.name, 500, 250)
 		ui.open()
 
 /obj/structure/machinery/keycard_auth/ui_data(mob/user)
