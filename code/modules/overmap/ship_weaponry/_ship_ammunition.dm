@@ -338,6 +338,10 @@
 		if(ammo && ammo.origin)
 			ammo.origin.signal_hit(hit_data)
 
+		for(var/mob/M in GLOB.player_list) //Print out a message about what we hit to all ghosts.
+			if(M.client && ((!istype(M, /mob/abstract/new_player) && M.stat == DEAD)))
+				to_chat(M, "<span class='deadsay'>" + create_text_tag("DEAD", M.client) + "[ghost_follow_link(target, M)] A [src.name] hit \the [target.name] in \the [get_area(target)] at [target.x], [target.y], [target.z]!</span>")
+
 	if(istype(target, /turf/simulated/wall) || istype(target, /obj/structure/machinery/door)) //Stores the last thing we pierced for spalling purposes.
 		last_thing_pierced = target
 	else if (istype(target, /obj/structure)) //If it is a structure on a dense turf, that uses health,
@@ -357,5 +361,5 @@
 			pellet.ammo.origin = ammo.origin
 			pellet.ammo.impact_type = ammo.impact_type
 			pellet.dir = dir
-			pellet.preparePixelProjectile(target_turf, pellet, deviation = 3) //Deviation can be tuned. These spawn at the map edge so small deviations matter a lot.
+			pellet.preparePixelProjectile(target_turf, new_turf, deviation = 3) //Deviation can be tuned. These spawn at the map edge so small deviations matter a lot.
 			pellet.fire()

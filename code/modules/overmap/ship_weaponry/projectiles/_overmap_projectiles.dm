@@ -70,27 +70,33 @@
 
 ///Gets the turf the projectile should enter on. If it's diagnonal it spawns in the corner, if it's orthogonal it spawns on the map edge relative to the target landmark.
 /obj/effect/overmap/projectile/proc/get_entry_turf(atom/target_landmark, direction)
-	var/turf/target = locate(target_landmark.x, target_landmark.y, target_landmark.z)
-	if(!target_landmark || !target)
+	if(!target_landmark)
 		return 0
+
+	var/turf/target = locate(target_landmark.x, target_landmark.y, target_landmark.z)
+	if(!target)
+		return 0
+
+	var/offset = max(8, 2 * ammunition.burst) //We offset the target turf from the edge by 8 (one screen), or two times the burst size. Bursts get their positions randomized up to 2x the burst size.
 
 	switch(direction)
 		if(NORTH|WEST)
-			target = get_ranged_target_turf(locate(1, world.maxy, target.z), direction, max(8, 2 * ammunition.burst)) //We offset the target turf from the edge by 8 (one screen), or twice the burst size. Bursts get their positions randomized up to twice the burst size.
+			return locate(max(1, world.maxx - offset), min(world.maxy, 1 + offset), target.z)
 		if(NORTH|EAST)
-			target = get_ranged_target_turf(locate(world.maxx, world.maxy, target.z), direction, max(8, 2 * ammunition.burst))
+			return locate(min(world.maxx, 1 + offset), min(world.maxy, 1 + offset), target.z)
 		if(SOUTH|WEST)
-			target = get_ranged_target_turf(locate(1, 1, target.z), direction, max(8, 2 * ammunition.burst))
+			return locate(max(1, world.maxx - offset), max(1, world.maxy - offset), target.z)
 		if(SOUTH|EAST)
-			target = get_ranged_target_turf(locate(world.maxx, 1, target.z), direction, max(8, 2 * ammunition.burst))
+			return locate(min(world.maxx, 1 + offset), max(1, world.maxy - offset), target.z)
 		if(NORTH)
-			target = get_ranged_target_turf(locate(target.x, world.maxy, target.z), direction, max(8, 2 * ammunition.burst))
+			return locate(target.x, min(world.maxy, 1 + offset), target.z)
 		if(SOUTH)
-			target = get_ranged_target_turf(locate(target.x, 1, target.z), direction, max(8, 2 * ammunition.burst))
+			return locate(target.x, max(1, world.maxy - offset), target.z)
 		if(EAST)
-			target = get_ranged_target_turf(locate(world.maxx, target.y, target.z), direction, max(8, 2 * ammunition.burst))
+			return locate(min(world.maxx, 1 + offset), target.y, target.z)
 		if(WEST)
-			target = get_ranged_target_turf(locate(1, target.y, target.z), direction, max(8, 2 * ammunition.burst))
+			return locate(max(1, world.maxx - offset), target.y, target.z)
+
 	return target
 
 /obj/effect/overmap/projectile/proc/prepare_for_entry()
@@ -164,12 +170,14 @@
 	var/corrected_heading = SSatlas.naval_to_dir["[VS.fore_dir]"][naval_heading]
 	shot_direction = corrected_heading
 
-	var/turf/entry_turf = get_entry_turf(submap_target, REVERSE_DIR(shot_direction))
+	var/turf/entry_turf = get_entry_turf(submap_target, shot_direction)
 	widowmaker.forceMove(entry_turf)
 	widowmaker.dir = shot_direction
 	widowmaker.on_translate(entry_turf, target_turf)
 	log_and_message_admins("A ([widowmaker.name]) arrived [naval_heading] of \the [target] at ([entry_turf.x], [entry_turf.y], [entry_turf.z]) aimed at [submap_target.name], with direction [dir2text(shot_direction)]! (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[submap_target.x];Y=[submap_target.y];Z=[submap_target.z]'>JMP</a>)")
-	say_dead_direct("A ([widowmaker.name]) arrived [naval_heading] of \the [target] at ([entry_turf.x], [entry_turf.y], [entry_turf.z]) aimed at [submap_target.name], with direction [dir2text(shot_direction)]! (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[submap_target.x];Y=[submap_target.y];Z=[submap_target.z]'>JMP</a>)")
+	for(var/mob/M in GLOB.player_list)
+		if(M.client && ((!istype(M, /mob/abstract/new_player) && M.stat == DEAD)))
+			to_chat(M, "<span class='deadsay'>" + create_text_tag("DEAD", M.client) + " A ([widowmaker.name]), fired by [ammunition.origin], flew in at [ghost_follow_link(entry_turf, M)] ([entry_turf.x], [entry_turf.y], [entry_turf.z]) aimed at [ghost_follow_link(submap_target, M)] [submap_target.name], with direction [dir2text(shot_direction)]!</span>")
 	widowmaker.preparePixelProjectile(target_turf, entry_turf)
 	widowmaker.fired_from = src
 	widowmaker.fire()
@@ -179,12 +187,14 @@
 ///Handle hitting visitables that can't spin, such as asteroids and stations. Otherwise identical to hitting a ship.
 /obj/effect/overmap/projectile/proc/check_entry_visitable(obj/projectile/ship_ammo/widowmaker, turf/target_turf)
 	var/shot_direction = src.dir
-	var/turf/entry_turf = get_entry_turf(submap_target, REVERSE_DIR(shot_direction))
+	var/turf/entry_turf = get_entry_turf(submap_target, shot_direction)
 	widowmaker.forceMove(entry_turf)
 	widowmaker.dir = shot_direction
 	widowmaker.on_translate(entry_turf, target_turf)
 	log_and_message_admins("A ([widowmaker.name]) flew in at ([entry_turf.x], [entry_turf.y], [entry_turf.z]) aimed at [submap_target.name], with direction [dir2text(shot_direction)]! (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[submap_target.x];Y=[submap_target.y];Z=[submap_target.z]'>JMP</a>)")
-	say_dead_direct("A ([widowmaker.name]) flew in at ([entry_turf.x], [entry_turf.y], [entry_turf.z]) aimed at [submap_target.name], with direction [dir2text(shot_direction)]! (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[submap_target.x];Y=[submap_target.y];Z=[submap_target.z]'>JMP</a>)")
+	for(var/mob/M in GLOB.player_list)
+		if(M.client && ((!istype(M, /mob/abstract/new_player) && M.stat == DEAD)))
+			to_chat(M, "<span class='deadsay'>" + create_text_tag("DEAD", M.client) + " A ([widowmaker.name]), fired by [ammunition.origin], flew in at [ghost_follow_link(entry_turf, M)] ([entry_turf.x], [entry_turf.y], [entry_turf.z]) aimed at ([ghost_follow_link(submap_target, M)] [submap_target.name]), with direction [dir2text(shot_direction)]!</span>")
 	widowmaker.preparePixelProjectile(target_turf, entry_turf)
 	widowmaker.fired_from = src
 	widowmaker.fire()
