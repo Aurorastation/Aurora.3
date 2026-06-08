@@ -1,6 +1,6 @@
 /obj/item/circuitboard/security
 	name = T_BOARD("security camera monitor")
-	build_path = /obj/machinery/computer/security
+	build_path = /obj/structure/machinery/computer/security
 	req_access = list(ACCESS_SECURITY)
 	var/list/console_networks
 	var/locked = 1
@@ -12,7 +12,7 @@
 
 /obj/item/circuitboard/security/engineering
 	name = T_BOARD("engineering camera monitor")
-	build_path = /obj/machinery/computer/security/engineering
+	build_path = /obj/structure/machinery/computer/security/engineering
 	req_access = list()
 
 /obj/item/circuitboard/security/engineering/New()
@@ -21,15 +21,15 @@
 
 /obj/item/circuitboard/security/mining
 	name = T_BOARD("mining camera monitor")
-	build_path = /obj/machinery/computer/security/mining
+	build_path = /obj/structure/machinery/computer/security/mining
 	console_networks = list("MINE")
 	req_access = list()
 
-/obj/item/circuitboard/security/construct(var/obj/machinery/computer/security/C)
+/obj/item/circuitboard/security/construct(var/obj/structure/machinery/computer/security/C)
 	if (..(C))
 		C.console_networks = console_networks.Copy()
 
-/obj/item/circuitboard/security/deconstruct(var/obj/machinery/computer/security/C)
+/obj/item/circuitboard/security/deconstruct(var/obj/structure/machinery/computer/security/C)
 	if (..(C))
 		console_networks = C.console_networks.Copy()
 

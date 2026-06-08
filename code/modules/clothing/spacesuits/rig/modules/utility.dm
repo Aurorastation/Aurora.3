@@ -42,6 +42,15 @@
 
 	. = ..()
 
+/obj/item/rig_module/device/proc/handle_device_engage(atom/target, mob/user)
+	var/resolved = target.attackby(device, user)
+	if(!resolved && device && target)
+		if(device.afterattack(target, user, TRUE))
+			return TRUE
+		else
+			return FALSE
+	return TRUE
+
 /obj/item/rig_module/device/healthscanner
 	name = "health scanner module"
 	desc = "A hardsuit-mounted health scanner."
@@ -51,19 +60,25 @@
 	construction_cost = list("$glass" = 5250, DEFAULT_WALL_MATERIAL = 2500)
 	construction_time = 300
 
-	engage_string = "Run Self-Diagnostic"
+	engage_string = "Run Diagnostic"
 
 	device_type = /obj/item/healthanalyzer
 
 	category = MODULE_MEDICAL
 
-/obj/item/rig_module/device/healthscanner/vitalscanner
-	name = "integrated vitals tracker"
-	desc = "A hardsuit-mounted vitals tracker."
-	interface_name = "vitals tracker"
-	interface_desc = "Shows an informative health readout of the user."
+/obj/item/rig_module/device/healthscanner/engage(atom/target, mob/user)
+	if(!..() || !device)
+		return FALSE
 
-	category = MODULE_GENERAL
+	if(!target.Adjacent(user))
+		return FALSE
+
+	var/obj/item/healthanalyzer/our_device = device
+	if(!target || user == target)
+		our_device.attack_self(user)
+		return TRUE
+
+	return handle_device_engage(target, user)
 
 /obj/item/rig_module/device/drill
 	name = "hardsuit diamond drill mount"
@@ -158,15 +173,6 @@
 		if("rfd_settings")
 			our_device.attack_self(user)
 
-/obj/item/rig_module/device/rfd_c/handle_device_engage(atom/target, mob/user)
-	var/resolved = target.attackby(device, user)
-	if(!resolved && device && target)
-		if(device.afterattack(target, user, TRUE))
-			return TRUE
-		else
-			return FALSE
-	return TRUE
-
 /obj/item/rig_module/device/rfd_c/engage(atom/target, mob/user)
 	if(!..() || !device)
 		return FALSE
@@ -181,16 +187,10 @@
 		return FALSE
 
 	// Stop generating infinite devices please, and thank you.
-	if(istype(target, /obj/machinery/disposal))
+	if(istype(target, /obj/structure/machinery/disposal))
 		return FALSE
 
 	return handle_device_engage(target, user)
-
-/obj/item/rig_module/device/proc/handle_device_engage(atom/target, mob/user)
-	var/resolved = target.attackby(device, user)
-	if(!resolved && device && target)
-		device.afterattack(target, user, TRUE)
-	return TRUE
 
 /obj/item/rig_module/chem_dispenser
 	name = "mounted chemical dispenser"
@@ -476,9 +476,6 @@
 	disruptive = FALSE
 	construction_cost = list(DEFAULT_WALL_MATERIAL = 15000, MATERIAL_GLASS = 4250, MATERIAL_SILVER = 4250, MATERIAL_URANIUM = 5250)
 	construction_time = 300
-
-	suit_overlay_active = "maneuvering_active"
-	suit_overlay_inactive = "maneuvering_inactive"
 
 	interface_name = "maneuvering jets"
 	interface_desc = "An inbuilt EVA maneuvering system that runs off the hardsuit air supply."
@@ -808,8 +805,8 @@
 /obj/item/rig_module/cooling_unit/proc/get_environment_temperature()
 	if(ishuman(loc))
 		var/mob/living/carbon/human/H = loc
-		if(istype(H.loc, /obj/machinery/atmospherics/unary/cryo_cell))
-			var/obj/machinery/atmospherics/unary/cryo_cell/C = H.loc
+		if(istype(H.loc, /obj/structure/machinery/atmospherics/unary/cryo_cell))
+			var/obj/structure/machinery/atmospherics/unary/cryo_cell/C = H.loc
 			return C.air_contents.temperature
 
 	var/turf/T = get_turf(src)

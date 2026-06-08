@@ -15,7 +15,7 @@
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
 
-/obj/machinery/computer/shuttle_control/explore/terminal/hailstorm_shuttle
+/obj/structure/machinery/computer/shuttle_control/explore/terminal/hailstorm_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Spacer Militia Shuttle"
 	req_access = list(ACCESS_DPRA)

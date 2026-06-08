@@ -100,6 +100,8 @@
 	var/malfunctioning = 0
 	var/malfunction_delay = 0
 	var/electrified = 0
+	/// Ensures that you can't queue up multiple piece toggle commands at once and bug anything out.
+	var/piece_being_deployed = FALSE
 
 	/// Rate at which the suit cell will passively use power when online.
 	var/cell_draw_rate = CHARGE_DRAIN_DEFAULT
@@ -290,7 +292,7 @@
 		playsound(src, 'sound/items/rfd_empty.ogg', 20, FALSE)
 		failed_to_seal = 1
 
-	var/is_in_cycler = istype(initiator.loc, /obj/machinery/suit_cycler)
+	var/is_in_cycler = istype(initiator.loc, /obj/structure/machinery/suit_cycler)
 	seal_delay = is_in_cycler ? 1 : initial(seal_delay)
 
 	var/jumpsuit_was_hidden = FALSE
@@ -842,6 +844,8 @@
 	return TRUE
 
 /obj/item/rig/proc/toggle_piece(var/piece, var/mob/initiator, var/deploy_mode)
+	if(piece_being_deployed)
+		return
 
 	if(!usr || sealing || !cell || !cell.charge)
 		return
@@ -877,6 +881,7 @@
 			use_obj = chest
 			check_slot = wearer.wear_suit
 
+	piece_being_deployed = TRUE
 	if(use_obj)
 		// Handle retracting the piece, if possible.
 		if(check_slot == use_obj && deploy_mode != ONLY_DEPLOY)
@@ -890,6 +895,7 @@
 				if(use_obj == boots && chest_slot == chest_obj)
 					to_chat(wearer, SPAN_WARNING("The chest piece of the hardsuit must be retracted before you can retract your boots!"))
 					sound_to(wearer, 'sound/machines/terminal/terminal_error.ogg')
+					piece_being_deployed = FALSE
 					return
 
 				if(check_slot == use_obj)
@@ -904,16 +910,21 @@
 		// Handle deploying the piece, if possible.
 		else if (deploy_mode != ONLY_RETRACT)
 			if(check_slot && check_slot == use_obj)
+				piece_being_deployed = FALSE
 				return TRUE
 			if(!do_after(wearer, 8))
 				if(wearer)
 					to_chat(wearer, SPAN_WARNING("You must remain still while the suit deploys its parts."))
+					piece_being_deployed = FALSE
 					return FALSE
 			// If we're deploying the chest, we also try to deploy boots. If we can't also deploy boots, the entire thing fails.
 			if(use_obj == chest)
-				if(!toggle_piece("boots", initiator, ONLY_DEPLOY))
+				var/obj/item/boots_slot = wearer.shoes
+				var/obj/item/boots_obj = boots
+				if(boots_slot != boots_obj)
 					to_chat(initiator, SPAN_DANGER("You are unable to deploy \the [piece] as the boots were unable to also deploy!"))
 					playsound(src, 'sound/items/rfd_empty.ogg', 20, FALSE)
+					piece_being_deployed = FALSE
 					return FALSE
 			use_obj.forceMove(wearer)
 			if(src.color)
@@ -923,6 +934,7 @@
 				if(check_slot)
 					to_chat(initiator, SPAN_DANGER("You are unable to deploy \the [piece] as \the [check_slot] [check_slot.gender == PLURAL ? "are" : "is"] in the way."))
 					playsound(src, 'sound/items/rfd_empty.ogg', 20, FALSE)
+					piece_being_deployed = FALSE
 					return FALSE
 			else
 				to_chat(wearer, SPAN_NOTICE("Your [use_obj.name] [use_obj.gender == PLURAL ? "deploy" : "deploys"] swiftly."))
@@ -933,10 +945,42 @@
 
 	update_icon(TRUE)
 
+	piece_being_deployed = FALSE
 	return TRUE
 
 /obj/item/rig/proc/deploy(mob/M,var/sealed)
+	var/mob/living/carbon/human/H = M
 
+	if(!H || !istype(H)) return
+
+	if(H.back != src)
+		return
+
+	if(sealed)
+		if(H.head)
+			var/obj/item/garbage = H.head
+			H.head = null
+			qdel(garbage)
+
+		if(H.gloves)
+			var/obj/item/garbage = H.gloves
+			H.gloves = null
+			qdel(garbage)
+
+		if(H.shoes)
+			var/obj/item/garbage = H.shoes
+			H.shoes = null
+			qdel(garbage)
+
+		if(H.wear_suit)
+			var/obj/item/garbage = H.wear_suit
+			H.wear_suit = null
+			qdel(garbage)
+
+	for(var/piece in list("helmet","gauntlets","boots",BP_CHEST))
+		toggle_piece(piece, H, ONLY_DEPLOY)
+
+/obj/item/rig/proc/retract(mob/M,var/sealed)
 	var/mob/living/carbon/human/H = M
 
 	if(!H || !istype(H)) return
@@ -966,7 +1010,7 @@
 			qdel(garbage)
 
 	for(var/piece in list("helmet","gauntlets",BP_CHEST,"boots"))
-		toggle_piece(piece, H, ONLY_DEPLOY)
+		toggle_piece(piece, H, ONLY_RETRACT)
 
 /obj/item/rig/proc/null_wearer(var/mob/user)
 	for(var/piece in list("helmet","gauntlets",BP_CHEST,"boots"))
@@ -1180,7 +1224,7 @@
 		wearer_move_delay = world.time
 		return wearer.buckled_to.relaymove(wearer, direction)
 
-	if(istype(wearer.machine, /obj/machinery))
+	if(istype(wearer.machine, /obj/structure/machinery))
 		if(wearer.machine.relaymove(wearer, direction))
 			return
 

@@ -1,6 +1,6 @@
-import { BooleanLike } from '../../common/react';
+import { Box, Button, NoticeBox, Section, Table } from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Box, Button, NoticeBox, Section, Table } from '../components';
 import { NtosWindow } from '../layouts';
 import { sanitizeText } from '../sanitize';
 
@@ -9,6 +9,7 @@ export type FileData = {
   usbconnected: BooleanLike;
   scriptdata: string;
   filedata: string;
+  file_is_usb: BooleanLike;
   filename: string;
   files: File[];
   usbfiles: File[];
@@ -22,8 +23,8 @@ type File = {
   password: BooleanLike;
 };
 
-export const FileManager = (props, context) => {
-  const { act, data } = useBackend<FileData>(context);
+export const FileManager = (props) => {
+  const { act, data } = useBackend<FileData>();
 
   return (
     <NtosWindow resizable width={675} height={700}>
@@ -48,8 +49,8 @@ export const FileManager = (props, context) => {
   );
 };
 
-export const ShowFiles = (props, context) => {
-  const { act, data } = useBackend<FileData>(context);
+export const ShowFiles = (props) => {
+  const { act, data } = useBackend<FileData>();
 
   return (
     <Section
@@ -92,6 +93,7 @@ export const ShowFiles = (props, context) => {
               />
               <Button
                 content="Clone"
+                disabled={file.type === 'PRG'}
                 onClick={() => act('PRG_clone', { PRG_clone: file.name })}
               />
               <Button
@@ -128,14 +130,14 @@ export const ShowFiles = (props, context) => {
                   <Button
                     content="View"
                     onClick={() =>
-                      act('PRG_openfile', { PRG_openfile: file.name })
+                      act('PRG_usbopenfile', { PRG_usbopenfile: file.name })
                     }
                   />
                   <Button
                     content="Delete"
                     color="red"
                     onClick={() =>
-                      act('PRG_deletefile', { PRG_deletefile: file.name })
+                      act('PRG_usbdeletefile', { PRG_usbdeletefile: file.name })
                     }
                   />
                   <Button
@@ -154,8 +156,8 @@ export const ShowFiles = (props, context) => {
   );
 };
 
-export const ShowFile = (props, context) => {
-  const { act, data } = useBackend<FileData>(context);
+export const ShowFile = (props) => {
+  const { act, data } = useBackend<FileData>();
   const contentHtml = { __html: sanitizeText(data.filedata) };
 
   return (
@@ -172,11 +174,13 @@ export const ShowFile = (props, context) => {
           <Button
             content="Edit"
             icon="edit"
+            disabled={data.file_is_usb}
             onClick={() => act('PRG_edit', { PRG_edit: data.filename })}
           />{' '}
           <Button
             content="Print"
             icon="print"
+            disabled={data.file_is_usb}
             onClick={() =>
               act('PRG_printfile', { PRG_printfile: data.filename })
             }
@@ -184,6 +188,7 @@ export const ShowFile = (props, context) => {
         </>
       }
     >
+      {/** biome-ignore lint/security/noDangerouslySetInnerHtml: Is sanitized by DOMPurify. */}
       <Box dangerouslySetInnerHTML={contentHtml} />
     </Section>
   );

@@ -193,5 +193,5 @@
 	var/list/in_progress = list()
 
 /datum/surgery_status/Destroy(force)
-	in_progress = null
-	. = ..()
+	in_progress?.Cut()
+	return ..()

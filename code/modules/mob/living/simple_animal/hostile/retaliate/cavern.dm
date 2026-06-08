@@ -24,6 +24,7 @@
 	melee_damage_lower = 10
 	melee_damage_upper = 10
 	attacktext = "chomps"
+	attack_vis_effect = ATTACK_EFFECT_BITE
 	attack_sound = 'sound/weapons/bite.ogg'
 	speed = 4
 	projectiletype = /obj/projectile/beam/cavern

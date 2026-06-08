@@ -22,17 +22,17 @@
 	/// This variable is set to 1 when you enter the game as an observer. Remains null if you died in the game and are a ghost. Not reliable for admins; they change mobs a lot.
 	var/started_as_observer
 	/// If the ghost has enabled antagHUD.
-	var/has_enabled_antagHUD = 0
+	var/has_enabled_antagHUD = FALSE
 	/// If the ghost has enabled medHUD.
-	var/medHUD = 0
+	var/medHUD = FALSE
 	/// If this is an adminghost.
-	var/admin_ghosted = 0
+	var/admin_ghosted = FALSE
 	/// If this ghost has enabled chat anonymization.
-	var/anonsay = 0
+	var/anonsay = FALSE
 	/// If the ghost can be seen through cult shenanigans.
-	var/is_manifest = 0
+	var/is_manifest = FALSE
 	/// Cooldown for ghost abilities, such as move_item().
-	var/ghost_cooldown = 0
+	var/ghost_cooldown = FALSE
 
 /mob/abstract/ghost/observer/Initialize(mapload, mob/body)
 	. = ..()
@@ -87,12 +87,21 @@
 	src.LoadComponent(/datum/component/health_analyzer/observer)
 
 /mob/abstract/ghost/observer/Destroy()
-	if(client)
+	// Handling client images
+	if(client && length(client.images))
 		for(var/image/I in client.images)
-			if(I.loc == src)
-				qdel(I)
+			// Something deleted the image, clear it and move on.
+			if (!istype(I) || QDELETED(I))
+				client.images -= I
+				continue
+
+			if(I.loc != src)
+				continue
+
+			qdel(I)
+			client.images -= I
+
 	QDEL_NULL(hud)
-	mind = null
 	return ..()
 
 /mob/abstract/ghost/observer/proc/initialise_postkey(set_timers = TRUE)
@@ -273,7 +282,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		var/datum/component/health_analyzer/observer/h_analyzer = src.GetComponent(/datum/component/health_analyzer/observer)
 		if(!h_analyzer)
 			return
-		h_analyzer.health_scan_mob(orbit_target, usr, TRUE, TRUE)
+		h_analyzer.health_scan_mob(orbit_target, usr, TRUE, FALSE)
 	else
 		to_chat(src, SPAN_WARNING("This isn't a scannable target."))
 
@@ -349,8 +358,8 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		// Otherwise, see if we can possess the target.
 		if(user == src && try_possession(M))
 			return
-	if(istype(over, /obj/machinery/drone_fabricator))
-		var/obj/machinery/drone_fabricator/fab = over
+	if(istype(over, /obj/structure/machinery/drone_fabricator))
+		var/obj/structure/machinery/drone_fabricator/fab = over
 		if(fab.create_drone(src))
 			return
 

@@ -1004,7 +1004,7 @@
 
 		var/department = null
 		if (href_list["faxMachine"])
-			var/obj/machinery/photocopier/faxmachine/fax = locate(href_list["faxMachine"])
+			var/obj/structure/machinery/photocopier/faxmachine/fax = locate(href_list["faxMachine"])
 			department = fax.department
 		else
 			department = input("Choose the target department.", "Target Department", null) in GLOB.alldepartments
@@ -1304,7 +1304,7 @@
 					WANTED.backup_author = src.admincaster_signature                  //Submitted by
 					WANTED.is_admin_message = 1
 					SSnews.wanted_issue = WANTED
-					for(var/obj/machinery/newscaster/NEWSCASTER in GLOB.allCasters)
+					for(var/obj/structure/machinery/newscaster/NEWSCASTER in GLOB.allCasters)
 						NEWSCASTER.newsAlert()
 						NEWSCASTER.update_icon()
 					src.admincaster_screen = 15
@@ -1320,7 +1320,7 @@
 		var/choice = alert("Please confirm Wanted Issue removal","Network Security Handler","Confirm","Cancel")
 		if(choice=="Confirm")
 			SSnews.wanted_issue = null
-			for(var/obj/machinery/newscaster/NEWSCASTER in GLOB.allCasters)
+			for(var/obj/structure/machinery/newscaster/NEWSCASTER in GLOB.allCasters)
 				NEWSCASTER.update_icon()
 			src.admincaster_screen=17
 		src.access_news_network()

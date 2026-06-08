@@ -20,7 +20,7 @@
 	base_area = /area/headmaster_ship/lift_area
 	base_turf = /turf/simulated/open
 
-/obj/machinery/computer/shuttle_control/multi/lift/headmaster
+/obj/structure/machinery/computer/shuttle_control/multi/lift/headmaster
 	shuttle_tag = "Headmaster Lift"
 
 // Shuttle landmarks

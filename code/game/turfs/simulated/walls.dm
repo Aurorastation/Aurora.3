@@ -20,8 +20,8 @@
 		/obj/structure/window_frame,
 		/obj/structure/window_frame/unanchored,
 		/obj/structure/window_frame/empty,
-		/obj/machinery/door,
-		/obj/machinery/door/airlock,
+		/obj/structure/machinery/door,
+		/obj/structure/machinery/door/airlock,
 		/obj/structure/arch
 	)
 	hitsound = 'sound/weapons/Genhit.ogg'
@@ -61,6 +61,9 @@
 		if(0.8 to 1)
 			state = SPAN_NOTICE("\The [src] seems completely intact.")
 	. = state
+
+/turf/simulated/wall/examine_descriptor(mob/user)
+	return "wall"
 
 /turf/simulated/wall/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -292,7 +295,7 @@
 			src.ChangeTurf(/turf/simulated/floor)
 			for(var/turf/simulated/wall/W in range(3,src))
 				W.burn((temperature/4))
-			for(var/obj/machinery/door/airlock/phoron/D in range(3,src))
+			for(var/obj/structure/machinery/door/airlock/phoron/D in range(3,src))
 				D.ignite(temperature/4)
 
 /turf/simulated/wall/is_wall()

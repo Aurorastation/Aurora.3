@@ -12,9 +12,17 @@
 	var/last_scan = 0
 	var/device_level = 4
 	var/sound_scan = FALSE
-	var/list/scan_results = list()
-	var/list/reagent_results = list()
 	var/scan_title = null
+	// General status such as brain damage, blood, so on
+	var/list/status_results = list()
+	// General types of trauma
+	var/list/trauma_results = list()
+	// Limb specific traumas
+	var/list/limb_results = list()
+	// Dislocated, broken, arterials and so on
+	var/list/internal_results = list()
+	// Ingested or injected reagents - Short term only
+	var/list/reagent_results = list()
 	/// The owner object, also known as parent. Defined to easily do obj specific procs
 	var/obj/owner
 
@@ -54,7 +62,10 @@
 /datum/component/health_analyzer/ui_data(mob/user)
 	var/list/data = list()
 	data["scan_title"] = scan_title
-	data["scan_results"] = scan_results
+	data["status_results"] = status_results
+	data["trauma_results"] = trauma_results
+	data["limb_results"] = limb_results
+	data["internal_results"] = internal_results
 	data["reagent_results"] = reagent_results
 	return data
 
@@ -65,10 +76,22 @@
 
 	switch(action)
 		if("clear_list")
-			scan_results = list()
-			reagent_results = list()
 			scan_title = null
+			status_results = list()
+			trauma_results = list()
+			limb_results = list()
+			internal_results = list()
+			reagent_results = list()
 			return TRUE
+
+/datum/component/health_analyzer/ui_status(mob/user, datum/ui_state/state)
+	var/obj/item/rig_module/containing_rig_module = owner?.loc
+	if(!containing_rig_module)
+		return ..()
+	else if(containing_rig_module)
+		return UI_INTERACTIVE
+
+	return UI_CLOSE
 
 /datum/component/health_analyzer/proc/attack(mob/living/target_mob, mob/living/user, target_zone)
 	sound_scan = TRUE
@@ -82,7 +105,7 @@
 	if(do_after(user, time SECONDS, target_mob, DO_UNIQUE))
 		flick("[owner.icon_state]-scan", owner)
 
-		health_scan_mob(target_mob, user, device_level, sound_scan = sound_scan)
+		health_scan_mob(target_mob, user, FALSE, sound_scan = sound_scan)
 		ui_interact(user)
 
 		owner.add_fingerprint(user)
@@ -90,14 +113,19 @@
 		user.visible_message("\The [user] stops scanning \the [target_mob].")
 
 /datum/component/health_analyzer/proc/attack_self(mob/user)
+	if(scan_title == "" || scan_title == null)
+		health_scan_mob(user, user, FALSE, sound_scan = sound_scan)
 	ui_interact(user)
 
 	owner.add_fingerprint(user)
 
-/datum/component/health_analyzer/proc/health_scan_mob(var/mob/M, var/mob/living/user, var/device_level = 2, var/just_scan = FALSE, var/sound_scan)
-	scan_results = list()
-	reagent_results = list()
+/datum/component/health_analyzer/proc/health_scan_mob(var/mob/M, var/mob/living/user, var/just_scan = FALSE, var/sound_scan = FALSE)
 	scan_title = null
+	status_results = list()
+	trauma_results = list()
+	limb_results = list()
+	internal_results = list()
+	reagent_results = list()
 
 	if(!just_scan)
 		if (((user.is_clumsy()) || (user.mutations & DUMB)) && prob(50))
@@ -118,7 +146,7 @@
 
 	if(!istype(M, /mob/living/carbon/human))
 		scan_title = "Scan failed"
-		scan_results += SPAN_SCAN_WARNING("This scanner is designed for humanoid patients only.")
+		status_results += SPAN_SCAN_WARNING("This scanner is designed for humanoid patients only.")
 		if(sound_scan)
 			playsound(user.loc, 'sound/items/healthscanner/healthscanner_used.ogg', 25, extrarange = SILENCED_SOUND_EXTRARANGE)
 		return
@@ -227,6 +255,9 @@
 	else
 		dat += "Blood pressure: N/A"
 
+	status_results += dat
+	dat = list()
+
 	// Traumatic shock.
 	if(H.is_asystole() || (H.status_flags & FAKEDEATH))
 		dat += SPAN_SCAN_DANGER("Cardiovascular shock detected. Administer CPR immediately.")
@@ -242,32 +273,40 @@
 	if(H.getBruteLoss() > 50)
 		dat += SPAN_SCAN_RED("[b]Severe anatomical damage detected.[endb]")
 
+	trauma_results += dat
+	dat = list()
+
 	if(device_level >= 2)
 		var/list/damaged = H.get_damaged_organs(1,1)
 		if(damaged.len)
 			for(var/obj/item/organ/external/org in damaged)
-				var/limb_result = "[capitalize(org.name)][BP_IS_ROBOTIC(org) ? " (Cybernetic)" : ""]:"
+				var/limb_name = "[capitalize(org.name)][BP_IS_ROBOTIC(org) ? " (Cybernetic)" : ""]"
+				var/limb_result = ""
 				if(org.brute_dam > 0)
-					limb_result = "[limb_result] [SPAN_SCAN_DANGER("[get_wound_severity(org.brute_dam, (org.limb_flags & ORGAN_HEALS_OVERKILL), TRUE)] physical trauma")]"
+					limb_result = " [SPAN_SCAN_DANGER("[get_wound_severity(org.brute_dam, (org.limb_flags & ORGAN_HEALS_OVERKILL), TRUE)] physical trauma")]"
 				if(org.burn_dam > 0)
-					limb_result = "[limb_result] [SPAN_SCAN_ORANGE_DANGER("[get_wound_severity(org.burn_dam, (org.limb_flags & ORGAN_HEALS_OVERKILL), TRUE)] burns")]"
+					limb_result = "[limb_result][limb_result ? " | " : " "][SPAN_SCAN_ORANGE_DANGER("[get_wound_severity(org.burn_dam, (org.limb_flags & ORGAN_HEALS_OVERKILL), TRUE)] burns")]"
 				if(org.status & ORGAN_BLEEDING)
-					limb_result = "[limb_result] [SPAN_SCAN_DANGER("bleeding")]"
+					limb_result = "[limb_result][limb_result ? " | " : " "][SPAN_SCAN_DANGER("bleeding")]"
 				var/is_bandaged = org.is_bandaged()
 				var/is_salved = org.is_salved()
 				if(is_bandaged && is_salved)
 					var/icon/B = icon('icons/obj/item/stacks/medical.dmi', "bandaged")
 					var/icon/S = icon('icons/obj/item/stacks/medical.dmi', "salved")
-					limb_result = "[limb_result] \[[icon2html(B, user)] | [icon2html(S, user)]\]"
+					limb_result = "[limb_result][limb_result ? " | " : " "]\[[icon2html(B, user)] | [icon2html(S, user)]\]"
 				else if(is_bandaged)
 					var/icon/B = icon('icons/obj/item/stacks/medical.dmi', "bandaged")
-					limb_result = "[limb_result] \[[icon2html(B, user)]\]"
+					limb_result = "[limb_result][limb_result ? " | " : " "]\[[icon2html(B, user)]\]"
 				else if(is_salved)
 					var/icon/S = icon('icons/obj/item/stacks/medical.dmi', "salved")
-					limb_result = "[limb_result] \[[icon2html(S, user)]\]"
-				dat += limb_result
-		else
-			dat += "No detectable limb injuries."
+					limb_result = "[limb_result][limb_result ? " | " : " "]\[[icon2html(S, user)]\]"
+
+				dat += list(list(
+					"label" = limb_name,
+					"value" = limb_result
+				))
+		limb_results += dat
+		dat = list()
 
 	if(device_level >= 3)
 		for(var/name in H.organs_by_name)
@@ -303,11 +342,11 @@
 			if(found_disloc && found_bleed && found_tendon)
 				break
 
-	scan_results += dat
+	internal_results += dat
 	dat = list()
 
-	// Reagent data.
-	. += "[b]Reagent scan:[endb]"
+	if(!length(limb_results) && !length(trauma_results) && !length(internal_results))
+		trauma_results += "No results."
 
 	var/print_reagent_default_message = TRUE
 

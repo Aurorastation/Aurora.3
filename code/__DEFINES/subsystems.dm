@@ -1,6 +1,6 @@
 /// START specific to SSmachinery
 #define START_PROCESSING_MACHINE(machine, flag)\
-	if(!istype(machine, /obj/machinery)) CRASH("A non-machine [log_info_line(machine)] was queued to process on the machinery subsystem.");\
+	if(!istype(machine, /obj/structure/machinery)) CRASH("A non-machine [log_info_line(machine)] was queued to process on the machinery subsystem.");\
 	machine.processing_flags |= flag;\
 	START_PROCESSING(SSmachinery, machine)
 
@@ -277,6 +277,7 @@
 #define FIRE_PRIORITY_SPACEDRIFT 30
 #define FIRE_PRIORITY_DEFAULT 50
 #define FIRE_PRIORITY_MOBS 100
+#define FIRE_PRIORITY_TGUI 110
 #define FIRE_PRIORITY_STATPANEL 390
 #define FIRE_PRIORITY_CHAT 400
 #define FIRE_PRIORITY_RUNECHAT 410

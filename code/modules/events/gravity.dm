@@ -11,7 +11,7 @@
 
 /datum/event/gravity/start()
 	..()
-	for(var/obj/machinery/gravity_generator/main/generator in SSmachinery.gravity_generators)
+	for(var/obj/structure/machinery/gravity_generator/main/generator in SSmachinery.gravity_generators)
 		if(generator.z in affecting_z)
 			return
 			// generator.eventshutofftoggle()

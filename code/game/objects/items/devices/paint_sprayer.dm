@@ -170,7 +170,7 @@
 		B.update_icon()
 		return
 
-	else if (istype(A, /obj/machinery/door/airlock))
+	else if (istype(A, /obj/structure/machinery/door/airlock))
 		return paint_airlock(A, user)
 
 	else if (istype(A, /turf/simulated/floor))
@@ -182,8 +182,8 @@
 	else if (istype(A, /obj/structure/closet))
 		return paint_locker(A, user, params)
 
-	else if(istype(A,/obj/machinery/atmospherics/pipe))
-		var/obj/machinery/atmospherics/pipe/P = A
+	else if(istype(A,/obj/structure/machinery/atmospherics/pipe))
+		var/obj/structure/machinery/atmospherics/pipe/P = A
 		P.change_color(GLOB.pipe_colors[mode])
 		playsound(get_turf(src), 'sound/effects/spray3.ogg', 30, 1, -6)
 
@@ -295,7 +295,7 @@
 	var/new_color
 	if (istype(A, /turf/simulated/floor))
 		new_color = pick_color_from_floor(A, user)
-	else if (istype(A, /obj/machinery/door/airlock))
+	else if (istype(A, /obj/structure/machinery/door/airlock))
 		new_color = pick_color_from_airlock(A, user)
 	if (!change_colour(new_color, user))
 		to_chat(user, SPAN_WARNING("\The [A] does not have a colour that you could pick from."))
@@ -316,7 +316,7 @@
 			return FALSE
 	return picked_color
 
-/obj/item/paint_sprayer/proc/pick_color_from_airlock(obj/machinery/door/airlock/D, mob/user)
+/obj/item/paint_sprayer/proc/pick_color_from_airlock(obj/structure/machinery/door/airlock/D, mob/user)
 	if (!D.paintable)
 		return FALSE
 	switch (select_airlock_region(D, user, "Where do you wish to pick the color from?"))
@@ -329,7 +329,7 @@
 		else
 			return FALSE
 
-/obj/item/paint_sprayer/proc/paint_airlock(obj/machinery/door/airlock/D, mob/user)
+/obj/item/paint_sprayer/proc/paint_airlock(obj/structure/machinery/door/airlock/D, mob/user)
 	if (!D.paintable)
 		to_chat(user, SPAN_WARNING("You can't paint this airlock type."))
 		return FALSE
@@ -345,7 +345,7 @@
 			return FALSE
 	return TRUE
 
-/obj/item/paint_sprayer/proc/select_airlock_region(obj/machinery/door/airlock/D, mob/user, input_text)
+/obj/item/paint_sprayer/proc/select_airlock_region(obj/structure/machinery/door/airlock/D, mob/user, input_text)
 	var/choice
 	var/list/choices = list()
 	if (D.paintable & AIRLOCK_PAINTABLE_MAIN)
@@ -368,8 +368,8 @@
 			F.decals.len--
 			F.update_icon()
 			. = TRUE
-	else if (istype(A, /obj/machinery/door/airlock))
-		var/obj/machinery/door/airlock/D = A
+	else if (istype(A, /obj/structure/machinery/door/airlock))
+		var/obj/structure/machinery/door/airlock/D = A
 		if (D.paintable)
 			D.paint_airlock(null)
 			D.stripe_airlock(null)
@@ -487,10 +487,10 @@
 		return
 	if(!in_range(user, A))
 		return
-	else if(is_type_in_list(A, list(/obj/machinery/atmospherics/pipe/tank, /obj/machinery/atmospherics/pipe/simple/heat_exchanging)))
+	else if(is_type_in_list(A, list(/obj/structure/machinery/atmospherics/pipe/tank, /obj/structure/machinery/atmospherics/pipe/simple/heat_exchanging)))
 		return
-	else if(istype(A,/obj/machinery/atmospherics/pipe))
-		var/obj/machinery/atmospherics/pipe/P = A
+	else if(istype(A,/obj/structure/machinery/atmospherics/pipe))
+		var/obj/structure/machinery/atmospherics/pipe/P = A
 		P.change_color(GLOB.pipe_colors[mode])
 	else if(istype(A, /obj/item/pipe) && pipe_color_check(GLOB.pipe_colors[mode]))
 		var/obj/item/pipe/P = A

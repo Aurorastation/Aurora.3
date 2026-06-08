@@ -113,7 +113,7 @@
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_TINY
 
-/obj/machinery/computer/shuttle_control/explore/terminal/kataphract_transport
+/obj/structure/machinery/computer/shuttle_control/explore/terminal/kataphract_transport
 	name = "shuttle control console"
 	shuttle_tag = "Kataphract Transport"
 	req_access = list(ACCESS_KATAPHRACT)

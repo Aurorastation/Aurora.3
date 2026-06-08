@@ -9,7 +9,7 @@
 	size = 12
 	usage_flags = PROGRAM_CONSOLE
 	tgui_id = "Merchant"
-	var/obj/machinery/merchant_pad/pad
+	var/obj/structure/machinery/merchant_pad/pad
 	var/current_merchant = 0
 	var/show_trades = 0
 	var/hailed_merchant = 0
@@ -56,7 +56,7 @@
 	return data
 
 /datum/computer_file/program/merchant/proc/connect_pad()
-	for(var/obj/machinery/merchant_pad/P in orange(1,get_turf(computer)))
+	for(var/obj/structure/machinery/merchant_pad/P in orange(1,get_turf(computer)))
 		pad = P
 		return
 

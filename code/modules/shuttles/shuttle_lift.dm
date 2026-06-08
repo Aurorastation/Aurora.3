@@ -7,11 +7,11 @@
 	sound_takeoff = 'sound/effects/lift_heavy_start.ogg'
 	sound_landing = 'sound/effects/lift_heavy_stop.ogg'
 	category = /datum/shuttle/autodock/ferry/lift
-	var/obj/machinery/computer/shuttle_control/assigned_controller
+	var/obj/structure/machinery/computer/shuttle_control/assigned_controller
 
 /datum/shuttle/autodock/ferry/lift/New(_name, var/obj/effect/shuttle_landmark/initial_location)
 	..()
-	for(var/obj/machinery/computer/shuttle_control/lift/controller in shuttle_area[1])
+	for(var/obj/structure/machinery/computer/shuttle_control/lift/controller in shuttle_area[1])
 		assigned_controller = controller
 		break
 
@@ -56,7 +56,7 @@
 
 	return TRUE
 
-/obj/machinery/computer/shuttle_control/lift
+/obj/structure/machinery/computer/shuttle_control/lift
 	name = "lift controller"
 	ui_template = "ShuttleControlConsoleLift"
 	icon = 'icons/obj/computer.dmi'
@@ -64,5 +64,5 @@
 	icon_screen = null
 	density = FALSE
 
-/obj/machinery/computer/shuttle_control/lift/wall
+/obj/structure/machinery/computer/shuttle_control/lift/wall
 	icon_state = "lift_wall"
