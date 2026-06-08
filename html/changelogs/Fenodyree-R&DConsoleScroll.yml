@@ -1,0 +1,7 @@
+
+author: Fenodyree
+
+delete-after: True
+
+changes:
+  - qol: "Stops the R&D console scrolling back up to the top whenever a print finishes."
