@@ -3,12 +3,12 @@ import {
   Box,
   Button,
   Image,
-  Input,
   Section,
 } from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
 import { useBackend, useLocalState } from '../backend';
 import { Window } from '../layouts';
+import { SearchBar } from './common/SearchBar';
 
 export type FridgeData = {
   contents: Item[];
@@ -36,21 +36,14 @@ export const SmartFridge = (props) => {
         <Section
           title="Storage"
           buttons={
-            <Section>
-              <Input
-                selfClear
-                placeholder="Search..."
-                onChange={(value) => {
-                  setSearchTerm(value);
-                }}
-                value={searchTerm}
-              />
-              <Button
-                content="Sort"
-                selected={data.sort_alphabetically}
-                onClick={() => act('switch_sort_alphabetically')}
-              />
-            </Section>
+            <SearchBar
+              placeholder="Search..."
+              query={searchTerm}
+              onSearch={(value) => {
+                setSearchTerm(value);
+              }}
+              style={{ width: '16rem' }}
+            />
           }
         >
           {data.secure ? (

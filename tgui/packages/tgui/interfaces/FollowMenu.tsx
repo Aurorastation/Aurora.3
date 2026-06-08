@@ -1,7 +1,8 @@
-import { Button, Collapsible, Input, Section } from 'tgui-core/components';
+import { Button, Collapsible, Section, Stack } from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
 import { useBackend, useLocalState } from '../backend';
 import { Window } from '../layouts';
+import { SearchBar } from './common/SearchBar';
 
 export type FollowData = {
   ghosts: Ghost[];
@@ -26,20 +27,22 @@ export const FollowMenu = (props) => {
         <Section
           title="Follow Menu"
           buttons={
-            <>
-              <Input
-                autoFocus
-                autoSelect
-                placeholder="Search by name"
-                width="40vw"
-                maxLength={512}
-                onChange={(value) => {
-                  setSearchTerm(value);
-                }}
-                value={searchTerm}
-              />
-              <Button content="Refresh" onClick={() => act('refresh')} />
-            </>
+            <Stack align="center">
+              <Stack.Item>
+                <SearchBar
+                  autoFocus
+                  placeholder="Search by name"
+                  query={searchTerm}
+                  onSearch={(value) => {
+                    setSearchTerm(value);
+                  }}
+                  style={{ width: '18rem' }}
+                />
+              </Stack.Item>
+              <Stack.Item>
+                <Button content="Refresh" onClick={() => act('refresh')} />
+              </Stack.Item>
+            </Stack>
           }
         >
           {data.categories.sort().map((category) => (

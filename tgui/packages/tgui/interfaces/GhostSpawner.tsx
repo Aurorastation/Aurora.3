@@ -2,7 +2,6 @@ import { chunk } from 'es-toolkit';
 import {
   Box,
   Button,
-  Input,
   Section,
   Table,
   Tabs,
@@ -11,6 +10,7 @@ import {
 import type { BooleanLike } from 'tgui-core/react';
 import { useBackend, useLocalState } from '../backend';
 import { Window } from '../layouts';
+import { SearchBar } from './common/SearchBar';
 
 export type SpawnerData = {
   spawners: Spawner[];
@@ -113,16 +113,14 @@ export const GhostSpawner = (props) => {
         <Section
           title="Spawners"
           buttons={
-            <Input
+            <SearchBar
               autoFocus
-              autoSelect
               placeholder="Search by name"
-              width="40vw"
-              maxLength={512}
-              onChange={(value) => {
+              query={searchTerm}
+              onSearch={(value) => {
                 setSearchTerm(value);
               }}
-              value={searchTerm}
+              style={{ width: '40vw' }}
             />
           }
         >
