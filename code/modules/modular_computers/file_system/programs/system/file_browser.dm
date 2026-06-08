@@ -217,19 +217,6 @@
 				qdel(C)
 				error = "I/O ERROR: Unable to clone file. The hard drive may be full, read-only, or contain a conflicting file."
 
-		if("PRG_rename")
-			. = TRUE
-			var/obj/item/computer_hardware/hard_drive/HDD = computer.hard_drive
-			if(!HDD)
-				return TRUE
-			var/datum/computer_file/file = HDD.find_file_by_name(open_file)
-			if(!file || !istype(file))
-				return TRUE
-			var/newname = sanitize_filename(params["PRG_new_file_name"])
-			if(file && newname)
-				file.filename = newname
-				open_file = newname
-
 		if("PRG_edit")
 			. = TRUE
 			var/obj/item/computer_hardware/hard_drive/HDD = computer.hard_drive
@@ -238,6 +225,16 @@
 			var/datum/computer_file/data/F = HDD.find_file_by_name(open_file)
 			if(!F || !istype(F))
 				return TRUE
+
+			if(params["PRG_rename"])
+				var/newname = sanitize_filename(params["PRG_rename"])
+				file.filename = newname
+				open_file = newname
+				return
+
+			if(params["PRG_desc"])
+				F.filedesc = params["PRG_desc"]
+				return
 
 			var/newtext = params["PRG_edit"]
 			if(!newtext)
@@ -402,17 +399,5 @@
 			qdel(query)
 			usr << browse(HTML_SKELETON(dat), "window=Information;size=560x240")
 			return TRUE
-
-		if("edit_field")
-			var/obj/item/computer_hardware/hard_drive/HDD = computer.hard_drive
-			if(!HDD)
-				return TRUE
-			var/datum/computer_file/file = HDD.find_file_by_name(open_file)
-			if(!file || !istype(file))
-				return TRUE
-			var/newname = sanitize_filename(params["value"])
-			if(file && newname)
-				file.filename = newname
-				open_file = newname
 
 #undef MAX_TEXTFILE_LENGTH

@@ -28,6 +28,7 @@ type FileData = {
   usb_connected: BooleanLike;
   script_data: string;
   file_data: string;
+  file_desc: string;
   file_is_usb: BooleanLike;
   file_name: string;
   files: File[];
@@ -312,11 +313,12 @@ export const File_Edit = (props) => {
   const { act, data } = useBackend<FileData>();
 
   return (
+
     <Section
       title={<Input
           value={data.file_name}
           placeholder="Enter file name..."
-          onEnter={(e) => act('PRG_rename', { PRG_new_file_name: e })}
+          onEnter={(e) => act('PRG_edit', { PRG_rename: e })}
         /> }
       buttons={
       <>
@@ -333,6 +335,13 @@ export const File_Edit = (props) => {
         </>
       }
       >
+        <Input
+          fluid
+          placeholder='Enter file description...'
+          value = {data.file_desc}
+          onEnter={(e) => act('PRG_edit', {PRG_desc: e})}
+        />
+        <Divider />
         <TextArea
           fluid
           spellcheck
