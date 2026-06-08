@@ -30,7 +30,7 @@ export const COLORS = {
     cargo: '#f39c12',
     service: '#7cc46a',
     centcom: '#00c100',
-    other: '#c38312',
+    other: '#888888',
   },
   // Damage type colors
   damageType: {

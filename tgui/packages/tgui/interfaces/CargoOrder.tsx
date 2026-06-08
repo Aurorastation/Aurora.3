@@ -2,7 +2,6 @@ import {
   Box,
   Button,
   Icon,
-  Input,
   LabeledList,
   Section,
   Stack,
@@ -14,6 +13,7 @@ import type { BooleanLike } from 'tgui-core/react';
 import { useBackend, useLocalState } from '../backend';
 import { NtosWindow } from '../layouts';
 import { sanitizeText } from '../sanitize';
+import { SearchBar } from './common/SearchBar';
 
 export type CargoData = {
   username: string;
@@ -169,15 +169,13 @@ export const MainPage = (props) => {
       <Section
         title="Catalog"
         buttons={
-          <Input
+          <SearchBar
             autoFocus
-            autoSelect
             placeholder="Search by name"
-            maxLength={512}
-            onChange={(value) => {
+            query={searchTerm}
+            onSearch={(value) => {
               setSearchTerm(value);
             }}
-            value={searchTerm}
           />
         }
       />

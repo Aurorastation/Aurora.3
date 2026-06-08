@@ -10,4 +10,5 @@
 		"dbaeumer.vscode-eslint",
 		"editorconfig.editorconfig",
 		"biomejs.biome"
+	]
 }

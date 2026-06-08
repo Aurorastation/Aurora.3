@@ -5,6 +5,10 @@
 	jobs = list("Engineer")
 	minimum_character_age = list(
 		SPECIES_HUMAN = 25,
+		SPECIES_TAJARA = 25,
+		SPECIES_TAJARA_MSAI = 25,
+		SPECIES_TAJARA_ZHAN = 25,
+		SPECIES_UNATHI = 25,
 		SPECIES_SKRELL = 60,
 		SPECIES_SKRELL_AXIORI = 60
 	)
@@ -22,6 +26,10 @@
 	jobs = list("Engineer")
 	minimum_character_age = list(
 		SPECIES_HUMAN = 25,
+		SPECIES_TAJARA = 25,
+		SPECIES_TAJARA_MSAI = 25,
+		SPECIES_TAJARA_ZHAN = 25,
+		SPECIES_UNATHI = 25,
 		SPECIES_SKRELL = 60,
 		SPECIES_SKRELL_AXIORI = 60
 	)
@@ -39,6 +47,10 @@
 	jobs = list("Atmospherics Technician")
 	minimum_character_age = list(
 		SPECIES_HUMAN = 25,
+		SPECIES_TAJARA = 25,
+		SPECIES_TAJARA_MSAI = 25,
+		SPECIES_TAJARA_ZHAN = 25,
+		SPECIES_UNATHI = 25,
 		SPECIES_SKRELL = 60,
 		SPECIES_SKRELL_AXIORI = 60
 	)
@@ -57,6 +69,10 @@
 	jobs = list("Engineer")
 	minimum_character_age = list(
 		SPECIES_HUMAN = 25,
+		SPECIES_TAJARA = 25,
+		SPECIES_TAJARA_MSAI = 25,
+		SPECIES_TAJARA_ZHAN = 25,
+		SPECIES_UNATHI = 25,
 		SPECIES_SKRELL = 60,
 		SPECIES_SKRELL_AXIORI = 60
 	)
@@ -75,6 +91,10 @@
 	jobs = list("Engineer")
 	minimum_character_age = list(
 		SPECIES_HUMAN = 25,
+		SPECIES_TAJARA = 25,
+		SPECIES_TAJARA_MSAI = 25,
+		SPECIES_TAJARA_ZHAN = 25,
+		SPECIES_UNATHI = 25,
 		SPECIES_SKRELL = 60,
 		SPECIES_SKRELL_AXIORI = 60
 	)

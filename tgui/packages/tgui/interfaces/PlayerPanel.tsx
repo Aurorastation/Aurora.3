@@ -1,7 +1,8 @@
-import { Box, Button, Input, Section, Table } from 'tgui-core/components';
+import { Box, Button, Section, Table } from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
 import { useBackend, useLocalState } from '../backend';
 import { Window } from '../layouts';
+import { SearchBar } from './common/SearchBar';
 
 export type PanelData = {
   holder_ref: string;
@@ -33,16 +34,14 @@ export const PlayerPanel = (props) => {
         <Section
           title="Players"
           buttons={
-            <Input
+            <SearchBar
               autoFocus
-              autoSelect
               placeholder="Search by ckey, name, or assignment"
-              width="40vw"
-              maxLength={512}
-              onChange={(value) => {
+              query={searchTerm}
+              onSearch={(value) => {
                 setSearchTerm(value);
               }}
-              value={searchTerm}
+              style={{ width: '40vw' }}
             />
           }
         >
