@@ -45,6 +45,7 @@
 /obj/structure/machinery/recharger/assembly_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "It [anchored ? "is" : "could be"] anchored to the floor with some <b>bolts</b>."
+	. += "Its maintenance panel is [panel_open ? "open and it can be modified with a part exchanger, or deconstructed with a crowbar." : "closed"]"
 
 /obj/structure/machinery/recharger/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -85,6 +86,19 @@
 		attacking_item.play_tool_sound(get_turf(src), 75)
 		return TRUE
 
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
+		if(charging)
+			to_chat(user, SPAN_WARNING("You can't modify \the [src] while it has something charging inside."))
+		else
+			if(default_deconstruction_screwdriver(user, attacking_item))
+				update_icon()
+				return TRUE
+
+	if(default_part_replacement(user, attacking_item))
+		return TRUE
+	else if(default_deconstruction_crowbar(user, attacking_item))
+		return TRUE
+
 	if (istype(attacking_item, /obj/item/gripper))//Code for allowing cyborgs to use rechargers
 		var/obj/item/gripper/Gri = attacking_item
 		if (charging)//If there's something in the charger
@@ -95,26 +109,24 @@
 				to_chat(user, SPAN_DANGER("Your gripper cannot hold \the [charging]."))
 		return TRUE
 
-	if(default_part_replacement(user, attacking_item))
-		return TRUE
-	else if(default_deconstruction_screwdriver(user, attacking_item))
-		return TRUE
-
 	if(!attacking_item.dropsafety())
 		return TRUE
 
-	if(is_type_in_list(attacking_item, allowed_devices))
-		if (attacking_item.get_cell() == DEVICE_NO_CELL)
-			if (attacking_item.charge_failure_message)
-				to_chat(user, SPAN_WARNING("\The [attacking_item][attacking_item.charge_failure_message]"))
-			return TRUE
-		if(charging)
-			to_chat(user, SPAN_WARNING("\A [charging] is already charging here."))
-			return TRUE
-		// Checks to make sure he's not in space doing it, and that the area got proper power.
-		if(!powered())
-			to_chat(user, SPAN_WARNING("\The [name] blinks red as you try to insert the item!"))
-			return TRUE
+	if (panel_open)
+		to_chat(user, SPAN_WARNING("You can't insert items into \the [src] while the panel is open."))
+	else
+		if(is_type_in_list(attacking_item, allowed_devices))
+			if (attacking_item.get_cell() == DEVICE_NO_CELL)
+				if (attacking_item.charge_failure_message)
+					to_chat(user, SPAN_WARNING("\The [attacking_item][attacking_item.charge_failure_message]"))
+				return TRUE
+			if(charging)
+				to_chat(user, SPAN_WARNING("\A [charging] is already charging here."))
+				return TRUE
+			// Checks to make sure he's not in space doing it, and that the area got proper power.
+			if(!powered())
+				to_chat(user, SPAN_WARNING("\The [name] blinks red as you try to insert the item!"))
+				return TRUE
 
 		user.drop_from_inventory(attacking_item,src)
 		charging = attacking_item
