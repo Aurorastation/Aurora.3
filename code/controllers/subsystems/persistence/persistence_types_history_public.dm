@@ -1,3 +1,5 @@
+#define PERSISTENCE_INTERNAL_MAX_RECORD_QUERY_COUNT 1000 // Max record row count to allowed to draw
+
 /**
  * Helper proc for history/character persistent types to retrieve a character name based of it's character ID.
  * PARAMS:
@@ -129,6 +131,10 @@
 		log_subsystem_persistence_warning("Attempted to get history records with null target type.")
 		return list()
 
+	if(limit > PERSISTENCE_INTERNAL_MAX_RECORD_QUERY_COUNT)
+		limit = PERSISTENCE_INTERNAL_MAX_RECORD_QUERY_COUNT
+		log_subsystem_persistence_panic("Attempted to draw more records then allowed for target type [target_type].")
+
 	var/singleton/persistent_type/type_instance = GET_SINGLETON(target_type)
 	if(type_instance.requires_attribute && !attribute)
 		log_subsystem_persistence_warning("Attempted to get history records of type [target_type] without required attribute.")
@@ -188,7 +194,7 @@
  * 	List of /persistent_record or empty list.
  */
 /datum/controller/subsystem/persistence/proc/historyGetAllRecords(var/singleton/persistent_type/history/target_type, attribute, skip_caching = TRUE)
-	var/result = historyGetLastRecords(target_type, attribute, 1000, skip_caching) // TODO 1000 okay?
+	var/result = historyGetLastRecords(target_type, attribute, PERSISTENCE_INTERNAL_MAX_RECORD_QUERY_COUNT, skip_caching)
 	if(length(result) == 0)
 		return null
 	else
@@ -222,6 +228,10 @@
 		log_subsystem_persistence_warning("Attempted to get history records with null target type.")
 		return list()
 
+	if(limit > PERSISTENCE_INTERNAL_MAX_RECORD_QUERY_COUNT)
+		limit = PERSISTENCE_INTERNAL_MAX_RECORD_QUERY_COUNT
+		log_subsystem_persistence_panic("Attempted to draw more records then allowed for target type [target_type].")
+
 	var/singleton/persistent_type/type_instance = GET_SINGLETON(target_type)
 	var/list/result = list()
 
@@ -244,7 +254,7 @@
  * 	List of associative list with "attribute" and "records" of type list(/persistent_record) or empty list.
  */
 /datum/controller/subsystem/persistence/proc/historyGetAllRecordsForAllAttributes(var/singleton/persistent_type/history/target_type, skip_caching = TRUE)
-	var/result = historyGetLastRecordsForAllAttributes(target_type, 1000, skip_caching) // TODO 1000 okay?
+	var/result = historyGetLastRecordsForAllAttributes(target_type, PERSISTENCE_INTERNAL_MAX_RECORD_QUERY_COUNT, skip_caching)
 	if(length(result) == 0)
 		return null
 	else

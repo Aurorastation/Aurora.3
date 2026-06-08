@@ -7,10 +7,14 @@
 // Persistent type definition found in database
 ABSTRACT_TYPE(/singleton/persistent_type)
 	var/database_id = 0 // Set during subsystem init - DO NOT MODIFY
-	var/definition_type_value = 0 // Hard coded in "ss13_persistent_type_definitions.definition_type", DO NOT MODIFY - DATABASE CONSTANT
+	var/definition_type_value = 0 // DO NOT MODIFY - DATABASE CONSTANT
 	var/title = ""
 	var/description = ""
 	var/requires_attribute = FALSE // Whether or not this type requires/has an attribute, relevant for subsystem when saving or pulling type data - Should not be changed after release for the given type
+
+// Hard coded in "ss13_persistent_type_definitions.definition_type", DO NOT MODIFY - DATABASE CONSTANTS
+#define PERSISTENCE_INTERNAL_TYPE_DEFINE_TYPE_VALUE_GENERIC 1
+#define PERSISTENCE_INTERNAL_TYPE_DEFINE_TYPE_VALUE_HISTORY 2
 
 /**
  *	Hook proc that is called by the subsystem starting finalization on each persistent type definition.
@@ -24,13 +28,13 @@ ABSTRACT_TYPE(/singleton/persistent_type)
 	return
 
 ABSTRACT_TYPE(/singleton/persistent_type/generic) // Base type for "persistent generics"
-	definition_type_value = 1 // DO NOT MODIFY - DATABASE CONSTANT
+	definition_type_value = PERSISTENCE_INTERNAL_TYPE_DEFINE_TYPE_VALUE_GENERIC // DO NOT MODIFY - DATABASE CONSTANT
 
 ABSTRACT_TYPE(/singleton/persistent_type/history) // Base type for "persistent history"
-	definition_type_value = 2 // DO NOT MODIFY - DATABASE CONSTANT
+	definition_type_value = PERSISTENCE_INTERNAL_TYPE_DEFINE_TYPE_VALUE_HISTORY // DO NOT MODIFY - DATABASE CONSTANT
 	var/singleton/persistent_type_history_expiration_rule/expiration_rule = null
 
-ABSTRACT_TYPE(/singleton/persistent_type/history/character) // Base type of extended validation for persistent history in relation to characters
+ABSTRACT_TYPE(/singleton/persistent_type/history/character) // Base type with extended validation for persistent history in relation to characters
 	// Empty stub
 
 // ##### Macros for new custom type definitions
