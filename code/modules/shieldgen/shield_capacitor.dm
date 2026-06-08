@@ -110,6 +110,11 @@
 		return
 	ui_interact(user)
 
+/obj/structure/machinery/shield_capacitor/attack_ai(mob/user)
+	if(!ai_can_interact(user))
+		return
+	return attack_hand(user)
+
 /obj/structure/machinery/shield_capacitor/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
@@ -180,4 +185,3 @@
 
 /// Horizon-specific non-variant, for now.
 /obj/structure/machinery/shield_capacitor/multiz
-

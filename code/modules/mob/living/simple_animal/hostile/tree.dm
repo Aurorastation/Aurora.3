@@ -24,6 +24,7 @@
 	melee_damage_lower = 8
 	melee_damage_upper = 12
 	attacktext = "bites"
+	attack_vis_effect = ATTACK_EFFECT_BITE //what how
 	attack_sound = 'sound/weapons/bite.ogg'
 
 	//Space carp aren't affected by atmos.

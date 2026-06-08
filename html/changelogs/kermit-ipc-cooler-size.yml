@@ -1,0 +1,7 @@
+author: kermit
+
+delete-after: True
+
+changes:
+  - qol: "Downsizes the IPC Suit Cooler from Bulky to Normal so they can fit in bags (on par with large oxygen tanks)."
+  - balance: "Downgrades the IPC Suit Cooler's cell to a heavy-duty cell (-50% charge capacity) and increases charge consumption modifer by 85% (result is: approx. 10 minutes cooling a cooler-less IPC; in ordinary EVA conditions, it still lasts ages, don't worry)."
