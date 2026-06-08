@@ -1,4 +1,4 @@
-import { BooleanLike } from '../../common/react';
+import { BooleanLike } from 'tgui-core/react';
 import {
   Box,
   Button,
@@ -6,7 +6,7 @@ import {
   NoticeBox,
   ProgressBar,
   Section,
-} from '../components';
+} from 'tgui-core/components';
 
 import { useBackend } from '../backend';
 import { Window } from '../layouts';
@@ -19,8 +19,8 @@ export type GravityGeneratorData = {
   operational: BooleanLike;
 };
 
-export const GravityGenerator = (props, context) => {
-  const { act, data } = useBackend<GravityGeneratorData>(context);
+export const GravityGenerator = (props) => {
+  const { act, data } = useBackend<GravityGeneratorData>();
 
   return (
     <Window width={400} height={155}>
@@ -32,8 +32,8 @@ export const GravityGenerator = (props, context) => {
   );
 };
 
-const GravityGeneratorContent = (props, context) => {
-  const { act, data } = useBackend<GravityGeneratorData>(context);
+const GravityGeneratorContent = (props) => {
+  const { act, data } = useBackend<GravityGeneratorData>();
   const { breaker, charge_count, charging_state, on, operational } = data;
   return (
     <Section>
