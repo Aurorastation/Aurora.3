@@ -95,7 +95,7 @@ export const CargoOrder = (props) => {
   const { act, data } = useBackend<CargoData>();
 
   return (
-    <NtosWindow resizable width={800} height={800}>
+    <NtosWindow resizable width={800} height={800} theme="orion">
       <NtosWindow.Content scrollable>
         <Tabs fluid>
           <Tabs.Tab
@@ -152,12 +152,13 @@ export const MainPage = (props) => {
             />
             <Button
               content="Clear"
-              color="red"
+              color="reject"
               icon="stop"
               onClick={() => act('clear_order')}
             />
             <Button
               content="Submit Order"
+              color="approve"
               icon="check"
               onClick={() => act('submit_order')}
             />

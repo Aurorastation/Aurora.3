@@ -12,10 +12,14 @@
 	usage_flags = PROGRAM_LAPTOP | PROGRAM_CONSOLE | PROGRAM_TELESCREEN
 	tgui_id = "CargoControl"
 
-	var/page = "overview_main" //overview_main - Main Menu, overview_submitted - Submitted Order Overview, overview_approved - Approved Order Overview, settings - Settings, details - order details, bounties - centcom bounties
-	var/status_message //A status message that can be displayed
-	var/list/order_details = list() //Order Details for the order
-	var/list/shipment_details = list() //Shipment Details for a selected shipment
+	//overview_main - Main Menu, overview_submitted - Submitted Order Overview, overview_approved - Approved Order Overview, settings - Settings, details - order details, bounties - centcom bounties
+	var/page = "overview_main"
+	//A status message that can be displayed
+	var/status_message = "Awaiting input"
+	//Order Details for the order
+	var/list/order_details = null
+	//Shipment Details for a selected shipment
+	var/list/shipment_details = list()
 
 /datum/computer_file/program/civilian/cargocontrol/ui_data(mob/user)
 	var/list/data = initial_data()
@@ -33,7 +37,7 @@
 	data["order_submitted_number"] = submitted_orders.len
 	data["order_submitted_value"] = SScargo.get_orders_value_by_status("submitted",1)
 	data["order_submitted_suppliers"] = SScargo.get_order_suppliers_by_status("submitted",1)
-	data["order_submitted_shuttle_time"] = SScargo.get_pending_shipment_time("submitted")
+	data["order_submitted_shuttle_time"] = SScargo.get_pending_shipment_time("submitted") + SScargo.min_movetime
 	data["order_submitted_shuttle_price"] = SScargo.get_pending_shipment_cost("submitted")
 	if(page == "overview_submitted")
 		data["order_list"] = submitted_orders
@@ -42,7 +46,7 @@
 	data["order_approved_number"] = approved_orders.len
 	data["order_approved_value"] = SScargo.get_orders_value_by_status("approved",1)
 	data["order_approved_suppliers"] = SScargo.get_order_suppliers_by_status("approved",1)
-	data["order_approved_shuttle_time"] = SScargo.get_pending_shipment_time("approved")
+	data["order_approved_shuttle_time"] = SScargo.get_pending_shipment_time("approved") + SScargo.min_movetime
 	data["order_approved_shuttle_price"] = SScargo.get_pending_shipment_cost("approved")
 	if(page == "overview_approved")
 		data["order_list"] = approved_orders
@@ -59,8 +63,7 @@
 	if(page == "overview_delivered")
 		data["order_list"] = delivered_orders
 
-	if(length(order_details))
-		data["order_details"] = order_details
+	data["order_details"] = order_details
 
 	if(page == "overview_shipments")
 		data["shipment_list"] = SScargo.get_shipment_list()
@@ -109,24 +112,33 @@
 		//Page switch between main, submitted, approved and settings
 		if("page")
 			switch(params["page"])
+				//Main overview page with links to the different sub overview pages - submitted, approved, shipped
 				if("overview_main")
-					page = "overview_main" //Main overview page with links to the different sub overview pages - submitted, approved, shipped
+					page = "overview_main"
+				//Overview page listing the orders that have been submitted with options to view them, approve them and reject them
 				if("overview_submitted")
-					page = "overview_submitted" //Overview page listing the orders that have been submitted with options to view them, approve them and reject them
+					page = "overview_submitted"
+				//Overview page listing the current elevator price and time as well as orders that have been approved, with options to view the details
 				if("overview_approved")
-					page = "overview_approved" //Overview page listing the current shuttle price and time as well as orders that have been approved, with options to view the details
+					page = "overview_approved"
+				//Overview page listing the orders that have been moved to the top of the cargo elevator but not delivered
 				if("overview_shipped")
-					page = "overview_shipped" //Overview page listing the orders that have been shipped to the station but not delivered
+					page = "overview_shipped"
+				//Overview page listing the orders that have been delivered
 				if("overview_delivered")
-					page = "overview_delivered" //Overview page listing the orders that have been delivered
-				if("overview_shipments") //Overview of the shipments to / from the station
+					page = "overview_delivered"
+				//Overview of the shipments to / from the ship
+				if("overview_shipments")
 					page = "overview_shipments"
+				//Settings page that allows to tweak various settings such as the cargo handling fee
 				if("settings")
-					page = "settings" //Settings page that allows to tweak various settings such as the cargo handling fee
+					page = "settings"
+				//Page listing the currently available centcom bounties
 				if("bounties")
-					page = "bounties" //Page listing the currently available centcom bounties
+					page = "bounties"
+				//fall back to overview_main if a unknown page has been supplied
 				else
-					page = "overview_main" //fall back to overview_main if a unknown page has been supplied
+					page = "overview_main"
 			return TRUE
 
 		//Approve a order
@@ -170,7 +182,13 @@
 
 		//Clear Status Message
 		if("clear_message")
-			status_message = null
+			status_message = "Awaiting input"
+			return TRUE
+
+		//Clear selected order
+		if("clear_order")
+			order_details = null
+			status_message = "Selected order cleared."
 			return TRUE
 
 		//Change the handling fee
@@ -252,7 +270,8 @@
 				else
 					computer.visible_message(SPAN_NOTICE("\The [computer] prints out paper."))
 
-/datum/computer_file/program/civilian/cargocontrol/proc/post_signal(var/command) //Old code right here - Used to send a refresh command to the status screens incargo
+//Old code right here - Used to send a refresh command to the status screens incargo
+/datum/computer_file/program/civilian/cargocontrol/proc/post_signal(var/command)
 	var/datum/radio_frequency/frequency = SSradio.return_frequency(1435)
 
 	if(!frequency)

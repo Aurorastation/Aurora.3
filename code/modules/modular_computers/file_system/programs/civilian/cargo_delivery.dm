@@ -148,11 +148,12 @@
 			status_message = "Unable to process - Network Card or Card Reader Missing"
 			return TRUE
 
-
-	//But only cargo can switch between the pages
-	if(!istype(I) || !I.registered_name || !(ACCESS_CARGO in I.access) || issilicon(usr))
-		to_chat(usr, SPAN_WARNING("Authentication error: Unable to locate ID with appropriate access to allow this operation."))
-		return
+	if(action == "clear_order")
+		co = null
+		order_details = list()
+		status_message = "Selected order cleared."
+		page = "overview_main"
+		return TRUE
 
 	if(action == "page")
 		status_message = null //Null the previous status, so its not confusing
@@ -163,15 +164,20 @@
 				page = "order_overview" //Details page for a specific order - Lists the contents of the orde with the suppliers, prices and required access levels
 				//Fetch the order details and store it for the order. No need to fetch it again every 2 seconds
 				co = SScargo.get_order_by_id(text2num(params["order_overview"]))
-				order_details = co.get_list()
+				order_details = co?.get_list()
 			if("order_payment")
 				page = "order_payment"
 				co = SScargo.get_order_by_id(text2num(params["order_payment"]))
-				order_details = co.get_list()
+				order_details = co?.get_list()
 			else
 				page = "overview_main" //fall back to overview_main if a unknown page has been supplied
 		return TRUE
+
 	if(action == "accountselect")
+		// Only cargo can switch between the paying accounts
+		if(!istype(I) || !I.registered_name || !(ACCESS_CARGO in I.access) || issilicon(usr))
+			to_chat(usr, SPAN_WARNING("Authentication error: Unable to locate ID with appropriate access to allow this operation."))
+			return
 		var/list/choices = assoc_to_keys(SSeconomy.department_accounts)
 		choices += "Personal"
 		var/dest = tgui_input_list(usr, "What account would you like to select?", "Destination Account", choices)
