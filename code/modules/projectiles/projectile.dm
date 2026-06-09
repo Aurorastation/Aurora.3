@@ -379,19 +379,38 @@
 	beam_segments[beam_index] = null
 
 /obj/projectile/proc/check_human_shield(atom/A)
-	if(!isliving(A) || !starting)
+	if(!ishuman(A) || !starting)
 		return FALSE
-
-	var/mob/living/M = A
-	if(point_blank || !(M.dir & get_dir(M, starting)))
+	var/mob/living/carbon/human/M = A
+	if(point_blank || !(M.dir & get_dir(M, starting))) //Don't use the shield if the shot is at point blank, or the shot comes from behind or the sides.
 		return FALSE
-
 	for(var/obj/item/grab/G in list(M.l_hand, M.r_hand))
 		if(!G?.affecting || G.state < GRAB_NECK || G.affecting.lying)
 			continue
-		M.visible_message(SPAN_DANGER("\The [M] uses [G.affecting] as a shield!"))
-		return G.affecting
-
+		if(G.affecting.mob_size < M.mob_size) //Humans are size 9, Unathi and Varuca workers 10, G1 & G2 are 11. This is mostly to make monkeys bad human shields.
+			if (rand(1, M.mob_size) > G.affecting.mob_size)
+				M.visible_message(SPAN_WARNING("\The [M] tries to use [G.affecting] as a shield, but [G.affecting] is too small to be an effective shield!"))
+				continue
+		if((G == M.l_hand && (def_zone == BP_L_ARM || def_zone == BP_L_HAND || def_zone == BP_CHEST || def_zone == BP_GROIN)) || (G == M.r_hand && (def_zone == BP_R_ARM || def_zone == BP_R_HAND || def_zone == BP_CHEST || def_zone == BP_GROIN))) //Human shields only block shots to the arm holding the person, chest and groin.
+			if(G.affecting.stat == DEAD) //If they are dead hit both the hostage and the hostage taker.
+				penetrating += 1
+				projectile_piercing = PASSMOB
+				pierce_chance = 100
+				M.visible_message(SPAN_WARNING("\The [M] tries to use [G.affecting] as a shield, but the shot punches through their mangled body!"))
+				return G.affecting
+			else
+				if(ishuman(G.affecting))
+					var/mob/living/carbon/human/human_shield = G.affecting
+					var/obj/item/organ/external/organ = human_shield.get_organ(def_zone)
+					if(organ.burn_dam + organ.brute_dam > organ.max_damage) //If the hit zone is above the max damage threshold, the shot hits both.
+						penetrating += 1
+						projectile_piercing = PASSMOB
+						pierce_chance = 100
+						M.visible_message(SPAN_WARNING("\The [M] tries to use [G.affecting] as a shield, but the shot punches through their mangled [organ.name]!"))
+						return G.affecting
+			M.visible_message(SPAN_WARNING("\The [M] uses [G.affecting] as a shield!"))
+			return G.affecting
+		M.visible_message(SPAN_WARNING("\The [M] tries to use [G.affecting] as a shield but their [M.organs_by_name[def_zone]] is exposed!"))
 	return FALSE
 
 /obj/projectile/Collide(atom/A)
@@ -420,12 +439,6 @@
 	if(impacted[A.weak_reference]) // NEVER doublehit
 		return FALSE
 	var/turf/T = get_turf(A)
-	var/atom/shield_target = check_human_shield(A)
-	if(shield_target)
-		var/datum/weakref/original_ref = A.weak_reference
-		impacted[original_ref] = TRUE
-		process_hit(T, shield_target, A)
-		impacted -= original_ref
 	var/datum/point/point_cache = trajectory.copy_to()
 	if(ricochets < ricochets_max && check_ricochet_flag(A) && check_ricochet(A))
 		ricochets++
@@ -451,6 +464,15 @@
 		if (!def_zone)
 			A.visible_message(SPAN_NOTICE("\The [src] misses [A] narrowly!"))
 			return FALSE
+		var/atom/shield_target = check_human_shield(A)
+		if(shield_target)
+			var/datum/weakref/original_ref = A.weak_reference
+			impacted[original_ref] = TRUE
+			process_hit(T, shield_target, A)
+			impacted -= original_ref
+			penetrating = initial(penetrating)
+			projectile_piercing = initial(projectile_piercing)
+			pierce_chance = initial(pierce_chance)
 	else
 		def_zone = ran_zone(def_zone, clamp(accurate_range - (accuracy_falloff * distance), 5, 100)) //Lower accurancy/longer range tradeoff. 7 is a balanced number to use.
 
