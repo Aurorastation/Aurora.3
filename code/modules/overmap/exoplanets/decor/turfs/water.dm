@@ -281,6 +281,9 @@
 
 	update_overlay_layer(AM)
 
+/turf/simulated/floor/exoplanet/water/smooth/dark_marble
+	base_turf_icon = "dark_marble"
+
 /turf/simulated/floor/exoplanet/water/smooth/swamp
 	name = "murk"
 	desc = "Weeds and algae cover the surface of the water."

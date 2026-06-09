@@ -223,6 +223,9 @@
 	name = "scc base camp tent"
 	decal = "scc"
 
+/obj/item/tent/big/purple
+	color = "#6e4991"
+
 /obj/item/tent/mining
 	name = "miners' tent"
 	color = "#8b7242"
@@ -304,6 +307,10 @@
 	qdel(tent_item)
 	qdel(src)
 
+// ---- Tent spawner subtypes
+/obj/effect/tent/purple
+	builds = /obj/item/tent/big/purple
+
 /*
 	Sleeping bags
 */
@@ -352,6 +359,9 @@
 /obj/item/sleeping_bag/mining
 	color = COLOR_DARK_BROWN
 
+/obj/item/sleeping_bag/teal
+	color = "#497791"
+
 /obj/structure/bed/sleeping_bag
 	name = "sleeping bag"
 	desc = "A bag for sleeping in. Great for trying to pretend you're somewhere more comfortable than you really are."
@@ -396,6 +406,9 @@
 	S.color = color
 	usr.visible_message(SPAN_NOTICE("\The [usr] rolls up \the [src]."))
 	qdel(src)
+
+/obj/structure/bed/sleeping_bag/teal
+	color = "#497791"
 
 /*
 	Folding Tables
