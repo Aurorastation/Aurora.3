@@ -662,7 +662,7 @@
 	new /obj/item/clothing/head/beret/lancer(src)
 	new /obj/item/clothing/shoes/jackboots(src)
 	new /obj/item/storage/belt/military(src)
-	new /obj/item/melee/baton(src)
+	new /obj/item/melee/baton/loaded(src)
 	new /obj/item/gun/projectile/automatic/c20r(src)
 	new /obj/item/ammo_magazine/a10mm(src)
 	new /obj/item/ammo_magazine/a10mm(src)
