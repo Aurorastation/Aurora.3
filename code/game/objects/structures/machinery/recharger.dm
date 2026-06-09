@@ -45,7 +45,7 @@
 /obj/structure/machinery/recharger/assembly_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "It [anchored ? "is" : "could be"] anchored to the floor with some <b>bolts</b>."
-	. += "Its maintenance panel is [panel_open ? "open and it can be modified with a part exchanger, or deconstructed with a crowbar." : "closed"]"
+	. += "Its maintenance panel is [panel_open ? "open and it can be modified with a part exchanger[portable ? " or deconstructed with a crowbar" : "."]" : "closed. It could be opened with a screwdriver."]"
 
 /obj/structure/machinery/recharger/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -86,17 +86,18 @@
 		attacking_item.play_tool_sound(get_turf(src), 75)
 		return TRUE
 
-	if(charging && (attacking_item.tool_behaviour == TOOL_SCREWDRIVER || attacking_item.tool_behaviour == TOOL_CROWBAR))
-		to_chat(user, SPAN_WARNING("You can't modify \the [src] while it has something charging inside."))
-		return TRUE
-	else
-		if(default_deconstruction_screwdriver(user, attacking_item))
-			update_icon()
+	if(portable) //We don't want wall chargers to be buildable, they can't be put back on walls if they are deconstructed.
+		if(charging && (attacking_item.tool_behaviour == TOOL_SCREWDRIVER || attacking_item.tool_behaviour == TOOL_CROWBAR))
+			to_chat(user, SPAN_WARNING("You can't modify \the [src] while it has something charging inside."))
 			return TRUE
-		else if(default_deconstruction_crowbar(user, attacking_item))
-			return TRUE
-		else if(default_part_replacement(user, attacking_item))
-			return TRUE
+		else
+			if(default_deconstruction_screwdriver(user, attacking_item))
+				update_icon()
+				return TRUE
+			else if(default_deconstruction_crowbar(user, attacking_item))
+				return TRUE
+			else if(default_part_replacement(user, attacking_item))
+				return TRUE
 
 	if (istype(attacking_item, /obj/item/gripper))//Code for allowing cyborgs to use rechargers
 		var/obj/item/gripper/Gri = attacking_item
@@ -251,3 +252,15 @@
 		icon_state = icon_state_charging + "0"
 	else
 		icon_state = icon_state_idle
+
+/obj/structure/machinery/recharger/wallcharger/attackby(obj/item/attacking_item, mob/user)
+	if(charging && (attacking_item.tool_behaviour == TOOL_SCREWDRIVER || attacking_item.tool_behaviour == TOOL_CROWBAR))
+		to_chat(user, SPAN_WARNING("You can't modify \the [src] while it has something charging inside."))
+		return TRUE
+	else
+		if(default_deconstruction_screwdriver(user, attacking_item))
+			update_icon()
+			return TRUE
+		else if(default_part_replacement(user, attacking_item))
+			return TRUE
+	. = ..()
