@@ -6,16 +6,20 @@
 	pass_flags_self = PASSSTRUCTURE
 	should_use_health = TRUE
 
-	var/material_alteration = MATERIAL_ALTERATION_ALL // Overrides for material shit. Set them manually if you don't want colors etc. See wood chairs/office chairs.
+	/// Overrides for material shit. Set them manually if you don't want colors etc. See wood chairs/office chairs.
+	var/material_alteration = MATERIAL_ALTERATION_ALL
 	var/climbable
 	var/parts
 	var/list/climbers
-	var/list/footstep_sound	//footstep sounds when stepped on
+	/// Footstep sounds when stepped on
+	var/list/footstep_sound
 
 	var/material/material
-	var/build_amt = 2 // used by some structures to determine into how many pieces they should disassemble into or be made with
+	/// Used by some structures to determine into how many pieces they should disassemble into or be made with
+	var/build_amt = 2
 
-	var/slowdown = 0 //amount that pulling mobs have their movement delayed by
+	/// Amount that pulling mobs have their movement delayed by
+	var/slowdown = 0
 
 /obj/structure/Initialize(mapload)
 	. = ..()
@@ -39,6 +43,14 @@
 	climbers = null
 	material = null
 	return ..()
+
+/obj/structure/examine_descriptor(mob/user)
+	return "structure"
+
+/obj/structure/examine_tags(atom/source, mob/user, list/examine_list)
+	. = ..()
+	if(climbable)
+		.["climbable"] = "It can be climbed on, either by dragging your mob onto it or middle-clicking it."
 
 /obj/structure/attackby(obj/item/attacking_item, mob/user, params)
 	. = ..()

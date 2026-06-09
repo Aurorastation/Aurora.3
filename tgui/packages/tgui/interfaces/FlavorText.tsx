@@ -1,5 +1,5 @@
+import { Box, Divider, Section } from 'tgui-core/components';
 import { useBackend } from '../backend';
-import { Box, Divider, Section } from '../components';
 import { Window } from '../layouts';
 
 export type FlavorTextData = {
@@ -22,19 +22,20 @@ const Linkify = ({ text }) => {
   const words = text.split(' ');
   const formatedWords = words.map((w, i) => addMarkup(w));
   const html = formatedWords.join(' ');
+  /* biome-ignore lint/security/noDangerouslySetInnerHtml: Is sanitized by DOMPurify. */
   return <Box key={text} dangerouslySetInnerHTML={{ __html: html }} />;
 };
 
-export const FlavorText = (props, context) => {
-  const { act, data } = useBackend<FlavorTextData>(context);
+export const FlavorText = (props) => {
+  const { act, data } = useBackend<FlavorTextData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section>
           {data.flavor_text.split('\n').map((line) =>
             line ? (
-              <Box>
+              <Box key={line}>
                 <Linkify text={line} />
                 <Divider />
               </Box>

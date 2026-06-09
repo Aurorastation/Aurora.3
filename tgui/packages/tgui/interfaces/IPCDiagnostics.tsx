@@ -1,6 +1,3 @@
-import { BooleanLike } from 'common/react';
-import { capitalize } from 'common/string';
-import { useBackend } from '../backend';
 import {
   AnimatedNumber,
   Box,
@@ -8,7 +5,10 @@ import {
   Divider,
   LabeledList,
   Section,
-} from '../components';
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
+import { capitalize } from 'tgui-core/string';
+import { useBackend } from '../backend';
 
 export type DiagnosticsData = {
   broken: BooleanLike;
@@ -53,12 +53,12 @@ type Limb = {
   max_damage: number;
 };
 
-export const IPCDiagnostics = (props, context) => {
-  const { act, data } = useBackend<DiagnosticsData>(context);
+export const IPCDiagnostics = (props) => {
+  const { act, data } = useBackend<DiagnosticsData>();
 
   return (
     <>
-      <Section title={data.patient_name + ': Main Information'}>
+      <Section title={`${data.patient_name}: Main Information`}>
         <Box>
           Diagnostics unit integrity{' '}
           <Box as="span" bold textColor={damageLabel(data.integrity)}>
@@ -127,13 +127,13 @@ export const IPCDiagnostics = (props, context) => {
   );
 };
 
-export const OrganDisplay = (props, context) => {
-  const { act, data } = useBackend<DiagnosticsData>(context);
+export const OrganDisplay = (props) => {
+  const { act, data } = useBackend<DiagnosticsData>();
 
   return (
-    <Section title={data.patient_name + ': Internal Components'}>
+    <Section title={`${data.patient_name}: Internal Components`}>
       {data.organs.map((organ) => (
-        <Collapsible content={organ.name} key={organ.name}>
+        <Collapsible title={organ.name} key={organ.name}>
           <Box italic>{organ.desc}</Box>
           <Divider />
           <Box>
@@ -180,16 +180,15 @@ export const OrganDisplay = (props, context) => {
           ) : (
             ''
           )}
-          <>
-            <Divider />
-            {organ.diagnostics_info ? (
-              <Box fontSize={0.8} italic>
-                {organ.diagnostics_info}
-              </Box>
-            ) : (
-              ''
-            )}
-          </>
+
+          <Divider />
+          {organ.diagnostics_info ? (
+            <Box fontSize={0.8} italic>
+              {organ.diagnostics_info}
+            </Box>
+          ) : (
+            ''
+          )}
         </Collapsible>
       ))}
     </Section>
