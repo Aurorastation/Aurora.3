@@ -1,7 +1,16 @@
-import { BooleanLike } from '../../common/react';
+import {
+  Box,
+  Button,
+  Input,
+  Section,
+  Stack,
+  Table,
+  Tabs,
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend, useLocalState } from '../backend';
-import { Box, Button, Input, Section, Stack, Table, Tabs } from '../components';
 import { NtosWindow } from '../layouts';
+import { SearchBar } from './common/SearchBar';
 
 export type ChatData = {
   service: BooleanLike;
@@ -34,18 +43,13 @@ type User = {
   username: string;
 };
 
-export const ChatClient = (props, context) => {
-  const { act, data } = useBackend<ChatData>(context);
+export const ChatClient = (props) => {
+  const { act, data } = useBackend<ChatData>();
   const [editingRingtone, setEditingRingtone] = useLocalState(
-    context,
     'editingRingtone',
     0,
   );
-  const [searchTerm, setSearchTerm] = useLocalState<string>(
-    context,
-    `searchTerm`,
-    ``,
-  );
+  const [searchTerm, setSearchTerm] = useLocalState<string>(`searchTerm`, ``);
 
   return (
     <NtosWindow resizable width={700}>
@@ -62,14 +66,14 @@ export const ChatClient = (props, context) => {
                 onClick={() => act('mute_message')}
               />
               <Button
-                content={'Ringtone: ' + data.ringtone}
+                content={`Ringtone: ${data.ringtone}`}
                 onClick={() => setEditingRingtone(editingRingtone ? 0 : 1)}
               />
               {editingRingtone ? (
                 <Input
                   value={data.ringtone}
                   placeholder={data.ringtone}
-                  onChange={(e, v) => act('ringtone', { ringtone: v })}
+                  onEnter={(v) => act('ringtone', { ringtone: v })}
                 />
               ) : (
                 ''
@@ -88,7 +92,7 @@ export const ChatClient = (props, context) => {
             </>
           }
         >
-          {data.users && data.users.length ? <Users /> : 'There are no users.'}
+          {data.users?.length ? <Users /> : 'There are no users.'}
           {!data.active ? <ChannelsWindow /> : ''}
         </Section>
       </NtosWindow.Content>
@@ -96,13 +100,9 @@ export const ChatClient = (props, context) => {
   );
 };
 
-export const Users = (props, context) => {
-  const { act, data } = useBackend<ChatData>(context);
-  const [searchTerm, setSearchTerm] = useLocalState<string>(
-    context,
-    `searchTerm`,
-    ``,
-  );
+export const Users = (props) => {
+  const { act, data } = useBackend<ChatData>();
+  const [searchTerm, setSearchTerm] = useLocalState<string>(`searchTerm`, ``);
 
   return (
     <Section>
@@ -133,35 +133,27 @@ export const Users = (props, context) => {
             : null}
         </Tabs>
       </Section>
-      {data.active && data.active.can_interact ? <Chat /> : <AllUsers />}
+      {data.active?.can_interact ? <Chat /> : <AllUsers />}
     </Section>
   );
 };
 
-export const AllUsers = (props, context) => {
-  const { act, data } = useBackend<ChatData>(context);
-  const [searchTerm, setSearchTerm] = useLocalState<string>(
-    context,
-    `searchTerm`,
-    ``,
-  );
+export const AllUsers = (props) => {
+  const { act, data } = useBackend<ChatData>();
+  const [searchTerm, setSearchTerm] = useLocalState<string>(`searchTerm`, ``);
 
   return (
     <Stack vertical>
-      <Input
+      <SearchBar
         autoFocus
-        autoSelect
         placeholder="Search by name"
-        height="10%"
-        width="40%"
-        maxLength={512}
-        onInput={(e, value) => {
+        query={searchTerm}
+        onSearch={(value) => {
           setSearchTerm(value);
         }}
-        value={searchTerm}
+        style={{ width: '40%' }}
       />
-      {data.users &&
-        data.users.length &&
+      {data.users?.length &&
         data.users
           .filter(
             (usr) =>
@@ -180,40 +172,27 @@ export const AllUsers = (props, context) => {
   );
 };
 
-export const Chat = (props, context) => {
-  const { act, data } = useBackend<ChatData>(context);
-  const [newMessage, setNewMessage] = useLocalState<string>(
-    context,
-    `newMessage`,
-    ``,
-  );
+export const Chat = (props) => {
+  const { act, data } = useBackend<ChatData>();
+  const [newMessage, setNewMessage] = useLocalState<string>(`newMessage`, ``);
 
   const [creatingJoinPassword, setCreatingJoinPassword] = useLocalState(
-    context,
     'creatingJoinPassword',
     0,
   );
 
-  const [password, setPassword] = useLocalState<string>(
-    context,
-    `password`,
-    ``,
-  );
+  const [password, setPassword] = useLocalState<string>(`password`, ``);
 
-  const [creatingTitle, setCreatingTitle] = useLocalState(
-    context,
-    'creatingTitle',
-    0,
-  );
+  const [creatingTitle, setCreatingTitle] = useLocalState('creatingTitle', 0);
 
-  const [title, setTitle] = useLocalState<string>(context, `title`, ``);
+  const [title, setTitle] = useLocalState<string>(`title`, ``);
 
   return (
     <Section
       title="Conversation"
       buttons={
         <>
-          {data.active && data.active.can_manage && !data.active.direct ? (
+          {data.active?.can_manage && !data.active.direct ? (
             <>
               <Button
                 key={data.active.ref}
@@ -227,11 +206,10 @@ export const Chat = (props, context) => {
                 <Input
                   placeholder="New Password"
                   value={password}
-                  strict
-                  onInput={(e, v) => setPassword(v)}
-                  onChange={(e, v) => {
+                  onChange={(v) => {
+                    setPassword(v);
                     act('set_password', {
-                      password: password,
+                      password: v,
                       target: data.active ? data.active.ref : '',
                     });
                     setCreatingJoinPassword(0);
@@ -252,10 +230,10 @@ export const Chat = (props, context) => {
                 <Input
                   placeholder="New Title"
                   value={title}
-                  onInput={(e, v) => setTitle(v)}
-                  onChange={(e, v) => {
+                  onChange={(v) => {
+                    setTitle(v);
                     act('change_title', {
-                      title: title,
+                      title: v,
                       target: data.active ? data.active.ref : '',
                     });
                     setCreatingTitle(0);
@@ -277,14 +255,14 @@ export const Chat = (props, context) => {
           )}
           <Button
             content="Leave"
-            disabled={data.active && data.active.direct}
+            disabled={data.active?.direct}
             onClick={() =>
               act('leave', { leave: data.active ? data.active.ref : '' })
             }
           />
           <Button
             content="Enable STT"
-            selected={data.active && data.active.focused}
+            selected={data.active?.focused}
             onClick={() =>
               act('focus', { focus: data.active ? data.active.ref : '' })
             }
@@ -293,8 +271,7 @@ export const Chat = (props, context) => {
       }
     >
       {data.active &&
-        data.msg &&
-        data.msg.map((message) => (
+        data.msg?.map((message) => (
           <Box
             key={message}
             preserveWhitespace
@@ -310,15 +287,14 @@ export const Chat = (props, context) => {
           value={newMessage}
           placeholder="Type your message. Press enter to send."
           width="100%"
-          selfClear
-          strict
-          onInput={(e, v) => setNewMessage(v)}
-          onChange={(e, v) =>
+          selfClear={true}
+          onEnter={(v) => {
+            setNewMessage(v);
             act('send', {
-              message: newMessage,
+              message: v,
               target: data.active ? data.active.ref : '',
-            })
-          }
+            });
+          }}
         />
       </Box>
       <Box py={2}>
@@ -349,37 +325,26 @@ export const Chat = (props, context) => {
   );
 };
 
-export const ChannelsWindow = (props, context) => {
-  const { act, data } = useBackend<ChatData>(context);
+export const ChannelsWindow = (props) => {
+  const { act, data } = useBackend<ChatData>();
   const [channelSearchTerm, setChannelSearchTerm] = useLocalState<string>(
-    context,
     `channelSearchTerm`,
     ``,
   );
 
   const [creatingChannelName, setCreatingChannelName] = useLocalState(
-    context,
     'creatingChannelName',
     0,
   );
 
-  const [channelName, setChannelName] = useLocalState(
-    context,
-    'channelName',
-    '',
-  );
+  const [channelName, setChannelName] = useLocalState('channelName', '');
 
   const [enteringJoinPassword, setEnteringJoinPassword] = useLocalState(
-    context,
     'enteringJoinPassword',
     0,
   );
 
-  const [joinPassword, setJoinPassword] = useLocalState(
-    context,
-    'joinPassword',
-    '',
-  );
+  const [joinPassword, setJoinPassword] = useLocalState('joinPassword', '');
 
   return (
     <Section
@@ -397,10 +362,9 @@ export const ChannelsWindow = (props, context) => {
             <Input
               placeholder="New Channel Name"
               value={channelName}
-              strict
-              onInput={(e, v) => setChannelName(v)}
-              onChange={() => {
-                act('new_channel', { new_channel: channelName });
+              onEnter={(v) => {
+                setChannelName(v);
+                act('new_channel', { new_channel: v });
                 setCreatingChannelName(0);
               }}
             />
@@ -411,17 +375,14 @@ export const ChannelsWindow = (props, context) => {
       }
     >
       <Stack vertical>
-        <Input
+        <SearchBar
           autoFocus
-          autoSelect
           placeholder="Search by name"
-          height="10%"
-          width="40%"
-          maxLength={512}
-          onInput={(e, value) => {
+          query={channelSearchTerm}
+          onSearch={(value) => {
             setChannelSearchTerm(value);
           }}
-          value={channelSearchTerm}
+          style={{ width: '40%' }}
         />
         {data.channels?.length
           ? data.channels
@@ -447,12 +408,11 @@ export const ChannelsWindow = (props, context) => {
                         <Input
                           placeholder="Enter Password"
                           value={joinPassword}
-                          strict
-                          onInput={(e, v) => setJoinPassword(v)}
-                          onChange={(e, v) => {
+                          onEnter={(v) => {
+                            setJoinPassword(v);
                             act('join', {
                               target: channel.ref,
-                              password: joinPassword,
+                              password: v,
                             });
                             setEnteringJoinPassword(0);
                           }}

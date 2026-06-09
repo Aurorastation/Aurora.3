@@ -13,6 +13,7 @@
 	melee_damage_lower = 5
 	melee_damage_upper = 15
 	attacktext = "mauls"
+	attack_vis_effect = ATTACK_EFFECT_CLAW
 	cold_damage_per_tick = 0
 	speak_chance = 5
 	speak = list("Hruuugh!","Hrunnph")
@@ -34,6 +35,7 @@
 	melee_damage_lower = 1
 	melee_damage_upper = 8
 	attacktext = "gouges"
+	attack_vis_effect = ATTACK_EFFECT_SLASH
 	cold_damage_per_tick = 0
 	speak_chance = 5
 	speak = list("Awrr?","Aowrl!","Worrl")
@@ -59,6 +61,7 @@
 	melee_damage_lower = 3
 	melee_damage_upper = 12
 	attacktext = "gouges"
+	attack_vis_effect = ATTACK_EFFECT_SLASH
 	cold_damage_per_tick = 0
 	speak_chance = 5
 	speak = list("Shuhn","Shrunnph?","Shunpf")

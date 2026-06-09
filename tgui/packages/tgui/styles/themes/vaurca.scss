@@ -1,55 +1,18 @@
-@use 'sass:color';
-@use 'sass:meta';
-
-@use '../colors.scss' with (
-  $primary: #ff0000,
-  $fg-map-keys: (),
-  $bg-map-keys: ()
-);
-
-@use '../base.scss' with (
-  $color-bg: #1b1212,
-  $color-bg-grad-spread: 0%
-);
+@use '../base.scss';
 
 .theme-vaurca {
-  // Atomic classes
-  @include meta.load-css('../atomic/color.scss');
-
-  // Import Crew Manifest for color values
-  @include meta.load-css('../interfaces/CrewManifest.scss');
-
-  // Components
-  @include meta.load-css(
-    '../components/Button.scss',
-    $with: (
-      'color-default': colors.$primary,
-      'color-disabled': #6a4a4a,
-      'color-selected': #ff0000
-    )
-  );
-  @include meta.load-css(
-    '../components/Tabs.scss',
-    $with: (
-      'color-default': colors.$primary,
-      'tab-color-selected': #ff00003f,
-      'text-color': #e7e7e7
-    )
-  );
-  @include meta.load-css(
-    '../components/Input.scss',
-    $with: ('border-color': colors.$primary)
-  );
-  @include meta.load-css('../components/Modal.scss');
-  @include meta.load-css('../components/Section.scss');
-
-  // Layouts
-  @include meta.load-css('../layouts/Layout.scss');
-  @include meta.load-css('../layouts/Window.scss');
-  @include meta.load-css(
-    '../layouts/TitleBar.scss',
-    $with: ('background-color': #3d2222)
-  );
+  --button-background-default: var(--color-primary);
+  --button-background-disabled: #6a4a4a;
+  --button-background-selected: #ff0000;
+  --tab-background-selected: #ff00003f;
+  --tab-color: #e7e7e7;
+  --input-border-color: var(--color-primary);
+  --input-border-color-focus: var(--color-primary);
+  --titlebar-background: #3d2222;
+  --color-base: #1b1212;
+  --color-primary: #ff0000;
+  --base-gradient-spread: 0;
+  --section-background: rgba(0, 0, 0, 0.33);
 
   .Layout__content {
     background-image: none;

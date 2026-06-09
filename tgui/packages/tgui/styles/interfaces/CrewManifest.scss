@@ -1,51 +1,59 @@
-@use '../colors.scss';
-
-$departmental-colors: (
-  'Command': #114dc1,
-  'Command Support': #114dc1,
-  'Security': #991818,
-  'Engineering': #c67519,
-  'Medical': #15903a,
-  'Science': #a44799,
-  'Operations': #593616,
-  'Service': #90524b,
-  'Civilian': #999999,
-  'Equipment': #6c5b73,
-  'Miscellaneous': #5d6a67,
+$manifest_status_map: (
+  'active': var(--color-green),
+  'online': var(--color-green),
+  'away-mission': var(--color-blue),
+  'ssd': var(--color-yellow),
+  'deceased': var(--color-red),
+  'missing': var(--color-orange),
+  'physically-unfit': var(--color-orange),
+  'disabled': var(--color-grey),
 );
 
-$status-colors: (
-  'active': colors.$green,
-  'ssd': colors.$orange,
-  'missing': colors.$orange,
-  'deceased': colors.$red,
-  'physically-unfit': colors.$yellow,
-  'disabled': colors.$yellow,
-  'away-mission': colors.$blue,
-);
-
-@each $dept, $color in $departmental-colors {
-  .text-dept-#{to-lower-case($dept)} {
-    color: $color !important;
-  }
-  .bg-dept-#{to-lower-case($dept)} {
-    background-color: $color !important;
-  }
-  .border-dept-#{to-lower-case($dept)} {
-    border-color: $color !important;
-    .Section {
-      &__title {
-        border-color: $color;
-      }
-      &__titleText {
-        color: $color;
-      }
+.border-dept {
+  .Section {
+    &__title {
+      border-color: var(--department-color);
+    }
+    &__titleText {
+      color: var(--department-color);
     }
   }
 }
 
-@each $status, $color in $status-colors {
-  .manifest-indicator-#{$status} {
-    color: $color !important;
+@each $status-name, $color-value in $manifest_status_map {
+  .manifest-indicator-#{$status-name} {
+    color: $color-value;
+  }
+}
+
+.CrewManifest {
+  &__Cell {
+    padding: var(--space-s) 0;
+
+    &--Rank {
+      color: var(--color-label);
+    }
+  }
+
+  &__Icons {
+    padding: var(--space-s) var(--space-l);
+    text-align: right;
+  }
+
+  &__Icon {
+    color: var(--color-label);
+    position: relative;
+
+    &:not(:last-child) {
+      margin-right: var(--space-m);
+    }
+
+    &--Chevron {
+      padding-right: var(--space-xs);
+    }
+
+    &--Command {
+      color: var(--color-yellow);
+    }
   }
 }

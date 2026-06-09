@@ -121,6 +121,8 @@
 	var/insert_sound = SFX_RELOAD_METAL_SLIDE
 	/// sound item plays when it is ejected from a gun.
 	var/eject_sound = 'sound/weapons/magazine_eject.ogg'
+	drop_sound = 'sound/items/drop/ammo_magazine.ogg'
+	pickup_sound = 'sound/items/pickup/ammo_magazine.ogg'
 
 /obj/item/ammo_magazine/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()

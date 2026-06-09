@@ -21,6 +21,7 @@
 	var/obj/structure/machinery/camera/camera
 	drop_sound = 'sound/items/drop/helm.ogg'
 	pickup_sound = 'sound/items/pickup/helm.ogg'
+	equip_sound = 'sound/items/equip/helm.ogg'
 	protects_against_weather = TRUE
 
 	var/has_storage = TRUE
@@ -172,15 +173,30 @@
 	if(icon_state == initial(icon_state))
 		icon_state = "[icon_state]-up"
 		item_state = icon_state
+		playsound(src, SFX_VISOR_UP, 20, TRUE, -1)
 		to_chat(user, SPAN_NOTICE("You raise the visor on \the [src]."))
 		body_parts_covered = HEAD
 	else
 		icon_state = initial(icon_state)
 		item_state = icon_state
+		playsound(src, SFX_VISOR_DOWN, 20, TRUE, -1)
 		to_chat(user, SPAN_NOTICE("You lower the visor on \the [src]."))
 		body_parts_covered = HEAD|FACE|EYES
 
 	update_clothing_icon()
+
+/obj/item/clothing/head/helmet/riot/lancer
+	name = "ceres lance helmet"
+	desc = "A state-of-the-art combat helmet used by Ceres Lance. It is made with an additional layer of padding and ballstic visor designed to protect operatives attempting to physically restrain hostile IPCs, but has poor heat dissipation characteristics as a result."
+	icon_state = "helm_lance"
+	item_state = "helm_lance"
+	armor = list(
+		MELEE = ARMOR_MELEE_VERY_HIGH,
+		BULLET = ARMOR_BALLISTIC_MAJOR,
+		LASER = ARMOR_LASER_SMALL,
+		ENERGY = ARMOR_ENERGY_RESISTANT,
+		BOMB = ARMOR_BOMB_PADDED,
+	)
 
 /obj/item/clothing/head/helmet/ablative
 	name = "ablative helmet"
@@ -266,10 +282,12 @@
 
 	if(src.icon_state == initial(icon_state))
 		src.icon_state = "[icon_state]-up"
+		playsound(src, SFX_VISOR_UP, 20, TRUE, -1)
 		to_chat(user, "You raise the visor on \the [src].")
 		body_parts_covered = HEAD
 	else
 		src.icon_state = initial(icon_state)
+		playsound(src, SFX_VISOR_DOWN, 20, TRUE, -1)
 		to_chat(user, "You lower the visor on \the [src].")
 		body_parts_covered = HEAD|FACE|EYES
 	update_clothing_icon()

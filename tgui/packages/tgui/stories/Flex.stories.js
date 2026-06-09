@@ -4,15 +4,15 @@
  * @license MIT
  */
 
+import { Button, Flex, Section } from 'tgui-core/components';
 import { useLocalState } from '../backend';
-import { Button, Flex, Section } from '../components';
 
 export const meta = {
   title: 'Flex & Sections',
   render: () => <Story />,
 };
 
-const Story = (props, context) => {
+const Story = (props) => {
   const [grow, setGrow] = useLocalState(context, 'fs_grow', 1);
   const [direction, setDirection] = useLocalState(
     context,

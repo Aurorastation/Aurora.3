@@ -7,6 +7,9 @@
 	blocks_air = TRUE
 	pass_flags_self = PASSCLOSEDTURF
 
+/turf/unsimulated/wall/examine_descriptor(mob/user)
+	return "wall"
+
 /turf/unsimulated/wall/fakeglass
 	name = "window"
 	icon = 'icons/turf/walls.dmi'
