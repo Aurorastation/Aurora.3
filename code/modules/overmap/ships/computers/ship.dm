@@ -16,14 +16,47 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 
 	/// For hotwiring, how many cycles are needed. This decreases by 1 each cycle and triggers at 0
 	var/hotwire_progress = 8
+	// Time window for emergency power from Pilot: Spacecraft + Electrical Engineering skills.
+	var/emergency_power_window
 
 /obj/structure/machinery/computer/antagonist_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Consoles like these are typically access-locked."
 	. += "You can remove this lock with <b>wirecutters</b>, but it would take awhile! Alternatively, you can also use a cryptographic sequencer (emag) for instant removal."
+	. += "Hotwiring with wirecutters looks identical to attempting an emergency power bypass at first glance. You can avoid early suspicion doing it with equipment power out."
+
+/obj/structure/machinery/computer/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(user.GetComponent(ELECTRICAL_ENGINEERING_SKILL_COMPONENT)?.skill_level >= SKILL_LEVEL_FAMILIAR)
+		. += "Ship consoles like these can be directly given batterylife in emergencies. Simply use a power cell on it when unpowered to attempt a bypass with some of the charge." \
+		+ " Batterylife efficiency scales with Electrical Engineering and bypass completion is faster when Familiar with Piloting Spacecraft."
 
 /obj/structure/machinery/computer/ship/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.tool_behaviour == TOOL_CABLECOIL) // Repair from hotwire
+	var/electrical_level = user.GetComponent(ELECTRICAL_ENGINEERING_SKILL_COMPONENT)?.skill_level
+
+	if(electrical_level > SKILL_LEVEL_UNFAMILIAR && (emergency_power_window || stat & NOPOWER) && istype(attacking_item, /obj/item/cell))
+		var/obj/item/cell/battery = attacking_item
+		var/pilot_level = user.GetComponent(PILOT_SPACECRAFT_SKILL_COMPONENT)?.skill_level
+		user.visible_message("<b>[user]<b> opens a panel underneath \the [src]...", SPAN_NOTICE("You start searching for the power port to attempt an emergency power bypass..."))
+		emergency_power_window = world.time
+		if(pilot_level == SKILL_LEVEL_UNFAMILIAR && Adjacent(user) && user.get_active_hand() == battery)
+			if(do_after(user, 3 SECONDS))
+				to_chat(user, SPAN_NOTICE("Although unfamiliar with spacecraft to find it fast, your electrical intuition knows there's a port somewhere..."))
+			else
+				user.visible_message("<b>[user]</b> closes the panel underneath \the [src].", SPAN_WARNING("You need to stay and look longer if you want to perform a bypass."))
+				return
+		while(battery.percent() > 0 && Adjacent(user) && user.get_active_hand() == battery)
+			if(do_after(user, 3 SECONDS))
+				if((pilot_level == SKILL_LEVEL_UNFAMILIAR && do_after(user, 2 SECONDS)) || pilot_level >= SKILL_LEVEL_FAMILIAR)
+					var/bypass_value = battery.maxcharge/10
+					emergency_power_window += bypass_value/((100 - pilot_level * 3)/electrical_level) SECONDS // should be 10m for high-caps
+					playsound(src.loc, 'sound/machines/click.ogg', 30)
+					battery.charge -= bypass_value
+					user.visible_message("<b>[user]</b> presses into some port with a click.<BR><i>\The [src]'s power bypass timer notifies there are <b>[round((emergency_power_window - world.time)/10)]</b> seconds of emergency power remaining.</i>", SPAN_NOTICE("You press into the port with \the [battery] transferring 10% into \the [src] and leaving \the [battery] with [battery.percent()]%<BR>\The [src]'s power bypass timer notifies there are <b>[round((emergency_power_window - world.time)/10)]</b> seconds of emergency power remaining."))
+					stat &= ~NOPOWER
+					update_icon()
+		return
+	if(attacking_item.tool_behaviour == TOOL_CABLECOIL && electrical_level > SKILL_LEVEL_UNFAMILIAR) // Repair from hotwire
 		var/obj/item/stack/cable_coil/C = attacking_item
 		if(hotwire_progress >= initial(hotwire_progress))
 			to_chat(usr, SPAN_BOLD("\The [src] does not require repairs."))
@@ -41,12 +74,12 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 						playsound(src.loc, 'sound/items/Deconstruct.ogg', 30, TRUE)
 			return
 
-	if(attacking_item.tool_behaviour == TOOL_WIRECUTTER) // Hotwiring
+	if(attacking_item.tool_behaviour == TOOL_WIRECUTTER && electrical_level > SKILL_LEVEL_UNFAMILIAR) // Hotwiring
 		if(!req_access && !req_one_access && !emagged) // Already hacked/no need to hack
 			to_chat(user, SPAN_BOLD("[src] is not access-locked."))
 			return
 		// Begin hotwire
-		user.visible_message("<b>[user]</b> opens a panel underneath \the [src] and starts snipping wires...", SPAN_BOLD("You open the maintenance panel and attempt to hotwire \the [src]..."))
+		user.visible_message("<b>[user]</b> opens a panel underneath \the [src]...", SPAN_BOLD("You open the maintenance panel and attempt to hotwire \the [src]..."))
 		while(hotwire_progress > 0)
 			if(do_after(user, 15 SECONDS, src, DO_UNIQUE))
 				hotwire_progress--
@@ -60,15 +93,46 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 	return ..()
 
 /obj/structure/machinery/computer/ship/attack_hand(mob/user)
+	var/piloting_difference =  user.GetComponent(PILOT_SPACECRAFT_SKILL_COMPONENT)?.skill_level - connected.pilot_class
+	var/pilot_level = user.GetComponent(PILOT_SPACECRAFT_SKILL_COMPONENT)?.skill_level
 	if(stat & (NOPOWER|BROKEN))
 		return FALSE
+	if(emergency_power_window && world.time >= emergency_power_window)
+		emergency_power_window = null
+		if(!powered())
+			stat |= NOPOWER
+			visible_message(SPAN_DANGER("\The [src] flickers, its power bypass depleted."))
+		else
+			visible_message(SPAN_NOTICE("\The [src] hums as it transitions from emergency power to main."))
+		update_icon()
 	// Snowflake case for checking player characters for a Pilot Spacecraft Skill.
 	// Only player characters will have the component. Which will both always be present on them, and will only enable its own return logic if it exists.
 	// NPCs, Ghostroles, and Offship Antags that don't generate skills are unaffected by this check by intentional design so that we don't have to account for them.
-	if (user.GetComponent(PILOT_SPACECRAFT_SKILL_COMPONENT)?.skill_level == SKILL_LEVEL_UNFAMILIAR)
+	if (!connected.pilot_class && pilot_level == SKILL_LEVEL_UNFAMILIAR)
+	// No pilot_class means it's probably a station, so only Unfamiliar is checked for
 		to_chat(user, SPAN_WARNING("There's just so many buttons... You have no idea where to even begin."))
 		return FALSE
-
+	// A lack of a difference means skill level (1-4) is less than pilot_class (1-3)
+	if(piloting_difference == 0)
+		if(connected.pilot_class == PILOTING_CLASS_SHUTTLE)
+			user.visible_message("<b>[user]</b> stares blankly at \the [src].", SPAN_WARNING("There's just so many buttons... You have no idea where to even begin, but..."))
+			if(do_after(user, 10 SECONDS) && Adjacent(user))
+				user.visible_message("<b>[user]</b> peers at \the [src].", SPAN_NOTICE("...maybe, if you take it slow? It <i>is</i> only a shuttle."))
+				if(do_after(user, 3 SECONDS) && Adjacent(user))
+					if(prob(50))
+						user.visible_message("<b>[user]</b> returns a confused expression at \the [src].", SPAN_WARNING("You lose track and can't figure out the controls."))
+						return
+				else
+					return
+			else
+				to_chat(user, SPAN_WARNING("You can't keep track of controls while moving."))
+				return
+		else
+			to_chat(user, SPAN_WARNING("This ship's class is notably more complex than you're used to, but you can still grasp the core controls. Who knows how well you'll do?"))
+	// Conversely, Non-Unfamiliar skill level (2-4) will always be higher than pilot class (1-3)
+	if(pilot_level < connected.pilot_class)
+		to_chat(user, SPAN_WARNING("There's just so many buttons... You have no idea where to even begin, this is far too complex for you."))
+		return
 	if(use_check_and_message(user))
 		return
 	if(!emagged && !allowed(user))
@@ -85,6 +149,9 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 
 /obj/structure/machinery/computer/ship/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
+	if(emergency_power_window)
+		var/power_window_rounded = round((emergency_power_window - world.time)/10)
+		. += SPAN_ITALIC("The emergency power bypass is enabled, the timer shows <b>[power_window_rounded > 0 ? power_window_rounded : "no"]</b> seconds remain.")
 	if(initial(hotwire_progress) != hotwire_progress)
 		if(hotwire_progress != 0)
 			. += SPAN_ITALIC("The bottom panel appears open with wires hanging out. It can be repaired with additional cabling. <i>Current progress: [(hotwire_progress / initial(hotwire_progress)) * 100]%</i>")

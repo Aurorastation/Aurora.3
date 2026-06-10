@@ -51,23 +51,51 @@
 /singleton/skill/pilot_spacecraft
 	name = "Pilot: Spacecraft"
 	description = "Governs the user's ability to pilot spacecraft of any size, and is required to do so in the first place."
-	maximum_level = SKILL_LEVEL_FAMILIAR
-	uneducated_skill_cap = SKILL_LEVEL_FAMILIAR
+	maximum_level = SKILL_LEVEL_PROFESSIONAL
+	uneducated_skill_cap = SKILL_LEVEL_TRAINED
 	category =  /singleton/skill_category/occupational
 	subcategory = SKILL_SUBCATEGORY_OPERATIONS
 	skill_level_map = list(
 		"Unlicensed",
-		"Licensed Pilot"
+		"Shuttle Pilot",
+		"Class II Pilot",
+		"Class IV Pilot"
 	)
 	skill_level_descriptions = alist(
-		SKILL_LEVEL_UNFAMILIAR = "You are incapable of piloting spacecraft.",
-		SKILL_LEVEL_FAMILIAR = "You are capable of piloting spacecraft."
+		SKILL_LEVEL_UNFAMILIAR = "You are inexperienced and mostly incapable of piloting spacecraft, but may attempt piloting shuttles in emergencies.<br>" \
+		+ "- There is only a 50% chance you will be able to view the consoles after several seconds waiting.<br>" \
+		+ "- Accelerations and Slows take 2 seconds to peform.<br>" \
+		+ "  - Additional 65% chance to accelerate further.<br>" \
+		+ "  - Additional 60% and 70% chances to slow further.<br>" \
+		+ "- Turns take 3 seconds to perform and have a 60% chance to continue in the given direction.<br>" \
+		+ "- Rolls have a 60% chance to move north/south, and a 70% chance afterwards to go further in it.",
+		SKILL_LEVEL_FAMILIAR = "You are capable of piloting shuttlecraft.<br>" \
+		+ "- You may attempt piloting ships a level higher with mild penalties:<br>" \
+		+ "- Accelerations and Slows take 1 second to perform.<br>" \
+		+ "  - Additional 65% chance to accelerate further.<br>" \
+		+ "  - Additional 60% chance to slow further.<br>" \
+		+ "- Turns take 1 second to perform.<br>" \
+		+ "- Rolls have a 60% chance to move north/south.",
+		SKILL_LEVEL_TRAINED = "You are capable of piloting up to Class II ships, which are often unable to land or dock.<br>" \
+		+ "- Class II includes all other ships movable on the overmap...with one major exception.<br>" \
+		+ "- You may attempt piloting a level higher with notable penalties similar to Unfamiliar:<br>" \
+		+ "- Accelerations and Slows take 2 seconds to perform.<br>" \
+		+ "  - Additional 65% chance to accelerate more AND a 70% chance to accelerate even further.<br>" \
+		+ "  - Additional 60% chance to slow further.<br>" \
+		+ "- Turns take 3 seconds to perform and a have a 60% chance to continue in the given direction, PLUS another 70% chance to continue again.<br>" \
+		+ "- Rolls have a 60% chance to move north/south, and a 70% chance afterwards to go further in it.",
+		SKILL_LEVEL_PROFESSIONAL = "You are capable of piloting up to Class IV ships, the highest, rarest, and most complex category, where the SCCV Horizon falls under.<br>" \
+		+ "- The SCCV Horizon is the only Class IV ship normally.<br>" \
+		+ "- Your expert navigational training lets you deduce the current overmap coordinate from examining space with help intent."
 	)
 	skill_cost_map = alist(
 		SKILL_LEVEL_UNFAMILIAR = 0,
-		SKILL_LEVEL_FAMILIAR = 6
+		SKILL_LEVEL_FAMILIAR = 4,
+		SKILL_LEVEL_TRAINED = 8,
+		SKILL_LEVEL_PROFESSIONAL = 12
 	)
 	required = TRUE
+	antag_level = SKILL_LEVEL_PROFESSIONAL //So antags are always able to do Horizon/ship hijack gimmicks
 	component_type = PILOT_SPACECRAFT_SKILL_COMPONENT
 
 /singleton/skill/pilot_mechs
