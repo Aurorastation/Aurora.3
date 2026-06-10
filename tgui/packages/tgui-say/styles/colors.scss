@@ -1,34 +1,66 @@
 @use 'sass:map';
 
-$background: #131313;
-$button: #1f1f1f;
-$lightMode: #ffffff;
-$lightBorder: #bbbbbb;
-$lightHover: #eaeaea;
+$background: hsl(0, 0%, 7.5%);
+$button: hsl(0, 0%, 12.2%);
+$lightMode: hsl(0, 0%, 100%);
+$lightBorder: hsl(0, 0%, 73.3%);
+$lightHover: hsl(0, 0%, 91.8%);
 $scrollbar-color-multiplier: 1 !default;
 
+// The source of truth for these colors is 'code/stylesheet.dm'. Do NOT modify these colors here without modifying them in that file as well.
+// Only those colors which do not have existing corrolaries in the stylesheet should be modified here, and if you add new colors to the stylesheet, add them here as well.
+// Finally, note that these channels are mapped to those configured in 'tgui/packages/tgui-say/constants.ts'.
 $_channel_map: (
-  'Say': #a4bad6,
-  'Radio': #1ecc43,
-  'Me': #5975da,
-  'OOC': #cca300,
-  'LOOC': #e362b4,
-  'AI': #d65d95,
-  'Cling': #376340,
-  'Cmd': #5b8deb,
-  'Engi': #cc7b01,
-  'Ent': #cfcfcf,
-  'Exped': #d6bc67,
-  'Hail': #8b4cd8,
-  'io': #1e90ff,
-  'Med': #57b8f0,
-  'Merc': #ac6667,
-  'Pen': #ac6667,
-  'Sci': #c68cfa,
-  'Sec': #e21111,
-  'Supp': #c09141,
-  'Svc': #7fc732,
-  'Synd': #ac6667,
+  // Speech/in-character modes
+  'Say': hsl(213.6, 37.9%, 74.1%),
+  'Me': hsl(227, 63.5%, 60.2%),
+  'Whsp': hsl(213.6, 37.9%, 74.1%),
+  'Pray': hsl(214, 86%, 30%),
+
+  // Out-of-character modes
+  'ALOOC': hsl(143, 53%, 49%),
+  'Dead': hsl(266, 84%, 37%),
+  'LOOC': hsl(210, 50%, 60%),
+  'OOC': hsl(47.9, 100%, 40%),
+
+  // Public radio
+  'Com': hsl(132.8, 74.4%, 45.9%),
+  'Ent': hsl(36, 52%, 49%),
+  'Hail': hsl(267, 60%, 48%),
+  'Exp': hsl(46, 100%, 85%),
+
+  // Private radio channels
+  'AI': hsl(332.2, 59.6%, 60.2%),
+  'CCom': hsl(220, 66%, 29%), // CentComm
+  'Cmd': hsl(197, 62.6%, 39.8%),
+  'Dept': hsl(300, 100%, 50%), // Fallback when no department color is set
+  'Engi': hsl(36, 100%, 33%),
+  'Hive': hsl(300, 17.7%, 44.3%),
+  'Med': hsl(165, 79%, 30%),
+  'Ops': hsl(33.7, 44.9%, 49.8%),
+  'Penal': hsl(0, 71.2%, 53.7%),
+  'Sci': hsl(300, 50%, 40%),
+  'Sec': hsl(0, 71.2%, 53.7%),
+  'Svc': hsl(88.1, 60.6%, 40.8%),
+
+  // Antagonist and off-ship radio channels
+  'Burg': hsl(197, 56.6%, 28%),
+  'Cling': hsl(86.7, 56.6%, 28%), // Yes, yes, it's not 'radio', but shut up
+  'Jock': hsl(33.7, 44.9%, 49.8%),
+  'LEar': hsl(132.8, 74.4%, 45.9%),
+  'Merc': hsl(359.1, 31.8%, 42.5%),
+  'Navy': hsl(216, 62%, 42%),
+  'Raid': hsl(359.1, 31.8%, 42.5%),
+  'REar': hsl(132.8, 74.4%, 45.9%),
+  'Spec': hsl(132.8, 74.4%, 45.9%),
+  'Synd': hsl(359.1, 31.8%, 42.5%),
+
+  // Misc
+  'Admin': hsl(300, 100%, 86.7%),
+  'Blue': hsl(248, 69%, 62%),
+  'Int': hsl(132.8, 74.4%, 45.9%),
+  'Radio': hsl(132.8, 74.4%, 45.9%),
+  'io': hsl(209.6, 100%, 55.9%),
 );
 
 $channel_keys: map.keys($_channel_map) !default;
@@ -36,7 +68,7 @@ $channel_keys: map.keys($_channel_map) !default;
 $channel-map: ();
 
 @each $channel in $channel_keys {
-  $channel-map: map-merge(
+  $channel-map: map.merge(
     $channel-map,
     (
       $channel: map.get($_channel_map, $channel),

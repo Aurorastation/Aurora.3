@@ -1,5 +1,11 @@
+import {
+  Button,
+  LabeledList,
+  NoticeBox,
+  Section,
+  Table,
+} from 'tgui-core/components';
 import { useBackend } from '../backend';
-import { Button, LabeledList, NoticeBox, Section, Table } from '../components';
 import { Window } from '../layouts';
 
 type StackingMachineData = {
@@ -13,8 +19,8 @@ type ContentEntry = {
   amount: number;
 };
 
-export const StackingMachine = (props, context) => {
-  const { act, data } = useBackend<StackingMachineData>(context);
+export const StackingMachine = (props) => {
+  const { act, data } = useBackend<StackingMachineData>();
   return (
     <Window title="Stacking Machine" width={400} height={350} theme="ntos">
       <Window.Content>
