@@ -354,6 +354,11 @@
 	desc = "A hazard sign which reads \"RADIATION HAZARD\"."
 	icon_state = "radiation"
 
+/obj/structure/sign/radshielded
+	name = "\improper RADIATION SHIELDED sign"
+	desc = "A sign which indicates that this area is protected from most forms of harmful ionizing radiation."
+	icon_state = "radshielded"
+
 /obj/structure/sign/drop
 	name = "\improper DANGER: DROP HAZARD sign"
 	desc = "A danger sign which reads \"DANGER: DROP HAZARD\"."
