@@ -8,7 +8,7 @@ import {
   Divider,
 } from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
-import { useBackend, useSharedState } from '../backend';
+import { useBackend } from '../backend';
 import { NtosWindow } from '../layouts';
 import { sanitizeText } from '../sanitize';
 import TextEditor from './common/TextEditor';
@@ -19,8 +19,6 @@ const FMS_FILEBROWSER = 0;
 const FMS_SHOWFILE = 1;
 const FMS_FORMS = 2;
 const FMS_EDIT = 3;
-
-const MAX_TEXTFILE_LENGTH = 128000;
 
 // Type Defs
 
