@@ -138,6 +138,8 @@
 /datum/component/morale/proc/set_beta_value(input)
 	beta_value = input
 	morale_ratio = ftanh(beta_value * morale_points)
+	morale_ui.icon_state = ((morale_ratio > -0.01 && morale_ratio < 0.01) ? "morale_hidden" : "morale" + "[round(morale_ratio * 4) + 5]")
+	morale_ui.update_icon()
 
 /**
  * Your one-stop-shop for making moodlets. This proc returns the pre-existing moodlet of a given type.
