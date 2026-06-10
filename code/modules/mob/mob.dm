@@ -119,11 +119,6 @@
 	// For performance reasons we check the length of the lists first since the lists can potentially either be null or empty.
 	// But it's also plausible that they might contain null values, and while their aggressive checking means any valid entry in the list
 	// is guaranteed to be of type /datum/nanoui, null entries in the list can potentially exist and will pass the as anything typecast.
-	if (length(open_nanouis))
-		for (var/datum/nanoui/ui as anything in open_nanouis)
-			ui?.close()
-		open_nanouis.Cut()
-
 	if (length(tgui_open_uis))
 		for (var/datum/tgui/ui as anything in tgui_open_uis)
 			ui?.close()
