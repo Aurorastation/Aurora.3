@@ -2,6 +2,7 @@
 
 /obj/item/laser_assembly/medium
 	name = "laser assembly (medium)"
+	desc = "A medium carbine-sized assembly."
 	base_icon_state = "medium"
 	w_class = WEIGHT_CLASS_SMALL
 	size = CHASSIS_MEDIUM
@@ -9,6 +10,7 @@
 
 /obj/item/laser_assembly/large
 	name = "laser assembly (large)"
+	desc = "A large rifle-sized assembly."
 	base_icon_state = "large"
 	w_class = WEIGHT_CLASS_NORMAL
 	size = CHASSIS_LARGE
@@ -16,6 +18,7 @@
 
 /obj/item/laser_assembly/admin
 	name = "laser assembly (obscene)"
+	desc = "An obscene laser assembly."
 	base_icon_state = "large"
 	w_class = WEIGHT_CLASS_BULKY
 	size = CHASSIS_LARGE
@@ -303,7 +306,7 @@
 	accuracy = -1
 	icon_state = "rotating_lens"
 	increasable_stats = list()
-	decreaseable_stats = list("fire_delay", "chargetime")
+	decreaseable_stats = list("burst_delay", "chargetime")
 
 /obj/item/laser_components/modifier/scope
 	name = "telescopic sight"
@@ -316,18 +319,21 @@
 	name = "reinforced barrel"
 	desc = "Reinforcement along the barrel extends the longevity of the prototype."
 	reliability = 25
+	improvement_cap = 50
 	icon_state = "reinforced_barrel"
 
 /obj/item/laser_components/modifier/barrel/nano
 	name = "nano-reinforced barrel"
 	desc = "Reinforcement along the barrel extends the longevity of the prototype even more than predecessor barrel. Uses nano-technology to increase reinforcement while retaining same weight."
 	reliability = 35
+	improvement_cap = 50
 	icon_state = "nano_barrel"
 
 /obj/item/laser_components/modifier/vents
 	name = "exhaust venting"
 	desc = "More efficient exhaust venting reduces the impact of firing the prototype."
 	reliability = 0
+	improvement_cap = 50
 	base_malus = -0.5
 	malus = -0.5
 	malus_multiplier = 0.5
@@ -338,6 +344,7 @@
 /obj/item/laser_components/modifier/grip
 	name = "enhanced grip"
 	desc = "A modification that improves the fire delay of the prototype."
+	improvement_cap = 50
 	fire_delay = 0.8
 	gun_overlay = "grip"
 	icon_state = "grip"
@@ -347,6 +354,7 @@
 /obj/item/laser_components/modifier/grip/improved
 	name = "enhanced grip MK2"
 	desc = "A modification that improves the fire delay of the prototype. Slight improvement over a predecessor."
+	improvement_cap = 50
 	fire_delay = 0.7
 	gun_overlay = "grip"
 	icon_state = "enhanced_grip"
@@ -371,6 +379,7 @@
 /obj/item/laser_components/modifier/bayonet
 	name = "bayonet"
 	desc = "A modification that adds a big knife to your gun. Science."
+	improvement_cap = 50
 	gun_force = 10
 	gun_overlay = "bayonet"
 	icon_state = "bayonet_item"
@@ -380,6 +389,7 @@
 /obj/item/laser_components/modifier/ebayonet
 	name = "energy bayonet"
 	desc = "A modification that adds a hardlight knife to your gun. Science!"
+	improvement_cap = 50
 	gun_force = 25
 	gun_overlay = "ebayonet"
 	icon_state = "ebayonet_item"
@@ -421,6 +431,8 @@
 /obj/item/laser_components/modulator/ion
 	name = "ion cannon"
 	desc = "Modulates the prototype to fire disparate ion projectiles."
+	shots = 0.5 //Ions are very powerful and not affected by damage.
+	damage = 0
 	projectile = /obj/projectile/ion
 	icon_state = "ion"
 	origin_tech = list(TECH_COMBAT = 2, TECH_MAGNET = 3)

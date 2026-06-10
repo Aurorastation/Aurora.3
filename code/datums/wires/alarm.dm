@@ -6,7 +6,8 @@
 	wires = list(
 		WIRE_POWER,
 		WIRE_IDSCAN, WIRE_AI,
-		WIRE_PANIC, WIRE_ALARM
+		WIRE_PANIC, WIRE_ALARM,
+		WIRE_RCON
 	)
 	add_duds(3)
 	..()
@@ -24,6 +25,7 @@
 	. += A.locked ? "The air alarm is locked." : "The air alarm is unlocked."
 	. += (A.shorted || (A.stat & (NOPOWER|BROKEN))) ? "The Air Alarm is offline." : "The Air Alarm is working properly!"
 	. += A.aidisabled ? "The 'AI control allowed' light is off." : "The 'AI control allowed' light is on."
+	. += A.rcon_setting ? "The remote control link is enabled." : "The remote control link is disabled."
 
 /datum/wires/alarm/on_cut(wire, mend, source)
 	var/obj/structure/machinery/alarm/A = holder
@@ -51,6 +53,12 @@
 				A.post_alert(2)
 			A.update_icon()
 
+		if(WIRE_RCON)
+			if(!mend)
+				A.rcon_setting = FALSE
+			else
+				A.rcon_setting = TRUE
+
 /datum/wires/alarm/on_pulse(wire)
 	var/obj/structure/machinery/alarm/A = holder
 	switch(wire)
@@ -67,7 +75,6 @@
 					A.shorted = 0
 					A.update_icon()
 
-
 		if (WIRE_AI)
 			if (A.aidisabled == 0)
 				A.aidisabled = 1
@@ -83,7 +90,7 @@
 				A.mode = 1 // AALARM_MODE_SCRUB
 			A.apply_mode()
 
-		if(WIRE_ALARM)
+		if(WIRE_ALARM, WIRE_RCON)
 			if (A.alarm_area.atmosalert(0, A))
 				A.post_alert(0)
 			A.update_icon()

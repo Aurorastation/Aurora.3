@@ -29,6 +29,7 @@
 
 /area/horizon/command/heads/xo
 	name = "Executive Officer's Office"
+	icon_state = "head_quarters"
 	area_blurb = "No one really knows what goes on in here, but Ian usually seems pretty happy so it's got that going for it.."
 	horizon_deck = 3
 

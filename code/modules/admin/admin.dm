@@ -1453,3 +1453,10 @@ var/global/enabled_spooking = 0
 	to_world(FONT_LARGE(EXAMINE_BLOCK_ODYSSEY(SPAN_NOTICE("The scenario canonicity has been changed to [SPAN_BOLD(canonicity)] by an administrator."))))
 	log_and_message_admins("has set the Odyssey canonicity to [canonicity]", usr)
 	feedback_add_details("admin_verb","SEOC") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+
+/datum/admins/proc/open_narrate_panel()
+	set category = "Special Verbs.Narration/Messaging"
+	set name = "Narrate Panel"
+
+	var/datum/tgui_module/narrate_panel/NP = new /datum/tgui_module/narrate_panel(usr)
+	NP.ui_interact(usr)

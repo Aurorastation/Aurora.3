@@ -1089,13 +1089,13 @@ About the new airlock wires panel:
 			stripe_overlay = new(stripe_file)
 			stripe_overlay.Blend(stripe_color, ICON_MULTIPLY)
 			SSicon_cache.airlock_icon_cache["[ikey]"] = stripe_overlay
-		if(!glass)
-			var/ikey2 = "[airlock_type]-[stripe_color]-fillstripe"
-			stripe_filling_overlay = SSicon_cache.airlock_icon_cache["[ikey2]"]
-			if(!stripe_filling_overlay)
-				stripe_filling_overlay = new(stripe_fill_file)
-				stripe_filling_overlay.Blend(stripe_color, ICON_MULTIPLY)
-				SSicon_cache.airlock_icon_cache["[ikey2]"] = stripe_filling_overlay
+
+		var/ikey2 = "[airlock_type]-[stripe_color]-fillstripe"
+		stripe_filling_overlay = SSicon_cache.airlock_icon_cache["[ikey2]"]
+		if(!stripe_filling_overlay)
+			stripe_filling_overlay = new(stripe_fill_file)
+			stripe_filling_overlay.Blend(stripe_color, ICON_MULTIPLY)
+			SSicon_cache.airlock_icon_cache["[ikey2]"] = stripe_filling_overlay
 
 	if(arePowerSystemsOn())
 		switch(state)
@@ -1434,7 +1434,7 @@ About the new airlock wires panel:
 				return
 			if(H.default_attack?.attack_door && !(stat & (BROKEN|NOPOWER)))
 				user.visible_message(SPAN_DANGER("\The [user] forcefully strikes \the [src] with their [H.default_attack.attack_name]!"))
-				user.do_attack_animation(src, null)
+				user.do_attack_animation(src, H.default_attack.attack_effect)
 				playsound(loc, hitsound, 60, TRUE)
 				add_damage(H.default_attack.attack_door)
 				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)

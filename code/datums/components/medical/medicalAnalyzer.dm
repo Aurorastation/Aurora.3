@@ -84,6 +84,15 @@
 			reagent_results = list()
 			return TRUE
 
+/datum/component/health_analyzer/ui_status(mob/user, datum/ui_state/state)
+	var/obj/item/rig_module/containing_rig_module = owner?.loc
+	if(!containing_rig_module)
+		return ..()
+	else if(containing_rig_module)
+		return UI_INTERACTIVE
+
+	return UI_CLOSE
+
 /datum/component/health_analyzer/proc/attack(mob/living/target_mob, mob/living/user, target_zone)
 	sound_scan = TRUE
 
@@ -104,6 +113,8 @@
 		user.visible_message("\The [user] stops scanning \the [target_mob].")
 
 /datum/component/health_analyzer/proc/attack_self(mob/user)
+	if(scan_title == "" || scan_title == null)
+		health_scan_mob(user, user, FALSE, sound_scan = sound_scan)
 	ui_interact(user)
 
 	owner.add_fingerprint(user)

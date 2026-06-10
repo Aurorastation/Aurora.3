@@ -163,6 +163,8 @@
 		melee = ARMOR_MELEE_KNIVES
 	)
 
+	species_components = list(/datum/component/synthetic_endoskeleton)
+
 	// Special snowflake machine vars.
 	var/sprint_temperature_factor = 1.05
 	/// Species-based multiplier to movement power costs in the power core.
@@ -217,7 +219,6 @@
 
 /datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	. = ..()
-	H.AddComponent(/datum/component/synthetic_endoskeleton)
 	check_tag(H, H.client)
 	var/obj/item/organ/internal/machine/power_core/C = H.internal_organs_by_name[BP_CELL]
 	if(C)

@@ -146,7 +146,7 @@
 /area/horizon/engineering/atmos/propulsion
 	name = "Propulsion"
 	subdepartment = null
-	icon_state = "blue2"
+	icon_state = "thrust"
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 	area_blurb = "Every bulkhead is invisibly tense with the long-term strains of powerful impulse. The subtle aromas of various fuel compounds linger in the air."
 	location_ew = LOC_PORT
@@ -154,7 +154,7 @@
 
 /area/horizon/engineering/atmos/propulsion/starboard
 	name = "Propulsion"
-	icon_state = "blue-red2"
+	icon_state = "thrust"
 	location_ew = LOC_STARBOARD
 
 /area/horizon/engineering/atmos/turbine
@@ -229,8 +229,9 @@
 
 /// TCOMMS_AREAS
 /area/horizon/tcommsat
+	icon_state = "tcomsatcham"
 	ambience = AMBIENCE_ENGINEERING
-	area_lighting = LIGHT_HIGHSEC_COLORS
+	area_lighting = LIGHT_CLINICAL_COLORS
 	no_light_control = 1
 	station_area = TRUE
 	holomap_color = HOLOMAP_AREACOLOR_ENGINEERING
@@ -247,4 +248,3 @@
 
 /area/horizon/tcommsat/chamber
 	name = "Telecomms Central Compartment"
-	icon_state = "tcomsatcham"

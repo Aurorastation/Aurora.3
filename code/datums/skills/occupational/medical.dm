@@ -72,19 +72,38 @@
 
 /singleton/skill/anatomy
 	name = "Anatomy"
-	description = "Governs the amount and quality of information received when examining other characters' injuries. " \
-		+ "Ranks in this skill also provide small situational bonuses to some interactions with characters whose species matches your own."
+	description = "Governs the speed at which you can check yourself for injuries, as well as the quality of the information obtained when doing so."
 	maximum_level = SKILL_LEVEL_PROFESSIONAL
-	uneducated_skill_cap = SKILL_LEVEL_TRAINED
+	uneducated_skill_cap = SKILL_LEVEL_PROFESSIONAL
 	category =  /singleton/skill_category/occupational
 	subcategory = SKILL_SUBCATEGORY_MEDICAL
 	component_type = ANATOMY_SKILL_COMPONENT
 	skill_level_descriptions = alist(
-		SKILL_LEVEL_UNFAMILIAR = "You have no modifiers from this skill.",
-		SKILL_LEVEL_FAMILIAR = "You have a very small bonus to both success rate and surgery speed when performing surgeries on characters with the same species as yourself.",
-		SKILL_LEVEL_TRAINED = "You have a small bonus to both success rate and surgery speed when performing surgeries on characters with the same species as yourself.",
-		SKILL_LEVEL_PROFESSIONAL = "You have a moderate bonus to both success rate and surgery speed when performing surgeries on characters with the same species as yourself."
+		SKILL_LEVEL_UNFAMILIAR = "You have zero training or knowledge of anatomy.<br>" \
+			+ " - You can only distinguish visible damage like cuts and burns.",
+		SKILL_LEVEL_FAMILIAR = "You have minimal training on the basics of anatomy.<br>" \
+			+ "You can diagnose the following conditions: <br>" \
+			+ " - External injuries.<br>" \
+			+ " - Limb dislocation.<br>" \
+			+ " - Simple bleeds.",
+		SKILL_LEVEL_TRAINED = "You have years of formal training and experience with anatomy.<br>" \
+			+ "You can diagnose the following conditions: <br>" \
+			+ " - External injuries at a high level of detail.<br>" \
+			+ " - Limb dislocation.<br>" \
+			+ " - Broken bones.<br>" \
+			+ " - Distinguish between simple bleeds and severed arteries.<br>" \
+			+ " - Limb necrosis.<br>" \
+			+ " - Tag injuries by triage priority.",
+		SKILL_LEVEL_PROFESSIONAL = "You have extensive training and experience with anatomy.<br>" \
+			+ "You can diagnose the following conditions at the highest level of detail: <br>" \
+			+ " - External injuries at a high level of detail.<br>" \
+			+ " - Limb dislocation.<br>" \
+			+ " - Broken bones.<br>" \
+			+ " - Distinguish between simple bleeds and severed arteries.<br>" \
+			+ " - Limb necrosis.<br>" \
+			+ " - Tag injuries by triage priority."
 	)
+	required = TRUE
 
 /singleton/skill/forensics
 	name = "Forensics"

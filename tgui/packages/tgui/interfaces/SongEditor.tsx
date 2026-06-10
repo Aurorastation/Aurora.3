@@ -1,6 +1,6 @@
-import { BooleanLike } from '../../common/react';
+import { Box, Button, NoticeBox, Section, Table } from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Box, Button, NoticeBox, Section, Table } from '../components';
 import { Window } from '../layouts';
 
 type SongEditorData = {
@@ -15,8 +15,8 @@ type SongEditorData = {
   total_pages: number;
 };
 
-export const SongEditor = (props, context) => {
-  const { act, data } = useBackend<SongEditorData>(context);
+export const SongEditor = (props) => {
+  const { act, data } = useBackend<SongEditorData>();
 
   return (
     <Window title="Song Editor" width={500} height={560} theme="ntos">

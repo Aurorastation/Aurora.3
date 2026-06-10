@@ -413,3 +413,10 @@
   kermit:
   - rscadd: Adds 3x PsiProtect Broad Use pill bottles to the Pharmacy retail shelf
       for prescription refills (and investigation).
+2026-05-31:
+  Kano:
+  - bugfix: Fixed the machinery repath in cryo outpost Odyssey map.
+  TheGreyWolf:
+  - bugfix: Gives the role merchant a EFTPOS.
+  Wowzewow (Wezzy):
+  - soundadd: Adds a whole lot more of pick up, drop, and handling sounds.
