@@ -255,7 +255,7 @@
 			if(!attack)
 				return 0
 
-			H.do_attack_animation(src)
+			H.do_attack_animation(src, attack.attack_effect)
 			if(!attack_message)
 				attack.show_attack(H, src, hit_zone, rand_damage)
 			else
@@ -363,7 +363,7 @@
 			src.attack_log += "\[[time_stamp()]\] <font color='orange'>Has been disarmed by [M.name] ([M.ckey])</font>"
 
 			msg_admin_attack("[key_name(M)] disarmed [src.name] ([src.ckey]) (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[M.x];Y=[M.y];Z=[M.z]'>JMP</a>)",ckey=key_name(M),ckey_target=key_name(src))
-			M.do_attack_animation(src)
+			M.do_attack_animation(src, ATTACK_EFFECT_DISARM)
 
 			if(w_uniform)
 				w_uniform.add_fingerprint(M)
@@ -512,7 +512,7 @@
 
 		to_chat(H, cpr_attempt_message)
 
-	H.do_attack_animation(src, null, image('icons/hud/mob/generic.dmi', src, "cpr", src.layer + 1))
+	H.do_attack_animation(src, ATTACK_EFFECT_CPR)
 	var/starting_pixel_y = pixel_y
 	animate(src, pixel_y = starting_pixel_y + 4, time = 2)
 	animate(src, pixel_y = starting_pixel_y, time = 2)

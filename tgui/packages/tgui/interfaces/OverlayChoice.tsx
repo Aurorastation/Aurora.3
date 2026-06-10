@@ -1,5 +1,5 @@
+import { Box, Button, Flex, Image, Section } from 'tgui-core/components';
 import { useBackend } from '../backend';
-import { Box, Button, Flex, Section } from '../components';
 import { Window } from '../layouts';
 
 export type IconData = {
@@ -13,8 +13,8 @@ export type Item = {
   singleton_path: string;
 };
 
-export const OverlayChoice = (props, context) => {
-  const { act, data } = useBackend<IconData>(context);
+export const OverlayChoice = (props) => {
+  const { act, data } = useBackend<IconData>();
 
   return (
     <Window width={500} height={500}>
@@ -33,8 +33,8 @@ export const OverlayChoice = (props, context) => {
   );
 };
 
-export const ContentsWindow = (props, context) => {
-  const { act, data } = useBackend<IconData>(context);
+export const ContentsWindow = (props) => {
+  const { act, data } = useBackend<IconData>();
   const { contents } = data;
 
   return (
@@ -80,15 +80,17 @@ export const ContentsWindow = (props, context) => {
               >
                 {item.icon ? (
                   <Box
-                    as="img"
-                    src={`data:image/png;base64,${item.icon}`}
                     style={{
-                      width: '64px',
-                      height: '32px',
                       imageRendering: 'pixelated',
                       margin: '0 auto 4px auto',
                     }}
-                  />
+                  >
+                    <Image
+                      width="60px"
+                      height="60px"
+                      src={`data:image/jpeg;base64,${item.icon}`}
+                    />
+                  </Box>
                 ) : null}
               </Flex.Item>
 

@@ -19,6 +19,9 @@
 /obj/item/modular_computer/silicon/ui_host()
 	. = computer_host
 
+/obj/item/modular_computer/silicon/ui_state(mob/user)
+	return GLOB.self_state
+
 /obj/item/modular_computer/silicon/Initialize(mapload)
 	if(istype(loc, /mob/living/silicon))
 		computer_host = loc

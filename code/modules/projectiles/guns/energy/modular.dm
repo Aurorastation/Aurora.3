@@ -54,6 +54,49 @@
 			. += "Your combined professional expertise in firearms and research will show you all information about this weapon, you will also be able to repair it without decreasing its reliability, and have an excellent chance to improve it when repairing."
 			. += "It can be improved up to its improvement potential, which is increased by firing it. Firing it at players increases it most rapidly, following by firing it at simple mobs, then firing it at objects."
 
+/obj/item/gun/energy/laser/prototype/Initialize(mapload)
+	. = ..()
+	RegisterSignal(src, COMSIG_PROJECTILE_ON_HIT, PROC_REF(on_projectile_hit))
+
+/obj/item/gun/energy/laser/prototype/Destroy()
+	UnregisterSignal(src, COMSIG_PROJECTILE_ON_HIT)
+	return ..()
+
+///This handles the improvement potential gain from firing the weapon. The actual improvement is handled in repair of the individual compoents, this just determines how much improvement potential is gained.
+/obj/item/gun/energy/laser/prototype/proc/on_projectile_hit(fired_from, atom/movable/firer, atom/target, angle, def_zone, blocked)
+	SIGNAL_HANDLER
+	if(!target || target == firer)
+		return
+
+	if (istype(target, /obj/structure/machinery/portable_atmospherics/hydroponics))
+		if (istype(modulator, /obj/item/laser_components/modulator/floramut) || istype(modulator, /obj/item/laser_components/modulator/floramut2))
+			improvement_potential += (1  * IMPROVEMENT_MULTIPLIER) / (max(1, burst))
+			return
+
+	if(isliving(target))  //No improvement unless your target is a mob.
+		var/mob/living/target_mob = target
+		if(target_mob.stat != DEAD) //No improvement from shooting at dead things. Bring a doctor in to keep your target dummy alive. This also makes it harder to improve more powerful weapons, as you kill your target faster.
+			if(ishuman(target_mob))
+				var/mob/living/carbon/human/human_target = target
+				if (istype(modulator, /obj/item/laser_components/modulator/taser))
+					if (human_target.incapacitated()) //No benefit from tasing someone who's already incapacitated. Get the phramacist to make you oxycomorphine.
+						return
+				if(human_target.get_species() == SPECIES_MONKEY)
+					improvement_potential += (2  * IMPROVEMENT_MULTIPLIER) / (max(1, burst)) //Monkeys die easily, research only gets two boxes of monkey cubes without xenobiology.
+					return
+				if(human_target.client)
+					improvement_potential += (10  * IMPROVEMENT_MULTIPLIER) / (max(1, burst)) //10 seems like a lot, but this is a 20% improvement to 1 variable on 1 component. A 5 mod gun (8 total components), with an average of 3 improvable variables would need 120 shots on a player to max out.
+					return
+
+			if(isslime(target_mob))
+				if (istype(modulator, /obj/item/laser_components/modulator/freeze))
+					improvement_potential += (2 * IMPROVEMENT_MULTIPLIER) / (max(1, burst))
+					return
+
+			improvement_potential += (5 * IMPROVEMENT_MULTIPLIER) / (max(1, burst)) //Mechs, protohumans, and any other human mobs without a player.
+	else if(!isturf(target))
+		improvement_potential += (1 * IMPROVEMENT_MULTIPLIER) / (max(1, burst))
+
 /obj/item/gun/energy/laser/prototype/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance > 1)
@@ -163,38 +206,8 @@
 	else
 		to_chat(user, "There is nothing to repair on the gun!")
 
-/obj/item/gun/energy/laser/prototype/handle_post_fire(mob/user, atom/target) //This handles the improvement potential gain from firing the weapon. The actual improvement is handled in repair of the individual compoents, this just determines how much improvement potential is gained.
-	if(target)
-		improvement_potential += (0.1 * IMPROVEMENT_MULTIPLIER) / (max(1, burst))  //100 shots to improve by 1%, you can only improve if your gun takes damage, so it will need many repair cycles for this to be significant.
-
-		if (istype(target, /obj/structure/machinery/portable_atmospherics/hydroponics))
-			if (istype(modulator, /obj/item/laser_components/modulator/floramut) || istype(modulator, /obj/item/laser_components/modulator/floramut2))
-				improvement_potential += (1  * IMPROVEMENT_MULTIPLIER) / (max(1, burst))
-				return ..()
-
-		if(target != user) //No improvement from shooting yourself.
-			if(isliving(target))  //No improvement unless your target is a mob.
-				var/mob/living/target_mob = target
-				if(target_mob.stat != DEAD) //No improvement from shooting at dead things. Bring a doctor in to keep your target dummy alive. This also makes it harder to improve more powerful weapons, as you kill your target faster.
-					if(ishuman(target_mob))
-						var/mob/living/carbon/human/human_target = target
-						if (istype(modulator, /obj/item/laser_components/modulator/taser))
-							if (human_target.incapacitated()) //No benefit from tasing someone who's already incapacitated. Get the phramacist to make you oxycomorphine.
-								return ..()
-						if(human_target.get_species() == SPECIES_MONKEY)
-							improvement_potential += (2  * IMPROVEMENT_MULTIPLIER) / (max(1, burst)) //Monkeys die easily, research only gets two boxes of monkey cubes without xenobiology.
-							return ..()
-						if(human_target.client)
-							improvement_potential += (10  * IMPROVEMENT_MULTIPLIER) / (max(1, burst)) //10 seems like a lot, but this is a 20% improvement to 1 variable on 1 component. A 5 mod gun (8 total components), with an average of 3 improvable variables would need 120 shots on a player to max out.
-							return ..()
-
-					if(isslime(target_mob))
-						if (istype(modulator, /obj/item/laser_components/modulator/freeze))
-							improvement_potential += (2 * IMPROVEMENT_MULTIPLIER) / (max(1, burst))
-							return ..()
-
-					improvement_potential += (5 * IMPROVEMENT_MULTIPLIER) / (max(1, burst)) //Mechs, protohumans, and any other human mobs without a player.
-	..()
+/obj/item/gun/energy/laser/prototype/handle_post_fire(mob/user, atom/target)
+	return ..()
 
 /obj/item/gun/energy/laser/prototype/update_icon()
 	..()
@@ -388,7 +401,7 @@
 	while(improvement_potential > 0 && damaged_components.len)
 		var/list/upgradable_components = list()
 		for(var/obj/item/laser_components/component in damaged_components) //Only give it improvement potential if it's damaged.
-			if((component.total_improved + component.improvement_potential) < IMPROVEMENT_CAP) //Only give it improvement potential if it doesn't have enough to hit cap.
+			if((component.total_improved + component.improvement_potential) < component.improvement_cap) //Only give it improvement potential if it doesn't have enough to hit cap.
 				if(component.increasable_stats.len || component.decreaseable_stats.len) //Don't give it to components with nothing to improve.
 					upgradable_components += component
 			else

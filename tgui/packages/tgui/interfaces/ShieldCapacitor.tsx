@@ -1,5 +1,3 @@
-import { BooleanLike } from '../../common/react';
-import { useBackend } from '../backend';
 import {
   Box,
   Button,
@@ -8,7 +6,9 @@ import {
   NumberInput,
   ProgressBar,
   Section,
-} from '../components';
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
+import { useBackend } from '../backend';
 import { Window } from '../layouts';
 
 export type CapacitorData = {
@@ -24,11 +24,11 @@ export type CapacitorData = {
   max_charge_rate: number;
 };
 
-export const ShieldCapacitor = (props, context) => {
-  const { act, data } = useBackend<CapacitorData>(context);
+export const ShieldCapacitor = (props) => {
+  const { act, data } = useBackend<CapacitorData>();
 
   return (
-    <Window resizable theme="hephaestus">
+    <Window theme="hephaestus">
       <Window.Content scrollable>
         <Section>
           {data.locked ? (
@@ -42,8 +42,8 @@ export const ShieldCapacitor = (props, context) => {
   );
 };
 
-export const CapacitorWindow = (props, context) => {
-  const { act, data } = useBackend<CapacitorData>(context);
+export const CapacitorWindow = (props) => {
+  const { act, data } = useBackend<CapacitorData>();
 
   return (
     <Section
@@ -86,7 +86,7 @@ export const CapacitorWindow = (props, context) => {
             maxValue={data.max_charge_rate}
             step={100}
             stepPixelSize={3}
-            onDrag={(e, v) =>
+            onChange={(v) =>
               act('charge_rate', { charge_rate: Math.round(v) })
             }
             unit="kW"
