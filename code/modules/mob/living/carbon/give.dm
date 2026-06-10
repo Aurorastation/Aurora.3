@@ -9,9 +9,9 @@
 		to_chat(src, SPAN_WARNING("[target.name] is in no condition to handle items!"))
 		return
 
-	var/obj/item/I = pick(list(target.get_active_hand()) + target.get_inactive_held_items())
+	var/obj/item/I = get_active_hand()
 	if(!I)
-		to_chat(src, SPAN_WARNING("You don't have anything in your hands to give to \the [target]."))
+		to_chat(src, SPAN_WARNING("You don't have anything in your hand to give to \the [target]."))
 		return
 
 	if(I.too_heavy_to_throw())
@@ -20,7 +20,7 @@
 
 	usr.visible_message(SPAN_NOTICE("\The [src] holds out \the [I] to \the [target]."), SPAN_NOTICE("You hold out \the [I] to \the [target], waiting for them to accept it."))
 
-	if(alert(target,"[src] wants to give you \a [I]. Will you accept it?",,"Yes","No") == "No")
+	if(tgui_alert(target, "[src] wants to give you \a [I]. Will you accept it?", "Give", list("Yes","No")) == "No")
 		target.visible_message("<b>[target]</b> pushes [src]'s hand away.")
 		return
 

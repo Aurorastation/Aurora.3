@@ -154,10 +154,14 @@
 
 /obj/structure/machinery/door/CollidedWith(atom/bumped_atom)
 	. = ..()
-	if(p_open || operating) return
-	if (!bumped_atom.simulated) return
-	if(ismob(bumped_atom))
-		var/mob/M = bumped_atom
+	if(p_open || operating)
+		return
+
+	if (!bumped_atom.simulated)
+		return
+
+	var/mob/M = ismob(bumped_atom) ? bumped_atom : istype(bumped_atom, /obj/vehicle) ? astype(bumped_atom, /obj/vehicle).load : null
+	if(ismob(M))
 		if(world.time - M.last_bumped <= 10) return	//Can bump-open one airlock per second. This is to prevent shock spam.
 		M.last_bumped = world.time
 		if(!M.restrained() && (!issmall(M) || ishuman(M) || istype(M, /mob/living/silicon/robot/drone/mining)))

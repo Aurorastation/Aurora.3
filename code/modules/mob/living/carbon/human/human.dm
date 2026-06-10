@@ -392,7 +392,7 @@
 	dat += "<BR><HR>"
 
 	for(var/hand in held_item_slots)
-		var/obj/item/organ/external/E = get_organ(hand)
+		var/obj/item/organ/external/E = organs_by_name[hand]
 		var/obj/item/held = get_equipped_item(hand)
 		if(istype(E))
 			dat += "<BR><b>[capitalize_first_letters(E)]:</b> <A href='byond://?src=[REF(src)];item=[hand]'>[istype(held) ? held : "nothing"]</A>"

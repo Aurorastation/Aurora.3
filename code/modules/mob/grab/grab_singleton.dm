@@ -232,7 +232,8 @@ ABSTRACT_TYPE(/singleton/grab)
 	var/grab_mod = grabbed_human?.species ? error_correct_round(grabbed_human.species.grab_mod) : 1
 
 	var/resist_strength = (grabbed.get_mob_strength() * grab_mod) - grabber.get_mob_strength()
-	var/break_strength = breakability + MOB_SIZE_DIFF(grabbed, grabber) + resist_strength
+	var/strength_if_equal = grabber.mob_size == grabbed.mob_size ? 0 : MOB_SIZE_DIFF(grabber, grabbed) //log(2, 0) will runtime
+	var/break_strength = breakability + strength_if_equal + resist_strength
 
 	if(grabbed.incapacitated(INCAPACITATION_ALL))
 		break_strength--

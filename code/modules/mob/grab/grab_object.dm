@@ -164,6 +164,9 @@
 /obj/item/grab/mob_can_unequip(mob/M, slot, disable_warning = FALSE, dropping = FALSE)
 	return dropping
 
+/obj/item/grab/can_swap_hands(mob/user)
+	return FALSE
+
 /obj/item/grab/process()
 	current_grab.do_process(src)
 

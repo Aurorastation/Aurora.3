@@ -34,8 +34,14 @@
 	user.glide_size = glide_size
 	step(src, direction)
 	set_dir(direction)
+
+	if(LAZYLEN(grabbed_by))
+		for(var/obj/item/grab/G as anything in grabbed_by)
+			step(G.grabber, direction)
+
 	if(bloodiness)
 		create_track()
+
 	driving = FALSE
 
 /obj/structure/bed/stool/chair/office/wheelchair/attack_hand(mob/living/user as mob)

@@ -40,7 +40,8 @@
 			to_chat(src, SPAN_WARNING("You are unable to equip [item_to_equip]."))  //Only print if delete_on_fail is false
 		return FALSE
 
-	if(canUnEquip(item_to_equip))
+	var/obj/item/current_item_in_slot = get_equipped_item(slot)
+	if(canUnEquip(current_item_in_slot))
 		equip_to_slot(item_to_equip, slot, redraw_mob, assisted_equip) //This proc should not ever fail.
 		return TRUE
 
