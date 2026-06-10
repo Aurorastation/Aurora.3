@@ -12,6 +12,7 @@
 	else
 		layer = MOB_LAYER
 		to_chat(src, SPAN_NOTICE("You have stopped hiding."))
+	SEND_SIGNAL(src, COMSIG_MOB_ON_HIDE)
 
 /mob/living/verb/set_walk_speed()
 	set category = "IC.Maneuver"
