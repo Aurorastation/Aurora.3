@@ -370,7 +370,7 @@ SUBSYSTEM_DEF(jobs)
 
 	//Gives glasses to the vision impaired
 	if(H.disabilities & NEARSIGHTED)
-		var/equipped = H.equip_to_slot_or_del(new /obj/item/clothing/glasses/regular(H), slot_glasses_str, TRUE)
+		var/equipped = H.equip_or_collect(new /obj/item/clothing/glasses/regular(H), slot_glasses_str)
 		if(equipped != 1)
 			var/obj/item/clothing/glasses/G = H.glasses
 			G.prescription = 7
@@ -747,7 +747,7 @@ SUBSYSTEM_DEF(jobs)
 							equip_slot = slot_wear_suit_str
 
 			if(!handled_accessory)
-				if (H.equip_to_slot_or_del(CI, equip_slot, TRUE))
+				if (H.equip_or_collect(CI, equip_slot, TRUE))
 					to_chat(H, SPAN_NOTICE("Equipping you with [thing]!"))
 					used_slots += equip_slot
 					log_loadout("ECD/([H]): Equipped [thing] successfully.")
