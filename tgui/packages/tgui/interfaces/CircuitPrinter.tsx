@@ -153,9 +153,9 @@ export const CircuitPrinter = (props) => {
   );
 
   categoryGroups.sort((a, b) => a.group.localeCompare(b.group));
-  categoryGroups.forEach((group) =>
-    group.subgroups.sort((a, b) => a.subgroup.localeCompare(b.subgroup)),
-  );
+  categoryGroups.forEach((group) => {
+    group.subgroups.sort((a, b) => a.subgroup.localeCompare(b.subgroup));
+  });
 
   const importPastedBlueprint = async () => {
     const importText = blueprintText;
@@ -328,7 +328,7 @@ export const CircuitPrinter = (props) => {
                   mt={0.5}
                   placeholder="Paste blueprint JSON"
                   value={blueprintText}
-                  onInput={(_, value) => setBlueprintText(value)}
+                  onChange={setBlueprintText}
                   style={{
                     fontFamily: 'monospace',
                   }}
@@ -354,7 +354,6 @@ export const CircuitPrinter = (props) => {
                 height="96px"
                 mt={0.5}
                 value={data.clone_blueprint_export}
-                onInput={() => {}}
                 style={{
                   fontFamily: 'monospace',
                 }}
@@ -371,9 +370,7 @@ export const CircuitPrinter = (props) => {
               autoSelect
               placeholder="Search categories or circuits"
               maxLength={512}
-              onInput={(e, value) => {
-                setSearchTerm(value);
-              }}
+              onChange={setSearchTerm}
               value={searchTerm}
             />
           }
