@@ -1,21 +1,26 @@
 /obj/item/plastique
-	name = "plastic explosives"
-	desc = "Used to put holes in specific areas without too much extra hole."
-	gender = PLURAL
-	icon = 'icons/obj/assemblies.dmi'
-	icon_state = "plastic-explosive0"
-	item_state = "plasticx"
-	contained_sprite = TRUE
-	item_flags = ITEM_FLAG_NO_BLUDGEON
-	w_class = WEIGHT_CLASS_SMALL
-	origin_tech = list(TECH_ILLEGAL = 2)
-	var/datum/wires/explosive/c4/wires = null
-	var/detonate_time = 0
-	/// Default timer is 30 seconds, but can be configured for anything from 10s to 20m.
-	var/timer = 300
-	var/atom/target = null
-	var/open_panel = 0
-	var/obj/effect/plastic_explosive/effect_overlay
+    name = "plastic explosives"
+    desc = "Used to put holes in specific areas without too much extra hole."
+    gender = PLURAL
+    icon = 'icons/obj/assemblies.dmi'
+    icon_state = "plastic-explosive0"
+    item_state = "plasticx"
+    contained_sprite = TRUE
+    item_flags = ITEM_FLAG_NO_BLUDGEON
+    w_class = WEIGHT_CLASS_SMALL
+    origin_tech = list(TECH_ILLEGAL = 2)
+    var/datum/wires/explosive/c4/wires = null
+    var/detonate_time = 0
+    /// Default timer is 30 seconds, but can be configured for anything from 10s to 20m.
+    var/timer = 300
+    var/atom/target = null
+    var/open_panel = 0
+    var/obj/effect/plastic_explosive/effect_overlay
+
+	var/plastic_explosive_type = /obj/effect/plastic_explosive
+    var/devastation_range = -1
+    var/heavy_impact_range = -1
+    var/light_impact_range = 2
 
 /obj/item/plastique/mechanics_hints()
 	. += ..()
@@ -94,37 +99,37 @@
 	return TRUE
 
 /obj/item/plastique/proc/deploy_c4(var/atom/movable/explode_target, mob/user)
-	user.drop_from_inventory(src, get_turf(user))
-	src.target = explode_target
-	var/timetext = DisplayTimeText(timer)
+    user.drop_from_inventory(src, get_turf(user))
+    src.target = explode_target
+    var/timetext = DisplayTimeText(timer)
 
-	log_and_message_admins("planted [src.name] on [target.name] with [timetext] fuse", user, get_turf(target))
+    log_and_message_admins("planted [src.name] on [target.name] with [timetext] fuse", user, get_turf(target))
 
-	new /obj/effect/plastic_explosive(get_turf(user), target, src)
-	to_chat(user, SPAN_WARNING("Bomb has been planted. Timer counting down from [timetext]."))
+    new plastic_explosive_type(get_turf(user), target, src)
+    to_chat(user, SPAN_WARNING("Bomb has been planted. Timer counting down from [timetext]."))
 
-	detonate_time = world.time + (timer)
-	addtimer(CALLBACK(src, PROC_REF(explode), get_turf(target)), timer)
+    detonate_time = world.time + (timer)
+    addtimer(CALLBACK(src, PROC_REF(explode), get_turf(target)), timer)
 
 /obj/item/plastique/proc/explode(turf/location)
-	if(!target)
-		target = get_atom_on_turf(src)
-	if(!target)
-		target = src
-	QDEL_NULL(effect_overlay)
-	if(location)
-		explosion(location, -1, -1, 2, 3, spreading = 0)
+    if(!target)
+        target = get_atom_on_turf(src)
+    if(!target)
+        target = src
+    QDEL_NULL(effect_overlay)
+    if(location)
+        explosion(location, devastation_range, heavy_impact_range, light_impact_range, 3, spreading = 0)
 
-	if(target)
-		if (istype(target, /turf/simulated/wall))
-			var/turf/simulated/wall/W = target
-			W.dismantle_wall(1, no_product = TRUE)
-		else if(istype(target, /mob/living))
-			target.ex_act(2) // c4 can't gib mobs anymore.
-		else
-			target.ex_act(1)
+    if(target)
+        if (istype(target, /turf/simulated/wall))
+            var/turf/simulated/wall/W = target
+            W.dismantle_wall(1, no_product = TRUE)
+        else if(istype(target, /mob/living))
+            target.ex_act(2) // c4 can't gib mobs anymore.
+        else
+            target.ex_act(1)
 
-	qdel(src)
+    qdel(src)
 
 /obj/item/plastique/attack(mob/living/target_mob, mob/living/user, target_zone)
 	return
@@ -188,3 +193,15 @@
 		SSradiation.radiate(src, 250)
 		new /obj/effect/decal/cleanable/greenglow/radioactive/medium(get_turf(src))
 	..()
+
+/obj/item/plastique/strong
+    name = "bundled plastic explosives"
+    desc = "Used to big holes in specific areas with a lot of extra hole."
+	icon_state = "plastic-explosive-big0"
+	item_state = "plasticx-big"
+	w_class = WEIGHT_CLASS_MEDIUM
+
+	plastic_explosive_type = /obj/effect/plastic_explosive/big 
+	devastation_range = 2
+	heavy_impact_range = 4
+	light_impact_range = 6
