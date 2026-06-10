@@ -175,8 +175,8 @@
 	widowmaker.dir = shot_direction
 	widowmaker.on_translate(entry_turf, target_turf)
 	log_and_message_admins("A ([widowmaker.name]) arrived [naval_heading] of \the [target] at ([entry_turf.x], [entry_turf.y], [entry_turf.z]) aimed at [submap_target.name], with direction [dir2text(shot_direction)]! (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[submap_target.x];Y=[submap_target.y];Z=[submap_target.z]'>JMP</a>)")
-	for(var/mob/M in GLOB.player_list)
-		if(M.client && ((!istype(M, /mob/abstract/new_player) && M.stat == DEAD)))
+	for(var/mob/M in GLOB.dead_mob_list)
+		if(M.client)
 			to_chat(M, "<span class='deadsay'>" + create_text_tag("DEAD", M.client) + " A ([widowmaker.name]), fired by [ammunition.origin], flew in at [ghost_follow_link(entry_turf, M)] ([entry_turf.x], [entry_turf.y], [entry_turf.z]) aimed at [ghost_follow_link(submap_target, M)] [submap_target.name], with direction [dir2text(shot_direction)]!</span>")
 	widowmaker.preparePixelProjectile(target_turf, entry_turf)
 	widowmaker.fired_from = src
@@ -192,8 +192,8 @@
 	widowmaker.dir = shot_direction
 	widowmaker.on_translate(entry_turf, target_turf)
 	log_and_message_admins("A ([widowmaker.name]) flew in at ([entry_turf.x], [entry_turf.y], [entry_turf.z]) aimed at [submap_target.name], with direction [dir2text(shot_direction)]! (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[submap_target.x];Y=[submap_target.y];Z=[submap_target.z]'>JMP</a>)")
-	for(var/mob/M in GLOB.player_list)
-		if(M.client && ((!istype(M, /mob/abstract/new_player) && M.stat == DEAD)))
+	for(var/mob/M in GLOB.dead_mob_list)
+		if(M.client)
 			to_chat(M, "<span class='deadsay'>" + create_text_tag("DEAD", M.client) + " A ([widowmaker.name]), fired by [ammunition.origin], flew in at [ghost_follow_link(entry_turf, M)] ([entry_turf.x], [entry_turf.y], [entry_turf.z]) aimed at ([ghost_follow_link(submap_target, M)] [submap_target.name]), with direction [dir2text(shot_direction)]!</span>")
 	widowmaker.preparePixelProjectile(target_turf, entry_turf)
 	widowmaker.fired_from = src

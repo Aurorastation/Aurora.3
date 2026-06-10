@@ -338,8 +338,8 @@
 		if(ammo && ammo.origin)
 			ammo.origin.signal_hit(hit_data)
 
-		for(var/mob/M in GLOB.player_list) //Print out a message about what we hit to all ghosts.
-			if(M.client && ((!istype(M, /mob/abstract/new_player) && M.stat == DEAD)))
+		for(var/mob/M in GLOB.dead_mob_list) //Print out a message about what we hit to all ghosts.
+			if(M.client)
 				to_chat(M, "<span class='deadsay'>" + create_text_tag("DEAD", M.client) + "[ghost_follow_link(target, M)] A [src.name] hit \the [target.name] in \the [get_area(target)] at [target.x], [target.y], [target.z]!</span>")
 
 	if(istype(target, /turf/simulated/wall) || istype(target, /obj/structure/machinery/door)) //Stores the last thing we pierced for spalling purposes.
