@@ -101,6 +101,7 @@
 		script = file
 		data["file_name"] = "[file.filename]"
 		data["file_type"] = "[file.filetype]"
+		data["file_desc"] = "[file.filedesc]"
 		if(!istype(file))
 			if(!istype(script))
 				data["error"] = "I/O ERROR: Unable to open file."
@@ -228,7 +229,7 @@
 
 			if(params["PRG_rename"])
 				var/newname = sanitize_filename(params["PRG_rename"])
-				file.filename = newname
+				F.filename = newname
 				open_file = newname
 				return
 
@@ -236,14 +237,10 @@
 				F.filedesc = params["PRG_desc"]
 				return
 
-			var/newtext = params["PRG_edit"]
-			if(!newtext)
-				return
-
-			if(F)
+			if(params["PRG_edit"])
 				var/datum/computer_file/data/backup = F.clone()
 				HDD.remove_file(F)
-				F.stored_data = newtext
+				F.stored_data = params["PRG_edit"]
 				F.calculate_size()
 				// We can't store the updated file, it's probably too large. Print an error and restore backed up version.
 				// This is mostly intended to prevent people from losing texts they spent lot of time working on due to running out of space.

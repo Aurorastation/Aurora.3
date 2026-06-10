@@ -1,7 +1,6 @@
 import {
   Box,
   Button,
-  TextArea,
   Input,
   NoticeBox,
   Section,
@@ -12,7 +11,8 @@ import type { BooleanLike } from 'tgui-core/react';
 import { useBackend, useSharedState } from '../backend';
 import { NtosWindow } from '../layouts';
 import { sanitizeText } from '../sanitize';
-import { useState } from 'react';
+import TextEditor from './common/TextEditor';
+import React, { useState } from 'react';
 
 // Screen constants (must match DM defines)
 const FMS_FILEBROWSER = 0;
@@ -21,6 +21,8 @@ const FMS_FORMS = 2;
 const FMS_EDIT = 3;
 
 const MAX_TEXTFILE_LENGTH = 128000;
+
+// Type Defs
 
 type FileData = {
   error: string;
@@ -52,6 +54,7 @@ type FormEntry = {
   department: string;
 };
 
+// Program screen manager
 export const FileManager = (props) => {
   const { act, data } = useBackend<FileData>();
   const {screen} = data;
@@ -75,7 +78,7 @@ export const FileManager = (props) => {
 export const FileBrowser = (props) => {
   const { act, data } = useBackend<FileData>();
   const [encrypt, setEncrypting] = useState(false);
-  let [file_to_encrypt] = '';
+  const [file_encrypt, setFileEncrypt] = useState<string>('');
 
   return (
     <Section
@@ -83,12 +86,12 @@ export const FileBrowser = (props) => {
     >
       <Button
           content="New File"
-          icon="folder"
+          icon="file"
           onClick={() => act('PRG_new_text_file')}
         />
         <Button
           content="New Form"
-          icon="folder"
+          icon="file-lines"
           onClick={() => act('set_screen', { screen: FMS_FORMS })}
         />
       <Table>
@@ -123,7 +126,7 @@ export const FileBrowser = (props) => {
                 disabled={file.type === 'PRG'}
                 onClick={() => act('PRG_clone', { PRG_clone: file.name })}
               />
-              {encrypt && file_to_encrypt === file.name ? (
+              {encrypt && file_encrypt === file.name ? (
                   <Input
                   autoFocus
                   autoSelect
@@ -138,22 +141,22 @@ export const FileBrowser = (props) => {
               ) : (
               <Button
                 content= {file.password? "Decrypt" : "Encrypt"}
-                onClick={() => {setEncrypting(true), file_to_encrypt = file.name}}
+                onClick={() => {setEncrypting(true), setFileEncrypt(file.name)}}
               />
               )}
-              {data.usb_connected && (
+              {data.usb_connected ? (
                 <Button
                   content="Export"
                   onClick={() =>
                     act('PRG_copy_to_usb', { PRG_copy_to_usb: file.name })
                   }
                 />
-              )}
+              ): ''}
             </Table.Cell>
           </Table.Row>
         ))}
       </Table>
-      {data.usb_connected && data.usb_files.length && (
+      {data.usb_connected && data.usb_files.length ? (
         <Section title="USB Files">
           <Table>
             <Table.Row header>
@@ -192,7 +195,7 @@ export const FileBrowser = (props) => {
             ))}
           </Table>
         </Section>
-      )}
+      ) : ''}
     </Section>
   )
 };
@@ -214,7 +217,7 @@ export const ShowFile = (props) => {
           />{' '}
           <Button
             content="Edit"
-            icon="edit"
+            icon="pen-to-square"
             disabled={data.file_is_usb}
             onClick={() => act('set_screen', { screen: FMS_EDIT })}
           />{' '}
@@ -233,8 +236,11 @@ export const ShowFile = (props) => {
       <NoticeBox danger>
         {data.error}
       </NoticeBox>
-      ) : ('')}
+      ) : <>
+      {data.file_desc ? <> {data.file_desc}
+      <Divider /> </>  : ''}
       <Box dangerouslySetInnerHTML={contentHtml} />
+      </>}
 
     </Section>
   );
@@ -342,14 +348,9 @@ export const File_Edit = (props) => {
           onEnter={(e) => act('PRG_edit', {PRG_desc: e})}
         />
         <Divider />
-        <TextArea
-          fluid
-          spellcheck
-          height = {45}
-          value={data.file_data}
-          maxLength = {MAX_TEXTFILE_LENGTH}
-          placeholder="Type something here..."
-          onEnter={(e) => act('PRG_edit', { PRG_edit: e })}
+        <TextEditor
+          initial_text={data.file_data}
+          onChange={(e) => act('PRG_edit', { PRG_edit: e })}
         />
       </Section>
   );
