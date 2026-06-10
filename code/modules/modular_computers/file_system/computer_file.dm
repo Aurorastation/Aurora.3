@@ -47,6 +47,8 @@ GLOBAL_VAR_INIT(file_uid, 0)
 		temp.filename = filename + "(Copy)"
 	else
 		temp.filename = filename
+	if(filedesc)
+		temp.filedesc = filedesc
 	temp.filetype = filetype
 	return temp
 
