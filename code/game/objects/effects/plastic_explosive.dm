@@ -51,5 +51,5 @@
 
 /obj/effect/plastic_explosive/big
   name = "bundled plastic explosives"
-  desc = "Used to big holes in specific areas with a lot of extra hole."
+  desc = "Used to put big holes in specific areas with a lot of extra hole."
   icon_state = "plastic-explosive-big2
