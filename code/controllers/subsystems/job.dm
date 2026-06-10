@@ -686,7 +686,7 @@ SUBSYSTEM_DEF(jobs)
 				// This is a miserable way to fix the loadout overwrite bug, but the alternative requires
 				// adding an arg to a bunch of different procs. Will look into it after this merge. ~ Z
 				var/obj/item/CI = G.spawn_item(null,metadata, H)
-				if (H.equip_to_slot_or_del(CI, G.slot, TRUE))
+				if (H.equip_or_collect(CI, G.slot))
 					to_chat(H, SPAN_NOTICE("Equipping you with [thing]!"))
 					if(G.slot != slot_tie_str)
 						custom_equip_slots += G.slot
@@ -820,7 +820,7 @@ SUBSYSTEM_DEF(jobs)
 		return FALSE
 
 	var/datum/job/rank = H.mind ? GetJob(H.mind.assigned_role) : prefs.return_chosen_high_job()
-	switch (rank.title)
+	switch (rank?.title)
 		if ("AI", "Cyborg")
 			log_loadout("EA/([H]): Abort: synthetic.")
 			return FALSE
@@ -882,3 +882,5 @@ SUBSYSTEM_DEF(jobs)
 	if(C)
 		C.screen -= T
 	qdel(T)
+
+#undef Debug

@@ -1403,6 +1403,8 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
 					new_pixel_y = max(new_pixel_y-grab.current_grab.shift, default_pixel_y-grab.current_grab.shift)
 				else if(grab_dir & SOUTH)
 					new_pixel_y = min(new_pixel_y+grab.current_grab.shift, default_pixel_y+grab.current_grab.shift)
+				if(grab.current_grab.shift_y != 0)
+					new_pixel_y += grab.current_grab.shift_y
 
 	if(last_pixel_x != new_pixel_x || last_pixel_y != new_pixel_y || last_pixel_z != new_pixel_z)
 		if(anim_time > 0)

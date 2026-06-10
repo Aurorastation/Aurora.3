@@ -63,7 +63,8 @@
 					nicename = list("back")
 					tankcheck = list(C.back)
 
-				for(var/datum/inventory_slot/islot as anything in C.held_item_slots)
+				for(var/islot_name as anything in C.held_item_slots)
+					var/datum/inventory_slot/islot = LAZYACCESS(C.held_item_slots, islot_name)
 					tankcheck |= islot.holding
 					var/obj/item/organ/external/limb = C.organs_by_name[islot.slot_id]
 					nicename |= limb.name

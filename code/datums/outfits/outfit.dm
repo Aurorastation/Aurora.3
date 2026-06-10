@@ -579,7 +579,7 @@
 		if(implants)
 			for(var/implant_type in implants)
 				var/obj/item/implant/I = new implant_type(H)
-				if(I.implanted(H))
+				if(I.implanted(H, H)) // explosive implant takes 2 args
 					I.forceMove(H)
 					I.imp_in = H
 					I.implanted = 1

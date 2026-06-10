@@ -1,44 +1,76 @@
 ABSTRACT_TYPE(/singleton/grab)
+	/// Name of the grab, shows on examine.
 	var/name = "generic grab"
+	/// Optional description.
 	var/desc
 
+	/// The grab we upgrade to.
 	var/singleton/grab/upgrade
+	/// The grab before this one.
 	var/singleton/grab/downgrade
 
+	/// Any flags related to the grab, see has_grab_flags.
 	var/grab_flags = 0
 
+	/// Multiplier applied to point blank damage if the user has this grab active.
 	var/point_blank_mult = 1
+	/// Currently unused damage variable.
 	var/damage_stage = 1
 
+	/// Slowdown that this grab applies to the human in movement_delay().
 	var/grab_slowdown = 0.15
+	/// Shift applied to both pixel_x and pixel_y.
 	var/shift = 0
+	/// Additional forced y-shift for grabs such as fireman carry.
+	var/shift_y = 0
 
+	/// If this grab should adjust the plane of the mob, currently unused.
 	var/adjust_plane = TRUE
+	/// If this grab should adjust the layer of the mob, currently unused.
 	var/adjust_layer = TRUE
 
+	/// Flavour message for success on grab upgrade.
 	var/success_up              = "You get a better grip on $rep_affecting$."
+	/// Flavour message for success on grab downgrade.
 	var/success_down            = "You adjust your grip on $rep_affecting$."
+	/// Flavour message for failing to upgrade grab.
 	var/fail_up                 = "You can't get a better grip on $rep_affecting$!"
+	/// Flavour message for failing to downgrade grab.
 	var/fail_down               = "You can't seem to relax your grip on $rep_affecting$!"
 
+	/// Icon of the grab.
 	var/grab_icon = 'icons/mob/screen/grab.dmi'
+	/// Icon state of the grab overlay.
 	var/grab_hand_state = "grab"
+	/// Additional icon state for the text under the grab.
 	var/grab_text_state = "reinforce"
+	/// Icon state of the grab icon itself.
 	var/grab_icon_state = "grab"
+	/// Any special animation on the grab itself, see /obj/effect/overlay/temp/grab_special_animation.
 	var/grab_special_state
+	/// Colour of the grab.
 	var/grab_color = "#FDD200"
 
+	/// Cooldown that must pass before upgrading.
 	var/upgrade_cooldown = 4 SECONDS
+	/// Cooldown that must pass before taking a grab action (hit with grab).
 	var/action_cooldown = 4 SECONDS
 
+	/// Break strength is clamped against this table. See handle_resist().
 	var/list/break_chance_table = list(100)
+	/// The base of how hard it is to break the grab, see handle_resist().
 	var/breakability = 2
 
+	/// Intent corresponding to help action.
 	var/help_action = "help intent"
+	/// Intent corresponding to disarm action.
 	var/disarm_action = "disarm intent"
+	/// Intent corresponding to grab action.
 	var/grab_action = "grab intent"
+	/// Intent corresponding to harm action.
 	var/harm_action = "harm intent"
 
+	/// What verb is used when performing actions with this grab.
 	var/action_verb = "grappling"
 
 /singleton/grab/Initialize()

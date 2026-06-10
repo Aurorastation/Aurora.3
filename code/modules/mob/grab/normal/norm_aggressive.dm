@@ -3,7 +3,7 @@
 	upgrade = /singleton/grab/normal/neck
 	downgrade = /singleton/grab/normal/passive
 	shift = 12
-	grab_flags = GRAB_STOP_MOVE | GRAB_CAN_THROW | GRAB_FORCE_HARM
+	grab_flags = GRAB_STOP_MOVE | GRAB_FORCE_HARM
 	point_blank_mult = 1.5
 	damage_stage = 1
 	breakability = 3

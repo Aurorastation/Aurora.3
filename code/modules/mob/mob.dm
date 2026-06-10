@@ -790,7 +790,7 @@
 /// Updates canmove, lying and icons. Could perhaps do with a rename but I can't think of anything to describe it.
 /mob/proc/update_canmove()
 	var/mob/living/carbon/human/H = astype(src)
-	if(!LAZYLEN(grabbed_by)) // strictly speaking this is unnecessary but it allows the conditional logic below
+	if(LAZYLEN(grabbed_by)) // strictly speaking this is unnecessary but it allows the conditional logic below
 		for(var/obj/item/grab/G as anything in grabbed_by)
 			if(G.grabber != src && (MOB_IS_INCAPACITATED(INCAPACITATION_RESTRAINED) || HAS_GRAB_FLAGS(G, GRAB_STOP_MOVE)))
 				ProcessGrabs()
@@ -819,11 +819,11 @@
 					lying_is_intentional = FALSE
 					canmove = TRUE
 					pixel_y = V.mob_offset_y
-			else
-				var/incapacitated = (stat == DEAD) || MOB_IS_INCAPACITATED(INCAPACITATION_KNOCKOUT) || weakened && !recently_slept
-				lying = incapacitated || resting
-				lying_is_intentional = !incapacitated
-				canmove = !MOB_IS_INCAPACITATED(INCAPACITATION_KNOCKOUT) && !weakened
+		else
+			var/incapacitated = (stat == DEAD) || MOB_IS_INCAPACITATED(INCAPACITATION_KNOCKOUT) || weakened && !recently_slept
+			lying = incapacitated || resting
+			lying_is_intentional = !incapacitated
+			canmove = !MOB_IS_INCAPACITATED(INCAPACITATION_KNOCKOUT) && !weakened
 
 	if(lying)
 		ADD_TRAIT(src, TRAIT_UNDENSE, TRAIT_SOURCE_LYING_DOWN)
