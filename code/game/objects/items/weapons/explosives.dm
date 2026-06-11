@@ -199,7 +199,7 @@
 	desc = "Used to put big holes in specific areas with a lot of extra hole."
 	icon_state = "plastic-explosive-big0"
 	item_state = "plasticx-big"
-	w_class = WEIGHT_CLASS_MEDIUM
+	w_class = WEIGHT_CLASS_NORMAL
 
 	plastic_explosive_type = /obj/effect/plastic_explosive/big 
 	devastation_range = 2
