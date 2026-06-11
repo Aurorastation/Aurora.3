@@ -1428,6 +1428,7 @@
 	name = "ring"
 	w_class = WEIGHT_CLASS_TINY
 	icon = 'icons/mob/clothing/gloves/rings.dmi'
+	contained_sprite = TRUE
 	species_sprite_adaption_type = WORN_GLOVES
 	slot_flags = SLOT_GLOVES
 	gender = NEUTER

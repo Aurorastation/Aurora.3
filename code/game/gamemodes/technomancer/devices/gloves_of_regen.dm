@@ -15,6 +15,7 @@
 	icon = 'icons/mob/clothing/gloves/regen_gloves.dmi'
 	icon_state = "regen"
 	item_state = "regen"
+	contained_sprite = TRUE
 	siemens_coefficient = 0
 	cold_protection = HANDS
 	min_cold_protection_temperature = GLOVES_MIN_COLD_PROTECTION_TEMPERATURE

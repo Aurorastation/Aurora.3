@@ -45,6 +45,7 @@
 	icon = 'icons/mob/clothing/gloves/color_gloves.dmi'
 	icon_state = "black"
 	item_state = "black"
+	contained_sprite = TRUE
 	siemens_coefficient = 0
 	permeability_coefficient = 0.05
 	undergloves = 1
@@ -59,6 +60,7 @@
 	icon = 'icons/mob/clothing/gloves/latex.dmi'
 	icon_state = "latex"
 	item_state = "latex"
+	contained_sprite = TRUE
 	siemens_coefficient = 1.0 //thin latex gloves, much more conductive than fabric gloves (basically a capacitor for AC)
 	permeability_coefficient = 0.01
 	germ_level = 0
@@ -89,6 +91,7 @@
 	icon = 'icons/mob/clothing/gloves/nitrile.dmi'
 	icon_state = "nitrile"
 	item_state = "nitrile"
+	contained_sprite = TRUE
 	balloon = /obj/item/toy/balloon/latex/nitrile
 	anomaly_protection = 0.1
 
@@ -99,6 +102,7 @@
 	icon = 'icons/mob/clothing/gloves/zeng_gloves.dmi'
 	icon_state = "zeng_gloves"
 	item_state = "zeng_gloves"
+	contained_sprite = TRUE
 
 /obj/item/clothing/gloves/latex/nitrile/unathi
 	name = "unathi nitrile gloves"
@@ -142,6 +146,7 @@
 	icon = 'icons/mob/clothing/gloves/leather_gloves.dmi'
 	icon_state = "leather"
 	item_state = "leather"
+	contained_sprite = TRUE
 	permeability_coefficient = 0.05
 	siemens_coefficient = 0.50 //thick work gloves
 	drop_sound = 'sound/items/drop/leather.ogg'
@@ -165,6 +170,7 @@
 	icon = 'icons/mob/clothing/gloves/janitor_gloves.dmi'
 	icon_state = "janitor"
 	item_state = "janitor"
+	contained_sprite = TRUE
 	permeability_coefficient = 0.01 //Prevents chemical seepage as well as latex, but without any of the sterility or protection
 	siemens_coefficient = 0.50
 	drop_sound = 'sound/items/drop/rubber.ogg'
@@ -212,6 +218,7 @@
 	icon = 'icons/mob/clothing/gloves/power_gloves.dmi'
 	icon_state = "power_glove" //todo: different sprites for different levels of power
 	item_state = "power_glove"
+	contained_sprite = TRUE
 	amplification = 1 //just do it
 
 /obj/item/clothing/gloves/force/syndicate  //for syndies.  pda, *maybe* nuke team or ert.  up to you.  maybe just use the amp 2 variant.
@@ -224,6 +231,7 @@
 	icon = 'icons/mob/clothing/gloves/knuckledusters.dmi'
 	icon_state = "knuckledusters"
 	item_state = "knuckledusters"
+	contained_sprite = TRUE
 	attack_verb = list("punched", "beaten", "struck")
 	siemens_coefficient = 1
 	fingerprint_chance = 100
@@ -241,6 +249,7 @@
 	icon = 'icons/mob/clothing/gloves/powerfist.dmi'
 	icon_state = "powerfist"
 	item_state = "powerfist"
+	contained_sprite = TRUE
 	attack_verb = list("whacked", "fisted", "power-punched")
 	siemens_coefficient = 1
 	fingerprint_chance = 50
@@ -277,6 +286,7 @@
 	icon = 'icons/mob/clothing/gloves/warping_claws.dmi'
 	icon_state = "warping_claws"
 	item_state = "warping_claws"
+	contained_sprite = TRUE
 	attack_verb = list("ripped", "torn", "cut")
 	armor = list(
 		MELEE = ARMOR_MELEE_MAJOR,
@@ -310,6 +320,7 @@
 	icon = 'icons/mob/clothing/gloves/ballisticfist.dmi'
 	icon_state = "ballisticfist"
 	item_state = "ballisticfist"
+	contained_sprite = TRUE
 	siemens_coefficient = 1
 	fingerprint_chance = 50
 	clipped = 1
@@ -387,6 +398,7 @@
 	icon = 'icons/mob/clothing/gloves/tesla_gloves.dmi'
 	icon_state = "tesla_glove_on"
 	item_state = "tesla_glove_on"
+	contained_sprite = TRUE
 	siemens_coefficient = 1
 	fingerprint_chance = 50
 	clipped = TRUE

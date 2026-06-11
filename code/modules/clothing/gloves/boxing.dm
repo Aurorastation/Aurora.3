@@ -4,6 +4,7 @@
 	icon = 'icons/mob/clothing/gloves/boxing_gloves.dmi'
 	icon_state = "boxing"
 	item_state = "boxing"
+	contained_sprite = TRUE
 	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_VAURCA_BULWARK)
 
 /obj/item/clothing/gloves/boxing/attackby(obj/item/attacking_item, mob/user)

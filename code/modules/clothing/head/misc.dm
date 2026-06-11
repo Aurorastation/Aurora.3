@@ -301,7 +301,7 @@
 	item_state = "hijab"
 	flags_inv = BLOCKHAIR
 	body_parts_covered = 0
-	contained_sprite = 1
+	contained_sprite = TRUE
 	slot_flags = SLOT_EARS  | SLOT_HEAD
 
 /obj/item/clothing/head/hijab/get_ear_examine_text(var/mob/user, var/ear_text = "left")

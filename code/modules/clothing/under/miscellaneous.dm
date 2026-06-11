@@ -413,7 +413,7 @@
 	item_state = "cheongsamwhite"
 	worn_state = "cheongsamwhite"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
-	contained_sprite = 1
+	contained_sprite = TRUE
 
 /obj/item/clothing/under/cheongsam/red
 	name = "red cheongsam"
