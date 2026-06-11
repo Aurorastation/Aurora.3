@@ -28,11 +28,11 @@
 		to_chat(user, SPAN_NOTICE("You try deducing the angles and positioning of local stars..."))
 		if(do_after(user, 3 SECONDS))
 			var/list/connected_z_levels = GetConnectedZlevels(src.z)
-			for(var/obj/structure/machinery/computer/ship/helm/helmref in SSmachinery.machinery)
-				if(!(helmref.z in connected_z_levels))
+			for(var/obj/structure/machinery/computer/ship/ref in SSmachinery.machinery)
+				if(!(ref.z in connected_z_levels))
 					continue
-				if(helmref.linked.check_ownership(helmref) && helmref.linked.x > 0 && helmref.linked.y > 0)
-					. += SPAN_NOTICE("Through your sense of navigation, you realize you must be around Sector [helmref.linked.x] - [helmref.linked.y]")
+				if(ref.linked.check_ownership(ref) && ref.linked.x > 0 && ref.linked.y > 0)
+					. += SPAN_NOTICE("Through your sense of navigation, you realize you must be around Sector [ref.linked.x] - [ref.linked.y]")
 					break // Valid coords can be at any index in the list, so break once it's found
 
 /turf/space/dynamic //For use in edge cases where you want the turf to not be completely lit, like in places where you have placed lattice.
