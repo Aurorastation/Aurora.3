@@ -97,12 +97,15 @@
 /datum/signal/subspace/vocal
 	var/datum/weakref/speaker
 	var/datum/language/language
+	/// The speaker's say_message, if any. Null for the announcer, etc.
+	var/datum/say_message/say_message
 
-/datum/signal/subspace/vocal/New(obj/source, frequency, datum/weakref/speaker, datum/language/language, message, say_verb)
+/datum/signal/subspace/vocal/New(obj/source, frequency, datum/weakref/speaker, datum/language/language, message, say_verb, datum/say_message/say_message)
 	src.source = source
 	src.frequency = frequency
 	src.language = language
 	src.speaker = speaker
+	src.say_message = say_message
 
 	var/turf/T = get_turf(source)
 	if(isturf(T))
@@ -127,7 +130,7 @@
 	)
 
 /datum/signal/subspace/vocal/copy()
-	var/datum/signal/subspace/vocal/copy = new(source, frequency, speaker, language)
+	var/datum/signal/subspace/vocal/copy = new(source, frequency, speaker, language, say_message = say_message)
 	copy.original = src
 	copy.data = data.Copy()
 	copy.levels = levels
@@ -214,12 +217,25 @@
 
 	var/compression = data["compression"]
 
+	// Carry the original message if untouched in transit, else build one from the flat text.
+	var/datum/say_message/radio_msg
+	if(say_message && say_message.to_string() == data["message"])
+		radio_msg = say_message.copy()
+	else
+		radio_msg = new
+		radio_msg.speaker = M
+		radio_msg.verb = data["say_verb"]
+		radio_msg.collapse_to(language, message)
+	radio_msg.say_mode = SAYMODE_RADIO
+	radio_msg.base_clarity = compression ? CLARITY_FAINT : CLARITY_CLEAR
+	radio_msg.radio_parts = list(part_a, part_b, part_c)
+
 	for (var/mob/hearer in receive)
 		if(!hearer)
 			crash_with("null found in the hearers list returned by the spatial grid")
 			continue
 
-		hearer.hear_radio(message, data["say_verb"], language, part_a, part_b, part_c, M, !!compression)
+		hearer.hear_message(radio_msg)
 
 	// --- This following recording is intended for research and feedback in the use of department radio channels ---
 

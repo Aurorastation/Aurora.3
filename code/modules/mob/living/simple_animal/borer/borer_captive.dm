@@ -6,23 +6,23 @@
 	var/datum/progressbar/resist_bar
 	var/resist_start_time = 0
 
-/mob/living/captive_brain/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE, var/skip_edit = FALSE)
+/mob/living/captive_brain/say(var/text, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE, var/skip_edit = FALSE)
 	if(istype(src.loc,/mob/living/simple_animal/borer))
-		if(!message)
+		if(!text)
 			return
-		log_say("[key_name(src)] : [message]")
+		log_say("[key_name(src)] : [text]")
 		if(stat == DEAD)
-			return say_dead(message)
+			return say_dead(text)
 
 		var/mob/living/simple_animal/borer/B = src.loc
-		to_chat(src, "You whisper silently, \"[message]\"")
-		to_chat(B.host, "The captive mind of [src] whispers, \"[message]\"")
+		to_chat(src, "You whisper silently, \"[text]\"")
+		to_chat(B.host, "The captive mind of [src] whispers, \"[text]\"")
 
 		for(var/mob/M in GLOB.player_list)
 			if(istype(M, /mob/abstract/new_player))
 				continue
 			else if(M.stat == DEAD && M.client.prefs.toggles & CHAT_GHOSTEARS)
-				to_chat(M, "The captive mind of [src] whispers, \"[message]\"")
+				to_chat(M, "The captive mind of [src] whispers, \"[text]\"")
 
 /mob/living/captive_brain/Destroy()
 	QDEL_NULL(resist_bar)

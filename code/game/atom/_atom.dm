@@ -141,17 +141,6 @@
 	/// The mob currently interacting with the atom during a `do_after` timer. Used to validate `DO_TARGET_UNIQUE_ACT` flag checks.
 	var/mob/do_unique_target_user
 
-	/*
-	* Duplicate vars and logic created for untranslated images for the sake of getting an untranslated langchat to display for listeners who do not understand
-	* the language being spoken. Someone could certainly think of cleaner ways to do this, but for want of a better solution right now, it has been implemented
-	* in this rote manner to make it easier to strip out in future if it needs replaced.
-	*/
-
-	var/image/langchat_image
-	var/image/langchat_image_untranslated
-	var/list/mob/langchat_listeners
-	var/list/mob/langchat_listeners_untranslated
-
 /atom/Destroy(force)
 	if(opacity)
 		updateVisibility(src)
@@ -180,10 +169,7 @@
 	// The component is attached to us normaly and will be deleted elsewhere
 	orbiters = null
 	do_unique_target_user = null
-	QDEL_NULL(langchat_image)
-	QDEL_NULL(langchat_image_untranslated)
-	langchat_listeners?.Cut()
-	langchat_listeners_untranslated?.Cut()
+	langchat_drop_images()
 	return ..()
 
 /atom/proc/handle_ricochet(obj/projectile/ricocheting_projectile)
