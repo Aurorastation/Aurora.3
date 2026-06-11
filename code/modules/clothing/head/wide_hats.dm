@@ -1,7 +1,7 @@
 /obj/item/clothing/head/wide_hat
 	name = "wide-brimmed sun hat"
 	desc = "A large and light hat meant to block the sun from your precious eyes."
-	icon = 'icons/mob/clothing/head/sun_hat.dmi'
+	icon = 'icons/obj/item/clothing/head/sun_hat.dmi'
 	icon_state = "sun_hat"
 	item_state = "sun_hat"
 	contained_sprite = TRUE
@@ -22,7 +22,7 @@
 /obj/item/clothing/head/cowboy
 	name = "cowboy hat"
 	desc = "A wide-brimmed hat, in the prevalent style of the frontier."
-	icon = 'icons/mob/clothing/head/cowboy.dmi'
+	icon = 'icons/obj/item/clothing/head/cowboy.dmi'
 	contained_sprite = TRUE
 	icon_state = "cowboyhat"
 	item_state = "cowboyhat"
@@ -36,7 +36,7 @@
 /obj/item/clothing/head/bucket
 	name = "bucket hat"
 	desc = "A basic, circular hat with a modest brim."
-	icon = 'icons/mob/clothing/head/bucket_hat.dmi'
+	icon = 'icons/obj/item/clothing/head/bucket_hat.dmi'
 	contained_sprite = TRUE
 	icon_state = "buckethat"
 	item_state = "buckethat"
@@ -63,7 +63,7 @@
 	icon_state = "fedora"
 	item_state = "fedora"
 	desc = "A sharp, stylish hat."
-	icon = 'icons/mob/clothing/head/bucket_hat.dmi'
+	icon = 'icons/obj/item/clothing/head/bucket_hat.dmi'
 	contained_sprite = TRUE
 	has_accents = TRUE
 
@@ -79,6 +79,6 @@
 	icon_state = "tophat"
 	item_state = "tophat"
 	desc = "A top hat worn by only the most prestigious hat collectors."
-	icon = 'icons/mob/clothing/head/top_hat.dmi'
+	icon = 'icons/obj/item/clothing/head/top_hat.dmi'
 	contained_sprite = TRUE
 	has_accents = TRUE

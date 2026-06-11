@@ -12,7 +12,7 @@
 	name = "gloves of regeneration"
 	desc = "A pair of gloves with a small storage of green liquid on the outside.  On the inside, a a hypodermic needle can be seen \
 	on each glove."
-	icon = 'icons/mob/clothing/gloves/regen_gloves.dmi'
+	icon = 'icons/obj/item/clothing/gloves/regen_gloves.dmi'
 	icon_state = "regen"
 	item_state = "regen"
 	contained_sprite = TRUE

@@ -7,7 +7,7 @@
 	name = "shorts parent item"
 	desc = DESC_PARENT
 	body_parts_covered = LOWER_TORSO
-	icon = 'icons/mob/clothing/pants/shorts.dmi'
+	icon = 'icons/obj/item/clothing/pants/shorts.dmi'
 	contained_sprite = TRUE
 
 /********** Shorts Start **********/

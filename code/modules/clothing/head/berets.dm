@@ -1,7 +1,7 @@
 /obj/item/clothing/head/beret
 	name = "beret"
 	desc = "A baguette munching, cheese eating, wine drinking artist's favorite headwear. Hon hon!"
-	icon = 'icons/mob/clothing/hats/berets.dmi'
+	icon = 'icons/obj/item/clothing/hats/berets.dmi'
 	icon_state = "beret"
 	item_state = "beret"
 	item_flags = ITEM_FLAG_SHOW_FLAVOR_TEXT
@@ -205,7 +205,7 @@
 /obj/item/clothing/head/beret/legion/tcaf
 	name = "\improper TCAF dress beret"
 	desc = "A blue dress beret bearing the flag of the Republic of Biesel. Often only seen worn by in-service members of the Tau Ceti Armed Forces."
-	icon = 'icons/mob/clothing/head/tcaf_hats.dmi'
+	icon = 'icons/obj/item/clothing/head/tcaf_hats.dmi'
 	contained_sprite = TRUE
 	icon_state = "tcaf_dress_beret"
 	item_state = "tcaf_dress_beret"

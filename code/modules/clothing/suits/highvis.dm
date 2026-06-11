@@ -1,7 +1,7 @@
 /obj/item/clothing/suit/storage/toggle/highvis
 	name = "high visibility jacket"
 	desc = "A loose-fitting, high visibility jacket to help the wearer be recognizable in high traffic areas with large industrial equipment."
-	icon = 'icons/mob/clothing/suit/storage/toggle/highvis.dmi'
+	icon = 'icons/obj/item/clothing/suit/storage/toggle/highvis.dmi'
 	icon_state = "jacket_highvis"
 	item_state = "jacket_highvis"
 	var/emissive_variant = "plain"
@@ -25,7 +25,7 @@
 /obj/item/clothing/suit/storage/toggle/highvis/colorable
 	name = "high visibility jacket"
 	desc = "A jacket with reflective stripes. For use in different departments, commonly found in civilian industrial services, in dark or secluded areas where visibility is critical for safety."
-	icon = 'icons/mob/clothing/suit/storage/toggle/highvis.dmi'
+	icon = 'icons/obj/item/clothing/suit/storage/toggle/highvis.dmi'
 	icon_state = "jacket_highvis_colorable"
 	item_state = "jacket_highvis_colorable"
 	emissive_variant = "light"

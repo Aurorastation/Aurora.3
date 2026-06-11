@@ -2,7 +2,7 @@
 ABSTRACT_TYPE(/obj/item/clothing/accessory/armband)
 	name = "armband parent item"
 	desc = DESC_PARENT
-	icon = 'icons/mob/clothing/accessory/armband.dmi'
+	icon = 'icons/obj/item/clothing/accessory/armband.dmi'
 	contained_sprite = TRUE
 	flippable = TRUE
 	slot = ACCESSORY_SLOT_ARMBAND
@@ -118,7 +118,7 @@ ABSTRACT_TYPE(/obj/item/clothing/accessory/armband)
 /obj/item/clothing/accessory/armband/offworlder
 	name = "research exo-stellar ribbon"
 	desc = "Durable cloth meant to be worn over or attached to the chest pieces of the ESS modules. This one is purple."
-	icon = 'icons/mob/clothing/accessory/offworlder.dmi'
+	icon = 'icons/obj/item/clothing/accessory/offworlder.dmi'
 	icon_state = "ribbon_sci"
 	flippable = FALSE
 	slot = ACCESSORY_SLOT_CAPE

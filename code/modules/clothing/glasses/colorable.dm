@@ -1,7 +1,7 @@
 /obj/item/clothing/glasses/colorable
 	name = "colorable glasses"
 	desc = "These are glasses."
-	icon = 'icons/mob/clothing/eyes/colorable_glasses.dmi'
+	icon = 'icons/obj/item/clothing/eyes/colorable_glasses.dmi'
 	icon_state = "colorable_glasses"
 	item_state = "colorable_glasses"
 	icon_override = null

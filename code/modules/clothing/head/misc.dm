@@ -11,7 +11,7 @@
 /obj/item/clothing/head/pin
 	name = "hair pin"
 	desc = "A nice hair pin."
-	icon = 'icons/mob/clothing/head/hair_pins.dmi'
+	icon = 'icons/obj/item/clothing/head/hair_pins.dmi'
 	contained_sprite = TRUE
 	icon_state = "pin"
 	item_state = "pin"
@@ -85,7 +85,7 @@
 /obj/item/clothing/head/pin/ribbon
 	name = "hair ribbon parent item"
 	desc = DESC_PARENT
-	icon = 'icons/mob/clothing/head/hair_ribbons.dmi'
+	icon = 'icons/obj/item/clothing/head/hair_ribbons.dmi'
 	contained_sprite = TRUE
 
 /obj/item/clothing/head/pin/ribbon/head
@@ -185,7 +185,7 @@
 /obj/item/clothing/head/flatcap
 	name = "flat cap"
 	desc = "A working man's hat."
-	icon = 'icons/mob/clothing/head/flat_cap.dmi'
+	icon = 'icons/obj/item/clothing/head/flat_cap.dmi'
 	icon_state = "flat_cap_brown"
 	item_state = "flat_cap_brown"
 	contained_sprite = TRUE
@@ -229,7 +229,7 @@
 
 /obj/item/clothing/head/feathertrilby
 	name = "feather trilby"
-	icon = 'icons/mob/clothing/head/feather_trilby.dmi'
+	icon = 'icons/obj/item/clothing/head/feather_trilby.dmi'
 	icon_state = "feather_trilby"
 	item_state = "feather_trilby"
 	contained_sprite = TRUE
@@ -286,7 +286,7 @@
 /obj/item/clothing/head/plain_hood
 	name = "plain hood"
 	desc = "A simple hood made of cloth, worn for myriad reasons - cultural, religious, protection from the elements, a fashion statement... or perhaps you simply want to look like you intend to give quests to adventurers who walk into your favorite tavern."
-	icon = 'icons/mob/clothing/head/plain_hood.dmi'
+	icon = 'icons/obj/item/clothing/head/plain_hood.dmi'
 	icon_state = "plain_hood"
 	item_state = "plain_hood"
 	body_parts_covered = HEAD
@@ -296,7 +296,7 @@
 /obj/item/clothing/head/hijab //It might've taken a year but here's your Hijab's, Dea.
 	name = "hijab"
 	desc = "Encompassing cloth headwear worn by some human cultures and religions."
-	icon = 'icons/mob/clothing/head/hijabs.dmi'
+	icon = 'icons/obj/item/clothing/head/hijabs.dmi'
 	icon_state = "hijab"
 	item_state = "hijab"
 	flags_inv = BLOCKHAIR
@@ -345,7 +345,7 @@
 /obj/item/clothing/head/kippah
 	name = "kippah"
 	desc = "A head covering commonly worn by those of Jewish faith."
-	icon = 'icons/mob/clothing/head/kippahs.dmi'
+	icon = 'icons/obj/item/clothing/head/kippahs.dmi'
 	icon_state = "kippah"
 	item_state = "kippah"
 	contained_sprite = 1
@@ -353,7 +353,7 @@
 /obj/item/clothing/head/turban
 	name = "turban"
 	desc = "A sturdy cloth, worn around the head."
-	icon = 'icons/mob/clothing/head/turban.dmi'
+	icon = 'icons/obj/item/clothing/head/turban.dmi'
 	icon_state = "turban"
 	item_state = "turban"
 	flags_inv = BLOCKHEADHAIR
@@ -463,7 +463,7 @@
 /obj/item/clothing/head/hachimaki
 	name = "konyanger hachimaki"
 	desc = "A simple headband emblazoned with the taijitu national emblem of the planet Konyang. It is typically worn as a symbol of effort or courage, or perhaps national pride and patriotic sentiment."
-	icon = 'icons/mob/clothing/head/hachimaki.dmi'
+	icon = 'icons/obj/item/clothing/head/hachimaki.dmi'
 	icon_state = "hachimaki"
 	item_state = "hachimaki"
 	contained_sprite = TRUE
@@ -471,7 +471,7 @@
 /obj/item/clothing/head/leader_headband
 	name = "militia leader headband"
 	desc = "A simple headband that is used to denote the leader of a Horizon militia team."
-	icon = 'icons/mob/clothing/head/leader_headband.dmi'
+	icon = 'icons/obj/item/clothing/head/leader_headband.dmi'
 	icon_state = "leader_headband"
 	item_state = "leader_headband"
 	contained_sprite = TRUE
@@ -481,7 +481,7 @@
 /obj/item/clothing/head/sol
 	name = "sol navy utility cover"
 	desc = "A military cover issued to Solarian Navy personnel as part of their utility uniform."
-	icon = 'icons/mob/clothing/head/sol_army.dmi'
+	icon = 'icons/obj/item/clothing/head/sol_army.dmi'
 	icon_state = "navy_utility"
 	item_state = "navy_utility"
 	contained_sprite = TRUE
@@ -538,7 +538,7 @@
 /obj/item/clothing/head/helmet/sol
 	name = "sol combat helmet"
 	desc = "A woodland colored helmet made from advanced ceramic."
-	icon = 'icons/mob/clothing/head/sol_army.dmi'
+	icon = 'icons/obj/item/clothing/head/sol_army.dmi'
 	icon_state = "helmet_tac_sol"
 	item_state = "helmet_tac_sol"
 	armor = list(
@@ -609,7 +609,7 @@
 /obj/item/clothing/head/konyang/army
 	name = "konyang army field cap"
 	desc = "A cloth field cap issued to Konyang soldiers as part of their field uniform."
-	icon = 'icons/mob/clothing/head/konyang.dmi'
+	icon = 'icons/obj/item/clothing/head/konyang.dmi'
 	icon_state = "konyang_army_cap"
 	item_state = "konyang_army_cap"
 	contained_sprite = TRUE
@@ -623,7 +623,7 @@
 /obj/item/clothing/head/konyang/navy
 	name = "konyang navy officer peaked cap"
 	desc = "A white peaked cap issued to officers of the Konyang Navy."
-	icon = 'icons/mob/clothing/head/konyang.dmi'
+	icon = 'icons/obj/item/clothing/head/konyang.dmi'
 	icon_state = "konyang_navy_cap"
 	item_state = "konyang_navy_cap"
 	contained_sprite = TRUE
@@ -631,7 +631,7 @@
 /obj/item/clothing/head/konyang/space
 	name = "konyang aerospace forces officer peaked cap"
 	desc = "A white peaked cap issued to officers of the Konyang Aerospace Forces."
-	icon = 'icons/mob/clothing/head/konyang.dmi'
+	icon = 'icons/obj/item/clothing/head/konyang.dmi'
 	icon_state = "konyang_space_cap"
 	item_state = "konyang_space_cap"
 	contained_sprite = TRUE
@@ -639,7 +639,7 @@
 /obj/item/clothing/head/konyang/police
 	name = "konyang national police hat"
 	desc = "A white peaked cap issued to personnel of the Konyang National Police"
-	icon = 'icons/mob/clothing/head/konyang.dmi'
+	icon = 'icons/obj/item/clothing/head/konyang.dmi'
 	icon_state = "konyang_police_hat"
 	item_state = "konyang_police_hat"
 	contained_sprite = TRUE
@@ -653,7 +653,7 @@
 /obj/item/clothing/head/konyang/burger
 	name = "\improper UP! Burger cap"
 	desc = "An astoundingly bright orange hat, worn by employees of UP! Burger (or Burger UP!, depending on preference), a Gwok Group subsidiary."
-	icon = 'icons/mob/clothing/head/konyang.dmi'
+	icon = 'icons/obj/item/clothing/head/konyang.dmi'
 	icon_state = "upburger-cap"
 	item_state = "upburger-cap"
 	contained_sprite = TRUE
@@ -661,7 +661,7 @@
 /obj/item/clothing/head/helmet/konyang
 	name = "konyang army helmet"
 	desc = "A woodland colored helmet made from advanced ceramic."
-	icon = 'icons/mob/clothing/head/konyang.dmi'
+	icon = 'icons/obj/item/clothing/head/konyang.dmi'
 	icon_state = "helmet_konyang_army"
 	item_state = "helmet_konyang_army"
 	armor = list(
@@ -688,7 +688,7 @@
 /obj/item/clothing/head/xanu
 	name = "xanu armed forces garrison cap"
 	desc = "A garrison cap belonging to a member of the All-Xanu Spacefleet."
-	icon = 'icons/mob/clothing/head/xanu_army.dmi'
+	icon = 'icons/obj/item/clothing/head/xanu_army.dmi'
 	icon_state = "xanu_garrison_enlisted"
 	item_state = "xanu_garrison_enlisted"
 	contained_sprite = TRUE
@@ -708,7 +708,7 @@
 /obj/item/clothing/head/grupo_amapola
 	name = "Grupo Amapola officer cap"
 	desc = "A peaked officer's cap bearing the poppy of the military contracting group Grupo Amapola."
-	icon = 'icons/mob/clothing/head/pmcg.dmi'
+	icon = 'icons/obj/item/clothing/head/pmcg.dmi'
 	icon_state = "amapola_officer_hat"
 	item_state = "amapola_officer_hat"
 	contained_sprite = TRUE
@@ -724,7 +724,7 @@
 	desc = "A military-style corporate peaked cap. This one bears the emblem of NanoTrasen Incorporated."
 	icon_state = "nt_warden_hat"
 	item_state = "nt_warden_hat"
-	icon = 'icons/mob/clothing/department_uniforms/security.dmi'
+	icon = 'icons/obj/item/clothing/department_uniforms/security.dmi'
 	contained_sprite = TRUE
 
 /obj/item/clothing/head/peaked_cap/no_logo
@@ -777,14 +777,14 @@
 	desc = "A military-style corporate peaked cap. This one bears the emblem of Zeng-Hu Pharmaceuticals."
 	icon_state = "zh_warden_hat"
 	item_state = "zh_warden_hat"
-	icon = 'icons/mob/clothing/department_uniforms/security.dmi'
+	icon = 'icons/obj/item/clothing/department_uniforms/security.dmi'
 	contained_sprite = TRUE
 
 //goblin.stev's stuff
 /obj/item/clothing/head/qeburger_visor
 	name = "Quick-E-Burger Food Technician Visor"
 	desc = "For stylish employees on the retail grind, the Quick-E-Burger Food Technician Visor is the latest in form-first fashion! Supplied and manufactured in bulk by Quick-E-Burger's parent company, Orion Express, the Food Technician Visor is equipped with an innovative easy-to-use velcro headstrap to keep the company's prime product sky-high, and its light-resistant plastic visor is perfect for keeping sun, lights, and disappointed family-members alike out of employees' eyes!"
-	icon = 'icons/mob/clothing/hats/orion.dmi'
+	icon = 'icons/obj/item/clothing/hats/orion.dmi'
 	icon_state = "quickeburger_visorcap"
 	item_state = "quickeburger_visorcap"
 	contained_sprite = TRUE

@@ -170,7 +170,7 @@
 /obj/item/clothing/gloves/black_leather
 	name = "black leather gloves"
 	desc = "A pair of tight-fitting synthleather gloves."
-	icon = 'icons/mob/clothing/gloves/black_leather_gloves.dmi'
+	icon = 'icons/obj/item/clothing/gloves/black_leather_gloves.dmi'
 	icon_state = "black_leather"
 	item_state = "black_leather"
 	contained_sprite = TRUE
@@ -215,7 +215,7 @@
 /obj/item/clothing/gloves/kala
 	name = "skrell gloves"
 	desc = "A sleek pair of gloves! They seem to be retaining moisture."
-	icon = 'icons/mob/clothing/gloves/kala_gloves.dmi'
+	icon = 'icons/obj/item/clothing/gloves/kala_gloves.dmi'
 	icon_state = "kala_gloves"
 	item_state = "kala_gloves"
 	contained_sprite = TRUE
@@ -223,7 +223,7 @@
 /obj/item/clothing/gloves/mittens
 	name = "mittens"
 	desc = "These wool mittens are very warm, if you can handle the impracticality of them lacking individual fingers. They also accomodate most hands, clawed or not."
-	icon = 'icons/mob/clothing/gloves/mittens.dmi'
+	icon = 'icons/obj/item/clothing/gloves/mittens.dmi'
 	icon_state = "mittens"
 	item_state = "mittens"
 	contained_sprite = TRUE

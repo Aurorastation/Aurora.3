@@ -4,7 +4,7 @@
 /obj/item/clothing/accessory/holster
 	name = "shoulder holster"
 	desc = "A handgun holster."
-	icon = 'icons/mob/clothing/accessory/holster.dmi'
+	icon = 'icons/obj/item/clothing/accessory/holster.dmi'
 	icon_state = "holster"
 	item_state = "holster"
 	contained_sprite = TRUE
@@ -218,7 +218,7 @@
 /obj/item/clothing/accessory/holster/modular
 	name = "plate carrier holster"
 	desc = "A special holster with rigging able to attach to modern modular plate carriers."
-	icon = 'icons/mob/clothing/suit/armor/modular_armor/modular_armor_attachments.dmi'
+	icon = 'icons/obj/item/clothing/suit/armor/modular_armor/modular_armor_attachments.dmi'
 	icon_state = "modular_holster"
 	item_state = "modular_holster"
 	contained_sprite = TRUE
@@ -274,7 +274,7 @@
 	desc = "A handsome synthetic leather sheath with matching belt."
 	icon_state = "holster_machete"
 	item_state = "holster_machete"
-	icon = 'icons/mob/clothing/accessory/holster.dmi'
+	icon = 'icons/obj/item/clothing/accessory/holster.dmi'
 	holster_message = "sheath"
 	draw_peace = "holding it low."
 	draw_hostile = "ready to fight!"

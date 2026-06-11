@@ -5,7 +5,7 @@
 /obj/item/clothing/accessory/bandanna
 	name = "red bandanna"
 	desc = "A plain red bandanna."
-	icon = 'icons/mob/clothing/accessory/bandanas.dmi'
+	icon = 'icons/obj/item/clothing/accessory/bandanas.dmi'
 	contained_sprite = TRUE
 	icon_state = "band_r"
 	item_state = "band_r"

@@ -1,7 +1,7 @@
 /obj/item/clothing/ears/earmuffs
 	name = "earmuffs"
 	desc = "Protects your hearing from loud noises, and quiet ones as well."
-	icon = 'icons/mob/clothing/ears/earmuffs.dmi'
+	icon = 'icons/obj/item/clothing/ears/earmuffs.dmi'
 	icon_state = "earmuffs"
 	item_state = "earmuffs"
 	item_flags = ITEM_FLAG_SOUND_PROTECTION
@@ -11,7 +11,7 @@
 /obj/item/clothing/accessory/ear_warmers
 	name = "ear warmers"
 	desc = "A pair of fuzzy ear warmers, incase that's the only place you're worried about getting frost bite."
-	icon = 'icons/mob/clothing/ears/earmuffs.dmi'
+	icon = 'icons/obj/item/clothing/ears/earmuffs.dmi'
 	icon_state = "ear_warmers"
 	item_state = "ear_warmers"
 	contained_sprite = TRUE

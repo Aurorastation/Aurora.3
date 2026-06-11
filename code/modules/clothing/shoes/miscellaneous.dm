@@ -7,7 +7,7 @@
 /obj/item/clothing/shoes/swimmingfins
 	desc = "Help you swim good."
 	name = "swimming fins"
-	icon = 'icons/mob/clothing/shoes/miscellaneous.dmi'
+	icon = 'icons/obj/item/clothing/shoes/miscellaneous.dmi'
 	contained_sprite = TRUE
 	icon_state = "flippers"
 	item_state = "flippers"
@@ -17,7 +17,7 @@
 /obj/item/clothing/shoes/footwraps
 	name = "cloth footwraps"
 	desc = "A roll of treated cloth used for wrapping clawed feet."
-	icon = 'icons/mob/clothing/shoes/miscellaneous.dmi'
+	icon = 'icons/obj/item/clothing/shoes/miscellaneous.dmi'
 	icon_state = "clothwrap"
 	item_state = "clothwrap"
 	contained_sprite = TRUE
@@ -36,7 +36,7 @@
 /obj/item/clothing/shoes/heels
 	name = "high heels"
 	desc = "A pair of high-heeled shoes. Fancy!"
-	icon = 'icons/mob/clothing/shoes/miscellaneous.dmi'
+	icon = 'icons/obj/item/clothing/shoes/miscellaneous.dmi'
 	contained_sprite = TRUE
 	icon_state = "heels"
 	item_state = "heels"
@@ -58,7 +58,7 @@
 /obj/item/clothing/shoes/galoshes
 	name = "galoshes"
 	desc = "A waterproof overshoe, made of rubber."
-	icon = 'icons/mob/clothing/shoes/miscellaneous.dmi'
+	icon = 'icons/obj/item/clothing/shoes/miscellaneous.dmi'
 	contained_sprite = TRUE
 	icon_state = "galoshes"
 	item_state = "galoshes"
@@ -78,7 +78,7 @@
 /obj/item/clothing/shoes/galoshes/syndie
 	name = "brown shoes"
 	desc = "A pair of brown shoes. They seem to have extra grip."
-	icon = 'icons/mob/clothing/shoes/sneakers.dmi'
+	icon = 'icons/obj/item/clothing/shoes/sneakers.dmi'
 	icon_state = "brown"
 	item_state = "brown"
 	contained_sprite = TRUE

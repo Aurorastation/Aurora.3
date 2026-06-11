@@ -170,7 +170,7 @@
 	name = "scarab scarf"
 	desc = "Usually a treasured item, these spider-silk scarves are seen passed down by generations of Scarabs."
 	desc_extended = "Scarves like these are passed down from family members in the Scarab fleets as a coming of age ritual, typically given to children to mark them as worthy of setting off on their own."
-	icon = 'icons/mob/clothing/accessory/offworlder.dmi'
+	icon = 'icons/obj/item/clothing/accessory/offworlder.dmi'
 	contained_sprite = TRUE
 	icon_state = "pioneer_scarf"
 	item_state = "pioneer_scarf"
@@ -189,7 +189,7 @@
 /obj/item/clothing/mask/snood
 	name = "snood"
 	desc = "A warm, cozy snood, for keeping your face and neck warm."
-	icon = 'icons/mob/clothing/mask/snood.dmi'
+	icon = 'icons/obj/item/clothing/mask/snood.dmi'
 	icon_state = "snood"
 	item_state = "snood"
 	contained_sprite = TRUE

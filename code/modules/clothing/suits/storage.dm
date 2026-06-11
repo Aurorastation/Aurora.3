@@ -105,7 +105,7 @@
 /obj/item/clothing/suit/storage/toggle/greatcoat
 	name = "black greatcoat"
 	desc = "A black greatcoat. It looks warmer, if a bit heavier, than most other clothing."
-	icon = 'icons/mob/clothing/suit/storage/toggle/greatcoat.dmi'
+	icon = 'icons/obj/item/clothing/suit/storage/toggle/greatcoat.dmi'
 	icon_state = "greatcoat"
 	item_state = "greatcoat"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
@@ -127,7 +127,7 @@
 // Corporate Jackets
 
 /obj/item/clothing/suit/storage/toggle/corp
-	icon = 'icons/mob/clothing/suit/storage/toggle/corp_dep_jackets.dmi'
+	icon = 'icons/obj/item/clothing/suit/storage/toggle/corp_dep_jackets.dmi'
 	contained_sprite = TRUE
 
 /obj/item/clothing/suit/storage/toggle/corp/idris

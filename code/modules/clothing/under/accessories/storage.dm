@@ -55,7 +55,7 @@
 /obj/item/clothing/accessory/storage/webbing
 	name = "webbing"
 	desc = "Sturdy mess of synthcotton belts and buckles, ready to share your burden."
-	icon = 'icons/mob/clothing/accessory/webbing.dmi'
+	icon = 'icons/obj/item/clothing/accessory/webbing.dmi'
 	contained_sprite = TRUE
 	icon_state = "webbing"
 	item_state = "webbing"
@@ -67,7 +67,7 @@
 /obj/item/clothing/accessory/storage/black_vest
 	name = "black webbing vest"
 	desc = "Robust black synthcotton vest with lots of pockets to hold whatever you need, but cannot hold in hands."
-	icon = 'icons/mob/clothing/accessory/webbing.dmi'
+	icon = 'icons/obj/item/clothing/accessory/webbing.dmi'
 	contained_sprite = TRUE
 	icon_state = "vest_black"
 	item_state = "vest_black"
@@ -76,7 +76,7 @@
 /obj/item/clothing/accessory/storage/brown_vest
 	name = "brown webbing vest"
 	desc = "Worn brownish synthcotton vest with lots of pockets to unload your hands."
-	icon = 'icons/mob/clothing/accessory/webbing.dmi'
+	icon = 'icons/obj/item/clothing/accessory/webbing.dmi'
 	contained_sprite = TRUE
 	icon_state = "vest_brown"
 	item_state = "vest_brown"
@@ -85,7 +85,7 @@
 /obj/item/clothing/accessory/storage/white_vest
 	name = "white webbing vest"
 	desc = "Durable white synthcotton vest with lots of pockets to carry essentials."
-	icon = 'icons/mob/clothing/accessory/webbing.dmi'
+	icon = 'icons/obj/item/clothing/accessory/webbing.dmi'
 	contained_sprite = TRUE
 	icon_state = "vest_white"
 	item_state = "vest_white"
@@ -94,7 +94,7 @@
 /obj/item/clothing/accessory/storage/webbingharness
 	name = "webbing harness"
 	desc = "Durable mess of synthcotton belts and buckles. Has some pouches, but not a lot."
-	icon = 'icons/mob/clothing/accessory/webbing.dmi'
+	icon = 'icons/obj/item/clothing/accessory/webbing.dmi'
 	contained_sprite = TRUE
 	icon_state = "vest_harness"
 	item_state = "vest_harness"
@@ -126,7 +126,7 @@
 /obj/item/clothing/accessory/storage/overalls
 	name = "overalls"
 	desc = "Heavy-duty overalls for use on the work site, with plenty of convenient pockets to boot."
-	icon = 'icons/mob/clothing/accessory/overalls.dmi'
+	icon = 'icons/obj/item/clothing/accessory/overalls.dmi'
 	icon_state = "mining_overalls"
 	overlay_state = "mining_overalls"
 	contained_sprite = TRUE
@@ -151,7 +151,7 @@
 /obj/item/clothing/accessory/storage/pouches
 	name = "drop pouches"
 	desc = "Synthcotton bags to hold whatever you need, but cannot hold in hands."
-	icon = 'icons/mob/clothing/accessory/holster.dmi'
+	icon = 'icons/obj/item/clothing/accessory/holster.dmi'
 	icon_state = "thigh_brown"
 	item_state = "thigh_brown"
 	flippable = TRUE
@@ -185,7 +185,7 @@
 /obj/item/clothing/accessory/storage/knifeharness
 	name = "decorated harness"
 	desc = "A heavily decorated harness of sinew and leather with two knife-loops."
-	icon = 'icons/mob/clothing/accessory/unathi_harness.dmi'
+	icon = 'icons/obj/item/clothing/accessory/unathi_harness.dmi'
 	icon_state = "unathiharness2"
 	contained_sprite = TRUE
 	slots = 2
@@ -223,7 +223,7 @@
 /obj/item/clothing/accessory/storage/bandolier
 	name = "bandolier"
 	desc = "A pocketed belt designated to hold shotgun shells."
-	icon = 'icons/mob/clothing/accessory/bandolier.dmi'
+	icon = 'icons/obj/item/clothing/accessory/bandolier.dmi'
 	icon_state = "bandolier"
 	item_state = "bandolier"
 	contained_sprite = TRUE

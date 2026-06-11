@@ -163,7 +163,7 @@
 /obj/item/clothing/accessory/badge/hadii_card
 	name = "honorary party member card"
 	desc = "A card denoting a honorary member of the Hadiist party."
-	icon = 'icons/mob/clothing/accessory/hadii_id.dmi'
+	icon = 'icons/obj/item/clothing/accessory/hadii_id.dmi'
 	icon_state = "hadii-id"
 	overlay_state = "hadii-id"
 	contained_sprite = TRUE
@@ -225,7 +225,7 @@
 /obj/item/clothing/accessory/hadii_pin
 	name = "hadiist party pin"
 	desc = "A small, red flag pin worn by members of the Hadiist party."
-	icon = 'icons/mob/clothing/accessory/pins.dmi'
+	icon = 'icons/obj/item/clothing/accessory/pins.dmi'
 	icon_state = "hadii-pin"
 	item_state = "hadii-pin"
 	overlay_state = "hadii-pin"
@@ -242,7 +242,7 @@
 /obj/item/clothing/accessory/dpra_pin
 	name = "almariist representative pin"
 	desc = "A small, black flag pin worn by government officials of the Democratic People's Republic of Adhomai."
-	icon = 'icons/mob/clothing/accessory/pins.dmi'
+	icon = 'icons/obj/item/clothing/accessory/pins.dmi'
 	icon_state = "pin-ala"
 	item_state = "pin-ala"
 	overlay_state = "pin-ala"
@@ -259,7 +259,7 @@
 /obj/item/clothing/accessory/nka_pin
 	name = "diplomatic service order"
 	desc = "A medal issued to the diplomats and consular officers under the service of the New Kingdom of Adhomai."
-	icon = 'icons/mob/clothing/accessory/pins.dmi'
+	icon = 'icons/obj/item/clothing/accessory/pins.dmi'
 	icon_state = "pin-nka"
 	item_state = "pin-nka"
 	overlay_state = "pin-nka"
@@ -275,7 +275,7 @@
 /obj/item/clothing/accessory/badge/pra_passport
 	name = "people's republic of adhomai passport"
 	desc = "A passport issued to the citizens of the People's Republic of Adhomai."
-	icon = 'icons/mob/clothing/accessory/passcards.dmi'
+	icon = 'icons/obj/item/clothing/accessory/passcards.dmi'
 	icon_state = "pra-passport"
 	overlay_state = "pra-passport"
 	slot_flags = null
@@ -291,7 +291,7 @@
 /obj/item/clothing/accessory/badge/dpra_passport
 	name = "democratic people's republic of adhomai passport"
 	desc = "A passport issued to the citizens of the Democratic People's Republic of Adhomai."
-	icon = 'icons/mob/clothing/accessory/passcards.dmi'
+	icon = 'icons/obj/item/clothing/accessory/passcards.dmi'
 	icon_state = "dpra-passport"
 	overlay_state = "dpra-passport"
 	slot_flags = null
@@ -307,7 +307,7 @@
 /obj/item/clothing/accessory/badge/nka_passport
 	name = "new kingdom of adhomai passport"
 	desc = "A passport issued to the citizens of the New Kingdom of Adhomai."
-	icon = 'icons/mob/clothing/accessory/passcards.dmi'
+	icon = 'icons/obj/item/clothing/accessory/passcards.dmi'
 	icon_state = "nka-passport"
 	overlay_state = "nka-passport"
 	slot_flags = null
@@ -607,7 +607,7 @@
 /obj/item/dogtag/adhomai_tag
 	name = "adhomian dogtag"
 	desc = "Dogtags issued to the Tajaran soldiers of all Adhomian factions. Veterans usually bring them back home."
-	icon = 'icons/mob/clothing/accessory/dogtags.dmi'
+	icon = 'icons/obj/item/clothing/accessory/dogtags.dmi'
 	icon_state = "adhomai_tag"
 	w_class = WEIGHT_CLASS_SMALL
 

@@ -284,7 +284,7 @@
 /obj/item/clothing/accessory/badge/starlight
 	name = "starlight zone residency card"
 	desc = "A residency card given to Skrell who reside within the Starlight Zone in District Eight."
-	icon = 'icons/mob/clothing/accessory/passcards.dmi'
+	icon = 'icons/obj/item/clothing/accessory/passcards.dmi'
 	icon_state = "resident_starlight"
 	item_state = "resident_starlight"
 	flippable = FALSE

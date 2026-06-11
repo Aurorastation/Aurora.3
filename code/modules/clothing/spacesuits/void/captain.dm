@@ -2,7 +2,7 @@
 /obj/item/clothing/head/helmet/space/void/captain
 	name = "captain voidsuit helmet"
 	desc = "A special helmet designed for work in a hazardous, low-pressure environment. Only for the most fashionable of military figureheads."
-	icon = 'icons/mob/clothing/voidsuit/station/captain.dmi'
+	icon = 'icons/obj/item/clothing/voidsuit/station/captain.dmi'
 	icon_state = "captain_helm"
 	item_state = "captain_helm"
 	contained_sprite = TRUE
@@ -22,7 +22,7 @@
 /obj/item/clothing/suit/space/void/captain
 	name = "captain voidsuit"
 	desc = "A bulky, heavy-duty piece of exclusive SCC armor. YOU are in charge!"
-	icon = 'icons/mob/clothing/voidsuit/station/captain.dmi'
+	icon = 'icons/obj/item/clothing/voidsuit/station/captain.dmi'
 	icon_state = "captain"
 	item_state = "captain"
 	contained_sprite = TRUE

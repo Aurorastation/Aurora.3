@@ -1,7 +1,7 @@
 //Regular syndicate space suit
 /obj/item/clothing/head/helmet/space/syndicate
 	name = "red space helmet"
-	icon = 'icons/mob/clothing/hats.dmi'
+	icon = 'icons/obj/item/clothing/hats.dmi'
 	icon_state = "syndicate"
 	item_state = "syndicate"
 	desc = "A crimson helmet sporting clean lines and durable plating. Engineered to look menacing."
@@ -20,7 +20,7 @@
 
 /obj/item/clothing/suit/space/syndicate
 	name = "red space suit"
-	icon = 'icons/mob/clothing/suits.dmi'
+	icon = 'icons/obj/item/clothing/suits.dmi'
 	icon_state = "syndicate"
 	item_state = "space_suit_syndicate"
 	desc = "A crimson spacesuit sporting clean lines and durable plating. Robust, reliable, and slightly suspicious."
@@ -42,7 +42,7 @@
 /obj/item/clothing/head/helmet/space/syndicate/covert
 	name = "softsuit helmet"
 	desc = "A special helmet designed for work in a hazardous, low-pressure environment."
-	icon = 'icons/mob/clothing/softsuits/softsuit.dmi'
+	icon = 'icons/obj/item/clothing/softsuits/softsuit.dmi'
 	icon_state = "softsuit_helmet"
 	item_state = "softsuit_helmet"
 	contained_sprite = TRUE
@@ -59,7 +59,7 @@
 /obj/item/clothing/suit/space/syndicate/covert
 	name = "softsuit"
 	desc = "A suit that protects against low pressure environments."
-	icon = 'icons/mob/clothing/softsuits/softsuit.dmi'
+	icon = 'icons/obj/item/clothing/softsuits/softsuit.dmi'
 	icon_state = "softsuit"
 	item_state = "softsuit"
 	contained_sprite = TRUE

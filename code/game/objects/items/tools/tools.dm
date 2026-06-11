@@ -85,8 +85,8 @@
 	transform = tf
 
 /obj/item/screwdriver/get_belt_overlay()
-	var/mutable_appearance/body = mutable_appearance('icons/mob/clothing/belts/belt_overlays.dmi', "screwdriver")
-	var/mutable_appearance/head = mutable_appearance('icons/mob/clothing/belts/belt_overlays.dmi', "screwdriver_head")
+	var/mutable_appearance/body = mutable_appearance('icons/obj/item/clothing/belts/belt_overlays.dmi', "screwdriver")
+	var/mutable_appearance/head = mutable_appearance('icons/obj/item/clothing/belts/belt_overlays.dmi', "screwdriver_head")
 	body.color = color
 	head.AddOverlays(body)
 	return head
@@ -167,8 +167,8 @@
 	transform = tf
 
 /obj/item/wirecutters/get_belt_overlay()
-	var/mutable_appearance/body = mutable_appearance('icons/mob/clothing/belts/belt_overlays.dmi', "wirecutters")
-	var/mutable_appearance/head = mutable_appearance('icons/mob/clothing/belts/belt_overlays.dmi', "wirecutters_head")
+	var/mutable_appearance/body = mutable_appearance('icons/obj/item/clothing/belts/belt_overlays.dmi', "wirecutters")
+	var/mutable_appearance/head = mutable_appearance('icons/obj/item/clothing/belts/belt_overlays.dmi', "wirecutters_head")
 	body.color = color
 	head.AddOverlays(body)
 	return head

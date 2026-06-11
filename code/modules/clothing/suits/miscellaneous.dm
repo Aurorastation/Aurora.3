@@ -153,7 +153,7 @@
 /obj/item/clothing/suit/golden_tailcoat
 	name = "golden tailcoat"
 	desc = "A brilliant looking golden tailcoat of sorts."
-	icon = 'icons/mob/clothing/suit/goldendeep_tailcoat.dmi'
+	icon = 'icons/obj/item/clothing/suit/goldendeep_tailcoat.dmi'
 	icon_state = "tailcoat"
 	item_state = "tailcoat"
 	body_parts_covered = UPPER_TORSO|ARMS
@@ -194,7 +194,7 @@
 
 /obj/item/clothing/suit/storage/toggle/leather_jacket/midriff
 	name = "cropped leather jacket"
-	icon = 'icons/mob/clothing/suit/storage/toggle/cropped_leather_jacket.dmi'
+	icon = 'icons/obj/item/clothing/suit/storage/toggle/cropped_leather_jacket.dmi'
 	desc = "A thick leather jacket that doesn't actually cover the waist. Rebel against what's expected of your jacket!"
 	icon_state = "mid"
 	item_state = "mid"
@@ -303,7 +303,7 @@
 	name = "Stellar Corporate Conglomerate jacket"
 	desc = "A comfortable blue jacket. Tailored upon its back is a large Stellar Corporate Conglomerate logo."
 	desc_extended = "The Stellar Corporate Conglomerate, also known as Chainlink, is a joint alliance between the NanoTrasen Corporation, Hephaestus Industries, Idris Incorporated, Zeng-Hu Pharmaceuticals and Zavodskoi Interstellar to exercise an undisputed economic dominance over the Orion Spur."
-	icon = 'icons/mob/clothing/suit/storage/toggle/corp_dep_jackets.dmi'
+	icon = 'icons/obj/item/clothing/suit/storage/toggle/corp_dep_jackets.dmi'
 	icon_state = "scc_jacket"
 	item_state = "scc_jacket"
 	contained_sprite = TRUE
@@ -313,7 +313,7 @@
 	desc = "A more formal jacket for bridge staff. Designed in a typical Colettish style."
 	desc_extended= "While not a true Colettish uniform the aiguillette and cuff tabs of this one are obviously based on the real thing. \
 	An actual Civil Guard uniform, commonly known as a rayadillo, is generally of a darker blue and features the wearer’s ranks on the collar."
-	icon = 'icons/mob/clothing/suit/storage/toggle/corp_dep_jackets.dmi'
+	icon = 'icons/obj/item/clothing/suit/storage/toggle/corp_dep_jackets.dmi'
 	icon_state = "bridge_crew_jacket_sancol"
 	item_state = "bridge_crew_jacket_sancol"
 
@@ -352,7 +352,7 @@
 /obj/item/clothing/suit/storage/toggle/trench
 	name = "brown trenchcoat"
 	desc = "A rugged canvas trenchcoat."
-	icon = 'icons/mob/clothing/suit/storage/toggle/trenchcoat.dmi'
+	icon = 'icons/obj/item/clothing/suit/storage/toggle/trenchcoat.dmi'
 	icon_state = "trench"
 	item_state = "trench"
 	contained_sprite = TRUE
@@ -504,7 +504,7 @@
 /obj/item/clothing/suit/storage/toggle/highloft
 	name = "high loft jacket"
 	desc = "A high loft insulated jacket intended for long hours in cold station conditions."
-	icon = 'icons/mob/clothing/suit/storage/toggle/highloft.dmi'
+	icon = 'icons/obj/item/clothing/suit/storage/toggle/highloft.dmi'
 	icon_state = "highloft"
 	item_state = "highloft"
 	worn_overlay = "over"
@@ -523,7 +523,7 @@
 	desc = "A cozy jacket in engineering's colors, featuring spacious pockets you won't even use."
 	icon_state = "engi_dep_jacket"
 	item_state = "engi_dep_jacket"
-	icon = 'icons/mob/clothing/suit/storage/toggle/corp_dep_jackets.dmi'
+	icon = 'icons/obj/item/clothing/suit/storage/toggle/corp_dep_jackets.dmi'
 	contained_sprite = TRUE
 
 /obj/item/clothing/suit/storage/toggle/supply_dep_jacket
@@ -531,7 +531,7 @@
 	desc = "A cozy jacket in operations' colors, perfect for folding up and forgetting bounty lists."
 	icon_state = "supply_dep_jacket"
 	item_state = "supply_dep_jacket"
-	icon = 'icons/mob/clothing/suit/storage/toggle/corp_dep_jackets.dmi'
+	icon = 'icons/obj/item/clothing/suit/storage/toggle/corp_dep_jackets.dmi'
 	contained_sprite = TRUE
 
 /obj/item/clothing/suit/storage/toggle/sci_dep_jacket
@@ -539,7 +539,7 @@
 	desc = "A cozy jacket in science's colors, offering the latest in a complete lack of protection against chemical spills."
 	icon_state = "sci_dep_jacket"
 	item_state = "sci_dep_jacket"
-	icon = 'icons/mob/clothing/suit/storage/toggle/corp_dep_jackets.dmi'
+	icon = 'icons/obj/item/clothing/suit/storage/toggle/corp_dep_jackets.dmi'
 	contained_sprite = TRUE
 
 /obj/item/clothing/suit/storage/toggle/med_dep_jacket
@@ -547,7 +547,7 @@
 	desc = "A cozy jacket in medical's colors, guaranteed not to leak the latest gossip."
 	icon_state = "med_dep_jacket"
 	item_state = "med_dep_jacket"
-	icon = 'icons/mob/clothing/suit/storage/toggle/corp_dep_jackets.dmi'
+	icon = 'icons/obj/item/clothing/suit/storage/toggle/corp_dep_jackets.dmi'
 	contained_sprite = TRUE
 
 /obj/item/clothing/suit/storage/toggle/sec_dep_jacket
@@ -555,7 +555,7 @@
 	desc = "A cozy jacket in security's colors, luckily able to be easily cleaned of blood stains"
 	icon_state = "sec_dep_jacket"
 	item_state = "sec_dep_jacket"
-	icon = 'icons/mob/clothing/suit/storage/toggle/corp_dep_jackets.dmi'
+	icon = 'icons/obj/item/clothing/suit/storage/toggle/corp_dep_jackets.dmi'
 	contained_sprite = TRUE
 
 /obj/item/clothing/suit/storage/toggle/serv_dep_jacket
@@ -563,7 +563,7 @@
 	desc = "A cozy jacket in service's colors, reminding many employees that even service has colors."
 	icon_state = "serv_dep_jacket"
 	item_state = "serv_dep_jacket"
-	icon = 'icons/mob/clothing/suit/storage/toggle/corp_dep_jackets.dmi'
+	icon = 'icons/obj/item/clothing/suit/storage/toggle/corp_dep_jackets.dmi'
 	contained_sprite = TRUE
 
 /obj/item/clothing/suit/storage/toggle/bssb
@@ -571,7 +571,7 @@
 	desc = "A jacket used by Biesel Security Services Bureau agents while on the field."
 	icon_state = "bssb_jacket"
 	item_state = "bssb_jacket"
-	icon = 'icons/mob/clothing/suit/storage/toggle/bssb_jacket.dmi'
+	icon = 'icons/obj/item/clothing/suit/storage/toggle/bssb_jacket.dmi'
 	contained_sprite = TRUE
 
 /obj/item/clothing/suit/storage/toggle/bssb/armor

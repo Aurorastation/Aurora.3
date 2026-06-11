@@ -1,7 +1,7 @@
 /obj/item/clothing/pants/highvis
 	name = "high visibility pants"
 	desc = "A pair of loose-fitting, high visibility pants to help the wearer be recognizable in high traffic areas with large industrial equipment."
-	icon = 'icons/mob/clothing/pants/highvis.dmi'
+	icon = 'icons/obj/item/clothing/pants/highvis.dmi'
 	icon_state = "pants_highvis"
 	item_state = "pants_highvis"
 	contained_sprite = TRUE

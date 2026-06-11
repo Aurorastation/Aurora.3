@@ -90,7 +90,7 @@
 /obj/item/clothing/head/chameleon
 	name = "grey cap"
 	desc = "It looks like a softcap in a tasteless color, but upon closer inspection there's an advanced holographic array installed inside. It seems to have a small dial inside."
-	icon = 'icons/mob/clothing/hats/soft_caps.dmi'
+	icon = 'icons/obj/item/clothing/hats/soft_caps.dmi'
 	icon_state = "softcap"
 	item_state = "softcap"
 	origin_tech = list(TECH_ILLEGAL = 3)
@@ -171,7 +171,7 @@
 
 /obj/item/clothing/suit/armor/chameleon
 	name = "standard plate carrier"
-	icon = 'icons/mob/clothing/suits.dmi'
+	icon = 'icons/obj/item/clothing/suits.dmi'
 	contained_sprite = TRUE
 	icon_state = "plate_chameleon"
 	item_state = "plate_chameleon"
@@ -223,7 +223,7 @@
 /obj/item/clothing/head/helmet/chameleon
 	name = "standard helmet"
 	desc = "A standard helmet that upon closer inspection reveal a holographic cloaker that allows it to change its appearance. It seems to have a small dial on the inside."
-	icon = 'icons/mob/clothing/head/modular_armor_helmets.dmi'
+	icon = 'icons/obj/item/clothing/head/modular_armor_helmets.dmi'
 	icon_state = "helm_generic"
 	item_state = "helm_generic"
 	contained_sprite = TRUE
@@ -270,7 +270,7 @@
 //*******************
 /obj/item/clothing/shoes/chameleon
 	name = "black shoes"
-	icon = 'icons/mob/clothing/shoes/sneakers.dmi'
+	icon = 'icons/obj/item/clothing/shoes/sneakers.dmi'
 	icon_state = "black"
 	item_state = "black"
 	contained_sprite = TRUE
@@ -291,7 +291,7 @@
 
 	name = "black shoes"
 	desc = "A pair of black shoes."
-	icon = 'icons/mob/clothing/shoes/sneakers.dmi'
+	icon = 'icons/obj/item/clothing/shoes/sneakers.dmi'
 	icon_state = "black"
 	item_state = "black"
 	contained_sprite = TRUE

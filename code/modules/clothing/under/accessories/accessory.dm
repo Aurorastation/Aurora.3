@@ -1,7 +1,7 @@
 /obj/item/clothing/accessory
 	name = "tie"
 	desc = "A neosilk clip-on tie."
-	icon = 'icons/mob/clothing/accessory/ties.dmi'
+	icon = 'icons/obj/item/clothing/accessory/ties.dmi'
 	icon_state = "bluetie"
 	item_state = ""	//no inhands
 	overlay_state = null
@@ -239,7 +239,7 @@
 /obj/item/clothing/accessory/tie/ribbon
 	name = "neck ribbon parent item"
 	desc = DESC_PARENT
-	icon = 'icons/mob/clothing/accessory/neck_ribbons.dmi'
+	icon = 'icons/obj/item/clothing/accessory/neck_ribbons.dmi'
 	contained_sprite = TRUE
 
 /obj/item/clothing/accessory/tie/ribbon/neck
@@ -263,7 +263,7 @@
 /obj/item/clothing/accessory/necklace
 	name = "necklace"
 	desc = "A piece of jewelry that goes around your neck."
-	icon = 'icons/mob/clothing/accessory/necklace.dmi'
+	icon = 'icons/obj/item/clothing/accessory/necklace.dmi'
 	icon_state = "necklace"
 	item_state = "necklace"
 	contained_sprite = TRUE
@@ -271,7 +271,7 @@
 /obj/item/clothing/accessory/stethoscope
 	name = "stethoscope"
 	desc = "An outdated medical apparatus for listening to the sounds of the human body. It also makes you look like you know what you're doing."
-	icon = 'icons/mob/clothing/accessory/stethoscope.dmi'
+	icon = 'icons/obj/item/clothing/accessory/stethoscope.dmi'
 	icon_state = "stethoscope"
 	item_state = "stethoscope"
 	contained_sprite = TRUE
@@ -331,7 +331,7 @@
 /obj/item/clothing/accessory/suspenders
 	name = "suspenders"
 	desc = "They suspend the illusion of the mime's play."
-	icon = 'icons/mob/clothing/accessory/suspenders.dmi'
+	icon = 'icons/obj/item/clothing/accessory/suspenders.dmi'
 	icon_state = "suspenders"
 	item_state = "suspenders"
 	contained_sprite = TRUE
@@ -341,7 +341,7 @@
 /obj/item/clothing/accessory/scarf
 	name = "scarf"
 	desc = "A simple scarf, to protect your neck from the cold of space."
-	icon = 'icons/mob/clothing/accessory/scarves.dmi'
+	icon = 'icons/obj/item/clothing/accessory/scarves.dmi'
 	icon_state = "scarf0"
 	item_state = "scarf0"
 	contained_sprite = TRUE
@@ -385,7 +385,7 @@
 /obj/item/clothing/accessory/shawl
 	name = "cozy shawl"
 	desc = "A favored accessory amongst grandmothers and cottagecore enthusiasts."
-	icon = 'icons/mob/clothing/accessory/shawl.dmi'
+	icon = 'icons/obj/item/clothing/accessory/shawl.dmi'
 	icon_state = "shawl"
 	item_state = "shawl"
 	contained_sprite = TRUE
@@ -393,7 +393,7 @@
 /obj/item/clothing/accessory/chaps
 	name = "brown chaps"
 	desc = "A pair of loose, brown leather chaps."
-	icon = 'icons/mob/clothing/accessory/chaps.dmi'
+	icon = 'icons/obj/item/clothing/accessory/chaps.dmi'
 	icon_state = "chaps"
 	item_state = "chaps"
 	gender = PLURAL
@@ -413,10 +413,10 @@
 /obj/item/clothing/accessory/poncho
 	name = "poncho"
 	desc = "A simple, comfortable poncho."
-	icon = 'icons/mob/clothing/accessory/poncho/poncho.dmi'
+	icon = 'icons/obj/item/clothing/accessory/poncho/poncho.dmi'
 	icon_state = "classicponcho"
 	item_state = "classicponcho"
-	icon_override = 'icons/mob/clothing/accessory/poncho/poncho.dmi'
+	icon_override = 'icons/obj/item/clothing/accessory/poncho/poncho.dmi'
 	allowed = list(/obj/item/tank/emergency_oxygen,/obj/item/storage/bible,/obj/item/nullrod,/obj/item/reagent_containers/food/drinks/bottle/holywater)
 	slot_flags = SLOT_OCLOTHING | SLOT_TIE
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
@@ -531,7 +531,7 @@
 	name = "yellow sash"
 	desc = "A yellow sash, designed to be worn over one shoulder and come down to the opposing hip."
 	desc_extended = "Sashes such as this one are a common sight throughout the Empire of Dominia, though they are hardly as fashionable as the typical cape."
-	icon = 'icons/mob/clothing/accessory/sash.dmi'
+	icon = 'icons/obj/item/clothing/accessory/sash.dmi'
 	item_state = "sash"
 	icon_state = "sash"
 	contained_sprite = TRUE
@@ -577,7 +577,7 @@
 	desc = "A sash, designed to be worn around the waist."
 	item_state = "sash_horizontal"
 	icon_state = "sash_horizontal"
-	icon = 'icons/mob/clothing/accessory/sash_horizontal.dmi'
+	icon = 'icons/obj/item/clothing/accessory/sash_horizontal.dmi'
 
 /*
  * Cloak
@@ -585,7 +585,7 @@
 /obj/item/clothing/accessory/poncho/roles/cloak
 	name = "quartermaster's cloak"
 	desc = "An elaborate brown and gold cloak."
-	icon = 'icons/mob/clothing/accessory/cloaks_capes.dmi'
+	icon = 'icons/obj/item/clothing/accessory/cloaks_capes.dmi'
 	icon_state = "qmcloak"
 	item_state = "qmcloak"
 	contained_sprite = FALSE
@@ -685,8 +685,8 @@
 	name = "shoulder cape"
 	desc = "A simple shoulder cape."
 	desc_extended = "In Skrellian tradition, the length of cape typically signifies experience in various fields."
-	icon = 'icons/mob/clothing/accessory/ties.dmi'
-	icon_override = 'icons/mob/clothing/accessory/ties.dmi'
+	icon = 'icons/obj/item/clothing/accessory/ties.dmi'
+	icon_override = 'icons/obj/item/clothing/accessory/ties.dmi'
 	icon_state = "starcape"
 	item_state = "starcape"
 	flippable = TRUE
@@ -744,7 +744,7 @@
 	desc = "A robe denoting the wearer as a member of the Weishii faith."
 	desc_extended = "This mantle denotes the wearer as a member of the Weishii faith. \
 	It is given to followers after they have spent time on a Weishiin Sanctuary."
-	icon = 'icons/mob/clothing/accessory/weishii_robe.dmi'
+	icon = 'icons/obj/item/clothing/accessory/weishii_robe.dmi'
 	icon_state = "weishii_robe"
 	item_state = "weishii_robe"
 	contained_sprite = TRUE
@@ -756,8 +756,8 @@
 	desc_extended = "A cloak given to senior level doctors and researchers for Zeng-Hu who has \
 	in the past been given the privilege of working within or in collaboration with the Nralakk Federation \
 	as a show of goodwill between the corporation and federation."
-	icon = 'icons/mob/clothing/accessory/zh_cape.dmi'
-	icon_override = 'icons/mob/clothing/accessory/zh_cape.dmi'
+	icon = 'icons/obj/item/clothing/accessory/zh_cape.dmi'
+	icon_override = 'icons/obj/item/clothing/accessory/zh_cape.dmi'
 	icon_state = "ZH_cape"
 	item_state = "ZH_cape"
 	flippable = FALSE
@@ -766,8 +766,8 @@
 /obj/item/clothing/accessory/poncho/trinary
 	name = "trinary perfection cape"
 	desc = "A brilliant red and brown cape, commonly worn by those who serve the Trinary Perfection."
-	icon = 'icons/mob/clothing/accessory/ties.dmi'
-	icon_override = 'icons/mob/clothing/accessory/ties.dmi'
+	icon = 'icons/obj/item/clothing/accessory/ties.dmi'
+	icon_override = 'icons/obj/item/clothing/accessory/ties.dmi'
 	icon_state = "trinary_cape"
 	item_state = "trinary_cape"
 	overlay_state = "trinary_cape"
@@ -791,7 +791,7 @@
 /obj/item/clothing/accessory/poncho/assunzione
 	name = "\improper Luceian cloak"
 	desc = "A violet cloak adorned with gold inlays worn by devout adherents of Luceism, the dominant faith of Assunzione."
-	icon = 'icons/mob/clothing/accessory/poncho/assunzione_cloak.dmi'
+	icon = 'icons/obj/item/clothing/accessory/poncho/assunzione_cloak.dmi'
 	icon_override = null
 	icon_state = "assunzione_robe"
 	item_state = "assunzione_robe"
@@ -814,7 +814,7 @@
 /obj/item/clothing/accessory/offworlder
 	name = "venter assembly"
 	desc = "A series of complex tubing meant to dissipate heat from the skin passively."
-	icon = 'icons/mob/clothing/accessory/offworlder.dmi'
+	icon = 'icons/obj/item/clothing/accessory/offworlder.dmi'
 	contained_sprite = TRUE
 	icon_state = "venter"
 	item_state = "venter"
@@ -854,7 +854,7 @@
 /obj/item/clothing/accessory/tc_pin
 	name = "Tau Ceti pin"
 	desc = "A small, Tau Ceti flag pin of the Republic of Tau Ceti."
-	icon = 'icons/mob/clothing/accessory/pins.dmi'
+	icon = 'icons/obj/item/clothing/accessory/pins.dmi'
 	icon_state = "tc-pin"
 	item_state = "tc-pin"
 	overlay_state = "tc-pin"
@@ -866,7 +866,7 @@
 /obj/item/clothing/accessory/sol_pin
 	name = "Sol Alliance pin"
 	desc = "A small pin of the Sol Alliance, shaped like a golden sun."
-	icon = 'icons/mob/clothing/accessory/pins.dmi'
+	icon = 'icons/obj/item/clothing/accessory/pins.dmi'
 	icon_state = "sol-pin"
 	item_state = "sol-pin"
 	overlay_state = "sol-pin"
@@ -913,7 +913,7 @@
 /obj/item/clothing/accessory/dogtags
 	name = "dogtags"
 	desc = "A pair of engraved metal identification tags."
-	icon = 'icons/mob/clothing/accessory/dogtags.dmi'
+	icon = 'icons/obj/item/clothing/accessory/dogtags.dmi'
 	icon_state = "dogtags"
 	item_state = "dogtags"
 	contained_sprite = TRUE
@@ -931,7 +931,7 @@
 /obj/item/dogtag
 	name = "dogtag"
 	desc = "An engraved metal identification tag."
-	icon = 'icons/mob/clothing/accessory/dogtags.dmi'
+	icon = 'icons/obj/item/clothing/accessory/dogtags.dmi'
 	icon_state = "tag"
 	w_class = WEIGHT_CLASS_TINY
 
@@ -967,7 +967,7 @@
 /obj/item/clothing/accessory/badge/namepin
 	name = "pin tag"
 	desc = "A small strip of metal to label its wearer."
-	icon = 'icons/mob/clothing/accessory/pins.dmi'
+	icon = 'icons/obj/item/clothing/accessory/pins.dmi'
 	icon_state = "namepintag"
 	contained_sprite = TRUE
 	overlay_state = null
@@ -978,7 +978,7 @@
 /obj/item/clothing/accessory/ribbon
 	name = "ribbon"
 	desc = "A small ribbon to commemorate or support a cause."
-	icon = 'icons/mob/clothing/accessory/ribbon.dmi'
+	icon = 'icons/obj/item/clothing/accessory/ribbon.dmi'
 	icon_state = "ribbon"
 	item_state = "ribbon"
 	contained_sprite = TRUE
@@ -988,7 +988,7 @@
 /obj/item/clothing/accessory/sleevepatch
 	name = "sleeve patch"
 	desc = "An embroidered patch which can be attached to the shoulder sleeve of clothing."
-	icon = 'icons/mob/clothing/accessory/patches.dmi'
+	icon = 'icons/obj/item/clothing/accessory/patches.dmi'
 	icon_state = "patch"
 	overlay_state = "patch"
 	flippable = 1
@@ -1030,7 +1030,7 @@
 	name = "\improper KOG Motorheads shoulder tabs"
 	desc = "A patch attached to the shoulders of a uniform or armor. This one denotes the wearer as a member of KOG's PRA division the Motorheads."
 	desc_extended = "Kazarrhaldiye Operations Group splits employees based on nationality to remove possible political tensions. The PRA division, called the Motorheads, specializes in motorized warfare and quick response force operations."
-	icon = 'icons/mob/clothing/accessory/kog_tabs.dmi'
+	icon = 'icons/obj/item/clothing/accessory/kog_tabs.dmi'
 	icon_state = "kog_tabs_pra"
 	overlay_state = "kog_tabs_pra"
 	contained_sprite = TRUE
@@ -1040,7 +1040,7 @@
 	name = "\improper KOG Last Chancers shoulder tabs"
 	desc = "A patch attached to the shoulders of a uniform or armor. This one denotes the wearer as a member of KOG's DPRA/ALA division the Last Chancers."
 	desc_extended = "Kazarrhaldiye Operations Group splits employees based on nationality to remove possible political tensions. The ALA/DPRA division, known as the Last Chancers, focus on sabatoge and explosives. They have become infamous for nighttime infiltrations wherein their explosive expertise leads to devastating effects."
-	icon = 'icons/mob/clothing/accessory/kog_tabs.dmi'
+	icon = 'icons/obj/item/clothing/accessory/kog_tabs.dmi'
 	icon_state = "kog_tabs_ala"
 	overlay_state = "kog_tabs_ala"
 	contained_sprite = TRUE
@@ -1050,7 +1050,7 @@
 	name = "\improper KOG Starry Knights shoulder tabs"
 	desc = "A patch attached to the shoulders of a uniform or armor. This one denotes the wearer as a member of KOG's NKA division the Starry Knights."
 	desc_extended = "Kazarrhaldiye Operations Group splits employees based on nationality to remove possible political tensions. The NKA divison, called the Starry Knights, are the defensive experts of the KOG. Using datasets regarding various entities of the Spur, the Starry Knights are capable of preparing an adaptable and formidable defense."
-	icon = 'icons/mob/clothing/accessory/kog_tabs.dmi'
+	icon = 'icons/obj/item/clothing/accessory/kog_tabs.dmi'
 	icon_state = "kog_tabs_nka"
 	overlay_state = "kog_tabs_nka"
 	contained_sprite = TRUE
@@ -1059,7 +1059,7 @@
 /obj/item/clothing/accessory/kneepads
 	name = "kneepads"
 	desc = "A pair of synthetic kneepads. Doesn't provide protection from more than arthritis."
-	icon = 'icons/mob/clothing/accessory/kneepads.dmi'
+	icon = 'icons/obj/item/clothing/accessory/kneepads.dmi'
 	icon_state = "kneepads"
 	item_state = "kneepads"
 	contained_sprite = TRUE
@@ -1069,7 +1069,7 @@
 /obj/item/clothing/accessory/blood_patch
 	name = "O- blood patch"
 	desc = "An embroidered patch indicating the wearer's blood type as O NEGATIVE."
-	icon = 'icons/mob/clothing/accessory/blood_patch.dmi'
+	icon = 'icons/obj/item/clothing/accessory/blood_patch.dmi'
 	icon_state = "onegtag"
 	contained_sprite = TRUE
 
@@ -1118,7 +1118,7 @@
 
 /obj/item/clothing/accessory/tie/corporate
 	name = "corporate tie"
-	icon = 'icons/mob/clothing/department_uniforms/service.dmi'
+	icon = 'icons/obj/item/clothing/department_uniforms/service.dmi'
 	icon_state = "nt_tie"
 	item_state = "nt_tie"
 	contained_sprite = TRUE
@@ -1150,7 +1150,7 @@
 /obj/item/clothing/accessory/pin/corporate
 	name = "corporate badge"
 	desc = "A shiny button which reads, <i>'NanoTrasen - The leader in all things Phoron!'</i>"
-	icon = 'icons/mob/clothing/department_uniforms/service.dmi'
+	icon = 'icons/obj/item/clothing/department_uniforms/service.dmi'
 	icon_state = "nt_liaison_badge"
 	item_state = "nt_liaison_badge"
 	drop_sound = 'sound/items/drop/ring.ogg'
@@ -1191,7 +1191,7 @@
 	name = "\improper Burzsian shoulder mantle"
 	desc = "A uniform mantle made out of rudimentary metallic plates. The sigil of Burzsia is pressed into the front of it."
 	desc_extended = "A uniform mantle of metallic plates that provide positronics in Burzsia cheap, rudimentary protection from industrial hazards and shrapnel; it's also been chemically treated to withstand the surface of Burzsia I. Operation history and specifications are printed underneath the back plate, as a failsafe for field operators to quickly identify the unit in the event it is damaged to the point where said information cannot be discerned through other means."
-	icon = 'icons/mob/clothing/accessory/bz_mantle.dmi'
+	icon = 'icons/obj/item/clothing/accessory/bz_mantle.dmi'
 	icon_state = "ipcmantle"
 	item_state = "ipcmantle"
 	contained_sprite = TRUE
@@ -1208,7 +1208,7 @@
 /obj/item/clothing/accessory/goon_coif
 	name = "tactical coif"
 	desc = "A comfortable tactical coif that goes around the head."
-	icon = 'icons/mob/clothing/accessory/goon_coif.dmi'
+	icon = 'icons/obj/item/clothing/accessory/goon_coif.dmi'
 	body_parts_covered = HEAD
 	icon_state = "goon_coif"
 	item_state = "goon_coif"
@@ -1228,7 +1228,7 @@
 /obj/item/clothing/accessory/apron
 	name = "apron"
 	desc = "An apron."
-	icon = 'icons/mob/clothing/accessory/aprons.dmi'
+	icon = 'icons/obj/item/clothing/accessory/aprons.dmi'
 	icon_state = "apron"
 	item_state = "apron"
 	contained_sprite = TRUE
@@ -1302,7 +1302,7 @@
 /obj/item/clothing/accessory/apron/qeburgerapron
 	name = "Quick-E-Burger Food Technician Apron"
 	desc = "For industrious employees hard at work, the Quick-E-Burger Food Technician Apron is the perfect protection! Supplied and manufactured in bulk by Quick-E-Burger's parent company, Orion Express, the Food Technician Apron is constructed from highly-resistant rubber with ergonomic quick-fastening security straps to ensure it can be made to fit any employee, of any species, anywhere!"
-	icon = 'icons/mob/clothing/accessory/aprons.dmi'
+	icon = 'icons/obj/item/clothing/accessory/aprons.dmi'
 	icon_state = "quickeburger_apron"
 	item_state = "quickeburger_apron"
 	allowed = list(
@@ -1319,7 +1319,7 @@
 /obj/item/clothing/accessory/overalls
 	name = "overalls"
 	desc = "A set of denim overalls."
-	icon = 'icons/mob/clothing/accessory/overalls.dmi'
+	icon = 'icons/obj/item/clothing/accessory/overalls.dmi'
 	icon_state = "overalls"
 	item_state = "overalls"
 	contained_sprite = TRUE
@@ -1398,7 +1398,7 @@
 /obj/item/clothing/accessory/pronoun
 	name = "any/all pronouns pin"
 	desc = "A pin denoting the wearer's pronouns: any/all."
-	icon = 'icons/mob/clothing/accessory/pronoun_pin.dmi'
+	icon = 'icons/obj/item/clothing/accessory/pronoun_pin.dmi'
 	icon_state = "pronounpin"
 	item_state = "pronounpin"
 	worn_overlay = "over"
@@ -1439,7 +1439,7 @@
 /obj/item/clothing/accessory/led_collar
 	name = "\improper LED collar"
 	desc = "A collar, usually worn around the neck of a voidsuit, that allows others to easily identify the wearer."
-	icon = 'icons/mob/clothing/accessory/led_collar.dmi'
+	icon = 'icons/obj/item/clothing/accessory/led_collar.dmi'
 	icon_state = "led_collar"
 	item_state = "led_collar"
 	plane = ABOVE_LIGHTING_PLANE

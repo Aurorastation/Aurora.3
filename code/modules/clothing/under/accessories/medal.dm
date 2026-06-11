@@ -1,7 +1,7 @@
 /obj/item/clothing/accessory/medal
 	name = "bronze medal"
 	desc = "A bronze medal."
-	icon = 'icons/mob/clothing/accessory/medals.dmi'
+	icon = 'icons/obj/item/clothing/accessory/medals.dmi'
 	icon_state = "bronze"
 	overlay_state = "bronze"
 	contained_sprite = TRUE

@@ -1,7 +1,7 @@
 /obj/item/clothing/shoes/cowboy
 	name = "cowboy boots"
 	desc = "Lacking a durasteel horse to ride."
-	icon = 'icons/mob/clothing/shoes/cowboy.dmi'
+	icon = 'icons/obj/item/clothing/shoes/cowboy.dmi'
 	icon_state = "cowboy_brown"
 	item_state = "cowboy_brown"
 	contained_sprite = TRUE

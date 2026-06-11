@@ -1,7 +1,7 @@
 /obj/item/clothing/accessory/necklace
 	name = "necklace"
 	desc = "A piece of jewelry that goes around your neck."
-	icon = 'icons/mob/clothing/accessory/necklace.dmi'
+	icon = 'icons/obj/item/clothing/accessory/necklace.dmi'
 	icon_state = "necklace"
 	item_state = "necklace"
 	contained_sprite = TRUE

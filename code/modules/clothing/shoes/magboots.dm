@@ -1,7 +1,7 @@
 /obj/item/clothing/shoes/magboots
 	desc = "Magnetic boots, often used during extravehicular activity to ensure the user remains safely attached to the vehicle. They're large enough to be worn over other footwear."
 	name = "magboots"
-	icon = 'icons/mob/clothing/shoes/magboots.dmi'
+	icon = 'icons/obj/item/clothing/shoes/magboots.dmi'
 	icon_state = "magboots0"
 	item_state = "magboots0"
 	contained_sprite = TRUE

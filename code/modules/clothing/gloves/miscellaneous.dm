@@ -42,7 +42,7 @@
 /obj/item/clothing/ring/ninja
 	desc = "A pair of plain black infiltration gloves. Too thin to protect anything, but can fit underneath a hardsuit gauntlet."
 	name = "black slipgloves"
-	icon = 'icons/mob/clothing/gloves/color_gloves.dmi'
+	icon = 'icons/obj/item/clothing/gloves/color_gloves.dmi'
 	icon_state = "black"
 	item_state = "black"
 	contained_sprite = TRUE
@@ -57,7 +57,7 @@
 /obj/item/clothing/gloves/latex
 	name = "latex gloves"
 	desc = "Sterile latex gloves."
-	icon = 'icons/mob/clothing/gloves/latex.dmi'
+	icon = 'icons/obj/item/clothing/gloves/latex.dmi'
 	icon_state = "latex"
 	item_state = "latex"
 	contained_sprite = TRUE
@@ -88,7 +88,7 @@
 /obj/item/clothing/gloves/latex/nitrile
 	name = "nitrile gloves"
 	desc = "Sterile nitrile gloves."
-	icon = 'icons/mob/clothing/gloves/nitrile.dmi'
+	icon = 'icons/obj/item/clothing/gloves/nitrile.dmi'
 	icon_state = "nitrile"
 	item_state = "nitrile"
 	contained_sprite = TRUE
@@ -99,7 +99,7 @@
 	name = "zeng-hu vinyl gloves"
 	desc = "A key design element in the labwear was utility and compatibility with the Zeng-Hu positronic chassis workers that are ubiquitous throughout the corporation. \
 	As a result they are breathable yet non-porous, allowing for ample airflow while retaining the cleanroom standards expected of a medical and scientific uniform."
-	icon = 'icons/mob/clothing/gloves/zeng_gloves.dmi'
+	icon = 'icons/obj/item/clothing/gloves/zeng_gloves.dmi'
 	icon_state = "zeng_gloves"
 	item_state = "zeng_gloves"
 	contained_sprite = TRUE
@@ -143,7 +143,7 @@
 /obj/item/clothing/gloves/botanic_leather
 	desc = "These leather work gloves protect against thorns, barbs, prickles, spikes and other harmful objects of floral origin."
 	name = "leather gloves"
-	icon = 'icons/mob/clothing/gloves/leather_gloves.dmi'
+	icon = 'icons/obj/item/clothing/gloves/leather_gloves.dmi'
 	icon_state = "leather"
 	item_state = "leather"
 	contained_sprite = TRUE
@@ -167,7 +167,7 @@
 /obj/item/clothing/gloves/janitor
 	name = "rubber cleaning gloves"
 	desc = "A pair of thick, long, yellow rubber gloves, designed to protect the wearer from the splash of industrial strength cleaners. Not certified for electrical work."
-	icon = 'icons/mob/clothing/gloves/janitor_gloves.dmi'
+	icon = 'icons/obj/item/clothing/gloves/janitor_gloves.dmi'
 	icon_state = "janitor"
 	item_state = "janitor"
 	contained_sprite = TRUE
@@ -215,7 +215,7 @@
 /obj/item/clothing/gloves/force/basic //dooo iiiitttttt
 	name = "basic force gloves" //do it skull do it give it to all sec the forums agree go
 	desc = "These gloves bend gravity and bluespace, providing a cheap boost to the effectiveness of your average security staff."
-	icon = 'icons/mob/clothing/gloves/power_gloves.dmi'
+	icon = 'icons/obj/item/clothing/gloves/power_gloves.dmi'
 	icon_state = "power_glove" //todo: different sprites for different levels of power
 	item_state = "power_glove"
 	contained_sprite = TRUE
@@ -228,7 +228,7 @@
 /obj/item/clothing/gloves/brassknuckles
 	name = "brass knuckles"
 	desc = "A pair of brass knuckles. Generally used to enhance the user's punches."
-	icon = 'icons/mob/clothing/gloves/knuckledusters.dmi'
+	icon = 'icons/obj/item/clothing/gloves/knuckledusters.dmi'
 	icon_state = "knuckledusters"
 	item_state = "knuckledusters"
 	contained_sprite = TRUE
@@ -246,7 +246,7 @@
 /obj/item/clothing/gloves/powerfist
 	name = "power fist"
 	desc = "A metal gauntlet with a piston-powered ram ontop for that extra punch in your punch."
-	icon = 'icons/mob/clothing/gloves/powerfist.dmi'
+	icon = 'icons/obj/item/clothing/gloves/powerfist.dmi'
 	icon_state = "powerfist"
 	item_state = "powerfist"
 	contained_sprite = TRUE
@@ -283,7 +283,7 @@
 /obj/item/clothing/gloves/claws
 	name = "clawed gauntlets"
 	desc = "A pair of metal gauntlets outfited with menacing sharp blades."
-	icon = 'icons/mob/clothing/gloves/warping_claws.dmi'
+	icon = 'icons/obj/item/clothing/gloves/warping_claws.dmi'
 	icon_state = "warping_claws"
 	item_state = "warping_claws"
 	contained_sprite = TRUE
@@ -307,7 +307,7 @@
 /obj/item/clothing/gloves/offworlder
 	name = "starmitts"
 	desc = "Thick arm warmers and mittens that reach past the elbow."
-	icon = 'icons/mob/clothing/accessory/offworlder.dmi'
+	icon = 'icons/obj/item/clothing/accessory/offworlder.dmi'
 	contained_sprite = TRUE
 	icon_state = "starmittens"
 	item_state = "starmittens"
@@ -317,7 +317,7 @@
 /obj/item/clothing/gloves/ballistic
 	name = "ballistic gauntlet"
 	desc = "A metal gauntlet armed with a wrist-mounted shotgun."
-	icon = 'icons/mob/clothing/gloves/ballisticfist.dmi'
+	icon = 'icons/obj/item/clothing/gloves/ballisticfist.dmi'
 	icon_state = "ballisticfist"
 	item_state = "ballisticfist"
 	contained_sprite = TRUE
@@ -395,7 +395,7 @@
 	desc = "A weaponized gauntlet capable of firing lightning bolts."
 	desc_extended = "A tesla-based weapon created by the People's Republic of Adhomai as part of their Tesla Brigade program. Because of its long recharge time, the gauntlet is commonly \
 	used as an ancillary weapon."
-	icon = 'icons/mob/clothing/gloves/tesla_gloves.dmi'
+	icon = 'icons/obj/item/clothing/gloves/tesla_gloves.dmi'
 	icon_state = "tesla_glove_on"
 	item_state = "tesla_glove_on"
 	contained_sprite = TRUE
@@ -468,7 +468,7 @@
 /obj/item/clothing/gloves/single
 	name = "single glove"
 	desc = "A single glove. This one is for the right hand."
-	icon = 'icons/mob/clothing/gloves/single.dmi'
+	icon = 'icons/obj/item/clothing/gloves/single.dmi'
 	contained_sprite = TRUE
 	icon_state = "single"
 	item_state = "single"
@@ -481,7 +481,7 @@
 /obj/item/clothing/gloves/multi_color
 	name = "multi-color gloves"
 	desc = "A pair of gloves, each is a different color."
-	icon = 'icons/mob/clothing/gloves/multi_color.dmi'
+	icon = 'icons/obj/item/clothing/gloves/multi_color.dmi'
 	contained_sprite = TRUE
 	icon_state = "multi_color"
 	item_state = "multi_color"

@@ -1,7 +1,7 @@
 /obj/item/clothing/accessory/locket
 	name = "silver locket"
 	desc = "A silver locket that seems to have space for a photo within."
-	icon = 'icons/mob/clothing/accessory/locket.dmi'
+	icon = 'icons/obj/item/clothing/accessory/locket.dmi'
 	icon_state = "locket"
 	item_state = "locket"
 	contained_sprite = TRUE

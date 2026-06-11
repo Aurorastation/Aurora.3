@@ -60,7 +60,7 @@
 /obj/item/clothing/shoes/cult
 	name = "ragged boots"
 	desc = "A ragged, dusty pair of boots."
-	icon = 'icons/mob/clothing/shoes/miscellaneous.dmi'
+	icon = 'icons/obj/item/clothing/shoes/miscellaneous.dmi'
 	icon_state = "cult"
 	item_state = "cult"
 	contained_sprite = TRUE

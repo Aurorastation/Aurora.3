@@ -1,6 +1,6 @@
 //Material Rings
 /obj/item/clothing/ring/material
-	icon = 'icons/mob/clothing/gloves/rings.dmi'
+	icon = 'icons/obj/item/clothing/gloves/rings.dmi'
 	icon_state = "material"
 	contained_sprite = TRUE
 

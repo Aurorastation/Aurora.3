@@ -1,7 +1,7 @@
 /obj/item/clothing/head/headchain
 	name = "cobalt head chains"
 	desc = "A set of luxurious chains intended to be wrapped around one's head. They don't seem particularly comfortable. They're encrusted with cobalt-blue gems, and made of <b>REAL</b> faux gold."
-	icon = 'icons/mob/clothing/head/ipc/golden_deep.dmi'
+	icon = 'icons/obj/item/clothing/head/ipc/golden_deep.dmi'
 	contained_sprite = TRUE
 	icon_state = "cobalt_headchains"
 	item_state = "cobalt_headchains"
@@ -24,7 +24,7 @@
 /obj/item/clothing/head/crest
 	name = "cobalt head crest"
 	desc = "A solemn crest wrapping around the back of one's head, seeming to bend in the center on multiple hinges and clip on. It's encrusted with cobalt-blue gems, and made of <b>REAL</b> faux gold."
-	icon = 'icons/mob/clothing/head/ipc/golden_deep.dmi'
+	icon = 'icons/obj/item/clothing/head/ipc/golden_deep.dmi'
 	contained_sprite = TRUE
 	icon_state = "cobalt_crest"
 	item_state = "cobalt_crest"

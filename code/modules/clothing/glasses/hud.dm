@@ -15,7 +15,7 @@
 /obj/item/clothing/glasses/hud/health
 	name = "health scanner HUD"
 	desc = "A heads-up display that scans the humans in view and provides accurate data about their health status."
-	icon = 'icons/mob/clothing/eyes/med_hud.dmi'
+	icon = 'icons/obj/item/clothing/eyes/med_hud.dmi'
 	icon_state = "healthhud"
 	item_state = "healthhud"
 	body_parts_covered = 0
@@ -74,7 +74,7 @@
 /obj/item/clothing/glasses/hud/security
 	name = "security HUD"
 	desc = "A heads-up display that scans the humans in view and provides accurate data about their ID status and security records."
-	icon = 'icons/mob/clothing/eyes/sec_hud.dmi'
+	icon = 'icons/obj/item/clothing/eyes/sec_hud.dmi'
 	icon_state = "securityhud"
 	item_state = "securityhud"
 	body_parts_covered = 0

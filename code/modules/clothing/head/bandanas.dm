@@ -1,7 +1,7 @@
 /obj/item/clothing/head/bandana
 	name = "bandana"
 	desc = "It's a bandana with some fine nanotech lining."
-	icon = 'icons/mob/clothing/hats/bandanas.dmi'
+	icon = 'icons/obj/item/clothing/hats/bandanas.dmi'
 	icon_state = "bandana"
 	item_state = "bandana"
 	flags_inv = 0
@@ -67,19 +67,19 @@
 	item_state = "bandana_hydro"
 
 /obj/item/clothing/head/bandana/hydro/nt
-	icon = 'icons/mob/clothing/department_uniforms/service.dmi'
+	icon = 'icons/obj/item/clothing/department_uniforms/service.dmi'
 	contained_sprite = TRUE
 	icon_state = "nt_gardener_headband"
 	item_state = "nt_gardener_headband"
 
 /obj/item/clothing/head/bandana/hydro/idris
-	icon = 'icons/mob/clothing/department_uniforms/service.dmi'
+	icon = 'icons/obj/item/clothing/department_uniforms/service.dmi'
 	contained_sprite = TRUE
 	icon_state = "idris_gardener_headband"
 	item_state = "idris_gardener_headband"
 
 /obj/item/clothing/head/bandana/hydro/orion
-	icon = 'icons/mob/clothing/department_uniforms/service.dmi'
+	icon = 'icons/obj/item/clothing/department_uniforms/service.dmi'
 	contained_sprite = TRUE
 	icon_state = "orion_gardener_headband"
 	item_state = "orion_gardener_headband"

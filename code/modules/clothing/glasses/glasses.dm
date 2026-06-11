@@ -11,7 +11,7 @@ BLIND     // can't see anything
 */
 /obj/item/clothing/glasses
 	name = "glasses"
-	icon = 'icons/mob/clothing/eyes/glasses.dmi'
+	icon = 'icons/obj/item/clothing/eyes/glasses.dmi'
 	contained_sprite = TRUE
 	w_class = WEIGHT_CLASS_SMALL
 	slot_flags = SLOT_EYES
@@ -253,7 +253,7 @@ BLIND     // can't see anything
 /obj/item/clothing/glasses/safety
 	name = "safety glasses"
 	desc = "A simple pair of safety glasses. Thinner than their goggle counterparts, for those who can't decide between safety and style."
-	icon = 'icons/mob/clothing/eyes/safety.dmi'
+	icon = 'icons/obj/item/clothing/eyes/safety.dmi'
 	icon_state = "plaingoggles"
 	item_state = "plaingoggles"
 	contained_sprite = TRUE
@@ -737,7 +737,7 @@ BLIND     // can't see anything
 /obj/item/clothing/glasses/welding
 	name = "welding goggles"
 	desc = "Protects the eyes from welders, approved by the mad scientist association."
-	icon = 'icons/mob/clothing/eyes/welding_goggles.dmi'
+	icon = 'icons/obj/item/clothing/eyes/welding_goggles.dmi'
 	icon_state = "welding-g"
 	item_state = "welding-g"
 	sprite_sheets = list(
@@ -868,7 +868,7 @@ BLIND     // can't see anything
 /obj/item/clothing/glasses/sunglasses/sechud
 	name = "HUDsunglasses"
 	desc = "Sunglasses in the colours of NanoTrasen security. They come with a blue-tinted HUD."
-	icon = 'icons/mob/clothing/eyes/sec_hud.dmi'
+	icon = 'icons/obj/item/clothing/eyes/sec_hud.dmi'
 	icon_state = "sunhud"
 	item_state = "sunhud"
 	contained_sprite = TRUE
@@ -1153,10 +1153,10 @@ BLIND     // can't see anything
 		var/mob/living/carbon/human/H = loc
 		if(H.glasses == src)
 			H.CutOverlays(mob_overlay, ATOM_ICON_CACHE_PROTECTED)
-	mob_overlay = mutable_appearance('icons/mob/clothing/eyes/glasses.dmi', "[icon_state]_eye")
+	mob_overlay = mutable_appearance('icons/obj/item/clothing/eyes/glasses.dmi', "[icon_state]_eye")
 	mob_overlay.appearance_flags = RESET_COLOR
 	mob_overlay.color = eye_color
-	mob_overlay_emis = emissive_appearance('icons/mob/clothing/eyes/glasses.dmi', "[icon_state]_eye")
+	mob_overlay_emis = emissive_appearance('icons/obj/item/clothing/eyes/glasses.dmi', "[icon_state]_eye")
 	if(active && ishuman(loc))
 		var/mob/living/carbon/human/H = loc
 		if(H.glasses == src)
@@ -1191,7 +1191,7 @@ BLIND     // can't see anything
 /obj/item/clothing/glasses/eyepatch/hud/update_icon()
 	ClearOverlays()
 	if(active)
-		var/image/eye = image('icons/mob/clothing/eyes/glasses.dmi', "[icon_state]_ovr")
+		var/image/eye = image('icons/obj/item/clothing/eyes/glasses.dmi', "[icon_state]_ovr")
 		eye.appearance_flags = RESET_COLOR
 		eye.color = eye_color
 		AddOverlays(eye)

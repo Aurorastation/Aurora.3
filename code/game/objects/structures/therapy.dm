@@ -1,7 +1,7 @@
 /obj/item/mesmetron
 	name = "mesmetron pocketwatch"
 	desc = "An elaborate pocketwatch, with a captivating gold etching and an enchanting face..."
-	icon = 'icons/mob/clothing/wrists/wrist.dmi'
+	icon = 'icons/obj/item/clothing/wrists/wrist.dmi'
 	icon_state = "pocketwatch"
 	item_state = "pocketwatch"
 	drop_sound = 'sound/items/drop/accessory.ogg'

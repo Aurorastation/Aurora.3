@@ -4,7 +4,7 @@
 	name = "bartender's uniform"
 	desc = "It looks like it could use some more flair."
 	contained_sprite = TRUE
-	icon = 'icons/mob/clothing/department_uniforms/service.dmi'
+	icon = 'icons/obj/item/clothing/department_uniforms/service.dmi'
 
 	icon_state = "nt_bartender"
 	item_state = "nt_bartender"
@@ -28,7 +28,7 @@
 	name = "chef's uniform"
 	desc = "It's an apron which is given only to the most <b>hardcore</b> chefs in space."
 	contained_sprite = TRUE
-	icon = 'icons/mob/clothing/department_uniforms/service.dmi'
+	icon = 'icons/obj/item/clothing/department_uniforms/service.dmi'
 	icon_state = "nt_chef"
 	item_state = "nt_chef"
 
@@ -37,7 +37,7 @@
 	item_state = "idris_chef"
 
 /obj/item/clothing/under/rank/chef/orion
-	icon = 'icons/mob/clothing/department_uniforms/service.dmi'
+	icon = 'icons/obj/item/clothing/department_uniforms/service.dmi'
 	contained_sprite = TRUE
 	icon_state = "orion_chef"
 	item_state = "orion_chef"
@@ -45,7 +45,7 @@
 /obj/item/clothing/under/rank/hydroponics
 	name = "botanist's jumpsuit"
 	desc = "It's a jumpsuit designed to protect against minor plant-related hazards."
-	icon = 'icons/mob/clothing/department_uniforms/service.dmi'
+	icon = 'icons/obj/item/clothing/department_uniforms/service.dmi'
 	icon_state = "nt_gardener"
 	item_state = "nt_gardener"
 	permeability_coefficient = 0.50
@@ -65,7 +65,7 @@
 	name = "corporate liaison uniform"
 	desc = "The plain, professional attire of a corporate liaison. The collar is <i>immaculately</i> starched."
 	contained_sprite = TRUE
-	icon = 'icons/mob/clothing/department_uniforms/service.dmi'
+	icon = 'icons/obj/item/clothing/department_uniforms/service.dmi'
 	icon_state = "nt_liaison"
 	item_state = "nt_liaison"
 
@@ -96,7 +96,7 @@
 /obj/item/clothing/under/rank/liaison/einstein
 	name = "einstein corporate liaison uniform"
 	desc_extended = "If you're seeing this outfit in an SCC facility, something somewhere has gone terribly, terribly wrong."
-	icon = 'icons/mob/clothing/under/human/corporation/einstein.dmi'
+	icon = 'icons/obj/item/clothing/under/human/corporation/einstein.dmi'
 	icon_state = "ee_liaison"
 	item_state = "ee_liaison"
 
@@ -105,7 +105,7 @@
 	name = "janitor's jumpsuit"
 	desc = "It's the official uniform of the station's janitor. It has minor protection from biohazards."
 	contained_sprite = TRUE
-	icon = 'icons/mob/clothing/department_uniforms/service.dmi'
+	icon = 'icons/obj/item/clothing/department_uniforms/service.dmi'
 	icon_state = "nt_janitor"
 	item_state = "nt_janitor"
 	armor = list(
@@ -151,7 +151,7 @@
 /obj/item/clothing/under/librarian
 	name = "sensible suit"
 	desc = "It's very... sensible."
-	icon = 'icons/mob/clothing/department_uniforms/service.dmi'
+	icon = 'icons/obj/item/clothing/department_uniforms/service.dmi'
 	contained_sprite = TRUE
 	icon_state = "nt_librarian"
 	item_state = "nt_librarian"
@@ -186,7 +186,7 @@
 	name = "miner's jumpsuit"
 	desc = "It's a snappy miner's jumpsuit, complete with overalls and caked-on dirt."
 	contained_sprite = TRUE
-	icon = 'icons/mob/clothing/department_uniforms/operations.dmi'
+	icon = 'icons/obj/item/clothing/department_uniforms/operations.dmi'
 	icon_state = "nt_miner"
 	item_state = "nt_miner"
 
@@ -202,7 +202,7 @@
 	name = "operations manager's jumpsuit"
 	desc = "A uniform worn by the operations manager. It has the SCC insignia on it."
 	contained_sprite = TRUE
-	icon = 'icons/mob/clothing/department_uniforms/command.dmi'
+	icon = 'icons/obj/item/clothing/department_uniforms/command.dmi'
 	icon_state = "operations_manager"
 	item_state = "operations_manager"
 
@@ -211,7 +211,7 @@
 	desc = "The future of hangar tech apparel: long, stuffy slacks. We never said it was a bright future."
 
 	contained_sprite = TRUE
-	icon = 'icons/mob/clothing/department_uniforms/operations.dmi'
+	icon = 'icons/obj/item/clothing/department_uniforms/operations.dmi'
 	icon_state = "nt_tech"
 	item_state = "nt_tech"
 
@@ -227,7 +227,7 @@
 	name = "bridge crew's jumpsuit"
 	desc = "The uniform worn by the SCC's bridge crew."
 	contained_sprite = TRUE
-	icon = 'icons/mob/clothing/department_uniforms/command.dmi'
+	icon = 'icons/obj/item/clothing/department_uniforms/command.dmi'
 	icon_state = "bridge_crew"
 	item_state = "bridge_crew"
 
@@ -261,7 +261,7 @@
 	name = "executive officer's jumpsuit"
 	desc = "The uniform worn by the SCC's executive officers."
 	contained_sprite = TRUE
-	icon = 'icons/mob/clothing/department_uniforms/command.dmi'
+	icon = 'icons/obj/item/clothing/department_uniforms/command.dmi'
 	icon_state = "executive_officer"
 	item_state = "executive_officer"
 
@@ -269,7 +269,7 @@
 	name = "machinist's jumpsuit"
 	desc = "A practical uniform designed for industrial work."
 	contained_sprite = TRUE
-	icon = 'icons/mob/clothing/department_uniforms/operations.dmi'
+	icon = 'icons/obj/item/clothing/department_uniforms/operations.dmi'
 	icon_state = "nt_machinist"
 	item_state = "nt_machinist"
 
@@ -285,7 +285,7 @@
 	name = "einstein machinist's jumpsuit"
 	desc_extended = "Usually, but not necessarily worn by Einstein's Terranaeus Diagnostics subsidiary. Subsidiary or not, \
 	whoever wears this uniform probably knows a lot about putting guns and cameras on robots."
-	icon = 'icons/mob/clothing/under/human/corporation/einstein.dmi'
+	icon = 'icons/obj/item/clothing/under/human/corporation/einstein.dmi'
 	icon_state = "ee_machinist"
 	item_state = "ee_machinist"
 
@@ -293,7 +293,7 @@
 	name = "hephaestus captain's jumpsuit"
 	desc = "It's a green-and-orange jumpsuit with some gold markings denoting the rank of \"Captain\" used by Hephaestus Industries."
 	has_sensor = SUIT_NO_SENSORS
-	icon = 'icons/mob/clothing/under/human/corporation/cyclops_uniforms.dmi'
+	icon = 'icons/obj/item/clothing/under/human/corporation/cyclops_uniforms.dmi'
 	icon_state = "heph_captain"
 	item_state = "heph_captain"
 	worn_state = "heph_captain"
@@ -302,14 +302,14 @@
 /obj/item/clothing/head/caphat/cap/hephaestus
 	name = "captain's cap"
 	desc = "You fear to wear it for the negligence it brings. This one is in the colors of Hephaestus Industries"
-	icon = 'icons/mob/clothing/head/hephaestus_cyclops.dmi'
+	icon = 'icons/obj/item/clothing/head/hephaestus_cyclops.dmi'
 	icon_state = "heph_captain_cap"
 	item_state = "heph_captain_cap"
 
 /obj/item/clothing/gloves/captain/hephaestus
 	name = "captain's gloves"
 	desc = "Green gloves, with a nice gold trim. Swanky."
-	icon = 'icons/mob/clothing/gloves/hephaestus_captain.dmi'
+	icon = 'icons/obj/item/clothing/gloves/hephaestus_captain.dmi'
 	icon_state = "heph_captain_gloves"
 	item_state = "heph_captain_gloves"
 
@@ -317,7 +317,7 @@
 	name = "einstein captain's jumpsuit"
 	desc = "It's a grey-green jumpsuit with some gold markings denoting the rank of \"Captain\" used by Einstein Engines."
 	desc_extended = "Any similarities to the captain's jumpsuits worn in the SCC are purely coincidental. Honest!"
-	icon = 'icons/mob/clothing/under/human/corporation/einstein.dmi'
+	icon = 'icons/obj/item/clothing/under/human/corporation/einstein.dmi'
 	icon_state = "ee_captain"
 	item_state = "ee_captain"
 	contained_sprite = TRUE
@@ -326,7 +326,7 @@
 /obj/item/clothing/under/qeburgerjumpsuit
 	name = "Quick-E-Burger Food Technician Jumpsuit"
 	desc = "For valued employees on the go, the Quick-E-Burger Food Technician Jumpsuit is the perfect attire! Supplied and manufactured in bulk by Quick-E-Burger's parent company, Orion Express, the Food Technician Jumpsuit is lavishly appointed with a one-size-doesn't-quite-fit-anyone design, including a state-of-the-art button-up fastening system designed to enable quick and easy employee repair!"
-	icon = 'icons/mob/clothing/department_uniforms/service.dmi'
+	icon = 'icons/obj/item/clothing/department_uniforms/service.dmi'
 	icon_state = "quickeburger_jumpsuit"
 	item_state = "quickeburger_jumpsuit"
 	contained_sprite = TRUE

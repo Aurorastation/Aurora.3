@@ -1,6 +1,6 @@
 ABSTRACT_TYPE(/obj/item/clothing/under/dressshirt/skrell)
 	desc = "A formal wetshirt in Skrell style."
-	icon = 'icons/mob/clothing/under/shirt/skrell_casual.dmi'
+	icon = 'icons/obj/item/clothing/under/shirt/skrell_casual.dmi'
 
 /obj/item/clothing/under/dressshirt/skrell/ocean
 	name = "ocean formal wetshirt"
@@ -21,7 +21,7 @@ ABSTRACT_TYPE(/obj/item/clothing/under/dressshirt/skrell)
 	item_state = "reef_dressshirt"
 
 ABSTRACT_TYPE(/obj/item/clothing/under/dressshirt/tshirt/skrell)
-	icon = 'icons/mob/clothing/under/shirt/skrell_casual.dmi'
+	icon = 'icons/obj/item/clothing/under/shirt/skrell_casual.dmi'
 	desc = "A wetshirt in Skrell style."
 
 /obj/item/clothing/under/dressshirt/tshirt/skrell/ocean
