@@ -13,9 +13,9 @@
 	var/detonate_time = 0
 	/// Default timer is 30 seconds, but can be configured for anything from 10s to 20m.
 	var/timer = 300
-    var/atom/target = null
-    var/open_panel = 0
-    var/obj/effect/plastic_explosive/effect_overlay
+	var/atom/target = null
+	var/open_panel = 0
+	var/obj/effect/plastic_explosive/effect_overlay
 
 	var/plastic_explosive_type = /obj/effect/plastic_explosive
 	var/devastation_range = -1
