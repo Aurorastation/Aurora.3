@@ -11,7 +11,7 @@
 	origin_tech = list(TECH_ILLEGAL = 2)
 	var/datum/wires/explosive/c4/wires = null
 	var/detonate_time = 0
-    /// Default timer is 30 seconds, but can be configured for anything from 10s to 20m.
+	/// Default timer is 30 seconds, but can be configured for anything from 10s to 20m.
 	var/timer = 300
     var/atom/target = null
     var/open_panel = 0
