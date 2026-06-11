@@ -28,7 +28,7 @@
 
 /singleton/education/flight_academy
 	name = "Flight Academy"
-	description = "You are at least 25 years of age, with the best navigation training the Spur can offer and the know-how for reining in or assuring passengers for the voyage."
+	description = "You are at least 25 years of age, with the best navigation training the Spur can offer, vessel handiness in a pinch, and the know-how for reining in or assuring passengers for the voyage."
 	jobs = list("Bridge Crew", "Executive Officer", "Captain")
 	minimum_character_age = list(
 		SPECIES_HUMAN = 25,
@@ -57,9 +57,8 @@
 		/singleton/skill/pilot_spacecraft = SKILL_LEVEL_PROFESSIONAL,
 		/singleton/skill/electrical_engineering = SKILL_LEVEL_FAMILIAR,
 		/singleton/skill/atmospherics_systems = SKILL_LEVEL_FAMILIAR,
-		/singleton/skill/mechanical_engineering = SKILL_LEVEL_FAMILIAR,
 		/singleton/skill/firearms = SKILL_LEVEL_TRAINED,
-		/singleton/skill/tenacity = SKILL_LEVEL_PROFESSIONAL
+		/singleton/skill/tenacity = SKILL_LEVEL_TRAINED
 	)
 
 /singleton/education/expeditionary_trade
@@ -76,7 +75,6 @@
 		/singleton/skill/pilot_spacecraft = SKILL_LEVEL_FAMILIAR,
 		/singleton/skill/electrical_engineering = SKILL_LEVEL_FAMILIAR,
 		/singleton/skill/atmospherics_systems = SKILL_LEVEL_FAMILIAR,
-		/singleton/skill/mechanical_engineering = SKILL_LEVEL_FAMILIAR,
 		/singleton/skill/armed_combat = SKILL_LEVEL_FAMILIAR,
 		/singleton/skill/medicine = SKILL_LEVEL_FAMILIAR
 	)

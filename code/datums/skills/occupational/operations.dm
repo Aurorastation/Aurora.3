@@ -63,7 +63,7 @@
 	)
 	skill_level_descriptions = alist(
 		SKILL_LEVEL_UNFAMILIAR = "You are inexperienced and mostly incapable of piloting spacecraft, but may attempt piloting shuttles in emergencies.<br>" \
-		+ "- There is only a 50% chance you will be able to view the consoles after several seconds waiting.<br>" \
+		+ "- There is only a 70% chance you will be able to view the consoles after several seconds waiting.<br>" \
 		+ "- Accelerations and Slows take 2 seconds to peform.<br>" \
 		+ "  - Additional 65% chance to accelerate further.<br>" \
 		+ "  - Additional 60% and 70% chances to slow further.<br>" \

@@ -264,7 +264,7 @@
 			if(do_after(H, 1 SECOND) && connected.can_combat_roll())
 				visible_message(SPAN_DANGER("[H] tilts the yoke all the way to the [ndir == WEST ? "left" : "right"]!"))
 				connected.combat_roll(ndir)
-				if(piloting_difference == 0 && prob(60)) //A lack of difference means skill level (1-4) is less than pilot_class (1-3)
+				if(piloting_difference <= 0 && prob(60)) //A lack of difference means skill level (1-4) is less than pilot_class (1-3)
 					ndir = pick(NORTH, SOUTH)
 					connected.forceMove(get_step(connected, ndir))
 					if(connected.pilot_class != PILOTING_CLASS_TWO && prob(70))
@@ -297,10 +297,10 @@
 
 	if(isliving(usr))// AI and robots are allowed to pilot now!
 		if (action == "move")
-			var/mob/living/carbon/human/H = usr
+			var/mob/living/H = usr
 			var/piloting_difference =  H.GetComponent(PILOT_SPACECRAFT_SKILL_COMPONENT)?.skill_level - connected.pilot_class
 
-			if(piloting_difference == 0)
+			if(piloting_difference <= 0)
 				to_chat(H, SPAN_NOTICE("You begin burning up the vessel's speed..."))
 				if((connected.pilot_class != PILOTING_CLASS_TWO && do_after(H, 2 SECONDS)) || (connected.pilot_class == PILOTING_CLASS_TWO && do_after(H, 1 SECOND)))
 					connected.relaymove(H, connected.dir, accellimit)
@@ -328,7 +328,7 @@
 				var/mob/living/carbon/human/H = usr
 				var/piloting_difference =  H.GetComponent(PILOT_SPACECRAFT_SKILL_COMPONENT)?.skill_level - connected.pilot_class
 
-				if(connected.can_turn() && piloting_difference == 0)
+				if(connected.can_turn() && piloting_difference <= 0)
 					to_chat(H, SPAN_NOTICE("You feel you can work a turn [ndir == WEST ? "left" : "right"] here..."))
 					if((connected.pilot_class != PILOTING_CLASS_TWO && do_after(H, 3 SECONDS))  || (connected.pilot_class == PILOTING_CLASS_TWO && do_after(H, 1 SECOND)))
 						connected.turn_ship(ndir)
@@ -375,7 +375,7 @@
 				var/piloting_difference =  H.GetComponent(PILOT_SPACECRAFT_SKILL_COMPONENT)?.skill_level - connected.pilot_class
 
 				to_chat(H, SPAN_NOTICE("You begin clamping down the vessel's speed..."))
-				if(piloting_difference == 0)
+				if(piloting_difference <= 0)
 					if((connected.pilot_class != PILOTING_CLASS_TWO && do_after(H, 2 SECONDS)) || (connected.pilot_class == PILOTING_CLASS_TWO && do_after(H, 1 SECOND)))
 						connected.decelerate()
 						if(prob(60)) // Can't ignore the 1s burn_delay, so manually do decelerate()'s effects instead

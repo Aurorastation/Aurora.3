@@ -39,7 +39,7 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 		var/pilot_level = user.GetComponent(PILOT_SPACECRAFT_SKILL_COMPONENT)?.skill_level
 		user.visible_message("<b>[user]<b> opens a panel underneath \the [src]...", SPAN_NOTICE("You start searching for the power port to attempt an emergency power bypass..."))
 		emergency_power_window = world.time
-		if(pilot_level == SKILL_LEVEL_UNFAMILIAR && Adjacent(user) && user.get_active_hand() == battery)
+		if(pilot_level <= SKILL_LEVEL_UNFAMILIAR && Adjacent(user) && user.get_active_hand() == battery)
 			if(do_after(user, 3 SECONDS))
 				to_chat(user, SPAN_NOTICE("Although unfamiliar with spacecraft to find it fast, your electrical intuition knows there's a port somewhere..."))
 			else
@@ -47,7 +47,7 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 				return
 		while(battery.percent() > 0 && Adjacent(user) && user.get_active_hand() == battery)
 			if(do_after(user, 3 SECONDS))
-				if((pilot_level == SKILL_LEVEL_UNFAMILIAR && do_after(user, 2 SECONDS)) || pilot_level >= SKILL_LEVEL_FAMILIAR)
+				if((pilot_level <= SKILL_LEVEL_UNFAMILIAR && do_after(user, 2 SECONDS)) || pilot_level >= SKILL_LEVEL_FAMILIAR)
 					var/bypass_value = battery.maxcharge/10
 					emergency_power_window += bypass_value/((100 - pilot_level * 3)/electrical_level) SECONDS // should be 10m for high-caps
 					playsound(src.loc, 'sound/machines/click.ogg', 30)
@@ -108,18 +108,18 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 	// Snowflake case for checking player characters for a Pilot Spacecraft Skill.
 	// Only player characters will have the component. Which will both always be present on them, and will only enable its own return logic if it exists.
 	// NPCs, Ghostroles, and Offship Antags that don't generate skills are unaffected by this check by intentional design so that we don't have to account for them.
-	if (!connected.pilot_class && pilot_level == SKILL_LEVEL_UNFAMILIAR)
+	if (!connected.pilot_class && pilot_level <= SKILL_LEVEL_UNFAMILIAR)
 	// No pilot_class means it's probably a station, so only Unfamiliar is checked for
 		to_chat(user, SPAN_WARNING("There's just so many buttons... You have no idea where to even begin."))
 		return FALSE
 	// A lack of a difference means skill level (1-4) is less than pilot_class (1-3)
-	if(piloting_difference == 0)
+	if(piloting_difference <= 0)
 		if(connected.pilot_class == PILOTING_CLASS_SHUTTLE)
 			user.visible_message("<b>[user]</b> stares blankly at \the [src].", SPAN_WARNING("There's just so many buttons... You have no idea where to even begin, but..."))
 			if(do_after(user, 10 SECONDS) && Adjacent(user))
 				user.visible_message("<b>[user]</b> peers at \the [src].", SPAN_NOTICE("...maybe, if you take it slow? It <i>is</i> only a shuttle."))
 				if(do_after(user, 3 SECONDS) && Adjacent(user))
-					if(prob(50))
+					if(prob(30))
 						user.visible_message("<b>[user]</b> returns a confused expression at \the [src].", SPAN_WARNING("You lose track and can't figure out the controls."))
 						return
 				else
