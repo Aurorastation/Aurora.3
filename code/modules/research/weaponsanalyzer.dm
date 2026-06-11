@@ -23,6 +23,13 @@
 
 	var/mob/living/carbon/human/H = user
 
+	if(default_deconstruction_screwdriver(user, attacking_item))
+		return TRUE
+	if(default_deconstruction_crowbar(user, attacking_item))
+		return TRUE
+	if(default_part_replacement(user, attacking_item))
+		return TRUE
+
 	if(istype(attacking_item, /obj/item/gun))
 		check_swap(user, attacking_item)
 		item = attacking_item
@@ -55,12 +62,15 @@
 			addtimer(CALLBACK(src, PROC_REF(reset)), 15)
 		process = TRUE
 		update_icon()
+	else if(istype(attacking_item, /obj/item/combitool))
+		return
 	else if(attacking_item)
 		check_swap(user, attacking_item)
 		item = attacking_item
 		H.drop_from_inventory(attacking_item)
 		attacking_item.forceMove(src)
 		update_icon()
+	ui_interact(user)
 
 /obj/structure/machinery/r_n_d/weapons_analyzer/attack_hand(mob/user)
 	user.set_machine(src)
@@ -69,6 +79,7 @@
 /obj/structure/machinery/r_n_d/weapons_analyzer/proc/reset()
 	process = FALSE
 	update_icon()
+	SStgui.update_uis(src)
 
 /obj/structure/machinery/r_n_d/weapons_analyzer/proc/check_swap(var/mob/user, var/obj/I)
 	if(item)
@@ -97,11 +108,13 @@
 		A.forceMove(get_turf(src))
 		item = null
 		update_icon()
+		SStgui.update_uis(src)
 
 	else if(item)
 		item.forceMove(get_turf(src))
 		item = null
 		update_icon()
+		SStgui.update_uis(src)
 
 	else
 		to_chat(usr, SPAN_WARNING("There is nothing in \the [src]."))
@@ -115,7 +128,7 @@
 	if(istype(item, /obj/item/laser_assembly))
 		var/obj/item/laser_assembly/A = item
 		A.update_icon()
-		icon_state = process ?  "[icon_state]_working" : "[icon_state]_on"
+		icon_state = process ? "[icon_state]_working" : "[icon_state]_on"
 		Icon_used = new /icon(item.icon, item.icon_state)
 	else if(item)
 		icon_state = "[icon_state]_on"
@@ -131,6 +144,10 @@
 
 /obj/structure/machinery/r_n_d/weapons_analyzer/ui_data(mob/user)
 	var/list/data = list()
+	data["laser_assembly"] = null
+	data["gun"] = null
+	data["item"] = null
+	data["gun_mods"] = null
 
 	if(istype(item, /obj/item/laser_assembly))
 		var/obj/item/laser_assembly/assembly = item
@@ -141,16 +158,24 @@
 				continue
 
 			var/l_repair_name = initial(l_component.repair_item.name) ? initial(l_component.repair_item.name) : "nothing"
-			mods += list(list(
+			var/list/mod = list(
 				"name" = initial(l_component.name),
-				"reliability" = initial(l_component.reliability),
-				"damage_modifier" = initial(l_component.damage),
-				"fire_delay_modifier" = initial(l_component.fire_delay),
-				"shots_modifier" = initial(l_component.shots),
-				"burst_modifier" = initial(l_component.burst),
-				"accuracy_modifier" = initial(l_component.accuracy),
 				"repair_tool" = l_repair_name
-			))
+			)
+			if(l_component.reliability != 0)
+				mod["reliability"] = l_component.reliability
+			if(l_component.damage != 1)
+				mod["damage_modifier"] = l_component.damage
+			if(l_component.fire_delay != 1)
+				mod["fire_delay_modifier"] = l_component.fire_delay
+			if(l_component.shots != 1)
+				mod["shots_modifier"] = l_component.shots
+			if(l_component.burst != 0)
+				mod["burst_modifier"] = l_component.burst
+			if(l_component.accuracy != 0)
+				mod["accuracy_modifier"] = l_component.accuracy
+			mods += list(mod)
+
 		data["gun_mods"] = mods
 		data["laser_assembly"] = list("name" = assembly.name)
 
@@ -171,7 +196,7 @@
 		if(istype(gun, /obj/item/gun/energy))
 			var/obj/item/gun/energy/E = gun
 			var/obj/projectile/P = new E.projectile_type
-			data["gun"]["max_shots"] = initial(E.max_shots)
+			data["gun"]["max_shots"] = E.max_shots
 			data["gun"]["recharge"] = E.self_recharge ? "self recharging" : "not self recharging" //Not initial because modular guns are not self charging at initialization
 			data["gun"]["recharge_time"] = initial(E.recharge_time)
 			data["gun"]["damage"] = initial(P.damage)
@@ -197,18 +222,26 @@
 					if (l_component.shots != 0)
 						l_modified_max_shots *= l_component.shots
 					var/l_repair_name = initial(l_component.repair_item.name) ? initial(l_component.repair_item.name) : "nothing"
-					mods += list(list(
+					var/list/mod = list(
 						"name" = initial(l_component.name),
-						"reliability" = initial(l_component.reliability),
-						"damage_modifier" = initial(l_component.damage),
-						"fire_delay_modifier" = initial(l_component.fire_delay),
-						"shots_modifier" = initial(l_component.shots),
-						"burst_modifier" = initial(l_component.burst),
-						"accuracy_modifier" = initial(l_component.accuracy),
 						"repair_tool" = l_repair_name
-					))
-				data["gun"]["damage"] = min(60, l_modified_damage)
-				data["gun"]["max_shots"] = l_modified_max_shots
+					)
+					if(l_component.reliability != 0)
+						mod["reliability"] = round(l_component.reliability, 1) //only show these if they do something
+					if(l_component.damage != 1)
+						mod["damage_modifier"] = round(l_component.damage, 0.1)
+					if(l_component.fire_delay != 1)
+						mod["fire_delay_modifier"] = round(l_component.fire_delay, 0.1)
+					if(l_component.shots != 1)
+						mod["shots_modifier"] = round(l_component.shots, 0.1)
+					if(l_component.burst != 0)
+						mod["burst_modifier"] = round(l_component.burst, 1)
+					if(l_component.accuracy != 0)
+						mod["accuracy_modifier"] = round(l_component.accuracy, 0.1)
+					mods += list(mod)
+
+				data["gun"]["damage"] = round(min(60, l_modified_damage), 1)
+				data["gun"]["max_shots"] = round(l_modified_max_shots)
 				data["gun_mods"] = mods
 
 			if(E.secondary_projectile_type)
@@ -258,17 +291,10 @@
 	return data
 
 /obj/structure/machinery/r_n_d/weapons_analyzer/ui_interact(mob/user, var/datum/tgui/ui)
-	var/height = item ? 600: 300
-	var/width = item ? 500 : 300
-	if(istype(item, /obj/item/gun/energy/laser/prototype) || istype(item, /obj/item/laser_assembly))
-		width = 600
-
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "WeaponsAnalyzer", "Weapons Analyzer", width, height)
+		ui = new(user, src, "WeaponsAnalyzer", "Weapons Analyzer", 600, 600)
 		ui.open()
-
-	ui.open()
 
 /obj/structure/machinery/r_n_d/weapons_analyzer/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()

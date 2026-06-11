@@ -4,21 +4,12 @@
 	voice_name = "unknown"
 	icon = 'icons/mob/human.dmi'
 	icon_state = "body_m_s"
-
 	mob_size = 9 //Based on average weight of a human
-
-	var/pronouns = NEUTER
-
-	/// Used so species that need special items (autoinhalers for vaurca/RMT for offworlders) don't get them twice when they shouldn't.
-	var/species_items_equipped
-
-	var/list/hud_list[11]
-	/// To check if we've need to roll for damage on movement while an item is imbedded in us.
-	var/embedded_flag
-	/// This is very not good, but it's much much better than calling get_rig() every update_canmove() call.
-	var/obj/item/rig/wearing_rig
-	/// Pref holder for the speech bubble style.
-	var/speech_bubble_type
+	mob_bump_flag = HUMAN
+	mob_push_flags = ~HEAVY
+	mob_swap_flags = ~HEAVY
+	light_system = MOVABLE_LIGHT
+	blocks_emissive = EMISSIVE_BLOCK_NONE
 
 /mob/living/carbon/human/Initialize(mapload, var/new_species = null)
 	if(!dna)
@@ -118,9 +109,9 @@
 	// It's actually the set of all Limbs (left arm, head, leg leg, etc) we have. We Qdel and null the set of all limbs, which is unique to /human.
 	QDEL_LIST(organs)
 	// Then also null the associative list of those same limbs, which contains the same references.
-	organs_by_name = null
-	bad_internal_organs = null
-	bad_external_organs = null
+	QDEL_LIST_ASSOC_VAL(organs_by_name)
+	bad_internal_organs?.Cut()
+	bad_external_organs?.Cut()
 
 	QDEL_NULL(vessel)
 
@@ -150,13 +141,14 @@
 	//Yes this is shit, but since someone had the brillant mind to use images for this, we must suffer
 	if(length(hud_list))
 		for(var/image/hud_overlay/an_hud_overlay in hud_list)
-			if(an_hud_overlay.owner)
-				an_hud_overlay.owner.client?.images -= an_hud_overlay
+			if(length(an_hud_overlay.owner?.client?.images))
+				an_hud_overlay.owner.client.images -= an_hud_overlay
 			an_hud_overlay.owner = null
 			qdel(an_hud_overlay)
-		hud_list = null
+		hud_list.Cut()
 
-	. = ..()
+	wearing_rig = null
+	return ..()
 
 /mob/living/carbon/human/can_devour(atom/movable/victim, var/silent = FALSE)
 	if(!should_have_organ(BP_STOMACH))
@@ -1437,14 +1429,15 @@
 		blood_color = null
 		return 1
 
-/mob/living/carbon/human/get_visible_implants(var/class = 0)
+/mob/living/carbon/human/get_visible_implants(var/class = 0) //Default class 0, class 1 is tiny objects, so class 0 will show everything.
 
 	var/list/visible_implants = list()
 	for(var/obj/item/organ/external/organ in src.organs)
 		for(var/obj/item/O in organ.implants)
 			if(!istype(O,/obj/item/implant) && (O.w_class > class) && !istype(O,/obj/item/material/shard/shrapnel))
 				visible_implants += O
-
+			if(istype(O,/obj/item/material/shard/shrapnel) && (O.w_class > class + 2)) //If the shrapnel is larger than class 2 (small), it is visible.
+				visible_implants += O
 	return(visible_implants)
 
 /mob/living/carbon/human/embedded_needs_process()

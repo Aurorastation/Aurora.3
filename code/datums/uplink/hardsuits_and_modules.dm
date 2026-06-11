@@ -104,13 +104,6 @@
 	path = /obj/item/rig_module/storage
 	desc = "A small hardsuit mounted storage unit, capable of holding a few items."
 
-/datum/uplink_item/item/hardsuit_modules/vitalscanner
-	name = "Vitals Tracker Module"
-	telecrystal_cost = 1
-	bluecrystal_cost = 1
-	path = /obj/item/rig_module/device/healthscanner/vitalscanner
-	desc = "A module that allows a hardsuit to scan the users vitals, and give readouts of them."
-
 /datum/uplink_item/item/hardsuit_modules/basicinjector
 	name = "Emergency Chemical Injector"
 	telecrystal_cost = 2

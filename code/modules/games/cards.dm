@@ -205,7 +205,7 @@
 	cards -= cards[1]
 	H.concealed = TRUE
 	H.update_icon()
-	user.do_attack_animation(src, null)
+	user.do_attack_animation(src)
 	balloon_alert_to_viewers("deals a card")
 	H.throw_at(get_step(target,target.dir), 10, 1, user, FALSE)
 	if(!length(cards))

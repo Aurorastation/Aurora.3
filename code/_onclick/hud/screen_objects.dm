@@ -26,10 +26,13 @@
 /atom/movable/screen/Destroy(force = FALSE)
 	master = null
 	screen_loc = null
-	if(hud?.mymob?.client)
+	if(length(hud?.mymob?.client?.screen))
 		hud.mymob.client.screen -= src
-	hud = null
-	. = ..()
+	// All register signals MUST be mirrored with Unregister signals included in a Destroy proc, even if other procs also call Unregister Signal.
+	if (hud)
+		UnregisterSignal(hud, COMSIG_QDELETING)
+		hud = null
+	return ..()
 
 /// Screen elements are always on top of the players screen and don't move so yes they are adjacent
 /atom/movable/screen/Adjacent(atom/neighbor, atom/target, atom/movable/mover)
@@ -40,6 +43,10 @@
  */
 /atom/movable/screen/proc/handle_hud_destruction()
 	SIGNAL_HANDLER
+
+	// If we were QDEL'ed directly (probably by our owner), then there's no need to Unregister Signal and qdel ourselves twice.
+	if (QDELING(src))
+		return
 
 	UnregisterSignal(hud, COMSIG_QDELETING)
 	qdel(src)
@@ -443,11 +450,27 @@
 			return 0
 	return 1
 
-/atom/movable/screen/inventory/Click()
+/atom/movable/screen/inventory/Click(location, control, params)
 	// At this point in client Click() code we have passed the 1/10 sec check and little else
 	// We don't even know if it's a middle click
 	if(!usr.canClick())
 		return TRUE
+
+	var/obj/item/worn_item = usr.get_equipped_item(slot_id)
+	if(istype(worn_item))
+		var/list/modifiers = params2list(params)
+		if(LAZYACCESS(modifiers, ALT_CLICK)) // --- Alt click combinations
+			if(LAZYACCESS(modifiers, SHIFT_CLICK)) // Alt-Shift click
+				worn_item.AltShiftClick(usr)
+				return TRUE
+
+			worn_item.AltClick(usr) // Alt click
+			return TRUE
+
+		if(LAZYACCESS(modifiers, SHIFT_CLICK)) // Shift click
+			worn_item.ShiftClick(usr)
+			return TRUE
+
 	if(use_check_and_message(usr, USE_ALLOW_NON_ADJACENT|USE_ALLOW_NON_ADV_TOOL_USR)) //You're always adjacent to your inventory in practice.
 		return TRUE
 	switch(name)
@@ -468,7 +491,7 @@
 				usr.update_inv_l_hand(0)
 				usr.update_inv_r_hand(0)
 
-	return 1
+	return TRUE
 
 /atom/movable/screen/movement_intent
 	name = "mov_intent"

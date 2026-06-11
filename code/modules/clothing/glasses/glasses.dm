@@ -52,11 +52,20 @@ BLIND     // can't see anything
 	set name = "Change Glasses Layer"
 	set src in usr
 
+	handle_change_layer(usr)
+
+/obj/item/clothing/glasses/AltClick(user)
+	handle_change_layer(user)
+
+/obj/item/clothing/glasses/proc/handle_change_layer(mob/user)
+	if(use_check_and_message(user))
+		return
+
 	if(normal_layer == GLASSES_LAYER)
 		normal_layer = GLASSES_LAYER_ALT
 	else
 		normal_layer = GLASSES_LAYER
-	to_chat(usr, SPAN_NOTICE("\The [src] will now layer [normal_layer == 21 ? "under" : "over"] your hair."))
+	to_chat(user, SPAN_NOTICE("\The [src] will now layer [normal_layer == 21 ? "under" : "over"] your hair."))
 	update_clothing_icon()
 
 /obj/item/clothing/glasses/protects_eyestab(var/obj/stab_item, var/stabbed = FALSE)

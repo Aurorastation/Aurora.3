@@ -1,0 +1,8 @@
+author: Batrachophrenoboocosmomachia
+delete-after: True
+changes:
+  - bugfix: "Fixes LateJoin and Manifest interfaces not displaying department colors by creating a shared component for both interfaces to use."
+  - bugfix: "Fixes the Manifest interface not displaying colors for crew status."
+  - bugfix: "Fixes status composer not allowing AIs to view TGUIs."
+  - bugfix: "Fixes inline icons in alt-click atom viewer."
+  - bugfix: "Fixes PDA light toggle icon not appearing."

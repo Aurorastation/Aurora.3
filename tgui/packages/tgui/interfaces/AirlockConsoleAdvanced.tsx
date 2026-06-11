@@ -1,5 +1,11 @@
+import {
+  Box,
+  Button,
+  LabeledList,
+  ProgressBar,
+  Section,
+} from 'tgui-core/components';
 import { useBackend } from '../backend';
-import { Box, Button, LabeledList, ProgressBar, Section } from '../components';
 import { Window } from '../layouts';
 
 export type AdvancedAirlockConsoleData = {
@@ -13,11 +19,11 @@ export type AdvancedAirlockConsoleData = {
   secure: boolean;
 };
 
-export const AirlockConsoleAdvanced = (props, context) => {
-  const { act, data } = useBackend<AdvancedAirlockConsoleData>(context);
+export const AirlockConsoleAdvanced = (props) => {
+  const { act, data } = useBackend<AdvancedAirlockConsoleData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section title="Status">
           <Box>

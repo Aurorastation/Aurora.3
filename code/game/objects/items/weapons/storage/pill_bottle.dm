@@ -13,6 +13,7 @@
 	use_sound = 'sound/items/storage/pillbottle.ogg'
 	drop_sound = 'sound/items/drop/pillbottle.ogg'
 	pickup_sound = 'sound/items/pickup/pillbottle.ogg'
+	rustle_sound = 'sound/items/pickup/pillbottle.ogg'
 	max_storage_space = DEFAULT_BOX_STORAGE
 
 /obj/item/storage/pill_bottle/attack_self(mob/living/user)
@@ -240,3 +241,16 @@
 		+ "This one is thrice as expensive, for more affluent customers, and requiring more genetic and neurological profiling. " \
 		+ "Nonetheless, it remains cheaper than the more elegant ZHP-MSV3 'Mindblankers'."
 	starts_with = list(/obj/item/reagent_containers/pill/psi_protect/yomi_genetics/expensive = 6)
+
+/obj/item/paper/fluff/psiprotect_memo
+	name = "psiprotect memo"
+	desc = "A memo left behind by another pharmacist."
+	info = "\
+		<br>\
+		MEMO: PSI-PROTECT PILLS \
+		<br>\
+		<br>\
+		Our bulk PsiProtect Broad Use resupply has arrived for prescription refills and any emergency ADPI prescriptions.\
+		They were going at clearance prices so we have enough stored in the warehouse for the entire operation!<br><br>\
+		Personalised variants will continue to be mailed individually to patients (no wonder the price, on top of all the tests!).<br>\
+		- S"

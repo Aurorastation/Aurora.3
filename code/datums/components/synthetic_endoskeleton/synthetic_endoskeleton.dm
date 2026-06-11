@@ -23,7 +23,7 @@
 		log_debug("Synthetic endoskeleton component spawned on non-IPC. Deleting.")
 		qdel_self()
 
-	RegisterSignal(owner, COMSIG_EXTERNAL_ORGAN_DAMAGE, PROC_REF(receive_damage))
+	RegisterSignal(owner, COMSIG_DAMAGE_TO_ENDOSKELETON, PROC_REF(receive_damage))
 	RegisterSignal(owner, COMSIG_SYNTH_ENDOSKELETON_REPAIR, PROC_REF(heal_damage))
 	RegisterSignal(owner, COMSIG_SYNTH_ENDOSKELETON_FULL_REPAIR, PROC_REF(full_repair))
 
@@ -55,6 +55,7 @@
 			owner.add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/endoskeleton, multiplicative_slowdown = 1)
 		if(0.75 to 1)
 			owner.add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/endoskeleton, multiplicative_slowdown = 1.5)
+	SEND_SIGNAL(owner, COMSIG_SYNTH_SET_SELF_PRESERVATION, FALSE)
 	if(!damage)
 		STOP_PROCESSING(SSprocessing, src)
 
