@@ -1427,7 +1427,7 @@
 /obj/item/clothing/ring
 	name = "ring"
 	w_class = WEIGHT_CLASS_TINY
-	icon = 'icons/mob/clothing/rings.dmi'
+	icon = 'icons/mob/clothing/gloves/rings.dmi'
 	species_sprite_adaption_type = WORN_GLOVES
 	slot_flags = SLOT_GLOVES
 	gender = NEUTER

@@ -1,6 +1,6 @@
 //Material Rings
 /obj/item/clothing/ring/material
-	icon = 'icons/mob/clothing/rings.dmi'
+	icon = 'icons/mob/clothing/gloves/rings.dmi'
 	icon_state = "material"
 
 /obj/item/clothing/ring/material/Initialize(var/mapload, var/new_material)
