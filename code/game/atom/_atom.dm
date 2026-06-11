@@ -74,6 +74,10 @@
 	var/tmp/datum/dynamic_light_source/light
 	///Any light sources that are "inside" of us, for example, if src here was a mob that's carrying a flashlight, that flashlight's light source would be part of this list.
 	var/tmp/list/hybrid_light_sources
+	///The light source, datum. Dont fuck with this directly
+	var/tmp/datum/static_light_source/static_light
+	///Static light sources currently attached to this atom, this includes ones owned by atoms inside this atom
+	var/tmp/list/static_light_sources
 
 	//Values should avoid being close to -16, 16, -48, 48 etc.
 	//Best keep them within 10 units of a multiple of 32, as when the light is closer to a wall, the probability
@@ -152,6 +156,7 @@
 		overlays.Cut()
 
 	QDEL_NULL(light)
+	QDEL_NULL(static_light)
 
 	if(smoothing_flags & SMOOTH_QUEUED)
 		SSicon_smooth.remove_from_queues(src)

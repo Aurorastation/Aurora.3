@@ -528,6 +528,14 @@
 	pickup_sound = 'sound/items/pickup/gloves.ogg'
 	equip_sound = 'sound/items/equip/gloves.ogg'
 
+/obj/item/clothing/gloves/Destroy()
+	QDEL_NULL(cell)
+	if (ring && wearer)
+		wearer.equip_to_slot_if_possible(ring, slot_gloves)
+	ring = null
+	wearer = null
+	return ..()
+
 /obj/item/clothing/gloves/update_clothing_icon()
 	if (ismob(src.loc))
 		var/mob/M = src.loc
@@ -947,6 +955,10 @@
 	var/last_trip = 0
 
 	var/footstep_sound_override
+
+/obj/item/clothing/shoes/Destroy()
+	QDEL_NULL(holding)
+	return ..()
 
 /obj/item/clothing/shoes/proc/draw_knife()
 	set name = "Draw Boot Knife"

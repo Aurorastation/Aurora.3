@@ -52,11 +52,6 @@
 	/// Icon state of the overlay this object uses to attach to other objects.
 	var/attach_overlay
 
-/atom/movable
-	var/can_be_unanchored = 0
-	var/obj/buckled_to
-	var/can_be_buckled = FALSE
-
 /turf
 	var/list/fixed_underlay
 	/// Determines if we should attempt to generate turf underlays for this type.
