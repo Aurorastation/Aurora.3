@@ -62,7 +62,7 @@
 	Log(message, message_title)
 
 /datum/announcement/proc/FormMessage(var/message, var/message_title)
-	. = "<h2 class='alert'>[message_title]</h2>"
+	. = FONT_LARGE("<span class='alert'>[message_title]</span>")
 	. += "<br><span class='alert'>[message]</span>"
 	if (announcer)
 		. += "<br><span class='alert'> -[html_encode(announcer)]</span>"
@@ -71,7 +71,7 @@
 	. = "<b>[message]</b>"
 
 /datum/announcement/priority/command/FormMessage(var/message, var/message_title)
-	. = "<h2 class='alert'>[SSatlas.current_map.boss_name] Update</h2>"
+	. = FONT_LARGE("<span class='alert'>[SSatlas.current_map.boss_name] Update</span>")
 	if (message_title)
 		. += "<h3 class='alert'>[message_title]</h3>"
 
@@ -79,7 +79,7 @@
 	. += "<br>"
 
 /datum/announcement/priority/security/FormMessage(var/message, var/message_title)
-	. = "<font size=4 color='red'>[message_title]</font>"
+	. = FONT_LARGE("<font color='red'>[message_title]</font>")
 	. += "<br><span class='warning'>[message]</span>"
 
 /datum/announcement/proc/NewsCast(message as text, message_title as text)
