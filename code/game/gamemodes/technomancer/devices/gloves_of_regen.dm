@@ -12,8 +12,9 @@
 	name = "gloves of regeneration"
 	desc = "A pair of gloves with a small storage of green liquid on the outside.  On the inside, a a hypodermic needle can be seen \
 	on each glove."
+	icon = 'icons/mob/clothing/gloves/regen_gloves.dmi'
 	icon_state = "regen"
-	item_state = "graygloves"
+	item_state = "regen"
 	siemens_coefficient = 0
 	cold_protection = HANDS
 	min_cold_protection_temperature = GLOVES_MIN_COLD_PROTECTION_TEMPERATURE

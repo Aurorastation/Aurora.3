@@ -170,6 +170,7 @@
 /obj/item/clothing/gloves/black_leather
 	name = "black leather gloves"
 	desc = "A pair of tight-fitting synthleather gloves."
+	icon = 'icons/mob/clothing/gloves/black_leather_gloves.dmi'
 	icon_state = "black_leather"
 	item_state = "black_leather"
 
