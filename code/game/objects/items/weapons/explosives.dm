@@ -18,7 +18,7 @@
     var/obj/effect/plastic_explosive/effect_overlay
 
 	var/plastic_explosive_type = /obj/effect/plastic_explosive
-    var/devastation_range = -1
+	var/devastation_range = -1
     var/heavy_impact_range = -1
     var/light_impact_range = 2
 
