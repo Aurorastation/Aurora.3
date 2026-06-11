@@ -296,7 +296,7 @@
 /obj/item/clothing/head/hijab //It might've taken a year but here's your Hijab's, Dea.
 	name = "hijab"
 	desc = "Encompassing cloth headwear worn by some human cultures and religions."
-	icon = 'icons/mob/clothing/hijabs.dmi'
+	icon = 'icons/mob/clothing/head/hijabs.dmi'
 	icon_state = "hijab"
 	item_state = "hijab"
 	flags_inv = BLOCKHAIR
