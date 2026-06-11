@@ -1,7 +1,7 @@
 /obj/item/clothing/accessory
 	name = "tie"
 	desc = "A neosilk clip-on tie."
-	icon = 'icons/mob/clothing/ties.dmi'
+	icon = 'icons/mob/clothing/accessory/ties.dmi'
 	icon_state = "bluetie"
 	item_state = ""	//no inhands
 	overlay_state = null
@@ -585,8 +585,7 @@
 /obj/item/clothing/accessory/poncho/roles/cloak
 	name = "quartermaster's cloak"
 	desc = "An elaborate brown and gold cloak."
-	icon = 'icons/mob/clothing/ties.dmi'
-	icon_override = 'icons/mob/clothing/accessory/ties.dmi'
+	icon = 'icons/mob/clothing/accessory/cloaks_capes.dmi'
 	icon_state = "qmcloak"
 	item_state = "qmcloak"
 	contained_sprite = FALSE

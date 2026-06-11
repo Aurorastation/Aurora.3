@@ -270,7 +270,7 @@
 //*******************
 /obj/item/clothing/shoes/chameleon
 	name = "black shoes"
-	icon = 'icons/obj/item/clothing/shoes/sneakers.dmi'
+	icon = 'icons/mob/clothing/shoes/sneakers.dmi'
 	icon_state = "black"
 	item_state = "black"
 	contained_sprite = TRUE
@@ -291,7 +291,7 @@
 
 	name = "black shoes"
 	desc = "A pair of black shoes."
-	icon = 'icons/obj/item/clothing/shoes/sneakers.dmi'
+	icon = 'icons/mob/clothing/shoes/sneakers.dmi'
 	icon_state = "black"
 	item_state = "black"
 	contained_sprite = TRUE
