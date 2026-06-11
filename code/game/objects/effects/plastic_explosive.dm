@@ -50,6 +50,6 @@
 	return parent.attackby(attacking_item, user)
 
 /obj/effect/plastic_explosive/big
-  name = "bundled plastic explosives"
-  desc = "Used to put big holes in specific areas with a lot of extra hole."
-  icon_state = "plastic-explosive-big2
+	name = "bundled plastic explosives"
+	desc = "Used to put big holes in specific areas with a lot of extra hole."
+	icon_state = "plastic-explosive-big2"
