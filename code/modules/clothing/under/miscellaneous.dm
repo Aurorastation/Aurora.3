@@ -408,7 +408,7 @@
 /obj/item/clothing/under/cheongsam
 	name = "white cheongsam"
 	desc = "A Chinese dress that hugs the body. This one is white, embroidered with a bright golden dragon."
-	icon = 'icons/mob/clothing/cheongsams.dmi'
+	icon = 'icons/mob/clothing/under/cheongsams.dmi'
 	icon_state = "cheongsamwhite"
 	item_state = "cheongsamwhite"
 	worn_state = "cheongsamwhite"
