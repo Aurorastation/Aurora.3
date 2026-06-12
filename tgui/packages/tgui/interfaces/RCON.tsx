@@ -2,7 +2,6 @@ import {
   Box,
   Button,
   Collapsible,
-  Input,
   LabeledList,
   NoticeBox,
   NumberInput,
@@ -12,6 +11,7 @@ import {
 import type { BooleanLike } from 'tgui-core/react';
 import { useBackend, useLocalState } from '../backend';
 import { NtosWindow } from '../layouts';
+import { SearchBar } from './common/SearchBar';
 
 export type RCONData = {
   smes_info: SMES[];
@@ -69,14 +69,13 @@ export const SMESInfo = (props) => {
       <Section
         title="SMES Control"
         buttons={
-          <Input
+          <SearchBar
             placeholder="Search by SMES name"
-            width="40vw"
-            maxLength={512}
-            onChange={(value) => {
+            query={smesSearchTerm}
+            onSearch={(value) => {
               setSmesSearchTerm(value);
             }}
-            value={smesSearchTerm}
+            style={{ width: '40vw' }}
           />
         }
       >
@@ -216,14 +215,13 @@ export const BreakerInfo = (props) => {
       <Section
         title="Breaker Control"
         buttons={
-          <Input
+          <SearchBar
             placeholder="Search by breaker name"
-            width="40vw"
-            maxLength={512}
-            onChange={(value) => {
+            query={breakerSearchTerm}
+            onSearch={(value) => {
               setBreakerSearchTerm(value);
             }}
-            value={breakerSearchTerm}
+            style={{ width: '40vw' }}
           />
         }
       >

@@ -199,8 +199,8 @@ SUBSYSTEM_DEF(radio)
 			return "sciradio"
 		if (MED_FREQ,MED_I_FREQ)
 			return"medradio"
-		if (SUP_FREQ)	// cargo
-			return "supradio"
+		if (SUP_FREQ)	// operations
+			return "opsradio"
 		if (SRV_FREQ)	// service
 			return "srvradio"
 		if (ENT_FREQ) //entertainment

@@ -10,6 +10,7 @@ import {
 import type { BooleanLike } from 'tgui-core/react';
 import { useBackend, useLocalState } from '../backend';
 import { NtosWindow } from '../layouts';
+import { SearchBar } from './common/SearchBar';
 
 export type ChatData = {
   service: BooleanLike;
@@ -143,17 +144,14 @@ export const AllUsers = (props) => {
 
   return (
     <Stack vertical>
-      <Input
+      <SearchBar
         autoFocus
-        autoSelect
         placeholder="Search by name"
-        height="10%"
-        width="40%"
-        maxLength={512}
-        onChange={(value) => {
+        query={searchTerm}
+        onSearch={(value) => {
           setSearchTerm(value);
         }}
-        value={searchTerm}
+        style={{ width: '40%' }}
       />
       {data.users?.length &&
         data.users
@@ -377,17 +375,14 @@ export const ChannelsWindow = (props) => {
       }
     >
       <Stack vertical>
-        <Input
+        <SearchBar
           autoFocus
-          autoSelect
           placeholder="Search by name"
-          height="10%"
-          width="40%"
-          maxLength={512}
-          onEnter={(value) => {
+          query={channelSearchTerm}
+          onSearch={(value) => {
             setChannelSearchTerm(value);
           }}
-          value={channelSearchTerm}
+          style={{ width: '40%' }}
         />
         {data.channels?.length
           ? data.channels

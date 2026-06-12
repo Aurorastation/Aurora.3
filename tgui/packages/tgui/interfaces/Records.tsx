@@ -16,6 +16,7 @@ import type { BooleanLike } from 'tgui-core/react';
 import { capitalize } from 'tgui-core/string';
 import { useBackend, useLocalState } from '../backend';
 import { NtosWindow } from '../layouts';
+import { SearchBar } from './common/SearchBar';
 
 export type RecordsData = {
   activeview: string;
@@ -140,23 +141,28 @@ export const ListAllRecords = (props) => {
       title="Records"
       fill
       buttons={
-        <Tooltip content="Search by name or DNA.">
-          <Input
-            autoFocus
-            autoSelect
-            maxLength={512}
-            onChange={(value) => {
-              setSearchTerm(value);
-            }}
-            value={searchTerm}
-          />
-          <Button
-            icon={data.authenticated ? 'lock' : 'unlock'}
-            tooltip="Log Out"
-            color={data.authenticated ? 'red' : 'green'}
-            onClick={() => act(data.authenticated ? 'logout' : 'login')}
-          />
-        </Tooltip>
+        <Stack align="center">
+          <Stack.Item>
+            <Tooltip content="Search by name or DNA.">
+              <SearchBar
+                autoFocus
+                query={searchTerm}
+                onSearch={(value) => {
+                  setSearchTerm(value);
+                }}
+                style={{ width: '12rem' }}
+              />
+            </Tooltip>
+          </Stack.Item>
+          <Stack.Item>
+            <Button
+              icon={data.authenticated ? 'lock' : 'unlock'}
+              tooltip="Log Out"
+              color={data.authenticated ? 'red' : 'green'}
+              onClick={() => act(data.authenticated ? 'logout' : 'login')}
+            />
+          </Stack.Item>
+        </Stack>
       }
     >
       <Tabs vertical>

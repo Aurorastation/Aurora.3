@@ -1,6 +1,7 @@
-import { Image, Input, Section, Table } from 'tgui-core/components';
+import { Image, Section, Table } from 'tgui-core/components';
 import { useBackend, useLocalState } from '../backend';
 import { NtosWindow } from '../layouts';
+import { SearchBar } from './common/SearchBar';
 
 export type CodexData = {
   recipes: Recipe[];
@@ -24,16 +25,14 @@ export const CookingCodex = (props) => {
           title="Codex Search"
           fitted
           buttons={
-            <Input
+            <SearchBar
               autoFocus
-              autoSelect
               placeholder="Search"
-              width="40vw"
-              maxLength={512}
-              onChange={(value) => {
+              query={searchTerm}
+              onSearch={(value) => {
                 setSearchTerm(value);
               }}
-              value={searchTerm}
+              style={{ width: '40vw' }}
             />
           }
         >
