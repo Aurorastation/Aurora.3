@@ -75,6 +75,13 @@ SUBSYSTEM_DEF(hallucinations)
 	hallucinated_actions = file2list("config/hallucinations/hallucinated_actions.txt")	//important note when adding to this file: "you" will always be replaced by the hallucinator's name
 	hallucinated_thoughts = file2list("config/hallucinations/hallucinated_thoughts.txt")
 
+	if(!length(hallucinated_phrases))
+		hallucinated_phrases += "We are here."
+	if(!length(hallucinated_actions))
+		hallucinated_actions += "twitches."
+	if(!length(hallucinated_thoughts))
+		hallucinated_thoughts += "Something's buzzing in your ear."
+
 	if(is_lemurian_sea())
 		load_adpi_lists()
 
@@ -139,14 +146,23 @@ SUBSYSTEM_DEF(hallucinations)
 	adpi_department_anti = list()
 	adpi_jobs = list()
 
+	if(!length(adpi_general))
+		adpi_general += "Something vast and invisible is waiting for you to notice it."
+
 	for(var/department in adpi_department_files)
 		adpi_departments[department] = read_adpi_file(adpi_department_files[department])
+		if(!length(adpi_departments[department]))
+			adpi_departments[department] += "We're going to be the ones who let the ship down."
 
 	for(var/department in adpi_department_anti_files)
 		adpi_department_anti[department] = read_adpi_file(adpi_department_anti_files[department])
+		if(!length(adpi_department_anti[department]))
+			adpi_department_anti[department] += "This is all Central Command's fault."
 
 	for(var/job_title in adpi_job_files)
 		adpi_jobs[job_title] = read_adpi_file(adpi_job_files[job_title])
+		if(!length(adpi_jobs[job_title]))
+			adpi_jobs[job_title] += "We're all going to die out here."
 
 /datum/controller/subsystem/hallucinations/proc/ensure_adpi_lists_loaded()
 	if(!adpi_loaded)
