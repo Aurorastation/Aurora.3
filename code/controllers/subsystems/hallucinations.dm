@@ -123,6 +123,8 @@ SUBSYSTEM_DEF(hallucinations)
 		var/datum/hallucination/D = pick(candidates)
 		return D
 
+
+/////// HANDLES ALL ADPI MESSAGING ///////
 /datum/controller/subsystem/hallucinations/proc/is_lemurian_sea()
 	return SSatlas.current_sector?.name in list(SECTOR_LEMURIAN_SEA, SECTOR_LEMURIAN_SEA_FAR)
 
@@ -328,14 +330,17 @@ SUBSYSTEM_DEF(hallucinations)
 
 	var/list/pool_weights = list()
 	for(var/pool_name in message_pools)
+		to_chat(world, "pool name: [pool_name]")
 		var/list/message_pool = message_pools[pool_name]
 		if(length(message_pool))
 			pool_weights[pool_name] = get_adpi_pool_weight(pool_name)
+			to_chat(world, "pool weight: [get_adpi_pool_weight(pool_name)]")
 	if(!length(pool_weights))
 		return
 
 	var/selected_pool_name = pickweight(pool_weights)
 	var/list/selected_pool = message_pools[selected_pool_name]
+	to_chat(world, "selected pool name: [selected_pool_name]")
 	return pick(selected_pool)
 
 /datum/controller/subsystem/hallucinations/proc/send_adpi_message(var/mob/living/target, var/custom_message = null, var/check_receiver = TRUE)
@@ -368,9 +373,10 @@ SUBSYSTEM_DEF(hallucinations)
 	return TRUE
 
 /datum/controller/subsystem/hallucinations/proc/deliver_adpi_message(var/mob/living/target, var/message)
-	to_chat(target, SPAN_ALIEN(SPAN_ITALIC("[message]")))
+	target.play_screen_text("[message]", /atom/movable/screen/text/screen_text/adpi_message, COLOR_PURPLE)
+	to_chat(target, SPAN_CULT(FONT_LARGE("[message]")))
 
-	if(prob(20))
+	if(prob(33))
 		sound_to(target, pick(adpi_sounds))
 
 	if(isskrell(target))
