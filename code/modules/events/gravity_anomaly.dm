@@ -71,7 +71,7 @@
 		return
 
 	var/list/current_victims = get_current_victims()
-	if(prob(2))
+	if(prob(15))
 		apply_camera_drift(current_victims)
 
 	var/current_effect = pick_current_effect()
@@ -147,7 +147,7 @@
 	for(var/mob/living/carbon/human/victim in current_victims)
 		if(prob(15))
 			continue
-		shake_camera(victim, rand(3 SECONDS, 5 SECONDS), 0.15, TRUE)
+		shake_camera(victim, rand(3 SECONDS, 10 SECONDS), 0.1, TRUE)
 
 /datum/event/gravity_anomaly/proc/apply_nausea_minor(var/mob/living/carbon/human/victim)
 	victim.dizziness += rand(2, 4)
