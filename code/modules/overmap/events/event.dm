@@ -13,11 +13,14 @@
 	// Acquire the list of not-yet utilized overmap turfs on this Z-level
 	var/list/candidate_turfs = block(locate(OVERMAP_EDGE, OVERMAP_EDGE, z_level),locate(overmap_size - OVERMAP_EDGE, overmap_size - OVERMAP_EDGE,z_level))
 	candidate_turfs = where(candidate_turfs, /proc/can_not_locate, /obj/effect/overmap/visitable)
+	var/list/available_event_types = get_available_event_types()
+	if(!length(available_event_types))
+		return
 
 	for(var/i = 1 to number_of_events)
 		if(!candidate_turfs.len)
 			break
-		var/overmap_event_type = pick(subtypesof(/datum/overmap_event))
+		var/overmap_event_type = pick(available_event_types)
 		var/datum/overmap_event/datum_spawn = new overmap_event_type
 
 		var/list/event_turfs = acquire_event_turfs(datum_spawn.count, datum_spawn.radius, candidate_turfs, datum_spawn.continuous)
@@ -28,6 +31,15 @@
 			new type(event_turf)
 
 		qdel(datum_spawn)//idk help how do I do this better?
+
+/singleton/overmap_event_handler/proc/get_available_event_types()
+	var/list/available_event_types = list()
+	for(var/overmap_event_type in subtypesof(/datum/overmap_event))
+		var/datum/overmap_event/datum_spawn = new overmap_event_type
+		if(datum_spawn.spawns_in_current_sector())
+			available_event_types += overmap_event_type
+		qdel(datum_spawn)
+	return available_event_types
 
 /singleton/overmap_event_handler/proc/acquire_event_turfs(var/number_of_turfs, var/distance_from_origin, var/list/candidate_turfs, var/continuous = TRUE)
 	number_of_turfs = min(number_of_turfs, candidate_turfs.len)
@@ -324,15 +336,24 @@
 	. = ..()
 	closeToolTip(usr)
 
-///These now are basically only used to spawn hazards. Will be useful when we need to spawn group of moving hazards
+/// These now are basically only used to spawn hazards. Will be useful when we need to spawn group of moving hazards
 /datum/overmap_event
 	var/name = "map event"
 	var/radius = 2
 	var/count = 6
 	var/hazards
 	var/opacity = 0
-	/// If it should form continous blobs, or can have gaps
+	/// If it should form continous blobs, or can have gaps.
 	var/continuous = TRUE
+	/// If set, this event will only spawn in the named space sectors.
+	var/list/sectors = list()
+
+/datum/overmap_event/proc/spawns_in_current_sector()
+	if(!length(sectors))
+		return TRUE
+	if(!SSatlas.current_sector)
+		return FALSE
+	return (SSatlas.current_sector.name in sectors)
 
 /datum/overmap_event/meteor
 	name = "asteroid field"
@@ -380,3 +401,4 @@
 	count = 15
 	radius = 8
 	hazards = /obj/effect/overmap/event/gravity_anomaly
+	sectors = list(SECTOR_LEMURIAN_SEA, SECTOR_LEMURIAN_SEA_FAR)
