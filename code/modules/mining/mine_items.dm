@@ -382,7 +382,7 @@
 	var/base_state
 
 	light_color = LIGHT_COLOR_TUNGSTEN
-	light_power = 1.8
+	light_system = MOVABLE_LIGHT
 
 /obj/item/stack/flag/Initialize()
 	. = ..()
@@ -404,7 +404,8 @@
 /obj/item/stack/flag/red/planted/Initialize()
 	. = ..()
 	base_state = "redflag"
-	set_light(2)
+	set_light_range_power_color(MINIMUM_USEFUL_LIGHT_RANGE, 0.5, light_color)
+	set_light_on(TRUE)
 
 /obj/item/stack/flag/yellow
 	name = "yellow beacons"

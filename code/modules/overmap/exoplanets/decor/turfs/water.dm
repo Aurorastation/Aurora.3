@@ -224,7 +224,11 @@
 		/obj/structure/bed/stool/chair/office/hover,
 		/obj/structure/bed/stool/hover,
 		/obj/structure/arch,
-		/obj/structure/flora
+		/obj/structure/flora,
+		/obj/structure/machinery/light,
+		/obj/structure/railing,
+		/obj/structure/rod_railing,
+		/obj/item/stack/flag
 	))
 
 /turf/simulated/floor/exoplanet/water/smooth/Initialize()
@@ -283,6 +287,9 @@
 
 /turf/simulated/floor/exoplanet/water/smooth/dark_marble
 	base_turf_icon = "dark_marble"
+
+/turf/simulated/floor/exoplanet/water/smooth/techmaint
+	base_turf_icon = "techmaint"
 
 /turf/simulated/floor/exoplanet/water/smooth/swamp
 	name = "murk"

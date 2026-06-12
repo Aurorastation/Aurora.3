@@ -696,6 +696,9 @@
 	pixel_x = dir & (NORTH|SOUTH) ? 0 : (dir == EAST ? 8 : -8)
 	pixel_y = dir & (NORTH|SOUTH) ? (dir == NORTH ? 18 : -2) : 0
 
+/obj/structure/machinery/light/skrell/broken
+	status = LIGHT_BROKEN
+
 /obj/structure/machinery/light/voidtamer
 	name = "voidtamer light fixture"
 	base_state = "voidtamer"
@@ -828,6 +831,12 @@
 
 /obj/structure/machinery/light/small/floor/beige
 	brightness_color = LIGHT_COLOR_BEIGE
+	randomize_color = FALSE
+
+/obj/structure/machinery/light/small/floor/purple
+	supports_nightmode = FALSE
+	bulb_is_noisy = FALSE
+	brightness_color = LIGHT_COLOR_PURPLE
 	randomize_color = FALSE
 
 /obj/structure/machinery/light/small/emergency
