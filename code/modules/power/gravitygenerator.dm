@@ -399,9 +399,9 @@
 			disable()
 		else
 			if(charging_state == POWER_UP)
-				charge_count += rand(1,2)
+				charge_count += rand(3,5)
 			else if(charging_state == POWER_DOWN)
-				charge_count -= rand(1,2)
+				charge_count -= rand(3,5)
 
 			if(charge_count % 4 == 0 && prob(75)) // Let them know it is charging/discharging.
 				playsound(src.loc, 'sound/effects/EMPulse.ogg', 100, 1)

@@ -6,6 +6,8 @@
 	var/list/valid_victims
 	has_skybox_image = TRUE
 	var/global/lightning_color
+	var/next_camera_drift = 0
+	var/next_gravity_surge = 0
 	var/nausea_minor = list(
 		"You feel the deck lurch beneath you.",
 		"The world feels like it's tilting madly.",
@@ -44,6 +46,8 @@
 
 /datum/event/gravity_anomaly/start()
 	..()
+	next_camera_drift = activeFor
+	schedule_next_gravity_surge()
 	valid_victims = list()
 	for(var/mob/living/carbon/human/victim in GLOB.player_list)
 		// We don't bother excluding players not on the Horizon here; we check for that whenever we're going to potentially shove them around.
@@ -71,15 +75,17 @@
 		return
 
 	var/list/current_victims = get_current_victims()
-	if(prob(15))
-		apply_camera_drift(current_victims)
-
-	var/current_effect = pick_current_effect()
-	if(!current_effect)
+	if(!length(current_victims))
 		return
 
+	if(activeFor >= next_camera_drift)
+		apply_camera_drift(current_victims)
+		next_camera_drift = activeFor + rand(2, 4)
+
 	for(var/mob/living/carbon/human/victim in current_victims)
-		apply_effect(victim, current_effect)
+		var/current_effect = pick_victim_disturbance()
+		if(current_effect)
+			apply_effect(victim, current_effect)
 
 /datum/event/gravity_anomaly/proc/notify_victim_of_start(var/mob/living/carbon/human/victim)
 	if(isipc(victim))
@@ -95,20 +101,25 @@
 			return TRUE
 	return FALSE
 
-/datum/event/gravity_anomaly/proc/pick_current_effect()
-	switch(rand(1,100))
-		if(1 to 70)
-			return null
-		if(71 to 80)
-			return "nausea_minor"
-		if(81 to 88)
-			return "nausea_mild"
-		if(89 to 94)
-			return "nausea_strong"
-		if(95 to 99)
-			return "surge_default"
-		if(100)
+/datum/event/gravity_anomaly/proc/pick_victim_disturbance()
+	if(activeFor >= next_gravity_surge && prob(3))
+		schedule_next_gravity_surge()
+		if(prob(10))
 			return "surge_hilarious"
+		return "surge_default"
+
+	switch(rand(1,1000))
+		if(1 to 20)
+			return "nausea_minor"
+		if(21 to 28)
+			return "nausea_mild"
+		if(29 to 31)
+			return "nausea_strong"
+		else
+			return null
+
+/datum/event/gravity_anomaly/proc/schedule_next_gravity_surge()
+	next_gravity_surge = activeFor + rand(45, 90)
 
 /datum/event/gravity_anomaly/proc/get_current_victims()
 	var/list/current_victims = list()
@@ -156,14 +167,16 @@
 		to_chat(victim, SPAN_WARNING(pick(nausea_minor)))
 
 /datum/event/gravity_anomaly/proc/apply_nausea_mild(var/mob/living/carbon/human/victim)
-	victim.dizziness += rand(4, 10)
-	victim.confused += rand(1, 2)
-	if(prob(15))
-		if(isipc(victim))
+	victim.dizziness += rand(3, 6)
+	victim.confused += rand(0, 1)
+	if(isipc(victim))
+		if(prob(20))
 			to_chat(victim, SPAN_MACHINE_WARNING(pick(nausea_mild_ipc)))
 	else
-		victim.vomit()
-		to_chat(victim, SPAN_WARNING(pick(nausea_mild_organic)))
+		if(prob(20))
+			to_chat(victim, SPAN_WARNING(pick(nausea_mild_organic)))
+		if(prob(10))
+			victim.vomit()
 
 /datum/event/gravity_anomaly/proc/apply_nausea_strong(var/mob/living/carbon/human/victim)
 	victim.dizziness += rand(8, 15)
