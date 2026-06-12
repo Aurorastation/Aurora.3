@@ -45,6 +45,7 @@
 
 	destroy_surroundings = FALSE
 	attack_emote = "growls at"
+	attack_vis_effect = ATTACK_EFFECT_BITE
 
 	butchering_products = list(/obj/item/stack/material/animalhide = 2)
 

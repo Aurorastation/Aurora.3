@@ -1,6 +1,6 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "bn" = (
-/obj/machinery/atmospherics/unary/engine,
+/obj/structure/machinery/atmospherics/unary/engine,
 /turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
 "dA" = (
@@ -18,7 +18,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
 "eM" = (
-/obj/machinery/computer/ship{
+/obj/structure/machinery/computer/ship{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -36,7 +36,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
 "iY" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -58,11 +58,11 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
 "qD" = (
-/obj/machinery/atmospherics/unary/engine,
+/obj/structure/machinery/atmospherics/unary/engine,
 /turf/template_noop,
 /area/template_noop)
 "sw" = (
-/obj/machinery/atmospherics/unary/engine{
+/obj/structure/machinery/atmospherics/unary/engine{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -78,13 +78,13 @@
 /turf/template_noop,
 /area/template_noop)
 "wS" = (
-/obj/machinery/atmospherics/unary/engine{
+/obj/structure/machinery/atmospherics/unary/engine{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
 "yc" = (
-/obj/machinery/computer/ship,
+/obj/structure/machinery/computer/ship,
 /turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
 "Ad" = (
@@ -94,7 +94,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
 "Az" = (
-/obj/machinery/atmospherics/unary/engine{
+/obj/structure/machinery/atmospherics/unary/engine{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -109,7 +109,7 @@
 /turf/template_noop,
 /area/template_noop)
 "Hq" = (
-/obj/machinery/computer/ship{
+/obj/structure/machinery/computer/ship{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -120,7 +120,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
 "KX" = (
-/obj/machinery/door/airlock/external,
+/obj/structure/machinery/door/airlock/external,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "Lt" = (

@@ -7,6 +7,7 @@
 	edge = TRUE
 	damage = 5
 	attack_name = "sharp bite"
+	attack_effect = ATTACK_EFFECT_BITE
 
 /datum/unarmed_attack/diona
 	attack_verb = list("lashed", "bludgeoned")
@@ -28,6 +29,7 @@
 	edge = TRUE
 	damage = 5
 	attack_name = "claws"
+	attack_effect = ATTACK_EFFECT_CLAW
 
 /datum/unarmed_attack/claws/show_attack(var/mob/living/carbon/human/user, var/mob/living/carbon/human/target, var/zone, var/attack_damage)
 	var/obj/item/organ/external/affecting = target.get_organ(zone)
@@ -124,6 +126,7 @@
 	attack_name = "heavy fist"
 	shredding = TRUE
 	sparring_variant_type = /datum/unarmed_attack/pain_strike/heavy
+	attack_effect = ATTACK_EFFECT_SMASH
 
 /datum/unarmed_attack/industrial/heavy
 	damage = 9
@@ -140,6 +143,7 @@
 	attack_sound = 'sound/weapons/beartrap_shut.ogg'
 	attack_name = "power fist"
 	shredding = TRUE
+	attack_effect = ATTACK_EFFECT_SMASH
 
 /datum/unarmed_attack/terminator/apply_effects(var/mob/living/carbon/human/user,var/mob/living/carbon/human/target,var/armor,var/attack_damage,var/zone)
 	..()
@@ -225,6 +229,7 @@
 	attack_sound = 'sound/weapons/heavysmash.ogg'
 	attack_name = "crushing fist"
 	shredding = TRUE
+	attack_effect = ATTACK_EFFECT_SMASH
 
 /datum/unarmed_attack/shocking
 	attack_verb = list("prodded", "touched")
@@ -265,6 +270,7 @@
 	attack_door = 20
 	crowbar_door = TRUE
 	sparring_variant_type = /datum/unarmed_attack/pain_strike/heavy
+	attack_effect = ATTACK_EFFECT_SMASH
 
 /datum/unarmed_attack/vaurca_bulwark/apply_effects(var/mob/living/carbon/human/user,var/mob/living/carbon/human/target,var/armor,var/zone)
 	..()
@@ -290,6 +296,7 @@
 	attack_sound = 'sound/weapons/beartrap_shut.ogg'
 	attack_name = "industrial claw"
 	shredding = TRUE
+	attack_effect = ATTACK_EFFECT_SMASH
 
 /datum/unarmed_attack/tesla_body/apply_effects(var/mob/living/carbon/human/user,var/mob/living/carbon/human/target,var/armor,var/attack_damage,var/zone)
 	..()

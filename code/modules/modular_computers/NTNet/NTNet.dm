@@ -32,7 +32,7 @@ GLOBAL_DATUM_INIT(ntnet_global, /datum/ntnet, new)
 /datum/ntnet/New()
 	if(GLOB.ntnet_global && (GLOB.ntnet_global != src))
 		GLOB.ntnet_global = src // There can be only one.
-	for(var/obj/machinery/ntnet_relay/R in SSmachinery.machinery)
+	for(var/obj/structure/machinery/ntnet_relay/R in SSmachinery.machinery)
 		relays.Add(R)
 		R.NTNet = src
 	build_software_lists()
@@ -70,7 +70,7 @@ GLOBAL_DATUM_INIT(ntnet_global, /datum/ntnet, new)
 	var/operating = FALSE
 
 	// Check all relays. If we have at least one working relay, network is up.
-	for(var/obj/machinery/ntnet_relay/R in relays)
+	for(var/obj/structure/machinery/ntnet_relay/R in relays)
 		if(R.operable())
 			operating = TRUE
 			break

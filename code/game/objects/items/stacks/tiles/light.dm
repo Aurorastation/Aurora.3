@@ -32,6 +32,6 @@
 /obj/item/stack/tile/light/attack_self(mob/user)
 	amount--
 	playsound(src.loc, 'sound/items/Deconstruct.ogg', 80, 1)
-	new /obj/machinery/floor_light(user.loc)
+	new /obj/structure/machinery/floor_light(user.loc)
 	if(amount <= 0)
 		qdel(src)

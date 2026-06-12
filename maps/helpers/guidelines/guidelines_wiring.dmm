@@ -54,7 +54,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/low/south,
+/obj/structure/machinery/power/apc/low/south,
 /turf/simulated/floor/tiled/steel/airless,
 /area/template_noop)
 "cZ" = (
@@ -80,7 +80,7 @@
 /obj/structure/cable/green{
 	icon_state = "2-8"
 	},
-/obj/machinery/door/airlock/command,
+/obj/structure/machinery/door/airlock/command,
 /turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
 "do" = (
@@ -128,7 +128,7 @@
 /turf/simulated/floor/tiled/steel/airless,
 /area/template_noop)
 "fg" = (
-/obj/machinery/power/portgen/basic/fusion,
+/obj/structure/machinery/power/portgen/basic/fusion,
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
@@ -153,7 +153,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
-/obj/machinery/power/smes,
+/obj/structure/machinery/power/smes,
 /turf/simulated/floor/tiled/steel/airless,
 /area/template_noop)
 "fC" = (
@@ -175,7 +175,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc/low/north,
+/obj/structure/machinery/power/apc/low/north,
 /turf/simulated/floor/tiled/steel/airless,
 /area/template_noop)
 "gm" = (
@@ -205,20 +205,20 @@
 /turf/simulated/floor/airless,
 /area/space)
 "hi" = (
-/obj/machinery/power/terminal{
+/obj/structure/machinery/power/terminal{
 	dir = 8
 	},
 /turf/simulated/floor/airless,
 /area/template_noop)
 "hG" = (
-/obj/machinery/power/portgen/basic/fusion,
+/obj/structure/machinery/power/portgen/basic/fusion,
 /turf/simulated/floor/tiled/steel/airless,
 /area/template_noop)
 "hK" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/door/airlock/maintenance,
+/obj/structure/machinery/door/airlock/maintenance,
 /turf/simulated/floor/airless,
 /area/template_noop)
 "hO" = (
@@ -261,12 +261,12 @@
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc/low/south,
+/obj/structure/machinery/power/apc/low/south,
 /turf/simulated/floor/tiled/steel/airless,
 /area/template_noop)
 "jx" = (
 /obj/structure/cable/green,
-/obj/machinery/power/apc/low/west,
+/obj/structure/machinery/power/apc/low/west,
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
@@ -301,7 +301,7 @@
 /turf/simulated/floor/tiled/steel/airless,
 /area/template_noop)
 "ki" = (
-/obj/machinery/door/airlock/maintenance,
+/obj/structure/machinery/door/airlock/maintenance,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -338,7 +338,7 @@
 /turf/simulated/floor/tiled/steel/airless,
 /area/template_noop)
 "li" = (
-/obj/machinery/door/airlock/maintenance{
+/obj/structure/machinery/door/airlock/maintenance{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -403,13 +403,13 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
 "nH" = (
-/obj/machinery/power/terminal{
+/obj/structure/machinery/power/terminal{
 	dir = 4
 	},
 /turf/simulated/floor/airless,
 /area/template_noop)
 "nW" = (
-/obj/machinery/door/airlock/command{
+/obj/structure/machinery/door/airlock/command{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -425,13 +425,13 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/machinery/door/airlock/command{
+/obj/structure/machinery/door/airlock/command{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/steel/airless,
 /area/template_noop)
 "ot" = (
-/obj/machinery/door/airlock/command,
+/obj/structure/machinery/door/airlock/command,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -457,7 +457,7 @@
 /turf/simulated/floor/tiled/steel/airless,
 /area/template_noop)
 "pp" = (
-/obj/machinery/door/airlock/maintenance{
+/obj/structure/machinery/door/airlock/maintenance{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -577,7 +577,7 @@
 /turf/simulated/floor/tiled/steel/airless,
 /area/template_noop)
 "sN" = (
-/obj/machinery/door/airlock/command,
+/obj/structure/machinery/door/airlock/command,
 /turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
 "sS" = (
@@ -604,7 +604,7 @@
 /turf/simulated/floor/tiled/steel/airless,
 /area/template_noop)
 "ue" = (
-/obj/machinery/door/airlock/command{
+/obj/structure/machinery/door/airlock/command{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/steel/airless,
@@ -704,7 +704,7 @@
 /turf/simulated/floor/tiled/steel/airless,
 /area/template_noop)
 "wE" = (
-/obj/machinery/door/airlock/maintenance,
+/obj/structure/machinery/door/airlock/maintenance,
 /turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
 "wP" = (
@@ -741,7 +741,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/door/airlock/command{
+/obj/structure/machinery/door/airlock/command{
 	dir = 4
 	},
 /obj/effect/map_effect/map_helper/mark_good,
@@ -777,7 +777,7 @@
 /turf/simulated/floor/airless,
 /area/template_noop)
 "zn" = (
-/obj/machinery/power/apc/low/north,
+/obj/structure/machinery/power/apc/low/north,
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
@@ -794,7 +794,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/door/airlock/command{
+/obj/structure/machinery/door/airlock/command{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/steel/airless,
@@ -831,7 +831,7 @@
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
-/obj/machinery/power/terminal{
+/obj/structure/machinery/power/terminal{
 	dir = 4
 	},
 /turf/simulated/floor/airless,
@@ -939,7 +939,7 @@
 /turf/simulated/floor/tiled/steel/airless,
 /area/template_noop)
 "EH" = (
-/obj/machinery/power/portgen/basic/fusion,
+/obj/structure/machinery/power/portgen/basic/fusion,
 /obj/structure/cable,
 /turf/simulated/floor/airless,
 /area/template_noop)
@@ -953,7 +953,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/door/airlock/engineering,
+/obj/structure/machinery/door/airlock/engineering,
 /turf/simulated/floor/airless,
 /area/template_noop)
 "Fe" = (
@@ -1013,7 +1013,7 @@
 /turf/simulated/floor/tiled/steel/airless,
 /area/template_noop)
 "Hz" = (
-/obj/machinery/power/smes,
+/obj/structure/machinery/power/smes,
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
@@ -1037,7 +1037,7 @@
 /turf/simulated/floor/airless,
 /area/template_noop)
 "HU" = (
-/obj/machinery/power/smes,
+/obj/structure/machinery/power/smes,
 /obj/structure/cable/green,
 /turf/simulated/floor/airless,
 /area/template_noop)
@@ -1109,7 +1109,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/low/east,
+/obj/structure/machinery/power/apc/low/east,
 /turf/simulated/floor/airless,
 /area/template_noop)
 "KU" = (
@@ -1147,7 +1147,7 @@
 /turf/simulated/floor/airless,
 /area/template_noop)
 "LJ" = (
-/obj/machinery/power/terminal{
+/obj/structure/machinery/power/terminal{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/steel/airless,
@@ -1156,7 +1156,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/low/west,
+/obj/structure/machinery/power/apc/low/west,
 /turf/simulated/floor/tiled/steel/airless,
 /area/template_noop)
 "LW" = (
@@ -1192,7 +1192,7 @@
 /turf/simulated/wall/r_wall,
 /area/space)
 "No" = (
-/obj/machinery/power/terminal{
+/obj/structure/machinery/power/terminal{
 	dir = 4
 	},
 /obj/structure/cable{
@@ -1327,11 +1327,11 @@
 /turf/simulated/floor/tiled/steel/airless,
 /area/template_noop)
 "Qt" = (
-/obj/machinery/door/airlock/command,
+/obj/structure/machinery/door/airlock/command,
 /turf/simulated/floor/tiled/steel/airless,
 /area/template_noop)
 "Qu" = (
-/obj/machinery/power/smes,
+/obj/structure/machinery/power/smes,
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
@@ -1378,7 +1378,7 @@
 /turf/simulated/floor/tiled/steel/airless,
 /area/template_noop)
 "Ri" = (
-/obj/machinery/power/terminal{
+/obj/structure/machinery/power/terminal{
 	dir = 4
 	},
 /obj/structure/cable{
@@ -1390,7 +1390,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/door/airlock/engineering,
+/obj/structure/machinery/door/airlock/engineering,
 /turf/simulated/floor/airless,
 /area/template_noop)
 "RK" = (
@@ -1432,7 +1432,7 @@
 /turf/simulated/floor/tiled/steel/airless,
 /area/template_noop)
 "SH" = (
-/obj/machinery/power/smes,
+/obj/structure/machinery/power/smes,
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
@@ -1454,7 +1454,7 @@
 /turf/simulated/floor/airless,
 /area/template_noop)
 "TW" = (
-/obj/machinery/power/apc/low/west,
+/obj/structure/machinery/power/apc/low/west,
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
@@ -1500,7 +1500,7 @@
 /turf/simulated/floor/tiled/steel/airless,
 /area/template_noop)
 "Vv" = (
-/obj/machinery/power/smes,
+/obj/structure/machinery/power/smes,
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
@@ -1529,7 +1529,7 @@
 /turf/simulated/floor/tiled/steel/airless,
 /area/template_noop)
 "Wn" = (
-/obj/machinery/power/apc/low/east,
+/obj/structure/machinery/power/apc/low/east,
 /obj/structure/cable/green,
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -1549,7 +1549,7 @@
 /turf/simulated/floor/tiled/steel/airless,
 /area/template_noop)
 "WC" = (
-/obj/machinery/power/terminal,
+/obj/structure/machinery/power/terminal,
 /obj/structure/cable{
 	d2 = 4;
 	icon_state = "0-4"
@@ -1575,7 +1575,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/low/east,
+/obj/structure/machinery/power/apc/low/east,
 /turf/simulated/floor/tiled/steel/airless,
 /area/template_noop)
 "WP" = (
@@ -1599,14 +1599,14 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
 "Xw" = (
-/obj/machinery/power/smes,
+/obj/structure/machinery/power/smes,
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
 /turf/simulated/floor/tiled/steel/airless,
 /area/template_noop)
 "Xz" = (
-/obj/machinery/power/smes,
+/obj/structure/machinery/power/smes,
 /turf/simulated/floor/tiled/steel/airless,
 /area/template_noop)
 "XH" = (
@@ -1617,7 +1617,7 @@
 /turf/simulated/floor/airless,
 /area/template_noop)
 "XT" = (
-/obj/machinery/power/apc/low/east,
+/obj/structure/machinery/power/apc/low/east,
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
@@ -1660,7 +1660,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/door/airlock/command,
+/obj/structure/machinery/door/airlock/command,
 /turf/simulated/floor/tiled/steel/airless,
 /area/template_noop)
 "Ys" = (
@@ -1707,7 +1707,7 @@
 /turf/simulated/floor/airless,
 /area/template_noop)
 "ZE" = (
-/obj/machinery/power/portgen/basic/fusion,
+/obj/structure/machinery/power/portgen/basic/fusion,
 /obj/structure/cable{
 	icon_state = "0-8"
 	},

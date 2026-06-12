@@ -28,7 +28,7 @@
 	research = null
 	// Fix hacked APCs
 	if(hacked_apcs)
-		for(var/obj/machinery/power/apc/A in hacked_apcs)
+		for(var/obj/structure/machinery/power/apc/A in hacked_apcs)
 			A.hacker = null
 	hacked_apcs = null
 	// Reset our verbs
@@ -62,7 +62,7 @@
 	var/cpu_storage = 10
 
 	// Off-Station APCs should not count towards CPU generation.
-	for(var/obj/machinery/power/apc/A in hacked_apcs)
+	for(var/obj/structure/machinery/power/apc/A in hacked_apcs)
 		if(A.z in SSmapping.levels_by_trait(ZTRAIT_STATION))
 			cpu_gain += 0.05
 			cpu_storage += 100
@@ -130,4 +130,4 @@
 /mob/living/silicon/ai/proc/create_powersupply()
 	if(psupply)
 		qdel(psupply)
-	psupply = new/obj/machinery/ai_powersupply(src)
+	psupply = new/obj/structure/machinery/ai_powersupply(src)

@@ -27,10 +27,18 @@
 	/// The sub-category of this skill. Used to better sort skills.
 	var/subcategory
 	/**
-	 * Required skills are always included in the user's saved skills preference, even if it's at the lowest rank.
-	 * This is needed for skills that rely on components.
+	 * Required skills are always loaded at a minimum skill level of 1 regardless of if they were saved to the preferences.
+	 * This is useful for skills that provide a penalty below a certain skill level.
 	 */
 	var/required = FALSE
+
+	/**
+	 * For required skills on humanoid antags, they are always guaranteed a minimum of this skill level.
+	 * If they have the skill previously at a lower level, their skill level is increased to this upon being promoted to antagonist.
+	 * If they don't have the skill at all, they are given the skill at this level.
+	 */
+	var/antag_level = SKILL_LEVEL_TRAINED
+
 	/// The component datum that this skill will add during character spawning
 	var/component_type = null
 	/// Map of skill levels to level costs. How many skill points it takes to purchase this rank in a skill.
@@ -54,7 +62,7 @@
 
 	// Otherwise, we need to check the education...
 	if(type in education.skills)
-		return education.skills[type]
+		return maximum_level
 
 
 	return uneducated_skill_cap
@@ -74,7 +82,7 @@
  */
 /singleton/skill/proc/on_spawn(mob/owner, skill_level)
 	SHOULD_CALL_PARENT(TRUE)
-	if (!owner || !component_type)
+	if (!owner || !component_type || (!required && skill_level == SKILL_LEVEL_UNFAMILIAR))
 		return
 
 	owner.AddComponent(component_type, skill_level)

@@ -1,5 +1,3 @@
-import { useBackend } from '../backend';
-import { Window } from '../layouts';
 import {
   Box,
   Button,
@@ -8,9 +6,11 @@ import {
   Section,
   Stack,
   Tabs,
-} from '../components';
-import { round } from 'common/math';
-import { BooleanLike } from '../../common/react';
+} from 'tgui-core/components';
+import { round } from 'tgui-core/math';
+import type { BooleanLike } from 'tgui-core/react';
+import { useBackend } from '../backend';
+import { Window } from '../layouts';
 
 type EngineInfo = {
   eng_type: string;
@@ -34,8 +34,8 @@ type Data = {
   engines_info: EngineInfo[];
 };
 
-export const EnginesControl = (_props, context) => {
-  const { act, data } = useBackend<Data>(context);
+export const EnginesControl = (_props) => {
+  const { act, data } = useBackend<Data>();
 
   const engines = data.engines_info || [];
   const globalOn = !!data.global_state;

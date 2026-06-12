@@ -14,7 +14,7 @@
 	 * var/W = /turf/simulated/wall
 	 * var/F = /turf/simulated/floor/plating
 	 * var/G = /obj/effect/map_effect/window_spawner/full/reinforced
-	 * var/A = /obj/machinery/door/airlock
+	 * var/A = /obj/structure/machinery/door/airlock
 	 * var/list/AF = list(A, F)
 	 *
 	 * then:

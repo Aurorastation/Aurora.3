@@ -93,7 +93,7 @@
 	designation = "[pick("Firestorm", "Romanovich", "Hawk of Caprice", "Reade of the Heavens", "Dumas", "As'dak'ii", "Three Served", "Frostfire", "Burning Blue", "2458 Never Again", "Dark Night", "Long Days")]"
 	..()
 
-/obj/machinery/computer/shuttle_control/explore/terminal/tcaf_shuttle
+/obj/structure/machinery/computer/shuttle_control/explore/terminal/tcaf_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "TCAF Gunship"
 	req_access = list(ACCESS_TCAF_SHIPS)

@@ -1,4 +1,4 @@
-/obj/machinery/fabricator/microlathe
+/obj/structure/machinery/fabricator/microlathe
 	name = "microlathe"
 	desc = "It produces small items from common resources."
 	icon = 'icons/obj/machinery/fabricators/microlathe.dmi'
@@ -25,18 +25,18 @@
 	fabricating_sound_loop = /datum/looping_sound/fabricator/minilathe
 
 //Subtype for mapping, starts preloaded and set to print glasses
-/obj/machinery/fabricator/microlathe/bartender
+/obj/structure/machinery/fabricator/microlathe/bartender
 	show_category = "Drinking Glasses"
 
-/obj/machinery/fabricator/microlathe/bartender/Initialize(mapload)
+/obj/structure/machinery/fabricator/microlathe/bartender/Initialize(mapload)
 	. = ..()
 	stored_material[MATERIAL_GLASS] = storage_capacity[MATERIAL_GLASS]
 
 //Subtype for mapping, starts preloaded and set to print cutlery
-/obj/machinery/fabricator/microlathe/cafe
+/obj/structure/machinery/fabricator/microlathe/cafe
 	show_category = "Cutlery"
 
-/obj/machinery/fabricator/microlathe/cafe/Initialize(mapload)
+/obj/structure/machinery/fabricator/microlathe/cafe/Initialize(mapload)
 	. = ..()
 	stored_material[MATERIAL_PLASTIC] = storage_capacity[MATERIAL_PLASTIC]
 	stored_material[MATERIAL_BAMBOO] = storage_capacity[MATERIAL_BAMBOO]

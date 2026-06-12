@@ -262,3 +262,10 @@
 	desc = "A grey beret with an attached cap badge bearing the insignia of a Solarian Marine Corps regiment."
 	icon_state = "solgrey"
 	item_state = "solgrey"
+
+/obj/item/clothing/head/beret/lancer
+	name = "\improper Ceres Lance beret"
+	desc = "A white beret with the attached badge of Ceres Lance - the infamous synthetic-hunting mercenary group."
+	icon_state = "lancer"
+	item_state = "lancer"
+

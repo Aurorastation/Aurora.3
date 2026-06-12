@@ -50,7 +50,7 @@ ABSTRACT_TYPE(/singleton/fabricator_recipe/ammunition)
 	security_level = SEC_LEVEL_RED
 
 /singleton/fabricator_recipe/ammunition/shotgun/practice
-	name = "shells (buckshot, shotgun)"
+	name = "shells (practice, shotgun)"
 	path = /obj/item/ammo_pile/shotgun_practice
 
 // Revolvers

@@ -52,7 +52,7 @@
 			qdel(object)
 			return
 	else if(istype(object,/turf) && pa["alt"] && pa["left"])
-		var/airlock = new/obj/machinery/door/airlock(get_turf(object))
+		var/airlock = new/obj/structure/machinery/door/airlock(get_turf(object))
 		Log("Created - [log_info_line(airlock)]")
 	else if(istype(object,/turf) && pa["ctrl"] && pa["left"])
 		var/obj/structure/window/reinforced/WIN = new/obj/structure/window/reinforced(get_turf(object))

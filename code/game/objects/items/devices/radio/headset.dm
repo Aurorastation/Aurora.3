@@ -21,8 +21,9 @@
 
 	var/EarSound = TRUE
 
-	drop_sound = 'sound/items/drop/component.ogg'
-	pickup_sound = 'sound/items/pickup/component.ogg'
+	drop_sound = 'sound/items/drop/headset.ogg'
+	pickup_sound = SFX_HEADSET_PICKUP
+	equip_sound = SFX_HEADSET_EQUIP
 
 /obj/item/radio/headset/feedback_hints(mob/user, distance, is_adjacent)
 	. = list()

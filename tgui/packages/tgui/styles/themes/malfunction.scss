@@ -3,63 +3,26 @@
  * SPDX-License-Identifier: MIT
  */
 
-@use 'sass:color';
-@use 'sass:meta';
-
-@use '../colors.scss' with (
-  $primary: #910101,
-  $fg-map-keys: (),
-  $bg-map-keys: ()
-);
-@use '../base.scss' with (
-  $color-bg: #1b3443,
-  $color-bg-grad-spread: 6%
-);
-
 .theme-malfunction {
-  // Atomic classes
-  @include meta.load-css('../atomic/color.scss');
-
-  // Components
-  @include meta.load-css(
-    '../components/Button.scss',
-    $with: (
-      'color-default': colors.$primary,
-      'color-disabled': #363636,
-      'color-selected': #1e5881,
-      'color-caution': #be6209,
-      'color-danger': #9a9d00
-    )
-  );
-  @include meta.load-css(
-    '../components/Input.scss',
-    $with: ('border-color': #910101)
-  );
-  @include meta.load-css(
-    '../components/NoticeBox.scss',
-    $with: ('background-color': #1a3f57)
-  );
-  @include meta.load-css(
-    '../components/NumberInput.scss',
-    $with: ('border-color': #910101)
-  );
-  @include meta.load-css(
-    '../components/ProgressBar.scss',
-    $with: ('background-color': rgba(0, 0, 0, 0.5))
-  );
-  @include meta.load-css('../components/Section.scss');
-  @include meta.load-css(
-    '../components/Tooltip.scss',
-    $with: ('background-color': #235577)
-  );
-
-  // Layouts
-  @include meta.load-css('../layouts/Layout.scss');
-  @include meta.load-css('../layouts/Window.scss');
-  @include meta.load-css(
-    '../layouts/TitleBar.scss',
-    $with: ('background-color': #1a3f57)
-  );
+  --button-background-default: var(--color-primary);
+  --button-background-disabled: #363636;
+  --button-background-selected: #1e5881;
+  --button-background-caution: #be6209;
+  --button-background-danger: #9a9d00;
+  --input-border-color: #910101;
+  --input-border-color-focus: #910101;
+  --number-input-border-color: #910101;
+  --number-input-border-color-active: #910101;
+  --notice-box-background: #1a3f57;
+  --notice-box-color: var(--color-text-fixed-white);
+  --progress-bar-background: rgba(0, 0, 0, 0.5);
+  --progress-bar-fill: var(--color-primary);
+  --tooltip-background: #235577;
+  --titlebar-background: #1a3f57;
+  --color-base: #1b3443;
+  --color-primary: #910101;
+  --base-gradient-spread: 6;
+  --section-background: rgba(0, 0, 0, 0.33);
 
   .Layout__content {
     background-image: none;

@@ -201,6 +201,7 @@
 /area/horizon/repoffice
 	name = "Representative Office (PARENT AREA - DON'T USE)"
 	icon_state = "law"
+	area_lighting = LIGHT_HIGHSEC_COLORS
 	sound_environment = SOUND_AREA_MEDIUM_SOFTFLOOR
 	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
 	horizon_deck = 3

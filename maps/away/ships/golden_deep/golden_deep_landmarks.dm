@@ -117,10 +117,10 @@
 	base_area = /area/golden_deep/central_hallway
 	base_turf = /turf/simulated/open
 
-/obj/machinery/computer/shuttle_control/multi/lift/gd
+/obj/structure/machinery/computer/shuttle_control/multi/lift/gd
 	shuttle_tag = "Golden Deep Lift"
 
-/obj/machinery/computer/shuttle_control/multi/lift/wall/gd
+/obj/structure/machinery/computer/shuttle_control/multi/lift/wall/gd
 	shuttle_tag = "Golden Deep Lift"
 
 // Storage compartment submaps.

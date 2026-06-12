@@ -4,7 +4,7 @@ pixel_y = 20;
 
 #define PRESET_SOUTH \
 dir = SOUTH; \
-pixel_y = -6;
+pixel_y = -2;
 
 #define PRESET_WEST \
 dir = WEST; \
@@ -30,7 +30,7 @@ pixel_x = 8;
 	atom_flags = ATOM_FLAG_NO_BLOOD
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED | OBJ_FLAG_CONDUCTABLE
 	var/number = 0
-	var/obj/machinery/abstract/intercom_listener/power_interface
+	var/obj/structure/machinery/abstract/intercom_listener/power_interface
 	var/radio_sound = null
 	clickvol = 40
 

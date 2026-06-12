@@ -12,7 +12,7 @@
 /area/template_noop)
 "ai" = (
 /obj/structure/table/standard,
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -20,7 +20,7 @@
 "aC" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/dorms,
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 1
 	},
 /turf/simulated/floor/wood/mahogany,
@@ -56,7 +56,7 @@
 "bx" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/dorms,
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -133,7 +133,7 @@
 	pixel_x = -5;
 	pixel_y = 6
 	},
-/obj/machinery/light/colored/decayed,
+/obj/structure/machinery/light/colored/decayed,
 /turf/simulated/floor/lino/diamond,
 /area/template_noop)
 "dS" = (
@@ -191,7 +191,7 @@
 "fV" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -226,7 +226,7 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/crate/loot,
 /obj/random/dirt_75,
-/obj/machinery/light/broken{
+/obj/structure/machinery/light/broken{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -243,7 +243,7 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/largecrate,
 /obj/random/dirt_75,
-/obj/machinery/light/broken{
+/obj/structure/machinery/light/broken{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -290,7 +290,7 @@
 /area/template_noop)
 "js" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
+/obj/structure/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
 /obj/random/dirt_75,
 /turf/simulated/floor/wood/walnut,
 /area/cryo_outpost/outside/buildings)
@@ -306,7 +306,7 @@
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "jB" = (
-/obj/machinery/camera/network/cryo_outpost{
+/obj/structure/machinery/camera/network/cryo_outpost{
 	dir = 8;
 	c_tag = "Outside, River Bridge"
 	},
@@ -317,7 +317,7 @@
 /turf/simulated/floor/plating,
 /area/template_noop)
 "jL" = (
-/obj/machinery/door/blast/shutters/open{
+/obj/structure/machinery/door/blast/shutters/open{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -325,7 +325,7 @@
 /turf/simulated/floor/plating/asteroid,
 /area/template_noop)
 "ky" = (
-/obj/machinery/door/urban,
+/obj/structure/machinery/door/urban,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating/asteroid,
@@ -400,7 +400,7 @@
 /area/template_noop)
 "nc" = (
 /obj/random/dirt_75,
-/obj/machinery/light/colored/decayed,
+/obj/structure/machinery/light/colored/decayed,
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "ne" = (
@@ -421,7 +421,7 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
 /obj/structure/closet/crate/loot,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -471,7 +471,7 @@
 /area/template_noop)
 "oA" = (
 /obj/random/dirt_75,
-/obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
+/obj/structure/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
 /turf/simulated/floor/wood,
 /area/cryo_outpost/outside/buildings)
 "oK" = (
@@ -685,14 +685,14 @@
 "tO" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/industrial/outline/engineering,
-/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/plating/asteroid,
 /area/cryo_outpost/outside/buildings)
 "tZ" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/item/stack/material/steel/full,
 /obj/random/dirt_75,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -704,7 +704,7 @@
 /turf/simulated/floor/plating,
 /area/template_noop)
 "uc" = (
-/obj/machinery/space_heater,
+/obj/structure/machinery/space_heater,
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "ue" = (
@@ -795,7 +795,7 @@
 /turf/simulated/floor/exoplanet/barren,
 /area/template_noop)
 "vZ" = (
-/obj/machinery/door/blast/shutters/open{
+/obj/structure/machinery/door/blast/shutters/open{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -829,7 +829,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/junk,
-/obj/machinery/light/colored/decayed,
+/obj/structure/machinery/light/colored/decayed,
 /obj/outfit/admin/generic,
 /turf/simulated/floor/tiled,
 /area/template_noop)
@@ -866,7 +866,7 @@
 "xI" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/crate,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -882,7 +882,7 @@
 /obj/structure/bed/padded,
 /obj/item/bedsheet/dorms,
 /obj/random/dirt_75,
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -974,7 +974,7 @@
 	pixel_x = -5;
 	pixel_y = 6
 	},
-/obj/machinery/light/broken{
+/obj/structure/machinery/light/broken{
 	dir = 1
 	},
 /turf/simulated/floor/wood/bamboo,
@@ -1015,7 +1015,7 @@
 /obj/structure/bed/stool/chair{
 	dir = 8
 	},
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -1102,7 +1102,7 @@
 "Ec" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/dorms,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/wood/mahogany,
@@ -1163,7 +1163,7 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/crate/loot,
 /obj/random/dirt_75,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -1202,7 +1202,7 @@
 /obj/random/loot,
 /obj/random/loot,
 /obj/random/dirt_75,
-/obj/machinery/light/broken{
+/obj/structure/machinery/light/broken{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -1290,7 +1290,7 @@
 /obj/random/desktoy{
 	pixel_y = 9
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "JJ" = (
@@ -1306,7 +1306,7 @@
 /obj/structure/bed/padded,
 /obj/item/bedsheet/random,
 /obj/random/dirt_75,
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 1
 	},
 /turf/simulated/floor/wood/bamboo,
@@ -1339,10 +1339,10 @@
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "KC" = (
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 1
 	},
-/obj/machinery/space_heater,
+/obj/structure/machinery/space_heater,
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "KF" = (
@@ -1350,7 +1350,7 @@
 /obj/random/medical{
 	pixel_y = 6
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -1383,7 +1383,7 @@
 /turf/simulated/wall,
 /area/cryo_outpost/outside/buildings)
 "Mi" = (
-/obj/machinery/door/urban,
+/obj/structure/machinery/door/urban,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating/asteroid,
@@ -1434,7 +1434,7 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/crate/freezer/rations,
 /obj/random/dirt_75,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -1568,7 +1568,7 @@
 "QM" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -1692,7 +1692,7 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
 /obj/structure/closet/crate/loot,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -1721,7 +1721,7 @@
 /obj/structure/bed/padded,
 /obj/item/bedsheet/dorms,
 /obj/random/dirt_75,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -1764,7 +1764,7 @@
 /area/template_noop)
 "WC" = (
 /obj/structure/table/steel,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -1777,7 +1777,7 @@
 "WH" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
-/obj/machinery/light/broken{
+/obj/structure/machinery/light/broken{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -1827,7 +1827,7 @@
 /obj/structure/closet/crate/drop,
 /obj/random/civgun/rifle,
 /obj/random/dirt_75,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -1899,7 +1899,7 @@
 /turf/simulated/floor/plating,
 /area/template_noop)
 "Zd" = (
-/obj/machinery/camera/network/cryo_outpost{
+/obj/structure/machinery/camera/network/cryo_outpost{
 	dir = 8;
 	c_tag = "Warehouse"
 	},
@@ -1952,7 +1952,7 @@
 /obj/item/bedsheet/random,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -1965,7 +1965,7 @@
 /area/template_noop)
 "ZX" = (
 /obj/structure/closet,
-/obj/machinery/light/colored/red{
+/obj/structure/machinery/light/colored/red{
 	dir = 1
 	},
 /turf/simulated/floor/lino/diamond,

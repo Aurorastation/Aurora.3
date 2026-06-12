@@ -65,7 +65,7 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 	anchored = FALSE
 	density = TRUE
 	obj_flags = OBJ_FLAG_ROTATABLE
-	var/obj/machinery/particle_accelerator/control_box/master
+	var/obj/structure/machinery/particle_accelerator/control_box/master
 	var/construction_state = 0
 	var/reference
 	var/powered = 0
@@ -158,7 +158,7 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 
 
 /obj/structure/particle_accelerator/proc/connect_master(var/obj/O)
-	if(istype(O, /obj/machinery/particle_accelerator/control_box))
+	if(istype(O, /obj/structure/machinery/particle_accelerator/control_box))
 		if(O.dir == src.dir)
 			master = O
 			return TRUE
@@ -216,7 +216,7 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 		update_icon()
 		return TRUE
 
-/obj/machinery/particle_accelerator
+/obj/structure/machinery/particle_accelerator
 	name = "Particle Accelerator"
 	desc = "Part of a Particle Accelerator."
 	icon = 'icons/obj/machinery/particle_accelerator2.dmi'
@@ -231,10 +231,10 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 	var/powered
 	var/strength = 0
 
-/obj/machinery/particle_accelerator/update_icon()
+/obj/structure/machinery/particle_accelerator/update_icon()
 	return
 
-/obj/machinery/particle_accelerator/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+/obj/structure/machinery/particle_accelerator/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	switch(construction_state)
 		if(0)
@@ -246,14 +246,14 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 		if(3)
 			. += "It seems completely assembled."
 
-/obj/machinery/particle_accelerator/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/particle_accelerator/attackby(obj/item/attacking_item, mob/user)
 	if(istool(attacking_item))
 		if(process_tool_hit(attacking_item, user))
 			return
 	..()
 	return
 
-/obj/machinery/particle_accelerator/ex_act(severity)
+/obj/structure/machinery/particle_accelerator/ex_act(severity)
 	switch(severity)
 		if(1.0)
 			qdel(src)
@@ -269,10 +269,10 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 
 	return
 
-/obj/machinery/particle_accelerator/proc/update_state()
+/obj/structure/machinery/particle_accelerator/proc/update_state()
 	return FALSE
 
-/obj/machinery/particle_accelerator/proc/process_tool_hit(var/obj/item/O, var/mob/user)
+/obj/structure/machinery/particle_accelerator/proc/process_tool_hit(var/obj/item/O, var/mob/user)
 	if(!O || !user)
 		return FALSE
 	if(!ismob(user) || !isobj(O))

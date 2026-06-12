@@ -9,7 +9,7 @@
 
 #define isanimal(A) istype(A, /mob/living/simple_animal)
 
-#define isairlock(A) istype(A, /obj/machinery/door/airlock)
+#define isairlock(A) istype(A, /obj/structure/machinery/door/airlock)
 
 #define isbrain(A) istype(A, /mob/living/carbon/brain)
 

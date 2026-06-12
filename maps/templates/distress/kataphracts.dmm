@@ -1,6 +1,6 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
-/obj/machinery/power/emitter,
+/obj/structure/machinery/power/emitter,
 /obj/effect/decal/warning_stripes,
 /turf/unsimulated/floor,
 /area/centcom/distress_prep)

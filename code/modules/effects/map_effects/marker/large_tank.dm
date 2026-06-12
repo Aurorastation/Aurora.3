@@ -27,7 +27,7 @@
 	// and actually set them up
 	for(var/thing in loc)
 		// set up the control console
-		var/obj/machinery/computer/general_air_control/large_tank_control/control = thing
+		var/obj/structure/machinery/computer/general_air_control/large_tank_control/control = thing
 		if(istype(control))
 			control.set_frequency(frequency)
 			control.input_tag = MARKER_LARGE_TANK_TAG_INJECTOR
@@ -37,19 +37,19 @@
 
 		// and all the other components
 
-		var/obj/machinery/air_sensor/sensor = thing
+		var/obj/structure/machinery/air_sensor/sensor = thing
 		if(istype(sensor))
 			sensor.set_frequency(frequency)
 			sensor.id_tag = MARKER_LARGE_TANK_TAG_SENSOR
 			continue
 
-		var/obj/machinery/atmospherics/unary/outlet_injector/injector = thing
+		var/obj/structure/machinery/atmospherics/unary/outlet_injector/injector = thing
 		if(istype(injector))
 			injector.set_frequency(frequency)
 			injector.id = MARKER_LARGE_TANK_TAG_INJECTOR
 			continue
 
-		var/obj/machinery/atmospherics/unary/vent_pump/pump = thing
+		var/obj/structure/machinery/atmospherics/unary/vent_pump/pump = thing
 		if(istype(pump))
 			pump.frequency = frequency
 			pump.id_tag = MARKER_LARGE_TANK_TAG_PUMP

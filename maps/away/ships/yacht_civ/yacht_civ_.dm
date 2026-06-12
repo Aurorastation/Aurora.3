@@ -104,7 +104,7 @@
 	designation = "[prefix][planetary_body][postfix]"
 	..()
 
-/obj/machinery/computer/shuttle_control/explore/terminal/yacht_civ_shuttle
+/obj/structure/machinery/computer/shuttle_control/explore/terminal/yacht_civ_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Civilian Yacht Shuttle"
 

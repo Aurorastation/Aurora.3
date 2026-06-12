@@ -189,7 +189,7 @@
 	set_light_on(on)
 	update_icon()
 
-/obj/item/flashlight/vendor_action(var/obj/machinery/vending/V)
+/obj/item/flashlight/vendor_action(var/obj/structure/machinery/vending/V)
 	toggle()
 
 /obj/item/flashlight/emp_act(severity)

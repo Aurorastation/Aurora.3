@@ -76,7 +76,7 @@
 /area/template_noop)
 "r" = (
 /obj/random/dirt_75,
-/obj/machinery/door/urban,
+/obj/structure/machinery/door/urban,
 /turf/simulated/floor/wood,
 /area/template_noop)
 "s" = (
@@ -179,7 +179,7 @@
 /area/template_noop)
 "L" = (
 /obj/random/dirt_75,
-/obj/machinery/door/urban{
+/obj/structure/machinery/door/urban{
 	dir = 8
 	},
 /turf/simulated/floor/wood,

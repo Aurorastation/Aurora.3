@@ -12,11 +12,11 @@
 		/obj/structure/window_frame,
 		/obj/structure/window_frame/unanchored,
 		/obj/structure/window_frame/empty,
-		/obj/machinery/door,
+		/obj/structure/machinery/door,
 		/turf/simulated/wall/shuttle,
 		/obj/structure/window/shuttle,
-		/obj/machinery/door/airlock,
-		/obj/machinery/door/unpowered/shuttle,
+		/obj/structure/machinery/door/airlock,
+		/obj/structure/machinery/door/unpowered/shuttle,
 		/obj/structure/shuttle/engine/propulsion
 	)
 
@@ -43,7 +43,7 @@
 		/turf/simulated/wall/shuttle/dark,
 		/obj/structure/shuttle_part/dark,
 		/obj/structure/window_frame/shuttle,
-		/obj/machinery/door/airlock
+		/obj/structure/machinery/door/airlock
 	)
 
 /turf/simulated/wall/shuttle/dark/cardinal/merc
@@ -118,7 +118,7 @@
 		/turf/simulated/wall/r_wall,
 		/turf/simulated/wall/shuttle/scc_space_ship,
 		/obj/structure/window/shuttle/scc_space_ship,
-		/obj/machinery/door/airlock
+		/obj/structure/machinery/door/airlock
 	)
 
 /obj/structure/shuttle_part/scc_space_ship
@@ -144,8 +144,8 @@
 	canSmoothWith = list(
 		/turf/simulated/wall/shuttle/palepurple,
 		/obj/structure/window/shuttle/palepurple,
-		/obj/machinery/door/airlock,
-		/obj/machinery/door/unpowered/shuttle,
+		/obj/structure/machinery/door/airlock,
+		/obj/structure/machinery/door/unpowered/shuttle,
 		/obj/structure/shuttle/engine/propulsion
 	)
 
@@ -155,7 +155,7 @@
 	canSmoothWith = list(
 		/turf/simulated/wall/shuttle/skrell,
 		/obj/structure/window/shuttle,
-		/obj/machinery/door/airlock,
+		/obj/structure/machinery/door/airlock,
 		/obj/structure/shuttle/engine/propulsion,
 		/turf/unsimulated/wall/fakeairlock
 	)

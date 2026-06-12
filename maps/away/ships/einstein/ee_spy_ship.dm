@@ -87,7 +87,7 @@
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_TINY
 
-/obj/machinery/computer/shuttle_control/explore/ee_shuttle
+/obj/structure/machinery/computer/shuttle_control/explore/ee_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Einstein Engines Shuttle"
 	req_access = list(ACCESS_EE_SPY_SHIP)

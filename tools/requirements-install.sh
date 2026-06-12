@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 if python3 python_version_check.py
 then
     read -p "Press [Enter] to continue..."

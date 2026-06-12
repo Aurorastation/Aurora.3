@@ -1,19 +1,24 @@
-import { BooleanLike } from '../../common/react';
-import { Button, LabeledList, ProgressBar, Section } from '../components';
+import {
+  Button,
+  LabeledList,
+  ProgressBar,
+  Section,
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
 import { Window } from '../layouts';
 
 export type DisposalData = {
   is_on: BooleanLike;
   flush: BooleanLike;
-  mode: Number;
+  mode: number;
   uses_air: BooleanLike;
   panel_open: BooleanLike;
-  pressure: Number;
+  pressure: number;
 };
 
-export const DisposalUnit = (props, context) => {
-  const { act, data } = useBackend<DisposalData>(context);
+export const DisposalUnit = (props) => {
+  const { act, data } = useBackend<DisposalData>();
   let stateColor;
   let modeText;
   if (!data.is_on) {

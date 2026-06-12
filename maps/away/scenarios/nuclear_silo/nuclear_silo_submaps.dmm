@@ -2,7 +2,7 @@
 "af" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/dorms,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /turf/simulated/floor/carpet/purple,
@@ -10,7 +10,7 @@
 "ah" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
@@ -28,7 +28,7 @@
 	dir = 9
 	},
 /obj/effect/floor_decal/industrial/outline/red,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -65,7 +65,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/machinery/door/window{
+/obj/structure/machinery/door/window{
 	dir = 8
 	},
 /obj/item/shield/riot,
@@ -101,7 +101,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/machinery/door/window{
+/obj/structure/machinery/door/window{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner_wide/paleblue{
@@ -115,7 +115,7 @@
 /area/template_noop)
 "cf" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
@@ -126,7 +126,7 @@
 /obj/random/loot,
 /obj/random/junk,
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -152,30 +152,30 @@
 /obj/structure/bed/stool/chair{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/wood/maple,
 /area/template_noop)
 "do" = (
 /obj/structure/bed/stool/chair{
 	dir = 1
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "dw" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "dy" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 9
 	},
-/obj/machinery/recharger,
+/obj/structure/machinery/recharger,
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled/dark,
@@ -184,7 +184,7 @@
 /obj/structure/bed/stool/chair{
 	dir = 1
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -198,7 +198,7 @@
 "dY" = (
 /obj/structure/table/steel,
 /obj/random/mre,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -212,7 +212,7 @@
 "em" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/dorms,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/carpet/lightblue,
@@ -230,7 +230,7 @@
 /obj/random/gift{
 	pixel_x = 7
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/slate,
@@ -241,7 +241,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -251,7 +251,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/machinery/door/window{
+/obj/structure/machinery/door/window{
 	dir = 8
 	},
 /obj/item/clothing/suit/armor/carrier/ballistic,
@@ -286,16 +286,16 @@
 "fh" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "fr" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
 /turf/simulated/floor/wood/mahogany,
@@ -314,14 +314,14 @@
 "fI" = (
 /obj/random/pottedplant,
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /turf/simulated/floor/wood/walnut,
 /area/template_noop)
 "fU" = (
 /obj/structure/table/steel,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -331,7 +331,7 @@
 /obj/structure/closet,
 /obj/random/mre,
 /obj/random/mre,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -343,7 +343,7 @@
 /obj/outfit/admin/generic,
 /obj/item/gamehelm/pink,
 /obj/random/gift,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /turf/simulated/floor/wood/mahogany,
@@ -372,7 +372,7 @@
 "gB" = (
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
@@ -386,7 +386,7 @@
 /area/template_noop)
 "gU" = (
 /obj/random/junk,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
@@ -401,7 +401,7 @@
 "hr" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/dorms,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/carpet/orange,
@@ -438,9 +438,9 @@
 /turf/simulated/floor/tiled/slate,
 /area/template_noop)
 "hU" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -453,7 +453,7 @@
 	dir = 1
 	},
 /obj/structure/table/rack,
-/obj/machinery/door/window{
+/obj/structure/machinery/door/window{
 	dir = 8
 	},
 /obj/item/clothing/suit/armor/carrier/generic,
@@ -485,10 +485,10 @@
 "ie" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/wood/mahogany,
 /area/template_noop)
 "ip" = (
@@ -534,7 +534,7 @@
 "ki" = (
 /obj/random/pottedplant,
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /turf/simulated/floor/lino/diamond,
@@ -544,16 +544,16 @@
 /obj/item/bedsheet/dorms,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /turf/simulated/floor/carpet/purple,
 /area/template_noop)
 "kO" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/lino/diamond,
 /area/template_noop)
 "kV" = (
@@ -565,23 +565,23 @@
 /area/template_noop)
 "ld" = (
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "lC" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/wood/walnut,
 /area/template_noop)
 "lE" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /obj/structure/bed/padded,
@@ -623,7 +623,7 @@
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 9
 	},
-/obj/machinery/button/remote/airlock{
+/obj/structure/machinery/button/remote/airlock{
 	dir = 8;
 	id = "bunker_lower_armoury";
 	pixel_x = -24;
@@ -655,7 +655,7 @@
 /area/template_noop)
 "nh" = (
 /obj/structure/bed/stool/chair,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -687,10 +687,10 @@
 /obj/random/desktoy{
 	pixel_y = 9
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /turf/simulated/floor/wood/walnut,
@@ -703,7 +703,7 @@
 	dir = 1
 	},
 /obj/structure/table/rack,
-/obj/machinery/door/window{
+/obj/structure/machinery/door/window{
 	dir = 8
 	},
 /obj/item/clothing/head/helmet/security/generic,
@@ -726,7 +726,7 @@
 	dir = 1
 	},
 /obj/structure/table/rack,
-/obj/machinery/door/window{
+/obj/structure/machinery/door/window{
 	dir = 8
 	},
 /obj/item/clothing/head/helmet/merc,
@@ -737,7 +737,7 @@
 /area/template_noop)
 "ou" = (
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /turf/simulated/floor/wood/mahogany,
@@ -766,7 +766,7 @@
 /obj/structure/table/steel,
 /obj/random/junk,
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -775,10 +775,10 @@
 /obj/structure/bed/stool/chair{
 	dir = 1
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -811,7 +811,7 @@
 	dir = 1
 	},
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /turf/simulated/floor/wood/walnut,
@@ -823,10 +823,10 @@
 /area/template_noop)
 "pO" = (
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "pT" = (
@@ -838,7 +838,7 @@
 /obj/random/hoodie{
 	pixel_y = -6
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/slate,
@@ -863,7 +863,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -879,7 +879,7 @@
 /obj/item/gun/projectile/pistol,
 /obj/item/gun/projectile/pistol,
 /obj/item/gun/projectile/pistol,
-/obj/machinery/button/remote/airlock{
+/obj/structure/machinery/button/remote/airlock{
 	dir = 8;
 	id = "bunker_lower_armoury";
 	pixel_x = -24;
@@ -895,7 +895,7 @@
 	pixel_x = 3;
 	pixel_y = 2
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/wood/walnut,
@@ -904,7 +904,7 @@
 /obj/structure/bed/stool/bar,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /turf/simulated/floor/lino/diamond,
@@ -921,7 +921,7 @@
 	pixel_y = 4
 	},
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -930,7 +930,7 @@
 /obj/structure/table/steel,
 /obj/random/plushie,
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/carpet/red,
@@ -1010,7 +1010,7 @@
 	},
 /obj/structure/table/rack/folding_table,
 /obj/random/dirt_75,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/lino/diamond,
@@ -1046,7 +1046,7 @@
 /obj/outfit/admin/generic,
 /obj/random/junk,
 /obj/random/gift,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -1067,7 +1067,7 @@
 /obj/item/gun/projectile/revolver/detective,
 /obj/item/gun/projectile/revolver/detective,
 /obj/item/gun/projectile/revolver/detective,
-/obj/machinery/button/remote/airlock{
+/obj/structure/machinery/button/remote/airlock{
 	dir = 8;
 	id = "bunker_lower_armoury";
 	pixel_x = -24;
@@ -1079,14 +1079,14 @@
 /area/template_noop)
 "sS" = (
 /obj/random/junk,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "ti" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
 /turf/template_noop,
@@ -1111,7 +1111,7 @@
 	pixel_x = 5;
 	pixel_y = 9
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/slate,
@@ -1124,12 +1124,12 @@
 "uf" = (
 /obj/structure/table/steel,
 /obj/random/mre,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -1138,18 +1138,18 @@
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/machinery/alarm/south,
+/obj/structure/machinery/alarm/south,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "uu" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/carpet/orange,
 /area/template_noop)
 "uv" = (
 /obj/structure/table/steel,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -1170,12 +1170,12 @@
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "uZ" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -1183,16 +1183,16 @@
 "vg" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/wood/walnut,
 /area/template_noop)
 "vj" = (
 /obj/random/junk,
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /turf/simulated/floor/wood/walnut,
@@ -1206,7 +1206,7 @@
 /obj/item/flashlight/lamp/off{
 	pixel_y = 4
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -1250,7 +1250,7 @@
 /turf/simulated/floor/tiled/slate,
 /area/template_noop)
 "wj" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -1264,7 +1264,7 @@
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "wy" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/slate/full,
@@ -1274,7 +1274,7 @@
 /obj/random/desktoy{
 	pixel_y = 9
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -1300,7 +1300,7 @@
 /obj/effect/decal/cleanable/draftingchalk/red,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
 /turf/simulated/floor/tiled,
@@ -1309,10 +1309,10 @@
 /obj/structure/bed/stool/chair{
 	dir = 1
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /turf/simulated/floor/wood/mahogany,
@@ -1357,16 +1357,16 @@
 /obj/random/desktoy{
 	pixel_y = 9
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/wood/walnut,
 /area/template_noop)
 "xL" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1390,7 +1390,7 @@
 "zz" = (
 /obj/structure/table/steel,
 /obj/random/mre,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/carpet/orange,
@@ -1399,17 +1399,17 @@
 /obj/random/junk,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
 /turf/simulated/floor/lino/diamond,
 /area/template_noop)
 "zE" = (
 /obj/structure/bed/stool/chair/office/dark,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/slate,
@@ -1418,7 +1418,7 @@
 /obj/structure/bed/padded,
 /obj/item/bedsheet/dorms,
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -1428,10 +1428,10 @@
 /obj/random/loot,
 /obj/random/loot,
 /obj/random/gift,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/carpet/lightblue,
@@ -1453,27 +1453,27 @@
 "zZ" = (
 /obj/effect/decal/cleanable/draftingchalk/red,
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "Aa" = (
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/slate/full,
 /area/template_noop)
 "Ag" = (
-/obj/machinery/vending/security{
+/obj/structure/machinery/vending/security{
 	req_access = list(247)
 	},
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 9
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1496,7 +1496,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "AZ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /turf/simulated/floor/lino/diamond,
@@ -1511,7 +1511,7 @@
 	dir = 1
 	},
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /turf/simulated/floor/lino/diamond,
@@ -1528,30 +1528,30 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/lino/diamond,
 /area/template_noop)
 "BF" = (
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "BK" = (
 /obj/structure/bed/stool/chair/office/dark,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/slate,
 /area/template_noop)
 "BZ" = (
 /obj/structure/table/steel,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -1559,7 +1559,7 @@
 "Ck" = (
 /obj/structure/closet,
 /obj/outfit/admin/generic,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/carpet/orange,
@@ -1568,10 +1568,10 @@
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 9
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
-/obj/machinery/vending/security{
+/obj/structure/machinery/vending/security{
 	req_access = list(247)
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1589,7 +1589,7 @@
 /obj/random/loot,
 /obj/outfit/admin/generic,
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -1629,7 +1629,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "Dx" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
 /turf/simulated/floor/tiled,
@@ -1660,10 +1660,10 @@
 "Dz" = (
 /obj/random/junk,
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "DF" = (
@@ -1695,11 +1695,11 @@
 	pixel_x = -4;
 	pixel_y = 4
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /turf/simulated/floor/carpet/purple,
@@ -1715,7 +1715,7 @@
 /obj/item/gun/projectile/revolver,
 /obj/item/gun/projectile/revolver,
 /obj/item/gun/projectile/revolver,
-/obj/machinery/button/remote/airlock{
+/obj/structure/machinery/button/remote/airlock{
 	dir = 8;
 	id = "bunker_lower_armoury";
 	pixel_x = -24;
@@ -1726,7 +1726,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "Ei" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
@@ -1811,7 +1811,7 @@
 "FB" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/dorms,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/wood/mahogany,
@@ -1828,7 +1828,7 @@
 "FZ" = (
 /obj/random/pottedplant,
 /obj/random/junk,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -1838,10 +1838,10 @@
 /obj/outfit/admin/generic,
 /obj/random/loot,
 /obj/random/gift,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -1858,7 +1858,7 @@
 "GK" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
 /turf/simulated/floor/tiled,
@@ -1875,7 +1875,7 @@
 /obj/outfit/admin/generic,
 /obj/random/loot,
 /obj/item/gamehelm,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -1887,10 +1887,10 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/lino/diamond,
@@ -1898,13 +1898,13 @@
 "Hi" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "Ht" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/dorms,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -1913,7 +1913,7 @@
 /obj/random/pottedplant,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/carpet/red,
@@ -1929,7 +1929,7 @@
 /obj/item/gun/projectile/pistol/adhomai,
 /obj/item/gun/projectile/pistol/adhomai,
 /obj/item/gun/projectile/deagle/adhomai,
-/obj/machinery/button/remote/airlock{
+/obj/structure/machinery/button/remote/airlock{
 	dir = 8;
 	id = "bunker_lower_armoury";
 	pixel_x = -24;
@@ -1943,7 +1943,7 @@
 /obj/structure/bed/padded,
 /obj/item/bedsheet/dorms,
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /turf/simulated/floor/wood/maple,
@@ -1988,10 +1988,10 @@
 "HX" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "Id" = (
@@ -1999,10 +1999,10 @@
 /obj/item/flashlight/lamp/off{
 	pixel_y = 4
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/carpet/orange,
@@ -2011,7 +2011,7 @@
 /obj/structure/bed/stool/chair{
 	dir = 1
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/wood/mahogany,
@@ -2041,7 +2041,7 @@
 /obj/outfit/admin/generic,
 /obj/random/loot,
 /obj/random/gift,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -2055,29 +2055,29 @@
 /area/template_noop)
 "Jo" = (
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/wood/maple,
 /area/template_noop)
 "Js" = (
 /obj/structure/bed/stool/chair,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/carpet/red,
 /area/template_noop)
 "Jv" = (
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/wood/mahogany,
 /area/template_noop)
 "Jy" = (
@@ -2085,7 +2085,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/machinery/door/window{
+/obj/structure/machinery/door/window{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner_wide/paleblue{
@@ -2100,7 +2100,7 @@
 "JH" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/dorms,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/carpet/lightblue,
@@ -2116,7 +2116,7 @@
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 9
 	},
-/obj/machinery/button/remote/airlock{
+/obj/structure/machinery/button/remote/airlock{
 	dir = 8;
 	id = "bunker_lower_armoury";
 	pixel_x = -24;
@@ -2138,10 +2138,10 @@
 /area/template_noop)
 "Ls" = (
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/slate/full,
 /area/template_noop)
 "LG" = (
@@ -2156,7 +2156,7 @@
 /obj/random/loot,
 /obj/random/loot,
 /obj/random/gift,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -2167,10 +2167,10 @@
 "LN" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/dorms,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /turf/simulated/floor/wood/maple,
@@ -2180,14 +2180,14 @@
 /obj/item/flashlight/lamp/off{
 	pixel_y = 4
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/carpet/orange,
 /area/template_noop)
 "Ml" = (
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
 /turf/simulated/floor/wood/maple,
@@ -2212,14 +2212,14 @@
 /obj/item/bedsheet/dorms,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "MA" = (
 /obj/random/pottedplant,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /turf/simulated/floor/wood/mahogany,
@@ -2241,7 +2241,7 @@
 /area/template_noop)
 "ME" = (
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
 /turf/simulated/floor/wood/mahogany,
@@ -2257,7 +2257,7 @@
 /obj/random/desktoy{
 	pixel_y = -1
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/slate,
@@ -2270,14 +2270,14 @@
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "Ns" = (
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
@@ -2297,7 +2297,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/machinery/door/window{
+/obj/structure/machinery/door/window{
 	dir = 8
 	},
 /obj/item/clothing/suit/armor/carrier/heavy,
@@ -2317,10 +2317,10 @@
 /area/template_noop)
 "NL" = (
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/lino/diamond,
 /area/template_noop)
 "Oe" = (
@@ -2329,10 +2329,10 @@
 /turf/simulated/floor/wood/maple,
 /area/template_noop)
 "Oj" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "Ok" = (
@@ -2352,7 +2352,7 @@
 "OJ" = (
 /obj/structure/table/steel,
 /obj/random/mre,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -2368,7 +2368,7 @@
 /obj/structure/closet/cabinet,
 /obj/outfit/admin/generic,
 /obj/random/junk,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -2379,7 +2379,7 @@
 /obj/random/loot,
 /obj/random/loot,
 /obj/random/gift,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/carpet/lightblue,
@@ -2405,7 +2405,7 @@
 "PU" = (
 /obj/structure/closet/cabinet,
 /obj/outfit/admin/generic,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /turf/simulated/floor/wood/maple,
@@ -2415,10 +2415,10 @@
 	dir = 9
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
-/obj/machinery/vending/security{
+/obj/structure/machinery/vending/security{
 	req_access = list(247)
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2427,7 +2427,7 @@
 /obj/structure/bed/padded,
 /obj/item/bedsheet/dorms,
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /turf/simulated/floor/carpet/purple,
@@ -2435,10 +2435,10 @@
 "Qn" = (
 /obj/effect/decal/cleanable/draftingchalk/red,
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "Qx" = (
@@ -2470,7 +2470,7 @@
 /obj/structure/table/steel,
 /obj/random/junk,
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/carpet/red,
@@ -2484,10 +2484,10 @@
 /area/template_noop)
 "QZ" = (
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/slate/full,
 /area/template_noop)
 "Rm" = (
@@ -2497,7 +2497,7 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -2514,7 +2514,7 @@
 "Rr" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/dorms,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /turf/simulated/floor/wood/walnut,
@@ -2532,14 +2532,14 @@
 /obj/structure/bed/padded,
 /obj/item/bedsheet/dorms,
 /obj/random/plushie,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "Sl" = (
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
 /turf/simulated/floor/tiled,
@@ -2547,10 +2547,10 @@
 "Sm" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/wood/mahogany,
 /area/template_noop)
 "SH" = (
@@ -2566,7 +2566,7 @@
 	dir = 6
 	},
 /obj/effect/floor_decal/industrial/outline/red,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -2578,7 +2578,7 @@
 	pixel_x = -4;
 	pixel_y = 4
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -2589,7 +2589,7 @@
 	dir = 4
 	},
 /obj/random/junk,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
@@ -2599,7 +2599,7 @@
 	dir = 6
 	},
 /obj/effect/floor_decal/industrial/outline/red,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2607,7 +2607,7 @@
 "TW" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/dorms,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/wood/maple,
@@ -2616,10 +2616,10 @@
 /obj/structure/bed/stool/chair{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "UI" = (
@@ -2627,14 +2627,14 @@
 /obj/item/bedsheet/dorms,
 /obj/random/plushie,
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /turf/simulated/floor/wood/mahogany,
 /area/template_noop)
 "UX" = (
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /turf/simulated/floor/wood/maple,
@@ -2642,7 +2642,7 @@
 "UY" = (
 /obj/effect/decal/cleanable/draftingchalk/red,
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
@@ -2658,7 +2658,7 @@
 "Vl" = (
 /obj/random/pottedplant,
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -2666,14 +2666,14 @@
 "VD" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
 /turf/simulated/floor/wood/walnut,
 /area/template_noop)
 "VN" = (
 /obj/random/keg,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -2723,7 +2723,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2756,7 +2756,7 @@
 	dir = 1
 	},
 /obj/structure/table/rack,
-/obj/machinery/door/window{
+/obj/structure/machinery/door/window{
 	dir = 8
 	},
 /obj/item/clothing/suit/armor/carrier/ablative,
@@ -2770,7 +2770,7 @@
 /obj/random/pottedplant_small{
 	pixel_x = 2
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -2795,7 +2795,7 @@
 	pixel_y = 6
 	},
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /turf/simulated/floor/wood/maple,
@@ -2827,7 +2827,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/machinery/door/window{
+/obj/structure/machinery/door/window{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner_wide/paleblue{
@@ -2841,11 +2841,11 @@
 /area/template_noop)
 "Yb" = (
 /obj/random/junk,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -2858,22 +2858,22 @@
 "Yq" = (
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/random/dirt_75,
-/obj/machinery/alarm/south,
+/obj/structure/machinery/alarm/south,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "YJ" = (
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/wood/mahogany,
 /area/template_noop)
 "YN" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "Zg" = (

@@ -275,8 +275,8 @@
 	else
 		. = 80 * (1 - bodytemperature / species.cold_level_3)
 		. = max(20, .) //stasis factor range: 20 to 80 after rounding. irl cryonics ''achieves full stasis'' in bodies at 80K.
-	if(istype(loc, /obj/machinery/atmospherics/unary/cryo_cell))
-		var/obj/machinery/atmospherics/unary/cryo_cell/cryo = loc
+	if(istype(loc, /obj/structure/machinery/atmospherics/unary/cryo_cell))
+		var/obj/structure/machinery/atmospherics/unary/cryo_cell/cryo = loc
 		if(cryo.current_stasis_mult)
 			var/gcf_stasis_mult = cryo.current_stasis_mult
 			. = . * gcf_stasis_mult

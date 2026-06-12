@@ -2,8 +2,8 @@
 	name = "tank"
 	icon = 'icons/obj/tank.dmi'
 	contained_sprite = TRUE
-	drop_sound = 'sound/items/drop/gascan.ogg'
-	pickup_sound = 'sound/items/pickup/gascan.ogg'
+	drop_sound = 'sound/items/drop/gas_tank.ogg'
+	pickup_sound = 'sound/items/pickup/gas_tank.ogg'
 
 	var/gauge_icon = "indicator_tank"
 	var/last_gauge_pressure

@@ -79,5 +79,5 @@
 	base_area = /area/ship/freebooter_salvager/warehouse
 	base_turf = /turf/simulated/open
 
-/obj/machinery/computer/shuttle_control/multi/lift/freebooter_salvager
+/obj/structure/machinery/computer/shuttle_control/multi/lift/freebooter_salvager
 	shuttle_tag = "Freebooter Salvager Lift"

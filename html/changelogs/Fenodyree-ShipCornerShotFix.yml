@@ -1,0 +1,7 @@
+author: Fenodyree
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed ship projectiles spawning in the wrong places, when entering the map at the corners."
+  - bugfix: "Fixed ghosts being unable to jump to the target of a ship projectile."

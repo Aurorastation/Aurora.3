@@ -40,7 +40,7 @@
 	if(!istype(victim))
 		return
 	var/area/A = get_area(victim)
-	for(var/obj/machinery/cryopod/C in A)
+	for(var/obj/structure/machinery/cryopod/C in A)
 		if(!C.occupant)
 			C.set_occupant(victim, 1)
 			victim.Sleeping(3)
@@ -69,7 +69,7 @@
 	if(!istype(victim))
 		return
 	var/area/A = get_area(victim)
-	for(var/obj/machinery/cryopod/living_quarters/C in A)
+	for(var/obj/structure/machinery/cryopod/living_quarters/C in A)
 		if(!C.occupant)
 			C.set_occupant(victim, 1)
 			to_chat(victim, SPAN_NOTICE("You have arrived from the living quarters aboard the [SSatlas.current_map.station_name]."))
@@ -88,7 +88,7 @@
 	if(!istype(victim))
 		return
 	var/area/A = get_area(victim)
-	for(var/obj/machinery/cryopod/C in A)
+	for(var/obj/structure/machinery/cryopod/C in A)
 		if(!C.occupant)
 			C.set_occupant(victim, 1)
 			victim.Sleeping(3)

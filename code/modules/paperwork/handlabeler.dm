@@ -72,8 +72,8 @@
 	if(istype(A, /obj/item/reagent_containers/glass))
 		to_chat(user, SPAN_NOTICE("The label can't stick to the [A.name]. (Try using a pen!)"))
 		return
-	if(istype(A, /obj/machinery/portable_atmospherics/hydroponics))
-		var/obj/machinery/portable_atmospherics/hydroponics/tray = A
+	if(istype(A, /obj/structure/machinery/portable_atmospherics/hydroponics))
+		var/obj/structure/machinery/portable_atmospherics/hydroponics/tray = A
 		if(!tray.mechanical)
 			to_chat(user, SPAN_NOTICE("How are you going to label that?"))
 			return

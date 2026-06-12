@@ -54,7 +54,7 @@
 "aX" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/structure/bed/roller,
-/obj/machinery/iv_drip,
+/obj/structure/machinery/iv_drip,
 /obj/item/tank/oxygen,
 /obj/item/clothing/mask/breath/medical,
 /obj/effect/floor_decal/industrial/outline/red,
@@ -88,7 +88,7 @@
 	},
 /area/ouerea/ouerea_hegemony_base)
 "cr" = (
-/obj/machinery/vending/cola,
+/obj/structure/machinery/vending/cola,
 /obj/effect/floor_decal/corner_wide/red/diagonal,
 /turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
@@ -101,7 +101,7 @@
 	},
 /area/ouerea/ouerea_hegemony_base/outdoors)
 "cY" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/effect/floor_decal/concrete{
@@ -140,7 +140,7 @@
 	},
 /area/ouerea/ouerea_hegemony_base)
 "dT" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/structure/closet/secure_closet/guncabinet{
@@ -160,13 +160,13 @@
 /area/ouerea/ouerea_hegemony_base)
 "dW" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
-/obj/machinery/bodyscanner,
+/obj/structure/machinery/bodyscanner,
 /turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
 /area/ouerea/ouerea_hegemony_base)
 "ee" = (
-/obj/machinery/door/blast/shutters{
+/obj/structure/machinery/door/blast/shutters{
 	id = "hegemony_base_entry"
 	},
 /turf/simulated/floor/exoplanet/concrete{
@@ -188,7 +188,7 @@
 	},
 /area/ouerea/ouerea_hegemony_base/outdoors)
 "eR" = (
-/obj/machinery/door/airlock/security{
+/obj/structure/machinery/door/airlock/security{
 	name = "Armory";
 	req_access = list(113);
 	dir = 4
@@ -214,14 +214,14 @@
 	},
 /area/ouerea/ouerea_hegemony_base)
 "fR" = (
-/obj/machinery/light/colored/decayed,
+/obj/structure/machinery/light/colored/decayed,
 /obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
 /area/ouerea/ouerea_hegemony_base)
 "fS" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/grass{
@@ -279,7 +279,7 @@
 	},
 /area/ouerea/ouerea_hegemony_base/outdoors)
 "gN" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/grass{
@@ -348,7 +348,7 @@
 	},
 /area/ouerea/ouerea_hegemony_base)
 "iX" = (
-/obj/machinery/shower{
+/obj/structure/machinery/shower{
 	dir = 8
 	},
 /obj/structure/curtain/open/shower,
@@ -357,7 +357,7 @@
 	},
 /area/ouerea/ouerea_hegemony_base)
 "jz" = (
-/obj/machinery/door/airlock/command{
+/obj/structure/machinery/door/airlock/command{
 	name = "Captain's Quarters";
 	req_one_access = list(113);
 	dir = 4
@@ -376,7 +376,7 @@
 	},
 /area/ouerea/ouerea_hegemony_base/outdoors)
 "jV" = (
-/obj/machinery/door/urban{
+/obj/structure/machinery/door/urban{
 	dir = 4;
 	pixel_x = -28
 	},
@@ -415,7 +415,7 @@
 	},
 /area/ouerea/ouerea_hegemony_base)
 "mz" = (
-/obj/machinery/photocopier/faxmachine{
+/obj/structure/machinery/photocopier/faxmachine{
 	department = "Hegemony Base"
 	},
 /obj/structure/table/wood,
@@ -466,7 +466,7 @@
 /area/ouerea/ouerea_hegemony_base)
 "ot" = (
 /obj/effect/floor_decal/corner_wide/red/diagonal,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/concrete/square{
@@ -474,7 +474,7 @@
 	},
 /area/ouerea/ouerea_hegemony_base)
 "oM" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/grass{
@@ -534,7 +534,7 @@
 "qQ" = (
 /obj/structure/bed,
 /obj/item/bedsheet/black,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/concrete/square{
@@ -588,7 +588,7 @@
 /area/ouerea/ouerea_hegemony_base)
 "ta" = (
 /obj/structure/closet/secure_closet/cabinet,
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 4
 	},
 /obj/item/clothing/under/unathi/mogazali,
@@ -605,7 +605,7 @@
 /turf/simulated/floor/exoplanet/carpet/red,
 /area/ouerea/ouerea_hegemony_base)
 "th" = (
-/obj/machinery/light/colored/decayed,
+/obj/structure/machinery/light/colored/decayed,
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/structure/table/steel,
 /obj/structure/roller_rack,
@@ -618,7 +618,7 @@
 /area/ouerea/ouerea_hegemony_base)
 "tu" = (
 /obj/effect/floor_decal/corner_wide/red/diagonal,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/concrete/square{
@@ -626,11 +626,11 @@
 	},
 /area/ouerea/ouerea_hegemony_base)
 "tv" = (
-/obj/machinery/recharger/wallcharger{
+/obj/structure/machinery/recharger/wallcharger{
 	pixel_x = 32;
 	pixel_y = -8
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/structure/machinery/recharger/wallcharger{
 	pixel_x = 4;
 	pixel_y = 32
 	},
@@ -662,7 +662,7 @@
 	},
 /area/ouerea/ouerea_hegemony_base)
 "tL" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/exoplanet/grass{
 	temperature = 298.15
 	},
@@ -686,7 +686,7 @@
 /area/ouerea/ouerea_hegemony_base)
 "uG" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
-/obj/machinery/iv_drip,
+/obj/structure/machinery/iv_drip,
 /obj/item/clothing/mask/breath/medical,
 /obj/item/tank/oxygen,
 /obj/effect/floor_decal/industrial/outline/red,
@@ -698,13 +698,13 @@
 /obj/structure/closet/crate{
 	name = "footlocker"
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/ouerea/ouerea_hegemony_base)
 "vD" = (
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	req_access = list(113);
 	name = "Barracks";
 	dir = 4
@@ -760,7 +760,7 @@
 /area/ouerea/ouerea_hegemony_base/outdoors)
 "xo" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
-/obj/machinery/door/airlock/medical{
+/obj/structure/machinery/door/airlock/medical{
 	name = "Healer's Bay";
 	dir = 4
 	},
@@ -789,7 +789,7 @@
 /area/ouerea/ouerea_hegemony_base)
 "xQ" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
-/obj/machinery/body_scanconsole{
+/obj/structure/machinery/body_scanconsole{
 	dir = 1;
 	pixel_y = 6
 	},
@@ -860,7 +860,7 @@
 	},
 /area/ouerea/ouerea_hegemony_base)
 "zZ" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/tiled/white{
@@ -873,7 +873,7 @@
 	},
 /area/ouerea/ouerea_hegemony_base)
 "AZ" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/effect/floor_decal/concrete{
 	dir = 5
 	},
@@ -899,7 +899,7 @@
 /obj/effect/floor_decal/concrete{
 	dir = 6
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/concrete{
@@ -916,7 +916,7 @@
 	},
 /area/ouerea/ouerea_hegemony_base/outdoors)
 "BJ" = (
-/obj/machinery/door/blast/shutters{
+/obj/structure/machinery/door/blast/shutters{
 	id = "hegemony_base_entry"
 	},
 /obj/effect/floor_decal/concrete{
@@ -928,7 +928,7 @@
 /area/ouerea/ouerea_hegemony_base)
 "BT" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
-/obj/machinery/optable,
+/obj/structure/machinery/optable,
 /turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
@@ -952,7 +952,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/concrete,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -999,7 +999,7 @@
 	},
 /area/ouerea/ouerea_hegemony_base)
 "Ez" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /obj/effect/floor_decal/concrete{
@@ -1069,21 +1069,21 @@
 	},
 /area/ouerea/ouerea_hegemony_base)
 "GA" = (
-/obj/machinery/vending/coffee,
+/obj/structure/machinery/vending/coffee,
 /obj/effect/floor_decal/corner_wide/red/diagonal,
 /turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/ouerea/ouerea_hegemony_base)
 "GN" = (
-/obj/machinery/hologram/holopad,
+/obj/structure/machinery/hologram/holopad,
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 303.15
 	},
 /area/ouerea/ouerea_hegemony_base)
 "GV" = (
 /obj/structure/window/reinforced,
-/obj/machinery/door/window{
+/obj/structure/machinery/door/window{
 	dir = 4;
 	req_access = list(113)
 	},
@@ -1093,7 +1093,7 @@
 /area/ouerea/ouerea_hegemony_base)
 "GW" = (
 /obj/effect/floor_decal/corner_wide/red/diagonal,
-/obj/machinery/door/airlock/security{
+/obj/structure/machinery/door/airlock/security{
 	name = "Briefing Room";
 	req_access = list(113)
 	},
@@ -1108,7 +1108,7 @@
 /obj/effect/floor_decal/concrete{
 	dir = 8
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/concrete{
@@ -1184,7 +1184,7 @@
 	},
 /area/ouerea/ouerea_hegemony_base/outdoors)
 "JL" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/yellow{
@@ -1226,14 +1226,14 @@
 	},
 /area/ouerea/ouerea_hegemony_base)
 "Km" = (
-/obj/machinery/light/colored/decayed,
+/obj/structure/machinery/light/colored/decayed,
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 303.15
 	},
 /area/ouerea/ouerea_hegemony_base)
 "KO" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/concrete{
@@ -1249,7 +1249,7 @@
 	},
 /area/ouerea/ouerea_hegemony_base)
 "Lm" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = list(113);
 	name = "body armor cabinet"
@@ -1307,7 +1307,7 @@
 	},
 /area/ouerea/ouerea_hegemony_base)
 "MJ" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /obj/structure/closet/secure_closet{
@@ -1318,7 +1318,7 @@
 	},
 /area/ouerea/ouerea_hegemony_base)
 "MP" = (
-/obj/machinery/door/airlock/security{
+/obj/structure/machinery/door/airlock/security{
 	name = "Checkpoint";
 	req_access = list(113)
 	},
@@ -1327,7 +1327,7 @@
 	},
 /area/ouerea/ouerea_hegemony_base)
 "NH" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/concrete{
@@ -1350,7 +1350,7 @@
 	},
 /area/ouerea/ouerea_hegemony_base)
 "Ol" = (
-/obj/machinery/door/airlock/security{
+/obj/structure/machinery/door/airlock/security{
 	name = "Brig";
 	req_one_access = list(113)
 	},
@@ -1422,7 +1422,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/concrete,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/concrete{
@@ -1436,7 +1436,7 @@
 	},
 /area/ouerea/ouerea_hegemony_base/outdoors)
 "QX" = (
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 1
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -1491,7 +1491,7 @@
 	},
 /area/ouerea/ouerea_hegemony_base)
 "Tu" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
 	},
@@ -1501,13 +1501,13 @@
 /area/ouerea/ouerea_hegemony_base)
 "TI" = (
 /obj/structure/table/steel,
-/obj/machinery/door/window{
+/obj/structure/machinery/door/window{
 	dir = 8;
 	req_access = list(113)
 	},
 /obj/item/paper_bin,
 /obj/item/pen/black,
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	id = "hegemony_base_entry";
 	name = "Entry";
 	req_access = list(113);
@@ -1588,12 +1588,12 @@
 	},
 /area/ouerea/ouerea_hegemony_base/outdoors)
 "Vu" = (
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/structure/bed/roller,
-/obj/machinery/iv_drip,
+/obj/structure/machinery/iv_drip,
 /obj/item/tank/oxygen,
 /obj/item/clothing/mask/breath/medical,
 /obj/effect/floor_decal/industrial/outline/red,
@@ -1602,11 +1602,11 @@
 	},
 /area/ouerea/ouerea_hegemony_base)
 "VG" = (
-/obj/machinery/recharger/wallcharger{
+/obj/structure/machinery/recharger/wallcharger{
 	pixel_x = 32;
 	pixel_y = -8
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/structure/machinery/recharger/wallcharger{
 	pixel_y = -30;
 	pixel_x = 4
 	},
@@ -1629,13 +1629,13 @@
 /area/ouerea/ouerea_hegemony_base)
 "Wa" = (
 /obj/structure/table/steel,
-/obj/machinery/door/window{
+/obj/structure/machinery/door/window{
 	dir = 4;
 	req_access = list(113)
 	},
 /obj/item/paper_bin,
 /obj/item/pen/black,
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	id = "hegemony_base_entry";
 	name = "Entry";
 	req_access = list(113);
@@ -1647,7 +1647,7 @@
 	},
 /area/ouerea/ouerea_hegemony_base)
 "Wj" = (
-/obj/machinery/door/blast/shutters{
+/obj/structure/machinery/door/blast/shutters{
 	id = "hegemony_base_entry"
 	},
 /obj/effect/floor_decal/concrete{
@@ -1690,7 +1690,7 @@
 	},
 /area/ouerea/ouerea_hegemony_base)
 "XB" = (
-/obj/machinery/vending/snack,
+/obj/structure/machinery/vending/snack,
 /obj/effect/floor_decal/corner_wide/red/diagonal,
 /turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
@@ -1730,7 +1730,7 @@
 /obj/structure/closet/crate{
 	name = "footlocker"
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/concrete/square{
@@ -1747,7 +1747,7 @@
 /obj/effect/floor_decal/concrete{
 	dir = 9
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/concrete{
@@ -1755,7 +1755,7 @@
 	},
 /area/ouerea/ouerea_hegemony_base/outdoors)
 "ZI" = (
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,

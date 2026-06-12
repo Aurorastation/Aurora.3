@@ -20,7 +20,7 @@
 "aR" = (
 /obj/item/storage/toolbox/mechanical,
 /obj/effect/floor_decal/industrial/outline/red,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/asphalt,
@@ -66,7 +66,7 @@
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/konyang/garage)
 "dh" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/lino,
@@ -88,7 +88,7 @@
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/konyang/garage)
 "dz" = (
-/obj/machinery/door/urban{
+/obj/structure/machinery/door/urban{
 	dir = 4
 	},
 /obj/effect/decal/exterior_stairs/half/center{
@@ -101,7 +101,7 @@
 /turf/simulated/floor/exoplanet/asphalt,
 /area/konyang/garage)
 "eI" = (
-/obj/machinery/door/window/southright{
+/obj/structure/machinery/door/window/southright{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/lino,
@@ -188,15 +188,15 @@
 /turf/simulated/floor/exoplanet/asphalt,
 /area/konyang/garage)
 "jm" = (
-/obj/machinery/fabricator/autolathe/hacked,
-/obj/machinery/light{
+/obj/structure/machinery/fabricator/autolathe/hacked,
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/asphalt,
 /area/konyang/garage)
 "jy" = (
 /obj/structure/bed/stool/chair/office/light,
-/obj/machinery/light_switch{
+/obj/structure/machinery/light_switch{
 	dir = 1;
 	pixel_y = 26;
 	pixel_x = -5
@@ -212,7 +212,7 @@
 /turf/simulated/floor/exoplanet/asphalt,
 /area/konyang/garage)
 "jW" = (
-/obj/machinery/papershredder{
+/obj/structure/machinery/papershredder{
 	pixel_x = -6
 	},
 /obj/structure/filingcabinet/filingcabinet{
@@ -250,7 +250,7 @@
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/exoplanet/grass/konyang)
 "ld" = (
-/obj/machinery/door/blast/shutters/open,
+/obj/structure/machinery/door/blast/shutters/open,
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
 	},
@@ -262,14 +262,14 @@
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 1
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/asphalt,
 /area/konyang/garage)
 "mT" = (
 /obj/random/dirt_75,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/lino,
@@ -302,7 +302,7 @@
 /turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "nM" = (
-/obj/machinery/door/blast/shutters/open,
+/obj/structure/machinery/door/blast/shutters/open,
 /obj/effect/decal/curb{
 	dir = 8
 	},
@@ -313,7 +313,7 @@
 /turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "on" = (
-/obj/machinery/door/blast/shutters/open,
+/obj/structure/machinery/door/blast/shutters/open,
 /obj/effect/decal/curb{
 	dir = 8
 	},
@@ -415,7 +415,7 @@
 /turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "sC" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /obj/structure/bed/stool/chair/office/light{
@@ -544,11 +544,11 @@
 /turf/simulated/wall/r_wall,
 /area/konyang/garage)
 "CM" = (
-/obj/machinery/door/window/southright,
+/obj/structure/machinery/door/window/southright,
 /turf/simulated/floor/exoplanet/lino,
 /area/konyang/garage)
 "Ea" = (
-/obj/machinery/door/urban,
+/obj/structure/machinery/door/urban,
 /turf/simulated/floor/exoplanet/lino,
 /area/konyang/garage)
 "Ek" = (
@@ -678,7 +678,7 @@
 /turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "KX" = (
-/obj/machinery/door/blast/shutters/open,
+/obj/structure/machinery/door/blast/shutters/open,
 /obj/effect/floor_decal/industrial/loading/yellow,
 /turf/simulated/floor/exoplanet/asphalt,
 /area/konyang/garage)
@@ -801,7 +801,7 @@
 /turf/simulated/floor/exoplanet/konyang,
 /area/exoplanet/grass/konyang)
 "RH" = (
-/obj/machinery/door/blast/shutters/open,
+/obj/structure/machinery/door/blast/shutters/open,
 /obj/effect/decal/curb{
 	dir = 4
 	},
@@ -821,7 +821,7 @@
 "SE" = (
 /obj/item/weldingtool/emergency,
 /obj/effect/floor_decal/industrial/warning,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/asphalt,
@@ -882,7 +882,7 @@
 /obj/effect/decal/curb{
 	dir = 1
 	},
-/obj/machinery/floodlight/randomcharge,
+/obj/structure/machinery/floodlight/randomcharge,
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/exoplanet/grass/konyang)
 "Xl" = (
@@ -908,7 +908,7 @@
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/exoplanet/grass/konyang)
 "Zm" = (
-/obj/machinery/door/blast/shutters/open,
+/obj/structure/machinery/door/blast/shutters/open,
 /obj/effect/decal/curb{
 	dir = 4
 	},

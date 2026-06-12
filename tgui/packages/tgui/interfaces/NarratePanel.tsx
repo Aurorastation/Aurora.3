@@ -1,13 +1,13 @@
-import { useBackend, useLocalState } from '../backend';
 import {
   Button,
   Divider,
+  Dropdown,
   Input,
   LabeledList,
   NumberInput,
   Section,
-} from '../components';
-import { Dropdown } from '../components/Dropdown';
+} from 'tgui-core/components';
+import { useBackend, useLocalState } from '../backend';
 import { Window } from '../layouts';
 
 export type NarrateData = {
@@ -16,41 +16,23 @@ export type NarrateData = {
   narrate_filters: string[];
 };
 
-export const NarratePanel = (props, context) => {
-  const { act, data } = useBackend<NarrateData>(context);
-  const [narrateText, setNarrateText] = useLocalState(
-    context,
-    'narrateText',
-    '',
-  );
-  const [narrateSize, setNarrateSize] = useLocalState(
-    context,
-    'narrateSize',
-    2,
-  );
-  const [narrateRange, setNarrateRange] = useLocalState(
-    context,
-    'narrateRange',
-    7,
-  );
-  const [narrateStyle, setNarrateStyle] = useLocalState(
-    context,
-    'textStyle',
-    'notice',
-  );
+export const NarratePanel = (props) => {
+  const { act, data } = useBackend<NarrateData>();
+  const [narrateText, setNarrateText] = useLocalState('narrateText', '');
+  const [narrateSize, setNarrateSize] = useLocalState('narrateSize', 2);
+  const [narrateRange, setNarrateRange] = useLocalState('narrateRange', 7);
+  const [narrateStyle, setNarrateStyle] = useLocalState('textStyle', 'notice');
   const [narrateLocation, setNarrateLocation] = useLocalState(
-    context,
     'narrateLocation',
     'View',
   );
   const [narrateFilter, setNarrateFilter] = useLocalState(
-    context,
     'narrateFilter',
     'None',
   );
 
   return (
-    <Window resizable theme="admin" width={600} height={300}>
+    <Window theme="admin" width={600} height={300}>
       <Window.Content scrollable>
         <Section
           title="Narrate Panel"
@@ -75,9 +57,8 @@ export const NarratePanel = (props, context) => {
         >
           <Input
             fluid
-            strict
             placeholder="Input your narration here..."
-            onInput={(e, value) => setNarrateText(value)}
+            onBlur={(value) => setNarrateText(value)}
             selfClear
             autoFocus
             autoSelect
@@ -92,7 +73,7 @@ export const NarratePanel = (props, context) => {
                 unit="px"
                 step={1}
                 stepPixelSize={10}
-                onDrag={(e, value) => setNarrateSize(value)}
+                onChange={(value) => setNarrateSize(value)}
               />
             </LabeledList.Item>
             <LabeledList.Item label="Narrate Range">
@@ -103,7 +84,7 @@ export const NarratePanel = (props, context) => {
                 unit="tiles"
                 step={1}
                 stepPixelSize={3}
-                onDrag={(e, value) => setNarrateRange(value)}
+                onChange={(value) => setNarrateRange(value)}
               />
             </LabeledList.Item>
             <LabeledList.Item label="Style">
@@ -111,6 +92,7 @@ export const NarratePanel = (props, context) => {
                 options={data.narrate_styles}
                 displayText={narrateStyle}
                 width="50%"
+                selected={data.narrate_styles[1]}
                 onSelected={(value) => setNarrateStyle(value)}
               />
             </LabeledList.Item>

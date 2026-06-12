@@ -1,12 +1,12 @@
-import { BooleanLike } from '../../common/react';
-import { useBackend } from '../backend';
 import {
   Button,
   LabeledList,
   ProgressBar,
   Section,
   Table,
-} from '../components';
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
+import { useBackend } from '../backend';
 import { Window } from '../layouts';
 
 type OmniMixerData = {
@@ -28,8 +28,8 @@ type PortEntry = {
   con_lock: BooleanLike;
 };
 
-export const OmniMixer = (props, context) => {
-  const { act, data } = useBackend<OmniMixerData>(context);
+export const OmniMixer = (props) => {
+  const { act, data } = useBackend<OmniMixerData>();
 
   return (
     <Window

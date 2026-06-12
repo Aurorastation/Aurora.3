@@ -15,7 +15,7 @@
 
 /mob/abstract/ghost/DblClickOn(var/atom/A, var/params)
 	// Things you might plausibly want to follow
-	if((ismob(A) && A != src) || istype(A,/obj/machinery/bot) || istype(A,/obj/singularity))
+	if((ismob(A) && A != src) || istype(A,/obj/structure/machinery/bot) || istype(A,/obj/singularity))
 		ManualFollow(A)
 
 	// Otherwise jump
@@ -40,7 +40,7 @@
 // And here are some good things for free:
 // Now you can click through portals, wormholes, gateways, and teleporters while observing. -Sayu
 
-/obj/machinery/teleport/pad/attack_ghost(mob/user)
+/obj/structure/machinery/teleport/pad/attack_ghost(mob/user)
 	if(locked_obj)
 		var/obj/teleport_obj = locked_obj.resolve()
 		if(teleport_obj)
@@ -50,13 +50,13 @@
 	if(target)
 		user.forceMove(get_turf(target))
 
-/obj/machinery/gateway/centerstation/attack_ghost(mob/user)
+/obj/structure/machinery/gateway/centerstation/attack_ghost(mob/user)
 	if(awaygate)
 		user.forceMove(awaygate.loc)
 	else
 		to_chat(user, "[src] has no destination.")
 
-/obj/machinery/gateway/centeraway/attack_ghost(mob/user)
+/obj/structure/machinery/gateway/centeraway/attack_ghost(mob/user)
 	if(stationgate)
 		user.forceMove(stationgate.loc)
 	else

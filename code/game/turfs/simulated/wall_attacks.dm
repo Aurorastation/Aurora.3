@@ -139,7 +139,7 @@
 					WR.scrape(user)
 				return
 		else if(attacking_item.force >= 10)
-			user.do_attack_animation(src, attacking_item)
+			user.do_attack_animation(src, used_item = attacking_item)
 			to_chat(user, SPAN_NOTICE("\The [src] crumbles away under the force of your [attacking_item]."))
 			dismantle_wall(TRUE)
 			return

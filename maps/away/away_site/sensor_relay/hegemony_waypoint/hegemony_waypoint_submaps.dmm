@@ -1,14 +1,14 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "al" = (
 /obj/effect/floor_decal/corner_wide/brown/diagonal,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/hegemony_waypoint/eva)
 "ap" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider,
-/obj/machinery/door/blast/shutters/open{
+/obj/structure/machinery/door/blast/shutters/open{
 	dir = 4;
 	id = "hegemony_waypoint_hydroponics"
 	},
@@ -19,7 +19,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/empty/north{
+/obj/structure/machinery/power/apc/empty/north{
 	req_access = null
 	},
 /obj/random/dirt_75,
@@ -49,14 +49,14 @@
 /area/hegemony_waypoint/hydroponics)
 "bs" = (
 /obj/effect/floor_decal/industrial/hatch/grey,
-/obj/machinery/door/airlock/service{
+/obj/structure/machinery/door/airlock/service{
 	dir = 4;
 	name = "Shrine"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -64,25 +64,25 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/hegemony_waypoint/shrine)
 "bv" = (
-/obj/machinery/appliance/cooker/stove,
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/appliance/cooker/stove,
+/obj/structure/machinery/light/colored/decayed{
 	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/hegemony_waypoint/kitchen)
 "bX" = (
 /obj/effect/floor_decal/corner/yellow/diagonal,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -97,10 +97,10 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/hegemony_waypoint/kitchen)
 "bY" = (
-/obj/machinery/atmospherics/binary/pump/scrubber/on{
+/obj/structure/machinery/atmospherics/binary/pump/scrubber/on{
 	dir = 4
 	},
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 1
 	},
 /obj/random/dirt_75,
@@ -136,7 +136,7 @@
 /area/hegemony_waypoint/bunks)
 "dd" = (
 /obj/effect/floor_decal/corner_wide/brown/diagonal,
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 1
 	},
 /obj/structure/dispenser/oxygen,
@@ -144,7 +144,7 @@
 /area/hegemony_waypoint/eva)
 "dy" = (
 /obj/effect/floor_decal/corner/yellow/diagonal,
-/obj/machinery/light/colored/decayed,
+/obj/structure/machinery/light/colored/decayed,
 /obj/random/junk{
 	pixel_y = 15;
 	pixel_x = 8
@@ -153,7 +153,7 @@
 /area/hegemony_waypoint/kitchen)
 "dA" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider,
-/obj/machinery/door/blast/shutters{
+/obj/structure/machinery/door/blast/shutters{
 	id = "hegemony_waypoint_shrine";
 	dir = 4
 	},
@@ -161,11 +161,11 @@
 /area/hegemony_waypoint/shrine)
 "dP" = (
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /obj/structure/cable/green,
-/obj/machinery/power/apc/empty/east{
+/obj/structure/machinery/power/apc/empty/east{
 	req_access = null
 	},
 /obj/random/dirt_75,
@@ -187,8 +187,8 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
 /obj/structure/cable/green{
@@ -214,7 +214,7 @@
 /area/hegemony_waypoint/kitchen)
 "eA" = (
 /obj/structure/table/steel,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /obj/item/binoculars{
@@ -222,7 +222,7 @@
 	pixel_x = -4
 	},
 /obj/item/lore_radio,
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	dir = 4;
 	id = "hegemony_waypoint_living quarters";
 	name = "Quarters Shutters";
@@ -238,8 +238,8 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
 /obj/structure/cable/green{
@@ -255,7 +255,7 @@
 /area/hegemony_waypoint/atmos)
 "fr" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider,
-/obj/machinery/door/blast/shutters/open{
+/obj/structure/machinery/door/blast/shutters/open{
 	dir = 4;
 	id = "hegemony_waypoint_shrine"
 	},
@@ -263,14 +263,14 @@
 /area/hegemony_waypoint/shrine)
 "gf" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider,
-/obj/machinery/door/blast/shutters/open{
+/obj/structure/machinery/door/blast/shutters/open{
 	dir = 4;
 	id = "hegemony_waypoint_living quarters"
 	},
 /turf/simulated/floor/plating,
 /area/hegemony_waypoint/bunks)
 "gh" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
 /obj/item/material/shard{
@@ -291,23 +291,23 @@
 "gY" = (
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/random/dirt_75,
-/obj/machinery/portable_atmospherics/canister/air,
+/obj/structure/machinery/portable_atmospherics/canister/air,
 /turf/simulated/floor,
 /area/hegemony_waypoint/atmos)
 "hq" = (
 /obj/effect/floor_decal/corner_wide/brown/diagonal,
 /obj/random/dirt_75,
-/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/structure/machinery/portable_atmospherics/canister/oxygen,
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled/techfloor,
 /area/hegemony_waypoint/eva)
 "hu" = (
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /obj/structure/cable/green,
-/obj/machinery/power/apc/empty/east{
+/obj/structure/machinery/power/apc/empty/east{
 	req_access = null
 	},
 /obj/random/dirt_75,
@@ -315,11 +315,11 @@
 /area/hegemony_waypoint/shrine)
 "hP" = (
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
-/obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/machinery/alarm/east{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/alarm/east{
 	req_one_access = null
 	},
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	dir = 10;
 	pixel_y = 28;
 	id = "hegemony_waypoint_shrine";
@@ -343,23 +343,23 @@
 /turf/simulated/floor/tiled/steel/airless,
 /area/hegemony_waypoint/kitchen)
 "iG" = (
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 8
 	},
 /obj/random/dirt_75,
-/obj/machinery/seed_extractor,
+/obj/structure/machinery/seed_extractor,
 /turf/simulated/floor/tiled/techfloor,
 /area/hegemony_waypoint/hydroponics)
 "jp" = (
 /obj/effect/floor_decal/corner/yellow/diagonal,
-/obj/machinery/alarm/south{
+/obj/structure/machinery/alarm/south{
 	req_one_access = null
 	},
 /turf/simulated/floor/tiled/gridded,
 /area/hegemony_waypoint/kitchen)
 "js" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider,
-/obj/machinery/door/blast/shutters/open{
+/obj/structure/machinery/door/blast/shutters/open{
 	dir = 4;
 	id = "hegemony_waypoint_kitchen"
 	},
@@ -373,20 +373,20 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/hegemony_waypoint/bunks)
 "jJ" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/empty/north{
+/obj/structure/machinery/power/apc/empty/north{
 	req_access = null
 	},
 /obj/random/dirt_75,
-/obj/machinery/vending/hydronutrients,
+/obj/structure/machinery/vending/hydronutrients,
 /turf/simulated/floor/tiled/techfloor,
 /area/hegemony_waypoint/hydroponics)
 "jN" = (
 /obj/effect/floor_decal/corner/yellow/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
 /obj/structure/table,
@@ -400,7 +400,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /obj/structure/table/steel,
@@ -414,7 +414,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/empty/north{
+/obj/structure/machinery/power/apc/empty/north{
 	req_access = null
 	},
 /turf/simulated/floor/tiled/gridded,
@@ -422,7 +422,7 @@
 "kt" = (
 /obj/effect/floor_decal/corner_wide/brown/diagonal,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light/colored/decayed,
+/obj/structure/machinery/light/colored/decayed,
 /obj/random/dirt_75,
 /obj/structure/closet/crate,
 /obj/random/loot,
@@ -440,7 +440,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/universal,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/universal,
 /obj/random/dirt_75,
 /obj/structure/table/steel,
 /obj/item/tape_roll{
@@ -450,10 +450,10 @@
 /turf/simulated/floor/tiled/gridded,
 /area/hegemony_waypoint/atmos)
 "kS" = (
-/obj/machinery/atmospherics/binary/passive_gate/on{
+/obj/structure/machinery/atmospherics/binary/passive_gate/on{
 	dir = 8
 	},
-/obj/machinery/light/colored/decayed,
+/obj/structure/machinery/light/colored/decayed,
 /obj/random/dirt_75,
 /turf/simulated/floor,
 /area/hegemony_waypoint/atmos)
@@ -464,10 +464,10 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/hegemony_waypoint/eva)
 "lA" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -485,17 +485,17 @@
 /turf/simulated/floor/carpet/rubber,
 /area/hegemony_waypoint/kitchen)
 "lR" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
 /turf/simulated/wall/shuttle/raider,
 /area/hegemony_waypoint/atmos)
 "ma" = (
 /obj/effect/floor_decal/corner/yellow/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -519,13 +519,13 @@
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/hegemony_waypoint/kitchen)
 "mo" = (
-/obj/machinery/vending/dinnerware,
+/obj/structure/machinery/vending/dinnerware,
 /obj/effect/floor_decal/industrial/outline/service,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/hegemony_waypoint/kitchen)
 "mp" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider,
-/obj/machinery/door/blast/shutters/open{
+/obj/structure/machinery/door/blast/shutters/open{
 	dir = 2;
 	id = "hegemony_waypoint_kitchen"
 	},
@@ -533,10 +533,10 @@
 /area/hegemony_waypoint/kitchen)
 "mr" = (
 /obj/effect/floor_decal/corner/black/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
 /obj/structure/cable/green{
@@ -556,7 +556,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/yellow/diagonal,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -569,7 +569,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/empty/north{
+/obj/structure/machinery/power/apc/empty/north{
 	req_access = null
 	},
 /obj/random/dirt_75,
@@ -609,12 +609,12 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/universal,
-/obj/machinery/fabricator/autolathe,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/universal,
+/obj/structure/machinery/fabricator/autolathe,
 /turf/simulated/floor/tiled/gridded,
 /area/hegemony_waypoint/atmos)
 "nm" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
 /obj/random/dirt_75,
@@ -642,7 +642,7 @@
 /area/hegemony_waypoint/eva)
 "nt" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider,
-/obj/machinery/door/blast/shutters{
+/obj/structure/machinery/door/blast/shutters{
 	id = "hegemony_waypoint_shrine"
 	},
 /turf/simulated/floor/plating,
@@ -661,10 +661,10 @@
 /area/hegemony_waypoint/shrine)
 "nW" = (
 /obj/effect/floor_decal/corner/black/diagonal,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -682,14 +682,14 @@
 /turf/simulated/floor/tiled/white/airless,
 /area/hegemony_waypoint/kitchen)
 "nX" = (
-/obj/machinery/seed_storage/garden,
+/obj/structure/machinery/seed_storage/garden,
 /turf/simulated/floor/tiled/techfloor,
 /area/hegemony_waypoint/hydroponics)
 "oL" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /obj/structure/cable/green{
@@ -702,10 +702,10 @@
 /area/hegemony_waypoint/hydroponics)
 "oO" = (
 /obj/effect/floor_decal/corner/yellow/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -719,10 +719,10 @@
 /area/hegemony_waypoint/bunks)
 "pd" = (
 /obj/effect/floor_decal/corner/black/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -735,7 +735,7 @@
 /area/hegemony_waypoint/kitchen)
 "pe" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider,
-/obj/machinery/door/blast/shutters{
+/obj/structure/machinery/door/blast/shutters{
 	id = "hegemony_waypoint_living quarters";
 	dir = 4
 	},
@@ -745,8 +745,8 @@
 /turf/template_noop,
 /area/space)
 "pC" = (
-/obj/machinery/portable_atmospherics/canister/air,
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/portable_atmospherics/canister/air,
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -763,7 +763,7 @@
 	pixel_y = 9
 	},
 /obj/random/dirt_75,
-/obj/machinery/power/apc/empty/north{
+/obj/structure/machinery/power/apc/empty/north{
 	req_access = null
 	},
 /turf/simulated/floor/tiled/steel/airless,
@@ -791,17 +791,17 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/hegemony_waypoint/eva)
 "qt" = (
-/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/structure/machinery/portable_atmospherics/canister/oxygen,
 /obj/effect/floor_decal/corner_wide/brown/diagonal,
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/hegemony_waypoint/eva)
 "qH" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider,
-/obj/machinery/door/blast/shutters/open{
+/obj/structure/machinery/door/blast/shutters/open{
 	dir = 4;
 	id = "hegemony_waypoint_atmospherics"
 	},
@@ -810,11 +810,11 @@
 "qL" = (
 /obj/effect/floor_decal/corner_wide/brown/diagonal,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/suit_storage_unit/standard_unit,
+/obj/structure/machinery/suit_storage_unit/standard_unit,
 /turf/simulated/floor/tiled/steel/airless,
 /area/hegemony_waypoint/eva)
 "rq" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
 	level = 2
 	},
@@ -836,10 +836,10 @@
 /turf/simulated/floor/tiled/steel/airless,
 /area/hegemony_waypoint/kitchen)
 "rC" = (
-/obj/machinery/alarm/north{
+/obj/structure/machinery/alarm/north{
 	req_one_access = null
 	},
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	dir = 4;
 	id = "hegemony_waypoint_eva";
 	name = "Storage Shutters";
@@ -858,15 +858,15 @@
 /area/hegemony_waypoint/eva)
 "se" = (
 /obj/effect/floor_decal/industrial/hatch/grey,
-/obj/machinery/door/airlock/service{
+/obj/structure/machinery/door/airlock/service{
 	dir = 4;
 	name = "Kitchen";
 	welded = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -874,7 +874,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -882,10 +882,10 @@
 /area/hegemony_waypoint/kitchen)
 "sf" = (
 /obj/effect/floor_decal/corner/yellow/diagonal,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /obj/structure/cable/green{
@@ -911,18 +911,18 @@
 /obj/item/stack/rods{
 	pixel_x = 8
 	},
-/obj/machinery/door/blast/shutters{
+/obj/structure/machinery/door/blast/shutters{
 	id = "hegemony_waypoint_hydroponics";
 	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/hegemony_waypoint/hydroponics)
 "sl" = (
-/obj/machinery/portable_atmospherics/hydroponics{
+/obj/structure/machinery/portable_atmospherics/hydroponics{
 	closed_system = 1
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -931,7 +931,7 @@
 "sC" = (
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/generic,
-/obj/machinery/portable_atmospherics/hydroponics{
+/obj/structure/machinery/portable_atmospherics/hydroponics{
 	closed_system = 1
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -979,10 +979,10 @@
 /area/hegemony_waypoint/shrine)
 "to" = (
 /obj/effect/floor_decal/corner/black/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -1011,10 +1011,10 @@
 /area/hegemony_waypoint/kitchen)
 "tq" = (
 /obj/effect/floor_decal/industrial/hatch/grey,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -1030,7 +1030,7 @@
 /area/hegemony_waypoint/kitchen)
 "ts" = (
 /obj/effect/floor_decal/corner/yellow/diagonal,
-/obj/machinery/alarm/south{
+/obj/structure/machinery/alarm/south{
 	req_one_access = null
 	},
 /obj/item/ore/glass{
@@ -1047,10 +1047,10 @@
 "tv" = (
 /obj/effect/floor_decal/corner_wide/brown/diagonal,
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 1
 	},
-/obj/machinery/portable_atmospherics/canister/empty/oxygen{
+/obj/structure/machinery/portable_atmospherics/canister/empty/oxygen{
 	destroyed = 1
 	},
 /turf/simulated/floor/tiled/steel/airless,
@@ -1060,7 +1060,7 @@
 /obj/structure/curtain/open/bed,
 /obj/effect/floor_decal/corner/yellow/diagonal,
 /obj/item/bedsheet/red,
-/obj/machinery/alarm/north{
+/obj/structure/machinery/alarm/north{
 	req_one_access = null
 	},
 /turf/simulated/floor/tiled,
@@ -1071,7 +1071,7 @@
 /area/hegemony_waypoint/hydroponics)
 "tD" = (
 /obj/effect/floor_decal/corner/yellow/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
 /obj/random/junk{
@@ -1088,7 +1088,7 @@
 /area/hegemony_waypoint/kitchen)
 "tG" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider,
-/obj/machinery/door/blast/shutters{
+/obj/structure/machinery/door/blast/shutters{
 	id = "hegemony_waypoint_atmospherics";
 	dir = 4
 	},
@@ -1096,7 +1096,7 @@
 /area/hegemony_waypoint/atmos)
 "tI" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider,
-/obj/machinery/door/blast/shutters/open{
+/obj/structure/machinery/door/blast/shutters/open{
 	id = "hegemony_waypoint_shrine"
 	},
 /turf/simulated/floor/plating,
@@ -1105,7 +1105,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/universal,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/universal,
 /obj/random/dirt_75,
 /obj/structure/table/steel,
 /obj/item/trash/dipbowl{
@@ -1126,7 +1126,7 @@
 /turf/simulated/floor/tiled/gridded,
 /area/hegemony_waypoint/kitchen)
 "um" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
 /obj/random/dirt_75,
@@ -1166,7 +1166,7 @@
 /area/hegemony_waypoint/eva)
 "uJ" = (
 /obj/structure/table/reinforced/steel,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
 	level = 2
 	},
@@ -1181,10 +1181,10 @@
 /turf/simulated/floor/carpet/rubber,
 /area/hegemony_waypoint/kitchen)
 "vd" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -1220,15 +1220,15 @@
 /area/hegemony_waypoint/eva)
 "vq" = (
 /obj/effect/floor_decal/industrial/hatch/grey,
-/obj/machinery/door/airlock/service{
+/obj/structure/machinery/door/airlock/service{
 	dir = 4;
 	name = "Atmospherics";
 	locked = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -1236,7 +1236,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -1244,7 +1244,7 @@
 /area/hegemony_waypoint/atmos)
 "vt" = (
 /obj/effect/floor_decal/corner/yellow/diagonal,
-/obj/machinery/light/colored/decayed,
+/obj/structure/machinery/light/colored/decayed,
 /obj/random/junk{
 	pixel_y = 15;
 	pixel_x = 8
@@ -1257,7 +1257,7 @@
 /area/hegemony_waypoint/kitchen)
 "vQ" = (
 /obj/effect/floor_decal/corner_wide/brown/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -1266,25 +1266,25 @@
 /turf/simulated/floor/tiled/steel/airless,
 /area/hegemony_waypoint/eva)
 "vR" = (
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	dir = 10;
 	pixel_y = 28;
 	id = "hegemony_waypoint_hydroponics";
 	name = "Hydroponics Shutters"
 	},
-/obj/machinery/seed_storage/garden,
+/obj/structure/machinery/seed_storage/garden,
 /turf/simulated/floor/tiled/techfloor,
 /area/hegemony_waypoint/hydroponics)
 "ws" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider,
-/obj/machinery/door/blast/shutters{
+/obj/structure/machinery/door/blast/shutters{
 	id = "hegemony_waypoint_hydroponics";
 	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/hegemony_waypoint/hydroponics)
 "wB" = (
-/obj/machinery/appliance/cooker/oven,
+/obj/structure/machinery/appliance/cooker/oven,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/hegemony_waypoint/kitchen)
@@ -1307,7 +1307,7 @@
 /area/hegemony_waypoint/bunks)
 "xb" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider,
-/obj/machinery/door/blast/shutters/open{
+/obj/structure/machinery/door/blast/shutters/open{
 	dir = 4;
 	id = "hegemony_waypoint_kitchen"
 	},
@@ -1337,7 +1337,7 @@
 /turf/simulated/floor/wood,
 /area/hegemony_waypoint/shrine)
 "xn" = (
-/obj/machinery/light/colored/decayed,
+/obj/structure/machinery/light/colored/decayed,
 /obj/structure/bed/stool/chair/folding{
 	dir = 8
 	},
@@ -1347,14 +1347,14 @@
 /area/hegemony_waypoint/shrine)
 "xy" = (
 /obj/effect/floor_decal/industrial/hatch/grey,
-/obj/machinery/door/airlock/service{
+/obj/structure/machinery/door/airlock/service{
 	dir = 4;
 	name = "Equipment Storage"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -1362,7 +1362,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -1370,7 +1370,7 @@
 /area/hegemony_waypoint/eva)
 "xC" = (
 /obj/structure/table/reinforced/steel,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
 	level = 2
 	},
@@ -1386,10 +1386,10 @@
 /area/hegemony_waypoint/kitchen)
 "xJ" = (
 /obj/effect/floor_decal/corner/black/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
 /obj/structure/cable/green{
@@ -1414,7 +1414,7 @@
 /turf/simulated/floor/tiled/white/airless,
 /area/hegemony_waypoint/kitchen)
 "xR" = (
-/obj/machinery/reagentgrinder{
+/obj/structure/machinery/reagentgrinder{
 	pixel_x = 4;
 	pixel_y = 9
 	},
@@ -1423,7 +1423,7 @@
 /area/hegemony_waypoint/kitchen)
 "xT" = (
 /obj/effect/floor_decal/industrial/outline/operations,
-/obj/machinery/portable_atmospherics/canister/empty/air,
+/obj/structure/machinery/portable_atmospherics/canister/empty/air,
 /obj/random/dirt_75,
 /turf/simulated/floor,
 /area/hegemony_waypoint/atmos)
@@ -1434,10 +1434,10 @@
 /area/hegemony_waypoint/shrine)
 "ya" = (
 /obj/effect/floor_decal/corner/black/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
 /obj/structure/cable/green{
@@ -1474,13 +1474,13 @@
 "yg" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
-/obj/machinery/portable_atmospherics/hydroponics{
+/obj/structure/machinery/portable_atmospherics/hydroponics{
 	closed_system = 1
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/hegemony_waypoint/hydroponics)
 "yi" = (
-/obj/machinery/door/blast/shutters/open{
+/obj/structure/machinery/door/blast/shutters/open{
 	dir = 2;
 	id = "hegemony_waypoint_hydroponics"
 	},
@@ -1492,7 +1492,7 @@
 /turf/simulated/wall/shuttle/raider,
 /area/hegemony_waypoint/kitchen)
 "yE" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -1512,7 +1512,7 @@
 /turf/simulated/floor/airless,
 /area/hegemony_waypoint/eva)
 "yH" = (
-/obj/machinery/computer/ship/sensors/terminal{
+/obj/structure/machinery/computer/ship/sensors/terminal{
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -1527,7 +1527,7 @@
 /obj/item/material/hatchet,
 /obj/item/seeds/gukheseed,
 /obj/item/seeds/gukheseed,
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	dir = 10;
 	pixel_y = 28;
 	id = "hegemony_waypoint_hydroponics";
@@ -1537,7 +1537,7 @@
 /area/hegemony_waypoint/hydroponics)
 "ze" = (
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
-/obj/machinery/light/colored/decayed,
+/obj/structure/machinery/light/colored/decayed,
 /obj/structure/bed/stool/chair/folding{
 	dir = 8
 	},
@@ -1545,32 +1545,32 @@
 /turf/simulated/floor/tiled/steel,
 /area/hegemony_waypoint/shrine)
 "zg" = (
-/obj/machinery/appliance/cooker/fryer,
+/obj/structure/machinery/appliance/cooker/fryer,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/hegemony_waypoint/kitchen)
 "zn" = (
-/obj/machinery/suit_storage_unit/standard_unit,
+/obj/structure/machinery/suit_storage_unit/standard_unit,
 /obj/effect/floor_decal/corner_wide/brown/diagonal,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light/colored/decayed,
+/obj/structure/machinery/light/colored/decayed,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/techfloor,
 /area/hegemony_waypoint/eva)
 "zt" = (
 /obj/effect/floor_decal/corner/yellow/diagonal,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /obj/structure/cable/green,
-/obj/machinery/power/apc/empty/south{
+/obj/structure/machinery/power/apc/empty/south{
 	req_access = null
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/hegemony_waypoint/bunks)
 "zC" = (
-/obj/machinery/suit_storage_unit/standard_unit,
+/obj/structure/machinery/suit_storage_unit/standard_unit,
 /obj/effect/floor_decal/corner_wide/brown/diagonal,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/random/dirt_75,
@@ -1580,21 +1580,21 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
 /obj/structure/table/steel,
 /obj/item/tape_roll{
 	pixel_x = -4
 	},
-/obj/machinery/alarm/south{
+/obj/structure/machinery/alarm/south{
 	req_one_access = null
 	},
 /turf/simulated/floor/tiled/gridded,
 /area/hegemony_waypoint/atmos)
 "Aa" = (
 /obj/effect/floor_decal/corner/yellow/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
 /obj/structure/table,
@@ -1609,10 +1609,10 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/hegemony_waypoint/kitchen)
 "Af" = (
-/obj/machinery/alarm/south{
+/obj/structure/machinery/alarm/south{
 	req_one_access = null
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
 	level = 2
 	},
@@ -1623,10 +1623,10 @@
 /area/hegemony_waypoint/hydroponics)
 "Ah" = (
 /obj/effect/floor_decal/corner/yellow/diagonal,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /obj/structure/cable/green{
@@ -1656,13 +1656,13 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/hegemony_waypoint/bunks)
 "AP" = (
-/obj/machinery/portable_atmospherics/canister/air,
+/obj/structure/machinery/portable_atmospherics/canister/air,
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/random/dirt_75,
 /turf/simulated/floor,
 /area/hegemony_waypoint/atmos)
 "AR" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -1682,7 +1682,7 @@
 /turf/simulated/floor,
 /area/hegemony_waypoint/kitchen)
 "AV" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
 	level = 2
 	},
@@ -1691,20 +1691,20 @@
 /area/hegemony_waypoint/atmos)
 "Bs" = (
 /obj/effect/floor_decal/industrial/hatch/grey,
-/obj/machinery/door/airlock/service{
+/obj/structure/machinery/door/airlock/service{
 	dir = 4;
 	name = "Hydroponics"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -1734,7 +1734,7 @@
 /area/hegemony_waypoint/shrine)
 "BZ" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider,
-/obj/machinery/door/blast/shutters{
+/obj/structure/machinery/door/blast/shutters{
 	id = "hegemony_waypoint_eva";
 	dir = 4
 	},
@@ -1743,7 +1743,7 @@
 "Cb" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/reagent_dispensers/watertank,
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -1752,10 +1752,10 @@
 "Ci" = (
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/structure/curtain/black,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -1768,7 +1768,7 @@
 /area/hegemony_waypoint/kitchen)
 "Cm" = (
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
-/obj/machinery/light/colored/decayed,
+/obj/structure/machinery/light/colored/decayed,
 /obj/structure/bed/stool/chair/folding{
 	dir = 8
 	},
@@ -1776,7 +1776,7 @@
 /area/hegemony_waypoint/shrine)
 "Cx" = (
 /obj/effect/floor_decal/corner/yellow/diagonal,
-/obj/machinery/alarm/south{
+/obj/structure/machinery/alarm/south{
 	req_one_access = null
 	},
 /obj/effect/decal/cleanable/blood/drip,
@@ -1791,7 +1791,7 @@
 "CG" = (
 /obj/effect/floor_decal/corner_wide/brown/diagonal,
 /obj/structure/cable/green,
-/obj/machinery/power/apc/empty/west{
+/obj/structure/machinery/power/apc/empty/west{
 	req_access = null
 	},
 /obj/random/junk{
@@ -1802,16 +1802,16 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/hegemony_waypoint/eva)
 "CL" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/wall/shuttle/raider,
 /area/hegemony_waypoint/atmos)
 "CN" = (
 /obj/effect/floor_decal/industrial/outline/red,
-/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
 	},
-/obj/machinery/meter,
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/meter,
+/obj/structure/machinery/button/remote/blast_door{
 	dir = 4;
 	id = "hegemony_waypoint_atmospherics";
 	name = "Atmospherics Shutters";
@@ -1821,10 +1821,10 @@
 /area/hegemony_waypoint/atmos)
 "CR" = (
 /obj/effect/floor_decal/corner/black/diagonal,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -1847,14 +1847,14 @@
 /area/hegemony_waypoint/kitchen)
 "CS" = (
 /obj/effect/floor_decal/industrial/hatch/grey,
-/obj/machinery/door/airlock/service{
+/obj/structure/machinery/door/airlock/service{
 	dir = 4;
 	name = "Atmospherics"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -1862,7 +1862,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -1907,8 +1907,8 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/hegemony_waypoint/bunks)
 "DQ" = (
-/obj/machinery/appliance/cooker/stove,
-/obj/machinery/light/broken{
+/obj/structure/machinery/appliance/cooker/stove,
+/obj/structure/machinery/light/broken{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full/airless,
@@ -1917,7 +1917,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /obj/structure/table/steel,
@@ -1928,7 +1928,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/empty/north{
+/obj/structure/machinery/power/apc/empty/north{
 	req_access = null
 	},
 /obj/item/tape_roll{
@@ -1938,12 +1938,12 @@
 /turf/simulated/floor/tiled/gridded,
 /area/hegemony_waypoint/atmos)
 "DW" = (
-/obj/machinery/appliance/cooker/fryer,
+/obj/structure/machinery/appliance/cooker/fryer,
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber,
 /area/hegemony_waypoint/kitchen)
 "Ed" = (
-/obj/machinery/reagentgrinder{
+/obj/structure/machinery/reagentgrinder{
 	pixel_x = 4;
 	pixel_y = 9
 	},
@@ -1986,11 +1986,11 @@
 /area/hegemony_waypoint/shrine)
 "Eu" = (
 /obj/structure/table/reinforced/steel,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
 	level = 2
 	},
-/obj/machinery/reagentgrinder{
+/obj/structure/machinery/reagentgrinder{
 	pixel_x = 6;
 	pixel_y = 9
 	},
@@ -2000,10 +2000,10 @@
 /obj/effect/floor_decal/industrial/outline_straight/yellow{
 	dir = 8
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -2020,10 +2020,10 @@
 /area/hegemony_waypoint/eva)
 "EJ" = (
 /obj/effect/floor_decal/corner/yellow/diagonal,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -2035,34 +2035,34 @@
 /turf/simulated/floor/tiled/gridded,
 /area/hegemony_waypoint/kitchen)
 "EK" = (
-/obj/machinery/vending/dinnerware,
+/obj/structure/machinery/vending/dinnerware,
 /obj/effect/floor_decal/industrial/outline/service,
 /turf/simulated/floor/carpet/rubber,
 /area/hegemony_waypoint/kitchen)
 "ET" = (
-/obj/machinery/suit_storage_unit/standard_unit,
+/obj/structure/machinery/suit_storage_unit/standard_unit,
 /obj/effect/floor_decal/corner_wide/brown/diagonal,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light/colored/decayed,
+/obj/structure/machinery/light/colored/decayed,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/steel/airless,
 /area/hegemony_waypoint/eva)
 "Fa" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/techfloor,
 /area/hegemony_waypoint/hydroponics)
 "Fq" = (
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
 	level = 2
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/hegemony_waypoint/hydroponics)
 "Fy" = (
-/obj/machinery/portable_atmospherics/hydroponics{
+/obj/structure/machinery/portable_atmospherics/hydroponics{
 	closed_system = 1
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -2073,7 +2073,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /obj/structure/table/steel,
@@ -2085,7 +2085,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/empty/north{
+/obj/structure/machinery/power/apc/empty/north{
 	req_access = null
 	},
 /turf/simulated/floor/tiled/gridded,
@@ -2095,14 +2095,14 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/yellow/diagonal,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/gridded,
 /area/hegemony_waypoint/kitchen)
 "FT" = (
-/obj/machinery/seed_extractor,
+/obj/structure/machinery/seed_extractor,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/techfloor,
 /area/hegemony_waypoint/hydroponics)
@@ -2117,7 +2117,7 @@
 /obj/effect/floor_decal/corner/yellow/diagonal,
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/generic,
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	dir = 10;
 	pixel_y = 28;
 	id = "hegemony_waypoint_kitchen";
@@ -2154,10 +2154,10 @@
 /area/hegemony_waypoint/shrine)
 "GW" = (
 /obj/random/dirt_75,
-/obj/machinery/alarm/south{
+/obj/structure/machinery/alarm/south{
 	req_one_access = null
 	},
-/obj/machinery/portable_atmospherics/hydroponics{
+/obj/structure/machinery/portable_atmospherics/hydroponics{
 	closed_system = 1
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -2166,7 +2166,7 @@
 "GY" = (
 /obj/structure/table/steel,
 /obj/effect/floor_decal/corner/yellow/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
 /obj/item/trash/tray{
@@ -2182,7 +2182,7 @@
 /obj/effect/floor_decal/corner/yellow/diagonal,
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/generic,
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	dir = 10;
 	pixel_y = 28;
 	id = "hegemony_waypoint_kitchen";
@@ -2191,7 +2191,7 @@
 /turf/simulated/floor/tiled/gridded,
 /area/hegemony_waypoint/kitchen)
 "Hq" = (
-/obj/machinery/portable_atmospherics/hydroponics{
+/obj/structure/machinery/portable_atmospherics/hydroponics{
 	closed_system = 1
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -2205,7 +2205,7 @@
 /area/hegemony_waypoint/hydroponics)
 "Hr" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider,
-/obj/machinery/door/blast/shutters/open{
+/obj/structure/machinery/door/blast/shutters/open{
 	dir = 2;
 	id = "hegemony_waypoint_living quarters"
 	},
@@ -2215,7 +2215,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /obj/structure/table/steel,
@@ -2229,7 +2229,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/empty/north{
+/obj/structure/machinery/power/apc/empty/north{
 	req_access = null
 	},
 /obj/item/paper/fluff/hegemony_waypoint_4{
@@ -2259,18 +2259,18 @@
 "HA" = (
 /obj/structure/table/steel,
 /obj/effect/floor_decal/corner/yellow/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/steel/airless,
 /area/hegemony_waypoint/kitchen)
 "HD" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/machinery/alarm/east{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/alarm/east{
 	req_one_access = null
 	},
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	dir = 10;
 	pixel_y = 28;
 	id = "hegemony_waypoint_shrine";
@@ -2312,7 +2312,7 @@
 /area/hegemony_waypoint/kitchen)
 "Ix" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider,
-/obj/machinery/door/blast/shutters/open{
+/obj/structure/machinery/door/blast/shutters/open{
 	dir = 4;
 	id = "hegemony_waypoint_eva"
 	},
@@ -2322,7 +2322,7 @@
 /turf/simulated/wall/shuttle/raider,
 /area/hegemony_waypoint/kitchen)
 "IQ" = (
-/obj/machinery/vending/hydronutrients,
+/obj/structure/machinery/vending/hydronutrients,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/techfloor,
 /area/hegemony_waypoint/hydroponics)
@@ -2333,8 +2333,8 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
 /obj/structure/cable/green{
@@ -2365,10 +2365,10 @@
 /obj/effect/floor_decal/industrial/outline_straight/yellow{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /obj/structure/cable/green{
@@ -2381,18 +2381,18 @@
 /area/hegemony_waypoint/shrine)
 "Jb" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider,
-/obj/machinery/door/blast/shutters{
+/obj/structure/machinery/door/blast/shutters{
 	id = "hegemony_waypoint_kitchen";
 	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/hegemony_waypoint/kitchen)
 "Je" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /obj/structure/cable/green,
-/obj/machinery/power/apc/empty/east{
+/obj/structure/machinery/power/apc/empty/east{
 	req_access = null
 	},
 /obj/effect/floor_decal/corner_wide/dark_green/diagonal,
@@ -2408,7 +2408,7 @@
 /area/hegemony_waypoint/shrine)
 "Jw" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider,
-/obj/machinery/door/blast/shutters/open{
+/obj/structure/machinery/door/blast/shutters/open{
 	dir = 2;
 	id = "hegemony_waypoint_kitchen"
 	},
@@ -2457,10 +2457,10 @@
 /area/hegemony_waypoint/shrine)
 "KM" = (
 /obj/effect/floor_decal/corner/black/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -2481,14 +2481,14 @@
 /area/hegemony_waypoint/kitchen)
 "Lg" = (
 /obj/effect/floor_decal/industrial/hatch/grey,
-/obj/machinery/door/airlock/service{
+/obj/structure/machinery/door/airlock/service{
 	dir = 4;
 	name = "Kitchen"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -2496,7 +2496,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -2512,7 +2512,7 @@
 /obj/structure/bed/stool{
 	dir = 4
 	},
-/obj/machinery/light/broken,
+/obj/structure/machinery/light/broken,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/steel/airless,
 /area/hegemony_waypoint/kitchen)
@@ -2529,7 +2529,7 @@
 "LQ" = (
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/random/dirt_75,
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor,
 /area/hegemony_waypoint/atmos)
 "MD" = (
@@ -2557,7 +2557,7 @@
 /area/hegemony_waypoint/shrine)
 "No" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider,
-/obj/machinery/door/blast/shutters/open{
+/obj/structure/machinery/door/blast/shutters/open{
 	dir = 4;
 	id = "hegemony_waypoint_eva"
 	},
@@ -2566,12 +2566,12 @@
 "Nz" = (
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/random/dirt_75,
-/obj/machinery/portable_atmospherics/canister/phoron,
+/obj/structure/machinery/portable_atmospherics/canister/phoron,
 /turf/simulated/floor,
 /area/hegemony_waypoint/atmos)
 "NF" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider,
-/obj/machinery/door/blast/shutters/open{
+/obj/structure/machinery/door/blast/shutters/open{
 	dir = 2;
 	id = "hegemony_waypoint_hydroponics"
 	},
@@ -2599,20 +2599,20 @@
 /area/hegemony_waypoint/bunks)
 "NT" = (
 /obj/effect/floor_decal/industrial/hatch/grey,
-/obj/machinery/door/airlock/service{
+/obj/structure/machinery/door/airlock/service{
 	dir = 4;
 	name = "Technicans Quarters"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -2620,7 +2620,7 @@
 /area/hegemony_waypoint/bunks)
 "Od" = (
 /obj/effect/floor_decal/corner_wide/brown/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -2642,10 +2642,10 @@
 /area/hegemony_waypoint/eva)
 "OP" = (
 /obj/structure/table/reinforced/steel,
-/obj/machinery/alarm/south{
+/obj/structure/machinery/alarm/south{
 	req_one_access = null
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/blood,
@@ -2657,7 +2657,7 @@
 /area/hegemony_waypoint/kitchen)
 "Pc" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider,
-/obj/machinery/door/blast/shutters/open{
+/obj/structure/machinery/door/blast/shutters/open{
 	dir = 2;
 	id = "hegemony_waypoint_hydroponics"
 	},
@@ -2669,10 +2669,10 @@
 /turf/simulated/wall/shuttle/raider,
 /area/hegemony_waypoint/hydroponics)
 "Pv" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -2707,10 +2707,10 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/hegemony_waypoint/bunks)
 "PM" = (
-/obj/machinery/atmospherics/binary/passive_gate/on{
+/obj/structure/machinery/atmospherics/binary/passive_gate/on{
 	dir = 8
 	},
-/obj/machinery/light/colored/decayed,
+/obj/structure/machinery/light/colored/decayed,
 /obj/random/dirt_75,
 /obj/item/reagent_containers/cooking_container/board/bowl{
 	pixel_y = 17;
@@ -2727,10 +2727,10 @@
 /area/hegemony_waypoint/atmos)
 "Qa" = (
 /obj/effect/floor_decal/corner/black/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -2744,7 +2744,7 @@
 /area/hegemony_waypoint/kitchen)
 "Qh" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider,
-/obj/machinery/door/blast/shutters{
+/obj/structure/machinery/door/blast/shutters{
 	id = "hegemony_waypoint_living quarters";
 	dir = 2
 	},
@@ -2759,20 +2759,20 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/steel,
 /area/hegemony_waypoint/shrine)
 "Rf" = (
 /obj/effect/floor_decal/industrial/hatch/grey,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -2787,7 +2787,7 @@
 /area/hegemony_waypoint/kitchen)
 "Rj" = (
 /obj/structure/cable/green,
-/obj/machinery/power/apc/empty/west{
+/obj/structure/machinery/power/apc/empty/west{
 	req_access = null
 	},
 /obj/random/dirt_75,
@@ -2802,10 +2802,10 @@
 /turf/simulated/wall/shuttle/raider,
 /area/hegemony_waypoint/atmos)
 "RQ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -2813,10 +2813,10 @@
 /turf/simulated/floor,
 /area/hegemony_waypoint/atmos)
 "RW" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /obj/structure/cable/green{
@@ -2830,14 +2830,14 @@
 /area/hegemony_waypoint/hydroponics)
 "RZ" = (
 /obj/structure/table/steel,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /obj/item/binoculars{
 	pixel_y = 11;
 	pixel_x = -4
 	},
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	dir = 4;
 	id = "hegemony_waypoint_living quarters";
 	name = "Quarters Shutters";
@@ -2854,7 +2854,7 @@
 /obj/effect/floor_decal/corner_wide/brown/diagonal,
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/ash,
-/obj/machinery/power/portgen/basic,
+/obj/structure/machinery/power/portgen/basic,
 /turf/simulated/floor/tiled/techfloor,
 /area/hegemony_waypoint/eva)
 "Sl" = (
@@ -2867,7 +2867,7 @@
 "St" = (
 /obj/structure/table/steel,
 /obj/effect/floor_decal/corner/yellow/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal{
@@ -2881,11 +2881,11 @@
 /turf/simulated/floor/tiled/gridded,
 /area/hegemony_waypoint/kitchen)
 "Sv" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/empty/north{
+/obj/structure/machinery/power/apc/empty/north{
 	req_access = null
 	},
 /obj/random/dirt_75,
@@ -2908,10 +2908,10 @@
 /area/hegemony_waypoint/shrine)
 "SX" = (
 /obj/effect/floor_decal/corner/yellow/diagonal,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -2935,10 +2935,10 @@
 /turf/simulated/floor/carpet/rubber,
 /area/hegemony_waypoint/kitchen)
 "Tn" = (
-/obj/machinery/atmospherics/binary/pump/scrubber/on{
+/obj/structure/machinery/atmospherics/binary/pump/scrubber/on{
 	dir = 4
 	},
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 1
 	},
 /obj/random/dirt_75,
@@ -2947,7 +2947,7 @@
 /turf/simulated/floor,
 /area/hegemony_waypoint/atmos)
 "Tx" = (
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 1
 	},
 /obj/structure/bed/stool/chair/folding{
@@ -2959,10 +2959,10 @@
 /area/hegemony_waypoint/shrine)
 "TY" = (
 /obj/structure/table/reinforced/steel,
-/obj/machinery/alarm/south{
+/obj/structure/machinery/alarm/south{
 	req_one_access = null
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /obj/random/toolbox,
@@ -2970,17 +2970,17 @@
 /area/hegemony_waypoint/kitchen)
 "Ue" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider,
-/obj/machinery/door/blast/shutters{
+/obj/structure/machinery/door/blast/shutters{
 	id = "hegemony_waypoint_kitchen"
 	},
 /turf/simulated/floor/plating,
 /area/hegemony_waypoint/kitchen)
 "Ug" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /obj/structure/cable/green,
-/obj/machinery/power/apc/empty/east{
+/obj/structure/machinery/power/apc/empty/east{
 	req_access = null
 	},
 /obj/effect/floor_decal/corner_wide/dark_green/diagonal,
@@ -3013,15 +3013,15 @@
 /area/hegemony_waypoint/shrine)
 "VM" = (
 /obj/effect/floor_decal/industrial/hatch/grey,
-/obj/machinery/door/airlock/service{
+/obj/structure/machinery/door/airlock/service{
 	dir = 4;
 	name = "Kitchen";
 	locked = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -3029,7 +3029,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -3039,10 +3039,10 @@
 /obj/effect/floor_decal/industrial/outline_straight/yellow{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /obj/structure/cable/green{
@@ -3058,10 +3058,10 @@
 /obj/effect/floor_decal/industrial/outline_straight/yellow{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -3071,11 +3071,11 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/hegemony_waypoint/hydroponics)
 "VT" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /obj/structure/cable/green,
-/obj/machinery/power/apc/empty/south{
+/obj/structure/machinery/power/apc/empty/south{
 	req_access = null
 	},
 /obj/random/dirt_75,
@@ -3091,10 +3091,10 @@
 /area/hegemony_waypoint/bunks)
 "VU" = (
 /obj/structure/table/reinforced/steel,
-/obj/machinery/alarm/south{
+/obj/structure/machinery/alarm/south{
 	req_one_access = null
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /obj/item/reagent_containers/food/drinks/cans/threetowns{
@@ -3111,7 +3111,7 @@
 /obj/effect/floor_decal/corner/yellow/diagonal,
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/generic,
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	dir = 10;
 	pixel_y = 28;
 	id = "hegemony_waypoint_kitchen";
@@ -3125,7 +3125,7 @@
 /turf/simulated/floor/tiled/steel/airless,
 /area/hegemony_waypoint/kitchen)
 "WE" = (
-/obj/machinery/appliance/cooker/oven,
+/obj/structure/machinery/appliance/cooker/oven,
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber,
 /area/hegemony_waypoint/kitchen)
@@ -3133,21 +3133,21 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
-/obj/machinery/alarm/south{
+/obj/structure/machinery/alarm/south{
 	req_one_access = null
 	},
-/obj/machinery/pipedispenser,
+/obj/structure/machinery/pipedispenser,
 /turf/simulated/floor/tiled/gridded,
 /area/hegemony_waypoint/atmos)
 "WO" = (
 /obj/effect/floor_decal/corner/black/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -3162,9 +3162,9 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/universal,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/universal,
 /obj/random/dirt_75,
-/obj/machinery/pipedispenser,
+/obj/structure/machinery/pipedispenser,
 /turf/simulated/floor/tiled/gridded,
 /area/hegemony_waypoint/atmos)
 "WV" = (
@@ -3175,10 +3175,10 @@
 /area/hegemony_waypoint/kitchen)
 "Xc" = (
 /obj/effect/floor_decal/corner/black/diagonal,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -3197,10 +3197,10 @@
 	},
 /obj/effect/floor_decal/corner_wide/brown/diagonal,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/alarm/north{
+/obj/structure/machinery/alarm/north{
 	req_one_access = null
 	},
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	dir = 4;
 	id = "hegemony_waypoint_eva";
 	name = "Storage Shutters";
@@ -3225,10 +3225,10 @@
 /obj/effect/floor_decal/industrial/outline_straight/yellow{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /obj/structure/cable/green{
@@ -3262,10 +3262,10 @@
 /obj/effect/floor_decal/industrial/outline_straight/yellow{
 	dir = 8
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -3276,11 +3276,11 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/hegemony_waypoint/eva)
 "XQ" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/machinery/alarm/east{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/alarm/east{
 	req_one_access = null
 	},
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	dir = 10;
 	pixel_y = 28;
 	id = "hegemony_waypoint_shrine";
@@ -3301,15 +3301,15 @@
 /area/hegemony_waypoint/eva)
 "Yu" = (
 /obj/effect/floor_decal/industrial/hatch/grey,
-/obj/machinery/door/airlock/service{
+/obj/structure/machinery/door/airlock/service{
 	dir = 4;
 	name = "Equipment Storage";
 	locked = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -3317,7 +3317,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -3325,21 +3325,21 @@
 /area/hegemony_waypoint/eva)
 "YD" = (
 /obj/effect/floor_decal/industrial/hatch/grey,
-/obj/machinery/door/airlock/service{
+/obj/structure/machinery/door/airlock/service{
 	dir = 4;
 	name = "Hydroponics";
 	welded = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -3359,7 +3359,7 @@
 /area/hegemony_waypoint/bunks)
 "YV" = (
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 1
 	},
 /obj/structure/bed/stool/chair/folding{
@@ -3391,16 +3391,16 @@
 /obj/effect/floor_decal/corner_wide/brown/diagonal,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/random/dirt_75,
-/obj/machinery/suit_cycler/offship/hegemony{
+/obj/structure/machinery/suit_cycler/offship/hegemony{
 	req_access = null
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/hegemony_waypoint/eva)
 "ZT" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/cable/green{

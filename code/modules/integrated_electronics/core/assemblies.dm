@@ -40,8 +40,8 @@
 /obj/item/electronic_assembly/Collide(atom/AM)
 	var/collw = AM
 	.=..()
-	if((istype(collw, /obj/machinery/door/airlock) ||  istype(collw, /obj/machinery/door/window)) && (!isnull(access_card)))
-		var/obj/machinery/door/D = collw
+	if((istype(collw, /obj/structure/machinery/door/airlock) ||  istype(collw, /obj/structure/machinery/door/window)) && (!isnull(access_card)))
+		var/obj/structure/machinery/door/D = collw
 		if(D.check_access(access_card))
 			D.open()
 

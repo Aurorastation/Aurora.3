@@ -161,7 +161,7 @@ SUBSYSTEM_DEF(radio)
 	SHOULD_NOT_SLEEP(TRUE)
 
 	var/datum/signal/subspace/testsig = new(O, test_freq)
-	for (var/obj/machinery/telecomms/R in SSmachinery.all_receivers)
+	for (var/obj/structure/machinery/telecomms/R in SSmachinery.all_receivers)
 		if(R.receive_range(testsig) >= 0)
 			return TRUE
 
@@ -199,8 +199,8 @@ SUBSYSTEM_DEF(radio)
 			return "sciradio"
 		if (MED_FREQ,MED_I_FREQ)
 			return"medradio"
-		if (SUP_FREQ)	// cargo
-			return "supradio"
+		if (SUP_FREQ)	// operations
+			return "opsradio"
 		if (SRV_FREQ)	// service
 			return "srvradio"
 		if (ENT_FREQ) //entertainment

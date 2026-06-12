@@ -1,4 +1,4 @@
-/obj/machinery/computer/telescience
+/obj/structure/machinery/computer/telescience
 	name = "\improper Telepad Control Console"
 	desc = "Used to create bluespace portals using the telescience telepad."
 	icon_screen = "teleport"
@@ -11,7 +11,7 @@
 	/**
 	 * The telepad that this console controls
 	 */
-	var/obj/machinery/telepad/telepad = null
+	var/obj/structure/machinery/telepad/telepad = null
 
 	var/temp_msg = "Telescience control console initialized.<BR>Welcome."
 
@@ -100,11 +100,11 @@
 	 */
 	var/obj/effect/portal/destination_portal
 
-/obj/machinery/computer/telescience/feedback_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/computer/telescience/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "There are [length(crystals) ? length(crystals) : "no"] bluespace crystal\s in the crystal slots."
 
-/obj/machinery/computer/telescience/Initialize()
+/obj/structure/machinery/computer/telescience/Initialize()
 	. = ..()
 
 	recalibrate()
@@ -114,7 +114,7 @@
 
 	return INITIALIZE_HINT_LATELOAD
 
-/obj/machinery/computer/telescience/LateInitialize()
+/obj/structure/machinery/computer/telescience/LateInitialize()
 	. = ..()
 
 	if(SSatlas.current_map.use_overmap && !linked)
@@ -129,7 +129,7 @@
 						our_zlevels += text2num(zlevel)
 
 
-/obj/machinery/computer/telescience/Destroy()
+/obj/structure/machinery/computer/telescience/Destroy()
 	eject()
 	if(inserted_gps)
 		inserted_gps.forceMove(loc)
@@ -147,7 +147,7 @@
 
 	return ..()
 
-/obj/machinery/computer/telescience/attackby(obj/item/attacking_item, mob/user, params)
+/obj/structure/machinery/computer/telescience/attackby(obj/item/attacking_item, mob/user, params)
 
 	if(istype(attacking_item, /obj/item/bluespace_crystal))
 		if(length(crystals) >= max_crystals)
@@ -173,7 +173,7 @@
 	else if(attacking_item.tool_behaviour == TOOL_MULTITOOL)
 
 		var/obj/item/multitool/M = attacking_item
-		if(M.buffer && istype(M.buffer, /obj/machinery/telepad))
+		if(M.buffer && istype(M.buffer, /obj/structure/machinery/telepad))
 			telepad = M.buffer
 			M.buffer = null
 			to_chat(user, SPAN_CAUTION("You upload the data from the [attacking_item.name]'s buffer."))
@@ -181,17 +181,17 @@
 	else
 		..()
 
-/obj/machinery/computer/telescience/attack_ai(mob/user)
+/obj/structure/machinery/computer/telescience/attack_ai(mob/user)
 	if(!ai_can_interact(user))
 		return
 	src.attack_hand(user)
 
-/obj/machinery/computer/telescience/attack_hand(mob/user)
+/obj/structure/machinery/computer/telescience/attack_hand(mob/user)
 	if(..())
 		return
 	interact(user)
 
-/obj/machinery/computer/telescience/interact(mob/user)
+/obj/structure/machinery/computer/telescience/interact(mob/user)
 	var/t
 	if(!telepad)
 		in_use = 0     //Yeah so if you deconstruct teleporter while its in the process of shooting it wont disable the console
@@ -245,7 +245,7 @@
 /**
  * Causes sparks to be emitted from the linked telepad
  */
-/obj/machinery/computer/telescience/proc/sparks()
+/obj/structure/machinery/computer/telescience/proc/sparks()
 	SHOULD_NOT_SLEEP(TRUE)
 
 	if(telepad)
@@ -256,14 +256,14 @@
 /**
  * Called when the portal fails to be created
  */
-/obj/machinery/computer/telescience/proc/telefail()
+/obj/structure/machinery/computer/telescience/proc/telefail()
 	SHOULD_NOT_SLEEP(TRUE)
 
 	sparks()
 	visible_message(SPAN_WARNING("The telepad weakly fizzles."))
 	return
 
-/obj/machinery/computer/telescience/proc/doteleport(mob/user)
+/obj/structure/machinery/computer/telescience/proc/doteleport(mob/user)
 	SHOULD_NOT_SLEEP(TRUE)
 
 	if(teleport_cooldown > world.time)
@@ -303,7 +303,7 @@
  * Completes the teleportation process, after the timer has expired, to be called only by
  * the timer set by `doteleport()`
  */
-/obj/machinery/computer/telescience/proc/complete_doteleport(mob/user, turf/target)
+/obj/structure/machinery/computer/telescience/proc/complete_doteleport(mob/user, turf/target)
 	SHOULD_NOT_SLEEP(TRUE)
 
 	if(!telepad)
@@ -359,7 +359,7 @@
 
 	updateDialog()
 
-/obj/machinery/computer/telescience/proc/teleport(mob/user)
+/obj/structure/machinery/computer/telescience/proc/teleport(mob/user)
 	//If the offset was never changed, use the current zlevel
 	if(isnull(target_zlevel))
 		target_zlevel = GET_Z(src)
@@ -389,7 +389,7 @@
 /**
  * Ejects the telecrystals from the console
  */
-/obj/machinery/computer/telescience/proc/eject()
+/obj/structure/machinery/computer/telescience/proc/eject()
 	SHOULD_NOT_SLEEP(TRUE)
 
 	for(var/obj/item/I in crystals)
@@ -397,7 +397,7 @@
 		crystals -= I
 	power = 0
 
-/obj/machinery/computer/telescience/Topic(href, href_list)
+/obj/structure/machinery/computer/telescience/Topic(href, href_list)
 	if(..())
 		return
 	if(!telepad)
@@ -461,13 +461,13 @@
 			while((our_zlevel-=1) in our_zlevels)
 				min_zlevel_below_us++
 
-			for(var/obj/machinery/computer/ship/sensors/S in SSmachinery.machinery)
+			for(var/obj/structure/machinery/computer/ship/sensors/S in SSmachinery.machinery)
 				//If we have ownership of this
 				if(linked.check_ownership(S))
 
 					//If the deep scan is toggled, we do not allow it, as the range is too large
 					//print a message to the user and break the loop
-					var/obj/machinery/shipsensors/ship_sensors = S.sensor_ref?.resolve()
+					var/obj/structure/machinery/shipsensors/ship_sensors = S.sensor_ref?.resolve()
 					if((ship_sensors?.deep_scan_toggled))
 						to_chat(usr, SPAN_WARNING("The deep scan is currently enabled and interferes with the teleporter lock ability."))
 						break
@@ -539,14 +539,14 @@
 
 	updateDialog()
 
-/obj/machinery/computer/telescience/process(seconds_per_tick)
+/obj/structure/machinery/computer/telescience/process(seconds_per_tick)
 	if((stat & NOPOWER) || (telepad?.stat & NOPOWER))
 		QDEL_NULL(origin_portal)
 
 /**
  * Recomputes the parameters used for aiming
  */
-/obj/machinery/computer/telescience/proc/recalibrate()
+/obj/structure/machinery/computer/telescience/proc/recalibrate()
 	SHOULD_NOT_SLEEP(TRUE)
 
 	teles_left = rand(30, 40)
@@ -559,7 +559,7 @@
  *
  * * orig_portal - An `/obj/effect/portal` that will act as the "origin"
  */
-/obj/machinery/computer/telescience/proc/set_origin_portal(obj/effect/portal/orig_portal)
+/obj/structure/machinery/computer/telescience/proc/set_origin_portal(obj/effect/portal/orig_portal)
 	SHOULD_NOT_SLEEP(TRUE)
 
 	origin_portal = orig_portal
@@ -570,7 +570,7 @@
  *
  * * dest_portal - An `/obj/effect/portal` that will act as the "destination"
  */
-/obj/machinery/computer/telescience/proc/set_destination_portal(obj/effect/portal/dest_portal)
+/obj/structure/machinery/computer/telescience/proc/set_destination_portal(obj/effect/portal/dest_portal)
 	SHOULD_NOT_SLEEP(TRUE)
 
 	destination_portal = dest_portal
@@ -579,7 +579,7 @@
 /**
  * Handles a portal being deleted
  */
-/obj/machinery/computer/telescience/proc/handle_portal_qdel()
+/obj/structure/machinery/computer/telescience/proc/handle_portal_qdel()
 	SIGNAL_HANDLER
 
 	destination_portal = null

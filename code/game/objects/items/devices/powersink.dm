@@ -128,12 +128,12 @@
 	// if tried to drain more than available on powernet
 	// now look for APCs and drain their cells
 	if(drained < drain_rate * seconds_per_tick)
-		for(var/obj/machinery/power/terminal/T in PN.nodes)
+		for(var/obj/structure/machinery/power/terminal/T in PN.nodes)
 			// Enough power drained this tick, no need to torture more APCs
 			if(drained >= drain_rate * seconds_per_tick)
 				break
-			if(istype(T.master, /obj/machinery/power/apc))
-				var/obj/machinery/power/apc/A = T.master
+			if(istype(T.master, /obj/structure/machinery/power/apc))
+				var/obj/structure/machinery/power/apc/A = T.master
 				if(A.operating && A.cell)
 					var/cur_charge = A.cell.charge / CELLRATE
 					var/drain_val = min(apc_drain_rate * seconds_per_tick, cur_charge)
@@ -187,10 +187,10 @@
 
 		// Check for terminals and affect their master nodes. Also add a special
 		// case for APCs whereby their lights are popped or flicked.
-		if (istype(A, /obj/machinery/power/terminal))
-			var/obj/machinery/power/terminal/T = A
-			if (istype(T.master, /obj/machinery/power/apc))
-				var/obj/machinery/power/apc/AP = T.master
+		if (istype(A, /obj/structure/machinery/power/terminal))
+			var/obj/structure/machinery/power/terminal/T = A
+			if (istype(T.master, /obj/structure/machinery/power/apc))
+				var/obj/structure/machinery/power/apc/AP = T.master
 				if (dist > 1)
 					AP.overload_lighting(100, TRUE)
 				else

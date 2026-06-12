@@ -66,9 +66,6 @@ SUBSYSTEM_DEF(mob_ai)
 
 	mutexes -= mob_weakref
 
-/mob
-	var/thinking_enabled = FALSE
-
 /**
  * Perform AI logic for a mob, called by the AI subsystem
  *

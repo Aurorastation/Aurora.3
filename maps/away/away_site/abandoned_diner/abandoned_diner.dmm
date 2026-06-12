@@ -3,23 +3,23 @@
 /obj/effect/floor_decal/corner_wide/black{
 	dir = 10
 	},
-/obj/machinery/disposal/small/north,
+/obj/structure/machinery/disposal/small/north,
 /obj/structure/disposalpipe/trunk{
 	dir = 1
 	},
 /obj/random/dirt_75,
-/obj/machinery/light/colored/decayed,
+/obj/structure/machinery/light/colored/decayed,
 /turf/simulated/floor/marble,
 /area/abandoned_diner/restroom)
 "aab" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/abandoned_diner/docking/a)
 "aac" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 1
 	},
 /obj/random/dirt_75,
@@ -27,17 +27,17 @@
 /area/abandoned_diner/docking/a)
 "aad" = (
 /obj/structure/flora/pottedplant/dead,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/obj/machinery/light/colored/decayed,
+/obj/structure/machinery/light/colored/decayed,
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_diner/crew_quarters)
 "aae" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 9
 	},
 /obj/structure/disposalpipe/segment{
@@ -60,7 +60,7 @@
 /obj/item/reagent_containers/food/condiment/shaker/peppermill{
 	pixel_x = 2
 	},
-/obj/machinery/light/colored/decayed/dimmed,
+/obj/structure/machinery/light/colored/decayed/dimmed,
 /obj/random/dirt_75,
 /turf/simulated/floor/lino/diamond,
 /area/abandoned_diner/diner)
@@ -73,7 +73,7 @@
 	dir = 5
 	},
 /obj/item/newspaper,
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -87,28 +87,28 @@
 /turf/simulated/floor/tiled,
 /area/abandoned_diner/docking/a)
 "aai" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 9
 	},
 /obj/structure/extinguisher_cabinet/east,
 /turf/simulated/floor/tiled,
 /area/abandoned_diner/docking/a)
 "aaj" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/abandoned_diner/docking/a)
 "aak" = (
 /turf/simulated/wall,
 /area/abandoned_diner/docking/b)
 "aal" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -124,10 +124,10 @@
 /area/abandoned_diner/maintenance)
 "aam" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable/green{
 	d1 = 1;
@@ -139,8 +139,8 @@
 /area/abandoned_diner/diner)
 "aan" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment,
@@ -152,7 +152,7 @@
 /turf/simulated/floor/tiled/white,
 /area/abandoned_diner/diner)
 "aao" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /obj/structure/disposalpipe/junction{
@@ -165,9 +165,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/backroom)
 "aap" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -175,10 +175,10 @@
 /area/abandoned_diner/docking/b)
 "aaq" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /obj/structure/disposalpipe/segment,
@@ -188,21 +188,21 @@
 /turf/simulated/floor/tiled/white,
 /area/abandoned_diner/diner)
 "aar" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 8
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/abandoned_diner/docking/b)
 "aas" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/aux,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/aux,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/abandoned_diner/docking/b)
 "aat" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable/green{
 	d1 = 1;
@@ -223,10 +223,10 @@
 /area/abandoned_diner/docking/b)
 "aav" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
 /obj/structure/cable/green{
@@ -246,8 +246,8 @@
 /area/abandoned_diner/storage)
 "aax" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -255,10 +255,10 @@
 /area/abandoned_diner/diner)
 "aay" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/white,
 /area/abandoned_diner/diner)
 "aaU" = (
@@ -268,33 +268,33 @@
 /turf/simulated/floor/tiled,
 /area/abandoned_diner/docking/a)
 "aaY" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/door/firedoor,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/airlock/engineering{
+/obj/structure/machinery/door/airlock/engineering{
 	name = "Maintenance"
 	},
 /turf/simulated/floor/plating,
 /area/abandoned_diner/maintenance)
 "aba" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/abandoned_diner/docking/b)
 "abb" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 6
 	},
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/docking{
@@ -306,8 +306,8 @@
 /turf/simulated/floor/plating,
 /area/abandoned_diner/docking/b)
 "abc" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/aux,
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/aux,
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/docking{
@@ -315,7 +315,7 @@
 	master_tag = "diner_a2";
 	landmark_tag = "diner_a2"
 	},
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	dir = 1;
 	pixel_x = -28;
 	pixel_y = -22
@@ -324,10 +324,10 @@
 /turf/simulated/floor/plating,
 /area/abandoned_diner/docking/b)
 "abd" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment{
@@ -339,20 +339,20 @@
 	icon_state = "4-8"
 	},
 /obj/effect/decal/cleanable/generic,
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/abandoned_diner/backroom)
 "abe" = (
-/obj/machinery/portable_atmospherics/hydroponics,
+/obj/structure/machinery/portable_atmospherics/hydroponics,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/disposalpipe/segment,
 /obj/random/seed{
 	pixel_x = 8
 	},
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -365,20 +365,20 @@
 /turf/simulated/floor/tiled,
 /area/abandoned_diner/docking/b)
 "abg" = (
-/obj/machinery/vending/snack,
+/obj/structure/machinery/vending/snack,
 /obj/effect/floor_decal/industrial/outline/blue,
 /turf/simulated/floor/tiled/full,
 /area/abandoned_diner/docking/a)
 "abh" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/seed_extractor,
+/obj/structure/machinery/seed_extractor,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_diner/hydroponics)
 "abi" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable/green{
 	d1 = 1;
@@ -393,8 +393,8 @@
 /turf/simulated/floor/plating,
 /area/abandoned_diner/backroom)
 "abj" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/disposalpipe/junction{
@@ -410,10 +410,10 @@
 /turf/simulated/floor/plating,
 /area/abandoned_diner/backroom)
 "abk" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/disposalpipe/segment,
@@ -427,8 +427,8 @@
 /turf/simulated/floor/plating,
 /area/abandoned_diner/backroom)
 "abl" = (
-/obj/machinery/portable_atmospherics/canister/air,
-/obj/machinery/atmospherics/portables_connector/aux,
+/obj/structure/machinery/portable_atmospherics/canister/air,
+/obj/structure/machinery/atmospherics/portables_connector/aux,
 /obj/effect/floor_decal/industrial/outline,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_diner/docking/b)
@@ -441,8 +441,8 @@
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_diner/crew_quarters)
 "abn" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -459,10 +459,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/backroom)
 "abo" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -472,10 +472,10 @@
 /turf/simulated/floor/plating,
 /area/abandoned_diner/maintenance)
 "abs" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
 /obj/effect/floor_decal/corner_wide/green/diagonal,
@@ -483,8 +483,8 @@
 /area/abandoned_diner/hydroponics)
 "abu" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -497,10 +497,10 @@
 /turf/simulated/floor/tiled/white,
 /area/abandoned_diner/diner)
 "abv" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -508,7 +508,7 @@
 /area/abandoned_diner/docking/b)
 "abw" = (
 /obj/structure/closet/firecloset,
-/obj/machinery/light/colored/dying{
+/obj/structure/machinery/light/colored/dying{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/firefighting_closet,
@@ -516,10 +516,10 @@
 /area/abandoned_diner/backroom)
 "aby" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -533,8 +533,8 @@
 	dir = 9
 	},
 /obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -556,8 +556,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/storage)
 "abQ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/disposalpipe/segment,
@@ -570,27 +570,27 @@
 /turf/simulated/floor/plating,
 /area/abandoned_diner/storage)
 "aca" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/abandoned_diner/docking/a)
 "acb" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/light/colored/dying{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/light/colored/dying{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/abandoned_diner/docking/a)
 "acc" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -615,12 +615,12 @@
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_diner/crew_quarters)
 "acg" = (
-/obj/machinery/vending/snack,
+/obj/structure/machinery/vending/snack,
 /obj/effect/floor_decal/industrial/outline/blue,
 /turf/simulated/floor/tiled/full,
 /area/abandoned_diner/docking/b)
 "ach" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock/docking{
@@ -628,19 +628,19 @@
 	master_tag = "diner_a2";
 	landmark_tag = "diner_a2"
 	},
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
+/obj/structure/machinery/embedded_controller/radio/airlock/docking_port{
 	pixel_y = 28;
 	pixel_x = 5
 	},
-/obj/machinery/airlock_sensor{
+/obj/structure/machinery/airlock_sensor{
 	pixel_y = 29;
 	pixel_x = -7
 	},
 /turf/simulated/floor/plating,
 /area/abandoned_diner/docking/b)
 "aci" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/structure/disposalpipe/junction{
 	dir = 8
 	},
@@ -660,8 +660,8 @@
 /area/abandoned_diner/backroom)
 "ack" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -673,32 +673,32 @@
 /area/abandoned_diner/kitchen)
 "acl" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/trunk,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/disposal/small/east,
+/obj/structure/machinery/disposal/small/east,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/kitchen)
 "acm" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/abandoned_diner/hydroponics)
 "acn" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/disposalpipe/segment{
@@ -716,17 +716,17 @@
 /area/abandoned_diner/diner)
 "aco" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/abandoned_diner/diner)
 "acp" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
 /obj/structure/cable/green{
@@ -735,23 +735,23 @@
 /turf/simulated/floor/tiled/white,
 /area/abandoned_diner/diner)
 "act" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/abandoned_diner/docking/b)
 "acw" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -803,10 +803,10 @@
 /turf/simulated/floor/marble,
 /area/abandoned_diner/restroom)
 "ada" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment{
@@ -824,19 +824,19 @@
 /obj/effect/floor_decal/corner_wide/black{
 	dir = 5
 	},
-/obj/machinery/disposal/small/south,
+/obj/structure/machinery/disposal/small/south,
 /obj/structure/disposalpipe/trunk,
 /obj/random/dirt_75,
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 1
 	},
 /turf/simulated/floor/marble,
 /area/abandoned_diner/restroom)
 "ade" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
 /obj/structure/disposalpipe/segment{
@@ -847,14 +847,14 @@
 	icon_state = "0-8"
 	},
 /obj/random/dirt_75,
-/obj/machinery/power/apc/north,
+/obj/structure/machinery/power/apc/north,
 /turf/simulated/floor/lino,
 /area/abandoned_diner/restroom)
 "adh" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/disposalpipe/junction/yjunction{
@@ -864,21 +864,21 @@
 /turf/simulated/floor/lino,
 /area/abandoned_diner/restroom)
 "adj" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	name = "Restroom"
 	},
 /turf/simulated/floor/lino,
 /area/abandoned_diner/restroom)
 "adk" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
 /obj/structure/disposalpipe/segment,
@@ -886,10 +886,10 @@
 /turf/simulated/floor/marble,
 /area/abandoned_diner/restroom)
 "adl" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /obj/effect/floor_decal/corner_wide/green/diagonal,
@@ -897,22 +897,22 @@
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/hydroponics)
 "adm" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /obj/random/dirt_75,
-/obj/machinery/alarm/freezer/east,
-/obj/machinery/chem_master/condimaster,
+/obj/structure/machinery/alarm/freezer/east,
+/obj/structure/machinery/chem_master/condimaster,
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
 	temperature = 253.15
 	},
 /area/abandoned_diner/freezer)
 "adp" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner_wide/green/diagonal,
@@ -923,16 +923,16 @@
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/hydroponics)
 "adw" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/door/firedoor/multi_tile{
+/obj/structure/machinery/door/firedoor/multi_tile{
 	dir = 1
 	},
-/obj/machinery/door/airlock/multi_tile/glass{
+/obj/structure/machinery/door/airlock/multi_tile/glass{
 	name = "Diner";
 	dir = 2
 	},
@@ -948,7 +948,7 @@
 /turf/simulated/floor/tiled,
 /area/abandoned_diner/diner)
 "aeo" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/abandoned_diner/maintenance)
@@ -965,11 +965,11 @@
 /area/abandoned_diner/diner)
 "afj" = (
 /obj/random/dirt_75,
-/obj/machinery/vending/tool,
+/obj/structure/machinery/vending/tool,
 /turf/simulated/floor/plating,
 /area/abandoned_diner/maintenance)
 "afE" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -987,15 +987,15 @@
 /turf/simulated/floor/marble,
 /area/abandoned_diner/crew_quarters)
 "afF" = (
-/obj/machinery/appliance/cooker/fryer,
+/obj/structure/machinery/appliance/cooker/fryer,
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/alarm/north,
+/obj/structure/machinery/alarm/north,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_diner/kitchen)
 "aga" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -1019,44 +1019,44 @@
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/hydroponics)
 "agx" = (
-/obj/machinery/vending/zora,
+/obj/structure/machinery/vending/zora,
 /obj/effect/floor_decal/industrial/outline/blue,
 /turf/simulated/floor/tiled,
 /area/abandoned_diner/docking/a)
 "agD" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/door/firedoor,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/airlock/glass{
+/obj/structure/machinery/door/airlock/glass{
 	name = "Kitchen"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/diner)
 "agR" = (
-/obj/machinery/portable_atmospherics/hydroponics,
+/obj/structure/machinery/portable_atmospherics/hydroponics,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_diner/hydroponics)
 "ahV" = (
 /obj/structure/flora/pottedplant/dead,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/obj/machinery/light/colored/decayed,
+/obj/structure/machinery/light/colored/decayed,
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_diner/crew_quarters)
 "ajD" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -1064,14 +1064,14 @@
 /area/abandoned_diner/crew_quarters)
 "akE" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
-/obj/machinery/media/jukebox{
+/obj/structure/machinery/media/jukebox{
 	anchored = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/abandoned_diner/diner)
 "alj" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -1098,7 +1098,7 @@
 	icon_state = "0-4"
 	},
 /obj/item/trash/cigbutt,
-/obj/machinery/power/apc/west,
+/obj/structure/machinery/power/apc/west,
 /obj/item/reagent_containers/spray/cleaner{
 	pixel_y = 12;
 	pixel_x = -7
@@ -1116,20 +1116,20 @@
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/backroom)
 "alQ" = (
-/obj/machinery/atmospherics/binary/pump/scrubber{
+/obj/structure/machinery/atmospherics/binary/pump/scrubber{
 	dir = 8
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/abandoned_diner/maintenance)
 "aml" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/door/firedoor{
+/obj/structure/machinery/door/firedoor{
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment{
@@ -1141,7 +1141,7 @@
 	icon_state = "4-8"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	dir = 4;
 	name = "Restrooms"
 	},
@@ -1164,13 +1164,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/storage)
 "amF" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 6
 	},
 /obj/structure/cable/green{
@@ -1190,10 +1190,10 @@
 /turf/simulated/floor/lino/diamond,
 /area/abandoned_diner/diner)
 "anh" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
 /obj/structure/disposalpipe/junction{
@@ -1216,7 +1216,7 @@
 /area/abandoned_diner/backroom)
 "anH" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -1230,13 +1230,13 @@
 /turf/simulated/floor/lino/diamond,
 /area/abandoned_diner/diner)
 "aot" = (
-/obj/machinery/appliance/cooker/stove,
+/obj/structure/machinery/appliance/cooker/stove,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/cable/green{
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc/north,
+/obj/structure/machinery/power/apc/north,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_diner/kitchen)
 "aoN" = (
@@ -1249,7 +1249,7 @@
 	pixel_x = 2
 	},
 /obj/random/dirt_75,
-/obj/machinery/light/colored/decayed,
+/obj/structure/machinery/light/colored/decayed,
 /obj/item/reagent_containers/food/drinks/cans/diet_cola{
 	pixel_y = 16;
 	pixel_x = 7
@@ -1258,7 +1258,7 @@
 /turf/simulated/floor/lino/diamond,
 /area/abandoned_diner/diner)
 "aqc" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner_wide/brown{
@@ -1268,7 +1268,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/storage)
 "aqk" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/docking{
@@ -1276,11 +1276,11 @@
 	master_tag = "diner_b2";
 	landmark_tag = "diner_b2"
 	},
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
+/obj/structure/machinery/embedded_controller/radio/airlock/docking_port{
 	pixel_y = 28;
 	pixel_x = 5
 	},
-/obj/machinery/airlock_sensor{
+/obj/structure/machinery/airlock_sensor{
 	pixel_y = 29;
 	pixel_x = -7
 	},
@@ -1304,7 +1304,7 @@
 /area/abandoned_diner/backroom)
 "aqz" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
-/obj/machinery/vending/dinnerware/metal{
+/obj/structure/machinery/vending/dinnerware/metal{
 	pixel_y = 24;
 	density = 0
 	},
@@ -1351,13 +1351,13 @@
 /area/abandoned_diner/diner)
 "asB" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/abandoned_diner/diner)
 "asJ" = (
 /obj/structure/table/reinforced/steel,
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /obj/item/trash/plate{
 	pixel_y = 4;
 	pixel_x = 1
@@ -1370,7 +1370,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_diner/backroom)
 "atN" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /turf/simulated/floor/marble,
@@ -1388,10 +1388,10 @@
 /turf/template_noop,
 /area/space)
 "auV" = (
-/obj/machinery/appliance/cooker/oven,
+/obj/structure/machinery/appliance/cooker/oven,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/decal/cleanable/cobweb2,
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -1400,8 +1400,8 @@
 /turf/simulated/wall,
 /area/abandoned_diner/docking/a)
 "avi" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -1412,13 +1412,13 @@
 /turf/simulated/floor/plating,
 /area/abandoned_diner/backroom)
 "avO" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -1426,7 +1426,7 @@
 /turf/simulated/floor/plating,
 /area/abandoned_diner/docking/b)
 "avW" = (
-/obj/machinery/portable_atmospherics/hydroponics,
+/obj/structure/machinery/portable_atmospherics/hydroponics,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/random/seed{
 	pixel_x = -8;
@@ -1435,7 +1435,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_diner/hydroponics)
 "awn" = (
-/obj/machinery/vending/dinnerware/metal,
+/obj/structure/machinery/vending/dinnerware/metal,
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/diner)
 "awo" = (
@@ -1480,28 +1480,28 @@
 /turf/simulated/floor/lino,
 /area/abandoned_diner/restroom)
 "azn" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/door/firedoor,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/airlock/glass_service{
+/obj/structure/machinery/door/airlock/glass_service{
 	name = "Freezer Access"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/backroom)
 "azC" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 6
 	},
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -1517,7 +1517,7 @@
 	pixel_y = 5;
 	pixel_x = -12
 	},
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /obj/item/trash/coffee{
 	pixel_y = 7;
 	pixel_x = 6
@@ -1526,17 +1526,17 @@
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/diner)
 "aAg" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/lino,
 /area/abandoned_diner/restroom)
 "aAj" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -1544,7 +1544,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/crew_quarters)
 "aAr" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 6
 	},
 /obj/random/dirt_75,
@@ -1552,12 +1552,12 @@
 /turf/simulated/floor/tiled,
 /area/abandoned_diner/docking/b)
 "aAK" = (
-/obj/machinery/smartfridge/foodheater,
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/smartfridge/foodheater,
+/obj/structure/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/diner)
 "aBr" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -1565,10 +1565,10 @@
 /turf/simulated/floor/tiled,
 /area/abandoned_diner/docking/b)
 "aBI" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment{
@@ -1580,19 +1580,19 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/light/colored/decayed,
+/obj/structure/machinery/light/colored/decayed,
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/backroom)
 "aCs" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/closet/walllocker/emerglocker/east,
 /turf/simulated/floor/plating,
 /area/abandoned_diner/docking/a)
 "aCM" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /turf/simulated/floor/marble,
@@ -1612,7 +1612,7 @@
 /area/abandoned_diner/backroom)
 "aCU" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/abandoned_diner/diner)
@@ -1622,7 +1622,7 @@
 /turf/space/dynamic,
 /area/abandoned_diner/maintenance)
 "aDn" = (
-/obj/machinery/disposal/small/south,
+/obj/structure/machinery/disposal/small/south,
 /obj/structure/disposalpipe/trunk,
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
@@ -1640,8 +1640,8 @@
 /turf/simulated/floor/lino/diamond,
 /area/abandoned_diner/diner)
 "aDI" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/random/seed{
 	pixel_y = -4;
@@ -1660,7 +1660,7 @@
 /area/abandoned_diner/docking/b)
 "aEn" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1699,14 +1699,14 @@
 	pixel_y = 12;
 	pixel_x = -4
 	},
-/obj/machinery/alarm/west,
+/obj/structure/machinery/alarm/west,
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/storage)
 "aFW" = (
 /obj/structure/filingcabinet/filingcabinet{
 	pixel_x = -9
 	},
-/obj/machinery/papershredder{
+/obj/structure/machinery/papershredder{
 	pixel_x = 6
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -1719,7 +1719,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/backroom)
 "aGu" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
 /obj/structure/curtain/open/shower,
@@ -1728,10 +1728,10 @@
 /area/abandoned_diner/crew_quarters)
 "aGw" = (
 /obj/structure/kitchenspike,
-/obj/machinery/light/colored/dying{
+/obj/structure/machinery/light/colored/dying{
 	dir = 4
 	},
-/obj/machinery/light_switch{
+/obj/structure/machinery/light_switch{
 	pixel_y = -20
 	},
 /obj/effect/decal/cleanable/blood/xeno,
@@ -1747,7 +1747,7 @@
 /turf/template_noop,
 /area/space)
 "aGZ" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 1
 	},
 /obj/effect/map_effect/marker/airlock/docking{
@@ -1755,12 +1755,12 @@
 	master_tag = "diner_a1";
 	landmark_tag = "diner_a1"
 	},
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
+/obj/structure/machinery/embedded_controller/radio/airlock/docking_port{
 	dir = 8;
 	pixel_x = 22;
 	pixel_y = 8
 	},
-/obj/machinery/airlock_sensor{
+/obj/structure/machinery/airlock_sensor{
 	pixel_x = 22;
 	dir = 8;
 	pixel_y = -3
@@ -1776,7 +1776,7 @@
 /area/abandoned_diner/diner)
 "aHQ" = (
 /obj/structure/table/reinforced/steel,
-/obj/machinery/chemical_dispenser/coffeemaster/full{
+/obj/structure/machinery/chemical_dispenser/coffeemaster/full{
 	pixel_x = 2;
 	pixel_y = 16
 	},
@@ -1799,7 +1799,7 @@
 /area/abandoned_diner/kitchen)
 "aIl" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /obj/structure/disposalpipe/segment,
@@ -1822,17 +1822,17 @@
 	pixel_y = 11
 	},
 /obj/random/dirt_75,
-/obj/machinery/alarm/north,
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/alarm/north,
+/obj/structure/machinery/light/colored/decayed{
 	dir = 8
 	},
 /turf/simulated/floor/marble,
 /area/abandoned_diner/crew_quarters)
 "aIH" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 10
 	},
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/docking{
@@ -1841,22 +1841,22 @@
 	landmark_tag = "diner_b2"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	pixel_x = 32;
 	pixel_y = 28
 	},
 /turf/simulated/floor/plating,
 /area/abandoned_diner/docking/a)
 "aIJ" = (
-/obj/machinery/vending/cola,
+/obj/structure/machinery/vending/cola,
 /obj/effect/floor_decal/industrial/outline/blue,
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/full,
 /area/abandoned_diner/docking/a)
 "aJI" = (
-/obj/machinery/vending/cigarette,
+/obj/structure/machinery/vending/cigarette,
 /obj/effect/floor_decal/industrial/outline/blue,
 /turf/simulated/floor/tiled/full,
 /area/abandoned_diner/docking/b)
@@ -1872,13 +1872,13 @@
 /turf/simulated/floor/tiled/white,
 /area/abandoned_diner/diner)
 "aJX" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -1898,7 +1898,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_diner/hydroponics)
 "aKx" = (
-/obj/machinery/power/solar,
+/obj/structure/machinery/power/solar,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/cable/yellow{
 	icon_state = "0-8"
@@ -1928,26 +1928,26 @@
 /turf/simulated/floor/lino/diamond,
 /area/abandoned_diner/diner)
 "aLm" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/firedoor{
+/obj/structure/machinery/door/firedoor{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/abandoned_diner/docking/b)
 "aLs" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/obj/machinery/light/colored/decayed,
+/obj/structure/machinery/light/colored/decayed,
 /obj/structure/flora/pottedplant/dead,
 /turf/simulated/floor/lino,
 /area/abandoned_diner/restroom)
@@ -1962,10 +1962,10 @@
 /area/abandoned_diner/docking/b)
 "aMX" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
 /obj/structure/disposalpipe/segment,
@@ -1984,7 +1984,7 @@
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 5
 	},
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 1
 	},
 /obj/random/dirt_75,
@@ -1993,8 +1993,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/crew_quarters)
 "aNq" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/light/colored/decayed{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -2010,15 +2010,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/storage)
 "aNP" = (
-/obj/machinery/vending/dinnerware,
+/obj/structure/machinery/vending/dinnerware,
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/kitchen)
 "aNY" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
 /obj/random/dirt_75,
@@ -2030,8 +2030,8 @@
 	},
 /area/abandoned_diner/freezer)
 "aOz" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -2045,10 +2045,10 @@
 	},
 /area/abandoned_diner/freezer)
 "aOD" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /obj/structure/disposalpipe/segment,
@@ -2057,31 +2057,31 @@
 /turf/simulated/floor/marble,
 /area/abandoned_diner/restroom)
 "aOJ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
-/obj/machinery/alarm/east,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/machinery/alarm/east,
 /turf/simulated/floor/tiled,
 /area/abandoned_diner/docking/a)
 "aOV" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/vending/hydronutrients,
+/obj/structure/machinery/vending/hydronutrients,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_diner/hydroponics)
 "aOY" = (
 /obj/random/dirt_75,
-/obj/machinery/vending/engivend{
+/obj/structure/machinery/vending/engivend{
 	req_access = null
 	},
-/obj/machinery/light/colored/dying{
+/obj/structure/machinery/light/colored/dying{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/abandoned_diner/maintenance)
 "aPw" = (
 /obj/random/dirt_75,
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 8
 	},
-/obj/machinery/disposal/small/east,
+/obj/structure/machinery/disposal/small/east,
 /obj/structure/disposalpipe/trunk{
 	dir = 4
 	},
@@ -2098,11 +2098,11 @@
 /turf/simulated/floor/lino/diamond,
 /area/abandoned_diner/diner)
 "aQs" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
 /obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable/green{
 	d1 = 1;
@@ -2112,20 +2112,20 @@
 /turf/simulated/floor/plating,
 /area/abandoned_diner/storage)
 "aRc" = (
-/obj/machinery/appliance/cooker/stove,
+/obj/structure/machinery/appliance/cooker/stove,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/decal/cleanable/molten_item,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_diner/kitchen)
 "aRs" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/abandoned_diner/docking/a)
 "aSd" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /obj/structure/disposalpipe/segment,
@@ -2142,10 +2142,10 @@
 /area/space)
 "aTc" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/disposalpipe/junction{
@@ -2164,7 +2164,7 @@
 /turf/simulated/floor/tiled/white,
 /area/abandoned_diner/diner)
 "aTd" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled,
 /area/abandoned_diner/docking/a)
 "aUl" = (
@@ -2185,7 +2185,7 @@
 /area/abandoned_diner/docking/a)
 "aVi" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -2208,7 +2208,7 @@
 /turf/simulated/floor/plating,
 /area/abandoned_diner/maintenance)
 "aXo" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner_wide/green/diagonal,
@@ -2216,13 +2216,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/hydroponics)
 "aYf" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/abandoned_diner/docking/a)
 "aYp" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/random/dirt_75,
 /obj/item/extinguisher{
 	pixel_y = -8;
@@ -2242,7 +2242,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_diner/backroom)
 "aZe" = (
-/obj/machinery/biogenerator{
+/obj/structure/machinery/biogenerator{
 	icon_state = "biogen-empty"
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -2254,7 +2254,7 @@
 /turf/simulated/floor/tiled,
 /area/abandoned_diner/docking/b)
 "bbU" = (
-/obj/machinery/door/airlock/external,
+/obj/structure/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "diner_a1";
 	master_tag = "diner_a1";
@@ -2264,16 +2264,16 @@
 /turf/simulated/floor/plating,
 /area/abandoned_diner/docking/b)
 "bid" = (
-/obj/machinery/portable_atmospherics/hydroponics,
+/obj/structure/machinery/portable_atmospherics/hydroponics,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_diner/hydroponics)
 "biM" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 4
 	},
-/obj/machinery/light/colored/decayed,
+/obj/structure/machinery/light/colored/decayed,
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "diner_b2";
 	master_tag = "diner_b2";
@@ -2294,9 +2294,9 @@
 /turf/simulated/floor/tiled/white,
 /area/abandoned_diner/diner)
 "bvC" = (
-/obj/machinery/portable_atmospherics/hydroponics,
+/obj/structure/machinery/portable_atmospherics/hydroponics,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/alarm/east,
+/obj/structure/machinery/alarm/east,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_diner/hydroponics)
@@ -2311,11 +2311,11 @@
 /turf/simulated/floor/tiled,
 /area/abandoned_diner/diner)
 "bAb" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8
 	},
 /obj/random/dirt_75,
-/obj/machinery/meter,
+/obj/structure/machinery/meter,
 /turf/simulated/floor/plating,
 /area/abandoned_diner/maintenance)
 "bCH" = (
@@ -2326,7 +2326,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/crew_quarters)
 "bGi" = (
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 8
 	},
 /obj/structure/lattice,
@@ -2342,7 +2342,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/hydroponics)
 "bLU" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /obj/structure/curtain/open/shower,
@@ -2371,7 +2371,7 @@
 /area/space)
 "bZQ" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
-/obj/machinery/disposal/small/west,
+/obj/structure/machinery/disposal/small/west,
 /obj/structure/disposalpipe/trunk{
 	dir = 1
 	},
@@ -2383,12 +2383,12 @@
 /turf/simulated/floor/tiled,
 /area/abandoned_diner/docking/b)
 "chw" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/airlock/glass_service{
+/obj/structure/machinery/door/airlock/glass_service{
 	name = "Staffroom"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2396,15 +2396,15 @@
 "ciE" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
 /obj/effect/decal/cleanable/spiderling_remains,
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 4
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/abandoned_diner/diner)
 "cjr" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/machinery/disposal/small/south,
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/machinery/disposal/small/south,
 /obj/structure/disposalpipe/trunk{
 	dir = 8
 	},
@@ -2415,14 +2415,14 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
 	},
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 8
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/lino/diamond,
 /area/abandoned_diner/diner)
 "ctN" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/docking{
@@ -2430,7 +2430,7 @@
 	master_tag = "diner_a2";
 	landmark_tag = "diner_a2"
 	},
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	dir = 4;
 	pixel_x = 12;
 	pixel_y = 28
@@ -2446,28 +2446,28 @@
 	dir = 5
 	},
 /obj/random/dirt_75,
-/obj/machinery/vending/snack,
+/obj/structure/machinery/vending/snack,
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/backroom)
 "cvu" = (
-/obj/machinery/atmospherics/pipe/simple/visible/universal,
+/obj/structure/machinery/atmospherics/pipe/simple/visible/universal,
 /obj/structure/closet/firecloset,
 /obj/effect/floor_decal/industrial/outline/firefighting_closet,
 /turf/simulated/floor/plating,
 /area/abandoned_diner/maintenance)
 "cBT" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "diner_b1";
 	master_tag = "diner_b1";
 	landmark_tag = "diner_b1"
 	},
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
+/obj/structure/machinery/embedded_controller/radio/airlock/docking_port{
 	dir = 8;
 	pixel_x = 22;
 	pixel_y = 8
 	},
-/obj/machinery/airlock_sensor{
+/obj/structure/machinery/airlock_sensor{
 	pixel_x = 22;
 	dir = 8;
 	pixel_y = -3
@@ -2488,7 +2488,7 @@
 "cGg" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/abandoned_diner/docking/a)
 "cGw" = (
@@ -2501,7 +2501,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/kitchen)
 "cOW" = (
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	dir = 8;
 	id = "diner_a";
 	reversed = 1
@@ -2515,10 +2515,10 @@
 /turf/simulated/floor/plating,
 /area/abandoned_diner/disposals)
 "cRs" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/obj/machinery/light/colored/decayed,
+/obj/structure/machinery/light/colored/decayed,
 /obj/random/dirt_75,
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -2541,7 +2541,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/terminal{
+/obj/structure/machinery/power/terminal{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/floor_damage/random_tiled_burned,
@@ -2557,14 +2557,14 @@
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/low/east,
+/obj/structure/machinery/power/apc/low/east,
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/disposals)
 "dla" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -2575,7 +2575,7 @@
 /area/abandoned_diner/docking/a)
 "dru" = (
 /obj/random/dirt_75,
-/obj/machinery/washing_machine{
+/obj/structure/machinery/washing_machine{
 	pixel_y = 13
 	},
 /turf/simulated/floor/marble,
@@ -2606,7 +2606,7 @@
 /turf/simulated/floor/airless,
 /area/abandoned_diner/maintenance)
 "dHR" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
 /obj/structure/cable/yellow{
@@ -2624,8 +2624,8 @@
 /area/space)
 "dOp" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/junction{
 	icon_state = "pipe-j2"
 	},
@@ -2637,7 +2637,7 @@
 /turf/simulated/floor/tiled/white,
 /area/abandoned_diner/diner)
 "dRF" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner_wide/green/diagonal,
@@ -2657,10 +2657,10 @@
 /turf/simulated/floor/tiled,
 /area/abandoned_diner/diner)
 "ecB" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment{
@@ -2689,10 +2689,10 @@
 /turf/simulated/floor/tiled/white,
 /area/abandoned_diner/diner)
 "ekA" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /obj/effect/floor_decal/corner_wide/brown/full,
@@ -2730,7 +2730,7 @@
 /turf/simulated/floor/tiled/white,
 /area/abandoned_diner/diner)
 "emz" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/docking{
@@ -2755,19 +2755,19 @@
 	pixel_y = 6;
 	pixel_x = 1
 	},
-/obj/machinery/alarm/west,
+/obj/structure/machinery/alarm/west,
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/disposals)
 "esx" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 8
 	},
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
 	},
 /obj/random/dirt_75,
-/obj/machinery/light/colored/decayed,
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+/obj/structure/machinery/light/colored/decayed,
+/obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller{
 	pixel_y = 28;
 	pixel_x = 5
 	},
@@ -2775,7 +2775,7 @@
 	name = "diner_engi";
 	master_tag = "diner_engi"
 	},
-/obj/machinery/airlock_sensor{
+/obj/structure/machinery/airlock_sensor{
 	pixel_y = 29;
 	pixel_x = -7
 	},
@@ -2791,14 +2791,14 @@
 	pixel_y = 10
 	},
 /obj/random/dirt_75,
-/obj/machinery/light_switch{
+/obj/structure/machinery/light_switch{
 	pixel_y = -20
 	},
 /obj/item/mirror,
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_diner/crew_quarters)
 "eBz" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
 /obj/structure/cable/green{
@@ -2815,7 +2815,7 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
-/obj/machinery/door/firedoor{
+/obj/structure/machinery/door/firedoor{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -2883,10 +2883,10 @@
 /turf/simulated/floor/marble,
 /area/abandoned_diner/restroom)
 "fiZ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner_wide/green/diagonal,
@@ -2895,8 +2895,8 @@
 /area/abandoned_diner/hydroponics)
 "flC" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment{
 	dir = 8;
 	icon_state = "pipe-c"
@@ -2910,7 +2910,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/kitchen)
 "flP" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -2971,17 +2971,17 @@
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/kitchen)
 "fwU" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/door/firedoor{
+/obj/structure/machinery/door/firedoor{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	name = "Restroom";
 	dir = 4
 	},
@@ -3007,7 +3007,7 @@
 /turf/simulated/floor/marble,
 /area/abandoned_diner/restroom)
 "fBF" = (
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	dir = 8;
 	id = "diner_a";
 	reversed = 1
@@ -3021,8 +3021,8 @@
 /area/abandoned_diner/disposals)
 "fIO" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable/green{
 	d1 = 1;
@@ -3038,7 +3038,7 @@
 /obj/random/dirt_75,
 /obj/structure/bed/stool/chair/sofa/left/red,
 /obj/item/reagent_containers/food/drinks/cans/melon_soda,
-/obj/machinery/alarm/north,
+/obj/structure/machinery/alarm/north,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/backroom)
@@ -3054,7 +3054,7 @@
 /obj/effect/floor_decal/corner_wide/blue{
 	dir = 9
 	},
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 8
 	},
 /obj/random/smokable{
@@ -3082,9 +3082,9 @@
 /turf/simulated/floor/tiled/white,
 /area/abandoned_diner/diner)
 "gfn" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/door/firedoor,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -3092,11 +3092,11 @@
 	},
 /obj/structure/disposalpipe/segment,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/airlock/freezer,
+/obj/structure/machinery/door/airlock/freezer,
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/freezer)
 "ggB" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/structure/disposalpipe/segment{
 	dir = 1;
 	icon_state = "pipe-c"
@@ -3105,10 +3105,10 @@
 /turf/simulated/floor/tiled,
 /area/abandoned_diner/docking/b)
 "giG" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner_wide/green/diagonal,
@@ -3128,10 +3128,10 @@
 /area/abandoned_diner/docking/a)
 "gpX" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment{
@@ -3171,8 +3171,8 @@
 /turf/simulated/floor/lino/diamond,
 /area/abandoned_diner/diner)
 "gPl" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /obj/structure/cable/green{
@@ -3191,8 +3191,8 @@
 /turf/template_noop,
 /area/space)
 "gUv" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable/green{
 	d1 = 1;
@@ -3206,7 +3206,7 @@
 /turf/simulated/wall,
 /area/abandoned_diner/maintenance)
 "gWf" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/effect/floor_decal/industrial/warning,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
@@ -3233,13 +3233,13 @@
 /turf/simulated/floor/tiled,
 /area/abandoned_diner/docking/b)
 "hdR" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/door/firedoor{
+/obj/structure/machinery/door/firedoor{
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment{
@@ -3251,7 +3251,7 @@
 	icon_state = "4-8"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/airlock/glass_mining{
+/obj/structure/machinery/door/airlock/glass_mining{
 	dir = 4;
 	name = "Storage Room"
 	},
@@ -3261,18 +3261,18 @@
 /obj/structure/bed/stool/chair/sofa/left/red{
 	dir = 1
 	},
-/obj/machinery/light/colored/decayed,
+/obj/structure/machinery/light/colored/decayed,
 /turf/simulated/floor/tiled,
 /area/abandoned_diner/docking/b)
 "hks" = (
-/obj/machinery/light/colored/decayed,
+/obj/structure/machinery/light/colored/decayed,
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/crew_quarters)
 "hpR" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 1
 	},
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock/docking{
@@ -3313,7 +3313,7 @@
 /obj/random/mre,
 /obj/random/mre,
 /obj/random/junk,
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 8
 	},
 /obj/random/coin,
@@ -3326,18 +3326,18 @@
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
 	},
-/obj/machinery/recharge_station,
+/obj/structure/machinery/recharge_station,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
 /area/abandoned_diner/maintenance)
 "hUD" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
-/obj/machinery/alarm/north,
+/obj/structure/machinery/alarm/north,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/abandoned_diner/diner)
 "hWy" = (
-/obj/machinery/power/solar,
+/obj/structure/machinery/power/solar,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/cable/yellow{
 	d2 = 4;
@@ -3350,16 +3350,16 @@
 /turf/simulated/wall,
 /area/abandoned_diner/disposals)
 "ifp" = (
-/obj/machinery/alarm/west,
+/obj/structure/machinery/alarm/west,
 /obj/structure/closet/firecloset,
 /obj/effect/floor_decal/industrial/outline/firefighting_closet,
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/diner)
 "ihn" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -3371,26 +3371,26 @@
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/crew_quarters)
 "ijg" = (
-/obj/machinery/atmospherics/portables_connector,
-/obj/machinery/portable_atmospherics/canister/air,
+/obj/structure/machinery/atmospherics/portables_connector,
+/obj/structure/machinery/portable_atmospherics/canister/air,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/abandoned_diner/maintenance)
 "ilG" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/abandoned_diner/docking/a)
 "imM" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/disposal/small/north,
+/obj/structure/machinery/disposal/small/north,
 /obj/structure/disposalpipe/trunk{
 	dir = 1
 	},
@@ -3413,13 +3413,13 @@
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_diner/crew_quarters)
 "iru" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
 /obj/item/trash/cigbutt{
@@ -3439,7 +3439,7 @@
 "iva" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/secure_closet/freezer/chicken_and_fish,
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/flour,
@@ -3450,9 +3450,9 @@
 /area/abandoned_diner/freezer)
 "ivo" = (
 /obj/structure/flora/pottedplant/dead,
-/obj/machinery/alarm/north,
+/obj/structure/machinery/alarm/north,
 /obj/effect/floor_decal/industrial/warning/corner,
-/obj/machinery/light/colored/dying{
+/obj/structure/machinery/light/colored/dying{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -3483,7 +3483,7 @@
 /turf/simulated/floor/tiled/white,
 /area/abandoned_diner/diner)
 "iTm" = (
-/obj/machinery/conveyor_switch/oneway{
+/obj/structure/machinery/conveyor_switch/oneway{
 	pixel_y = 16;
 	pixel_x = 11;
 	id = "diner_a"
@@ -3491,7 +3491,7 @@
 /obj/structure/disposalpipe/segment{
 	icon_state = "pipe-c"
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/disposals)
@@ -3514,15 +3514,15 @@
 /turf/simulated/floor/lino/diamond,
 /area/abandoned_diner/diner)
 "iWw" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/abandoned_diner/docking/a)
 "jdu" = (
-/obj/machinery/disposal/small/west,
+/obj/structure/machinery/disposal/small/west,
 /obj/structure/disposalpipe/trunk,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
@@ -3532,7 +3532,7 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc/north,
+/obj/structure/machinery/power/apc/north,
 /turf/simulated/floor/tiled,
 /area/abandoned_diner/docking/a)
 "jma" = (
@@ -3540,8 +3540,8 @@
 	dir = 8
 	},
 /obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -3565,7 +3565,7 @@
 /area/abandoned_diner/kitchen)
 "jtk" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
-/obj/machinery/disposal/small/west,
+/obj/structure/machinery/disposal/small/west,
 /obj/structure/disposalpipe/trunk{
 	dir = 8
 	},
@@ -3577,7 +3577,7 @@
 /area/abandoned_diner/crew_quarters)
 "jAJ" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/disposal/small/east,
+/obj/structure/machinery/disposal/small/east,
 /obj/structure/disposalpipe/trunk{
 	dir = 4
 	},
@@ -3589,8 +3589,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/disposals)
 "jFF" = (
-/obj/machinery/atmospherics/portables_connector/scrubber,
-/obj/machinery/portable_atmospherics/canister/empty{
+/obj/structure/machinery/atmospherics/portables_connector/scrubber,
+/obj/structure/machinery/portable_atmospherics/canister/empty{
 	name = "waste canister"
 	},
 /turf/simulated/floor/plating,
@@ -3613,8 +3613,8 @@
 	dir = 9
 	},
 /obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -3624,10 +3624,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/storage)
 "jWL" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -3641,7 +3641,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/crew_quarters)
 "kbU" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/docking{
@@ -3649,7 +3649,7 @@
 	master_tag = "diner_b2";
 	landmark_tag = "diner_b2"
 	},
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	dir = 8;
 	pixel_x = -12;
 	pixel_y = 27
@@ -3681,10 +3681,10 @@
 /area/abandoned_diner/diner)
 "kdW" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /obj/structure/disposalpipe/segment{
@@ -3696,7 +3696,7 @@
 /turf/simulated/floor/tiled/white,
 /area/abandoned_diner/diner)
 "keF" = (
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 8
 	},
 /obj/structure/closet/emcloset,
@@ -3706,23 +3706,23 @@
 /area/abandoned_diner/diner)
 "kfs" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/kitchen)
 "kjM" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
 	},
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	pixel_y = 22;
 	pixel_x = -24
 	},
@@ -3760,7 +3760,7 @@
 /turf/simulated/floor/tiled,
 /area/abandoned_diner/docking/a)
 "kwn" = (
-/obj/machinery/power/solar,
+/obj/structure/machinery/power/solar,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/cable/yellow{
 	d2 = 4;
@@ -3769,7 +3769,7 @@
 /turf/simulated/floor/airless,
 /area/abandoned_diner/maintenance)
 "kxc" = (
-/obj/machinery/power/tracker,
+/obj/structure/machinery/power/tracker,
 /obj/structure/cable/yellow{
 	icon_state = "0-8"
 	},
@@ -3778,7 +3778,7 @@
 /area/abandoned_diner/maintenance)
 "kyw" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
-/obj/machinery/disposal/small/north,
+/obj/structure/machinery/disposal/small/north,
 /obj/structure/disposalpipe/trunk{
 	dir = 1
 	},
@@ -3786,7 +3786,7 @@
 /area/abandoned_diner/diner)
 "kBI" = (
 /obj/effect/floor_decal/corner_wide/green/diagonal,
-/obj/machinery/disposal/small/east,
+/obj/structure/machinery/disposal/small/east,
 /obj/structure/disposalpipe/trunk{
 	dir = 1
 	},
@@ -3805,9 +3805,9 @@
 /turf/template_noop,
 /area/space)
 "kIj" = (
-/obj/machinery/portable_atmospherics/hydroponics,
+/obj/structure/machinery/portable_atmospherics/hydroponics,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/power/apc/north,
+/obj/structure/machinery/power/apc/north,
 /obj/structure/cable/green{
 	d2 = 2;
 	icon_state = "0-2"
@@ -3821,13 +3821,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/kitchen)
 "kKK" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
 	},
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	dir = 4;
 	pixel_x = 12;
 	pixel_y = 28
@@ -3840,7 +3840,7 @@
 /turf/simulated/floor/plating,
 /area/abandoned_diner/maintenance)
 "kKU" = (
-/obj/machinery/power/smes/buildable/autosolars,
+/obj/structure/machinery/power/smes/buildable/autosolars,
 /obj/structure/cable/green{
 	d2 = 8;
 	icon_state = "0-8"
@@ -3854,10 +3854,10 @@
 /turf/simulated/floor/plating,
 /area/abandoned_diner/maintenance)
 "kLx" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
 /obj/structure/cable/green{
@@ -3875,27 +3875,27 @@
 	dir = 5
 	},
 /obj/random/beret,
-/obj/machinery/alarm/north,
+/obj/structure/machinery/alarm/north,
 /obj/random/loot,
 /obj/random/loot,
 /obj/random/civgun,
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/crew_quarters)
 "kRg" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/abandoned_diner/docking/b)
 "kRo" = (
 /obj/structure/table/reinforced/steel,
-/obj/machinery/door/firedoor{
+/obj/structure/machinery/door/firedoor{
 	dir = 4
 	},
 /obj/item/trash/plate{
@@ -3939,7 +3939,7 @@
 /area/abandoned_diner/diner)
 "kZc" = (
 /obj/structure/table/reinforced/steel,
-/obj/machinery/reagentgrinder{
+/obj/structure/machinery/reagentgrinder{
 	pixel_x = -6;
 	pixel_y = 16
 	},
@@ -3958,11 +3958,11 @@
 "lat" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/random/dirt_75,
-/obj/machinery/vending/boozeomat/abandoned,
+/obj/structure/machinery/vending/boozeomat/abandoned,
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/storage)
 "lay" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -3984,7 +3984,7 @@
 /turf/simulated/floor/tiled/white,
 /area/abandoned_diner/diner)
 "leV" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -3993,7 +3993,7 @@
 /turf/simulated/floor/tiled,
 /area/abandoned_diner/docking/b)
 "leX" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/random/dirt_75,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -4001,11 +4001,11 @@
 /turf/simulated/floor/tiled,
 /area/abandoned_diner/docking/a)
 "ljG" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/abandoned_diner/docking/a)
@@ -4016,7 +4016,7 @@
 	pixel_x = -3
 	},
 /obj/structure/table/standard,
-/obj/machinery/cell_charger{
+/obj/structure/machinery/cell_charger{
 	pixel_y = 7
 	},
 /obj/item/cell/high{
@@ -4039,8 +4039,8 @@
 /area/abandoned_diner/kitchen)
 "lrR" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -4053,10 +4053,10 @@
 /area/abandoned_diner/diner)
 "ltu" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 8
 	},
-/obj/machinery/smartfridge,
+/obj/structure/machinery/smartfridge,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_diner/hydroponics)
 "lyT" = (
@@ -4070,10 +4070,10 @@
 /turf/simulated/floor/lino/diamond,
 /area/abandoned_diner/diner)
 "lEq" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -4089,24 +4089,24 @@
 /area/abandoned_diner/backroom)
 "lEz" = (
 /obj/effect/floor_decal/corner_wide/green/diagonal,
-/obj/machinery/disposal/small/east,
+/obj/structure/machinery/disposal/small/east,
 /obj/structure/disposalpipe/trunk,
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/hydroponics)
 "lPD" = (
-/obj/machinery/vending/cigarette,
+/obj/structure/machinery/vending/cigarette,
 /obj/effect/floor_decal/industrial/outline/blue,
 /turf/simulated/floor/tiled/full,
 /area/abandoned_diner/docking/a)
 "mel" = (
 /obj/structure/disposalpipe/segment,
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/airlock/glass_mining{
+/obj/structure/machinery/door/airlock/glass_mining{
 	name = "Disposals"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -4116,7 +4116,7 @@
 /area/abandoned_diner/storage)
 "meJ" = (
 /obj/random/dirt_75,
-/obj/machinery/suit_storage_unit/standard_unit,
+/obj/structure/machinery/suit_storage_unit/standard_unit,
 /turf/simulated/floor/plating,
 /area/abandoned_diner/maintenance)
 "mgl" = (
@@ -4134,10 +4134,10 @@
 	},
 /area/abandoned_diner/freezer)
 "mhA" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner_wide/blue{
@@ -4163,13 +4163,13 @@
 /obj/structure/cable/yellow{
 	icon_state = "1-8"
 	},
-/obj/machinery/light/floor,
+/obj/structure/machinery/light/floor,
 /obj/structure/railing/mapped,
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/airless,
 /area/abandoned_diner/maintenance)
 "mmM" = (
-/obj/machinery/suit_storage_unit/standard_unit,
+/obj/structure/machinery/suit_storage_unit/standard_unit,
 /turf/simulated/floor/plating,
 /area/abandoned_diner/maintenance)
 "moa" = (
@@ -4193,10 +4193,10 @@
 /turf/simulated/floor/lino/diamond,
 /area/abandoned_diner/diner)
 "mqN" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -4210,10 +4210,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/crew_quarters)
 "mHl" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -4223,8 +4223,8 @@
 /area/abandoned_diner/maintenance)
 "mHo" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/junction/yjunction{
 	dir = 4
 	},
@@ -4236,7 +4236,7 @@
 /turf/simulated/floor/tiled/white,
 /area/abandoned_diner/diner)
 "mJT" = (
-/obj/machinery/door/airlock/glass_mining{
+/obj/structure/machinery/door/airlock/glass_mining{
 	dir = 4;
 	name = "Storage Room"
 	},
@@ -4248,10 +4248,10 @@
 /turf/simulated/floor/tiled,
 /area/abandoned_diner/docking/a)
 "mSj" = (
-/obj/machinery/atmospherics/portables_connector/aux{
+/obj/structure/machinery/atmospherics/portables_connector/aux{
 	dir = 1
 	},
-/obj/machinery/portable_atmospherics/canister/air,
+/obj/structure/machinery/portable_atmospherics/canister/air,
 /obj/effect/floor_decal/industrial/outline,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_diner/docking/a)
@@ -4262,28 +4262,28 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/east,
+/obj/structure/machinery/power/apc/east,
 /turf/simulated/floor/tiled/white,
 /area/abandoned_diner/diner)
 "mTd" = (
 /obj/structure/table/reinforced/steel,
-/obj/machinery/door/firedoor{
+/obj/structure/machinery/door/firedoor{
 	dir = 4
 	},
 /obj/item/tray,
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/diner)
 "mTq" = (
-/obj/machinery/portable_atmospherics/hydroponics,
+/obj/structure/machinery/portable_atmospherics/hydroponics,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 4
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_diner/hydroponics)
 "mUl" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -4293,12 +4293,12 @@
 /area/abandoned_diner/docking/b)
 "mVD" = (
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
-/obj/machinery/alarm/north,
-/obj/machinery/photocopier,
+/obj/structure/machinery/alarm/north,
+/obj/structure/machinery/photocopier,
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_diner/backroom)
 "mVU" = (
@@ -4311,8 +4311,8 @@
 /area/abandoned_diner/diner)
 "mZJ" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable/green{
 	d1 = 1;
@@ -4335,13 +4335,13 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/kitchen)
 "nxh" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/plating,
 /area/abandoned_diner/maintenance)
 "nxr" = (
@@ -4353,9 +4353,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/hydroponics)
 "nAb" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/random/dirt_75,
-/obj/machinery/light/colored/dying{
+/obj/structure/machinery/light/colored/dying{
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment{
@@ -4395,7 +4395,7 @@
 /turf/simulated/wall,
 /area/abandoned_diner/docking/a)
 "nLf" = (
-/obj/machinery/shower{
+/obj/structure/machinery/shower{
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -4404,7 +4404,7 @@
 /area/abandoned_diner/crew_quarters)
 "nMy" = (
 /obj/structure/table/reinforced/steel,
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment,
 /obj/item/trash/plate{
 	pixel_y = 1;
@@ -4424,23 +4424,23 @@
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/diner)
 "nRd" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/airlock/glass{
+/obj/structure/machinery/door/airlock/glass{
 	name = "Crew Area and Maintenance"
 	},
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/backroom)
 "nRr" = (
-/obj/machinery/door/airlock/external,
+/obj/structure/machinery/door/airlock/external,
 /obj/effect/shuttle_landmark/abandoned_diner/dock_b1,
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "diner_b1";
@@ -4451,8 +4451,8 @@
 /turf/simulated/floor/plating,
 /area/abandoned_diner/docking/a)
 "nSD" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -4464,13 +4464,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/backroom)
 "nZO" = (
-/obj/machinery/portable_atmospherics/canister/air,
+/obj/structure/machinery/portable_atmospherics/canister/air,
 /turf/simulated/floor/plating,
 /area/abandoned_diner/maintenance)
 "oaX" = (
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 1
 	},
 /obj/structure/sink{
@@ -4484,8 +4484,8 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/power/solar_control/autostart,
-/obj/machinery/light/colored/decayed/dimmed,
+/obj/structure/machinery/power/solar_control/autostart,
+/obj/structure/machinery/light/colored/decayed/dimmed,
 /turf/simulated/floor/plating,
 /area/abandoned_diner/maintenance)
 "osR" = (
@@ -4497,17 +4497,17 @@
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_diner/crew_quarters)
 "otu" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/door/firedoor{
+/obj/structure/machinery/door/firedoor{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/airlock/service{
+/obj/structure/machinery/door/airlock/service{
 	dir = 4;
 	name = "Staff Quarters"
 	},
@@ -4536,10 +4536,10 @@
 	},
 /area/abandoned_diner/freezer)
 "owu" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner_wide/green/diagonal,
@@ -4567,7 +4567,7 @@
 /obj/effect/floor_decal/corner_wide/brown/full{
 	dir = 1
 	},
-/obj/machinery/disposal/small/south,
+/obj/structure/machinery/disposal/small/south,
 /obj/structure/disposalpipe/trunk,
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/storage)
@@ -4576,21 +4576,21 @@
 /turf/simulated/floor/tiled,
 /area/abandoned_diner/restroom)
 "oGv" = (
-/obj/machinery/atmospherics/pipe/tank/air,
+/obj/structure/machinery/atmospherics/pipe/tank/air,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/abandoned_diner/maintenance)
 "oHN" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 6
 	},
-/obj/machinery/door/airlock/external,
+/obj/structure/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "diner_a1";
 	master_tag = "diner_a1";
 	landmark_tag = "diner_a1"
 	},
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	dir = 4;
 	pixel_x = -22;
 	pixel_y = 28
@@ -4599,13 +4599,13 @@
 /turf/simulated/floor/plating,
 /area/abandoned_diner/docking/b)
 "oMh" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/door/firedoor{
+/obj/structure/machinery/door/firedoor{
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment{
@@ -4617,7 +4617,7 @@
 	icon_state = "4-8"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/airlock/glass_service{
+/obj/structure/machinery/door/airlock/glass_service{
 	dir = 8;
 	name = "Hydroponics"
 	},
@@ -4628,7 +4628,7 @@
 	dir = 1
 	},
 /obj/random/dirt_75,
-/obj/machinery/light/colored/decayed,
+/obj/structure/machinery/light/colored/decayed,
 /turf/simulated/floor/tiled,
 /area/abandoned_diner/docking/b)
 "oTk" = (
@@ -4644,7 +4644,7 @@
 /turf/simulated/floor/tiled/white,
 /area/abandoned_diner/diner)
 "piK" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/item/clothing/ears/earphones/headphones{
 	pixel_y = 6;
 	pixel_x = 11
@@ -4667,7 +4667,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "2-8"
 	},
-/obj/machinery/light/floor{
+/obj/structure/machinery/light/floor{
 	dir = 1
 	},
 /obj/structure/railing/mapped{
@@ -4679,24 +4679,24 @@
 "puc" = (
 /obj/effect/floor_decal/corner_wide/green/diagonal,
 /obj/random/dirt_75,
-/obj/machinery/light/colored/dying{
+/obj/structure/machinery/light/colored/dying{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/hydroponics)
 "pvY" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/abandoned_diner/maintenance)
 "pwl" = (
-/obj/machinery/door/airlock/external,
+/obj/structure/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "diner_a1";
 	master_tag = "diner_a1";
 	landmark_tag = "diner_a1"
 	},
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	pixel_x = 28
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
@@ -4723,7 +4723,7 @@
 /turf/simulated/floor/lino/diamond,
 /area/abandoned_diner/diner)
 "pzj" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
 /obj/random/dirt_75,
@@ -4749,18 +4749,18 @@
 /turf/simulated/floor/tiled,
 /area/abandoned_diner/diner)
 "pEB" = (
-/obj/machinery/alarm/north,
+/obj/structure/machinery/alarm/north,
 /obj/structure/weightlifter,
 /turf/simulated/floor/plating,
 /area/abandoned_diner/maintenance)
 "pHu" = (
-/obj/machinery/door/airlock/external,
+/obj/structure/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "diner_b1";
 	master_tag = "diner_b1";
 	landmark_tag = "diner_b1"
 	},
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	dir = 1;
 	pixel_x = 28;
 	pixel_y = 12
@@ -4777,10 +4777,10 @@
 /area/abandoned_diner/storage)
 "pLZ" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -4793,8 +4793,8 @@
 /turf/simulated/floor/tiled/white,
 /area/abandoned_diner/diner)
 "pNh" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/aux,
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/aux,
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/docking{
@@ -4806,10 +4806,10 @@
 /turf/simulated/floor/plating,
 /area/abandoned_diner/docking/a)
 "pTG" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -4820,12 +4820,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/crew_quarters)
 "pTU" = (
-/obj/machinery/vending/dinnerware/metal,
+/obj/structure/machinery/vending/dinnerware/metal,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/diner)
 "pXV" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 9
 	},
 /obj/random/dirt_75,
@@ -4833,7 +4833,7 @@
 /turf/simulated/floor/tiled,
 /area/abandoned_diner/docking/b)
 "qdP" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /obj/random/dirt_75,
@@ -4845,7 +4845,7 @@
 /turf/simulated/floor/plating,
 /area/abandoned_diner/maintenance)
 "qfh" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /obj/random/soap,
@@ -4862,10 +4862,10 @@
 /turf/simulated/floor/tiled,
 /area/abandoned_diner/docking/a)
 "qjf" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 4
 	},
-/obj/machinery/door/airlock/external,
+/obj/structure/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "diner_a1";
 	master_tag = "diner_a1";
@@ -4885,10 +4885,10 @@
 /turf/simulated/floor/tiled,
 /area/abandoned_diner/docking/b)
 "qoh" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
 /obj/random/dirt_75,
@@ -4904,7 +4904,7 @@
 /turf/simulated/wall,
 /area/abandoned_diner/storage)
 "qrU" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
 /obj/effect/shuttle_landmark/abandoned_diner/dock_b2{
@@ -4919,10 +4919,10 @@
 /turf/simulated/floor/plating,
 /area/abandoned_diner/docking/a)
 "qGC" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
 /obj/effect/floor_decal/corner_wide/blue{
@@ -4943,10 +4943,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/backroom)
 "qIv" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner_wide/brown/full{
@@ -4963,21 +4963,21 @@
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/storage)
 "qIw" = (
-/obj/machinery/atmospherics/portables_connector/aux{
+/obj/structure/machinery/atmospherics/portables_connector/aux{
 	dir = 1
 	},
-/obj/machinery/portable_atmospherics/canister/air,
-/obj/machinery/light/colored/dying{
+/obj/structure/machinery/portable_atmospherics/canister/air,
+/obj/structure/machinery/light/colored/dying{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_diner/docking/a)
 "qQy" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -5024,7 +5024,7 @@
 /obj/structure/table/standard,
 /obj/item/material/hatchet/butch,
 /obj/item/material/hook,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -5033,7 +5033,7 @@
 	},
 /obj/random/dirt_75,
 /obj/item/reagent_containers/food/snacks/meat/undead,
-/obj/machinery/power/apc/low/east,
+/obj/structure/machinery/power/apc/low/east,
 /obj/random/junk,
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
@@ -5058,29 +5058,29 @@
 "rFQ" = (
 /obj/structure/cable/green,
 /obj/random/dirt_75,
-/obj/machinery/power/apc/super/south,
-/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/structure/machinery/power/apc/super/south,
+/obj/structure/machinery/portable_atmospherics/canister/oxygen,
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/plating,
 /area/abandoned_diner/maintenance)
 "rOQ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atm{
+/obj/structure/machinery/atm{
 	dir = 4;
 	pixel_x = 16;
 	pixel_y = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/abandoned_diner/docking/a)
 "scE" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment{
@@ -5096,17 +5096,17 @@
 /turf/simulated/floor/plating,
 /area/abandoned_diner/backroom)
 "sem" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/abandoned_diner/maintenance)
 "siB" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
 /obj/structure/cable/green{
@@ -5121,7 +5121,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/alarm/north,
+/obj/structure/machinery/alarm/north,
 /turf/simulated/floor/tiled,
 /area/abandoned_diner/docking/b)
 "slj" = (
@@ -5136,7 +5136,7 @@
 	pixel_y = 28;
 	req_access = null
 	},
-/obj/machinery/chemical_dispenser/bar_soft/full{
+/obj/structure/machinery/chemical_dispenser/bar_soft/full{
 	pixel_y = 16;
 	pixel_x = -3
 	},
@@ -5182,7 +5182,7 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/north,
+/obj/structure/machinery/power/apc/north,
 /obj/item/flame/lighter/zippo/black/cross{
 	pixel_x = 7;
 	pixel_y = 2
@@ -5207,7 +5207,7 @@
 /turf/simulated/floor/tiled/white,
 /area/abandoned_diner/diner)
 "sLT" = (
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	dir = 8;
 	id = "diner_a";
 	reversed = 1
@@ -5217,7 +5217,7 @@
 /obj/random/junk,
 /obj/random/junk,
 /obj/random/junk,
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 8
 	},
 /obj/structure/disposalpipe/segment{
@@ -5233,7 +5233,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/north,
+/obj/structure/machinery/power/apc/north,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/abandoned_diner/docking/b)
@@ -5242,7 +5242,7 @@
 /turf/simulated/floor/tiled,
 /area/abandoned_diner/hydroponics)
 "sTY" = (
-/obj/machinery/power/solar,
+/obj/structure/machinery/power/solar,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/cable/yellow{
 	icon_state = "0-8"
@@ -5252,8 +5252,8 @@
 /area/abandoned_diner/maintenance)
 "ter" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/junction{
 	dir = 1;
 	icon_state = "pipe-j2"
@@ -5265,11 +5265,11 @@
 /turf/simulated/wall,
 /area/abandoned_diner/backroom)
 "tjn" = (
-/obj/machinery/light_switch{
+/obj/structure/machinery/light_switch{
 	dir = 8;
 	pixel_x = -20
 	},
-/obj/machinery/disposal/small/east,
+/obj/structure/machinery/disposal/small/east,
 /obj/structure/disposalpipe/trunk{
 	dir = 1
 	},
@@ -5290,8 +5290,8 @@
 	dir = 1
 	},
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -5308,7 +5308,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/storage)
 "tvh" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner_wide/green/diagonal,
@@ -5316,13 +5316,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/hydroponics)
 "tvt" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 5
 	},
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
 	},
-/obj/machinery/light/colored/dying,
+/obj/structure/machinery/light/colored/dying,
 /turf/simulated/floor/plating,
 /area/abandoned_diner/maintenance)
 "tzW" = (
@@ -5343,7 +5343,7 @@
 	icon_state = "0-4"
 	},
 /obj/structure/closet/crate,
-/obj/machinery/power/apc/west,
+/obj/structure/machinery/power/apc/west,
 /obj/item/vending_refill/snack,
 /obj/item/vending_refill/cola,
 /obj/item/vending_refill/smokes,
@@ -5355,7 +5355,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/storage)
 "tGp" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -5364,10 +5364,10 @@
 /turf/simulated/floor/tiled,
 /area/abandoned_diner/docking/a)
 "tHg" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -5384,20 +5384,20 @@
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/hydroponics)
 "tKJ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/firedoor/multi_tile,
-/obj/machinery/door/airlock/multi_tile/glass{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/door/firedoor/multi_tile,
+/obj/structure/machinery/door/airlock/multi_tile/glass{
 	name = "Diner"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/abandoned_diner/diner)
 "tKM" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/bed/stool/chair/office/dark{
@@ -5429,20 +5429,20 @@
 	dir = 9
 	},
 /obj/effect/decal/cleanable/cobweb,
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 8
 	},
 /turf/simulated/floor/lino/diamond,
 /area/abandoned_diner/diner)
 "tXH" = (
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/abandoned_diner/docking/a)
 "udR" = (
-/obj/machinery/portable_atmospherics/hydroponics,
+/obj/structure/machinery/portable_atmospherics/hydroponics,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/disposalpipe/segment,
 /obj/random/dirt_75,
@@ -5470,10 +5470,10 @@
 /turf/simulated/floor/lino/diamond,
 /area/abandoned_diner/diner)
 "urL" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
-/obj/machinery/alarm/east,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/machinery/alarm/east,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/abandoned_diner/docking/a)
@@ -5486,18 +5486,18 @@
 /turf/simulated/floor/tiled/white,
 /area/abandoned_diner/diner)
 "uCp" = (
-/obj/machinery/atmospherics/portables_connector/aux,
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/atmospherics/portables_connector/aux,
+/obj/structure/machinery/light/colored/decayed{
 	dir = 4
 	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/plating,
 /area/abandoned_diner/maintenance)
 "uJI" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 8
 	},
-/obj/machinery/light/colored/decayed,
+/obj/structure/machinery/light/colored/decayed,
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "diner_a2";
 	master_tag = "diner_a2";
@@ -5523,14 +5523,14 @@
 /turf/simulated/floor/tiled/white,
 /area/abandoned_diner/diner)
 "uOR" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/machinery/fabricator/autolathe,
+/obj/structure/machinery/fabricator/autolathe,
 /turf/simulated/floor/plating,
 /area/abandoned_diner/maintenance)
 "uRz" = (
-/obj/machinery/portable_atmospherics/hydroponics,
+/obj/structure/machinery/portable_atmospherics/hydroponics,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/cable/green{
 	d1 = 1;
@@ -5548,16 +5548,16 @@
 /turf/simulated/floor/tiled,
 /area/abandoned_diner/docking/b)
 "ver" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
-/obj/machinery/disposal/small/west,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/machinery/disposal/small/west,
 /obj/structure/disposalpipe/trunk,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/abandoned_diner/docking/a)
 "vfW" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /obj/structure/table/standard,
@@ -5582,10 +5582,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/storage)
 "vmQ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 5
 	},
-/obj/machinery/door/airlock/external,
+/obj/structure/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "diner_b1";
 	master_tag = "diner_b1";
@@ -5601,23 +5601,23 @@
 /turf/simulated/floor/tiled,
 /area/abandoned_diner/docking/a)
 "vBN" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/abandoned_diner/docking/b)
 "vHj" = (
-/obj/machinery/atmospherics/pipe/tank/air,
+/obj/structure/machinery/atmospherics/pipe/tank/air,
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/cobweb,
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
@@ -5625,17 +5625,17 @@
 "vIf" = (
 /obj/structure/closet/firecloset,
 /obj/effect/floor_decal/industrial/outline/firefighting_closet,
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/abandoned_diner/docking/a)
 "vSG" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment,
@@ -5656,17 +5656,17 @@
 /turf/simulated/wall,
 /area/abandoned_diner/freezer)
 "vTV" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
 /obj/random/dirt_75,
 /turf/simulated/floor/lino,
 /area/abandoned_diner/restroom)
 "vVv" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/disposalpipe/segment,
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
@@ -5695,23 +5695,23 @@
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/abandoned_diner/docking/b)
 "wef" = (
-/obj/machinery/portable_atmospherics/hydroponics,
+/obj/structure/machinery/portable_atmospherics/hydroponics,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/random/junk,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_diner/hydroponics)
 "wja" = (
-/obj/machinery/atmospherics/binary/pump/supply/on{
+/obj/structure/machinery/atmospherics/binary/pump/supply/on{
 	dir = 4
 	},
-/obj/machinery/light/colored/decayed,
+/obj/structure/machinery/light/colored/decayed,
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/plating,
 /area/abandoned_diner/maintenance)
 "wle" = (
-/obj/machinery/vending/cola,
+/obj/structure/machinery/vending/cola,
 /obj/effect/floor_decal/industrial/outline/blue,
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/full,
@@ -5725,10 +5725,10 @@
 /area/abandoned_diner/maintenance)
 "wrk" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -5746,7 +5746,7 @@
 /area/abandoned_diner/docking/b)
 "wCX" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/seed_storage/garden,
+/obj/structure/machinery/seed_storage/garden,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_diner/hydroponics)
 "wFA" = (
@@ -5765,7 +5765,7 @@
 /area/abandoned_diner/crew_quarters)
 "wHZ" = (
 /obj/structure/table/reinforced/steel,
-/obj/machinery/door/firedoor{
+/obj/structure/machinery/door/firedoor{
 	dir = 4
 	},
 /obj/random/smokable{
@@ -5785,7 +5785,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/backroom)
 "wSc" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -5808,20 +5808,20 @@
 /turf/simulated/floor/plating,
 /area/abandoned_diner/maintenance)
 "wXB" = (
-/obj/machinery/portable_atmospherics/hydroponics,
+/obj/structure/machinery/portable_atmospherics/hydroponics,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/extinguisher_cabinet/north,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_diner/hydroponics)
 "wYq" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -5831,7 +5831,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/light/colored/decayed,
+/obj/structure/machinery/light/colored/decayed,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/kitchen)
@@ -5856,10 +5856,10 @@
 /area/abandoned_diner/maintenance)
 "xsc" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -5872,7 +5872,7 @@
 /area/abandoned_diner/diner)
 "xsR" = (
 /obj/structure/table/reinforced/steel,
-/obj/machinery/door/firedoor{
+/obj/structure/machinery/door/firedoor{
 	dir = 4
 	},
 /obj/structure/cash_register{
@@ -5895,16 +5895,16 @@
 /turf/simulated/floor/plating,
 /area/abandoned_diner/maintenance)
 "xtX" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 4
 	},
-/obj/machinery/door/airlock/external,
+/obj/structure/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "diner_b1";
 	master_tag = "diner_b1";
 	landmark_tag = "diner_b1"
 	},
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	dir = 8;
 	pixel_x = 22;
 	pixel_y = -28
@@ -5914,7 +5914,7 @@
 /area/abandoned_diner/docking/a)
 "xzF" = (
 /obj/structure/table/reinforced/steel,
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/firedoor,
 /obj/item/trash/plate/steak{
 	pixel_y = 4
 	},
@@ -5950,14 +5950,14 @@
 /area/abandoned_diner/diner)
 "xOK" = (
 /obj/random/dirt_75,
-/obj/machinery/vending/engineering{
+/obj/structure/machinery/vending/engineering{
 	req_access = null
 	},
 /turf/simulated/floor/plating,
 /area/abandoned_diner/maintenance)
 "yhu" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/obj/structure/machinery/light/colored/decayed{
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock/docking{
@@ -5968,8 +5968,8 @@
 /turf/simulated/floor/plating,
 /area/abandoned_diner/docking/a)
 "yjJ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/corner_wide/blue/full{
 	dir = 1
 	},
@@ -5992,7 +5992,7 @@
 /turf/simulated/wall,
 /area/abandoned_diner/maintenance)
 "ykL" = (
-/obj/machinery/disposal/deliveryChute{
+/obj/structure/machinery/disposal/deliveryChute{
 	dir = 8
 	},
 /obj/structure/railing/mapped,

@@ -5,6 +5,10 @@
 	jobs = list("Bartender")
 	minimum_character_age = list(
 		SPECIES_HUMAN = 18,
+		SPECIES_TAJARA = 18,
+		SPECIES_TAJARA_MSAI = 18,
+		SPECIES_TAJARA_ZHAN = 18,
+		SPECIES_UNATHI = 18,
 		SPECIES_SKRELL = 50,
 		SPECIES_SKRELL_AXIORI = 50
 	)
@@ -18,6 +22,10 @@
 	jobs = list("Chef")
 	minimum_character_age = list(
 		SPECIES_HUMAN = 18,
+		SPECIES_TAJARA = 18,
+		SPECIES_TAJARA_MSAI = 18,
+		SPECIES_TAJARA_ZHAN = 18,
+		SPECIES_UNATHI = 18,
 		SPECIES_SKRELL = 50,
 		SPECIES_SKRELL_AXIORI = 50
 	)
@@ -32,6 +40,10 @@
 	jobs = list("Chef")
 	minimum_character_age = list(
 		SPECIES_HUMAN = 18,
+		SPECIES_TAJARA = 18,
+		SPECIES_TAJARA_MSAI = 18,
+		SPECIES_TAJARA_ZHAN = 18,
+		SPECIES_UNATHI = 18,
 		SPECIES_SKRELL = 50,
 		SPECIES_SKRELL_AXIORI = 50
 	)
@@ -46,6 +58,10 @@
 	jobs = list("Gardener")
 	minimum_character_age = list(
 		SPECIES_HUMAN = 18,
+		SPECIES_TAJARA = 18,
+		SPECIES_TAJARA_MSAI = 18,
+		SPECIES_TAJARA_ZHAN = 18,
+		SPECIES_UNATHI = 18,
 		SPECIES_SKRELL = 50,
 		SPECIES_SKRELL_AXIORI = 50
 	)
@@ -60,6 +76,10 @@
 	jobs = list("Gardener")
 	minimum_character_age = list(
 		SPECIES_HUMAN = 18,
+		SPECIES_TAJARA = 18,
+		SPECIES_TAJARA_MSAI = 18,
+		SPECIES_TAJARA_ZHAN = 18,
+		SPECIES_UNATHI = 18,
 		SPECIES_SKRELL = 50,
 		SPECIES_SKRELL_AXIORI = 50
 	)

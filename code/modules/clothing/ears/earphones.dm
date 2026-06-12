@@ -399,7 +399,7 @@ Earphone Variants
 	desc = "A music cartridge."
 	icon = 'icons/obj/item/music_cartridges.dmi'
 	icon_state = "generic"
-	w_class = WEIGHT_CLASS_SMALL
+	w_class = WEIGHT_CLASS_TINY
 	var/list/datum/track/tracks
 	/// Whether or not this cartridge can be removed from the datum/jukebox it belongs to.
 	var/hardcoded = FALSE

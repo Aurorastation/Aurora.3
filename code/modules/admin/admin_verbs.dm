@@ -106,7 +106,8 @@ GLOBAL_LIST_INIT(admin_verbs_admin, list(
 	/client/proc/toggle_aooc,
 	/client/proc/force_away_mission,
 	/client/proc/alooc,
-	/client/proc/create_portal
+	/client/proc/create_portal,
+	/datum/admins/proc/open_narrate_panel
 ))
 
 GLOBAL_LIST_INIT(admin_verbs_ban, list(
@@ -179,7 +180,6 @@ GLOBAL_LIST_INIT(admin_verbs_server, list(
 	/datum/admins/proc/toggle_round_spookyness,
 	/datum/admins/proc/toggle_space_ninja,
 	/client/proc/toggle_random_events,
-	/client/proc/nanomapgen_DumpImage,
 	/client/proc/toggle_recursive_explosions,
 	/client/proc/restart_controller,
 	/client/proc/cmd_ss_panic,
@@ -354,7 +354,6 @@ GLOBAL_LIST_INIT(admin_verbs_hideable, list(
 	/datum/admins/proc/adjump,
 	/datum/admins/proc/toggle_space_ninja,
 	/client/proc/toggle_random_events,
-	/client/proc/nanomapgen_DumpImage,
 	/client/proc/play_local_sound,
 	/client/proc/play_sound,
 	/client/proc/play_server_sound,
@@ -430,6 +429,7 @@ GLOBAL_LIST_INIT(admin_verbs_hideable, list(
 	/client/proc/force_away_mission,
 	/client/proc/profiler_start,
 	/client/proc/create_portal,
+	/datum/admins/proc/open_narrate_panel
 	))
 
 GLOBAL_LIST_INIT(admin_verbs_mod, list(
@@ -473,7 +473,6 @@ GLOBAL_LIST_INIT(admin_verbs_dev, list( //will need to be altered - Ryan784
 	/client/proc/jumptoship,
 	/client/proc/jumptosector,
 	/client/proc/cmd_dev_say,
-	/client/proc/nanomapgen_DumpImage,
 	/client/proc/admin_ghost,
 	/client/proc/air_report,
 	/client/proc/enable_debug_verbs,

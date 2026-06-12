@@ -3,7 +3,7 @@
 /obj/structure/barricade/wooden{
 	dir = 4
 	},
-/obj/machinery/door/urban{
+/obj/structure/machinery/door/urban{
 	dir = 8
 	},
 /turf/simulated/floor/wood{
@@ -15,21 +15,21 @@
 /area/exoplanet/adhomai)
 "e" = (
 /obj/structure/reagent_dispensers/radioactive_waste,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_nuclear_waste_makeshift)
 "f" = (
 /obj/structure/reagent_dispensers/radioactive_waste,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_nuclear_waste_makeshift)
 "g" = (
 /obj/structure/reagent_dispensers/radioactive_waste,
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_nuclear_waste_makeshift)
 "j" = (
@@ -37,7 +37,7 @@
 /area/adhomai_nuclear_waste_makeshift)
 "k" = (
 /obj/structure/reagent_dispensers/radioactive_waste,
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /obj/effect/decal/cleanable/greenglow/radioactive/medium,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_nuclear_waste_makeshift)
@@ -54,7 +54,7 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_nuclear_waste_makeshift)
 "H" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /obj/structure/table/wood,
@@ -63,7 +63,7 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_nuclear_waste_makeshift)
 "I" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /obj/structure/table/wood,

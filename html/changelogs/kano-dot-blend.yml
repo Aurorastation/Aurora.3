@@ -1,0 +1,4 @@
+author: Kano
+delete-after: True
+changes:
+  - bugfix: "Fixed windows and grilles not applying the proper smooth overlays they're supposed to have."

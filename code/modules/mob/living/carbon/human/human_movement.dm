@@ -141,7 +141,7 @@
 		if(!footsound)
 			footsound = T.footstep_sound
 
-	if (client)
+	if (client && T)
 		var/turf/T1 = GET_TURF_ABOVE(T)
 		if(up_hint)
 			up_hint.icon_state = "uphint[(T1 ? !!isopenturf(T1) : 0)]"

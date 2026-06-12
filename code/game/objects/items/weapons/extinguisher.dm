@@ -17,8 +17,8 @@
 	amount_per_transfer_from_this = 150
 	possible_transfer_amounts = null
 	volume = 150
-	drop_sound = 'sound/items/drop/gascan.ogg'
-	pickup_sound = 'sound/items/pickup/gascan.ogg'
+	drop_sound = 'sound/items/drop/gas_tank.ogg'
+	pickup_sound = 'sound/items/pickup/gas_tank.ogg'
 
 /obj/item/reagent_containers/extinguisher_refill/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -98,8 +98,8 @@
 	force = 15
 	matter = list(DEFAULT_WALL_MATERIAL = 90)
 	attack_verb = list("slammed", "whacked", "bashed", "thunked", "battered", "bludgeoned", "thrashed")
-	drop_sound = 'sound/items/drop/gascan.ogg'
-	pickup_sound = 'sound/items/pickup/gascan.ogg'
+	drop_sound = 'sound/items/drop/gas_tank.ogg'
+	pickup_sound = 'sound/items/pickup/gas_tank.ogg'
 
 	var/spray_particles = 3
 	var/spray_amount = 10	//units of liquid per particle

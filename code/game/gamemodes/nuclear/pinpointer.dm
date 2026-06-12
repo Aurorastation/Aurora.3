@@ -15,7 +15,7 @@
 
 /obj/item/pinpointer/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	for(var/obj/machinery/nuclearbomb/bomb in SSmachinery.machinery)
+	for(var/obj/structure/machinery/nuclearbomb/bomb in SSmachinery.machinery)
 		if(bomb.timing)
 			. += "Extreme danger. Arming signal detected. Time remaining: [bomb.timeleft]"
 
@@ -217,7 +217,7 @@
 
 /obj/item/pinpointer/nukeop
 	var/mode = 0	//Mode 0 locates disk, mode 1 locates the shuttle
-	var/obj/machinery/computer/shuttle_control/multi/antag/syndicate/home = null
+	var/obj/structure/machinery/computer/shuttle_control/multi/antag/syndicate/home = null
 
 /obj/item/pinpointer/nukeop/attack_self(mob/user as mob)
 	if(!active)

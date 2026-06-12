@@ -238,7 +238,7 @@
 	},
 /area/exoplanet/moghes)
 "W" = (
-/obj/machinery/blackbox_recorder,
+/obj/structure/machinery/blackbox_recorder,
 /obj/effect/landmark/scorcher,
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15

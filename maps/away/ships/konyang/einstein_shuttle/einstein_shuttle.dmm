@@ -6,7 +6,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/room/two)
 "aj" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/freezer,
@@ -26,11 +26,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/conference)
 "bj" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	icon_state = "tube_empty"
 	},
-/obj/machinery/recharge_station,
+/obj/structure/machinery/recharge_station,
 /turf/simulated/floor/carpet/brown,
 /area/shuttle/einstein_shuttle/main)
 "bm" = (
@@ -38,7 +38,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/helm)
 "bz" = (
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	dir = 1;
 	id_tag = "einstein_toilet_2";
 	name = "Toilet 2"
@@ -46,8 +46,8 @@
 /turf/simulated/floor/tiled/freezer,
 /area/shuttle/einstein_shuttle/bathroom)
 "bA" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -58,13 +58,13 @@
 "bF" = (
 /obj/structure/table/standard,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal/coc,
-/obj/machinery/button/distress{
+/obj/structure/machinery/button/distress{
 	pixel_y = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/helm)
 "cI" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -81,10 +81,10 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/einstein_shuttle/helm)
 "cU" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -107,7 +107,7 @@
 	dir = 4;
 	pixel_x = 14
 	},
-/obj/machinery/alarm/north{
+/obj/structure/machinery/alarm/north{
 	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
@@ -117,16 +117,16 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/high/north{
+/obj/structure/machinery/power/apc/high/north{
 	req_access = list(205)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/helm)
 "dI" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
 /obj/structure/cable/green{
@@ -135,16 +135,16 @@
 /obj/structure/cable/green{
 	icon_state = "2-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/dock)
 "dX" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/door/airlock/multi_tile{
+/obj/structure/machinery/door/airlock/multi_tile{
 	req_access = list(205);
 	name = "Bathrooms";
 	dir = 1
@@ -156,28 +156,28 @@
 	dir = 8;
 	pixel_x = -14
 	},
-/obj/machinery/alarm/north{
+/obj/structure/machinery/alarm/north{
 	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/room/two)
 "ec" = (
-/obj/machinery/atmospherics/binary/pump{
+/obj/structure/machinery/atmospherics/binary/pump{
 	dir = 4;
 	name = "scrubbers to waste"
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/porteng)
 "eu" = (
-/obj/machinery/computer/ship/sensors{
+/obj/structure/machinery/computer/ship/sensors{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/helm)
 "ez" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1;
 	icon_state = "tube_empty"
 	},
@@ -195,10 +195,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/helm)
 "fI" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -218,21 +218,21 @@
 /area/space)
 "fY" = (
 /obj/structure/bed/stool/chair/office/dark,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/room/three)
 "gb" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8;
 	icon_state = "tube_empty"
 	},
-/obj/machinery/vending/cola/konyang,
+/obj/structure/machinery/vending/cola/konyang,
 /turf/simulated/floor/carpet/brown,
 /area/shuttle/einstein_shuttle/main)
 "gr" = (
@@ -242,32 +242,32 @@
 /turf/simulated/floor/tiled,
 /area/shuttle/einstein_shuttle/main)
 "hq" = (
-/obj/machinery/light,
-/obj/machinery/alarm/west{
+/obj/structure/machinery/light,
+/obj/structure/machinery/alarm/west{
 	req_one_access = null
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/shuttle/einstein_shuttle/bathroom)
 "hs" = (
-/obj/machinery/computer/shuttle_control/explore/einstein_shuttle,
+/obj/structure/machinery/computer/shuttle_control/explore/einstein_shuttle,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/helm)
 "hC" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled,
 /area/shuttle/einstein_shuttle/main)
 "hK" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -279,7 +279,7 @@
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 1
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/effect/ghostspawpoint{
 	name = "igs - einstein_suit";
 	identifier = "einstein_suit"
@@ -310,14 +310,14 @@
 /turf/simulated/floor/carpet/brown,
 /area/shuttle/einstein_shuttle/main)
 "iU" = (
-/obj/machinery/computer/ship/engines{
+/obj/structure/machinery/computer/ship/engines{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/helm)
 "jc" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -332,18 +332,18 @@
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/porteng)
 "jC" = (
-/obj/machinery/power/terminal,
+/obj/structure/machinery/power/terminal,
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/starbeng)
 "jD" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1;
 	icon_state = "tube_empty"
 	},
-/obj/machinery/alarm/north{
+/obj/structure/machinery/alarm/north{
 	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
@@ -353,22 +353,22 @@
 /turf/simulated/floor/carpet/brown,
 /area/shuttle/einstein_shuttle/main)
 "kD" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	name = "Private Room";
 	req_access = list(205)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/room/four)
 "kI" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -379,35 +379,35 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/starbeng)
 "kV" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/blue{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/blue{
 	dir = 5
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/porteng)
 "lb" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
-/obj/machinery/cryopod{
+/obj/structure/machinery/cryopod{
 	dir = 4
 	},
 /turf/simulated/floor/carpet/brown,
 /area/shuttle/einstein_shuttle/main)
 "lk" = (
-/obj/machinery/computer/ship/navigation{
+/obj/structure/machinery/computer/ship/navigation{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/helm)
 "lw" = (
-/obj/machinery/power/smes/buildable/horizon_shuttle,
+/obj/structure/machinery/power/smes/buildable/horizon_shuttle,
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
@@ -415,60 +415,60 @@
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/starbeng)
 "lH" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/fuel,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/fuel,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/porteng)
 "lK" = (
-/obj/machinery/meter,
-/obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
+/obj/structure/machinery/meter,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/fuel{
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/starbeng)
 "ma" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	name = "Private Room";
 	req_access = list(205)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/room)
 "mo" = (
-/obj/machinery/shower,
+/obj/structure/machinery/shower,
 /obj/structure/curtain/open/shower,
 /turf/simulated/floor/tiled/freezer,
 /area/shuttle/einstein_shuttle/bathroom)
 "mp" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/starbeng)
 "mG" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/dock)
 "mK" = (
-/obj/machinery/computer/ship/navigation{
+/obj/structure/machinery/computer/ship/navigation{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/helm)
 "mW" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/starbeng)
@@ -476,7 +476,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/high/north{
+/obj/structure/machinery/power/apc/high/north{
 	req_access = list(205)
 	},
 /turf/simulated/floor/tiled/dark,
@@ -502,7 +502,7 @@
 /area/shuttle/einstein_shuttle/room/three)
 "nx" = (
 /obj/structure/cable/green,
-/obj/machinery/power/apc/high/south{
+/obj/structure/machinery/power/apc/high/south{
 	req_access = list(205)
 	},
 /turf/simulated/floor/tiled/dark,
@@ -513,12 +513,12 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/porteng)
 "nS" = (
 /obj/structure/bed/stool/chair/shuttle,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/carpet/brown,
@@ -529,7 +529,7 @@
 /area/shuttle/einstein_shuttle/porteng)
 "om" = (
 /obj/structure/table/wood,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -538,10 +538,10 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/einstein_shuttle/porteng)
 "ox" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
 	},
-/obj/machinery/vending/engivend{
+/obj/structure/machinery/vending/engivend{
 	req_access = list(205)
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -551,8 +551,8 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/einstein_shuttle/conference)
 "pm" = (
-/obj/machinery/vending/snack/konyang,
-/obj/machinery/alarm/west{
+/obj/structure/machinery/vending/snack/konyang,
+/obj/structure/machinery/alarm/west{
 	req_one_access = null
 	},
 /turf/simulated/floor/carpet/brown,
@@ -569,7 +569,7 @@
 	dir = 1;
 	pixel_y = -1
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	inserted_light = /obj/item/light/tube/colored/blue;
 	icon_state = "tube_empty"
 	},
@@ -583,42 +583,42 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/high/east{
+/obj/structure/machinery/power/apc/high/east{
 	req_access = list(205)
 	},
 /turf/simulated/floor/carpet/brown,
 /area/shuttle/einstein_shuttle/main)
 "pB" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/porteng)
 "pG" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/alarm/south{
+/obj/structure/machinery/alarm/south{
 	req_one_access = null
 	},
-/obj/machinery/suit_cycler/engineering{
+/obj/structure/machinery/suit_cycler/engineering{
 	req_access = list(205)
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/starbeng)
 "pL" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -630,28 +630,28 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/shuttle/einstein_shuttle/bathroom)
 "qx" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/door/airlock/glass{
+/obj/structure/machinery/door/airlock/glass{
 	name = "Docking Port";
 	req_access = list(205)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/dock)
 "qH" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -666,11 +666,11 @@
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 1
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8;
 	level = 2
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	icon_state = "tube_empty"
 	},
@@ -678,20 +678,20 @@
 /area/shuttle/einstein_shuttle/room/two)
 "rL" = (
 /obj/structure/cable/green,
-/obj/machinery/power/apc/high/south{
+/obj/structure/machinery/power/apc/high/south{
 	req_access = list(205)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/room/four)
 "se" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /turf/simulated/floor/carpet/brown,
 /area/shuttle/einstein_shuttle/main)
 "sg" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -702,17 +702,17 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/dock)
 "sV" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8;
 	icon_state = "tube_empty"
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/shuttle{
@@ -731,7 +731,7 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/einstein_shuttle/porteng)
 "tv" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8;
 	level = 2
 	},
@@ -741,7 +741,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/high/north{
+/obj/structure/machinery/power/apc/high/north{
 	req_access = list(205)
 	},
 /turf/simulated/floor/wood,
@@ -750,10 +750,10 @@
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 1
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8;
 	icon_state = "tube_empty"
 	},
@@ -766,14 +766,14 @@
 /obj/structure/bed/stool/chair/office/bridge/generic{
 	dir = 1
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/wood,
 /area/shuttle/einstein_shuttle/conference)
 "ub" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 1
 	},
-/obj/machinery/portable_atmospherics/canister/empty/hydrogen,
+/obj/structure/machinery/portable_atmospherics/canister/empty/hydrogen,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/plating,
@@ -789,7 +789,7 @@
 /obj/structure/bed/handrail{
 	dir = 1
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/shuttle{
@@ -799,7 +799,7 @@
 	shuttle_tag = "Einstein Shuttle";
 	cycle_to_external_air = 1
 	},
-/obj/machinery/airlock_sensor/airlock_exterior{
+/obj/structure/machinery/airlock_sensor/airlock_exterior{
 	pixel_x = 32;
 	pixel_y = 10
 	},
@@ -817,19 +817,19 @@
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/starbeng)
 "vu" = (
-/obj/machinery/alarm/north{
+/obj/structure/machinery/alarm/north{
 	req_one_access = null
 	},
 /turf/simulated/floor/carpet/brown,
 /area/shuttle/einstein_shuttle/main)
 "vw" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/blue{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/blue{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/porteng)
 "vI" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/wood,
@@ -838,24 +838,24 @@
 /turf/simulated/floor/wood,
 /area/shuttle/einstein_shuttle/conference)
 "wx" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/porteng)
 "wF" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
-/obj/machinery/alarm/south{
+/obj/structure/machinery/alarm/south{
 	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
@@ -864,7 +864,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /turf/simulated/floor/carpet/brown,
@@ -873,7 +873,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/high/east{
+/obj/structure/machinery/power/apc/high/east{
 	req_access = list(205)
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -881,7 +881,7 @@
 /area/shuttle/einstein_shuttle/starbeng)
 "xe" = (
 /obj/structure/closet/cabinet,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /obj/item/clothing/under/suit_jacket/navy,
@@ -897,10 +897,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/room/two)
 "xm" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -910,13 +910,13 @@
 /area/shuttle/einstein_shuttle/main)
 "xQ" = (
 /obj/structure/table/standard,
-/obj/machinery/photocopier/faxmachine{
+/obj/structure/machinery/photocopier/faxmachine{
 	department = "Einstein Engines Corporate Shuttle"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/helm)
 "yr" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	icon_state = "tube_empty"
 	},
@@ -934,29 +934,29 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/conference)
 "yD" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/room/three)
 "yH" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/einstein_shuttle/main)
 "za" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -964,13 +964,13 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
-/obj/machinery/alarm/south{
+/obj/structure/machinery/alarm/south{
 	req_one_access = null
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/porteng)
@@ -978,12 +978,12 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/einstein_shuttle/room)
 "zn" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	name = "Private Room";
 	req_access = list(205)
 	},
@@ -996,28 +996,28 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/room/two)
 "Ag" = (
-/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/structure/machinery/portable_atmospherics/canister/oxygen,
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/starbeng)
 "Ak" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 5
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/starbeng)
 "At" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -1030,14 +1030,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/room/four)
 "Ax" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	name = "Cockpit";
 	req_access = list(205);
 	dir = 1
@@ -1045,10 +1045,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/helm)
 "AJ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
 /obj/structure/cable/green{
@@ -1063,8 +1063,8 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/einstein_shuttle/helm)
 "AS" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -1081,14 +1081,14 @@
 /turf/simulated/floor/carpet/brown,
 /area/shuttle/einstein_shuttle/main)
 "AV" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/dock)
 "Bp" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -1100,12 +1100,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/conference)
 "BX" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	name = "Private Room";
 	req_access = list(205)
 	},
@@ -1113,14 +1113,14 @@
 /area/shuttle/einstein_shuttle/room/two)
 "Cf" = (
 /obj/structure/table/wood,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/conference)
 "Cn" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 4;
@@ -1129,8 +1129,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/helm)
 "CF" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/machinery/door/airlock/external,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_einstein_shuttle";
 	name = "airlock_einstein_shuttle";
@@ -1138,7 +1138,7 @@
 	shuttle_tag = "Einstein Shuttle";
 	cycle_to_external_air = 1
 	},
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	pixel_x = 28;
 	pixel_y = -9
 	},
@@ -1146,10 +1146,10 @@
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/dock)
 "CG" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
 /obj/structure/cable/green{
@@ -1161,18 +1161,18 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/dock)
 "CV" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
 /obj/effect/overmap/visitable/ship/landable/einstein_shuttle,
-/obj/machinery/hologram/holopad/long_range,
+/obj/structure/machinery/hologram/holopad/long_range,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/helm)
 "Di" = (
@@ -1180,10 +1180,10 @@
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/starbeng)
 "Dl" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/fuel{
 	dir = 4
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	icon_state = "tube_empty"
 	},
@@ -1197,7 +1197,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/starbeng)
 "Dt" = (
-/obj/machinery/computer/cryopod{
+/obj/structure/machinery/computer/cryopod{
 	pixel_x = -28;
 	pixel_y = 7
 	},
@@ -1210,13 +1210,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/helm)
 "DK" = (
-/obj/machinery/cryopod{
+/obj/structure/machinery/cryopod{
 	dir = 4
 	},
 /turf/simulated/floor/carpet/brown,
 /area/shuttle/einstein_shuttle/main)
 "DP" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 6
 	},
 /obj/structure/closet/crate/secure/phoron{
@@ -1232,17 +1232,17 @@
 /area/shuttle/einstein_shuttle/porteng)
 "El" = (
 /obj/structure/bed/stool/chair/office/bridge/generic,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1;
 	icon_state = "tube_empty"
 	},
-/obj/machinery/alarm/north{
+/obj/structure/machinery/alarm/north{
 	req_one_access = null
 	},
 /turf/simulated/floor/wood,
 /area/shuttle/einstein_shuttle/conference)
 "Et" = (
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	dir = 1;
 	id_tag = "einstein_toilet_1";
 	name = "Toilet 1"
@@ -1250,19 +1250,19 @@
 /turf/simulated/floor/tiled/freezer,
 /area/shuttle/einstein_shuttle/bathroom)
 "EN" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/obj/machinery/alarm/west{
+/obj/structure/machinery/alarm/west{
 	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/room/three)
 "EO" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
 /obj/structure/cable/green{
@@ -1271,22 +1271,22 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/room/four)
 "EV" = (
-/obj/machinery/telecomms/allinone/ship,
-/obj/machinery/light{
+/obj/structure/machinery/telecomms/allinone/ship,
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/plating/cooled,
 /area/shuttle/einstein_shuttle/starbeng)
 "Fk" = (
 /obj/structure/plasticflaps/airtight,
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	name = "Telecomms";
 	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/starbeng)
 "Fp" = (
-/obj/machinery/iff_beacon/name_change,
+/obj/structure/machinery/iff_beacon/name_change,
 /obj/effect/floor_decal/industrial/warning/full,
 /turf/simulated/floor/airless,
 /area/shuttle/einstein_shuttle/helm)
@@ -1297,7 +1297,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/high/north{
+/obj/structure/machinery/power/apc/high/north{
 	req_access = list(205)
 	},
 /turf/simulated/floor/tiled/freezer,
@@ -1309,7 +1309,7 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/einstein_shuttle/helm)
 "FE" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 1
 	},
 /obj/structure/fuel_port/hydrogen{
@@ -1325,7 +1325,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/starbeng)
 "FG" = (
-/obj/machinery/computer/ship/sensors,
+/obj/structure/machinery/computer/ship/sensors,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/helm)
 "FT" = (
@@ -1337,10 +1337,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/helm)
 "FW" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -1363,27 +1363,27 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/einstein_shuttle/main)
 "GP" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/door/airlock/engineering{
+/obj/structure/machinery/door/airlock/engineering{
 	dir = 4;
 	req_access = list(205);
 	name = "Starboard Propulsion"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/starbeng)
 "Hd" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -1392,46 +1392,46 @@
 /turf/simulated/floor/tiled,
 /area/shuttle/einstein_shuttle/bathroom)
 "Hh" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/porteng)
 "Hp" = (
-/obj/machinery/atmospherics/unary/engine,
+/obj/structure/machinery/atmospherics/unary/engine,
 /obj/structure/window/borosilicate/reinforced,
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/porteng)
 "HL" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 9
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/porteng)
 "IF" = (
-/obj/machinery/atmospherics/binary/pump/high_power{
+/obj/structure/machinery/atmospherics/binary/pump/high_power{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/starbeng)
 "Jq" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/universal,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/universal,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/starbeng)
 "Js" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -1450,13 +1450,13 @@
 /turf/simulated/floor/tiled/freezer,
 /area/shuttle/einstein_shuttle/bathroom)
 "Kx" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
 /obj/effect/landmark/entry_point/aft{
 	name = "aft, airlock"
 	},
-/obj/machinery/door/airlock/external,
+/obj/structure/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_einstein_shuttle";
 	name = "airlock_einstein_shuttle";
@@ -1464,7 +1464,7 @@
 	shuttle_tag = "Einstein Shuttle";
 	cycle_to_external_air = 1
 	},
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	pixel_x = 28;
 	pixel_y = 12
 	},
@@ -1475,29 +1475,29 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/einstein_shuttle/room/three)
 "KY" = (
-/obj/machinery/shipsensors/weak,
+/obj/structure/machinery/shipsensors/weak,
 /obj/effect/floor_decal/industrial/warning/full,
 /turf/simulated/floor/airless,
 /area/shuttle/einstein_shuttle/helm)
 "KZ" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/vending/engineering{
+/obj/structure/machinery/vending/engineering{
 	req_access = list(205)
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/porteng)
 "Lh" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/dock)
 "Lp" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -1518,14 +1518,14 @@
 	icon_state = "0-4"
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/power/portgen/basic/advanced,
+/obj/structure/machinery/power/portgen/basic/advanced,
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/starbeng)
 "LC" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/door/airlock/multi_tile/glass{
+/obj/structure/machinery/door/airlock/multi_tile/glass{
 	name = "Conference Room";
 	req_access = list(205);
 	dir = 1
@@ -1536,7 +1536,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/starbeng)
 "LU" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/structure/machinery/atmospherics/pipe/tank/air{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -1560,12 +1560,12 @@
 /turf/template_noop,
 /area/space)
 "NY" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 1
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 10
 	},
 /turf/simulated/floor/plating,
@@ -1608,7 +1608,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/room)
 "Pw" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden,
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_einstein_shuttle";
 	name = "airlock_einstein_shuttle";
@@ -1625,13 +1625,13 @@
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/high/north{
+/obj/structure/machinery/power/apc/high/north{
 	req_access = list(205)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/room)
 "PZ" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/yellow{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/yellow{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -1643,7 +1643,7 @@
 /turf/space/transit/north,
 /area/space)
 "QI" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock/shuttle{
@@ -1656,10 +1656,10 @@
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/dock)
 "QS" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 5
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8;
 	icon_state = "tube_empty"
 	},
@@ -1675,7 +1675,7 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/einstein_shuttle/main)
 "Ri" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 1
 	},
 /obj/effect/map_effect/marker/airlock/shuttle{
@@ -1694,18 +1694,18 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/einstein_shuttle/porteng)
 "Sa" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/starbeng)
 "SA" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8;
 	level = 2
 	},
-/obj/machinery/alarm/east{
+/obj/structure/machinery/alarm/east{
 	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1719,7 +1719,7 @@
 /area/shuttle/einstein_shuttle/helm)
 "SN" = (
 /obj/structure/bed/stool/chair/office/bridge/generic,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1;
 	icon_state = "tube_empty"
 	},
@@ -1730,7 +1730,7 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/high/west{
+/obj/structure/machinery/power/apc/high/west{
 	req_access = list(205)
 	},
 /turf/simulated/floor/plating,
@@ -1742,10 +1742,10 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/einstein_shuttle/bathroom)
 "Tk" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
 /obj/structure/cable/green{
@@ -1754,45 +1754,45 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/room/three)
 "Ty" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
 	},
 /turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/einstein_shuttle/dock)
 "TF" = (
-/obj/machinery/atmospherics/binary/passive_gate/on{
+/obj/structure/machinery/atmospherics/binary/passive_gate/on{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/porteng)
 "TM" = (
-/obj/machinery/computer/ship/helm{
+/obj/structure/machinery/computer/ship/helm{
 	req_access = list(205)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/helm)
 "Uv" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/door/airlock/engineering{
+/obj/structure/machinery/door/airlock/engineering{
 	dir = 4;
 	req_access = list(205);
 	name = "Port Propulsion"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/porteng)
 "Ux" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1811,11 +1811,11 @@
 /area/shuttle/einstein_shuttle/helm)
 "UW" = (
 /obj/structure/table/standard,
-/obj/machinery/chemical_dispenser/coffeemaster/full,
+/obj/structure/machinery/chemical_dispenser/coffeemaster/full,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/helm)
 "Vu" = (
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/porteng)
@@ -1838,17 +1838,17 @@
 /turf/simulated/floor/tiled,
 /area/shuttle/einstein_shuttle/main)
 "Wh" = (
-/obj/machinery/portable_atmospherics/canister/empty{
+/obj/structure/machinery/portable_atmospherics/canister/empty{
 	name = "waste canister"
 	},
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/porteng)
 "Wn" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -1868,7 +1868,7 @@
 /area/shuttle/einstein_shuttle/main)
 "WA" = (
 /obj/structure/closet/cabinet,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /obj/item/clothing/under/konyangdress,
@@ -1895,7 +1895,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/helm)
 "WY" = (
-/obj/machinery/atmospherics/unary/engine,
+/obj/structure/machinery/atmospherics/unary/engine,
 /obj/structure/window/borosilicate/reinforced,
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/starbeng)
@@ -1903,21 +1903,21 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 1
 	},
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/starbeng)
 "Xv" = (
-/obj/machinery/vending/wallmed1{
+/obj/structure/machinery/vending/wallmed1{
 	name = "Medical Supplies";
 	pixel_x = 26;
 	pixel_y = -1;
 	req_access = null
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/freezer,
@@ -1938,7 +1938,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/room/three)
 "XT" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/shuttle{
@@ -1948,11 +1948,11 @@
 	shuttle_tag = "Einstein Shuttle";
 	cycle_to_external_air = 1
 	},
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
+/obj/structure/machinery/embedded_controller/radio/airlock/docking_port{
 	pixel_x = -6;
 	pixel_y = 28
 	},
-/obj/machinery/airlock_sensor{
+/obj/structure/machinery/airlock_sensor{
 	pixel_x = 6;
 	pixel_y = 28
 	},
@@ -1964,10 +1964,10 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/high/east{
+/obj/structure/machinery/power/apc/high/east{
 	req_access = null
 	},
-/obj/machinery/airlock_sensor/airlock_exterior{
+/obj/structure/machinery/airlock_sensor/airlock_exterior{
 	pixel_y = 22;
 	pixel_x = 6
 	},
@@ -1991,12 +1991,12 @@
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 1
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/carpet/brown,
 /area/shuttle/einstein_shuttle/main)
 "YI" = (
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/obj/machinery/light{
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/light{
 	dir = 8;
 	icon_state = "tube_empty"
 	},
@@ -2004,10 +2004,10 @@
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/porteng)
 "YJ" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 8
 	},
-/obj/machinery/portable_atmospherics/canister/air,
+/obj/structure/machinery/portable_atmospherics/canister/air,
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/porteng)
 "YO" = (
@@ -2017,11 +2017,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/conference)
 "Zl" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/porteng)
 "Zx" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock/shuttle{
@@ -2036,10 +2036,10 @@
 /area/shuttle/einstein_shuttle/dock)
 "ZL" = (
 /obj/structure/bed/stool/chair/office/dark,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8;
 	icon_state = "tube_empty"
 	},
@@ -2051,8 +2051,8 @@
 /turf/simulated/floor/airless,
 /area/shuttle/einstein_shuttle/helm)
 "ZU" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},

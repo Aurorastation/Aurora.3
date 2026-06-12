@@ -95,5 +95,5 @@
 	base_area = /area/dominian_corvette/central_lift
 	base_turf = /turf/simulated/open
 
-/obj/machinery/computer/shuttle_control/multi/lift/dominian_corvette
+/obj/structure/machinery/computer/shuttle_control/multi/lift/dominian_corvette
 	shuttle_tag = "Dominian Corvette Lift"

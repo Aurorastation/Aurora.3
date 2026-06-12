@@ -2,7 +2,7 @@
 #define SCREWDRIVER_BROKEN	1
 #define WRENCH_BROKEN		2
 
-/obj/machinery/appliance/cooker/microwave
+/obj/structure/machinery/appliance/cooker/microwave
 	name = "microwave"
 	desc = "A possibly occult device capable of perfectly preparing many types of food."
 	icon_state = "mw"
@@ -37,7 +37,7 @@
 	var/active_timer_hash
 	var/operating = FALSE
 
-/obj/machinery/appliance/cooker/microwave/Initialize()
+/obj/structure/machinery/appliance/cooker/microwave/Initialize()
 	. = ..()
 	microwave_loop = new(src)
 	temp_options = list()
@@ -47,11 +47,11 @@
 		disp_image.color = HSVtoRGB(hue)
 		temp_options["[30 * newtime]"] = disp_image
 
-/obj/machinery/appliance/cooker/microwave/Destroy()
+/obj/structure/machinery/appliance/cooker/microwave/Destroy()
 	QDEL_NULL(microwave_loop)
 	. = ..()
 
-/obj/machinery/appliance/cooker/microwave/has_space(obj/item/item)
+/obj/structure/machinery/appliance/cooker/microwave/has_space(obj/item/item)
 	if(istype(item, /obj/item/reagent_containers/cooking_container))
 		if(length(cooking_objs) < max_contents)
 			return TRUE
@@ -63,7 +63,7 @@
 				return cooking_item
 	return FALSE
 
-/obj/machinery/appliance/cooker/microwave/attackby(obj/item/O, mob/living/user, list/click_params)
+/obj/structure/machinery/appliance/cooker/microwave/attackby(obj/item/O, mob/living/user, list/click_params)
 	if (broken)
 		// Start repairs by using a screwdriver
 		if(broken == SCREWDRIVER_BROKEN && O.tool_behaviour == TOOL_SCREWDRIVER)
@@ -132,7 +132,7 @@
 			return TRUE
 	return ..()
 
-/obj/machinery/appliance/cooker/microwave/RefreshParts()
+/obj/structure/machinery/appliance/cooker/microwave/RefreshParts()
 	..()
 	var/laser_rating = 0
 	for(var/obj/item/stock_parts/micro_laser/ML)
@@ -144,13 +144,13 @@
 		mb_rating += MB.rating
 	break_multiplier = 1 / clamp((mb_rating), 1, 3)
 
-/obj/machinery/appliance/cooker/microwave/update_cooking_power()
+/obj/structure/machinery/appliance/cooker/microwave/update_cooking_power()
 	if(!operating)
 		cooking_power = 0
 		return
 	..()
 
-/obj/machinery/appliance/cooker/microwave/attempt_toggle_power(mob/user)
+/obj/structure/machinery/appliance/cooker/microwave/attempt_toggle_power(mob/user)
 	if (use_check_and_message(user, issilicon(user) ? USE_ALLOW_NON_ADJACENT : 0))
 		return
 
@@ -179,10 +179,10 @@
 	cooking = use_power
 	update_icon()
 
-/obj/machinery/appliance/cooker/microwave/can_remove_items(mob/user)
+/obj/structure/machinery/appliance/cooker/microwave/can_remove_items(mob/user)
 	return !use_check_and_message(user) && !operating
 
-/obj/machinery/appliance/cooker/microwave/proc/turn_off()
+/obj/structure/machinery/appliance/cooker/microwave/proc/turn_off()
 	if(active_timer_hash)
 		deltimer(active_timer_hash)
 		active_timer_hash = null
@@ -192,7 +192,7 @@
 	audible_message(SPAN_NOTICE("<b>[src]</b> pings!"))
 	update_icon()
 
-/obj/machinery/appliance/cooker/microwave/burn_food(datum/cooking_item/cooking_item)
+/obj/structure/machinery/appliance/cooker/microwave/burn_food(datum/cooking_item/cooking_item)
 	..()
 	playsound(loc, 'sound/effects/splat.ogg', 50, 1)
 	visible_message(SPAN_WARNING("Muck splatters over the inside of \the [src]!"))
@@ -200,7 +200,7 @@
 	broke()
 	update_icon()
 
-/obj/machinery/appliance/cooker/microwave/proc/broke()
+/obj/structure/machinery/appliance/cooker/microwave/proc/broke()
 	spark(loc, 2, GLOB.alldirs)
 	playsound(loc, SFX_SPARKS, 50, 1)
 	if (prob(100 * break_multiplier))
@@ -208,12 +208,12 @@
 		broken = WRENCH_BROKEN // Make it broken so it can't be used until fixed
 		turn_off()
 
-/obj/machinery/appliance/cooker/microwave/add_content(obj/item/I, mob/user)
+/obj/structure/machinery/appliance/cooker/microwave/add_content(obj/item/I, mob/user)
 	. = ..()
 	flick("mwo", src)
 	playsound(src, 'sound/machines/microwave/microwave-start.ogg', 50, TRUE)
 
-/obj/machinery/appliance/cooker/microwave/update_icon()
+/obj/structure/machinery/appliance/cooker/microwave/update_icon()
 	..()
 	ClearOverlays()
 	icon_state = initial(icon_state)
@@ -231,7 +231,7 @@
 	if(broken)
 		icon_state = "mwb"
 
-/obj/machinery/appliance/cooker/microwave/proc/update_microwaving_audio()
+/obj/structure/machinery/appliance/cooker/microwave/proc/update_microwaving_audio()
 	if(!microwave_loop)
 		return
 	if(use_power)
@@ -239,7 +239,7 @@
 	else
 		microwave_loop.stop()
 
-/obj/machinery/appliance/cooker/microwave/condition_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/appliance/cooker/microwave/condition_hints(mob/user, distance, is_adjacent)
 	. = ..()
 	if(broken)
 		. += SPAN_WARNING("\The [src] is very broken. You'll need to fix it before you can use it again.")

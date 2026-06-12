@@ -80,7 +80,7 @@
 	weapons = "No Apparent Weapons"
 	sizeclass = "Merchant Transport Shuttlecraft"
 
-/obj/machinery/computer/shuttle_control/explore/terminal/fishing_trawler
+/obj/structure/machinery/computer/shuttle_control/explore/terminal/fishing_trawler
 	name = "shuttle control console"
 	shuttle_tag = "Fishing League Shuttle"
 	req_access = list(ACCESS_FISHING_LEAGUE)

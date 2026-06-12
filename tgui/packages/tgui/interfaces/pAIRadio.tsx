@@ -1,6 +1,6 @@
-import { BooleanLike } from '../../common/react';
+import { Button, LabeledList, Section, Slider } from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Button, LabeledList, Section, Slider } from '../components';
 import { NtosWindow } from '../layouts';
 
 export type RadioData = {
@@ -15,8 +15,8 @@ type Channel = {
   listening: BooleanLike;
 };
 
-export const pAIRadio = (props, context) => {
-  const { act, data } = useBackend<RadioData>(context);
+export const pAIRadio = (props) => {
+  const { act, data } = useBackend<RadioData>();
 
   return (
     <NtosWindow resizable>
@@ -54,9 +54,7 @@ export const pAIRadio = (props, context) => {
                 value={data.radio_range}
                 minValue={0}
                 maxValue={4}
-                onDrag={(e, value) =>
-                  act('radio_range', { radio_range: value })
-                }
+                onChange={(_, value) => act('radio_range', { radio_range: value })}
               />
             </LabeledList.Item>
           </LabeledList>

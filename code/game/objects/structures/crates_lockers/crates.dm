@@ -552,7 +552,7 @@
 				S.forceMove(src)
 				break
 		if(!found)
-			for(var/obj/machinery/M in loc)
+			for(var/obj/structure/machinery/M in loc)
 				if(!M.anchored)
 					M.forceMove(src)
 					break
@@ -579,7 +579,7 @@
 				S.forceMove(src)
 				break
 		if(!found)
-			for(var/obj/machinery/M in loc)
+			for(var/obj/structure/machinery/M in loc)
 				if(!M.anchored)
 					M.forceMove(src)
 					break

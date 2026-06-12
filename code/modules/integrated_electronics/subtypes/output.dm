@@ -253,7 +253,7 @@
 	activators = list()
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	power_draw_idle = 5 // Raises to 200 when on.
-	var/obj/machinery/camera/network/research/camera
+	var/obj/structure/machinery/camera/network/research/camera
 
 /obj/item/integrated_circuit/output/video_camera/Initialize()
 	. = ..()

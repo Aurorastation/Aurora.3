@@ -213,7 +213,7 @@
 		if(!isturf(target.loc))
 			return
 		grip_item(target, user)
-	else if (istype(target, /obj/machinery/mining)) // to prevent them from activating it by accident
+	else if (istype(target, /obj/structure/machinery/mining)) // to prevent them from activating it by accident
 		return
 	else
 		target.attack_ai(user)

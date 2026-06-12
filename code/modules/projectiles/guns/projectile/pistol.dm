@@ -15,6 +15,8 @@
 	fire_sound = 'sound/weapons/gunshot/gunshot_light.ogg'
 	load_method = MAGAZINE
 	fire_delay = ROF_PISTOL
+	drop_sound = 'sound/items/drop/pistol.ogg'
+	pickup_sound = 'sound/items/pickup/pistol.ogg'
 
 /obj/item/gun/projectile/colt/update_icon()
 	..()
@@ -81,6 +83,8 @@
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	ammo_type = /obj/item/ammo_casing/c45
 	allowed_magazines = list(/obj/item/ammo_magazine/c45m)
+	drop_sound = 'sound/items/drop/pistol.ogg'
+	pickup_sound = 'sound/items/pickup/pistol.ogg'
 
 /obj/item/gun/projectile/automatic/lebman/update_icon()
 	..()
@@ -105,6 +109,8 @@
 	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
 	load_method = MAGAZINE
 	fire_delay = ROF_PISTOL
+	drop_sound = 'sound/items/drop/pistol.ogg'
+	pickup_sound = 'sound/items/pickup/pistol.ogg'
 
 /obj/item/gun/projectile/sec/update_icon()
 	..()
@@ -164,6 +170,8 @@
 	multi_aim = 1
 	auto_eject = 1
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
+	drop_sound = 'sound/items/drop/pistol.ogg'
+	pickup_sound = 'sound/items/pickup/pistol.ogg'
 
 /obj/item/gun/projectile/automatic/x9/update_icon()
 	..()
@@ -189,6 +197,8 @@
 	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
 	load_method = MAGAZINE
 	sel_mode = 1
+	drop_sound = 'sound/items/drop/pistol.ogg'
+	pickup_sound = 'sound/items/pickup/pistol.ogg'
 
 	firemodes = list(
 		list(mode_name="semiauto", burst=1, fire_delay=ROF_PISTOL, fire_delay_wielded=ROF_SMG),
@@ -224,6 +234,8 @@
 	magazine_type = /obj/item/ammo_magazine/c45m
 	allowed_magazines = list(/obj/item/ammo_magazine/c45m)
 	fire_delay = ROF_PISTOL
+	drop_sound = 'sound/items/drop/pistol.ogg'
+	pickup_sound = 'sound/items/pickup/pistol.ogg'
 
 /obj/item/gun/projectile/silenced/update_icon()
 	..()
@@ -247,6 +259,8 @@
 	auto_eject = 1
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 	fire_delay = ROF_RIFLE
+	drop_sound = 'sound/items/drop/pistol.ogg'
+	pickup_sound = 'sound/items/pickup/pistol.ogg'
 
 /obj/item/gun/projectile/deagle/update_icon()
 	..()
@@ -283,6 +297,8 @@
 	auto_eject = 1
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 	fire_delay = ROF_UNWIELDY
+	drop_sound = 'sound/items/drop/pistol.ogg'
+	pickup_sound = 'sound/items/pickup/pistol.ogg'
 
 /obj/item/gun/projectile/gyropistol/update_icon()
 	..()
@@ -311,6 +327,8 @@
 	allowed_magazines = list(/obj/item/ammo_magazine/mc9mm)
 	fire_delay = ROF_PISTOL
 	suppressor_x_offset = 3
+	drop_sound = 'sound/items/drop/pistol.ogg'
+	pickup_sound = 'sound/items/pickup/pistol.ogg'
 
 /obj/item/gun/projectile/pistol/flash
 	name = "9mm signal pistol"
@@ -362,6 +380,8 @@
 	handle_casings = CYCLE_CASINGS //player has to take the old casing out manually before reloading
 	load_method = SINGLE_CASING
 	max_shells = 1 //literally just a barrel
+	drop_sound = 'sound/items/drop/pistol.ogg'
+	pickup_sound = 'sound/items/pickup/pistol.ogg'
 
 	var/global/list/ammo_types = list(
 		/obj/item/ammo_casing/a357              = ".357",
@@ -398,6 +418,8 @@
 	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
 	load_method = SINGLE_CASING|SPEEDLOADER
 	fire_delay = ROF_PISTOL
+	drop_sound = 'sound/items/drop/pistol.ogg'
+	pickup_sound = 'sound/items/pickup/pistol.ogg'
 
 /obj/item/gun/projectile/leyon/update_icon()
 	..()
@@ -557,6 +579,8 @@
 	can_suppress = TRUE
 	suppressor_x_offset = 9
 	suppressor_y_offset = 2
+	drop_sound = 'sound/items/drop/pistol.ogg'
+	pickup_sound = 'sound/items/pickup/pistol.ogg'
 
 /obj/item/gun/projectile/xanupistol/update_icon()
 	..()

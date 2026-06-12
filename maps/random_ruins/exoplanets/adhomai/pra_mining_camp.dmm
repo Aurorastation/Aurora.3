@@ -1,6 +1,6 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "as" = (
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	dir = 8;
 	id = "pra_mining_base"
 	},
@@ -17,19 +17,19 @@
 /turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "ct" = (
-/obj/machinery/vending/cola,
+/obj/structure/machinery/vending/cola,
 /turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "dd" = (
 /obj/structure/plasticflaps,
 /obj/effect/floor_decal/industrial/warning/cee,
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	id = "pra_mining_base"
 	},
 /turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "dO" = (
-/obj/machinery/mineral/processing_unit_console{
+/obj/structure/machinery/mineral/processing_unit_console{
 	pixel_y = 28
 	},
 /turf/simulated/floor/exoplanet/concrete,
@@ -58,7 +58,7 @@
 /turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "gi" = (
-/obj/machinery/mech_recharger,
+/obj/structure/machinery/mech_recharger,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /mob/living/heavy_vehicle/premade/miner,
 /turf/simulated/floor/exoplanet/concrete,
@@ -82,14 +82,14 @@
 /turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "iI" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/snow/cold,
 /area/pra_mining_camp)
 "jt" = (
 /obj/structure/bed/stool/bar/padded/red,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/concrete,
@@ -102,17 +102,17 @@
 /area/pra_mining_camp)
 "lH" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/mining/drill,
+/obj/structure/machinery/mining/drill,
 /turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "ml" = (
 /obj/structure/table/standard,
-/obj/machinery/cell_charger,
-/obj/machinery/light,
+/obj/structure/machinery/cell_charger,
+/obj/structure/machinery/light,
 /turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "om" = (
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	dir = 1;
 	id = "pra_mining_base"
 	},
@@ -132,7 +132,7 @@
 /area/pra_mining_camp)
 "on" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/mining/brace{
+/obj/structure/machinery/mining/brace{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/concrete,
@@ -149,14 +149,14 @@
 /turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "qx" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "qB" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/mining/brace{
+/obj/structure/machinery/mining/brace{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/concrete,
@@ -189,17 +189,17 @@
 /turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "up" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "uN" = (
-/obj/machinery/vending/cigarette,
+/obj/structure/machinery/vending/cigarette,
 /turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "vd" = (
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	dir = 8;
 	id = "pra_mining_base"
 	},
@@ -208,7 +208,7 @@
 	},
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/railing/mapped,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/concrete,
@@ -238,7 +238,7 @@
 /turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "yD" = (
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	name = "Mining Smelter";
 	dir = 1
 	},
@@ -255,7 +255,7 @@
 /turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "Bx" = (
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	dir = 1;
 	id = "pra_mining_base"
 	},
@@ -268,14 +268,14 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
 /turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "Cg" = (
-/obj/machinery/mineral/stacking_unit_console{
+/obj/structure/machinery/mineral/stacking_unit_console{
 	pixel_y = 32
 	},
 /turf/simulated/floor/exoplanet/concrete,
@@ -288,13 +288,13 @@
 /turf/simulated/wall/concrete,
 /area/pra_mining_camp)
 "Gq" = (
-/obj/machinery/vending/snack,
+/obj/structure/machinery/vending/snack,
 /turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "Gu" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/ore_box,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/concrete,
@@ -303,10 +303,10 @@
 /turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "Hq" = (
-/obj/machinery/mineral/stacking_machine{
+/obj/structure/machinery/mineral/stacking_machine{
 	dir = 8
 	},
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	dir = 8;
 	id = "pra_mining_base"
 	},
@@ -317,7 +317,7 @@
 /turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "Iy" = (
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	dir = 1;
 	id = "pra_mining_base"
 	},
@@ -335,7 +335,7 @@
 "ID" = (
 /obj/structure/closet/crate,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/concrete,
@@ -349,7 +349,7 @@
 /turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "JZ" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -376,11 +376,11 @@
 /turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "Lo" = (
-/obj/machinery/mineral/processing_unit{
+/obj/structure/machinery/mineral/processing_unit{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning/full,
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	dir = 1;
 	id = "pra_mining_base"
 	},
@@ -411,7 +411,7 @@
 /turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "NA" = (
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	dir = 1;
 	id = "pra_mining_base"
 	},
@@ -424,13 +424,13 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/machinery/mineral/unloading_machine{
+/obj/structure/machinery/mineral/unloading_machine{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "OX" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/snow/cold,
@@ -463,7 +463,7 @@
 /turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "Qx" = (
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	name = "Equipment Storage";
 	dir = 1
 	},
@@ -482,7 +482,7 @@
 /turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "Tn" = (
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	dir = 10;
 	id = "pra_mining_base";
 	reversed = 1
@@ -523,7 +523,7 @@
 /turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "UM" = (
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	dir = 9;
 	id = "pra_mining_base";
 	reversed = 1
@@ -542,7 +542,7 @@
 /turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "WA" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "WP" = (
@@ -563,14 +563,14 @@
 /turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "YB" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
 /turf/simulated/floor/exoplanet/snow/cold,
 /area/pra_mining_camp)
 "ZG" = (
-/obj/machinery/conveyor_switch/oneway{
+/obj/structure/machinery/conveyor_switch/oneway{
 	id = "pra_mining_base"
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,

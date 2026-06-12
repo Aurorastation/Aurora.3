@@ -10,26 +10,26 @@
 	if(areas && areas.len > 0)
 
 		for(var/area/A in areas)
-			for(var/obj/machinery/light/L in A)
+			for(var/obj/structure/machinery/light/L in A)
 				L.flicker(10)
 
 		sleep(100)
 
 		for(var/area/A in areas)
-			for (var/obj/machinery/power/apc/temp_apc in A)
+			for (var/obj/structure/machinery/power/apc/temp_apc in A)
 				temp_apc.overload_lighting()
 
 			for (var/obj/structure/closet/secure_closet/brig/temp_closet in A)
 				temp_closet.locked = 0
 				temp_closet.update_icon()
 
-			for (var/obj/machinery/door/airlock/security/temp_airlock in A)
+			for (var/obj/structure/machinery/door/airlock/security/temp_airlock in A)
 				spawn(0) temp_airlock.prison_open()
 
-			for (var/obj/machinery/door/airlock/glass_security/temp_glassairlock in A)
+			for (var/obj/structure/machinery/door/airlock/glass_security/temp_glassairlock in A)
 				spawn(0) temp_glassairlock.prison_open()
 
-			for (var/obj/machinery/door_timer/temp_timer in A)
+			for (var/obj/structure/machinery/door_timer/temp_timer in A)
 				temp_timer.releasetime = 1
 
 		sleep(150)
@@ -58,11 +58,11 @@
 			return
 
 		for(var/obj/effect/landmark/epicentre in epicentreList)
-			for(var/obj/machinery/power/apc/apc in range(epicentre,lightsoutRange))
+			for(var/obj/structure/machinery/power/apc/apc in range(epicentre,lightsoutRange))
 				apc.overload_lighting()
 
 	else
-		for(var/obj/machinery/power/apc/apc in SSmachinery.processing)
+		for(var/obj/structure/machinery/power/apc/apc in SSmachinery.processing)
 			apc.overload_lighting()
 
 	return
@@ -173,6 +173,6 @@ Would like to add a law like "Law x is _______" where x = a number, and _____ is
 					M.add_ion_law("THE STATION IS [who2pref] [who2]")
 
 	if(botEmagChance)
-		for(var/obj/machinery/bot/bot in SSmachinery.machinery)
+		for(var/obj/structure/machinery/bot/bot in SSmachinery.machinery)
 			if(prob(botEmagChance))
 				bot.emag_act(1)

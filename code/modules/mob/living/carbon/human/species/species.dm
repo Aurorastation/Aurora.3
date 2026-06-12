@@ -471,6 +471,9 @@
 	/// Controls whether this species spawns with a Morale Component.
 	var/has_morale = TRUE
 
+	/// A list of species components that should only EVER apply to this species. This is because some components must be removed if the species changes (imagine changing from IPC to human as a merc).
+	var/list/species_components
+
 /datum/species/proc/get_eyes(var/mob/living/carbon/human/H)
 	return
 
@@ -625,7 +628,11 @@
 			for(var/spell/spell in H.spell_list)
 				if(istype(spell, spell_path))
 					H.remove_spell(spell)
-	return
+
+	if(length(species_components))
+		for(var/comp_type in species_components)
+			for(var/datum/component/comp in H.GetComponents(comp_type))
+				qdel(comp)
 
 /datum/species/proc/add_inherent_verbs(var/mob/living/carbon/human/H)
 	if(inherent_verbs)
@@ -659,6 +666,10 @@
 		H.pronouns = H.gender
 	if(has_psionics)
 		H.set_psi_rank(has_psionics)
+
+	if(length(species_components))
+		for(var/comp_type in species_components)
+			H.AddComponent(comp_type)
 
 /datum/species/proc/handle_death(var/mob/living/carbon/human/H, var/gibbed = 0) //Handles any species-specific death events (such as dionaea nymph spawns).
 	return

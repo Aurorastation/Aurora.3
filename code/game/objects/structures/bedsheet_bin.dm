@@ -20,8 +20,8 @@ LINEN BINS
 	throw_speed = 1
 	throw_range = 2
 	w_class = WEIGHT_CLASS_BULKY
-	drop_sound = 'sound/items/drop/cloth.ogg'
-	pickup_sound = 'sound/items/pickup/cloth.ogg'
+	drop_sound = SFX_CLOTH_DROP
+	pickup_sound = SFX_CLOTH_PICKUP
 	randpixel = 0
 	center_of_mass = null
 	var/roll = FALSE

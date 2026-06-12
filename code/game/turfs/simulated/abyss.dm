@@ -10,14 +10,14 @@
 		/obj/structure/lattice,
 		/obj/projectile,
 		/obj/effect,
-		/obj/machinery/light,
+		/obj/structure/machinery/light,
 		/obj/structure/railing,
 		/obj/structure/stairs_railing,
 		/obj/structure/platform,
 		/obj/structure/platform_deco,
 		/obj/structure/extinguisher_cabinet,
 		/obj/structure/sign,
-		/obj/machinery/atmospherics/pipe
+		/obj/structure/machinery/atmospherics/pipe
 		))
 
 /turf/simulated/abyss/Initialize()
@@ -42,7 +42,7 @@
 			return TRUE
 
 
-	else if(istype(AM, /obj/item) || istype(AM, /obj/structure) || istype(AM, /obj/machinery))
+	else if(istype(AM, /obj/item) || istype(AM, /obj/structure))
 		if(locate(/obj/structure/lattice, src))	// Should be safe to be placed upon.
 			return TRUE
 		var/obj/O = AM

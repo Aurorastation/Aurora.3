@@ -56,7 +56,7 @@
 /obj/effect/landmark/exoplanet_spawn/plant/do_spawn(var/obj/effect/overmap/visitable/sector/exoplanet/planet)
 	if(length(planet.small_flora_seeds))
 		var/seed_path = pick(planet.small_flora_seeds)
-		new /obj/machinery/portable_atmospherics/hydroponics/soil/invisible(get_turf(src), seed_path, TRUE)
+		new /obj/structure/machinery/portable_atmospherics/hydroponics/soil/invisible(get_turf(src), seed_path, TRUE)
 
 /obj/effect/landmark/exoplanet_spawn/large_plant
 	name = "spawn exoplanet large plant"
@@ -64,5 +64,5 @@
 /obj/effect/landmark/exoplanet_spawn/large_plant/do_spawn(var/obj/effect/overmap/visitable/sector/exoplanet/planet)
 	if(length(planet.big_flora_seeds))
 		var/seed_path = pick(planet.big_flora_seeds)
-		new /obj/machinery/portable_atmospherics/hydroponics/soil/invisible(get_turf(src), seed_path, TRUE)
+		new /obj/structure/machinery/portable_atmospherics/hydroponics/soil/invisible(get_turf(src), seed_path, TRUE)
 

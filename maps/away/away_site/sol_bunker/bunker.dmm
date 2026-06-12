@@ -1,9 +1,9 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "ab" = (
-/obj/machinery/door/airlock/centcom{
+/obj/structure/machinery/door/airlock/centcom{
 	dir = 1
 	},
-/obj/machinery/door/firedoor/noid,
+/obj/structure/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/full,
 /area/sol_bunker)
 "aj" = (
@@ -57,10 +57,10 @@
 /area/sol_bunker)
 "cA" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/unary/vent_pump/high_volume,
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/map_effect/marker/airlock/sol_bunker,
-/obj/machinery/light/small/red{
+/obj/structure/machinery/light/small/red{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
@@ -91,7 +91,7 @@
 /obj/effect/floor_decal/corner_wide/dark_blue/full{
 	dir = 1
 	},
-/obj/machinery/light/small/red{
+/obj/structure/machinery/light/small/red{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -129,7 +129,7 @@
 /area/sol_bunker)
 "fv" = (
 /obj/effect/decal/cleanable/cobweb,
-/obj/machinery/appliance/cooker/oven,
+/obj/structure/machinery/appliance/cooker/oven,
 /obj/effect/floor_decal/corner_wide/paleblue/full{
 	dir = 8
 	},
@@ -204,7 +204,7 @@
 /turf/simulated/floor/wood,
 /area/sol_bunker)
 "ht" = (
-/obj/machinery/appliance/cooker/fryer,
+/obj/structure/machinery/appliance/cooker/fryer,
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 5
 	},
@@ -218,10 +218,10 @@
 /turf/simulated/floor/wood,
 /area/sol_bunker)
 "hS" = (
-/obj/machinery/door/airlock/centcom{
+/obj/structure/machinery/door/airlock/centcom{
 	dir = 4
 	},
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/full,
@@ -264,7 +264,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
 	},
-/obj/machinery/light/small/red{
+/obj/structure/machinery/light/small/red{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -278,7 +278,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/machinery/door/window/eastleft,
+/obj/structure/machinery/door/window/eastleft,
 /obj/structure/sign/vacuum{
 	pixel_y = 32
 	},
@@ -286,7 +286,7 @@
 /area/sol_bunker)
 "jF" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/appliance/cooker/stove,
+/obj/structure/machinery/appliance/cooker/stove,
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 5
 	},
@@ -300,7 +300,7 @@
 /turf/simulated/floor/tiled,
 /area/sol_bunker)
 "kc" = (
-/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/structure/machinery/portable_atmospherics/canister/oxygen,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/sol_bunker)
@@ -323,7 +323,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/obj/machinery/light/small/red{
+/obj/structure/machinery/light/small/red{
 	dir = 1
 	},
 /turf/simulated/floor/wood,
@@ -343,11 +343,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/sol_bunker)
 "kP" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
-/obj/machinery/door/airlock/external,
-/obj/machinery/access_button{
+/obj/structure/machinery/door/airlock/external,
+/obj/structure/machinery/access_button{
 	pixel_x = 33;
 	pixel_y = -6
 	},
@@ -362,7 +362,7 @@
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 5
 	},
-/obj/machinery/light/small/red{
+/obj/structure/machinery/light/small/red{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -419,7 +419,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/sol_bunker)
 "mg" = (
-/obj/machinery/vending/dinnerware,
+/obj/structure/machinery/vending/dinnerware,
 /obj/effect/floor_decal/corner_wide/paleblue/full{
 	dir = 1
 	},
@@ -430,13 +430,13 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced,
-/obj/machinery/door/window/northleft{
+/obj/structure/machinery/door/window/northleft{
 	name = "Airlock Canisters"
 	},
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 1
 	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/tiled,
 /area/sol_bunker)
 "mH" = (
@@ -472,7 +472,7 @@
 /obj/structure/table/wood,
 /obj/item/pen,
 /obj/effect/floor_decal/spline/fancy/wood,
-/obj/machinery/light/small/red,
+/obj/structure/machinery/light/small/red,
 /turf/simulated/floor/wood,
 /area/sol_bunker)
 "mR" = (
@@ -498,7 +498,7 @@
 /area/sol_bunker)
 "nR" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/manifold/hidden{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -516,7 +516,7 @@
 /turf/simulated/floor/tiled,
 /area/sol_bunker)
 "om" = (
-/obj/machinery/photocopier,
+/obj/structure/machinery/photocopier,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
@@ -536,7 +536,7 @@
 	anchored = 1;
 	dir = 8
 	},
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/full,
@@ -553,7 +553,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
 	},
-/obj/machinery/light/small/red{
+/obj/structure/machinery/light/small/red{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -575,13 +575,13 @@
 	dir = 4
 	},
 /obj/structure/window/reinforced,
-/obj/machinery/door/window/northleft{
+/obj/structure/machinery/door/window/northleft{
 	name = "Airlock Canisters"
 	},
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 1
 	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
 /obj/structure/sign/flag/sol/old{
 	dir = 1;
 	pixel_y = -32
@@ -591,7 +591,7 @@
 "qT" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/corner_wide/dark_blue/full,
-/obj/machinery/light/small/red{
+/obj/structure/machinery/light/small/red{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -602,7 +602,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/obj/machinery/light/small/red{
+/obj/structure/machinery/light/small/red{
 	dir = 1
 	},
 /turf/simulated/floor/wood,
@@ -612,7 +612,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
 	},
-/obj/machinery/light/small/red,
+/obj/structure/machinery/light/small/red,
 /turf/simulated/floor/tiled,
 /area/sol_bunker)
 "rr" = (
@@ -624,7 +624,7 @@
 /area/sol_bunker)
 "rF" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/light/small/red,
+/obj/structure/machinery/light/small/red,
 /turf/simulated/floor/tiled/white,
 /area/sol_bunker)
 "rP" = (
@@ -637,7 +637,7 @@
 /obj/structure/door_assembly/door_assembly_hatch{
 	dir = 4
 	},
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/full,
@@ -673,7 +673,7 @@
 /turf/simulated/floor/tiled,
 /area/sol_bunker)
 "sI" = (
-/obj/machinery/door/airlock/external,
+/obj/structure/machinery/door/airlock/external,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/sol_bunker,
 /obj/effect/floor_decal/industrial/hatch/red,
@@ -694,7 +694,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 7
 	},
-/obj/machinery/light/small/red,
+/obj/structure/machinery/light/small/red,
 /turf/simulated/floor/wood,
 /area/sol_bunker)
 "sX" = (
@@ -719,7 +719,7 @@
 "tL" = (
 /obj/structure/safe,
 /obj/effect/floor_decal/spline/fancy/wood,
-/obj/machinery/light/small/red,
+/obj/structure/machinery/light/small/red,
 /turf/simulated/floor/wood,
 /area/sol_bunker)
 "tS" = (
@@ -764,7 +764,7 @@
 "uA" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/warning_stripes,
-/obj/machinery/porta_turret/ballistic{
+/obj/structure/machinery/porta_turret/ballistic{
 	light_range = 1
 	},
 /turf/simulated/floor/tiled,
@@ -812,10 +812,10 @@
 /turf/simulated/floor/tiled/white,
 /area/sol_bunker)
 "wi" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8
 	},
-/obj/machinery/door/airlock/external,
+/obj/structure/machinery/door/airlock/external,
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/map_effect/marker/airlock/sol_bunker,
 /obj/effect/floor_decal/industrial/hatch/red,
@@ -838,8 +838,8 @@
 /area/sol_bunker)
 "xU" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/unary/vent_pump/high_volume,
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -848,15 +848,15 @@
 /area/sol_bunker)
 "xW" = (
 /obj/effect/decal/cleanable/mucus,
-/obj/machinery/atmospherics/unary/vent_pump/high_volume,
-/obj/machinery/airlock_sensor{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume,
+/obj/structure/machinery/airlock_sensor{
 	pixel_x = -24;
 	dir = 4;
 	pixel_y = -6
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/map_effect/marker/airlock/sol_bunker,
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+/obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller{
 	pixel_y = 7;
 	dir = 4;
 	pixel_x = -25
@@ -864,7 +864,7 @@
 /turf/simulated/floor/tiled/full,
 /area/sol_bunker)
 "yt" = (
-/obj/machinery/shower{
+/obj/structure/machinery/shower{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -933,7 +933,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
 	},
-/obj/machinery/light/small/red,
+/obj/structure/machinery/light/small/red,
 /turf/simulated/floor/tiled,
 /area/sol_bunker)
 "Ce" = (
@@ -941,7 +941,7 @@
 /area/sol_bunker)
 "Cs" = (
 /obj/structure/table/wood,
-/obj/machinery/photocopier/faxmachine,
+/obj/structure/machinery/photocopier/faxmachine,
 /obj/item/paper{
 	info = "\[center]\[flag_sol]\[/center]\[center]\[small]\[i]This paper has been transmitted by Solarian Naval Fleet Command, 39th Fleet\[/i]\[/small]\[/center]\[hr]\[hr]\[small]Date: 09/22/2452 Orders sent by: Admiral Sooraj Sirasikar, 39th FleetRecipient: Captain Obasie UchiePosition: Commanding Officer of Marine Garrison Installation Tango Charlie-22 Priority: CriticalSubject: EvacuationTransmission: Tau Ceti independence imminent. Bunker must be evacuated in accordance to independence agreement. Scrub all databases and activate automated defenses. Leave nothing valuable. Do not destroy installation. It may be needed again one day. Evacuation shuttle will arrive in one hour."
 	},
@@ -983,7 +983,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/obj/machinery/light/small/red{
+/obj/structure/machinery/light/small/red{
 	dir = 1
 	},
 /turf/simulated/floor/wood,
@@ -996,7 +996,7 @@
 /area/sol_bunker)
 "Eg" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille,
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 8
 	},
 /turf/simulated/floor,
@@ -1009,7 +1009,7 @@
 /area/sol_bunker)
 "EJ" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/full,
@@ -1050,7 +1050,7 @@
 /area/sol_bunker)
 "FJ" = (
 /obj/structure/door_assembly,
-/obj/machinery/door/firedoor/noid,
+/obj/structure/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/white,
 /area/sol_bunker)
 "FK" = (
@@ -1060,7 +1060,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
 	},
-/obj/machinery/light/small/red{
+/obj/structure/machinery/light/small/red{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -1089,7 +1089,7 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced,
-/obj/machinery/door/window/eastleft,
+/obj/structure/machinery/door/window/eastleft,
 /obj/item/clothing/head/helmet/space/void/sol,
 /turf/simulated/floor/tiled,
 /area/sol_bunker)
@@ -1110,14 +1110,14 @@
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 10
 	},
-/obj/machinery/light/small/red,
+/obj/structure/machinery/light/small/red,
 /turf/simulated/floor/tiled,
 /area/sol_bunker)
 "GU" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/obj/machinery/light/small/red{
+/obj/structure/machinery/light/small/red{
 	dir = 1
 	},
 /turf/simulated/floor/wood,
@@ -1179,7 +1179,7 @@
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 10
 	},
-/obj/machinery/light/small/red,
+/obj/structure/machinery/light/small/red,
 /turf/simulated/floor/tiled,
 /area/sol_bunker)
 "Jc" = (
@@ -1195,14 +1195,14 @@
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 5
 	},
-/obj/machinery/light/small/red{
+/obj/structure/machinery/light/small/red{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/sol_bunker)
 "Kq" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille,
-/obj/machinery/door/firedoor/noid,
+/obj/structure/machinery/door/firedoor/noid,
 /turf/simulated/floor,
 /area/sol_bunker)
 "Ku" = (
@@ -1212,7 +1212,7 @@
 /obj/effect/floor_decal/corner_wide/dark_blue/full{
 	dir = 8
 	},
-/obj/machinery/light/small/red{
+/obj/structure/machinery/light/small/red{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1222,7 +1222,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 7
 	},
-/obj/machinery/light/small/red,
+/obj/structure/machinery/light/small/red,
 /turf/simulated/floor/wood,
 /area/sol_bunker)
 "KL" = (
@@ -1233,7 +1233,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/spiderling_remains,
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /obj/structure/foamedmetal,
 /turf/simulated/floor/tiled/full,
 /area/sol_bunker)
@@ -1247,8 +1247,8 @@
 /turf/simulated/floor/tiled,
 /area/sol_bunker)
 "Lu" = (
-/obj/machinery/door/airlock/external,
-/obj/machinery/access_button{
+/obj/structure/machinery/door/airlock/external,
+/obj/structure/machinery/access_button{
 	pixel_x = -33;
 	pixel_y = 7;
 	dir = 1
@@ -1260,7 +1260,7 @@
 /area/sol_bunker)
 "LH" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
@@ -1269,7 +1269,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
 	},
-/obj/machinery/light/small/red{
+/obj/structure/machinery/light/small/red{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -1304,16 +1304,16 @@
 /area/sol_bunker)
 "MJ" = (
 /obj/effect/decal/warning_stripes,
-/obj/machinery/porta_turret/ballistic{
+/obj/structure/machinery/porta_turret/ballistic{
 	light_range = 1
 	},
 /turf/simulated/floor/tiled,
 /area/sol_bunker)
 "ML" = (
-/obj/machinery/door/airlock/glass{
+/obj/structure/machinery/door/airlock/glass{
 	dir = 1
 	},
-/obj/machinery/door/firedoor/noid,
+/obj/structure/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/full,
 /area/sol_bunker)
 "Nf" = (
@@ -1355,7 +1355,7 @@
 /obj/structure/sign/nosmoking_1{
 	pixel_y = -32
 	},
-/obj/machinery/light/small/red,
+/obj/structure/machinery/light/small/red,
 /turf/simulated/floor/tiled,
 /area/sol_bunker)
 "OR" = (
@@ -1363,14 +1363,14 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/door/window/eastleft,
+/obj/structure/machinery/door/window/eastleft,
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/space/void/sol,
 /turf/simulated/floor/tiled,
 /area/sol_bunker)
 "OV" = (
 /obj/random/junk,
-/obj/machinery/atmospherics/pipe/manifold/hidden{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/full,
@@ -1380,7 +1380,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
 	},
-/obj/machinery/light/small/red{
+/obj/structure/machinery/light/small/red{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -1434,7 +1434,7 @@
 "Rk" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/full,
@@ -1484,10 +1484,10 @@
 /turf/simulated/floor/wood,
 /area/sol_bunker)
 "SI" = (
-/obj/machinery/door/airlock/vault/bolted{
+/obj/structure/machinery/door/airlock/vault/bolted{
 	dir = 1
 	},
-/obj/machinery/door/firedoor/noid,
+/obj/structure/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/full,
 /area/sol_bunker)
 "SU" = (
@@ -1534,7 +1534,7 @@
 /area/sol_bunker)
 "UK" = (
 /obj/effect/decal/cleanable/cobweb2,
-/obj/machinery/vending/wallmed2{
+/obj/structure/machinery/vending/wallmed2{
 	pixel_x = -7;
 	pixel_y = 30;
 	req_access = null
@@ -1546,13 +1546,13 @@
 /obj/effect/floor_decal/corner_wide/dark_blue/full{
 	dir = 4
 	},
-/obj/machinery/light/small/red{
+/obj/structure/machinery/light/small/red{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/sol_bunker)
 "Va" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	brightness_color = "#FA8282"
 	},
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
@@ -1645,7 +1645,7 @@
 /area/space)
 "Zc" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
 /obj/structure/foamedmetal,

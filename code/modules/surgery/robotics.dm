@@ -776,7 +776,7 @@
 	if(!istype(endoskeleton))
 		return FALSE
 
-	return affected && affected.open == ORGAN_ENCASED_RETRACTED && affected.organ_tag == BP_CHEST && target_zone != BP_MOUTH && endoskeleton.damage > 0
+	return affected && affected.open == ORGAN_ENCASED_RETRACTED && affected.limb_name == BP_CHEST && target_zone != BP_MOUTH && endoskeleton.damage > 0
 
 /singleton/surgery_step/robotics/repair_endoskeleton/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message("<b>[user]</b> begins to repair the support structures of [target]'s endoskeleton with \the [tool]." , \

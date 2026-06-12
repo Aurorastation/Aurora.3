@@ -30,7 +30,7 @@
 /turf/simulated/floor/exoplanet/concrete,
 /area/template_noop)
 "hR" = (
-/obj/machinery/door/urban,
+/obj/structure/machinery/door/urban,
 /turf/simulated/floor/exoplanet/tiled/full,
 /area/template_noop)
 "hZ" = (
@@ -170,7 +170,7 @@
 /turf/template_noop,
 /area/template_noop)
 "Iq" = (
-/obj/machinery/light/broken{
+/obj/structure/machinery/light/broken{
 	dir = 1;
 	pixel_y = 19
 	},
@@ -201,7 +201,7 @@
 /turf/simulated/floor/exoplanet/concrete,
 /area/template_noop)
 "Lz" = (
-/obj/machinery/light/broken{
+/obj/structure/machinery/light/broken{
 	dir = 1;
 	pixel_y = 19
 	},
@@ -213,7 +213,7 @@
 /turf/simulated/floor/exoplanet/concrete,
 /area/template_noop)
 "Mj" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	name = "adjusted light fixture"
 	},
 /turf/simulated/floor/exoplanet/concrete,
@@ -242,7 +242,7 @@
 /turf/simulated/floor/exoplanet/concrete,
 /area/template_noop)
 "TG" = (
-/obj/machinery/light/broken,
+/obj/structure/machinery/light/broken,
 /turf/simulated/floor/exoplanet/concrete,
 /area/template_noop)
 "TY" = (

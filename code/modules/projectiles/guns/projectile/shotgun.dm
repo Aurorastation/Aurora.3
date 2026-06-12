@@ -6,6 +6,8 @@ ABSTRACT_TYPE(/obj/item/gun/projectile/shotgun)
 	var/can_sawoff = FALSE
 	var/sawnoff_workmsg
 	var/sawing_in_progress = FALSE
+	drop_sound = 'sound/items/drop/shotgun.ogg'
+	pickup_sound = 'sound/items/pickup/shotgun.ogg'
 
 /obj/item/gun/projectile/shotgun/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()

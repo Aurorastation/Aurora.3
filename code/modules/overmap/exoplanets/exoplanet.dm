@@ -441,9 +441,12 @@
 	else //let the fuckery commence
 		var/list/newgases = gas_data.gases.Copy()
 		newgases -= GAS_PHORON
+		newgases -= GAS_DEUTERIUM
+		newgases -= GAS_TRITIUM
+		newgases -= GAS_HELIUMFUEL
+		newgases -= GAS_WATERVAPOR
 		if(prob(50)) //alium gas should be slightly less common than mundane shit
 			newgases -= GAS_ALIEN
-		newgases -= GAS_WATERVAPOR
 
 		var/total_moles = MOLES_CELLSTANDARD * rand(80,120)/100
 		var/badflag = 0

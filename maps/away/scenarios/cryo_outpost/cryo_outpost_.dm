@@ -128,10 +128,10 @@
 
 // --------------------------------------------------- misc
 
-/obj/machinery/camera/network/cryo_outpost
+/obj/structure/machinery/camera/network/cryo_outpost
 	network = list(NETWORK_CRYO_OUTPOST)
 
-/obj/machinery/computer/security/terminal/cryo_outpost
+/obj/structure/machinery/computer/security/terminal/cryo_outpost
 	console_networks = list(NETWORK_CRYO_OUTPOST)
 
 /obj/item/research_slip/cryo_outpost

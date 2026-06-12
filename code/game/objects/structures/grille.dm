@@ -67,7 +67,7 @@
 		/obj/structure/window/full/phoron/reinforced,
 		/obj/structure/window/shuttle/scc_space_ship,
 		/turf/simulated/wall/shuttle/scc_space_ship,
-		/obj/machinery/door
+		/obj/structure/machinery/door
 	)
 	blend_overlay = "wall"
 	attach_overlay = "attach"
@@ -159,6 +159,9 @@
 	var/damage = hitting_projectile.get_structure_damage()
 	var/passthrough = 0
 
+	if(piercing_hit)
+		return BULLET_ACT_FORCE_PIERCE //Shots that would have penetrated anyway don't get the damage reduction or chance to not penetrate.
+
 	if(!damage)
 		return BULLET_ACT_BLOCK
 
@@ -181,7 +184,7 @@
 				passthrough = 1
 
 	if(passthrough)
-		. = BULLET_ACT_HIT
+		. = BULLET_ACT_FORCE_PIERCE
 		damage = between(0, (damage - hitting_projectile.damage)*(hitting_projectile.damage_type == DAMAGE_BRUTE? 0.4 : 1), 10) //if the bullet passes through then the grille avoids most of the damage
 
 	add_damage(damage * 0.2)

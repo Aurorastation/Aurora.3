@@ -92,7 +92,7 @@
 	if(.)
 		return
 	if(action == "switchTo")
-		var/obj/machinery/camera/C = locate(params["switchTo"]) in GLOB.cameranet.cameras
+		var/obj/structure/machinery/camera/C = locate(params["switchTo"]) in GLOB.cameranet.cameras
 		if(!C)
 			return
 
@@ -111,7 +111,7 @@
 			var/list/lost_sources = list()
 
 			if(isAI(user))
-				for(var/obj/machinery/camera/C in A.cameras())
+				for(var/obj/structure/machinery/camera/C in A.cameras())
 					cameras += list(C.nano_structure())
 			for(var/datum/alarm_source/AS in A.sources)
 				if(!AS.source)

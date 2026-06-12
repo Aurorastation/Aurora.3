@@ -17,6 +17,15 @@
 	var/open_panel = 0
 	var/obj/effect/plastic_explosive/effect_overlay
 
+	/// Type of plastic explosive effect created on the obj we attack.
+	var/plastic_explosive_type = /obj/effect/plastic_explosive
+	/// Devastation range for the explosion.
+	var/devastation_range = -1
+	/// Heavy range for the explosion.
+	var/heavy_impact_range = -1
+	/// Light range for the explosion.
+	var/light_impact_range = 2
+
 /obj/item/plastique/mechanics_hints()
 	. += ..()
 	. += "This can be planted on ANY type of target except for open turfs (floors), and items with built-in storage (boxes, jackets, webbings, etc.)."
@@ -100,7 +109,7 @@
 
 	log_and_message_admins("planted [src.name] on [target.name] with [timetext] fuse", user, get_turf(target))
 
-	new /obj/effect/plastic_explosive(get_turf(user), target, src)
+	new plastic_explosive_type(get_turf(user), target, src)
 	to_chat(user, SPAN_WARNING("Bomb has been planted. Timer counting down from [timetext]."))
 
 	detonate_time = world.time + (timer)
@@ -113,7 +122,7 @@
 		target = src
 	QDEL_NULL(effect_overlay)
 	if(location)
-		explosion(location, -1, -1, 2, 3, spreading = 0)
+		explosion(location, devastation_range, heavy_impact_range, light_impact_range, 3, spreading = 0)
 
 	if(target)
 		if (istype(target, /turf/simulated/wall))
@@ -188,3 +197,15 @@
 		SSradiation.radiate(src, 250)
 		new /obj/effect/decal/cleanable/greenglow/radioactive/medium(get_turf(src))
 	..()
+
+/obj/item/plastique/strong
+	name = "bundled plastic explosives"
+	desc = "Used to put big holes in specific areas with a lot of extra hole."
+	icon_state = "plastic-explosive-big0"
+	item_state = "plasticx-big"
+	w_class = WEIGHT_CLASS_NORMAL
+
+	plastic_explosive_type = /obj/effect/plastic_explosive/big
+	devastation_range = 2
+	heavy_impact_range = 4
+	light_impact_range = 6

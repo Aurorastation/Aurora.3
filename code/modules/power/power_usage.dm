@@ -10,7 +10,7 @@ This is /obj/machinery level code to properly manage power usage from the area.
 
 // returns true if the area has power on given channel (or doesn't require power), defaults to power_channel.
 // May also optionally specify an area, otherwise defaults to src.loc.loc
-/obj/machinery/proc/powered(var/chan = -1, var/area/check_area = null)
+/obj/structure/machinery/proc/powered(var/chan = -1, var/area/check_area = null)
 
 	if(!src.loc)
 		return 0
@@ -31,7 +31,7 @@ This is /obj/machinery level code to properly manage power usage from the area.
 /// called whenever the power settings of the containing area change
 /// by default, check equipment channel & set flag can override if needed
 /// This is NOT for when the machine's own status changes; update_use_power for that.
-/obj/machinery/proc/power_change()
+/obj/structure/machinery/proc/power_change()
 	SHOULD_NOT_SLEEP(TRUE)
 	SHOULD_CALL_PARENT(TRUE)
 
@@ -46,7 +46,7 @@ This is /obj/machinery level code to properly manage power usage from the area.
 	if(.)
 		queue_icon_update()
 
-/obj/machinery/proc/get_power_usage()
+/obj/structure/machinery/proc/get_power_usage()
 	if(internal)
 		return 0
 
@@ -66,7 +66,7 @@ This is /obj/machinery level code to properly manage power usage from the area.
  * * amount - The amount of power to consume
  * * chan - The channel to consume it from, see `code\__DEFINES\machinery.dm`
  */
-/obj/machinery/proc/use_power_oneoff(var/amount, var/chan = POWER_CHAN)
+/obj/structure/machinery/proc/use_power_oneoff(var/amount, var/chan = POWER_CHAN)
 	var/area/A = get_area(src)		// make sure it's in an area
 	if(!A)
 		return
@@ -75,19 +75,19 @@ This is /obj/machinery level code to properly manage power usage from the area.
 	A.use_power_oneoff(amount, chan)
 
 // Do not do power stuff in New/Initialize until after ..()
-/obj/machinery/Initialize(mapload, d = 0, populate_components = TRUE, is_internal = FALSE)
+/obj/structure/machinery/Initialize(mapload, d = 0, populate_components = TRUE, is_internal = FALSE)
 	internal = is_internal
 	REPORT_POWER_CONSUMPTION_CHANGE(0, get_power_usage())
 	power_init_complete = TRUE
 	. = ..()
 
 // Or in Destroy at all, but especially after the ..().
-/obj/machinery/Destroy()
+/obj/structure/machinery/Destroy()
 	UnregisterSignal(src, COMSIG_MOVABLE_MOVED)
 	REPORT_POWER_CONSUMPTION_CHANGE(get_power_usage(), 0)
 	. = ..()
 
-/obj/machinery/LateInitialize()
+/obj/structure/machinery/LateInitialize()
 	post_machine_initialize()
 
 /**
@@ -96,7 +96,7 @@ This is /obj/machinery level code to properly manage power usage from the area.
  * ensuring power works on all machines unless exempted with POWER_USE_OFF.
  * This is the proc to override if you want to do anything in LateInitialize.
  */
-/obj/machinery/proc/post_machine_initialize()
+/obj/structure/machinery/proc/post_machine_initialize()
 	PROTECTED_PROC(TRUE)
 	SHOULD_CALL_PARENT(TRUE)
 
@@ -108,7 +108,7 @@ This is /obj/machinery level code to properly manage power usage from the area.
 
 // The three procs below are the only allowed ways of modifying the corresponding variables.
 /// Use this to modify the use_power variable of machines, do not modify them directly!
-/obj/machinery/proc/update_use_power(new_use_power)
+/obj/structure/machinery/proc/update_use_power(new_use_power)
 	if(!power_init_complete)
 		use_power = new_use_power
 		return
@@ -120,7 +120,7 @@ This is /obj/machinery level code to properly manage power usage from the area.
 	REPORT_POWER_CONSUMPTION_CHANGE(old_power, new_power)
 
 /// Makes this machine draw power from its area according to which use_power mode it is set to.
-/obj/machinery/proc/update_current_power_usage()
+/obj/structure/machinery/proc/update_current_power_usage()
 	var/area/our_area = get_area(src)
 	if(!our_area)
 		return FALSE
@@ -147,7 +147,7 @@ This is /obj/machinery level code to properly manage power usage from the area.
  * Returns TRUE if it triggered a full registration, FALSE otherwise
  * We do this so machinery that want to sidestep the area sensitiveity optimization can
  */
-/obj/machinery/proc/setup_area_power_relationship()
+/obj/structure/machinery/proc/setup_area_power_relationship()
 	var/area/our_area = get_area(src)
 	if(our_area)
 		RegisterSignal(our_area, COMSIG_AREA_POWER_CHANGE, PROC_REF(power_change))
@@ -165,7 +165,7 @@ This is /obj/machinery level code to properly manage power usage from the area.
  * saves memory by removing the power relationship with its area if it exists and loses area sensitivity
  * does not affect power usage itself
  */
-/obj/machinery/proc/remove_area_power_relationship()
+/obj/structure/machinery/proc/remove_area_power_relationship()
 	var/area/our_area = get_area(src)
 	if(our_area)
 		UnregisterSignal(our_area, COMSIG_AREA_POWER_CHANGE)
@@ -177,7 +177,7 @@ This is /obj/machinery level code to properly manage power usage from the area.
 	UnregisterSignal(src, COMSIG_ENTER_AREA)
 	UnregisterSignal(src, COMSIG_EXIT_AREA)
 
-/obj/machinery/proc/on_enter_area(datum/source, area/area_to_register)
+/obj/structure/machinery/proc/on_enter_area(datum/source, area/area_to_register)
 	SIGNAL_HANDLER
 	// If we're always area sensitive, and this is called while we have no power usage, do nothing and return
 	if(always_area_sensitive && use_power == POWER_USE_OFF)
@@ -186,7 +186,7 @@ This is /obj/machinery level code to properly manage power usage from the area.
 	power_change()
 	RegisterSignal(area_to_register, COMSIG_AREA_POWER_CHANGE, PROC_REF(power_change))
 
-/obj/machinery/proc/on_exit_area(datum/source, area/area_to_unregister)
+/obj/structure/machinery/proc/on_exit_area(datum/source, area/area_to_unregister)
 	SIGNAL_HANDLER
 	// If we're always area sensitive, and this is called while we have no power usage, do nothing and return
 	if(always_area_sensitive && use_power == POWER_USE_OFF)
@@ -194,7 +194,7 @@ This is /obj/machinery level code to properly manage power usage from the area.
 	UnregisterSignal(area_to_unregister, COMSIG_AREA_POWER_CHANGE)
 
 /// Use this to modify the power channel variable of machines, do not modify them directly!
-/obj/machinery/proc/update_power_channel(new_channel)
+/obj/structure/machinery/proc/update_power_channel(new_channel)
 	if(power_channel == new_channel)
 		return
 	if(!power_init_complete)
@@ -206,7 +206,7 @@ This is /obj/machinery level code to properly manage power usage from the area.
 	REPORT_POWER_CONSUMPTION_CHANGE(0, power)
 
 /// Use this to modify either of the power usage variables of machines, do not modify them directly!
-/obj/machinery/proc/change_power_consumption(new_power_consumption, use_power_mode = POWER_USE_IDLE)
+/obj/structure/machinery/proc/change_power_consumption(new_power_consumption, use_power_mode = POWER_USE_IDLE)
 	var/old_power
 	switch(use_power_mode)
 		if(POWER_USE_IDLE)

@@ -44,3 +44,27 @@
   color: #ffa500;
   font-weight: bold;
 }
+
+.HealthAnalyzer__limb_List {
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  margin: 0.35em 0;
+  padding: 0.2em 0;
+}
+
+.HealthAnalyzer__limb_List_Item {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.35em 0.45em;
+}
+
+.HealthAnalyzer__limb_List_Item:first-child {
+  border-top: 0;
+}
+
+.HealthAnalyzer__limb_List_Item:nth-child(odd) {
+  background-color: rgba(255, 255, 255, 0.015);
+}
+
+.HealthAnalyzer__limb_List_Item:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.03);
+}

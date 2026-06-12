@@ -64,6 +64,7 @@ ABSTRACT_TYPE(/datum/gear/pants)
 	// Pants
 	colorpants["dress pants"] = /obj/item/clothing/pants/dress
 	colorpants["dress pants, with belt"] = /obj/item/clothing/pants/dress/belt
+	colorpants["cargo pants"] = /obj/item/clothing/pants/cargo
 	colorpants["striped pants"] = /obj/item/clothing/pants/striped
 	colorpants["flared pants"] = /obj/item/clothing/pants/flared
 	colorpants["mustang jeans"] = /obj/item/clothing/pants/mustang/colourable

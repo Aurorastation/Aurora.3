@@ -23,7 +23,7 @@
 	var/power = calculate_spell_power(7)
 	if(check_for_scepter())
 		power = calculate_spell_power(15)
-	for(var/obj/machinery/light/light in range(calculate_spell_power(7), owner))
+	for(var/obj/structure/machinery/light/light in range(calculate_spell_power(7), owner))
 		light.flicker()
 	for(var/mob/living/L in nearby_mobs)
 		if(is_ally(L))

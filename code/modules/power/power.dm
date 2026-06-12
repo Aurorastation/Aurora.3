@@ -6,7 +6,7 @@
 // Definitions
 /////////////////////////////
 
-/obj/machinery/power
+/obj/structure/machinery/power
 	name = null
 	icon = 'icons/obj/power.dmi'
 	anchored = 1.0
@@ -15,7 +15,7 @@
 	idle_power_usage = 0
 	active_power_usage = 0
 
-/obj/machinery/power/Destroy()
+/obj/structure/machinery/power/Destroy()
 	disconnect_from_network()
 	disconnect_terminal()
 
@@ -73,11 +73,11 @@
 		return "[amount] [units]"
 
 /// Machines without a terminal will just return, no harm no fowl.
-/obj/machinery/power/proc/disconnect_terminal()
+/obj/structure/machinery/power/proc/disconnect_terminal()
 	return
 
 /// Connect the machine to a powernet if a node cable is present on the turf
-/obj/machinery/power/proc/connect_to_network()
+/obj/structure/machinery/power/proc/connect_to_network()
 	var/turf/T = src.loc
 	if(!T || !istype(T))
 		return 0
@@ -90,7 +90,7 @@
 	return 1
 
 /// Remove and disconnect the machine from its current powernet.
-/obj/machinery/power/proc/disconnect_from_network()
+/obj/structure/machinery/power/proc/disconnect_from_network()
 	if(!powernet)
 		return 0
 	powernet.remove_machine(src)
@@ -100,7 +100,7 @@
  * Attach a wire to a power machine - leads from the turf you are standing on
  * almost never called, overwritten by all power machines but terminal and generator
  */
-/obj/machinery/power/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/power/attackby(obj/item/attacking_item, mob/user)
 
 	if(attacking_item.tool_behaviour == TOOL_CABLECOIL)
 
@@ -126,7 +126,7 @@
 
 /// Returns all the cables WITHOUT a powernet in neighbors turfs,
 /// pointing towards the turf the machine is located at.
-/obj/machinery/power/proc/get_connections()
+/obj/structure/machinery/power/proc/get_connections()
 
 	. = list()
 
@@ -145,7 +145,7 @@
 
 /// Returns all the cables in neighbors turfs,
 /// pointing towards the turf the machine is located at
-/obj/machinery/power/proc/get_marked_connections()
+/obj/structure/machinery/power/proc/get_marked_connections()
 
 	. = list()
 
@@ -162,7 +162,7 @@
 	return .
 
 /// Returns all the NODES (O-X) cables WITHOUT a powernet in the turf the machine is located at
-/obj/machinery/power/proc/get_indirect_connections()
+/obj/structure/machinery/power/proc/get_indirect_connections()
 	. = list()
 	for(var/obj/structure/cable/C in loc)
 		if(C.powernet)	continue
@@ -194,8 +194,8 @@
 	for(var/AM in T)
 		if(AM == source)	continue			//we don't want to return source
 
-		if(!cable_only && istype(AM,/obj/machinery/power))
-			var/obj/machinery/power/P = AM
+		if(!cable_only && istype(AM,/obj/structure/machinery/power))
+			var/obj/structure/machinery/power/P = AM
 			if(P.powernet == 0)	continue		// exclude APCs which have powernet=0
 
 			if(!unmarked || !P.powernet)		//if unmarked=1 we only return things with no powernet
@@ -234,15 +234,15 @@
 				PN.add_cable(C)
 			worklist |= C.get_connections() //get adjacents power objects, with or without a powernet
 
-		else if(P.anchored && istype(P,/obj/machinery/power))
-			var/obj/machinery/power/M = P
+		else if(P.anchored && istype(P,/obj/structure/machinery/power))
+			var/obj/structure/machinery/power/M = P
 			found_machines |= M //we wait until the powernet is fully propagates to connect the machines
 
 		else
 			continue
 
 	//now that the powernet is set, connect found machines to it
-	for(var/obj/machinery/power/PM in found_machines)
+	for(var/obj/structure/machinery/power/PM in found_machines)
 		if(!PM.connect_to_network()) //couldn't find a node on its turf...
 			PM.disconnect_from_network() //... so disconnect if already on a powernet
 
@@ -267,7 +267,7 @@
 
 	if(!net2) return net1
 
-	for(var/obj/machinery/power/Node in net2.nodes) //merge power machines
+	for(var/obj/structure/machinery/power/Node in net2.nodes) //merge power machines
 		if(!Node.connect_to_network())
 			Node.disconnect_from_network() //if somehow we can't connect the machine to the new powernet, disconnect it from the old nonetheless
 
@@ -305,8 +305,8 @@
 		PN = power_source
 	else if(istype(power_source,/obj/item/cell))
 		cell = power_source
-	else if(istype(power_source,/obj/machinery/power/apc))
-		var/obj/machinery/power/apc/apc = power_source
+	else if(istype(power_source,/obj/structure/machinery/power/apc))
+		var/obj/structure/machinery/power/apc/apc = power_source
 		cell = apc.cell
 		if (apc.terminal)
 			PN = apc.terminal.powernet

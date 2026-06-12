@@ -186,7 +186,7 @@ GLOBAL_LIST_INIT(tape_roll_applications, list())
 	if(!proximity)
 		return
 
-	if (istype(A, /obj/machinery/door/airlock))
+	if (istype(A, /obj/structure/machinery/door/airlock))
 		var/turf/T = get_turf(A)
 		var/obj/item/tape/P = new tape_type(T.x,T.y,T.z)
 		P.forceMove(locate(T.x,T.y,T.z))

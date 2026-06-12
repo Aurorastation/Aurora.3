@@ -229,7 +229,7 @@
 	description = "Needed equipment to extract sweet liquid gold."
 	price = 80
 	items = list(
-		/obj/machinery/honey_extractor
+		/obj/structure/machinery/honey_extractor
 	)
 	access = 0
 	container_type = "box"
@@ -243,7 +243,7 @@
 	description = "A safe space to raise your plants."
 	price = 100
 	items = list(
-		/obj/machinery/portable_atmospherics/hydroponics
+		/obj/structure/machinery/portable_atmospherics/hydroponics
 	)
 	access = 0
 	container_type = "crate"

@@ -10,7 +10,7 @@ field_generator power level display
 */
 
 #define field_generator_max_power 250000
-/obj/machinery/field_generator
+/obj/structure/machinery/field_generator
 	name = "field generator"
 	desc = "A large thermal battery that projects a high amount of energy when powered."
 	icon = 'icons/obj/machinery/shielding.dmi'
@@ -25,8 +25,8 @@ field_generator power level display
 	var/power = 30000  // Current amount of power
 	var/state = 0
 	var/warming_up = 0
-	var/list/obj/machinery/containment_field/fields = list()
-	var/list/obj/machinery/field_generator/connected_gens = list()
+	var/list/obj/structure/machinery/containment_field/fields = list()
+	var/list/obj/structure/machinery/field_generator/connected_gens = list()
 	var/clean_up = 0
 
 	//If keeping field generators powered is hard then increase the emitter active power usage.
@@ -34,7 +34,7 @@ field_generator power level display
 	var/field_power_draw = 2000	//power needed per field object
 
 
-/obj/machinery/field_generator/update_icon()
+/obj/structure/machinery/field_generator/update_icon()
 	ClearOverlays()
 	if(!active)
 		if(warming_up)
@@ -56,7 +56,7 @@ field_generator power level display
 			lights_image.plane = ABOVE_LIGHTING_PLANE
 			AddOverlays(lights_image)
 
-/obj/machinery/field_generator/process()
+/obj/structure/machinery/field_generator/process()
 	if(Varedit_start == 1)
 		if(active == 0)
 			active = 1
@@ -74,7 +74,7 @@ field_generator power level display
 	return
 
 
-/obj/machinery/field_generator/attack_hand(mob/user as mob)
+/obj/structure/machinery/field_generator/attack_hand(mob/user as mob)
 	if(state == 2)
 		if(get_dist(src, user) <= 1)//Need to actually touch the thing to turn it on
 			if(src.active >= 1)
@@ -93,7 +93,7 @@ field_generator power level display
 		return
 
 
-/obj/machinery/field_generator/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/field_generator/attackby(obj/item/attacking_item, mob/user)
 	if(active)
 		to_chat(user, "The [src] needs to be off.")
 		return
@@ -155,12 +155,12 @@ field_generator power level display
 		return
 
 
-/obj/machinery/field_generator/emp_act(severity)
+/obj/structure/machinery/field_generator/emp_act(severity)
 	. = ..()
 
 	return 0
 
-/obj/machinery/field_generator/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+/obj/structure/machinery/field_generator/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
 	. = ..()
 	if(. != BULLET_ACT_HIT)
 		return .
@@ -170,16 +170,16 @@ field_generator power level display
 		update_icon()
 
 
-/obj/machinery/field_generator/Destroy()
+/obj/structure/machinery/field_generator/Destroy()
 	src.cleanup()
 	return ..()
 
-/obj/machinery/field_generator/proc/turn_off()
+/obj/structure/machinery/field_generator/proc/turn_off()
 	active = 0
 	addtimer(CALLBACK(src, PROC_REF(cleanup)), 1)
 	update_icon()
 
-/obj/machinery/field_generator/proc/turn_on()
+/obj/structure/machinery/field_generator/proc/turn_on()
 	active = 1
 	warming_up = 1
 	spawn(1)
@@ -191,7 +191,7 @@ field_generator power level display
 				start_fields()
 	update_icon()
 
-/obj/machinery/field_generator/proc/calc_power()
+/obj/structure/machinery/field_generator/proc/calc_power()
 	if(Varpower)
 		return 1
 
@@ -200,10 +200,10 @@ field_generator power level display
 		src.power = field_generator_max_power
 
 	var/power_draw = gen_power_draw
-	for(var/obj/machinery/field_generator/FG in connected_gens)
+	for(var/obj/structure/machinery/field_generator/FG in connected_gens)
 		if (!isnull(FG))
 			power_draw += gen_power_draw
-	for (var/obj/machinery/containment_field/F in fields)
+	for (var/obj/structure/machinery/containment_field/F in fields)
 		if (!isnull(F))
 			power_draw += field_power_draw
 	power_draw /= 2	//because this will be mirrored for both generators
@@ -217,7 +217,7 @@ field_generator power level display
 		return 0
 
 //Tries to draw the needed power from our own power reserve, or connected generators if we can. Returns the amount of power we were able to get.
-/obj/machinery/field_generator/proc/draw_power(var/draw = 0, var/list/flood_list = list())
+/obj/structure/machinery/field_generator/proc/draw_power(var/draw = 0, var/list/flood_list = list())
 	flood_list += src
 
 	if(src.power >= draw)//We have enough power
@@ -228,7 +228,7 @@ field_generator power level display
 	var/actual_draw = src.power	//already checked that power < draw
 	src.power = 0
 
-	for(var/obj/machinery/field_generator/FG in connected_gens)
+	for(var/obj/structure/machinery/field_generator/FG in connected_gens)
 		if (FG in flood_list)
 			continue
 		actual_draw += FG.draw_power(draw - actual_draw, flood_list) //since the flood list reference is shared this actually works.
@@ -237,7 +237,7 @@ field_generator power level display
 
 	return actual_draw
 
-/obj/machinery/field_generator/proc/start_fields()
+/obj/structure/machinery/field_generator/proc/start_fields()
 	if(!src.state == 2 || !anchored)
 		turn_off()
 		return
@@ -247,9 +247,9 @@ field_generator power level display
 	addtimer(CALLBACK(src, PROC_REF(setup_field), 8), 4)
 	src.active = 2
 
-/obj/machinery/field_generator/proc/setup_field(var/NSEW)
+/obj/structure/machinery/field_generator/proc/setup_field(var/NSEW)
 	var/turf/T = src.loc
-	var/obj/machinery/field_generator/G
+	var/obj/structure/machinery/field_generator/G
 	var/steps = 0
 	if(!NSEW)	//Make sure its ran right
 		return
@@ -260,11 +260,11 @@ field_generator power level display
 		for(var/atom/A in T.contents)
 			if(ismob(A))
 				continue
-			if(!istype(A,/obj/machinery/field_generator))
-				if((istype(A,/obj/machinery/door) || istype(A,/obj/machinery/the_singularitygen)) && (A.density))
+			if(!istype(A,/obj/structure/machinery/field_generator))
+				if((istype(A,/obj/structure/machinery/door) || istype(A,/obj/structure/machinery/the_singularitygen)) && (A.density))
 					return 0
 		steps += 1
-		G = locate(/obj/machinery/field_generator) in T
+		G = locate(/obj/structure/machinery/field_generator) in T
 		if(!isnull(G))
 			steps -= 1
 			if(!G.active)
@@ -276,15 +276,15 @@ field_generator power level display
 	for(var/dist = 0, dist < steps, dist += 1) // creates each field tile
 		var/field_dir = get_dir(T,get_step(G.loc, NSEW))
 		T = get_step(T, NSEW)
-		if(!locate(/obj/machinery/containment_field) in T)
-			var/obj/machinery/containment_field/CF = new/obj/machinery/containment_field()
+		if(!locate(/obj/structure/machinery/containment_field) in T)
+			var/obj/structure/machinery/containment_field/CF = new/obj/structure/machinery/containment_field()
 			CF.set_master(src,G)
 			fields += CF
 			G.fields += CF
 			CF.forceMove(T)
 			CF.set_dir(field_dir)
 	var/listcheck = 0
-	for(var/obj/machinery/field_generator/FG in connected_gens)
+	for(var/obj/structure/machinery/field_generator/FG in connected_gens)
 		if (isnull(FG))
 			continue
 		if(FG == G)
@@ -293,7 +293,7 @@ field_generator power level display
 	if(!listcheck)
 		connected_gens.Add(G)
 	listcheck = 0
-	for(var/obj/machinery/field_generator/FG2 in G.connected_gens)
+	for(var/obj/structure/machinery/field_generator/FG2 in G.connected_gens)
 		if (isnull(FG2))
 			continue
 		if(FG2 == src)
@@ -302,14 +302,14 @@ field_generator power level display
 	if(!listcheck)
 		G.connected_gens.Add(src)
 
-/obj/machinery/field_generator/proc/cleanup()
+/obj/structure/machinery/field_generator/proc/cleanup()
 	clean_up = 1
-	for (var/obj/machinery/containment_field/F in fields)
+	for (var/obj/structure/machinery/containment_field/F in fields)
 		if (QDELETED(F))
 			continue
 		qdel(F)
 	fields = list()
-	for(var/obj/machinery/field_generator/FG in connected_gens)
+	for(var/obj/structure/machinery/field_generator/FG in connected_gens)
 		if (QDELETED(FG))
 			continue
 		FG.connected_gens.Remove(src)

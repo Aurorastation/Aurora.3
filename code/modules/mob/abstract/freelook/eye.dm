@@ -122,9 +122,6 @@
 			return
 		return loc
 
-/mob
-	var/mob/abstract/eye/eyeobj
-
 /mob/proc/EyeMove(n, direct)
 	if(!eyeobj)
 		return

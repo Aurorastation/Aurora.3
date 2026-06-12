@@ -21,6 +21,7 @@
 	melee_damage_upper = 30
 	armor_penetration = 20
 	attacktext = "claws"
+	attack_vis_effect = ATTACK_EFFECT_CLAW
 	attack_sound = 'sound/weapons/slice.ogg'
 
 	meat_amount = 8

@@ -266,7 +266,7 @@
 "fj" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/machinery/artifact,
+/obj/structure/machinery/artifact,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/hivebot_burrows_1)
 "fs" = (
@@ -517,7 +517,7 @@
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/hivebot_burrows_1)
 "jA" = (
-/obj/machinery/floodlight,
+/obj/structure/machinery/floodlight,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/hivebot_burrows_1)
@@ -924,7 +924,7 @@
 /area/hivebot_burrows_1)
 "sX" = (
 /obj/random/dirt_75,
-/obj/machinery/floodlight,
+/obj/structure/machinery/floodlight,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/hivebot_burrows_1)
 "tf" = (
@@ -1155,7 +1155,7 @@
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/hivebot_burrows_1)
 "xY" = (
-/obj/machinery/door/urban,
+/obj/structure/machinery/door/urban,
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /turf/simulated/floor/wood,
@@ -1692,7 +1692,7 @@
 /area/space)
 "IL" = (
 /obj/random/dirt_75,
-/obj/machinery/artifact,
+/obj/structure/machinery/artifact,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/hivebot_burrows_1)
 "IM" = (
@@ -1764,7 +1764,7 @@
 /obj/structure/lattice/catwalk/indoor/planks{
 	name = "duckboard"
 	},
-/obj/machinery/door/urban,
+/obj/structure/machinery/door/urban,
 /turf/simulated/floor/exoplanet/barren/cave,
 /area/hivebot_burrows_1)
 "KD" = (
@@ -1978,7 +1978,7 @@
 /turf/simulated/floor/exoplanet/konyang,
 /area/space)
 "Ox" = (
-/obj/machinery/floodlight,
+/obj/structure/machinery/floodlight,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/hivebot_burrows_1)
 "Oy" = (
@@ -2124,7 +2124,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/floodlight,
+/obj/structure/machinery/floodlight,
 /turf/simulated/floor/exoplanet/dirt_konyang/cave,
 /area/hivebot_burrows_1)
 "RL" = (
@@ -2480,7 +2480,7 @@
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/hivebot_burrows_1)
 "Zb" = (
-/obj/machinery/floodlight,
+/obj/structure/machinery/floodlight,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/space)

@@ -106,7 +106,7 @@
 /turf/simulated/floor/plating,
 /area/dungeon/crashed_ship)
 "cq" = (
-/obj/machinery/recharger{
+/obj/structure/machinery/recharger{
 	pixel_x = 6;
 	pixel_y = 5
 	},
@@ -300,7 +300,7 @@
 	},
 /area/dungeon/crashed_ship)
 "gB" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	icon_state = "door_locked";
 	locked = 1;
 	welded = 1;
@@ -383,12 +383,12 @@
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "in" = (
-/obj/machinery/atmospherics/pipe/manifold/visible/black{
+/obj/structure/machinery/atmospherics/pipe/manifold/visible/black{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/liquid_fuel,
-/obj/machinery/floodlight,
-/obj/machinery/recharger/wallcharger{
+/obj/structure/machinery/floodlight,
+/obj/structure/machinery/recharger/wallcharger{
 	charging_efficiency = 0.5;
 	name = "worn wall recharger";
 	pixel_x = 4;
@@ -436,7 +436,7 @@
 /area/dungeon/crashed_ship)
 "jI" = (
 /obj/structure/lattice/catwalk,
-/obj/machinery/light/small/emergency,
+/obj/structure/machinery/light/small/emergency,
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "jQ" = (
@@ -521,7 +521,7 @@
 	icon_state = "14,9";
 	outside_part = 0
 	},
-/obj/machinery/suit_storage_unit/standard_unit,
+/obj/structure/machinery/suit_storage_unit/standard_unit,
 /turf/simulated/floor/carpet/rubber,
 /area/dungeon/crashed_ship)
 "lv" = (
@@ -575,7 +575,7 @@
 "mA" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/reagent_dispensers/watertank,
-/obj/machinery/light/colored/red{
+/obj/structure/machinery/light/colored/red{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -753,12 +753,12 @@
 	},
 /area/dungeon/crashed_ship)
 "pw" = (
-/obj/machinery/recharge_station,
+/obj/structure/machinery/recharge_station,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
 /area/dungeon/crashed_ship)
 "pA" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 5
 	},
 /obj/effect/decal/cleanable/liquid_fuel,
@@ -781,7 +781,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/dungeon/crashed_ship)
 "pS" = (
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	icon_state = "door_locked";
 	locked = 1;
 	welded = 1;
@@ -995,23 +995,23 @@
 	},
 /area/dungeon/crashed_ship)
 "un" = (
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/dungeon/crashed_ship)
 "uw" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 6
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/dungeon/crashed_ship)
 "uL" = (
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/visible/black{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/liquid_fuel,
@@ -1020,7 +1020,7 @@
 /turf/simulated/floor/plating,
 /area/dungeon/crashed_ship)
 "uO" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/liquid_fuel,
@@ -1035,15 +1035,15 @@
 /turf/simulated/floor/tiled/white,
 /area/dungeon/crashed_ship)
 "vo" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
 	},
-/obj/machinery/meter,
+/obj/structure/machinery/meter,
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/plating,
 /area/dungeon/crashed_ship)
 "vy" = (
-/obj/machinery/atmospherics/binary/passive_gate{
+/obj/structure/machinery/atmospherics/binary/passive_gate{
 	dir = 8;
 	name = "shuttle airlock pressure regulator";
 	target_pressure = 50;
@@ -1150,11 +1150,11 @@
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "xi" = (
-/obj/machinery/appliance/cooker/stove,
+/obj/structure/machinery/appliance/cooker/stove,
 /turf/simulated/floor/carpet/rubber,
 /area/dungeon/crashed_ship)
 "xj" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black,
+/obj/structure/machinery/atmospherics/pipe/simple/visible/black,
 /turf/simulated/floor/carpet/rubber,
 /area/dungeon/crashed_ship)
 "xL" = (
@@ -1174,12 +1174,12 @@
 	desc = "It looks like it has not been used for some time.";
 	name = "dust-covered refrigerator"
 	},
-/obj/machinery/light/colored/red,
+/obj/structure/machinery/light/colored/red,
 /turf/simulated/floor/carpet/rubber,
 /area/dungeon/crashed_ship)
 "xW" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/phoron,
+/obj/structure/machinery/portable_atmospherics/canister/phoron,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating{
 	nitrogen = 0;
@@ -1229,7 +1229,7 @@
 	},
 /area/dungeon/crashed_ship)
 "yD" = (
-/obj/machinery/atmospherics/pipe/manifold/visible/black{
+/obj/structure/machinery/atmospherics/pipe/manifold/visible/black{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/liquid_fuel,
@@ -1252,7 +1252,7 @@
 /turf/simulated/floor/carpet,
 /area/dungeon/crashed_ship)
 "zq" = (
-/obj/machinery/fabricator/autolathe/hacked,
+/obj/structure/machinery/fabricator/autolathe/hacked,
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/tiled,
 /area/dungeon/crashed_ship)
@@ -1270,7 +1270,7 @@
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "zG" = (
-/obj/machinery/sleeper{
+/obj/structure/machinery/sleeper{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/green/diagonal,
@@ -1285,7 +1285,7 @@
 	},
 /area/dungeon/crashed_ship)
 "zM" = (
-/obj/machinery/iv_drip,
+/obj/structure/machinery/iv_drip,
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
@@ -1360,16 +1360,16 @@
 /turf/simulated/floor/tiled/white,
 /area/dungeon/crashed_ship)
 "Ca" = (
-/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/structure/machinery/portable_atmospherics/canister/oxygen,
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/dungeon/crashed_ship)
 "Cg" = (
-/obj/machinery/washing_machine,
+/obj/structure/machinery/washing_machine,
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/light/colored/red,
+/obj/structure/machinery/light/colored/red,
 /turf/simulated/floor/tiled/white,
 /area/dungeon/crashed_ship)
 "Ci" = (
@@ -1441,7 +1441,7 @@
 	pixel_x = -6;
 	pixel_y = 14
 	},
-/obj/machinery/cell_charger{
+/obj/structure/machinery/cell_charger{
 	pixel_x = 8;
 	pixel_y = 2
 	},
@@ -1482,7 +1482,7 @@
 /area/dungeon/crashed_ship)
 "Ex" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/light/colored/red{
+/obj/structure/machinery/light/colored/red{
 	dir = 1
 	},
 /turf/simulated/floor/carpet,
@@ -1648,7 +1648,7 @@
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 "Iw" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -1732,8 +1732,8 @@
 /turf/simulated/floor/plating,
 /area/dungeon/crashed_ship)
 "KN" = (
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning/cee,
@@ -1750,7 +1750,7 @@
 	},
 /area/dungeon/crashed_ship)
 "Od" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -1794,8 +1794,8 @@
 	},
 /area/dungeon/crashed_ship)
 "RK" = (
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -1885,8 +1885,8 @@
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "VT" = (
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning/cee{

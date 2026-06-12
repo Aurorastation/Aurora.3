@@ -53,9 +53,6 @@ default behaviour is:
 			return TRUE
 		return FALSE
 
-/mob/living
-	var/tmp/last_push_notif
-
 /mob/living/Collide(atom/movable/target_movable_atom)
 	if(now_pushing || !loc)
 		return
@@ -745,10 +742,6 @@ default behaviour is:
 		to_chat(src, SPAN_NOTICE("You can't move..."))
 		return
 	var/resisting = 0
-	for(var/obj/O in requests)
-		requests.Remove(O)
-		qdel(O)
-		resisting++
 	var/resist_power = get_resist_power() // How easily the mob can break out of a grab
 	for(var/obj/item/grab/G in grabbed_by)
 		resisting++
@@ -926,19 +919,17 @@ default behaviour is:
 	AddElement(/datum/element/connect_loc, loc_connections)
 
 /mob/living/Destroy()
+	cameraFollow = null
+	if (length(actions))
+		for (var/datum/action/action in actions)
+			action.Remove(src)
+			actions -= action
 
-	//Aiming overlay
-	QDEL_NULL(aiming)
-	QDEL_LIST(aimed_at_by)
-
-	//Psi complexus
+	QDEL_NULL(stamina_bar)
+	QDEL_LIST(auras)
 	QDEL_NULL(psi)
-
-	if(vr_mob)
-		vr_mob = null
-	if(old_mob)
-		old_mob = null
-
+	QDEL_NULL(aiming)
+	aimed_at_by?.Cut()
 	//Remove contained mobs
 	if(loc)
 		for(var/mob/M in contents)
@@ -947,12 +938,11 @@ default behaviour is:
 		for(var/mob/M in contents)
 			qdel(M)
 
-	QDEL_NULL(reagents)
-
-	if(auras)
-		for(var/a in auras)
-			remove_aura(a)
-
+	prepared_maneuver = null
+	available_maneuvers?.Cut()
+	default_language = null
+	QDEL_NULL(z_eye)
+	last_weather = null
 	return ..()
 
 /mob/living/proc/nervous_system_failure()

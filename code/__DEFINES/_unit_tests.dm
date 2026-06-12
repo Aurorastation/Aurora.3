@@ -93,3 +93,15 @@
 #else
 #define TEST_OUTPUT_YELLOW(text) (text)
 #endif
+
+/**
+ * To be used in procs that involve calculus methods (either seconds_per_tick or delta_time).
+ * This enforces that said proc MUST have a valid seconds_per_tick given to it by all callers.
+ */
+#ifdef UNIT_TEST // REMOVE BEFORE FLIGHT
+#define ENFORCE_CALCULUS(seconds_per_tick) \
+	if (seconds_per_tick <= 0)\
+		CRASH("[caller.name] called [callee.name] without passing in seconds_per_tick (or gave a negative time). This proc MUST be given a positive and non-zero seconds_per_tick value.");
+#else
+#define ENFORCE_CALCULUS(seconds_per_tick)
+#endif

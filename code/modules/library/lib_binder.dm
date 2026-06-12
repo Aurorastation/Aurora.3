@@ -1,7 +1,7 @@
 /*
  * Book Binder
  */
-/obj/machinery/bookbinder
+/obj/structure/machinery/bookbinder
 	name = "book binder"
 	desc = "A machine that takes paper and binds them into books. Fascinating!"
 	icon = 'icons/obj/library.dmi'
@@ -10,7 +10,7 @@
 	density = TRUE
 	var/binding = FALSE
 
-/obj/machinery/bookbinder/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/bookbinder/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/paper))
 		var/obj/item/paper/paper = attacking_item
 		if(!anchored)

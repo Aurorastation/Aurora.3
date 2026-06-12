@@ -58,8 +58,8 @@
 		else
 			activated = 1
 		if(reveal_toggle && holder)
-			if(istype(holder, /obj/machinery/artifact))
-				var/obj/machinery/artifact/A = holder
+			if(istype(holder, /obj/structure/machinery/artifact))
+				var/obj/structure/machinery/artifact/A = holder
 				A.icon_state = "ano[A.icon_num][activated]"
 			var/display_msg
 			if(activated)

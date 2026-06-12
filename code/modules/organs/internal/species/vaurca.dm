@@ -3,6 +3,8 @@
 	desc = "A set of four vaurcaesian eyes, adapted to the low or no light tunnels of Sedantis."
 	icon = 'icons/obj/organs/vaurca_organs.dmi'
 	robotic_sprite = FALSE
+	action_button_name = list("Activate Low Light Vision")
+	default_action_type = list(/datum/action/item_action/organ/night_eyes)
 	vision_color = /datum/client_color/vaurca
 	vision_mechanical_color = /datum/client_color/monochrome
 	eye_emote = "'s eyes gently shift."

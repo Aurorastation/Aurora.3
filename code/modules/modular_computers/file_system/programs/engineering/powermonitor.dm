@@ -24,10 +24,10 @@
 /datum/computer_file/program/power_monitor/ui_data(mob/user)
 	var/list/data = initial_data()
 	var/list/sensors = list()
-	var/obj/machinery/power/sensor/focus // Placeholder for selected sensor, if one has been selected from the UI list
+	var/obj/structure/machinery/power/sensor/focus // Placeholder for selected sensor, if one has been selected from the UI list
 
 	// Prepare list of sensors (see refresh_sensors()) and set focus to sensor based of active_sensor (see ui_act()->setsensor)
-	for(var/obj/machinery/power/sensor/S in grid_sensors)
+	for(var/obj/structure/machinery/power/sensor/S in grid_sensors)
 		sensors.Add(list(list(
 		"name" = S.name_tag,
 		"alarm" = S.check_grid_warning()
@@ -48,7 +48,7 @@
 	active_sensor = null // Reset UI navigation state
 
 /datum/computer_file/program/power_monitor/proc/has_alarm()
-	for(var/obj/machinery/power/sensor/S in grid_sensors)
+	for(var/obj/structure/machinery/power/sensor/S in grid_sensors)
 		if(S.check_grid_warning())
 			return TRUE
 	return FALSE
@@ -59,7 +59,7 @@
 	var/turf/T = get_turf(ui_host())
 	if(!T) // Safety check
 		return
-	for(var/obj/machinery/power/sensor/S in SSmachinery.all_sensors)
+	for(var/obj/structure/machinery/power/sensor/S in SSmachinery.all_sensors)
 		if(AreConnectedZLevels(S.z, T.z) || (S.long_range))
 			if(S.name_tag == "#UNKN#") // Default name. Shouldn't happen!
 				warning("Powernet sensor with unset ID Tag! [S.x]X [S.y]Y [S.z]Z")

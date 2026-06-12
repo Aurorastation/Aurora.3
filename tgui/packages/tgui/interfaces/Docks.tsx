@@ -1,5 +1,5 @@
+import { Section, Table } from 'tgui-core/components';
 import { useBackend } from '../backend';
-import { Section, Table } from '../components';
 import { NtosWindow } from '../layouts';
 
 export type DocksData = {
@@ -11,7 +11,7 @@ type Dock = {
   shuttle: string;
 };
 
-let sortByNameFn = function (a: Dock, b: Dock): number {
+const sortByNameFn = (a: Dock, b: Dock): number => {
   if (a.name < b.name) {
     return -1;
   }
@@ -21,8 +21,8 @@ let sortByNameFn = function (a: Dock, b: Dock): number {
   return 0;
 };
 
-export const Docks = (props, context) => {
-  const { act, data } = useBackend<DocksData>(context);
+export const Docks = (props) => {
+  const { act, data } = useBackend<DocksData>();
   const full_docks = data.docks
     .filter((d: Dock) => !!d.shuttle)
     .sort(sortByNameFn);

@@ -52,11 +52,6 @@
 	/// Icon state of the overlay this object uses to attach to other objects.
 	var/attach_overlay
 
-/atom/movable
-	var/can_be_unanchored = 0
-	var/obj/buckled_to
-	var/can_be_buckled = FALSE
-
 /turf
 	var/list/fixed_underlay
 	/// Determines if we should attempt to generate turf underlays for this type.
@@ -274,7 +269,7 @@
 /**
  * Blend atoms
  */
-/atom/proc/handle_blending(adjacencies, var/list/dir_mods)
+/atom/proc/handle_blending(adjacencies, list/dir_mods)
 	SHOULD_NOT_SLEEP(TRUE)
 
 	LAZYINITLIST(dir_mods)
@@ -282,10 +277,10 @@
 	var/walls_found = 0
 	for(var/adjacency in list(N_NORTH, N_EAST, N_SOUTH, N_WEST))
 		if(adjacencies & adjacency)
-			var/turf/T = get_step(src, REVERSE_DIR(adjacency))
+			var/turf/T = get_step(src, GLOB.ndir_to_dir[adjacency]) // get_step() expects byond native directions, so we convert N_* bitfields
 			if(is_type_in_list(T, can_blend_with))
 				if(attach_overlay)
-					AddOverlays("[REVERSE_DIR(adjacency)]_[attach_overlay]")
+					AddOverlays("[GLOB.ndir_to_dir[adjacency]]_[attach_overlay]")
 				walls_found |= adjacency
 				dir_mods["[adjacency]"] = "-[blend_overlay]"
 	for(var/adjacency in list(N_NORTH, N_SOUTH))
@@ -297,7 +292,7 @@
 
 			var/has_adjacency = walls_found & adjacency
 			var/has_diagonal = walls_found & diagonal
-			if(((adjacencies & adjacency) && (adjacencies && diagonal)) && (has_adjacency || has_diagonal))
+			if(((adjacencies & adjacency) && (adjacencies & diagonal)) && (has_adjacency || has_diagonal))
 				dir_mods["[adjacency][diagonal]"] = "-[prefix][has_adjacency ? "wall" : "win"]-[suffix][has_diagonal ? "wall" : "win"]"
 				if(attach_overlay)
 					AddOverlays("[prefix][suffix]_[attach_overlay]")
@@ -305,10 +300,15 @@
 
 #undef ndir_to_initial
 
-/atom/proc/cardinal_smooth(adjacencies)
+/atom/proc/cardinal_smooth(adjacencies, list/dir_mods)
 	SHOULD_NOT_SLEEP(TRUE)
+	/**
+	 * Below here we evaluate an object by their 4 corners and tell them how they're supposed to smooth depending on its adjacencies.
+	 * The adjacencies we care about is the things that the atom can smooth with, determined in 'calculate_adjacencies()'.
+	 * Think this as mapping an icon, every 16x16 corner counts.
+	 */
 
-	//NW CORNER
+	// NW CORNER
 	var/nw = "1-i"
 	if((adjacencies & N_NORTH) && (adjacencies & N_WEST))
 		if(adjacencies & N_NORTHWEST)
@@ -321,7 +321,7 @@
 		else if(adjacencies & N_WEST)
 			nw = "1-w"
 
-	//NE CORNER
+	// NE CORNER
 	var/ne = "2-i"
 	if((adjacencies & N_NORTH) && (adjacencies & N_EAST))
 		if(adjacencies & N_NORTHEAST)
@@ -334,7 +334,7 @@
 		else if(adjacencies & N_EAST)
 			ne = "2-e"
 
-	//SW CORNER
+	// SW CORNER
 	var/sw = "3-i"
 	if((adjacencies & N_SOUTH) && (adjacencies & N_WEST))
 		if(adjacencies & N_SOUTHWEST)
@@ -347,7 +347,7 @@
 		else if(adjacencies & N_WEST)
 			sw = "3-w"
 
-	//SE CORNER
+	// SE CORNER
 	var/se = "4-i"
 	if((adjacencies & N_SOUTH) && (adjacencies & N_EAST))
 		if(adjacencies & N_SOUTHEAST)
@@ -360,6 +360,36 @@
 		else if(adjacencies & N_EAST)
 			se = "4-e"
 
+	/**
+	 * Here we handle blend overlays. This is an extra step if we want our icons to take account whatever is defined in their 'can_blend_with' list
+	 * and apply a different smooth overlay for them. An example to this is windows, they'll smooth regularly among themselves but if there's
+	 * a wall next to them they'll apply a junction part. See 'handle_blending()' for blending direction modifiers (dir_mods).
+	 */
+	if(length(dir_mods))
+
+		nw += LAZYACCESS(dir_mods, "[N_NORTH][N_WEST][N_NORTHWEST]") \
+		|| LAZYACCESS(dir_mods, "[N_NORTH][N_WEST]") \
+		|| LAZYACCESS(dir_mods, "[N_NORTH]") \
+		|| LAZYACCESS(dir_mods, "[N_WEST]")
+
+		ne += LAZYACCESS(dir_mods, "[N_NORTH][N_EAST][N_NORTHEAST]") \
+		|| LAZYACCESS(dir_mods, "[N_NORTH][N_EAST]") \
+		|| LAZYACCESS(dir_mods, "[N_NORTH]") \
+		|| LAZYACCESS(dir_mods, "[N_EAST]")
+
+		sw += LAZYACCESS(dir_mods, "[N_SOUTH][N_WEST][N_SOUTHWEST]") \
+		|| LAZYACCESS(dir_mods, "[N_SOUTH][N_WEST]") \
+		|| LAZYACCESS(dir_mods, "[N_SOUTH]") \
+		|| LAZYACCESS(dir_mods, "[N_WEST]")
+
+		se += LAZYACCESS(dir_mods, "[N_SOUTH][N_EAST][N_SOUTHEAST]") \
+		|| LAZYACCESS(dir_mods, "[N_SOUTH][N_EAST]") \
+		|| LAZYACCESS(dir_mods, "[N_SOUTH]") \
+		|| LAZYACCESS(dir_mods, "[N_EAST]")
+
+	/**
+	 * Here we apply all the 4 corners we calculated and clean the cached corners.
+	 */
 	var/list/New
 	var/list/Old
 	var/cut_f = smoothing_hints & SMOOTHHINT_CUT_F

@@ -95,11 +95,11 @@
 	range = 1
 	defer_initialisation = TRUE
 
-/obj/machinery/computer/shuttle_control/explore/red_racer
+/obj/structure/machinery/computer/shuttle_control/explore/red_racer
 	name = "shuttle control console"
 	shuttle_tag = "Red Racer"
 
-/obj/machinery/computer/shuttle_control/explore/blue_racer
+/obj/structure/machinery/computer/shuttle_control/explore/blue_racer
 	name = "shuttle control console"
 	shuttle_tag = "Blue Racer"
 

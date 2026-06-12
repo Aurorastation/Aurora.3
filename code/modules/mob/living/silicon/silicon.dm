@@ -121,7 +121,7 @@
 	return	//immune
 
 /mob/living/silicon/electrocute_act(shock_damage, obj/source, siemens_coeff = 1.0, var/def_zone = null, tesla_shock = FALSE, ground_zero)
-	if(istype(source, /obj/machinery/containment_field))
+	if(istype(source, /obj/structure/machinery/containment_field))
 		spark(loc, 5, GLOB.alldirs)
 
 		shock_damage *= 0.75	//take reduced damage
@@ -342,7 +342,7 @@
 
 /mob/living/silicon/ai/raised_alarm(var/datum/alarm/A)
 	var/cameratext = ""
-	for(var/obj/machinery/camera/C in A.cameras())
+	for(var/obj/structure/machinery/camera/C in A.cameras())
 		cameratext += "[(cameratext == "")? "" : "|"]<A href='byond://?src=[REF(src)];switchcamera=[REF(C)]'>[C.c_tag]</A>"
 	to_chat(src, "[A.alarm_name()]! ([(cameratext)? cameratext : "No Camera"])")
 
@@ -382,7 +382,7 @@
 	if(underdoor)
 		underdoor = FALSE
 		if((layer == UNDERDOOR))//if this is false, then we must have used hide, or had our layer changed by something else. We wont do anymore checks for this move proc
-			for(var/obj/machinery/door/D in loc)
+			for(var/obj/structure/machinery/door/D in loc)
 				if(D.hashatch)
 					underdoor = TRUE
 					break

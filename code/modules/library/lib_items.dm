@@ -281,7 +281,7 @@
 				return
 	else if(istype(attacking_item, /obj/item/barcodescanner))
 		var/obj/item/barcodescanner/scanner = attacking_item
-		var/obj/machinery/librarycomp/comp = locate(scanner.computer_ref)
+		var/obj/structure/machinery/librarycomp/comp = locate(scanner.computer_ref)
 		if(!comp || QDELETED(comp))
 			to_chat(user, "[attacking_item]'s screen flashes: 'No associated computer found!'")
 		else
@@ -362,7 +362,7 @@
 		else
 			mode_desc = "ERROR"
 	to_chat(user, " - Mode [mode] : [mode_desc]")
-	var/obj/machinery/librarycomp/comp = locate(src.computer_ref)
+	var/obj/structure/machinery/librarycomp/comp = locate(src.computer_ref)
 	if(comp && !QDELETED(comp))
 		to_chat(user, SPAN_NOTICE("Computer has been associated with this unit."))
 	else

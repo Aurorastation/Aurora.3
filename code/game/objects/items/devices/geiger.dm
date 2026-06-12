@@ -93,7 +93,6 @@
 	icon = 'icons/obj/item/scanner.dmi'
 	icon_state = "dosimeter_off"
 	item_state = "dosimeter"
-	w_class = WEIGHT_CLASS_NORMAL
 	slot_flags = SLOT_WRISTS
 	action_button_name = "Toggle dosimeter counter"
 	matter = list(DEFAULT_WALL_MATERIAL = 100, MATERIAL_GLASS = 50)

@@ -74,7 +74,7 @@
 	return 0
 
 /datum/alarm_handler/proc/on_alarm_change(var/datum/alarm/alarm, var/was_raised)
-	for(var/obj/machinery/camera/C in alarm.cameras())
+	for(var/obj/structure/machinery/camera/C in alarm.cameras())
 		if(was_raised)
 			C.add_network(category)
 		else

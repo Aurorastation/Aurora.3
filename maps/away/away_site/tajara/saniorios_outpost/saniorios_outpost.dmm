@@ -1,7 +1,7 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "as" = (
-/obj/machinery/body_scanconsole,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/body_scanconsole,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white{
@@ -9,7 +9,7 @@
 	},
 /area/saniorios_outpost/medbay)
 "au" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white{
@@ -17,7 +17,7 @@
 	},
 /area/saniorios_outpost/medbay)
 "av" = (
-/obj/machinery/porta_turret/ballistic,
+/obj/structure/machinery/porta_turret/ballistic,
 /obj/effect/decal/warning_stripes,
 /turf/simulated/floor/exoplanet/asteroid/ash,
 /area/saniorios_outpost/gun)
@@ -28,10 +28,10 @@
 	},
 /area/space)
 "aQ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/plating/cooled,
@@ -43,8 +43,8 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -64,16 +64,16 @@
 	},
 /area/shuttle/saniorios_outpost)
 "bB" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
 	},
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost/hangar)
 "bI" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -84,17 +84,17 @@
 	},
 /area/saniorios_outpost/gun)
 "bT" = (
-/obj/machinery/power/portgen/basic/fusion,
+/obj/structure/machinery/power/portgen/basic/fusion,
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost)
 "cc" = (
-/obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
+/obj/structure/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
 	dir = 8;
 	id_tag = "saniorios_co2_out"
 	},
@@ -104,19 +104,19 @@
 /obj/effect/floor_decal/corner/green/full{
 	dir = 8
 	},
-/obj/machinery/iv_drip,
+/obj/structure/machinery/iv_drip,
 /obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
 /area/saniorios_outpost/medbay)
 "cw" = (
-/obj/machinery/door/airlock/external,
-/obj/machinery/access_button{
+/obj/structure/machinery/door/airlock/external,
+/obj/structure/machinery/access_button{
 	pixel_x = 28;
 	req_access = list(214)
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "saniorios_airlock_1"
@@ -139,29 +139,29 @@
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost)
 "cB" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 9
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/saniorios_outpost)
 "cE" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/structure/machinery/atmospherics/pipe/tank/air{
 	dir = 4
 	},
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost/atmos)
 "cG" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/saniorios_outpost)
 "cI" = (
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	req_access = list(214);
 	name = "Crew Section";
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -172,17 +172,17 @@
 	},
 /area/saniorios_outpost/crew_section)
 "cW" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost)
 "dt" = (
-/obj/machinery/light,
-/obj/machinery/computer/ship/targeting/terminal{
+/obj/structure/machinery/light,
+/obj/structure/machinery/computer/ship/targeting/terminal{
 	dir = 1
 	},
 /turf/simulated/floor/tiled{
@@ -190,10 +190,10 @@
 	},
 /area/saniorios_outpost/gun)
 "dB" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -209,7 +209,7 @@
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost)
 "dE" = (
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	id = "saniorios_shuttle_torpedo";
 	name = "Missile Hangar Blastdoor";
 	req_access = list(214);
@@ -219,10 +219,10 @@
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost/hangar)
 "dZ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -242,23 +242,23 @@
 /area/saniorios_outpost/hangar)
 "eh" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atmospherics/pipe/manifold/visible{
+/obj/structure/machinery/atmospherics/pipe/manifold/visible{
 	dir = 4
 	},
-/obj/machinery/meter,
+/obj/structure/machinery/meter,
 /obj/structure/closet/crate/freezer/rations,
 /turf/simulated/floor/shuttle/black{
 	temperature = 278.15
 	},
 /area/space)
 "el" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "saniorios_airlock_1"
 	},
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/light/small/emergency{
 	dir = 8
 	},
 /turf/simulated/floor/plating{
@@ -282,7 +282,7 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/power/smes/buildable/horizon_shuttle,
+/obj/structure/machinery/power/smes/buildable/horizon_shuttle,
 /obj/structure/cable/green{
 	d2 = 8;
 	icon_state = "0-8"
@@ -304,7 +304,7 @@
 /obj/item/storage/field_ration/dpra,
 /obj/item/storage/field_ration/dpra,
 /obj/item/storage/field_ration/dpra,
-/obj/machinery/alarm/cold/north{
+/obj/structure/machinery/alarm/cold/north{
 	req_one_access = list(209)
 	},
 /obj/effect/floor_decal/corner/white/full{
@@ -315,13 +315,13 @@
 	},
 /area/saniorios_outpost/crew_section)
 "ff" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost)
 "fg" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -332,7 +332,7 @@
 	},
 /area/saniorios_outpost/barracks)
 "fl" = (
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/light/small/emergency{
 	dir = 8
 	},
 /turf/simulated/floor/tiled{
@@ -340,8 +340,8 @@
 	},
 /area/saniorios_outpost/armory)
 "fp" = (
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/atmospherics/portables_connector/aux{
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/atmospherics/portables_connector/aux{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -357,8 +357,8 @@
 	},
 /area/saniorios_outpost/barracks)
 "fs" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /obj/structure/cable/green{
 	icon_state = "2-4"
 	},
@@ -377,10 +377,10 @@
 	},
 /area/saniorios_outpost)
 "fx" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/plating/cooled,
@@ -398,10 +398,10 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/east{
+/obj/structure/machinery/power/apc/east{
 	req_access = list(214)
 	},
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -420,8 +420,8 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
 /turf/simulated/floor/tiled{
@@ -429,15 +429,15 @@
 	},
 /area/saniorios_outpost)
 "gg" = (
-/obj/machinery/door/airlock/security{
+/obj/structure/machinery/door/airlock/security{
 	name = "Gun Deck";
 	req_access = list(214);
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -457,10 +457,10 @@
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost/hangar)
 "go" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled{
@@ -468,10 +468,10 @@
 	},
 /area/saniorios_outpost/gun)
 "gv" = (
-/obj/machinery/computer/ship/navigation/terminal{
+/obj/structure/machinery/computer/ship/navigation/terminal{
 	dir = 8
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /obj/effect/floor_decal/spline/plain/grey{
@@ -488,24 +488,24 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/saniorios_outpost/armory)
 "hu" = (
-/obj/machinery/atmospherics/pipe/simple/visible/cyan{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/cyan{
 	dir = 9
 	},
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost/atmos)
 "hz" = (
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	req_access = list(209);
 	name = "Operating Room"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
 /area/saniorios_outpost/medbay)
 "hE" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -516,13 +516,13 @@
 	},
 /area/saniorios_outpost/barracks)
 "hR" = (
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	req_access = list(214);
 	name = "Barracks";
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -533,7 +533,7 @@
 	},
 /area/saniorios_outpost/barracks)
 "hU" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /obj/item/reagent_containers/glass/bucket{
@@ -557,17 +557,17 @@
 /obj/item/stack/material/tritium/full,
 /obj/item/stack/material/tritium/full,
 /obj/item/stack/material/tritium/full,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost)
 "ij" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /mob/living/heavy_vehicle/premade/ripley/loader,
-/obj/machinery/mech_recharger,
+/obj/structure/machinery/mech_recharger,
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/sign/flag/dpra{
 	pixel_y = 32
@@ -577,12 +577,12 @@
 	},
 /area/saniorios_outpost/gun)
 "ip" = (
-/obj/machinery/vending/engivend{
+/obj/structure/machinery/vending/engivend{
 	req_access = list(214)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/cable/green,
-/obj/machinery/power/apc/high/south{
+/obj/structure/machinery/power/apc/high/south{
 	req_access = list(214)
 	},
 /turf/simulated/floor/plating/cooled,
@@ -628,7 +628,7 @@
 	},
 /area/saniorios_outpost/crew_section)
 "iz" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
@@ -637,7 +637,7 @@
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "saniorios_airlock_1"
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost)
 "iK" = (
@@ -646,15 +646,15 @@
 	},
 /area/saniorios_outpost/crew_section)
 "iS" = (
-/obj/machinery/suit_cycler/offship/dpra,
+/obj/structure/machinery/suit_cycler/offship/dpra,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost)
 "iT" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock{
@@ -665,28 +665,28 @@
 	},
 /area/saniorios_outpost)
 "jf" = (
-/obj/machinery/door/airlock/glass_mining{
+/obj/structure/machinery/door/airlock/glass_mining{
 	req_access = list(214);
 	name = "EVA Storage";
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost)
 "jj" = (
-/obj/machinery/atmospherics/pipe/simple/visible/universal{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/universal{
 	dir = 4
 	},
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost/atmos)
 "jk" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -726,10 +726,10 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white{
@@ -737,13 +737,13 @@
 	},
 /area/saniorios_outpost/medbay)
 "jx" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/machinery/power/terminal{
+/obj/structure/machinery/power/terminal{
 	dir = 1
 	},
 /obj/structure/cable/green{
@@ -758,14 +758,14 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
 /area/saniorios_outpost/medbay)
 "jU" = (
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	req_access = list(214);
 	name = "Restroom";
 	dir = 4
@@ -791,18 +791,18 @@
 	},
 /area/saniorios_outpost)
 "kL" = (
-/obj/machinery/atmospherics/unary/engine,
+/obj/structure/machinery/atmospherics/unary/engine,
 /turf/simulated/floor/plating,
 /area/shuttle/saniorios_outpost)
 "kQ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/meter,
+/obj/structure/machinery/meter,
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost/atmos)
 "kY" = (
-/obj/machinery/atmospherics/binary/pump/high_power,
+/obj/structure/machinery/atmospherics/binary/pump/high_power,
 /turf/simulated/floor/shuttle/black{
 	temperature = 278.15
 	},
@@ -824,23 +824,23 @@
 /area/saniorios_outpost/barracks)
 "le" = (
 /obj/structure/viewport,
-/obj/machinery/door/blast/regular/open{
+/obj/structure/machinery/door/blast/regular/open{
 	dir = 8;
 	id = "hailstorm_bridge"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/saniorios_outpost/gun)
 "lf" = (
-/obj/machinery/atmospherics/portables_connector,
+/obj/structure/machinery/atmospherics/portables_connector,
 /turf/simulated/floor/shuttle/black{
 	temperature = 278.15
 	},
 /area/space)
 "lh" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -863,15 +863,15 @@
 /turf/space/transit/north,
 /area/space)
 "lL" = (
-/obj/machinery/door/airlock/security{
+/obj/structure/machinery/door/airlock/security{
 	name = "Hangar";
 	req_access = list(214);
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -890,15 +890,15 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
 /area/saniorios_outpost/medbay)
 "lY" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -909,7 +909,7 @@
 	},
 /area/saniorios_outpost)
 "lZ" = (
-/obj/machinery/atmospherics/binary/pump/high_power{
+/obj/structure/machinery/atmospherics/binary/pump/high_power{
 	name = "Fuel Tank to Connector";
 	dir = 1
 	},
@@ -948,13 +948,13 @@
 	},
 /area/saniorios_outpost/gun)
 "nh" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost)
 "nj" = (
-/obj/machinery/alarm/cold/west{
+/obj/structure/machinery/alarm/cold/west{
 	req_one_access = list(214)
 	},
 /obj/effect/floor_decal/corner/white{
@@ -970,7 +970,7 @@
 /area/space)
 "nu" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark{
@@ -982,7 +982,7 @@
 /obj/item/clothing/under/tajaran/pvsm,
 /obj/item/clothing/shoes/jackboots/tajara,
 /obj/item/clothing/accessory/badge/dpra_passport,
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -996,7 +996,7 @@
 	},
 /obj/structure/bed/roller,
 /obj/structure/curtain/open/medical,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white{
@@ -1019,14 +1019,14 @@
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "saniorios_airlock_1"
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 8
 	},
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost)
 "or" = (
 /obj/effect/floor_decal/industrial/outline/security,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /obj/structure/closet/secure_closet/guncabinet{
@@ -1041,7 +1041,7 @@
 	},
 /area/saniorios_outpost/armory)
 "ow" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor/plating/cooled,
@@ -1051,13 +1051,13 @@
 /turf/simulated/floor/plating,
 /area/space)
 "oJ" = (
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	req_access = list(214);
 	name = "Engine";
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -1066,18 +1066,18 @@
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost)
 "oU" = (
-/obj/machinery/atmospherics/portables_connector/aux,
-/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/atmospherics/portables_connector/aux,
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
 /area/shuttle/saniorios_outpost)
 "ph" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
 /obj/structure/cable/green{
@@ -1099,7 +1099,7 @@
 	},
 /area/shuttle/saniorios_outpost)
 "ps" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 9
 	},
 /obj/effect/floor_decal/spline/plain/grey{
@@ -1120,7 +1120,7 @@
 /area/saniorios_outpost/hangar)
 "pI" = (
 /obj/effect/floor_decal/industrial/outline/security,
-/obj/machinery/power/apc/high/north{
+/obj/structure/machinery/power/apc/high/north{
 	req_access = list(214)
 	},
 /obj/structure/cable/green{
@@ -1141,10 +1141,10 @@
 	},
 /area/saniorios_outpost/armory)
 "pK" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled{
@@ -1155,10 +1155,10 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 10
 	},
-/obj/machinery/sleeper{
+/obj/structure/machinery/sleeper{
 	dir = 1
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white{
@@ -1169,7 +1169,7 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 9
 	},
-/obj/machinery/vending/wallmed2{
+/obj/structure/machinery/vending/wallmed2{
 	req_access = null;
 	pixel_x = -28
 	},
@@ -1187,7 +1187,7 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/saniorios_outpost)
 "qf" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 5
 	},
 /obj/effect/floor_decal/industrial/outline_door/red{
@@ -1207,13 +1207,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/saniorios_outpost)
 "qk" = (
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	req_access = list(214);
 	name = "Restroom";
 	dir = 1;
 	id_tag = "saniorios_stall"
 	},
-/obj/machinery/door/firedoor{
+/obj/structure/machinery/door/firedoor{
 	req_one_access = list(24,11,67,214)
 	},
 /turf/simulated/floor/tiled/white{
@@ -1221,10 +1221,10 @@
 	},
 /area/saniorios_outpost/crew_section)
 "qu" = (
-/obj/machinery/alarm/cold/south{
+/obj/structure/machinery/alarm/cold/south{
 	req_one_access = list(214)
 	},
-/obj/machinery/computer/ship/sensors/terminal{
+/obj/structure/machinery/computer/ship/sensors/terminal{
 	dir = 1
 	},
 /turf/simulated/floor/tiled{
@@ -1232,7 +1232,7 @@
 	},
 /area/saniorios_outpost/gun)
 "qH" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
@@ -1267,16 +1267,16 @@
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost/hangar)
 "qQ" = (
-/obj/machinery/pipedispenser/disposal,
+/obj/structure/machinery/pipedispenser/disposal,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost/atmos)
 "rk" = (
 /obj/structure/table/standard,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /obj/item/tank/jetpack/carbondioxide,
@@ -1293,10 +1293,10 @@
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost)
 "rw" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
 /obj/structure/cable/green{
@@ -1309,23 +1309,23 @@
 	},
 /area/saniorios_outpost/barracks)
 "ry" = (
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
+/obj/structure/machinery/embedded_controller/radio/airlock/docking_port{
 	dir = 8;
 	pixel_y = 6;
 	pixel_x = 20
 	},
-/obj/machinery/airlock_sensor{
+/obj/structure/machinery/airlock_sensor{
 	pixel_x = 20;
 	dir = 8;
 	pixel_y = -6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
 	},
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/light/small/emergency{
 	dir = 8
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /obj/effect/floor_decal/industrial/outline_door/red,
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 1
@@ -1350,11 +1350,11 @@
 /obj/effect/floor_decal/corner/green/full{
 	dir = 1
 	},
-/obj/machinery/iv_drip,
-/obj/machinery/alarm/cold/north{
+/obj/structure/machinery/iv_drip,
+/obj/structure/machinery/alarm/cold/north{
 	req_one_access = list(209)
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
@@ -1389,11 +1389,11 @@
 	},
 /area/saniorios_outpost/crew_section)
 "sq" = (
-/obj/machinery/door/airlock/external,
-/obj/machinery/access_button{
+/obj/structure/machinery/door/airlock/external,
+/obj/structure/machinery/access_button{
 	pixel_x = 28
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/structure/cable/green{
@@ -1411,8 +1411,8 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/saniorios_outpost/barracks)
 "sv" = (
-/obj/machinery/light/small,
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/light/small,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
 	},
 /turf/simulated/floor/plating/cooled,
@@ -1429,7 +1429,7 @@
 /obj/item/ammo_magazine/a68,
 /obj/item/ammo_magazine/a68,
 /obj/item/ammo_magazine/a68,
-/obj/machinery/alarm/cold/north{
+/obj/structure/machinery/alarm/cold/north{
 	req_one_access = list(214)
 	},
 /turf/simulated/floor/tiled{
@@ -1456,7 +1456,7 @@
 	},
 /area/shuttle/saniorios_outpost)
 "ty" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/white{
@@ -1467,8 +1467,8 @@
 	},
 /area/saniorios_outpost)
 "tD" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -1482,7 +1482,7 @@
 	},
 /area/saniorios_outpost)
 "tF" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/white{
@@ -1521,17 +1521,17 @@
 	},
 /area/saniorios_outpost/crew_section)
 "ut" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 4
 	},
-/obj/machinery/meter,
+/obj/structure/machinery/meter,
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost/atmos)
 "uX" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -1542,8 +1542,8 @@
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost)
 "uY" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
@@ -1553,15 +1553,15 @@
 	},
 /area/saniorios_outpost)
 "vy" = (
-/obj/machinery/airlock_sensor{
+/obj/structure/machinery/airlock_sensor{
 	pixel_x = 20;
 	dir = 8;
 	pixel_y = -6
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 8
 	},
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+/obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller{
 	dir = 8;
 	pixel_x = 20;
 	pixel_y = 6
@@ -1581,7 +1581,7 @@
 	icon_state = "0-4"
 	},
 /obj/effect/floor_decal/corner/white/full,
-/obj/machinery/power/apc/high/west{
+/obj/structure/machinery/power/apc/high/west{
 	req_access = list(209)
 	},
 /turf/simulated/floor/tiled{
@@ -1589,7 +1589,7 @@
 	},
 /area/saniorios_outpost/crew_section)
 "vR" = (
-/obj/machinery/atmospherics/portables_connector,
+/obj/structure/machinery/atmospherics/portables_connector,
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost/hangar)
 "vU" = (
@@ -1597,13 +1597,13 @@
 /turf/space/transit/north,
 /area/space)
 "vW" = (
-/obj/machinery/door/airlock/highsecurity{
+/obj/structure/machinery/door/airlock/highsecurity{
 	name = "Armory";
 	req_access = list(214);
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -1612,13 +1612,13 @@
 	},
 /area/saniorios_outpost/armory)
 "wd" = (
-/obj/machinery/alarm/cold/west{
+/obj/structure/machinery/alarm/cold/west{
 	req_one_access = list(214)
 	},
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost/hangar)
 "wf" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
 /turf/simulated/floor/tiled{
@@ -1630,7 +1630,7 @@
 /turf/simulated/floor/exoplanet/asteroid/ash,
 /area/space)
 "wp" = (
-/obj/machinery/door/airlock/glass_medical{
+/obj/structure/machinery/door/airlock/glass_medical{
 	req_access = list(209);
 	name = "Medbay";
 	dir = 1
@@ -1638,14 +1638,14 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
 /area/saniorios_outpost)
 "wM" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 8
 	},
 /obj/effect/floor_decal/spline/plain/grey{
@@ -1657,7 +1657,7 @@
 /area/shuttle/saniorios_outpost)
 "wZ" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /obj/structure/closet/crate/internals,
@@ -1676,7 +1676,7 @@
 	},
 /area/shuttle/saniorios_outpost)
 "xe" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /obj/effect/floor_decal/corner/white{
 	dir = 5
 	},
@@ -1690,7 +1690,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
 	},
 /turf/simulated/floor/plating/cooled,
@@ -1699,9 +1699,9 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 5
 	},
-/obj/machinery/iv_drip,
+/obj/structure/machinery/iv_drip,
 /obj/effect/floor_decal/industrial/outline/red,
-/obj/machinery/alarm/cold/north{
+/obj/structure/machinery/alarm/cold/north{
 	req_one_access = list(209)
 	},
 /turf/simulated/floor/tiled/white{
@@ -1709,13 +1709,13 @@
 	},
 /area/saniorios_outpost/medbay)
 "xy" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost)
 "xA" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
 /turf/simulated/floor{
@@ -1723,7 +1723,7 @@
 	},
 /area/space)
 "xJ" = (
-/obj/machinery/door/blast/regular{
+/obj/structure/machinery/door/blast/regular{
 	id = "saniorios_shuttle_torpedo"
 	},
 /obj/effect/floor_decal/industrial/warning/cee{
@@ -1732,11 +1732,11 @@
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost/hangar)
 "xL" = (
-/obj/machinery/meter,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/meter,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/plating/cooled,
@@ -1761,7 +1761,7 @@
 "yz" = (
 /obj/structure/table/wood/gamblingtable,
 /obj/item/storage/pill_bottle/dice/tajara,
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
@@ -1776,10 +1776,10 @@
 /obj/structure/table/standard,
 /obj/item/binoculars,
 /obj/item/clothing/ears/earmuffs,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/obj/machinery/turretid/lethal{
+/obj/structure/machinery/turretid/lethal{
 	dir = 1;
 	pixel_y = -32;
 	req_access = list(214)
@@ -1789,7 +1789,7 @@
 	},
 /area/saniorios_outpost/gun)
 "za" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /obj/item/ship_ammunition/francisca/ap,
 /obj/item/ship_ammunition/francisca/ap,
 /obj/item/ship_ammunition/francisca/ap,
@@ -1823,7 +1823,7 @@
 /obj/item/storage/box/fancy/cigarettes/dpra,
 /obj/item/storage/box/fancy/cigarettes/dpra,
 /obj/item/flame/lighter/adhomai,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/white/full{
@@ -1834,7 +1834,7 @@
 	},
 /area/saniorios_outpost/crew_section)
 "zl" = (
-/obj/machinery/hologram/holopad/long_range,
+/obj/structure/machinery/hologram/holopad/long_range,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 4;
@@ -1846,8 +1846,8 @@
 	},
 /area/shuttle/saniorios_outpost)
 "zq" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -1866,7 +1866,7 @@
 /obj/effect/floor_decal/corner/white{
 	dir = 10
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled{
@@ -1874,11 +1874,11 @@
 	},
 /area/saniorios_outpost/barracks)
 "zV" = (
-/obj/machinery/atmospherics/pipe/simple/visible,
+/obj/structure/machinery/atmospherics/pipe/simple/visible,
 /turf/simulated/wall/shuttle/raider,
 /area/space)
 "AG" = (
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	id = "saniorios_gun";
 	name = "Guns Blastdoor";
 	req_access = list(214);
@@ -1909,10 +1909,10 @@
 	},
 /area/saniorios_outpost/armory)
 "AO" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -1925,7 +1925,7 @@
 	},
 /area/saniorios_outpost)
 "AR" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/white{
@@ -1939,8 +1939,8 @@
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost)
 "AU" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -1959,7 +1959,7 @@
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/item/gun/projectile/shotgun/pump/rifle,
 /obj/item/gun/projectile/shotgun/pump/rifle,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
 /turf/simulated/floor/tiled{
@@ -1967,7 +1967,7 @@
 	},
 /area/saniorios_outpost/armory)
 "Bc" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
 /turf/simulated/floor/plating/cooled,
@@ -1977,7 +1977,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/machinery/shipsensors/weak{
+/obj/structure/machinery/shipsensors/weak{
 	pixel_y = 4;
 	pixel_x = -1
 	},
@@ -1988,24 +1988,24 @@
 /turf/simulated/floor/airless,
 /area/shuttle/saniorios_outpost)
 "BR" = (
-/obj/machinery/atmospherics/unary/engine{
+/obj/structure/machinery/atmospherics/unary/engine{
 	dir = 1
 	},
 /turf/unsimulated/floor/plating,
 /area/space)
 "BV" = (
-/obj/machinery/atmospherics/binary/passive_gate/supply{
+/obj/structure/machinery/atmospherics/binary/passive_gate/supply{
 	dir = 4;
 	target_pressure = 250
 	},
-/obj/machinery/alarm/cold/north{
+/obj/structure/machinery/alarm/cold/north{
 	req_one_access = list(214)
 	},
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost/atmos)
 "BX" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -2021,7 +2021,7 @@
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost)
 "Cv" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/effect/floor_decal/spline/plain/grey{
 	dir = 4
 	},
@@ -2038,7 +2038,7 @@
 /turf/simulated/floor/reinforced/airless,
 /area/saniorios_outpost/gun)
 "CP" = (
-/obj/machinery/power/apc/high/east{
+/obj/structure/machinery/power/apc/high/east{
 	req_access = list(214)
 	},
 /obj/structure/cable/green{
@@ -2060,7 +2060,7 @@
 /obj/item/clothing/gloves/latex/nitrile/tajara,
 /obj/item/clothing/gloves/latex/nitrile/tajara,
 /obj/item/clothing/suit/storage/hooded/tajaran/surgery,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white{
@@ -2074,8 +2074,8 @@
 /turf/simulated/mineral,
 /area/space)
 "Di" = (
-/obj/machinery/light,
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide{
+/obj/structure/machinery/light,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide{
 	start_pressure = 8000.63
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -2088,18 +2088,18 @@
 /turf/simulated/floor/reinforced/airless,
 /area/saniorios_outpost/gun)
 "DC" = (
-/obj/machinery/vending/tool{
+/obj/structure/machinery/vending/tool{
 	req_access = list(214)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/firealarm/east,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/firealarm/east,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost/atmos)
 "DM" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
 /turf/simulated/floor/plating/cooled,
@@ -2111,7 +2111,7 @@
 /obj/structure/table/standard,
 /obj/item/storage/box/bodybags,
 /obj/item/defibrillator,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white{
@@ -2119,7 +2119,7 @@
 	},
 /area/saniorios_outpost/medbay)
 "El" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/plating/cooled,
@@ -2141,7 +2141,7 @@
 	},
 /area/saniorios_outpost/armory)
 "Es" = (
-/obj/machinery/door/blast/regular{
+/obj/structure/machinery/door/blast/regular{
 	id = "saniorios_shuttle_torpedo"
 	},
 /obj/effect/floor_decal/industrial/warning/cee{
@@ -2150,11 +2150,11 @@
 /turf/simulated/floor/airless,
 /area/saniorios_outpost/hangar)
 "Eu" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost/atmos)
 "Ex" = (
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	name = "Telecomms";
 	req_access = list(214);
 	dir = 1
@@ -2166,10 +2166,10 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
@@ -2183,7 +2183,7 @@
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost/hangar)
 "EZ" = (
-/obj/machinery/power/terminal{
+/obj/structure/machinery/power/terminal{
 	dir = 4
 	},
 /obj/structure/bed/stool/chair/shuttle{
@@ -2201,7 +2201,7 @@
 	},
 /area/shuttle/saniorios_outpost)
 "Fa" = (
-/obj/machinery/ammunition_loader/francisca{
+/obj/structure/machinery/ammunition_loader/francisca{
 	weapon_id = "Sani'Orios Asteroid Outpost"
 	},
 /turf/simulated/floor/tiled{
@@ -2209,16 +2209,16 @@
 	},
 /area/saniorios_outpost/gun)
 "Fb" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
-/obj/machinery/portable_atmospherics/canister/empty{
+/obj/structure/machinery/portable_atmospherics/canister/empty{
 	name = "waste canister"
 	},
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost/atmos)
 "Fi" = (
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/light/small/emergency{
 	dir = 4
 	},
 /turf/simulated/floor/tiled{
@@ -2230,7 +2230,7 @@
 /turf/simulated/floor/exoplanet/asteroid/ash,
 /area/space)
 "Fp" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock{
@@ -2258,14 +2258,14 @@
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
 /area/saniorios_outpost)
 "Fx" = (
-/obj/machinery/computer/ship/sensors/terminal{
+/obj/structure/machinery/computer/ship/sensors/terminal{
 	dir = 8
 	},
 /obj/effect/floor_decal/spline/plain/grey{
@@ -2284,7 +2284,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/machinery/iff_beacon{
+/obj/structure/machinery/iff_beacon{
 	pixel_y = 4
 	},
 /obj/structure/railing/mapped,
@@ -2294,13 +2294,13 @@
 /turf/simulated/floor/airless,
 /area/shuttle/saniorios_outpost)
 "FO" = (
-/obj/machinery/atmospherics/binary/pump/on{
+/obj/structure/machinery/atmospherics/binary/pump/on{
 	dir = 8
 	},
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost/atmos)
 "FR" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -2314,15 +2314,15 @@
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost/hangar)
 "FX" = (
-/obj/machinery/door/airlock/engineering{
+/obj/structure/machinery/door/airlock/engineering{
 	name = "Power Room";
 	req_access = list(214);
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -2333,10 +2333,10 @@
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost)
 "Gd" = (
-/obj/machinery/computer/ship/engines/terminal{
+/obj/structure/machinery/computer/ship/engines/terminal{
 	dir = 4
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /obj/effect/floor_decal/spline/plain/grey{
@@ -2347,10 +2347,10 @@
 	},
 /area/shuttle/saniorios_outpost)
 "Gt" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
 /obj/structure/cable/green{
@@ -2378,14 +2378,14 @@
 	},
 /area/saniorios_outpost/crew_section)
 "GI" = (
-/obj/machinery/atmospherics/pipe/manifold/visible/cyan{
+/obj/structure/machinery/atmospherics/pipe/manifold/visible/cyan{
 	dir = 1
 	},
-/obj/machinery/meter,
+/obj/structure/machinery/meter,
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost/atmos)
 "GT" = (
-/obj/machinery/porta_turret/ballistic,
+/obj/structure/machinery/porta_turret/ballistic,
 /obj/effect/decal/warning_stripes,
 /turf/simulated/floor/exoplanet/asteroid/ash,
 /area/space)
@@ -2420,8 +2420,8 @@
 	},
 /area/space)
 "Hk" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/white{
@@ -2435,12 +2435,12 @@
 	},
 /area/saniorios_outpost/crew_section)
 "Hm" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost/hangar)
 "Hn" = (
-/obj/machinery/door/airlock/external,
-/obj/machinery/access_button{
+/obj/structure/machinery/door/airlock/external,
+/obj/structure/machinery/access_button{
 	pixel_x = -28;
 	pixel_y = 12;
 	dir = 1
@@ -2462,14 +2462,14 @@
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/high/north{
+/obj/structure/machinery/power/apc/high/north{
 	req_access = list(214)
 	},
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost/hangar)
 "HG" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -2478,8 +2478,8 @@
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost)
 "HI" = (
-/obj/machinery/door/airlock/external,
-/obj/machinery/access_button{
+/obj/structure/machinery/door/airlock/external,
+/obj/structure/machinery/access_button{
 	pixel_x = -28;
 	dir = 1;
 	req_access = list(214)
@@ -2493,7 +2493,7 @@
 	},
 /area/saniorios_outpost)
 "HJ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
 	},
 /turf/simulated/floor/plating/cooled,
@@ -2504,10 +2504,10 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/plating/cooled,
@@ -2521,7 +2521,7 @@
 /obj/effect/shuttle_landmark/saniorios_outpost/hangar{
 	dir = 1
 	},
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "saniorios_dock_doors";
@@ -2530,7 +2530,7 @@
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost/hangar)
 "HZ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -2539,11 +2539,11 @@
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost)
 "Ib" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost/atmos)
 "Ie" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 1
 	},
 /obj/effect/map_effect/marker/airlock{
@@ -2568,13 +2568,13 @@
 /turf/simulated/floor/exoplanet/asteroid/ash,
 /area/space)
 "IE" = (
-/obj/machinery/atmospherics/unary/outlet_injector{
+/obj/structure/machinery/atmospherics/unary/outlet_injector{
 	use_power = 1;
 	frequency = 1441;
 	id = "saniorios_co2_in";
 	dir = 8
 	},
-/obj/machinery/air_sensor{
+/obj/structure/machinery/air_sensor{
 	frequency = 1441;
 	id_tag = "saniorios_co2_sensor";
 	pixel_y = 16
@@ -2593,7 +2593,7 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/saniorios_outpost)
 "IS" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/sign/flag/dpra{
@@ -2602,17 +2602,17 @@
 /obj/effect/floor_decal/corner/white{
 	dir = 5
 	},
-/obj/machinery/computer/ship/navigation/terminal,
+/obj/structure/machinery/computer/ship/navigation/terminal,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
 /area/saniorios_outpost/crew_section)
 "IX" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
-/obj/machinery/portable_atmospherics/canister/air,
-/obj/machinery/light{
+/obj/structure/machinery/portable_atmospherics/canister/air,
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/plating/cooled,
@@ -2620,13 +2620,13 @@
 "IZ" = (
 /obj/structure/dispenser/oxygen,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost)
 "Ja" = (
-/obj/machinery/computer/ship/helm/terminal{
+/obj/structure/machinery/computer/ship/helm/terminal{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
@@ -2644,19 +2644,19 @@
 	},
 /area/saniorios_outpost/medbay)
 "Jq" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost/hangar)
 "JA" = (
-/obj/machinery/recharger/wallcharger{
+/obj/structure/machinery/recharger/wallcharger{
 	pixel_y = 24
 	},
 /turf/simulated/wall/shuttle/raider,
 /area/space)
 "JG" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/fuel{
 	dir = 1
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
@@ -2668,7 +2668,7 @@
 /obj/item/clothing/gloves/yellow/specialt,
 /obj/item/clothing/gloves/yellow/specialt,
 /obj/item/clothing/gloves/yellow/specialt,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
 /obj/item/storage/belt/utility,
@@ -2678,10 +2678,10 @@
 /obj/structure/toilet{
 	dir = 1
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
-/obj/machinery/button/remote/airlock{
+/obj/structure/machinery/button/remote/airlock{
 	dir = 8;
 	id = "saniorios_stall";
 	name = "Stall Door Lock";
@@ -2696,19 +2696,19 @@
 /turf/template_noop,
 /area/space)
 "Kr" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost)
 "KF" = (
-/obj/machinery/vending/wallmed1{
+/obj/structure/machinery/vending/wallmed1{
 	name = "Medical Supplies";
 	pixel_x = -26;
 	pixel_y = -1;
 	req_access = null
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atmospherics/pipe/simple/visible{
+/obj/structure/machinery/atmospherics/pipe/simple/visible{
 	dir = 6
 	},
 /obj/structure/table/steel,
@@ -2718,13 +2718,13 @@
 	},
 /area/space)
 "Lh" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 5
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/saniorios_outpost)
 "LK" = (
-/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/structure/machinery/portable_atmospherics/canister/oxygen,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost)
@@ -2737,21 +2737,21 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/machinery/shipsensors,
+/obj/structure/machinery/shipsensors,
 /turf/simulated/floor/airless,
 /area/saniorios_outpost/gun)
 "Mp" = (
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "saniorios_airlock_1"
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 4
 	},
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost)
 "Ms" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atmospherics/pipe/manifold/visible{
+/obj/structure/machinery/atmospherics/pipe/manifold/visible{
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/black{
@@ -2771,21 +2771,21 @@
 /turf/template_noop,
 /area/space)
 "MQ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
 	},
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost/hangar)
 "Nd" = (
-/obj/machinery/atmospherics/binary/pump/fuel/on,
+/obj/structure/machinery/atmospherics/binary/pump/fuel/on,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
 /area/shuttle/saniorios_outpost)
 "Nj" = (
-/obj/machinery/door/blast/regular{
+/obj/structure/machinery/door/blast/regular{
 	dir = 4;
 	id = "saniorios_hangar"
 	},
@@ -2834,7 +2834,7 @@
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost/hangar)
 "OY" = (
-/obj/machinery/suit_cycler/offship/dpra,
+/obj/structure/machinery/suit_cycler/offship/dpra,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost)
@@ -2845,7 +2845,7 @@
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost/hangar)
 "Pj" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /obj/structure/cable/green{
@@ -2883,7 +2883,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
-/obj/machinery/ship_weapon/francisca{
+/obj/structure/machinery/ship_weapon/francisca{
 	pixel_x = -64;
 	pixel_y = -162;
 	weapon_id = "Sani'Orios Asteroid Outpost"
@@ -2892,7 +2892,7 @@
 /area/saniorios_outpost/gun)
 "PO" = (
 /obj/structure/cable/green,
-/obj/machinery/power/apc/high/east{
+/obj/structure/machinery/power/apc/high/east{
 	req_access = list(214)
 	},
 /turf/simulated/floor/tiled{
@@ -2913,9 +2913,9 @@
 /turf/simulated/mineral,
 /area/space)
 "Qn" = (
-/obj/machinery/power/smes/buildable/third_party_shuttle,
+/obj/structure/machinery/power/smes/buildable/third_party_shuttle,
 /obj/structure/cable,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
@@ -2923,9 +2923,9 @@
 	},
 /area/shuttle/saniorios_outpost)
 "Qo" = (
-/obj/machinery/pipedispenser,
+/obj/structure/machinery/pipedispenser,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost/atmos)
 "Qq" = (
@@ -2962,8 +2962,8 @@
 	},
 /area/saniorios_outpost/gun)
 "RG" = (
-/obj/machinery/atmospherics/portables_connector/fuel,
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/atmospherics/portables_connector/fuel,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/fuel_port/hydrogen{
 	pixel_y = 28;
@@ -2974,10 +2974,10 @@
 	},
 /area/shuttle/saniorios_outpost)
 "RO" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/alarm/cold/south{
+/obj/structure/machinery/alarm/cold/south{
 	req_one_access = list(214)
 	},
 /turf/simulated/floor/tiled{
@@ -2985,7 +2985,7 @@
 	},
 /area/saniorios_outpost/barracks)
 "RY" = (
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /turf/simulated/floor/exoplanet/asteroid/ash,
 /area/space)
 "Se" = (
@@ -2999,7 +2999,7 @@
 	},
 /area/saniorios_outpost/medbay)
 "Sk" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/white{
@@ -3013,7 +3013,7 @@
 /turf/simulated/mineral,
 /area/space)
 "Tn" = (
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost/hangar)
 "TH" = (
@@ -3026,10 +3026,10 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 10
 	},
-/obj/machinery/bodyscanner{
+/obj/structure/machinery/bodyscanner{
 	dir = 1
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
@@ -3038,8 +3038,8 @@
 /obj/effect/floor_decal/corner/green/full{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/white{
@@ -3055,17 +3055,17 @@
 	},
 /area/saniorios_outpost)
 "Un" = (
-/obj/machinery/telecomms/allinone/ship,
-/obj/machinery/light/small{
+/obj/structure/machinery/telecomms/allinone/ship,
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost)
 "UE" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -3092,13 +3092,13 @@
 /obj/item/clothing/under/tajaran/pvsm,
 /obj/item/clothing/shoes/jackboots/tajara,
 /obj/item/clothing/accessory/badge/dpra_passport,
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
 /area/saniorios_outpost/barracks)
 "UQ" = (
-/obj/machinery/computer/general_air_control/large_tank_control/terminal{
+/obj/structure/machinery/computer/general_air_control/large_tank_control/terminal{
 	name = "Carbon Dioxide Supply Monitor";
 	sensors = list("saniorios_co2_sensor"="Tank");
 	input_tag = "saniorios_co2_in";
@@ -3107,7 +3107,7 @@
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost/hangar)
 "Vn" = (
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/light/small/emergency{
 	dir = 4
 	},
 /obj/structure/bed/stool/chair/shuttle{
@@ -3121,7 +3121,7 @@
 /obj/effect/floor_decal/spline/plain/grey{
 	dir = 4
 	},
-/obj/machinery/computer/shuttle_control/explore/terminal/saniorios_outpost{
+/obj/structure/machinery/computer/shuttle_control/explore/terminal/saniorios_outpost{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
@@ -3151,7 +3151,7 @@
 	req_access = list(214)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/power/apc/high/south{
+/obj/structure/machinery/power/apc/high/south{
 	req_access = list(214)
 	},
 /obj/structure/cable/green,
@@ -3159,7 +3159,7 @@
 /area/saniorios_outpost/atmos)
 "VY" = (
 /obj/structure/reagent_dispensers/keg/mead,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8;
 	level = 2
 	},
@@ -3174,10 +3174,10 @@
 	},
 /area/saniorios_outpost/crew_section)
 "Wd" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
 /turf/simulated/floor/tiled{
@@ -3185,7 +3185,7 @@
 	},
 /area/saniorios_outpost/gun)
 "Wm" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
 /turf/simulated/floor/plating/cooled,
@@ -3194,8 +3194,8 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 5
 	},
-/obj/machinery/optable,
-/obj/machinery/light{
+/obj/structure/machinery/optable,
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white{
@@ -3208,8 +3208,8 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
 /turf/simulated/floor/plating/cooled,
@@ -3225,8 +3225,8 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/saniorios_outpost/crew_section)
 "WI" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -3240,15 +3240,15 @@
 	},
 /area/saniorios_outpost)
 "WJ" = (
-/obj/machinery/shower{
+/obj/structure/machinery/shower{
 	dir = 1
 	},
-/obj/machinery/door/window{
+/obj/structure/machinery/door/window{
 	dir = 8
 	},
 /obj/structure/curtain/open/shower,
 /obj/random/soap,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white{
@@ -3264,15 +3264,15 @@
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost/hangar)
 "WT" = (
-/obj/machinery/door/airlock/engineering{
+/obj/structure/machinery/door/airlock/engineering{
 	name = "Atmos";
 	req_access = list(214);
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -3296,26 +3296,26 @@
 	icon_state = "1-2"
 	},
 /obj/effect/floor_decal/corner/white/diagonal,
-/obj/machinery/hologram/holopad/long_range,
+/obj/structure/machinery/hologram/holopad/long_range,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
 /area/saniorios_outpost/crew_section)
 "Xi" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 9
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/alarm/cold/east,
+/obj/structure/machinery/alarm/cold/east,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
 /area/shuttle/saniorios_outpost)
 "Xs" = (
-/obj/machinery/cryopod{
+/obj/structure/machinery/cryopod{
 	dir = 1
 	},
-/obj/machinery/computer/cryopod{
+/obj/structure/machinery/computer/cryopod{
 	pixel_y = -32
 	},
 /turf/simulated/floor/tiled{
@@ -3323,21 +3323,21 @@
 	},
 /area/saniorios_outpost/barracks)
 "XA" = (
-/obj/machinery/embedded_controller/radio/simple_docking_controller{
+/obj/structure/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1380;
 	id_tag = "tajara_saniorios_outpost_dock";
 	tag_door = "saniorios_dock_doors";
 	dir = 1;
 	pixel_y = -25
 	},
-/obj/machinery/atmospherics/binary/pump/high_power{
+/obj/structure/machinery/atmospherics/binary/pump/high_power{
 	name = "Connector to Fuel Tank";
 	dir = 4
 	},
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost/hangar)
 "XD" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/effect/floor_decal/corner/white{
 	dir = 10
 	},
@@ -3354,7 +3354,7 @@
 	},
 /area/saniorios_outpost/barracks)
 "Yn" = (
-/obj/machinery/door/blast/regular{
+/obj/structure/machinery/door/blast/regular{
 	dir = 4;
 	id = "saniorios_gun"
 	},
@@ -3403,13 +3403,13 @@
 /obj/effect/floor_decal/corner/green/full{
 	dir = 1
 	},
-/obj/machinery/power/apc/north{
+/obj/structure/machinery/power/apc/north{
 	req_access = list(209)
 	},
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
@@ -3427,7 +3427,7 @@
 	},
 /area/saniorios_outpost/barracks)
 "Zr" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -3441,7 +3441,7 @@
 	},
 /area/space)
 "Zx" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "saniorios_airlock_1"
 	},
@@ -3450,10 +3450,10 @@
 	},
 /area/saniorios_outpost)
 "ZI" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 4;
@@ -3464,13 +3464,13 @@
 	},
 /area/saniorios_outpost/armory)
 "ZN" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 9
 	},
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost)
 "ZV" = (
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide{
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide{
 	start_pressure = 8000.63
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,

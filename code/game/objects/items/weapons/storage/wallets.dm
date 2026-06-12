@@ -150,8 +150,8 @@
 		/obj/item/paper_bundle,
 		/obj/item/pen,
 		/obj/item/photo)
-	drop_sound = 'sound/items/drop/cloth.ogg'
-	pickup_sound = 'sound/items/pickup/cloth.ogg'
+	drop_sound = 'sound/items/drop/clothing.ogg'
+	pickup_sound = 'sound/items/pickup/clothing.ogg'
 
 	var/front_id_overlay_state
 	var/image/plastic_film

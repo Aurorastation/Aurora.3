@@ -144,6 +144,7 @@
 					new /obj/effect/decal/cleanable/blood/gibs(get_turf(src))
 					set_cradle_state(STATE_EMPTY)
 					update_name()
+	return ..()
 
 /obj/item/mmi/attack_self(mob/user)
 	if(cradle_state == STATE_BRAIN)

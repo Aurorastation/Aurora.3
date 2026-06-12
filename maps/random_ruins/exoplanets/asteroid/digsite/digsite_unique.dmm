@@ -3,7 +3,7 @@
 /turf/template_noop,
 /area/template_noop)
 "ab" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	frequency = 1353;
 	icon_state = "door_locked";
 	id_tag = "digsite_exterior";
@@ -11,7 +11,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/access_button/airlock_exterior{
+/obj/structure/machinery/access_button/airlock_exterior{
 	frequency = 1353;
 	master_tag = "digsite_airlock";
 	pixel_x = -6;
@@ -40,7 +40,7 @@
 /turf/simulated/floor/exoplanet/ceiling,
 /area/template_noop)
 "af" = (
-/obj/machinery/atmospherics/unary/vent_pump{
+/obj/structure/machinery/atmospherics/unary/vent_pump{
 	dir = 4;
 	frequency = 1353;
 	id_tag = "digsite_vent"
@@ -55,14 +55,14 @@
 /turf/simulated/floor/exoplanet/ceiling,
 /area/template_noop)
 "ai" = (
-/obj/machinery/floodlight,
+/obj/structure/machinery/floodlight,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/ceiling,
 /area/template_noop)
 "aj" = (
-/obj/machinery/artifact,
+/obj/structure/machinery/artifact,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/exoplanet/ceiling,
 /area/template_noop)
@@ -92,11 +92,11 @@
 /turf/simulated/floor/exoplanet/ceiling,
 /area/template_noop)
 "ap" = (
-/obj/machinery/floodlight,
+/obj/structure/machinery/floodlight,
 /turf/simulated/floor/exoplanet/ceiling,
 /area/template_noop)
 "aq" = (
-/obj/machinery/floodlight,
+/obj/structure/machinery/floodlight,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
@@ -130,7 +130,7 @@
 /turf/simulated/floor/exoplanet/ceiling,
 /area/template_noop)
 "aw" = (
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+/obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller{
 	frequency = 1353;
 	id_tag = "digsite_airlock";
 	pixel_y = -25;
@@ -139,7 +139,7 @@
 	tag_exterior_door = "digsite_exterior";
 	tag_interior_door = "digsite_interior"
 	},
-/obj/machinery/atmospherics/unary/vent_pump{
+/obj/structure/machinery/atmospherics/unary/vent_pump{
 	dir = 4;
 	frequency = 1353;
 	id_tag = "digsite_vent"
@@ -147,7 +147,7 @@
 /turf/simulated/floor/airless,
 /area/dungeon/anomaly_outpost)
 "ax" = (
-/obj/machinery/floodlight,
+/obj/structure/machinery/floodlight,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
@@ -162,7 +162,7 @@
 /area/dungeon/anomaly_outpost)
 "aB" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -176,14 +176,14 @@
 /turf/simulated/floor/exoplanet/ceiling,
 /area/template_noop)
 "aE" = (
-/obj/machinery/artifact_analyser,
+/obj/structure/machinery/artifact_analyser,
 /obj/structure/table/standard,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/dungeon/anomaly_outpost)
 "aF" = (
 /obj/structure/table/standard,
-/obj/machinery/recharger,
+/obj/structure/machinery/recharger,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/dungeon/anomaly_outpost)
@@ -200,18 +200,18 @@
 /obj/item/stack/nanopaste{
 	pixel_y = 8
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/dungeon/anomaly_outpost)
 "aI" = (
-/obj/machinery/artifact_scanpad,
+/obj/structure/machinery/artifact_scanpad,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/dungeon/anomaly_outpost)
 "aL" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	frequency = 1353;
 	icon_state = "door_locked";
 	id_tag = "digsite_exterior";
@@ -225,14 +225,14 @@
 /turf/simulated/floor/airless,
 /area/dungeon/anomaly_outpost)
 "aO" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	frequency = 1353;
 	icon_state = "door_locked";
 	id_tag = "digsite_interior";
 	locked = 1;
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -240,7 +240,7 @@
 /area/dungeon/anomaly_outpost)
 "aP" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
@@ -259,7 +259,7 @@
 /area/dungeon/anomaly_outpost)
 "aS" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
-/obj/machinery/vending/wallmed2{
+/obj/structure/machinery/vending/wallmed2{
 	pixel_x = 25;
 	pixel_y = 30;
 	req_access = null
@@ -268,7 +268,7 @@
 /turf/simulated/floor/tiled,
 /area/dungeon/anomaly_outpost)
 "aT" = (
-/obj/machinery/atmospherics/pipe/tank/air,
+/obj/structure/machinery/atmospherics/pipe/tank/air,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
@@ -276,25 +276,25 @@
 /turf/simulated/floor,
 /area/dungeon/anomaly_outpost)
 "aU" = (
-/obj/machinery/airlock_sensor{
+/obj/structure/machinery/airlock_sensor{
 	frequency = 1353;
 	id_tag = "digsite_sensor";
 	pixel_y = -25
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	status = 2
 	},
 /turf/simulated/floor/airless,
 /area/dungeon/anomaly_outpost)
 "aW" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
-/obj/machinery/atmospherics/pipe/manifold/hidden,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/dungeon/anomaly_outpost)
 "aX" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -305,7 +305,7 @@
 	pixel_x = 6;
 	pixel_y = -3
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -315,7 +315,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
-/obj/machinery/atmospherics/binary/passive_gate{
+/obj/structure/machinery/atmospherics/binary/passive_gate{
 	dir = 8;
 	target_pressure = 80;
 	unlocked = 1;
@@ -325,7 +325,7 @@
 /turf/simulated/floor,
 /area/dungeon/anomaly_outpost)
 "ba" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
 /obj/structure/closet/crate/freezer/rations,
@@ -345,9 +345,9 @@
 /turf/template_noop,
 /area/template_noop)
 "bd" = (
-/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/structure/machinery/portable_atmospherics/canister/oxygen,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/access_button/airlock_interior{
+/obj/structure/machinery/access_button/airlock_interior{
 	frequency = 1353;
 	master_tag = "digsite_airlock";
 	pixel_x = -25
@@ -366,7 +366,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/door/window/northright,
+/obj/structure/machinery/door/window/northright,
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/space/anomaly,
 /obj/item/clothing/head/helmet/space/anomaly,
@@ -378,15 +378,15 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/machinery/door/window/northright,
+/obj/structure/machinery/door/window/northright,
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/space/anomaly,
 /obj/item/clothing/head/helmet/space/anomaly,
 /turf/simulated/floor/tiled,
 /area/dungeon/anomaly_outpost)
 "bh" = (
-/obj/machinery/radiocarbon_spectrometer,
-/obj/machinery/light{
+/obj/structure/machinery/radiocarbon_spectrometer,
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},

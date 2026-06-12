@@ -4,86 +4,74 @@
  * @license MIT
  */
 
-import { Icon, Section, Stack } from './components';
-
-import { Store } from 'common/redux';
+import { useAtomValue } from 'jotai';
+import { KitchenSink } from './debug/KitchenSink';
+import { backendStateAtom } from './events/store';
+import { LoadingScreen } from './interfaces/common/LoadingScreen';
 import { Window } from './layouts';
-import { selectBackend } from './backend';
-import { selectDebug } from './debug/selectors';
 
-const requireInterface = require.context('./interfaces');
+const requireInterface = require.context(
+  './interfaces',
+  true,
+  /^(?!.*\.test\.(tsx?|jsx?)).*\.(tsx?|jsx?)$/,
+);
 
-const routingError =
-  (type: 'notFound' | 'missingExport', name: string) => () => {
-    return (
-      <Window>
-        <Window.Content scrollable>
-          {type === 'notFound' && (
-            <div>
-              Interface <b>{name}</b> was not found.
-            </div>
-          )}
-          {type === 'missingExport' && (
-            <div>
-              Interface <b>{name}</b> is missing an export.
-            </div>
-          )}
-        </Window.Content>
-      </Window>
-    );
-  };
+type RoutingErrorProps = {
+  type: 'notFound' | 'missingExport' | 'unknown';
+  name: string;
+};
+
+function RoutingErrorWindow(props: RoutingErrorProps) {
+  const { type, name } = props;
+
+  return (
+    <Window>
+      <Window.Content scrollable>
+        {type === 'notFound' && (
+          <div>
+            Interface <b>{name}</b> was not found.
+          </div>
+        )}
+        {type === 'missingExport' && (
+          <div>
+            Interface <b>{name}</b> is missing an export.
+          </div>
+        )}
+        {type === 'unknown' && <div>An unknown error has occurred.</div>}
+      </Window.Content>
+    </Window>
+  );
+}
 
 // Displays an empty Window with scrollable content
-const SuspendedWindow = () => {
+function SuspendedWindow() {
   return (
     <Window>
       <Window.Content scrollable />
     </Window>
   );
-};
+}
 
 // Displays a loading screen with a spinning icon
-const RefreshingWindow = () => {
+function RefreshingWindow() {
   return (
     <Window title="Loading">
       <Window.Content>
-        <Section fill>
-          <Stack align="center" fill justify="center" vertical>
-            <Stack.Item>
-              <Icon color="blue" name="toolbox" spin size={4} />
-            </Stack.Item>
-            <Stack.Item>Please wait...</Stack.Item>
-          </Stack>
-        </Section>
+        <LoadingScreen />
       </Window.Content>
     </Window>
   );
-};
+}
 
 // Get the component for the current route
-export const getRoutedComponent = (store: Store) => {
-  const state = store.getState();
-  const { suspended, config } = selectBackend(state);
-  if (suspended) {
-    return SuspendedWindow;
-  }
-  if (config.refreshing) {
-    return RefreshingWindow;
-  }
-  if (process.env.NODE_ENV !== 'production') {
-    const debug = selectDebug(state);
-    // Show a kitchen sink
-    if (debug.kitchenSink) {
-      return require('./debug').KitchenSink;
-    }
-  }
-  const name = config?.interface;
+export function getRoutedComponent(name: string) {
   const interfacePathBuilders = [
     (name: string) => `./${name}.tsx`,
-    (name: string) => `./${name}.js`,
+    (name: string) => `./${name}.jsx`,
     (name: string) => `./${name}/index.tsx`,
-    (name: string) => `./${name}/index.js`,
+    (name: string) => `./${name}/index.jsx`,
   ];
+
   let esModule;
   while (!esModule && interfacePathBuilders.length > 0) {
     const interfacePathBuilder = interfacePathBuilders.shift()!;
@@ -92,16 +80,56 @@ export const getRoutedComponent = (store: Store) => {
       esModule = requireInterface(interfacePath);
     } catch (err) {
       if (err.code !== 'MODULE_NOT_FOUND') {
-        throw err;
+        throw new Error('notFound');
       }
     }
   }
+
   if (!esModule) {
-    return routingError('notFound', name);
+    throw new Error('notFound');
   }
+
   const Component = esModule[name];
   if (!Component) {
-    return routingError('missingExport', name);
+    throw new Error('missingExport');
   }
+
   return Component;
-};
+}
+
+export function RoutedComponent() {
+  const { suspended, config, debug } = useAtomValue(backendStateAtom);
+
+  if (suspended) {
+    return <SuspendedWindow />;
+  }
+  if (config.refreshing) {
+    return <RefreshingWindow />;
+  }
+
+  if (process.env.NODE_ENV !== 'production') {
+    if (debug.kitchenSink) {
+      return <KitchenSink />;
+    }
+  }
+
+  const name = config?.interface?.name;
+  if (!name) {
+    return <RoutingErrorWindow type="notFound" name="(undefined)" />;
+  }
+
+  try {
+    const Component = getRoutedComponent(name);
+
+    return <Component />;
+  } catch (err) {
+    switch (err.message) {
+      case 'notFound':
+        return <RoutingErrorWindow type="notFound" name={name} />;
+      case 'missingExport':
+        return <RoutingErrorWindow type="missingExport" name={name} />;
+      default:
+        return <RoutingErrorWindow type="unknown" name={name} />;
+    }
+  }
+}

@@ -1,6 +1,6 @@
 /datum/wires/nuclearbomb
 	proper_name = "Nuclear Fission Device"
-	holder_type = /obj/machinery/nuclearbomb
+	holder_type = /obj/structure/machinery/nuclearbomb
 	random = 1
 
 /datum/wires/nuclearbomb/New()
@@ -15,18 +15,18 @@
 /datum/wires/nuclearbomb/interactable(mob/user)
 	if(!..())
 		return FALSE
-	var/obj/machinery/nuclearbomb/N = holder
+	var/obj/structure/machinery/nuclearbomb/N = holder
 	return N.panel_open
 
 /datum/wires/nuclearbomb/get_status()
-	var/obj/machinery/nuclearbomb/N = holder
+	var/obj/structure/machinery/nuclearbomb/N = holder
 	. += ..()
 	. += "The device is [N.timing ? "shaking!" : "still."]"
 	. += "The device is is [N.safety ? "quiet" : "whirring"]."
 	. += "The lights are [N.lighthack ? "static" : "functional"]."
 
 /datum/wires/nuclearbomb/on_pulse(wire)
-	var/obj/machinery/nuclearbomb/N = holder
+	var/obj/structure/machinery/nuclearbomb/N = holder
 	switch(wire)
 		if(WIRE_LIGHT)
 			N.lighthack = !N.lighthack
@@ -50,7 +50,7 @@
 					N.visible_message(SPAN_NOTICE("\The [N] emits a quiet whirling noise!"))
 
 /datum/wires/nuclearbomb/on_cut(wire, mend, source)
-	var/obj/machinery/nuclearbomb/N = holder
+	var/obj/structure/machinery/nuclearbomb/N = holder
 	switch(wire)
 		if(WIRE_SAFETY)
 			N.safety = mend

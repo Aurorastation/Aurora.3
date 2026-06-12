@@ -12,7 +12,7 @@
 /area/template_noop)
 "f" = (
 /obj/structure/table/standard,
-/obj/machinery/media/jukebox/phonograph{
+/obj/structure/machinery/media/jukebox/phonograph{
 	pixel_x = -3;
 	pixel_y = 15
 	},

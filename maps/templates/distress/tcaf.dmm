@@ -1,6 +1,6 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
-/obj/machinery/power/emitter{
+/obj/structure/machinery/power/emitter{
 	req_access = list(111)
 	},
 /obj/effect/floor_decal/industrial/warning/full,
@@ -86,7 +86,7 @@
 /turf/unsimulated/floor,
 /area/centcom/distress_prep)
 "V" = (
-/obj/machinery/mech_recharger,
+/obj/structure/machinery/mech_recharger,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /mob/living/heavy_vehicle/premade/combat/tcaf,
 /turf/unsimulated/floor,

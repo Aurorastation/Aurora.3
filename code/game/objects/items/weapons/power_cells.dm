@@ -214,8 +214,8 @@
 	maxcharge = 10000
 	matter = list(DEFAULT_WALL_MATERIAL = 700, MATERIAL_GLASS = 70)
 	w_class = WEIGHT_CLASS_SMALL
-	drop_sound = 'sound/items/drop/gascan.ogg'
-	pickup_sound = 'sound/items/pickup/gascan.ogg'
+	drop_sound = 'sound/items/drop/gas_tank.ogg'
+	pickup_sound = 'sound/items/pickup/gas_tank.ogg'
 	origin_tech = list(TECH_POWER = 4)
 
 /obj/item/cell/mecha

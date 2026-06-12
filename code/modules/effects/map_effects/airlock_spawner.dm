@@ -35,7 +35,7 @@ This spawner places pipe leading up to the interior door, you will need to finis
 	var/radio_frequency = 1379
 	var/required_access = list(ACCESS_EXTERNAL_AIRLOCKS)
 	var/door_name = "external access"
-	var/door_type = /obj/machinery/door/airlock/external
+	var/door_type = /obj/structure/machinery/door/airlock/external
 	var/one_door_interior //For square airlocks, if you set this then a) only one door will spawn, and b) you can choose if the door should go opposite to how it normally goes. Please use the define
 	var/one_door_exterior //See above
 
@@ -72,11 +72,11 @@ This spawner places pipe leading up to the interior door, you will need to finis
 	return T
 
 /obj/effect/map_effect/airlock/proc/handle_door_creation(turf/T, is_this_an_interior_airlock, one_door_only) //Creates a door (or two) and also creates a button
-	var/obj/machinery/door/airlock/A
+	var/obj/structure/machinery/door/airlock/A
 	if(one_door_only != DOOR_FLIPPED_PLACEMENT)
 		A = new door_type(T)
 		handle_door_stuff(A, is_this_an_interior_airlock)
-	var/obj/machinery/access_button/the_button = spawn_button(T, is_this_an_interior_airlock ? interior_direction : exterior_direction, is_this_an_interior_airlock) //Creates a button, with position and specific cycle command depending on door direction/if it's interior or exterior
+	var/obj/structure/machinery/access_button/the_button = spawn_button(T, is_this_an_interior_airlock ? interior_direction : exterior_direction, is_this_an_interior_airlock) //Creates a button, with position and specific cycle command depending on door direction/if it's interior or exterior
 	if(one_door_only == DOOR_NORMAL_PLACEMENT) //We only need one door, we are done
 		return
 	if(!(tiles_in_x_direction % 2) && (is_this_an_interior_airlock && north_or_south_interior || !is_this_an_interior_airlock && north_or_south_exterior)) //Handle extra airlock for aesthetics
@@ -94,7 +94,7 @@ This spawner places pipe leading up to the interior door, you will need to finis
 	else
 		A.dir = NORTH
 
-/obj/effect/map_effect/airlock/proc/handle_door_stuff(obj/machinery/door/airlock/A, is_this_an_interior_airlock) //This sets up the door vars correctly and then locks it before first use
+/obj/effect/map_effect/airlock/proc/handle_door_stuff(obj/structure/machinery/door/airlock/A, is_this_an_interior_airlock) //This sets up the door vars correctly and then locks it before first use
 	A.set_frequency(radio_frequency)
 	A.id_tag = is_this_an_interior_airlock ? INNER_DOOR_TAG : OUTER_DOOR_TAG
 	A.req_access = required_access
@@ -102,7 +102,7 @@ This spawner places pipe leading up to the interior door, you will need to finis
 	A.lock()
 
 /obj/effect/map_effect/airlock/proc/spawn_button(turf/T, some_direction, is_this_an_interior_airlock)
-	var/obj/machinery/access_button/the_button = new(T)
+	var/obj/structure/machinery/access_button/the_button = new(T)
 	the_button.master_tag = id_to_link
 	the_button.set_frequency(radio_frequency)
 	switch(some_direction)
@@ -129,8 +129,8 @@ This spawner places pipe leading up to the interior door, you will need to finis
 
 /obj/effect/map_effect/airlock/proc/handle_control_placement() //Stick the sensor and controller on the same bit of wall, this will ONLY be unsuitable if airlocks are on both the south and west turfs
 	var/turf/T = get_turf(src)
-	var/obj/machinery/airlock_sensor/AS = new(T)
-	var/obj/machinery/embedded_controller/radio/airlock/airlock_controller/AC = new(T, id_to_link, radio_frequency, OUTER_DOOR_TAG, INNER_DOOR_TAG, AIRPUMP_TAG, SENSOR_TAG)
+	var/obj/structure/machinery/airlock_sensor/AS = new(T)
+	var/obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller/AC = new(T, id_to_link, radio_frequency, OUTER_DOOR_TAG, INNER_DOOR_TAG, AIRPUMP_TAG, SENSOR_TAG)
 	AC.req_access = required_access
 	AS.id_tag = SENSOR_TAG
 	AS.set_frequency(radio_frequency)
@@ -164,44 +164,44 @@ This spawner places pipe leading up to the interior door, you will need to finis
 		chamber_shape = CHAMBER_BIGGER
 	else
 		chamber_shape = CHAMBER_LONG
-	pipe_creation_helper(/obj/machinery/atmospherics/pipe/simple/visible, T, interior_direction, two_way_pipe)
+	pipe_creation_helper(/obj/structure/machinery/atmospherics/pipe/simple/visible, T, interior_direction, two_way_pipe)
 	switch(chamber_shape)
 		if(CHAMBER_LONG) //Easy enough, place a single vent
-			pipe_creation_helper(/obj/machinery/atmospherics/unary/vent_pump/high_volume,
+			pipe_creation_helper(/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume,
 				below_T,
 				interior_direction)
 		if(CHAMBER_SQUARE) //We need a T-manifold and two vents for this
-			pipe_creation_helper(/obj/machinery/atmospherics/pipe/manifold/visible,
+			pipe_creation_helper(/obj/structure/machinery/atmospherics/pipe/manifold/visible,
 				below_T,
 				north_or_south_interior ? WEST : SOUTH,
 				NORTH | EAST | (north_or_south_interior ? SOUTH : WEST))
-			pipe_creation_helper(/obj/machinery/atmospherics/unary/vent_pump/high_volume, get_step(below_T, opposite_interior_direction), interior_direction)
-			pipe_creation_helper(/obj/machinery/atmospherics/unary/vent_pump/high_volume, north_or_south_interior ? EAST_OF_TURF(below_T) : NORTH_OF_TURF(below_T), turn(interior_direction, interior_direction == SOUTH || interior_direction == EAST ? -90 : 90))
+			pipe_creation_helper(/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume, get_step(below_T, opposite_interior_direction), interior_direction)
+			pipe_creation_helper(/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume, north_or_south_interior ? EAST_OF_TURF(below_T) : NORTH_OF_TURF(below_T), turn(interior_direction, interior_direction == SOUTH || interior_direction == EAST ? -90 : 90))
 		if(CHAMBER_BIGGER) //We need a central column of manifolds and a vent either side of each manifold
 			var/depth = north_or_south_interior ? tiles_in_y_direction : tiles_in_x_direction
 			var/turf/put_thing_here = below_T
 			for(var/i in 1 to depth)
 				if(i != depth)//We're placing more pipe later, so we need a 4-way manifold
-					pipe_creation_helper(/obj/machinery/atmospherics/pipe/manifold4w/visible, put_thing_here, interior_direction, NORTH | EAST | SOUTH | WEST)
+					pipe_creation_helper(/obj/structure/machinery/atmospherics/pipe/manifold4w/visible, put_thing_here, interior_direction, NORTH | EAST | SOUTH | WEST)
 				else //We stop here, so place a T-manifold down
-					pipe_creation_helper(/obj/machinery/atmospherics/pipe/manifold/visible,
+					pipe_creation_helper(/obj/structure/machinery/atmospherics/pipe/manifold/visible,
 						put_thing_here,
 						opposite_interior_direction,
 						interior_direction_cw | interior_direction | interior_direction_ccw)
-				pipe_creation_helper(/obj/machinery/atmospherics/unary/vent_pump/high_volume,
+				pipe_creation_helper(/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume,
 					get_step(put_thing_here, interior_direction_cw),
 					interior_direction_ccw)
-				pipe_creation_helper(/obj/machinery/atmospherics/unary/vent_pump/high_volume,
+				pipe_creation_helper(/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume,
 					get_step(put_thing_here, interior_direction_ccw),
 					interior_direction_cw)
 				put_thing_here = get_step(put_thing_here, opposite_interior_direction) //Now move the turf we're generating stuff from 1 forward
 
 /obj/effect/map_effect/airlock/proc/pipe_creation_helper(path, location, direction, initialization_directions) //Create some kind of atmospherics machinery and initialize it properly
-	var/obj/machinery/atmospherics/A = new path(location)
+	var/obj/structure/machinery/atmospherics/A = new path(location)
 	A.dir = direction
 	A.initialize_directions = initialization_directions ? initialization_directions : A.dir
-	if(istype(A, /obj/machinery/atmospherics/unary/vent_pump/high_volume))
-		var/obj/machinery/atmospherics/unary/vent_pump/high_volume/created_pump = A
+	if(istype(A, /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume))
+		var/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/created_pump = A
 		created_pump.id_tag = AIRPUMP_TAG
 		created_pump.frequency = radio_frequency
 		unregister_radio(created_pump, radio_frequency)
@@ -307,7 +307,7 @@ This spawner places pipe leading up to the interior door, you will need to finis
 	required_access = list(ACCESS_ENGINE)
 	door_name = "engine external access"
 	icon_state = "2x2_N_to_S_leftdoors"
-	door_type = /obj/machinery/door/airlock/external
+	door_type = /obj/structure/machinery/door/airlock/external
 	one_door_interior = DOOR_NORMAL_PLACEMENT
 	one_door_exterior = DOOR_NORMAL_PLACEMENT
 /obj/effect/map_effect/airlock/long/square/engine/reversed
@@ -325,7 +325,7 @@ This spawner places pipe leading up to the interior door, you will need to finis
 /obj/effect/map_effect/airlock/long/square/e_to_s/telecoms
 	door_name = "telecoms external access"
 	required_access = list(ACCESS_TCOMSAT, ACCESS_EXTERNAL_AIRLOCKS)
-	door_type = /obj/machinery/door/airlock/external
+	door_type = /obj/structure/machinery/door/airlock/external
 
 /obj/effect/map_effect/airlock/long/square/three/syndicate
 	name = "3 by 3 square airlock spawner (interior west, exterior north)"
@@ -334,7 +334,7 @@ This spawner places pipe leading up to the interior door, you will need to finis
 	exterior_direction = NORTH
 	door_name = "ship external access"
 	req_access = list(ACCESS_SYNDICATE)
-	door_type = /obj/machinery/door/airlock/external
+	door_type = /obj/structure/machinery/door/airlock/external
 
 #undef HALF_X
 #undef HALF_Y

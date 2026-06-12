@@ -48,7 +48,7 @@
 /obj/effect/floor_decal/corner/purple{
 	dir = 9
 	},
-/obj/machinery/chemical_dispenser/full,
+/obj/structure/machinery/chemical_dispenser/full,
 /turf/simulated/floor/exoplanet/tiled/white,
 /area/ouerea_skrell)
 "eA" = (
@@ -67,18 +67,18 @@
 /obj/structure/sign/flag/nralakk/large/south{
 	pixel_y = -32
 	},
-/obj/machinery/appliance/cooker/oven,
+/obj/structure/machinery/appliance/cooker/oven,
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/ouerea_skrell)
 "fK" = (
-/obj/machinery/appliance/cooker/stove,
+/obj/structure/machinery/appliance/cooker/stove,
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/ouerea_skrell)
 "fL" = (
 /obj/effect/floor_decal/corner/purple{
 	dir = 10
 	},
-/obj/machinery/light/skrell,
+/obj/structure/machinery/light/skrell,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
@@ -127,7 +127,7 @@
 /turf/simulated/wall/shuttle/skrell,
 /area/ouerea_skrell)
 "iH" = (
-/obj/machinery/bodyscanner{
+/obj/structure/machinery/bodyscanner{
 	dir = 4
 	},
 /obj/effect/floor_decal/spline/plain/cee/yellow{
@@ -142,7 +142,7 @@
 /turf/simulated/floor/exoplanet/tiled/white,
 /area/ouerea_skrell)
 "jQ" = (
-/obj/machinery/light/skrell,
+/obj/structure/machinery/light/skrell,
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/ouerea_skrell)
 "kD" = (
@@ -150,7 +150,7 @@
 /area/ouerea_skrell)
 "kM" = (
 /obj/item/material/stool/hover,
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -179,7 +179,7 @@
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/ouerea_skrell)
 "mv" = (
-/obj/machinery/door/airlock/skrell{
+/obj/structure/machinery/door/airlock/skrell{
 	name = "Laboratory";
 	dir = 4
 	},
@@ -215,7 +215,7 @@
 /obj/effect/floor_decal/corner/purple{
 	dir = 6
 	},
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/tiled/white,
@@ -261,7 +261,7 @@
 /turf/simulated/floor/exoplanet/tiled/white,
 /area/ouerea_skrell)
 "pY" = (
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 4
 	},
 /obj/effect/floor_decal/spline/plain/white{
@@ -294,13 +294,13 @@
 /obj/effect/floor_decal/corner/lime{
 	dir = 9
 	},
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/tiled/white,
 /area/ouerea_skrell)
 "tv" = (
-/obj/machinery/door/airlock/skrell{
+/obj/structure/machinery/door/airlock/skrell{
 	name = "Medbay";
 	dir = 4
 	},
@@ -319,7 +319,7 @@
 /turf/simulated/floor/exoplanet/tiled/white,
 /area/ouerea_skrell)
 "vt" = (
-/obj/machinery/body_scanconsole{
+/obj/structure/machinery/body_scanconsole{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/lime{
@@ -328,7 +328,7 @@
 /turf/simulated/floor/exoplanet/tiled/white,
 /area/ouerea_skrell)
 "wo" = (
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 1
 	},
 /obj/item/trash/broken_electronics,
@@ -336,7 +336,7 @@
 /area/ouerea_skrell)
 "wW" = (
 /obj/structure/table/skrell,
-/obj/machinery/door/window/brigdoor{
+/obj/structure/machinery/door/window/brigdoor{
 	req_access = null;
 	dir = 4
 	},
@@ -344,7 +344,7 @@
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/ouerea_skrell)
 "xj" = (
-/obj/machinery/door/airlock/skrell{
+/obj/structure/machinery/door/airlock/skrell{
 	name = "Mess Hall"
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
@@ -356,7 +356,7 @@
 /obj/effect/floor_decal/corner/purple{
 	dir = 5
 	},
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/tiled/white,
@@ -395,7 +395,7 @@
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/ouerea_skrell)
 "zH" = (
-/obj/machinery/door/airlock/skrell{
+/obj/structure/machinery/door/airlock/skrell{
 	name = "Checkpoint"
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
@@ -406,7 +406,7 @@
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/ouerea_skrell)
 "AT" = (
-/obj/machinery/door/blast/shutters{
+/obj/structure/machinery/door/blast/shutters{
 	id = "skrentry"
 	},
 /turf/simulated/floor/shuttle/skrell,
@@ -425,11 +425,11 @@
 	},
 /area/ouerea_skrell)
 "Cb" = (
-/obj/machinery/photocopier,
+/obj/structure/machinery/photocopier,
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/ouerea_skrell)
 "Cj" = (
-/obj/machinery/door/blast/shutters{
+/obj/structure/machinery/door/blast/shutters{
 	id = "skrentry"
 	},
 /turf/simulated/floor/exoplanet/grass{
@@ -456,7 +456,7 @@
 /obj/structure/sign/flag/nralakk/large/west{
 	pixel_x = -32
 	},
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 8
 	},
 /obj/structure/curtain/open/privacy,
@@ -482,7 +482,7 @@
 /turf/simulated/floor/shuttle/skrell/ramp/top,
 /area/ouerea_skrell)
 "EI" = (
-/obj/machinery/door/airlock/skrell{
+/obj/structure/machinery/door/airlock/skrell{
 	name = "Command"
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
@@ -508,7 +508,7 @@
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/ouerea_skrell)
 "Fr" = (
-/obj/machinery/light/skrell,
+/obj/structure/machinery/light/skrell,
 /obj/structure/table/skrell,
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/ouerea_skrell)
@@ -556,13 +556,13 @@
 /area/ouerea_skrell)
 "Ip" = (
 /obj/structure/table/skrell,
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/ouerea_skrell)
 "Iw" = (
-/obj/machinery/door/airlock/skrell{
+/obj/structure/machinery/door/airlock/skrell{
 	name = "Medbay and Laboratory"
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
@@ -594,10 +594,10 @@
 /turf/simulated/floor/exoplanet/tiled/white,
 /area/ouerea_skrell)
 "ME" = (
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 8
 	},
-/obj/machinery/sleeper{
+/obj/structure/machinery/sleeper{
 	dir = 4
 	},
 /obj/effect/floor_decal/spline/plain/cee/yellow,
@@ -616,7 +616,7 @@
 	dir = 4
 	},
 /obj/item/folder/purple,
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	dir = 8;
 	pixel_x = -20;
 	id = "skrentry";
@@ -649,7 +649,7 @@
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/ouerea_skrell)
 "NM" = (
-/obj/machinery/optable,
+/obj/structure/machinery/optable,
 /obj/effect/floor_decal/corner/lime{
 	dir = 10
 	},
@@ -665,16 +665,16 @@
 /obj/effect/floor_decal/corner/purple{
 	dir = 9
 	},
-/obj/machinery/chem_master,
+/obj/structure/machinery/chem_master,
 /turf/simulated/floor/exoplanet/tiled/white,
 /area/ouerea_skrell)
 "QC" = (
 /obj/item/reagent_containers/blood/ripped,
-/obj/machinery/iv_drip,
+/obj/structure/machinery/iv_drip,
 /turf/simulated/floor/exoplanet/tiled/white,
 /area/ouerea_skrell)
 "QN" = (
-/obj/machinery/door/airlock/skrell{
+/obj/structure/machinery/door/airlock/skrell{
 	name = "Living Quarters"
 	},
 /turf/simulated/floor/shuttle/skrell,
@@ -701,7 +701,7 @@
 /turf/simulated/floor/shuttle/skrell,
 /area/ouerea_skrell)
 "Sg" = (
-/obj/machinery/photocopier/faxmachine{
+/obj/structure/machinery/photocopier/faxmachine{
 	req_one_access = null;
 	department = "Unknown - Oueran Surface"
 	},
@@ -716,7 +716,7 @@
 /area/ouerea_skrell)
 "SP" = (
 /obj/structure/table/skrell,
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 8
 	},
 /obj/item/toy/waterballoon,
@@ -729,7 +729,7 @@
 	},
 /area/ouerea_skrell)
 "Tm" = (
-/obj/machinery/door/airlock/skrell{
+/obj/structure/machinery/door/airlock/skrell{
 	name = "Security Equipment";
 	dir = 4
 	},
@@ -741,7 +741,7 @@
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/ouerea_skrell)
 "Uc" = (
-/obj/machinery/clonepod,
+/obj/structure/machinery/clonepod,
 /obj/effect/floor_decal/corner/purple{
 	dir = 6
 	},
@@ -771,7 +771,7 @@
 	pixel_y = 32
 	},
 /obj/structure/table/skrell,
-/obj/machinery/door/window/brigdoor{
+/obj/structure/machinery/door/window/brigdoor{
 	req_access = null;
 	dir = 4
 	},
@@ -783,7 +783,7 @@
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/ouerea_skrell)
 "VP" = (
-/obj/machinery/door/window{
+/obj/structure/machinery/door/window{
 	dir = 1;
 	name = "Live Specimen Containment"
 	},
@@ -805,7 +805,7 @@
 /turf/simulated/floor/exoplanet/tiled/white,
 /area/ouerea_skrell)
 "WD" = (
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 8
 	},
 /obj/effect/floor_decal/spline/plain/white{
@@ -814,12 +814,12 @@
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/ouerea_skrell)
 "WE" = (
-/obj/machinery/hologram/holopad,
+/obj/structure/machinery/hologram/holopad,
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/ouerea_skrell)
 "WQ" = (
 /obj/structure/closet/skrell,
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 1
 	},
 /obj/item/storage/box/handcuffs,
@@ -829,19 +829,19 @@
 /area/ouerea_skrell)
 "WZ" = (
 /obj/item/material/stool/hover,
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/ouerea_skrell)
 "Yk" = (
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/ouerea_skrell)
 "Ze" = (
-/obj/machinery/clonepod,
+/obj/structure/machinery/clonepod,
 /obj/effect/floor_decal/corner/purple{
 	dir = 5
 	},

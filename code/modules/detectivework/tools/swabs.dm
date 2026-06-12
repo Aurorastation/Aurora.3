@@ -90,7 +90,7 @@
 
 /obj/item/forensics/swab/afterattack(var/atom/A, var/mob/user, var/proximity)
 
-	if(!proximity || istype(A, /obj/item/forensics/slide) || istype(A, /obj/machinery/dnaforensics) || ismob(A) || istype(A, /obj/structure/filingcabinet))
+	if(!proximity || istype(A, /obj/item/forensics/slide) || istype(A, /obj/structure/machinery/dnaforensics) || ismob(A) || istype(A, /obj/structure/filingcabinet))
 		return
 
 	if(is_used())

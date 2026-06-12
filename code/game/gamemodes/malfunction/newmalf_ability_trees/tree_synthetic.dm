@@ -105,7 +105,7 @@
 
 		user.hacking = 0
 
-/datum/game_mode/malfunction/verb/infect_apc(obj/machinery/power/apc/A as obj in get_apcs())
+/datum/game_mode/malfunction/verb/infect_apc(obj/structure/machinery/power/apc/A as obj in get_apcs())
 	set name = "Infect APC"
 	set desc = "125 CPU - Infect an APC which can cause an IPC to become slaved to you if they download the files by trying to charge off of it. "
 	set category = "Software"
@@ -371,7 +371,7 @@
 	GLOB.ntnet_global.intrusion_detection_alarm = 1
 	GLOB.ntnet_global.add_log("IDS WARNING - Excess traffic flood targeting NTNet relays detected from @!*x&!#*ERS*")
 	//lower the dos capacity of the relay
-	for(var/obj/machinery/ntnet_relay/T in SSmachinery.processing)
+	for(var/obj/structure/machinery/ntnet_relay/T in SSmachinery.processing)
 		T.dos_capacity = 200
 	//And give all computers EMAGGED status so they can all have evil programs on them
 	for(var/obj/item/modular_computer/console/C in SSmachinery.processing)

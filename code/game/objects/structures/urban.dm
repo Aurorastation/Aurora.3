@@ -1048,7 +1048,7 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
  *
  * If `support_ids` is TRUE and a door is opened using an ID, it will not become a public door
  */
-/obj/machinery/door/urban
+/obj/structure/machinery/door/urban
 	name = "wooden panel door"
 	desc = "A delicate wooden door with a pristine bronze knob."
 	icon = 'icons/obj/structure/urban/unique_simple_doors.dmi'
@@ -1069,14 +1069,14 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 	///Stores the previous list of req_access, that gets readded when the door is locked with the key
 	var/list/previous_req_access = list()
 
-/obj/machinery/door/urban/update_icon()
+/obj/structure/machinery/door/urban/update_icon()
 	if(density)
 		icon_state = "[base_icon]_closed"
 	else
 		icon_state = "[base_icon]_open"
 	return
 
-/obj/machinery/door/urban/do_animate(animation)
+/obj/structure/machinery/door/urban/do_animate(animation)
 	switch(animation)
 		if("opening")
 
@@ -1101,7 +1101,7 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 				flick("[base_icon]c1", src)
 	return
 
-/obj/machinery/door/urban/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/door/urban/attackby(obj/item/attacking_item, mob/user)
 
 	if(istype(attacking_item, /obj/item/key/door_key))
 
@@ -1152,7 +1152,7 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 
 		. = ..()
 
-/obj/machinery/door/urban/allowed(mob/M)
+/obj/structure/machinery/door/urban/allowed(mob/M)
 	var/parent_allowed = ..()
 
 	//If we support IDs, or we are a public door, return the result of the parent, otherwise we're locked
@@ -1161,7 +1161,7 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 	else
 		return FALSE //Keys only
 
-/obj/machinery/door/urban/glass_sliding
+/obj/structure/machinery/door/urban/glass_sliding
 	name = "sliding glass door"
 	desc = "An electronic sliding glass door, often seen in cities."
 	icon_state = "glass_sliding_closed"
@@ -1171,7 +1171,7 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 	glass = TRUE
 	opacity = FALSE //otherwise it is opaque until opened/closed for the first time.
 
-/obj/machinery/door/urban/glass_sliding/double //use north state for left side and south state for right side
+/obj/structure/machinery/door/urban/glass_sliding/double //use north state for left side and south state for right side
 	icon_state = "double_glass_sliding_closed"
 	base_icon = "double_glass_sliding"
 
@@ -1180,7 +1180,7 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
  *
  * A key that opens a door, you probably use this everyday
  *
- * Locks and unlocks doors of type [/obj/machinery/door/urban]
+ * Locks and unlocks doors of type [/obj/structure/machinery/door/urban]
  *
  * Set in `access_list` a list of IDs that the key has, which in turn determine which doors it can open, based on
  * `req_one_access` and `req_access` logic

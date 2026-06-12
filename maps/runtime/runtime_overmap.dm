@@ -23,7 +23,7 @@
 	fore_dir = WEST
 	vessel_size = SHIP_SIZE_SMALL
 
-/obj/machinery/computer/shuttle_control/explore/terminal/runtime
+/obj/structure/machinery/computer/shuttle_control/explore/terminal/runtime
 	name = "whiletrue control console"
 	shuttle_tag = "WhileTrue"
 

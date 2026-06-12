@@ -26,7 +26,7 @@
 
 	//Cycle through the pistons and get their status
 	var/i = 1
-	for(var/obj/machinery/crusher_base/pstn in pistons)
+	for(var/obj/structure/machinery/crusher_base/pstn in pistons)
 		var/num_progress = pstn.get_num_progress()
 		var/is_blocked = pstn.is_blocked()
 		var/action = pstn.get_action()
@@ -56,11 +56,11 @@
 	switch(action)
 		if("initialize")
 			pistons = list()
-			for(var/obj/machinery/crusher_base/pstn in orange(10, ui_host()))
+			for(var/obj/structure/machinery/crusher_base/pstn in orange(10, ui_host()))
 				pistons += pstn
 
 			airlocks = list()
-			for(var/obj/machinery/door/airlock/arlk in orange(10, ui_host()))
+			for(var/obj/structure/machinery/door/airlock/arlk in orange(10, ui_host()))
 				if(arlk.id_tag != "compactor_access")
 					continue
 				airlocks += arlk
@@ -96,7 +96,7 @@
 
 /datum/computer_file/program/crushercontrol/proc/airlock_open()
 	for(var/thing in airlocks)
-		var/obj/machinery/door/airlock/arlk = thing
+		var/obj/structure/machinery/door/airlock/arlk = thing
 		if(!arlk.cur_command)
 			// Not using do_command so that the command queuer works.
 			arlk.cur_command = "secure_open"
@@ -104,15 +104,15 @@
 
 /datum/computer_file/program/crushercontrol/proc/airlock_close()
 	for(var/thing in airlocks)
-		var/obj/machinery/door/airlock/arlk = thing
+		var/obj/structure/machinery/door/airlock/arlk = thing
 		if(!arlk.cur_command)
 			arlk.cur_command = "secure_close"
 			arlk.execute_current_command()
 
 /datum/computer_file/program/crushercontrol/proc/crush_start()
-	for(var/obj/machinery/crusher_base/pstn in pistons)
+	for(var/obj/structure/machinery/crusher_base/pstn in pistons)
 		pstn.crush_start()
 
 /datum/computer_file/program/crushercontrol/proc/crush_stop()
-	for(var/obj/machinery/crusher_base/pstn in pistons)
+	for(var/obj/structure/machinery/crusher_base/pstn in pistons)
 		pstn.crush_abort()

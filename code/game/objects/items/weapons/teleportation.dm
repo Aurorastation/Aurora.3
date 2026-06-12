@@ -11,7 +11,7 @@
  */
 /proc/check_inhibitors(var/turf/T)
 	for(var/found_inhibitor in GLOB.bluespace_inhibitors)
-		var/obj/machinery/anti_bluespace/AB = found_inhibitor
+		var/obj/structure/machinery/anti_bluespace/AB = found_inhibitor
 		if(T.z != AB.z || get_dist(T, AB) > 8 || (AB.stat & (NOPOWER | BROKEN)))
 			continue
 		else
@@ -152,7 +152,7 @@ Frequency:
 	origin_tech = list(TECH_MAGNET = 1, TECH_BLUESPACE = 3)
 	matter = list(DEFAULT_WALL_MATERIAL = 10000)
 
-	var/obj/machinery/teleport/pad/linked_pad
+	var/obj/structure/machinery/teleport/pad/linked_pad
 	var/list/active_teleporters
 
 	var/max_portals = 2
@@ -237,7 +237,7 @@ Frequency:
 	if(user == loc)
 		var/turf/current_location = get_turf(src)
 		var/list/teleport_options = list()
-		for(var/obj/machinery/teleport/pad/P in SSmachinery.machinery)
+		for(var/obj/structure/machinery/teleport/pad/P in SSmachinery.machinery)
 			if(AreConnectedZLevels(current_location.z, P.z))
 				var/area/A = get_area(P)
 				var/display_name = get_area_display_name(A)

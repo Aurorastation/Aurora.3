@@ -15,7 +15,7 @@
 	var/frequency = 1457
 	var/delay = 0
 	var/airlock_wire
-	var/obj/machinery/machine
+	var/obj/structure/machinery/machine
 	var/datum/wires/connected
 	var/datum/radio_frequency/radio_connection
 	var/deadman = FALSE

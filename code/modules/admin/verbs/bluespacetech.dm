@@ -127,6 +127,10 @@
 
 	feedback_add_details("admin_verb","BST")
 
+	// Load all skills as max for a bst
+	for (var/singleton/skill/skill as anything in SSskills.all_skills)
+		skill.on_spawn(bst, skill.maximum_level)
+
 	return 1
 
 /client/proc/bst_post_spawn(mob/living/carbon/human/bst/bst)
@@ -141,7 +145,7 @@
 	var/datum/weakref/original_mob
 
 /mob/living/carbon/human/bst/Destroy(force)
-	original_mob = null
+	QDEL_NULL(original_mob)
 	return ..()
 
 /mob/living/carbon/human/bst/can_inject(var/mob/user, var/error_msg, var/target_zone)

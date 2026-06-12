@@ -50,6 +50,8 @@
 			turfs += T
 	if(turfs.len)
 		return pick(turfs)
+	else
+		return null
 
 ///Returns a turf based on text inputs, original turf and viewing client
 /proc/parse_caught_click_modifiers(list/modifiers, turf/origin, client/viewing_client)

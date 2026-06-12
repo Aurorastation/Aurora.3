@@ -111,9 +111,9 @@ Pins Below.
 
 // Test pin, works only near firing ranges.
 /obj/item/firing_pin/test_range
-	name = "test-range firing pin"
-	desc = "This safety firing pin allows weapons to be fired within proximity to a firing range."
-	fail_message = SPAN_WARNING("TEST RANGE CHECK FAILED.")
+	name = "research firing pin"
+	desc = "This safety firing pin allows weapons to be fired within the research department or a firing range."
+	fail_message = SPAN_WARNING("AREA CHECK FAILED.")
 	pin_replaceable = 1
 	durable = TRUE
 	origin_tech = list(TECH_MATERIAL = 2, TECH_COMBAT = 2)
@@ -246,7 +246,7 @@ Pins Below.
 	req_access = list(ACCESS_WEAPONS)
 
 /obj/item/firing_pin/access/pin_auth(mob/living/user)
-	return !allowed(user)
+	return allowed(user)
 
 /obj/item/firing_pin/away_site
 	name = "away site firing pin"

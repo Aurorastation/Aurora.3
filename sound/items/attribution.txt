@@ -1,0 +1,28 @@
+shotgun_pickup1.ogg - https://freesound.org/people/PNMCarrieRailfan/sounds/681692/ , License: CC BY-NC 4.0
+shotgun_drop1.ogg - https://freesound.org/people/PNMCarrieRailfan/sounds/681690/ , License: CC BY-NC 4.0
+pistol_pickup1.ogg - https://freesound.org/people/PNMCarrieRailfan/sounds/682043/ , License: CC BY-NC 4.0
+pistol_drop1.ogg - https://freesound.org/people/PNMCarrieRailfan/sounds/682043/ , License: CC BY-NC 4.0
+rifle_pickup.ogg - https://freesound.org/people/the_Carlos/sounds/706972/ , License: CC BY 4.0
+rifle_drop1.ogg - https://freesound.org/people/the_Carlos/sounds/706972/ , License: CC BY 4.0
+smg_drop1.ogg - https://freesound.org/people/hyperix6/sounds/676588/ , License: CC0
+smg_pickup1.ogg - https://freesound.org/people/hyperix6/sounds/676588/ , License: CC0
+magazine_pickup1.ogg - https://freesound.org/people/PNMCarrieRailfan/sounds/681511/ , License: CC BY-NC 4.0
+magazine_drop1.ogg - https://freesound.org/people/PNMCarrieRailfan/sounds/681511/ , License: CC BY-NC 4.0
+
+visor_up and visor_down are:
+Bike helmet visor.wav by Didi0508 -- https://freesound.org/s/541921/ -- License: Attribution NonCommercial 4.0
+
+helmet drop and equip:
+helmet motorbike put on a head by cupido-1 -- https://freesound.org/s/614199/ -- License: Creative Commons 0
+
+helmet pickup:
+helmet_grabbing_and_handling_sound by Artninja -- https://freesound.org/s/725314/ -- License: Attribution 4.0
+
+id_card handling sounds made by sadboysuss
+license: CC-BY-SA
+
+
+
+
+
+

@@ -1,6 +1,6 @@
 GLOBAL_LIST_INIT(ventcrawl_machinery, list(
-	/obj/machinery/atmospherics/unary/vent_pump,
-	/obj/machinery/atmospherics/unary/vent_scrubber
+	/obj/structure/machinery/atmospherics/unary/vent_pump,
+	/obj/structure/machinery/atmospherics/unary/vent_scrubber
 	))
 
 /// Vent crawling whitelisted items, whoo
@@ -9,7 +9,7 @@ GLOBAL_LIST_INIT(can_enter_vent_with, list(
 	/obj/item/implant,
 	/obj/item/radio/borg,
 	/obj/item/holder,
-	/obj/machinery/camera,
+	/obj/structure/machinery/camera,
 	/mob/living/simple_animal/borer,
 	/mob/living/simple_animal/rat,
 	/mob/living/carbon/human
@@ -58,7 +58,7 @@ GLOBAL_LIST_INIT(can_enter_vent_with, list(
 /mob/living/simple_animal/hostile/morph/ventcrawl_carry()
 	return TRUE
 
-/obj/machinery/atmospherics/AltClick(mob/living/user)
+/obj/structure/machinery/atmospherics/AltClick(mob/living/user)
 	if(is_type_in_list(src, GLOB.ventcrawl_machinery) && user.can_ventcrawl())
 		user.handle_ventcrawl(src)
 		return 1
@@ -70,7 +70,7 @@ GLOBAL_LIST_INIT(can_enter_vent_with, list(
 /mob/proc/start_ventcrawl()
 	var/atom/pipe
 	var/list/pipes = list()
-	for(var/obj/machinery/atmospherics/unary/U in range(1))
+	for(var/obj/structure/machinery/atmospherics/unary/U in range(1))
 		if(is_type_in_list(U,GLOB.ventcrawl_machinery) && Adjacent(U))
 			pipes |= U
 	if(!pipes || !pipes.len)
@@ -129,7 +129,7 @@ GLOBAL_LIST_INIT(can_enter_vent_with, list(
 	if(!stat)
 		if(!lying)
 
-			var/obj/machinery/atmospherics/unary/vent_found
+			var/obj/structure/machinery/atmospherics/unary/vent_found
 
 			if(clicked_on)
 				if (Adjacent(clicked_on))
@@ -141,7 +141,7 @@ GLOBAL_LIST_INIT(can_enter_vent_with, list(
 					return
 
 			if(!vent_found && isnull(clicked_on))
-				for(var/obj/machinery/atmospherics/machine in range(1,src))
+				for(var/obj/structure/machinery/atmospherics/machine in range(1,src))
 					if(is_type_in_list(machine, GLOB.ventcrawl_machinery))
 						vent_found = machine
 
@@ -212,21 +212,21 @@ GLOBAL_LIST_INIT(can_enter_vent_with, list(
 		to_chat(src, SPAN_NOTICE("You must be conscious to do this!"))
 	return
 
-/mob/living/proc/add_ventcrawl(obj/machinery/atmospherics/starting_machine)
+/mob/living/proc/add_ventcrawl(obj/structure/machinery/atmospherics/starting_machine)
 	is_ventcrawling = 1
 	//candrop = 0
 	var/datum/pipe_network/network = starting_machine.return_network(starting_machine)
 	if(!network)
 		return
 	for(var/datum/pipeline/pipeline in network.line_members)
-		for(var/obj/machinery/atmospherics/A in (pipeline.members || pipeline.edges)) // Adds pipe and manifold images
+		for(var/obj/structure/machinery/atmospherics/A in (pipeline.members || pipeline.edges)) // Adds pipe and manifold images
 			if(!A.pipe_image)
 				A.pipe_image = image(A, A.loc, dir = A.dir)
 				A.pipe_image.plane = ABOVE_LIGHTING_PLANE
 			pipes_shown += A.pipe_image
 			client.images += A.pipe_image
-	for (var/obj/machinery/atmospherics/V in network.normal_members) // Adds vent and scrubber images
-		if (!V.pipe_image || istype(V, /obj/machinery/atmospherics/unary/vent_pump/))
+	for (var/obj/structure/machinery/atmospherics/V in network.normal_members) // Adds vent and scrubber images
+		if (!V.pipe_image || istype(V, /obj/structure/machinery/atmospherics/unary/vent_pump/))
 			V.pipe_image = image(V, V.loc, dir = V.dir)
 			V.pipe_image.plane = ABOVE_LIGHTING_PLANE
 		pipes_shown += V.pipe_image

@@ -28,7 +28,7 @@
 	if(count_drones() >= GLOB.config.max_maint_drones)
 		return "The maximum number of active drones has been reached"
 	var/has_active_fabricator = FALSE
-	for(var/obj/machinery/drone_fabricator/DF in SSmachinery.machinery)
+	for(var/obj/structure/machinery/drone_fabricator/DF in SSmachinery.machinery)
 		if((DF.stat & NOPOWER) || !DF.produce_drones || DF.drone_progress < 100)
 			continue
 		has_active_fabricator = TRUE
@@ -38,9 +38,9 @@
 
 //The proc to actually spawn in the user
 /datum/ghostspawner/simplemob/maintdrone/spawn_mob(mob/user)
-	var/obj/machinery/drone_fabricator/fabricator
+	var/obj/structure/machinery/drone_fabricator/fabricator
 	var/list/all_fabricators = list()
-	for(var/obj/machinery/drone_fabricator/DF in SSmachinery.machinery)
+	for(var/obj/structure/machinery/drone_fabricator/DF in SSmachinery.machinery)
 		if((DF.stat & NOPOWER) || !DF.produce_drones || DF.drone_progress < 100)
 			continue
 		all_fabricators[DF.fabricator_tag] = DF
@@ -67,7 +67,7 @@
 
 	return fabricator.create_drone(user.client, drone_tag)
 
-/datum/ghostspawner/simplemob/maintdrone/proc/fabricator_check(var/obj/machinery/drone_fabricator/fabricator, var/mob/user)
+/datum/ghostspawner/simplemob/maintdrone/proc/fabricator_check(var/obj/structure/machinery/drone_fabricator/fabricator, var/mob/user)
 	if(!fabricator)
 		to_chat(user, SPAN_WARNING("Something has gone wrong and the fabricator couldn't be found! Make a github issue about this."))
 		return FALSE

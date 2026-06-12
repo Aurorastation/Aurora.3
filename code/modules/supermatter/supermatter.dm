@@ -44,7 +44,7 @@
 
 #define LIGHT_POWER_CALC (max(power / 50, 1))
 
-/obj/machinery/power/supermatter
+/obj/structure/machinery/power/supermatter
 	name = "supermatter crystal"
 	desc = "A strangely translucent and iridescent crystal. <span class='warning'>You get headaches just from looking at it.</span>"
 	icon = 'icons/obj/supermatter.dmi'
@@ -114,7 +114,7 @@
 	/// cooldown tracker for accent sounds,
 	var/last_accent_sound = 0
 
-/obj/machinery/power/supermatter/mechanics_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/power/supermatter/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "When energized by a laser (or something hitting it), it emits radiation and heat. If the heat reaches above 7000 kelvin, it will send an alert and start taking damage."
 	. += "After integrity falls to zero percent, it will delaminate, causing a massive explosion, station-wide radiation spikes, and hallucinations."
@@ -122,21 +122,21 @@
 	. += "Supermatter cores are extremely dangerous to be close to, and requires protection to handle properly. Safety goggles and full rad suits are needed to protect against both hallucinations and radiation."
 	. += "Touching the supermatter will result in *instant death*, with no corpse left behind! You can drag the supermatter, but anything else will kill you."
 
-/obj/machinery/power/supermatter/antagonist_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/power/supermatter/antagonist_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Always ahelp before sabotaging the supermatter, as it can potentially ruin the round."
 
-/obj/machinery/power/supermatter/Initialize()
+/obj/structure/machinery/power/supermatter/Initialize()
 	. = ..()
 	radio = new /obj/item/radio{channels=list("Engineering")}(src)
 	soundloop = new(src, TRUE)
 
-/obj/machinery/power/supermatter/Destroy()
+/obj/structure/machinery/power/supermatter/Destroy()
 	QDEL_NULL(radio)
 	QDEL_NULL(soundloop)
 	. = ..()
 
-/obj/machinery/power/supermatter/proc/explode()
+/obj/structure/machinery/power/supermatter/proc/explode()
 	message_admins("Supermatter exploded at ([x],[y],[z] - <A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)",0,1)
 	log_game("Supermatter exploded at ([x],[y],[z])")
 	anchored = TRUE
@@ -157,20 +157,20 @@
 		return
 
 //Changes color and luminosity of the light to these values if they were not already set
-/obj/machinery/power/supermatter/proc/shift_light(var/lum, var/clr)
+/obj/structure/machinery/power/supermatter/proc/shift_light(var/lum, var/clr)
 	if(lum != light_range || abs(power - last_power) > 10 || clr != light_color)
 		set_light(lum, LIGHT_POWER_CALC, clr)
 		last_power = power
 
 
-/obj/machinery/power/supermatter/proc/get_integrity()
+/obj/structure/machinery/power/supermatter/proc/get_integrity()
 	var/integrity = damage / explosion_point
 	integrity = round(100 - integrity * 100)
 	integrity = integrity < 0 ? 0 : integrity
 	return integrity
 
 
-/obj/machinery/power/supermatter/proc/announce_warning()
+/obj/structure/machinery/power/supermatter/proc/announce_warning()
 	var/integrity = get_integrity()
 	var/alert_msg = " Integrity at [integrity]%"
 
@@ -203,7 +203,7 @@
 			public_alert = 0
 
 
-/obj/machinery/power/supermatter/get_transit_zlevel()
+/obj/structure/machinery/power/supermatter/get_transit_zlevel()
 	//don't send it back to the station -- most of the time
 	if(prob(99))
 		var/list/candidates = SSatlas.current_map.accessible_z_levels.Copy()
@@ -216,7 +216,7 @@
 
 	return ..()
 
-/obj/machinery/power/supermatter/process()
+/obj/structure/machinery/power/supermatter/process()
 	var/turf/L = loc
 
 	if(isnull(L))		// We have a null turf...something is wrong, stop processing this entity.
@@ -350,7 +350,7 @@
 	return 1
 
 
-/obj/machinery/power/supermatter/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+/obj/structure/machinery/power/supermatter/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
 	. = ..()
 	if(. != BULLET_ACT_HIT)
 		return .
@@ -368,19 +368,19 @@
 		damage += proj_damage * config_bullet_energy
 	return 0
 
-/obj/machinery/power/supermatter/attack_robot(mob/user as mob)
+/obj/structure/machinery/power/supermatter/attack_robot(mob/user as mob)
 	if(Adjacent(user))
 		return attack_hand(user)
 	else
 		ui_interact(user)
 	return
 
-/obj/machinery/power/supermatter/attack_ai(mob/user as mob)
+/obj/structure/machinery/power/supermatter/attack_ai(mob/user as mob)
 	if(!ai_can_interact(user))
 		return
 	ui_interact(user)
 
-/obj/machinery/power/supermatter/attack_hand(mob/user as mob)
+/obj/structure/machinery/power/supermatter/attack_hand(mob/user as mob)
 	user.visible_message(
 		SPAN_WARNING("\The [user] reaches out and touches \the [src], inducing a resonance. For a brief instant, [user.get_pronoun("his")] body glows brilliantly, then flashes into ash."),
 		SPAN_DANGER(FONT_LARGE("You reach out and touch \the [src]. Instantly, you feel a curious sensation as your body turns into new and exciting forms of plasma. That was not a wise decision.")),
@@ -389,7 +389,7 @@
 	Consume(user)
 
 // Only accessed by AIs or robots.
-/obj/machinery/power/supermatter/ui_data(mob/user)
+/obj/structure/machinery/power/supermatter/ui_data(mob/user)
 	var/list/data = list()
 	data["integrity_percentage"] = round(get_integrity())
 	var/datum/gas_mixture/env = null
@@ -400,13 +400,13 @@
 	data["detonating"] = grav_pulling
 	return data
 
-/obj/machinery/power/supermatter/ui_interact(mob/user, var/datum/tgui/ui)
+/obj/structure/machinery/power/supermatter/ui_interact(mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "Supermatter", "Supermatter Crystal", 500, 300)
 		ui.open()
 
-/obj/machinery/power/supermatter/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/power/supermatter/attackby(obj/item/attacking_item, mob/user)
 	var/mob/living/living_user = user
 	if(!istype(living_user))
 		return
@@ -422,7 +422,7 @@
 
 	living_user.apply_damage(150, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
 
-/obj/machinery/power/supermatter/CollidedWith(atom/bumped_atom)
+/obj/structure/machinery/power/supermatter/CollidedWith(atom/bumped_atom)
 	. = ..()
 
 	if(!bumped_atom.simulated)
@@ -445,7 +445,7 @@
 
 	Consume(bumped_atom)
 
-/obj/machinery/power/supermatter/proc/Consume(var/mob/living/user)
+/obj/structure/machinery/power/supermatter/proc/Consume(var/mob/living/user)
 	if(istype(user))
 		user.dust()
 		power += 200
@@ -464,20 +464,20 @@
 		to_chat(L, SPAN_WARNING("As \the [src] slowly stops resonating, you find your skin covered in new radiation burns."))
 	SSradiation.radiate(src, 500)
 
-/obj/machinery/power/supermatter/proc/supermatter_pull()
+/obj/structure/machinery/power/supermatter/proc/supermatter_pull()
 	//following is adapted from singulo code
 	// Let's just make this one loop.
 	for(var/atom/X in orange(pull_radius,src))
 		X.singularity_pull(src, STAGE_FIVE)
 		CHECK_TICK
 
-/obj/machinery/power/supermatter/GotoAirflowDest(n) //Supermatter not pushed around by airflow
+/obj/structure/machinery/power/supermatter/GotoAirflowDest(n) //Supermatter not pushed around by airflow
 	return
 
-/obj/machinery/power/supermatter/RepelAirflowDest(n)
+/obj/structure/machinery/power/supermatter/RepelAirflowDest(n)
 	return
 
-/obj/machinery/power/supermatter/shard //Small subtype, less efficient and more sensitive, but less boom.
+/obj/structure/machinery/power/supermatter/shard //Small subtype, less efficient and more sensitive, but less boom.
 	name = "Supermatter Shard"
 	desc = "A strangely translucent and iridescent crystal that looks like it used to be part of a larger structure. <span class='warning'>You get headaches just from looking at it.</span>"
 	icon_state = "darkmatter_shard"
@@ -493,7 +493,7 @@
 	pull_time = 45
 	explosion_power = 3
 
-/obj/machinery/power/supermatter/shard/announce_warning() //Shards don't get announcements
+/obj/structure/machinery/power/supermatter/shard/announce_warning() //Shards don't get announcements
 	return
 
 

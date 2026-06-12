@@ -237,13 +237,13 @@
 		for(var/turf/T in targetTurfs)
 			var/bad_turf = 0
 			for(var/obj/O in T)
-				if(O.density || istype(O, /obj/machinery/portable_atmospherics/hydroponics))
+				if(O.density || istype(O, /obj/structure/machinery/portable_atmospherics/hydroponics))
 					bad_turf = 1
 					break
 			if(bad_turf)
 				continue
 			if(prob(min(GET_SEED_TRAIT(seed, TRAIT_POTENCY), 50)))
-				new /obj/machinery/portable_atmospherics/hydroponics/soil/invisible(T,seed)
+				new /obj/structure/machinery/portable_atmospherics/hydroponics/soil/invisible(T,seed)
 				sporecount++
 			if(sporecount < max(1, round(GET_SEED_TRAIT(seed, TRAIT_POTENCY) / 20), 1))
 				break

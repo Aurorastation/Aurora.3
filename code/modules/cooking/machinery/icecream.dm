@@ -9,7 +9,7 @@
 
 // Ported wholesale from Apollo Station.
 
-/obj/machinery/icecream_vat
+/obj/structure/machinery/icecream_vat
 	name = "icecream vat"
 	desc = "Ding-aling ding dong. Get your corporate-approved ice cream!"
 	icon = 'icons/obj/machinery/cooking_machines.dmi'
@@ -29,7 +29,7 @@
 		/singleton/reagent/drink/ice = 5
 	)
 
-/obj/machinery/icecream_vat/proc/get_ingredient_list(var/type)
+/obj/structure/machinery/icecream_vat/proc/get_ingredient_list(var/type)
 	switch(type)
 		if(ICECREAM_CHOCOLATE)
 			return list(/singleton/reagent/drink/milk, /singleton/reagent/drink/ice, /singleton/reagent/nutriment/coco)
@@ -48,7 +48,7 @@
 		else
 			return list(/singleton/reagent/drink/milk, /singleton/reagent/drink/ice)
 
-/obj/machinery/icecream_vat/proc/get_flavour_name(var/flavour_type)
+/obj/structure/machinery/icecream_vat/proc/get_flavour_name(var/flavour_type)
 	switch(flavour_type)
 		if(ICECREAM_CHOCOLATE)
 			return "chocolate"
@@ -67,17 +67,17 @@
 		else
 			return "vanilla"
 
-/obj/machinery/icecream_vat/Initialize()
+/obj/structure/machinery/icecream_vat/Initialize()
 	. = ..()
 	create_reagents(100)
 	while(length(product_types) < CONE_CHOC)
 		product_types.Add(5)
 
-/obj/machinery/icecream_vat/attack_hand(mob/user as mob)
+/obj/structure/machinery/icecream_vat/attack_hand(mob/user as mob)
 	user.set_machine(src)
 	interact(user)
 
-/obj/machinery/icecream_vat/interact(mob/user as mob)
+/obj/structure/machinery/icecream_vat/interact(mob/user as mob)
 	var/dat
 	dat += "<b>ICECREAM</b><br><div class='statusDisplay'>"
 	dat += "<b>Dispensing: [flavour_name] icecream </b> <br><br>"
@@ -102,7 +102,7 @@
 	popup.set_content(dat)
 	popup.open()
 
-/obj/machinery/icecream_vat/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/icecream_vat/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/reagent_containers/food/snacks/icecream))
 		var/obj/item/reagent_containers/food/snacks/icecream/I = attacking_item
 		if(!I.ice_creamed)
@@ -124,7 +124,7 @@
 		return
 	..()
 
-/obj/machinery/icecream_vat/proc/make(var/mob/user, var/make_type, var/amount)
+/obj/structure/machinery/icecream_vat/proc/make(var/mob/user, var/make_type, var/amount)
 	for(var/R in get_ingredient_list(make_type))
 		if(reagents.has_reagent(R, amount))
 			continue
@@ -142,7 +142,7 @@
 	else
 		to_chat(user, SPAN_WARNING("You don't have the ingredients to make this."))
 
-/obj/machinery/icecream_vat/Topic(href, href_list)
+/obj/structure/machinery/icecream_vat/Topic(href, href_list)
 
 	if(..())
 		return

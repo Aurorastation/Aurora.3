@@ -3,30 +3,30 @@
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 6
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_waypoint/hallway)
 "aq" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 8
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor,
 /area/hegemony_waypoint/hallway)
 "at" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
-/obj/machinery/power/terminal{
+/obj/structure/machinery/power/terminal{
 	dir = 1
 	},
 /obj/structure/cable/green{
@@ -37,7 +37,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_waypoint/engineering)
 "bn" = (
-/obj/machinery/washing_machine,
+/obj/structure/machinery/washing_machine,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/techfloor,
 /area/hegemony_waypoint/custodial)
@@ -48,17 +48,17 @@
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_waypoint/hallway)
 "bE" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 1
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock/hegemony_waypoint/south,
@@ -66,10 +66,10 @@
 /area/hegemony_waypoint/hallway)
 "cd" = (
 /obj/effect/floor_decal/industrial/hatch/red,
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	pixel_x = 7;
 	pixel_y = 28;
 	dir = 4
@@ -95,7 +95,7 @@
 /obj/effect/floor_decal/industrial/outline_straight{
 	color = "#D19D4D"
 	},
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	dir = 4;
 	id = "hegemony_waypoint_docking";
 	name = "Hallway Shutters";
@@ -107,8 +107,8 @@
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -120,20 +120,20 @@
 /area/hegemony_waypoint/hallway)
 "cn" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 4
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor,
 /area/hegemony_waypoint/hallway)
 "cr" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -141,7 +141,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 6
 	},
 /obj/random/dirt_75,
@@ -156,13 +156,13 @@
 /area/hegemony_waypoint/hallway)
 "cW" = (
 /obj/effect/floor_decal/industrial/hatch/red,
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 10
 	},
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	pixel_x = 7;
 	pixel_y = 28;
 	dir = 4
@@ -199,8 +199,8 @@
 /area/hegemony_waypoint/hallway)
 "dm" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
-/obj/machinery/light/small{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock/hegemony_waypoint/north,
@@ -214,10 +214,10 @@
 /obj/effect/floor_decal/industrial/outline_straight/yellow{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -234,8 +234,8 @@
 /area/hegemony_waypoint/hallway)
 "dE" = (
 /obj/effect/floor_decal/industrial/hatch/red,
-/obj/machinery/door/airlock/external,
-/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+/obj/structure/machinery/door/airlock/external,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock/hegemony_waypoint/north,
@@ -250,20 +250,20 @@
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_waypoint/hallway)
 "dW" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider,
-/obj/machinery/door/blast/shutters/open{
+/obj/structure/machinery/door/blast/shutters/open{
 	dir = 4;
 	id = "hegemony_waypoint_monitoring"
 	},
@@ -273,10 +273,10 @@
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 6
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -285,10 +285,10 @@
 /area/hegemony_waypoint/hallway)
 "fn" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -325,10 +325,10 @@
 /obj/effect/floor_decal/industrial/outline_straight/yellow{
 	dir = 4
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -343,7 +343,7 @@
 /turf/simulated/floor/plating,
 /area/hegemony_waypoint/engineering)
 "gk" = (
-/obj/machinery/power/solar{
+/obj/structure/machinery/power/solar{
 	id = "auxsolarnorth";
 	name = "Fore Solar Array"
 	},
@@ -384,10 +384,10 @@
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 6
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -401,14 +401,14 @@
 	color = "#D19D4D";
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 5
 	},
 /obj/random/dirt_75,
@@ -425,10 +425,10 @@
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /obj/item/assembly/mousetrap/armed,
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_waypoint/hallway)
@@ -460,11 +460,11 @@
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
 /turf/simulated/floor/tiled/dark,
@@ -480,8 +480,8 @@
 /obj/effect/floor_decal/industrial/outline_straight/yellow{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -494,13 +494,13 @@
 /area/hegemony_waypoint/hallway)
 "ju" = (
 /obj/effect/floor_decal/industrial/hatch/red,
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	pixel_x = 7;
 	pixel_y = -28;
 	dir = 4
@@ -511,10 +511,10 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/hegemony_waypoint/hallway)
 "jw" = (
-/obj/machinery/atmospherics/portables_connector/aux{
+/obj/structure/machinery/atmospherics/portables_connector/aux{
 	dir = 1
 	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/bitile{
 	dir = 1
@@ -527,10 +527,10 @@
 /obj/effect/floor_decal/industrial/outline_straight{
 	color = "#D19D4D"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
 /obj/random/dirt_75,
@@ -540,12 +540,12 @@
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_waypoint/hallway)
@@ -553,15 +553,15 @@
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/alarm/west{
+/obj/structure/machinery/alarm/west{
 	req_one_access = null
 	},
 /obj/random/dirt_75,
@@ -570,13 +570,13 @@
 /area/hegemony_waypoint/hallway)
 "kg" = (
 /obj/effect/floor_decal/corner/white/diagonal,
-/obj/machinery/alarm/south{
+/obj/structure/machinery/alarm/south{
 	req_one_access = null
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -587,7 +587,7 @@
 /area/hegemony_waypoint/monitoring)
 "kt" = (
 /obj/structure/table/steel,
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /obj/item/paper/fluff/hegemony_waypoint_1{
 	pixel_y = 7;
 	pixel_x = -3
@@ -607,11 +607,11 @@
 	pixel_y = 21
 	},
 /obj/effect/floor_decal/corner/white/diagonal,
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/empty/west{
+/obj/structure/machinery/power/apc/empty/west{
 	req_access = null
 	},
 /obj/random/dirt_75,
@@ -619,15 +619,15 @@
 /area/hegemony_waypoint/washroom)
 "kX" = (
 /obj/effect/floor_decal/corner/yellow/diagonal,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
-/obj/machinery/computer/ship/sensors/terminal,
+/obj/structure/machinery/computer/ship/sensors/terminal,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/gridded,
 /area/hegemony_waypoint/monitoring)
 "lq" = (
-/obj/machinery/power/solar_control{
+/obj/structure/machinery/power/solar_control{
 	dir = 4
 	},
 /obj/structure/cable/yellow,
@@ -635,14 +635,14 @@
 /turf/simulated/floor/airless,
 /area/hegemony_waypoint/engineering)
 "lt" = (
-/obj/machinery/atmospherics/portables_connector/aux,
-/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/atmospherics/portables_connector/aux,
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/bitile,
 /area/hegemony_waypoint/hallway)
 "lC" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider,
-/obj/machinery/door/blast/shutters{
+/obj/structure/machinery/door/blast/shutters{
 	id = "hegemony_waypoint_docking";
 	dir = 4
 	},
@@ -652,15 +652,15 @@
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_waypoint/hallway)
 "mp" = (
-/obj/machinery/shipsensors/strong/relay,
+/obj/structure/machinery/shipsensors/strong/relay,
 /turf/simulated/floor/reinforced/airless,
 /area/hegemony_waypoint/monitoring)
 "mq" = (
@@ -675,7 +675,7 @@
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 4
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /obj/random/dirt_75,
@@ -696,21 +696,21 @@
 /obj/effect/floor_decal/industrial/hatch{
 	color = "#D19D4D"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/door/firedoor/noid,
+/obj/structure/machinery/door/firedoor/noid,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/hegemony_waypoint/hallway)
 "mI" = (
 /obj/effect/floor_decal/corner_wide/black/full,
 /obj/effect/floor_decal/industrial/outline_straight/red,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_waypoint/hallway)
@@ -725,10 +725,10 @@
 /obj/effect/floor_decal/industrial/outline_straight/yellow{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -741,11 +741,11 @@
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 6
 	},
 /obj/random/dirt_75,
@@ -755,7 +755,7 @@
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 6
 	},
-/obj/machinery/alarm/east{
+/obj/structure/machinery/alarm/east{
 	req_one_access = null
 	},
 /obj/random/dirt_75,
@@ -780,10 +780,10 @@
 /area/hegemony_waypoint/shrine)
 "oV" = (
 /obj/effect/floor_decal/industrial/hatch/red,
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	pixel_x = -7;
 	pixel_y = 28;
 	dir = 8
@@ -807,10 +807,10 @@
 /obj/effect/floor_decal/industrial/outline_straight/yellow{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -825,7 +825,7 @@
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 6
 	},
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -842,8 +842,8 @@
 /obj/effect/floor_decal/industrial/outline_straight{
 	color = "#D19D4D"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -864,15 +864,15 @@
 /area/hegemony_waypoint/hallway)
 "qk" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 1
 	},
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+/obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller{
 	dir = 8;
 	pixel_x = 24;
 	pixel_y = 6
 	},
-/obj/machinery/airlock_sensor{
+/obj/structure/machinery/airlock_sensor{
 	pixel_y = -6;
 	pixel_x = 24;
 	dir = 8
@@ -887,15 +887,15 @@
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 4
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_waypoint/hallway)
 "rc" = (
-/obj/machinery/atmospherics/portables_connector,
-/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/atmospherics/portables_connector,
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/bitile,
 /area/hegemony_waypoint/hallway)
@@ -914,10 +914,10 @@
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
 /obj/structure/cable/green{
@@ -945,7 +945,7 @@
 "sq" = (
 /obj/effect/floor_decal/corner/yellow/diagonal,
 /obj/structure/table/steel,
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	dir = 10;
 	pixel_y = -1;
 	pixel_x = -7;
@@ -965,8 +965,8 @@
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_waypoint/hallway)
@@ -979,7 +979,7 @@
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 6
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -989,7 +989,7 @@
 /turf/template_noop,
 /area/hegemony_waypoint/shrine)
 "tt" = (
-/obj/machinery/power/solar{
+/obj/structure/machinery/power/solar{
 	id = "auxsolarnorth";
 	name = "Fore Solar Array"
 	},
@@ -1012,13 +1012,13 @@
 /obj/effect/floor_decal/industrial/outline_straight/yellow{
 	dir = 4
 	},
-/obj/machinery/alarm/south{
+/obj/structure/machinery/alarm/south{
 	req_one_access = null
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -1037,11 +1037,11 @@
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/machinery/light/colored/decayed{
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -1056,8 +1056,8 @@
 /area/hegemony_waypoint/monitoring)
 "uX" = (
 /obj/effect/floor_decal/industrial/hatch/red,
-/obj/machinery/door/airlock/external,
-/obj/machinery/access_button{
+/obj/structure/machinery/door/airlock/external,
+/obj/structure/machinery/access_button{
 	pixel_x = 28;
 	pixel_y = 8;
 	dir = 1
@@ -1072,8 +1072,8 @@
 /area/hegemony_waypoint/hydroponics)
 "vu" = (
 /obj/effect/floor_decal/industrial/hatch/red,
-/obj/machinery/door/airlock/external,
-/obj/machinery/access_button{
+/obj/structure/machinery/door/airlock/external,
+/obj/structure/machinery/access_button{
 	pixel_x = 28;
 	pixel_y = -6
 	},
@@ -1085,9 +1085,9 @@
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 9
 	},
 /obj/random/dirt_75,
@@ -1097,13 +1097,13 @@
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 9
 	},
-/obj/machinery/alarm/west{
+/obj/structure/machinery/alarm/west{
 	req_one_access = null
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 6
 	},
 /obj/random/dirt_75,
@@ -1115,13 +1115,13 @@
 /area/hegemony_waypoint/hallway)
 "vR" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller{
 	dir = 8;
 	pixel_x = 24;
 	pixel_y = 6
 	},
-/obj/machinery/airlock_sensor{
+/obj/structure/machinery/airlock_sensor{
 	pixel_y = -6;
 	pixel_x = 24;
 	dir = 8
@@ -1131,7 +1131,7 @@
 /turf/simulated/floor/plating,
 /area/hegemony_waypoint/hallway)
 "vY" = (
-/obj/machinery/power/tracker,
+/obj/structure/machinery/power/tracker,
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/cable/yellow{
 	d2 = 8;
@@ -1141,7 +1141,7 @@
 /area/hegemony_waypoint/exterior)
 "wd" = (
 /obj/effect/floor_decal/industrial/hatch/red,
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/hegemony_waypoint/west,
@@ -1157,14 +1157,14 @@
 /area/hegemony_waypoint/hallway)
 "wj" = (
 /obj/effect/floor_decal/industrial/hatch/grey,
-/obj/machinery/door/airlock/service{
+/obj/structure/machinery/door/airlock/service{
 	dir = 4;
 	name = "Power Management"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -1172,7 +1172,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -1188,9 +1188,9 @@
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 9
 	},
 /obj/structure/cable/green{
@@ -1227,17 +1227,17 @@
 /area/hegemony_waypoint/exterior)
 "xN" = (
 /obj/effect/floor_decal/corner/yellow/diagonal,
-/obj/machinery/telecomms/allinone,
+/obj/structure/machinery/telecomms/allinone,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/gridded,
 /area/hegemony_waypoint/monitoring)
 "xR" = (
 /obj/effect/floor_decal/industrial/hatch/red,
-/obj/machinery/door/airlock/external,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/door/airlock/external,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 10
 	},
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	pixel_x = 26;
 	pixel_y = 28;
 	dir = 8
@@ -1250,8 +1250,8 @@
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/light/colored/decayed{
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -1271,7 +1271,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/atmospherics/unary/outlet_injector{
+/obj/structure/machinery/atmospherics/unary/outlet_injector{
 	use_power = 1;
 	name = "waste outlet";
 	volume_rate = 700
@@ -1293,25 +1293,25 @@
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_waypoint/hallway)
 "zl" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 4
 	},
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+/obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller{
 	dir = 1;
 	pixel_y = -24;
 	pixel_x = -7
 	},
-/obj/machinery/airlock_sensor{
+/obj/structure/machinery/airlock_sensor{
 	pixel_y = -25;
 	pixel_x = 5;
 	dir = 1
@@ -1349,8 +1349,8 @@
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -1366,7 +1366,7 @@
 	req_access = null
 	},
 /obj/effect/floor_decal/industrial/outline/operations,
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 1
 	},
 /obj/structure/cable/green{
@@ -1396,13 +1396,13 @@
 /area/hegemony_waypoint/exterior)
 "Aq" = (
 /obj/effect/floor_decal/industrial/hatch/red,
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 1
 	},
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	pixel_x = -7;
 	pixel_y = 28;
 	dir = 8
@@ -1424,10 +1424,10 @@
 /area/hegemony_waypoint/hallway)
 "AA" = (
 /obj/effect/floor_decal/industrial/hatch/red,
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	pixel_x = -7;
 	pixel_y = -28;
 	dir = 8
@@ -1441,10 +1441,10 @@
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/machinery/light/colored/decayed{
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -1468,7 +1468,7 @@
 /turf/simulated/floor/airless,
 /area/hegemony_waypoint/exterior)
 "Bi" = (
-/obj/machinery/power/smes/buildable/third_party_shuttle/empty,
+/obj/structure/machinery/power/smes/buildable/third_party_shuttle/empty,
 /obj/structure/cable/green{
 	d2 = 8;
 	icon_state = "0-8"
@@ -1477,15 +1477,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_waypoint/engineering)
 "Bs" = (
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+/obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller{
 	pixel_y = 26;
 	pixel_x = 5
 	},
-/obj/machinery/airlock_sensor{
+/obj/structure/machinery/airlock_sensor{
 	pixel_y = 27;
 	pixel_x = -8
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /obj/effect/map_effect/marker/airlock/hegemony_waypoint/maintenance2,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/random/dirt_75,
@@ -1493,10 +1493,10 @@
 /area/hegemony_waypoint/engineering)
 "Cc" = (
 /obj/effect/floor_decal/industrial/hatch/red,
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
 /obj/effect/map_effect/marker/airlock/hegemony_waypoint/east,
@@ -1512,14 +1512,14 @@
 /obj/effect/floor_decal/industrial/outline_straight{
 	color = "#D19D4D"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 10
 	},
 /obj/random/dirt_75,
@@ -1531,22 +1531,22 @@
 /turf/simulated/floor/airless,
 /area/hegemony_waypoint/engineering)
 "DF" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 1
 	},
 /obj/effect/map_effect/marker/airlock/hegemony_waypoint/maintenance2,
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/hegemony_waypoint/engineering)
 "DG" = (
-/obj/machinery/atmospherics/portables_connector/aux{
+/obj/structure/machinery/atmospherics/portables_connector/aux{
 	dir = 8
 	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/bitile{
 	dir = 4
@@ -1554,14 +1554,14 @@
 /area/hegemony_waypoint/hallway)
 "DV" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 4
 	},
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+/obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller{
 	pixel_y = 26;
 	pixel_x = 5
 	},
-/obj/machinery/airlock_sensor{
+/obj/structure/machinery/airlock_sensor{
 	pixel_y = 27;
 	pixel_x = -8
 	},
@@ -1580,10 +1580,10 @@
 /obj/effect/floor_decal/industrial/outline_straight/yellow{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -1599,7 +1599,7 @@
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 6
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -1617,7 +1617,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/empty/east{
+/obj/structure/machinery/power/apc/empty/east{
 	req_access = null
 	},
 /turf/simulated/floor/tiled/gridded,
@@ -1626,7 +1626,7 @@
 /obj/effect/floor_decal/industrial/hatch{
 	color = "#D19D4D"
 	},
-/obj/machinery/door/firedoor/noid,
+/obj/structure/machinery/door/firedoor/noid,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/hegemony_waypoint/hallway)
@@ -1641,7 +1641,7 @@
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -1674,7 +1674,7 @@
 /area/hegemony_waypoint/monitoring)
 "Gu" = (
 /obj/effect/floor_decal/industrial/hatch/red,
-/obj/machinery/door/airlock/external,
+/obj/structure/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock/hegemony_waypoint/north,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/random/dirt_75,
@@ -1690,7 +1690,7 @@
 /obj/effect/floor_decal/industrial/outline_straight{
 	color = "#D19D4D"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -1698,10 +1698,10 @@
 /area/hegemony_waypoint/hallway)
 "GR" = (
 /obj/effect/floor_decal/industrial/hatch/red,
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/aux,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/aux,
 /obj/effect/map_effect/marker/airlock/hegemony_waypoint/west,
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/random/dirt_75,
@@ -1714,10 +1714,10 @@
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -1740,7 +1740,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/empty/east{
+/obj/structure/machinery/power/apc/empty/east{
 	req_access = null
 	},
 /obj/random/dirt_75,
@@ -1758,7 +1758,7 @@
 /area/hegemony_waypoint/exterior)
 "HW" = (
 /obj/effect/floor_decal/industrial/hatch/red,
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -1766,7 +1766,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	pixel_x = 7;
 	pixel_y = 28;
 	dir = 4
@@ -1777,10 +1777,10 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/hegemony_waypoint/engineering)
 "HY" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 1
 	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/bitile{
 	dir = 1
@@ -1794,13 +1794,13 @@
 /area/hegemony_waypoint/monitoring)
 "In" = (
 /obj/effect/floor_decal/industrial/hatch/grey,
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -1808,8 +1808,8 @@
 /area/hegemony_waypoint/hallway)
 "It" = (
 /obj/effect/floor_decal/industrial/hatch/red,
-/obj/machinery/door/airlock/external,
-/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+/obj/structure/machinery/door/airlock/external,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock/hegemony_waypoint/south,
@@ -1818,10 +1818,10 @@
 /area/hegemony_waypoint/hallway)
 "IC" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 4
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /obj/effect/map_effect/marker/airlock/hegemony_waypoint/west,
@@ -1830,14 +1830,14 @@
 /area/hegemony_waypoint/hallway)
 "IG" = (
 /obj/effect/floor_decal/industrial/hatch/grey,
-/obj/machinery/door/airlock/service{
+/obj/structure/machinery/door/airlock/service{
 	dir = 4;
 	name = "Washing Chamber"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -1859,7 +1859,7 @@
 	color = "#D19D4D";
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -1873,7 +1873,7 @@
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 6
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1885,9 +1885,9 @@
 /obj/effect/floor_decal/industrial/outline_straight/yellow{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/structure/cable/green{
 	d1 = 2;
 	d2 = 8;
@@ -1920,8 +1920,8 @@
 /turf/simulated/floor/airless,
 /area/hegemony_waypoint/exterior)
 "JA" = (
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/atmospherics/portables_connector/aux{
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/atmospherics/portables_connector/aux{
 	dir = 1
 	},
 /obj/random/dirt_75,
@@ -1934,8 +1934,8 @@
 /obj/effect/floor_decal/industrial/outline_straight/yellow{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -1959,10 +1959,10 @@
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -1978,10 +1978,10 @@
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 6
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
-/obj/machinery/alarm/east{
+/obj/structure/machinery/alarm/east{
 	req_one_access = null
 	},
 /obj/random/dirt_75,
@@ -1995,8 +1995,8 @@
 /obj/effect/floor_decal/industrial/outline_straight/yellow{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -2017,10 +2017,10 @@
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 6
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -2028,13 +2028,13 @@
 /area/hegemony_waypoint/hallway)
 "KL" = (
 /obj/effect/floor_decal/industrial/hatch/red,
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	pixel_x = 6;
 	pixel_y = 27;
 	dir = 4
@@ -2048,7 +2048,7 @@
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 6
 	},
-/obj/machinery/alarm/east{
+/obj/structure/machinery/alarm/east{
 	req_one_access = null
 	},
 /obj/random/dirt_75,
@@ -2072,16 +2072,16 @@
 /obj/effect/floor_decal/industrial/hatch{
 	color = "#D19D4D"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
-/obj/machinery/door/firedoor/noid,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/machinery/door/firedoor/noid,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/hegemony_waypoint/hallway)
 "Li" = (
 /obj/structure/table/steel,
-/obj/machinery/alarm/east{
+/obj/structure/machinery/alarm/east{
 	req_one_access = null
 	},
 /obj/item/paper_bin{
@@ -2101,10 +2101,10 @@
 /area/hegemony_waypoint/monitoring)
 "Ly" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /obj/effect/map_effect/marker/airlock/hegemony_waypoint/east,
@@ -2126,7 +2126,7 @@
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 6
 	},
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
@@ -2134,7 +2134,7 @@
 /area/hegemony_waypoint/hallway)
 "My" = (
 /obj/effect/floor_decal/industrial/hatch/red,
-/obj/machinery/door/airlock/external,
+/obj/structure/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock/hegemony_waypoint/south,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/landmark/entry_point/north{
@@ -2144,7 +2144,7 @@
 /area/hegemony_waypoint/hallway)
 "Nf" = (
 /obj/structure/table/steel,
-/obj/machinery/photocopier/faxmachine{
+/obj/structure/machinery/photocopier/faxmachine{
 	pixel_y = 5;
 	department = "Sensor Relay";
 	req_one_access = null
@@ -2170,8 +2170,8 @@
 	color = "#D19D4D";
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -2180,14 +2180,14 @@
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_waypoint/hallway)
 "OR" = (
 /obj/effect/floor_decal/industrial/hatch/red,
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -2195,10 +2195,10 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	pixel_x = -7;
 	pixel_y = 28;
 	dir = 8
@@ -2210,13 +2210,13 @@
 /area/hegemony_waypoint/engineering)
 "OT" = (
 /obj/effect/floor_decal/industrial/hatch/grey,
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -2234,15 +2234,15 @@
 /area/hegemony_waypoint/exterior)
 "Pj" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+/obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller{
 	dir = 1;
 	pixel_y = -24;
 	pixel_x = 5
 	},
-/obj/machinery/airlock_sensor{
+/obj/structure/machinery/airlock_sensor{
 	pixel_y = -25;
 	pixel_x = -7;
 	dir = 1
@@ -2252,10 +2252,10 @@
 /turf/simulated/floor/plating,
 /area/hegemony_waypoint/hallway)
 "Pk" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/obj/machinery/hologram/holopad/long_range,
+/obj/structure/machinery/hologram/holopad/long_range,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/hegemony_waypoint/monitoring)
@@ -2289,10 +2289,10 @@
 /area/hegemony_waypoint/exterior)
 "Qq" = (
 /obj/effect/floor_decal/industrial/hatch/red,
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	pixel_x = -26;
 	pixel_y = 26
 	},
@@ -2305,9 +2305,9 @@
 /obj/effect/floor_decal/industrial/hatch{
 	color = "#D19D4D"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/firedoor/noid,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/door/firedoor/noid,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/hegemony_waypoint/hallway)
@@ -2326,7 +2326,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_waypoint/hallway)
 "Rf" = (
-/obj/machinery/power/apc/empty/south{
+/obj/structure/machinery/power/apc/empty/south{
 	req_access = null
 	},
 /obj/structure/cable/green{
@@ -2362,9 +2362,9 @@
 	color = "#D19D4D";
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2373,10 +2373,10 @@
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -2395,25 +2395,25 @@
 /obj/effect/floor_decal/industrial/hatch{
 	color = "#D19D4D"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
-/obj/machinery/door/firedoor/noid,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/machinery/door/firedoor/noid,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/hegemony_waypoint/hallway)
 "RF" = (
 /obj/effect/floor_decal/industrial/hatch/red,
-/obj/machinery/door/airlock/external,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/door/airlock/external,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 9
 	},
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	pixel_x = 26;
 	pixel_y = -28;
 	dir = 8
@@ -2436,7 +2436,7 @@
 /area/hegemony_waypoint/monitoring)
 "Sz" = (
 /obj/structure/reagent_dispensers/fueltank,
-/obj/machinery/alarm/south{
+/obj/structure/machinery/alarm/south{
 	req_one_access = null
 	},
 /obj/effect/floor_decal/industrial/outline/red,
@@ -2460,7 +2460,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_waypoint/hallway)
 "SL" = (
-/obj/machinery/shower{
+/obj/structure/machinery/shower{
 	pixel_y = 19
 	},
 /obj/structure/curtain/open/shower,
@@ -2470,10 +2470,10 @@
 /area/hegemony_waypoint/washroom)
 "SP" = (
 /obj/effect/floor_decal/corner_wide/brown/full,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /obj/structure/cable/green{
@@ -2518,8 +2518,8 @@
 /obj/effect/floor_decal/industrial/outline_straight{
 	color = "#D19D4D"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_waypoint/hallway)
@@ -2542,7 +2542,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_waypoint/hallway)
 "UF" = (
-/obj/machinery/photocopier,
+/obj/structure/machinery/photocopier,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/hegemony_waypoint/monitoring)
@@ -2551,7 +2551,7 @@
 	dir = 6
 	},
 /obj/random/dirt_75,
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	dir = 4;
 	id = "hegemony_waypoint_docking";
 	name = "Hallway Shutters";
@@ -2572,9 +2572,9 @@
 	color = "#D19D4D";
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2593,10 +2593,10 @@
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
@@ -2605,10 +2605,10 @@
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -2621,7 +2621,7 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -2635,7 +2635,7 @@
 	color = "#D19D4D";
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -2643,14 +2643,14 @@
 /area/hegemony_waypoint/hallway)
 "Wa" = (
 /obj/effect/floor_decal/industrial/hatch/grey,
-/obj/machinery/door/airlock/service{
+/obj/structure/machinery/door/airlock/service{
 	dir = 4;
 	name = "Custodial Closet"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -2658,7 +2658,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -2678,9 +2678,9 @@
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -2690,14 +2690,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_waypoint/hallway)
 "Xp" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /obj/structure/cable/green{
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc/empty/south{
+/obj/structure/machinery/power/apc/empty/south{
 	req_access = null
 	},
 /obj/random/dirt_75,
@@ -2706,7 +2706,7 @@
 /area/hegemony_waypoint/custodial)
 "XY" = (
 /obj/effect/floor_decal/industrial/hatch/red,
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/hegemony_waypoint/east,
@@ -2716,10 +2716,10 @@
 /area/hegemony_waypoint/hallway)
 "XZ" = (
 /obj/effect/floor_decal/corner/white/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /obj/structure/cable/green{
@@ -2734,10 +2734,10 @@
 /area/hegemony_waypoint/bunks)
 "YB" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/manifold/hidden{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -2745,14 +2745,14 @@
 /area/hegemony_waypoint/hallway)
 "YJ" = (
 /obj/effect/floor_decal/industrial/hatch/grey,
-/obj/machinery/door/airlock/service{
+/obj/structure/machinery/door/airlock/service{
 	dir = 4;
 	name = "Relay Monitoring"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -2760,7 +2760,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -2770,7 +2770,7 @@
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 5
 	},
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 1
 	},
 /obj/random/dirt_75,
@@ -2800,7 +2800,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/hegemony_waypoint/maintenance2,
@@ -2810,15 +2810,15 @@
 /area/hegemony_waypoint/engineering)
 "Zw" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 4
 	},
-/obj/machinery/light/small,
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+/obj/structure/machinery/light/small,
+/obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller{
 	pixel_y = 26;
 	pixel_x = 5
 	},
-/obj/machinery/airlock_sensor{
+/obj/structure/machinery/airlock_sensor{
 	pixel_y = 27;
 	pixel_x = -8
 	},
@@ -2830,8 +2830,8 @@
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;

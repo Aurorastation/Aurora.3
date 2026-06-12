@@ -1,4 +1,4 @@
-/obj/machinery/ship_weapon/francisca
+/obj/structure/machinery/ship_weapon/francisca
 	name = "francisca rotary gun"
 	desc = "A Kumar Arms rotary gun developed in 2461. While its barrels may be smaller than its significantly larger kin's, the Longbow's, don't let that fool you: this gun will shred through smaller ships."
 	icon = 'icons/obj/machinery/ship_guns/francisca.dmi'
@@ -9,11 +9,11 @@
 	caliber = SHIP_CALIBER_40MM
 	screenshake_type = SHIP_GUN_SCREENSHAKE_SCREEN
 
-/obj/machinery/ship_weapon/francisca/compact//Franky but small, for shuttles with very little space
+/obj/structure/machinery/ship_weapon/francisca/compact//Franky but small, for shuttles with very little space
 	name = "compact francisca rotary gun"
 	icon = 'icons/obj/machinery/ship_guns/francisca_compact.dmi'
 
-/obj/machinery/ammunition_loader/francisca
+/obj/structure/machinery/ammunition_loader/francisca
 	name = "francisca ammunition loader"
 
 /obj/item/ship_ammunition/francisca
@@ -42,7 +42,7 @@
 	name_override = "40mm FRAG burst"
 	desc = "A box of fragmentation shells for use in a Francisca rotary gun."
 	icon_state = "box_inc"
-	impact_type = SHIP_AMMO_IMPACT_HE
+	impact_type = SHIP_AMMO_IMPACT_FRAG
 	projectile_type_override = /obj/projectile/ship_ammo/francisca/frag
 
 /obj/projectile/ship_ammo/francisca
@@ -50,20 +50,24 @@
 	icon_state = "small"
 	damage = 50
 	armor_penetration = 50
-	penetrating = 2
+	penetrating = 3
+	anti_materiel_potential = 10
 
 /obj/projectile/ship_ammo/francisca/ap
 	name = "40mm AP shell"
 	damage = 30
 	armor_penetration = 100
-	penetrating = 4
+	penetrating = 8
+	anti_materiel_potential = 8
 
 /obj/projectile/ship_ammo/francisca/frag
 	name = "40mm FRAG shell"
+	icon_state = "small"
 	damage = 30
 	armor_penetration = 50
 	penetrating = 1
+	anti_materiel_potential = 6
 
 /obj/projectile/ship_ammo/francisca/frag/on_hit(atom/target, blocked, def_zone, is_landmark_hit)
-	fragem(src, 70, 70, 1, 2, 10, 4, TRUE)
+	fragem(src, 70, 70, 1, 2, 12, 4, TRUE, spread_range = 5) //Targets 5 tiles around the impact site and shoots a projectile at them.
 	. = ..()

@@ -204,6 +204,8 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 		die()
 
 /obj/item/organ/proc/tick_surge_damage(seconds_per_tick)
+	ENFORCE_CALCULUS(seconds_per_tick)
+
 	if(!surge_damage)
 		clear_surge_effects()
 		return

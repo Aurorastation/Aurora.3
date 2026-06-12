@@ -35,27 +35,31 @@ SUBSYSTEM_DEF(nightlight)
 
 /datum/controller/subsystem/nightlight/proc/activate(var/whitelisted_only = 1)
 	isactive = 1
-	for (var/obj/machinery/power/apc/APC in get_apc_list(whitelisted_only))
+	for (var/obj/structure/machinery/power/apc/APC in get_apc_list(whitelisted_only))
 		APC.toggle_nightlight("on")
 
 		CHECK_TICK
 
 /datum/controller/subsystem/nightlight/proc/deactivate(var/whitelisted_only = 1)
 	isactive = 0
-	for (var/obj/machinery/power/apc/APC in get_apc_list(whitelisted_only))
+	for (var/obj/structure/machinery/power/apc/APC in get_apc_list(whitelisted_only))
 		APC.toggle_nightlight("off")
 
 		CHECK_TICK
 
 /datum/controller/subsystem/nightlight/proc/get_apc_list(var/whitelisted_only = 1)
-	var/list/obj/machinery/power/apc/lighting_apcs = list()
+	var/list/obj/structure/machinery/power/apc/lighting_apcs = list()
 
-	for (var/A in get_sorted_areas())
-		var/area/B = A
-		if (B.no_light_control || (!(B.allow_nightmode) && whitelisted_only))
+	for (var/obj/structure/machinery/power/apc/APC in SSmachinery.apc_units)
+		if (QDELETED(APC) || APC.aidisabled)
 			continue
-		if (B.apc && !B.apc.aidisabled)
-			lighting_apcs += B.apc
+
+		var/area/apc_area = APC.area || get_area(APC)
+		if (!apc_area)
+			continue
+		if (apc_area.no_light_control || (!(apc_area.allow_nightmode) && whitelisted_only))
+			continue
+		lighting_apcs += APC
 
 		CHECK_TICK
 

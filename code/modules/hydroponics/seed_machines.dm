@@ -34,7 +34,7 @@
 	for(var/i = 0;i<7;i++)
 		new /obj/item/disk/botany(src)
 
-/obj/machinery/botany
+/obj/structure/machinery/botany
 	icon = 'icons/obj/hydroponics_machines.dmi'
 	icon_state = "hydrotray3"
 	density = TRUE
@@ -58,22 +58,22 @@
 	var/disk_needs_genes = FALSE
 
 /// Gets run every process tick.
-/obj/machinery/botany/process()
+/obj/structure/machinery/botany/process()
 	..()
 	if(!active) return
 
 	if(world.time > last_action + action_time)
 		finished_task()
 
-/obj/machinery/botany/attack_ai(mob/user as mob)
+/obj/structure/machinery/botany/attack_ai(mob/user as mob)
 	if(!ai_can_interact(user))
 		return
 	return attack_hand(user)
 
-/obj/machinery/botany/attack_hand(mob/user as mob)
+/obj/structure/machinery/botany/attack_hand(mob/user as mob)
 	ui_interact(user)
 
-/obj/machinery/botany/proc/finished_task()
+/obj/structure/machinery/botany/proc/finished_task()
 	active = 0
 	if(failed_task)
 		failed_task = 0
@@ -88,7 +88,7 @@
 			visible_message("[icon2html(src, viewers(get_turf(src)))] [src] beeps and spits out [loaded_disk].")
 			loaded_disk = null
 
-/obj/machinery/botany/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/botany/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/seeds))
 		if(seed)
 			to_chat(user, "There is already a seed loaded.")
@@ -136,7 +136,7 @@
 	..()
 
 /// UI data shared between both editor and extractor machinery.
-/obj/machinery/botany/ui_data(mob/user)
+/obj/structure/machinery/botany/ui_data(mob/user)
 	var/list/data = list()
 
 	data["activity"] = active
@@ -146,7 +146,7 @@
 	return data
 
 /// UI action behavior shared between both editor and extractor machinery.
-/obj/machinery/botany/ui_act(action, params)
+/obj/structure/machinery/botany/ui_act(action, params)
 	. = ..()
 	if(.)
 		return
@@ -181,7 +181,7 @@
 	return TRUE
 
 /// Allows for a trait to be extracted from a seed packet, destroying that seed.
-/obj/machinery/botany/extractor
+/obj/structure/machinery/botany/extractor
 	name = "lysis-isolation centrifuge"
 	icon_state = "centrifuge"
 	component_types = list(
@@ -194,7 +194,7 @@
 	/// Increments with each scan, stops allowing gene mods after a certain point.
 	var/degradation = 0
 
-/obj/machinery/botany/extractor/ui_interact(mob/user, datum/tgui/ui)
+/obj/structure/machinery/botany/extractor/ui_interact(mob/user, datum/tgui/ui)
 	if(!user)
 		return
 
@@ -203,7 +203,7 @@
 		ui = new(user, src, "BotanyIsolator", "Lysis-Isolation Centrifuge")
 		ui.open()
 
-/obj/machinery/botany/extractor/ui_data(mob/user)
+/obj/structure/machinery/botany/extractor/ui_data(mob/user)
 	var/list/data = ..()
 
 	data["degradation"] = degradation
@@ -220,7 +220,7 @@
 
 	return data
 
-/obj/machinery/botany/extractor/ui_act(action, params)
+/obj/structure/machinery/botany/extractor/ui_act(action, params)
 	switch(action)
 		if("scan_genome")
 			if(!seed)
@@ -245,6 +245,7 @@
 			var/gene_tag = params["gene"]
 			if(!gene_tag)
 				return TRUE
+			var/gene_label = params["gene_label"] || SSplants.get_gene_mask(gene_tag)
 
 			last_action = world.time
 			active = TRUE
@@ -259,8 +260,8 @@
 			if(!genetics.roundstart)
 				loaded_disk.genesource += " (variety #[genetics.uid])"
 
-			loaded_disk.name += " ([SSplants.gene_tag_masks[gene_tag]], #[genetics.uid])"
-			loaded_disk.desc += " The label reads 'gene [SSplants.gene_tag_masks[gene_tag]], sampled from [genetics.display_name]'."
+			loaded_disk.name += " ([gene_label], #[genetics.uid])"
+			loaded_disk.desc += " The label reads 'gene [gene_label], sampled from [genetics.display_name]'."
 			eject_disk = TRUE
 
 			degradation += rand(20,60)
@@ -280,7 +281,7 @@
 	return ..()
 
 /// Injects an extracted trait into another packet of seeds with a chance of destroying it based on the size/complexity of the plasmid.
-/obj/machinery/botany/editor
+/obj/structure/machinery/botany/editor
 	name = "bioballistic delivery system"
 	icon_state = "traitgun"
 	disk_needs_genes = TRUE
@@ -290,7 +291,7 @@
 			/obj/item/stock_parts/scanning_module = 1
 		)
 
-/obj/machinery/botany/editor/ui_interact(mob/user, datum/tgui/ui)
+/obj/structure/machinery/botany/editor/ui_interact(mob/user, datum/tgui/ui)
 	if(!user)
 		return
 
@@ -299,7 +300,7 @@
 		ui = new(user, src, "BotanyEditor", "Bioballistic Delivery System")
 		ui.open()
 
-/obj/machinery/botany/editor/ui_data(mob/user)
+/obj/structure/machinery/botany/editor/ui_data(mob/user)
 	var/list/data = ..()
 
 	data["degradation"] = seed ? seed.modified : 0
@@ -312,13 +313,13 @@
 		for(var/datum/plantgene/P in loaded_disk.genes)
 			if(data["locus"] != "")
 				data["locus"] += ", "
-			data["locus"] += "[SSplants.gene_tag_masks[P.genetype]]"
+			data["locus"] += "[SSplants.get_gene_mask(P.genetype)]"
 
 	data["loadedseed"] = seed ? "[seed.name]" : null
 
 	return data
 
-/obj/machinery/botany/editor/ui_act(action, params)
+/obj/structure/machinery/botany/editor/ui_act(action, params)
 	if(action == "apply_gene")
 		if(!loaded_disk || !seed)
 			return TRUE
@@ -345,11 +346,11 @@
 
 /obj/item/circuitboard/botany_extractor
 	name = T_BOARD("lysis-isolation centrifuge")
-	build_path = /obj/machinery/botany/extractor
+	build_path = /obj/structure/machinery/botany/extractor
 	origin_tech = list(TECH_DATA = 3)
 
 
 /obj/item/circuitboard/botany_editor
 	name = T_BOARD("bioballistic delivery system")
-	build_path = /obj/machinery/botany/editor
+	build_path = /obj/structure/machinery/botany/editor
 	origin_tech = list(TECH_DATA = 3)

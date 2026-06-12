@@ -201,7 +201,7 @@ ABSTRACT_TYPE(/obj/item/rfd)
 
 	/// A list of types that will be sent to the alter_atom proc if we click on them, rather than their turf.
 	var/list/valid_atoms = list(
-		/obj/machinery/door/airlock,
+		/obj/structure/machinery/door/airlock,
 		/obj/structure/window_frame,
 		/obj/structure/window/full
 	)
@@ -292,10 +292,10 @@ ABSTRACT_TYPE(/obj/item/rfd)
 			build_cost = 3
 			build_delay = 20
 			build_type = "airlock"
-			build_atom = /obj/machinery/door/airlock
+			build_atom = /obj/structure/machinery/door/airlock
 	else if(mode == RFD_DECONSTRUCT)
 		// Airlocks
-		if(istype(A, /obj/machinery/door/airlock))
+		if(istype(A, /obj/structure/machinery/door/airlock))
 			build_cost = 10
 			build_delay = 50
 			build_type = "airlock"
@@ -330,7 +330,7 @@ ABSTRACT_TYPE(/obj/item/rfd)
 		working = FALSE
 		return FALSE
 
-	if(mode == RFD_DECONSTRUCT && istype(A, /obj/machinery/door) && !A.density)
+	if(mode == RFD_DECONSTRUCT && istype(A, /obj/structure/machinery/door) && !A.density)
 		to_chat(user, SPAN_WARNING("\The [build_type] must be closed before you can deconstruct it."))
 		return FALSE
 
@@ -678,7 +678,7 @@ ABSTRACT_TYPE(/obj/item/rfd)
 	to_chat(user, "Fabricating machine...")
 	playsound(get_turf(src), 'sound/items/rfd_start.ogg', 50, FALSE)
 	if(do_after(user, 30 SECONDS, src, DO_UNIQUE))
-		var/obj/product = new /obj/machinery/transformer
+		var/obj/product = new /obj/structure/machinery/transformer
 		malftransformermade = 1
 		product.forceMove(get_turf(A))
 		stored_matter = 0

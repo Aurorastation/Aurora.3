@@ -100,10 +100,6 @@ There are several things that need to be remembered:
 		ret.layer = layer
 	return ret
 
-/mob/living/carbon/human
-	var/list/overlays_raw[TOTAL_LAYERS] // Our set of "raw" overlays that can be modified, but cannot be directly applied to the mob without preprocessing.
-	var/previous_damage_appearance // store what the body last looked like, so we only have to update it if something changed
-
 // Updates overlays from overlays_raw.
 /mob/living/carbon/human/update_icon()
 	if (QDELETED(src))

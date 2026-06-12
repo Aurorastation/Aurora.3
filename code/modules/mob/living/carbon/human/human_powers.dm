@@ -541,7 +541,7 @@
 	sleep(10)
 	playsound(src, 'sound/items/countdown.ogg', 125, 1)
 	sleep(20)
-	explosion(src, -1, 1, 5)
+	explosion(get_turf(src), -1, 1, 5)
 	src.gib()
 
 /mob/living/carbon/human/proc/hivenet()
@@ -646,7 +646,7 @@
 		else if (T in range(src, 2))
 			earpain(1, TRUE, 1)
 
-	for(var/obj/machinery/light/L in range(7))
+	for(var/obj/structure/machinery/light/L in range(7))
 		L.broken()
 		CHECK_TICK
 
@@ -859,7 +859,7 @@
 	for (var/obj/structure/window/W in view(2))
 		W.shatter()
 
-	for (var/obj/machinery/light/L in view(4))
+	for (var/obj/structure/machinery/light/L in view(4))
 		L.broken()
 
 	if (victims.len)

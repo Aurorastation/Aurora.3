@@ -35,14 +35,14 @@
 				. += SPAN_NOTICE("- [num2text(req_components[I])] <b>[capitalize_first_letters(component.name)]</b>")
 
 //Called when the circuitboard is used to contruct a new machine.
-/obj/item/circuitboard/proc/construct(var/obj/machinery/M)
+/obj/item/circuitboard/proc/construct(var/obj/structure/machinery/M)
 	if (istype(M, build_path))
 		return 1
 	return 0
 
 //Called when a computer is deconstructed to produce a circuitboard.
 //Only used by computers, as other machines store their circuitboard instance.
-/obj/item/circuitboard/proc/deconstruct(var/obj/machinery/M)
+/obj/item/circuitboard/proc/deconstruct(var/obj/structure/machinery/M)
 	if (istype(M, build_path))
 		return 1
 	return 0

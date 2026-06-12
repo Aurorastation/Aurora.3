@@ -1,5 +1,5 @@
+import { Box, LabeledList, Section } from 'tgui-core/components';
 import { useBackend } from '../backend';
-import { Box, LabeledList, Section } from '../components';
 import { Window } from '../layouts';
 
 export type AirlockData = {
@@ -12,11 +12,11 @@ export type MultiDockingConsoleData = {
   airlocks: AirlockData[];
 };
 
-export const MultiDockingConsole = (props, context) => {
-  const { act, data } = useBackend<MultiDockingConsoleData>(context);
+export const MultiDockingConsole = (props) => {
+  const { act, data } = useBackend<MultiDockingConsoleData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section title="Status">
           <Box>

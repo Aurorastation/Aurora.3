@@ -47,7 +47,7 @@
 	description = "Used to fill or drain rooms without differentiating between gasses. NOTE: Does not come pre-filled. Air sold separately."
 	price = 130
 	items = list(
-		/obj/machinery/portable_atmospherics/powered/pump
+		/obj/structure/machinery/portable_atmospherics/powered/pump
 	)
 	access = ACCESS_ENGINE
 	container_type = "box"
@@ -61,7 +61,7 @@
 	description = "Scrubs contaminants from the local atmosphere or the connected portable tank."
 	price = 150
 	items = list(
-		/obj/machinery/portable_atmospherics/powered/scrubber
+		/obj/structure/machinery/portable_atmospherics/powered/scrubber
 	)
 	access = ACCESS_ENGINE
 	container_type = "box"
@@ -75,7 +75,7 @@
 	description = "Holds a nitrogen-oxygen mixture of breathable air. Has a built-in valve to allow for filling portable tanks."
 	price = 180
 	items = list(
-		/obj/machinery/portable_atmospherics/canister/air
+		/obj/structure/machinery/portable_atmospherics/canister/air
 	)
 	access = ACCESS_ENGINE
 	container_type = "box"
@@ -89,7 +89,7 @@
 	description = "Holds Helium-3 gas, a valuable fusion fuel. Has a built-in valve to allow for filling portable tanks."
 	price = 3800
 	items = list(
-		/obj/machinery/portable_atmospherics/canister/heliumfuel
+		/obj/structure/machinery/portable_atmospherics/canister/heliumfuel
 	)
 	access = ACCESS_ENGINE
 	container_type = "box"
@@ -103,7 +103,7 @@
 	description = "Holds heavy CO2 gas, whatever that is. Has a built-in valve to allow for filling portable tanks."
 	price = 300
 	items = list(
-		/obj/machinery/portable_atmospherics/canister/carbon_dioxide
+		/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide
 	)
 	access = ACCESS_ENGINE
 	container_type = "box"
@@ -117,7 +117,7 @@
 	description = "Holds flammable hydrogen. Has a built-in valve to allow for filling portable tanks."
 	price = 350
 	items = list(
-		/obj/machinery/portable_atmospherics/canister/hydrogen
+		/obj/structure/machinery/portable_atmospherics/canister/hydrogen
 	)
 	access = ACCESS_ENGINE
 	container_type = "box"
@@ -131,7 +131,7 @@
 	description = "Holds voice-changing helium. Has a built-in valve to allow for filling portable tanks."
 	price = 320
 	items = list(
-		/obj/machinery/portable_atmospherics/canister/helium
+		/obj/structure/machinery/portable_atmospherics/canister/helium
 	)
 	access = ACCESS_ENGINE
 	container_type = "box"
@@ -145,7 +145,7 @@
 	description = "Holds inert nitrogen. Has a built-in valve to allow for filling portable tanks."
 	price = 320
 	items = list(
-		/obj/machinery/portable_atmospherics/canister/nitrogen
+		/obj/structure/machinery/portable_atmospherics/canister/nitrogen
 	)
 	access = ACCESS_ENGINE
 	container_type = "box"
@@ -159,7 +159,7 @@
 	description = "Holds sleepy nitrous oxide. Has a built-in valve to allow for filling portable tanks."
 	price = 650
 	items = list(
-		/obj/machinery/portable_atmospherics/canister/sleeping_agent
+		/obj/structure/machinery/portable_atmospherics/canister/sleeping_agent
 	)
 	access = ACCESS_ENGINE
 	container_type = "box"
@@ -173,7 +173,7 @@
 	description = "Holds precious oxygen. Has a built-in valve to allow for filling portable tanks."
 	price = 450
 	items = list(
-		/obj/machinery/portable_atmospherics/canister/oxygen
+		/obj/structure/machinery/portable_atmospherics/canister/oxygen
 	)
 	access = ACCESS_ENGINE
 	container_type = "box"
@@ -187,7 +187,7 @@
 	description = "Holds valuable phoron gas. Has a built-in valve to allow for filling portable tanks."
 	price = 5500
 	items = list(
-		/obj/machinery/portable_atmospherics/canister/phoron
+		/obj/structure/machinery/portable_atmospherics/canister/phoron
 	)
 	access = ACCESS_ENGINE
 	container_type = "box"
@@ -201,7 +201,7 @@
 	description = "It dispenses pipes, no idea how though."
 	price = 90
 	items = list(
-		/obj/machinery/pipedispenser/orderable
+		/obj/structure/machinery/pipedispenser/orderable
 	)
 	access = ACCESS_ENGINE
 	container_type = "box"

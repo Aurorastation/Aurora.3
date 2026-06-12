@@ -45,7 +45,7 @@
 	..()
 
 // Shuttle control console
-/obj/machinery/computer/shuttle_control/explore/terminal/lone_spacer
+/obj/structure/machinery/computer/shuttle_control/explore/terminal/lone_spacer
 	name = "shuttle control console"
 	shuttle_tag = "Independent Skiff"
 
@@ -74,7 +74,7 @@
 	base_turf = /turf/space
 
 // Custom stuff
-/obj/machinery/light/colored/decayed/lone_spacer_dimmed
+/obj/structure/machinery/light/colored/decayed/lone_spacer_dimmed
 	brightness_power = 0.3
 
 /obj/item/clothing/accessory/scarf/lone_spacer_green

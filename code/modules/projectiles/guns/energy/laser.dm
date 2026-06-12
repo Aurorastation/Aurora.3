@@ -98,6 +98,8 @@
 	can_turret = TRUE
 	turret_is_lethal = TRUE
 	turret_sprite_set = "laser"
+	drop_sound = 'sound/items/drop/shotgun.ogg'
+	pickup_sound = 'sound/items/pickup/shotgun.ogg'
 
 /obj/item/gun/energy/laser/shotgun/research
 	name = "\improper QB-2E laser shotgun"

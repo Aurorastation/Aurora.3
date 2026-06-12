@@ -6,16 +6,20 @@
 	pass_flags_self = PASSSTRUCTURE
 	should_use_health = TRUE
 
-	var/material_alteration = MATERIAL_ALTERATION_ALL // Overrides for material shit. Set them manually if you don't want colors etc. See wood chairs/office chairs.
+	/// Overrides for material shit. Set them manually if you don't want colors etc. See wood chairs/office chairs.
+	var/material_alteration = MATERIAL_ALTERATION_ALL
 	var/climbable
 	var/parts
 	var/list/climbers
-	var/list/footstep_sound	//footstep sounds when stepped on
+	/// Footstep sounds when stepped on
+	var/list/footstep_sound
 
 	var/material/material
-	var/build_amt = 2 // used by some structures to determine into how many pieces they should disassemble into or be made with
+	/// Used by some structures to determine into how many pieces they should disassemble into or be made with
+	var/build_amt = 2
 
-	var/slowdown = 0 //amount that pulling mobs have their movement delayed by
+	/// Amount that pulling mobs have their movement delayed by
+	var/slowdown = 0
 
 /obj/structure/Initialize(mapload)
 	. = ..()
@@ -39,6 +43,14 @@
 	climbers = null
 	material = null
 	return ..()
+
+/obj/structure/examine_descriptor(mob/user)
+	return "structure"
+
+/obj/structure/examine_tags(atom/source, mob/user, list/examine_list)
+	. = ..()
+	if(climbable)
+		.["climbable"] = "It can be climbed on, either by dragging your mob onto it or middle-clicking it."
 
 /obj/structure/attackby(obj/item/attacking_item, mob/user, params)
 	. = ..()
@@ -66,16 +78,27 @@
 	return ..()
 
 /obj/structure/ex_act(severity)
-	switch(severity)
-		if(1.0)
-			qdel(src)
-			return
-		if(2.0)
-			if(prob(50))
+	// If this object doesn't use health for whatever reason, default to ancient ex_act() code.
+	if(!should_use_health)
+		switch(severity)
+			if(1.0)
 				qdel(src)
 				return
-		if(3.0)
-			return
+			if(2.0)
+				if(prob(50))
+					qdel(src)
+					return
+			if(3.0)
+				return
+	// If we do use health, normal atom health behavior.
+	else
+		switch(severity)
+			if(1)
+				add_damage(maxhealth)
+			if(2)
+				add_damage(maxhealth * 0.5)
+			if(3)
+				add_damage(maxhealth * 0.25)
 
 /obj/structure/proc/dismantle()
 	var/material/dismantle_material
@@ -84,9 +107,13 @@
 	else
 		dismantle_material = get_material()
 	if(should_use_health && health <= 0)
-		build_amt /= rand(2, 4) //if the structure is destroyed by damage, it will yield less materials
-	for(var/i = 1 to build_amt)
-		dismantle_material.place_sheet(loc)
+		build_amt /= rand(2, 4) //if the structure is destroyed by damage, it will yield less materials.
+		build_amt = max(1, min(build_amt, 5)) //Bound between 5 and 1, as shards don't stack into sheets.
+		for(var/i = 1 to build_amt)
+			dismantle_material.place_shard(loc)
+	else
+		for(var/i = 1 to build_amt)
+			dismantle_material.place_sheet(loc)
 	qdel(src)
 
 /obj/structure/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
@@ -94,7 +121,10 @@
 	if(. != BULLET_ACT_HIT)
 		return .
 
-	bullet_ping(hitting_projectile)
+	if(hitting_projectile.get_structure_damage() > 5)
+		bullet_ping(hitting_projectile)
+
+	add_damage(hitting_projectile.damage, hitting_projectile.damage_flags(), hitting_projectile.damage_type, hitting_projectile.armor_penetration, hitting_projectile)
 
 /obj/structure/proc/climb_on()
 

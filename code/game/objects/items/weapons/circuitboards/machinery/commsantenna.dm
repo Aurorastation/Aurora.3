@@ -1,6 +1,6 @@
 /obj/item/circuitboard/bluespacerelay
 	name = T_BOARD("bluespacerelay")
-	build_path = /obj/machinery/bluespacerelay
+	build_path = /obj/structure/machinery/bluespacerelay
 	board_type = BOARD_MACHINE
 	origin_tech = list(TECH_BLUESPACE = 2, TECH_DATA = 2)
 	req_components = list(

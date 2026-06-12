@@ -86,7 +86,7 @@
 		)
 	..()
 
-/obj/machinery/computer/shuttle_control/explore/terminal/cult_base_shuttle
+/obj/structure/machinery/computer/shuttle_control/explore/terminal/cult_base_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Cult Base Shuttle"
 

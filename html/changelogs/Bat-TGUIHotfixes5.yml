@@ -1,0 +1,12 @@
+author: Batrachophrenoboocosmomachia
+delete-after: True
+changes:
+  - bugfix: "Restores the Modular Computer access cable header button for connecting to IPCs and machinery."
+  - bugfix: "Fixes display issues in the Robotics interface's <collapsible> elements."
+  - bugfix: "Fixes in-chat feedback text provided by the Cyborg Analyzer (organ name and status now both inline)."
+  - bugfix: "Crew Manifest PDA app now filters out off-ship personnel."
+  - bugfix: "Fixes Autolathe TGUI appending search- and category- filtered recipes instead of recomputing the list with those filters."
+  - bugfix: "Fixes runtime when ghost opens dedicated camera console UI."
+  - code_imp: "Update some defs referencing 'supply' department to 'operations'."
+  - refactor: "Standardizes all interface search bars to use the native 'SearchBar' component."
+  - refactor: "AtmosAlarmControl interface now correctly auto-sorts alarms by alert status."

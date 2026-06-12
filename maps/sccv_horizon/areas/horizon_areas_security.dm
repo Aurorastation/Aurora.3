@@ -1,6 +1,7 @@
 /// SECURITY_AREAS
 /area/horizon/security
 	name = "Security (PARENT AREA - DON'T USE)"
+	area_lighting = LIGHT_WARM_COLORS
 	holomap_color = HOLOMAP_AREACOLOR_SECURITY
 	department = LOC_SECURITY
 	area_blurb = "Every sound seems to echo just a little louder and more threateningly in the Security sectors of the SCCV Horizon."

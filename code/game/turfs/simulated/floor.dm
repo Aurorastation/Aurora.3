@@ -26,6 +26,9 @@
 	/// If the turf should generate details. Default: TRUE
 	var/has_edge_icon = TRUE
 
+/turf/simulated/floor/examine_descriptor(mob/user)
+	return "floor"
+
 /turf/simulated/floor/disassembly_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	if(flooring)

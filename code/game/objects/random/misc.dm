@@ -408,24 +408,24 @@
 	var/depleted = FALSE
 	var/scan_id = TRUE // Should the spawned vendor check IDs
 	problist = list(
-		/obj/machinery/vending/boozeomat = 1,
-		/obj/machinery/vending/coffee = 1,
-		/obj/machinery/vending/snack = 1,
-		/obj/machinery/vending/cola = 1,
-		/obj/machinery/vending/cigarette = 1,
-		/obj/machinery/vending/medical = 1.2,
-		/obj/machinery/vending/phoronresearch = 0.7,
-		/obj/machinery/vending/security = 0.3,
-		/obj/machinery/vending/hydronutrients = 1,
-		/obj/machinery/vending/hydroseeds = 1,
-		/obj/machinery/vending/dinnerware = 1,
-		/obj/machinery/vending/sovietsoda = 2,
-		/obj/machinery/vending/tool = 1,
-		/obj/machinery/vending/engivend = 0.6,
-		/obj/machinery/vending/engineering = 1,
-		/obj/machinery/vending/robotics = 1,
-		/obj/machinery/vending/tacticool = 0.2,
-		/obj/machinery/vending/tacticool/ert = 0.1
+		/obj/structure/machinery/vending/boozeomat = 1,
+		/obj/structure/machinery/vending/coffee = 1,
+		/obj/structure/machinery/vending/snack = 1,
+		/obj/structure/machinery/vending/cola = 1,
+		/obj/structure/machinery/vending/cigarette = 1,
+		/obj/structure/machinery/vending/medical = 1.2,
+		/obj/structure/machinery/vending/phoronresearch = 0.7,
+		/obj/structure/machinery/vending/security = 0.3,
+		/obj/structure/machinery/vending/hydronutrients = 1,
+		/obj/structure/machinery/vending/hydroseeds = 1,
+		/obj/structure/machinery/vending/dinnerware = 1,
+		/obj/structure/machinery/vending/sovietsoda = 2,
+		/obj/structure/machinery/vending/tool = 1,
+		/obj/structure/machinery/vending/engivend = 0.6,
+		/obj/structure/machinery/vending/engineering = 1,
+		/obj/structure/machinery/vending/robotics = 1,
+		/obj/structure/machinery/vending/tacticool = 0.2,
+		/obj/structure/machinery/vending/tacticool/ert = 0.1
 	)
 	has_postspawn = TRUE
 
@@ -433,7 +433,7 @@
 	depleted = _depleted
 	. = ..()
 
-/obj/random/vendor/post_spawn(obj/machinery/vending/V)
+/obj/random/vendor/post_spawn(obj/structure/machinery/vending/V)
 	if (!depleted)
 		return
 
@@ -672,6 +672,6 @@
 	desc = "This is a random turret item. It could be active or simply a statue."
 	icon_state = "holoturret"
 	problist = list(
-		/obj/machinery/porta_turret/hologram = 1,
+		/obj/structure/machinery/porta_turret/hologram = 1,
 		/obj/structure/unathi_statue/warrior/right = 1,
 	)

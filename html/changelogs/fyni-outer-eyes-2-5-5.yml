@@ -1,0 +1,5 @@
+author: fyni
+delete-after: True
+changes:
+  - rscadd: "Adds modkits to the two Outer Eyes antag loadouts so you can mod the voidsuit to fit other species."
+  - rscadd: "Adds the Outer Eyes Enforcer outfit, for quicker Outer Eyes spawning for admins."

@@ -14,7 +14,7 @@
 /turf/simulated/floor/airless,
 /area/abandoned_prison/exterior)
 "av" = (
-/obj/machinery/suit_storage_unit/standard_unit,
+/obj/structure/machinery/suit_storage_unit/standard_unit,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
@@ -32,7 +32,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/machinery/door/window/southright{
+/obj/structure/machinery/door/window/southright{
 	dir = 1
 	},
 /turf/simulated/floor/airless{
@@ -40,7 +40,7 @@
 	},
 /area/abandoned_prison/exterior)
 "aM" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -60,8 +60,8 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -72,8 +72,8 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -97,8 +97,8 @@
 	icon_state = "cobweb1"
 	},
 /obj/structure/blocker,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/effect/floor_decal/corner/orange{
 	dir = 5
 	},
@@ -153,14 +153,14 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/unary/vent_pump{
+/obj/structure/machinery/atmospherics/unary/vent_pump{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_prison/kitchen)
 "bZ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -171,26 +171,26 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 6
 	},
-/obj/machinery/disposal/small{
+/obj/structure/machinery/disposal/small{
 	dir = 8;
 	pixel_x = 10
 	},
 /obj/structure/disposalpipe/trunk{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/light/colored/decayed{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/steel,
 /area/abandoned_prison/kitchen)
 "co" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -225,7 +225,7 @@
 /obj/item/stack/medical/ointment,
 /obj/item/stack/medical/ointment,
 /obj/item/stack/medical/ointment,
-/obj/machinery/atmospherics/unary/vent_pump{
+/obj/structure/machinery/atmospherics/unary/vent_pump{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -234,10 +234,10 @@
 /turf/simulated/floor/tiled/white,
 /area/abandoned_prison/medbay)
 "cL" = (
-/obj/machinery/door/airlock/glass,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/airlock/glass,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/door/firedoor,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -250,10 +250,10 @@
 /area/abandoned_prison/exterior)
 "dE" = (
 /obj/structure/bed/stool/chair/plastic,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -265,12 +265,12 @@
 /obj/item/shovel,
 /obj/item/shovel,
 /obj/structure/table/rack,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/door/window/southright{
+/obj/structure/machinery/door/window/southright{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/steel,
@@ -287,13 +287,13 @@
 "dJ" = (
 /obj/structure/table/steel,
 /obj/effect/floor_decal/corner_wide/black/diagonal,
-/obj/machinery/chemical_dispenser/bar_soft/full{
+/obj/structure/machinery/chemical_dispenser/bar_soft/full{
 	pixel_y = 7
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -302,8 +302,8 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -333,7 +333,7 @@
 /turf/simulated/floor/tiled/white,
 /area/abandoned_prison/kitchen)
 "dZ" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -351,7 +351,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -360,14 +360,14 @@
 /turf/simulated/floor/tiled/steel,
 /area/abandoned_prison/eva_prep)
 "eH" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/steel,
 /area/abandoned_prison/hydroponics)
 "eM" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/effect/floor_decal/corner/orange{
 	dir = 5
 	},
@@ -380,10 +380,10 @@
 /turf/template_noop,
 /area/space)
 "fa" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/orange{
@@ -396,7 +396,7 @@
 /area/abandoned_prison/cells)
 "fn" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -407,16 +407,16 @@
 /turf/simulated/floor/tiled/steel,
 /area/abandoned_prison/eva_prep)
 "fN" = (
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/door/firedoor{
+/obj/structure/machinery/door/firedoor{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -434,11 +434,11 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/mineral/processing_unit_console{
+/obj/structure/machinery/mineral/processing_unit_console{
 	pixel_y = 28;
 	id = "pprocessing_n"
 	},
-/obj/machinery/conveyor_switch/oneway{
+/obj/structure/machinery/conveyor_switch/oneway{
 	id = "pmining_2"
 	},
 /turf/simulated/floor/airless{
@@ -447,7 +447,7 @@
 /area/abandoned_prison/exterior)
 "gg" = (
 /obj/structure/closet,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /obj/effect/floor_decal/corner/orange/full,
@@ -462,10 +462,10 @@
 /turf/simulated/wall/r_wall,
 /area/abandoned_prison/bathroom)
 "gy" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -475,8 +475,8 @@
 /turf/simulated/floor/tiled/white,
 /area/abandoned_prison/medbay)
 "gE" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	icon_state = "2-4"
 	},
@@ -494,7 +494,7 @@
 	dir = 10
 	},
 /obj/random/tech_supply,
-/obj/machinery/power/apc/south,
+/obj/structure/machinery/power/apc/south,
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
@@ -504,22 +504,22 @@
 /area/abandoned_prison/exterior)
 "gW" = (
 /obj/structure/table/steel,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/obj/machinery/power/apc/south,
+/obj/structure/machinery/power/apc/south,
 /obj/structure/cable/green,
 /turf/simulated/floor/tiled/white,
 /area/abandoned_prison/medbay)
 "hd" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/unary/vent_pump{
+/obj/structure/machinery/atmospherics/unary/vent_pump{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/steel,
 /area/abandoned_prison/hydroponics)
 "hk" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/corner_wide/black/diagonal,
 /turf/simulated/floor/tiled/steel,
 /area/abandoned_prison/eva_prep)
@@ -573,18 +573,18 @@
 /area/abandoned_prison/exterior)
 "hR" = (
 /obj/structure/table/rack,
-/obj/machinery/cell_charger,
+/obj/structure/machinery/cell_charger,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/airless,
 /area/abandoned_prison/exterior)
 "hS" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/obj/machinery/alarm/north,
+/obj/structure/machinery/alarm/north,
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
@@ -596,8 +596,8 @@
 "hY" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
 /obj/random/junk,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -615,10 +615,10 @@
 /turf/simulated/floor/tiled/steel,
 /area/abandoned_prison/kitchen)
 "iG" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -650,7 +650,7 @@
 /turf/template_noop,
 /area/space)
 "jk" = (
-/obj/machinery/door/window{
+/obj/structure/machinery/door/window{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner_wide/black/diagonal,
@@ -671,15 +671,15 @@
 /obj/structure/bed/stool/chair/padded/blue{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood/walnut,
 /area/abandoned_prison/wardenoffice)
 "jH" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /obj/effect/floor_decal/corner/orange/full{
@@ -689,7 +689,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_prison/cells)
 "jO" = (
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	dir = 4
 	},
 /turf/simulated/floor/airless,
@@ -700,7 +700,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /obj/structure/cable/green{
@@ -712,7 +712,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/smes/buildable{
+/obj/structure/machinery/power/smes/buildable{
 	input_attempt = 1;
 	charge = 2000000;
 	input_level = 200000;
@@ -724,10 +724,10 @@
 "ki" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/random/junk,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/alarm/south,
+/obj/structure/machinery/alarm/south,
 /turf/simulated/floor/wood/walnut,
 /area/abandoned_prison/wardenoffice)
 "ks" = (
@@ -736,7 +736,7 @@
 	},
 /obj/structure/table/wood,
 /obj/item/toy/desk/officetoy,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /turf/simulated/floor/wood/walnut,
@@ -746,10 +746,10 @@
 /turf/simulated/floor/carpet/lightblue,
 /area/abandoned_prison/wardenoffice)
 "kz" = (
-/obj/machinery/atmospherics/unary/vent_pump{
+/obj/structure/machinery/atmospherics/unary/vent_pump{
 	dir = 4
 	},
-/obj/machinery/power/apc/west,
+/obj/structure/machinery/power/apc/west,
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
@@ -789,7 +789,7 @@
 /area/space)
 "kV" = (
 /obj/structure/closet,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /obj/effect/floor_decal/corner/orange/full,
@@ -797,7 +797,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_prison/cells)
 "lb" = (
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	dir = 4;
 	id = "pmining_2"
 	},
@@ -810,10 +810,10 @@
 	dir = 6
 	},
 /obj/random/junk,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /obj/structure/sign/poster{
@@ -822,15 +822,15 @@
 /turf/simulated/floor/tiled/steel,
 /area/abandoned_prison/kitchen)
 "lh" = (
-/obj/machinery/atmospherics/pipe/tank/carbon_dioxide,
+/obj/structure/machinery/atmospherics/pipe/tank/carbon_dioxide,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/airless,
 /area/abandoned_prison/exterior)
 "li" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -840,8 +840,8 @@
 /turf/simulated/floor/plating,
 /area/abandoned_prison/engineering)
 "ln" = (
-/obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -854,11 +854,11 @@
 /obj/item/towel/random,
 /obj/item/towel/random,
 /obj/item/towel/random,
-/obj/machinery/atmospherics/unary/vent_pump{
+/obj/structure/machinery/atmospherics/unary/vent_pump{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/power/apc/south,
+/obj/structure/machinery/power/apc/south,
 /obj/structure/cable/green,
 /turf/simulated/floor/tiled/freezer,
 /area/abandoned_prison/bathroom)
@@ -868,7 +868,7 @@
 /turf/simulated/floor/airless,
 /area/abandoned_prison/exterior)
 "lA" = (
-/obj/machinery/atmospherics/binary/pump{
+/obj/structure/machinery/atmospherics/binary/pump{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -879,7 +879,7 @@
 /turf/simulated/floor/plating,
 /area/abandoned_prison/engineering)
 "lJ" = (
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	dir = 4;
 	id = "pmining_1"
 	},
@@ -889,7 +889,7 @@
 /area/abandoned_prison/exterior)
 "lN" = (
 /obj/effect/floor_decal/spline/fancy/wood,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /turf/simulated/floor/wood/walnut,
@@ -901,7 +901,7 @@
 /turf/simulated/floor/airless,
 /area/abandoned_prison/exterior)
 "lQ" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/structure/machinery/atmospherics/pipe/tank/air{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/cobweb2,
@@ -909,11 +909,11 @@
 /turf/simulated/floor/plating,
 /area/abandoned_prison/engineering)
 "lT" = (
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	dir = 4;
 	id = "mining_1"
 	},
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	dir = 4;
 	id = "pmining_1"
 	},
@@ -922,20 +922,20 @@
 	},
 /area/abandoned_prison/exterior)
 "lX" = (
-/obj/machinery/light/colored/decayed,
+/obj/structure/machinery/light/colored/decayed,
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/structure/closet/crate/loot,
 /turf/simulated/floor/airless,
 /area/abandoned_prison/exterior)
 "lZ" = (
-/obj/machinery/shower,
+/obj/structure/machinery/shower,
 /turf/simulated/floor/tiled/freezer,
 /area/abandoned_prison/bathroom)
 "mc" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -959,16 +959,16 @@
 	},
 /area/abandoned_prison/exterior)
 "mg" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/door/firedoor{
+/obj/structure/machinery/door/firedoor{
 	dir = 4
 	},
-/obj/machinery/door/airlock/glass{
+/obj/structure/machinery/door/airlock/glass{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -977,14 +977,14 @@
 /turf/simulated/floor/tiled/white,
 /area/abandoned_prison/cells)
 "mo" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/floor_decal/corner_wide/black/diagonal,
 /turf/simulated/floor/tiled/steel,
 /area/abandoned_prison/eva_prep)
 "mC" = (
-/obj/machinery/floodlight/randomcharge,
+/obj/structure/machinery/floodlight/randomcharge,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/airless,
 /area/abandoned_prison/exterior)
@@ -1003,8 +1003,8 @@
 /turf/simulated/floor/tiled/steel,
 /area/abandoned_prison/kitchen)
 "ni" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -1034,10 +1034,10 @@
 /turf/simulated/floor/tiled/steel,
 /area/abandoned_prison/kitchen)
 "nB" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/random/junk,
@@ -1051,24 +1051,24 @@
 /turf/simulated/floor/tiled/steel,
 /area/abandoned_prison/cells)
 "nR" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/map_effect/marker/airlock{
 	name = "airlock_prison_base";
 	master_tag = "airlock_prison_base"
 	},
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	pixel_y = 8;
 	pixel_x = -28
 	},
-/obj/machinery/door/airlock/external,
+/obj/structure/machinery/door/airlock/external,
 /turf/simulated/floor/plating,
 /area/abandoned_prison/eva_prep)
 "og" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -1078,7 +1078,7 @@
 /area/abandoned_prison/cells)
 "ou" = (
 /obj/structure/closet,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /obj/effect/floor_decal/corner/orange/full,
@@ -1092,7 +1092,7 @@
 /turf/simulated/floor/airless,
 /area/abandoned_prison/exterior)
 "oZ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -1105,7 +1105,7 @@
 /obj/item/stack/flag/red,
 /obj/item/stack/flag/yellow,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/door/window/southright,
+/obj/structure/machinery/door/window/southright,
 /obj/structure/window/reinforced{
 	dir = 1;
 	maxhealth = 80
@@ -1133,7 +1133,7 @@
 /area/abandoned_prison/exterior)
 "pp" = (
 /obj/structure/closet/crate/miningcart,
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 1
 	},
 /obj/item/ore/uranium,
@@ -1146,10 +1146,10 @@
 	},
 /area/abandoned_prison/exterior)
 "pv" = (
-/obj/machinery/door/airlock/glass,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/airlock/glass,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_prison/cells)
 "px" = (
@@ -1198,7 +1198,7 @@
 /area/abandoned_prison/exterior)
 "pS" = (
 /obj/structure/closet,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /obj/effect/floor_decal/corner/orange/full,
@@ -1224,27 +1224,27 @@
 /turf/template_noop,
 /area/space)
 "qc" = (
-/obj/machinery/appliance/cooker/stove,
+/obj/structure/machinery/appliance/cooker/stove,
 /obj/effect/floor_decal/corner_wide/black/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/abandoned_prison/kitchen)
 "qi" = (
-/obj/machinery/portable_atmospherics/hydroponics,
+/obj/structure/machinery/portable_atmospherics/hydroponics,
 /obj/effect/floor_decal/corner/green{
 	dir = 6
 	},
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/steel,
 /area/abandoned_prison/hydroponics)
 "qy" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/alarm/east,
+/obj/structure/machinery/alarm/east,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -1309,10 +1309,10 @@
 	},
 /area/abandoned_prison/exterior)
 "rb" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/closet/cabinet,
@@ -1332,8 +1332,8 @@
 /area/abandoned_prison/wardenoffice)
 "rg" = (
 /mob/living/simple_animal/hostile/giant_spider/nurse,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /obj/effect/floor_decal/corner/orange/full{
@@ -1381,8 +1381,8 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_prison/cells)
 "rT" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /obj/effect/floor_decal/corner/orange/full{
@@ -1407,7 +1407,7 @@
 /turf/simulated/floor/airless,
 /area/abandoned_prison/exterior)
 "sd" = (
-/obj/machinery/power/portgen/basic,
+/obj/structure/machinery/power/portgen/basic,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable{
 	icon_state = "0-8"
@@ -1415,10 +1415,10 @@
 /turf/simulated/floor/plating,
 /area/abandoned_prison/engineering)
 "sg" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -1438,8 +1438,8 @@
 /turf/simulated/floor/carpet/lightblue,
 /area/abandoned_prison/wardenoffice)
 "si" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /obj/effect/floor_decal/corner/orange/full{
@@ -1460,7 +1460,7 @@
 /obj/item/reagent_containers/toothpaste,
 /obj/item/reagent_containers/toothpaste,
 /obj/item/reagent_containers/toothpaste,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -1476,7 +1476,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/abandoned_prison/bathroom)
 "sp" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -1499,13 +1499,13 @@
 /turf/template_noop,
 /area/space)
 "sU" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/alarm/north,
+/obj/structure/machinery/alarm/north,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/ore_box,
 /obj/structure/cable/green{
@@ -1524,8 +1524,8 @@
 	},
 /area/abandoned_prison/exterior)
 "sZ" = (
-/obj/machinery/door/airlock/external,
-/obj/machinery/access_button{
+/obj/structure/machinery/door/airlock/external,
+/obj/structure/machinery/access_button{
 	pixel_x = 28;
 	pixel_y = -8
 	},
@@ -1552,16 +1552,16 @@
 	},
 /area/abandoned_prison/exterior)
 "td" = (
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 8
 	},
 /turf/template_noop,
 /area/space)
 "te" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/barricade/wooden{
@@ -1604,7 +1604,7 @@
 /turf/simulated/floor/airless,
 /area/abandoned_prison/exterior)
 "tL" = (
-/obj/machinery/mineral/stacking_machine{
+/obj/structure/machinery/mineral/stacking_machine{
 	id = "pstacking_n";
 	dir = 4
 	},
@@ -1632,26 +1632,26 @@
 	},
 /area/abandoned_prison/exterior)
 "tW" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/corner_wide/black/diagonal,
 /turf/simulated/floor/tiled/steel,
 /area/abandoned_prison/eva_prep)
 "tY" = (
 /obj/structure/toilet,
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/effect/floor_decal/corner/orange/full{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_prison/cells)
 "tZ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -1659,7 +1659,7 @@
 /turf/simulated/floor/tiled/steel,
 /area/abandoned_prison/cells)
 "um" = (
-/obj/machinery/atmospherics/unary/vent_pump,
+/obj/structure/machinery/atmospherics/unary/vent_pump,
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
 	},
@@ -1718,7 +1718,7 @@
 /turf/simulated/floor/airless,
 /area/abandoned_prison/exterior)
 "uK" = (
-/obj/machinery/suit_cycler/security/prepared,
+/obj/structure/machinery/suit_cycler/security/prepared,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/carpet/lightblue,
 /area/abandoned_prison/wardenoffice)
@@ -1736,8 +1736,8 @@
 /turf/simulated/floor/airless,
 /area/abandoned_prison/exterior)
 "uV" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/effect/floor_decal/corner/orange{
 	dir = 5
 	},
@@ -1759,8 +1759,8 @@
 /area/abandoned_prison/exterior)
 "vk" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/alarm/north,
-/obj/machinery/power/terminal{
+/obj/structure/machinery/alarm/north,
+/obj/structure/machinery/power/terminal{
 	dir = 8
 	},
 /obj/structure/cable{
@@ -1769,33 +1769,33 @@
 /turf/simulated/floor/plating,
 /area/abandoned_prison/engineering)
 "vF" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/steel,
 /area/abandoned_prison/cells)
 "vG" = (
-/obj/machinery/light/colored/decayed,
+/obj/structure/machinery/light/colored/decayed,
 /turf/simulated/wall/r_wall,
 /area/abandoned_prison/exterior)
 "vK" = (
-/obj/machinery/door/airlock/glass_service,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/airlock/glass_service,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/door/firedoor,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/steel,
 /area/abandoned_prison/kitchen)
 "vY" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -1807,7 +1807,7 @@
 /area/abandoned_prison/medbay)
 "wv" = (
 /obj/structure/lattice/catwalk,
-/obj/machinery/floodlight/randomcharge{
+/obj/structure/machinery/floodlight/randomcharge{
 	dir = 4
 	},
 /turf/simulated/floor/airless,
@@ -1818,7 +1818,7 @@
 	},
 /obj/structure/railing/mapped,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/mineral/stacking_unit_console{
+/obj/structure/machinery/mineral/stacking_unit_console{
 	pixel_y = 28;
 	id = "pstacking_n"
 	},
@@ -1827,7 +1827,7 @@
 	},
 /area/abandoned_prison/exterior)
 "wO" = (
-/obj/machinery/atmospherics/unary/vent_pump,
+/obj/structure/machinery/atmospherics/unary/vent_pump,
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
 	},
@@ -1835,10 +1835,10 @@
 /area/abandoned_prison/cells)
 "wT" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/white,
@@ -1858,7 +1858,7 @@
 /turf/simulated/floor/tiled/steel,
 /area/abandoned_prison/hydroponics)
 "xr" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -1884,13 +1884,13 @@
 	},
 /area/abandoned_prison/exterior)
 "xB" = (
-/obj/machinery/vending/wallmed1{
+/obj/structure/machinery/vending/wallmed1{
 	name = "Medical Supplies";
 	pixel_x = -26;
 	pixel_y = -1;
 	req_access = null
 	},
-/obj/machinery/sleeper{
+/obj/structure/machinery/sleeper{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning/cee{
@@ -1910,10 +1910,10 @@
 	},
 /area/abandoned_prison/exterior)
 "xK" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
@@ -1935,7 +1935,7 @@
 /turf/template_noop,
 /area/space)
 "xR" = (
-/obj/machinery/floodlight/randomcharge{
+/obj/structure/machinery/floodlight/randomcharge{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning/dust{
@@ -1949,10 +1949,10 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -1965,18 +1965,18 @@
 /turf/simulated/floor/airless,
 /area/abandoned_prison/exterior)
 "yh" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/power/apc/east,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/power/apc/east,
 /obj/structure/cable/green,
 /obj/effect/floor_decal/corner_wide/black/diagonal,
 /turf/simulated/floor/tiled/steel,
 /area/abandoned_prison/eva_prep)
 "yy" = (
 /obj/random/junk,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -1992,7 +1992,7 @@
 /turf/simulated/floor/airless,
 /area/abandoned_prison/exterior)
 "yK" = (
-/obj/machinery/atmospherics/unary/vent_pump{
+/obj/structure/machinery/atmospherics/unary/vent_pump{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/freezer,
@@ -2004,7 +2004,7 @@
 /obj/structure/sign/poster{
 	pixel_y = 33
 	},
-/obj/machinery/biogenerator{
+/obj/structure/machinery/biogenerator{
 	icon_state = "biogen-empty"
 	},
 /turf/simulated/floor/tiled/steel,
@@ -2021,12 +2021,12 @@
 /turf/simulated/floor/airless,
 /area/abandoned_prison/exterior)
 "zz" = (
-/obj/machinery/door/airlock/glass{
+/obj/structure/machinery/door/airlock/glass{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/door/firedoor,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -2037,7 +2037,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning/dust,
-/obj/machinery/mineral/stacking_unit_console{
+/obj/structure/machinery/mineral/stacking_unit_console{
 	pixel_y = -28;
 	id = "pstacking_s"
 	},
@@ -2052,10 +2052,10 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/door/window{
+/obj/structure/machinery/door/window{
 	dir = 1
 	},
-/obj/machinery/shower{
+/obj/structure/machinery/shower{
 	dir = 8
 	},
 /obj/structure/curtain/open/shower,
@@ -2066,7 +2066,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/abandoned_prison/wardenbathroom)
 "zU" = (
-/obj/machinery/atmospherics/unary/vent_pump{
+/obj/structure/machinery/atmospherics/unary/vent_pump{
 	dir = 8
 	},
 /obj/structure/closet/emcloset,
@@ -2098,7 +2098,7 @@
 /area/abandoned_prison/exterior)
 "Ae" = (
 /obj/effect/spider/stickyweb,
-/obj/machinery/atmospherics/unary/vent_pump,
+/obj/structure/machinery/atmospherics/unary/vent_pump,
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
 	},
@@ -2106,7 +2106,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_prison/cells)
 "Ai" = (
-/obj/machinery/mineral/processing_unit{
+/obj/structure/machinery/mineral/processing_unit{
 	dir = 4;
 	id = "pprocessing_s"
 	},
@@ -2124,23 +2124,23 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 10
 	},
-/obj/machinery/vending/hydroseeds,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/vending/hydroseeds,
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/steel,
 /area/abandoned_prison/hydroponics)
 "Aq" = (
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/steel/airless,
 /area/abandoned_prison/exterior)
 "Ay" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/door/firedoor,
 /obj/effect/decal/cleanable/floor_damage/random_burned,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_prison/cells)
@@ -2157,7 +2157,7 @@
 /obj/item/trash/plate{
 	pixel_y = 9
 	},
-/obj/machinery/alarm/west,
+/obj/structure/machinery/alarm/west,
 /turf/simulated/floor/tiled/white,
 /area/abandoned_prison/kitchen)
 "AL" = (
@@ -2165,25 +2165,25 @@
 /obj/effect/decal/cleanable/cobweb2{
 	icon_state = "cobweb1"
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/effect/floor_decal/corner/orange/full{
 	dir = 8
 	},
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_prison/cells)
 "AT" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 8
 	},
-/obj/machinery/portable_atmospherics/canister/empty,
+/obj/structure/machinery/portable_atmospherics/canister/empty,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/abandoned_prison/engineering)
 "AV" = (
-/obj/machinery/suit_storage_unit,
+/obj/structure/machinery/suit_storage_unit,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -2198,10 +2198,10 @@
 /turf/simulated/floor/airless,
 /area/abandoned_prison/exterior)
 "Bg" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner_wide/black/diagonal,
@@ -2214,8 +2214,8 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "2-8"
 	},
@@ -2240,7 +2240,7 @@
 	},
 /area/abandoned_prison/cells)
 "Ca" = (
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -2256,7 +2256,7 @@
 /turf/simulated/floor/airless,
 /area/abandoned_prison/exterior)
 "Cw" = (
-/obj/machinery/portable_atmospherics/hydroponics,
+/obj/structure/machinery/portable_atmospherics/hydroponics,
 /obj/effect/floor_decal/corner/green{
 	dir = 6
 	},
@@ -2275,10 +2275,10 @@
 /area/abandoned_prison/wardenoffice)
 "CY" = (
 /obj/random/junk,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/machinery/light/colored/decayed,
+/obj/structure/machinery/light/colored/decayed,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/freezer,
 /area/abandoned_prison/bathroom)
@@ -2288,7 +2288,7 @@
 	dir = 4;
 	pixel_x = -19
 	},
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -2298,7 +2298,7 @@
 /turf/simulated/wall/r_wall,
 /area/abandoned_prison/kitchen)
 "DF" = (
-/obj/machinery/atmospherics/binary/pump/high_power,
+/obj/structure/machinery/atmospherics/binary/pump/high_power,
 /obj/item/wrench{
 	pixel_x = 4;
 	pixel_y = -11
@@ -2316,13 +2316,13 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 10
 	},
-/obj/machinery/power/apc/south,
+/obj/structure/machinery/power/apc/south,
 /obj/structure/cable/green,
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/steel,
 /area/abandoned_prison/hydroponics)
 "Ey" = (
-/obj/machinery/power/apc/south,
+/obj/structure/machinery/power/apc/south,
 /obj/structure/cable/green,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
@@ -2331,7 +2331,7 @@
 /turf/simulated/floor/wood/walnut,
 /area/abandoned_prison/wardenoffice)
 "EB" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
 /obj/structure/cable/green{
@@ -2369,7 +2369,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/door/window/southleft{
+/obj/structure/machinery/door/window/southleft{
 	dir = 1
 	},
 /turf/simulated/floor/airless{
@@ -2377,16 +2377,16 @@
 	},
 /area/abandoned_prison/exterior)
 "FG" = (
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/door/firedoor{
+/obj/structure/machinery/door/firedoor{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -2404,10 +2404,10 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/steel,
@@ -2422,10 +2422,10 @@
 /turf/simulated/wall/r_wall,
 /area/abandoned_prison/eva_prep)
 "Gx" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
 /obj/structure/cable/green{
@@ -2443,7 +2443,7 @@
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 10
 	},
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 8
 	},
 /obj/structure/railing/mapped,
@@ -2464,10 +2464,10 @@
 	},
 /area/abandoned_prison/exterior)
 "GO" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/orange{
@@ -2482,7 +2482,7 @@
 /turf/simulated/floor/tiled/steel,
 /area/abandoned_prison/cells)
 "GU" = (
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	dir = 4;
 	id = "pmining_1"
 	},
@@ -2501,8 +2501,8 @@
 /area/abandoned_prison/exterior)
 "Hc" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/disposalpipe/segment{
 	dir = 4;
 	icon_state = "pipe-c"
@@ -2518,7 +2518,7 @@
 /turf/simulated/floor/airless,
 /area/abandoned_prison/exterior)
 "Hl" = (
-/obj/machinery/portable_atmospherics/hydroponics,
+/obj/structure/machinery/portable_atmospherics/hydroponics,
 /obj/effect/floor_decal/corner/green{
 	dir = 6
 	},
@@ -2537,7 +2537,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/door/window/southleft{
+/obj/structure/machinery/door/window/southleft{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/steel,
@@ -2548,7 +2548,7 @@
 /turf/simulated/floor/plating,
 /area/abandoned_prison/cells)
 "Hz" = (
-/obj/machinery/atmospherics/unary/vent_pump,
+/obj/structure/machinery/atmospherics/unary/vent_pump,
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
 	},
@@ -2568,7 +2568,7 @@
 	},
 /area/abandoned_prison/exterior)
 "HL" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -2579,11 +2579,11 @@
 /turf/simulated/floor/tiled/steel,
 /area/abandoned_prison/eva_prep)
 "HP" = (
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/portable_atmospherics/powered/pump/filled,
+/obj/structure/machinery/portable_atmospherics/powered/pump/filled,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/abandoned_prison/engineering)
@@ -2615,7 +2615,7 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 10
 	},
-/obj/machinery/vending/hydronutrients,
+/obj/structure/machinery/vending/hydronutrients,
 /turf/simulated/floor/tiled/steel,
 /area/abandoned_prison/hydroponics)
 "Id" = (
@@ -2630,15 +2630,15 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 1
 	},
 /turf/simulated/floor/wood/walnut,
 /area/abandoned_prison/wardenoffice)
 "Ip" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	icon_state = "2-4"
 	},
@@ -2649,7 +2649,7 @@
 /obj/effect/decal/cleanable/cobweb2{
 	icon_state = "cobweb1"
 	},
-/obj/machinery/vending/tool,
+/obj/structure/machinery/vending/tool,
 /turf/simulated/floor/plating,
 /area/abandoned_prison/engineering)
 "IE" = (
@@ -2659,11 +2659,11 @@
 /area/space)
 "Jb" = (
 /obj/structure/toilet,
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/effect/floor_decal/corner/orange/full{
 	dir = 8
 	},
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -2681,10 +2681,10 @@
 /turf/simulated/floor/wood/walnut,
 /area/abandoned_prison/wardenoffice)
 "Jd" = (
-/obj/machinery/atmospherics/unary/vent_pump{
+/obj/structure/machinery/atmospherics/unary/vent_pump{
 	dir = 1
 	},
-/obj/machinery/light/colored/decayed,
+/obj/structure/machinery/light/colored/decayed,
 /obj/effect/floor_decal/corner_wide/black/diagonal,
 /turf/simulated/floor/tiled/steel,
 /area/abandoned_prison/eva_prep)
@@ -2692,7 +2692,7 @@
 /obj/effect/floor_decal/corner/orange/full{
 	dir = 1
 	},
-/obj/machinery/power/apc/north,
+/obj/structure/machinery/power/apc/north,
 /obj/structure/bed/chair,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable/green{
@@ -2707,7 +2707,7 @@
 /turf/simulated/floor/tiled/steel/airless,
 /area/abandoned_prison/exterior)
 "Jt" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -2731,7 +2731,7 @@
 	dir = 10
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/power/apc/south,
+/obj/structure/machinery/power/apc/south,
 /obj/structure/cable/green,
 /turf/simulated/floor/tiled/steel,
 /area/abandoned_prison/kitchen)
@@ -2753,7 +2753,7 @@
 	},
 /area/abandoned_prison/exterior)
 "Kr" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /obj/structure/table/steel,
@@ -2761,7 +2761,7 @@
 /turf/simulated/floor/plating,
 /area/abandoned_prison/engineering)
 "Kv" = (
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	dir = 4;
 	id = "pmining_2"
 	},
@@ -2771,8 +2771,8 @@
 	},
 /area/abandoned_prison/exterior)
 "KB" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -2782,10 +2782,10 @@
 /turf/simulated/floor/plating,
 /area/abandoned_prison/engineering)
 "KM" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -2864,8 +2864,8 @@
 /turf/simulated/floor/tiled/freezer,
 /area/abandoned_prison/wardenbathroom)
 "Mj" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
 /obj/item/gun/projectile/pistol,
@@ -2901,11 +2901,11 @@
 /obj/structure/table/rack,
 /obj/random/soap,
 /obj/item/towel/random,
-/obj/machinery/light/colored/decayed,
+/obj/structure/machinery/light/colored/decayed,
 /turf/simulated/floor/tiled/freezer,
 /area/abandoned_prison/wardenbathroom)
 "MZ" = (
-/obj/machinery/appliance/cooker/oven,
+/obj/structure/machinery/appliance/cooker/oven,
 /obj/effect/floor_decal/corner_wide/black/diagonal,
 /obj/effect/decal/cleanable/cobweb2{
 	icon_state = "cobweb1"
@@ -2933,16 +2933,16 @@
 /turf/simulated/floor/plating,
 /area/abandoned_prison/engineering)
 "Nf" = (
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/atmospherics/portables_connector,
-/obj/machinery/door/window/southright,
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/atmospherics/portables_connector,
+/obj/structure/machinery/door/window/southright,
 /obj/effect/floor_decal/corner_wide/black/diagonal,
 /turf/simulated/floor/tiled/steel,
 /area/abandoned_prison/eva_prep)
 "Nk" = (
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/atmospherics/portables_connector,
-/obj/machinery/door/window/southleft,
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/atmospherics/portables_connector,
+/obj/structure/machinery/door/window/southleft,
 /obj/effect/floor_decal/corner_wide/black/diagonal,
 /turf/simulated/floor/tiled/steel,
 /area/abandoned_prison/eva_prep)
@@ -2972,7 +2972,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_prison/kitchen)
 "NZ" = (
-/obj/machinery/mineral/stacking_machine{
+/obj/structure/machinery/mineral/stacking_machine{
 	id = "pstacking_s";
 	dir = 4
 	},
@@ -2988,15 +2988,15 @@
 /area/abandoned_prison/exterior)
 "Ob" = (
 /obj/effect/floor_decal/industrial/outline/red,
-/obj/machinery/iv_drip,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/iv_drip,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/abandoned_prison/medbay)
 "Or" = (
-/obj/machinery/mineral/unloading_machine{
+/obj/structure/machinery/mineral/unloading_machine{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning/dust{
@@ -3010,7 +3010,7 @@
 	},
 /area/abandoned_prison/exterior)
 "Os" = (
-/obj/machinery/door/blast/shutters,
+/obj/structure/machinery/door/blast/shutters,
 /turf/simulated/floor/airless,
 /area/abandoned_prison/exterior)
 "OG" = (
@@ -3023,10 +3023,10 @@
 	},
 /area/abandoned_prison/exterior)
 "OO" = (
-/obj/machinery/door/airlock/glass_service,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/airlock/glass_service,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/door/firedoor,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -3048,10 +3048,10 @@
 	},
 /area/abandoned_prison/exterior)
 "Pj" = (
-/obj/machinery/door/airlock/glass_security,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/airlock/glass_security,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/door/firedoor,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -3065,10 +3065,10 @@
 /turf/simulated/floor/airless,
 /area/abandoned_prison/exterior)
 "PM" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -3076,11 +3076,11 @@
 /area/abandoned_prison/wardenoffice)
 "PQ" = (
 /obj/random/soap,
-/obj/machinery/shower,
+/obj/structure/machinery/shower,
 /turf/simulated/floor/tiled/freezer,
 /area/abandoned_prison/bathroom)
 "PT" = (
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 4
 	},
 /turf/template_noop,
@@ -3095,7 +3095,7 @@
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 8
 	},
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/steel/airless,
@@ -3107,7 +3107,7 @@
 	},
 /obj/item/reagent_containers/toothpaste,
 /obj/item/reagent_containers/toothbrush,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /obj/structure/closet/walllocker{
@@ -3116,8 +3116,8 @@
 /turf/simulated/floor/tiled/freezer,
 /area/abandoned_prison/wardenbathroom)
 "Qs" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -3163,12 +3163,12 @@
 /area/abandoned_prison/exterior)
 "QP" = (
 /obj/effect/spider/stickyweb,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/alarm/west,
+/obj/structure/machinery/alarm/west,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_prison/cells)
 "Rh" = (
@@ -3177,13 +3177,13 @@
 	},
 /obj/structure/table/wood,
 /obj/item/modular_computer/laptop/preset/civilian,
-/obj/machinery/atmospherics/unary/vent_pump{
+/obj/structure/machinery/atmospherics/unary/vent_pump{
 	dir = 8
 	},
 /turf/simulated/floor/wood/walnut,
 /area/abandoned_prison/wardenoffice)
 "Rz" = (
-/obj/machinery/atmospherics/binary/passive_gate/supply{
+/obj/structure/machinery/atmospherics/binary/passive_gate/supply{
 	dir = 8;
 	target_pressure = 250
 	},
@@ -3204,7 +3204,7 @@
 /area/space)
 "RM" = (
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/machinery/door/airlock/external,
+/obj/structure/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock{
 	name = "airlock_prison_base";
 	master_tag = "airlock_prison_base"
@@ -3215,7 +3215,7 @@
 /turf/simulated/floor/plating,
 /area/abandoned_prison/eva_prep)
 "RO" = (
-/obj/machinery/suit_storage_unit,
+/obj/structure/machinery/suit_storage_unit,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
@@ -3225,13 +3225,13 @@
 /turf/simulated/floor/tiled/steel,
 /area/abandoned_prison/eva_prep)
 "RU" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/item/clothing/under/color/orange/cell3,
 /obj/effect/floor_decal/corner_wide/black/diagonal,
 /turf/simulated/floor/tiled/steel,
 /area/abandoned_prison/eva_prep)
 "Sf" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
 /obj/effect/floor_decal/corner_wide/black/diagonal,
@@ -3247,12 +3247,12 @@
 /turf/simulated/floor/airless,
 /area/abandoned_prison/exterior)
 "Ss" = (
-/obj/machinery/portable_atmospherics/canister/phoron_scarce,
+/obj/structure/machinery/portable_atmospherics/canister/phoron_scarce,
 /obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/airless,
 /area/abandoned_prison/exterior)
 "Su" = (
-/obj/machinery/mineral/processing_unit{
+/obj/structure/machinery/mineral/processing_unit{
 	dir = 4;
 	id = "pprocessing_n"
 	},
@@ -3267,14 +3267,14 @@
 	},
 /area/abandoned_prison/exterior)
 "SA" = (
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 8
 	},
 /obj/effect/landmark/clear,
 /turf/template_noop,
 /area/space)
 "SV" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /obj/structure/cable/green{
@@ -3285,16 +3285,16 @@
 /turf/simulated/floor/tiled/steel,
 /area/abandoned_prison/eva_prep)
 "Ta" = (
-/obj/machinery/shower{
+/obj/structure/machinery/shower{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/abandoned_prison/bathroom)
 "Tn" = (
-/obj/machinery/door/airlock/glass,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/door/airlock/glass,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/door/firedoor,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -3308,7 +3308,7 @@
 /turf/simulated/floor/airless,
 /area/abandoned_prison/exterior)
 "Uq" = (
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/airless,
 /area/abandoned_prison/exterior)
@@ -3319,7 +3319,7 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 10
 	},
-/obj/machinery/portable_atmospherics/hydroponics,
+/obj/structure/machinery/portable_atmospherics/hydroponics,
 /turf/simulated/floor/tiled/steel,
 /area/abandoned_prison/hydroponics)
 "UA" = (
@@ -3345,10 +3345,10 @@
 	},
 /area/abandoned_prison/exterior)
 "UY" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
 /obj/structure/cable/green{
@@ -3363,7 +3363,7 @@
 /turf/simulated/floor/tiled/steel,
 /area/abandoned_prison/cells)
 "UZ" = (
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -3379,7 +3379,7 @@
 /obj/effect/decal/cleanable/cobweb2{
 	icon_state = "cobweb1"
 	},
-/obj/machinery/seed_extractor,
+/obj/structure/machinery/seed_extractor,
 /turf/simulated/floor/tiled/steel,
 /area/abandoned_prison/hydroponics)
 "Vl" = (
@@ -3422,17 +3422,17 @@
 /turf/simulated/floor/airless,
 /area/abandoned_prison/exterior)
 "Wi" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/alarm/west,
+/obj/structure/machinery/alarm/west,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_prison/cells)
 "Ww" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/power/apc/west,
+/obj/structure/machinery/power/apc/west,
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
@@ -3456,19 +3456,19 @@
 	name = "airlock_prison_base";
 	master_tag = "airlock_prison_base"
 	},
-/obj/machinery/door/airlock/external,
+/obj/structure/machinery/door/airlock/external,
 /turf/simulated/floor/plating,
 /area/abandoned_prison/eva_prep)
 "Xh" = (
-/obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
+/obj/structure/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light/colored/decayed,
+/obj/structure/machinery/light/colored/decayed,
 /turf/simulated/floor/airless,
 /area/abandoned_prison/exterior)
 "Xm" = (
 /obj/structure/bed/stool/chair/plastic,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -3486,7 +3486,7 @@
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 10
 	},
-/obj/machinery/light/colored/decayed,
+/obj/structure/machinery/light/colored/decayed,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
@@ -3503,10 +3503,10 @@
 	},
 /area/abandoned_prison/exterior)
 "XE" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/orange{
@@ -3534,10 +3534,10 @@
 	},
 /area/abandoned_prison/exterior)
 "XQ" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+/obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller{
 	dir = 8;
 	pixel_x = 20
 	},
@@ -3555,12 +3555,12 @@
 /turf/simulated/wall/r_wall,
 /area/abandoned_prison/engineering)
 "XY" = (
-/obj/machinery/door/airlock/glass{
+/obj/structure/machinery/door/airlock/glass{
 	welded = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/firedoor,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_prison/cells)
 "Yu" = (
@@ -3590,7 +3590,7 @@
 	},
 /area/abandoned_prison/exterior)
 "YU" = (
-/obj/machinery/shower{
+/obj/structure/machinery/shower{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -3603,7 +3603,7 @@
 /obj/item/flashlight/lantern,
 /obj/item/flashlight/lantern,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/door/window/southleft,
+/obj/structure/machinery/door/window/southleft,
 /obj/structure/window/reinforced{
 	dir = 1;
 	maxhealth = 80
@@ -3618,7 +3618,7 @@
 /turf/simulated/floor/tiled/steel,
 /area/abandoned_prison/eva_prep)
 "Zf" = (
-/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/structure/machinery/portable_atmospherics/canister/oxygen,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/steel,
 /area/abandoned_prison/eva_prep)
@@ -3628,11 +3628,11 @@
 /area/abandoned_prison/exterior)
 "Zp" = (
 /obj/effect/floor_decal/industrial/warning/dust,
-/obj/machinery/mineral/processing_unit_console{
+/obj/structure/machinery/mineral/processing_unit_console{
 	pixel_y = -28;
 	id = "pprocessing_s"
 	},
-/obj/machinery/conveyor_switch/oneway{
+/obj/structure/machinery/conveyor_switch/oneway{
 	id = "pmining_1"
 	},
 /obj/structure/cable/green{
@@ -3649,7 +3649,7 @@
 	},
 /area/abandoned_prison/exterior)
 "ZB" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -3665,10 +3665,10 @@
 /turf/simulated/floor/plating,
 /area/abandoned_prison/engineering)
 "ZG" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
-/obj/machinery/airlock_sensor{
+/obj/structure/machinery/airlock_sensor{
 	pixel_x = -20;
 	dir = 4
 	},
@@ -3680,7 +3680,7 @@
 /turf/simulated/floor/plating,
 /area/abandoned_prison/eva_prep)
 "ZL" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock{
@@ -3690,12 +3690,12 @@
 /turf/simulated/floor/plating,
 /area/abandoned_prison/eva_prep)
 "ZZ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/alarm/west,
+/obj/structure/machinery/alarm/west,
 /obj/structure/bed/chair,
 /obj/item/flame/lighter/zippo/sol,
 /turf/simulated/floor/tiled/dark/full,

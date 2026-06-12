@@ -1,4 +1,4 @@
-/obj/machinery/chemical_dispenser/full
+/obj/structure/machinery/chemical_dispenser/full
 	spawn_cartridges = list(
 			/obj/item/reagent_containers/chem_disp_cartridge/hydrazine,
 			/obj/item/reagent_containers/chem_disp_cartridge/lithium,
@@ -23,7 +23,7 @@
 			/obj/item/reagent_containers/chem_disp_cartridge/tungsten
 		)
 
-/obj/machinery/chemical_dispenser/ert
+/obj/structure/machinery/chemical_dispenser/ert
 	name = "medicine dispenser"
 	spawn_cartridges = list(
 			/obj/item/reagent_containers/chem_disp_cartridge/inaprov,
@@ -57,14 +57,14 @@
 			/obj/item/reagent_containers/chem_disp_cartridge/clonexadone
 		)
 
-/obj/machinery/chemical_dispenser/ert/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/chemical_dispenser/ert/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		to_chat(user, SPAN_NOTICE("This dispenser is riveted to the floor and cannot be unanchored."))
 		return
 	else
 		return ..()
 
-/obj/machinery/chemical_dispenser/bar_soft
+/obj/structure/machinery/chemical_dispenser/bar_soft
 	name = "soft drink dispenser"
 	desc = "A soda machine."
 	icon_state = "soda_dispenser"
@@ -75,7 +75,7 @@
 	pass_flags = PASSTABLE // put it back on the table
 	manufacturer = "idris"
 
-/obj/machinery/chemical_dispenser/bar_soft/full
+/obj/structure/machinery/chemical_dispenser/bar_soft/full
 	spawn_cartridges = list(
 			/obj/item/reagent_containers/chem_disp_cartridge/water,
 			/obj/item/reagent_containers/chem_disp_cartridge/ice,
@@ -93,7 +93,7 @@
 			/obj/item/reagent_containers/chem_disp_cartridge/root_beer
 		)
 
-/obj/machinery/chemical_dispenser/bar_soft/low_supply
+/obj/structure/machinery/chemical_dispenser/bar_soft/low_supply
 	spawn_cartridges = list(
 			/obj/item/reagent_containers/chem_disp_cartridge/water,
 			/obj/item/reagent_containers/chem_disp_cartridge/ice,
@@ -104,7 +104,7 @@
 			/obj/item/reagent_containers/chem_disp_cartridge/clean_kois,
 		)
 
-/obj/machinery/chemical_dispenser/bar_alc
+/obj/structure/machinery/chemical_dispenser/bar_alc
 	name = "booze dispenser"
 	desc = "A beer machine. Like a soda machine, but more fun!"
 	icon_state = "booze_dispenser"
@@ -115,7 +115,7 @@
 	pass_flags = PASSTABLE // put it back on the table
 	manufacturer = "idris"
 
-/obj/machinery/chemical_dispenser/bar_alc/full
+/obj/structure/machinery/chemical_dispenser/bar_alc/full
 	spawn_cartridges = list(
 			/obj/item/reagent_containers/chem_disp_cartridge/lemon_lime,
 			/obj/item/reagent_containers/chem_disp_cartridge/sodawater,
@@ -139,7 +139,7 @@
 			/obj/item/reagent_containers/chem_disp_cartridge/rice_beer
 		)
 
-/obj/machinery/chemical_dispenser/bar_alc/full/space //Spacebar away site. Gets much more to make the best drinks, hassle-free.
+/obj/structure/machinery/chemical_dispenser/bar_alc/full/space //Spacebar away site. Gets much more to make the best drinks, hassle-free.
 	spawn_cartridges = list(
 			/obj/item/reagent_containers/chem_disp_cartridge/applejack,
 			/obj/item/reagent_containers/chem_disp_cartridge/lemon_lime,
@@ -174,7 +174,7 @@
 			/obj/item/reagent_containers/chem_disp_cartridge/iron
 		)
 
-/obj/machinery/chemical_dispenser/coffeemaster
+/obj/structure/machinery/chemical_dispenser/coffeemaster
 	name = "Coffee Master 3000"
 	desc = "The only thing that can get some workers though the day, a coffee maker on steroids!"
 	icon_state = "coffee_master"
@@ -185,7 +185,7 @@
 	pass_flags = PASSTABLE // put it back on the table
 	manufacturer = "idris"
 
-/obj/machinery/chemical_dispenser/coffeemaster/full
+/obj/structure/machinery/chemical_dispenser/coffeemaster/full
 	spawn_cartridges = list(
 			/obj/item/reagent_containers/chem_disp_cartridge/coffee{temperature_override = 369},
 			/obj/item/reagent_containers/chem_disp_cartridge/espresso{temperature_override = 369},
@@ -201,7 +201,7 @@
 			/obj/item/reagent_containers/chem_disp_cartridge/water{temperature_override = 373}
 		)
 
-/obj/machinery/chemical_dispenser/coffeemaster/low_supply
+/obj/structure/machinery/chemical_dispenser/coffeemaster/low_supply
 	spawn_cartridges = list(
 			/obj/item/reagent_containers/chem_disp_cartridge/coffee{temperature_override = 369},
 			/obj/item/reagent_containers/chem_disp_cartridge/espresso{temperature_override = 369},
@@ -211,7 +211,7 @@
 			/obj/item/reagent_containers/chem_disp_cartridge/water{temperature_override = 373}
 		)
 
-/obj/machinery/chemical_dispenser/coffee
+/obj/structure/machinery/chemical_dispenser/coffee
 	name = "Coffee Machine"
 	desc = "The only thing that can get some workers though the day, the coffee maker is the stations most valuable resource."
 	icon_state = "coffee_machine"
@@ -221,7 +221,7 @@
 	pass_flags = PASSTABLE // put it back on the table
 	manufacturer = "idris"
 
-/obj/machinery/chemical_dispenser/coffee/full
+/obj/structure/machinery/chemical_dispenser/coffee/full
 	spawn_cartridges = list(
 			/obj/item/reagent_containers/chem_disp_cartridge/coffee{temperature_override = 369}
 		)

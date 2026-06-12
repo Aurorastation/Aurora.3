@@ -1,6 +1,6 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "bi" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/exoplanet/carpet/red{
 	temperature = 303.15
 	},
@@ -71,7 +71,7 @@
 "fd" = (
 /obj/structure/table/rack,
 /obj/item/watertank,
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/exoplanet/wood{
 	temperature = 303.15
 	},
@@ -113,7 +113,7 @@
 /area/exoplanet/moghes)
 "iP" = (
 /obj/structure/reagent_dispensers/watertank,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/wood{
@@ -123,7 +123,7 @@
 "js" = (
 /obj/structure/table/rack,
 /obj/random/toolbox,
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/exoplanet/wood{
 	temperature = 303.15
 	},
@@ -295,7 +295,7 @@
 /obj/structure/filingcabinet/filingcabinet{
 	pixel_x = 6
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/carpet/red{
@@ -303,7 +303,7 @@
 	},
 /area/moghes_diona_traders)
 "xZ" = (
-/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/structure/machinery/portable_atmospherics/hydroponics/soil,
 /turf/simulated/floor/exoplanet/grass/moghes/dirt,
 /area/exoplanet/moghes)
 "yy" = (
@@ -333,7 +333,7 @@
 	},
 /area/moghes_diona_traders)
 "At" = (
-/obj/machinery/door/urban{
+/obj/structure/machinery/door/urban{
 	dir = 4;
 	pixel_x = -3
 	},
@@ -343,7 +343,7 @@
 /turf/simulated/floor/exoplanet/grass/moghes/dirt,
 /area/exoplanet/moghes)
 "Bd" = (
-/obj/machinery/door/urban{
+/obj/structure/machinery/door/urban{
 	dir = 4;
 	pixel_x = -29
 	},
@@ -421,7 +421,7 @@
 /area/exoplanet/moghes)
 "GV" = (
 /obj/random/dirt_75,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/wood{
@@ -448,7 +448,7 @@
 /area/moghes_diona_traders)
 "Kd" = (
 /obj/structure/reagent_dispensers/water_cooler,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/carpet/red{
@@ -463,7 +463,7 @@
 /turf/simulated/floor/exoplanet/grass/moghes,
 /area/exoplanet/moghes)
 "Lu" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/carpet/red{
@@ -479,7 +479,7 @@
 /area/moghes_diona_traders)
 "MV" = (
 /obj/random/dirt_75,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/wood{
@@ -487,7 +487,7 @@
 	},
 /area/moghes_diona_traders)
 "NG" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/exoplanet/wood{
 	temperature = 303.15
 	},
@@ -556,7 +556,7 @@
 	name = "key - cells";
 	key_data = "cells"
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/wood{
@@ -569,7 +569,7 @@
 /obj/item/material/hatchet/lumber,
 /obj/item/reagent_containers/spray/plantbgone,
 /obj/item/shovel,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/wood{
@@ -609,7 +609,7 @@
 	},
 /area/moghes_diona_traders)
 "WN" = (
-/obj/machinery/atm{
+/obj/structure/machinery/atm{
 	dir = 1;
 	pixel_y = 30
 	},
@@ -625,7 +625,7 @@
 /area/exoplanet/moghes)
 "Xc" = (
 /obj/structure/filingcabinet/chestdrawer,
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/exoplanet/wood{
 	temperature = 303.15
 	},
@@ -634,7 +634,7 @@
 /obj/structure/bed/stool/chair/sofa/corner/concave/brown{
 	dir = 8
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/exoplanet/carpet/red{
 	temperature = 303.15
 	},

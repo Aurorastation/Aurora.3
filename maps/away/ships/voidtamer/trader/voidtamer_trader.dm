@@ -94,7 +94,7 @@
 	designation = "Starflight"
 	..()
 
-/obj/machinery/computer/shuttle_control/explore/terminal/voidtamer_trade_ship_shuttle
+/obj/structure/machinery/computer/shuttle_control/explore/terminal/voidtamer_trade_ship_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Voidtamer Shuttle"
 

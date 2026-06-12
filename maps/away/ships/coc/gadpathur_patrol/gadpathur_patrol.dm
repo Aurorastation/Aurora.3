@@ -97,7 +97,7 @@
 	designation = "[rand(1000, 1500)]"
 	..()
 
-/obj/machinery/computer/shuttle_control/explore/gadpathur_shuttle
+/obj/structure/machinery/computer/shuttle_control/explore/gadpathur_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Gadpathurian Corvette Shuttle"
 	density = 0

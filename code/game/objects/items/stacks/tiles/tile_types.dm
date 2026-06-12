@@ -102,8 +102,8 @@
 	throwforce = 1.0
 	throw_speed = 5
 	throw_range = 20
-	drop_sound = 'sound/items/drop/cloth.ogg'
-	pickup_sound = 'sound/items/pickup/cloth.ogg'
+	drop_sound = SFX_CLOTH_DROP
+	pickup_sound = SFX_CLOTH_PICKUP
 
 /obj/item/stack/tile/carpet/cyan
 	name = "cyan carpet"
@@ -170,8 +170,8 @@
 	throwforce = 1.0
 	throw_speed = 5
 	throw_range = 20
-	drop_sound = 'sound/items/drop/cloth.ogg'
-	pickup_sound = 'sound/items/pickup/cloth.ogg'
+	drop_sound = 'sound/items/drop/clothing.ogg'
+	pickup_sound = 'sound/items/pickup/clothing.ogg'
 	matter = list(MATERIAL_PLASTIC = TILE_MATERIAL_AMOUNT)
 
 /obj/item/stack/tile/lino/diamond

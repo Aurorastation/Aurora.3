@@ -33,7 +33,7 @@
 	description = "Made by Space Amish using traditional space techniques, this A/C unit can heat or cool a room to your liking."
 	price = 150
 	items = list(
-		/obj/machinery/space_heater
+		/obj/structure/machinery/space_heater
 	)
 	access = 0
 	container_type = "box"

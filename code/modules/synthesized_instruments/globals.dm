@@ -21,6 +21,9 @@ GLOBAL_DATUM_INIT(musical_config, /datum/musical_config, new())
 	var/usage_info_event_resolution = 8
 
 	var/env_settings_available = 1
+	/// When FALSE, the Custom virtual environment cannot be selected from the synthesizer UI.
+	/// The env editor still exists but stays unreachable through the normal flow.
+	var/can_use_custom = FALSE
 
 	var/list/env_default = list(7.5, 1.0, -1000, -100, 0, 1.49, 0.83, 1.0, -2602, 0.0007, 200, 0.011, 0.25, 0.0, 0.25, 0.0, -5.0, 5000, 250.0, 0.0, 100, 100, 63)
 	var/list/list/env_params_bounds = list(

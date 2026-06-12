@@ -230,7 +230,7 @@
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_TINY
 
-/obj/machinery/computer/shuttle_control/explore/terminal/iac_shuttle
+/obj/structure/machinery/computer/shuttle_control/explore/terminal/iac_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "IAC Ambulance Shuttle"
 	req_access = list(ACCESS_IAC_RESCUE_SHIP)

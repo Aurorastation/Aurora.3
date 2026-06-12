@@ -1,7 +1,7 @@
 /**********************Mint**************************/
 
 
-/obj/machinery/mineral/mint
+/obj/structure/machinery/mineral/mint
 	name = "coin press"
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "coinpress0"
@@ -18,12 +18,12 @@
 	var/chosen = DEFAULT_WALL_MATERIAL //which material will be used to make coins
 	var/coinsToProduce = 10
 
-/obj/machinery/mineral/mint/Initialize()
+/obj/structure/machinery/mineral/mint/Initialize()
 	. = ..()
 	START_PROCESSING(SSprocessing, src)
 	setup_io()
 
-/obj/machinery/mineral/mint/process()
+/obj/structure/machinery/mineral/mint/process()
 	if(input_turf)
 		var/obj/item/stack/O
 		O = locate(/obj/item/stack, get_turf(input_turf))
@@ -47,7 +47,7 @@
 			if(processed)
 				qdel(O)
 
-/obj/machinery/mineral/mint/attack_hand(user)
+/obj/structure/machinery/mineral/mint/attack_hand(user)
 	var/dat = "<b>Coin Press</b><br>"
 
 	if(!input_turf)
@@ -100,7 +100,7 @@
 	dat += "<br><A href='byond://?src=[REF(src)];makeCoins=[1]'>Make coins</A>"
 	user << browse(HTML_SKELETON(dat), "window=mint")
 
-/obj/machinery/mineral/mint/Topic(href, href_list)
+/obj/structure/machinery/mineral/mint/Topic(href, href_list)
 	if(..())
 		return TRUE
 	usr.set_machine(src)

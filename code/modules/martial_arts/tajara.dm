@@ -24,7 +24,7 @@
 /datum/martial_art/baghrar/proc/eye_rake(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	if(!istajara(A))
 		return 0
-	A.do_attack_animation(D)
+	A.do_attack_animation(D, ATTACK_EFFECT_CLAW)
 	playsound(get_turf(A), 'sound/weapons/slice.ogg', 50, 1, -1)
 
 	if(!D.species.has_limbs[BP_HEAD])
@@ -53,7 +53,7 @@
 	return 1
 
 /datum/martial_art/baghrar/proc/claw_punch(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)//is actually lung punch
-	A.do_attack_animation(D)
+	A.do_attack_animation(D, ATTACK_EFFECT_CLAW)
 	A.visible_message(SPAN_DANGER("[A] lunges forwards and strikes [D] with their claws!"))
 	playsound(get_turf(A), 'sound/weapons/slice.ogg', 50, 1, -1)
 	var/obj/item/organ/external/affecting = D.get_organ(ran_zone(A.zone_sel.selecting))
@@ -65,7 +65,7 @@
 /datum/martial_art/baghrar/proc/rraknar_stab(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	if(!istajara(A))
 		return 0
-	A.do_attack_animation(D)
+	A.do_attack_animation(D, ATTACK_EFFECT_CLAW)
 	var/obj/item/organ/external/organ = D.get_organ(A.zone_sel.selecting)
 	A.visible_message(SPAN_DANGER("[A] stabs [D]'s [organ.name] with their claws!"))
 	D.apply_damage(organ.brute_dam, DAMAGE_BRUTE, organ, damage_flags = DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE)

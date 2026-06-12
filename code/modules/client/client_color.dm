@@ -4,11 +4,6 @@
 	var/override = FALSE //If set to override we will stop multiplying the moment we get here. NOTE: Priority remains, if your override is on position 4, the other 3 will still have a say.
 	var/disability = FALSE
 
-/mob
-	var/list/client_colors = list()
-
-
-
 /*
 	Adds an instance of color_type to the mob's client_colors list
 	color_type - a typepath (subtyped from /datum/client_color)

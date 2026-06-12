@@ -105,7 +105,7 @@
 		return
 
 	//Lets find the first self destruct terminal
-	for(var/obj/machinery/nuclearbomb/station/N in SSmachinery.machinery)
+	for(var/obj/structure/machinery/nuclearbomb/station/N in SSmachinery.machinery)
 		nuke = WEAKREF(N)
 		continue
 
@@ -131,7 +131,7 @@
 
 	while(timer)
 		sleep(10)
-		var/obj/machinery/nuclearbomb/station/N = nuke.resolve()
+		var/obj/structure/machinery/nuclearbomb/station/N = nuke.resolve()
 		if(!user || !user.bombing_station || user.stat == DEAD || !N)
 			if(timer < stage2)
 				radio.autosay("Self-destruct sequence has been cancelled.", "[SSatlas.current_map.station_short] Authentication Control")

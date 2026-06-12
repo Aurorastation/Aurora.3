@@ -45,7 +45,7 @@
 /turf/simulated/floor/exoplanet/wood/bamboo,
 /area/konyang/house_small)
 "cL" = (
-/obj/machinery/mech_recharger/automobile,
+/obj/structure/machinery/mech_recharger/automobile,
 /obj/effect/decal/curb{
 	dir = 10
 	},
@@ -96,7 +96,7 @@
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/exoplanet/grass/konyang)
 "gH" = (
-/obj/machinery/appliance/cooker/oven,
+/obj/structure/machinery/appliance/cooker/oven,
 /turf/simulated/floor/exoplanet/foundation,
 /area/konyang/house_small)
 "gZ" = (
@@ -166,7 +166,7 @@
 /area/konyang/house_small)
 "jW" = (
 /obj/structure/table/stone/marble,
-/obj/machinery/reagentgrinder{
+/obj/structure/machinery/reagentgrinder{
 	pixel_x = 1;
 	pixel_y = 7
 	},
@@ -182,7 +182,7 @@
 /area/konyang/house_small)
 "kf" = (
 /obj/structure/lattice/catwalk/indoor/planks/deep,
-/obj/machinery/door/urban{
+/obj/structure/machinery/door/urban{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/wood/bamboo,
@@ -194,7 +194,7 @@
 /turf/simulated/floor/exoplanet/concrete,
 /area/exoplanet/grass/konyang)
 "ki" = (
-/obj/machinery/mech_recharger/automobile,
+/obj/structure/machinery/mech_recharger/automobile,
 /obj/effect/decal/curb{
 	dir = 6
 	},
@@ -249,7 +249,7 @@
 /turf/simulated/floor/exoplanet/sidewalk/paved,
 /area/exoplanet/grass/konyang)
 "mP" = (
-/obj/machinery/door/urban{
+/obj/structure/machinery/door/urban{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/wood/bamboo,
@@ -497,7 +497,7 @@
 /turf/simulated/floor/exoplanet/wood/bamboo,
 /area/konyang/house_small)
 "zC" = (
-/obj/machinery/appliance/cooker/stove,
+/obj/structure/machinery/appliance/cooker/stove,
 /turf/simulated/floor/exoplanet/foundation,
 /area/konyang/house_small)
 "AB" = (
@@ -666,7 +666,7 @@
 /turf/simulated/floor/exoplanet/wood/bamboo,
 /area/konyang/house_small)
 "Kk" = (
-/obj/machinery/recharge_station,
+/obj/structure/machinery/recharge_station,
 /turf/simulated/floor/exoplanet/sidewalk/dark,
 /area/konyang/house_small)
 "Ku" = (
@@ -707,7 +707,7 @@
 "Nc" = (
 /obj/structure/table/glass,
 /obj/random/tech_supply,
-/obj/machinery/recharger{
+/obj/structure/machinery/recharger{
 	pixel_x = -7;
 	pixel_y = 5
 	},
@@ -725,7 +725,7 @@
 /turf/simulated/floor/exoplanet/concrete,
 /area/exoplanet/grass/konyang)
 "Oy" = (
-/obj/machinery/light_switch{
+/obj/structure/machinery/light_switch{
 	dir = 1;
 	pixel_y = 26
 	},
@@ -754,7 +754,7 @@
 /turf/simulated/floor/exoplanet/wood/bamboo,
 /area/konyang/house_small)
 "PZ" = (
-/obj/machinery/door/urban,
+/obj/structure/machinery/door/urban,
 /turf/simulated/floor/exoplanet/sidewalk/dark,
 /area/konyang/house_small)
 "Qk" = (
@@ -892,10 +892,10 @@
 /turf/simulated/floor/exoplanet/sidewalk/blocks,
 /area/exoplanet/grass/konyang)
 "Yc" = (
-/obj/machinery/washing_machine{
+/obj/structure/machinery/washing_machine{
 	pixel_x = -8
 	},
-/obj/machinery/washing_machine{
+/obj/structure/machinery/washing_machine{
 	pixel_x = 7
 	},
 /turf/simulated/floor/exoplanet/sidewalk/dark,
@@ -920,7 +920,7 @@
 /turf/simulated/floor/exoplanet/konyang,
 /area/exoplanet/grass/konyang)
 "Zz" = (
-/obj/machinery/shower{
+/obj/structure/machinery/shower{
 	pixel_y = 15
 	},
 /obj/effect/floor_decal/spline/fancy/wood/cee{

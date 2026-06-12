@@ -1144,6 +1144,8 @@
 		RAD = ARMOR_RAD_SMALL
 	)
 	species_restricted = list(BODYTYPE_HUMAN)
+	icon_supported_species_tags = list("taj", "una", "skr")
+	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_UNATHI, BODYTYPE_SKRELL)
 	slowdown = 0.5
 	allowed = list(/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
@@ -1166,6 +1168,8 @@
 		RAD = ARMOR_RAD_SMALL
 	)
 	species_restricted = list(BODYTYPE_HUMAN)
+	icon_supported_species_tags = list("taj", "una", "skr")
+	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_UNATHI, BODYTYPE_SKRELL)
 	contained_sprite = TRUE
 	light_overlay = "helmet_light_outer_eyes"
 	light_range = 6

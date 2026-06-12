@@ -172,7 +172,7 @@
 	storage_slots = 6
 	drop_sound = 'sound/items/drop/cardboardbox.ogg'
 	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
-	use_sound = 'sound/items/storage/box.ogg'
+	use_sound = 'sound/items/storage/cardboardbox.ogg'
 
 /obj/item/storage/box/fancy/chewables/tobacco/update_icon()
 	if(opened) //use the open icon.
@@ -195,7 +195,7 @@
 	w_class = WEIGHT_CLASS_TINY
 	drop_sound = 'sound/items/drop/cardboardbox.ogg'
 	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
-	use_sound = 'sound/items/storage/box.ogg'
+	use_sound = 'sound/items/storage/cardboardbox.ogg'
 
 /obj/item/storage/chewables/rollable/unathi
 	name = "box of S'th Kasavakh tobacco leaves"
@@ -239,7 +239,7 @@
 	icon_state = "solar_salve"
 	drop_sound = 'sound/items/drop/metal_pot.ogg'
 	pickup_sound = 'sound/items/drop/metal_pot.ogg'
-	use_sound = 'sound/items/storage/box.ogg'
+	use_sound = 'sound/items/storage/cardboardbox.ogg'
 	w_class = WEIGHT_CLASS_NORMAL
 	throwforce = 2
 	starts_with = list(/obj/item/clothing/mask/chewable/solar_salve = 6)

@@ -31,8 +31,8 @@
 /turf/simulated/floor/shuttle/dark_blue/airless,
 /area/template_noop)
 "dX" = (
-/obj/machinery/fabricator/autolathe,
-/obj/machinery/light/colored/red{
+/obj/structure/machinery/fabricator/autolathe,
+/obj/structure/machinery/light/colored/red{
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/dark_blue/airless,
@@ -42,7 +42,7 @@
 /turf/simulated/wall/shuttle/dark/cardinal,
 /area/template_noop)
 "fT" = (
-/obj/machinery/light/colored/red,
+/obj/structure/machinery/light/colored/red,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/shuttle/dark_blue/airless,
 /area/template_noop)
@@ -142,7 +142,7 @@
 /turf/simulated/floor/shuttle/dark_blue/airless,
 /area/template_noop)
 "oz" = (
-/obj/machinery/door/airlock/highsecurity{
+/obj/structure/machinery/door/airlock/highsecurity{
 	req_access = list(150);
 	dir = 1
 	},
@@ -161,7 +161,7 @@
 /turf/simulated/floor/shuttle/dark_blue/airless,
 /area/template_noop)
 "qQ" = (
-/obj/machinery/door/window{
+/obj/structure/machinery/door/window{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/blood,
@@ -169,7 +169,7 @@
 /turf/simulated/floor/shuttle/dark_blue/airless,
 /area/template_noop)
 "qV" = (
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -209,7 +209,7 @@
 /area/template_noop)
 "tC" = (
 /obj/structure/mech_wreckage,
-/obj/machinery/mech_recharger,
+/obj/structure/machinery/mech_recharger,
 /obj/effect/floor_decal/industrial/warning/full,
 /turf/simulated/floor/shuttle/dark_blue/airless,
 /area/template_noop)
@@ -236,7 +236,7 @@
 /turf/simulated/floor/airless,
 /area/template_noop)
 "wb" = (
-/obj/machinery/light/colored/red{
+/obj/structure/machinery/light/colored/red{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -291,7 +291,7 @@
 "Ah" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/industrial/warning/full,
-/obj/machinery/porta_turret/net,
+/obj/structure/machinery/porta_turret/net,
 /turf/simulated/floor/shuttle/black,
 /area/dungeon/crashed_ship)
 "Ak" = (
@@ -315,7 +315,7 @@
 /turf/template_noop,
 /area/template_noop)
 "DB" = (
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/dark_blue/airless,
@@ -429,7 +429,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/machinery/door/window{
+/obj/structure/machinery/door/window{
 	dir = 4;
 	req_access = list(150)
 	},
@@ -454,7 +454,7 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced,
-/obj/machinery/door/window{
+/obj/structure/machinery/door/window{
 	dir = 4;
 	req_access = list(150)
 	},
@@ -470,11 +470,11 @@
 "Yb" = (
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/structure/railing/mapped,
-/obj/machinery/porta_turret_construct/dark,
+/obj/structure/machinery/porta_turret_construct/dark,
 /turf/simulated/floor/shuttle/dark_blue/airless,
 /area/template_noop)
 "Zd" = (
-/obj/machinery/light/colored/red,
+/obj/structure/machinery/light/colored/red,
 /turf/simulated/floor/shuttle/dark_blue/airless,
 /area/template_noop)
 

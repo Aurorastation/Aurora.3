@@ -47,7 +47,7 @@
 /turf/simulated/floor/exoplanet/desert,
 /area/template_noop)
 "v" = (
-/obj/machinery/stasis_cage{
+/obj/structure/machinery/stasis_cage{
 	req_access = list()
 	},
 /turf/simulated/floor/exoplanet/desert,

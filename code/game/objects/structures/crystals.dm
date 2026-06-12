@@ -11,7 +11,7 @@
 	var/state = 0
 	var/mine_rate = 1 // how fast you can mine it
 
-	var/obj/machinery/power/crystal_agitator/creator // used to re-add dense turfs to agitation list when destroyed
+	var/obj/structure/machinery/power/crystal_agitator/creator // used to re-add dense turfs to agitation list when destroyed
 
 /obj/structure/reagent_crystal/get_damage_condition_hints(mob/user, distance, is_adjacent)
 	var/current_damage = health / maxhealth

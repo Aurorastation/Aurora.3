@@ -35,10 +35,10 @@
 /turf/simulated/floor/exoplanet/carpet/rubber,
 /area/adhomai_archeology)
 "g" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
-/obj/machinery/radiocarbon_spectrometer,
+/obj/structure/machinery/radiocarbon_spectrometer,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/exoplanet/carpet/rubber,
 /area/adhomai_archeology)
@@ -53,7 +53,7 @@
 	},
 /area/exoplanet/adhomai)
 "i" = (
-/obj/machinery/suspension_gen,
+/obj/structure/machinery/suspension_gen,
 /turf/simulated/floor/exoplanet/carpet/rubber,
 /area/adhomai_archeology)
 "j" = (
@@ -68,7 +68,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/machinery/artifact_analyser,
+/obj/structure/machinery/artifact_analyser,
 /obj/effect/floor_decal/spline/plain/cee/black{
 	dir = 1
 	},
@@ -123,7 +123,7 @@
 /turf/simulated/floor/exoplanet/carpet/rubber,
 /area/adhomai_archeology)
 "t" = (
-/obj/machinery/floodlight,
+/obj/structure/machinery/floodlight,
 /obj/structure/sign/flag/nka{
 	pixel_y = 32
 	},
@@ -156,13 +156,13 @@
 /obj/item/flashlight/lantern,
 /obj/item/flashlight/lantern,
 /obj/item/flashlight/lantern,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/carpet/rubber,
 /area/adhomai_archeology)
 "y" = (
-/obj/machinery/floodlight,
+/obj/structure/machinery/floodlight,
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 233.15
 	},
@@ -207,7 +207,7 @@
 	},
 /area/exoplanet/adhomai)
 "G" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /obj/structure/closet/excavation,
@@ -233,7 +233,7 @@
 	},
 /area/exoplanet/adhomai)
 "M" = (
-/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/structure/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/exoplanet/carpet/rubber,
 /area/adhomai_archeology)
 "N" = (
@@ -300,7 +300,7 @@
 /obj/item/clothing/suit/storage/hooded/wintercoat,
 /obj/item/clothing/suit/storage/hooded/wintercoat,
 /obj/item/clothing/suit/storage/hooded/wintercoat,
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /turf/simulated/floor/exoplanet/carpet/rubber,
 /area/adhomai_archeology)
 "W" = (
@@ -313,7 +313,7 @@
 /turf/simulated/wall/wood,
 /area/adhomai_archeology)
 "Y" = (
-/obj/machinery/artifact_scanpad,
+/obj/structure/machinery/artifact_scanpad,
 /obj/effect/floor_decal/spline/plain/cee/black,
 /turf/simulated/floor/exoplanet/carpet/rubber,
 /area/adhomai_archeology)

@@ -11,6 +11,7 @@
 	name = "AI Area (PARENT AREA - DON'T USE)"
 	icon_state = "ai_chamber"
 	ambience = AMBIENCE_AI
+	area_lighting = LIGHT_HIGHSEC_COLORS
 	horizon_deck = 3
 	department = LOC_AI
 	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_HIDE_FROM_HOLOMAP

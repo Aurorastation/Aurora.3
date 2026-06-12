@@ -57,3 +57,18 @@
 		SKILL_LEVEL_TRAINED = "Your liver is 10% more effective at filtering drugs and alcohol.",
 		SKILL_LEVEL_PROFESSIONAL = "Your liver is 15% more effective at filtering drugs and alcohol."
 	)
+
+/singleton/skill/ministry
+	name = "Ministry"
+	description = "Represents a characters training in religious counseling. Having ranks in this skill unlocks the \"Offer Blessing\" ability, which offers a small morale modifier to an adjacent character. " \
+		+ "Additional ranks increase the morale modifier, which is empowered further if the recipient shares a religion with you."
+	maximum_level = SKILL_LEVEL_PROFESSIONAL
+	category =  /singleton/skill_category/everyday
+	subcategory = SKILL_SUBCATEGORY_SERVICE
+	component_type = MINISTRY_SKILL_COMPONENT
+	skill_level_descriptions = alist(
+		SKILL_LEVEL_UNFAMILIAR = "You have no training in religious counseling.",
+		SKILL_LEVEL_FAMILIAR = "You gain the \"Offer Blessing\" ability, which provides a small morale bonus to a recipient.",
+		SKILL_LEVEL_TRAINED = "You gain the \"Offer Blessing\" ability, which provides a modest morale bonus to a recipient.",
+		SKILL_LEVEL_PROFESSIONAL = "You gain the \"Offer Blessing\" ability, which provides a moderate morale bonus to a recipient."
+	)

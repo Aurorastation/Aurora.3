@@ -150,7 +150,7 @@
 	var/display_name = get_area_display_name(A)
 	return display_name
 
-/obj/machinery/camera/get_source_name()
+/obj/structure/machinery/camera/get_source_name()
 	return c_tag
 
 /atom/proc/get_alarm_cameras()

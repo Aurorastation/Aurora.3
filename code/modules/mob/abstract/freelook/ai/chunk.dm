@@ -5,8 +5,8 @@
 
 /datum/chunk/camera/acquire_visible_turfs(var/list/visible)
 	for(var/source in sources)
-		if(istype(source, /obj/machinery/camera))
-			var/obj/machinery/camera/c = source
+		if(istype(source, /obj/structure/machinery/camera))
+			var/obj/structure/machinery/camera/c = source
 			if(!c.can_use())
 				continue
 

@@ -505,7 +505,7 @@
 	add_pain(0.6 * burn + 0.4 * brute)
 
 	if(owner)
-		SEND_SIGNAL(owner, COMSIG_EXTERNAL_ORGAN_DAMAGE, burn + brute)
+		SEND_SIGNAL(owner, COMSIG_DAMAGE_TO_ENDOSKELETON, burn + brute)
 
 	//If there are still hurties to dispense
 	if (spillover)
@@ -594,13 +594,13 @@
 					if(W.w_class >= w_class && (dam_flags & DAMAGE_FLAG_EDGE))
 						edge_eligible = TRUE
 
-				if(!blunt_eligible && edge_eligible && (brute >= max_damage / (DROPLIMB_THRESHOLD_EDGE + maim_bonus_to_add)))
+				if(!blunt_eligible && edge_eligible && (brute >= max_damage / max((DROPLIMB_THRESHOLD_EDGE + maim_bonus_to_add), 0.1)))
 					droplimb(0, DROPLIMB_EDGE)
-				else if(burn >= max_damage / ((dam_flags & DAMAGE_FLAG_LASER ? DROPLIMB_THRESHOLD_DESTROY_PROJECTILE :  DROPLIMB_THRESHOLD_DESTROY) + maim_bonus_to_add))
+				else if(burn >= max_damage / max((dam_flags & DAMAGE_FLAG_LASER ? DROPLIMB_THRESHOLD_DESTROY_PROJECTILE :  DROPLIMB_THRESHOLD_DESTROY) + maim_bonus_to_add, 0.1))
 					droplimb(0, DROPLIMB_BURN)
-				else if(blunt_eligible && brute >= max_damage / ((dam_flags & DAMAGE_FLAG_BULLET ? DROPLIMB_THRESHOLD_DESTROY_PROJECTILE :  DROPLIMB_THRESHOLD_DESTROY) + maim_bonus_to_add))
+				else if(blunt_eligible && brute >= max_damage / max((dam_flags & DAMAGE_FLAG_BULLET ? DROPLIMB_THRESHOLD_DESTROY_PROJECTILE :  DROPLIMB_THRESHOLD_DESTROY) + maim_bonus_to_add, 0.1))
 					droplimb(0, DROPLIMB_BLUNT)
-				else if(brute >= max_damage / (DROPLIMB_THRESHOLD_TEAROFF + maim_bonus_to_add))
+				else if(brute >= max_damage / max((DROPLIMB_THRESHOLD_TEAROFF + maim_bonus_to_add), 0.1))
 					droplimb(0, DROPLIMB_EDGE)
 
 /obj/item/organ/external/heal_damage(brute, burn, internal = 0, robo_repair = 0)

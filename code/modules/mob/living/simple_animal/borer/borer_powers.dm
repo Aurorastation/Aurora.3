@@ -564,4 +564,4 @@
 	var/datum/component/health_analyzer/borer/h_analyzer = src.GetComponent(/datum/component/health_analyzer/borer)
 	if(!h_analyzer)
 		return
-	h_analyzer.health_scan_mob(host, src, TRUE, TRUE)
+	h_analyzer.health_scan_mob(host, src, TRUE, FALSE)

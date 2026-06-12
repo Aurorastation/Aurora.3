@@ -89,7 +89,7 @@
 	skybox_image.pixel_y = rand(128,256)
 	return skybox_image
 
-/obj/machinery/computer/shuttle_control/explore/terminal/intrepid
+/obj/structure/machinery/computer/shuttle_control/explore/terminal/intrepid
 	name = "\improper Intrepid control console"
 	shuttle_tag = "Intrepid"
 	req_access = list(ACCESS_INTREPID)
@@ -128,7 +128,7 @@
 	skybox_image.pixel_y = rand(128,256)
 	return skybox_image
 
-/obj/machinery/computer/shuttle_control/explore/mining_shuttle
+/obj/structure/machinery/computer/shuttle_control/explore/mining_shuttle
 	name = "\improper Spark control console"
 	shuttle_tag = "Spark"
 	req_access = list(ACCESS_MINING)
@@ -170,7 +170,7 @@
 	skybox_image.pixel_y = rand(128,256)
 	return skybox_image
 
-/obj/machinery/computer/shuttle_control/explore/canary
+/obj/structure/machinery/computer/shuttle_control/explore/canary
 	name = "\improper Canary control console"
 	shuttle_tag = "Canary"
 	req_access = list(ACCESS_INTREPID)
@@ -181,7 +181,7 @@
 	icon_keyboard = null
 	circuit = null
 
-/obj/machinery/computer/shuttle_control/explore/canary/left
+/obj/structure/machinery/computer/shuttle_control/explore/canary/left
 	name = "\improper Canary control console"
 	shuttle_tag = "Canary"
 	req_access = list(ACCESS_INTREPID)
@@ -226,7 +226,7 @@
 // 	skybox_image.pixel_y = rand(128,256) // <---------- hopefully someone sprites it some day
 // 	return skybox_image
 
-/obj/machinery/computer/shuttle_control/explore/terminal/quark
+/obj/structure/machinery/computer/shuttle_control/explore/terminal/quark
 	name = "\improper Quark control console"
 	shuttle_tag = "Quark"
 	req_access = list(ACCESS_XENOARCH, ACCESS_RESEARCH)

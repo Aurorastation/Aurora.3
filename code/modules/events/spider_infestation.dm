@@ -18,7 +18,7 @@
 	..()
 
 	var/list/vents = list()
-	for(var/obj/machinery/atmospherics/unary/vent_pump/temp_vent in SSmachinery.processing)
+	for(var/obj/structure/machinery/atmospherics/unary/vent_pump/temp_vent in SSmachinery.processing)
 		if(!temp_vent.welded && temp_vent.network && is_station_level(temp_vent.loc.z))
 			if(temp_vent.network.normal_members.len > 50)
 				vents += temp_vent

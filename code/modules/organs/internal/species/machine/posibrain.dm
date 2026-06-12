@@ -7,13 +7,15 @@
 	parent_organ = BP_HEAD
 	vital = TRUE
 	robotic_sprite = FALSE
-	diagnostics_suite_visible = FALSE
 
 	emp_coeff = 0.5
 
 	action_button_name = "Neural Configuration"
 
 	relative_size = 85
+
+	maxhealth = OBJECT_HEALTH_MEDIUM
+	should_use_health = TRUE
 
 	/// The type of 'robotic brain'. Must be a subtype of /obj/item/mmi/digital.
 	var/robotic_brain_type = /obj/item/mmi/digital/posibrain
@@ -60,6 +62,13 @@
 	QDEL_NULL(stored_mmi)
 	QDEL_NULL(sizzle)
 	return ..()
+
+/obj/item/organ/internal/machine/posibrain/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
+	playsound(src, SFX_BREAK_GLASS, 100, 1)
+	visible_message(SPAN_DANGER("\The [src] shatters spectacularly into a million pieces!"))
+	to_chat(owner, SPAN_DANGER("Your vision goes dark as your posibrain is destroyed, and your consciousness ceases to be."))
+	new /obj/effect/decal/cleanable/blood/gibs/robot(get_turf(src))
+	. = ..()
 
 /obj/item/organ/internal/machine/posibrain/rejuvenate()
 	. = ..()

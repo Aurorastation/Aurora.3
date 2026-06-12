@@ -72,7 +72,7 @@
 	designation = "[pick("Space Scavenger", "Cheap Repair", "Adhomian Handyman", "Iron Rafama", "Wreck Wrecker", "Messa's Mechanic", "Grease Farwa", "Cold Gears", "Scrap's Bane")]"
 	..()
 
-/obj/machinery/computer/shuttle_control/explore/tajara_scrapper
+/obj/structure/machinery/computer/shuttle_control/explore/tajara_scrapper
 	name = "shuttle control console"
 	shuttle_tag = "Scrapper Ship"
 

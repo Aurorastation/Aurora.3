@@ -17,8 +17,8 @@
 	siemens_coefficient = 0.35
 	action_button_name = "Toggle Visor"
 	var/visor_toggled = FALSE
-	var/obj/machinery/computer/shuttle_control/linked_console
-	var/obj/machinery/computer/ship/helm/linked_helm
+	var/obj/structure/machinery/computer/shuttle_control/linked_console
+	var/obj/structure/machinery/computer/ship/helm/linked_helm
 
 	var/obj/pilot_overlay_holder/hud_overlay
 	var/obj/pilot_overlay_holder/ship_hud/ship_overlay
@@ -37,7 +37,7 @@
 		linked_console = null
 	return ..()
 
-/obj/item/clothing/head/helmet/pilot/proc/set_console(var/obj/machinery/computer/C)
+/obj/item/clothing/head/helmet/pilot/proc/set_console(var/obj/structure/machinery/computer/C)
 	if(linked_console)
 		linked_console.linked_helmets -= src
 		linked_console = null
@@ -46,12 +46,12 @@
 		linked_helm = null
 
 	if(!isnull(C))
-		if(istype(C, /obj/machinery/computer/shuttle_control))
+		if(istype(C, /obj/structure/machinery/computer/shuttle_control))
 			linked_console = C
 			linked_console.linked_helmets += src
 			hud_overlay.maptext_height = initial(hud_overlay.maptext_height)
 			hud_overlay.maptext_y = initial(hud_overlay.maptext_y)
-		else if(istype(C, /obj/machinery/computer/ship/helm))
+		else if(istype(C, /obj/structure/machinery/computer/ship/helm))
 			linked_helm = C
 			linked_helm.linked_helmets += src
 			hud_overlay.maptext_height = 64
@@ -156,7 +156,7 @@
 	desc = "A helmet clearly belonging to a TCFL pilot, it has aged pilot visor attached to it. The visor feeds its wearer in-flight information via an integrated heads-up display."
 	icon_state = "legion_pilot"
 	item_state = "legion_pilot"
-	camera = /obj/machinery/camera/network/tcfl
+	camera = /obj/structure/machinery/camera/network/tcfl
 
 /obj/item/clothing/head/helmet/pilot/himeo
 	name = "himean naval flight helmet"

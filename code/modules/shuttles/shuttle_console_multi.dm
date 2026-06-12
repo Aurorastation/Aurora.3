@@ -1,7 +1,7 @@
-/obj/machinery/computer/shuttle_control/multi
+/obj/structure/machinery/computer/shuttle_control/multi
 	ui_template = "ShuttleControlConsoleMulti"
 
-/obj/machinery/computer/shuttle_control/multi/ui_data(mob/user)
+/obj/structure/machinery/computer/shuttle_control/multi/ui_data(mob/user)
 	. = ..()
 
 	var/datum/shuttle/autodock/multi/shuttle = SSshuttle.shuttles[shuttle_tag]
@@ -11,7 +11,7 @@
 			"can_pick" = shuttle.moving_status == SHUTTLE_IDLE,
 		)
 
-/obj/machinery/computer/shuttle_control/multi/handle_topic_href(var/mob/user, var/datum/shuttle/autodock/multi/shuttle, var/action, var/list/params)
+/obj/structure/machinery/computer/shuttle_control/multi/handle_topic_href(var/mob/user, var/datum/shuttle/autodock/multi/shuttle, var/action, var/list/params)
 	if(action == "pick")
 		var/dest_key = tgui_input_list(user, "Choose shuttle destination.", "Shuttle Destination", shuttle.get_destinations())
 		if(dest_key && (!use_check(usr) || (isobserver(usr) && check_rights(R_ADMIN, FALSE)) || isstoryteller(usr)))
@@ -20,10 +20,10 @@
 
 	return ..()
 
-/obj/machinery/computer/shuttle_control/multi/antag
+/obj/structure/machinery/computer/shuttle_control/multi/antag
 	ui_template = "ShuttleControlConsoleMultiAntag"
 
-/obj/machinery/computer/shuttle_control/multi/antag/ui_data(mob/user)
+/obj/structure/machinery/computer/shuttle_control/multi/antag/ui_data(mob/user)
 	. = ..()
 
 	var/datum/shuttle/autodock/multi/antag/shuttle = SSshuttle.shuttles[shuttle_tag]
@@ -32,14 +32,14 @@
 			"cloaked" = shuttle.cloaked,
 		)
 
-/obj/machinery/computer/shuttle_control/multi/antag/handle_topic_href(var/mob/user, var/datum/shuttle/autodock/multi/antag/shuttle, var/action, var/list/params)
+/obj/structure/machinery/computer/shuttle_control/multi/antag/handle_topic_href(var/mob/user, var/datum/shuttle/autodock/multi/antag/shuttle, var/action, var/list/params)
 	if(action == "toggle_cloaked")
 		shuttle.cloaked = !shuttle.cloaked
 		return TRUE
 
 	return ..()
 
-/obj/machinery/computer/shuttle_control/multi/can_move(var/datum/shuttle/autodock/shuttle, var/user)
+/obj/structure/machinery/computer/shuttle_control/multi/can_move(var/datum/shuttle/autodock/shuttle, var/user)
 	if(istype(shuttle, /datum/shuttle/autodock/multi/antag))
 		var/datum/shuttle/autodock/multi/antag/our_shuttle = shuttle
 		if(our_shuttle.returned)

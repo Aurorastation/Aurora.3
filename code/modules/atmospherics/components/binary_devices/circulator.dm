@@ -1,7 +1,7 @@
 //node1, air1, network1 correspond to input
 //node2, air2, network2 correspond to output
 
-/obj/machinery/atmospherics/binary/circulator
+/obj/structure/machinery/atmospherics/binary/circulator
 	name = "circulator"
 	desc = "A gas circulator turbine and heat exchanger."
 	icon = 'icons/obj/power.dmi'
@@ -26,17 +26,17 @@
 
 	density = TRUE
 
-/obj/machinery/atmospherics/binary/circulator/mechanics_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/atmospherics/binary/circulator/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "This generates electricity, depending on the difference in temperature between each side of the machine."
 	. += "The meter in the center of the machine gives an indicator of how much elecrtricity is being generated."
 
-/obj/machinery/atmospherics/binary/circulator/Initialize()
+/obj/structure/machinery/atmospherics/binary/circulator/Initialize()
 	. = ..()
 	desc = initial(desc) + " Its outlet port is to the [dir2text(dir)]."
 	air1.volume = 400
 
-/obj/machinery/atmospherics/binary/circulator/proc/return_transfer_air()
+/obj/structure/machinery/atmospherics/binary/circulator/proc/return_transfer_air()
 	var/datum/gas_mixture/removed
 	if(anchored && !(stat&BROKEN) && network1)
 		var/input_starting_pressure = XGM_PRESSURE(air1)
@@ -69,19 +69,19 @@
 		update_icon()
 		return removed
 
-/obj/machinery/atmospherics/binary/circulator/proc/return_stored_energy()
+/obj/structure/machinery/atmospherics/binary/circulator/proc/return_stored_energy()
 	last_stored_energy_transferred = stored_energy
 	stored_energy = 0
 	return last_stored_energy_transferred
 
-/obj/machinery/atmospherics/binary/circulator/process()
+/obj/structure/machinery/atmospherics/binary/circulator/process()
 	..()
 
 	if(last_worldtime_transfer < world.time - 50)
 		recent_moles_transferred = 0
 		update_icon()
 
-/obj/machinery/atmospherics/binary/circulator/update_icon()
+/obj/structure/machinery/atmospherics/binary/circulator/update_icon()
 	icon_state = anchored ? "circ-assembled" : "circ-unassembled"
 	ClearOverlays()
 	if (stat & (BROKEN|NOPOWER) || !anchored)
@@ -98,7 +98,7 @@
 
 	return TRUE
 
-/obj/machinery/atmospherics/binary/circulator/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/atmospherics/binary/circulator/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		attacking_item.play_tool_sound(get_turf(src), 50)
 		anchored = !anchored

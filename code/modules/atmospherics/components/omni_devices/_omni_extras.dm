@@ -27,7 +27,7 @@
 //  to other atmospheric objects.
 //--------------------------------------------
 /datum/omni_port
-	var/obj/machinery/atmospherics/omni/master
+	var/obj/structure/machinery/atmospherics/omni/master
 	var/dir
 	var/update = 1
 	var/mode = 0
@@ -35,10 +35,10 @@
 	var/con_lock = 0
 	var/transfer_moles = 0
 	var/datum/gas_mixture/air
-	var/obj/machinery/atmospherics/node
+	var/obj/structure/machinery/atmospherics/node
 	var/datum/pipe_network/network
 
-/datum/omni_port/New(var/obj/machinery/atmospherics/omni/M, var/direction = NORTH)
+/datum/omni_port/New(var/obj/structure/machinery/atmospherics/omni/M, var/direction = NORTH)
 	..()
 	dir = direction
 	if(istype(M))

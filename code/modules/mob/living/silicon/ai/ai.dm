@@ -65,13 +65,13 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 	// Equipment
 	/// What camera network the AI can view
 	var/list/network = list("Station")
-	var/obj/machinery/camera/camera
+	var/obj/structure/machinery/camera/camera
 	/// For storing what is shown to the cameras
 	var/list/cameraRecords = list()
 	var/obj/item/multitool/ai_multi
 	var/obj/item/radio/headset/heads/ai_integrated/ai_radio
 	var/datum/announcement/priority/announcement
-	var/obj/machinery/ai_powersupply/psupply
+	var/obj/structure/machinery/ai_powersupply/psupply
 
 	/// Borgs linked to AI
 	var/list/connected_robots = list()
@@ -103,7 +103,7 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 	/// Malfunction research datum.
 	var/datum/malf_research/research
 	/// APC that is currently being hacked.
-	var/obj/machinery/power/apc/hack
+	var/obj/structure/machinery/power/apc/hack
 	/// List of all hacked APCs
 	var/list/hacked_apcs = list()
 	/// If set to TRUE AI runs on APU power
@@ -346,7 +346,7 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 * The AI Power supply is a dummy object used for powering the AI since only machinery should be using power.
 * The alternative was to rewrite a bunch of AI code instead here we are.
 */
-/obj/machinery/ai_powersupply
+/obj/structure/machinery/ai_powersupply
 	name = "power supply"
 	active_power_usage = 50000 // Station AIs use significant amounts of power. This, when combined with charged SMES should mean AI lasts for 1hr without external power.
 	use_power = POWER_USE_ACTIVE
@@ -354,7 +354,7 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 	var/mob/living/silicon/ai/powered_ai
 	invisibility = 100
 
-/obj/machinery/ai_powersupply/New(var/mob/living/silicon/ai/ai)
+/obj/structure/machinery/ai_powersupply/New(var/mob/living/silicon/ai/ai)
 	powered_ai = ai
 	powered_ai.psupply = src
 	forceMove(powered_ai.loc)
@@ -362,11 +362,11 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 	..()
 	use_power_oneoff(1) // Just incase we need to wake up the power system.
 
-/obj/machinery/ai_powersupply/Destroy()
+/obj/structure/machinery/ai_powersupply/Destroy()
 	powered_ai = null
 	return ..()
 
-/obj/machinery/ai_powersupply/process()
+/obj/structure/machinery/ai_powersupply/process()
 	if(!powered_ai || powered_ai.stat == DEAD)
 		qdel(src)
 		return
@@ -565,7 +565,7 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 		switchCamera(locate(href_list["switchcamera"])) in GLOB.cameranet.cameras
 	//Carn: holopad requests
 	if (href_list["jumptoholopad"])
-		var/obj/machinery/hologram/holopad/H = locate(href_list["jumptoholopad"])
+		var/obj/structure/machinery/hologram/holopad/H = locate(href_list["jumptoholopad"])
 		if(stat == CONSCIOUS)
 			if(H)
 				H.attack_ai(src) //may as well recycle
@@ -606,15 +606,15 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 /mob/living/silicon/ai/reset_view(atom/A)
 	if(camera)
 		camera.set_light(0)
-	if(istype(A,/obj/machinery/camera))
+	if(istype(A,/obj/structure/machinery/camera))
 		camera = A
 	..()
-	if(istype(A,/obj/machinery/camera))
+	if(istype(A,/obj/structure/machinery/camera))
 		if(camera_light_on)	A.set_light(AI_CAMERA_LUMINOSITY)
 		else				A.set_light(0)
 
 
-/mob/living/silicon/ai/proc/switchCamera(var/obj/machinery/camera/C)
+/mob/living/silicon/ai/proc/switchCamera(var/obj/structure/machinery/camera/C)
 	if (!C || stat == DEAD) //C.can_use())
 		return 0
 
@@ -643,7 +643,7 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 		return
 
 	var/list/cameralist = new()
-	for (var/obj/machinery/camera/C in GLOB.cameranet.cameras)
+	for (var/obj/structure/machinery/camera/C in GLOB.cameranet.cameras)
 		if(!C.can_use())
 			continue
 		var/list/tempnetwork = difflist(C.network, GLOB.restricted_camera_networks, 1)
@@ -667,7 +667,7 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 
 	src.network = network
 
-	for(var/obj/machinery/camera/C in GLOB.cameranet.cameras)
+	for(var/obj/structure/machinery/camera/C in GLOB.cameranet.cameras)
 		if(!C.can_use())
 			continue
 		if(network in C.network)
@@ -759,7 +759,7 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 /mob/living/silicon/ai/proc/lightNearbyCamera()
 	if(camera_light_on && camera_light_on < world.timeofday)
 		if(src.camera)
-			var/obj/machinery/camera/camera = near_range_camera(src.eyeobj)
+			var/obj/structure/machinery/camera/camera = near_range_camera(src.eyeobj)
 			if(camera && src.camera != camera)
 				src.camera.set_light(0)
 				if(!camera.light_disabled)
@@ -771,7 +771,7 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 				src.camera.set_light(0)
 				src.camera = null
 		else
-			var/obj/machinery/camera/camera = near_range_camera(src.eyeobj)
+			var/obj/structure/machinery/camera/camera = near_range_camera(src.eyeobj)
 			if(camera && !camera.light_disabled)
 				src.camera = camera
 				src.camera.set_light(AI_CAMERA_LUMINOSITY)

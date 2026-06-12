@@ -124,6 +124,8 @@
 	icon_state = "id"
 	item_state = "card-id"
 	overlay_state = "id"
+	drop_sound = 'sound/items/drop/id_card.ogg'
+	pickup_sound = 'sound/items/pickup/id_card.ogg'
 
 	var/list/access = list()
 	/// The name registered_name on the card.

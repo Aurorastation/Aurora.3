@@ -8,7 +8,7 @@
 /area/konyang_pirate_moonshine)
 "d" = (
 /obj/structure/reagent_dispensers/fueltank,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/wood,
@@ -82,7 +82,7 @@
 /area/konyang_pirate_moonshine)
 "t" = (
 /obj/structure/closet/crate/secure/weapon/alt,
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/item/ammo_magazine/c762,
 /obj/item/ammo_magazine/c38,
 /obj/item/ammo_magazine/c38,
@@ -98,14 +98,14 @@
 /turf/simulated/floor/wood,
 /area/konyang_pirate_moonshine)
 "v" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/wood,
 /area/konyang_pirate_moonshine)
 "w" = (
 /obj/structure/reagent_dispensers/watertank,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/wood,
@@ -133,7 +133,7 @@
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/konyang_pirate_moonshine)
 "D" = (
-/obj/machinery/door/urban,
+/obj/structure/machinery/door/urban,
 /turf/simulated/floor/wood,
 /area/konyang_pirate_moonshine)
 "E" = (
@@ -193,7 +193,7 @@
 /obj/item/reagent_containers/food/drinks/bottle,
 /obj/item/reagent_containers/food/drinks/bottle,
 /obj/item/reagent_containers/food/drinks/bottle,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/wood,
@@ -208,13 +208,13 @@
 /obj/item/flame/lighter/random,
 /obj/item/flame/lighter/random,
 /obj/item/reagent_containers/glass/beaker/vial/random,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/wood,
 /area/konyang_pirate_moonshine)
 "W" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/structure/reagent_dispensers/acid_barrel,
 /turf/simulated/floor/wood,
 /area/konyang_pirate_moonshine)

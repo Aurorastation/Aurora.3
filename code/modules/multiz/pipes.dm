@@ -1,7 +1,7 @@
 ////////////////////////////
 // parent class for pipes //
 ////////////////////////////
-/obj/machinery/atmospherics/pipe/zpipe
+/obj/structure/machinery/atmospherics/pipe/zpipe
 	icon = 'icons/atmos/pipes.dmi'
 	icon_state = "up"
 	/// What direction of pipe this is. Used for icons.
@@ -30,7 +30,7 @@
 
 	level = 1
 
-/obj/machinery/atmospherics/pipe/zpipe/Initialize()
+/obj/structure/machinery/atmospherics/pipe/zpipe/Initialize()
 	icon = null
 
 	switch(dir)
@@ -54,23 +54,23 @@
 	. = ..()
 
 
-/obj/machinery/atmospherics/pipe/zpipe/Entered(mob/living/M)
+/obj/structure/machinery/atmospherics/pipe/zpipe/Entered(mob/living/M)
 	if(istype(M))
 		to_chat(M, SPAN_NOTICE("You are in a vertical pipe section. Use [travel_verbname] from the IC menu to [travel_direction_verb] a level."))
 		. = ..()
 
-/obj/machinery/atmospherics/pipe/zpipe/hide(var/i)
+/obj/structure/machinery/atmospherics/pipe/zpipe/hide(var/i)
 	if(istype(loc, /turf/simulated))
 		set_invisibility(i ? 101 : 0)
 	queue_icon_update()
 
-/obj/machinery/atmospherics/pipe/zpipe/process()
+/obj/structure/machinery/atmospherics/pipe/zpipe/process()
 	if(!parent) //This should cut back on the overhead calling build_network thousands of times per cycle
 		..()
 	else
 		. = PROCESS_KILL
 
-/obj/machinery/atmospherics/pipe/zpipe/check_pressure(pressure)
+/obj/structure/machinery/atmospherics/pipe/zpipe/check_pressure(pressure)
 	if(!loc) return FALSE
 	var/datum/gas_mixture/environment = loc.return_air()
 
@@ -86,7 +86,7 @@
 
 	else return 1
 
-/obj/machinery/atmospherics/pipe/zpipe/proc/burst()
+/obj/structure/machinery/atmospherics/pipe/zpipe/proc/burst()
 	src.visible_message(SPAN_WARNING("\The [src] bursts!"));
 	playsound(src.loc, 'sound/effects/bang.ogg', 25, 1)
 	var/datum/effect/effect/system/smoke_spread/smoke = new
@@ -94,23 +94,23 @@
 	smoke.start()
 	qdel(src) // Yes QDel.
 
-/obj/machinery/atmospherics/pipe/zpipe/proc/normalize_dir()
+/obj/structure/machinery/atmospherics/pipe/zpipe/proc/normalize_dir()
 	if(dir==3)
 		set_dir(1)
 	else if(dir==12)
 		set_dir(4)
 
-/obj/machinery/atmospherics/pipe/zpipe/Destroy()
+/obj/structure/machinery/atmospherics/pipe/zpipe/Destroy()
 	if(node1)
 		node1.disconnect(src)
 	if(node2)
 		node2.disconnect(src)
 	return ..()
 
-/obj/machinery/atmospherics/pipe/zpipe/pipeline_expansion()
+/obj/structure/machinery/atmospherics/pipe/zpipe/pipeline_expansion()
 	return list(node1, node2)
 
-/obj/machinery/atmospherics/pipe/zpipe/update_icon()
+/obj/structure/machinery/atmospherics/pipe/zpipe/update_icon()
 	if (!check_icon_cache())
 		return
 
@@ -119,7 +119,7 @@
 	if(!node1 && !node2)
 		var/turf/T = get_turf(src)
 		new /obj/item/pipe(loc, make_from=src)
-		for (var/obj/machinery/meter/meter in T)
+		for (var/obj/structure/machinery/meter/meter in T)
 			if (meter.target == src)
 				new /obj/item/pipe_meter(T)
 				qdel(meter)
@@ -127,14 +127,14 @@
 	else
 		AddOverlays(icon_manager.get_atmos_icon("pipe", , pipe_color, "[ptype][icon_connect_type]"))
 
-/obj/machinery/atmospherics/pipe/zpipe/disconnect(obj/machinery/atmospherics/reference)
+/obj/structure/machinery/atmospherics/pipe/zpipe/disconnect(obj/structure/machinery/atmospherics/reference)
 	if(reference == node1)
-		if(istype(node1, /obj/machinery/atmospherics/pipe))
+		if(istype(node1, /obj/structure/machinery/atmospherics/pipe))
 			qdel(parent)
 		node1 = null
 
 	if(reference == node2)
-		if(istype(node2, /obj/machinery/atmospherics/pipe))
+		if(istype(node2, /obj/structure/machinery/atmospherics/pipe))
 			qdel(parent)
 		node2 = null
 
@@ -142,7 +142,7 @@
 /////////////////////////
 // the elusive up pipe //
 /////////////////////////
-/obj/machinery/atmospherics/pipe/zpipe/up
+/obj/structure/machinery/atmospherics/pipe/zpipe/up
 	icon_state = "up"
 	ptype = "up"
 
@@ -154,7 +154,7 @@
 	travel_direction_name = "up"
 	travel_direction = UP
 
-/obj/machinery/atmospherics/pipe/zpipe/up/atmos_init()
+/obj/structure/machinery/atmospherics/pipe/zpipe/up/atmos_init()
 	normalize_dir()
 	var/node1_dir
 
@@ -163,7 +163,7 @@
 			if (!node1_dir)
 				node1_dir = direction
 
-	for(var/obj/machinery/atmospherics/target in get_step(src,node1_dir))
+	for(var/obj/structure/machinery/atmospherics/target in get_step(src,node1_dir))
 		if(target.initialize_directions & get_dir(target,src))
 			if (check_connect_types(target,src))
 				node1 = target
@@ -172,8 +172,8 @@
 	var/turf/current_turf = get_turf(src)
 	var/turf/above = GET_TURF_ABOVE(current_turf)
 	if(above)
-		for(var/obj/machinery/atmospherics/target in above)
-			if(target.initialize_directions && istype(target, /obj/machinery/atmospherics/pipe/zpipe/down))
+		for(var/obj/structure/machinery/atmospherics/target in above)
+			if(target.initialize_directions && istype(target, /obj/structure/machinery/atmospherics/pipe/zpipe/down))
 				if (check_connect_types(target,src))
 					node2 = target
 					break
@@ -186,7 +186,7 @@
 // and the down pipe //
 ///////////////////////
 
-/obj/machinery/atmospherics/pipe/zpipe/down
+/obj/structure/machinery/atmospherics/pipe/zpipe/down
 	icon_state = "down"
 	ptype = "down"
 
@@ -198,7 +198,7 @@
 	travel_direction_name = "down"
 	travel_direction = DOWN
 
-/obj/machinery/atmospherics/pipe/zpipe/down/atmos_init()
+/obj/structure/machinery/atmospherics/pipe/zpipe/down/atmos_init()
 	normalize_dir()
 	var/node1_dir
 
@@ -207,7 +207,7 @@
 			if (!node1_dir)
 				node1_dir = direction
 
-	for(var/obj/machinery/atmospherics/target in get_step(src,node1_dir))
+	for(var/obj/structure/machinery/atmospherics/target in get_step(src,node1_dir))
 		if(target.initialize_directions & get_dir(target,src))
 			if (check_connect_types(target,src))
 				node1 = target
@@ -216,8 +216,8 @@
 	var/turf/T = get_turf(src)
 	var/turf/below = GET_TURF_BELOW(T)
 	if(below)
-		for(var/obj/machinery/atmospherics/target in below)
-			if(target.initialize_directions && istype(target, /obj/machinery/atmospherics/pipe/zpipe/up))
+		for(var/obj/structure/machinery/atmospherics/target in below)
+			if(target.initialize_directions && istype(target, /obj/structure/machinery/atmospherics/pipe/zpipe/up))
 				if (check_connect_types(target,src))
 					node2 = target
 					break
@@ -229,7 +229,7 @@
 // supply/scrubbers/fuel/aux  //
 ////////////////////////////////
 
-/obj/machinery/atmospherics/pipe/zpipe/up/scrubbers
+/obj/structure/machinery/atmospherics/pipe/zpipe/up/scrubbers
 	icon_state = "up-scrubbers"
 	name = "upwards scrubbers pipe"
 	desc = "A scrubbers pipe segment to connect upwards."
@@ -237,7 +237,7 @@
 	icon_connect_type = "-scrubbers"
 	color = PIPE_COLOR_RED
 
-/obj/machinery/atmospherics/pipe/zpipe/up/supply
+/obj/structure/machinery/atmospherics/pipe/zpipe/up/supply
 	icon_state = "up-supply"
 	name = "upwards supply pipe"
 	desc = "A supply pipe segment to connect upwards."
@@ -245,7 +245,7 @@
 	icon_connect_type = "-supply"
 	color = PIPE_COLOR_BLUE
 
-/obj/machinery/atmospherics/pipe/zpipe/up/fuel
+/obj/structure/machinery/atmospherics/pipe/zpipe/up/fuel
 	icon_state = "up-fuel"
 	name = "upwards fuel pipe"
 	desc = "A fuel pipe segment to connect upwards."
@@ -253,7 +253,7 @@
 	icon_connect_type = "-fuel"
 	color = PIPE_COLOR_YELLOW
 
-/obj/machinery/atmospherics/pipe/zpipe/up/aux
+/obj/structure/machinery/atmospherics/pipe/zpipe/up/aux
 	icon_state = "up-aux"
 	name = "upwards auxiliary pipe"
 	desc = "A auxiliary pipe segment to connect upwards."
@@ -261,7 +261,7 @@
 	icon_connect_type = "-aux"
 	color = PIPE_COLOR_CYAN
 
-/obj/machinery/atmospherics/pipe/zpipe/down/scrubbers
+/obj/structure/machinery/atmospherics/pipe/zpipe/down/scrubbers
 	icon_state = "down-scrubbers"
 	name = "downwards scrubbers pipe"
 	desc = "A scrubbers pipe segment to connect downwards."
@@ -269,7 +269,7 @@
 	icon_connect_type = "-scrubbers"
 	color = PIPE_COLOR_RED
 
-/obj/machinery/atmospherics/pipe/zpipe/down/supply
+/obj/structure/machinery/atmospherics/pipe/zpipe/down/supply
 	icon_state = "down-supply"
 	name = "downwards supply pipe"
 	desc = "A supply pipe segment to connect downwards."
@@ -277,7 +277,7 @@
 	icon_connect_type = "-supply"
 	color = PIPE_COLOR_BLUE
 
-/obj/machinery/atmospherics/pipe/zpipe/down/fuel
+/obj/structure/machinery/atmospherics/pipe/zpipe/down/fuel
 	icon_state = "down-fuel"
 	name = "downwards fuel pipe"
 	desc = "A fuel pipe segment to connect downwards."
@@ -285,7 +285,7 @@
 	icon_connect_type = "-fuel"
 	color = PIPE_COLOR_YELLOW
 
-/obj/machinery/atmospherics/pipe/zpipe/down/aux
+/obj/structure/machinery/atmospherics/pipe/zpipe/down/aux
 	icon_state = "down-aux"
 	name = "downwards auxiliary pipe"
 	desc = "An auxiliary pipe segment to connect downwards."
@@ -294,37 +294,37 @@
 	color = PIPE_COLOR_CYAN
 
 // Colored misc. pipes
-/obj/machinery/atmospherics/pipe/zpipe/up/cyan
+/obj/structure/machinery/atmospherics/pipe/zpipe/up/cyan
 	color = PIPE_COLOR_CYAN
-/obj/machinery/atmospherics/pipe/zpipe/down/cyan
+/obj/structure/machinery/atmospherics/pipe/zpipe/down/cyan
 	color = PIPE_COLOR_CYAN
 
-/obj/machinery/atmospherics/pipe/zpipe/up/black
+/obj/structure/machinery/atmospherics/pipe/zpipe/up/black
 	color = PIPE_COLOR_BLACK
-/obj/machinery/atmospherics/pipe/zpipe/down/black
+/obj/structure/machinery/atmospherics/pipe/zpipe/down/black
 	color = PIPE_COLOR_BLACK
 
-/obj/machinery/atmospherics/pipe/zpipe/up/green
+/obj/structure/machinery/atmospherics/pipe/zpipe/up/green
 	color = PIPE_COLOR_GREEN
-/obj/machinery/atmospherics/pipe/zpipe/down/green
+/obj/structure/machinery/atmospherics/pipe/zpipe/down/green
 	color = PIPE_COLOR_GREEN
 
-/obj/machinery/atmospherics/pipe/zpipe/up/red
+/obj/structure/machinery/atmospherics/pipe/zpipe/up/red
 	color = PIPE_COLOR_RED
-/obj/machinery/atmospherics/pipe/zpipe/down/red
+/obj/structure/machinery/atmospherics/pipe/zpipe/down/red
 	color = PIPE_COLOR_RED
 
-/obj/machinery/atmospherics/pipe/zpipe/up/yellow
+/obj/structure/machinery/atmospherics/pipe/zpipe/up/yellow
 	color = PIPE_COLOR_YELLOW
-/obj/machinery/atmospherics/pipe/zpipe/down/yellow
+/obj/structure/machinery/atmospherics/pipe/zpipe/down/yellow
 	color = PIPE_COLOR_YELLOW
 
-/obj/machinery/atmospherics/pipe/zpipe/up/blue
+/obj/structure/machinery/atmospherics/pipe/zpipe/up/blue
 	color = PIPE_COLOR_BLUE
-/obj/machinery/atmospherics/pipe/zpipe/down/blue
+/obj/structure/machinery/atmospherics/pipe/zpipe/down/blue
 	color = PIPE_COLOR_BLUE
 
-/obj/machinery/atmospherics/pipe/zpipe/up/purple
+/obj/structure/machinery/atmospherics/pipe/zpipe/up/purple
 	color = PIPE_COLOR_PURPLE
-/obj/machinery/atmospherics/pipe/zpipe/down/purple
+/obj/structure/machinery/atmospherics/pipe/zpipe/down/purple
 	color = PIPE_COLOR_PURPLE

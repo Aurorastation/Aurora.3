@@ -5,12 +5,12 @@
 /area/template_noop)
 "af" = (
 /obj/random/dirt_75,
-/obj/machinery/floodlight/randomcharge,
+/obj/structure/machinery/floodlight/randomcharge,
 /turf/template_noop,
 /area/template_noop)
 "ai" = (
 /obj/random/dirt_75,
-/obj/machinery/space_heater,
+/obj/structure/machinery/space_heater,
 /turf/template_noop,
 /area/template_noop)
 "ao" = (
@@ -18,7 +18,7 @@
 /turf/template_noop,
 /area/template_noop)
 "ar" = (
-/obj/machinery/vending/cigarette,
+/obj/structure/machinery/vending/cigarette,
 /turf/template_noop,
 /area/template_noop)
 "aA" = (
@@ -29,7 +29,7 @@
 /turf/template_noop,
 /area/template_noop)
 "aG" = (
-/obj/machinery/vending/phoronresearch{
+/obj/structure/machinery/vending/phoronresearch{
 	anchored = 0
 	},
 /turf/template_noop,
@@ -74,10 +74,10 @@
 /area/template_noop)
 "bs" = (
 /obj/structure/table/rack/no_cargo,
-/obj/machinery/recharger,
-/obj/machinery/recharger,
-/obj/machinery/recharger,
-/obj/machinery/recharger,
+/obj/structure/machinery/recharger,
+/obj/structure/machinery/recharger,
+/obj/structure/machinery/recharger,
+/obj/structure/machinery/recharger,
 /obj/item/stack/cable_coil,
 /obj/item/stack/cable_coil,
 /obj/item/stack/cable_coil,
@@ -121,7 +121,7 @@
 /turf/template_noop,
 /area/template_noop)
 "cm" = (
-/obj/machinery/portable_atmospherics/hydroponics,
+/obj/structure/machinery/portable_atmospherics/hydroponics,
 /turf/template_noop,
 /area/template_noop)
 "cn" = (
@@ -182,7 +182,7 @@
 /turf/template_noop,
 /area/template_noop)
 "dJ" = (
-/obj/machinery/washing_machine{
+/obj/structure/machinery/washing_machine{
 	anchored = 0
 	},
 /turf/template_noop,
@@ -203,7 +203,7 @@
 /turf/template_noop,
 /area/template_noop)
 "eg" = (
-/obj/machinery/portable_atmospherics/canister/chlorine,
+/obj/structure/machinery/portable_atmospherics/canister/chlorine,
 /turf/template_noop,
 /area/template_noop)
 "eo" = (
@@ -260,11 +260,11 @@
 /turf/template_noop,
 /area/template_noop)
 "fU" = (
-/obj/machinery/portable_atmospherics/canister/nitrogen_dioxide,
+/obj/structure/machinery/portable_atmospherics/canister/nitrogen_dioxide,
 /turf/template_noop,
 /area/template_noop)
 "fY" = (
-/obj/machinery/power/rad_collector,
+/obj/structure/machinery/power/rad_collector,
 /turf/template_noop,
 /area/template_noop)
 "go" = (
@@ -315,7 +315,7 @@
 /area/template_noop)
 "ht" = (
 /obj/structure/table/rack/no_cargo,
-/obj/machinery/chemical_dispenser/coffee/full{
+/obj/structure/machinery/chemical_dispenser/coffee/full{
 	anchored = 0
 	},
 /turf/template_noop,
@@ -364,7 +364,7 @@
 /turf/template_noop,
 /area/template_noop)
 "is" = (
-/obj/machinery/vending/overloaders{
+/obj/structure/machinery/vending/overloaders{
 	anchored = 0
 	},
 /turf/template_noop,
@@ -385,7 +385,7 @@
 /turf/template_noop,
 /area/template_noop)
 "iG" = (
-/obj/machinery/space_heater,
+/obj/structure/machinery/space_heater,
 /turf/template_noop,
 /area/template_noop)
 "iL" = (
@@ -410,14 +410,14 @@
 /turf/template_noop,
 /area/template_noop)
 "iR" = (
-/obj/machinery/chemical_dispenser/coffee/full{
+/obj/structure/machinery/chemical_dispenser/coffee/full{
 	anchored = 0
 	},
 /obj/structure/table/rack/no_cargo,
 /turf/template_noop,
 /area/template_noop)
 "jB" = (
-/obj/machinery/vending/coffee/free{
+/obj/structure/machinery/vending/coffee/free{
 	anchored = 0
 	},
 /turf/template_noop,
@@ -431,16 +431,16 @@
 /area/template_noop)
 "km" = (
 /obj/structure/table/rack/no_cargo,
-/obj/machinery/recharger{
+/obj/structure/machinery/recharger{
 	anchored = 0
 	},
-/obj/machinery/recharger{
+/obj/structure/machinery/recharger{
 	anchored = 0
 	},
-/obj/machinery/recharger{
+/obj/structure/machinery/recharger{
 	anchored = 0
 	},
-/obj/machinery/recharger{
+/obj/structure/machinery/recharger{
 	anchored = 0
 	},
 /turf/template_noop,
@@ -451,7 +451,7 @@
 /turf/template_noop,
 /area/template_noop)
 "kG" = (
-/obj/machinery/vending/hydronutrients/gardenvend,
+/obj/structure/machinery/vending/hydronutrients/gardenvend,
 /turf/template_noop,
 /area/template_noop)
 "kK" = (
@@ -479,13 +479,13 @@
 /area/template_noop)
 "kY" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
-/obj/machinery/icecream_vat,
+/obj/structure/machinery/icecream_vat,
 /turf/template_noop,
 /area/template_noop)
 "kZ" = (
 /obj/random/dirt_75,
 /mob/living/heavy_vehicle/premade/random/boring,
-/obj/machinery/mech_recharger/hephaestus,
+/obj/structure/machinery/mech_recharger/hephaestus,
 /turf/template_noop,
 /area/template_noop)
 "lu" = (
@@ -536,7 +536,7 @@
 /area/template_noop)
 "lO" = (
 /obj/structure/table/rack/folding_table,
-/obj/machinery/appliance/cooker/microwave,
+/obj/structure/machinery/appliance/cooker/microwave,
 /turf/template_noop,
 /area/template_noop)
 "lP" = (
@@ -577,7 +577,7 @@
 /turf/template_noop,
 /area/template_noop)
 "mS" = (
-/obj/machinery/vending/security,
+/obj/structure/machinery/vending/security,
 /turf/template_noop,
 /area/template_noop)
 "mY" = (
@@ -678,7 +678,7 @@
 /turf/template_noop,
 /area/template_noop)
 "ot" = (
-/obj/machinery/vending/cigarette{
+/obj/structure/machinery/vending/cigarette{
 	anchored = 0
 	},
 /turf/template_noop,
@@ -729,7 +729,7 @@
 /turf/template_noop,
 /area/template_noop)
 "qI" = (
-/obj/machinery/media/jukebox,
+/obj/structure/machinery/media/jukebox,
 /turf/template_noop,
 /area/template_noop)
 "qM" = (
@@ -756,11 +756,11 @@
 /area/template_noop)
 "rx" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
-/obj/machinery/media/jukebox/calliope,
+/obj/structure/machinery/media/jukebox/calliope,
 /turf/template_noop,
 /area/template_noop)
 "rB" = (
-/obj/machinery/pipedispenser/orderable,
+/obj/structure/machinery/pipedispenser/orderable,
 /turf/template_noop,
 /area/template_noop)
 "rC" = (
@@ -770,7 +770,7 @@
 /turf/template_noop,
 /area/template_noop)
 "rO" = (
-/obj/machinery/vending/battlemonsters{
+/obj/structure/machinery/vending/battlemonsters{
 	anchored = 0
 	},
 /turf/template_noop,
@@ -811,7 +811,7 @@
 /area/template_noop)
 "sv" = (
 /obj/structure/table/rack/no_cargo,
-/obj/machinery/chemical_dispenser/coffeemaster/low_supply{
+/obj/structure/machinery/chemical_dispenser/coffeemaster/low_supply{
 	anchored = 0
 	},
 /turf/template_noop,
@@ -929,7 +929,7 @@
 /turf/template_noop,
 /area/template_noop)
 "uO" = (
-/obj/machinery/suspension_gen,
+/obj/structure/machinery/suspension_gen,
 /turf/template_noop,
 /area/template_noop)
 "vb" = (
@@ -1111,7 +1111,7 @@
 /turf/template_noop,
 /area/template_noop)
 "xM" = (
-/obj/machinery/vending/security{
+/obj/structure/machinery/vending/security{
 	anchored = 0
 	},
 /turf/template_noop,
@@ -1145,7 +1145,7 @@
 /area/template_noop)
 "yU" = (
 /obj/structure/table/rack/no_cargo,
-/obj/machinery/media/jukebox/gramophone,
+/obj/structure/machinery/media/jukebox/gramophone,
 /turf/template_noop,
 /area/template_noop)
 "yW" = (
@@ -1215,12 +1215,12 @@
 /turf/template_noop,
 /area/template_noop)
 "AW" = (
-/obj/machinery/portable_atmospherics/hydroponics,
+/obj/structure/machinery/portable_atmospherics/hydroponics,
 /obj/random/dirt_75,
 /turf/template_noop,
 /area/template_noop)
 "AX" = (
-/obj/machinery/computer/arcade{
+/obj/structure/machinery/computer/arcade{
 	anchored = 0
 	},
 /turf/template_noop,
@@ -1234,7 +1234,7 @@
 /area/template_noop)
 "Bj" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
-/obj/machinery/portable_atmospherics/hydroponics,
+/obj/structure/machinery/portable_atmospherics/hydroponics,
 /obj/random/dirt_75,
 /turf/template_noop,
 /area/template_noop)
@@ -1274,7 +1274,7 @@
 /turf/template_noop,
 /area/template_noop)
 "Cv" = (
-/obj/machinery/chemical_dispenser/coffeemaster/full{
+/obj/structure/machinery/chemical_dispenser/coffeemaster/full{
 	anchored = 0
 	},
 /obj/structure/table/rack/no_cargo,
@@ -1296,13 +1296,13 @@
 /turf/template_noop,
 /area/template_noop)
 "Dv" = (
-/obj/machinery/computer/arcade/orion_trail{
+/obj/structure/machinery/computer/arcade/orion_trail{
 	anchored = 0
 	},
 /turf/template_noop,
 /area/template_noop)
 "Dy" = (
-/obj/machinery/portable_atmospherics/canister/sulfur_dioxide,
+/obj/structure/machinery/portable_atmospherics/canister/sulfur_dioxide,
 /turf/template_noop,
 /area/template_noop)
 "DB" = (
@@ -1325,11 +1325,11 @@
 /area/template_noop)
 "Eg" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
-/obj/machinery/media/jukebox/audioconsole,
+/obj/structure/machinery/media/jukebox/audioconsole,
 /turf/template_noop,
 /area/template_noop)
 "Er" = (
-/obj/machinery/media/jukebox/audioconsole,
+/obj/structure/machinery/media/jukebox/audioconsole,
 /turf/template_noop,
 /area/template_noop)
 "EC" = (
@@ -1338,7 +1338,7 @@
 /turf/template_noop,
 /area/template_noop)
 "EF" = (
-/obj/machinery/appliance/cooker/oven/small{
+/obj/structure/machinery/appliance/cooker/oven/small{
 	anchored = 0
 	},
 /turf/template_noop,
@@ -1351,7 +1351,7 @@
 /area/template_noop)
 "Fb" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
-/obj/machinery/vending/boozeomat{
+/obj/structure/machinery/vending/boozeomat{
 	anchored = 0
 	},
 /turf/template_noop,
@@ -1359,7 +1359,7 @@
 "Fh" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
 /obj/structure/table/rack/no_cargo,
-/obj/machinery/chemical_dispenser/coffeemaster/low_supply{
+/obj/structure/machinery/chemical_dispenser/coffeemaster/low_supply{
 	anchored = 0
 	},
 /turf/template_noop,
@@ -1390,7 +1390,7 @@
 /turf/template_noop,
 /area/template_noop)
 "GN" = (
-/obj/machinery/vending/ramen,
+/obj/structure/machinery/vending/ramen,
 /turf/template_noop,
 /area/template_noop)
 "Hj" = (
@@ -1417,7 +1417,7 @@
 /turf/template_noop,
 /area/template_noop)
 "HG" = (
-/obj/machinery/smartfridge/foodheater{
+/obj/structure/machinery/smartfridge/foodheater{
 	anchored = 0
 	},
 /turf/template_noop,
@@ -1499,7 +1499,7 @@
 /area/template_noop)
 "JM" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
-/obj/machinery/power/rad_collector,
+/obj/structure/machinery/power/rad_collector,
 /turf/template_noop,
 /area/template_noop)
 "JN" = (
@@ -1535,7 +1535,7 @@
 /turf/template_noop,
 /area/template_noop)
 "KV" = (
-/obj/machinery/media/jukebox/phonograph,
+/obj/structure/machinery/media/jukebox/phonograph,
 /turf/template_noop,
 /area/template_noop)
 "KW" = (
@@ -1568,7 +1568,7 @@
 /turf/template_noop,
 /area/template_noop)
 "LU" = (
-/obj/machinery/vending/boozeomat/merchant{
+/obj/structure/machinery/vending/boozeomat/merchant{
 	anchored = 0
 	},
 /turf/template_noop,
@@ -1581,7 +1581,7 @@
 /turf/template_noop,
 /area/template_noop)
 "LX" = (
-/obj/machinery/portable_atmospherics/canister/deuterium,
+/obj/structure/machinery/portable_atmospherics/canister/deuterium,
 /turf/template_noop,
 /area/template_noop)
 "LZ" = (
@@ -1596,7 +1596,7 @@
 /turf/template_noop,
 /area/template_noop)
 "Ms" = (
-/obj/machinery/portable_atmospherics/canister/heliumfuel,
+/obj/structure/machinery/portable_atmospherics/canister/heliumfuel,
 /turf/template_noop,
 /area/template_noop)
 "MH" = (
@@ -1605,7 +1605,7 @@
 /turf/template_noop,
 /area/template_noop)
 "MJ" = (
-/obj/machinery/power/portgen/basic/fusion{
+/obj/structure/machinery/power/portgen/basic/fusion{
 	anchored = 0
 	},
 /obj/effect/decal/cleanable/greenglow/radioactive/medium,
@@ -1613,7 +1613,7 @@
 /area/template_noop)
 "MQ" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
-/obj/machinery/vending/hydronutrients,
+/obj/structure/machinery/vending/hydronutrients,
 /turf/template_noop,
 /area/template_noop)
 "MW" = (
@@ -1636,7 +1636,7 @@
 /turf/template_noop,
 /area/template_noop)
 "Nm" = (
-/obj/machinery/vending/hydronutrients/xenobotany{
+/obj/structure/machinery/vending/hydronutrients/xenobotany{
 	anchored = 0
 	},
 /turf/template_noop,
@@ -1738,7 +1738,7 @@
 /turf/template_noop,
 /area/template_noop)
 "PD" = (
-/obj/machinery/food_cart,
+/obj/structure/machinery/food_cart,
 /turf/template_noop,
 /area/template_noop)
 "PK" = (
@@ -1793,13 +1793,13 @@
 /turf/template_noop,
 /area/template_noop)
 "Qb" = (
-/obj/machinery/chemical_dispenser/coffee/full{
+/obj/structure/machinery/chemical_dispenser/coffee/full{
 	anchored = 0
 	},
 /turf/template_noop,
 /area/template_noop)
 "Qj" = (
-/obj/machinery/vending/boozeomat/unathi_pirate{
+/obj/structure/machinery/vending/boozeomat/unathi_pirate{
 	anchored = 0
 	},
 /obj/random/dirt_75,
@@ -1807,7 +1807,7 @@
 /turf/template_noop,
 /area/template_noop)
 "QA" = (
-/obj/machinery/vending/boozeomat/unathi_pirate{
+/obj/structure/machinery/vending/boozeomat/unathi_pirate{
 	anchored = 0
 	},
 /obj/random/dirt_75,
@@ -1901,14 +1901,14 @@
 /turf/template_noop,
 /area/template_noop)
 "RG" = (
-/obj/machinery/vending/cigarette/hacked{
+/obj/structure/machinery/vending/cigarette/hacked{
 	anchored = 0
 	},
 /turf/template_noop,
 /area/template_noop)
 "RN" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
-/obj/machinery/chemical_dispenser/coffee/full{
+/obj/structure/machinery/chemical_dispenser/coffee/full{
 	anchored = 0
 	},
 /obj/structure/table/rack/no_cargo,
@@ -1919,7 +1919,7 @@
 /turf/template_noop,
 /area/template_noop)
 "Se" = (
-/obj/machinery/vending/mredispenser{
+/obj/structure/machinery/vending/mredispenser{
 	anchored = 0
 	},
 /turf/template_noop,
@@ -1954,7 +1954,7 @@
 /area/template_noop)
 "SY" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
-/obj/machinery/vending/coffee/free{
+/obj/structure/machinery/vending/coffee/free{
 	anchored = 0
 	},
 /turf/template_noop,
@@ -1986,13 +1986,13 @@
 /area/template_noop)
 "TL" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
-/obj/machinery/vending/ramen{
+/obj/structure/machinery/vending/ramen{
 	anchored = 0
 	},
 /turf/template_noop,
 /area/template_noop)
 "TP" = (
-/obj/machinery/appliance/cooker/grill{
+/obj/structure/machinery/appliance/cooker/grill{
 	anchored = 0
 	},
 /turf/template_noop,
@@ -2027,7 +2027,7 @@
 /area/template_noop)
 "UX" = (
 /obj/structure/table/rack/no_cargo,
-/obj/machinery/media/jukebox/phonograph,
+/obj/structure/machinery/media/jukebox/phonograph,
 /turf/template_noop,
 /area/template_noop)
 "Vh" = (
@@ -2110,16 +2110,16 @@
 /turf/template_noop,
 /area/template_noop)
 "We" = (
-/obj/machinery/vending/hydronutrients/hydroponics,
+/obj/structure/machinery/vending/hydronutrients/hydroponics,
 /turf/template_noop,
 /area/template_noop)
 "Wm" = (
 /obj/structure/automobile_filler,
-/obj/machinery/particle_accelerator/control_box,
+/obj/structure/machinery/particle_accelerator/control_box,
 /turf/template_noop,
 /area/template_noop)
 "WG" = (
-/obj/machinery/vending/hydroseeds,
+/obj/structure/machinery/vending/hydroseeds,
 /turf/template_noop,
 /area/template_noop)
 "WR" = (
@@ -2213,11 +2213,11 @@
 /turf/template_noop,
 /area/template_noop)
 "Zi" = (
-/obj/machinery/media/jukebox/gramophone,
+/obj/structure/machinery/media/jukebox/gramophone,
 /turf/template_noop,
 /area/template_noop)
 "Zm" = (
-/obj/machinery/portable_atmospherics/canister/empty/oxygen,
+/obj/structure/machinery/portable_atmospherics/canister/empty/oxygen,
 /turf/template_noop,
 /area/template_noop)
 "ZK" = (

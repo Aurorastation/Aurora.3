@@ -20,7 +20,7 @@
 	var/offset_y = 0
 
 	var/obj/item/radio/exosuit/radio
-	var/obj/machinery/camera/camera
+	var/obj/structure/machinery/camera/camera
 
 	var/wreckage_path = /obj/structure/mech_wreckage
 
@@ -233,7 +233,7 @@
 		radio = new(src)
 
 	if(!camera)
-		camera = new /obj/machinery/camera(src, 0, TRUE, TRUE)
+		camera = new /obj/structure/machinery/camera(src, 0, TRUE, TRUE)
 		camera.c_tag = name
 		camera.replace_networks(list(NETWORK_MECHS))
 
@@ -249,7 +249,7 @@
 	. = INITIALIZE_HINT_LATELOAD
 
 /mob/living/heavy_vehicle/LateInitialize()
-	var/obj/machinery/mech_recharger/MR = locate() in get_turf(src)
+	var/obj/structure/machinery/mech_recharger/MR = locate() in get_turf(src)
 	if(MR)
 		MR.start_charging(src)
 
@@ -324,9 +324,6 @@
 		var/mob/living/heavy_vehicle/exosuit = loc
 		if(istype(exosuit) && exosuit.head && exosuit.head.radio && exosuit.head.radio.is_functional())
 			return ..()
-
-/obj/item/radio/exosuit/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/ui_state/state = GLOB.mech_state)
-	. = ..()
 
 /mob/living/heavy_vehicle/proc/become_remote()
 	for(var/mob/user in pilots)

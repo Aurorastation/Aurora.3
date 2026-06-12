@@ -19,7 +19,7 @@
  *	Restock crate
  */
 
-/obj/machinery/smartfridge/tradeshelf
+/obj/structure/machinery/smartfridge/tradeshelf
 	name = "cigarette shelf"
 	desc = "A commercialized shelf for cigarettes and associated items."
 	icon_state = "trade_smokes"
@@ -43,7 +43,7 @@
 	has_emissive = FALSE
 	visible_takeout = TRUE
 
-/obj/machinery/smartfridge/tradeshelf/clothing
+/obj/structure/machinery/smartfridge/tradeshelf/clothing
 	name = "clothing shelf"
 	desc = "A commercialized shelf for clothing and associated items."
 	icon_state = "trade_clothes"
@@ -57,7 +57,7 @@
 	display_tiers = 3
 	display_tier_amt = 5
 
-/obj/machinery/smartfridge/tradeshelf/food
+/obj/structure/machinery/smartfridge/tradeshelf/food
 	name = "food and drinks shelf"
 	desc = "A commercialized shelf for food and drinks."
 	icon_state = "trade_food"
@@ -88,18 +88,18 @@
 	display_tier_amt = 5
 	has_emissive = TRUE
 
-/obj/machinery/smartfridge/tradeshelf/food/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/smartfridge/tradeshelf/food/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.tool_behaviour == TOOL_PEN)
 		name_fridge(user)
 		return
 	. = ..()
 
-/obj/machinery/smartfridge/tradeshelf/food/proc/name_fridge(mob/user)
+/obj/structure/machinery/smartfridge/tradeshelf/food/proc/name_fridge(mob/user)
 	var/newname = tgui_input_text(user, "What would you like to rename the fridge? Note that fridge will be appended to the end of it", "Fridge name")
 	if(newname)
 		name = newname + " fridge"
 
-/obj/machinery/smartfridge/tradeshelf/toy
+/obj/structure/machinery/smartfridge/tradeshelf/toy
 	name = "toy shelf"
 	desc = "A commercialized shelf for toys and associated items."
 	icon_state = "trade_toys"
@@ -131,7 +131,7 @@
 	display_tiers = 4
 	display_tier_amt = 5
 
-/obj/machinery/smartfridge/tradeshelf/mouse_drop_receive(atom/dropping, mob/user, params)
+/obj/structure/machinery/smartfridge/tradeshelf/mouse_drop_receive(atom/dropping, mob/user, params)
 	LoadComponent(/datum/component/leanable, dropping)
 
 // -------------------------------------------------
@@ -172,7 +172,7 @@
 		return
 	qp_shop.ui_interact(user)
 
-/obj/machinery/commissary_wall_shop
+/obj/structure/machinery/commissary_wall_shop
 	name = "self-serve shop teller"
 	desc = "An ordering terminal designed by Idris for quicker expedition."
 	icon = 'icons/obj/machinery/wall/terminals.dmi'
@@ -183,18 +183,18 @@
 	req_one_access = list(ACCESS_BAR, ACCESS_GALLEY, ACCESS_CARGO)
 	var/destination = "Operations"
 
-/obj/machinery/commissary_wall_shop/mechanics_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/commissary_wall_shop/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Items can be paid for with id cards or charge cards, and a receipt will be printed."
 	. += "The terminal can print a paper which can be used to quickly fill it out in the future by using it on the register."
 	. += "With the proper access, ctrl-click to turn the machine on and off."
 
-/obj/machinery/commissary_wall_shop/Initialize()
+/obj/structure/machinery/commissary_wall_shop/Initialize()
 	. = ..()
 	src.LoadComponent(/datum/component/quikpay_shop/orderterminal, req_one_access, destination)
 	update_icon()
 
-/obj/machinery/commissary_wall_shop/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/commissary_wall_shop/attackby(obj/item/attacking_item, mob/user)
 	if(!turned_on)
 		balloon_alert(user, "turned off")
 		return
@@ -206,7 +206,7 @@
 		return
 	qp_shop.interact_object(attacking_item, user)
 
-/obj/machinery/commissary_wall_shop/attack_hand(mob/living/user)
+/obj/structure/machinery/commissary_wall_shop/attack_hand(mob/living/user)
 	if(!turned_on)
 		balloon_alert(user, "turned off")
 		return
@@ -218,7 +218,7 @@
 		return
 	qp_shop.ui_interact(user)
 
-/obj/machinery/commissary_wall_shop/CtrlClick(mob/user)
+/obj/structure/machinery/commissary_wall_shop/CtrlClick(mob/user)
 	var/obj/item/card/id/I = user.GetIdCard()
 	if(!istype(I))
 		balloon_alert(user, "no id!")
@@ -230,11 +230,11 @@
 	balloon_alert(user, "turned [turned_on ? "on" : "off"]")
 	update_icon()
 
-/obj/machinery/commissary_wall_shop/power_change()
+/obj/structure/machinery/commissary_wall_shop/power_change()
 	..()
 	update_icon()
 
-/obj/machinery/commissary_wall_shop/update_icon()
+/obj/structure/machinery/commissary_wall_shop/update_icon()
 	ClearOverlays()
 	if(stat & NOPOWER || !turned_on)
 		set_light(FALSE)
@@ -244,7 +244,7 @@
 	AddOverlays(screen_overlay)
 	set_light(1.4, 1, COLOR_CYAN)
 
-/obj/machinery/commissary_wall_shop/process()
+/obj/structure/machinery/commissary_wall_shop/process()
 	if(stat & NOPOWER || !turned_on)
 		ClearOverlays()
 		set_light(FALSE)

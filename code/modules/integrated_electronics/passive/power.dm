@@ -178,7 +178,7 @@
 	activators = list()
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	origin_tech = list(TECH_ENGINEERING = 2, TECH_POWER = 2)
-	var/obj/machinery/power/circuit_io/IO = null // Dummy power machine to move energy in/out without a bunch of code duplication.
+	var/obj/structure/machinery/power/circuit_io/IO = null // Dummy power machine to move energy in/out without a bunch of code duplication.
 	var/throughput = 10000 // Give/take up to 10kW.
 
 /obj/item/integrated_circuit/passive/power/powernet/Initialize()
@@ -216,10 +216,10 @@
 
 // Internal power machine for interacting with the powernet.
 // It needs a bit of special code since base /machinery/power assumes loc will be a tile.
-/obj/machinery/power/circuit_io
+/obj/structure/machinery/power/circuit_io
 	name = "embedded electrical I/O"
 
-/obj/machinery/power/circuit_io/connect_to_network()
+/obj/structure/machinery/power/circuit_io/connect_to_network()
 	var/turf/T = get_turf(src)
 	if(!istype(T))
 		return FALSE

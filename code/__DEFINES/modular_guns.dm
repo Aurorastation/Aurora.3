@@ -5,6 +5,14 @@
 #define MOD_SILENCE 1
 #define MOD_NUCLEAR_CHARGE 2
 
+///The maximum increase an individual variable can recieve over it's initial value.
+#define INCREASE_CAP 1.5
+///The maximum decrease an individual variable can recieve under it's initial value.
+#define DECREASE_CAP 0.5
+///All improvements are multiplied by this value, tweak down if they are too strong, up if they are too weak.
+#define IMPROVEMENT_MULTIPLIER 1
+
+
 #define islasercapacitor(A) istype(A, /obj/item/laser_components/capacitor)
 #define ismodifier(A) istype(A, /obj/item/laser_components/modifier)
 #define ismodulator(A) istype(A, /obj/item/laser_components/modulator)

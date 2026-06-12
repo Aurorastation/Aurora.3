@@ -40,7 +40,7 @@
 	designation = "[pick("Qianlima", "Senrima", "Cheollima", "Chollima")]"
 	..()
 
-/obj/machinery/computer/shuttle_control/explore/air_konyang
+/obj/structure/machinery/computer/shuttle_control/explore/air_konyang
 	name = "shuttle control console"
 	shuttle_tag = "Air Konyang Transport"
 

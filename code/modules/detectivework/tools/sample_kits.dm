@@ -72,7 +72,7 @@
 /atom/proc/get_swab_name()
 	return "\the [initial(name)]"
 
-/obj/machinery/door/get_swab_name()
+/obj/structure/machinery/door/get_swab_name()
 	if(name != initial(name))
 		return "\the [initial(name)]: [name]"
 	return ..()

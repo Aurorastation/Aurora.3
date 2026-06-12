@@ -1,20 +1,23 @@
 {
-  "private": true,
-  "name": "tgui",
-  "version": "4.3.1",
-  "dependencies": {
-    "@popperjs/core": "^2.9.3",
-    "@types/marked": "^4.0.8",
-    "common": "workspace:*",
-    "dateformat": "^4.5.1",
-    "dompurify": "^3.4.0",
-    "es-toolkit": "^1.39.3",
-    "highlight.js": "^11.5.1",
-    "inferno": "^7.4.8",
-    "inferno-vnode-flags": "^7.4.8",
-    "js-yaml": "^4.1.1",
-    "marked": "^4.2.12",
-    "tgui-dev-server": "workspace:*",
-    "tgui-polyfill": "workspace:*"
-  }
+	"name": "tgui",
+	"version": "6.0.0",
+	"dependencies": {
+		"common": "workspace:*",
+		"color-blend": "4.0.0",
+		"dateformat": "^5.0.3",
+		"dompurify": "^3.2.5",
+		"es-toolkit": "^1.43.0",
+		"highlight.js": "^11.11.1",
+		"jotai": "^2.16.0",
+		"js-yaml": "^4.1.0",
+		"marked": "^15.0.11",
+		"marked-base-url": "^1.1.6",
+		"marked-smartypants": "^1.1.9",
+		"react": "^19.1.0",
+		"react-dom": "^19.1.0",
+		"react-json-tree": "^0.20.0",
+		"tgui-core": "^5.10.0",
+		"tgui-dev-server": "workspace:*"
+	},
+	"private": true
 }
