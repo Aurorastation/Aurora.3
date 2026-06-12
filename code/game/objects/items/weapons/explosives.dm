@@ -17,9 +17,13 @@
 	var/open_panel = 0
 	var/obj/effect/plastic_explosive/effect_overlay
 
+	/// Type of plastic explosive effect created on the obj we attack.
 	var/plastic_explosive_type = /obj/effect/plastic_explosive
+	/// Devastation range for the explosion.
 	var/devastation_range = -1
+	/// Heavy range for the explosion.
 	var/heavy_impact_range = -1
+	/// Light range for the explosion.
 	var/light_impact_range = 2
 
 /obj/item/plastique/mechanics_hints()
@@ -201,7 +205,7 @@
 	item_state = "plasticx-big"
 	w_class = WEIGHT_CLASS_NORMAL
 
-	plastic_explosive_type = /obj/effect/plastic_explosive/big 
+	plastic_explosive_type = /obj/effect/plastic_explosive/big
 	devastation_range = 2
 	heavy_impact_range = 4
 	light_impact_range = 6
