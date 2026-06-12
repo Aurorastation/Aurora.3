@@ -126,7 +126,7 @@ SUBSYSTEM_DEF(hallucinations)
 
 /////// HANDLES ALL ADPI MESSAGING ///////
 /datum/controller/subsystem/hallucinations/proc/is_lemurian_sea()
-	return SSatlas.current_sector?.name in list(SECTOR_LEMURIAN_SEA, SECTOR_LEMURIAN_SEA_FAR)
+	return is_lemurian_sea_sector()
 
 /datum/controller/subsystem/hallucinations/proc/read_adpi_file(var/file_name)
 	var/list/loaded_file = file2list("config/hallucinations/lemurian_sea/[file_name]")
