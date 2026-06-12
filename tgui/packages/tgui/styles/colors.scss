@@ -89,7 +89,7 @@ $_gen_map: (
   'label': $label,
 );
 
-// Modern tgui-core atomic styles expect a generic color map.
+// Modern tgui-core atomic styles
 $color-map-keys: map.keys($_gen_map) !default;
 $color-map: ();
 @each $color-name in $color-map-keys {
@@ -101,7 +101,7 @@ $color-map: ();
   );
 }
 
-// Legacy Aurora theme styles configure these maps directly.
+// Aurora theme styles configure these maps directly.
 $fg-map-keys: map.keys($_gen_map) !default;
 $bg-map-keys: map.keys($_gen_map) !default;
 

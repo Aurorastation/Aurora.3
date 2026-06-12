@@ -497,7 +497,7 @@
 				feedback_inc("disposal_auto_flush",1)
 				flush()
 		flush_count = 0
-	src.updateDialog()
+	SStgui.update_uis(src)
 
 	// If we're ready, don't draw any extra power
 	if(mode == MODE_READY || !uses_air)
@@ -654,6 +654,8 @@
 	else
 		return ..()
 
+/obj/structure/machinery/disposal/can_attach_sticker(mob/user, obj/item/sticker/S)
+	return FALSE
 
 /**
  * Virtual disposal object

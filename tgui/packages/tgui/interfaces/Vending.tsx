@@ -2,15 +2,16 @@ import {
   Box,
   Button,
   Flex,
-  Input,
   LabeledList,
   NoticeBox,
   Section,
+  Stack,
 } from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
 import { capitalizeAll } from 'tgui-core/string';
 import { useBackend, useLocalState } from '../backend';
 import { Window } from '../layouts';
+import { SearchBar } from './common/SearchBar';
 
 export type VendingData = {
   vending_item: BooleanLike;
@@ -69,28 +70,30 @@ export const ShowAllItems = (props) => {
       <Section
         title="Selection"
         buttons={
-          <>
-            <Input
-              autoFocus
-              autoSelect
-              placeholder="Search by name"
-              width="40vw"
-              maxLength={512}
-              onChange={(value) => {
-                setSearchTerm(value);
-              }}
-              value={searchTerm}
-            />
-            {data.coin ? (
-              <Button
-                icon="coins"
-                onClick={() => act('remove_coin')}
-                tooltip={capitalizeAll(data.coin)}
+          <Stack align="center">
+            <Stack.Item>
+              <SearchBar
+                autoFocus
+                placeholder="Search by name"
+                query={searchTerm}
+                onSearch={(value) => {
+                  setSearchTerm(value);
+                }}
+                style={{ width: '12rem' }}
               />
+            </Stack.Item>
+            {data.coin ? (
+              <Stack.Item>
+                <Button
+                  icon="coins"
+                  onClick={() => act('remove_coin')}
+                  tooltip={capitalizeAll(data.coin)}
+                />
+              </Stack.Item>
             ) : (
               ''
             )}
-          </>
+          </Stack>
         }
       />
       <Section fill>

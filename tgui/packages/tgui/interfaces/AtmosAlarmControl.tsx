@@ -1,7 +1,8 @@
-import { Button, Input, NoticeBox, Section, Table } from 'tgui-core/components';
+import { Button, NoticeBox, Section, Stack, Table } from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
 import { useBackend, useLocalState } from '../backend';
 import { NtosWindow } from '../layouts';
+import { SearchBar } from './common/SearchBar';
 
 export type AlarmData = {
   alarms: Alarm[];
@@ -26,20 +27,22 @@ export const AtmosAlarmControl = (props) => {
         <Section
           title="Alarms"
           buttons={
-            <>
-              <Button content={'Refresh'} onClick={() => act('refresh')} />
-              <Input
-                autoFocus
-                autoSelect
-                placeholder="Search by name"
-                width="40vw"
-                maxLength={512}
-                onBlur={(value) => {
-                  setSearchTerm(value);
-                }}
-                value={searchTerm}
-              />
-            </>
+            <Stack align="center">
+              <Stack.Item>
+                <Button content={'Refresh'} onClick={() => act('refresh')} />
+              </Stack.Item>
+              <Stack.Item>
+                <SearchBar
+                  autoFocus
+                  placeholder="Search by name"
+                  query={searchTerm}
+                  onSearch={(value) => {
+                    setSearchTerm(value);
+                  }}
+                  style={{ width: '40vw' }}
+                />
+              </Stack.Item>
+            </Stack>
           }
         >
           <Table>
@@ -57,7 +60,11 @@ export const AtmosAlarmControl = (props) => {
                       ?.toLowerCase()
                       .indexOf(searchTerm.toLowerCase()) > -1,
                 )
-                .sort((a, b) => a.dept?.localeCompare(b?.dept))
+                .sort(
+                  (a, b) =>
+                    Number(b.danger) - Number(a.danger) ||
+                    a.dept?.localeCompare(b?.dept),
+                )
                 .map((alarm) => (
                   <Table.Row key={alarm.ref}>
                     <Table.Cell>{alarm.deck}</Table.Cell>

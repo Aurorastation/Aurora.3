@@ -60,13 +60,22 @@ function migrateHighlights(next: HighlightState): HighlightState {
   }
 
   // Ensure that all highlights have the "enabled" var,
-  // setting it to true if it doesn't exist.
+  // setting it to true if it doesn't exist, and fill newer highlight fields.
   for (const id in draft.highlightSettingById) {
-    if (
-      draft.highlightSettingById[id] &&
-      draft.highlightSettingById[id].enabled === undefined
-    ) {
-      draft.highlightSettingById[id].enabled = true;
+    const highlight = draft.highlightSettingById[id];
+    if (!highlight) {
+      continue;
+    }
+    if (highlight.enabled === undefined) {
+      highlight.enabled = true;
+    }
+    if (!highlight.backgroundHighlightColor) {
+      highlight.backgroundHighlightColor =
+        highlight.highlightColor ?? defaultHighlightSetting.highlightColor;
+    }
+    if (highlight.backgroundHighlightOpacity === undefined) {
+      highlight.backgroundHighlightOpacity =
+        defaultHighlightSetting.backgroundHighlightOpacity;
     }
   }
 

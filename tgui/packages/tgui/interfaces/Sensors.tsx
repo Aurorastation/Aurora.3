@@ -26,7 +26,7 @@ export type SensorsData = {
   is_ship: BooleanLike;
   on: BooleanLike;
   range: number;
-  health: number;
+  integrity: number;
   max_health: number;
   deep_scan_name: string;
   deep_scan_range: number;
@@ -141,14 +141,14 @@ const SensorSection = (act, data: SensorsData) => {
               backgroundColor={Color.lerp(
                 new Color(62, 97, 137, 0),
                 new Color(189, 32, 32),
-                data.range / range_choice_max,
+                data.range,
               ).toString()}
               minValue={1}
               maxValue={range_choice_max}
               value={data.range}
             >
               Current Range:{' '}
-              <AnimatedNumber value={data.range / range_choice_max} />
+              <AnimatedNumber value={data.range} />
             </ProgressBar>
           </Table.Cell>
         </Table.Row>
@@ -176,12 +176,12 @@ const SensorSection = (act, data: SensorsData) => {
               backgroundColor={Color.lerp(
                 Color.fromHex('#20b142'),
                 Color.fromHex('#db2828'),
-                data.health / data.max_health,
+                data.integrity / data.max_health,
               ).toString()}
               color={(() => {
-                if (data.health > (data.max_health / 3) * 2) {
+                if (data.integrity > (data.max_health / 3) * 2) {
                   return 'green';
-                } else if (data.health > (data.max_health / 3) * 1) {
+                } else if (data.integrity > (data.max_health / 3) * 1) {
                   return 'yellow';
                 } else {
                   return 'red';
@@ -189,9 +189,9 @@ const SensorSection = (act, data: SensorsData) => {
               })()}
               minValue={0}
               maxValue={data.max_health}
-              value={data.health}
+              value={data.integrity}
             >
-              {data.health} / {data.max_health}
+              {data.integrity} / {data.max_health}
             </ProgressBar>
           </Table.Cell>
         </Table.Row>
