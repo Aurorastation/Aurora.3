@@ -1,16 +1,26 @@
 SUBSYSTEM_DEF(hallucinations)
 	name = "Hallucinations"
-	flags = SS_NO_FIRE
+	wait = 1 MINUTE
+	runlevels = RUNLEVELS_PLAYING
 
 	var/list/hallucinated_phrases = list()
 	var/list/hallucinated_actions = list()
 	var/list/hallucinated_thoughts = list()
 
 	// These lists are only initialized/used when in the Lemurian Sea.
+	var/adpi_loaded = FALSE
 	var/list/adpi_general = list()
 	var/list/adpi_departments = list()
 	var/list/adpi_department_anti = list()
 	var/list/adpi_jobs = list()
+	var/list/adpi_next_message = list()
+	var/tmp/list/current_adpi_targets = list()
+	var/static/list/adpi_sounds = list(
+		'sound/hallucinations/far_noise.ogg',
+		'sound/hallucinations/veryfar_noise.ogg',
+		'sound/hallucinations/wail.ogg',
+		'sound/effects/psi/power_feedback.ogg'
+	)
 	var/static/list/adpi_department_files = list(
 		DEPARTMENT_COMMAND = "adpi_dept_command.txt",
 		DEPARTMENT_ENGINEERING = "adpi_dept_engineering.txt",
@@ -72,6 +82,37 @@ SUBSYSTEM_DEF(hallucinations)
 
 	return SS_INIT_SUCCESS
 
+/datum/controller/subsystem/hallucinations/Recover()
+	adpi_loaded = SShallucinations.adpi_loaded
+	adpi_general = SShallucinations.adpi_general
+	adpi_departments = SShallucinations.adpi_departments
+	adpi_department_anti = SShallucinations.adpi_department_anti
+	adpi_jobs = SShallucinations.adpi_jobs
+	adpi_next_message = SShallucinations.adpi_next_message
+
+/datum/controller/subsystem/hallucinations/fire(resumed = FALSE)
+	if(!is_lemurian_sea())
+		adpi_next_message.Cut()
+		return
+
+	if(!adpi_loaded)
+		ensure_adpi_lists_loaded()
+
+	if(!resumed)
+		prune_adpi_schedules()
+		current_adpi_targets = GLOB.living_mob_list.Copy()
+
+	while(length(current_adpi_targets))
+		var/mob/living/target = current_adpi_targets[current_adpi_targets.len]
+		current_adpi_targets.len--
+		if(!istype(target) || QDELETED(target))
+			continue
+
+		process_adpi_target(target)
+
+		if(MC_TICK_CHECK)
+			return
+
 /datum/controller/subsystem/hallucinations/proc/get_hallucination(var/mob/living/carbon/C)
 	var/list/candidates = list()
 	for(var/T in all_hallucinations)
@@ -92,6 +133,7 @@ SUBSYSTEM_DEF(hallucinations)
 	return loaded_file
 
 /datum/controller/subsystem/hallucinations/proc/load_adpi_lists()
+	adpi_loaded = TRUE
 	adpi_general = read_adpi_file("adpi_general.txt")
 	adpi_departments = list()
 	adpi_department_anti = list()
@@ -106,14 +148,32 @@ SUBSYSTEM_DEF(hallucinations)
 	for(var/job_title in adpi_job_files)
 		adpi_jobs[job_title] = read_adpi_file(adpi_job_files[job_title])
 
-/datum/controller/subsystem/hallucinations/proc/can_receive_adpi(var/mob/living/carbon/human/H)
+/datum/controller/subsystem/hallucinations/proc/ensure_adpi_lists_loaded()
+	if(!adpi_loaded)
+		load_adpi_lists()
+
+/datum/controller/subsystem/hallucinations/proc/prune_adpi_schedules()
+	for(var/mob/living/target as anything in adpi_next_message.Copy())
+		if(QDELETED(target) || !(target in GLOB.living_mob_list) || !target.client || target.stat == DEAD || is_adpi_excluded(target))
+			adpi_next_message -= target
+
+/datum/controller/subsystem/hallucinations/proc/is_adpi_excluded(var/mob/living/target)
+	if(!target)
+		return TRUE
+	if(isvaurca(target) || isipc(target) || issilicon(target))
+		return TRUE
+	return FALSE
+
+/datum/controller/subsystem/hallucinations/proc/can_receive_adpi(var/mob/living/target)
 	if(!is_lemurian_sea())
 		return FALSE
-	if(!H || !H.client || H.stat)
+	if(!target || !target.client || !target.mind || target.stat)
 		return FALSE
-	if(!is_station_level(H.z))
+	if(is_adpi_excluded(target))
 		return FALSE
-	if(H.isMonkey())
+	if(!is_station_level(target.z))
+		return FALSE
+	if(target.isMonkey())
 		return FALSE
 	return TRUE
 
@@ -155,9 +215,9 @@ SUBSYSTEM_DEF(hallucinations)
 
 	return list()
 
-/datum/controller/subsystem/hallucinations/proc/get_adpi_message_pools(var/mob/living/carbon/human/H, var/include_anti = TRUE)
+/datum/controller/subsystem/hallucinations/proc/get_adpi_message_pools(var/mob/living/carbon/human/H, var/include_anti = TRUE, var/check_receiver = TRUE)
 	var/list/message_pools = list()
-	if(!can_receive_adpi(H))
+	if(check_receiver && !can_receive_adpi(H))
 		return message_pools
 
 	if(length(adpi_general))
@@ -182,3 +242,144 @@ SUBSYSTEM_DEF(hallucinations)
 				message_pools["anti_[department]"] = anti_messages
 
 	return message_pools
+
+/datum/controller/subsystem/hallucinations/proc/has_adpi_messages(var/mob/living/target, var/check_receiver = TRUE)
+	if(is_adpi_excluded(target))
+		return FALSE
+
+	if(check_receiver && !can_receive_adpi(target))
+		return FALSE
+
+	if(ishuman(target))
+		var/mob/living/carbon/human/H = target
+		return length(get_adpi_message_pools(H, TRUE, FALSE)) > 0
+
+	return length(adpi_general) > 0
+
+/datum/controller/subsystem/hallucinations/proc/process_adpi_target(var/mob/living/target)
+	if(!can_receive_adpi(target))
+		adpi_next_message -= target
+		return
+
+	if(!has_adpi_messages(target, FALSE))
+		return
+
+	if(!adpi_next_message[target])
+		schedule_next_adpi_message(target, TRUE)
+		return
+
+	if(world.time < adpi_next_message[target])
+		return
+
+	if(send_adpi_message(target))
+		schedule_next_adpi_message(target)
+	else
+		schedule_next_adpi_message(target, TRUE)
+
+/datum/controller/subsystem/hallucinations/proc/schedule_next_adpi_message(var/mob/living/target, var/initial = FALSE)
+	adpi_next_message[target] = world.time + get_adpi_delay(target, initial)
+
+/datum/controller/subsystem/hallucinations/proc/get_adpi_delay(var/mob/living/target, var/initial = FALSE)
+	var/base_delay = initial ? rand(8 MINUTES, 18 MINUTES) : rand(25 MINUTES, 40 MINUTES)
+	var/sensitivity = target.check_psi_sensitivity()
+	var/multiplier = 1
+
+	if(isskrell(target))
+		multiplier *= 0.75
+
+	if(sensitivity >= PSI_RANK_APEX)
+		multiplier *= 0.55
+	else if(sensitivity >= PSI_RANK_HARMONIOUS)
+		multiplier *= 0.65
+	else if(sensitivity >= PSI_RANK_SENSITIVE)
+		multiplier *= 0.75
+	else if(sensitivity > 0)
+		multiplier *= 0.85
+	else if(sensitivity < 0)
+		multiplier *= 1.5
+
+	if(target.is_psi_blocked(null, TRUE))
+		multiplier *= 1.75
+
+	return round(base_delay * clamp(multiplier, 0.4, 2.5))
+
+/datum/controller/subsystem/hallucinations/proc/get_adpi_pool_weight(var/pool_name)
+	if(pool_name == "general")
+		return 40
+	if(pool_name == "job")
+		return 35
+	if(findtext(pool_name, "department_") == 1)
+		return 30
+	if(findtext(pool_name, "anti_") == 1)
+		return 10
+	return 1
+
+/datum/controller/subsystem/hallucinations/proc/pick_adpi_message(var/mob/living/target, var/check_receiver = TRUE)
+	if(!has_adpi_messages(target, check_receiver))
+		return
+
+	if(!ishuman(target))
+		return pick(adpi_general)
+
+	var/mob/living/carbon/human/H = target
+	var/list/message_pools = get_adpi_message_pools(H, TRUE, FALSE)
+	if(!length(message_pools))
+		return
+
+	var/list/pool_weights = list()
+	for(var/pool_name in message_pools)
+		var/list/message_pool = message_pools[pool_name]
+		if(length(message_pool))
+			pool_weights[pool_name] = get_adpi_pool_weight(pool_name)
+	if(!length(pool_weights))
+		return
+
+	var/selected_pool_name = pickweight(pool_weights)
+	var/list/selected_pool = message_pools[selected_pool_name]
+	return pick(selected_pool)
+
+/datum/controller/subsystem/hallucinations/proc/send_adpi_message(var/mob/living/target, var/custom_message = null, var/check_receiver = TRUE)
+	var/message = custom_message || pick_adpi_message(target, check_receiver)
+	if(!message)
+		return FALSE
+
+	deliver_adpi_message(target, message)
+	return TRUE
+
+/datum/controller/subsystem/hallucinations/proc/send_admin_adpi_message(var/mob/living/target, var/custom_message = null)
+	if(!target || !target.client || !target.mind || target.stat == DEAD)
+		return FALSE
+	if(is_adpi_excluded(target))
+		return FALSE
+
+	ensure_adpi_lists_loaded()
+
+	var/message = custom_message
+	if(!message)
+		message = pick_adpi_message(target, FALSE)
+
+	if(!message)
+		return FALSE
+
+	deliver_adpi_message(target, message)
+
+	schedule_next_adpi_message(target)
+
+	return TRUE
+
+/datum/controller/subsystem/hallucinations/proc/deliver_adpi_message(var/mob/living/target, var/message)
+	to_chat(target, SPAN_ALIEN(SPAN_ITALIC("[message]")))
+
+	if(prob(20))
+		sound_to(target, pick(adpi_sounds))
+
+	if(isskrell(target))
+		var/mob/living/carbon/human/H = target
+		apply_skrell_adpi_pain(H)
+
+/datum/controller/subsystem/hallucinations/proc/apply_skrell_adpi_pain(var/mob/living/carbon/human/H)
+	H.adjustHalLoss(rand(5, 12))
+	if(prob(35))
+		to_chat(H, SPAN_WARNING("A sharp ache lances through your head as the thought passes."))
+	if(prob(15))
+		H.emote("shiver")
