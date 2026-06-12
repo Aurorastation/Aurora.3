@@ -326,7 +326,7 @@
 	difficulty = EVENT_LEVEL_MODERATE
 	event_icon_states = list("grav1")
 	can_be_destroyed = FALSE
-	tooltip_text = "Unstable gravity effects that <b>only</b> affect ships with wide-field gravity generators (unless powered off)."
+	tooltip_text = "Unstable gravitic shear effects detected; wide-field artificial gravity should be powered down before transit."
 
 /obj/effect/overmap/event/MouseEntered(location, control, params)
 	. = ..()
