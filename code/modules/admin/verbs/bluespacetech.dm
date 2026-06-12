@@ -134,9 +134,9 @@
 	return 1
 
 /client/proc/bst_post_spawn(mob/living/carbon/human/bst/bst)
-	playsound(get_turf(bst), SFX_SPARKS, 100, TRUE, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
-	playsound(get_turf(bst), SFX_SPARKS, 100, TRUE, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
-	playsound(get_turf(bst), SFX_SPARKS, 100, TRUE, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
+	playsound(bst, SFX_SPARKS, 100, TRUE, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
+	playsound(bst, SFX_SPARKS, 100, TRUE, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
+	playsound(bst, SFX_SPARKS, 100, TRUE, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 	bst.anchored = FALSE
 
 /mob/living/carbon/human/bst
@@ -176,7 +176,7 @@
 		return
 
 	src.custom_emote(VISIBLE_MESSAGE,"presses a button on their suit, followed by a polite bow.")
-	playsound(get_turf(src), SFX_SPARKS, 100, TRUE, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
+	playsound(src, SFX_SPARKS, 100, TRUE, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 	QDEL_IN(src, 10)
 	animate(src, alpha = 0, time = 9, easing = QUAD_EASING)
 	if(key)
