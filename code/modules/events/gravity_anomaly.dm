@@ -1,7 +1,11 @@
 /datum/event/gravity_anomaly
-	announceWhen = 5
+	announceWhen = 0
+	startWhen = 90 SECONDS
+	endWhen = 60 SECONDS // Actually gets set in setup()
 	ic_name = "a gravitational anomaly"
 	var/list/valid_victims
+	has_skybox_image = TRUE
+	var/global/lightning_color
 	var/nausea_minor = list(
 		"You feel the deck lurch beneath you.",
 		"The world feels like it's tilting madly.",
@@ -29,7 +33,7 @@
 		)
 
 /datum/event/gravity_anomaly/setup()
-	endWhen = rand(120, 180)
+	endWhen = rand(5 MINUTES, 25 MINUTES)
 
 /datum/event/gravity_anomaly/announce()
 	command_announcement.Announce(
@@ -47,134 +51,173 @@
 		valid_victims += victim
 		if(!(victim.z in affecting_z))
 			continue
-		if(isipc(victim))
-			to_chat(victim, SPAN_MACHINE_WARNING(pick(nausea_mild_ipc)))
-		else
-			to_chat(victim, SPAN_WARNING(pick(nausea_mild_organic)))
+		notify_victim_of_start(victim)
 
 /datum/event/gravity_anomaly/end(faked)
+	valid_victims?.Cut()
 	..()
-	valid_victims = null
+
+/datum/event/gravity_anomaly/get_skybox_image()
+	if(!lightning_color)
+		lightning_color = pick( "#aa11ee")
+	var/image/res = overlay_image('icons/skybox/electrobox.dmi', "lightning", lightning_color, RESET_COLOR)
+	res.blend_mode = BLEND_ADD
+	return res
 
 /datum/event/gravity_anomaly/tick()
 	..()
 
-	var/list/current_victims = list()
-	var/current_effect
-	var/dice_roll = rand(1,100)
-	/// Check if we're going to even do anything this tick. If not, don't bother checking for current victims.
-	/// Ditto if the gravity generator is off.
-	switch(dice_roll)
-		if(1 to 70)		current_effect = null
-		if(71 to 80)	current_effect = "nausea_minor"
-		if(81 to 88)	current_effect = "nausea_mild"
-		if(89 to 94)	current_effect = "nausea_strong"
-		if(95 to 99)	current_effect = "surge_default"
-		if(99 to 100)	current_effect = "surge_hilarious"
+	if(!has_active_gravity_generator())
+		return
 
+	var/current_effect = pick_current_effect()
 	if(!current_effect)
 		return
 
+	var/list/current_victims = get_current_victims()
+	for(var/mob/living/carbon/human/victim in current_victims)
+		apply_effect(victim, current_effect)
+
+/datum/event/gravity_anomaly/proc/notify_victim_of_start(var/mob/living/carbon/human/victim)
+	if(isipc(victim))
+		to_chat(victim, SPAN_MACHINE_WARNING("Your proprioceptive faculties briefly surge with misinputs; something is definitely Wrong with the gravity."))
+	else
+		to_chat(victim, SPAN_WARNING("You suddenly feel a nauseating sense of vertigo; something is definitely Wrong with the gravity."))
+
+/datum/event/gravity_anomaly/proc/has_active_gravity_generator()
 	for(var/obj/structure/machinery/gravity_generator/main/grav_gen in SSmachinery.gravity_generators)
 		if(!(grav_gen?.z in affecting_z))
-			return
-		else if(!grav_gen?.on)
-			return
+			continue
+		if(grav_gen.on)
+			return TRUE
+	return FALSE
 
+/datum/event/gravity_anomaly/proc/pick_current_effect()
+	switch(rand(1,100))
+		if(1 to 70)
+			return null
+		if(71 to 80)
+			return "nausea_minor"
+		if(81 to 88)
+			return "nausea_mild"
+		if(89 to 94)
+			return "nausea_strong"
+		if(95 to 99)
+			return "surge_default"
+		if(100)
+			return "surge_hilarious"
+
+/datum/event/gravity_anomaly/proc/get_current_victims()
+	var/list/current_victims = list()
 	for(var/mob/living/carbon/human/potential_victim in valid_victims)
-		// Have they entered or left the Horizon? Skip if not aboard.
-		if(!(potential_victim.z in affecting_z))
-			continue
-		// Is there gravity where they are? IE. is the grav generator on/off OR are they on the holodeck w/ zero gravity, OR are they EVA? Skip if no artificial gravity for whatever reason.
-		if(!potential_victim.has_gravity())
-			continue
-		current_victims += potential_victim
+		if(can_affect_victim(potential_victim))
+			current_victims += potential_victim
+	return current_victims
 
-	for(var/mob/living/carbon/human/victim in current_victims)
-		switch(current_effect)
-			if("nausea_minor")
-				victim.dizziness += rand(2, 4)
-				victim.confused += 1
-				if(prob(10))
-					to_chat(victim, SPAN_WARNING(pick(nausea_minor)))
+/datum/event/gravity_anomaly/proc/can_affect_victim(var/mob/living/carbon/human/potential_victim)
+	if(!potential_victim)
+		return FALSE
+	// Have they entered or left the Horizon? Skip if not aboard.
+	if(!(potential_victim.z in affecting_z))
+		return FALSE
+	// Is there gravity where they are? IE. is the grav generator on/off OR are they on the holodeck w/ zero gravity, OR are they EVA? Skip if no artificial gravity for whatever reason.
+	if(!potential_victim.has_gravity())
+		return FALSE
+	return TRUE
 
-			if("nausea_mild")
-				victim.dizziness += rand(4, 10)
-				victim.confused += rand(1, 2)
-				if(prob(15))
-					if(isipc(victim))
-						to_chat(victim, SPAN_MACHINE_WARNING(pick(nausea_mild_ipc)))
-				else
-					victim.vomit()
-					to_chat(victim, SPAN_WARNING(pick(nausea_mild_organic)))
+/datum/event/gravity_anomaly/proc/apply_effect(var/mob/living/carbon/human/victim, var/current_effect)
+	switch(current_effect)
+		if("nausea_minor")
+			apply_nausea_minor(victim)
+		if("nausea_mild")
+			apply_nausea_mild(victim)
+		if("nausea_strong")
+			apply_nausea_strong(victim)
+		if("surge_default")
+			apply_surge_default(victim)
+		if("surge_hilarious")
+			apply_surge_hilarious(victim)
+		else
+			log_admin("Failed to generate grav anom result for user [victim].")
 
-			if("nausea_strong")
-				victim.dizziness += rand(8, 15)
-				victim.confused += rand(1, 3)
-				if(prob(50))
-					if(isipc(victim))
-						to_chat(victim, SPAN_MACHINE_WARNING(pick(nausea_strong_ipc)))
-					else
-						to_chat(victim, SPAN_WARNING(pick(nausea_strong_organic)))
-						victim.vomit()
+/datum/event/gravity_anomaly/proc/apply_nausea_minor(var/mob/living/carbon/human/victim)
+	victim.dizziness += rand(2, 4)
+	victim.confused += 1
+	if(prob(10))
+		to_chat(victim, SPAN_WARNING(pick(nausea_minor)))
 
-			// Copypaste job from shuttle movements in 'code\modules\shuttles\helm.dm
-			if("surge_default")
-				victim.dizziness += rand(4, 10)
-				victim.confused += rand(1, 5)
-				if(prob(50))
-					if(isipc(victim))
-						to_chat(victim, SPAN_MACHINE_WARNING(pick(nausea_strong_ipc)))
-					else
-						to_chat(victim, SPAN_WARNING(pick(nausea_strong_organic)))
-						victim.vomit()
-				if(prob(70))
-					if(victim.buckled_to)
-						to_chat(victim, SPAN_WARNING("Sudden gravity flux presses you into your chair!"))
-						shake_camera(victim, 3, 1)
-					else if(victim.Check_Shoegrip(FALSE))
-						to_chat(victim, SPAN_WARNING("You feel immense pressure in your feet as the artificial gravity surges!"))
-						victim.apply_damage(10, DAMAGE_PAIN, BP_L_FOOT)
-						victim.apply_damage(10, DAMAGE_PAIN, BP_R_FOOT)
-						shake_camera(victim, 5, 1)
-					else
-						to_chat(victim, SPAN_WARNING("The floor lurches beneath you!"))
-						shake_camera(victim, 10, 1)
-						victim.visible_message(SPAN_DANGER("[victim.name] is tossed around by a sudden knot in the artifical gravity field!"))
-						victim.throw_at_random(FALSE, 4, 1)
-						victim.Weaken(3)
+/datum/event/gravity_anomaly/proc/apply_nausea_mild(var/mob/living/carbon/human/victim)
+	victim.dizziness += rand(4, 10)
+	victim.confused += rand(1, 2)
+	if(prob(15))
+		if(isipc(victim))
+			to_chat(victim, SPAN_MACHINE_WARNING(pick(nausea_mild_ipc)))
+	else
+		victim.vomit()
+		to_chat(victim, SPAN_WARNING(pick(nausea_mild_organic)))
 
-			if("surge_hilarious")
-				victim.dizziness += rand(8, 15)
-				victim.confused += rand(1, 10)
-				if(isipc(victim))
-					to_chat(victim, SPAN_MACHINE_WARNING(pick(nausea_strong_ipc)))
-				else
-					to_chat(victim, SPAN_WARNING(pick(nausea_strong_organic)))
-					if(prob(33))
-						victim.vomit()
-				if(prob(60))
-					if(victim.buckled_to)
-						to_chat(victim, SPAN_WARNING("Sudden gravity flux rattles you in your chair!"))
-						shake_camera(victim, 5, 2)
-					else if(victim.Check_Shoegrip(FALSE))
-						victim.apply_damage(20, DAMAGE_PAIN, BP_L_FOOT)
-						victim.apply_damage(10, DAMAGE_BRUTE, BP_L_FOOT)
-						victim.apply_damage(20, DAMAGE_PAIN, BP_R_FOOT)
-						victim.apply_damage(10, DAMAGE_BRUTE, BP_R_FOOT)
-						to_chat(victim, SPAN_WARNING("You feel like your ankles are about to be ripped apart as the artificial gravity surges!"))
-						shake_camera(victim, 8, 2)
-					else
-						victim.visible_message(SPAN_DANGER("[victim.name] is flung violently by a horrible gravity flux!"))
-						victim.Weaken(8)
-						if(prob(90))
-							victim.throw_at_random(FALSE, 7, 1)
-						else
-							victim.fall_impact(1)
+/datum/event/gravity_anomaly/proc/apply_nausea_strong(var/mob/living/carbon/human/victim)
+	victim.dizziness += rand(8, 15)
+	victim.confused += rand(1, 3)
+	if(prob(50))
+		if(isipc(victim))
+			to_chat(victim, SPAN_MACHINE_WARNING(pick(nausea_strong_ipc)))
+		else
+			to_chat(victim, SPAN_WARNING(pick(nausea_strong_organic)))
+			victim.vomit()
 
+/datum/event/gravity_anomaly/proc/apply_surge_default(var/mob/living/carbon/human/victim)
+	victim.dizziness += rand(4, 10)
+	victim.confused += rand(1, 5)
+	if(prob(50))
+		if(isipc(victim))
+			to_chat(victim, SPAN_MACHINE_WARNING(pick(nausea_strong_ipc)))
+		else
+			to_chat(victim, SPAN_WARNING(pick(nausea_strong_organic)))
+			victim.vomit()
+	if(prob(70))
+		if(victim.buckled_to)
+			to_chat(victim, SPAN_WARNING("Sudden gravity flux presses you into your chair!"))
+			shake_camera(victim, 3, 1)
+		else if(victim.Check_Shoegrip(FALSE))
+			to_chat(victim, SPAN_WARNING("You feel immense pressure in your feet as the artificial gravity surges!"))
+			victim.apply_damage(10, DAMAGE_PAIN, BP_L_FOOT)
+			victim.apply_damage(10, DAMAGE_PAIN, BP_R_FOOT)
+			shake_camera(victim, 5, 1)
+		else
+			to_chat(victim, SPAN_WARNING("The floor lurches beneath you!"))
+			shake_camera(victim, 10, 1)
+			victim.visible_message(SPAN_DANGER("[victim.name] is tossed around by a sudden knot in the artifical gravity field!"))
+			victim.throw_at_random(FALSE, 4, 1)
+			victim.Weaken(3)
+
+/datum/event/gravity_anomaly/proc/apply_surge_hilarious(var/mob/living/carbon/human/victim)
+	victim.dizziness += rand(8, 15)
+	victim.confused += rand(1, 10)
+	if(isipc(victim))
+		to_chat(victim, SPAN_MACHINE_WARNING(pick(nausea_strong_ipc)))
+	else
+		to_chat(victim, SPAN_WARNING(pick(nausea_strong_organic)))
+		if(prob(33))
+			victim.vomit()
+	if(prob(60))
+		if(victim.buckled_to)
+			to_chat(victim, SPAN_WARNING("Sudden gravity flux rattles you in your chair!"))
+			shake_camera(victim, 5, 2)
+		else if(victim.Check_Shoegrip(FALSE))
+			victim.apply_damage(20, DAMAGE_PAIN, BP_L_FOOT)
+			victim.apply_damage(10, DAMAGE_BRUTE, BP_L_FOOT)
+			victim.apply_damage(20, DAMAGE_PAIN, BP_R_FOOT)
+			victim.apply_damage(10, DAMAGE_BRUTE, BP_R_FOOT)
+			to_chat(victim, SPAN_WARNING("You feel like your ankles are about to be ripped apart as the artificial gravity surges!"))
+			shake_camera(victim, 8, 2)
+		else
+			victim.visible_message(SPAN_DANGER("[victim.name] is flung violently by a horrible gravity flux!"))
+			victim.Weaken(8)
+			if(prob(90))
+				victim.throw_at_random(FALSE, 7, 1)
 			else
-				log_admin("Failed to generate grav anom result for user [victim].")
-				break
+				victim.fall_impact(1)
 
 /datum/event/gravity_anomaly/announce_end()
 	. = ..()
