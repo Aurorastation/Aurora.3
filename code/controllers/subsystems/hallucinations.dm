@@ -16,10 +16,8 @@ SUBSYSTEM_DEF(hallucinations)
 	var/list/adpi_next_message = list()
 	var/tmp/list/current_adpi_targets = list()
 	var/static/list/adpi_sounds = list(
-		'sound/hallucinations/far_noise.ogg',
-		'sound/hallucinations/veryfar_noise.ogg',
-		'sound/hallucinations/wail.ogg',
-		'sound/effects/psi/power_feedback.ogg'
+		'sound/ambience/ghostly/ghostly1.ogg',
+		'sound/ambience/ghostly/ghostly2.ogg'
 	)
 	var/static/list/adpi_department_files = list(
 		DEPARTMENT_COMMAND = "adpi_dept_command.txt",

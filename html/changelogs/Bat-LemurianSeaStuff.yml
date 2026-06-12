@@ -58,4 +58,8 @@ changes:
   - refactor: "Refactors Gravity Generator UI from HTML to TGUI."
   - rscadd: "Adds sector-based modifier var 'overmap_hazards_multiplier' for generating total overmap hazard count."
   - soundadd: "Adds new Lemurian Sea 'welcome' announcements."
-  - code_imp: "Killed innocent kittens."
+  - rscadd: "Added Lemurian Sea gravitic anomalies as overmap hazards and random events."
+  - rscadd: "Adds ADPI/The Voices."
+  - rscadd: "Adds ADPI Panel for modmins to send ADPI messages to a single character or all characters from their respective pools, or custom messages."
+  - balance: "Vaurca Hivenet communication, the Hivenet Manifest, and Hivenet Echoes are now disabled while the ship is in Lemurian Sea sectors."
+
