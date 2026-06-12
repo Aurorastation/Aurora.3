@@ -70,11 +70,14 @@
 	if(!has_active_gravity_generator())
 		return
 
+	var/list/current_victims = get_current_victims()
+	if(prob(2))
+		apply_camera_drift(current_victims)
+
 	var/current_effect = pick_current_effect()
 	if(!current_effect)
 		return
 
-	var/list/current_victims = get_current_victims()
 	for(var/mob/living/carbon/human/victim in current_victims)
 		apply_effect(victim, current_effect)
 
@@ -139,6 +142,12 @@
 			apply_surge_hilarious(victim)
 		else
 			log_admin("Failed to generate grav anom result for user [victim].")
+
+/datum/event/gravity_anomaly/proc/apply_camera_drift(var/list/current_victims)
+	for(var/mob/living/carbon/human/victim in current_victims)
+		if(prob(15))
+			continue
+		shake_camera(victim, rand(3 SECONDS, 5 SECONDS), 0.15, TRUE)
 
 /datum/event/gravity_anomaly/proc/apply_nausea_minor(var/mob/living/carbon/human/victim)
 	victim.dizziness += rand(2, 4)
