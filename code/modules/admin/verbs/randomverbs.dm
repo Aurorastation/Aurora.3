@@ -1148,7 +1148,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	set category = "Fun"
 	set name = "ADPI Panel"
 
-	if(!check_rights(R_ADMIN|R_MOD|R_FUN, TRUE))
+	if(!check_rights(R_ADMIN|R_FUN, TRUE))
 		return
 
 	var/datum/tgui_module/adpi_panel/panel = new

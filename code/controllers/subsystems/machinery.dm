@@ -260,8 +260,6 @@ SUBSYSTEM_DEF(machinery)
 		light_turf = chosen_light.loc
 		light_area = light_turf.loc
 		chosen_light.broken()
-		to_chat(world, "broke light in [get_area_display_name(light_area)]")
-
 
 /datum/controller/subsystem/machinery/stat_entry(msg)
 	msg = {"\n\
