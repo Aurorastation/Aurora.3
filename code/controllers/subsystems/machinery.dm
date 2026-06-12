@@ -251,8 +251,17 @@ SUBSYSTEM_DEF(machinery)
 	if(!length(valid_lights))
 		return
 
-	var/obj/structure/machinery/light/chosen_light = pick(valid_lights)
-	chosen_light.broken()
+	var/number_lights_broken = rand(1,3)
+	var/obj/structure/machinery/light/chosen_light
+	var/turf/light_turf
+	var/area/light_area
+	for(var/n = 0 to number_lights_broken)
+		chosen_light = pick(valid_lights)
+		light_turf = chosen_light.loc
+		light_area = light_turf.loc
+		chosen_light.broken()
+		to_chat(world, "broke light in [get_area_display_name(light_area)]")
+
 
 /datum/controller/subsystem/machinery/stat_entry(msg)
 	msg = {"\n\
