@@ -1,0 +1,4 @@
+author: kano
+delete-after: True
+changes:
+  - code_imp: "Thrower step triggers's direction can now be set by changing the effect's direction, no player facing changes."
