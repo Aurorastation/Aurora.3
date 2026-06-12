@@ -117,6 +117,7 @@
 
 /obj/structure/machinery/light/Initialize(mapload)
 	. = ..()
+	LAZYADD(SSmachinery.all_lights, src)
 
 	if (!has_power())
 		stat |= NOPOWER
@@ -148,6 +149,7 @@
 	set_pixel_offsets()
 
 /obj/structure/machinery/light/Destroy()
+	LAZYREMOVE(SSmachinery.all_lights, src)
 	QDEL_NULL(cell)
 	return ..()
 
