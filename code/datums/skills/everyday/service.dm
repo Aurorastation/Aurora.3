@@ -1,6 +1,6 @@
 /singleton/skill/bartending
 	name = "Bartending"
-	description = "Users of this skill can create mixed drinks of varying quality, which provide a long lasting morale bonus to anyone who consumes them. This skill is activated by first mixing a drink in a Drink Mixer, then pressing Z to shake it."
+	description = "Users of this skill can create mixed drinks of varying quality, which provide a long lasting morale bonus to anyone who consumes them. This skill is activated by first mixing a drink in a Drink Mixer, then pressing Z to shake it. Alternatively, drinks can be stirred with a spoon by clicking on a completed drink."
 	maximum_level = SKILL_LEVEL_PROFESSIONAL
 	category =  /singleton/skill_category/everyday
 	subcategory = SKILL_SUBCATEGORY_SERVICE
