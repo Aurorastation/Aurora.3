@@ -116,8 +116,14 @@
 	#endif
 	#endif
 
+	// Cleanup all events on non-turfs.
 	if (!isturf(src))
-		cleanup_events(src)
+		if(GLOB.global_listen_count && GLOB.global_listen_count[src])
+			cleanup_global_listener(src, GLOB.global_listen_count[src])
+		if(GLOB.event_sources_count && GLOB.event_sources_count[src])
+			cleanup_source_listeners(src, GLOB.event_sources_count[src])
+		if(GLOB.event_listen_count && GLOB.event_listen_count[src])
+			cleanup_event_listener(src, GLOB.event_listen_count[src])
 
 	//BEGIN: ECS SHIT
 	var/list/dc = _datum_components
@@ -132,28 +138,28 @@
 				qdel(C, FALSE)
 		dc.Cut()
 
-	_clear_signal_refs()
-	//END: ECS SHIT
-
-	return QDEL_HINT_QUEUE
-
-///Only override this if you know what you're doing. You do not know what you're doing
-///This is a threat
-/datum/proc/_clear_signal_refs()
-	var/list/lookup = _listen_lookup
-	if(lookup)
-		for(var/sig in lookup)
-			var/list/comps = lookup[sig]
+	// Signal cleanup. This originally was a proc from /tg/ that had this warning label asking me not to override it.
+	/*
+		///Only override this if you know what you're doing. You do not know what you're doing
+		///This is a threat
+		*/
+	// Well proc overhead is a thing that exists when you're qdel'ing 2.6 million objects. And NOTHING overrides it or has any reason to override it.
+	if(length(_listen_lookup))
+		for(var/sig in _listen_lookup)
+			var/list/comps = _listen_lookup[sig]
 			if(length(comps))
 				for(var/datum/component/comp as anything in comps)
 					comp.UnregisterSignal(src, sig)
 			else
 				var/datum/component/comp = comps
 				comp.UnregisterSignal(src, sig)
-		_listen_lookup = lookup = null
+		_listen_lookup = null
 
 	for(var/target in _signal_procs)
 		UnregisterSignal(target, _signal_procs[target])
+	//END: ECS SHIT
+
+	return QDEL_HINT_QUEUE
 
 /**
  * Callback called by a timer to end an associative-list-indexed cooldown.
