@@ -270,7 +270,7 @@ return (
           <Button
             icon="sync"
             content="Show All"
-            onClick={() => act('reset_sql')}
+            onClick={() => act('PRG_reset_sql')}
           />
         </Box>
         <Table>
@@ -288,7 +288,7 @@ return (
                 <Button
                   content={form.department}
                   onClick={() =>
-                    act('sort_forms', { department: form.department })
+                    act('PRG_sort_forms', { department: form.department })
                   }
                 />
               </Table.Cell>
@@ -296,7 +296,7 @@ return (
                 <Button
                   icon="info-circle"
                   tooltip="What is this?"
-                  onClick={() => act('whatis', { id: form.id })}
+                  onClick={() => act('PRG_whatis', { id: form.id })}
                 />
                 <Button
                   icon="print"
