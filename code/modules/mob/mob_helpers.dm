@@ -481,11 +481,13 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
 
 #define TILES_PER_SECOND 0.7
 /// Shake the camera of the person viewing the mob SO REAL!
-/// Takes the mob to shake, the time span to shake for, and the amount of tiles we're allowed to shake by in tiles
+/// Takes the mob to shake, the time span to shake for, and the amount of tiles we're allowed to shake by in tiles.
+/// Set drift to exactly TRUE for slower, gentler movement instead of impact-like shaking.
 /// Duration isn't taken as a strict limit, since we don't trust our coders to not make things feel shitty. So it's more like a soft cap.
-/proc/shake_camera(mob/M, duration, strength=1)
+/proc/shake_camera(mob/M, duration, strength=1, drift = FALSE)
 	if(!M || !M.client || duration < 1)
 		return
+	var/drift_mode = (drift == TRUE)
 	var/client/C = M.client
 	var/oldx = C.pixel_x
 	var/oldy = C.pixel_y
@@ -505,8 +507,12 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
 		var/x_pos = rand(min_x, max_x) + oldx
 		var/y_pos = rand(min_y, max_y) + oldy
 
-		//We take the smaller of our two distances so things still have the propencity to feel somewhat jerky
-		var/time = round(max(min(abs(last_x - x_pos), abs(last_y - y_pos)) * time_scalar, 1))
+		var/time
+		if(drift_mode)
+			time = round(clamp(max(abs(last_x - x_pos), abs(last_y - y_pos)) * time_scalar * 6, 6, 20))
+		else
+			//We take the smaller of our two distances so things still have the propencity to feel somewhat jerky
+			time = round(max(min(abs(last_x - x_pos), abs(last_y - y_pos)) * time_scalar, 1))
 
 		if (time_spent == 0)
 			animate(C, pixel_x=x_pos, pixel_y=y_pos, time=time)
@@ -518,7 +524,7 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
 		//We go based on time spent, so there is a chance we'll overshoot our duration. Don't care
 		time_spent += time
 
-	animate(pixel_x=oldx, pixel_y=oldy, time=3)
+	animate(pixel_x=oldx, pixel_y=oldy, time = drift_mode ? 10 : 3)
 
 #undef TILES_PER_SECOND
 

@@ -1430,7 +1430,6 @@ GLOBAL_LIST_INIT_TYPED(total_extraction_beacons, /obj/structure/extraction_point
 		target = get_atom_on_turf(src)
 	if(!target)
 		target = src
-	QDEL_NULL(effect_overlay)
 	if(location)
 		new /obj/effect/overlay/temp/explosion(location)
 		playsound(location, 'sound/effects/Explosion1.ogg', 100, 1)

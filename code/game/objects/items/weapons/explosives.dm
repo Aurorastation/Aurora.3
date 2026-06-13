@@ -15,7 +15,6 @@
 	var/timer = 300
 	var/atom/target = null
 	var/open_panel = 0
-	var/obj/effect/plastic_explosive/effect_overlay
 
 	/// Type of plastic explosive effect created on the obj we attack.
 	var/plastic_explosive_type = /obj/effect/plastic_explosive
@@ -49,6 +48,8 @@
 /obj/item/plastique/Destroy()
 	qdel(wires)
 	wires = null
+	qdel(target)
+	target = null
 	return ..()
 
 /obj/item/plastique/attackby(obj/item/attacking_item, mob/user)
@@ -120,7 +121,6 @@
 		target = get_atom_on_turf(src)
 	if(!target)
 		target = src
-	QDEL_NULL(effect_overlay)
 	if(location)
 		explosion(location, devastation_range, heavy_impact_range, light_impact_range, 3, spreading = 0)
 

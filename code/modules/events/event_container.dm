@@ -384,6 +384,10 @@ GLOBAL_LIST_INIT(severity_to_string, alist(EVENT_LEVEL_MUNDANE = "Mundane", EVEN
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "APC Damage", /datum/event/apc_damage,
 			20, list(ASSIGNMENT_ENGINEER = 15, ASSIGNMENT_JANITOR = 20)),
 
+		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Dark Matter Influx", /datum/event/gravity_anomaly,
+			5, list(ASSIGNMENT_ENGINEER = 20), is_one_shot = TRUE,
+			pop_needed = 12),
+
 	)
 
 #undef ASSIGNMENT_ANY
