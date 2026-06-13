@@ -16,13 +16,12 @@
 
 /obj/effect/plastic_explosive/Initialize(var/atom/owner_pos, var/atom/target, var/obj/item/plastique/c4)
 	. = ..()
-	if (c4)
+	if(parent)
 		parent = c4
-		parent.effect_overlay = src
 		parent.forceMove(src)
 		name = parent.name
 		desc = parent.desc
-	set_position(get_dir(src, target))
+		set_position(get_dir(src, target))
 
 /obj/effect/plastic_explosive/Destroy()
 	QDEL_NULL(parent)
