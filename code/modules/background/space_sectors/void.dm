@@ -69,8 +69,8 @@
 
 	sector_welcome_message = 'sound/AI/welcome_lemurian_sea_outer.ogg'
 	hivenet_echoes = FALSE
+	ccia_link = FALSE
 
 /datum/space_sector/lemurian_sea/far
 	name = SECTOR_LEMURIAN_SEA_FAR
-	ccia_link = FALSE
 	sector_welcome_message = 'sound/AI/welcome_lemurian_sea_inner.ogg'
