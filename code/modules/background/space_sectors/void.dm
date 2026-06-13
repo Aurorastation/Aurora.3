@@ -43,7 +43,7 @@
 	starlight_color = "#000000"
 	starlight_power = 0
 	starlight_range = 0
-	overmap_hazards_multiplier = 2.0
+	overmap_hazards_multiplier = 1.3
 	cargo_price_coef = list(
 		"nanotrasen" = 6.0,
 		"orion" = 6.0,
@@ -68,6 +68,9 @@
 	)
 
 	sector_welcome_message = 'sound/AI/welcome_lemurian_sea_outer.ogg'
+	sector_lobby_art = list('icons/misc/titlescreens/sccv_horizon/sccv_horizon_dark.dmi')
+	sector_lobby_transitions = 0
+	sector_hud_menu = 'icons/misc/hudmenu/lemurian_hud.dmi'
 	hivenet_echoes = FALSE
 	ghostroles_enabled = FALSE
 	away_sites_enabled = FALSE

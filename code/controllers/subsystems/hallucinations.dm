@@ -176,7 +176,7 @@ SUBSYSTEM_DEF(hallucinations)
 /datum/controller/subsystem/hallucinations/proc/is_adpi_excluded(var/mob/living/target)
 	if(!target)
 		return TRUE
-	if(isvaurca(target) || isipc(target) || issilicon(target))
+	if(isvaurca(target) || isipc(target) || issilicon(target) || target.is_diona())
 		return TRUE
 	return FALSE
 

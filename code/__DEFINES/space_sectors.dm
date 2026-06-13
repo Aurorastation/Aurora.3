@@ -34,6 +34,7 @@
 #define SECTOR_LIGHTS_EDGE			"Light's Edge"	// For the area of Light's Edge that is somewhat inhabited. NOTE- this also lives in ALL_COALITION_SECTORS, per lore.
 #define SECTOR_LEMURIAN_SEA			"Lemurian Sea (Outer)"	// For the fringes of the Lemurian Sea.
 #define SECTOR_LEMURIAN_SEA_FAR		"Lemurian Sea (Inner)"	// For the actual Lemurian Sea. Adminbus town.
+#define LEMURIAN_SEA_SECTORS		list(SECTOR_LEMURIAN_SEA, SECTOR_LEMURIAN_SEA_FAR) // Sanity
 #define ALL_VOID_SECTORS		list(SECTOR_LIGHTS_EDGE, SECTOR_LEMURIAN_SEA, SECTOR_LEMURIAN_SEA_FAR)
 
 //Crescent Expanse & Beyond
@@ -51,7 +52,7 @@
 #define ALL_CORPORATE_SECTORS	list(ALL_TAU_CETI_SECTORS, SECTOR_SRANDMARR, SECTOR_UUEOAESA, ALL_COALITION_SECTORS, ALL_GENERIC_SECTORS, SECTOR_NRRAHRAHUL, SECTOR_BADLANDS)//Currently excludes Elyran sectors and Light's Edge
 
 /// For remote/uncharted regions distant from the civilised Spur. Some surveyors/independents only.
-#define ALL_UNCHARTED_SECTORS list(SECTOR_CRESCENT_EXPANSE_FAR, SECTOR_LEMURIAN_SEA_FAR)
+#define ALL_UNCHARTED_SECTORS list(SECTOR_CRESCENT_EXPANSE_FAR, SECTOR_LEMURIAN_SEA, SECTOR_LEMURIAN_SEA_FAR)
 
 //For highly dangerous sectors with high piracy. Civilian and leisure ships should be less common or not found here.
 #define ALL_DANGEROUS_SECTORS	list(SECTOR_BADLANDS, ALL_VOID_SECTORS, ALL_CRESCENT_EXPANSE_SECTORS, ALL_UNCHARTED_SECTORS)
