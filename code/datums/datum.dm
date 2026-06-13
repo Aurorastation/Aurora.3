@@ -116,14 +116,37 @@
 	#endif
 	#endif
 
-	// Cleanup all events on non-turfs.
+	// Cleanup all events on non-turfs. These used to be procs, but have been removed to save proc overhead on 2.6 million destroy() calls
 	if (!isturf(src))
 		if(GLOB.global_listen_count && GLOB.global_listen_count[src])
-			cleanup_global_listener(src, GLOB.global_listen_count[src])
+			GLOB.global_listen_count -= src
+			for(var/entry in GLOB.all_observable_events)
+				var/singleton/observ/event = entry
+				if(event.unregister_global(src))
+					log_debug("[event] - [src] was deleted while still registered to global events.")
+					if(!(--GLOB.global_listen_count[src]))
+						break
 		if(GLOB.event_sources_count && GLOB.event_sources_count[src])
-			cleanup_source_listeners(src, GLOB.event_sources_count[src])
+			GLOB.event_sources_count -= src
+			for(var/entry in GLOB.all_observable_events)
+				var/singleton/observ/event = entry
+				var/proc_owners = event.event_sources[src]
+				if(proc_owners)
+					for(var/proc_owner in proc_owners)
+						if(event.unregister(src, proc_owner))
+							log_debug("[event] - [src] was deleted while still being listened to by [proc_owner].")
+							if(!(--GLOB.event_sources_count[src]))
+								break
 		if(GLOB.event_listen_count && GLOB.event_listen_count[src])
-			cleanup_event_listener(src, GLOB.event_listen_count[src])
+			GLOB.event_listen_count -= src
+			for(var/entry in GLOB.all_observable_events)
+				var/singleton/observ/event = entry
+				for(var/event_source in event.event_sources)
+					if(event.unregister(event_source, src))
+						log_debug("[event] - [src] was deleted while still listening to [event_source].")
+						if(!(--GLOB.event_listen_count[src]))
+							break
+	// End of event cleanup
 
 	//BEGIN: ECS SHIT
 	var/list/dc = _datum_components
