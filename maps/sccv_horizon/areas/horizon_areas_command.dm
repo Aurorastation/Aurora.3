@@ -137,7 +137,7 @@
 //Teleporter
 /area/horizon/command/teleporter
 	name = "Teleporter"
-	area_lighting = LIGHT_HIGHSEC_COLORS
+	area_lighting = LIGHT_CLINICAL_COLORS
 	icon_state = "teleporter"
 	horizon_deck = 1
 	area_blurb = "The air in here always feels charged with the subdued crackle of electricity, tasting faintly of ozone."

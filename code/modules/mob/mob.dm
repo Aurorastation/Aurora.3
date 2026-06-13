@@ -54,6 +54,8 @@
 
 	QDEL_NULL(ability_master)
 	QDEL_NULL(zone_sel)
+	if (length(machine?.climbers))
+		machine.climbers -= src
 	machine = null
 
 	client_colors = null
@@ -61,6 +63,7 @@
 	pinned?.Cut()
 	QDEL_LIST(embedded)
 	languages?.Cut()
+	holo?.clear_holo(src)
 	holo = null
 	l_hand = null
 	r_hand = null
@@ -104,11 +107,23 @@
 	QDEL_LIST(click_handlers)
 	vr_mob = null
 	old_mob = null
+	if (lastattacker && lastattacker.lastattacked == src)
+		lastattacker.lastattacked = null
+	if (lastattacked && lastattacked.lastattacker == src)
+		lastattacked.lastattacker = null
 	lastattacker = null
 	lastattacked = null
 	QDEL_NULL(pointing_effect)
-	QDEL_LIST(open_nanouis)
-	QDEL_LIST(tgui_open_uis)
+
+	// Cleanup for all UIs belonging to the client.
+	// For performance reasons we check the length of the lists first since the lists can potentially either be null or empty.
+	// But it's also plausible that they might contain null values, and while their aggressive checking means any valid entry in the list
+	// is guaranteed to be of type /datum/tgui, null entries in the list can potentially exist and will pass the as anything typecast.
+	if (length(tgui_open_uis))
+		for (var/datum/tgui/ui as anything in tgui_open_uis)
+			ui?.close()
+		tgui_open_uis.Cut()
+
 	QDEL_NULL(narsimage)
 	QDEL_NULL(narglow)
 	QDEL_NULL(riftimage)
