@@ -65,6 +65,8 @@
 		return FALSE
 	if(SShallucinations.is_adpi_excluded(target))
 		return FALSE
+	if(SShallucinations.is_adpi_blocked(target))
+		return FALSE
 	return TRUE
 
 /datum/tgui_module/adpi_panel/proc/get_adpi_target_mobs()

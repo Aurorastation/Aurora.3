@@ -180,12 +180,17 @@ SUBSYSTEM_DEF(hallucinations)
 		return TRUE
 	return FALSE
 
+/datum/controller/subsystem/hallucinations/proc/is_adpi_blocked(var/mob/living/target)
+	return length(target?.GetComponents(/datum/component/timed_life/psiblock_drugs))
+
 /datum/controller/subsystem/hallucinations/proc/can_receive_adpi(var/mob/living/target)
 	if(!is_lemurian_sea())
 		return FALSE
 	if(!target || !target.client || !target.mind || target.stat)
 		return FALSE
 	if(is_adpi_excluded(target))
+		return FALSE
+	if(is_adpi_blocked(target))
 		return FALSE
 	if(!is_station_level(target.z))
 		return FALSE
@@ -261,6 +266,8 @@ SUBSYSTEM_DEF(hallucinations)
 
 /datum/controller/subsystem/hallucinations/proc/has_adpi_messages(var/mob/living/target, var/check_receiver = TRUE)
 	if(is_adpi_excluded(target))
+		return FALSE
+	if(is_adpi_blocked(target))
 		return FALSE
 
 	if(check_receiver && !can_receive_adpi(target))
@@ -355,6 +362,11 @@ SUBSYSTEM_DEF(hallucinations)
 	return pick(selected_pool)
 
 /datum/controller/subsystem/hallucinations/proc/send_adpi_message(var/mob/living/target, var/custom_message = null, var/check_receiver = TRUE)
+	if(is_adpi_blocked(target))
+		return FALSE
+	if(check_receiver && !can_receive_adpi(target))
+		return FALSE
+
 	var/message = custom_message || pick_adpi_message(target, check_receiver)
 	if(!message)
 		return FALSE
@@ -366,6 +378,8 @@ SUBSYSTEM_DEF(hallucinations)
 	if(!target || !target.client || !target.mind || target.stat == DEAD)
 		return FALSE
 	if(is_adpi_excluded(target))
+		return FALSE
+	if(is_adpi_blocked(target))
 		return FALSE
 
 	ensure_adpi_lists_loaded()
@@ -384,6 +398,20 @@ SUBSYSTEM_DEF(hallucinations)
 	return TRUE
 
 /datum/controller/subsystem/hallucinations/proc/deliver_adpi_message(var/mob/living/target, var/message)
+	/// % chance to pick one of the general thematic ADPI messages. Enjoy, code peekers; this is all you get!
+	if(prob(15))
+		message = pick(
+			"The water is dripping dripping dripping all around you.",
+			"Water flowing over stone, but there is no stone.",
+			"The waterfall roars o'er the cliff's edge.",
+			"Water, water, water. You are drowning.",
+			"Water, water, water. You will be awake for it.",
+			"Drums, drums, drums, unrelenting.",
+			"The drumbeat draws e'er closer.",
+			"Tap, ta-tap, ta-tap, tap, ta-tap, ta-tap.",
+			"Tap, tap tap, ta-tap, tap-tap, ta-tap.",
+			"Ta-ta-tap, tap, ta-tap, tap, tap ta-tap."
+		)
 	target.play_screen_text("[message]", /atom/movable/screen/text/screen_text/adpi_message, COLOR_PURPLE)
 	to_chat(target, SPAN_CULT(FONT_LARGE("[message]")))
 
