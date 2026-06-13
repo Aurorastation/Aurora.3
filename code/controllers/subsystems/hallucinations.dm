@@ -410,7 +410,7 @@ SUBSYSTEM_DEF(hallucinations)
 			"The drumbeat draws e'er closer.",
 			"Tap, ta-tap, ta-tap, tap, ta-tap, ta-tap.",
 			"Tap, tap tap, ta-tap, tap-tap, ta-tap.",
-			"Ta-ta-tap, tap, ta-tap, tap, tap ta-tap."
+			"Ta-ta-tap, tap, ta-tap, tap, tap ta-tap.",
 		)
 	target.play_screen_text("[message]", /atom/movable/screen/text/screen_text/adpi_message, COLOR_PURPLE)
 	to_chat(target, SPAN_CULT(FONT_LARGE("[message]")))
