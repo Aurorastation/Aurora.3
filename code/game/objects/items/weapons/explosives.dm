@@ -15,7 +15,6 @@
 	var/timer = 300
 	var/atom/target = null
 	var/open_panel = 0
-	var/obj/effect/plastic_explosive/effect_overlay
 
 /obj/item/plastique/mechanics_hints()
 	. += ..()
@@ -40,6 +39,8 @@
 /obj/item/plastique/Destroy()
 	qdel(wires)
 	wires = null
+	qdel(target)
+	target = null
 	return ..()
 
 /obj/item/plastique/attackby(obj/item/attacking_item, mob/user)
@@ -111,7 +112,6 @@
 		target = get_atom_on_turf(src)
 	if(!target)
 		target = src
-	QDEL_NULL(effect_overlay)
 	if(location)
 		explosion(location, -1, -1, 2, 3, spreading = 0)
 
