@@ -6,6 +6,7 @@
 	starlight_color = "#2d0850"
 	starlight_power = 1//slightly darker though for spooky factor
 	starlight_range = 2
+	overmap_hazards_multiplier = 1.4
 
 	possible_exoplanets = list(/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid, /obj/effect/overmap/visitable/sector/exoplanet/grass/grove, /obj/effect/overmap/visitable/sector/exoplanet/barren, /obj/effect/overmap/visitable/sector/exoplanet/lava, /obj/effect/overmap/visitable/sector/exoplanet/desert, /obj/effect/overmap/visitable/sector/exoplanet/snow)
 	cargo_price_coef = list(
@@ -38,18 +39,40 @@
 	name = SECTOR_LEMURIAN_SEA
 	description = "The Lemurian Sea is an astrological curiosity which is entirely free of stars. This region is a relatively new discovery and classification, having only been officially broken off of Light’s Edge by most astrographical institutions following the rediscovery of Assunzione and limited exploration beyond its position on the border of what would become the Lemurian Sea. Most astrological charts advise avoiding the region as travelers are known to report a feeling of general uneasiness while passing through it and many vessels are known to have disappeared within the Sea. "
 	skybox_icon = "void"//its just black
-	possible_exoplanets = null//nothing should be here
+	possible_exoplanets = list(/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid)
 	starlight_color = "#000000"
 	starlight_power = 0
 	starlight_range = 0
+	overmap_hazards_multiplier = 2.0
+	cargo_price_coef = list(
+		"nanotrasen" = 6.0,
+		"orion" = 6.0,
+		"hephaestus" = 6.0,
+		"zeng_hu" = 6.0,
+		"eckharts" = 6.0,
+		"getmore" = 6.0,
+		"arizi" = 6.0,
+		"blam" = 6.0,
+		"iac" = 6.0,
+		"zharkov" = 6.0,
+		"virgo" = 6.0,
+		"bishop" = 6.0,
+		"xion" = 6.0,
+		"zavodskoi" = 6.0,
+		)
 
 	lobby_tracks = list(
 		'sound/music/lobby/lights_edge/lights_edge_1.ogg',
 		'sound/music/lobby/lights_edge/lights_edge_2.ogg',
 		'sound/music/lobby/dangerous_space/dangerous_space_1.ogg'
 	)
+
+	sector_welcome_message = 'sound/AI/welcome_lemurian_sea_outer.ogg'
 	hivenet_echoes = FALSE
+	ghostroles_enabled = FALSE
+	away_sites_enabled = FALSE
+	ccia_link = FALSE
 
 /datum/space_sector/lemurian_sea/far
 	name = SECTOR_LEMURIAN_SEA_FAR
-	ccia_link = FALSE
+	sector_welcome_message = 'sound/AI/welcome_lemurian_sea_inner.ogg'
