@@ -357,7 +357,7 @@
 
 /datum/overmap_event/meteor
 	name = "asteroid field"
-	count = 15
+	count = 10
 	radius = 4
 	opacity = 1
 	continuous = FALSE
@@ -365,26 +365,26 @@
 
 /datum/overmap_event/electric
 	name = "electrical storm"
-	count = 6
+	count = 4
 	radius = 2
 	hazards = /obj/effect/overmap/event/electric
 
 /datum/overmap_event/dust
 	name = "dust cloud"
-	count = 13
+	count = 9
 	radius = 3
 	opacity = 1
 	hazards = /obj/effect/overmap/event/dust
 
 /datum/overmap_event/ion
 	name = "ion cloud"
-	count = 5
+	count = 4
 	radius = 2
 	hazards = /obj/effect/overmap/event/ion
 
 /datum/overmap_event/carp
 	name = "carp shoal"
-	count = 8
+	count = 6
 	radius = 2
 	continuous = FALSE
 	hazards = /obj/effect/overmap/event/carp
@@ -398,7 +398,7 @@
 
 /datum/overmap_event/gravity
 	name = "dark matter influx"
-	count = 15
-	radius = 8
+	count = 19
+	radius = 12
 	hazards = /obj/effect/overmap/event/gravity_anomaly
 	sectors = list(SECTOR_LEMURIAN_SEA, SECTOR_LEMURIAN_SEA_FAR)
