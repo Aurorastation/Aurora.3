@@ -8,6 +8,9 @@
 	if(SSradio)
 		SSradio.remove_object(source, frequency)
 
+/proc/get_radio_channel_display_name(var/channel)
+	return AWAY_FREQS_DISPLAY_NAMES[channel] || channel
+
 /proc/get_frequency_name(var/display_freq)
 	var/freq_text
 
@@ -21,7 +24,7 @@
 		else
 			for(var/channel in radiochannels)
 				if(radiochannels[channel] == display_freq)
-					freq_text = channel
+					freq_text = get_radio_channel_display_name(channel)
 					break
 
 	// --- If the frequency has not been assigned a name, just use the frequency as the name ---

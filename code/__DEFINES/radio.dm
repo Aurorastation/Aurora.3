@@ -39,6 +39,7 @@
 
 var/list/AWAY_FREQS_UNASSIGNED = list(1491, 1493, 1495, 1497, 1499, 1501, 1503, 1505, 1507, 1509)
 var/list/AWAY_FREQS_ASSIGNED = list("Hailing" = HAIL_FREQ)
+var/list/AWAY_FREQS_DISPLAY_NAMES = list("Hailing" = "Hailing")
 
 var/list/radiochannels = list(
 	"Common"		= PUB_FREQ,

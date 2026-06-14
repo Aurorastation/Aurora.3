@@ -65,7 +65,7 @@
 			name = "[lowertext(linked.comms_name)] [initial(name)]"
 		freq_listening = list(
 			HAIL_FREQ,
-			assign_away_freq(linked.name)
+			assign_away_freq(linked.get_comms_frequency_name(), linked.get_comms_frequency_display_name())
 		)
 
 /obj/structure/machinery/telecomms/allinone/ship/coalition_navy

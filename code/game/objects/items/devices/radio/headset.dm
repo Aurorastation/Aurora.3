@@ -28,6 +28,8 @@
 /obj/item/radio/headset/feedback_hints(mob/user, distance, is_adjacent)
 	. = list()
 	. = ..()
+	if(channels.len)
+		setupRadioDescription()
 	if(!(is_adjacent && radio_desc))
 		return
 
@@ -943,7 +945,7 @@
 	var/obj/effect/overmap/visitable/V = GLOB.map_sectors["[sector_z]"]
 	if(istype(V))
 		if(V.comms_support)
-			default_frequency = assign_away_freq(V.name)
+			default_frequency = assign_away_freq(V.get_comms_frequency_name(), V.get_comms_frequency_display_name())
 			if(V.comms_name)
 				name = "[V.comms_name] radio headset"
 	else

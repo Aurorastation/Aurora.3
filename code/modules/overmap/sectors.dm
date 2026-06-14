@@ -60,6 +60,8 @@ GLOBAL_DATUM(map_overmap, /area/overmap)
 	var/comms_name = "shipboard"
 	/// Snowflake name to label frequency, if not set, frequency defaults to overmap name
 	var/freq_name = ""
+	/// Stable hidden key for the away comms frequency. Display names can change without retuning radios.
+	var/comms_frequency_name = ""
 	/// Whether away ship comms have access to the common channel / PUB_FREQ
 	var/use_common = FALSE
 	/// list of weakrefs to people viewing the overmap via this ship
@@ -218,13 +220,22 @@ GLOBAL_DATUM(map_overmap, /area/overmap)
 		return
 	if(obfuscated)
 		return
+	var/new_name = get_real_name()
 	if(comms_support)
-		update_away_freq(name, get_real_name())
+		update_away_freq_display(get_comms_frequency_name(new_name), get_comms_frequency_display_name(new_name))
 	SEND_SIGNAL(src, COMSIG_BASENAME_SETNAME, args)
-	name = get_real_name()
+	name = new_name
 
 /obj/effect/overmap/visitable/proc/get_real_name()
 	return class ? "[class] [designation]" : designation
+
+/obj/effect/overmap/visitable/proc/get_comms_frequency_name(var/overmap_name = null)
+	if(!comms_frequency_name)
+		comms_frequency_name = freq_name || overmap_name || name
+	return comms_frequency_name
+
+/obj/effect/overmap/visitable/proc/get_comms_frequency_display_name(var/overmap_name = null)
+	return freq_name || overmap_name || name
 
 /obj/effect/overmap/visitable/proc/set_new_designation(var/new_name)
 	designation = new_name

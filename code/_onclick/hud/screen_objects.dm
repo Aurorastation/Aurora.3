@@ -422,8 +422,7 @@
 			if(isrobot(usr))
 				var/mob/living/silicon/robot/R = usr
 				if(modifiers["shift"])
-					if(!R.radio.radio_desc)
-						R.radio.setupRadioDescription()
+					R.radio.setupRadioDescription()
 					to_chat(R, SPAN_NOTICE("You analyze your integrated radio:"))
 					to_chat(R, R.radio.radio_desc)
 					return

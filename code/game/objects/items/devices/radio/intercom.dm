@@ -71,9 +71,10 @@ pixel_x = 8;
 	if(istype(V) && V.comms_support)
 		if(V.comms_name)
 			name = "intercom ([V.comms_name])"
-		default_frequency = assign_away_freq(V.name)
+		var/frequency_name = V.get_comms_frequency_name()
+		default_frequency = assign_away_freq(frequency_name, V.get_comms_frequency_display_name())
 		channels += list(
-			V.name = TRUE,
+			"[frequency_name]" = TRUE,
 			CHANNEL_HAILING = TRUE
 		)
 

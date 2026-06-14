@@ -46,10 +46,12 @@
 
 	if(istype(linked) && linked.comms_support)
 		var/preset_name = linked.comms_name
+		var/frequency_name = linked.get_comms_frequency_name()
+		var/frequency_display_name = linked.get_comms_frequency_display_name()
 		var/name_lower = replacetext(lowertext(preset_name), " ", "_")
 		id = "[preset_name] Receiver"
 		network = "tcomm_[name_lower]"
-		freq_listening += list(assign_away_freq(preset_name), HAIL_FREQ)
+		freq_listening += list(assign_away_freq(frequency_name, frequency_display_name), HAIL_FREQ)
 		if (use_common || linked.use_common)
 			freq_listening += PUB_FREQ
 		autolinkers = list(
@@ -89,10 +91,12 @@
 
 	if(istype(linked) && linked.comms_support)
 		var/preset_name = linked.comms_name
+		var/frequency_name = linked.get_comms_frequency_name()
+		var/frequency_display_name = linked.get_comms_frequency_display_name()
 		var/name_lower = replacetext(lowertext(preset_name), " ", "_")
 		id = "[preset_name] Bus"
 		network = "tcomm_[name_lower]"
-		freq_listening += list(assign_away_freq(preset_name), HAIL_FREQ)
+		freq_listening += list(assign_away_freq(frequency_name, frequency_display_name), HAIL_FREQ)
 		if (use_common || linked.use_common)
 			freq_listening += PUB_FREQ
 		autolinkers = list(
@@ -195,11 +199,13 @@
 
 	if(istype(linked) && linked.comms_support)
 		var/preset_name = linked.comms_name
+		var/frequency_name = linked.get_comms_frequency_name()
+		var/frequency_display_name = linked.get_comms_frequency_display_name()
 		var/name_lower = replacetext(lowertext(preset_name), " ", "_")
 		id = "[preset_name] server"
 		network = "tcomm_[name_lower]"
 		freq_listening += list(
-			assign_away_freq(preset_name),
+			assign_away_freq(frequency_name, frequency_display_name),
 			HAIL_FREQ
 		)
 		if(use_common || linked.use_common)

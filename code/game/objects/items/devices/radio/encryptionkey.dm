@@ -31,15 +31,15 @@
 	var/sector_z = get_sector_z()
 	var/obj/effect/overmap/visitable/V = GLOB.map_sectors["[sector_z]"]
 	if(istype(V) && V.comms_support)
-		var/freq_name = V.name
+		var/frequency_name = V.get_comms_frequency_name()
+		assign_away_freq(frequency_name, V.get_comms_frequency_display_name())
 		if(V.freq_name)
-			freq_name = V.freq_name
 			name = "[V.freq_name] encryption key"
 		else if(V.comms_name)
 			name = "[V.comms_name] encryption key"
 
 		channels += list(
-			"[freq_name]" = TRUE,
+			"[frequency_name]" = TRUE,
 			CHANNEL_HAILING = TRUE
 		)
 

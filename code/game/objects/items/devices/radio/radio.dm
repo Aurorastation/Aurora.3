@@ -115,6 +115,8 @@ var/global/list/default_interrogation_channels = list(
 		else
 			. += SPAN_NOTICE("\The [src] can not be modified or attached!")
 
+	if(channels.len)
+		setupRadioDescription()
 	if(radio_desc)
 		. += radio_desc
 
@@ -328,7 +330,7 @@ var/global/list/default_interrogation_channels = list(
 			key = get_radio_key_from_channel("department")
 			found_first_department = TRUE
 
-		radio_text += "[key] - [channel]"
+		radio_text += "[key] - [get_radio_channel_display_name(channel)]"
 		if(i != channels.len)
 			radio_text += ", "
 
@@ -346,7 +348,7 @@ var/global/list/default_interrogation_channels = list(
 		var/chan_stat = channels[ch_name]
 		var/listening = chan_stat & FREQ_LISTENING
 
-		dat.Add(list(list("chan" = radiochannels[ch_name], "display_name" = ch_name, "secure_channel" = 1, "sec_channel_listen" = listening, "chan_span" = frequency_span_class(radiochannels[ch_name]))))
+		dat.Add(list(list("chan" = radiochannels[ch_name], "display_name" = get_radio_channel_display_name(ch_name), "secure_channel" = 1, "sec_channel_listen" = listening, "chan_span" = frequency_span_class(radiochannels[ch_name]))))
 
 	return dat
 
@@ -732,13 +734,11 @@ var/global/list/default_interrogation_channels = list(
 	var/turf/T = get_turf(src)
 	var/obj/effect/overmap/visitable/V = GLOB.map_sectors["[T.z]"]
 	if(istype(V) && V.comms_support)
-		var/freq_name = V.name
-		if(V.freq_name)
-			freq_name = V.freq_name
-		frequency = assign_away_freq(freq_name)
+		var/frequency_name = V.get_comms_frequency_name()
+		frequency = assign_away_freq(frequency_name, V.get_comms_frequency_display_name())
 		default_frequency = frequency
 		channels += list(
-			freq_name = TRUE,
+			"[frequency_name]" = TRUE,
 			CHANNEL_HAILING = TRUE
 		)
 		if(V.comms_name)
