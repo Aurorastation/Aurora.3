@@ -84,6 +84,9 @@
 
 //Return a error message if the user CANT see the ghost spawner. Otherwise FALSE
 /datum/ghostspawner/proc/cant_see(mob/user) //If the user can see the spawner in the menu
+	if(SSatlas?.current_sector && !SSatlas.current_sector.ghostroles_enabled)
+		return "Ghost roles are unavailable in this sector."
+
 	if(req_perms) //Only those with the correct flags can see restricted roles
 		if(check_rights(req_perms, show_msg=FALSE, user=user))
 			return FALSE //Return early and dont perform whitelist checks if staff flags are met
@@ -109,6 +112,8 @@
 /datum/ghostspawner/proc/cant_spawn(mob/user) //If the user can spawn using the spawner
 	if(!ROUND_IS_STARTED)
 		return "The round is not started yet."
+	if(SSatlas?.current_sector && !SSatlas.current_sector.ghostroles_enabled)
+		return "Ghost roles are unavailable in this sector."
 	var/cant_see = cant_see(user)
 	if(cant_see) //If we cant see it, we cant spawn it
 		return cant_see
@@ -243,6 +248,9 @@
 	return isobserver(user) && loc_type == GS_LOC_POS
 
 /datum/ghostspawner/proc/is_enabled()
+	if(SSatlas?.current_sector && !SSatlas.current_sector.ghostroles_enabled)
+		return FALSE
+
 	if(loc_type == GS_LOC_ATOM)
 		return enabled && !!length(spawn_atoms)
 	if(max_count)

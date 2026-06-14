@@ -335,6 +335,10 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 	. += "Order: [details["Order"]]"
 	. += "For: [details["Customer"]]"
 
+/obj/item/reagent_containers/food/drinks/takeaway_cup_idris/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Characters with high bartending skill can click on a drink with a spoon to stir it, improving the quality of the drink and the morale boost it provides."
+
 /obj/item/reagent_containers/food/drinks/takeaway_cup_idris/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.tool_behaviour == TOOL_PEN && !use_check_and_message(user))
 		var/choice = tgui_input_list(user, "Which detail do you want to edit?", "Detail Editor", list("Customer", "Order"))
@@ -344,6 +348,14 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 			if("Order")
 				details["Order"] = tgui_input_text(user, "What is the ordered drink?", "Enter Ordered Drink")
 		return
+	if(istype(attacking_item, /obj/item/material/kitchen/utensil/spoon))
+		var/datum/component/skill/bartending/bar_skill = user.GetComponent(BARTENDING_SKILL_COMPONENT)
+		if (bar_skill)
+			var/drink_moodlet_value = 5 * bar_skill.skill_level
+			var/drink_quality = rand(1, 20) + 3 * bar_skill.skill_level
+			if (!isnull(drink_moodlet_value))
+				src.visible_message(SPAN_NOTICE("[user] stirs \the [src] with \the [attacking_item]."))
+				src.LoadComponent(/datum/component/drink_moodlet_provider, drink_moodlet_value, FALSE, drink_quality)
 	return ..()
 
 //////////////////////////drinkingglass and shaker//
