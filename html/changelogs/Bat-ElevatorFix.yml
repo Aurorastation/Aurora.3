@@ -1,0 +1,4 @@
+author: Batrachophrenoboocosmomachia
+delete-after: True
+changes:
+  - bugfix: "Fixes case where datum/turbolift-type elevators fail to move because they cannot resolve their origin floor."
