@@ -166,9 +166,8 @@
 
 
 /obj/item/rig_module/Destroy()
-	for(var/sm in stat_modules)
-		qdel(sm)
-	stat_modules.Cut()
+	QDEL_LIST(stat_modules)
+	holder?.installed_modules -= src
 	holder = null
 	return ..()
 
