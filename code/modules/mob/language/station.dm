@@ -234,7 +234,7 @@
 /datum/language/bug/broadcast(var/mob/living/speaker,var/message,var/speaker_mask)
 	log_say("[key_name(speaker)] : ([name]) [message]")
 
-	var/mob/living/carbon/human/H = speaker //Check for Preimminent Shaper helmet, which obscure Hive affiliation
+
 	if(is_lemurian_sea_sector())
 		to_chat(speaker, SPAN_WARNING("You attempt to reach the Hivenet, but find nothing!"))
 		return
