@@ -307,11 +307,9 @@
 					if(prob(65)) //Can't ignore the 1s burn_delay, so manually do the proc to adjust speed instead
 						var/acceleration = min(connected.get_burn_acceleration(), accellimit)
 						var/theta = dir2degree(connected.dir)
-						connected.adjust_speed(acceleration * cos(theta), acceleration * sin(theta))
-						connected.adjust_speed(acceleration * cos(theta), acceleration * sin(theta))
 						if(connected.pilot_class == PILOTING_CLASS_MAX && prob(70))
-							connected.adjust_speed(acceleration * cos(theta), acceleration * sin(theta))
-							connected.adjust_speed(acceleration * cos(theta), acceleration * sin(theta))
+							acceleration *= 2
+						connected.adjust_speed(acceleration * cos(theta), acceleration * sin(theta))
 							to_chat(H, SPAN_DANGER("Too fast!"))
 						H.visible_message(SPAN_WARNING("[H] motions strongly at \the [src]"), SPAN_WARNING("The speed picks up faster than anticipated."))
 				else
@@ -383,9 +381,10 @@
 							var/alpha = min(connected.get_burn_acceleration(), magnitude_velocity)
 							var/delta_x = -(connected.speed[1] / magnitude_velocity) * alpha
 							var/delta_y = -(connected.speed[2] / magnitude_velocity) * alpha
-							connected.adjust_speed(delta_x, delta_y)
 							if(connected.pilot_class != PILOTING_CLASS_TWO && prob(70))
-								connected.adjust_speed(delta_x, delta_y)
+								delta_x *= 2
+								delta_y *= 2
+							connected.adjust_speed(delta_x, delta_y)
 							to_chat(H, SPAN_WARNING("That clamp was stronger than intended."))
 					else
 						return
