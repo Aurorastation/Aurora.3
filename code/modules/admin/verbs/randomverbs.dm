@@ -1143,3 +1143,17 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	message_admins("[key_name_admin(usr)] used the Narration Panel")
 	log_admin("[key_name(usr)] used the Narration Panel")
 	feedback_add_details("admin_verb", "AONP")
+
+/client/proc/adpi_panel()
+	set category = "Fun"
+	set name = "ADPI Panel"
+
+	if(!check_rights(R_ADMIN|R_FUN, TRUE))
+		return
+
+	var/datum/tgui_module/adpi_panel/panel = new
+	panel.ui_interact(usr)
+
+	message_admins("[key_name_admin(usr)] used the ADPI Panel")
+	log_admin("[key_name(usr)] used the ADPI Panel")
+	feedback_add_details("admin_verb", "ADPI")
