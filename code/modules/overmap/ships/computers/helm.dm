@@ -309,8 +309,8 @@
 						var/theta = dir2degree(connected.dir)
 						if(connected.pilot_class == PILOTING_CLASS_MAX && prob(70))
 							acceleration *= 2
-						connected.adjust_speed(acceleration * cos(theta), acceleration * sin(theta))
 							to_chat(H, SPAN_DANGER("Too fast!"))
+						connected.adjust_speed(acceleration * cos(theta), acceleration * sin(theta))
 						H.visible_message(SPAN_WARNING("[H] motions strongly at \the [src]"), SPAN_WARNING("The speed picks up faster than anticipated."))
 				else
 					return
