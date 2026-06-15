@@ -201,6 +201,7 @@
 	tcaf["tcaf beret, field"] = /obj/item/clothing/head/beret/tcaf/field
 	tcaf["tcaf foreign legions beret, dress"] = /obj/item/clothing/head/beret/tcaf/foreign_legion
 	tcaf["tcaf foreign legions, field"] = /obj/item/clothing/head/beret/tcaf/foreign_legion/field
+	tcaf["tcaf elite espatier beret"] = /obj/item/clothing/head/beret/tcaf/elite_espatier
 	tcaf["tcaf softcap"] = /obj/item/clothing/head/softcap/tcaf_cap
 	gear_tweaks += new /datum/gear_tweak/path(tcaf)
 

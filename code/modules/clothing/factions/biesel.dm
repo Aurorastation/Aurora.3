@@ -12,48 +12,56 @@
 
 // Generic gloves.
 /obj/item/clothing/gloves/tcaf
-	name = "\improper TCAF uniform gloves"
-	desc = "A pair of khaki tactical gloves with reinforcement at the knuckles and an adjustable strap at the wrist."
+	name = "\improper TCAF combat gloves"
+	desc = "A pair of khaki tactical gloves with reinforcement at the knuckles and an adjustable strap at the wrist. Designed for use by the TCAF's Republic Espatiers and Home Defence Forces."
 	icon = 'icons/obj/item/clothing/gloves/tcaf_gloves.dmi'
 	contained_sprite = TRUE
-	icon_state = "tcaf_espatier_gloves"
-	item_state = "tcaf_espatier_gloves"
+	icon_state = "tcaf_combat_gloves"
+	item_state = "tcaf_combat_gloves"
 	build_from_parts = TRUE
 	worn_overlay = "over"
 
 // Intended for enlisted vessel crew of the TCAF's Astroforces
 /obj/item/clothing/under/tcaf/rate
 	name = "\improper TCAF-RAF rate uniform"
-	desc = "A plain drab jumpsuit trimmed with dark accents, designed to be cheap and stain-resistant. It could be more comfortable. Worn by enlisted crewmembers of the TCAF's Republic Astroforce."
+	desc = "A blue jumpsuit trimmed with dark accents, designed to be cheap and stain-resistant. It could be more comfortable. Worn by enlisted crewmembers of the TCAF's Republic Astroforce."
 	icon = 'icons/obj/item/clothing/under/human/biesel/tcaf_uniform.dmi'
 	contained_sprite = TRUE
-	icon_state = "tcaf_rate_uniform"
-	item_state = "tcaf_rate_uniform"
-	worn_state = "tcaf_rate_uniform"
+	icon_state = "tcaf_raf_crew"
+	item_state = "tcaf_raf_crew"
+	worn_state = "tcaf_raf_crew"
 
-/obj/item/clothing/head/tcaf_rate
-	name = "\improper TCAF-RAF rate cap"
-	desc = "A plain drab softcap, marked in a small manner at the front with the insignia of the Republic Astroforce. Worn by enlisted crewmembers of the TCAF's Republic Astroforce."
-	icon = 'icons/obj/item/clothing/head/tcaf_hats.dmi'
-	icon_state = "tcaf_rate_cap"
-	item_state = "tcaf_rate_cap"
-	contained_sprite = TRUE
+/obj/item/clothing/under/tcaf/rate/foreign_legion
+	name = "\improper TCAF-RAF foreign legion rate uniform"
+	desc = "A blue jumpsuit with red accenting, designed to be cheap and stain-resistant. It could be more comfortable. Worn by enlisted crewmembers of the TCAF's Republic Astroforce Foreign Legions corps."
+	icon_state = "tcaf_raf_foreign_legion"
+	item_state = "tcaf_raf_foreign_legion"
+	worn_state = "tcaf_raf_foreign_legion"
 
 // For specialist legionnaires
 /obj/item/clothing/accessory/tcaf/immunis
-	name = "legionnaire immuni medallion"
+	name = "legionnaire immuni medallions"
 	desc = "Two small gold medallions, one worn on the shoulder and the other worn on the chest. They denote the rank of Legionnaire Imminus, a specialist enlisted member immune from menial taskings."
-	icon_state = "specialist_medallion"
-	item_state = "specialist_medallion"
-	overlay_state = "specialist_medallion"
+	icon_state = "tcaf_immuni_medallions"
+	item_state = "tcaf_immuni_medallions"
+	overlay_state = "tcaf_immuni_medallions"
 
 // For astrachs
 /obj/item/clothing/accessory/tcaf/astrarch
-	name = "astrarch medallions"
+	name = "arch medallions"
 	desc = "A gold ribbon meant to attach to the chest and sling around the shoulder accompanied by two platinum medallions. They denote the rank of Astrarch or Planarch depending on service branch, roughly equivalent to a Captain."
-	icon_state = "senior_ribbon"
-	item_state = "senior_ribbon"
-	overlay_state = "senior_ribbon"
+	icon_state = "tcaf_astrarch_medallions"
+	item_state = "tcaf_astrarch_medallions"
+	overlay_state = "tcaf_astrarch_medallions"
+	slot = ACCESSORY_SLOT_CAPE
+	flippable = TRUE
+
+/obj/item/clothing/accessory/tcaf/legate
+	name = "legate medallions"
+	desc = "A gold ribbon meant to attach to the chest and sling around the shoulder accompanied by two enamelled phoron medallions. They denote the rank of Legate, roughly equivalent to a General or Admiral."
+	icon_state = "tcaf_legate_medallions"
+	item_state = "tcaf_legate_medallions"
+	overlay_state = "tcaf_legate_medallions"
 	slot = ACCESSORY_SLOT_CAPE
 	flippable = TRUE
 

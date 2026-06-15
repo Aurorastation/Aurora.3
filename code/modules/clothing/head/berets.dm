@@ -194,27 +194,27 @@
 
 /obj/item/clothing/head/beret/tcaf/field
 	name = "\improper TCAF field beret"
-	desc = "A red beret bearing a golden torch in semblance of the Republic of Biesel. Worn by service members of the Tau Ceti Armed Forces."
+	desc = "A red beret bearing a golden badge of one of the TCAF's main legions. Worn by service members of the Tau Ceti Armed Forces."
 	icon_state = "tcaf_field_beret"
 	item_state = "tcaf_field_beret"
 
 /obj/item/clothing/head/beret/tcaf/foreign_legion
 	name = "\improper TCAF foreign legions dress beret"
-	desc = "A pale blue dress beret with a rubber insignia of a torch, surrounded by red stars. Worn by those of the Foreign Legions of one of the TCAF's service branches."
-	icon_state = "tcfl_dress"
+	desc = "A bright blue, red-rimmed dress beret with a rubber insignia of a torch, surrounded by red stars. Worn by those of the Foreign Legions of one of the TCAF's service branches."
+	icon_state = "tcaf_fl_dress"
 	item_state = "tcfl_dress"
 
 /obj/item/clothing/head/beret/tcaf/foreign_legion/field
 	name = "TCAF foreign legions field beret"
-	desc = "A hardy, stark red field beret with a rubber insignia of a torch, surrounded by red stars."
-	icon_state = "tcfl_field"
-	item_state = "tcfl_field"
+	desc = "A bright blue, red-rimmed field beret with the bronze badge of one of the TCAF's foreign legions."
+	icon_state = "tcaf_fl_field"
+	item_state = "tcaf_fl_field"
 
-/obj/item/clothing/head/beret/tcaf/elite_espatier
+/obj/item/clothing/head/beret/tcaf/elite_espatier // ONLY FOR TORVALD'S STRONGEST WARRIORS
 	name = "TCAF-RE elite espatier beret"
-	desc = "A hardy, stark purple beret with the badge of one of the Republic Espatier's elite centuries."
-	icon_state = "tcaf_elite"
-	item_state = "tcaf_elite"
+	desc = "A tyrian purple beret with the platinum badge of one of the Republic Espatier's elite espatier centuries. You must really love the Republic!"
+	icon_state = "tcaf_elite_espatier"
+	item_state = "tcaf_elite_espatier"
 
 //centcom
 
