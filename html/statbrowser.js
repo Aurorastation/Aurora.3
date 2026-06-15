@@ -379,20 +379,16 @@ function draw_mc() {
     td0.className = 'monospace';
     td0.textContent = part[0];
     var td1 = document.createElement('td');
-    td1.textContent = part[1];
-    var td2 = document.createElement('td');
-    if (part[3]) {
+    if (part[2]) {
       var a = document.createElement('a');
-      a.href =
-        'byond://?_src_=vars;admin_token=' + href_token + ';Vars=' + part[3];
-      a.textContent = part[2];
-      td2.appendChild(a);
+      a.href = 'byond://?_src_=vars;Vars=' + part[2];
+      a.textContent = part[1];
+      td1.appendChild(a);
     } else {
-      td2.textContent = part[2];
+      td1.textContent = part[1];
     }
     tr.appendChild(td0);
     tr.appendChild(td1);
-    tr.appendChild(td2);
     table.appendChild(tr);
   }
   document.getElementById('statcontent').appendChild(table);
@@ -443,7 +439,8 @@ function iconError(e) {
 
 function draw_listedturf() {
   statcontentdiv.textContent = '';
-  var table = document.createElement('table');
+  var list = document.createElement('div');
+  list.className = 'listed-turf-list';
   for (var i = 0; i < turfcontents.length; i++) {
     var part = turfcontents[i];
     var clickfunc = ((part) => {
@@ -474,31 +471,31 @@ function draw_listedturf() {
         window.location.href = clickcatcher;
       };
     })(part);
+    var row = document.createElement('div');
+    row.className = 'listed-turf-item';
+    row.onmousedown = clickfunc;
     if (storedimages[part[1]] == null && part[2]) {
       var img = document.createElement('img');
       img.src = part[2];
       img.id = part[1];
       storedimages[part[1]] = part[2];
       img.onerror = iconError;
-      img.onmousedown = clickfunc;
-      table.appendChild(img);
+      row.appendChild(img);
     } else {
       var img = document.createElement('img');
       img.onerror = iconError;
-      img.onmousedown = clickfunc;
       img.src = storedimages[part[1]];
       img.id = part[1];
-      table.appendChild(img);
+      row.appendChild(img);
     }
     var b = document.createElement('div');
     var clickcatcher = '';
     b.className = 'link';
-    b.onmousedown = clickfunc;
     b.textContent = part[0];
-    table.appendChild(b);
-    table.appendChild(document.createElement('br'));
+    row.appendChild(b);
+    list.appendChild(row);
   }
-  document.getElementById('statcontent').appendChild(table);
+  document.getElementById('statcontent').appendChild(list);
 }
 
 function remove_listedturf() {
@@ -847,7 +844,7 @@ Byond.subscribeTo('update_stat', (payload) => {
 
 Byond.subscribeTo('update_mc', (payload) => {
   mc_tab_parts = payload.mc_data;
-  mc_tab_parts.splice(0, 0, ['', 'Location:', payload.coord_entry]);
+  mc_tab_parts.splice(0, 0, ['Location:', payload.coord_entry]);
 
   if (!verb_tabs.includes('MC')) {
     verb_tabs.push('MC');

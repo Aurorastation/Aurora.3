@@ -79,7 +79,10 @@
 }
 
 .ChatMessage--highlighted {
-  background: oklch(from var(--highlight-color) l c h / 8%);
-  border-left: 2px solid var(--highlight-color);
+  background: oklch(
+    from var(--highlight-background-color, #ffdd44) l c h /
+      var(--highlight-background-opacity, 10%)
+  );
+  border-left: 2px solid var(--highlight-background-color, #ffdd44);
   padding-left: 0.5em;
 }

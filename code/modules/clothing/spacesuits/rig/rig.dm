@@ -224,13 +224,22 @@
 	piece.icon_supported_species_tags = icon_supported_species_tags
 
 /obj/item/rig/Destroy()
-	for(var/obj/item/piece in list(gloves,boots,helmet,chest))
-		qdel(piece)
 	STOP_PROCESSING(SSmobs, src)
-	qdel(wires)
-	wires = null
-	qdel(spark_system)
-	spark_system = null
+	QDEL_NULL(air_supply)
+	QDEL_NULL(boots)
+	QDEL_NULL(chest)
+	QDEL_NULL(helmet)
+	QDEL_NULL(gloves)
+	QDEL_NULL(cell)
+	selected_module = null
+	visor = null
+	speech = null
+	wearer?.wearing_rig = null
+	wearer = null
+	mob_icon = null
+	QDEL_LIST(installed_modules)
+	QDEL_NULL(wires)
+	QDEL_NULL(spark_system)
 	return ..()
 
 /obj/item/rig/proc/set_vision(var/active)

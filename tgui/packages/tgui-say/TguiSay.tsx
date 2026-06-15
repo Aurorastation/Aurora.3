@@ -186,13 +186,10 @@ export function TguiSay() {
       newValue = newValue.slice(3);
       iterator.set('Say');
 
-      if (newPrefix === ':b ') {
-        Byond.sendMessage('thinking', { visible: false });
-      }
     }
 
     // Handles typing indicators
-    if (channelIterator.current.isVisible() && newPrefix !== ':b ') {
+    if (channelIterator.current.isVisible()) {
       messages.current.typingMsg();
       messages.current.saveText(newValue, iterator.current());
     }
@@ -323,7 +320,7 @@ export function TguiSay() {
           onInput={handleInput}
           onKeyDown={handleKeyDown}
           ref={innerRef}
-          spellCheck={false}
+          spellCheck={true}
           value={value}
         />
       </div>

@@ -94,6 +94,9 @@
 /proc/is_shuttle_area(var/area/A)
 	. = istype(A,/area/horizon/shuttle)
 
+/proc/is_shieldless_exterior(var/area/A)
+	. = istype(A,/area/horizon/exterior/no_shields)
+
 /proc/is_area_with_turf(var/area/A)
 	. = isnum(A.x)
 

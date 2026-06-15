@@ -246,6 +246,7 @@
 			var/gene_tag = params["gene"]
 			if(!gene_tag)
 				return TRUE
+			var/gene_label = params["gene_label"] || SSplants.get_gene_mask(gene_tag)
 
 			last_action = world.time
 			active = TRUE
@@ -260,8 +261,8 @@
 			if(!genetics.roundstart)
 				loaded_disk.genesource += " (variety #[genetics.uid])"
 
-			loaded_disk.name += " ([SSplants.gene_tag_masks[gene_tag]], #[genetics.uid])"
-			loaded_disk.desc += " The label reads 'gene [SSplants.gene_tag_masks[gene_tag]], sampled from [genetics.display_name]'."
+			loaded_disk.name += " ([gene_label], #[genetics.uid])"
+			loaded_disk.desc += " The label reads 'gene [gene_label], sampled from [genetics.display_name]'."
 			eject_disk = TRUE
 
 			degradation += rand(20,60)
@@ -313,7 +314,7 @@
 		for(var/datum/plantgene/P in loaded_disk.genes)
 			if(data["locus"] != "")
 				data["locus"] += ", "
-			data["locus"] += "[SSplants.gene_tag_masks[P.genetype]]"
+			data["locus"] += "[SSplants.get_gene_mask(P.genetype)]"
 
 	data["loadedseed"] = seed ? "[seed.name]" : null
 

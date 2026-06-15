@@ -131,6 +131,14 @@
 		/obj/item/clothing/accessory/storage/modular_pouch/large
 	)
 
+/obj/item/clothing/suit/armor/carrier/lance
+	starting_accessories = list(
+		/obj/item/clothing/accessory/armor_plate/riot/lancer,
+		/obj/item/clothing/accessory/leg_guard/riot/lancer,
+		/obj/item/clothing/accessory/arm_guard/riot/lancer,
+		/obj/item/clothing/accessory/storage/modular_pouch/large
+	)
+
 /obj/item/clothing/accessory/armor_plate
 	name = "corporate armor plate"
 	desc = "A particularly light-weight armor plate in stylish corporate black. Unfortunately, not very good if you hold it with your hands."
@@ -302,6 +310,19 @@
 		BOMB = ARMOR_BOMB_PADDED
 	)
 	slowdown = 0
+
+/obj/item/clothing/accessory/armor_plate/riot/lancer
+	name = "ceres lance armor plate"
+	desc = "A state-of-the-art armor plate used by Ceres Lance. It is made with an additional layer of padding and is designed to protect operatives attempting to physically restrain hostile IPCs, but has poor heat dissipation characteristics as a result."
+	icon_state = "lancer_plate"
+	item_state = "lancer_plate"
+	armor = list(
+		MELEE = ARMOR_MELEE_VERY_HIGH,
+		BULLET = ARMOR_BALLISTIC_MAJOR,
+		LASER = ARMOR_LASER_SMALL,
+		ENERGY = ARMOR_ENERGY_RESISTANT,
+		BOMB = ARMOR_BOMB_PADDED,
+	)
 
 /obj/item/clothing/accessory/armor_plate/military/navy
 	name = "konyang navy armor plate"

@@ -137,11 +137,18 @@
 	if(!istype(user))
 		return 0
 
-	var/obj/item/card/id/I = user.GetIdCard()
+	var/I = user.GetIdCard()
 	if(!I)
 		return 0
 
-	if(access in I.access)
+	var/list/access_list
+	if(islist(I))
+		access_list = I
+	else if(istype(I, /obj/item))
+		var/obj/item/item = I
+		access_list = item.GetAccess()
+
+	if(access in access_list)
 		return 1
 
 	return 0

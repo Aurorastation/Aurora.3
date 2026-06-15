@@ -110,6 +110,26 @@
 	var/tmp/airflow_time = 0
 	var/tmp/last_airflow = 0
 
+	var/can_be_unanchored = 0
+	var/obj/buckled_to
+	var/can_be_buckled = FALSE
+
+	/** Used to check wether or not an atom is being handled by SSfalling. */
+	var/tmp/multiz_falling = 0
+
+	var/tmp/airflow_xo
+	var/tmp/airflow_yo
+	var/tmp/airflow_od
+	var/tmp/airflow_process_delay
+	var/tmp/airflow_skip_speedcheck
+
+	/// The mimic (if any) that's *directly* copying us.
+	var/tmp/atom/movable/openspace/mimic/bound_overlay
+	/// If TRUE, this atom is ignored by Z-Mimic.
+	var/z_flags
+
+	var/atmos_canpass = CANPASS_ALWAYS
+
 /atom/movable/Initialize(mapload, ...)
 	. = ..()
 	update_emissive_blocker()
@@ -157,16 +177,12 @@
 
 	screen_loc = null
 
-	if (bound_overlay)
-		QDEL_NULL(bound_overlay)
-
-	if(em_block)
-		QDEL_NULL(em_block)
-
-	QDEL_NULL(light)
-	QDEL_NULL(static_light)
+	QDEL_NULL(bound_overlay)
+	QDEL_NULL(em_block)
 	airflow_dest = null
 	loc = null
+	buckled_to?.buckled = null
+	buckled_to = null
 	return ..()
 
 /atom/movable/proc/moveToNullspace()

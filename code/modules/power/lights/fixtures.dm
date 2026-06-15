@@ -117,6 +117,7 @@
 
 /obj/structure/machinery/light/Initialize(mapload)
 	. = ..()
+	LAZYADD(SSmachinery.all_lights, src)
 
 	if (!has_power())
 		stat |= NOPOWER
@@ -148,6 +149,7 @@
 	set_pixel_offsets()
 
 /obj/structure/machinery/light/Destroy()
+	LAZYREMOVE(SSmachinery.all_lights, src)
 	QDEL_NULL(cell)
 	return ..()
 
@@ -239,7 +241,7 @@
 				message_admins("LOG: Rigged light explosion, last touched by [fingerprintslast]")
 				explode()
 
-		else if( prob( min(60, switchcount*switchcount*0.01) ) )
+		else if(prob(min(60,(switchcount**2) * 0.05))) // LEMURIAN SEA, REDUCE 0.05 -> 0.01 AFTER ARC
 			if(status == LIGHT_OK && trigger)
 				status = LIGHT_BURNED
 				stat |= BROKEN
@@ -567,8 +569,7 @@
 	else
 		return ..()
 
-// break the light and make sparks if was on
-
+/// Break the light and make sparks if was on
 /obj/structure/machinery/light/proc/broken(skip_sound_and_sparks = 0)
 	if(status == LIGHT_EMPTY)
 		return

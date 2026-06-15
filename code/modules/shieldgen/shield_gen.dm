@@ -137,6 +137,7 @@
 /obj/structure/machinery/shield_gen/attack_ai(mob/user)
 	if(!ai_can_interact(user))
 		return
+	return attack_hand(user)
 
 /obj/structure/machinery/shield_gen/attack_hand(mob/user)
 	. = ..()

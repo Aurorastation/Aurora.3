@@ -930,6 +930,9 @@
 		if(!(GLOB.all_languages[LANGUAGE_VAURCA] in H.languages))
 			to_chat(usr, "The person you are trying to contact is incapable of recieving Hivenet transmissions.")
 			return
+		if(is_lemurian_sea_sector())
+			to_chat(usr, "The Lemurian Sea prevents Hivenet transmissions.")
+			return
 		var/input = sanitize(input(src.owner, "Please enter a message to reply to [key_name(H)] via the Hivenet.", "Outgoing transmission from the Hive...", ""))
 		if(!input)	return
 		to_chat(src.owner, "You sent [input] to [H] via a secure Hivenet channel.")

@@ -8,6 +8,7 @@ import {
 import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
 import { Window } from '../layouts';
+import { departmentClass, departmentStyle } from './common/departmentClass';
 
 export type LateJoinData = {
   character_name: string;
@@ -90,7 +91,8 @@ export const JobsList = (props) => {
         <Section
           title={department}
           key={department}
-          className={'border-dept-' + department.toLowerCase()}
+          className={departmentClass()}
+          style={departmentStyle(department)}
         >
           {data.jobs_list
             .filter((job) => job.department === department)

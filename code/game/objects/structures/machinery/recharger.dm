@@ -7,10 +7,16 @@
 	icon_state = "recharger_off"
 	anchored = 1
 	idle_power_usage = 6
-	active_power_usage = 45 KILO WATTS
+	active_power_usage = 50 KILO WATTS
 	pass_flags = PASSTABLE
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
-	var/charging_efficiency = 1.3
+	var/charging_efficiency = 1
+	var/charging_efficiency_per_capacitor = 0.1
+	var/charging_speed_per_capacitor = 25 KILO WATTS
+	component_types = list(
+		/obj/item/circuitboard/recharger,
+		/obj/item/stock_parts/capacitor = 2
+	)
 	//Entropy. The charge put into the cell is multiplied by this
 	var/obj/item/charging
 
@@ -39,6 +45,7 @@
 /obj/structure/machinery/recharger/assembly_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "It [anchored ? "is" : "could be"] anchored to the floor with some <b>bolts</b>."
+	. += "Its maintenance panel is [panel_open ? "open and it can be modified with a part exchanger[portable ? " or deconstructed with a crowbar" : "."]" : "closed. It could be opened with a screwdriver."]"
 
 /obj/structure/machinery/recharger/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -58,6 +65,17 @@
 		LAZYREMOVE(chargebars, bar)
 		qdel(bar)
 
+/obj/structure/machinery/recharger/RefreshParts()
+	..()
+
+	var/cap_rating = 0
+	for(var/obj/item/stock_parts/P in component_parts)
+		if(iscapacitor(P))
+			cap_rating += P.rating
+
+	charging_efficiency += cap_rating * charging_efficiency_per_capacitor
+	active_power_usage = cap_rating * charging_speed_per_capacitor
+
 /obj/structure/machinery/recharger/attackby(obj/item/attacking_item, mob/user)
 	if(portable && attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(charging)
@@ -67,6 +85,19 @@
 		user.visible_message("<b>[user]</b> [anchored ? "attaches" : "detaches"] \the [src].", SPAN_NOTICE("You [anchored ? "attach" : "detach"] \the [src]."))
 		attacking_item.play_tool_sound(get_turf(src), 75)
 		return TRUE
+
+	if(portable) //We don't want wall chargers to be buildable, they can't be put back on walls if they are deconstructed.
+		if(charging && (attacking_item.tool_behaviour == TOOL_SCREWDRIVER || attacking_item.tool_behaviour == TOOL_CROWBAR))
+			to_chat(user, SPAN_WARNING("You can't modify \the [src] while it has something charging inside."))
+			return TRUE
+		else
+			if(default_deconstruction_screwdriver(user, attacking_item))
+				update_icon()
+				return TRUE
+			else if(default_deconstruction_crowbar(user, attacking_item))
+				return TRUE
+			else if(default_part_replacement(user, attacking_item))
+				return TRUE
 
 	if (istype(attacking_item, /obj/item/gripper))//Code for allowing cyborgs to use rechargers
 		var/obj/item/gripper/Gri = attacking_item
@@ -81,23 +112,27 @@
 	if(!attacking_item.dropsafety())
 		return TRUE
 
-	if(is_type_in_list(attacking_item, allowed_devices))
-		if (attacking_item.get_cell() == DEVICE_NO_CELL)
-			if (attacking_item.charge_failure_message)
-				to_chat(user, SPAN_WARNING("\The [attacking_item][attacking_item.charge_failure_message]"))
-			return TRUE
-		if(charging)
-			to_chat(user, SPAN_WARNING("\A [charging] is already charging here."))
-			return TRUE
-		// Checks to make sure he's not in space doing it, and that the area got proper power.
-		if(!powered())
-			to_chat(user, SPAN_WARNING("\The [name] blinks red as you try to insert the item!"))
-			return TRUE
-
-		user.drop_from_inventory(attacking_item,src)
-		charging = attacking_item
-		update_icon()
+	if (panel_open)
+		to_chat(user, SPAN_WARNING("You can't insert items into \the [src] while the panel is open."))
 		return TRUE
+	else
+		if(is_type_in_list(attacking_item, allowed_devices))
+			if (attacking_item.get_cell() == DEVICE_NO_CELL)
+				if (attacking_item.charge_failure_message)
+					to_chat(user, SPAN_WARNING("\The [attacking_item][attacking_item.charge_failure_message]"))
+				return TRUE
+			if(charging)
+				to_chat(user, SPAN_WARNING("\A [charging] is already charging here."))
+				return TRUE
+			// Checks to make sure he's not in space doing it, and that the area got proper power.
+			if(!powered())
+				to_chat(user, SPAN_WARNING("\The [name] blinks red as you try to insert the item!"))
+				return TRUE
+
+			user.drop_from_inventory(attacking_item,src)
+			charging = attacking_item
+			update_icon()
+			return TRUE
 
 /obj/structure/machinery/recharger/attack_hand(mob/user as mob)
 	. = ..()
@@ -177,6 +212,9 @@
 			B.bcell.charge = 0
 
 /obj/structure/machinery/recharger/update_icon()	//we have an update_icon() in addition to the stuff in process to make it feel a tiny bit snappier.
+	ClearOverlays()
+	if (panel_open)
+		AddOverlays(image(icon, "npanel_open", pixel_x = -2, pixel_y = 11))
 	if(charging)
 		icon_state = icon_state_charging + "0"
 	else
@@ -198,7 +236,32 @@
 	icon_state_idle = "wrecharger_off"
 	appearance_flags = TILE_BOUND // prevents people from viewing us through a wall
 	portable = FALSE
+	component_types = list(
+		/obj/item/circuitboard/recharger/wallcharger,
+		/obj/item/stock_parts/capacitor = 3
+	)
 
 /obj/structure/machinery/recharger/wallcharger/mechanics_hints(mob/user, distance, is_adjacent)
 	. = list()
 	. += "This device can recharge energy weapons, stun batons, and flashlights."
+
+/obj/structure/machinery/recharger/wallcharger/update_icon()	//we have an update_icon() in addition to the stuff in process to make it feel a tiny bit snappier.
+	ClearOverlays()
+	if (panel_open)
+		AddOverlays(image(icon, "npanel_open", pixel_x = -1, pixel_y = 12))
+	if(charging)
+		icon_state = icon_state_charging + "0"
+	else
+		icon_state = icon_state_idle
+
+/obj/structure/machinery/recharger/wallcharger/attackby(obj/item/attacking_item, mob/user)
+	if(charging && (attacking_item.tool_behaviour == TOOL_SCREWDRIVER || attacking_item.tool_behaviour == TOOL_CROWBAR))
+		to_chat(user, SPAN_WARNING("You can't modify \the [src] while it has something charging inside."))
+		return TRUE
+	else
+		if(default_deconstruction_screwdriver(user, attacking_item))
+			update_icon()
+			return TRUE
+		else if(default_part_replacement(user, attacking_item))
+			return TRUE
+	. = ..()

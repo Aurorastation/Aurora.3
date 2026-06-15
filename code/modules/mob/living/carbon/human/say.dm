@@ -65,9 +65,9 @@
 
 	return ..()
 
-/mob/living/carbon/human/say(message, datum/language/speaking, verb, alt_name, ghost_hearing, whisper, skip_edit)
+/mob/living/carbon/human/say(text, datum/language/speaking, verb, alt_name, ghost_hearing, whisper, skip_edit)
 	// Messaging the user is handled by the species proc.
-	if(!species.can_speak(src, speaking, message))
+	if(!species.can_speak(src, speaking, text))
 		return FALSE
 	. = ..()
 
@@ -116,7 +116,7 @@
 
 /*
 	***Deprecated***
-	let this be handled at the hear_say or hear_radio proc
+	let this be handled at the hear_message proc
 	This is left in for robot speaking when humans gain binary channel access until I get around to rewriting
 	robot_talk() proc.
 	There is no language handling build into it however there is at the /mob level so we accept the call
@@ -195,45 +195,47 @@
 		return headsets[headsets[1]]
 	return null
 
-/mob/living/carbon/human/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, whisper, var/is_singing = FALSE)
-	if(!whisper && (paralysis || InStasis()))
-		whisper(message, speaking)
+/mob/living/carbon/human/handle_message_mode(datum/say_message/msg, datum/language/primary, list/used_radios)
+	var/text = msg.to_string()
+	var/message_mode = msg.message_mode
+	if(!msg.whisper && (paralysis || InStasis()))
+		whisper(text, primary, say_verb = TRUE, msg = msg)
 		return TRUE
 	switch(message_mode)
 		if("intercom")
 			for(var/obj/item/radio/intercom/I in view(1))
 				I.add_fingerprint(src)
 				used_radios += I
-				I.talk_into(src, message, null, verb, speaking)
+				I.talk_into(src, text, null, msg.verb, primary, say_message = msg)
 		if("headset")
 			var/obj/item/radio/R = get_radio()
 			if(R)
 				used_radios += R
-				R.talk_into(src, message, null, verb, speaking)
+				R.talk_into(src, text, null, msg.verb, primary, say_message = msg)
 		if("right ear")
 			var/obj/item/radio/R = astype(r_ear) || astype(get_equipped_item(BP_R_HAND))
 			if(R)
 				used_radios += R
-				R.talk_into(src,message,null,verb,speaking)
+				R.talk_into(src, text, null, msg.verb, primary, say_message = msg)
 		if("left ear")
 			var/obj/item/radio/R = astype(l_ear) || astype(get_equipped_item(BP_L_HAND))
 			if(R)
 				used_radios += R
-				R.talk_into(src,message,null,verb,speaking)
+				R.talk_into(src, text, null, msg.verb, primary, say_message = msg)
 		if("wrist")
 			var/obj/item/radio/R = astype(wrists) || astype(get_held_type(/obj/item/radio))
 			if(R)
 				used_radios += R
-				R.talk_into(src,message,null,verb,speaking)
+				R.talk_into(src, text, null, msg.verb, primary, say_message = msg)
 		if("whisper")
-			whisper(message, speaking, is_singing, say_verb = TRUE)
+			whisper(text, primary, msg.singing, say_verb = TRUE, msg = msg)
 			return TRUE
 		else
 			if(message_mode)
 				var/obj/item/radio/R = get_radio()
 				if(R)
 					used_radios += R
-					R.talk_into(src, message, message_mode, verb, speaking)
+					R.talk_into(src, text, message_mode, msg.verb, primary, say_message = msg)
 
 /mob/living/carbon/human/handle_speech_sound()
 	var/list/returns = ..()

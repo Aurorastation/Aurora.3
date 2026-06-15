@@ -14,6 +14,7 @@ import {
 import type { BooleanLike } from 'tgui-core/react';
 import { useBackend, useLocalState } from '../backend';
 import { Window } from '../layouts';
+import { SearchBar } from './common/SearchBar';
 
 export type LibraryComputerData = {
   is_public: BooleanLike;
@@ -462,11 +463,10 @@ const ArchiveTab = (props) => {
     >
       <Stack mb={1}>
         <Stack.Item grow>
-          <Input
-            fluid
-            value={searchInput}
+          <SearchBar
+            query={searchInput}
             placeholder="Search by title, author, or category..."
-            onChange={(v) => setSearchInput(v)}
+            onSearch={(v) => setSearchInput(v)}
             onEnter={(v) => commitSearch(v)}
           />
         </Stack.Item>

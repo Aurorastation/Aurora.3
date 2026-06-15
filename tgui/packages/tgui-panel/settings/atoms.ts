@@ -1,4 +1,5 @@
 import { atom } from 'jotai';
+import { MAX_MESSAGES } from '../chat/constants';
 import { FONTS, SETTINGS_TABS } from './constants';
 import type { HighlightSetting, HighlightState, SettingsState } from './types';
 
@@ -8,6 +9,7 @@ export const defaultSettings: SettingsState = {
   fontSize: 13,
   initialized: false,
   lineHeight: 1.2,
+  maxMessages: MAX_MESSAGES,
   statFontSize: 12,
   statLinked: true,
   statTabsStyle: 'default',
@@ -24,6 +26,8 @@ export const defaultHighlightSetting: HighlightSetting = {
   highlightText: '',
   highlightColor: '#ffdd44',
   highlightWholeMessage: true,
+  backgroundHighlightColor: '#ffdd44',
+  backgroundHighlightOpacity: 10,
   matchWord: false,
   matchCase: false,
   enabled: true,

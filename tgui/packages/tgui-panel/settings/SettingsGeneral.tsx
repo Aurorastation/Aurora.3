@@ -11,6 +11,10 @@ import {
 } from 'tgui-core/components';
 import { toFixed } from 'tgui-core/math';
 import { capitalize } from 'tgui-core/string';
+import {
+  MAX_CONFIGURABLE_MESSAGES,
+  MIN_CONFIGURABLE_MESSAGES,
+} from '../chat/constants';
 import { chatRenderer } from '../chat/renderer';
 import { FONTS, THEMES } from './constants';
 import { resetPaneSplitters, setEditPaneSplitters } from './scaling';
@@ -124,11 +128,11 @@ export function SettingsGeneral(props) {
             )}
           </Stack.Item>
         </LabeledList.Item>
-        <LabeledList.Item label="Font size" verticalAlign="middle">
-          <Stack textAlign="center">
+        <LabeledList.Item label="Font size">
+          <Stack>
             <Stack.Item grow>
               <Slider
-                width="100%"
+                width="30%"
                 step={1}
                 stepPixelSize={20}
                 minValue={8}
@@ -143,7 +147,7 @@ export function SettingsGeneral(props) {
         </LabeledList.Item>
         <LabeledList.Item label="Line height">
           <Slider
-            width="100%"
+            width="30%"
             step={0.01}
             minValue={0.8}
             maxValue={5}
@@ -152,6 +156,22 @@ export function SettingsGeneral(props) {
             onChange={(_, value) =>
               updateSettings({
                 lineHeight: value,
+              })
+            }
+          />
+        </LabeledList.Item>
+        <LabeledList.Item label="Saved messages">
+          <Slider
+            width="30%"
+            step={50}
+            stepPixelSize={2}
+            minValue={MIN_CONFIGURABLE_MESSAGES}
+            maxValue={MAX_CONFIGURABLE_MESSAGES}
+            value={settings.maxMessages}
+            format={(value) => toFixed(value)}
+            onChange={(_, value) =>
+              updateSettings({
+                maxMessages: value,
               })
             }
           />

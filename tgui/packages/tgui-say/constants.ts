@@ -3,14 +3,14 @@ export enum WindowSize {
   Small = 30,
   Medium = 50,
   Large = 70,
-  Width = 231,
+  Width = 462,
 }
 
 /** Line lengths for autoexpand */
 export enum LineLength {
-  Small = 20,
-  Medium = 39,
-  Large = 59,
+  Small = 40,
+  Medium = 78,
+  Large = 118,
 }
 
 /**
@@ -18,18 +18,30 @@ export enum LineLength {
  * Displays the name in the left button, tags a css class.
  */
 export const RADIO_PREFIXES = {
+  ':r ': 'REar',
+  ':l ': 'LEar',
+  ':i ': 'Int',
+  ':h ': 'Dept',
+  ':+ ': 'Spec',
   ':a ': 'Hive',
-  ':b ': 'io',
+  ':b ': 'Burg',
   ':c ': 'Cmd',
+  ':d ': 'Exp',
   ':e ': 'Engi',
+  ':f ': 'Navy',
   ':g ': 'Cling',
+  ':j ': 'Blue',
+  ':k ': 'Jock',
   ':m ': 'Med',
   ':n ': 'Sci',
-  ':o ': 'AI',
-  ':p ': 'Ent',
+  ':p ': 'AI',
+  ':q ': 'Penal',
   ':s ': 'Sec',
-  ':t ': 'Synd',
-  ':u ': 'Supp',
+  ':t ': 'Merc',
+  ':u ': 'Ops',
   ':v ': 'Svc',
-  ':y ': 'CCom',
+  ':w ': 'Whsp',
+  ':x ': 'Raid',
+  ':y ': 'Hail',
+  ':z ': 'Ent',
 } as const;

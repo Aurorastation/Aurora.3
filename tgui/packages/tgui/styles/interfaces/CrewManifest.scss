@@ -1,29 +1,32 @@
-$department_map: (
-  'Cargo': var(--color-brown),
-  'Command': var(--color-yellow),
-  'Security': var(--color-red),
-  'Engineering': var(--color-orange),
-  'Medical': var(--color-teal),
-  'Misc': var(--color-white),
-  'Science': var(--color-purple),
-  'Service': var(--color-green),
-  'Silicon': var(--color-pink),
+$manifest_status_map: (
+  'active': var(--color-green),
+  'online': var(--color-green),
+  'away-mission': var(--color-blue),
+  'ssd': var(--color-yellow),
+  'deceased': var(--color-red),
+  'missing': var(--color-orange),
+  'physically-unfit': var(--color-orange),
+  'disabled': var(--color-grey),
 );
 
-.CrewManifest {
-  @each $department-name, $color-value in $department_map {
-    &--#{$department-name} {
-      .Section {
-        &__title {
-          border-color: $color-value;
-        }
-        &__titleText {
-          color: $color-value;
-        }
-      }
+.border-dept {
+  .Section {
+    &__title {
+      border-color: var(--department-color);
+    }
+    &__titleText {
+      color: var(--department-color);
     }
   }
+}
 
+@each $status-name, $color-value in $manifest_status_map {
+  .manifest-indicator-#{$status-name} {
+    color: $color-value;
+  }
+}
+
+.CrewManifest {
   &__Cell {
     padding: var(--space-s) 0;
 

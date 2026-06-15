@@ -1,0 +1,6 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - admin: "BSTechs spawning in and disappearing will no longer create sparks that can set things on fire."

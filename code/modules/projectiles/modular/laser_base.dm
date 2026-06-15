@@ -25,6 +25,8 @@
 	var/improvement_potential = 0
 	///The total amount the component has been improved by repairs. This is used to put an upper limit on how much a component can be improved.
 	var/total_improved = 0
+	///The total amount of improvement a component can support. This should not be more than the sum of the increase and decrease caps on all stats, or the component will never stop consuming improvement potential.
+	var/improvement_cap = 100
 	///Added to the accuracy of the weapon.
 	var/accuracy = 0
 	///The item required to repair the component.
@@ -43,12 +45,12 @@
 
 /obj/item/laser_components/proc/handle_improvement(var/skill_level, var/mob/user)
 
-	if (total_improved >= IMPROVEMENT_CAP)
+	if (total_improved >= improvement_cap)
 		to_chat(user, SPAN_NOTICE("You don't see any way to improve \the [src] any further."))
 		improvement_potential = 0
 		return
 
-	while (improvement_potential > 0 && total_improved < IMPROVEMENT_CAP)
+	while (improvement_potential > 0 && total_improved < improvement_cap)
 
 		var/improvement = min(abs(improvement_potential / 100), 0.2) //Caps improvement from a single repair to 20%. This spreads the effect out across multiple stats
 		var/stat_direction = 1
@@ -125,7 +127,7 @@
 		else
 			break //The stat to improve isn't on this component, something went wrong with the lists of stats or the component itself.
 
-		if (total_improved > IMPROVEMENT_CAP)
+		if (total_improved > improvement_cap)
 			improvement_potential = 0
 			to_chat(user, SPAN_NOTICE("You have improved \the [src] as much as you can."))
 
@@ -177,6 +179,10 @@
 					. += SPAN_WARNING("You can see \the [src]'s [replacetext(stat, "_", " ")] has been degraded, increasing it by approximately [round((initial(src.vars[stat]) - src.vars[stat]) / initial(src.vars[stat]) * 100)] percent.")
 			if(improvement_potential > 0)
 				. += SPAN_GOOD("You see a few places where damage has revealed design flaws. Correcting them could improve \the [src] by up to [improvement_potential] percent.")
+
+/obj/item/laser_components/mechanics_hints(mob/user, distance, is_adjacent)
+	. = ..()
+	. += "This component can be repaired with \a [repair_item.name]. If you have research and firearms skills you have a chance to improve it when repairing it."
 
 /obj/item/laser_components/attackby(obj/item/attacking_item, mob/user)
 	if(!istype(attacking_item, repair_item))
@@ -353,7 +359,7 @@
 
 /obj/item/laser_assembly
 	name = "laser assembly (small)"
-	desc = "A case for shoving things into. Hopefully they work."
+	desc = "A small pistol-sized assembly."
 	icon = 'icons/obj/guns/modular_laser.dmi'
 	var/base_icon_state = "small"
 	contained_sprite = TRUE
@@ -372,6 +378,17 @@
 /obj/item/laser_assembly/Initialize()
 	. = ..()
 	update_icon()
+
+/obj/item/laser_assembly/examine_tags(mob/user)
+	. = ..()
+	if(stage == 1)
+		.["thick"] = "Stops or slows minor piercing effects, such as from injectors."
+
+/obj/item/laser_assembly/mechanics_hints(mob/user)
+	. = ..()
+	. += "Components can be added to this assembly by attacking it with the component in hand. If you lack the appropriate skills you need to use a weapons analyzer."
+	. += "Components must be added in the correct order, starting with the capacitor, then the focusing lens, and finally the modulator. Modifiers can be added at any time but are limited by the assembly size."
+	. += "This assembly can hold [modifier_cap] modifiers."
 
 /obj/item/laser_assembly/attackby(obj/item/attacking_item, mob/user)
 	var/obj/item/laser_components/A = attacking_item

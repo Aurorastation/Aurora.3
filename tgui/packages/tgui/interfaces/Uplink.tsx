@@ -1,7 +1,6 @@
 import {
   Box,
   Button,
-  Input,
   LabeledList,
   Section,
   Table,
@@ -9,6 +8,7 @@ import {
 import type { BooleanLike } from 'tgui-core/react';
 import { useBackend, useLocalState } from '../backend';
 import { Window } from '../layouts';
+import { SearchBar } from './common/SearchBar';
 
 export type UplinkData = {
   menu: number;
@@ -139,10 +139,10 @@ const ItemCategoriesSection = (act: any, data: UplinkData) => {
 const ItemSearch = () => {
   const [searchTerm, setSearchTerm] = useLocalState<string>(`searchTerm`, ``);
   return (
-    <Input
-      value={searchTerm}
+    <SearchBar
+      query={searchTerm}
       placeholder="Search"
-      onChange={(value) => {
+      onSearch={(value) => {
         setSearchTerm(value);
       }}
     />
