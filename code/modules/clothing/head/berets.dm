@@ -211,7 +211,7 @@
 	item_state = "tcaf_fl_field"
 
 /obj/item/clothing/head/beret/tcaf/elite_espatier // ONLY FOR TORVALD'S STRONGEST WARRIORS
-	name = "TCAF-RE elite espatier beret"
+	name = "TCAF elite espatier beret"
 	desc = "A tyrian purple beret with the platinum badge of one of the Republic Espatier's elite espatier centuries. You must really love the Republic!"
 	icon_state = "tcaf_elite_espatier"
 	item_state = "tcaf_elite_espatier"
