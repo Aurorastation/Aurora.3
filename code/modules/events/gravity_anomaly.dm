@@ -137,6 +137,11 @@
 	// Is there gravity where they are? IE. is the grav generator on/off OR are they on the holodeck w/ zero gravity, OR are they EVA? Skip if no artificial gravity for whatever reason.
 	if(!potential_victim.has_gravity())
 		return FALSE
+	// Are they in one of the shuttles? Bandaid case, whatever.
+	var/turf/potential_victim_turf = potential_victim.loc
+	var/area/potential_victim_area = potential_victim_turf?.loc
+	if(istype(potential_victim_area, /area/horizon/shuttle))
+		return FALSE
 	return TRUE
 
 /datum/event/gravity_anomaly/proc/apply_effect(var/mob/living/carbon/human/victim, var/current_effect)
@@ -161,14 +166,14 @@
 		shake_camera(victim, rand(3 SECONDS, 10 SECONDS), 0.1, TRUE)
 
 /datum/event/gravity_anomaly/proc/apply_nausea_minor(var/mob/living/carbon/human/victim)
-	victim.dizziness += rand(2, 4)
-	victim.confused += 1
+	victim.dizziness += rand(4, 8)
+	victim.confused += 10
 	if(prob(10))
 		to_chat(victim, SPAN_WARNING(pick(nausea_minor)))
 
 /datum/event/gravity_anomaly/proc/apply_nausea_mild(var/mob/living/carbon/human/victim)
-	victim.dizziness += rand(3, 6)
-	victim.confused += rand(0, 1)
+	victim.dizziness += rand(5, 8)
+	victim.confused += rand(10, 15)
 	if(isipc(victim))
 		if(prob(20))
 			to_chat(victim, SPAN_MACHINE_WARNING(pick(nausea_mild_ipc)))
@@ -180,7 +185,7 @@
 
 /datum/event/gravity_anomaly/proc/apply_nausea_strong(var/mob/living/carbon/human/victim)
 	victim.dizziness += rand(8, 15)
-	victim.confused += rand(1, 3)
+	victim.confused += rand(15, 20)
 	if(prob(50))
 		if(isipc(victim))
 			to_chat(victim, SPAN_MACHINE_WARNING(pick(nausea_strong_ipc)))
@@ -189,8 +194,8 @@
 			victim.vomit()
 
 /datum/event/gravity_anomaly/proc/apply_surge_default(var/mob/living/carbon/human/victim)
-	victim.dizziness += rand(4, 10)
-	victim.confused += rand(1, 5)
+	victim.dizziness += rand(10, 20)
+	victim.confused += rand(20, 25)
 	if(prob(50))
 		if(isipc(victim))
 			to_chat(victim, SPAN_MACHINE_WARNING(pick(nausea_strong_ipc)))
@@ -214,13 +219,13 @@
 			victim.Weaken(3)
 
 /datum/event/gravity_anomaly/proc/apply_surge_hilarious(var/mob/living/carbon/human/victim)
-	victim.dizziness += rand(8, 15)
-	victim.confused += rand(1, 10)
+	victim.dizziness += rand(20, 80)
+	victim.confused += rand(20, 80)
 	if(isipc(victim))
 		to_chat(victim, SPAN_MACHINE_WARNING(pick(nausea_strong_ipc)))
 	else
 		to_chat(victim, SPAN_WARNING(pick(nausea_strong_organic)))
-		if(prob(33))
+		if(prob(80))
 			victim.vomit()
 	if(prob(60))
 		if(victim.buckled_to)
