@@ -267,7 +267,46 @@
 					tank.distribute_pressure = safe_pressure_min // Constantly adjusts the pressure to keep up with the damage
 					breather.losebreath = 0
 					to_chat(breather, SPAN_NOTICE("You feel fresh air being pushed into your lungs."))
+				if(prob(5))
+					try_oxygen_fire()
 			update_icon()
+
+///Make a reason for no smoking signs in medbay. This finds anyone smoking (or any other open flame) within 1 tile and tries to set them and the patient on fire.
+/obj/structure/machinery/iv_drip/proc/try_oxygen_fire()
+	if(!tank)
+		return
+	if(tank.distribute_pressure <= 21) //Only if positive pressure is pushing more oxygen than normal.
+		return
+
+	var/list/moblist = mobs_in_view(1, src)
+	var/mob/living/smoker = null
+	var/obj/item/clothing/mask/smokable/lit_cig = null
+	var/obj/item/flame/lit_flame = null
+	for(var/mob/M in moblist)
+		if(!M)
+			return
+		for(var/obj/item/held_item in list(M.r_hand, M.l_hand, M.wear_mask))
+			if(!held_item)
+				continue
+			if(istype(held_item, /obj/item/flame))
+				lit_flame = held_item
+				if(lit_flame.lit)
+					smoker = M
+			if(istype(held_item, /obj/item/clothing/mask/smokable))
+				lit_cig = held_item
+				if(lit_cig.lit)
+					smoker = M
+
+	if(breather && smoker)
+		if(lit_flame)
+			breather.IgniteMob(1)
+			src.visible_message(SPAN_WARNING("Sparks from [smoker]'s [lit_flame.name] flare up in the oxygen leaking from \the [breather]'s mask!"))
+		else if(lit_cig)
+			breather.IgniteMob(1)
+			src.visible_message(SPAN_WARNING("Sparks from [smoker]'s [lit_cig.name] flare up in the oxygen leaking from \the [breather]'s mask!"))
+
+	if(smoker && smoker != attached) //Make sure we don't ignite them twice, if they've got a lit cigarette in their hand when they're hooked up to oxygen.
+		smoker.IgniteMob(1)
 
 /obj/structure/machinery/iv_drip/proc/attached_process()
 	if(attached)
