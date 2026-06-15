@@ -79,7 +79,7 @@
 
 /obj/outfit/admin/tcaf_crewman/espatier
 	name = "TCAF Republic Astroforce Espatier"
-	head = /obj/item/clothing/head/softcap/tcaf_cap_cap
+	head = /obj/item/clothing/head/softcap/tcaf_cap
 	uniform = /obj/item/clothing/under/tcaf/espatier
 	gloves = /obj/item/clothing/gloves/tcaf
 
@@ -99,7 +99,7 @@
 
 /obj/outfit/admin/tcaf_crewman/nco
 	name = "TCAF Republic Astroforce Prefect"
-	head = /obj/item/clothing/head/softcap/tcaf_cap_cap
+	head = /obj/item/clothing/head/softcap/tcaf_cap
 	uniform = /obj/item/clothing/under/tcaf/rate
 	accessory = /obj/item/clothing/accessory/holster/hip
 	gloves = /obj/item/clothing/gloves/tcaf
