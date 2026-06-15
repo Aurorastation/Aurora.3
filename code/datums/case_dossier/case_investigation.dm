@@ -1,4 +1,3 @@
-
 #define STATUS_OPEN "Open"
 #define STATUS_SUBMITTED "Submitted"
 #define STATUS_ARCHIVED "Archived"
@@ -424,3 +423,6 @@ GLOBAL_LIST_EMPTY(case_dossier_cases)
 
 		send_rsc(user, P.img, "tmp_photo_[P.photo_id || P.id].png")
 
+#undef STATUS_OPEN
+#undef STATUS_SUBMITTED
+#undef STATUS_ARCHIVED

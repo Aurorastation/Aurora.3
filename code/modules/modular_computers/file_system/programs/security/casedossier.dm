@@ -1,3 +1,6 @@
+#define STATUS_OPEN "Open"
+#define STATUS_SUBMITTED "Submitted"
+#define STATUS_ARCHIVED "Archived"
 /datum/computer_file/program/case_dossier
 	filename = "case_dossier"
 	filedesc = "Case Dossier"
@@ -286,3 +289,6 @@
 
 	return TRUE
 
+#undef STATUS_OPEN
+#undef STATUS_SUBMITTED
+#undef STATUS_ARCHIVED
