@@ -110,8 +110,8 @@
 	category =  /singleton/skill_category/occupational
 	subcategory = SKILL_SUBCATEGORY_MEDICAL
 	component_type = FORENSICS_SKILL_COMPONENT
-		skill_level_descriptions = alist(
-		SKILL_LEVEL_UNFAMILIAR = "You have zero training or knowledge of forensic principles.<br>"
+	skill_level_descriptions = alist(
+		SKILL_LEVEL_UNFAMILIAR = "You have zero training or knowledge of forensic principles.",
 		SKILL_LEVEL_FAMILIAR = "You have minimal training on the basics of forensics and evidence preservation.<br>" \
 			+ "You can do the following: <br>" \
 			+ " - Automatically record time, place and gathering person on evidence bags and photos.",
