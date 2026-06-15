@@ -26,7 +26,7 @@
 /********
 * photo *
 ********/
-GLOBAL_VAR_INIT(photo_count, 0)
+GLOBAL_VAR_INIT(photo_count, 1)
 
 /obj/item/photo
 	name = "photo"
@@ -41,6 +41,10 @@ GLOBAL_VAR_INIT(photo_count, 0)
 	var/scribble	//Scribble on the back.
 	var/icon/tiny
 	var/photo_size = 3
+	var/time_taken
+	var/location_taken
+	var/taken_by
+	var/caption
 
 	drop_sound = 'sound/items/drop/paper.ogg'
 	pickup_sound = 'sound/items/pickup/paper.ogg'
@@ -95,8 +99,10 @@ GLOBAL_VAR_INIT(photo_count, 0)
 	if(surface_atom == usr || surface_atom.Adjacent(usr))
 		if(n_name)
 			name = "[initial(name)] ([n_name])"
+			caption = n_name
 		else
 			name = initial(name)
+			caption = null
 		add_fingerprint(usr)
 
 
@@ -238,6 +244,12 @@ GLOBAL_VAR_INIT(photo_count, 0)
 	desc = "A one use - polaroid camera."
 	pictures_left = 30
 
+// Detective cameras have build in data recording, so no need for a skill check
+/obj/item/camera/detective/record_data(mob/living/user, obj/item/photo/pic)
+	pic.time_taken = worldtime2text()
+	pic.location_taken = get_area_display_name(get_area(user))
+	pic.taken_by = user.name
+
 //Proc for capturing check
 /mob/living/proc/can_capture_turf(turf/T)
 	return TRUE	// DVIEW will do sanity checks, we've got no special checks.
@@ -288,8 +300,20 @@ GLOBAL_VAR_INIT(photo_count, 0)
 	p.pixel_x = rand(-10, 10)
 	p.pixel_y = rand(-10, 10)
 	p.photo_size = size
+	record_data(user, p)
 
 	return p
+
+/// Data recorded on photos.
+/obj/item/camera/proc/record_data(mob/living/user, obj/item/photo/pic)
+	var/forensic = GET_SKILL_LEVEL(user, FORENSICS_SKILL_COMPONENT)
+	forensic = forensic ? forensic : 3
+
+	// Trained people would know to add this data
+	if(forensic >= 2)
+		pic.time_taken = worldtime2text()
+		pic.location_taken = get_area_display_name(get_area(user))
+		pic.taken_by = user.name
 
 /obj/item/camera/proc/printpicture(mob/user, obj/item/photo/p)
 	p.forceMove(user.loc)
