@@ -134,7 +134,7 @@
 /obj/structure/bed/padded,
 /obj/item/bedsheet/random,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/clothing/suit/storage/toggle/leather_jacket/flight/legion/alt,
+/obj/item/clothing/suit/storage/toggle/leather_jacket/flight/tcaf/old,
 /turf/simulated/floor/wood/airless,
 /area/template_noop)
 "dl" = (

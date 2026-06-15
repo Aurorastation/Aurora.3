@@ -88,7 +88,7 @@
 	desc = "A light and agile exosuit painted in the colours of the Tau Ceti Foreign Legion."
 	icon_state = "odysseus"
 
-	e_color = COLOR_TCFL
+	e_color = COLOR_TCAF
 	e_body = /obj/item/mech_component/chassis/light/nuclear
 
 	h_head = /obj/item/mecha_equipment/light

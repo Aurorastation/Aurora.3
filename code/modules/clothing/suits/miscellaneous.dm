@@ -228,22 +228,11 @@
 	icon_state = "wflight"
 	item_state = "wflight"
 
-/obj/item/clothing/suit/storage/toggle/leather_jacket/flight/legion
-	name = "tcfl flight jacket"
-	desc = "A Tau Ceti Foreign Legion pilot's jacket. This is the more common, less durable variety, which typically finds itself percolating amongst all ranks of the TCFL."
+/obj/item/clothing/suit/storage/toggle/leather_jacket/flight/tcaf
+	name = "TCAF flight jacket"
+	desc = "A cheap pilot's jacket made from a silky, shiny nanonylon material and lined with tough, protective synthfabrics. It is ubiquitous throughout the Tau Ceti Armed Forces."
 	icon_state = "lflight"
 	item_state = "lflight"
-	armor = list(
-		BIO = ARMOR_BIO_MINOR
-	)
-	siemens_coefficient = 0.75
-
-/obj/item/clothing/suit/storage/toggle/leather_jacket/flight/legion/tcaf
-	name = "TCAF flight jacket"
-	desc = "A cheap pilot's jacket. An immense stock of exactly this design has been grandfathered into the Tau Ceti Armed Forces via its predecessor, the Tau Ceti Foreign Legion, to the point of a near-complete ubiquity."
-
-/obj/item/clothing/suit/storage/toggle/leather_jacket/flight/legion/alt
-	desc = "A Tau Ceti Foreign Legion pilot's jacket made from a silky, shiny nanonylon material and lined with tough, protective synthfabrics."
 	armor = list(
 		MELEE = ARMOR_MELEE_RESISTANT,
 		BULLET = ARMOR_BALLISTIC_MINOR,
@@ -251,7 +240,16 @@
 		ENERGY = ARMOR_ENERGY_MINOR,
 		BOMB = ARMOR_BOMB_PADDED
 	)
-	siemens_coefficient = 0.35
+	siemens_coefficient = 0.75
+
+/obj/item/clothing/suit/storage/toggle/leather_jacket/flight/tcaf/legion
+	name = "TCAF foreign legions flight jacket"
+
+/obj/item/clothing/suit/storage/toggle/leather_jacket/flight/tcaf/legion/old
+	name = "faded TCFL flight jacket"
+	desc = "An outdated pilot's jacket of the deprecated Tau Ceti Foreign Legions."
+	icon_state = "lflight"
+	item_state = "lflight"
 
 /obj/item/clothing/suit/storage/toggle/leather_jacket/military
 	name = "military jacket"
@@ -464,13 +462,13 @@
 	icon_state = "varsity_brown"
 	item_state = "varsity_brown"
 
-/obj/item/clothing/suit/storage/legion
-	name = "tcfl jacket"
-	desc = "A pale blue canvas jacket embossed with the insignia of the Tau Ceti Foreign Legion."
+/obj/item/clothing/suit/storage/tcaf/legion
+	name = "TCAF foreign legions jacket"
+	desc = "A pale blue canvas jacket embossed with the insignia of one of the TCAF service branch's Foreign Legions corp."
 	icon_state = "tcfljacket"
 	item_state = "tcfljacket"
 
-/obj/item/clothing/suit/storage/legion/tcaf
+/obj/item/clothing/suit/storage/tcaf
 	name = "TCAF jacket"
 	desc = "A pale blue canvas jacket embossed with the insignia of the Tau Ceti Armed Forces."
 	icon_state = "tcaf_jacket"

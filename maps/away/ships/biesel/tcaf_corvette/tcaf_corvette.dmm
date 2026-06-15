@@ -1080,7 +1080,7 @@
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal/sedantis{
 	pixel_y = 12
 	},
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/tcfl{
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/tcaf{
 	pixel_y = 12;
 	pixel_x = -10
 	},
@@ -2665,11 +2665,11 @@
 	pixel_x = -3
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/tcfl{
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/tcaf{
 	pixel_x = 10;
 	pixel_y = 7
 	},
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/tcfl{
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/tcaf{
 	pixel_x = 10
 	},
 /turf/simulated/floor/carpet/magenta,
@@ -4099,7 +4099,7 @@
 /area/tcaf_corvette/engine)
 "oR" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/closet/crate/secure/legion{
+/obj/structure/closet/crate/secure/tcaf{
 	req_access = list(204);
 	name = "flags and banners";
 	desc = "A secure supply crate, It carries the insignia of the Tau Ceti Armed Forces. It appears quite scuffed."
@@ -4452,8 +4452,8 @@
 /obj/item/storage/box/shells/beanbags,
 /obj/item/storage/box/shells/beanbags,
 /obj/item/gun/energy/rifle/laser/noctiluca,
-/obj/item/gun/energy/blaster/tcaf,
-/obj/item/gun/energy/blaster/tcaf,
+/obj/item/gun/energy/blaster/guardian,
+/obj/item/gun/energy/blaster/guardian,
 /obj/item/gun/energy/blaster/rifle,
 /obj/item/gun/projectile/automatic/rifle/jingya,
 /obj/item/ammo_magazine/a556/carbine,
@@ -7127,12 +7127,12 @@
 /obj/item/storage/box/handcuffs,
 /obj/item/storage/box/tactical/flashbangs,
 /obj/item/storage/box/tactical/smokebombs,
-/obj/item/shield/riot/tact/legion,
-/obj/item/shield/riot/tact/legion,
-/obj/item/shield/riot/tact/legion,
-/obj/item/shield/riot/tact/legion,
-/obj/item/shield/riot/tact/legion,
-/obj/item/shield/riot/tact/legion,
+/obj/item/shield/riot/tact/tcaf,
+/obj/item/shield/riot/tact/tcaf,
+/obj/item/shield/riot/tact/tcaf,
+/obj/item/shield/riot/tact/tcaf,
+/obj/item/shield/riot/tact/tcaf,
+/obj/item/shield/riot/tact/tcaf,
 /obj/item/clothing/mask/gas/half,
 /obj/item/clothing/mask/gas/half,
 /obj/item/clothing/mask/gas/half,
@@ -8327,7 +8327,7 @@
 /turf/simulated/floor/tiled,
 /area/tcaf_corvette/brig)
 "GF" = (
-/obj/structure/closet/crate/secure/legion{
+/obj/structure/closet/crate/secure/tcaf{
 	req_access = list(204);
 	name = "recruitment supplies";
 	desc = "A secure supply crate, It carries the insignia of the Tau Ceti Armed Forces. It appears quite scuffed."
@@ -9700,10 +9700,10 @@
 /obj/structure/machinery/light{
 	dir = 1
 	},
-/obj/item/magnetic_lock/security/legion,
-/obj/item/magnetic_lock/security/legion,
-/obj/item/magnetic_lock/security/legion,
-/obj/item/magnetic_lock/security/legion,
+/obj/item/magnetic_lock/security/tcaf,
+/obj/item/magnetic_lock/security/tcaf,
+/obj/item/magnetic_lock/security/tcaf,
+/obj/item/magnetic_lock/security/tcaf,
 /obj/item/deployable_kit/legion_barrier,
 /obj/item/deployable_kit/legion_barrier,
 /obj/item/deployable_kit/legion_barrier,
@@ -9821,7 +9821,7 @@
 	pixel_x = -11;
 	pixel_y = 6
 	},
-/obj/item/flame/lighter/zippo/tcfl{
+/obj/item/flame/lighter/zippo/biesel{
 	pixel_y = 3;
 	pixel_x = 4
 	},
@@ -11035,12 +11035,12 @@
 	name = "Equipment and Personal Wear"
 	},
 /obj/effect/floor_decal/industrial/outline/service,
-/obj/item/clothing/suit/storage/toggle/leather_jacket/flight/legion/tcaf,
-/obj/item/clothing/suit/storage/toggle/leather_jacket/flight/legion/tcaf,
-/obj/item/clothing/suit/storage/toggle/leather_jacket/flight/legion/tcaf,
-/obj/item/clothing/suit/storage/legion/tcaf,
-/obj/item/clothing/suit/storage/legion/tcaf,
-/obj/item/clothing/suit/storage/legion/tcaf,
+/obj/item/clothing/suit/storage/toggle/leather_jacket/flight/tcaf,
+/obj/item/clothing/suit/storage/toggle/leather_jacket/flight/tcaf,
+/obj/item/clothing/suit/storage/toggle/leather_jacket/flight/tcaf/legion,
+/obj/item/clothing/suit/storage/tcaf/legion,
+/obj/item/clothing/suit/storage/tcaf,
+/obj/item/clothing/suit/storage/tcaf,
 /obj/item/clothing/accessory/poncho/shouldercape/nationcapes/biesel,
 /obj/item/clothing/accessory/poncho/shouldercape/nationcapes/biesel,
 /obj/item/clothing/accessory/tc_pin,
@@ -11055,11 +11055,11 @@
 /obj/item/clothing/accessory/storage/pouches/black,
 /obj/item/clothing/accessory/storage/pouches/black,
 /obj/item/clothing/accessory/storage/pouches/black,
-/obj/item/clothing/head/beret/legion/tcaf/tcaf_field,
-/obj/item/clothing/head/beret/legion/tcaf/tcaf_field,
-/obj/item/clothing/head/beret/legion/tcaf/tcaf_field,
-/obj/item/clothing/head/beret/legion/tcaf/tcaf_field,
-/obj/item/clothing/head/beret/legion/tcaf/tcaf_field,
+/obj/item/clothing/head/beret/tcaf/field,
+/obj/item/clothing/head/beret/tcaf/field,
+/obj/item/clothing/head/beret/tcaf/field,
+/obj/item/clothing/head/beret/tcaf/field,
+/obj/item/clothing/head/beret/tcaf/field,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/reagent_containers/food/drinks/flask/barflask,
 /obj/item/reagent_containers/food/drinks/flask/barflask,
@@ -11611,7 +11611,7 @@
 /obj/item/tent,
 /obj/item/tent,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/closet/crate/secure/legion{
+/obj/structure/closet/crate/secure/tcaf{
 	req_access = list(204);
 	name = "tables, chairs, and camping equipment";
 	desc = "A secure supply crate, It carries the insignia of the Tau Ceti Armed Forces. It appears quite scuffed."

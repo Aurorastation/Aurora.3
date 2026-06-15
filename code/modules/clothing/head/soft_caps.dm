@@ -53,9 +53,9 @@
 	icon_state = "softcap_red"
 	item_state = "softcap_red"
 
-/obj/item/clothing/head/softcap/tcfl
-	name = "tcfl cap"
-	desc = "A rugged softcap in TCFL colours, go Biesel!"
+/obj/item/clothing/head/softcap/tcaf
+	name = "tcaf cap"
+	desc = "A rugged softcap in the TCAF's colours."
 	icon_state = "tcfl"
 	item_state = "tcfl"
 

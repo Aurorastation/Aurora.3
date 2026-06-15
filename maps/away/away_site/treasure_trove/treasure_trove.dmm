@@ -6098,7 +6098,7 @@
 /area/trove/beach)
 "IL" = (
 /obj/random/dirt_75,
-/obj/item/gun/energy/blaster/tcaf,
+/obj/item/gun/energy/blaster/guardian,
 /turf/simulated/floor/wood/mahogany,
 /area/trove/vault)
 "IM" = (
@@ -8105,10 +8105,6 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/trove/vault)
-"TL" = (
-/obj/random/dirt_75,
-/turf/simulated/floor/wood/mahogany,
 /area/trove/vault)
 "TO" = (
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
@@ -35748,7 +35744,7 @@ Li
 kz
 gn
 lt
-TL
+Li
 Li
 Li
 XU

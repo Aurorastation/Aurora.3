@@ -1054,7 +1054,7 @@
 	refittable = TRUE
 
 /obj/item/clothing/suit/space/void/tcaf
-	name = "tau ceti armed forces voidsuit"
+	name = "TCAF Aegis voidsuit"
 	desc = "A Zavodskoi-manufactured combat voidsuit designed for the Tau Ceti Armed Forces, the Type-37 \"Aegis\" is now the primary armored voidsuit in use by the Republic of Biesel."
 	icon = 'icons/obj/clothing/voidsuit/tcaf.dmi'
 	icon_state = "tcaf_suit"
