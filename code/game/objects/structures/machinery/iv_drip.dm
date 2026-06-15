@@ -275,6 +275,9 @@
 /obj/structure/machinery/iv_drip/proc/try_oxygen_fire()
 	if(!tank)
 		return
+	if(tank.air_contents)
+		if(tank.air_contents.gas[GAS_OXYGEN] != tank.air_contents.total_moles) //If the gas is not pure oxygen, return.
+			return
 	if(tank.distribute_pressure <= 21) //Only if positive pressure is pushing more oxygen than normal.
 		return
 
