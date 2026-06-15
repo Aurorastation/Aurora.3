@@ -26,8 +26,8 @@
 	var/list/suspects = list()
 	var/list/witnesses = list()
 
-	var/person_uid = 0
-	var/evidence_uid = 0
+	var/person_uid = 1
+	var/evidence_uid = 1
 
 GLOBAL_VAR_INIT(case_dossier_uid, 1)
 GLOBAL_LIST_EMPTY(case_dossier_cases)

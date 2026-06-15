@@ -1349,7 +1349,7 @@ const PhotoEntry = (props: {
                           readOnly={readOnly}
                           fluid
                           value={(photo.linked_evidence || []).join(', ')}
-                          placeholder="E-0"
+                          placeholder="E-1"
                           empty="No linked evidence"
                           onBlur={(value) =>
                             act('edit_photo', {

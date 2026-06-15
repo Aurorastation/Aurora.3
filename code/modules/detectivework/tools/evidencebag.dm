@@ -158,8 +158,6 @@
 		if(isnull(new_value))
 			return
 
-		new_value = sanitizeSafe(new_value, MAX_NAME_LEN)
-
 		set_evidence_label_value(field, new_value)
 
 		if(new_value == "")

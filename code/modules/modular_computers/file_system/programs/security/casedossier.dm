@@ -5,7 +5,7 @@
 	program_icon_state = "security_record"
 	program_key_icon_state = "yellow_key"
 	color = LIGHT_COLOR_RED
-	size = 8
+	size = 6
 	requires_ntnet = TRUE
 	available_on_ntnet = TRUE
 	// Security officers and wardens are allowed to download the program, but not edit it
