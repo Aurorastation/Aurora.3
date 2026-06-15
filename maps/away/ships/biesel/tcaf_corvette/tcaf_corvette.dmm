@@ -3912,6 +3912,10 @@
 /obj/item/recharger_backpack/high,
 /obj/item/recharger_backpack/high,
 /obj/effect/decal/cleanable/dirt,
+/obj/item/rig/combat/tcaf/equipped{
+	pixel_x = 3;
+	pixel_y = -4
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/tcaf_corvette/storage)
 "nR" = (
@@ -4100,9 +4104,7 @@
 "oR" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate/secure/tcaf{
-	req_access = list(111);
-	name = "flags and banners";
-	desc = "A secure supply crate, It carries the insignia of the Tau Ceti Armed Forces. It appears quite scuffed."
+	name = "flags and banners"
 	},
 /obj/item/flag/biesel/l,
 /obj/item/flag/biesel/l,
@@ -4168,8 +4170,6 @@
 	name = "Pilot's Amenities";
 	req_access = list(111)
 	},
-/obj/item/gun/energy/blaster/pilot_special,
-/obj/item/gun/energy/blaster/pilot_special,
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
 	},
@@ -4442,10 +4442,6 @@
 /obj/item/storage/box/tactical/frags,
 /obj/item/gun/energy/blaster/revolver,
 /obj/item/gun/energy/blaster/revolver,
-/obj/item/gun/energy/blaster/revolver,
-/obj/item/gun/energy/blaster/revolver,
-/obj/item/gun/energy/blaster/revolver,
-/obj/item/gun/energy/blaster/revolver,
 /obj/item/gun/projectile/shotgun/pump,
 /obj/item/storage/box/shells/slugs,
 /obj/item/storage/box/shells/slugs,
@@ -4460,6 +4456,10 @@
 /obj/item/ammo_magazine/a556/carbine,
 /obj/item/ammo_magazine/a556/carbine/ap,
 /obj/effect/decal/cleanable/dirt,
+/obj/item/gun/energy/blaster,
+/obj/item/gun/energy/blaster,
+/obj/item/gun/energy/blaster,
+/obj/item/gun/energy/blaster,
 /turf/simulated/floor/tiled/dark/full,
 /area/tcaf_corvette/storage)
 "qk" = (
@@ -8171,10 +8171,6 @@
 /obj/item/gun/projectile/revolver/konyang{
 	pixel_y = 5
 	},
-/obj/item/rig/combat/legionnaire/equipped{
-	pixel_x = 3;
-	pixel_y = -4
-	},
 /turf/simulated/floor/tiled/dark/full,
 /area/tcaf_corvette/captain_quarters)
 "Gc" = (
@@ -8328,9 +8324,7 @@
 /area/tcaf_corvette/brig)
 "GF" = (
 /obj/structure/closet/crate/secure/tcaf{
-	req_access = list(111);
-	name = "recruitment supplies";
-	desc = "A secure supply crate, It carries the insignia of the Tau Ceti Armed Forces. It appears quite scuffed."
+	name = "recruitment supplies"
 	},
 /obj/item/clothing/accessory/badge/tcaf_papers,
 /obj/item/clothing/accessory/badge/tcaf_papers,
@@ -11612,9 +11606,7 @@
 /obj/item/tent,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate/secure/tcaf{
-	req_access = list(111);
-	name = "tables, chairs, and camping equipment";
-	desc = "A secure supply crate, It carries the insignia of the Tau Ceti Armed Forces. It appears quite scuffed."
+	name = "tables, chairs, and camping equipment"
 	},
 /obj/item/material/folding_table,
 /obj/item/material/folding_table,
