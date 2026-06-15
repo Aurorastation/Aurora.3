@@ -159,7 +159,7 @@
 	var/grab_descriptor = current_grab.action_verb
 	var/is_passive = !has_grab_flags(GRAB_FORCE_HARM|GRAB_RESTRAINS)
 	var/line = "[user == grabber ? "You are" : "[grabber] is"] [grab_descriptor] [user == grabbed ? "you" : "this"][is_passive ? "." : "!"]"
-	return grabbed.get_examine_text(user, distance, is_adjacent, infix, suffix, get_extended) + (is_passive ? FONT_SMALL(line) : SPAN_DANGER(line))
+	return grabbed?.get_examine_text(user, distance, is_adjacent, infix, suffix, get_extended) + (is_passive ? FONT_SMALL(line) : SPAN_DANGER(line))
 
 /obj/item/grab/mob_can_unequip(mob/M, slot, disable_warning = FALSE, dropping = FALSE)
 	return dropping
@@ -215,6 +215,7 @@
 	if(old_grabbed)
 		old_grabbed.reset_offsets(5)
 		old_grabbed.reset_plane_and_layer()
+	current_grab = null
 
 /obj/item/grab/proc/on_target_change(atom/movable/screen/zone_sel/zone, old_sel, new_sel)
 	if(target_zone == new_sel)

@@ -535,7 +535,7 @@
 /obj/item/clothing/gloves/Destroy()
 	QDEL_NULL(cell)
 	if (ring && wearer)
-		wearer.equip_to_slot_if_possible(ring, slot_gloves)
+		wearer.equip_to_slot_if_possible(ring, slot_gloves_str)
 	ring = null
 	wearer = null
 	return ..()

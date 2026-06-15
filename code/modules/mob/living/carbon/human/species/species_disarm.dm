@@ -127,21 +127,23 @@
 			playsound(target.loc, 'sound/weapons/push.ogg', 50, 1, -1)
 		return TRUE
 
-	for(var/obj/item/grab/G as anything in target.get_active_grabs())
-		G.force_drop()
-		. = TRUE
+	// previously there was code here that checked active_grabs and then manually force_drop()'d them
+	// however that causes issues because the grab is dropped and destroyed, then unequipped and brought out of nullspace in the loop below
+	// just one loop works fine, if there are ever grab item overrides needed just add that loop again but make sure
+	// that you do not call the unequip below on grabs
+
 
 	for(var/obj/item/I in holding)
-		if(target.unEquip(I))
-			target.visible_message(SPAN_DANGER("\The [user] knocks \the [I] from \the [target]'s grasp!"))
-			. = TRUE
-			break
+		if(!QDELETED(I)) //already in nullspace
+			if(target.unEquip(I))
+				target.visible_message(SPAN_DANGER("\The [user] knocks \the [I] from \the [target]'s grasp!"))
+				break
 
 	if(.)
 		playsound(target.loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 	else
 		playsound(target.loc, SFX_PUNCH_MISS, 25, 1, -1)
-		user.visible_message(SPAN_DANGER("[user] [attacker_skill_level == SKILL_LEVEL_UNFAMILIAR ? "[pick("inexpertly", "clumsily")] disarm" : "disarm"] attempted to disarm [target]!"))
+		user.visible_message(SPAN_DANGER("[user] attempted to [attacker_skill_level == SKILL_LEVEL_UNFAMILIAR ? "[pick("inexpertly", "clumsily")] disarm" : "disarm"] [target]!"))
 
 /datum/species/machine/before_disarm(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	var/obj/item/organ/internal/machine/power_core/cell = user.internal_organs_by_name[BP_CELL]
