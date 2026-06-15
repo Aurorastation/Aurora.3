@@ -242,15 +242,6 @@
 	)
 	siemens_coefficient = 0.75
 
-/obj/item/clothing/suit/storage/toggle/leather_jacket/flight/tcaf/legion
-	name = "TCAF foreign legions flight jacket"
-
-/obj/item/clothing/suit/storage/toggle/leather_jacket/flight/tcaf/legion/old
-	name = "faded TCFL flight jacket"
-	desc = "An outdated pilot's jacket of the deprecated Tau Ceti Foreign Legions."
-	icon_state = "lflight"
-	item_state = "lflight"
-
 /obj/item/clothing/suit/storage/toggle/leather_jacket/military
 	name = "military jacket"
 	desc = "A military-styled jacket made from thick, distressed canvas. Popular among Martian punks. Patches not included."

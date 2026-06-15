@@ -1,6 +1,6 @@
 /obj/outfit/admin/ert/tcaf
 	name = "TCAF Republic Espatiers Legionnaire"
-	uniform = /obj/item/clothing/under/tcaf
+	uniform = /obj/item/clothing/under/tcaf/espatier
 	suit = /obj/item/clothing/suit/space/void/tcaf
 	head = /obj/item/clothing/head/helmet/space/void/tcaf
 	gloves = /obj/item/clothing/gloves/tcaf

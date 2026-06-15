@@ -109,7 +109,7 @@
 	worn_state = "tcaf_officer_uniform"
 
 // Identical sprites to the TCFL variant, just reflavoured.
-/obj/item/clothing/head/softcap/tcaf_cap
+/obj/item/clothing/head/softcap/tcaf_cap_cap
 	name = "TCAF uniform cap"
 	icon = 'icons/obj/item/clothing/head/tcaf_hats.dmi'
 	desc = "A rugged blue softcap bearing the insignia of the Tau Ceti Armed Forces, the military of the Republic of Biesel."

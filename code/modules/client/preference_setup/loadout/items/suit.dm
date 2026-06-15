@@ -432,7 +432,7 @@
 	display_name = "Tau Ceti Armed Forces jacket selection"
 	description = "A selection of fine, surplus jackets of the Armed Forces."
 	path = /obj/item/clothing/suit/storage/tcaf
-	flags = GEAR_HAS_DESC_SELECTION
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
 /datum/gear/suit/tcaf/New()
 	..()
@@ -440,8 +440,6 @@
 	tcafjacket ["tcaf jacket"] = /obj/item/clothing/suit/storage/tcaf
 	tcafjacket ["tcaf foreign legions jacket"] = /obj/item/clothing/suit/storage/tcaf/legion
 	tcafjacket ["tcaf jacket, flight"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/flight/tcaf
-	tcafjacket ["tcaf foreign legions jacket, flight"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/flight/tcaf/legion
-	tcafjacket ["outdated tcfl jacket, flight"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/flight/tcaf/legion/old
 	gear_tweaks += new /datum/gear_tweak/path(tcafjacket)
 
 /datum/gear/suit/dep_jacket

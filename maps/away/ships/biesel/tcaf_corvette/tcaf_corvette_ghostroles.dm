@@ -79,7 +79,7 @@
 
 /obj/outfit/admin/tcaf_crewman/espatier
 	name = "TCAF Republic Astroforce Espatier"
-	head = /obj/item/clothing/head/softcap/tcaf_cap
+	head = /obj/item/clothing/head/softcap/tcaf_cap_cap
 	uniform = /obj/item/clothing/under/tcaf/espatier
 	gloves = /obj/item/clothing/gloves/tcaf
 
@@ -98,7 +98,8 @@
 	special_role = "TCAF Republic Astroforce Prefect"
 
 /obj/outfit/admin/tcaf_crewman/nco
-	head = /obj/item/clothing/head/softcap/tcaf_cap
+	name = "TCAF Republic Astroforce Prefect"
+	head = /obj/item/clothing/head/softcap/tcaf_cap_cap
 	uniform = /obj/item/clothing/under/tcaf/rate
 	accessory = /obj/item/clothing/accessory/holster/hip
 	gloves = /obj/item/clothing/gloves/tcaf
@@ -118,6 +119,7 @@
 	special_role = "TCAF Republic Astroforce Astrarch"
 
 /obj/outfit/admin/tcaf_crewman/officer
+	name = "TCAF Republic Astroforce Astrarch"
 	head = /obj/item/clothing/head/tcaf_officer
 	uniform = /obj/item/clothing/under/tcaf_officer
 	suit = /obj/item/clothing/suit/storage/toggle/tcaf_officer_greatcoat
