@@ -22,11 +22,11 @@
 
 /obj/outfit/admin/tcaf_crewman
 	name = "TCAF Republic Astroforce Enlisted Crew"
-	uniform = /obj/item/clothing/under/tcaf/rate
+	uniform = /obj/item/clothing/under/tcaf/crew
 	gloves = /obj/item/clothing/gloves/black
 	shoes = /obj/item/clothing/shoes/jackboots
 	back = /obj/item/storage/backpack/tcaf
-	head = /obj/item/clothing/head/tcaf_rate
+	head = /obj/item/clothing/head/softcap/tcaf_cap
 	id = /obj/item/card/id/tcaf
 	accessory = /obj/item/clothing/accessory/holster/hip
 	l_ear = /obj/item/radio/headset/ship
@@ -100,7 +100,7 @@
 /obj/outfit/admin/tcaf_crewman/nco
 	name = "TCAF Republic Astroforce Prefect"
 	head = /obj/item/clothing/head/softcap/tcaf_cap
-	uniform = /obj/item/clothing/under/tcaf/rate
+	uniform = /obj/item/clothing/under/tcaf/crew
 	accessory = /obj/item/clothing/accessory/holster/hip
 	gloves = /obj/item/clothing/gloves/tcaf
 	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/melee/energy/sword/knife = 1, /obj/item/shield/energy/tcaf = 1, /obj/item/clothing/accessory/tcaf_prefect_pauldron = 1)
@@ -123,6 +123,6 @@
 	head = /obj/item/clothing/head/tcaf_officer
 	uniform = /obj/item/clothing/under/tcaf_officer
 	suit = /obj/item/clothing/suit/storage/toggle/tcaf_officer_greatcoat
-	gloves = /obj/item/clothing/gloves/tcaf
+	gloves = /obj/item/clothing/gloves/white
 	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/melee/energy/sword/knife = 1, /obj/item/shield/energy/tcaf = 1, /obj/item/clothing/accessory/tcaf/astrarch = 1)
 	accessory = /obj/item/clothing/accessory/holster/hip

@@ -1769,7 +1769,7 @@
 /area/racers)
 "iJa" = (
 /obj/structure/machinery/computer/ship/helm{
-	req_access = list(204)
+	req_access = list(111)
 	},
 /obj/item/gps,
 /obj/structure/machinery/camera/network/thunder,
@@ -4197,7 +4197,7 @@
 /area/shuttle/racers_red)
 "urT" = (
 /obj/structure/machinery/computer/ship/helm{
-	req_access = list(204)
+	req_access = list(111)
 	},
 /obj/item/gps,
 /obj/structure/machinery/camera/network/thunder,

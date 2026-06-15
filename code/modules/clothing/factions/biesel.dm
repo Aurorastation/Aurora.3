@@ -22,8 +22,8 @@
 	worn_overlay = "over"
 
 // Intended for enlisted vessel crew of the TCAF's Astroforces
-/obj/item/clothing/under/tcaf/rate
-	name = "\improper TCAF-RAF rate uniform"
+/obj/item/clothing/under/tcaf/crew
+	name = "\improper TCAF-RAF crew uniform"
 	desc = "A blue jumpsuit trimmed with dark accents, designed to be cheap and stain-resistant. It could be more comfortable. Worn by enlisted crewmembers of the TCAF's Republic Astroforce."
 	icon = 'icons/obj/item/clothing/under/human/biesel/tcaf_uniform.dmi'
 	contained_sprite = TRUE
@@ -31,8 +31,8 @@
 	item_state = "tcaf_raf_crew"
 	worn_state = "tcaf_raf_crew"
 
-/obj/item/clothing/under/tcaf/rate/foreign_legion
-	name = "\improper TCAF-RAF foreign legion rate uniform"
+/obj/item/clothing/under/tcaf/crew/foreign_legion
+	name = "\improper TCAF-RAF foreign legion crew uniform"
 	desc = "A blue jumpsuit with red accenting, designed to be cheap and stain-resistant. It could be more comfortable. Worn by enlisted crewmembers of the TCAF's Republic Astroforce Foreign Legions corps."
 	icon_state = "tcaf_raf_foreign_legion"
 	item_state = "tcaf_raf_foreign_legion"
@@ -89,7 +89,7 @@
 
 // For officers that want to look like a One Piece villain.
 /obj/item/clothing/suit/storage/toggle/tcaf_officer_greatcoat
-	name = "\improper TCAF-RAF officer greatcoat"
+	name = "\improper TCAF astroforces officer greatcoat"
 	desc = "This is a well-trimmed greatcoat worn by commissioned officers in the TCAF's Republic Astroforce. The fabric seems quite robust, but not particularly well used."
 	icon = 'icons/obj/item/clothing/suit/storage/toggle/tcaf_coat.dmi'
 	icon_state = "tcaf_officer_coat"
@@ -100,7 +100,7 @@
 	protects_against_weather = TRUE
 
 /obj/item/clothing/head/tcaf_officer
-	name = "\improper TCAF-RAF officer cap"
+	name = "\improper TCAF astroforces officer cap"
 	desc = "This is a peaked cap bearing the colours and insignia of the TCAF's Republic Astroforce, typically worn by commissioned officers therein. It looks like it'd fly off one's head very easily in windy weather."
 	icon = 'icons/obj/item/clothing/head/tcaf_hats.dmi'
 	icon_state = "tcaf_officer_cap"
@@ -108,13 +108,13 @@
 	contained_sprite = TRUE
 
 /obj/item/clothing/under/tcaf_officer
-	name = "\improper TCAF officer uniform"
+	name = "\improper TCAF astroforces officer uniform"
 	desc = "A pristine, well-ironed, and perfectly cleaned white jumpsuit with black trimmings, worn by commissioned officers of the TCAF's Republic Astroforce. Who wears a white uniform but someone who intends never to dirty it?"
 	icon = 'icons/obj/item/clothing/under/human/biesel/tcaf_uniform.dmi'
 	contained_sprite = TRUE
-	icon_state = "tcaf_officer_uniform"
-	item_state = "tcaf_officer_uniform"
-	worn_state = "tcaf_officer_uniform"
+	icon_state = "tcaf_raf_officer_uniform"
+	item_state = "tcaf_raf_officer_uniform"
+	worn_state = "tcaf_raf_officer_uniform"
 
 /obj/item/clothing/head/softcap/tcaf_cap
 	name = "TCAF uniform cap"

@@ -8,7 +8,7 @@
 /obj/outfit/admin/tcaf
 	name = "TCAF Republic Astroforces Crewman (Equipped)"
 
-	uniform = /obj/item/clothing/under/tcaf/rate
+	uniform = /obj/item/clothing/under/tcaf/crew
 	suit = /obj/item/clothing/accessory/armor_plate/tcaf/tcaf_light
 	gloves = /obj/item/clothing/gloves/black
 	shoes = /obj/item/clothing/shoes/jackboots
