@@ -115,6 +115,20 @@
 	boots = /obj/item/clothing/shoes/magboots
 	mask = /obj/item/clothing/mask/breath
 
+/obj/structure/machinery/suit_cycler/operations
+	name = "operations suit cycler"
+	model_text = "Operations"
+	req_access = list(ACCESS_CARGO)
+	departments = list("Operations")
+	species = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_UNATHI, BODYTYPE_TAJARA, BODYTYPE_IPC)
+	can_repair = TRUE
+
+/obj/structure/machinery/suit_cycler/operations/prepared
+	helmet = /obj/item/clothing/head/helmet/space/void/ops
+	suit = /obj/item/clothing/suit/space/void/ops
+	boots = /obj/item/clothing/shoes/magboots
+	mask = /obj/item/clothing/mask/breath
+
 /obj/structure/machinery/suit_cycler/freelancer
 	name = "freelancers suit cycler"
 	model_text = "Freelancers"
