@@ -180,7 +180,7 @@ SUBSYSTEM_DEF(hallucinations)
 	return !target || target.is_psi_blocked(null, FALSE)
 
 /datum/controller/subsystem/hallucinations/proc/can_receive_adpi(var/mob/living/target)
-	return is_lemurian_sea() && target && target.client && target.mind && target.stat && is_station_level(target.z) && (target.has_zona_bovinae() || target.has_psi_aug())
+	return is_lemurian_sea() && target && target.client && target.mind && target.stat && (target.has_zona_bovinae() || target.has_psi_aug())
 
 /datum/controller/subsystem/hallucinations/proc/get_adpi_job(var/mob/living/carbon/human/H)
 	if(!H)
