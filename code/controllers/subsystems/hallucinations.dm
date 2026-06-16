@@ -174,29 +174,13 @@ SUBSYSTEM_DEF(hallucinations)
 			adpi_next_message -= target
 
 /datum/controller/subsystem/hallucinations/proc/is_adpi_excluded(var/mob/living/target)
-	if(!target)
-		return TRUE
-	if(isvaurca(target) || isipc(target) || issilicon(target) || target.is_diona())
-		return TRUE
-	return FALSE
+	return !target || (!target.has_zona_bovinae() && !target.has_psi_aug())
 
 /datum/controller/subsystem/hallucinations/proc/is_adpi_blocked(var/mob/living/target)
-	return length(target?.GetComponents(/datum/component/timed_life/psiblock_drugs))
+	return !target || target.is_psi_blocked(null, FALSE)
 
 /datum/controller/subsystem/hallucinations/proc/can_receive_adpi(var/mob/living/target)
-	if(!is_lemurian_sea())
-		return FALSE
-	if(!target || !target.client || !target.mind || target.stat)
-		return FALSE
-	if(is_adpi_excluded(target))
-		return FALSE
-	if(is_adpi_blocked(target))
-		return FALSE
-	if(!is_station_level(target.z))
-		return FALSE
-	if(target.isMonkey())
-		return FALSE
-	return TRUE
+	return is_lemurian_sea() && target && target.client && target.mind && target.stat && (target.has_zona_bovinae() || target.has_psi_aug())
 
 /datum/controller/subsystem/hallucinations/proc/get_adpi_job(var/mob/living/carbon/human/H)
 	if(!H)
@@ -267,11 +251,6 @@ SUBSYSTEM_DEF(hallucinations)
 /datum/controller/subsystem/hallucinations/proc/has_adpi_messages(var/mob/living/target, var/check_receiver = TRUE)
 	if(is_adpi_excluded(target))
 		return FALSE
-	if(is_adpi_blocked(target))
-		return FALSE
-
-	if(check_receiver && !can_receive_adpi(target))
-		return FALSE
 
 	if(ishuman(target))
 		var/mob/living/carbon/human/H = target
@@ -284,7 +263,9 @@ SUBSYSTEM_DEF(hallucinations)
 		adpi_next_message -= target
 		return
 
-	if(!has_adpi_messages(target, FALSE))
+	if(is_adpi_blocked(target))
+		// ping their blocker an schedule another ping later.
+		schedule_next_adpi_message(target)
 		return
 
 	if(!adpi_next_message[target])
@@ -304,27 +285,7 @@ SUBSYSTEM_DEF(hallucinations)
 
 /datum/controller/subsystem/hallucinations/proc/get_adpi_delay(var/mob/living/target, var/initial = FALSE)
 	var/base_delay = initial ? rand(8 MINUTES, 18 MINUTES) : rand(25 MINUTES, 40 MINUTES)
-	var/sensitivity = target.check_psi_sensitivity()
-	var/multiplier = 1
-
-	if(isskrell(target))
-		multiplier *= 0.75
-
-	if(sensitivity >= PSI_RANK_APEX)
-		multiplier *= 0.55
-	else if(sensitivity >= PSI_RANK_HARMONIOUS)
-		multiplier *= 0.65
-	else if(sensitivity >= PSI_RANK_SENSITIVE)
-		multiplier *= 0.75
-	else if(sensitivity > 0)
-		multiplier *= 0.85
-	else if(sensitivity < 0)
-		multiplier *= 1.5
-
-	if(target.is_psi_blocked(null, TRUE))
-		multiplier *= 1.75
-
-	return round(base_delay * clamp(multiplier, 0.4, 2.5))
+	return base_delay - (base_delay * ftanh(target.check_psi_sensitivity() / 3))
 
 /datum/controller/subsystem/hallucinations/proc/get_adpi_pool_weight(var/pool_name)
 	if(pool_name == "general")
@@ -338,9 +299,6 @@ SUBSYSTEM_DEF(hallucinations)
 	return 1
 
 /datum/controller/subsystem/hallucinations/proc/pick_adpi_message(var/mob/living/target, var/check_receiver = TRUE)
-	if(!has_adpi_messages(target, check_receiver))
-		return
-
 	if(!ishuman(target))
 		return pick(adpi_general)
 
@@ -362,11 +320,6 @@ SUBSYSTEM_DEF(hallucinations)
 	return pick(selected_pool)
 
 /datum/controller/subsystem/hallucinations/proc/send_adpi_message(var/mob/living/target, var/custom_message = null, var/check_receiver = TRUE)
-	if(is_adpi_blocked(target))
-		return FALSE
-	if(check_receiver && !can_receive_adpi(target))
-		return FALSE
-
 	var/message = custom_message || pick_adpi_message(target, check_receiver)
 	if(!message)
 		return FALSE
@@ -375,11 +328,7 @@ SUBSYSTEM_DEF(hallucinations)
 	return TRUE
 
 /datum/controller/subsystem/hallucinations/proc/send_admin_adpi_message(var/mob/living/target, var/custom_message = null)
-	if(!target || !target.client || !target.mind || target.stat == DEAD)
-		return FALSE
-	if(is_adpi_excluded(target))
-		return FALSE
-	if(is_adpi_blocked(target))
+	if(!target || !target.client || !target.mind || target.stat == DEAD || !target.is_psi_blocked(null, FALSE))
 		return FALSE
 
 	ensure_adpi_lists_loaded()
@@ -403,7 +352,7 @@ SUBSYSTEM_DEF(hallucinations)
 		message = pick("The water is dripping dripping dripping all around you.","Water flowing over stone, but there is no stone.","The waterfall roars o'er the cliff's edge.","Water, water, water. You are drowning.","Water, water, water. You will be awake for it.","Drums, drums, drums, unrelenting.","The drumbeat draws e'er closer.","Tap, ta-tap, ta-tap, tap, ta-tap, ta-tap.","Tap, tap tap, ta-tap, tap-tap, ta-tap.","Ta-ta-tap, tap, ta-tap, tap, tap ta-tap.")
 	target.play_screen_text("[message]", /atom/movable/screen/text/screen_text/adpi_message, COLOR_PURPLE)
 	to_chat(target, SPAN_CULT(FONT_LARGE("[message]")))
-	log_admin("ADPI message sent to [target]: [message]")
+
 	if(prob(33))
 		sound_to(target, pick(adpi_sounds))
 
