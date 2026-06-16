@@ -285,27 +285,7 @@ SUBSYSTEM_DEF(hallucinations)
 
 /datum/controller/subsystem/hallucinations/proc/get_adpi_delay(var/mob/living/target, var/initial = FALSE)
 	var/base_delay = initial ? rand(8 MINUTES, 18 MINUTES) : rand(25 MINUTES, 40 MINUTES)
-	var/sensitivity = target.check_psi_sensitivity()
-	var/multiplier = 1
-
-	if(isskrell(target))
-		multiplier *= 0.75
-
-	if(sensitivity >= PSI_RANK_APEX)
-		multiplier *= 0.55
-	else if(sensitivity >= PSI_RANK_HARMONIOUS)
-		multiplier *= 0.65
-	else if(sensitivity >= PSI_RANK_SENSITIVE)
-		multiplier *= 0.75
-	else if(sensitivity > 0)
-		multiplier *= 0.85
-	else if(sensitivity < 0)
-		multiplier *= 1.5
-
-	if(target.is_psi_blocked(null, TRUE))
-		multiplier *= 1.75
-
-	return round(base_delay * clamp(multiplier, 0.4, 2.5))
+	return base_delay - (base_delay * ftanh(target.check_psi_sensitivity() / 3))
 
 /datum/controller/subsystem/hallucinations/proc/get_adpi_pool_weight(var/pool_name)
 	if(pool_name == "general")
