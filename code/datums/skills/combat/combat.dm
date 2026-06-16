@@ -16,7 +16,7 @@
 	name = "Unarmed Combat"
 	description = "Unarmed combat represents your training in hand-to-hand combat, or without a weapon. It also influences your ability to resist actions like disarms or martial arts. " \
 		+ "Higher ranks in Unarmed Combat provide bonuses when attacking with your fists, as well as bonuses to defending against others unarmed attacks and disarms."
-	maximum_level = SKILL_LEVEL_PROFESSIONAL
+	maximum_level = SKILL_LEVEL_TRAINED
 	skill_level_descriptions = alist(
 		SKILL_LEVEL_UNFAMILIAR = "You have rarely, if ever, fought someone in your life.<br>" \
 			+ " - You are more likely to miss when attempting to punch anywhere not the torso.<br>" \
@@ -43,7 +43,7 @@
 /singleton/skill/armed_combat
 	name = "Armed Combat"
 	description = "Armed Combat influences your effectiveness when fighting with any melee weapon. Having low ranks in this skill slightly decreases damage dealt with melee weapons, while higher ranks can slightly increase it."
-	maximum_level = SKILL_LEVEL_PROFESSIONAL
+	maximum_level = SKILL_LEVEL_TRAINED
 	category = /singleton/skill_category/combat
 	subcategory = SKILL_SUBCATEGORY_MELEE
 	component_type = ARMED_COMBAT_SKILL_COMPONENT
@@ -51,7 +51,7 @@
 /singleton/skill/firearms
 	name = "Firearms"
 	description = "Firearms represents your training in using all forms of ranged weapons. Having a high rank in in this skill provides bonuses to accuracy when shooting."
-	maximum_level = SKILL_LEVEL_PROFESSIONAL
+	maximum_level = SKILL_LEVEL_TRAINED
 	category = /singleton/skill_category/combat
 	subcategory = SKILL_SUBCATEGORY_RANGED
 	required = TRUE
@@ -69,12 +69,44 @@
 			+ " - Firearms you shoot have a 30 degree spread-angle decrease, making them somewhat more accurate. This generally doesn't apply to weapons fired in semi-auto, but will make burst and automatic fire more manageable." \
 	)
 
-// Temporarily commented because this is a little too complicated to catch in the initial release.
-// /singleton/skill/leadership
-// 	name = "Leadership"
-// 	description = "Leadership skill grants access to a unique 'Inspire' action, which lets you say something inspiring and give the target a positive moodlet."
-// 	category = /singleton/skill_category/combat
-// 	subcategory = SKILL_SUBCATEGORY_SUPPORT
-// 	required = TRUE
-// 	component_type = LEADERSHIP_SKILL_COMPONENT
+/singleton/skill/leadership
+	name = "Leadership"
+	description = "Leadership represents a characters skill with inspiring others. Having ranks in this skill grants access to the \"Deliver Speech\" action. Which can be used to give a morale modifier either in an area, or to a single person. " \
+		+ "Additional ranks increase the morale modifier provided."
+	maximum_level = SKILL_LEVEL_PROFESSIONAL
+	category = /singleton/skill_category/combat
+	subcategory = SKILL_SUBCATEGORY_SUPPORT
+	component_type = LEADERSHIP_SKILL_COMPONENT
+	skill_level_descriptions = alist(
+		SKILL_LEVEL_UNFAMILIAR = "You have no skill with motivational speeches.",
+		SKILL_LEVEL_FAMILIAR = "You gain the \"Deliver Speech\" ability, which provides a small morale bonus.",
+		SKILL_LEVEL_TRAINED = "You gain the \"Deliver Speech\" ability, which provides a modest morale bonus.",
+		SKILL_LEVEL_PROFESSIONAL = "You gain the \"Deliver Speech\" ability, which provides a moderate morale bonus."
+	)
+	skill_cost_map = alist(
+		SKILL_LEVEL_UNFAMILIAR = 0,
+		SKILL_LEVEL_FAMILIAR = 1,
+		SKILL_LEVEL_TRAINED = 2,
+		SKILL_LEVEL_PROFESSIONAL = 4
+	)
 
+/singleton/skill/tenacity
+	name = "Tenacity"
+	description = "Tenacity represents a character's \"Will to Live\". It affects a character's ability to cling to life when in critical condition, effectively allowing them to live for a little bit longer before medics can reach them. " \
+		+ "It does not affect a character's overall toughness and difficulty to take down in a fight, only how much time they have to be saved when they do go down. "
+	maximum_level = SKILL_LEVEL_PROFESSIONAL
+	category = /singleton/skill_category/combat
+	subcategory = SKILL_SUBCATEGORY_SUPPORT
+	component_type = TENACITY_SKILL_COMPONENT
+	skill_level_descriptions = alist(
+		SKILL_LEVEL_UNFAMILIAR = "You have no modifiers from Tenacity.",
+		SKILL_LEVEL_FAMILIAR = "You take slightly longer to die while in critical condition.",
+		SKILL_LEVEL_TRAINED = "You take a little bit longer to die while in critical condition.",
+		SKILL_LEVEL_PROFESSIONAL = "You take longer to die while in critical condition."
+	)
+	skill_cost_map = alist(
+		SKILL_LEVEL_UNFAMILIAR = 0,
+		SKILL_LEVEL_FAMILIAR = 1,
+		SKILL_LEVEL_TRAINED = 2,
+		SKILL_LEVEL_PROFESSIONAL = 4
+	)

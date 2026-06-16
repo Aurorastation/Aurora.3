@@ -1,7 +1,7 @@
 /// A global list of all radiation collectors.
-GLOBAL_LIST_INIT_TYPED(rad_collectors, /obj/machinery/power/rad_collector, list())
+GLOBAL_LIST_INIT_TYPED(rad_collectors, /obj/structure/machinery/power/rad_collector, list())
 
-/obj/machinery/power/rad_collector
+/obj/structure/machinery/power/rad_collector
 	name = "radiation collector array"
 	desc = "A device which uses radiation and phoron to produce power."
 	icon = 'icons/obj/machinery/rad_collector.dmi'
@@ -42,21 +42,21 @@ GLOBAL_LIST_INIT_TYPED(rad_collectors, /obj/machinery/power/rad_collector, list(
 	/// How long to wait between alert messages, if radiation input exceeds safe levels
 	var/alert_delay = 10 SECONDS
 
-/obj/machinery/power/rad_collector/feedback_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/power/rad_collector/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	if (..(user, 3))
 		var/last_power_kw = round(last_power / 1000, 0.1)
 		. += "The meter indicates that \the [src] is collecting [last_power_kw] kW."
 
-/obj/machinery/power/rad_collector/Initialize()
+/obj/structure/machinery/power/rad_collector/Initialize()
 	. = ..()
 	GLOB.rad_collectors += src
 
-/obj/machinery/power/rad_collector/Destroy()
+/obj/structure/machinery/power/rad_collector/Destroy()
 	GLOB.rad_collectors -= src
 	return ..()
 
-/obj/machinery/power/rad_collector/process(seconds_per_tick)
+/obj/structure/machinery/power/rad_collector/process(seconds_per_tick)
 	if((stat && BROKEN) || melted)
 		return
 	var/turf/T = get_turf(src)
@@ -90,13 +90,13 @@ GLOBAL_LIST_INIT_TYPED(rad_collectors, /obj/machinery/power/rad_collector, list(
 			loaded_tank.air_contents.adjust_gas(GAS_PHORON, (-0.01*drainratio*min(last_rads,max_rads)/max_rads) * seconds_per_tick) //fuel cost increases linearly with incoming radiation
 
 
-/obj/machinery/power/rad_collector/CanUseTopic(mob/user)
+/obj/structure/machinery/power/rad_collector/CanUseTopic(mob/user)
 	if(!anchored)
 		return STATUS_CLOSE
 	return ..()
 
 
-/obj/machinery/power/rad_collector/attack_hand(mob/user)
+/obj/structure/machinery/power/rad_collector/attack_hand(mob/user)
 	if(!CanInteract(user, GLOB.physical_state))
 		return FALSE
 	. = TRUE
@@ -111,7 +111,7 @@ GLOBAL_LIST_INIT_TYPED(rad_collectors, /obj/machinery/power/rad_collector, list(
 		USE_FEEDBACK_FAILURE("The controls are locked!")
 	..()
 
-/obj/machinery/power/rad_collector/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/power/rad_collector/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/tank/phoron))
 		if(!anchored)
 			USE_FEEDBACK_FAILURE("The [src] needs to be secured to the floor first.")
@@ -137,7 +137,7 @@ GLOBAL_LIST_INIT_TYPED(rad_collectors, /obj/machinery/power/rad_collector, list(
 		if(loaded_tank)
 			USE_FEEDBACK_FAILURE("Remove the phoron tank first.")
 			return TRUE
-		for(var/obj/machinery/power/rad_collector/R in get_turf(src))
+		for(var/obj/structure/machinery/power/rad_collector/R in get_turf(src))
 			if(R != src)
 				USE_FEEDBACK_FAILURE("You cannot install more than one collector on the same spot.")
 				return TRUE
@@ -167,7 +167,7 @@ GLOBAL_LIST_INIT_TYPED(rad_collectors, /obj/machinery/power/rad_collector, list(
 	return ..()
 
 /// Handles dealing with a breaking radiation collector
-/obj/machinery/power/rad_collector/proc/collector_break()
+/obj/structure/machinery/power/rad_collector/proc/collector_break()
 	if(loaded_tank && loaded_tank.air_contents)
 		var/turf/T = get_turf(src)
 		if(T)
@@ -183,11 +183,11 @@ GLOBAL_LIST_INIT_TYPED(rad_collectors, /obj/machinery/power/rad_collector, list(
 	desc += " This one is destroyed beyond repair."
 	update_icon()
 
-/obj/machinery/power/rad_collector/return_air()
+/obj/structure/machinery/power/rad_collector/return_air()
 	if(loaded_tank)
 		return loaded_tank.return_air()
 
-/obj/machinery/power/rad_collector/ex_act(severity)
+/obj/structure/machinery/power/rad_collector/ex_act(severity)
 	switch(severity)
 		if(2, 3)
 			eject()
@@ -199,7 +199,7 @@ GLOBAL_LIST_INIT_TYPED(rad_collectors, /obj/machinery/power/rad_collector, list(
  * Arguments:
  * - user: Optional. If defined, will eject the tank into the user's hands, if possible.
  */
-/obj/machinery/power/rad_collector/proc/eject(mob/user)
+/obj/structure/machinery/power/rad_collector/proc/eject(mob/user)
 	locked = 0
 	var/obj/item/tank/phoron/tank = src.loaded_tank
 	if(!tank)
@@ -221,7 +221,7 @@ GLOBAL_LIST_INIT_TYPED(rad_collectors, /obj/machinery/power/rad_collector, list(
  * Arguments:
  * - pulse_strength: The strength of the pulse to calculate into power output
  */
-/obj/machinery/power/rad_collector/proc/receive_pulse(pulse_strength)
+/obj/structure/machinery/power/rad_collector/proc/receive_pulse(pulse_strength)
 	if(loaded_tank && active)
 		var/power_produced = 0
 		power_produced = min(100*loaded_tank.air_contents.gas[GAS_PHORON]*pulse_strength*pulse_coeff,max_power)
@@ -231,7 +231,7 @@ GLOBAL_LIST_INIT_TYPED(rad_collectors, /obj/machinery/power/rad_collector, list(
 	return
 
 
-/obj/machinery/power/rad_collector/update_icon()
+/obj/structure/machinery/power/rad_collector/update_icon()
 	if(melted)
 		icon_state = "ca_melt"
 	else if(active)
@@ -257,7 +257,7 @@ GLOBAL_LIST_INIT_TYPED(rad_collectors, /obj/machinery/power/rad_collector, list(
 		AddOverlays(image(icon, "on"))
 
 
-/obj/machinery/power/rad_collector/toggle_power()
+/obj/structure/machinery/power/rad_collector/toggle_power()
 	active = !active
 	if(active)
 		flick("ca_active", src)

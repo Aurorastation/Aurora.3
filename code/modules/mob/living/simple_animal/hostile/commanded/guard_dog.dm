@@ -45,11 +45,12 @@
 
 	destroy_surroundings = FALSE
 	attack_emote = "growls at"
+	attack_vis_effect = ATTACK_EFFECT_BITE
 
 	butchering_products = list(/obj/item/stack/material/animalhide = 2)
 
 /mob/living/simple_animal/hostile/commanded/dog/verb/befriend()
-	set name = "Befriend Dog"
+	set name = "Befriend Creature"
 	set category = "IC.Critters"
 	set src in view(1)
 
@@ -103,10 +104,11 @@
 	icon_rest = "armored_carp_rest"
 	//Carp code
 	speak = list("Glub!", "Glub")
-	speak_emote = list("glubs!", "glubs")
-	emote_hear = list("glubs!", "glubs")
+	speak_emote = list("glubs", "glubs")
+	emote_hear = list("glubs", "glubs")
 	sad_emote = list("sad glubs", "pained glubs")
 	emote_sounds = NONE
+	attack_sound = 'sound/weapons/bite.ogg'
 	meat_type = /obj/item/reagent_containers/food/snacks/fish/carpmeat
 	butchering_products = list(/obj/item/reagent_containers/food/snacks/fish/roe = 1)
 	organ_names = list("head", "chest", "tail", "left flipper", "right flipper")

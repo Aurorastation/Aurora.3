@@ -23,9 +23,9 @@
 	var/constructionstate = 0
 	var/drain_per_second = 3
 	var/last_process_time = 0
-	var/obj/machinery/door/airlock/target_node1 = null
-	var/obj/machinery/door/airlock/target_node2 = null
-	var/obj/machinery/door/airlock/target = null
+	var/obj/structure/machinery/door/airlock/target_node1 = null
+	var/obj/structure/machinery/door/airlock/target_node2 = null
+	var/obj/structure/machinery/door/airlock/target = null
 	var/obj/item/cell/powercell
 
 /obj/item/magnetic_lock/condition_hints(mob/user, distance, is_adjacent)
@@ -76,11 +76,11 @@
 		desc += " It is painted with [department] colors."
 
 	update_icon()
-	var/obj/machinery/door/airlock/newtarget = (locate(/obj/machinery/door/airlock) in get_turf(src))
+	var/obj/structure/machinery/door/airlock/newtarget = (locate(/obj/structure/machinery/door/airlock) in get_turf(src))
 	if(newtarget)
 		var/direction = REVERSE_DIR(dir)
 		forceMove(get_step(newtarget.loc, REVERSE_DIR(direction)))
-		for (var/obj/machinery/door/airlock/A in oview(1, newtarget))
+		for (var/obj/structure/machinery/door/airlock/A in oview(1, newtarget))
 			var/rdir = get_dir(newtarget, A)
 			if (istype(A, newtarget.type) && (rdir == turn(direction, -90) || rdir == turn(direction, 90)))
 				if(!target_node1)
@@ -267,7 +267,7 @@
 		detach(0)
 	last_process_time = world.time
 
-/obj/item/magnetic_lock/proc/check_target(var/obj/machinery/door/airlock/newtarget, var/mob/user as mob)
+/obj/item/magnetic_lock/proc/check_target(var/obj/structure/machinery/door/airlock/newtarget, var/mob/user as mob)
 	if (status == STATUS_BROKEN)
 		to_chat(user, SPAN_DANGER("[src] is damaged beyond repair! It cannot be used!"))
 		return 0
@@ -290,7 +290,7 @@
 
 	return 1
 
-/obj/item/magnetic_lock/proc/attachto(var/obj/machinery/door/airlock/newtarget, var/mob/user as mob)
+/obj/item/magnetic_lock/proc/attachto(var/obj/structure/machinery/door/airlock/newtarget, var/mob/user as mob)
 	if (!check_target(newtarget, user)) return
 
 	user.visible_message(SPAN_NOTICE("[user] starts mounting [src] onto [newtarget]."),
@@ -314,16 +314,16 @@
 					to_chat(user, SPAN_WARNING("There is something in the way of \the [newtarget]!"))
 					return
 
-		if (locate(/obj/machinery/door/airlock) in oview(1, newtarget))
+		if (locate(/obj/structure/machinery/door/airlock) in oview(1, newtarget))
 			if (alert("Brace adjacent airlocks?",,"Yes", "No") == "Yes")
 				if (!check_target(newtarget, user)) return
-				for (var/obj/machinery/door/airlock/A in get_step(newtarget.loc, turn(direction, -90)))
+				for (var/obj/structure/machinery/door/airlock/A in get_step(newtarget.loc, turn(direction, -90)))
 					if (istype(A, newtarget.type))
 						if (!check_target(A, user)) return
 						target_node1 = A
 						target_node1.bracer = src
 						break
-				for (var/obj/machinery/door/airlock/B in get_step(newtarget.loc, turn(direction, 90)))
+				for (var/obj/structure/machinery/door/airlock/B in get_step(newtarget.loc, turn(direction, 90)))
 					if (istype(B, newtarget.type))
 						if (!check_target(B, user)) return
 						target_node2 = B
@@ -375,7 +375,7 @@
 		STOP_PROCESSING(SSprocessing, src)
 		last_process_time = 0
 
-/obj/item/magnetic_lock/proc/attach(var/obj/machinery/door/airlock/newtarget as obj)
+/obj/item/magnetic_lock/proc/attach(var/obj/structure/machinery/door/airlock/newtarget as obj)
 	layer = ABOVE_DOOR_LAYER
 
 	newtarget.bracer = src

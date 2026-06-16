@@ -10,6 +10,9 @@
 
 #define FRACTURE_AND_TENDON_DAM_THRESHOLD 30 // if a weapon does more than this amount of damage, it's powerful enough to sever the tendon AND fracture the bone, if it's a sharp weapon
 
+///How long before a wound starts autohealing without treatment
+#define HEALING_DELAY 60 SECONDS
+
 /obj/item/organ/external
 	name = "external"
 	min_broken_damage = 30
@@ -437,6 +440,9 @@
 	if((brute <= 0) && (burn <= 0))
 		return 0
 
+	if(damage_flags & DAMAGE_FLAG_IGNORE_PROSTHETICS && BP_IS_ROBOTIC(src))
+		return 0
+
 	var/laser = (damage_flags & DAMAGE_FLAG_LASER)
 	var/sharp = (damage_flags & DAMAGE_FLAG_SHARP)
 	var/edge = (damage_flags & DAMAGE_FLAG_EDGE)
@@ -499,7 +505,7 @@
 	add_pain(0.6 * burn + 0.4 * brute)
 
 	if(owner)
-		SEND_SIGNAL(owner, COMSIG_EXTERNAL_ORGAN_DAMAGE, burn + brute)
+		SEND_SIGNAL(owner, COMSIG_DAMAGE_TO_ENDOSKELETON, burn + brute)
 
 	//If there are still hurties to dispense
 	if (spillover)
@@ -588,13 +594,13 @@
 					if(W.w_class >= w_class && (dam_flags & DAMAGE_FLAG_EDGE))
 						edge_eligible = TRUE
 
-				if(!blunt_eligible && edge_eligible && (brute >= max_damage / (DROPLIMB_THRESHOLD_EDGE + maim_bonus_to_add)))
+				if(!blunt_eligible && edge_eligible && (brute >= max_damage / max((DROPLIMB_THRESHOLD_EDGE + maim_bonus_to_add), 0.1)))
 					droplimb(0, DROPLIMB_EDGE)
-				else if(burn >= max_damage / ((dam_flags & DAMAGE_FLAG_LASER ? DROPLIMB_THRESHOLD_DESTROY_PROJECTILE :  DROPLIMB_THRESHOLD_DESTROY) + maim_bonus_to_add))
+				else if(burn >= max_damage / max((dam_flags & DAMAGE_FLAG_LASER ? DROPLIMB_THRESHOLD_DESTROY_PROJECTILE :  DROPLIMB_THRESHOLD_DESTROY) + maim_bonus_to_add, 0.1))
 					droplimb(0, DROPLIMB_BURN)
-				else if(blunt_eligible && brute >= max_damage / ((dam_flags & DAMAGE_FLAG_BULLET ? DROPLIMB_THRESHOLD_DESTROY_PROJECTILE :  DROPLIMB_THRESHOLD_DESTROY) + maim_bonus_to_add))
+				else if(blunt_eligible && brute >= max_damage / max((dam_flags & DAMAGE_FLAG_BULLET ? DROPLIMB_THRESHOLD_DESTROY_PROJECTILE :  DROPLIMB_THRESHOLD_DESTROY) + maim_bonus_to_add, 0.1))
 					droplimb(0, DROPLIMB_BLUNT)
-				else if(brute >= max_damage / (DROPLIMB_THRESHOLD_TEAROFF + maim_bonus_to_add))
+				else if(brute >= max_damage / max((DROPLIMB_THRESHOLD_TEAROFF + maim_bonus_to_add), 0.1))
 					droplimb(0, DROPLIMB_EDGE)
 
 /obj/item/organ/external/heal_damage(brute, burn, internal = 0, robo_repair = 0)
@@ -993,8 +999,10 @@ Note that amputating the affected organ does in fact remove the infection from t
 		var/heal_amt = 0
 
 		// if damage >= 50 AFTER treatment then it's probably too severe to heal within the timeframe of a round.
+		// Only autoheal if wound was created or enlarged more than 10 seconds ago, this is so damage over time effects don't need to be larger than the autoheal speed
 		if (updatehud && brute_ratio < 50 && burn_ratio < 50 && W.can_autoheal())
-			heal_amt += 0.5
+			if (W.created + HEALING_DELAY <= world.time || W.bandaged || W.salved)
+				heal_amt += 0.5
 
 		//we only update wounds once in [wound_update_accuracy] ticks so have to emulate realtime
 		heal_amt *= wound_update_accuracy

@@ -97,8 +97,6 @@ GLOBAL_DATUM(debugobj, /datum/debug)
 
 GLOBAL_DATUM_INIT(mods, /datum/moduletypes, new())
 
-GLOBAL_VAR_INIT(gravity_is_on, 1)
-
 GLOBAL_LIST_EMPTY(awaydestinations) // Away missions. A list of landmarks that the warpgate can take you to.
 
 // For FTP requests. (i.e. downloading runtime logs.)
@@ -136,12 +134,6 @@ GLOBAL_LIST_INIT(scarySounds, list(
 	'sound/weapons/thudswoosh.ogg',
 	'sound/weapons/Taser.ogg',
 	'sound/weapons/armbomb.ogg',
-	'sound/voice/hiss1.ogg',
-	'sound/voice/hiss2.ogg',
-	'sound/voice/hiss3.ogg',
-	'sound/voice/hiss4.ogg',
-	'sound/voice/hiss5.ogg',
-	'sound/voice/hiss6.ogg',
 	'sound/effects/glass_break1.ogg',
 	'sound/effects/glass_break2.ogg',
 	'sound/effects/glass_break3.ogg',

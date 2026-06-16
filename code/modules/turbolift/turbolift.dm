@@ -23,17 +23,17 @@
 	open_doors()
 
 /datum/turbolift/proc/doors_are_open(datum/turbolift_floor/use_floor = current_floor)
-	for(var/obj/machinery/door/airlock/door in (use_floor ? (doors + use_floor.doors) : doors))
+	for(var/obj/structure/machinery/door/airlock/door in (use_floor ? (doors + use_floor.doors) : doors))
 		if(!door.density)
 			return 1
 	return 0
 
 /datum/turbolift/proc/open_doors(datum/turbolift_floor/use_floor = current_floor)
-	for(var/obj/machinery/door/airlock/door in (use_floor ? (doors + use_floor.doors) : doors))
+	for(var/obj/structure/machinery/door/airlock/door in (use_floor ? (doors + use_floor.doors) : doors))
 		door.command("open")
 
 /datum/turbolift/proc/close_doors(datum/turbolift_floor/use_floor = current_floor)
-	for(var/obj/machinery/door/airlock/door in (use_floor ? (doors + use_floor.doors) : doors))
+	for(var/obj/structure/machinery/door/airlock/door in (use_floor ? (doors + use_floor.doors) : doors))
 		door.command("close")
 
 /datum/turbolift/proc/do_work()
@@ -66,7 +66,7 @@
 
 	doors_closing = 0 // The doors weren't open, so they are done closing
 
-	var/area/turbolift/origin = locate(current_floor.area_ref) in get_sorted_areas()
+	var/area/turbolift/origin = locate(current_floor.area_ref)
 
 	if(target_floor == current_floor)
 		playsound(control_panel_interior.loc, origin.arrival_sound, 50, 1)
@@ -86,7 +86,7 @@
 	else
 		next_floor = floors[current_floor_index - 1]
 
-	var/area/turbolift/destination = locate(next_floor.area_ref) in get_sorted_areas()
+	var/area/turbolift/destination = locate(next_floor.area_ref)
 
 	if(!istype(origin) || !istype(destination) || (origin == destination))
 		return 0

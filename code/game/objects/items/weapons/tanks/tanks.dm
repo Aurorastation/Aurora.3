@@ -2,8 +2,8 @@
 	name = "tank"
 	icon = 'icons/obj/tank.dmi'
 	contained_sprite = TRUE
-	drop_sound = 'sound/items/drop/gascan.ogg'
-	pickup_sound = 'sound/items/pickup/gascan.ogg'
+	drop_sound = 'sound/items/drop/gas_tank.ogg'
+	pickup_sound = 'sound/items/pickup/gas_tank.ogg'
 
 	var/gauge_icon = "indicator_tank"
 	var/last_gauge_pressure
@@ -12,6 +12,8 @@
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BACK
 	w_class = WEIGHT_CLASS_NORMAL
+
+	permeability_coefficient = 0 //So your oxygen tank doesn't get contaminated by phoron in the air.
 
 	force = 11
 	throwforce = 10.0

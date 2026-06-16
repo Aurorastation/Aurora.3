@@ -1,4 +1,4 @@
-/obj/machinery/orderterminal
+/obj/structure/machinery/orderterminal
 	name = "Idris Ordering Terminal"
 	desc = "An ordering terminal designed by Idris for quicker expedition."
 	icon = 'icons/obj/machinery/wall/terminals.dmi'
@@ -23,21 +23,21 @@
 	var/ticket_number = 1
 	req_one_access = list(ACCESS_BAR, ACCESS_GALLEY, ACCESS_CARGO) // Access to change the menu
 
-/obj/machinery/orderterminal/mechanics_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/orderterminal/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Items can be paid for with id cards or charge cards, and a receipt will be printed."
 	. += "The terminal can print a paper which can be used to quickly fill it out in the future by using it on the register."
 
-/obj/machinery/orderterminal/Initialize()
+/obj/structure/machinery/orderterminal/Initialize()
 	. = ..()
 	src.LoadComponent(/datum/component/quikpay_shop/orderterminal/food, req_one_access, destinationact)
 	update_icon()
 
-/obj/machinery/orderterminal/power_change()
+/obj/structure/machinery/orderterminal/power_change()
 	..()
 	update_icon()
 
-/obj/machinery/orderterminal/update_icon()
+/obj/structure/machinery/orderterminal/update_icon()
 	ClearOverlays()
 	if(stat & NOPOWER)
 		set_light(FALSE)
@@ -47,13 +47,13 @@
 	AddOverlays(screen_overlay)
 	set_light(1.4, 1, COLOR_CYAN)
 
-/obj/machinery/orderterminal/process()
+/obj/structure/machinery/orderterminal/process()
 	if(stat & NOPOWER)
 		ClearOverlays()
 		set_light(FALSE)
 		return
 
-/obj/machinery/orderterminal/attack_hand(var/mob/user)
+/obj/structure/machinery/orderterminal/attack_hand(var/mob/user)
 	if(stat & NOPOWER)
 		balloon_alert(user, "no power")
 		return
@@ -62,7 +62,7 @@
 		return
 	qp_shop.ui_interact(user)
 
-/obj/machinery/orderterminal/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/orderterminal/attackby(obj/item/attacking_item, mob/user)
 	if(stat & NOPOWER)
 		balloon_alert(user, "no power")
 		return

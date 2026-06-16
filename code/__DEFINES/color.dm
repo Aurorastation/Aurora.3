@@ -18,6 +18,7 @@
 #define COLOR_GRAY15           "#151515"
 #define COLOR_SEDONA           "#cc6600"
 #define COLOR_DARK_BROWN       "#917448"
+#define COLOR_MUTED_BROWN      "#5c503f"
 #define COLOR_BLUE             "#0000ff"
 #define COLOR_DEEP_SKY_BLUE    "#00e1ff"
 #define COLOR_LIME             "#00ff00"

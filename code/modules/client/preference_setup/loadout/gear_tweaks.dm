@@ -58,7 +58,7 @@ Color adjustment
 	..()
 
 /datum/gear_tweak/color/get_contents(var/metadata)
-	return "Color: <font color='[metadata]'>&#9899;</font>"
+	return "Color: <span style=\"color:[metadata];font-size:150%\">&#9679;</span>"
 
 /datum/gear_tweak/color/get_default()
 	return valid_colors ? valid_colors[1] : COLOR_GRAY
@@ -104,7 +104,7 @@ Alpha adjustment
 GLOBAL_DATUM_INIT(gear_tweak_accent_color, /datum/gear_tweak/color/accent, new())
 
 /datum/gear_tweak/color/accent/get_contents(var/metadata)
-	return "Accent Color: <font color='[metadata]'>&#9899;</font>"
+	return "Accent Color: <span style=\"color:[metadata];font-size:150%\">&#9679;</span>"
 
 /datum/gear_tweak/color/accent/tweak_item(var/obj/item/I, var/metadata, var/mob/living/carbon/human/H)
 	if(valid_colors && !(metadata in valid_colors))

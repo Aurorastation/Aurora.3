@@ -1,0 +1,7 @@
+
+author: Fenodyree
+
+delete-after: True
+
+changes:
+  - rscadd: "Added the ability to stir drinks. This is an alternative to using the shaker for skilled bartenders to add moodlets."

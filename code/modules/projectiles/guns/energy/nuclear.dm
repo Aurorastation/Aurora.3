@@ -139,6 +139,9 @@
 	can_switch_modes = TRUE
 	turret_sprite_set = "carbine"
 	turret_is_lethal = FALSE
+	turret_is_lethal = 0
+	drop_sound = 'sound/items/drop/pistol.ogg'
+	pickup_sound = 'sound/items/pickup/pistol.ogg'
 
 	projectile_type = /obj/projectile/beam/stun
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
@@ -219,6 +222,8 @@
 
 	projectile_type = /obj/projectile/beam/pistol/scc
 	origin_tech = list(TECH_COMBAT = 5, TECH_MAGNET = 4)
+	drop_sound = 'sound/items/drop/smg.ogg'
+	pickup_sound = 'sound/items/pickup/smg.ogg'
 
 	firemodes = list(
 		list(mode_name="single", can_autofire = FALSE, burst = 1),
@@ -245,6 +250,8 @@
 	projectile_type = /obj/projectile/beam/stun
 	origin_tech = list(TECH_COMBAT = 4, TECH_MAGNET = 3)
 	modifystate = "sccpistolstun"
+	drop_sound = 'sound/items/drop/pistol.ogg'
+	pickup_sound = 'sound/items/pickup/pistol.ogg'
 
 	firemodes = list(
 		list(mode_name="stun", projectile_type=/obj/projectile/beam/stun, modifystate="sccpistolstun", fire_sound='sound/weapons/Taser.ogg'),
@@ -273,6 +280,8 @@ ABSTRACT_TYPE(/obj/item/gun/energy/gun/skrell)
 	force = 11
 	projectile_type = /obj/projectile/beam/stun/skrell
 	secondary_projectile_type = /obj/projectile/beam/pulse/skrell
+	drop_sound = 'sound/items/drop/pistol.ogg'
+	pickup_sound = 'sound/items/pickup/pistol.ogg'
 
 	firemodes = list(
 		list(mode_name="disable", projectile_type=/obj/projectile/beam/stun/skrell, fire_sound='sound/weapons/Laser2.ogg'),
@@ -290,6 +299,8 @@ ABSTRACT_TYPE(/obj/item/gun/energy/gun/skrell)
 	force = 16
 	projectile_type = /obj/projectile/beam/stun/skrell
 	secondary_projectile_type = /obj/projectile/beam/pulse/skrell
+	drop_sound = 'sound/items/drop/smg.ogg'
+	pickup_sound = 'sound/items/pickup/smg.ogg'
 
 	firemodes = list(
 		list(mode_name="disable", projectile_type=/obj/projectile/beam/stun/skrell, fire_sound='sound/weapons/Laser2.ogg'),
@@ -346,6 +357,8 @@ ABSTRACT_TYPE(/obj/item/gun/energy/gun/skrell)
 	can_switch_modes = TRUE
 	projectile_type = /obj/projectile/energy/disruptorskrell
 	modifystate = "psipistolstun"
+	drop_sound = 'sound/items/drop/pistol.ogg'
+	pickup_sound = 'sound/items/pickup/pistol.ogg'
 
 	firemodes = list(
 		list(mode_name="stun", projectile_type=/obj/projectile/energy/disruptorskrell, modifystate="psipistolstun", fire_sound='sound/weapons/Taser.ogg'),

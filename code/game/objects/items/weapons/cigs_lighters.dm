@@ -989,7 +989,7 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 	set_light_on(TRUE)
 	START_PROCESSING(SSprocessing, src)
 
-/obj/item/flame/lighter/vendor_action(var/obj/machinery/vending/V)
+/obj/item/flame/lighter/vendor_action(var/obj/structure/machinery/vending/V)
 	handle_lighting()
 
 /obj/item/flame/lighter/attack(mob/living/target_mob, mob/living/user, target_zone)

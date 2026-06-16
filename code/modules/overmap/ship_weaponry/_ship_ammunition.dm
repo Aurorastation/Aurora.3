@@ -66,8 +66,11 @@
 
 /obj/item/ship_ammunition/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.force > 10 && (ammunition_flags & SHIP_AMMO_FLAG_VERY_FRAGILE))
-		log_and_message_admins("[user] has caused the cookoff of [src] by attacking it with [attacking_item]!", user)
-		cookoff(FALSE)
+		if(istype(attacking_item, /obj/item/mecha_equipment/clamp))
+			return ..()
+		else
+			log_and_message_admins("[user] has caused the cookoff of [src] by attacking it with [attacking_item]!", user)
+			cookoff(FALSE)
 
 	else if(attacking_item.tool_behaviour == TOOL_PEN)
 		var/obj/item/pen/P = attacking_item
@@ -138,7 +141,7 @@
 /obj/item/ship_ammunition/proc/update_status()
 	return
 
-/obj/item/ship_ammunition/proc/eject_shell(var/obj/machinery/ship_weapon/SW) //do cool casing ejection effects here
+/obj/item/ship_ammunition/proc/eject_shell(var/obj/structure/machinery/ship_weapon/SW) //do cool casing ejection effects here
 	return
 
 /obj/item/ship_ammunition/proc/wield(var/mob/living/carbon/human/user)
@@ -208,7 +211,7 @@
 		P.dir = S.dir
 	P.icon_state = overmap_icon_state
 	P.speed = get_speed()
-	P.entry_target = entry_point
+	P.submap_target = entry_point
 	forceMove(P)
 	log_and_message_admins("A projectile ([name]) has entered the Overmap! (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[P.x];Y=[P.y];Z=[P.z]'>JMP</a>)")
 	return TRUE
@@ -224,11 +227,87 @@
 	anti_materiel_potential = 3
 	impact_sounds = list(BULLET_IMPACT_MEAT = SOUNDS_BULLET_MEAT, BULLET_IMPACT_METAL = SOUNDS_BULLET_METAL)
 	accuracy = 100
-	projectile_piercing = PASSMOB|PASSDOORS|PASSGLASS|PASSCLOSEDTURF|PASSWINDOW|PASSMACHINE|PASSBLOB|PASSFLAPS|PASSVEHICLE //It's a ship weapon let it try to penetrate everything.
+	projectile_piercing = PASSGLASS|PASSGRILLE|PASSBLOB|PASSMOB|PASSCLOSEDTURF|PASSMACHINE|PASSSTRUCTURE|PASSFLAPS|PASSDOORS|PASSVEHICLE|PASSWINDOW|PASSSHIELD //It's a ship weapon let it try to penetrate everything.
 	pierce_decay_damage = 0.95  //Ship weapon projectiles don't lose much damage on pierce by default, but this can be set per projectile.
+	///This is passed to explosion(), it is stored here for when projectiles hit shields and need to damage the shield as if they had exploded.
+	var/list/explosion_strength = list(0, 0, 0)
+	///The last thing this projectile pierced. Used for spalling effects in on_hit()
+	var/atom/last_thing_pierced = null
 	var/obj/item/ship_ammunition/ammo
 	var/primed = FALSE
-	var/hit_target = FALSE //First target we hit. Used to report if a hit was successful.
+	///First target we hit. Used to report if a hit was successful.
+	var/hit_target = FALSE
+
+/obj/projectile/ship_ammo/Moved(atom/old_loc, movement_dir, forced, list/old_locs, momentum_change = TRUE) //When the projectile moves from a dense tile to a non-dense tile.
+	. = ..()
+	if(last_thing_pierced)
+		var/turf/entered_turf = isturf(loc) ? loc : get_turf(loc)
+		if(!(entered_turf.check_density(FALSE, TRUE))) //Checks for mobs so we don't spawn spalling inside the poor bridge crew, getting hit by the shell is bad enough.
+			handle_spalling(entered_turf, movement_dir, last_thing_pierced)
+			last_thing_pierced = null
+
+/**
+ * This creates a cone of shrapnel whenever a projectile pierces something dense and then crosses into a non-dense turf.
+ * This means that it won't spawn all the shrapnel inside the next thing it penetrates, to simulate spalling.
+ * All of of the projectile stats are set custom here, in future it might be good to set them dynmically based on the material of the thing pierced.
+ * Too many things don't have a material set, so that will have to wait.
+ */
+/obj/projectile/ship_ammo/proc/handle_spalling(atom/source, shrapnel_dir, thing_pierced)
+	set waitfor = FALSE
+
+	src.visible_message(SPAN_DANGER("Huge chunks of shrapnel spray out from \the [thing_pierced] as \the [src] punches through!"))
+
+	var/turf/O = get_turf(src)
+	var/list/target_turfs = list()
+	target_turfs += get_step(O, shrapnel_dir)
+	target_turfs += get_step(O, turn(shrapnel_dir, -45))
+	target_turfs += get_step(O, turn(shrapnel_dir, 45))
+	target_turfs += get_step(get_step(O, turn(shrapnel_dir, -45)), shrapnel_dir)
+	target_turfs += get_step(get_step(O, turn(shrapnel_dir, 45)), shrapnel_dir)
+
+	for(var/turf/T in target_turfs)
+		var/obj/projectile/bullet/pellet/fragment/spall/P
+		if(istype(thing_pierced, /obj/structure/window))
+			P = new /obj/projectile/bullet/pellet/fragment/spall/glass(O)
+		else if(istype(thing_pierced, /obj/structure/grille) || istype(thing_pierced, /obj/structure/window_frame))
+			P = new /obj/projectile/bullet/pellet/fragment/spall/metalrod(O)
+		else if(istype(thing_pierced, /obj/structure/machinery/door/airlock))
+			var/obj/structure/machinery/door/airlock/D = thing_pierced
+			if(D.window_material && D.window_material == SSmaterials.get_material_by_name(MATERIAL_GLASS))
+				P = new /obj/projectile/bullet/pellet/fragment/spall/glass(O)
+			else
+				P = new /obj/projectile/bullet/pellet/fragment/spall(O)
+		else
+			P = new /obj/projectile/bullet/pellet/fragment/spall(O)
+		P.preparePixelProjectile(T, src)
+		P.firer = src
+		P.fired_from = thing_pierced
+		P.fire()
+	return TRUE
+
+/obj/projectile/bullet/pellet/fragment/spall
+		damage = 2 //Between 30 and 3 damage, depending on how close you are. Pilot suits are 30 ballistic armour, so they should survive a lot of spall.
+		pellets = 15
+		armor_penetration = 10
+		range_step = 1
+		range = 15
+		embed_chance = 80 //Make the people hit pull big chunks of shrapnel out by hand.
+		maim_rate = -1 //We don't want this to decapitate people in the unlucky event they get hit by the shell (or shell explosion) directly, then more shrapnel afterwards.
+		anti_materiel_potential = 2 //Enough to break windows.
+		name = "spall"
+		shrapnel_type = /obj/item/material/shard/shrapnel/large
+
+/obj/projectile/bullet/pellet/fragment/spall/glass
+		damage = 1
+		armor_penetration = 5
+		name = "glass"
+		shrapnel_type = /obj/item/material/shard
+
+/obj/projectile/bullet/pellet/fragment/spall/metalrod
+		damage = 3
+		armor_penetration = 15
+		name = "metal rod"
+		shrapnel_type = /obj/item/stack/rods
 
 /obj/projectile/ship_ammo/Destroy()
 	ammo = null
@@ -258,6 +337,18 @@
 		)
 		if(ammo && ammo.origin)
 			ammo.origin.signal_hit(hit_data)
+
+		for(var/mob/M in GLOB.dead_mob_list) //Print out a message about what we hit to all ghosts.
+			if(M.client)
+				to_chat(M, "<span class='deadsay'>" + create_text_tag("DEAD", M.client) + "[ghost_follow_link(target, M)] A [src.name] hit \the [target.name] in \the [get_area(target)] at [target.x], [target.y], [target.z]!</span>")
+
+	if(istype(target, /turf/simulated/wall) || istype(target, /obj/structure/machinery/door)) //Stores the last thing we pierced for spalling purposes.
+		last_thing_pierced = target
+	else if (istype(target, /obj/structure)) //If it is a structure on a dense turf, that uses health,
+		if (target.should_use_health)
+			var/turf/T = get_turf(target)
+			if (T.check_density(FALSE, TRUE))
+				last_thing_pierced = target
 	return ..()
 
 /obj/projectile/ship_ammo/proc/on_translate(var/turf/entry_turf, var/target_turf) //This proc is called when the projectile enters a new ship's overmap zlevel.
@@ -270,6 +361,5 @@
 			pellet.ammo.origin = ammo.origin
 			pellet.ammo.impact_type = ammo.impact_type
 			pellet.dir = dir
-			var/turf/front_turf = get_step(pellet, pellet.dir)
-			pellet.preparePixelProjectile(target_turf, front_turf)
+			pellet.preparePixelProjectile(target_turf, new_turf, deviation = 3) //Deviation can be tuned. These spawn at the map edge so small deviations matter a lot.
 			pellet.fire()

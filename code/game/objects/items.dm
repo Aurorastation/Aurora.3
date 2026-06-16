@@ -136,6 +136,8 @@
 	var/zoomdevicename
 	/// Boolean, `TRUE` if item is actively being used to zoom. For scoped guns and binoculars.
 	var/zoom = FALSE
+	/// The message used when stopping looking through a pair of binoculars/scope
+	var/zoom_out_message
 
 	/// Boolean, if item_state, lefthand, righthand, and worn sprite are all in one dmi
 	var/contained_sprite = FALSE
@@ -205,6 +207,13 @@
 	/// Used to override hardcoded clothing dmis in human clothing pr
 	var/icon_override
 
+	/// Angle of the icon, used for piercing and slashing attack animations, clockwise from *east-facing* sprites
+	var/icon_angle = 0
+	///icon file for an alternate attack icon
+	var/attack_icon
+	///icon state for an alternate attack icon
+	var/attack_icon_state
+
 	var/charge_failure_message = " cannot be recharged."
 	var/held_maptext
 
@@ -234,8 +243,16 @@
 	/// Requires the usual implementation requirements for new persistent types but provides a single implementation for trash logic
 	var/persistency_considered_trash = FALSE
 
-	/// How a tool acts when you use it on something, such as wirecutters cutting wires while multitools measure power
+	/**
+	 * How a tool acts when you use it on something, such as wirecutters cutting wires while multitools measure power.
+	 * This merely sets the initial starting tool quality for a given tool.
+	 * If a tool wants to have more than one quality, it can do so via SET_TOOL_QUALITIES() in its own Initialize() call
+	 *
+	 * Do note that this is merely just an expedience for /obj/item. Any /atom/ is allowed to have tool qualities.
+	 */
 	var/tool_behaviour = null
+	/// Determines the starting tool level for a tool's basic use if any. tool_behavior must be set for this to apply.
+	var/tool_quality = STANDARD_TOOL_LEVEL
 
 /obj/item/Initialize(mapload, ...)
 	. = ..()
@@ -243,13 +260,24 @@
 		set_initial_maptext()
 		check_maptext()
 
+	if (tool_behaviour)
+		LOAD_TOOL_QUALITIES(src, alist(tool_behavior = tool_quality), toolComp)
+
 /obj/item/Destroy()
 	if(ismob(loc))
 		var/mob/m = loc
 		m.drop_from_inventory(src, null)
 
-	if(!QDELETED(action))
+	if(islist(action))
+		var/list/action_list = action
+		for(var/i in 1 to action_list.len)
+			var/datum/action/A = action_list[i]
+			if(!QDELETED(A))
+				QDEL_NULL(A)
+		action_list.Cut()
+	else if(!QDELETED(action))
 		QDEL_NULL(action) // /mob/living/proc/handle_actions() creates it, for ungodly reasons
+
 	action = null
 
 	if(!QDELETED(hidden_uplink))
@@ -316,23 +344,22 @@
 
 	I.forceMove(T)
 
-/obj/item/get_examine_text(mob/user, distance, is_adjacent, infix, suffix, get_extended = FALSE)
-	var/size
-	switch(src.w_class)
-		if (WEIGHT_CLASS_HUGE to INFINITY)
-			size = "huge"
-		if (WEIGHT_CLASS_BULKY to WEIGHT_CLASS_HUGE)
-			size = "bulky"
-		if (WEIGHT_CLASS_NORMAL to WEIGHT_CLASS_BULKY)
-			size = "normal-sized"
-		if (WEIGHT_CLASS_SMALL to WEIGHT_CLASS_NORMAL)
-			size = "small"
-		if (0 to WEIGHT_CLASS_SMALL)
-			size = "tiny"
-	//Changed this switch to ranges instead of tiered values, to cope with granularity and also
-	//things outside its range ~Nanako
+/obj/item/examine_descriptor(mob/user)
+	return "item"
 
-	. = ..(user, distance, is_adjacent, "It is a [size] item.", get_extended = get_extended)
+/obj/item/examine_tags(mob/user)
+	var/list/parent_tags = ..()
+	parent_tags.Insert(1, weight_class_to_text(w_class)) // To make size display first, otherwise it looks goofy
+	. = parent_tags
+	.[weight_class_to_text(w_class)] = weight_class_to_tooltip(w_class)
+
+	if (siemens_coefficient == 0)
+		.["insulated"] = "It is made from a robust electrical insulator and will block any electricity passing through it!"
+	else if (siemens_coefficient <= 0.5)
+		.["partially insulated"] = "It is made from a poor insulator that will dampen (but not fully block) electric shocks passing through it."
+
+/obj/item/get_examine_text(mob/user, distance, is_adjacent, infix, suffix, get_extended = FALSE)
+	. = ..(user, distance, is_adjacent, get_extended = get_extended)
 	var/datum/component/armor/armor_component = GetComponent(/datum/component/armor)
 	if(armor_component && !armor_component.hidden)
 		. += FONT_SMALL(SPAN_NOTICE("\[?\] This item has armor values. <a href='byond://?src=[REF(src)];examine_armor=1'>\[Show Armor Values\]</a>"))
@@ -911,7 +938,7 @@ GLOBAL_LIST_INIT(slot_flags_enumeration, list(
 
 /obj/item/proc/showoff(mob/user)
 	var/list/viewers = get_hearers_in_view(world.view, src)
-	user.langchat_speech("holds up [src].", viewers, GLOB.all_languages, skip_language_check = TRUE, animation_style = LANGCHAT_FAST_POP, additional_styles = list("langchat_small", "emote"))
+	user.langchat_speech("holds up [src].", viewers, animation_style = LANGCHAT_FAST_POP, additional_styles = list("langchat_small", "emote"))
 	for (var/mob/M in viewers)
 		if(!user.is_invisible_to(M))
 			M.show_message("<b>[user]</b> holds up [icon2html(src, M)] [src]. <a href='byond://?src=[REF(M)];lookitem=[REF(src)]'>Take a closer look.</a>",1)
@@ -994,9 +1021,11 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 		M.client.pixel_x = 0
 		M.client.pixel_y = 0
 
-		if(!cannotzoom)
-			if(show_zoom_message)
+		if(!cannotzoom && show_zoom_message)
+			if(!zoom_out_message)
 				M.visible_message("[zoomdevicename ? "<b>[M]</b> looks up from \the [src.name]" : "<b>[M]</b> lowers \the [src.name]"].")
+			else
+				M.visible_message("[zoomdevicename ? "<b>[M]</b>[zoom_out_message] \the [src.name]." : "<b>[M]</b>[zoom_out_message]"]")
 
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
@@ -1236,7 +1265,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	return
 
 // this gets called when the item gets chucked by the vending machine
-/obj/item/proc/vendor_action(var/obj/machinery/vending/V)
+/obj/item/proc/vendor_action(var/obj/structure/machinery/vending/V)
 	return
 
 /obj/item/proc/set_initial_maptext()
@@ -1317,10 +1346,10 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	. = ..()
 	if(in_inventory || in_storage)
 		var/mob/user = usr
-		if(!(user.client.prefs.toggles_secondary & HIDE_ITEM_TOOLTIPS))
-			tip_timer = addtimer(CALLBACK(src, PROC_REF(openTip), location, control, params, user), 8, TIMER_STOPPABLE)
 		if(QDELETED(src))
 			return
+		if(!(user.client.prefs.toggles_secondary & HIDE_ITEM_TOOLTIPS))
+			tip_timer = addtimer(CALLBACK(src, PROC_REF(openTip), location, control, params, user), 8, TIMER_STOPPABLE)
 		if(!(user.client.prefs.toggles_secondary & SEE_ITEM_OUTLINES))
 			return
 		var/mob/living/L = user

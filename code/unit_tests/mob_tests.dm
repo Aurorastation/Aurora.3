@@ -18,11 +18,14 @@
 /mob/living/test
 	var/heard = FALSE
 
-/mob/living/test/on_hear_say(var/message)
-	. = ..(message)
+// Clientless test mobs still need to reach the output sink to record a hearing.
+/mob/living/test/has_chat_sink()
+	return TRUE
+
+/mob/living/test/on_hear_message(message)
+	..()
 	if(message)
 		heard = TRUE
-	return .
 
 /datum/unit_test/mob_hear
 	name = "MOB: Living mobs test for mob's speech"
@@ -526,7 +529,7 @@
 	name = "MOB: Robot module icon check"
 	groups = list("mob")
 
-	var/icon_file = 'icons/mob/screen/robot.dmi'
+	var/icon_file = 'icons/hud/mob/robot.dmi'
 
 /datum/unit_test/robot_module_icons/start_test()
 	var/failed = 0

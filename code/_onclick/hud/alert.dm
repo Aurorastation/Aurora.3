@@ -87,7 +87,7 @@
 	qdel(alert)
 
 /atom/movable/screen/alert
-	icon = 'icons/mob/screen_alert.dmi'
+	icon = 'icons/hud/mob/screen_alert.dmi'
 	icon_state = "default"
 	name = "Alert"
 	desc = "Something seems to have gone wrong with this alert, so report this bug please."

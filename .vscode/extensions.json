@@ -6,7 +6,9 @@
 		"dbaeumer.vscode-eslint",
 		"vscode.typescript-language-features",
 		"redhat.vscode-yaml",
-		"esbenp.prettier-vscode",
-		"rome.rome"
+		"rome.rome",
+		"dbaeumer.vscode-eslint",
+		"editorconfig.editorconfig",
+		"biomejs.biome"
 	]
 }

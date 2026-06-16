@@ -1,4 +1,4 @@
-/obj/machinery/appliance/cooker/oven
+/obj/structure/machinery/appliance/cooker/oven
 	name = "oven"
 	desc = "Cookies are ready, dear."
 	icon_state = "ovenopen"
@@ -47,19 +47,19 @@
 		"Macaron" = /obj/item/reagent_containers/food/snacks/variable/macaron,
 	)
 
-/obj/machinery/appliance/cooker/oven/mechanics_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/appliance/cooker/oven/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Alt-click to open or close the oven door."
 
-/obj/machinery/appliance/cooker/oven/Initialize()
+/obj/structure/machinery/appliance/cooker/oven/Initialize()
 	. = ..()
 	oven_loop = new(src)
 
-/obj/machinery/appliance/cooker/oven/Destroy()
+/obj/structure/machinery/appliance/cooker/oven/Destroy()
 	QDEL_NULL(oven_loop)
 	. = ..()
 
-/obj/machinery/appliance/cooker/oven/update_icon()
+/obj/structure/machinery/appliance/cooker/oven/update_icon()
 	ClearOverlays()
 	update_baking_audio()
 	if(!open)
@@ -76,18 +76,18 @@
 			AddOverlays(ovenopen_on)
 	..()
 
-/obj/machinery/appliance/cooker/oven/AltClick(var/mob/user)
+/obj/structure/machinery/appliance/cooker/oven/AltClick(var/mob/user)
 	try_toggle_door(user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 
-/obj/machinery/appliance/cooker/oven/verb/toggle_door()
+/obj/structure/machinery/appliance/cooker/oven/verb/toggle_door()
 	set src in oview(1)
 	set category = "Object"
 	set name = "Open/close oven door"
 
 	try_toggle_door(usr)
 
-/obj/machinery/appliance/cooker/oven/proc/try_toggle_door(mob/user)
+/obj/structure/machinery/appliance/cooker/oven/proc/try_toggle_door(mob/user)
 	if(use_check_and_message(user))
 		return
 	open = !open
@@ -100,7 +100,7 @@
 	update_icon()
 
 
-/obj/machinery/appliance/cooker/oven/proc/update_baking_audio()
+/obj/structure/machinery/appliance/cooker/oven/proc/update_baking_audio()
 	if(!oven_loop)
 		return
 	if(use_power)
@@ -108,12 +108,12 @@
 	else
 		oven_loop.stop()
 
-/obj/machinery/appliance/cooker/oven/proc/manip(var/obj/item/I)
+/obj/structure/machinery/appliance/cooker/oven/proc/manip(var/obj/item/I)
 	// check if someone's trying to manipulate the machine
 
 	return I.tool_behaviour == TOOL_CROWBAR || I.tool_behaviour == TOOL_SCREWDRIVER || istype(I, /obj/item/storage/part_replacer) || istype(I, /obj/item/stock_parts)
 
-/obj/machinery/appliance/cooker/oven/can_insert(var/obj/item/I, var/mob/user)
+/obj/structure/machinery/appliance/cooker/oven/can_insert(var/obj/item/I, var/mob/user)
 	if (!open && !manip(I, user))
 		to_chat(user, SPAN_WARNING("You can't put anything in while the door is closed!"))
 		return FALSE
@@ -121,7 +121,7 @@
 	else
 		return ..()
 
-/obj/machinery/appliance/cooker/oven/can_remove_items(var/mob/user)
+/obj/structure/machinery/appliance/cooker/oven/can_remove_items(var/mob/user)
 	if (!open)
 		to_chat(user, SPAN_WARNING("You can't take anything out while the door is closed!"))
 		return FALSE
@@ -130,19 +130,19 @@
 
 //Oven has lots of recipes and combine options. The chance for interference is high, so
 //If a combine target is set the oven will do it instead of checking recipes
-/obj/machinery/appliance/cooker/oven/finish_cooking(var/datum/cooking_item/CI)
+/obj/structure/machinery/appliance/cooker/oven/finish_cooking(var/datum/cooking_item/CI)
 	if(CI.combine_target)
 		visible_message("<b>[src]</b> pings!", intent_message = PING_SOUND)
 		combination_cook(CI)
 		return
 	..()
 
-/obj/machinery/appliance/cooker/oven/adhomai
+/obj/structure/machinery/appliance/cooker/oven/adhomai
 	name = "adhomian oven"
 	desc = "A heavy and rustic adhomian oven. Perfect for a Tajaran grandma."
 	icon_state = "adhomai_oven_open"
 
-/obj/machinery/appliance/cooker/oven/adhomai/update_icon()
+/obj/structure/machinery/appliance/cooker/oven/adhomai/update_icon()
 	if(!open)
 		if(!stat)
 			icon_state = "adhomai_ovenclosed_on"
@@ -151,7 +151,7 @@
 	else
 		icon_state = "adhomai_oven_open"
 
-/obj/machinery/appliance/cooker/oven/small
+/obj/structure/machinery/appliance/cooker/oven/small
 	name = "compact oven"
 	desc = "A lightweight, small oven. Doesn't hold much, but it cooks just fine."
 	density = FALSE

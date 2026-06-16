@@ -1,16 +1,17 @@
-import { BooleanLike } from '../../common/react';
-import { capitalizeAll } from '../../common/string';
-import { useBackend, useLocalState } from '../backend';
 import {
   Box,
   Button,
   Flex,
-  Input,
   LabeledList,
   NoticeBox,
   Section,
-} from '../components';
+  Stack,
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
+import { capitalizeAll } from 'tgui-core/string';
+import { useBackend, useLocalState } from '../backend';
 import { Window } from '../layouts';
+import { SearchBar } from './common/SearchBar';
 
 export type VendingData = {
   vending_item: BooleanLike;
@@ -41,11 +42,11 @@ type Product = {
   icon_tag: string;
 };
 
-export const Vending = (props, context) => {
-  const { act, data } = useBackend<VendingData>(context);
+export const Vending = (props) => {
+  const { act, data } = useBackend<VendingData>();
 
   return (
-    <Window resizable width={425} height={500} theme={data.manufacturer}>
+    <Window width={425} height={500} theme={data.manufacturer}>
       <Window.Content scrollable>
         <Box textAlign="center">{data.display_ad}</Box>
         <Section>
@@ -60,41 +61,39 @@ export const Vending = (props, context) => {
   );
 };
 
-export const ShowAllItems = (props, context) => {
-  const { act, data } = useBackend<VendingData>(context);
-  const [searchTerm, setSearchTerm] = useLocalState<string>(
-    context,
-    `searchTerm`,
-    ``,
-  );
+export const ShowAllItems = (props) => {
+  const { act, data } = useBackend<VendingData>();
+  const [searchTerm, setSearchTerm] = useLocalState<string>(`searchTerm`, ``);
 
   return (
     <>
       <Section
         title="Selection"
         buttons={
-          <>
-            <Input
-              autoFocus
-              autoSelect
-              placeholder="Search by name"
-              width="40vw"
-              maxLength={512}
-              onInput={(e, value) => {
-                setSearchTerm(value);
-              }}
-              value={searchTerm}
-            />
-            {data.coin ? (
-              <Button
-                icon="coins"
-                onClick={() => act('remove_coin')}
-                tooltip={capitalizeAll(data.coin)}
+          <Stack align="center">
+            <Stack.Item>
+              <SearchBar
+                autoFocus
+                placeholder="Search by name"
+                query={searchTerm}
+                onSearch={(value) => {
+                  setSearchTerm(value);
+                }}
+                style={{ width: '12rem' }}
               />
+            </Stack.Item>
+            {data.coin ? (
+              <Stack.Item>
+                <Button
+                  icon="coins"
+                  onClick={() => act('remove_coin')}
+                  tooltip={capitalizeAll(data.coin)}
+                />
+              </Stack.Item>
             ) : (
               ''
             )}
-          </>
+          </Stack>
         }
       />
       <Section fill>
@@ -118,7 +117,6 @@ export const ShowAllItems = (props, context) => {
                 as="img"
                 className={product.icon_tag}
                 style={{
-                  '-ms-interpolation-mode': 'nearest-neighbor',
                   transform: 'scale(1.5) translate(30%, 30%)',
                 }}
               />
@@ -145,8 +143,8 @@ export const ShowAllItems = (props, context) => {
   );
 };
 
-export const ShowVendingItem = (props, context) => {
-  const { act, data } = useBackend<VendingData>(context);
+export const ShowVendingItem = (props) => {
+  const { act, data } = useBackend<VendingData>();
 
   return (
     <Section

@@ -1,5 +1,5 @@
 /obj/item/clothing/head/helmet/space/rig/industrial
-	camera = /obj/machinery/camera/network/mining
+	camera = /obj/structure/machinery/camera/network/mining
 	light_overlay = "helmet_light_dual"
 	light_color = "#ffcf2f"
 	light_range = 6
@@ -11,22 +11,22 @@
 	flags_inv = HIDEEARS|BLOCKHEADHAIR|HIDETAIL
 
 /obj/item/clothing/head/helmet/space/rig/ce
-	camera = /obj/machinery/camera/network/engineering
+	camera = /obj/structure/machinery/camera/network/engineering
 
 /obj/item/clothing/head/helmet/space/rig/eva
 	light_overlay = "helmet_light_dual"
-	camera = /obj/machinery/camera/network/engineering
+	camera = /obj/structure/machinery/camera/network/engineering
 
 /obj/item/clothing/head/helmet/space/rig/hazmat
 	light_overlay = "hardhat_light"
-	camera = /obj/machinery/camera/network/research
+	camera = /obj/structure/machinery/camera/network/research
 
 /obj/item/clothing/head/helmet/space/rig/medical
-	camera = /obj/machinery/camera/network/medbay
+	camera = /obj/structure/machinery/camera/network/medbay
 
 /obj/item/clothing/head/helmet/space/rig/hazard
 	light_overlay = "helmet_light_dual"
-	camera = /obj/machinery/camera/network/security
+	camera = /obj/structure/machinery/camera/network/security
 
 /obj/item/rig/internalaffairs
 	name = "augmented tie"
@@ -200,7 +200,7 @@
 	helm_type = /obj/item/clothing/head/helmet/space/rig/eva/pirate
 
 /obj/item/clothing/head/helmet/space/rig/eva/pirate
-	camera = /obj/machinery/camera/network/mercenary
+	camera = /obj/structure/machinery/camera/network/mercenary
 
 /obj/item/rig/eva/pilot
 	name = "pilot suit control module"
@@ -407,7 +407,7 @@
 	helm_type = /obj/item/clothing/head/helmet/space/rig/hazard/pirate
 
 /obj/item/clothing/head/helmet/space/rig/hazard/pirate
-	camera = /obj/machinery/camera/network/mercenary
+	camera = /obj/structure/machinery/camera/network/mercenary
 
 /obj/item/rig/diving
 	name = "diving suit control module"

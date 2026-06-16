@@ -1,21 +1,13 @@
-/mob/living/carbon
-	var/next_hallucination = 0		//Hallucination spam limit var
-	var/list/hallucinations = list()	//Hallucinations currently affecting the mob. Not to be confused with singular "hallucination" which is a NUM variable like confused/drowsy/eye_blind etc
+//Hallucinated hearing: a chance to mishear the body entirely
+/mob/proc/hallucinate_heard(text, mob/speaker)
+	return text
 
-//Hallucinated Hearing
-/mob/living/carbon/hear_say(var/message, var/verb = "says", var/datum/language/language, var/alt_name = "",var/italics = 0, var/mob/speaker, var/sound/speech_sound, var/sound_vol)
+/mob/living/carbon/hallucinate_heard(text, mob/speaker)
 	if(hallucination >= 60 && prob(1))
-		var/orig_message = message
-		message = pick(SShallucinations.hallucinated_phrases)
-		log_say("Hallucination level changed [orig_message] by [speaker] to [message] for [key_name(src)].")
-	return ..()
-
-/mob/living/carbon/hear_radio(var/message, var/verb="says", var/datum/language/language, var/part_a, var/part_b, var/part_c, var/mob/speaker, var/hard_to_hear = 0, var/vname ="")
-	if(hallucination >= 60 && prob(1))
-		var/orig_message = message
-		message = pick(SShallucinations.hallucinated_phrases)
-		log_say("Hallucination level changed [orig_message] by [speaker] to [message] for [key_name(src)].")
-	..()
+		var/orig_message = text
+		text = pick(SShallucinations.hallucinated_phrases)
+		log_say("Hallucination level changed [orig_message] by [speaker] to [text] for [key_name(src)].")
+	return text
 
 //Main handling proc, called in life()
 /mob/living/carbon/proc/handle_hallucinations()

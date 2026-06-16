@@ -15,10 +15,10 @@
 
 /spell/aoe_turf/knock/cast(list/targets)
 	for(var/turf/T in targets)
-		for(var/obj/machinery/door/door in T.contents)
+		for(var/obj/structure/machinery/door/door in T.contents)
 			spawn(1)
-				if(istype(door,/obj/machinery/door/airlock))
-					var/obj/machinery/door/airlock/AL = door //casting is important
+				if(istype(door,/obj/structure/machinery/door/airlock))
+					var/obj/structure/machinery/door/airlock/AL = door //casting is important
 					AL.locked = 0
 				door.open()
 	return
@@ -46,7 +46,7 @@
 
 /spell/aoe_turf/knock/harvester/cast(list/targets)
 	for(var/turf/T in targets)
-		for(var/obj/machinery/door/door in T.contents)
+		for(var/obj/structure/machinery/door/door in T.contents)
 			spawn door.cultify()
 
 	for(var/obj/O in range(1, holder))

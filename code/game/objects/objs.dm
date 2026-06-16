@@ -108,6 +108,15 @@
 	var/persistant_objects_expiration_time_days = PERSISTENT_DEFAULT_EXPIRATION_DAYS
 	/* END PERSISTENCE VARS */
 
+	/// for easy reference of talking atoms
+	var/datum/talking_atom/talking_atom
+
+	/// Whether this object has been contaminated by atmos gasses like chlorine or phoron.
+	var/contaminated = FALSE
+
+	/// Allow overriding rad resistance.
+	var/rad_resistance_modifier = 1
+
 /obj/Initialize(mapload, ...)
 	. = ..()
 	if(maxhealth)
@@ -209,15 +218,16 @@
 	if(in_use)
 		var/is_in_use = 0
 		var/list/nearby = viewers(1, src)
+		var/datum/tgui/ui
 		for(var/mob/M in nearby)
-			if ((M.client && M.machine == src))
-				is_in_use = 1
-				src.attack_hand(M)
-		if (istype(usr, /mob/living/silicon/ai) || istype(usr, /mob/living/silicon/robot))
-			if (!(usr in nearby))
-				if (usr.client && usr.machine==src) // && M.machine == src is omitted because if we triggered this by using the dialog, it doesn't matter if our machine changed in between triggering it and this - the dialog is probably still supposed to refresh.
+			if(M.client)
+				if(SStgui.try_update_ui(M, src, ui))
 					is_in_use = 1
-					src.attack_ai(usr)
+		if(istype(usr, /mob/living/silicon/ai) || istype(usr, /mob/living/silicon/robot))
+			if(!(usr in nearby))
+				if(usr.client && usr.machine==src) // && M.machine == src is omitted because if we triggered this by using the dialog, it doesn't matter if our machine changed in between triggering it and this - the dialog is probably still supposed to refresh.
+					is_in_use = 1
+					ui = SStgui.try_update_ui(usr, src, ui)
 		in_use = is_in_use
 
 /obj/proc/updateDialog()
@@ -385,7 +395,7 @@
 			if(mob.client)
 				clients_in_hearers += mob.client
 		if(length(clients_in_hearers))
-			langchat_speech(message, hearers, GLOB.all_languages, skip_language_check = TRUE)
+			langchat_speech(message, hearers)
 
 /// Override this to customize the effects an activated signaler has.
 /obj/proc/do_signaler()
@@ -425,7 +435,7 @@
  * RETURN: Associated list with custom information (e.g.: ["test" = "abc", "counter" = 123])
  */
 /obj/proc/persistent_objects_get_content()
-	return
+	return list()
 
 /**
  * Called by the persistence subsystem to apply persistent data on the created object.
