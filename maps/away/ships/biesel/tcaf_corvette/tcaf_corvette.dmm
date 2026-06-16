@@ -11035,8 +11035,6 @@
 /obj/item/clothing/suit/storage/tcaf/legion,
 /obj/item/clothing/suit/storage/tcaf,
 /obj/item/clothing/suit/storage/tcaf,
-/obj/item/clothing/accessory/poncho/shouldercape/nationcapes/biesel,
-/obj/item/clothing/accessory/poncho/shouldercape/nationcapes/biesel,
 /obj/item/clothing/accessory/tc_pin,
 /obj/item/clothing/accessory/tc_pin,
 /obj/item/clothing/accessory/badge/tcaf_papers/service,
@@ -11058,6 +11056,10 @@
 /obj/item/reagent_containers/food/drinks/flask/barflask,
 /obj/item/reagent_containers/food/drinks/flask/barflask,
 /obj/item/reagent_containers/food/drinks/flask/barflask,
+/obj/item/clothing/under/tcaf/crew/foreign_legion,
+/obj/item/clothing/under/tcaf/crew/foreign_legion,
+/obj/item/clothing/head/beret/tcaf/foreign_legion/field,
+/obj/item/clothing/head/beret/tcaf/foreign_legion/field,
 /turf/simulated/floor/tiled/techfloor,
 /area/tcaf_corvette/crew)
 "Ry" = (
