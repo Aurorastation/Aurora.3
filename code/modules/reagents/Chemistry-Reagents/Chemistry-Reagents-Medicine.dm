@@ -347,7 +347,7 @@
 	M.notify_message(SPAN_GOOD(pick(joy_messages)), rand(20 SECONDS, 40 SECONDS), key = "morta_affect_blood")
 
 	if(check_min_dose(M))
-		M.add_chemical_effect(CE_PAINKILLER, 60)
+		M.add_chemical_effect(CE_PAINKILLER, 70)
 		if(!M.chem_effects[CE_CLEARSIGHT])
 			M.eye_blurry = max(M.eye_blurry, 5)
 		if(!M.chem_effects[CE_STRAIGHTWALK])
