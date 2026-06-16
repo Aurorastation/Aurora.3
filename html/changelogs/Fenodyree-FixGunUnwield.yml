@@ -1,0 +1,7 @@
+author: Fenodyree
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed guns getting unwielded when mousing over UI elements."
+  - bugfix: "Fixed mob_can_equip using M as mob, instead of mob/M. Also adds its parameters to all its children."
