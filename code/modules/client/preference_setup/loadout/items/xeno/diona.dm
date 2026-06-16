@@ -203,7 +203,7 @@ ABSTRACT_TYPE(/datum/gear/suit/diona)
 	culture_restriction = list(/singleton/origin_item/culture/diona_voidtamer)
 
 /datum/gear/item/flashlight/lantern/voidtamer
-	display_name = "voidic lantern
+	display_name = "voidic lantern"
 	description = "A strange lantern mounted on a metallic stick, draped in carphide. When activated, it ignites a gaseous system resembling a nebula."
 	path = /obj/item/flashlight/lantern/voidtamer
 	cost = 3 //This is capable of sustaining dionae so should be a little more expensive
