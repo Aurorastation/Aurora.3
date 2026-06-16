@@ -2,7 +2,7 @@
 
 // Intended for espatiers/marines of the TCAF's Astroforces
 /obj/item/clothing/under/tcaf/espatier
-	name = "\improper TCAF-RAF espatier uniform"
+	name = "\improper TCAF espatier uniform"
 	desc = "A black longsleeved top over rough khaki tactical pants. Designed for the use of espatiers of the TCAF's Republic Astroforce."
 	icon = 'icons/obj/item/clothing/under/human/biesel/tcaf_uniform.dmi'
 	contained_sprite = TRUE
@@ -23,7 +23,7 @@
 
 // Intended for enlisted vessel crew of the TCAF's Astroforces
 /obj/item/clothing/under/tcaf/crew
-	name = "\improper TCAF-RAF crew uniform"
+	name = "\improper TCAF astroforces crew uniform"
 	desc = "A blue jumpsuit trimmed with dark accents, designed to be cheap and stain-resistant. It could be more comfortable. Worn by enlisted crewmembers of the TCAF's Republic Astroforce."
 	icon = 'icons/obj/item/clothing/under/human/biesel/tcaf_uniform.dmi'
 	contained_sprite = TRUE
@@ -32,7 +32,7 @@
 	worn_state = "tcaf_raf_crew"
 
 /obj/item/clothing/under/tcaf/crew/foreign_legion
-	name = "\improper TCAF-RAF foreign legion crew uniform"
+	name = "\improper TCAF astroforces foreign legion crew uniform"
 	desc = "A blue jumpsuit with red accenting, designed to be cheap and stain-resistant. It could be more comfortable. Worn by enlisted crewmembers of the TCAF's Republic Astroforce Foreign Legions corps."
 	icon_state = "tcaf_raf_foreign_legion"
 	item_state = "tcaf_raf_foreign_legion"
