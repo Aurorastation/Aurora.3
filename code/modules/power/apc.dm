@@ -1683,6 +1683,26 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 	dir = SOUTH
 	pixel_y = -8
 
+/obj/structure/machinery/power/apc/hyper/empty
+	cell_type = /obj/item/cell/hyper
+	start_charge = 0
+
+/obj/structure/machinery/power/apc/hyper/empty/north
+	dir = NORTH
+	pixel_y = 22
+
+/obj/structure/machinery/power/apc/hyper/empty/east
+	dir = EAST
+	pixel_x = 12
+
+/obj/structure/machinery/power/apc/hyper/empty/west
+	dir = WEST
+	pixel_x = -12
+
+/obj/structure/machinery/power/apc/hyper/empty/south
+	dir = SOUTH
+	pixel_y = -8
+
 /obj/structure/machinery/power/apc/empty
 	start_charge = 0
 

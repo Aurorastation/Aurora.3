@@ -39,6 +39,8 @@
 
 #define isobj(A) istype(A, /obj)
 
+#define isstructure(A) istype(A, /obj/structure)
+
 #define isspace(A) istype(A, /area/space)
 
 #define isspaceturf(A) istype(A, /turf/space)
