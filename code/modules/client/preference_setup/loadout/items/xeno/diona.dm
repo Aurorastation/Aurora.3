@@ -202,7 +202,7 @@ ABSTRACT_TYPE(/datum/gear/suit/diona)
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 	culture_restriction = list(/singleton/origin_item/culture/diona_voidtamer)
 
-/datum/gear/item/flashlight/lantern/voidtamer
+/datum/gear/voidtamer_lantern
 	display_name = "voidic lantern"
 	description = "A strange lantern mounted on a metallic stick, draped in carphide. When activated, it ignites a gaseous system resembling a nebula."
 	path = /obj/item/flashlight/lantern/voidtamer
