@@ -375,9 +375,21 @@
 	var/turf/eye_turf = get_turf(eye_atom)
 	var/eye_turf_text = eye_turf ? "[eye_turf.x],[eye_turf.y],[eye_turf.z]" : "null"
 	var/list/lines = list()
+	var/stop_sight_update_text = "n/a"
+	if(isliving(reference_frame))
+		var/mob/living/living_reference = reference_frame
+		stop_sight_update_text = "[living_reference.stop_sight_update]"
 	lines += "Plane cube chain dump"
 	lines += "mob=[reference_frame] eye=[eye_atom] turf=[eye_turf_text]"
 	lines += "hud_current_plane_offset=[our_hud.current_plane_offset] group_active_offset=[group.active_offset] max_plane_offset=[SSmapping.max_plane_offset]"
+	lines += "mob_sight=[reference_frame.sight] see_invisible=[reference_frame.see_invisible] lighting_cutoff=[reference_frame.lighting_cutoff] lighting_color_cutoffs=[plane_probe_value_to_text(reference_frame.lighting_color_cutoffs)] stop_sight_update=[stop_sight_update_text]"
+	lines += "fullscreen lighting backdrops:"
+	for(var/backdrop_offset in 0 to SSmapping.max_plane_offset)
+		var/lit_key = "lighting_backdrop_lit_[group.key]#[backdrop_offset]"
+		var/unlit_key = "lighting_backdrop_unlit_[group.key]#[backdrop_offset]"
+		var/atom/movable/screen/lit_backdrop = reference_frame.screens[lit_key]
+		var/atom/movable/screen/unlit_backdrop = reference_frame.screens[unlit_key]
+		lines += "  offset=[backdrop_offset] lit=[plane_debug_screen_summary(src, lit_backdrop)] unlit=[plane_debug_screen_summary(src, unlit_backdrop)]"
 	lines += ""
 	lines += "z/offset tables:"
 	for(var/z_level in 1 to length(SSmapping.z_level_to_plane_offset))
@@ -444,6 +456,11 @@
 	if(!viewer || !screen_object)
 		return FALSE
 	return viewer.screen.Find(screen_object) ? TRUE : FALSE
+
+/proc/plane_debug_screen_summary(client/viewer, atom/movable/screen_object)
+	if(!screen_object)
+		return "missing"
+	return "screen=[plane_debug_in_client_screen(viewer, screen_object)] plane=[screen_object.plane] true=[PLANE_TO_TRUE(screen_object.plane)] offset=[PLANE_TO_OFFSET(screen_object.plane)] layer=[screen_object.layer] alpha=[screen_object.alpha]"
 
 /proc/blend_mode_to_text(blend_mode)
 	switch(blend_mode)

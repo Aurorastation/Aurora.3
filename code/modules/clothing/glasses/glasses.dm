@@ -21,10 +21,11 @@ BLIND     // can't see anything
 	body_parts_covered = EYES
 	light_system = OVERLAY_LIGHT
 	var/vision_flags = 0
-	var/darkness_view = 0//Base human is 2
 	var/prescription = 0
-	/// The amount of nightvision these glasses have. This should be a number between 0 and 1.
-	var/lighting_cutoff = LIGHTING_CUTOFF_VISIBLE
+	/// tg-style lighting cutoff. Null means these glasses do not alter lighting cutoff.
+	var/lighting_cutoff = null
+	/// tg-style RGB lighting color cutoffs, in the same 0-100 scale as lighting_cutoff.
+	var/list/color_cutoffs = null
 	var/see_invisible = -1
 	var/toggleable = 0
 	var/toggle_changes_appearance = TRUE
@@ -116,6 +117,9 @@ BLIND     // can't see anything
 	user.update_action_buttons()
 	user.update_inv_l_hand(0)
 	user.update_inv_r_hand(1)
+	if(ishuman(user))
+		var/mob/living/carbon/human/human_user = user
+		human_user.handle_vision()
 
 /obj/item/clothing/glasses/proc/is_sec_hud()
 	return FALSE
@@ -133,7 +137,7 @@ BLIND     // can't see anything
 	origin_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
 	toggleable = 1
 	vision_flags = SEE_TURFS
-	lighting_cutoff = LIGHTING_CUTOFF_AURORA_SOMEWHAT_INVISIBLE
+	color_cutoffs = list(5, 15, 5)
 	item_flags = ITEM_FLAG_AIRTIGHT
 	activated_color = LIGHT_COLOR_GREEN
 
@@ -236,9 +240,8 @@ BLIND     // can't see anything
 	item_state = "glasses"
 	action_button_name = "Toggle Goggles"
 	origin_tech = list(TECH_MAGNET = 2)
-	darkness_view = 7
 	toggleable = 1
-	lighting_cutoff = LIGHTING_CUTOFF_AURORA_SOMEWHAT_INVISIBLE
+	color_cutoffs = list(10, 25, 10)
 	off_state = "denight"
 
 /obj/item/clothing/glasses/night/Initialize()
@@ -676,7 +679,6 @@ BLIND     // can't see anything
 	sprite_sheets = list(
 		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/eyes.dmi'
 	)
-	darkness_view = -1
 	flash_protection = FLASH_PROTECTION_MODERATE
 
 /obj/item/clothing/glasses/sunglasses/Initialize()
@@ -715,7 +717,6 @@ BLIND     // can't see anything
 	desc = "A pair of designer sunglasses."
 	icon_state = "sun"
 	item_state = "sun"
-	darkness_view = -1
 
 /obj/item/clothing/glasses/fakesunglasses/Initialize()
 	. = ..()
@@ -1067,7 +1068,7 @@ BLIND     // can't see anything
 	origin_tech = list(TECH_MAGNET = 3)
 	toggleable = 1
 	vision_flags = SEE_MOBS
-	lighting_cutoff = LIGHTING_CUTOFF_AURORA_SOMEWHAT_INVISIBLE
+	color_cutoffs = list(25, 8, 5)
 	flash_protection = FLASH_PROTECTION_REDUCED
 	item_flags = ITEM_FLAG_AIRTIGHT
 
@@ -1246,7 +1247,7 @@ BLIND     // can't see anything
 	name = "MESpatch"
 	desc = "An optical meson scanner display that connects directly to the optic nerve of the user, giving you cool green vision at the low cost of your only other eye."
 	vision_flags = SEE_TURFS
-	lighting_cutoff = LIGHTING_CUTOFF_AURORA_SOMEWHAT_INVISIBLE
+	color_cutoffs = list(5, 15, 5)
 	eye_color = COLOR_LIME
 
 /obj/item/clothing/glasses/eyepatch/hud/meson/Initialize()
@@ -1272,7 +1273,7 @@ BLIND     // can't see anything
 	name = "HEATpatch"
 	desc = "A thermal-type heads-up display that connects directly to the optic nerve of the user. Double the tacticool, half the eyes."
 	vision_flags = SEE_MOBS
-	lighting_cutoff = LIGHTING_CUTOFF_AURORA_SOMEWHAT_INVISIBLE
+	color_cutoffs = list(25, 8, 5)
 	eye_color = COLOR_ORANGE
 
 /obj/item/clothing/glasses/eyepatch/hud/thermal/Initialize()
@@ -1289,8 +1290,7 @@ BLIND     // can't see anything
 /obj/item/clothing/glasses/eyepatch/hud/night
 	name = "NITEpatch"
 	desc = "A light-amplifying display that connects directly to the optic nerve of the user. Helps you avoid a battery charge from bumping an officer in the dark."
-	darkness_view = 7
-	lighting_cutoff = LIGHTING_CUTOFF_AURORA_SOMEWHAT_INVISIBLE
+	color_cutoffs = list(10, 25, 10)
 	eye_color = COLOR_GREEN
 
 /obj/item/clothing/glasses/eyepatch/hud/night/Initialize()

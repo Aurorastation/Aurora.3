@@ -9,6 +9,8 @@
 			clear_fullscreen(category, FALSE)
 			screen = null
 		else if(!severity || severity == screen.severity)
+			if(client && (stat != DEAD || screen.allstate))
+				client.screen |= screen
 			return null
 
 	if(!screen)
@@ -169,23 +171,20 @@
 /atom/movable/screen/fullscreen/lighting_backdrop
 	icon = 'icons/hud/mob/white.dmi'
 	icon_state = "flash"
-	transform = matrix(200, 0, 0, 0, 200, 0)
+	screen_loc = ui_entire_screen
 	plane = LIGHTING_PLANE
+	layer = LIGHTING_ABOVE_ALL
 	blend_mode = BLEND_OVERLAY
+	allstate = 1
 
 //Provides darkness to the back of the lighting plane
 /atom/movable/screen/fullscreen/lighting_backdrop/lit_secondary
 	invisibility = INVISIBILITY_LIGHTING
-	layer = BACKGROUND_LAYER + LIGHTING_PRIMARY_DIMMER_LAYER
+	layer = BACKGROUND_LAYER + LIGHTING_ABOVE_ALL + 1
 	color = "#000"
-	alpha = 60
 
 /atom/movable/screen/fullscreen/lighting_backdrop/backplane
-	invisibility = INVISIBILITY_LIGHTING
-	layer = LIGHTING_BACKPLANE_LAYER
-	color = "#000"
-	blend_mode = BLEND_ADD
-	//show_when_dead = TRUE
+	layer = BACKGROUND_LAYER + LIGHTING_ABOVE_ALL
 
 /atom/movable/screen/fullscreen/see_through_darkness
 	icon_state = "nightvision"

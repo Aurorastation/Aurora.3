@@ -65,6 +65,16 @@
 /atom/proc/additional_see_invisible()
 	return 0
 
+/// Optional tg-plane-cube bridge for Aurora-only vision handlers.
+/// Return null to avoid altering the viewer's numeric lighting cutoff.
+/atom/proc/additional_lighting_cutoff()
+	return null
+
+/// Optional tg-plane-cube bridge for Aurora-only vision handlers.
+/// Return a 3-length tg-style color cutoff list, or null to avoid altering color cutoffs.
+/atom/proc/additional_lighting_color_cutoffs()
+	return null
+
 /atom/proc/on_reagent_change()
 	return
 

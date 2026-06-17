@@ -1505,15 +1505,11 @@
 
 /mob/living/carbon/human/handle_vision()
 	if(client)
-		client.screen.Remove(GLOB.global_hud.blurry, GLOB.global_hud.druggy, GLOB.global_hud.vimpaired, GLOB.global_hud.darkMask, GLOB.global_hud.nvg, GLOB.global_hud.thermal, GLOB.global_hud.meson, GLOB.global_hud.science)
-	var/machine_has_equipment_vision = FALSE
+		client.screen.Remove(GLOB.global_hud.blurry, GLOB.global_hud.druggy, GLOB.global_hud.vimpaired, GLOB.global_hud.nvg, GLOB.global_hud.thermal, GLOB.global_hud.meson, GLOB.global_hud.science)
 	if(machine)
 		var/viewflags = machine.check_eye(src)
 		if(viewflags < 0)
 			reset_view(null, 0)
-		else if(viewflags)
-			set_sight(sight|viewflags)
-		machine_has_equipment_vision = machine.grants_equipment_vision(src)
 	if(eyeobj && eyeobj.owner != src)
 		reset_view(null)
 
@@ -1521,7 +1517,7 @@
 		remoteview_target = null
 		reset_view(null, 0)
 
-	update_equipment_vision(machine_has_equipment_vision)
+	update_sight()
 	species.handle_vision(src)
 
 /mob/living/carbon/human/handle_hearing()
@@ -1543,12 +1539,86 @@
 			adjustEarDamage(-0.05, 0)
 
 /mob/living/carbon/human/update_sight()
-	..()
+	if(stop_sight_update)
+		return
+
+	var/machine_has_equipment_vision = FALSE
+	if(machine)
+		machine_has_equipment_vision = machine.grants_equipment_vision(src)
+	update_equipment_vision(machine_has_equipment_vision)
+
+	lighting_cutoff = default_lighting_cutoff
+	lighting_color_cutoffs = list(lighting_cutoff_red, lighting_cutoff_green, lighting_cutoff_blue)
+
+	set_sight(0)
+	set_see_invisible(initial(see_invisible))
+
+	if(stat == DEAD || (eyeobj && !eyeobj.living_eye))
+		update_dead_sight()
+		sync_lighting_plane_cutoff()
+		return
+
+	update_living_sight()
+
+	var/list/vision = get_accumulated_vision_handlers()
+	var/new_sight = sight | vision[1]
+
+	var/species_vision_flags = DEFAULT_SIGHT
+	if(species)
+		species_vision_flags = species.get_vision_flags(src)
+	new_sight |= species_vision_flags
+
+	var/obj/item/organ/internal/eyes/eyes = get_eyes()
+	if(eyes)
+		new_sight |= eyes.sight_flags
+		set_see_invisible(max(see_invisible, eyes.see_invisible))
+
+		var/apply_eye_lighting = TRUE
+		if(istype(eyes, /obj/item/organ/internal/eyes/night))
+			var/obj/item/organ/internal/eyes/night/night_eyes = eyes
+			apply_eye_lighting = !night_eyes.night_vision || night_eyes.can_change_invisible()
+
+		if(apply_eye_lighting)
+			if(!isnull(eyes.lighting_cutoff))
+				lighting_cutoff = max(lighting_cutoff, eyes.lighting_cutoff)
+			if(length(eyes.color_cutoffs))
+				lighting_color_cutoffs = blend_cutoff_colors(lighting_color_cutoffs, eyes.color_cutoffs)
+
+	new_sight |= equipment_vision_flags
+	if(!isnull(equipment_lighting_cutoff))
+		lighting_cutoff = max(lighting_cutoff, equipment_lighting_cutoff)
+	if(length(equipment_color_cutoffs))
+		lighting_color_cutoffs = blend_cutoff_colors(lighting_color_cutoffs, equipment_color_cutoffs)
+	if(!isnull(vision[3]))
+		lighting_cutoff = max(lighting_cutoff, vision[3])
+	if(length(vision[4]))
+		lighting_color_cutoffs = blend_cutoff_colors(lighting_color_cutoffs, vision[4])
+
+	if(machine && machine.check_eye(src) >= 0 && client?.eye != src)
+		var/machine_sight_flags = new_sight
+		machine_sight_flags &= ~(species_vision_flags)
+		machine_sight_flags &= ~(equipment_vision_flags)
+		machine_sight_flags &= ~(vision[1])
+		machine_sight_flags |= machine.check_eye(src)
+		new_sight = machine_sight_flags
+
 	if(stat == DEAD)
 		return
 	if((mutations & XRAY))
-		set_sight(sight|SEE_TURFS|SEE_MOBS|SEE_OBJS)
-	lighting_cutoff = default_lighting_cutoff
+		new_sight |= SEE_TURFS|SEE_MOBS|SEE_OBJS
+
+	set_sight(new_sight)
+	set_see_invisible(max(vision[2], see_invisible))
+
+	if(!druggy)
+		if(seer)
+			var/obj/effect/rune/R = locate(/obj/effect/rune) in get_turf(src)
+			if(R && R.type == /datum/rune/see_invisible)
+				set_see_invisible(SEE_INVISIBLE_CULT)
+		if(see_invisible != SEE_INVISIBLE_CULT && equipment_see_invis)
+			set_see_invisible(min(see_invisible, equipment_see_invis))
+
+	sync_lighting_plane_cutoff()
 
 /**
  * This proc assumes that if shock_value = null, then a shock value was NOT passed in, and thus it calculates it itself.

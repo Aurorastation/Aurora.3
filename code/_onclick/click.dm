@@ -436,6 +436,15 @@ GLOBAL_LIST(click_catchers)
 	mouse_opacity = MOUSE_OPACITY_OPAQUE
 	screen_loc = "CENTER-7,CENTER-7"
 
+/atom/movable/screen/click_catcher/Initialize()
+	. = ..()
+	RegisterSignal(SSmapping, COMSIG_PLANE_OFFSET_INCREASE, PROC_REF(offset_increased))
+	offset_increased(SSmapping, 0, SSmapping.max_plane_offset)
+
+/atom/movable/screen/click_catcher/proc/offset_increased(datum/source, old_offset, new_offset)
+	SIGNAL_HANDLER
+	SET_PLANE_W_SCALAR(src, initial(plane), new_offset)
+
 /atom/movable/screen/click_catcher/Destroy()
 	SHOULD_CALL_PARENT(FALSE)
 	return QDEL_HINT_LETMELIVE

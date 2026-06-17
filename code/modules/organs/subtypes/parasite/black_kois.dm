@@ -18,6 +18,11 @@
 
 	egg = /singleton/reagent/kois/black
 
+/obj/item/organ/internal/parasite/blackkois/Destroy()
+	if(owner)
+		LAZYREMOVE(owner.additional_vision_handlers, src)
+	return ..()
+
 /obj/item/organ/internal/parasite/blackkois/process()
 	..()
 
@@ -84,7 +89,7 @@
 			owner.set_default_language(LANGUAGE_LIIDRA)
 			removed_langs = TRUE
 
-		owner.lighting_cutoff = LIGHTING_CUTOFF_AURORA_SOMEWHAT_INVISIBLE
+		LAZYDISTINCTADD(owner.additional_vision_handlers, src)
 		owner.add_client_color(/datum/client_color/vaurca)
 		owner.update_sight()
 
@@ -131,7 +136,13 @@
 			add_verb(owner, /mob/living/carbon/human/proc/kois_infect)
 			full_zombie = TRUE
 
+/obj/item/organ/internal/parasite/blackkois/additional_lighting_color_cutoffs()
+	if(stage < 4)
+		return null
+	return list(10, 25, 10)
+
 /obj/item/organ/internal/parasite/blackkois/removed(var/mob/living/carbon/human/target)
+	LAZYREMOVE(target.additional_vision_handlers, src)
 	var/obj/item/organ/internal/brain/B = target.internal_organs_by_name[BP_BRAIN]
 	switch(stage)
 		if(1)

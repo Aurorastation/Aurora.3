@@ -979,9 +979,6 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	if(M.stat || !(ishuman(M)))
 		to_chat(M, SPAN_WARNING("You are unable to focus through \the [devicename]!"))
 		cannotzoom = 1
-	else if(!zoom && (GLOB.global_hud.darkMask[1] in M.client.screen))
-		to_chat(M, SPAN_WARNING("Your visor gets in the way of looking through the [devicename]!"))
-		cannotzoom = 1
 	else if(do_device_check && !zoom && M.get_active_hand() != src)
 		to_chat(M, SPAN_WARNING("You are too distracted to look through the [devicename], perhaps if it was in your active hand this might work better."))
 		cannotzoom = 1

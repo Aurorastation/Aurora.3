@@ -12,7 +12,6 @@ SUBSYSTEM_DEF(misc_early)
 		GLOB.global_hud.druggy,
 		GLOB.global_hud.blurry,
 		GLOB.global_hud.vimpaired,
-		GLOB.global_hud.darkMask,
 		GLOB.global_hud.nvg,
 		GLOB.global_hud.thermal,
 		GLOB.global_hud.meson,

@@ -101,9 +101,10 @@
 
 	var/flash_protection = 0				// Total level of flash protection
 	var/equipment_tint_total = 0			// Total level of visualy impairing items
-	var/equipment_darkness_modifier			// Darkvision modifier from equipped items
 	var/equipment_vision_flags				// Extra vision flags from equipped items
 	var/equipment_see_invis					// Max see invibility level granted by equipped items
+	var/equipment_lighting_cutoff			// tg-style lighting cutoff granted by equipped vision items
+	var/list/equipment_color_cutoffs		// tg-style RGB lighting color cutoffs granted by equipped vision items
 	var/equipment_prescription				// Eye prescription granted by equipped items
 	var/list/equipment_overlays = list()	// Extra overlays from equipped items
 

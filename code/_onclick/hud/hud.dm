@@ -10,7 +10,6 @@ GLOBAL_LIST(global_huds)
 	var/atom/movable/screen/druggy
 	var/atom/movable/screen/blurry
 	var/list/vimpaired
-	var/list/darkMask
 	var/atom/movable/screen/nvg
 	var/atom/movable/screen/thermal
 	var/atom/movable/screen/meson
@@ -70,39 +69,9 @@ GLOBAL_LIST(global_huds)
 	O = vimpaired[4]
 	O.screen_loc = "11,1 to 15,15"
 
-	//welding mask overlay black/dither
-	darkMask = newlist(/atom/movable/screen, /atom/movable/screen, /atom/movable/screen, /atom/movable/screen, /atom/movable/screen, /atom/movable/screen, /atom/movable/screen, /atom/movable/screen)
-	O = darkMask[1]
-	O.screen_loc = "WEST+2,SOUTH+2 to WEST+4,NORTH-2"
-	O = darkMask[2]
-	O.screen_loc = "WEST+4,SOUTH+2 to EAST-5,SOUTH+4"
-	O = darkMask[3]
-	O.screen_loc = "WEST+5,NORTH-4 to EAST-5,NORTH-2"
-	O = darkMask[4]
-	O.screen_loc = "EAST-4,SOUTH+2 to EAST-2,NORTH-2"
-	O = darkMask[5]
-	O.screen_loc = "WEST,SOUTH to EAST,SOUTH+1"
-	O = darkMask[6]
-	O.screen_loc = "WEST,SOUTH+2 to WEST+1,NORTH"
-	O = darkMask[7]
-	O.screen_loc = "EAST-1,SOUTH+2 to EAST,NORTH"
-	O = darkMask[8]
-	O.screen_loc = "WEST+2,NORTH-1 to EAST-2,NORTH"
-
 	for(i = 1, i <= 4, i++)
 		O = vimpaired[i]
 		O.icon_state = "dither50"
-		O.layer = IMPAIRED_LAYER
-		O.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-
-		O = darkMask[i]
-		O.icon_state = "dither50"
-		O.layer = IMPAIRED_LAYER
-		O.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-
-	for(i = 5, i <= 8, i++)
-		O = darkMask[i]
-		O.icon_state = "black"
 		O.layer = IMPAIRED_LAYER
 		O.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 

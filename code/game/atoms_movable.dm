@@ -110,6 +110,7 @@
 /atom/movable/Initialize(mapload, ...)
 	. = ..()
 	update_emissive_block()
+	update_plane_from_z()
 
 	if(opacity)
 		AddElement(/datum/element/light_blocking)
@@ -120,6 +121,12 @@
 			AddComponent(/datum/component/overlay_lighting, is_directional = TRUE)
 		if(OVERLAY_LIGHT_BEAM)
 			AddComponent(/datum/component/overlay_lighting, is_directional = TRUE, is_beam = TRUE)
+
+/// Atoms, on init, need to understand what z-level they're on and therefore what plane to live on (or appear to live on).
+/atom/movable/proc/update_plane_from_z()
+	var/true_plane = PLANE_TO_TRUE(plane)
+	if(!isnull(true_plane))
+		SET_PLANE(src, true_plane, src)
 
 /atom/movable/Destroy(force)
 	if(orbiting)
