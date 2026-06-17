@@ -15,7 +15,7 @@
  */
 /datum/component/overlay_lighting
 	/// How far the light reaches.
-	var/range = 1
+	var/range = 0
 	/// Ceiling of range, integer without decimal entries.
 	var/lumcount_range = 0
 	/// How much this light affects turf dynamic_lumcount.
@@ -169,7 +169,7 @@
 
 /// Populates the affected_turfs lazylist, adding to its contents the effects of being near the light.
 /datum/component/overlay_lighting/proc/get_new_turfs()
-	if(!current_holder)
+	if(!current_holder || !has_effective_light())
 		return
 	. = list()
 	if(range <= 2)
@@ -194,6 +194,8 @@
 
 /// Adds the luminosity and source for the affected movable atoms to keep track of their visibility.
 /datum/component/overlay_lighting/proc/add_dynamic_lumi()
+	if(!has_effective_light())
+		return
 	LAZYSET(current_holder.affected_dynamic_lights, src, lumcount_range + 1)
 	show_to_holder()
 	current_holder.update_dynamic_luminosity()
@@ -208,7 +210,7 @@
 /datum/component/overlay_lighting/proc/show_to_holder()
 	if(currently_displaying)
 		return
-	if(isnull(current_holder) || !(overlay_lighting_flags & LIGHTING_ON))
+	if(isnull(current_holder) || !(overlay_lighting_flags & LIGHTING_ON) || !has_effective_light())
 		currently_displaying = FALSE
 		return
 	current_holder.underlays += visible_mask
@@ -360,11 +362,23 @@
 /datum/component/overlay_lighting/proc/set_range(atom/source, old_range)
 	SIGNAL_HANDLER
 	var/new_range = source.light_range
-	if(range == new_range)
+	if(new_range <= 0)
+		if(range == 0)
+			sync_light_state()
+			return
+		hide_from_holder()
+		range = 0
+		lumcount_range = 0
+		visible_mask.icon = light_overlays["32"]
+		visible_mask.transform = null
+		sync_light_state()
 		return
-	if(new_range == 0)
-		turn_off()
-	range = clamp(CEILING(new_range, 0.5), 1, 7)
+
+	var/new_overlay_range = clamp(CEILING(new_range, 0.5), 1, 7)
+	if(range == new_overlay_range)
+		sync_light_state()
+		return
+	range = new_overlay_range
 	var/pixel_bounds = ((range - 1) * 64) + 32
 	lumcount_range = ceil(range)
 	hide_from_holder()
@@ -384,6 +398,7 @@
 			cast_range = max(round(new_range * 0.5), 1)
 		else
 			cast_range = clamp(round(new_range * 0.5), 1, 3)
+	sync_light_state()
 	if(overlay_lighting_flags & LIGHTING_ON)
 		make_luminosity_update()
 
@@ -391,15 +406,16 @@
 /datum/component/overlay_lighting/proc/set_power(atom/source, old_power)
 	SIGNAL_HANDLER
 	var/new_power = source.light_power
-	set_lum_power(new_power >= 0 ? 0.5 : -0.5)
-	set_alpha = min(230, (abs(new_power) * 120) + 30)
+	set_lum_power(new_power ? (new_power > 0 ? 0.5 : -0.5) : 0)
+	set_alpha = new_power ? min(230, (abs(new_power) * 120) + 30) : 0
 	hide_from_holder()
 	visible_mask.alpha = set_alpha
-	visible_mask.blend_mode = new_power > 0 ? BLEND_ADD : BLEND_SUBTRACT
+	visible_mask.blend_mode = new_power >= 0 ? BLEND_ADD : BLEND_SUBTRACT
 	if(directional)
 		cone.alpha = min(120, (abs(new_power) * 60) + 15)
-		cone.blend_mode = new_power > 0 ? BLEND_ADD : BLEND_SUBTRACT
+		cone.blend_mode = new_power >= 0 ? BLEND_ADD : BLEND_SUBTRACT
 	show_to_holder()
+	sync_light_state()
 
 /// Changes the light's color.
 /datum/component/overlay_lighting/proc/set_color(atom/source, old_color)
@@ -418,6 +434,18 @@
 		turn_on()
 		return
 	turn_off()
+
+/datum/component/overlay_lighting/proc/has_effective_light()
+	var/atom/movable/movable_parent = parent
+	if(!movable_parent)
+		return FALSE
+	return movable_parent.light_on && movable_parent.light_range > 0 && movable_parent.light_power
+
+/datum/component/overlay_lighting/proc/sync_light_state()
+	if(has_effective_light())
+		turn_on()
+	else
+		turn_off()
 
 /datum/component/overlay_lighting/proc/on_light_flags_change(atom/source, old_flags)
 	SIGNAL_HANDLER
@@ -448,6 +476,10 @@
 	show_to_holder()
 
 /datum/component/overlay_lighting/proc/turn_on()
+	if(!has_effective_light())
+		if(overlay_lighting_flags & LIGHTING_ON)
+			turn_off()
+		return
 	if(overlay_lighting_flags & LIGHTING_ON)
 		return
 	overlay_lighting_flags |= LIGHTING_ON

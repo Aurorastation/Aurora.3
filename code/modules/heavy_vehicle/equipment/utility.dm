@@ -224,6 +224,7 @@
 	light_range = 8
 	light_color = LIGHT_COLOR_TUNGSTEN
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1)
+	light_on = FALSE
 	module_hints = list(
 		"<b>Alt Click(Icon):</b> Light up a large area in front of the mech.",
 	)

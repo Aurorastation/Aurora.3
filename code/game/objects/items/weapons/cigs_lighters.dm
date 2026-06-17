@@ -14,6 +14,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 //For anything that can light stuff on fire
 /obj/item/flame
+	light_on = FALSE
 	var/lit = FALSE
 
 /obj/item/flame/isFlameSource()

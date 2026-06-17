@@ -129,6 +129,7 @@
 	light_range = 3
 	light_power = 1
 	light_color = LIGHT_COLOR_FIRE
+	light_on = FALSE
 	var/lit = FALSE
 
 /obj/item/nullrod/azubarre/attack_self(mob/user)

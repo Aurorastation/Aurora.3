@@ -9,6 +9,7 @@
 	light_color = LIGHT_COLOR_TUNGSTEN
 	light_range = 8
 	light_power = 3
+	light_on = FALSE
 	active_power_usage = 800 WATTS
 
 	var/on = FALSE

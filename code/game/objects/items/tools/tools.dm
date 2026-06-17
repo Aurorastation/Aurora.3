@@ -234,6 +234,7 @@
 	light_system = OVERLAY_LIGHT
 	light_range = 1
 	light_color = LIGHT_COLOR_LAVA
+	light_on = FALSE
 
 	//Amount of OUCH when it's thrown
 	force = 3

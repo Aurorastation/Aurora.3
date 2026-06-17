@@ -11,6 +11,7 @@
 	light_color = LIGHT_COLOR_HALOGEN
 	light_system = OVERLAY_LIGHT_DIRECTIONAL
 	light_range = 4
+	light_on = FALSE
 
 	matter = list(MATERIAL_PLASTIC = 50, MATERIAL_GLASS = 20)
 

@@ -8,6 +8,7 @@
 
 	light_color = LIGHT_COLOR_CYAN
 	light_range = 1.4
+	light_on = FALSE
 
 	req_one_access = list(ACCESS_BAR, ACCESS_GALLEY, ACCESS_HYDROPONICS)
 
@@ -43,6 +44,7 @@
 	ClearOverlays()
 	if(anchored)
 		set_light(2)
+		set_light_on(TRUE)
 		if(rave_mode)
 			var/color_rotate = color_rotation(rand(-80, 80))
 			holo_lights.color = color_rotate
@@ -59,6 +61,7 @@
 			AddOverlays(holo_border)
 	else
 		set_light(0)
+		set_light_on(FALSE)
 
 /obj/item/holomenu/attackby(obj/item/attacking_item, mob/user)
 	var/obj/item/card/id/ID = attacking_item.GetID()

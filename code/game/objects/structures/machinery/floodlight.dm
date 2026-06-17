@@ -9,6 +9,7 @@
 	light_system = OVERLAY_LIGHT_DIRECTIONAL
 	light_range = 6
 	light_color = LIGHT_COLOR_TUNGSTEN
+	light_on = FALSE
 
 	var/on = FALSE
 	var/obj/item/cell/cell = null

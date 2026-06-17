@@ -13,6 +13,7 @@
 	light_color = LIGHT_COLOR_FLARE
 	light_range = 2 // Moderate bright.
 	light_power = 2
+	light_on = FALSE
 	action_button_name = null
 
 /obj/item/oxycandle/attack_self(mob/user)
@@ -65,10 +66,12 @@
 		icon_state = "oxycandle_on"
 		item_state = icon_state
 		set_light(light_range)
+		set_light_on(TRUE)
 	else
 		icon_state = "oxycandle"
 		item_state = icon_state
 		set_light(0)
+		set_light_on(FALSE)
 	update_held_icon()
 
 /obj/item/oxycandle/Destroy()
