@@ -167,7 +167,7 @@
 /// Do your effect cleanup here
 /atom/movable/screen/plane_master/proc/hide_from(mob/oldmob)
 	SHOULD_CALL_PARENT(TRUE)
-	var/client/their_client = oldmob?.client
+	var/client/their_client = oldmob?.canon_client || oldmob?.client
 	if(!their_client)
 		return
 	their_client.screen -= src
@@ -213,7 +213,7 @@
 			render_target = copytext_char(render_target, 2)
 		if(!(critical & PLANE_CRITICAL_NO_RELAY))
 			return
-		var/client/our_client = relevant.client
+		var/client/our_client = relevant.canon_client || relevant.client
 		if(our_client)
 			for(var/atom/movable/render_plane_relay/relay as anything in relays)
 				our_client.screen -= relay
@@ -230,7 +230,7 @@
 
 		if(!(critical & PLANE_CRITICAL_NO_RELAY))
 			return
-		var/client/our_client = relevant.client
+		var/client/our_client = relevant.canon_client || relevant.client
 		if(our_client)
 			for(var/atom/movable/render_plane_relay/relay as anything in relays)
 				our_client.screen += relay

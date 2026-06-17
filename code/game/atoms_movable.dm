@@ -126,7 +126,12 @@
 /atom/movable/proc/update_plane_from_z()
 	var/true_plane = PLANE_TO_TRUE(plane)
 	if(!isnull(true_plane))
-		SET_PLANE(src, true_plane, src)
+		SET_PLANE_EXPLICIT(src, true_plane, src)
+
+/atom/movable/reset_plane_and_layer()
+	. = ..()
+	update_plane_from_z()
+	return .
 
 /atom/movable/Destroy(force)
 	if(orbiting)

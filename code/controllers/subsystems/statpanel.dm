@@ -169,6 +169,10 @@ SUBSYSTEM_DEF(statpanels)
 	target.stat_panel.send_message("update_spells", list(spell_tabs = target.spell_tabs, actions = actions), TRUE)
 
 /datum/controller/subsystem/statpanels/proc/set_turf_examine_tab(client/target, mob/target_mob)
+	if(!target_mob.TurfAdjacentVisible(target_mob.listed_turf))
+		target_mob.set_listed_turf(null)
+		return
+
 	var/list/overrides = list()
 	for(var/image/target_image as anything in target.images)
 		if(!target_image.loc || target_image.loc.loc != target_mob.listed_turf || !target_image.override)
@@ -282,7 +286,7 @@ SUBSYSTEM_DEF(statpanels)
 	// Handle turfs
 
 	if(target_mob?.listed_turf)
-		if(!target_mob.TurfAdjacent(target_mob.listed_turf))
+		if(!target_mob.TurfAdjacentVisible(target_mob.listed_turf))
 			target_mob.set_listed_turf(null)
 
 		else if(target.stat_tab == target_mob?.listed_turf.name || !(target_mob?.listed_turf.name in target.panel_tabs))
@@ -379,7 +383,7 @@ SUBSYSTEM_DEF(statpanels)
 /datum/object_window_info/proc/on_mob_move(mob/source)
 	SIGNAL_HANDLER
 	var/turf/listed = source.listed_turf
-	if(!listed || !source.TurfAdjacent(listed))
+	if(!source.TurfAdjacentVisible(listed))
 		source.set_listed_turf(null)
 
 /datum/object_window_info/proc/on_mob_logout(mob/source)

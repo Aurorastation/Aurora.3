@@ -141,6 +141,11 @@
 	if(!isnull(true_plane))
 		SET_PLANE_W_SCALAR(src, true_plane, plane_offset)
 
+/turf/reset_plane_and_layer()
+	. = ..()
+	update_plane_from_z()
+	return .
+
 // Parent code is duplicated in here instead of ..() for performance reasons.
 // There's ALSO a copy of this in mine_turfs.dm!
 /turf/Initialize(mapload, ...)
