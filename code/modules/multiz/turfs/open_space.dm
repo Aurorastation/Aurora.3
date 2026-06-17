@@ -180,8 +180,11 @@
 /turf/simulated/open/Initialize(mapload)
 	. = ..()
 	icon_state = ""	// Clear out the debug icon.
-	ADD_TRAIT(src, TURF_Z_TRANSPARENT_TRAIT, TRAIT_SOURCE_INHERENT)
 	update(mapload)
+	return INITIALIZE_HINT_LATELOAD
+
+/turf/simulated/open/LateInitialize()
+	ADD_TURF_TRANSPARENCY(src, TRAIT_SOURCE_INHERENT)
 
 
 /**

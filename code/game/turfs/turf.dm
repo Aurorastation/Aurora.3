@@ -157,6 +157,13 @@
 
 	update_plane_from_z()
 
+	var/turf/above_turf = GET_TURF_ABOVE(src)
+	if(above_turf)
+		above_turf.multiz_turf_new(src, DOWN)
+	var/turf/below_turf = GET_TURF_BELOW(src)
+	if(below_turf)
+		below_turf.multiz_turf_new(src, UP)
+
 	for(var/atom/movable/content as anything in src)
 		Entered(content, src)
 
@@ -199,6 +206,13 @@
 		crash_with("Improper turf qdeletion.")
 
 	changing_turf = FALSE
+
+	var/turf/above_turf = GET_TURF_ABOVE(src)
+	if(above_turf)
+		above_turf.multiz_turf_del(src, DOWN)
+	var/turf/below_turf = GET_TURF_BELOW(src)
+	if(below_turf)
+		below_turf.multiz_turf_del(src, UP)
 
 	if (is_station_level(z))
 		GLOB.station_turfs -= src
@@ -322,6 +336,12 @@
 /// Allows for reactions to an area change without inherently requiring change_area() be called (I hate maploading)
 /turf/proc/on_change_area(area/old_area, area/new_area)
 	transfer_area_lighting(old_area, new_area)
+
+/turf/proc/multiz_turf_del(turf/changed_turf, direction)
+	SEND_SIGNAL(src, COMSIG_TURF_MULTIZ_DEL, changed_turf, direction)
+
+/turf/proc/multiz_turf_new(turf/changed_turf, direction)
+	SEND_SIGNAL(src, COMSIG_TURF_MULTIZ_NEW, changed_turf, direction)
 
 // /turf/Enter(atom/movable/mover as mob|obj, atom/forget as mob|obj|turf|area)
 // 	if(movement_disabled && usr.ckey != movement_disabled_exception)

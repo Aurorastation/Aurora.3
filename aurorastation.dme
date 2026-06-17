@@ -568,6 +568,7 @@
 #include "code\datums\elements\light_eater.dm"
 #include "code\datums\elements\light_blocking.dm"
 #include "code\datums\elements\temporary.dm"
+#include "code\datums\elements\turf_transparency.dm"
 #include "code\datums\elements\traits\dark_afraid.dm"
 #include "code\datums\elements\traits\light_sensitivity.dm"
 #include "code\datums\ert\corporate.dm"

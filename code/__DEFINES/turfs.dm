@@ -94,6 +94,16 @@
 /// Turf is never passable
 #define TURF_PATHING_PASS_NO 2
 
+/// Makes the set turf show z-level contents below it.
+#define ADD_TURF_TRANSPARENCY(modturf, source) \
+	if(!HAS_TRAIT(modturf, TURF_Z_TRANSPARENT_TRAIT)) { modturf.AddElement(/datum/element/turf_z_transparency) }; \
+	ADD_TRAIT(modturf, TURF_Z_TRANSPARENT_TRAIT, (source))
+
+/// Removes z-level transparency from the set turf when no transparency sources remain.
+#define REMOVE_TURF_TRANSPARENCY(modturf, source) \
+	REMOVE_TRAIT(modturf, TURF_Z_TRANSPARENT_TRAIT, (source)); \
+	if(!HAS_TRAIT(modturf, TURF_Z_TRANSPARENT_TRAIT)) { modturf.RemoveElement(/datum/element/turf_z_transparency) }
+
 /*##############################
 			AURORA SHIT
 ################################*/
