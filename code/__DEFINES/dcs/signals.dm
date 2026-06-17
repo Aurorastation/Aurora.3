@@ -23,7 +23,7 @@
 
 // /turf signals
 
-/// From base of turf/ChangeTurf(): (path)
+/// From base of turf/ChangeTurf(): (path, list/new_baseturfs, flags, list/post_change_callbacks)
 #define COMSIG_TURF_CHANGE "turf_change"
 
 // /atom/movable signals

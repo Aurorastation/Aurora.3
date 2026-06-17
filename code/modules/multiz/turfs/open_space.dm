@@ -5,13 +5,16 @@
  */
 /turf/simulated/open
 	name = "open space"
-	icon = 'icons/turf/space.dmi'
-	icon_state = "opendebug"
+	icon = 'icons/turf/floors.dmi'
+	icon_state = "white"
 	density = 0
 	pathweight = 100000 //Seriously, don't try and path over this one numbnuts
 	is_hole = TRUE
 	roof_type = null
 	footstep_sound = null
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	plane = TRANSPARENT_FLOOR_PLANE
+	layer = SPACE_LAYER
 	explosion_resistance = 3
 	z_flags = ZM_ALLOW_ATMOS
 	turf_flags = TURF_FLAG_BACKGROUND
@@ -148,11 +151,14 @@
 /turf/simulated/open/airless
 	initial_gas = null
 	temperature = TCMB
-	icon_state = "opendebug_airless"
+	icon_state = "white"
 
 /turf/simulated/open/chasm
 	icon = 'icons/turf/smooth/chasms_seethrough.dmi'
 	icon_state = "debug"
+	mouse_opacity = MOUSE_OPACITY_OPAQUE
+	plane = FLOOR_PLANE
+	layer = TURF_LAYER
 	smoothing_flags = SMOOTH_TRUE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
 	smoothing_hints = SMOOTHHINT_CUT_F | SMOOTHHINT_ONLY_MATCH_TURF | SMOOTHHINT_TARGETS_NOT_UNIQUE
 	name = "hole"
@@ -179,7 +185,6 @@
 
 /turf/simulated/open/Initialize(mapload)
 	. = ..()
-	icon_state = ""	// Clear out the debug icon.
 	update(mapload)
 	return INITIALIZE_HINT_LATELOAD
 

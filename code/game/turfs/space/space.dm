@@ -35,6 +35,17 @@
 
 	update_plane_from_z()
 
+	if(SSmapping.max_plane_offset)
+		var/turf/above_turf = GET_TURF_ABOVE(src)
+		if(above_turf)
+			above_turf.multiz_turf_new(src, DOWN)
+		var/turf/below_turf = GET_TURF_BELOW(src)
+		if(below_turf)
+			below_turf.multiz_turf_new(src, UP)
+
+	if(length(vis_contents))
+		vis_contents.Cut()
+
 	if(GLOB.config.starlight)
 		update_starlight()
 

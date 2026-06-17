@@ -54,7 +54,8 @@
 	var/old_is_open = is_open()
 	var/list/old_resources = resources ? resources.Copy() : null
 
-	SEND_SIGNAL(src, COMSIG_TURF_CHANGE, path)
+	var/list/post_change_callbacks = list()
+	SEND_SIGNAL(src, COMSIG_TURF_CHANGE, path, null, null, post_change_callbacks)
 
 	//tg lighting
 	var/atom/movable/lighting_object/old_lighting_object = lighting_object
@@ -95,6 +96,9 @@
 		LAZYOR(new_turf._listen_lookup, old_listen_lookup)
 	if(old_signal_procs)
 		LAZYOR(new_turf._signal_procs, old_signal_procs)
+
+	for(var/datum/callback/callback as anything in post_change_callbacks)
+		callback.InvokeAsync(new_turf)
 
 	new_turf.dynamic_lumcount = dynamic_lumcount
 

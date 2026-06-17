@@ -5,7 +5,7 @@
 	light_height = LIGHTING_HEIGHT_FLOOR
 
 	layer = TURF_LAYER
-	vis_flags = VIS_INHERIT_PLANE
+	vis_flags = VIS_INHERIT_ID // Important for interaction with and visualization of openspace.
 
 	var/holy = 0
 
@@ -157,12 +157,17 @@
 
 	update_plane_from_z()
 
-	var/turf/above_turf = GET_TURF_ABOVE(src)
-	if(above_turf)
-		above_turf.multiz_turf_new(src, DOWN)
-	var/turf/below_turf = GET_TURF_BELOW(src)
-	if(below_turf)
-		below_turf.multiz_turf_new(src, UP)
+	if(SSmapping.max_plane_offset)
+		var/turf/above_turf = GET_TURF_ABOVE(src)
+		if(above_turf)
+			above_turf.multiz_turf_new(src, DOWN)
+		var/turf/below_turf = GET_TURF_BELOW(src)
+		if(below_turf)
+			below_turf.multiz_turf_new(src, UP)
+
+	// By default, vis_contents is inherited from the turf that was here before.
+	if(length(vis_contents))
+		vis_contents.Cut()
 
 	for(var/atom/movable/content as anything in src)
 		Entered(content, src)
@@ -207,12 +212,13 @@
 
 	changing_turf = FALSE
 
-	var/turf/above_turf = GET_TURF_ABOVE(src)
-	if(above_turf)
-		above_turf.multiz_turf_del(src, DOWN)
-	var/turf/below_turf = GET_TURF_BELOW(src)
-	if(below_turf)
-		below_turf.multiz_turf_del(src, UP)
+	if(SSmapping.max_plane_offset)
+		var/turf/above_turf = GET_TURF_ABOVE(src)
+		if(above_turf)
+			above_turf.multiz_turf_del(src, DOWN)
+		var/turf/below_turf = GET_TURF_BELOW(src)
+		if(below_turf)
+			below_turf.multiz_turf_del(src, UP)
 
 	if (is_station_level(z))
 		GLOB.station_turfs -= src
@@ -223,6 +229,8 @@
 	resource_indicator = null
 
 	..()
+	if(length(vis_contents))
+		vis_contents.Cut()
 	return QDEL_HINT_IWILLGC
 
 /turf/proc/get_smooth_underlay_icon(mutable_appearance/underlay_appearance, turf/asking_turf, adjacency_dir)
