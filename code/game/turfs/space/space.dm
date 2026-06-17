@@ -33,6 +33,8 @@
 	if(use_space_appearance)
 		appearance = SSskybox.space_appearance_cache[(((x + y) ^ ~(x * y) + z) % 25) + 1]
 
+	update_plane_from_z()
+
 	if(GLOB.config.starlight)
 		update_starlight()
 

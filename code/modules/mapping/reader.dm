@@ -224,6 +224,8 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
 		return null
 	else
 		if(!measureOnly)
+			SSmapping.update_turf_plane_offsets_for_bounds(bounds)
+
 			if(!no_changeturf)
 				for(var/turf/T as anything in block(locate(bounds[MAP_MINX], bounds[MAP_MINY], bounds[MAP_MINZ]), locate(bounds[MAP_MAXX], bounds[MAP_MAXY], bounds[MAP_MAXZ])))
 					//we do this after we load everything in. if we don't; we'll have weird atmos bugs regarding atmos adjacent turfs

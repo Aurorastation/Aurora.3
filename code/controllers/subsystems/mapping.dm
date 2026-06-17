@@ -231,14 +231,48 @@ SUBSYSTEM_DEF(mapping)
 
 	var/old_max = max_plane_offset
 	max_plane_offset = max(max_plane_offset, plane_offset)
-	if(max_plane_offset == old_max)
+
+	if(max_plane_offset > old_max)
+		generate_offset_lists(old_max + 1, max_plane_offset)
+		SEND_SIGNAL(src, COMSIG_PLANE_OFFSET_INCREASE, old_max, max_plane_offset)
+
+		if(max_plane_offset > MAX_EXPECTED_Z_DEPTH)
+			stack_trace("Loaded a map deeper than the expected z depth. Multiz visual preference boundaries may not cover all offsets.")
+
+	update_turf_plane_offsets_for_levels(levels_checked)
+
+/datum/controller/subsystem/mapping/proc/update_turf_plane_offsets_for_levels(list/datum/space_level/levels_to_update)
+	if(!max_plane_offset)
 		return
 
-	generate_offset_lists(old_max + 1, max_plane_offset)
-	SEND_SIGNAL(src, COMSIG_PLANE_OFFSET_INCREASE, old_max, max_plane_offset)
+	for(var/datum/space_level/level_to_update as anything in levels_to_update)
+		update_turf_plane_offsets_for_z(level_to_update.z_value)
 
-	if(max_plane_offset > MAX_EXPECTED_Z_DEPTH)
-		stack_trace("Loaded a map deeper than the expected z depth. Multiz visual preference boundaries may not cover all offsets.")
+/datum/controller/subsystem/mapping/proc/update_turf_plane_offsets_for_bounds(list/bounds)
+	if(!max_plane_offset || !bounds)
+		return
+
+	for(var/z_value in bounds[MAP_MINZ] to bounds[MAP_MAXZ])
+		update_turf_plane_offsets_for_z(z_value, bounds[MAP_MINX], bounds[MAP_MINY], bounds[MAP_MAXX], bounds[MAP_MAXY])
+
+/datum/controller/subsystem/mapping/proc/update_turf_plane_offsets_for_z(z_value, min_x = 1, min_y = 1, max_x = world.maxx, max_y = world.maxy)
+	if(!max_plane_offset || z_value < 1 || !z_level_to_plane_offset || z_value > length(z_level_to_plane_offset) || isnull(z_level_to_plane_offset[z_value]))
+		return
+
+	min_x = clamp(min_x, 1, world.maxx)
+	min_y = clamp(min_y, 1, world.maxy)
+	max_x = clamp(max_x, 1, world.maxx)
+	max_y = clamp(max_y, 1, world.maxy)
+	if(min_x > max_x || min_y > max_y)
+		return
+
+	var/turf/lower_left = locate(min_x, min_y, z_value)
+	var/turf/upper_right = locate(max_x, max_y, z_value)
+	if(!lower_left || !upper_right)
+		return
+
+	for(var/turf/turf_to_update as anything in block(lower_left, upper_right))
+		turf_to_update.update_plane_from_z()
 
 /// Takes an offset to generate misc lists to, and a base to start from.
 /datum/controller/subsystem/mapping/proc/generate_offset_lists(gen_from, new_offset)

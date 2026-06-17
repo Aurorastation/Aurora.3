@@ -129,6 +129,18 @@
 	var/tmp/is_outside = OUTSIDE_AREA
 	var/tmp/last_outside_check = OUTSIDE_UNCERTAIN
 
+/turf/proc/update_plane_from_z()
+	if(!SSmapping.max_plane_offset || z < 1 || !SSmapping.z_level_to_plane_offset || z > length(SSmapping.z_level_to_plane_offset))
+		return
+
+	var/plane_offset = SSmapping.z_level_to_plane_offset[z]
+	if(isnull(plane_offset))
+		return
+
+	var/true_plane = PLANE_TO_TRUE(plane)
+	if(!isnull(true_plane))
+		SET_PLANE_W_SCALAR(src, true_plane, plane_offset)
+
 // Parent code is duplicated in here instead of ..() for performance reasons.
 // There's ALSO a copy of this in mine_turfs.dm!
 /turf/Initialize(mapload, ...)
@@ -137,6 +149,8 @@
 	if(flags_1 & INITIALIZED_1)
 		stack_trace("Warning: [src]([type]) initialized multiple times!")
 	flags_1 |= INITIALIZED_1
+
+	update_plane_from_z()
 
 	for(var/atom/movable/content as anything in src)
 		Entered(content, src)
