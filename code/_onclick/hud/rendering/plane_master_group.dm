@@ -118,14 +118,15 @@
 
 	// Each time we go "down" a visual z level, we'll reduce the scale by this amount
 	// Chosen because mothblocks liked it, didn't cause motion sickness while also giving a sense of height
-	var/scale_by = 0.965
+	var/neutralize_transforms = GLOB.multiz_plane_scaling_neutralized || !use_scale
+	var/scale_by = neutralize_transforms ? 1 : 0.965
 	if(!use_scale)
 		// This is a workaround for two things
 		// First of all, if a mob can see objects but not turfs, they will not be shown the holder objects we use for
 		// What I'd like to do is revert to images if this case throws, but image vis_contents is broken
 		// https://www.byond.com/forum/post/2821969
 		// If that's ever fixed, please just use that. thanks :)
-		scale_by = 1
+		neutralize_transforms = TRUE
 
 	var/list/offsets = list()
 	var/multiz_boundary = our_hud?.get_multiz_performance_boundary()
@@ -139,8 +140,8 @@
 			offsets += null
 			continue
 
-		// No transformations if we're landing ON you
-		if(offset == 0)
+		// No transformations if we're landing ON you or if flat multiz debugging is active.
+		if(offset == 0 || neutralize_transforms)
 			offsets += null
 			continue
 
@@ -170,6 +171,11 @@
 			plane.inside_bounds(our_mob)
 
 		if(!plane.multiz_scaled)
+			continue
+
+		if(neutralize_transforms)
+			animate(plane)
+			plane.transform = null
 			continue
 
 		if(plane.force_hidden || plane.is_outside_bounds || visual_offset < 0)

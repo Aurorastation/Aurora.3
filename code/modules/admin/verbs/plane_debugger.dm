@@ -276,6 +276,82 @@
 		holder.plane_debug.set_mirroring(FALSE)
 	holder.plane_debug.ui_interact(mob)
 
+/client/proc/toggle_flat_multiz_plane_scaling()
+	set category = "Debug"
+	set name = "Toggle Flat Multiz Plane Scaling"
+	set desc = "Toggle the temporary flat multiz plane transform mode used while validating plane offsets."
+
+	if(!check_rights(R_DEBUG))
+		return
+
+	GLOB.multiz_plane_scaling_neutralized = !GLOB.multiz_plane_scaling_neutralized
+	for(var/client/viewer as anything in GLOB.clients)
+		var/datum/hud/viewer_hud = viewer.mob?.hud_used
+		if(!viewer_hud)
+			continue
+		for(var/group_key in viewer_hud.master_groups)
+			var/datum/plane_master_group/group = viewer_hud.master_groups[group_key]
+			group.build_planes_offset(viewer_hud, viewer_hud.current_plane_offset)
+
+	var/state = GLOB.multiz_plane_scaling_neutralized ? "neutralized/flat" : "normal animated scaling"
+	to_chat(src, SPAN_NOTICE("Multiz plane scaling is now [state]."))
+	message_admins("[key_name_admin(src)] toggled multiz plane scaling to [state].")
+	log_admin("[key_name(src)] toggled multiz plane scaling to [state].")
+	feedback_add_details("admin_verb", "TFMPS")
+
+/client/proc/probe_plane_atom(atom/target as obj|mob|turf in range(world.view))
+	set category = "Debug"
+	set name = "Probe Plane Atom/Turf"
+	set desc = "Dump plane, overlay, and lighting debug data for a clicked atom or turf."
+
+	if(!check_rights(R_DEBUG))
+		return
+	if(!target)
+		return
+
+	var/list/lines = list()
+	lines += "Plane atom/turf probe"
+	lines += "viewer=[mob] eye=[eye || mob] flat_multiz_scaling=[GLOB.multiz_plane_scaling_neutralized]"
+	lines += ""
+	lines += plane_probe_atom_lines(target, "Target")
+
+	var/turf/target_turf = get_turf(target)
+	if(target_turf && target_turf != target)
+		lines += ""
+		lines += plane_probe_atom_lines(target_turf, "Target Turf")
+
+	lines += ""
+	lines += "Lighting object plane checks:"
+	var/found_lighting_object = FALSE
+	if(istype(target, /atom/movable/lighting_object))
+		found_lighting_object = TRUE
+		var/atom/movable/lighting_object/target_lighting_object = target
+		lines += plane_probe_lighting_object_lines(target_lighting_object, target_turf, "clicked lighting object")
+
+	if(target_turf?.lighting_object)
+		found_lighting_object = TRUE
+		lines += plane_probe_lighting_object_lines(target_turf.lighting_object, target_turf, "target turf lighting_object")
+
+	for(var/atom/movable/lighting_object/lighting_object as anything in plane_probe_vis_contents(target))
+		if(lighting_object == target_turf?.lighting_object)
+			continue
+		found_lighting_object = TRUE
+		lines += plane_probe_lighting_object_lines(lighting_object, target_turf, "target vis_contents lighting object")
+
+	if(target_turf && target_turf != target)
+		for(var/atom/movable/lighting_object/lighting_object as anything in target_turf.vis_contents)
+			if(lighting_object == target_turf.lighting_object)
+				continue
+			found_lighting_object = TRUE
+			lines += plane_probe_lighting_object_lines(lighting_object, target_turf, "turf vis_contents lighting object")
+
+	if(!found_lighting_object)
+		lines += "  none found on the clicked atom/turf context"
+
+	var/output = "<b>Plane Atom/Turf Probe</b><hr><pre>[html_encode(jointext(lines, "\n"))]</pre>"
+	src << browse(HTML_SKELETON(output), "window=plane_atom_probe;size=1000x800")
+	feedback_add_details("admin_verb", "PAPRB")
+
 /client/proc/dump_plane_cube_chain()
 	set category = "Debug"
 	set name = "Dump Plane Cube Chain"
@@ -384,3 +460,144 @@
 		if(BLEND_INSET_OVERLAY)
 			return "BLEND_INSET_OVERLAY"
 	return "[blend_mode]"
+
+/proc/plane_probe_atom_lines(atom/target, label)
+	var/list/lines = list()
+	if(!target)
+		lines += "[label]: null"
+		return lines
+
+	var/turf/target_turf = get_turf(target)
+	var/turf_offset = plane_probe_turf_offset(target_turf)
+	var/true_plane = PLANE_TO_TRUE(target.plane)
+	var/expected_turf_plane = GET_NEW_PLANE(true_plane, turf_offset)
+	lines += "[label]: [target] ([target.type], ref=[REF(target)])"
+	lines += "  loc=[target.loc] loc_type=[target.loc?.type] coords=[plane_probe_atom_coords(target)] turf=[plane_probe_atom_coords(target_turf)]"
+	lines += "  plane=[target.plane] true=[true_plane] offset=[PLANE_TO_OFFSET(target.plane)] expected_for_turf=[expected_turf_plane] matches_expected_for_turf=[target.plane == expected_turf_plane]"
+	lines += "  layer=[target.layer] alpha=[target.alpha] color=[plane_probe_value_to_text(target.color)]"
+	lines += "  light=[plane_probe_light_source_summary(target.light)]"
+	lines += "  light_sources:"
+	lines += plane_probe_light_sources_summary(target.light_sources, 6, "    ")
+	if(isturf(target))
+		var/turf/probed_turf = target
+		lines += "  lighting_object=[plane_probe_visual_entry(probed_turf.lighting_object)]"
+	else if(target_turf)
+		lines += "  turf_lighting_object=[plane_probe_visual_entry(target_turf.lighting_object)]"
+	else
+		lines += "  turf_lighting_object=null"
+	lines += "  overlays:"
+	lines += plane_probe_visual_list_summary(target.overlays, 10, "    ")
+	lines += "  underlays:"
+	lines += plane_probe_visual_list_summary(target.underlays, 10, "    ")
+	lines += "  update_on_z:"
+	lines += plane_probe_visual_list_summary(target.update_on_z, 10, "    ")
+	lines += "  update_overlays_on_z:"
+	lines += plane_probe_visual_list_summary(target.update_overlays_on_z, 10, "    ")
+	lines += "  vis_contents:"
+	lines += plane_probe_visual_list_summary(plane_probe_vis_contents(target), 12, "    ")
+	return lines
+
+/proc/plane_probe_lighting_object_lines(atom/movable/lighting_object/lighting_object, turf/reference_turf, label)
+	var/list/lines = list()
+	if(!lighting_object)
+		lines += "  [label]: null"
+		return lines
+
+	var/turf/affected_turf = lighting_object.affected_turf
+	if(!affected_turf)
+		affected_turf = reference_turf
+	var/expected_plane = plane_probe_expected_lighting_plane(affected_turf)
+	var/matches_expected = isnull(expected_plane) ? "unknown" : (lighting_object.plane == expected_plane ? "TRUE" : "FALSE")
+	var/in_affected_vis_contents = affected_turf && affected_turf.vis_contents.Find(lighting_object)
+	lines += "  [label]: [plane_probe_visual_entry(lighting_object)]"
+	lines += "    affected_turf=[plane_probe_atom_coords(affected_turf)] expected_lighting_plane=[expected_plane] matches_expected=[matches_expected] in_affected_vis_contents=[in_affected_vis_contents ? TRUE : FALSE] needs_update=[lighting_object.needs_update]"
+	return lines
+
+/proc/plane_probe_visual_list_summary(list/things, max_entries = 10, prefix = "")
+	var/list/lines = list()
+	var/count = length(things)
+	lines += "[prefix]len=[count]"
+	if(!count)
+		return lines
+
+	var/index = 1
+	for(var/entry in things)
+		if(index > max_entries)
+			break
+		lines += "[prefix][index]. [plane_probe_visual_entry(entry)]"
+		index++
+	if(count > max_entries)
+		lines += "[prefix]... [count - max_entries] more"
+	return lines
+
+/proc/plane_probe_light_sources_summary(list/light_sources, max_entries = 6, prefix = "")
+	var/list/lines = list()
+	var/count = length(light_sources)
+	lines += "[prefix]len=[count]"
+	if(!count)
+		return lines
+
+	var/index = 1
+	for(var/source in light_sources)
+		if(index > max_entries)
+			break
+		lines += "[prefix][index]. [plane_probe_light_source_summary(source)]"
+		index++
+	if(count > max_entries)
+		lines += "[prefix]... [count - max_entries] more"
+	return lines
+
+/proc/plane_probe_visual_entry(entry)
+	if(isnull(entry))
+		return "null"
+	if(isatom(entry))
+		var/atom/atom_entry = entry
+		return "[atom_entry] ([atom_entry.type], ref=[REF(atom_entry)]) loc=[atom_entry.loc] coords=[plane_probe_atom_coords(atom_entry)] plane=[atom_entry.plane] true=[PLANE_TO_TRUE(atom_entry.plane)] offset=[PLANE_TO_OFFSET(atom_entry.plane)] layer=[atom_entry.layer] alpha=[atom_entry.alpha] color=[plane_probe_value_to_text(atom_entry.color)]"
+	if(istype(entry, /image))
+		var/image/image_entry = entry
+		return "[image_entry] ([image_entry.type], ref=[REF(image_entry)]) plane=[image_entry.plane] true=[PLANE_TO_TRUE(image_entry.plane)] offset=[PLANE_TO_OFFSET(image_entry.plane)] layer=[image_entry.layer] alpha=[image_entry.alpha] color=[plane_probe_value_to_text(image_entry.color)] icon=[image_entry.icon] icon_state=[image_entry.icon_state]"
+	if(isdatum(entry))
+		var/datum/datum_entry = entry
+		return "[datum_entry] ([datum_entry.type], ref=[REF(datum_entry)])"
+	return "[entry]"
+
+/proc/plane_probe_light_source_summary(datum/light_source/light_source)
+	if(!light_source)
+		return "null"
+	return "[light_source] ([light_source.type], ref=[REF(light_source)]) source=[plane_probe_visual_entry(light_source.source_atom)] top=[plane_probe_visual_entry(light_source.top_atom)] source_turf=[plane_probe_atom_coords(light_source.source_turf)] range=[light_source.light_range] power=[light_source.light_power] color=[light_source.light_color] height=[light_source.light_height] dir=[light_source.light_dir] angle=[light_source.light_angle] applied=[light_source.applied] needs_update=[light_source.needs_update]"
+
+/proc/plane_probe_value_to_text(value)
+	if(isnull(value))
+		return "null"
+	if(islist(value))
+		return json_encode(value)
+	if(isdatum(value))
+		var/datum/datum_value = value
+		return "[datum_value] ([datum_value.type], ref=[REF(datum_value)])"
+	return "[value]"
+
+/proc/plane_probe_atom_coords(atom/target)
+	if(!target)
+		return "null"
+	return "[target.x],[target.y],[target.z]"
+
+/proc/plane_probe_vis_contents(atom/target)
+	if(isturf(target))
+		var/turf/turf_target = target
+		return turf_target.vis_contents
+	if(ismovable(target))
+		var/atom/movable/movable_target = target
+		return movable_target.vis_contents
+	return null
+
+/proc/plane_probe_turf_offset(turf/target)
+	if(!target || !SSmapping.max_plane_offset || length(SSmapping.z_level_to_plane_offset) < target.z)
+		return 0
+	return GET_Z_PLANE_OFFSET(target.z)
+
+/proc/plane_probe_expected_lighting_plane(turf/target)
+	if(!target)
+		return null
+	if(!SSmapping.max_plane_offset || length(SSmapping.z_level_to_plane_offset) < target.z)
+		return LIGHTING_PLANE
+	return GET_NEW_PLANE(LIGHTING_PLANE, GET_Z_PLANE_OFFSET(target.z))
