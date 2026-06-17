@@ -32,6 +32,20 @@
 			copied.vars[variable] = src.vars[variable]
 	return copied
 
+/datum/record/proc/notes_as_paper_html()
+	if(!notes)
+		return ""
+
+	var/text = trim("[notes]")
+	if(!length(text))
+		return ""
+
+	text = sanitize(text, MAX_PAPER_MESSAGE_LEN, extra = 0)
+
+	var/obj/item/paper/P = new
+	. = P.parsepencode(text, skipdefaultfont = TRUE)
+	qdel(P)
+
 #define CONDITIONAL_HTML_DECODE(VAR)\
 	if(decode_html){\
 		if(istext(##VAR)){\
@@ -84,6 +98,9 @@
 				else if(!to_update)
 					record[variable] = src.vars[variable]
 					CONDITIONAL_HTML_DECODE(record[variable])
+
+	if(!exclusions["notes"])
+		record["notes_html"] = notes_as_paper_html()
 
 #undef CONDITIONAL_HTML_DECODE
 

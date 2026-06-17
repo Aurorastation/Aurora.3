@@ -16,6 +16,7 @@ import type { BooleanLike } from 'tgui-core/react';
 import { capitalize } from 'tgui-core/string';
 import { useBackend, useLocalState } from '../backend';
 import { NtosWindow } from '../layouts';
+import { sanitizeText } from '../sanitize';
 import { SearchBar } from './common/SearchBar';
 
 export type RecordsData = {
@@ -56,6 +57,7 @@ type Record = {
   religion: string;
   employer: string;
   notes: string;
+  notes_html?: string;
   security: Security;
   medical: Medical;
   ccia_notes: string;
@@ -64,6 +66,7 @@ type Record = {
 
 type Security = {
   notes: string;
+  notes_html?: string;
   criminal: string;
   crimes: string;
   incidents: Incident[];
@@ -80,6 +83,7 @@ type Incident = {
 
 type Medical = {
   notes: string;
+  notes_html?: string;
   disabilities: string;
   allergies: string;
   diseases: string;
@@ -562,21 +566,24 @@ export const ListActive = (props) => {
       </LabeledList>
       {recordTab === 'General' ? (
         <Section title="Employment Records">
-          {data.active.notes.split('\n').map((line) => (
-            <Box key={line}>{line}</Box>
-          ))}
+          <PaperRecordText
+            html={data.active.notes_html}
+            fallback={data.active.notes}
+          />
         </Section>
       ) : recordTab === 'Security' ? (
         <Section title="Security Records">
-          {data.active.security.notes.split('\n').map((line) => (
-            <Box key={line}>{line}</Box>
-          ))}
+          <PaperRecordText
+            html={data.active.security.notes_html}
+            fallback={data.active.security.notes}
+          />
         </Section>
       ) : recordTab === 'Medical' ? (
         <Section title="Medical Records">
-          {data.active.medical.notes.split('\n').map((line) => (
-            <Box key={line}>{line}</Box>
-          ))}
+          <PaperRecordText
+            html={data.active.medical.notes_html}
+            fallback={data.active.medical.notes}
+          />
         </Section>
       ) : (
         ''
@@ -634,5 +641,28 @@ export const ListActive = (props) => {
         ''
       )}
     </Section>
+  );
+};
+
+const PaperRecordText = (props: { html?: string; fallback?: string }) => {
+  const { html, fallback } = props;
+
+  if (html) {
+    const contentHtml = {
+      __html: sanitizeText(html),
+    };
+
+    return (
+      // biome-ignore lint/security/noDangerouslySetInnerHtml: BYOND papercode output is sanitized before display.
+      <Box dangerouslySetInnerHTML={contentHtml} />
+    );
+  }
+
+  return (
+    <>
+      {(fallback || '').split('\n').map((line, index) => (
+        <Box key={`${index}-${line}`}>{line}</Box>
+      ))}
+    </>
   );
 };
