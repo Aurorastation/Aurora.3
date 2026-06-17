@@ -389,13 +389,7 @@ There are several things that need to be remembered:
 
 		SSicon_cache.human_icon_cache[icon_key] = base_icon
 
-	for(var/obj/item/organ/external/part in organs)
-		part.cut_additional_images(src)
-		var/list/add_images = part.get_additional_images(src)
-		if(add_images)
-			AddOverlays(add_images, ATOM_ICON_CACHE_PROTECTED)
-	UpdateOverlays()
-
+	update_body_additional_images()
 	//END CACHED ICON GENERATION.
 	stand_icon.Blend(base_icon,ICON_OVERLAY)
 
@@ -404,6 +398,22 @@ There are several things that need to be remembered:
 
 	if(update_icons)
 		update_icon()
+
+/mob/living/carbon/human/proc/update_body_additional_images()
+	for(var/obj/item/organ/external/part in organs)
+		if(isnull(part))
+			continue
+		part.cut_additional_images(src)
+		var/list/add_images = part.get_additional_images(src)
+		if(add_images)
+			AddOverlays(add_images, ATOM_ICON_CACHE_PROTECTED)
+	UpdateOverlays()
+
+/mob/living/carbon/human/on_changed_z_level(turf/old_turf, turf/new_turf, same_z_layer, notify_contents = TRUE)
+	. = ..()
+	if(!same_z_layer && !QDELETED(src))
+		// Limb/internal-organ emissives live in the protected overlay cache, outside the normal update_icon() rebuild.
+		update_body_additional_images()
 
 /mob/living/carbon/human/proc/update_underwear(update_icons = TRUE)
 	overlays_raw[UNDERWEAR_LAYER] = list()

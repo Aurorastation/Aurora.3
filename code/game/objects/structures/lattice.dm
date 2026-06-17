@@ -104,6 +104,7 @@
 	desc = "A catwalk for easier EVA maneuvering."
 	icon = 'icons/obj/smooth/catwalk.dmi'
 	icon_state = "catwalk"
+	blocks_emissive = EMISSIVE_BLOCK_NONE
 	smoothing_flags = SMOOTH_TRUE
 	canSmoothWith = list(
 		/obj/structure/lattice/catwalk,
