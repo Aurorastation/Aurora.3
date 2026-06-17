@@ -365,6 +365,7 @@ GLOBAL_LIST(global_huds)
 	for(var/group_key in master_groups)
 		var/datum/plane_master_group/group = master_groups[group_key]
 		group.refresh_hud()
+	SEND_SIGNAL(mymob, COMSIG_MOB_HUD_REFRESHED)
 
 // what the fuck am i doing in this terrible place???
 
@@ -459,6 +460,9 @@ GLOBAL_LIST(global_huds)
 /datum/hud/proc/get_plane_masters(group_key = PLANE_GROUP_MAIN)
 	var/datum/plane_master_group/group = master_groups[group_key]
 	return group?.plane_masters
+
+/datum/hud/proc/get_planes_from(group_key = PLANE_GROUP_MAIN)
+	return get_plane_masters(group_key)
 
 /datum/hud/proc/should_use_scale()
 	return should_sight_scale(mymob.sight)

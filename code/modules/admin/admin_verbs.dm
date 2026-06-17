@@ -231,6 +231,7 @@ GLOBAL_LIST_INIT(admin_verbs_debug, list(
 	/client/proc/cmd_display_del_log,
 	/client/proc/cmd_display_harddel_log,
 	/client/proc/cmd_display_init_log,
+	/client/proc/debug_plane_masters,
 	/client/proc/cmd_generate_lag,
 	/client/proc/cmd_ss_panic,
 	/datum/admins/proc/capture_map,

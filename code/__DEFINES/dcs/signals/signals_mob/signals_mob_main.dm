@@ -67,5 +67,11 @@
 /// Sent when a mob's sight flags change: (new_sight, old_sight)
 #define COMSIG_MOB_SIGHT_CHANGE "mob_sight_changed"
 
+/// Sent when a mob's see_invisible value changes: (new_see_invisible, old_see_invisible)
+#define COMSIG_MOB_SEE_INVIS_CHANGE "mob_see_invis_changed"
+
+/// Sent after a mob's HUD has rebuilt its screen contents.
+#define COMSIG_MOB_HUD_REFRESHED "mob_hud_refreshed"
+
 /// Signal raised when a mob checks for their flash protection.
 #define COMSIG_GET_FLASH_PROTECTION_MODIFIERS "get_flash_protection_modifiers"
