@@ -311,7 +311,7 @@
 
 	var/list/lines = list()
 	lines += "Plane atom/turf probe"
-	lines += "viewer=[mob] eye=[eye || mob] flat_multiz_scaling=[GLOB.multiz_plane_scaling_neutralized]"
+	lines += plane_probe_viewer_lines(src, get_turf(target))
 	lines += ""
 	lines += plane_probe_atom_lines(target, "Target")
 
@@ -477,6 +477,44 @@
 		if(BLEND_INSET_OVERLAY)
 			return "BLEND_INSET_OVERLAY"
 	return "[blend_mode]"
+
+/proc/plane_probe_viewer_lines(client/viewer, turf/target_turf)
+	var/list/lines = list()
+	var/mob/viewer_mob = viewer?.mob
+	var/atom/eye_atom = viewer?.eye || viewer_mob
+	var/turf/eye_turf = get_turf(eye_atom)
+	var/view_range = viewer?.view || world.view
+	var/target_in_eye_view = target_turf && eye_atom ? (target_turf in view(view_range, eye_atom)) : FALSE
+	var/target_in_mob_view = target_turf && viewer_mob ? (target_turf in view(view_range, viewer_mob)) : FALSE
+
+	lines += "Viewer:"
+	lines += "  mob=[viewer_mob] type=[viewer_mob?.type] sight=[viewer_mob?.sight] flags=[plane_probe_sight_flags(viewer_mob?.sight)] see_invisible=[viewer_mob?.see_invisible] stat=[viewer_mob?.stat]"
+	lines += "  eye=[eye_atom] type=[eye_atom?.type] turf=[plane_probe_atom_coords(eye_turf)] view=[view_range] perspective=[viewer?.perspective] adminobs=[viewer?.adminobs] flat_multiz_scaling=[GLOB.multiz_plane_scaling_neutralized]"
+	if(ismob(eye_atom))
+		var/mob/eye_mob = eye_atom
+		lines += "  eye_mob_sight=[eye_mob.sight] eye_mob_flags=[plane_probe_sight_flags(eye_mob.sight)] eye_mob_see_invisible=[eye_mob.see_invisible] eye_mob_stat=[eye_mob.stat]"
+	lines += "  target_turf=[plane_probe_atom_coords(target_turf)] target_turf_in_eye_view=[target_in_eye_view] target_turf_in_mob_view=[target_in_mob_view]"
+	if(target_turf)
+		lines += "  target_turf_opacity=[target_turf.opacity] directional_opacity=[target_turf.directional_opacity] opacity_sources=[plane_probe_value_to_text(target_turf.opacity_sources)]"
+	return lines
+
+/proc/plane_probe_sight_flags(sight_flags)
+	if(isnull(sight_flags))
+		return "null"
+	var/list/flag_names = list()
+	if(sight_flags & SEE_SELF)
+		flag_names += "SEE_SELF"
+	if(sight_flags & SEE_MOBS)
+		flag_names += "SEE_MOBS"
+	if(sight_flags & SEE_OBJS)
+		flag_names += "SEE_OBJS"
+	if(sight_flags & SEE_TURFS)
+		flag_names += "SEE_TURFS"
+	if(sight_flags & SEE_PIXELS)
+		flag_names += "SEE_PIXELS"
+	if(sight_flags & BLIND)
+		flag_names += "BLIND"
+	return length(flag_names) ? jointext(flag_names, "|") : "NONE"
 
 /proc/plane_probe_atom_lines(atom/target, label)
 	var/list/lines = list()
