@@ -1451,6 +1451,6 @@
 
 /obj/item/clothing/accessory/led_collar/get_accessory_mob_overlay(var/mob/living/carbon/human/H, var/force = FALSE)
 	var/image/I = ..()
-	I.plane = ABOVE_LIGHTING_PLANE
+	SET_PLANE_EXPLICIT(I, ABOVE_LIGHTING_PLANE, H)
 	I.appearance_flags |= KEEP_APART
 	return I

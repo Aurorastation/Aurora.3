@@ -49,13 +49,13 @@
 			I_HELP = mutable_appearance(icon, "[eyeprefix]-roll-eyes_help"),
 			I_HURT = mutable_appearance(icon, "[eyeprefix]-roll-eyes_harm")
 		)
-		cached_eye_emissive = emissive_appearance(icon, "[eyeprefix]-roll-eyes_help")
+		cached_eye_emissive = emissive_appearance(icon, "[eyeprefix]-roll-eyes_help", src)
 	else
 		cached_eye_overlays = list(
 			I_HELP = mutable_appearance(icon, "[eyeprefix]-eyes_help"),
 			I_HURT = mutable_appearance(icon, "[eyeprefix]-eyes_harm")
 		)
-		cached_eye_emissive = emissive_appearance(icon, "[eyeprefix]-eyes_help")
+		cached_eye_emissive = emissive_appearance(icon, "[eyeprefix]-eyes_help", src)
 	if(eye_overlay) // We should always have both an eye_overlay and an eye_emissive.
 		CutOverlays(list(eye_overlay, eye_emissive))
 	eye_overlay = cached_eye_overlays[a_intent]

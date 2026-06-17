@@ -1157,24 +1157,37 @@ BLIND     // can't see anything
 	var/eye_color = COLOR_WHITE
 	var/mutable_appearance/mob_overlay
 	var/mutable_appearance/mob_overlay_emis
+	var/list/mob_overlay_bundle_parts
 
 /obj/item/clothing/glasses/eyepatch/hud/handle_flipping(mob/user)
 	..()
 	handle_mob_overlay()
 
-/obj/item/clothing/glasses/eyepatch/hud/proc/handle_mob_overlay()
-	if(mob_overlay && ishuman(loc))
-		var/mob/living/carbon/human/H = loc
-		if(H.glasses == src)
-			H.CutOverlays(mob_overlay, ATOM_ICON_CACHE_PROTECTED)
+/obj/item/clothing/glasses/eyepatch/hud/proc/rebuild_mob_overlay(var/mob/living/carbon/human/H)
 	mob_overlay = mutable_appearance('icons/obj/clothing/glasses.dmi', "[icon_state]_eye")
 	mob_overlay.appearance_flags = RESET_COLOR
 	mob_overlay.color = eye_color
-	mob_overlay_emis = emissive_appearance('icons/obj/clothing/glasses.dmi', "[icon_state]_eye")
+	mob_overlay_emis = emissive_appearance('icons/obj/clothing/glasses.dmi', "[icon_state]_eye", H || src, MOB_EMISSIVE_LAYER)
+	if(H)
+		var/datum/mob_overlay_bundle/bundle = new()
+		bundle.SetSource(src)
+		bundle.SetBase(mob_overlay)
+		bundle.AddEmissive(mob_overlay_emis)
+		mob_overlay_bundle_parts = finalize_mob_overlay_bundle(bundle, H)
+	else
+		mob_overlay_bundle_parts = list(mob_overlay, mob_overlay_emis)
+
+/obj/item/clothing/glasses/eyepatch/hud/proc/handle_mob_overlay()
+	var/mob/living/carbon/human/H = ishuman(loc) ? loc : null
+	var/is_worn = H && H.glasses == src
+	if(mob_overlay_bundle_parts && is_worn)
+		H.CutOverlays(mob_overlay_bundle_parts, ATOM_ICON_CACHE_ALL)
+
+	rebuild_mob_overlay(H)
+
 	if(active && ishuman(loc))
-		var/mob/living/carbon/human/H = loc
 		if(H.glasses == src)
-			H.AddOverlays(list(mob_overlay, mob_overlay_emis), ATOM_ICON_CACHE_PROTECTED)
+			H.AddOverlays(mob_overlay_bundle_parts, ATOM_ICON_CACHE_PROTECTED)
 	update_icon()
 
 /obj/item/clothing/glasses/eyepatch/hud/Initialize()
@@ -1182,18 +1195,22 @@ BLIND     // can't see anything
 	handle_mob_overlay()
 
 /obj/item/clothing/glasses/eyepatch/hud/equipped(mob/user, slot)
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		if(mob_overlay_bundle_parts)
+			H.CutOverlays(mob_overlay_bundle_parts, ATOM_ICON_CACHE_ALL)
+		rebuild_mob_overlay(H)
+
 	if(active && slot == slot_glasses)
-		user.AddOverlays(mob_overlay, ATOM_ICON_CACHE_PROTECTED)
-		user.AddOverlays(mob_overlay_emis, TRUE)
+		user.AddOverlays(mob_overlay_bundle_parts, ATOM_ICON_CACHE_PROTECTED)
 	else
-		user.CutOverlays(mob_overlay, ATOM_ICON_CACHE_PROTECTED)
-		user.AddOverlays(mob_overlay_emis, TRUE)
+		user.CutOverlays(mob_overlay_bundle_parts, ATOM_ICON_CACHE_ALL)
 	return ..()
 
 /obj/item/clothing/glasses/eyepatch/hud/Destroy()
 	if (ishuman(loc))
-		loc.CutOverlays(mob_overlay, ATOM_ICON_CACHE_PROTECTED)
-		loc.CutOverlays(mob_overlay, TRUE)
+		loc.CutOverlays(mob_overlay_bundle_parts, ATOM_ICON_CACHE_ALL)
+	mob_overlay_bundle_parts = null
 	QDEL_NULL(mob_overlay)
 	QDEL_NULL(mob_overlay_emis)
 	return ..()
@@ -1217,7 +1234,7 @@ BLIND     // can't see anything
 	var/mob/M = loc
 	. = ..()
 	if (loc !=M)
-		M.CutOverlays(mob_overlay, ATOM_ICON_CACHE_PROTECTED)
+		M.CutOverlays(mob_overlay_bundle_parts, ATOM_ICON_CACHE_ALL)
 
 /obj/item/clothing/glasses/eyepatch/hud/security
 	name = "HUDpatch"

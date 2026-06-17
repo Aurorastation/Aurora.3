@@ -27,12 +27,10 @@
 	item_state = icon_state
 	update_clothing_icon()
 
-/obj/item/clothing/suit/storage/hazardvest/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
-	var/image/I = ..()
-	if(slot == slot_wear_suit_str)
-		var/image/emissive_overlay = emissive_appearance(mob_icon, "[opened ? "hazard_open-emissive" : "hazard-emissive"]", alpha = src.alpha)
-		I.AddOverlays(emissive_overlay)
-	return I
+/obj/item/clothing/suit/storage/hazardvest/get_mob_emissive_overlays(mob/living/carbon/human/H, mob_icon, mob_state, slot)
+	if(slot != slot_wear_suit_str)
+		return
+	return emissive_appearance(mob_icon, "[opened ? "hazard_open-emissive" : "hazard-emissive"]", H, alpha = src.alpha)
 
 /obj/item/clothing/suit/storage/hazardvest/blue
 	name = "blue hazard vest"

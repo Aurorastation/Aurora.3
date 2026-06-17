@@ -339,7 +339,7 @@
 				warn_state = "warn"
 		I = overlay_image(icon, "lights_[warn_state]")
 		AddOverlays(I)
-		AddOverlays(emissive_appearance(icon, "lights_mask"))
+		AddOverlays(emissive_appearance(icon, "lights_mask", src))
 
 	if(occupant && !only_pickle)
 		I = image(icon, "pod_liquid")

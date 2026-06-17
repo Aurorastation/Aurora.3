@@ -37,7 +37,7 @@
 	ClearOverlays()
 	if(!(stat & NOPOWER))
 		var/switch_overlay = image(icon, "light[on]-overlay")
-		emissive_overlay = emissive_appearance(icon, "light[on]-overlay")
+		emissive_overlay = emissive_appearance(icon, "light[on]-overlay", src)
 		AddOverlays(switch_overlay)
 		AddOverlays(emissive_overlay)
 		if (!light_range || light_color != on ? "#82ff4c" : "#f86060")

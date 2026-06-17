@@ -293,7 +293,7 @@
 	if(connected)
 		if(connected.stat & BROKEN || connected.stat & NOPOWER)
 			return
-		AddOverlays(emissive_appearance(icon, "[icon_state]_lights"))
+		AddOverlays(emissive_appearance(icon, "[icon_state]_lights", src))
 		AddOverlays("[icon_state]_lights")
 
 /obj/structure/machinery/body_scanconsole/Initialize()

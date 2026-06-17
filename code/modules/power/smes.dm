@@ -196,23 +196,23 @@
 
 	if(inputting == (1 || 2))
 		oc = overlay_image(icon, "[icon_state]-oc[inputting]")
-		oc_emis = emissive_appearance(icon, "[icon_state]-oc[inputting]")
+		oc_emis = emissive_appearance(icon, "[icon_state]-oc[inputting]", src)
 	else if (input_attempt)
 		oc = overlay_image(icon, "[icon_state]-oc0")
-		oc_emis = emissive_appearance(icon, "[icon_state]-oc0")
+		oc_emis = emissive_appearance(icon, "[icon_state]-oc0", src)
 
 
 	var/clevel = chargedisplay()
 	if(clevel)
 		og = overlay_image(icon, "[icon_state]-og[clevel]")
-		og_emis = emissive_appearance(icon, "[icon_state]-og[clevel]")
+		og_emis = emissive_appearance(icon, "[icon_state]-og[clevel]", src)
 
 	if(outputting == 2 || 1)
 		op = overlay_image(icon, "[icon_state]-op[outputting]")
-		op_emis = emissive_appearance(icon, "[icon_state]-op[outputting]")
+		op_emis = emissive_appearance(icon, "[icon_state]-op[outputting]", src)
 	else
 		op = overlay_image(icon, "[icon_state]-op0")
-		op_emis = emissive_appearance(icon, "[icon_state]-op0")
+		op_emis = emissive_appearance(icon, "[icon_state]-op0", src)
 
 	AddOverlays(list(
 		oc,

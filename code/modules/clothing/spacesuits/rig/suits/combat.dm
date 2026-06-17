@@ -674,10 +674,9 @@
 /obj/item/clothing/suit/space/rig/zavod_heavy
 	var/lights_active = FALSE
 
-/obj/item/clothing/suit/space/rig/zavod_heavy/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
-	var/image/I = ..()
+/obj/item/clothing/suit/space/rig/zavod_heavy/get_mob_emissive_overlays(mob/living/carbon/human/H, mob_icon, mob_state, slot)
 	if(slot != slot_wear_suit_str)
-		return I
+		return
 
 	var/obj/item/rig/rigcontroller = H.get_equipped_item(slot_back)
 	if(!istype(rigcontroller, /obj/item/rig) || rigcontroller.offline)
@@ -685,30 +684,25 @@
 		if (lights_active)
 			set_light_on(FALSE)
 			lights_active = FALSE
-		return I
+		return
 
 	if (!lights_active && !rigcontroller.sealing)
 		set_light_range_power_color(0.3, 0.2, "#ff0800")
 		set_light_on(TRUE)
 		lights_active = TRUE
 
-	var/image/emissive_overlay = emissive_appearance(mob_icon, "zavod_heavy_sealed_su-emissive")
-	I.AddOverlays(emissive_overlay)
-	return I
+	return emissive_appearance(mob_icon, "zavod_heavy_sealed_su-emissive", H)
 
 /obj/item/clothing/head/helmet/space/rig/combat/zavod_heavy
 	light_overlay = "helmet_light"
 	light_color = "#ff0800"
 
-/obj/item/clothing/head/helmet/space/rig/combat/zavod_heavy/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
-	var/image/I = ..()
+/obj/item/clothing/head/helmet/space/rig/combat/zavod_heavy/get_mob_emissive_overlays(mob/living/carbon/human/H, mob_icon, mob_state, slot)
 	if(slot != slot_head_str)
-		return I
+		return
 
 	var/obj/item/rig/rigcontroller = H.get_equipped_item(slot_back)
 	if(!istype(rigcontroller, /obj/item/rig) || rigcontroller.offline)
-		return I
+		return
 
-	var/image/emissive_overlay = emissive_appearance(mob_icon, "zavod_heavy_sealed_he-emissive")
-	I.AddOverlays(emissive_overlay)
-	return I
+	return emissive_appearance(mob_icon, "zavod_heavy_sealed_he-emissive", H)

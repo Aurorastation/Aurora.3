@@ -133,7 +133,7 @@
 		var/image/panel = image(icon, "panel", layer = ABOVE_HUMAN_LAYER)
 		AddOverlays(panel)
 
-	var/mutable_appearance/lights_emissive = emissive_appearance(icon, "light_radiation")
+	var/mutable_appearance/lights_emissive = emissive_appearance(icon, "light_radiation", src)
 	if(irradiating)
 		var/image/irradiating_lights = overlay_image(icon, "light_radiation")
 		AddOverlays(list(

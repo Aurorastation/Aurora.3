@@ -341,12 +341,9 @@
 	glove_type = null
 	boot_type = null
 
-/obj/item/rig/light/falcata/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
-	var/image/I = ..()
+/obj/item/rig/light/falcata/get_mob_emissive_overlays(mob/living/carbon/human/H, mob_icon, mob_state, slot)
 	if(slot == slot_back_str && !offline)
-		var/image/emissive_overlay = emissive_appearance(mob_icon, "falcata_rig_ba-emissive")
-		I.AddOverlays(emissive_overlay)
-	return I
+		return emissive_appearance(mob_icon, "falcata_rig_ba-emissive", H)
 
 /obj/item/rig/light/falcata/set_vision(var/active)
 	if(helmet)
@@ -374,18 +371,15 @@
 	breach_threshold = 45 // We aren't a real hardsuit, rather a very thick torso plate.
 	flags_inv = 0 // Don't hide jumpsuit or tail
 
-/obj/item/clothing/suit/space/rig/light/falcata/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
-	var/image/I = ..()
+/obj/item/clothing/suit/space/rig/light/falcata/get_mob_emissive_overlays(mob/living/carbon/human/H, mob_icon, mob_state, slot)
 	if(slot != slot_wear_suit_str)
-		return I
+		return
 
 	var/obj/item/rig/rigcontroller = H.get_equipped_item(slot_back)
 	if(!istype(rigcontroller, /obj/item/rig) || rigcontroller.offline)
-		return I
+		return
 
-	var/image/emissive_overlay = emissive_appearance(mob_icon, "falcata_rig_sealed_su-emissive")
-	I.AddOverlays(emissive_overlay)
-	return I
+	return emissive_appearance(mob_icon, "falcata_rig_sealed_su-emissive", H)
 
 /obj/item/clothing/head/helmet/space/rig/light/falcata
 	name = "helmet"

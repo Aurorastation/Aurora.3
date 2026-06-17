@@ -244,16 +244,16 @@ GLOBAL_LIST_INIT_TYPED(rad_collectors, /obj/structure/machinery/power/rad_collec
 
 	if(loaded_tank)
 		AddOverlays(image(icon, "ptank"))
-		AddOverlays(emissive_appearance(icon, "ca_filling"))
+		AddOverlays(emissive_appearance(icon, "ca_filling", src))
 		underlays += image(icon, "ca_filling")
 	underlays += image(icon, "ca_inside")
 	if(!operable())
 		return
 	if(active)
 		var/rad_power = round(min(100 * last_rads / max_rads, 100), 20)
-		AddOverlays(emissive_appearance(icon, "rads_[rad_power]"))
+		AddOverlays(emissive_appearance(icon, "rads_[rad_power]", src))
 		AddOverlays(image(icon, "rads_[rad_power]"))
-		AddOverlays(emissive_appearance(icon, "on"))
+		AddOverlays(emissive_appearance(icon, "on", src))
 		AddOverlays(image(icon, "on"))
 
 

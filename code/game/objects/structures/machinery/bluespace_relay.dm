@@ -27,7 +27,7 @@
 /obj/structure/machinery/bluespacerelay/update_icon()
 	ClearOverlays()
 	if(on)
-		AddOverlays(emissive_appearance(icon, "[icon_state]_lights"))
+		AddOverlays(emissive_appearance(icon, "[icon_state]_lights", src))
 		AddOverlays("[icon_state]_lights")
 
 /obj/structure/machinery/bluespacerelay/proc/update_power()

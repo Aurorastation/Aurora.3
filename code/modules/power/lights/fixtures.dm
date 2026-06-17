@@ -188,7 +188,7 @@
 
 			if (on)
 				var/image/I = LIGHT_FIXTURE_CACHE(icon, "[base_state]_on", target_color)
-				var/image/E = emissive_appearance(icon, "[base_state]_on")
+				var/image/E = emissive_appearance(icon, "[base_state]_on", src)
 				AddOverlays(I)
 				AddOverlays(E)
 			else

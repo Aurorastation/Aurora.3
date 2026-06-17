@@ -108,7 +108,7 @@ By design, d1 is the smallest direction and d2 is the highest
 
 	if(mapload)
 		var/image/I = image(icon, T, icon_state, dir, pixel_x, pixel_y)
-		I.plane = ABOVE_LIGHTING_PLANE
+		SET_PLANE_EXPLICIT(I, ABOVE_LIGHTING_PLANE, src)
 		I.alpha = 125
 		I.color = color
 		LAZYADD(T.blueprints, I)

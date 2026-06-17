@@ -67,5 +67,5 @@
 	ClearOverlays()
 	if(on)
 		var/image/light = image(icon, src, "[icon_state]-light")
-		light.plane = ABOVE_LIGHTING_PLANE
+		SET_PLANE_EXPLICIT(light, ABOVE_LIGHTING_PLANE, src)
 		AddOverlays(light)

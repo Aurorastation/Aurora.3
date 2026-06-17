@@ -33,6 +33,10 @@
 	var/blood_overlay_icon = 'icons/mob/npc/blood_overlay.dmi'
 	var/blood_state = BLOOD_NONE
 	var/image/blood_overlay
+	var/image/upper_fire_overlay
+	var/image/upper_fire_emissive
+	var/image/lower_fire_overlay
+	var/image/lower_fire_emissive
 	/// If true, `handle_blood()` will run without handling blood overlays. Useful for the cases if Byond unable to handle overlay shenanigans happening in your mob.
 	var/bypass_blood_overlay = FALSE
 
@@ -1060,21 +1064,25 @@
 
 /mob/living/simple_animal/update_fire()
 	. = ..()
-	var/image/upper_fire_overlay = image("icon" = 'icons/mob/burning/burning_generic.dmi', "icon_state" = "upper", layer = MOB_UPPER_FIRE_OVERLAY)
-	var/image/upper_fire_emissive = emissive_appearance("icon" = 'icons/mob/burning/burning_generic.dmi', "icon_state" = "upper", layer = MOB_UPPER_FIRE_OVERLAY)
-	var/image/lower_fire_overlay = image("icon" = 'icons/mob/burning/burning_generic.dmi', "icon_state" = "lower", layer = MOB_LOWER_FIRE_OVERLAY)
-	var/image/lower_fire_emissive = emissive_appearance("icon" = 'icons/mob/burning/burning_generic.dmi', "icon_state" = "lower", layer = MOB_LOWER_FIRE_OVERLAY)
 	CutOverlays(upper_fire_overlay)
 	CutOverlays(upper_fire_emissive)
 	CutOverlays(lower_fire_overlay)
 	CutOverlays(lower_fire_emissive)
 	if(on_fire)
+		upper_fire_overlay = image("icon" = 'icons/mob/burning/burning_generic.dmi', "icon_state" = "upper", layer = MOB_UPPER_FIRE_OVERLAY)
+		upper_fire_emissive = emissive_appearance("icon" = 'icons/mob/burning/burning_generic.dmi', "icon_state" = "upper", offset_spokesman = src, layer = MOB_UPPER_FIRE_OVERLAY)
+		lower_fire_overlay = image("icon" = 'icons/mob/burning/burning_generic.dmi', "icon_state" = "lower", layer = MOB_LOWER_FIRE_OVERLAY)
+		lower_fire_emissive = emissive_appearance("icon" = 'icons/mob/burning/burning_generic.dmi', "icon_state" = "lower", offset_spokesman = src, layer = MOB_LOWER_FIRE_OVERLAY)
 		AddOverlays(upper_fire_overlay)
 		AddOverlays(upper_fire_emissive)
 		AddOverlays(lower_fire_overlay)
 		AddOverlays(lower_fire_emissive)
 		throw_alert(ALERT_FIRE, /atom/movable/screen/alert/fire)
 	else
+		upper_fire_overlay = null
+		upper_fire_emissive = null
+		lower_fire_overlay = null
+		lower_fire_emissive = null
 		clear_alert(ALERT_FIRE)
 
 

@@ -221,7 +221,7 @@
 	if(operating)
 		var/image/mwclosed_on = image(icon, "mw_on")
 		if(!dirtiness)
-			mwclosed_on.plane = ABOVE_LIGHTING_PLANE
+			SET_PLANE_EXPLICIT(mwclosed_on, ABOVE_LIGHTING_PLANE, src)
 		AddOverlays(mwclosed_on)
 	if(dirtiness)
 		if(broken)

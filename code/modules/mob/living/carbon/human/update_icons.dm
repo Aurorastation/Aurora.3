@@ -90,15 +90,30 @@ There are several things that need to be remembered:
 #define GET_TAIL_LAYER (dir == NORTH ? TAIL_NORTH_LAYER : TAIL_SOUTH_LAYER)
 #define GET_TAIL_ACC_LAYER (dir == NORTH ? TAIL_NORTH_ACC_LAYER : TAIL_SOUTH_ACC_LAYER)
 
-/proc/overlay_image(icon, icon_state,color, flags, plane, layer)
+/proc/overlay_image(icon, icon_state,color, flags, plane, layer, atom/plane_context = null)
 	var/image/ret = image(icon,icon_state)
 	ret.color = color
 	ret.appearance_flags = PIXEL_SCALE | flags
 	if(plane)
-		ret.plane = plane
+		SET_PLANE_EXPLICIT(ret, plane, plane_context)
 	if(layer)
 		ret.layer = layer
 	return ret
+
+/proc/append_overlay_with_plane_siblings(list/target, overlay, list/plane_sibling_order = null)
+	if(!target || !overlay)
+		return
+	if(islist(overlay))
+		for(var/entry in overlay)
+			append_overlay_with_plane_siblings(target, entry, plane_sibling_order)
+		return
+	target += overlay
+	if(istype(overlay, /image))
+		var/image/I = overlay
+		overlay_bundle_order_plane_siblings(I, plane_sibling_order)
+		if(LAZYLEN(I.plane_overlay_siblings))
+			for(var/sibling in I.plane_overlay_siblings)
+				append_overlay_with_plane_siblings(target, sibling, plane_sibling_order)
 
 // Updates overlays from overlays_raw.
 /mob/living/carbon/human/update_icon()
@@ -117,16 +132,21 @@ There are several things that need to be remembered:
 	if(cloaked)
 		icon = 'icons/mob/human.dmi'
 		icon_state = "body_cloaked"
-		SetOverlays(list(overlays_raw[L_HAND_LAYER], overlays_raw[R_HAND_LAYER]))
+		var/list/cloaked_overlays = list()
+		var/list/plane_sibling_order = list("order" = 0)
+		append_overlay_with_plane_siblings(cloaked_overlays, overlays_raw[L_HAND_LAYER], plane_sibling_order)
+		append_overlay_with_plane_siblings(cloaked_overlays, overlays_raw[R_HAND_LAYER], plane_sibling_order)
+		SetOverlays(cloaked_overlays)
 	else
 		var/list/ovr = list()
+		var/list/plane_sibling_order = list("order" = 0)
 		if (icon != stand_icon)
 			icon = stand_icon
 
 		// We manually add each element instead of just using Copy() so that lists are appended instead of inserted.
 		for (var/item in overlays_raw)
 			if (item)
-				ovr += item
+				append_overlay_with_plane_siblings(ovr, item, plane_sibling_order)
 
 		if(species.has_floating_eyes)
 			ovr += species.get_eyes(src)
@@ -489,7 +509,10 @@ There are several things that need to be remembered:
 		var/datum/sprite_accessory/hair_style = GLOB.hair_styles_list[h_style]
 		if(hair_style)
 			var/hair_emissive_layer = species.use_alt_hair_layer ? HAIR_LAYER_ALT_EMISSIVE : HAIR_LAYER_EMISSIVE
-			overlays_raw[hair_emissive_layer] = emissive_blocker(hair_icon, hair_style.icon_state, MOB_SHADOW_UPPER_LAYER)
+			var/datum/mob_overlay_bundle/bundle = new
+			bundle.SetSource(src)
+			bundle.AddBlocker(emissive_blocker(hair_icon, hair_style.icon_state, src, MOB_SHADOW_UPPER_LAYER))
+			overlays_raw[hair_emissive_layer] = finalize_mob_overlay_bundle(bundle, src)
 
 	if(update_icons)
 		update_icon()

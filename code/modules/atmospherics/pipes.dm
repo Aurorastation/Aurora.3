@@ -196,7 +196,7 @@
 	if(mapload)
 		var/turf/T = loc
 		var/image/I = image(icon, T, icon_state, dir, pixel_x, pixel_y)
-		I.plane = ABOVE_LIGHTING_PLANE
+		SET_PLANE_EXPLICIT(I, ABOVE_LIGHTING_PLANE, src)
 		I.color = color
 		I.alpha = 125
 		LAZYADD(T.blueprints, I)
@@ -493,7 +493,7 @@
 	if(mapload)
 		var/turf/T = loc
 		var/image/I = image(icon, T, icon_state, dir, pixel_x, pixel_y)
-		I.plane = ABOVE_LIGHTING_PLANE
+		SET_PLANE_EXPLICIT(I, ABOVE_LIGHTING_PLANE, src)
 		I.color = color
 		I.alpha = 125
 		LAZYADD(T.blueprints, I)
@@ -796,7 +796,7 @@
 	if(mapload)
 		var/turf/T = loc
 		var/image/I = image(icon, T, icon_state, dir, pixel_x, pixel_y)
-		I.plane = ABOVE_LIGHTING_PLANE
+		SET_PLANE_EXPLICIT(I, ABOVE_LIGHTING_PLANE, src)
 		I.color = color
 		I.alpha = 125
 		LAZYADD(T.blueprints, I)

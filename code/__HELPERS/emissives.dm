@@ -7,11 +7,10 @@
 		else if(isnull(layer))
 			layer = FLOAT_LAYER
 	else
-		// TG_PLANE_CUBE_TEMP: convert Aurora emissive calls to pass an atom offset spokesman
+		if(!isnull(offset_spokesman))
+			stack_trace("Invalid emissive appearance offset spokesman [offset_spokesman] for [icon] / [icon_state]. Pass an atom as the third argument and layer as the fourth.")
 		if(isnull(layer))
-			layer = isnull(offset_spokesman) ? FLOAT_LAYER : offset_spokesman
-		if(isnull(offset_const))
-			offset_const = 0
+			layer = FLOAT_LAYER
 
 	var/mutable_appearance/appearance = mutable_appearance(icon, icon_state, layer, spokesman, EMISSIVE_PLANE, 255, appearance_flags | EMISSIVE_APPEARANCE_FLAGS, offset_const)
 	if(alpha == 255)
@@ -62,11 +61,10 @@
 			else
 				layer = FLOAT_LAYER
 	else
-		// TG_PLANE_CUBE_TEMP: convert legacy Aurora emissive blocker calls to pass an atom offset spokesman.
+		if(!isnull(offset_spokesman))
+			stack_trace("Invalid emissive blocker offset spokesman [offset_spokesman] for [icon] / [icon_state]. Pass an atom as the third argument and layer as the fourth.")
 		if(isnull(layer))
-			layer = isnull(offset_spokesman) ? FLOAT_LAYER : offset_spokesman
-		if(isnull(offset_const))
-			offset_const = 0
+			layer = FLOAT_LAYER
 
 	var/mutable_appearance/appearance = mutable_appearance(icon, icon_state, layer, spokesman, EMISSIVE_PLANE, alpha, appearance_flags | EMISSIVE_APPEARANCE_FLAGS, offset_const)
 	if(alpha == 255)

@@ -293,7 +293,7 @@
 	if(stat & BROKEN || stat & NOPOWER)
 		return
 	if(src.light_mask)
-		var/image/E = emissive_appearance(icon, light_mask)
+		var/image/E = emissive_appearance(icon, light_mask, src)
 		AddOverlays(E)
 	if(src.icon_screen)
 		var/image/I = image(icon, icon_screen)

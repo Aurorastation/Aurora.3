@@ -76,7 +76,7 @@
 
 	if (!button_overlay || button_overlay.icon_state != button_overlay_name)
 		button_overlay = overlay_image(icon, button_overlay_name)
-		button_emissive = emissive_appearance(icon, button_overlay_name)
+		button_emissive = emissive_appearance(icon, button_overlay_name, src)
 		. = TRUE
 
 	var/env_temperature = environment.temperature
@@ -102,7 +102,7 @@
 
 	if (!atmos_overlay || atmos_overlay.icon_state != atmos_overlay_name || atmos_overlay.color != temp_color)
 		atmos_overlay = overlay_image(icon, atmos_overlay_name)
-		atmos_emissive = emissive_appearance(icon, atmos_overlay_name)
+		atmos_emissive = emissive_appearance(icon, atmos_overlay_name, src)
 		atmos_overlay.color = temp_color
 		. = TRUE
 
