@@ -31,7 +31,7 @@ SUBSYSTEM_DEF(lighting)
 	for(var/area/area as anything in GLOB.areas)
 		if(!area.static_lighting)
 			continue
-		for(var/turf/area_turf as anything in area)
+		for(var/turf/area_turf in area)
 			if(area_turf.space_lit)
 				continue
 			new /atom/movable/lighting_object(null, area_turf)
@@ -133,7 +133,7 @@ SUBSYSTEM_DEF(lighting)
 /// Takes a list of turfs in, and sets up static lighting for them as needed.
 /// Exactly what it says on the tin.
 /datum/controller/subsystem/lighting/proc/setup_static_lighting_if_needed(list/turfs)
-	for(var/turf/unlit as anything in turfs)
+	for(var/turf/unlit in turfs)
 		if(unlit.space_lit)
 			continue
 		var/area/loc_area = unlit.loc

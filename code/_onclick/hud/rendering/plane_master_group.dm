@@ -49,9 +49,6 @@
 		return
 
 	set_hud(viewing_hud)
-	our_hud.master_groups[key] = src
-	show_hud()
-	build_planes_offset(our_hud, active_offset)
 
 /// Well, refresh our group, mostly useful for plane specific updates
 /datum/plane_master_group/proc/refresh_hud()

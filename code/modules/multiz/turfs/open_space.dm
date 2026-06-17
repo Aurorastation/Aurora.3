@@ -103,6 +103,9 @@
 	LAZYREMOVE(climbers, mover)
 
 /turf/simulated/open/Destroy()
+	if(below?.above == src)
+		below.above = null
+	below = null
 	LAZYCLEARLIST(climbers)
 	UNSETEMPTY(climbers)
 	return ..()
@@ -186,9 +189,12 @@
  */
 /turf/simulated/open/proc/update(mapload = FALSE)
 	var/turf/T = get_turf(src)
+	var/turf/old_below = below
 	below = GET_TURF_BELOW(T)
 
 	// Edge case for when an open turf is above space on the lowest level.
+	if (old_below && old_below != below && old_below.above == src)
+		old_below.above = null
 	if (below)
 		below.above = src
 

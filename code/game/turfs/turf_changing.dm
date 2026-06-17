@@ -47,7 +47,7 @@
 	var/old_hotspot = hotspot
 	var/old_turf_fire = turf_fire
 	var/old_baseturf = baseturf
-	var/old_above = above
+	var/turf/old_above = above
 	var/list/old_blueprints = blueprints
 	var/list/old_decals = decals
 	var/old_outside = is_outside
@@ -135,6 +135,8 @@
 			S.update_starlight()
 
 	new_turf.above = old_above
+	if(old_above && old_above.below == src)
+		old_above.below = new_turf
 
 	if(ispath(path, /turf/simulated))
 		if(old_hotspot)

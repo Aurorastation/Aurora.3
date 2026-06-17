@@ -53,7 +53,7 @@
 		return
 	if(length(lighting_effects))
 		CutOverlays(lighting_effects[1])
-		for(var/turf/T as anything in src)
+		for(var/turf/T in src)
 			var/offset = GET_TURF_PLANE_OFFSET(T)
 			if(offset && length(lighting_effects) >= offset + 1)
 				T.CutOverlays(lighting_effects[offset + 1])
@@ -92,7 +92,7 @@
 		RegisterSignal(SSdcs, COMSIG_STARLIGHT_COLOR_CHANGED, PROC_REF(starlight_changed))
 
 	AddOverlays(lighting_effects[1])
-	for(var/turf/area_turf as anything in src)
+	for(var/turf/area_turf in src)
 		area_turf.luminosity = 1
 		var/offset = GET_TURF_PLANE_OFFSET(area_turf)
 		if(offset && length(lighting_effects) >= offset + 1)

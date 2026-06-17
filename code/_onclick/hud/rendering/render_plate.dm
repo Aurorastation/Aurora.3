@@ -282,7 +282,7 @@
 
 /atom/movable/screen/plane_master/rendering_plate/lighting/show_to(mob/mymob)
 	. = ..()
-	if(!.)
+	if(!. || !mymob)
 		return
 	// This applies a backdrop to our lighting plane
 	// Why do plane masters need a backdrop sometimes? Read https://secure.byond.com/forum/?post=2141928
@@ -290,16 +290,26 @@
 	// unlit is perhaps less needed rn, it exists to provide a fullbright for things that can't see the lighting plane
 	// but we don't actually use invisibility to hide the lighting plane anymore, so it's pointless
 	// TG_PLANE_CUBE_TEMP: replace with tg lit/unlit backdrop subtypes when Phase 7 ports tg lighting.
-	var/atom/movable/screen/backdrop = mymob.overlay_fullscreen("lighting_backdrop_lit_[home.key]#[offset]", /atom/movable/screen/fullscreen/lighting_backdrop/lit_secondary)
+	var/lit_backdrop_key = "lighting_backdrop_lit_[home.key]#[offset]"
+	var/atom/movable/screen/backdrop = mymob.overlay_fullscreen(lit_backdrop_key, /atom/movable/screen/fullscreen/lighting_backdrop/lit_secondary)
+	if(!backdrop)
+		backdrop = mymob.screens[lit_backdrop_key]
 	// Need to make sure they're on our plane, ALL the time. We always need a backdrop
-	SET_PLANE_EXPLICIT(backdrop, PLANE_TO_TRUE(backdrop.plane), src)
-	backdrop = mymob.overlay_fullscreen("lighting_backdrop_unlit_[home.key]#[offset]", /atom/movable/screen/fullscreen/lighting_backdrop/backplane)
-	SET_PLANE_EXPLICIT(backdrop, PLANE_TO_TRUE(backdrop.plane), src)
+	if(backdrop)
+		SET_PLANE_EXPLICIT(backdrop, PLANE_TO_TRUE(backdrop.plane), src)
+	var/unlit_backdrop_key = "lighting_backdrop_unlit_[home.key]#[offset]"
+	backdrop = mymob.overlay_fullscreen(unlit_backdrop_key, /atom/movable/screen/fullscreen/lighting_backdrop/backplane)
+	if(!backdrop)
+		backdrop = mymob.screens[unlit_backdrop_key]
+	if(backdrop)
+		SET_PLANE_EXPLICIT(backdrop, PLANE_TO_TRUE(backdrop.plane), src)
 
 	set_light_cutoff(mymob.lighting_cutoff, mymob.lighting_color_cutoffs)
 
 /atom/movable/screen/plane_master/rendering_plate/lighting/hide_from(mob/oldmob)
 	. = ..()
+	if(!oldmob)
+		return
 	oldmob.clear_fullscreen("lighting_backdrop_lit_[home.key]#[offset]")
 	oldmob.clear_fullscreen("lighting_backdrop_unlit_[home.key]#[offset]")
 
@@ -359,7 +369,7 @@
 
 /atom/movable/screen/plane_master/rendering_plate/light_mask/show_to(mob/mymob)
 	. = ..()
-	if(!.)
+	if(!. || !mymob)
 		return
 
 	RegisterSignal(mymob, COMSIG_MOB_SIGHT_CHANGE, PROC_REF(handle_sight), override = TRUE)
@@ -368,9 +378,11 @@
 /atom/movable/screen/plane_master/rendering_plate/light_mask/hide_from(mob/oldmob)
 	. = ..()
 	var/atom/movable/screen/plane_master/emissive = home.get_plane(GET_NEW_PLANE(RENDER_PLANE_EMISSIVE, offset))
-	emissive.remove_filter("lighting_mask")
+	if(emissive)
+		emissive.remove_filter("lighting_mask")
 	remove_relay_from(GET_NEW_PLANE(RENDER_PLANE_GAME, offset))
-	UnregisterSignal(oldmob, COMSIG_MOB_SIGHT_CHANGE)
+	if(oldmob)
+		UnregisterSignal(oldmob, COMSIG_MOB_SIGHT_CHANGE)
 
 /atom/movable/screen/plane_master/rendering_plate/light_mask/proc/handle_sight(datum/source, new_sight, old_sight)
 	// If we can see something that shows "through" blackness, and we can't see turfs, disable our draw to the game plane

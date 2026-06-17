@@ -45,6 +45,8 @@
 	SHOULD_NOT_SLEEP(TRUE)
 
 	if(light_system != COMPLEX_LIGHT)
+		if(IS_OVERLAY_LIGHT_SYSTEM(light_system) || light_system == NO_LIGHT_SUPPORT)
+			return
 		CRASH("update_light() for [src] with following light_system value: [light_system]")
 
 	if (!light_power || !light_range || !light_on) // We won't emit light anyways, destroy the light source.
