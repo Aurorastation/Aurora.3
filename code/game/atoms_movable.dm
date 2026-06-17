@@ -77,7 +77,7 @@
 	var/atom/movable/render_step/emissive_blocker/em_block
 
 	///Lazylist to keep track on the sources of illumination.
-	var/list/affected_movable_lights
+	var/list/affected_dynamic_lights
 	///Highest-intensity light affecting us, which determines our visibility.
 	var/affecting_dynamic_lumi = 0
 
@@ -114,7 +114,7 @@
 
 /atom/movable/Initialize(mapload, ...)
 	. = ..()
-	update_emissive_blocker()
+	update_emissive_block()
 
 	if(opacity)
 		AddElement(/datum/element/light_blocking)
@@ -406,7 +406,7 @@
 		turfs -= get_turf(src)
 	src.throw_at(pick(turfs), maxrange, speed)
 
-/atom/movable/proc/update_emissive_blocker()
+/atom/movable/proc/update_emissive_block()
 	if(emissive_overlay)
 		CutOverlays(emissive_overlay)
 
@@ -433,7 +433,7 @@
 /atom/movable/update_icon()
 	..()
 	UPDATE_OO_IF_PRESENT
-	update_emissive_blocker()
+	update_emissive_block()
 
 //Overlays
 /atom/movable/overlay
@@ -1279,10 +1279,10 @@
 ///Keeps track of the sources of dynamic luminosity and updates our visibility with the highest.
 /atom/movable/proc/update_dynamic_luminosity()
 	var/highest = 0
-	for(var/i in affected_movable_lights)
-		if(affected_movable_lights[i] <= highest)
+	for(var/i in affected_dynamic_lights)
+		if(affected_dynamic_lights[i] <= highest)
 			continue
-		highest = affected_movable_lights[i]
+		highest = affected_dynamic_lights[i]
 	if(highest == affecting_dynamic_lumi)
 		return
 	luminosity -= affecting_dynamic_lumi
