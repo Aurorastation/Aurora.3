@@ -93,16 +93,6 @@
 	animate(arglist(monkeypatched_params))
 	. = list("monkeypatched_params" = monkeypatched_params, "index" = index)
 
-/atom/movable/animate_filter(filter_name, list/params)
-	. = ..()
-	var/monkeypatched_params = .["monkeypatched_params"]
-	var/index = .["index"]
-	// If we're being copied by Z-Mimic, update mimics too.
-	if (bound_overlay)
-		for (var/atom/movable/AM as anything in get_above_oo())
-			params[1] = AM.filters[index]
-			animate(arglist(monkeypatched_params))
-
 //Helpers to generate lists for filter helpers
 //This is the only practical way of writing these that actually produces sane lists
 /proc/alpha_mask_filter(x, y, icon/icon, render_source, flags)

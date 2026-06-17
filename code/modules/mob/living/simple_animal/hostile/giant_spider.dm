@@ -87,7 +87,7 @@
 	speed = -2
 	venom_type = /singleton/reagent/toxin/greimorian_eggs
 	fed = 1
-	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
+	lighting_cutoff = LIGHTING_CUTOFF_AURORA_SOMEWHAT_INVISIBLE
 	var/playable = TRUE
 	sample_data = list("Genetic markers identified as being linked with stem cell differentiaton", "Cellular structures indicative of high offspring production", "Tissue sample contains high neural cell content")
 

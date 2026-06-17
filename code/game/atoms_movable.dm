@@ -105,11 +105,6 @@
 	var/tmp/airflow_process_delay
 	var/tmp/airflow_skip_speedcheck
 
-	/// The mimic (if any) that's *directly* copying us.
-	var/tmp/atom/movable/openspace/mimic/bound_overlay
-	/// If TRUE, this atom is ignored by Z-Mimic.
-	var/z_flags
-
 	var/atmos_canpass = CANPASS_ALWAYS
 
 /atom/movable/Initialize(mapload, ...)
@@ -168,7 +163,6 @@
 			M.pulling = null
 		pulledby = null
 
-	QDEL_NULL(bound_overlay)
 	QDEL_NULL(em_block)
 	airflow_dest = null
 	loc = null
@@ -432,7 +426,6 @@
 
 /atom/movable/update_icon()
 	..()
-	UPDATE_OO_IF_PRESENT
 	update_emissive_block()
 
 //Overlays
@@ -550,16 +543,6 @@
 	loc = destination
 	loc.Entered(src, oldloc)
 	Moved(oldloc, get_dir(oldloc, destination), TRUE)
-
-	//Zmimic
-	if(bound_overlay)
-		// The overlay will handle cleaning itself up on non-openspace turfs.
-		if (isturf(destination))
-			bound_overlay.forceMove(get_step(src, UP))
-			if (dir != bound_overlay.dir)
-				bound_overlay.set_dir(dir)
-		else	// Not a turf, so we need to destroy immediately instead of waiting for the destruction timer to proc.
-			qdel(bound_overlay)
 
 	if(opacity)
 		updateVisibility(src)
@@ -1174,21 +1157,8 @@
 	if(oldarea != newarea)
 		newarea.Entered(src, oldarea)
 
-	// Openturf.
-	if(bound_overlay)
-		// The overlay will handle cleaning itself up on non-openspace turfs.
-		bound_overlay.forceMove(get_step(src, UP))
-		if(bound_overlay.dir != dir)
-			bound_overlay.set_dir(dir)
-
 	if(opacity)
 		updateVisibility(src)
-
-	//Mimics
-	if(bound_overlay)
-		bound_overlay.forceMove(get_step(src, UP))
-		if(bound_overlay.dir != dir)
-			bound_overlay.set_dir(dir)
 
 	src.move_speed = world.time - src.l_move_time
 	src.l_move_time = world.time

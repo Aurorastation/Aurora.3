@@ -24,7 +24,7 @@ BLIND     // can't see anything
 	var/darkness_view = 0//Base human is 2
 	var/prescription = 0
 	/// The amount of nightvision these glasses have. This should be a number between 0 and 1.
-	var/lighting_alpha = LIGHTING_PLANE_ALPHA_VISIBLE
+	var/lighting_cutoff = LIGHTING_CUTOFF_VISIBLE
 	var/see_invisible = -1
 	var/toggleable = 0
 	var/toggle_changes_appearance = TRUE
@@ -133,7 +133,7 @@ BLIND     // can't see anything
 	origin_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
 	toggleable = 1
 	vision_flags = SEE_TURFS
-	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
+	lighting_cutoff = LIGHTING_CUTOFF_AURORA_SOMEWHAT_INVISIBLE
 	item_flags = ITEM_FLAG_AIRTIGHT
 	activated_color = LIGHT_COLOR_GREEN
 
@@ -238,7 +238,7 @@ BLIND     // can't see anything
 	origin_tech = list(TECH_MAGNET = 2)
 	darkness_view = 7
 	toggleable = 1
-	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
+	lighting_cutoff = LIGHTING_CUTOFF_AURORA_SOMEWHAT_INVISIBLE
 	off_state = "denight"
 
 /obj/item/clothing/glasses/night/Initialize()
@@ -1067,7 +1067,7 @@ BLIND     // can't see anything
 	origin_tech = list(TECH_MAGNET = 3)
 	toggleable = 1
 	vision_flags = SEE_MOBS
-	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
+	lighting_cutoff = LIGHTING_CUTOFF_AURORA_SOMEWHAT_INVISIBLE
 	flash_protection = FLASH_PROTECTION_REDUCED
 	item_flags = ITEM_FLAG_AIRTIGHT
 
@@ -1246,7 +1246,7 @@ BLIND     // can't see anything
 	name = "MESpatch"
 	desc = "An optical meson scanner display that connects directly to the optic nerve of the user, giving you cool green vision at the low cost of your only other eye."
 	vision_flags = SEE_TURFS
-	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
+	lighting_cutoff = LIGHTING_CUTOFF_AURORA_SOMEWHAT_INVISIBLE
 	eye_color = COLOR_LIME
 
 /obj/item/clothing/glasses/eyepatch/hud/meson/Initialize()
@@ -1272,7 +1272,7 @@ BLIND     // can't see anything
 	name = "HEATpatch"
 	desc = "A thermal-type heads-up display that connects directly to the optic nerve of the user. Double the tacticool, half the eyes."
 	vision_flags = SEE_MOBS
-	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
+	lighting_cutoff = LIGHTING_CUTOFF_AURORA_SOMEWHAT_INVISIBLE
 	eye_color = COLOR_ORANGE
 
 /obj/item/clothing/glasses/eyepatch/hud/thermal/Initialize()
@@ -1290,7 +1290,7 @@ BLIND     // can't see anything
 	name = "NITEpatch"
 	desc = "A light-amplifying display that connects directly to the optic nerve of the user. Helps you avoid a battery charge from bumping an officer in the dark."
 	darkness_view = 7
-	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
+	lighting_cutoff = LIGHTING_CUTOFF_AURORA_SOMEWHAT_INVISIBLE
 	eye_color = COLOR_GREEN
 
 /obj/item/clothing/glasses/eyepatch/hud/night/Initialize()

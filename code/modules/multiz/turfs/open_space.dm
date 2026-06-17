@@ -13,7 +13,7 @@
 	roof_type = null
 	footstep_sound = null
 	explosion_resistance = 3
-	z_flags = ZM_MIMIC_DEFAULTS | ZM_MIMIC_OVERWRITE | ZM_MIMIC_NO_AO | ZM_ALLOW_ATMOS
+	z_flags = ZM_ALLOW_ATMOS
 	turf_flags = TURF_FLAG_BACKGROUND
 	pathing_pass_method = TURF_PATHING_PASS_NO //You'll fall down most likely, unless no gravity, but not worth the processing just for this special case
 
@@ -152,7 +152,6 @@
 	icon_state = "debug"
 	smoothing_flags = SMOOTH_TRUE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
 	smoothing_hints = SMOOTHHINT_CUT_F | SMOOTHHINT_ONLY_MATCH_TURF | SMOOTHHINT_TARGETS_NOT_UNIQUE
-	z_flags = ZM_MIMIC_BELOW
 	name = "hole"
 
 /turf/simulated/open/chasm/airless
@@ -234,7 +233,7 @@
 	return TRUE
 
 /turf/simulated/open/update_icon(mapload)
-	update_mimic(!mapload)
+	return
 
 /turf/simulated/open/attackby(obj/item/attacking_item, mob/user)
 	if (istype(attacking_item, /obj/item/stack/rods))

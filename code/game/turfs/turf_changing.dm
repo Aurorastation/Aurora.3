@@ -15,8 +15,6 @@
 // Called after turf replaces old one
 /turf/proc/post_change(queue_neighbors = TRUE)
 	levelupdate()
-	if (above)
-		above.update_mimic()
 
 	if(queue_neighbors)
 		QUEUE_SMOOTH_NEIGHBORS(src)

@@ -35,7 +35,7 @@
 	var/size_multiplier = 1 //multiplier for the mob's icon size
 	var/damage_multiplier = 1 //multiplies melee combat damage
 
-	var/default_lighting_alpha = LIGHTING_PLANE_ALPHA_VISIBLE
+	var/default_lighting_cutoff = LIGHTING_CUTOFF_VISIBLE
 
 	var/lipstick_color = null	//no lipstick by default
 

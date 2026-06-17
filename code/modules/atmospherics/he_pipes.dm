@@ -120,10 +120,7 @@
 					h_g = 64 + (h_g - 64)*scale
 					h_b = 64 + (h_b - 64)*scale
 				var/scale_color = rgb(h_r, h_g, h_b)
-				var/list/animate_targets = get_above_oo() + src
-				for (var/thing in animate_targets)
-					var/atom/movable/AM = thing
-					animate(AM, color = scale_color, time = 2 SECONDS, easing = SINE_EASING)
+				animate(src, color = scale_color, time = 2 SECONDS, easing = SINE_EASING)
 				animate_filter("glow", list(color = scale_color, time = 2 SECONDS, easing = LINEAR_EASING))
 				set_light(min(3, scale*2.5), min(3, scale*2.5), scale_color)
 		else

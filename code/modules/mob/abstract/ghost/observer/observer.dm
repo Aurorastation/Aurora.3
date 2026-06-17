@@ -8,7 +8,7 @@
 	blinded = FALSE
 	anchored = TRUE	//  don't get pushed around
 	invisibility = INVISIBILITY_OBSERVER
-	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
+	lighting_cutoff = LIGHTING_CUTOFF_AURORA_SOMEWHAT_INVISIBLE
 	simulated = FALSE
 	universal_speak = TRUE
 	incorporeal_move = INCORPOREAL_GHOST

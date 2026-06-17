@@ -113,10 +113,6 @@
 
 // TG_PLANE_CUBE_TEMP: remove after roof visuals are reattached as a tg-style plane master or deleted.
 #define ROOF_PLANE 27
-// TG_PLANE_CUBE_TEMP: remove after exterior lighting visibility is replaced by tg sight/light-mask behavior.
-#define EXTERIOR_LIGHTING_PLANE 28
-// TG_PLANE_CUBE_TEMP: remove after NVG behavior is replaced by tg sight/light-mask behavior.
-#define NVG_PLANE 29
 
 /// Pipecrawling images.
 #define PIPECRAWL_IMAGES_PLANE 30
@@ -185,12 +181,6 @@
 #define TOPDOWN_LAYER_COUNT 18
 
 //---------- TG plane-cube temporary Aurora aliases -------------
-
-// TG_PLANE_CUBE_TEMP: remove after tg transparent/open-space rendering replaces old zcopy planes
-#define OPENSPACE_BACKDROP_PLANE RENDER_PLANE_TRANSPARENT
-#define OPEN_SPACE_PLANE_START RENDER_PLANE_TRANSPARENT
-#define OPEN_SPACE_PLANE_END TRANSPARENT_FLOOR_PLANE
-#define OPENTURF_MAX_DEPTH 10
 
 // TG_PLANE_CUBE_TEMP: remove after Aurora heat/cold gas visuals are reattached as tg render consumers
 #define HEAT_EFFECT_PLATE_RENDER_TARGET "*HEAT_EFFECT_PLATE_RENDER_TARGET"
@@ -308,7 +298,6 @@
 	#define ABOVE_PROJECTILE_LAYER 4.25
 	#define SINGULARITY_LAYER 4.26
 	#define POINTER_LAYER 4.27
-	#define MIMICED_LIGHTING_LAYER 4.28 // Z-Mimic-managed lighting
 
 	#define OBFUSCATION_LAYER 5.2
 	// FLY_LAYER 5

@@ -1593,7 +1593,7 @@
 	nutrition_loss = HUNGER_FACTOR * species.nutrition_loss_factor
 	hydration_loss = THIRST_FACTOR * species.hydration_loss_factor
 
-	default_lighting_alpha = species.default_lighting_alpha
+	default_lighting_cutoff = species.default_lighting_cutoff
 
 	speech_bubble_type = species.possible_speech_bubble_types[1]
 	if(typing_indicator)
@@ -2322,7 +2322,7 @@
 			QDEL_NULL(z_eye)
 			return
 		var/turf/above = GET_TURF_ABOVE(T)
-		if(TURF_IS_MIMICING(above))
+		if(isopenturf(above))
 			z_eye = new /atom/movable/z_observer/z_up(src, src, T)
 			visible_message(SPAN_NOTICE("[src] looks up."), SPAN_NOTICE("You look up."))
 			reset_view(z_eye)
@@ -2344,14 +2344,14 @@
 			reset_view(null)
 			QDEL_NULL(z_eye)
 			return
-		if(TURF_IS_MIMICING(T) && GET_TURF_BELOW(T))
+		if(isopenturf(T) && GET_TURF_BELOW(T))
 			z_eye = new /atom/movable/z_observer/z_down(T, src, T)
 			visible_message(SPAN_NOTICE("[src] looks below."), SPAN_NOTICE("You look below."))
 			reset_view(z_eye)
 			return
 		else
 			T = get_step(T, dir)
-			if(TURF_IS_MIMICING(T) && GET_TURF_BELOW(T))
+			if(isopenturf(T) && GET_TURF_BELOW(T))
 				z_eye = new /atom/movable/z_observer/z_down(T, src, T)
 				visible_message(SPAN_NOTICE("[src] leans over to look below."), SPAN_NOTICE("You lean over to look below."))
 				reset_view(z_eye)

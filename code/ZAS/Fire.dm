@@ -191,10 +191,7 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 				enemy_tile.adjacent_fire_act(loc, air_contents, air_contents.temperature, air_contents.volume)
 
 	set_light(l_color = fire_color(air_contents.temperature, TRUE))
-	var/list/animate_targets = get_above_oo() + src
-	for (var/thing in animate_targets)
-		var/atom/movable/AM = thing
-		animate(AM, color = fire_color(air_contents.temperature), 5)
+	animate(src, color = fire_color(air_contents.temperature), 5)
 
 /obj/hotspot/Initialize(mapload, fl)
 	. = ..()

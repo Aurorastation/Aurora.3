@@ -35,6 +35,14 @@
 	/// If true, turf will be treated as space or a hole
 	var/is_hole
 	var/tmp/turf/baseturf
+	/// Cached open turf above this turf.
+	var/tmp/turf/above
+	/// Cached turf below this turf.
+	var/tmp/turf/below
+	/// If this Z-turf leads to space, uninterrupted.
+	var/tmp/z_eventually_space = FALSE
+	/// Multiz turf flags used by nonvisual systems such as ZAS.
+	var/z_flags
 
 	/// The turf type we spawn as a roof.
 	var/roof_type = null
@@ -165,9 +173,6 @@
 	if (A.area_flags & AREA_FLAG_SPAWN_ROOF)
 		spawn_roof()
 
-	if (z_flags & ZM_MIMIC_BELOW)
-		setup_zmimic(mapload)
-
 	return INITIALIZE_HINT_NORMAL
 
 /turf/Destroy()
@@ -181,12 +186,6 @@
 
 	remove_cleanables()
 	cleanup_roof()
-
-	if (z_flags & ZM_MIMIC_BELOW)
-		cleanup_zmimic()
-
-	if (z_flags & ZM_MIMIC_BELOW)
-		cleanup_zmimic()
 
 	resource_indicator = null
 
@@ -478,9 +477,6 @@
 			if (oAM.simulated && (oAM.movable_flags & MOVABLE_FLAG_PROXMOVE))
 				arrived.proximity_callback(oAM)
 
-	if(!(arrived.bound_overlay || (arrived.z_flags & ZMM_IGNORE) || !TURF_IS_MIMICING(above)))
-		above.update_mimic()
-
 	//Items that are in phoron, but not on a mob, can still be contaminated.
 	var/obj/item/I = arrived
 	if(istype(I) && GLOB.vsc.plc.CLOTH_CONTAMINATION && I.can_contaminate())
@@ -620,8 +616,6 @@
 				// Only show message for visible runes
 				if(!R.invisibility)
 					to_chat(user, SPAN_WARNING("No matter how well you wash, the bloody symbols remain!"))
-		if(src.is_open())
-			update_mimic();
 	else
 		if(!(last_clean && world.time < last_clean + 100))
 			to_chat(user, SPAN_WARNING("\The [source] is too dry to wash that."))

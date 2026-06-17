@@ -252,7 +252,6 @@
 	if(GET_TURF_ABOVE(T))
 		for(var/area/A in shuttle_area)
 			for(var/turf/TD in A.contents)
-				TD.update_above()
 				TD.update_icon()
 				var/turf/TA = GET_TURF_ABOVE(TD)
 				if(istype(TA, get_base_turf_by_area(TA)) || (istype(TA) && TA.is_open()))

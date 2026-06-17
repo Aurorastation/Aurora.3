@@ -221,27 +221,3 @@
 	gas_cold_object = new /obj/particle_emitter/mist/gas
 	add_vis_contents(gas_heat_object)
 	add_vis_contents(gas_cold_object)
-
-/atom/movable/screen/plane_master/open_space
-	name = "open space plane"
-	plane = OPEN_SPACE_PLANE_END //aurora snowflake: our openspace system works bottom up, not top down like CM's
-
-/atom/movable/screen/plane_master/open_space/Initialize(mapload, offset)
-	name = "open space plane [offset]"
-	plane -= offset
-	. = ..()
-	add_filter("multizblur", 1, gauss_blur_filter(0.5 + 0.25 * (offset + 1)))
-
-/atom/movable/screen/plane_master/openspace_backdrop
-	name = "open space plane master"
-	plane = OPENSPACE_BACKDROP_PLANE
-	appearance_flags = PLANE_MASTER
-	blend_mode = BLEND_MULTIPLY
-	alpha = 255
-
-/atom/movable/screen/plane_master/openspace_backdrop/Initialize()
-	. = ..()
-	filters = list()
-	filters += filter(type = "drop_shadow", color = "#04080FAA", size = -10)
-	filters += filter(type = "drop_shadow", color = "#04080FAA", size = -15)
-	filters += filter(type = "drop_shadow", color = "#04080FAA", size = -20)

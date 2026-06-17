@@ -140,11 +140,22 @@
 // How many tiles standard fires glow.
 #define LIGHT_RANGE_FIRE 3
 
-#define LIGHTING_PLANE_ALPHA_VISIBLE 255
-#define LIGHTING_PLANE_ALPHA_MOSTLY_VISIBLE 192
-#define LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE 127
-#define LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE 80
-#define LIGHTING_PLANE_ALPHA_INVISIBLE 0
+// Lighting cutoff defines.
+// These are a percentage of how much darkness to cut off from the lighting plane.
+#define LIGHTING_CUTOFF_VISIBLE 0
+#define LIGHTING_CUTOFF_REAL_LOW 4.5
+#define LIGHTING_CUTOFF_LOW 10
+#define LIGHTING_CUTOFF_MEDIUM 15
+#define LIGHTING_CUTOFF_HIGH 30
+#define LIGHTING_CUTOFF_FULLBRIGHT 100
+
+// Aurora night-vision strengths, from the old lighting-plane alpha behavior.
+#define LIGHTING_CUTOFF_AURORA_MOSTLY_VISIBLE 25
+#define LIGHTING_CUTOFF_AURORA_SOMEWHAT_INVISIBLE 50
+#define LIGHTING_CUTOFF_AURORA_MOSTLY_INVISIBLE 70
+
+/// What counts as being able to see in the dark.
+#define LIGHTING_NIGHTVISION_THRESHOLD 7
 
 #define FLASH_LIGHT_DURATION 2
 #define FLASH_LIGHT_POWER 3

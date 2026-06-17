@@ -6,12 +6,12 @@
 	sight = DEFAULT_SIGHT
 	blocks_emissive = EMISSIVE_BLOCK_GENERIC
 	pass_flags_self = PASSMOB
-	// Determines what the alpha of the lighting is to this mob.
-	var/lighting_alpha = LIGHTING_PLANE_ALPHA_VISIBLE
+	/// Determines how much of the lighting plane darkness this mob can cut through.
+	var/lighting_cutoff = LIGHTING_CUTOFF_VISIBLE
 	var/client/canon_client
-	// TG_PLANE_CUBE_TEMP: remove after tg sight/light cutoff handling.
-	var/lighting_cutoff = 10
-	// TG_PLANE_CUBE_TEMP: remove after tg sight/light cutoff handling.
+	var/lighting_cutoff_red = 0
+	var/lighting_cutoff_green = 0
+	var/lighting_cutoff_blue = 0
 	var/list/lighting_color_cutoffs
 	var/datum/mind/mind
 	var/static/next_mob_id = 0

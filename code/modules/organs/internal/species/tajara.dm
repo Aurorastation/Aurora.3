@@ -119,7 +119,7 @@
 
 	night_vision = TRUE
 	if(can_change_invisible())
-		owner.lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
+		owner.lighting_cutoff = LIGHTING_CUTOFF_AURORA_SOMEWHAT_INVISIBLE
 	if(status & ORGAN_ROBOT)
 		if(vision_mechanical_color)
 			owner.add_client_color(vision_mechanical_color)
@@ -135,7 +135,7 @@
 		return
 	night_vision = FALSE
 	if(can_change_invisible())
-		owner.lighting_alpha = LIGHTING_PLANE_ALPHA_VISIBLE
+		owner.lighting_cutoff = LIGHTING_CUTOFF_VISIBLE
 	if(status & ORGAN_ROBOT)
 		if(vision_mechanical_color)
 			owner.remove_client_color(vision_mechanical_color)

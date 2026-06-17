@@ -1,5 +1,6 @@
 /atom/movable/screen/plane_master/field_of_vision_blocker
 	name = "Field of vision blocker"
+	// TG_PLANE_CUBE_TEMP: Aurora currently has no active FOV producer; this listens for a future fov_handler port.
 	documentation = "This is one of those planes that's only used as a filter. It cuts out a portion of the game plate and does effects to it."
 	plane = FIELD_OF_VISION_BLOCKER_PLANE
 	appearance_flags = PLANE_MASTER|NO_CLIENT_COLOR

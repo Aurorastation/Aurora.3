@@ -197,7 +197,7 @@ GLOBAL_LIST_INIT(can_enter_vent_with, list(
 
 					forceMove(vent_found)
 					add_ventcrawl(vent_found.node)
-					sight = (SEE_TURFS|BLIND)
+					set_sight(SEE_TURFS|BLIND)
 
 				else
 					to_chat(src, SPAN_NOTICE("This vent is not connected to anything."))

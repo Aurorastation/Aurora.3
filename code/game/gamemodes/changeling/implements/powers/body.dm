@@ -680,12 +680,12 @@
 	changeling.use_charges(5)
 
 	if(H.sight & SEE_MOBS)
-		H.sight &= ~SEE_MOBS
+		H.clear_sight(SEE_MOBS)
 		changeling.using_thermals = FALSE
 		H.stop_sight_update = FALSE
 		to_chat(H, SPAN_NOTICE("We have turned off our heat receptors. We are now more vulnerable to sudden lights."))
 	else
-		H.sight |= SEE_MOBS
+		H.add_sight(SEE_MOBS)
 		changeling.using_thermals = TRUE
 		H.stop_sight_update = TRUE
 		to_chat(H, SPAN_NOTICE("We have turned on our heat receptors."))
@@ -708,5 +708,4 @@
 		H.put_in_hands(FL)
 		to_chat(H, SPAN_NOTICE("We have recreated our finger to act like an electric lockpick."))
 		changeling.use_charges(5)
-
 

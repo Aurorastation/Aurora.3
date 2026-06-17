@@ -284,7 +284,6 @@
 /obj/effect/ebeam/warp
 	plane = WARP_EFFECT_PLANE
 	appearance_flags = DEFAULT_APPEARANCE_FLAGS | TILE_BOUND | NO_CLIENT_COLOR
-	z_flags = ZMM_IGNORE
 
 /obj/effect/warp/small
 	plane = WARP_EFFECT_PLANE
@@ -293,7 +292,6 @@
 	icon_state = "singularity_s3"
 	pixel_x = -32
 	pixel_y = -32
-	z_flags = ZMM_IGNORE
 
 /obj/item/mecha_equipment/catapult/proc/beamdestroyed()
 	if(beam)

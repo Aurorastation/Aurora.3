@@ -272,7 +272,7 @@
 /atom/movable/screen/plane_master/rendering_plate/lighting/Initialize(mapload, datum/hud/hud_owner)
 	. = ..()
 	add_filter("emissives", 1, alpha_mask_filter(render_source = OFFSET_RENDER_TARGET(EMISSIVE_RENDER_TARGET, offset), flags = MASK_INVERSE))
-	set_light_cutoff(10)
+	set_light_cutoff(LIGHTING_CUTOFF_LOW)
 
 /atom/movable/screen/plane_master/rendering_plate/lighting/set_home(datum/plane_master_group/home)
 	. = ..()

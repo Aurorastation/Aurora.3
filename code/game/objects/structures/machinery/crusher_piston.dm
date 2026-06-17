@@ -171,7 +171,6 @@
 	AddOverlays(emissive_overlay)
 	if(panel_open)
 		AddOverlays("[asmtype]-hatch")
-	update_above()
 
 /obj/structure/machinery/crusher_base/power_change()
 	..()

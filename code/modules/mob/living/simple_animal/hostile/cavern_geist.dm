@@ -34,7 +34,7 @@
 	attack_vis_effect = ATTACK_EFFECT_SLASH
 	attack_sound = 'sound/weapons/bloodyslice.ogg'
 
-	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
+	lighting_cutoff = LIGHTING_CUTOFF_AURORA_SOMEWHAT_INVISIBLE
 	pixel_x = -16
 	speed = -1
 

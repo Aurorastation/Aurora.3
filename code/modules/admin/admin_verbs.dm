@@ -103,7 +103,6 @@ GLOBAL_LIST_INIT(admin_verbs_admin, list(
 	/client/proc/clear_toxins,
 	/client/proc/wipe_ai,	// allow admins to force-wipe AIs
 	/client/proc/fix_player_list,
-	/client/proc/reset_openturf,
 	/client/proc/toggle_aooc,
 	/client/proc/force_away_mission,
 	/client/proc/alooc,
@@ -234,7 +233,6 @@ GLOBAL_LIST_INIT(admin_verbs_debug, list(
 	/client/proc/cmd_display_init_log,
 	/client/proc/cmd_generate_lag,
 	/client/proc/cmd_ss_panic,
-	/client/proc/reset_openturf,
 	/datum/admins/proc/capture_map,
 	/datum/admins/proc/map_template_load,
 	/datum/admins/proc/map_template_load_new_z,
@@ -385,7 +383,6 @@ GLOBAL_LIST_INIT(admin_verbs_hideable, list(
 	/client/proc/jobbans,
 	/client/proc/investigate_show,
 	/client/proc/cmd_admin_list_open_jobs,
-	/client/proc/reset_openturf,
 	/client/proc/Debug2,
 	/client/proc/DebugToggle,
 	/client/proc/DebugToggleAll,
@@ -1250,21 +1247,6 @@ GLOBAL_LIST_INIT(admin_verbs_storyteller, list(
 				log_debug(msg)
 				message_admins(SPAN_DANGER(msg))
 				GLOB.player_list -= M
-
-/client/proc/reset_openturf()
-	set category = "Debug"
-	set name = "Reset Openturfs"
-	set desc = "Deletes and regenerates all openturf overlays in the world."
-
-	if (!check_rights(R_DEBUG|R_ADMIN))
-		return
-
-	if (alert("Rebuild openturfs? Openturfs may look strange while this runs.", "Fix openturf", "No", "No", "DO IT") != "DO IT")
-		return
-
-	log_and_message_admins("has regenerated all openturfs.")
-
-	SSzcopy.hard_reset()
 
 /client/proc/add_client_color(mob/T as mob in GLOB.mob_list)
 	set category = "Debug"

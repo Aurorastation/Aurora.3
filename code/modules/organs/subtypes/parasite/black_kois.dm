@@ -84,7 +84,7 @@
 			owner.set_default_language(LANGUAGE_LIIDRA)
 			removed_langs = TRUE
 
-		owner.lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
+		owner.lighting_cutoff = LIGHTING_CUTOFF_AURORA_SOMEWHAT_INVISIBLE
 		owner.add_client_color(/datum/client_color/vaurca)
 		owner.update_sight()
 

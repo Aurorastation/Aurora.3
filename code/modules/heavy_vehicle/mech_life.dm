@@ -165,12 +165,16 @@
 
 /mob/living/heavy_vehicle/handle_vision(powered)
 	var/was_blind = sight & BLIND
+	var/new_sight = sight
 	if(head)
-		sight = head.get_sight(powered)
+		new_sight = head.get_sight(powered)
 		see_invisible = head.get_invisible(powered)
-		lighting_alpha = head.get_lighting_alpha(power_profiled_time)
+		lighting_cutoff = head.get_lighting_cutoff(power_profiled_time)
 	if(!hatch_closed || (body && (body.pilot_coverage < 100 || body.transparent_cabin)))
-		sight &= ~BLIND
+		new_sight &= ~BLIND
+
+	set_sight(new_sight)
+	sync_lighting_plane_cutoff()
 
 	if(sight & BLIND && !was_blind)
 		for(var/mob/pilot in pilots)
