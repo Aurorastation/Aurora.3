@@ -355,8 +355,6 @@
 	var/list/default_emotes = list()
 	var/list/usable_emotes = list()
 
-	var/client/my_client // Need to keep track of this ourselves, since by the time Logout() is called the client has already been nulled
-
 	var/get_rig_stats = 0
 
 	var/thinking_enabled = FALSE

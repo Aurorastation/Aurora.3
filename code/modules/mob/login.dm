@@ -70,7 +70,6 @@
 	disconnect_time = null
 	next_move = 1
 
-	my_client = client
 	canon_client = client
 
 	set_sight(sight|SEE_SELF)

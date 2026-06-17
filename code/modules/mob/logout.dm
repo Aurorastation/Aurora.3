@@ -11,7 +11,6 @@
 	SSstatistics.update_status()
 	clear_important_client_contents()
 
-	my_client = null
 	canon_client = null
 
 	if(admin_datums[src.ckey])

@@ -130,7 +130,6 @@
 	bloody_hands_mob = null
 	QDEL_NULL(eyeobj)
 	QDEL_NULL(bg)
-	my_client = null
 	return ..()
 
 /mob/New()
