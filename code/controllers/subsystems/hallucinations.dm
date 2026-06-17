@@ -180,7 +180,7 @@ SUBSYSTEM_DEF(hallucinations)
 	return !target || target.is_psi_blocked(null, FALSE)
 
 /datum/controller/subsystem/hallucinations/proc/can_receive_adpi(var/mob/living/target)
-	return is_lemurian_sea() && target && target.client && target.mind && target.stat && (target.has_zona_bovinae() || target.has_psi_aug())
+	return is_lemurian_sea() && target && target.client && target.mind && !target.stat && (target.has_zona_bovinae() || target.has_psi_aug())
 
 /datum/controller/subsystem/hallucinations/proc/get_adpi_job(var/mob/living/carbon/human/H)
 	if(!H)
@@ -285,7 +285,7 @@ SUBSYSTEM_DEF(hallucinations)
 
 /datum/controller/subsystem/hallucinations/proc/get_adpi_delay(var/mob/living/target, var/initial = FALSE)
 	var/base_delay = initial ? rand(8 MINUTES, 18 MINUTES) : rand(25 MINUTES, 40 MINUTES)
-	return base_delay - (base_delay * ftanh(target.check_psi_sensitivity() / 3))
+	return base_delay * (1 - (0.75 * ftanh(target.check_psi_sensitivity() / 3)))
 
 /datum/controller/subsystem/hallucinations/proc/get_adpi_pool_weight(var/pool_name)
 	if(pool_name == "general")
