@@ -108,9 +108,6 @@
 	var/list/conclusion = list()
 	conclusion += paper_bullet(findings || "No findings recorded.")
 
-	if(recommended_action)
-		conclusion += paper_bullet("Recommended action: [recommended_action]")
-
 	var/list/notes = list()
 	notes += paper_bullet("Status: [status]")
 	notes += paper_bullet("Created by: [created_by || "Unknown"]")

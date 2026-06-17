@@ -1,12 +1,21 @@
 /datum/evidence_item
+	/// The id of the evidence item. Assigned automatically.
 	var/id = ""
+	/// Evidence name
 	var/label = ""
+	/// The category type a piece of evidence is, such as contraband
 	var/evidence_type = "Item"
+	/// The location the evidence was found
 	var/location = ""
+	/// The locker the evidence is in
 	var/evidence_locker = ""
+	/// The person to collect the evidence
 	var/collected_by = ""
+	/// The time the evidence was collected
 	var/collected_at = ""
+	/// The notes attached to the evidence
 	var/notes = ""
+	/// The people related to the evidence
 	var/list/linked_people = list()
 
 /datum/evidence_item/proc/tgui_data()
@@ -29,10 +38,13 @@
 	return data
 
 /datum/evidence_item/photo
+	/// The photo id, used as part of ensuring the viewing client gets the proper photo
 	var/photo_id = ""
+	/// The image of the photo
 	var/icon/img
+	/// What is scribbled on the photo
 	var/scribble = ""
-	var/picture_desc = ""
+	/// The associated evidence of the photo
 	var/list/linked_evidence = list()
 
 /datum/evidence_item/photo/tgui_data()

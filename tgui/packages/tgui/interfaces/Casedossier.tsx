@@ -84,7 +84,6 @@ type InvestigationCase = {
   summary?: string;
   timeline?: string;
   findings?: string;
-  recommended_action?: string;
 
   victims?: DossierPerson[];
   suspects?: DossierPerson[];

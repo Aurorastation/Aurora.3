@@ -2,46 +2,75 @@
 #define STATUS_SUBMITTED "Submitted"
 #define STATUS_ARCHIVED "Archived"
 /datum/investigation_case
+	/// The id of the case. Assigned automatically.
 	var/case_id = ""
+	/// The case name
 	var/title = "new case"
+	/// Case status, determining its current status and ability to be editted
 	var/status = "Open"
+	/// The investigators working on the case
 	var/investigator = ""
+	/// Tags associated with the case
 	var/list/tags = list()
 
+	/// Evidence associated with the case
 	var/list/evidence_refs = list()
+	/// Photos associated with the case
 	var/list/photo_refs = list()
+	/// Reports associated with the case
 	var/list/report_refs = list()
 
+	/// Case summary
 	var/summary = ""
+	/// Who started the case
 	var/created_by = ""
+	/// When the case was opened
 	var/created_at = ""
+	/// When the case was last updated/editted
 	var/updated_at = ""
 
+	/// Timeline description of the events of the case
 	var/timeline = ""
+	/// The findings of the case, such as motive
 	var/findings = ""
-	var/recommended_action = ""
 
+	/// The victims in the case
 	var/list/victims = list()
+	/// The suspects in the case
 	var/list/suspects = list()
+	/// The witnesses in the case
 	var/list/witnesses = list()
 
+	/// Person IDs, set per case
 	var/person_uid = 1
+	/// Evidence ID, set per case
 	var/evidence_uid = 1
+	/// Report ID, set per case
+	var/report_uid = 1
 
+/// The case ID, to be incremented per new case
 GLOBAL_VAR_INIT(case_dossier_uid, 1)
+/// All case dossiers
 GLOBAL_LIST_EMPTY(case_dossier_cases)
 /datum/investigation_case/New()
 	..()
-	case_id = "C-[GLOB.case_dossier_uid++]"
+	case_id = "C-[worlddate2text]-[GLOB.case_dossier_uid++]"
 
+/// Scans the evidence held in the active hand, into the case files
 /datum/investigation_case/proc/scan_held_evidence(var/mob/user, var/obj/item/E)
 	if(!E)
 		return FALSE
+	// Temporary storage of case labels, to use in case evidence bags are used
+	/// The area the evidence was collected in
 	var/collected_area
+	/// The time the evidence was collected
 	var/collected_time
+	/// Who collected the evidence
 	var/collected_by
+	/// The label on the evidence bag the evidence is in, if any
 	var/bag_label
 
+	// If it is an evidence bag, then we want what is inside of it
 	if(istype(E, /obj/item/evidencebag))
 		var/obj/item/evidencebag/B = E
 		E = B.stored_item
@@ -59,11 +88,11 @@ GLOBAL_LIST_EMPTY(case_dossier_cases)
 
 	collected_by ||= user.name
 
+	/// The evidence item
 	var/datum/evidence_item/I = new()
 	I.id = "E-[evidence_uid++]"
 	I.label = bag_label || E.name
 	I.evidence_type = "Item"
-	I.notes = E.desc
 
 	I.collected_by = collected_by
 	I.collected_at = collected_time
@@ -78,11 +107,17 @@ GLOBAL_LIST_EMPTY(case_dossier_cases)
 	if(!E)
 		return FALSE
 
+	// Temporary storage of case labels, to use in case evidence bags are used
+	/// The area the evidence was collected in
 	var/collected_area
+	/// The time the evidence was collected
 	var/collected_time
+	/// Who collected the evidence
 	var/collected_by
+	/// The label on the evidence bag the evidence is in, if any
 	var/bag_label
 
+	// If it is an evidence bag, then we want what is inside of it, just like with regular evidence items
 	if(istype(E, /obj/item/evidencebag))
 		var/obj/item/evidencebag/B = E
 		E = B.stored_item
@@ -98,7 +133,9 @@ GLOBAL_LIST_EMPTY(case_dossier_cases)
 	if(!istype(E, /obj/item/photo))
 		return FALSE
 
+	/// The photo being copied
 	var/obj/item/photo/P = E
+	/// The evidence linked photo being stored
 	var/datum/evidence_item/photo/Photo = new()
 
 	Photo.id = "P-[evidence_uid++]"
@@ -109,7 +146,6 @@ GLOBAL_LIST_EMPTY(case_dossier_cases)
 	Photo.collected_at = collected_time || P.time_taken
 	Photo.img = P.img
 	Photo.scribble = P.scribble
-	Photo.picture_desc = P.picture_desc
 	Photo.location = collected_area || P.location_taken
 
 	photo_refs += Photo
@@ -117,32 +153,18 @@ GLOBAL_LIST_EMPTY(case_dossier_cases)
 
 	return TRUE
 
-/datum/investigation_case/proc/get_next_report_id()
-	var/index = 0
-
-	while(TRUE)
-		var/candidate = "R-[index]"
-		var/found = FALSE
-
-		for(var/datum/case_dossier_report/R in report_refs)
-			if("[R.id]" == candidate)
-				found = TRUE
-				break
-
-		if(!found)
-			return candidate
-
-		index++
-
+/// Scan the new held paperwork to add to the case. Only takes singular pages
 /datum/investigation_case/proc/scan_held_report(var/mob/user, var/obj/item/held_item)
+	/// The scanned piece of paper
 	var/obj/item/paper/P = held_item
 
 	if(!istype(P, /obj/item/paper))
 		to_chat(user, SPAN_WARNING("You need to hold a piece of paper to scan it."))
 		return FALSE
 
+	/// The new paper item
 	var/datum/case_dossier_report/R = new()
-	R.id = get_next_report_id()
+	R.id = "R-[report_uid++]"
 	R.title = sanitize(P.name, MAX_NAME_LEN)
 	R.evidence_type = "Scanned paper"
 	R.author = "Unknown"
@@ -154,12 +176,15 @@ GLOBAL_LIST_EMPTY(case_dossier_cases)
 
 	var/rendered_content = ""
 
+	// Part 1: Deal with languages
 	if(P.info)
 		rendered_content += P.parse_languages(user, P.info, FALSE, TRUE)
 
+	// Part 2: Get the stamps
 	if(P.stamps)
 		rendered_content += P.stamps
 
+	// Part 3: Done
 	R.content = rendered_content
 
 	report_refs += R
@@ -168,6 +193,7 @@ GLOBAL_LIST_EMPTY(case_dossier_cases)
 	to_chat(user, SPAN_NOTICE("You scan \the [P] into [title]."))
 	return TRUE
 
+/// Sets the fields to the specified values
 /datum/investigation_case/proc/set_field(var/field, var/value)
 	switch(field)
 		if("title")
@@ -182,11 +208,10 @@ GLOBAL_LIST_EMPTY(case_dossier_cases)
 			timeline = value
 		if("findings")
 			findings = value
-		if("recommended_action")
-			recommended_action = value
 
 	touch()
 
+/// Figures out and sets the tags
 /datum/investigation_case/proc/set_tags_from_text(var/value)
 	tags = list()
 
@@ -202,9 +227,11 @@ GLOBAL_LIST_EMPTY(case_dossier_cases)
 
 	touch()
 
+/// We updated it. Time to set the updated time.
 /datum/investigation_case/proc/touch()
 	updated_at = worldtime2text()
 
+/// Fetch the relevant people
 /datum/investigation_case/proc/get_person_list(var/list_name)
 	switch(list_name)
 		if("victims")
@@ -214,8 +241,9 @@ GLOBAL_LIST_EMPTY(case_dossier_cases)
 		if("witnesses")
 			return witnesses
 
-	return null
+	return
 
+/// Add a new person
 /datum/investigation_case/proc/add_person(var/list_name)
 	var/list/L = get_person_list(list_name)
 	if(!L)
@@ -236,6 +264,7 @@ GLOBAL_LIST_EMPTY(case_dossier_cases)
 	touch()
 	return TRUE
 
+/// Edit the values of a person
 /datum/investigation_case/proc/edit_person(var/list_name, var/id, var/field, var/value)
 	var/list/L = get_person_list(list_name)
 	if(!L)
@@ -256,6 +285,7 @@ GLOBAL_LIST_EMPTY(case_dossier_cases)
 
 	return FALSE
 
+/// Alright removing a person
 /datum/investigation_case/proc/remove_person(var/list_name, var/id)
 	var/list/L = get_person_list(list_name)
 	if(!L)
@@ -270,6 +300,7 @@ GLOBAL_LIST_EMPTY(case_dossier_cases)
 
 	return FALSE
 
+/// Send the person data to TGUI
 /datum/investigation_case/proc/person_list_tgui_data(var/list/L)
 	var/list/out = list()
 
@@ -278,6 +309,7 @@ GLOBAL_LIST_EMPTY(case_dossier_cases)
 
 	return out
 
+/// Send the evidence data to TGUI
 /datum/investigation_case/proc/evidence_list_tgui_data(var/list/L)
 	var/list/out = list()
 
@@ -286,6 +318,7 @@ GLOBAL_LIST_EMPTY(case_dossier_cases)
 
 	return out
 
+/// Send the report data to TGUI
 /datum/investigation_case/proc/report_list_tgui_data(var/list/reports)
 	var/list/data = list()
 
@@ -297,6 +330,7 @@ GLOBAL_LIST_EMPTY(case_dossier_cases)
 
 	return data
 
+/// Manually add evidence, instead of scanning it
 /datum/investigation_case/proc/add_manual_evidence(var/mob/user)
 	var/datum/evidence_item/I = new()
 	I.id = "E-[evidence_uid++]"
@@ -308,12 +342,14 @@ GLOBAL_LIST_EMPTY(case_dossier_cases)
 	touch()
 	return TRUE
 
+/// Find a specific evidence based on ID
 /datum/investigation_case/proc/find_evidence_in_list(var/list/L, var/id)
 	for(var/datum/evidence_item/I in L)
 		if(I.id == id)
 			return I
-	return null
+	return
 
+/// Edit an evidence item
 /datum/investigation_case/proc/edit_evidence_item(var/list/L, var/id, var/field, var/value)
 	var/datum/evidence_item/I = find_evidence_in_list(L, id)
 	if(!I)
@@ -352,6 +388,7 @@ GLOBAL_LIST_EMPTY(case_dossier_cases)
 	touch()
 	return TRUE
 
+/// Remove an evidence item
 /datum/investigation_case/proc/remove_evidence_item(var/list/L, var/id)
 	var/datum/evidence_item/I = find_evidence_in_list(L, id)
 	if(!I)
@@ -362,21 +399,27 @@ GLOBAL_LIST_EMPTY(case_dossier_cases)
 	touch()
 	return TRUE
 
+/// Edit an evidence item
 /datum/investigation_case/proc/edit_evidence(var/id, var/field, var/value)
 	return edit_evidence_item(evidence_refs, id, field, value)
 
+/// Remove evidence
 /datum/investigation_case/proc/remove_evidence(var/id)
 	return remove_evidence_item(evidence_refs, id)
 
+/// Edit a photo
 /datum/investigation_case/proc/edit_photo(var/id, var/field, var/value)
 	return edit_evidence_item(photo_refs, id, field, value)
 
+/// Remove a photo
 /datum/investigation_case/proc/remove_photo(var/id)
 	return remove_evidence_item(photo_refs, id)
 
+/// remove a report
 /datum/investigation_case/proc/remove_report(var/id)
 	return remove_evidence_item(report_refs, id)
 
+/// Makes an identical case
 /datum/investigation_case/proc/copy_case()
 	var/datum/investigation_case/N = new()
 
@@ -388,7 +431,6 @@ GLOBAL_LIST_EMPTY(case_dossier_cases)
 	N.summary = summary
 	N.timeline = timeline
 	N.findings = findings
-	N.recommended_action = recommended_action
 
 	N.victims = victims
 	N.suspects = suspects
@@ -399,6 +441,7 @@ GLOBAL_LIST_EMPTY(case_dossier_cases)
 
 	return N
 
+/// creates a clean list from a set of text
 /datum/investigation_case/proc/text_to_clean_list(var/value)
 	var/list/out = list()
 
@@ -413,6 +456,7 @@ GLOBAL_LIST_EMPTY(case_dossier_cases)
 
 	return out
 
+/// Send a photo to a viewing user so they can see it
 /datum/investigation_case/proc/send_photo_resources(var/mob/user)
 	if(!user)
 		return
@@ -422,6 +466,12 @@ GLOBAL_LIST_EMPTY(case_dossier_cases)
 			continue
 
 		send_rsc(user, P.img, "tmp_photo_[P.photo_id || P.id].png")
+
+/datum/investigation_case/Destroy(force)
+	QDEL_LIST(evidence_refs)
+	QDEL_LIST(photo_refs)
+	QDEL_LIST(report_refs)
+	..()
 
 #undef STATUS_OPEN
 #undef STATUS_SUBMITTED

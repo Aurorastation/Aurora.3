@@ -75,7 +75,6 @@
 		data["summary"] = summary
 		data["timeline"] = timeline
 		data["findings"] = findings
-		data["recommended_action"] = recommended_action
 
 		data["victims"] = person_list_tgui_data(victims)
 		data["suspects"] = person_list_tgui_data(suspects)
