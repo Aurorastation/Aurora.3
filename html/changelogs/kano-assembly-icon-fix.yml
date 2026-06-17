@@ -1,4 +1,0 @@
-author: kano
-delete-after: True
-changes:
-  - bugfix: "Fixed strong plastic explosives missing their sprites."
