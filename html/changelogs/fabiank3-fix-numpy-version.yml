@@ -1,6 +1,0 @@
-author: FabianK3
-
-delete-after: True
-
-changes:
-  - bugfix: "Fix changelog generation by fixing python numpy version to support current cpython version."
