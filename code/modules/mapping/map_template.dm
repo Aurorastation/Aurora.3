@@ -170,7 +170,7 @@
 			var/area/A = T.loc
 			if(A?.area_has_base_lighting)
 				continue
-			T.static_lighting_build_overlay()
+			T.lighting_build_overlay()
 
 /datum/map_template/proc/load(turf/T, centered = FALSE)
 	if(centered)

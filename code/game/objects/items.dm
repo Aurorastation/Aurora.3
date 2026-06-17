@@ -2,7 +2,7 @@
 	name = "item"
 	icon = 'icons/obj/items.dmi'
 	w_class = WEIGHT_CLASS_NORMAL
-	light_system = MOVABLE_LIGHT
+	light_system = OVERLAY_LIGHT
 	blocks_emissive = EMISSIVE_BLOCK_GENERIC
 	/// Generic hit sound
 	hitsound = SFX_SWING_HIT

@@ -8,7 +8,7 @@
 	mob_bump_flag = HUMAN
 	mob_push_flags = ~HEAVY
 	mob_swap_flags = ~HEAVY
-	light_system = MOVABLE_LIGHT
+	light_system = OVERLAY_LIGHT
 	blocks_emissive = EMISSIVE_BLOCK_NONE
 
 /mob/living/carbon/human/Initialize(mapload, var/new_species = null)

@@ -16,5 +16,8 @@
 #define NOTIFY_ATTACK "attack"
 #define NOTIFY_ORBIT "orbit"
 
+#define PLANE_GROUP_MAIN "main"
+#define PLANE_GROUP_POPUP_WINDOW(screen) "popup-[REF(screen)]"
+
 #define ALERT_BUCKLED "buckled"
 #define ALERT_FIRE "fire"

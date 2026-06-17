@@ -367,7 +367,7 @@
 		M.stop_pulling()
 		if(M.client)
 			M.client.perspective = EYE_PERSPECTIVE
-			M.client.eye = src
+			M.client.set_eye(src)
 		M.forceMove(src)
 		update_use_power(POWER_USE_ACTIVE)
 		occupant = M
@@ -377,7 +377,7 @@
 	if(!occupant)
 		return
 	if(occupant.client)
-		occupant.client.eye = occupant.client.mob
+		occupant.client.set_eye(occupant.client.mob)
 		occupant.client.perspective = MOB_PERSPECTIVE
 	occupant.forceMove(get_turf(src))
 	occupant = null

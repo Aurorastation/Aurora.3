@@ -224,3 +224,15 @@
 
 /// Unlinks gliding from movement speed, meaning that there will be a delay between movements rather than a single move movement between tiles
 #define TRAIT_NO_GLIDE "no_glide"
+
+/// A visual distortion plane is currently in use for the given z layer.
+#define TRAIT_DISTORTION_IN_USE(z_layer) "distortion_in_use_#[z_layer]"
+
+/// The escape-menu render plane should be visible.
+#define TRAIT_ESCAPE_MENU_OPEN "escape_menu_open"
+
+/// The parallax render planes should be visible.
+#define TRAIT_PARALLAX_DISPLAYED "parallax_displayed"
+
+/// Field of view masking is active for this mob.
+#define TRAIT_FOV_APPLIED "fov_applied"

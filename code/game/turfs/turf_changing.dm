@@ -58,14 +58,12 @@
 
 	SEND_SIGNAL(src, COMSIG_TURF_CHANGE, path)
 
-	//static lighting
-	var/old_lighting_object = static_lighting_object
+	//tg lighting
+	var/atom/movable/lighting_object/old_lighting_object = lighting_object
 	var/old_lighting_corner_NE = lighting_corner_NE
 	var/old_lighting_corner_SE = lighting_corner_SE
 	var/old_lighting_corner_SW = lighting_corner_SW
 	var/old_lighting_corner_NW = lighting_corner_NW
-	//hybrid lighting
-	var/list/old_hybrid_lights_affecting = hybrid_lights_affecting?.Copy()
 	var/old_directional_opacity = directional_opacity
 
 	changing_turf = TRUE
@@ -92,10 +90,6 @@
 	else if (old_turf_fire)
 		QDEL_NULL(old_turf_fire)
 
-	// If the area requires starlight, we need to fill it back in with starlight after the change.
-	// Particularly necessary so shuttles don't leave dark patches after undocking with starlit turfs.
-	update_starlight()
-
 	// WARNING WARNING
 	// Turfs DO NOT lose their signals when they get replaced, REMEMBER THIS
 	// It's possible because turfs are fucked, and if you have one in a list and it's replaced with another one, the list ref points to the new turf
@@ -104,34 +98,39 @@
 	if(old_signal_procs)
 		LAZYOR(new_turf._signal_procs, old_signal_procs)
 
-	new_turf.hybrid_lights_affecting = old_hybrid_lights_affecting
 	new_turf.dynamic_lumcount = dynamic_lumcount
 
-	lighting_corner_NE = old_lighting_corner_NE
-	lighting_corner_SE = old_lighting_corner_SE
-	lighting_corner_SW = old_lighting_corner_SW
-	lighting_corner_NW = old_lighting_corner_NW
+	new_turf.lighting_corner_NE = old_lighting_corner_NE
+	new_turf.lighting_corner_SE = old_lighting_corner_SE
+	new_turf.lighting_corner_SW = old_lighting_corner_SW
+	new_turf.lighting_corner_NW = old_lighting_corner_NW
 
-	//static Update
+	// If the area requires starlight, we need to fill it back in with starlight after the change.
+	// Particularly necessary so shuttles don't leave dark patches after undocking with starlit turfs.
+	new_turf.update_starlight()
+
+	//tg lighting update
 	if(SSlighting.initialized)
-		recalculate_directional_opacity()
+		if(!new_turf.space_lit)
+			if(old_lighting_object)
+				new_turf.lighting_object = old_lighting_object
+				old_lighting_object.affected_turf = new_turf
+				new_turf.vis_contents += old_lighting_object
+			else
+				new /atom/movable/lighting_object(null, new_turf)
+		else if(old_lighting_object)
+			qdel(old_lighting_object, force = TRUE)
 
-		new_turf.static_lighting_object = old_lighting_object
+		new_turf.directional_opacity = old_directional_opacity
+		new_turf.recalculate_directional_opacity()
 
-		if(static_lighting_object && !static_lighting_object.needs_update)
-			static_lighting_object.update()
-
-	//Since the old turf was removed from hybrid_lights_affecting, readd the new turf here
-	if(new_turf.hybrid_lights_affecting)
-		for(var/atom/movable/lighting_mask/mask as anything in new_turf.hybrid_lights_affecting)
-			LAZYADD(mask.affecting_turfs, new_turf)
-
-	if(new_turf.directional_opacity != old_directional_opacity)
-		new_turf.reconsider_lights()
+		if(new_turf.lighting_object && !new_turf.lighting_object.needs_update)
+			new_turf.lighting_object.update()
 
 	var/area/thisarea = get_area(new_turf)
-	if(thisarea.lighting_effect)
-		new_turf.AddOverlays(thisarea.lighting_effect)
+	var/offset = GET_TURF_PLANE_OFFSET(new_turf)
+	if(offset && thisarea.lighting_effects && length(thisarea.lighting_effects) >= offset + 1)
+		new_turf.AddOverlays(thisarea.lighting_effects[offset + 1])
 
 	if(GLOB.config.starlight)
 		for(var/turf/space/S in RANGE_TURFS(1, src))

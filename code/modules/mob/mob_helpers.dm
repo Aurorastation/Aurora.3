@@ -1299,7 +1299,7 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
 		if(ismob(AM))
 			var/mob/M = AM
 			if(M.client)
-				M.client.eye = M.client.mob
+				M.client.set_eye(M.client.mob)
 				M.client.perspective = MOB_PERSPECTIVE
 
 

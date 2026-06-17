@@ -60,16 +60,15 @@ Note that this lighting type utilises special update procs from the other two li
 /atom/proc/set_light_on(new_value)
 ```
 
-### Hybrid lighting
-Hybrid lighting is, as the name implies, a hybrid of the two above systems. It still needs to update when the owner moves, or something in view changes like static lighting does, but uses overlays to hide areas using shadows. As a result, this has similar if not better performance to Static lighting, but has a higher drain on player GPU and thus you should ideally avoid lagging players that play on terrible computers too much. This means that you should use this lighting in decently sized lights that act as centerpieces for a scene (i.e. a fire, supermatter, etc.) since it combines the best of static and movable lighting at a clientside performance cost.
-As a rule of thumb most items will be fine using this except for light fixtures, as lag mostly seems to crop up from multiple large lighting sources.
-Using lights for turf  based fires and large floodlights is thus fine, but be careful with frquesnt use.
-It functions by fetching all nearby blockers, then calculating triangles behind these blocked areas which it then masks with overlays.
-These overlays then render as an alpha mask blocking the light from appearing.
-This system also supports non-round lights, such as light cones, rotating lights, and shimmering lights through the use of
+### Overlay lighting
+Overlay lighting is the movable client-side light path. It uses generated overlay visuals instead of the old Aurora hybrid mask objects, which were removed during the tg lighting port. As a result, it has a higher drain on player GPU and you should avoid using many large overlay lights around players on weaker computers. Most items will be fine using this except for light fixtures, as lag mostly seems to crop up from multiple large lighting sources.
+Using lights for turf based fires and large floodlights is thus fine, but be careful with frequent use.
+This system also supports non-round lights, such as light cones, rotating lights, and shimmering lights through vars like
 ```dm
-var/mask_type
+var/light_angle
+var/light_dir
+var/light_render_source
 ```
-which determines which type of icon we are going to use as the base when drawing this lights (/atom/movable/lighting_mask/flicker for shimmering lights as an example).
+and through `/datum/light_middleman` when a caller needs to intercept and animate overlay light appearances.
 
-Actual updates however are handled through the same procs as Static lighting, and the mask_type argument on set_light() allows you to change the mask type that is being used on the fly.
+Actual updates are handled through the same light setter procs as complex lighting.

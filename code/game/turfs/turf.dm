@@ -1,6 +1,8 @@
 /turf
 	icon = 'icons/turf/floors.dmi'
 	level = 1
+	luminosity = 1
+	light_height = LIGHTING_HEIGHT_FLOOR
 
 	layer = TURF_LAYER
 	vis_flags = VIS_INHERIT_PLANE
@@ -66,14 +68,23 @@
 	///Lumcount added by sources other than lighting datum objects, such as the overlay lighting component.
 	var/dynamic_lumcount = 0
 
+	/// Whether this turf is always illuminated no matter what area it is in.
+	var/space_lit = FALSE
+	/// Whether the tg-style lighting corners for this turf have been generated.
+	var/tmp/lighting_corners_initialised = FALSE
+	/// Our lighting object.
+	var/tmp/atom/movable/lighting_object/lighting_object
+	/// Lighting corner datums.
+	var/tmp/datum/lighting_corner/lighting_corner_NE
+	var/tmp/datum/lighting_corner/lighting_corner_SE
+	var/tmp/datum/lighting_corner/lighting_corner_SW
+	var/tmp/datum/lighting_corner/lighting_corner_NW
+
 	///List of light sources affecting this turf.
 	///Which directions does this turf block the vision of, taking into account both the turf's opacity and the movable opacity_sources.
 	var/directional_opacity = NONE
 	///Lazylist of movable atoms providing opacity sources.
 	var/list/atom/movable/opacity_sources
-
-	///hybrid lights affecting this turf
-	var/tmp/list/atom/movable/lighting_mask/hybrid_lights_affecting
 
 	///for clean log spam.
 	var/last_clean
@@ -140,8 +151,9 @@
 
 	//Get area light
 	var/area/current_area = loc
-	if(current_area?.lighting_effect)
-		overlays += current_area.lighting_effect
+	var/offset = GET_TURF_PLANE_OFFSET(src)
+	if(offset && current_area?.lighting_effects && length(current_area.lighting_effects) >= offset + 1)
+		overlays += current_area.lighting_effects[offset + 1]
 
 	if(opacity)
 		directional_opacity = ALL_CARDINALS
@@ -159,11 +171,6 @@
 	return INITIALIZE_HINT_NORMAL
 
 /turf/Destroy()
-	if(hybrid_lights_affecting)
-		for(var/atom/movable/lighting_mask/mask as anything in hybrid_lights_affecting)
-			LAZYREMOVE(mask.affecting_turfs, src)
-		hybrid_lights_affecting.Cut()
-
 	if (!changing_turf)
 		crash_with("Improper turf qdeletion.")
 

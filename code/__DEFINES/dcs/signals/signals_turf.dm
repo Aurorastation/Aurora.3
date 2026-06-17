@@ -7,3 +7,6 @@
 
 ///from base of datum/thrownthing/finalize(): (turf/turf, atom/movable/thrownthing) when something is thrown and lands on us
 #define COMSIG_TURF_MOVABLE_THROW_LANDED "turf_movable_throw_landed"
+
+/// Sent to turf contents when the turf no longer fully blocks light.
+#define COMSIG_TURF_NO_LONGER_BLOCK_LIGHT "turf_no_longer_block_light"

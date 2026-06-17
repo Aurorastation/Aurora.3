@@ -1,7 +1,8 @@
 /area
 	luminosity = 1
-	///The mutable appearance we underlay to show light
-	var/mutable_appearance/lighting_effect = null
+	///List of mutable appearances we underlay to show light
+	///In the form plane offset + 1 -> appearance to use
+	var/list/mutable_appearance/lighting_effects = null
 	///Whether this area has a currently active base lighting, bool
 	var/area_has_base_lighting = FALSE
 	///alpha 0-255 of lighting_effect and thus baselighting intensity
@@ -21,12 +22,18 @@
 
 /area/vv_edit_var(var_name, var_value)
 	switch(var_name)
-		if("base_lighting_color")
+		if(NAMEOF(src, base_lighting_color))
 			set_base_lighting(new_base_lighting_color = var_value)
 			return TRUE
-		if("base_lighting_alpha")
+		if(NAMEOF(src, base_lighting_alpha))
 			set_base_lighting(new_alpha = var_value)
 			return TRUE
+		if(NAMEOF(src, static_lighting))
+			if(!static_lighting)
+				create_area_lighting_objects()
+			else
+				remove_area_lighting_objects()
+
 	return ..()
 
 /area/proc/update_base_lighting()
@@ -41,19 +48,73 @@
 		add_base_lighting()
 
 /area/proc/remove_base_lighting()
-	for(var/turf/T in src)
-		T.overlays -= lighting_effect
-	QDEL_NULL(lighting_effect)
+	UnregisterSignal(SSdcs, COMSIG_STARLIGHT_COLOR_CHANGED)
+	if(!lighting_effects)
+		return
+	if(length(lighting_effects))
+		CutOverlays(lighting_effects[1])
+		for(var/turf/T as anything in src)
+			var/offset = GET_TURF_PLANE_OFFSET(T)
+			if(offset && length(lighting_effects) >= offset + 1)
+				T.CutOverlays(lighting_effects[offset + 1])
+	lighting_effects = null
 	area_has_base_lighting = FALSE
 
 /area/proc/add_base_lighting()
-	lighting_effect = mutable_appearance('icons/effects/alphacolors.dmi', "white")
-	lighting_effect.plane = LIGHTING_PLANE
-	lighting_effect.layer = LIGHTING_PRIMARY_LAYER
-	lighting_effect.blend_mode = BLEND_ADD
-	lighting_effect.alpha = base_lighting_alpha
-	lighting_effect.color = base_lighting_color
-	for(var/turf/T in src)
-		T.overlays += lighting_effect
-		T.luminosity = 1
+	lighting_effects = list()
+	for(var/offset in 0 to SSmapping.max_plane_offset)
+		var/mutable_appearance/light
+		if(base_lighting_color == COLOR_STARLIGHT)
+			light = new(GLOB.starlight_overlays[offset + 1])
+		else
+			light = mutable_appearance('icons/effects/alphacolors.dmi', "white")
+			light.color = base_lighting_color
+		light.layer = LIGHTING_PRIMARY_LAYER
+		light.blend_mode = BLEND_ADD
+		light.appearance_flags = RESET_TRANSFORM | RESET_ALPHA | RESET_COLOR
+		light.alpha = base_lighting_alpha
+		SET_PLANE_W_SCALAR(light, LIGHTING_PLANE, offset)
+		lighting_effects += light
+
+	if(base_lighting_color == COLOR_STARLIGHT)
+		// Ok this is gonna be dumb
+		// We rely on render_source working, and it DOES NOT APPEAR TO in area rendering
+		// So we're gonna have to update the area's overlay manually. everything else can be automatic tho
+		// Fortunately the first overlay is only ever used by the area, soooo
+		var/mutable_appearance/light = mutable_appearance('icons/effects/alphacolors.dmi', "white")
+		light.layer = LIGHTING_PRIMARY_LAYER
+		light.blend_mode = BLEND_ADD
+		light.appearance_flags = RESET_TRANSFORM | RESET_ALPHA | RESET_COLOR
+		light.color = GLOB.starlight_color
+		light.alpha = base_lighting_alpha
+		SET_PLANE_W_SCALAR(light, LIGHTING_PLANE, 0)
+		lighting_effects[1] = light
+		RegisterSignal(SSdcs, COMSIG_STARLIGHT_COLOR_CHANGED, PROC_REF(starlight_changed))
+
+	AddOverlays(lighting_effects[1])
+	for(var/turf/area_turf as anything in src)
+		area_turf.luminosity = 1
+		var/offset = GET_TURF_PLANE_OFFSET(area_turf)
+		if(offset && length(lighting_effects) >= offset + 1)
+			area_turf.AddOverlays(lighting_effects[offset + 1])
+
 	area_has_base_lighting = TRUE
+
+/area/proc/starlight_changed(datum/source, old_star, new_star)
+	var/mutable_appearance/old_star_effect = mutable_appearance('icons/effects/alphacolors.dmi', "white")
+	old_star_effect.layer = LIGHTING_PRIMARY_LAYER
+	old_star_effect.blend_mode = BLEND_ADD
+	old_star_effect.appearance_flags = RESET_TRANSFORM | RESET_ALPHA | RESET_COLOR
+	old_star_effect.color = old_star
+	old_star_effect.alpha = base_lighting_alpha
+	SET_PLANE_W_SCALAR(old_star_effect, LIGHTING_PLANE, 0)
+	CutOverlays(old_star_effect)
+	var/mutable_appearance/new_star_effect = mutable_appearance('icons/effects/alphacolors.dmi', "white")
+	new_star_effect.layer = LIGHTING_PRIMARY_LAYER
+	new_star_effect.blend_mode = BLEND_ADD
+	new_star_effect.appearance_flags = RESET_TRANSFORM | RESET_ALPHA | RESET_COLOR
+	new_star_effect.color = new_star
+	new_star_effect.alpha = base_lighting_alpha
+	SET_PLANE_W_SCALAR(new_star_effect, LIGHTING_PLANE, 0)
+	AddOverlays(new_star_effect)
+	lighting_effects[1] = new_star_effect

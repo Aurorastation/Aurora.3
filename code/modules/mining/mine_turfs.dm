@@ -85,8 +85,9 @@ GLOBAL_LIST_INIT(mineral_can_smooth_with, list(
 
 	//Get area light
 	var/area/current_area = loc
-	if(current_area?.lighting_effect)
-		overlays += current_area.lighting_effect
+	var/offset = GET_TURF_PLANE_OFFSET(src)
+	if(offset && current_area?.lighting_effects && length(current_area.lighting_effects) >= offset + 1)
+		overlays += current_area.lighting_effects[offset + 1]
 
 	if(opacity)
 		directional_opacity = ALL_CARDINALS
@@ -223,8 +224,9 @@ GLOBAL_LIST_INIT(mineral_can_smooth_with, list(
 
 	//Get area light
 	var/area/current_area = loc
-	if(current_area?.lighting_effect)
-		overlays += current_area.lighting_effect
+	var/offset = GET_TURF_PLANE_OFFSET(src)
+	if(offset && current_area?.lighting_effects && length(current_area.lighting_effects) >= offset + 1)
+		overlays += current_area.lighting_effects[offset + 1]
 
 	if(opacity)
 		directional_opacity = ALL_CARDINALS
@@ -776,8 +778,9 @@ GLOBAL_LIST_INIT(asteroid_floor_smooth, list(
 
 	//Get area light
 	var/area/current_area = loc
-	if(current_area?.lighting_effect)
-		overlays += current_area.lighting_effect
+	var/offset = GET_TURF_PLANE_OFFSET(src)
+	if(offset && current_area?.lighting_effects && length(current_area.lighting_effects) >= offset + 1)
+		overlays += current_area.lighting_effects[offset + 1]
 
 	return INITIALIZE_HINT_NORMAL
 

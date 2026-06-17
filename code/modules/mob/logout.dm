@@ -12,6 +12,7 @@
 	clear_important_client_contents()
 
 	my_client = null
+	canon_client = null
 
 	if(admin_datums[src.ckey])
 		var/datum/admins/A = admin_datums[src.ckey]

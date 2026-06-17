@@ -590,7 +590,7 @@
 		if(ismob(AM))
 			var/mob/M = AM
 			if(M.client)
-				M.client.eye = M.client.mob
+				M.client.set_eye(M.client.mob)
 				M.client.perspective = MOB_PERSPECTIVE
 
 /atom/proc/check_add_to_late_firers()

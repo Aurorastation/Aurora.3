@@ -5,7 +5,7 @@
 	icon_state = "radial_floodlight"
 	anchored = FALSE
 	density = TRUE
-	light_system = MOVABLE_LIGHT
+	light_system = OVERLAY_LIGHT
 	light_color = LIGHT_COLOR_TUNGSTEN
 	light_range = 8
 	light_power = 3

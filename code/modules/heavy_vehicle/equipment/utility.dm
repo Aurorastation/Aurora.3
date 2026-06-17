@@ -228,7 +228,7 @@
 		"<b>Alt Click(Icon):</b> Light up a large area in front of the mech.",
 	)
 
-	light_system = MOVABLE_LIGHT
+	light_system = OVERLAY_LIGHT
 
 /obj/item/mecha_equipment/light/attack_self(var/mob/user)
 	. = ..()

@@ -1,60 +1,65 @@
 
 // The proc you should always use to set the light of this atom.
-// Nonesensical value for l_color default, so we can detect if it gets set to null.
-#define NONSENSICAL_VALUE -99999
-/atom/proc/set_light(l_range, l_power, l_color = NONSENSICAL_VALUE, mask_type = null)
+/atom/proc/set_light(l_range, l_power, l_color = NONSENSICAL_VALUE, l_angle, l_dir, l_height, l_on)
+	// We null everything but l_dir, because we don't want to allow for modifications while frozen
+	if(light_flags & LIGHT_FROZEN)
+		l_range = null
+		l_power = null
+		l_color = null
+		l_on = null
+		l_angle = null
+		l_height = null
+
 	if(l_range > 0 && l_range < MINIMUM_USEFUL_LIGHT_RANGE)
-		l_range = MINIMUM_USEFUL_LIGHT_RANGE	//Brings the range up to 1.4, which is just barely brighter than the soft lighting that surrounds players.
+		l_range = MINIMUM_USEFUL_LIGHT_RANGE //Brings the range up to 1.4, which is just barely brighter than the soft lighting that surrounds players.
 
-	if(l_power != null && l_power != light_power)
-		light_power = l_power
-		. = TRUE
+	if(SEND_SIGNAL(src, COMSIG_ATOM_SET_LIGHT, l_range, l_power, l_color, l_on) & COMPONENT_BLOCK_LIGHT_UPDATE)
+		return
 
-	if(l_range != null && l_range != light_range)
-		light_range = l_range
-		light_on = (light_range>0) ? TRUE : FALSE
-		. = TRUE
+	if(!isnull(l_power))
+		set_light_power(l_power)
 
-	if(l_color != NONSENSICAL_VALUE && l_color != light_color)
-		light_color = l_color
-		. = TRUE
+	if(!isnull(l_range))
+		set_light_range(l_range)
 
-	if(mask_type != null && mask_type != light_mask_type)
-		light_mask_type = mask_type
-		. = TRUE
+	if(l_color != NONSENSICAL_VALUE)
+		set_light_color(l_color)
 
-	if(.)
-		update_light()
+	if(!isnull(l_angle))
+		set_light_angle(l_angle)
 
-	SEND_SIGNAL(src, COMSIG_ATOM_SET_LIGHT, l_range, l_power, l_color)
+	if(!isnull(l_dir))
+		set_light_dir(l_dir)
 
+	if(!isnull(l_on))
+		set_light_on(l_on)
 
-/atom/proc/fade_light(new_colour, time)
-	light_color = new_colour
-	if(light?.our_mask)
-		animate(light.our_mask, color = new_colour, time = time)
+	if(!isnull(l_height))
+		set_light_height(l_height)
 
-/// Will update the light (duh).Creates or destroys it if needed, makes it update values, makes sure it's got the correct source turf...
+	update_light()
+
+/// Will update the light (duh).
+/// Creates or destroys it if needed, makes it update values, makes sure it's got the correct source turf...
 /atom/proc/update_light()
-	set waitfor = FALSE
+	SHOULD_NOT_SLEEP(TRUE)
 
-	if(QDELETED(src))
-		return
-	if(light_system == STATIC_LIGHT)
-		static_update_light()
-		return
+	if(light_system != COMPLEX_LIGHT)
+		CRASH("update_light() for [src] with following light_system value: [light_system]")
 
-	if((!light_power || !light_range) && light) // We won't emit light anyways, destroy the light source.
+	if (!light_power || !light_range || !light_on) // We won't emit light anyways, destroy the light source.
 		QDEL_NULL(light)
-		return
-	if(light && light_mask_type && (light_mask_type != light.mask_type))
-		QDEL_NULL(light)
-	if(!light) // Update the light or create it if it does not exist.
-		light = new /datum/dynamic_light_source(src, light_mask_type)
-		return
-	light.set_light(light_range, light_power, light_color)
-	light.update_position()
+	else
+		if (!ismovable(loc)) // We choose what atom should be the top atom of the light here.
+			. = src
+		else
+			. = loc
 
+		if (light) // Update the light or create it if it does not exist.
+			light.update(.)
+		else
+			light = new/datum/light_source(src, .)
+		return .
 
 /**
  * Updates the atom's opacity value.
@@ -63,12 +68,12 @@
  * It notifies (potentially) affected light sources so they can update (if needed).
  */
 /atom/proc/set_opacity(new_opacity)
-	if(new_opacity == opacity)
+	if (new_opacity == opacity || light_flags & LIGHT_FROZEN)
 		return
 	SEND_SIGNAL(src, COMSIG_ATOM_SET_OPACITY, new_opacity)
 	. = opacity
-
 	opacity = new_opacity
+	return .
 
 /atom/movable/set_opacity(new_opacity)
 	. = ..()
@@ -80,106 +85,143 @@
 	else
 		RemoveElement(/datum/element/light_blocking)
 
-
 /turf/set_opacity(new_opacity)
 	. = ..()
 	if(isnull(.))
 		return
 	recalculate_directional_opacity()
 
-/atom/vv_edit_var(var_name, var_value)
-	switch(var_name)
-		if("light_range")
-			if(light_system != MOVABLE_LIGHT)
-				set_light(l_range = var_value)
-			else
-				set_light_range(var_value)
-			datum_flags |= DF_VAR_EDITED
-			return TRUE
+/atom/proc/flash_lighting_fx(range = FLASH_LIGHT_RANGE, power = FLASH_LIGHT_POWER, color = COLOR_WHITE, duration = FLASH_LIGHT_DURATION)
+	return new /obj/effect/light_flash(get_turf(src), range, power, color, duration)
 
-		if("light_power")
-			if(light_system != MOVABLE_LIGHT)
-				set_light(l_power = var_value)
-			else
-				set_light_power(var_value)
-			datum_flags |= DF_VAR_EDITED
-			return TRUE
-
-		if("light_color")
-			if(light_system != MOVABLE_LIGHT)
-				set_light(l_color = var_value)
-			else
-				set_light_color(var_value)
-			datum_flags |= DF_VAR_EDITED
-			return TRUE
-	return ..()
-
-
-/atom/proc/flash_lighting_fx(
-		_range = FLASH_LIGHT_RANGE,
-		_power = FLASH_LIGHT_POWER,
-		_color = COLOR_WHITE,
-		_duration = FLASH_LIGHT_DURATION,
-		_reset_lighting = TRUE,
-		_flash_times = 1)
-	new /obj/effect/light_flash(get_turf(src), _range, _power, _color, _duration, _flash_times)
-
-
-/obj/effect/light_flash/Initialize(mapload, _range = FLASH_LIGHT_RANGE, _power = FLASH_LIGHT_POWER, _color = COLOR_WHITE, _duration = FLASH_LIGHT_DURATION, _flash_times = 1)
-	light_range = _range
-	light_power = _power
-	light_color = _color
+/obj/effect/light_flash/Initialize(mapload, range = FLASH_LIGHT_RANGE, power = FLASH_LIGHT_POWER, color = COLOR_WHITE, duration = FLASH_LIGHT_DURATION)
+	light_range = range
+	light_power = power
+	light_color = color
 	. = ..()
-	do_flashes(_flash_times, _duration)
+	set_light_on(TRUE)
+	if(duration)
+		QDEL_IN(src, duration)
 
-/obj/effect/light_flash/proc/do_flashes(_flash_times, _duration)
-	set waitfor = FALSE
-	for(var/i in 1 to _flash_times)
-		//Something bad happened
-		if(!(light?.our_mask))
-			break
-		light.our_mask.alpha = 255
-		animate(light.our_mask, time = _duration, easing = SINE_EASING, alpha = 0, flags = ANIMATION_END_NOW)
-		sleep(_duration) //this is extremely short so it's ok to sleep
-	qdel(src)
-
-/atom/proc/set_light_range(new_range)
-	if(new_range == light_range)
-		return
-	SEND_SIGNAL(src, COMSIG_ATOM_SET_LIGHT_RANGE, new_range)
-	. = light_range
-	light_range = new_range
-
-
+/// Setter for the light power of this atom.
 /atom/proc/set_light_power(new_power)
-	if(new_power == light_power)
+	if(new_power == light_power || light_flags & LIGHT_FROZEN)
 		return
-	SEND_SIGNAL(src, COMSIG_ATOM_SET_LIGHT_POWER, new_power)
+	if(SEND_SIGNAL(src, COMSIG_ATOM_SET_LIGHT_POWER, new_power) & COMPONENT_BLOCK_LIGHT_UPDATE)
+		return
 	. = light_power
 	light_power = new_power
+	SEND_SIGNAL(src, COMSIG_ATOM_UPDATE_LIGHT_POWER, .)
+	return .
 
-
-/atom/proc/set_light_color(new_color)
-	if(new_color == light_color)
+/// Setter for the light range of this atom.
+/atom/proc/set_light_range(new_range)
+	if(new_range == light_range || light_flags & LIGHT_FROZEN)
 		return
-	SEND_SIGNAL(src, COMSIG_ATOM_SET_LIGHT_COLOR, new_color)
+	if(SEND_SIGNAL(src, COMSIG_ATOM_SET_LIGHT_RANGE, new_range) & COMPONENT_BLOCK_LIGHT_UPDATE)
+		return
+	. = light_range
+	light_range = new_range
+	SEND_SIGNAL(src, COMSIG_ATOM_UPDATE_LIGHT_RANGE, .)
+	return .
+
+/// Setter for the light color of this atom.
+/atom/proc/set_light_color(new_color)
+	if(new_color == light_color || light_flags & LIGHT_FROZEN)
+		return
+	if(SEND_SIGNAL(src, COMSIG_ATOM_SET_LIGHT_COLOR, new_color) & COMPONENT_BLOCK_LIGHT_UPDATE)
+		return
 	. = light_color
 	light_color = new_color
+	SEND_SIGNAL(src, COMSIG_ATOM_UPDATE_LIGHT_COLOR, .)
+	return .
 
-
+/// Setter for whether or not this atom's light is on.
 /atom/proc/set_light_on(new_value)
-	if(new_value == light_on)
+	if(new_value == light_on || light_flags & LIGHT_FROZEN)
 		return
-	SEND_SIGNAL(src, COMSIG_ATOM_SET_LIGHT_ON, new_value)
+	if(SEND_SIGNAL(src, COMSIG_ATOM_SET_LIGHT_ON, new_value) & COMPONENT_BLOCK_LIGHT_UPDATE)
+		return
 	. = light_on
 	light_on = new_value
-
+	SEND_SIGNAL(src, COMSIG_ATOM_UPDATE_LIGHT_ON, .)
+	return .
 
 /// Setter for the light flags of this atom.
 /atom/proc/set_light_flags(new_value)
-	if(new_value == light_flags)
+	if(new_value == light_flags || (light_flags & LIGHT_FROZEN && new_value & LIGHT_FROZEN))
 		return
-	SEND_SIGNAL(src, COMSIG_ATOM_SET_LIGHT_FLAGS, new_value)
+	if(SEND_SIGNAL(src, COMSIG_ATOM_SET_LIGHT_FLAGS, new_value) & COMPONENT_BLOCK_LIGHT_UPDATE)
+		return
 	. = light_flags
 	light_flags = new_value
+	SEND_SIGNAL(src, COMSIG_ATOM_UPDATE_LIGHT_FLAGS, .)
+	return .
 
+// procs that only apply to OVERLAY_LIGHT
+
+/// Setter for an optional render_source to apply to this atom's light overlay
+/atom/proc/set_light_render_source(new_source)
+	if(new_source == light_flags || light_flags & LIGHT_FROZEN)
+		return
+	if(SEND_SIGNAL(src, COMSIG_ATOM_SET_LIGHT_RENDER_SOURCE, new_source) & COMPONENT_BLOCK_LIGHT_UPDATE)
+		return
+	. = light_render_source
+	light_render_source = new_source
+	SEND_SIGNAL(src, COMSIG_ATOM_SET_LIGHT_RENDER_SOURCE, .)
+	return .
+
+// procs that only apply to COMPLEX_LIGHT
+
+/// Setter for the light angle of this atom
+/atom/proc/set_light_angle(new_value)
+	if(new_value == light_angle || light_flags & LIGHT_FROZEN)
+		return
+	if(SEND_SIGNAL(src, COMSIG_ATOM_SET_LIGHT_ANGLE, new_value) & COMPONENT_BLOCK_LIGHT_UPDATE)
+		return
+	. = light_angle
+	light_angle = new_value
+	SEND_SIGNAL(src, COMSIG_ATOM_UPDATE_LIGHT_ANGLE, .)
+	return .
+
+/// Setter for the light direction of this atom
+/atom/proc/set_light_dir(new_value)
+	// No frozen check here because we allow direction changes in a freeze
+	if(new_value == light_dir)
+		return
+	if(SEND_SIGNAL(src, COMSIG_ATOM_SET_LIGHT_DIR, new_value) & COMPONENT_BLOCK_LIGHT_UPDATE)
+		return
+	. = light_dir
+	light_dir = new_value
+	SEND_SIGNAL(src, COMSIG_ATOM_UPDATE_LIGHT_DIR, .)
+	return .
+
+/// Setter for the height of our light
+/atom/proc/set_light_height(new_value)
+	if(new_value == light_height || light_flags & LIGHT_FROZEN)
+		return
+	if(SEND_SIGNAL(src, COMSIG_ATOM_SET_LIGHT_HEIGHT, new_value) & COMPONENT_BLOCK_LIGHT_UPDATE)
+		return
+	. = light_height
+	light_height = new_value
+	SEND_SIGNAL(src, COMSIG_ATOM_UPDATE_LIGHT_HEIGHT, .)
+	return .
+
+
+/atom/proc/get_light_offset()
+	return list(light_pixel_x || 0, light_pixel_y || 0)
+
+/atom/proc/debug_lights()
+	return
+
+/// Returns a list of x and y offsets to apply to our visual lighting position
+/proc/calculate_light_offset(atom/get_offset)
+	var/list/hand_back = list(0, 0)
+	if(!(get_offset.light_flags & LIGHT_IGNORE_OFFSET))
+		hand_back[1] = -(get_offset.pixel_x || 0) / ICON_SIZE_X
+		hand_back[2] = -(get_offset.pixel_y || 0) / ICON_SIZE_Y
+
+	var/list/atoms_opinion = get_offset.get_light_offset()
+	hand_back[1] += (atoms_opinion[1] || 0) / ICON_SIZE_X
+	hand_back[2] += (atoms_opinion[2] || 0) / ICON_SIZE_Y
+	return hand_back

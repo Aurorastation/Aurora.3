@@ -11,7 +11,7 @@
 		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/accessories.dmi'
 	)
 
-	light_system = MOVABLE_LIGHT
+	light_system = OVERLAY_LIGHT
 
 	var/slot = ACCESSORY_SLOT_GENERIC
 

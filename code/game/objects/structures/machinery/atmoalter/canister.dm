@@ -4,7 +4,7 @@
 	icon = 'icons/obj/atmos.dmi'
 	icon_state = "yellow"
 	density = TRUE
-	light_system = MOVABLE_LIGHT
+	light_system = OVERLAY_LIGHT
 	maxhealth = OBJECT_HEALTH_LOW
 	obj_flags = OBJ_FLAG_SIGNALER | OBJ_FLAG_CONDUCTABLE
 	w_class = WEIGHT_CLASS_HUGE
@@ -322,22 +322,22 @@ update_flag
 	if(update_flag & 2)
 		AddOverlays("can-connector")
 	if(update_flag & 4)
-		var/mutable_appearance/indicator_overlay = mutable_appearance(icon, "can-o0", plane = ABOVE_LIGHTING_PLANE)
+		var/mutable_appearance/indicator_overlay = mutable_appearance(icon, "can-o0", offset_spokesman = src, plane = ABOVE_LIGHTING_PLANE)
 		AddOverlays(indicator_overlay)
 		set_light_range_power_color(0.5, 0.5, COLOR_RED_LIGHT)
 		set_light_on(TRUE)
 	if(update_flag & 8)
-		var/mutable_appearance/indicator_overlay = mutable_appearance(icon, "can-o1", plane = ABOVE_LIGHTING_PLANE)
+		var/mutable_appearance/indicator_overlay = mutable_appearance(icon, "can-o1", offset_spokesman = src, plane = ABOVE_LIGHTING_PLANE)
 		AddOverlays(indicator_overlay)
 		set_light_range_power_color(0.5, 0.5, COLOR_RED_LIGHT)
 		set_light_on(TRUE)
 	else if(update_flag & 16)
-		var/mutable_appearance/indicator_overlay = mutable_appearance(icon, "can-o2", plane = ABOVE_LIGHTING_PLANE)
+		var/mutable_appearance/indicator_overlay = mutable_appearance(icon, "can-o2", offset_spokesman = src, plane = ABOVE_LIGHTING_PLANE)
 		AddOverlays(indicator_overlay)
 		set_light_range_power_color(0.5, 0.5, COLOR_YELLOW)
 		set_light_on(TRUE)
 	else if(update_flag & 32)
-		var/mutable_appearance/indicator_overlay = mutable_appearance(icon, "can-o3", plane = ABOVE_LIGHTING_PLANE)
+		var/mutable_appearance/indicator_overlay = mutable_appearance(icon, "can-o3", offset_spokesman = src, plane = ABOVE_LIGHTING_PLANE)
 		AddOverlays(indicator_overlay)
 		set_light_range_power_color(0.5, 0.5, COLOR_BRIGHT_GREEN)
 		set_light_on(TRUE)

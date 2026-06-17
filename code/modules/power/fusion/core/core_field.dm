@@ -407,7 +407,7 @@
 	if(pause_rupture)
 		return
 	visible_message(SPAN_DANGER("\The [src] convulses violently as gouts of plasma spill forth!"))
-	set_light(1, 0.1, "#ccccff", 15, 2)
+	set_light(1, 0.1, "#ccccff")
 	empulse(get_turf(src), Ceil(plasma_temperature/1000000), Ceil(plasma_temperature/300000))
 	RadiateAll()
 	addtimer(CALLBACK(src, PROC_REF(RuptureExplosion)), 45 SECONDS)

@@ -8,6 +8,11 @@
 	pass_flags_self = PASSMOB
 	// Determines what the alpha of the lighting is to this mob.
 	var/lighting_alpha = LIGHTING_PLANE_ALPHA_VISIBLE
+	var/client/canon_client
+	// TG_PLANE_CUBE_TEMP: remove after tg sight/light cutoff handling.
+	var/lighting_cutoff = 10
+	// TG_PLANE_CUBE_TEMP: remove after tg sight/light cutoff handling.
+	var/list/lighting_color_cutoffs
 	var/datum/mind/mind
 	var/static/next_mob_id = 0
 

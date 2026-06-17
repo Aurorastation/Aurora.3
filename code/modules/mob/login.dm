@@ -66,22 +66,24 @@
 	client.screen.Cut()				//remove hud items just in case
 	if(hud_used)
 		qdel(hud_used)		//remove the hud objects
-	hud_used = new /datum/hud(src)
 
 	disconnect_time = null
 	next_move = 1
-	set_sight(sight|SEE_SELF)
-	disconnect_time = null
 
 	my_client = client
+	canon_client = client
+
+	set_sight(sight|SEE_SELF)
+	hud_used = new /datum/hud(src)
+	disconnect_time = null
 
 	player_age = client.player_age
 
 	if(loc && !isturf(loc))
-		client.eye = loc
+		client.set_eye(loc)
 		client.perspective = EYE_PERSPECTIVE
 	else
-		client.eye = src
+		client.set_eye(src)
 		client.perspective = MOB_PERSPECTIVE
 
 	if(eyeobj)

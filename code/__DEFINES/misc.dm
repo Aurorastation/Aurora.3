@@ -27,6 +27,8 @@
 #define INVISIBILITY_MAXIMUM		100
 #define INVISIBILITY_ABSTRACT		101	// Special invis value that can never be seen by see_invisible.
 
+#define SEE_AVOID_TURF_BLACKNESS (SEE_MOBS|SEE_OBJS)
+
 // Preference toggles.
 #define SOUND_ADMINHELP 0x1
 #define SOUND_MIDI      0x2

@@ -19,7 +19,7 @@ BLIND     // can't see anything
 	w_class = WEIGHT_CLASS_SMALL
 	slot_flags = SLOT_EYES
 	body_parts_covered = EYES
-	light_system = MOVABLE_LIGHT
+	light_system = OVERLAY_LIGHT
 	var/vision_flags = 0
 	var/darkness_view = 0//Base human is 2
 	var/prescription = 0

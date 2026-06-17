@@ -150,8 +150,12 @@ GLOBAL_LIST(global_huds)
 	var/list/other
 	var/list/atom/movable/screen/hotkeybuttons
 
-	/// See "appearance_flags" in the ref, assoc list of "[plane]" = object
-	var/list/atom/movable/screen/plane_master/plane_masters = list()
+	/// Assoc list of key => plane master group.
+	var/list/datum/plane_master_group/master_groups = list()
+	/// The client eye currently registered for z-level changes.
+	var/atom/tracked_eye
+	/// Current tg plane-cube visual offset.
+	var/current_plane_offset = 0
 	///Assoc list of controller groups, associated with key string group name with value of the plane master controller ref
 	var/list/atom/movable/plane_master_controller/plane_master_controllers = list()
 
@@ -160,26 +164,29 @@ GLOBAL_LIST(global_huds)
 /datum/hud/New(mob/owner)
 	mymob = owner
 
-	for(var/mytype in subtypesof(/atom/movable/screen/plane_master) - /atom/movable/screen/plane_master/rendering_plate - /atom/movable/screen/plane_master/open_space)
-		var/atom/movable/screen/plane_master/instance = new mytype()
-		plane_masters["[instance.plane]"] = instance
-		if(owner.client)
-			instance.backdrop(mymob)
-
-	for(var/z_level in 0 to OPEN_SPACE_PLANE_END - OPEN_SPACE_PLANE_START) //aurora snowflake: our openspace system works bottom up, not top down like CM's
-		var/atom/movable/screen/plane_master/open_space/instance = new(null, z_level)
-		plane_masters["[instance.plane]"] = instance
-		if(owner.client)
-			instance.backdrop(mymob)
+	var/datum/plane_master_group/main/main_group = new(PLANE_GROUP_MAIN)
+	main_group.attach_to(src)
 
 	for(var/mytype in subtypesof(/atom/movable/plane_master_controller))
 		var/atom/movable/plane_master_controller/controller_instance = new mytype(null,src)
 		plane_master_controllers[controller_instance.name] = controller_instance
 
+	RegisterSignal(SSmapping, COMSIG_PLANE_OFFSET_INCREASE, PROC_REF(on_plane_increase))
+	RegisterSignal(mymob, COMSIG_MOB_LOGIN, PROC_REF(client_refresh))
+	RegisterSignal(mymob, COMSIG_MOB_LOGOUT, PROC_REF(clear_client))
+	RegisterSignal(mymob, COMSIG_MOB_SIGHT_CHANGE, PROC_REF(update_sightflags))
+	if(mymob.canon_client)
+		client_refresh()
+	update_sightflags(mymob, mymob.sight, NONE)
+
 	instantiate()
 	..()
 
 /datum/hud/Destroy()
+	clear_client()
+	UnregisterSignal(SSmapping, COMSIG_PLANE_OFFSET_INCREASE)
+	if(mymob)
+		UnregisterSignal(mymob, list(COMSIG_MOB_LOGIN, COMSIG_MOB_LOGOUT, COMSIG_MOB_SIGHT_CHANGE))
 	mymob = null
 	QDEL_NULL(blobpwrdisplay)
 	QDEL_NULL(blobhealthdisplay)
@@ -196,7 +203,7 @@ GLOBAL_LIST(global_huds)
 	other?.Cut()
 	QDEL_LIST(hotkeybuttons)
 
-	QDEL_LIST_ASSOC_VAL(plane_masters)
+	QDEL_LIST_ASSOC_VAL(master_groups)
 	QDEL_LIST_ASSOC_VAL(plane_master_controllers)
 	QDEL_NULL(hide_actions_toggle)
 
@@ -355,11 +362,115 @@ GLOBAL_LIST(global_huds)
 	plane_masters_update()
 
 /datum/hud/proc/plane_masters_update()
-	// Plane masters are always shown to OUR mob, never to observers
-	for(var/thing in plane_masters)
-		var/atom/movable/screen/plane_master/PM = plane_masters[thing]
-		PM.backdrop(mymob)
-		mymob.client.add_to_screen(PM)
+	for(var/group_key in master_groups)
+		var/datum/plane_master_group/group = master_groups[group_key]
+		group.refresh_hud()
+
+// what the fuck am i doing in this terrible place???
+
+/datum/hud/proc/client_refresh(datum/source)
+	SIGNAL_HANDLER
+	var/client/our_client = mymob?.canon_client
+	if(!our_client)
+		return
+	UnregisterSignal(our_client, COMSIG_CLIENT_SET_EYE)
+	RegisterSignal(our_client, COMSIG_CLIENT_SET_EYE, PROC_REF(on_eye_change))
+	on_eye_change(our_client, tracked_eye, our_client.eye)
+
+/datum/hud/proc/clear_client(datum/source)
+	SIGNAL_HANDLER
+	var/client/our_client = mymob?.canon_client
+	if(our_client)
+		UnregisterSignal(our_client, COMSIG_CLIENT_SET_EYE)
+	if(tracked_eye)
+		UnregisterSignal(tracked_eye, COMSIG_MOVABLE_Z_CHANGED)
+		tracked_eye = null
+
+/datum/hud/proc/on_eye_change(datum/source, atom/old_eye, atom/new_eye)
+	SIGNAL_HANDLER
+	var/atom/previous_eye = tracked_eye || old_eye
+	if(previous_eye && previous_eye != new_eye)
+		UnregisterSignal(previous_eye, COMSIG_MOVABLE_Z_CHANGED)
+	tracked_eye = new_eye
+	if(new_eye)
+		RegisterSignal(new_eye, COMSIG_MOVABLE_Z_CHANGED, PROC_REF(eye_z_changed), override = TRUE)
+
+	SEND_SIGNAL(src, COMSIG_HUD_EYE_CHANGED, old_eye, new_eye)
+	eye_z_changed(new_eye)
+
+/datum/hud/proc/update_sightflags(datum/source, new_sight, old_sight)
+	SIGNAL_HANDLER
+	if(should_sight_scale(new_sight) == should_sight_scale(old_sight))
+		return
+
+	for(var/group_key in master_groups)
+		var/datum/plane_master_group/group = master_groups[group_key]
+		group.build_planes_offset(src, current_plane_offset)
+
+/datum/hud/proc/should_sight_scale(sight_flags)
+	return (sight_flags & (SEE_TURFS | SEE_OBJS)) != SEE_TURFS
+
+/datum/hud/proc/eye_z_changed(atom/eye)
+	SIGNAL_HANDLER
+	update_parallax_pref()
+	var/turf/eye_turf = get_turf(eye)
+	if(!eye_turf)
+		return
+
+	SEND_SIGNAL(src, COMSIG_HUD_Z_CHANGED, eye_turf.z)
+	var/new_offset = GET_TURF_PLANE_OFFSET(eye_turf)
+	if(current_plane_offset == new_offset)
+		return
+
+	var/old_offset = current_plane_offset
+	current_plane_offset = new_offset
+
+	SEND_SIGNAL(src, COMSIG_HUD_OFFSET_CHANGED, old_offset, new_offset)
+	for(var/group_key in master_groups)
+		var/datum/plane_master_group/group = master_groups[group_key]
+		group.build_planes_offset(src, new_offset)
+
+/datum/hud/proc/on_plane_increase(datum/source, old_max_offset, new_max_offset)
+	SIGNAL_HANDLER
+	build_plane_groups(old_max_offset + 1, new_max_offset)
+
+/datum/hud/proc/build_plane_groups(starting_offset, ending_offset)
+	for(var/group_key in master_groups)
+		var/datum/plane_master_group/group = master_groups[group_key]
+		group.build_plane_masters(starting_offset, ending_offset)
+		group.refresh_hud()
+		group.build_planes_offset(src, current_plane_offset)
+
+/datum/hud/proc/get_plane_group(group_key)
+	return master_groups[group_key]
+
+/datum/hud/proc/get_plane_master(plane, group_key = PLANE_GROUP_MAIN)
+	var/datum/plane_master_group/group = master_groups[group_key]
+	return group?.plane_masters["[plane]"]
+
+/datum/hud/proc/get_true_plane_masters(true_plane, group_key = PLANE_GROUP_MAIN)
+	var/list/atom/movable/screen/plane_master/masters = list()
+	for(var/plane in TRUE_PLANE_TO_OFFSETS(true_plane))
+		var/atom/movable/screen/plane_master/master = get_plane_master(plane, group_key)
+		if(master)
+			masters += master
+	return masters
+
+/datum/hud/proc/get_plane_masters(group_key = PLANE_GROUP_MAIN)
+	var/datum/plane_master_group/group = master_groups[group_key]
+	return group?.plane_masters
+
+/datum/hud/proc/should_use_scale()
+	return should_sight_scale(mymob.sight)
+
+/datum/hud/proc/get_multiz_performance_boundary()
+	return MULTIZ_PERFORMANCE_DISABLE
+
+// TG_PLANE_CUBE_TEMP: replace with tg parallax preference behavior when skybox/parallax is reattached.
+/datum/hud/proc/update_parallax_pref()
+	if(!istype(mymob, /mob/abstract/new_player))
+		mymob?.canon_client?.update_skybox(TRUE)
+	return
 
 /mob/proc/instantiate_hud(datum/hud/HUD, ui_style, ui_color, ui_alpha)
 	SHOULD_NOT_SLEEP(TRUE)

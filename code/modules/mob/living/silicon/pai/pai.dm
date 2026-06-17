@@ -342,7 +342,7 @@
 		holder.drop_from_inventory(card)
 
 	src.client.perspective = EYE_PERSPECTIVE
-	src.client.eye = src
+	src.client.set_eye(src)
 	src.forceMove(get_turf(card))
 
 	card.forceMove(src)
@@ -476,7 +476,7 @@
 	src.stop_pulling()
 	if (client)
 		client.perspective = EYE_PERSPECTIVE
-		client.eye = src
+		client.set_eye(src)
 //Changed the client eye to follow the mob itself instead of the card that contains it. This makes examining work, and the camera still follows wherever the card goes
 
 	//stop resting

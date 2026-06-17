@@ -116,7 +116,7 @@
 
 	//Perspective according to the eye
 	patient.client.perspective = EYE_PERSPECTIVE
-	patient.client.eye = src
+	patient.client.set_eye(src)
 
 /**
  * Releases the view of the patient back to the mob

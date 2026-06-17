@@ -142,6 +142,20 @@
 	if(!isnull(size))
 		.["size"] = size
 
+// TG_PLANE_CUBE_TEMP: replace with tg's full filter helper set when atom color/filter infrastructure is reconciled.
+// Lol!
+// Lmao even!!
+/proc/bloom_filter(threshold, size, offset, alpha)
+	. = list("type" = "bloom")
+	if(!isnull(threshold))
+		.["threshold"] = threshold
+	if(!isnull(size))
+		.["size"] = size
+	if(!isnull(offset))
+		.["offset"] = offset
+	if(!isnull(alpha))
+		.["alpha"] = alpha
+
 /proc/displacement_map_filter(icon, render_source, x, y, size = 32)
 	. = list("type" = "displace")
 	if(!isnull(icon))

@@ -47,6 +47,11 @@
 	/// Shows up under a UV light.
 	var/fluorescent
 
+	/// Images or atoms to re-offset when this atom changes z-level plane offsets.
+	var/list/image/update_on_z
+	/// Overlays attached to this atom that need to be cut, re-offset, and re-added when this atom changes z-level plane offsets.
+	var/list/image/update_overlays_on_z
+
 	var/explosion_resistance
 
 	/// Chemistry.
@@ -58,8 +63,8 @@
 
 	//light stuff
 
-	///Light systems, only one of the three should be active at the same time.
-	var/light_system = STATIC_LIGHT
+	///Light systems, only one should be active at a time.
+	var/light_system = COMPLEX_LIGHT
 	///Range of the light in tiles. Zero means no light.
 	var/light_range = 0
 	///Intensity of the light. The stronger, the less shadows you will see on the lit area.
@@ -67,17 +72,21 @@
 	///Hexadecimal RGB string representing the colour of the light. White by default.
 	var/light_color = COLOR_WHITE
 	///Boolean variable for toggleable lights. Has no effect without the proper light_system, light_range and light_power values.
-	var/light_on = FALSE
+	var/light_on = TRUE
 	///Bitflags to determine lighting-related atom properties.
 	var/light_flags = NONE
-	///Our light source. Don't fuck with this directly unless you have a good reason!
-	var/tmp/datum/dynamic_light_source/light
-	///Any light sources that are "inside" of us, for example, if src here was a mob that's carrying a flashlight, that flashlight's light source would be part of this list.
-	var/tmp/list/hybrid_light_sources
-	///The light source, datum. Dont fuck with this directly
-	var/tmp/datum/static_light_source/static_light
-	///Static light sources currently attached to this atom, this includes ones owned by atoms inside this atom
-	var/tmp/list/static_light_sources
+	/// An optional render_source to apply to this atom's overlay light.
+	var/light_render_source = ""
+	/// Angle of light to show in light_dir.
+	var/light_angle = 360
+	/// What angle to project light in.
+	var/light_dir = NORTH
+	/// Height of this atom's light source for tg-style lighting math.
+	var/light_height = LIGHTING_HEIGHT
+	///Our light source. Don't touch this directly unless you have a good reason.
+	var/tmp/datum/light_source/light
+	///Any light sources that are "inside" of us, for example a mob carrying a flashlight.
+	var/tmp/list/light_sources
 
 	//Values should avoid being close to -16, 16, -48, 48 etc.
 	//Best keep them within 10 units of a multiple of 32, as when the light is closer to a wall, the probability
@@ -87,8 +96,6 @@
 	var/light_pixel_x
 	///y offset for dynamic lights on this atom
 	var/light_pixel_y
-	///typepath for the lighting maskfor dynamic light sources
-	var/light_mask_type = null
 
 	/*
 	 * EXTRA DESCRIPTIONS
@@ -156,7 +163,7 @@
 		overlays.Cut()
 
 	QDEL_NULL(light)
-	QDEL_NULL(static_light)
+	LAZYNULL(light_sources)
 
 	if(smoothing_flags & SMOOTH_QUEUED)
 		SSicon_smooth.remove_from_queues(src)
@@ -170,6 +177,8 @@
 
 	if(length(atom_protected_overlay_cache))
 		LAZYCLEARLIST(atom_protected_overlay_cache)
+	LAZYNULL(update_on_z)
+	LAZYNULL(update_overlays_on_z)
 
 	// The component is attached to us normaly and will be deleted elsewhere
 	orbiters = null

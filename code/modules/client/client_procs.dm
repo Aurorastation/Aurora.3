@@ -515,6 +515,13 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 
 	is_initialized = TRUE
 
+/client/proc/set_eye(atom/new_eye)
+	if(new_eye == eye)
+		return
+	var/atom/old_eye = eye
+	eye = new_eye
+	SEND_SIGNAL(src, COMSIG_CLIENT_SET_EYE, old_eye, new_eye)
+
 //////////////
 //DISCONNECT//
 //////////////

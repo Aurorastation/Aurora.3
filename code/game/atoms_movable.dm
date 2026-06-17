@@ -74,7 +74,7 @@
 	/// Either [EMISSIVE_BLOCK_NONE], [EMISSIVE_BLOCK_GENERIC], or [EMISSIVE_BLOCK_UNIQUE]
 	var/blocks_emissive = EMISSIVE_BLOCK_NONE
 	///Internal holder for emissive blocker object, DO NOT USE DIRECTLY. Use blocks_emissive
-	var/mutable_appearance/em_block
+	var/atom/movable/render_step/emissive_blocker/em_block
 
 	///Lazylist to keep track on the sources of illumination.
 	var/list/affected_movable_lights
@@ -118,16 +118,20 @@
 
 	if(opacity)
 		AddElement(/datum/element/light_blocking)
-	if(light_system == MOVABLE_LIGHT)
-		AddComponent(/datum/component/overlay_lighting)
-	if(light_system == DIRECTIONAL_LIGHT)
-		AddComponent(/datum/component/overlay_lighting, is_directional = TRUE)
+	switch(light_system)
+		if(OVERLAY_LIGHT)
+			AddComponent(/datum/component/overlay_lighting)
+		if(OVERLAY_LIGHT_DIRECTIONAL)
+			AddComponent(/datum/component/overlay_lighting, is_directional = TRUE)
+		if(OVERLAY_LIGHT_BEAM)
+			AddComponent(/datum/component/overlay_lighting, is_directional = TRUE, is_beam = TRUE)
 
 /atom/movable/Destroy(force)
 	if(orbiting)
 		orbiting.end_orbit(src)
 
-	QDEL_NULL(emissive_overlay)
+	if(emissive_overlay != em_block)
+		QDEL_NULL(emissive_overlay)
 
 	if(move_packet)
 		if(!QDELETED(move_packet))
@@ -406,29 +410,30 @@
 	if(emissive_overlay)
 		CutOverlays(emissive_overlay)
 
-	switch(blocks_emissive)
-		if(EMISSIVE_BLOCK_GENERIC)
-			var/mutable_appearance/gen_emissive_blocker = mutable_appearance(icon, icon_state, plane = EMISSIVE_PLANE, alpha = src.alpha)
-			gen_emissive_blocker.color = GLOB.em_block_color
-			gen_emissive_blocker.dir = dir
-			gen_emissive_blocker.appearance_flags |= appearance_flags
-			emissive_overlay = gen_emissive_blocker
-			AddOverlays(emissive_overlay)
+	emissive_overlay = null
 
+	switch(blocks_emissive)
+		if(EMISSIVE_BLOCK_NONE)
+			return
 		if(EMISSIVE_BLOCK_UNIQUE)
-			render_target = REF(src)
-			em_block = new(src, render_target)
+			if(em_block)
+				SET_PLANE(em_block, EMISSIVE_PLANE, src)
+			else if(!QDELETED(src))
+				if(!render_target)
+					render_target = REF(src)
+				em_block = new(null, src)
 			emissive_overlay = em_block
-			AddOverlays(emissive_overlay)
+		if(EMISSIVE_BLOCK_GENERIC)
+			emissive_overlay = fast_emissive_blocker(src)
+
+	if(emissive_overlay)
+		AddOverlays(emissive_overlay)
+	return emissive_overlay
 
 /atom/movable/update_icon()
 	..()
 	UPDATE_OO_IF_PRESENT
-	if (em_block)
-		CutOverlays(em_block)
 	update_emissive_blocker()
-	if (em_block)
-		AddOverlays(em_block)
 
 //Overlays
 /atom/movable/overlay
@@ -576,12 +581,15 @@
 
 	SEND_SIGNAL(src, COMSIG_MOVABLE_MOVED, old_loc, forced)
 
+	var/turf/old_turf = get_turf(old_loc)
+	var/turf/new_turf = get_turf(src)
+	if(old_turf?.z != new_turf?.z)
+		var/same_z_layer = (GET_TURF_PLANE_OFFSET(old_turf) == GET_TURF_PLANE_OFFSET(new_turf))
+		on_changed_z_level(old_turf, new_turf, same_z_layer)
+
 	/* START Spatial grid stuffs */
 	if(!HAS_SPATIAL_GRID_CONTENTS(src) || !SSspatial_grid.initialized)
 		return
-
-	var/turf/old_turf = get_turf(old_loc)
-	var/turf/new_turf = get_turf(src)
 
 	if(old_turf && new_turf && (old_turf.z != new_turf.z \
 		|| ROUND_UP(old_turf.x / SPATIAL_GRID_CELLSIZE) != ROUND_UP(new_turf.x / SPATIAL_GRID_CELLSIZE) \
@@ -597,20 +605,29 @@
 		SSspatial_grid.enter_cell(src, new_turf)
 	/* END Spatial grid stuffs */
 
-	for(var/datum/dynamic_light_source/light as anything in hybrid_light_sources)
-		if(!light) // datum was deleted but list entry not yet pruned
-			LAZYREMOVE(hybrid_light_sources, light)
-			continue
-		if(!light.source_atom)
-			continue
-		light.source_atom.update_light()
-		if(!isturf(loc))
-			light.find_containing_atom()
-	for(var/datum/static_light_source/L as anything in static_light_sources) // Cycle through the light sources on this atom and tell them to update.
-		if(!L) // datum was deleted but list entry not yet pruned
-			LAZYREMOVE(static_light_sources, L)
-			continue
-		L.source_atom?.static_update_light()
+/atom/movable/proc/on_changed_z_level(turf/old_turf, turf/new_turf, same_z_layer, notify_contents = TRUE)
+	SHOULD_CALL_PARENT(TRUE)
+	SEND_SIGNAL(src, COMSIG_MOVABLE_Z_CHANGED, old_turf, new_turf, same_z_layer)
+
+	if(!same_z_layer && !QDELETED(src))
+		SET_PLANE(src, PLANE_TO_TRUE(src.plane), new_turf)
+		update_icon()
+
+		if(update_on_z)
+			for(var/image/update as anything in update_on_z)
+				SET_PLANE(update, PLANE_TO_TRUE(update.plane), new_turf)
+
+		if(update_overlays_on_z)
+			CutOverlays(update_overlays_on_z)
+			for(var/mutable_appearance/update as anything in update_overlays_on_z)
+				SET_PLANE(update, PLANE_TO_TRUE(update.plane), new_turf)
+			AddOverlays(update_overlays_on_z)
+
+	if(!notify_contents)
+		return
+
+	for(var/atom/movable/content as anything in src)
+		content.on_changed_z_level(old_turf, new_turf, same_z_layer)
 
 /atom/movable/Exited(atom/movable/gone, direction)
 	. = ..()
@@ -1291,4 +1308,3 @@
 		return
 	SEND_SIGNAL(src, COMSIG_MOVABLE_UPDATE_GLIDE_SIZE, target)
 	glide_size = target
-

@@ -9,7 +9,7 @@
 	slot_flags = SLOT_BELT
 	contained_sprite = TRUE
 	light_color = LIGHT_COLOR_HALOGEN
-	light_system = DIRECTIONAL_LIGHT
+	light_system = OVERLAY_LIGHT_DIRECTIONAL
 	light_range = 4
 
 	matter = list(MATERIAL_PLASTIC = 50, MATERIAL_GLASS = 20)
@@ -349,7 +349,7 @@
 	always_on = TRUE
 	power_usage = FALSE
 	light_color = LIGHT_COLOR_SLIME_LAMP
-	light_system = MOVABLE_LIGHT
+	light_system = OVERLAY_LIGHT
 
 /obj/item/flashlight/headlights
 	name = "headlights"
@@ -376,7 +376,7 @@
 	cell_type = /obj/item/cell
 	accepts_large_cells = TRUE
 	light_color = LIGHT_COLOR_FIRE
-	light_system = MOVABLE_LIGHT
+	light_system = OVERLAY_LIGHT
 
 /obj/item/flashlight/lantern/update_icon()
 	..()

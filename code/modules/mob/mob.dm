@@ -403,14 +403,14 @@
 		A = A ? A : eyeobj
 		if (istype(A, /atom/movable))
 			client.perspective = EYE_PERSPECTIVE
-			client.eye = A
+			client.set_eye(A)
 		else
 			if (isturf(loc))
-				client.eye = client.mob
+				client.set_eye(client.mob)
 				client.perspective = MOB_PERSPECTIVE
 			else
 				client.perspective = EYE_PERSPECTIVE
-				client.eye = loc
+				client.set_eye(loc)
 	return
 
 
@@ -706,7 +706,7 @@
 	var/mob/mob_eye = creatures[eye_name]
 
 	if(client && mob_eye)
-		client.eye = mob_eye
+		client.set_eye(mob_eye)
 		if (is_admin)
 			client.adminobs = 1
 			if(mob_eye == client.mob || client.eye == client.mob)
@@ -1608,9 +1608,10 @@
 ///Set the lighting plane hud alpha to the mobs lighting_alpha var
 /mob/proc/sync_lighting_plane_alpha()
 	if(hud_used)
-		var/atom/movable/screen/plane_master/lighting/lighting = hud_used.plane_masters["[LIGHTING_PLANE]"]
+		// TG_PLANE_CUBE_TEMP: replace this alpha sync when Phase 9 ports tg sight/light cutoff handling.
+		var/atom/movable/screen/plane_master/lighting = hud_used.get_plane_master(RENDER_PLANE_LIGHTING)
 		if (lighting)
 			lighting.alpha = lighting_alpha
-		var/atom/movable/screen/plane_master/lighting/exterior_lighting = hud_used.plane_masters["[EXTERIOR_LIGHTING_PLANE]"]
+		var/atom/movable/screen/plane_master/exterior_lighting = hud_used.get_plane_master(EXTERIOR_LIGHTING_PLANE)
 		if (exterior_lighting)
 			exterior_lighting.alpha = min(GLOB.minimum_exterior_lighting_alpha, lighting_alpha)

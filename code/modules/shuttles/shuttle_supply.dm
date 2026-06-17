@@ -195,7 +195,7 @@
 			T.underlays.Cut()
 			elevator_animation.vis_contents += T
 			for(var/atom/movable/AM in T.contents)
-				AM.blocks_emissive = FALSE
+				AM.blocks_emissive = EMISSIVE_BLOCK_NONE
 				AM.update_emissive_blocker()
 
 	if(!returning_to_CC)
