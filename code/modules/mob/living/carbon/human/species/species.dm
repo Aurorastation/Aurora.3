@@ -745,7 +745,7 @@
 	else
 		H.remove_client_color(/datum/client_color/oversaturated)
 
-	// Aurora bridge: these are legacy scanline/tint screen overlays for local HUD items.
+	// These are legacy scanline/tint screen overlays for local HUD items.
 	// Lighting, darkness, and sight flags are owned by /mob/living/carbon/human/update_sight().
 	for(var/overlay in H.equipment_overlays)
 		H.client.screen |= overlay

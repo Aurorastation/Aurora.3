@@ -9,18 +9,6 @@
 
 INITIALIZE_IMMEDIATE(/atom/movable/plane_master_controller)
 
-// TG_PLANE_CUBE_TEMP: remove after Aurora ports tg atom colour priorities or drops these controller colour hooks.
-/atom/movable/proc/add_atom_colour(coloration, colour_priority)
-	return
-
-// TG_PLANE_CUBE_TEMP: remove after Aurora ports tg atom colour priorities or drops these controller colour hooks.
-/atom/movable/proc/remove_atom_colour(colour_priority, coloration)
-	return
-
-// TG_PLANE_CUBE_TEMP: remove after Aurora ports tg atom colour priorities or drops these controller colour hooks.
-/atom/movable/proc/update_atom_colour()
-	return
-
 ///Ensures that all the planes are correctly in the controlled_planes list.
 /atom/movable/plane_master_controller/Initialize(mapload, datum/hud/hud)
 	. = ..()

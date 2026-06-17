@@ -61,7 +61,7 @@ Note that this lighting type utilises special update procs from the other two li
 ```
 
 ### Overlay lighting
-Overlay lighting is the movable client-side light path. It uses generated overlay visuals instead of the old Aurora hybrid mask objects, which were removed during the tg lighting port. As a result, it has a higher drain on player GPU and you should avoid using many large overlay lights around players on weaker computers. Most items will be fine using this except for light fixtures, as lag mostly seems to crop up from multiple large lighting sources.
+Overlay lighting is the movable client-side light path. It uses generated overlay visuals instead of the old Aurora mask objects, which were removed during the tg lighting port. As a result, it has a higher drain on player GPU and you should avoid using many large overlay lights around players on weaker computers. Most items will be fine using this except for light fixtures, as lag mostly seems to crop up from multiple large lighting sources.
 Using lights for turf based fires and large floodlights is thus fine, but be careful with frequent use.
 This system also supports non-round lights, such as light cones, rotating lights, and shimmering lights through vars like
 ```dm

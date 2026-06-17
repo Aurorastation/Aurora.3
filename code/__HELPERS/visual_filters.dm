@@ -108,6 +108,15 @@
 	if(!isnull(flags))
 		.["flags"] = flags
 
+/proc/angular_blur_filter(x, y, size)
+	. = list("type" = "angular_blur")
+	if(!isnull(x))
+		.["x"] = x
+	if(!isnull(y))
+		.["y"] = y
+	if(!isnull(size))
+		.["size"] = size
+
 /proc/color_matrix_filter(matrix/in_matrix, space)
 	. = list("type" = "color")
 	.["color"] = in_matrix
@@ -132,9 +141,6 @@
 	if(!isnull(size))
 		.["size"] = size
 
-// TG_PLANE_CUBE_TEMP: replace with tg's full filter helper set when atom color/filter infrastructure is reconciled.
-// Lol!
-// Lmao even!!
 /proc/bloom_filter(threshold, size, offset, alpha)
 	. = list("type" = "bloom")
 	if(!isnull(threshold))
@@ -159,6 +165,71 @@
 	if(!isnull(size))
 		.["size"] = size
 
+/proc/layering_filter(icon, render_source, x, y, flags, color, transform, blend_mode)
+	. = list("type" = "layer")
+	if(!isnull(icon))
+		.["icon"] = icon
+	if(!isnull(render_source))
+		.["render_source"] = render_source
+	if(!isnull(x))
+		.["x"] = x
+	if(!isnull(y))
+		.["y"] = y
+	if(!isnull(flags))
+		.["flags"] = flags
+	if(!isnull(color))
+		.["color"] = color
+	if(!isnull(transform))
+		.["transform"] = transform
+	if(!isnull(blend_mode))
+		.["blend_mode"] = blend_mode
+
+/proc/motion_blur_filter(x, y)
+	. = list("type" = "motion_blur")
+	if(!isnull(x))
+		.["x"] = x
+	if(!isnull(y))
+		.["y"] = y
+
+/proc/outline_filter(size, color, flags)
+	. = list("type" = "outline")
+	if(!isnull(size))
+		.["size"] = size
+	if(!isnull(color))
+		.["color"] = color
+	if(!isnull(flags))
+		.["flags"] = flags
+
+/proc/radial_blur_filter(size, x, y)
+	. = list("type" = "radial_blur")
+	if(!isnull(size))
+		.["size"] = size
+	if(!isnull(x))
+		.["x"] = x
+	if(!isnull(y))
+		.["y"] = y
+
+/proc/rays_filter(size, color, offset, density, threshold, factor, x, y, flags)
+	. = list("type" = "rays")
+	if(!isnull(size))
+		.["size"] = size
+	if(!isnull(color))
+		.["color"] = color
+	if(!isnull(offset))
+		.["offset"] = offset
+	if(!isnull(density))
+		.["density"] = density
+	if(!isnull(threshold))
+		.["threshold"] = threshold
+	if(!isnull(factor))
+		.["factor"] = factor
+	if(!isnull(x))
+		.["x"] = x
+	if(!isnull(y))
+		.["y"] = y
+	if(!isnull(flags))
+		.["flags"] = flags
+
 /proc/ripple_filter(radius, size, falloff, repeat, x, y, flags)
 	. = list("type" = "ripple")
 	if(!isnull(radius))
@@ -175,3 +246,21 @@
 		.["x"] = x
 	if(!isnull(y))
 		.["y"] = y
+
+/proc/wave_filter(x, y, size, offset, flags)
+	. = list("type" = "wave")
+	if(!isnull(x))
+		.["x"] = x
+	if(!isnull(y))
+		.["y"] = y
+	if(!isnull(size))
+		.["size"] = size
+	if(!isnull(offset))
+		.["offset"] = offset
+	if(!isnull(flags))
+		.["flags"] = flags
+
+/proc/convert_list_to_filter(list/list_filter)
+	var/list/arguments = list_filter.Copy()
+	arguments -= "priority"
+	return filter(arglist(arguments))

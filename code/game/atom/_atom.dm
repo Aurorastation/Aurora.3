@@ -177,6 +177,8 @@
 
 	if(length(atom_protected_overlay_cache))
 		LAZYCLEARLIST(atom_protected_overlay_cache)
+	LAZYNULL(atom_colours)
+	LAZYNULL(cached_color_filter)
 	LAZYNULL(update_on_z)
 	LAZYNULL(update_overlays_on_z)
 
