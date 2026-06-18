@@ -102,7 +102,7 @@
 	return FALSE
 
 /datum/event/gravity_anomaly/proc/pick_victim_disturbance()
-	if(activeFor >= next_gravity_surge && prob(75))
+	if(activeFor >= next_gravity_surge && prob(67))
 		schedule_next_gravity_surge()
 		if(prob(10))
 			return "surge_hilarious"
@@ -119,7 +119,7 @@
 			return null
 
 /datum/event/gravity_anomaly/proc/schedule_next_gravity_surge()
-	next_gravity_surge = activeFor + rand(2, 30)
+	next_gravity_surge = activeFor + rand(2, 90)
 
 /datum/event/gravity_anomaly/proc/get_current_victims()
 	var/list/current_victims = list()
