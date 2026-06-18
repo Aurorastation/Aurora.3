@@ -263,6 +263,9 @@ SUBSYSTEM_DEF(hallucinations)
 		adpi_next_message -= target
 		return
 
+	if(world.time < adpi_next_message[target])
+		return
+
 	if(is_adpi_blocked(target))
 		// ping their blocker an schedule another ping later.
 		schedule_next_adpi_message(target)
@@ -270,9 +273,6 @@ SUBSYSTEM_DEF(hallucinations)
 
 	if(!adpi_next_message[target])
 		schedule_next_adpi_message(target, TRUE)
-		return
-
-	if(world.time < adpi_next_message[target])
 		return
 
 	if(send_adpi_message(target))
