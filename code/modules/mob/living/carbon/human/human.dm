@@ -101,7 +101,6 @@
 	//Srom (Shared Dreaming)
 	srom_pulled_by = null
 	srom_pulling = null
-	bg = null //Just to be sure.
 
 	GLOB.human_mob_list -= src
 	GLOB.intent_listener -= src

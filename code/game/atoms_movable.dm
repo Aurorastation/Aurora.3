@@ -124,10 +124,9 @@
 		AddComponent(/datum/component/overlay_lighting, is_directional = TRUE)
 
 /atom/movable/Destroy(force)
-	if(orbiting)
-		orbiting.end_orbit(src)
-
+	orbiting?.end_orbit(src)
 	QDEL_NULL(emissive_overlay)
+	particles = null
 
 	if(move_packet)
 		if(!QDELETED(move_packet))
@@ -139,8 +138,6 @@
 
 	QDEL_LAZYLIST(contained_mobs)
 
-	for(var/movable_content in contents)
-		qdel(movable_content)
 
 	//Pretend this is moveToNullspace()
 	moveToNullspace()
