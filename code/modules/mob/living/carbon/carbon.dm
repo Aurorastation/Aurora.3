@@ -11,6 +11,7 @@
 		add_verb(src, /verb/toggle_indefinite_sleep)
 
 /mob/living/carbon/Life(seconds_per_tick, times_fired)
+	ENFORCE_CALCULUS(seconds_per_tick)
 	if(!..())
 		return
 

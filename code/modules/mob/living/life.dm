@@ -53,6 +53,7 @@
 	return
 
 /mob/living/proc/handle_chemicals_in_body(seconds_per_tick)
+	ENFORCE_CALCULUS(seconds_per_tick)
 	return
 
 /mob/living/proc/handle_mutations_and_radiation(seconds_per_tick)
