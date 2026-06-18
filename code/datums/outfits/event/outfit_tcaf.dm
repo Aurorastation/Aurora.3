@@ -13,7 +13,7 @@
 	gloves = /obj/item/clothing/gloves/black
 	shoes = /obj/item/clothing/shoes/jackboots
 	back = /obj/item/storage/backpack/tcaf
-	head = /obj/item/clothing/head/tcaf_rate
+	head = /obj/item/clothing/head/softcap/tcaf_cap
 	belt = /obj/item/storage/belt/utility/very_full
 	id = /obj/item/card/id/tcaf
 	accessory = /obj/item/clothing/accessory/holster/hip
@@ -22,7 +22,7 @@
 
 	backpack_contents = list(
 		/obj/item/storage/box/survival = 1,
-		/obj/item/melee/energy/sword/knife = 1
+		/obj/item/melee/energy/sword/knife = 1,
 		/obj/item/gun/energy/blaster/carbine = 1)
 
 	species_shoes = list(
