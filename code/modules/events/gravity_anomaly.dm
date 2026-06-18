@@ -1,7 +1,7 @@
 /datum/event/gravity_anomaly
 	announceWhen = 0
-	startWhen = 90 SECONDS
-	endWhen = 60 SECONDS // Actually gets set in setup()
+	startWhen = 30
+	endWhen = 60 // Actually gets set in setup()
 	ic_name = "a gravitational anomaly"
 	var/list/valid_victims
 	has_skybox_image = TRUE
@@ -35,7 +35,7 @@
 		)
 
 /datum/event/gravity_anomaly/setup()
-	endWhen = rand(5 MINUTES, 25 MINUTES)
+	endWhen = rand(240, 720)
 
 /datum/event/gravity_anomaly/announce()
 	command_announcement.Announce(
@@ -102,7 +102,7 @@
 	return FALSE
 
 /datum/event/gravity_anomaly/proc/pick_victim_disturbance()
-	if(activeFor >= next_gravity_surge && prob(50))
+	if(activeFor >= next_gravity_surge && prob(75))
 		schedule_next_gravity_surge()
 		if(prob(10))
 			return "surge_hilarious"
@@ -119,7 +119,7 @@
 			return null
 
 /datum/event/gravity_anomaly/proc/schedule_next_gravity_surge()
-	next_gravity_surge = activeFor + rand(20, 60)
+	next_gravity_surge = activeFor + rand(2, 30)
 
 /datum/event/gravity_anomaly/proc/get_current_victims()
 	var/list/current_victims = list()
@@ -180,7 +180,7 @@
 	else
 		if(prob(20))
 			to_chat(victim, SPAN_WARNING(pick(nausea_mild_organic)))
-		if(prob(10))
+		if(prob(5))
 			victim.vomit()
 
 /datum/event/gravity_anomaly/proc/apply_nausea_strong(var/mob/living/carbon/human/victim)
@@ -191,7 +191,8 @@
 			to_chat(victim, SPAN_MACHINE_WARNING(pick(nausea_strong_ipc)))
 		else
 			to_chat(victim, SPAN_WARNING(pick(nausea_strong_organic)))
-			victim.vomit()
+			if(prob(25))
+				victim.vomit()
 
 /datum/event/gravity_anomaly/proc/apply_surge_default(var/mob/living/carbon/human/victim)
 	victim.dizziness += rand(10, 20)
