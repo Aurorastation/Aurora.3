@@ -228,6 +228,7 @@
 		/obj/structure/machinery/light,
 		/obj/structure/railing,
 		/obj/structure/rod_railing,
+		/obj/structure/machinery/door/firedoor,
 		/obj/item/stack/flag,
 		/obj/projectile
 	))
