@@ -684,6 +684,8 @@
 	SSspatial_grid.remove_grid_membership(src, our_turf, SPATIAL_GRID_CONTENTS_TYPE_HEARING)
 
 	for(var/atom/movable/location as anything in get_nested_locs(src) + src)
+		if (!location)
+			continue
 		var/list/recursive_contents = location.important_recursive_contents // blue hedgehog velocity
 		recursive_contents[RECURSIVE_CONTENTS_HEARING_SENSITIVE] -= src
 		if(!length(recursive_contents[RECURSIVE_CONTENTS_HEARING_SENSITIVE]))
