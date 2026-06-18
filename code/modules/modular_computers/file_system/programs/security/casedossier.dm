@@ -223,12 +223,14 @@
 				open_case.remove_report(params["id"])
 			return TRUE
 
+/// Starts a new case
 /datum/computer_file/program/case_dossier/proc/create_new_case(var/mob/user)
 	var/datum/investigation_case/C = new /datum/investigation_case(creator = user)
 
 	stored_cases += C
 	open_case = C
 
+/// Finds a new case by its id
 /datum/computer_file/program/case_dossier/proc/find_case_by_id(var/id)
 	if(!id)
 		return null
@@ -239,6 +241,7 @@
 
 	return null
 
+/// Opens a case by its id
 /datum/computer_file/program/case_dossier/proc/open_case_by_id(var/id)
 	var/datum/investigation_case/C = find_case_by_id(id)
 	if(!C)
@@ -247,6 +250,8 @@
 	open_case = C
 	return TRUE
 
+/// Saves the open case
+/// Right now it doesn't do much, as the program auto-saves.
 /datum/computer_file/program/case_dossier/proc/save_open_case(var/mob/user)
 	if(!open_case)
 		return FALSE
@@ -271,6 +276,7 @@
 	qdel(C)
 	return TRUE
 
+/// Duplicates the case based on the id
 /datum/computer_file/program/case_dossier/proc/duplicate_case_by_id(var/id, var/mob/user)
 	var/datum/investigation_case/C = find_case_by_id(id)
 	if(!C)
@@ -279,7 +285,7 @@
 	var/datum/investigation_case/N = C.copy_case()
 
 	N.title = "Copy of [C.title]"
-	N.created_by = user?.real_name
+	N.created_by = user?.name
 	N.created_at = worldtime2text()
 	N.updated_at = N.created_at
 
