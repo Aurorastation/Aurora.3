@@ -619,6 +619,7 @@
 #include "code\datums\outfits\event\outfit_oe.dm"
 #include "code\datums\outfits\event\outfit_scc.dm"
 #include "code\datums\outfits\event\outfit_siib.dm"
+#include "code\datums\outfits\event\outfit_tcaf.dm"
 #include "code\datums\outfits\event\outfit_generic\_generic.dm"
 #include "code\datums\outfits\event\outfit_generic\business.dm"
 #include "code\datums\outfits\event\outfit_generic\engineering.dm"
