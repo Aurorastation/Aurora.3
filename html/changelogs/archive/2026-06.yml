@@ -370,3 +370,7 @@
       capacity) and increases charge consumption modifer by 85% (result is: approx.
       10 minutes cooling a cooler-less IPC; in ordinary EVA conditions, it still lasts
       ages, don''t worry).'
+2026-06-18:
+  Hellfirejag:
+  - bugfix: Fixed ADPI only sending messages to the dead.
+  - bugfix: Fixed ADPI messages playing excessively quickly in rare extreme circumstances
