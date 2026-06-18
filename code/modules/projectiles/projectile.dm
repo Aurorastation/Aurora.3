@@ -382,6 +382,8 @@
 	if(!ishuman(A) || !starting)
 		return FALSE
 	var/mob/living/carbon/human/M = A
+	var/list/left_hand_defense_zones = list(BP_L_ARM, BP_L_HAND, BP_CHEST, BP_GROIN)
+	var/list/right_hand_defense_zones = list(BP_R_ARM, BP_R_HAND, BP_CHEST, BP_GROIN)
 	if(point_blank || !(M.dir & get_dir(M, starting))) //Don't use the shield if the shot is at point blank, or the shot comes from behind or the sides.
 		return FALSE
 	for(var/obj/item/grab/G in list(M.l_hand, M.r_hand))
@@ -390,8 +392,6 @@
 		if(G.affecting.mob_size < M.mob_size) //Humans are size 9, Unathi and Varuca workers 10, G1 & G2 are 11. This is mostly to make monkeys bad human shields.
 			if (rand(1, M.mob_size) > G.affecting.mob_size)
 				continue
-		var/list/left_hand_defense_zones = list(BP_L_ARM, BP_L_HAND, BP_CHEST, BP_GROIN)
-		var/list/right_hand_defense_zones = list(BP_R_ARM, BP_R_HAND, BP_CHEST, BP_GROIN)
 		if(((G == M.l_hand) && (def_zone in left_hand_defense_zones)) || ((G == M.r_hand) && (def_zone in right_hand_defense_zones)))  //Human shields only block shots to the arm holding the person, chest and groin.
 			if(G.affecting.stat == DEAD) //If they are dead hit both the hostage and the hostage taker.
 				penetrating += 1
