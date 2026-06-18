@@ -27,7 +27,7 @@
 /datum/computer_file/program/case_dossier/Destroy()
 	stored_cases.Cut()
 	open_case = null
-	..()
+	return ..()
 
 /// Who is permitted to edit the investigation files. Defaults to forensic staff
 /datum/computer_file/program/case_dossier/proc/can_edit(mob/user)

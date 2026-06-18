@@ -49,7 +49,7 @@
 
 /datum/evidence_item/Destroy(force)
 	linked_people.Cut()
-	..()
+	return ..()
 
 /datum/evidence_item/photo
 	/// The photo id, used as part of ensuring the viewing client gets the proper photo
@@ -71,7 +71,7 @@ collected_at_input, collected_location_input, var/photo_id_input, var/photo_img_
 
 /datum/evidence_item/photo/Destroy(force)
 	linked_evidence.Cut()
-	..()
+	return ..()
 
 /datum/evidence_item/photo/tgui_data()
 	var/list/data = list()
