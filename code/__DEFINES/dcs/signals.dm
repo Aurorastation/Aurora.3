@@ -143,3 +143,6 @@
 
 /// Signal raised against a character attempting to butcher a mob, to check for butchering bonuses from skills.
 #define COMSIG_GET_BUTCHERING_MODIFIERS "get_butchering_modifiers"
+
+// Crafting Signals
+#define COMSIG_GET_CRAFTING_MODIFIERS "get_crafting_modifiers"

@@ -49,6 +49,9 @@
 /// Sent from /mob/proc/update_canmove() when the mob transitions into lying down.
 #define COMSIG_MOB_LYING_DOWN "mob_lying_down"
 
+/// Sent from /mob/living/proc/hide(). Sent after the mob's layer is updated.
+#define COMSIG_MOB_ON_HIDE "mob_on_hide"
+
 /// From /obj/item/organ/external/take_damage. Updates the limb's colour matrix. Very laggy, so we do it on reaction to stuff.
 #define COMSIG_UPDATE_LIMB_IMAGE "update_limb_image"
 

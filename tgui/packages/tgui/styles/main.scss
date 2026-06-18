@@ -51,6 +51,13 @@
 @include meta.load-css('./interfaces/AnomalyTower.scss');
 @include meta.load-css('./interfaces/CivCargoHoldTerminal.scss');
 @include meta.load-css('./interfaces/EventLogger.scss');
+@include meta.load-css('./interfaces/AlertModal.scss');
+@include meta.load-css('./interfaces/FactionSelect.scss');
+@include meta.load-css('./interfaces/HealthAnalyzer.scss');
+@include meta.load-css('./interfaces/ListInput.scss');
+@include meta.load-css('./interfaces/PersonalCrafting.scss');
+@include meta.load-css('./interfaces/Radio.scss');
+@include meta.load-css('./interfaces/LoreConsole.scss');
 
 // Layouts
 @include meta.load-css('./layouts/Layout.scss');
@@ -61,14 +68,13 @@
 
 @include meta.load-css('~highlight.js/scss/a11y-dark.scss');
 
-// NT Theme
+// SCC Theme
 .Layout__content {
-  background-image: url('tgui-core/assets/bg-nanotrasen.svg');
-  background-size: 70% 70%;
+  background-image: url('../assets/bg-scc.svg');
+  background-size: 70%;
   background-position: center;
   background-repeat: no-repeat;
 }
-
 // A default, in case someone uses the vp() function outside of a <Window>
 :root {
   --scaling-amount: 1;
