@@ -115,7 +115,7 @@ export const CargoControl = (props) => {
   // FUCK THE WAY THESE FUCKING TOPIC CALLS WERE MADE
   // THIS BULLSHIT GAVE ME ARTHRITIS
   return (
-    <NtosWindow resizable width={1200} height={800}>
+    <NtosWindow resizable width={1200} height={800} theme="orion">
       <NtosWindow.Content scrollable>
         <Section
           title="Operations Management"
@@ -142,12 +142,7 @@ export const CargoControl = (props) => {
             </>
           }
         >
-          <Box
-            mb={2}
-            p={1}
-            backgroundColor="rgba(255,255,255,0.05)"
-            textColor="yellow"
-          >
+          <Box className="OrionNotice" mb={2} p={1}>
             {data.status_message}
           </Box>
           <Tabs>
@@ -203,7 +198,16 @@ export const CargoControl = (props) => {
           {showAppropriateWindow(data.page)}
         </Section>
         {data.order_details && (
-          <Section title="Order Details">
+          <Section
+            title="Order Details"
+            buttons={
+              <Button
+                content="Clear Selected Order"
+                icon="times"
+                onClick={() => act('clear_order')}
+              />
+            }
+          >
             <LabeledList>
               <LabeledList.Item label="ID">
                 {data.order_details.order_id}
@@ -359,16 +363,17 @@ export const OverviewSubmitted = (props) => {
             <Table.Cell>
               <Button
                 content="Approve"
-                color="green"
+                color="approve"
                 onClick={() =>
                   act('order_approve', {
                     order_approve: order.order_id.toString(),
                   })
                 }
               />
+
               <Button
                 content="Reject"
-                color="red"
+                color="reject"
                 onClick={() =>
                   act('order_reject', {
                     order_reject: order.order_id.toString(),
@@ -432,7 +437,7 @@ export const OverviewApproved = (props) => {
             <Table.Cell>
               <Button
                 content="Reject"
-                color="red"
+                color="reject"
                 onClick={() =>
                   act('order_reject', {
                     order_reject: order.order_id.toString(),
