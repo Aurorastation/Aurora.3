@@ -13,7 +13,14 @@
 	)
 
 	sectors = list(ALL_TAU_CETI_SECTORS, SECTOR_VALLEY_HALE)
-	spawn_weight = 1.33
+	spawn_weight = 1
+	spawn_weight_sector_dependent = list(
+	SECTOR_TAU_CETI = 2, // Home turf and well-policed
+	SECTOR_VALLEY_HALE = 1.33, // most patrolled border territory
+	SECTOR_CORP_ZONE = 0.5, // minimal patrols, bulk of security handled by corporate asset protection
+	SECTOR_ROMANOVICH = 1.5 // Home turf (but a bit distal)
+	)
+
 	ship_cost = 1
 	id = "tcaf_corvette"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/tcaf_shuttle, /datum/shuttle/autodock/multi/lift/tcaf)
