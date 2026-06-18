@@ -8,13 +8,21 @@
 // E.g. Glasses have less room than something worn over the chest.
 // Note that the electronic assembly is INSIDE the object that actually gets worn, in a similar way to implants.
 
+/obj/item/electronic_assembly
+	var/max_components_clothing = 26
+	var/max_complexity_clothing = 68
+
 /obj/item/electronic_assembly/clothing
 	name = "electronic clothing"
 	var/clothing_icon_state = "circuitry" // Needs to match the clothing's base icon_state.
 	desc = "A clothing-mounted case for integrated electronics."
 	w_class = WEIGHT_CLASS_SMALL
-	max_components = 26
-	max_complexity = 68
+	var/max_components_clothing_small = 14
+	var/max_complexity_clothing_small = 36
+	var/max_components_clothing_large = 42
+	var/max_complexity_clothing_large = 105
+	max_components = /obj/item/electronic_assembly::max_components_clothing
+	max_complexity = /obj/item/electronic_assembly::max_complexity_clothing
 	var/obj/item/clothing/clothing = null
 
 /obj/item/electronic_assembly/clothing/ui_host()
@@ -42,14 +50,14 @@
 
 // This is 'small' relative to the size of regular clothing assemblies.
 /obj/item/electronic_assembly/clothing/small
-	max_components = 14
-	max_complexity = 36
+	max_components = /obj/item/electronic_assembly/clothing::max_components_clothing_small
+	max_complexity = /obj/item/electronic_assembly/clothing::max_complexity_clothing_small
 	w_class = WEIGHT_CLASS_TINY
 
 // Ditto.
 /obj/item/electronic_assembly/clothing/large
-	max_components = 42
-	max_complexity = 105
+	max_components = /obj/item/electronic_assembly/clothing::max_components_clothing_large
+	max_complexity = /obj/item/electronic_assembly/clothing::max_complexity_clothing_large
 	w_class = WEIGHT_CLASS_NORMAL
 
 /obj/item/electronic_assembly/clothing/rename()

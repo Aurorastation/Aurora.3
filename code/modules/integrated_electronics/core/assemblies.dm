@@ -14,6 +14,8 @@
 
 	var/max_components = IC_COMPONENTS_BASE
 	var/max_complexity = IC_COMPLEXITY_BASE
+	var/max_components_implant = 16
+	var/max_complexity_implant = 42
 	// Whether the assembly panel is open for direct circuit access.
 	var/opened = 0
 	var/can_anchor = FALSE // If true, wrenching it will anchor it.
@@ -28,8 +30,8 @@
 	icon_state = "setup_implant"
 	desc = "A case for building very small electronic assemblies."
 	w_class = WEIGHT_CLASS_TINY
-	max_components = 16
-	max_complexity = 42
+	max_components = /obj/item/electronic_assembly::max_components_implant
+	max_complexity = /obj/item/electronic_assembly::max_complexity_implant
 	var/obj/item/implant/integrated_circuit/implant = null
 
 /obj/item/electronic_assembly/Initialize(mapload, printed = FALSE)

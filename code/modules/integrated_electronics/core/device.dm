@@ -71,13 +71,17 @@
 
 	toggle_open(usr)
 
+/obj/item/electronic_assembly
+	var/max_components_device = 16
+	var/max_complexity_device = 42
+
 /obj/item/electronic_assembly/device
 	name = "electronic device"
 	icon_state = "setup_device"
 	desc = "A tiny electronic device designed to attach to other devices."
 	w_class = WEIGHT_CLASS_TINY
-	max_components = 16
-	max_complexity = 42
+	max_components = /obj/item/electronic_assembly::max_components_device
+	max_complexity = /obj/item/electronic_assembly::max_complexity_device
 
 	var/obj/item/assembly/electronic_assembly/holder
 	var/obj/item/integrated_circuit/built_in/device_input/input

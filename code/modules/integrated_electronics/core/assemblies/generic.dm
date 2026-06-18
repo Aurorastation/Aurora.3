@@ -13,6 +13,16 @@
 /obj/item/electronic_assembly
 	var/supports_builtin_powernet = FALSE
 	var/supports_builtin_locomotion = FALSE
+	var/max_components_tiny_assembly = 12
+	var/max_complexity_tiny_assembly = 30
+	var/max_components_medium_assembly = 55
+	var/max_complexity_medium_assembly = 140
+	var/max_components_large_assembly = 110
+	var/max_complexity_large_assembly = 240
+	var/max_components_drone = 38
+	var/max_complexity_drone = 95
+	var/max_components_wallmount = 55
+	var/max_complexity_wallmount = 140
 
 /obj/item/electronic_assembly/attack_hand(mob/user)
 	if(anchored)
@@ -70,8 +80,8 @@
 	icon_state = "setup_device"
 	desc = "A case for building tiny electronic assemblies."
 	w_class = WEIGHT_CLASS_TINY
-	max_components = 12
-	max_complexity = 30
+	max_components = /obj/item/electronic_assembly::max_components_tiny_assembly
+	max_complexity = /obj/item/electronic_assembly::max_complexity_tiny_assembly
 
 /obj/item/electronic_assembly/tiny/default
 	name = "basic tiny circuit case"
@@ -104,8 +114,10 @@
 	icon_state = "setup_medium"
 	desc = "A case for building medium electronic assemblies."
 	w_class = WEIGHT_CLASS_NORMAL
-	max_components = 55
-	max_complexity = 140
+	var/max_components_anomaly_drill = 30
+	var/max_complexity_anomaly_drill = 80
+	max_components = /obj/item/electronic_assembly::max_components_medium_assembly
+	max_complexity = /obj/item/electronic_assembly::max_complexity_medium_assembly
 
 /obj/item/electronic_assembly/medium/default
 	name = "basic medium circuit case"
@@ -142,8 +154,8 @@
 	desc = "A prebuilt electronic assembly designed to drill toward anomaly sensor coordinates."
 	icon_state = "setup_medium_drill"
 	w_class = WEIGHT_CLASS_NORMAL
-	max_components = 30
-	max_complexity = 80
+	max_components = /obj/item/electronic_assembly/medium::max_components_anomaly_drill
+	max_complexity = /obj/item/electronic_assembly/medium::max_complexity_anomaly_drill
 	can_anchor = FALSE
 
 /obj/item/electronic_assembly/medium/anomaly_drill/Initialize(mapload, printed = FALSE)
@@ -163,8 +175,8 @@
 	icon_state = "setup_large"
 	desc = "A case for building large electronic assemblies."
 	w_class = WEIGHT_CLASS_BULKY
-	max_components = 110
-	max_complexity = 240
+	max_components = /obj/item/electronic_assembly::max_components_large_assembly
+	max_complexity = /obj/item/electronic_assembly::max_complexity_large_assembly
 	can_anchor = TRUE
 	supports_builtin_powernet = TRUE
 
@@ -208,8 +220,8 @@
 	icon_state = "setup_drone"
 	desc = "A mobile case for building electronic assemblies."
 	w_class = WEIGHT_CLASS_NORMAL
-	max_components = 38
-	max_complexity = 95
+	max_components = /obj/item/electronic_assembly::max_components_drone
+	max_complexity = /obj/item/electronic_assembly::max_complexity_drone
 	can_anchor = FALSE
 	supports_builtin_locomotion = TRUE
 
@@ -253,8 +265,14 @@
 	desc = "A case for building medium electronic assemblies. It has a magnetized \
 	backing to allow it to stick to walls."
 	w_class = WEIGHT_CLASS_NORMAL
-	max_components = 55
-	max_complexity = 140
+	var/max_components_wallmount_heavy = 110
+	var/max_complexity_wallmount_heavy = 240
+	var/max_components_wallmount_light = IC_COMPONENTS_BASE
+	var/max_complexity_wallmount_light = IC_COMPLEXITY_BASE
+	var/max_components_wallmount_tiny = 12
+	var/max_complexity_wallmount_tiny = 30
+	max_components = /obj/item/electronic_assembly::max_components_wallmount
+	max_complexity = /obj/item/electronic_assembly::max_complexity_wallmount
 	can_anchor = TRUE
 	supports_builtin_powernet = TRUE
 
@@ -307,8 +325,8 @@
 	desc = "A case for building large electronic assemblies. It has a magnetized backing \
 	to allow it to stick to walls."
 	w_class = WEIGHT_CLASS_BULKY
-	max_components = 110
-	max_complexity = 240
+	max_components = /obj/item/electronic_assembly/wallmount::max_components_wallmount_heavy
+	max_complexity = /obj/item/electronic_assembly/wallmount::max_complexity_wallmount_heavy
 
 /obj/item/electronic_assembly/wallmount/light
 	name = "small wall-mounted circuit case"
@@ -316,8 +334,8 @@
 	desc = "A case for building small electronic assemblies. It has a magnetized backing \
 	to allow it to stick to walls."
 	w_class = WEIGHT_CLASS_SMALL
-	max_components = IC_COMPONENTS_BASE
-	max_complexity = IC_COMPLEXITY_BASE
+	max_components = /obj/item/electronic_assembly/wallmount::max_components_wallmount_light
+	max_complexity = /obj/item/electronic_assembly/wallmount::max_complexity_wallmount_light
 
 /obj/item/electronic_assembly/wallmount/tiny
 	name = "tiny wall-mounted circuit case"
@@ -325,8 +343,8 @@
 	desc = "A case for building tiny electronic assemblies. It has a magnetized backing \
 	to allow it to stick to walls."
 	w_class = WEIGHT_CLASS_TINY
-	max_components = 12
-	max_complexity = 30
+	max_components = /obj/item/electronic_assembly/wallmount::max_components_wallmount_tiny
+	max_complexity = /obj/item/electronic_assembly/wallmount::max_complexity_wallmount_tiny
 
 
 // Built-in circuits.
