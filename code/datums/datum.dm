@@ -106,7 +106,7 @@
 		var/list/timers = _active_timers
 		_active_timers = null
 		for(var/datum/timedevent/timer as anything in timers)
-			if (timer.spent && !(timer.flags & TIMER_DELETE_ME))
+			if (!timer || (timer.spent && !(timer.flags & TIMER_DELETE_ME)))
 				continue
 			qdel(timer)
 
@@ -126,6 +126,8 @@
 			var/component_or_list = dc[component_key]
 			if(islist(component_or_list))
 				for(var/datum/component/component as anything in component_or_list)
+					if (!component)
+						continue
 					qdel(component, FALSE)
 			else
 				var/datum/component/C = component_or_list
