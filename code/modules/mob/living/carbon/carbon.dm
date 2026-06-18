@@ -25,7 +25,7 @@
 		handle_breathing()
 
 		//Chemicals in the body
-		handle_chemicals_in_body()
+		handle_chemicals_in_body(seconds_per_tick)
 
 		//Random events (vomiting etc)
 		handle_random_events()
