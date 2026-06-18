@@ -178,7 +178,12 @@
 	orbiters = null
 	do_unique_target_user = null
 	langchat_drop_images()
-	QDEL_LIST(contents)
+	if (length(contents))
+		for(var/content in contents)
+			if (QDELING(content))
+				continue
+			qdel(content)
+		contents.Cut()
 	return ..()
 
 /atom/proc/handle_ricochet(obj/projectile/ricocheting_projectile)

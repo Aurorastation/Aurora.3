@@ -138,6 +138,8 @@
 
 	QDEL_LAZYLIST(contained_mobs)
 
+	for(var/movable_content in contents)
+		qdel(movable_content)
 
 	//Pretend this is moveToNullspace()
 	moveToNullspace()
