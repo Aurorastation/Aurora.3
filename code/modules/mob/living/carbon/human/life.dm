@@ -643,7 +643,8 @@
 
 	return min(1,thermal_protection)
 
-/mob/living/carbon/human/handle_chemicals_in_body()
+/mob/living/carbon/human/handle_chemicals_in_body(seconds_per_tick)
+	ENFORCE_CALCULUS(seconds_per_tick)
 	if(InStasis())
 		return
 
@@ -654,10 +655,10 @@
 	if(reagents)
 		analgesic = 0
 
-		if(touching) touching.metabolize()
-		if(bloodstr) bloodstr.metabolize()
-		if(ingested) metabolize_ingested_reagents()
-		if(breathing) breathing.metabolize()
+		if(touching) touching.metabolize(seconds_per_tick)
+		if(bloodstr) bloodstr.metabolize(seconds_per_tick)
+		if(ingested) metabolize_ingested_reagents(seconds_per_tick)
+		if(breathing) breathing.metabolize(seconds_per_tick)
 
 		if(CE_PAINKILLER in chem_effects)
 			analgesic = chem_effects[CE_PAINKILLER]

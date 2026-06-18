@@ -200,11 +200,12 @@
 			return reactor.bio_reagents
 	return touching
 
-/mob/living/carbon/human/proc/metabolize_ingested_reagents()
+/mob/living/carbon/human/proc/metabolize_ingested_reagents(seconds_per_tick)
+	ENFORCE_CALCULUS(seconds_per_tick)
 	if(should_have_organ(BP_STOMACH))
 		var/obj/item/organ/internal/stomach/stomach = internal_organs_by_name[BP_STOMACH]
 		if(stomach)
-			stomach.metabolize()
+			stomach.metabolize(seconds_per_tick)
 
 /mob/living/carbon/human/get_fullness()
 	if(!should_have_organ(BP_STOMACH))

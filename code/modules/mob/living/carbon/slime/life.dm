@@ -70,18 +70,19 @@
 	temp_change = (temperature - current)
 	return temp_change
 
-/mob/living/carbon/slime/handle_chemicals_in_body()
+/mob/living/carbon/slime/handle_chemicals_in_body(seconds_per_tick)
+	ENFORCE_CALCULUS(seconds_per_tick)
 	chem_effects.Cut()
 	analgesic = FALSE
 
 	if(touching)
-		touching.metabolize()
+		touching.metabolize(seconds_per_tick)
 	if(ingested)
-		ingested.metabolize()
+		ingested.metabolize(seconds_per_tick)
 	if(bloodstr)
-		bloodstr.metabolize()
+		bloodstr.metabolize(seconds_per_tick)
 	if(breathing)
-		breathing.metabolize()
+		breathing.metabolize(seconds_per_tick)
 
 	if(CE_PAINKILLER in chem_effects)
 		analgesic = chem_effects[CE_PAINKILLER]

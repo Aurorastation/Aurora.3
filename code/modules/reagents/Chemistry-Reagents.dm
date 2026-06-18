@@ -101,7 +101,8 @@
 	return OD && (REAGENT_VOLUME(holder, type) > OD) && (LAZYACCESS(M.chem_doses, type) > OD_min) && (!location || (location != CHEM_TOUCH)) //OD based on volume in blood, but waits for a small amount of the drug to metabolise before kicking in.
 
 /// Currently, on_mob_life is called on carbons. Any interaction with non-carbon mobs (lube) will need to be done in touch_mob.
-/singleton/reagent/proc/on_mob_life(var/mob/living/carbon/M, var/alien, var/location, var/datum/reagents/holder)
+/singleton/reagent/proc/on_mob_life(mob/living/carbon/M, alien, location, datum/reagents/holder, seconds_per_tick)
+	ENFORCE_CALCULUS(seconds_per_tick)
 	if(!istype(M))
 		return
 	if(!affects_dead && M.stat == DEAD)
@@ -116,7 +117,7 @@
 		removed = touch_met
 	if(breathe_met && (location == CHEM_BREATHE))
 		removed = breathe_met
-
+	removed *= seconds_per_tick
 	removed = M.get_metabolism(removed)
 
 	// ctual overdose threshold now = overdose + od_minimum_dose. ie. Synaptizine; 5u OD threshold + 1 unit min. metab'd dose = 6u actual OD threshold.

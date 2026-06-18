@@ -8,14 +8,15 @@
 	if(stat != DEAD)
 		diona_handle_light(DS)
 
-/mob/living/carbon/alien/diona/handle_chemicals_in_body()
+/mob/living/carbon/alien/diona/handle_chemicals_in_body(seconds_per_tick)
+	ENFORCE_CALCULUS(seconds_per_tick)
 	chem_effects.Cut()
 	analgesic = 0
 
-	if(touching) touching.metabolize()
-	if(bloodstr) bloodstr.metabolize()
-	if(breathing) breathing.metabolize()
-	if(ingested) ingested.metabolize()
+	if(touching) touching.metabolize(seconds_per_tick)
+	if(bloodstr) bloodstr.metabolize(seconds_per_tick)
+	if(breathing) breathing.metabolize(seconds_per_tick)
+	if(ingested) ingested.metabolize(seconds_per_tick)
 
 	for(var/_R in chem_doses)
 		if ((_R in bloodstr.reagent_volumes) || (_R in ingested.reagent_volumes) || (_R in breathing.reagent_volumes) || (_R in touching.reagent_volumes))

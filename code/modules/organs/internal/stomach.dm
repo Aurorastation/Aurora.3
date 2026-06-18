@@ -95,9 +95,10 @@
 
 // This call needs to be split out to make sure that all the ingested things are metabolised
 // before the process call is made on any of the other organs
-/obj/item/organ/internal/stomach/proc/metabolize()
+/obj/item/organ/internal/stomach/proc/metabolize(seconds_per_tick)
+	ENFORCE_CALCULUS(seconds_per_tick)
 	if(is_usable())
-		ingested.metabolize()
+		ingested.metabolize(seconds_per_tick)
 
 /obj/item/organ/internal/stomach/process()
 	..()
