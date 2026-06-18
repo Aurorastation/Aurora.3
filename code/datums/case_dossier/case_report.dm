@@ -22,8 +22,7 @@
 	/// Notes, for future proofing
 	var/notes
 
-/datum/case_dossier_report/New(var/id_input, var/title_input, var/evidence_type_input = "Scanned paper", var/author_input = "Unknown", var/created_input = worldtime2text(),
-var/collected_by_input = "Unknown", var/collected_at_input = worldtime2text(), var/scanned_by_input = "Unknown", var/scanned_at_input)
+/datum/case_dossier_report/New(var/id_input, var/title_input, var/evidence_type_input = "Scanned paper", var/author_input = "Unknown", var/created_input = worldtime2text(), var/collected_by_input = "Unknown", var/collected_at_input = worldtime2text(), var/scanned_by_input = "Unknown", var/scanned_at_input)
 	..()
 	id = "R-[id_input]"
 	title = sanitize(title_input, MAX_NAME_LEN)

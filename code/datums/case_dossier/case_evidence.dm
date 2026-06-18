@@ -37,8 +37,7 @@
 
 	return data
 
-/datum/evidence_item/New(var/id_input, var/label_input, var/evidence_type_input, var/collected_by_input,
-var/collected_at_input, var/collected_location_input)
+/datum/evidence_item/New(var/id_input, var/label_input, var/evidence_type_input, var/collected_by_input, var/collected_at_input, var/collected_location_input)
 	..()
 	id = "E-[id_input]"
 	label = label_input
