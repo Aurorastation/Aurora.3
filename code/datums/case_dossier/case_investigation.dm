@@ -45,6 +45,8 @@
 	var/person_uid = 1
 	/// Evidence ID, set per case
 	var/evidence_uid = 1
+	/// Photo ID, set per case
+	var/photo_uid = 1
 	/// Report ID, set per case
 	var/report_uid = 1
 
@@ -52,9 +54,128 @@
 GLOBAL_VAR_INIT(case_dossier_uid, 1)
 /// All case dossiers
 GLOBAL_LIST_EMPTY(case_dossier_cases)
-/datum/investigation_case/New()
+/datum/investigation_case/New(var/datum/investigation_case/N, var/mob/creator)
 	..()
-	case_id = "C-[worlddate2text]-[GLOB.case_dossier_uid++]"
+	case_id = "C-[worlddate2text()]-[GLOB.case_dossier_uid++]"
+
+	if(creator)
+		created_by = creator.name
+		investigator = creator.name
+	created_at = worldtime2text()
+	updated_at = created_at
+
+	if(!N)
+		return
+
+	title = N.title
+	status = STATUS_OPEN
+	investigator = N.investigator
+	tags = N.tags.Copy()
+
+	summary = N.summary
+	timeline = N.timeline
+	findings = N.findings
+
+	person_uid = N.person_uid
+	evidence_uid = N.evidence_uid
+	photo_uid = N.photo_uid
+	report_uid = N.report_uid
+
+	// Copy the people lists
+	victims = copy_person_list(N.victims)
+	suspects = copy_person_list(N.suspects)
+	witnesses = copy_person_list(N.witnesses)
+
+	// Copy the lists of evidence, photos, and reports
+	evidence_refs = copy_evidence_list(N.evidence_refs)
+	photo_refs = copy_photo_list(N.photo_refs)
+	report_refs = copy_report_list(N.report_refs)
+
+/// Makes a copy of the people lists, for case duplication
+/datum/investigation_case/proc/copy_person_list(var/list/source)
+	var/list/copied = list()
+
+	for(var/datum/investigation_person/P in source)
+		var/datum/investigation_person/New_P = new
+
+		New_P.id = P.id
+		New_P.name = P.name
+		New_P.role = P.role
+		New_P.notes = P.notes
+
+		copied += New_P
+
+	return copied
+
+/// Makes a copy of the evidence lists, for case duplication
+/datum/investigation_case/proc/copy_evidence_list(var/list/source)
+	var/list/copied = list()
+
+	for(var/datum/evidence_item/I in source)
+		var/datum/evidence_item/new_I = new
+
+		new_I.id = I.id
+		new_I.label = I.label
+		new_I.evidence_type = I.evidence_type
+		new_I.location = I.location
+		new_I.evidence_locker = I.evidence_locker
+		new_I.collected_by = I.collected_by
+		new_I.collected_at = I.collected_at
+		new_I.notes = I.notes
+		new_I.linked_people = I.linked_people.Copy()
+
+		copied += new_I
+
+	return copied
+
+/// Makes a copy of the photo lists, for case duplication
+/datum/investigation_case/proc/copy_photo_list(var/list/source)
+	var/list/copied = list()
+
+	for(var/datum/evidence_item/photo/P in source)
+		var/datum/evidence_item/photo/new_P = new
+
+		new_P.id = P.id
+		new_P.label = P.label
+		new_P.evidence_type = P.evidence_type
+		new_P.location = P.location
+		new_P.evidence_locker = P.evidence_locker
+		new_P.collected_by = P.collected_by
+		new_P.collected_at = P.collected_at
+		new_P.notes = P.notes
+		new_P.linked_people = P.linked_people.Copy()
+
+		new_P.photo_id = P.photo_id
+		new_P.img = P.img
+		new_P.scribble = P.scribble
+		new_P.linked_evidence = P.linked_evidence.Copy()
+
+		copied += new_P
+
+	return copied
+
+/// Makes a copy of the report lists, for case duplication
+/datum/investigation_case/proc/copy_report_list(var/list/source)
+	var/list/copied = list()
+
+	for(var/datum/case_dossier_report/R in source)
+		var/datum/case_dossier_report/new_R = new
+
+		new_R.id = R.id
+		new_R.title = R.title
+		new_R.evidence_type = R.evidence_type
+		new_R.author = R.author
+		new_R.created_at = R.created_at
+		new_R.collected_by = R.collected_by
+		new_R.collected_at = R.collected_at
+		new_R.scanned_by = R.scanned_by
+		new_R.scanned_at = R.scanned_at
+		new_R.content = R.content
+		new_R.notes = R.notes
+
+		copied += new_R
+
+	return copied
 
 /// Scans the evidence held in the active hand, into the case files
 /datum/investigation_case/proc/scan_held_evidence(var/mob/user, var/obj/item/E)
@@ -89,14 +210,8 @@ GLOBAL_LIST_EMPTY(case_dossier_cases)
 	collected_by ||= user.name
 
 	/// The evidence item
-	var/datum/evidence_item/I = new()
-	I.id = "E-[evidence_uid++]"
-	I.label = bag_label || E.name
-	I.evidence_type = "Item"
+	var/datum/evidence_item/I = new /datum/evidence_item(evidence_uid++, bag_label || E.name, "Item", collected_by, collected_time, collected_area)
 
-	I.collected_by = collected_by
-	I.collected_at = collected_time
-	I.location = collected_area
 
 	evidence_refs += I
 	touch()
@@ -136,17 +251,8 @@ GLOBAL_LIST_EMPTY(case_dossier_cases)
 	/// The photo being copied
 	var/obj/item/photo/P = E
 	/// The evidence linked photo being stored
-	var/datum/evidence_item/photo/Photo = new()
-
-	Photo.id = "P-[evidence_uid++]"
-	Photo.photo_id = P.id
-	Photo.label = bag_label || P.caption
-	Photo.evidence_type = "Photo"
-	Photo.collected_by = collected_by || P.taken_by
-	Photo.collected_at = collected_time || P.time_taken
-	Photo.img = P.img
-	Photo.scribble = P.scribble
-	Photo.location = collected_area || P.location_taken
+	var/datum/evidence_item/photo/Photo = new(photo_uid++, bag_label || P.caption, "Photo", collected_by || P.taken_by,
+	collected_time || P.time_taken, collected_area || P.location_taken, P.id, P.img, P.scribble)
 
 	photo_refs += Photo
 	touch()
@@ -163,16 +269,7 @@ GLOBAL_LIST_EMPTY(case_dossier_cases)
 		return FALSE
 
 	/// The new paper item
-	var/datum/case_dossier_report/R = new()
-	R.id = "R-[report_uid++]"
-	R.title = sanitize(P.name, MAX_NAME_LEN)
-	R.evidence_type = "Scanned paper"
-	R.author = "Unknown"
-	R.created_at = worldtime2text()
-	R.collected_by = user?.real_name
-	R.collected_at = worldtime2text()
-	R.scanned_by = user?.real_name
-	R.scanned_at = R.collected_at
+	var/datum/case_dossier_report/R = new(report_uid++, P.name, "Scanned paper", "Unknown", worldtime2text(), user?.name, worldtime2text(), user?.name)
 
 	var/rendered_content = ""
 
@@ -248,17 +345,17 @@ GLOBAL_LIST_EMPTY(case_dossier_cases)
 	var/list/L = get_person_list(list_name)
 	if(!L)
 		return FALSE
-
-	var/datum/investigation_person/P = new()
-	P.id = "P-[person_uid++]"
-
+	var/role = "Unknown"
 	switch(list_name)
 		if("victims")
-			P.role = "Victim"
+			role = "Victim"
 		if("suspects")
-			P.role = "Suspect"
+			role = "Suspect"
 		if("witnesses")
-			P.role = "Witness"
+			role = "Witness"
+
+	var/datum/investigation_person/P = new(person_uid++, role_input = role)
+
 
 	L += P
 	touch()
@@ -332,12 +429,7 @@ GLOBAL_LIST_EMPTY(case_dossier_cases)
 
 /// Manually add evidence, instead of scanning it
 /datum/investigation_case/proc/add_manual_evidence(var/mob/user)
-	var/datum/evidence_item/I = new()
-	I.id = "E-[evidence_uid++]"
-	I.label = "New Evidence"
-	I.evidence_type = "Item"
-	I.collected_by = user?.name
-	I.collected_at = worldtime2text()
+	var/datum/evidence_item/I = new(evidence_uid++, "New Evidence", "Item", user?.name, worldtime2text())
 	evidence_refs += I
 	touch()
 	return TRUE
@@ -399,6 +491,24 @@ GLOBAL_LIST_EMPTY(case_dossier_cases)
 	touch()
 	return TRUE
 
+/// Remove an report
+/datum/investigation_case/proc/remove_report_item(var/list/L, var/id)
+	var/datum/case_dossier_report/R = find_report_in_list(L, id)
+	if(!R)
+		return FALSE
+
+	L -= R
+	qdel(R)
+	touch()
+	return TRUE
+
+/// Find a specific report based on ID
+/datum/investigation_case/proc/find_report_in_list(var/list/L, var/id)
+	for(var/datum/case_dossier_report/I in L)
+		if(I.id == id)
+			return I
+	return
+
 /// Edit an evidence item
 /datum/investigation_case/proc/edit_evidence(var/id, var/field, var/value)
 	return edit_evidence_item(evidence_refs, id, field, value)
@@ -417,27 +527,11 @@ GLOBAL_LIST_EMPTY(case_dossier_cases)
 
 /// remove a report
 /datum/investigation_case/proc/remove_report(var/id)
-	return remove_evidence_item(report_refs, id)
+	return remove_report_item(report_refs, id)
 
 /// Makes an identical case
 /datum/investigation_case/proc/copy_case()
-	var/datum/investigation_case/N = new()
-
-	N.title = title
-	N.status = STATUS_OPEN
-	N.investigator = investigator
-	N.tags = tags.Copy()
-
-	N.summary = summary
-	N.timeline = timeline
-	N.findings = findings
-
-	N.victims = victims
-	N.suspects = suspects
-	N.witnesses = witnesses
-	N.evidence_refs = evidence_refs
-	N.photo_refs = photo_refs
-	N.report_refs = report_refs
+	var/datum/investigation_case/N = new(src)
 
 	return N
 
@@ -468,9 +562,13 @@ GLOBAL_LIST_EMPTY(case_dossier_cases)
 		send_rsc(user, P.img, "tmp_photo_[P.photo_id || P.id].png")
 
 /datum/investigation_case/Destroy(force)
-	QDEL_LIST(evidence_refs)
+	// Photo might contain refs to evidence, both of which might reference people
 	QDEL_LIST(photo_refs)
+	QDEL_LIST(evidence_refs)
 	QDEL_LIST(report_refs)
+	QDEL_LIST(victims)
+	QDEL_LIST(witnesses)
+	QDEL_LIST(suspects)
 	..()
 
 #undef STATUS_OPEN

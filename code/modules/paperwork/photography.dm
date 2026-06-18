@@ -35,15 +35,25 @@ GLOBAL_VAR_INIT(photo_count, 1)
 	icon_state = "photo"
 	item_state = "paper"
 	w_class = WEIGHT_CLASS_TINY
-	var/picture_desc // Who and/or what's in the picture.
+	/// Who and/or what's in the picture.
+	var/picture_desc
+	/// The photo's id
 	var/id
-	var/icon/img	//Big photo image
-	var/scribble	//Scribble on the back.
+	/// Big photo image
+	var/icon/img
+	/// Scribble on the back.
+	var/scribble
+	/// The small size of the photo used for the icon
 	var/icon/tiny
+	/// The size of the photo
 	var/photo_size = 3
+	/// The time the photo was taken
 	var/time_taken
+	/// The place the photo was taken
 	var/location_taken
+	/// Who took the photo
 	var/taken_by
+	/// The photo's name/caption
 	var/caption
 
 	drop_sound = 'sound/items/drop/paper.ogg'
@@ -307,10 +317,10 @@ GLOBAL_VAR_INIT(photo_count, 1)
 /// Data recorded on photos.
 /obj/item/camera/proc/record_data(mob/living/user, obj/item/photo/pic)
 	var/forensic = GET_SKILL_LEVEL(user, FORENSICS_SKILL_COMPONENT)
-	forensic = forensic ? forensic : 3
+	forensic = forensic ? forensic : SKILL_LEVEL_TRAINED
 
 	// Trained people would know to add this data
-	if(forensic >= 2)
+	if(forensic >= SKILL_LEVEL_FAMILIAR)
 		pic.time_taken = worldtime2text()
 		pic.location_taken = get_area_display_name(get_area(user))
 		pic.taken_by = user.name

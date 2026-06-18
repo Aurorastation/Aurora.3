@@ -7,10 +7,15 @@
 	icon_state = "evidenceobj"
 	item_state = ""
 	w_class = WEIGHT_CLASS_SMALL
+	/// The item stored in the evidence bag
 	var/obj/item/stored_item
+	/// The label on the evidence bag
 	var/label_text = ""
+	/// Who collected the item
 	var/collected_by = ""
+	/// Where the item was collected
 	var/collected_location = ""
+	/// WHen the item was collected
 	var/collected_time = ""
 
 /obj/item/evidencebag/mechanics_hints(mob/user, distance, is_adjacent)
@@ -79,10 +84,10 @@
 	AddOverlays(list(MA, "evidence"))
 
 	var/forensic = GET_SKILL_LEVEL(user, FORENSICS_SKILL_COMPONENT)
-	forensic = forensic ? forensic : 3
+	forensic = forensic ? forensic : SKILL_LEVEL_TRAINED
 
 	// Trained people would know to add this data
-	if(forensic >= 2)
+	if(forensic >= SKILL_LEVEL_FAMILIAR)
 		collected_location = get_area_display_name(get_area(I))
 		collected_by = user.name
 		collected_time = worldtime2text()

@@ -24,6 +24,11 @@
 	. = ..()
 	stored_cases = GLOB.case_dossier_cases
 
+/datum/computer_file/program/case_dossier/Destroy()
+	stored_cases.Cut()
+	open_case = null
+	..()
+
 /// Who is permitted to edit the investigation files. Defaults to forensic staff
 /datum/computer_file/program/case_dossier/proc/can_edit(mob/user)
 	if(!user)
@@ -219,12 +224,7 @@
 			return TRUE
 
 /datum/computer_file/program/case_dossier/proc/create_new_case(var/mob/user)
-	var/datum/investigation_case/C = new /datum/investigation_case()
-
-	C.created_by = user?.real_name
-	C.investigator = user?.real_name
-	C.created_at = worldtime2text()
-	C.updated_at = C.created_at
+	var/datum/investigation_case/C = new /datum/investigation_case(creator = user)
 
 	stored_cases += C
 	open_case = C

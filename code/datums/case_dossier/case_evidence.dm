@@ -37,6 +37,21 @@
 
 	return data
 
+/datum/evidence_item/New(var/id_input, var/label_input, var/evidence_type_input, var/collected_by_input,
+var/collected_at_input, var/collected_location_input)
+	..()
+	id = "E-[id_input]"
+	label = label_input
+	evidence_type = evidence_type_input
+
+	collected_by = collected_by_input
+	collected_at = collected_at_input
+	location = collected_location_input
+
+/datum/evidence_item/Destroy(force)
+	linked_people.Cut()
+	..()
+
 /datum/evidence_item/photo
 	/// The photo id, used as part of ensuring the viewing client gets the proper photo
 	var/photo_id = ""
@@ -46,6 +61,18 @@
 	var/scribble = ""
 	/// The associated evidence of the photo
 	var/list/linked_evidence = list()
+
+/datum/evidence_item/photo/New(id_input, i_label_input, evidence_type_input = "Photo", collected_by_input,
+collected_at_input, collected_location_input, var/photo_id_input, var/photo_img_input, var/photo_scribble_input)
+	..()
+	id = "P-[id_input]"
+	photo_id = photo_id_input
+	img = photo_img_input
+	scribble = photo_scribble_input
+
+/datum/evidence_item/photo/Destroy(force)
+	linked_evidence.Cut()
+	..()
 
 /datum/evidence_item/photo/tgui_data()
 	var/list/data = list()
