@@ -72,7 +72,6 @@
 	sector_lobby_transitions = 0
 	sector_hud_menu = 'icons/misc/hudmenu/lemurian_hud.dmi'
 	hivenet_echoes = FALSE
-	ghostroles_enabled = FALSE
 	away_sites_enabled = FALSE
 	ccia_link = FALSE
 
