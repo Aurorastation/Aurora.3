@@ -924,7 +924,6 @@ default behaviour is:
 		for (var/datum/action/action in actions)
 			action.Remove(src)
 			actions -= action
-		actions.Cut()
 
 	QDEL_NULL(stamina_bar)
 	QDEL_LIST(auras)
@@ -935,7 +934,9 @@ default behaviour is:
 	if(loc)
 		for(var/mob/M in contents)
 			M.dropInto(loc)
-			contents -= M
+	else
+		for(var/mob/M in contents)
+			qdel(M)
 
 	prepared_maneuver = null
 	available_maneuvers?.Cut()
