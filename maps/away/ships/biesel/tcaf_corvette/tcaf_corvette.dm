@@ -5,8 +5,6 @@
 	prefix = "ships/biesel/tcaf_corvette/"
 	suffix = "tcaf_corvette.dmm"
 
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED //UNSET THIS
-
 	traits = list(
 		// Deck one
 		list(ZTRAIT_AWAY = TRUE, ZTRAIT_UP = TRUE, ZTRAIT_DOWN = FALSE),
@@ -15,7 +13,7 @@
 	)
 
 	sectors = list(ALL_TAU_CETI_SECTORS, SECTOR_VALLEY_HALE)
-	spawn_weight = 100 //UNSET THIS
+	spawn_weight = 1.33
 	ship_cost = 1
 	id = "tcaf_corvette"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/tcaf_shuttle, /datum/shuttle/autodock/multi/lift/tcaf)
