@@ -79,6 +79,10 @@
 	var/screensaver_light_range = 0
 	var/screensaver_light_color
 	var/menu_light_color
+
+	/// Default theme if the program doesn't set it
+	var/device_theme = "scc"
+
 	/// Adds onto the output_message proc's range
 	var/message_output_range = 0
 	/// Maximal hardware size. Currently, tablets have 1, laptops 2 and consoles 3. Limits what hardware types can be installed.
