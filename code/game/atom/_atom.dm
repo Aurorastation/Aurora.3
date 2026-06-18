@@ -165,11 +165,9 @@
 	if(icon_update_queued)
 		SSicon_update.remove_from_queue(src)
 
-	if(length(atom_overlay_cache))
-		atom_overlay_cache.Cut()
+	LAZYNULL(atom_overlay_cache)
+	LAZYNULL(atom_protected_overlay_cache)
 
-	if(length(atom_protected_overlay_cache))
-		atom_protected_overlay_cache.Cut()
 
 	// The component is attached to us normaly and will be deleted elsewhere
 	orbiters = null
