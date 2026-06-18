@@ -389,14 +389,15 @@
 			continue
 		if(G.affecting.mob_size < M.mob_size) //Humans are size 9, Unathi and Varuca workers 10, G1 & G2 are 11. This is mostly to make monkeys bad human shields.
 			if (rand(1, M.mob_size) > G.affecting.mob_size)
-				M.visible_message(SPAN_WARNING("\The [M] tries to use [G.affecting] as a shield, but [G.affecting] is too small to be an effective shield!"))
 				continue
-		if((G == M.l_hand && (def_zone == BP_L_ARM || def_zone == BP_L_HAND || def_zone == BP_CHEST || def_zone == BP_GROIN)) || (G == M.r_hand && (def_zone == BP_R_ARM || def_zone == BP_R_HAND || def_zone == BP_CHEST || def_zone == BP_GROIN))) //Human shields only block shots to the arm holding the person, chest and groin.
+		var/list/left_hand_defense_zones = list(BP_L_ARM, BP_L_HAND, BP_CHEST, BP_GROIN)
+		var/list/right_hand_defense_zones = list(BP_R_ARM, BP_R_HAND, BP_CHEST, BP_GROIN)
+		if(((G == M.l_hand) && (def_zone in left_hand_defense_zones)) || ((G == M.r_hand) && (def_zone in right_hand_defense_zones)))  //Human shields only block shots to the arm holding the person, chest and groin.
 			if(G.affecting.stat == DEAD) //If they are dead hit both the hostage and the hostage taker.
 				penetrating += 1
 				projectile_piercing = PASSMOB
 				pierce_chance = 100
-				M.visible_message(SPAN_WARNING("\The [M] tries to use [G.affecting] as a shield, but the shot punches through their mangled body!"))
+				M.visible_message(SPAN_WARNING("\The [M] tries to use [G.affecting] as a shield, but the shot punches through their limp body!"))
 				return G.affecting
 			else
 				if(ishuman(G.affecting))
