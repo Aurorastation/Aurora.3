@@ -179,8 +179,8 @@
 	do_unique_target_user = null
 	langchat_drop_images()
 	if (length(contents))
-		for(var/content in contents)
-			if (QDELING(content))
+		for(var/atom/content in contents)
+			if (QDELETED(content))
 				continue
 			qdel(content)
 		contents.Cut()
