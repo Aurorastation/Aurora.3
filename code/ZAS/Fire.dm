@@ -117,6 +117,10 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	render_target = HEAT_EFFECT_PLATE_RENDER_TARGET
 
+/obj/heat/Initialize(mapload)
+	. = ..()
+	render_target = OFFSET_RENDER_TARGET(HEAT_EFFECT_PLATE_RENDER_TARGET, GET_TURF_PLANE_OFFSET(src))
+
 /obj/hotspot
 	//Icon for fire on turfs.
 	//Different from turf fires

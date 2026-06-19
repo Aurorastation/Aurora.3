@@ -6,9 +6,19 @@
 
 /turf/simulated/proc/update_graphic(list/graphic_add = null, list/graphic_remove = null)
 	if(graphic_add && LAZYLEN(graphic_add))
-		add_vis_contents(graphic_add)
+		add_vis_contents(get_offset_gas_graphics(graphic_add))
 	if(graphic_remove && LAZYLEN(graphic_remove))
-		remove_vis_contents(graphic_remove)
+		remove_vis_contents(get_offset_gas_graphics(graphic_remove))
+
+/turf/simulated/proc/get_offset_gas_graphics(list/graphics)
+	var/list/offset_graphics = list()
+	for(var/graphic in graphics)
+		if(istype(graphic, /obj/gas_overlay))
+			var/obj/gas_overlay/gas_overlay = graphic
+			offset_graphics += gas_overlay.get_offset_overlay(src)
+		else
+			offset_graphics += graphic
+	return offset_graphics
 
 /turf/proc/update_air_properties()
 	var/block

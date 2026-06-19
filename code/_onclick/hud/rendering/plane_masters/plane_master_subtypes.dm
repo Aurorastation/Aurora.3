@@ -238,6 +238,38 @@
 	SIGNAL_HANDLER
 	hide_plane()
 
+/atom/movable/screen/plane_master/heat_haze
+	name = "Heat haze"
+	documentation = "Source plane for temperature effects. Hot and cold gas overlays draw sampled particle sources here, and the game rendering plate reads this plane's offset render target as a displacement map."
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	plane = HEAT_EFFECT_PLANE
+	appearance_flags = PLANE_MASTER|NO_CLIENT_COLOR
+	blend_mode = BLEND_ADD
+	render_target = HEAT_EFFECT_COMPOSITE_RENDER_TARGET
+	render_relay_planes = list()
+	var/obj/particle_emitter/heat/gas_heat_object
+	var/obj/particle_emitter/mist/gas/gas_cold_object
+
+/atom/movable/screen/plane_master/heat_haze/Initialize(mapload, datum/hud/hud_owner, datum/plane_master_group/home, offset)
+	. = ..()
+	setup_sources()
+
+/atom/movable/screen/plane_master/heat_haze/Destroy()
+	QDEL_NULL(gas_heat_object)
+	QDEL_NULL(gas_cold_object)
+	return ..()
+
+/atom/movable/screen/plane_master/heat_haze/proc/setup_sources()
+	if(gas_heat_object)
+		remove_vis_contents(gas_heat_object)
+		QDEL_NULL(gas_heat_object)
+	if(gas_cold_object)
+		remove_vis_contents(gas_cold_object)
+		QDEL_NULL(gas_cold_object)
+	gas_heat_object = new /obj/particle_emitter/heat/high(null, 0, null, offset)
+	gas_cold_object = new /obj/particle_emitter/mist/gas(null, 0, null, offset)
+	add_vis_contents(list(gas_heat_object, gas_cold_object))
+
 /// Contains just the floor
 /atom/movable/screen/plane_master/floor
 	name = "Floor"

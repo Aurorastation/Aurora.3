@@ -417,6 +417,7 @@
 
 /atom/movable/screen/plane_master/rendering_plate/game_plate/Initialize(mapload, datum/hud/hud_owner, datum/plane_master_group/home, offset)
 	. = ..()
+	add_filter("heat_haze", 2, displacement_map_filter(render_source = OFFSET_RENDER_TARGET(HEAT_EFFECT_COMPOSITE_RENDER_TARGET, offset), size = 2.5))
 	RegisterSignal(GLOB, SIGNAL_ADDTRAIT(TRAIT_DISTORTION_IN_USE(offset)), PROC_REF(distortion_enabled))
 	RegisterSignal(GLOB, SIGNAL_REMOVETRAIT(TRAIT_DISTORTION_IN_USE(offset)), PROC_REF(distortion_disabled))
 	if(HAS_TRAIT(GLOB, TRAIT_DISTORTION_IN_USE(offset)))

@@ -143,10 +143,8 @@
 /// Plane of the splash icon used by the lobby screen.
 #define SPLASHSCREEN_PLANE 42
 
-// TG_PLANE_CUBE_TEMP: remove after Aurora heat/cold gas visuals are reattached as tg render consumers.
+/// Source plane for temperature haze/fog visuals before the game plate samples them.
 #define HEAT_EFFECT_PLANE 43
-// TG_PLANE_CUBE_TEMP: remove after Aurora warp/displacement visuals are reattached as tg render consumers.
-#define WARP_EFFECT_PLANE 44
 
 // The largest plane here must still be less than RENDER_PLANE_GAME.
 
@@ -175,18 +173,12 @@
 /// The range unique planes can be in.
 #define PLANE_RANGE (HIGHEST_EVER_PLANE - LOWEST_EVER_PLANE)
 
-//---------- TG plane-cube temporary Aurora aliases -------------
+//---------- Temperature render targets -------------
 
-// TG_PLANE_CUBE_TEMP: remove after Aurora heat/cold gas visuals are reattached as tg render consumers
 #define HEAT_EFFECT_PLATE_RENDER_TARGET "*HEAT_EFFECT_PLATE_RENDER_TARGET"
 #define HEAT_EFFECT_COMPOSITE_RENDER_TARGET "*HEAT_EFFECT_COMPOSITE_RENDER_TARGET"
 #define COLD_EFFECT_PLATE_RENDER_TARGET "*COLD_EFFECT_PLATE_RENDER_TARGET"
 #define COLD_EFFECT_BACK_PLATE_RENDER_TARGET "*COLD_EFFECT_BACK_PLATE_RENDER_TARGET"
-
-// TG_PLANE_CUBE_TEMP: remove after Aurora warp/displacement visuals are reattached as tg render consumers
-#define DISPLACEMENT_PLATE_RENDER_LAYER DISPLACEMENT_PLANE
-#define DISPLACEMENT_PLATE_RENDER_TARGET DISPLACEMENT_RENDER_TARGET
-#define WARP_EFFECT_PLATE_RENDER_TARGET "*WARP_EFFECT_PLATE_RENDER_TARGET"
 
 // TG_PLANE_CUBE_TEMP: remove after old Aurora lighting mask/static systems are replaced by tg lighting
 #define BLACKNESS_PLANE DEFAULT_PLANE
