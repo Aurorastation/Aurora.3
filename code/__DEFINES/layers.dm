@@ -207,38 +207,34 @@
 #define DEBRIS_LAYER 1
 #define DUST_LAYER 2
 
-	#define PLATING_LAYER 1
+	#define PLATING_LAYER 1 // tg_topdown_floor_candidate
 	// ABOVE PLATING
-	#define HOLOMAP_LAYER 1.01
-	#define DECAL_PLATING_LAYER 1.02
-	#define DISPOSALS_PIPE_LAYER 1.03
-	#define LATTICE_LAYER 1.04
-	#define PIPE_LAYER 1.05
-	#define WIRE_LAYER 1.06
-	#define WIRE_TERMINAL_LAYER 1.07
-	#define ABOVE_WIRE_LAYER 1.08
+	#define DECAL_PLATING_LAYER 1.02 // tg_topdown_floor_candidate
+	#define DISPOSALS_PIPE_LAYER 1.03 // tg_topdown_floor_candidate
+	#define LATTICE_LAYER 1.04 // tg_topdown_floor_candidate
+	#define PIPE_LAYER 1.05 // tg_topdown_floor_candidate
+	#define WIRE_LAYER 1.06 // tg_topdown_floor_candidate
+	#define WIRE_TERMINAL_LAYER 1.07 // tg_topdown_floor_candidate
+	#define ABOVE_WIRE_LAYER 1.08 // tg_topdown_floor_candidate
 	// TURF_LAYER 2
-	#define TURF_DETAIL_LAYER 2.01
-	#define TURF_SHADOW_LAYER 2.02
+	#define TURF_DETAIL_LAYER 2.01 // tg_topdown_floor_candidate
+	#define TURF_SHADOW_LAYER 2.02 // tg_topdown_floor_candidate
 	// ABOVE TURF
-	#define DECAL_LAYER 2.03
-	#define RUNE_LAYER 2.04
-	#define ABOVE_TILE_LAYER 2.05
-	#define FLOOR_EMISSIVE_START_LAYER 2.09
-	#define FLOOR_EMISSIVE_END_LAYER 2.26
-	#define EXPOSED_DISPOSALS_PIPE_LAYER 2.06
-	#define EXPOSED_PIPE_LAYER 2.07
-	#define EXPOSED_WIRE_LAYER 2.08
-	#define EXPOSED_WIRE_TERMINAL_LAYER 2.09
-	#define CATWALK_LAYER 2.10
-	#define ABOVE_CATWALK_LAYER 2.11
-	#define BLOOD_LAYER 2.12
-	#define MOUSETRAP_LAYER 2.13
-	#define PLANT_LAYER 2.14
-	#define AO_LAYER 2.15
+	#define DECAL_LAYER 2.03 // tg_topdown_floor_candidate
+	#define RUNE_LAYER 2.04 // tg_topdown_floor_candidate
+	#define ABOVE_TILE_LAYER 2.05 // tg_topdown_floor_candidate
+	#define FLOOR_EMISSIVE_START_LAYER 2.09 // tg_topdown_floor_candidate
+	#define FLOOR_EMISSIVE_END_LAYER 2.26 // tg_topdown_floor_candidate
+	#define EXPOSED_DISPOSALS_PIPE_LAYER 2.06 // tg_topdown_floor_candidate
+	#define EXPOSED_PIPE_LAYER 2.07 // tg_topdown_floor_candidate
+	#define EXPOSED_WIRE_LAYER 2.08 // tg_topdown_floor_candidate
+	#define EXPOSED_WIRE_TERMINAL_LAYER 2.09 // tg_topdown_floor_candidate
+	#define CATWALK_LAYER 2.10 // tg_topdown_floor_candidate
+	#define ABOVE_CATWALK_LAYER 2.11 // tg_topdown_floor_candidate
+	#define BLOOD_LAYER 2.12 // tg_topdown_floor_candidate
+	#define PLANT_LAYER 2.14 // tg_topdown_floor_candidate
 	// HIDING MOB
 	#define HIDING_MOB_LAYER 2.16
-	#define SHALLOW_FLUID_LAYER 2.17
 	#define PROJECTILE_HIT_THRESHHOLD_LAYER 2.3
 	// OBJ
 	#define BELOW_DOOR_LAYER 2.69
