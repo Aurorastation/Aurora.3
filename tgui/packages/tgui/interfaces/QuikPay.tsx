@@ -11,6 +11,7 @@ import {
 import type { BooleanLike } from 'tgui-core/react';
 import { useBackend, useLocalState } from '../backend';
 import { Window } from '../layouts';
+import { SearchBar } from './common/SearchBar';
 
 export type PayData = {
   items: Item[];
@@ -112,15 +113,13 @@ export const ItemWindow = (props) => {
     <Section
       title="Items"
       buttons={
-        <Input
+        <SearchBar
           autoFocus
-          autoSelect
           placeholder="Search categories or items"
-          maxLength={512}
-          onChange={(value) => {
+          query={searchTerm}
+          onSearch={(value) => {
             setSearchTerm(value);
           }}
-          value={searchTerm}
         />
       }
     >

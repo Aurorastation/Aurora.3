@@ -152,7 +152,7 @@ export const AuthenticatedWindow = (props) => {
             maxValue={data.money}
             animated
             unit="电"
-            step={5}
+            step={1}
             stepPixelSize={5}
             onChange={(value) => setWithdraw(value)}
           />

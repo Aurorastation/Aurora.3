@@ -1,11 +1,12 @@
 import { Button, Icon, Section, Table, Tooltip } from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../../backend';
-import { departmentClass } from './departmentClass';
+import { departmentClass, departmentStyle } from './departmentClass';
 
 type ManifestData = {
-  manifest: { department: Crew[] };
+  manifest: Record<string, Crew[]>;
   allow_follow: BooleanLike;
+  show_ooc_roles: BooleanLike;
 };
 
 type Crew = {
@@ -13,23 +14,31 @@ type Crew = {
   rank: string;
   active: string;
   head: BooleanLike;
+  ooc_role: BooleanLike;
 };
 
 export const ManifestSection = (props) => {
   const { act, data } = useBackend<ManifestData>();
   const manifest = data.manifest || {};
   const allow_follow = data.allow_follow;
+  const show_ooc_roles = data.show_ooc_roles;
+  const manifestEntries = Object.entries(manifest)
+    .map(([dept, crew]) => [
+      dept,
+      show_ooc_roles ? crew : crew.filter((crewmate) => !crewmate.ooc_role),
+    ] as const)
+    .filter(([, crew]) => crew.length > 0);
   return (
     <Section>
-      {Object.keys(manifest).length === 0 && 'There are no crew active.'}
-      {Object.keys(manifest).map((dept) => {
-        const deptCrew = manifest[dept];
+      {manifestEntries.length === 0 && 'There are no crew active.'}
+      {manifestEntries.map(([dept, deptCrew]) => {
         return (
           <Section
             key={dept}
             title={dept}
             textAlign="center"
-            className={departmentClass(dept)}
+            className={departmentClass()}
+            style={departmentStyle(dept)}
             backgroundColor="rgba(10, 10, 10, 0.75)"
           >
             <Table>
@@ -37,7 +46,7 @@ export const ManifestSection = (props) => {
                 return (
                   <Table.Row
                     key={crewmate.name}
-                    bold={crewmate.head}
+                    bold={Boolean(crewmate.head)}
                     overflow="hidden"
                   >
                     <Table.Cell width="50%" textAlign="center" pt="10px" nowrap>

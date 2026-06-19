@@ -102,7 +102,7 @@
 	// each device level and anatomy rank reduces the time by half a second. Get that skill up
 	var/time = max(5 - (0.5 * (device_level + (anatomy ? anatomy : 1))), 1)
 
-	if(do_after(user, time SECONDS, target_mob, DO_UNIQUE))
+	if(do_after(user, time SECONDS, target_mob)) //This can't be DO_UNIQUE because prevents two people from scanning the same patient.
 		flick("[owner.icon_state]-scan", owner)
 
 		health_scan_mob(target_mob, user, FALSE, sound_scan = sound_scan)

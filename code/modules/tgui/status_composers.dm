@@ -104,12 +104,8 @@
 	return UI_DISABLED // Otherwise they can keep the UI open.
 
 /mob/living/silicon/ai/get_ui_access(atom/source)
-	if(source == src)
-		return UI_INTERACTIVE
-
-	// The AI can interact with anything it can see nearby, or with cameras while wireless control is enabled.
-	var/atom/interaction_source = eyeobj || src
-	if(!control_disabled && can_see(interaction_source, source))
+	// The AI can interact with anything visible from its eye while wireless control is enabled.
+	if(can_use_remote_ui(source))
 		return UI_INTERACTIVE
 	return UI_CLOSE
 

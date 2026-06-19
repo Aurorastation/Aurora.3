@@ -8,10 +8,10 @@ import {
   currentPageAtom,
   scrollTrackingAtom,
 } from './atom';
-import { MAX_PERSISTED_MESSAGES } from './constants';
 import { canPageAcceptType, serializeMessage } from './model';
 import { chatRenderer } from './renderer';
 import type { StoredChatSettings } from './types';
+import { settingsAtom } from '../settings/atoms';
 
 chatRenderer.events.on(
   'batchProcessed',
@@ -70,9 +70,10 @@ export function saveChatToStorage(): void {
 }
 
 function saveChatMessages(): void {
+  const { maxMessages } = store.get(settingsAtom);
   const fromIndex = Math.max(
     0,
-    chatRenderer.messages.length - MAX_PERSISTED_MESSAGES,
+    chatRenderer.messages.length - maxMessages,
   );
 
   const messages = chatRenderer.messages

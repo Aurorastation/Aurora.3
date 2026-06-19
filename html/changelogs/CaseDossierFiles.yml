@@ -1,0 +1,10 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - rscadd: "Investigators now have the case dossier program. The rest of security can also read it in read-only mode."
+  - rscadd: "Evidence bags now labels the time, person and place when an item is bagged, if they have forensic skill. This can also be editted with a pen."
+  - rscadd: "Photos can now record similar data to the evidence bags if the user has the forensic skill, or they are using a detective camera. This cannot be editted."
+  - rscadd: "It is now possible to gather fibers and prints from objects inside evidence bags."
+  - bugfix: "Fixed some stuff with photos that should make them able to take photos of certain things such as airlocks again."

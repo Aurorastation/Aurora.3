@@ -24,6 +24,8 @@ export type NTOSData = {
   PC_batteryicon: string | null;
   PC_batterypercent: string | null;
   PC_device_theme: string;
+  PC_cableout: BooleanLike;
+  PC_hascable: BooleanLike;
   PC_haslight: BooleanLike;
   PC_lighton: BooleanLike;
   PC_lowpower_mode: BooleanLike;
@@ -54,12 +56,14 @@ type Login = {
 };
 
 export const NtosWindow = (props) => {
-  const { title, width = 575, height = 700, children } = props;
+  const { title, width = 575, height = 700, theme, children } = props;
   const { act, data } = useBackend<NTOSData>();
   const {
     PC_device_theme,
     PC_batteryicon,
     PC_batterypercent,
+    PC_cableout,
+    PC_hascable,
     PC_haslight,
     PC_lighton,
     PC_ntneticon,
@@ -71,7 +75,12 @@ export const NtosWindow = (props) => {
   } = data;
 
   return (
-    <Window title={title} width={width} height={height} theme={PC_device_theme}>
+    <Window
+      title={title}
+      width={width}
+      height={height}
+      theme={theme ?? PC_device_theme}
+    >
       <div className="NtosWindow">
         <div className="NtosWindow__header NtosHeader">
           <div className="NtosHeader__left">
@@ -125,6 +134,15 @@ export const NtosWindow = (props) => {
                 tooltip={`Flashlight ${PC_lighton ? 'on' : 'off'}`}
                 tooltipPosition="bottom"
                 onClick={() => act('PC_togglelight')}
+              />
+            )}
+            {!!PC_hascable && (
+              <Button
+                color={PC_cableout ? 'green' : 'transparent'}
+                icon="plug"
+                tooltip={PC_cableout ? 'Retract cable' : 'Retrieve cable'}
+                tooltipPosition="bottom"
+                onClick={() => act('PC_takecable')}
               />
             )}
             {!!PC_showexitprogram && (

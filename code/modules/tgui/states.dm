@@ -86,6 +86,34 @@
 		return UI_DISABLED
 	return ..()
 
+/mob/living/silicon/ai/proc/can_use_remote_ui(src_object)
+	if(src_object == src)
+		return TRUE
+
+	if(control_disabled || !istype(src_object, /atom))
+		return FALSE
+
+	var/atom/source = src_object
+	var/atom/interaction_source = eyeobj || src
+	var/turf/interaction_turf = get_turf(interaction_source)
+	var/turf/source_turf = get_turf(source)
+	if(!interaction_turf || !source_turf || interaction_turf.z != source_turf.z)
+		return FALSE
+
+	var/view_setting = world.view
+	if(client)
+		view_setting = client.view
+
+	var/list/clientviewlist = getviewsize(view_setting)
+	var/x_range = round((clientviewlist[1] - 1) / 2)
+	var/y_range = round((clientviewlist[2] - 1) / 2)
+	if(!IsInRange(source_turf.x, interaction_turf.x - x_range, interaction_turf.x + x_range))
+		return FALSE
+	if(!IsInRange(source_turf.y, interaction_turf.y - y_range, interaction_turf.y + y_range))
+		return FALSE
+
+	return can_see(interaction_source, source, max(x_range, y_range))
+
 /mob/living/silicon/robot/shared_ui_interaction(src_object)
 	// Disable UIs if the object isn't installed in the borg AND the borg has a dead cell, or no cell.
 	var/atom/device = src_object

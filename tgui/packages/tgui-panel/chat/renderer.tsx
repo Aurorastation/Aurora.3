@@ -17,8 +17,7 @@ import {
   IMAGE_RETRY_DELAY,
   IMAGE_RETRY_LIMIT,
   IMAGE_RETRY_MESSAGE_AGE,
-  MAX_PERSISTED_MESSAGES,
-  MAX_VISIBLE_MESSAGES,
+  MAX_MESSAGES,
   MESSAGE_PRUNE_INTERVAL,
   MESSAGE_TYPE_INTERNAL,
   MESSAGE_TYPE_UNKNOWN,
@@ -117,6 +116,7 @@ class ChatRenderer {
   scrollNode: HTMLElement | null;
   scrollTracking: boolean;
   lastScrollHeight: number;
+  maxMessages: number;
   highlightParsers: Array<any> | null;
   handleScroll: (type: any) => void;
 
@@ -133,6 +133,7 @@ class ChatRenderer {
     this.scrollNode = null;
     this.scrollTracking = true;
     this.lastScrollHeight = 0;
+    this.maxMessages = MAX_MESSAGES;
     this.handleScroll = (evt) => {
       const node = this.scrollNode;
       if (!node) {
@@ -194,6 +195,10 @@ class ChatRenderer {
     }
   }
 
+  setMaxMessages(maxMessages: number) {
+    this.maxMessages = maxMessages;
+  }
+
   setHighlight(highlightSettings, highlightSettingById) {
     this.highlightParsers = null;
     if (!highlightSettings) {
@@ -204,6 +209,10 @@ class ChatRenderer {
       const text = setting.highlightText;
       const highlightColor = setting.highlightColor;
       const highlightWholeMessage = setting.highlightWholeMessage;
+      const backgroundHighlightColor =
+        setting.backgroundHighlightColor || highlightColor;
+      const backgroundHighlightOpacity =
+        setting.backgroundHighlightOpacity ?? 10;
       const matchWord = setting.matchWord;
       const matchCase = setting.matchCase;
       const enabled = setting.enabled;
@@ -282,6 +291,8 @@ class ChatRenderer {
         highlightRegex,
         highlightColor,
         highlightWholeMessage,
+        backgroundHighlightColor,
+        backgroundHighlightOpacity,
       });
     });
   }
@@ -455,8 +466,12 @@ class ChatRenderer {
               if (highlighted && parser.highlightWholeMessage) {
                 node.className += ' ChatMessage--highlighted';
                 node.style.setProperty(
-                  '--highlight-color',
-                  parser.highlightColor,
+                  '--highlight-background-color',
+                  parser.backgroundHighlightColor,
+                );
+                node.style.setProperty(
+                  '--highlight-background-opacity',
+                  (parser.backgroundHighlightOpacity / 100).toString(),
                 );
               }
             });
@@ -526,7 +541,7 @@ class ChatRenderer {
     // Visible messages
     {
       const messages = this.visibleMessages;
-      const fromIndex = Math.max(0, messages.length - MAX_VISIBLE_MESSAGES);
+      const fromIndex = Math.max(0, messages.length - this.maxMessages);
       if (fromIndex > 0) {
         this.visibleMessages = messages.slice(fromIndex);
         for (let i = 0; i < fromIndex; i++) {
@@ -547,7 +562,7 @@ class ChatRenderer {
     {
       const fromIndex = Math.max(
         0,
-        this.messages.length - MAX_PERSISTED_MESSAGES,
+        this.messages.length - this.maxMessages,
       );
       if (fromIndex > 0) {
         this.messages = this.messages.slice(fromIndex);
@@ -563,7 +578,7 @@ class ChatRenderer {
     // Make a copy of messages
     const fromIndex = Math.max(
       0,
-      this.messages.length - MAX_PERSISTED_MESSAGES,
+      this.messages.length - this.maxMessages,
     );
     const messages = this.messages.slice(fromIndex);
     // Remove existing nodes

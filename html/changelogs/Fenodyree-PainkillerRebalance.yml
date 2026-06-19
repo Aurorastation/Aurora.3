@@ -44,7 +44,7 @@
 #################################
 
 # Your name.
-author: MattAtlas (Porting), /tg/station (Original Code)
+author: Fenodyree
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -55,4 +55,8 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Ported attack animations from /tg/station for attacking with items, unarmed attacks, and for simple mobs."
+  - rscdel: "Removes CE_ADRENALINE. This was a synaptizine only flag that gave you a momvement speed and stamina buff."
+  - balance: "Increases the threshold for NO_PAIN to 200, from 100. This means you need more and stronger painkillers to be immune to pain effects."
+  - balance: "Nerfs Synaptizine from 30 to 10 painkill."
+  - balance: "Buffs Oxycomorphine from 200 to 210 painkill. This makes sure it always puts you into NO_PAIN."
+  - balance: "Buffs Mortaphenyl from 50 to 70 painkill. This means antag stimpacks have the same total painkill."
