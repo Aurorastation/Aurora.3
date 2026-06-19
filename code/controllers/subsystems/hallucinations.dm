@@ -130,7 +130,7 @@ SUBSYSTEM_DEF(hallucinations)
 	return is_lemurian_sea_sector()
 
 /datum/controller/subsystem/hallucinations/proc/read_adpi_file(var/file_name)
-	var/list/loaded_file = file2list("config/hallucinations/lemurian_sea/[file_name]")
+	var/list/loaded_file = file2list("config/hallucinations/[file_name]")
 	if(!loaded_file)
 		loaded_file = list()
 	return loaded_file
