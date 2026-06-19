@@ -91,7 +91,7 @@ SUBSYSTEM_DEF(machinery)
 	makepowernets()
 	build_rcon_lists()
 	setup_atmos_machinery(machinery)
-	next_arc_light_break = world.time + 3 MINUTES // LEMURIAN SEA, REMOVE AFTER ARC
+	next_arc_light_break = world.time + 2 MINUTES // LEMURIAN SEA, REMOVE AFTER ARC
 	fire(FALSE, TRUE)	// Tick machinery once to pare down the list so we don't hammer the server on round-start.
 
 	return SS_INIT_SUCCESS
@@ -251,7 +251,7 @@ SUBSYSTEM_DEF(machinery)
 	if(!length(valid_lights))
 		return
 
-	var/number_lights_broken = rand(1,4)
+	var/number_lights_broken = rand(3,7)
 	var/obj/structure/machinery/light/chosen_light
 	for(var/n = 0 to number_lights_broken)
 		chosen_light = pick(valid_lights)
