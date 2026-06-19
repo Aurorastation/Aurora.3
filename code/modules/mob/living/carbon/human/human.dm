@@ -371,7 +371,7 @@
 		suit = w_uniform
 
 	user.set_machine(src)
-	var/dat = "<B><HR><FONT size=3>[name]</FONT></B><BR><HR>"
+	var/dat = "<B><HR><FONT size=5>[name]</FONT></B><BR><HR>"
 
 	if(internals)
 		dat += "<B>Internals: [internal ? "On" : "Off"]</B><BR>"
