@@ -7,6 +7,7 @@
 	density = TRUE
 	gender = PLURAL
 	opacity = TRUE
+	plane = WALL_PLANE
 	smoothing_flags = SMOOTH_TRUE
 	color = "#6e632f"
 
@@ -32,6 +33,7 @@ GLOBAL_LIST_INIT(mineral_can_smooth_with, list(
 	gender = PLURAL
 	var/icon/actual_icon = 'icons/turf/smooth/rock_dense.dmi'
 	color = "#6e632f"
+	plane = WALL_PLANE
 
 	// canSmoothWith is set in Initialize().
 	smoothing_flags = SMOOTH_MORE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
