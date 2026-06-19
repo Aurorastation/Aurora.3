@@ -1,0 +1,4 @@
+author: Batrachophrenoboocosmomachia
+delete-after: True
+changes:
+  - bugfix: "Adds extra safety for GLOB.SortedAreas having entries removed but not later re-generated."
