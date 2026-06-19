@@ -4,6 +4,7 @@
 	icon = 'icons/turf/flooring/plating.dmi'
 	icon_state = "plating"
 	is_outside = OUTSIDE_AREA
+	plane = FLOOR_PLANE
 
 	explosion_resistance = 1
 

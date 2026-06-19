@@ -1,4 +1,5 @@
 /obj/effect/decal
+	plane = FLOOR_PLANE
 	layer = DECAL_LAYER
 
 /obj/effect/decal/tesla_act()

@@ -2,6 +2,7 @@
 	name = "floor"
 	icon = 'icons/turf/flooring/tiles.dmi'
 	icon_state = "tiled_preview"
+	plane = FLOOR_PLANE
 
 /turf/unsimulated/floor/examine_descriptor(mob/user)
 	return "floor"

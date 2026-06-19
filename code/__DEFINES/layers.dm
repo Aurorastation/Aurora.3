@@ -409,11 +409,11 @@
 	layer = HUD_ITEM_LAYER
 
 /image/proc/turf_decal_layerise()
-	plane = GAME_PLANE
+	plane = FLOOR_PLANE
 	layer = DECAL_LAYER
 
 /image/proc/plating_decal_layerise()
-	plane = GAME_PLANE
+	plane = FLOOR_PLANE
 	layer = DECAL_PLATING_LAYER
 
 /atom/proc/reset_plane_and_layer()

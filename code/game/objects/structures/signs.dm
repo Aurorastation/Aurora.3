@@ -720,6 +720,7 @@
 	name = "plaque"
 	desc = "An adorned and polished bronze plaque, gleaming with first-class elegance."
 	icon_state = "plaque"
+	plane = FLOOR_PLANE
 	layer = DECAL_LAYER
 	sign_type = /obj/item/sign/heavy
 
