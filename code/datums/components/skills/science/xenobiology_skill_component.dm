@@ -5,7 +5,7 @@
 
 	/// Bonus surgery speed (as a percent increase) per skill level, to be applied only when performing surgeries on a creature of a different species.
 	var/surgery_speed_mod_per_level = 0.05
-  
+
 	/// +%bonus damage versus Space Fauna (EG: Space Carp, Space Bears, Asteroid Worms, Gnats, Etc.)
 	var/bonus_damage_per_rank = 0.05
 
