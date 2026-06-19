@@ -1,0 +1,4 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - rscadd: "Added dedicated logging for Destroy() procs that are interrupted by runtime errors, since these are their own special case of hard del causes."
