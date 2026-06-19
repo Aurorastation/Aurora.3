@@ -706,7 +706,7 @@ var/global/enabled_spooking = 0
 		if(!check_rights(R_ADMIN, 0))
 			message = sanitize(message, 500, extra = 0)
 		message = replacetext(message, "\n", "<br>") // required since we're putting it in a <p> tag
-		to_world("<span class=notice><b>[usr.client.holder.fakekey ? "Administrator" : usr.key] Announces:</b><p style='text-indent: 50px'>[message]</p></span>")
+		to_world(EXAMINE_BLOCK_BLUE("<span class=notice><b>[usr.client.holder.fakekey ? "Administrator" : usr.key] Announces:</b><p style='text-indent: 50px'>[message]</p></span>"))
 		log_admin("Announce: [key_name(usr)] : [message]")
 	feedback_add_details("admin_verb","A") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
@@ -1088,7 +1088,7 @@ var/global/enabled_spooking = 0
 		alert("Not before roundstart!", "Alert")
 		return
 
-	var/out = "<font size=3><b>Current mode: [SSticker.mode.name] (<a href='byond://?src=[REF(SSticker.mode)];debug_antag=self'>[SSticker.mode.config_tag]</a>)</b></font><br/>"
+	var/out = "<font size=5><b>Current mode: [SSticker.mode.name] (<a href='byond://?src=[REF(SSticker.mode)];debug_antag=self'>[SSticker.mode.config_tag]</a>)</b></font><br/>"
 	out += "<hr>"
 
 	if(SSticker.mode.ert_disabled)

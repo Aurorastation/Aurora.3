@@ -66,7 +66,7 @@
 		return FALSE
 
 	sound_to(owner, sound('sound/effects/psi/power_feedback.ogg'))
-	to_chat(owner, SPAN_DANGER("<font size=3>Wild energistic feedback blasts across your psyche!</font>"))
+	to_chat(owner, SPAN_DANGER("<font size=5>Wild energistic feedback blasts across your psyche!</font>"))
 	stunned(value * 2)
 	set_cooldown(value * 100)
 
