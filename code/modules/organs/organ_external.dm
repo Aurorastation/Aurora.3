@@ -477,7 +477,7 @@
 
 	///The chance of a bone breaking increases linearly, up to 100% at max_damage * 4 (The most damage an organ can take)
 	var/fracture_chance_increase = min(100, max(0, (brute_dam * 100) / (max_damage * 4)))
-	if(brute_dam + brute > min_broken_damage && prob(fracture_chance_increase + brute * (1 + blunt))) //Blunt hits have 2x chance to break bones.
+	if(brute_dam + brute > min_broken_damage && prob(fracture_chance_increase + ((brute / 2) * (1 + blunt)))) //Blunt hits have 2x chance to break bones.
 		if(blunt || brute > FRACTURE_AND_TENDON_DAM_THRESHOLD)
 			fracture()
 
