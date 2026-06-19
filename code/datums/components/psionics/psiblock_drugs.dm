@@ -14,6 +14,12 @@
 	/// The percent chance that this drug will cancel a psionic power when the user is targeted by one.
 	var/telepathy_cancel_probability = 95
 
+	/// The message randomly given while under the effect of the drug
+	var/ongoing_effect_message = list("Everything feels dulled and distant.", "You feel like you can't focus on anything.", "Your thoughts feel sluggish.", "Why should you care about others?")
+
+	/// Time until the next ongoing message
+	var/next_message = 0
+
 /datum/component/timed_life/psiblock_drugs/Initialize(lifetime_seconds = 5 MINUTES)
 	. = ..()
 	if (!parent)
@@ -29,6 +35,9 @@
 	RegisterSignal(parent, COMSIG_GET_MINISTRY_MODIFIERS, PROC_REF(modify_ministry_empathy), override = TRUE)
 	RegisterSignal(parent, COMSIG_RECEIVE_MINISTRY_MODIFIERS, PROC_REF(modify_ministry_receiving), override = TRUE)
 	RegisterSignal(parent, COMSIG_GET_LEADERSHIP_MODIFIERS, PROC_REF(modify_leadership_empathy), override = TRUE)
+
+	// A little slower than normal. Estimated frequency: 1 min
+	next_message = REALTIMEOFDAY + (DRUG_MESSAGE_COOLDOWN * 2)
 
 /datum/component/timed_life/psiblock_drugs/Destroy()
 	owner = null
@@ -84,6 +93,13 @@
 
 /datum/component/timed_life/psiblock_drugs/process(seconds_per_tick)
 	. = ..()
+	if(REALTIMEOFDAY >= next_message)
+		if(!length(ongoing_effect_message))
+			next_message = (REALTIMEOFDAY + 2 HOURS)
+			return
+		var/message = pick(ongoing_effect_message)
+		to_chat(owner, SPAN_NOTICE("[message]"))
+		next_message = (REALTIMEOFDAY + DRUG_MESSAGE_COOLDOWN * 2)
 
 // Variants of psiblocking drugs
 /datum/component/timed_life/psiblock_drugs/yomi_genetics
@@ -115,7 +131,7 @@
 	var/surgery_success_penalty = -10
 
 	/// The intensity of the seizures
-	var/seizure_intensity = 2
+	var/seizure_intensity = 1
 
 /datum/component/timed_life/psiblock_drugs/yomi_genetics/Initialize(lifetime_seconds = 5 MINUTES)
 	. = ..()
@@ -161,7 +177,7 @@
 	accuracy_penalty = 0.35
 	dispersion_penalty = 10
 	surgery_success_penalty = -20
-	seizure_intensity = 3
+	seizure_intensity = 2
 
 /datum/component/timed_life/psiblock_drugs/yomi_genetics/expensive
 	min_tremor_time = 2 MINUTES
@@ -172,4 +188,3 @@
 	accuracy_penalty = 0.15
 	dispersion_penalty = 2
 	surgery_success_penalty = -5
-	seizure_intensity = 1
