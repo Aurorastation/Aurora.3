@@ -114,6 +114,9 @@
 	/// The penalty to surgery success chance due to hand tremors.
 	var/surgery_success_penalty = -10
 
+	/// The intensity of the seizures
+	var/seizure_intensity = 2
+
 /datum/component/timed_life/psiblock_drugs/yomi_genetics/Initialize(lifetime_seconds = 5 MINUTES)
 	. = ..()
 	next_tremor_time = REALTIMEOFDAY + rand(min_tremor_time, max_tremor_time)
@@ -145,7 +148,7 @@
 		next_tremor_time = time_of_day + rand(min_tremor_time, max_tremor_time)
 
 	if (time_of_day >= next_seizure_time)
-		owner.seizure()
+		owner.seizure(seizure_intensity)
 		next_seizure_time = time_of_day + rand(min_seizure_time, max_seizure_time)
 
 /datum/component/timed_life/psiblock_drugs/yomi_genetics/cheap
@@ -158,6 +161,7 @@
 	accuracy_penalty = 0.35
 	dispersion_penalty = 10
 	surgery_success_penalty = -20
+	seizure_intensity = 3
 
 /datum/component/timed_life/psiblock_drugs/yomi_genetics/expensive
 	min_tremor_time = 2 MINUTES
@@ -168,3 +172,4 @@
 	accuracy_penalty = 0.15
 	dispersion_penalty = 2
 	surgery_success_penalty = -5
+	seizure_intensity = 1
