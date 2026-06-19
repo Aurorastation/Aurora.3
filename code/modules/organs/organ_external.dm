@@ -445,9 +445,10 @@
 
 	var/laser = (damage_flags & DAMAGE_FLAG_LASER)
 	var/sharp = (damage_flags & DAMAGE_FLAG_SHARP)
+	var/bullet = (damage_flags & DAMAGE_FLAG_BULLET)
 	var/edge = (damage_flags & DAMAGE_FLAG_EDGE)
 	var/psionic = (damage_flags & DAMAGE_FLAG_PSIONIC)
-	var/blunt = !!(brute && !sharp && !edge)
+	var/blunt = !!(brute && !sharp && !edge && !bullet)
 
 	/// Psionics and psionically deaf species take varying amounts of damage from psionic abilities.
 	if(psionic)
@@ -494,7 +495,7 @@
 		if(can_cut)
 			to_create = INJURY_TYPE_CUT
 			//need to check sharp again here so that blunt damage that was strong enough to break skin doesn't give puncture wounds
-			if(sharp && !edge)
+			if(sharp && !edge || bullet)
 				to_create = INJURY_TYPE_PIERCE
 		created_wound = createwound(to_create, brute)
 
@@ -530,6 +531,7 @@
 	var/cur_damage = brute_dam
 	var/sharp = (damage_flags & DAMAGE_FLAG_SHARP)
 	var/laser = (damage_flags & DAMAGE_FLAG_LASER)
+	var/bullet = (damage_flags & DAMAGE_FLAG_BULLET)
 
 	if(BP_IS_ROBOTIC(src) || laser)
 		damage_amt += burn
@@ -562,8 +564,10 @@
 
 	if(!BP_IS_ROBOTIC(src))
 		if(encased && !(status & ORGAN_BROKEN)) //Ribs protect
-			if (sharp) //Less protection against sharp objects.
+			if (bullet) //Less protection against bullets.
 				organ_hit_chance *= 0.6
+			else if (sharp)
+				organ_hit_chance *= 0.4
 			else
 				organ_hit_chance *= 0.2
 	else
