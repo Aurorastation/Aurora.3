@@ -175,11 +175,6 @@
 /// The range unique planes can be in.
 #define PLANE_RANGE (HIGHEST_EVER_PLANE - LOWEST_EVER_PLANE)
 
-/// Used to shift topdown emissives back into normal game-plane layer space.
-#define TOPDOWN_TO_EMISSIVE_LAYER(layer) (FLOOR_EMISSIVE_START_LAYER + ((FLOOR_EMISSIVE_END_LAYER - FLOOR_EMISSIVE_START_LAYER) * ((layer - (TOPDOWN_LAYER + 1)) / TOPDOWN_LAYER_COUNT)))
-/// Must match the offset of the highest topdown layer.
-#define TOPDOWN_LAYER_COUNT 18
-
 //---------- TG plane-cube temporary Aurora aliases -------------
 
 // TG_PLANE_CUBE_TEMP: remove after Aurora heat/cold gas visuals are reattached as tg render consumers
@@ -207,32 +202,39 @@
 #define DEBRIS_LAYER 1
 #define DUST_LAYER 2
 
-	#define PLATING_LAYER 1 // tg_topdown_floor_candidate
-	// ABOVE PLATING
-	#define DECAL_PLATING_LAYER 1.02 // tg_topdown_floor_candidate
-	#define DISPOSALS_PIPE_LAYER 1.03 // tg_topdown_floor_candidate
-	#define LATTICE_LAYER 1.04 // tg_topdown_floor_candidate
-	#define PIPE_LAYER 1.05 // tg_topdown_floor_candidate
-	#define WIRE_LAYER 1.06 // tg_topdown_floor_candidate
-	#define WIRE_TERMINAL_LAYER 1.07 // tg_topdown_floor_candidate
-	#define ABOVE_WIRE_LAYER 1.08 // tg_topdown_floor_candidate
-	// TURF_LAYER 2
-	#define TURF_DETAIL_LAYER 2.01 // tg_topdown_floor_candidate
-	#define TURF_SHADOW_LAYER 2.02 // tg_topdown_floor_candidate
-	// ABOVE TURF
-	#define DECAL_LAYER 2.03 // tg_topdown_floor_candidate
-	#define RUNE_LAYER 2.04 // tg_topdown_floor_candidate
-	#define ABOVE_TILE_LAYER 2.05 // tg_topdown_floor_candidate
-	#define FLOOR_EMISSIVE_START_LAYER 2.09 // tg_topdown_floor_candidate
-	#define FLOOR_EMISSIVE_END_LAYER 2.26 // tg_topdown_floor_candidate
-	#define EXPOSED_DISPOSALS_PIPE_LAYER 2.06 // tg_topdown_floor_candidate
-	#define EXPOSED_PIPE_LAYER 2.07 // tg_topdown_floor_candidate
-	#define EXPOSED_WIRE_LAYER 2.08 // tg_topdown_floor_candidate
-	#define EXPOSED_WIRE_TERMINAL_LAYER 2.09 // tg_topdown_floor_candidate
-	#define CATWALK_LAYER 2.10 // tg_topdown_floor_candidate
-	#define ABOVE_CATWALK_LAYER 2.11 // tg_topdown_floor_candidate
-	#define BLOOD_LAYER 2.12 // tg_topdown_floor_candidate
-	#define PLANT_LAYER 2.14 // tg_topdown_floor_candidate
+	// FLOOR_PLANE layers. Anything using these must live on FLOOR_PLANE.
+	// These mirror tg's TOPDOWN_LAYER floor stack so bound floors and floor-stack
+	// objects sort as top-down visuals rather than side-map objects.
+	#define TOPDOWN_LAYER_COUNT 18
+	#define LOWER_FLOOR_LAYER (1 + TOPDOWN_LAYER)
+	#define LOW_FLOOR_LAYER (2 + TOPDOWN_LAYER)
+	#define TURF_PLATING_DECAL_LAYER (3 + TOPDOWN_LAYER)
+	#define TURF_DECAL_LAYER (4 + TOPDOWN_LAYER)
+	#define CULT_OVERLAY_LAYER (5 + TOPDOWN_LAYER)
+	#define MID_TURF_LAYER (6 + TOPDOWN_LAYER) // Functions as the old TURF_DETAIL_LAYER
+	#define HIGH_TURF_LAYER (7 + TOPDOWN_LAYER) // Functions as the old TURF_SHADOW_LAYER
+	#define LATTICE_LAYER (8 + TOPDOWN_LAYER)
+	#define DISPOSAL_PIPE_LAYER (9 + TOPDOWN_LAYER)
+	#define WIRE_LAYER (10 + TOPDOWN_LAYER)
+	#define BELOW_CATWALK_LAYER (11 + TOPDOWN_LAYER)
+	#define WIRE_TERMINAL_LAYER (12 + TOPDOWN_LAYER)
+	#define CATWALK_LAYER (13 + TOPDOWN_LAYER)
+	#define ABOVE_CATWALK_LAYER (14 + TOPDOWN_LAYER)
+	#define PLANT_LAYER (15 + TOPDOWN_LAYER) // gound foliage/emissive-block threshold.
+	#define LOWER_RUNE_LAYER (16 + TOPDOWN_LAYER)
+	#define RUNE_LAYER (17 + TOPDOWN_LAYER)
+	#define CLEANABLE_FLOOR_OBJECT_LAYER (18 + TOPDOWN_LAYER)
+
+	// Normal GAME_PLANE layer band used by topdown emissive remapping.
+	#define ABOVE_NORMAL_TURF_LAYER 2.08
+	#define FLOOR_EMISSIVE_START_LAYER 2.09
+	#define FLOOR_EMISSIVE_END_LAYER 2.26
+	/// Used to shift topdown emissives back into normal game-plane layer space.
+	#define TOPDOWN_TO_EMISSIVE_LAYER(layer) (FLOOR_EMISSIVE_START_LAYER + ((FLOOR_EMISSIVE_END_LAYER - FLOOR_EMISSIVE_START_LAYER) * ((layer - (TOPDOWN_LAYER + 1)) / TOPDOWN_LAYER_COUNT)))
+
+	// WALL_PLANE layers.
+	#define BELOW_CLOSED_TURF_LAYER 2.053
+	#define CLOSED_TURF_LAYER 2.058
 	// HIDING MOB
 	#define HIDING_MOB_LAYER 2.16
 	#define PROJECTILE_HIT_THRESHHOLD_LAYER 2.3
@@ -406,11 +408,11 @@
 
 /image/proc/turf_decal_layerise()
 	plane = FLOOR_PLANE
-	layer = DECAL_LAYER
+	layer = TURF_DECAL_LAYER
 
 /image/proc/plating_decal_layerise()
 	plane = FLOOR_PLANE
-	layer = DECAL_PLATING_LAYER
+	layer = TURF_PLATING_DECAL_LAYER
 
 /atom/proc/reset_plane_and_layer()
 	plane = initial(plane)

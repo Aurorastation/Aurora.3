@@ -35,7 +35,7 @@
 			if(C.y == y1 || C.y == y2)
 				C.icon_state = "canvas_[get_location(C)]"
 				if(C.y == y2) //Upper wall
-					C.layer = ABOVE_TILE_LAYER
+					C.layer = ABOVE_NORMAL_TURF_LAYER
 			var/mid = Mean(y1, y2)
 			if(C.y < mid)
 				C.dir = SOUTH

@@ -36,7 +36,8 @@ Possible to do for anyone motivated enough:
 	icon_state = "holopad0"
 	var/icon_state_suffix = ""
 
-	layer = ABOVE_TILE_LAYER
+	plane = FLOOR_PLANE
+	layer = HIGH_TURF_LAYER
 
 	var/power_per_hologram = 500 //per usage per hologram
 	idle_power_usage = 5

@@ -166,7 +166,8 @@
 	new_turf.blueprints = old_blueprints
 	for(var/image/I as anything in new_turf.blueprints)
 		I.loc = new_turf
-		I.plane = 0
+		if(I.plane)
+			SET_PLANE_EXPLICIT(I, PLANE_TO_TRUE(I.plane), new_turf)
 
 	new_turf.decals = old_decals
 

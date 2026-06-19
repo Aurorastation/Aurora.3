@@ -721,7 +721,7 @@
 	desc = "An adorned and polished bronze plaque, gleaming with first-class elegance."
 	icon_state = "plaque"
 	plane = FLOOR_PLANE
-	layer = DECAL_LAYER
+	layer = TURF_DECAL_LAYER
 	sign_type = /obj/item/sign/heavy
 
 /obj/structure/sign/floor_plaque/horizon/captain_office

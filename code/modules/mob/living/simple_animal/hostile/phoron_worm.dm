@@ -119,7 +119,8 @@
 	speed = -1
 	update_icon()
 	pass_flags = PASSTABLE | PASSMOB
-	layer = TURF_DETAIL_LAYER
+	SET_PLANE_IMPLICIT(src, FLOOR_PLANE)
+	layer = MID_TURF_LAYER
 	ADD_TRAIT(src, TRAIT_UNDENSE, TRAIT_SOURCE_WORM_BURROW)
 	visible_message(SPAN_DANGER("\The [src] burrows into the ground!"))
 
@@ -131,6 +132,7 @@
 	speed = initial(speed)
 	update_icon()
 	pass_flags = initial(pass_flags)
+	SET_PLANE_IMPLICIT(src, initial(plane))
 	layer = initial(layer)
 	REMOVE_TRAIT(src, TRAIT_UNDENSE, TRAIT_SOURCE_WORM_BURROW)
 	visible_message(SPAN_DANGER("\The [src] emerges from the ground!"))

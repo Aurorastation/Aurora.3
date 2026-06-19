@@ -9,7 +9,8 @@
 	desc = "A radio beacon used for bot navigation."
 	// underfloor
 	level = 1
-	layer = ABOVE_WIRE_LAYER
+	plane = FLOOR_PLANE
+	layer = WIRE_TERMINAL_LAYER
 	anchored = 1
 
 	/// true if cover is open

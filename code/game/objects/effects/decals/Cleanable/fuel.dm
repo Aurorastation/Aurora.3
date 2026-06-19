@@ -4,7 +4,7 @@
 	desc = "Some kind of sticky, flammable liquid."
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "fuel"
-	layer = BLOOD_LAYER
+	layer = CLEANABLE_FLOOR_OBJECT_LAYER
 	anchored = 1
 	var/amount = 1
 

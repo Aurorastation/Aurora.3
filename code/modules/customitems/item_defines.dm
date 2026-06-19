@@ -1266,6 +1266,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	color = COLOR_HUMAN_BLOOD
 	anchored = TRUE
 	unacidable = TRUE
+	plane = FLOOR_PLANE
 	layer = RUNE_LAYER
 	mouse_opacity = MOUSE_OPACITY_OPAQUE
 

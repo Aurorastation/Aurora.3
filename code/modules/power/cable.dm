@@ -42,7 +42,7 @@ By design, d1 is the smallest direction and d2 is the highest
 	maxhealth = null //why is this even a structure?
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	plane = FLOOR_PLANE
-	layer = EXPOSED_WIRE_LAYER
+	layer = WIRE_LAYER
 	color = COLOR_RED
 
 	var/datum/powernet/powernet

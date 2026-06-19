@@ -33,7 +33,7 @@
 		QUEUE_SMOOTH(src)
 		QUEUE_SMOOTH_NEIGHBORS(src)
 	// Dynamic way to ensure that /structures that live on the ground don't block the emissives of objects that (logically) are overtop them.
-	if(layer <= PLANT_LAYER)
+	if(PLANE_TO_TRUE(plane) == FLOOR_PLANE && layer <= PLANT_LAYER)
 		blocks_emissive = EMISSIVE_BLOCK_NONE
 
 /obj/structure/Destroy()

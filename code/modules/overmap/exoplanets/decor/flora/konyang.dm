@@ -11,7 +11,8 @@
 /obj/effect/overlay/konyang_tree//shadow underlay
 	icon = 'icons/obj/flora/konyang/beet_tree.dmi'
 	icon_state = "shadow"
-	layer = TURF_SHADOW_LAYER
+	plane = FLOOR_PLANE
+	layer = HIGH_TURF_LAYER
 
 /obj/structure/flora/tree/konyang/spring/Initialize(mapload)
 	. = ..()

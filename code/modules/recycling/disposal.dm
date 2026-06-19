@@ -865,7 +865,8 @@
 
 	var/dpdir = 0		// bitmask of pipe directions
 	//dir = 0				// dir will contain dominant direction for junction pipes
-	layer = EXPOSED_DISPOSALS_PIPE_LAYER
+	plane = FLOOR_PLANE
+	layer = DISPOSAL_PIPE_LAYER
 	var/sortType = ""
 	var/subtype = 0
 	// new pipe, set the icon_state as on map
@@ -876,7 +877,8 @@
 	if(mapload)
 		var/turf/T = loc
 		var/image/I = image(icon, T, icon_state, dir, pixel_x, pixel_y)
-		I.layer = ABOVE_TILE_LAYER
+		I.layer = HIGH_TURF_LAYER
+		SET_PLANE_EXPLICIT(I, FLOOR_PLANE, T)
 		I.alpha = 125
 		LAZYADD(T.blueprints, I)
 

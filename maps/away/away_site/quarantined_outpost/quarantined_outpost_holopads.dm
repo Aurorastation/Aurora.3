@@ -12,7 +12,7 @@
 	icon = 'icons/obj/holopad.dmi'
 	icon_state = "holopad0"
 	anchored = TRUE
-	layer = ABOVE_TILE_LAYER
+	layer = HIGH_TURF_LAYER
 
 	/// Have we been activated? If we have, we do not activate again.
 	var/activated = FALSE

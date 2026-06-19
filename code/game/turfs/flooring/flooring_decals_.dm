@@ -2,10 +2,12 @@
 // decal list of the floor under them. Use them rather than distinct icon_states
 // when mapping in interesting floor designs.
 
+/// NOTE: Review these later- this has too much overlap w regular decals, but I cannot be fucked to suss out this mess.
 /obj/effect/floor_decal
 	name = "floor decal"
 	icon = 'icons/turf/decals/decals.dmi'
-	layer = DECAL_LAYER
+	plane = FLOOR_PLANE
+	layer = TURF_DECAL_LAYER
 	appearance_flags = DEFAULT_APPEARANCE_FLAGS | RESET_COLOR
 	var/outline = TRUE //whether it applies the tile outline to shading.
 	var/supplied_dir
@@ -16,7 +18,7 @@
 	var/turf/T = get_turf(src)
 	var/list/floor_decals = SSicon_cache.floor_decals
 	if(istype(T, /turf/simulated/floor) || istype(T, /turf/unsimulated/floor))
-		layer = T.is_plating() ? DECAL_PLATING_LAYER : DECAL_LAYER
+		layer = T.is_plating() ? TURF_PLATING_DECAL_LAYER : TURF_DECAL_LAYER
 		var/cache_key = "[name]-[alpha]-[color]-[dir]-[icon_state]-[layer]-[blend_state ? blend_state : ""]-[blend_process]-[T.icon]-[T.icon_state]-[T.tile_outline ? T.tile_outline : ""]-[T.tile_outline_blend_process]"
 		if(!floor_decals[cache_key])
 			var/icon/decal_icon
@@ -41,6 +43,7 @@
 				decal_icon.SwapColor(color_to_swap, rgb(0, 0, 0, 0)) // cut it up, schiesse
 			var/image/I = image(icon = decal_icon)
 			I.layer = layer
+			SET_PLANE_EXPLICIT(I, FLOOR_PLANE, T)
 			I.appearance_flags = appearance_flags
 			I.color = src.color
 			I.alpha = src.alpha

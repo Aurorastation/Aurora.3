@@ -113,7 +113,7 @@
 	if(flooring)
 		layer = TURF_LAYER
 	else
-		layer = PLATING_LAYER
+		layer = LOW_FLOOR_LAYER
 
 /turf/simulated/floor/is_floor()
 	return TRUE

@@ -8,7 +8,7 @@
 	opacity = FALSE
 	w_class = WEIGHT_CLASS_NORMAL
 	plane = FLOOR_PLANE
-	layer = ABOVE_TILE_LAYER
+	layer = LATTICE_LAYER
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	smoothing_flags = SMOOTH_MORE
 	canSmoothWith = list(

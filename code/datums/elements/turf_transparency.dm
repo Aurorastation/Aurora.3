@@ -231,9 +231,9 @@ GLOBAL_LIST_EMPTY(pillars_by_z)
 	return underlay_appearance
 
 /datum/element/turf_z_transparency/proc/get_closed_turf_underlays(turf/our_turf)
-	var/mutable_appearance/girder_underlay = mutable_appearance('icons/obj/structures.dmi', "girder", layer = LATTICE_LAYER)
+	var/mutable_appearance/girder_underlay = mutable_appearance('icons/obj/structures.dmi', "girder", layer = LATTICE_LAYER, offset_spokesman = our_turf, plane = FLOOR_PLANE)
 	girder_underlay.appearance_flags = RESET_ALPHA | RESET_COLOR
-	var/mutable_appearance/plating_underlay = mutable_appearance('icons/turf/flooring/plating.dmi', "plating", layer = PLATING_LAYER, offset_spokesman = our_turf, plane = FLOOR_PLANE)
+	var/mutable_appearance/plating_underlay = mutable_appearance('icons/turf/flooring/plating.dmi', "plating", layer = LOW_FLOOR_LAYER, offset_spokesman = our_turf, plane = FLOOR_PLANE)
 	plating_underlay.appearance_flags = RESET_ALPHA | RESET_COLOR
 	return list(girder_underlay, plating_underlay)
 

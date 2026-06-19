@@ -1,6 +1,6 @@
 /obj/effect/decal
 	plane = FLOOR_PLANE
-	layer = DECAL_LAYER
+	layer = TURF_DECAL_LAYER
 
 /obj/effect/decal/tesla_act()
 	return
@@ -10,6 +10,7 @@
 	desc = "It's an arrow hanging in mid-air. There may be a wizard about."
 	icon = 'icons/hud/mob/generic.dmi'
 	icon_state = "arrow"
+	plane = GAME_PLANE
 	layer = POINTER_LAYER
 	anchored = 1
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
@@ -18,6 +19,7 @@
 /obj/effect/decal/spraystill
 	density = 0
 	anchored = 1
+	plane = GAME_PLANE
 	layer = PROJECTILE_LAYER
 
 //Used for imitating an object's sprite for decorative purposes.
@@ -27,6 +29,7 @@
 	icon_state = "ladder11"
 	density = 0
 	anchored = 1
+	plane = GAME_PLANE
 	layer = OBJ_LAYER
 	mouse_opacity = MOUSE_OPACITY_ICON
 
@@ -42,6 +45,7 @@
 	icon = 'icons/effects/props/holodeck/biesel/32x32.dmi'
 	icon_state = "fog_roll"
 	anchored = 1
+	plane = GAME_PLANE
 	layer = ABOVE_PROJECTILE_LAYER
 
 /obj/effect/decal/fake_object/Initialize(mapload)

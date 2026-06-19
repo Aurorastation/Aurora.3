@@ -36,7 +36,7 @@
 	var/footstep_sound = SFX_FOOTSTEP_TILES
 
 	//How we smooth with other flooring
-	var/decal_layer = DECAL_LAYER
+	var/decal_layer = TURF_DECAL_LAYER
 	var/floor_smooth = SMOOTH_ALL
 	var/list/flooring_whitelist = list() //Smooth with nothing except the contents of this list
 	var/list/flooring_blacklist = list() //Smooth with everything except the contents of this list

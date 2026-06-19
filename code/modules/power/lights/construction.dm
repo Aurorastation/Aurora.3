@@ -216,7 +216,8 @@
 	icon = 'icons/obj/machinery/light.dmi'
 	icon_state = "floor-construct-stage1"
 	anchored = TRUE
-	layer = TURF_DETAIL_LAYER
+	plane = FLOOR_PLANE
+	layer = MID_TURF_LAYER
 	stage = 1
 	fixture_type = "floorbulb"
 	sheets_refunded = 1
@@ -227,6 +228,7 @@
 	icon = 'icons/obj/machinery/light.dmi'
 	icon_state = "floortube-construct-stage1"
 	anchored = TRUE
-	layer = TURF_DETAIL_LAYER
+	plane = FLOOR_PLANE
+	layer = MID_TURF_LAYER
 	stage = 1
 	fixture_type = "floorlight"

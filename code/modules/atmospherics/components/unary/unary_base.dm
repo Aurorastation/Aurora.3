@@ -2,7 +2,7 @@
 	dir = SOUTH
 	initialize_directions = SOUTH
 
-	layer = ABOVE_TILE_LAYER
+	layer = HIGH_TURF_LAYER
 
 	var/datum/gas_mixture/air_contents
 

@@ -3,7 +3,8 @@
 	icon = 'icons/obj/machinery/floor_light.dmi'
 	icon_state = "base"
 	desc = "A backlit floor panel."
-	layer = EXPOSED_WIRE_LAYER
+	plane = FLOOR_PLANE
+	layer = HIGH_TURF_LAYER
 	anchored = 0
 	use_power = POWER_USE_ACTIVE
 	idle_power_usage = 2

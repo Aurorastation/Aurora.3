@@ -89,7 +89,7 @@
 	if(!flooring_cache[cache_key])
 		var/image/I = image(icon = flooring.icon, icon_state = icon_base, dir = icon_dir)
 		I.turf_decal_layerise()
-		SET_PLANE_W_SCALAR(I, GAME_PLANE, plane_offset)
+		SET_PLANE_W_SCALAR(I, FLOOR_PLANE, plane_offset)
 
 		//External overlays will be offset out of this tile
 		if(external)
@@ -118,7 +118,7 @@
 		if(flooring_color)
 			I.color = flooring_color
 		I.turf_decal_layerise()
-		SET_PLANE_W_SCALAR(I, GAME_PLANE, plane_offset)
+		SET_PLANE_W_SCALAR(I, FLOOR_PLANE, plane_offset)
 		flooring_cache[cache_key] = I
 	return flooring_cache[cache_key]
 
