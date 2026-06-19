@@ -1,0 +1,5 @@
+author: Fenodyree
+delete-after: True
+changes:
+  - balance: "The percent chance to break bones is now increased linearly up to 4 times max health, instead of by flat damage."
+  - balance: "Sharp and edged weapons are now more likely to hit organs, if the ribs are not yet broken."

@@ -475,7 +475,9 @@
 
 	handle_limb_gibbing(used_weapon, brute, burn)
 
-	if(brute_dam + brute > min_broken_damage && prob(brute_dam + brute * (1 + blunt)))
+	///The chance of a bone breaking increases linearly, up to 100% at max_damage * 4 (The most damage an organ can take)
+	var/fracture_chance_increase = min(100, max(0, (brute_dam * 100) / (max_damage * 4)))
+	if(brute_dam + brute > min_broken_damage && prob(fracture_chance_increase + brute * (1 + blunt))) //Blunt hits have 2x chance to break bones.
 		if(blunt || brute > FRACTURE_AND_TENDON_DAM_THRESHOLD)
 			fracture()
 
@@ -559,8 +561,11 @@
 	organ_hit_chance += 5 * damage_amt / organ_damage_threshold
 
 	if(!BP_IS_ROBOTIC(src))
-		if(encased && !(status & ORGAN_BROKEN)) //ribs protect
-			organ_hit_chance *= 0.2
+		if(encased && !(status & ORGAN_BROKEN)) //Ribs protect
+			if (sharp) //Less protection against sharp objects.
+				organ_hit_chance *= 0.6
+			else
+				organ_hit_chance *= 0.2
 	else
 		organ_hit_chance *= 0.8 // robots should not have the same advantage
 
