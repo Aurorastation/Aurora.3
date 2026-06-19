@@ -1133,7 +1133,7 @@ GLOBAL_LIST_INIT(admin_verbs_storyteller, list(
 	set name = "Man Up"
 	set desc = "Tells mob to man up and deal with it."
 
-	to_chat(T, SPAN_NOTICE("<b><font size=3>Man up and deal with it.</font></b>"))
+	to_chat(T, SPAN_NOTICE("<b><font size=6>Man up and deal with it.</font></b>"))
 	to_chat(T, SPAN_NOTICE("Move on."))
 
 	log_admin("[key_name(usr)] told [key_name(T)] to man up and deal with it.")

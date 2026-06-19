@@ -706,12 +706,6 @@
 		stamina_recovery = species.stamina_recovery
 		sprint_cost_factor = species.sprint_cost_factor
 
-		if(CE_ADRENALINE in chem_effects)
-			sprint_speed_factor += 0.1*chem_effects[CE_ADRENALINE]
-			max_stamina *= 1 + chem_effects[CE_ADRENALINE]
-			sprint_cost_factor -= 0.35 * chem_effects[CE_ADRENALINE]
-			stamina_recovery += max ((stamina_recovery * 0.7 * chem_effects[CE_ADRENALINE]), 5)
-
 		var/obj/item/clothing/suit = wear_suit
 		var/protected = FALSE
 		if(suit && (suit.body_parts_covered & HANDS) && (suit.heat_protection & HANDS))

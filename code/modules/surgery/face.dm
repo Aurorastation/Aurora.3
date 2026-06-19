@@ -9,9 +9,7 @@
 	/obj/item/material/knife = 75,
 	/obj/item/material/shard = 50
 	)
-
-	min_duration = 70
-	max_duration = 90
+	base_surgery_time = 9 SECONDS
 	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 
 /singleton/surgery_step/generic/cut_face/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -40,9 +38,7 @@
 	/obj/item/material/knife = 75,
 	/obj/item/material/shard = 50
 	)
-
-	min_duration = 70
-	max_duration = 90
+	base_surgery_time = 9 SECONDS
 	skill_requirements = alist(ROBOTICS_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 
 /singleton/surgery_step/robotics/face/synthskin/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)

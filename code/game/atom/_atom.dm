@@ -162,6 +162,9 @@
 	if(length(overlays))
 		overlays.Cut()
 
+	if (length(underlays))
+		underlays.Cut()
+
 	QDEL_NULL(light)
 	LAZYNULL(light_sources)
 
@@ -172,9 +175,7 @@
 	if(icon_update_queued)
 		SSicon_update.remove_from_queue(src)
 
-	if(length(atom_overlay_cache))
-		LAZYCLEARLIST(atom_overlay_cache)
-
+	LAZYNULL(atom_overlay_cache)
 	if(length(atom_protected_overlay_cache))
 		LAZYCLEARLIST(atom_protected_overlay_cache)
 	LAZYNULL(atom_colours)
@@ -185,7 +186,11 @@
 	// The component is attached to us normaly and will be deleted elsewhere
 	orbiters = null
 	do_unique_target_user = null
-	langchat_drop_images()
+	for(var/datum/langchat_bubble/entry as anything in langchat_images)
+		for(var/mob/listener as anything in entry.listeners)
+			if(listener.client)
+				listener.client.images -= entry.bubble
+	langchat_images = null
 	return ..()
 
 /atom/proc/handle_ricochet(obj/projectile/ricocheting_projectile)
