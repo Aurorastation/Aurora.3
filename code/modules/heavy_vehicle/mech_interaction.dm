@@ -699,10 +699,9 @@ GLOBAL_DATUM_INIT(mech_state, /datum/ui_state/default, new())
 /mob/living/heavy_vehicle/get_floating_chat_y_offset()
 	return 20
 
-/mob/living/heavy_vehicle/hear_say(var/message, var/verb = "says", var/datum/language/language = null, var/alt_name = "", var/italics = 0, var/mob/speaker = null, var/sound/speech_sound, var/sound_vol)
+/mob/living/heavy_vehicle/react_to_message(datum/say_message/msg)
 	if(can_listen())
-		addtimer(CALLBACK(src, PROC_REF(handle_hear_say), speaker, message), 0.5 SECONDS)
-	return ..()
+		addtimer(CALLBACK(src, PROC_REF(handle_hear_say), msg.speaker, msg.to_string()), 0.5 SECONDS)
 
 // heavily commented so it doesn't look like one fat chunk of code, which it still does - Geeves
 /mob/living/heavy_vehicle/proc/handle_hear_say(var/mob/speaker, var/text)

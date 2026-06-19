@@ -140,3 +140,6 @@
 
 /// Signal raised against a character attempting to deliver a speech.
 #define COMSIG_GET_LEADERSHIP_MODIFIERS "get_leadership_modifiers"
+
+// Crafting Signals
+#define COMSIG_GET_CRAFTING_MODIFIERS "get_crafting_modifiers"

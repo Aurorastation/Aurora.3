@@ -70,7 +70,7 @@
 		item_state = initial(item_state)
 	update_held_icon()
 
-/obj/item/pickaxe/mob_can_equip(M, slot, disable_warning = FALSE)
+/obj/item/pickaxe/mob_can_equip(M, slot, disable_warning = FALSE, bypass_blocked_check = FALSE, is_overlay_check = FALSE)
 	//Cannot equip wielded items.
 	if(wielded)
 		to_chat(M, SPAN_WARNING("Unwield the [initial(name)] first!"))
@@ -1431,7 +1431,6 @@ GLOBAL_LIST_INIT_TYPED(total_extraction_beacons, /obj/structure/extraction_point
 		target = get_atom_on_turf(src)
 	if(!target)
 		target = src
-	QDEL_NULL(effect_overlay)
 	if(location)
 		new /obj/effect/overlay/temp/explosion(location)
 		playsound(location, 'sound/effects/Explosion1.ogg', 100, 1)

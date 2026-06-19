@@ -442,7 +442,7 @@ var/global/list/default_interrogation_channels = list(
 	// If we were to send to a channel we don't have, drop it.
 	return null
 
-/obj/item/radio/talk_into(mob/living/M, message, channel, var/say_verb = "says", var/datum/language/speaking = null, var/ignore_restrained)
+/obj/item/radio/talk_into(mob/living/M, message, channel, var/say_verb = "says", var/datum/language/speaking = null, var/ignore_restrained, var/datum/say_message/say_message = null)
 	if(!on)
 		return FALSE
 	if(!M || !message)
@@ -487,7 +487,7 @@ var/global/list/default_interrogation_channels = list(
 
 	// Determine the identify information attached to the signal
 	var/datum/weakref/speaker_weakref = WEAKREF(M)
-	var/datum/signal/subspace/vocal/signal = new(src, connection.frequency, speaker_weakref, speaking, message, say_verb)
+	var/datum/signal/subspace/vocal/signal = new(src, connection.frequency, speaker_weakref, speaking, message, say_verb, say_message)
 
 	// All radios attempt to use the subspace system
 	. = signal.send_to_receivers()
@@ -594,7 +594,7 @@ var/global/list/default_interrogation_channels = list(
 /obj/item/radio/borg/list_channels(var/mob/user)
 	return list_secure_channels(user)
 
-/obj/item/radio/borg/talk_into(mob/living/M, message, channel, verb, datum/language/speaking, var/ignore_restrained)
+/obj/item/radio/borg/talk_into(mob/living/M, message, channel, verb, datum/language/speaking, var/ignore_restrained, var/datum/say_message/say_message = null)
 	. = ..()
 	if (isrobot(src.loc))
 		var/mob/living/silicon/robot/R = src.loc

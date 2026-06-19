@@ -92,6 +92,26 @@
 	var/tmp/airflow_time = 0
 	var/tmp/last_airflow = 0
 
+	var/can_be_unanchored = 0
+	var/obj/buckled_to
+	var/can_be_buckled = FALSE
+
+	/** Used to check wether or not an atom is being handled by SSfalling. */
+	var/tmp/multiz_falling = 0
+
+	var/tmp/airflow_xo
+	var/tmp/airflow_yo
+	var/tmp/airflow_od
+	var/tmp/airflow_process_delay
+	var/tmp/airflow_skip_speedcheck
+
+	/// The mimic (if any) that's *directly* copying us.
+	var/tmp/atom/movable/openspace/mimic/bound_overlay
+	/// If TRUE, this atom is ignored by Z-Mimic.
+	var/z_flags
+
+	var/atmos_canpass = CANPASS_ALWAYS
+
 /atom/movable/Initialize(mapload, ...)
 	. = ..()
 	update_emissive_blocker()
@@ -104,10 +124,9 @@
 		AddComponent(/datum/component/overlay_lighting, is_directional = TRUE)
 
 /atom/movable/Destroy(force)
-	if(orbiting)
-		orbiting.end_orbit(src)
-
+	orbiting?.end_orbit(src)
 	QDEL_NULL(emissive_overlay)
+	particles = null
 
 	if(move_packet)
 		if(!QDELETED(move_packet))
@@ -144,16 +163,12 @@
 			M.pulling = null
 		pulledby = null
 
-	if (bound_overlay)
-		QDEL_NULL(bound_overlay)
-
-	if(em_block)
-		QDEL_NULL(em_block)
-
-	QDEL_NULL(light)
-	QDEL_NULL(static_light)
+	QDEL_NULL(bound_overlay)
+	QDEL_NULL(em_block)
 	airflow_dest = null
 	loc = null
+	buckled_to?.buckled = null
+	buckled_to = null
 	return ..()
 
 /atom/movable/proc/moveToNullspace()
@@ -671,6 +686,8 @@
 	SSspatial_grid.remove_grid_membership(src, our_turf, SPATIAL_GRID_CONTENTS_TYPE_HEARING)
 
 	for(var/atom/movable/location as anything in get_nested_locs(src) + src)
+		if (!location)
+			continue
 		var/list/recursive_contents = location.important_recursive_contents // blue hedgehog velocity
 		recursive_contents[RECURSIVE_CONTENTS_HEARING_SENSITIVE] -= src
 		if(!length(recursive_contents[RECURSIVE_CONTENTS_HEARING_SENSITIVE]))

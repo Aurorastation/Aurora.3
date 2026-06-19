@@ -6,14 +6,21 @@
 	all_vaurca = set_all_vaurca
 
 /datum/tgui_module/hivenet_manifest/ui_interact(var/mob/user, var/datum/tgui/ui)
+	if(is_lemurian_sea_sector())
+		to_chat(user, SPAN_WARNING("You attempt to query the Hivenet, but find nothing."))
+		return
+
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "HivenetManifest", "Hivenet Manifest", 350, 400)
-		ui.autoupdate = FALSE
 		ui.open()
 
 /datum/tgui_module/hivenet_manifest/ui_data(mob/user)
 	var/list/data = list()
+
+	if(is_lemurian_sea_sector())
+		SStgui.close_uis(src)
+		return data
 
 	var/list/zora_vaurca = list()
 	var/list/cthur_vaurca = list()

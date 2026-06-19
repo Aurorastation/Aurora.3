@@ -55,12 +55,8 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - refactor: "Updates TGUI backend (both modules and tgui code) from Inferno to React."
-  - refactor: "Migrates all TGUI components and interfaces to the new React architecture."
-  - rscadd: "Adds item examine tags and descriptors w/ hoverable tooltips in chat window."
-  - rscdel: "Removal of all lingering NanoUI code and assets."
-  - server: "Build tool Javascript to Typescript migrations."
-  - code_imp: "Migration to bun 1.2.16."
-  - code_imp: "Migration from eslint 7.32.0 -> biome 2.1.2."
-  - code_imp: "Many many other dependency changes; see all 'package.json' diffs."
-  - bugfix: "Fixes runtime attempting to clone executable files in NTOS File Manager."
+  - rscadd: "Adds some additional grates to the Horizon's D2 Medical for traction in zero-g."
+  - rscdel: "Removes ADPI sound effects."
+  - bugfix: "Fixes inflated Gravity Anomaly timing values."
+  - bugfix: "Fixes ADPI line retrieval."
+  - qol: "Reduces screenshake strength globally by 33%."
