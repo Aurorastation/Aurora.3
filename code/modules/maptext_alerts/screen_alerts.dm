@@ -106,6 +106,7 @@
 	// Christ on sale. I'm sorry, but this DOES work...
 	screen_loc = "LEFT[random_shift > 0 ? "+" : ""][random_shift]:[random_shift * 2],TOP-[7 + random_shift]:[random_shift * 2]"
 	..()
+	return INITIALIZE_HINT_NORMAL
 
 ///proc for actually playing this screen_text on a mob.
 /atom/movable/screen/text/screen_text/proc/play_to_client()
