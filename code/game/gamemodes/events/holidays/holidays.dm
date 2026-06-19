@@ -187,7 +187,7 @@ var/global/Holiday = null
 /proc/Holiday_Game_Start()
 	if(Holiday)
 		to_world(SPAN_NOTICE("and..."))
-		to_world("<h4>Happy [Holiday] Everybody!</h4>")
+		to_world(FONT_SIZE_LARGE("Happy [Holiday] Everybody!"))
 		switch(Holiday)			//special holidays
 			if("Easter")
 				Easter_Game_Start()
