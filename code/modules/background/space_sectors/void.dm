@@ -72,7 +72,7 @@
 	sector_lobby_transitions = 0
 	sector_hud_menu = 'icons/misc/hudmenu/lemurian_hud.dmi'
 	hivenet_echoes = FALSE
-	away_sites_enabled = FALSE
+	away_sites_enabled = TRUE
 	ccia_link = FALSE
 
 /datum/space_sector/lemurian_sea/far

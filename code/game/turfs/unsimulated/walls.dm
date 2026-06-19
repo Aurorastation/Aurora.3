@@ -117,3 +117,14 @@
 	canSmoothWith = list(
 		/turf/unsimulated/wall/composite_stone
 	)
+
+/turf/unsimulated/wall/r_wall
+	icon = 'icons/turf/smooth/composite_reinf.dmi'
+	icon_state = "r_wall"
+	color = COLOR_GRAY20
+	smoothing_flags = SMOOTH_MORE
+	canSmoothWith = list(
+		/obj/structure/window,
+		/turf/unsimulated/wall,
+		/turf/simulated/wall
+	)

@@ -16,21 +16,25 @@
 	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 	spawn_cost = 1
 	spawn_weight = 1
-	sectors = list(ALL_POSSIBLE_SECTORS)
+	sectors = list(LEMURIAN_SEA_SECTORS)
 	unit_test_groups = list(1)
 
 /obj/effect/overmap/visitable/sector/ancient_skrell_ship
-	name = "Ancient Skrell Ship"
-	desc = "placeholder."
+	name = "Unidentified Wreckage"
+	desc = "This station sized wreckage does not give off any IFF names recognised by the sensor suite."
 	static_vessel = TRUE
 	generic_object = FALSE
 	icon = 'icons/obj/overmap/overmap_ships.dmi'
 	icon_state = "asteroid_cluster"
 	color = "#a186bb"
 	designer = "Unknown"
-	volume = "placeholder."
+	volume = "Unknown"
 	weapons = "Not apparent"
 
 	initial_generic_waypoints = list(
+		// asteroid landing marks
+		"nav_ancient_skrell_intrepid",
+		"nav_ancient_skrell_lz1",
+		"nav_ancient_skrell_lz2",
 	)
 

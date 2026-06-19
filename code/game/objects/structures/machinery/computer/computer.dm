@@ -268,6 +268,22 @@
 	can_pass_under = FALSE
 	light_power_on = 1
 
+// ---- inactive (fluff) computers
+
+/obj/structure/machinery/computer/inactive
+
+/obj/structure/machinery/computer/inactive/attack_hand(mob/user)
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+	balloon_alert(user, "\the [src] is unresponsive")
+
+/obj/structure/machinery/computer/inactive/skrell
+	name = "inactive console"
+	desc = "A holographic console of an alien technology, seemingly not quite responsive to inputs."
+	icon_screen = "skrell"
+	icon_keyboard = "skrell_key"
+	icon_keyboard_emis = "skrell_key_mask"
+	light_color = LIGHT_COLOR_PURPLE
+
 /obj/structure/machinery/computer/terminal/inactive
 	name = "inactive terminal"
 	light_power = 0

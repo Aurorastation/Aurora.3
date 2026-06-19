@@ -8,7 +8,7 @@
 	prefix = "away_site/quarantined_outpost/"
 	suffix = "quarantined_outpost.dmm"
 
-	sectors = list(ALL_CRESCENT_EXPANSE_SECTORS, ALL_VOID_SECTORS, SECTOR_WEEPING_STARS, SECTOR_BADLANDS, SECTOR_VALLEY_HALE)
+	sectors = list(ALL_CRESCENT_EXPANSE_SECTORS, SECTOR_LEMURIAN_SEA, SECTOR_WEEPING_STARS, SECTOR_BADLANDS, SECTOR_VALLEY_HALE)
 	spawn_weight = 1
 	spawn_cost = 1
 	id = "quarantined_outpost"
