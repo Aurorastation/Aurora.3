@@ -342,7 +342,7 @@
 		to_chat(user, SPAN_WARNING("You can't build a terminal on space."))
 		return 1
 	else if (istype(tempLoc))
-		if(!tempLoc.is_plating())
+		if(tempLoc.underfloor_accessibility < UNDERFLOOR_INTERACTABLE)
 			to_chat(user, SPAN_WARNING("You must remove the floor plating first."))
 			return 1
 	to_chat(user, SPAN_NOTICE("You start adding cable to the [src]."))
@@ -410,7 +410,7 @@
 		building_terminal = 1
 		var/turf/tempTDir = terminal.loc
 		if (istype(tempTDir))
-			if(!tempTDir.is_plating())
+			if(tempTDir.underfloor_accessibility < UNDERFLOOR_INTERACTABLE)
 				to_chat(user, SPAN_WARNING("You must remove the floor plating first."))
 			else
 				to_chat(user, SPAN_NOTICE("You begin to cut the cables..."))

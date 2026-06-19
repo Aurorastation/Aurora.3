@@ -622,7 +622,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 	// CABLE COIL: Install the power terminal (wire stuff on the floor in front of the APC).
 	else if (attacking_item.tool_behaviour == TOOL_CABLECOIL && !terminal && opened != COVER_CLOSED && has_electronics != HAS_ELECTRONICS_SECURED)
 		var/turf/T = loc
-		if(istype(T) && !T.is_plating())
+		if(istype(T) && T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE)
 			to_chat(user, SPAN_WARNING("You must remove the floor plating in front of the APC first."))
 			return
 		var/obj/item/stack/cable_coil/C = attacking_item
@@ -648,7 +648,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 	// WIRECUTTER: Dismantle the power terminal (wire stuff on the floor in front of APC).
 	else if (attacking_item.tool_behaviour == TOOL_WIRECUTTER && terminal && opened != COVER_CLOSED && has_electronics != HAS_ELECTRONICS_SECURED)
 		var/turf/T = loc
-		if(istype(T) && !T.is_plating())
+		if(istype(T) && T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE)
 			to_chat(user, SPAN_WARNING("You must remove the floor plating in front of the APC first."))
 			return
 		user.visible_message(SPAN_WARNING("[user.name] dismantles the power terminal from [src]."), \

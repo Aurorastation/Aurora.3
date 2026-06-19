@@ -186,7 +186,7 @@
 		var/turf/T = get_turf(src)
 		if(!istype(T))
 			return
-		if(!T.is_plating() && node && node.level == 1 && istype(node, /obj/structure/machinery/atmospherics/pipe))
+		if(T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE && node && node.uses_undertile() && istype(node, /obj/structure/machinery/atmospherics/pipe))
 			return
 		else
 			if(node)
@@ -195,7 +195,8 @@
 				add_underlay(T,, dir)
 			underlays += "frame"
 
-/obj/structure/machinery/atmospherics/unary/vent_pump/hide()
+/obj/structure/machinery/atmospherics/unary/vent_pump/on_undertile_updated()
+	SIGNAL_HANDLER
 	queue_icon_update()
 
 /obj/structure/machinery/atmospherics/unary/vent_pump/proc/can_pump()
@@ -431,7 +432,7 @@
 
 			var/turf/T = src.loc
 
-			if(node && node.level==1 && isturf(T) && !T.is_plating())
+			if(node && node.uses_undertile() && isturf(T) && T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE)
 				to_chat(user, SPAN_WARNING("You must remove the plating first."))
 
 			else if(loc)

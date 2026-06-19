@@ -12,6 +12,7 @@
 	thermal_conductivity = OPEN_HEAT_TRANSFER_COEFFICIENT
 //	heat_capacity = 700000 No.
 	is_hole = TRUE
+	underfloor_accessibility = UNDERFLOOR_INTERACTABLE
 
 	z_eventually_space = TRUE
 	turf_flags = TURF_FLAG_BACKGROUND
@@ -86,8 +87,9 @@
 
 // override for space turfs, since they should never hide anything
 /turf/space/levelupdate()
+	underfloor_accessibility = UNDERFLOOR_INTERACTABLE
 	for(var/obj/O in src)
-		O.hide(0)
+		SEND_SIGNAL(O, COMSIG_OBJ_HIDE, underfloor_accessibility)
 
 /turf/space/can_have_cabling()
 	if (locate(/obj/structure/lattice/catwalk) in src)

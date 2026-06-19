@@ -3,6 +3,7 @@
 	desc = ""
 	icon = 'icons/atmos/vent_passive.dmi'
 	icon_state = "map_vent"
+	layer = HIGH_TURF_LAYER
 
 	connect_types = CONNECT_TYPE_REGULAR|CONNECT_TYPE_SUPPLY|CONNECT_TYPE_SCRUBBER|CONNECT_TYPE_AUX|CONNECT_TYPE_FUEL //connects to all pipes except HE
 
@@ -16,13 +17,15 @@
 	var/obj/structure/machinery/atmospherics/node
 	var/welded = FALSE
 
+/obj/structure/machinery/atmospherics/pipe/vent_passive/uses_undertile()
+	return FALSE
+
 /obj/structure/machinery/atmospherics/pipe/vent_passive/Initialize()
 	initialize_directions = dir
 	. = ..()
 
-/obj/structure/machinery/atmospherics/pipe/vent_passive/hide(var/i)
-	if(istype(loc, /turf/simulated))
-		set_invisibility(i ? 101 : 0)
+/obj/structure/machinery/atmospherics/pipe/vent_passive/on_undertile_updated()
+	SIGNAL_HANDLER
 	queue_icon_update()
 
 /obj/structure/machinery/atmospherics/pipe/vent_passive/mechanics_hints(mob/user, distance, is_adjacent)
@@ -53,7 +56,7 @@
 		var/turf/T = get_turf(src)
 		if(!istype(T))
 			return
-		if(!T.is_plating() && node && node.level == 1 && istype(node, /obj/structure/machinery/atmospherics/pipe))
+		if(T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE && node && node.uses_undertile() && istype(node, /obj/structure/machinery/atmospherics/pipe))
 			return
 		else
 			if(node)
@@ -146,7 +149,7 @@
 	else if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		var/turf/T = src.loc
 
-		if(level==1 && isturf(T) && !T.is_plating())
+		if(uses_undertile() && isturf(T) && T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE)
 			to_chat(user, SPAN_WARNING("You must remove the plating first."))
 
 		else if(loc)

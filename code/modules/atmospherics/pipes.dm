@@ -1,5 +1,6 @@
 /obj/structure/machinery/atmospherics/pipe
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
+	layer = BELOW_CATWALK_LAYER
 	var/datum/gas_mixture/air_temporary // used when reconstructing a pipeline that broke
 	var/datum/pipeline/parent
 	var/volume = 0
@@ -44,8 +45,14 @@
 	if(!mapload)
 		return INITIALIZE_HINT_NORMAL
 
-/obj/structure/machinery/atmospherics/pipe/hides_under_flooring()
-	return level != 2
+/obj/structure/machinery/atmospherics/pipe/uses_undertile()
+	return level == 1 && !density
+
+/obj/structure/machinery/atmospherics/pipe/undertile_layer()
+	return BELOW_CATWALK_LAYER
+
+/obj/structure/machinery/atmospherics/pipe/undertile_restored_layer()
+	return uses_undertile() ? BELOW_CATWALK_LAYER : ..()
 
 /obj/structure/machinery/atmospherics/pipe/proc/pipeline_expansion()
 	return null
@@ -106,7 +113,7 @@
 	if (attacking_item.tool_behaviour != TOOL_WRENCH && !istype(attacking_item, /obj/item/pipewrench))
 		return ..()
 	var/turf/T = src.loc
-	if (level==1 && isturf(T) && !T.is_plating())
+	if (uses_undertile() && isturf(T) && T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE)
 		to_chat(user, SPAN_WARNING("You must remove the plating first!"))
 		return TRUE
 	var/datum/gas_mixture/int_air = return_air()
@@ -221,9 +228,8 @@
 			initialize_directions = SOUTH|WEST
 	. = ..()
 
-/obj/structure/machinery/atmospherics/pipe/simple/hide(var/i)
-	if(istype(loc, /turf/simulated))
-		set_invisibility(i ? 101 : 0)
+/obj/structure/machinery/atmospherics/pipe/simple/on_undertile_updated()
+	SIGNAL_HANDLER
 	queue_icon_update()
 
 /obj/structure/machinery/atmospherics/pipe/simple/process()
@@ -338,8 +344,8 @@
 		return
 
 	atmos_initialised = TRUE
-	var/turf/T = loc
-	if(level == 1 && !T.is_plating()) hide(1)
+	if(level == 1)
+		update_underfloor_from_turf()
 	queue_icon_update()
 
 /obj/structure/machinery/atmospherics/pipe/simple/disconnect(obj/structure/machinery/atmospherics/reference)
@@ -360,6 +366,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/visible
 	icon_state = "intact"
 	level = 2
+	layer = HIGH_TURF_LAYER
 
 /obj/structure/machinery/atmospherics/pipe/simple/visible/scrubbers
 	name = "Scrubbers pipe"
@@ -418,6 +425,9 @@
 	icon_state = "intact"
 	level = 1
 	alpha = 128		//set for the benefit of mapping - this is reset to opaque when the pipe is spawned in game
+
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/uses_undertile()
+	return TRUE
 
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers
 	name = "Scrubbers pipe"
@@ -512,9 +522,8 @@
 			initialize_directions = NORTH|EAST|SOUTH
 	. = ..()
 
-/obj/structure/machinery/atmospherics/pipe/manifold/hide(var/i)
-	if(istype(loc, /turf/simulated))
-		set_invisibility(i ? 101 : 0)
+/obj/structure/machinery/atmospherics/pipe/manifold/on_undertile_updated()
+	SIGNAL_HANDLER
 	queue_icon_update()
 
 /obj/structure/machinery/atmospherics/pipe/manifold/pipeline_expansion()
@@ -657,13 +666,14 @@
 		return
 
 	atmos_initialised = TRUE
-	var/turf/T = get_turf(src)
-	if(level == 1 && !T.is_plating()) hide(1)
+	if(level == 1)
+		update_underfloor_from_turf()
 	queue_icon_update()
 
 /obj/structure/machinery/atmospherics/pipe/manifold/visible
 	icon_state = "map"
 	level = 2
+	layer = HIGH_TURF_LAYER
 
 /obj/structure/machinery/atmospherics/pipe/manifold/visible/scrubbers
 	name = "scrubbers pipe manifold"
@@ -722,6 +732,9 @@
 	icon_state = "map"
 	level = 1
 	alpha = 128		//set for the benefit of mapping - this is reset to opaque when the pipe is spawned in game
+
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/uses_undertile()
+	return TRUE
 
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers
 	name = "scrubbers pipe manifold"
@@ -927,9 +940,8 @@
 	..()
 	queue_icon_update()
 
-/obj/structure/machinery/atmospherics/pipe/manifold4w/hide(var/i)
-	if(istype(loc, /turf/simulated))
-		set_invisibility(i ? 101 : 0)
+/obj/structure/machinery/atmospherics/pipe/manifold4w/on_undertile_updated()
+	SIGNAL_HANDLER
 	queue_icon_update()
 
 /obj/structure/machinery/atmospherics/pipe/manifold4w/atmos_init()
@@ -963,13 +975,14 @@
 		return
 
 	atmos_initialised = TRUE
-	var/turf/T = get_turf(src)
-	if(level == 1 && !T.is_plating()) hide(1)
+	if(level == 1)
+		update_underfloor_from_turf()
 	queue_icon_update()
 
 /obj/structure/machinery/atmospherics/pipe/manifold4w/visible
 	icon_state = "map_4way"
 	level = 2
+	layer = HIGH_TURF_LAYER
 
 /obj/structure/machinery/atmospherics/pipe/manifold4w/visible/scrubbers
 	name = "4-way scrubbers pipe manifold"
@@ -1028,6 +1041,9 @@
 	icon_state = "map_4way"
 	level = 1
 	alpha = 128		//set for the benefit of mapping - this is reset to opaque when the pipe is spawned in game
+
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/uses_undertile()
+	return TRUE
 
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers
 	name = "4-way scrubbers pipe manifold"
@@ -1104,9 +1120,8 @@
 	initialize_directions = dir
 	. = ..()
 
-/obj/structure/machinery/atmospherics/pipe/cap/hide(var/i)
-	if(istype(loc, /turf/simulated))
-		set_invisibility(i ? 101 : 0)
+/obj/structure/machinery/atmospherics/pipe/cap/on_undertile_updated()
+	SIGNAL_HANDLER
 	queue_icon_update()
 
 /obj/structure/machinery/atmospherics/pipe/cap/pipeline_expansion()
@@ -1161,13 +1176,14 @@
 				break
 
 	atmos_initialised = TRUE
-	var/turf/T = src.loc			// hide if turf is not intact
-	if(level == 1 && !T.is_plating()) hide(1)
+	if(level == 1)
+		update_underfloor_from_turf()
 	queue_icon_update()
 
 /obj/structure/machinery/atmospherics/pipe/cap/visible
 	level = 2
 	icon_state = "cap"
+	layer = HIGH_TURF_LAYER
 
 /obj/structure/machinery/atmospherics/pipe/cap/visible/scrubbers
 	name = "scrubbers pipe endcap"
@@ -1201,6 +1217,9 @@
 	level = 1
 	icon_state = "cap"
 	alpha = 128
+
+/obj/structure/machinery/atmospherics/pipe/cap/hidden/uses_undertile()
+	return TRUE
 
 /obj/structure/machinery/atmospherics/pipe/cap/hidden/scrubbers
 	name = "scrubbers pipe endcap"
@@ -1237,7 +1256,7 @@
 
 	name = "Pressure Tank"
 	desc = "A large vessel containing pressurized gas."
-	layer = STRUCTURE_LAYER
+	layer = ABOVE_CATWALK_LAYER
 
 	connect_types = CONNECT_TYPE_REGULAR|CONNECT_TYPE_SUPPLY|CONNECT_TYPE_SCRUBBER|CONNECT_TYPE_FUEL|CONNECT_TYPE_AUX
 	volume = 10000 //in liters, 1 meters by 1 meters by 2 meters ~tweaked it a little to simulate a pressure tank without needing to recode them yet
@@ -1278,7 +1297,8 @@
 			return
 		add_underlay(T, node1, dir)
 
-/obj/structure/machinery/atmospherics/pipe/tank/hide()
+/obj/structure/machinery/atmospherics/pipe/tank/on_undertile_updated()
+	SIGNAL_HANDLER
 	update_underlays()
 
 /obj/structure/machinery/atmospherics/pipe/tank/atmos_init()
@@ -1545,7 +1565,7 @@
 
 /obj/structure/machinery/atmospherics/proc/add_underlay_adapter(var/turf/T, var/obj/structure/machinery/atmospherics/node, var/direction, var/icon_connect_type) //modified from add_underlay, does not make exposed underlays
 	if(node)
-		if(!T.is_plating() && node.level == 1 && istype(node, /obj/structure/machinery/atmospherics/pipe))
+		if(T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE && node.uses_undertile() && istype(node, /obj/structure/machinery/atmospherics/pipe))
 			underlays += icon_manager.get_atmos_icon("underlay", direction, color_cache_name(node), "down" + icon_connect_type)
 		else
 			underlays += icon_manager.get_atmos_icon("underlay", direction, color_cache_name(node), "intact" + icon_connect_type)

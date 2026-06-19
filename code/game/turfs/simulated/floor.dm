@@ -5,6 +5,8 @@
 	icon_state = "plating"
 	is_outside = OUTSIDE_AREA
 	plane = FLOOR_PLANE
+	layer = LOW_FLOOR_LAYER
+	underfloor_accessibility = UNDERFLOOR_INTERACTABLE
 
 	explosion_resistance = 1
 
@@ -108,10 +110,9 @@
 		update_icon(1)
 
 /turf/simulated/floor/levelupdate()
-	for(var/obj/O in src)
-		O.hide(O.hides_under_flooring() && src.flooring)
+	..()
 	if(flooring)
-		layer = TURF_LAYER
+		layer = LOW_FLOOR_LAYER
 	else
 		layer = LOW_FLOOR_LAYER
 

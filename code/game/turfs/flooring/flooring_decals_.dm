@@ -19,7 +19,8 @@
 	var/list/floor_decals = SSicon_cache.floor_decals
 	if(istype(T, /turf/simulated/floor) || istype(T, /turf/unsimulated/floor))
 		layer = T.is_plating() ? TURF_PLATING_DECAL_LAYER : TURF_DECAL_LAYER
-		var/cache_key = "[name]-[alpha]-[color]-[dir]-[icon_state]-[layer]-[blend_state ? blend_state : ""]-[blend_process]-[T.icon]-[T.icon_state]-[T.tile_outline ? T.tile_outline : ""]-[T.tile_outline_blend_process]"
+		var/plane_offset = GET_TURF_PLANE_OFFSET(T) || 0
+		var/cache_key = "[name]-[alpha]-[color]-[dir]-[icon_state]-[layer]-[blend_state ? blend_state : ""]-[blend_process]-[T.icon]-[T.icon_state]-[T.tile_outline ? T.tile_outline : ""]-[T.tile_outline_blend_process]-plane-offset-[plane_offset]"
 		if(!floor_decals[cache_key])
 			var/icon/decal_icon
 			var/icon/decal_blend_icon
@@ -43,7 +44,7 @@
 				decal_icon.SwapColor(color_to_swap, rgb(0, 0, 0, 0)) // cut it up, schiesse
 			var/image/I = image(icon = decal_icon)
 			I.layer = layer
-			SET_PLANE_EXPLICIT(I, FLOOR_PLANE, T)
+			SET_PLANE_W_SCALAR(I, FLOOR_PLANE, plane_offset)
 			I.appearance_flags = appearance_flags
 			I.color = src.color
 			I.alpha = src.alpha

@@ -119,6 +119,16 @@
 	can_be_unanchored = TRUE
 	layer = CATWALK_LAYER
 
+/obj/structure/lattice/catwalk/indoor/Initialize()
+	. = ..()
+	var/turf/turf = get_turf(src)
+	turf?.levelupdate()
+
+/obj/structure/lattice/catwalk/indoor/Destroy()
+	var/turf/turf = get_turf(src)
+	. = ..()
+	turf?.levelupdate()
+
 /obj/structure/lattice/catwalk/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/WT = attacking_item

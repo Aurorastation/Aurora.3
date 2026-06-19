@@ -101,9 +101,10 @@ By design, d1 is the smallest direction and d2 is the highest
 /obj/structure/cable/Initialize(mapload)
 	. = ..()
 
-	var/turf/T = src.loc			// hide if turf is not intact
-	if(level == 1 && !T.is_hole)
-		hide(!T.is_plating())
+	var/turf/T = loc
+	AddElement(/datum/element/undertile, TRAIT_T_RAY_VISIBLE)
+	RegisterSignal(src, COMSIG_UNDERTILE_UPDATED, PROC_REF(on_undertile_updated))
+	update_underfloor_from_turf()
 
 	GLOB.cable_list += src
 
@@ -124,13 +125,11 @@ By design, d1 is the smallest direction and d2 is the highest
 // General procedures
 ///////////////////////////////////
 
-//If underfloor, hide the cable
-/obj/structure/cable/hide(var/i)
-	if(istype(loc, /turf))
-		set_invisibility(i ? 101 : 0)
+/obj/structure/cable/proc/on_undertile_updated()
+	SIGNAL_HANDLER
 	update_icon()
 
-/obj/structure/cable/hides_under_flooring()
+/obj/structure/cable/uses_undertile()
 	return TRUE
 
 /obj/structure/cable/update_icon()
@@ -149,7 +148,7 @@ By design, d1 is the smallest direction and d2 is the highest
 /obj/structure/cable/attackby(obj/item/attacking_item, mob/user)
 
 	var/turf/T = src.loc
-	if(!T.can_have_cabling())
+	if(!T.can_have_cabling() || T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE)
 		return
 
 	if(attacking_item.tool_behaviour == TOOL_WIRECUTTER || (attacking_item.sharp || attacking_item.edge))
@@ -863,7 +862,7 @@ By design, d1 is the smallest direction and d2 is the highest
 
 	var/turf/T = C.loc
 
-	if(!isturf(T) || !T.can_have_cabling())		// sanity checks, also stop use interacting with T-scanner revealed cable
+	if(!isturf(T) || !T.can_have_cabling() || T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE)
 		return
 
 	if(get_dist(C, user) > 1)		// make sure it's close enough
@@ -879,7 +878,7 @@ By design, d1 is the smallest direction and d2 is the highest
 
 	// one end of the clicked cable is pointing towards us
 	if(C.d1 == dirn || C.d2 == dirn)
-		if(!T.can_have_cabling())						// can't place a cable if the floor is complete
+		if(!T.can_lay_cable())
 			to_chat(user, "You can't lay cable there unless the floor tiles are removed.")
 			return
 		else

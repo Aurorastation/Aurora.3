@@ -61,6 +61,9 @@
 	/// How far the tracks last
 	var/track_distance = 12
 
+	/// tgstation-style underfloor visibility and interaction state for this turf's contents.
+	var/underfloor_accessibility = UNDERFLOOR_HIDDEN
+
 	//Mining resources (for the large drills).
 	var/has_resources
 	var/list/resources
@@ -462,6 +465,10 @@
 
 	ASSERT(istype(arrived))
 
+	var/obj/arrived_obj = arrived
+	if(istype(arrived_obj) && arrived_obj.uses_undertile())
+		arrived_obj.update_underfloor_from_turf()
+
 	if(ismob(arrived))
 		var/mob/M = arrived
 		if(!M.lastarea)
@@ -565,7 +572,22 @@
 	return FALSE
 
 /turf/proc/can_lay_cable()
-	return can_have_cabling()
+	return can_have_cabling() && underfloor_accessibility >= UNDERFLOOR_INTERACTABLE
+
+/turf/proc/get_base_underfloor_accessibility()
+	return is_plating() ? UNDERFLOOR_INTERACTABLE : UNDERFLOOR_HIDDEN
+
+/turf/proc/get_cover_underfloor_accessibility()
+	if(locate(/obj/structure/lattice/catwalk/indoor) in src)
+		return UNDERFLOOR_VISIBLE
+
+/turf/proc/recalculate_underfloor_accessibility()
+	var/cover_accessibility = get_cover_underfloor_accessibility()
+	if(!isnull(cover_accessibility))
+		underfloor_accessibility = cover_accessibility
+	else
+		underfloor_accessibility = get_base_underfloor_accessibility()
+	return underfloor_accessibility
 
 /turf/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/grab))
@@ -595,8 +617,9 @@
 	return
 
 /turf/proc/levelupdate()
+	recalculate_underfloor_accessibility()
 	for(var/obj/O in src)
-		O.hide(O.hides_under_flooring() && !is_plating())
+		SEND_SIGNAL(O, COMSIG_OBJ_HIDE, underfloor_accessibility)
 
 /turf/proc/AdjacentTurfs(var/check_blockage = TRUE)
 	. = list()

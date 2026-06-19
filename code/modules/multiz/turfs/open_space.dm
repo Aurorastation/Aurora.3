@@ -10,6 +10,7 @@
 	density = 0
 	pathweight = 100000 //Seriously, don't try and path over this one numbnuts
 	is_hole = TRUE
+	underfloor_accessibility = UNDERFLOOR_INTERACTABLE
 	roof_type = null
 	footstep_sound = null
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
@@ -158,7 +159,7 @@
 	icon_state = "debug"
 	mouse_opacity = MOUSE_OPACITY_OPAQUE
 	plane = FLOOR_PLANE
-	layer = TURF_LAYER
+	layer = LOW_FLOOR_LAYER
 	smoothing_flags = SMOOTH_TRUE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
 	smoothing_hints = SMOOTHHINT_CUT_F | SMOOTHHINT_ONLY_MATCH_TURF | SMOOTHHINT_TARGETS_NOT_UNIQUE
 	name = "hole"
@@ -214,7 +215,7 @@
 		for (var/thing in src)
 			var/obj/O = thing	// This might not be an obj.
 			if (isobj(O))
-				O.hide(0)
+				SEND_SIGNAL(O, COMSIG_OBJ_HIDE, UNDERFLOOR_INTERACTABLE)
 			if (is_hole && O.simulated)
 				ADD_FALLING_ATOM(O)
 
@@ -223,8 +224,9 @@
 
 // override to make sure nothing is hidden
 /turf/simulated/open/levelupdate()
+	underfloor_accessibility = UNDERFLOOR_INTERACTABLE
 	for(var/obj/O in src)
-		O.hide(0)
+		SEND_SIGNAL(O, COMSIG_OBJ_HIDE, underfloor_accessibility)
 
 /turf/simulated/open/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
 	. = ..()

@@ -138,6 +138,12 @@
 // every hearing sensitive atom has this trait
 #define TRAIT_HEARING_SENSITIVE "hearing_sensitive"
 
+/// Atom is currently under flooring or another underfloor cover.
+#define TRAIT_UNDERFLOOR "underfloor"
+
+/// Atom is visible to T-ray scanners while hidden under flooring.
+#define TRAIT_T_RAY_VISIBLE "t_ray_visible"
+
 /// forces the mob to speak gibberish, like highly damaged borgs
 #define TRAIT_SPEAKING_GIBBERISH "speaking_gibberish"
 

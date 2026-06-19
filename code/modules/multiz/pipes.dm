@@ -14,6 +14,7 @@
 
 	dir = SOUTH
 	initialize_directions = SOUTH
+	layer = HIGH_TURF_LAYER
 
 	var/minimum_temperature_difference = 300
 	// WALL_HEAT_TRANSFER_COEFFICIENT
@@ -59,9 +60,8 @@
 		to_chat(M, SPAN_NOTICE("You are in a vertical pipe section. Use [travel_verbname] from the IC menu to [travel_direction_verb] a level."))
 		. = ..()
 
-/obj/structure/machinery/atmospherics/pipe/zpipe/hide(var/i)
-	if(istype(loc, /turf/simulated))
-		set_invisibility(i ? 101 : 0)
+/obj/structure/machinery/atmospherics/pipe/zpipe/on_undertile_updated()
+	SIGNAL_HANDLER
 	queue_icon_update()
 
 /obj/structure/machinery/atmospherics/pipe/zpipe/process()
@@ -178,9 +178,7 @@
 					node2 = target
 					break
 
-
-	var/turf/T = src.loc			// hide if turf is not intact
-	hide(!T.is_plating())
+	update_underfloor_from_turf()
 
 ///////////////////////
 // and the down pipe //
@@ -223,7 +221,7 @@
 					break
 
 
-	hide(!T.is_plating())
+	update_underfloor_from_turf()
 
 ////////////////////////////////
 // supply/scrubbers/fuel/aux  //

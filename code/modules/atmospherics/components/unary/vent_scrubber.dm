@@ -125,7 +125,7 @@
 		var/turf/T = get_turf(src)
 		if(!istype(T))
 			return
-		if(!T.is_plating() && node && node.level == 1 && istype(node, /obj/structure/machinery/atmospherics/pipe))
+		if(T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE && node && node.uses_undertile() && istype(node, /obj/structure/machinery/atmospherics/pipe))
 			return
 		else
 			if(node)
@@ -226,7 +226,8 @@
 
 	return 1
 
-/obj/structure/machinery/atmospherics/unary/vent_scrubber/hide(var/i) //to make the little pipe section invisible, the icon changes.
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on_undertile_updated() // to make the little pipe section invisible, the icon changes.
+	SIGNAL_HANDLER
 	update_icon()
 	update_underlays()
 
@@ -363,7 +364,7 @@
 			to_chat(user, SPAN_WARNING("You cannot unwrench \the [src], turn it off first."))
 			return TRUE
 		var/turf/T = src.loc
-		if (node && node.level==1 && isturf(T) && !T.is_plating())
+		if (node && node.uses_undertile() && isturf(T) && T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE)
 			to_chat(user, SPAN_WARNING("You must remove the plating first."))
 			return TRUE
 		var/datum/gas_mixture/int_air = return_air()

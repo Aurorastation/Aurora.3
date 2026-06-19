@@ -16,9 +16,9 @@
 
 /obj/structure/machinery/power/terminal/Initialize()
 	. = ..()
-	var/turf/T = src.loc
-	if(level == 1)
-		hide(!T.is_plating())
+	AddElement(/datum/element/undertile, TRAIT_T_RAY_VISIBLE)
+	RegisterSignal(src, COMSIG_UNDERTILE_UPDATED, PROC_REF(on_undertile_updated))
+	update_underfloor_from_turf()
 	return
 
 /obj/structure/machinery/power/terminal/Destroy()
@@ -27,6 +27,9 @@
 		master = null
 	return ..()
 
-/obj/structure/machinery/power/terminal/hide(var/i)
-	set_invisibility(i ? 101 : initial(invisibility))
-	icon_state = i ? "term-f" : "term"
+/obj/structure/machinery/power/terminal/uses_undertile()
+	return TRUE
+
+/obj/structure/machinery/power/terminal/proc/on_undertile_updated()
+	SIGNAL_HANDLER
+	icon_state = invisibility ? "term-f" : "term"

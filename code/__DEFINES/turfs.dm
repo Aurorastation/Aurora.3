@@ -27,6 +27,13 @@
 #define ROOF_FORCE_SPAWN        1
 #define ROOF_CLEANUP            2
 
+/// Atoms (usually only atmos pipes/machinery, disposals, and wires) are hidden.
+#define UNDERFLOOR_HIDDEN 0
+/// Atoms (usually only atmos pipes/machinery, disposals, and wires) are visible but cannot be interacted with.
+#define UNDERFLOOR_VISIBLE 1
+/// Atoms (usually only atmos pipes/machinery, disposals, and wires) are visible and can be interacted with.
+#define UNDERFLOOR_INTERACTABLE 2
+
 // MultiZ faller control. (Bit flags.)
 // Default flag is needed for assoc lists to work.
 #define CLIMBER_DEFAULT 1

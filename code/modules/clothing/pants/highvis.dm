@@ -15,7 +15,7 @@
 /obj/item/clothing/pants/highvis/get_mob_emissive_overlays(mob/living/carbon/human/H, mob_icon, mob_state, slot)
 	if(slot != slot_pants_str)
 		return
-	return emissive_appearance(mob_icon, "[icon_state][species_sprite_adaption_type]-emis", H, alpha = src.alpha)
+	return emissive_appearance(mob_icon, "[icon_state][species_sprite_adaption_type]-emis", H, alpha = src.alpha, effect_type = EMISSIVE_SPECULAR)
 
 /obj/item/clothing/pants/highvis/colorable
 	icon_state = "pants_highvis_colorable"

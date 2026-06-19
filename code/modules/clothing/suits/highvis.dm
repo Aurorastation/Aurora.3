@@ -18,7 +18,7 @@
 /obj/item/clothing/suit/storage/toggle/highvis/get_mob_emissive_overlays(mob/living/carbon/human/H, mob_icon, mob_state, slot)
 	if(slot != slot_wear_suit_str)
 		return
-	return emissive_appearance(mob_icon, "[opened ? "jacket_highvis_[emissive_variant]_open_su-emis" : "jacket_highvis_[emissive_variant]_su-emis"]", H, alpha = src.alpha)
+	return emissive_appearance(mob_icon, "[opened ? "jacket_highvis_[emissive_variant]_open_su-emis" : "jacket_highvis_[emissive_variant]_su-emis"]", H, alpha = src.alpha, effect_type = EMISSIVE_SPECULAR)
 
 /obj/item/clothing/suit/storage/toggle/highvis/colorable
 	name = "high visibility jacket"

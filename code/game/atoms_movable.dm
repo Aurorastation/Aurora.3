@@ -128,6 +128,20 @@
 	if(!isnull(true_plane))
 		SET_PLANE_EXPLICIT(src, true_plane, src)
 
+/atom/movable/proc/update_underfloor_from_turf()
+	var/turf/turf = get_turf(src)
+	if(turf)
+		SEND_SIGNAL(src, COMSIG_OBJ_HIDE, turf.underfloor_accessibility)
+
+/atom/movable/proc/undertile_layer()
+	return BELOW_CATWALK_LAYER
+
+/atom/movable/proc/undertile_restored_plane()
+	return initial(plane)
+
+/atom/movable/proc/undertile_restored_layer()
+	return initial(layer)
+
 /atom/movable/reset_plane_and_layer()
 	. = ..()
 	update_plane_from_z()

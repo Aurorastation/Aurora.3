@@ -93,8 +93,9 @@
 /turf/simulated/wall/levelupdate(mapload)
 	if (mapload)
 		return 		// Don't hide stuff during mapload.
+	underfloor_accessibility = UNDERFLOOR_HIDDEN
 	for(var/obj/O in src)
-		O.hide(1)
+		SEND_SIGNAL(O, COMSIG_OBJ_HIDE, underfloor_accessibility)
 
 /turf/simulated/wall/Initialize(mapload, var/materialtype, var/rmaterialtype)
 	. = ..()

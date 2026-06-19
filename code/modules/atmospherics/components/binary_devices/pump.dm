@@ -112,7 +112,8 @@ Thus, the two variables affect pump operation are set in New():
 		add_underlay(T, node1, turn(dir, -180), node1?.icon_connect_type)
 		add_underlay(T, node2, dir, node2?.icon_connect_type)
 
-/obj/structure/machinery/atmospherics/binary/pump/hide(var/i)
+/obj/structure/machinery/atmospherics/binary/pump/on_undertile_updated()
+	SIGNAL_HANDLER
 	update_underlays()
 
 /obj/structure/machinery/atmospherics/binary/pump/process()

@@ -873,6 +873,8 @@
 
 /obj/structure/disposalpipe/Initialize(mapload)
 	. = ..()
+	AddElement(/datum/element/undertile, TRAIT_T_RAY_VISIBLE)
+	update_underfloor_from_turf()
 
 	if(mapload)
 		var/turf/T = loc
@@ -937,19 +939,8 @@
 
 	return P
 
-/**
- * Update the icon_state to reflect hidden status
- */
 /obj/structure/disposalpipe/proc/update()
-	var/turf/T = src.loc
-	hide(!T.is_plating() && !istype(T,/turf/space))	// space never hides pipes
-
-/**
- * Hide called by levelupdate if turf intact status changes
- * Change visibility status and force update of icon
- */
-/obj/structure/disposalpipe/hide(var/intact)
-	set_invisibility(intact ? 101: 0)	// hide if floor is intact
+	update_underfloor_from_turf()
 
 /**
  * Expel the held objects into a turf
@@ -968,7 +959,7 @@
 		qdel(H)
 		return
 
-	if(!T.is_plating() && istype(T,/turf/simulated/floor)) //intact floor, pop the tile
+	if(T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE && istype(T,/turf/simulated/floor)) // covered floor, pop the tile
 		var/turf/simulated/floor/F = T
 		F.break_tile()
 		new /obj/item/stack/tile(H)	// add to holder so it will be thrown with other stuff
@@ -1062,8 +1053,8 @@
  */
 /obj/structure/disposalpipe/attackby(obj/item/attacking_item, mob/user)
 	var/turf/T = src.loc
-	if(!T.is_plating())
-		return		// prevent interaction with T-scanner revealed pipes
+	if(T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE)
+		return		// prevent interaction while underfloor cover is closed
 	src.add_fingerprint(user)
 	if(attacking_item.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/W = attacking_item
@@ -1123,7 +1114,7 @@
 
 	qdel(src)
 
-/obj/structure/disposalpipe/hides_under_flooring()
+/obj/structure/disposalpipe/uses_undertile()
 	return 1
 
 // *** TEST verb
@@ -1521,8 +1512,8 @@
 		return
 
 	var/turf/T = src.loc
-	if(!T.is_plating())
-		return		// prevent interaction with T-scanner revealed pipes
+	if(T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE)
+		return		// prevent interaction while underfloor cover is closed
 	src.add_fingerprint(user)
 	if(attacking_item.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/W = attacking_item
