@@ -3,3 +3,4 @@ delete-after: True
 changes:
   - balance: "The chance to break a bone is now flat damage % for sharp and edge, twice that for blunt."
   - balance: "Sharp and edged weapons are now more likely to hit organs, if the ribs are not yet broken."
+  - bugfix: "Bullets are no longer treated as blunt weapons. This increases their chance to hit organs and decreases their chance to break bone."
