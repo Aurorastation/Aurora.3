@@ -1,4 +1,0 @@
-author: Hellfirejag
-delete-after: True
-changes:
-  - bugfix: "Fixed ADPI pinging mindshields more than once per message interval."
