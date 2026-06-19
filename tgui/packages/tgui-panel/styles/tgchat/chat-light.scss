@@ -584,6 +584,10 @@ h2.alert {
   font-weight: bold;
   font-style: italic;
 }
+.condition {
+  color: #ff00ff;
+  font-weight: bold;
+}
 
 /* Languages */
 .alien {
@@ -704,6 +708,11 @@ h2.alert {
   &--odyssey {
     @extend .examine_block;
     border-color: #0077ff;
+  }
+
+  &--conditions {
+    @extend .examine_block;
+    border-color: #b10824;
   }
 }
 

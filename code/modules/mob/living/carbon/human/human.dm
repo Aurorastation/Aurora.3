@@ -11,6 +11,9 @@
 	light_system = MOVABLE_LIGHT
 	blocks_emissive = EMISSIVE_BLOCK_NONE
 
+	/// List of conditions afflicting this mob.
+	var/list/datum/condition/conditions
+
 /mob/living/carbon/human/Initialize(mapload, var/new_species = null)
 	if(!dna)
 		dna = new /datum/dna(null)
@@ -2364,3 +2367,52 @@
 		return speech_bubble_type
 	else
 		return ..()
+
+/**
+ * Applies a given condition type to this human.
+ */
+/mob/living/carbon/human/proc/apply_condition(condition_type)
+	var/datum/condition/human/new_condition = new condition_type(src)
+	if(new_condition)
+		LAZYADD(conditions, new_condition)
+
+/**
+ * Removes a condition type or ref from this human.
+ */
+/mob/living/carbon/human/proc/remove_condition(condition)
+	if(ispath(condition))
+		for(var/datum/condition/condition_ref in conditions)
+			if(istype(condition_ref, condition))
+				LAZYREMOVE(conditions, condition_ref)
+	else if(condition in conditions)
+		LAZYREMOVE(conditions, condition)
+
+/**
+ * Check if this human has a certain condition. Can be type or ref.
+ */
+/mob/living/carbon/human/proc/has_condition(condition)
+	var/datum/condition/found_condition
+	if(ispath(condition))
+		for(var/datum/condition/condition_ref in conditions)
+			if(istype(condition_ref, condition))
+				found_condition = condition_ref
+	else if(condition in conditions)
+		found_condition = condition
+
+	// Some conditions can apply more than once. In that case, we count as not having that condition until that limit is reached.
+	if(found_condition.max_condition_amount > 1)
+		var/found_conditions = 1
+		for(var/datum/condition/same_condition in conditions)
+			if(istype(same_condition, condition))
+				found_conditions++
+		if(found_conditions >= found_condition.max_condition_amount)
+			return TRUE
+		else return FALSE
+
+	return !!found_condition
+
+/**
+ * Removes all conditions from a human.
+ */
+/mob/living/carbon/human/proc/remove_conditions()
+	QDEL_LAZYLIST(conditions)

@@ -409,6 +409,26 @@
 					var/mob/living/silicon/robot/R = usr
 					R.self_diagnosis_verb()
 
+			if(ishuman(usr))
+				var/mob/living/carbon/human/user = usr
+				var/conditions_status = SPAN_CONDITION("What I feel...\n")
+				for(var/datum/condition/condition in user.conditions)
+					if(condition.flags & CONDITION_FLAG_SELF_VISIBLE)
+						conditions_status += "- " + condition.get_visible_status() + "\n"
+
+				var/list/seen_conditions = list()
+				var/list/english_list_condition_status = list()
+				for(var/obj/item/organ/organ in user.organs)
+					for(var/datum/condition/organ/condition in organ.conditions)
+						if(condition.flags & CONDITION_FLAG_SELF_VISIBLE && (condition.max_condition_amount > 1 || !(condition in seen_conditions)))
+							seen_conditions += condition
+							english_list_condition_status[organ.name] += condition.get_visible_status()
+					if(organ.name in english_list_condition_status)
+						conditions_status += "- My [organ.name]: " + english_list(english_list_condition_status[organ.name]) + "\n"
+
+				conditions_status = EXAMINE_BLOCK_CONDITIONS(conditions_status)
+				to_chat(user, conditions_status)
+
 		if("inventory")
 			if(isrobot(usr))
 				var/mob/living/silicon/robot/R = usr

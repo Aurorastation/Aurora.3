@@ -53,6 +53,11 @@
 	var/force_skintone = FALSE		// If true, icon generation will skip is-robotic checks. Used for synthskin limbs.
 	var/list/species_restricted //used by augments and biomods to see what species can have this augment
 
+	/// Current conditions.
+	var/list/datum/condition/conditions
+	/// List of possible conditions that can be applied to this organ. Type assoc list, the value is the probability of each condition.
+	var/list/possible_conditions
+
 INITIALIZE_IMMEDIATE(/obj/item/organ)
 
 /obj/item/organ/Initialize(mapload, internal)
@@ -275,6 +280,9 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 /obj/item/organ/proc/rejuvenate()
 	damage = 0
 
+/obj/item/organ/proc/get_damage()
+	return damage
+
 /obj/item/organ/proc/heal_damage(amount)
 	if(can_recover())
 		damage = between(0, damage - amount, max_damage)
@@ -486,7 +494,6 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 	return 1
 
 /obj/item/organ/internal/eyes/replaced(var/mob/living/carbon/human/target)
-
 	// Apply our eye colour to the target.
 	if(istype(target) && eye_colour)
 		target.r_eyes = eye_colour[1]
@@ -522,3 +529,48 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 //used by stethoscope
 /obj/item/organ/proc/listen()
 	return
+
+/**
+ * Removes a condition type or ref from this organ.
+ */
+/obj/item/organ/proc/remove_condition(condition)
+	if(ispath(condition))
+		for(var/datum/condition/condition_ref in conditions)
+			if(istype(condition_ref, condition))
+				LAZYREMOVE(conditions, condition_ref)
+	else if(condition in conditions)
+		LAZYREMOVE(conditions, condition)
+
+/**
+ * Check if this organ has a certain condition. Can be type or ref.
+ */
+/obj/item/organ/proc/has_condition(condition)
+	var/datum/condition/found_condition
+	if(ispath(condition))
+		for(var/datum/condition/condition_ref in conditions)
+			if(istype(condition_ref, condition))
+				found_condition = condition_ref
+	else if(condition in conditions)
+		found_condition = condition
+
+	if(found_condition?.can_upgrade && istype(condition, found_condition.type)) //conditions that can upgrade when a new condition of the same type is applied
+		return FALSE
+
+	// Some conditions can apply more than once. In that case, we count as not having that condition until that limit is reached.
+	if(found_condition?.max_condition_amount > 1)
+		var/found_conditions = 1
+		for(var/datum/condition/same_condition in conditions)
+			if(istype(same_condition, condition))
+				found_conditions++
+		if(found_conditions >= found_condition.max_condition_amount)
+			return TRUE
+		else return FALSE
+
+	return !!found_condition
+
+/**
+ * Removes all conditions from an organ.
+ */
+/obj/item/organ/proc/remove_conditions()
+	QDEL_LAZYLIST(conditions)
+
