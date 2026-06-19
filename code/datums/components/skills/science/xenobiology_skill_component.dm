@@ -1,16 +1,41 @@
 /datum/component/skill/xenobiology
+
+	/// Bonus surgery success rate, to be applied only when performing surgeries on a creature of a different species.
+	var/success_rate_bonus_per_level = 2.5
+
+	/// Bonus surgery speed (as a percent increase) per skill level, to be applied only when performing surgeries on a creature of a different species.
+	var/surgery_speed_mod_per_level = 0.05
+  
 	/// +%bonus damage versus Space Fauna (EG: Space Carp, Space Bears, Asteroid Worms, Gnats, Etc.)
 	var/bonus_damage_per_rank = 0.05
 
 /datum/component/skill/xenobiology/Initialize(level)
 	. = ..()
+	if (!parent)
+		return
+
+	RegisterSignal(parent, COMSIG_GET_SURGERY_SUCCESS_MODIFIERS, PROC_REF(handle_surgery_modifiers))
 	RegisterSignal(parent, COMSIG_APPLY_HIT_EFFECT, PROC_REF(modify_hit_effect), override = TRUE)
 	RegisterSignal(parent, COMSIG_GET_BUTCHERING_MODIFIERS, PROC_REF(modify_butchering), override = TRUE)
 
 /datum/component/skill/xenobiology/Destroy(force)
+	if (!parent)
+		return ..()
+
+	UnregisterSignal(parent, COMSIG_GET_SURGERY_SUCCESS_MODIFIERS)
 	UnregisterSignal(parent, COMSIG_APPLY_HIT_EFFECT)
 	UnregisterSignal(parent, COMSIG_GET_BUTCHERING_MODIFIERS)
 	return ..()
+
+/datum/component/skill/xenobiology/proc/handle_surgery_modifiers(mob/living/user, mob/living/carbon/target, success_rate, duration)
+	SIGNAL_HANDLER
+	// This component only applies to surgeries where our species does not match the target species.
+	if (astype(user, /mob/living/carbon/human)?.species == astype(target, /mob/living/carbon/human)?.species)
+		return
+
+	var/effective_skill = skill_level - 1
+	*success_rate = *success_rate + success_rate_bonus_per_level * effective_skill
+	*duration = *duration * (1 - surgery_speed_mod_per_level * effective_skill)
 
 /datum/component/skill/xenobiology/proc/modify_hit_effect(owner, mob/living/target, obj/item/weapon, power, hit_zone)
 	SIGNAL_HANDLER

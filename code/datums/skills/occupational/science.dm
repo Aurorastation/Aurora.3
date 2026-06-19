@@ -27,9 +27,10 @@
 
 /singleton/skill/xenobiology
 	name = "Xenobiology"
-	description = "Xenobiology is the study of the research and cataloguing of alien lifeforms. This skill governs a character's familiarity with many kinds of Xenofauna." \
-		+ "It is necessary not only for the proper detailing of alien creatures, but also for their processing, such as with slimes. " \
-		+ "Having this skill at least at the \"Trained\" rank is required to extract cores from slimes."
+	description = "Xenobiology is the study of the research and cataloguing of alien lifeforms. It is necessary not only for the proper detailing of \
+		alien creatures, but also for their processing, such as with slimes. " \
+		+ "Having this skill at least at the \"Trained\" rank is required to extract cores from slimes. " \
+		+ "Ranks in this skill also provide small situational bonuses when interacting with aliens in general."
 	maximum_level = SKILL_LEVEL_PROFESSIONAL
 	uneducated_skill_cap = SKILL_LEVEL_PROFESSIONAL
 	category =  /singleton/skill_category/occupational

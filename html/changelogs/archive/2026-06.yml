@@ -374,3 +374,28 @@
   Hellfirejag:
   - bugfix: Fixed ADPI only sending messages to the dead.
   - bugfix: Fixed ADPI messages playing excessively quickly in rare extreme circumstances
+2026-06-19:
+  Hellfirejag:
+  - bugfix: Fixed ADPI pinging mindshields more than once per message interval.
+  - bugfix: Fixed silicons incorrectly being considered a valid target for psionics.
+  - rscadd: 'Morale now affects crafting speed, providing up to +/- 25% extra crafting
+      speed that scales with the current morale percentage. EG: Having 50% morale
+      gives 12.5% faster crafting.'
+  - rscadd: Morale now affects the Gardening skill, providing up to +/- 25% plant
+      harvesting speed. Having at least a 75% morale bonus increases plant harvesting
+      yield by +1 fruit.
+  - balance: Increased the numerical effects of morale modifiers on skill-related
+      checks by 50% across the board.
+  - bugfix: Tweaked the morale icon to be more likely to disappear when you have none
+      or extremely small amounts of morale. It should be less sensitive to infinitesimal
+      points.
+  TheGreyWolf:
+  - rscadd: Added a new Orion theme and applied it to the cargo control, cargo order
+      and cargo delivery programs.
+  - rscadd: Modular computers can now have a front page theme defined. Currently this
+      is only applied to the operations delivery tablets.
+  - bugfix: Fixed some issues with the cargo programs displaying the wrong delivery
+      time.
+  - rscadd: Added the ability to clear the currently selected order in the delivery
+      program and cargo control program.
+  - rscadd: It is now possible to print invoices from the cargo delivery program.

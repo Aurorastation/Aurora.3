@@ -16,9 +16,7 @@
 	/obj/item/material/knife = 75,
 	/obj/item/material/shard = 50
 	)
-
-	min_duration = 10
-	max_duration = 35
+	base_surgery_time = 3.5 SECONDS
 	skill_requirements = alist(XENOBIOLOGY_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 
 /singleton/surgery_step/slime/cut_flesh/can_use(mob/living/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)
@@ -45,9 +43,7 @@
 	/obj/item/material/knife = 75,
 	/obj/item/material/shard = 50
 	)
-
-	min_duration = 20
-	max_duration = 45
+	base_surgery_time = 4.5 SECONDS
 	skill_requirements = alist(XENOBIOLOGY_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 
 /singleton/surgery_step/slime/cut_innards/can_use(mob/living/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)
@@ -73,9 +69,7 @@
 	TOOL_SAW = 100, \
 	/obj/item/material/hatchet = 75
 	)
-
-	min_duration = 35
-	max_duration = 55
+	base_surgery_time = 5.5 SECONDS
 	skill_requirements = alist(XENOBIOLOGY_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 
 /singleton/surgery_step/slime/saw_core/can_use(mob/living/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)

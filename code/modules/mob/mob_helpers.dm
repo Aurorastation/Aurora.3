@@ -487,14 +487,16 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
 /proc/shake_camera(mob/M, duration, strength=1, drift = FALSE)
 	if(!M || !M.client || duration < 1)
 		return
+	// This variable exists simply to reduce total strength of screenshake; in the future, it should be hooked to a client preference setting (standard/reduced screenshake for motion-sickness)
+	var/reduction_modifier = 2/3
 	var/drift_mode = (drift == TRUE)
 	var/client/C = M.client
 	var/oldx = C.pixel_x
 	var/oldy = C.pixel_y
-	var/max_x = strength*ICON_SIZE_X
-	var/max_y = strength*ICON_SIZE_Y
-	var/min_x = -(strength*ICON_SIZE_X)
-	var/min_y = -(strength*ICON_SIZE_Y)
+	var/max_x = strength*ICON_SIZE_X*(reduction_modifier)
+	var/max_y = strength*ICON_SIZE_Y*(reduction_modifier)
+	var/min_x = -(strength*ICON_SIZE_X)*(reduction_modifier)
+	var/min_y = -(strength*ICON_SIZE_Y)*(reduction_modifier)
 
 	//How much time to allot for each pixel moved
 	var/time_scalar = (1 / ICON_SIZE_ALL) * TILES_PER_SECOND

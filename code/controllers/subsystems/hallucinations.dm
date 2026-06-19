@@ -15,10 +15,6 @@ SUBSYSTEM_DEF(hallucinations)
 	var/list/adpi_jobs = list()
 	var/list/adpi_next_message = list()
 	var/tmp/list/current_adpi_targets = list()
-	var/static/list/adpi_sounds = list(
-		'sound/ambience/ghostly/ghostly1.ogg',
-		'sound/ambience/ghostly/ghostly2.ogg'
-	)
 	var/static/list/adpi_department_files = list(
 		DEPARTMENT_COMMAND = "adpi_dept_command.txt",
 		DEPARTMENT_ENGINEERING = "adpi_dept_engineering.txt",
@@ -328,7 +324,7 @@ SUBSYSTEM_DEF(hallucinations)
 	return TRUE
 
 /datum/controller/subsystem/hallucinations/proc/send_admin_adpi_message(var/mob/living/target, var/custom_message = null)
-	if(!target || !target.client || !target.mind || target.stat == DEAD || !target.is_psi_blocked(null, FALSE))
+	if(!target || !target.client || !target.mind || target.stat == DEAD || is_adpi_excluded(target) || is_adpi_blocked(target))
 		return FALSE
 
 	ensure_adpi_lists_loaded()
@@ -352,9 +348,6 @@ SUBSYSTEM_DEF(hallucinations)
 		message = pick("The water is dripping dripping dripping all around you.","Water flowing over stone, but there is no stone.","The waterfall roars o'er the cliff's edge.","Water, water, water. You are drowning.","Water, water, water. You will be awake for it.","Drums, drums, drums, unrelenting.","The drumbeat draws e'er closer.","Tap, ta-tap, ta-tap, tap, ta-tap, ta-tap.","Tap, tap tap, ta-tap, tap-tap, ta-tap.","Ta-ta-tap, tap, ta-tap, tap, tap ta-tap.")
 	target.play_screen_text("[message]", /atom/movable/screen/text/screen_text/adpi_message, COLOR_PURPLE)
 	to_chat(target, SPAN_CULT(FONT_LARGE("[message]")))
-
-	if(prob(33))
-		sound_to(target, pick(adpi_sounds))
 
 	if(isskrell(target))
 		var/mob/living/carbon/human/H = target
