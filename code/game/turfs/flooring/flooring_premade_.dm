@@ -376,6 +376,11 @@
 	tile_decal_state = "techmaint_light"
 	color = COLOR_GRAY30
 
+/turf/simulated/floor/tiled/techmaint/airless
+	name = "airless floor"
+	initial_gas = null
+	temperature = TCMB
+
 /turf/simulated/floor/tiled/techmaint/purple
 	initial_flooring = /singleton/flooring/tiling/techmaint/purple
 	color = "#3F3B4D"
