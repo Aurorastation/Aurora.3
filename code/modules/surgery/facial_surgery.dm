@@ -23,9 +23,7 @@
 	TOOL_RETRACTOR = 100,
 	/obj/item/material/knife/tacknife = 75
 	)
-
-	min_duration = 70
-	max_duration = 90
+	base_surgery_time = 9 SECONDS
 	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 	skill_diff_fail_modifier = SURGERY_DIFFICULTY_MEDIUM
 
@@ -57,9 +55,7 @@
 	TOOL_CABLECOIL = 75, 	\
 	/obj/item/assembly/mousetrap = 10	//I don't know. Don't ask me. But I'm leaving it because hilarity.
 	)
-
-	min_duration = 30
-	max_duration = 70
+	base_surgery_time = 7 SECONDS
 	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 	skill_diff_fail_modifier = SURGERY_DIFFICULTY_EXTREME
 
@@ -106,9 +102,7 @@
 	/obj/item/flame/lighter = 50,			\
 	/obj/item/weldingtool = 25
 	)
-
-	min_duration = 50
-	max_duration = 80
+	base_surgery_time = 8 SECONDS
 	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 	skill_diff_fail_modifier = SURGERY_DIFFICULTY_MEDIUM
 
@@ -151,9 +145,7 @@
 	/obj/item/material/knife = 75,
 	/obj/item/material/shard = 50
 	)
-
-	min_duration = 70
-	max_duration = 90
+	base_surgery_time = 9 SECONDS
 	skill_requirements = alist(ROBOTICS_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 	skill_diff_fail_modifier = SURGERY_DIFFICULTY_MEDIUM
 
@@ -181,9 +173,7 @@
 	TOOL_RETRACTOR = 100,
 	/obj/item/material/knife/tacknife = 75
 	)
-
-	min_duration = 70
-	max_duration = 90
+	base_surgery_time = 9 SECONDS
 	skill_requirements = alist(ROBOTICS_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 	skill_diff_fail_modifier = SURGERY_DIFFICULTY_MEDIUM
 
@@ -212,9 +202,7 @@
 	TOOL_CABLECOIL = 75, 	\
 	/obj/item/assembly/mousetrap = 10	//I don't know. Don't ask me. But I'm leaving it because hilarity.
 	)
-
-	min_duration = 30
-	max_duration = 70
+	base_surgery_time = 7 SECONDS
 	skill_requirements = alist(ROBOTICS_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 	skill_diff_fail_modifier = SURGERY_DIFFICULTY_EXTREME
 
@@ -259,9 +247,7 @@
 	/obj/item/flame/lighter = 50,			\
 	/obj/item/weldingtool = 25
 	)
-
-	min_duration = 50
-	max_duration = 80
+	base_surgery_time = 8 SECONDS
 	skill_requirements = alist(ROBOTICS_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 	skill_diff_fail_modifier = SURGERY_DIFFICULTY_MEDIUM
 

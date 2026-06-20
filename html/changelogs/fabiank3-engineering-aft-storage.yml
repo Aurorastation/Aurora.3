@@ -1,0 +1,7 @@
+author: FabianK3
+
+delete-after: True
+
+changes:
+  - rscadd: "Converted the INDRA office into a new engineering hard storage."
+  - rscdel: "Added a decontamination corner into the D2 engineering aft airlock room."

@@ -326,6 +326,7 @@
 	icon_state = "lens"
 	var/list/dispersion = list(2, 4, 6, 8, 10)
 	accuracy = 1
+	reliability = 45
 	repair_item = /obj/item/stack/material/glass
 	increasable_stats = list("reliability", "accuracy")
 	decreaseable_stats = list()
