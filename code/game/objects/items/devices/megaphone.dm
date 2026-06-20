@@ -47,12 +47,12 @@
 				return
 		if(emagged)
 			if(insults)
-				user.audible_message("<B>[user]</B> broadcasts, <FONT size=3>\"[pick(insultmsg)]\"</FONT>", "<B>[user]</B> speaks into \the [src].", 14)
+				user.audible_message("<B>[user]</B> broadcasts, <FONT size=5>\"[pick(insultmsg)]\"</FONT>", "<B>[user]</B> speaks into \the [src].", 14)
 				insults--
 			else
 				to_chat(user, SPAN_WARNING("*BZZZZzzzzzt*"))
 		else
-			user.audible_message("<B>[user]</B> broadcasts, <FONT size=3>\"[message]\"</FONT>", "<B>[user]</B> speaks into \the [src].", 14)
+			user.audible_message("<B>[user]</B> broadcasts, <FONT size=5>\"[message]\"</FONT>", "<B>[user]</B> speaks into \the [src].", 14)
 		if(activation_sound)
 			playsound(loc, activation_sound, 100, 0, 1)
 		for (var/mob/living/carbon/human/C in range(user, 2) - user)

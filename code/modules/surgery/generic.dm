@@ -28,8 +28,7 @@
 	/obj/item/surgery/scalpel/laser = 100
 	)
 	priority = 2
-	min_duration = 50
-	max_duration = 70
+	base_surgery_time = 7 SECONDS
 	// Basic procedure any novice can do
 	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR)
 
@@ -73,8 +72,7 @@
 	/obj/item/surgery/scalpel/manager = 100
 	)
 	priority = 2
-	min_duration = 60
-	max_duration = 80
+	base_surgery_time = 8 SECONDS
 	// Automated tool that requires no skill
 	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_UNFAMILIAR)
 
@@ -118,9 +116,7 @@
 	/obj/item/material/knife = 75,
 	/obj/item/material/shard = 50
 	)
-
-	min_duration = 60
-	max_duration = 80
+	base_surgery_time = 8 SECONDS
 	// Basic surgery any novice surgeon can do
 	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR)
 
@@ -164,9 +160,7 @@
 	TOOL_DRILL = 100,
 	/obj/item/pickaxe/ = 15
 	)
-
-	min_duration = 80
-	max_duration = 100
+	base_surgery_time = 10 SECONDS
 	// Basic surgery any novice surgeon can do
 	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR)
 
@@ -210,9 +204,7 @@
 	TOOL_CABLECOIL = 75, 	\
 	/obj/item/assembly/mousetrap = 20
 	)
-
-	min_duration = 20
-	max_duration = 30
+	base_surgery_time = 3 SECONDS
 	// Basic surgery any novice surgeon can do
 	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR)
 
@@ -251,9 +243,7 @@
 	TOOL_CROWBAR = 75,	\
 	/obj/item/material/kitchen/utensil/fork = 50
 	)
-
-	min_duration = 20
-	max_duration = 30
+	base_surgery_time = 3 SECONDS
 	// Basic surgery any novice surgeon can do
 	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR)
 
@@ -316,9 +306,7 @@
 	/obj/item/flame/lighter = 50,
 	/obj/item/weldingtool = 75
 	)
-
-	min_duration = 40
-	max_duration = 70
+	base_surgery_time = 7 SECONDS
 	// Basic surgery any novice surgeon can do
 	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR)
 

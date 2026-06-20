@@ -106,7 +106,7 @@
 		var/list/timers = _active_timers
 		_active_timers = null
 		for(var/datum/timedevent/timer as anything in timers)
-			if (timer.spent && !(timer.flags & TIMER_DELETE_ME))
+			if (!timer || (timer.spent && !(timer.flags & TIMER_DELETE_ME)))
 				continue
 			qdel(timer)
 
@@ -116,8 +116,37 @@
 	#endif
 	#endif
 
+	// Cleanup all events on non-turfs. These used to be procs, but have been removed to save proc overhead on 2.6 million destroy() calls
 	if (!isturf(src))
-		cleanup_events(src)
+		if(GLOB.global_listen_count && GLOB.global_listen_count[src])
+			GLOB.global_listen_count -= src
+			for(var/entry in GLOB.all_observable_events)
+				var/singleton/observ/event = entry
+				if(event.unregister_global(src))
+					log_debug("[event] - [src] was deleted while still registered to global events.")
+					if(!(--GLOB.global_listen_count[src]))
+						break
+		if(GLOB.event_sources_count && GLOB.event_sources_count[src])
+			GLOB.event_sources_count -= src
+			for(var/entry in GLOB.all_observable_events)
+				var/singleton/observ/event = entry
+				var/proc_owners = event.event_sources[src]
+				if(proc_owners)
+					for(var/proc_owner in proc_owners)
+						if(event.unregister(src, proc_owner))
+							log_debug("[event] - [src] was deleted while still being listened to by [proc_owner].")
+							if(!(--GLOB.event_sources_count[src]))
+								break
+		if(GLOB.event_listen_count && GLOB.event_listen_count[src])
+			GLOB.event_listen_count -= src
+			for(var/entry in GLOB.all_observable_events)
+				var/singleton/observ/event = entry
+				for(var/event_source in event.event_sources)
+					if(event.unregister(event_source, src))
+						log_debug("[event] - [src] was deleted while still listening to [event_source].")
+						if(!(--GLOB.event_listen_count[src]))
+							break
+	// End of event cleanup
 
 	//BEGIN: ECS SHIT
 	var/list/dc = _datum_components
@@ -126,34 +155,36 @@
 			var/component_or_list = dc[component_key]
 			if(islist(component_or_list))
 				for(var/datum/component/component as anything in component_or_list)
+					if (!component)
+						continue
 					qdel(component, FALSE)
 			else
 				var/datum/component/C = component_or_list
 				qdel(C, FALSE)
 		dc.Cut()
 
-	_clear_signal_refs()
-	//END: ECS SHIT
-
-	return QDEL_HINT_QUEUE
-
-///Only override this if you know what you're doing. You do not know what you're doing
-///This is a threat
-/datum/proc/_clear_signal_refs()
-	var/list/lookup = _listen_lookup
-	if(lookup)
-		for(var/sig in lookup)
-			var/list/comps = lookup[sig]
+	// Signal cleanup. This originally was a proc from /tg/ that had this warning label asking me not to override it.
+	/*
+		///Only override this if you know what you're doing. You do not know what you're doing
+		///This is a threat
+		*/
+	// Well proc overhead is a thing that exists when you're qdel'ing 2.6 million objects. And NOTHING overrides it or has any reason to override it.
+	if(length(_listen_lookup))
+		for(var/sig in _listen_lookup)
+			var/list/comps = _listen_lookup[sig]
 			if(length(comps))
 				for(var/datum/component/comp as anything in comps)
 					comp.UnregisterSignal(src, sig)
 			else
 				var/datum/component/comp = comps
 				comp.UnregisterSignal(src, sig)
-		_listen_lookup = lookup = null
+		_listen_lookup = null
 
 	for(var/target in _signal_procs)
 		UnregisterSignal(target, _signal_procs[target])
+	//END: ECS SHIT
+
+	return QDEL_HINT_QUEUE
 
 /**
  * Callback called by a timer to end an associative-list-indexed cooldown.
