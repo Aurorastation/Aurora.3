@@ -127,8 +127,6 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 			blood_DNA[dna.unique_enzymes] = dna.b_type
 
 /obj/item/organ/proc/die()
-	if(status & ORGAN_ROBOT)
-		return
 	damage = max_damage
 	status |= ORGAN_DEAD
 	death_time = world.time
