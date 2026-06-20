@@ -15,10 +15,6 @@ SUBSYSTEM_DEF(hallucinations)
 	var/list/adpi_jobs = list()
 	var/list/adpi_next_message = list()
 	var/tmp/list/current_adpi_targets = list()
-	var/static/list/adpi_sounds = list(
-		'sound/ambience/ghostly/ghostly1.ogg',
-		'sound/ambience/ghostly/ghostly2.ogg'
-	)
 	var/static/list/adpi_department_files = list(
 		DEPARTMENT_COMMAND = "adpi_dept_command.txt",
 		DEPARTMENT_ENGINEERING = "adpi_dept_engineering.txt",
@@ -134,7 +130,7 @@ SUBSYSTEM_DEF(hallucinations)
 	return is_lemurian_sea_sector()
 
 /datum/controller/subsystem/hallucinations/proc/read_adpi_file(var/file_name)
-	var/list/loaded_file = file2list("config/hallucinations/lemurian_sea/[file_name]")
+	var/list/loaded_file = file2list("config/hallucinations/[file_name]")
 	if(!loaded_file)
 		loaded_file = list()
 	return loaded_file
@@ -180,7 +176,7 @@ SUBSYSTEM_DEF(hallucinations)
 	return !target || target.is_psi_blocked(null, FALSE)
 
 /datum/controller/subsystem/hallucinations/proc/can_receive_adpi(var/mob/living/target)
-	return is_lemurian_sea() && target && target.client && target.mind && target.stat && (target.has_zona_bovinae() || target.has_psi_aug())
+	return is_lemurian_sea() && target && target.client && target.mind && !target.stat && (target.has_zona_bovinae() || target.has_psi_aug())
 
 /datum/controller/subsystem/hallucinations/proc/get_adpi_job(var/mob/living/carbon/human/H)
 	if(!H)
@@ -263,6 +259,9 @@ SUBSYSTEM_DEF(hallucinations)
 		adpi_next_message -= target
 		return
 
+	if(world.time < adpi_next_message[target])
+		return
+
 	if(is_adpi_blocked(target))
 		// ping their blocker an schedule another ping later.
 		schedule_next_adpi_message(target)
@@ -270,9 +269,6 @@ SUBSYSTEM_DEF(hallucinations)
 
 	if(!adpi_next_message[target])
 		schedule_next_adpi_message(target, TRUE)
-		return
-
-	if(world.time < adpi_next_message[target])
 		return
 
 	if(send_adpi_message(target))
@@ -285,7 +281,7 @@ SUBSYSTEM_DEF(hallucinations)
 
 /datum/controller/subsystem/hallucinations/proc/get_adpi_delay(var/mob/living/target, var/initial = FALSE)
 	var/base_delay = initial ? rand(8 MINUTES, 18 MINUTES) : rand(25 MINUTES, 40 MINUTES)
-	return base_delay - (base_delay * ftanh(target.check_psi_sensitivity() / 3))
+	return base_delay * (1 - (0.75 * ftanh(target.check_psi_sensitivity() / 3)))
 
 /datum/controller/subsystem/hallucinations/proc/get_adpi_pool_weight(var/pool_name)
 	if(pool_name == "general")
@@ -328,7 +324,7 @@ SUBSYSTEM_DEF(hallucinations)
 	return TRUE
 
 /datum/controller/subsystem/hallucinations/proc/send_admin_adpi_message(var/mob/living/target, var/custom_message = null)
-	if(!target || !target.client || !target.mind || target.stat == DEAD || !target.is_psi_blocked(null, FALSE))
+	if(!target || !target.client || !target.mind || target.stat == DEAD || is_adpi_excluded(target) || is_adpi_blocked(target))
 		return FALSE
 
 	ensure_adpi_lists_loaded()
@@ -352,9 +348,6 @@ SUBSYSTEM_DEF(hallucinations)
 		message = pick("The water is dripping dripping dripping all around you.","Water flowing over stone, but there is no stone.","The waterfall roars o'er the cliff's edge.","Water, water, water. You are drowning.","Water, water, water. You will be awake for it.","Drums, drums, drums, unrelenting.","The drumbeat draws e'er closer.","Tap, ta-tap, ta-tap, tap, ta-tap, ta-tap.","Tap, tap tap, ta-tap, tap-tap, ta-tap.","Ta-ta-tap, tap, ta-tap, tap, tap ta-tap.")
 	target.play_screen_text("[message]", /atom/movable/screen/text/screen_text/adpi_message, COLOR_PURPLE)
 	to_chat(target, SPAN_CULT(FONT_LARGE("[message]")))
-
-	if(prob(33))
-		sound_to(target, pick(adpi_sounds))
 
 	if(isskrell(target))
 		var/mob/living/carbon/human/H = target

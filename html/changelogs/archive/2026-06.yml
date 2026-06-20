@@ -162,3 +162,310 @@
   TheGreyWolf:
   - bugfix: Added a changelog editing system that should cause fewer conflicts and
       more accurate timestamps.
+2026-06-17:
+  Batrachophrenoboocosmomachia:
+  - bugfix: 'Restores chat highlight background color selection functionality (PR
+      #20701)'
+  - bugfix: Restores customizable chat message retention settings.
+  - bugfix: Updates recommended vscode extension config file.
+  - bugfix: Fixes some mismapped and missing scss files as well as removing temporary
+      working files leftover in PR.
+  - bugfix: Fixes silicons/AI being unable to interact remotely with shield capacitor
+      and shield generator machinery.
+  - bugfix: Fixes gene data disks produced by xenobotany's lysis-isolation centrifuge
+      machine not displaying gene names.
+  - bugfix: Makes AI remote access to machinery TGUIs more consistent.
+  - bugfix: Fixes the Sensors interface not displaying sensor machinery's current
+      health.
+  - bugfix: Fixes the Sensors interface displaying strange values for current range.
+  - bugfix: Fixes modular computer software displaying device themes instead of explicit
+      software themes.
+  - bugfix: Fixes MC tab links.
+  - bugfix: Fixes Manifest and LateJoin department colors to match pre-React settings.
+  - bugfix: Aligns mismatched radio channel keys between tgui-say and the radio subsystem.
+  - spellcheck: Fixes a typo in the TGUI fatal error message.
+  - bugfix: Fixes TGUI windows having their dimensions provided from datum init being
+      overridden.
+  - bugfix: Increases say window width.
+  - bugfix: Re-enables spellcheck in tgui-say.
+  - bugfix: Fixes SmartFridge interface crashing with stored items due to malformed
+      image rendering.
+  - bugfix: Forces chat pane to re-render immediately when filters are changed.
+  - bugfix: Restores the Modular Computer access cable header button for connecting
+      to IPCs and machinery.
+  - bugfix: Fixes display issues in the Robotics interface's <collapsible> elements.
+  - bugfix: Fixes in-chat feedback text provided by the Cyborg Analyzer (organ name
+      and status now both inline).
+  - bugfix: Crew Manifest PDA app now filters out off-ship personnel.
+  - bugfix: Fixes Autolathe TGUI appending search- and category- filtered recipes
+      instead of recomputing the list with those filters.
+  - bugfix: Fixes runtime when ghost opens dedicated camera console UI.
+  - code_imp: Update some defs referencing 'supply' department to 'operations'.
+  - refactor: Standardizes all interface search bars to use the native 'SearchBar'
+      component.
+  - refactor: AtmosAlarmControl interface now correctly auto-sorts alarms by alert
+      status.
+  - bugfix: Fixes LateJoin and Manifest interfaces not displaying department colors
+      by creating a shared component for both interfaces to use.
+  - bugfix: Fixes the Manifest interface not displaying colors for crew status.
+  - bugfix: Fixes status composer not allowing AIs to view TGUIs.
+  - bugfix: Fixes inline icons in alt-click atom viewer.
+  - bugfix: Fixes PDA light toggle icon not appearing.
+  - bugfix: Fixes case where datum/turbolift-type elevators fail to move because they
+      cannot resolve their origin floor.
+  - refactor: Refactors Gravity Generator UI from HTML to TGUI.
+  - rscadd: Adds sector-based modifier var 'overmap_hazards_multiplier' for generating
+      total overmap hazard count.
+  - soundadd: Adds new Lemurian Sea 'welcome' announcements.
+  - rscadd: Added Lemurian Sea gravitic anomalies as overmap hazards and random events.
+  - rscadd: Adds ADPI/The Voices.
+  - rscadd: Adds ADPI Panel for modmins to send ADPI messages to a single character
+      or all characters from their respective pools, or custom messages.
+  - balance: Vaurca Hivenet communication, the Hivenet Manifest, and Hivenet Echoes
+      are now disabled while the ship is in Lemurian Sea sectors.
+  - refactor: Updates TGUI backend (both modules and tgui code) from Inferno to React.
+  - refactor: Migrates all TGUI components and interfaces to the new React architecture.
+  - rscadd: Adds item examine tags and descriptors w/ hoverable tooltips in chat window.
+  - rscdel: Removal of all lingering NanoUI code and assets.
+  - server: Build tool Javascript to Typescript migrations.
+  - code_imp: Migration to bun 1.2.16.
+  - code_imp: Migration from eslint 7.32.0 -> biome 2.1.2.
+  - code_imp: Many many other dependency changes; see all 'package.json' diffs.
+  - bugfix: Fixes runtime attempting to clone executable files in NTOS File Manager.
+  Benbot16:
+  - bugfix: Fixed borg/drone lights and emissives not displaying properly.
+  - rscadd: Adds emissives to borg shielding systems.
+  - bugfix: Drones now disable emissives while hiding, preventing them from being
+      visible through tables.
+  CatsinHD:
+  - qol: Operations Manager office remapped to include door control buttons, and a
+      chair at the desk for guests, among other quality of life changes.
+  ElorgRHG:
+  - imageadd: Resprited or otherwise repaletted most if not all Idris Incorporated,
+      from job uniforms to suits.
+  - imageadd: Resprited Idris Unit coats. Brown Idris Unit coats are now teal.
+  - bugfix: Fixes the sprite for the black Idris Unit long coat vanishing when opened.
+  FabianK3:
+  - bugfix: Fix changelog generation by fixing python numpy version to support current
+      cpython version.
+  Fenodyree:
+  - qol: Stops the R&D console scrolling back up to the top whenever a print finishes.
+  - rscadd: Added the ability to stir drinks. This is an alternative to using the
+      shaker for skilled bartenders to add moodlets.
+  - bugfix: Fixed guns getting unwielded when mousing over UI elements.
+  - bugfix: Fixed mob_can_equip using M as mob, instead of mob/M. Also adds its parameters
+      to all its children.
+  - rscadd: Makes rechargers buildable and upgradable. Circuits to build them can
+      be printed in a circuit printer.
+  - bugfix: Fixes two people not being able to scan the same patient at the same time.
+  - bugfix: Moved improvement cap from a define to the base component. Fixes components
+      that had too few upgradable variables never counting as fully upgraded.
+  - bugfix: Fixes weapons improving even if they miss their targets. Now they only
+      improve if they hit something. Prevents infinite upgrades by deliberately shooting
+      walls.
+  - bugfix: Fixes ions doing damage, in addition to EMPing their target. Also reduces
+      the shot capacity of modular Ion guns to better match existing ones.
+  - bugfix: Fixed ship projectiles spawning in the wrong places, when entering the
+      map at the corners.
+  - bugfix: Fixed ghosts being unable to jump to the target of a ship projectile.
+  - bugfix: Fixes the booze-o-mat's description.
+  - balance: Makes constructs immune to pain damage. It used to deal damage at 1/2
+      value.
+  Hellfirejag:
+  - bugfix: Fixed a hard del caused by mobs not properly cleaning up UI windows.
+  - bugfix: Fixed hardsuits having several harddels
+  - bugfix: Fixed screen objects not always being cleaned up correctly and hard deleting
+  - bugfix: Fixed several niche circular references on mobs which caused hard deletes.
+  - bugfix: Fixed gloves hard deleting if they were worn over a ring or were upgraded
+      to shock gloves
+  - bugfix: Fixed static lights not being cleared properly if they were attached to
+      a non-movable atom.
+  - bugfix: Fixed boots having a hard delete if a knife was stored in them.
+  - bugfix: Fixed a circular reference between mobs that have attacked each other
+      that was causing hard deletes
+  - bugfix: Fixed yet another runtime error with humans that triggers hard deletes.
+  - bugfix: Fixed ADPI not correctly abiding by psionic rules.
+  Kano:
+  - bugfix: Fixed windows and grilles not applying the proper smooth overlays they're
+      supposed to have.
+  Llywelwyn:
+  - code_imp: Shellcheck shell scripts in CI/CD.
+  - code_imp: Fixes shellcheck warns in existing scripts.
+  - rscadd: 'Adds code-switching: you can now speak in multiple languages in the same
+      message.'
+  - rscadd: Adds audible emotes to the language list. They can be triggered with ,e.
+  - rscdel: Removed SSrunechat.
+  - refactor: Rewrote langchat in order to support multiple languages and partial
+      comprehension.
+  - refactor: Rewrote a vast majority of all saycode and the code responsible for
+      displaying saytext to clients.
+  - bugfix: Sleeping mobs are no longer able to understand all languages.
+  - bugfix: Langchat now correctly shows the appropriate comprehension for all viewers
+      rather than all viewers sharing the comprehension of the last viewer.
+  - bugfix: Languages which are supposed to be invisible when not understood no longer
+      appear as scrambled overhead text.
+  MattAtlas (Porting), /tg/station (Original Code):
+  - rscadd: Ported attack animations from /tg/station for attacking with items, unarmed
+      attacks, and for simple mobs.
+  The Stryker:
+  - rscadd: Adds a Ceres Lance, uniform, beret, and plate carrier to the Ceres Lance
+      gear crate.
+  TheGreyWolf:
+  - bugfix: The hydroponics tray no longer delete the harvests if the action is interrupted.
+  - admin: BSTechs spawning in and disappearing will no longer create sparks that
+      can set things on fire.
+  - bugfix: Fixed skills not costing points if you had an education granting any level
+      in it.
+  - bugfix: Fixed that it was not possible to lower skills that you had an education
+      in.
+  - bugfix: Fixed that skills with education didn't let one pick higher levels of
+      it than the education gave.
+  - bugfix: Fixed age restrictions for educations not applying to tajara or unathi.
+  - bugfix: The doctor of pharmacy education is now correctly allowed for 25 years
+      old, bringing it in line with both the description and the pharmacist job.
+  - rscdel: Reduced the max unarmed combat, armed combat and firearms skill to trained.
+      No player facing changes as it was not possible to get professional before.
+  - bugfix: Fixed the taj sprites for the bucket hat, boonie hat and camo boonie hat.
+  - bugfix: Fixed noticeboard not formatting certain symbols correctly.
+  - bugfix: Fixed pill bottle sound when inserting items.
+  - bugfix: Fixed the overflow of vitamins from biogenerators.
+  - bugfix: Fixed the sound from the investigator crime scene kit and aluminium briefcase
+      when inserting items.
+  - bugfix: Fixed intercoms on south walls were too far in on the walls.
+  - bugfix: Fixed the stripes disappearing briefly when a glass airlock denied access.
+  - bugfix: Fixed the missing wall pharmacy vending machine sprite when vending.
+  - bugfix: Fixed vaurca having access to the base combi-tool. They have their own
+      in the loadout, they should be using that.
+  - bugfix: Fixed disposal UI forcing itself open if a player kept standing near it
+      after closing the UI.
+  - bugfix: Fixed the inability to put stickers in disposal bins.
+  - bugfix: Fixed potential issues with attaching stickers to conveyor belts.
+  - bugfix: Fixed the disposal outlet using the wrong direction for sprites.
+  - rscadd: Added a disposal system to the runtime map.
+  fyni:
+  - rscadd: Adds small potted luce vine to the loadout general tab, available only
+      to Assunzione characters.
+  - rscadd: Adds modkits to the two Outer Eyes antag loadouts so you can mod the voidsuit
+      to fit other species.
+  - rscadd: Adds the Outer Eyes Enforcer outfit, for quicker Outer Eyes spawning for
+      admins.
+  - rscadd: Adds a bundled c-4 explosive, perfect for making bigger booms. Admin spawn
+      only right now.
+  hazelmouse:
+  - rscadd: Added a new exterior area subtype which shields cannot form around. Used
+      to force shields to wrap around the actual walls and windows on deck three,
+      rather than around the entirety of the Horizon's wings.
+  - imageadd: Added several area sprites. Makes the map prettier in map editing programs.
+  - bugfix: Shields no longer wrap in a large arc around the starboard thrusters.
+  - rscadd: Shifted the teleporter to the central ring, to be more accessible. Replaced
+      former position with maintenance.
+  kano:
+  - code_imp: Thrower step triggers's direction can now be set by changing the effect's
+      direction, no player facing changes.
+  - bugfix: Fixed strong plastic explosives missing their sprites.
+  kermit:
+  - qol: Downsizes the IPC Suit Cooler from Bulky to Normal so they can fit in bags
+      (on par with large oxygen tanks).
+  - balance: 'Downgrades the IPC Suit Cooler''s cell to a heavy-duty cell (-50% charge
+      capacity) and increases charge consumption modifer by 85% (result is: approx.
+      10 minutes cooling a cooler-less IPC; in ordinary EVA conditions, it still lasts
+      ages, don''t worry).'
+2026-06-18:
+  Hellfirejag:
+  - bugfix: Fixed ADPI only sending messages to the dead.
+  - bugfix: Fixed ADPI messages playing excessively quickly in rare extreme circumstances
+2026-06-19:
+  Hellfirejag:
+  - bugfix: Fixed ADPI pinging mindshields more than once per message interval.
+  - bugfix: Fixed silicons incorrectly being considered a valid target for psionics.
+  - rscadd: 'Morale now affects crafting speed, providing up to +/- 25% extra crafting
+      speed that scales with the current morale percentage. EG: Having 50% morale
+      gives 12.5% faster crafting.'
+  - rscadd: Morale now affects the Gardening skill, providing up to +/- 25% plant
+      harvesting speed. Having at least a 75% morale bonus increases plant harvesting
+      yield by +1 fruit.
+  - balance: Increased the numerical effects of morale modifiers on skill-related
+      checks by 50% across the board.
+  - bugfix: Tweaked the morale icon to be more likely to disappear when you have none
+      or extremely small amounts of morale. It should be less sensitive to infinitesimal
+      points.
+  TheGreyWolf:
+  - rscadd: Added a new Orion theme and applied it to the cargo control, cargo order
+      and cargo delivery programs.
+  - rscadd: Modular computers can now have a front page theme defined. Currently this
+      is only applied to the operations delivery tablets.
+  - bugfix: Fixed some issues with the cargo programs displaying the wrong delivery
+      time.
+  - rscadd: Added the ability to clear the currently selected order in the delivery
+      program and cargo control program.
+  - rscadd: It is now possible to print invoices from the cargo delivery program.
+2026-06-20:
+  Batrachophrenoboocosmomachia:
+  - rscadd: Adds some additional grates to the Horizon's D2 Medical for traction in
+      zero-g.
+  - rscdel: Removes ADPI sound effects.
+  - bugfix: Fixes inflated Gravity Anomaly timing values.
+  - bugfix: Fixes ADPI line retrieval.
+  - qol: Reduces screenshake strength globally by 33%.
+  CatsinHD:
+  - rscadd: Added a new TGUI component for pencode markup and text editing.
+  - rscadd: Added form database to File Manager to download digital forms.
+  - qol: Shifts all editing, renaming, encrypting, etc. into File Manager UI.
+  - bugfix: Fixes potential issue with ID checks for IT access in File Manager.
+  FabianK3:
+  - rscadd: Converted the INDRA office into a new engineering hard storage.
+  - rscdel: Added a decontamination corner into the D2 engineering aft airlock room.
+  Fenodyree:
+  - bugfix: Fixes the base focusing lens for modular lasers not having reliability.
+  - refactor: Updates the keycard auth console to use TGUI.
+  - rscdel: Removes CE_ADRENALINE. This was a synaptizine only flag that gave you
+      a momvement speed and stamina buff.
+  - balance: Increases the threshold for NO_PAIN to 200, from 100. This means you
+      need more and stronger painkillers to be immune to pain effects.
+  - balance: Nerfs Synaptizine from 30 to 10 painkill.
+  - balance: Buffs Oxycomorphine from 200 to 210 painkill. This makes sure it always
+      puts you into NO_PAIN.
+  - balance: Buffs Mortaphenyl from 50 to 70 painkill. This means antag stimpacks
+      have the same total painkill.
+  Greenjoe:
+  - rscadd: Splits the Psi-protect pills into their own selection in the loadout.
+  Hellfirejag:
+  - rscadd: Cooking Skill now increases the amount of products gained from butchering
+      animals.
+  - rscadd: 'Xenobiology Skill now increases melee damage against Space Fauna (EG:
+      Space Carp, Space Bears, etc). Additionally, it also increases butchering products
+      gained from Space Fauna.'
+  - bugfix: Fixed numerous hard dels related to byond built-in refs not being cleared.
+  - refactor: Refactored datum destroy() for better performance.
+  - rscadd: Added dedicated logging for Destroy() procs that are interrupted by runtime
+      errors, since these are their own special case of hard del causes.
+  - bugfix: Fixed a runtime error with the photocopier.
+  - bugfix: Fixed a runtime error with smoke effects
+  - bugfix: Fixed a hard delete from carp migration and icarus drone swarm events
+  - refactor: Refactored surgeries to now allow variable do-after times via Signal
+      hooks.
+  - rscadd: The Anatomy skill now provides a small bonus to surgeries performed on
+      characters of a matching species.
+  - rscadd: The Xenobiology skill now provides a small bonus to surgeries performed
+      on characters of a different species.
+  - rscadd: The Surgery skill now provides a moderate increase to surgical speed for
+      all kinds of surgery, regardless of type.
+  - rscadd: Morale modifiers now affect surgical speed in addition to success rates.
+  - balance: To accommodate for there now being surgery speed bonuses, the base time
+      to perform all surgeries has been increased.
+  MattAtlas:
+  - bugfix: Fixed pain and ingame announcement font sizes.
+  TheGreyWolf:
+  - rscadd: Investigators now have the case dossier program. The rest of security
+      can also read it in read-only mode.
+  - rscadd: Evidence bags now labels the time, person and place when an item is bagged,
+      if they have forensic skill. This can also be editted with a pen.
+  - rscadd: Photos can now record similar data to the evidence bags if the user has
+      the forensic skill, or they are using a detective camera. This cannot be editted.
+  - rscadd: It is now possible to gather fibers and prints from objects inside evidence
+      bags.
+  - bugfix: Fixed some stuff with photos that should make them able to take photos
+      of certain things such as airlocks again.
+  Wowzewow (Wezzy):
+  - rscadd: Adds Grupo Amapola uniforms to the medical selections.
+  - bugfix: Fixes Grupo Amapola description.
