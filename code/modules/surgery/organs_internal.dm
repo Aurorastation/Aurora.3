@@ -160,6 +160,7 @@
 				user.visible_message("<b>[user]</b> repairs [target]'s [I.name] with [tool].", \
 					SPAN_NOTICE("You repair [target]'s [I.name] with [tool].") )
 				I.surgical_fix(user)
+				START_PROCESSING(SSprocessing, src)
 				if(istype(tool, /obj/item/stack/nanopaste))
 					var/obj/item/stack/nanopaste/nanopaste = tool
 					nanopaste.use(1)
