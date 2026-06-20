@@ -1,8 +1,8 @@
 /** Tau Ceti Armed Forces outfits
- - Includes Republic Astroforce-proper crew and officers
- - Includes the Home Defence Forces (planetary)
- - Republic Espatiers can be found in the ERT outfits
-**/
+ * - Includes Republic Astroforce-proper crew and officers
+ * - Includes the Home Defence Forces (planetary)
+ * - Republic Espatiers can be found in the ERT outfits
+ */
 
 /// Republic Astroforce
 /obj/outfit/admin/tcaf
