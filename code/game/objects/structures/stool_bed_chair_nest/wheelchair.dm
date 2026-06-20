@@ -41,15 +41,13 @@
 		step(buckled, direction)
 		buckled.buckled_to = src // what the fuck?
 
-	var/turf/next_driver_step
-	var/turf/next_wheelchair_step = get_step(get_turf(src), direction)
 
 	// move driver
 	if(LAZYLEN(grabbed_by))
 		for(var/obj/item/grab/G as anything in grabbed_by)
-			next_driver_step = get_step(G.grabber, get_dir(G.grabber, loc))
+			var/turf/next_driver_step = get_step(G.grabber, get_dir(G.grabber, loc))
 			if(get_dist(src, G.grabber) <= 1)
-				if(next_driver_step != next_wheelchair_step)
+				if(next_driver_step == loc) //don't overlap turfs
 					step(G.grabber, get_dir(G.grabber, loc))
 			else
 				qdel(G)
