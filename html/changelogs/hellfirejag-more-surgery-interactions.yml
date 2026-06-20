@@ -1,0 +1,9 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - refactor: "Refactored surgeries to now allow variable do-after times via Signal hooks."
+  - rscadd: "The Anatomy skill now provides a small bonus to surgeries performed on characters of a matching species."
+  - rscadd: "The Xenobiology skill now provides a small bonus to surgeries performed on characters of a different species."
+  - rscadd: "The Surgery skill now provides a moderate increase to surgical speed for all kinds of surgery, regardless of type."
+  - rscadd: "Morale modifiers now affect surgical speed in addition to success rates."
+  - balance: "To accommodate for there now being surgery speed bonuses, the base time to perform all surgeries has been increased."

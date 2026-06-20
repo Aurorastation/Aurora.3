@@ -68,13 +68,14 @@
 			return species.total_health
 	return 0
 
+///This fetches the cumulative total pain from all organs.
 /mob/living/carbon/human/getHalLoss()
 	var/amount = 0
 	for(var/obj/item/organ/external/E in organs)
 		amount += E.get_pain()
 	return amount
 
-//These procs fetch a cumulative total damage from all organs
+///These procs fetch a cumulative total damage from all organs
 /mob/living/carbon/human/getBruteLoss()
 	var/amount = 0
 	for(var/obj/item/organ/external/O in organs)

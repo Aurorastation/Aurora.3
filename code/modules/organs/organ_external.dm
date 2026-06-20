@@ -1138,20 +1138,20 @@ Note that amputating the affected organ does in fact remove the infection from t
 				var/gore_sound = "[(status & ORGAN_ROBOT) ? "tortured metal" : "ripping tendons and flesh"]"
 				owner.visible_message(
 					SPAN_DANGER("\The [owner]'s [src.name] flies off in an arc!"),\
-					"<span class='moderate'><b><font size=2>Your [src.name] goes flying off!</font></b></span>",\
+					"<span class='moderate'><b><font size=5>Your [src.name] goes flying off!</font></b></span>",\
 					SPAN_DANGER("You hear the terrible sound of [gore_sound]."))
 		if(DROPLIMB_BURN)
 			var/gore = "[(status & ORGAN_ROBOT) ? "": " of burning flesh"]"
 			owner.visible_message(
 				SPAN_DANGER("\The [owner]'s [src.name] flashes away into ashes!"),\
-				"<span class='moderate'><b><font size=2>Your [src.name] flashes away into ashes!</font></b></span>",\
+				"<span class='moderate'><b><font size=5>Your [src.name] flashes away into ashes!</font></b></span>",\
 				SPAN_DANGER("You hear the crackling sound[gore]."))
 		if(DROPLIMB_BLUNT)
 			var/gore = "[(status & ORGAN_ROBOT) ? "": " in a shower of gore"]"
 			var/gore_sound = "[(status & ORGAN_ROBOT) ? "rending sound of tortured metal" : "sickening splatter of gore"]"
 			owner.visible_message(
 				SPAN_DANGER("\The [owner]'s [src.name] explodes[gore]!"),\
-				"<span class='moderate'><b><font size=3>Your [src.name] explodes[gore]!</font></b></span>",\
+				"<span class='moderate'><b><font size=5>Your [src.name] explodes[gore]!</font></b></span>",\
 				SPAN_DANGER("You hear the [gore_sound]."))
 
 	var/mob/living/carbon/human/victim = owner //Keep a reference for post-removed().
@@ -1308,8 +1308,8 @@ Note that amputating the affected organ does in fact remove the infection from t
 	if(!silent)
 		var/message = pick("broke in half", "shattered")
 		owner.visible_message(\
-			SPAN_WARNING("<font size=2>You hear a loud cracking sound coming from \the [owner]!</font>"),\
-			SPAN_DANGER("<font size=3>Something feels like it [message] in your [name]!</font>"),\
+			SPAN_WARNING("<font size=4>You hear a loud cracking sound coming from \the [owner]!</font>"),\
+			SPAN_DANGER("<font size=5>Something feels like it [message] in your [name]!</font>"),\
 			"You hear a sickening crack!")
 		if(owner.species && owner.can_feel_pain())
 			owner.emote("scream")

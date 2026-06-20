@@ -149,7 +149,9 @@
 		return P
 	else if (istype(c_item, /obj/item/paper_bundle))
 		var/obj/item/paper_bundle/B = bundlecopy(target, c_item, TRUE, toner)
-		sleep(15*B.pages.len)
+		if (!B)
+			return FALSE
+		sleep(15 * length(B.pages))
 		return B
 	else
 		to_chat(usr, SPAN_WARNING("\The [c_item] can't be copied by \the [target]."))
@@ -200,7 +202,7 @@
 	c.offset_y = copy.offset_y
 	var/list/temp_overlays = copy.overlays       //Iterates through stamps
 	var/image/img                                //and puts a matching
-	for (var/j = 1, j <= min(temp_overlays.len, copy.ico.len), j++) //gray overlay onto the copy
+	for (var/j = 1, j <= min(length(temp_overlays), length(copy.ico)), j++) //gray overlay onto the copy
 		if (findtext(copy.ico[j], "cap") || findtext(copy.ico[j], "cent"))
 			img = image('icons/obj/bureaucracy.dmi', "paper_stamp-circle")
 		else if (findtext(copy.ico[j], "deny"))
@@ -271,6 +273,8 @@
 
 
 		W = copy_type(target, W, need_toner ? toner : 15, do_print)
+		if (!W)
+			continue
 		W.forceMove(p)
 		p.pages += W
 

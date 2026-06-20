@@ -902,13 +902,14 @@ ABSTRACT_TYPE(/obj/item/gun)
 #undef LYING_DOWN_FIRE_DELAY_AND_RECOIL_STAT_MULTIPLIER
 #undef LYING_DOWN_ACCURACY_STAT_MULTIPLIER
 
-/obj/item/gun/mob_can_equip(mob/user, slot, disable_warning, ignore_blocked)
+/obj/item/gun/mob_can_equip(mob/user, slot, disable_warning, bypass_blocked_check = FALSE, is_overlay_check = FALSE)
 	//Cannot equip wielded items.
-	if(wielded)
-		unwield()
-		for(var/obj/item/offhand/O in user.get_inactive_held_items())
-			if(istype(O))
-				O.unwield()
+	if(!is_overlay_check)
+		if(wielded)
+			unwield()
+			for(var/obj/item/offhand/O in user.get_inactive_held_items())
+				if(istype(O))
+					O.unwield()
 	return ..()
 
 /obj/item/gun/throw_at()
@@ -985,9 +986,9 @@ ABSTRACT_TYPE(/obj/item/gun)
 	if (!QDELETED(src))
 		qdel(src)
 
-/obj/item/offhand/mob_can_equip(var/mob/M, slot, disable_warning = FALSE)
-	var/mob/living/carbon/human/H = M
-	if(istype(H) && (slot in H.held_item_slots))
+/obj/item/offhand/mob_can_equip(var/mob/M, slot, disable_warning = FALSE, bypass_blocked_check = FALSE, is_overlay_check = FALSE)
+	var/static/list/equippable_slots = list(slot_l_hand, slot_r_hand)
+	if(slot in equippable_slots)
 		return TRUE
 	return FALSE
 

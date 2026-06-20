@@ -168,6 +168,7 @@
 	add_language(LANGUAGE_GREIMORIAN_HIVEMIND)
 	remove_language(LANGUAGE_TCB)
 	default_language = GLOB.all_languages[LANGUAGE_GREIMORIAN]
+	ADD_TRAIT(src, TRAIT_MC_SPACE_FAUNA, TRAIT_SOURCE_MOB_CATEGORY)
 
 /mob/living/simple_animal/hostile/giant_spider/nurse/servant/Initialize()
 	. = ..()

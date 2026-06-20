@@ -33,7 +33,7 @@
 	if(item_to_equip.item_flags & ITEM_FLAG_NO_MOVE) //Cannot move ITEM_FLAG_NO_MOVE items from one inventory slot to another. Cannot do canremove here because then BSTs spawn naked.
 		return FALSE
 
-	if(!item_to_equip.mob_can_equip(src, slot, disable_warning, bypass_blocked_check))
+	if(!item_to_equip.mob_can_equip(src, slot, disable_warning, bypass_blocked_check, is_overlay_check = FALSE))
 		if(delete_on_fail)
 			qdel(item_to_equip)
 		else if(!disable_warning)

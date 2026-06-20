@@ -45,20 +45,20 @@
 	starlight_range = 0
 	overmap_hazards_multiplier = 1.3
 	cargo_price_coef = list(
-		"nanotrasen" = 6.0,
-		"orion" = 6.0,
-		"hephaestus" = 6.0,
-		"zeng_hu" = 6.0,
-		"eckharts" = 6.0,
-		"getmore" = 6.0,
-		"arizi" = 6.0,
-		"blam" = 6.0,
-		"iac" = 6.0,
-		"zharkov" = 6.0,
-		"virgo" = 6.0,
-		"bishop" = 6.0,
-		"xion" = 6.0,
-		"zavodskoi" = 6.0,
+		"nanotrasen" = 2.5,
+		"orion" = 2.5,
+		"hephaestus" = 2.5,
+		"zeng_hu" = 2.5,
+		"eckharts" = 2.5,
+		"getmore" = 2.5,
+		"arizi" = 2.5,
+		"blam" = 2.5,
+		"iac" = 2.5,
+		"zharkov" = 2.5,
+		"virgo" = 2.5,
+		"bishop" = 2.5,
+		"xion" = 2.5,
+		"zavodskoi" = 2.5,
 		)
 
 	lobby_tracks = list(
@@ -72,7 +72,6 @@
 	sector_lobby_transitions = 0
 	sector_hud_menu = 'icons/misc/hudmenu/lemurian_hud.dmi'
 	hivenet_echoes = FALSE
-	ghostroles_enabled = FALSE
 	away_sites_enabled = FALSE
 	ccia_link = FALSE
 

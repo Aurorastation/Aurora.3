@@ -101,7 +101,6 @@
 	//Srom (Shared Dreaming)
 	srom_pulled_by = null
 	srom_pulling = null
-	bg = null //Just to be sure.
 
 	GLOB.human_mob_list -= src
 	GLOB.intent_listener -= src
@@ -370,7 +369,7 @@
 		suit = w_uniform
 
 	user.set_machine(src)
-	var/dat = "<B><HR><FONT size=3>[name]</FONT></B><BR><HR>"
+	var/dat = "<B><HR><FONT size=5>[name]</FONT></B><BR><HR>"
 
 	if(internals)
 		dat += "<B>Internals: [internal ? "On" : "Off"]</B><BR>"

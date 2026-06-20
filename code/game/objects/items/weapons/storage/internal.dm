@@ -18,7 +18,7 @@
 /obj/item/storage/internal/attack_hand()
 	SHOULD_CALL_PARENT(FALSE)		//make sure this is never picked up
 
-/obj/item/storage/internal/mob_can_equip(M, slot, disable_warning = FALSE)
+/obj/item/storage/internal/mob_can_equip(M, slot, disable_warning = FALSE, bypass_blocked_check = FALSE, is_overlay_check = FALSE)
 	return 0	//make sure this is never picked up
 
 //Helper procs to cleanly implement internal storages - storage items that provide inventory slots for other items.

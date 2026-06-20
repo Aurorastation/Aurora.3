@@ -87,6 +87,7 @@
 	. = ..()
 	emote_sounds = quiet_sounds
 	update_bearmode()
+	ADD_TRAIT(src, TRAIT_MC_SPACE_FAUNA, TRAIT_SOURCE_MOB_CATEGORY)
 
 /mob/living/simple_animal/hostile/bear/proc/set_stance(var/input)
 	var/previous = stance

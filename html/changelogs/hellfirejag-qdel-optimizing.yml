@@ -1,0 +1,4 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - refactor: "Refactored datum destroy() for better performance."

@@ -72,47 +72,43 @@
 		to_chat(user, "This device is busy.")
 		return FALSE
 
+	add_fingerprint(user)
+	ui_interact(user)
+
 	user.set_machine(src)
-
-	var/dat = "<h1>Keycard Authentication Device</h1>"
-
-	dat += "This device is used to trigger some high security events. It requires the simultaneous swipe of two high-level ID cards."
-	dat += "<br><hr><br>"
-
-	if(screen == 1)
-		dat += "Select an event to trigger:<ul>"
-		dat += "<li><A href='byond://?src=[REF(src)];triggerevent=Red alert'>Red alert</A></li>"
-		if(!GLOB.config.ert_admin_call_only)
-			dat += "<li><A href='byond://?src=[REF(src)];triggerevent=Distress Beacon'>Broadcast Distress Beacon</A></li>"
-		dat += "<li><A href='byond://?src=[REF(src)];triggerevent=Emergency Evacuation'>Emergency Evacuation</A></li>"
-
-		dat += "</ul>"
-	if(screen == 2)
-		dat += "Please swipe your card to authorize the following event: <b>[event]</b>"
-		dat += "<p><A href='byond://?src=[REF(src)];reset=1'>Back</A>"
-
-
-	user << browse(HTML_SKELETON(dat), "window=keycard_auth;size=500x350")
 	return
 
+/obj/structure/machinery/keycard_auth/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "KeycardAuth", src.name, 500, 250)
+		ui.open()
 
-/obj/structure/machinery/keycard_auth/Topic(href, href_list)
-	..()
-	if(busy)
-		to_chat(usr, "This device is busy.")
+/obj/structure/machinery/keycard_auth/ui_data(mob/user)
+	var/list/data = list()
+
+	data["screen"] = screen
+	data["event"] = event
+	data["busy"] = busy
+	data["can_broadcast_distress"] = !GLOB.config.ert_admin_call_only
+
+	return data
+
+/obj/structure/machinery/keycard_auth/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
 		return
-	if(usr.stat || stat & (BROKEN|NOPOWER))
-		to_chat(usr, "This device is without power.")
-		return
-	if(href_list["triggerevent"])
-		event = href_list["triggerevent"]
+
+	if(action == "select_event")
+		event = params["event"]
 		screen = 2
-	if(href_list["reset"])
-		reset()
+		add_fingerprint(usr)
+		return TRUE
 
-	updateUsrDialog()
-	add_fingerprint(usr)
-	return
+	if(action == "reset")
+		reset()
+		add_fingerprint(usr)
+		return TRUE
 
 /obj/structure/machinery/keycard_auth/proc/reset()
 	active = FALSE

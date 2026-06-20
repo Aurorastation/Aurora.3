@@ -203,12 +203,12 @@
 
 	// External Organ Pain Damage
 	var/organ_low_pain_message = "<b>Your %PARTNAME% hurts.</b>"
-	var/organ_med_pain_message = "<b><font size=3>Your %PARTNAME% hurts badly!</font></b>"
-	var/organ_high_pain_message = "<b><font size=3>Your %PARTNAME% is screaming out in pain!</font></b>"
+	var/organ_med_pain_message = "<b><font size=4>Your %PARTNAME% hurts badly!</font></b>"
+	var/organ_high_pain_message = "<b><font size=5>Your %PARTNAME% is screaming out in pain!</font></b>"
 
 	var/organ_low_burn_message = SPAN_DANGER("Your %PARTNAME% burns.")
-	var/organ_med_burn_message = SPAN_DANGER("<font size=3>Your %PARTNAME% burns horribly!</font>")
-	var/organ_high_burn_message = SPAN_DANGER("<font size=4>Your %PARTNAME% feels like it's on fire!</font>")
+	var/organ_med_burn_message = SPAN_DANGER("<font size=4>Your %PARTNAME% burns horribly!</font>")
+	var/organ_high_burn_message = SPAN_DANGER("<font size=5>Your %PARTNAME% feels like it's on fire!</font>")
 
 	var/list/stutter_verbs = list("stammers", "stutters")
 
