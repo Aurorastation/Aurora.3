@@ -221,7 +221,7 @@
 /obj/item/integrated_circuit/input/examiner/do_work()
 	var/atom/H = get_pin_data_as_type(IC_INPUT, 1, /atom)
 	var/turf/T = get_turf(src)
-	if(!istype(H)) //Invalid input
+	if(!ic_is_safe_ref_atom(H)) //Invalid input
 		set_pin_data(IC_OUTPUT, 15, FALSE)
 		set_pin_data(IC_OUTPUT, 16, "Invalid target.")
 		push_data()
@@ -308,6 +308,8 @@
 	var/list/nearby_things = range(1, get_turf(src))
 	var/list/valid_things = list()
 	for(var/atom/thing in nearby_things)
+		if(!ic_is_safe_ref_atom(thing))
+			continue
 		if(thing.type != desired_type)
 			continue
 		valid_things += thing
@@ -346,11 +348,15 @@
 		var/desired_type = A?.type
 		if(desired_type)
 			for(var/atom/thing in nearby_things)
+				if(!ic_is_safe_ref_atom(thing))
+					continue
 				if(thing.type == desired_type)
 					valid_things.Add(thing)
 	else if(istext(I))
 		var/DT = I
 		for(var/atom/thing in nearby_things)
+			if(!ic_is_safe_ref_atom(thing))
+				continue
 			if(findtext(addtext(thing.name, " ", thing.desc), DT, 1, 0))
 				valid_things.Add(thing)
 	if(valid_things.len)
@@ -578,6 +584,8 @@
 	power_draw_per_use = 1200
 
 /obj/item/integrated_circuit/input/sensor/proc/sense(var/atom/A, mob/user)
+	if(!ic_is_safe_ref_atom(A))
+		return FALSE
 	if(!user.Adjacent(A))
 		return FALSE
 	var/ignore_bags = get_pin_data(IC_INPUT, 1)
@@ -1094,9 +1102,11 @@
 	if(scanned_turf in view(circuit_turf)) // This is a camera. It can't examine things that it can't see.
 		var/list/turf_contents = new()
 		for(var/obj/U in scanned_turf)
-			turf_contents += WEAKREF(U)
+			if(ic_is_safe_ref_atom(U))
+				turf_contents += WEAKREF(U)
 		for(var/mob/U in scanned_turf)
-			turf_contents += WEAKREF(U)
+			if(ic_is_safe_ref_atom(U))
+				turf_contents += WEAKREF(U)
 		set_pin_data(IC_OUTPUT, 1, turf_contents)
 		set_pin_data(IC_OUTPUT, 3, area_name)
 		set_pin_data(IC_OUTPUT, 4, scanned_turf.x)
@@ -1155,7 +1165,7 @@
 				if(istext(item))
 					for(var/i in nearby_things)
 						var/atom/thing = i
-						if(ismob(thing) && !isliving(thing))
+						if(!ic_is_safe_ref_atom(thing) || (ismob(thing) && !isliving(thing)))
 							continue
 						if(findtext(addtext(thing.name," ",thing.desc), item, 1, 0) )
 							valid_things.Add(WEAKREF(thing))
@@ -1164,9 +1174,9 @@
 					var/desired_type = A.type
 					for(var/i in nearby_things)
 						var/atom/thing = i
-						if(thing.type != desired_type)
+						if(!ic_is_safe_ref_atom(thing) || (ismob(thing) && !isliving(thing)))
 							continue
-						if(ismob(thing) && !isliving(thing))
+						if(thing.type != desired_type)
 							continue
 						valid_things.Add(WEAKREF(thing))
 		if(valid_things.len)
@@ -1192,7 +1202,7 @@
 	power_draw_per_use = 1200
 
 /obj/item/integrated_circuit/input/sensor/ranged/sense(atom/A, mob/user)
-	if(!user || (!istype(A)  && !isliving(A)))
+	if(!user || !ic_is_safe_ref_atom(A))
 		return FALSE
 	if(user.client)
 		if(!(A in view(user.client)))
@@ -1227,6 +1237,8 @@
 
 /obj/item/integrated_circuit/input/obj_scanner/attackby_react(var/atom/A,var/mob/user,intent)
 	if(intent!=I_HELP)
+		return FALSE
+	if(!ic_is_safe_ref_atom(A))
 		return FALSE
 	if(!check_then_do_work())
 		return FALSE

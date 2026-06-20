@@ -129,6 +129,13 @@
 		return TRUE
 	return FALSE
 
+/proc/ic_is_safe_ref_atom(atom/A)
+	if(!istype(A))
+		return FALSE
+	if(istype(A, /mob/abstract/ghost))
+		return FALSE
+	return TRUE
+
 /proc/ic_truthy(value)
 	if(isnull(value))
 		return FALSE
