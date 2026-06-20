@@ -59,8 +59,7 @@
 	SIGNAL_HANDLER
 	if (prob(telepathy_cancel_probability))
 		*cancelled = TRUE
-		max_blocks--
-		if (max_blocks <= 0)
+		if (--max_blocks <= 0)
 			qdel(src)
 
 /datum/component/timed_life/psiblock_drugs/proc/modify_ministry_empathy(minister, ministree, moodlet_value)
