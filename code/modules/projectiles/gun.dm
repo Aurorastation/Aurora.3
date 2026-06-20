@@ -987,8 +987,8 @@ ABSTRACT_TYPE(/obj/item/gun)
 		qdel(src)
 
 /obj/item/offhand/mob_can_equip(var/mob/M, slot, disable_warning = FALSE, bypass_blocked_check = FALSE, is_overlay_check = FALSE)
-	var/static/list/equippable_slots = list(slot_l_hand, slot_r_hand)
-	if(slot in equippable_slots)
+	var/mob/living/carbon/human/H = M
+	if(istype(H) && (slot in H.held_item_slots))
 		return TRUE
 	return FALSE
 

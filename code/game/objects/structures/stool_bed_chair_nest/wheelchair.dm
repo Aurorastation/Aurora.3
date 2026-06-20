@@ -29,15 +29,37 @@
 		to_chat(user, SPAN_WARNING("You cannot drive while being pushed."))
 		return
 
-	// Let's roll
+	// previously this section had a "let's roll" comment
+	// fuck you, nothing rolls about this shitcode
 	driving = TRUE
-	user.glide_size = glide_size
-	step(src, direction)
-	set_dir(direction)
+	user.set_glide_size(glide_size)
+	astype(buckled, /mob/living)?.set_glide_size(glide_size) //FUCK YOU WHEELCHAIRS
 
+	// move occupant
+	if(buckled)
+		buckled.buckled_to = null
+		step(buckled, direction)
+		buckled.buckled_to = src // what the fuck?
+
+	var/turf/next_driver_step
+	var/turf/next_wheelchair_step = get_step(get_turf(src), direction)
+
+	// move driver
 	if(LAZYLEN(grabbed_by))
 		for(var/obj/item/grab/G as anything in grabbed_by)
-			step(G.grabber, direction)
+			next_driver_step = get_step(G.grabber, get_dir(G.grabber, loc))
+			if(get_dist(src, G.grabber) <= 1)
+				if(next_driver_step != next_wheelchair_step)
+					step(G.grabber, get_dir(G.grabber, loc))
+			else
+				qdel(G)
+
+	// move wheelchair
+	step(src, get_step(src, direction))
+	if(buckled) // Make sure it stays beneath the occupant
+		Move(buckled.loc)
+
+	set_dir(direction)
 
 	if(bloodiness)
 		create_track()
