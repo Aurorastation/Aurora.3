@@ -50,6 +50,7 @@
 		return
 
 	to_chat(implantee, SPAN_DANGER("Your mind wriggles as it repulses an outside thought."))
+	take_damage(1)
 
 /obj/item/organ/internal/augment/bioaug/mind_blanker/proc/modify_sensitivity(implantee, effective_sensitivity)
 	SIGNAL_HANDLER
@@ -125,6 +126,7 @@
 		return
 
 	to_chat(implantee, SPAN_DANGER("Your mind wriggles as it repulses an outside thought."))
+	take_damage(1)
 	if(isliving(caster))
 		var/mob/living/victim = caster
 		victim.adjustBrainLoss(20)
