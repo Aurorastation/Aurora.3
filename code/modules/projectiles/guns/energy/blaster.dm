@@ -1,6 +1,6 @@
 /obj/item/gun/energy/blaster
 	name = "NT-62P blaster pistol"
-	desc = "A NanoTrasen Corporated-designed energy handgun that fires ionised bolts of phoron. Often seen among the Tau Ceti Armed Forces."
+	desc = "A NanoTrasen Corporation-designed energy handgun that fires ionised bolts of phoron. Often seen among the Tau Ceti Armed Forces."
 	icon = 'icons/obj/guns/faction/nanotrasen_corporation/blaster_pistol.dmi'
 	icon_state = "blaster_pistol"
 	item_state = "blaster_pistol"
@@ -40,7 +40,7 @@
 
 /obj/item/gun/energy/blaster/revolver
 	name = "NT-62R blaster revolver"
-	desc = "A NanoTrasen Corporated-designed energy handgun that fires ionised bolts of phoron. Often seen among the Tau Ceti Armed Forces. This one appears to have a revolver-like design."
+	desc = "A NanoTrasen Corporation-designed energy handgun that fires ionised bolts of phoron. Often seen among the Tau Ceti Armed Forces. This one appears to have a revolver-like design."
 	icon = 'icons/obj/guns/faction/nanotrasen_corporation/blaster_revolver.dmi'
 	icon_state = "blaster_revolver"
 	item_state = "blaster_revolver"
