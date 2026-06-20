@@ -213,7 +213,7 @@ GLOBAL_LIST_INIT(em_mask_matrix, EM_MASK_MATRIX)
 /// Maximum selectable value for emissive bloom. 0 disables bloom.
 #define MAXIMUM_EMISSIVE_BLOOM_SIZE 5
 /// Default value for emissive bloom.
-#define DEFAULT_EMISSIVE_BLOOM_SIZE 2
+#define DEFAULT_EMISSIVE_BLOOM_SIZE 3
 
 /// Returns the red part of a #RRGGBB hex sequence as number.
 #define GETREDPART(hexa) hex2num(copytext(hexa, 2, 4))

@@ -493,7 +493,7 @@
 			var/icon/item_icon
 			if(istype(item_used, /obj/item/seeds))
 				var/obj/item/seeds/S = item_used
-				item_icon = S.update_appearance(TRUE)
+				item_icon = S.update_seed_appearance(TRUE)
 			else
 				item_icon = getFlatIcon(item_used)
 			final_icon = icon2base64(item_icon)

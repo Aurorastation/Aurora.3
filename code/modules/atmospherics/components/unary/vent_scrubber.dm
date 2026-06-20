@@ -76,6 +76,8 @@
 	if (!scrubbing_gas)
 		reset_scrubbing()
 
+	update_icon()
+
 /obj/structure/machinery/atmospherics/unary/vent_scrubber/proc/reset_scrubbing()
 	if (initial(scrubbing_gas))
 		scrubbing_gas = initial(scrubbing_gas)
@@ -108,16 +110,29 @@
 	if(!istype(T))
 		return
 
-	if (welded)
+	ClearOverlays()
+	if(!node)
+		update_use_power(POWER_USE_OFF)
+
+	if(welded)
 		icon_state = "weld"
+		set_light(FALSE)
+		light_range = null
+		update_underlays()
+		return
+	if(!powered() || !use_power)
+		icon_state = "off"
+		set_light(FALSE)
+		light_range = null
+		update_underlays()
 		return
 
-	if (!powered() || !use_power)
-		icon_state = "off"
-	else if (scrubbing)
-		icon_state = "on"
-	else
-		icon_state = "in"
+	icon_state = "[scrubbing ? "on" : "in"]"
+	AddOverlays(emissive_appearance(icon, "[scrubbing ? "on-e" : "in-e"]", src))
+	if(!light_range)
+		set_light(2, 0.4, scrubbing ? "#3378F6" : "#FF0001")
+
+	update_underlays()
 
 /obj/structure/machinery/atmospherics/unary/vent_scrubber/update_underlays()
 	if(..())

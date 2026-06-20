@@ -164,19 +164,23 @@
 	air_contents.volume = ATMOS_DEFAULT_VOLUME_PUMP + 500 //meant to match air injector
 
 /obj/structure/machinery/atmospherics/unary/vent_pump/update_icon(safety = 0)
-	if (!node)
+	ClearOverlays()
+	if(!node)
 		update_use_power(POWER_USE_OFF)
 
-	var/vent_icon = ""
-
 	if(welded)
-		vent_icon += "weld"
-	else if(!powered())
-		vent_icon += "off"
+		icon_state = "weld"
+		set_light(FALSE)
+		light_range = null
+	else if(!powered() || !use_power)
+		icon_state = "off"
+		set_light(FALSE)
+		light_range = null
 	else
-		vent_icon += "[use_power ? "[pump_direction ? "out" : "in"]" : "off"]"
-
-	icon_state = vent_icon
+		icon_state = "[pump_direction ? "out" : "in"]"
+		AddOverlays(emissive_appearance(icon, "[pump_direction ? "out-e" : "in-e"]", src))
+		if(!light_range)
+			set_light(2, 0.4, pump_direction ? "#3378F6" : "#FF0001")
 
 	update_underlays()
 
