@@ -1,3 +1,9 @@
+#define RISK_LOW list("You feel like you can't focus on anything.", "Why should you care about others?", "You cannot bring yourself to care.", "Other people's emotions seem tedious.", "Nothing seems urgent anymore.", "You feel your attention drifting.", "It is difficult to hold onto a feeling.", "Why was it you were concerned again?", "You feel your attention wandering.", "Everyone seems too worried.", "Everything feels muffled.")
+
+#define RISK_MEDIUM list("Everything feels dulled and distant.", "Your thoughts feel sluggish.", "You struggle to remember what you were just thinking.", "You have trouble recalling why this mattered to you.", "Your mind feels wrapped in a thick fog.", "Why was it that this mattered to you again?", "Your thoughts feel distant from you.", "What was it you were feeling again?", "You lose track of what you meant to say.", "Everything feels numb.", "What was it you were doing again?")
+
+#define RISK_HIGH list("You feel detached from your surroundings.", "Everyone seems less real.", "The world feels insulated.", "Everything seems so quiet.", "For a moment, it feels like there is a faint hum.", "The people around you seem indistinct.", "The quiet feels thicker than before.", "The world feels distant and muffled.", "Your thoughts seem to vanish before you can finish them.", "You cannot remember how long you have been standing here.", "You feel strangely absent for a moment.", "There was something important... What was it again?", "The world around you feels artificial.", "You feel disconnected from your actions.", "How did you get here again?", "Something feels like it is missing from you.")
+
 /datum/component/timed_life/psiblock_drugs
 	/// Typecasted parent of this component.
 	var/mob/living/carbon/human/owner
@@ -15,7 +21,7 @@
 	var/telepathy_cancel_probability = 95
 
 	/// The message randomly given while under the effect of the drug
-	var/ongoing_effect_message = list("Everything feels dulled and distant.", "You feel like you can't focus on anything.", "Your thoughts feel sluggish.", "Why should you care about others?")
+	var/ongoing_effect_message = list("Everything feels dulled and distant.", "You feel like you can't focus on anything.", "Your thoughts feel sluggish.", "Why should you care about others?", "You struggle to remember what you were just thinking.", "You cannot bring yourself to care.", "Other people's emotions seem tedious.", "You have trouble recalling why this mattered to you.", "Nothing seems urgent anymore.", "You feel detached from your surroundings.", "Your mind feels wrapped in a thick fog.", "Everyone seems less real.", "The world feels insulated.", "Why was it that this mattered to you again?", "Everything seems so quiet.", "For a moment, it feels like there is a faint hum.", "Your thoughts feel distant from you.", "It is difficult to hold onto a feeling.", "Why was it you were concerned again?", "You feel your attention drifting.", "The people around you seem indistinct.", "The quiet feels thicker than before.", "What was it you were feeling again?", "The world feels distant and muffled.")
 
 	/// Time until the next ongoing message
 	var/next_message = 0
@@ -142,6 +148,8 @@
 	RegisterSignal(parent, COMSIG_BEFORE_GUN_FIRE, PROC_REF(check_tremor_gun), override = TRUE)
 	RegisterSignal(parent, COMSIG_GET_SURGERY_SUCCESS_MODIFIERS, PROC_REF(check_tremor_surgery), override = TRUE)
 
+	ongoing_effect_message = RISK_LOW + RISK_MEDIUM
+
 /datum/component/timed_life/psiblock_drugs/yomi_genetics/Destroy()
 	UnregisterSignal(parent, COMSIG_BEFORE_GUN_FIRE)
 	UnregisterSignal(parent, COMSIG_GET_SURGERY_SUCCESS_MODIFIERS)
@@ -179,6 +187,10 @@
 	surgery_success_penalty = -20
 	seizure_intensity = 2
 
+/datum/component/timed_life/psiblock_drugs/yomi_genetics/cheap/Initialize(lifetime_seconds)
+	. = ..()
+	ongoing_effect_message = RISK_LOW + RISK_MEDIUM + RISK_HIGH
+
 /datum/component/timed_life/psiblock_drugs/yomi_genetics/expensive
 	min_tremor_time = 2 MINUTES
 	max_tremor_time = 5 MINUTES
@@ -188,3 +200,13 @@
 	accuracy_penalty = 0.15
 	dispersion_penalty = 2
 	surgery_success_penalty = -5
+
+/datum/component/timed_life/psiblock_drugs/yomi_genetics/expensive/Initialize(lifetime_seconds)
+	. = ..()
+	ongoing_effect_message = RISK_LOW
+
+#undef RISK_LOW
+
+#undef RISK_MEDIUM
+
+#undef RISK_HIGH

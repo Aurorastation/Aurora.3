@@ -8,7 +8,7 @@
 	var/sensitivity_modifier = -1
 
 	/// The message randomly given while under the effect of the drug
-	var/ongoing_effect_message = list("Everything feels dulled and distant.", "You feel like you can't focus on anything.", "Your thoughts feel sluggish.", "Why should you care about others?")
+	var/ongoing_effect_message = list("Everything feels dulled and distant.", "You feel like you can't focus on anything.", "Your thoughts feel sluggish.", "Why should you care about others?", "You struggle to remember what you were just thinking.", "You cannot bring yourself to care.", "Other people's emotions seem tedious.", "You have trouble recalling why this mattered to you.", "Nothing seems urgent anymore.", "You feel detached from your surroundings.", "Your mind feels wrapped in a thick fog.", "Everyone seem less real.", "The world feels insulated.", "Why was it this mattered to you again?", "Everything seems so quiet.", "For a moment, it feels like there is a faint hum.")
 
 	/// Time until the next ongoing message
 	var/next_message = 0
@@ -57,6 +57,7 @@
 			return
 		var/message = pick(ongoing_effect_message)
 		to_chat(owner, SPAN_NOTICE("[message]"))
+		owner.play_screen_text("[message]", /atom/movable/screen/text/screen_text/mental_message, COLOR_TEAL)
 		next_message = (REALTIMEOFDAY + DRUG_MESSAGE_COOLDOWN * 3)
 
 /obj/item/organ/internal/augment/bioaug/mind_blanker/proc/cancel_power(implantee, caster, cancelled, cancel_return, wide_field)
@@ -111,7 +112,7 @@
 	var/sensitivity_modifier = -1
 
 	/// The message randomly given while under the effect of the drug
-	var/ongoing_effect_message = list("Everything feels dulled and distant.", "You feel like you can't focus on anything.", "Your thoughts feel sluggish.", "Why should you care about others?")
+	var/ongoing_effect_message = list("Everything feels dulled and distant.", "You feel like you can't focus on anything.", "Your thoughts feel sluggish.", "Why should you care about others?", "You struggle to remember what you were just thinking.", "You cannot bring yourself to care.", "Other people's emotions seem tedious.", "You have trouble recalling why this mattered to you.", "Nothing seems urgent anymore.", "You feel detached from your surroundings.", "Your mind feels wrapped in a thick fog.", "Everyone seem less real.", "The world feels insulated.", "Why was it this mattered to you again?", "Everything seems so quiet.", "For a moment, it feels like there is a faint hum.")
 
 	/// Time until the next ongoing message
 	var/next_message = 0
@@ -135,6 +136,7 @@
 			return
 		var/message = pick(ongoing_effect_message)
 		to_chat(owner, SPAN_NOTICE("[message]"))
+		owner.play_screen_text("[message]", /atom/movable/screen/text/screen_text/mental_message, COLOR_TEAL)
 		next_message = (REALTIMEOFDAY + DRUG_MESSAGE_COOLDOWN * 3)
 
 /obj/item/organ/internal/augment/bioaug/mind_blanker_lethal/replaced()
