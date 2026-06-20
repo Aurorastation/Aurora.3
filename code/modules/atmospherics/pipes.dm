@@ -1,6 +1,6 @@
 /obj/structure/machinery/atmospherics/pipe
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
-	layer = BELOW_CATWALK_LAYER
+	layer = ATMOS_PIPE_LAYER
 	var/datum/gas_mixture/air_temporary // used when reconstructing a pipeline that broke
 	var/datum/pipeline/parent
 	var/volume = 0
@@ -48,11 +48,14 @@
 /obj/structure/machinery/atmospherics/pipe/uses_undertile()
 	return level == 1 && !density
 
+/obj/structure/machinery/atmospherics/pipe/proc/atmos_pipe_layer()
+	return ATMOS_PIPE_LAYER
+
 /obj/structure/machinery/atmospherics/pipe/undertile_layer()
-	return BELOW_CATWALK_LAYER
+	return atmos_pipe_layer()
 
 /obj/structure/machinery/atmospherics/pipe/undertile_restored_layer()
-	return uses_undertile() ? BELOW_CATWALK_LAYER : ..()
+	return uses_undertile() ? atmos_pipe_layer() : ..()
 
 /obj/structure/machinery/atmospherics/pipe/proc/pipeline_expansion()
 	return null
@@ -366,7 +369,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/visible
 	icon_state = "intact"
 	level = 2
-	layer = HIGH_TURF_LAYER
+	layer = ATMOS_PIPE_LAYER
 
 /obj/structure/machinery/atmospherics/pipe/simple/visible/scrubbers
 	name = "Scrubbers pipe"
@@ -673,7 +676,7 @@
 /obj/structure/machinery/atmospherics/pipe/manifold/visible
 	icon_state = "map"
 	level = 2
-	layer = HIGH_TURF_LAYER
+	layer = ATMOS_PIPE_LAYER
 
 /obj/structure/machinery/atmospherics/pipe/manifold/visible/scrubbers
 	name = "scrubbers pipe manifold"
@@ -982,7 +985,7 @@
 /obj/structure/machinery/atmospherics/pipe/manifold4w/visible
 	icon_state = "map_4way"
 	level = 2
-	layer = HIGH_TURF_LAYER
+	layer = ATMOS_PIPE_LAYER
 
 /obj/structure/machinery/atmospherics/pipe/manifold4w/visible/scrubbers
 	name = "4-way scrubbers pipe manifold"
@@ -1183,7 +1186,7 @@
 /obj/structure/machinery/atmospherics/pipe/cap/visible
 	level = 2
 	icon_state = "cap"
-	layer = HIGH_TURF_LAYER
+	layer = ATMOS_PIPE_LAYER
 
 /obj/structure/machinery/atmospherics/pipe/cap/visible/scrubbers
 	name = "scrubbers pipe endcap"

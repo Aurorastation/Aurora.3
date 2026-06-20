@@ -180,8 +180,6 @@
 #define COLD_EFFECT_PLATE_RENDER_TARGET "*COLD_EFFECT_PLATE_RENDER_TARGET"
 #define COLD_EFFECT_BACK_PLATE_RENDER_TARGET "*COLD_EFFECT_BACK_PLATE_RENDER_TARGET"
 
-// TG_PLANE_CUBE_TEMP: remove after old Aurora lighting mask/static systems are replaced by tg lighting
-#define BLACKNESS_PLANE DEFAULT_PLANE
 #define O_LIGHTING_VISUAL_RENDER_TARGET "O_LIGHT_VISUAL_PLANE"
 #define LIGHTING_RENDER_TARGET "LIGHT_PLANE"
 #define SHADOW_RENDER_TARGET "SHADOW_RENDER_TARGET"
@@ -195,9 +193,9 @@
 #define DUST_LAYER 2
 
 	// FLOOR_PLANE layers. Anything using these must live on FLOOR_PLANE.
-	// These mirror tg's TOPDOWN_LAYER floor stack so bound floors and floor-stack
+	// These (largely) mirror tg's TOPDOWN_LAYER floor stack so bound floors and floor-stack
 	// objects sort as top-down visuals rather than side-map objects.
-	#define TOPDOWN_LAYER_COUNT 18
+	#define TOPDOWN_LAYER_COUNT 19
 	#define LOWER_FLOOR_LAYER (1 + TOPDOWN_LAYER)
 	#define LOW_FLOOR_LAYER (2 + TOPDOWN_LAYER)
 	#define TURF_PLATING_DECAL_LAYER (3 + TOPDOWN_LAYER)
@@ -207,15 +205,16 @@
 	#define HIGH_TURF_LAYER (7 + TOPDOWN_LAYER) // Functions as the old TURF_SHADOW_LAYER
 	#define LATTICE_LAYER (8 + TOPDOWN_LAYER)
 	#define DISPOSAL_PIPE_LAYER (9 + TOPDOWN_LAYER)
-	#define WIRE_LAYER (10 + TOPDOWN_LAYER)
-	#define BELOW_CATWALK_LAYER (11 + TOPDOWN_LAYER)
-	#define WIRE_TERMINAL_LAYER (12 + TOPDOWN_LAYER)
-	#define CATWALK_LAYER (13 + TOPDOWN_LAYER)
-	#define ABOVE_CATWALK_LAYER (14 + TOPDOWN_LAYER)
-	#define PLANT_LAYER (15 + TOPDOWN_LAYER) // gound foliage/emissive-block threshold.
-	#define LOWER_RUNE_LAYER (16 + TOPDOWN_LAYER)
-	#define RUNE_LAYER (17 + TOPDOWN_LAYER)
-	#define CLEANABLE_FLOOR_OBJECT_LAYER (18 + TOPDOWN_LAYER)
+	#define ATMOS_PIPE_LAYER (10 + TOPDOWN_LAYER)
+	#define WIRE_LAYER (11 + TOPDOWN_LAYER)
+	#define BELOW_CATWALK_LAYER (12 + TOPDOWN_LAYER)
+	#define WIRE_TERMINAL_LAYER (13 + TOPDOWN_LAYER)
+	#define CATWALK_LAYER (14 + TOPDOWN_LAYER)
+	#define ABOVE_CATWALK_LAYER (15 + TOPDOWN_LAYER)
+	#define PLANT_LAYER (16 + TOPDOWN_LAYER) // gound foliage/emissive-block threshold.
+	#define LOWER_RUNE_LAYER (17 + TOPDOWN_LAYER)
+	#define RUNE_LAYER (18 + TOPDOWN_LAYER)
+	#define CLEANABLE_FLOOR_OBJECT_LAYER (19 + TOPDOWN_LAYER)
 
 	// Normal GAME_PLANE layer band used by topdown emissive remapping.
 	#define ABOVE_NORMAL_TURF_LAYER 2.08

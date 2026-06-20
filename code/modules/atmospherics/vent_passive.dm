@@ -3,7 +3,7 @@
 	desc = ""
 	icon = 'icons/atmos/vent_passive.dmi'
 	icon_state = "map_vent"
-	layer = HIGH_TURF_LAYER
+	layer = ATMOS_PIPE_LAYER
 
 	connect_types = CONNECT_TYPE_REGULAR|CONNECT_TYPE_SUPPLY|CONNECT_TYPE_SCRUBBER|CONNECT_TYPE_AUX|CONNECT_TYPE_FUEL //connects to all pipes except HE
 

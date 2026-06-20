@@ -37,7 +37,7 @@ Possible to do for anyone motivated enough:
 	var/icon_state_suffix = ""
 
 	plane = FLOOR_PLANE
-	layer = HIGH_TURF_LAYER
+	layer = ABOVE_CATWALK_LAYER
 
 	var/power_per_hologram = 500 //per usage per hologram
 	idle_power_usage = 5

@@ -76,7 +76,10 @@
 	if (!scrubbing_gas)
 		reset_scrubbing()
 
-	update_icon()
+	if(mapload)
+		queue_icon_update()
+	else
+		update_icon()
 
 /obj/structure/machinery/atmospherics/unary/vent_scrubber/proc/reset_scrubbing()
 	if (initial(scrubbing_gas))
@@ -106,10 +109,6 @@
 	return ..()
 
 /obj/structure/machinery/atmospherics/unary/vent_scrubber/update_icon(var/safety = 0)
-	var/turf/T = get_turf(src)
-	if(!istype(T))
-		return
-
 	ClearOverlays()
 	if(!node)
 		update_use_power(POWER_USE_OFF)
@@ -118,19 +117,15 @@
 		icon_state = "weld"
 		set_light(FALSE)
 		light_range = null
-		update_underlays()
-		return
-	if(!powered() || !use_power)
+	else if(!powered() || !use_power)
 		icon_state = "off"
 		set_light(FALSE)
 		light_range = null
-		update_underlays()
-		return
-
-	icon_state = "[scrubbing ? "on" : "in"]"
-	AddOverlays(emissive_appearance(icon, "[scrubbing ? "on-e" : "in-e"]", src))
-	if(!light_range)
-		set_light(2, 0.4, scrubbing ? "#3378F6" : "#FF0001")
+	else
+		icon_state = "[scrubbing ? "on" : "in"]"
+		AddOverlays(emissive_appearance(icon, "[scrubbing ? "on-e" : "in-e"]", src))
+		if(!light_range)
+			set_light(2, 0.4, scrubbing ? "#3378F6" : "#FF0001")
 
 	update_underlays()
 
@@ -243,8 +238,7 @@
 
 /obj/structure/machinery/atmospherics/unary/vent_scrubber/on_undertile_updated() // to make the little pipe section invisible, the icon changes.
 	SIGNAL_HANDLER
-	update_icon()
-	update_underlays()
+	queue_icon_update()
 
 /obj/structure/machinery/atmospherics/unary/vent_scrubber/receive_signal(datum/signal/signal)
 	if(stat & (NOPOWER|BROKEN))

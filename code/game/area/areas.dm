@@ -28,7 +28,7 @@
 	layer = AREA_LAYER
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	invisibility = INVISIBILITY_LIGHTING
-	plane = BLACKNESS_PLANE
+	plane = AREA_PLANE
 
 	var/obj/structure/machinery/power/apc/apc = null
 	/// The base turf type of the area, which can be used to override the z-level's base turf.

@@ -7,6 +7,7 @@
 	icon_state = "pod_preview"
 	density = TRUE
 	anchored = TRUE
+	plane = GAME_PLANE
 	layer = ABOVE_HUMAN_LAYER
 	interact_offline = TRUE
 

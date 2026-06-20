@@ -879,7 +879,7 @@
 	if(mapload)
 		var/turf/T = loc
 		var/image/I = image(icon, T, icon_state, dir, pixel_x, pixel_y)
-		I.layer = HIGH_TURF_LAYER
+		I.layer = DISPOSAL_PIPE_LAYER
 		SET_PLANE_EXPLICIT(I, FLOOR_PLANE, T)
 		I.alpha = 125
 		LAZYADD(T.blueprints, I)
@@ -1116,6 +1116,12 @@
 
 /obj/structure/disposalpipe/uses_undertile()
 	return 1
+
+/obj/structure/disposalpipe/undertile_layer()
+	return DISPOSAL_PIPE_LAYER
+
+/obj/structure/disposalpipe/undertile_restored_layer()
+	return DISPOSAL_PIPE_LAYER
 
 // *** TEST verb
 //client/verb/dispstop()

@@ -5,7 +5,7 @@
 	icon_state = "recharge_floor"
 	density = FALSE
 	plane = FLOOR_PLANE
-	layer = HIGH_TURF_LAYER
+	layer = ABOVE_CATWALK_LAYER
 	anchored = TRUE
 	idle_power_usage = 300	// Some electronics, passive drain.
 	active_power_usage = 90 KILO WATTS // When charging

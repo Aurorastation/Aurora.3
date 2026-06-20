@@ -132,6 +132,12 @@ By design, d1 is the smallest direction and d2 is the highest
 /obj/structure/cable/uses_undertile()
 	return TRUE
 
+/obj/structure/cable/undertile_layer()
+	return WIRE_LAYER
+
+/obj/structure/cable/undertile_restored_layer()
+	return WIRE_LAYER
+
 /obj/structure/cable/update_icon()
 	icon_state = "[d1]-[d2]"
 	alpha = invisibility ? 127 : 255

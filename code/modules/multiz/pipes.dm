@@ -14,7 +14,7 @@
 
 	dir = SOUTH
 	initialize_directions = SOUTH
-	layer = HIGH_TURF_LAYER
+	layer = ATMOS_PIPE_LAYER
 
 	var/minimum_temperature_difference = 300
 	// WALL_HEAT_TRANSFER_COEFFICIENT

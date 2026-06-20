@@ -304,10 +304,7 @@
 	name = "Game"
 	documentation = "Holds most non floor/wall things. Anything on this plane \"wants\" to interlayer depending on position."
 	plane = GAME_PLANE
-	// TG_PLANE_CUBE_TEMP: Aurora turfs still largely draw on GAME_PLANE.
-	// Until floors/walls are moved onto concrete turf planes, this keeps the
-	// light mask from multiplying the whole game plate to black.
-	render_relay_planes = list(RENDER_PLANE_GAME_WORLD, RENDER_PLANE_LIGHT_MASK)
+	render_relay_planes = list(RENDER_PLANE_GAME_WORLD)
 
 /atom/movable/screen/plane_master/game_world_above
 	name = "Upper Game"
