@@ -63,7 +63,7 @@
 
 /singleton/education/expeditionary_trade
 	name = "Expeditionary Trade"
-	description = "You've developed trade skills for a career of expeditions. You are at home in a shuttle piloting to and from for an average day's work. You can even get rough or tend to \
+	description = "You've developed trade skills for a career of expeditions. You are at home in a shuttle piloting to and from for an average day's work. You can even hit a shot or tend to \
 	wounds when things eventually get unsafe."
 	jobs = list("Shaft Miner", "Xenoarchaeologist", "Xenobiologist", "Xenobotanist", "Operations Manager", "Research Director")
 	minimum_character_age = list(
@@ -75,6 +75,6 @@
 		/singleton/skill/pilot_spacecraft = SKILL_LEVEL_FAMILIAR,
 		/singleton/skill/electrical_engineering = SKILL_LEVEL_FAMILIAR,
 		/singleton/skill/atmospherics_systems = SKILL_LEVEL_FAMILIAR,
-		/singleton/skill/armed_combat = SKILL_LEVEL_FAMILIAR,
+		/singleton/skill/firearms = SKILL_LEVEL_FAMILIAR,
 		/singleton/skill/medicine = SKILL_LEVEL_FAMILIAR
 	)
