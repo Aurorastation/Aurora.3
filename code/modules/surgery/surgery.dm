@@ -10,9 +10,8 @@
 	var/list/allowed_species = null
 	var/list/disallowed_species = list("Nymph")
 
-	/// duration of the step
-	var/min_duration = 0
-	var/max_duration = 0
+	/// The amount of time (in seconds) required to perform this surgery, before any modifiers are applied.
+	var/base_surgery_time = 5 SECONDS
 
 	/// evil infection stuff that will make everyone hate me
 	var/can_infect = FALSE
@@ -154,14 +153,16 @@
 		else if(S.is_valid_target(M))
 			M.op_stage.in_progress += list(zone = user)
 			S.begin_step(user, M, zone, tool)
-			var/duration = rand(S.min_duration, S.max_duration)
+
+			// Get the base surgery time before modifiers.
+			var/duration = S.base_surgery_time
 
 			// Get the base surgery success rate based on tools.
 			// This should eventually be reworked to use ToolQualityComponents when we add that.
 			var/success_rate = S.tool_quality(tool)
 
 			// Query the surgeon if they have any components that would like to modify the success chance.
-			SEND_SIGNAL(user, COMSIG_GET_SURGERY_SUCCESS_MODIFIERS, &success_rate)
+			SEND_SIGNAL(user, COMSIG_GET_SURGERY_SUCCESS_MODIFIERS, M, &success_rate, &duration)
 
 			// Skill modifier checks
 			for (var/skill_comp, required_level in S.skill_requirements)
