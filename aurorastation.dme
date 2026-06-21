@@ -251,6 +251,7 @@
 #include "code\__HELPERS\type_processing.dm"
 #include "code\__HELPERS\unsorted.dm"
 #include "code\__HELPERS\view.dm"
+#include "code\__HELPERS\visual_effects.dm"
 #include "code\__HELPERS\visual_filters.dm"
 #include "code\__HELPERS\logging\_logging.dm"
 #include "code\__HELPERS\logging\admin.dm"

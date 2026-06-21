@@ -354,20 +354,20 @@
 	. = ..()
 	if(!.)
 		return
-	// TG_PLANE_CUBE_TEMP: reattach weather plane hiding in Phase 11.
+	// TG_PLANE_CUBE_TEMP: reattach weather plane hiding
 
 /atom/movable/screen/plane_master/weather/proc/update_state(mob/mymob)
 	if(!istype(mymob))
 		return
 
-	// TG_PLANE_CUBE_TEMP: replace with Aurora weather preference handling in Phase 11.
+	// TG_PLANE_CUBE_TEMP: replace with Aurora weather preference handling
 	if(particle_weather)
 		hide_from(mymob)
 	else
 		show_to(mymob)
 
 /atom/movable/screen/plane_master/weather/show_to(mob/mymob)
-	// TG_PLANE_CUBE_TEMP: replace with Aurora weather preference handling in Phase 11.
+	// TG_PLANE_CUBE_TEMP: replace with Aurora weather preference handling
 	if(!particle_weather)
 		return ..()
 
@@ -391,7 +391,7 @@
 	. = ..()
 	if(!.)
 		return
-	// TG_PLANE_CUBE_TEMP: reattach weather plane hiding in Phase 11.
+	// TG_PLANE_CUBE_TEMP: reattach weather plane hiding
 
 /atom/movable/screen/plane_master/massive_obj
 	name = "Massive object"
@@ -435,7 +435,7 @@
 		<br>Mostly little alerts and effects, also sometimes contains things that are meant to look as if they glow."
 	render_relay_planes = list(RENDER_PLANE_GAME)
 
-// TG_PLANE_CUBE_TEMP: reclassify Aurora tent/roof visuals as a final tg-style consumer in Phase 11.
+// TG_PLANE_CUBE_TEMP: reclassify Aurora tent/roof visuals as a final tg-style consumer
 /atom/movable/screen/plane_master/roof
 	name = "Roof"
 	documentation = "Temporary tg-style owner for Aurora roof/tent visuals while old rendering planes are retired."
@@ -456,7 +456,7 @@
 	. = ..()
 	if(!.)
 		return
-	// TG_PLANE_CUBE_TEMP: reattach weather plane hiding in Phase 11.
+	// TG_PLANE_CUBE_TEMP: reattach weather plane hiding
 
 /**
  * Handles emissive overlays and emissive blockers.
@@ -524,7 +524,7 @@
 
 /atom/movable/screen/plane_master/camera_static/proc/eye_changed(datum/hud/source, atom/old_eye, atom/new_eye)
 	SIGNAL_HANDLER
-	// TG_PLANE_CUBE_TEMP: reattach Aurora camera static/map-view logic in Phase 11.
+	// TG_PLANE_CUBE_TEMP: reattach Aurora camera static/map-view logic
 	if(!force_hidden)
 		hide_plane(source.mymob)
 

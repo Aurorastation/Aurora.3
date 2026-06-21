@@ -90,7 +90,7 @@
 	. = ..()
 	if(!.)
 		return
-	// TG_PLANE_CUBE_TEMP: reattach weather plane hiding in Phase 11.
+	// TG_PLANE_CUBE_TEMP: reattach weather plane hiding
 	RegisterSignal(home, COMSIG_GROUP_HUD_CHANGED, PROC_REF(hud_changed))
 	update_state(home.our_hud?.mymob)
 
@@ -100,7 +100,7 @@
 
 /// Updates ourselves based on our mob's preferences state
 /atom/movable/screen/plane_master/rendering_plate/particle_weather/proc/update_state(mob/mymob)
-	// TG_PLANE_CUBE_TEMP: reattach particle weather holders in Phase 11.
+	// TG_PLANE_CUBE_TEMP: reattach particle weather holders
 	vis_contents.Cut()
 
 /atom/movable/screen/plane_master/rendering_plate/particle_weather/Destroy()
@@ -182,7 +182,6 @@
 /atom/movable/screen/plane_master/rendering_plate/emissive_bloom/Initialize(mapload, datum/hud/hud_owner, datum/plane_master_group/home, offset)
 	. = ..()
 	add_filter("emissive_mask", 1, alpha_mask_filter(render_source = OFFSET_RENDER_TARGET(EMISSIVE_BLOOM_MASK_RENDER_TARGET, offset)))
-	// TG_PLANE_CUBE_TEMP: replace with Aurora/tg emissive bloom preference handling after preferences are ported.
 	var/bloom_scale = DEFAULT_EMISSIVE_BLOOM_SIZE
 	// 0 disables the bloom
 	if (bloom_scale)
@@ -289,7 +288,6 @@
 	// Basically, we need something to brighten
 	// unlit is perhaps less needed rn, it exists to provide a fullbright for things that can't see the lighting plane
 	// but we don't actually use invisibility to hide the lighting plane anymore, so it's pointless
-	// TG_PLANE_CUBE_TEMP: replace with tg lit/unlit backdrop subtypes when Phase 7 ports tg lighting.
 	var/lit_backdrop_key = "lighting_backdrop_lit_[home.key]#[offset]"
 	var/atom/movable/screen/backdrop = mymob.overlay_fullscreen(lit_backdrop_key, /atom/movable/screen/fullscreen/lighting_backdrop/lit_secondary)
 	if(!backdrop)
