@@ -187,7 +187,7 @@
 	var/singleton/material/material = GET_SINGLETON(mat_key || MATERIAL_STEEL)
 	if(!material)
 		return
-	if(material.name != MATERIAL_STEEL)
+	if(material.type != MATERIAL_STEEL)
 		color = material.icon_colour
 	name = "[material.display_name] [initial(name)]"
 
@@ -208,7 +208,7 @@
 	var/singleton/material/material = GET_SINGLETON(mat_key || MATERIAL_STEEL)
 	if(!material)
 		return
-	if(material.name != MATERIAL_STEEL)
+	if(material.type != MATERIAL_STEEL)
 		color = material.icon_colour
 	name = "[material.display_name] [initial(name)]"
 

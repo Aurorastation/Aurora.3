@@ -290,7 +290,7 @@
 		MA.layer = FLOAT_LAYER
 		HS.AddOverlays(MA)
 		HS.name = "[attacking_item.name] on a spear"
-		HS.material = material.name
+		HS.material = material.type
 		qdel(src)
 		return
 

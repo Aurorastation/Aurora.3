@@ -20,7 +20,7 @@
 /obj/item/material/ashtray/persistent_objects_get_content()
 	var/list/content = list()
 	content["fill_count"] = length(contents)
-	content["material"] = material.name
+	content["material"] = material.type
 	return content
 
 /obj/item/material/ashtray/persistent_objects_apply_content(content, x, y, z)

@@ -298,7 +298,7 @@
 // As above.
 /singleton/material/proc/place_shard(var/turf/target)
 	if(shard_type)
-		return new /obj/item/material/shard(target, src.name)
+		return new /obj/item/material/shard(target, src.type)
 
 // Used by walls and weapons to determine if they break or not.
 /singleton/material/proc/is_brittle()

@@ -21,7 +21,7 @@
 		if(!held_item || use_check_and_message(user) || buckled || (anchored && padding_material)) // Make sure held_item = null if you don't want it to get picked up.
 			return
 		user.visible_message(SPAN_NOTICE("[user] [withdraw_verb]s \the [src.name]."), SPAN_NOTICE("You [withdraw_verb] \the [src.name]."))
-		var/obj/item/material/stool/S = new held_item(src.loc, material.name, padding_material?.name, painted_colour) // Handles all the material code so you don't have to.
+		var/obj/item/material/stool/S = new held_item(src.loc, material.type, padding_material?.type, painted_colour) // Handles all the material code so you don't have to.
 		if(material_alteration & MATERIAL_ALTERATION_COLOR) // For snowflakes like wood chairs.
 			S.color = material.icon_colour
 		if(material_alteration & MATERIAL_ALTERATION_NAME)
@@ -242,7 +242,7 @@
 	user.visible_message(SPAN_NOTICE("[user] [deploy_verb]s \the [src.name]."), SPAN_NOTICE("You [deploy_verb] \the [name]."))
 	// playsound(src, deploy_sound ? deploy_sound : drop_sound, DROP_SOUND_VOLUME)
 	user.drop_from_inventory(src)
-	var/obj/structure/bed/stool/S = new origin_type(get_turf(loc), material?.name, padding_material?.name, painted_colour) // Fuck me.
+	var/obj/structure/bed/stool/S = new origin_type(get_turf(loc), material?.type, padding_material?.type, painted_colour) // Fuck me.
 	S.dir = user.dir // Plant it where the user's facing
 	if(blood_DNA)
 		S.blood_DNA |= blood_DNA // Transfer blood.
