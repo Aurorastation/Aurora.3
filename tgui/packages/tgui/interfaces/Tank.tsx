@@ -1,14 +1,13 @@
-import { useBackend } from '../backend';
-import { useLocalState } from '../backend';
 import {
   Button,
-  Section,
   LabeledList,
   ProgressBar,
+  Section,
   Slider,
-} from '../components';
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
+import { useBackend, useLocalState } from '../backend';
 import { Window } from '../layouts';
-import { BooleanLike } from '../../common/react';
 
 export type TankData = {
   tankPressure: number;
@@ -19,12 +18,12 @@ export type TankData = {
   maskConnected: BooleanLike;
 };
 
-export const Tank = (props, context) => {
-  const { act, data } = useBackend<TankData>(context);
+export const Tank = (props) => {
+  const { act, data } = useBackend<TankData>();
 
-  const [tank_color, setColor] = useLocalState(context, 'color', '');
+  const [tank_color] = useLocalState('color', '');
 
-  const tank_presure_color = tank_color
+  const tank_pressure_color = tank_color.toString()
     ? { color: tank_color }
     : {
         ranges: {
@@ -35,13 +34,13 @@ export const Tank = (props, context) => {
       };
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section title="Gas Tank">
           <LabeledList>
             <LabeledList.Item label="Tank Pressure">
               <ProgressBar
-                {...tank_presure_color}
+                color={tank_pressure_color.toString()}
                 minValue={0}
                 maxValue={1024}
                 value={data.tankPressure}
@@ -73,7 +72,7 @@ export const Tank = (props, context) => {
                 value={data.releasePressure}
                 minValue={0}
                 maxValue={data.maxReleasePressure}
-                onChange={(e, value) =>
+                onChange={(value) =>
                   act('setReleasePressure', { release_pressure: value })
                 }
               >

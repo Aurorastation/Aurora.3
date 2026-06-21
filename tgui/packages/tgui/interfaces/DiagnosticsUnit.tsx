@@ -1,6 +1,6 @@
-import { BooleanLike } from 'common/react';
+import { Box, Section } from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Box, Section } from '../components';
 import { Window } from '../layouts';
 import { IPCDiagnostics } from './IPCDiagnostics';
 
@@ -47,14 +47,11 @@ type Limb = {
   max_damage: number;
 };
 
-export const DiagnosticsUnit = (props, context) => {
-  const { act, data } = useBackend<DiagnosticsData>(context);
+export const DiagnosticsUnit = (props) => {
+  const { act, data } = useBackend<DiagnosticsData>();
 
   return (
-    <Window
-      resizable
-      theme={data.broken ? 'spookyconsole' : data.machine_ui_theme}
-    >
+    <Window theme={data.broken ? 'spookyconsole' : data.machine_ui_theme}>
       <Window.Content scrollable>
         {data.broken ? <Broken /> : <IPCDiagnostics />}
       </Window.Content>
@@ -62,8 +59,8 @@ export const DiagnosticsUnit = (props, context) => {
   );
 };
 
-export const Broken = (props, context) => {
-  const { act, data } = useBackend<DiagnosticsData>(context);
+export const Broken = (props) => {
+  const { act, data } = useBackend<DiagnosticsData>();
 
   return (
     <Section title="CRITICAL ERROR 0x0127F29">

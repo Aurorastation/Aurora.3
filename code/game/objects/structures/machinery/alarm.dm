@@ -118,9 +118,8 @@ pixel_x = 10;
 	var/breach_detection = 1
 	//var/skipprocess = 0 //Experimenting
 	var/alarm_frequency = 1437
-	var/remote_control = 0
-	var/rcon_setting = 2
-	var/rcon_time = 0
+	/// If true, RCON is enabled. If false, RCON has been disabled.
+	var/rcon_setting = TRUE
 	var/locked = 1
 	var/aidisabled = 0
 	var/shorted = 0
@@ -475,18 +474,6 @@ pixel_x = 10;
 		mode=AALARM_MODE_FILL
 		apply_mode()
 
-	//atmos computer remote controll stuff
-	switch(rcon_setting)
-		if(RCON_NO)
-			remote_control = 0
-		if(RCON_AUTO)
-			if(danger_level == 2)
-				remote_control = 1
-			else
-				remote_control = 0
-		if(RCON_YES)
-			remote_control = 1
-
 	return
 
 /obj/structure/machinery/alarm/proc/handle_heating_cooling(datum/gas_mixture/environment, seconds_per_tick)
@@ -698,6 +685,22 @@ pixel_x = 10;
 
 	frequency.post_signal(src, alert_signal)
 
+/obj/structure/machinery/alarm/proc/is_alarming()
+	return max(danger_level, alarm_area?.atmosalm) > 0
+
+/obj/structure/machinery/alarm/proc/is_remote_user(mob/user)
+	if(!user)
+		return FALSE
+	for(var/datum/tgui/open_tgui in user.tgui_open_uis)
+		if(open_tgui.interface == "AtmosAlarmControl")
+			return TRUE
+	return FALSE
+
+/obj/structure/machinery/alarm/proc/is_unlocked_for(mob/user)
+	if(is_remote_user(user) && rcon_setting)
+		return TRUE
+	return !locked || issilicon(user)
+
 /obj/structure/machinery/alarm/attack_ai(mob/user)
 	if(!ai_can_interact(user))
 		return
@@ -751,7 +754,8 @@ pixel_x = 10;
 	data["target_temperature"] = round(target_temperature - T0C, 0.1)
 
 	// Access
-	data["locked"] = locked && !issilicon(user)
+	data["locked"] = !is_unlocked_for(user)
+	data["remote_view"] = is_remote_user(user)
 	data["shorted"] = shorted
 	data["rcon"] = rcon_setting
 
@@ -848,14 +852,6 @@ pixel_x = 10;
 
 	// Actions available without unlocking
 	switch(action)
-		if("rcon")
-			var/new_rcon = text2num(params["value"])
-			switch(new_rcon)
-				if(RCON_NO)  rcon_setting = RCON_NO
-				if(RCON_AUTO) rcon_setting = RCON_AUTO
-				if(RCON_YES) rcon_setting = RCON_YES
-			return TRUE
-
 		if("temperature")
 			var/list/tlv = TLV["temperature"]
 			var/max_temperature = min(tlv[3] - T0C, MAX_TEMPERATURE)
@@ -871,7 +867,7 @@ pixel_x = 10;
 			return TRUE
 
 	// Actions that require the alarm to be unlocked
-	if(locked && !issilicon(usr))
+	if(!is_unlocked_for(usr))
 		return
 
 	switch(action)
@@ -962,11 +958,10 @@ pixel_x = 10;
 			apply_mode()
 			return TRUE
 
-/// Snowflake proc to make it so users of the Atmosphere Control app (having the UI open) have full access to an alarm.
+/// Lets Atmosphere Control users remotely view alarms.
 /obj/structure/machinery/alarm/ui_status(mob/user)
-	for(var/datum/tgui/open_tgui in user.tgui_open_uis)
-		if(open_tgui.interface == "AtmosAlarmControl")
-			return UI_INTERACTIVE
+	if(is_remote_user(user) && rcon_setting)
+		return UI_INTERACTIVE
 	return ..()
 
 /**

@@ -190,6 +190,7 @@
 	action_button_icon = "hunterseye"
 	cooldown = 30
 	activable = TRUE
+	zoom_out_message = " eyes whirrs loudly as the zoom lenses retract."
 
 /obj/item/organ/internal/augment/farseer_eye/attack_self(var/mob/user)
 	. = ..()

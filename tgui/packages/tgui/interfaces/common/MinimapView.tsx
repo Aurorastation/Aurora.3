@@ -1,4 +1,4 @@
-import { NoticeBox } from 'tgui/components';
+import { NoticeBox } from 'tgui-core/components';
 
 type MinimapViewProps = {
   map_image: any; // base64 icon
@@ -96,6 +96,6 @@ export const MinimapView = (props: MinimapViewProps) => {
       </g>
     </svg>
   ) : (
-    <NoticeBox warning>No scan image available.</NoticeBox>
+    <NoticeBox danger>No scan image available.</NoticeBox>
   );
 };

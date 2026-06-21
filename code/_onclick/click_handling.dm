@@ -11,15 +11,6 @@ if(!click_handlers) { \
 	click_handlers += new/datum/click_handler/default(src) \
 }
 
-/**
- * LAZYLIST (Instances of `/datum/click_handler`). Click handlers for this mob that should intercept and handle click
- * calls.
- *
- * The 'topmost'/'active' click handler for the mob is the handler currently at index `1`. By default, this will be
- * `/datum/click_handler/default`.
- */
-/mob/var/list/click_handlers
-
 // In the mob code, because otherwise it's a redefinition
 // /mob/Destroy()
 // 	QDEL_LIST(click_handlers)

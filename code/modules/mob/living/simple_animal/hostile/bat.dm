@@ -24,6 +24,7 @@
 	melee_damage_upper = 10
 	resist_mod = 10 // can't grab a cloud of bats easily
 	attacktext = "bites"
+	attack_vis_effect = ATTACK_EFFECT_BITE
 	attack_sound = 'sound/weapons/bite.ogg'
 
 	//Space carp aren't affected by atmos.

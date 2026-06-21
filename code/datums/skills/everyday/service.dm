@@ -1,6 +1,6 @@
 /singleton/skill/bartending
 	name = "Bartending"
-	description = "Users of this skill can create mixed drinks of varying quality, which provide a long lasting morale bonus to anyone who consumes them. This skill is activated by first mixing a drink in a Drink Mixer, then pressing Z to shake it."
+	description = "Users of this skill can create mixed drinks of varying quality, which provide a long lasting morale bonus to anyone who consumes them. This skill is activated by first mixing a drink in a Drink Mixer, then pressing Z to shake it. Alternatively, drinks can be stirred with a spoon by clicking on a completed drink."
 	maximum_level = SKILL_LEVEL_PROFESSIONAL
 	category =  /singleton/skill_category/everyday
 	subcategory = SKILL_SUBCATEGORY_SERVICE
@@ -14,11 +14,18 @@
 
 /singleton/skill/cooking
 	name = "Cooking"
-	description = "Currently unimplemented."
+	description = "Users of this skill gain bonuses when harvesting parts from animals."
 	maximum_level = SKILL_LEVEL_PROFESSIONAL
 	category =  /singleton/skill_category/everyday
 	subcategory = SKILL_SUBCATEGORY_SERVICE
 	component_type = COOKING_SKILL_COMPONENT
+	skill_level_descriptions = alist(
+		SKILL_LEVEL_UNFAMILIAR = "You have no modifiers from cooking.",
+		SKILL_LEVEL_FAMILIAR = "You gain +1 product when butchering any animal",
+		SKILL_LEVEL_TRAINED = "You gain +2 products when butchering any animal",
+		SKILL_LEVEL_PROFESSIONAL = "You gain +3 products when butchering any animal"
+	)
+
 
 /singleton/skill/gardening
 	name = "Gardening"

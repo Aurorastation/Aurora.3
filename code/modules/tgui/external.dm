@@ -42,7 +42,7 @@
  *
  * required user mob The mob interacting with the UI.
  *
- * return list Statuic Data to be sent to the UI.
+ * return list Static Data to be sent to the UI.
  */
 /datum/proc/ui_static_data(mob/user)
 	return list()
@@ -128,13 +128,6 @@
  * tgui clients.
  */
 /datum/var/list/tgui_shared_states
-
-/**
- * global
- *
- * Tracks open UIs for a user.
- */
-/mob/var/list/tgui_open_uis = list()
 
 /**
  * global

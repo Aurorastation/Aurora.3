@@ -195,7 +195,7 @@
 	var/milk_type = /singleton/reagent/drink/milk
 
 	/// If anything else is created when butchering this creature, like bones and leather
-	var/list/butchering_products
+	var/alist/butchering_products
 
 	var/psi_pingable = TRUE
 
@@ -620,14 +620,14 @@
 		if(!actual_damage)
 			actual_damage = harm_intent_damage ? rand(1, harm_intent_damage) : 0
 		apply_damage(actual_damage, attack.damage_type)
-		user.do_attack_animation(src, FIST_ATTACK_ANIMATION)
+		user.do_attack_animation(src)
 		return
 	simple_harm_attack(user)
 
 /mob/living/simple_animal/proc/simple_harm_attack(var/mob/living/user)
 	apply_damage(harm_intent_damage, damage_type, used_weapon = "Attack by [user.name]")
 	user.visible_message(SPAN_WARNING("<b>\The [user]</b> [response_harm] \the [src]!"), SPAN_WARNING("You [response_harm] \the [src]!"))
-	user.do_attack_animation(src, FIST_ATTACK_ANIMATION)
+	user.do_attack_animation(src)
 	poke(TRUE)
 
 /mob/living/simple_animal/attackby(obj/item/attacking_item, mob/user)
@@ -876,7 +876,7 @@
 /mob/living/simple_animal/proc/reset_sound_time()
 	sound_time = TRUE
 
-/mob/living/simple_animal/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE, var/skip_edit = FALSE)
+/mob/living/simple_animal/say(var/text, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE, var/skip_edit = FALSE)
 	if(speak_emote.len)
 		verb = pick(speak_emote)
 
@@ -887,7 +887,7 @@
 		make_noise(sound_chance)
 
 	var/can_ghosts_hear = client ? GHOSTS_ALL_HEAR : ONLY_GHOSTS_IN_VIEW
-	..(message, speaking, verb, ghost_hearing = can_ghosts_hear)
+	..(text, speaking, verb, ghost_hearing = can_ghosts_hear)
 
 /mob/living/simple_animal/get_speech_ending(verb, var/ending)
 	return verb
@@ -900,27 +900,33 @@
 	return FALSE
 
 /// Harvest an animal's delicious byproducts
-/mob/living/simple_animal/proc/harvest(var/mob/user)
-	var/actual_meat_amount = max(1,(meat_amount*0.75))
-	if(meat_type && actual_meat_amount>0 && (stat == DEAD))
-		for(var/i=0;i<actual_meat_amount;i++)
-			new meat_type(get_turf(src))
+/mob/living/simple_animal/proc/harvest(mob/user)
+	if (!meat_type || (stat != DEAD))
+		return
 
-		if(butchering_products)
-			for(var/path in butchering_products)
-				var/number = butchering_products[path]
-				for(var/i in 1 to number)
-					new path(get_turf(src))
+	var/base_meat_amount = meat_amount - rand(0, 2)
+	var/butchering_bonus = 0
+	SEND_SIGNAL(user, COMSIG_GET_BUTCHERING_MODIFIERS, src, &base_meat_amount, &butchering_bonus)
+	if (base_meat_amount <= 0)
+		return
 
-		if(issmall(src))
-			user.visible_message("<b>\The [user]</b> chops up \the [src]!")
-			var/obj/effect/decal/cleanable/blood/splatter/S = new /obj/effect/decal/cleanable/blood/splatter(get_turf(src))
-			S.basecolor = blood_type
-			S.update_icon()
-			qdel(src)
-		else
-			user.visible_message("<b>\The [user]</b> butchers \the [src] messily!")
-			gib()
+	for (var/i = 0; i < base_meat_amount; i++)
+		new meat_type(get_turf(src))
+
+	for (var/path, number in butchering_products)
+		var/total_product = number + butchering_bonus
+		for (var/i in 1 to total_product)
+			new path(get_turf(src))
+
+	if (issmall(src))
+		user.visible_message("<b>\The [user]</b> chops up \the [src]!")
+		var/obj/effect/decal/cleanable/blood/splatter/S = new /obj/effect/decal/cleanable/blood/splatter(get_turf(src))
+		S.basecolor = blood_type
+		S.update_icon()
+		qdel(src)
+	else
+		user.visible_message("<b>\The [user]</b> butchers \the [src] messily!")
+		gib()
 
 /// For picking up small animals
 /mob/living/simple_animal/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
@@ -1141,6 +1147,16 @@
 	if(AStar(get_turf(us), get_turf(them), /turf/proc/AdjacentTurfsRanged, /turf/proc/Distance, max_nodes=25, max_node_depth=range))
 		return TRUE
 	return FALSE
+
+/mob/living/simple_animal/do_attack_animation(atom/attacked_atom, visual_effect_icon, used_item, no_effect)
+	if(!no_effect && !visual_effect_icon && melee_damage_upper)
+		if(attack_vis_effect && !iswall(attacked_atom)) // override the standard visual effect.
+			visual_effect_icon = attack_vis_effect
+		else if(melee_damage_upper < 10)
+			visual_effect_icon = ATTACK_EFFECT_PUNCH
+		else
+			visual_effect_icon = ATTACK_EFFECT_SMASH
+	..()
 
 #undef BLOOD_NONE
 #undef BLOOD_LIGHT

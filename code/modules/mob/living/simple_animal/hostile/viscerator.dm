@@ -12,6 +12,7 @@
 	armor_penetration = 20
 	density = 0
 	attacktext = "cuts"
+	attack_vis_effect = ATTACK_EFFECT_SLASH
 	attack_sound = 'sound/weapons/bladeslice.ogg'
 	blood_overlay_icon = null
 	faction = "syndicate"

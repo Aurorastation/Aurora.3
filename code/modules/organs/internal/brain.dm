@@ -124,8 +124,7 @@
 		addtimer(CALLBACK(src, PROC_REF(clear_screen)), 5)
 
 /obj/item/organ/internal/brain/Destroy()
-	if(brainmob)
-		QDEL_NULL(brainmob)
+	QDEL_NULL(brainmob)
 	return ..()
 
 /obj/item/organ/internal/brain/removed(var/mob/living/user)

@@ -7,7 +7,7 @@
 
 /obj/structure/machinery/vending/boozeomat
 	name = "Booze-O-Mat"
-	desc = "A technological marvel, supposedly able to mix just the mixture you'd like to drink the moment you ask for one."
+	desc = "A vending machine that dispenses alcoholic beverages and cocktail ingredients."
 	icon_state = "boozeomat"        //////////////18 drink entities below, plus the glasses, in case someone wants to edit the number of bottles
 	icon_vend = "boozeomat-vend"
 	light_mask = "boozeomat-lightmask"

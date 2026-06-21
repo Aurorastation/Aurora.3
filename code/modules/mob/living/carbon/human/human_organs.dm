@@ -4,10 +4,6 @@
 		eyes.update_colour()
 		regenerate_icons()
 
-/mob/living/carbon/var/list/internal_organs = list()
-/mob/living/carbon/var/shock_stage = 0
-/mob/living/carbon/human/var/list/organs = list()
-
 /mob/living/carbon/human/proc/recheck_bad_external_organs()
 	var/damage_this_tick = getToxLoss()
 	var/arterial_check = 0
@@ -56,9 +52,6 @@
 				for(var/datum/wound/W as anything in E.wounds)
 					if (W.infection_check())
 						W.germ_level += 1
-
-/mob/living/carbon/human
-	var/next_stance_collapse = 0
 
 /mob/living/carbon/human/proc/handle_stance()
 	// Don't need to process any of this if they aren't standing anyways

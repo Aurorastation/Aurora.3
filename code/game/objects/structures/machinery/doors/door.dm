@@ -256,7 +256,7 @@
 
 	// Emitter Blasts - these will eventually completely destroy the door, given enough time.
 	if (damage > 90)
-		destroy_hits--
+		destroy_hits -= (1 * hitting_projectile.anti_materiel_potential)
 		if (destroy_hits <= 0)
 			visible_message(SPAN_DANGER("\The [src.name] disintegrates!"))
 			switch (hitting_projectile.damage_type)

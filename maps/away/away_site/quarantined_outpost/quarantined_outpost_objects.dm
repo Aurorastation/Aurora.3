@@ -248,9 +248,13 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 		"AAaargh!"
 	)
 	var/chosen_sentence = pick(mimic_sentences)
-	langchat_speech("[chosen_sentence]", get_hearers_in_view(7, src), skip_language_check = TRUE)
+	langchat_speech("[chosen_sentence]", get_hearers_in_view(7, src))
+	var/datum/say_message/msg = new
+	msg.speaker = src
+	msg.verb = "says"
+	msg.collapse_to(GLOB.all_languages[language], "[chosen_sentence]")
 	for(var/mob/living/L in get_hearers_in_view(7, src))
-		L.hear_say("[chosen_sentence]", "says", GLOB.all_languages[language], speaker = src)
+		L.hear_message(msg)
 
 /mob/living/simple_animal/hostile/revivable/abomination/on_attack_mob(var/mob/hit_mob, var/obj/item/organ/external/limb)
 	. = ..()

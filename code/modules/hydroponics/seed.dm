@@ -787,12 +787,12 @@
 	// And check if any components on the plant wish to modify the harvest.
 	SEND_SIGNAL(src, COMSIG_PLANT_HARVESTED, user, &total_yield, &cancelled, &doafter)
 	if (cancelled)
-		return
+		return FALSE
 
 	user.visible_message(SPAN_WARNING("[user] starts harvesting \the [display_name]"))
 	if (doafter > 0 && !do_after(user, doafter))
 		to_chat(user, SPAN_DANGER("You were interrupted while trying to harvest \the [display_name]"))
-		return
+		return FALSE
 
 	if(!force_amount && GET_SEED_TRAIT(src, TRAIT_YIELD) == 0 && !harvest_sample)
 		to_chat(user, SPAN_DANGER("You fail to harvest anything useful."))
@@ -809,7 +809,7 @@
 			var/obj/item/seeds/seeds = new(get_turf(user))
 			seeds.seed_type = name
 			seeds.update_seed()
-			return
+			return TRUE
 
 		if(!isnull(force_amount))
 			total_yield = force_amount
@@ -828,6 +828,7 @@
 
 		for(var/i = 0;i<total_yield;i++)
 			spawn_seed(get_turf(user))
+	return TRUE
 
 /datum/seed/proc/spawn_seed(var/turf/spawning_loc)
 	var/obj/item/product = new product_type(spawning_loc, name)

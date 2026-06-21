@@ -52,11 +52,13 @@
 	item_state = "boonie"
 	build_from_parts = TRUE
 	worn_overlay = "over"
+	sprite_sheets = null
 
 /obj/item/clothing/head/bucket/boonie/camo
 	icon_state = "camo_boonie"
 	item_state = "camo_boonie"
 	has_accents = TRUE
+	sprite_sheets = null
 
 /obj/item/clothing/head/fedora
 	name = "fedora"

@@ -36,6 +36,7 @@
 	mob_size = 5
 
 	attacktext = "slashes"
+	attack_vis_effect = ATTACK_EFFECT_SLASH
 	attack_sound = 'sound/weapons/bladeslice.ogg'
 
 	speed = 2
@@ -174,6 +175,7 @@
 	melee_damage_upper = 5
 	attacktext = "smashed"
 	attack_sound = 'sound/weapons/genhit1.ogg'
+	attack_vis_effect = ATTACK_EFFECT_SMASH
 
 	speed = 1
 	ranged = TRUE

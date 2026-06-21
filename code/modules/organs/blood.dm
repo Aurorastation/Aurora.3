@@ -2,8 +2,6 @@
 				BLOOD SYSTEM
 ****************************************************/
 
-/mob/living/carbon/human/var/datum/reagents/vessel	//Container for blood and BLOOD ONLY. Do not transfer other chems here.
-
 //Initializes blood vessels
 /mob/living/carbon/human/proc/make_blood()
 	if(vessel)

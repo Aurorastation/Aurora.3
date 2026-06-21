@@ -34,6 +34,7 @@
 	armor_penetration = 5
 	attack_flags = DAMAGE_FLAG_EDGE
 	attacktext = "bites"
+	attack_vis_effect = ATTACK_EFFECT_BITE
 	attack_sound = 'sound/weapons/bite.ogg'
 
 	//Space carp aren't affected by atmos.
@@ -57,6 +58,10 @@
 
 	smart_melee = FALSE
 	sample_data = list("Cellular structure shows adaptation for survival in vacuum", "Genetic biomarkers identified linked with agressiveness", "Tissue sample contains micro-gas release structures")
+
+/mob/living/simple_animal/hostile/carp/Initialize()
+	. = ..()
+	ADD_TRAIT(src, TRAIT_MC_SPACE_FAUNA, TRAIT_SOURCE_MOB_CATEGORY)
 
 /mob/living/simple_animal/hostile/carp/update_icon()
 	..()
@@ -254,7 +259,7 @@
 		return
 
 /mob/living/simple_animal/hostile/carp/bloater/proc/explode()
-	explosion(src, -1, 1, 2)
+	explosion(get_turf(src), -1, 1, 2)
 	src.gib()
 
 /mob/living/simple_animal/hostile/carp/old
@@ -299,6 +304,7 @@
 	melee_damage_lower = 5
 	melee_damage_upper = 5
 	attacktext = "bites"
+	attack_vis_effect = ATTACK_EFFECT_BITE
 	attack_sound = 'sound/weapons/bite.ogg'
 
 	min_oxy = 0
@@ -317,3 +323,7 @@
 	flying = TRUE
 	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
 	sample_data = list("Cellular structure shows adaptation for survival in vacuum", "Genetic biomarkers identified linked with agressiveness", "Tissue sample contains micro-gas release structures")
+
+/mob/living/simple_animal/hostile/gnat/Initialize()
+	. = ..()
+	ADD_TRAIT(src, TRAIT_MC_SPACE_FAUNA, TRAIT_SOURCE_MOB_CATEGORY)

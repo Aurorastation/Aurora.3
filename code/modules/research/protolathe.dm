@@ -226,6 +226,8 @@
 
 	else
 		visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] \The [src] flashes: Insufficient materials: [getLackingMaterials(D)]."))
+		if(linked_console)
+			linked_console.updateUsrDialog()
 
 	update_icon()
 
@@ -298,9 +300,6 @@
 			if(new_item.matter && new_item.matter.len > 0)
 				for(var/i in new_item.matter)
 					new_item.matter[i] = new_item.matter[i] * mat_efficiency
-
-	if(linked_console)
-		linked_console.updateUsrDialog()
 
 	//We finished building, clear the timer
 	build_callback_timer = null

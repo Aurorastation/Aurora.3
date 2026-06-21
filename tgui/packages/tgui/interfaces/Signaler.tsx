@@ -1,6 +1,11 @@
-import { toFixed } from '../../common/math';
+import {
+  Button,
+  LabeledList,
+  NumberInput,
+  Section,
+} from 'tgui-core/components';
+import { toFixed } from 'tgui-core/math';
 import { useBackend } from '../backend';
-import { Button, NumberInput, Section, LabeledList } from '../components';
 import { Window } from '../layouts';
 
 export type SignalerData = {
@@ -8,11 +13,11 @@ export type SignalerData = {
   code: number;
 };
 
-export const Signaler = (props, context) => {
-  const { act, data } = useBackend<SignalerData>(context);
+export const Signaler = (props) => {
+  const { act, data } = useBackend<SignalerData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section
           title="Frequency"
@@ -35,19 +40,18 @@ export const Signaler = (props, context) => {
                 stepPixelSize={6}
                 format={(value) => toFixed(value, 2)}
                 width="80px"
-                onChange={(e, value) => act('freq', { freq: value * 10 })}
+                onChange={(value) => act('freq', { freq: value * 10 })}
               />
             </LabeledList.Item>
             <LabeledList.Item label="Code">
               <NumberInput
-                animate
                 step={1}
                 stepPixelSize={6}
                 minValue={1}
                 maxValue={100}
                 value={data.code}
                 width="80px"
-                onDrag={(e, value) =>
+                onChange={(value) =>
                   act('code', {
                     code: value,
                   })

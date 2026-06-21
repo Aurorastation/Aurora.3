@@ -47,7 +47,6 @@
 #define IS_UNDEAD  128
 
 // Apply status effects
-#define CE_ADRENALINE	"adrenal"		// Like speedboost but different
 #define CE_ALCOHOL      "alcohol"		// Liver filtering
 #define CE_ANTIEMETIC   "antiemetic"	// suppresses vomiting
 #define CE_ITCH         "itch"          // causes itching
@@ -64,6 +63,14 @@
 #define CE_SLOWDOWN     "goslow"
 #define CE_STABLE       "stable"		// Epinephrine
 #define CE_PACIFIED     "pacified"
+
+/**
+ * Reduces pain taken by organs, is subtracted from organ pain and from traumatic_shock.alist
+ * This value stacks with itself. Multiple painkillers stack additively.
+ * Sets the analgesic value for /mob/living/carbon/, if this value is over 200 (CE_PAINKILLER 200), the mob will suffer no effects from pain or traumatic shock.
+ * The pain recieved from any source is reduced by (CE_PAINKILLER / 3) in /obj/item/organ/external/proc/add_pain(var/amount)
+ * Traumatic shock (the effect that causes a mob to collapse from pain) is reduced by this value in /mob/living/carbon/human/get_shock()
+ */
 #define CE_PAINKILLER   "painkiller"
 #define CE_PULSE        "xcardic"		// increases or decreases heartrate
 #define CE_UNDEXTROUS   "undextrous"    // arms no work right

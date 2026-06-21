@@ -7,10 +7,6 @@ currently only humans get dizzy
 value of dizziness ranges from 0 to 1000
 below 100 is not dizzy
 */
-
-/mob/var/dizziness = 0//Carbon
-/mob/var/is_dizzy = 0
-
 /mob/proc/make_dizzy(var/amount)
 	if(!istype(src, /mob/living/carbon/human)) // for the moment, only humans get dizzy
 		return
@@ -43,8 +39,6 @@ note dizziness decrements automatically in the mob's Life() proc.
 		client.pixel_y = 0
 
 // jitteriness - copy+paste of dizziness
-/mob/var/is_jittery = 0
-/mob/var/jitteriness = 0//Carbon
 /mob/proc/make_jittery(var/amount)
 	return
 
@@ -68,10 +62,6 @@ note dizziness decrements automatically in the mob's Life() proc.
 	is_jittery = FALSE
 	pixel_x = old_x
 	pixel_y = old_y
-
-
-//handles up-down floaty effect in space and zero-gravity
-/mob/var/is_floating = FALSE
 
 /mob/proc/update_floating()
 	if(anchored || buckled_to)
@@ -129,39 +119,23 @@ note dizziness decrements automatically in the mob's Life() proc.
 	//reset the pixel offsets to defaults
 	is_floating = FALSE
 
-/atom/movable/proc/do_attack_animation(atom/A, atom/movable/weapon, var/image/attack_image, var/initial_pixel_x = 0, var/initial_pixel_y = 0)
+/atom/movable/proc/do_attack_animation(atom/attacked_atom, visual_effect_icon, obj/item/used_item, no_effect, fov_effect = TRUE, item_animation_override = null)
+	if(!no_effect && (visual_effect_icon || used_item))
+		do_item_attack_animation(attacked_atom, visual_effect_icon, used_item, animation_type = item_animation_override)
+
+	if(attacked_atom == src)
+		return //don't do an animation if attacking self
 	var/pixel_x_diff = 0
 	var/pixel_y_diff = 0
 	var/turn_dir = 1
 
-	var/direction = get_dir(src, A)
-	switch(direction)
-		if(NORTH)
-			pixel_y_diff = 8
-		if(SOUTH)
-			pixel_y_diff = -8
-		if(EAST)
-			pixel_x_diff = 8
-		if(WEST)
-			pixel_x_diff = -8
-		if(NORTHEAST)
-			pixel_x_diff = 8
-			pixel_y_diff = 8
-		if(NORTHWEST)
-			pixel_x_diff = -8
-			pixel_y_diff = 8
-		if(SOUTHEAST)
-			pixel_x_diff = 8
-			pixel_y_diff = -8
-		if(SOUTHWEST)
-			pixel_x_diff = -8
-			pixel_y_diff = -8
+	var/direction = get_dir(src, attacked_atom)
 	if(direction & NORTH)
 		pixel_y_diff = 8
-		turn_dir = rand(50) ? -1 : 1
+		turn_dir = prob(50) ? -1 : 1
 	else if(direction & SOUTH)
 		pixel_y_diff = -8
-		turn_dir = rand(50) ? -1 : 1
+		turn_dir = prob(50) ? -1 : 1
 
 	if(direction & EAST)
 		pixel_x_diff = 8
@@ -169,80 +143,10 @@ note dizziness decrements automatically in the mob's Life() proc.
 		pixel_x_diff = -8
 		turn_dir = -1
 
-	if(!initial_pixel_x)
-		initial_pixel_x = initial(pixel_x)
-	if(!initial_pixel_y)
-		initial_pixel_y = initial(pixel_y)
-
-	animate(src, pixel_x = pixel_x + pixel_x_diff, pixel_y = pixel_y + pixel_y_diff, time = 2)
-	animate(pixel_x = initial_pixel_x, pixel_y = initial_pixel_y, time = 2)
 	var/matrix/initial_transform = matrix(transform)
 	var/matrix/rotated_transform = transform.Turn(15 * turn_dir)
-
-	animate(src, pixel_x = pixel_x + pixel_x_diff, pixel_y = pixel_y + pixel_y_diff, transform = rotated_transform, time = 2, easing = BACK_EASING | EASE_IN)
-	animate(pixel_x = initial_pixel_x, pixel_y = initial_pixel_y, transform = initial_transform, time = 2, easing = SINE_EASING)
-
-// either attack_item OR attack_image should be used. if both are used, attack_image will be the one chosen
-/mob/do_attack_animation(atom/A, var/atom/attack_item, var/image/attack_image)
-	set waitfor = FALSE
-
-	var/initial_pixel_x = get_standard_pixel_x()
-	var/initial_pixel_y = get_standard_pixel_y()
-	..(A, attack_item, attack_image, initial_pixel_x, initial_pixel_y)
-
-	if(is_floating)
-		addtimer(CALLBACK(src, PROC_REF(start_floating)), 4)
-
-	if(attack_item == FIST_ATTACK_ANIMATION) // only play the physical movement
-		return
-	// What icon do we use for the attack?
-	var/image/I
-	if(attack_image)
-		I = attack_image
-	else if(attack_item)
-		I = image(attack_item.icon, A, attack_item.icon_state, A.layer + 1)
-	else
-		if(hand && l_hand) // Attacked with item in left hand.
-			I = image(l_hand.icon, A, l_hand.icon_state, A.layer + 1)
-		else if (!hand && r_hand) // Attacked with item in right hand.
-			I = image(r_hand.icon, A, r_hand.icon_state, A.layer + 1)
-		else // Attacked with a fist?
-			return
-
-	// Who can see the attack?
-	var/list/viewing = list()
-	for (var/mob/M in viewers(A))
-		if (M.client)
-			viewing |= M.client
-	flick_overlay(I, viewing, 5) // 5 ticks/half a second
-
-	// Scale the icon.
-	I.transform *= 0.75
-	// Set the direction of the icon animation.
-	var/direction = get_dir(src, A)
-	if(direction & NORTH)
-		I.pixel_y = -16
-	else if(direction & SOUTH)
-		I.pixel_y = 16
-
-	if(direction & EAST)
-		I.pixel_x = -16
-	else if(direction & WEST)
-		I.pixel_x = 16
-
-	if(!direction) // Attacked self?!
-		I.pixel_z = 16
-
-	var/matrix/M = new
-	M.Turn(pick(-20, 20))
-	// And animate the attack!
-	animate(I, alpha = 175, pixel_x = initial_pixel_x, pixel_y = initial_pixel_y, pixel_z = 0, time = 2, easing = CUBIC_EASING)
-	sleep(2)
-	animate(I, transform = M, time = 1) // apply the fancy matrix
-	sleep(1)
-	animate(I, transform = matrix(), time = 1) // back to a default matrix
-	sleep(1)
-	animate(I, alpha = 0, time = 1)
+	animate(src, pixel_x = pixel_x + pixel_x_diff, pixel_y = pixel_y + pixel_y_diff, transform=rotated_transform, time = 1, easing=BACK_EASING|EASE_IN, flags = ANIMATION_PARALLEL)
+	animate(pixel_x = pixel_x - pixel_x_diff, pixel_y = pixel_y - pixel_y_diff, transform=initial_transform, time = 2, easing=SINE_EASING, flags = ANIMATION_PARALLEL)
 
 /mob/proc/spin(spintime, speed)
 	spawn()

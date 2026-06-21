@@ -163,6 +163,10 @@
 /area/construction/storage)
 "aD" = (
 /obj/structure/machinery/alarm/west,
+/obj/structure/disposalpipe/trunk,
+/obj/structure/disposaloutlet{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/full,
 /area/hallway/primary/central_one)
 "aE" = (
@@ -3969,6 +3973,15 @@
 	},
 /turf/simulated/floor/tiled/gridded,
 /area/construction/storage)
+"tO" = (
+/obj/structure/machinery/light/spot{
+	dir = 8
+	},
+/obj/structure/disposalpipe/junction{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/full,
+/area/hallway/primary/central_one)
 "tT" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 4
@@ -5471,6 +5484,13 @@
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/open,
 /area/hallway/primary/central_two)
+"CS" = (
+/obj/structure/disposalpipe/trunk{
+	dir = 8
+	},
+/obj/structure/machinery/disposal/small/north,
+/turf/simulated/floor/tiled/full,
+/area/hallway/primary/central_one)
 "CT" = (
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
@@ -6554,6 +6574,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
+/obj/structure/reagent_dispensers/acid,
 /turf/simulated/floor/tiled/white,
 /area/hallway/primary/central_one)
 "Jc" = (
@@ -8183,6 +8204,13 @@
 /obj/structure/machinery/vending/engivend,
 /turf/simulated/floor/tiled/gridded,
 /area/hallway/primary/central_one)
+"Ti" = (
+/obj/structure/disposalpipe/trunk{
+	dir = 1
+	},
+/obj/structure/machinery/disposal/deliveryChute,
+/turf/simulated/floor/tiled/full,
+/area/hallway/primary/central_one)
 "Tj" = (
 /obj/structure/lattice,
 /obj/structure/machinery/atmospherics/pipe/simple/heat_exchanging{
@@ -8852,7 +8880,10 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
-/obj/structure/reagent_dispensers/acid,
+/obj/structure/disposalpipe/trunk{
+	dir = 8
+	},
+/obj/structure/machinery/disposal,
 /turf/simulated/floor/tiled/white,
 /area/hallway/primary/central_one)
 "Xi" = (
@@ -8996,6 +9027,12 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/gridded,
+/area/hallway/primary/central_one)
+"XT" = (
+/obj/structure/disposalpipe/junction{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/full,
 /area/hallway/primary/central_one)
 "XU" = (
 /obj/effect/floor_decal/industrial/outline/medical,
@@ -10990,9 +11027,9 @@ dq
 dq
 dq
 aD
-ia
-dq
-dq
+tO
+XT
+Ti
 dq
 dq
 dq
@@ -11248,7 +11285,7 @@ zP
 zM
 Op
 Xe
-dq
+CS
 wL
 CI
 Vm

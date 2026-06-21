@@ -67,12 +67,13 @@
 	. = ..()
 	update_icon()
 
-/obj/item/material/twohanded/mob_can_equip(var/mob/user, slot, disable_warning = FALSE)
-	if(wielded)
-		unwield()
-		var/obj/item/material/twohanded/offhand/O = user.get_inactive_hand()
-		if(istype(O))
-			O.unwield()
+/obj/item/material/twohanded/mob_can_equip(var/mob/user, slot, disable_warning = FALSE, bypass_blocked_check = FALSE, is_overlay_check = FALSE)
+	if(!is_overlay_check)
+		if(wielded)
+			unwield()
+			var/obj/item/material/twohanded/offhand/O = user.get_inactive_hand()
+			if(istype(O))
+				O.unwield()
 	return ..()
 
 /obj/item/material/twohanded/can_swap_hands(mob/user)
@@ -200,11 +201,12 @@
 /obj/item/material/twohanded/fireaxe  // DEM AXES MAN, marker -Agouri
 	icon_state = "fireaxe0"
 	base_icon = "fireaxe"
+	icon_angle = -180
 	name = "fire axe"
 	desc = "Truly, the weapon of a madman. Who would think to fight fire with an axe?"
 	unwielded_force_divisor = 0.25
 	force_divisor = 0.7 // 10/42 with hardness 60 (steel) and 0.25 unwielded divisor
-	sharp = 1
+	sharp = FALSE
 	edge = TRUE
 	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = SLOT_BACK
@@ -243,6 +245,7 @@
 /obj/item/material/twohanded/spear
 	icon_state = "spearglass0"
 	base_icon = "spearglass"
+	icon_angle = -45
 	name = "spear"
 	desc = "A haphazardly-constructed yet still deadly weapon of ancient design."
 	force = 15

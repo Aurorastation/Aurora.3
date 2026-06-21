@@ -4,6 +4,10 @@
 		You can count very well, and you have a statistician's eye - especially for credits."
 	minimum_character_age = list(
 		SPECIES_HUMAN = 21,
+		SPECIES_TAJARA = 21,
+		SPECIES_TAJARA_MSAI = 21,
+		SPECIES_TAJARA_ZHAN = 21,
+		SPECIES_UNATHI = 21,
 		SPECIES_SKRELL = 55,
 		SPECIES_SKRELL_AXIORI = 55
 	)
@@ -14,6 +18,10 @@
 		psychology. Otherwise, your life has provided ample opportunity for these pursuits such that you have comparable expertise. You are likely very well-read on foreign cultures and on the human mind."
 	minimum_character_age = list(
 		SPECIES_HUMAN = 21,
+		SPECIES_TAJARA = 21,
+		SPECIES_TAJARA_MSAI = 21,
+		SPECIES_TAJARA_ZHAN = 21,
+		SPECIES_UNATHI = 21,
 		SPECIES_SKRELL = 55,
 		SPECIES_SKRELL_AXIORI = 55
 	)

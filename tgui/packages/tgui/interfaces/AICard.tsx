@@ -1,6 +1,6 @@
-import { BooleanLike } from '../../common/react';
+import { Button, LabeledList, Section, Table } from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { LabeledList, Section, Table, Button } from '../components';
 import { Window } from '../layouts';
 
 export type AIData = {
@@ -21,11 +21,11 @@ type Law = {
   law: string;
 };
 
-export const AICard = (props, context) => {
-  const { act, data } = useBackend<AIData>(context);
+export const AICard = (props) => {
+  const { act, data } = useBackend<AIData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section title="AI Status">
           {data.has_ai ? <AIWindow /> : <b>No AI detected.</b>}
@@ -35,8 +35,8 @@ export const AICard = (props, context) => {
   );
 };
 
-export const AIWindow = (props, context) => {
-  const { act, data } = useBackend<AIData>(context);
+export const AIWindow = (props) => {
+  const { act, data } = useBackend<AIData>();
 
   return (
     <>
@@ -58,8 +58,8 @@ export const AIWindow = (props, context) => {
   );
 };
 
-export const LawWindow = (props, context) => {
-  const { act, data } = useBackend<AIData>(context);
+export const LawWindow = (props) => {
+  const { act, data } = useBackend<AIData>();
   const { laws } = data;
 
   return (
@@ -78,8 +78,8 @@ export const LawWindow = (props, context) => {
   );
 };
 
-export const CommandWindow = (props, context) => {
-  const { act, data } = useBackend<AIData>(context);
+export const CommandWindow = (props) => {
+  const { act, data } = useBackend<AIData>();
   const { laws } = data;
 
   return (

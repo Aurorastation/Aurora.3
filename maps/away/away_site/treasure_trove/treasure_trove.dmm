@@ -41,7 +41,6 @@
 	tiles = 1;
 	name = "north_thrower";
 	dir = 1;
-	direction = 1;
 	immobilize = 0
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang/beach,
@@ -113,7 +112,6 @@
 	tiles = 1;
 	name = "northwest_thrower";
 	dir = 9;
-	direction = 9;
 	immobilize = 0
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang/beach,
@@ -347,7 +345,6 @@
 	tiles = 1;
 	name = "west_thrower";
 	dir = 8;
-	direction = 8;
 	immobilize = 0
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang/beach,
@@ -454,7 +451,6 @@
 	tiles = 1;
 	name = "west_thrower";
 	dir = 8;
-	direction = 8;
 	immobilize = 0
 	},
 /obj/structure/flora/bush/konyang_reeds/water,
@@ -464,7 +460,6 @@
 /obj/effect/step_trigger/thrower{
 	tiles = 1;
 	name = "northeast_thrower";
-	direction = 5;
 	dir = 5;
 	immobilize = 0
 	},
@@ -769,7 +764,6 @@
 	tiles = 1;
 	dir = 4;
 	name = "east_thrower";
-	direction = 4;
 	immobilize = 0
 	},
 /obj/structure/flora/bush/konyang_reeds/water,
@@ -930,7 +924,6 @@
 	tiles = 1;
 	name = "southwest_thrower";
 	dir = 10;
-	direction = 10;
 	immobilize = 0
 	},
 /obj/structure/flora/bush/konyang_reeds/water,
@@ -997,7 +990,6 @@
 	tiles = 1;
 	name = "southwest_thrower";
 	dir = 10;
-	direction = 10;
 	immobilize = 0
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang/beach,
@@ -1052,8 +1044,7 @@
 	tiles = 5;
 	name = "southwest_thrower";
 	dir = 10;
-	direction = 10;
-	immobilize = 0
+		immobilize = 0
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang/beach,
 /area/trove/beach)
@@ -1510,7 +1501,6 @@
 /obj/effect/step_trigger/thrower{
 	tiles = 1;
 	name = "northeast_thrower";
-	direction = 5;
 	dir = 5;
 	immobilize = 0
 	},
@@ -1690,7 +1680,6 @@
 	tiles = 1;
 	dir = 4;
 	name = "east_thrower";
-	direction = 4;
 	immobilize = 0
 	},
 /turf/simulated/floor/exoplanet/water/konyang,
@@ -1777,7 +1766,6 @@
 	tiles = 1;
 	name = "southeast_thrower";
 	dir = 6;
-	direction = 6;
 	immobilize = 0
 	},
 /turf/simulated/floor/exoplanet/water/konyang,
@@ -1941,7 +1929,6 @@
 	tiles = 1;
 	name = "southwest_thrower";
 	dir = 10;
-	direction = 10;
 	immobilize = 0
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang/beach,
@@ -1993,7 +1980,6 @@
 	tiles = 1;
 	name = "west_thrower";
 	dir = 8;
-	direction = 8;
 	immobilize = 0
 	},
 /obj/structure/flora/bush/konyang_reeds/water,
@@ -2044,7 +2030,6 @@
 	tiles = 1;
 	name = "west_thrower";
 	dir = 8;
-	direction = 8;
 	immobilize = 0
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang/beach,
@@ -2264,7 +2249,6 @@
 /obj/item/ammo_magazine/c762,
 /obj/item/ammo_magazine/c762,
 /obj/item/gun/projectile/shotgun/pump,
-/obj/item/storage/box/shells/shotgunshells,
 /obj/item/storage/box/shells/flashshells,
 /obj/item/storage/box/shells/beanbags,
 /obj/item/gun/projectile/automatic/tommygun,
@@ -2306,7 +2290,6 @@
 	tiles = 1;
 	name = "west_thrower";
 	dir = 8;
-	direction = 8;
 	immobilize = 0
 	},
 /turf/simulated/floor/exoplanet/water/konyang,
@@ -2699,7 +2682,6 @@
 	tiles = 1;
 	name = "northwest_thrower";
 	dir = 9;
-	direction = 9;
 	immobilize = 0
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang/beach,
@@ -3249,7 +3231,6 @@
 	tiles = 1;
 	name = "southeast_thrower";
 	dir = 6;
-	direction = 6;
 	immobilize = 0
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang/beach,
@@ -3277,7 +3258,6 @@
 	tiles = 1;
 	name = "north_thrower";
 	dir = 1;
-	direction = 1;
 	immobilize = 0
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang/beach,
@@ -3498,7 +3478,6 @@
 	tiles = 1;
 	dir = 4;
 	name = "east_thrower";
-	direction = 4;
 	immobilize = 0
 	},
 /obj/structure/flora/bush/konyang_reeds/water,
@@ -3587,14 +3566,12 @@
 	tiles = 1;
 	dir = 4;
 	name = "east_thrower";
-	direction = 4;
 	immobilize = 0
 	},
 /obj/effect/step_trigger/thrower{
 	tiles = 1;
 	dir = 4;
 	name = "east_thrower";
-	direction = 4;
 	immobilize = 0
 	},
 /turf/simulated/floor/exoplanet/water/konyang,
@@ -3730,7 +3707,6 @@
 	tiles = 1;
 	dir = 4;
 	name = "east_thrower";
-	direction = 4;
 	immobilize = 0
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang/beach,
@@ -3772,7 +3748,6 @@
 	tiles = 1;
 	name = "southwest_thrower";
 	dir = 10;
-	direction = 10;
 	immobilize = 0
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang/beach,
@@ -4196,7 +4171,6 @@
 	tiles = 1;
 	name = "west_thrower";
 	dir = 8;
-	direction = 8;
 	immobilize = 0
 	},
 /turf/simulated/floor/exoplanet/water/konyang,
@@ -4394,7 +4368,6 @@
 	tiles = 1;
 	name = "west_thrower";
 	dir = 8;
-	direction = 8;
 	immobilize = 0
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang/sand,
@@ -4422,7 +4395,6 @@
 	tiles = 1;
 	name = "southeast_thrower";
 	dir = 6;
-	direction = 6;
 	immobilize = 0
 	},
 /turf/simulated/floor/exoplanet/water/konyang,
@@ -4485,7 +4457,6 @@
 	tiles = 1;
 	name = "southeast_thrower";
 	dir = 6;
-	direction = 6;
 	immobilize = 0
 	},
 /turf/simulated/floor/exoplanet/water/konyang,
@@ -4689,7 +4660,6 @@
 	tiles = 1;
 	name = "northwest_thrower";
 	dir = 9;
-	direction = 9;
 	immobilize = 0
 	},
 /turf/simulated/floor/exoplanet/water/konyang,
@@ -4699,7 +4669,6 @@
 	tiles = 1;
 	dir = 4;
 	name = "east_thrower";
-	direction = 4;
 	immobilize = 0
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang/beach,
@@ -4930,7 +4899,6 @@
 	tiles = 1;
 	name = "north_thrower";
 	dir = 1;
-	direction = 1;
 	immobilize = 0
 	},
 /turf/simulated/floor/exoplanet/water/konyang,
@@ -5012,7 +4980,6 @@
 	tiles = 1;
 	name = "northwest_thrower";
 	dir = 9;
-	direction = 9;
 	immobilize = 0
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang/beach,
@@ -5281,7 +5248,6 @@
 	tiles = 1;
 	name = "north_thrower";
 	dir = 1;
-	direction = 1;
 	immobilize = 0
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang/sand,
@@ -5657,7 +5623,6 @@
 	tiles = 1;
 	name = "west_thrower";
 	dir = 8;
-	direction = 8;
 	immobilize = 0
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang/beach,
@@ -5707,7 +5672,6 @@
 	tiles = 1;
 	dir = 4;
 	name = "east_thrower";
-	direction = 4;
 	immobilize = 0
 	},
 /turf/simulated/floor/exoplanet/water/konyang,
@@ -5806,7 +5770,6 @@
 	tiles = 1;
 	name = "southeast_thrower";
 	dir = 6;
-	direction = 6;
 	immobilize = 0
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang/beach,
@@ -5837,7 +5800,6 @@
 /obj/effect/step_trigger/thrower{
 	tiles = 1;
 	name = "northeast_thrower";
-	direction = 5;
 	dir = 5;
 	immobilize = 0
 	},
@@ -5967,8 +5929,7 @@
 	tiles = 8;
 	dir = 4;
 	name = "east_thrower";
-	direction = 4;
-	immobilize = 0
+		immobilize = 0
 	},
 /turf/simulated/floor/exoplanet/water/konyang,
 /area/trove/beach)
@@ -5982,7 +5943,6 @@
 	tiles = 1;
 	name = "southwest_thrower";
 	dir = 10;
-	direction = 10;
 	immobilize = 0
 	},
 /turf/simulated/floor/exoplanet/water/konyang,
@@ -6028,7 +5988,6 @@
 /obj/effect/step_trigger/thrower{
 	tiles = 1;
 	name = "northeast_thrower";
-	direction = 5;
 	dir = 5;
 	immobilize = 0
 	},
@@ -6482,16 +6441,11 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/trove/vault)
-"Li" = (
-/obj/random/dirt_75,
-/turf/simulated/floor/wood/mahogany,
-/area/trove/vault)
 "Ln" = (
 /obj/effect/step_trigger/thrower{
 	tiles = 1;
 	name = "southeast_thrower";
 	dir = 6;
-	direction = 6;
 	immobilize = 0
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang/beach,
@@ -6682,7 +6636,6 @@
 	tiles = 1;
 	name = "northwest_thrower";
 	dir = 9;
-	direction = 9;
 	immobilize = 0
 	},
 /turf/simulated/floor/exoplanet/water/konyang,
@@ -6888,8 +6841,7 @@
 	tiles = 8;
 	name = "west_thrower";
 	dir = 8;
-	direction = 8;
-	immobilize = 0
+		immobilize = 0
 	},
 /turf/simulated/floor/exoplanet/water/konyang,
 /area/trove/beach)
@@ -7000,7 +6952,6 @@
 	tiles = 1;
 	name = "southwest_thrower";
 	dir = 10;
-	direction = 10;
 	immobilize = 0
 	},
 /turf/simulated/floor/exoplanet/water/konyang,
@@ -7221,7 +7172,6 @@
 /obj/effect/step_trigger/thrower{
 	tiles = 1;
 	name = "northeast_thrower";
-	direction = 5;
 	dir = 5;
 	immobilize = 0
 	},
@@ -7249,7 +7199,6 @@
 	tiles = 1;
 	dir = 4;
 	name = "east_thrower";
-	direction = 4;
 	immobilize = 0
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang/beach,
@@ -7707,7 +7656,6 @@
 	tiles = 1;
 	name = "northwest_thrower";
 	dir = 9;
-	direction = 9;
 	immobilize = 0
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang/beach,
@@ -8349,7 +8297,6 @@
 /obj/effect/step_trigger/thrower{
 	tiles = 1;
 	name = "northeast_thrower";
-	direction = 5;
 	dir = 5;
 	immobilize = 0
 	},
@@ -8370,8 +8317,7 @@
 	tiles = 5;
 	name = "north_thrower";
 	dir = 1;
-	direction = 1;
-	immobilize = 0
+		immobilize = 0
 	},
 /turf/simulated/floor/carpet/art,
 /area/trove/vault)
@@ -8873,7 +8819,6 @@
 	tiles = 1;
 	name = "southeast_thrower";
 	dir = 6;
-	direction = 6;
 	immobilize = 0
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang/beach,
@@ -9173,7 +9118,6 @@
 	tiles = 1;
 	name = "north_thrower";
 	dir = 1;
-	direction = 1;
 	immobilize = 0
 	},
 /turf/simulated/floor/exoplanet/water/konyang,
@@ -32726,7 +32670,7 @@ Eu
 Vy
 lt
 lt
-Li
+TL
 lt
 UJ
 Xv
@@ -32977,8 +32921,8 @@ GS
 Eu
 Vy
 lt
-Li
-Li
+TL
+TL
 lt
 UJ
 Xv
@@ -33229,7 +33173,7 @@ GS
 QV
 qT
 lt
-Li
+TL
 lt
 lt
 cF
@@ -33481,7 +33425,7 @@ lt
 eo
 sE
 lt
-Li
+TL
 lt
 lt
 cF
@@ -33733,7 +33677,7 @@ GS
 eo
 fR
 lt
-Li
+TL
 lt
 lt
 Lu
@@ -34236,13 +34180,13 @@ GS
 GS
 tT
 FC
-Li
+TL
 lt
-Li
-Li
-Li
-Li
-Li
+TL
+TL
+TL
+TL
+TL
 GS
 fF
 eg
@@ -34485,16 +34429,16 @@ tg
 WK
 tT
 tT
-Li
-Li
-Li
-Li
+TL
+TL
+TL
+TL
 tT
-Li
+TL
 XU
 zk
 Sy
-Li
+TL
 GS
 fF
 eg
@@ -34737,11 +34681,11 @@ Va
 Fj
 tT
 tT
-Li
+TL
 tH
-Li
+TL
 Zy
-Li
+TL
 kz
 SM
 GS
@@ -34987,18 +34931,18 @@ pb
 Fj
 tg
 Fj
-Li
-Li
-Li
+TL
+TL
+TL
 ig
 Sy
-Li
-Li
-Li
+TL
+TL
+TL
 SM
 fO
 Tb
-Li
+TL
 GS
 fF
 eg
@@ -35228,7 +35172,7 @@ fF
 rr
 lt
 Zy
-Li
+TL
 GS
 Np
 Mi
@@ -35240,17 +35184,17 @@ Fj
 in
 Fj
 GS
-Li
-Li
+TL
+TL
 SM
 Fi
 wI
-Li
+TL
 vC
 BL
 ML
 kC
-Li
+TL
 GS
 fF
 eg
@@ -35479,7 +35423,7 @@ eg
 fF
 rr
 lt
-Li
+TL
 FV
 dm
 Ej
@@ -35492,16 +35436,16 @@ Fj
 tg
 Fj
 Ap
-Li
+TL
 GS
 AR
 kC
 EY
-Li
-Li
-Li
-Li
-Li
+TL
+TL
+TL
+TL
+TL
 zK
 lt
 fF
@@ -35744,17 +35688,17 @@ Fj
 tg
 Fj
 lt
-Li
+TL
 kz
 gn
 lt
 TL
-Li
-Li
+TL
+TL
 XU
 ug
 Sy
-Li
+TL
 lt
 fF
 eg
@@ -35991,7 +35935,7 @@ jc
 ni
 eO
 Ej
-Li
+TL
 Fj
 Va
 Fj
@@ -36001,7 +35945,7 @@ yz
 cf
 gi
 It
-Li
+TL
 Zy
 SM
 lx
@@ -36234,7 +36178,7 @@ eg
 Jp
 Ou
 lt
-Li
+TL
 te
 ku
 Ej
@@ -36243,7 +36187,7 @@ Ea
 Ej
 Ej
 Ej
-Li
+TL
 Cu
 tg
 Fj
@@ -36254,11 +36198,11 @@ yz
 yz
 JU
 vf
-Li
+TL
 Gx
 lx
 nm
-Li
+TL
 lt
 fF
 eg
@@ -36486,7 +36430,7 @@ eg
 Jp
 Ou
 lt
-Li
+TL
 Zy
 CS
 Ej
@@ -36495,7 +36439,7 @@ Ej
 Ej
 CS
 gp
-Li
+TL
 Cu
 in
 Fj
@@ -36506,11 +36450,11 @@ yz
 TF
 vf
 WT
-Li
+TL
 RM
 Xp
 Yi
-Li
+TL
 GS
 fF
 eg
@@ -36738,16 +36682,16 @@ eg
 Jp
 Ou
 lt
-Li
-Li
-Li
+TL
+TL
+TL
 Ej
 OM
 Ej
 Ej
 Ej
 gp
-Li
+TL
 Cu
 tg
 Fj
@@ -36758,11 +36702,11 @@ yz
 PO
 vf
 ZT
-Li
+TL
 zK
-Li
+TL
 lt
-Li
+TL
 rr
 fF
 eg
@@ -36991,15 +36935,15 @@ Jp
 Ou
 lt
 ED
-Li
-Li
+TL
+TL
 Tl
-Li
+TL
 Nw
 zH
 xl
 zH
-Li
+TL
 Cu
 tg
 Cu
@@ -37010,10 +36954,10 @@ yz
 yz
 mX
 vf
-Li
+TL
 GS
-Li
-Li
+TL
+TL
 rr
 fF
 fF
@@ -37242,7 +37186,7 @@ eg
 Jp
 Ou
 lt
-Li
+TL
 KV
 UI
 hV
@@ -37255,15 +37199,15 @@ lt
 Cu
 Va
 Cu
-Li
+TL
 Lb
 yz
 yz
 yz
 EY
 yz
-Li
-Li
+TL
+TL
 Zy
 rr
 rr
@@ -37494,7 +37438,7 @@ eg
 Jp
 Ou
 lt
-Li
+TL
 hV
 Nv
 vg
@@ -37507,12 +37451,12 @@ lt
 Cu
 tg
 GS
-Li
+TL
 GS
-Li
-Li
+TL
+TL
 rM
-Li
+TL
 Zy
 uu
 Mb
@@ -37748,8 +37692,8 @@ Ou
 lt
 gS
 nZ
-Li
-Li
+TL
+TL
 FT
 zH
 zH
@@ -37760,14 +37704,14 @@ ae
 tg
 Cu
 GS
-Li
-Li
+TL
+TL
 AM
 CR
 uu
-Li
+TL
 re
-Li
+TL
 Hw
 rr
 fF
@@ -38011,13 +37955,13 @@ mF
 Cu
 tg
 Cu
-Li
-Li
+TL
+TL
 ki
-Li
+TL
 Si
 OX
-Li
+TL
 zg
 Hw
 HO
@@ -38263,14 +38207,14 @@ lt
 Xm
 tg
 Cu
-Li
+TL
 pG
 xp
-Li
+TL
 iR
 zg
 wY
-Li
+TL
 lt
 Mi
 fF
@@ -38502,26 +38446,26 @@ eg
 Jp
 Ou
 lt
-Li
-Li
-Li
-Li
-Li
+TL
+TL
+TL
+TL
+TL
 zH
 zH
 zH
 Iz
-Li
+TL
 Cu
 Va
 Cu
 BP
-Li
+TL
 uu
 uu
-Li
-Li
-Li
+TL
+TL
+TL
 lt
 SG
 fF
@@ -38754,7 +38698,7 @@ eg
 Ne
 Ne
 lt
-Li
+TL
 Ki
 lt
 Ul
@@ -38762,8 +38706,8 @@ nZ
 Sd
 FC
 NE
-Li
-Li
+TL
+TL
 Cu
 tg
 Cu
@@ -38772,7 +38716,7 @@ kS
 OK
 Xf
 Gu
-Li
+TL
 Zy
 lt
 fF
@@ -39015,7 +38959,7 @@ pm
 rg
 kx
 RU
-Li
+TL
 Cu
 tg
 Fj
@@ -39025,7 +38969,7 @@ bC
 st
 La
 vB
-Li
+TL
 qM
 fF
 fF
@@ -39273,11 +39217,11 @@ tg
 Fj
 lt
 lt
-Li
+TL
 lt
 Hw
 lt
-Li
+TL
 vE
 fF
 fF
@@ -39519,7 +39463,7 @@ Sw
 Oq
 SI
 Gm
-Li
+TL
 Cu
 Dl
 Fj
@@ -39771,7 +39715,7 @@ RD
 Vg
 fi
 fY
-Li
+TL
 Cu
 Va
 tg
@@ -40280,11 +40224,11 @@ ae
 tg
 Fj
 lt
-Li
+TL
 Hr
 BP
 Bq
-Li
+TL
 lt
 lt
 fF
@@ -40536,8 +40480,8 @@ tT
 Uj
 Wb
 uu
-Li
-Li
+TL
+TL
 tT
 fF
 fF
@@ -41036,12 +40980,12 @@ Cu
 tg
 Fj
 tT
-Li
+TL
 Gh
 NP
 CX
 eU
-Li
+TL
 IP
 yz
 rr
@@ -41288,11 +41232,11 @@ aR
 Va
 Fj
 Uj
-Li
-Li
+TL
+TL
 zg
 oh
-Li
+TL
 TW
 GS
 CP
@@ -41539,9 +41483,9 @@ GS
 Cu
 tg
 Fj
-Li
+TL
 SK
-Li
+TL
 lt
 lt
 lt
@@ -41792,7 +41736,7 @@ Cu
 tg
 fQ
 SK
-Li
+TL
 lt
 PF
 zY
@@ -42043,7 +41987,7 @@ lt
 Fj
 tg
 Fj
-Li
+TL
 gj
 lt
 hO
@@ -42295,7 +42239,7 @@ lt
 Fj
 tg
 Cu
-Li
+TL
 iT
 lt
 zY
@@ -44311,7 +44255,7 @@ lt
 Fj
 tg
 Fj
-Li
+TL
 Jm
 BI
 rH
@@ -44564,7 +44508,7 @@ Fj
 tg
 Fj
 GS
-Li
+TL
 QX
 EI
 VN
@@ -45572,8 +45516,8 @@ Fj
 tg
 Fj
 lt
-Li
-Li
+TL
+TL
 lt
 lt
 lt

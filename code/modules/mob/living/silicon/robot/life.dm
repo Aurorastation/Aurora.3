@@ -17,10 +17,16 @@
 	if(stat)
 		CutOverlays(eye_overlay)
 		has_cut_eye_overlay = TRUE
+		if(stat == DEAD) // Leave a bit of glow in the eyes while we're on backup power
+			CutOverlays(eye_emissive)
+			has_cut_eye_emissive = TRUE
 	else if(has_cut_eye_overlay)
 		eye_overlay = cached_eye_overlays[a_intent]
 		AddOverlays(eye_overlay)
-		has_cut_eye_overlay = null
+		has_cut_eye_overlay = FALSE
+		if(has_cut_eye_emissive)
+			AddOverlays(eye_emissive)
+			has_cut_eye_emissive = FALSE
 	if(stat != DEAD) //still using power
 		use_power()
 		process_killswitch()

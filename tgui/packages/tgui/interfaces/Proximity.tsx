@@ -1,6 +1,11 @@
-import { BooleanLike } from '../../common/react';
+import {
+  Button,
+  LabeledList,
+  NumberInput,
+  Section,
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Button, NumberInput, Section, LabeledList } from '../components';
 import { Window } from '../layouts';
 
 export type ProximityData = {
@@ -10,11 +15,11 @@ export type ProximityData = {
   time: number;
 };
 
-export const Proximity = (props, context) => {
-  const { act, data } = useBackend<ProximityData>(context);
+export const Proximity = (props) => {
+  const { act, data } = useBackend<ProximityData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section
           title="Timing Unit"
@@ -32,10 +37,10 @@ export const Proximity = (props, context) => {
               <NumberInput
                 minValue={10}
                 maxValue={600}
+                step={5}
                 unit="s"
                 value={data.time}
-                format={(value) => Math.round(value)}
-                onChange={(e, value) => act('tp', { tp: value })}
+                onChange={(value) => act('tp', { tp: Math.round(value) })}
               />
             </LabeledList.Item>
           </LabeledList>
@@ -54,8 +59,9 @@ export const Proximity = (props, context) => {
               <NumberInput
                 minValue={1}
                 maxValue={5}
+                step={1}
                 value={data.range}
-                onDrag={(e, value) => act('range', { range: value })}
+                onChange={(value) => act('range', { range: value })}
               />
             </LabeledList.Item>
           </LabeledList>

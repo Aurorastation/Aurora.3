@@ -29,7 +29,7 @@
 	if(!istype(user, /mob/living/silicon))
 		if(user.a_intent == I_HURT)
 			user.visible_message(SPAN_DANGER("\The [user] strikes [src]!"))
-			user.do_attack_animation(user, attacking_item)
+			user.do_attack_animation(user, used_item = attacking_item)
 			playsound(loc, hitsound, 60, TRUE)
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 			integrity = between(0, integrity - round(attacking_item.force / 3), initial(integrity))

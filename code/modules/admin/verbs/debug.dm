@@ -463,21 +463,6 @@
 
 	usr << browse(HTML_SKELETON(replacetext(SSatoms.InitLog(), "\n", "<br>")), "window=initlog")
 
-/client/proc/reload_nanoui_resources()
-	set category = "Debug"
-	set name = "Reload NanoUI Resources"
-	set desc = "Force the client to redownload NanoUI Resources"
-
-	// Close open NanoUIs.
-	SSnanoui.close_user_uis(usr)
-
-	// Re-load the assets.
-	var/datum/asset/assets = get_asset_datum(/datum/asset/nanoui)
-	assets.register()
-
-	// Clear the user's cache so they get resent.
-	usr.client.sent_assets = list()
-
 /**
  * Used to generate lag and load the MC to test how things work under live server stress
  */

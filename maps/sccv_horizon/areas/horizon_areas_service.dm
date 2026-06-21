@@ -116,6 +116,7 @@
 	name = "Chapel"
 	icon_state = "chapel"
 	area_blurb = "An impressive, spacious compartment nonetheless kept somewhat bland to accommodate the many disparate faiths whose practice may be attended here."
+	lightswitch = TRUE
 
 /area/horizon/service/chapel/office
 	name = "Chapel Office"

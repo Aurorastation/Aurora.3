@@ -32,6 +32,9 @@
 	/// The access cable inserted into this computer, if any.
 	var/obj/item/access_cable/inserted_cable
 
+	/// Contains the name of the TGUI interface file opened when using this computer. If null,
+	var/ui_type = ""
+
 /obj/structure/machinery/computer/Initialize()
 	. = ..()
 	overlay_layer = layer
@@ -44,11 +47,6 @@
 		inserted_cable.retract()
 		inserted_cable = null
 	return ..()
-
-/obj/structure/machinery/computer/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = TRUE)
-	if(!operable() || !is_station_level(z) || user.stat)
-		user.unset_machine()
-		return
 
 /obj/structure/machinery/computer/emp_act(severity)
 	. = ..()

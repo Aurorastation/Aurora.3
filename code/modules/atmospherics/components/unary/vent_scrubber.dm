@@ -412,13 +412,13 @@
 			to_chat(user, SPAN_WARNING("\The [attacking_item] can only be used to tear open welded scrubbers!"))
 			return TRUE
 		user.visible_message(SPAN_WARNING("\The [user] starts using \the [attacking_item] to hack open \the [src]!"), SPAN_NOTICE("You start hacking open \the [src] with \the [attacking_item]..."))
-		user.do_attack_animation(src, attacking_item)
+		user.do_attack_animation(src, used_item = attacking_item)
 		playsound(loc, 'sound/weapons/smash.ogg', 60, TRUE)
 		var/cut_amount = 3
 		for(var/i = 0; i <= cut_amount; i++)
 			if(!attacking_item || !do_after(user, 30, src))
 				return TRUE
-			user.do_attack_animation(src, attacking_item)
+			user.do_attack_animation(src, used_item = attacking_item)
 			user.visible_message(SPAN_WARNING("\The [user] smashes \the [attacking_item] into \the [src]!"), SPAN_NOTICE("You smash \the [attacking_item] into \the [src]."))
 			playsound(loc, 'sound/weapons/smash.ogg', 60, TRUE)
 			if(i == cut_amount)

@@ -1,7 +1,6 @@
 import { sortBy } from 'es-toolkit';
-import { Button, LabeledList, Section, Table } from '../components';
-import type { BooleanLike } from '../../common/react';
-
+import { Button, LabeledList, Section, Table } from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
 import { Window } from '../layouts';
 
@@ -16,8 +15,8 @@ export type Data = {
   playlist: Song[];
 };
 
-export const Jukebox = (props, context) => {
-  const { act, data } = useBackend<Data>(context);
+export const Jukebox = (props) => {
+  const { act, data } = useBackend<Data>();
   const { active, selection, playlist } = data;
 
   const playlist_sorted: Song[] = sortBy(playlist, [(song: Song) => song.name]);
@@ -26,7 +25,7 @@ export const Jukebox = (props, context) => {
   );
 
   return (
-    <Window resizable width={325} height={500}>
+    <Window width={325} height={500}>
       <Window.Content>
         <Section
           title="Music Player"
@@ -63,7 +62,7 @@ export const Jukebox = (props, context) => {
               <Table.Cell>Length</Table.Cell>
             </Table.Row>
             {playlist_sorted.sort().map((song) => (
-              <Table.Row key={song}>
+              <Table.Row key={song.name}>
                 <Table.Cell>
                   {''}
                   <Button
@@ -79,9 +78,7 @@ export const Jukebox = (props, context) => {
                     }
                     selected={song === song_selected}
                     icon="play"
-                    onClick={(track: Song) =>
-                      act('changeTrack', { track: song.name })
-                    }
+                    onClick={() => act('changeTrack', { track: song.name })}
                   />
                 </Table.Cell>
                 <Table.Cell

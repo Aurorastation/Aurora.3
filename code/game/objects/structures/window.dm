@@ -114,7 +114,7 @@
 	if(. != BULLET_ACT_HIT)
 		return .
 
-	add_damage(proj_damage)
+	add_damage(proj_damage, hitting_projectile.damage_flags(), hitting_projectile.damage_type, hitting_projectile.armor_penetration, hitting_projectile)
 
 /obj/structure/window/ex_act(severity)
 	switch(severity)

@@ -34,8 +34,10 @@
 	..()
 
 	var/num_recovered = 0
-	for(var/drone in drones_list)
-		var/mob/living/simple_animal/hostile/icarus_drone/malf/D = drone
+	for(var/mob/living/simple_animal/hostile/icarus_drone/malf/D in drones_list)
+		if (QDELETED(D))
+			continue
+
 		spark(D.loc, 3)
 		D.beam_out()
 		num_recovered++
@@ -45,3 +47,5 @@
 			command_announcement.Announce(SSatlas.current_map.rogue_drone_end_message, "Rogue Drone Alert", new_sound = 'sound/AI/rogue_drone_end_message.ogg', zlevels = affecting_z)
 		else
 			command_announcement.Announce(SSatlas.current_map.rogue_drone_destroyed_message, "Rogue Drone Alert", new_sound = 'sound/AI/rogue_drone_destroyed_message.ogg', zlevels = affecting_z)
+
+	drones_list?.Cut()

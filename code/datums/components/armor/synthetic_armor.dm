@@ -23,7 +23,7 @@
 		var/key = get_armor_key(damage_type, damage_flags)
 		var/damage_taken
 		if(blocked)
-			damage_taken = round(damage * blocked)
+			damage_taken = damage * (1 - blocked)
 		else
 			damage_taken = damage
 		var/new_armor = max(0, get_value(key) - armor_degradation_coef * damage_taken)

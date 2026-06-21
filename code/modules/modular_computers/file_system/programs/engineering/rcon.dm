@@ -14,7 +14,6 @@
 	color = LIGHT_COLOR_YELLOW
 	tgui_id = "RCON"
 	tgui_theme = "hephaestus"
-	ui_auto_update = FALSE
 
 /datum/computer_file/program/rcon_console/New()
 	..()

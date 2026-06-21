@@ -47,6 +47,7 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile/retaliate/aquatic)
 	melee_damage_lower = 40
 	melee_damage_upper = 70
 	armor_penetration = 80
+	attack_vis_effect = ATTACK_EFFECT_BITE
 
 //Admin shark for admin fun because why not, not meant for normal gameplay
 /mob/living/simple_animal/hostile/retaliate/aquatic/thresher/deep_water

@@ -511,6 +511,13 @@
 	sortTim(plants, GLOBAL_PROC_REF(cmp_text_asc))
 	gear_tweaks += new /datum/gear_tweak/path(plants)
 
+/datum/gear/pottedplant_small/luce_vine
+	display_name = "potted luce vine"
+	description = "A small luce vine growth. Considered a miracle by followers of Luceism."
+	cost = 1
+	path = /obj/item/flora/pottedplant_small/luce_vine
+	origin_restriction = list(/singleton/origin_item/origin/assunzione)
+
 /datum/gear/candles
 	display_name = "candle pack"
 	description = "A pack of red candles."

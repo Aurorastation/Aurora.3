@@ -16,12 +16,12 @@
 
 /obj/effect/plastic_explosive/Initialize(var/atom/owner_pos, var/atom/target, var/obj/item/plastique/c4)
 	. = ..()
-	parent = c4
-	parent.effect_overlay = src
-	parent.forceMove(src)
-	name = parent.name
-	desc = parent.desc
-	set_position(get_dir(src, target))
+	if(parent)
+		parent = c4
+		parent.forceMove(src)
+		name = parent.name
+		desc = parent.desc
+		set_position(get_dir(src, target))
 
 /obj/effect/plastic_explosive/Destroy()
 	QDEL_NULL(parent)
@@ -48,3 +48,8 @@
 
 /obj/effect/plastic_explosive/attackby(obj/item/attacking_item, mob/user)
 	return parent.attackby(attacking_item, user)
+
+/obj/effect/plastic_explosive/big
+	name = "bundled plastic explosives"
+	desc = "Used to put big holes in specific areas with a lot of extra hole."
+	icon_state = "plastic-explosive-big2"

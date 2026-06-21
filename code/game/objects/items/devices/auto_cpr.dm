@@ -163,7 +163,7 @@
 	if(panel_open)
 		AddOverlays("panel_open[battery ? "_battery" : ""]")
 
-/obj/item/auto_cpr/mob_can_equip(mob/living/carbon/human/H, slot, disable_warning = 0, force = 0)
+/obj/item/auto_cpr/mob_can_equip(mob/living/carbon/human/H, slot, disable_warning = 0, force = 0, bypass_blocked_check = FALSE, is_overlay_check = FALSE)
 	. = ..()
 	if(slot == slot_wear_suit)
 		if(panel_open)

@@ -135,9 +135,8 @@
 
 /mob/living/simple_animal/hostile/greatworm/Destroy()
 	SSmobs.greatworms -= src
-	if(sarlacc)
-		qdel(sarlacc)
-		sarlacc = null
+	QDEL_NULL(sarlacc)
+	QDEL_LIST(active_tentacles)
 	return ..()
 
 /mob/living/simple_animal/hostile/greatworm/Life(seconds_per_tick, times_fired)
@@ -289,6 +288,7 @@
 /mob/living/simple_animal/hostile/lesserworm/Destroy()
 	if(originator)
 		originator.active_tentacles -= src
+	originator = null
 	return ..()
 
 /mob/living/simple_animal/hostile/lesserworm/proc/Penetrate()

@@ -124,7 +124,8 @@ FOODSTUFFS
 /singleton/biorecipe/food/bio_vitamin
 	name = "Flavored Vitamin"
 	object = /obj/item/reagent_containers/pill/bio_vitamin
-	amount = list(1,5,10,25,50)
+	// Pill bottles can at most hold 14 pills
+	amount = list(1,3,5,10,14)
 
 /singleton/biorecipe/food/liquidfood
 	name = "Food Ration"

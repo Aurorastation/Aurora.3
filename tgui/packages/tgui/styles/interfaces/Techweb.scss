@@ -1,0 +1,68 @@
+.Techweb__NodeProgress {
+  margin-bottom: var(--space-xl);
+}
+
+.Techweb__DesignIcon {
+  margin: 0 var(--space-s);
+}
+
+.Techweb__OverviewNodes {
+  padding-top: var(--space-m);
+}
+
+.Techweb__HeaderContent {
+  padding: var(--space-m);
+  background-color: var(--color-black);
+  border: var(--border-thickness-tiny) solid var(--color-primary);
+}
+
+.Techweb__HeaderContent > * > :not(:last-child) {
+  margin-bottom: var(--space-m);
+}
+
+.Techweb__HeaderSectionTabs {
+  margin-top: var(--space-l);
+  background-color: var(--color-black);
+  border: var(--border-thickness-tiny) solid var(--color-primary);
+  padding-left: var(--space-m);
+  padding-right: var(--space-m);
+}
+
+.Techweb__HeaderTabTitle {
+  border-right: var(--border-thickness-tiny) solid var(--color-primary);
+  padding-right: var(--space-m);
+  margin-right: var(--space-m);
+  font-weight: bold;
+}
+
+.Techweb__HeaderSectionTabs input {
+  background-color: hsla(0, 0%, 100%, 0.05);
+}
+
+.Techweb__PointSummary {
+  list-style: none;
+  margin: var(--space-m) 0 0 var(--space-l);
+  padding: 0;
+}
+
+.Techweb__SecProtocol {
+  color: var(--color-bad);
+  margin-left: var(--space-s);
+}
+
+.Techweb__SecProtocol.engaged {
+  color: var(--color-good);
+}
+
+.Techweb__DesignModal > :not(:last-child) {
+  margin-bottom: var(--space-m);
+}
+
+.Techweb__LockedModal > :not(:last-child) {
+  margin-bottom: var(--space-m);
+}
+
+.Techweb__ExperimentDiscount {
+  color: var(--color-label);
+  margin: var(--space-m) 0;
+}

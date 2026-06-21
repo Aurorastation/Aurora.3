@@ -11,7 +11,6 @@
 	size = 8
 	color = LIGHT_COLOR_BLUE
 	tgui_id = "IDCardModification"
-	ui_auto_update = FALSE
 	var/is_centcom = FALSE
 	var/show_assignments = FALSE
 

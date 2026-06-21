@@ -62,6 +62,9 @@
 			state = SPAN_NOTICE("\The [src] seems completely intact.")
 	. = state
 
+/turf/simulated/wall/examine_descriptor(mob/user)
+	return "wall"
+
 /turf/simulated/wall/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	if(locate(/obj/effect/overlay/wallrot) in src)

@@ -58,10 +58,6 @@
 	SSradiation.resistance_cache[src] = (length(contents) + 1)
 	cached_rad_resistance = (density ? material.weight / RADIATION_MATERIAL_RESISTANCE_DIVISOR : 0)
 
-/obj
-	/// Allow overriding rad resistance.
-	var/rad_resistance_modifier = 1
-
 /**
  * Retrieves the atom's current radiation level. By default, this will return `loc.get_rads()`.
  *

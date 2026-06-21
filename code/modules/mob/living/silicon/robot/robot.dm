@@ -129,13 +129,24 @@
 	)
 
 	// Overlays
+	/// Used to keep track of our eye_overlay when we remove it due to being offline/depowered
 	var/has_cut_eye_overlay
+	/// Used to keep track of our eye_emissive overlay, so that it can be removed/added seperately from the eye overlay.
+	var/has_cut_eye_emissive
+	/// The robot's active eye overlay
 	var/image/eye_overlay
+	/// The robot's active eye emissive
+	var/image/eye_emissive
+	/// A list of cached eye overlays relevant to the robot's current module
 	var/list/image/cached_eye_overlays = list()
+	/// The robot's active panel overlay, used when a robot is open and undergoing maintenance
 	var/image/panel_overlay
+	/// A list of cached panel overlays relevant to the robot's current module.
 	var/list/image/cached_panel_overlays = list()
+	/// The robot's active shield overlay. Used by the military module's shielding systems.
 	var/image/shield_overlay
-	var/datum/weakref/holo_map
+	/// The robot's active shield emissive.
+	var/image/shield_emissive
 
 /mob/living/silicon/robot/Initialize(mapload, unfinished = FALSE)
 	spark_system = bind_spark(src, 5)

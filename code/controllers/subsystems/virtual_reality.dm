@@ -55,11 +55,6 @@ SUBSYSTEM_DEF(virtualreality)
 	if(bound && network)
 		bounded[network].Remove(bound)
 
-
-/mob
-	var/mob/living/vr_mob = null // In which mob is our mind
-	var/mob/living/old_mob = null // Which mob is our old mob
-
 /// Return to original body
 /mob/proc/body_return()
 	set name = "Return to Body"

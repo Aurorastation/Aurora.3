@@ -150,7 +150,7 @@ This calls [atom/proc/tool_act], among others.
 		return 0
 
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	user.do_attack_animation(target_mob, src)
+	user.do_attack_animation(target_mob, used_item = src)
 	if(!user.aura_check(AURA_TYPE_WEAPON, src, user))
 		return FALSE
 

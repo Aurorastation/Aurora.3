@@ -8,6 +8,8 @@
 	icon_state = "0"
 	build_amt = 5
 	var/state = 0
+	maxhealth = OBJECT_HEALTH_MEDIUM
+
 	var/obj/item/circuitboard/circuit = null
 
 /obj/structure/computerframe/attackby(obj/item/attacking_item, mob/user)

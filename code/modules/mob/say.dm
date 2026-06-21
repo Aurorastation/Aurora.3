@@ -1,4 +1,4 @@
-/mob/proc/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE)
+/mob/proc/say(var/text, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE)
 	return
 
 ///what clients use to speak. when you type a message into the chat bar in say mode, this is the first thing that goes off serverside.
@@ -88,7 +88,7 @@
 
 /*
 	***Deprecated***
-	let this be handled at the hear_say or hear_radio proc
+	let this be handled at the hear_message proc
 	This is left in for robot speaking when humans gain binary channel access until I get around to rewriting
 	robot_talk() proc.
 	There is no language handling build into it however there is at the /mob level so we accept the call
@@ -187,3 +187,84 @@
 			return L
 		else
 			return null
+
+/// Splits a message into per-language /datum/say_segment, switching language at each spoken prefix.
+/// A forced language takes the whole message with no prefix parsing.
+/mob/living/proc/build_say_message(message, datum/language/forced_language)
+	RETURN_TYPE(/datum/say_message)
+	var/datum/say_message/say_message = new
+	say_message.speaker = src
+	say_message.raw_message = message
+
+	if(forced_language)
+		say_message.collapse_to(forced_language, message)
+		return say_message
+
+	var/datum/language/current = get_default_language()
+	if(copytext(message, 1, 2) == "!")
+		current = GLOB.all_languages[LANGUAGE_NOISE]
+		message = trim_left(copytext(message, 2))
+
+	var/regex/trigger = get_language_trigger_regex()
+	trigger.next = 1
+
+	var/segment_start = 1
+	var/list/datum/say_segment/segments = list()
+
+	while(trigger.Find(message))
+		var/lead = trigger.group[1]	//empty at the start of the message, otherwise the whitespace before the prefix
+		var/prefix_pos = trigger.index + length(lead)
+		var/key_pos = prefix_pos + 1
+
+		var/key_len = 2
+		var/datum/language/found = resolve_language_key(copytext(message, key_pos, key_pos + 2))
+		if(!found)
+			key_len = 1
+			found = resolve_language_key(copytext(message, key_pos, key_pos + 1))
+		if(!found)
+			continue	//not a language we can speak, leave it as literal text and keep scanning
+
+		var/before = copytext(message, segment_start, prefix_pos)
+
+		var/after = key_pos + key_len
+		if(copytext(message, after, after + 1) == " ")
+			after++
+
+		// If LANG_NO_MULTILANG is present, it must be first. If first,
+		// set the whole message to that language. If not, skip it.
+		if(found.flags & LANG_NO_MULTILANG)
+			if(!length(segments) && !length(before))
+				say_message.collapse_to(found, copytext(message, after))
+				return say_message
+			continue
+
+		segments += new /datum/say_segment(before, current)
+		segment_start = after
+		current = found
+		trigger.next = after
+
+	segments += new /datum/say_segment(copytext(message, segment_start), current)
+	say_message.segments = clean_segments(segments)
+	say_message.single_language = (length(say_message.segments) == 1) ? say_message.segments[1].language : null
+	return say_message
+
+/// Returns the language for a prefix key if we can speak it, otherwise null.
+/mob/proc/resolve_language_key(key)
+	RETURN_TYPE(/datum/language)
+	if(!key)
+		return null
+	var/datum/language/found = GLOB.language_keys[lowertext(key)]
+	return (istype(found) && can_speak(found)) ? found : null
+
+/// Drops empty segments and merges adjacent ones sharing a language.
+/proc/clean_segments(list/datum/say_segment/segments)
+	var/list/datum/say_segment/cleaned = list()
+	for(var/datum/say_segment/segment as anything in segments)
+		if(!length(segment.text))
+			continue
+		var/datum/say_segment/last = cleaned.len ? cleaned[cleaned.len] : null
+		if(last && last.language == segment.language)
+			last.text += segment.text
+		else
+			cleaned += segment
+	return cleaned

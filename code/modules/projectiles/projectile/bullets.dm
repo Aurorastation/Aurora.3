@@ -481,7 +481,7 @@
 
 /obj/projectile/bullet/gauss/highex/on_hit(atom/target, blocked, def_zone)
 	. = ..()
-	explosion(target, -1, 0, 2)
+	explosion(get_turf(target), -1, 0, 2)
 	if(ismovable(target))
 		var/atom/movable/T = target
 		var/throwdir = get_dir(firer,target)
@@ -502,7 +502,7 @@
 	armor_penetration = 5
 
 /obj/projectile/bullet/cannonball/explosive/on_hit(atom/target, blocked, def_zone)
-	explosion(target, -1, 1, 2)
+	explosion(get_turf(target), -1, 1, 2)
 	. = ..()
 
 /obj/projectile/bullet/nuke
@@ -518,7 +518,7 @@
 			if(ishuman(mob))
 				mob.apply_damage(250, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
 	new /obj/effect/temp_visual/nuke(target.loc)
-	explosion(target,2,5,9)
+	explosion(get_turf(target),2,5,9)
 	. = ..()
 
 /obj/projectile/bullet/shard
@@ -542,7 +542,7 @@
 	var/heavy_impact_range = 1
 
 /obj/projectile/bullet/recoilless_rifle/on_hit(atom/target, blocked, def_zone)
-	explosion(target, -1, heavy_impact_range, 2)
+	explosion(get_turf(target), -1, heavy_impact_range, 2)
 	. = ..()
 
 /obj/projectile/bullet/peac
@@ -562,7 +562,7 @@
 /obj/projectile/bullet/peac/on_hit(atom/target, blocked, def_zone)
 	. = ..()
 
-	explosion(target, devastation_range, heavy_impact_range, light_impact_range)
+	explosion(get_turf(target), devastation_range, heavy_impact_range, light_impact_range)
 
 /obj/projectile/bullet/peac/he
 	name = "high-explosive missile"

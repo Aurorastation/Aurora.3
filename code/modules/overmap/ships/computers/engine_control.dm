@@ -30,7 +30,7 @@
 
 /obj/structure/machinery/computer/ship/engines/ui_interact(mob/user, datum/tgui/ui)
 	if(!connected)
-		display_reconnect_dialog(user, "ship control systems")
+		balloon_alert(user, "no connection!")
 		return
 
 	ui = SStgui.try_update_ui(user, src, ui)

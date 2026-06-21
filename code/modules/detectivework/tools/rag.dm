@@ -1,11 +1,3 @@
-/mob
-	var/bloody_hands = null
-	var/datum/weakref/bloody_hands_mob
-	var/track_footprint = 0
-	var/list/feet_blood_DNA
-	var/track_footprint_type
-	var/footprint_color
-
 /obj/item/clothing/gloves
 	var/transfer_blood = 0
 	var/datum/weakref/bloody_hands_mob

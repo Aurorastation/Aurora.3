@@ -9,7 +9,6 @@
 	available_on_ntnet = TRUE
 	usage_flags = PROGRAM_ALL
 	tgui_id = "CargoOrder"
-	ui_auto_update = FALSE
 
 	var/page = "main" //main - Main Menu, order - Order Page, item_details - Item Details Page, tracking - Tracking Page
 	var/selected_category = null // Category that is currently selected

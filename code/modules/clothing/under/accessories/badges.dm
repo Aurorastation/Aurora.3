@@ -165,23 +165,31 @@
 /obj/item/clothing/accessory/badge/officer
 	name = "security officer's badge"
 	desc = "A bronze security badge."
-	icon_state = "bronzebadge"
-	overlay_state = "bronzebadge"
-	slot_flags = SLOT_TIE
+	icon_state = "officerbadge"
+	item_state = "officerbadge"
+	overlay_state = "officerbadge"
 
 /obj/item/clothing/accessory/badge/warden
 	name = "warden's badge"
 	desc = "A silver security badge."
-	icon_state = "silverbadge"
-	overlay_state = "silverbadge"
-	slot_flags = SLOT_TIE
+	icon_state = "wardenbadge"
+	item_state = "wardenbadge"
+	overlay_state = "wardenbadge"
 
 /obj/item/clothing/accessory/badge/hos
 	name = "head of security's badge"
 	desc = "An immaculately polished gold security badge."
-	icon_state = "goldbadge"
-	overlay_state = "goldbadge"
-	slot_flags = SLOT_TIE
+	icon_state = "hosbadge"
+	item_state = "hosbadge"
+	overlay_state = "hosbadge"
+
+/obj/item/clothing/accessory/badge/investigator
+	name = "\improper investigator badge"
+	desc = "This badge marks the holder as an investigative agent."
+	icon_state = "invbadge"
+	overlay_state = "invbadge"
+	badge_string = "Corporate Investigator"
+
 
 /obj/item/clothing/accessory/badge/bssb
 	name = "\improper BSSB agent's badge"
@@ -251,13 +259,6 @@
 	desc = "A hefty gold-plated badge which tells you who's in charge."
 	icon_state = "marshalbadge"
 	badge_string = "Federal Marshal"
-
-/obj/item/clothing/accessory/badge/investigator
-	name = "\improper investigator badge"
-	desc = "This badge marks the holder as an investigative agent."
-	icon_state = "invbadge"
-	overlay_state = "invbadge"
-	badge_string = "Corporate Investigator"
 
 /obj/item/clothing/accessory/badge/idbadge
 	name = "\improper ID badge"

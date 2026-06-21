@@ -39,8 +39,8 @@ ABSTRACT_TYPE(/singleton/overhead_emote)
 	var/self_message = SPAN_NOTICE("You lift your hand to meet [original]'s, delivering a stunning [emote_description]!")
 	reciprocator.visible_message(others_message, self_message)
 
-	INVOKE_ASYNC(reciprocator, TYPE_PROC_REF(/atom/movable, do_attack_animation), original, FIST_ATTACK_ANIMATION)
-	INVOKE_ASYNC(original, TYPE_PROC_REF(/atom/movable, do_attack_animation), reciprocator, FIST_ATTACK_ANIMATION)
+	INVOKE_ASYNC(reciprocator, TYPE_PROC_REF(/atom/movable, do_attack_animation), original)
+	INVOKE_ASYNC(original, TYPE_PROC_REF(/atom/movable, do_attack_animation), reciprocator)
 
 	if(emote_sound)
 		playsound(reciprocator.loc, emote_sound, 30, 1)
@@ -54,8 +54,8 @@ ABSTRACT_TYPE(/singleton/overhead_emote)
 	var/self_message = SPAN_NOTICE("You lift your hand to meet [original]'s, who was expecting a [original_emote.emote_description], but received a [fail_emote.emote_description] instead.")
 	reciprocator.visible_message(others_message, self_message)
 
-	INVOKE_ASYNC(reciprocator, TYPE_PROC_REF(/atom/movable, do_attack_animation), original, FIST_ATTACK_ANIMATION)
-	INVOKE_ASYNC(original, TYPE_PROC_REF(/atom/movable, do_attack_animation), reciprocator, FIST_ATTACK_ANIMATION)
+	INVOKE_ASYNC(reciprocator, TYPE_PROC_REF(/atom/movable, do_attack_animation), original)
+	INVOKE_ASYNC(original, TYPE_PROC_REF(/atom/movable, do_attack_animation), reciprocator)
 
 	playsound(reciprocator.loc, SFX_PUNCH_MISS, 30, 1)
 

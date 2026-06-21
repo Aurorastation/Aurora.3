@@ -47,7 +47,7 @@
 	icon = 'icons/obj/guns/ship/ship_ammo_autocannon.dmi'
 	icon_state = "autocannon_frag"
 	overmap_icon_state = "cannon_salvo"
-	impact_type = SHIP_AMMO_IMPACT_HE
+	impact_type = SHIP_AMMO_IMPACT_FRAG
 	ammunition_flags = SHIP_AMMO_FLAG_INFLAMMABLE|SHIP_AMMO_FLAG_VERY_HEAVY
 	caliber = SHIP_CALIBER_60MM
 	burst = 8
@@ -59,7 +59,8 @@
 	icon_state = "small"
 	damage = 100
 	armor_penetration = 60
-	penetrating = 3
+	penetrating = 8
+	anti_materiel_potential = 6
 
 /obj/projectile/ship_ammo/autocannon/he
 	name = "60mm HE shell"
@@ -67,6 +68,7 @@
 	damage = 80
 	armor_penetration = 30
 	penetrating = 0 // Explodes on the hull.
+	explosion_strength = list(0, 2, 3)
 
 /obj/projectile/ship_ammo/autocannon/frag
 	name = "60mm fragmentation shell"
@@ -77,8 +79,8 @@
 
 /obj/projectile/ship_ammo/autocannon/he/on_hit(atom/target, blocked, def_zone, is_landmark_hit)
 	. = ..()
-	explosion(target, 0, 2, 3)
+	explosion(get_turf(target), explosion_strength[1], explosion_strength[2], explosion_strength[3])
 
 /obj/projectile/ship_ammo/autocannon/frag/on_hit(atom/target, blocked, def_zone, is_landmark_hit)
-	fragem(target, 70, 70, 1, 2, 15, 5, TRUE)
-	..()
+	fragem(src, 70, 70, 1, 2, 12, 4, TRUE, spread_range = 5) //Targets 5 tiles around the impact site and shoots a projectile at them.
+	. = ..()

@@ -1,6 +1,4 @@
-import { Fragment } from 'inferno';
-import { Window } from '../layouts';
-import { useBackend } from '../backend';
+import { Fragment } from 'react';
 import {
   AnimatedNumber,
   Box,
@@ -10,8 +8,10 @@ import {
   LabeledList,
   ProgressBar,
   Section,
-} from '../components';
-import { BooleanLike } from 'common/react';
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
+import { useBackend } from '../backend';
+import { Window } from '../layouts';
 
 export type CryoData = {
   isOperating: BooleanLike;
@@ -72,10 +72,10 @@ const progressClass = (value) => {
   }
 };
 
-export const CryoTube = (props, context) => {
-  const { act, data } = useBackend<CryoData>(context);
+export const CryoTube = (props) => {
+  const { act, data } = useBackend<CryoData>();
   return (
-    <Window resizable theme="zenghu">
+    <Window theme="zenghu">
       <Window.Content className="Layout__content--flexColumn">
         <CryoContent />
       </Window.Content>
@@ -83,13 +83,13 @@ export const CryoTube = (props, context) => {
   );
 };
 
-export const CryoContent = (props, context) => {
-  const { act, data } = useBackend<CryoData>(context);
+export const CryoContent = (props) => {
+  const { act, data } = useBackend<CryoData>();
   return (
     <Fragment>
       <Section
         title="Occupant"
-        flexGrow="1"
+        flexGrow={true}
         buttons={
           <Button
             icon="user-slash"
@@ -172,7 +172,7 @@ export const CryoContent = (props, context) => {
         ) : (
           <Flex height="100%" textAlign="center">
             <Flex.Item grow="1" align="center" color="label">
-              <Icon name="user-slash" mb="0.5rem" size="5" />
+              <Icon name="user-slash" mb="0.5rem" size={5} />
               <br />
               No occupant detected.
             </Flex.Item>
@@ -241,8 +241,8 @@ export const CryoContent = (props, context) => {
   );
 };
 
-const CryoBeaker = (props, context) => {
-  const { act, data } = useBackend<BeakerData>(context);
+const CryoBeaker = (props) => {
+  const { act, data } = useBackend<BeakerData>();
   if (data.isBeakerLoaded) {
     return (
       <Fragment>
@@ -255,7 +255,7 @@ const CryoBeaker = (props, context) => {
           {data.beakerVolume ? (
             <AnimatedNumber
               value={data.beakerVolume}
-              format={(v) => Math.round(v) + ' units remaining'}
+              format={(v) => `${Math.round(v)} units remaining`}
             />
           ) : (
             'Beaker is empty'

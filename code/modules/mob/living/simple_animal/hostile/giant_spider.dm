@@ -46,6 +46,7 @@
 	smart_melee = FALSE
 
 	attacktext = "bites"
+	attack_vis_effect = ATTACK_EFFECT_BITE
 	attack_emote = "skitters toward"
 	attack_sound = 'sound/weapons/bite.ogg'
 	emote_sounds = list('sound/effects/creatures/spider_critter.ogg')
@@ -168,6 +169,7 @@
 	add_language(LANGUAGE_GREIMORIAN_HIVEMIND)
 	remove_language(LANGUAGE_TCB)
 	default_language = GLOB.all_languages[LANGUAGE_GREIMORIAN]
+	ADD_TRAIT(src, TRAIT_MC_SPACE_FAUNA, TRAIT_SOURCE_MOB_CATEGORY)
 
 /mob/living/simple_animal/hostile/giant_spider/nurse/servant/Initialize()
 	. = ..()

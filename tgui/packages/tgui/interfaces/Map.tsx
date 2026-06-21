@@ -1,8 +1,6 @@
-import { paginate } from 'common/collections';
+import { Box, NoticeBox, Section, Slider, Table, Tabs } from 'tgui-core/components';
 import { useBackend, useLocalState } from '../backend';
-import { Tabs, Slider, Section, NoticeBox, Table } from '../components';
 import { NtosWindow } from '../layouts';
-import { BooleanLike } from '../../common/react';
 
 export type MapData = {
   map_image: any; // base64 icon
@@ -11,22 +9,20 @@ export type MapData = {
   user_z: number;
   station_levels: number[];
   z_override: number;
+  legend_enabled: boolean;
   dept_colors_map: { d: string; c: string }[];
   pois: { name: string; desc: string; x: number; y: number; z: number }[];
-  legend_enabled: BooleanLike;
 };
 
-export const Map = (props, context) => {
-  const { act, data } = useBackend<MapData>(context);
+export const Map = (props) => {
+  const { act, data } = useBackend<MapData>();
 
   const [minimapZoom, setMinimapZoom] = useLocalState<number>(
-    context,
     `minimapZoom`,
     150,
   );
 
   const [showLegend, setShowLegend] = useLocalState<boolean>(
-    context,
     `showLegend`,
     false,
   );
@@ -39,7 +35,7 @@ export const Map = (props, context) => {
   const zoom_mod = minimapZoom / 100.0;
 
   return (
-    <NtosWindow resizable>
+    <NtosWindow>
       <NtosWindow.Content scrollable>
         <Section title="Map Program">
           <Tabs>
@@ -67,24 +63,23 @@ export const Map = (props, context) => {
             ) : (
               ''
             )}
-            {data.legend_enabled ? (
+            {!!data.legend_enabled && (
               <Tabs.Tab
                 icon="fa-circle-question"
                 onClick={() => setShowLegend(!showLegend)}
               >
                 {showLegend ? 'Hide Legend' : 'Show Legend'}
               </Tabs.Tab>
-            ) : (
-              ''
             )}
           </Tabs>
-          {showLegend ? (
+          {showLegend && data.legend_enabled ? (
             <NoticeBox color="grey">
               <Table>
-                {paginate(data.dept_colors_map, 2).map((a) => (
-                  <Table.Row key={a}>
-                    <Table.Cell color={a[0].c}>{a[0].d}</Table.Cell>
-                    <Table.Cell color={a[1].c}>{a[1].d}</Table.Cell>
+                {data.dept_colors_map?.map((department) => (
+                  <Table.Row key={department.d}>
+                    <Table.Cell>
+                      <Box color={department.c}>{department.d}</Box>
+                    </Table.Cell>
                   </Table.Row>
                 ))}
               </Table>

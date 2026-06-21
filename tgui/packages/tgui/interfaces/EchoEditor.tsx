@@ -1,6 +1,6 @@
-import { BooleanLike } from '../../common/react';
+import { Button, Section, Table } from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Button, Section, Table } from '../components';
 import { Window } from '../layouts';
 
 type EchoEditorData = {
@@ -14,8 +14,8 @@ type EchoParam = {
   real: BooleanLike;
 };
 
-export const EchoEditor = (props, context) => {
-  const { act, data } = useBackend<EchoEditorData>(context);
+export const EchoEditor = (props) => {
+  const { act, data } = useBackend<EchoEditorData>();
 
   return (
     <Window title="Echo Editor" width={380} height={560} theme="ntos">

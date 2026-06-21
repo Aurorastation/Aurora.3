@@ -76,6 +76,38 @@
 	style_open = "<span class='langchat' style=font-size:20pt;text-align:center valign='top'>"
 	style_close = "</span>"
 
+/atom/movable/screen/text/screen_text/adpi_message
+	maptext_height = 64
+	maptext_width = 480
+	maptext_x = 0
+	maptext_y = 0
+	screen_loc = "LEFT,TOP-3"
+
+	letters_per_update = 1
+	fade_out_delay = 8 SECONDS
+	style_open = "<span class='langchat' style=font-size:20pt;text-align:center valign='top'>"
+	style_close = "</span>"
+
+/atom/movable/screen/text/screen_text/adpi_message/psiren_spam
+	screen_loc = "LEFT,TOP-7"
+
+	play_delay = 0.1
+	letters_per_update = 1
+	fade_out_delay = 1 SECONDS
+
+	style_open = "<span class='langchat' style=font-size:20pt;text-align:center valign='top'>"
+	style_close = "</span>"
+
+
+/atom/movable/screen/text/screen_text/adpi_message/psiren_spam/Initialize()
+	var/random_shift = rand(1,4)
+	if(prob(50))
+		random_shift *= -1
+	// Christ on sale. I'm sorry, but this DOES work...
+	screen_loc = "LEFT[random_shift > 0 ? "+" : ""][random_shift]:[random_shift * 2],TOP-[7 + random_shift]:[random_shift * 2]"
+	..()
+	return INITIALIZE_HINT_NORMAL
+
 ///proc for actually playing this screen_text on a mob.
 /atom/movable/screen/text/screen_text/proc/play_to_client()
 	player?.add_to_screen(src)

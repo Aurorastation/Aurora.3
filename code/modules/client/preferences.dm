@@ -26,7 +26,6 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 	var/sfx_toggles = ASFX_DEFAULT
 	var/UI_style_color = "#ffffff"
 	var/UI_style_alpha = 255
-	var/tgui_fancy = TRUE
 	var/tgui_lock = FALSE
 	var/tgui_inputs = TRUE
 	var/tgui_buttons_large = FALSE

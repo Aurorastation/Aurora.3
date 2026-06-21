@@ -75,7 +75,7 @@
 	H.update_icon()
 	H.update_inv_back()
 
-/obj/item/storage/backpack/mob_can_equip(M as mob, slot, disable_warning = FALSE)
+/obj/item/storage/backpack/mob_can_equip(M as mob, slot, disable_warning = FALSE, bypass_blocked_check = FALSE, is_overlay_check = FALSE)
 
 	//if we can't equip the item anyway, don't bother with species_restricted (cuts down on spam)
 	if (!..())

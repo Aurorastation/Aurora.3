@@ -636,7 +636,8 @@ Most of these values are calculated from information configured at authortime in
 	last_location = null
 	regen_limb = null
 	regen_extra = null
-	. = ..()
+	nym = null
+	return ..()
 
 /datum/dionastats/proc/do_blood_suck(var/mob/living/carbon/user, var/mob/living/carbon/human/H)
 	user.visible_message(SPAN_DANGER("[user] is trying to bite [H.name]."), SPAN_DANGER("You start biting \the [H], you both must stay still!"))

@@ -5,8 +5,8 @@
 	category_name = "Tajara"
 	bodytype = BODYTYPE_TAJARA
 	species_height = HEIGHT_CLASS_SHORT
-	height_min = 150
-	height_max = 190
+	height_min = 145 // human default: 145
+	height_max = 180 // human default: 203
 	icobase = 'icons/mob/human_races/tajara/r_tajaran.dmi'
 	deform = 'icons/mob/human_races/tajara/r_def_tajaran.dmi'
 	preview_icon = 'icons/mob/human_races/tajara/tajaran_preview.dmi'
@@ -27,7 +27,7 @@
 	darksight = 8
 	slowdown = -0.4
 
-	brute_mod = 1.2
+	brute_mod = 1.1
 	fall_mod = 0.5
 
 	grab_mod = 1.25 // Fur easy to cling onto

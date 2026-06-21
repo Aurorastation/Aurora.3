@@ -128,7 +128,6 @@
 	set_current(C)
 	user.machine = ui_host()
 	user.reset_view(current_camera)
-	check_eye(user)
 	return TRUE
 
 /datum/computer_file/program/penal_mechs/proc/set_current(var/obj/structure/machinery/camera/C)
@@ -150,11 +149,3 @@
 		if(istype(L))
 			L.tracking_cancelled()
 	current_camera = null
-
-/datum/computer_file/program/penal_mechs/check_eye(var/mob/user)
-	if(!current_camera)
-		return FALSE
-	var/viewflag = current_camera.check_eye(user)
-	if(viewflag < 0) //camera doesn't work
-		reset_current()
-	return viewflag

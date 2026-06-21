@@ -94,6 +94,7 @@
 	default_language = GLOB.all_languages[LANGUAGE_LOCAL_DRONE]
 
 	add_verb(src, /mob/living/proc/hide)
+	RegisterSignal(src, COMSIG_MOB_ON_HIDE, PROC_REF(on_hide))
 	remove_language(LANGUAGE_ROBOT)
 	add_language(LANGUAGE_ROBOT, FALSE)
 	add_language(LANGUAGE_DRONE, TRUE)
@@ -168,8 +169,8 @@
 		return default_language
 	return GLOB.all_languages[LANGUAGE_LOCAL_DRONE]
 
-/mob/living/silicon/robot/drone/fall_impact()
-	..(damage_mod = 0.05) //reduces fall damage by 95%
+/mob/living/silicon/robot/drone/fall_impact(levels_fallen, stopped_early = FALSE, var/damage_mod = 1)
+	..(levels_fallen, stopped_early, damage_mod * 0.05) //reduces fall damage by 95%
 
 /mob/living/silicon/robot/drone/construction
 	// Look and feel
@@ -297,29 +298,31 @@
 
 /mob/living/silicon/robot/drone/setup_eye_cache()
 	cached_eye_overlays = list(
-		I_HELP = image(icon, "[icon_state]-eyes_help"),
-		I_HURT = image(icon, "[icon_state]-eyes_harm"),
-		"emag" = image(icon, "[icon_state]-eyes_emag")
+		I_HELP = mutable_appearance(icon, "[icon_state]-eyes_help"),
+		I_HURT = mutable_appearance(icon, "[icon_state]-eyes_harm"),
+		"emag" = mutable_appearance(icon, "[icon_state]-eyes_emag")
 	)
 	if(eye_overlay)
-		CutOverlays(eye_overlay)
+		CutOverlays(list(eye_overlay, eye_emissive))
 	eye_overlay = cached_eye_overlays[a_intent]
-	AddOverlays(eye_overlay)
+	// Disables emissives while hiding due to table-clipping issues
+	eye_emissive = (layer == MOB_LAYER ? emissive_appearance(icon, "[icon_state]-eyes_help") : null)
+	AddOverlays(list(eye_overlay, eye_emissive))
 
 /mob/living/silicon/robot/drone/setup_panel_cache()
 	cached_panel_overlays = list(
-		ROBOT_PANEL_EXPOSED = image(icon, "[icon_state]-openpanel+w"),
-		ROBOT_PANEL_CELL = image(icon, "[icon_state]-openpanel+c"),
-		ROBOT_PANEL_NO_CELL = image(icon, "[icon_state]-openpanel-c")
+		ROBOT_PANEL_EXPOSED = mutable_appearance(icon, "[icon_state]-openpanel+w"),
+		ROBOT_PANEL_CELL = mutable_appearance(icon, "[icon_state]-openpanel+c"),
+		ROBOT_PANEL_NO_CELL = mutable_appearance(icon, "[icon_state]-openpanel-c")
 	)
 
 
 /mob/living/silicon/robot/drone/set_intent(var/set_intent)
 	a_intent = set_intent
-	CutOverlays(eye_overlay)
+	CutOverlays(list(eye_overlay, eye_emissive))
 	if(!stat)
 		eye_overlay = cached_eye_overlays[emagged ? "emag" : set_intent]
-		AddOverlays(eye_overlay)
+		AddOverlays(list(eye_overlay, eye_emissive))
 
 /mob/living/silicon/robot/drone/choose_icon()
 	return
@@ -411,7 +414,7 @@
 	to_chat(src, "<b>Obey these laws:</b>")
 	laws.show_laws(src)
 	to_chat(src, SPAN_DANGER("ALERT: [user.real_name] is your new master. Obey your new laws and their commands."))
-	set_intent(I_HURT) // force them to hurt to update the eyes, they can swap to and fro if they wish, though - geeves
+	set_intent(a_intent) // Send an intent update so their eyes change to "emag"
 	return TRUE
 
 /mob/living/silicon/robot/drone/proc/ai_hack(var/mob/user)

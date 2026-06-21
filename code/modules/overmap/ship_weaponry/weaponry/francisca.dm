@@ -42,7 +42,7 @@
 	name_override = "40mm FRAG burst"
 	desc = "A box of fragmentation shells for use in a Francisca rotary gun."
 	icon_state = "box_inc"
-	impact_type = SHIP_AMMO_IMPACT_HE
+	impact_type = SHIP_AMMO_IMPACT_FRAG
 	projectile_type_override = /obj/projectile/ship_ammo/francisca/frag
 
 /obj/projectile/ship_ammo/francisca
@@ -50,20 +50,24 @@
 	icon_state = "small"
 	damage = 50
 	armor_penetration = 50
-	penetrating = 2
+	penetrating = 3
+	anti_materiel_potential = 10
 
 /obj/projectile/ship_ammo/francisca/ap
 	name = "40mm AP shell"
 	damage = 30
 	armor_penetration = 100
-	penetrating = 4
+	penetrating = 8
+	anti_materiel_potential = 8
 
 /obj/projectile/ship_ammo/francisca/frag
 	name = "40mm FRAG shell"
+	icon_state = "small"
 	damage = 30
 	armor_penetration = 50
 	penetrating = 1
+	anti_materiel_potential = 6
 
 /obj/projectile/ship_ammo/francisca/frag/on_hit(atom/target, blocked, def_zone, is_landmark_hit)
-	fragem(src, 70, 70, 1, 2, 10, 4, TRUE)
+	fragem(src, 70, 70, 1, 2, 12, 4, TRUE, spread_range = 5) //Targets 5 tiles around the impact site and shoots a projectile at them.
 	. = ..()

@@ -115,7 +115,7 @@
 	if(ismob(target))
 		var/mob/M = target
 		M.gib()
-	explosion(target, -1, 0, 5)
+	explosion(get_turf(target), -1, 0, 5)
 	. = ..()
 
 /obj/projectile/energy/bfg/New()

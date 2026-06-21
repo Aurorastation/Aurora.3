@@ -1,6 +1,6 @@
-import { BooleanLike } from '../../common/react';
+import { Box, Button, NoticeBox, Section } from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Box, Button, NoticeBox, Section } from '../components';
 import { Window } from '../layouts';
 
 export type LibraryScannerData = {
@@ -10,8 +10,8 @@ export type LibraryScannerData = {
   is_anchored: BooleanLike;
 };
 
-export const LibraryScanner = (props, context) => {
-  const { act, data } = useBackend<LibraryScannerData>(context);
+export const LibraryScanner = (props) => {
+  const { act, data } = useBackend<LibraryScannerData>();
 
   if (!data.is_anchored) {
     return (

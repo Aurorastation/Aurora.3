@@ -62,7 +62,7 @@
 
 	// Otherwise, we need to check the education...
 	if(type in education.skills)
-		return education.skills[type]
+		return maximum_level
 
 
 	return uneducated_skill_cap

@@ -1,12 +1,12 @@
-import { BooleanLike } from '../../common/react';
-import { useBackend } from '../backend';
 import {
   Button,
   LabeledList,
   NoticeBox,
   NumberInput,
   Section,
-} from '../components';
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
+import { useBackend } from '../backend';
 import { Window } from '../layouts';
 
 export type FusionGyrotronData = {
@@ -24,16 +24,16 @@ type Gyrotron = {
   power_status: string;
 };
 
-export const FusionGyrotronControl = (props, context) => {
-  const { act, data } = useBackend<FusionGyrotronData>(context);
+export const FusionGyrotronControl = (props) => {
+  const { act, data } = useBackend<FusionGyrotronData>();
 
   return (
-    <Window resizable width={400} height={500} theme={data.manufacturer}>
+    <Window width={400} height={500} theme={data.manufacturer}>
       <Window.Content scrollable>
-        {data.gyrotrons && data.gyrotrons.length ? (
+        {data.gyrotrons?.length ? (
           data.gyrotrons.map((gyrotron) => (
             <Section
-              title={'Gyrotron ' + gyrotron.id}
+              title={`Gyrotron ${gyrotron.id}`}
               key={gyrotron.id}
               buttons={
                 <Button
@@ -55,7 +55,7 @@ export const FusionGyrotronControl = (props, context) => {
                     maxValue={250}
                     unit="x"
                     stepPixelSize={15}
-                    onDrag={(e, value) =>
+                    onChange={(value) =>
                       act('modifypower', {
                         modifypower: value,
                         machine: gyrotron.ref,
@@ -70,7 +70,7 @@ export const FusionGyrotronControl = (props, context) => {
                     maxValue={10}
                     stepPixelSize={15}
                     unit="ds"
-                    onDrag={(e, value) =>
+                    onChange={(value) =>
                       act('modifyrate', {
                         modifyrate: value,
                         machine: gyrotron.ref,

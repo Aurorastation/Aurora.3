@@ -681,7 +681,7 @@
 	to_chat(src, SPAN_WARNING("There is no perch nearby to sit on."))
 	return
 
-/mob/living/simple_animal/parrot/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE, var/skip_edit = FALSE)
+/mob/living/simple_animal/parrot/say(var/text, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE, var/skip_edit = FALSE)
 
 	if(stat)
 		return
@@ -691,40 +691,35 @@
 
 
 	var/message_mode=""
-	if(copytext(message,1,2) == ";")
+	if(copytext(text,1,2) == ";")
 		message_mode = "headset"
-		message = copytext(message,2)
+		text = copytext(text,2)
 
-	if(length(message) >= 2)
-		var/channel_prefix = copytext(message, 1 ,3)
+	if(length(text) >= 2)
+		var/channel_prefix = copytext(text, 1 ,3)
 		message_mode = department_radio_keys[channel_prefix]
 
-	if(copytext(message,1,2) == ":")
+	if(copytext(text,1,2) == ":")
 		var/positioncut = 3
-		message = trim(copytext(message,positioncut))
+		text = trim(copytext(text,positioncut))
 
-	message = capitalize(trim_left(message))
+	text = capitalize(trim_left(text))
 
 	if(message_mode)
 		if(message_mode in radiochannels)
 			if(ears && istype(ears,/obj/item/radio))
-				ears.talk_into(src,sanitize(message), message_mode, verb, null)
+				ears.talk_into(src,sanitize(text), message_mode, verb, null)
 
 
-	..(message)
+	..(text)
 
 
-/mob/living/simple_animal/parrot/hear_say(var/message, var/verb = "says", var/datum/language/language = null, var/alt_name = "",var/italics = 0, var/mob/speaker = null)
+/mob/living/simple_animal/parrot/react_to_message(datum/say_message/msg)
 	if(prob(50))
-		parrot_hear(message)
-	..(message,verb,language,alt_name,italics,speaker)
-
-
-
-/mob/living/simple_animal/parrot/hear_radio(var/message, var/verb="says", var/datum/language/language=null, var/part_a, var/part_b, var/part_c, var/mob/speaker = null, var/hard_to_hear = 0)
-	if(prob(50))
-		parrot_hear("[pick(available_channels)] [message]")
-	..(message,verb,language,part_a,part_b,speaker,hard_to_hear)
+		if(msg.say_mode == SAYMODE_RADIO)
+			parrot_hear("[pick(available_channels)] [msg.to_string()]")
+		else
+			parrot_hear(msg.to_string())
 
 
 /mob/living/simple_animal/parrot/proc/parrot_hear(var/message="")
