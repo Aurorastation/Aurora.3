@@ -105,15 +105,23 @@ Possible to do for anyone motivated enough:
 	var/display_name = get_area_display_name(A)
 	holopad_id = "[display_name] ([src.x]-[src.y]-[src.z])"
 
-/obj/structure/machinery/hologram/holopad/update_icon(var/recurse = TRUE)
+/obj/structure/machinery/hologram/holopad/update_icon()
+	ClearOverlays()
+
 	if(LAZYLEN(active_holograms) || has_established_connection())
 		icon_state = "holopad2[icon_state_suffix]"
-		set_light(2)
+		AddOverlays(emissive_appearance(icon, "[long_range ? "holopad2_lr-e" : "holopad2-e"]", src))
+		set_light(2, l_color = light_color)
 	else if(incoming_connection || connected_pad?.incoming_connection)
 		icon_state = "holopad1[icon_state_suffix]"
-		set_light(1)
-	else
+		AddOverlays(emissive_appearance(icon, "[long_range ? "holopad1_lr-e" : "holopad1-e"]", src))
+		set_light(1, l_color = light_color)
+	else if(powered())
 		icon_state = "holopad0[icon_state_suffix]"
+		AddOverlays(emissive_appearance(icon, "[long_range ? "holopad0_lr-e" : "holopad0-e"]", src))
+		set_light(0.5, l_color = light_color)
+	else
+		icon_state = "holopad[icon_state_suffix]-off"
 		set_light(0)
 
 /obj/structure/machinery/hologram/holopad/attack_hand(var/mob/user)
@@ -314,6 +322,12 @@ Possible to do for anyone motivated enough:
 		attack_hand(user)
 		return
 
+	var/obj/structure/machinery/hologram/holopad/old_holo = user.holo
+	if(old_holo && old_holo != src)
+		if(!QDELETED(old_holo))
+			old_holo.clear_holo(user)
+		user.holo = null
+
 	if(user.eyeobj.loc != src.loc)
 		user.eyeobj.setLoc(get_turf(src))
 
@@ -474,6 +488,13 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 	if(hologram)
 		qdel(hologram)
 	LAZYREMOVE(active_holograms, M)
+	if(isAI(M))
+		var/has_ai_holograms = FALSE
+		for(var/mob/living/silicon/ai/AI in active_holograms)
+			has_ai_holograms = TRUE
+			break
+		if(!has_ai_holograms)
+			set_can_hear_flags(CAN_HEAR_MASTERS, FALSE)
 	update_icon()
 
 /obj/structure/machinery/hologram/holopad/process()
