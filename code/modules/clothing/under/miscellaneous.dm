@@ -573,33 +573,6 @@
 		)
 	siemens_coefficient = 0.7
 
-/obj/item/clothing/under/lance
-	name = "ceres lance fatigues"
-	desc = "A set of drab fatigues meant to be worn by the Ceres' Lance Regiment, with their emblem found on the shoulder."
-	icon_state = "lance_fatigues"
-	item_state = "lance_fatigues"
-	worn_state = "lance_fatigues"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
-	armor = list(
-		MELEE = ARMOR_MELEE_MINOR
-		)
-	siemens_coefficient = 0.7
-
-/obj/item/clothing/under/dress/lance_dress
-	name = "lance dress uniform"
-	desc = "A dark black uniform indicative of a Ceres' Lance official with a badge atop the chest. This one seems tailored  to take on a more feminine look, with a long skirt."
-	icon_state = "lance_dress_f"
-	item_state = "lance_dress_f"
-	worn_state = "lance_dress_f"
-
-/obj/item/clothing/under/dress/lance_dress/male
-	name = "lance dress uniform"
-	desc = "A dark black uniform indicative of a Ceres' Lance official with a badge atop the chest."
-	icon_state = "lance_dress_m"
-	item_state = "lance_dress_m"
-	worn_state = "lance_dress_m"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
-
 /obj/item/clothing/under/qipao
 	name = "qipao"
 	desc = "A traditional Solarian women's garment, typically made of (synthetic) silk."
@@ -829,6 +802,48 @@
 	armor = list(
 		MELEE = ARMOR_MELEE_MINOR
 		)
+
+//Ceres Lance
+
+/obj/item/clothing/under/lance
+	name = "ceres lance fatigues"
+	desc = "A set of drab fatigues meant to be worn by the Ceres' Lance Regiment, with their emblem found on the shoulder."
+	icon_state = "lance_fatigues"
+	item_state = "lance_fatigues"
+	worn_state = "lance_fatigues"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
+	armor = list(
+		MELEE = ARMOR_MELEE_MINOR
+		)
+	siemens_coefficient = 0.7
+
+/obj/item/clothing/under/dress/lance_dress
+	name = "lance dress uniform"
+	desc = "A dark black uniform indicative of a Ceres' Lance official with a badge atop the chest. This one seems tailored  to take on a more feminine look, with a long skirt."
+	icon_state = "lance_dress_f"
+	item_state = "lance_dress_f"
+	worn_state = "lance_dress_f"
+
+/obj/item/clothing/under/dress/lance_dress/male
+	name = "lance dress uniform"
+	desc = "A dark black uniform indicative of a Ceres' Lance official with a badge atop the chest."
+	icon_state = "lance_dress_m"
+	item_state = "lance_dress_m"
+	worn_state = "lance_dress_m"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
+
+/obj/item/clothing/under/rank/lance
+	name = "\improper Ceres Lance tactical uniform"
+	desc = "A newly-issued dark grey uniform worn by Ceres Lance operatives during combat situations."
+	icon = 'icons/obj/item/clothing/under/human/corporation/lancer_uniform.dmi'
+	icon_state = "lancer_uniform"
+	item_state = "lancer_uniform"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
+	armor = list(
+		MELEE = ARMOR_MELEE_SMALL
+		)
+	siemens_coefficient = 0.7
+	contained_sprite = TRUE
 
 //Himean Army
 /obj/item/clothing/under/himeo

@@ -503,19 +503,50 @@
 			A.Remove(src)
 
 	for(var/obj/item/I in src)
-		if(I.action_button_name)
+		if(!I.action_button_name)
+			continue
 
-			//If the item_action object does not exist, try to create it
+		var/list/action_names = islist(I.action_button_name) ? I.action_button_name : list(I.action_button_name)
+		var/list/action_types = islist(I.default_action_type) ? I.default_action_type : list(I.default_action_type)
+
+		if(action_names.len > 1)
+			if(!islist(I.action))
+				I.action = I.action ? list(I.action) : list()
+
+			var/list/actions_list = I.action
+
+			for(var/i in 1 to action_names.len)
+				var/action_name = action_names[i]
+				if(!action_name)
+					continue
+
+				var/datum/action/item_action = (i <= actions_list.len) ? actions_list[i] : null
+
+				if(!item_action)
+					var/action_type = action_types.len >= i ? action_types[i] : action_types[1]
+					if(!action_type)
+						continue
+
+					item_action = new action_type
+					actions_list.Add(item_action)
+
+				item_action.name = action_name
+				item_action.SetTarget(I)
+				item_action.Grant(src)
+
+		else
 			if(!I.action)
-				//Try to use the default action type, if there is none, skip this implant
-				if(I.default_action_type)
-					I.action = new I.default_action_type
+				var/action_type = action_types.len ? action_types[1] : null
+				if(action_type)
+					I.action = new action_type
 				else
 					continue
 
-			I.action.name = I.action_button_name
-			I.action.SetTarget(I)
-			I.action.Grant(src)
+			var/datum/action/item_action = I.action
+			item_action.name = action_names[1]
+			item_action.SetTarget(I)
+			item_action.Grant(src)
+
 	return
 
 /mob/living/update_action_buttons()

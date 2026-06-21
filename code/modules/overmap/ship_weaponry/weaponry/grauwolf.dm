@@ -36,16 +36,21 @@
 	damage = 100
 	armor_penetration = 50
 	penetrating = 0
+	anti_materiel_potential = 6
+	explosion_strength = list(0, 2, 4)
 
 /obj/projectile/ship_ammo/grauwolf/on_hit(atom/target, blocked, def_zone, is_landmark_hit)
 	. = ..()
+	var/turf/epicenter = get_turf(target)
 	if(ammo && ammo.impact_type == SHIP_AMMO_IMPACT_HE)
-		explosion(target, 0, 2, 4)
+		explosion(epicenter, explosion_strength[1], explosion_strength[2], explosion_strength[3])
 	else
-		explosion(target, 0, 1, 2)
+		explosion(epicenter, explosion_strength[1], explosion_strength[2], explosion_strength[3])
 
 /obj/projectile/ship_ammo/grauwolf/ap
 	name = "armor-piercing flak"
 	damage = 50
 	armor_penetration = 50
-	penetrating = 2
+	penetrating = 8
+	anti_materiel_potential = 8
+	explosion_strength = list(0, 1, 2)

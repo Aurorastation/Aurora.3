@@ -209,7 +209,7 @@
 	. = ..()
 	set_flee_target(throwingdatum?.thrower?.resolve() ? throwingdatum.thrower.resolve() : src.loc)
 
-/mob/living/simple_animal/cat/fall_impact()
+/mob/living/simple_animal/cat/fall_impact(levels_fallen, stopped_early = FALSE, var/damage_mod = 1)
 	src.visible_message(SPAN_NOTICE("\The [src] lands softly on \the [loc]!"))
 	return FALSE
 

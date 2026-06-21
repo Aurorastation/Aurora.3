@@ -14,10 +14,6 @@ would spawn and follow the beaker, even if it is carried or thrown.
 	pass_flags = PASSTABLE | PASSGRILLE
 	blocks_emissive = EMISSIVE_BLOCK_GENERIC
 
-/obj/effect/Destroy()
-	QDEL_NULL(reagents)
-	return ..()
-
 /datum/effect/effect/system
 	var/number = 3
 	var/cardinals = 0
@@ -263,9 +259,8 @@ would spawn and follow the beaker, even if it is carried or thrown.
 	var/smoke_duration
 
 /datum/effect/effect/system/smoke_spread/set_up(n = 5, c = 0, loca, direct, duration = 0)
-	smoke_duration = duration
-	if(n > 10)
-		n = 10
+	if (!smoke_duration)
+		smoke_duration = duration
 	number = n
 	cardinals = c
 	if(istype(loca, /turf/))

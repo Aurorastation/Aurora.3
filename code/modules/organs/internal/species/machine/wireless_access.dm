@@ -75,6 +75,11 @@
 		else
 			crash_with("Something terrible happened in synthetic internal PDA init! Loc: [loc]")
 
+/obj/item/modular_computer/handheld/pda/synthetic_internal/GetID()
+	var/obj/item/organ/internal/machine/wireless_access/access_point = loc
+	if(access_point.owner)
+		return access_point.owner.GetIdCard()
+
 /obj/item/modular_computer/handheld/pda/synthetic_internal/Destroy()
 	if(access_point)
 		access_point.internal_pda = null

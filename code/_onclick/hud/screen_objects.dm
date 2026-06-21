@@ -26,10 +26,13 @@
 /atom/movable/screen/Destroy(force = FALSE)
 	master = null
 	screen_loc = null
-	if(hud?.mymob?.client)
+	if(length(hud?.mymob?.client?.screen))
 		hud.mymob.client.screen -= src
-	hud = null
-	. = ..()
+	// All register signals MUST be mirrored with Unregister signals included in a Destroy proc, even if other procs also call Unregister Signal.
+	if (hud)
+		UnregisterSignal(hud, COMSIG_QDELETING)
+		hud = null
+	return ..()
 
 /// Screen elements are always on top of the players screen and don't move so yes they are adjacent
 /atom/movable/screen/Adjacent(atom/neighbor, atom/target, atom/movable/mover)
@@ -40,6 +43,10 @@
  */
 /atom/movable/screen/proc/handle_hud_destruction()
 	SIGNAL_HANDLER
+
+	// If we were QDEL'ed directly (probably by our owner), then there's no need to Unregister Signal and qdel ourselves twice.
+	if (QDELING(src))
+		return
 
 	UnregisterSignal(hud, COMSIG_QDELETING)
 	qdel(src)
@@ -78,7 +85,7 @@
 
 		var/image/item_overlay = image(holding)
 		item_overlay.alpha = 92
-		if(!holding.mob_can_equip(user, slot_id, disable_warning = TRUE))
+		if(!holding.mob_can_equip(user, slot_id, disable_warning = TRUE, is_overlay_check = TRUE))
 			item_overlay.color = "#ff0000"
 		else
 			item_overlay.color = "#00ff00"

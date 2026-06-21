@@ -1,5 +1,5 @@
+import { Box, Button, Section, Stack } from 'tgui-core/components';
 import { useBackend, useLocalState } from '../backend';
-import { Box, Button, Section, Stack } from '../components';
 import { Window } from '../layouts';
 
 type LoreEntry = {
@@ -11,14 +11,10 @@ type LoreConsoleData = {
   entries: LoreEntry[];
 };
 
-export const LoreConsole = (props, context) => {
-  const { data } = useBackend<LoreConsoleData>(context);
+export const LoreConsole = (props) => {
+  const { data } = useBackend<LoreConsoleData>();
   const { entries } = data;
-  const [currentPage, setCurrentPage] = useLocalState(
-    context,
-    'currentPage',
-    0,
-  );
+  const [currentPage, setCurrentPage] = useLocalState('currentPage', 0);
   const entry = entries[currentPage];
 
   return (
@@ -62,6 +58,7 @@ export const LoreConsole = (props, context) => {
           <h1>{entry.title && entry.title}</h1>
           <Box
             className="LoreConsole__entryText"
+            /* biome-ignore lint/security/noDangerouslySetInnerHtml: Is sanitized by DOMPurify. */
             dangerouslySetInnerHTML={{ __html: entry.body }}
           />
         </Stack.Item>

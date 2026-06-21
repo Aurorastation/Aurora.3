@@ -306,6 +306,18 @@ SUBSYSTEM_DEF(garbage)
 
 	if (time > 0.1 SECONDS)
 		postpone(time)
+
+	// Standard sentry logging for hard dels other than the two subsystems that will always hard del every round
+	var/sentry_threshold = 0.25 SECONDS
+	if (time > sentry_threshold && SSsentry)
+		SSsentry.capture_message(
+			"Hard delete: [type]",
+			"warning",
+			"garbage",
+			tags = list("datum_type" = "[type]"),
+			extra = list("ref_id" = refID, "time_ms" = tick_usage, "details" = detail)
+		)
+
 	var/threshold = 0.5 // Used to be CONFIG_GET(number/hard_deletes_overrun_threshold)
 	if (threshold && (time > threshold SECONDS))
 		if (!(type_info.qdel_flags & QDEL_ITEM_ADMINS_WARNED))
@@ -318,7 +330,7 @@ SUBSYSTEM_DEF(garbage)
 					"warning",
 					"garbage",
 					tags = list("datum_type" = "[type]"),
-					extra = list("ref_id" = refID, "time_ms" = tick_usage)
+					extra = list("ref_id" = refID, "time_ms" = tick_usage, "details" = detail)
 				)
 		type_info.hard_deletes_over_threshold++
 		var/overrun_limit = 0 // Used to be CONFIG_GET(number/hard_deletes_overrun_limit)
@@ -381,7 +393,17 @@ SUBSYSTEM_DEF(garbage)
 	var/start_time = world.time
 	var/start_tick = world.tick_usage
 	SEND_SIGNAL(to_delete, COMSIG_QDELETING, force) // Let the (remaining) components know about the result of Destroy
-	var/hint = to_delete.Destroy(force) // Let our friend know they're about to get fucked up.
+
+	var/hint = QDEL_HINT_QUEUE
+	try
+		hint = to_delete.Destroy(force) // Let our friend know they're about to get fucked up.
+	catch(var/exception/e)
+		// Log any poisoned destroy() calls to Sentry for ease of tracking.
+		// Any runtime error during a Destroy() proc is all but guaranteed to cause a hard delete,
+		// because a large majority of hanging refs further down the parent hierarchy are at risk of having their cleanup skipped.
+		// Making them their own special case for harddel() causes separate from the standard hanging refs.
+		e.name = "Incomplete Destroy() Of Type [to_delete.type]"
+		log_exception(e)
 
 	if(world.time != start_time)
 		trash.slept_destroy++

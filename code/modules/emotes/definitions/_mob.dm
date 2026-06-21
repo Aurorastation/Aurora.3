@@ -1,7 +1,3 @@
-/mob
-	var/list/default_emotes = list()
-	var/list/usable_emotes = list()
-
 /mob/proc/update_emotes(var/skip_sort)
 	usable_emotes.Cut()
 	for(var/emote in default_emotes)
