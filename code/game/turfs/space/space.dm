@@ -29,13 +29,7 @@
 		if(do_after(user, 3 SECONDS))
 			var/obj/effect/overmap/visitable/location = GLOB.map_sectors["[z]"]
 			. += SPAN_NOTICE("Through your sense of navigation, you realize you must be around Sector [location.x] - [location.y]")
-/*			var/list/connected_z_levels = GetConnectedZlevels(src.z)
-			for(var/obj/structure/machinery/computer/ship/ref in SSmachinery.machinery)
-				if(!(ref.z in connected_z_levels))
-					continue
-				if(ref.linked.check_ownership(ref) && ref.linked.x > 0 && ref.linked.y > 0)
-					. += SPAN_NOTICE("Through your sense of navigation, you realize you must be around Sector [ref.linked.x] - [ref.linked.y]")
-*/
+
 /turf/space/dynamic //For use in edge cases where you want the turf to not be completely lit, like in places where you have placed lattice.
 	//todomatt: this is useless now
 
