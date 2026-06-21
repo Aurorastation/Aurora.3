@@ -90,7 +90,7 @@
 	. = ..()
 	if(!.)
 		return
-	// TG_PLANE_CUBE_TEMP: reattach weather plane hiding
+	home.AddComponent(/datum/component/hide_weather_planes, src)
 	RegisterSignal(home, COMSIG_GROUP_HUD_CHANGED, PROC_REF(hud_changed))
 	update_state(home.our_hud?.mymob)
 
@@ -100,7 +100,7 @@
 
 /// Updates ourselves based on our mob's preferences state
 /atom/movable/screen/plane_master/rendering_plate/particle_weather/proc/update_state(mob/mymob)
-	// TG_PLANE_CUBE_TEMP: reattach particle weather holders
+	// Aurora does not currently produce particle weather holders.
 	vis_contents.Cut()
 
 /atom/movable/screen/plane_master/rendering_plate/particle_weather/Destroy()

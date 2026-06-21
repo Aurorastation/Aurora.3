@@ -332,14 +332,20 @@
 		found_lighting_object = TRUE
 		lines += plane_probe_lighting_object_lines(target_turf.lighting_object, target_turf, "target turf lighting_object")
 
-	for(var/atom/movable/lighting_object/lighting_object as anything in plane_probe_vis_contents(target))
+	for(var/atom/movable/vis_content as anything in plane_probe_vis_contents(target))
+		if(!istype(vis_content, /atom/movable/lighting_object))
+			continue
+		var/atom/movable/lighting_object/lighting_object = vis_content
 		if(lighting_object == target_turf?.lighting_object)
 			continue
 		found_lighting_object = TRUE
 		lines += plane_probe_lighting_object_lines(lighting_object, target_turf, "target vis_contents lighting object")
 
 	if(target_turf && target_turf != target)
-		for(var/atom/movable/lighting_object/lighting_object as anything in target_turf.vis_contents)
+		for(var/atom/movable/vis_content as anything in target_turf.vis_contents)
+			if(!istype(vis_content, /atom/movable/lighting_object))
+				continue
+			var/atom/movable/lighting_object/lighting_object = vis_content
 			if(lighting_object == target_turf.lighting_object)
 				continue
 			found_lighting_object = TRUE
@@ -399,12 +405,17 @@
 		"[FLOOR_PLANE]" = "FLOOR_PLANE",
 		"[WALL_PLANE]" = "WALL_PLANE",
 		"[GAME_PLANE]" = "GAME_PLANE",
+		"[WEATHER_MASK_PLANE]" = "WEATHER_MASK_PLANE",
+		"[WEATHER_PLANE]" = "WEATHER_PLANE",
+		"[PARTICLE_WEATHER_PLANE]" = "PARTICLE_WEATHER_PLANE",
 		"[LIGHTING_PLANE]" = "LIGHTING_PLANE",
 		"[RENDER_PLANE_GAME_WORLD]" = "RENDER_PLANE_GAME_WORLD",
 		"[RENDER_PLANE_UNLIT_GAME]" = "RENDER_PLANE_UNLIT_GAME",
+		"[RENDER_PLANE_PARTICLE_WEATHER]" = "RENDER_PLANE_PARTICLE_WEATHER",
 		"[RENDER_PLANE_TURF_LIGHTING]" = "RENDER_PLANE_TURF_LIGHTING",
 		"[RENDER_PLANE_LIGHTING]" = "RENDER_PLANE_LIGHTING",
 		"[RENDER_PLANE_LIGHT_MASK]" = "RENDER_PLANE_LIGHT_MASK",
+		"[WEATHER_GLOW_PLANE]" = "WEATHER_GLOW_PLANE",
 		"[RENDER_PLANE_GAME]" = "RENDER_PLANE_GAME",
 		"[RENDER_PLANE_MASTER]" = "RENDER_PLANE_MASTER",
 		"[RENDER_PLANE_TRANSPARENT]" = "RENDER_PLANE_TRANSPARENT",
@@ -413,12 +424,17 @@
 		FLOOR_PLANE,
 		WALL_PLANE,
 		GAME_PLANE,
+		WEATHER_MASK_PLANE,
+		WEATHER_PLANE,
+		PARTICLE_WEATHER_PLANE,
 		LIGHTING_PLANE,
 		RENDER_PLANE_GAME_WORLD,
 		RENDER_PLANE_UNLIT_GAME,
+		RENDER_PLANE_PARTICLE_WEATHER,
 		RENDER_PLANE_TURF_LIGHTING,
 		RENDER_PLANE_LIGHTING,
 		RENDER_PLANE_LIGHT_MASK,
+		WEATHER_GLOW_PLANE,
 		RENDER_PLANE_GAME,
 		RENDER_PLANE_MASTER,
 		RENDER_PLANE_TRANSPARENT,

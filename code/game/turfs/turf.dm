@@ -851,14 +851,14 @@
 	if(istype(new_weather) && is_outside())
 		if(weather != new_weather)
 			if(weather)
-				remove_vis_contents(weather.vis_contents_additions)
+				remove_vis_contents(weather.get_vis_contents_additions(src))
 			weather = new_weather
-			add_vis_contents(weather.vis_contents_additions)
+			add_vis_contents(weather.get_vis_contents_additions(src))
 			. = TRUE
 
 	// We are indoors or there is no local weather system, clear our vis contents.
 	else if(weather)
-		remove_vis_contents(weather.vis_contents_additions)
+		remove_vis_contents(weather.get_vis_contents_additions(src))
 		weather = null
 		. = TRUE
 

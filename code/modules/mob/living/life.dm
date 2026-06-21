@@ -217,7 +217,7 @@
 	// Handle physical effects of weather.
 	var/singleton/state/weather/weather_state
 	var/obj/abstract/weather_system/weather = get_affecting_weather()
-	if(weather_cooldown_time <= world.time && weather)
+	if(weather_cooldown_time <= world.time && weather?.weather_system)
 		weather_cooldown_time = world.time + WEATHER_COOLDOWN_TIME
 		weather_state = weather.weather_system.current_state
 		if(istype(weather_state))
@@ -246,4 +246,3 @@
 		sound_to(src, sound(null, repeat = 0, wait = 0, volume = 0, channel = GLOB.sound_channels.weather_channel))
 		if(send_sound)
 			sound_to(src, sound(send_sound, repeat = TRUE, wait = 0, volume = 30, channel = GLOB.sound_channels.weather_channel))
-

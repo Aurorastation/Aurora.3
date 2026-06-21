@@ -510,6 +510,7 @@
 #include "code\datums\components\connect_mob_behalf.dm"
 #include "code\datums\components\drift.dm"
 #include "code\datums\components\hide_highest_offset.dm"
+#include "code\datums\components\hide_weather_planes.dm"
 #include "code\datums\components\jukebox.dm"
 #include "code\datums\components\large_object_transparency.dm"
 #include "code\datums\components\leanable.dm"

@@ -354,22 +354,22 @@
 	. = ..()
 	if(!.)
 		return
-	// TG_PLANE_CUBE_TEMP: reattach weather plane hiding
+	home.AddComponent(/datum/component/hide_weather_planes, src)
+	update_state(home.our_hud?.mymob)
 
 /atom/movable/screen/plane_master/weather/proc/update_state(mob/mymob)
 	if(!istype(mymob))
 		return
 
-	// TG_PLANE_CUBE_TEMP: replace with Aurora weather preference handling
 	if(particle_weather)
 		hide_from(mymob)
-	else
+	else if(!force_hidden)
 		show_to(mymob)
 
 /atom/movable/screen/plane_master/weather/show_to(mob/mymob)
-	// TG_PLANE_CUBE_TEMP: replace with Aurora weather preference handling
 	if(!particle_weather)
 		return ..()
+	return FALSE
 
 /atom/movable/screen/plane_master/weather/particle
 	name = "Particle Weather"
@@ -391,7 +391,7 @@
 	. = ..()
 	if(!.)
 		return
-	// TG_PLANE_CUBE_TEMP: reattach weather plane hiding
+	home.AddComponent(/datum/component/hide_weather_planes, src)
 
 /atom/movable/screen/plane_master/massive_obj
 	name = "Massive object"
@@ -456,7 +456,7 @@
 	. = ..()
 	if(!.)
 		return
-	// TG_PLANE_CUBE_TEMP: reattach weather plane hiding
+	home.AddComponent(/datum/component/hide_weather_planes, src)
 
 /**
  * Handles emissive overlays and emissive blockers.

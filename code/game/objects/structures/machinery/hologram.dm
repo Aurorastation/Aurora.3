@@ -89,6 +89,8 @@ Possible to do for anyone motivated enough:
 
 	GLOB.listening_objects += src
 
+	update_icon()
+
 /obj/structure/machinery/hologram/holopad/Moved(atom/old_loc, movement_dir, forced, list/old_locs)
 	. = ..()
 	if(!loc || !LAZYLEN(active_holorays))
