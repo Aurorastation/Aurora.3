@@ -82,11 +82,11 @@
 			+ " - You have a 10% chance to move in a wrong direction when controlling mechs.<br>" \
 			+ " - It takes you 5 seconds to find the power switch when turning on a mech.",
 		SKILL_LEVEL_FAMILIAR = "You have a license to pilot mechs, but are relatively inexperienced.<br>" \
-			+ " - You have 0.5 second faster movement delays when Strafing, Reversing, or Turning a mech.",
+			+ " - You have 0.5 second faster movement delays when Strafing, Reversing, or Turning a mech. This can never let you move faster than a mech's forward speed.",
 		SKILL_LEVEL_TRAINED = "You have a decent amount of experience piloting mechs.<br>" \
-			+ " - You have 1 second faster movement delays when Strafing, Reversing, or Turning a mech.",
+			+ " - You have 1 second faster movement delays when Strafing, Reversing, or Turning a mech. This can never let you move faster than a mech's forward speed.",
 		SKILL_LEVEL_PROFESSIONAL = "Look on the bright side kid, you get to keep all the money.<br>" \
-			+ " - You have 1.5 second faster movement delays when Strafing, Reversing, or Turning a mech.",
+			+ " - You have 1.5 second faster movement delays when Strafing, Reversing, or Turning a mech. This can never let you move faster than a mech's forward speed.",
 	)
 	required = TRUE
 	component_type = PILOT_MECHS_SKILL_COMPONENT
