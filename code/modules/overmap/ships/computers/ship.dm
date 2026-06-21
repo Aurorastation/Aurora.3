@@ -115,12 +115,12 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 	// A lack of a difference means skill level (1-4) is less than pilot_class (1-3)
 	if(piloting_difference <= 0)
 		if(connected.pilot_class == PILOTING_CLASS_SHUTTLE)
-			user.visible_message("<b>[user]</b> stares blankly at \the [src].", SPAN_WARNING("There's just so many buttons... You have no idea where to even begin, but..."))
+			user.visible_message("<b>[user]</b> starts indecisively messing with \the [src].", SPAN_WARNING("There's just so many buttons... You have no idea where to even begin, but..."))
 			if(do_after(user, 10 SECONDS) && Adjacent(user))
 				user.visible_message("<b>[user]</b> peers at \the [src].", SPAN_NOTICE("...maybe, if you take it slow? It <i>is</i> only a shuttle."))
 				if(do_after(user, 3 SECONDS) && Adjacent(user))
 					if(prob(30))
-						user.visible_message("<b>[user]</b> returns a confused expression at \the [src].", SPAN_WARNING("You lose track and can't figure out the controls."))
+						to_chat(user, SPAN_WARNING("You lose track and can't figure out the controls."))
 						return
 				else
 					return
@@ -128,7 +128,7 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 				to_chat(user, SPAN_WARNING("You can't keep track of controls while moving."))
 				return
 		else
-			to_chat(user, SPAN_WARNING("This ship's class is notably more complex than you're used to, but you can still grasp the core controls. Who knows how well you'll do?"))
+			to_chat(user, SPAN_WARNING("This ship's class is notably more complex than you're used to, but you can still grasp the core controls."))
 	// Conversely, Non-Unfamiliar skill level (2-4) will always be higher than pilot class (1-3)
 	if(pilot_level < connected.pilot_class)
 		to_chat(user, SPAN_WARNING("There's just so many buttons... You have no idea where to even begin, this is far too complex for you."))
