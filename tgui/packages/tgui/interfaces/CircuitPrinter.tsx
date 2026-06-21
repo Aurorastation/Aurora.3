@@ -199,7 +199,7 @@ export const CircuitPrinter = (props) => {
   };
 
   return (
-    <Window>
+    <Window width={720} height={760}>
       <Window.Content scrollable>
         <Section title="Status">
           <LabeledList>
@@ -324,7 +324,8 @@ export const CircuitPrinter = (props) => {
             {showBlueprintImport && (
               <>
                 <TextArea
-                  height="96px"
+                  fluid
+                  height="240px"
                   mt={0.5}
                   placeholder="Paste blueprint JSON"
                   value={blueprintText}
@@ -334,6 +335,7 @@ export const CircuitPrinter = (props) => {
                   }}
                 />
                 <Button
+                  mt={0.5}
                   content={
                     isImportingBlueprint
                       ? 'Importing Blueprint'
@@ -351,7 +353,8 @@ export const CircuitPrinter = (props) => {
             )}
             {!!data.clone_blueprint_export_visible && (
               <TextArea
-                height="96px"
+                fluid
+                height="240px"
                 mt={0.5}
                 value={data.clone_blueprint_export}
                 style={{
