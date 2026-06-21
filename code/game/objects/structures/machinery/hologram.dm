@@ -710,8 +710,8 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 	LAZYADD(update_overlays_on_z, glow)
 
 /obj/effect/overlay/holoray/Destroy()
-	. = ..()
 	QDEL_NULL(glow)
+	. = ..()
 
 #undef HOLOPAD_PASSIVE_POWER_USAGE
 #undef HOLOGRAM_POWER_USAGE
