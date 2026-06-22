@@ -424,7 +424,7 @@
 			if (rand(1, M.mob_size) > affecting.mob_size)
 				continue
 
-		if((G == M.get_active_hand() && (def_zone in active_defense_zones)) || (G in M.get_inactive_held_items() && (def_zone in inactive_defense_zones)))  //Human shields only block shots to the arm holding the person, up to the chest.
+		if(((G == M.get_active_hand()) && (def_zone in active_defense_zones)) || ((G in M.get_inactive_held_items()) && (def_zone in inactive_defense_zones)))  //Human shields only block shots to the arm holding the person, up to the chest.
 			if(affecting.stat == DEAD) //If they are dead hit both the hostage and the hostage taker.
 				penetrating += 1
 				projectile_piercing = PASSMOB
