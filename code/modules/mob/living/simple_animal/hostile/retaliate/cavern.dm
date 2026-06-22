@@ -211,7 +211,7 @@
 /mob/living/simple_animal/hostile/retaliate/minedrone/adjustHalLoss(var/damage)
 	return
 
-/mob/living/simple_animal/hostile/retaliate/minedrone/fall_impact()
+/mob/living/simple_animal/hostile/retaliate/minedrone/fall_impact(levels_fallen, stopped_early = FALSE, var/damage_mod = 1)
 	visible_message(SPAN_DANGER("\The [src] bounces harmlessly on its inflated wheels."))
 	return FALSE
 

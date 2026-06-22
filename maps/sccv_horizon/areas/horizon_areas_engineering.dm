@@ -26,6 +26,12 @@
 	horizon_deck = 1
 	lightswitch = FALSE
 
+/area/horizon/engineering/storage_hard/aft
+	name = "Hard Storage Aft"
+	icon_state = "engineering_storage"
+	horizon_deck = 2
+	lightswitch = FALSE
+
 /area/horizon/engineering/equipment
 	name = "Equipment"
 	icon_state = "engineering_storage"
@@ -220,10 +226,6 @@
 	icon_state = "engine_monitoring"
 	area_flags = AREA_FLAG_RAD_SHIELDED
 	area_blurb = "Where atoms are consigned to be smashed and the pretty lights beheld."
-
-/area/horizon/engineering/reactor/indra/office
-	name = "INDRA Reactor Office"
-	area_blurb = "A dingy, forgotten compartment a year or three away from looking about as well-kept as the maints."
 
 // The engineering stairwell /area/horizon/stairwell/engineering/* are defined in './horizon_areas_crew.dm'. Bat put them there originally because they felt that made sense. If you don't, migrate them here I guess, everything's cool.
 

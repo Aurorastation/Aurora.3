@@ -30,10 +30,7 @@
 		/obj/item/coin = 50,
 		/obj/item/material/kitchen/utensil/knife = 50
 	)
-
-	min_duration = 35
-	max_duration = 70
-
+	base_surgery_time = 7 SECONDS
 	requires_surgery_compatibility = FALSE
 	// Basic surgery any novice roboticist can do
 	skill_requirements = alist(ROBOTICS_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR)
@@ -74,10 +71,7 @@
 		/obj/item/coin = 50,
 		/obj/item/material/kitchen/utensil/knife = 50
 	)
-
-	min_duration = 35
-	max_duration = 70
-
+	base_surgery_time = 7 SECONDS
 	requires_surgery_compatibility = FALSE
 	// Basic surgery any novice roboticist can do
 	skill_requirements = alist(ROBOTICS_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR)
@@ -118,9 +112,7 @@
 		TOOL_CROWBAR = 100,
 		/obj/item/material/kitchen/utensil = 50
 	)
-
-	min_duration = 20
-	max_duration = 30
+	base_surgery_time = 3 SECONDS
 	// Basic surgery any novice roboticist can do
 	skill_requirements = alist(ROBOTICS_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 
@@ -157,9 +149,7 @@
 		TOOL_CROWBAR = 100,
 		/obj/item/material/kitchen/utensil = 50
 	)
-
-	min_duration = 50
-	max_duration = 80
+	base_surgery_time = 8 SECONDS
 	// Basic surgery any novice roboticist can do
 	skill_requirements = alist(ROBOTICS_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 
@@ -199,9 +189,7 @@
 		TOOL_WELDER = 100,
 		/obj/item/gun/energy/plasmacutter = 50
 	)
-
-	min_duration = 30
-	max_duration = 40
+	base_surgery_time = 4 SECONDS
 	// Basic surgery any novice roboticist can do
 	skill_requirements = alist(ROBOTICS_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR)
 
@@ -245,9 +233,7 @@
 	allowed_tools = list(
 		TOOL_CABLECOIL = 100
 	)
-
-	min_duration = 30
-	max_duration = 40
+	base_surgery_time = 4 SECONDS
 	// Basic surgery any novice roboticist can do
 	skill_requirements = alist(ROBOTICS_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR)
 
@@ -290,9 +276,7 @@
 	allowed_tools = list(
 	TOOL_MULTITOOL = 100
 	)
-
-	min_duration = 70
-	max_duration = 90
+	base_surgery_time = 9 SECONDS
 	skill_requirements = alist(ROBOTICS_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 
 /singleton/surgery_step/robotics/detach_organ_robotic/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -341,10 +325,7 @@
 	allowed_tools = list(
 		TOOL_SCREWDRIVER = 100
 	)
-
-	min_duration = 80
-	max_duration = 100
-
+	base_surgery_time = 10 SECONDS
 	requires_surgery_compatibility = FALSE
 	skill_requirements = alist(ROBOTICS_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 
@@ -393,9 +374,7 @@
 	allowed_tools = list(
 	/obj/item/mmi = 100
 	)
-
-	min_duration = 40
-	max_duration = 60
+	base_surgery_time = 6 SECONDS
 	skill_requirements = alist(ROBOTICS_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 
 /singleton/surgery_step/robotics/install_mmi/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -469,9 +448,7 @@
 	allowed_tools = list(
 		TOOL_CABLECOIL = 100
 	)
-
-	min_duration = 50
-	max_duration = 70
+	base_surgery_time = 7 SECONDS
 	skill_requirements = alist(ROBOTICS_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 	skill_diff_fail_modifier = SURGERY_DIFFICULTY_MEDIUM
 
@@ -520,9 +497,7 @@
 	allowed_tools = list(
 		TOOL_MULTITOOL = 100,
 	)
-
-	min_duration = 100
-	max_duration = 200
+	base_surgery_time = 20 SECONDS
 	skill_requirements = alist(ROBOTICS_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 	skill_diff_fail_modifier = SURGERY_DIFFICULTY_HARD
 
@@ -562,9 +537,7 @@
 	allowed_tools = list(
 		/obj/item/stack/material/steel = 100,
 	)
-
-	min_duration = 75
-	max_duration = 120
+	base_surgery_time = 12 SECONDS
 	skill_requirements = alist(ROBOTICS_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 	skill_diff_fail_modifier = SURGERY_DIFFICULTY_HARD
 
@@ -615,9 +588,7 @@
 	allowed_tools = list(
 		/obj/item/synth_plating = 100,
 	)
-
-	min_duration = 100
-	max_duration = 150
+	base_surgery_time = 15 SECONDS
 	skill_requirements = alist(ROBOTICS_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 	skill_diff_fail_modifier = SURGERY_DIFFICULTY_HARD
 
@@ -660,10 +631,7 @@
 	allowed_tools = list(
 		/obj/item/synth_plating = 100,
 	)
-
-	min_duration = 170
-	max_duration = 200
-
+	base_surgery_time = 20 SECONDS
 	var/fast_repair = FALSE
 	skill_requirements = alist(ROBOTICS_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 	skill_diff_fail_modifier = SURGERY_DIFFICULTY_MEDIUM
@@ -704,16 +672,13 @@
 	allowed_tools = list(
 		/obj/item/reagent_containers/glass = 100,
 	)
-
-	min_duration = 100
-	max_duration = 150
+	base_surgery_time = 15 SECONDS
 	skill_requirements = alist(ROBOTICS_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR)
 	skill_diff_fail_modifier = SURGERY_DIFFICULTY_TRIVIAL
 
 /singleton/surgery_step/internal/replace_external_plating/g2
 	name = "Replace G2 External Armour Plating"
-	min_duration = 90
-	max_duration = 100
+	base_surgery_time = 10 SECONDS
 	fast_repair = TRUE
 	skill_requirements = alist(ROBOTICS_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 
@@ -757,9 +722,7 @@
 		TOOL_WELDER = 100,
 		/obj/item/gun/energy/plasmacutter = 50
 	)
-
-	min_duration = 15
-	max_duration = 25
+	base_surgery_time = 2.5 SECONDS
 	skill_requirements = alist(ROBOTICS_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 	skill_diff_fail_modifier = SURGERY_DIFFICULTY_MEDIUM
 

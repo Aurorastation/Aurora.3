@@ -2288,7 +2288,7 @@
 "eCm" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Pilot's Amenities";
-	req_access = list(204)
+	req_access = list(111)
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/item/clothing/head/helmet/pilot,
@@ -3695,7 +3695,7 @@
 /obj/structure/machinery/vending/wallmed1{
 	pixel_x = 9;
 	pixel_y = 32;
-	req_access = list(204)
+	req_access = list(111)
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/ssrm_shuttle)

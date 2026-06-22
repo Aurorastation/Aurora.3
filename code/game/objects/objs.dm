@@ -218,15 +218,16 @@
 	if(in_use)
 		var/is_in_use = 0
 		var/list/nearby = viewers(1, src)
+		var/datum/tgui/ui
 		for(var/mob/M in nearby)
-			if ((M.client && M.machine == src))
-				is_in_use = 1
-				src.attack_hand(M)
-		if (istype(usr, /mob/living/silicon/ai) || istype(usr, /mob/living/silicon/robot))
-			if (!(usr in nearby))
-				if (usr.client && usr.machine==src) // && M.machine == src is omitted because if we triggered this by using the dialog, it doesn't matter if our machine changed in between triggering it and this - the dialog is probably still supposed to refresh.
+			if(M.client)
+				if(SStgui.try_update_ui(M, src, ui))
 					is_in_use = 1
-					src.attack_ai(usr)
+		if(istype(usr, /mob/living/silicon/ai) || istype(usr, /mob/living/silicon/robot))
+			if(!(usr in nearby))
+				if(usr.client && usr.machine==src) // && M.machine == src is omitted because if we triggered this by using the dialog, it doesn't matter if our machine changed in between triggering it and this - the dialog is probably still supposed to refresh.
+					is_in_use = 1
+					ui = SStgui.try_update_ui(usr, src, ui)
 		in_use = is_in_use
 
 /obj/proc/updateDialog()

@@ -175,6 +175,7 @@
 /obj/item/forensics/sample_kit/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Click drag it onto an object to collect fiber evidence. Alternatively, click on an object with non-Help intent."
+	. += "Click an evidence bag to collect evidence from the object within it. Alternatively, using harm intent checks the evidence bag."
 
 /obj/item/forensics/sample_kit/proc/can_take_sample(var/mob/user, var/atom/supplied)
 	return (supplied.suit_fibers && supplied.suit_fibers.len)
@@ -187,6 +188,13 @@
 	if(!proximity)
 		return
 	add_fingerprint(user)
+
+	// We can sample items from within an evidence bag
+	if(user.a_intent != I_HURT && istype(A, /obj/item/evidencebag))
+		var/obj/item/evidencebag/bag = A
+		if(bag.stored_item)
+			A = bag.stored_item
+
 	if(can_take_sample(user, A))
 		take_sample(user,A)
 		return 1

@@ -10,6 +10,7 @@
 	spawn_cost = 1
 	spawn_weight = 1
 	sectors = list(ALL_POSSIBLE_SECTORS)
+	sectors_blacklist = list(LEMURIAN_SEA_SECTORS)
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/cult_base_shuttle)
 	unit_test_groups = list(3)
 

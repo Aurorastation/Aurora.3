@@ -191,17 +191,18 @@
 
 /datum/gear/head/tcaf
 	display_name = "tcaf hat selection"
-	path = /obj/item/clothing/head/beret/legion
+	path = /obj/item/clothing/head/beret/tcaf
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/head/tcaf/New()
 	..()
 	var/list/tcaf = list()
-	tcaf["tcaf beret, dress"] = /obj/item/clothing/head/beret/legion/tcaf
-	tcaf["tcaf beret, field"] = /obj/item/clothing/head/beret/legion/tcaf/tcaf_field
-	tcaf["tcfl beret, dress"] = /obj/item/clothing/head/beret/legion
-	tcaf["tcfl beret, field"] = /obj/item/clothing/head/beret/legion/field
-	tcaf["tcfl softcap"] = /obj/item/clothing/head/softcap/tcfl
+	tcaf["tcaf beret, dress"] = /obj/item/clothing/head/beret/tcaf
+	tcaf["tcaf beret, field"] = /obj/item/clothing/head/beret/tcaf/field
+	tcaf["tcaf foreign legions beret, dress"] = /obj/item/clothing/head/beret/tcaf/foreign_legion
+	tcaf["tcaf foreign legions, field"] = /obj/item/clothing/head/beret/tcaf/foreign_legion/field
+	tcaf["tcaf elite espatier beret"] = /obj/item/clothing/head/beret/tcaf/elite_espatier
+	tcaf["tcaf softcap"] = /obj/item/clothing/head/softcap/tcaf_cap
 	gear_tweaks += new /datum/gear_tweak/path(tcaf)
 
 /datum/gear/head/peakedcap

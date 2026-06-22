@@ -24,17 +24,19 @@
 
 	owner = parent
 
-	// Check during component init if we're in a sector that blocks hivenet echoes, and if so, skip processing init.
-	if(!SSatlas.current_sector.hivenet_echoes)
-		if((SSatlas.current_sector.name in list(SECTOR_LEMURIAN_SEA, SECTOR_LEMURIAN_SEA_FAR)))
-			to_chat(parent, SPAN_CULT("The Fog cuts you off from the greater Hivenet. Without its echoes, you feel deeply dreadful."))
-		else
-			to_chat(parent, SPAN_WARNING("The faint echoes of the greater Hivenet fade away. Without them, you feel low in company."))
-		return
-
 	// Setup the first time the echoes will begin playing.
 	next_broadcastEcho = world.time + rand(180, 300) SECONDS
 	next_projectionEcho = world.time + rand(240, 480) SECONDS
+
+	// Check during component init if we're in a sector that blocks hivenet echoes, and if so, skip processing init.
+	if(!SSatlas.current_sector.hivenet_echoes)
+		if(is_lemurian_sea_sector())
+			to_chat(parent, SPAN_CULT("The Fog cuts you off from the greater Hivenet. Without its echoes, you feel deeply dreadful."))
+		else
+			to_chat(parent, SPAN_WARNING("The faint echoes of the greater Hivenet fade away. Without them, you feel low in company."))
+		if(is_lemurian_sea_sector())
+			START_PROCESSING(SSprocessing, src)
+		return
 
 	// Finally start the clock.
 	START_PROCESSING(SSprocessing, src)
@@ -45,6 +47,13 @@
 	return ..()
 
 /datum/component/HiveEchoes/process(seconds_per_tick)
+	if(is_lemurian_sea_sector())
+		return
+
+	if(!SSatlas.current_sector.hivenet_echoes)
+		STOP_PROCESSING(SSprocessing, src)
+		return
+
 	if(owner.stat != CONSCIOUS)
 		return
 
@@ -89,6 +98,11 @@
 	set desc = "Toggle if Vaurcae can hear faint echoes (fluff) of the greater Hivenet. They will notice."
 
 	if(!check_rights(R_ADMIN))
+		return
+
+	if(is_lemurian_sea_sector())
+		SSatlas.current_sector.hivenet_echoes = FALSE
+		to_chat(usr, SPAN_WARNING("The Fog prevents Hivenet Echoes from being restored in the Lemurian Sea."))
 		return
 
 	if(SSatlas.current_sector.hivenet_echoes)

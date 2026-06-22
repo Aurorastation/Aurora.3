@@ -41,7 +41,7 @@
 	data["PC_showbatteryicon"] = !!battery_module
 	data["PC_batterypercent"] = battery_module ? "[round(battery_module.battery.percent())] %" : null
 	data["PC_apclinkicon"] = (tesla_link?.enabled && apc_powered) ? "charging.gif" : ""
-	data["PC_device_theme"] = active_program ? active_program.tgui_theme : "scc"
+	data["PC_device_theme"] = active_program ? active_program.tgui_theme : device_theme
 	data["PC_ntneticon"] = get_ntnet_status_icon()
 	data["PC_stationtime"] = worldtime2text()
 	data["PC_stationdate"] = "[time2text(world.realtime, "DDD, Month DD")], [GLOB.game_year]"

@@ -115,7 +115,7 @@
 	coffeecups["Zeng-Hu coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/zeng
 	coffeecups["Zavod coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/zavod
 	coffeecups["Orion coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/orion
-	coffeecups["TCFL coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/tcfl
+	coffeecups["TCAF coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/tcaf
 	coffeecups["EE coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/einstein
 	coffeecups["EE coffee cup, alt"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/einstein/alt
 	// symbols, markings
@@ -510,6 +510,13 @@
 		plants[initial(plant.name)] = plant_type
 	sortTim(plants, GLOBAL_PROC_REF(cmp_text_asc))
 	gear_tweaks += new /datum/gear_tweak/path(plants)
+
+/datum/gear/pottedplant_small/luce_vine
+	display_name = "potted luce vine"
+	description = "A small luce vine growth. Considered a miracle by followers of Luceism."
+	cost = 1
+	path = /obj/item/flora/pottedplant_small/luce_vine
+	origin_restriction = list(/singleton/origin_item/origin/assunzione)
 
 /datum/gear/candles
 	display_name = "candle pack"

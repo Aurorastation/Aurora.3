@@ -173,12 +173,12 @@
 	desc = "An off-shoot of the core Bunker Suit design, utilized by the Imperial Dominian military and painted accordingly. This is a powerful suit specializing in melee confrontations. Only wearable by humans and unathi."
 
 /datum/uplink_item/item/hardsuit_modules/suit/tcaf
-	name = "TCAF Legionnaire Hardsuit"
+	name = "TCAF Jötnar Hardsuit"
 	telecrystal_cost = 8
 	bluecrystal_cost = 8
-	path = /obj/item/rig/combat/legionnaire
-	desc = "An armored combat hardsuit in the blue colors of the Tau Ceti Armed Forces. The red shoulder pad dignifying the individual as a member of rank. \
-	Its golden visor reflecting the shining liberty the TCAF stands for. Only wearable by humans, Zeng-hu IPCs and Bishop IPCs."
+	path = /obj/item/rig/combat/tcaf
+	desc = "An armored combat hardsuit in the blue colors of the Tau Ceti Armed Forces. \
+	Its golden visor reflecting the shining liberty the TCAF stands for. Wearable by most species, excluding dionae, vaurca, and industrial IPCs."
 
 /datum/uplink_item/item/hardsuit_modules/suit/xanu
 	name = "Xanan dNAXS-52 Hardsuit"

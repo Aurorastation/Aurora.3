@@ -78,5 +78,6 @@ ABSTRACT_TYPE(/datum/modular_computer_app_presets)
 	/datum/computer_file/program/camera_monitor,\
 	/datum/computer_file/program/digitalwarrant,\
 	/datum/computer_file/program/records/security,\
+	/datum/computer_file/program/case_dossier,\
 	/datum/computer_file/program/guntracker,\
 )

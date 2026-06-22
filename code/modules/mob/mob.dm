@@ -54,7 +54,7 @@
 
 	QDEL_NULL(ability_master)
 	QDEL_NULL(zone_sel)
-	if (length(machine?.climbers))
+	if (istype(machine, /obj/structure) && length(machine.climbers))
 		machine.climbers -= src
 	machine = null
 

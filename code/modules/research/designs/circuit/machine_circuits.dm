@@ -71,6 +71,16 @@
 	req_tech = list(TECH_DATA = 3, TECH_ENGINEERING = 2)
 	build_path = /obj/item/circuitboard/recharge_station
 
+/datum/design/circuit/machine/recharger
+	name = "Recharger"
+	req_tech = list(TECH_POWER = 2, TECH_ENGINEERING = 1)
+	build_path = /obj/item/circuitboard/recharger
+
+/datum/design/circuit/machine/recharger/wallcharger
+	name = "Wall Recharger"
+	req_tech = list(TECH_DATA = 2, TECH_POWER = 3, TECH_ENGINEERING = 1)
+	build_path = /obj/item/circuitboard/recharger/wallcharger
+
 /datum/design/circuit/machine/holopadboard
 	name = "Holopad"
 	req_tech = list(TECH_DATA = 3, TECH_ENGINEERING = 2)

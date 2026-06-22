@@ -51,6 +51,7 @@
 @include meta.load-css('./interfaces/AnomalyTower.scss');
 @include meta.load-css('./interfaces/CivCargoHoldTerminal.scss');
 @include meta.load-css('./interfaces/EventLogger.scss');
+@include meta.load-css('./interfaces/CaseDossier.scss');
 @include meta.load-css('./interfaces/AlertModal.scss');
 @include meta.load-css('./interfaces/FactionSelect.scss');
 @include meta.load-css('./interfaces/HealthAnalyzer.scss');

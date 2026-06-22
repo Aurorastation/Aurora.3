@@ -282,8 +282,12 @@
 	contained_sprite = TRUE
 
 /obj/item/clothing/accessory/armor_plate/tcaf
-	name = "\improper TCAF legionnaire carapace"
+	name = "\improper TCAF carapace body armour"
 	desc = "The blue carapace of the Tau Ceti Armed Forces. Polished and proud for Miranda Trasen's favorite soldiers."
+	desc_extended = "The NT Tactical Segmented 'Carapace' Body Armour 3 (NT-TSBA3) is the standard, segmented, carapace-like body armour used \
+	across the Tau Ceti Armed Forces that combines effective armour with high manoeuvrability. The plate inserts are designed with \
+	a Caprician Weave kevlar-like synthetic fibre, with incredible tensile strength, overlaying a final titanium plate. Designed by \
+	NanoTrasen Corporation in 2465 alongside the Zo’ra Hive"
 	icon = 'icons/obj/item/clothing/suit/armor/modular_armor/modular_armor.dmi'
 	icon_state = "tcaf_plate"
 	item_state = "tcaf_plate"
@@ -298,8 +302,12 @@
 	slowdown = 0.2
 
 /obj/item/clothing/accessory/armor_plate/tcaf/tcaf_light
-	name = "\improper TCAF legionnaire light carapace"
+	name = "\improper TCAF light carapace body armour"
 	desc = "A lighter version of the blue carapace of the Tau Ceti Armed Forces. Reserved for recruits, recon, and prissy officers in the field."
+	desc_extended = "The NT Tactical Segmented 'Carapace' Body Armour 3 LIGHT (NT-TSBA3L) is the light variant of the segmented, carapace-like body armour \
+	used across the Tau Ceti Armed Forces that combines effective armour with high manoeuvrability. The plate inserts are designed with \
+	a Caprician Weave kevlar-like synthetic fibre, with incredible tensile strength. The usual additional titanium plate is not included. Designed by \
+	NanoTrasen Corporation in 2465 alongside the Zo’ra Hive"
 	icon_state = "tcaf_plate_light"
 	item_state = "tcaf_plate_light"
 	armor = list(
@@ -478,7 +486,7 @@
 	item_state = "dom_helmet_nco"
 
 /obj/item/clothing/head/helmet/tcaf
-	name = "\improper TCAF legionnaire faceplate helmet"
+	name = "\improper TCAF carapace faceplate helmet"
 	desc = "A carapace helmet in the traditional colors of the Tau Ceti Armed Forces. This one equipped with the signature faceplate."
 	icon = 'icons/obj/item/clothing/head/modular_armor_helmets.dmi'
 	contained_sprite = TRUE
@@ -493,13 +501,13 @@
 	)
 
 /obj/item/clothing/head/helmet/tcaf/tcaf_novisor
-	name = "\improper TCAF legionnaire helmet"
+	name = "\improper TCAF carapace helmet"
 	desc = "A carapace helmet in the traditional colors of the Tau Ceti Armed Forces."
 	icon_state = "tcaf_helm_novisor"
 	item_state = "tcaf_helm_novisor"
 
 /obj/item/clothing/head/helmet/tcaf/tcaf_visor
-	name = "\improper TCAF legionnaire visored helmet"
+	name = "\improper TCAF carapace visored helmet"
 	desc = "A carapace helmet in the traditional colors of the Tau Ceti Armed Forces. This one is equipped with a stylish visor."
 	icon_state = "tcaf_helm_visor"
 	item_state = "tcaf_helm_visor"

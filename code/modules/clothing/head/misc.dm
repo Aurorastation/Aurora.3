@@ -425,14 +425,6 @@
 	drop_sound = 'sound/items/drop/herb.ogg'
 	pickup_sound = 'sound/items/pickup/herb.ogg'
 
-//Tau Ceti Foreign Legion
-
-/obj/item/clothing/head/legion/legate
-	name = "TCFL peaked cap"
-	desc = "A stark red peaked cap. Worn by senior officers of the Tau Ceti Foreign Legion."
-	icon_state = "legion_cap"
-	item_state = "legion_cap"
-
 /obj/item/clothing/head/fake_culthood
 	name = "occultist hood"
 	icon_state = "culthood"

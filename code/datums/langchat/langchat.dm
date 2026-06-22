@@ -46,9 +46,13 @@
 /// Drops all active bubbles for this atom.
 /atom/proc/langchat_drop_images()
 	for(var/datum/langchat_bubble/entry as anything in langchat_images)
+		if (!entry || !entry.bubble)
+			continue
+
 		for(var/mob/listener as anything in entry.listeners)
-			if(listener.client)
-				listener.client.images -= entry.bubble
+			if (!listener || !listener.client)
+				continue
+			listener.client.images -= entry.bubble
 	langchat_images = null
 
 /atom/proc/get_maptext_x_offset(image/maptext_image)

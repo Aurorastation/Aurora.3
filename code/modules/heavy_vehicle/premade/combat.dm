@@ -93,7 +93,7 @@
 	e_body = /obj/item/mech_component/chassis/combat/nuclear
 	e_arms = /obj/item/mech_component/manipulators/heavy
 	e_legs = /obj/item/mech_component/propulsion/combat
-	e_color = COLOR_TCFL
+	e_color = COLOR_TCAF
 	h_l_shoulder = /obj/item/mecha_equipment/mounted_system/combat/grenadesmoke
 	h_r_shoulder = /obj/item/mecha_equipment/mounted_system/flarelauncher
 	h_l_hand = /obj/item/mecha_equipment/mounted_system/combat/blaster

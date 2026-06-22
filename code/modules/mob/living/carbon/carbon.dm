@@ -570,7 +570,7 @@
 		return FALSE
 	if ((mutations & HULK))
 		return FALSE
-	if (analgesic > 100)
+	if (analgesic > 200)
 		return FALSE
 	if(pain_immune)
 		return FALSE
