@@ -195,7 +195,7 @@
 	var/milk_type = /singleton/reagent/drink/milk
 
 	/// If anything else is created when butchering this creature, like bones and leather
-	var/list/butchering_products
+	var/alist/butchering_products
 
 	var/psi_pingable = TRUE
 
@@ -900,27 +900,33 @@
 	return FALSE
 
 /// Harvest an animal's delicious byproducts
-/mob/living/simple_animal/proc/harvest(var/mob/user)
-	var/actual_meat_amount = max(1,(meat_amount*0.75))
-	if(meat_type && actual_meat_amount>0 && (stat == DEAD))
-		for(var/i=0;i<actual_meat_amount;i++)
-			new meat_type(get_turf(src))
+/mob/living/simple_animal/proc/harvest(mob/user)
+	if (!meat_type || (stat != DEAD))
+		return
 
-		if(butchering_products)
-			for(var/path in butchering_products)
-				var/number = butchering_products[path]
-				for(var/i in 1 to number)
-					new path(get_turf(src))
+	var/base_meat_amount = meat_amount - rand(0, 2)
+	var/butchering_bonus = 0
+	SEND_SIGNAL(user, COMSIG_GET_BUTCHERING_MODIFIERS, src, &base_meat_amount, &butchering_bonus)
+	if (base_meat_amount <= 0)
+		return
 
-		if(issmall(src))
-			user.visible_message("<b>\The [user]</b> chops up \the [src]!")
-			var/obj/effect/decal/cleanable/blood/splatter/S = new /obj/effect/decal/cleanable/blood/splatter(get_turf(src))
-			S.basecolor = blood_type
-			S.update_icon()
-			qdel(src)
-		else
-			user.visible_message("<b>\The [user]</b> butchers \the [src] messily!")
-			gib()
+	for (var/i = 0; i < base_meat_amount; i++)
+		new meat_type(get_turf(src))
+
+	for (var/path, number in butchering_products)
+		var/total_product = number + butchering_bonus
+		for (var/i in 1 to total_product)
+			new path(get_turf(src))
+
+	if (issmall(src))
+		user.visible_message("<b>\The [user]</b> chops up \the [src]!")
+		var/obj/effect/decal/cleanable/blood/splatter/S = new /obj/effect/decal/cleanable/blood/splatter(get_turf(src))
+		S.basecolor = blood_type
+		S.update_icon()
+		qdel(src)
+	else
+		user.visible_message("<b>\The [user]</b> butchers \the [src] messily!")
+		gib()
 
 /// For picking up small animals
 /mob/living/simple_animal/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
