@@ -47,13 +47,13 @@
 		for(var/obj/item/grab/G as anything in grabbed_by)
 			var/turf/next_driver_step = get_step(G.grabber, get_dir(G.grabber, loc))
 			if(get_dist(src, G.grabber) <= 1)
-				if(next_driver_step == loc) //don't overlap turfs
+				if(next_driver_step != get_step(src, direction)) //don't overlap turfs
 					step(G.grabber, get_dir(G.grabber, loc))
 			else
 				qdel(G)
 
 	// move wheelchair
-	step(src, get_step(src, direction))
+	step(src, direction)
 	if(buckled) // Make sure it stays beneath the occupant
 		Move(buckled.loc)
 

@@ -45,7 +45,19 @@ ABSTRACT_TYPE(/obj/structure/cart)
 	if(user.incapacitated())
 		return
 
-	user.glide_size = glide_size
+	user.set_glide_size(glide_size)
+
+	// move driver
+	if(LAZYLEN(grabbed_by))
+		for(var/obj/item/grab/G as anything in grabbed_by)
+			var/turf/next_driver_step = get_step(G.grabber, get_dir(G.grabber, loc))
+			if(get_dist(src, G.grabber) <= 1)
+				if(next_driver_step != get_step(src, direction)) //don't overlap turfs
+					step(G.grabber, get_dir(G.grabber, loc))
+			else
+				qdel(G)
+
+	// move cart
 	step(src, direction)
 	set_dir(direction)
 
@@ -53,6 +65,12 @@ ABSTRACT_TYPE(/obj/structure/cart)
 	. = ..()
 	if(has_gravity())
 		playsound(src, movesound, 50, 1)
+
+	if(LAZYLEN(grabbed_by))
+		for(var/obj/item/grab/G as anything in grabbed_by)
+			if(get_dist(src, G.grabber) > 1)
+				to_chat(G.grabber, SPAN_WARNING("You lost your grip!"))
+				qdel(G)
 
 /obj/structure/cart/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(air_group || (height==0))
