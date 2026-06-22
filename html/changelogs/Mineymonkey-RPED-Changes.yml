@@ -1,0 +1,7 @@
+author: Mineymonkey
+
+delete-after: True
+
+changes:
+  - bugfix: "Rapid part exchange devices can now upgrade stock parts in all compatible machinery, including science telepads."
+  - qol: "Alt-clicking an autolathe with a rapid part exchange device in your active hand now recycles its compatible contents, leaving rejected items inside."
