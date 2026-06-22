@@ -117,6 +117,8 @@
 	 * EG: Linear Impulse (m/s) = Momentum (kg m/s) / Mass (kg)
 	 * Acceleration (m/s^2) = Force (kg m/s^2) / Mass (kg)
 	 *
+	 * This is ASSERTED to ALWAYS be a POSITIVE, NONZERO number. It is therefore always safe to divide by.
+	 *
 	 * For the love of god don't spam #define for each and every single object.
 	 * It's perfectly reasonable to set crowbar/mass = 5.0 and voidsuit/mass = 68.0
 	 * And leave it at that. It's a float. You're going to go insane if you make 10 million defines for it.
