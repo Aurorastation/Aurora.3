@@ -172,7 +172,7 @@
 		"C'thur: Unbound Mouv" = "#96B4FF", "C'thur: Bound Mouv" = "#5A96FF",
 		"C'thur: Unbound Xetl" = "#370078", "C'thur: Bound Xetl" = "#3C0F5F"
 	)
-
+	mob_strength = 1.35 // Requested by Vaurca lore to make them a bit more different
 	mass_modifier = REFERENCE_MASS_VAURCA_KA / REFERENCE_MASS_HUMAN
 
 /datum/species/bug/before_equip(var/mob/living/carbon/human/H)

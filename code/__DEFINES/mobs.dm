@@ -332,64 +332,64 @@
 // Hence humans being 72.0kg and not 62.0kg
 
 /// Average mass of a human (in Kg)
-#define REFERENCE_MASS_HUMAN 7.20e+1
+#define REFERENCE_MASS_HUMAN 72.0
 
 /// Average mass of an Offworlder (in Kg)
-#define REFERENCE_MASS_HUMAN_OFFWORLDER 6.20e+1
+#define REFERENCE_MASS_HUMAN_OFFWORLDER 62.0
 
 /// Average mass of an Interstellar Megacorporation CEO (in Kg)
-#define REFERENCE_MASS_CEO 7.64e+1 // Megacorp lore requested this. :)
+#define REFERENCE_MASS_CEO 76.4 // Megacorp lore requested this. :)
 
 /// Average mass of a Skrell (in Kg)
-#define REFERENCE_MASS_SKRELL 4.08e+1
+#define REFERENCE_MASS_SKRELL 40.8
 
 /// Average mass of an Axiori Skrell (in Kg)
-#define REFERENCE_MASS_SKRELL_AXIORI 5.23e+1
+#define REFERENCE_MASS_SKRELL_AXIORI 52.3
 
 /// Average mass of a Diona (in Kg)
-#define REFERENCE_MASS_DIONA 2.00e+2
+#define REFERENCE_MASS_DIONA 200
 
 /// Average mass of a Diona Coeus (in Kg)
-#define REFERENCE_MASS_DIONA_COEUS 1.00e+2
+#define REFERENCE_MASS_DIONA_COEUS 100
 
 /// Average mass of an Unathi (in Kg)
-#define REFERENCE_MASS_UNATHI 1.20e+2
+#define REFERENCE_MASS_UNATHI 120
 
 /// Average mass of an IPC (in Kg)
-#define REFERENCE_MASS_IPC 1.25e+2
+#define REFERENCE_MASS_IPC 125
 
 /// Average mass of a Shell (in Kg)
-#define REFERENCE_MASS_IPC_SHELL 9.20e+1
+#define REFERENCE_MASS_IPC_SHELL 92.0
 
 /// Average mass of an Industrial IPC (in Kg)
-#define REFERENCE_MASS_IPC_INDUSTRIAL 2.00e+2
+#define REFERENCE_MASS_IPC_INDUSTRIAL 200
 
 /// Average mass of a (Njarir or Hharar) Tajara (in Kg)
-#define REFERENCE_MASS_TAJARA 8.00e+1
+#define REFERENCE_MASS_TAJARA 80.0
 
 /// Average mass of a M'sai Tajara (in Kg)
-#define REFERENCE_MASS_TAJARA_MSAI 8.52e+2
+#define REFERENCE_MASS_TAJARA_MSAI 85.2
 
 /// Average mass of a Zhan Tajara (in Kg)
-#define REFERENCE_MASS_TAJARA_ZHAN 9.29e+1
+#define REFERENCE_MASS_TAJARA_ZHAN 92.9
 
 /// Average mass of a Tesla Rejuv Suit (in Kg)
-#define REFERENCE_MASS_TAJARA_TESLA 5.00e+2
+#define REFERENCE_MASS_TAJARA_TESLA 500
 
 /// Average mass of a Vaurca Worker (in Kg)
-#define REFERENCE_MASS_VAURCA_KA 8.50e+1
+#define REFERENCE_MASS_VAURCA_KA 85.0
 
 /// Average mass of a Vaurca Warrior (in Kg)
-#define REFERENCE_MASS_VAURCA_ZA 8.02e+1
+#define REFERENCE_MASS_VAURCA_ZA 80.2
 
 /// Average mass of a Vaurca Breeder (in Kg)
-#define REFERENCE_MASS_VAURCA_TA 1.00e+3
+#define REFERENCE_MASS_VAURCA_TA 1000 // BEEG
 
 /// Average mass of a Vaurca Bulwark (in Kg)
-#define REFERENCE_MASS_VAURCA_RA 3.63e+2
+#define REFERENCE_MASS_VAURCA_RA 363
 
 /// Average mass of a Vaurca Warform (in Kg)
-#define REFERENCE_MASS_VAURCA_BA 8.00e+2
+#define REFERENCE_MASS_VAURCA_BA 800
 
 // Mob strength. This allows us to represent stronger mobs with a bit more granularity. Robots should be stronger than normal people. A bonus to the checks on lifting/throwing mobs, essentially.
 /// A normal mob, basically. Does not get us any buffs.
