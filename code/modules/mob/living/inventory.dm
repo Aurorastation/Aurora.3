@@ -126,7 +126,7 @@
 
 /mob/living/carbon/human/proc/get_inactive_hand_organs()
 	. = list()
-	for(var/bp in held_item_slots)
+	for(var/bp in held_item_slots - get_active_held_item_slot())
 		var/obj/item/organ/external/E = GET_EXTERNAL_ORGAN(src, bp)
 		if(istype(E))
 			. |= E

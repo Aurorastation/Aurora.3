@@ -382,36 +382,68 @@
 	if(!ishuman(A) || !starting)
 		return FALSE
 	var/mob/living/carbon/human/M = A
-	var/list/left_hand_defense_zones = list(BP_L_ARM, BP_L_HAND, BP_CHEST, BP_GROIN)
-	var/list/right_hand_defense_zones = list(BP_R_ARM, BP_R_HAND, BP_CHEST, BP_GROIN)
 	if(point_blank || !(M.dir & get_dir(M, starting))) //Don't use the shield if the shot is at point blank, or the shot comes from behind or the sides.
 		return FALSE
+
 	for(var/obj/item/grab/G in M.get_active_grabs(TRUE))
-		if(!G?.affecting || G.state < GRAB_NECK || G.affecting.lying)
+		var/obj/item/organ/external/active_hand = M.get_active_hand_organ()
+		if(!M)
+			return FALSE //???
+
+		if(!ismob(G.grabbed))
+			return
+
+		var/mob/living/affecting = G.grabbed
+
+		var/list/active_defense_zones = list()
+		var/list/inactive_defense_zones = list()
+
+		// first of all, get the organs from the active hand to the last parent (so in a human, from BP_R_HAND to BP_R_ARM to BP_CHEST)
+		active_defense_zones |= active_hand.limb_name
+		var/obj/item/organ/external/limb_parent = M.organs_by_name[active_hand.parent_organ]
+		while(limb_parent.parent_organ) //eventually we'll reach null, if we don't there's a big fucking problem with the species
+			active_defense_zones |= limb_parent.limb_name
+			limb_parent = M.organs_by_name[limb_parent.parent_organ]
+		active_defense_zones |= limb_parent.limb_name //add the final limb parent; the loop exits because the last limb_parent will be null at that point
+
+		// the same but with any inactive hands
+		var/list/obj/item/organ/external/inactive_hands = M.get_inactive_hand_organs()
+		if(length(inactive_hands))
+			for(var/obj/item/organ/external/inactive_hand in inactive_hands)
+				inactive_defense_zones |= inactive_hand.limb_name
+				limb_parent = M.organs_by_name[inactive_hand.parent_organ]
+				while(limb_parent.parent_organ)
+					inactive_defense_zones |= limb_parent.limb_name
+					limb_parent = M.organs_by_name[limb_parent.parent_organ]
+				inactive_defense_zones |= limb_parent.limb_name //add the final limb parent; the loop exits because the last limb_parent will be null at that point
+
+		if(!HAS_GRAB_FLAGS(G, GRAB_SHIELDS_YOU) || affecting.lying)
 			continue
-		if(G.affecting.mob_size < M.mob_size) //Humans are size 9, Unathi and Varuca workers 10, G1 & G2 are 11. This is mostly to make monkeys bad human shields.
-			if (rand(1, M.mob_size) > G.affecting.mob_size)
+
+		if(affecting.mob_size < M.mob_size) //Humans are size 9, Unathi and Varuca workers 10, G1 & G2 are 11. This is mostly to make monkeys bad human shields.
+			if (rand(1, M.mob_size) > affecting.mob_size)
 				continue
-		if(((G == M.l_hand) && (def_zone in left_hand_defense_zones)) || ((G == M.r_hand) && (def_zone in right_hand_defense_zones)))  //Human shields only block shots to the arm holding the person, chest and groin.
-			if(G.affecting.stat == DEAD) //If they are dead hit both the hostage and the hostage taker.
+
+		if(G == M.get_active_hand() && (def_zone in active_defense_zones) || (G in M.get_inactive_held_items() && (def_zone in inactive_defense_zones)))  //Human shields only block shots to the arm holding the person, up to the chest.
+			if(affecting.stat == DEAD) //If they are dead hit both the hostage and the hostage taker.
 				penetrating += 1
 				projectile_piercing = PASSMOB
 				pierce_chance = 100
-				M.visible_message(SPAN_WARNING("\The [M] tries to use [G.affecting] as a shield, but the shot punches through their limp body!"))
-				return G.affecting
+				M.visible_message(SPAN_WARNING("\The [M] tries to use [affecting] as a shield, but the shot punches through their limp body!"))
+				return affecting
 			else
-				if(ishuman(G.affecting))
-					var/mob/living/carbon/human/human_shield = G.affecting
+				if(ishuman(affecting))
+					var/mob/living/carbon/human/human_shield = affecting
 					var/obj/item/organ/external/organ = human_shield.get_organ(def_zone)
 					if(organ.burn_dam + organ.brute_dam > organ.max_damage) //If the hit zone is above the max damage threshold, the shot hits both.
 						penetrating += 1
 						projectile_piercing = PASSMOB
 						pierce_chance = 100
-						M.visible_message(SPAN_WARNING("\The [M] tries to use [G.affecting] as a shield, but the shot punches through their mangled [organ.name]!"))
-						return G.affecting
-			M.visible_message(SPAN_WARNING("\The [M] uses [G.affecting] as a shield!"))
-			return G.affecting
-		M.visible_message(SPAN_WARNING("\The [M] tries to use [G.affecting] as a shield but their [M.organs_by_name[def_zone]] is exposed!"))
+						M.visible_message(SPAN_WARNING("\The [M] tries to use [affecting] as a shield, but the shot punches through their mangled [organ.name]!"))
+						return affecting
+			M.visible_message(SPAN_WARNING("\The [M] uses [affecting] as a shield!"))
+			return affecting
+		M.visible_message(SPAN_WARNING("\The [M] tries to use [affecting] as a shield but their [M.organs_by_name[def_zone]] is exposed!"))
 	return FALSE
 
 /obj/projectile/Collide(atom/A)
