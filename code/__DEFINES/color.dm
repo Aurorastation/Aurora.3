@@ -91,7 +91,7 @@
 #define COLOR_ASTEROID_ROCK    "#735555"
 #define COLOR_HOT_PINK         "#ff6088"
 #define COLOR_DIAMOND          "#d8d4ea"
-#define COLOR_TCFL             "#849bc1"
+#define COLOR_TCAF             "#849bc1"
 #define COLOR_IAC              "#96bcde"
 #define COLOR_COALITION		   "#949ea3"
 #define COLOR_RIPLEY           "#ffbc37"

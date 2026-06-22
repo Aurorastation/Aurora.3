@@ -530,7 +530,7 @@
 "kc" = (
 /obj/structure/machinery/computer/ship/helm/terminal{
 	dir = 1;
-	req_access = list(204)
+	req_access = list(111)
 	},
 /obj/effect/floor_decal/industrial/outline/security,
 /turf/simulated/floor/tiled/dark/full,
@@ -1434,7 +1434,7 @@
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/machinery/computer/ship/helm/terminal{
 	dir = 1;
-	req_access = list(204)
+	req_access = list(111)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/decrepit_shipyard_shuttle)
@@ -1813,7 +1813,7 @@
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/machinery/computer/ship/helm/terminal{
 	dir = 1;
-	req_access = list(204)
+	req_access = list(111)
 	},
 /turf/simulated/floor/tiled/full,
 /area/shuttle/decrepit_shipyard_shuttle)
