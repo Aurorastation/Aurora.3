@@ -434,7 +434,7 @@
 // Ears: headsets, earmuffs and tiny objects
 /obj/item/clothing/ears
 	name = "ears"
-	icon = 'icons/obj/clothing/ears.dmi'
+	icon = 'icons/obj/item/clothing/ears.dmi'
 	species_sprite_adaption_type = WORN_LEAR
 	w_class = WEIGHT_CLASS_TINY
 	throwforce = 2
@@ -505,7 +505,7 @@
 	name = "gloves"
 	gender = PLURAL //Carn: for grammarically correct text-parsing
 	w_class = WEIGHT_CLASS_SMALL
-	icon = 'icons/obj/clothing/gloves.dmi'
+	icon = 'icons/obj/item/clothing/gloves/color_gloves.dmi'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/clothing/lefthand_gloves.dmi',
 		slot_r_hand_str = 'icons/mob/items/clothing/righthand_gloves.dmi'
@@ -612,7 +612,7 @@
 //Head
 /obj/item/clothing/head
 	name = "head"
-	icon = 'icons/obj/clothing/hats.dmi'
+	icon = 'icons/obj/item/clothing/hats.dmi'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/clothing/lefthand_hats.dmi',
 		slot_r_hand_str = 'icons/mob/items/clothing/righthand_hats.dmi'
@@ -820,7 +820,7 @@
 //Mask
 /obj/item/clothing/mask
 	name = "mask"
-	icon = 'icons/obj/clothing/masks.dmi'
+	icon = 'icons/obj/item/clothing/masks.dmi'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/clothing/lefthand_masks.dmi',
 		slot_r_hand_str = 'icons/mob/items/clothing/righthand_masks.dmi'
@@ -1089,7 +1089,7 @@
 ///////////////////////////////////////////////////////////////////////
 //Suit
 /obj/item/clothing/suit
-	icon = 'icons/obj/clothing/suits.dmi'
+	icon = 'icons/obj/item/clothing/suits.dmi'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/clothing/lefthand_suit.dmi',
 		slot_r_hand_str = 'icons/mob/items/clothing/righthand_suit.dmi'
@@ -1154,7 +1154,7 @@
 ///////////////////////////////////////////////////////////////////////
 //Under clothing
 /obj/item/clothing/under
-	icon = 'icons/obj/clothing/uniforms.dmi'
+	icon = 'icons/obj/item/clothing/uniforms.dmi'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/clothing/lefthand_uniforms.dmi',
 		slot_r_hand_str = 'icons/mob/items/clothing/righthand_uniforms.dmi'
@@ -1475,7 +1475,8 @@
 /obj/item/clothing/ring
 	name = "ring"
 	w_class = WEIGHT_CLASS_TINY
-	icon = 'icons/obj/clothing/rings.dmi'
+	icon = 'icons/obj/item/clothing/gloves/rings.dmi'
+	contained_sprite = TRUE
 	species_sprite_adaption_type = WORN_GLOVES
 	slot_flags = SLOT_GLOVES
 	gender = NEUTER

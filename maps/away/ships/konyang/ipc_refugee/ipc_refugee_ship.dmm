@@ -1789,7 +1789,7 @@
 	dir = 8
 	},
 /obj/effect/decal/fake_object{
-	icon = 'icons/obj/clothing/hats/hardhats.dmi';
+	icon = 'icons/obj/item/clothing/hats/hardhats.dmi';
 	icon_state = "hardhat_yellow_he";
 	dir = 8;
 	pixel_y = 20;

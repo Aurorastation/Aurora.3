@@ -60,7 +60,7 @@
 /obj/item/clothing/head/collectable/beret
 	name = "collectable beret"
 	desc = "A Collectable red Beret. It smells faintly of garlic."
-	icon = 'icons/obj/clothing/hats/berets.dmi'
+	icon = 'icons/obj/item/clothing/hats/berets.dmi'
 	icon_state = "beret_red"
 	item_state = "beret_red"
 	contained_sprite = TRUE

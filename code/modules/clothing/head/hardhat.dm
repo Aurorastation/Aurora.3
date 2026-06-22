@@ -1,7 +1,7 @@
 /obj/item/clothing/head/hardhat
 	name = "hard hat"
 	desc = "A piece of headgear used in dangerous working conditions to protect the head. Comes with a built-in flashlight."
-	icon = 'icons/obj/clothing/hats/hardhats.dmi'
+	icon = 'icons/obj/item/clothing/hats/hardhats.dmi'
 	icon_state = "hardhat_yellow"
 	item_state = "hardhat_yellow"
 	light_overlay = "hardhat_light"

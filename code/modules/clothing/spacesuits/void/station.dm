@@ -3,7 +3,7 @@
 /obj/item/clothing/head/helmet/space/void/engineering
 	name = "engineering voidsuit helmet"
 	desc = "A special helmet designed for work in a hazardous, low-pressure environment. Has radiation shielding and minor thermal protection."
-	icon = 'icons/obj/clothing/voidsuit/station/engineering.dmi'
+	icon = 'icons/obj/item/clothing/voidsuit/station/engineering.dmi'
 	icon_state = "engineering_helm"
 	item_state = "engineering_helm"
 	item_state_slots = list( //so that it isn't overridden on refit
@@ -29,7 +29,7 @@
 /obj/item/clothing/suit/space/void/engineering
 	name = "engineering voidsuit"
 	desc = "A special suit that protects against hazardous, low pressure environments. Has radiation shielding and minor thermal protection."
-	icon = 'icons/obj/clothing/voidsuit/station/engineering.dmi'
+	icon = 'icons/obj/item/clothing/voidsuit/station/engineering.dmi'
 	icon_state = "engineering"
 	item_state = "engineering"
 	item_state_slots = list( //so that it isn't overridden on refit
@@ -56,7 +56,7 @@
 /obj/item/clothing/head/helmet/space/void/mining
 	name = "mining voidsuit helmet"
 	desc = "A special helmet designed for work in a hazardous, low pressure environment. Has reinforced plating."
-	icon = 'icons/obj/clothing/voidsuit/station/mining.dmi'
+	icon = 'icons/obj/item/clothing/voidsuit/station/mining.dmi'
 	icon_state = "mining_helm"
 	item_state = "mining_helm"
 	item_state_slots = list( //so that it isn't overridden on refit
@@ -79,7 +79,7 @@
 /obj/item/clothing/suit/space/void/mining
 	name = "mining voidsuit"
 	desc = "A special suit that protects against hazardous, low pressure environments. Has reinforced plating."
-	icon = 'icons/obj/clothing/voidsuit/station/mining.dmi'
+	icon = 'icons/obj/item/clothing/voidsuit/station/mining.dmi'
 	icon_state = "mining"
 	item_state = "mining"
 	item_state_slots = list( //so that it isn't overridden on refit
@@ -103,7 +103,7 @@
 /obj/item/clothing/head/helmet/space/void/medical
 	name = "medical voidsuit helmet"
 	desc = "A special helmet designed for work in a hazardous, low pressure environment. Has minor radiation shielding."
-	icon = 'icons/obj/clothing/voidsuit/station/medical.dmi'
+	icon = 'icons/obj/item/clothing/voidsuit/station/medical.dmi'
 	icon_state = "medical_helm"
 	item_state = "medical_helm"
 	item_state_slots = list( //so that it isn't overridden on refit
@@ -126,7 +126,7 @@
 /obj/item/clothing/suit/space/void/medical
 	name = "medical voidsuit"
 	desc = "A special suit that protects against hazardous, low pressure environments. Has minor radiation shielding."
-	icon = 'icons/obj/clothing/voidsuit/station/medical.dmi'
+	icon = 'icons/obj/item/clothing/voidsuit/station/medical.dmi'
 	icon_state = "medical"
 	item_state = "medical"
 	item_state_slots = list( //so that it isn't overridden on refit
@@ -149,7 +149,7 @@
 /obj/item/clothing/head/helmet/space/void/security
 	name = "security voidsuit helmet"
 	desc = "A special helmet designed for work in a hazardous, low pressure environment. Has an additional layer of armor."
-	icon = 'icons/obj/clothing/voidsuit/station/security.dmi'
+	icon = 'icons/obj/item/clothing/voidsuit/station/security.dmi'
 	icon_state = "security_helm"
 	item_state = "security_helm"
 	item_state_slots = list( //so that it isn't overridden on refit
@@ -173,7 +173,7 @@
 /obj/item/clothing/suit/space/void/security
 	name = "security voidsuit"
 	desc = "A special suit that protects against hazardous, low pressure environments. Has an additional layer of armor."
-	icon = 'icons/obj/clothing/voidsuit/station/security.dmi'
+	icon = 'icons/obj/item/clothing/voidsuit/station/security.dmi'
 	icon_state = "security"
 	item_state = "security"
 	item_state_slots = list( //so that it isn't overridden on refit
@@ -197,7 +197,7 @@
 /obj/item/clothing/head/helmet/space/void/atmos
 	desc = "A special helmet designed for work in a hazardous, low pressure environments. Has improved thermal protection and minor radiation shielding."
 	name = "atmospherics voidsuit helmet"
-	icon = 'icons/obj/clothing/voidsuit/station/engineering.dmi'
+	icon = 'icons/obj/item/clothing/voidsuit/station/engineering.dmi'
 	icon_state = "atmos_helm"
 	item_state = "atmos_helm"
 	item_state_slots = list( //so that it isn't overridden on refit
@@ -223,7 +223,7 @@
 /obj/item/clothing/suit/space/void/atmos
 	name = "atmos voidsuit"
 	desc = "A special suit that protects against hazardous, low pressure environments. Has improved thermal protection and minor radiation shielding."
-	icon = 'icons/obj/clothing/voidsuit/station/engineering.dmi'
+	icon = 'icons/obj/item/clothing/voidsuit/station/engineering.dmi'
 	icon_state = "atmos"
 	item_state = "atmos"
 	item_state_slots = list( //so that it isn't overridden on refit
@@ -249,7 +249,7 @@
 /obj/item/clothing/head/helmet/space/void/hos
 	name = "heavy security voidsuit helmet"
 	desc = "A special helmet designed for work in a hazardous, low pressure environment. Has an additional layer of armor, and gold trim."
-	icon = 'icons/obj/clothing/voidsuit/station/security.dmi'
+	icon = 'icons/obj/item/clothing/voidsuit/station/security.dmi'
 	icon_state = "hos_helm"
 	item_state = "hos_helm"
 	item_state_slots = list( //so that it isn't overridden on refit
@@ -272,7 +272,7 @@
 /obj/item/clothing/suit/space/void/hos
 	name = "heavy security voidsuit"
 	desc = "A special suit that protects against hazardous, low pressure environments. Has an additional layer of armor, and gold trim."
-	icon = 'icons/obj/clothing/voidsuit/station/security.dmi'
+	icon = 'icons/obj/item/clothing/voidsuit/station/security.dmi'
 	icon_state = "hos"
 	item_state = "hos"
 	item_state_slots = list( //so that it isn't overridden on refit
@@ -296,7 +296,7 @@
 /obj/item/clothing/head/helmet/space/void/sci
 	name = "research voidsuit helmet"
 	desc = "A special helmet designed for usage by SCC research personnel in hazardous, low pressure environments."
-	icon = 'icons/obj/clothing/voidsuit/station/research.dmi'
+	icon = 'icons/obj/item/clothing/voidsuit/station/research.dmi'
 	icon_state = "research_helm"
 	item_state = "research_helm"
 	item_state_slots = list( //so that it isn't overridden on refit
@@ -317,7 +317,7 @@
 /obj/item/clothing/suit/space/void/sci
 	name = "research voidsuit"
 	desc = "A special suit that designed for usage by SCC research personnel in hazardous, low pressure environments."
-	icon = 'icons/obj/clothing/voidsuit/station/research.dmi'
+	icon = 'icons/obj/item/clothing/voidsuit/station/research.dmi'
 	icon_state = "research"
 	item_state = "research"
 	item_state_slots = list( //so that it isn't overridden on refit

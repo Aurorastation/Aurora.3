@@ -296,12 +296,12 @@
 /obj/item/clothing/head/hijab //It might've taken a year but here's your Hijab's, Dea.
 	name = "hijab"
 	desc = "Encompassing cloth headwear worn by some human cultures and religions."
-	icon = 'icons/obj/clothing/hijabs.dmi'
+	icon = 'icons/obj/item/clothing/head/hijabs.dmi'
 	icon_state = "hijab"
 	item_state = "hijab"
 	flags_inv = BLOCKHAIR
 	body_parts_covered = 0
-	contained_sprite = 1
+	contained_sprite = TRUE
 	slot_flags = SLOT_EARS  | SLOT_HEAD
 
 /obj/item/clothing/head/hijab/get_ear_examine_text(var/mob/user, var/ear_text = "left")
@@ -784,7 +784,7 @@
 /obj/item/clothing/head/qeburger_visor
 	name = "Quick-E-Burger Food Technician Visor"
 	desc = "For stylish employees on the retail grind, the Quick-E-Burger Food Technician Visor is the latest in form-first fashion! Supplied and manufactured in bulk by Quick-E-Burger's parent company, Orion Express, the Food Technician Visor is equipped with an innovative easy-to-use velcro headstrap to keep the company's prime product sky-high, and its light-resistant plastic visor is perfect for keeping sun, lights, and disappointed family-members alike out of employees' eyes!"
-	icon = 'icons/obj/clothing/hats/orion.dmi'
+	icon = 'icons/obj/item/clothing/hats/orion.dmi'
 	icon_state = "quickeburger_visorcap"
 	item_state = "quickeburger_visorcap"
 	contained_sprite = TRUE

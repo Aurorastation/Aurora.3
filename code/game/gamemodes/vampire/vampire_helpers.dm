@@ -302,7 +302,7 @@
 /obj/item/vampiric_jumpstarter
 	name = "vampiric jumpstarter"
 	desc = "Use this to morph into a vampire. This won't work on synthetics! This item is definitely not canon."
-	icon = 'icons/obj/clothing/hats.dmi'
+	icon = 'icons/obj/item/clothing/hats.dmi'
 	icon_state = "amp"
 	contained_sprite = FALSE
 

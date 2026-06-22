@@ -408,12 +408,12 @@
 /obj/item/clothing/under/cheongsam
 	name = "white cheongsam"
 	desc = "A Chinese dress that hugs the body. This one is white, embroidered with a bright golden dragon."
-	icon = 'icons/obj/clothing/cheongsams.dmi'
+	icon = 'icons/obj/item/clothing/under/cheongsams.dmi'
 	icon_state = "cheongsamwhite"
 	item_state = "cheongsamwhite"
 	worn_state = "cheongsamwhite"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
-	contained_sprite = 1
+	contained_sprite = TRUE
 
 /obj/item/clothing/under/cheongsam/red
 	name = "red cheongsam"
