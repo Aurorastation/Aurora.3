@@ -16,8 +16,6 @@
 
 	/// The plane master group we're a member of, our "home"
 	var/datum/plane_master_group/home
-	/// Map control assigned to this plane master when it belongs to a popup/submap group.
-	var/assigned_map
 
 	/// If our plane master has different offsetting logic
 	/// Possible flags are defined in [_DEFINES/layers.dm]

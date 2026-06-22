@@ -15,6 +15,10 @@
 	var/obj/master = null
 	/// A reference to the owner HUD, if any.
 	var/datum/hud/hud = null
+	/// Map control assigned to this screen object when it belongs to a popup/submap.
+	var/assigned_map
+	/// Whether this screen object should be deleted when its assigned map is cleared.
+	var/del_on_map_removal = TRUE
 	appearance_flags = NO_CLIENT_COLOR
 
 /atom/movable/screen/Initialize(mapload, ...)

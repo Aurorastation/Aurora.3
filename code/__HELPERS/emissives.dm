@@ -40,6 +40,8 @@
 	blocker.icon_state = make_blocker.icon_state
 	if(IS_TOPDOWN_PLANE(make_blocker.plane))
 		blocker.layer = TOPDOWN_TO_EMISSIVE_LAYER(make_blocker.layer)
+	else
+		blocker.layer = make_blocker.layer
 	blocker.appearance_flags |= make_blocker.appearance_flags | EMISSIVE_APPEARANCE_FLAGS
 	blocker.dir = make_blocker.dir
 	if(make_blocker.alpha == 255)

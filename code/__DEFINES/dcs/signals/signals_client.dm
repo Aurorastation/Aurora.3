@@ -6,3 +6,6 @@
 
 /// Called when a client's eye changes : /client/proc/set_eye(atom/new_eye)
 #define COMSIG_CLIENT_SET_EYE "client_set_eye"
+
+/// Called when a popup map window is cleared : (window_id)
+#define COMSIG_POPUP_CLEARED "popup_cleared"

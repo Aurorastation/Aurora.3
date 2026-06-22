@@ -29,7 +29,9 @@
 	if(!obfuscation)
 		obfuscation = image(icon, T, icon_state)
 		obfuscation.layer = OBFUSCATION_LAYER
-		obfuscation.plane = GAME_PLANE
+		SET_PLANE(obfuscation, CAMERA_STATIC_PLANE, T)
+		obfuscation.appearance_flags = RESET_TRANSFORM | RESET_ALPHA | RESET_COLOR | KEEP_APART
+		obfuscation.override = TRUE
 		if(!obfuscation_underlay)
 			// Creating a new icon of a fairly common icon state, adding some random color to prevent address searching, and hoping being static kills memory locality
 			var/turf/floor = /turf/simulated/floor/tiled
@@ -115,6 +117,8 @@
 // Visualnet adds and removes eyes.
 
 /datum/chunk/proc/add_eye(mob/abstract/eye/freelook/eye)
+	if(dirty || updating)
+		update(TRUE)
 	seenby += eye
 	eye.visibleChunks += src
 	if(eye.owner && eye.owner.client)

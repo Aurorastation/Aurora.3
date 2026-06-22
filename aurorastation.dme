@@ -328,6 +328,8 @@
 #include "code\_onclick\hud\human.dm"
 #include "code\_onclick\hud\morph.dm"
 #include "code\_onclick\hud\movable_screen_objects.dm"
+#include "code\_onclick\hud\map_popups.dm"
+#include "code\_onclick\hud\map_view.dm"
 #include "code\_onclick\hud\nymph_hud.dm"
 #include "code\_onclick\hud\other_mobs.dm"
 #include "code\_onclick\hud\radial.dm"

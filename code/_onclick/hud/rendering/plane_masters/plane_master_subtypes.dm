@@ -524,7 +524,11 @@
 
 /atom/movable/screen/plane_master/camera_static/proc/eye_changed(datum/hud/source, atom/old_eye, atom/new_eye)
 	SIGNAL_HANDLER
-	// TG_PLANE_CUBE_TEMP: reattach Aurora camera static/map-view logic
+	if(istype(new_eye, /mob/abstract/eye/freelook))
+		if(force_hidden)
+			unhide_plane(source.mymob)
+		return
+
 	if(!force_hidden)
 		hide_plane(source.mymob)
 
