@@ -52,11 +52,11 @@
 		tally = 0
 
 	var/effective_mass = get_effective_mass()
-	if(pulling && pulling.mass > effective_mass)
+	if(pulling && pulling.mass > mass)
 		tally += pulling.mass / effective_mass
 
 	var/obj/item/grab/grab = get_type_in_hands(/obj/item/grab)
-	if(istype(grab) && ismovable(grab.affecting) && grab.affecting.mass > effective_mass)
+	if(istype(grab) && ismovable(grab.affecting) && grab.affecting.mass > mass)
 		tally += grab.affecting.mass / effective_mass
 
 	var/turf/T = get_turf(src)
