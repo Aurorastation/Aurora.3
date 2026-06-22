@@ -164,6 +164,7 @@
 	)
 
 	species_components = list(/datum/component/synthetic_endoskeleton)
+	mass_modifier = REFERENCE_MASS_IPC / REFERENCE_MASS_HUMAN
 
 	// Special snowflake machine vars.
 	var/sprint_temperature_factor = 1.05

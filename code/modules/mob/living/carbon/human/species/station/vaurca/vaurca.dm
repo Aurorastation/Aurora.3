@@ -173,6 +173,8 @@
 		"C'thur: Unbound Xetl" = "#370078", "C'thur: Bound Xetl" = "#3C0F5F"
 	)
 
+	mass_modifier = REFERENCE_MASS_VAURCA_KA / REFERENCE_MASS_HUMAN
+
 /datum/species/bug/before_equip(var/mob/living/carbon/human/H)
 	. = ..()
 	H.gender = NEUTER

@@ -474,10 +474,33 @@
 	/// A list of species components that should only EVER apply to this species. This is because some components must be removed if the species changes (imagine changing from IPC to human as a merc).
 	var/list/species_components
 
+	var/list/default_emotes = list()
+
+	// Vars used for Autohiss
+	var/has_autohiss = FALSE
+	var/list/autohiss_basic_map = null
+	var/list/autohiss_extra_map = null
+	var/list/autohiss_exempt = null
+	var/list/autohiss_basic_extend = null
+	var/list/autohiss_extra_extend = null
+	var/autohiss_extender = "..."
+	var/ignore_subsequent = FALSE
+
+	/**
+	 * The "Mass Modifier" used to set the starting mass of a player character for a given species.
+	 * This should always be written as REFERENCE_MASS_SPECIES / REFERENCE_MASS_HUMAN
+	 * This division by REFERENCE_MASS_HUMAN will be algebraically cancelled out,
+	 * when multiplied by the humanoid character's standard mass (which happens to be REFERENCE_MASS_HUMAN)
+	 *
+	 * This is a pure number ratio (kg / kg), it has no SI Units.
+	 */
+	var/mass_modifier = REFERENCE_MASS_HUMAN / REFERENCE_MASS_HUMAN
+
 /datum/species/proc/get_eyes(var/mob/living/carbon/human/H)
 	return
 
 /datum/species/New()
+	ENFORCE_POSITIVE_SPECIES_MASS(mass_modifier)
 	if(hud_type)
 		hud = new hud_type()
 	else
