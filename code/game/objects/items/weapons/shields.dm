@@ -273,13 +273,13 @@
 	else
 		set_light(0)
 
-/obj/item/shield/energy/legion
+/obj/item/shield/energy/tcaf
 	name = "energy barrier"
 	desc = "A large deployable energy shield meant to provide excellent protection against ranged attacks."
 	icon_state = "ebarrier0"
 	base_block_chance = 55
 
-/obj/item/shield/energy/legion/update_icon()
+/obj/item/shield/energy/tcaf/update_icon()
 	icon_state = "ebarrier[active]"
 	if(active)
 		set_light(1.5, 1.5, "#33FFFF")
@@ -315,7 +315,7 @@
 	attack_verb = list("shoved", "bashed")
 	var/active = 0
 
-/obj/item/shield/riot/tact/legion
+/obj/item/shield/riot/tact/tcaf
 	name = "\improper TCAF ballistic shield"
 	desc = "A highly advanced ballistic shield crafted from durable materials and plated ablative panels. Can be collapsed for mobility. This one has been painted in the colors of the Tau Ceti Armed Forces."
 	icon_state = "legion_tactshield"

@@ -21,7 +21,7 @@
 
 /datum/ghostspawner/human/rescuepodsurv/New()
 	. = ..()
-	var/t = pick(list("star", "priest", "rep", "smuggler", "hunter", "occultist", "pmc", "tcfl", "fsf", "scc", "fib"))
+	var/t = pick(list("star", "priest", "rep", "smuggler", "hunter", "occultist", "pmc", "fsf", "scc", "fib"))
 	if(t == "star")
 		welcome_message = "You are a stranded star!<br>You were relaxing comfortably in your cryo pod as tragedy struck - the pilot of your luxury yacht fell asleep under some mysterious circumstances. You were unceremoniously stuffed into an escape pod, and left to wander in space. What a despicable, low-quality plot to get rid of you. Should've chosen murder instead - you certainly know you'll convince someone nice to lend you a shuttle."
 		outfit = /obj/outfit/admin/pod/star
@@ -45,10 +45,6 @@
 		welcome_message = "You are a stranded Eridani paramilitary sergeant!<br>You aren't getting paid enough for this shit. Where's the pickup shuttle?"
 		outfit = /obj/outfit/admin/pod/pmc
 		possible_species = list(SPECIES_HUMAN) // no cycler in the pod, spawns in a voidsuit
-	else if(t == "tcfl")
-		welcome_message = "You are a stranded member of the Tau Ceti Foreign Legion!<br>Perhaps there was a training accident or maybe something went wrong during a routine operation in the Romanovich Cloud. The Prefect will never let you hear the end of this..."
-		outfit = /obj/outfit/admin/pod/tcfl
-		possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_WORKER, SPECIES_IPC, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_DIONA) // TCFL accepts everyone. G1 and G2 have been excluded because they can't wear the hardsuit, which has the suit cooler.
 	else if(t == "fsf")
 		welcome_message = "You are a stranded Petty Officer of the Free Solarian Fleets!<br>Your skiff out of the FSFV Sforza was on a routine patrol when an accident or an attack forced you to abandon ship. Thankfully, you seem to be in friendly territory..."
 		outfit = /obj/outfit/admin/pod/fsf
@@ -253,37 +249,6 @@
 
 /obj/outfit/admin/pod/pmc/get_id_rank()
 	return "Security Officer"
-
-/obj/outfit/admin/pod/tcfl
-	name = "RescuePod - TCFL Member"
-	head = /obj/item/clothing/head/beret/legion/field
-	l_ear = /obj/item/radio/headset/legion
-	glasses = /obj/item/clothing/glasses/sunglasses/aviator
-	suit = /obj/item/clothing/suit/storage/vest/legion
-	suit_store = /obj/item/gun/energy/blaster/carbine
-	back = /obj/item/rig/retro // has an oxygen tank built in
-	belt = /obj/item/storage/belt/security/tactical
-	gloves = /obj/item/clothing/gloves/swat/ert
-	shoes = /obj/item/clothing/shoes/combat
-	id = /obj/item/card/id/distress/legion
-	uniform = /obj/item/clothing/under/legion
-	accessory = /obj/item/clothing/accessory/holster/thigh
-	accessory_contents = list(/obj/item/gun/energy/blaster/revolver = 1)
-	hands = list(/obj/item/material/twohanded/pike/flag, /obj/item/storage/backpack/legion)
-
-	belt_contents = list(
-		/obj/item/melee/energy/sword/knife = 1,
-		/obj/item/shield/riot/tact/legion = 1,
-		/obj/item/grenade/flashbang = 1,
-		/obj/item/flashlight/flare = 1,
-		/obj/item/radio = 1
-	)
-
-/obj/outfit/admin/pod/tcfl/get_id_assignment()
-	return "TCFL"
-
-/obj/outfit/admin/pod/tcfl/get_id_rank()
-	return "TCFL"
 
 /obj/outfit/admin/pod/fsf
 	name = "RescuePod - FSF Crewman"

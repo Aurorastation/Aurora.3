@@ -203,7 +203,6 @@
 		/obj/item/clothing/under/elyra_holo/masc,
 		/obj/item/clothing/under/kilt,
 		/obj/item/clothing/under/lance,
-		/obj/item/clothing/under/legion/pilot,
 		/obj/item/clothing/under/offworlder,
 		/obj/item/clothing/under/rank/bartender,
 		/obj/item/clothing/under/rank/hangar_technician/heph,

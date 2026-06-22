@@ -142,7 +142,7 @@
 
 /obj/structure/machinery/suit_cycler/offship/biesel
 	model_text = "Zavodskoi Interstellar"
-	req_access = list(ACCESS_TCAF_SHIPS)
+	req_access = list(ACCESS_TCAF)
 	departments = list("Tau Ceti Armed Forces")
 	suit = /obj/item/clothing/suit/space/void/tcaf
 	helmet = /obj/item/clothing/head/helmet/space/void/tcaf

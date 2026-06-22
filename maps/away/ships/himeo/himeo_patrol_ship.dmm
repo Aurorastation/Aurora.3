@@ -1961,7 +1961,7 @@
 	cycle_to_external_air = 1;
 	master_tag = "airlock_tcaf_shuttle";
 	name = "airlock_tcaf_shuttle";
-	req_one_access = list(204);
+	req_one_access = list(111);
 	shuttle_tag = "TCAF Gunship"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
@@ -10156,7 +10156,7 @@
 	cycle_to_external_air = 1;
 	master_tag = "airlock_tcaf_shuttle";
 	name = "airlock_tcaf_shuttle";
-	req_one_access = list(204);
+	req_one_access = list(111);
 	shuttle_tag = "TCAF Gunship"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,

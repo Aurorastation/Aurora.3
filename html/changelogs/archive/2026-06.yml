@@ -399,3 +399,76 @@
   - rscadd: Added the ability to clear the currently selected order in the delivery
       program and cargo control program.
   - rscadd: It is now possible to print invoices from the cargo delivery program.
+2026-06-20:
+  Batrachophrenoboocosmomachia:
+  - rscadd: Adds some additional grates to the Horizon's D2 Medical for traction in
+      zero-g.
+  - rscdel: Removes ADPI sound effects.
+  - bugfix: Fixes inflated Gravity Anomaly timing values.
+  - bugfix: Fixes ADPI line retrieval.
+  - qol: Reduces screenshake strength globally by 33%.
+  CatsinHD:
+  - rscadd: Added a new TGUI component for pencode markup and text editing.
+  - rscadd: Added form database to File Manager to download digital forms.
+  - qol: Shifts all editing, renaming, encrypting, etc. into File Manager UI.
+  - bugfix: Fixes potential issue with ID checks for IT access in File Manager.
+  FabianK3:
+  - rscadd: Converted the INDRA office into a new engineering hard storage.
+  - rscdel: Added a decontamination corner into the D2 engineering aft airlock room.
+  Fenodyree:
+  - bugfix: Fixes the base focusing lens for modular lasers not having reliability.
+  - refactor: Updates the keycard auth console to use TGUI.
+  - rscdel: Removes CE_ADRENALINE. This was a synaptizine only flag that gave you
+      a momvement speed and stamina buff.
+  - balance: Increases the threshold for NO_PAIN to 200, from 100. This means you
+      need more and stronger painkillers to be immune to pain effects.
+  - balance: Nerfs Synaptizine from 30 to 10 painkill.
+  - balance: Buffs Oxycomorphine from 200 to 210 painkill. This makes sure it always
+      puts you into NO_PAIN.
+  - balance: Buffs Mortaphenyl from 50 to 70 painkill. This means antag stimpacks
+      have the same total painkill.
+  Greenjoe:
+  - rscadd: Splits the Psi-protect pills into their own selection in the loadout.
+  Hellfirejag:
+  - rscadd: Cooking Skill now increases the amount of products gained from butchering
+      animals.
+  - rscadd: 'Xenobiology Skill now increases melee damage against Space Fauna (EG:
+      Space Carp, Space Bears, etc). Additionally, it also increases butchering products
+      gained from Space Fauna.'
+  - bugfix: Fixed numerous hard dels related to byond built-in refs not being cleared.
+  - refactor: Refactored datum destroy() for better performance.
+  - rscadd: Added dedicated logging for Destroy() procs that are interrupted by runtime
+      errors, since these are their own special case of hard del causes.
+  - bugfix: Fixed a runtime error with the photocopier.
+  - bugfix: Fixed a runtime error with smoke effects
+  - bugfix: Fixed a hard delete from carp migration and icarus drone swarm events
+  - refactor: Refactored surgeries to now allow variable do-after times via Signal
+      hooks.
+  - rscadd: The Anatomy skill now provides a small bonus to surgeries performed on
+      characters of a matching species.
+  - rscadd: The Xenobiology skill now provides a small bonus to surgeries performed
+      on characters of a different species.
+  - rscadd: The Surgery skill now provides a moderate increase to surgical speed for
+      all kinds of surgery, regardless of type.
+  - rscadd: Morale modifiers now affect surgical speed in addition to success rates.
+  - balance: To accommodate for there now being surgery speed bonuses, the base time
+      to perform all surgeries has been increased.
+  MattAtlas:
+  - bugfix: Fixed pain and ingame announcement font sizes.
+  TheGreyWolf:
+  - rscadd: Investigators now have the case dossier program. The rest of security
+      can also read it in read-only mode.
+  - rscadd: Evidence bags now labels the time, person and place when an item is bagged,
+      if they have forensic skill. This can also be editted with a pen.
+  - rscadd: Photos can now record similar data to the evidence bags if the user has
+      the forensic skill, or they are using a detective camera. This cannot be editted.
+  - rscadd: It is now possible to gather fibers and prints from objects inside evidence
+      bags.
+  - bugfix: Fixed some stuff with photos that should make them able to take photos
+      of certain things such as airlocks again.
+  Wowzewow (Wezzy):
+  - rscadd: Adds Grupo Amapola uniforms to the medical selections.
+  - bugfix: Fixes Grupo Amapola description.
+2026-06-21:
+  Yonnimer:
+  - rscadd: Adds a new voidtamer lantern to the voidtamer ship and as a loadout option.
