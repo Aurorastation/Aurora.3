@@ -1,9 +1,7 @@
-//This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:31
-
 /obj/structure/machinery/recharger
 	name = "recharger"
 	desc = "Useful for recharging electronic devices."
-	icon = 'icons/obj/stationobjs.dmi'
+	icon = 'icons/obj/machinery/recharger.dmi'
 	icon_state = "recharger_off"
 	anchored = 1
 	idle_power_usage = 6
@@ -17,7 +15,7 @@
 		/obj/item/circuitboard/recharger,
 		/obj/item/stock_parts/capacitor = 2
 	)
-	//Entropy. The charge put into the cell is multiplied by this
+	/// Entropy. The charge put into the cell is multiplied by this
 	var/obj/item/charging
 
 	var/list/allowed_devices = list(
@@ -34,7 +32,7 @@
 	)
 	var/icon_state_charged = "recharger100"
 	var/icon_state_charging = "recharger"
-	var/icon_state_idle = "recharger_off" //also when unpowered
+	var/icon_state_idle = "recharger_empty"
 	var/portable = 1
 	var/list/chargebars
 
@@ -152,35 +150,22 @@
 /obj/structure/machinery/recharger/process()
 	if(stat & (NOPOWER|BROKEN) || !anchored)
 		update_use_power(POWER_USE_OFF)
-		icon_state = icon_state_idle
+		update_icon()
 		return
 
 	if(!charging)
 		update_use_power(POWER_USE_IDLE)
-		icon_state = icon_state_idle
 	else
 		var/obj/item/cell/cell = charging.get_cell()
 		if(istype(cell))
 			var/obj/item/cell/C = cell
 			if(!C.fully_charged())
-				if(cell.charge / cell.maxcharge * 100 < 20)
-					icon_state = icon_state_charging + "0"
-				else if(cell.charge / cell.maxcharge * 100 < 40)
-					icon_state = icon_state_charging + "20"
-				else if(cell.charge / cell.maxcharge * 100 < 60)
-					icon_state = icon_state_charging + "40"
-				else if(cell.charge / cell.maxcharge * 100 < 80)
-					icon_state = icon_state_charging + "60"
-				else
-					icon_state = icon_state_charging + "80"
 				C.give(active_power_usage*CELLRATE*charging_efficiency)
-
 				update_use_power(POWER_USE_ACTIVE)
 			else
-				icon_state = icon_state_charged
 				update_use_power(POWER_USE_IDLE)
 
-			if (chargebars)
+			if(chargebars)
 				for (var/thing in chargebars)
 					var/datum/progressbar/bar = thing
 					if (QDELETED(bar))
@@ -188,11 +173,13 @@
 					else
 						bar.update(C.charge)
 
-		else if (cell == DEVICE_NO_CELL)
+		else if(cell == DEVICE_NO_CELL)
 			LOG_DEBUG("recharger: Item [DEBUG_REF(charging)] was in charger, but claims to have no internal cell slot; booting item.")
 			charging.forceMove(loc)
 			charging.visible_message("\The [charging] falls out of [src].")
 			charging = null
+
+	update_icon()
 
 /obj/structure/machinery/recharger/emp_act(severity)
 	. = ..()
@@ -210,19 +197,42 @@
 		if(B.bcell)
 			B.bcell.charge = 0
 
-/obj/structure/machinery/recharger/update_icon()	//we have an update_icon() in addition to the stuff in process to make it feel a tiny bit snappier.
+/obj/structure/machinery/recharger/update_icon()
 	ClearOverlays()
-	if (panel_open)
+	if(panel_open)
 		AddOverlays(image(icon, "npanel_open", pixel_x = -2, pixel_y = 11))
-	if(charging)
-		icon_state = icon_state_charging + "0"
-	else
+
+	if(stat & (NOPOWER|BROKEN) || !anchored)
+		icon_state = "recharger_off"
+		return
+
+	if(!charging)
+		update_use_power(POWER_USE_IDLE)
 		icon_state = icon_state_idle
+		AddOverlays(emissive_appearance(icon, icon_state_idle + "-e", src))
+	else
+		var/obj/item/cell/cell = charging.get_cell()
+		if(istype(cell))
+			var/obj/item/cell/C = cell
+			if(!C.fully_charged())
+				if(cell.charge / cell.maxcharge * 100 < 20)
+					icon_state = icon_state_charging + "0"
+				else if(cell.charge / cell.maxcharge * 100 < 40)
+					icon_state = icon_state_charging + "20"
+				else if(cell.charge / cell.maxcharge * 100 < 60)
+					icon_state = icon_state_charging + "40"
+				else if(cell.charge / cell.maxcharge * 100 < 80)
+					icon_state = icon_state_charging + "60"
+				else
+					icon_state = icon_state_charging + "80"
+				AddOverlays(emissive_appearance(icon, icon_state + "-e", src))
+			else
+				icon_state = icon_state_charged
+				AddOverlays(emissive_appearance(icon, icon_state_charged + "-e", src))
 
 /obj/structure/machinery/recharger/wallcharger
 	name = "wall recharger"
 	desc = "A heavy duty wall recharger specialized for energy weaponry."
-	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "wrecharger_off"
 	active_power_usage = 75 KILO WATTS
 	allowed_devices = list(
@@ -232,7 +242,7 @@
 	)
 	icon_state_charged = "wrecharger100"
 	icon_state_charging = "wrecharger"
-	icon_state_idle = "wrecharger_off"
+	icon_state_idle = "wrecharger_empty"
 	appearance_flags = TILE_BOUND // prevents people from viewing us through a wall
 	portable = FALSE
 	component_types = list(
@@ -244,14 +254,39 @@
 	. = list()
 	. += "This device can recharge energy weapons, stun batons, and flashlights."
 
-/obj/structure/machinery/recharger/wallcharger/update_icon()	//we have an update_icon() in addition to the stuff in process to make it feel a tiny bit snappier.
+/// Duplicate of parent proc except with different npanel pixel shifting. Whenever panel placement on objs in normalized, can remove this entire proc.
+/obj/structure/machinery/recharger/wallcharger/update_icon()
 	ClearOverlays()
-	if (panel_open)
+	if(panel_open)
 		AddOverlays(image(icon, "npanel_open", pixel_x = -1, pixel_y = 12))
-	if(charging)
-		icon_state = icon_state_charging + "0"
-	else
+
+	if(stat & (NOPOWER|BROKEN) || !anchored)
+		icon_state = "recharger_off"
+		return
+
+	if(!charging)
+		update_use_power(POWER_USE_IDLE)
 		icon_state = icon_state_idle
+		AddOverlays(emissive_appearance(icon, icon_state_idle + "-e", src))
+	else
+		var/obj/item/cell/cell = charging.get_cell()
+		if(istype(cell))
+			var/obj/item/cell/C = cell
+			if(!C.fully_charged())
+				if(cell.charge / cell.maxcharge * 100 < 20)
+					icon_state = icon_state_charging + "0"
+				else if(cell.charge / cell.maxcharge * 100 < 40)
+					icon_state = icon_state_charging + "20"
+				else if(cell.charge / cell.maxcharge * 100 < 60)
+					icon_state = icon_state_charging + "40"
+				else if(cell.charge / cell.maxcharge * 100 < 80)
+					icon_state = icon_state_charging + "60"
+				else
+					icon_state = icon_state_charging + "80"
+				AddOverlays(emissive_appearance(icon, icon_state + "-e", src))
+			else
+				icon_state = icon_state_charged
+				AddOverlays(emissive_appearance(icon, icon_state_charged + "-e", src))
 
 /obj/structure/machinery/recharger/wallcharger/attackby(obj/item/attacking_item, mob/user)
 	if(charging && (attacking_item.tool_behaviour == TOOL_SCREWDRIVER || attacking_item.tool_behaviour == TOOL_CROWBAR))

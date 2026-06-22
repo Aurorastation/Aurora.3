@@ -90,8 +90,8 @@
 #define LIGHT_EMERGENCY_POWER_USE 0.2 //How much power emergency lights will consume per tick
 
 // Some brightness/range defines for objects.
-#define L_WALLMOUNT_POWER 0.5
-#define L_WALLMOUNT_RANGE 1
+#define L_WALLMOUNT_POWER 0.2
+#define L_WALLMOUNT_RANGE 1.3
 #define L_WALLMOUNT_HI_POWER 1/// $4
 
 #define L_WALLMOUNT_HI_RANGE 2
