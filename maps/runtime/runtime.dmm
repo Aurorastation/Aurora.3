@@ -523,6 +523,9 @@
 /obj/effect/floor_decal/corner/grey{
 	dir = 6
 	},
+/obj/effect/landmark/start{
+	name = "Security Officer"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/central_one)
 "bG" = (
@@ -576,6 +579,9 @@
 "bM" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
+	},
+/obj/effect/landmark/start{
+	name = "Consular Officer"
 	},
 /turf/simulated/floor/wood/walnut,
 /area/hallway/primary/central_one)
@@ -689,6 +695,12 @@
 	},
 /obj/effect/landmark/minimap_poi{
 	desc = "Minimap description ayup"
+	},
+/obj/effect/landmark/start{
+	name = "Assistant"
+	},
+/obj/effect/landmark/start{
+	name = "Captain"
 	},
 /turf/simulated/floor/tiled/gridded,
 /area/hallway/primary/central_one)
@@ -1391,6 +1403,18 @@
 /obj/structure/machinery/vending/tacticool/ert,
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/central_one)
+"eF" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/effect/landmark/start{
+	name = "Hangar Technician"
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/hallway/primary/central_one)
 "eG" = (
 /obj/structure/railing/mapped/no_density/low,
 /obj/structure/machinery/mineral/stacking_unit_console{
@@ -1823,6 +1847,9 @@
 /turf/simulated/floor/tiled/gridded,
 /area/construction/storage)
 "hm" = (
+/obj/effect/landmark/start{
+	name = "Atmospheric Technician"
+	},
 /turf/simulated/floor/tiled/bitile,
 /area/construction/storage)
 "hy" = (
@@ -2086,6 +2113,12 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/hallway/primary/central_two)
+"iD" = (
+/obj/effect/landmark/start{
+	name = "Xenoarchaeologist"
+	},
+/turf/simulated/floor/tiled/white,
+/area/hallway/primary/central_one)
 "iG" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 9
@@ -2141,6 +2174,9 @@
 "iR" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
+	},
+/obj/effect/landmark/start{
+	name = "Chef"
 	},
 /turf/simulated/floor/wood/walnut,
 /area/hallway/primary/central_one)
@@ -2367,6 +2403,12 @@
 	},
 /turf/simulated/floor/tiled/gridded,
 /area/construction/storage)
+"kh" = (
+/obj/effect/landmark/start{
+	name = "Engineering Apprentice"
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/hallway/primary/central_one)
 "kj" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/cable/yellow{
@@ -4496,6 +4538,9 @@
 	dir = 9
 	},
 /obj/structure/curtain/open/bar,
+/obj/effect/landmark/start{
+	name = "Passenger"
+	},
 /turf/simulated/floor/wood/walnut,
 /area/hallway/primary/central_one)
 "wN" = (
@@ -4624,6 +4669,9 @@
 "xB" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
+	},
+/obj/effect/landmark/start{
+	name = "Bartender"
 	},
 /turf/simulated/floor/wood/walnut,
 /area/hallway/primary/central_one)
@@ -5910,6 +5958,18 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
+"Fy" = (
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 1
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 1
+	},
+/obj/effect/landmark/start{
+	name = "Lab Assistant"
+	},
+/turf/simulated/floor/tiled/white,
+/area/hallway/primary/central_one)
 "FA" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -6262,6 +6322,18 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/supply/dock)
+"Hx" = (
+/obj/effect/landmark/start{
+	name = "Pharmacist"
+	},
+/turf/simulated/floor/tiled/white,
+/area/hallway/primary/central_one)
+"Hy" = (
+/obj/effect/landmark/start{
+	name = "Scientist"
+	},
+/turf/simulated/floor/tiled/white,
+/area/hallway/primary/central_one)
 "HA" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/machinery/atmospherics/portables_connector{
@@ -6478,6 +6550,12 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/unsimulated/floor/dark_monotile,
 /area/hallway/primary/central_one)
+"Io" = (
+/obj/effect/landmark/start{
+	name = "Head of Security"
+	},
+/turf/unsimulated/floor/dark_monotile,
+/area/hallway/primary/central_one)
 "Iw" = (
 /obj/structure/machinery/atmospherics/portables_connector{
 	dir = 1
@@ -6618,6 +6696,15 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge)
+"Jl" = (
+/obj/effect/floor_decal/corner/grey{
+	dir = 6
+	},
+/obj/effect/landmark/start{
+	name = "Security Cadet"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hallway/primary/central_one)
 "Jo" = (
 /obj/structure/platform/ledge{
 	dir = 1
@@ -6778,6 +6865,9 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 1
 	},
+/obj/effect/landmark/start{
+	name = "Cyborg"
+	},
 /turf/simulated/floor/tiled/gridded,
 /area/turret_protected/ai)
 "Kj" = (
@@ -6874,6 +6964,9 @@
 "KI" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
+	},
+/obj/effect/landmark/start{
+	name = "Investigator"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/central_one)
@@ -6988,6 +7081,12 @@
 	},
 /turf/simulated/floor/airless,
 /area/construction/storage)
+"LE" = (
+/obj/effect/landmark/start{
+	name = "Chief Medical Officer"
+	},
+/turf/simulated/floor/tiled/white,
+/area/hallway/primary/central_one)
 "LG" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -7253,6 +7352,18 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/construction/storage)
+"NI" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 6
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/effect/landmark/start{
+	name = "Xenobiologist"
+	},
+/turf/simulated/floor/tiled/white,
+/area/hallway/primary/central_one)
 "NM" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
@@ -7307,6 +7418,7 @@
 	c_tag = "Central 1";
 	dir = 4
 	},
+/obj,
 /turf/simulated/floor/tiled/full,
 /area/hallway/primary/central_one)
 "Oh" = (
@@ -7486,6 +7598,12 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/construction/storage)
+"Pt" = (
+/obj/effect/landmark/start{
+	name = "Shaft Miner"
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/hallway/primary/central_two)
 "Pu" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/loading/yellow{
@@ -8628,6 +8746,16 @@
 /obj/item/paper/fluff/runtime/dontforgetuseovermap,
 /turf/simulated/floor/carpet/rubber,
 /area/bridge)
+"UX" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/landmark/start{
+	name = "Machinist"
+	},
+/turf/simulated/floor/tiled/white,
+/area/hallway/primary/central_one)
 "Va" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 8
@@ -8831,11 +8959,17 @@
 /area/hallway/primary/central_two)
 "WM" = (
 /obj/effect/floor_decal/spline/fancy/wood,
+/obj/effect/landmark/start{
+	name = "Chaplain"
+	},
 /turf/simulated/floor/wood/walnut,
 /area/hallway/primary/central_one)
 "WN" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
+	},
+/obj/effect/landmark/start{
+	name = "Bridge Crew"
 	},
 /turf/simulated/floor/wood/walnut,
 /area/hallway/primary/central_one)
@@ -8938,6 +9072,18 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/construction/storage)
+"Xv" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/effect/landmark/start{
+	name = "Operations Manager"
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/hallway/primary/central_one)
 "Xx" = (
 /obj/structure/sign/radiation{
 	pixel_y = 32
@@ -9077,6 +9223,9 @@
 /area/supply/dock)
 "Yi" = (
 /obj/structure/machinery/alarm/north,
+/obj/effect/landmark/start{
+	name = "Chief Engineer"
+	},
 /turf/simulated/floor/tiled/gridded,
 /area/hallway/primary/central_one)
 "Yk" = (
@@ -9241,6 +9390,15 @@
 	},
 /turf/simulated/floor/tiled/gridded,
 /area/hallway/primary/central_two)
+"Zy" = (
+/obj/effect/floor_decal/corner/grey{
+	dir = 6
+	},
+/obj/effect/landmark/start{
+	name = "Warden"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hallway/primary/central_one)
 "Zz" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -9251,6 +9409,18 @@
 /obj/effect/decal/fake_object/light_source/invisible,
 /turf/simulated/floor/reinforced/nitrogen,
 /area/construction/storage)
+"ZF" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 9
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/landmark/start{
+	name = "Xenobotanist"
+	},
+/turf/simulated/floor/tiled/white,
+/area/hallway/primary/central_one)
 "ZG" = (
 /obj/structure/railing/mapped/no_density/low,
 /obj/structure/machinery/firealarm/north,
@@ -11537,7 +11707,7 @@ PX
 mt
 uI
 sH
-sH
+Hx
 sH
 sH
 sH
@@ -11788,7 +11958,7 @@ IM
 yT
 kX
 sJ
-sH
+LE
 sH
 PX
 mt
@@ -12816,7 +12986,7 @@ dg
 dx
 ay
 uQ
-ae
+ZF
 ae
 aj
 HT
@@ -13073,7 +13243,7 @@ cH
 cq
 ay
 Nj
-sH
+iD
 sH
 Qg
 Mz
@@ -13327,10 +13497,10 @@ wy
 rP
 kX
 ce
-cq
+UX
 sU
 Eu
-mo
+Fy
 mo
 ak
 Oq
@@ -13342,7 +13512,7 @@ bA
 NX
 ap
 Ra
-cx
+eF
 HB
 aG
 cN
@@ -13587,7 +13757,7 @@ Lu
 Cz
 qL
 mg
-sH
+Hy
 sH
 bq
 ab
@@ -13599,7 +13769,7 @@ bB
 lc
 fF
 FQ
-cx
+Xv
 Bv
 PG
 XD
@@ -13844,7 +14014,7 @@ cZ
 TD
 qL
 ca
-SA
+NI
 SA
 XX
 HT
@@ -14872,7 +15042,7 @@ js
 cv
 dq
 hI
-ag
+kh
 SC
 am
 Ry
@@ -16164,7 +16334,7 @@ dq
 aO
 aZ
 MW
-bc
+Io
 In
 Hk
 cp
@@ -16420,8 +16590,8 @@ fG
 dq
 aO
 bc
-bF
-bF
+Jl
+Zy
 bF
 bc
 cp
@@ -81956,7 +82126,7 @@ BQ
 Jf
 lB
 rA
-TR
+Pt
 rm
 TR
 xj
