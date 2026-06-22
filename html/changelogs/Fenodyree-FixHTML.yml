@@ -1,0 +1,5 @@
+author: Fenodyree
+
+delete-after: True
+changes:
+  - bugfix: "Fixes HTML interfaces not updating when a user hits a UI button."
