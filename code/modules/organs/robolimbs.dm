@@ -219,7 +219,7 @@ GLOBAL_DATUM(basic_robolimb, /datum/robolimb)
 
 /datum/robolimb/vaurca/bulwark
 	company = PROSTHETIC_VAURCA_BULWARK
-	desc = "An adaptation of designs from old Sedantis, it has been redesigned to accomodate for larger bioforms."
+	desc = "An adaptation of designs from old Sedantis, it has been redesigned to accomodate larger bioforms."
 	icon = 'icons/mob/human_races/vaurca/r_vaurcabulwarklimbs.dmi'
 	species_can_use = list(SPECIES_VAURCA_BULWARK)
 	paintable = TRUE
