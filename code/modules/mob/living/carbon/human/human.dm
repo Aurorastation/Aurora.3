@@ -1502,9 +1502,6 @@
 		to_chat(usr, SPAN_WARNING("You failed to check the pulse. Try again."))
 
 /mob/living/carbon/human/proc/set_species(new_species, default_colour, kpg = 0, change_hair = TRUE)
-	if (!new_species)
-		return
-
 	cached_bodytype = null
 	if(!dna)
 		if(!new_species)
