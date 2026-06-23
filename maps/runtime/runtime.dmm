@@ -2098,7 +2098,7 @@
 "is" = (
 /obj/effect/step_trigger/cargo_elevator,
 /turf/simulated/floor/plating/cargo_elevator,
-/area/runtime/floor_one/main)
+/area/horizon/hangar/operations)
 "iv" = (
 /obj/effect/floor_decal/industrial/outline/service,
 /obj/structure/machinery/vending/hydronutrients/hydroponics,
