@@ -71,15 +71,16 @@
 		adjustFireLoss(5.0*discomfort)
 
 
-/mob/living/carbon/brain/handle_chemicals_in_body()
+/mob/living/carbon/brain/handle_chemicals_in_body(seconds_per_tick)
+	ENFORCE_CALCULUS(seconds_per_tick)
 	chem_effects.Cut()
 	analgesic = 0
 
-	if(touching) touching.metabolize()
+	if(touching) touching.metabolize(seconds_per_tick)
 	var/datum/reagents/metabolism/ingested = get_ingested_reagents()
-	if(istype(ingested)) ingested.metabolize()
-	if(bloodstr) bloodstr.metabolize()
-	if(breathing) breathing.metabolize()
+	if(istype(ingested)) ingested.metabolize(seconds_per_tick)
+	if(bloodstr) bloodstr.metabolize(seconds_per_tick)
+	if(breathing) breathing.metabolize(seconds_per_tick)
 
 	if(CE_PAINKILLER in chem_effects)
 		analgesic = chem_effects[CE_PAINKILLER]

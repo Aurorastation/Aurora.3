@@ -1,4 +1,5 @@
-#define REM 0.2 // Means 'Reagent Effect Multiplier'. This is how many units of reagent are consumed per tick
+/// Base amount of reagents to metabolize "per second".
+#define REM 0.1
 
 #define CHEM_TOUCH 1
 #define CHEM_INGEST 2

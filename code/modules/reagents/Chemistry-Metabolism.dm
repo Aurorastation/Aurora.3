@@ -13,7 +13,8 @@
 	parent = null
 	. = ..()
 
-/datum/reagents/metabolism/proc/metabolize()
+/datum/reagents/metabolism/proc/metabolize(seconds_per_tick)
+	ENFORCE_CALCULUS(seconds_per_tick)
 	if(!parent)
 		return
 	var/metabolism_type = 0 //non-human mobs
@@ -27,5 +28,5 @@
 	// then run this to actually do what the chems do
 	for(var/_current in reagent_volumes)
 		var/singleton/reagent/current = GET_SINGLETON(_current)
-		current.on_mob_life(parent, metabolism_type, metabolism_class, src)
+		current.on_mob_life(parent, metabolism_type, metabolism_class, src, seconds_per_tick)
 	update_total()

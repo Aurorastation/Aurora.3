@@ -11,6 +11,7 @@
 		add_verb(src, /verb/toggle_indefinite_sleep)
 
 /mob/living/carbon/Life(seconds_per_tick, times_fired)
+	ENFORCE_CALCULUS(seconds_per_tick)
 	if(!..())
 		return
 
@@ -25,7 +26,7 @@
 		handle_breathing()
 
 		//Chemicals in the body
-		handle_chemicals_in_body()
+		handle_chemicals_in_body(seconds_per_tick)
 
 		//Random events (vomiting etc)
 		handle_random_events()
