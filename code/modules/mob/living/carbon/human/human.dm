@@ -271,7 +271,7 @@
 			. += "Genetic Damage Time: [changeling.geneticdamage]"
 
 		if(mind.special_role) //we are an antag
-			. += "<font color='red'>Current Antagonists:</font>"
+			. += "Current Antagonists:"
 			for(var/antag_type in GLOB.all_antag_types)
 				var/datum/antagonist/validhunted = GLOB.all_antag_types[antag_type]
 				if(length(validhunted.current_antagonists))
