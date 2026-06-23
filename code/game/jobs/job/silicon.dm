@@ -13,7 +13,7 @@
 	account_allowed = 0
 	economic_modifier = 0
 
-/datum/job/ai/equip(var/mob/living/carbon/human/H, var/alt_title)
+/datum/job/ai/equip(var/mob/living/carbon/human/H, visualsOnly, announce, alt_title, obj/outfit/outfit_override)
 		if(!H)	return 0
 		return 1
 
@@ -49,7 +49,7 @@
 	account_allowed = 0
 	economic_modifier = 0
 
-/datum/job/cyborg/equip(var/mob/living/carbon/human/H, var/alt_title)
+/datum/job/cyborg/equip(var/mob/living/carbon/human/H, visualsOnly, announce, alt_title, obj/outfit/outfit_override)
 	if(!H)
 		return FALSE
 	return TRUE

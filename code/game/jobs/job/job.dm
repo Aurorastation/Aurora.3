@@ -122,10 +122,11 @@
 	H.species.before_equip(H, visualsOnly, src)
 	H.preEquipOutfit(get_outfit(H, alt_title), visualsOnly)
 
-/datum/job/proc/equip(mob/living/carbon/human/H, visualsOnly = FALSE, announce = TRUE, alt_title = null)
+/datum/job/proc/equip(mob/living/carbon/human/H, visualsOnly = FALSE, announce = TRUE, alt_title = null, obj/outfit/outfit_override)
 	if(!H)
 		return 0
-	H.equipOutfit(get_outfit(H, alt_title), visualsOnly)
+
+	H.equipOutfit(istype(outfit_override) ? outfit_override : get_outfit(H, alt_title), visualsOnly)
 
 	H.species.after_equip(H, visualsOnly, src)
 
@@ -159,6 +160,7 @@
 
 // overrideable separately so AIs/borgs can have cardborg hats without unneccessary new()/del()
 /datum/job/proc/equip_preview(mob/living/carbon/human/H, datum/preferences/prefs, var/alt_title, var/faction_override)
+	var/obj/outfit/outfit_override
 	if(faction_override)
 		var/faction = SSjobs.name_factions[faction_override]
 		if(faction)
@@ -168,10 +170,12 @@
 				if(ispath(new_outfit))
 					var/obj/outfit/O = new new_outfit
 					O.pre_equip(H, TRUE)
-					O.equip(H, TRUE)
+					outfit_override = O
 
-	pre_equip(H, TRUE)
-	. = equip(H, TRUE, FALSE, alt_title=alt_title)
+	if(!outfit_override)
+		pre_equip(H, TRUE)
+
+	. = equip(H, TRUE, FALSE, alt_title = alt_title, outfit_override = outfit_override)
 
 	// slightly hacky, but effectively what we're doing here is checking whether we want this preview mob to actually have the uniform we're putting onto it
 	// if not, we drop it from the inventory into nullspace, and then deleting it
