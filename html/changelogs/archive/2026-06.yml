@@ -472,3 +472,17 @@
 2026-06-21:
   Yonnimer:
   - rscadd: Adds a new voidtamer lantern to the voidtamer ship and as a loadout option.
+2026-06-23:
+  ASmallCuteCat:
+  - admin: The category of admin commands which trigger round-ending events has been
+      renamed to Round-Ending Secrets.
+  Fenodyree:
+  - rscadd: Fixes a runtime on the runtime map. All jobs now have spawnpoints.
+  - balance: Nerfs human shields. You can now aim for the head, legs or opposite arm
+      to bypass the human shield. Additionally, shooting destroyed limbs causes shots
+      to hit both the hostage and the hostage taker.
+  - bugfix: Fixes HTML interfaces not updating when a user hits a UI button.
+  - bugfix: Fixes immortal robot organs.
+  kermit:
+  - rscadd: Reflavours all existing TCAF stuff to fit the new TCAF expansion/rework.
+  - rscdel: Deletes or repurposes 4-years-defunct TCFL stuff from the codebase.
