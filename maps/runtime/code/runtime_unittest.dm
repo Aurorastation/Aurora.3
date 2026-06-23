@@ -7,7 +7,7 @@
 	ut_apc_exempt_areas = list(
 		/area/runtime/floor_one/warehouse/package,
 		/area/supply/dock,
-		/area/horizon/hangar/operations,	// yes, this exists in the runtime map. Cargo elevator is a shuttle and it'Ll replace the area of where it lands
+		/area/horizon/hangar/operations,	// yes, this exists in the runtime map. Cargo elevator is a shuttle and it'll replace the area of where it lands
 		/area/centcom,						// yes, this is annoying
 		)
 
