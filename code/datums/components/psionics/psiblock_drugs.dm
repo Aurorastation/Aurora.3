@@ -4,10 +4,6 @@
 
 #define RISK_HIGH list("You feel detached from your surroundings.", "Everyone seems less real.", "The world feels insulated.", "Everything seems so quiet.", "For a moment, it feels like there is a faint hum.", "The people around you seem indistinct.", "The quiet feels thicker than before.", "The world feels distant and muffled.", "Your thoughts seem to vanish before you can finish them.", "You cannot remember how long you have been standing here.", "You feel strangely absent for a moment.", "There was something important... What was it again?", "The world around you feels artificial.", "You feel disconnected from your actions.", "How did you get here again?", "Something feels like it is missing from you.")
 
-#define PSIBLOCK_EFFECT_HEADACHE "headache"
-#define PSIBLOCK_EFFECT_MOTOR "motor"
-#define PSIBLOCK_EFFECT_PALPITATIONS "palpitations"
-
 /datum/component/timed_life/psiblock_drugs
 	/// Typecasted parent of this component.
 	var/mob/living/carbon/human/owner
@@ -124,21 +120,7 @@
 	var/seizure_intensity = 1
 
 	/// The time until the seizure after the warning
-	var/seizure_warning_delay = 1 MINUTE
-
-	/// The next time a routine Ranixidone side effect may occur.
-	var/next_side_effect_time = 0
-
-	/// Minimum time between routine side effects.
-	var/min_side_effect_time = 1 MINUTE
-
-	/// Maximum time between routine side effects.
-	var/max_side_effect_time = 3 MINUTES
-
-	/// Weighted likelihoods for routine side effects.
-	var/headache_weight = 35
-	var/motor_weight = 15
-	var/palpitations_weight = 10
+	var/seizure_warning_delay = 20 SECONDS
 
 	/// The time until the next message
 	var/next_message = 0
@@ -176,39 +158,19 @@
 		"The world feels distant and muffled."
 	)
 
-	var/list/headache_messages = list(
-		"A dull ache builds behind your eyes.",
-		"Pain pulses through your temples.",
-		"Pressure gathers at the base of your skull.",
-		"A headache settles heavily behind your forehead."
-	)
-
-	var/list/motor_control_messages = list(
-		"Your footing suddenly feels uncertain.",
-		"Your balance shifts unexpectedly.",
-		"Your limbs move a moment later than expected.",
-		"Your steps feel awkward and uneven.",
-		"Your tongue briefly feels clumsy in your mouth."
-	)
-
-	var/list/palpitation_messages = list(
-		"Your heart skips a beat.",
-		"Your heartbeat suddenly flutters.",
-		"Your heart races for several uncomfortable moments."
-	)
-
 	var/list/seizure_warning_messages = list(
 		"A powerful metallic taste suddenly floods your mouth.",
 		"You briefly smell something burning.",
 		"An overpowering chemical taste fills your mouth.",
-		"The air suddenly smells sickeningly sweet."
+		"The air suddenly smells sickeningly sweet.",
+		"A wave of nausea rises abruptly through your stomach."
 	)
 
 /datum/component/timed_life/psiblock_drugs/yomi_genetics/Initialize(lifetime_seconds = 5 MINUTES)
 	. = ..()
 	next_tremor_time = REALTIMEOFDAY + rand(min_tremor_time, max_tremor_time)
 	next_seizure_time = REALTIMEOFDAY + rand(min_seizure_time, max_seizure_time)
-	next_side_effect_time = REALTIMEOFDAY + rand(min_side_effect_time, max_side_effect_time)
+
 	next_message = REALTIMEOFDAY + message_delay
 	// A little slower than normal. Estimated frequency: 1 min
 	next_drug_message = REALTIMEOFDAY + (DRUG_MESSAGE_COOLDOWN * 2)
@@ -243,63 +205,18 @@
 		next_tremor_time = REALTIMEOFDAY + rand(min_tremor_time, max_tremor_time)
 		next_message = REALTIMEOFDAY + message_delay
 
-	if(REALTIMEOFDAY >= next_side_effect_time && REALTIMEOFDAY >= next_message)
-		trigger_random_side_effect()
-		next_side_effect_time = REALTIMEOFDAY + rand(min_side_effect_time, max_side_effect_time )
-		next_message = REALTIMEOFDAY + message_delay
-
-	if(REALTIMEOFDAY >= next_drug_message)
+	if(REALTIMEOFDAY >= next_drug_message && REALTIMEOFDAY >= next_message)
 		if(!length(ongoing_effect_message))
 			next_message = (REALTIMEOFDAY + 2 HOURS)
 			return
 		var/message = pick(ongoing_effect_message)
 		to_chat(owner, SPAN_NOTICE("[message]"))
 		next_drug_message = REALTIMEOFDAY + (DRUG_MESSAGE_COOLDOWN * 2)
+		next_message = REALTIMEOFDAY + message_delay
 
 	if(REALTIMEOFDAY >= next_seizure_time)
 		begin_seizure_warning()
 		next_seizure_time = REALTIMEOFDAY + rand(min_seizure_time, max_seizure_time)
-
-/datum/component/timed_life/psiblock_drugs/yomi_genetics/proc/trigger_random_side_effect()
-	if(!owner)
-		return
-
-	var/list/effect_weights = list(
-		PSIBLOCK_EFFECT_HEADACHE = headache_weight,
-		PSIBLOCK_EFFECT_MOTOR = motor_weight,
-		PSIBLOCK_EFFECT_PALPITATIONS = palpitations_weight,
-	)
-
-	switch(pickweight(effect_weights))
-		if(PSIBLOCK_EFFECT_HEADACHE)
-			trigger_headache()
-
-		if(PSIBLOCK_EFFECT_MOTOR)
-			trigger_motor_episode()
-
-		if(PSIBLOCK_EFFECT_PALPITATIONS)
-			trigger_palpitations()
-
-/datum/component/timed_life/psiblock_drugs/yomi_genetics/proc/trigger_headache()
-	if(!owner)
-		return
-	var/obj/item/organ/external/affecting = owner.get_organ(BP_HEAD)
-	owner.custom_pain(pick(headache_messages), 2, TRUE, affecting, FALSE)
-
-/datum/component/timed_life/psiblock_drugs/yomi_genetics/proc/trigger_motor_episode()
-	if(!owner)
-		return
-
-	to_chat(owner, SPAN_WARNING(pick(motor_control_messages)))
-
-	owner.confused += rand(2, 4)
-
-/datum/component/timed_life/psiblock_drugs/yomi_genetics/proc/trigger_palpitations()
-	if(!owner)
-		return
-
-	to_chat(owner, SPAN_WARNING(pick(palpitation_messages)))
-	owner.add_chemical_effect(CE_PULSE, 2)
 
 /datum/component/timed_life/psiblock_drugs/yomi_genetics/proc/begin_seizure_warning()
 	if(!owner)
@@ -316,10 +233,6 @@
 
 	min_seizure_time = 5 MINUTES
 	max_seizure_time = 30 MINUTES
-
-	headache_weight = 20
-	motor_weight = 25
-	palpitations_weight = 20
 
 	telepathy_cancel_probability = 75
 	psi_sensitivity_modifier = -0.75
@@ -338,15 +251,6 @@
 
 	min_seizure_time = 30 MINUTES
 
-	// Guaranteed one message, but two is not a certainty
-	min_side_effect_time = 3 MINUTES
-	max_side_effect_time = 8 MINUTES
-
-	// Overall way safer
-	headache_weight = 55
-	motor_weight = 7
-	palpitations_weight = 0
-
 	telepathy_cancel_probability = 100
 	psi_sensitivity_modifier = -1.25
 	accuracy_penalty = 0.15
@@ -356,10 +260,6 @@
 /datum/component/timed_life/psiblock_drugs/yomi_genetics/expensive/Initialize(lifetime_seconds)
 	. = ..()
 	ongoing_effect_message = RISK_LOW
-
-#undef PSIBLOCK_EFFECT_HEADACHE
-#undef PSIBLOCK_EFFECT_MOTOR
-#undef PSIBLOCK_EFFECT_PALPITATIONS
 
 #undef RISK_LOW
 
