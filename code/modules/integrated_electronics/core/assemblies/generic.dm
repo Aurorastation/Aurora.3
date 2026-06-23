@@ -34,13 +34,13 @@
 
 	return ..()
 
-/obj/item/electronic_assembly/mob_can_equip(mob/user, slot, disable_warning = FALSE, bypass_equip_delay_self = FALSE)
+/obj/item/electronic_assembly/mob_can_equip(mob/user, slot, disable_warning = FALSE, bypass_blocked_check = FALSE, is_overlay_check = FALSE)
 	if(anchored)
 		if(!disable_warning)
 			to_chat(user, SPAN_WARNING("\The [src] is anchored in place."))
 		return FALSE
 
-	return ..()
+	return ..(user, slot, disable_warning, bypass_blocked_check, is_overlay_check)
 
 // Small assemblies.
 
