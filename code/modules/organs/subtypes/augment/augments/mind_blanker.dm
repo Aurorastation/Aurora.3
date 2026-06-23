@@ -57,7 +57,8 @@
 			return
 		var/message = pick(ongoing_effect_message)
 		to_chat(owner, SPAN_NOTICE("[message]"))
-		owner.play_screen_text("[message]", /atom/movable/screen/text/screen_text/mental_message, COLOR_TEAL)
+		if(prob(20))
+			owner.play_screen_text("[message]", /atom/movable/screen/text/screen_text/mental_message, COLOR_TEAL)
 		next_message = (REALTIMEOFDAY + DRUG_MESSAGE_COOLDOWN * 4)
 
 /obj/item/organ/internal/augment/bioaug/mind_blanker/proc/cancel_power(implantee, caster, cancelled, cancel_return, wide_field)
@@ -136,7 +137,8 @@
 			return
 		var/message = pick(ongoing_effect_message)
 		to_chat(owner, SPAN_NOTICE("[message]"))
-		owner.play_screen_text("[message]", /atom/movable/screen/text/screen_text/mental_message, COLOR_TEAL)
+		if(prob(20))
+			owner.play_screen_text("[message]", /atom/movable/screen/text/screen_text/mental_message, COLOR_TEAL)
 		next_message = (REALTIMEOFDAY + DRUG_MESSAGE_COOLDOWN * 3)
 
 /obj/item/organ/internal/augment/bioaug/mind_blanker_lethal/replaced()
