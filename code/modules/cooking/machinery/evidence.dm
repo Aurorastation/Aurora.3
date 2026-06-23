@@ -14,4 +14,4 @@
 	has_emissive = FALSE
 	visible_takeout = TRUE
 	initial_contents = list(/obj/item/storage/box/large = 6,
-                        /obj/item/storage/box = 6)
+						/obj/item/storage/box = 6)
