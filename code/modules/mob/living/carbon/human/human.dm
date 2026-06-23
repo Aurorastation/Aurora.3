@@ -270,7 +270,7 @@
 			. += "Chemical Storage: [changeling.chem_charges]"
 			. += "Genetic Damage Time: [changeling.geneticdamage]"
 
-		if(special_role) //we are an antag
+		if(mind.special_role) //we are an antag
 			. += "<font color='red'>Current Antagonists:</font>"
 			for(var/antag_type in GLOB.all_antag_types)
 				var/datum/antagonist/validhunted = GLOB.all_antag_types[antag_type]
