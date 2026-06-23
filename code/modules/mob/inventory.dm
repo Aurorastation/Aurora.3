@@ -41,7 +41,7 @@
 		return FALSE
 
 	var/obj/item/current_item_in_slot = get_equipped_item(slot)
-	if(canUnEquip(current_item_in_slot))
+	if(bypass_blocked_check || canUnEquip(current_item_in_slot))
 		equip_to_slot(item_to_equip, slot, redraw_mob, assisted_equip) //This proc should not ever fail.
 		return TRUE
 
