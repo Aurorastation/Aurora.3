@@ -87,6 +87,9 @@
 	to_chat(leader, SPAN_BAD("Why should you care about how others feel?"))
 	*moodlet_value = *moodlet_value * 0.5
 
+/datum/component/timed_life/psiblock_drugs/process(seconds_per_tick)
+	. = ..()
+
 // Variants of psiblocking drugs
 /datum/component/timed_life/psiblock_drugs/yomi_genetics
 	/// The next time (in real life seconds) that a hand tremor will occur.
