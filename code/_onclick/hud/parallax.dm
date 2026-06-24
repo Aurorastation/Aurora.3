@@ -279,7 +279,7 @@
 		layer.set_z(current_skybox_z)
 
 /atom/movable/screen/parallax_layer
-	icon = 'icons/effects/parallax.dmi'
+	icon = 'icons/skybox/parallax.dmi'
 	var/speed = 1
 	var/offset_x = 0
 	var/offset_y = 0
