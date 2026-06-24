@@ -486,3 +486,6 @@
   kermit:
   - rscadd: Reflavours all existing TCAF stuff to fit the new TCAF expansion/rework.
   - rscdel: Deletes or repurposes 4-years-defunct TCFL stuff from the codebase.
+2026-06-24:
+  TheGreyWolf:
+  - bugfix: Smoking while drinking no longer risks hallucinations.
