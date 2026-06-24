@@ -12,6 +12,8 @@
 	sectors = list(ALL_TAU_CETI_SECTORS, ALL_BADLAND_SECTORS, ALL_COALITION_SECTORS, SECTOR_LIGHTS_EDGE, SECTOR_LEMURIAN_SEA)
 	unit_test_groups = list(1)
 
+	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
+
 /singleton/submap_archetype/voidtamer_trade_ship
 	map = "Voidtamer Trade Ship"
 	descriptor = "A trade ship of the Voidtamer Conflux. While far from being built for combat, the vessel is outfitted for self-defense against space fauna and potentially hostile ships. The vessel is loaded for trade, looking for various ports and ships to trade at."
