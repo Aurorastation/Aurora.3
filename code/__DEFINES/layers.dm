@@ -130,11 +130,6 @@
 /// Plane for balloon text.
 #define BALLOON_CHAT_PLANE 35
 
-// TG_PLANE_CUBE_TEMP: remove after skybox, space parallax, and dust visuals are reattached to tg planes.
-#define SPACE_PLANE PLANE_SPACE
-#define SKYBOX_PLANE PLANE_SPACE_PARALLAX
-#define DUST_PLANE PLANE_SPACE_PARALLAX
-
 //---------- HUD -------------
 
 #define HUD_PLANE 40
@@ -155,9 +150,6 @@
 #define RENDER_PLANE_GAME_MASKED 51
 /// The bit of the game plane that is left alone is sent here.
 #define RENDER_PLANE_GAME_UNMASKED 52
-
-// TG_PLANE_CUBE_TEMP: remove after cinematic rendering is reattached as tg HUD/escape-menu behavior.
-#define CINEMATIC_PLANE 54
 
 #define RENDER_PLANE_NON_GAME 55
 

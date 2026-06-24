@@ -1320,7 +1320,7 @@
 	. = ..()
 
 	if(. && client)
-		client.update_skybox(old_z != GET_Z(src))
+		client.update_parallax_after_movement(old_z != GET_Z(src))
 
 /mob/verb/northfaceperm()
 	set hidden = 1

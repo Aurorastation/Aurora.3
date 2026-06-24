@@ -27,14 +27,14 @@
 		return
 
 	if(displaying_client.prefs?.toggles_secondary & PARALLAX_DISABLED)
-		rock.set_layer_settings(layers_to_draw = 0, draw_aurora_skybox = FALSE, animate_parallax = FALSE)
+		rock.set_layer_settings(layers_to_draw = 0, draw_skybox_layers = FALSE, animate_parallax = FALSE)
 		return
 
 	if(displaying_client.prefs?.toggles_secondary & PARALLAX_IS_STATIC)
-		rock.set_layer_settings(layers_to_draw = 1, draw_aurora_skybox = TRUE, animate_parallax = FALSE)
+		rock.set_layer_settings(layers_to_draw = 1, draw_skybox_layers = TRUE, animate_parallax = FALSE)
 		return
 
-	rock.set_layer_settings(layers_to_draw = 4, draw_aurora_skybox = TRUE, animate_parallax = TRUE)
+	rock.set_layer_settings(layers_to_draw = 4, draw_skybox_layers = TRUE, animate_parallax = TRUE)
 
 /datum/hud/proc/update_parallax_pref()
 	var/client/displaying_client = mymob?.canon_client || mymob?.client
@@ -69,6 +69,8 @@
 	displaying_client.parallax_animate_timers = list()
 
 	for(var/atom/movable/screen/parallax_layer/layer as anything in displaying_client.parallax_rock.parallax_layers)
+		if(layer.speed <= 0)
+			continue
 		var/scaled_time = PARALLAX_LOOP_TIME / max(layer.speed, 0.1)
 		if(new_parallax_movedir == NONE)
 			scaled_time = PARALLAX_LOOP_TIME
@@ -110,7 +112,7 @@
 	if(!posobj)
 		return
 
-	rock.set_skybox_z(posobj.z)
+	rock.set_sector_z(posobj.z)
 
 	var/area/areaobj = posobj.loc
 	set_parallax_movedir(areaobj?.parallax_movedir || NONE)
@@ -178,10 +180,22 @@
 		var/area/areaobj = get_area(client.eye)
 		hud_used.set_parallax_movedir(areaobj?.parallax_movedir || NONE, TRUE)
 
-/client/proc/refresh_parallax_skybox()
+/client/proc/refresh_parallax_skybox_layers()
 	if(parallax_rock)
-		parallax_rock.refresh_aurora_layers()
+		parallax_rock.refresh_skybox_layers()
 	mob?.hud_used?.update_parallax_pref()
+
+/client/proc/update_parallax_after_movement(z_changed)
+	if(z_changed)
+		mob?.hud_used?.update_parallax_pref()
+	else
+		mob?.hud_used?.update_parallax()
+
+/mob/Move(atom/newloc, direct, glide_size_override, update_dir)
+	var/old_z = GET_Z(src)
+	. = ..()
+	if(. && client)
+		client.update_parallax_after_movement(old_z != GET_Z(src))
 
 /// Root object for parallax. All parallax layers are drawn onto this and managed here.
 /atom/movable/screen/parallax_home
@@ -193,11 +207,11 @@
 	var/list/atom/movable/screen/parallax_layer/parallax_layers = list()
 	var/list/atom/movable/screen/parallax_layer/parallax_layers_cached = list()
 	var/layers_to_draw = 0
-	var/draw_aurora_skybox = TRUE
+	var/draw_skybox_layers = TRUE
 	var/displaying_layers = FALSE
 	var/animate_parallax = FALSE
 	var/client/owner
-	var/current_skybox_z
+	var/current_sector_z
 
 /atom/movable/screen/parallax_home/Initialize(mapload, datum/hud/hud_owner, client/owner)
 	. = ..()
@@ -222,12 +236,12 @@
 	vis_contents = list()
 	displaying_layers = FALSE
 
-/atom/movable/screen/parallax_home/proc/set_layer_settings(layers_to_draw, draw_aurora_skybox, animate_parallax)
+/atom/movable/screen/parallax_home/proc/set_layer_settings(layers_to_draw, draw_skybox_layers, animate_parallax)
 	src.animate_parallax = animate_parallax
-	if(src.layers_to_draw == layers_to_draw && src.draw_aurora_skybox == draw_aurora_skybox)
+	if(src.layers_to_draw == layers_to_draw && src.draw_skybox_layers == draw_skybox_layers)
 		return
 	src.layers_to_draw = layers_to_draw
-	src.draw_aurora_skybox = draw_aurora_skybox
+	src.draw_skybox_layers = draw_skybox_layers
 	regenerate_layers()
 
 /atom/movable/screen/parallax_home/proc/generate_space_layer(index)
@@ -237,7 +251,7 @@
 		if(2)
 			return new /atom/movable/screen/parallax_layer/layer_2(null, null, owner)
 		if(3)
-			return new /atom/movable/screen/parallax_layer/planet(null, null, owner)
+			return
 		if(4)
 			if(SSparallax.random_layer)
 				return new SSparallax.random_layer.type(null, null, owner, FALSE, SSparallax.random_layer)
@@ -247,15 +261,15 @@
 
 /atom/movable/screen/parallax_home/proc/regenerate_layers()
 	clear_layers()
-	if(layers_to_draw == 0 && !draw_aurora_skybox)
+	if(layers_to_draw == 0 && !draw_skybox_layers)
 		return
 
 	parallax_layers_cached = list()
-	if(draw_aurora_skybox)
-		var/atom/movable/screen/parallax_layer/aurora_skybox/aurora_layer = new(null, null, owner)
-		if(current_skybox_z)
-			aurora_layer.set_z(current_skybox_z)
-		parallax_layers_cached += aurora_layer
+	if(draw_skybox_layers)
+		for(var/layer_type in SSparallax.get_skybox_layer_types())
+			var/atom/movable/screen/parallax_layer/skybox_layer = new layer_type(null, null, owner)
+			parallax_layers_cached += skybox_layer
+		refresh_skybox_layers()
 
 	for(var/space_layer in 1 to layers_to_draw)
 		var/atom/movable/screen/parallax_layer/parallax = generate_space_layer(space_layer)
@@ -268,15 +282,21 @@
 	hide_layers()
 	QDEL_LIST(parallax_layers_cached)
 
-/atom/movable/screen/parallax_home/proc/set_skybox_z(new_z)
-	if(current_skybox_z == new_z)
+/atom/movable/screen/parallax_home/proc/set_sector_z(new_z)
+	if(current_sector_z == new_z)
 		return
-	current_skybox_z = new_z
-	refresh_aurora_layers()
+	current_sector_z = new_z
+	refresh_skybox_layers()
 
-/atom/movable/screen/parallax_home/proc/refresh_aurora_layers()
-	for(var/atom/movable/screen/parallax_layer/aurora_skybox/layer as anything in parallax_layers_cached)
-		layer.set_z(current_skybox_z)
+/atom/movable/screen/parallax_home/proc/refresh_skybox_layers()
+	if(!current_sector_z)
+		return
+
+	var/list/layer_data = SSparallax.get_skybox_layer_data(current_sector_z)
+	for(var/atom/movable/screen/parallax_layer/layer as anything in parallax_layers_cached)
+		if(istype(layer, /atom/movable/screen/parallax_layer/skybox))
+			var/atom/movable/screen/parallax_layer/skybox/skybox_layer = layer
+			skybox_layer.apply_skybox_layer_data(current_sector_z, layer_data)
 
 /atom/movable/screen/parallax_layer
 	icon = 'icons/skybox/parallax.dmi'
@@ -303,10 +323,17 @@
 
 	src.owner = owner
 	update_o(owner.view || world.view)
+	RegisterSignal(owner, COMSIG_VIEW_SET, PROC_REF(on_view_change))
 
 /atom/movable/screen/parallax_layer/Destroy()
+	if(owner)
+		UnregisterSignal(owner, COMSIG_VIEW_SET)
 	owner = null
 	return ..()
+
+/atom/movable/screen/parallax_layer/proc/on_view_change(datum/source, new_view)
+	SIGNAL_HANDLER
+	update_o(new_view)
 
 /atom/movable/screen/parallax_layer/proc/update_o(new_view)
 	if(working_view == new_view)
@@ -352,58 +379,103 @@
 	speed = 1.4
 	layer = 3
 
-/atom/movable/screen/parallax_layer/planet
-	icon_state = "planet"
-	blend_mode = BLEND_OVERLAY
-	absolute = TRUE
-	speed = 3
-	layer = 30
+/atom/movable/screen/parallax_layer/skybox
+	var/current_z
 
-/atom/movable/screen/parallax_layer/planet/Initialize(mapload, datum/hud/hud_owner, client/owner)
-	. = ..()
-	if(!owner)
-		return
-	var/static/list/connections = list(
-		COMSIG_MOVABLE_Z_CHANGED = PROC_REF(on_z_change),
-		COMSIG_MOB_LOGOUT = PROC_REF(on_mob_logout),
-	)
-	AddComponent(/datum/component/connect_mob_behalf, owner, connections)
-	on_z_change(owner.mob)
+/atom/movable/screen/parallax_layer/skybox/proc/apply_skybox_layer_data(new_z, list/layer_data)
+	current_z = new_z
 
-/atom/movable/screen/parallax_layer/planet/proc/on_mob_logout(mob/source)
-	SIGNAL_HANDLER
-	var/client/boss = source.canon_client
-	on_z_change(boss?.mob)
-
-/atom/movable/screen/parallax_layer/planet/proc/on_z_change(mob/source)
-	SIGNAL_HANDLER
-	var/client/boss = source?.client || source?.canon_client
-	var/turf/posobj = get_turf(boss?.eye)
-	if(!posobj)
-		return
-	set_invisibility(is_station_level(posobj.z) ? 0 : INVISIBILITY_ABSTRACT)
-
-/atom/movable/screen/parallax_layer/planet/update_o()
-	return
-
-/// Aurora's current static skybox composite, hosted as a tg-style parallax layer.
-/atom/movable/screen/parallax_layer/aurora_skybox
+/atom/movable/screen/parallax_layer/skybox/generated
 	icon = null
 	icon_state = null
-	speed = 1
-	layer = 0
 	tile_layer = FALSE
+	absolute = TRUE
 	blend_mode = BLEND_DEFAULT
 	base_pixel_w = -128
 	base_pixel_z = -128
-	var/current_z
 
-/atom/movable/screen/parallax_layer/aurora_skybox/proc/set_z(new_z)
-	if(!new_z || current_z == new_z)
+/atom/movable/screen/parallax_layer/skybox/generated/update_o(new_view)
+	if(working_view == new_view)
 		return
-	current_z = new_z
+	working_view = new_view
+
+/atom/movable/screen/parallax_layer/skybox/generated/apply_skybox_layer_data(new_z, list/layer_data)
+	. = ..()
 	overlays.Cut()
-	overlays += SSskybox.get_skybox(current_z)
+	var/list/layer_entries = layer_data?[type]
+	if(!length(layer_entries))
+		set_invisibility(INVISIBILITY_ABSTRACT)
+		return
+	var/has_appearances = FALSE
+	for(var/skybox_appearance as anything in layer_entries)
+		if(skybox_appearance)
+			overlays += skybox_appearance
+			has_appearances = TRUE
+	set_invisibility(has_appearances ? 0 : INVISIBILITY_ABSTRACT)
+
+/atom/movable/screen/parallax_layer/skybox/backdrop
+	icon = 'icons/skybox/skybox.dmi'
+	speed = 0
+	layer = 0
+	tile_layer = FALSE
+	blend_mode = BLEND_DEFAULT
+
+/atom/movable/screen/parallax_layer/skybox/backdrop/apply_skybox_layer_data(new_z, list/layer_data)
+	. = ..()
+	var/new_icon_state = layer_data?["sector_icon"] || SSatlas.current_sector.skybox_icon
+	if(icon == SSparallax.skybox_icon && icon_state == new_icon_state)
+		return
+	icon = SSparallax.skybox_icon
+	icon_state = new_icon_state
+	rebuild_overlays()
+
+/atom/movable/screen/parallax_layer/skybox/stars
+	icon = 'icons/skybox/skybox.dmi'
+	icon_state = "stars"
+	speed = 0.35
+	layer = 0.5
+	blend_mode = BLEND_ADD
+
+/atom/movable/screen/parallax_layer/skybox/stars/apply_skybox_layer_data(new_z, list/layer_data)
+	. = ..()
+	var/show_stars = layer_data?["use_stars"]
+	set_invisibility(show_stars ? 0 : INVISIBILITY_ABSTRACT)
+	if(icon == SSparallax.star_path && icon_state == SSparallax.star_state)
+		return
+	icon = SSparallax.star_path
+	icon_state = SSparallax.star_state
+	rebuild_overlays()
+
+/atom/movable/screen/parallax_layer/skybox/field_debris
+	parent_type = /atom/movable/screen/parallax_layer/skybox/generated
+	speed = 1.6
+	layer = 8
+
+/atom/movable/screen/parallax_layer/skybox/planet
+	parent_type = /atom/movable/screen/parallax_layer/skybox/generated
+	blend_mode = BLEND_OVERLAY
+	speed = 3
+	layer = 30
+
+/atom/movable/screen/parallax_layer/skybox/ships_stations
+	parent_type = /atom/movable/screen/parallax_layer/skybox/generated
+	speed = 1.2
+	layer = 20
+
+/atom/movable/screen/parallax_layer/skybox/wrecks
+	parent_type = /atom/movable/screen/parallax_layer/skybox/generated
+	speed = 1.4
+	layer = 22
+
+/atom/movable/screen/parallax_layer/skybox/events
+	parent_type = /atom/movable/screen/parallax_layer/skybox/generated
+	speed = 1.8
+	layer = 35
+
+/atom/movable/screen/parallax_layer/skybox/warp
+	parent_type = /atom/movable/screen/parallax_layer/skybox/generated
+	speed = 1
+	layer = 40
 
 /// Parallax layers that vary between rounds
 /atom/movable/screen/parallax_layer/random
@@ -435,5 +507,5 @@
 	add_atom_colour(parallax_color, ADMIN_COLOUR_PRIORITY)
 
 /atom/movable/screen/parallax_layer/random/asteroids
-	icon_state = "asteroids"
+	icon_state = "asteroids" // Need to replace this w something less drastic...
 	layer = 4

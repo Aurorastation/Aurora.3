@@ -220,17 +220,21 @@
 	var/list/guaranteed_exoplanets = sector.guaranteed_exoplanets
 
 	if(length(guaranteed_exoplanets))
+		LOG_DEBUG("<b>length(guaranteed_exoplanets)</b>")
 		for(var/j in guaranteed_exoplanets)
 			var/guaranteed_exoplanet_type = j
+			LOG_DEBUG("<b>var/j [j] in guaranteed_exoplanets</b>")
 			log_module_exoplanets("Building new exoplanet with type: [guaranteed_exoplanet_type] and size: [planet_size[1]] [planet_size[2]]")
 			var/obj/effect/overmap/visitable/sector/exoplanet/P = new guaranteed_exoplanet_type(null, planet_size[1], planet_size[2])
 			P.build_level()
 
 	if(!length(possible_exoplanets))
+		LOG_DEBUG("<b>!length(possible_exoplanets)</b>")
 		log_module_exoplanets("No possible exoplanets found!")
 		return
 
 	var/exoplanets_budget = isnum(GLOB.config.exoplanets["exoplanets_budget"]) ? (GLOB.config.exoplanets["exoplanets_budget"]) : (min(possible_exoplanets.len, num_exoplanets))
+	LOG_DEBUG("<b>exoplanets_budget = [exoplanets_budget]</b>")
 	for(var/i = 0, i < exoplanets_budget, i++)
 
 		//Check that we didn't ran out of exoplanets to make

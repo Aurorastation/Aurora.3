@@ -522,6 +522,17 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 	eye = new_eye
 	SEND_SIGNAL(src, COMSIG_CLIENT_SET_EYE, old_eye, new_eye)
 
+/client/proc/change_view(new_size)
+	if(isnull(new_size))
+		CRASH("change_view called without argument.")
+	if(view == new_size)
+		return
+	view = new_size
+	SEND_SIGNAL(src, COMSIG_VIEW_SET, new_size)
+
+/client/proc/set_view(new_view)
+	change_view(new_view)
+
 //////////////
 //DISCONNECT//
 //////////////

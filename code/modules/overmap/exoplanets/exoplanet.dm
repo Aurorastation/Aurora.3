@@ -91,7 +91,6 @@
 	var/generated_name = TRUE
 	///The random name generated for the planet by generate_planet_name()
 	var/planet_name
-	var/ring_chance = 20 //the chance of this exoplanet spawning with a ring on its sprite
 
 	///A list of groups, as strings, that this exoplanet belongs to. When adding new map templates, try to keep this balanced on the CI execution time, or consider adding a new one
 	///ONLY IF IT'S THE LONGEST RUNNING CI POD AND THEY ARE ALREADY BALANCED
@@ -213,6 +212,7 @@
 	..()
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/build_level()
+	LOG_DEBUG("<b>build_level()</b>")
 	generate_habitability()
 	generate_atmosphere()
 	if(ispath(initial_weather_state))
