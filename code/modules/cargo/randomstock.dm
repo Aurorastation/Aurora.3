@@ -100,12 +100,18 @@ GLOBAL_LIST_EMPTY(random_stock_large)
 		/mob/living/simple_animal/bee/standalone = 1,
 		/mob/living/simple_animal/hostile/retaliate/diyaab = 1,
 		/mob/living/simple_animal/hostile/viscerator = 1,
-		/mob/living/simple_animal/hostile/scarybat = 1)
+		/mob/living/simple_animal/hostile/scarybat = 1,
+		// TODO: Reduce this to 1/3rd the current value once the lemurian sea arc concludes
+		/mob/living/simple_animal/hostile/psiren = 1,
+		/mob/living/simple_animal/hostile/psiren/omen = 1,
+		/mob/living/simple_animal/hostile/psiren/ranged = 1
+		)
 
 	var/list/infest_mobs_severe = list(
 		/mob/living/simple_animal/hostile/giant_spider/hunter = 1,
 		/mob/living/simple_animal/hostile/retaliate/shantak = 0.7,
 		/mob/living/simple_animal/hostile/carp = 1.5,
+		/mob/living/simple_animal/hostile/bear = 0.8
 	)
 
 /datum/cargospawner/New()
@@ -202,7 +208,7 @@ GLOBAL_LIST_EMPTY(random_stock_large)
 // Moderate mobs are checked per crate
 #define INFEST_PROB_MODERATE	3
 
-#define INFEST_PROB_SEVERE	3//Severe is once per round, not per crate
+#define INFEST_PROB_SEVERE	6//Severe is once per round, not per crate
 
 /datum/cargospawner/proc/handle_infestation()
 	for (var/obj/structure/closet/crate/C as anything in containers)
