@@ -126,7 +126,7 @@ ABSTRACT_TYPE(/singleton/grab)
 		for(var/obj/item/grab/inactive_grab as anything in thrower.get_inactive_held_items())
 			qdel(inactive_grab)
 
-/singleton/grab/proc/hit_with_grab(obj/item/grab/G, atom/A, P = TRUE)
+/singleton/grab/proc/hit_with_grab(obj/item/grab/G, atom/A, proximity_flag = TRUE)
 	if(QDELETED(G) || !istype(G) || G.resolving_hit)
 		return FALSE
 
@@ -138,16 +138,16 @@ ABSTRACT_TYPE(/singleton/grab)
 
 	switch(G.grabber.a_intent)
 		if(I_HELP)
-			if(on_hit_help(G, A, P))
+			if(on_hit_help(G, A, proximity_flag))
 				. = help_action || TRUE
 		if(I_DISARM)
-			if(on_hit_disarm(G, A, P))
+			if(on_hit_disarm(G, A, proximity_flag))
 				. = disarm_action || TRUE
 		if(I_GRAB)
-			if(on_hit_grab(G, A, P))
+			if(on_hit_grab(G, A, proximity_flag))
 				. = grab_action || TRUE
 		if(I_HURT)
-			if(on_hit_harm(G, A, P))
+			if(on_hit_harm(G, A, proximity_flag))
 				. = harm_action || TRUE
 
 	if(!QDELETED(G))

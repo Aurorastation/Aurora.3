@@ -1400,6 +1400,8 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
 	if(isturf(loc))
 		// Update offsets from grabs.
 		for(var/obj/item/grab/grab as anything in grabbed_by)
+			if(grab.grabbed != src)
+				return // don't pixel shift ourselves if we're grabbing ourselves
 			// forcing same tile means get_dir(grabber, grabbee) == 0
 			var/grab_dir = HAS_GRAB_FLAGS(grab, GRAB_SHARE_TILE) ? grab.grabber.dir : get_dir(grab.grabber, src)
 			if(grab_dir && grab.current_grab.shift != 0)

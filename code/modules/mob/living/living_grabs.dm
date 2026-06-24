@@ -1,7 +1,7 @@
 /mob/living/proc/check_grab_hand(defer_hand)
 	if(defer_hand)
 		if(!get_empty_hand_slot())
-			to_chat(SPAN_WARNING("Your hands are full!"))
+			to_chat(src, SPAN_WARNING("Your hands are full!"))
 			return FALSE
 	else if(get_active_hand())
 		var/mob/living/carbon/human/H = src

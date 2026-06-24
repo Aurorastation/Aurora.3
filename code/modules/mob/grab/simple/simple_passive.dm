@@ -10,8 +10,8 @@
 	grab_text_state = null
 	action_verb = "pulling"
 
-/singleton/grab/simple/hit_with_grab(obj/item/grab/G, atom/A, P)
-	if(QDELETED(G) || !istype(G) || G.resolving_hit)
+/singleton/grab/simple/hit_with_grab(obj/item/grab/G, atom/A, proximity_flag)
+	if(QDELETED(G) || !istype(G) || G.resolving_hit || !proximity_flag)
 		return FALSE
 
 	G.resolving_hit = TRUE

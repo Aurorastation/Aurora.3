@@ -40,6 +40,6 @@
 		var/mob/living/carbon/human/grabbed_mob = G.get_grabbed_mob()
 		if(istype(grabbed_mob))
 			var/obj/item/clothing/C = grabbed_mob.get_equipped_item(slot_head_str)
-			if(istype(C) && C.max_pressure_protection && LAZYACCESS(C.armor, MELEE) > ARMOR_MELEE_MEDIUM)
+			if(istype(C) && C.max_pressure_protection >= SPACE_SUIT_MAX_PRESSURE && LAZYACCESS(C.armor, MELEE) > ARMOR_MELEE_MEDIUM)
 				to_chat(G.grabber, SPAN_WARNING("\The [C] is in the way!"))
 				return FALSE
