@@ -110,8 +110,8 @@
 	// Check code/modules/admin/verbs/antag-ooc.dm for definition
 	client.add_aooc_if_necessary()
 
-	if(client && !istype(src, /mob/abstract/new_player)) //Do not update the skybox if it's a new player mob, they don't see it anyways and it can runtime
-		client.update_skybox(TRUE)
+	if(client && !istype(src, /mob/abstract/new_player)) //Do not update parallax if it's a new player mob, they don't see it anyways and it can runtime
+		client.refresh_parallax_skybox()
 
 	if(spell_masters)
 		for(var/atom/movable/screen/movable/spell_master/spell_master in spell_masters)

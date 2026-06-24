@@ -3,8 +3,9 @@ SUBSYSTEM_DEF(skybox)
 	init_order = INIT_ORDER_PARALLAX
 	flags = SS_NO_FIRE
 	var/background_color
-	var/skybox_icon = 'icons/skybox/skybox.dmi' //Path to our background. Lets us use anything we damn well please. Skyboxes need to be 736x736
-	var/background_icon = "ceti"
+	/// Path to our background. Lets us use anything we damn well please. Must be 480x480
+	var/skybox_icon = 'icons/skybox/skybox.dmi'
+	var/background_icon
 	var/use_stars = FALSE
 	var/use_overmap_details = TRUE
 	var/star_path = 'icons/skybox/skybox.dmi'
@@ -51,7 +52,7 @@ SUBSYSTEM_DEF(skybox)
 	var/image/res = image(skybox_icon)
 	res.appearance_flags = KEEP_TOGETHER
 
-	var/sector_icon = SSatlas.current_sector.skybox_icon
+	var/sector_icon = background_icon || SSatlas.current_sector.skybox_icon
 	var/image/base = overlay_image(skybox_icon, sector_icon)
 
 	if(use_stars)
@@ -83,7 +84,7 @@ SUBSYSTEM_DEF(skybox)
 		skybox_cache["[z]"] = generate_skybox(z)
 
 	for(var/client/C in GLOB.clients)
-		C.update_skybox(1)
+		C.refresh_parallax_skybox()
 
 //Update skyboxes. Called by universes, for now.
 /datum/controller/subsystem/skybox/proc/change_skybox(new_state, new_color, new_use_stars, new_use_overmap_details)
@@ -108,4 +109,4 @@ SUBSYSTEM_DEF(skybox)
 		skybox_cache.Cut()
 
 		for(var/client/C)
-			C.update_skybox(1)
+			C.refresh_parallax_skybox()

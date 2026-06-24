@@ -439,12 +439,6 @@ GLOBAL_LIST(global_huds)
 /datum/hud/proc/get_multiz_performance_boundary()
 	return MULTIZ_PERFORMANCE_DISABLE
 
-// TG_PLANE_CUBE_TEMP: replace with tg parallax preference behavior when skybox/parallax is reattached.
-/datum/hud/proc/update_parallax_pref()
-	if(!istype(mymob, /mob/abstract/new_player))
-		mymob?.canon_client?.update_skybox(TRUE)
-	return
-
 /mob/proc/instantiate_hud(datum/hud/HUD, ui_style, ui_color, ui_alpha)
 	SHOULD_NOT_SLEEP(TRUE)
 	SHOULD_CALL_PARENT(FALSE)

@@ -13,6 +13,8 @@
 	var/area_flags
 	/// Color of this area on the holomap. Must be a hex color (as string) or null.
 	var/holomap_color
+	/// Direction this area wants client parallax to move... one day shuttle stuff will use this
+	var/parallax_movedir = NONE
 
 	/// Do we have an active fire alarm?
 	var/fire = FALSE
