@@ -58,17 +58,13 @@
 
 /obj/structure/machinery/teleport/pad/update_icon()
 	ClearOverlays()
-	if (engaged)
-		var/image/I = image(icon, src, "[initial(icon_state)]_active_overlay")
-		SET_PLANE_EXPLICIT(I, ABOVE_LIGHTING_PLANE, src)
-		AddOverlays(I)
+	if(engaged)
+		AddOverlays(emissive_appearance(icon, "[initial(icon_state)]_active_overlay", src))
 		set_light(4, 0.4)
 	else
 		set_light(0)
 		if (operable())
-			var/image/I = image(icon, src, "[initial(icon_state)]_idle_overlay")
-			SET_PLANE_EXPLICIT(I, ABOVE_LIGHTING_PLANE, src)
-			AddOverlays(I)
+			AddOverlays(emissive_appearance(icon, "[initial(icon_state)]_idle_overlay", src))
 
 /obj/structure/machinery/teleport/pad/proc/within_range(var/target)
 	if(ignore_distance)

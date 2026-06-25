@@ -318,7 +318,7 @@
 		AddOverlays("[initial(icon_state)][contents_path][contents_icon_state]")
 	AddOverlays("[initial(icon_state)]-glass[(stat & BROKEN) ? "-broken" : ""]")
 	if(has_emissive && powered() && !(stat & BROKEN))
-		AddOverlays(emissive_appearance(icon, "[initial(icon_state)]-light-mask", src, alpha = src.alpha))
+		AddOverlays(emissive_appearance(icon, "[initial(icon_state)]-lightmask", src, alpha = src.alpha))
 
 /obj/structure/machinery/smartfridge/proc/change_display(var/length)
 	var/tier = clamp((floor(length / display_tier_amt) + 1), 1, display_tiers)

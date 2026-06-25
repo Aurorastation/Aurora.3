@@ -8,8 +8,6 @@
 	desc = "Has all your odyssey actor items, to let you effectively do your odysseying and actoring."
 	vend_id = "actor"
 	icon_state = "generic"
-	icon_vend = "generic-vend"
-	light_mask = "generic-lightmask"
 	products = list(
 		/obj/item/radio/headset/ship/odyssey = 12,
 		/obj/item/portable_map_reader/odyssey = 12,
@@ -30,8 +28,6 @@ If you want to expand this to more than primarily generic items, I recommend des
 	desc = "Contains a large number of generic clothing items. Comes with hand-held dyers to dye its contents however the user wishes."
 	vend_id = "generic_clothing"
 	icon_state = "robotics"
-	icon_vend = "robotics-vend"
-	light_mask = "robotics-light-mask"
 	light_color = COLOR_GREEN
 	random_itemcount = FALSE
 	products = list (

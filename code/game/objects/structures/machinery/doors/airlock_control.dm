@@ -146,11 +146,13 @@
 	var/previousPressure
 
 /obj/structure/machinery/airlock_sensor/update_icon()
+	ClearOverlays()
 	if(on)
 		if(alert)
 			icon_state = "airlock_sensor_alert"
 		else
 			icon_state = "airlock_sensor_standby"
+		AddOverlays(emissive_appearance(icon, "[icon_state]-e", src))
 	else
 		icon_state = "airlock_sensor_off"
 
@@ -173,7 +175,10 @@
 	signal.data["command"] = command
 
 	radio_connection.post_signal(src, signal, range = AIRLOCK_CONTROL_RANGE, filter = RADIO_AIRLOCK)
+	ClearOverlays()
 	flick("airlock_sensor_cycle", src)
+	AddOverlays(emissive_appearance(icon, "airlock_sensor_cycle-e", src))
+	SSicon_update.add_to_queue(src)
 
 /obj/structure/machinery/airlock_sensor/process()
 	if(on)
@@ -236,8 +241,10 @@
 
 
 /obj/structure/machinery/access_button/update_icon()
+	ClearOverlays()
 	if(on)
 		icon_state = "access_button_standby"
+		AddOverlays(emissive_appearance(icon, "[icon_state]-e", src))
 	else
 		icon_state = "access_button_off"
 
@@ -261,7 +268,8 @@
 
 		radio_connection.post_signal(src, signal, range = AIRLOCK_CONTROL_RANGE, filter = RADIO_AIRLOCK)
 	flick("access_button_cycle", src)
-
+	AddOverlays(emissive_appearance(icon, "access_button_cycle-e", src))
+	SSicon_update.add_to_queue(src)
 
 /obj/structure/machinery/access_button/proc/set_frequency(new_frequency)
 	SSradio.remove_object(src, frequency)

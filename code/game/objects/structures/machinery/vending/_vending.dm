@@ -259,6 +259,7 @@
 	icon_vend = "[initial(icon_state)]-vend"
 	icon_broken = "[initial(icon_state)]-broken"
 	icon_off = "[initial(icon_state)]-off"
+	light_mask = "[initial(icon_state)]-lightmask"
 
 	reset_light()
 	build_products()
