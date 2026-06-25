@@ -47,7 +47,7 @@
 	var/icon_deny = "robotics-deny"
 	var/light_mask = "robotics-lightmask"
 
-/obj/structure/machinery/vending/update_icon()
+/obj/structure/machinery/lapvend/update_icon()
 	ClearOverlays()
 	if(stat & BROKEN || stat & NOPOWER)
 		icon_state = icon_off
