@@ -40,6 +40,25 @@
 	var/dev_card = 0						// 0: None, 1: Standard
 	var/dev_aislot = 0						// 0: None, 1: Standard
 
+	var/icon_vend = "robotics-vend"
+	var/icon_broken = "robotics-broken"
+	var/icon_off = "robotics-off"
+	var/icon_screen = "robotics-screen"
+	var/icon_deny = "robotics-deny"
+	var/light_mask = "robotics-lightmask"
+
+/obj/structure/machinery/vending/update_icon()
+	ClearOverlays()
+	if(stat & BROKEN || stat & NOPOWER)
+		icon_state = icon_off
+		return
+	if(src.light_mask)
+		var/image/E = emissive_appearance(icon, light_mask, src)
+		AddOverlays(E)
+	if(src.icon_screen)
+		var/image/I = image(icon, icon_screen)
+		AddOverlays(I)
+
 // Removes all traces of old order and allows you to begin configuration from scratch.
 /obj/structure/machinery/lapvend/proc/reset_order()
 	state = LAPVEND_STATE_SELECT
