@@ -212,7 +212,6 @@
 	..()
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/build_level()
-	LOG_DEBUG("<b>build_level()</b>")
 	generate_habitability()
 	generate_atmosphere()
 	if(ispath(initial_weather_state))

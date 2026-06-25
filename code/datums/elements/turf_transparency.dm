@@ -177,17 +177,37 @@ GLOBAL_LIST_EMPTY(pillars_by_z)
 /// Updates the vis_contents or underlays below this turf.
 /datum/element/turf_z_transparency/proc/update_multi_z(turf/our_turf)
 	var/turf/below_turf = GET_TURF_BELOW(our_turf)
+	var/show_baseturf_underlay = !below_turf
 	if(below_turf)
 		for(var/turf/partner as anything in RANGE_TURFS(1, below_turf))
 			var/datum/z_pillar/z_boss = request_z_pillar(partner.x, partner.y, our_turf.z)
-			z_boss.display_turf(partner, our_turf)
-	else
-		our_turf.underlays += get_baseturf_underlay(our_turf)
+			if(should_display_turf(partner))
+				z_boss.display_turf(partner, our_turf)
+			else
+				z_boss.hide_turf(partner, our_turf)
+		show_baseturf_underlay = !should_display_turf(below_turf)
+	sync_baseturf_underlay(our_turf, show_baseturf_underlay)
 
 	if(our_turf.density)
 		for(var/mutable_appearance/underlay as anything in get_closed_turf_underlays(our_turf))
 			our_turf.underlays += underlay
 	return TRUE
+
+/datum/element/turf_z_transparency/proc/should_display_turf(turf/visual_turf)
+	// Empty open background turfs only duplicate the current space backdrop and create a false raised edge.
+	if(!visual_turf.is_open())
+		return TRUE
+	if(visual_turf.is_solid_structure())
+		return TRUE
+	if(length(visual_turf.contents) || length(visual_turf.vis_contents))
+		return TRUE
+	return FALSE
+
+/datum/element/turf_z_transparency/proc/sync_baseturf_underlay(turf/our_turf, show_underlay)
+	var/mutable_appearance/baseturf_underlay = get_baseturf_underlay(our_turf)
+	our_turf.underlays -= baseturf_underlay
+	if(show_underlay)
+		our_turf.underlays += baseturf_underlay
 
 /datum/element/turf_z_transparency/proc/clear_multiz(turf/our_turf)
 	var/turf/below_turf = GET_TURF_BELOW(our_turf)
@@ -197,8 +217,7 @@ GLOBAL_LIST_EMPTY(pillars_by_z)
 			z_boss.hide_turf(partner, our_turf)
 			if(partner == below_turf)
 				z_boss.parent_cleared(below_turf, our_turf)
-	else
-		our_turf.underlays -= get_baseturf_underlay(our_turf)
+	sync_baseturf_underlay(our_turf, FALSE)
 
 	if(our_turf.density)
 		for(var/mutable_appearance/underlay as anything in get_closed_turf_underlays(our_turf))

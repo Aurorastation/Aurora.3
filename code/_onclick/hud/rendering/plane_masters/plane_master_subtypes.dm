@@ -63,6 +63,8 @@
 	appearance_flags = PLANE_MASTER|NO_CLIENT_COLOR
 	render_relay_planes = list(RENDER_PLANE_UNLIT_GAME, RENDER_PLANE_LIGHT_MASK)
 	critical = PLANE_CRITICAL_FUCKO_PARALLAX // goes funny when touched. no idea why I don't trust byond
+	// Exterior space backdrops must stay flush with the viewer's z, or scaled lower stacks expose black edges...
+	multiz_scaled = FALSE
 
 /atom/movable/screen/plane_master/parallax_white/Initialize(mapload, datum/hud/hud_owner, datum/plane_master_group/home, offset)
 	. = ..()
@@ -285,6 +287,8 @@
 	render_relay_planes = list(RENDER_PLANE_LIGHT_MASK)
 	// Needs to be critical or it uh, it'll look white
 	critical = PLANE_CRITICAL_DISPLAY|PLANE_CRITICAL_NO_RELAY
+	// This is a mask plane, not visible geometry; scaling it opens black seams around exterior openspace, just like in parallax_white...
+	multiz_scaled = FALSE
 
 /atom/movable/screen/plane_master/floor/Initialize(mapload, datum/hud/hud_owner, datum/plane_master_group/home, offset)
 	. = ..()
