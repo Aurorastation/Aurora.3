@@ -709,7 +709,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 
 /obj/effect/overlay/holoray
 	name = "holoray"
-	icon = 'icons/effects/holoray.dmi'
+	icon = 'icons/effects/96x96.dmi'
 	icon_state = "holoray"
 	layer = FLY_LAYER
 	plane = ABOVE_GAME_PLANE
