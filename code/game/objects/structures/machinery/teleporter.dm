@@ -16,10 +16,13 @@
 	var/datum/weakref/locked_obj
 	var/locked_obj_name
 
-	var/max_teleport_range = 4 //max overmap teleport distance
-	var/calibration = 0 // a percentage chance for teleporting into space instead of your target. 0 is perfectly calibrated, 100 is totally uncalibrated
+	/// Max overmap teleport distance
+	var/max_teleport_range = 4
+	/// Percentage chance for teleporting into space instead of your target. 0 is perfectly calibrated, 100 is totally uncalibrated
+	var/calibration = 0
 	var/engaged = FALSE
-	var/ignore_distance = FALSE // For antag teleporters.
+	/// For antag teleporters.
+	var/ignore_distance = FALSE
 
 /obj/structure/machinery/teleport/pad/Initialize()
 	. = ..()
@@ -59,9 +62,11 @@
 /obj/structure/machinery/teleport/pad/update_icon()
 	ClearOverlays()
 	if(engaged)
+		icon_state = "pad_active"
 		AddOverlays(emissive_appearance(icon, "[initial(icon_state)]_active_overlay", src))
 		set_light(4, 0.4)
 	else
+		icon_state = "pad_idle"
 		set_light(0)
 		if (operable())
 			AddOverlays(emissive_appearance(icon, "[initial(icon_state)]_idle_overlay", src))
