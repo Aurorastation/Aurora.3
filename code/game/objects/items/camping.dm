@@ -65,14 +65,14 @@
 	var/mob/M = entering
 	var/atom/movable/screen/plane_master/roof/roof_plane = M.hud_used?.get_plane_master(ROOF_PLANE)
 	if(roof_plane)
-		roof_plane.alpha = 76
+		roof_plane.set_alpha(76)
 
 /datum/large_structure/tent/mob_moved(mob/mover, turf/exit_point)
 	. = ..()
 	if(!.)
 		var/atom/movable/screen/plane_master/roof/roof_plane = mover.hud_used?.get_plane_master(ROOF_PLANE)
 		if(roof_plane)
-			roof_plane.alpha = 255
+			roof_plane.set_alpha(255)
 
 /**
  * Determines the state to use for each section of the tent
@@ -271,7 +271,7 @@
 	for(var/mob/M in loc)
 		var/atom/movable/screen/plane_master/roof/roof_plane = M.hud_used?.get_plane_master(ROOF_PLANE)
 		if(roof_plane)
-			roof_plane.alpha = 255
+			roof_plane.set_alpha(255)
 	return ..()
 
 /obj/structure/component/tent_canvas/roof

@@ -111,7 +111,7 @@
 
 #define WEATHER_GLOW_PLANE 26
 
-// TG_PLANE_CUBE_TEMP: remove after roof visuals are reattached as a tg-style plane master or deleted.
+/// Tent roof visuals. Kept separate so per-viewer roof fading does not affect above-lighting effects.
 #define ROOF_PLANE 27
 
 /// Pipecrawling images.

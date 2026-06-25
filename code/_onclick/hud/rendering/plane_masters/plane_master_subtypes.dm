@@ -439,13 +439,13 @@
 		<br>Mostly little alerts and effects, also sometimes contains things that are meant to look as if they glow."
 	render_relay_planes = list(RENDER_PLANE_GAME)
 
-// TG_PLANE_CUBE_TEMP: reclassify Aurora tent/roof visuals as a final tg-style consumer
 /atom/movable/screen/plane_master/roof
 	name = "Roof"
-	documentation = "Temporary tg-style owner for Aurora roof/tent visuals while old rendering planes are retired."
+	documentation = "Plane master for roof visuals... right now just tents. Tents fade this whole plane per viewer when a mob is inside, so unrelated above-lighting effects should stay on their own planes."
 	plane = ROOF_PLANE
 	appearance_flags = PLANE_MASTER
 	blend_mode = BLEND_OVERLAY
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	render_relay_planes = list(RENDER_PLANE_GAME)
 
 /atom/movable/screen/plane_master/weather_glow
