@@ -43,6 +43,10 @@
 	dir = 6
 	},
 /obj/structure/table/stone/marble,
+/obj/item/portable_whiteboard{
+	pixel_y = 11;
+	pixel_x = 5
+	},
 /turf/simulated/floor/marble/dark,
 /area/dominian_corvette/chapel)
 "aha" = (
@@ -8692,6 +8696,12 @@
 /obj/structure/machinery/light{
 	dir = 4
 	},
+/obj/item/flame/lighter/zippo{
+	pixel_x = -4
+	},
+/obj/item/clothing/mask/smokable/cigarette/cigar{
+	pixel_x = 2
+	},
 /turf/simulated/floor/wood,
 /area/dominian_corvette/fo_office)
 "qcn" = (
@@ -8743,6 +8753,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/table/steel,
+/obj/item/clothing/glasses/night,
 /turf/simulated/floor,
 /area/dominian_corvette/eva_prep)
 "qhe" = (

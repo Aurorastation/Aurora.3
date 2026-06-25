@@ -5171,6 +5171,10 @@
 	pixel_x = -5
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/item/portable_whiteboard{
+	pixel_y = 11;
+	pixel_x = 5
+	},
 /turf/simulated/floor/tiled,
 /area/tcaf_corvette/lounge)
 "tp" = (

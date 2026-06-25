@@ -3020,6 +3020,14 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/item/storage/box/fancy/cigarettes/cigar{
+	pixel_x = -5;
+	pixel_y = 5
+	},
+/obj/item/reagent_containers/food/drinks/bottle/twentytwoseventyfive{
+	pixel_x = 6;
+	pixel_y = 12
+	},
 /turf/simulated/floor/carpet/red,
 /area/ship/xanu_frigate/captain)
 "km" = (
@@ -10991,6 +10999,7 @@
 /area/ship/xanu_frigate/corridor/aft_starboard)
 "LE" = (
 /obj/structure/bed/stool/chair/sofa/right/beige,
+/obj/item/portable_whiteboard,
 /turf/simulated/floor/carpet/red,
 /area/ship/xanu_frigate/rec_room)
 "LF" = (
