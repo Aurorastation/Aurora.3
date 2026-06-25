@@ -25,7 +25,6 @@
 	default_language = LANGUAGE_REVENANT
 
 	unarmed_types = list(/datum/unarmed_attack/claws/shredding)
-	darksight = 8
 	siemens_coefficient = 0
 	rarity_value = 10
 

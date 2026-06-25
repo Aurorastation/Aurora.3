@@ -23,7 +23,7 @@
 	language = LANGUAGE_CULT
 	name_language = LANGUAGE_CULT
 	unarmed_types = list(/datum/unarmed_attack/claws/strong, /datum/unarmed_attack/bite/sharp)
-	darksight = 8
+	default_lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE
 	has_organ = list() //skeletons are empty shells for now, maybe we can add something in the future
 	siemens_coefficient = 0
 	ethanol_resistance = -1 //no drunk skeletons
@@ -158,7 +158,7 @@
 	default_language = LANGUAGE_GIBBERING
 
 	unarmed_types = list(/datum/unarmed_attack/bite/infectious, /datum/unarmed_attack/claws/strong/zombie)
-	darksight = 8
+	default_lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE
 
 	has_fine_manipulation = FALSE
 
