@@ -49,6 +49,7 @@ author: diggiez
 delete-after: True
 
 changes:
+  - bugfix: "Safety fumbles for Firearms actually works, and is also actually triggered by the safety, but it's no longer the only gun fumble."
   - rscadd: "Characters under Trained Firearms can now stabilize for a shot without skill penalties by staying still for ~1.5s after entering a tile with a gun in their active hand."
   - balance: "Unfamiliar and Familiar Firearms now steady their next (non-stabilized) shot to be without skill penalties after every few shots. This is a pity/fallback system against excessive inaccuracies."
   - rscadd: "Firing warmups! 18 shots grant a moodlet of +3 morale points for a duration, which can refresh and stack an extra time. Chars under Trained Firearms gain a 30%-40% chance of firing without skill penalties during it."

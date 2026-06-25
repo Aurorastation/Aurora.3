@@ -58,7 +58,7 @@
 		return .
 	else
 		if(owner_lvl >= SKILL_LEVEL_PROFESSIONAL)
-			accuracy_text = "with boosted accuracy"
+			accuracy_text = "with boosted accuracy, equal to being a tile closer"
 			boost_text = "\n\t - You have [boost_chance]% chance of firing a shot [accuracy_text]"
 			return . += boost_text
 		return . += boost_text
@@ -139,7 +139,7 @@
 			+ "\n\t - remaining duration: [minutes] minutes"
 			)
 			if(skill_level >= SKILL_LEVEL_PROFESSIONAL)
-				to_chat(shooter, "\t - a 40% chance of firing a shot with boosted accuracy under the duration.")
+				to_chat(shooter, "\t - a 40% chance of firing a shot with boosted accuracy, equal to being a tile closer, under the duration.")
 			else
 				if(skill_level < SKILL_LEVEL_TRAINED)
 					to_chat(shooter, "\t - a 40% chance of firing a shot without skill penalties under the duration.")
@@ -152,7 +152,7 @@
 			+ "\n\t - remaining duration: [minutes] minutes"
 			)
 			if(skill_level >= SKILL_LEVEL_PROFESSIONAL)
-				to_chat(shooter, "\t - 30% chance of firing a shot with boosted accuracy under the duration.")
+				to_chat(shooter, "\t - 30% chance of firing a shot with boosted accuracy, equal to being a tile closer, under the duration.")
 			else
 				if(skill_level < SKILL_LEVEL_TRAINED)
 					to_chat(shooter, "\t - 30% chance of firing a shot without skill penalties under the duration.")
@@ -166,7 +166,7 @@
 		to_chat(shooter, SPAN_NOTICE("<i>You feel steadier and confident for your next shot.</i>"))
 		shooter.balloon_alert(shooter, "Steadied shot!")
 
-/datum/component/skill/firearms/proc/handle_accuracy(mob/shooter, accuracy_decrease, dispersion_increase)
+/datum/component/skill/firearms/proc/handle_accuracy(mob/living/shooter, accuracy_decrease, dispersion_increase)
 	SIGNAL_HANDLER
 	var/skill_diff = skill_diff_reference - skill_level
 	// When stabilized, steadied, or warmed up: return before any negative skill adjustments. Ordered on reliability.
@@ -188,7 +188,7 @@
 	if((warmup_tier == 1 && prob(30)) || (warmup_tier == 2 && prob(40))) // Last to go as its effect is least common, & unpredictable
 		if(skill_level < SKILL_LEVEL_TRAINED)
 			playsound(shooter, 'sound/weapons/ammo_load.ogg', 90) // Actually tough to notice with gun fire
-			shooter.visible_message(SPAN_DANGER("[shooter] adjusts their angling!"),
+			shooter.visible_message(SPAN_DANGER("[shooter] adjusts [shooter.get_pronoun("his")] angling!"),
 			SPAN_DANGER("You micro-adjust for better aim before firing."))
 		if(skill_level >= SKILL_LEVEL_PROFESSIONAL)
 			*accuracy_decrease = *accuracy_decrease - 1
