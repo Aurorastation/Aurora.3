@@ -76,6 +76,56 @@
 		appearance.color = _EM_BLOCK_COLOR(alpha_ratio)
 	return appearance
 
+/// Produces an emissive blocker from an existing appearance, preserving its icon shape, offsets, etc.
+/proc/emissive_blocker_from_appearance(make_blocker, atom/offset_spokesman)
+	if(!make_blocker || !offset_spokesman)
+		return
+
+	var/mutable_appearance/blocker = new(make_blocker)
+	var/blocker_layer = blocker.layer
+	if(IS_TOPDOWN_PLANE(offset_spokesman.plane))
+		if(blocker_layer == FLOAT_LAYER)
+			blocker_layer = offset_spokesman.layer
+		blocker.layer = TOPDOWN_TO_EMISSIVE_LAYER(blocker_layer)
+	else if(blocker_layer == FLOAT_LAYER)
+		blocker.layer = offset_spokesman.layer
+
+	blocker.appearance_flags |= EMISSIVE_APPEARANCE_FLAGS
+	blocker.blend_mode = BLEND_DEFAULT
+	blocker.filters = null
+	if(blocker.alpha == 255)
+		blocker.color = GLOB.em_block_color
+	else
+		var/alpha_ratio = blocker.alpha / 255
+		blocker.color = _EM_BLOCK_COLOR(alpha_ratio)
+
+	SET_PLANE_EXPLICIT(blocker, EMISSIVE_PLANE, offset_spokesman)
+	return blocker
+
+/// Adds overlays and matching emissive blockers for atoms which are assembled of overlays, like tables etc. This is SO FUCKING SHITTY!!!
+/atom/movable/proc/AddOverlaysWithEmissiveBlocker(sources, cache_target = ATOM_ICON_CACHE_NORMAL)
+	SHOULD_NOT_OVERRIDE(TRUE)
+	if(!sources)
+		return
+
+	var/list/source_appearances = SSoverlays.GetAppearanceList(src, sources)
+	if(!length(source_appearances))
+		return
+
+	AddOverlays(sources, cache_target)
+
+	if(blocks_emissive == EMISSIVE_BLOCK_NONE)
+		return
+
+	var/list/blockers = list()
+	for(var/source_appearance in source_appearances)
+		var/mutable_appearance/blocker = emissive_blocker_from_appearance(source_appearance, src)
+		if(blocker)
+			blockers += blocker
+
+	if(length(blockers))
+		AddOverlays(blockers, cache_target)
+
 /// Makes a non-area atom block emissives with pixels above a given alpha threshold.
 /proc/partially_block_emissives(atom/make_blocker, alpha_to_leave)
 	var/static/uid = 0
