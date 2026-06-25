@@ -49,6 +49,7 @@
 		if (!entry || !entry.bubble)
 			continue
 
+		LAZYREMOVE(update_on_z, entry.bubble)
 		for(var/mob/listener as anything in entry.listeners)
 			if (!listener || !listener.client)
 				continue
@@ -71,7 +72,7 @@
 
 	var/image/bubble = image(null, src)
 	bubble.layer = 20
-	bubble.plane = RUNECHAT_PLANE
+	SET_PLANE_EXPLICIT(bubble, RUNECHAT_PLANE, src)
 	bubble.appearance_flags = NO_CLIENT_COLOR|KEEP_APART|RESET_COLOR|RESET_TRANSFORM
 	bubble.maptext_y = langchat_height - LANGCHAT_MESSAGE_POP_Y_SINK
 	bubble.maptext_height = 64
@@ -90,6 +91,7 @@
 		listener.client.images += bubble
 
 	animate_style(bubble, animation_style)
+	LAZYADD(update_on_z, bubble)
 	LAZYADD(langchat_images, new /datum/langchat_bubble(bubble, listeners))
 
 /// Per-type appearance tweaks applied to a freshly built bubble.
