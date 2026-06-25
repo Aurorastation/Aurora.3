@@ -597,7 +597,7 @@
 	desc = "The Imperial Army's standard-issue handgun. Cheap, reliable, and easy to use."
 	desc_extended = "The Moroz Pattern Pistol, Year of 2450 (MPP-50) is a reliable handgun chambered in 7.62 \
 	Imperial Short which features an unusual magazine. Zavodskoi Interstellar is a major producer of these handguns."
-	magazine_type = /obj/item/ammo_magazine/c45m/dominia
+	magazine_type = /obj/item/ammo_magazine/c45m/dominia // TODO: change this to 7.62 when pistol ammo sprites are in
 	allowed_magazines = list(/obj/item/ammo_magazine/c45m/dominia)
 	icon = 'icons/obj/guns/faction/dominian_empire/dominia_pistol.dmi'
 	icon_state = "dom_pistol"

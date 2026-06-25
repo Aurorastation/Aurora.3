@@ -51,22 +51,33 @@
 /singleton/skill/firearms
 	name = "Firearms"
 	description = "Firearms represents your training in using all forms of ranged weapons. Having a high rank in in this skill provides bonuses to accuracy when shooting."
-	maximum_level = SKILL_LEVEL_TRAINED
+	maximum_level = SKILL_LEVEL_PROFESSIONAL
 	category = /singleton/skill_category/combat
 	subcategory = SKILL_SUBCATEGORY_RANGED
 	required = TRUE
 	component_type = FIREARMS_SKILL_COMPONENT
 	skill_level_descriptions = alist(
-		SKILL_LEVEL_UNFAMILIAR = "You have no knowledge of how firearms work at all.<br>" \
-			+ " - Firearms you shoot have a 60 degree spread-angle increase, making them very inaccurate.<br>" \
-			+ " - You have a decent chance of failing to find the safety when attempting to switch it on or off.",
+		SKILL_LEVEL_UNFAMILIAR = "You have little-to-no knowledge of how firearms work at all, and need to stabilize or practice for accuracy.<br>" \
+			+ " - Firearms you shoot have a <b>60 degree</b> spread-angle increase, making them very inaccurate.<br>" \
+			+ " - Firearms you shoot count as <b>1 tile further</b> from the target.<br>" \
+			+ " - You staying still for <b>1.5 seconds</b> after entering a tile with a gun in your active hand stabilizes it for one penalty-free shot.<br>" \
+			+ " - You steady yourself after every <b>five shots</b>, making the next non-stabilized one penalty-free.<br>" \
+			+ " - You have a <b>30% chance</b> of fumbling to find and switch the safety, toggle firing mode, or use a scope (<b>which can also hurt your eye</b>)." \
+			+ " - You're warmed up for <b>10 minutes</b> after firing 18 shots, gaining a 30% chance of firing penalty-free and +3 morale points. This can stack a second time for no fumbling, a 40% chance, double the duration, and <b>+4</b> morale points.<br>",
 		SKILL_LEVEL_FAMILIAR = "You have fired a gun once or twice in your life, but are by no means fully trained. At least you know how to not shoot yourself in the foot or get scope-eye.<br>" \
-			+ " - Firearms you shoot have a 30 degree spread-angle increase, making them somewhat less accurate.",
+			+ " - Firearms you shoot have a <b>30 degree</b> spread-angle increase, making them somewhat less accurate.<br>" \
+			+ " - Firearms you shoot count as <b>0.5 tiles further</b> from the target.<br>" \
+			+ " - You staying still for <b>1.25 seconds</b> after entering a tile with a gun in your active hand stabilizes it for one penalty-free shot.<br>" \
+			+ " - You steady yourself after every <b>three shots</b>, making the next non-stabilized one penalty-free.<br>" \
+			+ " - You have a <b>15% chance</b> of fumbling to find and switch the safety, toggle firing mode, or use a scope." \
+			+ " - You're warmed up for <b>15 minutes</b> after firing 18 shots, gaining a <b>30% chance</b> of firing penalty-free and +3 morale points. This can stack a second time for a <b>40% chance</b>, double the duration, and <b>+5</b> morale points.<br>",
 		SKILL_LEVEL_TRAINED = "You have both training and actual experience with firearms. Equivalent to a few years of experience in roles such as military, police, or armed security.<br>" \
-			+ " - You suffer no maluses to firearms use. <br>" \
-			+ " - You have no bonuses to firearms use either.",
+			+ " - You suffer no skill penalties to firearms use and have no need to stabilize or steady shots.<br>" \
+			+ " - You're warmed up for <b>20 minutes</b> after firing 18 shots, gaining +3 morale points. This can stack a second time for double the duration and <b>+6</b> morale points.",
 		SKILL_LEVEL_PROFESSIONAL = "You have many years of experience with firearms, potentially even in actual combat. Retired special forces, police marksmen, and hardened mercenaries fall under this category.<br>" \
-			+ " - Firearms you shoot have a 30 degree spread-angle decrease, making them somewhat more accurate. This generally doesn't apply to weapons fired in semi-auto, but will make burst and automatic fire more manageable." \
+			+ " - Firearms you shoot have a <b>30 degree</b> spread-angle <i>decrease</i>, making them somewhat more accurate. This generally doesn't apply to weapons fired in semi-auto, but will make burst and automatic fire more manageable.<br>" \
+			+ " - You staying still for <b>1 second</b> after entering a tile with a gun in your active hand stabilizes it for one shot with boosted accuracy, equivalent to being <b>1 tile closer</b>.<br>" \
+			+ " - You're warmed up for <b>25 minutes</b> after firing 18 shots, gaining a <b>30% chance</b> of firing with boosted accuracy and +3 morale points. This can stack a second time for a <b>40% chance</b>, double the duration, and <b>+7</b> morale points."
 	)
 
 /singleton/skill/leadership
