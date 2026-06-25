@@ -258,8 +258,14 @@
 	other.health = health
 
 /turf/simulated/floor/copy_turf(turf/simulated/floor/other, ignore_air = FALSE)
+	var/singleton/flooring/old_flooring = other.flooring
 	.=..()
+	if(old_flooring && old_flooring != flooring)
+		old_flooring.on_remove(other)
 	other.flooring = flooring
+	if(other.flooring)
+		other.flooring.on_apply(other)
+	other.levelupdate()
 
 /turf/simulated/wall/shuttle/dark/corner/underlay/copy_turf(turf/simulated/wall/shuttle/dark/corner/underlay/other, ignore_air = FALSE)
 	.=..()

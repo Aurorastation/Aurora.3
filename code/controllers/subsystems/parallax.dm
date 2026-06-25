@@ -8,11 +8,11 @@ SUBSYSTEM_DEF(parallax)
 	var/planet_y_offset = 128
 	var/starlight_color
 	/// Path to our background. Lets us use anything we damn well please. Must be 480x480
-	var/skybox_icon = 'icons/skybox/skybox.dmi'
+	var/skybox_icon = 'icons/skybox/skybox480x480.dmi'
 	var/background_icon
 	var/use_stars = FALSE
 	var/use_overmap_details = TRUE
-	var/star_path = 'icons/skybox/skybox.dmi'
+	var/star_path = 'icons/skybox/skybox480x480.dmi'
 	var/star_state = "stars"
 	var/list/skybox_layer_cache = list()
 	var/list/space_appearance_cache

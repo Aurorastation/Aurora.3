@@ -365,17 +365,17 @@
 	return mutable_appearance(icon, icon_state)
 
 /atom/movable/screen/parallax_layer/layer_1
-	icon_state = "layer1"
+	icon_state = "" // layer1
 	speed = 0.6
 	layer = 1
 
 /atom/movable/screen/parallax_layer/layer_2
-	icon_state = "layer2"
+	icon_state = "" // layer2
 	speed = 1
 	layer = 2
 
 /atom/movable/screen/parallax_layer/layer_3
-	icon_state = "layer3"
+	icon_state = "" // layer3
 	speed = 1.4
 	layer = 3
 
@@ -414,7 +414,7 @@
 	set_invisibility(has_appearances ? 0 : INVISIBILITY_ABSTRACT)
 
 /atom/movable/screen/parallax_layer/skybox/backdrop
-	icon = 'icons/skybox/skybox.dmi'
+	icon = 'icons/skybox/skybox480x480.dmi'
 	speed = 0
 	layer = 0
 	tile_layer = FALSE
@@ -430,7 +430,7 @@
 	rebuild_overlays()
 
 /atom/movable/screen/parallax_layer/skybox/stars
-	icon = 'icons/skybox/skybox.dmi'
+	icon = 'icons/skybox/skybox480x480.dmi'
 	icon_state = "stars"
 	speed = 0.35
 	layer = 0.5
@@ -495,7 +495,7 @@
 	return
 
 /atom/movable/screen/parallax_layer/random/space_gas
-	icon_state = "space_gas"
+	icon_state = "" // space_gas
 	var/possible_colors = list(COLOR_TEAL, COLOR_GREEN, COLOR_SILVER, COLOR_YELLOW, COLOR_CYAN, COLOR_ORANGE, COLOR_PURPLE)
 	var/parallax_color
 

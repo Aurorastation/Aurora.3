@@ -34,6 +34,14 @@
 	var/flags
 	var/can_paint = FALSE
 	var/footstep_sound = SFX_FOOTSTEP_TILES
+	var/floor_layer = LOW_FLOOR_LAYER
+	var/underfloor_accessibility_override
+	var/z_transparent = FALSE
+	var/transparency_trait_source = TRAIT_GENERIC
+	/// Base state for tg-style bitmask flooring, without the trailing "-[junction]".
+	var/bitmask_icon_base
+	/// Flooring family this bitmask floor smooths with. Null means only exact flooring types.
+	var/bitmask_smoothing_type
 
 	//How we smooth with other flooring
 	var/decal_layer = TURF_DECAL_LAYER
@@ -49,8 +57,46 @@
 	var/space_smooth = SMOOTH_ALL
 	//There are no lists for spaces
 
-/singleton/flooring/proc/on_remove()
+/singleton/flooring/proc/on_apply(turf/simulated/floor/F, mapload)
+	if(z_transparent && F)
+		ADD_TURF_TRANSPARENCY(F, transparency_trait_source)
+
+/singleton/flooring/proc/on_remove(turf/simulated/floor/F)
+	if(z_transparent && F)
+		REMOVE_TURF_TRANSPARENCY(F, transparency_trait_source)
 	return
+
+/singleton/flooring/proc/get_bitmask_icon_state(turf/simulated/floor/F)
+	var/junction = 0
+
+	if(bitmask_smooths_with(get_step(F, NORTH)))
+		junction |= NORTH
+	if(bitmask_smooths_with(get_step(F, SOUTH)))
+		junction |= SOUTH
+	if(bitmask_smooths_with(get_step(F, EAST)))
+		junction |= EAST
+	if(bitmask_smooths_with(get_step(F, WEST)))
+		junction |= WEST
+
+	if((junction & (NORTH | SOUTH)) && (junction & (EAST | WEST)))
+		if((junction & NORTH) && (junction & WEST) && bitmask_smooths_with(get_step(F, NORTHWEST)))
+			junction |= 128
+		if((junction & NORTH) && (junction & EAST) && bitmask_smooths_with(get_step(F, NORTHEAST)))
+			junction |= 16
+		if((junction & SOUTH) && (junction & WEST) && bitmask_smooths_with(get_step(F, SOUTHWEST)))
+			junction |= 64
+		if((junction & SOUTH) && (junction & EAST) && bitmask_smooths_with(get_step(F, SOUTHEAST)))
+			junction |= 32
+
+	return "[bitmask_icon_base]-[junction]"
+
+/singleton/flooring/proc/bitmask_smooths_with(turf/T)
+	var/turf/simulated/floor/F = T
+	if(!istype(F) || !F.flooring)
+		return FALSE
+	if(bitmask_smoothing_type)
+		return istype(F.flooring, bitmask_smoothing_type)
+	return F.flooring.type == type
 
 /singleton/flooring/grass
 	name = "grass"
@@ -553,3 +599,28 @@
 
 /singleton/flooring/shuttle/skrell/ramp/top
 	icon_base = "skrellramp-top"
+
+/singleton/flooring/glass
+	name = "glass floor"
+	desc = "Don't jump on it. Or do; just be ready to accept any consequences."
+	icon = 'icons/turf/flooring/glass.dmi'
+	icon_base = "glass-0"
+	flags = TURF_REMOVE_CROWBAR | TURF_CAN_BREAK
+	footstep_sound = SFX_FOOTSTEP_PLATING
+	wall_smooth = SMOOTH_NONE
+	space_smooth = SMOOTH_NONE
+	floor_layer = GLASS_FLOOR_LAYER
+	underfloor_accessibility_override = UNDERFLOOR_VISIBLE
+	z_transparent = TRUE
+	transparency_trait_source = TRAIT_SOURCE_GLASS_FLOOR
+	bitmask_icon_base = "glass"
+	bitmask_smoothing_type = /singleton/flooring/glass
+	build_type = /obj/item/stack/tile/glass
+
+/singleton/flooring/glass/reinforced
+	name = "reinforced glass floor"
+	desc = "Don't jump on it. Or do; just be ready to accept any consequences."
+	icon = 'icons/turf/flooring/reinf_glass.dmi'
+	icon_base = "reinf_glass-0"
+	bitmask_icon_base = "reinf_glass"
+	build_type = /obj/item/stack/tile/glass/reinforced

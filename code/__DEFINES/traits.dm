@@ -122,6 +122,7 @@
 #define DISABILITY_TRAIT "disability"
 
 #define TRAIT_SOURCE_INHERENT "t_s_inherent"
+#define TRAIT_SOURCE_GLASS_FLOOR "glass_floor"
 /// cannot be removed without admin intervention
 #define ROUNDSTART_TRAIT "roundstart"
 #define CULTURE_TRAIT "culture"

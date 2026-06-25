@@ -11,7 +11,9 @@
 		desc = flooring.desc
 		icon = flooring.icon
 		color = flooring.color
-		if(flooring_override)
+		if(flooring.bitmask_icon_base)
+			icon_state = flooring.get_bitmask_icon_state(src)
+		else if(flooring_override)
 			icon_state = flooring_override
 		else
 			icon_state = flooring.icon_base
