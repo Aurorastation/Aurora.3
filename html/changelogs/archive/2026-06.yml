@@ -489,3 +489,7 @@
 2026-06-24:
   TheGreyWolf:
   - bugfix: Smoking while drinking no longer risks hallucinations.
+2026-06-25:
+  MattAtlas:
+  - bugfix: Removed defunct darksight variables on species. Unathi now have the darksight
+      they were supposed to have.
