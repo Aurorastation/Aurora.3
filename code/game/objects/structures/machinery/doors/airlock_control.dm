@@ -228,7 +228,7 @@
 	icon_state = "access_button_standby"
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 
-	anchored = 1
+	anchored = TRUE
 	power_channel = AREA_USAGE_ENVIRON
 
 	var/master_tag
@@ -250,7 +250,7 @@
 
 /obj/structure/machinery/access_button/attackby(obj/item/attacking_item, mob/user)
 	//Swiping ID on the access button
-	if (attacking_item.GetID())
+	if(attacking_item.GetID())
 		attack_hand(user)
 		return TRUE
 	return ..()
@@ -281,6 +281,8 @@
 
 	if(SSradio)
 		set_frequency(frequency)
+
+	update_icon()
 
 /obj/structure/machinery/access_button/Destroy()
 	if(SSradio)
