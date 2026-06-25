@@ -1,9 +1,4 @@
 // Defines for atom layers and planes.
-//
-// Plane values in this file now follow tgstation's plane cube model. Aurora-only
-// names that are still required by old callsites are temporary (for sake of compilation)..
-// Do not fucking leave these behind, still need migrated later on.
-
 /*
 	from stddef.dm, planes & layers built into byond.
 

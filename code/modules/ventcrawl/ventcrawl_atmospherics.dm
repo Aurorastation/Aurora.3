@@ -1,5 +1,13 @@
 /obj/structure/machinery/atmospherics/var/image/pipe_image
 
+/obj/structure/machinery/atmospherics/proc/update_ventcrawl_image()
+	pipe_image = image(src, loc, dir = dir)
+	var/turf/source_turf = get_turf(src)
+	if(source_turf)
+		SET_PLANE_EXPLICIT(pipe_image, PIPECRAWL_IMAGES_PLANE, source_turf)
+	else
+		SET_PLANE_EXPLICIT(pipe_image, PIPECRAWL_IMAGES_PLANE, src)
+
 /obj/structure/machinery/atmospherics/Destroy()
 	for(var/mob/living/M in src) //ventcrawling is serious business
 		M.remove_ventcrawl()

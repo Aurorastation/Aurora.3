@@ -20,6 +20,15 @@ GLOBAL_LIST_INIT(can_enter_vent_with, list(
 /mob/living/var/is_ventcrawling = 0
 /mob/living/var/next_play_vent = 0
 
+/mob/living/proc/set_ventcrawl_plane_visibility(visible)
+	if(!hud_used)
+		return
+	for(var/atom/movable/screen/plane_master/pipecrawl/pipecrawl as anything in hud_used.get_true_plane_masters(PIPECRAWL_IMAGES_PLANE))
+		if(visible)
+			pipecrawl.unhide_plane(src)
+		else
+			pipecrawl.hide_plane(src)
+
 /mob/living/proc/can_ventcrawl()
 	return 0
 
@@ -218,17 +227,16 @@ GLOBAL_LIST_INIT(can_enter_vent_with, list(
 	var/datum/pipe_network/network = starting_machine.return_network(starting_machine)
 	if(!network)
 		return
+	set_ventcrawl_plane_visibility(TRUE)
 	for(var/datum/pipeline/pipeline in network.line_members)
 		for(var/obj/structure/machinery/atmospherics/A in (pipeline.members || pipeline.edges)) // Adds pipe and manifold images
 			if(!A.pipe_image)
-				A.pipe_image = image(A, A.loc, dir = A.dir)
-				SET_PLANE_EXPLICIT(A.pipe_image, ABOVE_LIGHTING_PLANE, A)
+				A.update_ventcrawl_image()
 			pipes_shown += A.pipe_image
 			client.images += A.pipe_image
 	for (var/obj/structure/machinery/atmospherics/V in network.normal_members) // Adds vent and scrubber images
 		if (!V.pipe_image || istype(V, /obj/structure/machinery/atmospherics/unary/vent_pump/))
-			V.pipe_image = image(V, V.loc, dir = V.dir)
-			SET_PLANE_EXPLICIT(V.pipe_image, ABOVE_LIGHTING_PLANE, V)
+			V.update_ventcrawl_image()
 		pipes_shown += V.pipe_image
 		client.images += V.pipe_image
 
@@ -239,5 +247,6 @@ GLOBAL_LIST_INIT(can_enter_vent_with, list(
 		for(var/image/current_image in pipes_shown)
 			client.images -= current_image
 		client.set_eye(src)
+	set_ventcrawl_plane_visibility(FALSE)
 
 	pipes_shown.len = 0

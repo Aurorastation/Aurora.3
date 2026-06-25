@@ -1,6 +1,6 @@
 /atom/movable/screen/plane_master/field_of_vision_blocker
 	name = "Field of vision blocker"
-	// TG_PLANE_CUBE_TEMP: Aurora currently has no active FOV producer; this listens for a future fov_handler port.
+	// This is what would listen for fov_handler... IF WE HAD ONE
 	documentation = "This is one of those planes that's only used as a filter. It cuts out a portion of the game plate and does effects to it."
 	plane = FIELD_OF_VISION_BLOCKER_PLANE
 	appearance_flags = PLANE_MASTER|NO_CLIENT_COLOR
@@ -120,7 +120,6 @@
 		critical = PLANE_CRITICAL_FUCKO_PARALLAX
 		return
 	RegisterSignal(SSmapping, COMSIG_PLANE_OFFSET_INCREASE, PROC_REF(on_offset_increase))
-	// TG_PLANE_CUBE_TEMP: reattach equivalent global parallax color events if Aurora needs them.
 	offset_increase(0, SSmapping.max_plane_offset)
 
 /atom/movable/screen/plane_master/parallax/set_home(datum/plane_master_group/home)
@@ -572,7 +571,6 @@
 	if(!.)
 		return
 	remove_filter("AO")
-	// TG_PLANE_CUBE_TEMP: replace with Aurora/tg ambient occlusion preference handling after HUD preferences are ported.
 	if(istype(mymob))
 		add_filter("AO", 1, drop_shadow_filter(x = 0, y = -2, size = 4, color = "#04080F20"))
 

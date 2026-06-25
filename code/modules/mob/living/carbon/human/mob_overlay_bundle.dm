@@ -1,6 +1,5 @@
 /// Stages visible on-mob overlays with their emissive-plane siblings.
-/// This is a bridge between tgstation update_appearance() pipeline and Aurora's legacy emissive handling
-/// as part of a larger migration to plane cube rendering.
+/// This is a bridge between tgstation update_appearance() pipeline and Aurora's.. bullshit whatever we want to call it.
 /datum/mob_overlay_bundle
 	var/source
 	var/base

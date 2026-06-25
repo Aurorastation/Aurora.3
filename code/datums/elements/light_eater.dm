@@ -1,7 +1,5 @@
 /**
  * Makes anything it attaches to capable of permanently removing something's ability to produce light.
- *
- * TG_PLANE_CUBE_TEMP: reagent and niche combat hooks should be rechecked if Aurora adds matching tg signal contracts.
  */
 /datum/element/light_eater
 	var/static/list/blacklisted_areas = typecacheof(list(

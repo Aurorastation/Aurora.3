@@ -59,7 +59,6 @@
 	if(!.)
 		return
 	remove_filter("AO")
-	// TG_PLANE_CUBE_TEMP: replace with Aurora/tg ambient occlusion preference handling after HUD preferences are ported.
 	if(istype(mymob))
 		add_filter("AO", 1, drop_shadow_filter(x = 0, y = -2, size = 4, color = "#04080FAA"))
 
