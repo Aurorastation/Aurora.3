@@ -1,0 +1,8 @@
+author: Mineymonkey
+
+delete-after: True
+
+changes:
+  - rscadd: "Added greyscale night vision that is toggleable for vampires."
+  - code_imp: "Also fixed a bit of the code in the helper file, I personally don't think it actually caused a problem, but it should be for() not for ()"
+
