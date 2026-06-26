@@ -45,7 +45,7 @@
 	LAZYADD(plane_overlay_siblings, source)
 	if(category)
 		LAZYINITLIST(plane_overlay_sibling_categories)
-		plane_overlay_sibling_categories["\ref[source]"] = category
+		plane_overlay_sibling_categories["REF[source]"] = category
 
 /// Converts a mob_overlay_bundle into a list suitable to directly insert into overlays.
 /proc/finalize_mob_overlay_bundle(var/datum/mob_overlay_bundle/bundle, var/mob/living/carbon/human/H)
@@ -145,7 +145,7 @@
 
 	var/has_emissive_siblings = FALSE
 	for(var/sibling in parent.plane_overlay_siblings)
-		var/category = parent.plane_overlay_sibling_categories?["\ref[sibling]"]
+		var/category = parent.plane_overlay_sibling_categories?["REF[sibling]"]
 		if(category == "blocker" || category == "emissive")
 			has_emissive_siblings = TRUE
 			break
@@ -161,7 +161,7 @@
 		if(!istype(sibling, /mutable_appearance))
 			continue
 		var/mutable_appearance/sibling_appearance = sibling
-		switch(parent.plane_overlay_sibling_categories?["\ref[sibling]"])
+		switch(parent.plane_overlay_sibling_categories?["REF[sibling]"])
 			if("blocker")
 				sibling_appearance.layer = base_layer
 			if("emissive")

@@ -105,8 +105,8 @@
 
 	var/mob/reference_frame = get_target()
 	data["mob_name"] = reference_frame.name
-	data["mob_ref"] = ref(reference_frame)
-	data["our_ref"] = ref(owner.owner.mob)
+	data["mob_ref"] = REF(reference_frame)
+	data["our_ref"] = REF(owner.owner.mob)
 	data["tracking_active"] = mirror_target
 
 	var/datum/hud/our_hud = reference_frame.hud_used
