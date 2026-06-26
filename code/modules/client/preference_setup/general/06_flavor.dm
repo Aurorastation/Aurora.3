@@ -12,6 +12,7 @@
 	S["flavor_texts_hands"]   >> pref.flavor_texts["hands"]
 	S["flavor_texts_legs"]    >> pref.flavor_texts["legs"]
 	S["flavor_texts_feet"]    >> pref.flavor_texts["feet"]
+	S["flavor_texts_accent"]  >> pref.flavor_texts["accent"]
 
 	//Flavour text for robots.
 	S["flavour_texts_robot_Default"] >> pref.flavour_texts_robot["Default"]
@@ -31,6 +32,7 @@
 	S["flavor_texts_hands"]   << pref.flavor_texts["hands"]
 	S["flavor_texts_legs"]    << pref.flavor_texts["legs"]
 	S["flavor_texts_feet"]    << pref.flavor_texts["feet"]
+	S["flavor_texts_accent"]  << pref.flavor_texts["account"]
 
 	S["flavour_texts_robot_Default"] << pref.flavour_texts_robot["Default"]
 	for(var/module in GLOB.robot_module_types)
@@ -50,6 +52,7 @@
 		"flavour_hands" = "flavor_texts/hands",
 		"flavour_legs" = "flavor_texts/legs",
 		"flavour_feet" = "flavor_texts/feet",
+		"flavour_accent" = "flavor_texts/accent",
 		"robot_default" = "flavour_texts_robot/Default",
 		"signature" = "signature",
 		"signature_font" = "signfont"
@@ -79,6 +82,7 @@
 		"flavour_hands",
 		"flavour_legs",
 		"flavour_feet",
+		"flavour_accent",
 		"robot_default",
 		"signature",
 		"signature_font",
@@ -102,6 +106,7 @@
 		"flavour_hands" = pref.flavor_texts["hands"],
 		"flavour_legs" = pref.flavor_texts["legs"],
 		"flavour_feet" = pref.flavor_texts["feet"],
+		"flavour_accent" = pref.flavor_texts["accent"],
 		"robot_default" = pref.flavour_texts_robot["Default"],
 		"signature" = pref.signature,
 		"signature_font" = pref.signfont
@@ -241,6 +246,9 @@
 	HTML += "<br>"
 	HTML += "<a href='byond://?src=[REF(src)];flavor_text=feet'>Feet:</a> "
 	HTML += TextPreview(pref.flavor_texts["feet"])
+	HTML += "<br>"
+	HTML += "<a href='byond://?src=[REF(src)];flavor_text=accent'>Accent:</a> "
+	HTML += TextPreview(pref.flavor_texts["accent"])
 	HTML += "<br>"
 	HTML += "<hr />"
 	HTML += "<tt>"
