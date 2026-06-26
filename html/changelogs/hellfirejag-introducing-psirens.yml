@@ -1,0 +1,5 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - rscadd: "Psirens can now visit the ship, both via overmap hazard, or as a random event."
+  - rscadd: "Technomancers can now summon the 3 basic Psiren types"

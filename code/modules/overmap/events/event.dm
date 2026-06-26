@@ -328,6 +328,20 @@
 	can_be_destroyed = FALSE
 	tooltip_text = "Unstable gravitic shear effects detected; wide-field artificial gravity should be powered down before transit."
 
+/obj/effect/overmap/event/psiren
+	name = "psiren shoal"
+	events = list(/datum/event/wandering_psirens/overmap)
+	difficulty = EVENT_LEVEL_MODERATE
+	event_icon_states = list("carp")
+	movable_event_chance = 30
+	tooltip_text = "Xenofauna: usually hostile."
+
+/obj/effect/overmap/event/psiren/major
+	name = "psiren school"
+	opacity = 1
+	difficulty = EVENT_LEVEL_MAJOR
+	movable_event_chance = 15
+
 /obj/effect/overmap/event/MouseEntered(location, control, params)
 	. = ..()
 	openToolTip(usr, src, params, tooltip_text)
@@ -402,3 +416,17 @@
 	radius = 12
 	hazards = /obj/effect/overmap/event/gravity_anomaly
 	sectors = list(SECTOR_LEMURIAN_SEA, SECTOR_LEMURIAN_SEA_FAR)
+
+/datum/overmap_event/psiren
+	name = "psiren shoal"
+	count = 3
+	radius = 1
+	continuous = FALSE
+	hazards = /obj/effect/overmap/event/psiren
+
+/datum/overmap_event/psiren/major
+	name = "psiren school"
+	count = 2
+	radius = 2
+	opacity = 1
+	hazards = /obj/effect/overmap/event/psiren/major
