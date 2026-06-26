@@ -32,17 +32,12 @@ SUBSYSTEM_DEF(lighting)
 		if(!area.static_lighting)
 			continue
 
-		// area.contents is a live filtered world scan. Snapshot first so stoplag()
-		// stops shitting itself while the area is being walked
-		var/list/area_turfs = get_area_turfs(area)
-		var/turfs_until_yield = 256
-		for(var/turf/area_turf as anything in area_turfs)
-			if(area_turf.space_lit)
-				continue
-			new /atom/movable/lighting_object(null, area_turf)
-			if(--turfs_until_yield <= 0)
-				CHECK_TICK
-				turfs_until_yield = 256
+		for(var/list/zlevel_turfs as anything in area.get_zlevel_turf_lists())
+			for(var/turf/area_turf as anything in zlevel_turfs)
+				if(area_turf.space_lit)
+					continue
+				new /atom/movable/lighting_object(null, area_turf)
+			CHECK_TICK
 		CHECK_TICK
 
 /datum/controller/subsystem/lighting/fire(resumed, init_tick_checks)
@@ -144,5 +139,5 @@ SUBSYSTEM_DEF(lighting)
 		if(unlit.space_lit)
 			continue
 		var/area/loc_area = unlit.loc
-		if(loc_area.static_lighting)
+		if(loc_area.static_lighting && !loc_area.area_has_base_lighting)
 			unlit.lighting_build_overlay()

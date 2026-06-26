@@ -318,7 +318,9 @@
 
 	//move the turf
 
+	old_area?.remove_turf_from_z_cache(src)
 	new_area.contents += src
+	new_area?.add_turf_to_z_cache(src)
 
 	/* START AURORA SNOWFLAKE */
 	var/old_outside = is_outside()

@@ -68,6 +68,13 @@
 
 	// Otherwise, if a space turf borders a simulated turf, it should be producing starlight.
 	if(locate(/turf/simulated) in RANGE_TURFS(1, src))
+		enable_starlight()
+
+/// Turns on starlight for space turfs when the caller already knows this turf should be starlit.
+/turf/space/proc/enable_starlight()
+	if(!GLOB.config.starlight || !use_starlight)
+		return
+	if(!light_on)
 		set_light(SSatlas.current_sector.starlight_range, SSatlas.current_sector.starlight_power, l_color = SSparallax.starlight_color)
 
 // We don't want this doing anything on space, otherwise update_starlight() would run set_light on space turfs twice.

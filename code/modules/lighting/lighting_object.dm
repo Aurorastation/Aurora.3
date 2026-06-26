@@ -50,7 +50,7 @@
 	// This path is really hot. this is faster
 	// Really this should be a global var or something, but lets not think about that yes?
 	for(var/turf/space/space_tile in RANGE_TURFS(1, affected_turf))
-		space_tile.update_starlight()
+		space_tile.enable_starlight()
 
 	needs_update = TRUE
 	SSlighting.objects_queue += src
