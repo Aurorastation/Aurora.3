@@ -1,6 +1,11 @@
+/*
+ * core/assemblies.dm
+ * Base electronic assembly behavior: circuit storage, open/closed handling, interaction, icon updates, cloning hooks, and wiring rules.
+ */
+
 /obj/item/electronic_assembly
-	name = "electronic assembly"
-	desc = "It's a case, for building small electronics with."
+	name = "small circuit case"
+	desc = "A case for building small electronic assemblies."
 	w_class = WEIGHT_CLASS_SMALL
 	icon = 'icons/obj/assemblies/electronic_setups.dmi'
 	icon_state = "setup_small"
@@ -9,25 +14,30 @@
 
 	var/max_components = IC_COMPONENTS_BASE
 	var/max_complexity = IC_COMPLEXITY_BASE
+	var/max_components_implant = 16
+	var/max_complexity_implant = 42
+	// Whether the assembly panel is open for direct circuit access.
 	var/opened = 0
 	var/can_anchor = FALSE // If true, wrenching it will anchor it.
-	var/obj/item/cell/device/battery // Internal cell which most circuits need to work.
+	// Power cell or battery object feeding the assembly.
+	var/obj/item/cell/battery // Internal cell which most circuits need to work.
+	// User-selected detail color used for assembly and wearable overlays.
 	var/detail_color = COLOR_ASSEMBLY_BLACK
 	var/obj/item/card/id/access_card
 
 /obj/item/electronic_assembly/implant
 	name = "electronic implant"
 	icon_state = "setup_implant"
-	desc = "It's a case, for building very tiny electronics with."
+	desc = "A case for building very small electronic assemblies."
 	w_class = WEIGHT_CLASS_TINY
-	max_components = IC_COMPONENTS_BASE * 3/4
-	max_complexity = IC_COMPLEXITY_BASE * 3/4
+	max_components = /obj/item/electronic_assembly::max_components_implant
+	max_complexity = /obj/item/electronic_assembly::max_complexity_implant
 	var/obj/item/implant/integrated_circuit/implant = null
 
 /obj/item/electronic_assembly/Initialize(mapload, printed = FALSE)
 	. = ..()
 	if (!printed)
-		battery = new(src)
+		battery = new /obj/item/cell/device(src)
 	START_PROCESSING(SSelectronics, src)
 	access_card = new /obj/item/card/id(src)
 
@@ -86,11 +96,13 @@
 		total_parts += part.size
 		total_complexity = total_complexity + part.complexity
 	var/list/HTML = list()
+	var/effective_component_limit = get_effective_component_limit(total_complexity)
+	var/effective_complexity_limit = get_effective_complexity_limit(total_parts)
 
 	HTML += "<br><a href='byond://?src=[REF(src)]'>Refresh</a>  |  "
 	HTML += "<a href='byond://?src=[REF(src)];rename=1'>Rename</a><br>"
-	HTML += "[total_parts]/[max_components] ([round((total_parts / max_components) * 100, 0.1)]%) space taken up in the assembly.<br>"
-	HTML += "[total_complexity]/[max_complexity] ([round((total_complexity / max_complexity) * 100, 0.1)]%) maximum complexity.<br>"
+	HTML += "[total_parts]/[max_components] space taken up in the assembly[effective_component_limit > max_components ? " ([effective_component_limit] with headroom)" : ""].<br>"
+	HTML += "[total_complexity]/[max_complexity] maximum complexity[effective_complexity_limit > max_complexity ? " ([effective_complexity_limit] with headroom)" : ""].<br>"
 	if(battery)
 		HTML += "[round(battery.charge, 0.1)]/[battery.maxcharge] ([round(battery.percent(), 0.1)]%) cell charge. <a href='byond://?src=[REF(src)];remove_cell=1'>Remove</a>"
 	else
@@ -150,7 +162,7 @@
 /obj/item/electronic_assembly/verb/rename()
 	set name = "Rename Circuit"
 	set category = "Object"
-	set desc = "Rename your circuit, useful to stay organized."
+	set desc = "Renames the circuit to make assemblies easier to organize."
 	set src in usr
 
 	var/mob/M = usr
@@ -186,7 +198,7 @@
 
 /obj/item/electronic_assembly/feedback_hints(mob/user, distance, is_adjacent)
 	. = ..()
-	if(opened && is_adjacent)
+	if(is_adjacent && opened)
 		for(var/obj/item/integrated_circuit/IC in contents)
 			. += SPAN_NOTICE("It contains \a [IC].")
 
@@ -200,6 +212,16 @@
 	for(var/obj/item/integrated_circuit/part in contents)
 		. += part.size
 
+/obj/item/electronic_assembly/proc/get_effective_complexity_limit(total_part_size)
+	var/remaining_size = max(0, max_components - total_part_size)
+	var/overflow_limit = round(max_complexity * IC_OVERFLOW_LIMIT)
+	return max_complexity + min(remaining_size * IC_OVERFLOW_COMPONENT_TO_COMPLEXITY, overflow_limit)
+
+/obj/item/electronic_assembly/proc/get_effective_component_limit(total_complexity)
+	var/remaining_complexity = max(0, max_complexity - total_complexity)
+	var/overflow_limit = round(max_components * IC_OVERFLOW_LIMIT)
+	return max_components + min(round(remaining_complexity / IC_OVERFLOW_COMPLEXITY_TO_COMPONENT), overflow_limit)
+
 // Returns true if the circuit made it inside.
 /obj/item/electronic_assembly/proc/add_circuit(obj/item/integrated_circuit/IC, mob/user)
 	if(!opened)
@@ -212,11 +234,13 @@
 
 	var/total_part_size = get_part_size()
 	var/total_complexity = get_part_complexity()
+	var/new_part_size = total_part_size + IC.size
+	var/new_complexity = total_complexity + IC.complexity
 
-	if((total_part_size + IC.size) > max_components)
+	if(new_part_size > get_effective_component_limit(new_complexity))
 		to_chat(user, SPAN_WARNING("You can't seem to add the '[IC.name]', as there's insufficient space."))
 		return FALSE
-	if((total_complexity + IC.complexity) > max_complexity)
+	if(new_complexity > get_effective_complexity_limit(new_part_size))
 		to_chat(user, SPAN_WARNING("You can't seem to add the '[IC.name]', since this setup's too complicated for the case."))
 		return FALSE
 
@@ -273,7 +297,7 @@
 
 		return TRUE
 
-	else if(istype(attacking_item, /obj/item/cell/device))
+	else if(istype(attacking_item, /obj/item/cell))
 		if(!opened)
 			to_chat(user, SPAN_WARNING("\The [src] isn't open, so you can't put anything inside.  Try using a crowbar."))
 			for(var/obj/item/integrated_circuit/input/S in contents)
@@ -286,7 +310,7 @@
 				S.attackby_react(attacking_item,user,user.a_intent)
 			return FALSE
 
-		var/obj/item/cell/device/cell = attacking_item
+		var/obj/item/cell/cell = attacking_item
 		user.drop_from_inventory(cell,src)
 		battery = cell
 		playsound(get_turf(src), 'sound/items/Deconstruct.ogg', 50, 1)
@@ -313,6 +337,7 @@
 		return
 	if(opened)
 		interact(user)
+		return
 
 	var/list/input_selection = list()
 	var/list/available_inputs = list()

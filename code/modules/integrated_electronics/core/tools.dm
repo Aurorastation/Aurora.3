@@ -1,3 +1,8 @@
+/*
+ * core/tools.dm
+ * Tools used to manipulate integrated electronics, such as wiring, debugging, and assembly maintenance helpers.
+ */
+
 #define WIRE     "wire"
 #define WIRING   "wiring"
 #define UNWIRE   "unwire"
@@ -176,6 +181,7 @@
 	icon_state = "detailer"
 	item_flags = ITEM_FLAG_NO_BLUDGEON
 	w_class = WEIGHT_CLASS_SMALL
+	// User-selected detail color used for assembly and wearable overlays.
 	var/detail_color = COLOR_ASSEMBLY_WHITE
 	var/static/list/color_list = list(
 		"black" = COLOR_ASSEMBLY_BLACK,
@@ -217,7 +223,7 @@
 
 /obj/item/storage/bag/circuits
 	name = "circuit kit"
-	desc = "This kit is essential for any circuitry projects."
+	desc = "A kit containing basic tools and parts for circuit projects."
 	icon = 'icons/obj/assemblies/electronic_tools.dmi'
 	icon_state = "circuit_kit"
 	w_class = WEIGHT_CLASS_NORMAL
@@ -279,7 +285,7 @@
 
 /obj/item/storage/bag/circuits/mini
 	name = "circuit box"
-	desc = "Used to partition categories of circuits, for a neater workspace."
+	desc = "Stores circuits by category for easier organization."
 	w_class = WEIGHT_CLASS_SMALL
 	display_contents_with_number = TRUE
 	pickup_blacklist = list(
@@ -299,7 +305,7 @@
 
 /obj/item/storage/bag/circuits/mini/arithmetic
 	name = "arithmetic circuit box"
-	desc = "Warning: Contains math."
+	desc = "Contains arithmetic and numeric utility circuits."
 	icon_state = "box_arithmetic"
 	spawn_types = list(
 		/obj/item/integrated_circuit/arithmetic
@@ -310,7 +316,7 @@
 
 /obj/item/storage/bag/circuits/mini/trig
 	name = "trig circuit box"
-	desc = "Danger: Contains more math."
+	desc = "Contains trigonometric circuits."
 	icon_state = "box_trig"
 	spawn_types = list(
 		/obj/item/integrated_circuit/trig
@@ -321,7 +327,7 @@
 
 /obj/item/storage/bag/circuits/mini/input
 	name = "input circuit box"
-	desc = "Tell these circuits everything you know."
+	desc = "Contains circuits that read data from the surrounding environment."
 	icon_state = "box_input"
 	spawn_types = list(
 		/obj/item/integrated_circuit/input
@@ -332,7 +338,7 @@
 
 /obj/item/storage/bag/circuits/mini/output
 	name = "output circuit box"
-	desc = "Circuits to interface with the world beyond itself."
+	desc = "Contains circuits that display, announce, or transmit data."
 	icon_state = "box_output"
 	spawn_types = list(
 		/obj/item/integrated_circuit/output
@@ -343,7 +349,7 @@
 
 /obj/item/storage/bag/circuits/mini/memory
 	name = "memory circuit box"
-	desc = "Machines can be quite forgetful without these."
+	desc = "Contains memory circuits for storing circuit data."
 	icon_state = "box_memory"
 	spawn_types = list(
 		/obj/item/integrated_circuit/memory
@@ -354,7 +360,7 @@
 
 /obj/item/storage/bag/circuits/mini/logic
 	name = "logic circuit box"
-	desc = "May or may not be Turing complete."
+	desc = "Contains logic circuits for boolean-style control and comparisons."
 	icon_state = "box_logic"
 	spawn_types = list(
 		/obj/item/integrated_circuit/logic
@@ -365,18 +371,55 @@
 
 /obj/item/storage/bag/circuits/mini/time
 	name = "time circuit box"
-	desc = "No time machine parts, sadly."
+	desc = "Contains timer and clock circuits."
 	icon_state = "box_time"
 	spawn_types = list(
 		/obj/item/integrated_circuit/time
 	)
 
+/obj/item/storage/bag/circuits/mini/time/fill()
+	var/list/basic_time_circuits = list(
+		/obj/item/integrated_circuit/time/delay,
+		/obj/item/integrated_circuit/time/delay/five_sec,
+		/obj/item/integrated_circuit/time/delay/one_sec,
+		/obj/item/integrated_circuit/time/delay/half_sec,
+		/obj/item/integrated_circuit/time/delay/tenth_sec,
+		/obj/item/integrated_circuit/time/ticker/fast,
+		/obj/item/integrated_circuit/time/ticker,
+		/obj/item/integrated_circuit/time/ticker/slow,
+		/obj/item/integrated_circuit/time/ticker/very_slow,
+		/obj/item/integrated_circuit/time/clock
+	)
+	for(var/circuit_type in basic_time_circuits)
+		for(var/i in 1 to 4)
+			new circuit_type(src)
+
 /obj/item/storage/bag/circuits/mini/time/all
 	spawn_flags_to_use = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
+/obj/item/storage/bag/circuits/mini/time/all/fill()
+	var/list/all_time_circuits = list(
+		/obj/item/integrated_circuit/time/delay,
+		/obj/item/integrated_circuit/time/delay/five_sec,
+		/obj/item/integrated_circuit/time/delay/one_sec,
+		/obj/item/integrated_circuit/time/delay/half_sec,
+		/obj/item/integrated_circuit/time/delay/tenth_sec,
+		/obj/item/integrated_circuit/time/delay/custom,
+		/obj/item/integrated_circuit/time/ticker/rapid,
+		/obj/item/integrated_circuit/time/ticker/fast,
+		/obj/item/integrated_circuit/time/ticker,
+		/obj/item/integrated_circuit/time/ticker/slow,
+		/obj/item/integrated_circuit/time/ticker/very_slow,
+		/obj/item/integrated_circuit/time/ticker/custom,
+		/obj/item/integrated_circuit/time/clock
+	)
+	for(var/circuit_type in all_time_circuits)
+		for(var/i in 1 to 4)
+			new circuit_type(src)
+
 /obj/item/storage/bag/circuits/mini/reagents
 	name = "reagent circuit box"
-	desc = "Unlike most electronics, these circuits are supposed to come in contact with liquids."
+	desc = "Contains circuits for handling reagents and containers."
 	icon_state = "box_reagents"
 	spawn_types = list(
 		/obj/item/integrated_circuit/reagent
@@ -387,7 +430,7 @@
 
 /obj/item/storage/bag/circuits/mini/transfer
 	name = "transfer circuit box"
-	desc = "Useful for moving data representing something arbitrary to another arbitrary virtual place."
+	desc = "Contains circuits for routing data between pins and devices."
 	icon_state = "box_transfer"
 	spawn_types = list(
 		/obj/item/integrated_circuit/transfer
@@ -398,7 +441,7 @@
 
 /obj/item/storage/bag/circuits/mini/converter
 	name = "converter circuit box"
-	desc = "Transform one piece of data to another type of data with these."
+	desc = "Contains circuits for converting data between supported formats."
 	icon_state = "box_converter"
 	spawn_types = list(
 		/obj/item/integrated_circuit/converter
@@ -409,7 +452,7 @@
 
 /obj/item/storage/bag/circuits/mini/smart
 	name = "smart box"
-	desc = "Sentience not included."
+	desc = "Contains smart control circuits for navigation and automation."
 	icon_state = "box_ai"
 	spawn_types = list(
 		/obj/item/integrated_circuit/smart
@@ -420,7 +463,7 @@
 
 /obj/item/storage/bag/circuits/mini/manipulation
 	name = "manipulation box"
-	desc = "Make your machines actually useful with these."
+	desc = "Contains circuits that perform physical actions through an assembly."
 	icon_state = "box_manipulation"
 	spawn_types = list(
 		/obj/item/integrated_circuit/manipulation
@@ -431,7 +474,7 @@
 
 /obj/item/storage/bag/circuits/mini/power
 	name = "power circuit box"
-	desc = "Electronics generally require electricity."
+	desc = "Contains circuits that generate, receive, or transmit power."
 	icon_state = "box_power"
 	spawn_types = list(
 		/obj/item/integrated_circuit/passive/power,

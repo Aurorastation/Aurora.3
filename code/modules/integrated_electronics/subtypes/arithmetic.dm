@@ -1,3 +1,8 @@
+/*
+ * subtypes/arithmetic.dm
+ * Arithmetic circuits for numeric operations and math transformations.
+ */
+
 //These circuits do simple math.
 /obj/item/integrated_circuit/arithmetic
 	complexity = 1
@@ -13,7 +18,7 @@
 	)
 	outputs = list("result" = IC_PINTYPE_NUMBER)
 	activators = list("compute" = IC_PINTYPE_PULSE_IN, "on computed" = IC_PINTYPE_PULSE_OUT)
-	category_text = "Arithmetic"
+	category_text = "MATH - Arithmetic"
 	power_draw_per_use = 50 // Math is pretty cheap.
 
 // +Adding+ //
@@ -21,7 +26,7 @@
 /obj/item/integrated_circuit/arithmetic/addition
 	name = "addition circuit"
 	desc = "This circuit can add numbers together."
-	extended_desc = "The order that the calculation goes is;<br>\
+	extended_desc = "Calculation order:<br>\
 	result = ((((A + B) + C) + D) ... ) and so on, until all pins have been added.  \
 	Null pins are ignored."
 	icon_state = "addition"
@@ -43,7 +48,7 @@
 /obj/item/integrated_circuit/arithmetic/subtraction
 	name = "subtraction circuit"
 	desc = "This circuit can subtract numbers."
-	extended_desc = "The order that the calculation goes is;<br>\
+	extended_desc = "Calculation order:<br>\
 	result = ((((A - B) - C) - D) ... ) and so on, until all pins have been subtracted.  \
 	Null pins are ignored.  Pin A <b>must</b> be a number or the circuit will not function."
 	icon_state = "subtraction"
@@ -71,7 +76,7 @@
 /obj/item/integrated_circuit/arithmetic/multiplication
 	name = "multiplication circuit"
 	desc = "This circuit can multiply numbers."
-	extended_desc = "The order that the calculation goes is;<br>\
+	extended_desc = "Calculation order:<br>\
 	result = ((((A * B) * C) * D) ... ) and so on, until all pins have been multiplied.  \
 	Null pins are ignored.  Pin A <b>must</b> be a number or the circuit will not function."
 	icon_state = "multiplication"
@@ -98,8 +103,8 @@
 
 /obj/item/integrated_circuit/arithmetic/division
 	name = "division circuit"
-	desc = "This circuit can divide numbers, just don't think about trying to divide by zero!"
-	extended_desc = "The order that the calculation goes is;<br>\
+	desc = "Divides one number by another. Division by zero is not valid."
+	extended_desc = "Calculation order:<br>\
 	result = ((((A / B) / C) / D) ... ) and so on, until all pins have been divided.  \
 	Null pins, and pins containing 0, are ignored.  Pin A <b>must</b> be a number or the circuit will not function."
 	icon_state = "division"
@@ -146,8 +151,8 @@
 
 /obj/item/integrated_circuit/arithmetic/sign
 	name = "sign circuit"
-	desc = "This will say if a number is positive, negative, or zero."
-	extended_desc = "Will output 1, -1, or 0, depending on if A is a postive number, a negative number, or zero, respectively."
+	desc = "Outputs whether a number is positive, negative, or zero."
+	extended_desc = "Outputs 1 for positive numbers, -1 for negative numbers, and 0 for zero."
 	icon_state = "sign"
 	inputs = list("A" = IC_PINTYPE_NUMBER)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
@@ -196,7 +201,7 @@
 
 /obj/item/integrated_circuit/arithmetic/absolute
 	name = "absolute circuit"
-	desc = "This outputs a non-negative version of the number you put in.  This may also be thought of as its distance from zero."
+	desc = "Outputs the absolute value of A."
 	icon_state = "absolute"
 	inputs = list("A" = IC_PINTYPE_NUMBER)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
@@ -212,12 +217,70 @@
 	push_data()
 	activate_pin(2)
 
+// Clamp and deadband //
+
+/obj/item/integrated_circuit/arithmetic/clamp_deadband
+	name = "clamp and deadband circuit"
+	desc = "Clamps a number to a range and reports whether it is inside an optional deadband."
+	extended_desc = "If minimum and maximum are entered backward, they are swapped. Deadband radius values at or below zero disable the deadband check."
+	icon_state = "comparator"
+	complexity = 2
+	inputs = list(
+		"value" = IC_PINTYPE_NUMBER,
+		"minimum" = IC_PINTYPE_NUMBER,
+		"maximum" = IC_PINTYPE_NUMBER,
+		"deadband center" = IC_PINTYPE_NUMBER,
+		"deadband radius" = IC_PINTYPE_NUMBER
+	)
+	outputs = list(
+		"clamped value" = IC_PINTYPE_NUMBER,
+		"in range" = IC_PINTYPE_BOOLEAN,
+		"inside deadband" = IC_PINTYPE_BOOLEAN
+	)
+	activators = list(
+		"process" = IC_PINTYPE_PULSE_IN,
+		"on processed" = IC_PINTYPE_PULSE_OUT
+	)
+	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+
+/obj/item/integrated_circuit/arithmetic/clamp_deadband/do_work()
+	var/value = get_pin_data(IC_INPUT, 1)
+	var/minimum = get_pin_data(IC_INPUT, 2)
+	var/maximum = get_pin_data(IC_INPUT, 3)
+	var/deadband_center = get_pin_data(IC_INPUT, 4)
+	var/deadband_radius = get_pin_data(IC_INPUT, 5)
+
+	if(!isnum(value))
+		value = 0
+	if(!isnum(minimum))
+		minimum = value
+	if(!isnum(maximum))
+		maximum = value
+
+	if(minimum > maximum)
+		var/swap_value = minimum
+		minimum = maximum
+		maximum = swap_value
+
+	var/clamped_value = clamp(value, minimum, maximum)
+	var/in_range = (value >= minimum && value <= maximum)
+	var/inside_deadband = FALSE
+
+	if(isnum(deadband_center) && isnum(deadband_radius) && deadband_radius > 0)
+		inside_deadband = abs(value - deadband_center) <= abs(deadband_radius)
+
+	set_pin_data(IC_OUTPUT, 1, clamped_value)
+	set_pin_data(IC_OUTPUT, 2, in_range)
+	set_pin_data(IC_OUTPUT, 3, inside_deadband)
+	push_data()
+	activate_pin(2)
+
 // Averaging //
 
 /obj/item/integrated_circuit/arithmetic/average
 	name = "average circuit"
-	desc = "This circuit is of average quality, however it will compute the average for numbers you give it."
-	extended_desc = "Note that null pins are ignored, where as a pin containing 0 is included in the averaging calculation."
+	desc = "Calculates the average of the provided numeric inputs."
+	extended_desc = "Note that null pins are ignored, whereas a pin containing 0 is included in the averaging calculation."
 	icon_state = "average"
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
@@ -240,7 +303,7 @@
 // Pi, because why the hell not? //
 /obj/item/integrated_circuit/arithmetic/pi
 	name = "pi constant circuit"
-	desc = "Not recommended for cooking.  Outputs '3.14159' when it receives a pulse."
+	desc = "Outputs the numeric constant pi when pulsed."
 	icon_state = "pi"
 	inputs = list()
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
@@ -253,7 +316,7 @@
 // Random //
 /obj/item/integrated_circuit/arithmetic/random
 	name = "random number generator circuit"
-	desc = "This gives a random (integer) number between values A and B inclusive."
+	desc = "Outputs a random integer between A and B, inclusive."
 	extended_desc = "'Inclusive' means that the upper bound is included in the range of numbers, e.g. L = 1 and H = 3 will allow \
 	for outputs of 1, 2, or 3.  H being the higher number is not <i>strictly</i> required."
 	icon_state = "random"
@@ -276,7 +339,7 @@
 
 /obj/item/integrated_circuit/arithmetic/square_root
 	name = "square root circuit"
-	desc = "This outputs the square root of a number you put in."
+	desc = "Outputs the square root of A."
 	icon_state = "square_root"
 	inputs = list("A" = IC_PINTYPE_NUMBER)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
@@ -285,7 +348,7 @@
 	var/result = 0
 	for(var/datum/integrated_io/I in inputs)
 		I.pull_data()
-		if(isnum(I.data))
+		if(isnum(I.data) && I.data >= 0)
 			result = sqrt(I.data)
 
 	set_pin_data(IC_OUTPUT, 1, result)
@@ -296,7 +359,7 @@
 
 /obj/item/integrated_circuit/arithmetic/modulo
 	name = "modulo circuit"
-	desc = "Gets the remainder of A / B."
+	desc = "Outputs the remainder of A divided by B."
 	icon_state = "modulo"
 	inputs = list("A" = IC_PINTYPE_NUMBER, "B" = IC_PINTYPE_NUMBER)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
@@ -316,7 +379,7 @@
 
 /obj/item/integrated_circuit/arithmetic/min
 	name = "min circuit"
-	desc = "This outputs the smallest of the numbers you put in."
+	desc = "Outputs the smallest provided number."
 	// The states are rarely used symbols for the operations
 	// Letters didn't fit as well
 	icon_state = "min"
@@ -329,6 +392,9 @@
 		if(isnum(I.data))
 			values.Add(I.data)
 
+	if(!length(values))
+		return
+
 	set_pin_data(IC_OUTPUT, 1, min(values))
 	push_data()
 	activate_pin(2)
@@ -337,7 +403,7 @@
 
 /obj/item/integrated_circuit/arithmetic/max
 	name = "max circuit"
-	desc = "This outputs the biggest of the numbers you put in."
+	desc = "Outputs the largest provided number."
 	icon_state = "max"
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
@@ -347,6 +413,9 @@
 		I.pull_data()
 		if(isnum(I.data))
 			values.Add(I.data)
+
+	if(!length(values))
+		return
 
 	set_pin_data(IC_OUTPUT, 1, max(values))
 	push_data()
