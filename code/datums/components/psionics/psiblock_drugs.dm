@@ -14,6 +14,9 @@
 	/// The percent chance that this drug will cancel a psionic power when the user is targeted by one.
 	var/telepathy_cancel_probability = 95
 
+	/// The maximum amount of telepathic intrusions this drug can block before it immediately wears off.
+	var/max_blocks = 15
+
 /datum/component/timed_life/psiblock_drugs/Initialize(lifetime_seconds = 5 MINUTES)
 	. = ..()
 	if (!parent)
@@ -56,6 +59,8 @@
 	SIGNAL_HANDLER
 	if (prob(telepathy_cancel_probability))
 		*cancelled = TRUE
+		if (--max_blocks <= 0)
+			qdel(src)
 
 /datum/component/timed_life/psiblock_drugs/proc/modify_ministry_empathy(minister, ministree, moodlet_value)
 	SIGNAL_HANDLER

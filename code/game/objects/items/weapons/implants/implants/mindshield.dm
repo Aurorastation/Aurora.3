@@ -10,6 +10,8 @@
 	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 2, TECH_ILLEGAL = 3)
 	default_action_type = null
 	known = TRUE
+	should_use_health = TRUE
+	maxhealth = 15
 	var/sensitivity_modifier = -1
 
 /obj/item/implant/mindshield/get_data()
@@ -49,11 +51,11 @@
 	UnregisterSignal(imp_in, COMSIG_PSI_MIND_POWER)
 	return ..()
 
-/obj/item/implant/mindshield/proc/modify_sensitivity(var/implantee, var/effective_sensitivity)
+/obj/item/implant/mindshield/proc/modify_sensitivity(implantee, effective_sensitivity)
 	SIGNAL_HANDLER
 	*effective_sensitivity += sensitivity_modifier
 
-/obj/item/implant/mindshield/proc/cancel_power(var/implantee, var/caster, var/cancelled, var/cancel_return, var/wide_field)
+/obj/item/implant/mindshield/proc/cancel_power(implantee, caster, cancelled, cancel_return, wide_field)
 	SIGNAL_HANDLER
 	*cancelled = TRUE
 	if(wide_field || implantee == caster)
@@ -61,6 +63,7 @@
 
 	*cancel_return = SPAN_DANGER("ACCESS DENIED: CONNECTION DROPPED.")
 	to_chat(implantee, SPAN_DANGER("Your [name] buzzes angrily."))
+	add_damage(1)
 
 /obj/item/implant/mindshield/emp_act(severity)
 	. = ..()
