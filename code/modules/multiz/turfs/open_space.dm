@@ -6,7 +6,7 @@
 /turf/simulated/open
 	name = "open space"
 	icon = 'icons/turf/floors.dmi'
-	icon_state = "white"
+	icon_state = "noop"
 	density = 0
 	pathweight = 100000 //Seriously, don't try and path over this one numbnuts
 	is_hole = TRUE
@@ -152,7 +152,6 @@
 /turf/simulated/open/airless
 	initial_gas = null
 	temperature = TCMB
-	icon_state = "white"
 
 /turf/simulated/open/chasm
 	icon = 'icons/turf/smooth/chasms_seethrough.dmi'
