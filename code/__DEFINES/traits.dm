@@ -243,3 +243,8 @@
 
 /// Field of view masking is active for this mob.
 #define TRAIT_FOV_APPLIED "fov_applied"
+
+/// MOB CATEGORY traits used for pattern matching certain subtypes of mobs
+#define TRAIT_SOURCE_MOB_CATEGORY "mob_category"
+/// All "Space Fauna" EG: Space Carp
+#define TRAIT_MC_SPACE_FAUNA "space_fauna"

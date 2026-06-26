@@ -367,8 +367,8 @@
 	icon_state = (ammo_magazine)? "gauss_thumper" : "gauss_thumper-e"
 
 /obj/item/gun/energy/gauss/mounted/mech
-	name = "heavy gauss cannon"
-	desc = "An outdated and power hungry gauss cannon, modified to deliver high explosive rounds at high velocities."
+	name = "NGS-02-EXO heavy gauss cannon"
+	desc = "A power hungry, phoron-enhanced gauss cannon designed by NanoTrasen Corporation, modified to deliver high explosive rounds at high velocities. It is often seen strapped to Tau Ceti Armed Forces' mechanised centuries."
 	desc_extended = null
 	icon = 'icons/obj/guns/faction/nanotrasen_corporation/gauss_thumper.dmi' //TODO: Needs a proper sprite
 	icon_state = "gauss_thumper"

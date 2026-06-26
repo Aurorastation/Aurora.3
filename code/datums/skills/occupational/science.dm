@@ -5,7 +5,6 @@
 	uneducated_skill_cap = SKILL_LEVEL_TRAINED
 	category =  /singleton/skill_category/occupational
 	subcategory = SKILL_SUBCATEGORY_SCIENCE
-	required = TRUE
 	component_type = RESEARCH_SKILL_COMPONENT
 
 /singleton/skill/xenobotany
@@ -33,14 +32,19 @@
 		+ "Having this skill at least at the \"Trained\" rank is required to extract cores from slimes. " \
 		+ "Ranks in this skill also provide small situational bonuses when interacting with aliens in general."
 	maximum_level = SKILL_LEVEL_PROFESSIONAL
-	uneducated_skill_cap = SKILL_LEVEL_TRAINED
+	uneducated_skill_cap = SKILL_LEVEL_PROFESSIONAL
 	category =  /singleton/skill_category/occupational
 	subcategory = SKILL_SUBCATEGORY_SCIENCE
 	component_type = XENOBOTANY_SKILL_COMPONENT
-	required = TRUE
 	skill_level_descriptions = alist(
-		SKILL_LEVEL_UNFAMILIAR = "You have no modifiers from this skill.",
-		SKILL_LEVEL_FAMILIAR = "You have a very small bonus to both success rate and surgery speed when performing surgeries on aliens in general.",
-		SKILL_LEVEL_TRAINED = "You have a small bonus to both success rate and surgery speed when performing surgeries on aliens in general.",
-		SKILL_LEVEL_PROFESSIONAL = "You have a moderate bonus to both success rate and surgery speed when performing surgeries on aliens in general."
+		SKILL_LEVEL_UNFAMILIAR = "You have little to no knowledge of Xenobiology",
+		SKILL_LEVEL_FAMILIAR = "You have a passing experience with Xenobiology.<br>" \
+			+ " - Your melee attacks made against Xenofauna such as Space Carp deal 10% more damage.<br>" \
+			+ " - You harvest one additional part when butchering Xenofauna.",
+		SKILL_LEVEL_TRAINED = "You have a moderate experience with Xenobiology.<br>" \
+			+ " - Your melee attacks made against Xenofauna such as Space Carp deal 15% more damage.<br>" \
+			+ " - You harvest two additional parts when butchering Xenofauna.",
+		SKILL_LEVEL_PROFESSIONAL = "You have extensive experience with Xenobiology.<br>" \
+			+ " - Your melee attacks made against Xenofauna such as Space Carp deal 20% more damage.<br>" \
+			+ " - You harvest three additional parts when butchering Xenofauna.",
 	)

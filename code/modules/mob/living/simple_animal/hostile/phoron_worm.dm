@@ -46,6 +46,10 @@
 
 	var/burrowing = FALSE
 
+/mob/living/simple_animal/hostile/phoron_worm/Initialize()
+	. = ..()
+	ADD_TRAIT(src, TRAIT_MC_SPACE_FAUNA, TRAIT_SOURCE_MOB_CATEGORY)
+
 /mob/living/simple_animal/hostile/phoron_worm/death()
 	..(null,"collapses under its own weight!")
 	var/turf/T = get_turf(src)
