@@ -1,3 +1,9 @@
+#define RISK_LOW list("You feel like you can't focus on anything.", "Why should you care about others?", "You cannot bring yourself to care.", "Other people's emotions seem tedious.", "Nothing seems urgent anymore.", "You feel your attention drifting.", "It is difficult to hold onto a feeling.", "Why was it you were concerned again?", "You feel your attention wandering.", "Everyone seems too worried.", "Everything feels muffled.")
+
+#define RISK_MEDIUM list("Everything feels dulled and distant.", "Your thoughts feel sluggish.", "You struggle to remember what you were just thinking.", "You have trouble recalling why this mattered to you.", "Your mind feels wrapped in a thick fog.", "Why was it that this mattered to you again?", "Your thoughts feel distant from you.", "What was it you were feeling again?", "You lose track of what you meant to say.", "Everything feels numb.", "What was it you were doing again?")
+
+#define RISK_HIGH list("You feel detached from your surroundings.", "Everyone seems less real.", "The world feels insulated.", "Everything seems so quiet.", "For a moment, it feels like there is a faint hum.", "The people around you seem indistinct.", "The quiet feels thicker than before.", "The world feels distant and muffled.", "Your thoughts seem to vanish before you can finish them.", "You cannot remember how long you have been standing here.", "You feel strangely absent for a moment.", "There was something important... What was it again?", "The world around you feels artificial.", "You feel disconnected from your actions.", "How did you get here again?", "Something feels like it is missing from you.")
+
 /datum/component/timed_life/psiblock_drugs
 	/// Typecasted parent of this component.
 	var/mob/living/carbon/human/owner
@@ -81,7 +87,6 @@
 	to_chat(leader, SPAN_BAD("Why should you care about how others feel?"))
 	*moodlet_value = *moodlet_value * 0.5
 
-
 /datum/component/timed_life/psiblock_drugs/process(seconds_per_tick)
 	. = ..()
 
@@ -114,14 +119,70 @@
 	/// The penalty to surgery success chance due to hand tremors.
 	var/surgery_success_penalty = -10
 
+	/// The intensity of the seizures
+	var/seizure_intensity = 1
+
+	/// The time until the seizure after the warning
+	var/seizure_warning_delay = 20 SECONDS
+
+	/// The time until the next message
+	var/next_message = 0
+
+	/// The delay between messages, to avoid spamming the player
+	var/message_delay = 30 SECONDS
+
+	var/next_drug_message = 1 MINUTE
+
+	/// The message randomly given while under the effect of the drug. It should preferably be set in initialize
+	var/ongoing_effect_message = list(
+		"Everything feels dulled and distant.",
+		"You feel like you can't focus on anything.",
+		"Your thoughts feel sluggish.",
+		"Why should you care about others?",
+		"You struggle to remember what you were just thinking.",
+		"You cannot bring yourself to care.",
+		"Other people's emotions seem tedious.",
+		"You have trouble recalling why this mattered to you.",
+		"Nothing seems urgent anymore.",
+		"You feel detached from your surroundings.",
+		"Your mind feels wrapped in a thick fog.",
+		"Everyone seems less real.",
+		"The world feels insulated.",
+		"Why was it that this mattered to you again?",
+		"Everything seems so quiet.",
+		"For a moment, it feels like there is a faint hum.",
+		"Your thoughts feel distant from you.",
+		"It is difficult to hold onto a feeling.",
+		"Why was it you were concerned again?",
+		"You feel your attention drifting.",
+		"The people around you seem indistinct.",
+		"The quiet feels thicker than before.",
+		"What was it you were feeling again?",
+		"The world feels distant and muffled."
+	)
+
+	var/list/seizure_warning_messages = list(
+		"A powerful metallic taste suddenly floods your mouth.",
+		"You briefly smell something burning.",
+		"An overpowering chemical taste fills your mouth.",
+		"The air suddenly smells sickeningly sweet.",
+		"A wave of nausea rises abruptly through your stomach."
+	)
+
 /datum/component/timed_life/psiblock_drugs/yomi_genetics/Initialize(lifetime_seconds = 5 MINUTES)
 	. = ..()
 	next_tremor_time = REALTIMEOFDAY + rand(min_tremor_time, max_tremor_time)
 	next_seizure_time = REALTIMEOFDAY + rand(min_seizure_time, max_seizure_time)
 
+	next_message = REALTIMEOFDAY + message_delay
+	// A little slower than normal. Estimated frequency: 1 min
+	next_drug_message = REALTIMEOFDAY + (DRUG_MESSAGE_COOLDOWN * 2)
+
 	// Some skill check penalties related to hand tremors. Tremors give a small penalty to some skill checks.
 	RegisterSignal(parent, COMSIG_BEFORE_GUN_FIRE, PROC_REF(check_tremor_gun), override = TRUE)
 	RegisterSignal(parent, COMSIG_GET_SURGERY_SUCCESS_MODIFIERS, PROC_REF(check_tremor_surgery), override = TRUE)
+
+	ongoing_effect_message = RISK_LOW + RISK_MEDIUM
 
 /datum/component/timed_life/psiblock_drugs/yomi_genetics/Destroy()
 	UnregisterSignal(parent, COMSIG_BEFORE_GUN_FIRE)
@@ -139,32 +200,72 @@
 
 /datum/component/timed_life/psiblock_drugs/yomi_genetics/process(seconds_per_tick)
 	. = ..()
-	var/time_of_day = REALTIMEOFDAY
-	if (time_of_day >= next_tremor_time)
-		owner.visible_message(SPAN_NOTICE("[owner]'s hand shakes..."), SPAN_NOTICE("Your hand shakes..."))
-		next_tremor_time = time_of_day + rand(min_tremor_time, max_tremor_time)
+	if(REALTIMEOFDAY >= next_tremor_time && REALTIMEOFDAY >= next_message)
+		owner.visible_message(
+			SPAN_NOTICE("[owner]'s hand shakes..."),
+			SPAN_NOTICE("Your hand shakes...")
+		)
+		next_tremor_time = REALTIMEOFDAY + rand(min_tremor_time, max_tremor_time)
+		next_message = REALTIMEOFDAY + message_delay
 
-	if (time_of_day >= next_seizure_time)
-		owner.seizure()
-		next_seizure_time = time_of_day + rand(min_seizure_time, max_seizure_time)
+	if(REALTIMEOFDAY >= next_drug_message && REALTIMEOFDAY >= next_message)
+		if(!length(ongoing_effect_message))
+			next_message = (REALTIMEOFDAY + 2 HOURS)
+			return
+		var/message = pick(ongoing_effect_message)
+		to_chat(owner, SPAN_NOTICE("[message]"))
+		next_drug_message = REALTIMEOFDAY + (DRUG_MESSAGE_COOLDOWN * 2)
+		next_message = REALTIMEOFDAY + message_delay
+
+	if(REALTIMEOFDAY >= next_seizure_time)
+		begin_seizure_warning()
+		next_seizure_time = REALTIMEOFDAY + rand(min_seizure_time, max_seizure_time)
+
+/datum/component/timed_life/psiblock_drugs/yomi_genetics/proc/begin_seizure_warning()
+	if(!owner)
+		return
+
+	to_chat(owner, SPAN_WARNING(pick(seizure_warning_messages)))
+	// For some reason, the timer cuts one minute away, so we add an extra minute to make up for it
+	var/seizure_long_delay = seizure_warning_delay + 1 MINUTE
+	addtimer(CALLBACK(owner, TYPE_PROC_REF(/mob/living/carbon/human, seizure), seizure_intensity), seizure_long_delay)
 
 /datum/component/timed_life/psiblock_drugs/yomi_genetics/cheap
 	min_tremor_time = 30 SECONDS
 	max_tremor_time = 2 MINUTES
+
 	min_seizure_time = 5 MINUTES
 	max_seizure_time = 30 MINUTES
+
 	telepathy_cancel_probability = 75
 	psi_sensitivity_modifier = -0.75
 	accuracy_penalty = 0.35
 	dispersion_penalty = 10
 	surgery_success_penalty = -20
+	seizure_intensity = 2
+
+/datum/component/timed_life/psiblock_drugs/yomi_genetics/cheap/Initialize(lifetime_seconds)
+	. = ..()
+	ongoing_effect_message = RISK_LOW + RISK_MEDIUM + RISK_HIGH
 
 /datum/component/timed_life/psiblock_drugs/yomi_genetics/expensive
 	min_tremor_time = 2 MINUTES
 	max_tremor_time = 5 MINUTES
-	min_seizure_time = 30 MINUTES // Will never induce a seizure.
+
+	min_seizure_time = 30 MINUTES
+
 	telepathy_cancel_probability = 100
 	psi_sensitivity_modifier = -1.25
 	accuracy_penalty = 0.15
 	dispersion_penalty = 2
 	surgery_success_penalty = -5
+
+/datum/component/timed_life/psiblock_drugs/yomi_genetics/expensive/Initialize(lifetime_seconds)
+	. = ..()
+	ongoing_effect_message = RISK_LOW
+
+#undef RISK_LOW
+
+#undef RISK_MEDIUM
+
+#undef RISK_HIGH
