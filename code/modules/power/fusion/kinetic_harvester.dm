@@ -8,11 +8,13 @@
 	icon_state = "off"
 	manufacturer = "hephaestus"
 	var/initial_id_tag
-	var/list/stored =     list()
-	var/list/harvesting = list()
+	var/list/stored =      list()
+	var/list/harvesting =  list()
+	var/list/can_harvest = list()
 	var/obj/structure/machinery/power/fusion_core/harvest_from
 
 /obj/structure/machinery/kinetic_harvester/Initialize()
+	can_harvest = list("gold","silver","lead","platinum","uranium","osmium","borosilicate glass")
 	AddComponent(/datum/component/local_network_member, initial_id_tag)
 	find_core()
 	queue_icon_update()
@@ -67,7 +69,7 @@
 	data["status"] = (use_power >= POWER_USE_ACTIVE)
 	data["materials"] = list()
 	for(var/mat in stored)
-		var/material/material = SSmaterials.get_material_by_name(mat)
+		var/singleton/material/material = GET_SINGLETON(mat)
 		if(material)
 			var/sheets = FLOOR(stored[mat]/(SHEET_MATERIAL_AMOUNT * 2), 1)
 			data["materials"] += list(list("material" = mat, "rawamount" = stored[mat], "amount" = sheets, "harvest" = harvesting[mat]))
@@ -80,18 +82,17 @@
 	if(use_power >= POWER_USE_ACTIVE)
 		if(harvest_from && harvest_from.owned_field)
 			for(var/mat in harvest_from.owned_field.reactants)
-				if(SSmaterials.materials_by_name[mat] && !stored[mat])
+				if((mat in can_harvest) && !stored[mat])
 					stored[mat] = 0
 			for(var/mat in harvesting)
-				if(!SSmaterials.materials_by_name[mat])
-					harvesting -= mat
-				else if(mat in harvest_from.owned_field.reactants)
-					var/harvest = min(harvest_from.owned_field.reactants[mat], rand(100,200))
-					// Leave a few counts of the reactant to avoid deactivating harvest mode
-					harvest_from.owned_field.reactants[mat] -= (harvest - rand(0,5))
-					if(harvest_from.owned_field.reactants[mat] <= 0)
-						harvest_from.owned_field.reactants -= mat
-					stored[mat] += harvest
+				if(mat in can_harvest)
+					if(mat in harvest_from.owned_field.reactants)
+						var/harvest = min(harvest_from.owned_field.reactants[mat], rand(100,200))
+						// Leave a few counts of the reactant to avoid deactivating harvest mode
+						harvest_from.owned_field.reactants[mat] -= (harvest - rand(0,5))
+						if(harvest_from.owned_field.reactants[mat] <= 0)
+							harvest_from.owned_field.reactants -= mat
+						stored[mat] += harvest
 		else
 			harvesting.Cut()
 
@@ -110,7 +111,7 @@
 	switch(action)
 		if("remove_mat")
 			var/mat = params["remove_mat"]
-			var/material/material = SSmaterials.get_material_by_name(mat)
+			var/singleton/material/material = GET_SINGLETON(mat)
 			if(material)
 				var/sheet_cost = (SHEET_MATERIAL_AMOUNT * 1.5)
 				var/sheets = min(FLOOR(stored[mat]/sheet_cost, 1), 50)
