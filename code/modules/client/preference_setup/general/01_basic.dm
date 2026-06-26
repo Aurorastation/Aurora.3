@@ -7,6 +7,7 @@
 	S["gender"]     >> pref.gender
 	S["pronouns"]   >> pref.pronouns
 	S["age"]        >> pref.age
+	S["birthdate"]  >> pref.birthdate
 	S["species"]    >> pref.species
 	S["height"]		>> pref.height
 	S["spawnpoint"] >> pref.spawnpoint
@@ -25,6 +26,7 @@
 	S["gender"]     << pref.gender
 	S["pronouns"]   << pref.pronouns
 	S["age"]        << pref.age
+	S["birthdate"]  << pref.birthdate
 	S["species"]    << pref.species
 	S["height"]		<< pref.height
 	S["spawnpoint"] << pref.spawnpoint
@@ -48,6 +50,7 @@
 				"gender",
 				"pronouns",
 				"age",
+				"birthdate",
 				"metadata",
 				"spawnpoint",
 				"species",
@@ -83,6 +86,7 @@
 			"gender",
 			"pronouns",
 			"age",
+			"birthdate",
 			"metadata",
 			"spawnpoint",
 			"species",
@@ -107,6 +111,7 @@
 		"gender" = pref.gender,
 		"pronouns" = pref.pronouns,
 		"age" = pref.age,
+		"birthdate" = pref.birthdate,
 		"metadata" = pref.metadata,
 		"spawnpoint" = pref.spawnpoint,
 		"species" = pref.species,
@@ -154,7 +159,27 @@
 		pref.species = SPECIES_HUMAN
 
 	pref.height		= sanitize_integer(text2num(pref.height), pref.getMinHeight(), pref.getMaxHeight(), 170)
-	pref.age                = sanitize_integer(text2num(pref.age), pref.getMinAge(), pref.getMaxAge(), initial(pref.age))
+	pref.age		= sanitize_integer(text2num(pref.age), pref.getMinAge(), pref.getMaxAge(), initial(pref.age))
+
+	var/calculated_age = birthdate_to_age(pref.birthdate)
+	if(isnull(calculated_age))
+		pref.birthdate = birthdate_from_age(pref.age)
+		calculated_age = birthdate_to_age(pref.birthdate)
+		if(pref.client)
+			to_chat(pref.client, SPAN_WARNING("Age couldn't be calculated, birthday has been reset!"))
+
+	if(calculated_age > pref.getMaxAge())
+		var/year_shift = calculated_age - pref.getMaxAge()
+		var/shifted_birthdate = shift_birthdate_year(pref.birthdate, year_shift)
+		if(shifted_birthdate)
+			pref.birthdate = shifted_birthdate
+			calculated_age = birthdate_to_age(pref.birthdate)
+
+			var/client/C = pref.client
+			if(C)
+				to_chat(C, SPAN_WARNING("Your character exceeded the maximum age for their species. Their birth year has been moved forward to [display_birthdate(pref.birthdate)], keeping them at [calculated_age] years old."))
+
+	pref.age                = sanitize_integer(calculated_age, pref.getMinAge(), pref.getMaxAge(), initial(pref.age))
 	pref.gender             = sanitize_gender(pref.gender, pref.species)
 	pref.pronouns           = sanitize_pronouns(pref.pronouns, pref.species, pref.gender)
 	pref.real_name          = sanitize_name(pref.real_name, pref.species)
@@ -184,7 +209,8 @@
 	var/datum/species/S = GLOB.all_species[pref.species]
 	if(length(S.selectable_pronouns))
 		dat += "<b>Pronouns:</b> <a href='byond://?src=[REF(src)];pronouns=1'><b>[capitalize_first_letters(pref.pronouns)]</b></a><br>"
-	dat += "<b>Age:</b> <a href='byond://?src=[REF(src)];age=1'>[pref.age]</a><br>"
+	dat += "<b>Birthdate:</b> <a href='byond://?src=[REF(src)];birthdate=1'>[display_birthdate(pref.birthdate)]</a><br>"
+	dat += "<b>Age:</b> [pref.age]<br>"
 	dat += "<b>Height:</b> <a href='byond://?src=[REF(src)];height=1'>[pref.height]</a><br>"
 	dat += "<b>Spawn Point</b>: <a href='byond://?src=[REF(src)];spawnpoint=1'>[pref.spawnpoint]</a><br>"
 	dat += "<b>Floating Chat Color:</b> <a href='byond://?src=[REF(src)];select_floating_chat_color=1'><b>[pref.floating_chat_color]</b></a><br>"
@@ -290,11 +316,53 @@
 		pref.pronouns = lowertext(new_pronouns)
 		return TOPIC_REFRESH_UPDATE_PREVIEW
 
-	else if(href_list["age"])
-		var/new_age = input(user, "Choose your character's age:\n([pref.getMinAge()]-[pref.getMaxAge()])", "Character Preference", pref.age) as num|null
-		if(new_age && CanUseTopic(user))
-			pref.age = max(min(round(text2num(new_age)),  pref.getMaxAge()),pref.getMinAge())
+	else if(href_list["birthdate"])
+		var/list/parsed_birthdate = parse_birthdate(pref.birthdate)
+		var/current_year = parsed_birthdate ? parsed_birthdate["year"] : GLOB.game_year - pref.age
+		var/current_month = parsed_birthdate ? parsed_birthdate["month"] : 1
+		var/current_day = parsed_birthdate ? parsed_birthdate["day"] : 1
+
+		var/minimum_birth_year = GLOB.game_year - pref.getMaxAge() - 1
+		var/maximum_birth_year = GLOB.game_year - pref.getMinAge()
+
+		var/new_year = tgui_input_number(user, "Choose your character's birth year:\n([minimum_birth_year]-[maximum_birth_year])", "Character Preference", current_year, maximum_birth_year, minimum_birth_year)
+		if(isnull(new_year) || !CanUseTopic(user))
+			return TOPIC_NOACTION
+
+		var/new_month = tgui_input_number(user, "Choose your character's birth month:", "Character Preference", current_month, 12, 1)
+		if(isnull(new_month) || !CanUseTopic(user))
+			return TOPIC_NOACTION
+
+		var/new_day = tgui_input_number(user, "Choose your character's birth day:", "Character Preference", current_day, 31, 1)
+		if(isnull(new_day) || !CanUseTopic(user))
+			return TOPIC_NOACTION
+
+		new_year = round(new_year)
+		new_month = round(new_month)
+		new_day = round(new_day)
+
+		if(new_year < minimum_birth_year || new_year > maximum_birth_year)
+			to_chat(user, SPAN_WARNING("That birth year is outside the allowed range for your species: [minimum_birth_year]-[maximum_birth_year]."))
 			return TOPIC_REFRESH
+
+		if(!is_valid_birthdate(new_year, new_month, new_day))
+			to_chat(user, SPAN_WARNING("Invalid birthdate."))
+			return TOPIC_REFRESH
+
+		var/new_birthdate = format_birthdate(new_year, new_month, new_day)
+		var/calculated_age = birthdate_to_age(new_birthdate)
+
+		if(isnull(calculated_age))
+			to_chat(user, SPAN_WARNING("Invalid birthdate."))
+			return TOPIC_REFRESH
+
+		if(calculated_age < pref.getMinAge() || calculated_age > pref.getMaxAge())
+			to_chat(user, SPAN_WARNING("That birthdate gives an age outside the allowed range: [pref.getMinAge()]-[pref.getMaxAge()]."))
+			return TOPIC_REFRESH
+
+		pref.birthdate = new_birthdate
+		pref.age = calculated_age
+		return TOPIC_REFRESH
 
 	else if(href_list["height"])
 		var/datum/species/char_spec = GLOB.all_species[pref.species]
