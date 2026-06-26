@@ -61,7 +61,6 @@
 		. = ..()
 
 /obj/structure/machinery/atmospherics/pipe/zpipe/on_undertile_updated()
-	SIGNAL_HANDLER
 	queue_icon_update()
 
 /obj/structure/machinery/atmospherics/pipe/zpipe/process()

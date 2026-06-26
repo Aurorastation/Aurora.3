@@ -184,7 +184,6 @@
 	update_ports()
 
 /obj/structure/machinery/atmospherics/omni/on_undertile_updated()
-	SIGNAL_HANDLER
 	update_underlays()
 
 /obj/structure/machinery/atmospherics/omni/proc/update_ports()

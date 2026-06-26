@@ -232,7 +232,6 @@
 	. = ..()
 
 /obj/structure/machinery/atmospherics/pipe/simple/on_undertile_updated()
-	SIGNAL_HANDLER
 	queue_icon_update()
 
 /obj/structure/machinery/atmospherics/pipe/simple/process()
@@ -526,7 +525,6 @@
 	. = ..()
 
 /obj/structure/machinery/atmospherics/pipe/manifold/on_undertile_updated()
-	SIGNAL_HANDLER
 	queue_icon_update()
 
 /obj/structure/machinery/atmospherics/pipe/manifold/pipeline_expansion()
@@ -944,7 +942,6 @@
 	queue_icon_update()
 
 /obj/structure/machinery/atmospherics/pipe/manifold4w/on_undertile_updated()
-	SIGNAL_HANDLER
 	queue_icon_update()
 
 /obj/structure/machinery/atmospherics/pipe/manifold4w/atmos_init()
@@ -1124,7 +1121,6 @@
 	. = ..()
 
 /obj/structure/machinery/atmospherics/pipe/cap/on_undertile_updated()
-	SIGNAL_HANDLER
 	queue_icon_update()
 
 /obj/structure/machinery/atmospherics/pipe/cap/pipeline_expansion()
@@ -1301,7 +1297,6 @@
 		add_underlay(T, node1, dir)
 
 /obj/structure/machinery/atmospherics/pipe/tank/on_undertile_updated()
-	SIGNAL_HANDLER
 	update_underlays()
 
 /obj/structure/machinery/atmospherics/pipe/tank/atmos_init()

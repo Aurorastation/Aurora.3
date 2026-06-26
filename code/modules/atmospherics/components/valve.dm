@@ -43,7 +43,6 @@
 		add_underlay(T, node2, get_dir(src, node2))
 
 /obj/structure/machinery/atmospherics/valve/on_undertile_updated()
-	SIGNAL_HANDLER
 	update_underlays()
 
 /obj/structure/machinery/atmospherics/valve/Initialize()

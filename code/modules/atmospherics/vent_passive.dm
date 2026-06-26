@@ -25,7 +25,6 @@
 	. = ..()
 
 /obj/structure/machinery/atmospherics/pipe/vent_passive/on_undertile_updated()
-	SIGNAL_HANDLER
 	queue_icon_update()
 
 /obj/structure/machinery/atmospherics/pipe/vent_passive/mechanics_hints(mob/user, distance, is_adjacent)

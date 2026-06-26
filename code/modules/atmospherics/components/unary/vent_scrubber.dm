@@ -237,7 +237,6 @@
 	return 1
 
 /obj/structure/machinery/atmospherics/unary/vent_scrubber/on_undertile_updated() // to make the little pipe section invisible, the icon changes.
-	SIGNAL_HANDLER
 	queue_icon_update()
 
 /obj/structure/machinery/atmospherics/unary/vent_scrubber/receive_signal(datum/signal/signal)

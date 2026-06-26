@@ -200,7 +200,6 @@
 			underlays += "frame"
 
 /obj/structure/machinery/atmospherics/unary/vent_pump/on_undertile_updated()
-	SIGNAL_HANDLER
 	queue_icon_update()
 
 /obj/structure/machinery/atmospherics/unary/vent_pump/proc/can_pump()

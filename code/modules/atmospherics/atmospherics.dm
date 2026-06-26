@@ -96,7 +96,6 @@ Pipelines + Other Objects -> Pipe network
 	return undertile_restored_layer()
 
 /obj/structure/machinery/atmospherics/proc/on_undertile_updated()
-	SHOULD_NOT_SLEEP(TRUE)
 	SIGNAL_HANDLER
 	update_underlays()
 	queue_icon_update()

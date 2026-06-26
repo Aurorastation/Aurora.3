@@ -59,7 +59,6 @@
 		add_underlay(T, node, dir, node?.icon_connect_type)
 
 /obj/structure/machinery/atmospherics/portables_connector/on_undertile_updated()
-	SIGNAL_HANDLER
 	update_underlays()
 
 /obj/structure/machinery/atmospherics/portables_connector/proc/toggle_process()

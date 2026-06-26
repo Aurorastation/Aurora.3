@@ -102,7 +102,6 @@
 		add_underlay(T, node2, dir, icon_connect_type)
 
 /obj/structure/machinery/atmospherics/binary/passive_gate/on_undertile_updated()
-	SIGNAL_HANDLER
 	update_underlays()
 
 /obj/structure/machinery/atmospherics/binary/passive_gate/process()
