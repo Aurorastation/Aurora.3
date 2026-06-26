@@ -383,8 +383,7 @@ Bulwarks are much larger and have significantly thicker carapaces than most Vaur
 
 	sprint_speed_factor = 1.0
 	stamina = 50
-	possible_external_organs_modifications = list("Normal", "Amputated") //We don't have any limb modfications for this species, yet
-	valid_prosthetics = null
+	valid_prosthetics = list(PROSTHETIC_VAURCA_BULWARK)
 
 	flags = NO_SLIP | NO_CHUBBY | NO_ARTERIES | PHORON_IMMUNE | NO_COLD_SLOWDOWN | NO_EQUIP_SPEEDMODS
 

@@ -480,6 +480,7 @@
 #define PROSTHETIC_TESLA_BODY "Industrial Tesla Powered Prosthetics"
 #define PROSTHETIC_VAURCA "Vaurca Robotic Limb"
 #define PROSTHETIC_VAURCA_WARRIOR "Vaurca Warrior Robotic Limb"
+#define PROSTHETIC_VAURCA_BULWARK "Vaurca Bulwark Robotic Limb"
 #define PROSTHETIC_UNBRANDED "Unbranded"
 #define PROSTHETIC_UNBRANDED_EMISSIVE "Unbranded Emissive"
 #define PROSTHETIC_HOPLAN "Hoplan Head"
