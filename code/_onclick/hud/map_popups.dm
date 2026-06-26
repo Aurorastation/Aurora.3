@@ -55,7 +55,7 @@
 	if(!map_name || !screen_maps[map_name])
 		return FALSE
 
-	for(var/static/atom/movable/screen/screen_obj as anything in screen_maps[map_name].Copy())
+	for(var/atom/movable/screen/screen_obj as anything in screen_maps[map_name].Copy())
 		screen_maps[map_name] -= screen_obj
 		if(screen_obj in screen)
 			remove_from_screen(screen_obj)

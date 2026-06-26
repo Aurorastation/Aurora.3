@@ -205,7 +205,7 @@ GLOBAL_LIST_EMPTY(lighting_sheets)
 	}                                            \
 	. *= _light_power;                           \
 	var/OLD = effect_str[C];                     \
-	                                             \
+												\
 	C.update_lumcount                            \
 	(                                            \
 		(. * _lum_r) - (OLD * _applied_lum_r),   \
