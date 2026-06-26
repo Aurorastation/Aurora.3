@@ -1,5 +1,0 @@
-author: Hellfirejag
-delete-after: True
-changes:
-  - rscadd: "Cooking Skill now increases the amount of products gained from butchering animals."
-  - rscadd: "Xenobiology Skill now increases melee damage against Space Fauna (EG: Space Carp, Space Bears, etc). Additionally, it also increases butchering products gained from Space Fauna."

@@ -215,7 +215,7 @@
 
 /obj/structure/machinery/computer/shuttle_control/multi/legion
 	name = "dropship control console"
-	req_access = list(ACCESS_LEGION)
+	req_access = list(ACCESS_TCAF)
 	shuttle_tag = "Legion Shuttle"
 
 /obj/structure/machinery/computer/shuttle_control/multi/distress

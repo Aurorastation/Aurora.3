@@ -1,0 +1,6 @@
+author: kano
+delete-after: True
+changes:
+  - bugfix: "Fixed runtime map throwing a runtime error whenever the player tried to latejoin."
+  - rscadd: "Added a kitchen section to the runtime map."
+  - rscdel: "Removed ancient and unused area definitions from code."

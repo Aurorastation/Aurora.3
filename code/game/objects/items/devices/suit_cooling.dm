@@ -1,12 +1,15 @@
 /obj/item/suit_cooling_unit
-	name = "portable suit cooling unit"
-	desc = "A portable heat sink and liquid cooled radiator that can be hooked up to a space suit's existing temperature controls to provide industrial levels of cooling."
+	name = "portable cooling unit"
+	desc = "A portable heat sink and liquid cooled radiator that can be hooked up to a space suit's \
+	existing temperature controls to provide industrial levels of cooling. Used by synthetics to \
+	enable spacewalks, and to stabilise the chassis in the event of internal cooler failure."
 	w_class = WEIGHT_CLASS_NORMAL
 	icon = 'icons/obj/item/suitcooler.dmi'
 	icon_state = "suitcooler0"
 	item_state = "coolingpack"
 	action_button_name = "Toggle Cooling Unit"
-	slot_flags = SLOT_BACK	//you can carry it on your back if you want, but it won't do anything unless attached to suit storage
+	slot_flags = SLOT_BACK
+	contained_sprite = TRUE
 
 	//copied from tank.dm
 	obj_flags = OBJ_FLAG_CONDUCTABLE
@@ -22,20 +25,20 @@
 
 	matter = list(MATERIAL_ALUMINIUM = 25000, MATERIAL_GLASS = 3500)
 
-	// Is it turned on?
+	/// Is it turned on?
 	var/on = 0
-	// Is the cover open?
+	/// Is the cover open?
 	var/cover_open = 0
 
 	var/obj/item/cell/cell
 
-	// In degrees kelvin per second - probably don't need to mess with heat capacity here
+	/// In degrees kelvin per second - probably don't need to mess with heat capacity here
 	var/max_cooling = 24
 
-	// Base charge consumption per second. Modified by how much cooling work the cooler is doing.
+	/// Base charge consumption per second. Modified by how much cooling work the cooler is doing.
 	var/charge_consumption = 15.4
 
-	// Target to cool an IPC to.
+	/// Target to cool an IPC to.
 	var/thermostat = T20C
 
 	//TODO: make it heat up the surroundings when not in space
@@ -253,5 +256,6 @@
 /obj/item/suit_cooling_unit/no_cell
 	celltype = null
 
-/obj/item/suit_cooling_unit/hyper_cell // Mostly for special spawns, events, etc., so they don't have to worry about cell charge.
+// Mostly for special spawns, events, etc., so they don't have to worry about cell charge.
+/obj/item/suit_cooling_unit/hyper_cell
 	celltype = /obj/item/cell/hyper
