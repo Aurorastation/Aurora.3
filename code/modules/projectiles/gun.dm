@@ -571,6 +571,7 @@ ABSTRACT_TYPE(/obj/item/gun)
 
 //called after successfully firing
 /obj/item/gun/proc/handle_post_fire(mob/user, atom/target, var/pointblank = FALSE, var/reflex = FALSE, var/playemote = TRUE)
+	SEND_SIGNAL(user, COMSIG_GUN_FIRED)
 	play_fire_sound()
 	if(!suppressed)
 		if(playemote)
@@ -795,6 +796,10 @@ ABSTRACT_TYPE(/obj/item/gun)
 // Safety Procs
 
 /obj/item/gun/proc/toggle_safety(var/mob/user)
+	var/cancelled = FALSE
+	SEND_SIGNAL(user, COMSIG_GUN_TOGGLE_SAFETY, src, &cancelled)
+	if(cancelled)
+		return
 	safety_state = !safety_state
 	update_icon()
 	if(user)
