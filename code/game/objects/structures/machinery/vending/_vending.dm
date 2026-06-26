@@ -256,10 +256,14 @@
 	if(src.vend_reply)
 		src.reply_list += text2list(src.vend_reply, ";")
 
-	icon_vend = "[initial(icon_state)]-vend"
-	icon_broken = "[initial(icon_state)]-broken"
-	icon_off = "[initial(icon_state)]-off"
-	light_mask = "[initial(icon_state)]-lightmask"
+	if(!icon_vend)
+		icon_vend = "[initial(icon_state)]-vend"
+	if(!icon_broken)
+		icon_broken = "[initial(icon_state)]-broken"
+	if(!icon_off)
+		icon_off = "[initial(icon_state)]-off"
+	if(!light_mask)
+		light_mask = "[initial(icon_state)]-lightmask"
 
 	reset_light()
 	build_products()

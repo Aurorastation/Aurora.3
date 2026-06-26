@@ -194,9 +194,9 @@ GLOBAL_LIST_INIT(specular_color, SPECULAR_COLOR)
 #define EMISSIVE_SPECULAR 2
 
 /// Light cutoff of specular emissives.
-#define SPECULAR_EMISSIVE_CUTOFF 0.3
+#define SPECULAR_EMISSIVE_CUTOFF 0.2
 /// Controls how bright specular emissives sourced from overlay lights are.
-#define SPECULAR_EMISSIVE_OVERLAY_CONTRAST 1.4
+#define SPECULAR_EMISSIVE_OVERLAY_CONTRAST 1.8
 
 #define _EM_BLOCK_COLOR(val) list(0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,val, 0,0,0,0)
 /// The color matrix applied to all emissive blockers. Should be solely dependent on alpha and not have RGB overlap with [EMISSIVE_COLOR].

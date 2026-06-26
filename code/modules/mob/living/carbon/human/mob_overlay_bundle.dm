@@ -47,6 +47,23 @@
 		LAZYINITLIST(plane_overlay_sibling_categories)
 		plane_overlay_sibling_categories["REF[source]"] = category
 
+/image/proc/CutPlaneOverlaySiblingsByCategory(category)
+	if(!category || !LAZYLEN(plane_overlay_siblings))
+		return
+	for(var/sibling in plane_overlay_siblings.Copy())
+		if(plane_overlay_sibling_categories?["REF[sibling]"] != category)
+			continue
+		LAZYREMOVE(plane_overlay_siblings, sibling)
+		plane_overlay_sibling_categories -= "REF[sibling]"
+
+/image/proc/ReplacePlaneOverlayBlocker(atom/offset_spokesman)
+	if(!offset_spokesman)
+		return
+	CutPlaneOverlaySiblingsByCategory("blocker")
+	var/mutable_appearance/blocker = emissive_blocker_from_appearance(src, offset_spokesman)
+	if(blocker)
+		AddPlaneOverlaySibling(blocker, "blocker")
+
 /// Converts a mob_overlay_bundle into a list suitable to directly insert into overlays.
 /proc/finalize_mob_overlay_bundle(var/datum/mob_overlay_bundle/bundle, var/mob/living/carbon/human/H)
 	if(!bundle || !H)

@@ -446,7 +446,7 @@ pixel_x = 8;
 		AddOverlays(screen)
 		AddOverlays(screen_emis)
 		AddOverlays("intercom_scanline")
-		set_light(1.4, 1.3, COLOR_CYAN)
+		set_light(1.4, 0.5, COLOR_CYAN)
 		if(broadcasting)
 			var/mutable_appearance/screen_broadcasting = overlay_image(icon, "intercom_b")
 			var/mutable_appearance/screen_broadcasting_hologram = overlay_image(icon, "intercom_b")
