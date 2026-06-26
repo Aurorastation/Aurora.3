@@ -244,7 +244,10 @@
 	src.draw_skybox_layers = draw_skybox_layers
 	regenerate_layers()
 
+// For now we're just using Aurora visuals- this will generate additional tg-style star/fog parallax layers. TODO when spriting/art decides they like it.
 /atom/movable/screen/parallax_home/proc/generate_space_layer(index)
+	return
+	/*
 	switch(index)
 		if(1)
 			return new /atom/movable/screen/parallax_layer/layer_1(null, null, owner)
@@ -258,7 +261,7 @@
 			return new /atom/movable/screen/parallax_layer/layer_3(null, null, owner)
 		if(5)
 			return new /atom/movable/screen/parallax_layer/layer_3(null, null, owner)
-
+	*/
 /atom/movable/screen/parallax_home/proc/regenerate_layers()
 	clear_layers()
 	if(layers_to_draw == 0 && !draw_skybox_layers)
@@ -365,17 +368,17 @@
 	return mutable_appearance(icon, icon_state)
 
 /atom/movable/screen/parallax_layer/layer_1
-	icon_state = "" // layer1
+	icon_state = "layer1"
 	speed = 0.6
 	layer = 1
 
 /atom/movable/screen/parallax_layer/layer_2
-	icon_state = "" // layer2
+	icon_state = "layer2"
 	speed = 1
 	layer = 2
 
 /atom/movable/screen/parallax_layer/layer_3
-	icon_state = "" // layer3
+	icon_state = "layer3"
 	speed = 1.4
 	layer = 3
 
