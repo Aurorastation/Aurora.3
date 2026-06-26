@@ -44,16 +44,26 @@ GLOBAL_LIST_INIT_TYPED(starlight_overlays, /obj, list(starlight_overlay(0)))
 
 ///regenerates lighting objects for turfs in this area, primary use is VV changes
 /area/proc/create_area_lighting_objects()
-	for(var/turf/T in src)
+	var/list/area_turfs = get_area_turfs(src)
+	var/turfs_until_yield = 256
+	for(var/turf/T as anything in area_turfs)
 		if(T.space_lit)
 			continue
 		T.lighting_build_overlay()
-		CHECK_TICK
+		if(--turfs_until_yield <= 0)
+			CHECK_TICK
+			turfs_until_yield = 256
+	CHECK_TICK
 
 ///Removes lighting objects from turfs in this area if we have them, primary use is VV changes
 /area/proc/remove_area_lighting_objects()
-	for(var/turf/T in src)
+	var/list/area_turfs = get_area_turfs(src)
+	var/turfs_until_yield = 256
+	for(var/turf/T as anything in area_turfs)
 		if(T.space_lit)
 			continue
 		T.lighting_clear_overlay()
-		CHECK_TICK
+		if(--turfs_until_yield <= 0)
+			CHECK_TICK
+			turfs_until_yield = 256
+	CHECK_TICK

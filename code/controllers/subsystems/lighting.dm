@@ -31,11 +31,18 @@ SUBSYSTEM_DEF(lighting)
 	for(var/area/area as anything in GLOB.areas)
 		if(!area.static_lighting)
 			continue
-		for(var/turf/area_turf in area)
+
+		// area.contents is a live filtered world scan. Snapshot first so stoplag()
+		// stops shitting itself while the area is being walked
+		var/list/area_turfs = get_area_turfs(area)
+		var/turfs_until_yield = 256
+		for(var/turf/area_turf as anything in area_turfs)
 			if(area_turf.space_lit)
 				continue
 			new /atom/movable/lighting_object(null, area_turf)
-			CHECK_TICK
+			if(--turfs_until_yield <= 0)
+				CHECK_TICK
+				turfs_until_yield = 256
 		CHECK_TICK
 
 /datum/controller/subsystem/lighting/fire(resumed, init_tick_checks)
