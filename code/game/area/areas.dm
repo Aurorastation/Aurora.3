@@ -199,13 +199,15 @@
 
 	turfs_by_zlevel = list()
 	turfs_to_uncontain_by_zlevel = list()
-	for(var/turf/T as anything in src)
-		add_turf_to_z_cache(T, TRUE)
 	turf_cache_initialized = TRUE
+	for(var/turf/T as anything in src)
+		add_turf_to_z_cache(T)
 
 /// Adds a turf to the cached z-level list for this area.
 /area/proc/add_turf_to_z_cache(turf/T, force = FALSE)
-	if(!force && !turf_cache_initialized)
+	if(force)
+		turf_cache_initialized = TRUE
+	else if(!turf_cache_initialized)
 		return
 	if(!isturf(T))
 		return
@@ -220,6 +222,28 @@
 
 	if(length(turfs_to_uncontain_by_zlevel) >= T.z && turfs_to_uncontain_by_zlevel[T.z])
 		turfs_to_uncontain_by_zlevel[T.z] -= T
+
+/// Adds a grouped set of turfs to the cached z-level list for this area.
+/area/proc/add_turfs_to_z_cache(list/turfs_to_add, zlevel, force = FALSE)
+	if(!length(turfs_to_add) || !zlevel)
+		return
+	if(force)
+		turf_cache_initialized = TRUE
+	else if(!turf_cache_initialized)
+		return
+
+	if(length(turfs_by_zlevel) < zlevel)
+		turfs_by_zlevel.len = zlevel
+	var/list/zlevel_turfs = turfs_by_zlevel[zlevel]
+	if(!zlevel_turfs)
+		turfs_by_zlevel[zlevel] = turfs_to_add
+	else if(length(zlevel_turfs))
+		zlevel_turfs |= turfs_to_add
+	else
+		zlevel_turfs += turfs_to_add
+
+	if(length(turfs_to_uncontain_by_zlevel) >= zlevel && turfs_to_uncontain_by_zlevel[zlevel])
+		turfs_to_uncontain_by_zlevel[zlevel] -= turfs_to_add
 
 /// Lazily removes a turf from the cached z-level list for this area.
 /area/proc/remove_turf_from_z_cache(turf/T)
@@ -260,6 +284,16 @@
 	for(var/area_zlevel in 1 to length(turfs_to_uncontain_by_zlevel))
 		cannonize_contained_turfs_by_zlevel(area_zlevel, FALSE)
 	turfs_to_uncontain_by_zlevel = list()
+
+/// Returns TRUE if the cache currently contains turfs for this area.
+/area/proc/has_contained_turfs()
+	for(var/area_zlevel in 1 to length(turfs_by_zlevel))
+		if(length(turfs_to_uncontain_by_zlevel) >= area_zlevel)
+			if(length(turfs_by_zlevel[area_zlevel]) - length(turfs_to_uncontain_by_zlevel[area_zlevel]) > 0)
+				return TRUE
+		else if(length(turfs_by_zlevel[area_zlevel]))
+			return TRUE
+	return FALSE
 
 /// Returns cached turf lists grouped by z-level.
 /area/proc/get_zlevel_turf_lists()

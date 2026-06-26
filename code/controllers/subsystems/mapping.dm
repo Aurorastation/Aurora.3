@@ -173,6 +173,73 @@ SUBSYSTEM_DEF(mapping)
 	if(new_z.traits?[ZTRAIT_DOWN])
 		update_plane_tracking(new_z)
 
+	if(contain_turfs)
+		build_area_turfs(z_value, filled_with_space)
+
+/// Builds the area turf cache for an entire z-level..
+/datum/controller/subsystem/mapping/proc/build_area_turfs(z_level, space_guaranteed)
+	if(!z_level || z_level < 1 || z_level > world.maxz)
+		return
+
+	if(space_guaranteed)
+		var/area/global_area = GLOB.areas_by_type[world.area]
+		if(!global_area)
+			return
+		if(length(global_area.turfs_by_zlevel) < z_level)
+			global_area.turfs_by_zlevel.len = z_level
+		global_area.turfs_by_zlevel[z_level] = Z_TURFS(z_level)
+		if(length(global_area.turfs_to_uncontain_by_zlevel) >= z_level)
+			global_area.turfs_to_uncontain_by_zlevel[z_level] = list()
+		global_area.turf_cache_initialized = TRUE
+		return
+
+	cache_area_turfs_for_bounds(list(1, 1, z_level, world.maxx, world.maxy, z_level))
+
+/// Registers all turfs inside loaded map bounds (with their areas) in one pass.
+/datum/controller/subsystem/mapping/proc/cache_area_turfs_for_bounds(list/bounds)
+	if(!bounds || bounds[MAP_MINX] == 1.#INF)
+		return
+
+	var/min_x = clamp(bounds[MAP_MINX], 1, world.maxx)
+	var/min_y = clamp(bounds[MAP_MINY], 1, world.maxy)
+	var/min_z = clamp(bounds[MAP_MINZ], 1, world.maxz)
+	var/max_x = clamp(bounds[MAP_MAXX], 1, world.maxx)
+	var/max_y = clamp(bounds[MAP_MAXY], 1, world.maxy)
+	var/max_z = clamp(bounds[MAP_MAXZ], 1, world.maxz)
+	if(min_x > max_x || min_y > max_y || min_z > max_z)
+		return
+
+	var/turf/lower_left = locate(min_x, min_y, min_z)
+	var/turf/upper_right = locate(max_x, max_y, max_z)
+	if(!lower_left || !upper_right)
+		return
+
+	var/list/areas_to_cache = list()
+	var/list/turfs_by_area = list()
+	for(var/turf/to_contain as anything in block(lower_left, upper_right))
+		var/area/our_area = to_contain.loc
+		if(!our_area)
+			continue
+
+		var/list/zlevel_turfs_by_area = turfs_by_area[our_area]
+		if(!zlevel_turfs_by_area)
+			zlevel_turfs_by_area = list()
+			turfs_by_area[our_area] = zlevel_turfs_by_area
+			areas_to_cache += our_area
+
+		if(length(zlevel_turfs_by_area) < to_contain.z)
+			zlevel_turfs_by_area.len = to_contain.z
+		if(!zlevel_turfs_by_area[to_contain.z])
+			zlevel_turfs_by_area[to_contain.z] = list()
+		zlevel_turfs_by_area[to_contain.z] += to_contain
+
+	for(var/area/area_to_cache as anything in areas_to_cache)
+		var/list/zlevel_turf_lists = turfs_by_area[area_to_cache]
+
+		for(var/zlevel in 1 to length(zlevel_turf_lists))
+			var/list/turfs_to_cache = zlevel_turf_lists[zlevel]
+			area_to_cache.add_turfs_to_z_cache(turfs_to_cache, zlevel, TRUE)
+
 /// Initializes the plane cube lookup tables. Atlas can add z-levels before this subsystem's Initialize(), so manage_z_level() also calls this.
 /datum/controller/subsystem/mapping/proc/initialize_plane_offset_lists()
 	if(plane_offset_lists_initialized)

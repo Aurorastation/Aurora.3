@@ -225,6 +225,7 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
 	else
 		if(!measureOnly)
 			SSmapping.update_turf_plane_offsets_for_bounds(bounds)
+			SSmapping.cache_area_turfs_for_bounds(bounds)
 
 			if(!no_changeturf)
 				for(var/turf/T as anything in block(locate(bounds[MAP_MINX], bounds[MAP_MINY], bounds[MAP_MINZ]), locate(bounds[MAP_MAXX], bounds[MAP_MAXY], bounds[MAP_MAXZ])))
@@ -360,18 +361,20 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
 	index = length(members)
 	if(members[index] != /area/template_noop)
 		var/atype = members[index]
-		var/atom/instance = GLOB.areas_by_type[atype]
+		var/area/area_instance = GLOB.areas_by_type[atype]
 		var/list/attr = members_attributes[index]
 		if (LAZYLEN(attr))
 			GLOB._preloader.setup(attr)//preloader for assigning  set variables on atom creation
-		if(!instance)
-			instance = new atype(null)
-			atoms_to_initialise += instance
+		if(!area_instance)
+			area_instance = new atype(null)
+			atoms_to_initialise += area_instance
 		if(crds)
-			instance.contents += crds
+			var/area/old_area = crds.loc
+			old_area?.remove_turf_from_z_cache(crds)
+			area_instance.contents += crds
 
-		if(GLOB.use_preloader && instance)
-			GLOB._preloader.load(instance)
+		if(GLOB.use_preloader && area_instance)
+			GLOB._preloader.load(area_instance)
 
 	//then instance the /turf
 
