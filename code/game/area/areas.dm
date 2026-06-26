@@ -249,6 +249,8 @@
 /area/proc/remove_turf_from_z_cache(turf/T)
 	if(!turf_cache_initialized || !isturf(T))
 		return
+	if(length(turfs_by_zlevel) < T.z || !turfs_by_zlevel[T.z])
+		return
 
 	if(length(turfs_to_uncontain_by_zlevel) < T.z)
 		turfs_to_uncontain_by_zlevel.len = T.z
@@ -259,12 +261,17 @@
 		zlevel_turfs_to_remove += T
 
 /// Ensures that the cached turf list accurately represents one z-level.
-/area/proc/cannonize_contained_turfs_by_zlevel(zlevel_to_clean, autoclean = TRUE)
-	if(zlevel_to_clean <= length(turfs_by_zlevel) && zlevel_to_clean <= length(turfs_to_uncontain_by_zlevel))
-		turfs_by_zlevel[zlevel_to_clean] -= turfs_to_uncontain_by_zlevel[zlevel_to_clean]
+/area/proc/canonize_contained_turfs_by_zlevel(zlevel_to_clean, autoclean = TRUE)
+	var/list/zlevel_turfs_to_remove
+	if(zlevel_to_clean <= length(turfs_to_uncontain_by_zlevel))
+		zlevel_turfs_to_remove = turfs_to_uncontain_by_zlevel[zlevel_to_clean]
+
+	if(length(zlevel_turfs_to_remove) && zlevel_to_clean <= length(turfs_by_zlevel) && turfs_by_zlevel[zlevel_to_clean])
+		turfs_by_zlevel[zlevel_to_clean] -= zlevel_turfs_to_remove
 
 	if(!autoclean)
-		turfs_to_uncontain_by_zlevel[zlevel_to_clean] = list()
+		if(zlevel_to_clean <= length(turfs_to_uncontain_by_zlevel))
+			turfs_to_uncontain_by_zlevel[zlevel_to_clean] = list()
 		return
 
 	var/new_length = length(turfs_to_uncontain_by_zlevel)
@@ -280,9 +287,9 @@
 		turfs_to_uncontain_by_zlevel[zlevel_to_clean] = list()
 
 /// Ensures that all cached turf lists accurately represent this area.
-/area/proc/cannonize_contained_turfs()
+/area/proc/canonize_contained_turfs()
 	for(var/area_zlevel in 1 to length(turfs_to_uncontain_by_zlevel))
-		cannonize_contained_turfs_by_zlevel(area_zlevel, FALSE)
+		canonize_contained_turfs_by_zlevel(area_zlevel, FALSE)
 	turfs_to_uncontain_by_zlevel = list()
 
 /// Returns TRUE if the cache currently contains turfs for this area.
@@ -299,7 +306,7 @@
 /area/proc/get_zlevel_turf_lists()
 	ensure_turf_cache()
 	if(length(turfs_to_uncontain_by_zlevel))
-		cannonize_contained_turfs()
+		canonize_contained_turfs()
 
 	. = list()
 	for(var/list/zlevel_turfs as anything in turfs_by_zlevel)
@@ -310,7 +317,7 @@
 /area/proc/get_turfs_by_zlevel(zlevel)
 	ensure_turf_cache()
 	if(length(turfs_to_uncontain_by_zlevel) >= zlevel && length(turfs_to_uncontain_by_zlevel[zlevel]))
-		cannonize_contained_turfs_by_zlevel(zlevel)
+		canonize_contained_turfs_by_zlevel(zlevel)
 
 	if(length(turfs_by_zlevel) < zlevel || !turfs_by_zlevel[zlevel])
 		return list()
