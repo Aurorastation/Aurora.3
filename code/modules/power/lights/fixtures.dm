@@ -39,7 +39,7 @@
 	/// Whether the bulb can break during its init or not.
 	var/must_start_working = FALSE
 	/// If TRUE light sources have a 50% chance to be broken instead after Initialize.
-	var/maybe_broken = FALSE
+	var/maybe_broken = TRUE
 	/// Count of number of times the light was switched on/off. This is used to calculate the probability of the light burning out.
 	var/switchcount = 0
 	/// TRUE if rigged to explode.
