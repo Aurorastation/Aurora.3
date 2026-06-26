@@ -8,8 +8,8 @@
 	icon_dead = "psiren_lasher_dead"
 	blood_type = COLOR_AMBER
 	blood_overlay_icon = 'icons/mob/npc/blood_overlay.dmi'
-	health = 50
-	maxhealth = 50
+	health = 65
+	maxhealth = 65
 	melee_damage_lower = 10
 	melee_damage_upper = 10
 	armor_penetration = 40
@@ -249,8 +249,8 @@
 	icon_state = "psiren_omen"
 	icon_living = "psiren_omen"
 	icon_dead = "psiren_omen_dead"
-	health = 100
-	maxhealth = 100
+	health = 120
+	maxhealth = 120
 	ranged = TRUE
 	projectilesound = 'sound/weapons/wave.ogg'
 	projectiletype = /obj/projectile/bullet/pistol/psiren/omen
