@@ -109,7 +109,7 @@
 	last_tile = null
 
 /datum/component/skill/firearms/proc/warmup(mob/shooter)
-	if(skill_level < SKILL_LEVEL_TRAINED)
+	if(skill_level < SKILL_LEVEL_TRAINED) // Trained and up OOCly don't need accuracy fallbacks & ICly would always be steadied
 		count_to_steady++
 	count_to_warmup++
 	if(count_to_warmup % 18 == 0)
@@ -132,7 +132,7 @@
 		if(warmup_tier == 2)
 			var/time_left = warmup_end - world.time
 			var/minutes = round((time_left - (time_left % 600))/600)
-			if(skill_level < SKILL_LEVEL_TRAINED)
+			if(skill_level < SKILL_LEVEL_TRAINED || skill_level >= SKILL_LEVEL_PROFESSIONAL)
 				to_chat(shooter, SPAN_NOTICE("You feel you'll be more accurate now after warming up."))
 			to_chat(shooter, "<span class='good'>You have refreshed your morale modifier from further firing:</span>" \
 			+ "\n\t - worth [morale_value + 2] points" \
@@ -170,7 +170,7 @@
 	SIGNAL_HANDLER
 	var/skill_diff = skill_diff_reference - skill_level
 	// When stabilized, steadied, or warmed up: return before any negative skill adjustments. Ordered on reliability.
-	if(stabilized || stabilize_delay) // First to go because it's the most common and contextual
+	if(stabilized) // First to go because it's the most common and contextual
 		stabilized = FALSE
 		if(skill_level >= SKILL_LEVEL_PROFESSIONAL)
 			*accuracy_decrease = *accuracy_decrease - 1 // +1 tile closer, equal to +2 ranks as a boon for the higher level cost
@@ -186,7 +186,7 @@
 		to_chat(shooter, SPAN_WARNING("You feel your aim has wavered without practice."))
 		return
 	if((warmup_tier == 1 && prob(30)) || (warmup_tier == 2 && prob(40))) // Last to go as its effect is least common, & unpredictable
-		if(skill_level < SKILL_LEVEL_TRAINED)
+		if(skill_level < SKILL_LEVEL_TRAINED || skill_level >= SKILL_LEVEL_PROFESSIONAL)
 			playsound(shooter, 'sound/weapons/ammo_load.ogg', 90) // Actually tough to notice with gun fire
 			shooter.visible_message(SPAN_DANGER("[shooter] adjusts [shooter.get_pronoun("his")] angling!"),
 			SPAN_DANGER("You micro-adjust for better aim before firing."))
