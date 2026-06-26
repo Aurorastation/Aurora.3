@@ -109,7 +109,7 @@
 	var/list/atom/movable/screen/text/screen_text/screen_texts
 
 	/// Registered screen objects keyed by BYOND map control.
-	var/list/screen_maps = list()
+	var/list/list/atom/movable/screen/screen_maps = list()
 
 	// all this shit is going to be for future movedir-grounded parallax behaviors (tg shuttle port)
 	var/atom/movable/screen/parallax_home/parallax_rock

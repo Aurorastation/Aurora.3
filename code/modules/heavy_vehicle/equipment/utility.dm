@@ -369,7 +369,7 @@
 	SIGNAL_HANDLER
 	if(recalculating)
 		return
-	recalculate()
+	recalculate_in(0)
 
 /datum/beam/catapult_lock/proc/endpoint_deleted()
 	SIGNAL_HANDLER
