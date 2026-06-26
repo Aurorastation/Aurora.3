@@ -111,6 +111,7 @@
 
 	has_psionics = PSI_RANK_SENSITIVE
 	character_creation_psi_points = 2
+	mass_modifier = REFERENCE_MASS_SKRELL / REFERENCE_MASS_HUMAN
 
 /datum/species/skrell/handle_trail(var/mob/living/carbon/human/H, var/turf/T)
 	var/list/trail_info = ..()

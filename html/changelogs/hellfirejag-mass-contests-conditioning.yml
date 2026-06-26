@@ -1,0 +1,9 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - rscadd: "Movables (Mobs, Objects) now have a Mass value (in Kilograms) that can be used for kinematic equations."
+  - rscadd: "All species datums now include a Mass modifier that allows them to start with a specific mass."
+  - rscadd: "Movables (Mobs, Objects) also have a derived Effective Mass that can be dynamically modified via a Signal. Meaning Skills, Drugs, Hardsuits, Equipment, Cybernetics, etc can all touch it."
+  - rscadd: "Reworked Fireman Carrying limits to instead be based on relative effective mass."
+  - rscadd: "Added a new Conditioning skill that increases a character's Effective Mass, allowing them to Lift/Drag/Fireman heavier objects or people."
+  - rscadd: "Dragging and Grabbing characters now slows down the user based on this relative Effective Mass."

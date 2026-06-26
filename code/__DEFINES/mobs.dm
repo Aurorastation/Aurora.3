@@ -327,13 +327,77 @@
 /// Superheavy mobs. Gonna need a lot of help with those.
 #define MOB_WEIGHT_SUPERHEAVY 4
 
+// Reference Masses of different Mobs. Unlike MOB_WEIGHT, these represent a physics-typed value, and thus can be used directly in Kinematic Equations.
+// For any species with sexual dimorphism, the Reference Mass is 1/n * (sum of average mass of each sex)
+// Hence humans being 72.0kg and not 62.0kg
+
+/// Average mass of a human (in Kg)
+#define REFERENCE_MASS_HUMAN 72.0
+
+/// Average mass of an Offworlder (in Kg)
+#define REFERENCE_MASS_HUMAN_OFFWORLDER 62.0
+
+/// Average mass of an Interstellar Megacorporation CEO (in Kg)
+#define REFERENCE_MASS_CEO 76.4 // Megacorp lore requested this. :)
+
+/// Average mass of a Skrell (in Kg)
+#define REFERENCE_MASS_SKRELL 40.8
+
+/// Average mass of an Axiori Skrell (in Kg)
+#define REFERENCE_MASS_SKRELL_AXIORI 52.3
+
+/// Average mass of a Diona (in Kg)
+#define REFERENCE_MASS_DIONA 200
+
+/// Average mass of a Diona Coeus (in Kg)
+#define REFERENCE_MASS_DIONA_COEUS 100
+
+/// Average mass of an Unathi (in Kg)
+#define REFERENCE_MASS_UNATHI 120
+
+/// Average mass of an IPC (in Kg)
+#define REFERENCE_MASS_IPC 125
+
+/// Average mass of a Shell (in Kg)
+#define REFERENCE_MASS_IPC_SHELL 92.0
+
+/// Average mass of an Industrial IPC (in Kg)
+#define REFERENCE_MASS_IPC_INDUSTRIAL 200
+
+/// Average mass of a (Njarir or Hharar) Tajara (in Kg)
+#define REFERENCE_MASS_TAJARA 80.0
+
+/// Average mass of a M'sai Tajara (in Kg)
+#define REFERENCE_MASS_TAJARA_MSAI 85.2
+
+/// Average mass of a Zhan Tajara (in Kg)
+#define REFERENCE_MASS_TAJARA_ZHAN 92.9
+
+/// Average mass of a Tesla Rejuv Suit (in Kg)
+#define REFERENCE_MASS_TAJARA_TESLA 500
+
+/// Average mass of a Vaurca Worker (in Kg)
+#define REFERENCE_MASS_VAURCA_KA 85.0
+
+/// Average mass of a Vaurca Warrior (in Kg)
+#define REFERENCE_MASS_VAURCA_ZA 80.2
+
+/// Average mass of a Vaurca Breeder (in Kg)
+#define REFERENCE_MASS_VAURCA_TA 1000 // BEEG
+
+/// Average mass of a Vaurca Bulwark (in Kg)
+#define REFERENCE_MASS_VAURCA_RA 363
+
+/// Average mass of a Vaurca Warform (in Kg)
+#define REFERENCE_MASS_VAURCA_BA 800
+
 // Mob strength. This allows us to represent stronger mobs with a bit more granularity. Robots should be stronger than normal people. A bonus to the checks on lifting/throwing mobs, essentially.
 /// A normal mob, basically. Does not get us any buffs.
-#define MOB_STRENGTH_NORMAL 0
+#define MOB_STRENGTH_NORMAL 1.25
 /// A strong mob. Small bonus.
-#define MOB_STRENGTH_STRONG 1
+#define MOB_STRENGTH_STRONG 1.5
 /// A very strong mob. Big bonus.
-#define MOB_STRENGTH_VERY_STRONG 2
+#define MOB_STRENGTH_VERY_STRONG 2.0
 
 #define BASE_MAX_NUTRITION	600
 #define HUNGER_FACTOR		0.04 // Factor of how fast mob nutrition decreases over time.
