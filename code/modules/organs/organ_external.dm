@@ -445,9 +445,10 @@
 
 	var/laser = (damage_flags & DAMAGE_FLAG_LASER)
 	var/sharp = (damage_flags & DAMAGE_FLAG_SHARP)
+	var/bullet = (damage_flags & DAMAGE_FLAG_BULLET)
 	var/edge = (damage_flags & DAMAGE_FLAG_EDGE)
 	var/psionic = (damage_flags & DAMAGE_FLAG_PSIONIC)
-	var/blunt = !!(brute && !sharp && !edge)
+	var/blunt = !!(brute && !sharp && !edge && !bullet)
 
 	/// Psionics and psionically deaf species take varying amounts of damage from psionic abilities.
 	if(psionic)
@@ -475,7 +476,9 @@
 
 	handle_limb_gibbing(used_weapon, brute, burn)
 
-	if(brute_dam + brute > min_broken_damage && prob(brute_dam + brute * (1 + blunt)))
+	///The chance of a bone breaking increases linearly, up to 100% at max_damage * 4 (The most damage an organ can take)
+	var/fracture_chance_increase = min(100, max(0, (brute_dam * 100) / (max_damage * 4)))
+	if(brute_dam + brute > min_broken_damage && prob(fracture_chance_increase + ((brute / 2) * (1 + blunt)))) //Blunt hits have 2x chance to break bones.
 		if(blunt || brute > FRACTURE_AND_TENDON_DAM_THRESHOLD)
 			fracture()
 
@@ -492,7 +495,7 @@
 		if(can_cut)
 			to_create = INJURY_TYPE_CUT
 			//need to check sharp again here so that blunt damage that was strong enough to break skin doesn't give puncture wounds
-			if(sharp && !edge)
+			if(sharp && !edge || bullet)
 				to_create = INJURY_TYPE_PIERCE
 		created_wound = createwound(to_create, brute)
 
@@ -528,6 +531,7 @@
 	var/cur_damage = brute_dam
 	var/sharp = (damage_flags & DAMAGE_FLAG_SHARP)
 	var/laser = (damage_flags & DAMAGE_FLAG_LASER)
+	var/bullet = (damage_flags & DAMAGE_FLAG_BULLET)
 
 	if(BP_IS_ROBOTIC(src) || laser)
 		damage_amt += burn
@@ -559,8 +563,13 @@
 	organ_hit_chance += 5 * damage_amt / organ_damage_threshold
 
 	if(!BP_IS_ROBOTIC(src))
-		if(encased && !(status & ORGAN_BROKEN)) //ribs protect
-			organ_hit_chance *= 0.2
+		if(encased && !(status & ORGAN_BROKEN)) //Ribs protect
+			if (bullet) //Less protection against bullets.
+				organ_hit_chance *= 0.6
+			else if (sharp)
+				organ_hit_chance *= 0.4
+			else
+				organ_hit_chance *= 0.2
 	else
 		organ_hit_chance *= 0.8 // robots should not have the same advantage
 
