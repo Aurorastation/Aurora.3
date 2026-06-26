@@ -76,6 +76,7 @@
 			icon_state = "[initial(icon_state)]-closed"
 		else
 			icon_state = "[initial(icon_state)]-working"
+			AddOverlays(emissive_appearance(icon, "[icon_state]-e", src))
 		return
 	else
 		name = initial(name)

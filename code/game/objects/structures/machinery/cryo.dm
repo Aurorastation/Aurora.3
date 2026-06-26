@@ -9,6 +9,8 @@
 	anchored = TRUE
 	plane = GAME_PLANE
 	layer = ABOVE_HUMAN_LAYER
+	// Match the 32x64 sprite so northern turf contents sort behind the cell's upper half.
+	bound_height = 64
 	interact_offline = TRUE
 
 	var/on = 0

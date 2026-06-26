@@ -95,13 +95,20 @@
 		occupant.SetStasis(stasis)
 
 /obj/structure/machinery/sleeper/update_icon()
-	flick("[initial(icon_state)]-anim", src)
+	ClearOverlays()
+	if(panel_open)
+		AddOverlays("[icon_state]-panel")
 	if(occupant)
-		if(stat & NOPOWER || stat & BROKEN)
+		if(stat & BROKEN)
+			icon_state = "[initial(icon_state)]-broken-closed"
+		else if(stat & NOPOWER)
 			icon_state = "[initial(icon_state)]-closed"
 		else
 			icon_state = "[initial(icon_state)]-working"
+			AddOverlays(emissive_appearance(icon, "[icon_state]-e", src))
 		return
+	else if(stat & BROKEN)
+		icon_state = "[initial(icon_state)]-broken"
 	else
 		icon_state = initial(icon_state)
 
@@ -280,6 +287,7 @@
 			M.forceMove(src)
 			update_use_power(POWER_USE_ACTIVE)
 			occupant = M
+			flick("[initial(icon_state)]-anim", src)
 			update_icon()
 			qdel(G)
 		return TRUE
@@ -371,6 +379,7 @@
 		M.forceMove(src)
 		update_use_power(POWER_USE_ACTIVE)
 		occupant = M
+		flick("[initial(icon_state)]-anim", src)
 		update_icon()
 
 /obj/structure/machinery/sleeper/proc/go_out()
@@ -386,6 +395,7 @@
 			continue
 		A.forceMove(get_turf(src))
 	update_use_power(POWER_USE_IDLE)
+	flick("[initial(icon_state)]-anim", src)
 	update_icon()
 	toggle_filter()
 	toggle_pump()

@@ -65,14 +65,16 @@
 	update_icon()
 
 /obj/structure/machinery/atmospherics/unary/freezer/update_icon()
+	ClearOverlays()
 	if(node)
 		if(use_power && cooling)
 			icon_state = "freezer_1"
+			AddOverlays(emissive_appearance(icon, "[icon_state]-e", src))
 		else
 			icon_state = "freezer"
 	else
 		icon_state = "freezer_0"
-	return
+		AddOverlays(emissive_appearance(icon, "[icon_state]-e", src))
 
 /obj/structure/machinery/atmospherics/unary/freezer/attack_ai(mob/user)
 	if(!ai_can_interact(user))

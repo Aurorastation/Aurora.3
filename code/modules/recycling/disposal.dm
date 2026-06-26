@@ -470,14 +470,17 @@
 	// check for items in disposal - occupied light
 	if(has_contents)
 		AddOverlays("[icon_state]-full")
+		AddOverlays(emissive_appearance(icon, "[icon_state]-full", src))
 	showing_full = has_contents
 
 	// charging and ready light
 	if(mode == MODE_PRESSURIZING)
 		AddOverlays("[icon_state]-charge")
+		AddOverlays(emissive_appearance(icon, "[icon_state]-charge-e", src))
 		mode_icon = MODE_PRESSURIZING
 	else if(mode == MODE_READY)
 		AddOverlays("[icon_state]-ready")
+		AddOverlays(emissive_appearance(icon, "[icon_state]-ready", src))
 		mode_icon = MODE_READY
 
 /**
