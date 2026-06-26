@@ -143,7 +143,7 @@
 		else
 			to_chat(user, SPAN_NOTICE("You'd need both devices to be signallers for this to work."))
 		return
-	else if(attacking_item.tool_behaviour == TOOL_MULTITOOL && ishuman(user) && user.get_inactive_hand() == src)
+	else if(attacking_item.tool_behaviour == TOOL_MULTITOOL && ishuman(user) && user.is_holding_offhand(src))
 		if(charge < 10)
 			to_chat(user, SPAN_WARNING("\The [src] doesn't have enough charge to produce sufficient current!"))
 			return
@@ -153,7 +153,7 @@
 			siemens_coeff = H.gloves.siemens_coefficient
 		if(siemens_coeff >= 0.75 && prob(10 * siemens_coeff))
 			to_chat(H, SPAN_WARNING("You probe \the [src] with \the [attacking_item] and feel a jolt of electricity shoot through you! It reads out that [100 * siemens_coeff]% of the current was let through."))
-			H.electrocute_act(5, src, siemens_coeff, H.hand ? BP_R_HAND : BP_L_HAND) // hand holding the battery gets shocked
+			H.electrocute_act(5, src, siemens_coeff, H.get_active_held_item_slot()) // hand holding the battery gets shocked
 		else
 			to_chat(H, SPAN_NOTICE("You probe \the [src] with \the [attacking_item]. It reads out that [100 * siemens_coeff]% of the current was let through."))
 		return

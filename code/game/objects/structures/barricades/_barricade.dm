@@ -131,6 +131,7 @@
 	return attack_hand(user)
 
 /obj/structure/barricade/attack_hand(var/mob/user)
+	. = ..()
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user

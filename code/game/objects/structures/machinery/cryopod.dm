@@ -62,6 +62,7 @@
 	src.attack_hand(user)
 
 /obj/structure/machinery/computer/cryopod/attack_hand(mob/user)
+	. = ..()
 	if(stat & (NOPOWER|BROKEN))
 		return
 
@@ -401,20 +402,17 @@
 	occupant = null
 	update_icon()
 
-/obj/structure/machinery/cryopod/attackby(obj/item/attacking_item, mob/user)
-	var/obj/item/grab/G = attacking_item
-	if(istype(G))
+/obj/structure/machinery/cryopod/grab_attack(obj/item/grab/G, mob/user)
+	var/mob/living/victim = G.get_grabbed_mob()
+	if(istype(victim) && istype(user))
 		if(occupant)
-			to_chat(user, SPAN_WARNING("\The [src] is in use."))
+			to_chat(user, SPAN_NOTICE("\The [src] is in use."))
 			return TRUE
-		if(!ismob(G.affecting))
+		if(!check_occupant_allowed(victim))
 			return TRUE
-		if(!check_occupant_allowed(G.affecting))
-			return TRUE
-
-		var/mob/living/M = G.affecting
-		go_in(user, M)
+		go_in(user, victim)
 		return TRUE
+	return ..()
 
 /obj/structure/machinery/cryopod/mouse_drop_receive(atom/dropped, mob/user, params)
 	if(!istype(user, /mob/living))
@@ -525,7 +523,6 @@
 /obj/structure/machinery/cryopod/proc/set_occupant(var/mob/living/carbon/occupant)
 	src.occupant = occupant
 	occupant.forceMove(src)
-	occupant.stop_pulling()
 	if(occupant.client)
 		occupant.client.perspective = EYE_PERSPECTIVE
 		occupant.client.eye = src

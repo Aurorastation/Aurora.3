@@ -297,6 +297,7 @@
 	return
 
 /obj/structure/machinery/computer/rdservercontrol/attack_hand(mob/user as mob)
+	. = ..()
 	if(stat & (BROKEN|NOPOWER))
 		return
 	user.set_machine(src)

@@ -29,6 +29,7 @@
 
 
 /obj/structure/tranqcabinet/attack_hand(mob/user)
+	. = ..()
 	if(isrobot(user))
 		return
 	if (!user.can_use_hand())

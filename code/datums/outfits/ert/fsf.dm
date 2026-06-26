@@ -91,8 +91,7 @@
 
 /obj/outfit/admin/ert/fsf/leader
 	name = "Free Solarian Fleets Fireteam Leader"
-	l_hand = /obj/item/gun/projectile/automatic/rifle/sol
-	r_hand = null
+	hands = list(/obj/item/gun/projectile/automatic/rifle/sol)
 	back = /obj/item/rig/military/fsf
 	suit_store = null
 	suit = null

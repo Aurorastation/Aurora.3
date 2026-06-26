@@ -409,7 +409,7 @@ ABSTRACT_TYPE(/obj/item/gun/projectile/automatic/rifle)
 		..()
 
 /obj/item/gun/projectile/automatic/rifle/z8/attack_hand(mob/user)
-	if(user.get_inactive_hand() == src && use_launcher)
+	if(user.is_holding_offhand(src) && use_launcher)
 		launcher.unload(user)
 	else
 		..()
@@ -518,7 +518,7 @@ ABSTRACT_TYPE(/obj/item/gun/projectile/automatic/rifle)
 	..()
 
 /obj/item/gun/projectile/automatic/rifle/l6_saw/attack_hand(mob/user as mob)
-	if(!cover_open && user.get_inactive_hand() == src)
+	if(!cover_open && user.is_holding_offhand(src))
 		toggle_cover(user) //open the cover
 	else
 		return ..() //once open, behave like normal

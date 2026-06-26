@@ -29,6 +29,7 @@
 	return ..()
 
 /obj/structure/gore/resin/attack_hand(var/mob/user)
+	. = ..()
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	user.do_attack_animation(src)
 	if((user.mutations & HULK))

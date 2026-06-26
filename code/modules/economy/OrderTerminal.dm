@@ -54,6 +54,7 @@
 		return
 
 /obj/structure/machinery/orderterminal/attack_hand(var/mob/user)
+	. = ..()
 	if(stat & NOPOWER)
 		balloon_alert(user, "no power")
 		return

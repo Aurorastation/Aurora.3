@@ -169,7 +169,7 @@ GLOBAL_DATUM(uplink, /datum/uplink)
 
 	if(istype(I) && ishuman(user))
 		var/mob/living/carbon/human/A = user
-		A.put_in_any_hand_if_possible(I)
+		A.put_in_hands_or_del(I)
 	return I
 
 /datum/uplink_item/item/get_goods(var/obj/item/uplink/U, var/loc)

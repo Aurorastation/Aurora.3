@@ -32,7 +32,7 @@
 /obj/outfit/admin/militia_crew/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(isoffworlder(H))
-		H.equip_or_collect(new /obj/item/storage/pill_bottle/rmt, slot_in_backpack)
+		H.equip_or_collect(new /obj/item/storage/pill_bottle/rmt, slot_in_backpack_str)
 
 /obj/outfit/admin/militia_crew/get_id_access()
 	return list(ACCESS_EXTERNAL_AIRLOCKS)

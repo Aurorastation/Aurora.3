@@ -104,6 +104,7 @@
 			AddOverlays(lights_image)
 
 /obj/structure/machinery/power/emitter/attack_hand(mob/user)
+	. = ..()
 	add_fingerprint(user)
 	var/max_engineering_skill = \
 		max(astype(user.GetComponent(REACTOR_SYSTEMS_SKILL_COMPONENT), SKILL_COMPONENT)?.skill_level, \

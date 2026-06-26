@@ -35,7 +35,7 @@
 	A.do_attack_animation(D)
 	A.visible_message(SPAN_WARNING("[A] strikes [D] with their open palm!"))
 	playsound(get_turf(A), SFX_PUNCH, 50, 1, -1)
-	var/obj/item/organ/external/affecting = D.get_organ(ran_zone(A.zone_sel.selecting))
+	var/obj/item/organ/external/affecting = D.get_organ(ran_zone(D, A.zone_sel.selecting))
 	D.apply_damage(25, DAMAGE_PAIN, affecting)
 	return 1
 

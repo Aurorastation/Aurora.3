@@ -139,6 +139,7 @@
 	qdel(src)
 
 /obj/structure/machinery/door/window/attack_hand(mob/user as mob)
+	. = ..()
 	var/mob/living/carbon/human/H = user
 	if(istype(H) && H.species.can_shred(H))
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)

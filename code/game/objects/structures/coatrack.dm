@@ -26,6 +26,7 @@
 			update_icon()
 
 /obj/structure/coatrack/attack_hand(mob/user as mob)
+	. = ..()
 	if(use_check_and_message(user))
 		return
 	add_fingerprint(user)

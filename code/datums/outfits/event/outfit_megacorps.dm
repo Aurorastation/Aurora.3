@@ -144,7 +144,7 @@
 	id = /obj/item/card/id/syndicate
 	l_pocket = /obj/item/plastique
 	r_pocket = /obj/item/melee/energy/sword
-	l_hand = /obj/item/gun/energy/rifle/pulse
+	hands = list(/obj/item/gun/energy/rifle/pulse)
 	accessory = /obj/item/clothing/accessory/holster/hip
 	accessory_contents = list(/obj/item/gun/projectile/revolver/mateba = 1)
 

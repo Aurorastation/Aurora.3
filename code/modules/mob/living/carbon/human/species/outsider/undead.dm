@@ -580,7 +580,7 @@
 	if(do_after(src, 3 SECONDS))
 		visible_message(SPAN_DANGER(FONT_LARGE("[src] picks up a large boulder out of the ground!")))
 		var/obj/item/tank_rock/TR = new()
-		put_in_any_hand_if_possible(TR)
+		put_in_hands(TR)
 
 /obj/item/tank_rock
 	name = "boulder"

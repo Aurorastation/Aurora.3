@@ -273,6 +273,9 @@
 
 	return atoms
 
+/proc/get_dist_3d(atom/Loc1, atom/Loc2)
+	return max(abs(Loc1.x-Loc2.x), abs(Loc1.y-Loc2.y), abs(Loc1.z-Loc2.z))
+
 ///Returns the distance between two atoms
 /proc/get_dist_euclidian(atom/first_location as turf|mob|obj, atom/second_location as turf|mob|obj)
 	var/dx = first_location.x - second_location.x

@@ -168,6 +168,7 @@
 	return ..()
 
 /obj/structure/fuel_port/attack_hand(mob/user)
+	. = ..()
 	if(state == FUEL_PORT_UNSECURED)
 		to_chat(user, SPAN_NOTICE("You remove \the [src] from its position."))
 		var/obj/item/fuel_port/P = new port_item_path(user.loc)

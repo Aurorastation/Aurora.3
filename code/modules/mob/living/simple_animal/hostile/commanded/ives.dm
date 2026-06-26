@@ -39,7 +39,7 @@
 	harm_intent_damage = 5 // the damage we take
 	melee_damage_lower = 0
 	melee_damage_upper = 0
-	resist_mod = 2
+	mob_strength = MOB_STRENGTH_STRONG
 
 	mob_size = 5
 

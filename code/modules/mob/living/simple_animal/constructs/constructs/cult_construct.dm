@@ -139,11 +139,6 @@
 	if(.)
 		var/newstate
 
-		if(pullin)
-			newstate = pulling ? "pull1" : "pull0"
-			if(pullin.icon_state != newstate)
-				pullin.icon_state = newstate
-
 		if(purged)
 			newstate = purge > 0 ? "purge1" : "purge0"
 			if(purged.icon_state != newstate)

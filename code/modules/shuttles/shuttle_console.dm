@@ -97,6 +97,7 @@
 	// Snowflake case for checking player characters for a Pilot Spacecraft Skill.
 	// Only player characters will have the component. Which will both always be present on them, and will only enable its own return logic if it exists.
 	// NPCs, Ghostroles, and Offship Antags that don't generate skills are unaffected by this check by intentional design so that we don't have to account for them.
+	. = ..()
 	if (required_skill)
 		var/datum/component/skill/skill_check = user.GetComponent(astype(required_skill, SKILL_COMPONENT))
 		if (skill_check && skill_check.skill_level < required_skill_level)

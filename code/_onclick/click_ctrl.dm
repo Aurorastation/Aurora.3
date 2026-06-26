@@ -15,8 +15,12 @@
 	return
 
 /atom/movable/CtrlClick(var/mob/user)
-	if(Adjacent(user))
-		user.start_pulling(src)
+	if(!(. = ..()) && loc != user)
+		if(LAZYLEN(grabbed_by))
+			for(var/obj/item/grab/G as anything in user.get_active_grabs())
+				if(G.grabbed != src) continue
+				return user.drop_from_inventory(G, null)
+		return try_make_grab(user, defer_hand = TRUE) || ..()
 
 /**
  * Ctrl mouse wheel click

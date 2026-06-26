@@ -171,3 +171,22 @@
 		.["x"] = x
 	if(!isnull(y))
 		.["y"] = y
+
+/proc/layering_filter(icon, render_source, x, y, flags, color, transform, blend_mode)
+	. = list("type" = "layer")
+	if(!isnull(icon))
+		.["icon"] = icon
+	if(!isnull(render_source))
+		.["render_source"] = render_source
+	if(!isnull(x))
+		.["x"] = x
+	if(!isnull(y))
+		.["y"] = y
+	if(!isnull(color))
+		.["color"] = color
+	if(!isnull(flags))
+		.["flags"] = flags
+	if(!isnull(transform))
+		.["transform"] = transform
+	if(!isnull(blend_mode))
+		.["blend_mode"] = blend_mode

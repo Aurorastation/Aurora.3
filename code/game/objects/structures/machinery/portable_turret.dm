@@ -254,6 +254,7 @@
 	ui_interact(user)
 
 /obj/structure/machinery/porta_turret/attack_hand(mob/user)
+	. = ..()
 	ui_interact(user)
 
 /obj/structure/machinery/porta_turret/ui_data(mob/user)
@@ -1084,6 +1085,7 @@
 
 
 /obj/structure/machinery/porta_turret_construct/attack_hand(mob/user)
+	. = ..()
 	switch(build_step)
 		if(4)
 			if(!installation)

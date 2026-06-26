@@ -397,3 +397,6 @@
 
 /mob/living/silicon/get_speech_bubble_state_modifier()
 	return "robot"
+
+/mob/living/silicon/get_empty_hand_slot()
+	if(istype(module_active, /obj/item/gripper))

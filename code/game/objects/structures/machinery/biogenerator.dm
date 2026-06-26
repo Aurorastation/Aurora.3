@@ -726,6 +726,7 @@ EMAG/ILLEGAL
 	biogen_win.open()
 
 /obj/structure/machinery/biogenerator/attack_hand(mob/user as mob)
+	. = ..()
 	interact(user)
 
 /obj/structure/machinery/biogenerator/proc/activate()

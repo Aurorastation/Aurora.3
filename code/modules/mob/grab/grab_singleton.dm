@@ -1,0 +1,258 @@
+ABSTRACT_TYPE(/singleton/grab)
+	/// Name of the grab, shows on examine.
+	var/name = "generic grab"
+	/// Optional description.
+	var/desc
+
+	/// The grab we upgrade to.
+	var/singleton/grab/upgrade
+	/// The grab before this one.
+	var/singleton/grab/downgrade
+
+	/// Any flags related to the grab, see has_grab_flags.
+	var/grab_flags = 0
+
+	/// Multiplier applied to point blank damage if the user has this grab active.
+	var/point_blank_mult = 1
+	/// Currently unused damage variable.
+	var/damage_stage = 1
+
+	/// Slowdown that this grab applies to the human in movement_delay().
+	var/grab_slowdown = 0.15
+	/// Shift applied to both pixel_x and pixel_y.
+	var/shift = 0
+	/// Additional forced y-shift for grabs such as fireman carry.
+	var/shift_y = 0
+
+	/// If this grab should adjust the plane of the mob, currently unused.
+	var/adjust_plane = TRUE
+	/// If this grab should adjust the layer of the mob, currently unused.
+	var/adjust_layer = TRUE
+
+	/// Flavour message for success on grab upgrade.
+	var/success_up              = "You get a better grip on $rep_affecting$."
+	/// Flavour message for success on grab downgrade.
+	var/success_down            = "You adjust your grip on $rep_affecting$."
+	/// Flavour message for failing to upgrade grab.
+	var/fail_up                 = "You can't get a better grip on $rep_affecting$!"
+	/// Flavour message for failing to downgrade grab.
+	var/fail_down               = "You can't seem to relax your grip on $rep_affecting$!"
+
+	/// Icon of the grab.
+	var/grab_icon = 'icons/mob/screen/grab.dmi'
+	/// Icon state of the grab overlay.
+	var/grab_hand_state = "grab"
+	/// Additional icon state for the text under the grab.
+	var/grab_text_state = "reinforce"
+	/// Icon state of the grab icon itself.
+	var/grab_icon_state = "grab"
+	/// Any special animation on the grab itself, see /obj/effect/overlay/temp/grab_special_animation.
+	var/grab_special_state
+	/// Colour of the grab.
+	var/grab_color = "#FDD200"
+
+	/// Cooldown that must pass before upgrading.
+	var/upgrade_cooldown = 4 SECONDS
+	/// Cooldown that must pass before taking a grab action (hit with grab).
+	var/action_cooldown = 4 SECONDS
+
+	/// Break strength is clamped against this table. See handle_resist().
+	var/list/break_chance_table = list(100)
+	/// The base of how hard it is to break the grab, see handle_resist().
+	var/breakability = 2
+
+	/// Intent corresponding to help action.
+	var/help_action = "help intent"
+	/// Intent corresponding to disarm action.
+	var/disarm_action = "disarm intent"
+	/// Intent corresponding to grab action.
+	var/grab_action = "grab intent"
+	/// Intent corresponding to harm action.
+	var/harm_action = "harm intent"
+
+	/// What verb is used when performing actions with this grab.
+	var/action_verb = "grappling"
+
+/singleton/grab/Initialize()
+	if(ispath(upgrade, /singleton/grab))
+		upgrade = GET_SINGLETON(upgrade)
+	if(ispath(downgrade, /singleton/grab))
+		downgrade = GET_SINGLETON(downgrade)
+	return ..()
+
+/singleton/grab/proc/process_string(obj/item/grab/G, to_write, obj/item/used_item)
+	. = replacetext(to_write, "$rep_affecting$", G.grabbed)
+	. = replacetext(., "$rep_assailant$", G.grabber)
+	if (used_item)
+		. = replacetext(., "$rep_item$", used_item)
+
+/singleton/grab/proc/upgrade(obj/item/grab/G)
+	if (can_upgrade(G) && upgrade_effect(G))
+		to_chat(G.grabber, SPAN_WARNING("[process_string(G, success_up)]"))
+		return upgrade
+	to_chat(G.grabber, SPAN_WARNING("[process_string(G, fail_up)]"))
+
+/singleton/grab/proc/downgrade(obj/item/grab/G)
+	if (!downgrade)
+		return let_go(G)
+	if (can_downgrade(G) && downgrade_effect(G))
+		to_chat(G.grabber, SPAN_NOTICE("[process_string(G, success_down)]"))
+		return downgrade
+	to_chat(G.grabber, SPAN_WARNING("[process_string(G, fail_down)]"))
+
+/singleton/grab/proc/let_go(obj/item/grab/G)
+	if(G.grabber && G.grabbed)
+		to_chat(G.grabber, SPAN_NOTICE("You release \the [G.grabbed]."))
+	let_go_effect(G)
+	G.force_drop()
+
+/singleton/grab/proc/on_target_change(obj/item/grab/G, old_zone, new_zone)
+	G.special_target_functional = check_special_target(G)
+	if(G.special_target_functional)
+		special_target_change(G, old_zone, new_zone)
+		special_target_effect(G)
+
+/singleton/grab/proc/do_process(obj/item/grab/G)
+	special_target_effect(G)
+	process_effect(G)
+
+/singleton/grab/proc/throw_held(obj/item/grab/G)
+	if(G.grabber == G.grabbed)
+		return
+	if(grab_flags & GRAB_CAN_THROW)
+		. = G.grabbed
+		var/mob/thrower = G.loc
+		qdel(G)
+		for(var/obj/item/grab/inactive_grab as anything in thrower.get_inactive_held_items())
+			qdel(inactive_grab)
+
+/singleton/grab/proc/hit_with_grab(obj/item/grab/G, atom/A, proximity_flag = TRUE)
+	if(QDELETED(G) || !istype(G) || G.resolving_hit)
+		return FALSE
+
+	if(!G.check_action_cooldown())
+		to_chat(G.grabber, SPAN_WARNING("You have to wait before manipulating \the [G.grabbed] again!"))
+		return FALSE
+
+	G.resolving_hit = TRUE
+
+	switch(G.grabber.a_intent)
+		if(I_HELP)
+			if(on_hit_help(G, A, proximity_flag))
+				. = help_action || TRUE
+		if(I_DISARM)
+			if(on_hit_disarm(G, A, proximity_flag))
+				. = disarm_action || TRUE
+		if(I_GRAB)
+			if(on_hit_grab(G, A, proximity_flag))
+				. = grab_action || TRUE
+		if(I_HURT)
+			if(on_hit_harm(G, A, proximity_flag))
+				. = harm_action || TRUE
+
+	if(!QDELETED(G))
+		G.resolving_hit = FALSE
+		if(.)
+			G.action_used()
+			if(G.grabber)
+				G.grabber.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+				if(istext(.) && G.grabber && ismob(G.grabbed))
+					admin_attack_log(G.grabber, G.grabbed, "[.]s their victim,", "was [.]ed", "used [.] on")
+			if(grab_flags & GRAB_DOWNGRADE_ACT)
+				G.downgrade()
+
+/singleton/grab/proc/grabber_moved(obj/item/grab/G)
+	G.adjust_position()
+	moved_effect(G)
+	if(grab_flags & GRAB_DOWNGRADE_MOVE)
+		G.downgrade()
+
+/*
+	Override these procs to set how the grab state will work. Some of them are best
+	overriden in the parent of the grab set (for example, the behaviour for on_hit_intent()
+	procs is determined in /decl/grab/normal and then inherited by each intent).
+*/
+
+/singleton/grab/proc/upgrade_effect(obj/item/grab/G)
+	admin_attack_log(G.grabber, G.grabbed, "upgraded grab on their victim to [upgrade]", "was grabbed more tightly to [upgrade]", "upgraded grab to [upgrade] on")
+	return TRUE
+
+/singleton/grab/proc/can_upgrade(obj/item/grab/G)
+	return !!upgrade && !!G.get_grabbed_mob()
+
+/singleton/grab/proc/downgrade_effect(obj/item/grab/G)
+	return TRUE
+
+/singleton/grab/proc/can_downgrade(obj/item/grab/G)
+	return !!downgrade
+
+/singleton/grab/proc/let_go_effect(obj/item/grab/G)
+
+/singleton/grab/proc/process_effect(obj/item/grab/G)
+
+/singleton/grab/proc/special_target_effect(obj/item/grab/G)
+
+/singleton/grab/proc/special_target_change(obj/item/grab/G, diff_zone)
+
+/singleton/grab/proc/check_special_target(obj/item/grab/G)
+
+/singleton/grab/proc/on_hit_help(obj/item/grab/G, atom/A, proximity)
+	return TRUE
+
+/singleton/grab/proc/on_hit_disarm(obj/item/grab/G, atom/A, proximity)
+	return TRUE
+
+/singleton/grab/proc/on_hit_grab(obj/item/grab/G, atom/A, proximity)
+	return TRUE
+
+/singleton/grab/proc/on_hit_harm(obj/item/grab/G, atom/A, proximity)
+	return TRUE
+
+/singleton/grab/proc/resolve_openhand_attack(obj/item/grab/G)
+	return 0
+
+/singleton/grab/proc/enter_as_up(obj/item/grab/G)
+
+/singleton/grab/proc/item_attack(obj/item/grab/G, obj/item)
+	return FALSE
+
+/singleton/grab/proc/resolve_item_attack(obj/item/grab/G, mob/living/carbon/human/user, obj/item/I, target_zone)
+	return FALSE
+
+/singleton/grab/proc/handle_resist(obj/item/grab/G)
+	var/mob/living/grabbed = G.get_grabbed_mob()
+	var/mob/living/grabber = G.grabber
+	if(!grabbed)
+		return
+	if(grabbed.incapacitated(INCAPACITATION_KNOCKOUT | INCAPACITATION_STUNNED))
+		to_chat(G.grabbed, SPAN_WARNING("You can't resist in your current state!"))
+		return
+
+	var/mob/living/carbon/human/grabbed_human = astype(grabbed)
+	var/grab_mod = grabbed_human?.species ? error_correct_round(grabbed_human.species.grab_mod) : 1
+
+	var/resist_strength = (grabbed.get_mob_strength() * grab_mod) - grabber.get_mob_strength()
+	var/strength_if_equal = grabber.mob_size == grabbed.mob_size ? 0 : MOB_SIZE_DIFF(grabber, grabbed) //log(2, 0) will runtime
+	var/break_strength = breakability + strength_if_equal + resist_strength
+
+	if(grabbed.incapacitated(INCAPACITATION_ALL))
+		break_strength--
+	if(grabbed.confused)
+		break_strength--
+
+	if(break_strength < 1)
+		to_chat(G.grabbed, SPAN_WARNING("You try and break free, but unless something changes, you'll never escape!"))
+		return
+
+	var/break_chance = break_chance_table[clamp(break_strength, 1, break_chance_table.len)]
+	if(prob(break_chance))
+		if(!(grab_flags & GRAB_BLOCK_RESIST) && !prob((break_chance + 100) / 2))
+			grabbed.visible_message(SPAN_WARNING("\The [grabbed] has loosened \the [grabber]'s grip!"))
+			G.downgrade()
+			return
+		grabbed.visible_message(SPAN_WARNING("\The [grabbed] has broken free of \the [grabber]'s grip!"))
+		let_go(G)
+
+/singleton/grab/proc/moved_effect(obj/item/grab/G)
+	return
+

@@ -99,6 +99,6 @@
 
 	R.set_content(title, text)
 
-	user.put_in_any_hand_if_possible(R)
+	user.put_in_hands(R)
 	R.ripped = TRUE
 	return TRUE

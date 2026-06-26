@@ -196,11 +196,10 @@
 	if(!holder_type || buckled_to || pinned.len || !Adjacent(grabber))
 		return
 
-	if (user == src)
-		if (grabber.r_hand && grabber.l_hand)
-			to_chat(user, SPAN_WARNING("They have no free hands!"))
-			return
-	else if ((grabber.hand == 0 && grabber.r_hand) || (grabber.hand == 1 && grabber.l_hand))//Checking if the hand is full
+	if (user == src && !grabber.get_empty_hand_slot())
+		to_chat(user, SPAN_WARNING("They have no free hands!"))
+		return
+	else if (grabber.get_active_hand())//Checking if the hand is full
 		to_chat(grabber, SPAN_WARNING("Your hand is full!"))
 		return
 
@@ -217,7 +216,7 @@
 
 		var/success = 0
 		if (src == user)
-			success = grabber.put_in_any_hand_if_possible(H, 0,1,1)
+			success = grabber.put_in_hands(H)
 		else
 			H.attack_hand(grabber)//We put this last to prevent some race conditions
 			if (H.loc == grabber)

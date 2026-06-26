@@ -36,20 +36,20 @@
 /obj/outfit/admin/ert/tcaf/post_equip(mob/living/carbon/human/H, visualsOnly)
 	. = ..()
 	if(isvaurca(H))
-		H.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/vaurca/tactical(H), slot_wear_mask)
+		H.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/vaurca/tactical(H), slot_wear_mask_str)
 		var/obj/item/organ/internal/vaurca/preserve/preserve = H.internal_organs_by_name[BP_PHORON_RESERVE]
 		H.internal = preserve
 		H.internals.icon_state = "internal1"
-		H.equip_or_collect(new /obj/item/reagent_containers/food/snacks/koisbar, slot_in_backpack)
+		H.equip_or_collect(new /obj/item/reagent_containers/food/snacks/koisbar, slot_in_backpack_str)
 		var/obj/item/organ/B = new /obj/item/organ/internal/augment/hiveshield(H)
 		var/obj/item/organ/external/affectedB = H.get_organ(B.parent_organ)
 		B.replaced(H, affectedB)
 		H.update_body()
 	if(isoffworlder(H))
-		H.equip_or_collect(new /obj/item/storage/pill_bottle/rmt, slot_in_backpack)
+		H.equip_or_collect(new /obj/item/storage/pill_bottle/rmt, slot_in_backpack_str)
 	if(H?.shoes)
 		var/obj/item/clothing/shoes/magboots/boots = new(H)
-		H.equip_to_slot_if_possible(boots, slot_shoes)
+		H.equip_to_slot_if_possible(boots, slot_shoes_str)
 
 /obj/outfit/admin/ert/tcaf/get_id_access(mob/living/carbon/human/H)
 	return get_distress_access()

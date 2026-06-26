@@ -136,7 +136,7 @@
 		to_chat(user, SPAN_NOTICE("You don't want to risk hurting [target_mob]!"))
 		return 0
 
-	target_zone = check_zone(target_zone)
+	target_zone = check_zone(target_zone, target_mob)
 	if(user.a_intent == I_HURT)
 		if (!..())	//item/attack() does it's own messaging and logs
 			return 0	// item/attack() will return 1 if they hit, 0 if they missed.

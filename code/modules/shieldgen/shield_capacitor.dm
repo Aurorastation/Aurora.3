@@ -106,6 +106,7 @@
 		..()
 
 /obj/structure/machinery/shield_capacitor/attack_hand(mob/user)
+	. = ..()
 	if(stat & (BROKEN))
 		return
 	ui_interact(user)

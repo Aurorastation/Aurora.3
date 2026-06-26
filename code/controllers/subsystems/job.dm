@@ -308,9 +308,9 @@ SUBSYSTEM_DEF(jobs)
 		job.pre_equip(H)
 		job.setup_account(H)
 		job.after_spawn(H)
-		EquipCustom(H, job, H.client.prefs, custom_equip_leftovers, spawn_in_storage, custom_equip_slots)
-
 		job.equip(H)
+
+		EquipCustom(H, job, H.client.prefs, custom_equip_leftovers, spawn_in_storage, custom_equip_slots)
 
 		spawn_in_storage += EquipCustomDeferred(H, H.client.prefs, custom_equip_leftovers, custom_equip_slots)
 	else
@@ -370,7 +370,7 @@ SUBSYSTEM_DEF(jobs)
 
 	//Gives glasses to the vision impaired
 	if(H.disabilities & NEARSIGHTED)
-		var/equipped = H.equip_to_slot_or_del(new /obj/item/clothing/glasses/regular(H), slot_glasses, TRUE)
+		var/equipped = H.equip_to_slot_or_del(new /obj/item/clothing/glasses/regular(H), slot_glasses_str)
 		if(equipped != 1)
 			var/obj/item/clothing/glasses/G = H.glasses
 			G.prescription = 7
@@ -686,9 +686,9 @@ SUBSYSTEM_DEF(jobs)
 				// This is a miserable way to fix the loadout overwrite bug, but the alternative requires
 				// adding an arg to a bunch of different procs. Will look into it after this merge. ~ Z
 				var/obj/item/CI = G.spawn_item(null,metadata, H)
-				if (H.equip_to_slot_or_del(CI, G.slot, TRUE))
+				if (H.equip_to_slot_or_del(CI, G.slot))
 					to_chat(H, SPAN_NOTICE("Equipping you with [thing]!"))
-					if(G.slot != slot_tie)
+					if(G.slot != slot_tie_str)
 						custom_equip_slots += G.slot
 					log_loadout("EC/([H]): Equipped [CI] successfully.")
 				else if (leftovers)
@@ -744,7 +744,7 @@ SUBSYSTEM_DEF(jobs)
 									worn_suit.attach_accessory(H, CI)
 									handled_accessory = TRUE
 						if(GEAR_TWEAK_ACCESSORY_SLOT_SUIT_STANDALONE)
-							equip_slot = slot_wear_suit
+							equip_slot = slot_wear_suit_str
 
 			if(!handled_accessory)
 				if (H.equip_to_slot_or_del(CI, equip_slot, TRUE))
@@ -820,7 +820,7 @@ SUBSYSTEM_DEF(jobs)
 		return FALSE
 
 	var/datum/job/rank = H.mind ? GetJob(H.mind.assigned_role) : prefs.return_chosen_high_job()
-	switch (rank.title)
+	switch (rank?.title)
 		if ("AI", "Cyborg")
 			log_loadout("EA/([H]): Abort: synthetic.")
 			return FALSE

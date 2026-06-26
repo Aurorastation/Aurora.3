@@ -12,10 +12,6 @@
 
 /obj/structure/closet/cabinet/attackby(obj/item/attacking_item, mob/user)
 	if(opened)
-		if(istype(attacking_item, /obj/item/grab))
-			var/obj/item/grab/G = attacking_item
-			mouse_drop_receive(G.affecting, user)      //act like they were dragged onto the closet
-			return 0
 		if(!attacking_item.dropsafety())
 			return
 		if(attacking_item)

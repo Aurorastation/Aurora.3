@@ -4,8 +4,8 @@
 	desc = "It's good being the king."
 	icon_state = "captain"
 	item_state_slots = list(
-		slot_l_hand_str = "caphat",
-		slot_r_hand_str = "caphat"
+		BP_L_HAND = "caphat",
+		BP_R_HAND = "caphat"
 		)
 
 /obj/item/clothing/head/caphat/scc

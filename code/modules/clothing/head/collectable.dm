@@ -20,8 +20,8 @@
 	desc = "Hiss hiss hiss!"
 	icon_state = "xenos"
 	item_state_slots = list(
-		slot_l_hand_str = "xenos_helm",
-		slot_r_hand_str = "xenos_helm"
+		BP_L_HAND = "xenos_helm",
+		BP_R_HAND = "xenos_helm"
 		)
 	body_parts_covered = HEAD|FACE|EYES
 
@@ -82,8 +82,8 @@
 	desc = "A Collectible farmer's Flat Cap!"
 	icon_state = "flat_cap"
 	item_state_slots = list(
-		slot_l_hand_str = "detective",
-		slot_r_hand_str = "detective"
+		BP_L_HAND = "detective",
+		BP_R_HAND = "detective"
 		)
 
 /obj/item/clothing/head/collectable/pirate

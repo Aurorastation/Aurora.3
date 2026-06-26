@@ -360,6 +360,7 @@
 	ui_interact(user)
 
 /obj/structure/machinery/power/smes/attack_hand(mob/user)
+	. = ..()
 	add_fingerprint(user)
 	ui_interact(user)
 

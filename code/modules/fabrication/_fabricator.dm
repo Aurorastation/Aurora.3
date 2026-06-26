@@ -199,6 +199,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/fabricator)
 	return TRUE
 
 /obj/structure/machinery/fabricator/attack_hand(mob/user)
+	. = ..()
 	user.set_machine(src)
 	ui_interact(user)
 

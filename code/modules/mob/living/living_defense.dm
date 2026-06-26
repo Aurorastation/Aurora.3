@@ -11,7 +11,7 @@
 		return (get_blocked_ratio(def_zone, impacting_projectile.damage_type, impacting_projectile.damage_flags(), impacting_projectile.armor_penetration, impacting_projectile.damage) * 100)
 	return 0
 
-/mob/living/proc/get_blocked_ratio(def_zone, damage_type, damage_flags, armor_pen, damage)
+/mob/living/get_blocked_ratio(def_zone, damage_type, damage_flags, armor_pen, damage)
 	var/list/armors = get_armors_by_zone(def_zone, damage_type, damage_flags)
 	. = 0
 	for(var/armor in armors)
@@ -111,7 +111,11 @@
 
 	//Messages related to being hit (not necessarily damaged)
 	if(!hitting_projectile.do_not_log)
-		var/impacted_organ = get_organ_name_from_zone(def_zone)
+		var/obj/item/organ/external/E
+		var/mob/living/carbon/human/H = src
+		if(istype(H))
+			E = GET_EXTERNAL_ORGAN(H, def_zone)
+		var/impacted_organ = E ? E::name : "body"
 
 		//If the projectile was blocked and it's not at point blank range, then it missed
 		if(blocked >= 100 && !hitting_projectile.point_blank)
@@ -244,7 +248,7 @@
 		if(istype(location)) location.add_blood_floor(src)
 
 //returns 0 if the effects failed to apply for some reason, 1 otherwise.
-/mob/living/proc/standard_weapon_hit_effects(obj/item/I, mob/living/user, var/effective_force, var/hit_zone)
+/mob/living/standard_weapon_hit_effects(obj/item/I, mob/living/user, var/effective_force, var/hit_zone)
 	if(!effective_force)
 		return FALSE
 

@@ -10,9 +10,6 @@
 	. = ..()
 	set_light_on(TRUE)
 
-/obj/item/hullbeacon/attack_hand(mob/user)
-	return
-
 /obj/item/hullbeacon/red
 	name = "red hull beacon"
 	desc = "A red, light-emitting hull beacon."

@@ -1,0 +1,23 @@
+# Your name.
+author: JohnWildkins
+
+# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
+delete-after: True
+
+# Any changes you've made.  See valid prefix list above.
+# INDENT WITH TWO SPACES.  NOT TABS.  SPACES.
+# SCREW THIS UP AND IT WON'T WORK.
+# Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
+# Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
+changes:
+  - refactor: "Generalized handling of active and inactive hands, allowing for mobs / species to have more than two hands."
+  - refactor: "Moved all slot flags to be strings."
+  - refactor: "Pulling removed. CTRL-Click will now grab objects, which should act similarly to pulling them."
+  - refactor: "Grabbing slows you down depending on the size of the object grabbed. Wheeled objects, like carts, have a reduced penalty to movespeed."
+  - rscadd: "The following moves are now available by using the grab object on your grabbed target (including yourself)"
+  - rscadd: "Help intent, passive grab: inspect your targeted limb"
+  - rscadd: "Help intent, aggressive grab: apply pressure to a wound on the targeted limb."
+  - rscadd: "Disarm intent, aggressive grab (or higher): pin the grabbed target to the ground."
+  - rscadd: "Grab intent on aggressive (or higher) grabs will jointlock the targeted limb, causing pain if successful."
+  - rscadd: "Harm intent on aggressive (or higher) grabs will dislocate the targeted limb."
+  - refactor: "Standardized attack_hand procs, requiring calling parent and splitting out common functions into default_INTENT_interaction handlers."

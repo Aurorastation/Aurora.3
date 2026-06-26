@@ -21,7 +21,7 @@
 	M.gender = MALE
 	M.ChangeToSkeleton()
 	if(prob(15))
-		M.equip_to_slot_or_del(new /obj/item/melee/energy/sword/hegemony(M), slot_r_store)
+		M.equip_to_slot_or_del(new /obj/item/melee/energy/sword/hegemony(M), slot_r_store_str)
 
 /obj/effect/landmark/corpse/trad_soldier
 	name = "Traditionalist Soldier"
@@ -36,4 +36,4 @@
 	M.gender = MALE
 	M.ChangeToSkeleton()
 	if(prob(15))
-		M.equip_to_slot_or_del(new /obj/item/material/sword/longsword(M), slot_belt)
+		M.equip_to_slot_or_del(new /obj/item/material/sword/longsword(M), slot_belt_str)

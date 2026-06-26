@@ -248,10 +248,9 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 
 	setClickCooldown(attack_delay)
 
-	for(var/grab in grabbed_by)
-		var/obj/item/grab/G = grab
-		if(G.state >= GRAB_NECK)
-			visible_message(SPAN_WARNING("\The [G.assailant] restrains \the [src] from attacking!"))
+	for(var/obj/item/grab/G as anything in grabbed_by)
+		if(G.has_grab_flags(GRAB_RESTRAINS))
+			visible_message(SPAN_WARNING("\The [G.grabber] restrains \the [src] from attacking!"))
 			resist_grab()
 			return
 	var/atom/target
@@ -290,9 +289,8 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 		return
 	if(!isturf(loc)) // no teleporting out of lockers
 		return
-	for(var/grab in grabbed_by)
-		var/obj/item/grab/G = grab
-		if(G.state >= GRAB_AGGRESSIVE)
+	for(var/obj/item/grab/G as anything in grabbed_by)
+		if(G.has_grab_flags(GRAB_STOP_MOVE))
 			return
 	facing_dir = get_dir(src, target)
 	if(ishuman(target))

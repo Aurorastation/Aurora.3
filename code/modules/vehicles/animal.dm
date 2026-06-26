@@ -78,6 +78,7 @@
 		return
 
 /obj/vehicle/animal/attack_hand(var/mob/user as mob)
+	. = ..()
 	if(use_check_and_message(user))
 		return
 	if(user == load)
@@ -105,7 +106,7 @@
 
 /obj/vehicle/animal/proc/check_destination(var/turf/destination)
 	var/static/list/types = typecacheof(list(/turf/space))
-	if(is_type_in_typecache(destination,types) || pulledby)
+	if(is_type_in_typecache(destination,types) || LAZYLEN(grabbed_by))
 		return TRUE
 	else
 		return FALSE

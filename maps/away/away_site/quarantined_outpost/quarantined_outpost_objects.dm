@@ -889,6 +889,7 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 	var/used = FALSE
 
 /obj/structure/machinery/computer/terminal/quarantined_outpost/extraction/attack_hand(mob/user)
+	SHOULD_CALL_PARENT(FALSE)
 	if(used)
 		to_chat(user, SPAN_WARNING("You cannot interact with \the [src] right now."))
 		return

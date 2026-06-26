@@ -21,6 +21,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/computer/terminal/loreconsole)
 	var/list/entries = list()
 
 /obj/structure/machinery/computer/terminal/loreconsole/attack_hand(mob/user)
+	. = ..()
 	ui_interact(user)
 
 /obj/structure/machinery/computer/terminal/loreconsole/ui_state(mob/user)

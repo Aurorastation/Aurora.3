@@ -852,6 +852,7 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 	var/static_menu = FALSE
 
 /obj/structure/restaurant_menu/attack_hand(mob/user)
+	. = ..()
 	if(static_menu)
 		to_chat(user, SPAN_WARNING("This menu sign's text is not configurable."))
 	var/new_text = sanitize(input(user, "Enter new text for the hologram to display.", "Hologram Display", html2pencode(menu_text, TRUE)) as null|message)

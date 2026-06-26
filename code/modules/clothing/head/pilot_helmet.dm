@@ -100,7 +100,7 @@
 		return
 	if(!equip_slot)
 		equip_slot = get_equip_slot()
-	if(!visor_toggled && (equip_slot == slot_head))
+	if(!visor_toggled && (equip_slot == slot_head_str))
 		user.client.screen |= hud_overlay
 	else
 		user.client.screen -= hud_overlay
@@ -125,7 +125,7 @@
 		ship_overlay.icon = null
 		ship_overlay.icon_state = null
 
-	if(!visor_toggled && (equip_slot == slot_head))
+	if(!visor_toggled && (equip_slot == slot_head_str))
 		user.client.screen |= ship_overlay
 	else
 		user.client.screen -= ship_overlay

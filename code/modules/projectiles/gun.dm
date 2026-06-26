@@ -283,9 +283,9 @@ ABSTRACT_TYPE(/obj/item/gun)
 /obj/item/gun/can_swap_hands(mob/user)
 	if(wielded)
 		unwield()
-		var/obj/item/offhand/O = user.get_inactive_hand()
-		if(istype(O))
-			O.unwield()
+		for(var/obj/item/offhand/O in user.get_inactive_held_items())
+			if(istype(O))
+				O.unwield()
 	return ..()
 
 /obj/item/gun/proc/unique_action(var/mob/user)
@@ -443,10 +443,10 @@ ABSTRACT_TYPE(/obj/item/gun)
 		return FALSE
 
 	if(!is_offhand && user.a_intent == I_HURT) // no recursion
-		var/obj/item/gun/SG = user.get_inactive_hand()
-		if(istype(SG) && SG.w_class <= w_class)
-			var/decreased_accuracy = SG.w_class - SG.offhand_accuracy
-			addtimer(CALLBACK(SG, PROC_REF(Fire), target, user, clickparams, pointblank, reflex, decreased_accuracy, TRUE), 1)
+		for(var/obj/item/gun/SG in user.get_inactive_held_items())
+			if(SG.w_class <= w_class)
+				var/decreased_accuracy = SG.w_class - SG.offhand_accuracy
+				addtimer(CALLBACK(SG, PROC_REF(Fire), target, user, clickparams, pointblank, reflex, decreased_accuracy, TRUE), 1)
 
 	/// The amount of extra degrees of firing arc the gun will have from the effects of a signal raised on the user.
 	var/dispersion_increase = 0
@@ -625,12 +625,9 @@ ABSTRACT_TYPE(/obj/item/gun)
 		damage_mult = 1.3
 
 	//determine multiplier due to the target being grabbed
-	if(M.grabbed_by.len)
-		var/grabstate = 0
-		for(var/obj/item/grab/G in M.grabbed_by)
-			grabstate = max(grabstate, G.state)
-		if(grabstate >= GRAB_NECK)
-			damage_mult = 2.5
+	for(var/obj/item/grab/G as anything in M.grabbed_by)
+		damage_mult = max(damage_mult, G.point_blank_mult())
+
 	P.damage *= damage_mult
 	P.point_blank = TRUE
 
@@ -843,20 +840,17 @@ ABSTRACT_TYPE(/obj/item/gun)
 
 	if(wielded)
 		unwield()
-		to_chat(user, SPAN_NOTICE("You are no longer stabilizing \the [name] with both hands."))
+		to_chat(user, SPAN_NOTICE("You are no longer stabilizing \the [name] with two hands."))
 
-		var/obj/item/offhand/O = user.get_inactive_hand()
-		if(istype(O))
-			O.unwield()
+		for(var/obj/item/offhand/O in user.get_inactive_held_items())
+			if(istype(O))
+				O.unwield()
 	else
-		var/obj/item/offhand_item = user.get_inactive_hand()
-		if(offhand_item)
-			user.unEquip(offhand_item, FALSE, user.loc)
-		if(user.get_inactive_hand())
-			to_chat(user, SPAN_WARNING("You need your other hand to be empty."))
+		if(!user.get_empty_hand_slot())
+			to_chat(user, SPAN_WARNING("You need a free hand to wield this."))
 			return
 		wield()
-		to_chat(user, SPAN_NOTICE("You stabilize \the [initial(name)] with both hands."))
+		to_chat(user, SPAN_NOTICE("You stabilize \the [initial(name)] with two hands."))
 
 		var/obj/item/offhand/O = new(user)
 		O.name = "[initial(name)] - offhand"
@@ -913,9 +907,9 @@ ABSTRACT_TYPE(/obj/item/gun)
 	if(!is_overlay_check)
 		if(wielded)
 			unwield()
-			var/obj/item/offhand/O = user.get_inactive_hand()
-			if(istype(O))
-				O.unwield()
+			for(var/obj/item/offhand/O in user.get_inactive_held_items())
+				if(istype(O))
+					O.unwield()
 	return ..()
 
 /obj/item/gun/throw_at()
@@ -941,9 +935,9 @@ ABSTRACT_TYPE(/obj/item/gun)
 	update_maptext()
 	if(is_wieldable)
 		if(user)
-			var/obj/item/offhand/O = user.get_inactive_hand()
-			if(istype(O))
-				O.unwield()
+			for(var/obj/item/offhand/O in user.get_inactive_held_items())
+				if(istype(O))
+					O.unwield()
 		return unwield()
 
 /obj/item/gun/pickup(mob/user)
@@ -983,18 +977,18 @@ ABSTRACT_TYPE(/obj/item/gun)
 /obj/item/offhand/dropped(mob/user)
 	. = ..()
 	if(user)
-		var/obj/item/gun/O = user.get_inactive_hand()
-		if(istype(O))
-			to_chat(user, SPAN_NOTICE("You are no longer stabilizing \the [O] with both hands."))
-			O.unwield()
-			unwield()
+		for(var/obj/item/gun/O in user.get_inactive_held_items())
+			if(istype(O))
+				to_chat(user, SPAN_NOTICE("You are no longer stabilizing \the [O] with both hands."))
+				O.unwield()
+				unwield()
 
 	if (!QDELETED(src))
 		qdel(src)
 
 /obj/item/offhand/mob_can_equip(var/mob/M, slot, disable_warning = FALSE, bypass_blocked_check = FALSE, is_overlay_check = FALSE)
-	var/static/list/equippable_slots = list(slot_l_hand, slot_r_hand)
-	if(slot in equippable_slots)
+	var/mob/living/carbon/human/H = M
+	if(istype(H) && (slot in H.held_item_slots))
 		return TRUE
 	return FALSE
 
@@ -1047,7 +1041,7 @@ ABSTRACT_TYPE(/obj/item/gun)
 			balloon_alert(user, "already has a bayonet!")
 			return TRUE
 
-		if(user.l_hand != attacking_item && user.r_hand != attacking_item)
+		if(!user.is_holding(attacking_item))
 			balloon_alert(user, "not in hand!")
 			return
 
@@ -1070,7 +1064,7 @@ ABSTRACT_TYPE(/obj/item/gun)
 			balloon_alert(user, "already has an ammo display!")
 			return TRUE
 
-		if(user.l_hand != attacking_item && user.r_hand != attacking_item)
+		if(!user.is_holding(attacking_item))
 			balloon_alert(user, "not in hand!")
 			return
 

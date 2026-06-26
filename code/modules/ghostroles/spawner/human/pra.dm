@@ -49,8 +49,7 @@
 						/obj/item/gun/projectile/pistol/adhomai = 1,
 						/obj/item/ammo_magazine/mc9mm = 2
 						)
-	r_hand = /obj/item/storage/field_ration
-	l_hand = /obj/item/martial_manual/tajara
+	hands = list(/obj/item/storage/field_ration, /obj/item/martial_manual/tajara)
 
 /obj/outfit/admin/pra_cosmonaut/commissar
 	name = "Party Commissar"
@@ -68,5 +67,4 @@
 						/obj/item/storage/box/hadii_manifesto = 1,
 						/obj/item/storage/box/hadii_card = 1
 						)
-	l_hand = /obj/item/megaphone
-	r_hand = /obj/item/martial_manual/tajara
+	hands = list(/obj/item/megaphone, /obj/item/martial_manual/tajara)

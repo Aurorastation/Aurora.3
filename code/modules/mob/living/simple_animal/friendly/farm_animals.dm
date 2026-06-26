@@ -56,7 +56,7 @@
 		LoseTarget()
 		src.visible_message(SPAN_NOTICE("[src] calms down."))
 
-	if(!pulledby)
+	if(!LAZYLEN(grabbed_by))
 		var/obj/effect/plant/food = locate(/obj/effect/plant) in oview(5,loc)
 		if(food)
 			var/step = get_step_to(src, food, 0)

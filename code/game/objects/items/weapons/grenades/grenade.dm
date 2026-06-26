@@ -4,8 +4,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 	icon = 'icons/obj/grenade.dmi'
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/weapons/lefthand_grenade.dmi',
-		slot_r_hand_str = 'icons/mob/items/weapons/righthand_grenade.dmi',
+		BP_L_HAND = 'icons/mob/items/weapons/lefthand_grenade.dmi',
+		BP_R_HAND = 'icons/mob/items/weapons/righthand_grenade.dmi',
 		)
 	icon_state = "grenade"
 	item_state = "grenade"
@@ -95,12 +95,8 @@
 
 	if(ishuman(loc))
 		var/mob/living/carbon/human/victim = loc
-		var/obj/item/organ/external/exploded_organ
-		if(victim.l_hand == src)
-			exploded_organ = victim.get_organ(BP_L_HAND)
-		else if(victim.r_hand == src)
-			exploded_organ = victim.get_organ(BP_R_HAND)
-		explode_in_hand(victim, exploded_organ)
+		var/obj/item/organ/external/exploded_hand = victim.get_organ_holding(src)
+		explode_in_hand(victim, exploded_hand)
 
 /// This proc is called when the grenade explodes in your hand or on you. Exploded_organ can be null in case the grenade explodes in a pocket or something.
 /obj/item/grenade/proc/explode_in_hand(var/mob/living/carbon/human/victim, var/obj/item/organ/external/exploded_organ)

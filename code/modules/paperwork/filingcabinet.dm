@@ -82,6 +82,7 @@
 	. = ..()
 
 /obj/structure/filingcabinet/attack_hand(mob/user as mob)
+	. = ..()
 	if(contents.len <= 0)
 		to_chat(user, SPAN_NOTICE("\The [src] is empty."))
 		return

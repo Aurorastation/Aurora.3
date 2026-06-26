@@ -1,8 +1,6 @@
 /mob/living/carbon/proc/handcuff_update()
 	if(handcuffed)
-		drop_r_hand()
-		drop_l_hand()
-		stop_pulling()
+		drop_all_held_items()
 		throw_alert("Handcuffed", /atom/movable/screen/alert/restrained/handcuffed, new_master = handcuffed)
 	else
 		clear_alert("Handcuffed")

@@ -44,7 +44,7 @@
 			/obj/item/grenade/flashbang = 2
 	)
 
-	l_hand = /obj/item/gun/projectile/plasma
+	hands = list(/obj/item/gun/projectile/plasma)
 
 
 /obj/outfit/admin/ert/elyran_trooper/engineer
@@ -111,7 +111,7 @@
 			/obj/item/grenade/flashbang = 2
 	)
 
-	l_hand = /obj/item/gun/projectile/plasma
+	hands = list(/obj/item/gun/projectile/plasma)
 
 	accessory = /obj/item/clothing/accessory/storage/black_vest
 	accessory_contents = list(/obj/item/flash = 1, /obj/item/handcuffs = 2, /obj/item/gun/projectile/pistol = 1)

@@ -53,7 +53,7 @@
 
 
 /obj/item/gun/launcher/harpoon/attack_hand(mob/user)
-	if(user.get_inactive_hand() == src)
+	if(user.is_holding_offhand(src))
 		if(harpoons.len)
 			var/obj/item/material/harpoon/I = harpoons[1]
 			I.forceMove(get_turf(src))

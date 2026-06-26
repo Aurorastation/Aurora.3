@@ -36,7 +36,7 @@
 
 			playsound(src, SFX_RIP, 25)
 			user.visible_message(SPAN_DANGER("\The [user] has taped up \the [H]'s eyes!"))
-			H.equip_to_slot_or_del(new /obj/item/clothing/glasses/sunglasses/blindfold/tape(H), slot_glasses)
+			H.equip_to_slot_or_del(new /obj/item/clothing/glasses/sunglasses/blindfold/tape(H), slot_glasses_str)
 			H.update_inv_glasses()
 
 		else if(target_zone == BP_MOUTH || target_zone == BP_HEAD)
@@ -65,7 +65,7 @@
 
 			playsound(src, SFX_RIP,25)
 			user.visible_message(SPAN_DANGER("\The [user] has taped up \the [H]'s mouth!"))
-			H.equip_to_slot_or_del(new /obj/item/clothing/mask/muzzle/tape(H), slot_wear_mask)
+			H.equip_to_slot_or_del(new /obj/item/clothing/mask/muzzle/tape(H), slot_wear_mask_str)
 			H.update_inv_wear_mask()
 
 		else if(target_zone == BP_R_HAND || target_zone == BP_L_HAND)

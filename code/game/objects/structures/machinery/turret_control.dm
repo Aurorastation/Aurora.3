@@ -142,6 +142,7 @@
 	ui_interact(user)
 
 /obj/structure/machinery/turretid/attack_hand(mob/user as mob)
+	. = ..()
 	if(isLocked(user))
 		return
 

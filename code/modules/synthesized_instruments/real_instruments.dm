@@ -241,6 +241,7 @@
 	return ..()
 
 /obj/structure/synthesized_instrument/attack_hand(mob/user)
+	. = ..()
 	src.interact(user)
 
 /obj/structure/synthesized_instrument/interact(mob/user) // CONDITIONS ..(user) that shit in subclasses

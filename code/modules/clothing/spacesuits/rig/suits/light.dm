@@ -379,7 +379,7 @@
 	if(slot != slot_wear_suit_str)
 		return I
 
-	var/obj/item/rig/rigcontroller = H.get_equipped_item(slot_back)
+	var/obj/item/rig/rigcontroller = H.get_equipped_item(slot_back_str)
 	if(!istype(rigcontroller, /obj/item/rig) || rigcontroller.offline)
 		return I
 

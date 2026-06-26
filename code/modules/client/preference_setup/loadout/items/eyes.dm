@@ -2,7 +2,7 @@
 /datum/gear/eyes
 	display_name = "eyepatch"
 	path = /obj/item/clothing/glasses/eyepatch
-	slot = slot_glasses
+	slot = slot_glasses_str
 	sort_category = "Glasses and Eyewear"
 
 /datum/gear/eyes/whitepatch

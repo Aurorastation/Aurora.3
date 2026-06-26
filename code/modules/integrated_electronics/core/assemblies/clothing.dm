@@ -153,7 +153,7 @@
 /obj/item/clothing/glasses/circuitry/build_additional_parts(mob/living/carbon/human/H, mob_icon, slot)
 	var/static/list/valid_slots
 	if(!valid_slots)
-		valid_slots = list(slot_glasses_str, slot_l_hand_str, slot_r_hand_str)
+		valid_slots = list(slot_glasses_str, BP_L_HAND, BP_R_HAND)
 	if(IC.detail_color && (slot in valid_slots))
 		var/image/electronic_overlay = overlay_image(icon, "[item_state][slot_str_to_contained_flag(slot)]-color", IC.detail_color, RESET_COLOR)
 		return electronic_overlay

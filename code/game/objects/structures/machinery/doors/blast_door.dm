@@ -220,6 +220,7 @@
 		securitylock = FALSE
 
 /obj/structure/machinery/door/blast/attack_hand(mob/user as mob)
+	SHOULD_CALL_PARENT(FALSE)
 	return
 
 // SUBTYPE: Regular

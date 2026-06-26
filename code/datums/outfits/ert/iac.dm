@@ -53,7 +53,7 @@
 
 	if(!H.shoes)
 		var/obj/item/clothing/shoes/footwraps = new(src)
-		H.equip_to_slot_if_possible(footwraps, slot_shoes)
+		H.equip_to_slot_if_possible(footwraps, slot_shoes_str)
 
 /obj/outfit/admin/ert/iac/bodyguard
 	name = "IAC Bodyguard"

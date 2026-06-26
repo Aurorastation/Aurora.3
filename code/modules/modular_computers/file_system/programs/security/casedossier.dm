@@ -146,21 +146,21 @@
 
 		if("scan_evidence")
 			if(open_case)
-				open_case.scan_held_evidence(usr, usr.get_type_in_hands(/obj/item))
+				open_case.scan_held_evidence(usr, usr.get_held_type(/obj/item))
 			else
 				to_chat(usr, SPAN_NOTICE("No open case selected."))
 			return TRUE
 
 		if("scan_photo")
 			if(open_case)
-				open_case.scan_held_photo(usr, usr.get_type_in_hands(/obj/item))
+				open_case.scan_held_photo(usr, usr.get_held_type(/obj/item))
 			else
 				to_chat(usr, SPAN_NOTICE("No open case selected."))
 			return TRUE
 
 		if("scan_report")
 			if(open_case)
-				open_case.scan_held_report(usr, usr.get_type_in_hands(/obj/item))
+				open_case.scan_held_report(usr, usr.get_held_type(/obj/item))
 			else
 				to_chat(usr, SPAN_NOTICE("No open case selected."))
 			return TRUE

@@ -27,7 +27,8 @@
 	melee_damage_upper = 18
 	armor_penetration = 30 //Standard armor probably doesn't help against a bear, does it?
 	attack_flags = DAMAGE_FLAG_EDGE|DAMAGE_FLAG_SHARP
-	resist_mod = 4
+	mob_weight = MOB_WEIGHT_HEAVY
+	mob_strength = MOB_STRENGTH_STRONG
 	break_stuff_probability = 80
 	mob_size = 17
 	butchering_products = list(/obj/item/clothing/head/bearpelt = 1)

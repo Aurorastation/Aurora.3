@@ -125,6 +125,7 @@
 
 
 /obj/structure/machinery/stasis_cage/attack_hand(mob/user)
+	. = ..()
 	if (!panel_open)
 		try_release(user)
 	else

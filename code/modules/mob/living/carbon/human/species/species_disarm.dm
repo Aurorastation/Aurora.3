@@ -1,0 +1,158 @@
+/// Return TRUE if resolved successfully. Return FALSE if resolved unsuccessfully. Return NULL if ready to continue with disarm.
+/datum/species/proc/before_disarm(mob/living/carbon/human/user, mob/living/carbon/human/target, skill_difference, disarm_cost)
+	var/datum/martial_art/attacker_style = user.primary_martial_art
+	var/has_stamina = user.max_stamina > 0
+
+	if(has_stamina && attacker_style && attacker_style.disarm_act(user, target))
+		return TRUE
+
+	if(has_stamina)
+		if(user.is_drowsy())
+			disarm_cost *= 1.25
+		if(user.stamina <= disarm_cost)
+			to_chat(user, SPAN_DANGER("You're too tired to disarm [target]!"))
+			return FALSE
+		// Skill difference will be negative if the opponent is stronger than us.
+		if(skill_difference < 0)
+			disarm_cost = max(0, disarm_cost - (skill_difference * 5))
+		user.stamina = clamp(user.stamina - disarm_cost, 0, user.max_stamina)
+	else
+		if(user.nutrition <= disarm_cost)
+			to_chat(user, SPAN_DANGER("You don't have enough power to disarm [target]"))
+			return FALSE
+		user.nutrition = clamp(user.nutrition - disarm_cost, 0, user.max_nutrition)
+
+/datum/species/proc/disarm_attackhand(mob/living/carbon/human/user, mob/living/carbon/human/target)
+	if(!istype(user) || !istype(target))
+		return FALSE
+
+	if(user.is_pacified())
+		to_chat(user, SPAN_NOTICE("You don't want to risk hurting [target]!"))
+		return FALSE
+
+	var/attacker_skill_level = SKILL_LEVEL_UNFAMILIAR
+	var/defender_skill_level = SKILL_LEVEL_UNFAMILIAR
+	var/push_chance = 25
+	var/disarm_chance = 25
+	var/disarm_cost = 0
+	SEND_SIGNAL(user, COMSIG_UNARMED_DISARM_ATTACKER, target, &attacker_skill_level, &disarm_cost, &push_chance, &disarm_chance)
+	SEND_SIGNAL(target, COMSIG_UNARMED_DISARM_DEFENDER, user, &defender_skill_level, &disarm_cost, &push_chance, &disarm_chance)
+	var/skill_difference = attacker_skill_level - defender_skill_level
+
+	var/disarm_status = before_disarm(user, target, skill_difference, disarm_cost)
+
+	if(!isnull(disarm_status))
+		return disarm_status
+
+	user.attack_log += "\[[time_stamp()]\] <span class='warning'>Disarmed [target.name] ([target.ckey])</span>"
+	target.attack_log += "\[[time_stamp()]\] <font color='orange'>Has been disarmed by [user.name] ([user.ckey])</font>"
+
+	msg_admin_attack("[key_name(user)] disarmed [target.name] ([target.ckey]) (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target))
+	user.do_attack_animation(target, ATTACK_EFFECT_DISARM)
+
+	if(target.w_uniform)
+		target.w_uniform.add_fingerprint(user)
+
+	var/obj/item/organ/external/limb = target.get_organ(ran_zone(target, user.zone_sel.selecting))
+	var/list/holding = list(target.get_active_hand() = 40)
+	for(var/offhand in target.get_inactive_held_items())
+		LAZYSET(holding, offhand, 20)
+
+	if(target.a_intent != I_HELP)
+		for(var/obj/item/W in holding)
+			var/misfire_chance = holding[W] + -(skill_difference * 10)
+			if(W && prob(misfire_chance))
+				var/obj/item/grab/grab = W
+				var/obj/item/gun/gun = W
+				if(istype(grab) && grab.has_grab_flags(GRAB_SHIELDS_YOU) && grab.grabbed != user && grab.grabbed != target)
+					target.visible_message(SPAN_WARNING("[target] repositions \the [grab.grabbed] to block \the [user]'s disarm attempt!"), SPAN_NOTICE("You reposition \the [grab.grabbed] to block \the [user]'s disarm attempt!"))
+					grab.grabbed.attack_hand(user)
+					return TRUE
+				if(istype(gun))
+					var/list/turfs = list()
+					for(var/turf/T in view())
+						turfs += T
+					if(turfs.len)
+						var/turf/TT = pick(turfs)
+						target.visible_message(SPAN_DANGER("[target]'s [gun] goes off during the struggle!"))
+						return gun.afterattack(TT, target)
+				if(user.Adjacent(target))
+					target.visible_message(SPAN_DANGER("[target] retaliates against [user]'s disarm attempt with \a [W]!"))
+					return user.attackby(W, target)
+
+	if(target.z_eye) // Looking down from a railing
+		var/turf/T = get_turf(target)
+		var/obj/structure/railing/problem_railing
+		var/same_loc = FALSE
+		for(var/obj/structure/railing/R in T)
+			if(R.dir == target.dir)
+				problem_railing = R
+				break
+		for(var/obj/structure/railing/R in get_step(T, target.dir))
+			if(R.dir == REVERSE_DIR(target.dir))
+				problem_railing = R
+				same_loc = TRUE
+				break
+		if(!problem_railing)
+			target.visible_message(SPAN_DANGER("[user] pushes [target] forward!"), SPAN_DANGER("[user] pushes you forward!"))
+			target.apply_effect(5, WEAKEN)
+			var/turf/current_turf = get_turf(target.z_eye)
+			target.forceMove(GET_TURF_ABOVE(current_turf))
+			return TRUE
+
+		if(problem_railing.turf_is_crowded(TRUE))
+			to_chat(user, SPAN_NOTICE("It's too crowded, you can't push \the [src] off the railing!"))
+			// do not return
+		else
+			target.visible_message(SPAN_DANGER("[user] shoves [target] over the railing!"), SPAN_DANGER("[user] shoves you over the railing!"))
+			target.apply_effect(5, WEAKEN)
+			target.forceMove(same_loc ? problem_railing.loc : problem_railing.get_destination_turf(src))
+			return TRUE
+
+	var/obj/item/clothing/gloves/force/fgloves = user.gloves
+	if(istype(fgloves))
+		. = fgloves.try_shove(user, target, disarm_chance)
+		if(!.)
+			. = fgloves.try_throw(user, target, disarm_chance)
+		return
+	else if(prob(push_chance))
+		// push instead of disarm
+		var/armor_check = 100 * target.get_blocked_ratio(limb, DAMAGE_BRUTE, damage = 20)
+		target.apply_effect(3, WEAKEN, armor_check)
+		if(armor_check < 100)
+			target.visible_message(SPAN_DANGER("[user] has pushed [target]!"))
+			playsound(target.loc, 'sound/weapons/push_connect.ogg', 50, 1, -1)
+		else
+			target.visible_message(SPAN_DANGER("[user] attempted to push [target]!"))
+			playsound(target.loc, 'sound/weapons/push.ogg', 50, 1, -1)
+		return TRUE
+
+	// previously there was code here that checked active_grabs and then manually force_drop()'d them
+	// however that causes issues because the grab is dropped and destroyed, then unequipped and brought out of nullspace in the loop below
+	// just one loop works fine, if there are ever grab item overrides needed just add that loop again but make sure
+	// that you do not call the unequip below on grabs
+
+
+	for(var/obj/item/I in holding)
+		if(!QDELETED(I)) //already in nullspace
+			if(target.unEquip(I))
+				target.visible_message(SPAN_DANGER("\The [user] knocks \the [I] from \the [target]'s grasp!"))
+				break
+
+	if(.)
+		playsound(target.loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
+	else
+		playsound(target.loc, SFX_PUNCH_MISS, 25, 1, -1)
+		user.visible_message(SPAN_DANGER("[user] attempted to [attacker_skill_level == SKILL_LEVEL_UNFAMILIAR ? "[pick("inexpertly", "clumsily")] disarm" : "disarm"] [target]!"))
+
+/datum/species/machine/before_disarm(mob/living/carbon/human/user, mob/living/carbon/human/target)
+	var/obj/item/organ/internal/machine/power_core/cell = user.internal_organs_by_name[BP_CELL]
+	if(!istype(cell))
+		return FALSE
+	var/obj/item/cell/battery = cell.cell
+	if(!istype(battery))
+		return FALSE
+
+	if(!battery.checked_use(battery.maxcharge / 24))
+		to_chat(user, SPAN_DANGER("You don't have enough charge to disarm someone!"))
+		return FALSE

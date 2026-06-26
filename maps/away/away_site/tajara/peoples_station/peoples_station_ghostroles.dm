@@ -34,7 +34,7 @@
 	accessory = /obj/item/clothing/accessory/badge/hadii_card
 	r_pocket = /obj/item/storage/wallet/random
 
-	l_hand = /obj/item/martial_manual/tajara
+	hands = list(/obj/item/martial_manual/tajara)
 
 /obj/outfit/admin/peoples_station_crew/get_id_access()
 	return list(ACCESS_PRA, ACCESS_EXTERNAL_AIRLOCKS)
@@ -70,8 +70,7 @@
 						/obj/item/ammo_magazine/mc9mm = 1,
 						/obj/item/gun/projectile/pistol/adhomai = 1
 						)
-	l_hand = /obj/item/clothing/accessory/badge/hadii_card/member
-	r_hand = /obj/item/martial_manual/tajara
+	hands = list(/obj/item/clothing/accessory/badge/hadii_card/member, /obj/item/martial_manual/tajara)
 
 
 /datum/ghostspawner/human/peoples_station_crew/commissar
@@ -108,5 +107,4 @@
 						/obj/item/storage/box/hadii_manifesto = 1,
 						/obj/item/storage/box/hadii_card = 1
 						)
-	l_hand = /obj/item/megaphone
-	r_hand = /obj/item/martial_manual/tajara
+	hands = list(/obj/item/megaphone, /obj/item/martial_manual/tajara)

@@ -140,6 +140,7 @@
 	return attack_hand(user)
 
 /obj/structure/machinery/shield_gen/attack_hand(mob/user)
+	. = ..()
 	if(stat & BROKEN)
 		return
 	interact(user)

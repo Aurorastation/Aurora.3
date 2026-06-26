@@ -123,7 +123,7 @@
 	return ..()
 
 /obj/item/multitool/hacktool/rig/process()
-	if(!creator || loc != creator || (creator.l_hand != src && creator.r_hand != src))
+	if(!creator || loc != creator || !(src in creator.get_held_items()))
 		// Tidy up a bit.
 		if(istype(loc,/mob/living))
 			var/mob/living/carbon/human/host = loc
