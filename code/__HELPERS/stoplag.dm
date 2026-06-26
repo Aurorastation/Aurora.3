@@ -6,8 +6,14 @@
 ///returns the number of ticks slept
 /proc/stoplag(initial_delay)
 	if (!Master || Master.init_stage_completed < INITSTAGE_MAX)
+#ifdef UNIT_TEST
+		// Unit test map loads can hit CHECK_TICK during Master init, before
+		// sleeping is safe.
+		return 0
+#else
 		sleep(world.tick_lag)
 		return 1
+#endif
 	if (!initial_delay)
 		initial_delay = world.tick_lag
 // Unit tests are not the normal environemnt. The mc can get absolutely thigh crushed, and sleeping procs running for ages is much more common
