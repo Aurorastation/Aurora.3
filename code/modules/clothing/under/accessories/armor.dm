@@ -132,7 +132,7 @@
 	slowdown = 0.15
 
 /obj/item/clothing/accessory/leg_guard/tcaf
-	name = "\improper TCAF legionnaire leg carapace"
+	name = "\improper TCAF carapace leg guards"
 	desc = "Try to sweep the leg against someone wearing these."
 	icon = 'icons/obj/item/clothing/suit/armor/modular_armor/modular_armor.dmi'
 	icon_state = "tcaf_boot_armor"

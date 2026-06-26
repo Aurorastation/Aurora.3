@@ -1,6 +1,6 @@
 /obj/item/gun/energy/blaster
-	name = "blaster pistol"
-	desc = "A tiny energy pistol converted to fire off energy bolts rather than lasers beams."
+	name = "NT-62P blaster pistol"
+	desc = "A NanoTrasen Corporation-designed energy handgun that fires ionised bolts of phoron. Often seen among the Tau Ceti Armed Forces."
 	icon = 'icons/obj/guns/faction/nanotrasen_corporation/blaster_pistol.dmi'
 	icon_state = "blaster_pistol"
 	item_state = "blaster_pistol"
@@ -24,8 +24,8 @@
 		)
 
 /obj/item/gun/energy/blaster/mounted/mech
-	name = "rapidfire blaster"
-	desc = "An aged but reliable rapidfire blaster tuned to expel projectiles at high fire rates."
+	name = "NT-1000X rapidfire blaster"
+	desc = "An exosuit-mounted blaster cannon that fires bursts of ionised phoron bolts."
 	fire_sound = 'sound/weapons/laserstrong.ogg'
 	projectile_type = /obj/projectile/energy/blaster/heavy
 	burst = 5
@@ -38,16 +38,9 @@
 	dispersion = list(3,6,9,12)
 	firemodes = list()
 
-/obj/item/gun/energy/blaster/pilot_special
-	name = "pilot's sidearm"
-	desc = "A robust, low in maintenance blaster pistol. Customized for peak performance and perfect for self-defense purposes."
-	max_shots = 12
-	accuracy = 2 // Likely to get nothing else, so they gotta know how to make it count.
-	offhand_accuracy = 2
-
 /obj/item/gun/energy/blaster/revolver
-	name = "blaster revolver"
-	desc = "A robust eight-shot blaster."
+	name = "NT-62R blaster revolver"
+	desc = "A NanoTrasen Corporation-designed energy handgun that fires ionised bolts of phoron. Often seen among the Tau Ceti Armed Forces. This one appears to have a revolver-like design."
 	icon = 'icons/obj/guns/faction/nanotrasen_corporation/blaster_revolver.dmi'
 	icon_state = "blaster_revolver"
 	item_state = "blaster_revolver"
@@ -61,8 +54,8 @@
 	playsound(src.loc, 'sound/weapons/revolver_spin.ogg', 100, 1)
 
 /obj/item/gun/energy/blaster/carbine
-	name = "blaster carbine"
-	desc = "A short-barreled blaster carbine meant for easy handling and comfort when in combat."
+	name = "NT-62C blaster carbine"
+	desc = "A NanoTrasen Corporation-designed short-barreled blaster carbine meant for easy handling and comfort when in close-quarters combat. Often seen among the Tau Ceti Armed Forces."
 	icon = 'icons/obj/guns/faction/nanotrasen_corporation/blaster_carbine.dmi'
 	icon_state = "blaster_carbine"
 	item_state = "blaster_carbine"
@@ -74,8 +67,8 @@
 	w_class = WEIGHT_CLASS_NORMAL
 
 /obj/item/gun/energy/blaster/rifle
-	name = "bolt slinger"
-	desc = "A blaster rifle which seems to work by accelerating particles and flinging them out in destructive bolts."
+	name = "NT-62M bolt slinger"
+	desc = "A NanoTrasen Corporation-designed blaster rifle that fires powerful bolts of ionised phoron. Often used by markspeople of the Tau Ceti Armed Forces."
 	icon = 'icons/obj/guns/faction/nanotrasen_corporation/blaster_rifle.dmi'
 	icon_state = "blaster_rifle"
 	item_state = "blaster_rifle"
@@ -109,10 +102,9 @@
 	else
 		to_chat(usr, SPAN_WARNING("You can't look through the scope without stabilizing the rifle!"))
 
-/obj/item/gun/energy/blaster/tcaf
-	name = "\improper Guardian blaster rifle"
-	desc = "Developed by Zavodskoi Interstellar, the Guardian is a burst-fire blaster rifle designed for the armed forces of the Republic of Biesel. Cheap, reliable and easy to mass-produce, these weapons can be seen across the branches of the TCAF."
-	desc_extended = "Released in early 2464, the Guardian is a modernisation of the outdated blasters previously used by the TCFL developed in conjunction with the Zo'ra Hive. Since its release, it has been widely adopted by Biesel, leading to a slight fall in NanoTrasen market share as Zavodskoi took their place as the main arms supplier of the TCAF."
+/obj/item/gun/energy/blaster/guardian
+	name = "\improper NT-67 Guardian blaster rifle"
+	desc = "An improvement of older blaster weapon models. The Guardian makes use of various upgrades to fire more impactful, faster bolts of ionised phoron. The go-to service weapon of the Tau Ceti Armed Forces."
 	icon = 'icons/obj/guns/faction/zavodskoi_interstellar/blaster_ar.dmi'
 	icon_state = "blaster_ar"
 	item_state = "blaster_ar"
