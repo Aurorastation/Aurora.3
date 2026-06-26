@@ -11,6 +11,7 @@
 	var/use_mapped_z_levels = FALSE //If you use this, use /obj/effect/shuttle_landmark/ship as the landmark (set the landmark_tag to match on the shuttle, no other setup needed)
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
+	pilot_class = PILOTING_CLASS_SHUTTLE
 	layer = OVERMAP_SHUTTLE_LAYER
 
 /obj/effect/overmap/visitable/ship/landable/Destroy()
