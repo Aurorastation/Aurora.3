@@ -2801,6 +2801,12 @@
 	},
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/thrusters/port)
+"wB" = (
+/obj/structure/table/reinforced/glass,
+/obj/effect/floor_decal/corner_wide/brown/diagonal,
+/obj/item/portable_whiteboard,
+/turf/simulated/floor/tiled/dark,
+/area/ship/gadpathur_patrol/sit_room)
 "wD" = (
 /obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -4481,6 +4487,7 @@
 "IU" = (
 /obj/structure/table/steel,
 /obj/structure/machinery/door/window/southright,
+/obj/item/clothing/glasses/night,
 /turf/simulated/floor/tiled/dark,
 /area/ship/gadpathur_patrol/crew_prep)
 "IV" = (
@@ -37894,7 +37901,7 @@ lO
 hg
 om
 VX
-vW
+wB
 fl
 GK
 cS

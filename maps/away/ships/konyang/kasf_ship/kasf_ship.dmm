@@ -1256,6 +1256,8 @@
 /obj/item/reagent_containers/food/drinks/bottle/small/beer,
 /obj/item/reagent_containers/food/drinks/bottle/small/beer,
 /obj/item/reagent_containers/food/drinks/bottle/small/beer,
+/obj/item/reagent_containers/food/drinks/bottle/sake,
+/obj/item/reagent_containers/food/drinks/bottle/sake,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/atmos)
 "hn" = (
@@ -5991,6 +5993,10 @@
 	name = "television remote";
 	pixel_y = 7;
 	pixel_x = 6
+	},
+/obj/item/portable_whiteboard{
+	pixel_x = -8;
+	pixel_y = 10
 	},
 /turf/simulated/floor/carpet/darkblue,
 /area/ship/kasf_corvette/mess)

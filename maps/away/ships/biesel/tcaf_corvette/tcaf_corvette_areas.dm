@@ -1,5 +1,5 @@
 /area/tcaf_corvette
-	name = "Republic Astroforce Patrol Vessel - Central Hall"
+	name = "Republican Fleet Corvette - Central Hall"
 	icon_state = "bluenew"
 	requires_power = TRUE
 	no_light_control = FALSE
@@ -8,124 +8,124 @@
 	ambience = AMBIENCE_ENGINEERING
 
 /area/tcaf_corvette/grauwolf
-	name = "Republic Astroforce Patrol Vessel - Flak Battery"
+	name = "Republican Fleet Corvette - Flak Battery"
 	icon_state = "Tactical"
 	ambience = AMBIENCE_HIGHSEC
 
 /area/tcaf_corvette/autocannon
-	name = "Republic Astroforce Patrol Vessel - Autocannon Emplacement"
+	name = "Republican Fleet Corvette - Autocannon Emplacement"
 	icon_state = "Tactical"
 	ambience = AMBIENCE_HIGHSEC
 
 /area/tcaf_corvette/ammo1
-	name = "Republic Astroforce Patrol Vessel - Portside Ammunition Storage"
+	name = "Republican Fleet Corvette - Portside Ammunition Storage"
 	icon_state = "Tactical"
 	ambience = AMBIENCE_HIGHSEC
 
 /area/tcaf_corvette/ammo2
-	name = "Republic Astroforce Patrol Vessel - Starboard Ammunition Storage"
+	name = "Republican Fleet Corvette - Starboard Ammunition Storage"
 	icon_state = "Tactical"
 	ambience = AMBIENCE_HIGHSEC
 
 /area/tcaf_corvette/cic
-	name = "Republic Astroforce Patrol Vessel - CIC"
+	name = "Republican Fleet Corvette - CIC"
 	icon_state = "bridge"
 	ambience = AMBIENCE_HIGHSEC
 
 /area/tcaf_corvette/crew
-	name = "Republic Astroforce Patrol Vessel - Crew Quarters"
+	name = "Republican Fleet Corvette - Crew Quarters"
 	icon_state = "crew_quarters"
 
 /area/tcaf_corvette/lounge
-	name = "Republic Astroforce Patrol Vessel - Crew Lounge"
+	name = "Republican Fleet Corvette - Crew Lounge"
 	icon_state = "crew_quarters"
 
 /area/tcaf_corvette/captain
-	name = "Republic Astroforce Patrol Vessel - Astrarch's Office"
+	name = "Republican Fleet Corvette - Captain's Office"
 	icon_state = "captain"
 
 /area/tcaf_corvette/captain_quarters
-	name = "Republic Astroforce Patrol Vessel - Astrarch's Quarters"
+	name = "Republican Fleet Corvette - Captain's Quarters"
 	icon_state = "captain"
 
 /area/tcaf_corvette/engineering
-	name = "Republic Astroforce Patrol Vessel - Engineering"
+	name = "Republican Fleet Corvette - Engineering"
 	icon_state = "engineering"
 
 /area/tcaf_corvette/hangar
-	name = "Republic Astroforce Patrol Vessel - Hangar"
+	name = "Republican Fleet Corvette - Hangar"
 	icon_state = "exit"
 	ambience = AMBIENCE_HANGAR
 
 /area/tcaf_corvette/messhall
-	name = "Republic Astroforce Patrol Vessel - Mess Hall"
+	name = "Republican Fleet Corvette - Mess Hall"
 	icon_state = "kitchen"
 
 /area/tcaf_corvette/medical
-	name = "Republic Astroforce Patrol Vessel - Infirmary"
+	name = "Republican Fleet Corvette - Infirmary"
 	icon_state = "medbay"
 
 /area/tcaf_corvette/storage
-	name = "Republic Astroforce Patrol Vessel - Equipment Storage"
+	name = "Republican Fleet Corvette - Equipment Storage"
 	icon_state = "storage"
 
 /area/tcaf_corvette/cargo_bay
-	name = "Republic Astroforce Patrol Vessel - Cargo Bay"
+	name = "Republican Fleet Corvette - Cargo Bay"
 	icon_state = "storage"
 
 /area/tcaf_corvette/forensics
-	name = "Republic Astroforce Patrol Vessel - Forensics"
+	name = "Republican Fleet Corvette - Forensics"
 	icon_state = "investigations"
 
 /area/tcaf_corvette/brig
-	name = "Republic Astroforce Patrol Vessel - Holding Cells"
+	name = "Republican Fleet Corvette - Holding Cells"
 	icon_state = "brig"
 
 /area/tcaf_corvette/central_ring
-	name = "Republic Astroforce Patrol Vessel - Central Ring"
+	name = "Republican Fleet Corvette - Central Ring"
 	icon_state = "hallC"
 
 /area/tcaf_corvette/custodial
-	name = "Republic Astroforce Patrol Vessel - Custodial Closet"
+	name = "Republican Fleet Corvette - Custodial Closet"
 	icon_state = "janitor"
 
 /area/tcaf_corvette/engine
-	name = "Republic Astroforce Patrol Vessel - Engine Room"
+	name = "Republican Fleet Corvette - Engine Room"
 	icon_state = "engine"
 
 /area/tcaf_corvette/washroom
-	name = "Republic Astroforce Patrol Vessel - Washroom"
+	name = "Republican Fleet Corvette - Washroom"
 	icon_state = "washroom"
 
 /area/tcaf_corvette/freezer
-	name = "Republic Astroforce Patrol Vessel - Freezer"
+	name = "Republican Fleet Corvette - Freezer"
 	icon_state = "kitchen"
 
 /area/tcaf_corvette/morgue
-	name = "Republic Astroforce Patrol Vessel - Morgue"
+	name = "Republican Fleet Corvette - Morgue"
 	icon_state = "morgue"
 
 /area/tcaf_corvette/central_lift
-	name = "Republic Astroforce Patrol Vessel - Central Lift"
+	name = "Republican Fleet Corvette - Central Lift"
 	icon_state = "blue2"
 
 /area/tcaf_corvette/hydroponics
-	name = "Republic Astroforce Patrol Vessel - Hydroponics Bay"
+	name = "Republican Fleet Corvette - Hydroponics Bay"
 	icon_state = "hydro"
 
 /area/tcaf_corvette/workshop
-	name = "Republic Astroforce Patrol Vessel - Workshop"
+	name = "Republican Fleet Corvette - Workshop"
 	icon_state = "machinist_workshop"
 
 /area/tcaf_corvette/exterior
-	name = "Republic Astroforce Patrol Vessel - Exterior"
+	name = "Republican Fleet Corvette - Exterior"
 	requires_power = FALSE
 	icon_state = "exterior"
 	has_gravity = FALSE
 
 // Shuttle area.
 /area/shuttle/tcaf
-	name = "Republic Astroforce Patrol Vessel Shuttle"
+	name = "Republican Fleet Shuttle"
 	requires_power = TRUE
 
 // Lift area.

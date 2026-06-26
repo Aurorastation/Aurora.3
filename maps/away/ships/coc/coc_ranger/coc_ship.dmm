@@ -56,10 +56,19 @@
 /area/ship/ranger_corvette/engine1)
 "aoI" = (
 /obj/structure/table/steel,
-/obj/item/flame/lighter/zippo/coalition,
+/obj/item/flame/lighter/zippo/coalition{
+	pixel_x = -10
+	},
 /obj/item/material/ashtray/bronze,
 /obj/structure/sign/poster{
 	pixel_x = 32
+	},
+/obj/item/journal{
+	pixel_x = 4;
+	pixel_y = 10
+	},
+/obj/item/clothing/mask/smokable/cigarette/cigar{
+	pixel_x = -10
 	},
 /turf/simulated/floor/carpet/brown,
 /area/ship/ranger_corvette/leader)
@@ -643,6 +652,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
+/obj/item/portable_whiteboard,
 /turf/simulated/floor/carpet,
 /area/ship/ranger_corvette/foyer)
 "ckP" = (
@@ -1238,6 +1248,10 @@
 /obj/item/plastique{
 	pixel_y = 1;
 	pixel_x = 8
+	},
+/obj/item/clothing/glasses/night{
+	pixel_y = -2;
+	pixel_x = -5
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
