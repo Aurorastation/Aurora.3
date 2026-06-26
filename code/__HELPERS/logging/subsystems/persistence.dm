@@ -12,8 +12,18 @@
 /proc/log_subsystem_persistence_warning(text)
 	log_subsystem_persistence("WARNING: [text]")
 
-/proc/log_subsystem_persistence_error(text)
-	log_subsystem_persistence("ERROR: [text]")
+/proc/log_subsystem_persistence_error(text, exception/e = null)
+	if(e)
+		log_subsystem_persistence("ERROR: [text] - [e]")
+		if(SSsentry)
+			SSsentry.capture_exception(e)
+	else
+		log_subsystem_persistence("ERROR: [text]")
 
-/proc/log_subsystem_persistence_panic(text)
-	log_subsystem_persistence("PANIC: [text]")
+/proc/log_subsystem_persistence_panic(text, exception/e = null)
+	if(e)
+		log_subsystem_persistence("PANIC: [text] - [e]")
+		if(SSsentry)
+			SSsentry.capture_exception(e)
+	else
+		log_subsystem_persistence("PANIC: [text]")
