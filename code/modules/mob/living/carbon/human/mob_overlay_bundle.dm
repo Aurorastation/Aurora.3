@@ -38,6 +38,8 @@
 
 /image/var/list/plane_overlay_siblings
 /image/var/list/plane_overlay_sibling_categories
+/// Generate a current-shape emissive blocker when this image is flattened into a human mob overlay list.
+/image/var/generate_mob_emissive_blocker = FALSE
 
 /image/proc/AddPlaneOverlaySibling(source, category)
 	if(!source)

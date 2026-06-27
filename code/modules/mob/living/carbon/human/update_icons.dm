@@ -100,20 +100,22 @@ There are several things that need to be remembered:
 		ret.layer = layer
 	return ret
 
-/proc/append_overlay_with_plane_siblings(list/target, overlay, list/plane_sibling_order = null)
+/proc/append_overlay_with_plane_siblings(list/target, overlay, list/plane_sibling_order = null, var/mob/living/carbon/human/H = null)
 	if(!target || !overlay)
 		return
 	if(islist(overlay))
 		for(var/entry in overlay)
-			append_overlay_with_plane_siblings(target, entry, plane_sibling_order)
+			append_overlay_with_plane_siblings(target, entry, plane_sibling_order, H)
 		return
 	target += overlay
 	if(istype(overlay, /image))
 		var/image/I = overlay
+		if(I.generate_mob_emissive_blocker && H)
+			I.ReplacePlaneOverlayBlocker(H)
 		overlay_bundle_order_plane_siblings(I, plane_sibling_order)
 		if(LAZYLEN(I.plane_overlay_siblings))
 			for(var/sibling in I.plane_overlay_siblings)
-				append_overlay_with_plane_siblings(target, sibling, plane_sibling_order)
+				append_overlay_with_plane_siblings(target, sibling, plane_sibling_order, H)
 
 // Updates overlays from overlays_raw.
 /mob/living/carbon/human/update_icon()
@@ -134,8 +136,8 @@ There are several things that need to be remembered:
 		icon_state = "body_cloaked"
 		var/list/cloaked_overlays = list()
 		var/list/plane_sibling_order = list("order" = 0)
-		append_overlay_with_plane_siblings(cloaked_overlays, overlays_raw[L_HAND_LAYER], plane_sibling_order)
-		append_overlay_with_plane_siblings(cloaked_overlays, overlays_raw[R_HAND_LAYER], plane_sibling_order)
+		append_overlay_with_plane_siblings(cloaked_overlays, overlays_raw[L_HAND_LAYER], plane_sibling_order, src)
+		append_overlay_with_plane_siblings(cloaked_overlays, overlays_raw[R_HAND_LAYER], plane_sibling_order, src)
 		SetOverlays(cloaked_overlays)
 	else
 		var/list/ovr = list()
@@ -146,7 +148,7 @@ There are several things that need to be remembered:
 		// We manually add each element instead of just using Copy() so that lists are appended instead of inserted.
 		for (var/item in overlays_raw)
 			if (item)
-				append_overlay_with_plane_siblings(ovr, item, plane_sibling_order)
+				append_overlay_with_plane_siblings(ovr, item, plane_sibling_order, src)
 
 		if(species.has_floating_eyes)
 			ovr += species.get_eyes(src)

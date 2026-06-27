@@ -36,6 +36,7 @@ GLOBAL_LIST_INIT(mob_icon_icon_states, list())
 			H.species.equip_overlays[image_key] = final_image
 		var/image/I = new() // We return a copy of the cached image, in case downstream procs mutate it.
 		I.appearance = H.species.equip_overlays[image_key]
+		I.generate_mob_emissive_blocker = TRUE
 		var/datum/mob_overlay_bundle/bundle = new()
 		bundle.SetSource(src)
 		bundle.SetBase(I)
@@ -52,6 +53,7 @@ GLOBAL_LIST_INIT(mob_icon_icon_states, list())
 		var/icon/mask = new(mob_icon, alpha_mask)
 		mob_overlay_icon.AddAlphaMask(mask)
 		I = overlay_image(mob_overlay_icon, color = color, flags = RESET_COLOR|RESET_ALPHA)
+	I.generate_mob_emissive_blocker = TRUE
 	var/image/additional_parts = build_additional_parts(H, mob_icon, slot)
 	if(additional_parts)
 		I.AddOverlays(additional_parts)

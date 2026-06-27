@@ -653,13 +653,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 		hologram_source_overlays = null
 
 /obj/effect/overlay/hologram/proc/should_copy_source_base_icon(atom/original, atom/source)
-	if(!source?.icon)
-		return FALSE
-	if(ishuman(original) || ishuman(source))
-		return FALSE
-	if(isAI(original) && LAZYLEN(source.overlays))
-		return FALSE
-	return TRUE
+	return !!source?.icon
 
 /obj/effect/overlay/hologram/proc/copy_base_appearance(atom/source)
 	icon = source.icon
