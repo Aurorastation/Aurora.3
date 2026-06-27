@@ -5656,6 +5656,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
+/obj/structure/whiteboard/portable,
 /turf/simulated/floor/wood,
 /area/hegemony_ship/canteen)
 "GU" = (

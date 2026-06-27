@@ -431,6 +431,9 @@
 "cb" = (
 /obj/structure/table/steel,
 /obj/item/folder/yellow,
+/obj/item/portable_whiteboard{
+	pixel_y = 12
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/elyran_corvette/briefing)
 "cc" = (
@@ -1513,6 +1516,7 @@
 	pixel_x = 4;
 	pixel_y = 24
 	},
+/obj/item/clothing/glasses/night,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/elyran_corvette/briefing)
 "hv" = (
@@ -7933,6 +7937,10 @@
 /area/ship/elyran_corvette/hangar)
 "RU" = (
 /obj/effect/decal/cleanable/blood/drip/oil,
+/obj/structure/table/rack,
+/obj/item/ship_ammunition/grauwolf_probe,
+/obj/item/ship_ammunition/grauwolf_probe,
+/obj/item/ship_ammunition/grauwolf_probe,
 /turf/simulated/floor/tiled/dark,
 /area/ship/elyran_corvette/portwep)
 "RV" = (

@@ -234,6 +234,7 @@
 	dir = 10
 	},
 /obj/random/dirt_75,
+/obj/structure/whiteboard,
 /turf/simulated/floor/wood,
 /area/heph_security_ship/kitchen)
 "bC" = (
@@ -3646,6 +3647,7 @@
 /obj/item/clothing/suit/armor/carrier/ballistic,
 /obj/item/clothing/suit/armor/carrier/ballistic,
 /obj/effect/floor_decal/industrial/hatch/red,
+/obj/item/clothing/glasses/night,
 /turf/simulated/floor/tiled/dark/full,
 /area/heph_security_ship/armory)
 "yF" = (
@@ -5824,6 +5826,10 @@
 	dir = 5
 	},
 /obj/structure/machinery/atmospherics/unary/vent_pump/on,
+/obj/item/clothing/mask/smokable/cigarette/cigar,
+/obj/item/flame/lighter/zippo{
+	pixel_x = 10
+	},
 /turf/simulated/floor/carpet,
 /area/heph_security_ship/captain)
 "OO" = (

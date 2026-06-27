@@ -83,6 +83,9 @@
 	name = "Armory notice no. 1";
 	info = "Our old shorties and most of our PDWs and sidearms are busted. I don't know how we did we even manage to get our hands on half of the shit that's stored in these lockers, and I'm too afraid to ask."
 	},
+/obj/item/ammo_magazine/assault_shotgun,
+/obj/item/ammo_magazine/assault_shotgun/shells,
+/obj/item/ammo_magazine/assault_shotgun/shells,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "j" = (
@@ -102,6 +105,7 @@
 /obj/structure/weapons_rack{
 	req_access = list(13,221,222)
 	},
+/obj/item/gun/projectile/automatic/rifle/shotgun/xanan,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "m" = (
@@ -211,10 +215,6 @@
 /obj/item/ammo_magazine/a65,
 /obj/item/ammo_magazine/a65,
 /obj/item/ammo_magazine/a65,
-/obj/item/ammo_magazine/d762,
-/obj/item/ammo_magazine/d762,
-/obj/item/ammo_magazine/d762,
-/obj/item/ammo_magazine/d762,
 /obj/item/ammo_magazine/submachinemag,
 /obj/item/ammo_magazine/submachinemag,
 /obj/item/ammo_magazine/a10mm,
@@ -230,6 +230,14 @@
 	name = "Armory notice no. 1";
 	info = "Our old shorties and most of our PDWs and sidearms are busted. I don't even know how we got half of the stuff we got as a replacement, and I'm too afraid to ask."
 	},
+/obj/item/ammo_magazine/a68,
+/obj/item/ammo_magazine/a68,
+/obj/item/ammo_magazine/a68,
+/obj/item/ammo_magazine/a68,
+/obj/item/ammo_magazine/a68,
+/obj/item/ammo_magazine/a68,
+/obj/item/ammo_magazine/a68/hotaki,
+/obj/item/ammo_magazine/a68/hotaki,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "B" = (
