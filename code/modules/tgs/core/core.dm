@@ -1,7 +1,7 @@
 /world/TgsNew(datum/tgs_event_handler/event_handler, minimum_required_security_level = TGS_SECURITY_ULTRASAFE, datum/tgs_http_handler/http_handler = null)
 	var/current_api = TGS_READ_GLOBAL(tgs)
 	if(current_api)
-		TGS_ERROR_LOG("API datum already set ([current_api])! Was TgsNew() called more than once?")
+		TGS_ERROR_LOG("API datum already set (\ref[current_api] ([current_api]))! Was TgsNew() called more than once?")
 		return
 
 	if(!(minimum_required_security_level in list(TGS_SECURITY_ULTRASAFE, TGS_SECURITY_SAFE, TGS_SECURITY_TRUSTED)))
@@ -177,3 +177,8 @@
 			parameters = list()
 
 		return api.TriggerEvent(event_name, parameters, wait_for_completion)
+
+/world/TgsTriggerDeployment()
+	var/datum/tgs_api/api = TGS_READ_GLOBAL(tgs)
+	if(api)
+		return api.TriggerDeployment()
