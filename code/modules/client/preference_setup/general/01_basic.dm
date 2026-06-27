@@ -14,6 +14,7 @@
 	S["floating_chat_color"] >> pref.floating_chat_color
 	S["speech_bubble_type"] >> pref.speech_bubble_type
 	if(istype(GLOB.all_species[pref.species], /datum/species/machine))
+		S["ipc_custom_model"] >> pref.machine_custom_model
 		S["ipc_tag_status"] >> pref.machine_tag_status
 		S["ipc_serial_number"] >> pref.machine_serial_number
 		S["ipc_ownership_status"] >> pref.machine_ownership_status
@@ -32,6 +33,7 @@
 	S["floating_chat_color"] << pref.floating_chat_color
 	S["speech_bubble_type"] << pref.speech_bubble_type
 	if(istype(GLOB.all_species[pref.species], /datum/species/machine))
+		S["ipc_custom_model"] << pref.machine_custom_model
 		S["ipc_tag_status"] << pref.machine_tag_status
 		S["ipc_serial_number"] << pref.machine_serial_number
 		S["ipc_ownership_status"] << pref.machine_ownership_status
@@ -59,6 +61,7 @@
 		),
 		"ss13_characters_ipc_tags" = list(
 			"vars" = list(
+				"custom_model" = "machine_custom_model",
 				"tag_status" = "machine_tag_status",
 				"serial_number" = "machine_serial_number",
 				"ownership_status" = "machine_ownership_status",
@@ -93,6 +96,7 @@
 			"ckey" = 1
 		),
 		"ss13_characters_ipc_tags" = list(
+			"custom_model",
 			"tag_status",
 			"serial_number",
 			"ownership_status",
@@ -111,6 +115,7 @@
 		"spawnpoint" = pref.spawnpoint,
 		"species" = pref.species,
 		"height" = pref.height,
+		"custom_model" = pref.machine_custom_model,
 		"tag_status" = pref.machine_tag_status,
 		"serial_number" = pref.machine_serial_number,
 		"ownership_status" = pref.machine_ownership_status,
@@ -161,6 +166,7 @@
 	if(!pref.real_name)
 		pref.real_name      = random_name(pref.gender, pref.species)
 	pref.spawnpoint         = sanitize_inlist(pref.spawnpoint, SSatlas.spawn_locations, initial(pref.spawnpoint))
+	pref.machine_custom_model = sanitize(pref.machine_custom_model)
 	pref.machine_tag_status = text2num(pref.machine_tag_status) // SQL queries return as text, so make this a num
 	pref.hidden_shell_status = text2num(pref.hidden_shell_status) // this too
 	pref.floating_chat_color = sanitize_hexcolor(pref.floating_chat_color, get_random_colour(0, 160, 230))
@@ -190,6 +196,7 @@
 	dat += "<b>Floating Chat Color:</b> <a href='byond://?src=[REF(src)];select_floating_chat_color=1'><b>[pref.floating_chat_color]</b></a><br>"
 	dat += "<b>Speech Bubble Type:</b> <a href='byond://?src=[REF(src)];speech_bubble_type=1'><b>[capitalize_first_letters(pref.speech_bubble_type)]</b></a><br>"
 	if(istype(S, /datum/species/machine))
+		dat += "<b>Custom Model:</b> <a href='byond://?src=[REF(src)];custom_model=1'>[pref.machine_custom_model ? "[pref.machine_custom_model]": ""]</a><br>"
 		if(pref.can_edit_ipc_tag)
 			dat += "<b>Has Tag:</b> <a href='byond://?src=[REF(src)];ipc_tag=1'>[pref.machine_tag_status ? "Yes" : "No"]</a><br>"
 		else
@@ -325,6 +332,12 @@
 		if(new_metadata && CanUseTopic(user))
 			pref.metadata = new_metadata
 		return TOPIC_REFRESH
+
+	else if(href_list["custom_model"]) // Same max length as tags
+		var/custom_model = sanitize(input(user, "Enter a custom model that will display on examine. This is purely flavor.", "IPC Custom Model", pref.machine_custom_model) as message|null, 20)
+		if(custom_model && CanUseTopic(user))
+			pref.machine_custom_model = sanitize(custom_model)
+			return TOPIC_REFRESH
 
 	else if(href_list["ipc_tag"])
 		if(!pref.can_edit_ipc_tag)
