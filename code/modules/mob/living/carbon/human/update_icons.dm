@@ -409,7 +409,12 @@ There are several things that need to be remembered:
 			AddOverlays(add_images, ATOM_ICON_CACHE_PROTECTED)
 	UpdateOverlays()
 
+/mob/living/carbon/human/proc/reoffset_mob_overlays_for_z()
+	reoffset_mob_overlay_for_z(overlays_raw, src)
+
 /mob/living/carbon/human/on_changed_z_level(turf/old_turf, turf/new_turf, same_z_layer, notify_contents = TRUE)
+	if(!same_z_layer && !QDELETED(src))
+		reoffset_mob_overlays_for_z()
 	. = ..()
 	if(!same_z_layer && !QDELETED(src))
 		// Limb/internal-organ emissives live in the protected overlay cache, outside the normal update_icon() rebuild.

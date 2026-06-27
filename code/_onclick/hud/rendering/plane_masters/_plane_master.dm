@@ -133,7 +133,7 @@
 	if(force_hidden)
 		return FALSE
 
-	var/client/our_client = mymob?.canon_client
+	var/client/our_client = mymob?.canon_client || mymob?.client
 	// Alright, let's get this out of the way
 	// Mobs can move z levels without their client. If this happens, we need to ensure critical display settings are respected
 	// This is done here. Mild to severe pain but it's nessesary

@@ -247,9 +247,11 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 			return
 	QDEL_NULL(orbiting)
 	mind.current.ajourn=0
-	mind.current.key = key
-	mind.current.teleop = null
-	mind.current.client.init_verbs()
+	var/mob/reentered_body = mind.current
+	reentered_body.key = key
+	reentered_body.teleop = null
+	reentered_body.client.init_verbs()
+	reentered_body.client?.refresh_parallax_skybox_layers()
 	if(!admin_ghosted)
 		announce_ghost_joinleave(mind, 0, "They now occupy their body again.")
 	return 1

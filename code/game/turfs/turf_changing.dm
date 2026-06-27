@@ -170,8 +170,10 @@
 			SET_PLANE_EXPLICIT(I, PLANE_TO_TRUE(I.plane), new_turf)
 
 	new_turf.decals = old_decals
+	new_turf.replane_decals()
 
 	new_turf.post_change(!mapload)
+	new_turf.refresh_turf_lighting_overlays(thisarea)
 
 	new_turf.update_weather(force_update_below = new_turf.is_open() != old_is_open)
 
@@ -184,6 +186,51 @@
 
 	updateVisibility(src, FALSE)
 
+/turf/proc/replane_decals()
+	if(!length(decals))
+		return
+
+	var/plane_offset = GET_TURF_PLANE_OFFSET(src) || 0
+	var/list/replaned_decals = list()
+	for(var/decal as anything in decals)
+		var/image/I = image(decal)
+		SET_PLANE_W_SCALAR(I, FLOOR_PLANE, plane_offset)
+		replaned_decals += I
+	decals = replaned_decals
+
+/turf/proc/remove_turf_lighting_overlay(mutable_appearance/lighting_overlay)
+	if(!lighting_overlay)
+		return
+	if(length(overlays))
+		overlays -= lighting_overlay
+	CutOverlays(lighting_overlay, ATOM_ICON_CACHE_ALL)
+
+/turf/proc/refresh_turf_lighting_overlays(area/old_lighting_area)
+	var/area/current_area = get_area(src)
+	if(old_lighting_area?.lighting_effects)
+		for(var/mutable_appearance/lighting_overlay as anything in old_lighting_area.lighting_effects)
+			remove_turf_lighting_overlay(lighting_overlay)
+	if(current_area != old_lighting_area && current_area?.lighting_effects)
+		for(var/mutable_appearance/lighting_overlay as anything in current_area.lighting_effects)
+			remove_turf_lighting_overlay(lighting_overlay)
+
+	var/had_starlight_overlay = FALSE
+	if(length(GLOB.starlight_overlays))
+		for(var/mutable_appearance/starlight_overlay as anything in GLOB.starlight_overlays)
+			if(length(overlays) && (starlight_overlay in overlays))
+				had_starlight_overlay = TRUE
+			if(atom_overlay_cache && (starlight_overlay in atom_overlay_cache))
+				had_starlight_overlay = TRUE
+			if(atom_protected_overlay_cache && (starlight_overlay in atom_protected_overlay_cache))
+				had_starlight_overlay = TRUE
+			remove_turf_lighting_overlay(starlight_overlay)
+
+	var/offset = GET_TURF_PLANE_OFFSET(src) || 0
+	if(offset && current_area?.lighting_effects && length(current_area.lighting_effects) >= offset + 1)
+		AddOverlays(current_area.lighting_effects[offset + 1])
+	else if(had_starlight_overlay && length(GLOB.starlight_overlays) >= offset + 1)
+		AddOverlays(GLOB.starlight_overlays[offset + 1])
+
 /turf/proc/transport_properties_from(turf/other)
 	if(!istype(other, src.type))
 		return 0
@@ -195,8 +242,11 @@
 	if(other.decals)
 		src.decals = other.decals.Copy()
 		other.decals.Cut()
+		src.replane_decals()
 		other.update_icon()
-		src.update_icon()
+		other.refresh_turf_lighting_overlays(get_area(other))
+	src.update_icon()
+	src.refresh_turf_lighting_overlays(get_area(other))
 	return 1
 
 //I would name this copy_from() but we remove the other turf from their air zone for some reason
@@ -226,36 +276,35 @@
 	other.icon_state = icon_state
 	other.name = name
 	other.layer = layer
-	other.decals = decals
+	other.decals = decals?.Copy()
+	other.replane_decals()
 	other.roof_flags = roof_flags
 	other.roof_type = roof_type
 
-	if (atom_overlay_cache)
-		other.atom_overlay_cache = atom_overlay_cache
-
-	if (atom_protected_overlay_cache)
-		other.atom_protected_overlay_cache = atom_protected_overlay_cache
+	other.atom_overlay_cache = atom_overlay_cache?.Copy()
+	other.atom_protected_overlay_cache = atom_protected_overlay_cache?.Copy()
 
 	other.overlays = overlays.Copy()
 
 /turf/simulated/copy_turf(turf/simulated/other, ignore_air = FALSE)
 	. = ..()
 
-	if (ignore_air || !zone || !istype(other))
-		return
+	if (!ignore_air && zone && istype(other))
+		if (!other.air)
+			other.make_air()
 
-	if (!other.air)
-		other.make_air()
+		other.air.copy_from(zone.air)
 
-	other.air.copy_from(zone.air)
-
-	SSair.mark_for_update(other)
+		SSair.mark_for_update(other)
 
 	other.update_icon()
+	other.refresh_turf_lighting_overlays(get_area(src))
 
 /turf/simulated/wall/copy_turf(turf/simulated/wall/other, ignore_air = FALSE)
 	.=..()
 	other.health = health
+	other.update_icon()
+	other.refresh_turf_lighting_overlays(get_area(src))
 
 /turf/simulated/floor/copy_turf(turf/simulated/floor/other, ignore_air = FALSE)
 	var/singleton/flooring/old_flooring = other.flooring
@@ -266,6 +315,8 @@
 	if(other.flooring)
 		other.flooring.on_apply(other)
 	other.levelupdate()
+	other.update_icon()
+	other.refresh_turf_lighting_overlays(get_area(src))
 
 /turf/simulated/wall/shuttle/dark/corner/underlay/copy_turf(turf/simulated/wall/shuttle/dark/corner/underlay/other, ignore_air = FALSE)
 	.=..()

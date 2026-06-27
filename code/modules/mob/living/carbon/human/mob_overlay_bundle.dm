@@ -144,6 +144,25 @@
 		appearance.pixel_x = base_pixel_x
 		appearance.pixel_y = base_pixel_y
 
+/proc/reoffset_mob_overlay_for_z(source, var/mob/living/carbon/human/H)
+	if(!source || !H)
+		return
+	if(islist(source))
+		for(var/entry in source)
+			reoffset_mob_overlay_for_z(entry, H)
+		return
+
+	if(istype(source, /mutable_appearance))
+		var/mutable_appearance/appearance = source
+		if(appearance.plane != FLOAT_PLANE && !PLANE_IS_CRITICAL(PLANE_TO_TRUE(appearance.plane)))
+			SET_PLANE_EXPLICIT(appearance, PLANE_TO_TRUE(appearance.plane), H)
+
+	if(istype(source, /image))
+		var/image/I = source
+		if(LAZYLEN(I.plane_overlay_siblings))
+			for(var/sibling in I.plane_overlay_siblings)
+				reoffset_mob_overlay_for_z(sibling, H)
+
 /proc/overlay_bundle_first_image(sources)
 	RETURN_TYPE(/image)
 	if(istype(sources, /image))

@@ -739,6 +739,11 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 	var/flame_light_power = 2
 	var/flame_light_color = LIGHT_COLOR_LAVA
 
+/obj/item/flame/lighter/Initialize()
+	if(!base_state)
+		base_state = icon_state || initial(icon_state)
+	return ..()
+
 /obj/item/flame/lighter/colourable
 	icon_state = "lighter-col"
 	item_state = "lighter-col"
@@ -929,6 +934,8 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 	base_state = icon_state
 
 /obj/item/flame/lighter/update_icon()
+	if(!base_state)
+		base_state = icon_state || initial(icon_state)
 	if(lit)
 		icon_state = "[base_state]on"
 		item_state = "[base_state]on"

@@ -597,7 +597,7 @@
 	if(!offset_already_updated)
 		CRASH("Attempted to draw a render relay before our offset has been applied, this WILL break")
 	render_relay_planes += target_plane
-	var/client/display_lad = home?.our_hud?.mymob?.canon_client
+	var/client/display_lad = home?.our_hud?.mymob?.canon_client || home?.our_hud?.mymob?.client
 	var/atom/movable/render_plane_relay/relay = generate_relay_to(target_plane, show_to = display_lad, blend_override = blend_override, relay_layer = relay_layer)
 	relay.color = relay_color
 
@@ -649,7 +649,7 @@
 	relays -= existing_relay
 	if(!length(relays) && !initial(render_target))
 		render_target = null
-	var/client/lad = home?.our_hud?.mymob?.canon_client
+	var/client/lad = home?.our_hud?.mymob?.canon_client || home?.our_hud?.mymob?.client
 	if(lad)
 		lad.screen -= existing_relay
 
