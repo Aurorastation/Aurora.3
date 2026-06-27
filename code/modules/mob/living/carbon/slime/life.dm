@@ -6,7 +6,7 @@
 	if(stat != DEAD)
 		handle_nutrition()
 		if(!is_ventcrawling) // Stops sight returning to normal if inside a vent
-			sight = initial(sight)
+			set_sight(initial(sight))
 
 /mob/living/carbon/slime/think()
 	..()

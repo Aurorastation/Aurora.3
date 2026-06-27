@@ -134,7 +134,7 @@
 			))
 			screen_overlay.blend_mode = BLEND_ADD
 			screen_overlay_holographic.blend_mode = BLEND_MULTIPLY
-			var/mutable_appearance/screen_overlay_emis = emissive_appearance(src.icon, icon_screen)
+			var/mutable_appearance/screen_overlay_emis = emissive_appearance(src.icon, icon_screen, src)
 			AddOverlays(screen_overlay_holographic)
 			AddOverlays(screen_overlay)
 			AddOverlays(screen_overlay_emis)
@@ -146,7 +146,7 @@
 			else
 				AddOverlays(icon_keyboard)
 				if(icon_keyboard_emis)
-					var/mutable_appearance/emis = emissive_appearance(icon, icon_keyboard_emis)
+					var/mutable_appearance/emis = emissive_appearance(icon, icon_keyboard_emis, src)
 					AddOverlays(emis)
 		else if (overlay_layer != layer)
 			AddOverlays(image(icon, icon_screen, overlay_layer))

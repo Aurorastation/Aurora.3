@@ -7,7 +7,10 @@
 	icon_state = "pod_preview"
 	density = TRUE
 	anchored = TRUE
+	plane = GAME_PLANE
 	layer = ABOVE_HUMAN_LAYER
+	// Match the 32x64 sprite so northern turf contents sort behind the cell's upper half.
+	bound_height = 64
 	interact_offline = TRUE
 
 	var/on = 0
@@ -339,7 +342,7 @@
 				warn_state = "warn"
 		I = overlay_image(icon, "lights_[warn_state]")
 		AddOverlays(I)
-		AddOverlays(emissive_appearance(icon, "lights_mask"))
+		AddOverlays(emissive_appearance(icon, "lights_mask", src))
 
 	if(occupant && !only_pickle)
 		I = image(icon, "pod_liquid")
@@ -383,7 +386,7 @@
 	if(!(occupant))
 		return
 	if (occupant.client)
-		occupant.client.eye = occupant.client.mob
+		occupant.client.set_eye(occupant.client.mob)
 		occupant.client.perspective = MOB_PERSPECTIVE
 	occupant.forceMove(get_step(loc, SOUTH))	//this doesn't account for walls or anything, but i don't forsee that being a problem.
 	if (occupant.bodytemperature < 261 && occupant.bodytemperature >= 70) //Patch by Aranclanos to stop people from taking burn damage after being ejected
@@ -412,7 +415,7 @@
 		return
 	if (M.client)
 		M.client.perspective = EYE_PERSPECTIVE
-		M.client.eye = src
+		M.client.set_eye(src)
 	M.stop_pulling()
 	M.forceMove(src)
 	M.ExtinguishMob()

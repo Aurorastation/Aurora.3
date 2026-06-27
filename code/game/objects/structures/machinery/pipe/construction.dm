@@ -601,7 +601,8 @@
 			P.set_dir(src.dir)
 			P.initialize_directions = pipe_dir
 			var/turf/T = P.loc
-			P.level = !T.is_plating() ? 2 : 1
+			P.level = T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE ? 2 : 1
+			P.update_underfloor_from_turf()
 			P.atmos_init()
 			if (QDELETED(P))
 				to_chat(usr, pipefailtext)
@@ -620,7 +621,8 @@
 			P.set_dir(src.dir)
 			P.initialize_directions = pipe_dir
 			var/turf/T = P.loc
-			P.level = !T.is_plating() ? 2 : 1
+			P.level = T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE ? 2 : 1
+			P.update_underfloor_from_turf()
 			P.atmos_init()
 			if (QDELETED(P))
 				to_chat(usr, pipefailtext)
@@ -639,7 +641,8 @@
 			P.set_dir(src.dir)
 			P.initialize_directions = pipe_dir
 			var/turf/T = P.loc
-			P.level = !T.is_plating() ? 2 : 1
+			P.level = T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE ? 2 : 1
+			P.update_underfloor_from_turf()
 			P.atmos_init()
 			if (QDELETED(P))
 				to_chat(usr, pipefailtext)
@@ -658,7 +661,8 @@
 			P.set_dir(src.dir)
 			P.initialize_directions = pipe_dir
 			var/turf/T = P.loc
-			P.level = !T.is_plating() ? 2 : 1
+			P.level = T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE ? 2 : 1
+			P.update_underfloor_from_turf()
 			P.atmos_init()
 			if (QDELETED(P))
 				to_chat(usr, pipefailtext)
@@ -677,7 +681,8 @@
 			P.set_dir(src.dir)
 			P.initialize_directions = pipe_dir
 			var/turf/T = P.loc
-			P.level = !T.is_plating() ? 2 : 1
+			P.level = T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE ? 2 : 1
+			P.update_underfloor_from_turf()
 			P.atmos_init()
 			if (QDELETED(P))
 				to_chat(usr, pipefailtext)
@@ -696,7 +701,8 @@
 			P.set_dir(src.dir)
 			P.initialize_directions = pipe_dir
 			var/turf/T = P.loc
-			P.level = !T.is_plating() ? 2 : 1
+			P.level = T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE ? 2 : 1
+			P.update_underfloor_from_turf()
 			P.atmos_init()
 			if (QDELETED(P))
 				to_chat(usr, pipefailtext)
@@ -733,7 +739,8 @@
 			if (pipename)
 				C.name = pipename
 			var/turf/T = C.loc
-			C.level = !T.is_plating() ? 2 : 1
+			C.level = T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE ? 2 : 1
+			C.update_underfloor_from_turf()
 			C.atmos_init()
 			C.build_network()
 			if (C.node)
@@ -747,7 +754,8 @@
 			if (pipename)
 				C.name = pipename
 			var/turf/T = C.loc
-			C.level = !T.is_plating() ? 2 : 1
+			C.level = T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE ? 2 : 1
+			C.update_underfloor_from_turf()
 			C.atmos_init()
 			C.build_network()
 			if (C.node)
@@ -761,7 +769,8 @@
 			if (pipename)
 				C.name = pipename
 			var/turf/T = C.loc
-			C.level = !T.is_plating() ? 2 : 1
+			C.level = T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE ? 2 : 1
+			C.update_underfloor_from_turf()
 			C.atmos_init()
 			C.build_network()
 			if (C.node)
@@ -775,7 +784,8 @@
 			M.initialize_directions = pipe_dir
 			//M.New()
 			var/turf/T = M.loc
-			M.level = !T.is_plating() ? 2 : 1
+			M.level = T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE ? 2 : 1
+			M.update_underfloor_from_turf()
 			M.atmos_init()
 			if (QDELETED(M))
 				to_chat(usr, pipefailtext)
@@ -798,7 +808,8 @@
 			M.initialize_directions = pipe_dir
 			//M.New()
 			var/turf/T = M.loc
-			M.level = !T.is_plating() ? 2 : 1
+			M.level = T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE ? 2 : 1
+			M.update_underfloor_from_turf()
 			M.atmos_init()
 			if (!M)
 				to_chat(usr, "There's nothing to connect this manifold to! (with how the pipe code works, at least one end needs to be connected to something, otherwise the game deletes the segment)")
@@ -821,7 +832,8 @@
 			M.initialize_directions = pipe_dir
 			//M.New()
 			var/turf/T = M.loc
-			M.level = !T.is_plating() ? 2 : 1
+			M.level = T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE ? 2 : 1
+			M.update_underfloor_from_turf()
 			M.atmos_init()
 			if (!M)
 				to_chat(usr, "There's nothing to connect this manifold to! (with how the pipe code works, at least one end needs to be connected to something, otherwise the game deletes the segment)")
@@ -844,7 +856,8 @@
 			M.initialize_directions = pipe_dir
 			//M.New()
 			var/turf/T = M.loc
-			M.level = !T.is_plating() ? 2 : 1
+			M.level = T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE ? 2 : 1
+			M.update_underfloor_from_turf()
 			M.atmos_init()
 			if (!M)
 				to_chat(usr, "There's nothing to connect this manifold to! (with how the pipe code works, at least one end needs to be connected to something, otherwise the game deletes the segment)")
@@ -867,7 +880,8 @@
 			M.initialize_directions = pipe_dir
 			//M.New()
 			var/turf/T = M.loc
-			M.level = !T.is_plating() ? 2 : 1
+			M.level = T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE ? 2 : 1
+			M.update_underfloor_from_turf()
 			M.atmos_init()
 			if (!M)
 				to_chat(usr, "There's nothing to connect this manifold to! (with how the pipe code works, at least one end needs to be connected to something, otherwise the game deletes the segment)")
@@ -890,7 +904,8 @@
 			M.initialize_directions = pipe_dir
 			//M.New()
 			var/turf/T = M.loc
-			M.level = !T.is_plating() ? 2 : 1
+			M.level = T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE ? 2 : 1
+			M.update_underfloor_from_turf()
 			M.atmos_init()
 			if (QDELETED(M))
 				to_chat(usr, pipefailtext)
@@ -917,7 +932,8 @@
 			M.connect_types = src.connect_types
 			//M.New()
 			var/turf/T = M.loc
-			M.level = !T.is_plating() ? 2 : 1
+			M.level = T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE ? 2 : 1
+			M.update_underfloor_from_turf()
 			M.atmos_init()
 			if (!M)
 				to_chat(usr, "There's nothing to connect this manifold to! (with how the pipe code works, at least one end needs to be connected to something, otherwise the game deletes the segment)")
@@ -944,7 +960,8 @@
 			M.connect_types = src.connect_types
 			//M.New()
 			var/turf/T = M.loc
-			M.level = !T.is_plating() ? 2 : 1
+			M.level = T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE ? 2 : 1
+			M.update_underfloor_from_turf()
 			M.atmos_init()
 			if (!M)
 				to_chat(usr, "There's nothing to connect this manifold to! (with how the pipe code works, at least one end needs to be connected to something, otherwise the game deletes the segment)")
@@ -971,7 +988,8 @@
 			M.connect_types = src.connect_types
 			//M.New()
 			var/turf/T = M.loc
-			M.level = !T.is_plating() ? 2 : 1
+			M.level = T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE ? 2 : 1
+			M.update_underfloor_from_turf()
 			M.atmos_init()
 			if (!M)
 				to_chat(usr, "There's nothing to connect this manifold to! (with how the pipe code works, at least one end needs to be connected to something, otherwise the game deletes the segment)")
@@ -998,7 +1016,8 @@
 			M.connect_types = src.connect_types
 			//M.New()
 			var/turf/T = M.loc
-			M.level = !T.is_plating() ? 2 : 1
+			M.level = T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE ? 2 : 1
+			M.update_underfloor_from_turf()
 			M.atmos_init()
 			if (!M)
 				to_chat(usr, "There's nothing to connect this manifold to! (with how the pipe code works, at least one end needs to be connected to something, otherwise the game deletes the segment)")
@@ -1041,7 +1060,8 @@
 			if (pipename)
 				V.name = pipename
 			var/turf/T = V.loc
-			V.level = !T.is_plating() ? 2 : 1
+			V.level = T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE ? 2 : 1
+			V.update_underfloor_from_turf()
 			V.atmos_init()
 			V.build_network()
 			if (V.node)
@@ -1055,7 +1075,8 @@
 			if (pipename)
 				V.name = pipename
 			var/turf/T = V.loc
-			V.level = !T.is_plating() ? 2 : 1
+			V.level = T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE ? 2 : 1
+			V.update_underfloor_from_turf()
 			V.atmos_init()
 			V.build_network()
 			if (V.node)
@@ -1069,7 +1090,8 @@
 			if (pipename)
 				V.name = pipename
 			var/turf/T = V.loc
-			V.level = !T.is_plating() ? 2 : 1
+			V.level = T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE ? 2 : 1
+			V.update_underfloor_from_turf()
 			V.atmos_init()
 			V.build_network()
 			if (V.node1)
@@ -1086,7 +1108,8 @@
 			if(pipename)
 				V.name = pipename
 			var/turf/T = V.loc
-			V.level = !T.is_plating() ? 2 : 1
+			V.level = T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE ? 2 : 1
+			V.update_underfloor_from_turf()
 			V.build_network()
 			V.atmos_init()
 			if (V.node1)
@@ -1100,7 +1123,8 @@
 			if (pipename)
 				P.name = pipename
 			var/turf/T = P.loc
-			P.level = !T.is_plating() ? 2 : 1
+			P.level = T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE ? 2 : 1
+			P.update_underfloor_from_turf()
 			P.atmos_init()
 			P.build_network()
 			if (P.node1)
@@ -1117,7 +1141,8 @@
 			if (pipename)
 				P.name = pipename
 			var/turf/T = P.loc
-			P.level = !T.is_plating() ? 2 : 1
+			P.level = T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE ? 2 : 1
+			P.update_underfloor_from_turf()
 			P.atmos_init()
 			P.build_network()
 			if (P.node1)
@@ -1134,7 +1159,8 @@
 			if (pipename)
 				P.name = pipename
 			var/turf/T = P.loc
-			P.level = !T.is_plating() ? 2 : 1
+			P.level = T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE ? 2 : 1
+			P.update_underfloor_from_turf()
 			P.atmos_init()
 			P.build_network()
 			if (P.node1)
@@ -1151,7 +1177,8 @@
 			if (pipename)
 				S.name = pipename
 			var/turf/T = S.loc
-			S.level = !T.is_plating() ? 2 : 1
+			S.level = T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE ? 2 : 1
+			S.update_underfloor_from_turf()
 			S.atmos_init()
 			S.build_network()
 			if (S.node)
@@ -1165,7 +1192,8 @@
 			if (pipename)
 				V.name = pipename
 			var/turf/T = V.loc
-			V.level = !T.is_plating() ? 2 : 1
+			V.level = T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE ? 2 : 1
+			V.update_underfloor_from_turf()
 			V.atmos_init()
 			V.build_network()
 			if (V.node1)
@@ -1185,7 +1213,8 @@
 			if (pipename)
 				V.name = pipename
 			var/turf/T = V.loc
-			V.level = !T.is_plating() ? 2 : 1
+			V.level = T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE ? 2 : 1
+			V.update_underfloor_from_turf()
 			V.atmos_init()
 			V.build_network()
 			if (V.node1)
@@ -1255,7 +1284,8 @@
 			if (pipename)
 				P.name = pipename
 			var/turf/T = P.loc
-			P.level = !T.is_plating() ? 2 : 1
+			P.level = T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE ? 2 : 1
+			P.update_underfloor_from_turf()
 			P.atmos_init()
 			P.build_network()
 			if (P.node1)
@@ -1272,7 +1302,8 @@
 			if (pipename)
 				P.name = pipename
 			var/turf/T = P.loc
-			P.level = !T.is_plating() ? 2 : 1
+			P.level = T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE ? 2 : 1
+			P.update_underfloor_from_turf()
 			P.atmos_init()
 			P.build_network()
 			if (P.node1)
@@ -1289,7 +1320,8 @@
 			if (pipename)
 				P.name = pipename
 			var/turf/T = P.loc
-			P.level = !T.is_plating() ? 2 : 1
+			P.level = T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE ? 2 : 1
+			P.update_underfloor_from_turf()
 			P.atmos_init()
 			P.build_network()
 			if (P.node1)
@@ -1306,7 +1338,8 @@
 			if (pipename)
 				P.name = pipename
 			var/turf/T = P.loc
-			P.level = !T.is_plating() ? 2 : 1
+			P.level = T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE ? 2 : 1
+			P.update_underfloor_from_turf()
 			P.atmos_init()
 			P.build_network()
 			if (P.node1)
@@ -1323,7 +1356,8 @@
 			if (pipename)
 				P.name = pipename
 			var/turf/T = P.loc
-			P.level = !T.is_plating() ? 2 : 1
+			P.level = T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE ? 2 : 1
+			P.update_underfloor_from_turf()
 			P.atmos_init()
 			P.build_network()
 			if (P.node1)
@@ -1340,7 +1374,8 @@
 			if (pipename)
 				P.name = pipename
 			var/turf/T = P.loc
-			P.level = !T.is_plating() ? 2 : 1
+			P.level = T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE ? 2 : 1
+			P.update_underfloor_from_turf()
 			P.atmos_init()
 			P.build_network()
 			if (P.node1)
@@ -1357,7 +1392,8 @@
 			if (pipename)
 				C.name = pipename
 			var/turf/T = C.loc
-			C.level = !T.is_plating() ? 2 : 1
+			C.level = T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE ? 2 : 1
+			C.update_underfloor_from_turf()
 			C.atmos_init()
 			C.build_network()
 			if (C.node)
@@ -1371,7 +1407,8 @@
 			if (pipename)
 				P.name = pipename
 			var/turf/T = P.loc
-			P.level = !T.is_plating() ? 2 : 1
+			P.level = T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE ? 2 : 1
+			P.update_underfloor_from_turf()
 			P.atmos_init()
 			P.build_network()
 			if (P.node1)
@@ -1387,7 +1424,8 @@
 			if (pipename)
 				P.name = pipename
 			var/turf/T = P.loc
-			P.level = !T.is_plating() ? 2 : 1
+			P.level = T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE ? 2 : 1
+			P.update_underfloor_from_turf()
 			P.atmos_init()
 			P.build_network()
 			if (P.node1)
@@ -1403,7 +1441,8 @@
 			if (pipename)
 				P.name = pipename
 			var/turf/T = P.loc
-			P.level = !T.is_plating() ? 2 : 1
+			P.level = T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE ? 2 : 1
+			P.update_underfloor_from_turf()
 			P.atmos_init()
 			P.build_network()
 			if (P.node1)
@@ -1419,7 +1458,8 @@
 			if (pipename)
 				P.name = pipename
 			var/turf/T = P.loc
-			P.level = !T.is_plating() ? 2 : 1
+			P.level = T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE ? 2 : 1
+			P.update_underfloor_from_turf()
 			P.atmos_init()
 			P.build_network()
 			if (P.node1)
@@ -1435,7 +1475,8 @@
 			if (pipename)
 				P.name = pipename
 			var/turf/T = P.loc
-			P.level = !T.is_plating() ? 2 : 1
+			P.level = T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE ? 2 : 1
+			P.update_underfloor_from_turf()
 			P.atmos_init()
 			P.build_network()
 			if (P.node1)
@@ -1451,7 +1492,8 @@
 			if (pipename)
 				P.name = pipename
 			var/turf/T = P.loc
-			P.level = !T.is_plating() ? 2 : 1
+			P.level = T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE ? 2 : 1
+			P.update_underfloor_from_turf()
 			P.atmos_init()
 			P.build_network()
 			if (P.node1)
@@ -1467,7 +1509,8 @@
 			if (pipename)
 				P.name = pipename
 			var/turf/T = P.loc
-			P.level = !T.is_plating() ? 2 : 1
+			P.level = T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE ? 2 : 1
+			P.update_underfloor_from_turf()
 			P.atmos_init()
 			P.build_network()
 			if (P.node1)
@@ -1483,7 +1526,8 @@
 			if (pipename)
 				P.name = pipename
 			var/turf/T = P.loc
-			P.level = !T.is_plating() ? 2 : 1
+			P.level = T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE ? 2 : 1
+			P.update_underfloor_from_turf()
 			P.atmos_init()
 			P.build_network()
 			if (P.node1)
@@ -1499,7 +1543,8 @@
 			if (pipename)
 				P.name = pipename
 			var/turf/T = P.loc
-			P.level = !T.is_plating() ? 2 : 1
+			P.level = T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE ? 2 : 1
+			P.update_underfloor_from_turf()
 			P.atmos_init()
 			P.build_network()
 			if (P.node1)
@@ -1515,7 +1560,8 @@
 			if (pipename)
 				P.name = pipename
 			var/turf/T = P.loc
-			P.level = !T.is_plating() ? 2 : 1
+			P.level = T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE ? 2 : 1
+			P.update_underfloor_from_turf()
 			P.atmos_init()
 			P.build_network()
 			if (P.node1)
@@ -1528,13 +1574,15 @@
 		if(PIPE_OMNI_MIXER)
 			var/obj/structure/machinery/atmospherics/omni/mixer/P = new(loc)
 			var/turf/T = P.loc
-			P.level = !T.is_plating() ? 2 : 1
+			P.level = T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE ? 2 : 1
+			P.update_underfloor_from_turf()
 			P.atmos_init()
 			P.build_network()
 		if(PIPE_OMNI_FILTER)
 			var/obj/structure/machinery/atmospherics/omni/filter/P = new(loc)
 			var/turf/T = P.loc
-			P.level = !T.is_plating() ? 2 : 1
+			P.level = T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE ? 2 : 1
+			P.update_underfloor_from_turf()
 			P.atmos_init()
 			P.build_network()
 

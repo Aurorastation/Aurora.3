@@ -216,7 +216,7 @@ SUBSYSTEM_DEF(explosives)
 				var/atom/movable/AM = atom_movable
 				if(!QDELETED(AM) && AM.simulated)
 					var/obj/O = AM
-					if(istype(O) && O.hides_under_flooring() && !T.is_plating())
+					if(istype(O) && O.uses_undertile() && T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE)
 						continue
 					AM.ex_act(dist)
 
@@ -393,7 +393,7 @@ SUBSYSTEM_DEF(explosives)
 				var/atom/movable/AM = subthing
 				if (AM.simulated)
 					var/obj/O = AM
-					if(istype(O) && O.hides_under_flooring() && !T.is_plating())
+					if(istype(O) && O.uses_undertile() && T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE)
 						continue
 					AM.ex_act(severity)
 					movable_tally++

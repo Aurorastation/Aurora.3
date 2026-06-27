@@ -196,23 +196,23 @@
 
 	if(inputting == (1 || 2))
 		oc = overlay_image(icon, "[icon_state]-oc[inputting]")
-		oc_emis = emissive_appearance(icon, "[icon_state]-oc[inputting]")
+		oc_emis = emissive_appearance(icon, "[icon_state]-oc[inputting]", src)
 	else if (input_attempt)
 		oc = overlay_image(icon, "[icon_state]-oc0")
-		oc_emis = emissive_appearance(icon, "[icon_state]-oc0")
+		oc_emis = emissive_appearance(icon, "[icon_state]-oc0", src)
 
 
 	var/clevel = chargedisplay()
 	if(clevel)
 		og = overlay_image(icon, "[icon_state]-og[clevel]")
-		og_emis = emissive_appearance(icon, "[icon_state]-og[clevel]")
+		og_emis = emissive_appearance(icon, "[icon_state]-og[clevel]", src)
 
 	if(outputting == 2 || 1)
 		op = overlay_image(icon, "[icon_state]-op[outputting]")
-		op_emis = emissive_appearance(icon, "[icon_state]-op[outputting]")
+		op_emis = emissive_appearance(icon, "[icon_state]-op[outputting]", src)
 	else
 		op = overlay_image(icon, "[icon_state]-op0")
-		op_emis = emissive_appearance(icon, "[icon_state]-op0")
+		op_emis = emissive_appearance(icon, "[icon_state]-op0", src)
 
 	AddOverlays(list(
 		oc,
@@ -342,7 +342,7 @@
 		to_chat(user, SPAN_WARNING("You can't build a terminal on space."))
 		return 1
 	else if (istype(tempLoc))
-		if(!tempLoc.is_plating())
+		if(tempLoc.underfloor_accessibility < UNDERFLOOR_INTERACTABLE)
 			to_chat(user, SPAN_WARNING("You must remove the floor plating first."))
 			return 1
 	to_chat(user, SPAN_NOTICE("You start adding cable to the [src]."))
@@ -410,7 +410,7 @@
 		building_terminal = 1
 		var/turf/tempTDir = terminal.loc
 		if (istype(tempTDir))
-			if(!tempTDir.is_plating())
+			if(tempTDir.underfloor_accessibility < UNDERFLOOR_INTERACTABLE)
 				to_chat(user, SPAN_WARNING("You must remove the floor plating first."))
 			else
 				to_chat(user, SPAN_NOTICE("You begin to cut the cables..."))

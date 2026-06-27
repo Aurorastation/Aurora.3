@@ -103,6 +103,7 @@
 	// Padding overlay.
 	if(padding_material)
 		generate_overlay_cache(padding_material, CACHE_TYPE_PADDING, apply_painted_colour = TRUE)
+	update_emissive_block()
 
 /obj/structure/bed/proc/generate_overlay_cache(var/new_material, var/cache_type, var/cache_layer = layer, var/apply_painted_colour = FALSE) // Cache type refers to what cache we're making. Material type refers if we're taking from the padding or the chair material itself.
 	var/material/overlay_material = new_material
@@ -123,7 +124,7 @@
 			else if(overlay_material.icon_colour) // Either that, or just fall back on the regular material color.
 				I.color = overlay_material.icon_colour
 		furniture_cache[cache_key] = I
-	AddOverlays(furniture_cache[cache_key]) // Use image from cache key!
+	AddOverlaysWithEmissiveBlocker(furniture_cache[cache_key]) // Use image from cache key!
 
 /obj/structure/bed/proc/generate_strings(padding_update = FALSE)
 	if(material_alteration & MATERIAL_ALTERATION_NAME)
@@ -437,10 +438,10 @@
 			iv.AddOverlays(image(icon, "light_low"))
 		if(density)
 			iv.pixel_y = iv_pixel_offset_y
-		AddOverlays(iv)
+		AddOverlaysWithEmissiveBlocker(iv)
 		if(has_iv_light)
 			var/image/light = image(icon, "iv[iv_attached]_l")
-			AddOverlays(light)
+			AddOverlaysWithEmissiveBlocker(light)
 	if(vitals)
 		vitals.update_monitor()
 		add_vis_contents(vitals)
@@ -448,7 +449,8 @@
 		var/image/scan = image(icon, "holder_medscan")
 		if(!density)
 			scan.pixel_y = scan_pixel_offset_y
-		AddOverlays(scan)
+		AddOverlaysWithEmissiveBlocker(scan)
+	update_emissive_block()
 
 /obj/structure/bed/roller/feedback_hints(mob/user, distance, show_extended)
 	if(medscan && distance<=medscan_view_distance)

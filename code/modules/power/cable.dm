@@ -41,7 +41,8 @@ By design, d1 is the smallest direction and d2 is the highest
 	anchored = TRUE
 	maxhealth = null //why is this even a structure?
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
-	layer = EXPOSED_WIRE_LAYER
+	plane = FLOOR_PLANE
+	layer = WIRE_LAYER
 	color = COLOR_RED
 
 	var/datum/powernet/powernet
@@ -100,15 +101,16 @@ By design, d1 is the smallest direction and d2 is the highest
 /obj/structure/cable/Initialize(mapload)
 	. = ..()
 
-	var/turf/T = src.loc			// hide if turf is not intact
-	if(level == 1 && !T.is_hole)
-		hide(!T.is_plating())
+	var/turf/T = loc
+	AddElement(/datum/element/undertile, TRAIT_T_RAY_VISIBLE)
+	RegisterSignal(src, COMSIG_UNDERTILE_UPDATED, PROC_REF(on_undertile_updated))
+	update_underfloor_from_turf()
 
 	GLOB.cable_list += src
 
 	if(mapload)
 		var/image/I = image(icon, T, icon_state, dir, pixel_x, pixel_y)
-		I.plane = ABOVE_LIGHTING_PLANE
+		SET_PLANE_EXPLICIT(I, ABOVE_LIGHTING_PLANE, src)
 		I.alpha = 125
 		I.color = color
 		LAZYADD(T.blueprints, I)
@@ -123,14 +125,18 @@ By design, d1 is the smallest direction and d2 is the highest
 // General procedures
 ///////////////////////////////////
 
-//If underfloor, hide the cable
-/obj/structure/cable/hide(var/i)
-	if(istype(loc, /turf))
-		set_invisibility(i ? 101 : 0)
+/obj/structure/cable/proc/on_undertile_updated()
+	SIGNAL_HANDLER
 	update_icon()
 
-/obj/structure/cable/hides_under_flooring()
+/obj/structure/cable/uses_undertile()
 	return TRUE
+
+/obj/structure/cable/undertile_layer()
+	return WIRE_LAYER
+
+/obj/structure/cable/undertile_restored_layer()
+	return WIRE_LAYER
 
 /obj/structure/cable/update_icon()
 	icon_state = "[d1]-[d2]"
@@ -148,7 +154,7 @@ By design, d1 is the smallest direction and d2 is the highest
 /obj/structure/cable/attackby(obj/item/attacking_item, mob/user)
 
 	var/turf/T = src.loc
-	if(!T.can_have_cabling())
+	if(!T.can_have_cabling() || T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE)
 		return
 
 	if(attacking_item.tool_behaviour == TOOL_WIRECUTTER || (attacking_item.sharp || attacking_item.edge))
@@ -862,7 +868,7 @@ By design, d1 is the smallest direction and d2 is the highest
 
 	var/turf/T = C.loc
 
-	if(!isturf(T) || !T.can_have_cabling())		// sanity checks, also stop use interacting with T-scanner revealed cable
+	if(!isturf(T) || !T.can_have_cabling() || T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE)
 		return
 
 	if(get_dist(C, user) > 1)		// make sure it's close enough
@@ -878,7 +884,7 @@ By design, d1 is the smallest direction and d2 is the highest
 
 	// one end of the clicked cable is pointing towards us
 	if(C.d1 == dirn || C.d2 == dirn)
-		if(!T.can_have_cabling())						// can't place a cable if the floor is complete
+		if(!T.can_lay_cable())
 			to_chat(user, "You can't lay cable there unless the floor tiles are removed.")
 			return
 		else

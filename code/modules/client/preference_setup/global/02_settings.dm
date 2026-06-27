@@ -83,6 +83,7 @@
 		"<b>Item Outlines:</b> <a href='byond://?src=[REF(src)];paratoggle=[SEE_ITEM_OUTLINES]'><b>[(pref.toggles_secondary & SEE_ITEM_OUTLINES) ? "Visible" : "Hidden"]</b></a><br>",
 		"<b>Hide Item Tooltips:</b> <a href='byond://?src=[REF(src)];paratoggle=[HIDE_ITEM_TOOLTIPS]'><b>[(pref.toggles_secondary & HIDE_ITEM_TOOLTIPS) ? "Yes" : "No"]</b></a><br>",
 		"<b>Progress Bars:</b> <a href='byond://?src=[REF(src)];paratoggle=[PROGRESS_BARS]'><b>[(pref.toggles_secondary & PROGRESS_BARS) ? "Yes" : "No"]</b></a><br>",
+		"<b>Space Parallax:</b> <a href='byond://?src=[REF(src)];cycle_parallax=1'><b>[parallax_display_name()]</b></a><br>",
 		"<b>Floating Messages:</b> <a href='byond://?src=[REF(src)];paratoggle=[FLOATING_MESSAGES]'><b>[(pref.toggles_secondary & FLOATING_MESSAGES) ? "Yes" : "No"]</b></a><br>",
 		"<b>Hotkey Mode Default:</b> <a href='byond://?src=[REF(src)];paratoggle=[HOTKEY_DEFAULT]'><b>[(pref.toggles_secondary & HOTKEY_DEFAULT) ? "On" : "Off"]</b></a><br>"
 	)
@@ -107,7 +108,25 @@
 		pref.toggles_secondary ^= flag
 		return TOPIC_REFRESH
 
+	if(href_list["cycle_parallax"])
+		if(pref.toggles_secondary & PARALLAX_DISABLED)
+			pref.toggles_secondary &= ~PARALLAX_DISABLED
+			pref.toggles_secondary &= ~PARALLAX_IS_STATIC
+		else if(pref.toggles_secondary & PARALLAX_IS_STATIC)
+			pref.toggles_secondary |= PARALLAX_DISABLED
+		else
+			pref.toggles_secondary |= PARALLAX_IS_STATIC
+		preference_mob()?.hud_used?.update_parallax_pref()
+		return TOPIC_REFRESH
+
 	return ..()
+
+/datum/category_item/player_setup_item/player_global/settings/proc/parallax_display_name()
+	if(pref.toggles_secondary & PARALLAX_DISABLED)
+		return "Disabled"
+	if(pref.toggles_secondary & PARALLAX_IS_STATIC)
+		return "Static"
+	return "Animated"
 
 /datum/category_item/player_setup_item/player_global/settings/proc/validate_current_character()
 	if (!establish_db_connection(GLOB.dbcon))

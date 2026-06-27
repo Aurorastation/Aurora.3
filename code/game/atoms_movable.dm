@@ -74,10 +74,10 @@
 	/// Either [EMISSIVE_BLOCK_NONE], [EMISSIVE_BLOCK_GENERIC], or [EMISSIVE_BLOCK_UNIQUE]
 	var/blocks_emissive = EMISSIVE_BLOCK_NONE
 	///Internal holder for emissive blocker object, DO NOT USE DIRECTLY. Use blocks_emissive
-	var/mutable_appearance/em_block
+	var/atom/movable/render_step/emissive_blocker/em_block
 
 	///Lazylist to keep track on the sources of illumination.
-	var/list/affected_movable_lights
+	var/list/affected_dynamic_lights
 	///Highest-intensity light affecting us, which determines our visibility.
 	var/affecting_dynamic_lumi = 0
 
@@ -105,27 +105,55 @@
 	var/tmp/airflow_process_delay
 	var/tmp/airflow_skip_speedcheck
 
-	/// The mimic (if any) that's *directly* copying us.
-	var/tmp/atom/movable/openspace/mimic/bound_overlay
-	/// If TRUE, this atom is ignored by Z-Mimic.
-	var/z_flags
-
 	var/atmos_canpass = CANPASS_ALWAYS
 
 /atom/movable/Initialize(mapload, ...)
 	. = ..()
-	update_emissive_blocker()
+	update_emissive_block()
+	update_plane_from_z()
 
 	if(opacity)
 		AddElement(/datum/element/light_blocking)
-	if(light_system == MOVABLE_LIGHT)
-		AddComponent(/datum/component/overlay_lighting)
-	if(light_system == DIRECTIONAL_LIGHT)
-		AddComponent(/datum/component/overlay_lighting, is_directional = TRUE)
+	switch(light_system)
+		if(OVERLAY_LIGHT)
+			AddComponent(/datum/component/overlay_lighting)
+		if(OVERLAY_LIGHT_DIRECTIONAL)
+			AddComponent(/datum/component/overlay_lighting, is_directional = TRUE)
+		if(OVERLAY_LIGHT_BEAM)
+			AddComponent(/datum/component/overlay_lighting, is_directional = TRUE, is_beam = TRUE)
+
+/// Atoms, on init, need to understand what z-level they're on and therefore what plane to live on (or appear to live on).
+/atom/movable/proc/update_plane_from_z()
+	var/true_plane = PLANE_TO_TRUE(plane)
+	if(!isnull(true_plane))
+		SET_PLANE_EXPLICIT(src, true_plane, src)
+
+/atom/movable/proc/update_underfloor_from_turf()
+	var/turf/turf = get_turf(src)
+	if(turf)
+		SEND_SIGNAL(src, COMSIG_OBJ_HIDE, turf.underfloor_accessibility)
+
+/atom/movable/proc/undertile_layer()
+	return BELOW_CATWALK_LAYER
+
+/atom/movable/proc/undertile_restored_plane()
+	return initial(plane)
+
+/atom/movable/proc/undertile_restored_layer()
+	return initial(layer)
+
+/atom/movable/reset_plane_and_layer()
+	. = ..()
+	update_plane_from_z()
+	return .
 
 /atom/movable/Destroy(force)
-	orbiting?.end_orbit(src)
-	QDEL_NULL(emissive_overlay)
+	if(orbiting)
+		orbiting.end_orbit(src)
+
+	if(emissive_overlay != em_block)
+		QDEL_NULL(emissive_overlay)
+
 	particles = null
 
 	if(move_packet)
@@ -163,7 +191,6 @@
 			M.pulling = null
 		pulledby = null
 
-	QDEL_NULL(bound_overlay)
 	QDEL_NULL(em_block)
 	airflow_dest = null
 	loc = null
@@ -401,33 +428,33 @@
 		turfs -= get_turf(src)
 	src.throw_at(pick(turfs), maxrange, speed)
 
-/atom/movable/proc/update_emissive_blocker()
+/atom/movable/proc/update_emissive_block()
 	if(emissive_overlay)
 		CutOverlays(emissive_overlay)
 
-	switch(blocks_emissive)
-		if(EMISSIVE_BLOCK_GENERIC)
-			var/mutable_appearance/gen_emissive_blocker = mutable_appearance(icon, icon_state, plane = EMISSIVE_PLANE, alpha = src.alpha)
-			gen_emissive_blocker.color = GLOB.em_block_color
-			gen_emissive_blocker.dir = dir
-			gen_emissive_blocker.appearance_flags |= appearance_flags
-			emissive_overlay = gen_emissive_blocker
-			AddOverlays(emissive_overlay)
+	emissive_overlay = null
 
+	switch(blocks_emissive)
+		if(EMISSIVE_BLOCK_NONE)
+			return
 		if(EMISSIVE_BLOCK_UNIQUE)
-			render_target = REF(src)
-			em_block = new(src, render_target)
+			if(em_block)
+				SET_PLANE(em_block, EMISSIVE_PLANE, src)
+			else if(!QDELETED(src))
+				if(!render_target)
+					render_target = REF(src)
+				em_block = new(null, src)
 			emissive_overlay = em_block
-			AddOverlays(emissive_overlay)
+		if(EMISSIVE_BLOCK_GENERIC)
+			emissive_overlay = fast_emissive_blocker(src)
+
+	if(emissive_overlay)
+		AddOverlays(emissive_overlay)
+	return emissive_overlay
 
 /atom/movable/update_icon()
 	..()
-	UPDATE_OO_IF_PRESENT
-	if (em_block)
-		CutOverlays(em_block)
-	update_emissive_blocker()
-	if (em_block)
-		AddOverlays(em_block)
+	update_emissive_block()
 
 //Overlays
 /atom/movable/overlay
@@ -545,16 +572,6 @@
 	loc.Entered(src, oldloc)
 	Moved(oldloc, get_dir(oldloc, destination), TRUE)
 
-	//Zmimic
-	if(bound_overlay)
-		// The overlay will handle cleaning itself up on non-openspace turfs.
-		if (isturf(destination))
-			bound_overlay.forceMove(get_step(src, UP))
-			if (dir != bound_overlay.dir)
-				bound_overlay.set_dir(dir)
-		else	// Not a turf, so we need to destroy immediately instead of waiting for the destruction timer to proc.
-			qdel(bound_overlay)
-
 	if(opacity)
 		updateVisibility(src)
 
@@ -575,12 +592,15 @@
 
 	SEND_SIGNAL(src, COMSIG_MOVABLE_MOVED, old_loc, forced)
 
+	var/turf/old_turf = get_turf(old_loc)
+	var/turf/new_turf = get_turf(src)
+	if(old_turf?.z != new_turf?.z)
+		var/same_z_layer = (GET_TURF_PLANE_OFFSET(old_turf) == GET_TURF_PLANE_OFFSET(new_turf))
+		on_changed_z_level(old_turf, new_turf, same_z_layer)
+
 	/* START Spatial grid stuffs */
 	if(!HAS_SPATIAL_GRID_CONTENTS(src) || !SSspatial_grid.initialized)
 		return
-
-	var/turf/old_turf = get_turf(old_loc)
-	var/turf/new_turf = get_turf(src)
 
 	if(old_turf && new_turf && (old_turf.z != new_turf.z \
 		|| ROUND_UP(old_turf.x / SPATIAL_GRID_CELLSIZE) != ROUND_UP(new_turf.x / SPATIAL_GRID_CELLSIZE) \
@@ -596,20 +616,28 @@
 		SSspatial_grid.enter_cell(src, new_turf)
 	/* END Spatial grid stuffs */
 
-	for(var/datum/dynamic_light_source/light as anything in hybrid_light_sources)
-		if(!light) // datum was deleted but list entry not yet pruned
-			LAZYREMOVE(hybrid_light_sources, light)
-			continue
-		if(!light.source_atom)
-			continue
-		light.source_atom.update_light()
-		if(!isturf(loc))
-			light.find_containing_atom()
-	for(var/datum/static_light_source/L as anything in static_light_sources) // Cycle through the light sources on this atom and tell them to update.
-		if(!L) // datum was deleted but list entry not yet pruned
-			LAZYREMOVE(static_light_sources, L)
-			continue
-		L.source_atom?.static_update_light()
+/atom/movable/proc/on_changed_z_level(turf/old_turf, turf/new_turf, same_z_layer, notify_contents = TRUE)
+	SHOULD_CALL_PARENT(TRUE)
+
+	if(!same_z_layer && !QDELETED(src))
+		SET_PLANE(src, PLANE_TO_TRUE(src.plane), new_turf)
+		update_icon()
+
+		if(update_on_z)
+			for(var/image/update as anything in update_on_z)
+				SET_PLANE(update, PLANE_TO_TRUE(update.plane), new_turf)
+
+		if(update_overlays_on_z)
+			CutOverlays(update_overlays_on_z)
+			for(var/mutable_appearance/update as anything in update_overlays_on_z)
+				SET_PLANE(update, PLANE_TO_TRUE(update.plane), new_turf)
+			AddOverlays(update_overlays_on_z)
+
+	if(notify_contents)
+		for(var/atom/movable/content as anything in src)
+			content.on_changed_z_level(old_turf, new_turf, same_z_layer)
+
+	SEND_SIGNAL(src, COMSIG_MOVABLE_Z_CHANGED, old_turf, new_turf, same_z_layer)
 
 /atom/movable/Exited(atom/movable/gone, direction)
 	. = ..()
@@ -1158,21 +1186,8 @@
 	if(oldarea != newarea)
 		newarea.Entered(src, oldarea)
 
-	// Openturf.
-	if(bound_overlay)
-		// The overlay will handle cleaning itself up on non-openspace turfs.
-		bound_overlay.forceMove(get_step(src, UP))
-		if(bound_overlay.dir != dir)
-			bound_overlay.set_dir(dir)
-
 	if(opacity)
 		updateVisibility(src)
-
-	//Mimics
-	if(bound_overlay)
-		bound_overlay.forceMove(get_step(src, UP))
-		if(bound_overlay.dir != dir)
-			bound_overlay.set_dir(dir)
 
 	src.move_speed = world.time - src.l_move_time
 	src.l_move_time = world.time
@@ -1263,10 +1278,10 @@
 ///Keeps track of the sources of dynamic luminosity and updates our visibility with the highest.
 /atom/movable/proc/update_dynamic_luminosity()
 	var/highest = 0
-	for(var/i in affected_movable_lights)
-		if(affected_movable_lights[i] <= highest)
+	for(var/i in affected_dynamic_lights)
+		if(affected_dynamic_lights[i] <= highest)
 			continue
-		highest = affected_movable_lights[i]
+		highest = affected_dynamic_lights[i]
 	if(highest == affecting_dynamic_lumi)
 		return
 	luminosity -= affecting_dynamic_lumi
@@ -1274,7 +1289,7 @@
 	luminosity += affecting_dynamic_lumi
 
 
-///Helper to change several lighting overlay settings.
+///Helper to change several lighting overlay settings. This needs to be replaced EVERYWHERE with /atom/proc/set_light().
 /atom/movable/proc/set_light_range_power_color(range, power, color)
 	set_light_range(range)
 	set_light_power(power)
@@ -1292,4 +1307,3 @@
 		return
 	SEND_SIGNAL(src, COMSIG_MOVABLE_UPDATE_GLIDE_SIZE, target)
 	glide_size = target
-

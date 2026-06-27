@@ -59,6 +59,11 @@
 	QDEL_NULL(mattress_on)
 	return ..()
 
+/obj/structure/machinery/stasis_bed/on_changed_z_level(turf/old_turf, turf/new_turf, same_z_layer, notify_contents = TRUE)
+	. = ..()
+	if(!same_z_layer && mattress_on)
+		SET_PLANE_EXPLICIT(mattress_on, PLANE_TO_TRUE(mattress_on.plane), src)
+
 /obj/structure/machinery/stasis_bed/attackby(obj/item/attacking_item, mob/user)
 	if(default_part_replacement(user, attacking_item))
 		return TRUE
@@ -137,7 +142,7 @@
 		mattress_on.icon = icon
 		mattress_on.icon_state = mattress_state
 		mattress_on.layer = layer
-		mattress_on.plane = plane
+		SET_PLANE_EXPLICIT(mattress_on, PLANE_TO_TRUE(plane), src)
 		mattress_on.dir = dir
 		mattress_on.alpha = 0
 

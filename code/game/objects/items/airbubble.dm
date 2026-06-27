@@ -121,7 +121,7 @@
 	for(var/mob/M in src)
 		M.forceMove(loc)
 		if(M.client)
-			M.client.eye = M.client.mob
+			M.client.set_eye(M.client.mob)
 			M.client.perspective = MOB_PERSPECTIVE
 
 /obj/structure/closet/airbubble/Initialize()

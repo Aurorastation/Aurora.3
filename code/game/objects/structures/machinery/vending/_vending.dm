@@ -41,7 +41,7 @@
 	if(istype(A, /obj/item/seeds))
 		// thanks seeds for being overlays defined at runtime
 		var/obj/item/seeds/S = A
-		product_icon = S.update_appearance(TRUE)
+		product_icon = S.update_seed_appearance(TRUE)
 	else
 		product_icon = new /icon(A.icon, A.icon_state)
 
@@ -256,9 +256,14 @@
 	if(src.vend_reply)
 		src.reply_list += text2list(src.vend_reply, ";")
 
-	icon_vend = "[initial(icon_state)]-vend"
-	icon_broken = "[initial(icon_state)]-broken"
-	icon_off = "[initial(icon_state)]-off"
+	if(!icon_vend)
+		icon_vend = "[initial(icon_state)]-vend"
+	if(!icon_broken)
+		icon_broken = "[initial(icon_state)]-broken"
+	if(!icon_off)
+		icon_off = "[initial(icon_state)]-off"
+	if(!light_mask)
+		light_mask = "[initial(icon_state)]-lightmask"
 
 	reset_light()
 	build_products()
@@ -293,7 +298,7 @@
 	if(stat & BROKEN || stat & NOPOWER)
 		return
 	if(src.light_mask)
-		var/image/E = emissive_appearance(icon, light_mask)
+		var/image/E = emissive_appearance(icon, light_mask, src)
 		AddOverlays(E)
 	if(src.icon_screen)
 		var/image/I = image(icon, icon_screen)

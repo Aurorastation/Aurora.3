@@ -88,6 +88,9 @@ I IS TYPIN'!'
 /atom/movable/typing_indicator
 	icon = 'icons/mob/talk.dmi'
 	icon_state = "default"
+	layer = TYPING_LAYER
+	plane = ABOVE_GAME_PLANE
+	appearance_flags = APPEARANCE_UI_IGNORE_ALPHA
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	vis_flags = VIS_INHERIT_ID
 	var/shown = FALSE
@@ -99,6 +102,7 @@ I IS TYPIN'!'
 	if(!ismovable(master))
 		stack_trace("Typing indicator initialized with [isnull(master) ? "null" : master] as master.")
 		return INITIALIZE_HINT_QDEL
+	sync_to_master()
 	if(ismob(master))
 		var/mob/mob = master
 		mob.adjust_typing_indicator_offsets(src)
@@ -125,7 +129,16 @@ I IS TYPIN'!'
 		owner.remove_vis_contents(src)
 	shown = FALSE
 
+/atom/movable/typing_indicator/proc/sync_to_master()
+	if(!ismovable(master))
+		return FALSE
+	SET_PLANE_EXPLICIT(src, ABOVE_GAME_PLANE, master)
+	return TRUE
+
 /atom/movable/typing_indicator/proc/show_typing_indicator(var/thinking = FALSE)
+	if(!sync_to_master())
+		return FALSE
+
 	// Make it visible after being hidden.
 	set_invisibility(master.invisibility)
 

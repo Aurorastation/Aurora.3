@@ -32,7 +32,7 @@
 	attack_vis_effect = ATTACK_EFFECT_BITE
 	attack_sound = 'sound/weapons/bloodyslice.ogg'
 
-	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
+	lighting_cutoff = LIGHTING_CUTOFF_AURORA_SOMEWHAT_INVISIBLE
 
 	faction = "Moghes"
 	butchering_products = list(/obj/item/stack/material/animalhide/lizard = 20)

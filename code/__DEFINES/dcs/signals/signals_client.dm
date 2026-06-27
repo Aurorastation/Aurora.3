@@ -3,3 +3,12 @@
 
 /// Called when something is removed from a client's screen : /client/proc/remove_from_screen(screen_remove)
 #define COMSIG_CLIENT_SCREEN_REMOVE "client_screen_remove"
+
+/// Called when a client's view size changes : /client/proc/change_view(new_size)
+#define COMSIG_VIEW_SET "view_set"
+
+/// Called when a client's eye changes : /client/proc/set_eye(atom/new_eye)
+#define COMSIG_CLIENT_SET_EYE "client_set_eye"
+
+/// Called when a popup map window is cleared : (window_id)
+#define COMSIG_POPUP_CLEARED "popup_cleared"

@@ -16,7 +16,7 @@
 	A = istype(A) ? A : locate(A)
 	if(!A)
 		return
-	for(var/turf/T in A.contents)
+	for(var/turf/T as anything in A.get_turfs_from_all_zlevels())
 		if(!predicates || all_predicates_true(list(T), predicates))
 			. += T
 

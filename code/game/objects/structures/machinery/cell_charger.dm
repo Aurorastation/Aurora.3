@@ -50,7 +50,9 @@
 
 	update_charge_level()
 	AddOverlays("cell-o2")
+	AddOverlays(emissive_appearance(icon, "cell-o2", src))
 	AddOverlays("[icon_state]-o[charge_level]")
+	AddOverlays(emissive_appearance(icon, "[icon_state]-o[charge_level]", src))
 
 /obj/structure/machinery/cell_charger/attackby(obj/item/attacking_item, mob/user)
 	if(stat & BROKEN)

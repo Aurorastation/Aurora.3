@@ -43,7 +43,7 @@
 	max_damage = 50
 	power_use = 50000
 	vision_flags = SEE_MOBS
-	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
+	lighting_cutoff = LIGHTING_CUTOFF_AURORA_SOMEWHAT_INVISIBLE
 
 /obj/item/mech_component/sensors/pra_egg/prebuild()
 	..()

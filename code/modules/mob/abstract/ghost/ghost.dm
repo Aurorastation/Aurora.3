@@ -14,7 +14,7 @@
 
 /mob/abstract/ghost/Initialize(mapload)
 	. = ..()
-	sight |= SEE_TURFS | SEE_MOBS | SEE_OBJS | SEE_SELF
+	add_sight(SEE_TURFS | SEE_MOBS | SEE_OBJS | SEE_SELF)
 	see_invisible = SEE_INVISIBLE_OBSERVER
 	add_verb(src, /mob/abstract/ghost/proc/dead_tele)
 	ghost_multitool = new(src)
@@ -56,21 +56,21 @@
 	set category = "Ghost"
 
 	var/level_message
-	switch(lighting_alpha)
-		if(LIGHTING_PLANE_ALPHA_VISIBLE)
-			lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
+	switch(lighting_cutoff)
+		if(LIGHTING_CUTOFF_VISIBLE)
+			lighting_cutoff = LIGHTING_CUTOFF_AURORA_SOMEWHAT_INVISIBLE
 			level_message = "half night vision"
-		if(LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE)
-			lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE
+		if(LIGHTING_CUTOFF_AURORA_SOMEWHAT_INVISIBLE)
+			lighting_cutoff = LIGHTING_CUTOFF_AURORA_MOSTLY_INVISIBLE
 			level_message = "three quarters night vision"
-		if(LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE)
-			lighting_alpha = LIGHTING_PLANE_ALPHA_INVISIBLE
+		if(LIGHTING_CUTOFF_AURORA_MOSTLY_INVISIBLE)
+			lighting_cutoff = LIGHTING_CUTOFF_FULLBRIGHT
 			level_message = "full night vision"
-		if(LIGHTING_PLANE_ALPHA_INVISIBLE)
-			lighting_alpha = LIGHTING_PLANE_ALPHA_VISIBLE
+		if(LIGHTING_CUTOFF_FULLBRIGHT)
+			lighting_cutoff = LIGHTING_CUTOFF_VISIBLE
 			level_message = "no night vision"
 	to_chat(src, SPAN_NOTICE("Night vision mode switched and saved to [level_message]."))
-	sync_lighting_plane_alpha()
+	sync_lighting_plane_cutoff()
 
 /mob/abstract/ghost/verb/toggle_ghostsee()
 	set name = "Toggle Ghost Vision"

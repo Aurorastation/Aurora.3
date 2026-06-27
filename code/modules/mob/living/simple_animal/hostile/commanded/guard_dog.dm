@@ -132,7 +132,7 @@
 	minbodytemp = 0
 	attack_emote = "nashes at"
 	flying = TRUE
-	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
+	lighting_cutoff = LIGHTING_CUTOFF_AURORA_SOMEWHAT_INVISIBLE
 
 /mob/living/simple_animal/hostile/commanded/dog/pug
 	name = "pug"

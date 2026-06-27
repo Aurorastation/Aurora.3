@@ -4,6 +4,9 @@
 	icon = 'icons/turf/flooring/plating.dmi'
 	icon_state = "plating"
 	is_outside = OUTSIDE_AREA
+	plane = FLOOR_PLANE
+	layer = LOW_FLOOR_LAYER
+	underfloor_accessibility = UNDERFLOOR_INTERACTABLE
 
 	explosion_resistance = 1
 
@@ -65,6 +68,8 @@
 	if (!mapload)
 		make_plating(defer_icon_update = 1)
 	flooring = newflooring
+	if(flooring)
+		flooring.on_apply(src, mapload)
 	if (mapload)
 		queue_icon_update()
 	else
@@ -88,7 +93,7 @@
 	color = base_color
 
 	if(flooring)
-		flooring.on_remove()
+		flooring.on_remove(src)
 		if(flooring.build_type && place_product)
 			new flooring.build_type(src)
 		flooring = null
@@ -107,12 +112,18 @@
 		update_icon(1)
 
 /turf/simulated/floor/levelupdate()
-	for(var/obj/O in src)
-		O.hide(O.hides_under_flooring() && src.flooring)
+	..()
 	if(flooring)
-		layer = TURF_LAYER
+		layer = flooring.floor_layer
 	else
-		layer = PLATING_LAYER
+		layer = LOW_FLOOR_LAYER
+
+/turf/simulated/floor/get_cover_underfloor_accessibility()
+	var/cover_accessibility = ..()
+	if(!isnull(cover_accessibility))
+		return cover_accessibility
+	if(flooring && !isnull(flooring.underfloor_accessibility_override))
+		return flooring.underfloor_accessibility_override
 
 /turf/simulated/floor/is_floor()
 	return TRUE

@@ -128,6 +128,8 @@
 	if(slot == slot_back_str && attached_bag)
 		var/image/over = overlay_image(attached_bag.icon, "[attached_bag.icon_state]_[attached_icon]_ba", attached_bag.color)
 		I.AddOverlays(over)
+	if(slot == slot_back_str && blocks_emissive != EMISSIVE_BLOCK_NONE)
+		I.ReplacePlaneOverlayBlocker(H)
 	return I
 
 /obj/item/storage/backpack/AltClick(mob/user)
@@ -1052,6 +1054,8 @@
 	var/image/I = ..()
 	var/image/cape_backing = image(mob_icon, null, "[initial(icon_state)]_backing", MOB_SHADOW_LAYER)
 	I.AddOverlays(cape_backing)
+	if(slot == slot_back_str && blocks_emissive != EMISSIVE_BLOCK_NONE)
+		I.ReplacePlaneOverlayBlocker(human)
 	return I
 
 /obj/item/storage/backpack/cloak/sedantis

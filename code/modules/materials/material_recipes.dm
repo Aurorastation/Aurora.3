@@ -284,7 +284,21 @@
 		list(
 			new /datum/stack_recipe("marble floor tile", /obj/item/stack/tile/marble, 1, 4, 20),
 		))
+/*
+/material/glass/generate_recipes()
+	..()
+	recipes += new /datum/stack_recipe_list("[display_name] construction",
+		list(
+			new /datum/stack_recipe("glass floor tile", /obj/item/stack/tile/glass, 1, 4, 20),
+		))
 
+/material/glass/reinforced/generate_recipes()
+	..()
+	recipes += new /datum/stack_recipe_list("[display_name] construction",
+		list(
+			new /datum/stack_recipe("reinforced glass floor tile", /obj/item/stack/tile/glass/reinforced, 1, 4, 20),
+		))
+*/
 /material/leather/generate_recipes()
 	..()
 	recipes += new /datum/stack_recipe_list("[display_name] construction",

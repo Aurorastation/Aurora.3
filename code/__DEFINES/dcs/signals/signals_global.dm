@@ -10,3 +10,6 @@
 #define COMSIG_GLOB_ATOM_AFTER_POST_INIT "!atom_after_post_init"
 /// mob died somewhere : (mob/living, gibbed)
 #define COMSIG_GLOB_MOB_DEATH "!mob_death"
+
+/// Sent when global starlight color changes: (old_star, new_star)
+#define COMSIG_STARLIGHT_COLOR_CHANGED "!starlight_color_changed"

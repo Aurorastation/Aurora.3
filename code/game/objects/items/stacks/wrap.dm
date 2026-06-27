@@ -77,7 +77,7 @@
 
 			if(H.client)
 				H.client.perspective = EYE_PERSPECTIVE
-				H.client.eye = present
+				H.client.set_eye(present)
 
 			H.forceMove(present)
 

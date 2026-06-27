@@ -32,7 +32,7 @@
 	melee_damage_lower = 12
 	melee_damage_upper = 16
 
-	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
+	lighting_cutoff = LIGHTING_CUTOFF_AURORA_SOMEWHAT_INVISIBLE
 	stop_sight_update = TRUE
 
 	minbodytemp = 0
@@ -95,10 +95,11 @@
 	set desc = "Toggles whether you see light or not."
 	set category = "Abilities"
 
-	if(lighting_alpha == LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE)
-		lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE
+	if(lighting_cutoff == LIGHTING_CUTOFF_AURORA_MOSTLY_INVISIBLE)
+		lighting_cutoff = LIGHTING_CUTOFF_VISIBLE
 	else
-		lighting_alpha = LIGHTING_PLANE_ALPHA_VISIBLE
+		lighting_cutoff = LIGHTING_CUTOFF_AURORA_MOSTLY_INVISIBLE
+	sync_lighting_plane_cutoff()
 
 /mob/living/simple_animal/hostile/morph/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
 	if(morphed)

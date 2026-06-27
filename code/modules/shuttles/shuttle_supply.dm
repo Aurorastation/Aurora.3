@@ -195,8 +195,8 @@
 			T.underlays.Cut()
 			elevator_animation.vis_contents += T
 			for(var/atom/movable/AM in T.contents)
-				AM.blocks_emissive = FALSE
-				AM.update_emissive_blocker()
+				AM.blocks_emissive = EMISSIVE_BLOCK_NONE
+				AM.update_emissive_block()
 
 	if(!returning_to_CC)
 		handle_arrival_sequence() // coming to Horizon
@@ -208,7 +208,7 @@
 		LAZYREMOVE(saved_underlays, T)
 		for(var/atom/movable/AM in T.contents)
 			AM.blocks_emissive = initial(AM.blocks_emissive)
-			AM.update_emissive_blocker()
+			AM.update_emissive_block()
 			AM.update_light()
 		for(var/obj/structure/machinery/light/L in T.contents)
 			L.stat &= ~POWEROFF

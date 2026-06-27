@@ -48,19 +48,57 @@
 /// From /atom/proc/set_density(new_value) for when an atom changes density
 #define COMSIG_ATOM_DENSITY_CHANGED "atom_density_change"
 
-//from atom/set_light(): (l_range, l_power, l_color)
+//from atom/set_light(): (l_range, l_power, l_color, l_on)
 #define COMSIG_ATOM_SET_LIGHT "atom_set_light"
+	#define COMPONENT_BLOCK_LIGHT_UPDATE (1<<0)
 
 ///Called right before the atom changes the value of light_range to a different one, from base atom/set_light_range(): (new_range)
 #define COMSIG_ATOM_SET_LIGHT_RANGE "atom_set_light_range"
+///Called right after the atom changes the value of light_range to a different one, from base atom/set_light_range(): (old_range)
+#define COMSIG_ATOM_UPDATE_LIGHT_RANGE "atom_update_light_range"
 ///Called right before the atom changes the value of light_power to a different one, from base atom/set_light_power(): (new_power)
 #define COMSIG_ATOM_SET_LIGHT_POWER "atom_set_light_power"
+///Called right after the atom changes the value of light_power to a different one, from base atom/set_light_power(): (old_power)
+#define COMSIG_ATOM_UPDATE_LIGHT_POWER "atom_update_light_power"
 ///Called right before the atom changes the value of light_color to a different one, from base atom/set_light_color(): (new_color)
 #define COMSIG_ATOM_SET_LIGHT_COLOR "atom_set_light_color"
+///Called right after the atom changes the value of light_color to a different one, from base atom/set_light_color(): (old_color)
+#define COMSIG_ATOM_UPDATE_LIGHT_COLOR "atom_update_light_color"
+///Called right before the atom changes the value of light_angle to a different one, from base atom/set_light_angle(): (new_angle)
+#define COMSIG_ATOM_SET_LIGHT_ANGLE "atom_set_light_angle"
+///Called right after the atom changes the value of light_angle to a different one, from base atom/set_light_angle(): (old_angle)
+#define COMSIG_ATOM_UPDATE_LIGHT_ANGLE "atom_update_light_angle"
+///Called right before the atom changes the value of light_dir to a different one, from base atom/set_light_dir(): (new_dir)
+#define COMSIG_ATOM_SET_LIGHT_DIR "atom_set_light_dir"
+///Called right after the atom changes the value of light_dir to a different one, from base atom/set_light_dir(): (old_dir)
+#define COMSIG_ATOM_UPDATE_LIGHT_DIR "atom_update_light_dir"
 ///Called right before the atom changes the value of light_on to a different one, from base atom/set_light_on(): (new_value)
 #define COMSIG_ATOM_SET_LIGHT_ON "atom_set_light_on"
+///Called right after the atom changes the value of light_on to a different one, from base atom/set_light_on(): (old_value)
+#define COMSIG_ATOM_UPDATE_LIGHT_ON "atom_update_light_on"
+///Called right before the atom changes the value of light_height to a different one, from base atom/set_light_height(): (new_value)
+#define COMSIG_ATOM_SET_LIGHT_HEIGHT "atom_set_light_height"
+///Called right after the atom changes the value of light_height to a different one, from base atom/set_light_height(): (old_value)
+#define COMSIG_ATOM_UPDATE_LIGHT_HEIGHT "atom_update_light_height"
 ///Called right before the atom changes the value of light_flags to a different one, from base atom/set_light_flags(): (new_value)
 #define COMSIG_ATOM_SET_LIGHT_FLAGS "atom_set_light_flags"
+///Called right after the atom changes the value of light_flags to a different one, from base atom/set_light_flags(): (old_flags)
+#define COMSIG_ATOM_UPDATE_LIGHT_FLAGS "atom_update_light_flags"
+///Called right before the atom changes the value of light_render_source to a different one, from base atom/set_light_render_source(): (new_render_source)
+#define COMSIG_ATOM_SET_LIGHT_RENDER_SOURCE "atom_set_light_render_source"
+///Called right after the atom changes the value of light_render_source to a different one, from base atom/set_light_render_source(): (old_render_source)
+#define COMSIG_ATOM_UPDATE_LIGHT_RENDER_SOURCE "atom_update_light_render_source"
+
+///Called when an atom's overlay component applies visuals: (image/mask, image/cone, atom/movable/light_holder)
+#define COMSIG_ATOM_OVERLAY_LIGHT_APPLIED "atom_overlay_light_applied"
+///Above, but sent to the holder of the light instead of the light source itself: (image/mask, image/cone, atom/movable/light_source)
+#define COMSIG_ATOM_HOLDER_OVERLAY_LIGHT_APPLIED "atom_holder_overlay_light_applied"
+///Called when an atom's overlay component hides visuals: (atom/movable/light_holder)
+#define COMSIG_ATOM_OVERLAY_LIGHT_REMOVED "atom_overlay_light_removed"
+///Above, but sent to the holder of the light instead of the light source itself: (atom/movable/light_source)
+#define COMSIG_ATOM_HOLDER_OVERLAY_LIGHT_REMOVED "atom_holder_overlay_light_removed"
+///Called when a light middleman captures or refreshes overlay light appearances.
+#define COMSIG_LIGHT_MIDDLEMAN_UPDATED "light_middleman_updated"
 
 ///from base of atom/set_opacity(): (new_opacity)
 #define COMSIG_ATOM_SET_OPACITY "atom_set_opacity"

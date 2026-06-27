@@ -43,7 +43,7 @@
 	power_use = 12000
 	desc = "A series of high resolution optical sensors."
 	vision_flags = SEE_TURFS
-	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
+	lighting_cutoff = LIGHTING_CUTOFF_AURORA_SOMEWHAT_INVISIBLE
 
 /obj/item/mech_component/sensors/light/prebuild()
 	..()

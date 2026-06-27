@@ -155,15 +155,16 @@
 
 /mob/living/silicon/robot/handle_regular_hud_updates()
 	..()
+	lighting_cutoff = default_lighting_cutoff()
 	if(stat == DEAD || (mutations & XRAY) || (sight_mode & BORGXRAY))
 		set_sight(sight|SEE_TURFS|SEE_MOBS|SEE_OBJS)
 		set_see_invisible(SEE_INVISIBLE_LEVEL_TWO)
 	else if((sight_mode & BORGMESON) && (sight_mode & BORGTHERM))
 		set_sight(sight|SEE_TURFS|SEE_MOBS)
-		lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE
+		lighting_cutoff = LIGHTING_CUTOFF_AURORA_MOSTLY_INVISIBLE
 	else if(sight_mode & BORGMESON)
 		set_sight(sight|SEE_TURFS)
-		lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE
+		lighting_cutoff = LIGHTING_CUTOFF_AURORA_MOSTLY_INVISIBLE
 	else if(sight_mode & BORGMATERIAL)
 		set_sight(sight|SEE_OBJS)
 	else if(sight_mode & BORGTHERM)
@@ -172,6 +173,8 @@
 	else if(stat != DEAD)
 		set_sight(sight&(~SEE_TURFS)&(~SEE_MOBS)&(~SEE_OBJS))
 		set_see_invisible(SEE_INVISIBLE_LIVING)
+
+	sync_lighting_plane_cutoff()
 
 	switch(sensor_mode)
 		if(SEC_HUD)

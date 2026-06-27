@@ -1,4 +1,6 @@
 /obj/effect/overmap/visitable/sector/exoplanet/get_skybox_representation()
+	if(!skybox_image)
+		generate_planet_image()
 	return skybox_image
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/get_base_image()
@@ -35,15 +37,6 @@
 	var/image/shadow = image('icons/skybox/planet.dmi', "shadow[pick(1,2,3)]")
 	shadow.blend_mode = BLEND_MULTIPLY
 	skybox_image.overlays += shadow
-
-
-	if (prob(ring_chance))
-		var/image/rings = image('icons/skybox/planet_rings.dmi')
-		rings.icon_state = pick("sparse", "dense")
-		rings.color = pick("#f0fcff", "#dcc4ad", "#d1dcad", "#adb8dc")
-		rings.pixel_x = -128
-		rings.pixel_y = -128
-		skybox_image.overlays += rings
 
 	skybox_image.pixel_x = rand(0,64)
 	skybox_image.pixel_y = rand(128,256)

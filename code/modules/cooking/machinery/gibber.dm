@@ -85,7 +85,7 @@
 		return FALSE
 	if(victim_human.client)
 		victim_human.client.perspective = EYE_PERSPECTIVE
-		victim_human.client.eye = src
+		victim_human.client.set_eye(src)
 	victim_mob.forceMove(src)
 	occupant = victim_mob
 	startgibbing(victim_mob)
@@ -184,7 +184,7 @@
 
 	if(victim.client)
 		victim.client.perspective = EYE_PERSPECTIVE
-		victim.client.eye = src
+		victim.client.set_eye(src)
 	victim.forceMove(src)
 	occupant = victim
 	update_icon()
@@ -206,7 +206,7 @@
 	for(var/obj/O in src)
 		O.forceMove(loc)
 	if (occupant.client)
-		occupant.client.eye = occupant.client.mob
+		occupant.client.set_eye(occupant.client.mob)
 		occupant.client.perspective = MOB_PERSPECTIVE
 	occupant.forceMove(loc)
 	occupant = null

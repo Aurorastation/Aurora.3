@@ -12,6 +12,14 @@
 	toxin_type = CE_OCULOTOXIC
 	var/list/eye_colour = list(0,0,0)
 	var/singular_name = "eye"
+	/// tg-style sight flags this eye organ grants while installed.
+	var/sight_flags = 0
+	/// tg-style lighting cutoff this eye organ grants while installed. Null means no numeric cutoff.
+	var/lighting_cutoff = null
+	/// tg-style RGB lighting color cutoffs, in the same 0-100 scale as lighting_cutoff.
+	var/list/color_cutoffs = null
+	/// Invisibility level these eyes can see.
+	var/see_invisible = SEE_INVISIBLE_LIVING
 
 /obj/item/organ/internal/eyes/proc/update_colour()
 	if(!owner)

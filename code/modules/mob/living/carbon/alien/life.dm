@@ -97,7 +97,7 @@
 		set_see_invisible(SEE_INVISIBLE_LEVEL_TWO)
 	else if(stat != DEAD && is_ventcrawling == FALSE)
 		if(species && species.vision_flags)
-			sight = species.vision_flags
+			set_sight(species.vision_flags)
 		else
 			set_sight(sight&(~SEE_TURFS)&(~SEE_MOBS)&(~SEE_OBJS))
 		set_see_invisible(SEE_INVISIBLE_LIVING)

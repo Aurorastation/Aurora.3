@@ -9,6 +9,8 @@
 	desc = "A vending machine filled with MRE's."
 	icon_state = "mrevend"
 	icon_deny = "mrevend-deny"
+	icon_vend = "mrevend-vend"
+	light_mask = "mrevend-lightmask"
 	product_slogans = ";FOREIGN LEGION TESTED!, FOREIGN LEGION RECOMMENDED!, FOREIGN LEGION APPROVED!;YOU ARE NOT ALLOWED A JELLY DOUGHNUT!;YOU DON'T WANT TO DIE HUNGRY, SOLDIER!"
 	product_ads = "Everything the body needs!;Now trans-fat free!;Vegan options are available.;Safe for all known species!"
 	products = list(
@@ -60,6 +62,8 @@
 	icon_state = "ramen"
 	icon_vend = "ramen-vend"
 	icon_deny = "ramen-deny"
+	icon_screen = "ramen-screen"
+	light_mask = "ramen-lightmask"
 	product_slogans = "Irasshaimase!"
 	vend_id = "ramen"
 	products = list(

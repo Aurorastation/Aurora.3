@@ -401,6 +401,300 @@
 		see = get_hear(view_range, pos)
 	return see
 
+// Temporary plane cube camera static diagnostic.
+/obj/structure/machinery/camera/verb/delete_camera()
+	set name = "Delete Camera"
+	set category = "Debug"
+	set src in world
+
+	if(!check_rights(R_DEBUG))
+		return
+
+	var/mob/user = usr
+	var/obj/structure/machinery/camera/deleted_camera = src
+	var/turf/origin = get_turf(deleted_camera)
+	var/list/deleted_seen_before = deleted_camera.can_see()
+	var/list/relevant_chunks = camera_static_debug_collect_relevant_chunks(deleted_camera, origin, deleted_seen_before)
+	var/list/report = list()
+	var/camera_ref = REF(deleted_camera)
+
+	report += "Delete Camera diagnostic report"
+	report += "Started at world.time=[world.time], realtime=[world.realtime], usr=[key_name(user)]"
+	report += "Target ref=[camera_ref], type=[deleted_camera.type], tag=[deleted_camera.c_tag], origin=[camera_static_debug_turf_line(origin)]"
+	report += ""
+
+	camera_static_debug_append_delete_state(report, "BEFORE DELETE", deleted_camera, origin, relevant_chunks, deleted_seen_before)
+
+	qdel(deleted_camera)
+
+	camera_static_debug_append_delete_state(report, "AFTER QDEL IMMEDIATE", deleted_camera, origin, relevant_chunks, deleted_seen_before)
+
+	to_chat(user, SPAN_NOTICE("Delete Camera diagnostics captured. Final report will open after the camera static update buffer."))
+	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(camera_static_debug_finish_delete_report), user, report, deleted_camera, origin, relevant_chunks, deleted_seen_before, camera_ref), 30)
+
+/proc/camera_static_debug_finish_delete_report(var/mob/user, var/list/report, var/obj/structure/machinery/camera/deleted_camera, var/turf/origin, var/list/relevant_chunks, var/list/deleted_seen_before, var/camera_ref)
+	camera_static_debug_add_stale_chunks(deleted_camera, relevant_chunks)
+	camera_static_debug_append_delete_state(report, "AFTER UPDATE BUFFER", deleted_camera, origin, relevant_chunks, deleted_seen_before)
+
+	var/html = {"
+		<html>
+		<head>
+			<title>Delete Camera Diagnostics</title>
+			<style>
+				body { background: #111; color: #ddd; font-family: monospace; }
+				pre { white-space: pre-wrap; }
+			</style>
+		</head>
+		<body><pre>[html_encode(jointext(report, "\n"))]</pre></body>
+		</html>
+	"}
+
+	if(!QDELETED(user) && user.client)
+		user << browse(html, "window=delete_camera_diagnostics;size=1200x900")
+
+/proc/camera_static_debug_collect_relevant_chunks(var/obj/structure/machinery/camera/deleted_camera, var/turf/origin, var/list/deleted_seen_before)
+	var/list/relevant_chunks = list()
+
+	for(var/key in GLOB.cameranet.chunks)
+		var/datum/chunk/chunk = GLOB.cameranet.chunks[key]
+		if(!chunk)
+			continue
+		if(deleted_camera in chunk.sources)
+			relevant_chunks[chunk] = TRUE
+
+	if(origin)
+		var/x1 = max(0, origin.x - 8) & ~0xf
+		var/y1 = max(0, origin.y - 8) & ~0xf
+		var/x2 = min(world.maxx, origin.x + 8) & ~0xf
+		var/y2 = min(world.maxy, origin.y + 8) & ~0xf
+		for(var/x = x1; x <= x2; x += 16)
+			for(var/y = y1; y <= y2; y += 16)
+				if(GLOB.cameranet.is_chunk_generated(x, y, origin.z))
+					var/datum/chunk/chunk = GLOB.cameranet.get_chunk(x, y, origin.z)
+					relevant_chunks[chunk] = TRUE
+
+	for(var/turf/seen_turf in deleted_seen_before)
+		if(GLOB.cameranet.is_chunk_generated(seen_turf.x, seen_turf.y, seen_turf.z))
+			var/datum/chunk/chunk = GLOB.cameranet.get_chunk(seen_turf.x, seen_turf.y, seen_turf.z)
+			relevant_chunks[chunk] = TRUE
+
+	return relevant_chunks
+
+/proc/camera_static_debug_add_stale_chunks(var/obj/structure/machinery/camera/deleted_camera, var/list/relevant_chunks)
+	for(var/key in GLOB.cameranet.chunks)
+		var/datum/chunk/chunk = GLOB.cameranet.chunks[key]
+		if(!chunk)
+			continue
+		if(deleted_camera in chunk.sources)
+			relevant_chunks[chunk] = TRUE
+
+/proc/camera_static_debug_append_delete_state(var/list/report, var/label, var/obj/structure/machinery/camera/deleted_camera, var/turf/origin, var/list/relevant_chunks, var/list/deleted_seen_before)
+	report += "==================== [label] ===================="
+	report += "world.time=[world.time], tick_usage=[world.tick_usage]"
+	report += "deleted_camera_ref=[REF(deleted_camera)], qdeleted=[camera_static_debug_bool(QDELETED(deleted_camera))], origin=[camera_static_debug_turf_line(origin)]"
+	report += "origin_stack=[origin ? camera_static_debug_stack_text(origin.z) : "null"], origin_plane_offset=[origin ? camera_static_debug_plane_offset(origin.z) : "null"], origin_lowest_stack_offset=[origin ? camera_static_debug_lowest_plane_offset(origin.z) : "null"]"
+	report += "deleted_seen_before=[length(deleted_seen_before)] by_z=[camera_static_debug_count_by_z(deleted_seen_before)]"
+	report += "global_cameranet: sources=[length(GLOB.cameranet.sources)], cameras=[length(GLOB.cameranet.cameras)], chunks=[length(GLOB.cameranet.chunks)], deleted_in_sources=[camera_static_debug_bool(deleted_camera in GLOB.cameranet.sources)], deleted_in_cameras=[camera_static_debug_bool(deleted_camera in GLOB.cameranet.cameras)]"
+
+	if(!QDELETED(deleted_camera))
+		var/list/open_networks = difflist(deleted_camera.network, GLOB.restricted_camera_networks)
+		report += "camera_vars: name=[deleted_camera.name], tag=[deleted_camera.c_tag], status=[deleted_camera.status], stat=[deleted_camera.stat], can_use=[camera_static_debug_bool(deleted_camera.can_use())], on_open_network=[deleted_camera.on_open_network], network=[camera_static_debug_join_list(deleted_camera.network)], open_networks=[camera_static_debug_join_list(open_networks)], view_range=[deleted_camera.view_range], short_range=[deleted_camera.short_range], dir=[deleted_camera.dir], density=[deleted_camera.density], opacity=[deleted_camera.opacity], invisibility=[deleted_camera.invisibility], loc=[camera_static_debug_turf_line(get_turf(deleted_camera))]"
+	else
+		report += "camera_vars: camera is qdeleted; only saved origin/deleted_seen_before are used below."
+
+	camera_static_debug_append_covering_camera_scan(report, label, deleted_camera, origin, deleted_seen_before)
+
+	report += "relevant_chunks=[length(relevant_chunks)]"
+	for(var/datum/chunk/chunk as anything in relevant_chunks)
+		camera_static_debug_append_chunk_snapshot(report, chunk, deleted_camera, deleted_seen_before)
+	report += ""
+
+/proc/camera_static_debug_append_covering_camera_scan(var/list/report, var/label, var/obj/structure/machinery/camera/deleted_camera, var/turf/origin, var/list/deleted_seen_before)
+	report += "covering_camera_scan ([label]):"
+	var/found = FALSE
+	for(var/obj/structure/machinery/camera/C in GLOB.cameranet.cameras)
+		if(QDELETED(C))
+			continue
+		var/turf/camera_turf = get_turf(C)
+		var/list/seen = C.can_see()
+		var/list/overlap = seen & deleted_seen_before
+		var/same_stack = origin && camera_turf && camera_static_debug_same_stack(origin.z, camera_turf.z)
+		var/near_origin = origin && camera_turf && max(abs(camera_turf.x - origin.x), abs(camera_turf.y - origin.y)) <= 24
+		if(!length(overlap) && !(same_stack && near_origin))
+			continue
+		found = TRUE
+		report += "  camera ref=[REF(C)] deleted_target=[camera_static_debug_bool(C == deleted_camera)] tag=[C.c_tag] qdeleted=[camera_static_debug_bool(QDELETED(C))] can_use=[camera_static_debug_bool(C.can_use())] on_open_network=[C.on_open_network] loc=[camera_static_debug_turf_line(camera_turf)] same_stack=[camera_static_debug_bool(same_stack)] seen=[length(seen)] overlap_deleted_seen=[length(overlap)] in_sources=[camera_static_debug_bool(C in GLOB.cameranet.sources)] in_cameras=[camera_static_debug_bool(C in GLOB.cameranet.cameras)]"
+	if(!found)
+		report += "  none"
+
+/proc/camera_static_debug_append_chunk_snapshot(var/list/report, var/datum/chunk/chunk, var/obj/structure/machinery/camera/deleted_camera, var/list/deleted_seen_before)
+	if(!chunk)
+		report += "  null chunk"
+		return
+
+	var/list/coverage = camera_static_debug_build_chunk_coverage(chunk, deleted_camera, deleted_seen_before)
+	var/list/visible_without_coverage = chunk.visibleTurfs - coverage
+	var/list/coverage_not_visible = coverage - chunk.visibleTurfs
+	var/list/obscured_with_coverage = chunk.obscuredTurfs & coverage
+	var/list/visible_and_obscured = chunk.visibleTurfs & chunk.obscuredTurfs
+	var/list/unclassified_turfs = chunk.turfs - chunk.visibleTurfs - chunk.obscuredTurfs
+
+	report += "  ---- chunk ref=[REF(chunk)] key=[camera_static_debug_chunk_key(chunk)] coords=([chunk.x],[chunk.y],[chunk.z]) stack=[camera_static_debug_stack_text(chunk.z)] dirty=[camera_static_debug_bool(chunk.dirty)] updating=[camera_static_debug_bool(chunk.updating)] seenby=[length(chunk.seenby)] sources=[length(chunk.sources)] deleted_in_sources=[camera_static_debug_bool(deleted_camera in chunk.sources)]"
+	report += "    counts: turfs=[length(chunk.turfs)] by_z=[camera_static_debug_count_by_z(chunk.turfs)], visible=[length(chunk.visibleTurfs)] by_z=[camera_static_debug_count_by_z(chunk.visibleTurfs)], obscuredTurfs=[length(chunk.obscuredTurfs)] by_z=[camera_static_debug_count_by_z(chunk.obscuredTurfs)], obscured_images=[length(chunk.obscured)], cached_obfuscation_images=[length(chunk.obfuscation?.obfuscation_images)]"
+	report += "    coverage: actively_covered=[length(coverage)] by_z=[camera_static_debug_count_by_z(coverage)], all_turfs_hist=[camera_static_debug_coverage_histogram(chunk.turfs, coverage)], visible_hist=[camera_static_debug_coverage_histogram(chunk.visibleTurfs, coverage)], obscured_hist=[camera_static_debug_coverage_histogram(chunk.obscuredTurfs, coverage)]"
+	report += "    consistency: visible_without_active_coverage=[length(visible_without_coverage)], active_coverage_not_visible=[length(coverage_not_visible)], obscured_with_active_coverage=[length(obscured_with_coverage)], visible_and_obscured=[length(visible_and_obscured)], unclassified_turfs=[length(unclassified_turfs)]"
+
+	report += "    sources:"
+	if(length(chunk.sources))
+		for(var/atom/source as anything in chunk.sources)
+			camera_static_debug_append_source_snapshot(report, source, chunk, deleted_camera, deleted_seen_before)
+	else
+		report += "      none"
+
+	camera_static_debug_append_turf_list(report, "visible_without_active_coverage", visible_without_coverage, coverage, 80)
+	camera_static_debug_append_turf_list(report, "active_coverage_not_visible", coverage_not_visible, coverage, 80)
+	camera_static_debug_append_turf_list(report, "obscured_with_active_coverage", obscured_with_coverage, coverage, 80)
+	camera_static_debug_append_turf_list(report, "visible_and_obscured", visible_and_obscured, coverage, 80)
+	camera_static_debug_append_turf_list(report, "unclassified_turfs", unclassified_turfs, coverage, 80)
+
+/proc/camera_static_debug_append_source_snapshot(var/list/report, var/atom/source, var/datum/chunk/chunk, var/obj/structure/machinery/camera/deleted_camera, var/list/deleted_seen_before)
+	var/turf/source_turf = get_turf(source)
+	var/source_seen_len = "n/a"
+	var/source_seen_in_chunk = "n/a"
+	var/source_overlap_deleted = "n/a"
+	var/source_can_use = "n/a"
+	var/source_tag = "n/a"
+	var/source_on_open_network = "n/a"
+
+	if(istype(source, /obj/structure/machinery/camera))
+		var/obj/structure/machinery/camera/source_camera = source
+		source_tag = "[source_camera.c_tag]"
+		source_on_open_network = "[source_camera.on_open_network]"
+		if(!QDELETED(source_camera))
+			source_can_use = "[source_camera.can_use()]"
+			var/list/source_seen = source_camera == deleted_camera ? deleted_seen_before : source_camera.can_see()
+			source_seen_len = "[length(source_seen)]"
+			source_seen_in_chunk = "[length(source_seen & chunk.turfs)]"
+			source_overlap_deleted = "[length(source_seen & deleted_seen_before)]"
+	else if(isAI(source) && !QDELETED(source))
+		var/mob/living/silicon/ai/AI = source
+		var/list/source_seen = seen_turfs_in_range(AI, world.view)
+		source_can_use = "[AI.stat != DEAD]"
+		source_seen_len = "[length(source_seen)]"
+		source_seen_in_chunk = "[length(source_seen & chunk.turfs)]"
+		source_overlap_deleted = "[length(source_seen & deleted_seen_before)]"
+
+	report += "      ref=[REF(source)] type=[source?.type] deleted_target=[camera_static_debug_bool(source == deleted_camera)] qdeleted=[camera_static_debug_bool(QDELETED(source))] tag=[source_tag] can_use=[source_can_use] on_open_network=[source_on_open_network] loc=[camera_static_debug_turf_line(source_turf)] in_global_sources=[camera_static_debug_bool(source in GLOB.cameranet.sources)] in_global_cameras=[camera_static_debug_bool(source in GLOB.cameranet.cameras)] seen=[source_seen_len] seen_in_chunk=[source_seen_in_chunk] overlap_deleted_seen=[source_overlap_deleted]"
+
+/proc/camera_static_debug_build_chunk_coverage(var/datum/chunk/chunk, var/obj/structure/machinery/camera/deleted_camera, var/list/deleted_seen_before)
+	var/list/coverage = list()
+	for(var/atom/source as anything in chunk.sources)
+		var/list/source_seen
+		if(istype(source, /obj/structure/machinery/camera))
+			var/obj/structure/machinery/camera/source_camera = source
+			if(QDELETED(source_camera) || !source_camera.can_use())
+				continue
+			source_seen = source_camera == deleted_camera ? deleted_seen_before : source_camera.can_see()
+		else if(isAI(source))
+			var/mob/living/silicon/ai/AI = source
+			if(QDELETED(AI) || AI.stat == DEAD)
+				continue
+			source_seen = seen_turfs_in_range(AI, world.view)
+		else
+			continue
+
+		for(var/turf/seen_turf as anything in source_seen & chunk.turfs)
+			coverage[seen_turf] = coverage[seen_turf] + 1
+	return coverage
+
+/proc/camera_static_debug_append_turf_list(var/list/report, var/title, var/list/turfs, var/list/coverage, var/limit)
+	if(!length(turfs))
+		return
+	report += "    [title] sample (showing up to [limit] of [length(turfs)]):"
+	var/count = 0
+	for(var/turf/T as anything in turfs)
+		count++
+		if(count > limit)
+			report += "      ... [length(turfs) - limit] more"
+			break
+		var/coverage_count = coverage ? coverage[T] : null
+		report += "      [camera_static_debug_turf_line(T)] coverage=[isnull(coverage_count) ? 0 : coverage_count]"
+
+/proc/camera_static_debug_turf_line(var/turf/T)
+	if(!T)
+		return "null"
+	var/area/A = get_area(T)
+	var/area_name = A ? A.name : "null"
+	return "[COORD(T)] type=[T.type] area=[area_name] density=[T.density] opacity=[T.opacity] plane=[T.plane] z_offset=[camera_static_debug_plane_offset(T.z)] lowest_stack_offset=[camera_static_debug_lowest_plane_offset(T.z)]"
+
+/proc/camera_static_debug_chunk_key(var/datum/chunk/chunk)
+	for(var/key in GLOB.cameranet.chunks)
+		if(GLOB.cameranet.chunks[key] == chunk)
+			return key
+	return "not in GLOB.cameranet.chunks"
+
+/proc/camera_static_debug_count_by_z(var/list/turfs)
+	if(!length(turfs))
+		return "none"
+	var/list/counts = list()
+	for(var/turf/T as anything in turfs)
+		if(!isturf(T))
+			continue
+		counts["z[T.z]"] = counts["z[T.z]"] + 1
+	return camera_static_debug_assoc_text(counts)
+
+/proc/camera_static_debug_coverage_histogram(var/list/turfs, var/list/coverage)
+	if(!length(turfs))
+		return "none"
+	var/list/counts = list()
+	for(var/turf/T as anything in turfs)
+		var/coverage_count = coverage[T]
+		if(isnull(coverage_count))
+			coverage_count = 0
+		counts["[coverage_count]"] = counts["[coverage_count]"] + 1
+	return camera_static_debug_assoc_text(counts)
+
+/proc/camera_static_debug_assoc_text(var/list/assoc)
+	if(!length(assoc))
+		return "none"
+	var/list/parts = list()
+	for(var/key in assoc)
+		parts += "[key]=[assoc[key]]"
+	return jointext(parts, ", ")
+
+/proc/camera_static_debug_stack_text(z)
+	var/list/stack = SSmapping.get_connected_levels(z)
+	if(length(stack))
+		return camera_static_debug_join_list(stack)
+	return "\[[z]\]"
+
+/proc/camera_static_debug_join_list(var/list/L)
+	if(!length(L))
+		return "\[\]"
+	return "\[[jointext(L, ", ")]\]"
+
+/proc/camera_static_debug_plane_offset(z)
+	if(!SSmapping.z_level_to_plane_offset || z < 1 || z > length(SSmapping.z_level_to_plane_offset))
+		return "null"
+	return SSmapping.z_level_to_plane_offset[z]
+
+/proc/camera_static_debug_lowest_plane_offset(z)
+	if(!SSmapping.z_level_to_lowest_plane_offset || z < 1 || z > length(SSmapping.z_level_to_lowest_plane_offset))
+		return "null"
+	return SSmapping.z_level_to_lowest_plane_offset[z]
+
+/proc/camera_static_debug_same_stack(z_a, z_b)
+	if(isnull(z_a) || isnull(z_b))
+		return FALSE
+	var/list/stack_a = SSmapping.get_connected_levels(z_a)
+	var/list/stack_b = SSmapping.get_connected_levels(z_b)
+	if(length(stack_a) && length(stack_b))
+		return stack_a == stack_b
+	return z_a == z_b
+
+/proc/camera_static_debug_bool(value)
+	return value ? "TRUE" : "FALSE"
+
 /atom/proc/auto_turn()
 	//Automatically turns based on nearby walls.
 	var/turf/simulated/wall/T = null

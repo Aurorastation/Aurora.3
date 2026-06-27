@@ -130,7 +130,6 @@
 	bloody_hands_mob = null
 	QDEL_NULL(eyeobj)
 	QDEL_NULL(bg)
-	my_client = null
 	return ..()
 
 /mob/New()
@@ -269,10 +268,6 @@
 	if(intent_message)
 		intent_message(intent_message, intent_range, messagemobs + src)
 
-	//Multiz, have shadow do same
-	if(bound_overlay)
-		bound_overlay.visible_message(message, blind_message, range)
-
 // Designed for mobs contained inside things, where a normal visible message wont actually be visible
 // Useful for visible actions by pAIs, and held mobs
 // Broadcaster is the place the action will be seen/heard from, mobs in sight of THAT will see the message. This is generally the object or mob that src is contained in
@@ -403,14 +398,14 @@
 		A = A ? A : eyeobj
 		if (istype(A, /atom/movable))
 			client.perspective = EYE_PERSPECTIVE
-			client.eye = A
+			client.set_eye(A)
 		else
 			if (isturf(loc))
-				client.eye = client.mob
+				client.set_eye(client.mob)
 				client.perspective = MOB_PERSPECTIVE
 			else
 				client.perspective = EYE_PERSPECTIVE
-				client.eye = loc
+				client.set_eye(loc)
 	return
 
 
@@ -706,7 +701,7 @@
 	var/mob/mob_eye = creatures[eye_name]
 
 	if(client && mob_eye)
-		client.eye = mob_eye
+		client.set_eye(mob_eye)
 		if (is_admin)
 			client.adminobs = 1
 			if(mob_eye == client.mob || client.eye == client.mob)
@@ -1325,7 +1320,7 @@
 	. = ..()
 
 	if(. && client)
-		client.update_skybox(old_z != GET_Z(src))
+		client.update_parallax_after_movement(old_z != GET_Z(src))
 
 /mob/verb/northfaceperm()
 	set hidden = 1
@@ -1605,12 +1600,22 @@
 		// if(thing.item_flags & SLOWS_WHILE_IN_HAND)
 		. += thing
 
-///Set the lighting plane hud alpha to the mobs lighting_alpha var
-/mob/proc/sync_lighting_plane_alpha()
-	if(hud_used)
-		var/atom/movable/screen/plane_master/lighting/lighting = hud_used.plane_masters["[LIGHTING_PLANE]"]
-		if (lighting)
-			lighting.alpha = lighting_alpha
-		var/atom/movable/screen/plane_master/lighting/exterior_lighting = hud_used.plane_masters["[EXTERIOR_LIGHTING_PLANE]"]
-		if (exterior_lighting)
-			exterior_lighting.alpha = min(GLOB.minimum_exterior_lighting_alpha, lighting_alpha)
+/// Returns this mob's default lighting cutoff.
+/mob/proc/default_lighting_cutoff()
+	return initial(lighting_cutoff)
+
+///Set the lighting plane hud filters to the mob's lighting_cutoff var.
+/mob/proc/sync_lighting_plane_cutoff()
+	if(!hud_used)
+		return
+	if(!lighting_color_cutoffs)
+		lighting_color_cutoffs = list(lighting_cutoff_red, lighting_cutoff_green, lighting_cutoff_blue)
+	for(var/atom/movable/screen/plane_master/rendering_plate/lighting/lighting as anything in hud_used.get_true_plane_masters(RENDER_PLANE_LIGHTING))
+		lighting.set_light_cutoff(lighting_cutoff, lighting_color_cutoffs)
+
+/// Can this mob see in the dark?
+/mob/proc/has_nightvision()
+	var/light_offset = lighting_cutoff
+	if(length(lighting_color_cutoffs) == 3)
+		light_offset += (lighting_color_cutoffs[1] + lighting_color_cutoffs[2] + lighting_color_cutoffs[3]) / 3
+	return light_offset >= LIGHTING_NIGHTVISION_THRESHOLD

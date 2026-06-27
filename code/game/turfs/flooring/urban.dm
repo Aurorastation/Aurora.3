@@ -85,13 +85,13 @@
 	icon_state = "quarter-height"
 
 /obj/structure/ledge/quarter/above_decals
-	layer = ABOVE_TILE_LAYER // Forgive me.
+	layer = ABOVE_NORMAL_TURF_LAYER
 
 /obj/structure/ledge/quarter/corner
 	icon_state = "quarter-corner"
 
 /obj/structure/ledge/quarter/corner/above_decals
-	layer = ABOVE_TILE_LAYER // Forgive me.
+	layer = ABOVE_NORMAL_TURF_LAYER
 
 /obj/structure/ledge/roof
 	name = "roof ledge"

@@ -36,7 +36,16 @@ GLOBAL_LIST_INIT(mob_icon_icon_states, list())
 			H.species.equip_overlays[image_key] = final_image
 		var/image/I = new() // We return a copy of the cached image, in case downstream procs mutate it.
 		I.appearance = H.species.equip_overlays[image_key]
-		return I
+		I.generate_mob_emissive_blocker = TRUE
+		var/datum/mob_overlay_bundle/bundle = new()
+		bundle.SetSource(src)
+		bundle.SetBase(I)
+		if(blocks_emissive != EMISSIVE_BLOCK_NONE)
+			bundle.AddBlocker(emissive_blocker(I.icon, I.icon_state, H))
+		var/emissive_overlays = get_mob_emissive_overlays(H, mob_icon, mob_state, slot)
+		if(emissive_overlays)
+			bundle.AddEmissive(emissive_overlays)
+		return finalize_mob_overlay_bundle_as_image(bundle, H)
 	var/image/I = overlay_image(mob_icon, mob_state, color, RESET_COLOR|RESET_ALPHA)
 	I.alpha = alpha
 	if(alpha_mask)
@@ -44,17 +53,28 @@ GLOBAL_LIST_INIT(mob_icon_icon_states, list())
 		var/icon/mask = new(mob_icon, alpha_mask)
 		mob_overlay_icon.AddAlphaMask(mask)
 		I = overlay_image(mob_overlay_icon, color = color, flags = RESET_COLOR|RESET_ALPHA)
+	I.generate_mob_emissive_blocker = TRUE
 	var/image/additional_parts = build_additional_parts(H, mob_icon, slot)
 	if(additional_parts)
 		I.AddOverlays(additional_parts)
 	if(has_accents)
 		I.AddOverlays(overlay_image(icon, "[UNDERSCORE_OR_NULL(src.icon_species_tag)][item_state][contained_sprite ? slot_str_to_contained_flag(slot) : ""]_acc", accent_color, accent_flags))
+	var/datum/mob_overlay_bundle/bundle = new()
+	bundle.SetSource(src)
+	bundle.SetBase(I)
 	if(blocks_emissive != EMISSIVE_BLOCK_NONE)
-		I.AddOverlays(emissive_blocker(mob_icon, mob_state))
+		bundle.AddBlocker(emissive_blocker(mob_icon, mob_state, H))
+	var/emissive_overlays = get_mob_emissive_overlays(H, mob_icon, mob_state, slot)
+	if(emissive_overlays)
+		bundle.AddEmissive(emissive_overlays)
 	var/offset_x = worn_x_dimension
 	var/offset_y = worn_y_dimension
 	center_image(I, offset_x, offset_y)
-	return I
+	return finalize_mob_overlay_bundle_as_image(bundle, H)
+
+/obj/item/proc/get_mob_emissive_overlays(var/mob/living/carbon/human/H, var/mob_icon, var/mob_state, var/slot)
+	SHOULD_NOT_SLEEP(TRUE)
+	return
 
 /obj/item/proc/get_image_key_mod()
 	return

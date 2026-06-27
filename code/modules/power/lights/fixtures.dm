@@ -39,7 +39,7 @@
 	/// Whether the bulb can break during its init or not.
 	var/must_start_working = FALSE
 	/// If TRUE light sources have a 50% chance to be broken instead after Initialize.
-	var/maybe_broken = FALSE
+	var/maybe_broken = TRUE
 	/// Count of number of times the light was switched on/off. This is used to calculate the probability of the light burning out.
 	var/switchcount = 0
 	/// TRUE if rigged to explode.
@@ -188,7 +188,7 @@
 
 			if (on)
 				var/image/I = LIGHT_FIXTURE_CACHE(icon, "[base_state]_on", target_color)
-				var/image/E = emissive_appearance(icon, "[base_state]_on")
+				var/image/E = emissive_appearance(icon, "[base_state]_on", src)
 				AddOverlays(I)
 				AddOverlays(E)
 			else
@@ -751,7 +751,8 @@
 	icon_state = "floortube_example"
 	base_state = "floortube"
 	desc = "A lighting fixture. This one is set into the floor."
-	layer = ABOVE_TILE_LAYER
+	plane = FLOOR_PLANE
+	layer = HIGH_TURF_LAYER
 	fitting_has_empty_icon = TRUE
 	fitting_is_on_floor = TRUE
 
@@ -816,7 +817,8 @@
 	base_state = "floor"
 	desc = "A small lighting fixture. This one is set into the floor."
 	fitting_is_on_floor = TRUE
-	layer = ABOVE_TILE_LAYER
+	plane = FLOOR_PLANE
+	layer = HIGH_TURF_LAYER
 
 /obj/structure/machinery/light/small/floor/emergency
 	icon_state = "floor_emergency"

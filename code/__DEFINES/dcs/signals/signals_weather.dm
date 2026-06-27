@@ -10,3 +10,12 @@
 
 /// Called by survey_probe.dm whenever a survey probe broadcasts a weather change
 #define COMSIG_GLOB_Z_WEATHER_BROADCAST "!z_weather_broadcast"
+
+/// Called by SSweather after a weather system is registered: (obj/abstract/weather_system/weather)
+#define COMSIG_WEATHER_SYSTEM_REGISTERED "weather_system_registered"
+
+/// Called by SSweather after a weather system is unregistered: (obj/abstract/weather_system/weather)
+#define COMSIG_WEATHER_SYSTEM_UNREGISTERED "weather_system_unregistered"
+
+/// Called by a weather system after its visual state changes: (obj/abstract/weather_system/weather)
+#define COMSIG_WEATHER_SYSTEM_UPDATED "weather_system_updated"

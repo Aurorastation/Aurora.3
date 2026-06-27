@@ -58,7 +58,7 @@
 			return
 		add_underlay(T, node, dir, node?.icon_connect_type)
 
-/obj/structure/machinery/atmospherics/portables_connector/hide(var/i)
+/obj/structure/machinery/atmospherics/portables_connector/on_undertile_updated()
 	update_underlays()
 
 /obj/structure/machinery/atmospherics/portables_connector/proc/toggle_process()

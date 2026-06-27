@@ -92,7 +92,7 @@
 /obj/structure/machinery/cablelayer/proc/layCable(var/turf/new_turf,var/M_Dir)
 	if(!istype(new_turf))
 		return reset()
-	if(!new_turf.is_plating())
+	if(!new_turf.can_lay_cable())
 		return reset()
 	var/fdirn = turn(M_Dir,180)
 	for(var/obj/structure/cable/LC in new_turf)		// check to make sure there's not a cable there already

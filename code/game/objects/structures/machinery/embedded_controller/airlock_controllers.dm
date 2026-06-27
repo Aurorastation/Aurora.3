@@ -115,13 +115,14 @@
 	name = "Access Controller"
 	tag_secure = TRUE
 
-
 /obj/structure/machinery/embedded_controller/radio/airlock/access_controller/update_icon()
+	ClearOverlays()
 	if(on && program)
 		if(program.memory["processing"])
 			icon_state = "access_control_process"
 		else
 			icon_state = "access_control_standby"
+		AddOverlays(emissive_appearance(icon, "[icon_state]-e", src))
 	else
 		icon_state = "access_control_off"
 

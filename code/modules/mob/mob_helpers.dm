@@ -1231,15 +1231,29 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
 	return TRUE
 
 /mob/proc/get_accumulated_vision_handlers()
-	var/result[2]
+	var/result[4]
 	var/asight = 0
 	var/ainvis = 0
+	var/alighting_cutoff = null
+	var/list/alighting_color_cutoffs
 	for(var/atom/vision_handler in additional_vision_handlers)
 		//Grab their flags
 		asight |= vision_handler.additional_sight_flags()
 		ainvis = max(ainvis, vision_handler.additional_see_invisible())
+		var/handler_lighting_cutoff = vision_handler.additional_lighting_cutoff()
+		if(!isnull(handler_lighting_cutoff))
+			var/current_lighting_cutoff = isnull(alighting_cutoff) ? 0 : alighting_cutoff
+			alighting_cutoff = max(current_lighting_cutoff, handler_lighting_cutoff)
+		var/list/handler_color_cutoffs = vision_handler.additional_lighting_color_cutoffs()
+		if(length(handler_color_cutoffs))
+			if(length(alighting_color_cutoffs))
+				alighting_color_cutoffs = blend_cutoff_colors(alighting_color_cutoffs, handler_color_cutoffs)
+			else
+				alighting_color_cutoffs = handler_color_cutoffs.Copy()
 	result[1] = asight
 	result[2] = ainvis
+	result[3] = alighting_cutoff
+	result[4] = alighting_color_cutoffs
 
 	return result
 
@@ -1301,7 +1315,7 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
 		if(ismob(AM))
 			var/mob/M = AM
 			if(M.client)
-				M.client.eye = M.client.mob
+				M.client.set_eye(M.client.mob)
 				M.client.perspective = MOB_PERSPECTIVE
 
 

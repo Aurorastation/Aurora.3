@@ -354,13 +354,13 @@
 			return
 
 	if(nymph.client)
-		nymph.client.eye = E.owner
+		nymph.client.set_eye(E.owner)
 	limb_nymph = nymph
 	limb_nymph.forceMove(E)
 
 /datum/component/nymph_limb/proc/nymph_out(var/obj/item/organ/external/E, var/mob/living/carbon/alien/diona/nymph, var/forced = FALSE)
 	if(nymph.client)
-		nymph.client.eye = nymph
+		nymph.client.set_eye(nymph)
 	nymph.forceMove(get_turf(E))
 	E.nymph = null
 

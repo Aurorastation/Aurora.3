@@ -56,7 +56,7 @@
 	tameable = FALSE
 
 	flying = TRUE
-	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
+	lighting_cutoff = LIGHTING_CUTOFF_AURORA_SOMEWHAT_INVISIBLE
 
 	psi_pingable = FALSE
 	sample_data = null

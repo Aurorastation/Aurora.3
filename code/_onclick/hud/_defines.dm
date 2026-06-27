@@ -15,6 +15,10 @@
 
 #define ui_entire_screen "WEST,SOUTH to EAST,NORTH"
 
+// Fullscreen overlay base size in tiles. The default centered fullscreen overlay is 15x15.
+#define FULLSCREEN_OVERLAY_RESOLUTION_X 15
+#define FULLSCREEN_OVERLAY_RESOLUTION_Y 15
+
 //Lower left, persistant menu
 #define ui_inventory "WEST:6,SOUTH:5"
 

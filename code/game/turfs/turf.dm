@@ -1,9 +1,11 @@
 /turf
 	icon = 'icons/turf/floors.dmi'
 	level = 1
+	luminosity = 1
+	light_height = LIGHTING_HEIGHT_FLOOR
 
 	layer = TURF_LAYER
-	vis_flags = VIS_INHERIT_PLANE
+	vis_flags = VIS_INHERIT_ID // Important for interaction with and visualization of openspace.
 
 	var/holy = 0
 
@@ -33,6 +35,14 @@
 	/// If true, turf will be treated as space or a hole
 	var/is_hole
 	var/tmp/turf/baseturf
+	/// Cached open turf above this turf.
+	var/tmp/turf/above
+	/// Cached turf below this turf.
+	var/tmp/turf/below
+	/// If this Z-turf leads to space, uninterrupted.
+	var/tmp/z_eventually_space = FALSE
+	/// Multiz turf flags used by nonvisual systems such as ZAS.
+	var/z_flags
 
 	/// The turf type we spawn as a roof.
 	var/roof_type = null
@@ -51,6 +61,9 @@
 	/// How far the tracks last
 	var/track_distance = 12
 
+	/// tgstation-style underfloor visibility and interaction state for this turf's contents.
+	var/underfloor_accessibility = UNDERFLOOR_HIDDEN
+
 	//Mining resources (for the large drills).
 	var/has_resources
 	var/list/resources
@@ -66,14 +79,23 @@
 	///Lumcount added by sources other than lighting datum objects, such as the overlay lighting component.
 	var/dynamic_lumcount = 0
 
+	/// Whether this turf is always illuminated no matter what area it is in.
+	var/space_lit = FALSE
+	/// Whether the tg-style lighting corners for this turf have been generated.
+	var/tmp/lighting_corners_initialised = FALSE
+	/// Our lighting object.
+	var/tmp/atom/movable/lighting_object/lighting_object
+	/// Lighting corner datums.
+	var/tmp/datum/lighting_corner/lighting_corner_NE
+	var/tmp/datum/lighting_corner/lighting_corner_SE
+	var/tmp/datum/lighting_corner/lighting_corner_SW
+	var/tmp/datum/lighting_corner/lighting_corner_NW
+
 	///List of light sources affecting this turf.
 	///Which directions does this turf block the vision of, taking into account both the turf's opacity and the movable opacity_sources.
 	var/directional_opacity = NONE
 	///Lazylist of movable atoms providing opacity sources.
 	var/list/atom/movable/opacity_sources
-
-	///hybrid lights affecting this turf
-	var/tmp/list/atom/movable/lighting_mask/hybrid_lights_affecting
 
 	///for clean log spam.
 	var/last_clean
@@ -110,6 +132,23 @@
 	var/tmp/is_outside = OUTSIDE_AREA
 	var/tmp/last_outside_check = OUTSIDE_UNCERTAIN
 
+/turf/proc/update_plane_from_z()
+	if(!SSmapping.max_plane_offset || z < 1 || !SSmapping.z_level_to_plane_offset || z > length(SSmapping.z_level_to_plane_offset))
+		return
+
+	var/plane_offset = SSmapping.z_level_to_plane_offset[z]
+	if(isnull(plane_offset))
+		return
+
+	var/true_plane = PLANE_TO_TRUE(plane)
+	if(!isnull(true_plane))
+		SET_PLANE_W_SCALAR(src, true_plane, plane_offset)
+
+/turf/reset_plane_and_layer()
+	. = ..()
+	update_plane_from_z()
+	return .
+
 // Parent code is duplicated in here instead of ..() for performance reasons.
 // There's ALSO a copy of this in mine_turfs.dm!
 /turf/Initialize(mapload, ...)
@@ -118,6 +157,20 @@
 	if(flags_1 & INITIALIZED_1)
 		stack_trace("Warning: [src]([type]) initialized multiple times!")
 	flags_1 |= INITIALIZED_1
+
+	update_plane_from_z()
+
+	if(SSmapping.max_plane_offset)
+		var/turf/above_turf = GET_TURF_ABOVE(src)
+		if(above_turf)
+			above_turf.multiz_turf_new(src, DOWN)
+		var/turf/below_turf = GET_TURF_BELOW(src)
+		if(below_turf)
+			below_turf.multiz_turf_new(src, UP)
+
+	// By default, vis_contents is inherited from the turf that was here before.
+	if(length(vis_contents))
+		vis_contents.Cut()
 
 	for(var/atom/movable/content as anything in src)
 		Entered(content, src)
@@ -140,8 +193,9 @@
 
 	//Get area light
 	var/area/current_area = loc
-	if(current_area?.lighting_effect)
-		overlays += current_area.lighting_effect
+	var/offset = GET_TURF_PLANE_OFFSET(src)
+	if(offset && current_area?.lighting_effects && length(current_area.lighting_effects) >= offset + 1)
+		overlays += current_area.lighting_effects[offset + 1]
 
 	if(opacity)
 		directional_opacity = ALL_CARDINALS
@@ -153,21 +207,21 @@
 	if (A.area_flags & AREA_FLAG_SPAWN_ROOF)
 		spawn_roof()
 
-	if (z_flags & ZM_MIMIC_BELOW)
-		setup_zmimic(mapload)
-
 	return INITIALIZE_HINT_NORMAL
 
 /turf/Destroy()
-	if(hybrid_lights_affecting)
-		for(var/atom/movable/lighting_mask/mask as anything in hybrid_lights_affecting)
-			LAZYREMOVE(mask.affecting_turfs, src)
-		hybrid_lights_affecting.Cut()
-
 	if (!changing_turf)
 		crash_with("Improper turf qdeletion.")
 
 	changing_turf = FALSE
+
+	if(SSmapping.max_plane_offset)
+		var/turf/above_turf = GET_TURF_ABOVE(src)
+		if(above_turf)
+			above_turf.multiz_turf_del(src, DOWN)
+		var/turf/below_turf = GET_TURF_BELOW(src)
+		if(below_turf)
+			below_turf.multiz_turf_del(src, UP)
 
 	if (is_station_level(z))
 		GLOB.station_turfs -= src
@@ -175,15 +229,11 @@
 	remove_cleanables()
 	cleanup_roof()
 
-	if (z_flags & ZM_MIMIC_BELOW)
-		cleanup_zmimic()
-
-	if (z_flags & ZM_MIMIC_BELOW)
-		cleanup_zmimic()
-
 	resource_indicator = null
 
 	..()
+	if(length(vis_contents))
+		vis_contents.Cut()
 	return QDEL_HINT_IWILLGC
 
 /turf/proc/get_smooth_underlay_icon(mutable_appearance/underlay_appearance, turf/asking_turf, adjacency_dir)
@@ -209,7 +259,7 @@
 	// We do this prior to the unique space logic so this also covers space turfs within a needs_starlight area.
 	var/area/A = get_area(src)
 	if(A.needs_starlight)
-		set_light(SSatlas.current_sector.starlight_range, SSatlas.current_sector.starlight_power, SSskybox.background_color)
+		set_light(SSatlas.current_sector.starlight_range, SSatlas.current_sector.starlight_power, SSparallax.starlight_color)
 		return TRUE
 	else // If we aren't assigning starlight lighting, set the lighting to default so it's possible to undo starlight lighting if an area changes.
 		set_default_lighting()
@@ -268,7 +318,9 @@
 
 	//move the turf
 
+	old_area?.remove_turf_from_z_cache(src)
 	new_area.contents += src
+	new_area?.add_turf_to_z_cache(src)
 
 	/* START AURORA SNOWFLAKE */
 	var/old_outside = is_outside()
@@ -297,6 +349,12 @@
 /// Allows for reactions to an area change without inherently requiring change_area() be called (I hate maploading)
 /turf/proc/on_change_area(area/old_area, area/new_area)
 	transfer_area_lighting(old_area, new_area)
+
+/turf/proc/multiz_turf_del(turf/changed_turf, direction)
+	SEND_SIGNAL(src, COMSIG_TURF_MULTIZ_DEL, changed_turf, direction)
+
+/turf/proc/multiz_turf_new(turf/changed_turf, direction)
+	SEND_SIGNAL(src, COMSIG_TURF_MULTIZ_NEW, changed_turf, direction)
 
 // /turf/Enter(atom/movable/mover as mob|obj, atom/forget as mob|obj|turf|area)
 // 	if(movement_disabled && usr.ckey != movement_disabled_exception)
@@ -409,6 +467,10 @@
 
 	ASSERT(istype(arrived))
 
+	var/obj/arrived_obj = arrived
+	if(istype(arrived_obj) && arrived_obj.uses_undertile())
+		arrived_obj.update_underfloor_from_turf()
+
 	if(ismob(arrived))
 		var/mob/M = arrived
 		if(!M.lastarea)
@@ -471,9 +533,6 @@
 			if (oAM.simulated && (oAM.movable_flags & MOVABLE_FLAG_PROXMOVE))
 				arrived.proximity_callback(oAM)
 
-	if(!(arrived.bound_overlay || (arrived.z_flags & ZMM_IGNORE) || !TURF_IS_MIMICING(above)))
-		above.update_mimic()
-
 	//Items that are in phoron, but not on a mob, can still be contaminated.
 	var/obj/item/I = arrived
 	if(istype(I) && GLOB.vsc.plc.CLOTH_CONTAMINATION && I.can_contaminate())
@@ -515,7 +574,22 @@
 	return FALSE
 
 /turf/proc/can_lay_cable()
-	return can_have_cabling()
+	return can_have_cabling() && underfloor_accessibility >= UNDERFLOOR_INTERACTABLE
+
+/turf/proc/get_base_underfloor_accessibility()
+	return is_plating() ? UNDERFLOOR_INTERACTABLE : UNDERFLOOR_HIDDEN
+
+/turf/proc/get_cover_underfloor_accessibility()
+	if(locate(/obj/structure/lattice/catwalk/indoor) in src)
+		return UNDERFLOOR_VISIBLE
+
+/turf/proc/recalculate_underfloor_accessibility()
+	var/cover_accessibility = get_cover_underfloor_accessibility()
+	if(!isnull(cover_accessibility))
+		underfloor_accessibility = cover_accessibility
+	else
+		underfloor_accessibility = get_base_underfloor_accessibility()
+	return underfloor_accessibility
 
 /turf/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/grab))
@@ -545,8 +619,9 @@
 	return
 
 /turf/proc/levelupdate()
+	recalculate_underfloor_accessibility()
 	for(var/obj/O in src)
-		O.hide(O.hides_under_flooring() && !is_plating())
+		SEND_SIGNAL(O, COMSIG_OBJ_HIDE, underfloor_accessibility)
 
 /turf/proc/AdjacentTurfs(var/check_blockage = TRUE)
 	. = list()
@@ -613,8 +688,6 @@
 				// Only show message for visible runes
 				if(!R.invisibility)
 					to_chat(user, SPAN_WARNING("No matter how well you wash, the bloody symbols remain!"))
-		if(src.is_open())
-			update_mimic();
 	else
 		if(!(last_clean && world.time < last_clean + 100))
 			to_chat(user, SPAN_WARNING("\The [source] is too dry to wash that."))
@@ -780,14 +853,14 @@
 	if(istype(new_weather) && is_outside())
 		if(weather != new_weather)
 			if(weather)
-				remove_vis_contents(weather.vis_contents_additions)
+				remove_vis_contents(weather.get_vis_contents_additions(src))
 			weather = new_weather
-			add_vis_contents(weather.vis_contents_additions)
+			add_vis_contents(weather.get_vis_contents_additions(src))
 			. = TRUE
 
 	// We are indoors or there is no local weather system, clear our vis contents.
 	else if(weather)
-		remove_vis_contents(weather.vis_contents_additions)
+		remove_vis_contents(weather.get_vis_contents_additions(src))
 		weather = null
 		. = TRUE
 

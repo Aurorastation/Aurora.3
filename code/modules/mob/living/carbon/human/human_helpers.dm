@@ -53,7 +53,8 @@
 	equipment_see_invis	= 0
 	equipment_vision_flags = 0
 	equipment_prescription = 0
-	equipment_darkness_modifier = 0
+	equipment_lighting_cutoff = null
+	equipment_color_cutoffs = null
 	equipment_overlays.Cut()
 
 	var/binoc_check
@@ -76,14 +77,19 @@
 
 /mob/living/carbon/human/proc/process_glasses(var/obj/item/clothing/glasses/G)
 	if(G && G.active)
-		equipment_darkness_modifier += G.darkness_view
 		equipment_vision_flags |= G.vision_flags
 		equipment_prescription = equipment_prescription || G.prescription
 		if(G.overlay)
 			equipment_overlays |= G.overlay
-		if(G.lighting_alpha != lighting_alpha)
-			lighting_alpha = G.lighting_alpha
-		if(G.see_invisible)
+		if(!isnull(G.lighting_cutoff))
+			var/current_lighting_cutoff = isnull(equipment_lighting_cutoff) ? 0 : equipment_lighting_cutoff
+			equipment_lighting_cutoff = max(current_lighting_cutoff, G.lighting_cutoff)
+		if(length(G.color_cutoffs))
+			if(length(equipment_color_cutoffs))
+				equipment_color_cutoffs = blend_cutoff_colors(equipment_color_cutoffs, G.color_cutoffs)
+			else
+				equipment_color_cutoffs = G.color_cutoffs.Copy()
+		if(G.see_invisible >= 0)
 			if(equipment_see_invis)
 				equipment_see_invis = min(equipment_see_invis, G.see_invisible)
 			else

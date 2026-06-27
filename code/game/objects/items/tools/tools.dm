@@ -231,9 +231,10 @@
 
 	attack_verb = list("hit", "bludgeoned", "whacked")
 
-	light_system = MOVABLE_LIGHT
+	light_system = OVERLAY_LIGHT
 	light_range = 1
 	light_color = LIGHT_COLOR_LAVA
+	light_on = FALSE
 
 	//Amount of OUCH when it's thrown
 	force = 3
@@ -321,7 +322,7 @@
 
 /obj/item/weldingtool/use_tool(atom/target, mob/living/user, delay, amount, volume, datum/callback/extra_checks)
 	var/image/welding_sparks = image('icons/effects/effects.dmi', welding_state)
-	welding_sparks.plane = ABOVE_LIGHTING_PLANE
+	SET_PLANE_EXPLICIT(welding_sparks, ABOVE_LIGHTING_PLANE, target)
 	target.AddOverlays(welding_sparks)
 	. = ..()
 	target.CutOverlays(welding_sparks)
@@ -954,4 +955,3 @@
 	var/mutable_appearance/handle = mutable_appearance('icons/obj/tools.dmi', "hammer_handle")
 	handle.color = pick(COLOR_BLUE, COLOR_RED, COLOR_PURPLE, COLOR_BROWN, COLOR_GREEN, COLOR_CYAN, COLOR_YELLOW)
 	AddOverlays(handle)
-

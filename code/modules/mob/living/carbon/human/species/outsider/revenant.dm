@@ -60,7 +60,7 @@
 	spawn_flags = IS_RESTRICTED
 
 	vision_flags = DEFAULT_SIGHT | SEE_MOBS
-	default_lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_VISIBLE
+	default_lighting_cutoff = LIGHTING_CUTOFF_HIGH
 
 	has_organ = list(
 		BP_EYES = /obj/item/organ/internal/eyes/night/revenant

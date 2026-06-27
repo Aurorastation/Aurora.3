@@ -498,7 +498,7 @@
 		if(blocked)
 			AddOverlays("welded")
 		if(pdiff_alert)
-			AddOverlays(overlay_image(icon, icon_state = "palert", plane = ABOVE_LIGHTING_PLANE))
+			AddOverlays(overlay_image(icon, icon_state = "palert", plane = ABOVE_LIGHTING_PLANE, plane_context = src))
 			do_set_light = 1
 		if(dir_alerts)
 			for (var/d = 1; d <= 4; d++)
@@ -509,9 +509,9 @@
 				if (!dir_alerts[d])
 					continue
 				if (dir_alerts[d] & FIREDOOR_ALERT_COLD)
-					AddOverlays(overlay_image(icon, icon_state = "alert_cold", plane = ABOVE_LIGHTING_PLANE))
+					AddOverlays(overlay_image(icon, icon_state = "alert_cold", plane = ABOVE_LIGHTING_PLANE, plane_context = src))
 				if (dir_alerts[d] & FIREDOOR_ALERT_HOT)
-					AddOverlays(overlay_image(icon, icon_state = "alert_hot", plane = ABOVE_LIGHTING_PLANE))
+					AddOverlays(overlay_image(icon, icon_state = "alert_hot", plane = ABOVE_LIGHTING_PLANE, plane_context = src))
 
 				do_set_light = TRUE
 	else

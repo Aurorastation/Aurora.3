@@ -36,7 +36,8 @@
 
 /obj/abstract/weather_system/proc/lightning_strike()
 	set waitfor = FALSE
-	animate(lightning_overlay, alpha = 255, time = 2)
+	for(var/obj/abstract/lightning_overlay/lightning_overlay as anything in lightning_overlays)
+		animate(lightning_overlay, alpha = 255, time = 2)
 	for(var/client/C)
 		if(!isliving(C.mob))
 			continue
@@ -45,4 +46,5 @@
 			continue
 		sound_to(C.mob, sound('sound/effects/weather/thunder.ogg', repeat = FALSE, wait = 0, volume = 100))
 	sleep(3)
-	animate(lightning_overlay, alpha = initial(lightning_overlay.alpha), time = 5 SECONDS)
+	for(var/obj/abstract/lightning_overlay/lightning_overlay as anything in lightning_overlays)
+		animate(lightning_overlay, alpha = initial(lightning_overlay.alpha), time = 5 SECONDS)

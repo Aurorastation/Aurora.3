@@ -27,6 +27,8 @@ SUBSYSTEM_DEF(weather)
 	while(processing_systems.len)
 		weather = processing_systems[processing_systems.len]
 		processing_systems.len--
+		if(QDELETED(weather) || !weather.weather_system)
+			continue
 		weather.tick()
 		if(MC_TICK_CHECK)
 			return
@@ -55,11 +57,18 @@ SUBSYSTEM_DEF(weather)
 		if(weather_by_z["[Z]"])
 			CRASH("Trying to register another weather system on the same z-level([Z]) as an existing one!")
 		weather_by_z["[Z]"] = WS
+	SEND_SIGNAL(src, COMSIG_WEATHER_SYSTEM_REGISTERED, WS)
 
 ///Remove a weather systeam from the processing lists.
 /datum/controller/subsystem/weather/proc/unregister_weather_system(var/obj/abstract/weather_system/WS)
 	//Clear any and all references to our weather object
-	for(var/Z = 1 to length(weather_by_z))
+	var/was_registered = (WS in weather_systems)
+	var/list/affected_zs = WS.affecting_zs || GetConnectedZlevels(WS.z)
+	for(var/Z in affected_zs)
 		if(weather_by_z["[Z]"] == WS)
 			weather_by_z["[Z]"] = null
+			was_registered = TRUE
 	weather_systems -= WS
+	processing_systems -= WS
+	if(was_registered)
+		SEND_SIGNAL(src, COMSIG_WEATHER_SYSTEM_UNREGISTERED, WS)

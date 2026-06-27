@@ -24,3 +24,10 @@ GLOBAL_DATUM_INIT(sight_set_event, /singleton/observ/sight_set, new)
 	if(old_sight != new_sight)
 		sight = new_sight
 		GLOB.sight_set_event.raise_event(src, old_sight, new_sight)
+		SEND_SIGNAL(src, COMSIG_MOB_SIGHT_CHANGE, new_sight, old_sight)
+
+/mob/proc/add_sight(new_sight)
+	set_sight(sight | new_sight)
+
+/mob/proc/clear_sight(old_sight)
+	set_sight(sight & ~old_sight)

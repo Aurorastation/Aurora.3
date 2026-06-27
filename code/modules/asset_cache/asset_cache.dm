@@ -662,7 +662,7 @@ GLOBAL_LIST_EMPTY(asset_datums)
 			var/obj/item/seeds/S = item
 			if(!S.seed && S.seed_type && !isnull(SSplants.seeds) && SSplants.seeds[S.seed_type])
 				S.seed = SSplants.seeds[S.seed_type]
-			I = S.update_appearance(TRUE)
+			I = S.update_seed_appearance(TRUE)
 			Insert(imgid, I, forced=I)
 		else
 			item.update_icon()

@@ -164,7 +164,5 @@ GLOBAL_LIST_INIT(department_funds, list(
 //List of exosuit tracking beacons, to save performance
 GLOBAL_LIST_EMPTY(exo_beacons)
 
-GLOBAL_VAR_INIT(minimum_exterior_lighting_alpha, 255)
-
 /// The minimum amount of armour for objects in the game. Stops things from being destroyed by objects with a small force.
 GLOBAL_LIST_INIT(default_object_armor, list(MELEE = ARMOR_MELEE_MINOR))

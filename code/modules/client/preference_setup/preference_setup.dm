@@ -337,6 +337,6 @@
 /datum/category_item/player_setup_item/proc/OnTopic(var/href,var/list/href_list, var/mob/user)
 	return TOPIC_NOACTION
 
-/datum/category_item/player_setup_item/proc/preference_mob()
+/datum/category_item/player_setup_item/proc/preference_mob() as /mob
 	if(pref && pref.client && pref.client.mob)
 		return pref.client.mob

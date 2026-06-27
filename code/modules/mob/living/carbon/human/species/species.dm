@@ -464,7 +464,7 @@
 	/// Whether this species can choose to sleep indefinitely
 	var/indefinite_sleep = FALSE
 	/// The default lighting alpha of this species. Override to set innate NVGs.
-	var/default_lighting_alpha = LIGHTING_PLANE_ALPHA_VISIBLE
+	var/default_lighting_cutoff = LIGHTING_CUTOFF_VISIBLE
 
 	/// Controls whether this species spawns with a Morale Component.
 	var/has_morale = TRUE
@@ -715,32 +715,8 @@
 	return vision_flags
 
 /datum/species/proc/handle_vision(var/mob/living/carbon/human/H)
-	var/list/vision = H.get_accumulated_vision_handlers()
-	H.update_sight()
-	if(H.machine && H.machine.check_eye(H) >= 0 && H.client.eye != H)
-		var/sight_flags = H.sight
-
-		// we inherit sight flags from the machine
-		sight_flags &= ~(get_vision_flags(H))
-		sight_flags &= ~(H.equipment_vision_flags)
-		sight_flags &= ~(vision[1])
-
-		sight_flags |= H.machine.check_eye(H)
-
-		H.set_sight(sight_flags)
-	else
-		H.set_sight(H.sight|get_vision_flags(H)|H.equipment_vision_flags|vision[1])
-
 	if(H.stat == DEAD)
 		return 1
-
-	if(!H.druggy)
-		if(H.seer)
-			var/obj/effect/rune/R = locate(/obj/effect/rune) in get_turf(H)
-			if(R && R.type == /datum/rune/see_invisible)
-				H.set_see_invisible(SEE_INVISIBLE_CULT)
-		if(H.see_invisible != SEE_INVISIBLE_CULT && H.equipment_see_invis)
-			H.set_see_invisible(min(H.see_invisible, H.equipment_see_invis))
 
 	if(H.equipment_tint_total >= TINT_BLIND)
 		H.eye_blind = max(H.eye_blind, 1)
@@ -767,13 +743,10 @@
 	else
 		H.remove_client_color(/datum/client_color/oversaturated)
 
+	// These are legacy scanline/tint screen overlays for local HUD items.
+	// Lighting, darkness, and sight flags are owned by /mob/living/carbon/human/update_sight().
 	for(var/overlay in H.equipment_overlays)
 		H.client.screen |= overlay
-
-	var/obj/item/organ/internal/eyes/night/NE = H.get_eyes()
-	if(istype(NE) && NE.night_vision && NE.can_change_invisible())
-		H.lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
-		H.update_sight()
 
 	return 1
 

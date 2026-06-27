@@ -107,3 +107,18 @@
 	//screen_text vars
 	///lazylist of screen_texts for this client, first in this list is the one playing
 	var/list/atom/movable/screen/text/screen_text/screen_texts
+
+	/// Registered screen objects keyed by BYOND map control.
+	var/list/list/atom/movable/screen/screen_maps = list()
+
+	// all this shit is going to be for future movedir-grounded parallax behaviors (tg shuttle port)
+	var/atom/movable/screen/parallax_home/parallax_rock
+	/// This is the last recorded client eye holder for parallax consumers.
+	var/atom/movable/movingmob
+	var/turf/previous_turf
+	/// world.time of when we can start animate()ing parallax again.
+	var/dont_animate_parallax
+	/// Direction our current area wants to move parallax.
+	var/parallax_movedir = NONE
+	/// Timers for the area directional animation, one for each layer.
+	var/list/parallax_animate_timers = list()
