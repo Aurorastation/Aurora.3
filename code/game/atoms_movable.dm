@@ -618,7 +618,6 @@
 
 /atom/movable/proc/on_changed_z_level(turf/old_turf, turf/new_turf, same_z_layer, notify_contents = TRUE)
 	SHOULD_CALL_PARENT(TRUE)
-	SEND_SIGNAL(src, COMSIG_MOVABLE_Z_CHANGED, old_turf, new_turf, same_z_layer)
 
 	if(!same_z_layer && !QDELETED(src))
 		SET_PLANE(src, PLANE_TO_TRUE(src.plane), new_turf)
@@ -634,11 +633,11 @@
 				SET_PLANE(update, PLANE_TO_TRUE(update.plane), new_turf)
 			AddOverlays(update_overlays_on_z)
 
-	if(!notify_contents)
-		return
+	if(notify_contents)
+		for(var/atom/movable/content as anything in src)
+			content.on_changed_z_level(old_turf, new_turf, same_z_layer)
 
-	for(var/atom/movable/content as anything in src)
-		content.on_changed_z_level(old_turf, new_turf, same_z_layer)
+	SEND_SIGNAL(src, COMSIG_MOVABLE_Z_CHANGED, old_turf, new_turf, same_z_layer)
 
 /atom/movable/Exited(atom/movable/gone, direction)
 	. = ..()
@@ -1290,7 +1289,7 @@
 	luminosity += affecting_dynamic_lumi
 
 
-///Helper to change several lighting overlay settings.
+///Helper to change several lighting overlay settings. This needs to be replaced EVERYWHERE with /atom/proc/set_light().
 /atom/movable/proc/set_light_range_power_color(range, power, color)
 	set_light_range(range)
 	set_light_power(power)

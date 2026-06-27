@@ -395,10 +395,10 @@ GLOBAL_LIST(global_huds)
 	var/old_offset = current_plane_offset
 	current_plane_offset = new_offset
 
-	SEND_SIGNAL(src, COMSIG_HUD_OFFSET_CHANGED, old_offset, new_offset)
 	for(var/group_key in master_groups)
 		var/datum/plane_master_group/group = master_groups[group_key]
-		group.build_planes_offset(src, new_offset)
+		group.build_planes_offset(src, new_offset, animate_transform = FALSE)
+	SEND_SIGNAL(src, COMSIG_HUD_OFFSET_CHANGED, old_offset, new_offset)
 
 /datum/hud/proc/on_plane_increase(datum/source, old_max_offset, new_max_offset)
 	SIGNAL_HANDLER

@@ -118,6 +118,9 @@
 
 /// Setter for the light range of this atom.
 /atom/proc/set_light_range(new_range)
+	// We put this check in here instead of set_light() because the consequences of bypassing it are dire (see define comment).
+	if(new_range > LIGHT_MAXIMUM_RANGE)
+		new_range = LIGHT_MAXIMUM_RANGE
 	if(new_range == light_range || light_flags & LIGHT_FROZEN)
 		return
 	if(SEND_SIGNAL(src, COMSIG_ATOM_SET_LIGHT_RANGE, new_range) & COMPONENT_BLOCK_LIGHT_UPDATE)

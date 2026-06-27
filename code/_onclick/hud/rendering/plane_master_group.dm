@@ -107,7 +107,7 @@
 // It would be nice to setup parallaxing for stairs and things when doing this
 // So they look nicer. if you can't it's all good, if you think you can sanely look at monster's work
 // It's hard, and potentially expensive. be careful
-/datum/plane_master_group/proc/build_planes_offset(datum/hud/source, new_offset, use_scale = TRUE)
+/datum/plane_master_group/proc/build_planes_offset(datum/hud/source, new_offset, use_scale = TRUE, animate_transform = TRUE)
 	var/mob/our_mob = our_hud?.mymob
 
 	// No offset? piss off
@@ -183,7 +183,12 @@
 			plane.transform = offsets[visual_offset + offset_offset]
 			continue
 
-		animate(plane, transform = offsets[visual_offset + offset_offset], 0.05 SECONDS, easing = LINEAR_EASING)
+		var/matrix/new_transform = offsets[visual_offset + offset_offset]
+		if(animate_transform)
+			animate(plane, transform = new_transform, 0.05 SECONDS, easing = LINEAR_EASING)
+		else
+			animate(plane)
+			plane.transform = new_transform
 
 /// Holds plane masters for popups, like camera windows
 /// Note: We do not scale this plane, even though we could
@@ -191,16 +196,16 @@
 /// If you wanna try someday feel free, but I can't manage it
 /datum/plane_master_group/popup
 
-/datum/plane_master_group/popup/build_planes_offset(datum/hud/source, new_offset, use_scale = TRUE)
-	return ..(source, new_offset, FALSE)
+/datum/plane_master_group/popup/build_planes_offset(datum/hud/source, new_offset, use_scale = TRUE, animate_transform = TRUE)
+	return ..(source, new_offset, FALSE, animate_transform)
 
 /// Holds the main plane master
 /datum/plane_master_group/main
 
-/datum/plane_master_group/main/build_planes_offset(datum/hud/source, new_offset, use_scale = TRUE)
+/datum/plane_master_group/main/build_planes_offset(datum/hud/source, new_offset, use_scale = TRUE, animate_transform = TRUE)
 	if(use_scale)
-		return ..(source, new_offset, source.should_use_scale())
-	return ..()
+		return ..(source, new_offset, source.should_use_scale(), animate_transform)
+	return ..(source, new_offset, use_scale, animate_transform)
 
 /// Hudless group. Exists for testing
 /datum/plane_master_group/hudless

@@ -105,6 +105,8 @@
 #define L_PROF(O,T) if (GLOB.lighting_profiling) {lprof_write(O,T);}
 
 #define MINIMUM_USEFUL_LIGHT_RANGE 1.4
+/// Excessive range causes exponential growth in falloff_at_coord() and generate_sheet(). Exceeding this WILL lag and crash the server.
+#define LIGHT_MAXIMUM_RANGE 12
 
 /// Object doesn't use any of the light systems. Should be changed to add a light source to the object.
 #define NO_LIGHT_SUPPORT 0
