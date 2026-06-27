@@ -970,6 +970,20 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "kira_carrier"
 	contained_sprite = TRUE
 
+/obj/item/clothing/accessory/poncho/fluff/nietz_coat //zavodskoi police jacket - Z.I. Nietzschka - Dessysalta
+	name = "zavodskoi police jacket"
+	desc = "A long, thick coat of wool and aramid, proudly flashing a holograph of Zavodskoi Interstellar by the chest and 'POLICE' on the back. Fans and other synthetic-accommodating features \
+	can be seen or heard along the inside- the most eye-catching is a pauldron-like heatsink mounted to the left shoulder."
+	desc_extended = "Corporate-sponsored police forces are a common sight in the Spur, with numerous footholds held by both Zavodskoi and the PMCG in core worlds and 'drifter sectors' alike. \
+	Coats such as these are rarely issued to (and in this case, modified to fit) synthetic personnel, and only in such cases where interim management or other minor command is permitted- \
+	such as on Vysoka. Fewer still leave the planet they originate from; indicating immense social status, many Zavodskoi units have worked themselves to destruction trying to obtain \
+	the rank this jacket indicates."
+	icon = 'icons/obj/custom_items/nietz_coat.dmi'
+	icon_override = 'icons/obj/custom_items/nietz_coat.dmi'
+	icon_state = "nietz_coat"
+	item_state = "nietz_coat"
+	contained_sprite = TRUE
+
 /obj/item/organ/external/leg/right/fluff/nines_autakh // Prosthetic Aut'akh Left Leg - Hazel #S-H9.09 - hazelmouse
 	robotize_type = PROSTHETIC_AUTAKH
 	skin_color = FALSE
