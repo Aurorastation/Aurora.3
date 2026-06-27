@@ -274,3 +274,4 @@ GLOBAL_VAR_INIT(shuttle_uid, 0)
 /datum/record/shuttle_assignment/New(var/for_shuttle)
 	. = ..()
 	shuttle = for_shuttle
+

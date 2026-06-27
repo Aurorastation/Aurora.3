@@ -184,37 +184,37 @@
 
 // TCAF
 
-/obj/item/clothing/head/beret/legion
-	name = "\improper TCFL dress beret"
-	desc = "A pale blue dress beret with a rubber insignia of a torch, surrounded by red stars and the letters \"TCFL\". A common good luck charm among former legionaires."
-	icon_state = "tcfl_dress"
-	item_state = "tcfl_dress"
-
-/obj/item/clothing/head/beret/legion/field
-	name = "TCFL field beret"
-	desc = "A hardy, stark red field beret with a rubber insignia of a torch, surrounded by red stars and the letters \"TCFL\"."
-	icon_state = "tcfl_field"
-	item_state = "tcfl_field"
-
-/obj/item/clothing/head/beret/legion/sentinel
-	name = "TCFL sentinel beret"
-	desc = "A hardy, stark purple sentinel beret with a rubber insignia of a torch, surrounded by red stars and the letters \"TCFL\"."
-	icon_state = "tcfl_sentinel"
-	item_state = "tcfl_sentinel"
-
-/obj/item/clothing/head/beret/legion/tcaf
+/obj/item/clothing/head/beret/tcaf
 	name = "\improper TCAF dress beret"
-	desc = "A blue dress beret bearing the flag of the Republic of Biesel. Often only seen worn by in-service members of the Tau Ceti Armed Forces."
+	desc = "A blue dress beret bearing the flag of the Republic of Biesel. Worn by service members of the Tau Ceti Armed Forces."
 	icon = 'icons/obj/item/clothing/head/tcaf_hats.dmi'
 	contained_sprite = TRUE
 	icon_state = "tcaf_dress_beret"
 	item_state = "tcaf_dress_beret"
 
-/obj/item/clothing/head/beret/legion/tcaf/tcaf_field
+/obj/item/clothing/head/beret/tcaf/field
 	name = "\improper TCAF field beret"
-	desc = "A red beret bearing a golden torch in semblance of the Republic of Biesel. Often only seen worn by in-service members of the Tau Ceti Armed Forces."
+	desc = "A red beret bearing a golden badge of one of the TCAF's main legions. Worn by service members of the Tau Ceti Armed Forces."
 	icon_state = "tcaf_field_beret"
 	item_state = "tcaf_field_beret"
+
+/obj/item/clothing/head/beret/tcaf/foreign_legion
+	name = "\improper TCAF foreign legions dress beret"
+	desc = "A bright blue, red-rimmed dress beret with a rubber insignia of a torch, surrounded by red stars. Worn by those of the Foreign Legions of one of the TCAF's service branches."
+	icon_state = "tcaf_fl_dress"
+	item_state = "tcfl_dress"
+
+/obj/item/clothing/head/beret/tcaf/foreign_legion/field
+	name = "TCAF foreign legions field beret"
+	desc = "A bright blue, red-rimmed field beret with the bronze badge of one of the TCAF's foreign legions."
+	icon_state = "tcaf_fl_field"
+	item_state = "tcaf_fl_field"
+
+/obj/item/clothing/head/beret/tcaf/elite_espatier // ONLY FOR TORVALD'S STRONGEST WARRIORS
+	name = "TCAF elite espatier beret"
+	desc = "A tyrian purple beret with the platinum badge of one of the Republic Espatier's elite espatier centuries. You must really love the Republic!"
+	icon_state = "tcaf_elite_espatier"
+	item_state = "tcaf_elite_espatier"
 
 //centcom
 

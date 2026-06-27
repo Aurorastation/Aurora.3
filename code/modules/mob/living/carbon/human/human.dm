@@ -101,7 +101,6 @@
 	//Srom (Shared Dreaming)
 	srom_pulled_by = null
 	srom_pulling = null
-	bg = null //Just to be sure.
 
 	GLOB.human_mob_list -= src
 	GLOB.intent_listener -= src
@@ -271,6 +270,13 @@
 			. += "Chemical Storage: [changeling.chem_charges]"
 			. += "Genetic Damage Time: [changeling.geneticdamage]"
 
+		if(mind.special_role) //we are an antag
+			. += "Current Antagonists:"
+			for(var/antag_type in GLOB.all_antag_types)
+				var/datum/antagonist/validhunted = GLOB.all_antag_types[antag_type]
+				if(length(validhunted.current_antagonists))
+					. += "- [validhunted.role_text]: [length(validhunted.current_antagonists)]"
+
 	if(. && istype(back,/obj/item/rig))
 		var/obj/item/rig/R = back
 		if(R && !R.canremove && R.installed_modules.len)
@@ -371,7 +377,7 @@
 		suit = w_uniform
 
 	user.set_machine(src)
-	var/dat = "<B><HR><FONT size=3>[name]</FONT></B><BR><HR>"
+	var/dat = "<B><HR><FONT size=5>[name]</FONT></B><BR><HR>"
 
 	if(internals)
 		dat += "<B>Internals: [internal ? "On" : "Off"]</B><BR>"

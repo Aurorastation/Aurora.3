@@ -47,9 +47,7 @@
 	/obj/item/pen = 75,	\
 	/obj/item/stack/rods = 50
 	)
-
-	min_duration = 50
-	max_duration = 70
+	base_surgery_time = 7 SECONDS
 	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 
 /singleton/surgery_step/cavity/make_space/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -80,9 +78,7 @@
 	/obj/item/flame/lighter = 50,			\
 	/obj/item/weldingtool = 25
 	)
-
-	min_duration = 50
-	max_duration = 70
+	base_surgery_time = 7 SECONDS
 	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 
 /singleton/surgery_step/cavity/close_space/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -108,9 +104,7 @@
 	name = "Place Item in Cavity"
 	priority = 0
 	allowed_tools = list(/obj/item = 100)
-
-	min_duration = 60
-	max_duration = 80
+	base_surgery_time = 8 SECONDS
 	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 
 /singleton/surgery_step/cavity/place_item/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -160,9 +154,7 @@
 	TOOL_WIRECUTTER = 75,	\
 	/obj/item/material/kitchen/utensil/fork = 20
 	)
-
-	min_duration = 60
-	max_duration = 80
+	base_surgery_time = 8 SECONDS
 	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 
 /singleton/surgery_step/cavity/implant_removal/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)

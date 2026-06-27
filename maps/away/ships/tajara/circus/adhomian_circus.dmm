@@ -1564,7 +1564,7 @@
 "iiQ" = (
 /obj/structure/machinery/computer/ship/helm{
 	dir = 1;
-	req_access = list(204)
+	req_access = list(111)
 	},
 /obj/effect/floor_decal/corner/pink{
 	dir = 10
