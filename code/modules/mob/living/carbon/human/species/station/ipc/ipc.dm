@@ -295,6 +295,9 @@
 		tag.serial_number = player.prefs.machine_serial_number
 		tag.ownership_info = player.prefs.machine_ownership_status
 		tag.citizenship_info = new_machine.citizenship
+	if(player.prefs.machine_custom_model) // In check_tag() because why bother making a new proc for ONE assignment
+		var/obj/item/organ/internal/machine/posibrain/ipcbrain = new_machine.internal_organs_by_name[BP_BRAIN]
+		ipcbrain.custom_model = player.prefs.machine_custom_model
 	else
 		new_machine.internal_organs_by_name -= BP_IPCTAG
 		new_machine.internal_organs -= tag

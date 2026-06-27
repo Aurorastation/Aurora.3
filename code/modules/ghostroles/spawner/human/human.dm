@@ -114,6 +114,10 @@
 	//Get the name / age from them first
 	var/mname = get_mob_name(user, picked_species, assigned_gender)
 	var/age = tgui_input_number(user, "Enter your character's age.", "Age", 25, 1000, 0)
+	var/custom_model
+
+	if(istype(GLOB.all_species[picked_species], /datum/species/machine))
+		custom_model = sanitize(tgui_input_text(user, "Enter the name of a custom model name for your examine if desired.", "IPC Custom Model", max_length = 30))
 
 	//Spawn in the mob
 	var/mob/living/carbon/human/M = new spawn_mob(GLOB.newplayer_start)
@@ -148,6 +152,10 @@
 		mname = random_name(M.gender, M.species.name)
 
 	M.fully_replace_character_name(M.real_name, mname)
+
+	if(isipc(M))
+		var/obj/item/organ/internal/machine/posibrain/ipcbrain = M.internal_organs_by_name[BP_BRAIN]
+		ipcbrain.custom_model = custom_model
 
 	M.mind.signature = mname
 	M.mind.signfont = pick("Verdana", "Times New Roman", "Courier New")
