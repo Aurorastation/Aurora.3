@@ -58,12 +58,12 @@
 
 	msg += "<EM>[src.name]</EM>"
 
-	if(!species.hide_name)
-		var/ipcmodel
-		if(isipc(src))
-			var/obj/item/organ/internal/machine/posibrain/ipcbrain = internal_organs_by_name[BP_BRAIN]
-			var/modelmsg = ipcbrain.custom_model
-			ipcmodel = "[modelmsg]"
+	var/ipcmodel
+	if(isipc(src))
+		var/obj/item/organ/internal/machine/posibrain/ipcbrain = internal_organs_by_name[BP_BRAIN]
+		var/modelmsg = ipcbrain.custom_model
+		ipcmodel = "[modelmsg]"
+	if(!species.hide_name || ipcmodel)
 		msg += ", a <b><font color='[species.examine_color || species.flesh_color]'>[ipcmodel ? "[ipcmodel] ":""][species.name]</font></b>"
 	msg += "!\n"
 
