@@ -978,6 +978,7 @@
 	id = "kasf_captains_shutters";
 	name = "Window Blast Doors"
 	},
+/obj/item/journal,
 /turf/simulated/floor/wood,
 /area/ship/kasf_corvette/captain)
 "fM" = (
@@ -8007,6 +8008,10 @@
 	},
 /obj/item/material/ashtray/bronze{
 	pixel_y = 16
+	},
+/obj/item/lore_radio{
+	pixel_y = 12;
+	pixel_x = -5
 	},
 /turf/simulated/floor/wood,
 /area/ship/kasf_corvette/mess)

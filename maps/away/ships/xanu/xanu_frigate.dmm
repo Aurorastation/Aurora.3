@@ -1187,6 +1187,7 @@
 /obj/item/pen{
 	pixel_y = 3
 	},
+/obj/item/lore_radio,
 /turf/simulated/floor/carpet/red,
 /area/ship/xanu_frigate/rec_room)
 "er" = (
@@ -1903,6 +1904,13 @@
 "gE" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/structure/table/reinforced/steel,
+/obj/item/reagent_containers/food/condiment/syrup_chocolate{
+	pixel_y = 11;
+	pixel_x = -9
+	},
+/obj/item/reagent_containers/food/condiment/sugar{
+	pixel_x = -7
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/xanu_frigate/galley)
 "gF" = (
@@ -4029,6 +4037,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
+/obj/structure/machinery/icecream_vat,
 /turf/simulated/floor/tiled/white,
 /area/ship/xanu_frigate/galley)
 "nN" = (
@@ -7184,6 +7193,14 @@
 /obj/item/clothing/accessory/flagpatch/coalition,
 /obj/item/clothing/accessory/flagpatch/coalition,
 /obj/item/clothing/accessory/flagpatch/coalition,
+/obj/item/clothing/accessory/flagpatch/all_xanu,
+/obj/item/clothing/accessory/flagpatch/all_xanu,
+/obj/item/clothing/accessory/flagpatch/all_xanu,
+/obj/item/clothing/accessory/flagpatch/all_xanu,
+/obj/item/clothing/accessory/flagpatch/all_xanu,
+/obj/item/clothing/accessory/flagpatch/all_xanu,
+/obj/item/clothing/accessory/flagpatch/all_xanu,
+/obj/item/clothing/accessory/flagpatch/all_xanu,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/xanu_frigate/cic)
 "ze" = (
@@ -8767,6 +8784,35 @@
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/ship/xanu_frigate/corridor/aft)
+"Ey" = (
+/obj/effect/floor_decal/corner_wide/blue{
+	dir = 10
+	},
+/obj/structure/closet/secure_closet/freezer{
+	name = d
+	},
+/obj/item/reagent_containers/food/snacks/croissant,
+/obj/item/reagent_containers/food/snacks/croissant,
+/obj/item/reagent_containers/food/snacks/croissant,
+/obj/item/reagent_containers/food/snacks/croissant,
+/obj/item/reagent_containers/food/snacks/croissant,
+/obj/item/reagent_containers/food/snacks/croissant,
+/obj/item/reagent_containers/food/snacks/croissant,
+/obj/item/reagent_containers/food/snacks/croissant,
+/obj/item/reagent_containers/food/snacks/croissant,
+/obj/item/reagent_containers/food/snacks/croissant,
+/obj/item/reagent_containers/food/snacks/croissant,
+/obj/item/reagent_containers/food/snacks/croissant,
+/obj/item/reagent_containers/food/snacks/croissant,
+/obj/item/reagent_containers/food/snacks/baguette,
+/obj/item/reagent_containers/food/snacks/baguette,
+/obj/item/reagent_containers/food/snacks/baguette,
+/obj/item/reagent_containers/food/snacks/baguette,
+/obj/item/reagent_containers/food/snacks/baguette,
+/obj/item/reagent_containers/food/snacks/baguette,
+/obj/item/reagent_containers/food/snacks/baguette,
+/turf/simulated/floor/tiled/gunmetal,
+/area/ship/xanu_frigate/mess_hall)
 "EA" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/warning,
@@ -9156,6 +9202,22 @@
 	dir = 4;
 	pixel_x = 20
 	},
+/obj/item/reagent_containers/food/drinks/cans/beer/whistlingforest,
+/obj/item/reagent_containers/food/drinks/cans/beer/whistlingforest,
+/obj/item/reagent_containers/food/drinks/cans/beer/whistlingforest,
+/obj/item/reagent_containers/food/drinks/cans/beer/whistlingforest,
+/obj/item/reagent_containers/food/drinks/cans/beer/whistlingforest,
+/obj/item/reagent_containers/food/drinks/cans/beer/whistlingforest,
+/obj/item/reagent_containers/food/drinks/cans/beer/whistlingforest,
+/obj/item/reagent_containers/food/drinks/cans/beer/whistlingforest,
+/obj/item/reagent_containers/food/drinks/cans/beer/whistlingforest,
+/obj/item/reagent_containers/food/drinks/cans/beer/whistlingforest,
+/obj/item/reagent_containers/food/drinks/cans/beer/whistlingforest,
+/obj/item/reagent_containers/food/drinks/cans/beer/whistlingforest,
+/obj/item/reagent_containers/food/drinks/cans/beer/whistlingforest,
+/obj/item/reagent_containers/food/drinks/cans/beer/whistlingforest,
+/obj/item/reagent_containers/food/drinks/cans/beer/whistlingforest,
+/obj/item/reagent_containers/food/drinks/bottle/vintage_wine,
 /turf/simulated/floor/wood,
 /area/ship/xanu_frigate/captain)
 "FV" = (
@@ -12432,6 +12494,10 @@
 /obj/item/reagent_containers/food/snacks/donerkebab,
 /obj/item/reagent_containers/food/snacks/crepe/chocolate,
 /obj/item/reagent_containers/food/snacks/blt,
+/obj/item/reagent_containers/food/snacks/sliceable/veggie_lasagna_tray,
+/obj/item/reagent_containers/food/snacks/sliceable/veggie_lasagna_tray,
+/obj/item/reagent_containers/food/snacks/sliceable/veggie_lasagna_tray,
+/obj/item/reagent_containers/food/snacks/sliceable/veggie_lasagna_tray,
 /turf/simulated/floor/tiled/gunmetal,
 /area/ship/xanu_frigate/mess_hall)
 "QK" = (
@@ -14235,6 +14301,17 @@
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/ship/xanu_frigate/corridor/port)
+"WA" = (
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/disposalpipe/segment,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/item/reagent_containers/food/snacks/ntella_bread,
+/turf/simulated/floor/plating,
+/area/ship/xanu_frigate/corridor/fore)
 "WB" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
@@ -47287,7 +47364,7 @@ Ra
 vl
 Qs
 dy
-dy
+WA
 nA
 jJ
 XM
@@ -49340,7 +49417,7 @@ fy
 gv
 vN
 vp
-XD
+Ey
 cx
 jv
 If

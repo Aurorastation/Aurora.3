@@ -6193,6 +6193,14 @@
 	},
 /obj/structure/table/rack/folding_table,
 /obj/structure/machinery/recharger,
+/obj/item/clothing/glasses/night{
+	pixel_y = -2;
+	pixel_x = -5
+	},
+/obj/item/clothing/glasses/night{
+	pixel_y = 8;
+	pixel_x = -5
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "wpk" = (

@@ -4577,6 +4577,11 @@
 /obj/item/clothing/glasses/safety/goggles/tactical,
 /obj/item/clothing/glasses/safety/goggles/tactical,
 /obj/item/clothing/glasses/safety/goggles/tactical,
+/obj/item/clothing/glasses/night,
+/obj/item/clothing/glasses/night,
+/obj/item/clothing/glasses/night{
+	pixel_y = 7
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/himeo_patrol_ship/armoury)
 "tN" = (
@@ -8711,6 +8716,7 @@
 /obj/structure/machinery/light/colored/decayed/dimmed{
 	dir = 1
 	},
+/obj/item/lore_radio,
 /turf/simulated/floor/tiled/full,
 /area/himeo_patrol_ship/barracks)
 "Lc" = (
@@ -10220,7 +10226,6 @@
 	},
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/item/clothing/glasses/night,
 /turf/simulated/floor/tiled/dark,
 /area/himeo_patrol_ship/armoury)
 "Ri" = (
