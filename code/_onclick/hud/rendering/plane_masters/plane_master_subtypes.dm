@@ -86,9 +86,10 @@
 
 /atom/movable/screen/plane_master/parallax_white/proc/parallax_updated(datum/source)
 	SIGNAL_HANDLER
-	if(isnull(home.our_hud?.mymob))
+	var/datum/hud/our_hud = home?.our_hud
+	if(isnull(our_hud?.mymob))
 		return
-	if(HAS_TRAIT(home.our_hud, TRAIT_PARALLAX_DISPLAYED))
+	if(HAS_TRAIT(our_hud, TRAIT_PARALLAX_DISPLAYED))
 		// Gives parallax a fullwhite backdrop to multiply against
 		color = list(
 			0, 0, 0, 0,
@@ -138,12 +139,13 @@
 
 /atom/movable/screen/plane_master/parallax/proc/parallax_updated(datum/source)
 	SIGNAL_HANDLER
-	if(isnull(home.our_hud?.mymob))
+	var/datum/hud/our_hud = home?.our_hud
+	if(isnull(our_hud?.mymob))
 		return
-	if(HAS_TRAIT(home.our_hud, TRAIT_PARALLAX_DISPLAYED))
-		show_to(home.our_hud.mymob)
+	if(HAS_TRAIT(our_hud, TRAIT_PARALLAX_DISPLAYED))
+		show_to(our_hud.mymob)
 	else
-		hide_from(home.our_hud.mymob)
+		hide_from(our_hud.mymob)
 
 /atom/movable/screen/plane_master/parallax/proc/on_offset_increase(datum/source, old_offset, new_offset)
 	SIGNAL_HANDLER
@@ -164,7 +166,9 @@
 		return
 	// If we can't render, and we aren't the bottom layer, don't render us
 	// This way we only multiply against stuff that's not fullwhite space
-	var/atom/movable/screen/plane_master/parent_parallax = home.our_hud.get_plane_master(PLANE_SPACE_PARALLAX)
+	var/atom/movable/screen/plane_master/parent_parallax = home?.our_hud?.get_plane_master(PLANE_SPACE_PARALLAX)
+	if(!parent_parallax)
+		return ..()
 	var/turf/viewing_turf = get_turf(relevant)
 	if(!viewing_turf || offset != GET_LOWEST_STACK_OFFSET(viewing_turf.z))
 		parent_parallax.remove_relay_from(plane)
@@ -178,8 +182,8 @@
 		is_outside_bounds = FALSE
 		return
 	// Always readd, just in case we lost it
-	var/atom/movable/screen/plane_master/parent_parallax = home.our_hud.get_plane_master(PLANE_SPACE_PARALLAX)
-	parent_parallax.add_relay_to(plane, BLEND_OVERLAY)
+	var/atom/movable/screen/plane_master/parent_parallax = home?.our_hud?.get_plane_master(PLANE_SPACE_PARALLAX)
+	parent_parallax?.add_relay_to(plane, BLEND_OVERLAY)
 	return ..()
 
 // Needs to handle rejoining on a lower z level, so we NEED to readd old planes
@@ -618,7 +622,7 @@
 	if(!.)
 		return
 
-	var/datum/hud/our_hud = home.our_hud
+	var/datum/hud/our_hud = home?.our_hud
 	if(!our_hud)
 		return
 

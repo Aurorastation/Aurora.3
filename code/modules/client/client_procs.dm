@@ -559,6 +559,11 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 
 	SSping.currentrun -= src
 
+	clear_parallax_animate_timers()
+	QDEL_NULL(parallax_rock)
+	previous_turf = null
+	movingmob = null
+
 	QDEL_NULL(tooltips)
 
 	Master.UpdateTickRate()

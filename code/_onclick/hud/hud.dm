@@ -156,7 +156,8 @@ GLOBAL_LIST(global_huds)
 	UnregisterSignal(SSmapping, COMSIG_PLANE_OFFSET_INCREASE)
 	if(mymob)
 		UnregisterSignal(mymob, list(COMSIG_MOB_LOGIN, COMSIG_MOB_LOGOUT, COMSIG_MOB_SIGHT_CHANGE))
-	mymob = null
+		if(mymob.hud_used == src)
+			mymob.hud_used = null
 	QDEL_NULL(blobpwrdisplay)
 	QDEL_NULL(blobhealthdisplay)
 	QDEL_NULL(r_hand_hud_object)
@@ -176,6 +177,7 @@ GLOBAL_LIST(global_huds)
 	QDEL_LIST_ASSOC_VAL(plane_master_controllers)
 	QDEL_NULL(hide_actions_toggle)
 
+	mymob = null
 	return ..()
 
 /datum/hud/proc/hidden_inventory_update()

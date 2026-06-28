@@ -80,11 +80,31 @@
 	generate_render_relays()
 
 /atom/movable/screen/plane_master/Destroy()
-	if(home)
+	var/datum/plane_master_group/old_home = home
+	var/datum/hud/old_hud = old_home?.our_hud
+	var/mob/old_mob = old_hud?.mymob
+	if(old_mob)
+		hide_from(old_mob)
+	if(old_hud)
+		UnregisterSignal(old_hud, list(
+			COMSIG_HUD_EYE_CHANGED,
+			COMSIG_HUD_OFFSET_CHANGED,
+			SIGNAL_ADDTRAIT(TRAIT_ESCAPE_MENU_OPEN),
+			SIGNAL_REMOVETRAIT(TRAIT_ESCAPE_MENU_OPEN),
+			SIGNAL_ADDTRAIT(TRAIT_PARALLAX_DISPLAYED),
+			SIGNAL_REMOVETRAIT(TRAIT_PARALLAX_DISPLAYED),
+		))
+	if(old_home)
+		UnregisterSignal(old_home, COMSIG_GROUP_HUD_CHANGED)
 		// NOTE! We do not clear ourselves from client screens
 		// We relay on whoever qdel'd us to reset our hud, and properly purge us
-		home.plane_masters -= "[plane]"
+		old_home.plane_masters -= "[plane]"
 		home = null
+	UnregisterSignal(SSmapping, COMSIG_PLANE_OFFSET_INCREASE)
+	UnregisterSignal(GLOB, list(
+		SIGNAL_ADDTRAIT(TRAIT_DISTORTION_IN_USE(offset)),
+		SIGNAL_REMOVETRAIT(TRAIT_DISTORTION_IN_USE(offset)),
+	))
 	. = ..()
 	QDEL_LIST(relays)
 
@@ -165,6 +185,12 @@
 /// Do your effect cleanup here
 /atom/movable/screen/plane_master/proc/hide_from(mob/oldmob)
 	SHOULD_CALL_PARENT(TRUE)
+	if(oldmob)
+		UnregisterSignal(oldmob, list(
+			COMSIG_MOB_SIGHT_CHANGE,
+			SIGNAL_ADDTRAIT(TRAIT_FOV_APPLIED),
+			SIGNAL_REMOVETRAIT(TRAIT_FOV_APPLIED),
+		))
 	var/client/their_client = oldmob?.canon_client || oldmob?.client
 	if(!their_client)
 		return
@@ -211,7 +237,7 @@
 			render_target = copytext_char(render_target, 2)
 		if(!(critical & PLANE_CRITICAL_NO_RELAY))
 			return
-		var/client/our_client = relevant.canon_client || relevant.client
+		var/client/our_client = relevant?.canon_client || relevant?.client
 		if(our_client)
 			for(var/atom/movable/render_plane_relay/relay as anything in relays)
 				our_client.screen -= relay
@@ -228,7 +254,7 @@
 
 		if(!(critical & PLANE_CRITICAL_NO_RELAY))
 			return
-		var/client/our_client = relevant.canon_client || relevant.client
+		var/client/our_client = relevant?.canon_client || relevant?.client
 		if(our_client)
 			for(var/atom/movable/render_plane_relay/relay as anything in relays)
 				our_client.screen += relay

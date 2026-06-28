@@ -36,6 +36,15 @@
 
 	rock.set_layer_settings(layers_to_draw = 4, draw_skybox_layers = TRUE, animate_parallax = TRUE)
 
+/client/proc/clear_parallax_animate_timers()
+	if(!parallax_animate_timers)
+		parallax_animate_timers = list()
+		return
+
+	for(var/key in parallax_animate_timers)
+		deltimer(parallax_animate_timers[key])
+	parallax_animate_timers = list()
+
 /datum/hud/proc/update_parallax_pref()
 	var/client/displaying_client = mymob?.canon_client || mymob?.client
 	if(!displaying_client)
@@ -64,11 +73,11 @@
 			new_transform = matrix(1, 0, -480, 0, 1, 0)
 
 	var/longest_timer = 0
-	for(var/key in displaying_client.parallax_animate_timers)
-		deltimer(displaying_client.parallax_animate_timers[key])
-	displaying_client.parallax_animate_timers = list()
+	displaying_client.clear_parallax_animate_timers()
 
 	for(var/atom/movable/screen/parallax_layer/layer as anything in displaying_client.parallax_rock.parallax_layers)
+		if(QDELETED(layer))
+			continue
 		if(layer.speed <= 0)
 			continue
 		var/scaled_time = PARALLAX_LOOP_TIME / max(layer.speed, 0.1)
@@ -108,6 +117,10 @@
 	if(!rock || !rock.displaying_layers)
 		return
 
+	rock.prune_deleted_layers()
+	if(!rock.displaying_layers || !length(rock.parallax_layers))
+		return
+
 	var/turf/posobj = get_turf(displaying_client.eye)
 	if(!posobj)
 		return
@@ -132,6 +145,8 @@
 	var/run_parallax = (rock.animate_parallax && glide_rate && !areaobj?.parallax_movedir && displaying_client.dont_animate_parallax <= world.time && largest_change <= max_allowed_dist)
 
 	for(var/atom/movable/screen/parallax_layer/parallax_layer as anything in rock.parallax_layers)
+		if(QDELETED(parallax_layer))
+			continue
 		var/our_speed = parallax_layer.speed
 		var/change_x
 		var/change_y
@@ -219,6 +234,8 @@
 
 /atom/movable/screen/parallax_home/Destroy()
 	clear_layers()
+	if(owner?.parallax_rock == src)
+		owner.parallax_rock = null
 	owner = null
 	return ..()
 
@@ -282,8 +299,28 @@
 	display_layers()
 
 /atom/movable/screen/parallax_home/proc/clear_layers()
+	owner?.clear_parallax_animate_timers()
 	hide_layers()
 	QDEL_LIST(parallax_layers_cached)
+
+/atom/movable/screen/parallax_home/proc/prune_deleted_layers()
+	var/list/deleted_layers
+	for(var/atom/movable/screen/parallax_layer/layer as anything in parallax_layers_cached)
+		if(QDELETED(layer))
+			LAZYADD(deleted_layers, layer)
+	for(var/atom/movable/screen/parallax_layer/layer as anything in parallax_layers)
+		if(QDELETED(layer))
+			LAZYADD(deleted_layers, layer)
+
+	if(!length(deleted_layers))
+		return FALSE
+
+	parallax_layers_cached -= deleted_layers
+	parallax_layers -= deleted_layers
+	vis_contents -= deleted_layers
+	if(displaying_layers && !length(parallax_layers))
+		hide_layers()
+	return TRUE
 
 /atom/movable/screen/parallax_home/proc/set_sector_z(new_z)
 	if(current_sector_z == new_z)
@@ -295,8 +332,11 @@
 	if(!current_sector_z)
 		return
 
+	prune_deleted_layers()
 	var/list/layer_data = SSparallax.get_skybox_layer_data(current_sector_z)
 	for(var/atom/movable/screen/parallax_layer/layer as anything in parallax_layers_cached)
+		if(QDELETED(layer))
+			continue
 		if(istype(layer, /atom/movable/screen/parallax_layer/skybox))
 			var/atom/movable/screen/parallax_layer/skybox/skybox_layer = layer
 			skybox_layer.apply_skybox_layer_data(current_sector_z, layer_data)

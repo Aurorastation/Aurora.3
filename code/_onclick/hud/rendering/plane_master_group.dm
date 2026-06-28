@@ -31,14 +31,16 @@
 /datum/plane_master_group/proc/set_hud(datum/hud/new_hud)
 	if(new_hud == our_hud)
 		return
+	var/datum/hud/old_hud = our_hud
+	var/mob/old_mob = old_hud?.mymob
 	if(our_hud)
 		our_hud.master_groups -= key
-		hide_hud()
-	var/datum/hud/old_hud = our_hud
+		hide_hud(old_mob)
 	our_hud = new_hud
+	var/mob/new_mob = new_hud?.mymob
 	if(new_hud)
 		our_hud.master_groups[key] = src
-		show_hud()
+		show_hud(new_mob)
 		build_planes_offset(our_hud, active_offset)
 	SEND_SIGNAL(src, COMSIG_GROUP_HUD_CHANGED, old_hud, our_hud)
 
@@ -68,19 +70,25 @@
 	QDEL_LIST_ASSOC_VAL(plane_masters)
 	build_plane_masters(0, SSmapping.max_plane_offset)
 
-/datum/plane_master_group/proc/hide_hud()
+/datum/plane_master_group/proc/hide_hud(mob/hide_from = our_hud?.mymob)
 	for(var/thing in plane_masters)
 		var/atom/movable/screen/plane_master/plane = plane_masters[thing]
-		plane.hide_from(our_hud.mymob)
+		if(QDELETED(plane))
+			continue
+		plane.hide_from(hide_from)
 
-/datum/plane_master_group/proc/show_hud()
+/datum/plane_master_group/proc/show_hud(mob/show_to = our_hud?.mymob)
 	for(var/thing in plane_masters)
 		var/atom/movable/screen/plane_master/plane = plane_masters[thing]
-		show_plane(plane)
+		if(QDELETED(plane))
+			continue
+		show_plane(plane, show_to)
 
 /// This is mostly a proc so it can be overriden by popups, since they have unique behavior they want to do
-/datum/plane_master_group/proc/show_plane(atom/movable/screen/plane_master/plane)
-	plane.show_to(our_hud.mymob)
+/datum/plane_master_group/proc/show_plane(atom/movable/screen/plane_master/plane, mob/show_to = our_hud?.mymob)
+	if(QDELETED(plane))
+		return
+	plane.show_to(show_to)
 
 /// Nice wrapper for the "[]"ing
 /datum/plane_master_group/proc/get_plane(plane)
@@ -155,6 +163,8 @@
 
 	for(var/plane_key in plane_masters)
 		var/atom/movable/screen/plane_master/plane = plane_masters[plane_key]
+		if(QDELETED(plane))
+			continue
 		if(plane.offsetting_flags & BLOCKS_PLANE_OFFSETTING)
 			if(plane.offsetting_flags & OFFSET_RELAYS_MATCH_HIGHEST)
 				// Don't offset the plane, do offset where the relays point
@@ -215,11 +225,15 @@
 	. = ..()
 	our_mob = null
 
-/datum/plane_master_group/hudless/hide_hud()
+/datum/plane_master_group/hudless/hide_hud(mob/hide_from = our_mob)
 	for(var/thing in plane_masters)
 		var/atom/movable/screen/plane_master/plane = plane_masters[thing]
-		plane.hide_from(our_mob)
+		if(QDELETED(plane))
+			continue
+		plane.hide_from(hide_from)
 
 /// This is mostly a proc so it can be overriden by popups, since they have unique behavior they want to do
-/datum/plane_master_group/hudless/show_plane(atom/movable/screen/plane_master/plane)
-	plane.show_to(our_mob)
+/datum/plane_master_group/hudless/show_plane(atom/movable/screen/plane_master/plane, mob/show_to = our_mob)
+	if(QDELETED(plane))
+		return
+	plane.show_to(show_to)
