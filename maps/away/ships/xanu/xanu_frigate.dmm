@@ -4389,7 +4389,7 @@
 /obj/item/reagent_containers/food/condiment/sugar,
 /obj/structure/closet/secure_closet/freezer{
 	name = "Bakery Storage";
-	desc = "A white refrigerated box containing the daily product of the ship's oven. The availability of Croissants and Baugettes (even in austere enviorments) is seen as essential to crew morale by the AXSF."
+	desc = "A white refrigerated box containing the daily products of the ship's oven. The availability of croissants and baugettes (even in austere enviornments) is seen as essential to crew morale by the AXSF."
 	},
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/storage/box/fancy/egg_box,
@@ -8813,7 +8813,7 @@
 /obj/item/reagent_containers/food/snacks/baguette,
 /obj/structure/closet/secure_closet/freezer{
 	name = "Bakery Storage";
-	desc = "A white refrigerated box containing the daily product of the ship's oven. The availability of Croissants and Baugettes (even in austere enviorments) is seen as essential to crew morale by the AXSF."
+	desc = "A white refrigerated box containing the daily products of the ship's oven. The availability of croissants and baugettes (even in austere enviornments) is seen as essential to crew morale by the AXSF."
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/ship/xanu_frigate/mess_hall)
@@ -9472,7 +9472,7 @@
 /obj/item/reagent_containers/food/condiment/honey,
 /obj/structure/closet/secure_closet/freezer{
 	name = "Bakery Storage";
-	desc = "A white refrigerated box containing the daily product of the ship's oven. The availability of Croissants and Baugettes (even in austere enviorments) is seen as essential to crew morale by the AXSF."
+	desc = "A white refrigerated box containing the daily products of the ship's oven. The availability of croissants and baugettes (even in austere enviornments) is seen as essential to crew morale by the AXSF."
 	},
 /obj/item/reagent_containers/food/drinks/carton/milk,
 /obj/item/reagent_containers/food/drinks/carton/milk,
