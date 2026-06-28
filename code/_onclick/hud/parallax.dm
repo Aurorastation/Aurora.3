@@ -48,10 +48,6 @@
 	if(!rock)
 		return
 
-	if(displaying_client.prefs?.toggles_secondary & PARALLAX_DISABLED)
-		rock.set_layer_settings(layers_to_draw = 0, draw_skybox_layers = FALSE, animate_parallax = FALSE)
-		return
-
 	if(displaying_client.prefs?.toggles_secondary & PARALLAX_IS_STATIC)
 		rock.set_layer_settings(layers_to_draw = 1, draw_skybox_layers = TRUE, animate_parallax = FALSE)
 		return

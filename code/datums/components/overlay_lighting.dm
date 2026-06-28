@@ -299,7 +299,7 @@
 		set_holder(null)
 		return
 	if(isturf(inside.loc))
-		if(QDELETED(inside) || istype(inside, /obj/item/storage))
+		if(QDELETED(inside) || inside.blocks_contained_overlay_light(movable_parent))
 			set_holder(null)
 		else
 			set_holder(inside)

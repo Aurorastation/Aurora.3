@@ -159,6 +159,14 @@
 
 	. = ..()
 
+/obj/structure/closet/blocks_contained_overlay_light(atom/movable/contained_light_source)
+	return !opened
+
+/obj/structure/closet/proc/update_contained_overlay_lights()
+	for(var/atom/movable/contained as anything in contents)
+		var/datum/component/overlay_lighting/light_component = contained.GetComponent(/datum/component/overlay_lighting)
+		light_component?.check_holder()
+
 /obj/structure/closet/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
 	dump_contents()
 	. = ..()
@@ -243,6 +251,7 @@
 	if(store_structure)
 		stored_units += store_structure(stored_units)
 	opened = FALSE
+	update_contained_overlay_lights()
 	animate_door(TRUE)
 	if(double_doors)
 		animate_door_alt(TRUE)

@@ -109,11 +109,8 @@
 		return TOPIC_REFRESH
 
 	if(href_list["cycle_parallax"])
-		if(pref.toggles_secondary & PARALLAX_DISABLED)
-			pref.toggles_secondary &= ~PARALLAX_DISABLED
+		if(pref.toggles_secondary & PARALLAX_IS_STATIC)
 			pref.toggles_secondary &= ~PARALLAX_IS_STATIC
-		else if(pref.toggles_secondary & PARALLAX_IS_STATIC)
-			pref.toggles_secondary |= PARALLAX_DISABLED
 		else
 			pref.toggles_secondary |= PARALLAX_IS_STATIC
 		preference_mob()?.hud_used?.update_parallax_pref()
@@ -122,8 +119,6 @@
 	return ..()
 
 /datum/category_item/player_setup_item/player_global/settings/proc/parallax_display_name()
-	if(pref.toggles_secondary & PARALLAX_DISABLED)
-		return "Disabled"
 	if(pref.toggles_secondary & PARALLAX_IS_STATIC)
 		return "Static"
 	return "Animated"

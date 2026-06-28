@@ -186,16 +186,12 @@
 
 /client/verb/cycle_space_parallax()
 	set name = "Cycle Space Parallax"
-	set desc = "Cycles space parallax between animated, static, and disabled."
+	set desc = "Cycles space parallax between animated and static."
 	set category = "Preferences.Game"
 
-	if(prefs.toggles_secondary & PARALLAX_DISABLED)
-		prefs.toggles_secondary &= ~PARALLAX_DISABLED
+	if(prefs.toggles_secondary & PARALLAX_IS_STATIC)
 		prefs.toggles_secondary &= ~PARALLAX_IS_STATIC
 		to_chat(src, SPAN_NOTICE("Space parallax is now animated."))
-	else if(prefs.toggles_secondary & PARALLAX_IS_STATIC)
-		prefs.toggles_secondary |= PARALLAX_DISABLED
-		to_chat(src, SPAN_NOTICE("Space parallax is now disabled."))
 	else
 		prefs.toggles_secondary |= PARALLAX_IS_STATIC
 		to_chat(src, SPAN_NOTICE("Space parallax is now static."))

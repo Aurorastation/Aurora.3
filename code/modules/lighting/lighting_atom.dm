@@ -219,6 +219,10 @@
 /atom/proc/debug_lights()
 	return
 
+/// Whether this atom should suppress overlay lights emitted by directly contained movables.
+/atom/proc/blocks_contained_overlay_light(atom/movable/contained_light_source)
+	return FALSE
+
 /// Returns a list of x and y offsets to apply to our visual lighting position
 /proc/calculate_light_offset(atom/get_offset)
 	var/list/hand_back = list(0, 0)

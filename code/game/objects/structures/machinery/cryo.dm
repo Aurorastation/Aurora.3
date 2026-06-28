@@ -9,7 +9,8 @@
 	anchored = TRUE
 	plane = GAME_PLANE
 	layer = ABOVE_HUMAN_LAYER
-	// Match the 32x64 sprite so northern turf contents sort behind the cell's upper half.
+	// The 32x64 sprite extends into the northern turf; do not tile-bound its appearance.
+	appearance_flags = DEFAULT_APPEARANCE_FLAGS | LONG_GLIDE
 	bound_height = 64
 	interact_offline = TRUE
 
