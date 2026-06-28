@@ -35,6 +35,8 @@
 		COMSIG_WEATHER_SYSTEM_UPDATED
 	))
 	for(var/atom/movable/screen/plane_master/plane as anything in plane_masters)
+		if(QDELETED(plane))
+			continue
 		UnregisterSignal(plane, COMSIG_QDELETING)
 	plane_masters = null
 	return ..()
@@ -123,6 +125,8 @@
 		return
 	var/our_offset = GET_TURF_PLANE_OFFSET(viewing_from) || 0
 	for(var/atom/movable/screen/plane_master/weather_conscious as anything in plane_masters)
+		if(QDELETED(weather_conscious))
+			continue
 		if(weather_conscious.force_hidden)
 			weather_conscious.unhide_plane(our_mob)
 		else
@@ -136,4 +140,6 @@
 /datum/component/hide_weather_planes/proc/hide_planes()
 	var/mob/our_mob = attached_hud?.mymob
 	for(var/atom/movable/screen/plane_master/weather_conscious as anything in plane_masters)
+		if(QDELETED(weather_conscious))
+			continue
 		weather_conscious.hide_plane(our_mob)

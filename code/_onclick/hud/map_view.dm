@@ -13,10 +13,19 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/map_view)
 
 	// Weakrefs of all our client viewers -> a weakref to the HUD datum they last used.
 	var/list/datum/weakref/viewers_to_huds = list()
+	// TGUI windows whose map controls are not visible yet. These need explicit signal cleanup if we delete first.
+	var/list/datum/tgui_window/pending_windows = list()
 
 /atom/movable/screen/map_view/Destroy()
+	for(var/datum/tgui_window/window as anything in pending_windows.Copy())
+		if(QDELETED(window))
+			continue
+		UnregisterSignal(window, COMSIG_TGUI_WINDOW_VISIBLE)
+	pending_windows = null
+
 	for(var/datum/weakref/client_ref as anything in viewers_to_huds.Copy())
 		hide_from_client(client_ref.resolve())
+	viewers_to_huds = null
 
 	return ..()
 
@@ -34,6 +43,7 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/map_view)
  */
 /atom/movable/screen/map_view/proc/display_to(mob/show_to, datum/tgui_window/window)
 	if(window && !window.visible)
+		pending_windows |= window
 		RegisterSignal(window, COMSIG_TGUI_WINDOW_VISIBLE, PROC_REF(display_on_ui_visible))
 	else
 		display_to_client(show_to?.client)
@@ -41,6 +51,7 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/map_view)
 /atom/movable/screen/map_view/proc/display_on_ui_visible(datum/tgui_window/window, client/show_to)
 	SIGNAL_HANDLER
 	display_to_client(show_to)
+	pending_windows -= window
 	UnregisterSignal(window, COMSIG_TGUI_WINDOW_VISIBLE)
 
 /atom/movable/screen/map_view/proc/display_to_client(client/show_to)

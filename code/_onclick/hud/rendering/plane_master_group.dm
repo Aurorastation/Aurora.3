@@ -25,7 +25,7 @@
 
 /datum/plane_master_group/Destroy()
 	set_hud(null)
-	QDEL_LIST_ASSOC_VAL(plane_masters)
+	clear_plane_masters()
 	return ..()
 
 /datum/plane_master_group/proc/set_hud(datum/hud/new_hud)
@@ -67,8 +67,16 @@
 
 /// Regenerate our plane masters, this is useful if we don't have a mob but still want to rebuild. Such in the case of changing the screen_loc of relays
 /datum/plane_master_group/proc/rebuild_plane_masters()
-	QDEL_LIST_ASSOC_VAL(plane_masters)
+	clear_plane_masters()
 	build_plane_masters(0, SSmapping.max_plane_offset)
+
+/datum/plane_master_group/proc/clear_plane_masters()
+	for(var/plane_key in plane_masters.Copy())
+		var/atom/movable/screen/plane_master/plane = plane_masters[plane_key]
+		if(QDELETED(plane))
+			continue
+		qdel(plane)
+	plane_masters.Cut()
 
 /datum/plane_master_group/proc/hide_hud(mob/hide_from = our_hud?.mymob)
 	for(var/thing in plane_masters)
@@ -105,6 +113,8 @@
 			if(plane_offset != 0 && (initial(mytype.offsetting_flags) & BLOCKS_PLANE_OFFSETTING))
 				continue
 			var/atom/movable/screen/plane_master/instance = new mytype(null, null, src, plane_offset)
+			if(QDELETED(instance))
+				continue
 			plane_masters["[instance.plane]"] = instance
 			prep_plane_instance(instance)
 

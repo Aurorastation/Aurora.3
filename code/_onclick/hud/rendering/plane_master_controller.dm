@@ -16,16 +16,30 @@ INITIALIZE_IMMEDIATE(/atom/movable/plane_master_controller)
 		return
 	owner_hud = hud
 
+/atom/movable/plane_master_controller/Destroy()
+	owner_hud = null
+	return ..()
+
 /atom/movable/plane_master_controller/proc/get_planes()
-	var/returned_planes = list()
+	var/list/returned_planes = list()
+	if(QDELETED(owner_hud))
+		return returned_planes
 	for(var/true_plane in controlled_planes)
-		returned_planes += get_true_plane(true_plane)
+		var/list/true_plane_masters = get_true_plane(true_plane)
+		if(!length(true_plane_masters))
+			continue
+		for(var/atom/movable/screen/plane_master/plane_master as anything in true_plane_masters)
+			if(QDELETED(plane_master))
+				continue
+			returned_planes += plane_master
 	return returned_planes
 
 /atom/movable/plane_master_controller/proc/get_true_plane(true_plane)
+	if(QDELETED(owner_hud))
+		return
 	var/list/returned_planes = owner_hud.get_true_plane_masters(true_plane)
 	if(!length(returned_planes)) //If we looked for a hud that isn't instanced, just keep going
-		stack_trace("[plane] isn't a valid plane master layer for [owner_hud.type], are you sure it exists in the first place?")
+		stack_trace("[true_plane] isn't a valid plane master layer for [owner_hud.type], are you sure it exists in the first place?")
 		return
 
 	return returned_planes

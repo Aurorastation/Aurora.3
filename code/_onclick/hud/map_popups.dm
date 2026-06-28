@@ -57,6 +57,8 @@
 
 	for(var/atom/movable/screen/screen_obj as anything in screen_maps[map_name].Copy())
 		screen_maps[map_name] -= screen_obj
+		if(QDELETED(screen_obj))
+			continue
 		if(screen_obj in screen)
 			remove_from_screen(screen_obj)
 		if(screen_obj.del_on_map_removal)

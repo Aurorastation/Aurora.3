@@ -579,6 +579,8 @@
 
 	var/list/generated_planes = list()
 	for(var/atom/movable/render_plane_relay/relay as anything in relays)
+		if(QDELETED(relay))
+			continue
 		generated_planes += relay.plane
 
 	for(var/relay_plane in (render_relay_planes - generated_planes))
@@ -656,6 +658,8 @@
 /// Gets the relay atom we're using to connect to the target plane, if one exists
 /atom/movable/screen/plane_master/proc/get_relay_to(target_plane)
 	for(var/atom/movable/render_plane_relay/relay in relays)
+		if(QDELETED(relay))
+			continue
 		if(relay.plane == target_plane)
 			return relay
 
@@ -674,6 +678,8 @@
  */
 /atom/movable/screen/plane_master/proc/offset_relays_in_place(new_offset)
 	for(var/atom/movable/render_plane_relay/rpr in relays)
+		if(QDELETED(rpr))
+			continue
 		offset_relay(rpr, new_offset)
 
 /**

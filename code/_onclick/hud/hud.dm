@@ -173,7 +173,12 @@ GLOBAL_LIST(global_huds)
 	other?.Cut()
 	QDEL_LIST(hotkeybuttons)
 
-	QDEL_LIST_ASSOC_VAL(master_groups)
+	for(var/group_key in master_groups.Copy())
+		var/datum/plane_master_group/group = master_groups[group_key]
+		if(QDELETED(group))
+			continue
+		qdel(group)
+	master_groups.Cut()
 	QDEL_LIST_ASSOC_VAL(plane_master_controllers)
 	QDEL_NULL(hide_actions_toggle)
 

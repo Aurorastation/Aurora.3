@@ -20,6 +20,13 @@
 	src.owner = owner
 
 /datum/plane_master_debug/Destroy()
+	var/mob/owner_mob = owner?.owner?.mob
+	if(owner_mob)
+		UnregisterSignal(owner_mob, COMSIG_MOB_LOGOUT)
+	QDEL_NULL(mirror)
+	QDEL_NULL(stored)
+	depth_stack = null
+	mob_ref = null
 	if(owner)
 		owner.plane_debug = null
 		owner = null

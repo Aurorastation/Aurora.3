@@ -14,6 +14,8 @@
 
 /datum/component/plane_hide_highest_offset/proc/offset_increase(old_offset, new_offset)
 	var/atom/movable/screen/plane_master/plane_parent = parent
+	if(QDELETED(plane_parent))
+		return
 	var/mob/our_mob = plane_parent.home?.our_hud?.mymob
 	var/our_offset = plane_parent.offset
 	if(!our_mob)
