@@ -8,14 +8,33 @@
 	wanted_types = list(/obj/item/storage/briefcase)
 	exclude_types = list(/obj/item/storage/briefcase/crimekit)
 
-/datum/bounty/item/assistant/lung
+/datum/bounty/item/assistant/organ
 	name = "Lungs"
-	description = "A recent explosion at %BOSSNAME has left multiple staff with punctured lungs. Ship spare lungs to be rewarded- and save some lives."
+	description = "A recent explosion at %BOSSNAME has left multiple staff with punctured lungs. Ship spare organic lungs to be rewarded- and save some lives."
 	reward_low = 520
 	reward_high = 635
+	var/mechanical_needed = FALSE
 	wanted_types = list(/obj/item/organ/internal/lungs)
 
-/datum/bounty/item/assistant/appendix
+/datum/bounty/item/assistant/organ/applies_to(var/obj/item/organ/internal/O)
+	if(!..())
+		return FALSE
+
+	if(!istype(O))
+		return FALSE
+
+	if(O.status & ORGAN_DEAD || O.status & ORGAN_BROKEN)
+		return FALSE
+
+	if(mechanical_needed && !O.robotic)
+		return FALSE
+
+	else if(O.robotic)
+		return FALSE
+
+	return TRUE
+
+/datum/bounty/item/assistant/organ/appendix
 	name = "Appendix"
 	description = "%PERSONNAME wants our chefs to prepare a strange meal using a very special delicacy: an appendix. If you ship one, they'll pay."
 	reward_low = 425
@@ -100,9 +119,9 @@
 	random_count = 5
 	wanted_types = list(/obj/item/trash)
 
-/datum/bounty/item/assistant/heart
+/datum/bounty/item/assistant/organ/heart
 	name = "Heart"
-	description = "%PERSONNAME is in critical condition after suffering a heart attack. Doctors say they need a new heart, fast. Ship one, pronto! Organic or mechanical, just hurry up!"
+	description = "%PERSONNAME is in critical condition after suffering a heart attack. Doctors say they need a new heart, fast. Ship one, pronto! It needs to be organic, hurry up!"
 	reward_low = 825
 	reward_high = 840
 	wanted_types = list(/obj/item/organ/internal/heart)
