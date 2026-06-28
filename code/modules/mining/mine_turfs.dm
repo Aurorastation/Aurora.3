@@ -76,6 +76,20 @@ GLOBAL_LIST_INIT(mineral_can_smooth_with, list(
 		stack_trace("Warning: [src]([type]) initialized multiple times!")
 	flags_1 |= INITIALIZED_1
 
+	update_plane_from_z()
+
+	if(SSmapping.max_plane_offset)
+		var/turf/above_turf = GET_TURF_ABOVE(src)
+		if(above_turf)
+			above_turf.multiz_turf_new(src, DOWN)
+		var/turf/below_turf = GET_TURF_BELOW(src)
+		if(below_turf)
+			below_turf.multiz_turf_new(src, UP)
+
+	// By default, vis_contents is inherited from the turf that was here before.
+	if(length(vis_contents))
+		vis_contents.Cut()
+
 	if(icon != actual_icon)
 		icon = actual_icon
 
@@ -214,6 +228,20 @@ GLOBAL_LIST_INIT(mineral_can_smooth_with, list(
 	if(flags_1 & INITIALIZED_1)
 		stack_trace("Warning: [src]([type]) initialized multiple times!")
 	flags_1 |= INITIALIZED_1
+
+	update_plane_from_z()
+
+	if(SSmapping.max_plane_offset)
+		var/turf/above_turf = GET_TURF_ABOVE(src)
+		if(above_turf)
+			above_turf.multiz_turf_new(src, DOWN)
+		var/turf/below_turf = GET_TURF_BELOW(src)
+		if(below_turf)
+			below_turf.multiz_turf_new(src, UP)
+
+	// By default, vis_contents is inherited from the turf that was here before.
+	if(length(vis_contents))
+		vis_contents.Cut()
 
 	if(icon != actual_icon)
 		icon = actual_icon
@@ -759,6 +787,20 @@ GLOBAL_LIST_INIT(asteroid_floor_smooth, list(
 	if(flags_1 & INITIALIZED_1)
 		stack_trace("Warning: [src]([type]) initialized multiple times!")
 	flags_1 |= INITIALIZED_1
+
+	update_plane_from_z()
+
+	if(SSmapping.max_plane_offset)
+		var/turf/above_turf = GET_TURF_ABOVE(src)
+		if(above_turf)
+			above_turf.multiz_turf_new(src, DOWN)
+		var/turf/below_turf = GET_TURF_BELOW(src)
+		if(below_turf)
+			below_turf.multiz_turf_new(src, UP)
+
+	// By default, vis_contents is inherited from the turf that was here before.
+	if(length(vis_contents))
+		vis_contents.Cut()
 
 	if(icon != base_icon)	// Setting icon is an appearance change, so avoid it if we can.
 		icon = base_icon
