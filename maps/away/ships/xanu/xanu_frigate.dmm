@@ -8813,7 +8813,7 @@
 /obj/item/reagent_containers/food/snacks/baguette,
 /obj/structure/closet/secure_closet/freezer{
 	name = "Bakery Storage";
-	desc = "A white refrigerated box containing the daily products of the ship's oven. The availability of croissants and baugettes (even in austere environments) is seen as essential to crew morale by the AXSF."
+	desc = "A white refrigerated box containing the daily products of the ship's oven. The availability of croissants and baguettes (even in austere environments) is seen as essential to crew morale by the AXSF."
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/ship/xanu_frigate/mess_hall)
