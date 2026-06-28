@@ -4387,7 +4387,10 @@
 /obj/item/reagent_containers/food/condiment/flour,
 /obj/item/reagent_containers/food/condiment/sugar,
 /obj/item/reagent_containers/food/condiment/sugar,
-/obj/structure/closet/secure_closet/freezer,
+/obj/structure/closet/secure_closet/freezer{
+	name = "Bakery Storage";
+	desc = "A white refrigerated box containing the daily product of the ship's oven. The availability of Croissants and Baugettes (even in austere enviorments) is seen as essential to crew morale by the AXSF."
+	},
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/storage/box/fancy/egg_box,
 /turf/simulated/floor/tiled/white,
@@ -8788,29 +8791,30 @@
 /obj/effect/floor_decal/corner_wide/blue{
 	dir = 10
 	},
+/obj/item/reagent_containers/food/snacks/croissant,
+/obj/item/reagent_containers/food/snacks/croissant,
+/obj/item/reagent_containers/food/snacks/croissant,
+/obj/item/reagent_containers/food/snacks/croissant,
+/obj/item/reagent_containers/food/snacks/croissant,
+/obj/item/reagent_containers/food/snacks/croissant,
+/obj/item/reagent_containers/food/snacks/croissant,
+/obj/item/reagent_containers/food/snacks/croissant,
+/obj/item/reagent_containers/food/snacks/croissant,
+/obj/item/reagent_containers/food/snacks/croissant,
+/obj/item/reagent_containers/food/snacks/croissant,
+/obj/item/reagent_containers/food/snacks/croissant,
+/obj/item/reagent_containers/food/snacks/croissant,
+/obj/item/reagent_containers/food/snacks/baguette,
+/obj/item/reagent_containers/food/snacks/baguette,
+/obj/item/reagent_containers/food/snacks/baguette,
+/obj/item/reagent_containers/food/snacks/baguette,
+/obj/item/reagent_containers/food/snacks/baguette,
+/obj/item/reagent_containers/food/snacks/baguette,
+/obj/item/reagent_containers/food/snacks/baguette,
 /obj/structure/closet/secure_closet/freezer{
-	name = d
+	name = "Bakery Storage";
+	desc = "A white refrigerated box containing the daily product of the ship's oven. The availability of Croissants and Baugettes (even in austere enviorments) is seen as essential to crew morale by the AXSF."
 	},
-/obj/item/reagent_containers/food/snacks/croissant,
-/obj/item/reagent_containers/food/snacks/croissant,
-/obj/item/reagent_containers/food/snacks/croissant,
-/obj/item/reagent_containers/food/snacks/croissant,
-/obj/item/reagent_containers/food/snacks/croissant,
-/obj/item/reagent_containers/food/snacks/croissant,
-/obj/item/reagent_containers/food/snacks/croissant,
-/obj/item/reagent_containers/food/snacks/croissant,
-/obj/item/reagent_containers/food/snacks/croissant,
-/obj/item/reagent_containers/food/snacks/croissant,
-/obj/item/reagent_containers/food/snacks/croissant,
-/obj/item/reagent_containers/food/snacks/croissant,
-/obj/item/reagent_containers/food/snacks/croissant,
-/obj/item/reagent_containers/food/snacks/baguette,
-/obj/item/reagent_containers/food/snacks/baguette,
-/obj/item/reagent_containers/food/snacks/baguette,
-/obj/item/reagent_containers/food/snacks/baguette,
-/obj/item/reagent_containers/food/snacks/baguette,
-/obj/item/reagent_containers/food/snacks/baguette,
-/obj/item/reagent_containers/food/snacks/baguette,
 /turf/simulated/floor/tiled/gunmetal,
 /area/ship/xanu_frigate/mess_hall)
 "EA" = (
@@ -9466,7 +9470,10 @@
 	},
 /obj/item/reagent_containers/food/condiment/honey,
 /obj/item/reagent_containers/food/condiment/honey,
-/obj/structure/closet/secure_closet/freezer,
+/obj/structure/closet/secure_closet/freezer{
+	name = "Bakery Storage";
+	desc = "A white refrigerated box containing the daily product of the ship's oven. The availability of Croissants and Baugettes (even in austere enviorments) is seen as essential to crew morale by the AXSF."
+	},
 /obj/item/reagent_containers/food/drinks/carton/milk,
 /obj/item/reagent_containers/food/drinks/carton/milk,
 /obj/item/reagent_containers/food/drinks/carton/milk,
@@ -14301,17 +14308,6 @@
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/ship/xanu_frigate/corridor/port)
-"WA" = (
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/disposalpipe/segment,
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/item/reagent_containers/food/snacks/ntella_bread,
-/turf/simulated/floor/plating,
-/area/ship/xanu_frigate/corridor/fore)
 "WB" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
@@ -47364,7 +47360,7 @@ Ra
 vl
 Qs
 dy
-WA
+dy
 nA
 jJ
 XM
