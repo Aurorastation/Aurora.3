@@ -133,6 +133,8 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 
 /obj/item/organ/proc/die()
 	if(status & ORGAN_ROBOT)
+		damage = max_damage
+		STOP_PROCESSING(SSprocessing, src)
 		return
 	damage = max_damage
 	status |= ORGAN_DEAD

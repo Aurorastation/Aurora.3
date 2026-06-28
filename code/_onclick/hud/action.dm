@@ -284,6 +284,22 @@
 	check_flags = AB_CHECK_STUNNED|AB_CHECK_ALIVE|AB_CHECK_INSIDE
 	button_icon_state = "night_eyes"
 
+/datum/action/item_action/organ/night_eyes/Trigger()
+	if(!Checks())
+		return
+	var/obj/item/organ/internal/eyes/night/target_eyes = target
+	target_eyes.night_vision()
+
+/datum/action/item_action/organ/extended_eyes
+	check_flags = AB_CHECK_STUNNED|AB_CHECK_ALIVE|AB_CHECK_INSIDE
+	button_icon_state = "night_eyes"
+
+/datum/action/item_action/organ/extended_eyes/Trigger()
+	if(!Checks())
+		return
+	var/obj/item/organ/internal/eyes/night/target_eyes = target
+	target_eyes.extended_vision()
+
 /datum/action/item_action/organ/night_eyes/rev
 	check_flags = AB_CHECK_ALIVE|AB_CHECK_INSIDE
 	button_icon_state = "rev_eyes"

@@ -1,6 +1,6 @@
-import { BooleanLike } from '../../common/react';
+import { Button, Section, Table } from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Button, Section, Table } from '../components';
 import { Window } from '../layouts';
 
 type EnvEditorData = {
@@ -17,8 +17,8 @@ type EnvParam = {
   default: number;
 };
 
-export const EnvEditor = (props, context) => {
-  const { act, data } = useBackend<EnvEditorData>(context);
+export const EnvEditor = (props) => {
+  const { act, data } = useBackend<EnvEditorData>();
 
   return (
     <Window title="Environment Editor" width={460} height={620} theme="ntos">

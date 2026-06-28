@@ -28,7 +28,9 @@
 				H.drop_from_inventory(W)
 				add_warhead(W)
 				playsound(src, 'sound/machines/rig/rig_deploy.ogg', 40)
-	update_status()
+		update_status()
+
+	return ..()
 
 /obj/item/ship_ammunition/longbow/can_be_loaded()
 	if(primer && warhead)

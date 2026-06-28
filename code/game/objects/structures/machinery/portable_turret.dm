@@ -26,8 +26,8 @@
 
 	req_one_access = list(ACCESS_SECURITY, ACCESS_HEADS)
 
-	light_range = 3
-	light_power = 2
+	light_range = 2
+	light_power = 1
 
 	armor = list(
 		MELEE = ARMOR_MELEE_KEVLAR,
@@ -1242,7 +1242,7 @@
 	check_records = 0
 	check_access = 1
 	ailock = 1
-	req_one_access = list(ACCESS_LEGION, ACCESS_TCAF_SHIPS)
+	req_one_access = list(ACCESS_TCAF)
 
 /obj/structure/machinery/porta_turret/hologram
 	name = "warrior statue"

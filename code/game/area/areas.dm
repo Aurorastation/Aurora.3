@@ -127,6 +127,11 @@
 	. = ..()
 
 /area/Initialize(mapload)
+#ifdef UNIT_TEST
+	if (!islist(ambience))
+		log_error("Area: [src.type] set list/ambience with [ambience] instead of a list. This var MUST be a list().")
+#endif
+
 	icon_state = "white"
 	color = null
 
@@ -381,7 +386,7 @@
 	L.lastarea = newarea
 
 	// Start playing ambience.
-	if(src.ambience.len && L && L.client && (L.client.prefs.sfx_toggles & ASFX_AMBIENCE) && !L.ear_deaf)
+	if(length(src.ambience) && L && L.client && (L.client.prefs.sfx_toggles & ASFX_AMBIENCE) && !L.ear_deaf)
 		play_ambience(L)
 	else
 		stop_ambience(L)
@@ -535,7 +540,7 @@
 
 		//Although hostile mobs instadying to turrets is fun
 		//If there's no AI they'll just be hit with stunbeams all day and spam the attack logs.
-		if (istype(A, /area/turret_protected) || LAZYLEN(A.turret_controls))
+		if (LAZYLEN(A.turret_controls))
 			continue
 
 		if(!A.hostile_events)

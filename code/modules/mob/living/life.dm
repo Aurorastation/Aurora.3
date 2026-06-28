@@ -196,9 +196,6 @@
 /mob/living/proc/handle_hud_icons_health()
 	return
 
-/mob/living
-	var/datum/weakref/last_weather
-
 /mob/living/proc/is_outside()
 	var/turf/T = loc
 	return istype(T) && T.is_outside()

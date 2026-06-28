@@ -31,6 +31,14 @@
 	 * Suffix used for overlays with an attached sleeping bag, because satchels are at people's sides while other bags are on people's backs.
 	 */
 	var/attached_icon = "backpack"
+	/**
+	 * If the object may be accessed while equipped in a storage slot.
+	 */
+	var/worn_access = TRUE
+	/**
+	 * If the object may be accessed while equipped anywhere on a character, including hands.
+	 */
+	var/equip_access = TRUE
 
 /obj/item/storage/backpack/antagonist_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -67,7 +75,7 @@
 	H.update_icon()
 	H.update_inv_back()
 
-/obj/item/storage/backpack/mob_can_equip(M as mob, slot, disable_warning = FALSE)
+/obj/item/storage/backpack/mob_can_equip(M as mob, slot, disable_warning = FALSE, bypass_blocked_check = FALSE, is_overlay_check = FALSE)
 
 	//if we can't equip the item anyway, don't bother with species_restricted (cuts down on spam)
 	if (!..())
@@ -104,6 +112,8 @@
 		H.drop_from_inventory(attached_bag)
 		attached_bag.loc = null
 		return
+	if (!worn_check())
+		return
 	return ..()
 
 /obj/item/storage/backpack/update_icon()
@@ -131,6 +141,33 @@
 		return
 	return ..()
 
+/obj/item/storage/backpack/open(mob/user)
+	if (!worn_check())
+		return
+	..()
+
+/obj/item/storage/backpack/proc/worn_check(no_message = FALSE)
+	if(ismob(loc))
+		var/mob/M = loc
+		if(!istype(M))
+			return TRUE //not equipped
+		if(!worn_access && (slot_flags & SLOT_BACK) && M.get_equipped_item(slot_back) == src)
+			if(!no_message)
+				to_chat(M, SPAN_WARNING("Your arms are not long enough to open \the [src] while it is on your back!"))
+				if(use_sound)
+					playsound(loc, use_sound, 50, 1, -5)
+				if(animated)
+					animate_parent()
+			return FALSE
+		if(!equip_access && (ismob(loc)))
+			if(!no_message)
+				to_chat(M, SPAN_WARNING("\The [src] is too cumbersome to handle, you're going to have to set it down somewhere!"))
+				if(use_sound)
+					playsound(loc, use_sound, 50, 1, -5)
+				if(animated)
+					animate_parent()
+			return FALSE
+	return TRUE
 
 /*
  * Backpack Types
@@ -308,9 +345,9 @@
 	icon_state = "pmcgpack"
 	item_state = "pmcgpack"
 
-/obj/item/storage/backpack/legion
-	name = "military rucksack"
-	desc = "A sturdy backpack with the emblems and markings of the Tau Ceti Foreign Legion."
+/obj/item/storage/backpack/tcaf
+	name = "TCAF rucksack"
+	desc = "A sturdy backpack with the emblems and markings of the Tau Ceti Armed Forces."
 	icon_state = "legion_bag"
 	item_state = "legion_bag"
 	empty_delay = 0.8 SECOND
@@ -592,7 +629,8 @@
 	icon = 'icons/obj/storage/duffelbag.dmi'
 	icon_state = "duffel"
 	item_state = "duffel"
-	slowdown = 0.3
+	worn_access = FALSE
+	equip_access = FALSE
 	max_storage_space = DEFAULT_DUFFELBAG_STORAGE
 	straps = TRUE
 
@@ -657,7 +695,8 @@
 	desc = "A snazzy black and red duffel bag, perfect for smuggling C4 and Parapens. It seems to be made of a lighter material."
 	icon_state = "duffel-syndie"
 	item_state = "duffel-syndie"
-	slowdown = 0
+	worn_access = TRUE
+	equip_access = TRUE
 	empty_delay = 0.8 SECOND
 
 /obj/item/storage/backpack/duffel/cmo

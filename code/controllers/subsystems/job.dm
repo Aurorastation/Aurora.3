@@ -410,9 +410,6 @@ SUBSYSTEM_DEF(jobs)
 	Debug("ER/([H]): Completed.")
 	return H
 
-/mob/living/carbon/human
-	var/tmp/centcomm_despawn_timer
-
 /mob/living/proc/centcomm_timeout()
 	if (!istype(get_area(src), /area/centcom/spawning))
 		return FALSE

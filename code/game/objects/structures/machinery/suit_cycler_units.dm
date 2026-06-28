@@ -142,7 +142,7 @@
 
 /obj/structure/machinery/suit_cycler/offship/biesel
 	model_text = "Zavodskoi Interstellar"
-	req_access = list(ACCESS_TCAF_SHIPS)
+	req_access = list(ACCESS_TCAF)
 	departments = list("Tau Ceti Armed Forces")
 	suit = /obj/item/clothing/suit/space/void/tcaf
 	helmet = /obj/item/clothing/head/helmet/space/void/tcaf
@@ -395,3 +395,10 @@
 	species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA)
 	suit = /obj/item/clothing/suit/space/void/engineering/himeo
 	helmet = /obj/item/clothing/head/helmet/space/void/engineering/himeo
+
+/obj/structure/machinery/suit_cycler/offship/outereyes
+	model_text = "Outer Eyes"
+	departments = list("Outer Eyes")
+	suit = /obj/item/clothing/suit/space/void/outereyes
+	helmet = /obj/item/clothing/head/helmet/space/void/outereyes
+	species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_UNATHI, BODYTYPE_SKRELL)

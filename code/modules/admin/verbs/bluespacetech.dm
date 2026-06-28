@@ -127,10 +127,16 @@
 
 	feedback_add_details("admin_verb","BST")
 
+	// Load all skills as max for a bst
+	for (var/singleton/skill/skill as anything in SSskills.all_skills)
+		skill.on_spawn(bst, skill.maximum_level)
+
 	return 1
 
 /client/proc/bst_post_spawn(mob/living/carbon/human/bst/bst)
-	spark(bst, 3, GLOB.alldirs)
+	playsound(bst, SFX_SPARKS, 100, TRUE, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
+	playsound(bst, SFX_SPARKS, 100, TRUE, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
+	playsound(bst, SFX_SPARKS, 100, TRUE, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 	bst.anchored = FALSE
 
 /mob/living/carbon/human/bst
@@ -141,7 +147,7 @@
 	var/datum/weakref/original_mob
 
 /mob/living/carbon/human/bst/Destroy(force)
-	original_mob = null
+	QDEL_NULL(original_mob)
 	return ..()
 
 /mob/living/carbon/human/bst/can_inject(var/mob/user, var/error_msg, var/target_zone)
@@ -170,7 +176,7 @@
 		return
 
 	src.custom_emote(VISIBLE_MESSAGE,"presses a button on their suit, followed by a polite bow.")
-	spark(src, 5, GLOB.alldirs)
+	playsound(src, SFX_SPARKS, 100, TRUE, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 	QDEL_IN(src, 10)
 	animate(src, alpha = 0, time = 9, easing = QUAD_EASING)
 	if(key)

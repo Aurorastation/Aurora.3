@@ -503,7 +503,7 @@ em {
 .sciradio {
   color: #993399;
 }
-.supradio {
+.opsradio {
   color: #5f4519;
 }
 .srvradio {
@@ -721,6 +721,11 @@ h2.alert {
   height: 1.5em;
   margin: 0;
   padding: 0;
+}
+
+.tooltip {
+  font-style: italic;
+  border-bottom: 1px dashed;
 }
 
 @keyframes glitch {

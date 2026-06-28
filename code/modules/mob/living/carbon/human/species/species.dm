@@ -202,12 +202,12 @@
 
 	// External Organ Pain Damage
 	var/organ_low_pain_message = "<b>Your %PARTNAME% hurts.</b>"
-	var/organ_med_pain_message = "<b><font size=3>Your %PARTNAME% hurts badly!</font></b>"
-	var/organ_high_pain_message = "<b><font size=3>Your %PARTNAME% is screaming out in pain!</font></b>"
+	var/organ_med_pain_message = "<b><font size=4>Your %PARTNAME% hurts badly!</font></b>"
+	var/organ_high_pain_message = "<b><font size=5>Your %PARTNAME% is screaming out in pain!</font></b>"
 
 	var/organ_low_burn_message = SPAN_DANGER("Your %PARTNAME% burns.")
-	var/organ_med_burn_message = SPAN_DANGER("<font size=3>Your %PARTNAME% burns horribly!</font>")
-	var/organ_high_burn_message = SPAN_DANGER("<font size=4>Your %PARTNAME% feels like it's on fire!</font>")
+	var/organ_med_burn_message = SPAN_DANGER("<font size=4>Your %PARTNAME% burns horribly!</font>")
+	var/organ_high_burn_message = SPAN_DANGER("<font size=5>Your %PARTNAME% feels like it's on fire!</font>")
 
 	var/list/stutter_verbs = list("stammers", "stutters")
 
@@ -300,8 +300,6 @@
 	var/has_fine_manipulation = 1
 	/// The lower, the thicker the skin and better the insulation.
 	var/siemens_coefficient = 1
-	/// Native darksight distance.
-	var/darksight = 2
 	/// Various specific features.
 	var/flags = 0
 	/// Appearance/display related features.
@@ -471,6 +469,9 @@
 	/// Controls whether this species spawns with a Morale Component.
 	var/has_morale = TRUE
 
+	/// A list of species components that should only EVER apply to this species. This is because some components must be removed if the species changes (imagine changing from IPC to human as a merc).
+	var/list/species_components
+
 /datum/species/proc/get_eyes(var/mob/living/carbon/human/H)
 	return
 
@@ -625,7 +626,11 @@
 			for(var/spell/spell in H.spell_list)
 				if(istype(spell, spell_path))
 					H.remove_spell(spell)
-	return
+
+	if(length(species_components))
+		for(var/comp_type in species_components)
+			for(var/datum/component/comp in H.GetComponents(comp_type))
+				qdel(comp)
 
 /datum/species/proc/add_inherent_verbs(var/mob/living/carbon/human/H)
 	if(inherent_verbs)
@@ -659,6 +664,10 @@
 		H.pronouns = H.gender
 	if(has_psionics)
 		H.set_psi_rank(has_psionics)
+
+	if(length(species_components))
+		for(var/comp_type in species_components)
+			H.AddComponent(comp_type)
 
 /datum/species/proc/handle_death(var/mob/living/carbon/human/H, var/gibbed = 0) //Handles any species-specific death events (such as dionaea nymph spawns).
 	return

@@ -13,11 +13,14 @@
 	// Acquire the list of not-yet utilized overmap turfs on this Z-level
 	var/list/candidate_turfs = block(locate(OVERMAP_EDGE, OVERMAP_EDGE, z_level),locate(overmap_size - OVERMAP_EDGE, overmap_size - OVERMAP_EDGE,z_level))
 	candidate_turfs = where(candidate_turfs, /proc/can_not_locate, /obj/effect/overmap/visitable)
+	var/list/available_event_types = get_available_event_types()
+	if(!length(available_event_types))
+		return
 
 	for(var/i = 1 to number_of_events)
 		if(!candidate_turfs.len)
 			break
-		var/overmap_event_type = pick(subtypesof(/datum/overmap_event))
+		var/overmap_event_type = pick(available_event_types)
 		var/datum/overmap_event/datum_spawn = new overmap_event_type
 
 		var/list/event_turfs = acquire_event_turfs(datum_spawn.count, datum_spawn.radius, candidate_turfs, datum_spawn.continuous)
@@ -28,6 +31,15 @@
 			new type(event_turf)
 
 		qdel(datum_spawn)//idk help how do I do this better?
+
+/singleton/overmap_event_handler/proc/get_available_event_types()
+	var/list/available_event_types = list()
+	for(var/overmap_event_type in subtypesof(/datum/overmap_event))
+		var/datum/overmap_event/datum_spawn = new overmap_event_type
+		if(datum_spawn.spawns_in_current_sector())
+			available_event_types += overmap_event_type
+		qdel(datum_spawn)
+	return available_event_types
 
 /singleton/overmap_event_handler/proc/acquire_event_turfs(var/number_of_turfs, var/distance_from_origin, var/list/candidate_turfs, var/continuous = TRUE)
 	number_of_turfs = min(number_of_turfs, candidate_turfs.len)
@@ -195,6 +207,8 @@
 	var/ship_delay_time = 10
 	/// Ticks up each process until move speed is matched, at which point the event will move
 	var/ship_delay_counter = 0
+	/// Text that appears in the tooltip.
+	var/tooltip_text = "A hazard."
 
 /obj/effect/overmap/event/Initialize()
 	. = ..()
@@ -266,6 +280,7 @@
 	opacity = 1
 	event_icon_states = list("meteor1", "meteor2", "meteor3", "meteor4")
 	difficulty = EVENT_LEVEL_MAJOR
+	tooltip_text = "Large rocks and debris traveling at high speed that can destroy entire hull sections."
 
 /obj/effect/overmap/event/electric
 	name = "electrical storm"
@@ -273,6 +288,7 @@
 	event_icon_states = list("electrical1", "electrical2")
 	difficulty = EVENT_LEVEL_MAJOR
 	can_be_destroyed = FALSE
+	tooltip_text = "Electromagnetic storm effects that can damage or disable electrical grids."
 
 /obj/effect/overmap/event/dust
 	name = "dust cloud"
@@ -280,6 +296,7 @@
 	opacity = 1
 	event_icon_states = list("dust1", "dust2", "dust3", "dust4")
 	can_be_destroyed = FALSE
+	tooltip_text = "Small dust and debris traveling at high speed that can damage or destroy external windows."
 
 /obj/effect/overmap/event/ion
 	name = "ion cloud"
@@ -287,6 +304,7 @@
 	event_icon_states = list("ion1", "ion2", "ion3", "ion4")
 	difficulty = EVENT_LEVEL_MAJOR
 	can_be_destroyed = FALSE
+	tooltip_text = "Ionic effects that can damage synthetics like IPCs or AI, as well as disrupt telecommunications."
 
 /obj/effect/overmap/event/carp
 	name = "carp shoal"
@@ -294,6 +312,7 @@
 	difficulty = EVENT_LEVEL_MODERATE
 	event_icon_states = list("carp")
 	movable_event_chance = 30
+	tooltip_text = "Xenofauna: usually hostile."
 
 /obj/effect/overmap/event/carp/major
 	name = "carp school"
@@ -301,26 +320,44 @@
 	difficulty = EVENT_LEVEL_MAJOR
 	movable_event_chance = 15
 
-// see comment at code/modules/events/gravity.dm
-// tl;dr gravity is handled globally, meaning if the horizon loses gravity, everyone does
-// /obj/effect/overmap/event/gravity
-// 	name = "dark matter influx"
-// 	events = list(/datum/event/gravity)
-// 	can_be_destroyed = FALSE
+/obj/effect/overmap/event/gravity_anomaly
+	name = "gravitic anomaly"
+	events = list(/datum/event/gravity_anomaly)
+	difficulty = EVENT_LEVEL_MODERATE
+	event_icon_states = list("grav1")
+	can_be_destroyed = FALSE
+	tooltip_text = "Unstable gravitic shear effects detected; wide-field artificial gravity should be powered down before transit."
 
-///These now are basically only used to spawn hazards. Will be useful when we need to spawn group of moving hazards
+/obj/effect/overmap/event/MouseEntered(location, control, params)
+	. = ..()
+	openToolTip(usr, src, params, tooltip_text)
+
+/obj/effect/overmap/event/MouseExited(location, control, params)
+	. = ..()
+	closeToolTip(usr)
+
+/// These now are basically only used to spawn hazards. Will be useful when we need to spawn group of moving hazards
 /datum/overmap_event
 	var/name = "map event"
 	var/radius = 2
 	var/count = 6
 	var/hazards
 	var/opacity = 0
-	/// If it should form continous blobs, or can have gaps
+	/// If it should form continous blobs, or can have gaps.
 	var/continuous = TRUE
+	/// If set, this event will only spawn in the named space sectors.
+	var/list/sectors = list()
+
+/datum/overmap_event/proc/spawns_in_current_sector()
+	if(!length(sectors))
+		return TRUE
+	if(!SSatlas.current_sector)
+		return FALSE
+	return (SSatlas.current_sector.name in sectors)
 
 /datum/overmap_event/meteor
 	name = "asteroid field"
-	count = 15
+	count = 10
 	radius = 4
 	opacity = 1
 	continuous = FALSE
@@ -328,26 +365,26 @@
 
 /datum/overmap_event/electric
 	name = "electrical storm"
-	count = 6
+	count = 4
 	radius = 2
 	hazards = /obj/effect/overmap/event/electric
 
 /datum/overmap_event/dust
 	name = "dust cloud"
-	count = 13
+	count = 9
 	radius = 3
 	opacity = 1
 	hazards = /obj/effect/overmap/event/dust
 
 /datum/overmap_event/ion
 	name = "ion cloud"
-	count = 5
+	count = 4
 	radius = 2
 	hazards = /obj/effect/overmap/event/ion
 
 /datum/overmap_event/carp
 	name = "carp shoal"
-	count = 8
+	count = 6
 	radius = 2
 	continuous = FALSE
 	hazards = /obj/effect/overmap/event/carp
@@ -359,11 +396,9 @@
 	opacity = 1
 	hazards = /obj/effect/overmap/event/carp/major
 
-// see comment at code/modules/events/gravity.dm
-// tl;dr gravity is handled globally, meaning if the horizon loses gravity, everyone does
-// this needs to be fixed before we can uncomment this
-// /datum/overmap_event/gravity
-// 	name = "dark matter influx"
-// 	count = 12
-// 	radius = 4
-// 	hazards = /obj/effect/overmap/event/gravity
+/datum/overmap_event/gravity
+	name = "dark matter influx"
+	count = 19
+	radius = 12
+	hazards = /obj/effect/overmap/event/gravity_anomaly
+	sectors = list(SECTOR_LEMURIAN_SEA, SECTOR_LEMURIAN_SEA_FAR)

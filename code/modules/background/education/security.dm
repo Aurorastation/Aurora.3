@@ -5,6 +5,10 @@
 	jobs = list("Investigator")
 	minimum_character_age = list(
 		SPECIES_HUMAN = 25,
+		SPECIES_TAJARA = 25,
+		SPECIES_TAJARA_MSAI = 25,
+		SPECIES_TAJARA_ZHAN = 25,
+		SPECIES_UNATHI = 25,
 		SPECIES_SKRELL = 60,
 		SPECIES_SKRELL_AXIORI = 60
 	)
@@ -21,6 +25,10 @@
 		or or simply surviving for long in a grim environment where self-discipline matters as much as skill."
 	minimum_character_age = list(
 		SPECIES_HUMAN = 18,
+		SPECIES_TAJARA = 18,
+		SPECIES_TAJARA_MSAI = 18,
+		SPECIES_TAJARA_ZHAN = 18,
+		SPECIES_UNATHI = 18,
 		SPECIES_SKRELL = 60,
 		SPECIES_SKRELL_AXIORI = 60
 	)
@@ -37,6 +45,10 @@
 		+ "A character with this training is NOT legally considered a medical doctor. You're on the hook for manslaughter if you attempt and fail to save them yourself instead of taking them to a real doctor."
 	minimum_character_age = list(
 		SPECIES_HUMAN = 18,
+		SPECIES_TAJARA = 18,
+		SPECIES_TAJARA_MSAI = 18,
+		SPECIES_TAJARA_ZHAN = 18,
+		SPECIES_UNATHI = 18,
 		SPECIES_SKRELL = 60,
 		SPECIES_SKRELL_AXIORI = 60
 	)
@@ -55,6 +67,10 @@
 		Your combat skills are not as stringent as actual military service, though this is made up for with more generalized training suitable for a first-responder."
 	minimum_character_age = list(
 		SPECIES_HUMAN = 18,
+		SPECIES_TAJARA = 18,
+		SPECIES_TAJARA_MSAI = 18,
+		SPECIES_TAJARA_ZHAN = 18,
+		SPECIES_UNATHI = 18,
 		SPECIES_SKRELL = 60,
 		SPECIES_SKRELL_AXIORI = 60
 	)

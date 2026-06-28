@@ -20,6 +20,8 @@
 	knife_y_offset = 13
 	can_sawoff = TRUE
 	sawnoff_workmsg = "shorten the barrel and stock"
+	drop_sound = 'sound/items/drop/rifle.ogg'
+	pickup_sound = 'sound/items/pickup/rifle.ogg'
 
 /obj/item/gun/projectile/shotgun/pump/rifle/magazine_fed
 	name = "strange rifle"
@@ -173,6 +175,8 @@
 	fire_sound = 'sound/weapons/gunshot/gunshot3.ogg'
 	var/retracted_bolt = 0
 	var/icon_retracted = "pockrifle-empty"
+	drop_sound = 'sound/items/drop/rifle.ogg'
+	pickup_sound = 'sound/items/pickup/rifle.ogg'
 
 /obj/item/gun/projectile/contender/special_check(mob/user)
 	if(retracted_bolt)
@@ -355,14 +359,16 @@
 	accuracy_wielded = 2
 
 	is_wieldable = TRUE
+	drop_sound = 'sound/items/drop/rifle.ogg'
+	pickup_sound = 'sound/items/pickup/rifle.ogg'
 
 /obj/item/gun/projectile/gauss/update_icon()
 	..()
 	icon_state = (ammo_magazine)? "gauss_thumper" : "gauss_thumper-e"
 
 /obj/item/gun/energy/gauss/mounted/mech
-	name = "heavy gauss cannon"
-	desc = "An outdated and power hungry gauss cannon, modified to deliver high explosive rounds at high velocities."
+	name = "NGS-02-EXO heavy gauss cannon"
+	desc = "A power hungry, phoron-enhanced gauss cannon designed by NanoTrasen Corporation, modified to deliver high explosive rounds at high velocities. It is often seen strapped to Tau Ceti Armed Forces' mechanised centuries."
 	desc_extended = null
 	icon = 'icons/obj/guns/faction/nanotrasen_corporation/gauss_thumper.dmi' //TODO: Needs a proper sprite
 	icon_state = "gauss_thumper"
@@ -435,6 +441,8 @@
 	rack_verb = "work the lever on"
 	can_bayonet = FALSE
 	can_sawoff = FALSE
+	drop_sound = 'sound/items/drop/rifle.ogg'
+	pickup_sound = 'sound/items/pickup/rifle.ogg'
 
 /obj/item/gun/projectile/shotgun/pump/rifle/magazine_fed/crackrifle
 	name = "\improper Azarak-96 crack rifle"
