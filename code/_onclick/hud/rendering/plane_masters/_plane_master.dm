@@ -240,6 +240,8 @@
 		var/client/our_client = relevant?.canon_client || relevant?.client
 		if(our_client)
 			for(var/atom/movable/render_plane_relay/relay as anything in relays)
+				if(QDELETED(relay))
+					continue
 				our_client.screen -= relay
 
 		return
@@ -257,6 +259,8 @@
 		var/client/our_client = relevant?.canon_client || relevant?.client
 		if(our_client)
 			for(var/atom/movable/render_plane_relay/relay as anything in relays)
+				if(QDELETED(relay))
+					continue
 				our_client.screen += relay
 
 		return

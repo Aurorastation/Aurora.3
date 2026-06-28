@@ -89,7 +89,7 @@
 	var/datum/hud/our_hud = home?.our_hud
 	if(isnull(our_hud?.mymob))
 		return
-	if(HAS_TRAIT(our_hud, TRAIT_PARALLAX_DISPLAYED))
+	if(our_hud.has_active_parallax())
 		// Gives parallax a fullwhite backdrop to multiply against
 		color = list(
 			0, 0, 0, 0,
@@ -123,6 +123,11 @@
 	RegisterSignal(SSmapping, COMSIG_PLANE_OFFSET_INCREASE, PROC_REF(on_offset_increase))
 	offset_increase(0, SSmapping.max_plane_offset)
 
+/atom/movable/screen/plane_master/parallax/show_to(mob/mymob)
+	if(!home?.our_hud?.has_active_parallax())
+		return FALSE
+	return ..()
+
 /atom/movable/screen/plane_master/parallax/set_home(datum/plane_master_group/home)
 	. = ..()
 	if(home)
@@ -142,7 +147,7 @@
 	var/datum/hud/our_hud = home?.our_hud
 	if(isnull(our_hud?.mymob))
 		return
-	if(HAS_TRAIT(our_hud, TRAIT_PARALLAX_DISPLAYED))
+	if(our_hud.has_active_parallax())
 		show_to(our_hud.mymob)
 	else
 		hide_from(our_hud.mymob)

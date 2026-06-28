@@ -136,6 +136,8 @@
 	for (var/plane_string in our_planes)
 		var/list/this_plane = list()
 		var/atom/movable/screen/plane_master/plane = our_planes[plane_string]
+		if(QDELETED(plane))
+			continue
 		this_plane["name"] = plane.name
 		this_plane["documentation"] = plane.documentation
 		this_plane["plane"] = plane.plane
@@ -152,6 +154,8 @@
 		var/list/filters = list()
 
 		for (var/atom/movable/render_plane_relay/relay as anything in plane.relays)
+			if(QDELETED(relay))
+				continue
 			var/list/this_relay = list()
 			this_relay["name"] = relay.name
 			this_relay["source"] = plane.plane
@@ -457,7 +461,7 @@
 
 		for(var/concrete_plane as anything in concrete_planes)
 			var/atom/movable/screen/plane_master/plane = group.get_plane(concrete_plane)
-			if(!plane)
+			if(QDELETED(plane))
 				lines += "  concrete=[concrete_plane] MISSING plane master; offset=[PLANE_TO_OFFSET(concrete_plane)] screen=FALSE"
 				continue
 
@@ -470,6 +474,8 @@
 
 			lines += "    relays:"
 			for(var/atom/movable/render_plane_relay/relay as anything in plane.relays)
+				if(QDELETED(relay))
+					continue
 				lines += "      target=[relay.plane] target_true=[PLANE_TO_TRUE(relay.plane)] target_offset=[PLANE_TO_OFFSET(relay.plane)] layer=[relay.layer] render_source=[relay.render_source] blend=[blend_mode_to_text(relay.blend_mode)] alpha=[relay.alpha] critical=[relay.critical_target] screen=[plane_debug_in_client_screen(src, relay)]"
 
 	var/output = "<b>Plane Cube Chain Dump</b><hr><pre>[html_encode(jointext(lines, "\n"))]</pre>"

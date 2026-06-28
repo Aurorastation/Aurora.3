@@ -14,11 +14,33 @@
 	var/atom/movable/screen/parallax_home/rock = displaying_client.parallax_rock
 
 	if(rock.displaying_layers)
-		ADD_TRAIT(src, TRAIT_PARALLAX_DISPLAYED, TRAIT_GENERIC)
 		displaying_client.screen |= rock
+		ADD_TRAIT(src, TRAIT_PARALLAX_DISPLAYED, TRAIT_GENERIC)
 	else
 		REMOVE_TRAIT(src, TRAIT_PARALLAX_DISPLAYED, TRAIT_GENERIC)
+	sync_parallax_plane_masters()
+
+	if(!rock.displaying_layers)
 		displaying_client.screen -= rock
+
+/datum/hud/proc/has_active_parallax()
+	if(!HAS_TRAIT(src, TRAIT_PARALLAX_DISPLAYED))
+		return FALSE
+
+	var/client/displaying_client = mymob?.canon_client || mymob?.client
+	var/atom/movable/screen/parallax_home/rock = displaying_client?.parallax_rock
+	return !QDELETED(rock) && rock.displaying_layers && length(rock.parallax_layers) && (rock in displaying_client.screen)
+
+/datum/hud/proc/sync_parallax_plane_masters()
+	for(var/atom/movable/screen/plane_master/parallax_white/white as anything in get_true_plane_masters(PLANE_SPACE))
+		if(QDELETED(white))
+			continue
+		white.parallax_updated(src)
+
+	for(var/atom/movable/screen/plane_master/parallax/parallax as anything in get_true_plane_masters(PLANE_SPACE_PARALLAX))
+		if(QDELETED(parallax))
+			continue
+		parallax.parallax_updated(src)
 
 /datum/hud/proc/apply_parallax_pref()
 	var/client/displaying_client = mymob.canon_client || mymob.client
@@ -196,9 +218,10 @@
 		hud_used.set_parallax_movedir(areaobj?.parallax_movedir || NONE, TRUE)
 
 /client/proc/refresh_parallax_skybox_layers()
-	if(parallax_rock)
+	if(mob?.hud_used)
+		mob.hud_used.update_parallax_pref()
+	else if(parallax_rock)
 		parallax_rock.refresh_skybox_layers()
-	mob?.hud_used?.update_parallax_pref()
 
 /client/proc/update_parallax_after_movement(z_changed)
 	if(z_changed)
