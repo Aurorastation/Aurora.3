@@ -13,14 +13,14 @@
 	description = "A recent explosion at %BOSSNAME has left multiple staff with punctured lungs. Ship spare organic lungs to be rewarded- and save some lives."
 	reward_low = 520
 	reward_high = 635
+	/// If the organ is required to be a prosthetic for the bounty
 	var/mechanical_needed = FALSE
 	wanted_types = list(/obj/item/organ/internal/lungs)
 
 /datum/bounty/item/assistant/organ/applies_to(var/obj/item/organ/internal/O)
-	if(!..())
-		return FALSE
+	. = ..()
 
-	if(!istype(O))
+	if(!.)
 		return FALSE
 
 	if(O.status & ORGAN_DEAD || O.status & ORGAN_BROKEN)
@@ -32,7 +32,7 @@
 	else if(O.robotic)
 		return FALSE
 
-	return TRUE
+	return .
 
 /datum/bounty/item/assistant/organ/appendix
 	name = "Appendix"
