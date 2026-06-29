@@ -688,7 +688,7 @@
 
 		//Although hostile mobs instadying to turrets is fun
 		//If there's no AI they'll just be hit with stunbeams all day and spam the attack logs.
-		if (istype(A, /area/turret_protected) || LAZYLEN(A.turret_controls))
+		if (LAZYLEN(A.turret_controls))
 			continue
 
 		if(!A.hostile_events)
