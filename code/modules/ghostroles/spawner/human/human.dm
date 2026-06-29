@@ -117,7 +117,7 @@
 	var/custom_model
 
 	if(istype(GLOB.all_species[picked_species], /datum/species/machine))
-		custom_model = sanitize(tgui_input_text(user, "Enter the name of a custom model name for your examine if desired.", "IPC Custom Model", max_length = 30))
+		custom_model = sanitize(tgui_input_text(user, "Enter the name of a custom model name for your examine if desired.", "IPC Custom Model", max_length = 20))
 
 	//Spawn in the mob
 	var/mob/living/carbon/human/M = new spawn_mob(GLOB.newplayer_start)
