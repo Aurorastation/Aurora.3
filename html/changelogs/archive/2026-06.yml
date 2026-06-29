@@ -493,3 +493,21 @@
   MattAtlas:
   - bugfix: Removed defunct darksight variables on species. Unathi now have the darksight
       they were supposed to have.
+2026-06-27:
+  FabianK3:
+  - bugfix: Fixed missing disposal pipe segment.
+  MattAtlas:
+  - rscadd: Antagonists can now see what other types of antagonists there are and
+      how many in the Status tab.
+  - rscadd: If the gamemode contains revolutionaries, the Captain will now receive
+      specific instructions on how to play the gamemode when they spawn in order to
+      avoid confusion.
+  hazelmouse:
+  - rscadd: Modified description and name of the portable cooling unit to make it
+      more clear that it is important for IPC medical mechanics.
+  - bugfix: Portable cooling units now appear on mobs correctly.
+  kano:
+  - bugfix: Fixed runtime map throwing a runtime error whenever the player tried to
+      latejoin.
+  - rscadd: Added a kitchen section to the runtime map.
+  - rscdel: Removed ancient and unused area definitions from code.
