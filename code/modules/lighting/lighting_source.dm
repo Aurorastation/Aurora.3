@@ -242,16 +242,46 @@ GLOBAL_LIST_EMPTY(lighting_sheets)
 /// This function should be "pure", no side effects or reads from the source object
 /datum/light_source/proc/generate_sheet(range, visual_offset, x_offset, y_offset, center_dir, angle, height, z_level = 0)
 	var/list/encode = list()
+
 	// How far away the turfs we get are, and how many there are are often not the same calculation
 	// So we need to include the visual offset, so we can ensure our sheet is large enough to accept all the distance differences
 	var/bound_range = ceil(range) + visual_offset
+
+	// Calculate these two in advance since they will never change at any point during the following loops.
+	var/range_divisor = max(1, range)
+	var/dz2 = z_level * z_level
 
 	// Corners are placed at 0.5 offsets
 	// We need our coords to reflect that (though x_offsets that change the basis for how things are calculated are fine too)
 	for(var/x in (-(bound_range) + x_offset - 0.5) to (bound_range + x_offset + 0.5))
 		var/list/row = list()
+		// And precalculate this before looping y since it also won't change with respect to y.
+		var/dx2 = x * x
 		for(var/y in (-(bound_range) + y_offset - 0.5) to (bound_range + y_offset + 0.5))
-			row += falloff_at_coord(x, y, z_level, range, center_dir, angle, height)
+			var/dy2 = y * y
+			// You may notice we use squares here even though there are three components
+			// Because z diffs are so functionally small, cubes and cube roots are too aggressive
+			// The larger the distance is, the less bright our light will be
+			var/multiplier = 1 - CLAMP01(sqrt(dx2 + dy2 + dz2 + height) / range_divisor)
+			if(angle >= 360 || angle <= 0)
+				row += multiplier
+				continue
+
+			// Turn our positional offset into an angle
+			var/coord_angle = delta_to_angle(x, y)
+			// Get the difference between the angle we want, and the angle we have
+			var/center_angle = dir2angle(center_dir)
+			var/angle_delta = abs(center_angle - coord_angle)
+			// Now we have to normalize the angle delta to be between 0 and 180, instead of 0 and 360
+			// This ensures removing say, 15 degrees removes it from both sides, rather then just one
+			// Turns an unfurling fan into a pair of scissors
+			if(angle_delta > 180)
+				angle_delta = 180 - (angle_delta - 180)
+			// We allow angle deltas to a certian amount, angle / 2
+			// If we pass that, then it starts effecting the visuals
+			// Oh and we'll scale it so 30 degrees is the "0" point, where things become fully dark
+			// This could be variable, it just isn't yet yaknow?
+			row += max(multiplier * (1 - max(angle_delta - (angle / 2), 0) / 30), 0)
 		encode += list(row)
 	return encode
 
@@ -265,34 +295,6 @@ GLOBAL_LIST_EMPTY(lighting_sheets)
 		var/list/sheet = generate_sheet(range, visual_offset, x_offset, y_offset, center_dir, angle, height, z)
 		encode += list(sheet)
 	return encode
-
-/// Takes x y and z offsets from the source as input, alongside our source's range
-/// Returns a value between 0 and 1, 0 being dark on that tile, 1 being fully lit
-/datum/light_source/proc/falloff_at_coord(x, y, z, range, center_dir, angle, height)
-	var/range_divisor = max(1, range)
-
-	// You may notice we use squares here even though there are three components
-	// Because z diffs are so functionally small, cubes and cube roots are too aggressive
-	// The larger the distance is, the less bright our light will be
-	var/multiplier = 1 - CLAMP01(sqrt(x ** 2 + y ** 2 + z ** 2 + height) / range_divisor)
-	if(angle >= 360 || angle <= 0)
-		return multiplier
-
-	// Turn our positional offset into an angle
-	var/coord_angle = delta_to_angle(x, y)
-	// Get the difference between the angle we want, and the angle we have
-	var/center_angle = dir2angle(center_dir)
-	var/angle_delta = abs(center_angle - coord_angle)
-	// Now we have to normalize the angle delta to be between 0 and 180, instead of 0 and 360
-	// This ensures removing say, 15 degrees removes it from both sides, rather then just one
-	// Turns an unfurling fan into a pair of scissors
-	if(angle_delta > 180)
-		angle_delta = 180 - (angle_delta - 180)
-	// We allow angle deltas to a certian amount, angle / 2
-	// If we pass that, then it starts effecting the visuals
-	// Oh and we'll scale it so 30 degrees is the "0" point, where things become fully dark
-	// This could be variable, it just isn't yet yaknow?
-	return max(multiplier * (1 - max(angle_delta - (angle / 2), 0) / 30), 0)
 
 /// Dumps the content of a lighting sheet to chat, for debugging
 /datum/light_source/proc/print_sheet()
