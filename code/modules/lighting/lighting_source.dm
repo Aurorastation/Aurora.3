@@ -248,8 +248,9 @@ GLOBAL_LIST_EMPTY(lighting_sheets)
 	var/bound_range = ceil(range) + visual_offset
 
 	// Calculate these two in advance since they will never change at any point during the following loops.
-	var/range_divisor = max(1, range)
+	var/range_divisor = max(1, range * range)
 	var/dz2 = z_level * z_level
+	var/dh2 = height * height
 
 	// Corners are placed at 0.5 offsets
 	// We need our coords to reflect that (though x_offsets that change the basis for how things are calculated are fine too)
@@ -262,7 +263,7 @@ GLOBAL_LIST_EMPTY(lighting_sheets)
 			// You may notice we use squares here even though there are three components
 			// Because z diffs are so functionally small, cubes and cube roots are too aggressive
 			// The larger the distance is, the less bright our light will be
-			var/multiplier = 1 - CLAMP01(sqrt(dx2 + dy2 + dz2 + height) / range_divisor)
+			var/multiplier = 1 - CLAMP01((dx2 + dy2 + dz2 + dh2) / range_divisor)
 			if(angle >= 360 || angle <= 0)
 				row += multiplier
 				continue
