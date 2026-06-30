@@ -1,7 +1,0 @@
-author: TheGreyWolf
-
-delete-after: True
-
-changes:
-  - rscadd: "Added regular messages when under the effect of a mindblanker or psi-protect drugs."
-  - balance: "Tweaked the seizure effects of the cheap psi-protect drugs."

@@ -511,3 +511,11 @@
       latejoin.
   - rscadd: Added a kitchen section to the runtime map.
   - rscdel: Removed ancient and unused area definitions from code.
+2026-06-30:
+  Roostercat:
+  - experiment: Swaps the Chapel and the Machinist Lab and moves the Mass Driver to
+      the Security Checkpoint.
+  TheGreyWolf:
+  - rscadd: Added regular messages when under the effect of a mindblanker or psi-protect
+      drugs.
+  - balance: Tweaked the seizure effects of the cheap psi-protect drugs.
