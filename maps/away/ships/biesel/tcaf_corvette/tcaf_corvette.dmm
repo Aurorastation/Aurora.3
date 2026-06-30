@@ -21,7 +21,7 @@
 	icon_state = "0-8"
 	},
 /obj/structure/machinery/power/apc/south{
-	req_access = list(204)
+	req_access = list(111)
 	},
 /turf/simulated/floor/tiled/white,
 /area/tcaf_corvette/messhall)
@@ -63,7 +63,7 @@
 	frame_color = "#5F78A0";
 	spawn_firedoor = 1;
 	spawn_grille = 1;
-	req_one_access = list(204)
+	req_one_access = list(111)
 	},
 /obj/structure/machinery/door/blast/regular/open{
 	id = "tcaf_window_lockdown"
@@ -164,7 +164,7 @@
 	pixel_y = 4
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(204)
+	req_access = list(111)
 	},
 /obj/structure/cable/green{
 	d2 = 2;
@@ -180,7 +180,7 @@
 	cycle_to_external_air = 1;
 	master_tag = "airlock_tcaf_shuttle";
 	name = "airlock_tcaf_shuttle";
-	req_one_access = list(204);
+	req_one_access = list(111);
 	shuttle_tag = "TCAF Gunship"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
@@ -295,7 +295,7 @@
 	frame_color = "#5F78A0";
 	spawn_firedoor = 1;
 	spawn_grille = 1;
-	req_one_access = list(204)
+	req_one_access = list(111)
 	},
 /obj/structure/machinery/door/blast/regular/open{
 	id = "tcaf_window_lockdown"
@@ -351,7 +351,7 @@
 	frame_color = "#5F78A0";
 	spawn_firedoor = 1;
 	spawn_grille = 1;
-	req_one_access = list(204)
+	req_one_access = list(111)
 	},
 /obj/structure/machinery/door/blast/regular/open{
 	id = "tcaf_window_lockdown"
@@ -419,7 +419,7 @@
 	pixel_x = -22;
 	id = "tcaf_engine_storage";
 	name = "Fuel Storage Shutters";
-	req_access = list(204)
+	req_access = list(111)
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/decal/cleanable/dirt,
@@ -594,7 +594,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(204)
+	req_one_access = list(111)
 	},
 /obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -702,7 +702,7 @@
 	frame_color = "#5F78A0";
 	spawn_firedoor = 1;
 	spawn_grille = 1;
-	req_one_access = list(204)
+	req_one_access = list(111)
 	},
 /obj/structure/machinery/door/blast/regular/open{
 	id = "tcaf_window_lockdown"
@@ -715,7 +715,7 @@
 	frame_color = "#5F78A0";
 	spawn_firedoor = 1;
 	spawn_grille = 1;
-	req_one_access = list(204)
+	req_one_access = list(111)
 	},
 /obj/structure/machinery/door/blast/regular/open{
 	id = "tcaf_window_lockdown"
@@ -738,7 +738,7 @@
 /obj/structure/cable/green,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/machinery/power/apc/super/south{
-	req_access = list(204)
+	req_access = list(111)
 	},
 /turf/simulated/floor/tiled/gridded,
 /area/tcaf_corvette/engine)
@@ -762,7 +762,7 @@
 	frame_color = "#5F78A0";
 	spawn_firedoor = 1;
 	spawn_grille = 1;
-	req_one_access = list(204)
+	req_one_access = list(111)
 	},
 /obj/structure/machinery/door/blast/regular/open{
 	id = "tcaf_window_lockdown"
@@ -823,7 +823,7 @@
 	frame_color = "#5F78A0";
 	spawn_firedoor = 1;
 	spawn_grille = 1;
-	req_one_access = list(204)
+	req_one_access = list(111)
 	},
 /obj/structure/machinery/door/blast/regular/open{
 	id = "tcaf_cell_1_blast"
@@ -877,7 +877,7 @@
 	frame_color = "#5F78A0";
 	spawn_firedoor = 1;
 	spawn_grille = 1;
-	req_one_access = list(204)
+	req_one_access = list(111)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/visible/yellow,
 /obj/structure/machinery/door/blast/regular/open{
@@ -964,7 +964,7 @@
 	specialfunctions = 4;
 	pixel_x = -24;
 	pixel_y = -3;
-	req_access = list(204)
+	req_access = list(111)
 	},
 /obj/structure/machinery/button/remote/blast_door{
 	id = "tcaf_cell_3_blast";
@@ -972,7 +972,7 @@
 	pixel_x = -24;
 	dir = 8;
 	pixel_y = 10;
-	req_access = list(204)
+	req_access = list(111)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -1080,7 +1080,7 @@
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal/sedantis{
 	pixel_y = 12
 	},
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/tcfl{
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/tcaf{
 	pixel_y = 12;
 	pixel_x = -10
 	},
@@ -1186,7 +1186,7 @@
 	specialfunctions = 4;
 	pixel_x = -24;
 	pixel_y = -3;
-	req_access = list(204)
+	req_access = list(111)
 	},
 /obj/structure/machinery/button/remote/blast_door{
 	id = "tcaf_cell_1_blast";
@@ -1194,7 +1194,7 @@
 	pixel_x = -24;
 	dir = 8;
 	pixel_y = 10;
-	req_access = list(204)
+	req_access = list(111)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -1502,7 +1502,7 @@
 	dir = 10
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(204)
+	req_access = list(111)
 	},
 /obj/structure/cable/green{
 	icon_state = "0-8"
@@ -1516,7 +1516,7 @@
 /area/tcaf_corvette/captain)
 "fr" = (
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(204)
+	req_one_access = list(111)
 	},
 /obj/structure/table/stone/marble,
 /obj/structure/machinery/reagentgrinder{
@@ -1607,7 +1607,7 @@
 	frame_color = "#5F78A0";
 	spawn_firedoor = 1;
 	spawn_grille = 1;
-	req_one_access = list(204)
+	req_one_access = list(111)
 	},
 /obj/effect/landmark/entry_point/fore,
 /obj/structure/machinery/door/blast/regular{
@@ -1707,7 +1707,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/black,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/machinery/computer/ship/engines/terminal{
-	req_access = list(204)
+	req_access = list(111)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
@@ -1723,7 +1723,7 @@
 	dir = 6
 	},
 /obj/structure/machinery/alarm/east{
-	req_one_access = list(204)
+	req_one_access = list(111)
 	},
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/structure/bed/stool/chair{
@@ -1734,7 +1734,7 @@
 /area/tcaf_corvette/brig)
 "gb" = (
 /obj/structure/machinery/alarm/north{
-	req_one_access = list(204)
+	req_one_access = list(111)
 	},
 /obj/effect/floor_decal/corner_wide/brown/full{
 	dir = 8
@@ -1830,7 +1830,7 @@
 	dir = 10
 	},
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(204)
+	req_one_access = list(111)
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/weightlifter,
@@ -1838,7 +1838,7 @@
 /area/tcaf_corvette/lounge)
 "gp" = (
 /obj/structure/machinery/power/apc/east{
-	req_access = list(204)
+	req_access = list(111)
 	},
 /obj/structure/cable/green,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -1849,7 +1849,7 @@
 	dir = 8
 	},
 /obj/structure/machinery/vending/tool{
-	req_access = list(204)
+	req_access = list(111)
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/machinery/light{
@@ -1948,7 +1948,7 @@
 	},
 /obj/structure/machinery/door/airlock/generic{
 	door_color = "#304b77";
-	req_access = list(204);
+	req_access = list(111);
 	dir = 4;
 	name = "Crew Bunks"
 	},
@@ -1980,7 +1980,7 @@
 	},
 /obj/structure/machinery/door/airlock/glass_security{
 	dir = 8;
-	req_access = list(204);
+	req_access = list(111);
 	name = "Holding Cell #3";
 	locked = 1;
 	id_tag = "tcaf_cell_3";
@@ -2035,7 +2035,7 @@
 	dir = 5
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(204)
+	req_access = list(111)
 	},
 /obj/structure/cable/green{
 	icon_state = "0-8"
@@ -2114,7 +2114,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/machinery/mech_recharger,
 /obj/structure/machinery/power/apc/north{
-	req_access = list(204)
+	req_access = list(111)
 	},
 /obj/structure/cable/green{
 	d2 = 2;
@@ -2235,7 +2235,7 @@
 	icon_state = "0-4"
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(204)
+	req_access = list(111)
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
@@ -2434,7 +2434,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/machinery/door/airlock/glass{
-	req_access = list(204);
+	req_access = list(111);
 	door_color = "#304b77";
 	dir = 8;
 	name = "Ready Room"
@@ -2581,7 +2581,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/alarm/east{
-	req_one_access = list(204)
+	req_one_access = list(111)
 	},
 /obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8;
@@ -2644,7 +2644,7 @@
 "jy" = (
 /obj/effect/floor_decal/industrial/outline/custodial,
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(204)
+	req_one_access = list(111)
 	},
 /obj/structure/cart/storage/janitorialcart/full{
 	dir = 4
@@ -2665,11 +2665,11 @@
 	pixel_x = -3
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/tcfl{
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/tcaf{
 	pixel_x = 10;
 	pixel_y = 7
 	},
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/tcfl{
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/tcaf{
 	pixel_x = 10
 	},
 /turf/simulated/floor/carpet/magenta,
@@ -2715,7 +2715,7 @@
 "jO" = (
 /obj/structure/machinery/door/airlock/highsecurity{
 	dir = 8;
-	req_access = list(204);
+	req_access = list(111);
 	name = "Portside Ammunition Storage"
 	},
 /obj/structure/machinery/door/firedoor/noid{
@@ -2789,7 +2789,7 @@
 	frame_color = "#5F78A0";
 	spawn_firedoor = 1;
 	spawn_grille = 1;
-	req_one_access = list(204)
+	req_one_access = list(111)
 	},
 /obj/structure/machinery/door/blast/regular{
 	density = 0;
@@ -2852,7 +2852,7 @@
 	frame_color = "#5F78A0";
 	spawn_firedoor = 1;
 	spawn_grille = 1;
-	req_one_access = list(204)
+	req_one_access = list(111)
 	},
 /obj/structure/machinery/door/blast/regular/open{
 	id = "tcaf_window_lockdown"
@@ -2861,7 +2861,7 @@
 /area/tcaf_corvette/forensics)
 "kr" = (
 /obj/structure/machinery/alarm/freezer/south{
-	req_one_access = list(204)
+	req_one_access = list(111)
 	},
 /obj/structure/closet/secure_closet/freezer/meat,
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -2920,7 +2920,7 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/machinery/suit_cycler/offship/biesel,
 /obj/structure/machinery/alarm/west{
-	req_one_access = list(204)
+	req_one_access = list(111)
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/carpet/rubber,
@@ -2972,7 +2972,7 @@
 /area/tcaf_corvette/central_lift)
 "lc" = (
 /obj/structure/machinery/door/airlock/glass_command{
-	req_access = list(204);
+	req_access = list(111);
 	dir = 4;
 	name = "Combat Information Center"
 	},
@@ -3030,7 +3030,7 @@
 /area/tcaf_corvette/messhall)
 "ln" = (
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(204)
+	req_one_access = list(111)
 	},
 /turf/simulated/floor/carpet/magenta,
 /area/tcaf_corvette/captain)
@@ -3128,7 +3128,7 @@
 	frame_color = "#5F78A0";
 	spawn_firedoor = 1;
 	spawn_grille = 1;
-	req_one_access = list(204)
+	req_one_access = list(111)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/black,
 /obj/structure/machinery/door/blast/regular/open{
@@ -3179,7 +3179,7 @@
 	dir = 6
 	},
 /obj/structure/machinery/vending/medical{
-	req_access = list(204)
+	req_access = list(111)
 	},
 /turf/simulated/floor/tiled/white,
 /area/tcaf_corvette/medical)
@@ -3234,7 +3234,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/machinery/door/airlock/glass_command{
-	req_access = list(204);
+	req_access = list(111);
 	dir = 4;
 	name = "Combat Information Center"
 	},
@@ -3430,7 +3430,7 @@
 	frame_color = "#5F78A0";
 	spawn_firedoor = 1;
 	spawn_grille = 1;
-	req_one_access = list(204)
+	req_one_access = list(111)
 	},
 /obj/structure/machinery/door/blast/regular/open{
 	id = "tcaf_window_lockdown"
@@ -3554,7 +3554,7 @@
 "mT" = (
 /obj/structure/machinery/mecha_part_fabricator{
 	dir = 8;
-	req_access = list(204)
+	req_access = list(111)
 	},
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/decal/cleanable/dirt,
@@ -3568,7 +3568,7 @@
 	dir = 10
 	},
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(204)
+	req_one_access = list(111)
 	},
 /turf/simulated/floor/tiled,
 /area/tcaf_corvette/central_lift)
@@ -3598,7 +3598,7 @@
 /obj/structure/table/glass,
 /obj/structure/machinery/photocopier/faxmachine{
 	department = "Republican Fleet Corvette";
-	req_one_access = list(204);
+	req_one_access = list(111);
 	pixel_y = 3
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -3654,7 +3654,7 @@
 	},
 /obj/structure/machinery/computer/ship/targeting/terminal{
 	dir = 1;
-	req_access = list(204)
+	req_access = list(111)
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
@@ -3746,7 +3746,7 @@
 "np" = (
 /obj/structure/machinery/door/airlock/hatch{
 	dir = 4;
-	req_access = list(204)
+	req_access = list(111)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 8
@@ -3788,7 +3788,7 @@
 /obj/structure/machinery/vending/wallmed1{
 	pixel_x = 9;
 	pixel_y = 33;
-	req_access = list(204)
+	req_access = list(111)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 10
@@ -3802,7 +3802,7 @@
 "ny" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/hos{
-	name = "decurion's bedsheet";
+	name = "astrarch's bedsheet";
 	desc = "It is decorated with a shield emblem. For those that would like to think of themselves as protectors of valuable things."
 	},
 /obj/structure/curtain/open/bed,
@@ -3881,7 +3881,7 @@
 "nO" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Body Armor";
-	req_access = list(204)
+	req_access = list(111)
 	},
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/item/clothing/accessory/holster/modular,
@@ -3912,12 +3912,16 @@
 /obj/item/recharger_backpack/high,
 /obj/item/recharger_backpack/high,
 /obj/effect/decal/cleanable/dirt,
+/obj/item/rig/combat/tcaf/equipped{
+	pixel_x = 3;
+	pixel_y = -4
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/tcaf_corvette/storage)
 "nR" = (
 /obj/structure/machinery/door/airlock/glass_medical{
 	dir = 8;
-	req_access = list(204);
+	req_access = list(111);
 	name = "Pharmacy"
 	},
 /obj/structure/machinery/door/firedoor/noid{
@@ -3968,7 +3972,7 @@
 /area/tcaf_corvette/cargo_bay)
 "nV" = (
 /obj/structure/machinery/door/airlock/glass{
-	req_access = list(204);
+	req_access = list(111);
 	door_color = "#304b77";
 	name = "Central Ring"
 	},
@@ -4082,7 +4086,7 @@
 	frame_color = "#5F78A0";
 	spawn_firedoor = 1;
 	spawn_grille = 1;
-	req_one_access = list(204)
+	req_one_access = list(111)
 	},
 /obj/structure/machinery/door/blast/regular/open{
 	id = "tcaf_window_lockdown"
@@ -4099,10 +4103,8 @@
 /area/tcaf_corvette/engine)
 "oR" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/closet/crate/secure/legion{
-	req_access = list(204);
-	name = "flags and banners";
-	desc = "A secure supply crate, It carries the insignia of the Tau Ceti Armed Forces. It appears quite scuffed."
+/obj/structure/closet/crate/secure/tcaf{
+	name = "flags and banners"
 	},
 /obj/item/flag/biesel/l,
 /obj/item/flag/biesel/l,
@@ -4166,10 +4168,8 @@
 "pg" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Pilot's Amenities";
-	req_access = list(204)
+	req_access = list(111)
 	},
-/obj/item/gun/energy/blaster/pilot_special,
-/obj/item/gun/energy/blaster/pilot_special,
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
 	},
@@ -4295,7 +4295,7 @@
 	dir = 1
 	},
 /obj/structure/machinery/vending/engineering{
-	req_access = list(204)
+	req_access = list(111)
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/decal/cleanable/dirt,
@@ -4351,7 +4351,7 @@
 	},
 /obj/structure/machinery/door/airlock/highsecurity{
 	dir = 8;
-	req_access = list(204);
+	req_access = list(111);
 	name = "Starboard Gunnery"
 	},
 /obj/structure/machinery/door/firedoor/noid{
@@ -4368,7 +4368,7 @@
 /area/tcaf_corvette/grauwolf)
 "pQ" = (
 /obj/structure/machinery/door/airlock/glass{
-	req_access = list(204);
+	req_access = list(111);
 	door_color = "#304b77";
 	dir = 8;
 	name = "Ready Room"
@@ -4404,7 +4404,7 @@
 	dir = 6
 	},
 /obj/structure/machinery/power/apc/east{
-	req_access = list(204)
+	req_access = list(111)
 	},
 /obj/structure/cable/green{
 	icon_state = "0-8"
@@ -4436,14 +4436,10 @@
 "qh" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Lethal Firearms and Equipment";
-	req_access = list(204)
+	req_access = list(111)
 	},
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/item/storage/box/tactical/frags,
-/obj/item/gun/energy/blaster/revolver,
-/obj/item/gun/energy/blaster/revolver,
-/obj/item/gun/energy/blaster/revolver,
-/obj/item/gun/energy/blaster/revolver,
 /obj/item/gun/energy/blaster/revolver,
 /obj/item/gun/energy/blaster/revolver,
 /obj/item/gun/projectile/shotgun/pump,
@@ -4452,14 +4448,18 @@
 /obj/item/storage/box/shells/beanbags,
 /obj/item/storage/box/shells/beanbags,
 /obj/item/gun/energy/rifle/laser/noctiluca,
-/obj/item/gun/energy/blaster/tcaf,
-/obj/item/gun/energy/blaster/tcaf,
+/obj/item/gun/energy/blaster/guardian,
+/obj/item/gun/energy/blaster/guardian,
 /obj/item/gun/energy/blaster/rifle,
 /obj/item/gun/projectile/automatic/rifle/jingya,
 /obj/item/ammo_magazine/a556/carbine,
 /obj/item/ammo_magazine/a556/carbine,
 /obj/item/ammo_magazine/a556/carbine/ap,
 /obj/effect/decal/cleanable/dirt,
+/obj/item/gun/energy/blaster,
+/obj/item/gun/energy/blaster,
+/obj/item/gun/energy/blaster,
+/obj/item/gun/energy/blaster,
 /turf/simulated/floor/tiled/dark/full,
 /area/tcaf_corvette/storage)
 "qk" = (
@@ -4508,7 +4508,7 @@
 "qr" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(204)
+	req_one_access = list(111)
 	},
 /turf/simulated/floor/marble,
 /area/tcaf_corvette/washroom)
@@ -4520,7 +4520,7 @@
 	dir = 8
 	},
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(204)
+	req_one_access = list(111)
 	},
 /obj/structure/cable/green{
 	icon_state = "1-8"
@@ -4680,7 +4680,7 @@
 	cycle_to_external_air = 1;
 	master_tag = "airlock_tcaf_shuttle";
 	name = "airlock_tcaf_shuttle";
-	req_one_access = list(204);
+	req_one_access = list(111);
 	shuttle_tag = "TCAF Gunship"
 	},
 /obj/effect/map_effect/marker_helper/airlock/out,
@@ -4792,7 +4792,7 @@
 	frame_color = "#5F78A0";
 	spawn_firedoor = 1;
 	spawn_grille = 1;
-	req_one_access = list(204)
+	req_one_access = list(111)
 	},
 /obj/structure/machinery/door/blast/regular/open{
 	id = "tcaf_window_lockdown"
@@ -4916,7 +4916,7 @@
 	cycle_to_external_air = 1;
 	master_tag = "airlock_tcaf_shuttle";
 	name = "airlock_tcaf_shuttle";
-	req_one_access = list(204);
+	req_one_access = list(111);
 	shuttle_tag = "TCAF Gunship"
 	},
 /turf/simulated/floor,
@@ -4990,7 +4990,7 @@
 	cycle_to_external_air = 1;
 	master_tag = "airlock_tcaf_shuttle";
 	name = "airlock_tcaf_shuttle";
-	req_one_access = list(204);
+	req_one_access = list(111);
 	shuttle_tag = "TCAF Gunship"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
@@ -5067,7 +5067,7 @@
 	dir = 5
 	},
 /obj/structure/machinery/vending/engivend{
-	req_access = list(204)
+	req_access = list(111)
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/decal/cleanable/dirt,
@@ -5117,7 +5117,7 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	door_color = "#304b77";
-	req_access = list(204);
+	req_access = list(111);
 	name = "Cargo Bay Storage"
 	},
 /obj/structure/machinery/door/firedoor/noid,
@@ -5185,7 +5185,7 @@
 	icon_state = "0-4"
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(204)
+	req_access = list(111)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -5215,7 +5215,7 @@
 	pixel_y = 7
 	},
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(204)
+	req_one_access = list(111)
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/gunmetal,
@@ -5232,7 +5232,7 @@
 /area/tcaf_corvette/engine)
 "tz" = (
 /obj/structure/machinery/power/apc/north{
-	req_access = list(204)
+	req_access = list(111)
 	},
 /obj/structure/cable/green{
 	d2 = 4;
@@ -5285,7 +5285,7 @@
 	},
 /obj/structure/machinery/door/airlock/highsecurity{
 	dir = 8;
-	req_access = list(204);
+	req_access = list(111);
 	name = "Portside Gunnery"
 	},
 /obj/structure/machinery/door/firedoor/noid{
@@ -5330,7 +5330,7 @@
 "tX" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/machinery/power/apc/north{
-	req_access = list(204)
+	req_access = list(111)
 	},
 /obj/structure/cable/green{
 	icon_state = "0-4"
@@ -5352,7 +5352,7 @@
 /area/tcaf_corvette/captain)
 "uc" = (
 /obj/structure/machinery/door/airlock/glass{
-	req_access = list(204);
+	req_access = list(111);
 	door_color = "#304b77";
 	dir = 8;
 	name = "Engineering Storage"
@@ -5603,7 +5603,7 @@
 	frame_color = "#5F78A0";
 	spawn_firedoor = 1;
 	spawn_grille = 1;
-	req_one_access = list(204)
+	req_one_access = list(111)
 	},
 /obj/structure/machinery/door/blast/regular/open{
 	id = "tcaf_propellant_blast";
@@ -5871,7 +5871,7 @@
 	pixel_x = -9
 	},
 /obj/structure/machinery/alarm/north{
-	req_one_access = list(204)
+	req_one_access = list(111)
 	},
 /obj/item/clothing/glasses/safety/goggles{
 	pixel_y = -8;
@@ -5918,7 +5918,7 @@
 	frame_color = "#5F78A0";
 	spawn_firedoor = 1;
 	spawn_grille = 1;
-	req_one_access = list(204)
+	req_one_access = list(111)
 	},
 /obj/structure/machinery/door/blast/regular/open{
 	id = "tcaf_window_lockdown"
@@ -5940,7 +5940,7 @@
 /area/tcaf_corvette/central_ring)
 "wn" = (
 /obj/structure/machinery/door/airlock/medical{
-	req_access = list(204);
+	req_access = list(111);
 	name = "Operating Theatre"
 	},
 /obj/structure/machinery/door/firedoor/noid,
@@ -6038,7 +6038,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(204)
+	req_one_access = list(111)
 	},
 /obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -6139,7 +6139,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/machinery/mech_recharger,
 /obj/structure/machinery/power/apc/north{
-	req_access = list(204)
+	req_access = list(111)
 	},
 /obj/structure/cable/green{
 	d2 = 2;
@@ -6210,7 +6210,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/machinery/alarm/north{
-	req_one_access = list(204)
+	req_one_access = list(111)
 	},
 /turf/simulated/floor/tiled,
 /area/tcaf_corvette/forensics)
@@ -6329,7 +6329,7 @@
 "yl" = (
 /obj/structure/table/reinforced/steel,
 /obj/structure/machinery/alarm/west{
-	req_one_access = list(204)
+	req_one_access = list(111)
 	},
 /obj/item/sticker/flagpole/biesel{
 	pixel_x = -4
@@ -6345,7 +6345,7 @@
 "ym" = (
 /obj/structure/machinery/door/airlock/hatch{
 	dir = 4;
-	req_access = list(204)
+	req_access = list(111)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 8
@@ -6420,7 +6420,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/machinery/door/airlock/glass{
-	req_access = list(204);
+	req_access = list(111);
 	door_color = "#304b77";
 	dir = 8;
 	name = "Engineering Storage"
@@ -6448,7 +6448,7 @@
 	specialfunctions = 4;
 	pixel_x = -24;
 	pixel_y = -3;
-	req_access = list(204)
+	req_access = list(111)
 	},
 /obj/structure/machinery/button/remote/blast_door{
 	id = "tcaf_cell_2_blast";
@@ -6456,7 +6456,7 @@
 	pixel_x = -24;
 	dir = 8;
 	pixel_y = 10;
-	req_access = list(204)
+	req_access = list(111)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -6703,7 +6703,7 @@
 /area/tcaf_corvette/forensics)
 "zE" = (
 /obj/structure/machinery/power/apc/north{
-	req_access = list(204)
+	req_access = list(111)
 	},
 /obj/structure/cable/green{
 	icon_state = "0-2"
@@ -6739,7 +6739,7 @@
 	},
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	name = "Infirmary";
-	req_access = list(204);
+	req_access = list(111);
 	dir = 1
 	},
 /turf/simulated/floor/tiled/full,
@@ -6769,7 +6769,7 @@
 "zR" = (
 /obj/structure/machinery/door/airlock/highsecurity{
 	dir = 8;
-	req_access = list(204);
+	req_access = list(111);
 	name = "Starboard Ammunition Storage"
 	},
 /obj/structure/machinery/door/firedoor/noid{
@@ -6905,7 +6905,7 @@
 	},
 /obj/structure/machinery/door/airlock/hatch{
 	dir = 4;
-	req_access = list(204)
+	req_access = list(111)
 	},
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 8
@@ -6921,7 +6921,7 @@
 /area/tcaf_corvette/cargo_bay)
 "Ao" = (
 /obj/structure/machinery/door/airlock/glass_command{
-	req_access = list(204);
+	req_access = list(111);
 	name = "Combat Information Center"
 	},
 /obj/structure/machinery/door/firedoor/noid,
@@ -6936,7 +6936,7 @@
 /obj/structure/machinery/door/airlock/freezer{
 	dir = 1;
 	name = "Morgue";
-	req_access = list(204)
+	req_access = list(111)
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -6985,7 +6985,7 @@
 	frame_color = "#5F78A0";
 	spawn_firedoor = 1;
 	spawn_grille = 1;
-	req_one_access = list(204)
+	req_one_access = list(111)
 	},
 /obj/structure/machinery/door/blast/regular/open{
 	id = "tcaf_window_lockdown";
@@ -7063,7 +7063,7 @@
 	dir = 8
 	},
 /obj/structure/machinery/alarm/west{
-	req_one_access = list(204)
+	req_one_access = list(111)
 	},
 /obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -7112,7 +7112,7 @@
 "Bk" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Non-lethal Equipment";
-	req_access = list(204)
+	req_access = list(111)
 	},
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/structure/machinery/light{
@@ -7127,12 +7127,12 @@
 /obj/item/storage/box/handcuffs,
 /obj/item/storage/box/tactical/flashbangs,
 /obj/item/storage/box/tactical/smokebombs,
-/obj/item/shield/riot/tact/legion,
-/obj/item/shield/riot/tact/legion,
-/obj/item/shield/riot/tact/legion,
-/obj/item/shield/riot/tact/legion,
-/obj/item/shield/riot/tact/legion,
-/obj/item/shield/riot/tact/legion,
+/obj/item/shield/riot/tact/tcaf,
+/obj/item/shield/riot/tact/tcaf,
+/obj/item/shield/riot/tact/tcaf,
+/obj/item/shield/riot/tact/tcaf,
+/obj/item/shield/riot/tact/tcaf,
+/obj/item/shield/riot/tact/tcaf,
 /obj/item/clothing/mask/gas/half,
 /obj/item/clothing/mask/gas/half,
 /obj/item/clothing/mask/gas/half,
@@ -7266,7 +7266,7 @@
 "BW" = (
 /obj/structure/machinery/computer/ship/helm/terminal{
 	dir = 1;
-	req_access = list(204)
+	req_access = list(111)
 	},
 /obj/effect/floor_decal/industrial/outline/security,
 /turf/simulated/floor/carpet/rubber,
@@ -7452,7 +7452,7 @@
 	frame_color = "#5F78A0";
 	spawn_firedoor = 1;
 	spawn_grille = 1;
-	req_one_access = list(204)
+	req_one_access = list(111)
 	},
 /obj/structure/machinery/door/blast/regular/open{
 	id = "tcaf_window_lockdown"
@@ -7540,7 +7540,7 @@
 	},
 /obj/structure/closet/walllocker/medical/secure{
 	pixel_y = 32;
-	req_access = list(204);
+	req_access = list(111);
 	name = "O- Blood"
 	},
 /obj/item/reagent_containers/blood/OMinus,
@@ -7555,7 +7555,7 @@
 	dir = 9
 	},
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(204)
+	req_one_access = list(111)
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/tcaf_corvette/crew)
@@ -7634,7 +7634,7 @@
 	dir = 5
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(204)
+	req_access = list(111)
 	},
 /obj/structure/cable/green{
 	d2 = 8;
@@ -7685,7 +7685,7 @@
 	dir = 5
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(204)
+	req_access = list(111)
 	},
 /obj/structure/cable/green{
 	icon_state = "0-8"
@@ -7723,7 +7723,7 @@
 	cycle_to_external_air = 1;
 	master_tag = "airlock_tcaf_shuttle";
 	name = "airlock_tcaf_shuttle";
-	req_one_access = list(204);
+	req_one_access = list(111);
 	shuttle_tag = "TCAF Gunship"
 	},
 /obj/effect/map_effect/marker_helper/airlock/out,
@@ -7758,7 +7758,7 @@
 	dir = 10
 	},
 /obj/structure/machinery/power/apc/south{
-	req_access = list(204)
+	req_access = list(111)
 	},
 /obj/structure/cable/green{
 	icon_state = "0-8"
@@ -7896,7 +7896,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/computer/ship/helm/terminal{
-	req_access = list(204)
+	req_access = list(111)
 	},
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/effect/decal/cleanable/dirt,
@@ -7905,7 +7905,7 @@
 "Fb" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Heavy Weapons";
-	req_access = list(204)
+	req_access = list(111)
 	},
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/item/gun/projectile/peac,
@@ -8095,7 +8095,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(204)
+	req_access = list(111)
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/tcaf_corvette/hydroponics)
@@ -8152,7 +8152,7 @@
 "Ga" = (
 /obj/structure/table/rack,
 /obj/structure/machinery/power/apc/east{
-	req_access = list(204)
+	req_access = list(111)
 	},
 /obj/structure/cable/green{
 	icon_state = "0-8"
@@ -8170,10 +8170,6 @@
 	},
 /obj/item/gun/projectile/revolver/konyang{
 	pixel_y = 5
-	},
-/obj/item/rig/combat/legionnaire/equipped{
-	pixel_x = 3;
-	pixel_y = -4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/tcaf_corvette/captain_quarters)
@@ -8260,7 +8256,7 @@
 	frame_color = "#5F78A0";
 	spawn_firedoor = 1;
 	spawn_grille = 1;
-	req_one_access = list(204)
+	req_one_access = list(111)
 	},
 /obj/structure/machinery/door/blast/regular/open{
 	id = "tcaf_window_lockdown"
@@ -8327,10 +8323,8 @@
 /turf/simulated/floor/tiled,
 /area/tcaf_corvette/brig)
 "GF" = (
-/obj/structure/closet/crate/secure/legion{
-	req_access = list(204);
-	name = "recruitment supplies";
-	desc = "A secure supply crate, It carries the insignia of the Tau Ceti Armed Forces. It appears quite scuffed."
+/obj/structure/closet/crate/secure/tcaf{
+	name = "recruitment supplies"
 	},
 /obj/item/clothing/accessory/badge/tcaf_papers,
 /obj/item/clothing/accessory/badge/tcaf_papers,
@@ -8388,7 +8382,7 @@
 	frame_color = "#5F78A0";
 	spawn_firedoor = 1;
 	spawn_grille = 1;
-	req_one_access = list(204)
+	req_one_access = list(111)
 	},
 /turf/simulated/floor,
 /area/tcaf_corvette/hydroponics)
@@ -8545,7 +8539,7 @@
 "HA" = (
 /obj/structure/machinery/computer/ship/targeting/terminal{
 	dir = 4;
-	req_access = list(204)
+	req_access = list(111)
 	},
 /obj/effect/floor_decal/industrial/outline/security,
 /turf/simulated/floor/carpet/rubber,
@@ -8590,7 +8584,7 @@
 	icon_state = "1-4"
 	},
 /obj/structure/machinery/alarm/west{
-	req_one_access = list(204)
+	req_one_access = list(111)
 	},
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
@@ -8748,13 +8742,13 @@
 	dir = 5
 	},
 /obj/structure/machinery/alarm/north{
-	req_one_access = list(204)
+	req_one_access = list(111)
 	},
 /turf/simulated/floor/tiled,
 /area/tcaf_corvette/central_ring)
 "Ib" = (
 /obj/structure/machinery/alarm/freezer/south{
-	req_one_access = list(204)
+	req_one_access = list(111)
 	},
 /obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
@@ -8861,7 +8855,7 @@
 	frame_color = "#5F78A0";
 	spawn_firedoor = 1;
 	spawn_grille = 1;
-	req_one_access = list(204)
+	req_one_access = list(111)
 	},
 /obj/structure/machinery/door/blast/regular/open{
 	id = "tcaf_window_lockdown"
@@ -8884,7 +8878,7 @@
 	frame_color = "#5F78A0";
 	spawn_firedoor = 1;
 	spawn_grille = 1;
-	req_one_access = list(204)
+	req_one_access = list(111)
 	},
 /obj/structure/machinery/door/blast/regular/open{
 	id = "tcaf_cell_3_blast"
@@ -8934,7 +8928,7 @@
 	},
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	door_color = "#304b77";
-	req_access = list(204);
+	req_access = list(111);
 	name = "Holding Cells"
 	},
 /obj/structure/machinery/door/firedoor/noid,
@@ -8961,7 +8955,7 @@
 	cycle_to_external_air = 1;
 	master_tag = "airlock_tcaf_shuttle";
 	name = "airlock_tcaf_shuttle";
-	req_one_access = list(204);
+	req_one_access = list(111);
 	shuttle_tag = "TCAF Gunship"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
@@ -9023,7 +9017,7 @@
 /obj/structure/machinery/door/airlock/generic{
 	dir = 8;
 	door_color = "#304b77";
-	req_access = list(204);
+	req_access = list(111);
 	name = "Cryogenics Bay"
 	},
 /obj/structure/machinery/door/firedoor/noid{
@@ -9140,7 +9134,7 @@
 	dir = 8
 	},
 /obj/structure/machinery/power/apc/north{
-	req_access = list(204)
+	req_access = list(111)
 	},
 /obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /obj/structure/cable/green{
@@ -9163,7 +9157,7 @@
 	},
 /obj/structure/machinery/door/airlock/hatch{
 	dir = 4;
-	req_access = list(204)
+	req_access = list(111)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -9264,7 +9258,7 @@
 	},
 /obj/structure/closet/walllocker/medical/secure{
 	pixel_y = 32;
-	req_access = list(204);
+	req_access = list(111);
 	name = "Stabilization Closet"
 	},
 /obj/structure/machinery/atmospherics/unary/vent_pump/on,
@@ -9291,7 +9285,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/cable/green,
 /obj/structure/machinery/power/apc/west{
-	req_access = list(204)
+	req_access = list(111)
 	},
 /obj/structure/machinery/atmospherics/portables_connector,
 /obj/structure/machinery/portable_atmospherics/canister/empty{
@@ -9358,7 +9352,7 @@
 	},
 /obj/structure/machinery/door/airlock/glass_security{
 	dir = 8;
-	req_access = list(204);
+	req_access = list(111);
 	name = "Holding Cell #1";
 	locked = 1;
 	id_tag = "tcaf_cell_1";
@@ -9417,7 +9411,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(204)
+	req_one_access = list(111)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
@@ -9694,16 +9688,16 @@
 "LF" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Fortifications";
-	req_access = list(204)
+	req_access = list(111)
 	},
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/structure/machinery/light{
 	dir = 1
 	},
-/obj/item/magnetic_lock/security/legion,
-/obj/item/magnetic_lock/security/legion,
-/obj/item/magnetic_lock/security/legion,
-/obj/item/magnetic_lock/security/legion,
+/obj/item/magnetic_lock/security/tcaf,
+/obj/item/magnetic_lock/security/tcaf,
+/obj/item/magnetic_lock/security/tcaf,
+/obj/item/magnetic_lock/security/tcaf,
 /obj/item/deployable_kit/legion_barrier,
 /obj/item/deployable_kit/legion_barrier,
 /obj/item/deployable_kit/legion_barrier,
@@ -9821,7 +9815,7 @@
 	pixel_x = -11;
 	pixel_y = 6
 	},
-/obj/item/flame/lighter/zippo/tcfl{
+/obj/item/flame/lighter/zippo/biesel{
 	pixel_y = 3;
 	pixel_x = 4
 	},
@@ -9844,7 +9838,7 @@
 /obj/structure/machinery/button/remote/blast_door{
 	pixel_x = -6;
 	name = "Window Blast Doors";
-	req_access = list(204);
+	req_access = list(111);
 	dir = 6;
 	pixel_y = -2;
 	id = "tcaf_window_lockdown"
@@ -9852,7 +9846,7 @@
 /obj/structure/machinery/button/remote/blast_door{
 	pixel_x = -6;
 	name = "CIC Lockdown";
-	req_access = list(204);
+	req_access = list(111);
 	dir = 6;
 	pixel_y = 9;
 	id = "tcaf_cic_lockdown"
@@ -9977,7 +9971,7 @@
 "MF" = (
 /obj/effect/floor_decal/corner/brown/diagonal,
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(204)
+	req_one_access = list(111)
 	},
 /obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
@@ -10159,7 +10153,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/door/airlock/glass{
-	req_access = list(204);
+	req_access = list(111);
 	door_color = "#304b77";
 	name = "Engine Room"
 	},
@@ -10179,7 +10173,7 @@
 	dir = 6
 	},
 /obj/structure/machinery/alarm/north{
-	req_one_access = list(204)
+	req_one_access = list(111)
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
@@ -10226,7 +10220,7 @@
 	frame_color = "#5F78A0";
 	spawn_firedoor = 1;
 	spawn_grille = 1;
-	req_one_access = list(204)
+	req_one_access = list(111)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /obj/structure/machinery/door/blast/regular/open{
@@ -10412,7 +10406,7 @@
 	pixel_y = 5
 	},
 /obj/structure/machinery/power/apc/west{
-	req_access = list(204)
+	req_access = list(111)
 	},
 /obj/structure/cable/green,
 /obj/effect/decal/cleanable/dirt,
@@ -10443,7 +10437,7 @@
 	dir = 5
 	},
 /obj/structure/machinery/alarm/north{
-	req_one_access = list(204)
+	req_one_access = list(111)
 	},
 /turf/simulated/floor/tiled/white,
 /area/tcaf_corvette/medical)
@@ -10489,7 +10483,7 @@
 	},
 /obj/structure/table/glass,
 /obj/structure/machinery/power/apc/north{
-	req_access = list(204)
+	req_access = list(111)
 	},
 /obj/structure/cable/green{
 	icon_state = "0-2"
@@ -10556,7 +10550,7 @@
 /area/tcaf_corvette/captain)
 "Pj" = (
 /obj/structure/machinery/door/airlock/glass{
-	req_access = list(204);
+	req_access = list(111);
 	door_color = "#304b77";
 	name = "Engine Room"
 	},
@@ -10643,7 +10637,7 @@
 	icon_state = "1-8"
 	},
 /obj/structure/machinery/alarm/east{
-	req_one_access = list(204)
+	req_one_access = list(111)
 	},
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
@@ -10658,8 +10652,8 @@
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/door/airlock/command/gold{
-	req_access = list(204);
-	name = "Decurion's Quarters"
+	req_access = list(111);
+	name = "Astrarch's Quarters"
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -10759,7 +10753,7 @@
 /obj/structure/machinery/portable_atmospherics/canister/air,
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /obj/structure/machinery/alarm/east{
-	req_one_access = list(204)
+	req_one_access = list(111)
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/tcaf_corvette/engineering)
@@ -10775,7 +10769,7 @@
 	cycle_to_external_air = 1;
 	master_tag = "airlock_tcaf_shuttle";
 	name = "airlock_tcaf_shuttle";
-	req_one_access = list(204);
+	req_one_access = list(111);
 	shuttle_tag = "TCAF Gunship"
 	},
 /obj/structure/machinery/light/small{
@@ -10908,7 +10902,7 @@
 	frame_color = "#5F78A0";
 	spawn_firedoor = 1;
 	spawn_grille = 1;
-	req_one_access = list(204)
+	req_one_access = list(111)
 	},
 /obj/structure/machinery/door/blast/regular/open{
 	id = "tcaf_window_lockdown";
@@ -11011,7 +11005,7 @@
 "Rt" = (
 /obj/structure/machinery/computer/ship/targeting/terminal{
 	dir = 1;
-	req_access = list(204)
+	req_access = list(111)
 	},
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/effect/decal/cleanable/dirt,
@@ -11035,14 +11029,12 @@
 	name = "Equipment and Personal Wear"
 	},
 /obj/effect/floor_decal/industrial/outline/service,
-/obj/item/clothing/suit/storage/toggle/leather_jacket/flight/legion/tcaf,
-/obj/item/clothing/suit/storage/toggle/leather_jacket/flight/legion/tcaf,
-/obj/item/clothing/suit/storage/toggle/leather_jacket/flight/legion/tcaf,
-/obj/item/clothing/suit/storage/legion/tcaf,
-/obj/item/clothing/suit/storage/legion/tcaf,
-/obj/item/clothing/suit/storage/legion/tcaf,
-/obj/item/clothing/accessory/poncho/shouldercape/nationcapes/biesel,
-/obj/item/clothing/accessory/poncho/shouldercape/nationcapes/biesel,
+/obj/item/clothing/suit/storage/toggle/leather_jacket/flight/tcaf,
+/obj/item/clothing/suit/storage/toggle/leather_jacket/flight/tcaf,
+/obj/item/clothing/suit/storage/toggle/leather_jacket/flight/tcaf,
+/obj/item/clothing/suit/storage/tcaf/legion,
+/obj/item/clothing/suit/storage/tcaf,
+/obj/item/clothing/suit/storage/tcaf,
 /obj/item/clothing/accessory/tc_pin,
 /obj/item/clothing/accessory/tc_pin,
 /obj/item/clothing/accessory/badge/tcaf_papers/service,
@@ -11055,15 +11047,19 @@
 /obj/item/clothing/accessory/storage/pouches/black,
 /obj/item/clothing/accessory/storage/pouches/black,
 /obj/item/clothing/accessory/storage/pouches/black,
-/obj/item/clothing/head/beret/legion/tcaf/tcaf_field,
-/obj/item/clothing/head/beret/legion/tcaf/tcaf_field,
-/obj/item/clothing/head/beret/legion/tcaf/tcaf_field,
-/obj/item/clothing/head/beret/legion/tcaf/tcaf_field,
-/obj/item/clothing/head/beret/legion/tcaf/tcaf_field,
+/obj/item/clothing/head/beret/tcaf/field,
+/obj/item/clothing/head/beret/tcaf/field,
+/obj/item/clothing/head/beret/tcaf/field,
+/obj/item/clothing/head/beret/tcaf/field,
+/obj/item/clothing/head/beret/tcaf/field,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/reagent_containers/food/drinks/flask/barflask,
 /obj/item/reagent_containers/food/drinks/flask/barflask,
 /obj/item/reagent_containers/food/drinks/flask/barflask,
+/obj/item/clothing/under/tcaf/crew/foreign_legion,
+/obj/item/clothing/under/tcaf/crew/foreign_legion,
+/obj/item/clothing/head/beret/tcaf/foreign_legion/field,
+/obj/item/clothing/head/beret/tcaf/foreign_legion/field,
 /turf/simulated/floor/tiled/techfloor,
 /area/tcaf_corvette/crew)
 "Ry" = (
@@ -11088,7 +11084,7 @@
 	},
 /obj/structure/machinery/door/airlock/highsecurity{
 	dir = 8;
-	req_access = list(204);
+	req_access = list(111);
 	name = "Autocannon Module"
 	},
 /obj/structure/machinery/door/firedoor/noid{
@@ -11148,7 +11144,7 @@
 /obj/structure/machinery/button/remote/blast_door{
 	pixel_x = -6;
 	name = "Window Blast Doors";
-	req_access = list(204);
+	req_access = list(111);
 	dir = 6;
 	pixel_y = -2;
 	id = "tcaf_window_lockdown"
@@ -11156,7 +11152,7 @@
 /obj/structure/machinery/button/remote/blast_door{
 	pixel_x = -6;
 	name = "CIC Lockdown";
-	req_access = list(204);
+	req_access = list(111);
 	dir = 6;
 	pixel_y = 9;
 	id = "tcaf_cic_lockdown"
@@ -11278,7 +11274,7 @@
 	cycle_to_external_air = 1;
 	master_tag = "airlock_tcaf_shuttle";
 	name = "airlock_tcaf_shuttle";
-	req_one_access = list(204);
+	req_one_access = list(111);
 	shuttle_tag = "TCAF Gunship"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
@@ -11297,7 +11293,7 @@
 	},
 /obj/structure/machinery/computer/ship/targeting/terminal{
 	dir = 1;
-	req_access = list(204)
+	req_access = list(111)
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
@@ -11364,7 +11360,7 @@
 	frame_color = "#5F78A0";
 	spawn_firedoor = 1;
 	spawn_grille = 1;
-	req_one_access = list(204)
+	req_one_access = list(111)
 	},
 /obj/structure/machinery/door/blast/regular{
 	density = 0;
@@ -11411,7 +11407,7 @@
 	},
 /obj/structure/machinery/door/airlock/glass_security{
 	dir = 8;
-	req_access = list(204);
+	req_access = list(111);
 	name = "Holding Cell #2";
 	locked = 1;
 	id_tag = "tcaf_cell_2";
@@ -11481,7 +11477,7 @@
 	frame_color = "#5F78A0";
 	spawn_firedoor = 1;
 	spawn_grille = 1;
-	req_one_access = list(204)
+	req_one_access = list(111)
 	},
 /obj/structure/machinery/door/blast/regular/open{
 	id = "tcaf_window_lockdown";
@@ -11506,7 +11502,7 @@
 	cycle_to_external_air = 1;
 	master_tag = "airlock_tcaf_shuttle";
 	name = "airlock_tcaf_shuttle";
-	req_one_access = list(204);
+	req_one_access = list(111);
 	shuttle_tag = "TCAF Gunship"
 	},
 /obj/structure/cable/green{
@@ -11553,7 +11549,7 @@
 	dir = 8
 	},
 /obj/structure/machinery/door/airlock/glass{
-	req_access = list(204);
+	req_access = list(111);
 	door_color = "#304b77";
 	dir = 8;
 	name = "Crew Lounge"
@@ -11579,7 +11575,7 @@
 	frame_color = "#5F78A0";
 	spawn_firedoor = 1;
 	spawn_grille = 1;
-	req_one_access = list(204)
+	req_one_access = list(111)
 	},
 /obj/structure/machinery/door/blast/regular/open{
 	id = "tcaf_window_lockdown"
@@ -11611,10 +11607,8 @@
 /obj/item/tent,
 /obj/item/tent,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/closet/crate/secure/legion{
-	req_access = list(204);
-	name = "tables, chairs, and camping equipment";
-	desc = "A secure supply crate, It carries the insignia of the Tau Ceti Armed Forces. It appears quite scuffed."
+/obj/structure/closet/crate/secure/tcaf{
+	name = "tables, chairs, and camping equipment"
 	},
 /obj/item/material/folding_table,
 /obj/item/material/folding_table,
@@ -11646,8 +11640,8 @@
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/door/airlock/command/gold{
-	req_access = list(204);
-	name = "Decurion's Office"
+	req_access = list(111);
+	name = "Astrarch's Office"
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -11891,7 +11885,7 @@
 	},
 /obj/structure/machinery/door/airlock/highsecurity{
 	dir = 8;
-	req_access = list(204);
+	req_access = list(111);
 	name = "Flak Battery Module"
 	},
 /obj/structure/machinery/door/firedoor/noid{
@@ -11993,7 +11987,7 @@
 "UM" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/machinery/alarm/north{
-	req_one_access = list(204)
+	req_one_access = list(111)
 	},
 /obj/vehicle/bike/speeder{
 	dir = 8
@@ -12010,7 +12004,7 @@
 "UP" = (
 /obj/effect/floor_decal/industrial/outline/custodial,
 /obj/structure/machinery/power/apc/north{
-	req_access = list(204)
+	req_access = list(111)
 	},
 /obj/structure/cable/green{
 	d2 = 2;
@@ -12032,7 +12026,7 @@
 	frame_color = "#5F78A0";
 	spawn_firedoor = 1;
 	spawn_grille = 1;
-	req_one_access = list(204)
+	req_one_access = list(111)
 	},
 /obj/structure/machinery/door/blast/regular/open{
 	id = "tcaf_cell_2_blast"
@@ -12273,7 +12267,7 @@
 	},
 /obj/structure/machinery/door/airlock/glass_mining{
 	dir = 8;
-	req_access = list(204);
+	req_access = list(111);
 	name = "Workshop"
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
@@ -12353,7 +12347,7 @@
 "Wu" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/machinery/alarm/east{
-	req_one_access = list(204)
+	req_one_access = list(111)
 	},
 /obj/structure/machinery/atmospherics/portables_connector/aux{
 	dir = 8
@@ -12411,7 +12405,7 @@
 	frame_color = "#5F78A0";
 	spawn_firedoor = 1;
 	spawn_grille = 1;
-	req_one_access = list(204)
+	req_one_access = list(111)
 	},
 /obj/structure/machinery/door/blast/regular/open{
 	id = "tcaf_window_lockdown";
@@ -12465,7 +12459,7 @@
 /obj/item/ship_ammunition/grauwolf_bundle,
 /obj/item/ship_ammunition/grauwolf_bundle,
 /obj/structure/machinery/power/apc/north{
-	req_access = list(204)
+	req_access = list(111)
 	},
 /obj/structure/cable/green{
 	d2 = 2;
@@ -12476,7 +12470,7 @@
 "WT" = (
 /obj/structure/table/wood,
 /obj/structure/machinery/alarm/west{
-	req_one_access = list(204)
+	req_one_access = list(111)
 	},
 /obj/item/paper_bin{
 	pixel_y = 5;
@@ -12738,7 +12732,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(204)
+	req_one_access = list(111)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
@@ -12771,7 +12765,7 @@
 	cycle_to_external_air = 1;
 	master_tag = "airlock_tcaf_shuttle";
 	name = "airlock_tcaf_shuttle";
-	req_one_access = list(204);
+	req_one_access = list(111);
 	shuttle_tag = "TCAF Gunship"
 	},
 /obj/structure/machinery/light/small{
@@ -12880,7 +12874,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/machinery/door/airlock/glass{
-	req_access = list(204);
+	req_access = list(111);
 	door_color = "#304b77";
 	dir = 8;
 	name = "Forensics & Brig"
@@ -12981,7 +12975,7 @@
 	dir = 10
 	},
 /obj/structure/machinery/alarm/south{
-	req_one_access = list(204)
+	req_one_access = list(111)
 	},
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -13053,7 +13047,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/door/airlock/glass{
-	req_access = list(204);
+	req_access = list(111);
 	door_color = "#304b77";
 	name = "Central Ring"
 	},
@@ -13096,7 +13090,7 @@
 	dir = 9
 	},
 /obj/structure/machinery/power/apc/east{
-	req_access = list(204)
+	req_access = list(111)
 	},
 /obj/structure/cable/green,
 /turf/simulated/floor/tiled,
@@ -13140,7 +13134,7 @@
 /obj/structure/machinery/button/remote/blast_door{
 	id = "tcaf_shuttle";
 	name = "Window Shielding";
-	req_access = list(204);
+	req_access = list(111);
 	dir = 8;
 	pixel_x = -22
 	},

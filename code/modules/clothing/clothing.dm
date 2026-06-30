@@ -119,7 +119,7 @@
 	return 0
 
 //BS12: Species-restricted clothing check.
-/obj/item/clothing/mob_can_equip(M as mob, slot, disable_warning = FALSE, bypass_blocked_check = FALSE)
+/obj/item/clothing/mob_can_equip(M as mob, slot, disable_warning = FALSE, bypass_blocked_check = FALSE, is_overlay_check = FALSE)
 
 	//if we can't equip the item anyway, don't bother with species_restricted (cuts down on spam)
 	if (!..())
@@ -528,6 +528,14 @@
 	pickup_sound = 'sound/items/pickup/gloves.ogg'
 	equip_sound = 'sound/items/equip/gloves.ogg'
 
+/obj/item/clothing/gloves/Destroy()
+	QDEL_NULL(cell)
+	if (ring && wearer)
+		wearer.equip_to_slot_if_possible(ring, slot_gloves)
+	ring = null
+	wearer = null
+	return ..()
+
 /obj/item/clothing/gloves/update_clothing_icon()
 	if (ismob(src.loc))
 		var/mob/M = src.loc
@@ -556,7 +564,7 @@
 /obj/item/clothing/gloves/proc/Touch(var/atom/A, mob/user, var/proximity)
 	return 0 // return 1 to cancel attack_hand()
 
-/obj/item/clothing/gloves/mob_can_equip(mob/user, slot, disable_warning = FALSE)
+/obj/item/clothing/gloves/mob_can_equip(mob/user, slot, disable_warning = FALSE, bypass_blocked_check = FALSE, is_overlay_check = FALSE)
 	var/mob/living/carbon/human/H = user
 	if(slot && slot == slot_gloves)
 		if(istype(H.gloves, /obj/item/clothing/ring))
@@ -947,6 +955,10 @@
 	var/last_trip = 0
 
 	var/footstep_sound_override
+
+/obj/item/clothing/shoes/Destroy()
+	QDEL_NULL(holding)
+	return ..()
 
 /obj/item/clothing/shoes/proc/draw_knife()
 	set name = "Draw Boot Knife"

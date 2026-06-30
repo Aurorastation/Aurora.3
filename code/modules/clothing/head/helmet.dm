@@ -185,6 +185,19 @@
 
 	update_clothing_icon()
 
+/obj/item/clothing/head/helmet/riot/lancer
+	name = "ceres lance helmet"
+	desc = "A state-of-the-art combat helmet used by Ceres Lance. It is made with an additional layer of padding and ballstic visor designed to protect operatives attempting to physically restrain hostile IPCs, but has poor heat dissipation characteristics as a result."
+	icon_state = "helm_lance"
+	item_state = "helm_lance"
+	armor = list(
+		MELEE = ARMOR_MELEE_VERY_HIGH,
+		BULLET = ARMOR_BALLISTIC_MAJOR,
+		LASER = ARMOR_LASER_SMALL,
+		ENERGY = ARMOR_ENERGY_RESISTANT,
+		BOMB = ARMOR_BOMB_PADDED,
+	)
+
 /obj/item/clothing/head/helmet/ablative
 	name = "ablative helmet"
 	desc = "A helmet made from advanced materials which protects against concentrated energy weapons."
@@ -482,5 +495,5 @@
 	action_button_name = "Toggle Helmet Light"
 	light_overlay = "helmet_light_dual"
 	light_range = 6
-	camera = /obj/structure/machinery/camera/network/tcfl
+	camera = /obj/structure/machinery/camera/network/tcaf
 	on = 0

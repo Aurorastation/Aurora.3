@@ -297,6 +297,9 @@
 	if(!GLOB.config.awaysites["enable_loading"])
 		log_admin("Not loading away sites because the config specifies not to")
 		return
+	if(SSatlas.current_sector && !SSatlas.current_sector.away_sites_enabled)
+		log_admin("Not loading away sites because the current sector disables them")
+		return
 
 	log_admin("Loading away sites...")
 

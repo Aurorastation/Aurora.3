@@ -1,285 +1,187 @@
-/atom/var/langchat_height = 32 // abovetile usually
-/atom/var/langchat_color = "#FFFFFF"
-/atom/var/langchat_styles = ""
+/// Returns whether langchat is enabled for a given mob.
+#define LANGCHAT_CLIENT_ENABLED(M) (M && M.client && M.client.prefs && (M.client.prefs.toggles_secondary & FLOATING_MESSAGES))
 
 #define LANGCHAT_LONGEST_TEXT 64
 #define LANGCHAT_WIDTH 96
 #define LANGCHAT_MAX_ALPHA 196
 
-//pop defines
-#define LANGCHAT_DEFAULT_POP 0 //normal message
-#define LANGCHAT_PANIC_POP 1 //this causes shaking
-#define LANGCHAT_FAST_POP 2 //this just makes it go away faster
+// Types of message pop
+#define LANGCHAT_DEFAULT_POP 0 // Normal messages.
+#define LANGCHAT_PANIC_POP 1   // Fast, shaking messages.
+#define LANGCHAT_FAST_POP 2    // Fast messages.
 
-// params for default pop
+// Parameters for LANGCHAT_DEFAULT_POP
 #define LANGCHAT_MESSAGE_POP_TIME 3
 #define LANGCHAT_MESSAGE_POP_Y_SINK 8
 
-// params for panic pop
+// Parameters for LANGCHAT_PANIC_POP
 #define LANGCHAT_MESSAGE_PANIC_POP_TIME 1
 #define LANGCHAT_MESSAGE_PANIC_POP_Y_SINK 8
 #define LANGCHAT_MESSAGE_PANIC_SHAKE_SIZE 6
 #define LANGCHAT_MESSAGE_PANIC_SHAKE_TIMES 6
 #define LANGCHAT_MESSAGE_PANIC_SHAKE_TIME_TAKEN 1
-// params for fast pop
+
+// Parameters for LANGCHAT_FAST_POP
 #define LANGCHAT_MESSAGE_FAST_POP_TIME 1
 #define LANGCHAT_MESSAGE_FAST_POP_Y_SINK 8
 
-#define langchat_client_enabled(M) (M && M.client && M.client.prefs && (M.client.prefs.toggles_secondary & FLOATING_MESSAGES))
+/atom/var/langchat_height = 32 // Abovetile usually
+/atom/var/langchat_color = "#FFFFFF"
+/atom/var/langchat_styles = ""
 
-/// Hides the images, if they exist. Do not null the langchat images; they are rotated when the mob is buckled or proned to maintain text orientation.
+/// A single overhead bubble storing the text image, and the listeners it was shown to.
+/datum/langchat_bubble
+	var/image/bubble
+	var/list/mob/listeners
+
+/// Initializes a new bubble from a text image and a list of listeners.
+/datum/langchat_bubble/New(image/bubble, list/mob/listeners)
+	. = ..()
+	src.bubble = bubble
+	src.listeners = listeners
+
+/// The floating bubbles currently shown for this atom.
+/atom/var/list/langchat_images
+
+/// Drops all active bubbles for this atom.
 /atom/proc/langchat_drop_images()
-	if(langchat_listeners)
-		for(var/mob/M in langchat_listeners)
-			if(M.client)
-				M.client.images -= langchat_image
-		for(var/mob/M in langchat_listeners_untranslated)
-			if(M.client)
-				M.client.images -= langchat_image_untranslated
-	langchat_listeners = null
-	langchat_listeners_untranslated = null
+	for(var/datum/langchat_bubble/entry as anything in langchat_images)
+		if (!entry || !entry.bubble)
+			continue
 
-/atom/proc/get_maxptext_x_offset(image/maptext_image)
+		for(var/mob/listener as anything in entry.listeners)
+			if (!listener || !listener.client)
+				continue
+			listener.client.images -= entry.bubble
+	langchat_images = null
+
+/atom/proc/get_maptext_x_offset(image/maptext_image)
 	return (world.icon_size / 2) - (maptext_image.maptext_width / 2)
 
-/atom/movable/get_maxptext_x_offset(image/maptext_image)
+/atom/movable/get_maptext_x_offset(image/maptext_image)
 	return (bound_width / 2) - (maptext_image.maptext_width / 2)
 
-/mob/get_maxptext_x_offset(image/maptext_image)
+/mob/get_maptext_x_offset(image/maptext_image)
 	return (icon_size / 2) - (maptext_image.maptext_width / 2)
 
-/// Creates the image if it doesn't exist, resets settings that are modified by speech procs.
-/atom/proc/langchat_make_image(override_color = null)
-	if(!langchat_image)
-		langchat_image = image(null, src)
-		langchat_image.layer = 20
-		langchat_image.plane = RUNECHAT_PLANE
-		langchat_image.appearance_flags = NO_CLIENT_COLOR|KEEP_APART|RESET_COLOR|RESET_TRANSFORM
-		langchat_image.maptext_y = langchat_height
-		langchat_image.maptext_height = 64
-		langchat_image.maptext_y -= LANGCHAT_MESSAGE_POP_Y_SINK
-		langchat_image.maptext_x = get_maxptext_x_offset(langchat_image)
+/// Constructs a single floating langchat bubble showing maptext_string to the given listeners.
+/atom/proc/langchat_build_image(maptext_string, list/mob/listeners, override_color, animation_style = LANGCHAT_DEFAULT_POP, list/additional_styles = list("langchat"))
+	if(!length(listeners))
+		return
 
-	langchat_image.pixel_y = 0
-	langchat_image.alpha = 0
-	langchat_image.color = override_color ? override_color : langchat_color
+	var/image/bubble = image(null, src)
+	bubble.layer = 20
+	bubble.plane = RUNECHAT_PLANE
+	bubble.appearance_flags = NO_CLIENT_COLOR|KEEP_APART|RESET_COLOR|RESET_TRANSFORM
+	bubble.maptext_y = langchat_height - LANGCHAT_MESSAGE_POP_Y_SINK
+	bubble.maptext_height = 64
+	bubble.alpha = 0
+	bubble.color = override_color ? override_color : langchat_color
 	if(appearance_flags & PIXEL_SCALE)
-		langchat_image.appearance_flags |= PIXEL_SCALE
+		bubble.appearance_flags |= PIXEL_SCALE
+	langchat_configure_bubble(bubble, override_color)
 
-/mob/langchat_make_image(override_color = null)
-	var/new_image = FALSE
-	if(!langchat_image)
-		new_image = TRUE
-	. = ..()
-	// Recenter for icons more than 32 wide
-	if(new_image)
-		langchat_image.maptext_x += (icon_size - 32) / 2
+	bubble.maptext = generate_text_image(maptext_string, additional_styles)
+	bubble.maptext_width = LANGCHAT_WIDTH
+	bubble.maptext_x = get_maptext_x_offset(bubble)
+	bubble.loc = isturf(loc) ? src : recursive_holder_check(src)
 
-/// Creates the (untranslated) image if it doesn't exist, resets settings that are modified by speech procs.
-/atom/proc/langchat_make_image_untranslated(override_color = null)
-	if(!langchat_image_untranslated)
-		langchat_image_untranslated = image(null, src)
-		langchat_image_untranslated.layer = 20
-		langchat_image_untranslated.plane = RUNECHAT_PLANE
-		langchat_image_untranslated.appearance_flags = NO_CLIENT_COLOR|KEEP_APART|RESET_COLOR|RESET_TRANSFORM
-		langchat_image_untranslated.maptext_y = langchat_height
-		langchat_image_untranslated.maptext_height = 64
-		langchat_image_untranslated.maptext_y -= LANGCHAT_MESSAGE_POP_Y_SINK
-		langchat_image_untranslated.maptext_x = get_maxptext_x_offset(langchat_image_untranslated)
+	for(var/mob/listener as anything in listeners)
+		listener.client.images += bubble
 
-	langchat_image_untranslated.pixel_y = 0
-	langchat_image_untranslated.alpha = 0
-	langchat_image_untranslated.color = override_color ? override_color : langchat_color
-	if(appearance_flags & PIXEL_SCALE)
-		langchat_image_untranslated.appearance_flags |= PIXEL_SCALE
+	animate_style(bubble, animation_style)
+	LAZYADD(langchat_images, new /datum/langchat_bubble(bubble, listeners))
 
-/mob/langchat_make_image_untranslated(override_color = null)
-	var/new_image = FALSE
-	if(!langchat_image_untranslated)
-		new_image = TRUE
-	. = ..()
-	// Recenter for icons more than 32 wide
-	if(new_image)
-		langchat_image_untranslated.maptext_x += (icon_size - 32) / 2
+/// Per-type appearance tweaks applied to a freshly built bubble.
+/atom/proc/langchat_configure_bubble(image/bubble, override_color)
+	return
 
-/mob/abstract/ghost/langchat_make_image(override_color = null)
+/mob/abstract/ghost/langchat_configure_bubble(image/bubble, override_color)
 	if(!override_color)
-		override_color = "#c51fb7"
-	. = ..()
-	langchat_image.appearance_flags |= RESET_ALPHA
+		bubble.color = "#c51fb7"
+	bubble.appearance_flags |= RESET_ALPHA
 
-/atom/proc/langchat_speech(message, list/listeners, datum/language/language, override_color, skip_language_check = FALSE, animation_style = LANGCHAT_DEFAULT_POP, list/additional_styles = list("langchat"))
+/// Floats flat text to everybody who can see it.
+/atom/proc/langchat_speech(message, list/mob/listeners, override_color, animation_style = LANGCHAT_DEFAULT_POP, list/additional_styles = list("langchat"))
 	langchat_drop_images()
-	langchat_make_image(override_color)
-	langchat_make_image_untranslated(override_color)
 
-	langchat_listeners = listeners
-	langchat_listeners_untranslated = list()
-	var/mob/listener
-	// Listener list management.
-	for(listener in langchat_listeners)
-		// Remove those who have the langchat_client disabled or who are deaf.
-		if(!langchat_client_enabled(listener) || listener.ear_deaf)
-			langchat_listeners -= listener
+	var/list/mob/shown = list()
+	for(var/mob/listener in listeners)
+		if(!LANGCHAT_CLIENT_ENABLED(listener) || listener.ear_deaf)
 			continue
-		// Handle listeners who don't understand the language being spoken.
-		if(!skip_language_check && !listener.say_understands(src, language))
-			langchat_listeners_untranslated += listener
-			langchat_listeners -= listener
+		shown += listener
+	if(!length(shown))
+		return
 
-	// Generate the translated langchat_image.
-	langchat_image.maptext = generate_text_image(message, additional_styles = additional_styles)
-	langchat_image.maptext_width = LANGCHAT_WIDTH
-	langchat_image.maptext_x = get_maxptext_x_offset(langchat_image)
-	for(var/mob/comprehending_listener in langchat_listeners)
-		comprehending_listener.client.images += langchat_image
-
-	// Generate the untranslated langchat_image. Note that we have to loop through confused listeners first here, as some
-	// might know languages that confer partial comprehension, and that would result in a unique langchat image.
-	for(var/mob/confused_listener in langchat_listeners_untranslated)
-		langchat_image_untranslated.maptext = generate_text_image(message, language, additional_styles, confused_listener.languages)
-		langchat_image_untranslated.maptext_width = LANGCHAT_WIDTH
-		langchat_image_untranslated.maptext_x = get_maxptext_x_offset(langchat_image_untranslated)
-		confused_listener.client.images += langchat_image_untranslated
+	langchat_build_image(message, shown, override_color, animation_style, additional_styles)
 
 	var/timer = (length(message) / LANGCHAT_LONGEST_TEXT) * 4 SECONDS + 2 SECONDS
+	addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, langchat_drop_images)), timer, TIMER_UNIQUE|TIMER_OVERRIDE|TIMER_NO_HASH_WAIT)
 
-	if(isturf(loc))
-		langchat_image.loc = src
-		if(langchat_image_untranslated)
-			langchat_image_untranslated.loc = src
-	else
-		langchat_image.loc = recursive_holder_check(src)
-		if(langchat_image_untranslated)
-			langchat_image_untranslated.loc = recursive_holder_check(src)
-
-	animate_style(langchat_image, animation_style)
-	if(langchat_listeners_untranslated)
-		animate_style(langchat_image_untranslated, animation_style)
-
-	addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, langchat_drop_images), language), timer, TIMER_UNIQUE|TIMER_OVERRIDE|TIMER_NO_HASH_WAIT)
-
-/atom/proc/langchat_long_speech(message, list/listeners, datum/language/language, override_color, skip_language_check = FALSE)
+/// Floats a say message to every listener in view. Each listener receives their own perceived text based on
+/// their comprehension of the spoken languages. Identical text is grouped into a single bubble for performance.
+/atom/proc/langchat_say_message(datum/say_message/msg, list/mob/listeners, override_color, animation_style = LANGCHAT_DEFAULT_POP, list/additional_styles = list("langchat"))
 	langchat_drop_images()
-	langchat_make_image()
-	langchat_make_image_untranslated(override_color)
 
-	var/text_left = null
-	var/truncated_message = message
+	// Group listeners by exact text perceived.
+	var/list/groups = list()
+	for(var/mob/listener in listeners)
+		if(!LANGCHAT_CLIENT_ENABLED(listener) || listener.ear_deaf)
+			continue
+		var/perceived = msg.plain_text_for(listener)
+		if(!length(perceived))
+			continue
+		var/list/group = groups[perceived]
+		if(!group)
+			group = list()
+			groups[perceived] = group
+		group += listener
+	if(!length(groups))
+		return
 
-	langchat_listeners = listeners
-	var/mob/listener
-	// Listener list management.
-	for(listener in langchat_listeners)
-		// Remove those who have the langchat_client disabled or who are deaf.
-		if(!langchat_client_enabled(listener) || listener.ear_deaf)
-			langchat_listeners -= listener
-		// Handle listeners who don't understand the language being spoken.
-		if(!skip_language_check && !listener.say_understands(src, language))
-			langchat_listeners_untranslated += listener
-			langchat_listeners -= listener
+	for(var/perceived in groups)
+		langchat_build_image(perceived, groups[perceived], override_color, animation_style, additional_styles)
 
-	if(length(message) > LANGCHAT_LONGEST_TEXT)
-		truncated_message = copytext_char(message, 1, LANGCHAT_LONGEST_TEXT - 5) + "..."
-		text_left = "..." + copytext_char(message, LANGCHAT_LONGEST_TEXT - 5)
-	var/timer = 6 SECONDS
-	if(text_left)
-		timer = 4 SECONDS
-	truncated_message = "<span class='center [langchat_styles] langchat_announce langchat'>[truncated_message]</span>"
+	// One-off timer for duration. Disappears for all listeners at the same time.
+	var/timer = (length(msg.to_string()) / LANGCHAT_LONGEST_TEXT) * 4 SECONDS + 2 SECONDS
+	addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, langchat_drop_images)), timer, TIMER_UNIQUE|TIMER_OVERRIDE|TIMER_NO_HASH_WAIT)
 
-	// Generate the translated langchat_image.
-	langchat_image.maptext = generate_text_image(truncated_message)
-	langchat_image.maptext_width = LANGCHAT_WIDTH
-	langchat_image.maptext_x = get_maxptext_x_offset(langchat_image)
-	for(var/mob/comprehending_listener in langchat_listeners)
-		comprehending_listener.client.images += langchat_image
-
-	// Generate the untranslated langchat_image. Note that we have to loop through confused listeners first here, as some
-	// might know languages that confer partial comprehension, and that would result in a unique langchat image.
-	for(var/mob/confused_listener in langchat_listeners_untranslated)
-		langchat_image_untranslated.maptext = confused_listener.generate_text_image(truncated_message, src)
-		langchat_image_untranslated.maptext_width = LANGCHAT_WIDTH
-		langchat_image_untranslated.maptext_x = get_maxptext_x_offset(langchat_image_untranslated)
-		confused_listener.client.images += langchat_image_untranslated
-
-	if(isturf(loc))
-		langchat_image.loc = src
-		if(langchat_image_untranslated)
-			langchat_image_untranslated.loc = src
-	else
-		langchat_image.loc = recursive_holder_check(src)
-		if(langchat_image_untranslated)
-			langchat_image_untranslated.loc = recursive_holder_check(src)
-
-	animate_style(langchat_image)
-	if(langchat_listeners_untranslated)
-		animate_style(langchat_image_untranslated)
-
-	if(text_left)
-		addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, langchat_long_speech), text_left, listeners, language), timer, TIMER_OVERRIDE|TIMER_UNIQUE|TIMER_NO_HASH_WAIT)
-	else
-		addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, langchat_drop_images), language), timer, TIMER_OVERRIDE|TIMER_UNIQUE|TIMER_NO_HASH_WAIT)
-
-/**
- * Generates the maptext_image, translated or untranslated, for a given message.
- */
-/atom/proc/generate_text_image(message, datum/language/language = null, list/additional_styles = list("langchat"), list/languages = null)
+/// Builds the maptext span for a floating message.
+/atom/proc/generate_text_image(message, list/additional_styles = list("langchat"))
+	var/list/styles = additional_styles ? additional_styles.Copy() : list()
 	var/text_to_display = message
 	var/use_mob_style = TRUE
-	var/image/r_icon
-
-	if(language)
-		message = language.scramble(message, languages)
-		text_to_display = message
 
 	if(length(text_to_display) > LANGCHAT_LONGEST_TEXT)
 		text_to_display = copytext_char(text_to_display, 1, LANGCHAT_LONGEST_TEXT + 1) + "..."
-	if(additional_styles.Find("emote"))
-		additional_styles.Remove("emote")
+	if(styles.Find("emote"))
+		styles.Remove("emote")
 		use_mob_style = FALSE
-		r_icon = image('icons/mob/chat_icons.dmi', icon_state = "emote")
-	else if(additional_styles.Find("virtual-speaker"))
-		additional_styles.Remove("virtual-speaker")
-		r_icon = image('icons/mob/chat_icons.dmi', icon_state = "radio")
-	if(r_icon)
+		var/image/r_icon = image('icons/mob/chat_icons.dmi', icon_state = "emote")
 		text_to_display = "\icon[r_icon]&zwsp;[text_to_display]"
 
-	text_to_display = "<span class='center [additional_styles != null ? additional_styles.Join(" ") : ""] [use_mob_style ? langchat_styles : ""] langchat'>[text_to_display]</span>"
-	return text_to_display
+	return "<span class='center [styles.Join(" ")] [use_mob_style ? langchat_styles : ""] langchat'>[text_to_display]</span>"
 
-/**
- * Animate the given maptext_image.
- */
-/atom/proc/animate_style(var/image/langchat_image, animation_style = LANGCHAT_DEFAULT_POP)
-	if(langchat_image)
+/// Animates the given maptext image.
+/atom/proc/animate_style(var/image/bubble, animation_style = LANGCHAT_DEFAULT_POP)
+	if(bubble)
 		switch(animation_style)
 			if(LANGCHAT_DEFAULT_POP)
-				langchat_image.alpha = 0
-				animate(langchat_image, pixel_y = langchat_image.pixel_y + LANGCHAT_MESSAGE_POP_Y_SINK, alpha = LANGCHAT_MAX_ALPHA, time = LANGCHAT_MESSAGE_POP_TIME)
+				bubble.alpha = 0
+				animate(bubble, pixel_y = bubble.pixel_y + LANGCHAT_MESSAGE_POP_Y_SINK, alpha = LANGCHAT_MAX_ALPHA, time = LANGCHAT_MESSAGE_POP_TIME)
 			if(LANGCHAT_PANIC_POP)
-				langchat_image.alpha = LANGCHAT_MAX_ALPHA
-				animate(langchat_image, pixel_y = langchat_image.pixel_y + LANGCHAT_MESSAGE_PANIC_POP_Y_SINK, time = LANGCHAT_MESSAGE_PANIC_POP_TIME)
-				animate(pixel_x = langchat_image.pixel_x - LANGCHAT_MESSAGE_PANIC_SHAKE_SIZE, time = LANGCHAT_MESSAGE_PANIC_SHAKE_TIME_TAKEN, easing = CUBIC_EASING)
+				bubble.alpha = LANGCHAT_MAX_ALPHA
+				animate(bubble, pixel_y = bubble.pixel_y + LANGCHAT_MESSAGE_PANIC_POP_Y_SINK, time = LANGCHAT_MESSAGE_PANIC_POP_TIME)
+				animate(pixel_x = bubble.pixel_x - LANGCHAT_MESSAGE_PANIC_SHAKE_SIZE, time = LANGCHAT_MESSAGE_PANIC_SHAKE_TIME_TAKEN, easing = CUBIC_EASING)
 				for(var/i = 1 to LANGCHAT_MESSAGE_PANIC_SHAKE_TIMES)
-					animate(pixel_x = langchat_image.pixel_x + 2*LANGCHAT_MESSAGE_PANIC_SHAKE_SIZE, time = 2*LANGCHAT_MESSAGE_PANIC_SHAKE_TIME_TAKEN, easing = CUBIC_EASING)
-					animate(pixel_x = langchat_image.pixel_x - 2*LANGCHAT_MESSAGE_PANIC_SHAKE_SIZE, time = LANGCHAT_MESSAGE_PANIC_SHAKE_TIME_TAKEN, easing = CUBIC_EASING)
-				animate(pixel_x = langchat_image.pixel_x + LANGCHAT_MESSAGE_PANIC_SHAKE_SIZE, time = LANGCHAT_MESSAGE_PANIC_SHAKE_TIME_TAKEN, easing = CUBIC_EASING)
+					animate(pixel_x = bubble.pixel_x + 2*LANGCHAT_MESSAGE_PANIC_SHAKE_SIZE, time = 2*LANGCHAT_MESSAGE_PANIC_SHAKE_TIME_TAKEN, easing = CUBIC_EASING)
+					animate(pixel_x = bubble.pixel_x - 2*LANGCHAT_MESSAGE_PANIC_SHAKE_SIZE, time = LANGCHAT_MESSAGE_PANIC_SHAKE_TIME_TAKEN, easing = CUBIC_EASING)
+				animate(pixel_x = bubble.pixel_x + LANGCHAT_MESSAGE_PANIC_SHAKE_SIZE, time = LANGCHAT_MESSAGE_PANIC_SHAKE_TIME_TAKEN, easing = CUBIC_EASING)
 			if(LANGCHAT_FAST_POP)
-				langchat_image.alpha = 0
-				animate(langchat_image, pixel_y = langchat_image.pixel_y + LANGCHAT_MESSAGE_FAST_POP_Y_SINK, alpha = LANGCHAT_MAX_ALPHA, time = LANGCHAT_MESSAGE_FAST_POP_TIME)
+				bubble.alpha = 0
+				animate(bubble, pixel_y = bubble.pixel_y + LANGCHAT_MESSAGE_FAST_POP_Y_SINK, alpha = LANGCHAT_MAX_ALPHA, time = LANGCHAT_MESSAGE_FAST_POP_TIME)
 
-/** Displays image to a single listener after it was built above eg. for chaining different game logic than speech code
-This does just that, doesn't check deafness or language! Do what you will in that regard **/
-/atom/proc/langchat_display_image(mob/M)
-	if(langchat_image)
-		if(!langchat_client_enabled(M))
-			return
-		if(!langchat_listeners) // shouldn't happen
-			langchat_listeners = list()
-		langchat_listeners |= M
-		M.client.images += langchat_image
-
-/// Will attempt to find what's holding this item if it's being contained by something, ie if it's in a satchel held by a human, this'll return the human
+/// Attempts to return what's holding this item if being contained by something. e.g. Cortical borer returns their host.
 /proc/recursive_holder_check(obj/item/held_item, recursion_limit = 3)
 	if(recursion_limit <= 0)
 		return held_item

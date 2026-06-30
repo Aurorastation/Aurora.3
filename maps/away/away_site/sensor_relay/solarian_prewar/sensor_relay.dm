@@ -13,7 +13,7 @@
 
 	sectors_blacklist = list(
 		ALL_UNCHARTED_SECTORS, // Because finding a sensor relay in hell would be weird
-		SECTOR_UUEOAESA // Because there is a specific relay variant in Uueoa-Esa
+		SECTOR_UUEOAESA, // Because there is a specific relay variant in Uueoa-Esa
 		)
 
 	unit_test_groups = list(1)

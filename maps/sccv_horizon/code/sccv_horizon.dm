@@ -137,7 +137,6 @@
 		/datum/shuttle/autodock/ferry/autoreturn/ccia,
 		/datum/shuttle/autodock/overmap/orion_express_shuttle,
 		/datum/shuttle/autodock/overmap/sfa_shuttle,
-		/datum/shuttle/autodock/overmap/tcfl_shuttle,
 		/datum/shuttle/autodock/overmap/ee_shuttle,
 		/datum/shuttle/autodock/overmap/fsf_shuttle,
 		/datum/shuttle/autodock/overmap/freighter_shuttle,
