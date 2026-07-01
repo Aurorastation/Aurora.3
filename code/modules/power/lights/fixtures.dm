@@ -241,7 +241,7 @@
 				message_admins("LOG: Rigged light explosion, last touched by [fingerprintslast]")
 				explode()
 
-		else if(prob(min(60,(switchcount**2) * 0.05))) // LEMURIAN SEA, REDUCE 0.05 -> 0.01 AFTER ARC
+		else if(prob(min(60,(switchcount**2) * 0.01)))
 			if(status == LIGHT_OK && trigger)
 				status = LIGHT_BURNED
 				stat |= BROKEN
