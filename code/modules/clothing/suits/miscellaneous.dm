@@ -400,7 +400,7 @@
 	. = ..()
 	decal = pick("decal_checker", "decal_eagle", "decal_eagle2", "decal_skull", "decal_flames", "decal_knife", "decal_crown", "decal_zombie", "decal_cat")
 	color = get_random_colour(lower = 150)
-	accent_color = get_random_colour(lower = 150)
+	accent_color = get_random_colour(1)
 
 //This one has buttons for some reason
 /obj/item/clothing/suit/storage/toggle/brown_jacket
