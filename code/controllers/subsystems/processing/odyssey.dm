@@ -79,6 +79,7 @@ SUBSYSTEM_DEF(odyssey)
 	setup_scenario_variables()
 	var/list/possible_station_levels = SSmapping.levels_by_all_traits(list(ZTRAIT_STATION))
 	main_map = GLOB.map_sectors["[pick(possible_station_levels)]"]
+	SSticker.set_round_canon(scenario.scenario_canonicity_type, TRUE)
 
 	// Now that we actually have an odyssey, the subsystem can fire!
 	can_fire = TRUE
@@ -95,13 +96,13 @@ SUBSYSTEM_DEF(odyssey)
 		ody_gamemode.required_players = scenario.min_player_amount
 		ody_gamemode.required_enemies = scenario.min_actor_amount
 
-		//Setting the scenario_type variable for use here in UI info and chat notices.
-		if(!length(scenario.possible_scenario_types))
-			scenario.scenario_type = SCENARIO_TYPE_NONCANON
+		//Setting the scenario_canonicity_type variable for use here in UI info and chat notices.
+		if(!length(scenario.possible_scenario_canonicity_types))
+			scenario.scenario_canonicity_type = /singleton/canonicity/limited
 		else if(SSatlas.current_sector in ALL_EVENT_ONLY_SECTORS) // If we are in an exclusive event area for an arc (EG. The Horizon finds itself isolated and alone), we may not want canon odysseys spawning.
-			scenario.scenario_type = SCENARIO_TYPE_NONCANON // Noncanon odysseys are fine though!
+			scenario.scenario_canonicity_type = /singleton/canonicity/limited // Noncanon odysseys are fine though!
 		else
-			scenario.scenario_type = pick(scenario.possible_scenario_types)
+			scenario.scenario_canonicity_type = pick(scenario.possible_scenario_canonicity_types)
 
 	site_landing_restricted = scenario.site_landing_restricted
 
@@ -153,7 +154,7 @@ SUBSYSTEM_DEF(odyssey)
 	if(scenario)
 		data["scenario_name"] = SSodyssey.scenario.name
 		data["scenario_desc"] = SSodyssey.scenario.desc
-		data["scenario_canonicity"] = SSodyssey.scenario.scenario_type == SCENARIO_TYPE_CANON ? "Canon" : "Non-Canon"
+		data["scenario_canonicity"] = SSticker.round_canon.name
 		data["is_storyteller"] = isstoryteller(user) || check_rights(R_ADMIN, FALSE, user)
 
 		if(length(scenario.roles))

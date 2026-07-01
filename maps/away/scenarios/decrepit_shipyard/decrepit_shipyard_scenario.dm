@@ -5,7 +5,7 @@
 		SCCV Horizon, one of the few vessels within the perimeter capable of responding, was dispatched to investigate further. \
 		"
 
-	possible_scenario_types = list(SCENARIO_TYPE_NONCANON, SCENARIO_TYPE_CANON)
+	possible_scenario_canonicity_types = list(/singleton/canonicity/extended, /singleton/canonicity/limited)
 
 	scenario_site_id = "decrepit_shipyard"
 
