@@ -106,14 +106,21 @@
 
 /singleton/canonicity/extended
 	name = "Extended Canon"
-	desc = "This type of canonicity is in place for Extended rounds, or canon events."
+	desc = "This type of canonicity is in place for Extended rounds or canon events."
 	round_canon = ROUND_FULL_CANON
 	antagonist_actions_canon = ANTAGONIST_ACTIONS_NOT_EXPECTED
 	character_death_canon = LIMITED_CHARACTER_DEATH
 
+/singleton/canonicity/odyssey
+	name = "Odyssey Canon"
+	desc = "This type of canonicity is in place for Odyssey rounds, where antagonists are present and their actions are considered canon."
+	round_canon = ROUND_FULL_CANON
+	antagonist_actions_canon = ANTAGONIST_ACTIONS_CANON
+	character_death_canon = LIMITED_CHARACTER_DEATH
+
 /singleton/canonicity/limited
 	name = "Limited Canon"
-	desc = "This type of canonicity is in place for Secret rounds."
+	desc = "This type of canonicity is in place for Secret rounds or Odysseys where the antagonist actions are not considered canon."
 	round_canon = ROUND_FULL_CANON
 	antagonist_actions_canon = ANTAGONIST_ACTIONS_NOT_CANON
 	character_death_canon = LIMITED_CHARACTER_DEATH
@@ -131,7 +138,3 @@
 	round_canon = ROUND_NON_CANON
 	antagonist_actions_canon = ANTAGONIST_ACTIONS_NOT_CANON
 	character_death_canon = NO_CHARACTER_DEATH
-
-/singleton/canonicity/custom
-	name = "Custom Canon Round"
-	desc = "An administrator is setting up a round with a custom type of canonicity. Hang tight!"

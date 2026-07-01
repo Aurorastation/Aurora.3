@@ -1336,7 +1336,7 @@ var/global/enabled_spooking = 0
 		to_chat(usr, "Error: you are not an admin!")
 		return
 
-	if(SSticker.mode)
+	if(SSticker.current_state == GAME_STATE_PLAYING)
 		to_chat(usr, SPAN_WARNING("You cannot use this verb after the round has started! Use the Canon Panel from the Status panel."))
 		return
 
@@ -1345,6 +1345,7 @@ var/global/enabled_spooking = 0
 		return
 
 	SSticker.set_round_canon(canon_type, TRUE, TRUE)
+	SSticker.round_canon_admin_forced = TRUE
 	log_and_message_admins("forced the round canon to [canon_type.name].")
 
 /datum/admins/proc/paralyze_mob(mob/living/H as mob)

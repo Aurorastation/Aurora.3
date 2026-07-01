@@ -4,7 +4,7 @@
 			SCCV Horizon, the closest ship in this sector, was dispatched to investigate."
 	scenario_site_id = "enviro_testing_facility"
 
-	possible_scenario_canonicity_types = list(/singleton/canonicity/extended, /singleton/canonicity/limited)
+	possible_scenario_canonicity_types = list(/singleton/canonicity/odyssey, /singleton/canonicity/limited)
 
 	min_player_amount = 0
 	min_actor_amount = 0

@@ -79,7 +79,8 @@ SUBSYSTEM_DEF(odyssey)
 	setup_scenario_variables()
 	var/list/possible_station_levels = SSmapping.levels_by_all_traits(list(ZTRAIT_STATION))
 	main_map = GLOB.map_sectors["[pick(possible_station_levels)]"]
-	SSticker.set_round_canon(scenario.scenario_canonicity_type, TRUE)
+	if(!SSticker.round_canon_admin_forced)
+		SSticker.set_round_canon(scenario.scenario_canonicity_type, TRUE)
 
 	// Now that we actually have an odyssey, the subsystem can fire!
 	can_fire = TRUE
