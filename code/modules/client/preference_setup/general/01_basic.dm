@@ -334,7 +334,7 @@
 		return TOPIC_REFRESH
 
 	else if(href_list["custom_model"]) // Same max length as tags
-		var/custom_model = sanitize(input(user, "Enter a custom model that will display on examine. This is purely flavor.", "IPC Custom Model", pref.machine_custom_model) as message|null, 20)
+		var/custom_model = sanitize(tgui_input_text(user, "Enter a custom model that will display on examine. This is purely flavor.", "IPC Custom Model", max_length = 20))
 		if(CanUseTopic(user))
 			pref.machine_custom_model = sanitize(custom_model)
 			return TOPIC_REFRESH
