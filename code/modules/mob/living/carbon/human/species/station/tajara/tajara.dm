@@ -24,7 +24,6 @@
 	maneuvers = list(
 		/singleton/maneuver/leap/tajara
 	)
-	darksight = 8
 	slowdown = -0.4
 
 	brute_mod = 1.1
