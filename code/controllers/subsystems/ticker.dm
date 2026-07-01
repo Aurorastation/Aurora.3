@@ -822,7 +822,7 @@ SUBSYSTEM_DEF(ticker)
 		round_canon.pre_game_setup()
 
 	if(announce)
-		var/announcement = SPAN_NOTICE("The round canonicity has been set to [SPAN_DANGER(round_canon.name)].<br> For more information, use the View Canon Info button in your Status panel.")
+		var/announcement = SPAN_NOTICE("The round canonicity has been set to [SPAN_DANGER(round_canon.name)].<br> For more information, press the [round_canon.name] button in your Status panel.")
 		to_world(EXAMINE_BLOCK_ODYSSEY(FONT_LARGE(announcement)))
 
 #undef SETUP_OK

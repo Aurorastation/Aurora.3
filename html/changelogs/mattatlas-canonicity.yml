@@ -55,5 +55,5 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "All gamemodes and Odysseys now have a defined round canonicity. You can now view canonicity status for the current round in the Status panel, and get more information by clicking the View Canon Info button. Admins and Storytellers can modify this."
+  - rscadd: "All gamemodes and Odysseys now have a defined round canonicity. You can now view canonicity status for the current round in the Status panel, and get more information by clicking the round canon button. Admins and Storytellers can modify this."
   - rscadd: "Storytellers can now change round canonicity in any round they are part of. Do this through the Canon panel."
