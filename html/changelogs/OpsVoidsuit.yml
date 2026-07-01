@@ -1,0 +1,7 @@
+author: TheGreyWolf, Wezzy
+
+delete-after: True
+
+changes:
+  - rscadd: "Added hangar tech voidsuits to EVA storage."
+  - rscadd: "Hangar techs now have EVA access."
