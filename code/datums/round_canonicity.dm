@@ -70,9 +70,11 @@
 			var/singleton/canonicity/canon_types = GET_SINGLETON_SUBTYPE_LIST(/singleton/canonicity)
 			var/singleton/canonicity/selected_canon = tgui_input_list(ui.user, "Select a new canonicity for this round.", "Canon Panel", canon_types)
 			if(istype(selected_canon))
+				var/changer = ui.user
 				SSticker.set_round_canon(selected_canon.type, FALSE)
 				SStgui.close_all_uis(src)
 				to_world(EXAMINE_BLOCK_ODYSSEY(FONT_LARGE(SPAN_NOTICE("The round canonicity has been changed to [SPAN_BOLD(SSticker.round_canon.name)]."))))
+				message_admins(SPAN_DANGER("[changer] has changed the round canonicity to [SSticker.round_canon.name]."))
 
 /singleton/canonicity/proc/round_canon_info()
 	. = list()
