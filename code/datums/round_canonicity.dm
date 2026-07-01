@@ -81,7 +81,7 @@
 		if(ROUND_FULL_CANON)
 			. += "This round is canon. All actions taken by non-antagonists during this round are considered canon."
 		if(ROUND_NON_CANON)
-			. += "This round is non-canon. All actions taken by non-antagonists during this round are considered non-canon."
+			. += "This round is non-canon. All actions taken during this round are considered non-canon."
 
 /singleton/canonicity/proc/antagonist_actions_canon_info()
 	. = list()
