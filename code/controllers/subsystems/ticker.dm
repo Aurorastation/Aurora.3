@@ -813,13 +813,17 @@ SUBSYSTEM_DEF(ticker)
 		return TRUE
 	. = ..()
 
-/datum/controller/subsystem/ticker/proc/set_round_canon(canon_type, pre_game = FALSE)
+/datum/controller/subsystem/ticker/proc/set_round_canon(canon_type, pre_game = FALSE, announce = FALSE)
 	round_canon = GET_SINGLETON(canon_type)
 	if(!istype(round_canon))
 		round_canon = GET_SINGLETON(/singleton/canonicity/limited)
 
 	if(pre_game)
 		round_canon.pre_game_setup()
+
+	if(announce)
+		var/announcement = SPAN_NOTICE("The round canonicity has been set to [SPAN_DANGER(round_canon.name)].<br> For more information, use the View Canon Info button in your Status panel.")
+		to_world(EXAMINE_BLOCK_ODYSSEY(FONT_LARGE(announcement)))
 
 #undef SETUP_OK
 #undef SETUP_REVOTE
