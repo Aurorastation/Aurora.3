@@ -58,4 +58,6 @@ changes:
   - rscadd: "Overhauls the layout of the service department, most notably, moving the bar and kitchen closer together."
   - rscadd: "Adds an alternate route to reach the Service department, ending its torment as a dead-end hallway."
   - rscadd: "Adds new holosigns for the bar and kitchen which indicate that the respective departments are open."
+  - rscadd: "Adds a tableware box that contains plates, bowls, and cutlery."
   - imageadd: "Adds sprites for the new holosigns."
+  - imageadd: "Adds a bowl icon for the tableware box."
