@@ -24,11 +24,10 @@
 		/datum/unarmed_attack/bite/sharp
 	)
 	primitive_form = SPECIES_MONKEY_UNATHI
-	darksight = 3
+	default_lighting_alpha = LIGHTING_PLANE_ALPHA_ALMOST_VISIBLE
 	gluttonous = GLUT_MESSY|GLUT_ITEM_TINY
 	stomach_capacity = 7
 	slowdown = 0.5
-
 	brute_mod = 0.8
 	fall_mod = 1.2
 	radiation_mod = 0.9 // how else did they survive nuclear armageddon?

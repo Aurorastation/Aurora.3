@@ -501,11 +501,11 @@
 	icon_state = "syndi_crate1"
 	icon_door = "syndi_crate1"
 
-/obj/structure/closet/crate/secure/legion
-	name = "foreign legion supply crate"
-	desc = "A secure supply crate, It carries the insignia of the Tau Ceti Foreign Legion. It appears quite scuffed."
+/obj/structure/closet/crate/secure/tcaf
+	name = "tau ceti armed forces supply crate"
+	desc = "A secure supply crate, It carries the insignia of the Tau Ceti Armed Forces. It appears quite scuffed."
 	icon_state = "tcfl_crate"
-	req_access = list(ACCESS_LEGION)
+	req_access = list(ACCESS_TCAF)
 
 /obj/structure/closet/crate/secure/phoron
 	name = "phoron crate"

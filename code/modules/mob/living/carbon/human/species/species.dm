@@ -300,8 +300,6 @@
 	var/has_fine_manipulation = 1
 	/// The lower, the thicker the skin and better the insulation.
 	var/siemens_coefficient = 1
-	/// Native darksight distance.
-	var/darksight = 2
 	/// Various specific features.
 	var/flags = 0
 	/// Appearance/display related features.

@@ -345,9 +345,9 @@
 	icon_state = "pmcgpack"
 	item_state = "pmcgpack"
 
-/obj/item/storage/backpack/legion
-	name = "military rucksack"
-	desc = "A sturdy backpack with the emblems and markings of the Tau Ceti Foreign Legion."
+/obj/item/storage/backpack/tcaf
+	name = "TCAF rucksack"
+	desc = "A sturdy backpack with the emblems and markings of the Tau Ceti Armed Forces."
 	icon_state = "legion_bag"
 	item_state = "legion_bag"
 	empty_delay = 0.8 SECOND

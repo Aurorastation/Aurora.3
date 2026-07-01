@@ -156,7 +156,7 @@
 	desc = "A helmet clearly belonging to a TCFL pilot, it has aged pilot visor attached to it. The visor feeds its wearer in-flight information via an integrated heads-up display."
 	icon_state = "legion_pilot"
 	item_state = "legion_pilot"
-	camera = /obj/structure/machinery/camera/network/tcfl
+	camera = /obj/structure/machinery/camera/network/tcaf
 
 /obj/item/clothing/head/helmet/pilot/himeo
 	name = "himean naval flight helmet"

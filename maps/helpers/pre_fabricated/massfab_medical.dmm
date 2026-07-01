@@ -2785,7 +2785,7 @@
 /obj/structure/machinery/vending/medical{
 	density = 0;
 	pixel_x = 31;
-	req_access = list(204)
+	req_access = list(111)
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)

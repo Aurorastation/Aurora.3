@@ -346,7 +346,7 @@ SUBSYSTEM_DEF(hallucinations)
 	/// % chance to pick one of the general thematic ADPI messages. Enjoy, code peekers; this is all you get!
 	if(prob(15))
 		message = pick("The water is dripping dripping dripping all around you.","Water flowing over stone, but there is no stone.","The waterfall roars o'er the cliff's edge.","Water, water, water. You are drowning.","Water, water, water. You will be awake for it.","Drums, drums, drums, unrelenting.","The drumbeat draws e'er closer.","Tap, ta-tap, ta-tap, tap, ta-tap, ta-tap.","Tap, tap tap, ta-tap, tap-tap, ta-tap.","Ta-ta-tap, tap, ta-tap, tap, tap ta-tap.")
-	target.play_screen_text("[message]", /atom/movable/screen/text/screen_text/adpi_message, COLOR_PURPLE)
+	target.play_screen_text("[message]", /atom/movable/screen/text/screen_text/mental_message, COLOR_PURPLE)
 	to_chat(target, SPAN_CULT(FONT_LARGE("[message]")))
 
 	if(isskrell(target))

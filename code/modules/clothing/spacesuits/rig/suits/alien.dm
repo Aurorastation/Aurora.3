@@ -75,8 +75,12 @@
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_MEDICAL | MODULE_UTILITY
 
 /obj/item/rig/unathi/redsnout
-	name = "redsnout hardsuit control module"
-	desc = "A variation on the Unathi breacher chassis design, fielded by the elite unit of the Tau Ceti Armed Forces known as the Redsnouts."
+	name = "TCAF berserker hardsuit control module"
+	desc = "A variation on the Unathi breacher chassis design in the Tau Ceti Armed Forces colours. It is often fielded by unathi shock troops of the Tau Ceti Armed Forces, including the notorious Redsnouts."
+	desc_extended = "The Type-100B ‘Berserker’ Heavy Combat Hardsuit is a Breacher-like combat hardsuit produced in 2465. \
+	It is most commonly seen used by the Redsnouts and other unathi shocktroops, typically mounted with electromagnetic \
+	weaponry and melee energy weapons, turning its users into walking tanks. Designed by Zavodskoi Interstellar, with modules \
+	generally supplied by NanoTrasen Corporation, Zavodskoi Interstellar, and Zeng-Hu Pharmaceuticals."
 	suit_type = "redsnout hardsuit"
 	icon = 'icons/obj/item/clothing/rig/redsnout.dmi'
 	icon_state = "redsnout_rig"
@@ -96,10 +100,10 @@
 	siemens_coefficient = 0.1
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL
 	glove_type = /obj/item/clothing/gloves/powerfist
-	helm_type = /obj/item/clothing/head/helmet/space/rig/tcfl
+	helm_type = /obj/item/clothing/head/helmet/space/rig/tcaf
 
 /obj/item/rig/unathi/redsnout/equipped
-	req_access = list(ACCESS_LEGION)
+	req_access = list(ACCESS_TCAF)
 	initial_modules = list(
 		/obj/item/rig_module/actuators/combat,
 		/obj/item/rig_module/mounted/smg,

@@ -156,27 +156,6 @@
 	mob_name = null
 	mob_name_pick_message = "Pick a name."
 
-/datum/ghostspawner/human/admin/legion_commander
-	short_name = "legionlegate"
-	name = "TCFL Legate"
-	desc = "Command the TCFL onboard BLV The Tower, a legion patrolship from where Task Force XIII - Fortune operates from."
-
-	tags = list("CCIA")
-	landmark_name = "TCFLLegate"
-	req_perms = R_CCIAA
-
-	//Vars related to human mobs
-	outfit = /obj/outfit/admin/tcfl
-	possible_species = list(SPECIES_HUMAN,SPECIES_TAJARA_MSAI,SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI,SPECIES_IPC)
-	allow_appearance_change = APPEARANCE_PLASTICSURGERY
-
-	assigned_role = "Tau Ceti Foreign Legion Legate"
-	special_role = "TCFL Legate"
-	respawn_flag = null
-
-	mob_name = null
-	mob_name_prefix = "Lgt. "
-	mob_name_pick_message = "Pick a callsign or last-name."
 
 /*
 	Misc. Odin Roles
