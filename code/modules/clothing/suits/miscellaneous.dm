@@ -281,7 +281,8 @@
 	gas_transfer_coefficient = 0.85
 	siemens_coefficient = 0.85
 	heat_protection = UPPER_TORSO|LOWER_TORSO|ARMS
-	max_heat_protection_temperature = (T0C + 40)
+	max_heat_protection_temperature = T0C + 40
+	fire_resist = T0C + 40
 	max_pressure_protection = 101.3
 
 	/// Determines if and what decal is applied to the back of the jacket.
@@ -335,7 +336,8 @@
 		// Buffed pressure/gas transfer/heat protection
 		min_pressure_protection = 5 // Protects against all but a hard void (and even then, your hands/feet/head aren't protected)
 		gas_transfer_coefficient = 0.20
-		max_heat_protection_temperature = (T0C + 100)
+		max_heat_protection_temperature = T0C + 200
+		fire_resist = T0C + 200
 		max_pressure_protection = SPACE_SUIT_MAX_PRESSURE*0.8
 		slowdown = 0.2 // cause its more umcomfortable, i guess? slightly better than a softsuit
 		voidproofed = TRUE
