@@ -72,7 +72,7 @@
 	display_name = "new gibsonite uranium glass ring"
 	path = /obj/item/clothing/ring/newgibson_uraniumglass_ring
 	flags = GEAR_HAS_DESC_SELECTION
-	origin_restriction = list(/singleton/origin_item/origin/new_gibson)
+	origin_restriction = list(/singleton/origin_item/origin/new_gibson, /singleton/origin_item/origin/skrell_biesel, /singleton/origin_item/origin/ipc_tau_ceti)
 
 /datum/gear/gloves/circuitry
 	display_name = "gloves, circuitry (empty)"

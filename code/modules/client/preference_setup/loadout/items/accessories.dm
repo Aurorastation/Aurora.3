@@ -649,7 +649,7 @@ ABSTRACT_TYPE(/datum/gear/accessory)
 	display_name = "new gibsonite uranium glass necklace"
 	path = /obj/item/clothing/accessory/newgibson_uraniumglass_necklace
 	flags = GEAR_HAS_DESC_SELECTION
-	origin_restriction = list(/singleton/origin_item/origin/new_gibson)
+	origin_restriction = list(/singleton/origin_item/origin/new_gibson, /singleton/origin_item/origin/skrell_biesel, /singleton/origin_item/origin/ipc_tau_ceti)
 
 /datum/gear/accessory/visegradi_sweater
 	display_name = "visegradi patterned sweater"

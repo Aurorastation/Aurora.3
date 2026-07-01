@@ -1175,3 +1175,106 @@
 	light_range = 6
 	light_color = "#FFFFFF"
 	siemens_coefficient = 0.35
+
+// New Gibsonite Voidsuits
+/obj/item/clothing/head/helmet/space/void/mining/newgibson
+	name = "new gibsonite mining voidsuit helmet"
+	desc = "A sleek and high-tech space helmet fitted with advanced life support systems and reactive systems enhanced with phoronic circuitry.\
+	Much of the advanced sensor equipment usually installed appears to have been stripped out. It has splotches of fluorescent uranium paint on it, \
+	from a past or current owner. Commonly seen in use by the mining and EVA engineering teams of New Gibson or the small satellites of Reade."
+	icon = 'icons/obj/clothing/voidsuit/newgibson_voidsuit.dmi'
+	icon_state = "newgibson_helm"
+	item_state = "newgibson_helm"
+	item_state_slots = list(
+		slot_l_hand_str = "mining_helm",
+		slot_r_hand_str = "mining_helm"
+		)
+
+	light_overlay = "helmet_light_dual"
+
+	species_restricted = list(BODYTYPE_HUMAN)
+	icon_supported_species_tags = list("taj", "skr")
+	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_SKRELL)
+
+/obj/item/clothing/suit/space/void/mining/newgibson
+	name = "new gibsonite mining voidsuit"
+	desc = "A sleek and high-tech space suit fitted with advanced life support systems and reactive systems enhanced with phoronic circuitry. \
+	It has splotches of fluorescent uranium paint on it, from a past or current owner. Commonly seen in use by the mining teams of New Gibson \
+	or the small satellites of Reade."
+	icon = 'icons/obj/clothing/voidsuit/newgibson_voidsuit.dmi'
+	item_state = "newgibson"
+	icon_state = "newgibson"
+	item_state_slots = list(
+		slot_l_hand_str = "mining",
+		slot_r_hand_str = "mining"
+		)
+	species_restricted = list(BODYTYPE_HUMAN)
+	icon_supported_species_tags = list("taj", "skr")
+	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_SKRELL)
+
+/obj/item/clothing/head/helmet/space/void/engineering/newgibson
+	name = "new gibsonite engineering voidsuit helmet"
+	desc = "A sleek and high-tech space helmet fitted with advanced life support systems and reactive systems enhanced with phoronic circuitry.\
+	Much of the advanced sensor equipment usually installed appears to have been stripped out. It has splotches of fluorescent uranium paint on it, \
+	from a past or current owner. Commonly seen in use by the mining and EVA engineering teams of New Gibson or the small satellites of Reade."
+	icon = 'icons/obj/clothing/voidsuit/newgibson_voidsuit.dmi'
+	item_state = "newgibson_helm"
+	icon_state = "newgibson_helm"
+	light_overlay = "helmet_light_dual"
+	item_state_slots = list(
+		slot_l_hand_str = "engineering_helm",
+		slot_r_hand_str = "engineering_helm"
+		)
+	species_restricted = list(BODYTYPE_HUMAN)
+	icon_supported_species_tags = list("taj", "skr")
+	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_SKRELL)
+
+/obj/item/clothing/suit/space/void/engineering/newgibson
+	name = "new gibsonite engineering voidsuit"
+	desc = "A sleek and high-tech space suit fitted with advanced life support systems and reactive systems enhanced with phoronic circuitry. \
+	It has splotches of fluorescent uranium paint on it, from a past or current owner. Commonly seen in use by the mining teams of New Gibson \
+	or the small satellites of Reade."
+	icon = 'icons/obj/clothing/voidsuit/newgibson_voidsuit.dmi'
+	item_state = "newgibson"
+	icon_state = "newgibson"
+	item_state_slots = list(
+		slot_l_hand_str = "engineering",
+		slot_r_hand_str = "engineering"
+		)
+	species_restricted = list(BODYTYPE_HUMAN)
+	icon_supported_species_tags = list("taj", "skr")
+	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_SKRELL)
+
+/obj/item/clothing/head/helmet/space/void/atmos/newgibson
+	name = "new gibsonite atmospherics voidsuit helmet"
+	desc = "A sleek and high-tech space helmet fitted with advanced life support systems and reactive systems enhanced with phoronic circuitry.\
+	Much of the advanced sensor equipment usually installed appears to have been stripped out. It has splotches of fluorescent uranium paint on it, \
+	from a past or current owner. Commonly seen in use by the mining and EVA engineering teams of New Gibson or the small satellites of Reade."
+	icon = 'icons/obj/clothing/voidsuit/newgibson_voidsuit.dmi'
+	item_state = "newgibson_helm"
+	icon_state = "newgibson_helm"
+	item_state_slots = list(
+		slot_l_hand_str = "atmos_helm",
+		slot_r_hand_str = "atmos_helm"
+		)
+
+	light_overlay = "helmet_light_dual"
+	species_restricted = list(BODYTYPE_HUMAN)
+	icon_supported_species_tags = list("taj", "skr")
+	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_SKRELL)
+
+/obj/item/clothing/suit/space/void/atmos/newgibson
+	name = "new gibsonite atmospherics voidsuit"
+	desc = "A sleek and high-tech space suit fitted with advanced life support systems and reactive systems enhanced with phoronic circuitry. \
+	It has splotches of fluorescent uranium paint on it, from a past or current owner. Commonly seen in use by the mining and EVA engineering teams of New Gibson or the small satellites of Reade."
+	icon = 'icons/obj/clothing/voidsuit/newgibson_voidsuit.dmi'
+	item_state = "newgibson"
+	icon_state = "newgibson"
+	item_state_slots = list(
+		slot_l_hand_str = "atmos",
+		slot_r_hand_str = "atmos"
+		)
+
+	species_restricted = list(BODYTYPE_HUMAN)
+	icon_supported_species_tags = list("taj", "skr")
+	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_SKRELL)
