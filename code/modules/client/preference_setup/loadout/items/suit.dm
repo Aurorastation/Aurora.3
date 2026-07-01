@@ -661,11 +661,12 @@ ABSTRACT_TYPE(/datum/gear/suit/miscellaneous)
 	path = /obj/item/clothing/suit/storage/toggle/wizrobe/gentlecoat
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
-/datum/gear/suit/leather
+/datum/gear/suit/leather/reade_racing_jacket
 	display_name = "reade extreme racing jackets selection"
 	description = "A selection of racing jackets often seen on those at once involved in the underground racing scenes of Reade."
 	path = /obj/item/clothing/suit/storage/toggle/leather_jacket/reade_racing
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
+	origin_restriction = list(/singleton/origin_item/origin/reade, /singleton/origin_item/origin/new_gibson, /singleton/origin_item/origin/biesel, /singleton/origin_item/origin/valkyrie)
 
 /datum/gear/suit/leather/reade_racing_jacket/New()
 	..()

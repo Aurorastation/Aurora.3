@@ -645,6 +645,12 @@ ABSTRACT_TYPE(/datum/gear/accessory)
 	necklace_uncolored["large silver pendant"] = /obj/item/clothing/accessory/necklace/colorable/twopiece/pendant/silver/fat
 	gear_tweaks += new /datum/gear_tweak/path(necklace_uncolored)
 
+/datum/gear/accessory/newgibson_uraniumglass_necklace
+	display_name = "new gibsonite uranium glass necklace"
+	path = /obj/item/clothing/accessory/newgibson_uraniumglass_necklace
+	flags = GEAR_HAS_DESC_SELECTION
+	origin_restriction = list(/singleton/origin_item/origin/new_gibson)
+
 /datum/gear/accessory/visegradi_sweater
 	display_name = "visegradi patterned sweater"
 	path = /obj/item/clothing/accessory/sweater/visegradi

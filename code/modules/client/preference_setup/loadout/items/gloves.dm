@@ -68,6 +68,12 @@
 	ringtype["ring, plastic"] = /obj/item/clothing/ring/material/plastic
 	gear_tweaks += new /datum/gear_tweak/path(ringtype)
 
+/datum/gear/gloves/ring/newgibson_uraniumglass_ring
+	display_name = "new gibsonite uranium glass ring"
+	path = /obj/item/clothing/ring/newgibson_uraniumglass_ring
+	flags = GEAR_HAS_DESC_SELECTION
+	origin_restriction = list(/singleton/origin_item/origin/new_gibson)
+
 /datum/gear/gloves/circuitry
 	display_name = "gloves, circuitry (empty)"
 	path = /obj/item/clothing/gloves/circuitry

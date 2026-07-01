@@ -18,6 +18,12 @@
 	display_name = "slap bracelet"
 	path = /obj/item/clothing/wrists/slap
 
+/datum/gear/wrists/newgibson_uraniumglass_bracelet
+	display_name = "new gibsonite uranium glass bracelet"
+	path = /obj/item/clothing/wrists/newgibson_uraniumglass_bracelet
+	flags = GEAR_HAS_DESC_SELECTION
+	origin_restriction = list(/singleton/origin_item/origin/new_gibson)
+
 /datum/gear/wrists/watch
 	display_name = "watch selection"
 	description = "A selection of watches."
