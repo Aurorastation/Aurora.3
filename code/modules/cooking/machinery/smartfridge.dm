@@ -12,7 +12,7 @@
 	atom_flags = ATOM_FLAG_NO_REACT
 	opacity = FALSE
 	var/ui_sort_alphabetically = TRUE
-	var/max_n_of_items = 999 // Sorry but the BYOND infinite loop detector doesn't look things over 1000.
+	var/global/max_n_of_items = 999 // Sorry but the BYOND infinite loop detector doesn't look things over 1000.
 	var/item_quants = list()
 	var/seconds_electrified = 0;
 	var/shoot_inventory = 0
@@ -213,49 +213,6 @@
 	name = "\improper Smart Virus Storage"
 	desc = "A refrigerated storage unit for volatile sample storage."
 	contents_path = "-viro"
-
-/obj/structure/machinery/smartfridge/dinnerware_mini
-	name = "\improper Dinnerware Mini-Vendor"
-	desc = "The Dinnerware vendor you know and love, now in a compact form factor!"
-	density = FALSE
-	max_n_of_items = 29 // apparently max_n_of_items also counts the components of the items, so this means that it can hold 25 items because 4 are occupied by its components
-	use_power = POWER_USE_OFF
-	idle_power_usage = 0
-	active_power_usage = 0
-	contents_path = null
-	has_emissive = FALSE
-	icon_state = "dinnerware_mini"
-	initial_contents = list(
-		/obj/item/material/kitchen/utensil/fork = 4,
-		/obj/item/material/kitchen/utensil/spoon = 4,
-		/obj/item/material/kitchen/utensil/knife = 4,
-		/obj/item/reagent_containers/bowl = 3,
-		/obj/item/reagent_containers/bowl/plate = 3
-	)
-	accepted_items = list(
-		/obj/item/material/kitchen/utensil/fork,
-		/obj/item/material/kitchen/utensil/spoon,
-		/obj/item/material/kitchen/utensil/knife,
-		/obj/item/reagent_containers/bowl,
-		/obj/item/reagent_containers/bowl/plate
-	)
-
-/obj/structure/machinery/smartfridge/dinnerware_mini/north
-	dir = NORTH
-	pixel_y = -14
-	layer = MOB_LAYER + 0.1
-
-/obj/structure/machinery/smartfridge/dinnerware_mini/south
-	dir = SOUTH
-	pixel_y = 19
-
-/obj/structure/machinery/smartfridge/dinnerware_mini/east
-	dir = EAST
-	pixel_x = -13
-
-/obj/structure/machinery/smartfridge/dinnerware_mini/west
-	dir = WEST
-	pixel_x = 15
 
 /obj/structure/machinery/smartfridge/drinks
 	name = "\improper Drink Showcase"
