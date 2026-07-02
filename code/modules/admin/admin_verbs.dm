@@ -81,6 +81,8 @@ GLOBAL_LIST_INIT(admin_verbs_admin, list(
 	/client/proc/damage_menu,
 	/client/proc/man_up,
 	/client/proc/global_man_up,
+	/client/proc/rpreminder,
+	/client/proc/global_rpreminder,
 	/client/proc/response_team, // Response Teams admin verb,
 	/client/proc/toggle_antagHUD_use,
 	/client/proc/toggle_antagHUD_restrictions,
@@ -293,6 +295,8 @@ GLOBAL_LIST_INIT(admin_verbs_hideable, list(
 	/client/proc/damage_menu,
 	/client/proc/man_up,
 	/client/proc/global_man_up,
+	/client/proc/rpreminder,
+	/client/proc/global_rpreminder,
 	/client/proc/connect_ntsl,
 	/client/proc/disconnect_ntsl,
 	/client/proc/response_team,
@@ -1145,10 +1149,33 @@ GLOBAL_LIST_INIT(admin_verbs_storyteller, list(
 
 	for (var/mob/T as mob in GLOB.mob_list)
 		to_chat(T, "<br><center><span class='notice'><b><font size=4>Man up.<br> Deal with it.</font></b><br>Move on.</span></center><br>")
-		sound_to(T, 'sound/voice/ManUp1.ogg')
+		sound_to(T, 'sound/misc/roleplay.ogg')
 
-	log_admin("[key_name(usr)] told everyone to man up and deal with it.")
-	message_admins(SPAN_NOTICE("[key_name_admin(usr)] told everyone to man up and deal with it."), 1)
+	log_admin("[key_name(usr)] told everyone to please roleplay appropriately.")
+	message_admins(SPAN_NOTICE("[key_name_admin(usr)] told everyone please roleplay appropriately."), 1)
+
+/client/proc/rpreminder(mob/T as mob in GLOB.mob_list)
+	set category = "Fun"
+	set name = "Roleplay Reminder"
+	set desc = "Tells mob to please roleplay appropriately."
+
+	to_chat(T, SPAN_NOTICE("<b><font size=6>Please roleplay appropriately.</font></b>"))
+	to_chat(T, SPAN_NOTICE("Okay?"))
+
+	log_admin("[key_name(usr)] told [key_name(T)] to please roleplay appropriately.")
+	message_admins(SPAN_NOTICE("[key_name_admin(usr)] told [key_name(T)] to please roleplay appropriately."), 1)
+
+/client/proc/global_rpreminder()
+	set category = "Fun"
+	set name = "Roleplay Reminder Global"
+	set desc = "Tells everyone to please roleplay appropriately."
+
+	for (var/mob/T as mob in GLOB.mob_list)
+		to_chat(T, "<br><center><span class='notice'><b><font size=4>Please roleplay appropriately.</font></b><br>Okay?</span></center><br>")
+		sound_to(T, 'sound/misc/roleplay.ogg')
+
+	log_admin("[key_name(usr)] told everyone please roleplay appropriately.")
+	message_admins(SPAN_NOTICE("[key_name_admin(usr)] told everyone to please roleplay appropriately."), 1)
 
 /client/proc/give_spell(mob/T as mob in GLOB.mob_list) // -- Urist
 	set category = "Fun"
