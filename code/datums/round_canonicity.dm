@@ -92,6 +92,7 @@
 			. += "Antagonist actions are canon during this round. This includes event antagonists."
 		if(ANTAGONIST_ACTIONS_NOT_CANON)
 			. += "Antagonist actions are not canon during this round."
+			. += "This includes actions by non-antagonists directly influenced by antagonists."
 
 /singleton/canonicity/proc/character_death_canon_info()
 	. = list()
