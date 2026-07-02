@@ -88,7 +88,7 @@
 	. = list()
 	switch(character_death_canon)
 		if(LIMITED_CHARACTER_DEATH)
-			. += "Character deaths are limited during this round. If all involved parties agree, character deaths can be retconned. If you would like to contest a death, or determine if a party counts as involve, please adminhelp."
+			. += "Character deaths are limited during this round. If all involved parties agree, character deaths can be retconned. If you would like to contest a death, or determine if a party counts as involved, please adminhelp."
 			. += "To count as involved, a player has to be an active participant of your death, meaning that they must have intentionally contributed to it. As an example, if you die to a carp on an expedition, you can retcon this death without asking others."
 		if(FORCED_CHARACTER_DEATH)
 			. += "Character deaths are forced canon during this round. All character deaths must go through headmins and loremasters to be retconned, no exceptions!"
