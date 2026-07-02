@@ -26,7 +26,7 @@
 #define AWAY_SITE_CANON_FULL			2
 
 /// Offships are not canon at all.
-#define OFFSHIPS_NOT_CANON 				0
+#define OFFSHIP_NOT_CANON 				0
 /// Offship actions are canon, barring extreme actions like bombing the main ship or whatever.
 #define OFFSHIP_CANON_LIMITED 			1
 /// Offship actions are fully canon.
