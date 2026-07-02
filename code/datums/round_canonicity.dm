@@ -1,22 +1,3 @@
-/// Actions taken during this round are canon. Antagonist actions are not considered here; see below.
-#define ROUND_FULL_CANON				1
-/// Nothing in the round is canon; such as in a non-canon event. Things are forgotten the next round.
-#define ROUND_NON_CANON	 				2
-
-/// Antagonist actions are not expected during this round.
-#define ANTAGONIST_ACTIONS_NOT_EXPECTED 0
-/// Antagonist actions are canon during this round.
-#define ANTAGONIST_ACTIONS_CANON		1
-/// Antagonist actions are NOT canon during this round.
-#define ANTAGONIST_ACTIONS_NOT_CANON	2
-
-/// If character deaths are limited, and thus can be retconned if all player parties agree.
-#define LIMITED_CHARACTER_DEATH			1
-/// If players are FORCED to keep character deaths canon. In this case, ALL CHARACTER DEATHS MUST GO THROUGH HEADMINS AND LOREMASTERS TO BE RETCONNED. THERE ARE NO EXCEPTIONS!
-#define FORCED_CHARACTER_DEATH			2
-/// Character deaths are automatically not-canon. Usually rhe case in non-canon events.
-#define NO_CHARACTER_DEATH				3
-
 /singleton/canonicity
 	/// This is the name of the canonicity type.
 	var/name = "Round Canonicity"
@@ -28,6 +9,10 @@
 	var/antagonist_actions_canon
 	/// If character deaths are canon during this round.
 	var/character_death_canon
+	/// If away sites are canon or not. It's a bit more complex than just that; see the relevant defines.
+	var/away_site_canon
+	/// If offships are canon or not. It's a bit more complex than just that; see the relevant defines.
+	var/offship_canon
 
 /**
  * This proc is automatically called on /datum/game_mode/proc/pre_game_setup().
@@ -51,16 +36,21 @@
 /singleton/canonicity/ui_status(mob/user, datum/ui_state/state)
 	return UI_INTERACTIVE
 
-/singleton/canonicity/ui_data(mob/user)
+/singleton/canonicity/ui_static_data(mob/user)
 	var/list/data = list()
+
 	data["name"] = name
 	data["desc"] = desc
+
 	data["round_canon_info"] = round_canon_info()
 	data["antagonist_actions_canon_info"] = antagonist_actions_canon_info()
 	data["character_death_canon_info"] = character_death_canon_info()
+	data["away_site_canon_info"] = away_site_canon_info()
+	data["offship_canon_info"] = offship_canon_info()
 
 	data["is_storyteller"] = isstoryteller(user)
 	data["is_admin"] = check_rights(R_ADMIN, FALSE, user)
+
 	return data
 
 /singleton/canonicity/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
@@ -98,12 +88,33 @@
 	. = list()
 	switch(character_death_canon)
 		if(LIMITED_CHARACTER_DEATH)
-			. += "Character deaths are limited during this round. If all involved parties agree, character deaths can be retconned."
+			. += "Character deaths are limited during this round. If all involved parties agree, character deaths can be retconned. If you would like to contest a death, or determine if a party counts as involve, please adminhelp."
 			. += "To count as involved, a player has to be an active participant of your death, meaning that they must have intentionally contributed to it. As an example, if you die to a carp on an expedition, you can retcon this death without asking others."
 		if(FORCED_CHARACTER_DEATH)
-			. += "Character deaths are forced canon during this round. All character deaths must go through headmins and loremasters to be retconned. There are no exceptions to this!"
+			. += "Character deaths are forced canon during this round. All character deaths must go through headmins and loremasters to be retconned, no exceptions!"
 		if(NO_CHARACTER_DEATH)
 			. += "Character deaths are not canon during this round."
+
+/singleton/canonicity/proc/away_site_canon_info()
+	. = list()
+	switch(away_site_canon)
+		if(AWAY_SITE_NOT_CANON)
+			. += "Away sites are not canon this round."
+		if(AWAY_SITE_CANON_LIMITED)
+			. += "Away site canon is limited. This means that while it is canon that you go to an away site, the exact details of where you went are not. You can say that you went to a greimorian infested station, for example, \
+				but you cannot remember the same away site across rounds."
+		if(AWAY_SITE_CANON_FULL)
+			. += "Away sites are canon, including the exact details."
+
+/singleton/canonicity/proc/offship_canon_info()
+	. = list()
+	switch(offship_canon)
+		if(OFFSHIP_NOT_CANON)
+			. += "Offship actions are not canon during this round."
+		if(OFFSHIP_CANON_LIMITED)
+			. += "Offship action canon is limited. This means that offship actions are canon, barring hostile actions taken against the [SSatlas.current_map.full_name]. If anything is unclear, make sure to adminhelp."
+		if(OFFSHIP_CANON_FULL)
+			. += "Offship actions are canon during this round."
 
 /singleton/canonicity/extended
 	name = "Extended Canon"
@@ -111,6 +122,8 @@
 	round_canon = ROUND_FULL_CANON
 	antagonist_actions_canon = ANTAGONIST_ACTIONS_NOT_EXPECTED
 	character_death_canon = LIMITED_CHARACTER_DEATH
+	away_site_canon = AWAY_SITE_CANON_LIMITED
+	offship_canon = OFFSHIP_CANON_LIMITED
 
 /singleton/canonicity/odyssey
 	name = "Odyssey Canon"
@@ -118,6 +131,8 @@
 	round_canon = ROUND_FULL_CANON
 	antagonist_actions_canon = ANTAGONIST_ACTIONS_CANON
 	character_death_canon = LIMITED_CHARACTER_DEATH
+	away_site_canon = AWAY_SITE_CANON_LIMITED
+	offship_canon = OFFSHIP_CANON_LIMITED
 
 /singleton/canonicity/limited
 	name = "Limited Canon"
@@ -125,6 +140,8 @@
 	round_canon = ROUND_FULL_CANON
 	antagonist_actions_canon = ANTAGONIST_ACTIONS_NOT_CANON
 	character_death_canon = LIMITED_CHARACTER_DEATH
+	away_site_canon = AWAY_SITE_CANON_LIMITED
+	offship_canon = OFFSHIP_CANON_LIMITED
 
 /singleton/canonicity/canon_event
 	name = "Full Canon"
@@ -132,6 +149,8 @@
 	round_canon = ROUND_FULL_CANON
 	antagonist_actions_canon = ANTAGONIST_ACTIONS_CANON
 	character_death_canon = FORCED_CHARACTER_DEATH
+	away_site_canon = AWAY_SITE_CANON_FULL
+	offship_canon = OFFSHIP_CANON_FULL
 
 /singleton/canonicity/non_canon_event
 	name = "Non-Canon Event"
@@ -139,3 +158,5 @@
 	round_canon = ROUND_NON_CANON
 	antagonist_actions_canon = ANTAGONIST_ACTIONS_NOT_CANON
 	character_death_canon = NO_CHARACTER_DEATH
+	away_site_canon = AWAY_SITE_NOT_CANON
+	offship_canon = OFFSHIP_NOT_CANON

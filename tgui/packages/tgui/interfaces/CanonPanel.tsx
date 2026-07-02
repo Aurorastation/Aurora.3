@@ -16,6 +16,8 @@ export type CanonData = {
   round_canon_info: string[];
   antagonist_actions_canon_info: string[];
   character_death_canon_info: string[];
+  away_site_canon_info: string[];
+  offship_canon_info: string[];
 
   is_storyteller: BooleanLike;
   is_admin: BooleanLike;
@@ -70,6 +72,24 @@ export const CanonPanel = (props) => {
               ))}
             </LabeledList>
           </Section>
+        </Section>
+        <Section title="Away Sites">
+            <LabeledList>
+              {data.away_site_canon_info.map((info, index) => (
+                <LabeledList.Item key={index} label={index + 1}>
+                  {info}
+                </LabeledList.Item>
+              ))}
+            </LabeledList>
+        </Section>
+        <Section title="Offships">
+            <LabeledList>
+              {data.offship_canon_info.map((info, index) => (
+                <LabeledList.Item key={index} label={index + 1}>
+                  {info}
+                </LabeledList.Item>
+              ))}
+            </LabeledList>
         </Section>
       </Window.Content>
     </Window>
