@@ -1138,6 +1138,7 @@ GLOBAL_LIST_INIT(admin_verbs_storyteller, list(
 
 	to_chat(T, SPAN_NOTICE("<b><font size=6>Man up and deal with it.</font></b>"))
 	to_chat(T, SPAN_NOTICE("Move on."))
+	sound_to(T, 'sound/voice/ManUp1.ogg')
 
 	log_admin("[key_name(usr)] told [key_name(T)] to man up and deal with it.")
 	message_admins(SPAN_NOTICE("[key_name_admin(usr)] told [key_name(T)] to man up and deal with it."), 1)
@@ -1149,7 +1150,7 @@ GLOBAL_LIST_INIT(admin_verbs_storyteller, list(
 
 	for (var/mob/T as mob in GLOB.mob_list)
 		to_chat(T, "<br><center><span class='notice'><b><font size=4>Man up.<br> Deal with it.</font></b><br>Move on.</span></center><br>")
-		sound_to(T, 'sound/misc/roleplay.ogg')
+		sound_to(T, 'sound/voice/ManUp1.ogg')
 
 	log_admin("[key_name(usr)] told everyone to please roleplay appropriately.")
 	message_admins(SPAN_NOTICE("[key_name_admin(usr)] told everyone please roleplay appropriately."), 1)
@@ -1161,6 +1162,7 @@ GLOBAL_LIST_INIT(admin_verbs_storyteller, list(
 
 	to_chat(T, SPAN_NOTICE("<b><font size=6>Please roleplay appropriately.</font></b>"))
 	to_chat(T, SPAN_NOTICE("Okay?"))
+	sound_to(T, 'sound/misc/roleplay.ogg')
 
 	log_admin("[key_name(usr)] told [key_name(T)] to please roleplay appropriately.")
 	message_admins(SPAN_NOTICE("[key_name_admin(usr)] told [key_name(T)] to please roleplay appropriately."), 1)
