@@ -349,7 +349,9 @@
 	min_pressure_protection = initial(min_pressure_protection)
 	gas_transfer_coefficient = initial(gas_transfer_coefficient)
 	max_heat_protection_temperature = initial(max_heat_protection_temperature)
+	fire_resist = initial(fire_resist)
 	max_pressure_protection = initial(max_pressure_protection)
+	slowdown = initial(slowdown)
 	voidproofed = FALSE
 
 /obj/item/clothing/suit/storage/toggle/leather_jacket/reade_racing/proc/straps_come_loose(var/mob/user)
