@@ -74,7 +74,7 @@ SUBSYSTEM_DEF(icon_update)
 	if(QDELETED(item_cache))
 		return
 
-	if(!item_cache.icon_update_queued && (!item_cache.icon_update_delay || (item_cache.last_icon_update + item_cache.icon_update_delay < world.time)))
+	if(!item_cache.icon_update_queued && item_cache.last_icon_update < world.time)
 		item_cache.icon_update_queued = TRUE
 
 		// Determine if we got any parameter, and if we do set it in the associative list, otherwise just set it to TRUE
