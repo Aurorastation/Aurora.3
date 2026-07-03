@@ -123,7 +123,7 @@
 	 * It's perfectly reasonable to set crowbar/mass = 5.0 and voidsuit/mass = 68.0
 	 * And leave it at that. It's a float. You're going to go insane if you make 10 million defines for it.
 	 **/
-	var/mass = 1.000000e+0 //Kg
+	var/mass = 1.0 //kg
 
 /atom/movable/Initialize(mapload, ...)
 	. = ..()

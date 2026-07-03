@@ -327,9 +327,20 @@
 /// Superheavy mobs. Gonna need a lot of help with those.
 #define MOB_WEIGHT_SUPERHEAVY 4
 
+/*
+		Mob Reference Masses
+								*/
 // Reference Masses of different Mobs. Unlike MOB_WEIGHT, these represent a physics-typed value, and thus can be used directly in Kinematic Equations.
-// For any species with sexual dimorphism, the Reference Mass is 1/n * (sum of average mass of each sex)
-// Hence humans being 72.0kg and not 62.0kg
+// Note: These values absolutely must be in Kilograms, I'm terribly sorry for any Americans reading this, but these get included in physics equations that require Kg inputs.
+
+// For any species with sexual dimorphism, the Reference Mass is 1/n * (sum of average mass of each sex).
+// To give an example, an average adult female human weighs 62kg, and 80kg for an average adult male human.
+// 62 + 80.7 = 142.7. Since there's two examples, 142.7 / 2 = 71.35, which to "fudge things a little" I round up to 72kg.
+// Hence humans being 72.0kg and not 62.0kg.
+
+// If you're making an alien with sexual dimorphism (or trimorphism, or polymorphism), the same pattern as humans can be followed.
+// Whereas for aliens without notable differences, you can just use a single average number.
+// It's perfectly reasonable to just give a rough guess, none of these numbers need to be perfectly exact or even clean, just in a general ballpark.
 
 /// Average mass of a human (in Kg)
 #define REFERENCE_MASS_HUMAN 72.0
