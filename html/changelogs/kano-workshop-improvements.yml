@@ -1,0 +1,9 @@
+author: kano
+delete-after: True
+changes:
+  - bugfix: "Fixed garage shutters and a single window in the fabrication section missing firelocks."
+  - qol: "Hull window shutters are now down by default. Fabrication and surgery rooms now have their own shutters."
+  - qol: "Re-arranges the piping and the vents in the area, so they're simple and no longer obscured."
+  - qol: "Re-positions some wall objects."
+  - qol: "Adds two portable cooling units and a power outlet to the workshop surgery room as per TGW's feedback."
+  - rscadd: "Slight changes to the tile-work."
