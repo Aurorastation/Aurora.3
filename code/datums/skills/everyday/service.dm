@@ -106,5 +106,5 @@
 	// Uniquely among skills, this skill works by modifying a pre-existing component used by player characters, rather than adding its own.
 	// If you're a contributor reading up on skills, consider this your tutorial on how to make a skill modify some statistic directly.
 	var/datum/component/morale/morale_comp = character.LoadComponent(MORALE_COMPONENT)
-	morale_comp.set_phi_value(morale_comp.get_phi_value() + (5 * skill_level))
+	morale_comp.set_phi_value(morale_comp.get_phi_value() + (5 * (skill_level - 1)))
 
