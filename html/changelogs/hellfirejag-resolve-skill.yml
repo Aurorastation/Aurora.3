@@ -1,0 +1,5 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - rscadd: "Added a new Resolve skill to the Everyday category. Resolve as a skill provides a small passive bonus to a characters Morale statistic."
+  - bugfix: "Fixed Morale not properly updating its effects when a moodlet (such as Psychic Damage) expires."
