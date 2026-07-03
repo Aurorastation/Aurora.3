@@ -85,7 +85,7 @@
 	description = "Represents a character's mental resilience, emotional stability, and ability to remain steadfast under stress. " \
 		+ "Characters with greater Resolve receive a permanent passive bonus to their effective morale value. This can provide small bonuses to a variety of interactions. " \
 		+ "This morale bonus can also act as a pool of resistance towards psychic damage. " \
-		+ "This skill has no effect species which does not interact with Morale."
+		+ "This skill has no effect for species which do not interact with Morale."
 	maximum_level = SKILL_LEVEL_PROFESSIONAL
 	category = /singleton/skill_category/everyday
 	subcategory = SKILL_SUBCATEGORY_PHYSICAL
