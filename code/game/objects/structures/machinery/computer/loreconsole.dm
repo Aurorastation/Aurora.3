@@ -38,7 +38,7 @@
 // soundloop start/stop on power status handled here
 /obj/structure/machinery/computer/terminal/loreconsole/power_change()
 	. = ..()
-	if(!looping_sound || !soundloop)
+	if(interact_offline || !looping_sound || !soundloop)
 		return
 
 	if(stat & NOPOWER)
@@ -125,5 +125,11 @@
 
 	..()
 
+/obj/structure/machinery/computer/terminal/loreconsole/no_looping_sound
+	looping_sound = FALSE
+
 /obj/structure/machinery/computer/terminal/loreconsole/always_powered
 	interact_offline = TRUE
+
+/obj/structure/machinery/computer/terminal/loreconsole/always_powered/no_looping_sound
+	looping_sound = FALSE
