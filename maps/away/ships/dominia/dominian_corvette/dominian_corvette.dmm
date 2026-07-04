@@ -43,10 +43,6 @@
 	dir = 6
 	},
 /obj/structure/table/stone/marble,
-/obj/item/portable_whiteboard{
-	pixel_y = 11;
-	pixel_x = 5
-	},
 /turf/simulated/floor/marble/dark,
 /area/dominian_corvette/chapel)
 "aha" = (
@@ -11481,6 +11477,7 @@
 	dir = 5
 	},
 /obj/structure/machinery/light,
+/obj/structure/whiteboard/portable,
 /turf/simulated/floor/wood,
 /area/dominian_corvette/co_office)
 "vxs" = (

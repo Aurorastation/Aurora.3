@@ -4387,10 +4387,6 @@
 /obj/item/reagent_containers/food/condiment/flour,
 /obj/item/reagent_containers/food/condiment/sugar,
 /obj/item/reagent_containers/food/condiment/sugar,
-/obj/structure/closet/secure_closet/freezer{
-	name = "Bakery Storage";
-	desc = "A white refrigerated box containing the daily products of the ship's oven. The availability of croissants and baugettes (even in austere environments) is seen as essential to crew morale by the AXSF."
-	},
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/storage/box/fancy/egg_box,
 /turf/simulated/floor/tiled/white,
@@ -9470,10 +9466,6 @@
 	},
 /obj/item/reagent_containers/food/condiment/honey,
 /obj/item/reagent_containers/food/condiment/honey,
-/obj/structure/closet/secure_closet/freezer{
-	name = "Bakery Storage";
-	desc = "A white refrigerated box containing the daily products of the ship's oven. The availability of croissants and baugettes (even in austere environments) is seen as essential to crew morale by the AXSF."
-	},
 /obj/item/reagent_containers/food/drinks/carton/milk,
 /obj/item/reagent_containers/food/drinks/carton/milk,
 /obj/item/reagent_containers/food/drinks/carton/milk,
