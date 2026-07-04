@@ -253,6 +253,9 @@
 		/obj/item/clothing/suit/space/void/mining = /obj/item/clothing/suit/space/void/mining/newgibson,
 		/obj/item/clothing/head/helmet/space/void/mining = /obj/item/clothing/head/helmet/space/void/mining/newgibson,
 
+		/obj/item/clothing/suit/space/void/ops = /obj/item/clothing/suit/space/void/ops/newgibson,
+		/obj/item/clothing/head/helmet/space/void/ops = /obj/item/clothing/head/helmet/space/void/ops/newgibson,
+
 		/obj/item/clothing/suit/space/void/engineering = /obj/item/clothing/suit/space/void/engineering/newgibson,
 		/obj/item/clothing/head/helmet/space/void/engineering = /obj/item/clothing/head/helmet/space/void/engineering/newgibson,
 
