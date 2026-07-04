@@ -81,6 +81,7 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 	if(!ai_can_interact(user))
 		return
 	src.add_hiddenprint(user)
+	user.set_machine(src)
 	ui_interact(user)
 
 /obj/structure/machinery/computer/ship/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
