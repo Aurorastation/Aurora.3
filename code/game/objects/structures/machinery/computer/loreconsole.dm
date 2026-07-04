@@ -12,21 +12,53 @@
  * * Create `new/datum/lore_console_entry(title, body)` instances in the `entries` list
  * * This list can contain multiple datum entries, each entry represents a page
  */
-ABSTRACT_TYPE(/obj/structure/machinery/computer/terminal/loreconsole)
+/obj/structure/machinery/computer/terminal/loreconsole
 	name = "information terminal"
 	desc = "A terminal with a blank screen, waiting to receive an input."
 	icon_screen = "loreconsole"
 	icon_keyboard = "power_key"
 	light_power_on = 2
+	light_color = "#7d5d3b"
 	var/list/entries = list()
+	/// If true, this console will play a looping sound.
+	var/looping_sound = TRUE
+	/// Looping sound for this console to draw attention.
+	var/datum/looping_sound/loreconsole/soundloop
+
+/obj/structure/machinery/computer/terminal/loreconsole/Initialize()
+	. = ..()
+	if(looping_sound)
+		soundloop = new(src, TRUE)
+
+/obj/structure/machinery/computer/terminal/loreconsole/Destroy()
+	soundloop?.stop(src)
+	QDEL_NULL(soundloop)
+	return ..()
+
+// soundloop start/stop on power status handled here
+/obj/structure/machinery/computer/terminal/loreconsole/power_change()
+	. = ..()
+	if(!looping_sound || !soundloop)
+		return
+
+	if(stat & NOPOWER)
+		soundloop.stop(src)
+	else
+		soundloop.start(src)
 
 /obj/structure/machinery/computer/terminal/loreconsole/attack_hand(mob/user)
+	if(!interact_offline && !operable())
+		return
 	ui_interact(user)
 
 /obj/structure/machinery/computer/terminal/loreconsole/ui_state(mob/user)
 	return GLOB.default_state
 
 /obj/structure/machinery/computer/terminal/loreconsole/ui_interact(mob/user, datum/tgui/ui = null)
+	if(looping_sound && ishuman(user))
+		looping_sound = FALSE
+		soundloop.stop(src) // we stop the looping sound if a mob we care about found the console
+
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "LoreConsole", name)
@@ -93,5 +125,5 @@ ABSTRACT_TYPE(/obj/structure/machinery/computer/terminal/loreconsole)
 
 	..()
 
-ABSTRACT_TYPE(/obj/structure/machinery/computer/terminal/loreconsole/always_powered)
+/obj/structure/machinery/computer/terminal/loreconsole/always_powered
 	interact_offline = TRUE
