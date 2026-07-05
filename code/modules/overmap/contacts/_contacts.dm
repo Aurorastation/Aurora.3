@@ -83,7 +83,7 @@
 /datum/overmap_contact/Destroy()
 	if(owner)
 		// If we have a lock on what was lost, remove the lock from the targeting consoles
-		if(owner.connected.targeting == effect)
+		if(owner.connected && owner.connected.targeting == effect)
 			for(var/obj/structure/machinery/computer/ship/targeting/console in owner.connected.consoles)
 				owner.connected.detarget(effect, console)
 
