@@ -135,3 +135,19 @@
 	filling_color = "#FFDEFE"
 	bitesize = 6
 	reagents_to_add = list(/singleton/reagent/nutriment/protein/seafood = 6, /singleton/reagent/hyperzine = 15, /singleton/reagent/acid/polyacid = 6)
+
+/obj/item/reagent_containers/food/snacks/fish/psiren_tentacle_meat
+	name = "raw psiren tentacle"
+	desc = "A long smooth tentacle. It's an off putting blue colour."
+	icon_state = "psiren_tentacle_meat"
+	reagents_to_add = list(/singleton/reagent/drugs/mindbreaker = 2, /singleton/reagent/nutriment/protein/seafood = 3)
+	fish_type = "psiren"
+	filling_color = "#1S7399"
+
+/obj/item/reagent_containers/food/snacks/fish/psiren_body_meat
+	name = "raw psiren ring"
+	desc = "A ring of blue flesh."
+	icon_state = "psiren_body_meat"
+	reagents_to_add = list(/singleton/reagent/drugs/mindbreaker = 2, /singleton/reagent/nutriment/protein/seafood = 3)
+	fish_type = "psiren"
+	filling_color = "#1S7399"
