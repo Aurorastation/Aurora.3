@@ -234,6 +234,10 @@
 /datum/language/bug/broadcast(var/mob/living/speaker,var/message,var/speaker_mask)
 	log_say("[key_name(speaker)] : ([name]) [message]")
 
+	if(is_lemurian_sea_sector())
+		to_chat(speaker, SPAN_WARNING("You attempt to reach the Hivenet, but find nothing!"))
+		return
+
 	var/mob/living/carbon/human/H = speaker //Check for Preimminent Shaper robes, which obscure Hive affiliation
 	var/obj/item/clothing/head/shaper/helmet = H.get_equipped_item(slot_head)
 	if(!speaker_mask)
@@ -304,6 +308,9 @@
 	return "[verb], <span class='message'><span class='[message_color]'>\"[capitalize(message)]\"</span></span>"
 
 /datum/language/bug/check_special_condition(var/mob/other)
+	if(is_lemurian_sea_sector())
+		return 0
+
 	if(istype(other, /mob/living/silicon))
 		var/mob/living/silicon/S = other
 		if(S.can_hear_hivenet)
@@ -340,6 +347,10 @@
 	return 0
 
 /datum/language/bug/check_speech_restrict(var/mob/speaker)
+	if(is_lemurian_sea_sector())
+		to_chat(speaker, SPAN_WARNING("You attempt to reach the Hivenet, but find nothing!"))
+		return FALSE
+
 	var/mob/living/carbon/human/H = speaker
 	var/obj/item/organ/internal/vaurca/neuralsocket/S = H.internal_organs_by_name[BP_NEURAL_SOCKET]
 	var/obj/item/organ/internal/augment/language/vekatak/V = H.internal_organs_by_name[BP_AUG_LANGUAGE_VEKATAK]

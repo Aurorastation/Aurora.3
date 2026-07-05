@@ -672,11 +672,13 @@ GLOBAL_LIST_INIT(slot_flags_enumeration, list(
 	"[slot_pants]" = SLOT_PANTS
 	))
 
-//the mob M is attempting to equip this item into the slot passed through as 'slot'. Return 1 if it can do this and 0 if it can't.
-//If you are making custom procs but would like to retain partial or complete functionality of this one, include a 'return ..()' to where you want this to happen.
-//Set disable_warning to 1 if you wish it to not give you outputs.
-//Should probably move the bulk of this into mob code some time, as most of it is related to the definition of slots and not item-specific
-/obj/item/proc/mob_can_equip(M as mob, slot, disable_warning = FALSE, bypass_blocked_check = FALSE)
+/**
+ * the mob M is attempting to equip this item into the slot passed through as 'slot'. Return 1 if it can do this and 0 if it can't.
+ * If you are making custom procs but would like to retain partial or complete functionality of this one, include a 'return ..()' to where you want this to happen.
+ * Set disable_warning to 1 if you wish it to not give you outputs.
+ * Should probably move the bulk of this into mob code some time, as most of it is related to the definition of slots and not item-specific
+ */
+/obj/item/proc/mob_can_equip(mob/M, slot, disable_warning = FALSE, bypass_blocked_check = FALSE, is_overlay_check = FALSE)
 	if(!slot) return 0
 	if(!M) return 0
 
@@ -938,7 +940,7 @@ GLOBAL_LIST_INIT(slot_flags_enumeration, list(
 
 /obj/item/proc/showoff(mob/user)
 	var/list/viewers = get_hearers_in_view(world.view, src)
-	user.langchat_speech("holds up [src].", viewers, GLOB.all_languages, skip_language_check = TRUE, animation_style = LANGCHAT_FAST_POP, additional_styles = list("langchat_small", "emote"))
+	user.langchat_speech("holds up [src].", viewers, animation_style = LANGCHAT_FAST_POP, additional_styles = list("langchat_small", "emote"))
 	for (var/mob/M in viewers)
 		if(!user.is_invisible_to(M))
 			M.show_message("<b>[user]</b> holds up [icon2html(src, M)] [src]. <a href='byond://?src=[REF(M)];lookitem=[REF(src)]'>Take a closer look.</a>",1)

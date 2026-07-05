@@ -62,25 +62,28 @@
 	Log(message, message_title)
 
 /datum/announcement/proc/FormMessage(var/message, var/message_title)
-	. = "<h2 class='alert'>[message_title]</h2>"
+	. = FONT_HUGE(SPAN_BOLD("[message_title]"))
 	. += "<br><span class='alert'>[message]</span>"
 	if (announcer)
 		. += "<br><span class='alert'> -[html_encode(announcer)]</span>"
+	. = EXAMINE_BLOCK_GREY(.)
 
 /datum/announcement/minor/FormMessage(var/message, var/message_title)
 	. = "<b>[message]</b>"
 
 /datum/announcement/priority/command/FormMessage(var/message, var/message_title)
-	. = "<h2 class='alert'>[SSatlas.current_map.boss_name] Update</h2>"
+	. = FONT_HUGE(SPAN_BOLD("[SSatlas.current_map.boss_name] Update<br>"))
 	if (message_title)
-		. += "<h3 class='alert'>[message_title]</h3>"
+		. += FONT_LARGE(SPAN_RED(SPAN_BOLD("[message_title]")))
 
 	. += "<br><span class='alert'>[message]</span><br>"
 	. += "<br>"
+	. = EXAMINE_BLOCK_BLUE(.)
 
 /datum/announcement/priority/security/FormMessage(var/message, var/message_title)
-	. = "<font size=4 color='red'>[message_title]</font>"
+	. = FONT_HUGE(SPAN_RED(SPAN_BOLD("[message_title]")))
 	. += "<br><span class='warning'>[message]</span>"
+	. = EXAMINE_BLOCK_RED(.)
 
 /datum/announcement/proc/NewsCast(message as text, message_title as text)
 	if(!newscast)

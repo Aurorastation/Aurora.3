@@ -1,0 +1,33 @@
+2026-07-02:
+  ASmallCuteCat:
+  - qol: The Crime Kits now spawn on a rack in the Investigators' Office.
+  - qol: There are now two interrogation rooms.
+  - qol: Reorganizes Evidence Storage - morgue is now separate, there's a front desk
+      to leave evidence for Investigators, and there's individually labeled lockers
+      to store contraband.
+  - qol: Expands Forensics. Adds a whiteboard, neatens the desks by moving all of
+      the spare equipment to shelving, adds another coatrack.
+  - qol: Expands the Autopsy Lab. Literally. The only difference is that it's a little
+      bit bigger than before.
+  - imageadd: Adds a new sprite for the Evidence Shelf, edited from the original Retail
+      Shelf sprite.
+  Benbot16:
+  - bugfix: Silicons can view the overmap properly
+  Hellfirejag:
+  - balance: Made psirens about 20% tankier.
+  NewOriginalSchwann, Batrachophrenoboocosmomachia:
+  - rscadd: Radio station configurations.
+  TheGreyWolf, Wezzy:
+  - rscadd: Added hangar tech voidsuits to EVA storage.
+  - rscadd: Hangar techs now have EVA access.
+2026-07-03:
+  Wowzewow (Wezzy):
+  - rscadd: Adds Z.Z. Zhao's custom items.
+2026-07-05:
+  MattAtlas:
+  - rscadd: All gamemodes and Odysseys now have a defined round canonicity. You can
+      now view canonicity status for the current round in the Status panel, and get
+      more information by clicking the round canon button. Admins and Storytellers
+      can modify this.
+  - rscadd: Storytellers can now change round canonicity in any round they are part
+      of. Do this through the Canon panel.

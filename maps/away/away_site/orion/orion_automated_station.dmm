@@ -74,7 +74,7 @@
 /area/orion_automated_station/packages)
 "bH" = (
 /obj/structure/table/standard,
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/tcfl{
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/tcaf{
 	pixel_x = 6
 	},
 /turf/simulated/floor/tiled,
