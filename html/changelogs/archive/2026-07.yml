@@ -23,3 +23,11 @@
 2026-07-03:
   Wowzewow (Wezzy):
   - rscadd: Adds Z.Z. Zhao's custom items.
+2026-07-05:
+  MattAtlas:
+  - rscadd: All gamemodes and Odysseys now have a defined round canonicity. You can
+      now view canonicity status for the current round in the Status panel, and get
+      more information by clicking the round canon button. Admins and Storytellers
+      can modify this.
+  - rscadd: Storytellers can now change round canonicity in any round they are part
+      of. Do this through the Canon panel.
