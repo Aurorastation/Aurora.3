@@ -41,6 +41,9 @@
 	speak_chance = 5
 	attack_emote = "menaces"
 	psi_pingable = TRUE
+	meat_amount = 1
+	meat_type = /obj/item/reagent_containers/food/snacks/psiren_tentacle
+	butchering_products = list(/obj/item/reagent_containers/food/snacks/psiren_meat = 1)
 
 	attack_vis_effect = ATTACK_EFFECT_DISARM
 	smart_melee = TRUE
@@ -281,6 +284,9 @@
 	melee_damage_upper = 40
 	melee_reach = 2
 	armor_penetration = 30
+	meat_amount = 5
+	meat_type = /obj/item/reagent_containers/food/snacks/psiren_tentacle
+	butchering_products = list(/obj/item/reagent_containers/food/snacks/psiren_meat = 5)
 
 /mob/living/simple_animal/hostile/psiren/matriarch/Initialize()
 	. = ..()
