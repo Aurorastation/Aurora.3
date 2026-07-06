@@ -92,9 +92,9 @@
 	component_type = null // No component, this skill is flexing the ECS hook in a different way entirely.
 	skill_level_descriptions = alist(
 		SKILL_LEVEL_UNFAMILIAR = "You have no modifiers from Resolve.",
-		SKILL_LEVEL_FAMILIAR = "You have a passive permanent bonus of +5 morale points.",
-		SKILL_LEVEL_TRAINED = "You have a passive permanent bonus of +10 morale points.",
-		SKILL_LEVEL_PROFESSIONAL = "You have a passive permanent bonus of +15 morale points."
+		SKILL_LEVEL_FAMILIAR = "You have a passive permanent bonus of +3 morale points.",
+		SKILL_LEVEL_TRAINED = "You have a passive permanent bonus of +6 morale points.",
+		SKILL_LEVEL_PROFESSIONAL = "You have a passive permanent bonus of +9 morale points."
 	)
 
 /singleton/skill/resolve/on_spawn(mob/owner, skill_level)
@@ -106,5 +106,5 @@
 	// Uniquely among skills, this skill works by modifying a pre-existing component used by player characters, rather than adding its own.
 	// If you're a contributor reading up on skills, consider this your tutorial on how to make a skill modify some statistic directly.
 	var/datum/component/morale/morale_comp = character.LoadComponent(MORALE_COMPONENT)
-	morale_comp.set_phi_value(morale_comp.get_phi_value() + (5 * (skill_level - 1)))
+	morale_comp.set_phi_value(morale_comp.get_phi_value() + (3 * (skill_level - 1)))
 
