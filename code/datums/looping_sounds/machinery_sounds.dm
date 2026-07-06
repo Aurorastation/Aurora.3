@@ -170,3 +170,10 @@
 	end_sound = 'sound/machines/synthfab/synthfab_end.ogg'
 	volume = 75
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/datum/looping_sound/ventilation_humming
+	mid_sounds = list('sound/machines/ventilation_humming.ogg' = 1)
+	mid_length = 20 SECONDS
+	volume = 5
+	ignore_walls = FALSE

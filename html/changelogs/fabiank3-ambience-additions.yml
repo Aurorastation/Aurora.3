@@ -4,3 +4,4 @@ delete-after: True
 
 changes:
   - rscadd: "Added a new sound track for the default lobby tracks and lemurian sea."
+  - rscadd: "Added ambience sound loop for vents and scrubbers."
