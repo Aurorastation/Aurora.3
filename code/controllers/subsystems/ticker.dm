@@ -55,7 +55,7 @@ SUBSYSTEM_DEF(ticker)
 		'sound/music/lobby/snow.ogg',
 		'sound/music/lobby/saturn.ogg',
 		'sound/music/lobby/kaaistoep.ogg',
-		'sound/music/lobby/saturn.ogg'
+		'sound/music/lobby/spatial_audio.ogg'
 	)
 
 	var/lobby_ready = FALSE

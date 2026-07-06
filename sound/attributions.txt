@@ -209,3 +209,7 @@ sound/species/synthetic/synthetic_restart.ogg -- https://freesound.org/s/176796/
 ATTRIBUTIONS SECTION START
 sound/effects/metalping.ogg - ported from CM-SS13
 ATTRIBUTIONS SECTION END
+
+ATTRIBUTIONS SECTION START
+sound/music/lobby/spatial_audio.ogg - spatial audio 2 by BadWolf23/freesound.org, licensed under CC BY 4.0. https://freesound.org/people/BadWolf23/sounds/723957/
+ATTRIBUTIONS SECTION END
