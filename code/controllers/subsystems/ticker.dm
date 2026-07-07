@@ -434,6 +434,7 @@ SUBSYSTEM_DEF(ticker)
 			login_music = SSatlas.current_sector.lobby_tracks
 		else
 			login_music = default_lobby_tracks
+		login_music = shuffle(login_music)
 
 	if (is_revote)
 		pregame_timeleft = LOBBY_TIME
