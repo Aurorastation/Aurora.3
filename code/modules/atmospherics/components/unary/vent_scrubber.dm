@@ -198,11 +198,11 @@
 		broadcast_status_next_process = FALSE
 
 	if((!use_power || (stat & (NOPOWER|BROKEN)) || !loc) || welded)
-		if(ventilation_humming.loop_started)
+		if(ventilation_humming && ventilation_humming.loop_started)
 			ventilation_humming.stop()
 		return 0
 	else
-		if(!ventilation_humming.loop_started)
+		if(ventilation_humming && !ventilation_humming.loop_started)
 			ventilation_humming.start()
 
 	var/datum/gas_mixture/environment = loc.return_air()
