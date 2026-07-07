@@ -173,6 +173,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /datum/looping_sound/ventilation_humming
+	skip_starting_sounds = TRUE
 	mid_sounds = list('sound/machines/ventilation_humming.ogg' = 1)
 	mid_length = 20 SECONDS
 	volume = 5
