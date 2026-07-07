@@ -74,20 +74,19 @@
 	name = "Pilot: Exosuits"
 	description = "Governs the user's ability to pilot mechs of any kind."
 	maximum_level = SKILL_LEVEL_PROFESSIONAL
-	uneducated_skill_cap = SKILL_LEVEL_TRAINED
+	uneducated_skill_cap = SKILL_LEVEL_PROFESSIONAL
 	category =  /singleton/skill_category/occupational
 	subcategory = SKILL_SUBCATEGORY_OPERATIONS
 	skill_level_descriptions = alist(
 		SKILL_LEVEL_UNFAMILIAR = "What's a mech?<br>" \
 			+ " - You have a 10% chance to move in a wrong direction when controlling mechs.<br>" \
-			+ " - Mech handling characteristics such as strafing and reverse speeds are significantly worse for you.<br>" \
-			+ " - It takes you awhile to find the power switch in a mech.",
+			+ " - It takes you 5 seconds to find the power switch when turning on a mech.",
 		SKILL_LEVEL_FAMILIAR = "You have a license to pilot mechs, but are relatively inexperienced.<br>" \
-			+ " - You have a small penalty to mech handling characteristics, such as slightly slower strafe and reverse speeds.",
+			+ " - You have 0.5 second faster movement delays when Strafing, Reversing, or Turning a mech. This can never let you move faster than a mech's forward speed.",
 		SKILL_LEVEL_TRAINED = "You have a decent amount of experience piloting mechs.<br>" \
-			+ " - You have no penalties or bonuses for piloting mechs.",
+			+ " - You have 1 second faster movement delays when Strafing, Reversing, or Turning a mech. This can never let you move faster than a mech's forward speed.",
 		SKILL_LEVEL_PROFESSIONAL = "Look on the bright side kid, you get to keep all the money.<br>" \
-			+ " - You have a small bonus to mech handling characteristics. Turning, Strafing, and Reverse speeds are all improved when piloting mechs. Forward speeds are still unchanged."
+			+ " - You have 1.5 second faster movement delays when Strafing, Reversing, or Turning a mech. This can never let you move faster than a mech's forward speed.",
 	)
 	required = TRUE
 	component_type = PILOT_MECHS_SKILL_COMPONENT

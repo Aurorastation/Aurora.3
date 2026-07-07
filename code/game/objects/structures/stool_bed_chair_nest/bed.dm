@@ -35,7 +35,6 @@
 	var/can_dismantle = TRUE
 	var/can_pad = TRUE
 
-	gfi_layer_rotation = GFI_ROTATION_DEFDIR
 	var/makes_rolling_sound = FALSE
 	var/held_item = null // Set to null if you don't want people to pick this up.
 	slowdown = 2.5

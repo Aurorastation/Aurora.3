@@ -71,6 +71,11 @@ SUBSYSTEM_DEF(ticker)
 	var/total_players_ready = 0
 	var/list/ready_player_jobs
 
+	/// The round canonicity. Set by either admins or by the gamemode.
+	var/singleton/canonicity/round_canon
+	/// Round canon forced by admins in the lobby; prevents gamemodes from overriding.
+	var/round_canon_admin_forced = FALSE
+
 /datum/controller/subsystem/ticker/Initialize(timeofday)
 	pregame()
 	restart_timeout = GLOB.config.restart_timeout
@@ -807,6 +812,18 @@ SUBSYSTEM_DEF(ticker)
 		sites_win.open()
 		return TRUE
 	. = ..()
+
+/datum/controller/subsystem/ticker/proc/set_round_canon(canon_type, pre_game = FALSE, announce = FALSE)
+	round_canon = GET_SINGLETON(canon_type)
+	if(!istype(round_canon))
+		round_canon = GET_SINGLETON(/singleton/canonicity/limited)
+
+	if(pre_game)
+		round_canon.pre_game_setup()
+
+	if(announce)
+		var/announcement = SPAN_NOTICE("The round canonicity has been set to [SPAN_DANGER(round_canon.name)].<br> For more information, press the [round_canon.name] button in your Status panel.")
+		to_world(EXAMINE_BLOCK_ODYSSEY(FONT_LARGE(announcement)))
 
 #undef SETUP_OK
 #undef SETUP_REVOTE
