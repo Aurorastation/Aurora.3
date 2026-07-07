@@ -144,7 +144,7 @@
 	SSmachinery.smes_units += src
 	big_spark = bind_spark(src, 5, GLOB.alldirs)
 	small_spark = bind_spark(src, 3)
-	electrical_humming = new src()
+	electrical_humming = new(src)
 	if(!powernet)
 		connect_to_network()
 
