@@ -241,6 +241,32 @@
 		/obj/item/rig_assembly/industrial = /obj/item/rig_assembly/industrial/himeo
 	)
 
+/obj/item/voidsuit_modkit/newgibson
+	name = "new gibsonite EVA suit modkit"
+	contained_sprite = TRUE
+	icon = 'icons/obj/mining_contained.dmi'
+	icon_state = "newgibson_kit"
+	item_state = "newgibson_kit"
+	desc = "A simple cardboard box containing the requisition forms, permits, and decal kits for New Gibson EVA equipment."
+
+	suit_options = list(
+		/obj/item/clothing/suit/space/void/mining = /obj/item/clothing/suit/space/void/mining/newgibson,
+		/obj/item/clothing/head/helmet/space/void/mining = /obj/item/clothing/head/helmet/space/void/mining/newgibson,
+
+		/obj/item/clothing/suit/space/void/ops = /obj/item/clothing/suit/space/void/ops/newgibson,
+		/obj/item/clothing/head/helmet/space/void/ops = /obj/item/clothing/head/helmet/space/void/ops/newgibson,
+
+		/obj/item/clothing/suit/space/void/engineering = /obj/item/clothing/suit/space/void/engineering/newgibson,
+		/obj/item/clothing/head/helmet/space/void/engineering = /obj/item/clothing/head/helmet/space/void/engineering/newgibson,
+
+		/obj/item/clothing/suit/space/void/atmos = /obj/item/clothing/suit/space/void/atmos/newgibson,
+		/obj/item/clothing/head/helmet/space/void/atmos = /obj/item/clothing/head/helmet/space/void/atmos/newgibson,
+	)
+
+/obj/item/voidsuit_modkit/newgibson/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This modkit can be used to convert an industrial or engineering hardsuit into a New Gibsonite variant."
+
 /obj/item/voidsuit_modkit/ceres_lance_unathi
 	name = "\improper Ceres' Lance voidsuit kit"
 	desc = "A highly complicated device that allows you to convert a Ceres' Lancer suit into its Unathi-fitted counterpart and vice versa. Practical!"
