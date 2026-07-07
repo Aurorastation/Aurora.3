@@ -181,7 +181,8 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /datum/looping_sound/electrical_humming
+	skip_starting_sounds = TRUE
 	mid_sounds = list('sound/machines/electrical_humming.ogg' = 1)
 	mid_length = 10 SECONDS
-	volume = 5
+	volume = 75 // This sounds is rather quiet and needs a higher volume then anticipated for a background noise
 	ignore_walls = FALSE
