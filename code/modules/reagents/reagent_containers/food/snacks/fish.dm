@@ -144,7 +144,7 @@
 	fish_type = "psiren"
 	filling_color = "#1S7399"
 
-/obj/item/reagent_containers/food/snacks/fish/psiren_body_meat
+/obj/item/reagent_containers/food/snacks/squidmeat/psiren_body_meat
 	name = "raw psiren ring"
 	desc = "A ring of blue flesh."
 	icon_state = "psiren_body_meat"
