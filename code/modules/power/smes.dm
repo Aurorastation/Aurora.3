@@ -262,11 +262,11 @@
 
 /obj/structure/machinery/power/smes/process()
 	if(!can_function())
-		if(electrical_humming.loop_started)
+		if(electrical_humming && electrical_humming.loop_started)
 			electrical_humming.stop()
 		return
 	else
-		if(!electrical_humming.loop_started)
+		if(electrical_humming && !electrical_humming.loop_started)
 			electrical_humming.start()
 	if(failure_timer)	// Disabled by gridcheck.
 		failure_timer--

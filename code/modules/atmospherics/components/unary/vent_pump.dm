@@ -223,10 +223,10 @@
 	if (!node)
 		update_use_power(POWER_USE_OFF)
 	if(can_pump())
-		if(!ventilation_humming.loop_started)
+		if(ventilation_humming && !ventilation_humming.loop_started)
 			ventilation_humming.start()
 	else
-		if(ventilation_humming.loop_started)
+		if(ventilation_humming && ventilation_humming.loop_started)
 			ventilation_humming.stop()
 		return 0
 
