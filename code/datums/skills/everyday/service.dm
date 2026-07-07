@@ -1,15 +1,17 @@
 /singleton/skill/bartending
 	name = "Bartending"
-	description = "Users of this skill can create mixed drinks of varying quality, which provide a long lasting morale bonus to anyone who consumes them. This skill is activated by first mixing a drink in a Drink Mixer, then pressing Z to shake it. Alternatively, drinks can be stirred with a spoon by clicking on a completed drink."
+	description = "Users of this skill can create mixed drinks of varying quality, which provide a long lasting morale bonus to anyone who consumes them. " \
+		+ "This skill is activated by first mixing a drink in a Drink Mixer, then pressing Z to shake it. " \
+		+ "Alternatively, drinks can be stirred with a spoon by clicking on a completed drink."
 	maximum_level = SKILL_LEVEL_PROFESSIONAL
 	category =  /singleton/skill_category/everyday
 	subcategory = SKILL_SUBCATEGORY_SERVICE
 	component_type = BARTENDING_SKILL_COMPONENT
 	skill_level_descriptions = alist(
 		SKILL_LEVEL_UNFAMILIAR = "Drinks you produce have no effects.",
-		SKILL_LEVEL_FAMILIAR = "Drinks you produce are slightly higher quality.",
-		SKILL_LEVEL_TRAINED = "Drinks you produce are of moderately higher quality.",
-		SKILL_LEVEL_PROFESSIONAL = "Drinks you produce are of a significantly higher quality."
+		SKILL_LEVEL_FAMILIAR = "Drinks you produce provide a +10 morale modifier that lasts for 2 hours.",
+		SKILL_LEVEL_TRAINED = "Drinks you produce provide a +15 morale modifier that lasts for 2 hours.",
+		SKILL_LEVEL_PROFESSIONAL = "Drinks you produce provide a +20 morale modifier that lasts for 2 hours."
 	)
 
 /singleton/skill/cooking
@@ -26,7 +28,6 @@
 		SKILL_LEVEL_PROFESSIONAL = "You gain +3 products when butchering any animal"
 	)
 
-
 /singleton/skill/gardening
 	name = "Gardening"
 	description = "Users of this skill gain bonuses when harvesting grown plants."
@@ -36,9 +37,15 @@
 	component_type = GARDENING_SKILL_COMPONENT
 	skill_level_descriptions = alist(
 		SKILL_LEVEL_UNFAMILIAR = "You have no modifiers to gardening.",
-		SKILL_LEVEL_FAMILIAR = "You gain +1 produce when harvesting plants",
-		SKILL_LEVEL_TRAINED = "You gain +2 produce when harvesting plants",
-		SKILL_LEVEL_PROFESSIONAL = "You gain +3 produce when harvesting plants"
+		SKILL_LEVEL_FAMILIAR = \
+			" - You gain +1 produce when harvesting plants.<br>" \
+			+ " - You harvest plants 0.3333 seconds faster",
+		SKILL_LEVEL_TRAINED = \
+			" - You gain +2 produce when harvesting plants.<br>" \
+			+ " - You harvest plants 0.6666 seconds faster",
+		SKILL_LEVEL_PROFESSIONAL = \
+			" - You gain +3 produce when harvesting plants.<br>" \
+			+ " - You harvest plants 1 second faster."
 	)
 
 // Temporarily commented because this is a little too complicated to catch in the initial PR release.
@@ -75,7 +82,7 @@
 	component_type = MINISTRY_SKILL_COMPONENT
 	skill_level_descriptions = alist(
 		SKILL_LEVEL_UNFAMILIAR = "You have no training in religious counseling.",
-		SKILL_LEVEL_FAMILIAR = "You gain the \"Offer Blessing\" ability, which provides a small morale bonus to a recipient.",
-		SKILL_LEVEL_TRAINED = "You gain the \"Offer Blessing\" ability, which provides a modest morale bonus to a recipient.",
-		SKILL_LEVEL_PROFESSIONAL = "You gain the \"Offer Blessing\" ability, which provides a moderate morale bonus to a recipient."
+		SKILL_LEVEL_FAMILIAR = "You gain the \"Offer Blessing\" ability, which provides a +3.333 morale bonus to a recipient that lasts for 2 hours.",
+		SKILL_LEVEL_TRAINED = "You gain the \"Offer Blessing\" ability, which provides a +6.666 morale bonus to a recipient that lasts for 2 hours.",
+		SKILL_LEVEL_PROFESSIONAL = "You gain the \"Offer Blessing\" ability, which provides a +10 morale bonus to a recipient that lasts for 2 hours."
 	)
