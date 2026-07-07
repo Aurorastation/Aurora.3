@@ -56,14 +56,6 @@
 	qdel(verb_holder)
 	return ..()
 
-/obj/item/rig_module/ai_container/process()
-	if(integrated_ai)
-		var/obj/item/rig/rig = get_rig()
-		if(rig && rig.ai_override_enabled)
-			integrated_ai.get_rig_stats = 1
-		else
-			integrated_ai.get_rig_stats = 0
-
 /obj/item/rig_module/ai_container/proc/update_verb_holder()
 	if(!verb_holder)
 		verb_holder = new(src)

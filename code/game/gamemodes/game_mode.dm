@@ -32,12 +32,18 @@ GLOBAL_LIST_EMPTY(additional_antag_types)
 	var/event_delay_mod_moderate             // Modifies the timing of random events.
 	var/event_delay_mod_major                // As above.
 
+	/// The canon type of this gamemode. THIS SHOULD ALWAYS BE SET.
+	var/canon_type = /singleton/canonicity/limited
+
 /datum/game_mode/New()
 	..()
 	// Enforce some formatting.
 	// This will probably break something.
 	name = capitalize(lowertext(name))
 	config_tag = lowertext(config_tag)
+	if(!canon_type)
+		message_admins("Gamemode [name] has no canon_type set! Defaulting to limited canon.")
+		canon_type = /singleton/canonicity/limited
 
 /datum/game_mode/Topic(href, href_list[])
 	if(..())
@@ -495,6 +501,8 @@ GLOBAL_LIST_EMPTY(additional_antag_types)
  * This proc should always return TRUE on a success and FALSE if something went wrong, so that if the initialization failed, the game can reset to lobby state.
  */
 /datum/game_mode/proc/pre_game_setup()
+	if(!SSticker.round_canon_admin_forced)
+		SSticker.set_round_canon(canon_type, TRUE)
 	return TRUE
 
 //////////////////////////

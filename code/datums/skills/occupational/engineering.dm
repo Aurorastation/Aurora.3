@@ -40,7 +40,7 @@
 			+ " - Items you craft are generally at average quality.<br>" \
 			+ " - You can interact with most if not all Engineering equipment.",
 		SKILL_LEVEL_PROFESSIONAL = "You have many years of training in general Engineering concepts, equivalent to a Master's Degree or better.<br>" \
-			+ " - You can craft items significantly faster.<br>" \
+			+ " - You can craft items 50% faster.<br>" \
 			+ " - Items you craft are of much higher quality on average.<br>" \
 	)
 
