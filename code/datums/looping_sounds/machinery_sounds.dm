@@ -182,6 +182,6 @@
 
 /datum/looping_sound/electrical_humming
 	mid_sounds = list('sound/machines/electrical_humming.ogg' = 1)
-	mid_length = 20 SECONDS
+	mid_length = 10 SECONDS
 	volume = 5
 	ignore_walls = FALSE
