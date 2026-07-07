@@ -660,3 +660,26 @@ ABSTRACT_TYPE(/datum/gear/suit/miscellaneous)
 	description = "A heavy threaded tweed gray jacket. For a different sort of Gentleman."
 	path = /obj/item/clothing/suit/storage/toggle/wizrobe/gentlecoat
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
+/datum/gear/suit/leather/reade_racing_jacket
+	display_name = "reade extreme racing jackets selection"
+	description = "A selection of racing jackets often seen on those at once involved in the underground racing scenes of Reade."
+	path = /obj/item/clothing/suit/storage/toggle/leather_jacket/reade_racing
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
+	origin_restriction = list(/singleton/origin_item/origin/reade, /singleton/origin_item/origin/new_gibson, /singleton/origin_item/origin/skrell_biesel, /singleton/origin_item/origin/ipc_tau_ceti)
+
+/datum/gear/suit/leather/reade_racing_jacket/New()
+	..()
+	var/list/jackets = list()
+	jackets["racing jacket, no decal"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/reade_racing
+	jackets["racing jacket, black-and-white checkers decal"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/reade_racing/checker
+	jackets["racing jacket, eagle decal"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/reade_racing/eagle
+	jackets["racing jacket, eagle decal variant"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/reade_racing/eagle2
+	jackets["racing jacket, skull decal"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/reade_racing/skull
+	jackets["racing jacket, flame decal"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/reade_racing/flames
+	jackets["racing jacket, knife decal"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/reade_racing/knife
+	jackets["racing jacket, crown decal"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/reade_racing/crown
+	jackets["racing jacket, zombie decal"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/reade_racing/zombie
+	jackets["racing jacket, cat decal"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/reade_racing/cat
+
+	gear_tweaks += new /datum/gear_tweak/path(jackets)
