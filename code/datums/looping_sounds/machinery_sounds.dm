@@ -177,3 +177,11 @@
 	mid_length = 20 SECONDS
 	volume = 5
 	ignore_walls = FALSE
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/datum/looping_sound/electrical_humming
+	mid_sounds = list('sound/machines/electrical_humming.ogg' = 1)
+	mid_length = 20 SECONDS
+	volume = 5
+	ignore_walls = FALSE

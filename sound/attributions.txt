@@ -217,3 +217,7 @@ ATTRIBUTIONS SECTION END
 ATTRIBUTIONS SECTION START
 sound/machines/ventilation_humming.ogg - humming machinery by Lewooz/freesound.org, licensed under CC0 1.0. https://freesound.org/people/Lewooz/sounds/545952/
 ATTRIBUTIONS SECTION END
+
+ATTRIBUTIONS SECTION START
+sound/machines/electrical_humming.ogg - SFX_GEOFON-HUM-ELECTRICAL-BOARD_4824_01 by pblzr/freesound.org, licensed under CC0 1.0. https://freesound.org/people/pblzr/sounds/785942/
+ATTRIBUTIONS SECTION END
