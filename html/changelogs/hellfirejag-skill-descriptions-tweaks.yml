@@ -1,0 +1,5 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - rscadd: "Improved the descriptions of most skills to be more transparent about what they modify and by how much, so that players may make more informed decisions about what skills they wish to take."
+  - rscadd: "Tweaked the mech piloting skill to be less punishing on mech maneuverability."

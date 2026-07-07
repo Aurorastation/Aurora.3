@@ -1,0 +1,9 @@
+author: wezzy/alsoandanswer (sprites), kermit (code)
+
+delete-after: True
+
+changes:
+  - rscadd: "Adds customisable Readic racing jackets."
+  - rscadd: "Adds New Gibsonite uranium accessories."
+  - rscadd: "Adds a New Gibson mining/engineering voidsuit with a modkit."
+  - rscadd: "Adds a personalised Readic breath mask."

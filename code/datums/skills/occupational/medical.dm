@@ -82,11 +82,15 @@
 		SKILL_LEVEL_UNFAMILIAR = "You have zero training or knowledge of anatomy.<br>" \
 			+ " - You can only distinguish visible damage like cuts and burns.",
 		SKILL_LEVEL_FAMILIAR = "You have minimal training on the basics of anatomy.<br>" \
+			+ " - You are 2.5% more likely to succeed when performing surgeries on a patient whose species matches your own.<br>" \
+			+ " - You can perform surgeries 5% faster on a patient whose species matches your own.<br>"\
 			+ "You can diagnose the following conditions: <br>" \
 			+ " - External injuries.<br>" \
 			+ " - Limb dislocation.<br>" \
 			+ " - Simple bleeds.",
 		SKILL_LEVEL_TRAINED = "You have years of formal training and experience with anatomy.<br>" \
+			+ " - You are 5% more likely to succeed when performing surgeries on a patient whose species matches your own.<br>" \
+			+ " - You can perform surgeries 10% faster on a patient whose species matches your own.<br>"\
 			+ "You can diagnose the following conditions: <br>" \
 			+ " - External injuries at a high level of detail.<br>" \
 			+ " - Limb dislocation.<br>" \
@@ -95,6 +99,8 @@
 			+ " - Limb necrosis.<br>" \
 			+ " - Tag injuries by triage priority.",
 		SKILL_LEVEL_PROFESSIONAL = "You have extensive training and experience with anatomy.<br>" \
+			+ " - You are 7.5% more likely to succeed when performing surgeries on a patient whose species matches your own.<br>" \
+			+ " - You can perform surgeries 15% faster on a patient whose species matches your own.<br>"\
 			+ "You can diagnose the following conditions at the highest level of detail: <br>" \
 			+ " - External injuries at a high level of detail.<br>" \
 			+ " - Limb dislocation.<br>" \
