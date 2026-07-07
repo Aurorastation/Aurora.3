@@ -136,7 +136,7 @@
 	bitesize = 6
 	reagents_to_add = list(/singleton/reagent/nutriment/protein/seafood = 6, /singleton/reagent/hyperzine = 15, /singleton/reagent/acid/polyacid = 6)
 
-/obj/item/reagent_containers/food/snacks/fish/psiren_tentacle_meat
+/obj/item/reagent_containers/food/snacks/squidmeat/psiren_tentacle_meat
 	name = "raw psiren tentacle"
 	desc = "A long smooth tentacle. It's an off putting blue colour."
 	icon_state = "psiren_tentacle_meat"
