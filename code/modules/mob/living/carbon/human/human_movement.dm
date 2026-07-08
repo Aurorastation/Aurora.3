@@ -131,15 +131,7 @@
 		handle_leg_damage()
 
 	var/turf/T = get_turf(loc)
-	var/footsound
-	var/top_layer = 0
-	if(istype(T))
-		for(var/obj/structure/S in T)
-			if(S.layer > top_layer && S.footstep_sound)
-				top_layer = S.layer
-				footsound = S.footstep_sound
-		if(!footsound)
-			footsound = T.footstep_sound
+
 
 	if (client && T)
 		var/turf/T1 = GET_TURF_ABOVE(T)
@@ -151,16 +143,7 @@
 			return
 		last_x = x
 		last_y = y
-		if(shoes)
-			var/obj/item/clothing/shoes/S = shoes
-			if(S.do_special_footsteps(m_intent))
-				return
-		if (m_intent == M_RUN)
-			playsound(src, (is_noisy ? footsound : species.footsound), 70, TRUE, extrarange = MEDIUM_RANGE_SOUND_EXTRARANGE, required_asfx_toggles = ASFX_FOOTSTEPS)
-		else
-			footstep++
-			if (footstep % 2)
-				playsound(src, (is_noisy ? footsound : species.footsound), 40, TRUE, extrarange = SHORT_RANGE_SOUND_EXTRARANGE, required_asfx_toggles = ASFX_FOOTSTEPS)
+
 
 /mob/living/carbon/human/proc/handle_leg_damage()
 	if(!can_feel_pain())

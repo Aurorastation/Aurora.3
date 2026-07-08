@@ -95,6 +95,8 @@
 	if(length(species.unarmed_attacks))
 		set_default_attack(species.unarmed_attacks[1])
 
+	LoadComponent(/datum/component/mob_footsteps)
+
 /mob/living/carbon/human/Destroy(force)
 	ghost_spawner = null
 

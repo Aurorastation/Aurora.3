@@ -507,6 +507,7 @@
 #include "code\datums\components\large_object_transparency.dm"
 #include "code\datums\components\leanable.dm"
 #include "code\datums\components\local_network.dm"
+#include "code\datums\components\mob_footsteps.dm"
 #include "code\datums\components\orbiter.dm"
 #include "code\datums\components\overlay_lighting.dm"
 #include "code\datums\components\timed_life_component.dm"

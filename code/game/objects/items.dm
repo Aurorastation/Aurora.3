@@ -150,6 +150,9 @@
 	var/pickup_sound = SFX_PICKUP
 	/// Sound uses when dropping the item, or when its thrown.
 	var/drop_sound = SFX_DROP
+	/// Sound played on movement. This is a list. If the list has ONE item, then it's treated as ONE sound. If the list has more than one item, then it's treated as a list where
+	/// the system will randomly play one of these sounds.
+	var/list/movement_sounds = null
 
 	//Item_state definition moved to /obj
 	//var/item_state = null // Used to specify the item state for the on-mob overlays.
@@ -508,6 +511,8 @@
 	SEND_SIGNAL(src, COMSIG_ITEM_DROPPED, user)
 	in_inventory = FALSE
 
+	SEND_SIGNAL(user, COMSIG_MOB_REMOVE_FOOTSTEP_SOUND, src, movement_sounds)
+
 	user?.update_equipment_speed_mods()
 	try_make_persistent_trash()
 
@@ -601,8 +606,8 @@
 	equipped(user, slot, initial)
 	if(SEND_SIGNAL(src, COMSIG_ITEM_POST_EQUIPPED, user, slot) && COMPONENT_EQUIPPED_FAILED)
 		return FALSE
+	SEND_SIGNAL(user, COMSIG_MOB_ADD_FOOTSTEP_SOUND, src, movement_sounds)
 	return TRUE
-
 
 /**
  * Called by on_equipped. Don't call this directly, we want the ITEM_POST_EQUIPPED signal to be sent after everything else.
@@ -640,9 +645,6 @@
 			LAZYDISTINCTADD(user.item_verbs["[v]"], src)
 	else
 		remove_item_verbs(user)
-
-	//Ěent for observable
-	SEND_SIGNAL(src, COMSIG_ITEM_REMOVE, src)
 
 	user.update_equipment_speed_mods()
 

@@ -954,8 +954,6 @@
 	var/silent = 0
 	var/last_trip = 0
 
-	var/footstep_sound_override
-
 /obj/item/clothing/shoes/Destroy()
 	QDEL_NULL(holding)
 	return ..()
@@ -1074,18 +1072,6 @@
 	. = ..()
 	track_footprint = 0
 
-/obj/item/clothing/shoes/proc/do_special_footsteps(var/running)
-	if(!footstep_sound_override)
-		return FALSE
-	if(ishuman(loc))
-		var/mob/living/carbon/human/wearer = loc
-		if(running)
-			playsound(wearer, footstep_sound_override, 70, 1, required_asfx_toggles = ASFX_FOOTSTEPS)
-		else
-			footstep++
-			if (footstep % 2)
-				playsound(wearer, footstep_sound_override, 40, 1, required_asfx_toggles = ASFX_FOOTSTEPS)
-	return TRUE
 ///////////////////////////////////////////////////////////////////////
 //Suit
 /obj/item/clothing/suit
