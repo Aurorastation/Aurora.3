@@ -286,7 +286,7 @@
 	armor_penetration = 30
 	meat_amount = 5
 	meat_type = /obj/item/reagent_containers/food/snacks/squidmeat/psiren_tentacle_meat
-	butchering_products = list(/obj/item/reagent_containers/food/snacks/fish/psiren_body_meat = 5)
+	butchering_products = list(/obj/item/reagent_containers/food/snacks/squidmeat/psiren_body_meat = 5)
 
 /mob/living/simple_animal/hostile/psiren/matriarch/Initialize()
 	. = ..()
