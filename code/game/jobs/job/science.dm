@@ -28,6 +28,10 @@
 
 	blacklisted_species = list(SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BULWARK)
 
+	skill_requirements = alist(
+		/singleton/skill/pilot_spacecraft = SKILL_LEVEL_FAMILIAR
+	)
+
 /obj/outfit/job/rd
 	name = "Research Director"
 	jobtype = /datum/job/rd

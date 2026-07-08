@@ -110,16 +110,23 @@
 	sound_environment = SOUND_AREA_LARGE_ENCLOSED
 	ambience = AMBIENCE_CHAPEL
 	horizon_deck = 2
-	lightswitch = FALSE
+	lightswitch = TRUE
 
 /area/horizon/service/chapel/main
 	name = "Chapel"
 	icon_state = "chapel"
 	area_blurb = "An impressive, spacious compartment nonetheless kept somewhat bland to accommodate the many disparate faiths whose practice may be attended here."
-	lightswitch = TRUE
+
+/area/horizon/service/chapel/corpse_storage
+	name = "Chapel Storage"
+	icon_state = "chapel"
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+	area_blurb = "The air is damp, and smells faintly of long-burned ash."
+	lightswitch = FALSE
 
 /area/horizon/service/chapel/office
 	name = "Chapel Office"
 	icon_state = "chapeloffice"
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 	area_blurb = "The atmosphere here is subdued and solemn."
+	lightswitch = FALSE

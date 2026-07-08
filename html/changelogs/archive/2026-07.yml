@@ -31,3 +31,32 @@
       can modify this.
   - rscadd: Storytellers can now change round canonicity in any round they are part
       of. Do this through the Canon panel.
+2026-07-08:
+  Hellfirejag:
+  - refactor: Removed several unused vars from atoms and mobs to save on memory and
+      time.
+  - rscadd: Improved the descriptions of most skills to be more transparent about
+      what they modify and by how much, so that players may make more informed decisions
+      about what skills they wish to take.
+  - rscadd: Tweaked the mech piloting skill to be less punishing on mech maneuverability.
+  - bugfix: Fixed a variety of incomplete destroys which were causing a similar variety
+      of bugs and lag spikes.
+  Wowzewow (Wezzy):
+  - bugfix: Fixes Ministry and Leadership skill ability icon cropping.
+  kano:
+  - bugfix: Fixed garage shutters and a single window in the fabrication section missing
+      firelocks.
+  - qol: Hull window shutters are now down by default. Fabrication and surgery rooms
+      now have their own shutters.
+  - qol: Re-arranges the piping and the vents in the area, so they're simple and no
+      longer obscured.
+  - qol: Re-positions some wall objects.
+  - qol: Adds two portable cooling units and a power outlet to the workshop surgery
+      room as per TGW's feedback.
+  - rscadd: Slight changes to the tile-work.
+  - rscadd: Adds a recharge station inside the workshop.
+  wezzy/alsoandanswer (sprites), kermit (code):
+  - rscadd: Adds customisable Readic racing jackets.
+  - rscadd: Adds New Gibsonite uranium accessories.
+  - rscadd: Adds a New Gibson mining/engineering voidsuit with a modkit.
+  - rscadd: Adds a personalised Readic breath mask.
