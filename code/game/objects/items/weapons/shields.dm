@@ -140,26 +140,57 @@
 	w_class = WEIGHT_CLASS_TINY
 	origin_tech = list(TECH_MATERIAL = 4, TECH_MAGNET = 3, TECH_ILLEGAL = 4)
 	attack_verb = list("shoved", "bashed")
-	var/shield_power = 150
+	var/shield_power = 100
+	var/shield_power_max = 100
 	var/active = FALSE
 	var/next_action
 	var/sound_token
 	var/sound_id
+	var/shield_color = "#64a5ff"
 
 /obj/item/shield/energy/Destroy()
 	QDEL_NULL(sound_token)
+	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
 /obj/item/shield/energy/Initialize()
 	. = ..()
 	sound_id = "[sequential_id(/obj/item/shield/energy)]"
 
-/obj/item/shield/energy/update_icon()
+/obj/item/shield/energy/get_examine_text(mob/user, distance, is_adjacent, infix, suffix, get_extended)
+	. = ..()
+	if(is_adjacent)
+		. += SPAN_NOTICE("Shield power is at [round(shield_power/shield_power_max * 100)]%.")
+
+/obj/item/shield/energy/update_icon(atom/loc)
 	icon_state = "eshield[active]"
+
 	if(active)
-		set_light(1.5, 1.5, "#006AFF")
+		shield_color = rgb(Interpolate(255, 100, shield_power / shield_power_max), Interpolate(0, 160, shield_power / shield_power_max), Interpolate(100, 255, shield_power / shield_power_max))
+		set_light(1.5, 1.5, shield_color)
 	else
+		shield_color = "#ffffff"
 		set_light(0)
+
+	color = shield_color
+
+	if(istype(loc, /mob/living/carbon/human))
+		var/mob/living/carbon/human/H = loc
+		get_mob_overlay(H)
+		H.update_inv_l_hand()
+		H.update_inv_r_hand()
+
+/obj/item/shield/energy/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot, main_call)
+	var/image/I = ..() //this will be the base icon
+	animate(I, color = shield_color, time = 10, easing = EASE_IN)
+	return I
+
+/obj/item/shield/energy/process(seconds_per_tick)
+	shield_power = max(0, min(shield_power += 1, shield_power_max))
+	if(active)
+		update_icon(loc)
+	if (shield_power >= shield_power_max)
+		STOP_PROCESSING(SSprocessing, src)
 
 /obj/item/shield/energy/attack_self(mob/living/user)
 	var/time = world.time
@@ -168,15 +199,12 @@
 	next_action = time + 3 SECONDS
 	active = !active
 	if(active)
-		HandleTurnOn()
+		HandleTurnOn(user)
 	else
-		HandleShutOff()
+		HandleShutOff(user)
 	add_fingerprint(user)
-	update_icon()
-	user.update_inv_l_hand()
-	user.update_inv_r_hand()
 
-/obj/item/shield/energy/handle_shield(mob/user, on_back, damage, atom/damage_source = null, mob/attacker = null, def_zone = null, attack_text = "the attack")
+/obj/item/shield/energy/handle_shield(mob/living/user, on_back, damage, atom/damage_source = null, mob/attacker = null, def_zone = null, attack_text = "the attack")
 	var/shield_dir = on_back ? user.dir : REVERSE_DIR(user.dir)
 
 	if(!active || user.incapacitated() || !(check_shield_arc(user, shield_dir, damage_source, attacker)))
@@ -185,11 +213,13 @@
 	if(prob(get_block_chance(user, damage, damage_source, attacker)))
 		spark(user.loc, 5)
 		shield_power -= round(damage/4)
+		update_icon(user)
+		START_PROCESSING(SSprocessing, src)
 
 		if(shield_power <= 0)
-			visible_message(SPAN_DANGER("\The [user]'s [src.name] overloads!"))
+			visible_message(SPAN_WARNING("\The [user]'s [src.name] overloads!"))
 			active = FALSE
-			HandleShutOff()
+			HandleShutOff(user)
 
 		if(isenergy(damage_source) || isbeam(damage_source))
 			var/obj/projectile/P = damage_source
@@ -230,17 +260,20 @@
 			return (base_block_chance - round(damage / 3))
 	return base_block_chance
 
-/obj/item/shield/energy/proc/HandleTurnOn()
+/obj/item/shield/energy/proc/HandleTurnOn(mob/living/user)
 	addtimer(CALLBACK(src, /obj/item/shield/energy/proc/UpdateSoundLoop), 0.25 SECONDS)
 	playsound(src, 'sound/items/shield/energy/shield-start.ogg', 40)
 	force = 15
 	w_class = WEIGHT_CLASS_BULKY
+	update_icon(user)
+	START_PROCESSING(SSprocessing, src)
 
-/obj/item/shield/energy/proc/HandleShutOff()
+/obj/item/shield/energy/proc/HandleShutOff(mob/living/user)
 	addtimer(CALLBACK(src, /obj/item/shield/energy/proc/UpdateSoundLoop), 0.1 SECONDS)
 	playsound(src, 'sound/items/shield/energy/shield-stop.ogg', 40)
 	force = initial(force)
 	w_class = initial(w_class)
+	update_icon(user)
 
 /obj/item/shield/energy/proc/UpdateSoundLoop()
 	if (!active)
@@ -253,11 +286,12 @@
 	desc = "A Zkrehk-Guild manufactured energy shield capable of protecting the wielder from both material and energy attack."
 	icon_state = "hegemony-eshield0"
 	base_block_chance = 60
+	shield_color = "#e68917"
 
 /obj/item/shield/energy/hegemony/update_icon()
 	icon_state = "hegemony-eshield[active]"
 	if(active)
-		set_light(1.5, 1.5, "#e68917")
+		set_light(1.5, 1.5, shield_color)
 	else
 		set_light(0)
 
@@ -279,11 +313,12 @@
 	desc = "A large deployable energy shield meant to provide excellent protection against ranged attacks."
 	icon_state = "ebarrier0"
 	base_block_chance = 55
+	shield_color = "#33FFFF"
 
 /obj/item/shield/energy/tcaf/update_icon()
 	icon_state = "ebarrier[active]"
 	if(active)
-		set_light(1.5, 1.5, "#33FFFF")
+		set_light(1.5, 1.5, shield_color)
 	else
 		set_light(0)
 
@@ -292,11 +327,12 @@
 	desc = "A hardlight energy shield meant to provide excellent protection in melee engagements."
 	icon_state = "dominian-eshield0"
 	base_block_chance = 60
+	shield_color = "#ff5132"
 
 /obj/item/shield/energy/dominia/update_icon()
 	icon_state = "dominian-eshield[active]"
 	if(active)
-		set_light(1.5, 1.5, "#ff5132")
+		set_light(1.5, 1.5, shield_color)
 	else
 		set_light(0)
 

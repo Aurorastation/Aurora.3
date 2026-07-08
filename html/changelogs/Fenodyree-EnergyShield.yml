@@ -1,0 +1,8 @@
+author: Fenodyree
+
+delete-after: True
+
+changes:
+  - rscadd: "Energy shields now change colour as they take damage."
+  - bugfix: "Fixes holding multiple shields only checking the first one for blocking."
+  - bugfix: "Fixes energy shields not overloading properly."
