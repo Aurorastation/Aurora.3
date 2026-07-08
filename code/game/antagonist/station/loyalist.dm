@@ -40,7 +40,7 @@ GLOBAL_DATUM(loyalists, /datum/antagonist/loyalists)
 		return
 	global_objectives = list()
 	for(var/mob/living/carbon/human/player in GLOB.mob_list)
-		if(!player.mind || player.stat == DEAD || !(player.mind.assigned_role in command_positions))
+		if(!player.mind || player.stat == DEAD || !(player.mind.assigned_role in GLOB.command_positions))
 			continue
 		var/datum/objective/protect/loyal_obj = new
 		loyal_obj.target = player.mind

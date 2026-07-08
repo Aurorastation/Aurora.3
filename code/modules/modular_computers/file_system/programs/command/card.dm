@@ -60,14 +60,14 @@
 
 /datum/computer_file/program/card_mod/ui_static_data(mob/user)
 	var/list/data = list()
-	data["command_support_jobs"] = format_jobs(command_support_positions)
-	data["engineering_jobs"] = format_jobs(engineering_positions)
-	data["medical_jobs"] = format_jobs(medical_positions)
-	data["science_jobs"] = format_jobs(science_positions)
-	data["security_jobs"] = format_jobs(security_positions)
-	data["cargo_jobs"] = format_jobs(cargo_positions)
-	data["service_jobs"] = format_jobs(service_positions)
-	data["civilian_jobs"] = format_jobs(civilian_positions)
+	data["command_support_jobs"] = format_jobs(GLOB.command_support_positions)
+	data["engineering_jobs"] = format_jobs(GLOB.engineering_positions)
+	data["medical_jobs"] = format_jobs(GLOB.medical_positions)
+	data["science_jobs"] = format_jobs(GLOB.science_positions)
+	data["security_jobs"] = format_jobs(GLOB.security_positions)
+	data["cargo_jobs"] = format_jobs(GLOB.cargo_positions)
+	data["service_jobs"] = format_jobs(GLOB.service_positions)
+	data["civilian_jobs"] = format_jobs(GLOB.civilian_positions)
 	data["centcom_jobs"] = format_jobs(get_all_centcom_jobs())
 	return data
 

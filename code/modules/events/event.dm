@@ -62,7 +62,8 @@
 	var/n = 0
 	for(var/mob/living/living in GLOB.player_list)
 		n++
-	if(n <= pop_requirement)
+
+	if(n < pop_requirement)
 		return 0
 
 	if(LAZYISIN(excluded_gamemodes, SSticker.mode.name))
@@ -74,10 +75,9 @@
 	var/minimum_met = TRUE
 	if(minimum_job_requirement)
 		for(var/role in minimum_job_requirement)
-			if(active_with_role[role] >= minimum_job_requirement[role])
-				minimum_met = TRUE
-			else
+			if(!(active_with_role[role] >= minimum_job_requirement[role]))
 				minimum_met = FALSE
+
 	if(minimum_met)
 		for(var/role in role_weights)
 			if(role in active_with_role)

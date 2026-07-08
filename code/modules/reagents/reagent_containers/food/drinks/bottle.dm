@@ -391,7 +391,7 @@
 		return
 
 	///The bonus to success chance that the user gets for being a command role
-	var/command_bonus = (user.mind?.assigned_role in command_positions) ? 20 : 0
+	var/command_bonus = (user.mind?.assigned_role in GLOB.command_positions) ? 20 : 0
 
 	var/job_bonus = user.mind?.assigned_role == "Bartender" ? 25 : 0
 

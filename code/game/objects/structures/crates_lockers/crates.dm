@@ -738,6 +738,9 @@
 	for(var/i in 1 to quantity)
 		new /obj/random/contraband(spawned_crate)
 
+	if(prob(rand(1, 50)))
+		new /obj/random/weapon_and_ammo(spawned_crate)
+
 /obj/structure/closet/crate/extinguisher_cartridges
 	name = "crate of extinguisher cartridges"
 	desc = "Contains a dozen empty extinguisher cartridges."

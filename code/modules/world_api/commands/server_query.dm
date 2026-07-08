@@ -152,16 +152,16 @@
 /datum/topic_command/get_manifest/run_command(queryparams)
 	var/list/positions = list()
 	var/list/set_names = list(
-			"Command" = command_positions,
-			"Command Support" = command_support_positions,
-			"Security" = security_positions,
-			"Engineering" = engineering_positions,
-			"Medical" = medical_positions,
-			"Science" = science_positions,
-			"Operations" = cargo_positions,
-			"Service" = service_positions,
-			"Civilian" = civilian_positions,
-			"Equipment" = nonhuman_positions
+			"Command" = GLOB.command_positions,
+			"Command Support" = GLOB.command_support_positions,
+			"Security" = GLOB.security_positions,
+			"Engineering" = GLOB.engineering_positions,
+			"Medical" = GLOB.medical_positions,
+			"Science" = GLOB.science_positions,
+			"Operations" = GLOB.cargo_positions,
+			"Service" = GLOB.service_positions,
+			"Civilian" = GLOB.civilian_positions,
+			"Equipment" = GLOB.nonhuman_positions
 		)
 
 	for(var/datum/record/general/R in SSrecords.records)

@@ -160,21 +160,21 @@ GLOBAL_LIST_INIT(severity_to_string, alist(EVENT_LEVEL_MUNDANE = "Mundane", EVEN
 				else if(istype(R.module, /obj/item/robot_module/research))
 					active_with_role[ASSIGNMENT_SCIENTIST]++
 
-		if(M.mind.assigned_role in engineering_positions)
+		if(M.mind.assigned_role in GLOB.engineering_positions)
 			active_with_role[ASSIGNMENT_ENGINEER]++
 
-		if(M.mind.assigned_role in medical_positions)
+		if(M.mind.assigned_role in GLOB.medical_positions)
 			active_with_role[ASSIGNMENT_MEDICAL]++
 			if(M.mind.assigned_role == ASSIGNMENT_SURGEON)
 				active_with_role[ASSIGNMENT_SURGEON]++
 
-		if(M.mind.assigned_role in security_positions)
+		if(M.mind.assigned_role in GLOB.security_positions)
 			active_with_role[ASSIGNMENT_SECURITY]++
 
-		if(M.mind.assigned_role in science_positions)
+		if(M.mind.assigned_role in GLOB.science_positions)
 			active_with_role[ASSIGNMENT_SCIENTIST]++
 
-		if(M.mind.assigned_role in command_support_positions)
+		if(M.mind.assigned_role in GLOB.command_support_positions)
 			active_with_role[ASSIGNMENT_COMMAND_SUPPORT]++
 			if(M.mind.assigned_role == ASSIGNMENT_BRIDGE_CREW)
 				active_with_role[ASSIGNMENT_BRIDGE_CREW]++
@@ -357,8 +357,8 @@ GLOBAL_LIST_INIT(severity_to_string, alist(EVENT_LEVEL_MUNDANE = "Mundane", EVEN
 			135),
 
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Blob", /datum/event/blob,
-			5, list(ASSIGNMENT_ENGINEER = 10), TRUE, minimum_job_requirement_list = list(ASSIGNMENT_ENGINEER = 2),
-			pop_needed = 10),
+			5, list(ASSIGNMENT_ENGINEER = 15), TRUE, minimum_job_requirement_list = list(ASSIGNMENT_ENGINEER = 1),
+			pop_needed = 1),
 
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Electrical Storm", /datum/event/electrical_storm,
 			10, list(ASSIGNMENT_AI = 10, ASSIGNMENT_ENGINEER = 10, ASSIGNMENT_JANITOR = 10)),
