@@ -43,7 +43,6 @@
 	psi_pingable = TRUE
 
 	attack_vis_effect = ATTACK_EFFECT_DISARM
-	smart_melee = TRUE
 	smart_ranged = FALSE
 
 	var/list/cursed_messages = list("DRINK DEEPLY OF THE FINAL NIGHT.",

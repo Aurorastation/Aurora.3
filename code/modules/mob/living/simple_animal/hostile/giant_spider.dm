@@ -43,7 +43,6 @@
 	pass_flags = PASSTABLE
 	speed = 6
 	mob_size = 6
-	smart_melee = FALSE
 
 	attacktext = "bites"
 	attack_vis_effect = ATTACK_EFFECT_BITE
@@ -111,7 +110,6 @@
 	venom_per_bite = 5
 	speed = 4
 	sample_data = list("Genetic markers identified as being linked with stem cell differentiaton", "Cellular biochemistry shows high metabolic capacity")
-	smart_melee = TRUE
 
 /mob/living/simple_animal/hostile/giant_spider/emp
 	name = "greimorian jackal"
@@ -128,7 +126,6 @@
 	venom_per_bite = 2
 	speed = 5
 	sample_data = list("Genetic markers identified as being linked with stem cell differentiaton", "Cellular biochemistry geared towards creating strong electrical potential differences")
-	smart_melee = TRUE
 
 /mob/living/simple_animal/hostile/giant_spider/bombardier
 	name = "greimorian bombardier"
@@ -147,7 +144,6 @@
 	venom_per_bite = 2
 	speed = 5
 	sample_data = list("Genetic markers identified as being linked with stem cell differentiaton", "Exocrinic acid synthesis detected")
-	smart_melee = TRUE
 
 /mob/living/simple_animal/hostile/giant_spider/bombardier/Shoot(var/target, var/start, var/mob/user, var/bullet = 0)
 	if(target == start)
