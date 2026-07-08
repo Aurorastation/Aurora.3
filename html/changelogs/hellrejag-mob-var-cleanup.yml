@@ -1,4 +1,0 @@
-author: Hellfirejag
-delete-after: True
-changes:
-  - refactor: "Removed several unused vars from atoms and mobs to save on memory and time."
