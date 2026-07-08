@@ -56,7 +56,7 @@
 		last_load_error = "unable to normalize map source ([describe_map_source()])"
 		return FALSE
 
-	var/datum/map_load_metadata/M = maploader.load_map_impl(map_source, 1, 1, cropMap = FALSE, measureOnly = TRUE, no_changeturf = TRUE, cache_metadata = cache)
+	var/datum/map_load_metadata/M = maploader.load_map_impl(map_source, 1, 1, 1, cropMap = FALSE, measureOnly = TRUE, no_changeturf = TRUE, cache_metadata = cache)
 	if(M)
 		bounds = extend_bounds_if_needed(bounds, M.bounds)
 		if(cache)
@@ -104,11 +104,13 @@
 		return null
 
 	var/key
+	var/found_marker = FALSE
 	var/list/models = cached_map.grid_models
 	for(key in models)
 		if(findtext(models[key], "[marker]")) // Yay compile time checks
+			found_marker = TRUE
 			break // This works by assuming there will ever only be one mobile dock in a template at most
-	if(!key)
+	if(!found_marker)
 		return null
 
 	for(var/datum/grid_set/gset as anything in cached_map.gridSets)

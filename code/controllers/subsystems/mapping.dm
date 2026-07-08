@@ -169,6 +169,10 @@ SUBSYSTEM_DEF(mapping)
 		prepared_block += reservation_turf
 		CHECK_TICK
 
+	// Gotta create these suckers if we've not done so already
+	if(SSatoms.initialized)
+		SSatoms.InitializeAtoms(Z_TURFS(z))
+
 	unused_turfs["[z]"] = prepared_block
 	reservation_ready["[z]"] = TRUE
 	clearing_reserved_turfs = FALSE

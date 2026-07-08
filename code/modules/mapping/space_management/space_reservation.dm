@@ -66,7 +66,8 @@
 		SEND_SIGNAL(released_turf, COMSIG_TURF_RESERVATION_RELEASED, src)
 		released_turf.blocks_air = TRUE
 
-	SSmapping.reserve_turfs(release_turfs)
+	// Makes the linter happy, even tho we don't await this
+	INVOKE_ASYNC(SSmapping, TYPE_PROC_REF(/datum/controller/subsystem/mapping, reserve_turfs), release_turfs)
 
 /datum/turf_reservation/proc/calculate_cordon_turfs(turf/bottom_left, turf/top_right)
 	if(bottom_left.x < 2 || bottom_left.y < 2 || top_right.x > (world.maxx - 2) || top_right.y > (world.maxy - 2))
