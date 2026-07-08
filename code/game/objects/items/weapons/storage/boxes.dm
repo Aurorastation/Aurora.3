@@ -959,6 +959,20 @@
 		var/type = pick(utensils)
 		new type(src)
 
+/obj/item/storage/box/large/tableware
+	name = "assorted tableware"
+	illustration = "bowl"
+	color = COLOR_PALE_GREEN_GRAY
+	max_storage_space = DEFAULT_LARGEBOX_STORAGE
+	desc = "Contains plates, bowls, and basic cutlery sets."
+	starts_with = list(
+		/obj/item/material/kitchen/utensil/fork = 3,
+		/obj/item/material/kitchen/utensil/spoon = 3,
+		/obj/item/material/kitchen/utensil/knife = 3,
+		/obj/item/reagent_containers/bowl = 3,
+		/obj/item/reagent_containers/bowl/plate = 3
+	)
+
 /obj/item/storage/box/snack
 	name = "rations box"
 	illustration = "snack"
