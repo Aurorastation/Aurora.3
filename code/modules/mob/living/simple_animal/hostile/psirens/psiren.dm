@@ -43,7 +43,7 @@
 	psi_pingable = TRUE
 	meat_amount = 1
 	meat_type = /obj/item/reagent_containers/food/snacks/squidmeat/psiren_tentacle_meat
-	butchering_products = list(/obj/item/reagent_containers/food/snacks/fish/psiren_body_meat = 1)
+	butchering_products = list(/obj/item/reagent_containers/food/snacks/squidmeat/psiren_body_meat = 1)
 
 	attack_vis_effect = ATTACK_EFFECT_DISARM
 	smart_melee = TRUE
