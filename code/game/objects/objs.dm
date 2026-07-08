@@ -62,31 +62,6 @@
 	/// The sound this tool makes in surgery.
 	var/surgerysound
 
-	/* START BUCKLING VARS */
-	/// A list of things that can buckle to this atom.
-	var/list/can_buckle
-	/// If the buckled atom can move, and thus face directions.
-	var/buckle_movable = 0
-	/// The direction forced on a buckled atom.
-	var/buckle_dir = 0
-	/// Causes bed-like behavior, forces mob.lying = buckle_lying if != -1.
-	var/buckle_lying = -1
-	/// Require people to be handcuffed before being able to buckle. eg: pipes.
-	var/buckle_require_restraints = 0
-	/// The atom buckled to us.
-	var/atom/movable/buckled = null
-	/**
-	* Stores the original layer of a buckled atom.
-	*
-	* Set in `/obj/proc/buckle` when the atom's layer is adjusted.
-	*
-	* Used in `/unbuckle()` to restore the original layer.
-	*/
-	var/buckled_original_layer = null
-	/// How much extra time to buckle someone to this object.
-	var/buckle_delay = 0
-	/* END BUCKLING VARS */
-
 	/* START ACCESS VARS */
 	/// Required access.
 	var/list/req_access
@@ -452,3 +427,6 @@
  */
 /obj/proc/persistent_objects_apply_content(content, x, y, z)
 	return
+
+/obj/get_object_size()
+	return w_class

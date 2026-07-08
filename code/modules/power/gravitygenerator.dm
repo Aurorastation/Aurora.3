@@ -72,6 +72,7 @@
 	return main_part.get_status()
 
 /obj/structure/machinery/gravity_generator/part/attack_hand(mob/user as mob)
+	. = ..()
 	return main_part.attack_hand(user)
 
 /obj/structure/machinery/gravity_generator/part/set_broken()
@@ -486,7 +487,7 @@
 		if(M.z in connected_z_levels)
 			if(ishuman(M))
 				var/mob/living/carbon/human/H = M
-				var/obj/item/clothing/shoes/magboots/boots = H.get_equipped_item(slot_shoes)
+				var/obj/item/clothing/shoes/magboots/boots = H.get_equipped_item(slot_shoes_str)
 				if(istype(boots) || H.buckled_to)
 					to_chat(M, SPAN_WARNING("You feel a surge of nausea and g-force, but you avoid being thrown around!"))
 					continue

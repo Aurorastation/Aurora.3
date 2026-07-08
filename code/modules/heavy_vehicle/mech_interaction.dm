@@ -575,6 +575,7 @@
 	return ..()
 
 /mob/living/heavy_vehicle/attack_hand(var/mob/user)
+	. = ..()
 	// Try to attack on harm intent.
 	if(user.a_intent == I_HURT)
 		attack_generic(user)

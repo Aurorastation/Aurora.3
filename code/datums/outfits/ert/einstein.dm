@@ -84,7 +84,7 @@
 /obj/outfit/admin/ert/einstein/leader
 	name = "Einstein Squad Leader"
 	back = /obj/item/rig/merc/einstein
-	l_hand = /obj/item/gun/energy/gun/nuclear
+	hands = list(/obj/item/gun/energy/gun/nuclear)
 	suit_store = null
 	suit = null
 	head = null

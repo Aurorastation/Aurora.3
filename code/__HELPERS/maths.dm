@@ -361,3 +361,35 @@
 #define BEARING_RELATIVE(observer_x, observer_y, target_x, target_y) (90 - Atan2(target_x - observer_x, target_y - observer_y))
 
 #define ISINTEGER(x) (round(x) == x)
+
+#define MODULATE_LIST(L, M) for(var/_idx in 1 to length(L)) { L[_idx] *= M; }
+
+/**
+ * Takes either a list of, or one, decimal number(s).
+ * If giving a list, all numbers need to be the same value.
+ * Rounds them up or down such that the "slope" of the values roughly matches the decimal value passed in.
+ * If given a single value, will round it up X% of the time, where X is the fractional component of the decimal value.
+ */
+/proc/error_correct_round(list/decimal)
+	if(!islist(decimal))
+		if(isnum(decimal))
+			decimal = list(decimal)
+		else
+			return 0
+
+	var/error = 0
+	for(var/i in 1 to length(decimal))
+		var/scaled = decimal[i]
+		var/base = floor(scaled)
+		var/frac = scaled - base
+		error += frac
+
+		if(error >= 1)
+			error--
+			base++
+		decimal[i] = base
+
+	if(length(decimal) == 1) // if we only have one value, we error correct on probability, and return the number rather than a 1-length list
+		return prob(error * 100) ? (decimal[1] + 1) : decimal[1]
+
+	return decimal

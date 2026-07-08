@@ -357,6 +357,7 @@
 	light_power_on = 1
 
 /obj/structure/machinery/computer/ship/navigation/attack_hand(mob/user)
+	. = ..()
 	if(stat & (NOPOWER|BROKEN))
 		return FALSE
 	if(use_check_and_message(user))

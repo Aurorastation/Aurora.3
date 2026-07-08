@@ -1,7 +1,7 @@
 //////Kitchen Spike
 
 /obj/structure/kitchenspike
-	name = "a meat spike"
+	name = "meat spike"
 	icon = 'icons/obj/kitchen.dmi'
 	icon_state = "spike"
 	desc = "A spike for collecting meat from animals."
@@ -13,19 +13,19 @@
 	var/meat_type
 	var/victim_name = "corpse"
 
-/obj/structure/kitchenspike/attackby(obj/item/attacking_item, mob/user)
-	var/obj/item/grab/G = attacking_item
-	if(!istype(G) || !G.affecting)
-		return
+/obj/structure/kitchenspike/grab_attack(obj/item/grab/G, mob/user)
 	if(occupied)
-		to_chat(user, SPAN_DANGER("The spike already has something on it, finish collecting its meat first!"))
-	else
-		if(spike(G.affecting))
-			visible_message(SPAN_DANGER("[user] has forced [G.affecting] onto the spike, killing them instantly!"))
-			qdel(G.affecting)
-			qdel(G)
-		else
-			to_chat(user, SPAN_DANGER("They are too big for the spike, try something smaller!"))
+		to_chat(user, SPAN_DANGER("\The [src] already has something on it, finish collecting its meat first!"))
+		return FALSE
+
+	if(iscarbon(G.grabbed) && spike(G.grabbed))
+		visible_message(SPAN_DANGER("[user] has forced [G.grabbed] onto the spike, killing [G.grabbed.get_pronoun("him")] instantly!"))
+		qdel(G.grabbed)
+		qdel(G)
+		return TRUE
+
+	to_chat(user, SPAN_DANGER("You cannot fit [G.grabbed] onto \the [src]!"))
+	return FALSE
 
 /obj/structure/kitchenspike/proc/spike(var/mob/living/victim)
 

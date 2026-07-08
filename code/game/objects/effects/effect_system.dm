@@ -14,6 +14,13 @@ would spawn and follow the beaker, even if it is carried or thrown.
 	pass_flags = PASSTABLE | PASSGRILLE
 	blocks_emissive = EMISSIVE_BLOCK_GENERIC
 
+/obj/effect/Destroy()
+	QDEL_NULL(reagents)
+	return ..()
+
+/obj/effect/attack_hand(mob/user)
+	SHOULD_CALL_PARENT(FALSE)
+
 /datum/effect/effect/system
 	var/number = 3
 	var/cardinals = 0

@@ -230,6 +230,7 @@
 	qdel(src)
 
 /obj/structure/sign/flag/attack_hand(mob/user)
+	. = ..()
 	switch(user.a_intent)
 		if(I_HELP)
 			examinate(user, src)

@@ -65,6 +65,7 @@
 			undeploy()
 
 /obj/structure/survey_probe/attack_hand(mob/user as mob)
+	. = ..()
 	if(timer_id)
 		to_chat(user, SPAN_NOTICE("\The [src] is active."))
 		return

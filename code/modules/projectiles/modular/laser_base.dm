@@ -278,7 +278,7 @@
 /obj/item/laser_components/capacitor/proc/small_fail(var/mob/living/user, var/obj/item/gun/energy/laser/prototype/prototype)
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-		var/active_hand = H.hand
+		var/active_hand = H.get_active_hand()
 		var/shock_damage = round(damage * 0.25 *prototype.criticality) + rand(-5, 5)
 		if(active_hand)
 			H.electrocute_act(shock_damage, prototype, def_zone = BP_L_HAND, tesla_shock = 0)
@@ -293,7 +293,7 @@
 /obj/item/laser_components/capacitor/proc/medium_fail(var/mob/living/user, var/obj/item/gun/energy/laser/prototype/prototype)
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-		var/active_hand = H.hand
+		var/active_hand = H.get_active_hand()
 		var/shock_damage = round(damage * 0.5 *prototype.criticality) + rand(-5, 5)
 		if(active_hand)
 			H.electrocute_act(shock_damage, prototype, def_zone = BP_L_HAND, tesla_shock = 0)
@@ -308,7 +308,7 @@
 /obj/item/laser_components/capacitor/proc/critical_fail(var/mob/living/user, var/obj/item/gun/energy/laser/prototype/prototype)
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-		var/active_hand = H.hand
+		var/active_hand = H.get_active_hand()
 		var/shock_damage = round(damage * prototype.criticality) + rand(-5, 5)
 		if(active_hand)
 			H.electrocute_act(shock_damage, prototype, def_zone = BP_L_HAND, tesla_shock = 0)

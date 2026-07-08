@@ -867,6 +867,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 
 // attack with hand - remove cell (if cover open) or interact with the APC
 /obj/structure/machinery/power/apc/attack_hand(mob/user)
+	. = ..()
 	if(!user)
 		return
 	add_fingerprint(user)

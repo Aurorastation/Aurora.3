@@ -70,6 +70,7 @@
 	icon_state = "light[active]"
 
 /obj/structure/machinery/button/switch/attack_hand()
+	. = ..()
 	playsound(src, SFX_BUTTON, 30)
 	intent_message(BUTTON_FLICK, 5)
 

@@ -18,7 +18,6 @@
 	toxins_mod = 1.2
 	bleed_mod = 0.5
 	grab_mod = 1.1
-	resist_mod = 0.75
 
 	warning_low_pressure = 30
 	hazard_low_pressure = 10
@@ -26,7 +25,7 @@
 	examine_color = "#C2AE95"
 
 /datum/species/human/offworlder/equip_later_gear(var/mob/living/carbon/human/H)
-	if(istype(H.get_equipped_item(slot_back), /obj/item/storage/backpack) && H.equip_to_slot_or_del(new /obj/item/storage/pill_bottle/rmt(H.back), slot_in_backpack))
+	if(istype(H.get_equipped_item(slot_back_str), /obj/item/storage/backpack) && H.equip_to_slot_or_del(new /obj/item/storage/pill_bottle/rmt(H.back), slot_in_backpack_str))
 		return
 	var/obj/item/storage/pill_bottle/rmt/PB = new /obj/item/storage/pill_bottle/rmt(get_turf(H))
 	H.put_in_hands(PB)

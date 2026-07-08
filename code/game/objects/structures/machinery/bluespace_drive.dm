@@ -566,7 +566,8 @@
 
 
 /obj/structure/machinery/computer/bluespacedrivecontrol/attack_hand(mob/user)
-		ui_interact(user)
+	. = ..()
+	ui_interact(user)
 
 /// Signal handler for when the linked bluespace drive is deleted
 /obj/structure/machinery/computer/bluespacedrivecontrol/proc/handle_drive_deletion()
@@ -670,7 +671,8 @@
 		ui.open()
 
 /obj/structure/machinery/computer/bluespacedrivejump/attack_hand(mob/user)
-		ui_interact(user)
+	. = ..()
+	ui_interact(user)
 
 /// Signal handler for when the linked bluespace drive is deleted
 /obj/structure/machinery/computer/bluespacedrivejump/proc/handle_drive_deletion()

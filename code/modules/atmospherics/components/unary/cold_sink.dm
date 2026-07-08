@@ -80,6 +80,7 @@
 	ui_interact(user)
 
 /obj/structure/machinery/atmospherics/unary/freezer/attack_hand(mob/user)
+	. = ..()
 	ui_interact(user)
 
 /obj/structure/machinery/atmospherics/unary/freezer/ui_interact(mob/user, var/datum/tgui/ui)

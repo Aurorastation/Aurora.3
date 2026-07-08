@@ -341,7 +341,7 @@ GLOBAL_LIST_EMPTY(character_id_to_custom_items_mapping)
 		if(target_mob.equip_to_storage(newitem))
 			return TRUE
 
-		if(target_mob.put_in_any_hand_if_possible(newitem))
+		if(target_mob.put_in_hands(newitem))
 			return TRUE
 
 		newitem.forceMove(get_turf(target_mob.loc))

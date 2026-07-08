@@ -39,40 +39,10 @@
 #define ALWAYSDRAW		0x2000//If set, this item is always rendered even if its slot is hidden by other clothing
 //Note that the item may still not be visible if its sprite is actually covered up.
 
-// Slots.
-#define slot_first		 1
-#define slot_back        2
-#define slot_wear_mask   3
-#define slot_handcuffed  4
-#define slot_l_hand      5
-#define slot_r_hand      6
-#define slot_belt        7
-#define slot_wear_id     8
-#define slot_l_ear       9
-#define slot_glasses     10
-#define slot_gloves      11
-#define slot_head        12
-#define slot_shoes       13
-#define slot_wear_suit   14
-#define slot_w_uniform   15
-#define slot_l_store     16
-#define slot_r_store     17
-#define slot_s_store     18
-#define slot_in_backpack 19
-#define slot_legcuffed   20
-#define slot_r_ear       21
-#define slot_pants       22
-#define slot_tie         23
-#define slot_in_belt     24
-#define slot_wrists      25
-#define slot_last		 26 //for the love of god, keep this updated or you won't be able to unequip things
-
 // Inventory slot strings.
 // since numbers cannot be used as associative list keys.
 //icon_back, icon_l_hand, etc would be much better names for these...
 #define slot_back_str		"slot_back"
-#define slot_l_hand_str		"slot_l_hand"
-#define slot_r_hand_str		"slot_r_hand"
 #define slot_wear_id_str	"slot_wear_id"
 #define slot_w_uniform_str	"slot_w_uniform"
 #define slot_s_store_str	"slot_s_store"
@@ -88,6 +58,41 @@
 #define slot_wrists_str 	"slot_wrists"
 #define slot_gloves_str 	"slot_gloves"
 #define slot_tail_str		"slot_tail"
+#define slot_handcuffed_str	"slot_handcuffed"
+#define slot_l_store_str	"slot_l_store"
+#define slot_r_store_str	"slot_r_store"
+#define slot_legcuffed_str	"slot_legcuffed"
+#define slot_tie_str		"slot_tie"
+
+// fake slots
+#define slot_in_backpack_str "slot_in_backpack"
+#define slot_in_belt_str	"slot_in_belt"
+
+GLOBAL_LIST_INIT(all_inventory_slots, list(
+	slot_back_str,
+	BP_L_HAND,
+	BP_R_HAND,
+	slot_wear_id_str,
+	slot_w_uniform_str,
+	slot_s_store_str,
+	slot_head_str,
+	slot_glasses_str,
+	slot_wear_mask_str,
+	slot_belt_str,
+	slot_wear_suit_str,
+	slot_l_ear_str,
+	slot_r_ear_str,
+	slot_pants_str,
+	slot_shoes_str,
+	slot_wrists_str,
+	slot_gloves_str,
+	slot_tail_str,
+	slot_handcuffed_str,
+	slot_l_store_str,
+	slot_r_store_str,
+	slot_legcuffed_str,
+	slot_tie_str,
+))
 
 //itemstate suffixes. Used for containedsprite worn items
 #define WORN_LHAND	"_lh"
@@ -112,24 +117,40 @@
 #define WORN_ACCESS	"_ac"
 
 // Bitflags for clothing parts.
-#define HEAD        0x1
-#define FACE        0x2
-#define EYES        0x4
-#define UPPER_TORSO 0x8
-#define LOWER_TORSO 0x10
-#define LEG_LEFT    0x20
-#define LEG_RIGHT   0x40
-#define LEGS        0x60   //  LEG_LEFT | LEG_RIGHT
-#define FOOT_LEFT   0x80
-#define FOOT_RIGHT  0x100
-#define FEET        0x180  // FOOT_LEFT | FOOT_RIGHT
-#define ARM_LEFT    0x200
-#define ARM_RIGHT   0x400
-#define ARMS        0x600 //  ARM_LEFT | ARM_RIGHT
-#define HAND_LEFT   0x800
-#define HAND_RIGHT  0x1000
-#define HANDS       0x1800 // HAND_LEFT | HAND_RIGHT
-#define FULL_BODY   0xFFFF
+#define HEAD        BITFLAG(0)
+#define FACE        BITFLAG(1)
+#define EYES        BITFLAG(2)
+#define UPPER_TORSO BITFLAG(3)
+#define LOWER_TORSO BITFLAG(4)
+#define LEG_LEFT    BITFLAG(5)
+#define LEG_RIGHT   BITFLAG(6)
+#define LEGS        (LEG_LEFT | LEG_RIGHT)
+#define FOOT_LEFT   BITFLAG(7)
+#define FOOT_RIGHT  BITFLAG(8)
+#define FEET        (FOOT_LEFT | FOOT_RIGHT)
+#define ARM_LEFT    BITFLAG(9)
+#define ARM_RIGHT   BITFLAG(10)
+#define ARMS        (ARM_LEFT | ARM_RIGHT)
+#define HAND_LEFT   BITFLAG(11)
+#define HAND_RIGHT  BITFLAG(12)
+#define HANDS       (HAND_LEFT | HAND_RIGHT)
+#define FULL_BODY   (HEAD | FACE | EYES | UPPER_TORSO | LOWER_TORSO | LEGS | FEET | ARMS | HANDS)
+
+GLOBAL_LIST_INIT(bp_to_coverage, list(
+	BP_HEAD = HEAD,
+	BP_EYES = EYES,
+	BP_MOUTH = FACE,
+	BP_CHEST = UPPER_TORSO,
+	BP_GROIN = LOWER_TORSO,
+	BP_L_ARM = ARM_LEFT,
+	BP_R_ARM = ARM_RIGHT,
+	BP_L_HAND = HAND_LEFT,
+	BP_R_HAND = HAND_RIGHT,
+	BP_L_LEG = LEG_LEFT,
+	BP_R_LEG = LEG_RIGHT,
+	BP_L_FOOT = FOOT_LEFT,
+	BP_R_FOOT = FOOT_RIGHT
+))
 
 // Bitflags for the percentual amount of protection a piece of clothing which covers the body part offers.
 // Used with human/proc/get_heat_protection() and human/proc/get_cold_protection().

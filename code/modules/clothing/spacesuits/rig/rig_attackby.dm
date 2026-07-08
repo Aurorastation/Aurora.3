@@ -129,10 +129,7 @@
 				to_chat(user, SPAN_WARNING("There is no tank to remove."))
 				return
 
-			if(user.r_hand && user.l_hand)
-				air_supply.forceMove(get_turf(user))
-			else
-				user.put_in_hands(air_supply)
+			user.put_in_hands(air_supply)
 			to_chat(user, SPAN_NOTICE("You detach and remove \the [air_supply]."))
 			air_supply = null
 			return

@@ -44,6 +44,7 @@
 	pixel_y = pixel_shifts[2]
 
 /obj/effect/plastic_explosive/attack_hand(mob/living/user)
+	SHOULD_CALL_PARENT(FALSE)
 	to_chat(user, SPAN_WARNING("\The [src] is solidly attached, it doesn't budge!"))
 
 /obj/effect/plastic_explosive/attackby(obj/item/attacking_item, mob/user)

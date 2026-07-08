@@ -13,7 +13,7 @@
 	account_allowed = 0
 	economic_modifier = 0
 
-/datum/job/ai/equip(var/mob/living/carbon/human/H, var/alt_title)
+/datum/job/ai/equip(var/mob/living/carbon/human/H, visualsOnly, announce, alt_title, obj/outfit/outfit_override)
 		if(!H)	return 0
 		return 1
 
@@ -49,7 +49,7 @@
 	account_allowed = 0
 	economic_modifier = 0
 
-/datum/job/cyborg/equip(var/mob/living/carbon/human/H, var/alt_title)
+/datum/job/cyborg/equip(var/mob/living/carbon/human/H, visualsOnly, announce, alt_title, obj/outfit/outfit_override)
 	if(!H)
 		return FALSE
 	return TRUE
@@ -58,9 +58,9 @@
 	var/equip_preview_mob = prefs.equip_preview_mob
 
 	if(equip_preview_mob & EQUIP_PREVIEW_JOB_HAT)
-		H.equip_to_slot_or_del(new /obj/item/clothing/head/cardborg(H), slot_head)
+		H.equip_to_slot_or_del(new /obj/item/clothing/head/cardborg(H), slot_head_str)
 
 	if(equip_preview_mob & EQUIP_PREVIEW_JOB_SUIT)
-		H.equip_to_slot_or_del(new /obj/item/clothing/suit/cardborg(H), slot_wear_suit)
+		H.equip_to_slot_or_del(new /obj/item/clothing/suit/cardborg(H), slot_wear_suit_str)
 
 	return TRUE

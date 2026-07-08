@@ -40,6 +40,7 @@
 	src.ui_interact(user)
 
 /obj/structure/machinery/embedded_controller/attack_hand(mob/user as mob)
+	. = ..()
 	if(checks_for_access)
 		if(!allowed(user))
 			to_chat(user, SPAN_WARNING("Access denied."))

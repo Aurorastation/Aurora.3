@@ -215,6 +215,9 @@
 		grip_item(target, user)
 	else if (istype(target, /obj/structure/machinery/mining)) // to prevent them from activating it by accident
 		return
+	else if(ismovableatom(target) && LAZYACCESS(params, CTRL_CLICK))
+		var/atom/movable/AM = target
+		AM.try_make_grab(user)
 	else
 		target.attack_ai(user)
 

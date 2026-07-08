@@ -8,27 +8,16 @@ ABSTRACT_TYPE(/obj/item/package)
 	force = 15
 	slowdown = 0.5
 
-/obj/item/package/proc/wield(var/mob/living/carbon/human/user)
-	var/obj/A = user.get_inactive_hand()
-	if(A)
-		to_chat(user, SPAN_WARNING("Your other hand is occupied!"))
-		return
-	item_state += "_wielded"
-	var/obj/item/offhand/O = new(user)
-	O.name = "[initial(name)] - offhand"
-	O.desc = "Your second grip on \the [initial(name)]."
-	user.put_in_inactive_hand(O)
-
 /obj/item/package/dropped(mob/user)
 	..()
 	item_state = initial(item_state)
 	if(user)
-		var/obj/item/offhand/O = user.get_inactive_hand()
+		var/obj/item/offhand/O = user.get_held_type(/obj/item/offhand, TRUE)
 		if(istype(O))
 			O.unwield()
 
 /obj/item/package/can_swap_hands(var/mob/user)
-	var/obj/item/offhand/O = user.get_inactive_hand()
+	var/obj/item/offhand/O = user.get_held_type(/obj/item/offhand, TRUE)
 	if(istype(O))
 		return FALSE
 	return TRUE
@@ -40,11 +29,9 @@ ABSTRACT_TYPE(/obj/item/package)
 	if(!ishuman(user))
 		return FALSE
 
-	if(user.species.mob_size < 12)
-		var/obj/A = user.get_inactive_hand()
-		if(A)
-			to_chat(user, SPAN_WARNING("Your other hand is occupied!"))
-			return
+	if(user.species.mob_size < 12 && length(user.get_empty_hand_slots()) <= 1)
+		to_chat(user, SPAN_WARNING("You need a free hand!"))
+		return
 
 	user.visible_message("<b>[user]</b> tightens their grip on \the [src] and starts heaving...", SPAN_NOTICE("You tighten your grip on \the [src] and start heaving..."))
 	if(do_after(user, 1 SECONDS, src, DO_UNIQUE))
@@ -60,6 +47,16 @@ ABSTRACT_TYPE(/obj/item/package)
 
 		return TRUE
 	return FALSE
+
+/obj/item/package/proc/wield(var/mob/living/carbon/human/user)
+	if(length(user.get_empty_hand_slots()) <= 1)
+		to_chat(user, SPAN_WARNING("You need a free hand!"))
+		return
+	item_state += "_wielded"
+	var/obj/item/offhand/O = new(user)
+	O.name = "[initial(name)] - offhand"
+	O.desc = "Your second grip on \the [initial(name)]."
+	user.put_in_inactive_hand(O)
 
 /obj/item/package/delivery
 	name = "cargo package"

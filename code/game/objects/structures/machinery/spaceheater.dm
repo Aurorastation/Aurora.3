@@ -7,6 +7,7 @@
 	density = TRUE
 	use_power = POWER_USE_OFF
 	clicksound = SFX_SWITCH
+	movable_flags = MOVABLE_FLAG_WHEELED
 	light_system = MOVABLE_LIGHT
 	var/on = FALSE
 	/// Currently heating or cooling the environment, if on, and by how much (in terms of heat transfer).
@@ -107,6 +108,7 @@
 	return ..()
 
 /obj/structure/machinery/space_heater/attack_hand(mob/user)
+	. = ..()
 	src.add_fingerprint(user)
 	if(panel_open)
 		if(cell)

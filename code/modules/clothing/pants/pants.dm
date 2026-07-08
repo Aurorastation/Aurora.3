@@ -21,7 +21,7 @@ ABSTRACT_TYPE(/obj/item/clothing/pants)
 
 /obj/item/clothing/pants/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
 	var/image/I = ..()
-	if(slot == slot_l_hand_str || slot == slot_r_hand_str)
+	if(slot in H.held_item_slots)
 		for(var/obj/item/clothing/accessory/A in accessories)
 			A.accessory_mob_overlay.ClearOverlays()
 	else
@@ -29,10 +29,10 @@ ABSTRACT_TYPE(/obj/item/clothing/pants)
 			var/image/accessory_image = A.get_accessory_mob_overlay(H, FALSE, src)
 			I.AddOverlays(accessory_image)
 
-	if(blood_DNA && slot != slot_l_hand_str && slot != slot_r_hand_str)
-		var/image/bloodsies = image(icon = H.species.blood_mask, icon_state = "pantsblood")
-		bloodsies.color = blood_color
-		I.AddOverlays(bloodsies)
+		if(blood_DNA)
+			var/image/bloodsies = image(icon = H.species.blood_mask, icon_state = "pantsblood")
+			bloodsies.color = blood_color
+			I.AddOverlays(bloodsies)
 	return I
 
 /obj/item/clothing/pants/update_clothing_icon()

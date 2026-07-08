@@ -147,9 +147,9 @@
 		playsound(src.loc, pick('sound/hallucinations/wail.ogg','sound/hallucinations/veryfar_noise.ogg','sound/hallucinations/far_noise.ogg'), 50, 1, -3)
 		nearby_mobs.Add(M)
 
-		var/target = pick(M.organs_by_name)
+		var/obj/item/organ/target = pick(M.organs_by_name)
 		M.apply_damage(rand(5, 10), DAMAGE_BRUTE, target)
-		to_chat(M, SPAN_WARNING("The skin on your [parse_zone(target)] feels like it's ripping apart, and a stream of blood flies out."))
+		to_chat(M, SPAN_WARNING("The skin on your [target.name] feels like it's ripping apart, and a stream of blood flies out."))
 		var/obj/effect/decal/cleanable/blood/splatter/animated/B = new(M.loc)
 		B.target_turf = pick(seen_turfs_in_range(src, 1))
 		B.blood_DNA = list()

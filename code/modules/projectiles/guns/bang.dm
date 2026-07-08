@@ -98,7 +98,7 @@ ABSTRACT_TYPE(/obj/item/gun/bang)
 			balloon_alert(user, "already has a suppressor!")
 			return
 
-		if(user.l_hand != attacking_item && user.r_hand != attacking_item)
+		if(user.get_active_hand() != attacking_item && !(attacking_item in user.get_inactive_held_items()))
 			balloon_alert(user, "not in hand!")
 			return
 

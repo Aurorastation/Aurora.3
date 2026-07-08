@@ -205,6 +205,5 @@
 			AM.forceMove(T)
 			if(isliving(AM))
 				var/mob/living/L = bumped_atom
-				if(L.pulling)
-					var/atom/movable/pulling = L.pulling
-					pulling.forceMove(T)
+				for(var/obj/item/grab/G as anything in L.get_active_grabs())
+					G.grabbed.forceMove(T)

@@ -473,6 +473,7 @@ update_flag
 	return src.attack_hand(user)
 
 /obj/structure/machinery/portable_atmospherics/canister/attack_hand(var/mob/user as mob)
+	. = ..()
 	return src.ui_interact(user)
 
 /obj/structure/machinery/portable_atmospherics/canister/ui_interact(mob/user, datum/tgui/ui)

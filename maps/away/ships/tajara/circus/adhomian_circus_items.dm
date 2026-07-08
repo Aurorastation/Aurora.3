@@ -130,6 +130,7 @@
 	density = TRUE
 
 /obj/structure/balloon_dispenser/attack_hand(mob/living/user)
+	. = ..()
 	to_chat(user, "You pick a balloon.")
 	var/obj/item/toy/balloon/color/B = new(get_turf(src))
 	user.put_in_active_hand(B)

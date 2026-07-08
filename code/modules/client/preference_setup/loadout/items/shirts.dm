@@ -1,6 +1,6 @@
 ABSTRACT_TYPE(/datum/gear/shirts)
 	sort_category = "Shirts and Tops"
-	slot = slot_w_uniform
+	slot = slot_w_uniform_str
 
 /datum/gear/shirts/polo_colorable
 	display_name = "polo shirts selection (colorable)"

@@ -2,7 +2,7 @@
 	display_name = "bracelet"
 	path = /obj/item/clothing/wrists/bracelet
 	cost = 1
-	slot = slot_wrists
+	slot = slot_wrists_str
 	sort_category = "Wristwear"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 

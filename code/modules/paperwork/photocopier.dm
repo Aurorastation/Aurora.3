@@ -41,6 +41,7 @@
 	return data
 
 /obj/structure/machinery/photocopier/attack_hand(mob/user)
+	. = ..()
 	user.set_machine(src)
 	ui_interact(user)
 

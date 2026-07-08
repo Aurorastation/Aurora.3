@@ -306,6 +306,7 @@
 			return TRUE
 
 /obj/structure/machinery/lapvend/attack_hand(mob/user)
+	. = ..()
 	if(anchored)
 		ui_interact(user)
 	else

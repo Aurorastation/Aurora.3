@@ -16,8 +16,8 @@
 /obj/structure/machinery/abstract/attack_ai(mob/user as mob)
 	return
 
-/obj/structure/machinery/abstract/attack_hand(mob/user as mob)
-	return
+/obj/machinery/abstract/attack_hand(mob/user as mob)
+	. = ..()
 
 /obj/structure/machinery/abstract/emp_act(severity)
 	. = ..()

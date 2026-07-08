@@ -417,10 +417,6 @@
 			to_chat(user, SPAN_WARNING("[src] already has a tank attached."))
 		return TRUE
 	if(opened)
-		if(istype(attacking_item, /obj/item/grab))
-			var/obj/item/grab/G = attacking_item
-			mouse_drop_receive(G.affecting, user)
-			return FALSE
 		if(!attacking_item.dropsafety())
 			return FALSE
 		user.drop_item()

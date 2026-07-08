@@ -29,7 +29,7 @@
 	if(!istype(user))
 		to_chat(user, SPAN_WARNING("You're too simple to work \the [src]."))
 		return
-	if(user.l_hand == src || user.r_hand == src || issilicon(user))
+	if(user.is_holding(src) || issilicon(user))
 		to_chat(user, SPAN_NOTICE("You eject \the [drive]."))
 		user.put_in_hands(drive)
 		drive = null

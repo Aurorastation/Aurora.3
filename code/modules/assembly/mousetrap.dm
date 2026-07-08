@@ -2,8 +2,8 @@
 	name = "mousetrap"
 	desc = "A handy little spring-loaded trap for catching pesty rodents."
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_janitor.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_janitor.dmi',
+		BP_L_HAND = 'icons/mob/items/lefthand_janitor.dmi',
+		BP_R_HAND = 'icons/mob/items/righthand_janitor.dmi',
 		)
 	icon_state = "mousetrap"
 	drop_sound = 'sound/items/drop/component.ogg'
@@ -83,10 +83,7 @@
 
 /obj/item/assembly/mousetrap/proc/clumsy_check(var/mob/living/user)
 	if((user.is_clumsy() || (user.mutations & DUMB)) && prob(50))
-		var/which_hand = BP_L_HAND
-		if(!user.hand)
-			which_hand = BP_R_HAND
-		triggered(user, which_hand)
+		triggered(user, user.get_active_held_item_slot())
 		user.visible_message(SPAN_WARNING("[user] accidentally sets off \the [src]!"), SPAN_WARNING("You accidentally trigger \the [src]!"))
 		return TRUE
 	return FALSE
@@ -109,7 +106,7 @@
 /obj/item/assembly/mousetrap/on_found(mob/finder)
 	if(armed)
 		finder.visible_message(SPAN_WARNING("[finder] accidentally sets off \the [src]!"), SPAN_WARNING("You accidentally trigger \the [src]!"))
-		triggered(finder, finder.hand ? BP_L_HAND : BP_R_HAND)
+		triggered(finder, finder.get_active_held_item_slot())
 		return TRUE
 	return FALSE
 

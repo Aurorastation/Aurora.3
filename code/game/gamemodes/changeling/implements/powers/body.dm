@@ -462,7 +462,7 @@
 
 	var/mob/living/carbon/M = src
 
-	if(M.l_hand && M.r_hand)
+	if(!M.get_empty_hand_slot())
 		to_chat(M, SPAN_DANGER("Your hands are full."))
 		return
 
@@ -500,7 +500,7 @@
 
 	var/mob/living/carbon/M = src
 
-	if(M.l_hand && M.r_hand)
+	if(!M.get_empty_hand_slot())
 		to_chat(M, SPAN_DANGER("Your hands are full."))
 		return
 

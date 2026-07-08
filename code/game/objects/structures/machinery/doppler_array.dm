@@ -24,6 +24,7 @@ GLOBAL_LIST_INIT_TYPED(doppler_arrays, /obj/structure/machinery/doppler_array, l
 	return ..()
 
 /obj/structure/machinery/doppler_array/attack_hand(mob/user)
+	. = ..()
 	active = !active
 	to_chat(user, SPAN_NOTICE("\The [src] is now [active ? "listening for explosions" : "[SPAN_WARNING("inactive")]"]."))
 

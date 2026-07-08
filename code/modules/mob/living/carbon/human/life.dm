@@ -706,16 +706,13 @@
 		stamina_recovery = species.stamina_recovery
 		sprint_cost_factor = species.sprint_cost_factor
 
-		var/obj/item/clothing/suit = wear_suit
-		var/protected = FALSE
-		if(suit && (suit.body_parts_covered & HANDS) && (suit.heat_protection & HANDS))
-			protected = TRUE
+		var/protection = get_heat_protection_flags(T0C + 45) // find stuff with good insulation
 
 		if(gloves && (gloves.heat_protection & HANDS))
-			protected = TRUE
+			protection = TRUE
 
 		if(!(species.flags & PHORON_IMMUNE))
-			for(var/obj/item/held_item in list(r_hand, l_hand, wear_suit, head, wear_mask, w_uniform, gloves, shoes))
+			for(var/obj/item/held_item in get_equipped_items(INCLUDE_HELD|INCLUDE_POCKETS))
 				if(held_item.contaminated)
 					if(held_item.body_parts_covered & HEAD)
 						apply_damage(GLOB.vsc.plc.CONTAMINATION_LOSS, DAMAGE_BURN, BP_HEAD, "Contamination burns", DAMAGE_FLAG_IGNORE_PROSTHETICS, 100, TRUE)
@@ -735,10 +732,10 @@
 						apply_damage(GLOB.vsc.plc.CONTAMINATION_LOSS, DAMAGE_BURN, BP_L_HAND, "Contamination burns", DAMAGE_FLAG_IGNORE_PROSTHETICS, 100, TRUE)
 					if (held_item.body_parts_covered & HAND_RIGHT)
 						apply_damage(GLOB.vsc.plc.CONTAMINATION_LOSS, DAMAGE_BURN, BP_R_HAND, "Contamination burns", DAMAGE_FLAG_IGNORE_PROSTHETICS, 100, TRUE)
-					if(!protected)
-						if(held_item == r_hand)
+					if(!protection)
+						if(held_item == get_active_hand())
 							apply_damage(GLOB.vsc.plc.CONTAMINATION_LOSS * gloves.permeability_coefficient, DAMAGE_BURN, BP_R_HAND, "Contamination burns", DAMAGE_FLAG_IGNORE_PROSTHETICS, 100, TRUE)
-						else if(held_item == l_hand)
+						else if(held_item in get_inactive_held_items())
 							apply_damage(GLOB.vsc.plc.CONTAMINATION_LOSS * gloves.permeability_coefficient, DAMAGE_BURN, BP_L_HAND, "Contamination burns", DAMAGE_FLAG_IGNORE_PROSTHETICS, 100, TRUE)
 
 	if (intoxication)

@@ -32,6 +32,7 @@
 	return ..()
 
 /obj/structure/mirror/attack_hand(mob/user as mob)
+	. = ..()
 	if(shattered)
 		return
 

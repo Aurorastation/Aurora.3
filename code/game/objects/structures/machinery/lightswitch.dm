@@ -46,6 +46,7 @@
 		set_light(FALSE)
 
 /obj/structure/machinery/light_switch/attack_hand(mob/user)
+	. = ..()
 	playsound(src, SFX_SWITCH, 30)
 	on = !on
 	sync_lights()
@@ -120,6 +121,7 @@
 		area.lightswitch = TRUE
 
 /obj/structure/machinery/light_switch/idris/attack_hand(mob/user)
+	. = ..()
 	if(stat & NOPOWER)
 		to_chat(user, SPAN_WARNING("\The [src] is not responding."))
 		return

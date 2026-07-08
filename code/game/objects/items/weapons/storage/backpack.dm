@@ -81,7 +81,7 @@
 	if (!..())
 		return 0
 
-	if(species_restricted && ishuman(M) && !(slot in list(slot_l_hand, slot_r_hand)))
+	if(species_restricted && ishuman(M) && !(slot in list(BP_L_HAND, BP_R_HAND)))
 		var/exclusive = null
 		var/wearable = null
 		var/mob/living/carbon/human/H = M
@@ -97,7 +97,7 @@
 				if(H.species.get_bodytype() in species_restricted)
 					wearable = 1
 
-			if(!wearable && !(slot in list(slot_l_store, slot_r_store, slot_s_store)))
+			if(!wearable && !(slot in list(slot_l_store_str, slot_r_store_str, slot_s_store_str)))
 				to_chat(H, SPAN_DANGER("Your species cannot wear [src]."))
 				return 0
 	return 1
@@ -151,7 +151,7 @@
 		var/mob/M = loc
 		if(!istype(M))
 			return TRUE //not equipped
-		if(!worn_access && (slot_flags & SLOT_BACK) && M.get_equipped_item(slot_back) == src)
+		if(!worn_access && (slot_flags & SLOT_BACK) && M.get_equipped_item(slot_back_str) == src)
 			if(!no_message)
 				to_chat(M, SPAN_WARNING("Your arms are not long enough to open \the [src] while it is on your back!"))
 				if(use_sound)

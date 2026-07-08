@@ -15,6 +15,7 @@
 	layer = DECAL_PLATING_LAYER // Set here, otherwise it isn't visible in the map editor.
 
 /obj/structure/cargo_elevator_hatch/attack_hand(mob/user)
+	. = ..()
 	to_chat(user, SPAN_NOTICE("You reach down and touch \the [src]. Nothing happens."))
 
 /obj/structure/cargo_elevator_hatch/attackby(obj/item/attacking_item, mob/user)
@@ -27,6 +28,7 @@
 
 // Sanity checks in case someone somehow tries to interact with one of the platings.
 /turf/simulated/floor/plating/cargo_elevator/attack_hand(mob/user)
+	. = ..()
 	to_chat(user, SPAN_NOTICE("You reach down and touch \the [src]. Nothing happens."))
 
 /turf/simulated/floor/plating/cargo_elevator/attackby(obj/item/attacking_item, mob/user)

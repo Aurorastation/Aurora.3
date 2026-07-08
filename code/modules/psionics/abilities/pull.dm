@@ -32,7 +32,7 @@
 			to_chat(user, SPAN_WARNING("That object is bolted down!"))
 			return
 		if(length(get_line(hit_atom, user)))
-			if(H.put_in_any_hand_if_possible(hit_atom))
+			if(H.put_in_hands(hit_atom))
 				return
 	user.visible_message(SPAN_WARNING("[user] extends [user.get_pronoun("his")] hand at [hit_atom] and pulls!"), SPAN_WARNING("You mimic pulling at [hit_atom]!"))
 	if(ismob(hit_atom))

@@ -28,6 +28,7 @@
 	return FALSE
 
 /obj/effect/map_effect/window_spawner/attack_hand()
+	. = ..()
 	attack_generic()
 
 /obj/effect/map_effect/window_spawner/attack_ghost()

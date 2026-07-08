@@ -136,7 +136,7 @@
 		return
 
 	var/mob/M = loc
-	if(M.l_hand != src && M.r_hand != src)
+	if(!M.is_holding(src))
 		remove_iv_mob()
 		return
 

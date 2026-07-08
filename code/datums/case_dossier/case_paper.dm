@@ -90,7 +90,7 @@
 
 	var/obj/item/paper/P = new(get_turf(user))
 	P.set_content(paper_name, text, FALSE)
-	user.put_in_any_hand_if_possible(P)
+	user.put_in_hands(P)
 
 	to_chat(user, SPAN_NOTICE("You print [paper_name]."))
 	return TRUE
