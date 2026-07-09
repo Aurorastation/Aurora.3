@@ -953,7 +953,7 @@
 		ADD_TRAIT(src, TRAIT_UNDENSE, TRAIT_SOURCE_LYING_DOWN)
 		if(l_hand) unEquip(l_hand)
 		if(r_hand) unEquip(r_hand)
-	else<
+	else
 		REMOVE_TRAIT(src, TRAIT_UNDENSE, TRAIT_SOURCE_LYING_DOWN)
 
 	if( lying != lying_prev )
