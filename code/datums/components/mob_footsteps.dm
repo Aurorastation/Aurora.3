@@ -27,6 +27,8 @@
 
 /datum/component/mob_footsteps/Destroy()
 	mob_parent = null
+	UnregisterSignal(mob_parent, COMSIG_MOB_ADD_FOOTSTEP_SOUND)
+	UnregisterSignal(mob_parent, COMSIG_MOB_REMOVE_FOOTSTEP_SOUND)
 	LAZYNULL(sound_effects_to_play)
 	LAZYNULL(sound_effects_volumes)
 	return ..()
