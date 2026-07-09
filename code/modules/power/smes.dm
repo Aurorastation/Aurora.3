@@ -95,6 +95,7 @@
 	var/should_be_mapped = 0
 	var/datum/effect_system/sparks/big_spark
 	var/datum/effect_system/sparks/small_spark
+	var/datum/looping_sound/electrical_humming/electrical_humming
 
 	var/time = 0
 	var/charge_mode = 0
@@ -143,6 +144,7 @@
 	SSmachinery.smes_units += src
 	big_spark = bind_spark(src, 5, GLOB.alldirs)
 	small_spark = bind_spark(src, 3)
+	electrical_humming = new(src)
 	if(!powernet)
 		connect_to_network()
 
@@ -260,7 +262,12 @@
 
 /obj/structure/machinery/power/smes/process()
 	if(!can_function())
+		if(electrical_humming && electrical_humming.loop_started)
+			electrical_humming.stop()
 		return
+	else
+		if(electrical_humming && !electrical_humming.loop_started)
+			electrical_humming.start()
 	if(failure_timer)	// Disabled by gridcheck.
 		failure_timer--
 		return

@@ -1,0 +1,9 @@
+author: FabianK3
+
+delete-after: True
+
+changes:
+  - rscadd: "Added a new sound track for the default lobby tracks and lemurian sea."
+  - rscadd: "Added ambience sound loop for vents and scrubbers."
+  - rscadd: "Added ambience sound loop for SMES."
+  - rscadd: "Lobby and sector soundtracks now get shuffeled, resulting in a less repetitive lobby music experience."
