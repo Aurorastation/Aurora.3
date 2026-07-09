@@ -18,13 +18,6 @@
 	///Intearaction flags
 	var/interaction_flags_atom = NONE
 
-	var/flags_ricochet = NONE
-
-	///When a projectile tries to ricochet off this atom, the projectile ricochet chance is multiplied by this
-	var/receive_ricochet_chance_mod = 1
-	///When a projectile ricochets off this atom, it deals the normal damage * this modifier to this atom
-	var/receive_ricochet_damage_coeff = 0.33
-
 	var/update_icon_on_init	= FALSE // Default to 'no'.
 
 	var/level = 2
@@ -53,8 +46,6 @@
 	var/datum/reagents/reagents = null
 	var/list/reagents_to_add
 	var/list/reagent_data
-
-	var/gfi_layer_rotation = GFI_ROTATION_DEFAULT
 
 	//light stuff
 
@@ -129,9 +120,6 @@
 
 	/// If the atom is currently queued to have it's icon updated in `SSicon_update`
 	var/tmp/icon_update_queued = FALSE
-
-	/// Delay to apply before updating the icon in `SSicon_update`
-	var/icon_update_delay = null
 
 	/// How this atom should react to having its astar blocking checked
 	var/can_astar_pass = CANASTARPASS_DENSITY

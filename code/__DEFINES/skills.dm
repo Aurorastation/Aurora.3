@@ -20,6 +20,10 @@
 	#define SKILL_SUBCATEGORY_SCIENCE		"Science"
 	#define SKILL_SUBCATEGORY_OPERATIONS    "Operations"
 
+	#define PILOTING_CLASS_SHUTTLE 1
+	#define PILOTING_CLASS_TWO 2 //Most ships
+	#define PILOTING_CLASS_MAX 3 //Only the SCCV Horizon normally
+
 ///A combat skill is a skill that has a direct effect in combat. These have an increased cost.
 #define SKILL_CATEGORY_COMBAT			"Combat"
 	#define SKILL_SUBCATEGORY_RANGED		"Ranged"

@@ -365,10 +365,18 @@ SUBSYSTEM_DEF(spatial_grid)
 	if(!initialized)
 		return
 	if(QDELETED(new_target))
+		#ifdef TESTING
 		CRASH("qdeleted or null target trying to enter the spatial grid!")
+		#else
+		return // Regular guard clause for production instead of forcing hard deletes.
+		#endif
 
 	if(!target_turf || !new_target.spatial_grid_key)
+		#ifdef TESTING
 		CRASH("null turf loc or a new_target that doesn't support it trying to enter the spatial grid!")
+		#else
+		return // Regular guard clause for production instead of forcing hard deletes.
+		#endif
 
 	var/x_index = GET_SPATIAL_INDEX(target_turf.x)
 	var/y_index = GET_SPATIAL_INDEX(target_turf.y)
