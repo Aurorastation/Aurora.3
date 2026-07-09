@@ -67,6 +67,14 @@
 	species_restricted = list(BODYTYPE_SKRELL)
 	refittable = FALSE
 
+	movement_sounds = list(
+		'sound/items/movement/rattle_cloth_heavy_light_1.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_2.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_3.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_4.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_5.ogg',
+	)
+
 /obj/item/clothing/head/helmet/space/void/kala
 	name = "qukala voidsuit helmet"
 	desc = "A sleek skrell voidsuit helmet that slightly shimmers as it moves. This one has a Nralakk Federation emblem on it."

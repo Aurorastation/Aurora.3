@@ -193,6 +193,14 @@
 	allowed = list(/obj/item/gun,/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/melee/baton)
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_IPC, BODYTYPE_UNATHI, BODYTYPE_SKRELL)
 
+	movement_sounds = list(
+		'sound/items/movement/rattle_cloth_heavy_light_1.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_2.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_3.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_4.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_5.ogg',
+	)
+
 //Atmospherics Rig
 /obj/item/clothing/head/helmet/space/void/atmos
 	desc = "A special helmet designed for work in a hazardous, low pressure environments. Has improved thermal protection and minor radiation shielding."

@@ -74,6 +74,14 @@
 		BODYTYPE_IPC= 'icons/obj/clothing/species/machine/suits.dmi'
 	)
 
+	movement_sounds = list(
+		'sound/items/movement/rattle_cloth_heavy_light_1.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_2.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_3.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_4.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_5.ogg',
+	)
+
 	action_button_name = "Toggle Helmet"
 	var/helmet_deploy_sound = 'sound/items/helmet_close.ogg'
 	var/helmet_retract_sound = 'sound/items/helmet_open.ogg'

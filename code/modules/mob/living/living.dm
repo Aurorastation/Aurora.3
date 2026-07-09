@@ -917,6 +917,9 @@ default behaviour is:
 	register_init_signals()
 
 	AddElement(/datum/element/connect_loc, loc_connections)
+	LoadComponent(footstep_component_type)
+	if(footstep_sound)
+		SEND_SIGNAL(src, COMSIG_MOB_ADD_FOOTSTEP_SOUND, src, footstep_sound)
 
 /mob/living/Destroy()
 	cameraFollow = null

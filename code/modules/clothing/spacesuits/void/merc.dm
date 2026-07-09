@@ -48,6 +48,14 @@
 	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL)
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_IPC, BODYTYPE_UNATHI, BODYTYPE_SKRELL)
 
+	movement_sounds = list(
+		'sound/items/movement/rattle_cloth_heavy_light_1.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_2.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_3.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_4.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_5.ogg',
+	)
+
 /obj/item/clothing/head/helmet/space/void/merc/unathi
 	refit_initialize = BODYTYPE_UNATHI
 

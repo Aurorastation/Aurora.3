@@ -41,6 +41,14 @@
 	species_restricted = list(BODYTYPE_UNATHI)
 	refittable = FALSE
 
+	movement_sounds = list(
+		'sound/items/movement/rattle_cloth_heavy_light_1.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_2.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_3.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_4.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_5.ogg',
+	)
+
 /obj/item/clothing/head/helmet/space/void/kataphract/spec
 	name = "kataphract specialist voidsuit helmet"
 	desc = "A tough plated helmet with slits for the eyes, emblazoned paint across the top indicates that it belongs to the Kataphracts of the Unathi Izweski Hegemony. This one has the markings of a Specialist."
@@ -106,6 +114,14 @@
 	species_restricted = list(BODYTYPE_UNATHI)
 	refittable = FALSE
 
+	movement_sounds = list(
+		'sound/items/movement/rattle_cloth_heavy_light_1.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_2.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_3.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_4.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_5.ogg',
+	)
+
 /obj/item/clothing/head/helmet/space/void/unathi_pirate/captain
 	name = "unathi raider captain helmet"
 	desc = "A decent helmet made to fit with a larger combat assembly."
@@ -138,6 +154,14 @@
 	allowed = list(/obj/item/gun,/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/material/sword,/obj/item/melee/hammer,/obj/item/melee/energy)
 	species_restricted = list(BODYTYPE_UNATHI)
 	refittable = FALSE
+
+	movement_sounds = list(
+		'sound/items/movement/rattle_cloth_heavy_light_1.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_2.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_3.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_4.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_5.ogg',
+	)
 
 /obj/item/clothing/head/helmet/space/void/hegemony
 	name = "hegemony military helmet"
@@ -211,6 +235,14 @@
 		BOMB = ARMOR_BOMB_PADDED,
 		BIO = ARMOR_BIO_SHIELDED,
 		RAD = ARMOR_RAD_SHIELDED
+	)
+
+	movement_sounds = list(
+		'sound/items/movement/rattle_cloth_heavy_light_1.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_2.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_3.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_4.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_5.ogg',
 	)
 
 /obj/item/clothing/suit/space/void/unathi_pirate/tarwa/captain

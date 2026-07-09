@@ -153,6 +153,8 @@
 	/// Sound played on movement. This is a list. If the list has ONE item, then it's treated as ONE sound. If the list has more than one item, then it's treated as a list where
 	/// the system will randomly play one of these sounds.
 	var/list/movement_sounds = null
+	/// The volume we want movement sounds to happen at for this object. Remember that on run intent, it's raised by 30.
+	var/movement_sound_volume = 40
 
 	//Item_state definition moved to /obj
 	//var/item_state = null // Used to specify the item state for the on-mob overlays.
@@ -606,7 +608,7 @@
 	equipped(user, slot, initial)
 	if(SEND_SIGNAL(src, COMSIG_ITEM_POST_EQUIPPED, user, slot) && COMPONENT_EQUIPPED_FAILED)
 		return FALSE
-	SEND_SIGNAL(user, COMSIG_MOB_ADD_FOOTSTEP_SOUND, src, movement_sounds)
+	SEND_SIGNAL(user, COMSIG_MOB_ADD_FOOTSTEP_SOUND, src, movement_sounds, movement_sound_volume)
 	return TRUE
 
 /**

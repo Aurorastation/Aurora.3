@@ -42,6 +42,14 @@
 	species_restricted = list(BODYTYPE_HUMAN)
 	refittable = FALSE
 
+	movement_sounds = list(
+		'sound/items/movement/rattle_cloth_heavy_light_1.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_2.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_3.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_4.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_5.ogg',
+	)
+
 /obj/item/clothing/head/helmet/space/void/coalition
 	name = "coalition vulture voidsuit helmet"
 	desc = "A helmet resembling an avian, built for the All-Xanu Grand Army and the Frontier Rangers. Heavy and plated with plasteel across its faces."
@@ -90,6 +98,14 @@
 	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL)
 	icon_supported_species_tags = list("ipc", "skr", "taj")
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_IPC, BODYTYPE_SKRELL)
+
+	movement_sounds = list(
+		'sound/items/movement/rattle_cloth_heavy_light_1.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_2.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_3.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_4.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_5.ogg',
+	)
 
 /obj/item/clothing/head/helmet/space/void/coalition/xanu
 	name = "\improper Xanan eagle voidsuit helmet"
@@ -165,6 +181,7 @@
 	species_restricted = list(BODYTYPE_HUMAN)
 	refittable = FALSE
 
+
 /obj/item/clothing/head/helmet/space/void/cruiser
 	name = "cruiser voidsuit helmet"
 	desc = "A silvery chrome, single visor space helmet with built-in peripherals and very bright fore lighting. A favorite of bounty hunters."
@@ -208,6 +225,14 @@
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN)
 	refittable = FALSE
+
+	movement_sounds = list(
+		'sound/items/movement/rattle_cloth_heavy_light_1.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_2.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_3.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_4.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_5.ogg',
+	)
 
 /obj/item/clothing/head/helmet/space/void/valkyrie
 	name = "valkyrie voidsuit helmet"
@@ -255,6 +280,14 @@
 	icon_supported_species_tags = list("ipc")
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_IPC)
 	max_heat_protection_temperature = FIRE_HELMET_MAX_HEAT_PROTECTION_TEMPERATURE + 10000
+
+	movement_sounds = list(
+		'sound/items/movement/rattle_cloth_heavy_light_1.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_2.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_3.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_4.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_5.ogg',
+	)
 
 /obj/item/clothing/head/helmet/space/void/lancer
 	name = "lancer voidsuit helmet"
@@ -304,6 +337,14 @@
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN)
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_UNATHI)
+
+	movement_sounds = list(
+		'sound/items/movement/rattle_cloth_heavy_light_1.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_2.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_3.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_4.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_5.ogg',
+	)
 
 /obj/item/clothing/suit/space/void/lancer/unathi
 	desc = "A bulky void suit with heavy plating. Looks to be colored in the branding of Ceres' Lance. This one is fitted to Unathi."
@@ -361,6 +402,14 @@
 	icon_supported_species_tags = list("skr", "ipc")
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_IPC, BODYTYPE_SKRELL)
 
+	movement_sounds = list(
+		'sound/items/movement/rattle_cloth_heavy_light_1.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_2.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_3.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_4.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_5.ogg',
+	)
+
 //Zeng-Hu Pharmaceuticals espionage voidsuit
 /obj/item/clothing/head/helmet/space/void/zenghu
 	name = "dragon biohazard suit helmet"
@@ -412,6 +461,14 @@
 	desc_extended = "An easily recognized Zeng-Hu Pharmaceuticals biohazard control suit. It is relatively fragile but has very apparent radiation shielding. Most often seen in the hands of post-disaster cleanup teams and private military contractors."
 	icon_supported_species_tags = list("skr", "ipc")
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_IPC)
+
+	movement_sounds = list(
+		'sound/items/movement/rattle_cloth_heavy_light_1.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_2.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_3.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_4.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_5.ogg',
+	)
 
 //Hephaestus Industries espionage voidsuit
 /obj/item/clothing/head/helmet/space/void/hephaestus
@@ -465,6 +522,14 @@
 	icon_supported_species_tags = list("una")
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_UNATHI)
 
+	movement_sounds = list(
+		'sound/items/movement/rattle_cloth_heavy_light_1.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_2.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_3.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_4.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_5.ogg',
+	)
+
 //Zavodskoi Interstellar espionage voidsuit
 /obj/item/clothing/head/helmet/space/void/zavodskoi
 	name = "revenant suit helmet"
@@ -514,6 +579,14 @@
 	species_restricted = list(BODYTYPE_HUMAN)
 	desc_extended = "A portable, sleek combat suit utilized in excess by Zavodskoi Interstellar private military contractors. It is known to be utilized by the company's most secretive sectors explicitly for espionage."
 
+	movement_sounds = list(
+		'sound/items/movement/rattle_cloth_heavy_light_1.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_2.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_3.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_4.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_5.ogg',
+	)
+
 //Freelancer voidsuit
 /obj/item/clothing/head/helmet/space/void/freelancer
 	name = "armored voidsuit helmet"
@@ -562,6 +635,14 @@
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL)
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_IPC, BODYTYPE_UNATHI, BODYTYPE_SKRELL)
+
+	movement_sounds = list(
+		'sound/items/movement/rattle_cloth_heavy_light_1.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_2.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_3.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_4.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_5.ogg',
+	)
 
 /obj/item/clothing/head/helmet/space/void/dominia
 	name = "dominian prejoroub combat helmet"
@@ -618,6 +699,14 @@
 	species_restricted = list(BODYTYPE_HUMAN)
 	icon_supported_species_tags = list("una")
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_UNATHI)
+
+	movement_sounds = list(
+		'sound/items/movement/rattle_cloth_heavy_light_1.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_2.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_3.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_4.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_5.ogg',
+	)
 
 /obj/item/clothing/suit/space/void/dominia/voidsman
 	name = "dominian voidsman suit"
@@ -715,6 +804,14 @@
 		BOMB = ARMOR_BOMB_PADDED,
 		BIO = ARMOR_BIO_SHIELDED,
 		RAD = ARMOR_RAD_SMALL
+	)
+
+	movement_sounds = list(
+		'sound/items/movement/rattle_cloth_heavy_light_1.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_2.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_3.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_4.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_5.ogg',
 	)
 
 /obj/item/clothing/head/helmet/space/void/golden_deep/hoplan
@@ -1076,6 +1173,14 @@
 	icon_supported_species_tags = list("ipc", "skr", "taj", "una", "vau", "vaw")
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_IPC, BODYTYPE_TAJARA, BODYTYPE_UNATHI, BODYTYPE_SKRELL, BODYTYPE_VAURCA)
 
+	movement_sounds = list(
+		'sound/items/movement/rattle_cloth_heavy_light_1.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_2.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_3.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_4.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_5.ogg',
+	)
+
 /obj/item/clothing/head/helmet/space/void/tcaf
 	name = "tau ceti armed forces voidsuit helmet"
 	desc = "A Zavodskoi-designed armored voidsuit helmet, painted in the colors of the Republic of Biesel. Commonly seen in use by personnel of the Tau Ceti Armed Forces."
@@ -1150,6 +1255,14 @@
 	allowed = list(/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
 	contained_sprite = TRUE
+
+	movement_sounds = list(
+		'sound/items/movement/rattle_cloth_heavy_light_1.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_2.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_3.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_4.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_5.ogg',
+	)
 
 /obj/item/clothing/head/helmet/space/void/outereyes
 	name = "\improper Outer Eyes voidsuit helmet"
