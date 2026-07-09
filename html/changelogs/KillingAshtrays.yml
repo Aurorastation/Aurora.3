@@ -1,6 +1,0 @@
-author: TheGreyWolf
-
-delete-after: True
-
-changes:
-  - rscdel: "Deleted every mapped in ashtray on the Horizon. They can still be crafted."
