@@ -75,7 +75,7 @@ Protectiveness | Armor %
 			to_chat(user, SPAN_WARNING("Both plates need to be the same type of material."))
 			return
 		//TODO: Possible better animations
-		var/obj/item/clothing/suit/armor/material/makeshift/new_armor = new(src.loc, src.material.name)
+		var/obj/item/clothing/suit/armor/material/makeshift/new_armor = new(src.loc, src.material)
 		user.drop_from_inventory(src,new_armor)
 		user.drop_from_inventory(second_plate,new_armor)
 		user.put_in_hands(new_armor)
@@ -116,7 +116,7 @@ Protectiveness | Armor %
 		var/obj/item/stack/material/S = attacking_item
 		if(S.use(2))
 			to_chat(user, SPAN_NOTICE("You apply some [S.material.use_name] to \the [src]. "))
-			var/obj/item/clothing/head/helmet/material/makeshift/helmet = new(null, S.material.name)
+			var/obj/item/clothing/head/helmet/material/makeshift/helmet = new(null, S.material.type)
 			user.put_in_hands(helmet)
 			user.drop_from_inventory(src)
 			qdel(src)
@@ -156,7 +156,7 @@ Protectiveness | Armor %
 		var/obj/item/clothing/suit/storage/toggle/trench/kelly = attacking_item
 		user.drop_from_inventory(src)
 		user.drop_from_inventory(kelly)
-		var/obj/item/clothing/suit/armor/material/makeshift/trenchcoat/new_armor = new(null, src.material.name)
+		var/obj/item/clothing/suit/armor/material/makeshift/trenchcoat/new_armor = new(null, src.material.type)
 		user.put_in_hands(new_armor)
 		qdel(src)
 		qdel(kelly)

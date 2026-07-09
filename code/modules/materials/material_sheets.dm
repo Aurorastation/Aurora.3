@@ -81,7 +81,7 @@
 
 /obj/item/stack/material/transfer_to(obj/item/stack/S, var/tamount=null, var/type_verified)
 	var/obj/item/stack/material/M = S
-	if(!istype(M) || material.name != M.material.name)
+	if(!istype(M) || material.type != M.material.type)
 		return 0
 	var/transfer = ..(S,tamount,1)
 	if(src)

@@ -10,37 +10,37 @@
 	if(integrity >= 15 && hardness >= 10)
 		recipes += new /datum/stack_recipe_list("generic crafts",
 			list(
-				new /datum/stack_recipe("[display_name] baseball bat", /obj/item/material/twohanded/baseballbat, 10, time = 20, one_per_turf = 0, on_floor = 1, supplied_material = "[name]", required_skills_soft = alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)),
-				new /datum/stack_recipe("[display_name] sword hilt", /obj/item/material/sword_hilt, 10, time = 100, one_per_turf = 0, on_floor = 1, supplied_material = "[name]", required_skills_soft = alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)),
-				new /datum/stack_recipe("[display_name] sword blade", /obj/item/material/sword_blade, 15, time = 100, one_per_turf = 0, on_floor = 1, supplied_material = "[name]", required_skills_soft = alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)),
-				new /datum/stack_recipe("[display_name] ring", /obj/item/clothing/ring/material, 1, on_floor = 1, supplied_material = "[name]", required_skills_soft = alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)),
-				new /datum/stack_recipe("[display_name] armor plating", /obj/item/material/armor_plating, 3, time = 20, on_floor = 1, supplied_material = "[name]", required_skills_soft = alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_TRAINED))
+				new /datum/stack_recipe("[display_name] baseball bat", /obj/item/material/twohanded/baseballbat, 10, time = 20, one_per_turf = 0, on_floor = 1, supplied_material = src.type, required_skills_soft = alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)),
+				new /datum/stack_recipe("[display_name] sword hilt", /obj/item/material/sword_hilt, 10, time = 100, one_per_turf = 0, on_floor = 1, supplied_material = src.type, required_skills_soft = alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)),
+				new /datum/stack_recipe("[display_name] sword blade", /obj/item/material/sword_blade, 15, time = 100, one_per_turf = 0, on_floor = 1, supplied_material = src.type, required_skills_soft = alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)),
+				new /datum/stack_recipe("[display_name] ring", /obj/item/clothing/ring/material, 1, on_floor = 1, supplied_material = src.type, required_skills_soft = alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)),
+				new /datum/stack_recipe("[display_name] armor plating", /obj/item/material/armor_plating, 3, time = 20, on_floor = 1, supplied_material = src.type, required_skills_soft = alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_TRAINED))
 			))
 
 	if(integrity >= 50 && hardness >= 10)
 		recipes += new /datum/stack_recipe_list("generic construction",
 		list(
-			new /datum/stack_recipe("[display_name] door", /obj/structure/simple_door, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1, supplied_material = "[name]", required_skills_soft = alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR)),
-			new /datum/stack_recipe("[display_name] blocker", /obj/structure/blocker, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1, supplied_material = "[name]", required_skills_soft = alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR)),
-			new /datum/stack_recipe("[display_name] railing", /obj/structure/railing, BUILD_AMT, time = 25, one_per_turf = FALSE, on_floor = TRUE, supplied_material = "[name]", required_skills_soft = alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR)),
-			new /datum/stack_recipe("[display_name] stool", /obj/structure/bed/stool, BUILD_AMT, one_per_turf = 1, on_floor = 1, supplied_material = "[name]", required_skills_soft = alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR)),
-			new /datum/stack_recipe("[display_name] chair", /obj/structure/bed/stool/chair, BUILD_AMT, one_per_turf = 1, on_floor = 1, supplied_material = "[name]", required_skills_soft = alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR)),
-			new /datum/stack_recipe("[display_name] bed", /obj/structure/bed, BUILD_AMT, one_per_turf = 1, on_floor = 1, supplied_material = "[name]", required_skills_soft = alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR)),
-			new /datum/stack_recipe("[display_name] lock", /obj/item/material/lock_construct, 1, time = 20, one_per_turf = 0, on_floor = 1, supplied_material = "[name]", required_skills_soft = alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR)),
-			new /datum/stack_recipe("[display_name] urn", /obj/item/material/urn, 10, time = 30, one_per_turf = FALSE, on_floor = 1, supplied_material = "[name]", required_skills_soft = alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR))
+			new /datum/stack_recipe("[display_name] door", /obj/structure/simple_door, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1, supplied_material = src.type, required_skills_soft = alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR)),
+			new /datum/stack_recipe("[display_name] blocker", /obj/structure/blocker, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1, supplied_material = src.type, required_skills_soft = alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR)),
+			new /datum/stack_recipe("[display_name] railing", /obj/structure/railing, BUILD_AMT, time = 25, one_per_turf = FALSE, on_floor = TRUE, supplied_material = src.type, required_skills_soft = alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR)),
+			new /datum/stack_recipe("[display_name] stool", /obj/structure/bed/stool, BUILD_AMT, one_per_turf = 1, on_floor = 1, supplied_material = src.type, required_skills_soft = alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR)),
+			new /datum/stack_recipe("[display_name] chair", /obj/structure/bed/stool/chair, BUILD_AMT, one_per_turf = 1, on_floor = 1, supplied_material = src.type, required_skills_soft = alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR)),
+			new /datum/stack_recipe("[display_name] bed", /obj/structure/bed, BUILD_AMT, one_per_turf = 1, on_floor = 1, supplied_material = src.type, required_skills_soft = alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR)),
+			new /datum/stack_recipe("[display_name] lock", /obj/item/material/lock_construct, 1, time = 20, one_per_turf = 0, on_floor = 1, supplied_material = src.type, required_skills_soft = alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR)),
+			new /datum/stack_recipe("[display_name] urn", /obj/item/material/urn, 10, time = 30, one_per_turf = FALSE, on_floor = 1, supplied_material = src.type, required_skills_soft = alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR))
 		))
 
 	var/list/hardness_craftables = list()
 	if(hardness >= 10)
-		hardness_craftables += new /datum/stack_recipe("[display_name] ashtray", /obj/item/material/ashtray, 2, one_per_turf = 1, on_floor = 1, supplied_material = "[name]", required_skills_soft = alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR))
+		hardness_craftables += new /datum/stack_recipe("[display_name] ashtray", /obj/item/material/ashtray, 2, one_per_turf = 1, on_floor = 1, supplied_material = src.type, required_skills_soft = alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR))
 
 	if(hardness > 50)
-		hardness_craftables += new /datum/stack_recipe("[display_name] fork", /obj/item/material/kitchen/utensil/fork/plastic, 1, on_floor = 1, supplied_material = "[name]", required_skills_soft = alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR))
-		hardness_craftables += new /datum/stack_recipe("[display_name] spoon", /obj/item/material/kitchen/utensil/spoon/plastic, 1, on_floor = 1, supplied_material = "[name]", required_skills_soft = alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR))
-		hardness_craftables += new /datum/stack_recipe("[display_name] knife", /obj/item/material/kitchen/utensil/knife/plastic, 1, on_floor = 1, supplied_material = "[name]", required_skills_soft = alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR))
-		hardness_craftables += new /datum/stack_recipe("[display_name] blade", /obj/item/material/butterflyblade, 6, time = 20, one_per_turf = 0, on_floor = 1, supplied_material = "[name]", required_skills_soft = alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_TRAINED))
-		hardness_craftables += new /datum/stack_recipe("[display_name] spearhead", /obj/item/material/spearhead, 6, time = 20, one_per_turf = 0, on_floor = 1, supplied_material = "[name]", required_skills_soft = alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_TRAINED))
-		hardness_craftables += new /datum/stack_recipe("[display_name] drill head", /obj/item/material/drill_head, 6, time = 20, one_per_turf = 0, on_floor = 1, supplied_material = "[name]", required_skills_soft = alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_TRAINED))
+		hardness_craftables += new /datum/stack_recipe("[display_name] fork", /obj/item/material/kitchen/utensil/fork/plastic, 1, on_floor = 1, supplied_material = src.type, required_skills_soft = alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR))
+		hardness_craftables += new /datum/stack_recipe("[display_name] spoon", /obj/item/material/kitchen/utensil/spoon/plastic, 1, on_floor = 1, supplied_material = src.type, required_skills_soft = alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR))
+		hardness_craftables += new /datum/stack_recipe("[display_name] knife", /obj/item/material/kitchen/utensil/knife/plastic, 1, on_floor = 1, supplied_material = src.type, required_skills_soft = alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR))
+		hardness_craftables += new /datum/stack_recipe("[display_name] blade", /obj/item/material/butterflyblade, 6, time = 20, one_per_turf = 0, on_floor = 1, supplied_material = src.type, required_skills_soft = alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_TRAINED))
+		hardness_craftables += new /datum/stack_recipe("[display_name] spearhead", /obj/item/material/spearhead, 6, time = 20, one_per_turf = 0, on_floor = 1, supplied_material = src.type, required_skills_soft = alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_TRAINED))
+		hardness_craftables += new /datum/stack_recipe("[display_name] drill head", /obj/item/material/drill_head, 6, time = 20, one_per_turf = 0, on_floor = 1, supplied_material = src.type, required_skills_soft = alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_TRAINED))
 
 	if(length(hardness_craftables))
 		recipes += new /datum/stack_recipe_list("generic miscellaneous", hardness_craftables)
@@ -131,7 +131,7 @@
 		list(
 			new /datum/stack_recipe("AI core", /obj/structure/AIcore, BUILD_AMT, time = 50, one_per_turf = 1, required_skills_soft = alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)),
 			new /datum/stack_recipe("plateel barricade", /obj/structure/barricade/plasteel, BUILD_AMT, time = 12 SECONDS, one_per_turf = 1, required_skills_soft = alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)),
-			new /datum/stack_recipe("knife grip", /obj/item/material/butterflyhandle, 4, time = 20, one_per_turf = 0, on_floor = 1, supplied_material = "[name]", required_skills_soft = alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR)),
+			new /datum/stack_recipe("knife grip", /obj/item/material/butterflyhandle, 4, time = 20, one_per_turf = 0, on_floor = 1, supplied_material = src.type, required_skills_soft = alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR)),
 			new /datum/stack_recipe("dark floor tile", /obj/item/stack/tile/floor_dark, 1, 4, 20, required_skills_soft = alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR)),
 			new /datum/stack_recipe("full dark floor tile", /obj/item/stack/tile/floor_dark/full, 1, 4, 20, required_skills_soft = alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR))
 		))

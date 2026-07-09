@@ -19,7 +19,7 @@
 /obj/item/integrated_circuit_printer/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item,/obj/item/stack/material))
 		var/obj/item/stack/material/stack = attacking_item
-		if(stack.material.name == DEFAULT_WALL_MATERIAL)
+		if(stack.material.type == DEFAULT_WALL_MATERIAL)
 			var/num = min((max_metal - metal) / metal_per_sheet, stack.amount)
 			if(num < 1)
 				to_chat(user, SPAN_WARNING("\The [src] is too full to add more metal."))

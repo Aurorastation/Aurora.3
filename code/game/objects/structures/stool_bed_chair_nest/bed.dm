@@ -185,7 +185,7 @@
 		else if(istype(attacking_item,/obj/item/stack/material))
 			var/obj/item/stack/material/M = attacking_item
 			if(M.material && (M.material.flags & MATERIAL_PADDING))
-				padding_type = "[M.material.name]"
+				padding_type = M.material.type
 		if(!padding_type)
 			to_chat(user, "You cannot pad \the [src] with that.")
 			return

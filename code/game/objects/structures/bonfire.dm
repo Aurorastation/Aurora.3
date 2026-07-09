@@ -102,7 +102,7 @@ GLOBAL_LIST_EMPTY(total_active_bonfires)
 			return
 		else if(istype(attacking_item, /obj/item/material))
 			var/obj/item/material/M = attacking_item
-			if(M.material.name in burnable_materials)
+			if(M.material.type in burnable_materials)
 				var/fuel_add = burnable_materials[M.material] * (M.w_class / 5) //if you crafted a small item, it's not worth as much fuel
 				fuel = min(fuel + fuel_add, max_fuel)
 				user.visible_message(SPAN_NOTICE("\The [user] tosses \the [M] into \the [src]."))

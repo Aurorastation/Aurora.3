@@ -215,7 +215,7 @@
 	// Installing metal.
 	else if(istype(attacking_item, /obj/item/stack/material))
 		var/obj/item/stack/material/M = attacking_item
-		if(M.material?.name == MATERIAL_STEEL)
+		if(M.material?.type == MATERIAL_STEEL)
 			if(is_reinforced)
 				to_chat(user, SPAN_WARNING("There is already metal reinforcement installed in \the [src]."))
 				return
