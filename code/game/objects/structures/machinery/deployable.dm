@@ -263,7 +263,7 @@ Deployable Kits
 	desc = "A deployable barrier, bearing the marks of the Tau Ceti Armed Forces. Swipe your ID card to lock/unlock it."
 	icon_state = "barrier_legion"
 	req_access = null
-	req_one_access = list(ACCESS_TCAF_SHIPS, ACCESS_LEGION)
+	req_one_access = list(ACCESS_TCAF)
 
 /obj/item/deployable_kit
 	name = "Emergency Floodlight Kit"
@@ -324,8 +324,8 @@ Deployable Kits
 	new /obj/structure/curtain/open/medical(free_spot, src)
 
 /obj/item/deployable_kit/legion_turret
-	name = "legion blaster turret assembly kit"
-	desc = "A quick assembly kit to deploy a blaster turret in the field. Swipe with a TCFL id card to configure it once assembled."
+	name = "TCAF blaster turret assembly kit"
+	desc = "A quick assembly kit to deploy a blaster turret in the field. Swipe with a TCAF  id card to configure it once assembled."
 	icon = 'icons/obj/turrets.dmi'
 	icon_state = "blaster_turret_kit"
 	item_state = "table_parts"

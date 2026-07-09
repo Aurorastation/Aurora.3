@@ -22,11 +22,6 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 	. += "Consoles like these are typically access-locked."
 	. += "You can remove this lock with <b>wirecutters</b>, but it would take awhile! Alternatively, you can also use a cryptographic sequencer (emag) for instant removal."
 
-/obj/structure/machinery/computer/ship/proc/display_reconnect_dialog(var/mob/user, var/flavor)
-	var/datum/browser/popup = new (user, "[src]", "[src]")
-	popup.set_content("<center><strong><font color = 'red'>Error</strong></font><br>Unable to connect to [flavor].<br><a href='byond://?src=[REF(src)];sync=1'>Reconnect</a></center>")
-	popup.open()
-
 /obj/structure/machinery/computer/ship/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.tool_behaviour == TOOL_CABLECOIL) // Repair from hotwire
 		var/obj/item/stack/cable_coil/C = attacking_item
@@ -86,6 +81,7 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 	if(!ai_can_interact(user))
 		return
 	src.add_hiddenprint(user)
+	user.set_machine(src)
 	ui_interact(user)
 
 /obj/structure/machinery/computer/ship/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)

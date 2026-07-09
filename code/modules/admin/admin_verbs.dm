@@ -14,6 +14,7 @@ GLOBAL_LIST_INIT(admin_verbs_default, list(
 GLOBAL_LIST_INIT(admin_verbs_admin, list(
 	/client/proc/debug_variables,		/*allows us to -see- the variables of any instance in the game.*/
 	/client/proc/invisimin,				/*allows our mob to go invisible/visible*/
+	/client/proc/adpi_panel,
 //	/datum/admins/proc/show_traitor_panel,	/*interface which shows a mob's mind*/ -Removed due to rare practical use. Moved to debug verbs ~Errorage */
 	/datum/admins/proc/show_game_mode,  /*Configuration window for the current game mode.*/
 	/datum/admins/proc/force_mode_latespawn, /*Force the mode to try a latespawn proc*/
@@ -106,7 +107,8 @@ GLOBAL_LIST_INIT(admin_verbs_admin, list(
 	/client/proc/toggle_aooc,
 	/client/proc/force_away_mission,
 	/client/proc/alooc,
-	/client/proc/create_portal
+	/client/proc/create_portal,
+	/datum/admins/proc/open_narrate_panel
 ))
 
 GLOBAL_LIST_INIT(admin_verbs_ban, list(
@@ -124,6 +126,7 @@ GLOBAL_LIST_INIT(admin_verbs_sounds, list(
 
 GLOBAL_LIST_INIT(admin_verbs_fun, list(
 	/client/proc/object_talk,
+	/client/proc/adpi_panel,
 	/client/proc/cmd_admin_dress,
 	/client/proc/cmd_admin_grab_observers,
 	/client/proc/cmd_admin_gib_self,
@@ -179,7 +182,6 @@ GLOBAL_LIST_INIT(admin_verbs_server, list(
 	/datum/admins/proc/toggle_round_spookyness,
 	/datum/admins/proc/toggle_space_ninja,
 	/client/proc/toggle_random_events,
-	/client/proc/nanomapgen_DumpImage,
 	/client/proc/toggle_recursive_explosions,
 	/client/proc/restart_controller,
 	/client/proc/cmd_ss_panic,
@@ -354,7 +356,6 @@ GLOBAL_LIST_INIT(admin_verbs_hideable, list(
 	/datum/admins/proc/adjump,
 	/datum/admins/proc/toggle_space_ninja,
 	/client/proc/toggle_random_events,
-	/client/proc/nanomapgen_DumpImage,
 	/client/proc/play_local_sound,
 	/client/proc/play_sound,
 	/client/proc/play_server_sound,
@@ -430,6 +431,7 @@ GLOBAL_LIST_INIT(admin_verbs_hideable, list(
 	/client/proc/force_away_mission,
 	/client/proc/profiler_start,
 	/client/proc/create_portal,
+	/datum/admins/proc/open_narrate_panel
 	))
 
 GLOBAL_LIST_INIT(admin_verbs_mod, list(
@@ -447,6 +449,7 @@ GLOBAL_LIST_INIT(admin_verbs_mod, list(
 	/client/proc/odyssey_panel,
 	/client/proc/jobbans,
 	/client/proc/cmd_admin_subtle_message, 	/*send an message to somebody as a 'voice in their head'*/
+	/client/proc/adpi_panel,
 	/datum/admins/proc/paralyze_mob,
 	/client/proc/toggleattacklogs,
 	/client/proc/cmd_admin_check_contents,
@@ -473,7 +476,6 @@ GLOBAL_LIST_INIT(admin_verbs_dev, list( //will need to be altered - Ryan784
 	/client/proc/jumptoship,
 	/client/proc/jumptosector,
 	/client/proc/cmd_dev_say,
-	/client/proc/nanomapgen_DumpImage,
 	/client/proc/admin_ghost,
 	/client/proc/air_report,
 	/client/proc/enable_debug_verbs,
@@ -1130,7 +1132,7 @@ GLOBAL_LIST_INIT(admin_verbs_storyteller, list(
 	set name = "Man Up"
 	set desc = "Tells mob to man up and deal with it."
 
-	to_chat(T, SPAN_NOTICE("<b><font size=3>Man up and deal with it.</font></b>"))
+	to_chat(T, SPAN_NOTICE("<b><font size=6>Man up and deal with it.</font></b>"))
 	to_chat(T, SPAN_NOTICE("Move on."))
 
 	log_admin("[key_name(usr)] told [key_name(T)] to man up and deal with it.")

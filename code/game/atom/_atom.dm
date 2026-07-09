@@ -74,6 +74,10 @@
 	var/tmp/datum/dynamic_light_source/light
 	///Any light sources that are "inside" of us, for example, if src here was a mob that's carrying a flashlight, that flashlight's light source would be part of this list.
 	var/tmp/list/hybrid_light_sources
+	///The light source, datum. Dont fuck with this directly
+	var/tmp/datum/static_light_source/static_light
+	///Static light sources currently attached to this atom, this includes ones owned by atoms inside this atom
+	var/tmp/list/static_light_sources
 
 	//Values should avoid being close to -16, 16, -48, 48 etc.
 	//Best keep them within 10 units of a multiple of 32, as when the light is closer to a wall, the probability
@@ -138,19 +142,24 @@
 	/// This atom's cache of overlays that can only be removed explicitly, like C4. Do not manipulate directly- See SSoverlays.
 	var/list/atom_protected_overlay_cache
 
+	/// The mob currently interacting with the atom during a `do_after` timer. Used to validate `DO_TARGET_UNIQUE_ACT` flag checks.
+	var/mob/do_unique_target_user
+
 /atom/Destroy(force)
 	if(opacity)
 		updateVisibility(src)
 
-	if(reagents)
-		QDEL_NULL(reagents)
+	QDEL_NULL(reagents)
 
 	// Checking length(overlays) before cutting has significant speed benefits
 	if(length(overlays))
 		overlays.Cut()
 
-	if(light)
-		QDEL_NULL(light)
+	if (length(underlays))
+		underlays.Cut()
+
+	QDEL_NULL(light)
+	QDEL_NULL(static_light)
 
 	if(smoothing_flags & SMOOTH_QUEUED)
 		SSicon_smooth.remove_from_queues(src)
@@ -159,16 +168,19 @@
 	if(icon_update_queued)
 		SSicon_update.remove_from_queue(src)
 
-	if(length(atom_overlay_cache))
-		LAZYCLEARLIST(atom_overlay_cache)
+	LAZYNULL(atom_overlay_cache)
+	LAZYNULL(atom_protected_overlay_cache)
 
-	if(length(atom_protected_overlay_cache))
-		LAZYCLEARLIST(atom_protected_overlay_cache)
 
 	// The component is attached to us normaly and will be deleted elsewhere
 	orbiters = null
-
-	. = ..()
+	do_unique_target_user = null
+	for(var/datum/langchat_bubble/entry as anything in langchat_images)
+		for(var/mob/listener as anything in entry.listeners)
+			if(listener.client)
+				listener.client.images -= entry.bubble
+	langchat_images = null
+	return ..()
 
 /atom/proc/handle_ricochet(obj/projectile/ricocheting_projectile)
 	var/turf/p_turf = get_turf(ricocheting_projectile)

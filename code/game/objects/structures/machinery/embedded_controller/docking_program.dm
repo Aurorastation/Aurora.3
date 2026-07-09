@@ -274,7 +274,6 @@
 	signal.data["dock_status"] = get_docking_status()
 	post_signal(signal)
 
-//this is mostly for NanoUI
 /datum/computer/file/embedded_program/docking/proc/get_docking_status()
 	switch (dock_state)
 		if (STATE_UNDOCKED) return "undocked"

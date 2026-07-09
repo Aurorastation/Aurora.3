@@ -11,7 +11,8 @@
 	var/climbable
 	var/parts
 	var/list/climbers
-	var/list/footstep_sound	//footstep sounds when stepped on
+	/// Footstep sounds when stepped on
+	var/list/footstep_sound
 
 	var/singleton/material/material
 	/// Used by some structures to determine into how many pieces they should disassemble into or be made with
@@ -41,6 +42,14 @@
 	climbers = null
 	material = null
 	return ..()
+
+/obj/structure/examine_descriptor(mob/user)
+	return "structure"
+
+/obj/structure/examine_tags(atom/source, mob/user, list/examine_list)
+	. = ..()
+	if(climbable)
+		.["climbable"] = "It can be climbed on, either by dragging your mob onto it or middle-clicking it."
 
 /obj/structure/attackby(obj/item/attacking_item, mob/user, params)
 	. = ..()
@@ -97,9 +106,13 @@
 	else
 		dismantle_material = get_material()
 	if(should_use_health && health <= 0)
-		build_amt /= rand(2, 4) //if the structure is destroyed by damage, it will yield less materials
-	for(var/i = 1 to build_amt)
-		dismantle_material.place_sheet(loc)
+		build_amt /= rand(2, 4) //if the structure is destroyed by damage, it will yield less materials.
+		build_amt = max(1, min(build_amt, 5)) //Bound between 5 and 1, as shards don't stack into sheets.
+		for(var/i = 1 to build_amt)
+			dismantle_material.place_shard(loc)
+	else
+		for(var/i = 1 to build_amt)
+			dismantle_material.place_sheet(loc)
 	qdel(src)
 
 /obj/structure/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)

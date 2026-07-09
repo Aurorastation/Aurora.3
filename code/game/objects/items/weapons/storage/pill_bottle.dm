@@ -13,6 +13,7 @@
 	use_sound = 'sound/items/storage/pillbottle.ogg'
 	drop_sound = 'sound/items/drop/pillbottle.ogg'
 	pickup_sound = 'sound/items/pickup/pillbottle.ogg'
+	rustle_sound = 'sound/items/pickup/pillbottle.ogg'
 	max_storage_space = DEFAULT_BOX_STORAGE
 
 /obj/item/storage/pill_bottle/attack_self(mob/living/user)

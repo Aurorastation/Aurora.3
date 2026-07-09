@@ -25,9 +25,6 @@
 
 	module.holder.ui_interact(usr)
 
-/mob
-	var/get_rig_stats = 0
-
 /obj/item/rig_module/ai_container
 	name = "IIS module"
 	desc = "An integrated intelligence system module suitable for most hardsuits."

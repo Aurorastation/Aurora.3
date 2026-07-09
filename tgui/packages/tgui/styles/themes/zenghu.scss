@@ -1,61 +1,29 @@
-@use 'sass:color';
-@use 'sass:meta';
-
-@use '../colors.scss' with (
-  $primary: #272727,
-  $bad: #991100,
-  $fg-map-keys: (),
-  $bg-map-keys: ()
-);
-@use '../base.scss' with (
-  $color-bg: #1f1527,
-  $color-bg-grad-spread: 6%
-);
-
 .theme-zenghu {
-  // Atomic classes
-  @include meta.load-css('../atomic/color.scss');
+  --color-base: #1f1527;
+  --color-primary: #272727;
+  --color-red: #991100;
+  --color-bad: #991100;
+  --base-gradient-spread: 6;
 
-  // Components
-  @include meta.load-css(
-    '../components/Button.scss',
-    $with: (
-      'color-default': #47354f,
-      'color-disabled': #363636,
-      'color-selected': #ffffff,
-      'color-caution': #be6209,
-      'color-danger': #ad2727
-    )
-  );
-  @include meta.load-css(
-    '../components/Input.scss',
-    $with: ('border-color': #ffffff)
-  );
-  @include meta.load-css(
-    '../components/NoticeBox.scss',
-    $with: ('background-color': #a681c1)
-  );
-  @include meta.load-css(
-    '../components/NumberInput.scss',
-    $with: ('border-color': #ffffff)
-  );
-  @include meta.load-css(
-    '../components/ProgressBar.scss',
-    $with: ('background-color': rgba(0, 0, 0, 0.5))
-  );
-  @include meta.load-css('../components/Section.scss');
-  @include meta.load-css(
-    '../components/Tooltip.scss',
-    $with: ('background-color': #a681c1)
-  );
+  --button-background-default: #47354f;
+  --button-background-disabled: #363636;
+  --button-background-selected: #bb44cc;
+  --button-background-caution: #be6209;
+  --button-background-danger: #ad2727;
 
-  // Layouts
-  @include meta.load-css('../layouts/Layout.scss');
-  @include meta.load-css('../layouts/Window.scss');
-  @include meta.load-css(
-    '../layouts/TitleBar.scss',
-    $with: ('background-color': #121014)
-  );
+  --input-border-color: #ffffff;
+  --input-border-color-focus: #ffffff;
+  --number-input-border-color: #ffffff;
+  --number-input-border-color-active: #ffffff;
+
+  --notice-box-background: #a681c1;
+  --notice-box-color: var(--color-text-fixed-white);
+  --progress-bar-background: rgba(0, 0, 0, 0.5);
+  --progress-bar-fill: #47354f;
+  --section-background: rgba(0, 0, 0, 0.33);
+  --section-separator-color: #272727;
+  --tooltip-background: #a681c1;
+  --titlebar-background: #121014;
 
   .Layout__content {
     background-image: url('../../assets/bg-zenghu.svg');

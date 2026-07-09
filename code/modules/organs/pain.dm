@@ -3,9 +3,6 @@
 		animate(pain, alpha = target, time = 15, easing = ELASTIC_EASING)
 		animate(pain, alpha = 0, time = 20)
 
-/mob/var/last_pain_message = ""
-/mob/var/next_pain_time = 0
-
 // message is the custom message to be displayed
 // power decides how much painkillers will stop the message
 // force means it ignores anti-spam timer
@@ -29,11 +26,11 @@
 		last_pain_message = message
 		if(power >= 110)
 			flash_strong_pain()
-			to_chat(src, SPAN_DANGER("<font size=3>[message]</font>"))
+			to_chat(src, SPAN_DANGER(FONT_HUGE("[message]")))
 		else if(power >= 70)
-			to_chat(src, SPAN_DANGER("<font size=3>[message]</font>"))
+			to_chat(src, SPAN_DANGER(FONT_LARGE("[message]")))
 		else if(power >= 40)
-			to_chat(src, SPAN_DANGER("<font size=2>[message]</font>"))
+			to_chat(src, SPAN_DANGER(FONT_LARGE("[message]")))
 		else if(power >= 10)
 			to_chat(src, SPAN_DANGER("[message]"))
 		else

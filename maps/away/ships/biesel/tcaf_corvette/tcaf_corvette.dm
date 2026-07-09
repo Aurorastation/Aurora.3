@@ -1,6 +1,6 @@
 /datum/map_template/ruin/away_site/tcaf_corvette
-	name = "Republican Fleet Corvette"
-	description = "A patrol vessel of Biesel's Republican Fleet."
+	name = "Republic Astroforce Patrol Vessel"
+	description = "A patrol vessel of the Republic of Biesel's Republic Astroforce."
 
 	prefix = "ships/biesel/tcaf_corvette/"
 	suffix = "tcaf_corvette.dmm"
@@ -12,23 +12,29 @@
 		list(ZTRAIT_AWAY = TRUE, ZTRAIT_UP = FALSE, ZTRAIT_DOWN = TRUE),
 	)
 
-	sectors = list(ALL_TAU_CETI_SECTORS, SECTOR_BADLANDS, SECTOR_VALLEY_HALE)
+	sectors = list(ALL_TAU_CETI_SECTORS, SECTOR_VALLEY_HALE)
 	spawn_weight = 1
+	spawn_weight_sector_dependent = list(
+	SECTOR_TAU_CETI = 2, // Home turf and well-policed
+	SECTOR_VALLEY_HALE = 1.33, // most patrolled border territory
+	SECTOR_CORP_ZONE = 0.5, // minimal patrols, bulk of security handled by corporate asset protection
+	SECTOR_ROMANOVICH = 1.5 // Home turf (but a bit distal)
+	)
+
 	ship_cost = 1
 	id = "tcaf_corvette"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/tcaf_shuttle, /datum/shuttle/autodock/multi/lift/tcaf)
-	ban_ruins = list(/datum/map_template/ruin/away_site/tcfl_peacekeeper_ship) // This might not work, I haven't tested it.
 
 	unit_test_groups = list(3)
 
 /singleton/submap_archetype/tcaf_corvette
-	map = "Republican Fleet Corvette"
-	descriptor = "A patrol vessel of Biesel's Republican Fleet."
+	map = "Republic Astroforce Patrol Vessel"
+	descriptor = "A patrol vessel of the Republic of Biesel's Republic Astroforce."
 
 /obj/effect/overmap/visitable/ship/tcaf_corvette
-	name = "Republican Fleet Corvette"
-	class = "BLV" // Biesel Military Vessel - I guess the 'L' is for 'Legion'?
-	desc = "The Tau Ceti Armed Forces' Antlion-class corvette is a recent innovation becoming quickly infamous throughout the CRZ and surrounding frontier as the bane of all those attempting to go undetected. Rather than having been made from scratch, these ships are a retrofitted variant of the Solarian-made Hainan-class corvette, a smaller relative of the Yingchen-class light cruiser recently refitted en-masse by Zavodskoi Interstellar to bolster the Republican Fleets. It is primarily designed to monitor as large an area in a patrol run as is humanly possible - a necessity of late, given how few ships the Republican Fleets has to cover the great breadth of their new territories - for which it has strong sensors and a lightweight, maneuverable frame. Ships of this class often spend months on single patrol routes, longer than almost any other ships of its size, to cover the distances they are assigned. While very capable of engaging other similarly sized ships, its thin hull discourages engagements with anything larger."
+	name = "Republic Astroforce Patrol Vessel"
+	class = "RAFV" // (R)epublic (A)stro(f)orce (V)essel
+	desc = "A staple of the Away Fleets and the quintessential Patrol Vessel rate, the Antlion-class is a retrofitted variant of the Solarian Hainan-class corvette designed by Zavodskoi Interstellar. They are fitted with strong power configurations and Fjolsvin phoronic quantum sensor arrays, capable of surveying the full breadth of a system — a necessity with how much territory one Away Fleet must cover. Vessels of this class often spend months on single patrol routes, provisioned to last longer than other ships of its size. While capable of engaging other similarly sized vessels, the Antlion-class is not designed to withstand heavy fire power, and is intended for hit-and-run engagements."
 	icon_state = "tcaf"
 	moving_state = "tcaf_moving"
 	colors = list("#5d68c8", "#70a2e7")
@@ -38,12 +44,12 @@
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_SMALL
 	scanimage = "tcfl_cetus.png" // Reusing the TCFL sprite.
-	designer = "Tau Ceti Republican Fleets, Zavodskoi Interstellar"
+	designer = "Zavodskoi Interstellar, Republic Astroforce"
 	volume = "73 meters length, 41 meters beam/width, 20 meters vertical height"
-	drive = "Mid-range Warp Acceleration FTL Drive"
+	drive = "Low Power Bluespace Drive"
 	weapons = "Dual ballistic gunnery pods, underside flight craft hangar"
 	sizeclass = "Antlion-class corvette"
-	shiptype = "Military reconnaissance and extended-duration combat utility"
+	shiptype = "Military reconnaissance and extended-duration patrols"
 	initial_restricted_waypoints = list(
 		"TCAF Gunship" = list("nav_hangar_tcaf")
 	)
@@ -73,15 +79,15 @@
 	return skybox_image
 
 /obj/effect/overmap/visitable/ship/landable/tcaf_shuttle
-	name = "TCAF Gunship"
-	class = "BLV"
-	desc = "Designed by Hephaestus and named for the astrofauna of the Romanovich Cloud, Reaver-class gunships have been a staple of TCAF strategy since their inception, providing air support in the jungles of Mictlan during the conflict against the Samaritans. Since the end of the Mictlan conflict, Reavers are frequently seen accompanying Minutemen detachments in the outer CRZ or used as transports by smaller Republican Fleet vessels."
-	shuttle = "TCAF Gunship"
+	name = "TCAF Armed Transport Shuttle"
+	class = "RAFV"
+	desc = "A small, armed transport shuttle used by the Republic Astroforce for inter-ship transport and boarding operations."
+	shuttle = "TCAF Armed Transport Shuttle"
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
-	designer = "Tau Ceti Republican Fleet, Hephaestus Industries"
+	designer = "Zavodskoi Interstellar, Republic Astroforce"
 	weapons = "Fore ballistic weapon mount."
-	sizeclass = "Reaver-class gunship"
+	sizeclass = "Reaver-class Armed Transport Shuttle"
 	colors = list("#5d68c8", "#70a2e7")
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
@@ -95,11 +101,11 @@
 
 /obj/structure/machinery/computer/shuttle_control/explore/terminal/tcaf_shuttle
 	name = "shuttle control console"
-	shuttle_tag = "TCAF Gunship"
-	req_access = list(ACCESS_TCAF_SHIPS)
+	shuttle_tag = "TCAF Armed Transport Shuttle"
+	req_access = list(ACCESS_TCAF)
 
 /datum/shuttle/autodock/overmap/tcaf_shuttle
-	name = "TCAF Gunship"
+	name = "TCAF Armed Transport Shuttle"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/tcaf)
 	current_location = "nav_hangar_tcaf"
@@ -111,7 +117,7 @@
 	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/tcaf_shuttle/hangar
-	name = "Gunship Hangar"
+	name = "Armed Transport Shuttle Hangar"
 	landmark_tag = "nav_hangar_tcaf"
 	docking_controller = "tcaf_shuttle_dock"
 	base_area = /area/tcaf_corvette/hangar

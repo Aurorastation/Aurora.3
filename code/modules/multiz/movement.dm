@@ -1,7 +1,3 @@
-/atom/movable
-	/** Used to check wether or not an atom is being handled by SSfalling. */
-	var/tmp/multiz_falling = 0
-
 /**
  * Verb for the mob to move up a z-level if possible.
  */
@@ -781,9 +777,6 @@
 
 /mob/fall_get_specs(levels_fallen)
 	return list(mob_size, throw_range)
-
-/mob/living
-	var/atom/movable/z_observer/z_eye
 
 /atom/movable/z_observer
 	name = ""

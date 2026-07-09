@@ -250,11 +250,16 @@ Class Procs:
 	for(var/i = 1 to 2)
 		if(prob(50))
 			metal_to_spawn++
+		else
+			new /obj/item/material/shard(current_turf, DEFAULT_WALL_MATERIAL)
 	if(metal_to_spawn)
 		new /obj/item/stack/material/steel(get_turf(src), metal_to_spawn)
 	if(!should_use_health)
 		return FALSE
 	qdel(src)
+
+/obj/structure/machinery/examine_descriptor(mob/user)
+	return "machine"
 
 // /obj/structure/machinery/proc/process_all()
 // 	/* Uncomment this if/when you need component processing
@@ -641,5 +646,5 @@ Class Procs:
 /obj/structure/machinery/ui_status(mob/user, datum/ui_state/state)
 	. = ..()
 	if(. < UI_INTERACTIVE)
-		if(user.machine)
+		if(user?.machine)
 			user.unset_machine()

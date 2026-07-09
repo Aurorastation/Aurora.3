@@ -219,6 +219,8 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 
 	else
 		visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] \The [src] flashes: insufficient materials: [getLackingMaterials(D)]."))
+		if(linked_console)
+			linked_console.updateUsrDialog()
 
 	update_icon()
 

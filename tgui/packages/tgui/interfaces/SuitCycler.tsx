@@ -1,6 +1,12 @@
-import { BooleanLike } from '../../common/react';
+import {
+  Box,
+  Button,
+  LabeledList,
+  NoticeBox,
+  Section,
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Box, Button, LabeledList, NoticeBox, Section } from '../components';
 import { Window } from '../layouts';
 
 export type SuitCyclerData = {
@@ -26,22 +32,22 @@ type SuitObject = {
   damage: number;
 };
 
-export const SuitCycler = (props, context) => {
-  const { act, data } = useBackend<SuitCyclerData>(context);
+export const SuitCycler = (props) => {
+  const { act, data } = useBackend<SuitCyclerData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section title="Locking Panel">
           {data.in_use ? (
             <NoticeBox>
-              The {data.model_text ? data.model_text + ' ' : ''}suit cycler is
+              The {data.model_text ? `${data.model_text} ` : ''}suit cycler is
               currently in use. Please wait...
             </NoticeBox>
           ) : data.locked ? (
             <Box>
               <NoticeBox>
-                The {data.model_text ? data.model_text + ' ' : ''}suit cycler is
+                The {data.model_text ? `${data.model_text} ` : ''}suit cycler is
                 currently locked. Please contact your system administrator.
               </NoticeBox>
               <Button
@@ -54,7 +60,7 @@ export const SuitCycler = (props, context) => {
           ) : (
             <Box>
               <NoticeBox>
-                Welcome to the {data.model_text ? data.model_text + ' ' : ''}
+                Welcome to the {data.model_text ? `${data.model_text} ` : ''}
                 suit cycler control panel.
               </NoticeBox>
               <Button

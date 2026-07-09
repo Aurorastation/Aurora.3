@@ -1,7 +1,5 @@
 // code/modules/tgui/modules/faction_select.dm
-import { classes } from 'common/react';
-import { resolveAsset } from '../assets';
-import { useBackend } from '../backend';
+
 import {
   Box,
   Button,
@@ -11,7 +9,10 @@ import {
   LabeledList,
   Section,
   Stack,
-} from '../components';
+} from 'tgui-core/components';
+import { classes } from 'tgui-core/react';
+import { resolveAsset } from '../assets';
+import { useBackend } from '../backend';
 import { Window } from '../layouts';
 
 export type FactionSelectData = {
@@ -50,8 +51,8 @@ export const FactionSelect = () => {
   );
 };
 
-const FactionList = (props, context) => {
-  const { act, data } = useBackend<FactionSelectData>(context);
+const FactionList = (props) => {
+  const { act, data } = useBackend<FactionSelectData>();
   return (
     <Section fill fitted pl={1} py={1} scrollable>
       <Stack vertical>
@@ -62,7 +63,7 @@ const FactionList = (props, context) => {
               fluid
               selected={faction.name === data.chosen_faction}
               color={faction.name === data.viewed_faction ? 'label' : 'grey'}
-              style={{ 'white-space': 'normal' }}
+              style={{ whiteSpace: 'normal' }}
               onClick={() => act('view_faction', { faction: faction.name })}
             >
               <Flex align="center" justify="space-between">
@@ -70,11 +71,10 @@ const FactionList = (props, context) => {
                   {faction.name}
                 </Flex.Item>
                 <Flex.Item pt={1} pr={0.5}>
-                  <Box
-                    as="img"
+                  <img
                     src={resolveAsset(faction.logo)}
-                    width="48px"
-                    height="48px"
+                    width="192px"
+                    height="192px"
                   />
                 </Flex.Item>
               </Flex>
@@ -86,8 +86,8 @@ const FactionList = (props, context) => {
   );
 };
 
-const FactionInfo = (props, context) => {
-  const { act, data } = useBackend<FactionSelectData>(context);
+const FactionInfo = (props) => {
+  const { act, data } = useBackend<FactionSelectData>();
 
   const currentFaction = data.factions.find(
     (faction) => faction.name === data.viewed_faction,
@@ -127,7 +127,7 @@ const FactionInfo = (props, context) => {
           </Flex.Item>
           <Flex.Item align="center" height="100%" mt={12.5}>
             <div
-              class={classes([
+              className={classes([
                 'Divider--vertical',
                 'Divider--vertical--dashed',
               ])}
@@ -143,16 +143,19 @@ const FactionInfo = (props, context) => {
         <Divider />
         <Box textAlign="center">
           ━━ You can learn more about this faction on the wiki:&nbsp;
-          <Button
-            icon="arrow-up-right-from-square"
-            disabled={!currentFaction.wiki_page}
+          <span
             title={
               currentFaction.wiki_page
                 ? data.wiki_url + currentFaction.wiki_page
                 : 'This faction does not have a wiki page'
             }
-            onClick={() => act('open_wiki', { faction: currentFaction.name })}
-          />
+          >
+            <Button
+              icon="arrow-up-right-from-square"
+              disabled={!currentFaction.wiki_page}
+              onClick={() => act('open_wiki', { faction: currentFaction.name })}
+            />
+          </span>
           &nbsp;━━
         </Box>
       </Flex.Item>
@@ -160,9 +163,9 @@ const FactionInfo = (props, context) => {
   );
 };
 
-const FactionPanel = (props: { currentFaction: Faction }, context) => {
+const FactionPanel = (props: { currentFaction: Faction }) => {
   const { currentFaction } = props;
-  const { act, data } = useBackend<FactionSelectData>(context);
+  const { act, data } = useBackend<FactionSelectData>();
 
   const currentIsChosen = currentFaction.name === data.chosen_faction;
   const CanSelect = () =>
@@ -187,9 +190,9 @@ const FactionPanel = (props: { currentFaction: Faction }, context) => {
       <Flex.Item>
         <Stack vertical align="center" textColor="label">
           <Stack.Item>
-            <Box
-              as="img"
+            <img
               src={resolveAsset(currentFaction.logo)}
+              alt={currentFaction.name}
               height="13em"
               width="13em"
             />
@@ -216,7 +219,7 @@ const FactionPanel = (props: { currentFaction: Faction }, context) => {
               textAlign="center"
               bold
               verticalAlignContent="middle"
-              style={{ 'white-space': 'normal' }}
+              style={{ whiteSpace: 'normal' }}
               disabled={CanSelect()}
               onClick={() =>
                 act('choose_faction', { faction: currentFaction.name })

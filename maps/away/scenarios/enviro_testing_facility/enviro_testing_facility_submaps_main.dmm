@@ -20831,7 +20831,7 @@
 /area/enviro_testing_facility/inside/crew/canteen)
 "vdJ" = (
 /obj/structure/table/wood,
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/tcfl{
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/tcaf{
 	pixel_x = 2;
 	pixel_y = 2
 	},

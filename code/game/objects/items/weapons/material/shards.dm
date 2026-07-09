@@ -106,6 +106,11 @@
 /obj/item/material/shard/shrapnel/Initialize(newloc, material_key)
 	. = ..(loc, MATERIAL_STEEL)
 
+/obj/item/material/shard/shrapnel/large/Initialize(newloc, material_key) //Shrapnel large enough to be removed by hand. Used by ship weapons.
+	. = ..(loc, MATERIAL_STEEL)
+	icon_state = "large"
+	w_class = WEIGHT_CLASS_NORMAL
+
 /obj/item/material/shard/shrapnel/flechette/Initialize(newloc, material_key)
 	. = ..(loc, MATERIAL_TITANIUM)
 

@@ -124,7 +124,6 @@ GLOBAL_LIST_EMPTY(turfs_to_map_type)
 /datum/unit_test/zas_area_test/ai_chamber
 	name = "ZAS: AI Chamber"
 	area_path = /area/horizon/ai/chamber
-	expectation = UT_NORMAL_COOL
 
 /datum/unit_test/zas_area_test/xenobio
 	name = "ZAS: Xenobiology"

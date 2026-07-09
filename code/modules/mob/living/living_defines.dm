@@ -86,6 +86,9 @@
 	var/burn_mod = 1
 	var/brute_mod = 1
 
+	/// Override for the visual attack effect shown on 'do_attack_animation()'.
+	var/attack_vis_effect
+
 	/// used to limit people from queuing up limb-breaks
 	var/limb_breaking = FALSE
 	/// Basically a catch-all aura/force-field thing.
@@ -102,3 +105,27 @@
 
 	/// Time since last weather effect
 	var/weather_cooldown_time = 0
+
+	var/datum/psi_complexus/psi
+
+	///The obj to overlay on the aim target
+	var/obj/aiming_overlay/aiming
+
+	///A list of mobs the target is being aimed at by
+	var/list/aimed_at_by
+
+	var/singleton/maneuver/prepared_maneuver
+	var/list/available_maneuvers = list()
+
+	var/datum/language/default_language
+
+	var/atom/movable/z_observer/z_eye
+
+	atom_flags = CRITICAL_ATOM
+	var/instability = 0
+	var/last_instability = 0 // Used to calculate instability delta.
+	var/last_instability_event = null // most recent world.time that something bad happened due to instability.
+
+	var/datum/weakref/last_weather
+
+	var/tmp/last_push_notif
