@@ -34,18 +34,19 @@
 /**
  * Adds a footstep sound to the list of footsteps to play.
  */
-/datum/component/mob_footsteps/proc/add_footstep_sound(caller, source, list/footstep_sounds, volume)
+/datum/component/mob_footsteps/proc/add_footstep_sound(comp_source, source, list/footstep_sounds, volume)
 	SIGNAL_HANDLER
 	if(!length(footstep_sounds))
 		return
 
 	LAZYSET(sound_effects_to_play, source, footstep_sounds)
-	LAZYSET(sound_effects_volumes, source, volume)
+	if(volume)
+		LAZYSET(sound_effects_volumes, source, volume)
 
 /**
  * Removes a footstep sound to the list of footsteps to play.
  */
-/datum/component/mob_footsteps/proc/remove_footstep_sound(caller, source, list/footstep_sounds)
+/datum/component/mob_footsteps/proc/remove_footstep_sound(comp_source, source, list/footstep_sounds)
 	SIGNAL_HANDLER
 	if(!length(footstep_sounds))
 		return
