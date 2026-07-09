@@ -246,6 +246,26 @@
 	if(helmet)
 		helmet.tint = (active? vision_restriction : offline_vision_restriction)
 
+/**
+ * Updates the hardsuit's slowdown if it changes.
+ * This gives a heavy slowdown penalty if the suit is deployed but the boots are not.
+ * Otherwise, it is an easy exploit to make any hardsuit stealthy by wearing everything EXCEPT the boots.
+ * Now you can creep in your hardsuit, but you have to go slowly to do it.
+ */
+/obj/item/rig/proc/update_slowdown()
+	var/new_slowdown = initial(slowdown)
+
+	if(offline)
+		new_slowdown = offline_slowdown
+	else if(chest && wearer?.wear_suit == chest && (!boots || wearer.shoes != boots)) //If the chest is deployed, but the boots are not.
+		new_slowdown = offline_slowdown + 2 //The boots aren't taking the weight of the suit, so the wearer isn't benefiting from the hardsuit's powered servos.
+
+	if(slowdown != new_slowdown)
+		slowdown = new_slowdown
+		wearer?.update_equipment_speed_mods() //This should only proc if worn, but just in case we check.
+		if(slowdown == offline_slowdown + 2)
+			to_chat(wearer, SPAN_WARNING("Without the boots deployed, the hardsuit's servos aren't supporting the weight of the suit."))
+
 /obj/item/rig/proc/suit_is_deployed()
 	if(!istype(wearer) || src.loc != wearer || wearer.back != src)
 		return 0
@@ -477,9 +497,8 @@
 			offline = 0
 			if(istype(wearer) && !wearer.wearing_rig)
 				wearer.wearing_rig = src
-			if(slowdown != initial(slowdown))
-				slowdown = initial(slowdown)
-				wearer?.update_equipment_speed_mods()
+
+	update_slowdown()
 
 	if(offline != previous_offline_status)
 		update_icon(TRUE)
@@ -501,9 +520,7 @@
 			for(var/obj/item/rig_module/module in installed_modules)
 				module.deactivate()
 			offline = 2
-			if(slowdown != offline_slowdown)
-				slowdown = offline_slowdown
-				wearer?.update_equipment_speed_mods()
+			update_slowdown()
 		return
 
 	if(malfunction_delay > 0)
@@ -897,16 +914,6 @@
 			var/mob/living/carbon/human/holder
 			holder = use_obj.loc
 			if(istype(holder))
-				// Special code for boots. This is to prevent boots from being retracted while the chest piece is deployed.
-				// Otherwise, it is an easy exploit to make any hardsuit stealthy by wearing everything EXCEPT the boots.
-				var/obj/item/chest_slot = holder.wear_suit
-				var/obj/item/chest_obj = chest
-				if(use_obj == boots && chest_slot == chest_obj)
-					to_chat(wearer, SPAN_WARNING("The chest piece of the hardsuit must be retracted before you can retract your boots!"))
-					sound_to(wearer, 'sound/machines/terminal/terminal_error.ogg')
-					piece_being_deployed = FALSE
-					return
-
 				if(check_slot == use_obj)
 					to_chat(wearer, "<font color='blue'><b>Your [use_obj.name] [use_obj.gender == PLURAL ? "retract" : "retracts"] swiftly.</b></font>")
 					playsound(src, 'sound/machines/rig/rig_retract.ogg', 30, FALSE)
@@ -953,6 +960,7 @@
 		helmet.update_light(wearer)
 
 	update_icon(TRUE)
+	update_slowdown()
 
 	piece_being_deployed = FALSE
 	return TRUE
