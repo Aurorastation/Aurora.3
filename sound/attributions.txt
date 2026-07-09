@@ -211,6 +211,18 @@ ATTRIBUTIONS SECTION START
 sound/effects/metalping.ogg - ported from CM-SS13
 ATTRIBUTIONS SECTION END
 
+ATTRIBUTIONS SECTION START
+sound/music/lobby/spatial_audio.ogg - spatial audio 2 by BadWolf23/freesound.org, licensed under CC BY 4.0. https://freesound.org/people/BadWolf23/sounds/723957/
+ATTRIBUTIONS SECTION END
+
+ATTRIBUTIONS SECTION START
+sound/machines/ventilation_humming.ogg - humming machinery by Lewooz/freesound.org, licensed under CC0 1.0. https://freesound.org/people/Lewooz/sounds/545952/
+ATTRIBUTIONS SECTION END
+
+ATTRIBUTIONS SECTION START
+sound/machines/electrical_humming.ogg - SFX_GEOFON-HUM-ELECTRICAL-BOARD_4824_01 by pblzr/freesound.org, licensed under CC0 1.0. https://freesound.org/people/pblzr/sounds/785942/
+ATTRIBUTIONS SECTION END
+
 ATTRIBUTIONS SECTOR START
 sound/items/movement/gear_jiggle1 to 4.ogg -- github.com/budg3/CDDA-Soundpack/env/walk
 sound/items/rattle_* --
