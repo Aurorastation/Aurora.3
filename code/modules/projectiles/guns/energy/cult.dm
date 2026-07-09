@@ -65,5 +65,4 @@
 	use_external_power = TRUE
 	self_recharge = TRUE
 	has_safety = FALSE
-	does_process = FALSE
 	projectile_type = /obj/projectile/bullet/shard/heavy
