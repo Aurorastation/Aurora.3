@@ -36,6 +36,14 @@ SUBSYSTEM_DEF(statpanels)
 			"Last Transfer Vote: [GLOB.last_transfer_vote ? time2text(GLOB.last_transfer_vote, "hh:mm") : "Never"]",
 			"Next Port Visit: [SSatlas.current_sector.next_port_visit_string]"
 		)
+
+		if(istype(SSticker.round_canon))
+			global_data[++global_data.len] = list(
+				"Round Canon: ",
+				"[SSticker.round_canon.name]",
+				"src=[REF(src)];open_canon_panel=1"
+			)
+
 		if(eta_status)
 			global_data += eta_status
 
@@ -99,6 +107,10 @@ SUBSYSTEM_DEF(statpanels)
 
 		if(MC_TICK_CHECK)
 			return
+
+/datum/controller/subsystem/statpanels/Topic(href, href_list)
+	if(href_list["open_canon_panel"])
+		SSticker.round_canon.ui_interact(usr)
 
 /datum/controller/subsystem/statpanels/proc/set_status_tab(client/target)
 	if(!global_data)//statbrowser hasnt fired yet and we were called from immediate_send_stat_data()

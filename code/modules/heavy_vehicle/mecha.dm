@@ -113,7 +113,8 @@
 		if(pilot.client)
 			pilot.client.screen -= hud_elements
 			pilot.client.images -= hud_elements
-		pilot.forceMove(get_turf(src))
+		if (!QDELETED(pilot)) // Forcemove doesn't accept QDELETED inputs.
+			pilot.forceMove(get_turf(src))
 	pilots = null
 
 	QDEL_LIST(hud_elements)
