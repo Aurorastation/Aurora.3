@@ -41,13 +41,7 @@
 	species_restricted = list(BODYTYPE_UNATHI)
 	refittable = FALSE
 
-	movement_sounds = list(
-		'sound/items/movement/rattle_cloth_heavy_light_1.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_2.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_3.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_4.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_5.ogg',
-	)
+	movement_sounds = SFX_ARMOURED_VOIDSUIT_FOOTSTEPS
 
 /obj/item/clothing/head/helmet/space/void/kataphract/spec
 	name = "kataphract specialist voidsuit helmet"
@@ -114,13 +108,7 @@
 	species_restricted = list(BODYTYPE_UNATHI)
 	refittable = FALSE
 
-	movement_sounds = list(
-		'sound/items/movement/rattle_cloth_heavy_light_1.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_2.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_3.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_4.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_5.ogg',
-	)
+	movement_sounds = SFX_ARMOURED_VOIDSUIT_FOOTSTEPS
 
 /obj/item/clothing/head/helmet/space/void/unathi_pirate/captain
 	name = "unathi raider captain helmet"
@@ -155,13 +143,7 @@
 	species_restricted = list(BODYTYPE_UNATHI)
 	refittable = FALSE
 
-	movement_sounds = list(
-		'sound/items/movement/rattle_cloth_heavy_light_1.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_2.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_3.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_4.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_5.ogg',
-	)
+	movement_sounds = SFX_ARMOURED_VOIDSUIT_FOOTSTEPS
 
 /obj/item/clothing/head/helmet/space/void/hegemony
 	name = "hegemony military helmet"
@@ -237,13 +219,7 @@
 		RAD = ARMOR_RAD_SHIELDED
 	)
 
-	movement_sounds = list(
-		'sound/items/movement/rattle_cloth_heavy_light_1.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_2.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_3.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_4.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_5.ogg',
-	)
+	movement_sounds = SFX_ARMOURED_VOIDSUIT_FOOTSTEPS
 
 /obj/item/clothing/suit/space/void/unathi_pirate/tarwa/captain
 	name = "tarwa conglomerate captain's voidsuit"

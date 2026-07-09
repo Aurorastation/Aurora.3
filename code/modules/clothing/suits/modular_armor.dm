@@ -10,13 +10,7 @@
 	restricted_accessory_slots = list(ACCESSORY_SLOT_ARMOR_PLATE, ACCESSORY_SLOT_ARM_GUARDS, ACCESSORY_SLOT_LEG_GUARDS, ACCESSORY_SLOT_ARMOR_POCKETS)
 	valid_accessory_slots = list(ACCESSORY_SLOT_ARMOR_PLATE, ACCESSORY_SLOT_ARM_GUARDS, ACCESSORY_SLOT_LEG_GUARDS, ACCESSORY_SLOT_ARMOR_POCKETS, ACCESSORY_SLOT_GENERIC, ACCESSORY_SLOT_ARMBAND, ACCESSORY_SLOT_CAPE, ACCESSORY_SLOT_UTILITY_MINOR)
 	pockets = null
-	movement_sounds = list(
-		'sound/items/movement/rattle_light_1.ogg',
-		'sound/items/movement/rattle_light_2.ogg',
-		'sound/items/movement/rattle_light_3.ogg',
-		'sound/items/movement/rattle_light_4.ogg',
-		'sound/items/movement/rattle_light_5.ogg'
-		)
+	movement_sounds = SFX_LIGHT_ARMOUR_FOOTSTEPS
 	movement_sound_volume = 20
 
 /obj/item/clothing/suit/armor/carrier/dominia
@@ -67,16 +61,7 @@
 		/obj/item/clothing/accessory/storage/modular_pouch
 	)
 
-	movement_sounds = list(
-		'sound/items/movement/rattle_cloth_heavy_1.ogg',
-		'sound/items/movement/rattle_cloth_heavy_2.ogg',
-		'sound/items/movement/rattle_cloth_heavy_3.ogg',
-		'sound/items/movement/rattle_cloth_heavy_4.ogg',
-		'sound/items/movement/rattle_cloth_heavy_5.ogg',
-		'sound/items/movement/rattle_cloth_heavy_6.ogg',
-		'sound/items/movement/rattle_cloth_heavy_7.ogg',
-		'sound/items/movement/rattle_cloth_heavy_8.ogg'
-	)
+	movement_sounds = SFX_HEAVY_ARMOUR_FOOTSTEPS
 
 /obj/item/clothing/suit/armor/carrier/ballistic
 	starting_accessories = list(
@@ -86,17 +71,7 @@
 		/obj/item/clothing/accessory/storage/modular_pouch/large
 	)
 
-	movement_sounds = list(
-		'sound/items/movement/rattle_cloth_heavy_1.ogg',
-		'sound/items/movement/rattle_cloth_heavy_2.ogg',
-		'sound/items/movement/rattle_cloth_heavy_3.ogg',
-		'sound/items/movement/rattle_cloth_heavy_4.ogg',
-		'sound/items/movement/rattle_cloth_heavy_5.ogg',
-		'sound/items/movement/rattle_cloth_heavy_6.ogg',
-		'sound/items/movement/rattle_cloth_heavy_7.ogg',
-		'sound/items/movement/rattle_cloth_heavy_8.ogg'
-	)
-
+	movement_sounds = SFX_HEAVY_ARMOUR_FOOTSTEPS
 
 /obj/item/clothing/suit/armor/carrier/ablative
 	starting_accessories = list(
@@ -106,17 +81,7 @@
 		/obj/item/clothing/accessory/storage/modular_pouch/large
 	)
 
-	movement_sounds = list(
-		'sound/items/movement/rattle_cloth_heavy_1.ogg',
-		'sound/items/movement/rattle_cloth_heavy_2.ogg',
-		'sound/items/movement/rattle_cloth_heavy_3.ogg',
-		'sound/items/movement/rattle_cloth_heavy_4.ogg',
-		'sound/items/movement/rattle_cloth_heavy_5.ogg',
-		'sound/items/movement/rattle_cloth_heavy_6.ogg',
-		'sound/items/movement/rattle_cloth_heavy_7.ogg',
-		'sound/items/movement/rattle_cloth_heavy_8.ogg'
-	)
-
+	movement_sounds = SFX_HEAVY_ARMOUR_FOOTSTEPS
 
 /obj/item/clothing/suit/armor/carrier/military
 	starting_accessories = list(
@@ -126,17 +91,7 @@
 		/obj/item/clothing/accessory/storage/modular_pouch/large
 	)
 
-	movement_sounds = list(
-		'sound/items/movement/rattle_cloth_heavy_1.ogg',
-		'sound/items/movement/rattle_cloth_heavy_2.ogg',
-		'sound/items/movement/rattle_cloth_heavy_3.ogg',
-		'sound/items/movement/rattle_cloth_heavy_4.ogg',
-		'sound/items/movement/rattle_cloth_heavy_5.ogg',
-		'sound/items/movement/rattle_cloth_heavy_6.ogg',
-		'sound/items/movement/rattle_cloth_heavy_7.ogg',
-		'sound/items/movement/rattle_cloth_heavy_8.ogg'
-	)
-
+	movement_sounds = SFX_HEAVY_ARMOUR_FOOTSTEPS
 
 /obj/item/clothing/suit/armor/carrier/heavy
 	starting_accessories = list(
@@ -146,17 +101,7 @@
 		/obj/item/clothing/accessory/storage/modular_pouch/large
 	)
 
-	movement_sounds = list(
-		'sound/items/movement/rattle_cloth_heavy_1.ogg',
-		'sound/items/movement/rattle_cloth_heavy_2.ogg',
-		'sound/items/movement/rattle_cloth_heavy_3.ogg',
-		'sound/items/movement/rattle_cloth_heavy_4.ogg',
-		'sound/items/movement/rattle_cloth_heavy_5.ogg',
-		'sound/items/movement/rattle_cloth_heavy_6.ogg',
-		'sound/items/movement/rattle_cloth_heavy_7.ogg',
-		'sound/items/movement/rattle_cloth_heavy_8.ogg'
-	)
-
+	movement_sounds = SFX_HEAVY_ARMOUR_FOOTSTEPS
 
 /obj/item/clothing/suit/armor/carrier/heavy/scc
 	starting_accessories = list(
@@ -183,17 +128,7 @@
 		/obj/item/clothing/accessory/storage/chestpouch
 	)
 
-	movement_sounds = list(
-		'sound/items/movement/rattle_cloth_heavy_1.ogg',
-		'sound/items/movement/rattle_cloth_heavy_2.ogg',
-		'sound/items/movement/rattle_cloth_heavy_3.ogg',
-		'sound/items/movement/rattle_cloth_heavy_4.ogg',
-		'sound/items/movement/rattle_cloth_heavy_5.ogg',
-		'sound/items/movement/rattle_cloth_heavy_6.ogg',
-		'sound/items/movement/rattle_cloth_heavy_7.ogg',
-		'sound/items/movement/rattle_cloth_heavy_8.ogg'
-	)
-
+	movement_sounds = SFX_HEAVY_ARMOUR_FOOTSTEPS
 
 /obj/item/clothing/suit/armor/carrier/tcaf/tcaf_light
 	starting_accessories = list(
@@ -210,17 +145,7 @@
 		/obj/item/clothing/accessory/storage/modular_pouch/large
 	)
 
-	movement_sounds = list(
-		'sound/items/movement/rattle_cloth_heavy_1.ogg',
-		'sound/items/movement/rattle_cloth_heavy_2.ogg',
-		'sound/items/movement/rattle_cloth_heavy_3.ogg',
-		'sound/items/movement/rattle_cloth_heavy_4.ogg',
-		'sound/items/movement/rattle_cloth_heavy_5.ogg',
-		'sound/items/movement/rattle_cloth_heavy_6.ogg',
-		'sound/items/movement/rattle_cloth_heavy_7.ogg',
-		'sound/items/movement/rattle_cloth_heavy_8.ogg'
-	)
-
+	movement_sounds = SFX_HEAVY_ARMOUR_FOOTSTEPS
 
 /obj/item/clothing/suit/armor/carrier/lance
 	starting_accessories = list(
@@ -230,17 +155,7 @@
 		/obj/item/clothing/accessory/storage/modular_pouch/large
 	)
 
-	movement_sounds = list(
-		'sound/items/movement/rattle_cloth_heavy_1.ogg',
-		'sound/items/movement/rattle_cloth_heavy_2.ogg',
-		'sound/items/movement/rattle_cloth_heavy_3.ogg',
-		'sound/items/movement/rattle_cloth_heavy_4.ogg',
-		'sound/items/movement/rattle_cloth_heavy_5.ogg',
-		'sound/items/movement/rattle_cloth_heavy_6.ogg',
-		'sound/items/movement/rattle_cloth_heavy_7.ogg',
-		'sound/items/movement/rattle_cloth_heavy_8.ogg'
-	)
-
+	movement_sounds = SFX_HEAVY_ARMOUR_FOOTSTEPS
 
 /obj/item/clothing/accessory/armor_plate
 	name = "corporate armor plate"

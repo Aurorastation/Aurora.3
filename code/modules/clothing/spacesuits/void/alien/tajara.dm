@@ -30,13 +30,7 @@
 	species_restricted = list(BODYTYPE_TAJARA)
 	refittable = FALSE
 
-	movement_sounds = list(
-		'sound/items/movement/rattle_cloth_heavy_light_1.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_2.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_3.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_4.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_5.ogg',
-	)
+	movement_sounds = SFX_ARMOURED_VOIDSUIT_FOOTSTEPS
 
 /obj/item/clothing/head/helmet/space/void/pra
 	name = "kosmostrelki voidsuit helmet"
@@ -160,13 +154,7 @@
 	species_restricted = list(BODYTYPE_TAJARA)
 	refittable = FALSE
 
-	movement_sounds = list(
-		'sound/items/movement/rattle_cloth_heavy_light_1.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_2.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_3.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_4.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_5.ogg',
-	)
+	movement_sounds = SFX_ARMOURED_VOIDSUIT_FOOTSTEPS
 
 /obj/item/clothing/head/helmet/space/void/nka
 	name = "new kingdom mercantile voidsuit helmet"
@@ -217,13 +205,7 @@
 	species_restricted = list(BODYTYPE_TAJARA)
 	refittable = FALSE
 
-	movement_sounds = list(
-		'sound/items/movement/rattle_cloth_heavy_light_1.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_2.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_3.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_4.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_5.ogg',
-	)
+	movement_sounds = SFX_ARMOURED_VOIDSUIT_FOOTSTEPS
 
 /obj/item/clothing/head/helmet/space/void/dpra
 	name = "people's volunteer spacer militia voidsuit helmet"

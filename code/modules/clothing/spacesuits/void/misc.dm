@@ -42,13 +42,7 @@
 	species_restricted = list(BODYTYPE_HUMAN)
 	refittable = FALSE
 
-	movement_sounds = list(
-		'sound/items/movement/rattle_cloth_heavy_light_1.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_2.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_3.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_4.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_5.ogg',
-	)
+	movement_sounds = SFX_ARMOURED_VOIDSUIT_FOOTSTEPS
 
 /obj/item/clothing/head/helmet/space/void/coalition
 	name = "coalition vulture voidsuit helmet"
@@ -99,13 +93,7 @@
 	icon_supported_species_tags = list("ipc", "skr", "taj")
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_IPC, BODYTYPE_SKRELL)
 
-	movement_sounds = list(
-		'sound/items/movement/rattle_cloth_heavy_light_1.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_2.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_3.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_4.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_5.ogg',
-	)
+	movement_sounds = SFX_ARMOURED_VOIDSUIT_FOOTSTEPS
 
 /obj/item/clothing/head/helmet/space/void/coalition/xanu
 	name = "\improper Xanan eagle voidsuit helmet"
@@ -226,13 +214,7 @@
 	species_restricted = list(BODYTYPE_HUMAN)
 	refittable = FALSE
 
-	movement_sounds = list(
-		'sound/items/movement/rattle_cloth_heavy_light_1.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_2.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_3.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_4.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_5.ogg',
-	)
+	movement_sounds = SFX_ARMOURED_VOIDSUIT_FOOTSTEPS
 
 /obj/item/clothing/head/helmet/space/void/valkyrie
 	name = "valkyrie voidsuit helmet"
@@ -281,13 +263,7 @@
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_IPC)
 	max_heat_protection_temperature = FIRE_HELMET_MAX_HEAT_PROTECTION_TEMPERATURE + 10000
 
-	movement_sounds = list(
-		'sound/items/movement/rattle_cloth_heavy_light_1.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_2.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_3.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_4.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_5.ogg',
-	)
+	movement_sounds = SFX_ARMOURED_VOIDSUIT_FOOTSTEPS
 
 /obj/item/clothing/head/helmet/space/void/lancer
 	name = "lancer voidsuit helmet"
@@ -338,13 +314,7 @@
 	species_restricted = list(BODYTYPE_HUMAN)
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_UNATHI)
 
-	movement_sounds = list(
-		'sound/items/movement/rattle_cloth_heavy_light_1.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_2.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_3.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_4.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_5.ogg',
-	)
+	movement_sounds = SFX_ARMOURED_VOIDSUIT_FOOTSTEPS
 
 /obj/item/clothing/suit/space/void/lancer/unathi
 	desc = "A bulky void suit with heavy plating. Looks to be colored in the branding of Ceres' Lance. This one is fitted to Unathi."
@@ -402,13 +372,7 @@
 	icon_supported_species_tags = list("skr", "ipc")
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_IPC, BODYTYPE_SKRELL)
 
-	movement_sounds = list(
-		'sound/items/movement/rattle_cloth_heavy_light_1.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_2.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_3.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_4.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_5.ogg',
-	)
+	movement_sounds = SFX_ARMOURED_VOIDSUIT_FOOTSTEPS
 
 //Zeng-Hu Pharmaceuticals espionage voidsuit
 /obj/item/clothing/head/helmet/space/void/zenghu
@@ -462,13 +426,7 @@
 	icon_supported_species_tags = list("skr", "ipc")
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_IPC)
 
-	movement_sounds = list(
-		'sound/items/movement/rattle_cloth_heavy_light_1.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_2.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_3.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_4.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_5.ogg',
-	)
+	movement_sounds = SFX_ARMOURED_VOIDSUIT_FOOTSTEPS
 
 //Hephaestus Industries espionage voidsuit
 /obj/item/clothing/head/helmet/space/void/hephaestus
@@ -522,13 +480,7 @@
 	icon_supported_species_tags = list("una")
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_UNATHI)
 
-	movement_sounds = list(
-		'sound/items/movement/rattle_cloth_heavy_light_1.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_2.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_3.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_4.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_5.ogg',
-	)
+	movement_sounds = SFX_ARMOURED_VOIDSUIT_FOOTSTEPS
 
 //Zavodskoi Interstellar espionage voidsuit
 /obj/item/clothing/head/helmet/space/void/zavodskoi
@@ -579,13 +531,7 @@
 	species_restricted = list(BODYTYPE_HUMAN)
 	desc_extended = "A portable, sleek combat suit utilized in excess by Zavodskoi Interstellar private military contractors. It is known to be utilized by the company's most secretive sectors explicitly for espionage."
 
-	movement_sounds = list(
-		'sound/items/movement/rattle_cloth_heavy_light_1.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_2.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_3.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_4.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_5.ogg',
-	)
+	movement_sounds = SFX_ARMOURED_VOIDSUIT_FOOTSTEPS
 
 //Freelancer voidsuit
 /obj/item/clothing/head/helmet/space/void/freelancer
@@ -636,13 +582,7 @@
 	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL)
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_IPC, BODYTYPE_UNATHI, BODYTYPE_SKRELL)
 
-	movement_sounds = list(
-		'sound/items/movement/rattle_cloth_heavy_light_1.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_2.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_3.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_4.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_5.ogg',
-	)
+	movement_sounds = SFX_ARMOURED_VOIDSUIT_FOOTSTEPS
 
 /obj/item/clothing/head/helmet/space/void/dominia
 	name = "dominian prejoroub combat helmet"
@@ -700,13 +640,7 @@
 	icon_supported_species_tags = list("una")
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_UNATHI)
 
-	movement_sounds = list(
-		'sound/items/movement/rattle_cloth_heavy_light_1.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_2.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_3.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_4.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_5.ogg',
-	)
+	movement_sounds = SFX_ARMOURED_VOIDSUIT_FOOTSTEPS
 
 /obj/item/clothing/suit/space/void/dominia/voidsman
 	name = "dominian voidsman suit"
@@ -806,13 +740,7 @@
 		RAD = ARMOR_RAD_SMALL
 	)
 
-	movement_sounds = list(
-		'sound/items/movement/rattle_cloth_heavy_light_1.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_2.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_3.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_4.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_5.ogg',
-	)
+	movement_sounds = SFX_ARMOURED_VOIDSUIT_FOOTSTEPS
 
 /obj/item/clothing/head/helmet/space/void/golden_deep/hoplan
 	name = "hoplan voidsuit helmet"
@@ -1173,13 +1101,7 @@
 	icon_supported_species_tags = list("ipc", "skr", "taj", "una", "vau", "vaw")
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_IPC, BODYTYPE_TAJARA, BODYTYPE_UNATHI, BODYTYPE_SKRELL, BODYTYPE_VAURCA)
 
-	movement_sounds = list(
-		'sound/items/movement/rattle_cloth_heavy_light_1.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_2.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_3.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_4.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_5.ogg',
-	)
+	movement_sounds = SFX_ARMOURED_VOIDSUIT_FOOTSTEPS
 
 /obj/item/clothing/head/helmet/space/void/tcaf
 	name = "tau ceti armed forces voidsuit helmet"
@@ -1256,13 +1178,7 @@
 	siemens_coefficient = 0.35
 	contained_sprite = TRUE
 
-	movement_sounds = list(
-		'sound/items/movement/rattle_cloth_heavy_light_1.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_2.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_3.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_4.ogg',
-		'sound/items/movement/rattle_cloth_heavy_light_5.ogg',
-	)
+	movement_sounds = SFX_ARMOURED_VOIDSUIT_FOOTSTEPS
 
 /obj/item/clothing/head/helmet/space/void/outereyes
 	name = "\improper Outer Eyes voidsuit helmet"

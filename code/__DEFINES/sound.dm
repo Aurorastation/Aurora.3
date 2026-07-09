@@ -190,3 +190,7 @@
 #define SFX_CLOTH_PICKUP "cloth_pickup"
 #define SFX_VISOR_DOWN "visor_down"
 #define SFX_VISOR_UP "visor_up"
+#define SFX_LIGHT_ARMOUR_FOOTSTEPS "light_armour_footsteps"
+#define SFX_HEAVY_ARMOUR_FOOTSTEPS "heavy_armour_footsteps"
+#define SFX_VOIDSUIT_FOOTSTEPS "voidsuit_footsteps"
+#define SFX_ARMOURED_VOIDSUIT_FOOTSTEPS "armoured_voidsuit_footsteps"
