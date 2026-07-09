@@ -61,7 +61,10 @@
  */
 /datum/component/mob_footsteps/proc/play_footstep_sounds()
 	SIGNAL_HANDLER
-	//todomatt: remember is_noisy if(mob_parent.is_noisy)
+
+	if(mob_parent.buckled_to)
+		return
+
 	footsteps++
 	if(footsteps < footsteps_until_sound)
 		return
