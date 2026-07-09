@@ -92,7 +92,7 @@
 		if(mob_parent.m_intent == M_RUN)
 			volume = min(volume + 30, 100)
 
-		playsound(mob_parent, length(sounds_to_play) > 1 ? pick(sounds_to_play) : sounds_to_play[1], volume, FALSE, required_asfx_toggles = ASFX_FOOTSTEPS, use_reverb = FALSE)
+		playsound(mob_parent, length(sounds_to_play) > 1 ? pick(sounds_to_play) : sounds_to_play[1], volume, FALSE, required_asfx_toggles = ASFX_FOOTSTEPS)
 	footsteps = 0
 
 /**

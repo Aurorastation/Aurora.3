@@ -11,7 +11,7 @@
 	valid_accessory_slots = list(ACCESSORY_SLOT_ARMOR_PLATE, ACCESSORY_SLOT_ARM_GUARDS, ACCESSORY_SLOT_LEG_GUARDS, ACCESSORY_SLOT_ARMOR_POCKETS, ACCESSORY_SLOT_GENERIC, ACCESSORY_SLOT_ARMBAND, ACCESSORY_SLOT_CAPE, ACCESSORY_SLOT_UTILITY_MINOR)
 	pockets = null
 	movement_sounds = SFX_LIGHT_ARMOUR_FOOTSTEPS
-	movement_sound_volume = 20
+	movement_sound_volume = 10
 
 /obj/item/clothing/suit/armor/carrier/dominia
 	name = "imperial army flak vest"
