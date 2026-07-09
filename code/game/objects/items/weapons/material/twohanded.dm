@@ -599,7 +599,7 @@
 	desc = "For the republic!"
 	icon_state = "flag_biesel0"
 	base_icon = "flag_biesel"
-	default_material = MATERIAL_GLASS
+	default_material = MATERIAL_STEEL
 	can_embed = 1
 	use_material_name = FALSE
 	unbreakable = TRUE
