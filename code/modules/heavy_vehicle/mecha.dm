@@ -11,7 +11,6 @@
 	accent = ACCENT_TTS
 	appearance_flags = KEEP_TOGETHER | DEFAULT_APPEARANCE_FLAGS | TILE_BOUND | LONG_GLIDE
 	pass_flags_self = PASSVEHICLE
-	footstep_component_type = null
 	var/decal
 
 	var/emp_damage = 0
