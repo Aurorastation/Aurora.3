@@ -223,6 +223,9 @@
 		if(kidneys)
 			pick_organs -= kidneys
 			pick_organs.Insert(1, kidneys)
+			if (!heal)
+				// Kindly inform the kidneys that there's going to be poison to remove. :)
+				START_PROCESSING(SSprocessing, kidneys)
 
 
 	var/obj/item/organ/internal/liver/liver = null

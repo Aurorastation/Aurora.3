@@ -148,6 +148,7 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 	return damage >= min_bruised_damage
 
 /obj/item/organ/proc/bruise()
+	START_PROCESSING(SSprocessing, src)
 	damage = max(damage, min_bruised_damage)
 
 #define ORGAN_RECOVERY_THRESHOLD (5 MINUTES)
