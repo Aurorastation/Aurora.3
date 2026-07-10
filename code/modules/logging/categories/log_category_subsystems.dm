@@ -32,11 +32,6 @@
 	config_flag = /datum/config_entry/flag/log_subsystems_discord
 	master_category = /datum/log_category/subsystem
 
-/datum/log_category/subsystem_documents
-	category = LOG_CATEGORY_SUBSYSTEM_DOCUMENTS
-	config_flag = /datum/config_entry/flag/log_subsystems_documents
-	master_category = /datum/log_category/subsystem
-
 /datum/log_category/subsystem_fail2topic
 	category = LOG_CATEGORY_SUBSYSTEM_FAIL2TOPIC
 	config_flag = /datum/config_entry/flag/log_subsystems_fail2topic

@@ -160,6 +160,7 @@ GLOBAL_LIST_INIT(world_api_rate_limit, list())
 
 	if (tgs_topic_return)
 		log_debug("API - TGS3 Request.")
+		log_tgs("API - TGS3 Request.", SEVERITY_DEBUG)
 		return tgs_topic_return
 	else if (!queryparams.len)
 		log_debug("API - Bad Request - Invalid/no JSON data sent.")

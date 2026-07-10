@@ -71,6 +71,7 @@ SUBSYSTEM_DEF(profiler)
 	WRITE_FILE(prof_file, current_profile_data)
 	WRITE_FILE(sendmaps_file, current_sendmaps_data)
 	write_cost = MC_AVERAGE(write_cost, TICK_DELTA_TO_MS(TICK_USAGE_REAL - timer))
+	log_perf(list("profile_fetch_ms=[round(fetch_cost, 0.01)]", "profile_write_ms=[round(write_cost, 0.01)]"))
 
 	if(SSsentry)
 		SSsentry.capture_profiler_dump(current_profile_data, fetch_cost, write_cost)

@@ -35,7 +35,6 @@
   "log_subsystems_cargo":1,
   "log_subsystems_persistence":1,
   "log_subsystems_discord":0,
-  "log_subsystems_documents":1,
   "log_subsystems_fail2topic":1,
   "log_subsystems_mapfinalization":1,
   "log_subsystems_tgui":1,

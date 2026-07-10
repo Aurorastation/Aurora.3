@@ -76,6 +76,7 @@
 				var/contained = reagents.get_reagents()
 				var/trans = reagents.trans_to_mob(L, transfer_amount, CHEM_BLOOD)
 				message_admins("[assembly] injected \the [L] with [trans]u of [contained].")
+				log_admin_circuit("[assembly] injected \the [L] with [trans]u of [contained].", list("assembly" = assembly, "circuit" = src, "target" = L, "reagents" = contained, "amount" = trans))
 				to_chat(AM, SPAN_NOTICE("You feel a tiny prick!"))
 				visible_message(SPAN_WARNING("[assembly] injects [L]!"))
 			else

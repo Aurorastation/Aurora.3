@@ -207,6 +207,7 @@ SUBSYSTEM_DEF(ghostroles)
 			LAZYADD(spawned_ghostrole_mobs, spawned_weakref)
 			SSrecords.reset_manifest()
 			log_and_message_admins("joined as GhostRole: [S.name]", M)
+			log_module_ghostroles("[key_name(usr)] joined as [S.name]")
 			SStgui.update_uis(src)
 			. = TRUE
 

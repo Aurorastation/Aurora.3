@@ -166,6 +166,7 @@
 		attached_grenade.activate()
 		var/atom/holder = loc
 		log_and_message_admins("activated a grenade assembly. Last touches: Assembly: [holder.fingerprintslast] Circuit: [fingerprintslast] Grenade: [attached_grenade.fingerprintslast]")
+		log_admin_circuit("activated a grenade assembly. Last touches: Assembly: [holder.fingerprintslast] Circuit: [fingerprintslast] Grenade: [attached_grenade.fingerprintslast]", list("assembly" = holder, "circuit" = src, "grenade" = attached_grenade))
 
 // These procs do not relocate the grenade, that's the callers responsibility
 /obj/item/integrated_circuit/manipulation/grenade/proc/attach_grenade(var/obj/item/grenade/G)
@@ -340,6 +341,7 @@
 		return
 	else
 		msg_admin_attack("An integrated circuit with a shocker circuit was used to shock [M.name] ([M.ckey]) (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)")
+		log_admin_circuit("shocker circuit shocked [key_name(M)]", list("circuit" = src, "target" = M))
 		to_chat(M, SPAN_DANGER("You feel a sharp shock from the [src]!"))
 		spark(get_turf(M), 3, 1)
 		M.stun_effect_act(0, clamp(get_pin_data(IC_INPUT, 2),0,20), null)
@@ -382,6 +384,7 @@
 
 		flashtime = world.time
 		msg_admin_attack("An integrated circuit with a flasher was used to flash [scanned_mob.name] ([scanned_mob.ckey]) (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)")
+		log_admin_circuit("flasher circuit flashed [key_name(scanned_mob)]", list("circuit" = src, "target" = scanned_mob))
 		playsound(src.loc, 'sound/weapons/flash.ogg', 100, 1)
 		return
 

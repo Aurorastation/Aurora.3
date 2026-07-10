@@ -525,6 +525,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		var/msg = sanitize(input(src, "Message:", "Spectral Whisper") as text|null)
 		if(msg)
 			log_say("SpectralWhisper: [key_name(usr)]->[M.key] : [msg]")
+			log_directed_talk(src, M, msg, LOG_SAY, "spectral whisper")
 			to_chat(M, SPAN_WARNING(" You hear a strange, unidentifiable voice in your head... <font color='purple'>[msg]</font>"))
 			to_chat(src, SPAN_WARNING(" You said: '[msg]' to [M]."))
 		else

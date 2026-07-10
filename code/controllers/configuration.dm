@@ -66,7 +66,6 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 	"log_subsystems_law" = TRUE,	// Law
 	"log_subsystems_cargo" = TRUE, // Cargo
 	"log_subsystems_persistence" = TRUE, // Persistence
-	"log_subsystems_documents" = TRUE, // Documents
 	"log_subsystems_fail2topic" = TRUE, // Fail2Topic
 	"log_subsystems_mapfinalization" = TRUE, // Map Finalization
 	"log_subsystems_tgui" = TRUE, // TGUI
@@ -92,8 +91,6 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 	var/list/logfiles = list(
 	"world_asset_log" = "world_asset.log",
 	"config_error_log" = "config_error.log",
-	"filter_log" = "filter.log",
-	"lua_log" = "lua.log",
 	"world_map_error_log" = "world_map_error.log",
 	"perf_log" = "perf.log",
 	"world_qdel_log" = "world_qdel.log",
@@ -129,7 +126,6 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 	"world_subsystems_law_log" = "subsystems/law.log",
 	"world_subsystems_cargo_log" = "subsystems/cargo.log",
 	"world_subsystems_persistence_log" = "subsystems/persistence.log",
-	"world_subsystems_documents_log" = "subsystems/documents.log",
 	"world_subsystems_fail2topic_log" = "subsystems/fail2topic.log",
 	"world_subsystems_mapfinalization_log" = "subsystems/mapfinalization.log",
 	"world_subsystems_tgui" = "subsystems/tgui.log",

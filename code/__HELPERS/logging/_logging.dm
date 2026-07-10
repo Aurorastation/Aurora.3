@@ -67,14 +67,23 @@ GLOBAL_LIST_INIT(testing_global_profiler, list("_PROFILE_NAME" = "Global"))
 /proc/log_signal(var/text, list/data)
 	_log_signal(text, data)
 
-/proc/log_ntirc(text, level = SEVERITY_NOTICE, ckey = "", conversation = "")
-	log_chat(text)
-
 /proc/log_misc(text)
 	logger?.Log(LOG_CATEGORY_MISC, "MISC: [text]")
 
 /proc/log_tgs(text, severity = SEVERITY_INFO)
 	logger?.Log(LOG_CATEGORY_TGS, "TGS[severity]: [text]", list("severity" = severity))
+
+/proc/tgs_info_log(text)
+	log_tgs("Info: [text]", SEVERITY_INFO)
+	log_world("TGS Info: [text]")
+
+/proc/tgs_warning_log(text)
+	log_tgs("Warn: [text]", SEVERITY_WARNING)
+	log_world("TGS Warn: [text]")
+
+/proc/tgs_error_log(text)
+	log_tgs("Error: [text]", SEVERITY_ERROR)
+	stack_trace("TGS Error: [text]")
 
 /proc/log_ntsl(text, severity = SEVERITY_NOTICE, ckey = "")
 	logger?.Log(LOG_CATEGORY_NTSL, "NTSL: [text]", list(

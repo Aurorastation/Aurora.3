@@ -80,7 +80,6 @@
 #define LOG_CATEGORY_COMBAT "combat"
 #define LOG_CATEGORY_CONFIG "config"
 #define LOG_CATEGORY_DEBUG_MAPPING "debug-mapping"
-#define LOG_CATEGORY_FILTER "filter"
 #define LOG_CATEGORY_HARDDEL "harddel"
 #define LOG_CATEGORY_LOADOUT "loadout"
 #define LOG_CATEGORY_MANIFEST "manifest"
@@ -101,7 +100,6 @@
 #define LOG_CATEGORY_DEBUG "debug"
 #define LOG_CATEGORY_DEBUG_ASSET "debug-asset"
 #define LOG_CATEGORY_DEBUG_JOB "debug-job"
-#define LOG_CATEGORY_DEBUG_LUA "debug-lua"
 #define LOG_CATEGORY_DEBUG_SQL "debug-sql"
 #define LOG_CATEGORY_RUNTIME "runtime"
 
@@ -135,8 +133,6 @@
 // Uplink categories
 #define LOG_CATEGORY_UPLINK "uplink"
 #define LOG_CATEGORY_UPLINK_CHANGELING "uplink-changeling"
-#define LOG_CATEGORY_UPLINK_HERETIC "uplink-heretic"
-#define LOG_CATEGORY_UPLINK_MALF "uplink-malf"
 #define LOG_CATEGORY_UPLINK_SPELL "uplink-spell"
 
 // PDA categories
@@ -152,7 +148,6 @@
 #define LOG_CATEGORY_SUBSYSTEM_CODEX "subsystem-codex"
 #define LOG_CATEGORY_SUBSYSTEM_DBCORE "subsystem-dbcore"
 #define LOG_CATEGORY_SUBSYSTEM_DISCORD "subsystem-discord"
-#define LOG_CATEGORY_SUBSYSTEM_DOCUMENTS "subsystem-documents"
 #define LOG_CATEGORY_SUBSYSTEM_FAIL2TOPIC "subsystem-fail2topic"
 #define LOG_CATEGORY_SUBSYSTEM_GARBAGE "subsystem-garbage"
 #define LOG_CATEGORY_SUBSYSTEM_GHOSTROLES "subsystem-ghostroles"

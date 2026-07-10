@@ -1,8 +1,6 @@
 {
   "world_asset_log":"world_asset.log",
   "config_error_log":"config_error.log",
-  "filter_log":"filter.log",
-  "lua_log":"lua.log",
   "world_map_error_log":"world_map_error.log",
   "perf_log":"perf.log",
   "world_qdel_log":"world_qdel.log",
@@ -35,7 +33,6 @@
   "world_subsystems_cargo_log":"subsystems/cargo.log",
   "world_subsystems_persistence_log":"subsystems/persistence.log",
   "world_subsystems_discord_log":"subsystems/discord.log",
-  "world_subsystems_documents_log":"subsystems/documents.log",
   "world_subsystems_fail2topic_log":"subsystems/fail2topic.log",
   "world_subsystems_mapfinalization_log":"subsystems/mapfinalization.log",
   "world_subsystems_tgui":"subsystems/tgui.log",

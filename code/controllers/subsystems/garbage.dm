@@ -223,6 +223,7 @@ SUBSYSTEM_DEF(garbage)
 				var/message = "## TESTING: GC: -- [text_ref(D)] | [type] was unable to be GC'd --"
 				message = "[message] (ref count of [refcount(D)])"
 				log_world(message)
+				log_subsystem_garbage_warning(message, "[type]", TRUE)
 
 				var/detail = D.dump_harddel_info()
 				if(detail)
@@ -322,6 +323,7 @@ SUBSYSTEM_DEF(garbage)
 	if (threshold && (time > threshold SECONDS))
 		if (!(type_info.qdel_flags & QDEL_ITEM_ADMINS_WARNED))
 			log_game("Error: [type]([refID]) took longer than [threshold] seconds to delete (took [round(time/10, 0.1)] seconds to delete)")
+			log_subsystem_garbage_error("[type]([refID]) took longer than [threshold] seconds to delete (took [round(time/10, 0.1)] seconds to delete)", "[type]", TRUE)
 			message_admins("Error: [type]([refID]) took longer than [threshold] seconds to delete (took [round(time/10, 0.1)] seconds to delete).")
 			type_info.qdel_flags |= QDEL_ITEM_ADMINS_WARNED
 			if(SSsentry)

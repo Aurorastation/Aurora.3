@@ -9,9 +9,6 @@
 /datum/log_category/config
 	category = LOG_CATEGORY_CONFIG
 
-/datum/log_category/filter
-	category = LOG_CATEGORY_FILTER
-
 /datum/log_category/signal
 	category = LOG_CATEGORY_SIGNAL
 	config_flag = /datum/config_entry/flag/log_signals
@@ -78,10 +75,6 @@
 /datum/log_category/debug_job
 	category = LOG_CATEGORY_DEBUG_JOB
 	config_flag = /datum/config_entry/flag/log_job_debug
-	master_category = /datum/log_category/debug
-
-/datum/log_category/debug_lua
-	category = LOG_CATEGORY_DEBUG_LUA
 	master_category = /datum/log_category/debug
 
 /datum/log_category/debug_mapping

@@ -105,6 +105,7 @@
 
 	// log the signal
 	pda_msgs += new /datum/data_pda_msg(signal.format_target(), "[signal.data["name"]] ([signal.data["job"]])", signal.data["message"], signal.data["photo"])
+	log_pda("[signal.data["name"]] ([signal.data["job"]]) -> [signal.format_target()]: [signal.format_message()]", list("server" = src, "source" = signal.source))
 	signal.data -= "reject"  // only gets through if it's logged
 
 	// pass it along to either the hub or the broadcaster

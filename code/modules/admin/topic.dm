@@ -1419,6 +1419,7 @@
 		comment.message = com_msg
 		comment.posted = "[worldtime2text()]"
 		viewing_story.comments += comment
+		log_comment("[src.admincaster_signature] commented on [viewing_story.parent_channel?.channel_name]/[viewing_story.message_type]: [com_msg]", list("story" = viewing_story, "comment" = comment, "admin" = usr))
 		to_chat(usr, "Comment successfully added!")
 		src.admincaster_screen = 20
 		src.access_news_network()

@@ -513,6 +513,8 @@ SUBSYSTEM_DEF(dbcore)
 
 	. = (status == DB_QUERY_FINISHED)
 	var/timed_out = !. && findtext(last_error, "Operation timed out")
+	if(!.)
+		log_query_debug("SQL Query Failed. Query: [sql], Arguments: [json_encode(arguments)], error: [last_error]", list("query" = src))
 	if(!async && timed_out)
 		log_subsystem_dbcore("SLOW QUERY TIMEOUT. Query: [sql], start_time: [start_time], end_time: [REALTIMEOFDAY]")
 		slow_query_check()
@@ -541,6 +543,7 @@ SUBSYSTEM_DEF(dbcore)
 		status = DB_QUERY_BROKEN
 		last_error = "MC not running, Cant Execute NoSleep Query"
 		log_subsystem_dbcore("Attemted to Execute NoSleep Query while MC was not running: [sql], Arguments: [json_encode(arguments)], error: [last_error]")
+		log_query_debug("Attemted to Execute NoSleep Query while MC was not running: [sql], Arguments: [json_encode(arguments)], error: [last_error]", list("query" = src))
 		return FALSE
 	else
 		SSdbcore.queue_query(src)
@@ -676,6 +679,7 @@ Ignore_errors instructes mysql to continue inserting rows if some of them have e
 	invoke_callback()
 	if (status != DB_QUERY_FINISHED)
 		log_subsystem_dbcore("SQL Query Failed. Query: [sql], Arguments: [json_encode(arguments)], error: [last_error]")
+		log_query_debug("SQL Query Failed. Query: [sql], Arguments: [json_encode(arguments)], error: [last_error]", list("query" = src))
 	return TRUE
 
 /// Stores the returned query data and updates the `status` of the /datum/db_query

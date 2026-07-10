@@ -32,16 +32,9 @@
 	SEND_TEXT(world.log, "CONFIG: [text]")
 	#endif
 
-/proc/log_filter_raw(text, list/data)
-	logger?.Log(LOG_CATEGORY_FILTER, "FILTER: [text]", data)
-
 /// Logging for job slot changes
 /proc/log_job_debug(text, list/data)
 	logger?.Log(LOG_CATEGORY_DEBUG_JOB, "JOB: [text]", data)
-
-/// Logging for lua scripting
-/proc/log_lua(text, list/data)
-	logger?.Log(LOG_CATEGORY_DEBUG_LUA, "LUA: [text]", data)
 
 /// Logging for game performance
 /proc/log_perf(list/perf_info)

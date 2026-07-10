@@ -56,8 +56,6 @@
 	default = TRUE
 /datum/config_entry/flag/log_subsystems_discord
 	default = TRUE
-/datum/config_entry/flag/log_subsystems_documents
-	default = TRUE
 /datum/config_entry/flag/log_subsystems_fail2topic
 	default = TRUE
 /datum/config_entry/flag/log_subsystems_ghostroles

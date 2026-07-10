@@ -324,6 +324,7 @@
 		return
 
 	log_say("[key_name(src)] communed to [key_name(target)]: [text]")
+	log_directed_talk(src, target, text, LOG_SAY, "commune")
 
 	for (var/mob/M in GLOB.player_list)
 		if (istype(M, /mob/abstract/new_player))
@@ -355,6 +356,7 @@
 	var/msg = sanitize(input("Message:", "Psychic Whisper") as text|null)
 	if(msg)
 		log_say("PsychicWhisper: [key_name(src)]->[M.key] : [msg]")
+		log_directed_talk(src, M, msg, LOG_SAY, "psychic whisper")
 		to_chat(M, "<span class ='alium'>You hear a strange, alien voice in your head... \italic [msg]</span>")
 		to_chat(src, "<span class ='alium'>You said: \"[msg]\" to [M]</span>")
 	return
@@ -579,6 +581,7 @@
 		return
 
 	log_say("[key_name(src)] issued a hivenet order to [key_name(M)]: [text]")
+	log_directed_talk(src, M, text, LOG_SAY, "hivenet order")
 
 	if(ishuman(M) && isvaurca(M))
 		to_chat(M, SPAN_DANGER("You feel a buzzing in the back of your head, and your mind fills with the authority of [src.real_name], your ruler:"))
