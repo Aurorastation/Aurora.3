@@ -110,3 +110,23 @@
       again.
   kano:
   - rscadd: Added a looping sound for loreconsoles.
+2026-07-10:
+  FabianK3:
+  - bugfix: Cut ventilation and SMES humming down to improve sound location source
+      updates.
+  - bugfix: Fixed residual C4 explosive effect after completed detonation.
+  - rscadd: Added a new sound track for the default lobby tracks and lemurian sea.
+  - rscadd: Added ambience sound loop for vents and scrubbers.
+  - rscadd: Added ambience sound loop for SMES.
+  - rscadd: Lobby and sector soundtracks now get shuffeled, resulting in a less repetitive
+      lobby music experience.
+  Hellfirejag:
+  - bugfix: Fixed some items always wasting process() time unnecessarily.
+  - rscadd: Added a new Resolve skill to the Everyday category. Resolve as a skill
+      provides a small passive bonus to a characters Morale statistic.
+  - bugfix: Fixed Morale not properly updating its effects when a moodlet (such as
+      Psychic Damage) expires.
+  fyni:
+  - rscadd: Adds psiren tentacle meat and psiren body meat. A skilled butcher is needed
+      to get the body meats disconnected from the organ filled meat inside. Consume
+      at your own peril. Recipes to be added later - when the Horizon discovers them.

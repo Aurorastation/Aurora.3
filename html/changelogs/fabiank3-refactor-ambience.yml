@@ -1,6 +1,0 @@
-author: FabianK3
-
-delete-after: True
-
-changes:
-  - bugfix: "Cut ventilation and SMES humming down to improve sound location source updates."
