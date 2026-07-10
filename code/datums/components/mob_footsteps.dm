@@ -74,7 +74,7 @@
 
 	// play the turf sound first, different range and we need to check for barefoot sounds as well
 	var/turf/T = get_turf(mob_parent)
-	if(isspaceturf(T) || !mob_parent.check_solid_ground())
+	if(isspaceturf(T) || !mob_parent.check_solid_ground() || mob_parent.CanAvoidGravity())
 		return //no sounds in space
 
 	var/top_layer = 0
