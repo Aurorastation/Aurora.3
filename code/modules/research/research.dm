@@ -82,6 +82,8 @@ GLOBAL_LIST_EMPTY(designs_imprinter_categories)
 	GLOB.designs = list()
 	for(var/T in subtypesof(/datum/design))
 		var/datum/design/D = new T
+		if(D.materials)
+			SSmaterials.normalize_material_amounts(D.materials)
 		GLOB.designs[D.type] = D
 		if(D.build_type & PROTOLATHE)
 			GLOB.designs_protolathe_categories |= D.p_category
