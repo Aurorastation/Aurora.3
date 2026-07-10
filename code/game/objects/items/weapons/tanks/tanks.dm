@@ -193,7 +193,12 @@
 	air_contents.merge(giver)
 	START_PROCESSING(SSprocessing, src)
 	check_status()
+	update_gauge()
 	return 1
+
+/obj/item/tank/update_icon()
+	. = ..()
+	update_gauge()
 
 /obj/item/tank/proc/remove_air_volume(volume_to_return)
 	if(!air_contents)
