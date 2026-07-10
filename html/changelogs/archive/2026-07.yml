@@ -60,3 +60,73 @@
   - rscadd: Adds New Gibsonite uranium accessories.
   - rscadd: Adds a New Gibson mining/engineering voidsuit with a modkit.
   - rscadd: Adds a personalised Readic breath mask.
+2026-07-09:
+  ASmallCuteCat:
+  - rscadd: Overhauls the layout of the service department, most notably, moving the
+      bar and kitchen closer together.
+  - rscadd: Adds an alternate route to reach the Service department, ending its torment
+      as a dead-end hallway.
+  - rscadd: Adds new holosigns for the bar and kitchen which indicate that the respective
+      departments are open.
+  - rscadd: Adds a tableware box that contains plates, bowls, and cutlery.
+  - imageadd: Adds sprites for the new holosigns.
+  - imageadd: Adds a bowl icon for the tableware box.
+  Fenodyree:
+  - rscadd: Energy shields now change colour as they take damage.
+  - bugfix: Fixes holding multiple shields only checking the first one for blocking.
+  - bugfix: Fixes energy shields not overloading properly.
+  MynameAsJeff:
+  - rscadd: Added some extra stuff to Military-Oriented Offships, and NVGs to those
+      who aren't issued with thermals.
+  TheGreyWolf:
+  - rscdel: Deleted every mapped in ashtray on the Horizon. They can still be crafted.
+  Wowzewow (Wezzy):
+  - bugfix: Updates microwave emissives to render properly under objects.
+  diggiez:
+  - rscadd: 'Pilot: Spacecraft is now split between tiers based on a ship''s pilot
+      class. Familiar for shuttles, Trained for most ships, Professional for the Horizon.'
+  - rscadd: You may attempt to pilot ships a level higher with penalties, including
+      at Familiar. Only those 2+ tiers away are hard-denied.
+  - rscadd: 'Three piloting education backgrounds: Flight Academy, Fleet Training,
+      and Expeditionary Trade. First two are for Bridge personnel, last is for any
+      role focused on away missions.'
+  - rscadd: Professional Piloting gives the convenient ability to deduce the current
+      overmap coordinate from examining space for 3s.
+  - rscadd: With Familiar in Electrical Engineering, ship consoles may be given emergency
+      battery life. Useful when you'd otherwise be stranded from no power.
+  - rscadd: Repairing and hotwiring ship consoles now requires Familiar in Electrical
+      Engineering.
+  - rscadd: Research Directors need Shuttle Piloting as they're expected to be able
+      to pilot the Intrepid or Quark when necessary.
+  - rscadd: Doctor of Psychology education gives Trained in Leadership, as was intended
+      to happen with the addition of Leadership.
+  hazelmouse:
+  - rscadd: Introduced a lot of detailing to the recently remapped chapel.
+  - rscadd: Reintroduced a morgue and a crematorium to the chapel.
+  - bugfix: Removed erroneous shield diffuser outside what is now the workshop, added
+      one to the new corpse disposals location.
+  - bugfix: Resolved erroneous maintenance airlock access near chapel.
+  - bugfix: Security Officers have access to the fore chamber of Evidence Storage
+      again.
+  kano:
+  - rscadd: Added a looping sound for loreconsoles.
+2026-07-10:
+  FabianK3:
+  - bugfix: Cut ventilation and SMES humming down to improve sound location source
+      updates.
+  - bugfix: Fixed residual C4 explosive effect after completed detonation.
+  - rscadd: Added a new sound track for the default lobby tracks and lemurian sea.
+  - rscadd: Added ambience sound loop for vents and scrubbers.
+  - rscadd: Added ambience sound loop for SMES.
+  - rscadd: Lobby and sector soundtracks now get shuffeled, resulting in a less repetitive
+      lobby music experience.
+  Hellfirejag:
+  - bugfix: Fixed some items always wasting process() time unnecessarily.
+  - rscadd: Added a new Resolve skill to the Everyday category. Resolve as a skill
+      provides a small passive bonus to a characters Morale statistic.
+  - bugfix: Fixed Morale not properly updating its effects when a moodlet (such as
+      Psychic Damage) expires.
+  fyni:
+  - rscadd: Adds psiren tentacle meat and psiren body meat. A skilled butcher is needed
+      to get the body meats disconnected from the organ filled meat inside. Consume
+      at your own peril. Recipes to be added later - when the Horizon discovers them.

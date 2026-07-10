@@ -63,7 +63,7 @@
 	var/points = 0
 
 	var/list/ore/input_mats = list()
-	var/list/material/output_mats = list()
+	var/list/singleton/material/output_mats = list()
 	var/list/datum/alloy/alloy_mats = list()
 	var/waste = 0
 	var/idx = 0
@@ -278,7 +278,7 @@
 
 	dat += "<table>"
 
-	for(var/material/OM in output_mats)
+	for(var/singleton/material/OM in output_mats)
 		if(output_mats[OM] > 1)
 			dat += "<tr><td><b><small>[output_mats[OM]]</b></small></td><td><small>[OM.display_name] [OM.sheet_plural_name]</small></td></tr>"
 		else
@@ -526,7 +526,7 @@ GLOBAL_LIST_EMPTY_TYPED(alloy_data, /datum/alloy)
 				if(can_make % 2 > 0)
 					can_make--
 
-				var/material/M = SSmaterials.get_material_by_name(O.compresses_to)
+				var/singleton/material/M = GET_SINGLETON(O.compresses_to)
 
 				if(!istype(M) || !can_make || ores_stored[metal] < 1)
 					continue
@@ -544,7 +544,7 @@ GLOBAL_LIST_EMPTY_TYPED(alloy_data, /datum/alloy)
 			else if(ores_processing[metal] & SMELTER_MODE_SMELTING && O.smelts_to)
 				var/can_make = clamp(ores_stored[metal], 0, ROUND_UP(sheets_per_second*seconds_per_tick) - sheets)
 
-				var/material/M = SSmaterials.get_material_by_name(O.smelts_to)
+				var/singleton/material/M = GET_SINGLETON(O.smelts_to)
 				if(!istype(M) || !can_make || ores_stored[metal] < 1)
 					continue
 

@@ -72,7 +72,8 @@
 	lobby_tracks = list(
 		'sound/music/lobby/lights_edge/lights_edge_1.ogg',
 		'sound/music/lobby/lights_edge/lights_edge_2.ogg',
-		'sound/music/lobby/dangerous_space/dangerous_space_1.ogg'
+		'sound/music/lobby/dangerous_space/dangerous_space_1.ogg',
+		'sound/music/lobby/spatial_audio.ogg'
 	)
 
 	sector_welcome_message = 'sound/AI/welcome_lemurian_sea_outer.ogg'

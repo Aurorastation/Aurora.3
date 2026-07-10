@@ -231,7 +231,7 @@
 	var/obj/item/stack/material/M = attacking_item
 	if(!M.material)
 		return ..()
-	if(!(M.material.name in list(MATERIAL_STEEL, MATERIAL_GLASS, MATERIAL_GOLD, MATERIAL_SILVER, MATERIAL_DIAMOND, MATERIAL_PHORON, MATERIAL_URANIUM, MATERIAL_PLASTEEL, MATERIAL_ALUMINIUM, MATERIAL_LEAD)))
+	if(!(M.material.type in list(MATERIAL_STEEL, MATERIAL_GLASS, MATERIAL_GOLD, MATERIAL_SILVER, MATERIAL_DIAMOND, MATERIAL_PHORON, MATERIAL_URANIUM, MATERIAL_PLASTEEL, MATERIAL_ALUMINIUM, MATERIAL_LEAD)))
 		to_chat(user, SPAN_WARNING("\The [src] cannot hold [M.material.name]."))
 		return TRUE
 
@@ -465,7 +465,7 @@
 	if(!amount)
 		return
 	material = lowertext(material)
-	var/material/mattype = SSmaterials.get_material_by_name(material)
+	var/singleton/material/mattype = GET_SINGLETON(material)
 	var/stack_type = mattype.stack_type
 
 	var/real_amount = round(amount / SHEET_MATERIAL_AMOUNT)

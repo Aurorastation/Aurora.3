@@ -65,13 +65,13 @@
 	///Amount of force required by the weapon to smash the statue.
 	var/fragile = 15
 	///Sets the type of material for use by the place shard proc.
-	var/material/shatter_material = MATERIAL_STEEL
+	var/singleton/material/shatter_material = MATERIAL_STEEL
 
 /obj/item/vampiric/New()
 	..()
 	START_PROCESSING(SSprocessing, src)
 	become_hearing_sensitive()
-	shatter_material = SSmaterials.get_material_by_name(shatter_material)
+	shatter_material = GET_SINGLETON(shatter_material)
 
 /obj/item/vampiric/Destroy()
 	STOP_PROCESSING(SSprocessing, src)

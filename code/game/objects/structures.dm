@@ -14,17 +14,16 @@
 	/// Footstep sounds when stepped on
 	var/list/footstep_sound
 
-	var/material/material
+	var/singleton/material/material
 	/// Used by some structures to determine into how many pieces they should disassemble into or be made with
 	var/build_amt = 2
-
 	/// Amount that pulling mobs have their movement delayed by
 	var/slowdown = 0
 
 /obj/structure/Initialize(mapload)
 	. = ..()
 	if(!isnull(material) && !istype(material))
-		material = SSmaterials.get_material_by_name(material)
+		material = GET_SINGLETON(material)
 	if (!mapload)
 		updateVisibility(src)	// No point checking this before visualnet initializes.
 	if(climbable)
@@ -101,9 +100,9 @@
 				add_damage(maxhealth * 0.25)
 
 /obj/structure/proc/dismantle()
-	var/material/dismantle_material
+	var/singleton/material/dismantle_material
 	if(!get_material())
-		dismantle_material = SSmaterials.get_material_by_name(DEFAULT_WALL_MATERIAL) //if there is no defined material, it will use steel
+		dismantle_material = GET_SINGLETON(MATERIAL_STEEL)
 	else
 		dismantle_material = get_material()
 	if(should_use_health && health <= 0)

@@ -66,7 +66,7 @@
 /obj/structure/railing/mapped/no_density/low
 	icon_state = "railing0-0"
 
-/obj/structure/railing/New(var/newloc, var/material_key = DEFAULT_WALL_MATERIAL)
+/obj/structure/railing/New(var/newloc, var/material_key = MATERIAL_STEEL)
 	material = material_key // Converted to datum in initialize().
 	..(newloc)
 
@@ -81,7 +81,7 @@
 
 	if(!non_material_object)
 		if(!isnull(material) && !istype(material))
-			material = SSmaterials.get_material_by_name(material)
+			material = GET_SINGLETON(material)
 		if(!istype(material))
 			return INITIALIZE_HINT_QDEL
 
