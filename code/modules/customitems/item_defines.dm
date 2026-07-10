@@ -970,7 +970,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "kira_carrier"
 	contained_sprite = TRUE
 
-/obj/item/clothing/accessory/poncho/fluff/nietz_coat //zavodskoi police jacket - Z.I. Nietzschka - Dessysalta
+/obj/item/clothing/suit/storage/fluff/nietz_coat //zavodskoi police jacket - Z.I. Nietzschka - Dessysalta
 	name = "zavodskoi police jacket"
 	desc = "A long, thick coat of wool and aramid, proudly flashing a holograph of Zavodskoi Interstellar by the chest and 'POLICE' on the back. Fans and other synthetic-accommodating features \
 	can be seen or heard along the inside- the most eye-catching is a pauldron-like heatsink mounted to the left shoulder."
