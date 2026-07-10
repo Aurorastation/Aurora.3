@@ -12,6 +12,7 @@
 	if(client && client.handle_spam_prevention(msg,MUTE_PRAY))
 		return
 
+	var/raw_msg = msg
 	var/image/cross = image('icons/obj/library.dmi',"bible")
 	msg = SPAN_NOTICE("[icon2html(cross, src)] <b><font color=purple>PRAY: </font>[key_name(src, 1)] (<A href='byond://?_src_=holder;adminmoreinfo=[REF(src)]'>?</A>) (<A href='byond://?_src_=holder;adminplayeropts=[REF(src)]'>PP</A>) (<A href='byond://?_src_=vars;Vars=[REF(src)]'>VV</A>) (<A href='byond://?_src_=holder;subtlemessage=[REF(src)]'>SM</A>) ([admin_jump_link(src, src)]) (<A href='byond://?_src_=holder;secretsadmin=check_antagonist'>CA</A>) (<A href='byond://?_src_=holder;adminspawncookie=[REF(src)]'>SC</a>):</b> [msg]")
 
@@ -23,6 +24,9 @@
 	to_chat(usr, "Your prayers have been received by the gods.")
 
 	feedback_add_details("admin_verb","PR") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+	log_prayer("[key_name(src)]: [raw_msg]", list(
+		"sender" = src
+	))
 	log_admin("PRAYER: [key_name(src)]: [msg]")
 
 /proc/Centcomm_announce(var/msg, var/mob/Sender, var/iamessage)
