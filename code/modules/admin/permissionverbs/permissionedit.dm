@@ -141,6 +141,8 @@
 		return
 
 	D.rights ^= permissionlist[new_permission]
+	if(D.owner)
+		SSadmin_verbs.assosciate_admin(D.owner)
 
 	log_and_message_admins("toggled the [new_permission] permission of [admin_ckey]")
 	log_admin_permission_modification(admin_ckey, permissionlist[new_permission])

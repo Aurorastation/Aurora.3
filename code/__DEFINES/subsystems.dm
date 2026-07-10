@@ -222,7 +222,8 @@
 #define INIT_ORDER_PERSISTENT_CONFIGURATION 101 //Aurora snowflake config handling
 #define INIT_ORDER_PROFILER 101
 #define INIT_ORDER_GARBAGE 99
-#define INIT_ORDER_DBCORE 95
+#define INIT_ORDER_DBCORE 96
+#define INIT_ORDER_ADMIN_VERBS 95 // Build admin verb registry before auth assigns holders.
 #define INIT_ORDER_AUTH 94 //Admin permissions should be loaded early on
 #define INIT_ORDER_SOUNDS 83
 #define INIT_ORDER_SENTRY 79

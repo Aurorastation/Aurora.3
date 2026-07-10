@@ -52,12 +52,15 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 	"log_manifest" = TRUE,	// Manifest
 	"log_asset" = FALSE,	// log asset caching
 	"log_loadout" = TRUE,	// Loadout
+	"log_as_human_readable" = TRUE,	// Write human-readable structured logs alongside JSON logs
 
 	/*#### SUBSYSTEMS ####*/
 
 	"log_subsystems" = TRUE,	// General Subsystems
 	"log_subsystems_chemistry" = TRUE,	// SSChemistry
 	"log_subsystems_codex" = TRUE,	// SScodex
+	"log_subsystems_dbcore" = TRUE,	// SSdbcore
+	"log_subsystems_discord" = TRUE,	// SSdiscord
 	"log_subsystems_atlas" = TRUE,	// ATLAS
 	"log_subsystems_ghostroles" = TRUE,	// Ghost Roles
 	"log_subsystems_law" = TRUE,	// Law
@@ -70,6 +73,8 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 	"log_subsystems_zas" = FALSE, // ZAS
 	"log_subsystems_zas_debug" = FALSE, // ZAS debug
 	"log_subsystems_http" = TRUE, //HTTP Log
+	"log_subsystems_ipintel" = TRUE, // IPIntel
+	"log_subsystems_odyssey" = TRUE, // Odyssey
 	"log_subsystems_sentry" = TRUE, //Sentry subsystem self-diagnostics
 
 	/*#### MODULES ####*/
@@ -78,6 +83,7 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 	"log_modules_customitems" = TRUE,	// Custom Items
 	"log_modules_exoplanets" = TRUE,	// Exoplanets
 	"log_modules_sectors" = TRUE,	// Overmap Sectors
+	"log_modules_ruins" = TRUE,	// Ruins
 	"world_modules_ruins_log" = TRUE,	// Ruins
 
 	)
@@ -487,6 +493,8 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 GENERAL_PROTECT_DATUM(/datum/configuration)
 
 /datum/configuration/New()
+	init_config_entries()
+
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
 	for (var/T in L)
 		// I wish I didn't have to instance the game modes in order to look up
@@ -1228,6 +1236,7 @@ GENERAL_PROTECT_DATUM(/datum/configuration)
 	Master.OnConfigLoad()
 
 /datum/configuration/proc/save_logging_config()
+	sync_logging_config_entries()
 	rustg_file_write(json_encode(GLOB.config.logsettings), "config/logging.json")
 	rustg_file_write(json_encode(GLOB.config.logfiles), "config/logging_files.json")
 
@@ -1246,6 +1255,8 @@ GENERAL_PROTECT_DATUM(/datum/configuration)
 
 	catch(var/exception/e)
 		WARNING("Unable to read or restore log config from the configuration files. Exception: [json_encode(e)]")
+
+	sync_logging_config_entries()
 
 ///Load the AWAY SITES configuration
 /datum/configuration/proc/load_away_sites_config()
@@ -1326,4 +1337,5 @@ GENERAL_PROTECT_DATUM(/datum/configuration)
 	#if defined(UNIT_TEST)
 	for(var/k in GLOB.config.logsettings)
 		GLOB.config.logsettings[k] = TRUE
+	sync_logging_config_entries()
 	#endif

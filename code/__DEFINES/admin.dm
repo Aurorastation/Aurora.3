@@ -23,6 +23,7 @@
 #define ROUNDSTART_LOGOUT_REPORT_TIME 6000 // Amount of time (in deciseconds) after the rounds starts, that the player disconnect report is issued.
 
 // Admin permissions.
+#define R_NONE           NONE
 #define R_BUILDMODE      BITFLAG(0)
 #define R_ADMIN          BITFLAG(1)
 #define R_BAN            BITFLAG(2)

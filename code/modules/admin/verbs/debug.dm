@@ -28,6 +28,7 @@
 	var/target = input(usr, "Select which log to toggle", "Debugs Toggle", null) in sortAssoc(GLOB.config.logsettings)
 	if(target)
 		GLOB.config.logsettings[target] = !GLOB.config.logsettings[target]
+		GLOB.config.sync_logging_config_entry(target)
 		to_chat(usr, "The log category [target] is now [GLOB.config.logsettings[target]]")
 
 /client/proc/DebugToggleAll()
@@ -39,6 +40,7 @@
 		if("Yes")
 			for(var/k in GLOB.config.logsettings)
 				GLOB.config.logsettings[k] = TRUE
+			GLOB.config.sync_logging_config_entries()
 
 // callproc moved to code/modules/admin/callproc
 

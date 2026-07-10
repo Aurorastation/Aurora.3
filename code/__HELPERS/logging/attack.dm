@@ -1,7 +1,6 @@
 /// Generic attack logging
-/proc/log_attack(text)
-	if (GLOB.config.logsettings["log_attack"])
-		WRITE_LOG(GLOB.config.logfiles["world_attack_log"], "ATTACK: [text]")
+/proc/log_attack(text, list/data)
+	logger?.Log(LOG_CATEGORY_ATTACK, "ATTACK: [text]", data)
 
 /**
  * Log a combat message in the attack log
@@ -31,5 +30,11 @@
 
 	var/message = "[ssource] [what_done] [starget][postfix]"
 
-	WRITE_LOG(GLOB.config.logfiles["combat_log"], message)
+	logger?.Log(LOG_CATEGORY_COMBAT, message, list(
+		"user" = user,
+		"target" = target,
+		"action" = what_done,
+		"object" = object,
+		"addition" = addition,
+	))
 	SEND_TEXT(world.log, message)

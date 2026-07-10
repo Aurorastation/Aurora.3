@@ -38,7 +38,7 @@
 		name = "Storyteller ([client.ckey])"
 		SSodyssey.add_storyteller(src)
 		GLOB.storytellers.add_antagonist(mind)
-		C.add_storyteller_verbs()
+		SSadmin_verbs.assosciate_admin(C)
 
 /mob/abstract/ghost/storyteller/ghostize(can_reenter_corpse, should_set_timer)
 	. = ..()
