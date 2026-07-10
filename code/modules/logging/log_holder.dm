@@ -27,7 +27,14 @@ GLOBAL_REAL(logger, /datum/log_holder)
 
 GENERAL_PROTECT_DATUM(/datum/log_holder)
 
+/datum/log_holder/proc/can_view_round_logs(mob/user)
+	return check_rights(R_ADMIN|R_MOD, FALSE, user)
+
 /datum/log_holder/ui_interact(mob/user, datum/tgui/ui)
+	if(!can_view_round_logs(user))
+		to_chat(user, SPAN_WARNING("You do not have permission to view round logs."))
+		return
+
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(isnull(ui))
 		ui = new(user, src, "LogViewer", "View Round Logs", 720, 720)
@@ -35,9 +42,12 @@ GENERAL_PROTECT_DATUM(/datum/log_holder)
 		ui.open()
 
 /datum/log_holder/ui_state(mob/user)
-	return GLOB.admin_state
+	return GLOB.admin_or_moderator_state
 
 /datum/log_holder/ui_static_data(mob/user)
+	if(!can_view_round_logs(user))
+		return list()
+
 	var/list/data = list(
 		"round_id" = GLOB.round_id,
 		"logging_start_timestamp" = logging_start_timestamp,
@@ -61,6 +71,9 @@ GENERAL_PROTECT_DATUM(/datum/log_holder)
 	return data
 
 /datum/log_holder/ui_data(mob/user)
+	if(!can_view_round_logs(user))
+		return list()
+
 	if(!last_data_update || (world.time - last_data_update) > LOG_UPDATE_TIMEOUT)
 		cache_ui_data()
 	return data_cache
@@ -93,6 +106,9 @@ GENERAL_PROTECT_DATUM(/datum/log_holder)
 	data_cache["last_data_update"] = last_data_update
 
 /datum/log_holder/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	if(!can_view_round_logs(ui?.user))
+		return
+
 	. = ..()
 	if(.)
 		return
