@@ -20,8 +20,8 @@
 	var/max_force = 40	 //any damage above this is added to armor penetration value
 	var/max_pen = 100 //any penetration above this value is ignored
 	var/thrown_force_divisor = 0.5
-	var/default_material = DEFAULT_WALL_MATERIAL
-	var/material/material
+	var/default_material = MATERIAL_STEEL
+	var/singleton/material/material
 	var/drops_debris = TRUE
 
 	/// Multiplies the amount this item is worth with the following calculation: material.value * worth_multiplier
@@ -59,7 +59,7 @@
 	throwforce = round(material.get_blunt_damage()*thrown_force_divisor)
 
 /obj/item/material/proc/set_material(var/new_material)
-	material = SSmaterials.get_material_by_name(new_material)
+	material = GET_SINGLETON(new_material)
 	if(!material)
 		qdel(src)
 	else
