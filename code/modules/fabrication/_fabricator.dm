@@ -174,6 +174,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/fabricator)
 		return TRUE
 	if(default_deconstruction_crowbar(user, attacking_item))
 		return TRUE
+
 	if(default_part_replacement(user, attacking_item))
 		return TRUE
 
@@ -197,6 +198,30 @@ ABSTRACT_TYPE(/obj/structure/machinery/fabricator)
 
 	load_lathe(attacking_item, user)
 	return TRUE
+
+/obj/structure/machinery/fabricator/autolathe/proc/recycle_rped_contents(obj/item/storage/part_replacer/R, mob/user)
+	var/recycled = 0
+	var/recyclable = 0
+	var/rejected = 0
+
+	for(var/obj/item/item in R.contents.Copy())
+		if(!item.matter || !item.recyclable)
+			continue
+		recyclable++
+		if(load_lathe(item, user, FALSE))
+			recycled++
+		else
+			rejected++
+
+	if(recycled)
+		to_chat(user, SPAN_NOTICE("You recycle [recycled] item\s from \the [R] into \the [src]."))
+	else if(!recyclable)
+		to_chat(user, SPAN_WARNING("\The [R] contains no recyclable materials for \the [src]."))
+	else
+		to_chat(user, SPAN_WARNING("\The [src] could not accept any recyclable contents from \the [R]."))
+
+	if(rejected)
+		to_chat(user, SPAN_WARNING("Some contents could not be accepted and remain in \the [R]."))
 
 /obj/structure/machinery/fabricator/attack_hand(mob/user)
 	user.set_machine(src)

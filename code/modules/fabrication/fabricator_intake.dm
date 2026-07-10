@@ -3,13 +3,14 @@
 #define FILL_INCOMPLETELY "Fill Incompletely"
 
 ///Loads the lathe with materials
-/obj/structure/machinery/fabricator/proc/load_lathe(obj/item/loading_item, mob/user)
+/obj/structure/machinery/fabricator/proc/load_lathe(obj/item/loading_item, mob/user, show_messages = TRUE)
 
 	//Resources are being loaded.
 	var/obj/item/eating = loading_item
 	if(!eating.matter || !eating.recyclable)
-		to_chat(user, SPAN_WARNING("\The [eating] cannot be recycled by \the [src]."))
-		return
+		if(show_messages)
+			to_chat(user, SPAN_WARNING("\The [eating] cannot be recycled by \the [src]."))
+		return FALSE
 
 	var/list/fill_status = list() // Used to determine message in cases of multiple materials.
 	var/total_used = 0     // Amount of material used.
@@ -41,13 +42,21 @@
 		total_used += total_material
 		mass_per_sheet += eating.matter[material]
 
-	if(fill_status[NO_SPACE])
-		to_chat(user, SPAN_WARNING("\The [src] is full of [english_list(fill_status[NO_SPACE])]. Please remove some material in order to insert more."))
-		return
-	else if(fill_status[FILL_COMPLETELY])
-		to_chat(user, SPAN_NOTICE("You fill \the [src] to capacity with [english_list(fill_status[FILL_COMPLETELY])][is_stack ? "." : " from \the [eating]."]"))
-	else if(fill_status[FILL_INCOMPLETELY])
-		to_chat(user, SPAN_NOTICE("You fill \the [src] with [english_list(fill_status[FILL_INCOMPLETELY])][is_stack ? "." : " from \the [eating]."]"))
+	if(total_used <= 0)
+		if(show_messages)
+			if(fill_status[NO_SPACE])
+				to_chat(user, SPAN_WARNING("\The [src] is full of [english_list(fill_status[NO_SPACE])]. Please remove some material in order to insert more."))
+			else
+				to_chat(user, SPAN_WARNING("\The [eating] contains no materials accepted by \the [src]."))
+		return FALSE
+
+	if(show_messages)
+		if(fill_status[NO_SPACE])
+			to_chat(user, SPAN_WARNING("\The [src] could not accept [english_list(fill_status[NO_SPACE])] from \the [eating]."))
+		if(fill_status[FILL_COMPLETELY])
+			to_chat(user, SPAN_NOTICE("You fill \the [src] to capacity with [english_list(fill_status[FILL_COMPLETELY])][is_stack ? "." : " from \the [eating]."]"))
+		else if(fill_status[FILL_INCOMPLETELY])
+			to_chat(user, SPAN_NOTICE("You fill \the [src] with [english_list(fill_status[FILL_INCOMPLETELY])][is_stack ? "." : " from \the [eating]."]"))
 
 	// Plays metal insertion animation.
 	if(istype(eating, /obj/item/stack/material) && does_flick)
@@ -68,6 +77,8 @@
 	else
 		user.remove_from_mob(loading_item)
 		qdel(loading_item)
+
+	return TRUE
 
 #undef NO_SPACE
 #undef FILL_COMPLETELY
