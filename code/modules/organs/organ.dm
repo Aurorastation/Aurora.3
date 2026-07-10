@@ -83,8 +83,14 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 				blood_DNA[dna.unique_enzymes] = dna.b_type
 		if(internal)
 			holder.internal_organs |= src
-	START_PROCESSING(SSprocessing, src)
+	process_initialize()
 
+/**
+ * This proc exists so that organs which do not require "always processing" can override it
+ * in order to opt-out of processing for performance reasons.
+ */
+/obj/item/organ/proc/process_initialize()
+	START_PROCESSING(SSprocessing, src)
 
 /obj/item/organ/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
@@ -205,15 +211,22 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 	if(damage >= max_damage)
 		die()
 
+/**
+ * Handles per-second EMP damage effects.
+ * returns FALSE if there's no EMP effects left.
+ * returns "Truthy" if there's still more EMP to handle on the next tick.
+ * It will wrap back around to FALSE if the surge damage recovery ticked it back down to 0.
+ */
 /obj/item/organ/proc/tick_surge_damage(seconds_per_tick)
 	ENFORCE_CALCULUS(seconds_per_tick)
 
 	if(!surge_damage)
 		clear_surge_effects()
-		return
+		return FALSE
 
 	do_surge_effects()
 	surge_damage = max(0, surge_damage - (surge_recovery_per_second * seconds_per_tick))
+	return surge_damage
 
 /obj/item/organ/proc/do_surge_effects()
 	return
@@ -485,7 +498,7 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 	forceMove(owner) //just in case
 	if(BP_IS_ROBOTIC(src))
 		set_dna(owner.dna)
-	return 1
+	return TRUE
 
 /obj/item/organ/internal/eyes/replaced(var/mob/living/carbon/human/target)
 
