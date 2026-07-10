@@ -550,7 +550,7 @@
 	var/list/victims = list()
 	var/organ_hit_chance = 0
 	for(var/obj/item/organ/internal/I in internal_organs)
-		if(I.damage < I.max_damage)
+		if(I.get_damage() < I.max_damage)
 			victims[I] = I.relative_size
 			organ_hit_chance += I.relative_size
 
@@ -1387,7 +1387,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 		src.status &= ~ORGAN_MUTATED
 		if(owner) owner.update_body()
 
-/obj/item/organ/external/proc/get_damage()	//returns total damage
+/obj/item/organ/external/get_damage()	//returns total damage
 	return max(brute_dam + burn_dam - perma_injury, perma_injury)	//could use max_damage?
 
 /obj/item/organ/external/proc/has_infected_wound()

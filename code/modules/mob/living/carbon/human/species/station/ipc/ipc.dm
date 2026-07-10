@@ -505,5 +505,5 @@
 	if(istype(voice_synth))
 		if(voice_synth.is_bruised())
 			// at most, 30 * 2 + 10 = 70, which is the maximum value we can use for Gibberish
-			message = Gibberish(message, voice_synth.damage * 2 + (voice_synth.is_broken() ? 10 : 0))
+			message = Gibberish(message, voice_synth.get_damage() * 2 + (voice_synth.is_broken() ? 10 : 0))
 			return list(HSP_MSG = message, HSP_VERB = pick(list("crackles", "buzzes")))

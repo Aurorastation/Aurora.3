@@ -16,7 +16,11 @@
 	var/death_time
 
 	//Organ damage stats.
-	var/damage = 0 // amount of damage to the organ
+	/**
+	 * amount of damage to the organ. THIS IS PRIVATE FOR A REASON.
+	 * USE get_damage and set_damage IF YOU NEED TO CHANGE OR RETRIEVE THIS.
+	 */
+	VAR_PRIVATE/damage = 0
 	/// Total amount of EMP damage a mechanical organ has taken. Effectively equal to "number of seconds the organ EMP effect will last".
 	var/surge_damage = 0.0
 	/**
@@ -538,3 +542,16 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 //used by stethoscope
 /obj/item/organ/proc/listen()
 	return
+
+/obj/item/organ/proc/get_damage()
+	return damage
+
+/obj/item/organ/proc/set_damage(to_set)
+	damage = to_set
+	START_PROCESSING(SSprocessing, src)
+
+/obj/item/organ/add_damage(to_add)
+	START_PROCESSING(SSprocessing, src)
+	if (..(to_add))
+		return
+	damage += to_add
