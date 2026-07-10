@@ -73,5 +73,5 @@
 		if(status & ORGAN_DEAD)
 			owner.adjustToxLoss(dead_toxin_accumulation_per_second * seconds_per_tick)
 
-	if (!owner.getToxLoss())
+	if (!owner.getToxLoss() && !damage) // None of the conditions triggered, therefore we have healthy kidneys that we don't care about.
 		return PROCESS_KILL
