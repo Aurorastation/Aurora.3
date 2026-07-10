@@ -105,7 +105,6 @@
 /datum/config_entry/flag/log_shuttle
 /datum/config_entry/flag/log_silicon
 /datum/config_entry/flag/log_timers_on_bucket_reset
-/datum/config_entry/flag/log_virus
 /datum/config_entry/flag/log_world_topic
 /datum/config_entry/flag/log_zone_switch
 /datum/config_entry/flag/logging_compat_adminprivate

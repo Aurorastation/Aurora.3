@@ -248,10 +248,23 @@ Proc for attack log creation, because really why not
 // Calling this proc without an oldname will only update the mob and skip updating the pda, id and records
 /mob/proc/fully_replace_character_name(var/oldname,var/newname)
 	if(!newname)	return 0
+	log_played_names(
+		ckey,
+		list(
+			"[newname]" = tag,
+		),
+	)
 	real_name = newname
 	name = newname
 	if(mind)
 		mind.name = newname
+		if(mind.key)
+			log_played_names(
+				ckey(mind.key),
+				list(
+					"[newname]" = tag,
+				),
+			)
 	if(dna)
 		dna.real_name = real_name
 

@@ -139,8 +139,20 @@
 			return get_step(start, EAST)
 
 /proc/get_mob_by_key(var/key)
+	return get_mob_by_ckey(key)
+
+/// Returns a mob type controlled by a specified ckey
+/proc/get_mob_by_ckey(key)
+	var/normalized_key = ckey(key)
+	if(!normalized_key)
+		return null
+
+	var/mob/persistent_mob = GLOB.persistent_clients_by_ckey[normalized_key]?.mob
+	if(persistent_mob)
+		return persistent_mob
+
 	for(var/mob/M in GLOB.mob_list)
-		if(M.ckey == lowertext(key))
+		if(M.ckey == normalized_key)
 			return M
 	return null
 

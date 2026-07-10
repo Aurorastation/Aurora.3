@@ -370,6 +370,8 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 
 	GLOB.clients += src
 	GLOB.directory[ckey] = src
+	if(!IsGuestKey(key) || !GLOB.config.external_auth)
+		bind_persistent_client()
 	connection_time = world.time
 	connection_realtime = world.realtime
 	connection_timeofday = world.timeofday
@@ -460,6 +462,8 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 /client/proc/InitClient()
 	SHOULD_NOT_SLEEP(TRUE)
 
+	bind_persistent_client()
+
 	to_chat_immediate(src, SPAN_ALERT("If the title screen is black, resources are still downloading. Please be patient until the title screen appears."))
 
 	var/local_connection = (GLOB.config.auto_local_admin && !GLOB.config.use_authentik_api && (isnull(address) || GLOB.localhost_addresses[address]))
@@ -532,6 +536,7 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 	return ..()
 
 /client/Destroy(force)
+	persistent_client?.set_client(null)
 	GLOB.ticket_panels -= src
 	GLOB.staff -= src
 	GLOB.directory -= ckey

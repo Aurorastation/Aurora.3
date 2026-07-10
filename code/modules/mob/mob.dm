@@ -1,4 +1,5 @@
 /mob/Destroy()//This makes sure that mobs with clients/keys are not just deleted from the game.
+	persistent_client?.set_mob(null)
 	MOB_STOP_THINKING(src)
 	pulling?.pulledby = null
 	pulling = null

@@ -58,6 +58,16 @@
 	SHOULD_CALL_PARENT(TRUE)
 	SEND_SIGNAL(src, COMSIG_MOB_LOGIN)
 
+	var/datum/persistent_client/persistent = client.persistent_client || client.bind_persistent_client()
+	persistent?.set_mob(src)
+	log_played_names(
+		client.ckey,
+		list(
+			"[name]" = tag,
+			"[real_name]" = tag,
+		),
+	)
+
 	GLOB.player_list |= src
 	update_Login_details()
 	SSstatistics.update_status()
@@ -116,5 +126,13 @@
 		for(var/atom/movable/screen/movable/spell_master/spell_master in spell_masters)
 			spell_master.toggle_open(1)
 			client.screen -= spell_master
+
+	if(persistent_client && isliving(src))
+		for(var/datum/action/A as anything in persistent_client.player_actions)
+			A.Grant(src)
+
+	if(persistent_client)
+		for(var/datum/callback/CB as anything in persistent_client.post_login_callbacks)
+			CB.Invoke()
 
 	SEND_SIGNAL(src, COMSIG_MOB_AFTER_LOGIN)

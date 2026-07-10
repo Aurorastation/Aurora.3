@@ -10,14 +10,18 @@
 	var/datum/admins/deadmin_holder = null
 
 // Spam Protection
-	var/last_message = "" // Contains the last message sent by this client - used to protect against copy-paste spamming.
-	var/last_message_count = 0 // Contains a number of how many times a message identical to last_message was sent.
+	/// Contains the last message sent by this client - used to protect against copy-paste spamming.
+	var/last_message = ""
+	/// Contains a number of how many times a message identical to last_message was sent.
+	var/last_message_count = 0
 	var/last_message_time
 	var/spam_alert = 0
 
 // Sounds
-	var/ambient_hum_playing = null // Is the ambient hum playing?
-	var/ambience_last_played_time = null // "world.time".
+	/// Is the ambient hum playing?
+	var/ambient_hum_playing = null
+	/// "world.time".
+	var/ambience_last_played_time = null
 
 // Security
 	var/info_sent = 0
@@ -26,27 +30,38 @@
 	var/ip_intel = "Disabled"
 
 	var/received_discord_pm = -99999
-	var/discord_admin //IRC- no more IRC, K? Discord admin that spoke with them last.
+	/// IRC- no more IRC, K? Discord admin that spoke with them last.
+	var/discord_admin
 	var/mute_discord = 0
 
-	var/ckey_is_external = FALSE // Will be set to TRUE if the user is using a "fake" ckey from an external source, like the forums.
+	/// Will be set to TRUE if the user is using a "fake" ckey from an external source, like the forums.
+	var/ckey_is_external = FALSE
 
 // Database
-	var/player_age = "Requires database" // So admins know why it isn't working - Used to determine how old the account is - in days.
-	var/related_accounts_ip = "Requires database" //So admins know why it isn't working - Used to determine what other accounts previously logged in from this ip
-	var/related_accounts_cid = "Requires database" //So admins know why it isn't working - Used to determine what other accounts previously logged in from this computer id
-	var/whitelist_status = 0 //Used to determine what whitelists the player has access to. Uses bitflag values!
-	var/whitelist_status_loaded = FALSE //Set to TRUE once log_client_to_db() has written whitelist_status from the DB. Prevents false whitelist failures during login before the async query completes.
-	var/need_saves_migrated = "Requires database" //Used to determine whether or not the ckey needs their saves migrated over to the database. Default is 0 upon successful connection.
-	var/account_age = -1 // Age on the BYOND account in days.
-	var/account_join_date = null // Date of the BYOND account creation in ISO 8601 format.
+	/// So admins know why it isn't working - Used to determine how old the account is - in days.
+	var/player_age = "Requires database"
+	/// So admins know why it isn't working - Used to determine what other accounts previously logged in from this ip
+	var/related_accounts_ip = "Requires database"
+	/// So admins know why it isn't working - Used to determine what other accounts previously logged in from this computer id
+	var/related_accounts_cid = "Requires database"
+	/// Used to determine what whitelists the player has access to. Uses bitflag values!
+	var/whitelist_status = 0
+	///Set to TRUE once log_client_to_db() has written whitelist_status from the DB. Prevents false whitelist failures during login before the async query completes.
+	var/whitelist_status_loaded = FALSE
+	/// Used to determine whether or not the ckey needs their saves migrated over to the database. Default is 0 upon successful connection.
+	/// Age on the BYOND account in days.
+	var/account_age = -1
+	var/need_saves_migrated = "Requires database"
+	/// Date of the BYOND account creation in ISO 8601 format.
+	var/account_join_date = null
 	var/unacked_warning_count = 0
 
 	preload_rsc = PRELOAD_RSC
 
 	var/authed = TRUE
 
-	var/is_initialized = FALSE // Used to track whether the client has been initialized with InitClient.
+	/// Used to track whether the client has been initialized with InitClient.
+	var/is_initialized = FALSE
 
 // Other
 	var/datum/preferences/prefs
@@ -71,7 +86,7 @@
 	///world.timeofday they connected
 	var/connection_timeofday
 
-	// List of all asset filenames sent to this client by the asset cache, along with their assoicated md5s
+	/// List of all asset filenames sent to this client by the asset cache, along with their assoicated md5s
 	var/list/sent_assets = list()
 	/// List of all completed blocking send jobs awaiting acknowledgement by send_asset
 	var/list/completed_asset_jobs = list()
@@ -89,6 +104,9 @@
 
 	/// If this client has been fully initialized or not
 	var/fully_created = FALSE
+
+	/// Persist this between logins/logouts during the same round.
+	var/datum/persistent_client/persistent_client
 
 	/// list of all tabs
 	var/list/panel_tabs = list()

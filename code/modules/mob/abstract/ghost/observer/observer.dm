@@ -178,7 +178,9 @@ Works together with spawning an observer, noted above.
 		ghost.can_reenter_corpse = can_reenter_corpse
 		ghost.timeofdeath = src.stat == DEAD ? src.timeofdeath : world.time
 
-		ghost.ckey = ckey
+		var/ghost_ckey = ckey
+		ghost.ckey = ghost_ckey
+		ghost.bind_persistent_client_by_ckey(ghost_ckey)
 		ghost.initialise_postkey(should_set_timer)
 		if(ghost.client)
 			if(!ghost.client.holder && !GLOB.config.antag_hud_allowed)		// For new ghosts we remove the verb from even showing up if it's not allowed.

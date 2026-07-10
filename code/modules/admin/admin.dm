@@ -67,6 +67,7 @@ var/global/enabled_spooking = 0
 		<a href='byond://?src=[REF(src)];traitor=[REF(M)]'>TP</a> -
 		<a href='byond://?src=[REF(usr)];priv_msg=[REF(M)]'>PM</a> -
 		<a href='byond://?src=[REF(src)];subtlemessage=[REF(M)]'>SM</a> -
+		[check_rights(R_ADMIN, 0) ? "<a href='byond://?src=[REF(src)];individuallog=[REF(M)]'>Logs</a> - " : ""]
 		[admin_jump_link(M, src)]\] <br>
 		<b>Mob type</b> = [M.type]<br><br>
 		<A href='byond://?src=[REF(src)];boot2=[REF(M)]'>Kick</A> |
@@ -1278,7 +1279,9 @@ var/global/enabled_spooking = 0
 	message_admins("<span class='adminnotice'>[key_name_admin(usr)] has put [frommob.ckey] in control of [tomob.name].</span>")
 	log_admin("[key_name(usr)] stuffed [frommob.ckey] into [tomob.name].")
 	feedback_add_details("admin_verb","CGD")
-	tomob.ckey = frommob.ckey
+	var/transfer_ckey = frommob.ckey
+	tomob.ckey = transfer_ckey
+	tomob.bind_persistent_client_by_ckey(transfer_ckey)
 	tomob.client.init_verbs()
 	qdel(frommob)
 	return 1
