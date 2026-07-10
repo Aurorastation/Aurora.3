@@ -775,7 +775,7 @@
 
 	if (brokesomething)
 		playsound(get_turf(target), 'sound/weapons/heavysmash.ogg', 100, 1)
-		attack_log += "\[[time_stamp()]\]<span class='warning'>crashed into [brokesomething] objects at ([target.x];[target.y];[target.z]) </span>"
+		log_message("crashed into [brokesomething] objects at ([target.x];[target.y];[target.z])", LOG_ATTACK, log_globally = FALSE)
 		msg_admin_attack("[key_name(src)] crashed into [brokesomething] objects at (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[target.x];Y=[target.y];Z=[target.z]'>JMP</a>)" )
 
 	if (!done && target.Enter(src, null))
@@ -800,8 +800,8 @@
 
 	if (istype(A, /mob/living))
 		var/mob/living/M = A
-		attack_log += "\[[time_stamp()]\]<span class='warning'> Crashed into [key_name(M)]</span>"
-		M.attack_log += "\[[time_stamp()]\]<font color='orange'> Was rammed by [key_name(src)]</font>"
+		log_message("Crashed into [key_name(M)]", LOG_ATTACK, log_globally = FALSE)
+		M.log_message("Was rammed by [key_name(src)]", LOG_VICTIM, log_globally = FALSE)
 		msg_admin_attack("[key_name(src)] crashed into [key_name(M)] at (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[M.x];Y=[M.y];Z=[M.z]'>JMP</a>)" )
 
 	A.ex_act(2)

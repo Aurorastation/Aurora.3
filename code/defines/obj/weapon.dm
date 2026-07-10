@@ -145,8 +145,8 @@
 	user.lastattacked = target_mob
 	target_mob.lastattacker = user
 	if(!no_attack_log)
-		user.attack_log += "\[[time_stamp()]\]<span class='warning'> Attacked [target_mob.name] ([target_mob.ckey]) with [name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(damagetype)])</span>"
-		target_mob.attack_log += "\[[time_stamp()]\]<font color='orange'> Attacked by [user.name] ([user.ckey]) with [name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(damagetype)])</font>"
+		user.log_message("Attacked [target_mob.name] ([target_mob.ckey]) with [name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(damagetype)])", LOG_ATTACK, log_globally = FALSE)
+		target_mob.log_message("Attacked by [user.name] ([user.ckey]) with [name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(damagetype)])", LOG_VICTIM, log_globally = FALSE)
 		msg_admin_attack("[key_name(user, highlight_special = 1)] attacked [key_name(target_mob, highlight_special = 1)] with [name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(damagetype)]) (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target_mob) )
 	/////////////////////////
 

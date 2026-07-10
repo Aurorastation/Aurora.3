@@ -1,4 +1,4 @@
-/// Lightweight tgstyle log filenames. LOGGING-TODO, this is almost definitely duplicated somewhere
+/// Lightweight log filename token
 /proc/logging_session_token()
 	return "[time2text(world.realtime, "YYYYMMDD-hhmmss")]-[world.timeofday]-[rand(100000, 999999)]"
 
@@ -19,7 +19,7 @@
 	if(show_ds)
 		. += ".[time_source % 10]"
 
-/// Lightweight timestamp instead of fancy tg rustg shit. LOGGING-TODO, this is almost definitely duplicated somewhere
+/// Human-readable timestamp... tgstation uses fancy rustg shit even for this, but we dont have that, so you'll take this and like it.
 /proc/logging_human_readable_timestamp()
 	return "[time2text(world.realtime, "YYYY-MM-DD hh:mm:ss")].[world.timeofday % 10]"
 

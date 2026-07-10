@@ -163,9 +163,9 @@
 		playsound(src.loc, arms.punch_sound, 45 + 25 * (arms.melee_damage / 50), -1 )
 		if(ismob(A))
 			var/mob/target = A
-			user.attack_log += "\[[time_stamp()]\]<span class='warning'> Attacked [target.name] ([target.ckey]) with [arms] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(arms.damagetype)])</span>"
-			src.attack_log += "\[[time_stamp()]\]<span class='warning'> [user] ([user.ckey]) attacked [target.name] ([target.ckey]) with [arms] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(arms.damagetype)])</span>"
-			target.attack_log += "\[[time_stamp()]\]<font color='orange'> Attacked by [user.name] ([user.ckey]) with [arms] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(arms.damagetype)])</font>"
+			user.log_message("Attacked [target.name] ([target.ckey]) with [arms] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(arms.damagetype)])", LOG_ATTACK, log_globally = FALSE)
+			src.log_message("[user] ([user.ckey]) attacked [target.name] ([target.ckey]) with [arms] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(arms.damagetype)])", LOG_ATTACK, log_globally = FALSE)
+			target.log_message("Attacked by [user.name] ([user.ckey]) with [arms] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(arms.damagetype)])", LOG_VICTIM, log_globally = FALSE)
 			msg_admin_attack("[key_name(user, highlight_special = 1)] attacked [key_name(target, highlight_special = 1)] with [arms] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(arms.damagetype)]) (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target) )
 		return A.attack_generic(src, arms.melee_damage, "attacked")
 	return
@@ -669,8 +669,8 @@ GLOBAL_DATUM_INIT(mech_state, /datum/ui_state/default, new())
 		if(ishuman(H))
 			var/mob/living/carbon/human/D = H
 			if(D.lying)
-				D.attack_log += "\[[time_stamp()]\]<font color='orange'> Was trampled by [src]</font>"
-				attack_log += "\[[time_stamp()]\] <span class='warning'>trampled [D.name] ([D.ckey]) with \the [src].</span>"
+				D.log_message("Was trampled by [src]", LOG_VICTIM, log_globally = FALSE)
+				log_message("trampled [D.name] ([D.ckey]) with \the [src].", LOG_ATTACK, log_globally = FALSE)
 				msg_admin_attack("[src] trampled [key_name(D)] at (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[D.x];Y=[D.y];Z=[D.z]'>JMP</a>)" )
 				src.visible_message(SPAN_DANGER("\The [src] runs over \the [D]!"))
 				D.apply_damage(legs.trample_damage, DAMAGE_BRUTE)

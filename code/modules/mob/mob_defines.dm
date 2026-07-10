@@ -356,7 +356,6 @@
 
 	var/mob/lastattacker = null
 	var/mob/lastattacked = null
-	var/attack_log = list()
 	var/list/logging = list()
 
 	/// Spam control, can only point when the previous pointer qdels

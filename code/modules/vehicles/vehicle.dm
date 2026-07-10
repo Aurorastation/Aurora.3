@@ -17,7 +17,6 @@
 
 	var/buckling_sound = 'sound/effects/metal_close.ogg'
 
-	var/attack_log = null
 	var/on = 0
 	var/fire_dam_coeff = 1.0
 	var/brute_dam_coeff = 1.0
@@ -414,7 +413,7 @@
 	if(!damage)
 		return
 	visible_message(SPAN_DANGER("[user] [attack_message] the [src]!"))
-	user.attack_log += "\[[time_stamp()]\] <span class='warning'>attacked [src.name]</span>"
+	user.log_message("attacked [src.name]", LOG_ATTACK, log_globally = FALSE)
 	user.do_attack_animation(src)
 	add_damage(damage)
 	if(prob(10))

@@ -1026,9 +1026,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	set category = "Special Verbs"
 	set name = "Attack Log"
 
-	to_chat(usr, SPAN_DANGER("Attack Log for [mob]"))
-	for(var/t in M.attack_log)
-		to_chat(usr, t)
+	show_individual_logging_panel(M, LOGSRC_MOB, INDIVIDUAL_ATTACK_LOG)
 	feedback_add_details("admin_verb","ATTL") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 

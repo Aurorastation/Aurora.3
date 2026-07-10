@@ -44,7 +44,7 @@
 	var/turf/T
 	if (ismob(body))
 		T = get_turf(body)				//Where is the body located?
-		attack_log = body.attack_log	//preserve our attack logs by copying them to our ghost
+		logging = body.logging?.Copy()	// Preserve body individual logs on the ghost's mob source.
 
 		var/originaldesc = desc
 		var/o_transform = transform

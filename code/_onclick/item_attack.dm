@@ -178,8 +178,8 @@ This calls [atom/proc/tool_act], among others.
 	SEND_SIGNAL(target_mob, COMSIG_ATOM_AFTER_ATTACKEDBY, src, user)
 
 	if(!no_attack_log)
-		user.attack_log += "\[[time_stamp()]\]<span class='warning'> [hit_zone ? "Attacked" : "Missed"] [target_mob.name] ([target_mob.ckey]) with [name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(damtype)])</span>"
-		target_mob.attack_log += "\[[time_stamp()]\]<font color='orange'> [hit_zone ? "Attacked" : "Missed"] by [user.name] ([user.ckey]) with [name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(damtype)])</font>"
+		user.log_message("[hit_zone ? "Attacked" : "Missed"] [target_mob.name] ([target_mob.ckey]) with [name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(damtype)])", LOG_ATTACK, log_globally = FALSE)
+		target_mob.log_message("[hit_zone ? "Attacked" : "Missed"] by [user.name] ([user.ckey]) with [name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(damtype)])", LOG_VICTIM, log_globally = FALSE)
 		msg_admin_attack("[key_name(user, highlight_special = 1)] [hit_zone ? "attacked" : "missed"] [key_name(target_mob, highlight_special = 1)] with [name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(damtype)]) (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target_mob) )
 	/////////////////////////
 
