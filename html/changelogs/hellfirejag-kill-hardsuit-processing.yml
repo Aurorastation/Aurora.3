@@ -1,0 +1,5 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - bugfix: "Fixed hardsuits globally wasting processing time when not equipped."
+  - refactor: "Tick differentiated hardsuits."

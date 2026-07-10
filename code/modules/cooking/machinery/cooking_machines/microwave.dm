@@ -219,15 +219,15 @@
 	icon_state = initial(icon_state)
 	update_microwaving_audio()
 	if(operating)
-		var/image/mwclosed_on = image(icon, "mw_on")
-		if(!dirtiness)
-			mwclosed_on.plane = ABOVE_LIGHTING_PLANE
-		AddOverlays(mwclosed_on)
+		var/operating_overlay = image(icon, "mw_on")
+		var/emissive_overlay = emissive_appearance(icon, "mw_on")
+		AddOverlays(operating_overlay)
+		AddOverlays(emissive_overlay)
 	if(dirtiness)
-		if(broken)
-			AddOverlays(image(icon, "mwbloodyo"))
-		else
-			AddOverlays(image(icon, "mwbloody"))
+		var/bloody_overlay = image(icon, "[broken ? "mwbloodyo" : "mwbloody"]")
+		var/emissive_overlay = emissive_appearance(icon, "[broken ? "mwbloodyo" : "mwbloody"]")
+		AddOverlays(bloody_overlay)
+		AddOverlays(emissive_overlay)
 	if(broken)
 		icon_state = "mwb"
 
