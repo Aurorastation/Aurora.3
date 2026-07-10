@@ -65,12 +65,18 @@
 	if(mob_parent.buckled_to)
 		return
 
+	if(mob_parent.incorporeal_move)
+		return
+
 	footsteps++
 	if(footsteps < footsteps_until_sound)
 		return
 
 	// play the turf sound first, different range and we need to check for barefoot sounds as well
 	var/turf/T = get_turf(mob_parent)
+	if(isspaceturf(T) || !mob_parent.check_solid_ground())
+		return //no sounds in space
+
 	var/top_layer = 0
 	var/turf_walk_sound
 	if(istype(T))
