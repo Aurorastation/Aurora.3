@@ -1353,6 +1353,26 @@
 	if(shock_stage >= 150)
 		Weaken(20)
 
+/mob/living/carbon/human/proc/trigger_heart_attack()
+	if(status_flags & GODMODE)
+		return FALSE
+	if(stat == DEAD || !should_have_organ(BP_HEART))
+		return FALSE
+
+	var/obj/item/organ/internal/heart/heart = internal_organs_by_name[BP_HEART]
+	if(!istype(heart) || BP_IS_ROBOTIC(heart) || (heart.status & ORGAN_DEAD))
+		return FALSE
+
+	shock_stage = max(shock_stage, 120)
+	heart.pulse = PULSE_NONE
+	heart.handle_pulse()
+	BITSET(hud_updateflag, HEALTH_HUD)
+
+	to_chat(src, SPAN_DANGER("Your heart has stopped!"))
+	visible_message("<b>[src]</b> suddenly collapses, clutching at [get_pronoun("his")] chest!")
+	Paralyse(15)
+	return TRUE
+
 
 /*
 	Called by life(), instead of having the individual hud items update icons each tick and check for status changes
