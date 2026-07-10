@@ -78,7 +78,7 @@
 		cell = new celltype(src)
 
 /obj/item/suit_cooling_unit/Destroy()
-	STOP_PROCESSING(SSmobs, src)
+	STOP_PROCESSING(SSprocessing, src)
 	QDEL_NULL(cell)
 	return ..()
 
@@ -151,7 +151,7 @@
 		return
 
 	on = TRUE
-	START_PROCESSING(SSmobs, src)
+	START_PROCESSING(SSprocessing, src)
 	update_icon()
 
 /obj/item/suit_cooling_unit/proc/turn_off()
@@ -159,7 +159,7 @@
 		var/mob/M = src.loc
 		to_chat(M, SPAN_WARNING("\The [src] clicks and whines as it powers down."))
 	on = FALSE
-	STOP_PROCESSING(SSmobs, src)
+	STOP_PROCESSING(SSprocessing, src)
 	update_icon()
 
 /obj/item/suit_cooling_unit/attack_self(mob/user)
