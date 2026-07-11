@@ -1386,7 +1386,7 @@ About the new airlock wires panel:
 	if (src.isElectrified())
 		if (istype(mover, /obj/item))
 			var/obj/item/i = mover
-			if (i.matter && (DEFAULT_WALL_MATERIAL in i.matter) && i.matter[DEFAULT_WALL_MATERIAL] > 0)
+			if(i.matter && SSmaterials.get_material_amount(i.matter, MATERIAL_STEEL) > 0)
 				spark(src, 5, GLOB.alldirs)
 	return ..()
 
