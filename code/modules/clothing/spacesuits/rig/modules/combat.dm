@@ -137,6 +137,24 @@
 	QDEL_NULL(gun)
 	. = ..()
 
+/obj/item/rig_module/mounted/proc/get_firemode_name()
+	if(!gun || !length(gun.firemodes))
+		return "No firemodes"
+
+	var/datum/firemode/current_mode = gun.firemodes[gun.sel_mode]
+	return current_mode ? current_mode.name : "Unknown"
+
+/obj/item/rig_module/mounted/get_configuration()
+	. = ..()
+	if(gun && length(gun.firemodes) > 1)
+		.["firemode"] = add_ui_configuration("Fire mode", "button", get_firemode_name())
+
+/obj/item/rig_module/mounted/configure_edit(key, value, mob/user)
+	switch(key)
+		if("firemode")
+			if(gun)
+				gun.toggle_firing_mode(user)
+
 /obj/item/rig_module/mounted/engage(atom/target, mob/user)
 	if(!..())
 		return FALSE

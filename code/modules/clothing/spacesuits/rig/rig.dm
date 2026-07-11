@@ -933,6 +933,9 @@
 					to_chat(wearer, SPAN_WARNING("You must remain still while the suit deploys its parts."))
 					piece_being_deployed = FALSE
 					return FALSE
+			if(!wearer || wearer.back != src) ///Prevents an edge case where a suit with a storage module can be removed while deploying, causing a runtime.
+				piece_being_deployed = FALSE
+				return FALSE
 			// If we're deploying the chest, we also try to deploy boots. If we can't also deploy boots, the entire thing fails.
 			if(use_obj == chest)
 				var/obj/item/boots_slot = wearer.shoes
