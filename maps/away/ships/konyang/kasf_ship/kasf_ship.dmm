@@ -978,6 +978,7 @@
 	id = "kasf_captains_shutters";
 	name = "Window Blast Doors"
 	},
+/obj/item/journal,
 /turf/simulated/floor/wood,
 /area/ship/kasf_corvette/captain)
 "fM" = (
@@ -1256,6 +1257,8 @@
 /obj/item/reagent_containers/food/drinks/bottle/small/beer,
 /obj/item/reagent_containers/food/drinks/bottle/small/beer,
 /obj/item/reagent_containers/food/drinks/bottle/small/beer,
+/obj/item/reagent_containers/food/drinks/bottle/sake,
+/obj/item/reagent_containers/food/drinks/bottle/sake,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/atmos)
 "hn" = (
@@ -5992,6 +5995,10 @@
 	pixel_y = 7;
 	pixel_x = 6
 	},
+/obj/item/portable_whiteboard{
+	pixel_x = -8;
+	pixel_y = 10
+	},
 /turf/simulated/floor/carpet/darkblue,
 /area/ship/kasf_corvette/mess)
 "HX" = (
@@ -8001,6 +8008,10 @@
 	},
 /obj/item/material/ashtray/bronze{
 	pixel_y = 16
+	},
+/obj/item/lore_radio{
+	pixel_y = 12;
+	pixel_x = -5
 	},
 /turf/simulated/floor/wood,
 /area/ship/kasf_corvette/mess)

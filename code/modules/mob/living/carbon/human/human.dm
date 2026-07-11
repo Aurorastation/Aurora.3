@@ -270,6 +270,13 @@
 			. += "Chemical Storage: [changeling.chem_charges]"
 			. += "Genetic Damage Time: [changeling.geneticdamage]"
 
+		if(mind.special_role) //we are an antag
+			. += "Current Antagonists:"
+			for(var/antag_type in GLOB.all_antag_types)
+				var/datum/antagonist/validhunted = GLOB.all_antag_types[antag_type]
+				if(length(validhunted.current_antagonists))
+					. += "- [validhunted.role_text]: [length(validhunted.current_antagonists)]"
+
 	if(. && istype(back,/obj/item/rig))
 		var/obj/item/rig/R = back
 		if(R && !R.canremove && R.installed_modules.len)
@@ -476,7 +483,7 @@
 		return get_id_name("Unknown")
 	if( head && (head.flags_inv&HIDEFACE) )
 		return get_id_name("Unknown")		//Likewise for hats
-	if(istype(wear_suit, /obj/item/clothing/suit/vaurca/shaper)) //Check for Preimminent Shaper helmet which obscures Hive affiliation
+	if(istype(wear_suit, /obj/item/clothing/suit/vaurca/shaper)) //Check for Preimminent robes which obscures Hive affiliation
 		var/list/hiveless_name = splittext(real_name, " ") //then remove Hive surname, ignore ID for obvious reason.
 		return hiveless_name[1]
 	var/face_name = get_face_name()

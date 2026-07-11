@@ -1,3 +1,8 @@
+#define UPDATE_MORALE \
+	morale_ratio = ftanh(beta_value * (morale_points + phi_value)); \
+	morale_ui.icon_state = ((morale_ratio > -0.01 && morale_ratio < 0.01) ? "morale_hidden" : "morale" + "[round(morale_ratio * 4) + 5]"); \
+	morale_ui.update_icon();
+
 /// Screen space movable object for the morale component.
 /atom/movable/screen/morale
 	name = "morale"
@@ -14,13 +19,18 @@
 		qdel(src) // whoops the attached mob doesn't have a morale component.
 		return
 
-	if (!length(morale_comp.moodlets))
+	// This section is Unlinted since we need to access a same-file PRIVATE var
+	// and for whatever ungodly reason strongdmm doesn't allow same-file to touch VAR_PRIVATE
+	var/morale_percent = UNLINT(morale_comp.morale_ratio * 100)
+	if (!morale_percent)
 		to_chat(usr, SPAN_NOTICE("You currently have no morale modifiers."))
 		return
 
-	// This section is Unlinted since we need to access a same-file PRIVATE var
-	// and for whatever ungodly reason strongdmm doesn't allow same-file to touch VAR_PRIVATE
-	UNLINT(to_chat(usr, SPAN_NOTICE("Your current morale bonus is [morale_comp.morale_ratio * 100]%")))
+	to_chat(usr, SPAN_NOTICE("Your current morale bonus is [morale_percent]%"))
+
+	if (!length(morale_comp.moodlets))
+		return
+
 	to_chat(usr, SPAN_NOTICE("You have the following morale modifiers: "))
 	for (var/datum/moodlet/moodlet as anything in morale_comp.moodlets)
 		to_chat(usr, moodlet.get_moodlet_descriptor())
@@ -54,16 +64,24 @@
 	VAR_PRIVATE/morale_ratio = 0.0 // Positive and negative floating points are allowed.
 
 	/**
-	 * The "B" constant in the equation for y = Atanh(Bx + C).
+	 * The "B" constant in the equation for y = Atanh(B(x + C)).
 	 * This constant is not arbitrary, it was carefully selected such that the equation will give "75% of its effect" at 50 morale points, and "96% of its effect" at 100 morale.
 	 * This allows for there to be an effect of diminishing returns for chasing ever increasingly more morale points, while front-loading the bulk of the effects at a specific amount of moodlets.
 	 * Since the effects of morale are a "Logistic Curve", "100% of the morale effect" is only ever obtained at +INFINITY.
 	 * This also goes for the opposite direction, morale penalties max out only at -INFINITY points, but get to "75% of the penalty effect" at -50 points.
 	 *
-	 * The actual "Effects" of morale are to be per-signal, and are defined by the A value in y = Atanh(Bx + C)
+	 * The actual "Effects" of morale are to be per-signal, and are defined by the A value in y = Atanh(B(x + C))
 	 * This is private for a reason, if you need to change it, do so by using set_beta_value(), which will also make the component recalculate its morale ratio.
 	 */
 	VAR_PRIVATE/beta_value = 0.0195
+
+	/**
+	 * The "C" constant in the equation for y = Atanh(B(x + C))
+	 * This constant acts like a "permanent" moodlet with a morale bonus equal to what its set as.
+	 * Please set this extremely sparingly. You won't necessarily break anything by setting it, since the system will tolerate any number between +/- Infinity.
+	 * But making a habit of bypassing the morale system like this can easily trivialize it.
+	 */
+	VAR_PRIVATE/phi_value = 0.0
 
 	/**
 	 * UI element stored for the morale component,
@@ -129,20 +147,20 @@
 
 /datum/component/morale/proc/add_morale_points(input)
 	morale_points += input
-	morale_ratio = ftanh(beta_value * morale_points)
+	UPDATE_MORALE
 
-	// I get to do this freakishly compact state setting because I can
-	// logically prove via VAR_PRIVATE that this is only ever set via a hyperbolic tangent
-	// And that because a hyperbolic tangent will only ever return a value between -1 and 1,
-	// the range of this equation becomes the set of integers between 1 and 9 inclusive.
-	morale_ui.icon_state = ((morale_ratio > -0.01 && morale_ratio < 0.01) ? "morale_hidden" : "morale" + "[round(morale_ratio * 4) + 5]")
-	morale_ui.update_icon()
+/datum/component/morale/proc/get_beta_value()
+	return beta_value
 
 /datum/component/morale/proc/set_beta_value(input)
 	beta_value = input
-	morale_ratio = ftanh(beta_value * morale_points)
-	morale_ui.icon_state = ((morale_ratio > -0.01 && morale_ratio < 0.01) ? "morale_hidden" : "morale" + "[round(morale_ratio * 4) + 5]")
-	morale_ui.update_icon()
+
+/datum/component/morale/proc/get_phi_value()
+	return phi_value
+
+/datum/component/morale/proc/set_phi_value(input)
+	phi_value = input
+	UPDATE_MORALE
 
 /**
  * Your one-stop-shop for making moodlets. This proc returns the pre-existing moodlet of a given type.
@@ -186,6 +204,7 @@
 	RegisterSignal(parent, COMSIG_GET_SURGERY_SUCCESS_MODIFIERS, PROC_REF(handle_surgery_modifiers), override = TRUE)
 	RegisterSignal(parent, COMSIG_GET_CRAFTING_MODIFIERS, PROC_REF(handle_crafting_speed), override = TRUE)
 	RegisterSignal(parent, COMSIG_PLANT_HARVESTER, PROC_REF(modify_yield), override = TRUE)
+	UPDATE_MORALE
 
 /datum/component/morale/Destroy()
 	QDEL_LIST_FORCE(moodlets)
@@ -232,7 +251,7 @@
 	if (!list_trimmed)
 		return
 
-	morale_ratio = ftanh(morale_points)
+	UPDATE_MORALE
 
 /*
 						AND NOW THE GIANT WALL OF SIGNAL HANDLERS
@@ -351,3 +370,5 @@
 	SIGNAL_HANDLER
 	*total_yield = *total_yield + plant_yield_contribution * morale_ratio
 	*doafter = *doafter * (1 - (harvest_speed_contribution * morale_ratio))
+
+#undef UPDATE_MORALE

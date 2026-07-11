@@ -19,20 +19,16 @@
 	maximum_level = SKILL_LEVEL_TRAINED
 	skill_level_descriptions = alist(
 		SKILL_LEVEL_UNFAMILIAR = "You have rarely, if ever, fought someone in your life.<br>" \
-			+ " - You are more likely to miss when attempting to punch anywhere not the torso.<br>" \
-			+ " - You are less likely to block unarmed attacks that you are aware of.<br>" \
-			+ " - Enemies are more likely to block your unarmed attacks.",
+			+ " - You are 4% more likely to miss when attempting to punch anywhere not the torso.<br>" \
+			+ " - You are 4% less likely to block unarmed attacks that you are aware of.<br>" \
+			+ " - Enemies are 4% more likely to block your unarmed attacks.",
 		SKILL_LEVEL_FAMILIAR = "You have some experience throwing punches. You are no stranger to a close-quarters fight, though anyone with real training is likely to overwhelm you.<br>" \
-			+ " - You are slightly more likely to miss when attempting to punch anywhere not the torso.<br>" \
-			+ " - You are slightly less likely to block unarmed attacks that you are aware of.<br>" \
-			+ " - Enemies are slightly more likely to block your unarmed attacks.",
+			+ " - You are 2% more likely to miss when attempting to punch anywhere not the torso.<br>" \
+			+ " - You are 2% less likely to block unarmed attacks that you are aware of.<br>" \
+			+ " - Enemies are 2% more likely to block your unarmed attacks.",
 		SKILL_LEVEL_TRAINED = "You have been trained, whether by being in the military, taking close-quarters-combat classes or simply through experience, to both keep calm in a close-quarters fight and also fight well.<br>" \
 			+ " - You suffer no maluses to your close-quarters combat. <br>" \
-			+ " - You have no bonuses to unarmed fighting either.",
-		SKILL_LEVEL_PROFESSIONAL = "You have had many years of martial arts experience. Probably having a Black Belt equivalent in one or more martial arts.<br>" \
-			+ " - You are slightly less likely to miss when attempting to punch anywhere not the torso.<br>" \
-			+ " - You are slightly more likely to block unarmed attacks that you are aware of.<br>" \
-			+ " - Enemies are slightly less likely to block your unarmed attacks.",
+			+ " - You have no bonuses to unarmed fighting either."
 	)
 	category = /singleton/skill_category/combat
 	subcategory = SKILL_SUBCATEGORY_MELEE
@@ -47,6 +43,14 @@
 	category = /singleton/skill_category/combat
 	subcategory = SKILL_SUBCATEGORY_MELEE
 	component_type = ARMED_COMBAT_SKILL_COMPONENT
+	skill_level_descriptions = alist(
+		SKILL_LEVEL_UNFAMILIAR = "You have no training or experience with armed combat.<br>" \
+			+ " - Your melee attacks deal 20% less damage.",
+		SKILL_LEVEL_FAMILIAR = "You some experience with armed fighting.<br>" \
+			+ " - Your melee attacks deal 10% less damage.",
+		SKILL_LEVEL_TRAINED = "You have both training and actual experience with armed combat, equivalent to several years of armed martial arts instruction.<br>" \
+			+ " - Your melee attacks have no damage modifier from this skill." \
+	)
 
 /singleton/skill/firearms
 	name = "Firearms"
@@ -91,9 +95,9 @@
 	component_type = LEADERSHIP_SKILL_COMPONENT
 	skill_level_descriptions = alist(
 		SKILL_LEVEL_UNFAMILIAR = "You have no skill with motivational speeches.",
-		SKILL_LEVEL_FAMILIAR = "You gain the \"Deliver Speech\" ability, which provides a small morale bonus.",
-		SKILL_LEVEL_TRAINED = "You gain the \"Deliver Speech\" ability, which provides a modest morale bonus.",
-		SKILL_LEVEL_PROFESSIONAL = "You gain the \"Deliver Speech\" ability, which provides a moderate morale bonus."
+		SKILL_LEVEL_FAMILIAR = "You gain the \"Deliver Speech\" ability, which provides a bonus of +3.333 morale points to recipients that lasts for 15 minutes.",
+		SKILL_LEVEL_TRAINED = "You gain the \"Deliver Speech\" ability, which provides a bonus of +6.666 morale points to recipients that lasts for 15 minutes.",
+		SKILL_LEVEL_PROFESSIONAL = "You gain the \"Deliver Speech\" ability, which provides a bonus of +10 morale points to recipients that lasts for 15 minutes."
 	)
 	skill_cost_map = alist(
 		SKILL_LEVEL_UNFAMILIAR = 0,
@@ -105,16 +109,32 @@
 /singleton/skill/tenacity
 	name = "Tenacity"
 	description = "Tenacity represents a character's \"Will to Live\". It affects a character's ability to cling to life when in critical condition, effectively allowing them to live for a little bit longer before medics can reach them. " \
-		+ "It does not affect a character's overall toughness and difficulty to take down in a fight, only how much time they have to be saved when they do go down. "
+		+ "It does not affect a character's overall toughness and difficulty to take down in a fight, only how much time they have to be saved when they do go down.<br>" \
+		+ "This skill does nothing for characters that do not have a heart."
 	maximum_level = SKILL_LEVEL_PROFESSIONAL
 	category = /singleton/skill_category/combat
 	subcategory = SKILL_SUBCATEGORY_SUPPORT
 	component_type = TENACITY_SKILL_COMPONENT
 	skill_level_descriptions = alist(
 		SKILL_LEVEL_UNFAMILIAR = "You have no modifiers from Tenacity.",
-		SKILL_LEVEL_FAMILIAR = "You take slightly longer to die while in critical condition.",
-		SKILL_LEVEL_TRAINED = "You take a little bit longer to die while in critical condition.",
-		SKILL_LEVEL_PROFESSIONAL = "You take longer to die while in critical condition."
+		SKILL_LEVEL_FAMILIAR = "You take slightly longer to die while in critical condition.<br>" \
+			+ " - Your 'minimum heart efficiency' when in asystole is increased by 10%.<br>" \
+			+ " - Your blood volume is counted as being +1.25% higher for the purpose of dying thresholds.<br>" \
+			+ " - Your heart is 5% more effective at pumping blood.<br>" \
+			+ " - You bleed out 7.5% slower from (non-arterial) wounds.<br>" \
+			+ " - You bleed out 3.75% slower from severed arteries.",
+		SKILL_LEVEL_TRAINED = "You take a little bit longer to die while in critical condition. <br>" \
+			+ " - Your 'minimum heart efficiency' when in asystole is increased by 20%.<br>" \
+			+ " - Your blood volume is counted as being +2.5% higher for the purpose of dying thresholds.<br>" \
+			+ " - Your heart is 10% more effective at pumping blood.<br>" \
+			+ " - You bleed out 15% slower from (non-arterial) wounds.<br>" \
+			+ " - You bleed out 7.5% slower from severed arteries.",
+		SKILL_LEVEL_PROFESSIONAL = "You take longer to die while in critical condition.<br>"\
+			+ " - Your 'minimum heart efficiency' when in asystole is increased by 30%.<br>" \
+			+ " - Your blood volume is counted as being +3.75% higher for the purpose of dying thresholds.<br>" \
+			+ " - Your heart is 15% more effective at pumping blood.<br>" \
+			+ " - You bleed out 22.5% slower from (non-arterial) wounds.<br>" \
+			+ " - You bleed out 11.25% slower from severed arteries.",
 	)
 	skill_cost_map = alist(
 		SKILL_LEVEL_UNFAMILIAR = 0,
