@@ -130,3 +130,20 @@
   - rscadd: Adds psiren tentacle meat and psiren body meat. A skilled butcher is needed
       to get the body meats disconnected from the organ filled meat inside. Consume
       at your own peril. Recipes to be added later - when the Horizon discovers them.
+2026-07-11:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Implements a bunch of material helpers to deal with fabrication bugs.
+  - refactor: Repaths /material to /singleton/material.
+  - refactor: Replaces all material string defines to path defines, replacing SSmaterials
+      procs w/ GET_SINGLETON instead.
+  - refactor: Removes all material var edited objects from all maps, adding new presets
+      where necessary.
+  - refactor: Updates recipes unit test to run all recipes against all material singletons.
+  - bugfix: Prevents several material recipes from being generated for non-rigid materials
+      (i.e. cloth railings).
+  Hellfirejag:
+  - bugfix: Fixed hardsuits globally wasting processing time when not equipped.
+  - refactor: Tick differentiated hardsuits.
+  kermit:
+  - bugfix: Removes duplicate leather jacket loadout selection from Reade racing jacket
+      loadout selection.
