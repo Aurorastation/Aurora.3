@@ -200,14 +200,16 @@ STOCK_ITEM_COMMON(utensil, 2)
 
 STOCK_ITEM_COMMON(utilitygrenades, 1.5)
 	for(var/i in 1 to rand(1, 3))
-		if(prob(20))
-			new /obj/item/grenade/chem_grenade/metalfoam(L)
-		else if(prob(20))
-			new /obj/item/grenade/chem_grenade/antiweed
-		else if(prob(20))
-			new /obj/item/grenade/chem_grenade/monoammoniumphosphate
-		else
-			new /obj/item/grenade/chem_grenade/cleaner(L)
+		var/picked = rand(1, 4)
+		switch(picked)
+			if(1)
+				new /obj/item/grenade/chem_grenade/metalfoam(L)
+			if(2)
+				new /obj/item/grenade/chem_grenade/antiweed(L)
+			if(3)
+				new /obj/item/grenade/chem_grenade/monoammoniumphosphate(L)
+			if(4)
+				new /obj/item/grenade/chem_grenade/cleaner(L)
 
 STOCK_ITEM_COMMON(nanopaste, 2)
 	new /obj/item/stack/nanopaste(L)

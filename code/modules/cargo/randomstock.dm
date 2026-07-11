@@ -104,14 +104,28 @@ GLOBAL_LIST_EMPTY(random_stock_large)
 		// TODO: Reduce this to 1/3rd the current value once the lemurian sea arc concludes
 		/mob/living/simple_animal/hostile/psiren = 1,
 		/mob/living/simple_animal/hostile/psiren/omen = 1,
-		/mob/living/simple_animal/hostile/psiren/ranged = 1
+		/mob/living/simple_animal/hostile/psiren/ranged = 1,
+		/mob/living/simple_animal/hostile/rogue_drone = 0.5
 		)
 
 	var/list/infest_mobs_severe = list(
-		/mob/living/simple_animal/hostile/giant_spider/hunter = 1,
+		// Grems get a low value because they have so many options and we don't want the majority to be pure grem.
+		/mob/living/simple_animal/hostile/giant_spider/hunter = 0.2,
+		/mob/living/simple_animal/hostile/giant_spider/emp = 0.2,
+		/mob/living/simple_animal/hostile/giant_spider/bombardier = 0.2,
+		/mob/living/simple_animal/hostile/giant_spider/nurse = 0.2,
+		/mob/living/simple_animal/hostile/giant_spider/emp = 0.2,
 		/mob/living/simple_animal/hostile/retaliate/shantak = 0.7,
 		/mob/living/simple_animal/hostile/carp = 1.5,
-		/mob/living/simple_animal/hostile/bear = 0.8
+		/mob/living/simple_animal/hostile/bear = 0.8,
+		/mob/living/simple_animal/hostile/harron = 0.8,
+		/mob/living/simple_animal/hostile/wind_devil = 0.5,
+		/mob/living/simple_animal/hostile/carp/shark = 0.3,
+		/mob/living/simple_animal/hostile/carp/shark/reaver = 0.3,
+		/mob/living/simple_animal/hostile/carp/bloater = 0.5,
+		/mob/living/simple_animal/hostile/retaliate/royalcrab = 0.5,
+		/mob/living/simple_animal/hostile/retaliate/hegeranzi = 0.5,
+		/mob/living/simple_animal/hostile/hivebot = 0.8
 	)
 
 /datum/cargospawner/New()
@@ -208,7 +222,7 @@ GLOBAL_LIST_EMPTY(random_stock_large)
 // Moderate mobs are checked per crate
 #define INFEST_PROB_MODERATE	3
 
-#define INFEST_PROB_SEVERE	6//Severe is once per round, not per crate
+#define INFEST_PROB_SEVERE	9//Severe is once per round, not per crate
 
 /datum/cargospawner/proc/handle_infestation()
 	for (var/obj/structure/closet/crate/C as anything in containers)

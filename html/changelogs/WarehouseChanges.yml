@@ -1,0 +1,7 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - rscadd: "Changed up some of the possible warehouse spawns, including mob spawns."
+  - rscadd: "tripled the chance of large hostile xenofauna in the warehouse from 3% to 9% per round."
