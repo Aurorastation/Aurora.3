@@ -124,8 +124,14 @@ SUBSYSTEM_DEF(air)
 	can_fire = TRUE
 
 /datum/controller/subsystem/air/stat_entry(msg)
-	msg = "TtU:[tiles_to_update.len] ZtU:[zones_to_update.len] AFZ:[active_fire_zones.len] AH:[active_hotspots.len] AE:[active_edges.len]"
-	return msg
+	msg = {"\n\
+		Update Queues: \
+		Tiles [tiles_to_update.len] \
+		Zones [zones_to_update.len] \
+		Active Fire Zones [active_fire_zones.len] \
+		Active Hotspots [active_hotspots.len] \
+		Active Edges [active_edges.len]"}
+	return ..()
 
 /datum/controller/subsystem/air/Initialize(timeofday, simulate = TRUE)
 
