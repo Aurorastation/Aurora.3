@@ -126,7 +126,7 @@
 			if (GLOB.config.forum_passphrase)
 				desc += "\nTo register on the forums, please use the following passphrase: [GLOB.config.forum_passphrase]"
 
-			log_suspicious_login("Failed Login: [ckey] [computer_id] [address] - Banned (#[ban_id])", list("ban_id" = ban_id))
+			log_suspicious_login("Failed Login: [ckey] [computer_id] [address] - Banned (#[ban_id])", list("ban_id" = ban_id), FALSE)
 			LOG_CLIENT_CONNECTION(ACCESS_STATUS_BANNED)
 			return list("reason"="[bantype]", "desc"="[desc]", "id" = ban_id)
 

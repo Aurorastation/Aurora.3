@@ -152,8 +152,6 @@ GENERAL_PROTECT_DATUM(/datum/log_holder)
 
 	initialized = TRUE
 
-	rustg_file_write("", "[GLOB.log_directory]/dd.log")
-
 	for(var/list/arg_list as anything in waiting_log_calls)
 		Log(arglist(arg_list))
 	waiting_log_calls?.Cut()

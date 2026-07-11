@@ -121,6 +121,8 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 	"world_subsystems_log" = "subsystems/world_subsystems.log",
 	"world_subsystems_chemistry_log" = "subsystems/chemistry.log",
 	"world_subsystems_codex_log" = "subsystems/codex.log",
+	"world_subsystems_dbcore_log" = "subsystems/dbcore.log",
+	"world_subsystems_discord_log" = "subsystems/discord.log",
 	"world_subsystems_atlas_log" = "subsystems/atlas.log",
 	"world_subsystems_ghostroles_log" = "subsystems/ghostroles.log",
 	"world_subsystems_law_log" = "subsystems/law.log",
@@ -132,6 +134,8 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 	"world_subsystems_zas" = "subsystems/zas.log",
 	"world_subsystems_zas_debug" = "subsystems/zas.log",
 	"world_subsystems_http" = "subsystems/http.log",
+	"world_subsystems_ipintel" = "subsystems/ipintel.log",
+	"world_subsystems_odyssey_log" = "subsystems/odyssey.log",
 	"world_subsystems_sentry_log" = "subsystems/sentry.log",
 
 	/*#### MODULES ####*/
@@ -1243,11 +1247,20 @@ GENERAL_PROTECT_DATUM(/datum/configuration)
 ///Load the LOGGING configuration
 /datum/configuration/proc/load_logging_config()
 	try
+		var/list/default_logfiles = src.logfiles.Copy()
+
 		if((rustg_file_exists("config/logging.json") == "true"))
 			src.logsettings = json_decode(rustg_file_read("config/logging.json"))
 
 		if((rustg_file_exists("config/logging_files.json") == "true"))
 			src.logfiles = json_decode(rustg_file_read("config/logging_files.json"))
+
+		if(!islist(src.logfiles))
+			src.logfiles = default_logfiles.Copy()
+		else
+			for(var/logfile_key in default_logfiles)
+				if(!(logfile_key in src.logfiles))
+					src.logfiles[logfile_key] = default_logfiles[logfile_key]
 
 	catch(var/exception/e)
 		WARNING("Unable to read or restore log config from the configuration files. Exception: [json_encode(e)]")

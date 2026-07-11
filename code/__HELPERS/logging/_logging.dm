@@ -11,7 +11,7 @@
 	var/static/already_logged = FALSE
 	if (!already_logged)
 		logger?.Log(LOG_CATEGORY_WORLD, "Starting up. (ID: [GLOB.round_id])")
-		SEND_TEXT(world.log, "[log_end]\n[log_end]\nStarting up. (ID: [GLOB.round_id]) [log_end]\n---------------------[log_end]")
+		log_world(GLOB.diary, "[log_end]\n[log_end]\nStarting up. (ID: [GLOB.round_id]) [log_end]\n---------------------[log_end]")
 		already_logged = TRUE
 	else
 		crash_with("log_startup() was called more then once")
@@ -21,7 +21,8 @@
 
 /proc/log_error(msg)
 	logger?.Log(LOG_CATEGORY_WORLD, "ERROR: [msg]")
-	SEND_TEXT(world.log, "## ERROR: [msg][log_end]")
+	world.log <<  "## ERROR: [msg][log_end]"
+	log_world("ERROR", msg)
 
 /proc/shutdown_logging()
 	logger?.shutdown_logging()
@@ -29,8 +30,13 @@
 
 //print a warning message to world.log
 /proc/warning(msg)
+#if defined(UNIT_TEST)
+	LOG_GITHUB_WARNING(msg)
+#else
 	logger?.Log(LOG_CATEGORY_WORLD, "WARNING: [msg]")
-	SEND_TEXT(world.log, "## WARNING: [msg][log_end]")
+	world.log <<  "## WARNING: [msg][log_end]"
+	log_world("WARNING: [msg]")
+#endif
 
 //print a testing-mode debug message to world.log and world
 #ifdef TESTING
@@ -62,30 +68,44 @@ GLOBAL_LIST_INIT(testing_global_profiler, list("_PROFILE_NAME" = "Global"))
 #define testing_profile_local_output_all testing_profile_output_all(_timer_system)
 
 /proc/game_log(category, text)
+	WRITE_LOG(GLOB.diary, "[GLOB.round_id] [category]: [text][log_end]")
 	logger?.Log(LOG_CATEGORY_GAME, "[category]: [text]", list("legacy_category" = category))
 
 /proc/log_signal(var/text, list/data)
+	if(length(GLOB.signal_log) >= 100)
+		GLOB.signal_log.Cut(1, 2)
+	GLOB.signal_log.Add("|[time_stamp()]| [text]")
 	_log_signal(text, data)
 
+/proc/log_ntirc(text, level = SEVERITY_NOTICE, ckey = "", conversation = "")
+	log_chat(text, list(
+		"severity" = level,
+		"ckey" = ckey,
+		"conversation" = conversation,
+	))
+
 /proc/log_misc(text)
+	log_world("MISC", text)
 	logger?.Log(LOG_CATEGORY_MISC, "MISC: [text]")
 
 /proc/log_tgs(text, severity = SEVERITY_INFO)
+	log_world("TGS[SEVERITY_INFO]: [text]")
 	logger?.Log(LOG_CATEGORY_TGS, "TGS[severity]: [text]", list("severity" = severity))
 
 /proc/tgs_info_log(text)
-	log_tgs("Info: [text]", SEVERITY_INFO)
+	logger?.Log(LOG_CATEGORY_TGS, "TGS[SEVERITY_INFO]: Info: [text]", list("severity" = SEVERITY_INFO))
 	log_world("TGS Info: [text]")
 
 /proc/tgs_warning_log(text)
-	log_tgs("Warn: [text]", SEVERITY_WARNING)
+	logger?.Log(LOG_CATEGORY_TGS, "TGS[SEVERITY_WARNING]: Warn: [text]", list("severity" = SEVERITY_WARNING))
 	log_world("TGS Warn: [text]")
 
 /proc/tgs_error_log(text)
-	log_tgs("Error: [text]", SEVERITY_ERROR)
+	logger?.Log(LOG_CATEGORY_TGS, "TGS[SEVERITY_ERROR]: Error: [text]", list("severity" = SEVERITY_ERROR))
 	stack_trace("TGS Error: [text]")
 
 /proc/log_ntsl(text, severity = SEVERITY_NOTICE, ckey = "")
+	log_world("NTSL: [text]")
 	logger?.Log(LOG_CATEGORY_NTSL, "NTSL: [text]", list(
 		"severity" = severity,
 		"ckey" = ckey,
@@ -241,6 +261,8 @@ GLOBAL_LIST_INIT(testing_global_profiler, list("_PROFILE_NAME" = "Global"))
 	// Insert message
 	if(message)
 		entry += "\n[message]"
+	if(GLOB.config.logsettings["log_subsystems_tgui"])
+		WRITE_LOG(GLOB.config.logfiles["world_subsystems_tgui"], "TGUI: [entry]")
 	logger?.Log(LOG_CATEGORY_HREF_TGUI, "TGUI: [entry]", list(
 		"user" = user,
 		"context" = context,

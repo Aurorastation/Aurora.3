@@ -39,12 +39,9 @@
 			src << browse(F,"window=investigate[subject];size=800x300")
 
 		if("hrefs")				//persistant logs and stuff
-			if(CONFIG_GET(flag/log_hrefs))
-				var/href_log = "[GLOB.log_directory]/[LOG_CATEGORY_HREF].log"
-				if(!fexists(href_log))
-					href_log = "[GLOB.log_directory]/[LOG_CATEGORY_HREF].log.json"
-				if(fexists(href_log))
-					src << browse(file(href_log), "window=investigate[subject];size=800x300")
+			if(GLOB.config && GLOB.config.logsettings["log_hrefs"])
+				if(GLOB.config.logfiles["world_href_log"])
+					src << browse(GLOB.config.logfiles["world_href_log"], "window=investigate[subject];size=800x300")
 				else
 					to_chat(src, SPAN_WARNING("Error: admin_investigate: No href logfile found."))
 					return

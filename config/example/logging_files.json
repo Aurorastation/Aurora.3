@@ -7,6 +7,7 @@
   "query_debug_log":"query_debug.log",
   "world_runtime_log":"world_runtime.log",
   "sql_error_log":"sql_error.log",
+  "topic_log":"topic.log",
   "world_game_log":"world_game.log",
   "world_job_debug_log":"world_job_debug.log",
   "signals_log":"signals.log",
@@ -27,6 +28,7 @@
   "world_subsystems_log":"subsystems/world_subsystems.log",
   "world_subsystems_chemistry_log":"subsystems/chemistry.log",
   "world_subsystems_codex_log":"subsystems/codex.log",
+  "world_subsystems_dbcore_log":"subsystems/dbcore.log",
   "world_subsystems_atlas_log":"subsystems/atlas.log",
   "world_subsystems_ghostroles_log":"subsystems/ghostroles.log",
   "world_subsystems_law_log":"subsystems/law.log",
@@ -44,5 +46,7 @@
   "world_subsystems_zas":"subsystems/zas.log",
   "world_subsystems_zas_debug":"subsystems/zas.log",
   "world_subsystems_http":"subsystems/http.log",
-  "world_subsystems_ipintel":"subsystems/ipintel.log"
+  "world_subsystems_ipintel":"subsystems/ipintel.log",
+  "world_subsystems_odyssey_log":"subsystems/odyssey.log",
+  "world_subsystems_sentry_log":"subsystems/sentry.log"
 }

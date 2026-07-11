@@ -296,10 +296,6 @@ GLOBAL_LIST_INIT(world_api_rate_limit, list())
 		logger = new
 	logger.init_logging()
 
-	#ifndef UNIT_TEST
-	world.log = file("[GLOB.log_directory]/dd.log")
-	#endif
-
 /world/proc/update_status()
 	SHOULD_NOT_SLEEP(TRUE)
 
