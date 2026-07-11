@@ -35,6 +35,14 @@
 		'sound/music/lobby/lights_edge/lights_edge_2.ogg'
 	)
 
+	lore_radio_stations = list(
+		"87.4 XNS Interstellar Broadcasting" = 'texts/lore_radio/lights_edge/87.4_XNS_Interstellar.txt',
+		"89.8 DomeChat" = 'texts/lore_radio/lights_edge/89.8_DomeChat.txt',
+		"96.2 Coalition Hits!" = 'texts/lore_radio/lights_edge/96.2_Coalition_Hits.txt',
+		"105.4 Automated Travel Advisory Broadcast System" = 'texts/lore_radio/lights_edge/105.4_Automated_Advisory.txt',
+		"114.8 RADIO LEMURIAN TRUTH" = 'texts/lore_radio/lights_edge/114.8_Radio_Lemurian_Truth.txt'
+	)
+
 /datum/space_sector/lemurian_sea//The actual proposed area of void as written. Should be as dark as possible, due to no starlight
 	name = SECTOR_LEMURIAN_SEA
 	description = "The Lemurian Sea is an astrological curiosity which is entirely free of stars. This region is a relatively new discovery and classification, having only been officially broken off of Light’s Edge by most astrographical institutions following the rediscovery of Assunzione and limited exploration beyond its position on the border of what would become the Lemurian Sea. Most astrological charts advise avoiding the region as travelers are known to report a feeling of general uneasiness while passing through it and many vessels are known to have disappeared within the Sea. "
@@ -64,7 +72,8 @@
 	lobby_tracks = list(
 		'sound/music/lobby/lights_edge/lights_edge_1.ogg',
 		'sound/music/lobby/lights_edge/lights_edge_2.ogg',
-		'sound/music/lobby/dangerous_space/dangerous_space_1.ogg'
+		'sound/music/lobby/dangerous_space/dangerous_space_1.ogg',
+		'sound/music/lobby/spatial_audio.ogg'
 	)
 
 	sector_welcome_message = 'sound/AI/welcome_lemurian_sea_outer.ogg'
@@ -76,6 +85,12 @@
 	parallax_layering_enabled = FALSE
 	ccia_link = FALSE
 
+	lore_radio_stations = list(
+		"105.4 Automated Travel Advisory Broadcast System" = 'texts/lore_radio/lights_edge/105.4_Automated_Advisory.txt'
+	)
+
 /datum/space_sector/lemurian_sea/far
 	name = SECTOR_LEMURIAN_SEA_FAR
 	sector_welcome_message = 'sound/AI/welcome_lemurian_sea_inner.ogg'
+
+	lore_radio_stations = list()

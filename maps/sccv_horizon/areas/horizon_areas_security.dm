@@ -94,8 +94,16 @@
 	horizon_deck = 3
 	lightswitch = FALSE
 
-/area/horizon/security/interrogation
-	name = "Interrogation"
+/area/horizon/security/interrogation_1
+	name = "Interrogation Room 1"
+	icon_state = "investigations"
+	ambience = list(AMBIENCE_HIGHSEC, AMBIENCE_FOREBODING)
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+	horizon_deck = 3
+	lightswitch = FALSE
+
+/area/horizon/security/interrogation_2
+	name = "Interrogation Room 2"
 	icon_state = "investigations"
 	ambience = list(AMBIENCE_HIGHSEC, AMBIENCE_FOREBODING)
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED

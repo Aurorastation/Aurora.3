@@ -224,10 +224,10 @@
 			SET_PLANE_EXPLICIT(mwclosed_on, ABOVE_LIGHTING_PLANE, src)
 		AddOverlays(mwclosed_on)
 	if(dirtiness)
-		if(broken)
-			AddOverlays(image(icon, "mwbloodyo"))
-		else
-			AddOverlays(image(icon, "mwbloody"))
+		var/bloody_overlay = image(icon, "[broken ? "mwbloodyo" : "mwbloody"]")
+		var/emissive_overlay = emissive_appearance(icon, "[broken ? "mwbloodyo" : "mwbloody"]")
+		AddOverlays(bloody_overlay)
+		AddOverlays(emissive_overlay)
 	if(broken)
 		icon_state = "mwb"
 

@@ -172,3 +172,11 @@
 	var/obj/item/rig/wearing_rig
 	/// Pref holder for the speech bubble style.
 	var/speech_bubble_type
+
+	var/med_record = ""
+	var/sec_record = ""
+	var/list/incidents = list()
+	var/gen_record = ""
+	var/ccia_record = ""
+	var/list/ccia_actions = list()
+	var/exploit_record = ""

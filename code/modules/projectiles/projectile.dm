@@ -441,7 +441,7 @@
 		return FALSE
 	var/turf/T = get_turf(A)
 	var/datum/point/point_cache = trajectory.copy_to()
-	if(ricochets < ricochets_max && check_ricochet_flag(A) && check_ricochet(A))
+	if(ricochets < ricochets_max && check_ricochet(A))
 		ricochets++
 		if(A.handle_ricochet(src))
 			on_ricochet(A)
@@ -725,24 +725,11 @@
 	return PROJECTILE_PIERCE_NONE
 
 /obj/projectile/proc/check_ricochet(atom/A)
-	var/chance = ricochet_chance * A.receive_ricochet_chance_mod
+	var/chance = ricochet_chance
 	if(firer && HAS_TRAIT(firer, TRAIT_NICE_SHOT))
 		chance += NICE_SHOT_RICOCHET_BONUS
 	if(ricochets < min_ricochets || prob(chance))
 		return TRUE
-	return FALSE
-
-/obj/projectile/proc/check_ricochet_flag(atom/A)
-	// if((armor_flag in list(ENERGY, LASER)) && (A.flags_ricochet & RICOCHET_SHINY))
-	// 	return TRUE
-
-	// if((armor_flag in list(BOMB, BULLET)) && (A.flags_ricochet & RICOCHET_HARD))
-	// 	return TRUE
-
-	//Keep it easy for now
-	if(A.flags_ricochet & RICOCHET_SHINY|RICOCHET_HARD)
-		return TRUE
-
 	return FALSE
 
 /obj/projectile/proc/return_predicted_turf_after_moves(moves, forced_angle) //I say predicted because there's no telling that the projectile won't change direction/location in flight.

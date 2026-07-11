@@ -23,7 +23,7 @@
 	var/can_plate = 1
 
 	var/manipulating = 0
-	var/material/reinforced = null
+	var/singleton/material/reinforced = null
 	var/obj/item/stack/dismantle_mat = /obj/item/stack/rods
 
 	// Gambling tables. I'd prefer reinforced with carpet/felt/cloth/whatever, but AFAIK it's either harder or impossible to get /obj/item/stack/material of those.
@@ -133,9 +133,9 @@
 
 /obj/structure/table/Initialize()
 	if(table_mat)
-		material = SSmaterials.get_material_by_name(table_mat)
+		material = GET_SINGLETON(table_mat)
 	if(table_reinf)
-		reinforced = SSmaterials.get_material_by_name(table_reinf)
+		reinforced = GET_SINGLETON(table_reinf)
 		AddComponent(/datum/component/armor, list(MELEE = ARMOR_MELEE_KNIVES, BULLET = ARMOR_BALLISTIC_MINOR))
 
 	. = ..()
@@ -210,7 +210,7 @@
 
 // Returns the material to set the table to.
 /obj/structure/table/proc/common_material_add(obj/item/stack/material/S, mob/user, verb) // Verb is actually verb without 'e' or 'ing', which is added. Works for 'plate'/'plating' and 'reinforce'/'reinforcing'.
-	var/material/M = S.get_material()
+	var/singleton/material/M = S.get_material()
 	if(!istype(M))
 		to_chat(user, SPAN_WARNING("You cannot [verb]e \the [src] with \the [S]."))
 		return null
@@ -228,7 +228,7 @@
 	return M
 
 // Returns the material to set the table to.
-/obj/structure/table/proc/common_material_remove(mob/user, material/M, delay, what, type_holding, sound)
+/obj/structure/table/proc/common_material_remove(mob/user, singleton/material/M, delay, what, type_holding, sound)
 	if(!M.stack_type)
 		to_chat(user, SPAN_WARNING("You are unable to remove the [what] from this table!"))
 		return M
@@ -286,7 +286,7 @@
 			S = reinforced.place_shard(loc)
 			if(S) shards += S
 	if(material)
-		if(material.stack_type && (full_return || prob(20)))
+		if(material?.stack_type && (full_return || prob(20)))
 			material.place_sheet(loc)
 		else
 			S = material.place_shard(loc)
@@ -343,7 +343,7 @@
 		var/tabledirs = 0
 		for(var/direction in list(turn(dir,90), turn(dir,-90)) )
 			var/obj/structure/table/T = locate(/obj/structure/table ,get_step(src,direction))
-			if(T && T.flipped == 1 && T.dir == src.dir && material && T.material && T.material.name == material.name)
+			if(T && T.flipped == 1 && T.dir == src.dir && material && T.material && T.material.type == material.type)
 				type++
 				tabledirs |= direction
 
@@ -437,7 +437,7 @@
 	for(var/obj/structure/table/T in orange(src, 1))
 		var/T_dir = get_dir(src, T)
 		if(T_dir in blocked_dirs) continue
-		if(material && T.material && material.name == T.material.name && flipped == T.flipped)
+		if(material && T.material && material.type == T.material.type && flipped == T.flipped)
 			connection_dirs |= T_dir
 		if(propagate)
 			INVOKE_ASYNC(T, PROC_REF(update_connections))

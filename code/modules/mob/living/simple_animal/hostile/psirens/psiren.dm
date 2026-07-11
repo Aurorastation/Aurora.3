@@ -8,8 +8,8 @@
 	icon_dead = "psiren_lasher_dead"
 	blood_type = COLOR_AMBER
 	blood_overlay_icon = 'icons/mob/npc/blood_overlay.dmi'
-	health = 50
-	maxhealth = 50
+	health = 65
+	maxhealth = 65
 	melee_damage_lower = 10
 	melee_damage_upper = 10
 	armor_penetration = 40
@@ -41,6 +41,9 @@
 	speak_chance = 5
 	attack_emote = "menaces"
 	psi_pingable = TRUE
+	meat_amount = 1
+	meat_type = /obj/item/reagent_containers/food/snacks/squidmeat/psiren_tentacle_meat
+	butchering_products = list(/obj/item/reagent_containers/food/snacks/squidmeat/psiren_body_meat = 1)
 
 	attack_vis_effect = ATTACK_EFFECT_DISARM
 	smart_melee = TRUE
@@ -249,8 +252,8 @@
 	icon_state = "psiren_omen"
 	icon_living = "psiren_omen"
 	icon_dead = "psiren_omen_dead"
-	health = 100
-	maxhealth = 100
+	health = 120
+	maxhealth = 120
 	ranged = TRUE
 	projectilesound = 'sound/weapons/wave.ogg'
 	projectiletype = /obj/projectile/bullet/pistol/psiren/omen
@@ -281,6 +284,9 @@
 	melee_damage_upper = 40
 	melee_reach = 2
 	armor_penetration = 30
+	meat_amount = 5
+	meat_type = /obj/item/reagent_containers/food/snacks/squidmeat/psiren_tentacle_meat
+	butchering_products = list(/obj/item/reagent_containers/food/snacks/squidmeat/psiren_body_meat = 5)
 
 /mob/living/simple_animal/hostile/psiren/matriarch/Initialize()
 	. = ..()

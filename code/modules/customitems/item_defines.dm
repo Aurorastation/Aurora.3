@@ -1413,3 +1413,21 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_override = 'icons/obj/custom_items/kalkii_coat.dmi'
 	icon_state = "kalkii_coat"
 	item_state = "kalkii_coat"
+
+/obj/item/clothing/accessory/poncho/fluff/zzzhao_greatcoat // Z.Z. Zhao's Epauleted Greatcoat - Zhong-Zheng Zhao - Wowzewow
+	name = "epauleted greatcoat"
+	desc = "A normal greatcoat with a rather dated Parade accessory attached, long decommissioned. Brings a warm nostalgia to some, confusion to others. \
+	It seems to be freshly pressed and starched."
+	icon = 'icons/obj/custom_items/zzzhao_greatcoat.dmi'
+	icon_override = 'icons/obj/custom_items/zzzhao_greatcoat.dmi'
+	icon_state = "epauleted_greatcoat"
+	item_state = "epauleted_greatcoat"
+
+/obj/item/sign/fluff/zzzhao_painting // Z.Z. Zhao's Self Portrait - Zhong-Zheng Zhao - Wowzewow
+	name = "portrait of a Zhao"
+	desc = "A painted portrait of a Zhurongian Dominian man labelled as 'Z.Z. Zhao' Seems imposing."
+	icon = 'icons/obj/custom_items/zzzhao_painting.dmi'
+	icon_state = "zzzhao_painting"
+	item_state = "zzzhao_painting"
+	sign_state = "zzzhao_painting"
+	w_class = WEIGHT_CLASS_NORMAL

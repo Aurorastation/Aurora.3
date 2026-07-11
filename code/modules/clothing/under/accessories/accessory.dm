@@ -1454,3 +1454,18 @@
 	SET_PLANE_EXPLICIT(I, ABOVE_LIGHTING_PLANE, H)
 	I.appearance_flags |= KEEP_APART
 	return I
+
+/obj/item/clothing/accessory/newgibson_uraniumglass_necklace
+	name = "uranium glass bead necklace"
+	desc = "A beaded necklace made out of a radiofluorescent, green, uranium glass. It is only marginally radioactive. Commonly seen worn by New Gibsonites."
+	icon = 'icons/obj/item/clothing/accessory/human/biesel/newgibson_uraniumglass_necklace.dmi'
+	icon_state = "newgibson_necklace"
+	item_state = "newgibson_necklace"
+	plane = ABOVE_LIGHTING_PLANE
+	contained_sprite = TRUE
+
+/obj/item/clothing/accessory/newgibson_uraniumglass_necklace/get_accessory_mob_overlay(var/mob/living/carbon/human/H, var/force = FALSE)
+	var/image/I = ..()
+	I.plane = ABOVE_LIGHTING_PLANE
+	I.appearance_flags |= KEEP_APART
+	return I

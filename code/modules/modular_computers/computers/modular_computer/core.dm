@@ -3,7 +3,7 @@
 
 	if(!enabled) // The computer is turned off
 		last_power_usage = 0
-		return FALSE
+		return PROCESS_KILL // Unpowered computers don't need to process.
 
 	if(health <= broken_damage)
 		shutdown_computer()
@@ -85,7 +85,6 @@
 
 /obj/item/modular_computer/Initialize()
 	. = ..()
-	START_PROCESSING(SSprocessing, src)
 	install_default_hardware()
 	if(hard_drive)
 		install_default_programs()
@@ -319,6 +318,7 @@
 	return GLOB.ntnet_global.add_log(text, network_card)
 
 /obj/item/modular_computer/proc/shutdown_computer(var/loud = TRUE)
+	STOP_PROCESSING(SSprocessing, src)
 	SStgui.close_uis(active_program)
 	kill_program_shutdown(TRUE)
 	for(var/datum/computer_file/program/P in idle_threads)
@@ -340,6 +340,7 @@
 	update_icon()
 
 /obj/item/modular_computer/proc/enable_computer(var/mob/user, var/ar_forced=FALSE)
+	START_PROCESSING(SSprocessing, src)
 	enabled = TRUE
 	if(looping_sound)
 		soundloop.start(src)

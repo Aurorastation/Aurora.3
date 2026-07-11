@@ -20,6 +20,17 @@
 
 	var/use_space_appearance = TRUE
 
+/turf/space/feedback_hints(mob/user, distance, is_adjacent)
+	. = ..()
+	if(SSatlas.current_map.use_overmap && user.GetComponent(PILOT_SPACECRAFT_SKILL_COMPONENT)?.skill_level == SKILL_LEVEL_PROFESSIONAL && user.a_intent == I_HELP)
+		if(!SSatlas.current_sector.starlight_range)
+			to_chat(user, SPAN_WARNING("There's not a speck of starlight to work with."))
+			return
+		to_chat(user, SPAN_NOTICE("You try deducing the angles and positioning of local stars..."))
+		if(do_after(user, 3 SECONDS))
+			var/obj/effect/overmap/visitable/location = GLOB.map_sectors["[z]"]
+			. += SPAN_NOTICE("Through your sense of navigation, you realize you must be around Sector [location.x] - [location.y]")
+
 /turf/space/dynamic //For use in edge cases where you want the turf to not be completely lit, like in places where you have placed lattice.
 	//todomatt: this is useless now
 

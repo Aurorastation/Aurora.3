@@ -73,6 +73,7 @@
 		S.name = name
 		S.desc = desc
 		S.icon_state = sign_state
+		S.icon = icon
 		S.sign_type = src.type
 		to_chat(user, "You fasten \the [S] with your [attacking_item].")
 		qdel(src)

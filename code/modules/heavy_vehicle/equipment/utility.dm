@@ -533,7 +533,7 @@
 
 /obj/item/mecha_equipment/drill/Initialize()
 	. = ..()
-	drill_head = new /obj/item/material/drill_head(src, DEFAULT_WALL_MATERIAL)//You start with a basic steel head
+	drill_head = new /obj/item/material/drill_head(src, MATERIAL_STEEL)//You start with a basic steel head
 
 /obj/item/mecha_equipment/drill/Destroy()
 	QDEL_NULL(drill_head)
