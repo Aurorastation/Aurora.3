@@ -110,3 +110,55 @@
       again.
   kano:
   - rscadd: Added a looping sound for loreconsoles.
+2026-07-10:
+  FabianK3:
+  - bugfix: Cut ventilation and SMES humming down to improve sound location source
+      updates.
+  - bugfix: Fixed residual C4 explosive effect after completed detonation.
+  - rscadd: Added a new sound track for the default lobby tracks and lemurian sea.
+  - rscadd: Added ambience sound loop for vents and scrubbers.
+  - rscadd: Added ambience sound loop for SMES.
+  - rscadd: Lobby and sector soundtracks now get shuffeled, resulting in a less repetitive
+      lobby music experience.
+  Hellfirejag:
+  - bugfix: Fixed some items always wasting process() time unnecessarily.
+  - rscadd: Added a new Resolve skill to the Everyday category. Resolve as a skill
+      provides a small passive bonus to a characters Morale statistic.
+  - bugfix: Fixed Morale not properly updating its effects when a moodlet (such as
+      Psychic Damage) expires.
+  fyni:
+  - rscadd: Adds psiren tentacle meat and psiren body meat. A skilled butcher is needed
+      to get the body meats disconnected from the organ filled meat inside. Consume
+      at your own peril. Recipes to be added later - when the Horizon discovers them.
+2026-07-11:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Implements a bunch of material helpers to deal with fabrication bugs.
+  - refactor: Repaths /material to /singleton/material.
+  - refactor: Replaces all material string defines to path defines, replacing SSmaterials
+      procs w/ GET_SINGLETON instead.
+  - refactor: Removes all material var edited objects from all maps, adding new presets
+      where necessary.
+  - refactor: Updates recipes unit test to run all recipes against all material singletons.
+  - bugfix: Prevents several material recipes from being generated for non-rigid materials
+      (i.e. cloth railings).
+  Hellfirejag:
+  - bugfix: Fixed hardsuits globally wasting processing time when not equipped.
+  - refactor: Tick differentiated hardsuits.
+  kermit:
+  - bugfix: Removes duplicate leather jacket loadout selection from Reade racing jacket
+      loadout selection.
+2026-07-12:
+  Fenodyree:
+  - rscadd: Energy shields now change colour as they take damage.
+  - bugfix: Fixes holding multiple shields only checking the first one for blocking.
+  - bugfix: Fixes energy shields not overloading properly.
+  Hellfirejag:
+  - bugfix: Fixed Timers processing forever even after their time runs out.
+  - bugfix: Fixed the cargo elevator permanently increasing the servers per-tick processing
+      cost.
+  - rscadd: Tweaked the Air stat panel to give significantly more useful information
+      for debugging when and why air is causing lag.
+  - refactor: Refactored air tanks to no longer require constant processing when idle.
+  MattAtlas:
+  - rscadd: Stickers now only have a 10% chance of staying persistent, and only stay
+      around for 2 days.

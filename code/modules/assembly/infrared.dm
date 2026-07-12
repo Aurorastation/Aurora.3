@@ -5,7 +5,7 @@
 	drop_sound = 'sound/items/drop/component.ogg'
 	pickup_sound = 'sound/items/pickup/component.ogg'
 	origin_tech = list(TECH_MAGNET = 2)
-	matter = list(DEFAULT_WALL_MATERIAL = 1000, MATERIAL_GLASS = 500)
+	matter = list(MATERIAL_STEEL = 1000, MATERIAL_GLASS = 500)
 
 	secured = FALSE
 	obj_flags = OBJ_FLAG_ROTATABLE

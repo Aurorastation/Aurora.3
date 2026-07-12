@@ -7,7 +7,7 @@
 	contained_sprite = TRUE
 	w_class = WEIGHT_CLASS_SMALL
 	action_button_name = "Toggle geiger counter"
-	matter = list(MATERIAL_PLASTIC = 100, DEFAULT_WALL_MATERIAL = 100, MATERIAL_GLASS = 50)
+	matter = list(MATERIAL_PLASTIC = 100, MATERIAL_STEEL = 100, MATERIAL_GLASS = 50)
 	origin_tech = list(TECH_MAGNET = 1, TECH_ENGINEERING = 1)
 	var/scanning = 0
 	var/radiation_count = 0
@@ -95,7 +95,7 @@
 	item_state = "dosimeter"
 	slot_flags = SLOT_WRISTS
 	action_button_name = "Toggle dosimeter counter"
-	matter = list(DEFAULT_WALL_MATERIAL = 100, MATERIAL_GLASS = 50)
+	matter = list(MATERIAL_STEEL = 100, MATERIAL_GLASS = 50)
 	origin_tech = list(TECH_MAGNET = 4, TECH_ENGINEERING = 4)
 
 	///The amount of rads the dosimeter has detected after armor mitigation.

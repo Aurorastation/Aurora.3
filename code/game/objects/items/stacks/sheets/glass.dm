@@ -18,7 +18,7 @@
 	var/created_window = /obj/structure/window/basic
 	var/is_reinforced = 0
 	var/list/construction_options = list("One Direction", "Full Window")
-	default_type = "glass"
+	default_type = MATERIAL_GLASS
 	icon_has_variants = TRUE
 	drop_sound = 'sound/items/drop/glass_sheet.ogg'
 	pickup_sound = 'sound/items/pickup/glass_sheet.ogg'
@@ -112,7 +112,7 @@
 	name = "reinforced glass"
 	singular_name = "reinforced glass sheet"
 	icon_state = "sheet-rglass"
-	default_type = "reinforced glass"
+	default_type = MATERIAL_GLASS_REINFORCED
 	created_window = /obj/structure/window/reinforced
 	is_reinforced = 1
 	construction_options = list("One Direction", "Full Window", "Windoor")
@@ -127,7 +127,7 @@
 	icon = 'icons/obj/item/stacks/tiles.dmi'
 	icon_state = "glass_wire"
 	created_window = null
-	default_type = "wired glass"
+	default_type = MATERIAL_GLASS_WIRED
 	construction_options = list()
 	icon_has_variants = FALSE
 
@@ -160,7 +160,7 @@
 	singular_name = "phoron glass sheet"
 	icon_state = "sheet-phoronglass"
 	created_window = /obj/structure/window/borosilicate
-	default_type = "phoron glass"
+	default_type = MATERIAL_GLASS_PHORON
 	icon_has_variants = FALSE
 
 /*
@@ -170,7 +170,7 @@
 	name = "reinforced phoron glass"
 	singular_name = "reinforced phoron glass sheet"
 	icon_state = "sheet-phoronrglass"
-	default_type = "reinforced phoron glass"
+	default_type = MATERIAL_GLASS_REINFORCED_PHORON
 	created_window = /obj/structure/window/borosilicate/reinforced
 	is_reinforced = 1
 	icon_has_variants = FALSE

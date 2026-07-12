@@ -20,6 +20,11 @@
 		if(!defer_update)
 			update()
 
+/datum/psi_complexus/proc/ensure_base_psi_points(var/point_total)
+	var/current_point_total = psi_points + spent_psi_points
+	if(point_total > current_point_total)
+		psi_points += point_total - current_point_total
+
 /datum/psi_complexus/proc/get_rank()
 	return psionic_rank
 

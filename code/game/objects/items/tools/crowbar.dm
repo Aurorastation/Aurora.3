@@ -18,7 +18,7 @@
 	usesound = SFX_CROWBAR
 	surgerysound = 'sound/items/surgery/retractor.ogg'
 	origin_tech = list(TECH_ENGINEERING = 1)
-	matter = list(DEFAULT_WALL_MATERIAL = 50)
+	matter = list(MATERIAL_STEEL = 50)
 	attack_verb = list("attacked", "bashed", "battered", "bludgeoned", "whacked")
 	tool_behaviour = TOOL_CROWBAR
 	toolspeed = 1
@@ -77,7 +77,7 @@
 	drop_sound = 'sound/items/drop/crowbar.ogg'
 	pickup_sound = 'sound/items/pickup/crowbar.ogg'
 	origin_tech = list(TECH_ENGINEERING = 1)
-	matter = list(DEFAULT_WALL_MATERIAL = 50)
+	matter = list(MATERIAL_STEEL = 50)
 	attack_verb = list("attacked", "rammed", "battered", "bludgeoned")
 	toolspeed = 0.7
 	force_opens = TRUE
