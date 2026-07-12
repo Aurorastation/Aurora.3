@@ -288,6 +288,7 @@ export const Chat = (props) => {
         <Input
           key={`${activeRef}-${messageInputKey}`}
           placeholder="Type your message. Press enter to send."
+          autoFocus
           width="100%"
           selfClear={true}
           onEnter={(v) => {
