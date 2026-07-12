@@ -16,7 +16,7 @@
 	throw_speed = 5
 	throw_range = 10
 	origin_tech = list(TECH_MAGNET = 2, TECH_BIO = 1, TECH_ENGINEERING = 2)
-	matter = list(DEFAULT_WALL_MATERIAL = 500, MATERIAL_GLASS = 200)
+	matter = list(MATERIAL_STEEL = 500, MATERIAL_GLASS = 200)
 
 /obj/item/robotanalyzer/attack(mob/living/target_mob, mob/living/user, target_zone)
 	robotic_analyze_mob(target_mob, user)

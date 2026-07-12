@@ -16,7 +16,7 @@
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	slot_flags = SLOT_BELT
 	origin_tech = list(TECH_BIO = 2, TECH_MATERIAL = 2)
-	matter = list(DEFAULT_WALL_MATERIAL = 250)
+	matter = list(MATERIAL_STEEL = 250)
 	center_of_mass = null
 	storage_slot_sort_by_name = TRUE
 

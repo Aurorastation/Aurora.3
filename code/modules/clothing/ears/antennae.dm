@@ -4,7 +4,7 @@
 	name = "antenna"
 	slot_flags = SLOT_HEAD | SLOT_EARS
 	body_parts_covered = 0
-	matter = list(DEFAULT_WALL_MATERIAL = 10)
+	matter = list(MATERIAL_STEEL = 10)
 	drop_sound = 'sound/items/drop/component.ogg'
 	pickup_sound = 'sound/items/pickup/component.ogg'
 

@@ -13,10 +13,10 @@
 	desc = "It looks pretty sciency."
 	icon = 'icons/obj/rig_modules.dmi'
 	icon_state = "generic"
-	matter = list(DEFAULT_WALL_MATERIAL = 20000, MATERIAL_PLASTIC = 30000, MATERIAL_GLASS = 5000)
+	matter = list(MATERIAL_STEEL = 20000, MATERIAL_PLASTIC = 30000, MATERIAL_GLASS = 5000)
 
 	/// This is literally never read anywhere. All construction cost info lives within the /design. Due for removal.
-	var/list/construction_cost = list(DEFAULT_WALL_MATERIAL=7000, MATERIAL_GLASS =7000)
+	var/list/construction_cost = list(MATERIAL_STEEL=7000, MATERIAL_GLASS =7000)
 	/// This is literally never read anywhere. All construction cost info lives within the /design. Due for removal.
 	var/construction_time = 100
 

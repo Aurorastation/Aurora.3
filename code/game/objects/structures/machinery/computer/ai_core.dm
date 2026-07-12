@@ -94,19 +94,21 @@
 					A.amount = 5
 				return TRUE
 
-			if(istype(attacking_item, /obj/item/stack/material) && attacking_item.get_material_name() == MATERIAL_GLASS_REINFORCED)
-				var/obj/item/stack/RG = attacking_item
-				if (RG.get_amount() < 2)
-					to_chat(user, SPAN_WARNING("You need two sheets of glass to put in the glass panel."))
-					return
-				to_chat(user, SPAN_NOTICE("You start to put in the glass panel."))
-				playsound(loc, 'sound/items/Deconstruct.ogg', 50, 1)
-				if (do_after(user, 2 SECONDS, src, DO_REPAIR_CONSTRUCT) && state == 3)
-					if(RG.use(2))
-						to_chat(user, SPAN_NOTICE("You put in the glass panel."))
-						state = 4
-						icon_state = "4"
-				return TRUE
+			var/obj/item/stack/material/RG = attacking_item
+			if(istype(RG))
+				var/singleton/material/RG_material = RG.get_material()
+				if(RG_material.type == MATERIAL_GLASS_REINFORCED)
+					if (RG.get_amount() < 2)
+						to_chat(user, SPAN_WARNING("You need two sheets of glass to put in the glass panel."))
+						return
+					to_chat(user, SPAN_NOTICE("You start to put in the glass panel."))
+					playsound(loc, 'sound/items/Deconstruct.ogg', 50, 1)
+					if (do_after(user, 2 SECONDS, src, DO_REPAIR_CONSTRUCT) && state == 3)
+						if(RG.use(2))
+							to_chat(user, SPAN_NOTICE("You put in the glass panel."))
+							state = 4
+							icon_state = "4"
+					return TRUE
 
 			if(istype(attacking_item, /obj/item/aiModule/asimov))
 				laws.add_inherent_law("You may not injure a human being or, through inaction, allow a human being to come to harm.")
