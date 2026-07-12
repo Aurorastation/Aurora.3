@@ -147,3 +147,18 @@
   kermit:
   - bugfix: Removes duplicate leather jacket loadout selection from Reade racing jacket
       loadout selection.
+2026-07-12:
+  Fenodyree:
+  - rscadd: Energy shields now change colour as they take damage.
+  - bugfix: Fixes holding multiple shields only checking the first one for blocking.
+  - bugfix: Fixes energy shields not overloading properly.
+  Hellfirejag:
+  - bugfix: Fixed Timers processing forever even after their time runs out.
+  - bugfix: Fixed the cargo elevator permanently increasing the servers per-tick processing
+      cost.
+  - rscadd: Tweaked the Air stat panel to give significantly more useful information
+      for debugging when and why air is causing lag.
+  - refactor: Refactored air tanks to no longer require constant processing when idle.
+  MattAtlas:
+  - rscadd: Stickers now only have a 10% chance of staying persistent, and only stay
+      around for 2 days.
