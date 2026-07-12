@@ -7,3 +7,4 @@ changes:
   - bugfix: "Fixes additional materials regressions in INDRA code."
   - bugfix: "Fixes invalid fuel injector depletion math."
   - bugfix: "Makes accelerated particles apply radiation damage to living mobs they pass through."
+  - bugfix: "Fixes Loner point exploit."

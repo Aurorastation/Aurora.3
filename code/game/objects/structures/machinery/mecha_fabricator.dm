@@ -32,7 +32,7 @@
 	 */
 	var/production_speed = 1
 
-	var/list/materials = list(DEFAULT_WALL_MATERIAL = 0, MATERIAL_GLASS = 0, MATERIAL_GOLD = 0, MATERIAL_SILVER = 0, MATERIAL_DIAMOND = 0, MATERIAL_PHORON = 0, MATERIAL_URANIUM = 0, MATERIAL_PLASTEEL = 0, MATERIAL_ALUMINIUM = 0, MATERIAL_LEAD = 0)
+	var/list/materials = list(MATERIAL_STEEL = 0, MATERIAL_GLASS = 0, MATERIAL_GOLD = 0, MATERIAL_SILVER = 0, MATERIAL_DIAMOND = 0, MATERIAL_PHORON = 0, MATERIAL_URANIUM = 0, MATERIAL_PLASTEEL = 0, MATERIAL_ALUMINIUM = 0, MATERIAL_LEAD = 0)
 	var/res_max_amount = 200000
 
 	var/datum/research/files
@@ -94,7 +94,8 @@
 		fab_loop.stop()
 
 /obj/structure/machinery/mecha_part_fabricator/dismantle()
-	for(var/f in materials)
+	SSmaterials.normalize_material_amounts(materials)
+	for(var/f in materials.Copy())
 		eject_materials(f, materials[f])
 
 	//Stop the queue building if you're dismantling
@@ -231,13 +232,14 @@
 	var/obj/item/stack/material/M = attacking_item
 	if(!M.material)
 		return ..()
-	if(!(M.material.type in list(MATERIAL_STEEL, MATERIAL_GLASS, MATERIAL_GOLD, MATERIAL_SILVER, MATERIAL_DIAMOND, MATERIAL_PHORON, MATERIAL_URANIUM, MATERIAL_PLASTEEL, MATERIAL_ALUMINIUM, MATERIAL_LEAD)))
+	var/material = SSmaterials.material_to_path(M.material, FALSE)
+	if(!(material in list(MATERIAL_STEEL, MATERIAL_GLASS, MATERIAL_GOLD, MATERIAL_SILVER, MATERIAL_DIAMOND, MATERIAL_PHORON, MATERIAL_URANIUM, MATERIAL_PLASTEEL, MATERIAL_ALUMINIUM, MATERIAL_LEAD)))
 		to_chat(user, SPAN_WARNING("\The [src] cannot hold [M.material.name]."))
 		return TRUE
 
 	var/sname = "[M.name]"
-	var/material_key = M.material.type
-	if(materials[material_key] + SHEET_MATERIAL_AMOUNT <= res_max_amount)
+	SSmaterials.normalize_material_amounts(materials)
+	if((materials[material] || 0) + SHEET_MATERIAL_AMOUNT <= res_max_amount)
 		if(M.amount >= 1)
 			var/count = 0
 			var/mutable_appearance/MA = mutable_appearance(icon, "material_insertion")
@@ -248,8 +250,8 @@
 			//now play the progress bar animation
 			flick_overlay_view(mutable_appearance(icon, "fab_progress"), 1 SECONDS)
 
-			while(materials[material_key] + SHEET_MATERIAL_AMOUNT <= res_max_amount && M.amount >= 1)
-				materials[material_key] += M.perunit
+			while((materials[material] || 0) + SHEET_MATERIAL_AMOUNT <= res_max_amount && M.amount >= 1)
+				SSmaterials.add_material_amount(materials, material, M.perunit)
 				M.use(1)
 				count++
 			to_chat(user, SPAN_NOTICE("You insert [count] [sname] into \the [src]."))
@@ -391,8 +393,12 @@
 	update_icon()
 
 /obj/structure/machinery/mecha_part_fabricator/proc/can_build(var/datum/design/D)
+	SSmaterials.normalize_material_amounts(materials)
 	for(var/M in D.materials)
-		if(materials[M] < D.materials[M] * mat_efficiency)
+		var/material = SSmaterials.material_to_path(M, FALSE)
+		if(!material)
+			material = M
+		if((materials[material] || 0) < D.materials[M] * mat_efficiency)
 			return 0
 	return 1
 
@@ -403,8 +409,9 @@
  */
 /obj/structure/machinery/mecha_part_fabricator/proc/build(datum/design/design_to_build)
 	//Consume the materials
+	SSmaterials.normalize_material_amounts(materials)
 	for(var/M in design_to_build.materials)
-		materials[M] = max(0, materials[M] - design_to_build.materials[M] * mat_efficiency)
+		SSmaterials.remove_material_amount(materials, M, design_to_build.materials[M] * mat_efficiency)
 
 	intent_message(MACHINE_SOUND)
 
@@ -441,7 +448,7 @@
 /obj/structure/machinery/mecha_part_fabricator/proc/get_design_resourses(var/datum/design/D)
 	var/list/F = list()
 	for(var/T in D.materials)
-		F += "[capitalize(T)]: [D.materials[T] * mat_efficiency]"
+		F += "[SSmaterials.material_display_name(T)]: [D.materials[T] * mat_efficiency]"
 	return english_list(F, and_text = ", ")
 
 /obj/structure/machinery/mecha_part_fabricator/proc/get_design_time(var/datum/design/D)
@@ -459,32 +466,27 @@
 
 /obj/structure/machinery/mecha_part_fabricator/proc/get_materials()
 	. = list()
+	SSmaterials.normalize_material_amounts(materials)
 	for(var/T in materials)
-		. += list(list("name" = capitalize(T), "amount" = materials[T]))
+		. += list(list("name" = SSmaterials.material_display_name(T), "amount" = materials[T]))
 
 /obj/structure/machinery/mecha_part_fabricator/proc/eject_materials(var/material, var/amount)
 	if(!amount)
 		return
-	var/material_key = material
-	var/singleton/material/mattype
-	if(ispath(material, /singleton/material))
-		mattype = GET_SINGLETON(material)
-	else if(istext(material))
-		var/material_path = text2path(material)
-		if(ispath(material_path, /singleton/material))
-			mattype = GET_SINGLETON(material_path)
-		else
-			mattype = SSmaterials.get_material_by_name(lowertext(material))
-		if(istype(mattype))
-			material_key = mattype.type
-	if(!istype(mattype))
+	SSmaterials.normalize_material_amounts(materials)
+	material = SSmaterials.material_to_path(material, FALSE)
+	if(!material)
 		return
-	var/stack_type = mattype.stack_type
+	var/stack_type = SSmaterials.material_stack_type(material)
+	if(!stack_type)
+		return
 
-	var/real_amount = round(amount / SHEET_MATERIAL_AMOUNT)
+	var/real_amount = min(round(amount / SHEET_MATERIAL_AMOUNT), round((materials[material] || 0) / SHEET_MATERIAL_AMOUNT))
+	if(real_amount < 1)
+		return
 	var/obj/item/stack/material/S = new stack_type(loc, real_amount)
 	S.update_icon()
-	materials[material_key] -= amount
+	SSmaterials.remove_material_amount(materials, material, real_amount * SHEET_MATERIAL_AMOUNT)
 
 /obj/structure/machinery/mecha_part_fabricator/proc/sync()
 	sync_message = "Error: no console found."

@@ -67,7 +67,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/fabricator)
 /obj/structure/machinery/fabricator/upgrade_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "- Upgraded <b>matter bins</b> will increase material storage capacity."
-	. += SPAN_NOTICE("	- The current storage limit per material type is <b>[storage_capacity[DEFAULT_WALL_MATERIAL] / 2000]</b> sheets")
+	. += SPAN_NOTICE("	- The current storage limit per material type is <b>[SSmaterials.get_material_amount(storage_capacity, MATERIAL_STEEL) / 2000]</b> sheets")
 	. += "- Upgraded <b>micro lasers</b> will improve material use efficiency."
 	. += SPAN_NOTICE("	- The current material cost reduction is <b>[round((1 - mat_efficiency) * 100)]%</b>")
 	. += "- Upgraded <b>manipulators</b> will increase the fabrication speed."
@@ -76,6 +76,8 @@ ABSTRACT_TYPE(/obj/structure/machinery/fabricator)
 /obj/structure/machinery/fabricator/Initialize(mapload)
 	wires = new(src)
 	print_loc = src
+	base_storage_capacity = base_storage_capacity.Copy()
+	SSmaterials.normalize_material_amounts(base_storage_capacity)
 	stored_material = list()
 	for(var/mat in base_storage_capacity)
 		stored_material[mat] = 0
@@ -92,6 +94,10 @@ ABSTRACT_TYPE(/obj/structure/machinery/fabricator)
 				stored_substances_to_names[mat] = initial(reg.name)
 	update_icon()
 	. = ..()
+
+/obj/structure/machinery/fabricator/proc/normalize_material_storage()
+	SSmaterials.normalize_material_amounts(stored_material)
+	SSmaterials.normalize_material_amounts(storage_capacity)
 
 /obj/structure/machinery/fabricator/Destroy()
 	print_loc = null
@@ -111,6 +117,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/fabricator)
 
 /obj/structure/machinery/fabricator/ui_data(mob/user)
 	. = ..()
+	normalize_material_storage()
 	var/list/data = list()
 	data["manufacturer"] = manufacturer
 	data["disabled"] = (fab_status_flags & FAB_DISABLED)
@@ -120,7 +127,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/fabricator)
 	data["build_time"] = currently_printing?.remaining_time
 	data["show_category"] = show_category
 	for(var/material in stored_material)
-		data["materials"] += list(list("material" = material, "stored" = stored_material[material], "max_capacity" = storage_capacity[material]))
+		data["materials"] += list(list("material" = SSmaterials.material_display_name(material), "stored" = stored_material[material], "max_capacity" = storage_capacity[material]))
 	data["recipes"] = list()
 	for(var/recipe in SSfabrication.get_recipes(fabricator_class))
 		var/singleton/fabricator_recipe/R = recipe
@@ -133,10 +140,17 @@ ABSTRACT_TYPE(/obj/structure/machinery/fabricator)
 		recipe_data["hack_only"] = R.hack_only
 		recipe_data["enabled"] = can_print_item(R)
 		var/list/resources = list()
+		recipe_data["sheets"] = null
+		recipe_data["can_make"] = FALSE
 		for(var/resource in R.resources)
-			resources += "[R.resources[resource] * mat_efficiency] [resource]"
-			recipe_data["sheets"] = stored_material[resource]/round(R.resources[resource]*mat_efficiency)
-			recipe_data["can_make"] = !isnull(stored_material[resource]) && stored_material[resource] < round(R.resources[resource]*mat_efficiency)
+			var/resource_cost = round(R.resources[resource] * mat_efficiency)
+			var/material = SSmaterials.material_to_path(resource, FALSE)
+			resources += "[resource_cost] [SSmaterials.material_display_name(resource)]"
+			if(!material || isnull(stored_material[material]) || stored_material[material] < resource_cost)
+				recipe_data["can_make"] = TRUE
+			if(resource_cost > 0 && material && !isnull(stored_material[material]))
+				var/craftable = stored_material[material] / resource_cost
+				recipe_data["sheets"] = isnull(recipe_data["sheets"]) ? craftable : min(recipe_data["sheets"], craftable)
 		recipe_data["category"] = R.category
 		recipe_data["resources"] = english_list(resources)
 		recipe_data["build_time"] = (R.build_time / 10)
@@ -268,17 +282,20 @@ ABSTRACT_TYPE(/obj/structure/machinery/fabricator)
 		man_rating += M.rating
 	for(var/obj/item/stock_parts/micro_laser/L in component_parts)
 		las_rating += L.rating
+	SSmaterials.normalize_material_amounts(base_storage_capacity)
+	storage_capacity = list()
 	for(var/mat in base_storage_capacity)
 		storage_capacity[mat] = mb_rating * base_storage_capacity[mat]
 	mat_efficiency = 1.1 - (las_rating * 0.1) // Normally, price is 1.25 the amount of material, so this shouldn't go higher than 0.8. Maximum rating of parts is 3
 	build_time_multiplier = initial(build_time_multiplier) * man_rating
 
 /obj/structure/machinery/fabricator/dismantle()
+	normalize_material_storage()
 	for(var/mat in stored_material)
-		var/singleton/material/M = GET_SINGLETON(mat)
-		if(!istype(M))
+		var/stack_type = SSmaterials.material_stack_type(mat)
+		if(!stack_type)
 			continue
-		var/obj/item/stack/material/S = new M.stack_type(get_turf(src))
+		var/obj/item/stack/material/S = new stack_type(get_turf(src))
 		if(stored_material[mat] > S.perunit)
 			S.amount = round(stored_material[mat] / S.perunit)
 		else
