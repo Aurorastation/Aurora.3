@@ -1,4 +1,4 @@
-// Stacked resources. They use a material datum for a lot of inherited values.
+/// Stacked resources. They use a material datum for a lot of inherited values.
 /obj/item/stack/material
 	force = 11
 	throwforce = 5
@@ -6,7 +6,8 @@
 	throw_speed = 3
 	throw_range = 3
 	max_amount = 50
-	recyclable = TRUE // Pretty much all materials should be recyclable
+	/// Pretty much all materials should be recyclable
+	recyclable = TRUE
 
 	var/default_type = MATERIAL_STEEL
 	var/singleton/material/material
