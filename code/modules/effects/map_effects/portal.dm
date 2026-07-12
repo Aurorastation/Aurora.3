@@ -179,8 +179,15 @@ when portals are shortly lived, or when portals are made to be obvious with spec
 
 // Connects both sides of a portal together.
 /obj/effect/map_effect/portal/master/proc/find_counterparts()
+	var/list/invalid_portal_masters
 	for(var/thing in GLOB.all_portal_masters)
+		if(!istype(thing, /obj/effect/map_effect/portal/master))
+			LAZYADD(invalid_portal_masters, thing)
+			continue
 		var/obj/effect/map_effect/portal/master/M = thing
+		if(QDELETED(M))
+			LAZYADD(invalid_portal_masters, thing)
+			continue
 		if(M == src)
 			continue
 		if(M.counterpart)
@@ -196,6 +203,9 @@ when portals are shortly lived, or when portals are made to be obvious with spec
 					our_line.counterpart = their_line
 					their_line.counterpart = our_line
 			break
+
+	if(invalid_portal_masters)
+		GLOB.all_portal_masters -= invalid_portal_masters
 
 	if(!counterpart)
 		crash_with("Portal master [type] ([x],[y],[z]) could not find another portal master with a matching portal_id ([portal_id]).")

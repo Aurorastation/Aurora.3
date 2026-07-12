@@ -38,7 +38,7 @@
 
 /obj/structure/girder/assembly_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	if (health < initial(health))
+	if (health < maxhealth)
 		. += "It could be repaired with a few choice <b>welds</b>."
 
 	if (anchored)

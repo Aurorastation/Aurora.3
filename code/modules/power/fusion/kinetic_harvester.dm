@@ -47,6 +47,12 @@
 			harvest_from = fusion_cores[1]
 	return harvest_from
 
+/obj/structure/machinery/kinetic_harvester/proc/get_harvest_material(var/mat)
+	if(ispath(mat) && ispath(mat, /singleton/material))
+		return GET_SINGLETON(mat)
+	if(istext(mat))
+		return SSmaterials.get_material_by_name(mat)
+
 /obj/structure/machinery/kinetic_harvester/ui_interact(mob/user, datum/tgui/ui)
 
 	if(!harvest_from && !find_core())
@@ -69,7 +75,7 @@
 	data["status"] = (use_power >= POWER_USE_ACTIVE)
 	data["materials"] = list()
 	for(var/mat in stored)
-		var/singleton/material/material = GET_SINGLETON(mat)
+		var/singleton/material/material = get_harvest_material(mat)
 		if(material)
 			var/sheets = FLOOR(stored[mat]/(SHEET_MATERIAL_AMOUNT * 2), 1)
 			data["materials"] += list(list("material" = mat, "rawamount" = stored[mat], "amount" = sheets, "harvest" = harvesting[mat]))
@@ -111,7 +117,7 @@
 	switch(action)
 		if("remove_mat")
 			var/mat = params["remove_mat"]
-			var/singleton/material/material = GET_SINGLETON(mat)
+			var/singleton/material/material = get_harvest_material(mat)
 			if(material)
 				var/sheet_cost = (SHEET_MATERIAL_AMOUNT * 1.5)
 				var/sheets = min(FLOOR(stored[mat]/sheet_cost, 1), 50)

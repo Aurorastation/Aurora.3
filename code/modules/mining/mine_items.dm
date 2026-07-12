@@ -933,13 +933,26 @@ GLOBAL_LIST_INIT_TYPED(total_extraction_beacons, /obj/structure/extraction_point
 		if(A.anchored)
 			return
 		var/turf/T = get_turf(A)
+		if(!T)
+			return
+		var/list/invalid_inhibitors
 		for(var/found_inhibitor in GLOB.bluespace_inhibitors)
+			if(!istype(found_inhibitor, /obj/structure/machinery/anti_bluespace))
+				LAZYADD(invalid_inhibitors, found_inhibitor)
+				continue
 			var/obj/structure/machinery/anti_bluespace/AB = found_inhibitor
+			if(QDELETED(AB))
+				LAZYADD(invalid_inhibitors, found_inhibitor)
+				continue
 			if(T.z != AB.z || get_dist(T, AB) > 8 || (AB.stat & (NOPOWER | BROKEN)))
 				continue
 			AB.use_power_oneoff(AB.active_power_usage)
 			to_chat(user, SPAN_WARNING("A nearby bluespace inhibitor interferes with \the [src]!"))
+			if(invalid_inhibitors)
+				GLOB.bluespace_inhibitors -= invalid_inhibitors
 			return
+		if(invalid_inhibitors)
+			GLOB.bluespace_inhibitors -= invalid_inhibitors
 		to_chat(user, SPAN_NOTICE("You start attaching the pack to \the [A]..."))
 		if(do_after(user,50))
 			to_chat(user, SPAN_NOTICE("You attach the pack to \the [A] and activate it."))

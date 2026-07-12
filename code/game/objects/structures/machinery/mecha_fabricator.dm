@@ -236,7 +236,8 @@
 		return TRUE
 
 	var/sname = "[M.name]"
-	if(materials[M.material.name] + SHEET_MATERIAL_AMOUNT <= res_max_amount)
+	var/material_key = M.material.type
+	if(materials[material_key] + SHEET_MATERIAL_AMOUNT <= res_max_amount)
 		if(M.amount >= 1)
 			var/count = 0
 			var/mutable_appearance/MA = mutable_appearance(icon, "material_insertion")
@@ -247,8 +248,8 @@
 			//now play the progress bar animation
 			flick_overlay_view(mutable_appearance(icon, "fab_progress"), 1 SECONDS)
 
-			while(materials[M.material.name] + SHEET_MATERIAL_AMOUNT <= res_max_amount && M.amount >= 1)
-				materials[M.material.name] += M.perunit
+			while(materials[material_key] + SHEET_MATERIAL_AMOUNT <= res_max_amount && M.amount >= 1)
+				materials[material_key] += M.perunit
 				M.use(1)
 				count++
 			to_chat(user, SPAN_NOTICE("You insert [count] [sname] into \the [src]."))
@@ -464,14 +465,26 @@
 /obj/structure/machinery/mecha_part_fabricator/proc/eject_materials(var/material, var/amount)
 	if(!amount)
 		return
-	material = lowertext(material)
-	var/singleton/material/mattype = GET_SINGLETON(material)
+	var/material_key = material
+	var/singleton/material/mattype
+	if(ispath(material, /singleton/material))
+		mattype = GET_SINGLETON(material)
+	else if(istext(material))
+		var/material_path = text2path(material)
+		if(ispath(material_path, /singleton/material))
+			mattype = GET_SINGLETON(material_path)
+		else
+			mattype = SSmaterials.get_material_by_name(lowertext(material))
+		if(istype(mattype))
+			material_key = mattype.type
+	if(!istype(mattype))
+		return
 	var/stack_type = mattype.stack_type
 
 	var/real_amount = round(amount / SHEET_MATERIAL_AMOUNT)
 	var/obj/item/stack/material/S = new stack_type(loc, real_amount)
 	S.update_icon()
-	materials[material] -= amount
+	materials[material_key] -= amount
 
 /obj/structure/machinery/mecha_part_fabricator/proc/sync()
 	sync_message = "Error: no console found."

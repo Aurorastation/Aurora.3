@@ -10,12 +10,25 @@
  * Special inhibitor handling. Different from the one used by teleport datums.
  */
 /proc/check_inhibitors(var/turf/T)
+	if(!istype(T))
+		return TRUE
+	var/list/invalid_inhibitors
 	for(var/found_inhibitor in GLOB.bluespace_inhibitors)
+		if(!istype(found_inhibitor, /obj/structure/machinery/anti_bluespace))
+			LAZYADD(invalid_inhibitors, found_inhibitor)
+			continue
 		var/obj/structure/machinery/anti_bluespace/AB = found_inhibitor
+		if(QDELETED(AB))
+			LAZYADD(invalid_inhibitors, found_inhibitor)
+			continue
 		if(T.z != AB.z || get_dist(T, AB) > 8 || (AB.stat & (NOPOWER | BROKEN)))
 			continue
 		else
+			if(invalid_inhibitors)
+				GLOB.bluespace_inhibitors -= invalid_inhibitors
 			return FALSE
+	if(invalid_inhibitors)
+		GLOB.bluespace_inhibitors -= invalid_inhibitors
 	return TRUE
 
 /*

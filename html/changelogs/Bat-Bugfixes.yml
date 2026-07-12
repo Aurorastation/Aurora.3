@@ -1,0 +1,9 @@
+author: Batrachophrenoboocosmomachia
+delete-after: True
+changes:
+  - bugfix: "Fixes emergency shields runtiming when hit by thrown objects."
+  - bugfix: "Fixes several stale global list runtimes."
+  - bugfix: "Fixes several health percentage checks that could use unset initial health values."
+  - bugfix: "Fixes additional materials regressions in INDRA code."
+  - bugfix: "Fixes invalid fuel injector depletion math."
+  - bugfix: "Makes accelerated particles apply radiation damage to living mobs they pass through."
