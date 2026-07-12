@@ -543,6 +543,7 @@
 #include "code\datums\components\skills\medical\medicine_skill_component.dm"
 #include "code\datums\components\skills\medical\pharmacology_skill_component.dm"
 #include "code\datums\components\skills\medical\surgery_skill_component.dm"
+#include "code\datums\components\skills\operations\conditioning_skill_component.dm"
 #include "code\datums\components\skills\operations\pilot_mechs_skill_component.dm"
 #include "code\datums\components\skills\operations\pilot_spacecraft_skill_component.dm"
 #include "code\datums\components\skills\operations\robotics_skill_component.dm"

@@ -1508,7 +1508,7 @@
 	else
 		to_chat(usr, SPAN_WARNING("You failed to check the pulse. Try again."))
 
-/mob/living/carbon/human/proc/set_species(var/new_species, var/default_colour, var/kpg=0, var/change_hair = TRUE)
+/mob/living/carbon/human/proc/set_species(new_species, default_colour, kpg = 0, change_hair = TRUE)
 	cached_bodytype = null
 	if(!dna)
 		if(!new_species)
@@ -1635,6 +1635,7 @@
 		client.init_verbs()
 
 	update_emotes()
+	mass = initial(mass) * species.mass_modifier
 
 	if(species)
 		return TRUE
