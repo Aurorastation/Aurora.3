@@ -29,7 +29,6 @@
 	)
 	random_itemcount = 0
 	light_color = COLOR_GOLD
-	light_mask = "engivend-light-mask"
 
 /obj/structure/machinery/vending/vendors/low_supply
 	products = list(

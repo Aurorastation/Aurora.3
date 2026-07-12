@@ -11,7 +11,9 @@
 		desc = flooring.desc
 		icon = flooring.icon
 		color = flooring.color
-		if(flooring_override)
+		if(flooring.bitmask_icon_base)
+			icon_state = flooring.get_bitmask_icon_state(src)
+		else if(flooring_override)
 			icon_state = flooring_override
 		else
 			icon_state = flooring.icon_base
@@ -84,9 +86,12 @@
 
 /turf/simulated/floor/proc/get_flooring_overlay(var/cache_key, var/icon_base, var/icon_dir = 0, var/external = FALSE)
 	var/list/flooring_cache = SSicon_cache.flooring_cache
+	var/plane_offset = GET_TURF_PLANE_OFFSET(src) || 0
+	cache_key = "[cache_key]-plane-offset-[plane_offset]"
 	if(!flooring_cache[cache_key])
 		var/image/I = image(icon = flooring.icon, icon_state = icon_base, dir = icon_dir)
 		I.turf_decal_layerise()
+		SET_PLANE_W_SCALAR(I, FLOOR_PLANE, plane_offset)
 
 		//External overlays will be offset out of this tile
 		if(external)
@@ -105,13 +110,17 @@
 
 /turf/simulated/floor/proc/get_damage_overlay(var/cache_key, blend, var/flooring_icon, var/flooring_color)
 	var/list/flooring_cache = SSicon_cache.flooring_cache
+	var/icon_state = cache_key
+	var/plane_offset = GET_TURF_PLANE_OFFSET(src) || 0
+	cache_key = "[cache_key]-plane-offset-[plane_offset]"
 	if(!flooring_cache[cache_key])
-		var/image/I = image(icon = flooring_icon ? flooring_icon : 'icons/turf/decals/damage.dmi', icon_state = cache_key)
+		var/image/I = image(icon = flooring_icon ? flooring_icon : 'icons/turf/decals/damage.dmi', icon_state = icon_state)
 		if(blend)
 			I.blend_mode = blend
 		if(flooring_color)
 			I.color = flooring_color
 		I.turf_decal_layerise()
+		SET_PLANE_W_SCALAR(I, FLOOR_PLANE, plane_offset)
 		flooring_cache[cache_key] = I
 	return flooring_cache[cache_key]
 

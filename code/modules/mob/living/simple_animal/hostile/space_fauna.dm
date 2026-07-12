@@ -54,7 +54,7 @@
 	attack_emote = "nashes at"
 
 	flying = TRUE
-	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
+	lighting_cutoff = LIGHTING_CUTOFF_AURORA_SOMEWHAT_INVISIBLE
 
 	smart_melee = FALSE
 	sample_data = list("Cellular structure shows adaptation for survival in vacuum", "Genetic biomarkers identified linked with agressiveness", "Tissue sample contains micro-gas release structures")
@@ -192,7 +192,7 @@
 /mob/living/simple_animal/hostile/carp/shark/reaver/eel/Initialize()
 	. = ..()
 	eye_overlay = image(icon, "eel_eyeglow")
-	eye_overlay.plane = ABOVE_LIGHTING_PLANE
+	SET_PLANE_EXPLICIT(eye_overlay, ABOVE_LIGHTING_PLANE, src)
 	eye_overlay.appearance_flags = KEEP_APART
 	AddOverlays(eye_overlay)
 	set_light(MINIMUM_USEFUL_LIGHT_RANGE, 2, LIGHT_COLOR_TUNGSTEN)
@@ -321,7 +321,7 @@
 	attack_emote = "nashes at"
 
 	flying = TRUE
-	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
+	lighting_cutoff = LIGHTING_CUTOFF_AURORA_SOMEWHAT_INVISIBLE
 	sample_data = list("Cellular structure shows adaptation for survival in vacuum", "Genetic biomarkers identified linked with agressiveness", "Tissue sample contains micro-gas release structures")
 
 /mob/living/simple_animal/hostile/gnat/Initialize()

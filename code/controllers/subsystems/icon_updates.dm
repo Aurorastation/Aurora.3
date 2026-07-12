@@ -42,7 +42,6 @@ SUBSYSTEM_DEF(icon_update)
 				A.update_icon(arglist(argv))
 			else
 				A.update_icon()
-			A.update_above()
 			A.last_icon_update = world.time
 
 		else

@@ -320,13 +320,24 @@
 
 /atom/proc/AltClick(mob/user)
 	var/turf/T = get_turf(src)
-	if(!T || !user.TurfAdjacent(T))
+	if(!user.TurfAdjacentVisible(T))
 		return FALSE
-	if(T && (isturf(loc) || isturf(src)) && user.TurfAdjacent(T))
+	if(isturf(loc) || isturf(src))
 		user.set_listed_turf(T)
 
 /mob/proc/TurfAdjacent(turf/T)
 	return T.AdjacentQuick(src)
+
+/mob/proc/TurfAdjacentVisible(turf/T)
+	if(!T || !TurfAdjacent(T))
+		return FALSE
+	var/client/view_client = canon_client || client
+	if(!view_client)
+		return FALSE
+	var/atom/view_center = view_client.eye || src
+	if(!view_center)
+		return FALSE
+	return T in view(view_client.view || world.view, view_center)
 
 /**
  * Alt Shift click
@@ -435,6 +446,15 @@ GLOBAL_LIST(click_catchers)
 	plane = CLICKCATCHER_PLANE
 	mouse_opacity = MOUSE_OPACITY_OPAQUE
 	screen_loc = "CENTER-7,CENTER-7"
+
+/atom/movable/screen/click_catcher/Initialize()
+	. = ..()
+	RegisterSignal(SSmapping, COMSIG_PLANE_OFFSET_INCREASE, PROC_REF(offset_increased))
+	offset_increased(SSmapping, 0, SSmapping.max_plane_offset)
+
+/atom/movable/screen/click_catcher/proc/offset_increased(datum/source, old_offset, new_offset)
+	SIGNAL_HANDLER
+	SET_PLANE_W_SCALAR(src, initial(plane), new_offset)
 
 /atom/movable/screen/click_catcher/Destroy()
 	SHOULD_CALL_PARENT(FALSE)

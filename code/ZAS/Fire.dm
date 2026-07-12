@@ -117,6 +117,10 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	render_target = HEAT_EFFECT_PLATE_RENDER_TARGET
 
+/obj/heat/Initialize(mapload)
+	. = ..()
+	render_target = OFFSET_RENDER_TARGET(HEAT_EFFECT_PLATE_RENDER_TARGET, GET_TURF_PLANE_OFFSET(src))
+
 /obj/hotspot
 	//Icon for fire on turfs.
 	//Different from turf fires
@@ -191,10 +195,7 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 				enemy_tile.adjacent_fire_act(loc, air_contents, air_contents.temperature, air_contents.volume)
 
 	set_light(l_color = fire_color(air_contents.temperature, TRUE))
-	var/list/animate_targets = get_above_oo() + src
-	for (var/thing in animate_targets)
-		var/atom/movable/AM = thing
-		animate(AM, color = fire_color(air_contents.temperature), 5)
+	animate(src, color = fire_color(air_contents.temperature), 5)
 
 /obj/hotspot/Initialize(mapload, fl)
 	. = ..()

@@ -408,7 +408,7 @@
 		if(user.loc != src.loc)
 			to_chat(OCCUPANT, SPAN_NOTICE("You leave the not-so-cozy confines of the SSU."))
 
-		src.OCCUPANT.client.eye = src.OCCUPANT.client.mob
+		src.OCCUPANT.client.set_eye(src.OCCUPANT.client.mob)
 		src.OCCUPANT.client.perspective = MOB_PERSPECTIVE
 	src.OCCUPANT.forceMove(src.loc)
 	src.OCCUPANT = null
@@ -454,7 +454,7 @@
 	if(do_after(usr, 1 SECOND, src, DO_UNIQUE))
 		usr.stop_pulling()
 		usr.client.perspective = EYE_PERSPECTIVE
-		usr.client.eye = src
+		usr.client.set_eye(src)
 		usr.forceMove(src)
 		src.OCCUPANT = usr
 		src.isopen = 0 //Close the thing after the guy gets inside
@@ -500,7 +500,7 @@
 			var/mob/M = G.affecting
 			if (M.client)
 				M.client.perspective = EYE_PERSPECTIVE
-				M.client.eye = src
+				M.client.set_eye(src)
 			M.forceMove(src)
 			src.OCCUPANT = M
 			src.isopen = 0 //close ittt

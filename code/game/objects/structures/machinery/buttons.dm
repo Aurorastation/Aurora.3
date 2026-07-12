@@ -78,10 +78,13 @@
 	icon_state = "doorctrl0"
 
 /obj/structure/machinery/button/alternate/update_icon()
+	ClearOverlays()
 	if(active)
 		icon_state = "doorctrl0"
+		AddOverlays(emissive_appearance(icon, "[icon_state]-e", src))
 	else
 		icon_state = "doorctrl2"
+		AddOverlays(emissive_appearance(icon, "[icon_state]-e", src))
 
 //Toggle button with two states (on and off) and calls seperate procs for each state
 /obj/structure/machinery/button/toggle/activate(mob/living/user)
@@ -103,17 +106,22 @@
 	icon_state = "light0"
 
 /obj/structure/machinery/button/toggle/switch/update_icon()
+	ClearOverlays()
 	icon_state = "light[active]"
+	AddOverlays(emissive_appearance(icon, "[icon_state]-overlay", src))
 
 //alternate button with the same toggle functionality, except has a door control sprite instead
 /obj/structure/machinery/button/toggle/alternate
 	icon_state = "doorctrl0"
 
 /obj/structure/machinery/button/toggle/alternate/update_icon()
+	ClearOverlays()
 	if(active)
 		icon_state = "doorctrl0"
+		AddOverlays(emissive_appearance(icon, "[icon_state]-e", src))
 	else
 		icon_state = "doorctrl2"
+		AddOverlays(emissive_appearance(icon, "[icon_state]-e", src))
 
 //-------------------------------
 // Mass Driver Button
@@ -162,10 +170,13 @@
 				16 = door safties  */
 
 /obj/structure/machinery/button/toggle/door/update_icon()
+	ClearOverlays()
 	if(active)
 		icon_state = "doorctrl0"
+		AddOverlays(emissive_appearance(icon, "[icon_state]-e", src))
 	else
 		icon_state = "doorctrl2"
+		AddOverlays(emissive_appearance(icon, "[icon_state]-e", src))
 
 /obj/structure/machinery/button/toggle/door/Initialize()
 	if(_wifi_id)

@@ -317,11 +317,11 @@
 						I = image(icon, "[material.icon_base]_[connections[i]]", dir = 1<<(i-1))
 					if(material.icon_colour)
 						I.color = material.icon_colour
-				AddOverlays(I)
+				AddOverlaysWithEmissiveBlocker(I)
 		else // Table frame
 			for(var/i = 1 to 4)
 				I = image(icon, "[connections[i]]", dir = 1<<(i-1))
-				AddOverlays(I)
+				AddOverlaysWithEmissiveBlocker(I)
 
 		if(reinforced)	// Reinforcements.
 			for(var/i = 1 to 4)
@@ -331,12 +331,12 @@
 					I = image('icons/obj/structure/tables/table_reinf.dmi', "[reinforced.reinf_icon]_[connections[i]]", dir = 1<<(i-1)) // else use the generic recolorable one
 				if(reinforced.icon_colour && ("reinf_[reinforced.name]" == "[reinforced.reinf_icon]"))
 					I.color = reinforced.icon_colour
-				AddOverlays(I)
+				AddOverlaysWithEmissiveBlocker(I)
 
 		if(carpeted)
 			for(var/i = 1 to 4)
 				I = image(icon, "carpet_[connections[i]]", dir = 1<<(i-1))
-				AddOverlays(I)
+				AddOverlaysWithEmissiveBlocker(I)
 
 	else	// Flipped table
 		var/type = 0
@@ -367,7 +367,7 @@
 					I = image(icon, "[material.icon_base]_flip[type]")
 				if(material.icon_colour)
 					I.color = material.icon_colour
-			AddOverlays(I)
+			AddOverlaysWithEmissiveBlocker(I)
 			if(material.display_name)
 				if(material.display_name == "comfy")
 					name = "fancy table"
@@ -376,7 +376,7 @@
 		else
 			I = image(icon, "flip[type]")
 			name = "table frame"
-			AddOverlays(I)
+			AddOverlaysWithEmissiveBlocker(I)
 
 		if(reinforced)
 			if("reinf_[reinforced.name]_flip[type]" in icon_states('icons/obj/structure/tables/table_reinf.dmi')) // if it's got an existing purpose-made reinforced icon, and it isn't already a generic one, use it
@@ -385,10 +385,11 @@
 				I = image('icons/obj/structure/tables/table_reinf.dmi', "[reinforced.reinf_icon]_flip[type]") // else use the generic recolorable one
 			if(reinforced.icon_colour && ("reinf_[reinforced.name]" == "[reinforced.reinf_icon]"))
 				I.color = reinforced.icon_colour
-			AddOverlays(I)
+			AddOverlaysWithEmissiveBlocker(I)
 
 		if(carpeted)
-			AddOverlays("carpet_flip[type]")
+			AddOverlaysWithEmissiveBlocker("carpet_flip[type]")
+	update_emissive_block()
 
 // set propagate if you're updating a table that should update tables around it too, for example if it's a new table or something important has changed (like material).
 /obj/structure/table/proc/update_connections(propagate=0)

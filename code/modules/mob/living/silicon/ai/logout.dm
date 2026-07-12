@@ -4,6 +4,6 @@
 		O.mode = 0
 	if(!isturf(loc))
 		if (client)
-			client.eye = loc
+			client.set_eye(loc)
 			client.perspective = EYE_PERSPECTIVE
 	src.view_core()

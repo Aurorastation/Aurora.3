@@ -20,10 +20,10 @@ GLOBAL_LIST_EMPTY(plant_seed_sprites)
 /obj/item/seeds/proc/update_seed()
 	if(!seed && seed_type && !isnull(SSplants.seeds) && SSplants.seeds[seed_type])
 		seed = SSplants.seeds[seed_type]
-	update_appearance()
+	update_seed_appearance()
 
 /// Updates strings and icon appropriately based on seed datum.
-/obj/item/seeds/proc/update_appearance(var/ret_image = FALSE)
+/obj/item/seeds/proc/update_seed_appearance(var/ret_image = FALSE)
 	if(!seed)
 		return
 
@@ -102,7 +102,7 @@ GLOBAL_LIST_EMPTY(plant_seed_sprites)
 	name = SEED_NOUN_CUTTINGS
 	desc = "Some plant cuttings."
 
-/obj/item/seeds/cutting/update_appearance()
+/obj/item/seeds/cutting/update_seed_appearance()
 	..()
 	src.name = "packet of [seed.seed_name] cuttings"
 

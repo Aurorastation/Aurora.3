@@ -38,6 +38,17 @@
 	else if(x < 0)
 		. += 360
 
+/// Used to blend together two tg-style lighting color cutoffs.
+/// Accepts two 3-length list(0-100, ...) arguments and returns a new cutoff list.
+/proc/blend_cutoff_colors(list/first_color, list/second_color)
+	ASSERT(first_color?.len == 3, "First color must be a 3 length list, received [json_encode(first_color)]")
+	ASSERT(second_color?.len == 3, "Second color must be a 3 length list, received [json_encode(second_color)]")
+
+	var/list/output = new /list(3)
+	for(var/i in 1 to 3)
+		output[i] = (1 - (1 - first_color[i] / 100) * (1 - second_color[i] / 100)) * 100
+	return output
+
 
 /**
  * Get a list of turfs in a line from `starting_atom` to `ending_atom`.

@@ -12,6 +12,7 @@ GLOBAL_LIST_EMPTY(gps_list)
 	origin_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
 	var/gps_prefix = "COM"
 	var/gpstag = "COM0"
+	var/auto_assign_gps_tag = TRUE
 	var/compass_color = "#193A7A"
 
 	var/emped = FALSE
@@ -31,8 +32,9 @@ GLOBAL_LIST_EMPTY(gps_list)
 /obj/item/gps/Initialize()
 	. = ..()
 	compass = new(src)
-	gpstag = next_initial_tag()
-	name = "global positioning system ([gpstag])"
+	if(auto_assign_gps_tag)
+		gpstag = next_initial_tag()
+		name = "global positioning system ([gpstag])"
 	update_position()
 
 	if(ismob(loc))
@@ -340,45 +342,7 @@ GLOBAL_LIST_EMPTY(gps_list)
 	unacidable = TRUE
 	layer = BASE_ABOVE_OBJ_LAYER
 	gpstag = "STAT0"
-
-/obj/item/gps/stationary/Initialize()
-	SHOULD_CALL_PARENT(FALSE)
-
-	if(flags_1 & INITIALIZED_1)
-		stack_trace("Warning: [src]([type]) initialized multiple times!")
-	flags_1 |= INITIALIZED_1
-
-	compass = new(src)
-	update_position()
-
-	if(ismob(loc))
-		if(ishuman(loc))
-			var/mob/living/carbon/human/H = loc
-			if(src in H.get_equipped_items())
-				held_by = H
-			else
-				implanted_into = loc
-		else if(issilicon(loc))
-			held_by = loc
-			implanted_into = loc
-	else if(istype(loc, /obj/item/robot_module))
-		held_by = loc.loc
-		implanted_into = loc.loc
-
-	update_icon()
-
-	if(held_by)
-		RegisterSignal(held_by, COMSIG_MOVABLE_MOVED, PROC_REF(update_position), TRUE)
-	if(implanted_into)
-		RegisterSignal(implanted_into, COMSIG_MOVABLE_MOVED, PROC_REF(update_position), TRUE)
-	RegisterSignal(src, COMSIG_MOVABLE_MOVED, PROC_REF(update_position))
-
-	for(var/gps in GLOB.gps_list)
-		tracking += GLOB.gps_list[gps]["tag"]
-
-	START_PROCESSING(SSprocessing, src)
-
-	return INITIALIZE_HINT_NORMAL
+	auto_assign_gps_tag = FALSE
 
 /obj/item/gps/stationary/attack_hand() // Don't let users pick it up.
 	return

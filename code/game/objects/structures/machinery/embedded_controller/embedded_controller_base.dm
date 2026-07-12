@@ -72,11 +72,13 @@
 	set_frequency(frequency)
 
 /obj/structure/machinery/embedded_controller/radio/update_icon()
+	ClearOverlays()
 	if(on && program)
 		if(program.memory["processing"])
 			icon_state = "airlock_control_process"
 		else
 			icon_state = "airlock_control_standby"
+		AddOverlays(emissive_appearance(icon, "[icon_state]-e", src))
 	else
 		icon_state = "airlock_control_off"
 

@@ -5,15 +5,19 @@
  */
 /turf/simulated/open
 	name = "open space"
-	icon = 'icons/turf/space.dmi'
-	icon_state = "opendebug"
+	icon = 'icons/turf/floors.dmi'
+	icon_state = "noop"
 	density = 0
 	pathweight = 100000 //Seriously, don't try and path over this one numbnuts
 	is_hole = TRUE
+	underfloor_accessibility = UNDERFLOOR_INTERACTABLE
 	roof_type = null
 	footstep_sound = null
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	plane = TRANSPARENT_FLOOR_PLANE
+	layer = SPACE_LAYER
 	explosion_resistance = 3
-	z_flags = ZM_MIMIC_DEFAULTS | ZM_MIMIC_OVERWRITE | ZM_MIMIC_NO_AO | ZM_ALLOW_ATMOS
+	z_flags = ZM_ALLOW_ATMOS
 	turf_flags = TURF_FLAG_BACKGROUND
 	pathing_pass_method = TURF_PATHING_PASS_NO //You'll fall down most likely, unless no gravity, but not worth the processing just for this special case
 
@@ -103,6 +107,9 @@
 	LAZYREMOVE(climbers, mover)
 
 /turf/simulated/open/Destroy()
+	if(below?.above == src)
+		below.above = null
+	below = null
 	LAZYCLEARLIST(climbers)
 	UNSETEMPTY(climbers)
 	return ..()
@@ -145,14 +152,15 @@
 /turf/simulated/open/airless
 	initial_gas = null
 	temperature = TCMB
-	icon_state = "opendebug_airless"
 
 /turf/simulated/open/chasm
 	icon = 'icons/turf/smooth/chasms_seethrough.dmi'
 	icon_state = "debug"
+	mouse_opacity = MOUSE_OPACITY_OPAQUE
+	plane = FLOOR_PLANE
+	layer = LOW_FLOOR_LAYER
 	smoothing_flags = SMOOTH_TRUE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
 	smoothing_hints = SMOOTHHINT_CUT_F | SMOOTHHINT_ONLY_MATCH_TURF | SMOOTHHINT_TARGETS_NOT_UNIQUE
-	z_flags = ZM_MIMIC_BELOW
 	name = "hole"
 
 /turf/simulated/open/chasm/airless
@@ -177,9 +185,11 @@
 
 /turf/simulated/open/Initialize(mapload)
 	. = ..()
-	icon_state = ""	// Clear out the debug icon.
-	ADD_TRAIT(src, TURF_Z_TRANSPARENT_TRAIT, TRAIT_SOURCE_INHERENT)
 	update(mapload)
+	return INITIALIZE_HINT_LATELOAD
+
+/turf/simulated/open/LateInitialize()
+	ADD_TURF_TRANSPARENCY(src, TRAIT_SOURCE_INHERENT)
 
 
 /**
@@ -187,9 +197,12 @@
  */
 /turf/simulated/open/proc/update(mapload = FALSE)
 	var/turf/T = get_turf(src)
+	var/turf/old_below = below
 	below = GET_TURF_BELOW(T)
 
 	// Edge case for when an open turf is above space on the lowest level.
+	if (old_below && old_below != below && old_below.above == src)
+		old_below.above = null
 	if (below)
 		below.above = src
 
@@ -201,7 +214,7 @@
 		for (var/thing in src)
 			var/obj/O = thing	// This might not be an obj.
 			if (isobj(O))
-				O.hide(0)
+				SEND_SIGNAL(O, COMSIG_OBJ_HIDE, UNDERFLOOR_INTERACTABLE)
 			if (is_hole && O.simulated)
 				ADD_FALLING_ATOM(O)
 
@@ -210,8 +223,9 @@
 
 // override to make sure nothing is hidden
 /turf/simulated/open/levelupdate()
+	underfloor_accessibility = UNDERFLOOR_INTERACTABLE
 	for(var/obj/O in src)
-		O.hide(0)
+		SEND_SIGNAL(O, COMSIG_OBJ_HIDE, underfloor_accessibility)
 
 /turf/simulated/open/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
 	. = ..()
@@ -234,7 +248,7 @@
 	return TRUE
 
 /turf/simulated/open/update_icon(mapload)
-	update_mimic(!mapload)
+	return
 
 /turf/simulated/open/attackby(obj/item/attacking_item, mob/user)
 	if (istype(attacking_item, /obj/item/stack/rods))

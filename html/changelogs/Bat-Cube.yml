@@ -1,0 +1,10 @@
+author: Batrachophrenoboocosmomachia
+delete-after: True
+changes:
+  - refactor: "Ports plane cube from the tg human suffering multiz rework (tg#69115)."
+  - refactor: "Ports update_appearance() atom rendering pipeline from tgstation (PR unknown; antiquity?)."
+  - refactor: "Consolidates sight updates (changes to glasses, nvgs, organs, etc.) to single update_sight()."
+  - rscdel: "Retires the z-mimic/zcopy subsystem."
+  - rscdel: "Retires the icon_update subsystem."
+  - rscadd: "Updates and adds many object emissive overlays."
+  - rscadd: "Updates holopad holograms to use snazzy new (old) filter overlays."

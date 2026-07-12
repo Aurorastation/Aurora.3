@@ -183,3 +183,18 @@
 	prefs.toggles_secondary ^= HIDE_ITEM_TOOLTIPS
 	prefs.save_preferences()
 	to_chat(src, SPAN_NOTICE("Item tooltips are now [prefs.toggles_secondary & HIDE_ITEM_TOOLTIPS ? "disabled" : "enabled"]."))
+
+/client/verb/cycle_space_parallax()
+	set name = "Cycle Space Parallax"
+	set desc = "Cycles space parallax between animated and static."
+	set category = "Preferences.Game"
+
+	if(prefs.toggles_secondary & PARALLAX_IS_STATIC)
+		prefs.toggles_secondary &= ~PARALLAX_IS_STATIC
+		to_chat(src, SPAN_NOTICE("Space parallax is now animated."))
+	else
+		prefs.toggles_secondary |= PARALLAX_IS_STATIC
+		to_chat(src, SPAN_NOTICE("Space parallax is now static."))
+
+	prefs.save_preferences()
+	mob?.hud_used?.update_parallax_pref()

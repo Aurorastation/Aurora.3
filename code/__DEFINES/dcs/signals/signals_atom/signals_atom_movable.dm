@@ -7,6 +7,8 @@
 	#define COMPONENT_MOVABLE_BLOCK_PRE_MOVE (1<<0)
 ///from base of atom/movable/Moved(): (atom/old_loc, dir, forced, list/old_locs)
 #define COMSIG_MOVABLE_MOVED "movable_moved"
+///from base of atom/movable/Moved() when its turf z-level changes: (old_turf, new_turf, same_z_layer)
+#define COMSIG_MOVABLE_Z_CHANGED "movable_ztransit"
 ///from base of atom/movable/Cross(): (/atom/movable)
 #define COMSIG_MOVABLE_CROSS "movable_cross"
 ///from base of atom/movable/Move(): (/atom/movable)

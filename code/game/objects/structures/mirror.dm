@@ -31,6 +31,30 @@
 		ref = null
 	return ..()
 
+/obj/structure/mirror/on_changed_z_level(turf/old_turf, turf/new_turf, same_z_layer, notify_contents = TRUE)
+	var/obj/effect/reflection/reflection = ref?.resolve()
+	if(istype(reflection) && old_turf)
+		for(var/mob/living/carbon/human/H in old_turf)
+			reflection.check_vampire_exit(old_turf, H)
+		GLOB.entered_event.unregister(old_turf, reflection)
+		GLOB.exited_event.unregister(old_turf, reflection)
+
+	. = ..()
+
+	if(!istype(reflection))
+		return
+
+	var/turf/current_turf = get_turf(src)
+	if(!current_turf)
+		return
+
+	if(reflection.loc != current_turf)
+		reflection.forceMove(current_turf)
+	reflection.update_mirror_filters()
+
+	GLOB.entered_event.register(current_turf, reflection, TYPE_PROC_REF(/obj/effect/reflection, check_vampire_enter))
+	GLOB.exited_event.register(current_turf, reflection, TYPE_PROC_REF(/obj/effect/reflection, check_vampire_exit))
+
 /obj/structure/mirror/attack_hand(mob/user as mob)
 	if(shattered)
 		return
@@ -130,6 +154,11 @@
 
 	update_mirror_filters()
 
+/obj/effect/reflection/proc/update_plane_from_mirror()
+	if(!mirror)
+		return
+	SET_PLANE_EXPLICIT(src, PLANE_TO_TRUE(plane), mirror)
+
 /obj/effect/reflection/proc/update_mirror_filters()
 	filters = null
 
@@ -137,6 +166,8 @@
 
 	if(!mirror)
 		return
+
+	update_plane_from_mirror()
 
 	var/matrix/M = matrix()
 	if(dir == WEST || dir == EAST)

@@ -76,6 +76,7 @@
 			icon_state = "[initial(icon_state)]-closed"
 		else
 			icon_state = "[initial(icon_state)]-working"
+			AddOverlays(emissive_appearance(icon, "[icon_state]-e", src))
 		return
 	else
 		name = initial(name)
@@ -119,7 +120,7 @@
 		return
 	usr.pulling = null
 	usr.client.perspective = EYE_PERSPECTIVE
-	usr.client.eye = src
+	usr.client.set_eye(src)
 	usr.forceMove(src)
 	occupant = usr
 	update_use_power(POWER_USE_ACTIVE)
@@ -136,7 +137,7 @@
 
 	last_occupant_name = occupant.name
 	if (occupant.client)
-		occupant.client.eye = occupant.client.mob
+		occupant.client.set_eye(occupant.client.mob)
 		occupant.client.perspective = MOB_PERSPECTIVE
 	occupant.forceMove(loc)
 	occupant = null
@@ -161,7 +162,7 @@
 	if (do_mob(user, G.affecting, 30, needhand = 0))
 		if (M.client)
 			M.client.perspective = EYE_PERSPECTIVE
-			M.client.eye = src
+			M.client.set_eye(src)
 
 		M.forceMove(src)
 		occupant = M
@@ -198,7 +199,7 @@
 			LB.user_unbuckle(user)
 		if (L.client)
 			L.client.perspective = EYE_PERSPECTIVE
-			L.client.eye = src
+			L.client.set_eye(src)
 		L.forceMove(src)
 		occupant = L
 		update_use_power(POWER_USE_ACTIVE)
@@ -293,7 +294,7 @@
 	if(connected)
 		if(connected.stat & BROKEN || connected.stat & NOPOWER)
 			return
-		AddOverlays(emissive_appearance(icon, "[icon_state]_lights"))
+		AddOverlays(emissive_appearance(icon, "[icon_state]_lights", src))
 		AddOverlays("[icon_state]_lights")
 
 /obj/structure/machinery/body_scanconsole/Initialize()

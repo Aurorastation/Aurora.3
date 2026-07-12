@@ -106,7 +106,7 @@
 	if(mapload)
 		var/turf/T = loc
 		var/image/I = image(icon, T, icon_state, dir, pixel_x, pixel_y)
-		I.plane = ABOVE_LIGHTING_PLANE
+		SET_PLANE_EXPLICIT(I, ABOVE_LIGHTING_PLANE, src)
 		I.color = color
 		I.alpha = 125
 		LAZYADD(T.blueprints, I)
@@ -167,19 +167,23 @@
 	air_contents.volume = ATMOS_DEFAULT_VOLUME_PUMP + 500 //meant to match air injector
 
 /obj/structure/machinery/atmospherics/unary/vent_pump/update_icon(safety = 0)
-	if (!node)
+	ClearOverlays()
+	if(!node)
 		update_use_power(POWER_USE_OFF)
 
-	var/vent_icon = ""
-
 	if(welded)
-		vent_icon += "weld"
-	else if(!powered())
-		vent_icon += "off"
+		icon_state = "weld"
+		set_light(FALSE)
+		light_range = null
+	else if(!powered() || !use_power)
+		icon_state = "off"
+		set_light(FALSE)
+		light_range = null
 	else
-		vent_icon += "[use_power ? "[pump_direction ? "out" : "in"]" : "off"]"
-
-	icon_state = vent_icon
+		icon_state = "[pump_direction ? "out" : "in"]"
+		AddOverlays(emissive_appearance(icon, "[pump_direction ? "out-e" : "in-e"]", src))
+		if(!light_range)
+			set_light(2, 0.4, pump_direction ? "#3378F6" : "#FF0001")
 
 	update_underlays()
 
@@ -189,7 +193,7 @@
 		var/turf/T = get_turf(src)
 		if(!istype(T))
 			return
-		if(!T.is_plating() && node && node.level == 1 && istype(node, /obj/structure/machinery/atmospherics/pipe))
+		if(T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE && node && node.uses_undertile() && istype(node, /obj/structure/machinery/atmospherics/pipe))
 			return
 		else
 			if(node)
@@ -198,7 +202,7 @@
 				add_underlay(T,, dir)
 			underlays += "frame"
 
-/obj/structure/machinery/atmospherics/unary/vent_pump/hide()
+/obj/structure/machinery/atmospherics/unary/vent_pump/on_undertile_updated()
 	queue_icon_update()
 
 /obj/structure/machinery/atmospherics/unary/vent_pump/proc/can_pump()
@@ -439,7 +443,7 @@
 
 			var/turf/T = src.loc
 
-			if(node && node.level==1 && isturf(T) && !T.is_plating())
+			if(node && node.uses_undertile() && isturf(T) && T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE)
 				to_chat(user, SPAN_WARNING("You must remove the plating first."))
 
 			else if(loc)

@@ -4,7 +4,7 @@
 	icon = 'icons/obj/meter.dmi'
 	icon_state = "meter_base"
 	var/obj/structure/machinery/atmospherics/pipe/target = null
-	anchored = 1.0
+	anchored = TRUE
 	power_channel = AREA_USAGE_ENVIRON
 	var/frequency = 0
 	var/id
@@ -45,10 +45,12 @@
 		AddOverlays(new_overlays)
 
 /obj/structure/machinery/meter/proc/get_rebuild_overlays()
-	if (!target)
-		return list("pressure_off", "buttons_x")
-	if (stat & (BROKEN|NOPOWER))
-		return list("pressure_off")
+	if(!target)
+		return list("buttons_x")
+	if(stat & (BROKEN|NOPOWER))
+		set_light(FALSE)
+		light_range = null
+		return list()
 	var/datum/gas_mixture/environment = target.return_air()
 	if(!environment)
 		return list("pressure0", "buttons_x")
@@ -59,6 +61,8 @@
 	if(env_pressure <= 0.15*ONE_ATMOSPHERE)
 		button_overlay_name = "buttons_0"
 		atmos_overlay_name = "pressure0"
+		set_light(FALSE)
+		light_range = null
 	else if(env_pressure <= 1.8*ONE_ATMOSPHERE)
 		var/val = round(env_pressure/(ONE_ATMOSPHERE*0.3) + 0.5)
 		button_overlay_name = "buttons_1"
@@ -72,11 +76,12 @@
 		button_overlay_name = "buttons_3"
 		atmos_overlay_name = "pressure3_[val]"
 	else
+		button_overlay_name = "buttons_4"
 		atmos_overlay_name = "pressure4"
 
-	if (!button_overlay || button_overlay.icon_state != button_overlay_name)
+	if(!button_overlay || button_overlay.icon_state != button_overlay_name)
 		button_overlay = overlay_image(icon, button_overlay_name)
-		button_emissive = emissive_appearance(icon, button_overlay_name)
+		button_emissive = emissive_appearance(icon, button_overlay_name, src)
 		. = TRUE
 
 	var/env_temperature = environment.temperature
@@ -100,13 +105,14 @@
 			else
 				temp_color = COLOR_VIOLET
 
-	if (!atmos_overlay || atmos_overlay.icon_state != atmos_overlay_name || atmos_overlay.color != temp_color)
+	if(!atmos_overlay || atmos_overlay.icon_state != atmos_overlay_name || atmos_overlay.color != temp_color)
 		atmos_overlay = overlay_image(icon, atmos_overlay_name)
-		atmos_emissive = emissive_appearance(icon, atmos_overlay_name)
+		atmos_emissive = emissive_appearance(icon, atmos_overlay_name, src)
 		atmos_overlay.color = temp_color
+		set_light(2, 0.4, temp_color)
 		. = TRUE
 
-	if (.)
+	if(.)
 		return list(button_overlay, button_emissive, atmos_overlay, atmos_emissive)
 
 /obj/structure/machinery/meter/process()

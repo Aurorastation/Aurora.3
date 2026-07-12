@@ -283,7 +283,7 @@
 			var/area/A = gen_turf.loc
 			if(A?.area_has_base_lighting)
 				continue
-			gen_turf.static_lighting_build_overlay()
+			gen_turf.lighting_build_overlay()
 
 		if(gen_turf.density) // No need to check flora/fauna/grass if we're a wall
 			continue

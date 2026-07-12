@@ -65,7 +65,7 @@
 		UnregisterSignal(current_looker, COMSIG_MOB_LOGOUT)
 		UnregisterSignal(SSdcs, COMSIG_GLOB_MOB_DEATH)
 		if(current_looker.client)
-			current_looker.client.eye = current_looker
+			current_looker.client.set_eye(current_looker)
 		current_looker.eyeobj = null
 	QDEL_NULL(component_eye)
 	if(current_looker)

@@ -14,7 +14,6 @@
 	name = "Robotech Deluxe"
 	desc = "All the tools you need to create your own robot army."
 	icon_state = "robotics"
-	icon_vend = "robotics-vend"
 	req_access = list(ACCESS_ROBOTICS)
 	vend_id = "robo-tools"
 	products = list(
@@ -55,7 +54,6 @@
 	name = "Engi-Vend"
 	desc = "Spare tool vending. What? Did you expect some witty description?"
 	icon_state = "engivend"
-	icon_vend = "engivend-vend"
 	req_access = list(ACCESS_ENGINE)
 	vend_id = "tools"
 	products = list(
@@ -99,7 +97,9 @@
 	name = "YouTool"
 	desc = "Tools for tools."
 	icon_state = "tool"
+	icon_deny = "tool-deny"
 	icon_vend = "tool-vend"
+	light_mask = "tool-lightmask"
 	vend_id = "tools"
 	//req_access = list(ACCESS_MAINT_TUNNELS) //Maintenance access
 	products = list(
@@ -150,7 +150,9 @@
 	name = "Robco Tool Maker"
 	desc = "Everything you need for do-it-yourself station repair."
 	icon_state = "engi"
+	icon_deny = "engi-deny"
 	icon_vend = "engi-vend"
+	light_mask = "engi-lightmask"
 	req_access = list(ACCESS_ENGINE_EQUIP)
 	vend_id = "tools"
 	products = list(
@@ -232,6 +234,7 @@
 /obj/structure/machinery/vending/assist
 	vend_id = "tools"
 	icon_state = "generic"
+	icon_vend = "generic-deny"
 	icon_vend = "generic-vend"
 	light_mask = "generic-lightmask"
 	products = list(
@@ -257,6 +260,7 @@
 	name = "\improper Parts vendor"
 	desc = "Just a normal vending machine - nothing to see here."
 	icon_state = "generic"
+	icon_deny = "generic-deny"
 	icon_vend = "generic-vend"
 	light_mask = "generic-lightmask"
 	contraband = null

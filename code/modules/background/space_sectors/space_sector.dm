@@ -67,6 +67,8 @@
 	var/ghostroles_enabled = TRUE
 	/// Whether away sites are loaded in this sector.
 	var/away_sites_enabled = TRUE
+	/// Whether parallax layering should be applied to the sector (FALSE for sectors like the Lemurian Sea, which should have no visible stuff).
+	var/parallax_layering_enabled = TRUE
 
 	/// This variable is a multiplier applied to the 'overmap_event_areas' datum/map/var to increase or decrease the total number of hazards spawned in the sector.
 	var/overmap_hazards_multiplier = 1.0

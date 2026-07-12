@@ -6,12 +6,13 @@
 	footstep_sound = null //Override to make sure because yeah
 	tracks_footprint = FALSE
 
-	plane = SPACE_PLANE
+	plane = PLANE_SPACE
 
 	temperature = T20C
 	thermal_conductivity = OPEN_HEAT_TRANSFER_COEFFICIENT
 //	heat_capacity = 700000 No.
 	is_hole = TRUE
+	underfloor_accessibility = UNDERFLOOR_INTERACTABLE
 
 	z_eventually_space = TRUE
 	turf_flags = TURF_FLAG_BACKGROUND
@@ -42,7 +43,20 @@
 	flags_1 |= INITIALIZED_1
 
 	if(use_space_appearance)
-		appearance = SSskybox.space_appearance_cache[(((x + y) ^ ~(x * y) + z) % 25) + 1]
+		appearance = SSparallax.space_appearance_cache[(((x + y) ^ ~(x * y) + z) % 25) + 1]
+
+	update_plane_from_z()
+
+	if(SSmapping.max_plane_offset)
+		var/turf/above_turf = GET_TURF_ABOVE(src)
+		if(above_turf)
+			above_turf.multiz_turf_new(src, DOWN)
+		var/turf/below_turf = GET_TURF_BELOW(src)
+		if(below_turf)
+			below_turf.multiz_turf_new(src, UP)
+
+	if(length(vis_contents))
+		vis_contents.Cut()
 
 	if(GLOB.config.starlight)
 		update_starlight()
@@ -65,7 +79,14 @@
 
 	// Otherwise, if a space turf borders a simulated turf, it should be producing starlight.
 	if(locate(/turf/simulated) in RANGE_TURFS(1, src))
-		set_light(SSatlas.current_sector.starlight_range, SSatlas.current_sector.starlight_power, l_color = SSskybox.background_color)
+		enable_starlight()
+
+/// Turns on starlight for space turfs when the caller already knows this turf should be starlit.
+/turf/space/proc/enable_starlight()
+	if(!GLOB.config.starlight || !use_starlight)
+		return
+	if(!light_on)
+		set_light(SSatlas.current_sector.starlight_range, SSatlas.current_sector.starlight_power, l_color = SSparallax.starlight_color)
 
 // We don't want this doing anything on space, otherwise update_starlight() would run set_light on space turfs twice.
 /turf/space/set_default_lighting()
@@ -84,8 +105,9 @@
 
 // override for space turfs, since they should never hide anything
 /turf/space/levelupdate()
+	underfloor_accessibility = UNDERFLOOR_INTERACTABLE
 	for(var/obj/O in src)
-		O.hide(0)
+		SEND_SIGNAL(O, COMSIG_OBJ_HIDE, underfloor_accessibility)
 
 /turf/space/can_have_cabling()
 	if (locate(/obj/structure/lattice/catwalk) in src)

@@ -5,10 +5,11 @@
 	icon_state = "radial_floodlight"
 	anchored = FALSE
 	density = TRUE
-	light_system = MOVABLE_LIGHT
+	light_system = OVERLAY_LIGHT
 	light_color = LIGHT_COLOR_TUNGSTEN
 	light_range = 8
 	light_power = 3
+	light_on = FALSE
 	active_power_usage = 800 WATTS
 
 	var/on = FALSE
@@ -67,5 +68,5 @@
 	ClearOverlays()
 	if(on)
 		var/image/light = image(icon, src, "[icon_state]-light")
-		light.plane = ABOVE_LIGHTING_PLANE
+		SET_PLANE_EXPLICIT(light, ABOVE_LIGHTING_PLANE, src)
 		AddOverlays(light)

@@ -13,6 +13,8 @@
 	var/area_flags
 	/// Color of this area on the holomap. Must be a hex color (as string) or null.
 	var/holomap_color
+	/// Direction this area wants client parallax to move... one day shuttle stuff will use this
+	var/parallax_movedir = NONE
 
 	/// Do we have an active fire alarm?
 	var/fire = FALSE
@@ -28,7 +30,14 @@
 	layer = AREA_LAYER
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	invisibility = INVISIBILITY_LIGHTING
-	plane = BLACKNESS_PLANE
+	plane = AREA_PLANE
+
+	/// Cached turfs in this area, grouped by z-level.
+	var/list/turfs_by_zlevel = list()
+	/// Turfs lazily removed from turfs_by_zlevel, grouped by z-level.
+	var/list/turfs_to_uncontain_by_zlevel = list()
+	/// TRUE once turfs_by_zlevel has been populated from area contents.
+	var/tmp/turf_cache_initialized = FALSE
 
 	var/obj/structure/machinery/power/apc/apc = null
 	/// The base turf type of the area, which can be used to override the z-level's base turf.
@@ -177,9 +186,148 @@
 
 	GLOB.centcom_areas -= src
 	GLOB.the_station_areas -= src
+	turfs_by_zlevel = null
+	turfs_to_uncontain_by_zlevel = null
 
 	//parent cleanup
 	return ..()
+
+/// Lazily populates the cached turf lists from area contents.
+/area/proc/ensure_turf_cache()
+	if(turf_cache_initialized)
+		return
+
+	turfs_by_zlevel = list()
+	turfs_to_uncontain_by_zlevel = list()
+	turf_cache_initialized = TRUE
+	for(var/turf/T as anything in src)
+		add_turf_to_z_cache(T)
+
+/// Adds a turf to the cached z-level list for this area.
+/area/proc/add_turf_to_z_cache(turf/T, force = FALSE)
+	if(force)
+		turf_cache_initialized = TRUE
+	else if(!turf_cache_initialized)
+		return
+	if(!isturf(T))
+		return
+
+	if(length(turfs_by_zlevel) < T.z)
+		turfs_by_zlevel.len = T.z
+	if(!turfs_by_zlevel[T.z])
+		turfs_by_zlevel[T.z] = list()
+	var/list/zlevel_turfs = turfs_by_zlevel[T.z]
+	if(!(T in zlevel_turfs))
+		zlevel_turfs += T
+
+	if(length(turfs_to_uncontain_by_zlevel) >= T.z && turfs_to_uncontain_by_zlevel[T.z])
+		turfs_to_uncontain_by_zlevel[T.z] -= T
+
+/// Adds a grouped set of turfs to the cached z-level list for this area.
+/area/proc/add_turfs_to_z_cache(list/turfs_to_add, zlevel, force = FALSE)
+	if(!length(turfs_to_add) || !zlevel)
+		return
+	if(force)
+		turf_cache_initialized = TRUE
+	else if(!turf_cache_initialized)
+		return
+
+	if(length(turfs_by_zlevel) < zlevel)
+		turfs_by_zlevel.len = zlevel
+	var/list/zlevel_turfs = turfs_by_zlevel[zlevel]
+	if(!zlevel_turfs)
+		turfs_by_zlevel[zlevel] = turfs_to_add
+	else if(length(zlevel_turfs))
+		zlevel_turfs |= turfs_to_add
+	else
+		zlevel_turfs += turfs_to_add
+
+	if(length(turfs_to_uncontain_by_zlevel) >= zlevel && turfs_to_uncontain_by_zlevel[zlevel])
+		turfs_to_uncontain_by_zlevel[zlevel] -= turfs_to_add
+
+/// Lazily removes a turf from the cached z-level list for this area.
+/area/proc/remove_turf_from_z_cache(turf/T)
+	if(!turf_cache_initialized || !isturf(T))
+		return
+	if(length(turfs_by_zlevel) < T.z || !turfs_by_zlevel[T.z])
+		return
+
+	if(length(turfs_to_uncontain_by_zlevel) < T.z)
+		turfs_to_uncontain_by_zlevel.len = T.z
+	if(!turfs_to_uncontain_by_zlevel[T.z])
+		turfs_to_uncontain_by_zlevel[T.z] = list()
+	var/list/zlevel_turfs_to_remove = turfs_to_uncontain_by_zlevel[T.z]
+	if(!(T in zlevel_turfs_to_remove))
+		zlevel_turfs_to_remove += T
+
+/// Ensures that the cached turf list accurately represents one z-level.
+/area/proc/canonize_contained_turfs_by_zlevel(zlevel_to_clean, autoclean = TRUE)
+	var/list/zlevel_turfs_to_remove
+	if(zlevel_to_clean <= length(turfs_to_uncontain_by_zlevel))
+		zlevel_turfs_to_remove = turfs_to_uncontain_by_zlevel[zlevel_to_clean]
+
+	if(length(zlevel_turfs_to_remove) && zlevel_to_clean <= length(turfs_by_zlevel) && turfs_by_zlevel[zlevel_to_clean])
+		turfs_by_zlevel[zlevel_to_clean] -= zlevel_turfs_to_remove
+
+	if(!autoclean)
+		if(zlevel_to_clean <= length(turfs_to_uncontain_by_zlevel))
+			turfs_to_uncontain_by_zlevel[zlevel_to_clean] = list()
+		return
+
+	var/new_length = length(turfs_to_uncontain_by_zlevel)
+	for(var/i in length(turfs_to_uncontain_by_zlevel) to 0 step -1)
+		if(i && length(turfs_to_uncontain_by_zlevel[i]))
+			break
+		new_length = i
+
+	if(new_length < length(turfs_to_uncontain_by_zlevel))
+		turfs_to_uncontain_by_zlevel.len = new_length
+
+	if(new_length >= zlevel_to_clean)
+		turfs_to_uncontain_by_zlevel[zlevel_to_clean] = list()
+
+/// Ensures that all cached turf lists accurately represent this area.
+/area/proc/canonize_contained_turfs()
+	for(var/area_zlevel in 1 to length(turfs_to_uncontain_by_zlevel))
+		canonize_contained_turfs_by_zlevel(area_zlevel, FALSE)
+	turfs_to_uncontain_by_zlevel = list()
+
+/// Returns TRUE if the cache currently contains turfs for this area.
+/area/proc/has_contained_turfs()
+	for(var/area_zlevel in 1 to length(turfs_by_zlevel))
+		if(length(turfs_to_uncontain_by_zlevel) >= area_zlevel)
+			if(length(turfs_by_zlevel[area_zlevel]) - length(turfs_to_uncontain_by_zlevel[area_zlevel]) > 0)
+				return TRUE
+		else if(length(turfs_by_zlevel[area_zlevel]))
+			return TRUE
+	return FALSE
+
+/// Returns cached turf lists grouped by z-level.
+/area/proc/get_zlevel_turf_lists()
+	ensure_turf_cache()
+	if(length(turfs_to_uncontain_by_zlevel))
+		canonize_contained_turfs()
+
+	. = list()
+	for(var/list/zlevel_turfs as anything in turfs_by_zlevel)
+		if(length(zlevel_turfs))
+			. += list(zlevel_turfs)
+
+/// Returns cached turfs for one z-level.
+/area/proc/get_turfs_by_zlevel(zlevel)
+	ensure_turf_cache()
+	if(length(turfs_to_uncontain_by_zlevel) >= zlevel && length(turfs_to_uncontain_by_zlevel[zlevel]))
+		canonize_contained_turfs_by_zlevel(zlevel)
+
+	if(length(turfs_by_zlevel) < zlevel || !turfs_by_zlevel[zlevel])
+		return list()
+	return turfs_by_zlevel[zlevel]
+
+/// Returns cached turfs from all z-levels as one list.
+/area/proc/get_turfs_from_all_zlevels()
+	. = list()
+	for(var/list/zlevel_turfs as anything in get_zlevel_turf_lists())
+		. += zlevel_turfs
 
 /area/proc/is_prison()
 	return area_flags & AREA_FLAG_PRISON

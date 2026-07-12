@@ -122,6 +122,7 @@
 #define DISABILITY_TRAIT "disability"
 
 #define TRAIT_SOURCE_INHERENT "t_s_inherent"
+#define TRAIT_SOURCE_GLASS_FLOOR "glass_floor"
 /// cannot be removed without admin intervention
 #define ROUNDSTART_TRAIT "roundstart"
 #define CULTURE_TRAIT "culture"
@@ -137,6 +138,12 @@
 
 // every hearing sensitive atom has this trait
 #define TRAIT_HEARING_SENSITIVE "hearing_sensitive"
+
+/// Atom is currently under flooring or another underfloor cover.
+#define TRAIT_UNDERFLOOR "underfloor"
+
+/// Atom is visible to T-ray scanners while hidden under flooring.
+#define TRAIT_T_RAY_VISIBLE "t_ray_visible"
 
 /// forces the mob to speak gibberish, like highly damaged borgs
 #define TRAIT_SPEAKING_GIBBERISH "speaking_gibberish"
@@ -225,7 +232,19 @@
 /// Unlinks gliding from movement speed, meaning that there will be a delay between movements rather than a single move movement between tiles
 #define TRAIT_NO_GLIDE "no_glide"
 
-// MOB CATEGORY traits used for pattern matching certain subtypes of mobs
+/// A visual distortion plane is currently in use for the given z layer.
+#define TRAIT_DISTORTION_IN_USE(z_layer) "distortion_in_use_#[z_layer]"
+
+/// The escape-menu render plane should be visible.
+#define TRAIT_ESCAPE_MENU_OPEN "escape_menu_open"
+
+/// The parallax render planes should be visible.
+#define TRAIT_PARALLAX_DISPLAYED "parallax_displayed"
+
+/// Field of view masking is active for this mob.
+#define TRAIT_FOV_APPLIED "fov_applied"
+
+/// MOB CATEGORY traits used for pattern matching certain subtypes of mobs
 #define TRAIT_SOURCE_MOB_CATEGORY "mob_category"
 /// All "Space Fauna" EG: Space Carp
 #define TRAIT_MC_SPACE_FAUNA "space_fauna"

@@ -79,6 +79,7 @@
 	icon = 'icons/obj/item/skrell/nralakk_projector.dmi'
 	icon_state = "projector"
 	light_color = LIGHT_COLOR_HALOGEN
+	light_on = FALSE
 	w_class = WEIGHT_CLASS_TINY
 	matter = list(MATERIAL_GLASS = 200)
 	drop_sound = 'sound/items/drop/glass.ogg'
@@ -147,6 +148,7 @@
 			working = FALSE
 			STOP_PROCESSING(SSprocessing, src)
 	set_light(brightness)
+	set_light_on(working && brightness > 0)
 	update_icon()
 
 /obj/item/skrell_projector/update_icon()

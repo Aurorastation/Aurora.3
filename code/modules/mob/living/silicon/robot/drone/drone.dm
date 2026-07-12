@@ -306,7 +306,7 @@
 		CutOverlays(list(eye_overlay, eye_emissive))
 	eye_overlay = cached_eye_overlays[a_intent]
 	// Disables emissives while hiding due to table-clipping issues
-	eye_emissive = (layer == MOB_LAYER ? emissive_appearance(icon, "[icon_state]-eyes_help") : null)
+	eye_emissive = (layer == MOB_LAYER ? emissive_appearance(icon, "[icon_state]-eyes_help", src) : null)
 	AddOverlays(list(eye_overlay, eye_emissive))
 
 /mob/living/silicon/robot/drone/setup_panel_cache()

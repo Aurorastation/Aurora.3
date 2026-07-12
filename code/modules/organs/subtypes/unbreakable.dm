@@ -45,6 +45,6 @@
 
 /obj/item/organ/external/head/unbreakable/revenant/get_additional_images(var/mob/living/carbon/human/H)
 	var/image/return_image = image(H.species.eyes_icons, H, "[H.species.eyes]_glow")
-	return_image.plane = ABOVE_LIGHTING_PLANE
+	SET_PLANE_EXPLICIT(return_image, ABOVE_LIGHTING_PLANE, H)
 	return_image.appearance_flags = KEEP_APART
 	return list(return_image)

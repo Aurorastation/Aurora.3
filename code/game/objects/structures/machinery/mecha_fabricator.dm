@@ -76,11 +76,11 @@
 	if(panel_open)
 		AddOverlays("[icon_state]_panel")
 	if(!(stat & (NOPOWER|BROKEN)))
-		AddOverlays(emissive_appearance(icon, "[icon_state]_lights"))
+		AddOverlays(emissive_appearance(icon, "[icon_state]_lights", src))
 		AddOverlays("[icon_state]_lights")
 	if(build_callback_timer)
 		AddOverlays("[icon_state]_working")
-		AddOverlays(emissive_appearance(icon, "[icon_state]_lights_working"))
+		AddOverlays(emissive_appearance(icon, "[icon_state]_lights_working", src))
 		AddOverlays("[icon_state]_lights_working")
 
 /// Starts and stops the necessary audio.

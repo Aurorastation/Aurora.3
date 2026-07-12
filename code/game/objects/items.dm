@@ -2,7 +2,7 @@
 	name = "item"
 	icon = 'icons/obj/items.dmi'
 	w_class = WEIGHT_CLASS_NORMAL
-	light_system = MOVABLE_LIGHT
+	light_system = OVERLAY_LIGHT
 	blocks_emissive = EMISSIVE_BLOCK_GENERIC
 	/// Generic hit sound
 	hitsound = SFX_SWING_HIT
@@ -981,9 +981,6 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	if(M.stat || !(ishuman(M)))
 		to_chat(M, SPAN_WARNING("You are unable to focus through \the [devicename]!"))
 		cannotzoom = 1
-	else if(!zoom && (GLOB.global_hud.darkMask[1] in M.client.screen))
-		to_chat(M, SPAN_WARNING("Your visor gets in the way of looking through the [devicename]!"))
-		cannotzoom = 1
 	else if(do_device_check && !zoom && M.get_active_hand() != src)
 		to_chat(M, SPAN_WARNING("You are too distracted to look through the [devicename], perhaps if it was in your active hand this might work better."))
 		cannotzoom = 1
@@ -991,7 +988,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	if(!zoom && !cannotzoom)
 		if(M.hud_used.hud_shown)
 			M.toggle_zoom_hud()	// If the user has already limited their HUD this avoids them having a HUD when they zoom in
-		M.client.view = viewsize
+		M.client.change_view(viewsize)
 		zoom = 1
 
 		var/tilesize = 32
@@ -1015,7 +1012,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 			M.visible_message("<b>[M]</b> peers through \the [zoomdevicename ? "[zoomdevicename] of \the [src.name]" : "[src.name]"].")
 
 	else
-		M.client.view = world.view
+		M.client.change_view(world.view)
 		if(!M.hud_used.hud_shown)
 			M.toggle_zoom_hud()
 		zoom = 0

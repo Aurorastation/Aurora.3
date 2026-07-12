@@ -1,0 +1,249 @@
+/// Datum that represents one "group" of plane masters
+/// So all the main window planes would be in one, all the spyglass planes in another
+/// Etc
+/datum/plane_master_group
+	/// Our key in the group list on /datum/hud
+	/// Should be unique for any group of plane masters in the world
+	var/key
+	/// Our parent hud
+	var/datum/hud/our_hud
+	/// List in the form "[plane]" = object, the plane masters we own
+	var/list/atom/movable/screen/plane_master/plane_masters = list()
+	/// The visual offset we are currently using
+	var/active_offset = 0
+	/// What, if any, submap we render onto
+	var/map = ""
+	/// Controls the screen_loc that owned plane masters will use when generating relays. Due to a Byond bug, relays using the CENTER positional loc
+	/// Will be improperly offset
+	var/relay_loc = "1,1"
+
+/datum/plane_master_group/New(key, map = "")
+	. = ..()
+	src.key = key
+	src.map = map
+	build_plane_masters(0, SSmapping.max_plane_offset)
+
+/datum/plane_master_group/Destroy()
+	set_hud(null)
+	clear_plane_masters()
+	return ..()
+
+/datum/plane_master_group/proc/set_hud(datum/hud/new_hud)
+	if(new_hud == our_hud)
+		return
+	var/datum/hud/old_hud = our_hud
+	var/mob/old_mob = old_hud?.mymob
+	if(our_hud)
+		our_hud.master_groups -= key
+		hide_hud(old_mob)
+	our_hud = new_hud
+	var/mob/new_mob = new_hud?.mymob
+	if(new_hud)
+		our_hud.master_groups[key] = src
+		show_hud(new_mob)
+		build_planes_offset(our_hud, active_offset)
+	SEND_SIGNAL(src, COMSIG_GROUP_HUD_CHANGED, old_hud, our_hud)
+
+/// Display a plane master group to some viewer, so show all our planes to it
+/datum/plane_master_group/proc/attach_to(datum/hud/viewing_hud)
+	if(viewing_hud.master_groups[key])
+		stack_trace("Hey brother, our key [key] is already in use by a plane master group on the passed in hud, belonging to [viewing_hud.mymob]. Ya fucked up, why are there dupes")
+		return
+
+	set_hud(viewing_hud)
+
+/// Well, refresh our group, mostly useful for plane specific updates
+/datum/plane_master_group/proc/refresh_hud()
+	hide_hud()
+	show_hud()
+
+/// Fully regenerate our group, resetting our planes to their compile time values
+/datum/plane_master_group/proc/rebuild_hud()
+	hide_hud()
+	rebuild_plane_masters()
+	show_hud()
+	our_hud.update_parallax_pref()
+	build_planes_offset(our_hud, active_offset)
+
+/// Regenerate our plane masters, this is useful if we don't have a mob but still want to rebuild. Such in the case of changing the screen_loc of relays
+/datum/plane_master_group/proc/rebuild_plane_masters()
+	clear_plane_masters()
+	build_plane_masters(0, SSmapping.max_plane_offset)
+
+/datum/plane_master_group/proc/clear_plane_masters()
+	for(var/plane_key in plane_masters.Copy())
+		var/atom/movable/screen/plane_master/plane = plane_masters[plane_key]
+		if(QDELETED(plane))
+			continue
+		qdel(plane)
+	plane_masters.Cut()
+
+/datum/plane_master_group/proc/hide_hud(mob/hide_from = our_hud?.mymob)
+	for(var/thing in plane_masters)
+		var/atom/movable/screen/plane_master/plane = plane_masters[thing]
+		if(QDELETED(plane))
+			continue
+		plane.hide_from(hide_from)
+
+/datum/plane_master_group/proc/show_hud(mob/show_to = our_hud?.mymob)
+	for(var/thing in plane_masters)
+		var/atom/movable/screen/plane_master/plane = plane_masters[thing]
+		if(QDELETED(plane))
+			continue
+		show_plane(plane, show_to)
+
+/// This is mostly a proc so it can be overriden by popups, since they have unique behavior they want to do
+/datum/plane_master_group/proc/show_plane(atom/movable/screen/plane_master/plane, mob/show_to = our_hud?.mymob)
+	if(QDELETED(plane))
+		return
+	plane.show_to(show_to)
+
+/// Nice wrapper for the "[]"ing
+/datum/plane_master_group/proc/get_plane(plane)
+	return plane_masters["[plane]"]
+
+/// Returns a list of all the plane master types we want to create
+/datum/plane_master_group/proc/get_plane_types()
+	return subtypesof(/atom/movable/screen/plane_master) - /atom/movable/screen/plane_master/rendering_plate
+
+/// Actually generate our plane masters, in some offset range (where offset is the z layers to render to, because each "layer" in a multiz stack gets its own plane master cube)
+/datum/plane_master_group/proc/build_plane_masters(starting_offset, ending_offset)
+	for(var/atom/movable/screen/plane_master/mytype as anything in get_plane_types())
+		for(var/plane_offset in starting_offset to ending_offset)
+			if(plane_offset != 0 && (initial(mytype.offsetting_flags) & BLOCKS_PLANE_OFFSETTING))
+				continue
+			var/atom/movable/screen/plane_master/instance = new mytype(null, null, src, plane_offset)
+			if(QDELETED(instance))
+				continue
+			plane_masters["[instance.plane]"] = instance
+			prep_plane_instance(instance)
+
+/// Similarly, exists so subtypes can do unique behavior to planes on creation
+/datum/plane_master_group/proc/prep_plane_instance(atom/movable/screen/plane_master/instance)
+	return
+
+// It would be nice to setup parallaxing for stairs and things when doing this
+// So they look nicer. if you can't it's all good, if you think you can sanely look at monster's work
+// It's hard, and potentially expensive. be careful
+/datum/plane_master_group/proc/build_planes_offset(datum/hud/source, new_offset, use_scale = TRUE, animate_transform = TRUE)
+	var/mob/our_mob = our_hud?.mymob
+
+	// No offset? piss off
+	if(!SSmapping.max_plane_offset)
+		return
+
+	active_offset = new_offset
+
+	// Each time we go "down" a visual z level, we'll reduce the scale by this amount
+	// Chosen because mothblocks liked it, didn't cause motion sickness while also giving a sense of height
+	var/neutralize_transforms = GLOB.multiz_plane_scaling_neutralized || !use_scale
+	var/scale_by = neutralize_transforms ? 1 : 0.965
+	if(!use_scale)
+		// This is a workaround for two things
+		// First of all, if a mob can see objects but not turfs, they will not be shown the holder objects we use for
+		// What I'd like to do is revert to images if this case throws, but image vis_contents is broken
+		// https://www.byond.com/forum/post/2821969
+		// If that's ever fixed, please just use that. thanks :)
+		neutralize_transforms = TRUE
+
+	var/list/offsets = list()
+	var/multiz_boundary = our_hud?.get_multiz_performance_boundary()
+	if(isnull(multiz_boundary))
+		multiz_boundary = MULTIZ_PERFORMANCE_DISABLE
+
+	// We accept negatives so going down "zooms" away the drop above as it goes
+	for(var/offset in -SSmapping.max_plane_offset to SSmapping.max_plane_offset)
+		// Multiz boundaries disable transforms
+		if(multiz_boundary != MULTIZ_PERFORMANCE_DISABLE && (multiz_boundary < abs(offset)))
+			offsets += null
+			continue
+
+		// No transformations if we're landing ON you or if flat multiz debugging is active.
+		if(offset == 0 || neutralize_transforms)
+			offsets += null
+			continue
+
+		var/scale = scale_by ** (offset)
+		var/matrix/multiz_shrink = matrix()
+		multiz_shrink.Scale(scale)
+		offsets += multiz_shrink
+
+	// So we can talk in 1 -> max_offset * 2 + 1, rather then -max_offset -> max_offset
+	var/offset_offset = SSmapping.max_plane_offset + 1
+
+	for(var/plane_key in plane_masters)
+		var/atom/movable/screen/plane_master/plane = plane_masters[plane_key]
+		if(QDELETED(plane))
+			continue
+		if(plane.offsetting_flags & BLOCKS_PLANE_OFFSETTING)
+			if(plane.offsetting_flags & OFFSET_RELAYS_MATCH_HIGHEST)
+				// Don't offset the plane, do offset where the relays point
+				// Required for making things like the blind fullscreen not render over runechat
+				plane.offset_relays_in_place(new_offset)
+			continue
+
+		var/visual_offset = plane.offset - new_offset
+
+		// Basically uh, if we're showing something down X amount of levels, or up any amount of levels
+		if(multiz_boundary != MULTIZ_PERFORMANCE_DISABLE && (visual_offset > multiz_boundary || visual_offset < 0))
+			plane.outside_bounds(our_mob)
+		else if(plane.is_outside_bounds)
+			plane.inside_bounds(our_mob)
+
+		if(!plane.multiz_scaled)
+			continue
+
+		if(neutralize_transforms)
+			animate(plane)
+			plane.transform = null
+			continue
+
+		if(plane.force_hidden || plane.is_outside_bounds || visual_offset < 0)
+			// We don't animate here because it should be invisble, but we do mark because it'll look nice
+			plane.transform = offsets[visual_offset + offset_offset]
+			continue
+
+		var/matrix/new_transform = offsets[visual_offset + offset_offset]
+		if(animate_transform)
+			animate(plane, transform = new_transform, 0.05 SECONDS, easing = LINEAR_EASING)
+		else
+			animate(plane)
+			plane.transform = new_transform
+
+/// Holds plane masters for popups, like camera windows
+/// Note: We do not scale this plane, even though we could
+/// This is because it's annoying to get turfs to position inside it correctly
+/// If you wanna try someday feel free, but I can't manage it
+/datum/plane_master_group/popup
+
+/datum/plane_master_group/popup/build_planes_offset(datum/hud/source, new_offset, use_scale = TRUE, animate_transform = TRUE)
+	return ..(source, new_offset, FALSE, animate_transform)
+
+/// Holds the main plane master
+/datum/plane_master_group/main
+
+/datum/plane_master_group/main/build_planes_offset(datum/hud/source, new_offset, use_scale = TRUE, animate_transform = TRUE)
+	if(use_scale)
+		return ..(source, new_offset, source.should_use_scale(), animate_transform)
+	return ..(source, new_offset, use_scale, animate_transform)
+
+/// Hudless group. Exists for testing
+/datum/plane_master_group/hudless
+	var/mob/our_mob
+
+/datum/plane_master_group/hudless/Destroy()
+	. = ..()
+	our_mob = null
+
+/datum/plane_master_group/hudless/hide_hud(mob/hide_from = our_mob)
+	for(var/thing in plane_masters)
+		var/atom/movable/screen/plane_master/plane = plane_masters[thing]
+		if(QDELETED(plane))
+			continue
+		plane.hide_from(hide_from)
+
+/// This is mostly a proc so it can be overriden by popups, since they have unique behavior they want to do
+/datum/plane_master_group/hudless/show_plane(atom/movable/screen/plane_master/plane, mob/show_to = our_mob)
+	if(QDELETED(plane))
+		return
+	plane.show_to(show_to)

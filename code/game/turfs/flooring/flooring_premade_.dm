@@ -370,4 +370,16 @@
 	tile_decal_state = "techfloor_light"
 	color = COLOR_GRAY40
 
-// -------------------------------
+// ------------------------------- Glass
+
+/turf/simulated/floor/glass
+	name = "glass floor"
+	icon = 'icons/turf/flooring/glass.dmi'
+	icon_state = "glass-0"
+	initial_flooring = /singleton/flooring/glass
+
+/turf/simulated/floor/glass/reinforced
+	name = "reinforced glass floor"
+	icon = 'icons/turf/flooring/reinf_glass.dmi'
+	icon_state = "reinf_glass-0"
+	initial_flooring = /singleton/flooring/glass/reinforced

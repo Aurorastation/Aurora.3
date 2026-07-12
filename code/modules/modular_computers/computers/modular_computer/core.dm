@@ -192,11 +192,11 @@
 				I_holographic.blend_mode = BLEND_MULTIPLY
 				I.blend_mode = BLEND_ADD
 				AddOverlays(I_holographic)
-			var/mutable_appearance/E = emissive_appearance(src.icon, icon_state_screensaver)
+			var/mutable_appearance/E = emissive_appearance(src.icon, icon_state_screensaver, src)
 			AddOverlays(I)
 			AddOverlays(E)
 		if(icon_state_screensaver_key && working)
-			var/image/EK = emissive_appearance(src.icon, icon_state_screensaver_key)
+			var/image/EK = emissive_appearance(src.icon, icon_state_screensaver_key, src)
 			var/image/IK = image(src.icon, icon_state_screensaver_key)
 			AddOverlays(EK)
 			AddOverlays(IK)
@@ -228,8 +228,8 @@
 			state_holographic.blend_mode = BLEND_MULTIPLY
 			AddOverlays(state_holographic)
 		AddOverlays(list(state, state_key))
-		var/emissive_image = emissive_appearance(src.icon, state_program)
-		var/emissive_image_key = emissive_appearance(src.icon, "[state_key]_mask")
+		var/emissive_image = emissive_appearance(src.icon, state_program, src)
+		var/emissive_image_key = emissive_appearance(src.icon, "[state_key]_mask", src)
 		AddOverlays(list(emissive_image, emissive_image_key))
 		if(!flashlight)
 			set_light(light_range, light_power, l_color = active_program.color)
@@ -253,8 +253,8 @@
 			holographic_menu.blend_mode = BLEND_MULTIPLY
 			AddOverlays(holographic_menu)
 		AddOverlays(list(menu, icon_state_menu_key))
-		var/emissive_menu = emissive_appearance(src.icon, icon_state_menu)
-		var/emissive_menu_key = emissive_appearance(src.icon, "[icon_state_menu_key]_mask")
+		var/emissive_menu = emissive_appearance(src.icon, icon_state_menu, src)
+		var/emissive_menu_key = emissive_appearance(src.icon, "[icon_state_menu_key]_mask", src)
 		AddOverlays(emissive_menu)
 		AddOverlays(emissive_menu_key)
 		if(!flashlight)

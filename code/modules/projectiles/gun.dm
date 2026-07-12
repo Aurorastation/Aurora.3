@@ -59,7 +59,7 @@ ABSTRACT_TYPE(/obj/item/gun)
 	origin_tech = list(TECH_COMBAT = 1)
 	attack_verb = list("struck", "hit", "bashed")
 	zoomdevicename = "scope"
-	light_system = DIRECTIONAL_LIGHT
+	light_system = OVERLAY_LIGHT_DIRECTIONAL
 
 /*
  * Suppression vars

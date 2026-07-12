@@ -1,5 +1,13 @@
 /obj/structure/machinery/atmospherics/var/image/pipe_image
 
+/obj/structure/machinery/atmospherics/proc/update_ventcrawl_image()
+	pipe_image = image(src, loc, dir = dir)
+	var/turf/source_turf = get_turf(src)
+	if(source_turf)
+		SET_PLANE_EXPLICIT(pipe_image, PIPECRAWL_IMAGES_PLANE, source_turf)
+	else
+		SET_PLANE_EXPLICIT(pipe_image, PIPECRAWL_IMAGES_PLANE, src)
+
 /obj/structure/machinery/atmospherics/Destroy()
 	for(var/mob/living/M in src) //ventcrawling is serious business
 		M.remove_ventcrawl()
@@ -39,7 +47,7 @@
 			else
 				user.remove_ventcrawl()
 				user.forceMove(UA.loc) //handles entering and so on
-				user.sight &= ~(SEE_TURFS|BLIND)
+				user.clear_sight(SEE_TURFS|BLIND)
 				user.visible_message(SPAN_WARNING("You hear something squeezing through the ducts."), "You climb out the ventilation system.")
 				user.vent_trap_check("arriving", UA)
 
@@ -50,7 +58,7 @@
 			user.forceMove(target_move)
 			if(!user || !user.client)
 				return
-			user.client.eye = target_move //if we don't do this, Byond only updates the eye every tick - required for smooth movement
+			user.client.set_eye(target_move) //if we don't do this, Byond only updates the eye every tick - required for smooth movement
 			if(world.time > user.next_play_vent)
 				user.next_play_vent = world.time+30
 				playsound(src, 'sound/machines/ventcrawl.ogg', 50, 1, -3)
@@ -58,7 +66,7 @@
 		if((direction & initialize_directions) || is_type_in_list(src, GLOB.ventcrawl_machinery) && src.can_crawl_through()) //if we move in a way the pipe can connect, but doesn't - or we're in a vent
 			user.remove_ventcrawl()
 			user.forceMove(check_neighbor_density(get_turf(src.loc), direction) ? src.loc : get_step(src, direction))
-			user.sight &= ~(SEE_TURFS|BLIND)
+			user.clear_sight(SEE_TURFS|BLIND)
 			user.visible_message(SPAN_WARNING("You hear something squeezing through the pipes."), "You climb out the ventilation system.")
 			user.vent_trap_check("arriving", user.loc)
 	user.canmove = 0

@@ -197,7 +197,7 @@
 		mutations |= HULK
 		update_mutations()
 
-		sight |= SEE_MOBS
+		add_sight(SEE_MOBS)
 
 		add_verb(src, /mob/living/carbon/human/proc/grapple)
 
@@ -221,7 +221,7 @@
 		update_mutations()
 
 		clear_fullscreen("frenzy")
-		sight &= ~SEE_MOBS
+		clear_sight(SEE_MOBS)
 
 		visible_message(SPAN_DANGER("[src.name]'s eyes no longer glow with violent rage, their form reverting to resemble that of a normal person's."),
 						SPAN_DANGER("The beast within you retreats. You gain control over your body once more."))

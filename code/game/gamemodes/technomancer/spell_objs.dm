@@ -34,7 +34,7 @@
 	throwforce = 0
 	force = 0
 	item_flags = ITEM_FLAG_NO_BLUDGEON
-	light_system = MOVABLE_LIGHT
+	light_system = OVERLAY_LIGHT
 	pickup_sound = null
 	drop_sound = null
 	hitsound = null

@@ -675,11 +675,14 @@
 	if (!stop_sight_update)
 		to_chat(src, SPAN_NOTICE("Your eyes shift around, allowing you to see in the dark."))
 		src.stop_sight_update = 1
-		src.lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
+		src.lighting_cutoff = LIGHTING_CUTOFF_HIGH
+		src.sync_lighting_plane_cutoff()
 
 	else
 		to_chat(src, SPAN_NOTICE("You return your vision to normal."))
 		src.stop_sight_update = 0
+		src.lighting_cutoff = default_lighting_cutoff
+		src.sync_lighting_plane_cutoff()
 
 /mob/living/carbon/human/proc/shadow_step(var/turf/T in world)
 	set category = "Abilities"

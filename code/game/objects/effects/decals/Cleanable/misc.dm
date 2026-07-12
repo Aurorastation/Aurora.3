@@ -129,6 +129,7 @@ ABSTRACT_TYPE(/obj/effect/decal/cleanable/greenglow/radioactive)
 	desc = "Somebody should remove that."
 	density = FALSE
 	anchored = TRUE
+	plane = GAME_PLANE
 	layer = ABOVE_HUMAN_LAYER
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "cobweb1"
@@ -138,6 +139,7 @@ ABSTRACT_TYPE(/obj/effect/decal/cleanable/greenglow/radioactive)
 	desc = "Somebody should remove that."
 	density = FALSE
 	anchored = TRUE
+	plane = GAME_PLANE
 	layer = ABOVE_HUMAN_LAYER
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "cobweb2"
@@ -147,6 +149,7 @@ ABSTRACT_TYPE(/obj/effect/decal/cleanable/greenglow/radioactive)
 	desc = "It looks like a gooey melted... something."
 	density = FALSE
 	anchored = TRUE
+	plane = GAME_PLANE
 	layer = OBJ_LAYER
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "molten"

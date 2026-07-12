@@ -70,7 +70,7 @@
 	var/light_rgb = COLOR_WHITE
 	power_draw_idle = 0 // Adjusted based on brightness.
 
-	light_system = MOVABLE_LIGHT
+	light_system = OVERLAY_LIGHT
 
 /obj/item/integrated_circuit/output/light/do_work()
 	light_toggled = !light_toggled

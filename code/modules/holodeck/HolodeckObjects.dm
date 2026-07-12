@@ -90,13 +90,13 @@
 	name = "\proper space"
 	icon_state = "0"
 	footstep_sound = null
-	plane = SPACE_PLANE
+	plane = PLANE_SPACE
 
 /turf/simulated/floor/holofloor/space/Initialize()
 	. = ..()
 	icon_state = "[((x + y) ^ ~(x * y) + z) % 25]"
 	var/image/I = image('icons/turf/space_parallax1.dmi',"[icon_state]")
-	I.plane = DUST_PLANE
+	I.plane = PLANE_SPACE_PARALLAX
 	I.alpha = 80
 	I.blend_mode = BLEND_ADD
 	AddOverlays(I)

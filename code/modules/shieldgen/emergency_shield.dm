@@ -98,6 +98,11 @@
 			visible_message(SPAN_WARNING("\The [src] shuts down."), SPAN_NOTICE("You hear a heavy droning fade out."))
 			shields_down()
 		check_delay = initial(check_delay)
+		return
+
+	if(!active)
+		check_delay = initial(check_delay)
+		return
 
 	if(malfunction)
 		if(deployed_shields.len && prob(5))
@@ -108,16 +113,16 @@
 
 	else
 		if(check_delay <= 0)
-			if(shields_up())
-				var/new_power_usage = 0
-				for(var/obj/structure/machinery/shield/shield_tile in deployed_shields)
-					new_power_usage += shield_tile.shield_sustain_power
+			create_shields()
+			var/new_power_usage = 0
+			for(var/obj/structure/machinery/shield/shield_tile in deployed_shields)
+				new_power_usage += shield_tile.shield_sustain_power
 
-				if(new_power_usage != active_power_usage)
-					change_power_consumption(new_power_usage, POWER_USE_ACTIVE)
-					use_power_oneoff(0)
+			if(new_power_usage != active_power_usage)
+				change_power_consumption(new_power_usage, POWER_USE_ACTIVE)
+				use_power_oneoff(0)
 
-				check_delay = initial(check_delay)
+			check_delay = initial(check_delay)
 		else
 			check_delay--
 

@@ -65,7 +65,7 @@
 		new_eye = src
 	QDEL_NULL(eyeobj)
 	if(client)
-		client.eye = new_eye
+		client.set_eye(new_eye)
 
 /mob/living/silicon/ai/proc/create_eyeobj(var/newloc = get_turf(src))
 	if(eyeobj) destroy_eyeobj()

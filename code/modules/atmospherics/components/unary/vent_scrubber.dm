@@ -56,7 +56,7 @@
 	if(mapload)
 		var/turf/T = loc
 		var/image/I = image(icon, T, icon_state, dir, pixel_x, pixel_y)
-		I.plane = ABOVE_LIGHTING_PLANE
+		SET_PLANE_EXPLICIT(I, ABOVE_LIGHTING_PLANE, src)
 		I.color = color
 		I.alpha = 125
 		LAZYADD(T.blueprints, I)
@@ -78,6 +78,11 @@
 
 	if (!scrubbing_gas)
 		reset_scrubbing()
+
+	if(mapload)
+		queue_icon_update()
+	else
+		update_icon()
 
 /obj/structure/machinery/atmospherics/unary/vent_scrubber/proc/reset_scrubbing()
 	if (initial(scrubbing_gas))
@@ -107,20 +112,25 @@
 	return ..()
 
 /obj/structure/machinery/atmospherics/unary/vent_scrubber/update_icon(var/safety = 0)
-	var/turf/T = get_turf(src)
-	if(!istype(T))
-		return
+	ClearOverlays()
+	if(!node)
+		update_use_power(POWER_USE_OFF)
 
-	if (welded)
+	if(welded)
 		icon_state = "weld"
-		return
-
-	if (!powered() || !use_power)
+		set_light(FALSE)
+		light_range = null
+	else if(!powered() || !use_power)
 		icon_state = "off"
-	else if (scrubbing)
-		icon_state = "on"
+		set_light(FALSE)
+		light_range = null
 	else
-		icon_state = "in"
+		icon_state = "[scrubbing ? "on" : "in"]"
+		AddOverlays(emissive_appearance(icon, "[scrubbing ? "on-e" : "in-e"]", src))
+		if(!light_range)
+			set_light(2, 0.4, scrubbing ? "#3378F6" : "#FF0001")
+
+	update_underlays()
 
 /obj/structure/machinery/atmospherics/unary/vent_scrubber/update_underlays()
 	if(..())
@@ -128,7 +138,7 @@
 		var/turf/T = get_turf(src)
 		if(!istype(T))
 			return
-		if(!T.is_plating() && node && node.level == 1 && istype(node, /obj/structure/machinery/atmospherics/pipe))
+		if(T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE && node && node.uses_undertile() && istype(node, /obj/structure/machinery/atmospherics/pipe))
 			return
 		else
 			if(node)
@@ -232,9 +242,8 @@
 
 	return 1
 
-/obj/structure/machinery/atmospherics/unary/vent_scrubber/hide(var/i) //to make the little pipe section invisible, the icon changes.
-	update_icon()
-	update_underlays()
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on_undertile_updated() // to make the little pipe section invisible, the icon changes.
+	queue_icon_update()
 
 /obj/structure/machinery/atmospherics/unary/vent_scrubber/receive_signal(datum/signal/signal)
 	if(stat & (NOPOWER|BROKEN))
@@ -369,7 +378,7 @@
 			to_chat(user, SPAN_WARNING("You cannot unwrench \the [src], turn it off first."))
 			return TRUE
 		var/turf/T = src.loc
-		if (node && node.level==1 && isturf(T) && !T.is_plating())
+		if (node && node.uses_undertile() && isturf(T) && T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE)
 			to_chat(user, SPAN_WARNING("You must remove the plating first."))
 			return TRUE
 		var/datum/gas_mixture/int_air = return_air()

@@ -7,6 +7,7 @@
 	density = TRUE
 	gender = PLURAL
 	opacity = TRUE
+	plane = WALL_PLANE
 	smoothing_flags = SMOOTH_TRUE
 	color = "#6e632f"
 
@@ -32,6 +33,7 @@ GLOBAL_LIST_INIT(mineral_can_smooth_with, list(
 	gender = PLURAL
 	var/icon/actual_icon = 'icons/turf/smooth/rock_dense.dmi'
 	color = "#6e632f"
+	plane = WALL_PLANE
 
 	// canSmoothWith is set in Initialize().
 	smoothing_flags = SMOOTH_MORE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
@@ -74,6 +76,20 @@ GLOBAL_LIST_INIT(mineral_can_smooth_with, list(
 		stack_trace("Warning: [src]([type]) initialized multiple times!")
 	flags_1 |= INITIALIZED_1
 
+	update_plane_from_z()
+
+	if(SSmapping.max_plane_offset)
+		var/turf/above_turf = GET_TURF_ABOVE(src)
+		if(above_turf)
+			above_turf.multiz_turf_new(src, DOWN)
+		var/turf/below_turf = GET_TURF_BELOW(src)
+		if(below_turf)
+			below_turf.multiz_turf_new(src, UP)
+
+	// By default, vis_contents is inherited from the turf that was here before.
+	if(length(vis_contents))
+		vis_contents.Cut()
+
 	if(icon != actual_icon)
 		icon = actual_icon
 
@@ -85,8 +101,9 @@ GLOBAL_LIST_INIT(mineral_can_smooth_with, list(
 
 	//Get area light
 	var/area/current_area = loc
-	if(current_area?.lighting_effect)
-		overlays += current_area.lighting_effect
+	var/offset = GET_TURF_PLANE_OFFSET(src)
+	if(offset && current_area?.lighting_effects && length(current_area.lighting_effects) >= offset + 1)
+		overlays += current_area.lighting_effects[offset + 1]
 
 	if(opacity)
 		directional_opacity = ALL_CARDINALS
@@ -212,6 +229,20 @@ GLOBAL_LIST_INIT(mineral_can_smooth_with, list(
 		stack_trace("Warning: [src]([type]) initialized multiple times!")
 	flags_1 |= INITIALIZED_1
 
+	update_plane_from_z()
+
+	if(SSmapping.max_plane_offset)
+		var/turf/above_turf = GET_TURF_ABOVE(src)
+		if(above_turf)
+			above_turf.multiz_turf_new(src, DOWN)
+		var/turf/below_turf = GET_TURF_BELOW(src)
+		if(below_turf)
+			below_turf.multiz_turf_new(src, UP)
+
+	// By default, vis_contents is inherited from the turf that was here before.
+	if(length(vis_contents))
+		vis_contents.Cut()
+
 	if(icon != actual_icon)
 		icon = actual_icon
 
@@ -223,8 +254,9 @@ GLOBAL_LIST_INIT(mineral_can_smooth_with, list(
 
 	//Get area light
 	var/area/current_area = loc
-	if(current_area?.lighting_effect)
-		overlays += current_area.lighting_effect
+	var/offset = GET_TURF_PLANE_OFFSET(src)
+	if(offset && current_area?.lighting_effects && length(current_area.lighting_effects) >= offset + 1)
+		overlays += current_area.lighting_effects[offset + 1]
 
 	if(opacity)
 		directional_opacity = ALL_CARDINALS
@@ -756,6 +788,20 @@ GLOBAL_LIST_INIT(asteroid_floor_smooth, list(
 		stack_trace("Warning: [src]([type]) initialized multiple times!")
 	flags_1 |= INITIALIZED_1
 
+	update_plane_from_z()
+
+	if(SSmapping.max_plane_offset)
+		var/turf/above_turf = GET_TURF_ABOVE(src)
+		if(above_turf)
+			above_turf.multiz_turf_new(src, DOWN)
+		var/turf/below_turf = GET_TURF_BELOW(src)
+		if(below_turf)
+			below_turf.multiz_turf_new(src, UP)
+
+	// By default, vis_contents is inherited from the turf that was here before.
+	if(length(vis_contents))
+		vis_contents.Cut()
+
 	if(icon != base_icon)	// Setting icon is an appearance change, so avoid it if we can.
 		icon = base_icon
 
@@ -776,8 +822,9 @@ GLOBAL_LIST_INIT(asteroid_floor_smooth, list(
 
 	//Get area light
 	var/area/current_area = loc
-	if(current_area?.lighting_effect)
-		overlays += current_area.lighting_effect
+	var/offset = GET_TURF_PLANE_OFFSET(src)
+	if(offset && current_area?.lighting_effects && length(current_area.lighting_effects) >= offset + 1)
+		overlays += current_area.lighting_effects[offset + 1]
 
 	return INITIALIZE_HINT_NORMAL
 
