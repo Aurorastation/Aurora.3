@@ -192,8 +192,6 @@
 	var/is_emissive = FALSE
 	/// Whether the limb has an active overlay icon state associated with it
 	var/is_overlay = FALSE
-	/// Whether the limb is a tesla limb (required for special handling)
-	var/is_tesla = FALSE
 
 /obj/item/organ/external/Initialize(mapload)
 	if(robotize_type)
@@ -226,7 +224,6 @@
 		limb_flags &= ~ORGAN_HAS_TENDON
 
 /obj/item/organ/external/Destroy()
-
 	if(parent?.children)
 		parent.children -= src
 
@@ -359,6 +356,8 @@
 /obj/item/organ/external/proc/dislocate(var/primary)
 	if(dislocated == -1)
 		return
+
+	START_PROCESSING(SSprocessing, src)
 	if(primary)
 		dislocated = 2
 	else
@@ -372,6 +371,7 @@
 	if(dislocated == -1)
 		return
 
+	START_PROCESSING(SSprocessing, src)
 	dislocated = 0
 	if(children && children.len)
 		for(var/obj/item/organ/external/child in children)
@@ -385,11 +385,12 @@
 		remove_verb(owner, /mob/living/carbon/human/proc/undislocate)
 
 /obj/item/organ/external/update_organ_health()
+	START_PROCESSING(SSprocessing, src)
 	damage = min(max_damage, (brute_dam + burn_dam))
 
-/obj/item/organ/external/replaced(var/mob/living/carbon/human/target)
-	..()
-
+/obj/item/organ/external/replaced(mob/living/carbon/human/target)
+	. = ..()
+	START_PROCESSING(SSprocessing, src)
 	if(istype(owner))
 		owner.organs_by_name[limb_name] = src
 		owner.organs |= src
@@ -438,11 +439,12 @@
 	brute = round(brute * brute_mod, 0.1)
 	burn = round(burn * burn_mod, 0.1)
 	if((brute <= 0) && (burn <= 0))
-		return 0
+		return FALSE
 
 	if(damage_flags & DAMAGE_FLAG_IGNORE_PROSTHETICS && BP_IS_ROBOTIC(src))
-		return 0
+		return FALSE
 
+	START_PROCESSING(SSprocessing, src)
 	var/laser = (damage_flags & DAMAGE_FLAG_LASER)
 	var/sharp = (damage_flags & DAMAGE_FLAG_SHARP)
 	var/edge = (damage_flags & DAMAGE_FLAG_EDGE)
@@ -548,7 +550,7 @@
 	var/list/victims = list()
 	var/organ_hit_chance = 0
 	for(var/obj/item/organ/internal/I in internal_organs)
-		if(I.damage < I.max_damage)
+		if(I.get_damage() < I.max_damage)
 			victims[I] = I.relative_size
 			organ_hit_chance += I.relative_size
 
@@ -569,6 +571,7 @@
 		var/obj/item/organ/internal/victim = pickweight(victims)
 		damage_amt -= max(damage_amt*victim.damage_reduction, 0)
 		victim.take_internal_damage(damage_amt)
+		START_PROCESSING(SSprocessing, src)
 		return TRUE
 
 /obj/item/organ/external/proc/handle_limb_gibbing(var/used_weapon, var/brute, var/burn)
@@ -628,7 +631,7 @@
 	SEND_SIGNAL(src, COMSIG_UPDATE_LIMB_IMAGE)
 
 	owner.updatehealth()
-
+	START_PROCESSING(SSprocessing, src)
 	return update_icon()
 
 /*
@@ -658,12 +661,12 @@ This function completely restores a damaged organ to perfect condition.
 		tendon.rejuvenate()
 
 	owner.updatehealth()
-
+	START_PROCESSING(SSprocessing, src)
 
 /obj/item/organ/external/proc/createwound(type = INJURY_TYPE_CUT, damage)
 	if(damage <= 0 || !owner)
 		return
-
+	START_PROCESSING(SSprocessing, src)
 	//moved this before the open_wound check so that having many small wounds for example doesn't somehow protect you from taking internal damage (because of the return)
 	//Possibly trigger an internal wound, too.
 	var/local_damage = brute_dam + burn_dam + damage
@@ -768,70 +771,50 @@ This function completely restores a damaged organ to perfect condition.
 
 //Determines if we even need to process this organ.
 /obj/item/organ/external/proc/need_process()
-	if(BP_IS_ROBOTIC(src) && surge_damage)
-		return TRUE
-	if(is_tesla && owner)
-		return TRUE
 	if(BP_IS_ROBOTIC(src))
-		return FALSE
-	if(get_pain())
-		return TRUE
-	if(status & (ORGAN_CUT_AWAY|ORGAN_BLEEDING|ORGAN_BROKEN|ORGAN_DESTROYED|ORGAN_SPLINTED|ORGAN_DEAD|ORGAN_MUTATED))
-		return TRUE
-	if(brute_dam || burn_dam)
+		return surge_damage
+	if(get_pain() || status & (ORGAN_CUT_AWAY|ORGAN_BLEEDING|ORGAN_BROKEN|ORGAN_DESTROYED|ORGAN_SPLINTED|ORGAN_DEAD|ORGAN_MUTATED|ORGAN_ARTERY_CUT) || brute_dam || burn_dam)
 		return TRUE
 	if(last_dam != brute_dam + burn_dam) // Process when we are fully healed up.
 		last_dam = brute_dam + burn_dam
 		return TRUE
 	else
 		last_dam = brute_dam + burn_dam
-	if(germ_level)
-		return TRUE
-	return FALSE
+	return germ_level
 
 /obj/item/organ/external/process(seconds_per_tick)
-	if(owner)
-		//Specialized handling for tesla limbs. Checks if the limb currently has an associated tesla spine. Else, will disable the emissive and active overlays
-		if(is_tesla)
-			var/obj/item/organ/internal/augment/tesla/T = owner.internal_organs_by_name[BP_AUG_TESLA]
-			if(T && !T.is_broken())
-				is_emissive = initial(is_emissive)
-				is_overlay = initial(is_overlay)
-			else
-				is_emissive = FALSE
-				is_overlay = FALSE
-			return
+	. = ..()
+	if (!need_process())
+		return PROCESS_KILL
 
-		// Process wounds, doing healing etc. Only do this every few ticks to save processing power
-		if(owner.life_tick % wound_update_accuracy == 0)
-			update_wounds()
+	if(!owner)
+		return
 
-		//Chem traces slowly vanish
-		if(owner.life_tick % 10 == 0)
-			for(var/chemID in trace_chemicals)
-				trace_chemicals[chemID] = trace_chemicals[chemID] - 1
-				if(trace_chemicals[chemID] <= 0)
-					trace_chemicals.Remove(chemID)
+	// Process wounds, doing healing etc. Only do this every few ticks to save processing power
+	if(owner.life_tick % wound_update_accuracy == 0)
+		update_wounds()
 
-		if(!(status & ORGAN_BROKEN))
-			perma_injury = 0
+	//Chem traces slowly vanish
+	if(owner.life_tick % 10 == 0)
+		for(var/chemID in trace_chemicals)
+			trace_chemicals[chemID] = trace_chemicals[chemID] - 1
+			if(trace_chemicals[chemID] <= 0)
+				trace_chemicals.Remove(chemID)
 
-		if(status & ORGAN_NYMPH)
-			var/datum/component/nymph_limb/N = GetComponent(/datum/component/nymph_limb)
-			N.handle_nymph(src)
+	if(!(status & ORGAN_BROKEN))
+		perma_injury = 0
 
-		if(surge_damage && (status & ORGAN_ASSISTED))
-			tick_surge_damage(seconds_per_tick) //Yes, this being here is intentional since this proc does not call ..() unless the owner is null.
+	if(surge_damage && (status & ORGAN_ASSISTED))
+		tick_surge_damage(seconds_per_tick) //Yes, this being here is intentional since this proc does not call ..() unless the owner is null.
 
-		//Infections
-		update_germs()
+	//Infections
+	update_germs()
 
-		//check if an online RIG can splint the broken bone
-		check_rigsplints()
-	else
-		..()
+	//check if an online RIG can splint the broken bone
+	check_rigsplints()
 
 /obj/item/organ/external/do_surge_effects()
+	START_PROCESSING(SSprocessing, src)
 	if(prob(surge_damage))
 		owner.custom_pain("The artificial nerves in your [name] scream out in pain!", surge_damage/6)
 
@@ -898,6 +881,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 	for(var/datum/wound/W as anything in wounds)
 		//Open wounds can become infected
 		if (owner.germ_level > W.germ_level && W.infection_check())
+			START_PROCESSING(SSprocessing, src)
 			W.germ_level++
 			if(!increased_own_germs && antibiotics < 5 && W.germ_level > germ_level)
 				germ_level++
@@ -928,6 +912,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 		infect_target_external = null
 		return ..()
 
+	START_PROCESSING(SSprocessing, src)
 	germ_level++
 
 	if(germ_level >= INFECTION_LEVEL_TWO && REAGENT_VOLUME(owner.reagents, /singleton/reagent/thetamycin) < 5) //The presence of 5 units of thetamycin will stop infections spreading
@@ -1293,6 +1278,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 	if(QDELETED(owner))
 		return
 
+	START_PROCESSING(SSprocessing, src)
 	if(!silent)
 		var/message = pick("broke in half", "shattered")
 		owner.visible_message(\
@@ -1358,9 +1344,13 @@ Note that amputating the affected organ does in fact remove the infection from t
 			else
 				is_overlay = FALSE
 			if(R.is_tesla)
-				is_tesla = TRUE
-			else
-				is_tesla = FALSE
+				// We don't know if the tesla limb or the tesla spine spawned first.
+				// So both will attempt to check for each other once during init.
+				var/obj/item/organ/internal/augment/tesla/T = owner?.internal_organs_by_name[BP_AUG_TESLA]
+				if (T && !T.is_broken())
+					is_emissive = TRUE
+					is_overlay = TRUE
+
 			brute_mod = R.brute_mod
 			burn_mod = R.burn_mod
 			robotize_type = company
@@ -1389,6 +1379,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 	if(BP_IS_ROBOTIC(src))
 		return
 	src.status |= ORGAN_MUTATED
+	START_PROCESSING(SSprocessing, src)
 	if(owner) owner.update_body()
 
 /obj/item/organ/external/proc/unmutate()
@@ -1396,7 +1387,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 		src.status &= ~ORGAN_MUTATED
 		if(owner) owner.update_body()
 
-/obj/item/organ/external/proc/get_damage()	//returns total damage
+/obj/item/organ/external/get_damage()	//returns total damage
 	return max(brute_dam + burn_dam - perma_injury, perma_injury)	//could use max_damage?
 
 /obj/item/organ/external/proc/has_infected_wound()
@@ -1461,6 +1452,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 	if(!supplied_wound || (W in supplied_wound.embedded_objects)) // Just in case.
 		return
 
+	START_PROCESSING(SSprocessing, src)
 	LAZYADD(supplied_wound.embedded_objects, W)
 	implants += W
 	owner.embedded_flag = 1
@@ -1474,7 +1466,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 #undef EMBED_BASE_DAMAGE
 
 /obj/item/organ/external/removed(var/mob/living/user, var/ignore_children = 0)
-
+	START_PROCESSING(SSprocessing, src)
 	if(!owner)
 		return
 	var/is_robotic = BP_IS_ROBOTIC(src)
@@ -1544,6 +1536,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 			owner.visible_message(SPAN_WARNING("\The [owner]'s [name] melts away, turning into a mangled mess!"),	\
 			SPAN_DANGER("Your [name] melts away!"),	\
 			SPAN_WARNING("You hear a sickening sizzle."))
+	START_PROCESSING(SSprocessing, src)
 	disfigured = 1
 
 /obj/item/organ/external/proc/get_wounds_desc()
@@ -1648,6 +1641,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 		return FALSE
 	else
 		status |= ORGAN_ARTERY_CUT
+		START_PROCESSING(SSprocessing, src)
 		return TRUE
 
 /obj/item/organ/external/proc/tendon_status()
@@ -1737,6 +1731,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 	if(amount > 5 && owner)
 		owner.undo_srom_pull()
 	SEND_SIGNAL(src, COMSIG_UPDATE_LIMB_IMAGE)
+	START_PROCESSING(SSprocessing, src)
 	return pain-last_pain
 
 /mob/living/carbon/human/proc/undo_srom_pull()
