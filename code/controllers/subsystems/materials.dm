@@ -38,7 +38,7 @@ SUBSYSTEM_DEF(materials)
 
 	material_name = lowertext(material_name)
 	if(material_name == "metal")
-		material_name = DEFAULT_WALL_MATERIAL
+		material_name = "steel" // old DEFAULT_WALL_MATERIAL_NAME
 
 	. = materials_by_name[material_name]
 	if(!. && log_missing)

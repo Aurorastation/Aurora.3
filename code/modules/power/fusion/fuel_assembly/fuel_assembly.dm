@@ -27,11 +27,7 @@
 		fuel_colour = initial(R.color)
 		initial_amount = 50000
 
-	var/singleton/material/material
-	if(ispath(fuel_type) && ispath(fuel_type, /singleton/material))
-		material = GET_SINGLETON(fuel_type)
-	else if(istext(fuel_type))
-		material = SSmaterials.get_material_by_name(fuel_type)
+	var/singleton/material/material = SSmaterials.get_material_by_id(fuel_type, FALSE)
 	if(istype(material))
 		material_name = material.type
 		initial_amount = SHEET_MATERIAL_AMOUNT * 5 // Fuel compressor eats 5 sheets.

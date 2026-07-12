@@ -48,10 +48,7 @@
 	return harvest_from
 
 /obj/structure/machinery/kinetic_harvester/proc/get_harvest_material(var/mat)
-	if(ispath(mat) && ispath(mat, /singleton/material))
-		return GET_SINGLETON(mat)
-	if(istext(mat))
-		return SSmaterials.get_material_by_name(mat)
+	return SSmaterials.get_material_by_id(mat)
 
 /obj/structure/machinery/kinetic_harvester/ui_interact(mob/user, datum/tgui/ui)
 

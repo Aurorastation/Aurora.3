@@ -6,7 +6,7 @@
 	drop_sound = 'sound/items/drop/component.ogg'
 	pickup_sound = 'sound/items/pickup/component.ogg'
 	origin_tech = list(TECH_MAGNET = 1)
-	matter = list(DEFAULT_WALL_MATERIAL = 1000, MATERIAL_GLASS = 200)
+	matter = list(MATERIAL_STEEL = 1000, MATERIAL_GLASS = 200)
 	wires = WIRE_RECEIVE_ASSEMBLY | WIRE_PULSE_ASSEMBLY | WIRE_RADIO_PULSE | WIRE_RADIO_RECEIVE
 
 	secured = TRUE

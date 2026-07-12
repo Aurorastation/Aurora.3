@@ -318,7 +318,7 @@ BREATH ANALYZER
 	throwforce = 0
 	throw_speed = 3
 	throw_range = 3
-	matter = list(DEFAULT_WALL_MATERIAL = 25, MATERIAL_GLASS = 25)
+	matter = list(MATERIAL_STEEL = 25, MATERIAL_GLASS = 25)
 
 /obj/item/price_scanner/afterattack(atom/movable/target, mob/user as mob, proximity)
 	if(!proximity)

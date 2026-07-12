@@ -81,7 +81,7 @@
 
 	if(!non_material_object)
 		if(!isnull(material) && !istype(material))
-			material = GET_SINGLETON(material)
+			material = SSmaterials.get_material_by_id(material)
 		if(!istype(material))
 			return INITIALIZE_HINT_QDEL
 

@@ -26,7 +26,7 @@
 
 	if(!default_type)
 		default_type = MATERIAL_STEEL
-	material = GET_SINGLETON(default_type)
+	material = SSmaterials.get_material_by_id(default_type)
 	if(!material)
 		return INITIALIZE_HINT_QDEL
 
@@ -283,7 +283,7 @@
 	update_icon()
 
 /obj/item/stack/material/steel
-	name = DEFAULT_WALL_MATERIAL
+	name = "steel"
 	icon_state = "sheet-metal"
 	default_type = MATERIAL_STEEL
 	icon_has_variants = TRUE
