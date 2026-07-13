@@ -108,7 +108,7 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 	// Snowflake case for checking player characters for a Pilot Spacecraft Skill.
 	// Only player characters will have the component. Which will both always be present on them, and will only enable its own return logic if it exists.
 	// NPCs, Ghostroles, and Offship Antags that don't generate skills are unaffected by this check by intentional design so that we don't have to account for them.
-	if (!connected.pilot_class && pilot_level <= SKILL_LEVEL_UNFAMILIAR)
+	if (!connected.pilot_class && pilot_level && pilot_level <= SKILL_LEVEL_UNFAMILIAR)
 	// No pilot_class means it's probably a station, so only Unfamiliar is checked for
 		to_chat(user, SPAN_WARNING("There's just so many buttons... You have no idea where to even begin."))
 		return FALSE
