@@ -132,7 +132,8 @@
 	Salamasian Republic, a majority human nation of colonists brought over by Hephaestus Industries \
 	over a century prior to the influx of Trinarist settlers. Both the humans and synthetics are known \
 	for their aversion to violence, their strong community spirit, and a stringent dedication to the \
-	tenets of the Trinary Perfection - or, at least, the appearance thereof."
+	tenets of the Trinary Perfection - though not all follow the state religion, and not all follow \
+	it devoutly."
 	possible_accents = list(ACCENT_AXIOM)
 	possible_citizenships = list(CITIZENSHIP_AXIOM)
 	possible_religions = RELIGIONS_COALITION

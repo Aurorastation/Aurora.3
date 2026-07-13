@@ -20,7 +20,10 @@
 	of the Orion Spur, although that is no promise that life is easy. The Ecclesiastical Authority of \
 	Axiom has only domain over the deserts of its planet, while all arable hand is governed by the \
 	Salamasian Republic, a majority human nation of colonists brought over by Hephaestus Industries \
-	over a century prior to the influx of Trinarist settlers."
+	over a century prior to the influx of Trinarist settlers. Both the humans and synthetics are known \
+	for their aversion to violence, their strong community spirit, and a stringent dedication to the \
+	tenets of the Trinary Perfection - though not all follow the state religion, and not all follow \
+	it devoutly."
 	possible_accents = list(ACCENT_AXIOM, ACCENT_CETI, ACCENT_TTS, ACCENT_XANU, ACCENT_COC, ACCENT_ELYRA, ACCENT_ERIDANI, ACCENT_ERIDANIDREG, ACCENT_ERIDANIREINSTATED, ACCENT_SOL, ACCENT_SILVERSUN_EXPATRIATE, ACCENT_SILVERSUN_ORIGINAL, ACCENT_PHONG, ACCENT_MARTIAN, ACCENT_KONYAN, ACCENT_LUNA, ACCENT_GIBSON, ACCENT_HIMEO, ACCENT_VYSOKA, ACCENT_VENUS, ACCENT_VENUSJIN, ACCENT_JUPITER, ACCENT_CALLISTO, ACCENT_EUROPA, ACCENT_EARTH, ACCENT_NCF, ACCENT_PLUTO, ACCENT_ASSUNZIONE, ACCENT_VISEGRAD, ACCENT_SANCOLETTE, ACCENT_VALKYRIE, ACCENT_MICTLAN, ACCENT_PERSEPOLIS, ACCENT_MEDINA, ACCENT_NEWSUEZ, ACCENT_AEMAQ, ACCENT_DAMASCUS)
 	possible_citizenships = list(CITIZENSHIP_AXIOM)
 	possible_religions = RELIGIONS_ALL_IPC
