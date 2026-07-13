@@ -165,7 +165,7 @@
 	desc = "A layered, translucent visor system for a hardsuit."
 	icon_state = "meson"
 
-	construction_cost = list(DEFAULT_WALL_MATERIAL = 1500, MATERIAL_GLASS = 5000)
+	construction_cost = list(MATERIAL_STEEL = 1500, MATERIAL_GLASS = 5000)
 	construction_time = 300
 
 	active_power_cost = 2
@@ -197,7 +197,7 @@
 	desc = "A multi input night vision system for a hardsuit."
 	icon_state = "night"
 
-	construction_cost = list(DEFAULT_WALL_MATERIAL = 1500, MATERIAL_GLASS = 5000, MATERIAL_URANIUM = 5000)
+	construction_cost = list(MATERIAL_STEEL = 1500, MATERIAL_GLASS = 5000, MATERIAL_URANIUM = 5000)
 	construction_time = 300
 
 	active_power_cost = 2
@@ -214,7 +214,7 @@
 	desc = "A simple tactical information system for a hardsuit."
 	icon_state = "securityhud"
 
-	construction_cost = list(DEFAULT_WALL_MATERIAL = 1500, MATERIAL_GLASS = 5000)
+	construction_cost = list(MATERIAL_STEEL = 1500, MATERIAL_GLASS = 5000)
 	construction_time = 300
 
 	interface_name = "security HUD"
@@ -229,7 +229,7 @@
 	desc = "A simple medical status indicator for a hardsuit."
 	icon_state = "healthhud"
 
-	construction_cost = list(DEFAULT_WALL_MATERIAL = 1500, MATERIAL_GLASS = 5000)
+	construction_cost = list(MATERIAL_STEEL = 1500, MATERIAL_GLASS = 5000)
 	construction_time = 300
 
 	interface_name = "medical HUD"

@@ -16,7 +16,7 @@
 	throw_speed = 5
 	throw_range = 10
 	origin_tech = list(TECH_MAGNET = 2, TECH_BIO = 1, TECH_ENGINEERING = 2)
-	matter = list(DEFAULT_WALL_MATERIAL = 500, MATERIAL_GLASS = 200)
+	matter = list(MATERIAL_STEEL = 500, MATERIAL_GLASS = 200)
 
 /obj/item/robotanalyzer/attack(mob/living/target_mob, mob/living/user, target_zone)
 	robotic_analyze_mob(target_mob, user)
@@ -107,7 +107,7 @@
 				if(machine_organ.get_integrity() < 100)
 					to_chat(user, "<font color='#FFA500'><b>[machine_organ.name]:</b> Integrity damage detected.</font>")
 					found_damage = TRUE
-			else if(O.damage)
+			else if(O.get_damage())
 				to_chat(user, SPAN_WARNING("<b>[O.name]:</b> Core damage detected."))
 				found_damage = TRUE
 			if(!found_damage)

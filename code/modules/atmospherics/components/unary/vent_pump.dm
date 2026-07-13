@@ -50,6 +50,8 @@
 
 	var/broadcast_status_next_process = FALSE
 
+	var/datum/looping_sound/ventilation_humming/ventilation_humming
+
 /obj/structure/machinery/atmospherics/unary/vent_pump/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "This pumps the contents of the attached pipe out into the atmosphere, if needed."
@@ -118,6 +120,7 @@
 		assign_uid()
 		id_tag = num2text(uid)
 	setup_radio()
+	ventilation_humming = new(src)
 
 /obj/structure/machinery/atmospherics/unary/vent_pump/proc/setup_radio()
 	//some vents work his own special way
@@ -219,7 +222,12 @@
 
 	if (!node)
 		update_use_power(POWER_USE_OFF)
-	if(!can_pump())
+	if(can_pump())
+		if(ventilation_humming && !ventilation_humming.loop_started)
+			ventilation_humming.start()
+	else
+		if(ventilation_humming && ventilation_humming.loop_started)
+			ventilation_humming.stop()
 		return 0
 
 	if(!loc) return FALSE

@@ -11,7 +11,7 @@
 	throwforce = 0
 	w_class = WEIGHT_CLASS_NORMAL
 	origin_tech = list(TECH_ENGINEERING = 2)
-	matter = list(DEFAULT_WALL_MATERIAL = 18750)
+	matter = list(MATERIAL_STEEL = 18750)
 	can_buckle = list(/mob/living)
 
 	update_icon_on_init = TRUE
@@ -419,7 +419,7 @@
 	force = 1
 	w_class = WEIGHT_CLASS_SMALL
 	origin_tech = list(TECH_ENGINEERING = 1)
-	matter = list(DEFAULT_WALL_MATERIAL = 1750)
+	matter = list(MATERIAL_STEEL = 1750)
 	health = 100
 	can_astar_pass = CANASTARPASS_ALWAYS_PROC
 	time_to_escape = 3 MINUTES
@@ -829,7 +829,7 @@
 	force = 11
 	w_class = WEIGHT_CLASS_BULKY
 	origin_tech = list(TECH_ENGINEERING = 3)
-	matter = list(DEFAULT_WALL_MATERIAL = 5750)
+	matter = list(MATERIAL_STEEL = 5750)
 
 	max_mob_size = MOB_SMALL
 	resources = list(/obj/item/stack/rods = 12)
@@ -848,7 +848,7 @@
 	w_class = 6
 	density = TRUE
 	origin_tech = list(TECH_ENGINEERING = 3)
-	matter = list(DEFAULT_WALL_MATERIAL = 15750)
+	matter = list(MATERIAL_STEEL = 15750)
 
 	max_mob_size = 20
 	resources = list(/obj/item/stack/rods = 12, /obj/item/stack/material/steel = 4)

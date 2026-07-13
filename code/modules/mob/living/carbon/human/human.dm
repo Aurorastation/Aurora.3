@@ -486,7 +486,7 @@
 		return get_id_name("Unknown")
 	if( head && (head.flags_inv&HIDEFACE) )
 		return get_id_name("Unknown")		//Likewise for hats
-	if(istype(wear_suit, /obj/item/clothing/suit/vaurca/shaper)) //Check for Preimminent Shaper helmet which obscures Hive affiliation
+	if(istype(wear_suit, /obj/item/clothing/suit/vaurca/shaper)) //Check for Preimminent robes which obscures Hive affiliation
 		var/list/hiveless_name = splittext(real_name, " ") //then remove Hive surname, ignore ID for obvious reason.
 		return hiveless_name[1]
 	var/face_name = get_face_name()
@@ -1131,7 +1131,7 @@
 	..()
 	if(should_have_organ(BP_STOMACH))
 		var/obj/item/organ/internal/stomach/stomach = internal_organs_by_name[BP_STOMACH]
-		if(!stomach || stomach.is_broken() || (stomach.is_bruised() && prob(stomach.damage)))
+		if(!stomach || stomach.is_broken() || (stomach.is_bruised() && prob(stomach.get_damage())))
 			if(should_have_organ(BP_HEART))
 				vessel.trans_to_obj(vomit, 5)
 			else
@@ -1511,7 +1511,7 @@
 	else
 		to_chat(usr, SPAN_WARNING("You failed to check the pulse. Try again."))
 
-/mob/living/carbon/human/proc/set_species(var/new_species, var/default_colour, var/kpg=0, var/change_hair = TRUE)
+/mob/living/carbon/human/proc/set_species(new_species, default_colour, kpg = 0, change_hair = TRUE)
 	cached_bodytype = null
 	if(!dna)
 		if(!new_species)
@@ -1638,6 +1638,7 @@
 		client.init_verbs()
 
 	update_emotes()
+	mass = initial(mass) * species.mass_modifier
 
 	if(species)
 		return TRUE

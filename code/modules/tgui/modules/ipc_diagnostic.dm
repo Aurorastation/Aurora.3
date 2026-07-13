@@ -52,7 +52,7 @@
 
 			organ_data["name"] = organ.name
 			organ_data["desc"] = organ.desc
-			organ_data["damage"] = edit_organ_status(organ.damage, diagnostics)
+			organ_data["damage"] = edit_organ_status(organ.get_damage(), diagnostics)
 			organ_data["max_damage"] = organ.max_damage
 
 			data["organs"] += list(organ_data)

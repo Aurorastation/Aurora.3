@@ -111,3 +111,18 @@
 	desc = "A pair of sturdy and thick decorative bracers, seeming better for fashion than protection. They're encrusted with ruby-red gems, and made of <b>REAL</b> faux gold."
 	icon_state = "ruby_bracers"
 	item_state = "ruby_bracers"
+
+/obj/item/clothing/wrists/newgibson_uraniumglass_bracelet
+	name = "uranium glass bracelet"
+	desc = "An enamelled, radiofluorescent uranium glass bracelet. Only marginally radioactive. Commonly seen worn on New Gibsonites."
+	icon = 'icons/obj/item/clothing/wrists/human/biesel/newgibson_uraniumglass_bracelet.dmi'
+	icon_state = "newgibson_bracelet"
+	item_state = "newgibson_bracelet"
+	plane = ABOVE_LIGHTING_PLANE
+	contained_sprite = TRUE
+
+/obj/item/clothing/wrists/newgibson_uraniumglass_bracelet/get_mob_overlay(var/mob/living/carbon/human/H)
+	var/image/I = ..()
+	I.plane = ABOVE_LIGHTING_PLANE
+	I.appearance_flags |= KEEP_APART
+	return I

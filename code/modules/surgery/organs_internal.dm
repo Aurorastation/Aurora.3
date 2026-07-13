@@ -340,7 +340,7 @@
 		return FALSE
 	else if(target.species.has_organ[O.organ_tag] || O.is_augment)
 
-		if(O.damage > (O.max_damage * 0.75))
+		if(O.get_damage() > (O.max_damage * 0.75))
 			to_chat(user, SPAN_WARNING("\The [O.organ_tag] [o_is] in no state to be transplanted."))
 			return SURGERY_FAILURE
 

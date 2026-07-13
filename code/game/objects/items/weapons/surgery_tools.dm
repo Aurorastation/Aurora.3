@@ -31,7 +31,7 @@
 	icon_state = "retractor"
 	item_state = "retractor"
 	surgerysound = 'sound/items/surgery/retractor.ogg'
-	matter = list(DEFAULT_WALL_MATERIAL = 10000, MATERIAL_GLASS = 5000)
+	matter = list(MATERIAL_STEEL = 10000, MATERIAL_GLASS = 5000)
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 1)
 	tool_behaviour = TOOL_RETRACTOR
@@ -45,7 +45,7 @@
 	icon_state = "hemostat"
 	item_state = "hemostat"
 	surgerysound = 'sound/items/surgery/hemostat.ogg'
-	matter = list(DEFAULT_WALL_MATERIAL = 5000, MATERIAL_GLASS = 2500)
+	matter = list(MATERIAL_STEEL = 5000, MATERIAL_GLASS = 2500)
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 1)
 	attack_verb = list("attacked", "pinched")
@@ -60,7 +60,7 @@
 	icon_state = "cautery"
 	item_state = "cautery"
 	surgerysound = 'sound/items/surgery/cautery.ogg'
-	matter = list(DEFAULT_WALL_MATERIAL = 5000, MATERIAL_GLASS = 2500)
+	matter = list(MATERIAL_STEEL = 5000, MATERIAL_GLASS = 2500)
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 1)
 	attack_verb = list("burnt")
@@ -76,7 +76,7 @@
 	item_state = "drill"
 	surgerysound = 'sound/items/surgery/surgicaldrill.ogg'
 	hitsound = SFX_DRILL_HIT
-	matter = list(DEFAULT_WALL_MATERIAL = 15000, MATERIAL_GLASS = 10000)
+	matter = list(MATERIAL_STEEL = 15000, MATERIAL_GLASS = 10000)
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	force = 22
 	w_class = WEIGHT_CLASS_NORMAL
@@ -105,7 +105,7 @@
 	throw_speed = 3
 	throw_range = 5
 	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 1)
-	matter = list(DEFAULT_WALL_MATERIAL = 10000, MATERIAL_GLASS = 5000)
+	matter = list(MATERIAL_STEEL = 10000, MATERIAL_GLASS = 5000)
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	drop_sound = 'sound/items/drop/knife.ogg'
 	pickup_sound = 'sound/items/pickup/knife.ogg'
@@ -120,7 +120,7 @@
 	desc = "A scalpel augmented with a directed laser, for more precise cutting without blood entering the field."
 	icon_state = "scalpel_laser"
 	surgerysound = 'sound/items/surgery/cautery.ogg'
-	matter = list(DEFAULT_WALL_MATERIAL = 12500, MATERIAL_GLASS = 7500)
+	matter = list(MATERIAL_STEEL = 12500, MATERIAL_GLASS = 7500)
 	damtype = "fire"
 	force = 18
 	tool_quality = STANDARD_TOOL_LEVEL + 1
@@ -130,7 +130,7 @@
 	desc = "A true extension of the surgeon's body, this marvel instantly and completely prepares an incision allowing for the immediate commencement of therapeutic steps."
 	icon_state = "scalpel_manager"
 	surgerysound = 'sound/items/surgery/cautery.ogg'
-	matter = list (DEFAULT_WALL_MATERIAL = 12500, MATERIAL_GLASS = 7500, MATERIAL_SILVER = 1500, MATERIAL_GOLD = 1500, MATERIAL_DIAMOND = 750)
+	matter = list (MATERIAL_STEEL = 12500, MATERIAL_GLASS = 7500, MATERIAL_SILVER = 1500, MATERIAL_GOLD = 1500, MATERIAL_DIAMOND = 750)
 	force = 8
 	tool_quality = STANDARD_TOOL_LEVEL + 2
 
@@ -151,7 +151,7 @@
 	throw_speed = 3
 	throw_range = 5
 	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 1)
-	matter = list(DEFAULT_WALL_MATERIAL = 20000, MATERIAL_GLASS = 10000)
+	matter = list(MATERIAL_STEEL = 20000, MATERIAL_GLASS = 10000)
 	attack_verb = list("attacked", "slashed", "sawed", "cut")
 	sharp = TRUE
 	edge = TRUE

@@ -51,43 +51,87 @@
 /singleton/skill/pilot_spacecraft
 	name = "Pilot: Spacecraft"
 	description = "Governs the user's ability to pilot spacecraft of any size, and is required to do so in the first place."
-	maximum_level = SKILL_LEVEL_FAMILIAR
-	uneducated_skill_cap = SKILL_LEVEL_FAMILIAR
+	maximum_level = SKILL_LEVEL_PROFESSIONAL
+	uneducated_skill_cap = SKILL_LEVEL_TRAINED
 	category =  /singleton/skill_category/occupational
 	subcategory = SKILL_SUBCATEGORY_OPERATIONS
 	skill_level_map = list(
 		"Unlicensed",
-		"Licensed Pilot"
+		"Shuttle Pilot",
+		"Class II Pilot",
+		"Class IV Pilot"
 	)
 	skill_level_descriptions = alist(
-		SKILL_LEVEL_UNFAMILIAR = "You are incapable of piloting spacecraft.",
-		SKILL_LEVEL_FAMILIAR = "You are capable of piloting spacecraft."
+		SKILL_LEVEL_UNFAMILIAR = "You are inexperienced and mostly incapable of piloting spacecraft, but may attempt piloting shuttles in emergencies.<br>" \
+		+ "- There is only a <b>70%</b> chance you will be able to view the consoles after several seconds waiting.<br>" \
+		+ "- Accelerations and Slows take <b>2</b> seconds to peform.<br>" \
+		+ "  - Additional 65% chance to accelerate further.<br>" \
+		+ "  - Additional 60% and <b>70%</b> chances to slow further.<br>" \
+		+ "- Turns take <b>3</b> seconds to perform and have a <b>60%</b> chance to continue in the given direction.<br>" \
+		+ "- Rolls have a 60% chance to move north/south, and a <b>70%</b> chance afterwards to go further in it.",
+		SKILL_LEVEL_FAMILIAR = "You are capable of piloting shuttlecraft.<br>" \
+		+ "- You may attempt piloting ships a level higher with mild penalties:<br>" \
+		+ "- Accelerations and Slows take <b>1</b> second to perform.<br>" \
+		+ "  - Additional 65% chance to accelerate further.<br>" \
+		+ "  - Additional 60% chance to slow further.<br>" \
+		+ "- Turns take <b>1</b> second to perform.<br>" \
+		+ "- Rolls have a 60% chance to move north/south.",
+		SKILL_LEVEL_TRAINED = "You are capable of piloting up to Class II ships, which are often unable to land or dock.<br>" \
+		+ "- Class II includes all other ships movable on the overmap...with one major exception.<br>" \
+		+ "- You may attempt piloting a level higher with notable penalties similar to Unfamiliar:<br>" \
+		+ "- Accelerations and Slows take <b>2</b> seconds to perform.<br>" \
+		+ "  - Additional <b>65%</b> chance to accelerate more AND a <b>70%</b> chance to accelerate even further.<br>" \
+		+ "  - Additional <b>60%</b> chance to slow further.<br>" \
+		+ "- Turns take <b>3 seconds</b> to perform and a have a <b>60%</b> chance to continue in the given direction, PLUS another <b>70%</b> chance to continue again.<br>" \
+		+ "- Rolls have a <b>60%</b> chance to move north/south, and a <b>70%</b> chance afterwards to go further in it.",
+		SKILL_LEVEL_PROFESSIONAL = "You are capable of piloting up to Class IV ships, the highest, rarest, and most complex category, where the SCCV Horizon falls under.<br>" \
+		+ "- The SCCV Horizon is the only Class IV ship normally.<br>" \
+		+ "- Your expert navigational training lets you deduce the current overmap coordinate from examining space with help intent."
 	)
 	skill_cost_map = alist(
 		SKILL_LEVEL_UNFAMILIAR = 0,
-		SKILL_LEVEL_FAMILIAR = 6
+		SKILL_LEVEL_FAMILIAR = 4,
+		SKILL_LEVEL_TRAINED = 8,
+		SKILL_LEVEL_PROFESSIONAL = 10
 	)
 	required = TRUE
+	antag_level = SKILL_LEVEL_PROFESSIONAL //So antags are always able to do Horizon/ship hijack gimmicks
 	component_type = PILOT_SPACECRAFT_SKILL_COMPONENT
 
 /singleton/skill/pilot_mechs
 	name = "Pilot: Exosuits"
 	description = "Governs the user's ability to pilot mechs of any kind."
 	maximum_level = SKILL_LEVEL_PROFESSIONAL
-	uneducated_skill_cap = SKILL_LEVEL_TRAINED
+	uneducated_skill_cap = SKILL_LEVEL_PROFESSIONAL
 	category =  /singleton/skill_category/occupational
 	subcategory = SKILL_SUBCATEGORY_OPERATIONS
 	skill_level_descriptions = alist(
 		SKILL_LEVEL_UNFAMILIAR = "What's a mech?<br>" \
 			+ " - You have a 10% chance to move in a wrong direction when controlling mechs.<br>" \
-			+ " - Mech handling characteristics such as strafing and reverse speeds are significantly worse for you.<br>" \
-			+ " - It takes you awhile to find the power switch in a mech.",
+			+ " - It takes you 5 seconds to find the power switch when turning on a mech.",
 		SKILL_LEVEL_FAMILIAR = "You have a license to pilot mechs, but are relatively inexperienced.<br>" \
-			+ " - You have a small penalty to mech handling characteristics, such as slightly slower strafe and reverse speeds.",
+			+ " - You have 0.5 second faster movement delays when Strafing, Reversing, or Turning a mech. This can never let you move faster than a mech's forward speed.",
 		SKILL_LEVEL_TRAINED = "You have a decent amount of experience piloting mechs.<br>" \
-			+ " - You have no penalties or bonuses for piloting mechs.",
+			+ " - You have 1 second faster movement delays when Strafing, Reversing, or Turning a mech. This can never let you move faster than a mech's forward speed.",
 		SKILL_LEVEL_PROFESSIONAL = "Look on the bright side kid, you get to keep all the money.<br>" \
-			+ " - You have a small bonus to mech handling characteristics. Turning, Strafing, and Reverse speeds are all improved when piloting mechs. Forward speeds are still unchanged."
+			+ " - You have 1.5 second faster movement delays when Strafing, Reversing, or Turning a mech. This can never let you move faster than a mech's forward speed.",
 	)
 	required = TRUE
 	component_type = PILOT_MECHS_SKILL_COMPONENT
+
+/singleton/skill/conditioning
+	name = "Conditioning"
+	description = "Governs a character's ability to pick up, drag, and throw heavy objects, particularly crates and people. " \
+		+ "By default, most characters can comfortably lift or drag 1.25x their body weight without penalty. " \
+		+ "This includes determining how heavy a character you can fireman carry, and with how much slowdown. "
+	maximum_level = SKILL_LEVEL_PROFESSIONAL
+	uneducated_skill_cap = SKILL_LEVEL_PROFESSIONAL
+	category =  /singleton/skill_category/occupational
+	subcategory = SKILL_SUBCATEGORY_OPERATIONS
+	skill_level_descriptions = alist(
+		SKILL_LEVEL_UNFAMILIAR = "You have no modifiers from your Conditioning.",
+		SKILL_LEVEL_FAMILIAR = "Your maximum Lift Capacity is increased by 25%",
+		SKILL_LEVEL_TRAINED = "Your maximum Lift Capacity is increased by 50%",
+		SKILL_LEVEL_PROFESSIONAL = "Your maximum Lift Capacity is increased by 75%"
+	)
+	component_type = CONDITIONING_SKILL_COMPONENT

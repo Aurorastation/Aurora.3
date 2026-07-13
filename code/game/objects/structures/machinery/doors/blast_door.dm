@@ -150,12 +150,14 @@
 
 		return TRUE
 
-	if(istype(attacking_item, /obj/item/stack/material) && attacking_item.get_material_name() == "plasteel")
+	var/obj/item/stack/material/plasteel_stack = attacking_item
+	var/singleton/material/plasteel_material = plasteel_stack?.get_material()
+	if(istype(plasteel_stack) && plasteel_material?.type == MATERIAL_PLASTEEL)
 		var/amt = Ceiling((maxhealth - health)/150)
 		if(!amt)
 			to_chat(usr, SPAN_NOTICE("\The [src] is already fully repaired."))
 			return TRUE
-		var/obj/item/stack/P = attacking_item
+		var/obj/item/stack/P = plasteel_stack
 		if(P.amount < amt)
 			to_chat(usr, SPAN_WARNING("You don't have enough sheets to repair this! You need at least [amt] sheets."))
 			return TRUE
