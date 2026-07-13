@@ -92,7 +92,8 @@
 			. += "To count as involved, a player has to be an active participant of your death, meaning that they must have intentionally contributed to it. As an example, if you die to a carp on an expedition, you can retcon this death without asking others."
 		if(FORCED_CHARACTER_DEATH)
 			. += "Character deaths are forced canon during this round. All character deaths must go through headmins and loremasters to be retconned, no exceptions!"
-			. += "All injuries sustained as part of this round are immediately and fully canon, and should be roleplayed to the best of your ability. Do not ignore an injury you have obtained without explicit approval from administration."
+			. += "All injuries sustained as part of this round are immediately and fully canon, and should be roleplayed to the best of your ability, both in this round and the following. \
+				Do not ignore an injury you have obtained without explicit approval from administration. You are expected to roleplay its consequences believably, even extending to following rounds."
 		if(NO_CHARACTER_DEATH)
 			. += "Character deaths are not canon during this round."
 
