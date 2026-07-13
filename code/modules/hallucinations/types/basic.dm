@@ -71,7 +71,7 @@
 			to_chat(holder, SPAN_ALERT(pick(body)))
 			to_chat(holder, SPAN_ALERT("-[pick(hal_sender)]"))
 
-//for REALLY selling that fake delamination
+// ALarming radio messages
 /datum/hallucination/announcement/proc/delam_call()
 	var/list/people = list()
 	for(var/mob/living/carbon/human/M in GLOB.living_mob_list)
@@ -80,7 +80,7 @@
 	people -= holder
 	if(!length(people))
 		return
-	var/radio_exclaim = pick("Oh SHIT!", "Oh fuck.", "Uhhh!", "That's not good!", "FUCK.", "Engineering?", "It's under control!", "We're fucked!", "Ohhhh boy.", "What?!", "Um, <b>what?!</b>")
+	var/radio_exclaim = pick("Oh SHIT!", "Oh fuck.", "Uhhh!", "That's not good!", "FUCK.", "Engineering?", "It's under control!", "We're fucked!", "Ohhhh boy.", "What?!", "Um, <b>what?!</b>", "Shots, shots!", "HELP!", "MEDICAL!")
 	var/mob/living/carbon/human/requester = pick(people)
 
 	to_chat(holder, "[requester.get_accent_icon(null, holder)] <span class='radio'><b>[requester]</b> says, \"[radio_exclaim]\"</span>")

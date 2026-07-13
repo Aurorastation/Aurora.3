@@ -61,6 +61,8 @@
 #define LIGHT_COLOR_DECAYED			"#fabd6d"
 /// Reddish decayed light bulbs
 #define LIGHT_COLOR_DYING			"#fa826d"
+/// Reddish-brownish dead light bulbs
+#define LIGHT_COLOR_DEAD			"#442d20"
 /// Pale green. Mostly for medical.
 #define LIGHT_COLOR_CLINICAL		"#5bffaa"
 /// A very gentle purple-ish color!
@@ -68,15 +70,15 @@
 
 // This is the list of area-based light variations!
 /// Quite clean, cold, clinical lighting. For tightly monitored or very sterile areas.
-#define LIGHT_CLINICAL_COLORS list(LIGHT_COLOR_BULB_WHITE, LIGHT_COLOR_WARM, LIGHT_COLOR_HALOGEN)
+#define LIGHT_CLINICAL_COLORS list(LIGHT_COLOR_OFFWHITE, LIGHT_COLOR_WARM)
 /// Generic warmer off-white lighting, for public areas.
-#define LIGHT_WARM_COLORS list(LIGHT_COLOR_WARM, LIGHT_COLOR_OFFWHITE)
+#define LIGHT_WARM_COLORS list(LIGHT_COLOR_WARM, LIGHT_COLOR_DECAYED)
 /// Everything is yellow in engineering! It's industrial!
-#define LIGHT_ENGINEERING_COLORS list(LIGHT_COLOR_WARM, LIGHT_COLOR_DECAYED)
+#define LIGHT_ENGINEERING_COLORS list(LIGHT_COLOR_DYING, LIGHT_COLOR_DEAD)
 /// Purple. Funky. Probably tastes like blueberries. For research.
-#define LIGHT_RESEARCH_COLORS list(LIGHT_COLOR_LAVENDER, LIGHT_COLOR_PALE_PURPLE)
+#define LIGHT_RESEARCH_COLORS list(LIGHT_COLOR_LAVENDER, LIGHT_COLOR_WARM)
 /// Foreboding blue. Ominous. You are in a high security area.
-#define LIGHT_HIGHSEC_COLORS list(LIGHT_COLOR_BLUE, LIGHT_COLOR_LIGHT_BLUE)
+#define LIGHT_HIGHSEC_COLORS list(LIGHT_COLOR_DECAYED, LIGHT_COLOR_DYING)
 
 #define LIGHT_MODE_RED      "red"
 #define LIGHT_MODE_DELTA    "delta"

@@ -1112,15 +1112,16 @@
 	timevomit = clamp(timevomit, 1, 10)
 	level = clamp(level, 1, 3)
 
+	var/delay = rand(100,175)
 	lastpuke = TRUE
 	to_chat(src, SPAN_WARNING("You feel nauseous..."))
 	if(level > 1)
-		sleep(150 / timevomit)	//15 seconds until second warning
+		sleep(delay / timevomit)
 		to_chat(src, SPAN_WARNING("You feel like you are about to throw up!"))
 		if(level > 2)
-			sleep(100 / timevomit)	//and you have 10 more for mad dash to the bucket
+			sleep(delay / timevomit)
 			empty_stomach()
-	sleep(350)	//wait 35 seconds before next volley
+	sleep(delay * 2)
 	lastpuke = FALSE
 
 /// A damaged stomach can put blood in your vomit.

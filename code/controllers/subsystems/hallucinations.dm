@@ -348,10 +348,40 @@ SUBSYSTEM_DEF(hallucinations)
 		message = pick("The water is dripping dripping dripping all around you.","Water flowing over stone, but there is no stone.","The waterfall roars o'er the cliff's edge.","Water, water, water. You are drowning.","Water, water, water. You will be awake for it.","Drums, drums, drums, unrelenting.","The drumbeat draws e'er closer.","Tap, ta-tap, ta-tap, tap, ta-tap, ta-tap.","Tap, tap tap, ta-tap, tap-tap, ta-tap.","Ta-ta-tap, tap, ta-tap, tap, tap ta-tap.")
 	target.play_screen_text("[message]", /atom/movable/screen/text/screen_text/mental_message, COLOR_PURPLE)
 	to_chat(target, SPAN_CULT(FONT_LARGE("[message]")))
-
+	if(prob(25))
+		addtimer(CALLBACK(src, PROC_REF(apply_delayed_adpi_response), target), rand(5,25))
+		addtimer(CALLBACK(src, PROC_REF(apply_delayed_adpi_response), target), rand(30,60))
+		addtimer(CALLBACK(src, PROC_REF(apply_delayed_adpi_response), target), rand(65,120))
+	if(prob(2))
+		var/datum/weakref/target_ref = WEAKREF(target)
+		addtimer(CALLBACK(src, PROC_REF(radio_alarm), target_ref), 120)
+		addtimer(CALLBACK(src, PROC_REF(radio_alarm), target_ref), 135)
+		addtimer(CALLBACK(src, PROC_REF(radio_alarm), target_ref), 140)
+	if(prob(1))
+		target.hallucination += rand(1,120)
 	if(isskrell(target))
 		var/mob/living/carbon/human/H = target
 		apply_skrell_adpi_pain(H)
+
+//straight up cloned delam_call, fuck it
+/datum/controller/subsystem/hallucinations/proc/radio_alarm(var/datum/weakref/target_ref)
+	var/mob/living/target = target_ref?.resolve()
+	if(!istype(target) || QDELETED(target))
+		return
+
+	var/list/people = list()
+	for(var/mob/living/carbon/human/M in GLOB.living_mob_list)
+		if(!M.isMonkey() && !player_is_antag(M, only_offstation_roles = TRUE) && is_station_level(M.z))
+			people += M
+
+	people -= target
+	if(!length(people))
+		return
+
+	var/radio_exclaim = pick("Oh SHIT!", "Oh fuck.", "Uhhh!", "That's not good!", "FUCK.", "Engineering?", "It's under control!", "We're fucked!", "Ohhhh boy.", "What?!", "Um, <b>what?!</b>", "Shots, shots!", "HELP!", "MEDICAL!")
+	var/mob/living/carbon/human/requester = pick(people)
+
+	to_chat(target, "[requester.get_accent_icon(null, target)] <span class='radio'><b>[requester]</b> says, \"[radio_exclaim]\"</span>")
 
 /datum/controller/subsystem/hallucinations/proc/apply_skrell_adpi_pain(var/mob/living/carbon/human/H)
 	H.adjustHalLoss(rand(5, 12))
@@ -359,3 +389,14 @@ SUBSYSTEM_DEF(hallucinations)
 		to_chat(H, SPAN_WARNING("A sharp ache lances through your head as the thought passes."))
 	if(prob(15))
 		H.emote("shiver")
+
+/datum/controller/subsystem/hallucinations/proc/apply_delayed_adpi_response(var/mob/living/carbon/human/H)
+	if(!H.stat)
+		var/chosen_emote = pick(SShallucinations.hal_emote)
+		// You are aware of it in this instance
+		if(prob(10))
+			H.visible_message("<B>[H]</B> [chosen_emote]")
+		// Only shows to others, not you; you're not aware of what you're doing. Could prompt others to ask if you're okay, and lead to confusion.
+		else
+			for(var/mob/M in oviewers(world.view, H))
+				to_chat(M, "<B>[H]</B> [chosen_emote]")
