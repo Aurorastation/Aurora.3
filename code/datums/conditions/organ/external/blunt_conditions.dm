@@ -240,7 +240,7 @@
 		concussee.vessel.remove_reagent(/singleton/reagent/blood, 2) //slow, invisible bleeding, basically internal bleeding
 		concussee.SetParalysis(5)
 		var/obj/item/organ/internal/brain/sponge = concussee.internal_organs_by_name[BP_BRAIN]
-		if(istype(sponge) && sponge.damage < (sponge.max_damage * 0.5))
+		if(istype(sponge) && sponge.get_damage() < (sponge.max_damage * 0.5))
 			sponge.take_damage(2)
 
 /datum/condition/organ/blunt/intracranial_bleeding/get_visible_status()
