@@ -65,6 +65,12 @@
 	icon_state = "dressshirt_crop"
 	item_state = "dressshirt_crop"
 
+/obj/item/clothing/under/dressshirt/plaid
+	name = "plaid dress shirt"
+	desc = "A dress shirt with a plaid pattern."
+	icon_state = "plaidshirt"
+	item_state = "plaidshirt"
+
 // So people can see how these appear in the loadout
 /obj/item/clothing/under/dressshirt/rolled
 	name = "dress shirt"
@@ -96,6 +102,11 @@
 	icon_state = "dressshirt_crop_r"
 	item_state = "dressshirt_crop_r"
 
+/obj/item/clothing/under/dressshirt/plaid/rolled
+	name = "plaid dress shirt"
+	desc = "A dress shirt with a plaid pattern. This one has its sleeves rolled up."
+	icon_state = "plaidshirt_r"
+	item_state = "plaidshirt_r"
 
 /obj/item/clothing/under/dressshirt/asymmetric
 	name = "asymmetric dress shirt"
