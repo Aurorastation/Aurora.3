@@ -1158,6 +1158,11 @@
 			visual_effect_icon = ATTACK_EFFECT_SMASH
 	..()
 
+/mob/living/simple_animal/load_footstep_component()
+	if(flying)
+		return
+	return ..()
+
 #undef BLOOD_NONE
 #undef BLOOD_LIGHT
 #undef BLOOD_MEDIUM
