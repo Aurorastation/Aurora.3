@@ -7,7 +7,7 @@
 	anchored = TRUE
 	opacity = TRUE
 	climbable = TRUE
-	material = DEFAULT_WALL_MATERIAL
+	material = MATERIAL_STEEL
 
 /obj/structure/fluff/evidenceshelf/attackby(obj/item/attacking_item, mob/user)
 

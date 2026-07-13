@@ -223,7 +223,7 @@
 	force = 11
 	punch_force = 5
 	clipped = 1
-	matter = list(DEFAULT_WALL_MATERIAL = 1000)
+	matter = list(MATERIAL_STEEL = 1000)
 
 	drop_sound = 'sound/items/drop/sword.ogg'
 	pickup_sound = SFX_PICKUP_SWORD

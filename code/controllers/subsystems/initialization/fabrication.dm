@@ -59,6 +59,8 @@ SUBSYSTEM_DEF(fabrication)
 			recipe.resources = list()
 			for(var/material in I.matter)
 				recipe.resources[material] = I.matter[material] * FABRICATOR_EXTRA_COST_FACTOR
+		if(recipe.resources)
+			SSmaterials.normalize_material_amounts(recipe.resources)
 		qdel(I)
 	return SS_INIT_SUCCESS
 

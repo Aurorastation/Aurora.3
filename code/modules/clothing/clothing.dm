@@ -25,7 +25,7 @@
 	var/list/refittable_species //used with modkits, which species it can be refit to
 
 	//material things
-	var/material/material = null
+	var/singleton/material/material = null
 	var/applies_material_color = TRUE
 	var/unbreakable = FALSE
 	var/default_material = null // Set this to something else if you want material attributes on init.
@@ -287,7 +287,7 @@
 	return material
 
 /obj/item/clothing/proc/set_material(var/new_material)
-	material = SSmaterials.get_material_by_name(new_material)
+	material = SSmaterials.get_material_by_id(new_material)
 	if(!material)
 		qdel(src)
 	else

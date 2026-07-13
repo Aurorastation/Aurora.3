@@ -470,7 +470,7 @@
 			for(var/obj/item/organ/external/O in organs)
 				if(QDELETED(O))
 					continue
-				if((O.damage + LOW_PRESSURE_DAMAGE) < O.max_damage)
+				if((O.get_damage() + LOW_PRESSURE_DAMAGE) < O.max_damage)
 					O.take_damage(brute = LOW_PRESSURE_DAMAGE, used_weapon = "Low Pressure")
 			if(getOxyLoss() < 55)
 				adjustOxyLoss(4)

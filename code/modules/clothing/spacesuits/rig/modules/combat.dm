@@ -176,7 +176,7 @@
 	name = "mounted energy gun"
 	desc = "A forearm-mounted energy projector."
 	icon_state = "egun"
-	construction_cost= list(DEFAULT_WALL_MATERIAL = 7000, MATERIAL_GLASS = 2250, MATERIAL_URANIUM = 3250, MATERIAL_GOLD = 2500)
+	construction_cost= list(MATERIAL_STEEL = 7000, MATERIAL_GLASS = 2250, MATERIAL_URANIUM = 3250, MATERIAL_GOLD = 2500)
 	construction_time = 300
 
 	suit_overlay_active = "mounted_wrist"
@@ -192,7 +192,7 @@
 	name = "mounted taser"
 	desc = "A palm-mounted nonlethal energy projector."
 	icon_state = "taser"
-	construction_cost = list(DEFAULT_WALL_MATERIAL = 7000, MATERIAL_GLASS = 5250)
+	construction_cost = list(MATERIAL_STEEL = 7000, MATERIAL_GLASS = 5250)
 	construction_time = 300
 
 	suit_overlay_active = "mounted-taser"
@@ -282,7 +282,7 @@
 	interface_name = "plasma cutter"
 	interface_desc = "A self-sustaining plasma arc capable of cutting through walls."
 	suit_overlay_active = "mounted-plasmacutter"
-	construction_cost = list(MATERIAL_GLASS = 5250, DEFAULT_WALL_MATERIAL = 30000, MATERIAL_SILVER = 5250, MATERIAL_PHORON = 7250)
+	construction_cost = list(MATERIAL_GLASS = 5250, MATERIAL_STEEL = 30000, MATERIAL_SILVER = 5250, MATERIAL_PHORON = 7250)
 	activates_on_touch = TRUE
 	construction_time = 300
 	use_power_cost = 15

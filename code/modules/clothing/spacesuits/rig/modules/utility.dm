@@ -57,7 +57,7 @@
 	icon_state = "scanner"
 	interface_name = "health scanner"
 	interface_desc = "Shows an informative health readout when used on a subject."
-	construction_cost = list("$glass" = 5250, DEFAULT_WALL_MATERIAL = 2500)
+	construction_cost = list(MATERIAL_GLASS = 5250, MATERIAL_STEEL = 2500)
 	construction_time = 300
 
 	engage_string = "Run Diagnostic"
@@ -89,7 +89,7 @@
 	interface_desc = "A diamond-tipped industrial drill."
 	suit_overlay_active = "mounted-drill"
 	use_power_cost = 0.2
-	construction_cost = list(DEFAULT_WALL_MATERIAL = 55000, MATERIAL_GLASS = 2250, MATERIAL_SILVER = 5250, MATERIAL_DIAMOND = 3750)
+	construction_cost = list(MATERIAL_STEEL = 55000, MATERIAL_GLASS = 2250, MATERIAL_SILVER = 5250, MATERIAL_DIAMOND = 3750)
 	construction_time = 350
 
 	device_type = /obj/item/pickaxe/diamonddrill
@@ -140,7 +140,7 @@
 	interface_desc = "A device for building or removing walls. Cell-powered."
 	module_type = MODULETYPE_USABLE_ACTIVE
 	engage_string = "Configure RFD-C"
-	construction_cost = list(DEFAULT_WALL_MATERIAL = 30000, MATERIAL_PHORON = 12500, MATERIAL_SILVER = 10000, MATERIAL_GOLD = 10000)
+	construction_cost = list(MATERIAL_STEEL = 30000, MATERIAL_PHORON = 12500, MATERIAL_SILVER = 10000, MATERIAL_GOLD = 10000)
 	construction_time = 1000
 
 	device_type = /obj/item/rfd/construction/mounted
@@ -201,7 +201,7 @@
 	module_type = MODULETYPE_USABLE_ACTIVE
 	disruptive = TRUE
 	confined_use = TRUE
-	construction_cost = list(DEFAULT_WALL_MATERIAL=10000, MATERIAL_GLASS =9250, MATERIAL_GOLD =2500, MATERIAL_SILVER =4250,"phoron"=5500)
+	construction_cost = list(MATERIAL_STEEL=10000, MATERIAL_GLASS =9250, MATERIAL_GOLD =2500, MATERIAL_SILVER =4250, MATERIAL_PHORON=5500)
 	construction_time = 400
 
 	engage_string = "Inject"
@@ -374,7 +374,7 @@
 	name = "mounted chemical injector"
 	desc = "A complex web of tubing and a large needle suitable for hardsuit use."
 	module_type = MODULETYPE_USABLE_ACTIVE
-	construction_cost = list(DEFAULT_WALL_MATERIAL = 10000, MATERIAL_GLASS = 9250, MATERIAL_GOLD = 2500, MATERIAL_SILVER = 4250, MATERIAL_PHORON = 5500)
+	construction_cost = list(MATERIAL_STEEL = 10000, MATERIAL_GLASS = 9250, MATERIAL_GOLD = 2500, MATERIAL_SILVER = 4250, MATERIAL_PHORON = 5500)
 	construction_time = 400
 
 	interface_name = "mounted chem injector"
@@ -474,7 +474,7 @@
 	icon_state = "thrusters"
 	module_type = MODULETYPE_TOGGLE
 	disruptive = FALSE
-	construction_cost = list(DEFAULT_WALL_MATERIAL = 15000, MATERIAL_GLASS = 4250, MATERIAL_SILVER = 4250, MATERIAL_URANIUM = 5250)
+	construction_cost = list(MATERIAL_STEEL = 15000, MATERIAL_GLASS = 4250, MATERIAL_SILVER = 4250, MATERIAL_URANIUM = 5250)
 	construction_time = 300
 
 	interface_name = "maneuvering jets"
@@ -618,7 +618,7 @@
 	interface_name = "leg actuators"
 	interface_desc = "Allows you to fall from heights and dash up to <b>4</b> tiles at once. To jump onto ledges, stand adjacent and facing a climbable wall (one with a walkable turf above it), then target your own turf to rapidly climb to the turf above!"
 
-	construction_cost = list(DEFAULT_WALL_MATERIAL=15000, MATERIAL_GLASS = 1250, MATERIAL_SILVER =5250)
+	construction_cost = list(MATERIAL_STEEL=15000, MATERIAL_GLASS = 1250, MATERIAL_SILVER =5250)
 	construction_time = 300
 
 	disruptive = FALSE
