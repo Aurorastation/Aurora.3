@@ -5,8 +5,7 @@
 		/singleton/origin_item/origin/ipc_xanu,
 		/singleton/origin_item/origin/ipc_himeo,
 		/singleton/origin_item/origin/ipc_assunzione,
-		/singleton/origin_item/origin/ipc_vysoka,
-		/singleton/origin_item/origin/ipc_axiom
+		/singleton/origin_item/origin/ipc_vysoka
 	)
 
 /singleton/origin_item/origin/ipc_xanu

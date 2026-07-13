@@ -130,7 +130,9 @@
 	of the Orion Spur, although that is no promise that life is easy. The Ecclesiastical Authority of \
 	Axiom has only domain over the deserts of its planet, while all arable hand is governed by the \
 	Salamasian Republic, a majority human nation of colonists brought over by Hephaestus Industries \
-	over a century prior to the influx of Trinarist settlers."
+	over a century prior to the influx of Trinarist settlers. Both the humans and synthetics are known \
+	for their aversion to violence, their strong community spirit, and a stringent dedication to the \
+	tenets of the Trinary Perfection - or, at least, the appearance thereof."
 	possible_accents = list(ACCENT_AXIOM)
 	possible_citizenships = list(CITIZENSHIP_AXIOM)
 	possible_religions = RELIGIONS_COALITION
