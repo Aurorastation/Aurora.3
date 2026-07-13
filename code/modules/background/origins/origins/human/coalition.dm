@@ -11,7 +11,8 @@
 		/singleton/origin_item/origin/gadpathur_exile,
 		/singleton/origin_item/origin/assunzione,
 		/singleton/origin_item/origin/ncf,
-		/singleton/origin_item/origin/orepit,
+		/singleton/origin_item/origin/axiom,
+		/singleton/origin_item/origin/salamasian,
 		/singleton/origin_item/origin/other_coalition
 	)
 
@@ -120,9 +121,34 @@
 	possible_citizenships = list(CITIZENSHIP_COALITION, CITIZENSHIP_BIESEL)
 	possible_religions = RELIGIONS_COALITION
 
-/singleton/origin_item/origin/orepit
-	name = "Ecclesiarchy of Orepit"
-	desc = "The human population of Orepit includes the Native Orepitters, who descend from Hephaestus employees following the abandoned mining mission on the planet, as well as immigrants and pilgrims of the Trinary religion."
-	possible_accents = list(ACCENT_OREPIT, ACCENT_PROVIDENCE)
-	possible_citizenships = list(CITIZENSHIP_OREPIT, CITIZENSHIP_COALITION)
-	possible_religions =  RELIGIONS_COALITION
+/singleton/origin_item/origin/axiom
+	name = "Ecclesiastical Axiomite"
+	desc = "Boasting a majority synthetic population, Ecclesiastical Axiom is one of the only \
+	nation-states which totally prohibits synthetic ownership. Administered directly by the \
+	Ecclesiarch of the Trinary Perfection, who rules their territory as an elective absolute \
+	monarch, this is one of the few true sanctuaries for the represssed and dispossessed synthetics \
+	of the Orion Spur, although that is no promise that life is easy. The Ecclesiastical Authority of \
+	Axiom has only domain over the deserts of its planet, while all arable hand is governed by the \
+	Salamasian Republic, a majority human nation of colonists brought over by Hephaestus Industries \
+	over a century prior to the influx of Trinarist settlers."
+	possible_accents = list(ACCENT_AXIOM)
+	possible_citizenships = list(CITIZENSHIP_AXIOM)
+	possible_religions = RELIGIONS_COALITION
+
+/singleton/origin_item/origin/salamasian
+	name = "Republican Salamasian"
+	desc = "The seniormost population of their planet, the Salamasians are a culture descended primarily \
+	from the people of Samoa, who were brought under the employ of Hephaestus Industries to the mining world \
+	which would become known to them as Nu'u for mineral extraction operations. Hardy and family-focused, the \
+	Salamasian Republic is a nation dominated by blue collar industry, to this day functioning as a major exporter \
+	of raw and processed minerals even over a century after Hephaestus left the planet. A small population of synthetics \
+	have integrated into the culture seperately to the Trinarist settlement of the main planet, though they are not \
+	unanimously accepted due to their inability to perfectly fit into the 'aiga family unit which dominates social \
+	and political life within the Republic."
+	important_information = "<b>Due to having been composed primarily of Samoan colonists since its \
+	earliest settlement, all Salamasians must have appearances and names consistent with the peoples \
+	of Samoa and American Samoa. Only native Salamasians may take the Salamasian accent. This is \
+	enforceable by server moderators and admins.</b>"
+	possible_accents = list(ACCENT_SALAMASIAN)
+	possible_citizenships = list(CITIZENSHIP_AXIOM)
+	possible_religions = RELIGIONS_COALITION

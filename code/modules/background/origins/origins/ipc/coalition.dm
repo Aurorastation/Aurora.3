@@ -6,7 +6,7 @@
 		/singleton/origin_item/origin/ipc_himeo,
 		/singleton/origin_item/origin/ipc_assunzione,
 		/singleton/origin_item/origin/ipc_vysoka,
-		/singleton/origin_item/origin/ipc_orepit
+		/singleton/origin_item/origin/ipc_axiom
 	)
 
 /singleton/origin_item/origin/ipc_xanu
@@ -26,17 +26,10 @@
 /singleton/origin_item/origin/ipc_assunzione
 	name = "Republic of Assunzione"
 	desc = "Both free and owned IPCs are common in Assunzione owing to the presence of both Zeng-Hu Pharmaceuticals and Hephaestus Industries. IPCs manufactured locally are programmed with knowledge of Luceism and even have their frames and positronics blessed by the local clergy. Their treatment varies heavily on the individual, with some viewing them as well-suited to the harsh conditions of the planet and well-integrated in its society, while others view them as a drain to the energy-starved planet. Most imported IPC either serve on expedition crews or as workers for the megacorporations while local IPCs can expect to work anywhere their human counterparts might."
-	important_information = " All types of IPC can hail from Assunzione, although local production is primarily focused on Bishop and Mobility frames. Synthetics from the planet are programmed with knowledge of Luceism and are expected to know basic information about the faith."
+	important_information = "All types of IPC can hail from Assunzione, although local production is primarily focused on Bishop and Mobility frames. Synthetics from the planet are programmed with knowledge of Luceism and are expected to know basic information about the faith."
 	possible_accents = list(ACCENT_ASSUNZIONE, ACCENT_TTS)
 	possible_citizenships = list(CITIZENSHIP_COALITION, CITIZENSHIP_BIESEL, CITIZENSHIP_NONE)
 	possible_religions = list(RELIGION_LUCEISM, RELIGION_NONE)
-
-/singleton/origin_item/origin/ipc_orepit
-	name = "Ecclesiarchy of Orepit"
-	desc = "Refugees and runaways, the synthetic population of Orepit has embraced the beliefs of synthetic divinity and ascension preached by the Trinary Perfection. A primarily religious community, IPC from Orepit and its capital Providence find themselves occupying clerical posts abroad as priests, missionaries and even guardians of the Church for its parishes scattered across the Spur."
-	possible_accents = list(ACCENT_PROVIDENCE, ACCENT_CETI, ACCENT_TTS, ACCENT_XANU, ACCENT_COC, ACCENT_ELYRA, ACCENT_ERIDANI, ACCENT_ERIDANIDREG, ACCENT_ERIDANIREINSTATED, ACCENT_SOL, ACCENT_SILVERSUN_EXPATRIATE, ACCENT_SILVERSUN_ORIGINAL, ACCENT_PHONG, ACCENT_MARTIAN, ACCENT_KONYAN, ACCENT_LUNA, ACCENT_GIBSON, ACCENT_HIMEO, ACCENT_VYSOKA, ACCENT_VENUS, ACCENT_VENUSJIN, ACCENT_JUPITER, ACCENT_CALLISTO, ACCENT_EUROPA, ACCENT_EARTH, ACCENT_NCF, ACCENT_PLUTO, ACCENT_ASSUNZIONE, ACCENT_VISEGRAD, ACCENT_SANCOLETTE, ACCENT_VALKYRIE, ACCENT_MICTLAN, ACCENT_PERSEPOLIS, ACCENT_MEDINA, ACCENT_NEWSUEZ, ACCENT_AEMAQ, ACCENT_DAMASCUS)
-	possible_citizenships = list(CITIZENSHIP_OREPIT, CITIZENSHIP_COALITION)
-	possible_religions = RELIGIONS_ALL_IPC
 
 /singleton/origin_item/origin/ipc_vysoka
 	name = "Free System of Vysoka"
