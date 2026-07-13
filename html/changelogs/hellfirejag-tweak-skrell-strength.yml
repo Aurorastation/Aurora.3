@@ -1,0 +1,4 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - balance: "Tweaked baseline strength modifiers for Skrell to allow them to fireman carry a human without requiring the Conditioning skill."
