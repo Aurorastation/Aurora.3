@@ -66,10 +66,11 @@
 	possible_accents = list(ACCENT_DOMINIA_CARIA)
 	possible_citizenships = CITIZENSHIPS_DOMINIA
 	possible_religions = list(RELIGION_MOROZ)
-	origin_traits_descriptions = list("are more sensitive to bright lights")
+	origin_traits_descriptions = list("are able to see slightly better in the dark.", "are more sensitive to bright lights")
 
 /singleton/origin_item/origin/caria/on_apply(mob/living/carbon/human/H)
 	. = ..()
+	H.default_lighting_alpha = LIGHTING_PLANE_ALPHA_ALMOST_VISIBLE
 	H.AddElement(/datum/element/light_sensitivity)
 
 /singleton/origin_item/origin/imperial_frontier
