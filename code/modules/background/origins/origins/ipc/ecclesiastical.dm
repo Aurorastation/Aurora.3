@@ -4,7 +4,7 @@
 	as Nu'u to the indigenous Salamasian population - and also for the Ecclesiastical Authority \
 	of Axiom, a theocratic state administrated by the Trinary Perfection, which controls swathes \
 	of the planet's deserts. All arable land on the planet is administrated by the Salamasian Republic, \
-	a population predating the Trinarist settlement of the planet by over a century and which shared \
+	a population predating the Trinarist settlement of the planet by over a century and which shares \
 	power with their new neighbors with degrees of caution and mutual ambition."
 	possible_origins = list(
 		/singleton/origin_item/origin/ipc_axiom,
