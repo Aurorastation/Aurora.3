@@ -1083,7 +1083,7 @@ default behaviour is:
  * Used to override if a mob should have footsteps or not.
  */
 /mob/living/proc/load_footstep_component()
-	if(anchored || !footstep_sound)
+	if(anchored)
 		return
 
 	LoadComponent(footstep_component_type)

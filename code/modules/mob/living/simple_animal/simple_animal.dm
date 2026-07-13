@@ -1159,7 +1159,7 @@
 	..()
 
 /mob/living/simple_animal/load_footstep_component()
-	if(flying)
+	if(flying || !footstep_sound)
 		return
 	return ..()
 
