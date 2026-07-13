@@ -59,6 +59,19 @@
 	origin_traits = list(TRAIT_ORIGIN_COLD_RESISTANCE)
 	origin_traits_descriptions = list("are more acclimatised to the cold.")
 
+/singleton/origin_item/origin/caria
+	name = "Caria"
+	desc = "Gateway to the Empire’s further frontier, the Imperial Viceroyalty of Caria is a strange — to some, accursed — planet with a tidally-locked orbit. Its inhabitants, Carians, are known for their proficiency in trade and their reputation as alleged sorcerers, and Carian culture heavily relies upon divination."
+	important_information = "Carians are expected to follow the appearance described on the wiki. This is enforceable by server moderators!"
+	possible_accents = list(ACCENT_DOMINIA_CARIA)
+	possible_citizenships = CITIZENSHIPS_DOMINIA
+	possible_religions = list(RELIGION_MOROZ)
+	origin_traits_descriptions = list("are more sensitive to bright lights")
+
+/singleton/origin_item/origin/caria/on_apply(mob/living/carbon/human/H)
+	. = ..()
+	H.AddElement(/datum/element/light_sensitivity)
+
 /singleton/origin_item/origin/imperial_frontier
 	name = "Imperial Frontier"
 	desc = "The Imperial Frontier consists of worlds conquered by the Empire of Dominia and mostly populated by Ma'zals. Military governments are common here, as are the often-hated viceroyalties that the Empire has become infamous for abroad. The planets of the Imperial Frontier stand at varying levels of development, but most of their resources are sent back to the region that truly matters to the Empire: the Imperial Core."
