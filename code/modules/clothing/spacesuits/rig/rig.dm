@@ -535,6 +535,9 @@
 	if(power_usage_this_tick)
 		cell.use(power_usage_this_tick)
 
+	if(!malfunctioning && !electrified && !open && offline && !wearer) //If nothing is wrong with it and it is not in use, it should stop processing.
+		return PROCESS_KILL
+
 /obj/item/rig/proc/check_power_cost(var/mob/living/user, var/cost, var/use_unconcious, var/obj/item/rig_module/mod, var/user_is_ai)
 
 	if(!istype(user))
