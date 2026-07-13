@@ -103,10 +103,7 @@
 	item_state = "dressshirt_crop_r"
 
 /obj/item/clothing/under/dressshirt/plaid/rolled
-	name = "plaid dress shirt"
-	desc = "A dress shirt with a plaid pattern. This one has its sleeves rolled up."
-	icon_state = "plaidshirt_r"
-	item_state = "plaidshirt_r"
+	rolled = TRUE
 
 /obj/item/clothing/under/dressshirt/asymmetric
 	name = "asymmetric dress shirt"
