@@ -300,9 +300,6 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 /obj/item/organ/proc/rejuvenate()
 	damage = 0
 
-/obj/item/organ/proc/get_damage()
-	return damage
-
 /obj/item/organ/proc/heal_damage(amount)
 	if(can_recover())
 		damage = between(0, damage - amount, max_damage)

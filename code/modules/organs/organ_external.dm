@@ -1315,36 +1315,6 @@ Note that amputating the affected organ does in fact remove the infection from t
 	var/datum/condition/organ/fracture/fracture = new fracture_type(src, INJURY_TYPE_BRUISE, silent)
 	if(!QDELETED(fracture))
 		LAZYADD(conditions, fracture)
-/obj/item/organ/external/proc/fracture(var/silent = FALSE)
-	if(status & ORGAN_ROBOT)
-		return	//ORGAN_BROKEN doesn't have the same meaning for robot limbs
-	if((status & ORGAN_BROKEN) || !(limb_flags & ORGAN_CAN_BREAK))
-		return
-	if(QDELETED(owner))
-		return
-
-	START_PROCESSING(SSprocessing, src)
-	if(!silent)
-		var/message = pick("broke in half", "shattered")
-		owner.visible_message(\
-			SPAN_WARNING("<font size=4>You hear a loud cracking sound coming from \the [owner]!</font>"),\
-			SPAN_DANGER("<font size=5>Something feels like it [message] in your [name]!</font>"),\
-			"You hear a sickening crack!")
-		if(owner.species && owner.can_feel_pain())
-			owner.emote("scream")
-			owner.flash_strong_pain()
-		playsound(src.loc, SFX_FRACTURE, 100, 1, -2)
-
-	status |= ORGAN_BROKEN
-	broken_description = pick("broken", "fracture", "hairline fracture")
-	perma_injury = brute_dam
-
-	// Fractures have a chance of getting you out of restraints
-	if(prob(25))
-		release_restraints()
-
-	// This is mostly for the ninja suit to stop ninja being so crippled by breaks.
-	check_rigsplints()
 
 /obj/item/organ/external/proc/mend_fracture()
 	if(status & ORGAN_ROBOT)
