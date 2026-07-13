@@ -804,10 +804,12 @@
 							if(selected_module.suit_overlay_active)
 								selected_module.suit_overlay = selected_module.suit_overlay_active
 							sound_to(usr, module?.sound_activate)
+							balloon_alert_to_viewers("deploys \the [module.interface_name]", "deploys \the [module.interface_name]")
 						else
 							sound_to(usr, selected_module?.sound_deactivate)
 							selected_module.suit_overlay = null
 							selected_module = null
+							balloon_alert_to_viewers("retracts \the [module.interface_name]",  "retracts \the [module.interface_name]")
 						update_icon(TRUE)
 						playsound(src.loc, 'sound/items/rfd_dispense.ogg', 25, FALSE)
 					if("select_charge_type")

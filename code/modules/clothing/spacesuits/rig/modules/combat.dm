@@ -179,7 +179,7 @@
 	construction_cost= list(MATERIAL_STEEL = 7000, MATERIAL_GLASS = 2250, MATERIAL_URANIUM = 3250, MATERIAL_GOLD = 2500)
 	construction_time = 300
 
-	suit_overlay_active = "mounted_wrist"
+	suit_overlay_active = "mounted-wrist"
 
 	interface_name = "mounted energy gun"
 	interface_desc = "A forearm-mounted suit-powered energy gun."
@@ -232,7 +232,7 @@
 	desc = "A forearm-mounted suit-powered ballistic submachine gun."
 	icon_state = "smg"
 
-	suit_overlay_active = "mounted_wrist"
+	suit_overlay_active = "mounted-wrist"
 
 	interface_name = "mounted submachine gun"
 	interface_desc = "A forearm-mounted suit-powered ballistic submachine gun."
@@ -244,7 +244,7 @@
 	desc = "A forearm-mounted suit-powered xray laser gun."
 	icon_state = "xray"
 
-	suit_overlay_active = "mounted_wrist"
+	suit_overlay_active = "mounted-wrist"
 
 	interface_name = "mounted xray laser gun"
 	interface_desc = "A forearm-mounted suit-powered xray laser gun."
@@ -314,7 +314,7 @@
 	icon_state = "thermaldrill"
 	interface_name = "thermal drill"
 	interface_desc = "A potent drill that can pierce rock walls over long distances."
-	suit_overlay_active = "mounted_wrist"
+	suit_overlay_active = "mounted-wrist"
 	use_power_cost = 20
 
 	gun_type = /obj/item/gun/energy/vaurca/thermaldrill/mounted
