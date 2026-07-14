@@ -24,7 +24,7 @@
 	var/obj/structure/machinery/alarm/A = holder
 	. = ..()
 	. += A.locked ? "The air alarm is locked." : "The air alarm is unlocked."
-	. += (A.shorted || (A.stat & (NOPOWER|BROKEN))) ? "The Air Alarm is offline." : "The Air Alarm is working properly!"
+	. += (A.shorted || (A.stat & (NOPOWER|BROKEN))) ? "The air alarm is offline." : "The air alarm is working properly!"
 	. += A.aidisabled ? "The 'AI control allowed' light is off." : "The 'AI control allowed' light is on."
 	. += A.rcon_setting ? "The remote control link is enabled." : "The remote control link is disabled."
 

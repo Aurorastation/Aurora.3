@@ -5,7 +5,8 @@
 /datum/wires/apc/New(atom/holder)
 	wires = list(
 		WIRE_POWER1, WIRE_POWER2,
-		WIRE_IDSCAN, WIRE_AI
+		WIRE_IDSCAN, WIRE_AI,
+		WIRE_POWER_LIMIT
 	)
 	add_duds(6)
 	..()
@@ -14,8 +15,9 @@
 	var/obj/structure/machinery/power/apc/A = holder
 	. = ..()
 	. += A.locked ? "The APC is locked." : "The APC is unlocked."
-	. += A.shorted ? "The APCs power has been shorted." : "The APC is working properly!"
+	. += A.shorted ? "The APCs power has been shorted!" : "The APC is working properly."
 	. += A.aidisabled ? "The 'AI control allowed' light is off." : "The 'AI control allowed' light is on."
+	. += A.light_explosion_safety ? "The low-voltage regulator telltale is on." : "The low-voltage regulator telltale is off."
 
 /datum/wires/apc/interactable(mob/user)
 	if(!..())
@@ -24,23 +26,20 @@
 	return A?.panel_open
 
 /datum/wires/apc/on_pulse(wire)
-
 	var/obj/structure/machinery/power/apc/A = holder
 
 	switch(wire)
-
 		if(WIRE_IDSCAN)
 			set_locked(A, FALSE)
 			addtimer(CALLBACK(src, PROC_REF(set_locked), A, TRUE), 30 SECONDS)
-
-		if (WIRE_POWER1, WIRE_POWER2)
+		if(WIRE_POWER1, WIRE_POWER2)
 			set_short_out(A, TRUE)
 			addtimer(CALLBACK(src, PROC_REF(set_short_out), A, FALSE), 120 SECONDS)
-
-		if (WIRE_AI)
+		if(WIRE_AI)
 			set_ai_control(A, TRUE)
 			addtimer(CALLBACK(src, PROC_REF(set_ai_control), A, FALSE), 1 SECONDS)
-
+		if(WIRE_POWER_LIMIT && !light_explosion_safety)
+			A.overload_lighting()
 
 /datum/wires/apc/proc/set_locked(var/obj/structure/machinery/power/apc/A, var/setting)
 	if(A)
@@ -74,3 +73,6 @@
 
 		if(WIRE_AI)
 			A.aidisabled = !mend
+
+		if(WIRE_POWER_LIMIT)
+			A.light_explosion_safety = mend
