@@ -29,7 +29,7 @@ ABSTRACT_TYPE(/datum/gear/shirts)
 	shirt["dress shirt"] = /obj/item/clothing/under/dressshirt
 	shirt["dress shirt, rolled up"] = /obj/item/clothing/under/dressshirt/rolled
 	shirt["dress shirt, cropped"] = /obj/item/clothing/under/dressshirt/crop
-	shirt["cropped dress shirt, rolled up"] = /obj/item/clothing/under/dressshirt/crop/rolled
+	shirt["dress shirt, cropped rolled up"] = /obj/item/clothing/under/dressshirt/crop/rolled
 	shirt["dress shirt, alt"] = /obj/item/clothing/under/dressshirt/alt
 	shirt["dress shirt, alt rolled up"] = /obj/item/clothing/under/dressshirt/alt/rolled
 	shirt["dress shirt, v-neck alt"] = /obj/item/clothing/under/dressshirt/alt/vneck
@@ -37,12 +37,13 @@ ABSTRACT_TYPE(/datum/gear/shirts)
 	shirt["dress shirt, deep v-neck"] = /obj/item/clothing/under/dressshirt/deepv
 	shirt["dress shirt, deep v-neck rolled up"] = /obj/item/clothing/under/dressshirt/deepv/rolled
 	shirt["dress shirt, asymmetric"] = /obj/item/clothing/under/dressshirt/asymmetric
+	shirt["dress shirt, asymmetric rolled up"] = /obj/item/clothing/under/dressshirt/asymmetric/rolled
 	shirt["long-sleeved shirt"] = /obj/item/clothing/under/dressshirt/longsleeve
 	shirt["t-shirt"] = /obj/item/clothing/under/dressshirt/tshirt
 	shirt["t-shirt, cropped"] = /obj/item/clothing/under/dressshirt/tshirt_crop
 	shirt["blouse"] = /obj/item/clothing/under/dressshirt/blouse
-	shirt["long-sleeved blouse"] = /obj/item/clothing/under/dressshirt/longblouse
-	shirt["puffy blouse"] = /obj/item/clothing/under/dressshirt/puffyblouse
+	shirt["blouse, long-sleeved"] = /obj/item/clothing/under/dressshirt/longblouse
+	shirt["blouse, puffy"] = /obj/item/clothing/under/dressshirt/puffyblouse
 	shirt["halter top"] = /obj/item/clothing/under/dressshirt/haltertop
 	shirt["tank top"] = /obj/item/clothing/under/dressshirt/tanktop
 	shirt["tank top, feminine"] = /obj/item/clothing/under/dressshirt/tanktop/feminine

@@ -107,7 +107,7 @@
 				if(machine_organ.get_integrity() < 100)
 					to_chat(user, "<font color='#FFA500'><b>[machine_organ.name]:</b> Integrity damage detected.</font>")
 					found_damage = TRUE
-			else if(O.damage)
+			else if(O.get_damage())
 				to_chat(user, SPAN_WARNING("<b>[O.name]:</b> Core damage detected."))
 				found_damage = TRUE
 			if(!found_damage)
