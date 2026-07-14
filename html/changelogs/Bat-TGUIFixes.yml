@@ -1,6 +1,0 @@
-author: Batrachophrenoboocosmomachia
-delete-after: True
-changes:
-  - bugfix: "Chat Client TGUI properly clears message field after sending message."
-  - bugfix: "ATM TGUI better handles money input amounts not being 'finalized' internally before using withdrawal buttons."
-  - bugfix: "Agent ID TGUI no longer spammy when updating fields."

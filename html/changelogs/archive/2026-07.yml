@@ -197,3 +197,22 @@
   MattAtlas:
   - rscdel: Combat lying is now removed. You will now always drop your items when
       lying down.
+2026-07-14:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Chat Client TGUI properly clears message field after sending message.
+  - bugfix: ATM TGUI better handles money input amounts not being 'finalized' internally
+      before using withdrawal buttons.
+  - bugfix: Agent ID TGUI no longer spammy when updating fields.
+  Dessysalta:
+  - rscadd: Added a custom item for Nietzschka.
+  - imageadd: As above.
+  Fenodyree:
+  - balance: The percent chance to break bones is now increased linearly up to 4 times
+      max health, instead of by flat damage.
+  - balance: Sharp and edged weapons are now more likely to hit organs, if the ribs
+      are not yet broken.
+  - bugfix: Bullets are no longer treated as blunt weapons. This increases their chance
+      to hit organs and decreases their chance to break bone.
+  Hellfirejag:
+  - balance: Tweaked baseline strength modifiers for Skrell to allow them to fireman
+      carry a human without requiring the Conditioning skill.
