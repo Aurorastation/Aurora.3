@@ -2,6 +2,7 @@
 
 GLOBAL_LIST_INIT(wire_color_directory, list())
 GLOBAL_LIST_INIT(wire_name_directory, list())
+GLOBAL_LIST_INIT(wire_skill_reveal_directory, list())
 
 /datum/wires
 	/// The holder (atom that contains these wires).
@@ -29,6 +30,8 @@ GLOBAL_LIST_INIT(wire_name_directory, list())
 	var/manufacturer = "hephaestus"
 	/// Skill component path used for partial wire reveals. Null disables skill-based reveals.
 	var/associated_skill = ELECTRICAL_ENGINEERING_SKILL_COMPONENT
+	/// Key used for round-stable partial skill-based reveals
+	var/skill_reveal_key
 
 /datum/wires/New(atom/holder)
 	..()
@@ -42,6 +45,7 @@ GLOBAL_LIST_INIT(wire_name_directory, list())
 
 	// If there is a dictionary key set, we'll want to use that. Otherwise, use the holder type.
 	var/key = dictionary_key ? dictionary_key : holder_type
+	skill_reveal_key = key
 
 	RegisterSignal(holder, COMSIG_QDELETING, PROC_REF(on_holder_qdel))
 	if(random)
@@ -56,6 +60,7 @@ GLOBAL_LIST_INIT(wire_name_directory, list())
 
 /datum/wires/Destroy()
 	holder = null
+	skill_reveal_key = null
 	//properly clear refs to avoid harddels & other problems
 	for(var/color in assemblies)
 		var/obj/item/assembly/assembly = assemblies[color]
@@ -104,6 +109,8 @@ GLOBAL_LIST_INIT(wire_name_directory, list())
 
 /datum/wires/proc/shuffle_wires()
 	colors.Cut()
+	if(skill_reveal_key)
+		GLOB.wire_skill_reveal_directory -= skill_reveal_key
 	randomize()
 
 /datum/wires/proc/repair()
@@ -301,6 +308,28 @@ GLOBAL_LIST_INIT(wire_name_directory, list())
 
 	return clamp(round(LAZYLEN(colors) * reveal_percent / 100), 0, LAZYLEN(colors))
 
+/datum/wires/proc/get_skill_revealed_colors(var/reveal_count)
+	if(reveal_count <= 0 || random || !LAZYLEN(colors))
+		return null
+
+	var/reveal_key = skill_reveal_key ? skill_reveal_key : (dictionary_key ? dictionary_key : holder_type)
+	var/list/skill_reveal_order = GLOB.wire_skill_reveal_directory[reveal_key]
+	var/rebuild_order = !skill_reveal_order || length(skill_reveal_order) != LAZYLEN(colors)
+	if(!rebuild_order)
+		for(var/color in skill_reveal_order)
+			if(!(color in colors))
+				rebuild_order = TRUE
+				break
+
+	if(rebuild_order)
+		skill_reveal_order = list()
+		for(var/color in colors)
+			skill_reveal_order += color
+		skill_reveal_order = shuffle(skill_reveal_order)
+		GLOB.wire_skill_reveal_directory[reveal_key] = skill_reveal_order
+
+	return skill_reveal_order.Copy(1, reveal_count + 1)
+
 /datum/wires/ui_host()
 	return holder
 
@@ -323,13 +352,13 @@ GLOBAL_LIST_INIT(wire_name_directory, list())
 	var/list/data = list()
 	var/list/payload = list()
 	var/reveal_all = can_reveal_wires(user)
-	var/skill_revealed_wires = reveal_all ? 0 : get_skill_revealed_wire_count(user)
-	var/wire_index = 0
+	var/list/skill_revealed_colors
+	if(!reveal_all)
+		skill_revealed_colors = get_skill_revealed_colors(get_skill_revealed_wire_count(user))
 
 	for(var/color in colors)
-		wire_index++
 		var/wire_label = null
-		if(reveal_all || always_reveal_wire(color) || wire_index <= skill_revealed_wires)
+		if(reveal_all || always_reveal_wire(color) || (skill_revealed_colors && (color in skill_revealed_colors)))
 			wire_label = is_dud_color(color) ? "None" : get_wire(color)
 
 		payload.Add(list(list(
