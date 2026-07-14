@@ -843,7 +843,7 @@
 					sleeping_msg_debounce = TRUE
 					to_chat(src, EXAMINE_BLOCK_BLUE(SPAN_NOTICE(FONT_LARGE("You are now unconscious. You will not remember anything you see, hear, or feel happening around you until you regain consciousness."))))
 
-			adjustHalLoss(-3)
+			adjustHalLoss(-0.03)
 			if (species.tail)
 				animate_tail_reset()
 			if(prob(2) && is_asystole() && isSynthetic())
@@ -883,11 +883,11 @@
 			dizziness = max(0, dizziness - 15)
 			jitteriness = max(0, jitteriness - 15)
 			drowsiness = max(0, drowsiness - 5)
-			adjustHalLoss(-3)
+			adjustHalLoss(-0.03)
 		else
 			dizziness = max(0, dizziness - 3)
 			jitteriness = max(0, jitteriness - 3)
-			adjustHalLoss(-1)
+			adjustHalLoss(-0.01)
 
 		//Other
 		handle_statuses()
