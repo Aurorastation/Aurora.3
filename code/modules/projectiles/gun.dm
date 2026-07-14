@@ -597,12 +597,11 @@ ABSTRACT_TYPE(/obj/item/gun)
 	if(recoil)
 		shake_camera(user, recoil + 1, recoil)
 
-	if(ishuman(user) && user.invisibility == INVISIBILITY_LEVEL_TWO) //shooting will disable a rig cloaking device
+	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(istype(H.back, /obj/item/rig))
 			var/obj/item/rig/R = H.back
-			for(var/obj/item/rig_module/stealth_field/S in R.installed_modules)
-				S.deactivate(H)
+			R.attack_disrupt_check()  //This currently handles decloaking ninjas who shoot guns. Other modules could use attack_disrupt_check() in future.
 	update_icon()
 
 /obj/item/gun/proc/play_fire_sound()
