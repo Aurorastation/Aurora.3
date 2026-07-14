@@ -296,13 +296,15 @@ GLOBAL_LIST_INIT(wire_skill_reveal_directory, list())
 	if(isnull(skill_level))
 		skill_level = SKILL_LEVEL_UNFAMILIAR
 
+	// If you're trained in various electromechanical biz, you can probably suss out at least some basics.
+	var/has_electromech_proficiency = (GET_SKILL_LEVEL(user, ELECTRICAL_ENGINEERING_SKILL_COMPONENT) >= SKILL_LEVEL_TRAINED && GET_SKILL_LEVEL(user, MECHANICAL_ENGINEERING_SKILL_COMPONENT) >= SKILL_LEVEL_TRAINED)
 	var/reveal_percent = 0
 	if(skill_level >= SKILL_LEVEL_PROFESSIONAL)
-		reveal_percent = 70
+		reveal_percent = 75
 	else if(skill_level >= SKILL_LEVEL_TRAINED)
-		reveal_percent = 40
-	else if(skill_level >= SKILL_LEVEL_FAMILIAR)
-		reveal_percent = 20
+		reveal_percent = 50
+	else if(skill_level >= SKILL_LEVEL_FAMILIAR || has_electromech_proficiency)
+		reveal_percent = 30
 	else
 		return 0
 
