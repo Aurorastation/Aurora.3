@@ -1699,39 +1699,38 @@ Note that amputating the affected organ does in fact remove the infection from t
 
 	return tendon.status
 
-// Damage procs
-/obj/item/organ/external/proc/set_brute_damage(amount)
-	var/previous_brute = brute_dam
-	brute_dam = amount
-	add_pain((amount - previous_brute) * pain_per_brute)
-
 /obj/item/organ/external/proc/add_brute_damage(amount)
+	if (amount <= 0)
+		return
+
 	brute_dam += amount
 	add_pain(amount * pain_per_brute)
 
 /obj/item/organ/external/proc/remove_brute_damage(amount)
+	if (amount <= 0)
+		return
+
 	brute_dam -= amount
 	remove_pain(amount * pain_per_brute)
 
-/obj/item/organ/external/proc/set_burn_damage(amount)
-	var/previous_burn = burn_dam
-	burn_dam = amount
-	add_pain((amount - previous_burn) * pain_per_burn)
-
 /obj/item/organ/external/proc/add_burn_damage(amount)
+	if (amount <= 0)
+		return
+
 	burn_dam += amount
 	add_pain(amount * pain_per_burn)
 
 /obj/item/organ/external/proc/remove_burn_damage(amount)
+	if (amount <= 0)
+		return
+
 	burn_dam -= amount
 	remove_pain(amount * pain_per_burn)
 
-/obj/item/organ/external/proc/set_genetic_damage(amount)
-	var/previous_genetic = genetic_degradation
-	genetic_degradation = amount
-	add_pain((amount - previous_genetic) * pain_per_genetic)
+/obj/item/organ/external/proc/remove_genetic_damage(amount)
+	if (amount <= 0)
+		return
 
-/obj/item/organ/external/proc/remove_genetic_damage(var/amount)
 	if(BP_IS_ROBOTIC(src) || (species.flags & NO_SCAN))
 		genetic_degradation = 0
 		status &= ~ORGAN_MUTATED
@@ -1746,7 +1745,10 @@ Note that amputating the affected organ does in fact remove the infection from t
 	remove_pain(difference * pain_per_genetic)
 	return -difference
 
-/obj/item/organ/external/proc/add_genetic_damage(var/amount)
+/obj/item/organ/external/proc/add_genetic_damage(amount)
+	if (amount <= 0)
+		return
+
 	if(BP_IS_ROBOTIC(src) || (species.flags & NO_SCAN))
 		genetic_degradation = 0
 		status &= ~ORGAN_MUTATED
@@ -1764,7 +1766,10 @@ Note that amputating the affected organ does in fact remove the infection from t
 	add_pain(difference * pain_per_genetic)
 	return difference
 
-/obj/item/organ/external/proc/remove_pain(var/amount)
+/obj/item/organ/external/proc/remove_pain(amount)
+	if (amount <= 0)
+		return
+
 	if(!ORGAN_CAN_FEEL_PAIN(src) || BP_IS_ROBOTIC(src))
 		pain = 0
 		return
@@ -1773,7 +1778,10 @@ Note that amputating the affected organ does in fact remove the infection from t
 	SEND_SIGNAL(src, COMSIG_UPDATE_LIMB_IMAGE)
 	return -(pain-last_pain)
 
-/obj/item/organ/external/proc/add_pain(var/amount)
+/obj/item/organ/external/proc/add_pain(amount)
+	if (amount <= 0)
+		return
+
 	if(!ORGAN_CAN_FEEL_PAIN(src) || BP_IS_ROBOTIC(src))
 		pain = 0
 		return
