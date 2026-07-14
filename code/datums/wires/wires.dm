@@ -27,6 +27,8 @@ GLOBAL_LIST_INIT(wire_name_directory, list())
 	var/random = FALSE
 	/// Wire manufacturer for the UI skin.
 	var/manufacturer = "hephaestus"
+	/// Skill component path used for partial wire reveals. Null disables skill-based reveals.
+	var/associated_skill = ELECTRICAL_ENGINEERING_SKILL_COMPONENT
 
 /datum/wires/New(atom/holder)
 	..()
@@ -241,8 +243,8 @@ GLOBAL_LIST_INIT(wire_name_directory, list())
 /**
  * Checks whether wire assignments should be revealed.
  *
- * Returns TRUE if the wires should be revealed, FALSE otherwise.
- * Currently checks for admin ghost AI, abductor multitool and blueprints.
+ * Returns TRUE if every wire assignment in this panel should be revealed, FALSE otherwise.
+ * Currently checks for admin ghosts and blueprints.
  * Arguments:
  * * user - The mob to check when deciding whether to reveal wires.
  */
@@ -259,10 +261,6 @@ GLOBAL_LIST_INIT(wire_name_directory, list())
 	if(istype(user.get_active_hand(), /obj/item/blueprints))
 		return TRUE
 
-	// Max electrical engineering skill grants this as a perk
-	if (GET_SKILL_LEVEL(user, ELECTRICAL_ENGINEERING_SKILL_COMPONENT) >= SKILL_LEVEL_PROFESSIONAL)
-		return TRUE
-
 	return FALSE
 
 /**
@@ -275,6 +273,33 @@ GLOBAL_LIST_INIT(wire_name_directory, list())
  */
 /datum/wires/proc/always_reveal_wire(color)
 	return FALSE
+
+/**
+ * Gets how many wires this user's associated skill reveals.
+ *
+ * Familiar: 15%; Trained: 35%; Professional: 65%.
+ * Arguments:
+ * * user - The mob to check when deciding how many wires to reveal.
+ */
+/datum/wires/proc/get_skill_revealed_wire_count(mob/user)
+	if(random || !associated_skill || !LAZYLEN(colors) || !user)
+		return 0
+
+	var/skill_level = GET_SKILL_LEVEL(user, associated_skill)
+	if(isnull(skill_level))
+		skill_level = SKILL_LEVEL_UNFAMILIAR
+
+	var/reveal_percent = 0
+	if(skill_level >= SKILL_LEVEL_PROFESSIONAL)
+		reveal_percent = 70
+	else if(skill_level >= SKILL_LEVEL_TRAINED)
+		reveal_percent = 40
+	else if(skill_level >= SKILL_LEVEL_FAMILIAR)
+		reveal_percent = 20
+	else
+		return 0
+
+	return clamp(round(LAZYLEN(colors) * reveal_percent / 100), 0, LAZYLEN(colors))
 
 /datum/wires/ui_host()
 	return holder
@@ -297,11 +322,14 @@ GLOBAL_LIST_INIT(wire_name_directory, list())
 /datum/wires/ui_data(mob/user)
 	var/list/data = list()
 	var/list/payload = list()
-	var/reveal_wires = can_reveal_wires(user)
+	var/reveal_all = can_reveal_wires(user)
+	var/skill_revealed_wires = reveal_all ? 0 : get_skill_revealed_wire_count(user)
+	var/wire_index = 0
 
 	for(var/color in colors)
+		wire_index++
 		var/wire_label = null
-		if (reveal_wires || always_reveal_wire(color))
+		if(reveal_all || always_reveal_wire(color) || wire_index <= skill_revealed_wires)
 			wire_label = is_dud_color(color) ? "None" : get_wire(color)
 
 		payload.Add(list(list(

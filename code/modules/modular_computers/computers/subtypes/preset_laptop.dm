@@ -31,6 +31,11 @@
 	_app_preset_type = /datum/modular_computer_app_presets/engineering
 	enrolled = DEVICE_COMPANY
 
+/obj/item/modular_computer/laptop/preset/engineering/install_default_hardware()
+	..()
+	QDEL_NULL(network_card)
+	network_card = new /obj/item/computer_hardware/network_card/signaler(src)
+
 /obj/item/modular_computer/laptop/preset/engineering/ce
 	name = "chief engineer's laptop"
 	desc = "A portable computer belonging to the chief engineer."
@@ -58,6 +63,8 @@
 /obj/item/modular_computer/laptop/preset/research/install_default_hardware()
 	..()
 	ai_slot = new /obj/item/computer_hardware/ai_slot(src)
+	QDEL_NULL(network_card)
+	network_card = new /obj/item/computer_hardware/network_card/signaler(src)
 
 /obj/item/modular_computer/laptop/preset/research/rd
 	name = "research director's laptop"
@@ -130,6 +137,8 @@
 /obj/item/modular_computer/laptop/preset/supply/robotics/install_default_hardware()
 	..()
 	access_cable_dongle = new /obj/item/computer_hardware/access_cable_dongle(src)
+	QDEL_NULL(network_card)
+	network_card = new /obj/item/computer_hardware/network_card/signaler(src)
 
 // Representative
 /obj/item/modular_computer/laptop/preset/representative

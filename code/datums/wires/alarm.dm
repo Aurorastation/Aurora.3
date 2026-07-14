@@ -1,8 +1,9 @@
 /datum/wires/alarm
 	proper_name = "Air Alarm"
 	holder_type = /obj/structure/machinery/alarm
+	associated_skill = ATMOSPHERICS_SYSTEMS_SKILL_COMPONENT
 
-/datum/wires/airalarm/New(atom/holder)
+/datum/wires/alarm/New(atom/holder)
 	wires = list(
 		WIRE_POWER,
 		WIRE_IDSCAN, WIRE_AI,
@@ -12,7 +13,7 @@
 	add_duds(3)
 	..()
 
-/datum/wires/airalarm/interactable(mob/user)
+/datum/wires/alarm/interactable(mob/user)
 	if(!..())
 		return FALSE
 	var/obj/structure/machinery/alarm/A = holder
