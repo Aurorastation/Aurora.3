@@ -1013,7 +1013,7 @@
 				// Collect and apply the images all at once to avoid appearance churn.
 				var/list/health_images = list()
 				for(var/obj/item/organ/external/E in organs)
-					if(no_damage && (E.brute_dam || E.burn_dam))
+					if(no_damage && (LIMB_GET_BRUTE_DAMAGE(E) || LIMB_GET_BURN_DAMAGE(E)))
 						no_damage = 0
 					health_images += E.get_damage_hud_image()
 

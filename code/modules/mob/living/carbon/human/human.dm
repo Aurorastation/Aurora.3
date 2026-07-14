@@ -1877,7 +1877,7 @@
 	var/list/limbs = list()
 	for(var/limb in organs_by_name)
 		var/obj/item/organ/external/current_limb = organs_by_name[limb]
-		if(current_limb && current_limb.dislocated == 2)
+		if(current_limb && LIMB_GET_DISLOCATED(current_limb) == 2)
 			limbs |= limb
 	var/choice = tgui_input_list(usr, "Which joint do you wish to relocate?", "Relocate Joint", limbs)
 

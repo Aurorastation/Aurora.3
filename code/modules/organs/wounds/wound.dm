@@ -81,6 +81,12 @@
 
 /datum/wound/Destroy()
 	if(parent_organ)
+		// Clear any leftover damage from parent limb.
+		if (damage)
+			if (damage_type == INJURY_TYPE_BURN)
+				parent_organ.remove_burn_damage(damage)
+			else parent_organ.remove_brute_damage(damage)
+
 		LAZYREMOVE(parent_organ.wounds, src)
 		parent_organ = null
 	LAZYCLEARLIST(embedded_objects)
