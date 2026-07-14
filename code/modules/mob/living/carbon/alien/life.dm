@@ -55,7 +55,7 @@
 			blinded = 1
 			set_stat(UNCONSCIOUS)
 			if(getHalLoss() > 0)
-				adjustHalLoss(-3)
+				adjustHalLoss(-0.03)
 
 		if(sleeping)
 			adjustHalLoss(-0.03)
