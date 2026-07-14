@@ -6,7 +6,7 @@
 	wires = list(
 		WIRE_POWER1, WIRE_POWER2,
 		WIRE_IDSCAN, WIRE_AI,
-		WIRE_POWER_LIMIT
+		WIRE_POWER_LIMIT, WIRE_LIGHT
 	)
 	add_duds(6)
 	..()
@@ -38,8 +38,9 @@
 		if(WIRE_AI)
 			set_ai_control(A, TRUE)
 			addtimer(CALLBACK(src, PROC_REF(set_ai_control), A, FALSE), 1 SECONDS)
-		if(WIRE_POWER_LIMIT && !light_explosion_safety)
-			A.overload_lighting()
+		if(WIRE_LIGHT)
+			if(!A.light_explosion_safety)
+				A.overload_lighting()
 
 /datum/wires/apc/proc/set_locked(var/obj/structure/machinery/power/apc/A, var/setting)
 	if(A)

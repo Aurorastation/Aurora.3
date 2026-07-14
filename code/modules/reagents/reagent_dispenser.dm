@@ -159,6 +159,7 @@
 									SPAN_NOTICE("You detach [rig] from \the [src]"))
 
 			rig.forceMove(get_turf(user))
+			rig.detached()
 			rig = null
 			overlays = new/list()
 
@@ -176,12 +177,15 @@
 		if (rig)
 			to_chat(user, SPAN_WARNING("There is another device in the way."))
 			return ..()
+		var/obj/item/assembly_holder/H = attacking_item
+		if(!H.secured)
+			to_chat(user, SPAN_WARNING("The assembly must be secured with a screwdriver."))
+			return TRUE
 		user.visible_message("[user] begins rigging [attacking_item] to \the [src].", "You begin rigging [attacking_item] to \the [src]")
 		if(do_after(user, 20))
 			user.visible_message(SPAN_NOTICE("[user] rigs [attacking_item] to \the [src]."),
 									SPAN_NOTICE("You rig [attacking_item] to \the [src]"))
 
-			var/obj/item/assembly_holder/H = attacking_item
 			if (istype(H.a_left,/obj/item/assembly/igniter) || istype(H.a_right,/obj/item/assembly/igniter))
 				message_admins("[key_name_admin(user)] rigged fueltank at [loc.loc.name] ([loc.x],[loc.y],[loc.z]) for explosion. (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[loc.x];Y=[loc.y];Z=[loc.z]'>JMP</a>)")
 				log_game("[key_name(user)] rigged fueltank at [loc.loc.name] ([loc.x],[loc.y],[loc.z]) for explosion.")
