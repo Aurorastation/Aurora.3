@@ -460,6 +460,32 @@ STOCK_ITEM_COMMON(posters, 3)
 	if(prob(40))
 		new /obj/item/contraband/poster(L)
 
+STOCK_ITEM_COMMON(parts, 2)
+	var/list/parts = list(
+		/obj/item/storage/box/components = 10, //Low ranking parts, common
+		/obj/item/stock_parts/capacitor/adv = 1, //Improved parts, less common
+		/obj/item/stock_parts/scanning_module/adv = 1,
+		/obj/item/stock_parts/manipulator/nano = 1,
+		/obj/item/stock_parts/micro_laser/high = 1,
+		/obj/item/stock_parts/matter_bin/adv = 1,
+		/obj/item/stock_parts/capacitor/super = 0.3, //Top level parts, rare
+		/obj/item/stock_parts/scanning_module/phasic = 0.3,
+		/obj/item/stock_parts/manipulator/pico = 0.3,
+		/obj/item/stock_parts/micro_laser/ultra = 0.3,
+		/obj/item/stock_parts/matter_bin/super = 0.3,
+		/obj/item/stock_parts/subspace/ansible = 0.5, //Telecomms parts, useless novelties and red herrings.
+		/obj/item/stock_parts/subspace/filter = 0.5,
+		/obj/item/stock_parts/subspace/amplifier = 0.5,
+		/obj/item/stock_parts/subspace/treatment = 0.5,
+		/obj/item/stock_parts/subspace/analyzer = 0.5,
+		/obj/item/stock_parts/subspace/crystal = 0.5,
+		/obj/item/stock_parts/subspace/transmitter = 0.5
+	)
+
+	for(var/i in 1 to rand(1, 2))
+		var/part = pickweight(parts)
+		new part(L)
+
 STOCK_ITEM_COMMON(cane, 2)
 	if(prob(5))
 		new /obj/item/cane/concealed(L)
