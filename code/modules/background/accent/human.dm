@@ -452,7 +452,7 @@
 	tag_icon = "zhurong"
 	text_tag = "ZHU"
 
-/datum/accent/zhurong
+/datum/accent/caria
 	name = ACCENT_DOMINIA_CARIA
 	description = "Carian Standard is an unusual dialect from an atypical world. The only non-Morozi dialect of Tradeband found in the Empires borders, it is similar to High Morozi in its pronunciation and grammatical structures. Speakers of this dialect are viewed with suspicion in the Empire, believed to be sorcerers, witches, and often touched by some form of darkness — but they are equally called for their worlds association with augury and the divine, with Carian seers prized by many noble households in the Empire."
 	tag_icon = "caria"
