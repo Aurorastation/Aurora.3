@@ -137,6 +137,7 @@
 
 	possible_external_organs_modifications = list("Normal","Amputated","Prosthesis", "Diona Nymph")
 	valid_prosthetics = list(PROSTHETIC_AUTAKH)
+	mass_modifier = REFERENCE_MASS_UNATHI / REFERENCE_MASS_HUMAN
 
 /datum/species/unathi/after_equip(var/mob/living/carbon/human/H)
 	. = ..()

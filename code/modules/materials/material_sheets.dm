@@ -1,4 +1,4 @@
-// Stacked resources. They use a material datum for a lot of inherited values.
+/// Stacked resources. They use a material datum for a lot of inherited values.
 /obj/item/stack/material
 	force = 11
 	throwforce = 5
@@ -6,10 +6,11 @@
 	throw_speed = 3
 	throw_range = 3
 	max_amount = 50
-	recyclable = TRUE // Pretty much all materials should be recyclable
+	/// Pretty much all materials should be recyclable
+	recyclable = TRUE
 
-	var/default_type = DEFAULT_WALL_MATERIAL
-	var/material/material
+	var/default_type = MATERIAL_STEEL
+	var/singleton/material/material
 	var/perunit
 	var/apply_colour //temp pending icon rewrite
 	var/painted_colour
@@ -25,8 +26,8 @@
 	randpixel_xy()
 
 	if(!default_type)
-		default_type = DEFAULT_WALL_MATERIAL
-	material = SSmaterials.get_material_by_name(default_type)
+		default_type = MATERIAL_STEEL
+	material = SSmaterials.get_material_by_id(default_type)
 	if(!material)
 		return INITIALIZE_HINT_QDEL
 
@@ -81,7 +82,7 @@
 
 /obj/item/stack/material/transfer_to(obj/item/stack/S, var/tamount=null, var/type_verified)
 	var/obj/item/stack/material/M = S
-	if(!istype(M) || material.name != M.material.name)
+	if(!istype(M) || material.type != M.material.type)
 		return 0
 	var/transfer = ..(S,tamount,1)
 	if(src)
@@ -283,9 +284,9 @@
 	update_icon()
 
 /obj/item/stack/material/steel
-	name = DEFAULT_WALL_MATERIAL
+	name = "steel"
 	icon_state = "sheet-metal"
-	default_type = DEFAULT_WALL_MATERIAL
+	default_type = MATERIAL_STEEL
 	icon_has_variants = TRUE
 
 /obj/item/stack/material/steel/attackby(obj/item/attacking_item, mob/user)
@@ -562,7 +563,7 @@
 /obj/item/stack/material/bronze
 	name = "bronze"
 	icon_state = "sheet-brass"
-	default_type = "bronze"
+	default_type = MATERIAL_BRONZE
 	icon_has_variants = TRUE
 
 /obj/item/stack/material/bronze/full/Initialize()

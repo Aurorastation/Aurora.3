@@ -31,7 +31,7 @@ Deployable Kits
 /obj/structure/blocker/proc/set_material(var/material_name)
 	if(force_material)
 		material_name = force_material
-	material = SSmaterials.get_material_by_name(material_name)
+	material = SSmaterials.get_material_by_id(material_name)
 	if(!material)
 		qdel(src)
 		return
@@ -61,7 +61,7 @@ Deployable Kits
 		var/obj/item/I = usr.get_inactive_hand()
 		if(I && istype(I, /obj/item/stack))
 			var/obj/item/stack/D = I
-			if(D.get_material_name() != material.name)
+			if(D.get_material() != material)
 				to_chat(user, SPAN_WARNING("You need one sheet of [material.display_name] to repair \the [src]."))
 				return ..()
 			if(health < maxhealth)
