@@ -109,7 +109,7 @@
 		if(istype(H.back,/obj/item/rig))
 			var/obj/item/rig/R = H.back
 			for(var/obj/item/rig_module/stealth_field/S in R.installed_modules)
-				S.deactivate()
+				S.deactivate(H)
 
 /obj/item/reagent_containers/spray/attack_self(var/mob/user)
 	if(!possible_transfer_amounts)

@@ -865,9 +865,13 @@
 			if(!do_after(M, seal_delay))
 				return FALSE
 
+		if(wearer && wearer != M)
+			unregister_wearer_signals(wearer)
+
 		M.visible_message(SPAN_NOTICE("<b>[M] struggles into \the [src].</b>"), SPAN_NOTICE("<b>You struggle into \the [src].</b>"))
 		wearer = M
 		wearer.wearing_rig = src
+		register_wearer_signals(wearer)
 		update_icon(TRUE)
 		return TRUE
 	return TRUE
@@ -1036,11 +1040,38 @@
 		toggle_piece(piece, H, ONLY_RETRACT)
 
 /obj/item/rig/proc/null_wearer(var/mob/user)
+	unregister_wearer_signals(wearer)
 	for(var/piece in list("helmet","gauntlets",BP_CHEST,"boots"))
 		toggle_piece(piece, user, ONLY_RETRACT)
 	if(wearer)
 		wearer.wearing_rig = null
 		wearer = null
+
+/obj/item/rig/proc/register_wearer_signals(mob/living/carbon/human/new_wearer)
+	if(!new_wearer)
+		return
+
+	RegisterSignal(new_wearer, COMSIG_MOB_CLICKON, PROC_REF(handle_wearer_click))
+
+/obj/item/rig/proc/unregister_wearer_signals(mob/living/carbon/human/old_wearer)
+	if(!old_wearer)
+		return
+
+	UnregisterSignal(old_wearer, COMSIG_MOB_CLICKON)
+
+/obj/item/rig/proc/handle_wearer_click(mob/user, atom/target, modifiers)
+	SIGNAL_HANDLER
+	if(offline == 2)
+		return
+	if(LAZYACCESS(modifiers, SHIFT_CLICK))
+		return
+	if(LAZYACCESS(modifiers, ALT_CLICK))
+		return
+	if(LAZYACCESS(modifiers, RIGHT_CLICK))
+		return
+
+	if(ismob(target))
+		attack_disrupt_check()
 
 /obj/item/rig/on_slotmove(var/mob/user)
 	..()

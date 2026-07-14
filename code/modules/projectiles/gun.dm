@@ -602,7 +602,7 @@ ABSTRACT_TYPE(/obj/item/gun)
 		if(istype(H.back, /obj/item/rig))
 			var/obj/item/rig/R = H.back
 			for(var/obj/item/rig_module/stealth_field/S in R.installed_modules)
-				S.deactivate()
+				S.deactivate(H)
 	update_icon()
 
 /obj/item/gun/proc/play_fire_sound()
