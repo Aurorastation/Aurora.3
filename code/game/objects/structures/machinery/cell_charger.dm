@@ -40,7 +40,7 @@
 	for(var/obj/item/stock_parts/capacitor/capacitor in component_parts)
 		cap_rating += capacitor.rating
 
-	charging_efficiency = 2 * (1 + (cap_rating * charging_efficiency_per_capacitor))
+	charging_efficiency = initial(charging_efficiency) * (1 + (cap_rating * charging_efficiency_per_capacitor))
 	active_power_usage = cap_rating * charging_speed_per_capacitor
 
 /obj/structure/machinery/cell_charger/proc/update_charge_level()
