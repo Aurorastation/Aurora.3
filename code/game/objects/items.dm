@@ -853,7 +853,7 @@ GLOBAL_LIST_INIT(slot_flags_enumeration, list(
 			)
 
 		eyes.take_damage(rand(3,4))
-		if(eyes.damage >= eyes.min_bruised_damage)
+		if(eyes.get_damage() >= eyes.min_bruised_damage)
 			if(H.stat != DEAD)
 				if(eyes.robotic <= 1) //robot eyes bleeding might be a bit silly
 					to_chat(H, SPAN_DANGER("Your eyes start to bleed profusely!"))
@@ -864,7 +864,7 @@ GLOBAL_LIST_INIT(slot_flags_enumeration, list(
 				H.eye_blurry += 10
 				H.Paralyse(1)
 				H.Weaken(4)
-			if (eyes.damage >= eyes.min_broken_damage)
+			if (eyes.get_damage() >= eyes.min_broken_damage)
 				if(H.stat != DEAD)
 					to_chat(H, SPAN_WARNING("You go blind!"))
 		var/obj/item/organ/external/affecting = H.get_organ(BP_HEAD)

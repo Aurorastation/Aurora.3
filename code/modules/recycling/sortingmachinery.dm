@@ -255,7 +255,7 @@
 	item_state = "dest_tagger"
 	contained_sprite = TRUE
 	var/currTag = 0
-	matter = list(DEFAULT_WALL_MATERIAL = 250, MATERIAL_GLASS = 140)
+	matter = list(MATERIAL_STEEL = 250, MATERIAL_GLASS = 140)
 	w_class = WEIGHT_CLASS_SMALL
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT

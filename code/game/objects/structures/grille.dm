@@ -18,9 +18,9 @@
 	var/destroyed = 0
 
 /obj/structure/grille/get_damage_condition_hints(mob/user, distance, is_adjacent)
-	if(health < initial(health))
+	if(health < maxhealth)
 		var/state
-		var/current_damage = health / initial(health)
+		var/current_damage = health / maxhealth
 		switch(current_damage)
 			if(0 to 0.3)
 				state = SPAN_DANGER("The grille is barely in one piece!")

@@ -156,8 +156,6 @@
 
 	spark_system = bind_spark(src, 5)
 
-	START_PROCESSING(SSmobs, src)
-
 	last_remote_message = world.time
 
 	if(initial_modules && initial_modules.len)
@@ -224,7 +222,7 @@
 	piece.icon_supported_species_tags = icon_supported_species_tags
 
 /obj/item/rig/Destroy()
-	STOP_PROCESSING(SSmobs, src)
+	STOP_PROCESSING(SSprocessing, src)
 	QDEL_NULL(air_supply)
 	QDEL_NULL(boots)
 	QDEL_NULL(chest)
@@ -439,7 +437,7 @@
 			piece.item_flags |= ITEM_FLAG_AIRTIGHT
 	update_icon(1)
 
-/obj/item/rig/process()
+/obj/item/rig/process(seconds_per_tick)
 	// If we've lost any parts, grab them back.
 	var/mob/living/M
 	for(var/obj/item/piece in list(gloves,boots,helmet,chest))
@@ -452,7 +450,7 @@
 
 	var/previous_offline_status = offline
 	// Consume energy per tick while active. If you don't have a cell... Weird, but we'll deal with that shortly.
-	var/power_usage_this_tick = ((!offline && cell) ? cell_draw_rate : 0.0)
+	var/power_usage_this_tick = ((!offline && cell) ? (cell_draw_rate * seconds_per_tick) : 0.0)
 
 	if(!istype(wearer) || loc != wearer || wearer.back != src || canremove || !cell || cell.charge <= 0)
 		if(!cell || cell.charge <= 0)
@@ -487,10 +485,10 @@
 	set_vision(!offline)
 
 	if(cell && cell.charge > 0 && electrified > 0)
-		electrified--
+		electrified -= seconds_per_tick
 
 	if(crushing)
-		wearer.apply_damage(10) // Applies 10 brute damage to a random extremity each process
+		wearer.apply_damage(10 * seconds_per_tick) // Applies 10 brute damage per second to a random extremity
 		if(wearer.stat == DEAD)
 			crushing = FALSE
 			visible_message(SPAN_DANGER("A squelching sound comes from within the sealed hardsuit..")) // this denotes that the user inside has died.
@@ -1039,8 +1037,7 @@
 		SSstatpanels.set_action_tabs_RIG(user.client, user)
 
 	null_wearer(user)
-
-
+	STOP_PROCESSING(SSprocessing, src)
 //Todo
 /obj/item/rig/proc/malfunction()
 	return 0
@@ -1302,3 +1299,7 @@
 		air_supply.remove_air(air_supply.air_contents.total_moles)
 	else
 		air_supply = null
+
+/obj/item/rig/equipped()
+	. = ..()
+	START_PROCESSING(SSprocessing, src)

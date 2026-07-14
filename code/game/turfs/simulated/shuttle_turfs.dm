@@ -164,7 +164,7 @@
 	color = COLOR_MUTED_BROWN
 
 /turf/simulated/wall/shuttle/skrell/Initialize(mapload)
-	. = ..(mapload,"skrell")
+	. = ..(mapload, MATERIAL_SHUTTLE_SKRELL)
 
 /turf/simulated/wall/shuttle/scc
 	color = "#AAAFC7"

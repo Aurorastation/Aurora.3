@@ -418,7 +418,7 @@
 	// - No action was taken in parent function (terminal de/construction atm).
 	if (..())
 		if(attacking_item.tool_behaviour == TOOL_WELDER)
-			if(health == initial(health))
+			if(health == maxhealth)
 				to_chat(user, SPAN_WARNING("\The [src] is already repaired."))
 				return
 			var/obj/item/weldingtool/WT = attacking_item
@@ -429,9 +429,9 @@
 				to_chat(user, SPAN_WARNING("You don't have enough fuel to repair \the [src]."))
 				return
 			if(WT.use_tool(src, user, 50, volume = 50) && WT.use(2, user))
-				health = min(health + 100, initial(health))
-				to_chat(user, SPAN_NOTICE("You repair \the [src], it is now [round((health / initial(health)) * 100)]% repaired."))
-				if(health == initial(health))
+				health = min(health + 100, maxhealth)
+				to_chat(user, SPAN_NOTICE("You repair \the [src], it is now [round((health / maxhealth) * 100)]% repaired."))
+				if(health == maxhealth)
 					busted = FALSE
 				return
 		// Multitool - change RCON tag

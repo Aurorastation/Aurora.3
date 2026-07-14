@@ -118,27 +118,26 @@
 			to_chat(user, SPAN_NOTICE("\The [src] needs to be anchored."))
 			return
 
-		var/material_name = attacking_item.get_material_name()
-		if(material_name in list(MATERIAL_GLASS_REINFORCED, MATERIAL_GLASS_REINFORCED_PHORON))
+		var/obj/item/stack/material/glass_stack = attacking_item
+		var/singleton/material/glass_material = glass_stack.get_material()
+		if(glass_material?.type in list(MATERIAL_GLASS_REINFORCED, MATERIAL_GLASS_REINFORCED_PHORON))
 			if(has_glass_installed)
 				to_chat(user, SPAN_NOTICE("\The [src] already has glass installed."))
 				return
-
-			var/obj/item/stack/material/glass_stack = attacking_item
 
 			if(!do_after(user, 2 SECONDS))
 				return
 
 			if(!glass_stack.use(glass_needed))
 				var/message = "You need at least [glass_needed] sheets of " \
-					+ "[material_name] to install a window in \the [src]."
+					+ "[glass_material.use_name] to install a window in \the [src]."
 				to_chat(user, SPAN_NOTICE(message))
 				return
 
 			playsound(src, 'sound/items/Deconstruct.ogg', 50, 1)
-			to_chat(user, SPAN_NOTICE("You place the [material_name] in the window frame."))
+			to_chat(user, SPAN_NOTICE("You place the [glass_material.use_name] in the window frame."))
 
-			switch(material_name)
+			switch(glass_material.type)
 				if(MATERIAL_GLASS_REINFORCED)
 					new /obj/structure/window/full/reinforced(get_turf(src), constructed = TRUE)
 				if(MATERIAL_GLASS_REINFORCED_PHORON)
