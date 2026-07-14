@@ -11,8 +11,8 @@
 #define RIG_INTERFACE_SHOCK BITFLAG(5)
 
 /datum/wires/rig
-	random = 1
 	holder_type = /obj/item/rig
+	associated_skill = ROBOTICS_SKILL_COMPONENT
 
 /datum/wires/rig/New(atom/holder)
 	wires = list(

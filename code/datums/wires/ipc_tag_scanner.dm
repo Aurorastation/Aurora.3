@@ -1,6 +1,5 @@
 /datum/wires/tag_scanner
 	proper_name = "IPC Tag Scanner"
-	random = TRUE
 	holder_type = /obj/item/ipc_tag_scanner
 	associated_skill = ROBOTICS_SKILL_COMPONENT
 
