@@ -192,7 +192,7 @@
 	if (parent_organ)
 		if (damage_type == INJURY_TYPE_BURN)
 			parent_organ.remove_burn_damage(healed_damage)
-		else parent_organ.remove_burn_damage(healed_damage)
+		else parent_organ.remove_brute_damage(healed_damage)
 
 	while((src.damage / src.amount) < damage_list[current_stage] && current_stage < length(src.desc_list))
 		current_stage++
