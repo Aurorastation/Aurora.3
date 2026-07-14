@@ -140,14 +140,13 @@
 
 /singleton/origin_item/origin/salamasian
 	name = "Republican Salamasian"
-	desc = "The seniormost population of their planet, the Salamasians are a culture descended primarily \
-	from the people of Samoa, who were brought under the employ of Hephaestus Industries to the mining world \
-	which would become known to them as Nu'u for mineral extraction operations. Hardy and family-focused, the \
-	Salamasian Republic is a nation dominated by blue collar industry, to this day functioning as a major exporter \
-	of raw and processed minerals even over a century after Hephaestus left the planet. A small population of synthetics \
-	have integrated into the culture seperately to the Trinarist settlement of the main planet, though they are not \
-	unanimously accepted due to their inability to perfectly fit into the 'aiga family unit which dominates social \
-	and political life within the Republic."
+	desc = "The original population of the planet, the Salamasians are a culture descended primarily from the \
+	people of Samoa and America Samoa, brought under the employ of Hephaestus Industries to the mining world \
+	they would name Nu'u for mineral extraction. Traditionalist and family-focused, the Salamasian Republic is \
+	a nation dominated by blue collar industry, historically operating as a major exporter of raw and processed \
+	minerals, a lucrative market to this day. A small population of synthetics have integrated into Salamasian \
+	culture separately from Trinarist settlement of Axiom, who face difficulty gaining unanimous acceptance into \
+	the 'aiga family unit that dominates social and political life within the Republic."
 	important_information = "<b>Due to having been composed primarily of Samoan colonists since its \
 	earliest settlement, all Salamasians must have appearances and names consistent with the peoples \
 	of Samoa and American Samoa. Only native Salamasians may take the Salamasian accent. This is \

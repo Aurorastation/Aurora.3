@@ -1,11 +1,12 @@
 /singleton/origin_item/culture/axiom
 	name = "Axiom"
-	desc = "Axiom is a term for a planet - known also as Orepit to the otuside world, and \
-	as Nu'u to the indigenous Salamasian population - and also for the Ecclesiastical Authority \
-	of Axiom, a theocratic state administrated by the Trinary Perfection, which controls swathes \
-	of the planet's deserts. All arable land on the planet is administrated by the Salamasian Republic, \
-	a population predating the Trinarist settlement of the planet by over a century and which shares \
-	power with their new neighbors with degrees of caution and mutual ambition."
+	desc = "Axiom - also known as Orepit to the outside world - is governed by the Ecclesiastical \
+	Authority of Axiom, the theocratic state administered by the Trinary Perfection who control \
+	the swathes of the planet's equatorial desert. It is shared by the indigenous Salamasian \
+	population who know the planet as Nu'u, predating the arrival of Trinarists by over a century. \
+	Their government, through the Salamasian Republic, occupies the arable northern and southern \
+	hemispheres. This duo of neighbors shares power over the former Hephaestus colony with degrees \
+	of both caution and mutual ambition."
 	possible_origins = list(
 		/singleton/origin_item/origin/ipc_axiom,
 		/singleton/origin_item/origin/ipc_salamasian
@@ -30,18 +31,16 @@
 
 /singleton/origin_item/origin/ipc_salamasian
 	name = "Republican Salamasian"
-	desc = "The seniormost population of their planet, the Salamasians are a culture descended primarily \
-	from the people of Samoa, who were brought under the employ of Hephaestus Industries to the mining world \
-	which would become known to them as Nu'u for mineral extraction operations. Hardy and family-focused, the \
-	Salamasian Republic is a nation dominated by blue collar industry, to this day functioning as a major exporter \
-	of raw and processed minerals even over a century after Hephaestus left the planet. A small population of synthetics \
-	have integrated into the culture seperately to the Trinarist settlement of the main planet, though they are not \
-	unanimously accepted due to their inability to perfectly fit into the 'aiga family unit which dominates social \
-	and political life within the Republic."
-	important_information = "<b>Due to their integration into the wider culture of the Salamasian Republic, \
-	which descends from Samoan colonists, synthetics from the Salamasian Republic must also align, if applicable, \
-	to the culture of their surroundings. Shells who have acclimatised to the Republic will have adopted \
-	an appearance which matches, if loosely, their human peers.</b>"
+	desc = "The original population of the planet, the Salamasians are a culture descended primarily from the \
+	people of Samoa and America Samoa, brought under the employ of Hephaestus Industries to the mining world \
+	they would name Nu'u for mineral extraction. Traditionalist and family-focused, the Salamasian Republic is \
+	a nation dominated by blue collar industry, historically operating as a major exporter of raw and processed \
+	minerals, a lucrative market to this day. A small population of synthetics have integrated into Salamasian \
+	culture separately from Trinarist settlement of Axiom, who face difficulty gaining unanimous acceptance into \
+	the 'aiga family unit that dominates social and political life within the Republic."
+	important_information = "<b>Due to the assimilation of Synthetics into the Samoan-derived culture of the \
+	Salamasian Republic, IPCs must align where possible to the culture of their inhabitants. Shells who have \
+	acclimated to the Republic will have appearances consistent with their organic counterparts.</b>"
 	possible_accents = list(ACCENT_SALAMASIAN)
 	possible_citizenships = list(CITIZENSHIP_AXIOM)
 	possible_religions = RELIGIONS_ALL_IPC
