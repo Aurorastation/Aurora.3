@@ -8,6 +8,7 @@
 		/singleton/origin_item/origin/core_worlds,
 		/singleton/origin_item/origin/novi_jadran,
 		/singleton/origin_item/origin/imperial_frontier,
+		/singleton/origin_item/origin/sun_reach
 		/singleton/origin_item/origin/dominian_exile
 	)
 
