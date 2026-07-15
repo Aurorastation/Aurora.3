@@ -22,6 +22,7 @@
 	ut_atmos_exempt_areas = list(
 		/area/horizon/maintenance, // It's the maints, mate
 		/area/horizon/engineering/atmos/storage, // Quasi-maints
+		/area/horizon/engineering/atmos/storage_maintenance, // Quasi-maints
 		/area/horizon/rnd/server, // Fancy local temp control
 		/area/horizon/tcommsat/chamber, // Fancy local temp control
 		/area/horizon/command/bridge/aibunker, // Fancy local temp control
@@ -42,6 +43,7 @@
 		/area/horizon/command/bridge/aibunker, // Design
 		/area/horizon/medical/cryo, // Quasi-maints
 		/area/horizon/engineering/atmos/storage, // Quasi-maints
+		/area/horizon/engineering/atmos/storage_maintenance, // Quasi-maints
 		/area/horizon/rnd/xenoarch/isolation_a, // Science bullshit
 		/area/horizon/rnd/xenoarch/isolation_b, // Science bullshit
 		/area/horizon/rnd/xenoarch/isolation_c, // Science bullshit
