@@ -451,6 +451,9 @@
 // Checks mapped wall-mounted objects with direction presets.
 /datum/unit_test/map_test/no_directional_subtype_dir_var_edits
 	name = "MAP: Check for directional subtype dir var edits"
+	// Right now, this only runs on the Horizon. ALL NEW MAPS should opt-in to this unit test.
+	// Old maps are REQUIRED to be opted-in when they're touched for the first time since this unit test was added.
+	map_path = list("sccv_horizon")
 
 /datum/unit_test/map_test/no_directional_subtype_dir_var_edits/start_test()
 	var/test_status = UNIT_TEST_PASSED
@@ -460,7 +463,7 @@
 		/obj/structure/machinery/alarm,
 		/obj/structure/machinery/power/apc,
 		/obj/structure/machinery/firealarm,
-		// save this for nbt2. fuck me. i don't have the strength for this rn.
+		// save this for nbt2. fuck me. i don't have the strength for this rn. no one does.
 		// /obj/structure/machinery/light_switch,
 		/obj/structure/extinguisher_cabinet,
 		/obj/structure/fireaxecabinet,
