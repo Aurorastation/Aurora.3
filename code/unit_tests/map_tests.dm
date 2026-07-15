@@ -475,6 +475,11 @@
 		if(!is_type_in_typecache(O, checked_types))
 			continue
 
+		var/turf/object_turf = O.loc
+		if(istype(object_turf))
+			if(!is_station_level(object_turf.z))
+				continue
+
 		var/obj/obj_type = O.type
 		var/expected_dir = initial(obj_type.dir)
 		checks++
