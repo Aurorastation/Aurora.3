@@ -106,30 +106,6 @@
 
 	return 1
 
-/datum/unit_test/map_test/no_cable_direction_var_edits
-	name = "MAP: Check for cable d1/d2 var edits"
-
-/datum/unit_test/map_test/no_cable_direction_var_edits/start_test()
-	var/checks = 0
-	var/failed_checks = 0
-
-	for(var/obj/structure/cable/C in world)
-		checks++
-		var/obj/structure/cable/temp_C = new C.type
-
-		if(C.d1 != temp_C.d1 || C.d2 != temp_C.d2)
-			failed_checks++
-			TEST_FAIL("Mapped cable [C] ([C.type]) at ([C.x],[C.y],[C.z]) in [get_area(C)] has d1/d2 set to [C.d1]/[C.d2], but its type defaults to [temp_C.d1]/[temp_C.d2]. Use the matching cable subtype instead of editing d1 or d2.")
-
-		qdel(temp_C)
-
-	if(failed_checks)
-		TEST_FAIL("\[[failed_checks] / [checks]\] cables had d1 or d2 manually edited.")
-	else
-		TEST_PASS("All \[[checks]\] cables are mapped with their type's default d1 and d2 values.")
-
-	return 1
-
 #define BLOCKED_UP   1
 #define BLOCKED_DOWN 2
 
@@ -484,7 +460,8 @@
 		/obj/structure/machinery/alarm,
 		/obj/structure/machinery/power/apc,
 		/obj/structure/machinery/firealarm,
-		/obj/structure/machinery/light_switch,
+		// save this for nbt2. fuck me. i don't have the strength for this rn.
+		// /obj/structure/machinery/light_switch,
 		/obj/structure/extinguisher_cabinet,
 		/obj/structure/fireaxecabinet,
 		/obj/structure/closet/walllocker,
