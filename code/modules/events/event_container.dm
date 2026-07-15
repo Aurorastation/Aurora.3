@@ -385,8 +385,8 @@ GLOBAL_LIST_INIT(severity_to_string, alist(EVENT_LEVEL_MUNDANE = "Mundane", EVEN
 			20, list(ASSIGNMENT_ENGINEER = 15, ASSIGNMENT_JANITOR = 20)),
 
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Dark Matter Influx", /datum/event/gravity_anomaly,
-			35, list(ASSIGNMENT_ENGINEER = 20), is_one_shot = TRUE,
-			pop_needed = 12),
+			50, list(ASSIGNMENT_ENGINEER = 20), is_one_shot = TRUE, // LEMURIAN SEA SNOWFLAKE - Set weight manually back to 30 after arc. We really need sector-based weight modification tables.
+			pop_needed = 8),
 
 	)
 
