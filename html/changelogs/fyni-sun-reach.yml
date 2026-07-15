@@ -1,0 +1,6 @@
+author: fyni
+delete-after: True
+changes:
+ - rscadd: "Adds Sun Reach origin, which allows Reachers to finally be resistant to heat."
+ - rscadd: "Changes Novi Jadran origin description."
+ - rscdel: "Remove Sun Reach accent from Imperial Frontier origin."
