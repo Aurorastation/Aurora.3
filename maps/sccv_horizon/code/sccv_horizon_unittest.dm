@@ -32,6 +32,7 @@
 		/area/horizon/rnd/xenoarch/isolation_b, // Science bullshit
 		/area/horizon/rnd/xenoarch/isolation_c, // Science bullshit
 		/area/horizon/shuttle/escape_pod, // You're dead anyway if something goes wrong
+		/area/horizon/operations/package_conveyors, // It's less maints+ and more maints-
 		/area/horizon/shuttle/canary // Where the fuck are you gonna put them
 		// IF YOU ARE GOING TO ADD MORE EXEMPT AREAS, HAVE A GOOD REASON AND MOVE THIS MESSAGE DOWN A LINE.
 	)
@@ -40,6 +41,7 @@
 		/area/horizon/maintenance, // It's the maints, mate
 		/area/horizon/command/bridge/aibunker, // Design
 		/area/horizon/medical/cryo, // Quasi-maints
+		/area/horizon/engineering/atmos/storage, // Quasi-maints
 		/area/horizon/rnd/xenoarch/isolation_a, // Science bullshit
 		/area/horizon/rnd/xenoarch/isolation_b, // Science bullshit
 		/area/horizon/rnd/xenoarch/isolation_c, // Science bullshit
