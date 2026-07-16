@@ -204,8 +204,7 @@
 /datum/modular_computer_app_presets/civilian/New()
 	. = ..()
 	program_list += COMPUTER_APP_PRESET_SYSTEM + COMPUTER_APP_PRESET_HORIZON_CIVILIAN
-	program_list += list(/datum/computer_file/program/game/arcade, /datum/computer_file/program/cooking_codex)
-
+	program_list += list(/datum/computer_file/program/game/arcade, /datum/computer_file/program/cooking_codex, /datum/computer_file/program/bartending_codex)
 
 /datum/modular_computer_app_presets/civilian/janitor
 	name = "janitor"
