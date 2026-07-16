@@ -245,3 +245,10 @@
       chute.
   - rscadd: Implemented several small tweaks to the service department, inclusive
       of lighting changes, swapped turfs, and realigned machinery.
+2026-07-16:
+  fyni:
+  - rscadd: Adds the missing line which allows the Sun Reach origin to appear
+  - rscadd: Adds Sun Reach origin, which allows Reachers to finally be resistant to
+      heat.
+  - rscadd: Changes Novi Jadran origin description.
+  - rscdel: Remove Sun Reach accent from Imperial Frontier origin.
