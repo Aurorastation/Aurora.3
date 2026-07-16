@@ -11,6 +11,8 @@
 	var/icon_add // this is the "bar" part in "pda-bar"
 	enrolled = DEVICE_PRIVATE
 
+	light_system = MOVABLE_LIGHT
+
 /obj/item/modular_computer/handheld/pda/set_icon()
 	if(icon_add)
 		icon_state += "-[icon_add]"
