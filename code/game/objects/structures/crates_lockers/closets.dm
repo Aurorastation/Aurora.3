@@ -880,7 +880,7 @@
 	icon = 'icons/obj/item/scanner.dmi'
 	icon_state = "crate_scanner"
 	item_state = "crate_scanner"
-	matter = list(DEFAULT_WALL_MATERIAL = 250, MATERIAL_GLASS = 140)
+	matter = list(MATERIAL_STEEL = 250, MATERIAL_GLASS = 140)
 	w_class = WEIGHT_CLASS_SMALL
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT

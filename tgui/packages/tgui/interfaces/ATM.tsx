@@ -1,3 +1,4 @@
+import { useRef } from 'react';
 import {
   Box,
   Button,
@@ -49,14 +50,14 @@ export const ATM = (props) => {
             data.emagged ? 'Idris SeSeSelfERR#1#@2' : 'Idris Banking Interface'
           }
           buttons={
-            data.authenticated_account && (
+            data.authenticated_account ? (
               <Button
                 content="Logout"
                 icon="times"
                 color="red"
                 onClick={() => act('logout')}
               />
-            )
+            ) : null
           }
         >
           {data.ticks_left_locked_down ? (
@@ -123,6 +124,8 @@ export const LoginWindow = (props) => {
 export const AuthenticatedWindow = (props) => {
   const { act, data } = useBackend<ATMData>();
   const [withdraw, setWithdraw] = useLocalState<number>('withdraw', 0);
+  const withdrawRef = useRef(withdraw);
+  const withdrawInputRef = useRef<NumberInput | null>(null);
   const [security, setSecurity] = useLocalState<boolean>('security', false);
   const [transfer, setTransfer] = useLocalState<boolean>('transfer', false);
   const [target, setTarget] = useLocalState<string>('target', '');
@@ -132,6 +135,27 @@ export const AuthenticatedWindow = (props) => {
     'Funds transfer',
   );
   const [logs, setLogs] = useLocalState<boolean>('logs', false);
+
+  const setWithdrawAmount = (value: number) => {
+    withdrawRef.current = value;
+    setWithdraw(value);
+  };
+
+  const commitWithdrawAmount = () => {
+    const activeInput = withdrawInputRef.current?.inputRef.current;
+
+    if (activeInput && document.activeElement === activeInput) {
+      const value = Number.parseFloat(activeInput.value);
+
+      if (!Number.isNaN(value)) {
+        const clampedValue = Math.min(Math.max(value, 1), data.money);
+        setWithdrawAmount(clampedValue);
+        return clampedValue;
+      }
+    }
+
+    return withdrawRef.current;
+  };
 
   return (
     <Section>
@@ -146,6 +170,7 @@ export const AuthenticatedWindow = (props) => {
       <LabeledList>
         <LabeledList.Item label="Withdraw">
           <NumberInput
+            ref={withdrawInputRef}
             value={withdraw}
             minValue={1}
             width={3}
@@ -154,18 +179,24 @@ export const AuthenticatedWindow = (props) => {
             unit="电"
             step={1}
             stepPixelSize={5}
-            onChange={(value) => setWithdraw(value)}
+            onChange={(value) => setWithdrawAmount(value)}
           />
           &nbsp;
           <Button
             tooltip="Cash"
             icon="check"
-            onClick={() => act('withdrawal', { funds_amount: withdraw })}
+            onMouseDown={() => commitWithdrawAmount()}
+            onClick={() =>
+              act('withdrawal', { funds_amount: commitWithdrawAmount() })
+            }
           />
           <Button
             tooltip="Charge Card"
             icon="credit-card"
-            onClick={() => act('e_withdrawal', { funds_amount: withdraw })}
+            onMouseDown={() => commitWithdrawAmount()}
+            onClick={() =>
+              act('e_withdrawal', { funds_amount: commitWithdrawAmount() })
+            }
           />
         </LabeledList.Item>
       </LabeledList>

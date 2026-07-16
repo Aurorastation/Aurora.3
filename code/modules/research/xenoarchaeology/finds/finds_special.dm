@@ -71,7 +71,7 @@
 	..()
 	START_PROCESSING(SSprocessing, src)
 	become_hearing_sensitive()
-	shatter_material = GET_SINGLETON(shatter_material)
+	shatter_material = SSmaterials.get_material_by_id(shatter_material)
 
 /obj/item/vampiric/Destroy()
 	STOP_PROCESSING(SSprocessing, src)

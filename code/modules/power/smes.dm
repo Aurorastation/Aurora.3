@@ -103,7 +103,7 @@
 
 /obj/structure/machinery/power/smes/assembly_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	if(health < initial(health))
+	if(health < maxhealth)
 		. += "It can be repaired with a <b>welding tool</b>."
 
 /obj/structure/machinery/power/smes/feedback_hints(mob/user, distance, is_adjacent)
@@ -174,7 +174,7 @@
 	return TRUE
 
 /obj/structure/machinery/power/smes/proc/is_badly_damaged()
-	if(health < initial(health) / 5)
+	if(health < maxhealth / 5)
 		return TRUE
 	return FALSE
 

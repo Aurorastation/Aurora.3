@@ -175,8 +175,15 @@
 		if (!check_area)
 			return
 
+		var/list/invalid_cameras
 		for(var/cc in SSmachinery.all_cameras)
+			if(!istype(cc, /obj/structure/machinery/camera))
+				LAZYADD(invalid_cameras, cc)
+				continue
 			var/obj/structure/machinery/camera/camera = cc
+			if(QDELETED(camera))
+				LAZYADD(invalid_cameras, cc)
+				continue
 			if(!camera.loc)
 				continue
 			if (camera.loc.loc != check_area)
@@ -189,6 +196,8 @@
 			if(dist < best_dist)
 				best_dist = dist
 				jump_to = camera
+		if(invalid_cameras)
+			SSmachinery.all_cameras -= invalid_cameras
 	if(isnull(jump_to))
 		return
 	if(can_access_camera(jump_to))

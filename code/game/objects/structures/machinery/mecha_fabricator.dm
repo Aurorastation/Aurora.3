@@ -95,7 +95,7 @@
 
 /obj/structure/machinery/mecha_part_fabricator/dismantle()
 	SSmaterials.normalize_material_amounts(materials)
-	for(var/f in materials)
+	for(var/f in materials.Copy())
 		eject_materials(f, materials[f])
 
 	//Stop the queue building if you're dismantling

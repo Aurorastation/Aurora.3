@@ -83,7 +83,7 @@
 
 	// Damage to internal organs hurts a lot.
 	for(var/obj/item/organ/internal/I in internal_organs)
-		if(prob(1) && !((I.status & ORGAN_DEAD) || BP_IS_ROBOTIC(I)) && I.damage > 5 && I.parent_organ)
+		if(prob(1) && !((I.status & ORGAN_DEAD) || BP_IS_ROBOTIC(I)) && I.get_damage() > 5 && I.parent_organ)
 			var/obj/item/organ/external/parent = get_organ(I.parent_organ)
 			if (!parent) continue
 			var/pain = 10

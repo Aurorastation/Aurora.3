@@ -31,7 +31,7 @@
 	throwforce = 7
 	w_class = WEIGHT_CLASS_SMALL
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1)
-	matter = list(DEFAULT_WALL_MATERIAL = 150)
+	matter = list(MATERIAL_STEEL = 150)
 	attack_verb = list("bashed", "battered", "bludgeoned", "whacked")
 	usesound = 'sound/items/wrench.ogg'
 	surgerysound = 'sound/items/surgery/bonesetter.ogg'
@@ -59,7 +59,7 @@
 	throw_speed = 3
 	throw_range = 5
 	w_class = WEIGHT_CLASS_TINY
-	matter = list(DEFAULT_WALL_MATERIAL = 75)
+	matter = list(MATERIAL_STEEL = 75)
 	attack_verb = list("stabbed")
 	usesound = 'sound/items/Screwdriver.ogg'
 	surgerysound = 'sound/items/Screwdriver.ogg'
@@ -134,7 +134,7 @@
 	throw_range = 9
 	w_class = WEIGHT_CLASS_SMALL
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1)
-	matter = list(DEFAULT_WALL_MATERIAL = 80)
+	matter = list(MATERIAL_STEEL = 80)
 	attack_verb = list("pinched", "nipped")
 	sharp = TRUE
 	edge = TRUE
@@ -243,7 +243,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 	/// Cost to make in the autolathe
-	matter = list(DEFAULT_WALL_MATERIAL = 70, MATERIAL_GLASS = 30)
+	matter = list(MATERIAL_STEEL = 70, MATERIAL_GLASS = 30)
 
 	/// R&D tech level
 	origin_tech = list(TECH_ENGINEERING = 1)
@@ -271,7 +271,7 @@
 	icon_state = "indwelder"
 	item_state = "welder"
 	max_fuel = 40
-	matter = list(DEFAULT_WALL_MATERIAL = 100, MATERIAL_GLASS = 60)
+	matter = list(MATERIAL_STEEL = 100, MATERIAL_GLASS = 60)
 	origin_tech = list(TECH_ENGINEERING = 2)
 
 /obj/item/weldingtool/hugetank
@@ -280,7 +280,7 @@
 	icon_state = "advwelder"
 	item_state = "advwelder"
 	max_fuel = 80
-	matter = list(DEFAULT_WALL_MATERIAL = 200, MATERIAL_GLASS = 120)
+	matter = list(MATERIAL_STEEL = 200, MATERIAL_GLASS = 120)
 	origin_tech = list(TECH_ENGINEERING = 3)
 
 /obj/item/weldingtool/emergency
@@ -297,7 +297,7 @@
 	icon_state = "expwelder"
 	item_state = "expwelder"
 	max_fuel = 40
-	matter = list(DEFAULT_WALL_MATERIAL = 100, MATERIAL_GLASS = 120)
+	matter = list(MATERIAL_STEEL = 100, MATERIAL_GLASS = 120)
 	origin_tech = list(TECH_ENGINEERING = 4, TECH_BIO = 4)
 	light_color = LIGHT_COLOR_BLUE
 
@@ -706,7 +706,7 @@
 	throwforce = 7
 	w_class = WEIGHT_CLASS_SMALL
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 2)
-	matter = list(DEFAULT_WALL_MATERIAL = 150)
+	matter = list(MATERIAL_STEEL = 150)
 	attack_verb = list("bashed", "battered", "bludgeoned", "whacked")
 	tool_behaviour = TOOL_PIPEWRENCH
 
@@ -942,7 +942,7 @@
 	throw_speed = 3
 	throw_range = 3
 	w_class = WEIGHT_CLASS_SMALL
-	matter = list(DEFAULT_WALL_MATERIAL = 75)
+	matter = list(MATERIAL_STEEL = 75)
 	attack_verb = list("smashed", "hammered")
 	drop_sound = 'sound/items/drop/crowbar.ogg'
 	pickup_sound = 'sound/items/pickup/crowbar.ogg'

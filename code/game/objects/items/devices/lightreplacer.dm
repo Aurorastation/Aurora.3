@@ -80,8 +80,10 @@
 	..()
 
 /obj/item/lightreplacer/attackby(obj/item/attacking_item, mob/user)
-	if(istype(attacking_item, /obj/item/stack/material) && attacking_item.get_material_name() == "glass")
-		var/obj/item/stack/G = attacking_item
+	var/obj/item/stack/material/glass_stack = attacking_item
+	var/singleton/material/glass_material = glass_stack?.get_material()
+	if(istype(glass_stack) && glass_material?.type == MATERIAL_GLASS)
+		var/obj/item/stack/G = glass_stack
 		if(uses >= max_uses)
 			to_chat(user, SPAN_WARNING("[src.name] is full."))
 		else if(G.use(5))

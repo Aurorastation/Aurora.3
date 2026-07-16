@@ -250,10 +250,13 @@
 /singleton/material/proc/get_matter()
 	var/list/temp_matter = list()
 	if(islist(composite_material))
-		for(var/material_string in composite_material)
-			temp_matter[material_string] = composite_material[material_string]
+		for(var/material_id in composite_material)
+			var/material_path = SSmaterials.material_to_path(material_id, FALSE)
+			if(!material_path)
+				material_path = material_id
+			temp_matter[material_path] = (temp_matter[material_path] || 0) + composite_material[material_id]
 	else
-		temp_matter[name] = SHEET_MATERIAL_AMOUNT
+		temp_matter[type] = SHEET_MATERIAL_AMOUNT
 	return temp_matter
 
 // As above.
@@ -533,7 +536,7 @@
 	protectiveness = 20 // 50%
 	conductivity = 10
 	stack_origin_tech = list(TECH_MATERIAL = 2)
-	composite_material = list(DEFAULT_WALL_MATERIAL = 3750, "platinum" = 3750) //todo
+	composite_material = list(MATERIAL_STEEL = 3750, MATERIAL_PLATINUM = 3750) //todo
 	golem = SPECIES_GOLEM_PLASTEEL
 	hitsound = 'sound/weapons/smash.ogg'
 	weapon_hitsound = 'sound/weapons/metalhit.ogg'
@@ -662,7 +665,7 @@
 	hardness = 40
 	weight = 30
 	stack_origin_tech = list(TECH_MATERIAL = 2)
-	composite_material = list(DEFAULT_WALL_MATERIAL = 1875, MATERIAL_GLASS = 3750)
+	composite_material = list(MATERIAL_STEEL = 1875, MATERIAL_GLASS = 3750)
 	window_options = list()
 	created_window = null
 	wire_product = null
@@ -682,7 +685,7 @@
 	weight = 30
 	value = 2
 	stack_origin_tech = list(TECH_MATERIAL = 2)
-	composite_material = list(DEFAULT_WALL_MATERIAL = 1875, MATERIAL_GLASS = 3750)
+	composite_material = list(MATERIAL_STEEL = 1875, MATERIAL_GLASS = 3750)
 	window_options = list("One Direction" = 1, "Full Window" = 4, "Windoor" = 5)
 	created_window = /obj/structure/window/reinforced
 	wire_product = null

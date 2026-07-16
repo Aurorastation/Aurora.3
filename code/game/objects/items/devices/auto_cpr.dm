@@ -381,7 +381,7 @@
 
 	var/obj/item/organ/internal/lungs/lungs = H.internal_organs_by_name[BP_LUNGS]
 	var/safe_pressure_min = H.species.breath_pressure + 2
-	safe_pressure_min *= 1 + rand(1,4) * lungs.damage/lungs.max_damage
+	safe_pressure_min *= 1 + rand(1,4) * lungs.get_damage()/lungs.max_damage
 	if(!lungs)
 		epp_off()
 		return
