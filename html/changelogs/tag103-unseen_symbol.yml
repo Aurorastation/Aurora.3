@@ -1,0 +1,9 @@
+
+author: Tag103
+
+delete-after: True
+
+
+changes:
+  - bugfix: "Re-added sprites for Solarian Marine berets of either color."
+  - imageadd: "Relative to the previous period in which Solarian Marine berets had sprites, fixed the sprite used for a grey Solarian Marine beret held in a character's left hand while they are facing to the left being the same as the sprite intended to be used for a black Zavodskoi beret in that position."
