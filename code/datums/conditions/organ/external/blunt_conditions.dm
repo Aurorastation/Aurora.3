@@ -12,6 +12,10 @@
 	var/fracture_volume = 50
 	/// The pain applied from the fracture.
 	var/fracture_pain = 10
+	/// If we should make any embeddable fragments.
+	var/list/fragment_types
+	/// How many fragments we should make, random number from 1 to this number.
+	var/fragment_number = 0
 
 /datum/condition/organ/fracture/New(atom/movable/new_parent, injury_type, should_be_silent = FALSE)
 	silent = should_be_silent
@@ -36,6 +40,7 @@
 
 	if(QDELETED(affected.owner))
 		return FALSE
+
 	return TRUE
 
 /datum/condition/organ/fracture/on_apply()
@@ -50,6 +55,13 @@
 	// Fractures have a chance of getting you out of restraints
 	if(prob(25))
 		affected.release_restraints()
+
+	if(length(fragment_types))
+		to_chat(parent, SPAN_HIGHDANGER("Your bone shatters into fragments in your [affected]!"))
+		for(var/i = 1 to rand(1, fragment_number))
+			var/fragment_to_spawn = pick(fragment_types)
+			var/obj/item/fragment = new fragment_to_spawn
+			affected.embed(fragment, TRUE)
 
 /datum/condition/organ/fracture/on_clear()
 	. = ..()
@@ -111,6 +123,11 @@
 	fracture_emote = "scream"
 	fracture_volume = 90
 	fracture_pain = 20
+	fragment_types = list(
+		/obj/item/bone_fragment,
+		/obj/item/bone_fragment/medium
+	)
+	fragment_number = 1
 
 /datum/condition/organ/fracture/comminuted/get_visible_status()
 	return SPAN_DANGER("hurts a lot, and I can feel the bone moving around")
@@ -124,8 +141,8 @@
 /datum/condition/organ/fracture/comminuted/fracture_message()
 	if(!silent)
 		var/message = pick("broke in half", "shattered")
-		organ.owner?.visible_message(FONT_LARGE(SPAN_CONDITION("You hear a loud cracking sound coming from \the [organ.owner]!")), \
-			FONT_LARGE(SPAN_CONDITION("Something feels like it [message] in your [organ.name]!")), \
+		organ.owner?.visible_message(SPAN_CONDITION("You hear a loud cracking sound coming from \the [organ.owner]!"), \
+			SPAN_CONDITION("Something feels like it [message] in your [organ.name]!"), \
 			"You hear a sickening crack!")
 
 /datum/condition/organ/fracture/compound
@@ -138,6 +155,11 @@
 	fracture_emote = "scream"
 	fracture_volume = 100
 	fracture_pain = 30
+	fragment_types = list(
+		/obj/item/bone_fragment/medium,
+		/obj/item/bone_fragment/large
+	)
+	fragment_number = 2
 
 /datum/condition/organ/fracture/compound/on_apply()
 	. = ..()
@@ -148,8 +170,8 @@
 
 /datum/condition/organ/fracture/compound/fracture_message()
 	if(!silent)
-		organ.owner?.visible_message(FONT_LARGE(SPAN_CONDITION("The bone shatters and pierces through [organ.owner]'s [organ.name]!")), \
-			FONT_LARGE(SPAN_CONDITION("The bone in your [organ.name] shatters and pierces through!")), \
+		organ.owner?.visible_message(SPAN_CONDITION("The bone shatters and pierces through [organ.owner]'s [organ.name]!"), \
+			SPAN_CONDITION("The bone in your [organ.name] shatters and pierces through!"), \
 			"You hear a sickening, wet crack!")
 
 /datum/condition/organ/fracture/compound/get_visible_status()
@@ -188,6 +210,20 @@
 
 /datum/condition/organ/blunt/fracture/broken_spine/get_visible_status()
 	return SPAN_DANGER("feels like it's been broken in half")
+
+/obj/item/bone_fragment
+	name = "small bone fragments"
+	desc = "Fragments of a broken bone. That looks like it hurt."
+	icon = 'icons/obj/shards.dmi'
+	icon_state = "bone_fragments_small"
+
+/obj/item/bone_fragment/medium
+	name = "bone fragments"
+	icon_state = "bone_fragments_medium"
+
+/obj/item/bone_fragment/large
+	name = "large bone fragments"
+	icon_state = "bone_fragments_large"
 
 //blunt
 /datum/condition/organ/blunt

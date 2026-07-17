@@ -38,8 +38,10 @@ emp_act
 	//Shrapnel
 	if(!(species.flags & NO_EMBED) && hitting_projectile.can_embed())
 		var/armor = get_blocked_ratio(def_zone, DAMAGE_BRUTE, hitting_projectile.damage_flags(), armor_pen = hitting_projectile.armor_penetration, damage = hitting_projectile.damage)*100
-		if(prob(20 + max(hitting_projectile.damage + hitting_projectile.embed_chance - armor, -10)))
-			hitting_projectile.do_embed(organ)
+		var/effective_penetration = (hitting_projectile.damage + hitting_projectile.embed_chance + (hitting_projectile.penetrating * 10)) - armor
+		if(effective_penetration > 0)
+			if(prob(20 + effective_penetration))
+				hitting_projectile.do_embed(organ)
 
 /mob/living/carbon/human/stun_effect_act(var/stun_amount, var/agony_amount, var/def_zone, var/used_weapon, var/damage_flags)
 	var/obj/item/organ/external/affected = get_organ(check_zone(def_zone))
@@ -98,7 +100,7 @@ emp_act
 					if(armor)
 						. += armor
 		if(gear.body_parts_covered & def_zone.body_part)
-			var/armor = gear.GetComponent(/datum/component/armor)
+			var/armor = gear.get_armor_component()
 			if(armor)
 				. += armor
 

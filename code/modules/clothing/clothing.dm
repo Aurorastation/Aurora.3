@@ -430,6 +430,9 @@
 		return
 	return ..()
 
+/obj/item/clothing/proc/get_armor_component()
+	return GetComponent(/datum/component/armor)
+
 ///////////////////////////////////////////////////////////////////////
 // Ears: headsets, earmuffs and tiny objects
 /obj/item/clothing/ears
