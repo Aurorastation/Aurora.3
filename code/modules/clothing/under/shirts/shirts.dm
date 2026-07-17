@@ -79,15 +79,12 @@
 	icon_state = "dressshirt_asymmetric"
 	item_state = "dressshirt_asymmetric"
 
-<<<<<<< HEAD
 /obj/item/clothing/under/dressshirt/plaid
 	name = "plaid dress shirt"
 	desc = "A dress shirt with a plaid pattern."
 	icon_state = "plaidshirt"
 	item_state = "plaidshirt"
 
-=======
->>>>>>> upstream/master
 // So people can see how these appear in the loadout
 /obj/item/clothing/under/dressshirt/rolled
 	rolled = TRUE
