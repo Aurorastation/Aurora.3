@@ -97,7 +97,7 @@ SUBSYSTEM_DEF(codex)
 		if(chemistry_codex_ignored_result_path && is_path_in_list(CR.result, chemistry_codex_ignored_result_path))
 			continue
 		var/singleton/reagent/R = GET_SINGLETON(CR.result)
-		var/chemistryReactionData = list(id = CR.id)
+		var/chemistryReactionData = list(id = "[chem_path]")
 		chemistryReactionData["result"] = list(
 			name = R.name,
 			description = R.description,

@@ -73,8 +73,8 @@ const FactionList = (props) => {
                 <Flex.Item pt={1} pr={0.5}>
                   <img
                     src={resolveAsset(faction.logo)}
-                    width="192px"
-                    height="192px"
+                    width="48px"
+                    height="48px"
                   />
                 </Flex.Item>
               </Flex>
