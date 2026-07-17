@@ -65,6 +65,12 @@
 	icon_state = "dressshirt_crop"
 	item_state = "dressshirt_crop"
 
+/obj/item/clothing/under/dressshirt/asymmetric
+	name = "asymmetric dress shirt"
+	desc = "A casual dress shirt that opens diagonally down the front."
+	icon_state = "dressshirt_asymmetric"
+	item_state = "dressshirt_asymmetric"
+
 /obj/item/clothing/under/dressshirt/plaid
 	name = "plaid dress shirt"
 	desc = "A dress shirt with a plaid pattern."
@@ -73,43 +79,25 @@
 
 // So people can see how these appear in the loadout
 /obj/item/clothing/under/dressshirt/rolled
-	name = "dress shirt"
-	desc = "A casual dress shirt. This one has its sleeves rolled up."
-	icon_state = "dressshirt_r"
-	item_state = "dressshirt_r"
+	rolled = TRUE
 
 /obj/item/clothing/under/dressshirt/alt/rolled
-	name = "dress shirt"
-	desc = "A casual dress shirt. This one has its sleeves rolled up."
-	icon_state = "dressshirt_alt_r"
-	item_state = "dressshirt_alt_r"
+	rolled = TRUE
 
 /obj/item/clothing/under/dressshirt/alt/vneck/rolled
-	name = "v-neck dress shirt"
-	desc = "A casual dress shirt. This one has its sleeves rolled up."
-	icon_state = "dressshirtvneck_alt_r"
-	item_state = "dressshirtvneck_alt_r"
+	rolled = TRUE
 
 /obj/item/clothing/under/dressshirt/deepv/rolled
-	name = "deep v-neck dress shirt"
-	desc = "A casual dress shirt with a deep neckline. This one has its sleeves rolled up."
-	icon_state = "dressshirt_deepv_r"
-	item_state = "dressshirt_deepv_r"
+	rolled = TRUE
 
 /obj/item/clothing/under/dressshirt/crop/rolled
-	name = "cropped dress shirt"
-	desc = "A casual cropped dress shirt. This one has its sleeves rolled up"
-	icon_state = "dressshirt_crop_r"
-	item_state = "dressshirt_crop_r"
+	rolled = TRUE
 
 /obj/item/clothing/under/dressshirt/plaid/rolled
 	rolled = TRUE
 
-/obj/item/clothing/under/dressshirt/asymmetric
-	name = "asymmetric dress shirt"
-	desc = "A casual dress shirt that opens diagonally down the front."
-	icon_state = "dressshirt_asymmetric"
-	item_state = "dressshirt_asymmetric"
+/obj/item/clothing/under/dressshirt/asymmetric/rolled
+	rolled = TRUE
 
 // Long Sleeve
 
