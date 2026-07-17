@@ -27,7 +27,7 @@
 
 #define CITIZENSHIP_NONE "None"
 #define CITIZENSHIP_GOLDEN "Golden Deep"
-#define CITIZENSHIP_OREPIT "Ecclesiarchy of Orepit"
+#define CITIZENSHIP_AXIOM "Ecclesiastical Authority of Axiom"
 
 //religion defines
 #define RELIGION_NONE "None"
@@ -119,8 +119,8 @@
 #define ACCENT_ANTILLIA "Port Antillia"
 #define ACCENT_XANU "Xanu"
 #define ACCENT_SANCOLETTE "San Colette"
-#define ACCENT_OREPIT "Native Orepitter"
-#define ACCENT_PROVIDENCE "Providence Trinarist"
+#define ACCENT_SALAMASIAN "Salamasian"
+#define ACCENT_AXIOM "Axiomite"
 #define ACCENT_BURZSIA "Burzsia"
 #define ACCENT_GALATEA "Galatean"
 #define ACCENT_TSUKUYOMI "Tsukuyomian"

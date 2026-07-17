@@ -1341,6 +1341,73 @@
 /obj/structure/sign/flag/trinaryperfection/large/west/Initialize(mapload)
 	. = ..(mapload, WEST)
 
+// Salamasian Republic
+
+/obj/item/flag/salamasian_republic
+	name = "\improper Salamasian Republic flag"
+	desc = "The flag of the Salamasian Republic, one of the two codependent states of \
+	Axiom, also known as Nuʻu or Orepit. Born from corporate colonization, abandonment, \
+	revolt, and generations of hardship, the republic and its people have shaped a vibrant \
+	culture wholly their own."
+	desc_extended = "The flag of the Salamasian Republic consists of a bright turquoise field \
+	above a deep teal band. Upon the field sits a large orange disc, accompanied by three smaller \
+	spheres in tan, blue, and gray. The turquoise field represents the sky and sea of Nuʻu, \
+	recalling the world’s broad oceans and open horizons. The deep teal band represents land, \
+	home, and cultivation: the fertile ground upon which the old mining settlements became villages, \
+	cities, and, in time, a republic. The orange disc depicts Aloʻo le La, the orange dwarf star of \
+	the Tagaloa system. The three smaller discs represent the other visible bodies of the Tagaloa sky: \
+	Leiloa, Vaoati, and Faʻatiu, shown from top to bottom. They are also commonly read as symbols of \
+	family, strength, and virtue, core ideals of Faʻa Salamasia. As a whole, the flag recreates the \
+	sky as seen from Nuʻu’s surface, with its celestial neighbors visible above the land of Nu’u."
+	flag_path = "salamasian_republic"
+	flag_structure = /obj/structure/sign/flag/salamasian_republic
+
+/obj/structure/sign/flag/salamasian_republic
+	name = "\improper Salamasian Republic flag"
+	desc = "The flag of the Salamasian Republic, one of the two codependent states of \
+	Axiom, also known as Nuʻu or Orepit. Born from corporate colonization, abandonment, \
+	revolt, and generations of hardship, the republic and its people have shaped a vibrant \
+	culture wholly their own."
+	desc_extended = "The flag of the Salamasian Republic consists of a bright turquoise field \
+	above a deep teal band. Upon the field sits a large orange disc, accompanied by three smaller \
+	spheres in tan, blue, and gray. The turquoise field represents the sky and sea of Nuʻu, \
+	recalling the world’s broad oceans and open horizons. The deep teal band represents land, \
+	home, and cultivation: the fertile ground upon which the old mining settlements became villages, \
+	cities, and, in time, a republic. The orange disc depicts Aloʻo le La, the orange dwarf star of \
+	the Tagaloa system. The three smaller discs represent the other visible bodies of the Tagaloa sky: \
+	Leiloa, Vaoati, and Faʻatiu, shown from top to bottom. They are also commonly read as symbols of \
+	family, strength, and virtue, core ideals of Faʻa Salamasia. As a whole, the flag recreates the \
+	sky as seen from Nuʻu’s surface, with its celestial neighbors visible above the land of Nu’u."
+	flag_path = "salamasian_republic"
+	icon_state = "salamasian_republic"
+	flag_item = /obj/item/flag/salamasian_republic
+
+/obj/structure/sign/flag/salamasian_republic/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/salamasian_republic/l
+	name = "large Salamasian Republic flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/salamasian_republic/large
+
+/obj/structure/sign/flag/salamasian_republic/large
+	icon_state = "salamasian_republic_l"
+	flag_path = "salamasian_republic"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/salamasian_republic/l
+
+/obj/structure/sign/flag/salamasian_republic/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/salamasian_republic/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/salamasian_republic/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/salamasian_republic/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
+
 // Golden Deep
 
 /obj/item/flag/goldendeep

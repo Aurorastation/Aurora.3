@@ -11,7 +11,8 @@
 		/singleton/origin_item/origin/gadpathur_exile,
 		/singleton/origin_item/origin/assunzione,
 		/singleton/origin_item/origin/ncf,
-		/singleton/origin_item/origin/orepit,
+		/singleton/origin_item/origin/axiom,
+		/singleton/origin_item/origin/salamasian,
 		/singleton/origin_item/origin/other_coalition
 	)
 
@@ -120,9 +121,36 @@
 	possible_citizenships = list(CITIZENSHIP_COALITION, CITIZENSHIP_BIESEL)
 	possible_religions = RELIGIONS_COALITION
 
-/singleton/origin_item/origin/orepit
-	name = "Ecclesiarchy of Orepit"
-	desc = "The human population of Orepit includes the Native Orepitters, who descend from Hephaestus employees following the abandoned mining mission on the planet, as well as immigrants and pilgrims of the Trinary religion."
-	possible_accents = list(ACCENT_OREPIT, ACCENT_PROVIDENCE)
-	possible_citizenships = list(CITIZENSHIP_OREPIT, CITIZENSHIP_COALITION)
-	possible_religions =  RELIGIONS_COALITION
+/singleton/origin_item/origin/axiom
+	name = "Ecclesiastical Axiomite"
+	desc = "Boasting a majority synthetic population, Ecclesiastical Axiom is one of the only \
+	nation-states which totally prohibits synthetic ownership. Administered directly by the \
+	Ecclesiarch of the Trinary Perfection, who rules their territory as an elective absolute \
+	monarch, this is one of the few true sanctuaries for the represssed and dispossessed synthetics \
+	of the Orion Spur, although that is no promise that life is easy. The Ecclesiastical Authority of \
+	Axiom has only domain over the deserts of its planet, while all arable hand is governed by the \
+	Salamasian Republic, a majority human nation of colonists brought over by Hephaestus Industries \
+	over a century prior to the influx of Trinarist settlers. Both the humans and synthetics are known \
+	for their aversion to violence, their strong community spirit, and a stringent dedication to the \
+	tenets of the Trinary Perfection - though not all follow the state religion, and not all follow \
+	it devoutly."
+	possible_accents = list(ACCENT_AXIOM)
+	possible_citizenships = list(CITIZENSHIP_AXIOM)
+	possible_religions = RELIGIONS_COALITION
+
+/singleton/origin_item/origin/salamasian
+	name = "Republican Salamasian"
+	desc = "The original population of the planet, the Salamasians are a culture descended primarily from the \
+	people of Samoa and America Samoa, brought under the employ of Hephaestus Industries to the mining world \
+	they would name Nu'u for mineral extraction. Traditionalist and family-focused, the Salamasian Republic is \
+	a nation dominated by blue collar industry, historically operating as a major exporter of raw and processed \
+	minerals, a lucrative market to this day. A small population of synthetics have integrated into Salamasian \
+	culture separately from Trinarist settlement of Axiom, who face difficulty gaining unanimous acceptance into \
+	the 'aiga family unit that dominates social and political life within the Republic."
+	important_information = "<b>Due to having been composed primarily of Samoan colonists since its \
+	earliest settlement, all Salamasians must have appearances and names consistent with the peoples \
+	of Samoa and American Samoa. Only native Salamasians may take the Salamasian accent. This is \
+	enforceable by server moderators and admins.</b>"
+	possible_accents = list(ACCENT_SALAMASIAN)
+	possible_citizenships = list(CITIZENSHIP_AXIOM)
+	possible_religions = RELIGIONS_COALITION

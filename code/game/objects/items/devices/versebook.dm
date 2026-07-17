@@ -71,8 +71,11 @@
 
 /obj/item/versebook/trinary
 	name = "\improper The Order (abdridged version)"
-	desc = "The holy text of the Trinary Perfection, who believe in synthetic perfection and eventual salvation."
-	desc_extended = "This book contains some verses of the core beliefs of the Trinary Perfection, including some of the original works by the Corkfells, some additions by the prophet-like figure Flock, and a few recent additions by Ecclesiarch ARM-1DRIL. This is the abridged version, with only the core beliefs present."
+	desc = "The holy text of the Trinary Perfection, who believe in synthetic perfection and eventual salvation. This \
+	is the shortened version, the original being a vast relic compiled by Flock, the synthetic prophet of Mendell City."
+	desc_extended = "This book contains some verses of the core beliefs of the Trinary Perfection, including some of \
+	the original works by the Corkfells, some additions by the prophet-like figure Flock, and a few more recent additions \
+	by Ecclesiarch ARM-1DRIL. It is a common sight on the persons of faithful Trinarists."
 	icon_state = "trinarybook"
 	item_state = "trinary"
 
@@ -82,8 +85,11 @@
 
 /obj/item/versebook/templeist
 	name = "\improper The Voice of Temple (abdridged version)"
-	desc = "The holy text of the Lodge of Temple Architect, an order within the Trinary Perfection that seeks to attain its goals via technological advancement and scientific discovery."
-	desc_extended = "This book contains some of the words of Temple, a sacred AI within the Trinary Perfection and namesake of the Lodge of the Temple Architect. It also includes some teachings by leading members within the sect. Due to its recent establishment, this book is frequently changed and amended \
+	desc = "The holy text of the Lodge of Temple Architect, an order within the Trinary Perfection that \
+	seeks to attain its goals via technological advancement and scientific discovery."
+	desc_extended = "This book contains some of the words of Temple, a sacred AI within the Trinary Perfection \
+	and namesake of the Lodge of the Temple Architect. It also includes some teachings by leading members \
+	within the sect. Due to its recent establishment, this book is frequently changed and amended \
 	as new insights into their faith are realized."
 	icon_state = "templeistbook"
 	item_state = "templeist"
