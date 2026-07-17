@@ -16,10 +16,9 @@
 	usage_flags = PROGRAM_ALL_REGULAR | PROGRAM_STATIONBOUND
 	tgui_id = "Records"
 
-	var/records_type = RECORD_GENERAL | RECORD_MEDICAL | RECORD_SECURITY | RECORD_VIRUS | RECORD_WARRANT | RECORD_LOCKED
-	var/edit_type = RECORD_GENERAL | RECORD_MEDICAL | RECORD_SECURITY | RECORD_VIRUS | RECORD_WARRANT | RECORD_LOCKED
+	var/records_type = RECORD_GENERAL | RECORD_MEDICAL | RECORD_SECURITY | RECORD_WARRANT | RECORD_LOCKED
+	var/edit_type = RECORD_GENERAL | RECORD_MEDICAL | RECORD_SECURITY | RECORD_WARRANT | RECORD_LOCKED
 	var/datum/record/general/active
-	var/datum/record/virus/active_virus
 	var/listener/record/rconsole/listener
 	var/authenticated = FALSE
 	var/default_screen = "General"
@@ -38,7 +37,6 @@
 /datum/computer_file/program/records/Destroy()
 	active = null
 	QDEL_NULL(listener)
-	active_virus = null
 	. = ..()
 
 /datum/computer_file/program/records/medical
@@ -51,7 +49,7 @@
 	required_access_download = list(ACCESS_HEADS, ACCESS_MEDICAL_EQUIP, ACCESS_FORENSICS_LOCKERS, ACCESS_ROBOTICS)
 	available_on_ntnet = TRUE
 
-	records_type = RECORD_MEDICAL | RECORD_VIRUS
+	records_type = RECORD_MEDICAL
 	edit_type = RECORD_MEDICAL
 	default_screen = "Medical"
 	program_icon_state = "medical_record"
@@ -123,7 +121,6 @@
 	data["medical_options"] = typechoices["medical"]
 	data["allrecords"] = list()
 	data["allrecords_locked"] = list()
-	data["record_viruses"] = list()
 	if(authenticated)
 		data["allrecords"] = list()
 		for(var/tR in sortRecord(SSrecords.records))
@@ -190,7 +187,6 @@
 	if(action == "logout")
 		authenticated = FALSE
 		active = null
-		active_virus = null
 		. = TRUE
 
 	if(!authenticated)
@@ -299,14 +295,11 @@
 		if(t.active == r)
 			t.active = null
 			. = TRUE
-		if(t.active_virus == r)
-			t.active_virus = null
-			. = TRUE
 		if(.)
 			SStgui.update_uis(t)
 
 /listener/record/rconsole/on_modify(var/datum/record/r)
 	var/datum/computer_file/program/records/t = target
 	if(istype(t))
-		if(t.active == r || t.active_virus == r)
+		if(t.active == r)
 			SStgui.update_uis(t)

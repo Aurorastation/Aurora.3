@@ -163,23 +163,33 @@
 #define MATERIAL_BRITTLE    0x2
 #define MATERIAL_PADDING    0x4
 
-#define TABLE_BRITTLE_MATERIAL_MULTIPLIER 4 // Amount table damage is multiplied by if it is made of a brittle material (e.g. glass)
+/// Amount table damage is multiplied by if it is made of a brittle material (e.g. glass)
+#define TABLE_BRITTLE_MATERIAL_MULTIPLIER 4
 
 #define BOMBCAP_DVSTN_RADIUS (GLOB.max_explosion_range/4)
 #define BOMBCAP_HEAVY_RADIUS (GLOB.max_explosion_range/2)
 #define BOMBCAP_LIGHT_RADIUS GLOB.max_explosion_range
 #define BOMBCAP_FLASH_RADIUS (GLOB.max_explosion_range*1.5)
-									// NTNet module-configuration values. Do not change these. If you need to add another use larger number (5..6..7 etc)
-#define NTNET_SOFTWAREDOWNLOAD 1 	// Downloads of software from NTNet
-#define NTNET_PEERTOPEER 2			// P2P transfers of files between devices
-#define NTNET_COMMUNICATION 3		// Communication (messaging)
-#define NTNET_SYSTEMCONTROL 4		// Control of various systems, RCon, air alarm control, etc.
+
+// NTNet module-configuration values.
+/// Downloads of software from NTNet
+#define NTNET_SOFTWAREDOWNLOAD 1
+/// P2P transfers of files between devices
+#define NTNET_PEERTOPEER 2
+/// Communication (messaging)
+#define NTNET_COMMUNICATION 3
+/// Control of various systems, RCon, air alarm control, etc.
+#define NTNET_SYSTEMCONTROL 4
 
 // NTNet transfer speeds, used when downloading/uploading a file/program.
-#define NTNETSPEED_LOWSIGNAL 0.05	// GQ/s transfer speed when the device is wirelessly connected and on Low signal
-#define NTNETSPEED_HIGHSIGNAL 0.25	// GQ/s transfer speed when the device is wirelessly connected and on High signal
-#define NTNETSPEED_ETHERNET 1	  // GQ/s transfer speed when the device is using wired connection
-#define NTNETSPEED_DOS_AMPLIFICATION 20	// Multiplier for Denial of Service program. Resulting load on NTNet relay is this multiplied by NTNETSPEED of the device
+/// GQ/s transfer speed when the device is wirelessly connected and on Low signal
+#define NTNETSPEED_LOWSIGNAL 0.05
+/// GQ/s transfer speed when the device is wirelessly connected and on High signal
+#define NTNETSPEED_HIGHSIGNAL 0.25
+/// GQ/s transfer speed when the device is using wired connection
+#define NTNETSPEED_ETHERNET 1
+/// Multiplier for Denial of Service program. Resulting load on NTNet relay is this multiplied by NTNETSPEED of the device
+#define NTNETSPEED_DOS_AMPLIFICATION 20
 
 // Program bitflags
 #define PROGRAM_CONSOLE 1
