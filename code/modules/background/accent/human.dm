@@ -456,3 +456,9 @@
 	description = "Zhurongese is a dialect of Vulgar Morozi found on the Core World of Zhurong, where it is spoken by the Secondaries who make up most of the skilled workers and supervisors on the planet. While it mostly sticks to traditional Vulgar Morozi structures, its origin on one of the oldest colonies in the Empire and Zhurong itself being a more restricted world has led to this dialect being less influenced by the broader Spur. Scholars believe this dialect may be closer to pre-Imperial Vulgar Morozi than any other in the Empire."
 	tag_icon = "zhurong"
 	text_tag = "ZHU"
+
+/datum/accent/caria
+	name = ACCENT_DOMINIA_CARIA
+	description = "Carian Standard is an unusual dialect from an atypical world. The only non-Morozi dialect of Tradeband found in the Empires borders, it is similar to High Morozi in its pronunciation and grammatical structures. Speakers of this dialect are viewed with suspicion in the Empire, believed to be sorcerers, witches, and often touched by some form of darkness — but they are equally called for their worlds association with augury and the divine, with Carian seers prized by many noble households in the Empire."
+	tag_icon = "caria"
+	text_tag = "CAR"
