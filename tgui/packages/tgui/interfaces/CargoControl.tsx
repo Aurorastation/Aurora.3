@@ -268,7 +268,7 @@ export const CargoControl = (props) => {
                   <Table.Cell>Price</Table.Cell>
                 </Table.Row>
                 {data.order_details.items.map((item) => (
-                  <Table.Row key={item.name}>
+                  <Table.Row key={item.item_id}>
                     <Table.Cell>{item.name}</Table.Cell>
                     <Table.Cell>{item.supplier_name}</Table.Cell>
                     <Table.Cell>{item.price.toFixed(2)}电</Table.Cell>

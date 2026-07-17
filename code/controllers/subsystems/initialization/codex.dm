@@ -34,6 +34,9 @@ SUBSYSTEM_DEF(codex)
 		var/singleton/recipe/recipe = GET_SINGLETON(reaction_path)
 		var/list/cookingRecipeData = list()
 
+		// ID for TGUI to use
+		cookingRecipeData["id"] = "[reaction_path]"
+
 		// result
 		var/obj/item/recipe_result = recipe.result
 		cookingRecipeData["result"] = initial(recipe_result.name)
@@ -74,6 +77,8 @@ SUBSYSTEM_DEF(codex)
 			cookingRecipeData["ingredients"] += "[reagent.name] coating"
 
 		// kitchen appliance
+		cookingRecipeData["appliances"] = ""
+
 		if(recipe.appliance)
 			cookingRecipeData["appliances"] = recipe.get_appliance_names()
 
