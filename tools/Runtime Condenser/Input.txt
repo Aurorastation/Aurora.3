@@ -1,0 +1,91 @@
+runtime error:
+[17:25:14]Cannot execute null.get species().
+[17:25:14]proc name: Invoke Runtime (/client/verb/invoke_runtime)
+[17:25:14]  source file: world.dm,477
+[17:25:14]  usr: Skull132 (/mob/new_player)
+[17:25:14]  src: Skull132 (/client)
+[17:25:14]  usr.loc: the floor (8,174,2) (/turf/unsimulated/floor)
+[17:25:14]  call stack:
+[17:25:14]Skull132 (/client): Invoke Runtime()
+
+runtime error:
+[17:30:14]Cannot execute null.get species().
+[17:30:14]proc name: Invoke Runtime (/client/verb/invoke_runtime)
+[17:30:14]  source file: world.dm,477
+[17:30:14]  usr: Skull132 (/mob/new_player)
+[17:30:14]  src: Skull132 (/client)
+[17:30:14]  usr.loc: the floor (8,174,2) (/turf/unsimulated/floor)
+[17:30:14]  call stack:
+[17:30:14]Skull132 (/client): Invoke Runtime()
+
+runtime error:
+[17:30:20]Cannot execute null.get species().
+[17:30:20]proc name: Invoke Runtime (/client/verb/invoke_runtime)
+[17:30:20]  source file: world.dm,477
+[17:30:20]  usr: Skull132 (/mob/new_player)
+[17:30:20]  src: Skull132 (/client)
+[17:30:20]  usr.loc: the floor (8,174,2) (/turf/unsimulated/floor)
+[17:30:20]  call stack:
+[17:30:20]Skull132 (/client): Invoke Runtime()
+
+runtime error:
+[17:30:24]Cannot execute null.get species().
+[17:30:24]proc name: Invoke Runtime (/client/verb/invoke_runtime)
+[17:30:24]  source file: world.dm,477
+[17:30:24]  usr: Skull132 (/mob/new_player)
+[17:30:24]  src: Skull132 (/client)
+[17:30:24]  usr.loc: the floor (8,174,2) (/turf/unsimulated/floor)
+[17:30:24]  call stack:
+[17:30:24]Skull132 (/client): Invoke Runtime()
+
+runtime error:
+[17:30:24]Cannot execute null.get species().
+[17:30:24]proc name: Invoke Runtime (/client/verb/invoke_runtime)
+[17:30:24]  source file: world.dm,477
+[17:30:24]  usr: Skull132 (/mob/new_player)
+[17:30:24]  src: Skull132 (/client)
+[17:30:24]  usr.loc: the floor (8,174,2) (/turf/unsimulated/floor)
+[17:30:24]  call stack:
+[17:30:24]Skull132 (/client): Invoke Runtime()
+
+runtime error:
+[17:30:25]Cannot execute null.get species().
+[17:30:25]proc name: Invoke Runtime (/client/verb/invoke_runtime)
+[17:30:25]  source file: world.dm,477
+[17:30:25]  usr: Skull132 (/mob/new_player)
+[17:30:25]  src: Skull132 (/client)
+[17:30:25]  usr.loc: the floor (8,174,2) (/turf/unsimulated/floor)
+[17:30:25]  call stack:
+[17:30:25]Skull132 (/client): Invoke Runtime()
+
+runtime error:
+[17:30:25]Cannot execute null.get species().
+[17:30:25]proc name: Invoke Runtime (/client/verb/invoke_runtime)
+[17:30:25]  source file: world.dm,477
+[17:30:25]  usr: Skull132 (/mob/new_player)
+[17:30:25]  src: Skull132 (/client)
+[17:30:25]  usr.loc: the floor (8,174,2) (/turf/unsimulated/floor)
+[17:30:25]  call stack:
+[17:30:25]Skull132 (/client): Invoke Runtime()
+
+runtime error:
+[17:30:25]Cannot execute null.get species().
+[17:30:25]proc name: Invoke Runtime (/client/verb/invoke_runtime)
+[17:30:25]  source file: world.dm,477
+[17:30:25]  usr: Skull132 (/mob/new_player)
+[17:30:25]  src: Skull132 (/client)
+[17:30:25]  usr.loc: the floor (8,174,2) (/turf/unsimulated/floor)
+[17:30:25]  call stack:
+[17:30:25]Skull132 (/client): Invoke Runtime()
+
+hard delete:
+/turf/unsimulated/floor
+
+hard delete:
+/turf/unsimulated/floor
+
+hard delete:
+/turf/unsimulated/floor
+
+hard delete:
+/client

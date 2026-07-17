@@ -1,0 +1,23 @@
+Note: The source file, src and usr are all from the FIRST of the identical runtimes. Everything else is cropped.
+
+Total unique runtimes: 1
+Total runtimes: 8
+
+Total unique hard deletions: 2
+Total hard deletions: 4
+
+** Runtimes **
+
+The following runtime has occurred 8 time(s).
+runtime error: Cannot execute null.get species().
+proc name: Invoke Runtime (/client/verb/invoke_runtime)
+  source file: world.dm,477
+  usr: Skull132 (/mob/new_player)
+  src: Skull132 (/client)
+
+
+
+** Hard deletions **
+/turf/unsimulated/floor - 3 time(s).
+
+/client - 1 time(s).
