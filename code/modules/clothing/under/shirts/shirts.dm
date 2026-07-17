@@ -104,12 +104,9 @@
 /obj/item/clothing/under/dressshirt/crop/rolled
 	rolled = TRUE
 
-<<<<<<< HEAD
 /obj/item/clothing/under/dressshirt/plaid/rolled
 	rolled = TRUE
 
-=======
->>>>>>> upstream/master
 /obj/item/clothing/under/dressshirt/asymmetric/rolled
 	rolled = TRUE
 
