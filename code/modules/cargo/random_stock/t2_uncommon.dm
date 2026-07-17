@@ -20,18 +20,18 @@ STOCK_ITEM_UNCOMMON(phoronsheets, 0.25)
 STOCK_ITEM_UNCOMMON(phoronglass, 0.5)
 	new /obj/item/stack/material/glass/phoronglass(L, rand(10,20))
 
-STOCK_ITEM_UNCOMMON(sandstone, 2)
-	new /obj/item/stack/material/sandstone(L, 50)
-
-STOCK_ITEM_UNCOMMON(marble, 2)
-	new /obj/item/stack/material/marble(L, 50)
+STOCK_ITEM_UNCOMMON(stone, 2)
+	if(prob(50))
+		new /obj/item/stack/material/sandstone(L, 50)
+	else
+		new /obj/item/stack/material/marble(L, 50)
 
 STOCK_ITEM_UNCOMMON(iron, 2)
 	new /obj/item/stack/material/iron(L, 50)
 
 STOCK_ITEM_UNCOMMON(other_mat, 0.5)
 	var/obj/item/stack/material/M = pick(/obj/item/stack/material/osmium, /obj/item/stack/material/mhydrogen, /obj/item/stack/material/tritium, /obj/item/stack/material/bronze)
-	new M(L, rand(1, 10))
+	new M(L, rand(1, 20))
 
 STOCK_ITEM_UNCOMMON(flare, 2)
 	new /obj/item/flashlight/flare(L)
@@ -82,7 +82,6 @@ STOCK_ITEM_UNCOMMON(mediumcell, 3)
 	for(var/i in 1 to rand(1,2))
 		var/type = pick( \
 			/obj/item/cell/super, \
-			/obj/item/cell/potato, \
 			/obj/item/cell/high \
 		)
 		new type(L)
@@ -224,7 +223,8 @@ STOCK_ITEM_UNCOMMON(headset, 2)
 		/obj/item/radio/headset/headset_sci = 0.8,
 		/obj/item/radio/headset/headset_medsci = 0.4,
 		/obj/item/radio/headset/headset_cargo = 1,
-		/obj/item/radio/headset/headset_service = 1
+		/obj/item/radio/headset/headset_service = 1,
+		/obj/item/radio/headset/headset_sec = 0.5
 	)
 
 	var/type = pickweight(sets)
@@ -240,17 +240,43 @@ STOCK_ITEM_UNCOMMON(laserpoint, 0.75)
 	new /obj/item/laser_pointer(L)
 
 STOCK_ITEM_UNCOMMON(manual, 2)
-	var/list/booklist = subtypesof(/obj/item/book/manual)
-	booklist -= /obj/item/book/manual/wiki //just this one. we want to keep the subtypes.
-	booklist -= /obj/item/book/manual/nuclear //yeah no
-	var/type = pick(booklist)
-	new type(L)
+	if(prob(20))
+		var/list/booklist = subtypesof(/obj/item/book/manual)
+		booklist -= /obj/item/book/manual/wiki //just this one. we want to keep the subtypes.
+		booklist -= /obj/item/book/manual/nuclear //yeah no
+		var/type = pick(booklist)
+		new type(L)
+	else
+		if (!establish_db_connection(GLOB.dbcon))
+			return
+
+		var/query_str = "SELECT author, title, content FROM ss13_library ORDER BY RAND() LIMIT :amount:"
+		var/list/query_data = list("amount" = 3)
+
+		var/DBQuery/query_books = GLOB.dbcon.NewQuery(query_str)
+		query_books.Execute(query_data)
+
+		while (query_books.NextRow())
+			CHECK_TICK
+			var/author = query_books.item[1]
+			var/title = query_books.item[2]
+			var/content = query_books.item[3]
+			var/obj/item/book/B = new(L)
+			B.name = "Book: [title]"
+			B.title = title
+			B.author = author
+			B.dat = content
+			var/randbook = "book[rand(1,16)]"
+			B.icon_state = randbook
+			B.item_state = randbook
 
 STOCK_ITEM_UNCOMMON(spystuff, 0.75)
 	if(prob(40))
 		new /obj/item/radiojammer(L)
 	else
 		new /obj/item/clothing/glasses/night(L)
+	if(prob(10))
+		new /obj/item/storage/box/syndie_kit/spy/hidden(L)
 
 STOCK_ITEM_UNCOMMON(seeds, 1)
 	for(var/i in 1 to rand(1, 3))
@@ -382,8 +408,11 @@ STOCK_ITEM_UNCOMMON(alt_glasses, 1)
 STOCK_ITEM_UNCOMMON(gumballs, 3)
 	new /obj/item/glass_jar/gumball(L)
 
-STOCK_ITEM_UNCOMMON(googly, 0.75)
-	new /obj/item/storage/stickersheet/googly_eye(L)
+STOCK_ITEM_UNCOMMON(stickers, 1)
+	var/list/all_stickers = subtypesof(/obj/item/storage/stickersheet)
+
+	var/type = pick(all_stickers)
+	new type(L)
 
 STOCK_ITEM_UNCOMMON(wizarddressup, 1)
 	new /obj/random/wizard_dressup(L)

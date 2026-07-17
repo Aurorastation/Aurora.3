@@ -30,6 +30,7 @@
 /area/shuttle/runtime
 	name = "While True"
 	base_turf = /turf/simulated/floor/shuttle/black
+	requires_power = TRUE
 
 /datum/shuttle/autodock/overmap/runtime
 	name = "WhileTrue"

@@ -1,0 +1,8 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - rscadd: "Cell chargers can now be constructed and deconstructed."
+  - rscadd: "Cell chargers now use components and can be upgraded similarly to other items with component. They are overall twice as effective as a regular recharger with similar components."
+  - rscadd: "Added a recharger to the machinist's workshop."

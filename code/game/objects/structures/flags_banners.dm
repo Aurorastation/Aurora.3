@@ -4328,3 +4328,48 @@
 
 /obj/structure/sign/flag/outer_eyes/large/west/Initialize(mapload)
 	. = ..(mapload, WEST)
+
+// Caria
+
+/obj/structure/sign/flag/caria
+	name = "\improper Caria banner"
+	desc = "The flag of the Imperial Viceroyalty of Caria, a trade-focused Dominian colonial world."
+	desc_extended = "The twin moons of the Carian flag represent Lixus, the reflective moon which makes life on the planet possible at all. The twin fires represent a sacred tradition where members of the Adirim — its voting body — pass between two sacred flames to purify their souls before voting."
+	icon_state = "caria"
+	flag_item = /obj/item/flag/caria
+
+/obj/item/flag/caria
+	name = "\improper Caria banner"
+	desc = "The flag of the Imperial Viceroyalty of Caria, a trade-focused Dominian colonial world."
+	desc_extended = "The twin moons of the Carian flag represent Lixus, the reflective moon which makes life on the planet possible at all. The twin fires represent a sacred tradition where members of the Adirim — its voting body — pass between two sacred flames to purify their souls before voting."
+	flag_path = "caria"
+	flag_structure = /obj/structure/sign/flag/caria
+
+/obj/item/flag/caria/l
+	name = "\improper Caria flag"
+	desc =  "The flag of the Imperial Viceroyalty of Caria, a trade-focused Dominian colonial world."
+	desc_extended = "The twin moons of the Carian flag represent Lixus, the reflective moon which makes life on the planet possible at all. The twin fires represent a sacred tradition where members of the Adirim — its voting body — pass between two sacred flames to purify their souls before voting."
+	flag_path = "caria"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/caria/large
+
+/obj/structure/sign/flag/caria/large
+	name = "\improper Caria flag"
+	desc =  "The flag of the Imperial Viceroyalty of Caria, a trade-focused Dominian colonial world."
+	desc_extended = "The twin moons of the Carian flag represent Lixus, the reflective moon which makes life on the planet possible at all. The twin fires represent a sacred tradition where members of the Adirim — its voting body — pass between two sacred flames to purify their souls before voting."
+	icon_state = "caria_l"
+	flag_path = "caria"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/caria/l
+
+/obj/structure/sign/flag/caria/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/caria/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/caria/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/caria/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
