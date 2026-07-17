@@ -1,0 +1,42 @@
+# Valid Prefixes:
+#   bugfix
+#     - (fixes bugs)
+#   wip
+#     - (work in progress)
+#   qol
+#     - (quality of life)
+#   soundadd
+#     - (adds a sound)
+#   sounddel
+#     - (removes a sound)
+#   rscadd
+#     - (adds a feature)
+#   rscdel
+#     - (removes a feature)
+#   imageadd
+#     - (adds an image or sprite)
+#   imagedel
+#     - (removes an image or sprite)
+#   spellcheck
+#     - (fixes spelling or grammar)
+#   experiment
+#     - (experimental change)
+#   balance
+#     - (balance changes)
+#   code_imp
+#     - (misc internal code change)
+#   refactor
+#     - (refactors code)
+#   config
+#     - (makes a change to the config files)
+#   admin
+#     - (makes changes to administrator tools)
+#   server
+#     - (miscellaneous changes to server)
+author: Batrachophrenoboocosmomachia
+delete-after: True
+changes:
+  - rscadd: "Adds NTNet extensibility, requires new machinery constructed on away-site z-levels."
+  - rscadd: "Breaks NTNet Relay machinery into 'NTNet Core' and 'NTNet Relay' machines; Core is mapping/admin only, Relay is player-constructible."
+  - rscdel: "Removes unused virology records and datums."
+  - bugfix: "Makes legacy syndicate clothing moved to player loadout options properly inherit suit sensor behavior."
