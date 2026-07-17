@@ -176,6 +176,8 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 
 	// OOC Metadata:
 	var/metadata = ""
+	/// A list of pity; affects your chances to get a slot when you fail/succeed a roll.
+	var/list/job_pity
 
 	// SPAAAACE
 	var/toggles_secondary = SEE_ITEM_OUTLINES | PROGRESS_BARS | FLOATING_MESSAGES | HOTKEY_DEFAULT
