@@ -12,30 +12,34 @@
 	throw_speed = 1
 	throw_range = 2
 
-	matter = list(DEFAULT_WALL_MATERIAL = 750)
+	matter = list(MATERIAL_STEEL = 750)
 
 	origin_tech = list(TECH_POWER = 3, TECH_ILLEGAL = 5)
 
-	///Amount of power to drain per second, in watts
+	/// Amount of power to drain per second, in watts
 	var/drain_rate = 1.5 MEGA WATTS
 
-	///Maximum amount of power to drain from a single APW, in watts
+	/// Maximum amount of power to drain from a single APW, in watts
 	var/apc_drain_rate = 50 KILO WATTS
 
-	///Passive dissipation of drained power in Watts
+	/// Passive dissipation of drained power in Watts
 	var/dissipation_rate = 20000
 
-	///Amount of power drained, in watts
+	/// Amount of power drained, in watts
 	var/power_drained = 04
 
-	///Power at which the sink will explode (after having absorbed that), in watts
+	/// Power at which the sink will explode (after having absorbed that), in watts
 	var/max_power = 800 MEGA WATTS
 
-	var/mode = 0					// 0 = off, 1=clamped (off), 2=operating
-	var/drained_this_tick = 0		// This is unfortunately necessary to ensure we process powersinks BEFORE other machinery such as APCs.
+	/// 0 = off, 1=clamped (off), 2=operating
+	var/mode = 0
+	/// This is unfortunately necessary to ensure we process powersinks BEFORE other machinery such as APCs.
+	var/drained_this_tick = 0
 
-	var/datum/powernet/PN			// Our powernet
-	var/obj/structure/cable/attached		// the attached cable
+	/// Our powernet
+	var/datum/powernet/PN
+	/// the attached cable
+	var/obj/structure/cable/attached
 
 /obj/item/powersink/antagonist_hints(mob/user, distance, is_adjacent)
 	. += ..()

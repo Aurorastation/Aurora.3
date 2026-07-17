@@ -8,7 +8,7 @@
 	force = 2
 	throwforce = 5
 	w_class = WEIGHT_CLASS_TINY
-	matter = list(DEFAULT_WALL_MATERIAL = 60)
+	matter = list(MATERIAL_STEEL = 60)
 	drop_sound = 'sound/items/drop/drinkglass.ogg'
 	pickup_sound = 'sound/items/pickup/drinkglass.ogg'
 	var/status = 0		// LIGHT_OK, LIGHT_BURNED or LIGHT_BROKEN
@@ -32,9 +32,9 @@
 	if(randomize_range)
 		switch(lighttype)
 			if("tube")
-				brightness_range = rand(6,9)
+				brightness_range = rand(5,8) // LEMURIAN SEA - INCREASE BY 1,1 AFTER ARC
 			if("bulb")
-				brightness_range = rand(4,6)
+				brightness_range = rand(3,5) // LEMURIAN SEA - INCREASE BY 1,1 AFTER ARC
 	if(randomize_color)
 		brightness_color = pick(randomized_colors)
 	update()

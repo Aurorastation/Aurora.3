@@ -701,7 +701,7 @@ GLOBAL_LIST_INIT(robot_modules, list(
 
 /obj/item/robot_module/service/clerical
 	name = "clerical robot module"
-	channels = list(CHANNEL_SUPPLY = TRUE, CHANNEL_COMMAND = TRUE)
+	channels = list(CHANNEL_OPERATIONS = TRUE, CHANNEL_COMMAND = TRUE)
 	networks = list(NETWORK_MINE)
 	specialized_access_types = list(/datum/job/janitor) // Janitor is a nice general access without specifics
 
@@ -727,7 +727,7 @@ GLOBAL_LIST_INIT(robot_modules, list(
 
 /obj/item/robot_module/miner
 	name = "miner robot module"
-	channels = list(CHANNEL_SUPPLY = TRUE, CHANNEL_HAILING = TRUE)
+	channels = list(CHANNEL_OPERATIONS = TRUE, CHANNEL_HAILING = TRUE)
 	networks = list(NETWORK_MINE)
 	sprites = list(
 		"Basic" =          list(ROBOT_CHASSIS = "robot_mine", ROBOT_PANEL = "robot", ROBOT_EYES = "robot"),
@@ -794,7 +794,7 @@ GLOBAL_LIST_INIT(robot_modules, list(
 	name = "research module"
 	channels = list(
 		CHANNEL_SCIENCE = TRUE,
-		CHANNEL_SUPPLY  = TRUE
+		CHANNEL_OPERATIONS  = TRUE
 	)
 	networks = list(NETWORK_RESEARCH)
 	sprites = list(
@@ -1080,7 +1080,7 @@ GLOBAL_LIST_INIT(robot_modules, list(
 /obj/item/robot_module/mining_drone
 	name = "mining drone module"
 	no_slip = TRUE
-	channels = list(CHANNEL_SUPPLY = TRUE)
+	channels = list(CHANNEL_OPERATIONS = TRUE)
 	networks = list(NETWORK_MINE)
 	all_access = TRUE
 
@@ -1164,7 +1164,7 @@ GLOBAL_LIST_INIT(robot_modules, list(
 	)
 	channels = list(
 		CHANNEL_SERVICE =       TRUE,
-		CHANNEL_SUPPLY =        TRUE,
+		CHANNEL_OPERATIONS =        TRUE,
 		CHANNEL_SCIENCE =       TRUE,
 		CHANNEL_SECURITY =      TRUE,
 		CHANNEL_ENGINEERING =   TRUE,
@@ -1314,7 +1314,7 @@ GLOBAL_LIST_INIT(robot_modules, list(
 	)
 	channels = list(
 		CHANNEL_SERVICE =       TRUE,
-		CHANNEL_SUPPLY =        TRUE,
+		CHANNEL_OPERATIONS =        TRUE,
 		CHANNEL_SCIENCE =       TRUE,
 		CHANNEL_SECURITY =      TRUE,
 		CHANNEL_ENGINEERING =   TRUE,

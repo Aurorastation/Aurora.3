@@ -24,6 +24,7 @@
 	mob_size = 30
 	environment_smash = 2
 	attacktext = "chomps"
+	attack_vis_effect = ATTACK_EFFECT_BITE
 	attack_sound = 'sound/weapons/bite.ogg'
 
 	faction = "worm"
@@ -44,6 +45,10 @@
 	universal_understand = TRUE
 
 	var/burrowing = FALSE
+
+/mob/living/simple_animal/hostile/phoron_worm/Initialize()
+	. = ..()
+	ADD_TRAIT(src, TRAIT_MC_SPACE_FAUNA, TRAIT_SOURCE_MOB_CATEGORY)
 
 /mob/living/simple_animal/hostile/phoron_worm/death()
 	..(null,"collapses under its own weight!")
@@ -66,7 +71,7 @@
 
 	if(istype(A, /obj/item/stack/material))
 		var/obj/item/stack/material/P = A
-		if(P.material.name == MATERIAL_PHORON)
+		if(P.material.type == MATERIAL_PHORON)
 			visible_message(SPAN_WARNING("\The [src] starts consuming \the [P]..."), SPAN_NOTICE("You start consuming \the [P]."))
 			if(!do_after(src, 1 SECOND, P))
 				return

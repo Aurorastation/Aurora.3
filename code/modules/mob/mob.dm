@@ -1,5 +1,9 @@
 /mob/Destroy()//This makes sure that mobs with clients/keys are not just deleted from the game.
 	MOB_STOP_THINKING(src)
+	pulling?.pulledby = null
+	pulling = null
+	pullin?.icon_state = "pull0"
+	pullin = null
 	// Delete and null the grab objects that are touching this mob.
 	QDEL_LIST(grabbed_by)
 	GLOB.mob_list -= src
@@ -50,18 +54,16 @@
 
 	QDEL_NULL(ability_master)
 	QDEL_NULL(zone_sel)
+	if (istype(machine, /obj/structure) && length(machine.climbers))
+		machine.climbers -= src
 	machine = null
 
-	pulling?.pulledby = null
-	pulling = null
-	pullin?.icon_state = "pull0"
-	pullin = null
-
-	QDEL_LIST(client_colors)
+	client_colors = null
 	additional_vision_handlers?.Cut()
 	pinned?.Cut()
 	QDEL_LIST(embedded)
 	languages?.Cut()
+	holo?.clear_holo(src)
 	holo = null
 	l_hand = null
 	r_hand = null
@@ -70,7 +72,7 @@
 	s_active = null
 	wear_mask = null
 	QDEL_NULL(dna)
-	QDEL_NULL(LAssailant)
+	LAssailant = null
 	spell_list?.Cut()
 	lastarea = null
 	control_object = null
@@ -105,15 +107,27 @@
 	QDEL_LIST(click_handlers)
 	vr_mob = null
 	old_mob = null
+	if (lastattacker && lastattacker.lastattacked == src)
+		lastattacker.lastattacked = null
+	if (lastattacked && lastattacked.lastattacker == src)
+		lastattacked.lastattacker = null
 	lastattacker = null
 	lastattacked = null
 	QDEL_NULL(pointing_effect)
-	QDEL_LIST(open_nanouis)
-	QDEL_LIST(tgui_open_uis)
+
+	// Cleanup for all UIs belonging to the client.
+	// For performance reasons we check the length of the lists first since the lists can potentially either be null or empty.
+	// But it's also plausible that they might contain null values, and while their aggressive checking means any valid entry in the list
+	// is guaranteed to be of type /datum/tgui, null entries in the list can potentially exist and will pass the as anything typecast.
+	if (length(tgui_open_uis))
+		for (var/datum/tgui/ui as anything in tgui_open_uis)
+			ui?.close()
+		tgui_open_uis.Cut()
+
 	QDEL_NULL(narsimage)
 	QDEL_NULL(narglow)
 	QDEL_NULL(riftimage)
-	QDEL_NULL(bloody_hands_mob)
+	bloody_hands_mob = null
 	QDEL_NULL(eyeobj)
 	QDEL_NULL(bg)
 	my_client = null
@@ -902,7 +916,6 @@
 	if(!found_grab)
 		if(!resting && MOB_IS_INCAPACITATED(INCAPACITATION_KNOCKDOWN) && H?.can_stand_overridden())
 			lying = FALSE
-			lying_is_intentional = FALSE
 			canmove = TRUE
 		else
 			if(buckled_to)
@@ -910,12 +923,10 @@
 					var/obj/vehicle/V = buckled_to
 					if(MOB_IS_INCAPACITATED(INCAPACITATION_DISABLED))
 						lying = TRUE
-						lying_is_intentional = FALSE
 						canmove = FALSE
 						pixel_y = V.mob_offset_y - 5
 					else
 						if(buckled_to.buckle_lying != -1) lying = buckled_to.buckle_lying
-						lying_is_intentional = FALSE
 						canmove = TRUE
 						pixel_y = V.mob_offset_y
 				else
@@ -923,7 +934,6 @@
 					canmove = FALSE
 					if(buckled_to.buckle_lying != -1)
 						lying = buckled_to.buckle_lying
-						lying_is_intentional = FALSE
 					if(buckled_to.buckle_movable)
 						anchored = FALSE
 						canmove = TRUE
@@ -931,22 +941,18 @@
 				anchored = TRUE
 				canmove = FALSE
 				lying = FALSE
-				lying_is_intentional = FALSE
 			else if(sleeping)
 				lying = resting || (stat == DEAD) || (MOB_IS_INCAPACITATED(INCAPACITATION_KNOCKDOWN) && !(H?.species?.sleeps_upright)) // Vaurca, IPCs and Diona sleep standing up, unless they were already lying down
-				lying_is_intentional = FALSE
 				canmove = !MOB_IS_INCAPACITATED(INCAPACITATION_KNOCKOUT) && !weakened
 			else
 				var/incapacitated = (stat == DEAD) || MOB_IS_INCAPACITATED(INCAPACITATION_KNOCKOUT) || weakened && !recently_slept
 				lying = incapacitated || resting
-				lying_is_intentional = !incapacitated
 				canmove = !MOB_IS_INCAPACITATED(INCAPACITATION_KNOCKOUT) && !weakened
 
 	if(lying)
 		ADD_TRAIT(src, TRAIT_UNDENSE, TRAIT_SOURCE_LYING_DOWN)
-		if(!lying_is_intentional)
-			if(l_hand) unEquip(l_hand)
-			if(r_hand) unEquip(r_hand)
+		if(l_hand) unEquip(l_hand)
+		if(r_hand) unEquip(r_hand)
 	else
 		REMOVE_TRAIT(src, TRAIT_UNDENSE, TRAIT_SOURCE_LYING_DOWN)
 

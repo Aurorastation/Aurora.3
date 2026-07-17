@@ -22,6 +22,9 @@
 	generic_object = FALSE
 	var/moving_state = "ship_moving"
 
+	/*For Pilot: Spacecraft skill. Denotes SHUTTLE for landables, CLASS_TWO for standard "overmap-only" ships, or CLASS_MAX for massive
+	ones which is just the Horizon/main player ship. When null, the skill only cares for being Unfamiliar; stations are null.*/
+	var/pilot_class = PILOTING_CLASS_TWO
 	layer = OVERMAP_SHIP_LAYER
 
 //RP fluff details to appear on scan readouts for mobile objects.
@@ -81,6 +84,7 @@
 	obfuscated_name = "unidentified stationary object"
 	unknown_id = "Unknown artificial structure"
 	static_vessel = TRUE
+	pilot_class = null
 	propulsion = "None equipped, flight incapable"
 	halted = TRUE // Cannot fly under any circumstances
 

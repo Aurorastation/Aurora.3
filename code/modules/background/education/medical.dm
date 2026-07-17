@@ -21,6 +21,10 @@
 	jobs = list("Physician")
 	minimum_character_age = list(
 		SPECIES_HUMAN = 30,
+		SPECIES_TAJARA = 30,
+		SPECIES_TAJARA_MSAI = 30,
+		SPECIES_TAJARA_ZHAN = 30,
+		SPECIES_UNATHI = 30,
 		SPECIES_SKRELL = 60,
 		SPECIES_SKRELL_AXIORI = 60
 	)
@@ -36,7 +40,11 @@
 					accredited hospital or clinic."
 	jobs = list("Pharmacist")
 	minimum_character_age = list(
-		SPECIES_HUMAN = 30,
+		SPECIES_HUMAN = 25,
+		SPECIES_TAJARA = 25,
+		SPECIES_TAJARA_MSAI = 25,
+		SPECIES_TAJARA_ZHAN = 25,
+		SPECIES_UNATHI = 25,
 		SPECIES_SKRELL = 60,
 		SPECIES_SKRELL_AXIORI = 60
 	)
@@ -55,13 +63,15 @@
 	jobs = list("Psychologist")
 	minimum_character_age = list(
 		SPECIES_HUMAN = 30,
+		SPECIES_TAJARA = 30,
+		SPECIES_TAJARA_MSAI = 30,
+		SPECIES_TAJARA_ZHAN = 30,
+		SPECIES_UNATHI = 30,
 		SPECIES_SKRELL = 60,
 		SPECIES_SKRELL_AXIORI = 60
 	)
 	skills = list(
-		/* Uncomment this block after finishing the Leadership skill. Psychologists should be able to give people morale bonuses as a mechanic.
 		/singleton/skill/leadership = SKILL_LEVEL_TRAINED,
-		*/
 		/singleton/skill/pharmacology = SKILL_LEVEL_FAMILIAR,
 		/singleton/skill/medicine = SKILL_LEVEL_FAMILIAR,
 		/singleton/skill/anatomy = SKILL_LEVEL_FAMILIAR,
@@ -75,6 +85,10 @@
 	jobs = list("Psychiatrist")
 	minimum_character_age = list(
 		SPECIES_HUMAN = 30,
+		SPECIES_TAJARA = 30,
+		SPECIES_TAJARA_MSAI = 30,
+		SPECIES_TAJARA_ZHAN = 30,
+		SPECIES_UNATHI = 30,
 		SPECIES_SKRELL = 60,
 		SPECIES_SKRELL_AXIORI = 60
 	)
@@ -91,6 +105,10 @@
 	jobs = list("Paramedic")
 	minimum_character_age = list(
 		SPECIES_HUMAN = 18,
+		SPECIES_TAJARA = 18,
+		SPECIES_TAJARA_MSAI = 18,
+		SPECIES_TAJARA_ZHAN = 18,
+		SPECIES_UNATHI = 18,
 		SPECIES_SKRELL = 55,
 		SPECIES_SKRELL_AXIORI = 55
 	)

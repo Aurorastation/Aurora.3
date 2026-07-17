@@ -117,19 +117,19 @@ Class Procs:
 	var/power_init_complete = FALSE
 	/// What power channel does this fall under in APCs? Possible channels include: AREA_USAGE_EQUIP, AREA_USAGE_ENVIRON or AREA_USAGE_LIGHT
 	var/power_channel = AREA_USAGE_EQUIP
-
-	/* List of types that should be spawned as component_parts for this machine.
-		Structure:
-			type -> num_objects
-
-		num_objects is optional, and will be treated as 1 if omitted.
-
-		example:
-		component_types = list(
-			/obj/foo/bar,
-			/obj/baz = 2
-		)
-	*/
+	/**
+	 * List of types that should be spawned as component_parts for this machine.
+	 * Structure:
+	 *     type -> num_objects
+	 *
+	 * num_objects is optional, and will be treated as 1 if omitted.
+	 *
+	 * example:
+	 * 	component_types = list(
+	 * 		/obj/foo/bar,
+	 * 		/obj/baz = 2
+	 * 		)
+	 **/
 	var/list/component_types
 	/// List of all the parts used to build it, if made from certain kinds of frames.
 	var/list/component_parts = null
@@ -250,11 +250,16 @@ Class Procs:
 	for(var/i = 1 to 2)
 		if(prob(50))
 			metal_to_spawn++
+		else
+			new /obj/item/material/shard(current_turf, MATERIAL_STEEL)
 	if(metal_to_spawn)
 		new /obj/item/stack/material/steel(get_turf(src), metal_to_spawn)
 	if(!should_use_health)
 		return FALSE
 	qdel(src)
+
+/obj/structure/machinery/examine_descriptor(mob/user)
+	return "machine"
 
 // /obj/structure/machinery/proc/process_all()
 // 	/* Uncomment this if/when you need component processing
@@ -641,5 +646,5 @@ Class Procs:
 /obj/structure/machinery/ui_status(mob/user, datum/ui_state/state)
 	. = ..()
 	if(. < UI_INTERACTIVE)
-		if(user.machine)
+		if(user?.machine)
 			user.unset_machine()

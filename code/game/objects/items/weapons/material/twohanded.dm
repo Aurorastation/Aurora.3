@@ -67,12 +67,13 @@
 	. = ..()
 	update_icon()
 
-/obj/item/material/twohanded/mob_can_equip(var/mob/user, slot, disable_warning = FALSE)
-	if(wielded)
-		unwield()
-		var/obj/item/material/twohanded/offhand/O = user.get_inactive_hand()
-		if(istype(O))
-			O.unwield()
+/obj/item/material/twohanded/mob_can_equip(var/mob/user, slot, disable_warning = FALSE, bypass_blocked_check = FALSE, is_overlay_check = FALSE)
+	if(!is_overlay_check)
+		if(wielded)
+			unwield()
+			var/obj/item/material/twohanded/offhand/O = user.get_inactive_hand()
+			if(istype(O))
+				O.unwield()
 	return ..()
 
 /obj/item/material/twohanded/can_swap_hands(mob/user)
@@ -171,7 +172,7 @@
 	w_class = WEIGHT_CLASS_HUGE
 	icon_state = "offhand"
 	name = "offhand"
-	default_material = "placeholder"
+	default_material = MATERIAL_STEEL
 	drop_sound = null
 	pickup_sound = null
 	equip_sound = null
@@ -200,11 +201,12 @@
 /obj/item/material/twohanded/fireaxe  // DEM AXES MAN, marker -Agouri
 	icon_state = "fireaxe0"
 	base_icon = "fireaxe"
+	icon_angle = -180
 	name = "fire axe"
 	desc = "Truly, the weapon of a madman. Who would think to fight fire with an axe?"
 	unwielded_force_divisor = 0.25
 	force_divisor = 0.7 // 10/42 with hardness 60 (steel) and 0.25 unwielded divisor
-	sharp = 1
+	sharp = FALSE
 	edge = TRUE
 	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = SLOT_BACK
@@ -243,6 +245,7 @@
 /obj/item/material/twohanded/spear
 	icon_state = "spearglass0"
 	base_icon = "spearglass"
+	icon_angle = -45
 	name = "spear"
 	desc = "A haphazardly-constructed yet still deadly weapon of ancient design."
 	force = 15
@@ -255,7 +258,7 @@
 	sharp = 0
 	mob_throw_hit_sound =  'sound/weapons/pierce.ogg'
 	attack_verb = list("attacked", "poked", "jabbed", "torn", "gored")
-	default_material = "glass"
+	default_material = MATERIAL_GLASS
 	var/obj/item/grenade/explosive = null
 	use_material_sound = FALSE
 	worth_multiplier = 7 //blade + stuff
@@ -287,7 +290,7 @@
 		MA.layer = FLOAT_LAYER
 		HS.AddOverlays(MA)
 		HS.name = "[attacking_item.name] on a spear"
-		HS.material = material.name
+		HS.material = material.type
 		qdel(src)
 		return
 
@@ -371,7 +374,7 @@
 	attack_verb = list("chopped", "sliced", "shredded", "slashed", "cut", "ripped")
 	can_embed = FALSE
 	applies_material_colour = FALSE
-	default_material = "steel"
+	default_material = MATERIAL_STEEL
 	parry_chance = 5
 	var/fuel_type = /singleton/reagent/fuel
 	var/opendelay = 30 // How long it takes to perform a door opening action with this chainsaw, in seconds.
@@ -415,7 +418,7 @@
 	fuel_cost = 0.5
 	unbreakable = TRUE
 	parry_chance = 100 //Gotta punish those validhunters
-	default_material = "plasteel"
+	default_material = MATERIAL_PLASTEEL
 
 /obj/item/material/twohanded/chainsaw/op/Initialize()
 	. = ..()
@@ -557,7 +560,7 @@
 	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = SLOT_BACK
 	attack_verb = list("attacked", "poked", "jabbed", "gored", "stabbed")
-	default_material = "steel"
+	default_material = MATERIAL_STEEL
 	reach = 2
 	applies_material_colour = 0
 	can_embed = 0
@@ -596,7 +599,7 @@
 	desc = "For the republic!"
 	icon_state = "flag_biesel0"
 	base_icon = "flag_biesel"
-	default_material = "bronze"
+	default_material = MATERIAL_STEEL
 	can_embed = 1
 	use_material_name = FALSE
 	unbreakable = TRUE
@@ -662,7 +665,7 @@
 	edge = TRUE
 	sharp = 1
 	attack_verb = list("attacked", "chopped", "cleaved", "torn", "cut")
-	default_material = "steel"
+	default_material = MATERIAL_STEEL
 	parry_chance = 60
 	can_embed = 0
 	worth_multiplier = 35

@@ -151,7 +151,6 @@
 #define DEFAULT_TABLE_MATERIAL "plastic"
 #define DEFAULT_TABLE_REINF_MATERIAL "plasteel"
 #define DEFAULT_TABLE_FLIP_WEIGHT 22
-#define DEFAULT_WALL_MATERIAL "steel"
 
 #define SHARD_SHARD "shard"
 #define SHARD_SHRAPNEL "shrapnel"

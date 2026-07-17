@@ -17,7 +17,7 @@
 	var/flooring_override
 	var/initial_flooring
 	var/singleton/flooring/flooring
-	var/mineral = DEFAULT_WALL_MATERIAL
+	var/mineral = MATERIAL_STEEL
 
 	thermal_conductivity = 0.040
 	heat_capacity = 10000
@@ -25,6 +25,9 @@
 
 	/// If the turf should generate details. Default: TRUE
 	var/has_edge_icon = TRUE
+
+/turf/simulated/floor/examine_descriptor(mob/user)
+	return "floor"
 
 /turf/simulated/floor/disassembly_hints(mob/user, distance, is_adjacent)
 	. += ..()

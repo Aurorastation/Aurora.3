@@ -18,13 +18,6 @@
 	///Intearaction flags
 	var/interaction_flags_atom = NONE
 
-	var/flags_ricochet = NONE
-
-	///When a projectile tries to ricochet off this atom, the projectile ricochet chance is multiplied by this
-	var/receive_ricochet_chance_mod = 1
-	///When a projectile ricochets off this atom, it deals the normal damage * this modifier to this atom
-	var/receive_ricochet_damage_coeff = 0.33
-
 	var/update_icon_on_init	= FALSE // Default to 'no'.
 
 	var/level = 2
@@ -54,8 +47,6 @@
 	var/list/reagents_to_add
 	var/list/reagent_data
 
-	var/gfi_layer_rotation = GFI_ROTATION_DEFAULT
-
 	//light stuff
 
 	///Light systems, only one of the three should be active at the same time.
@@ -74,6 +65,10 @@
 	var/tmp/datum/dynamic_light_source/light
 	///Any light sources that are "inside" of us, for example, if src here was a mob that's carrying a flashlight, that flashlight's light source would be part of this list.
 	var/tmp/list/hybrid_light_sources
+	///The light source, datum. Dont fuck with this directly
+	var/tmp/datum/static_light_source/static_light
+	///Static light sources currently attached to this atom, this includes ones owned by atoms inside this atom
+	var/tmp/list/static_light_sources
 
 	//Values should avoid being close to -16, 16, -48, 48 etc.
 	//Best keep them within 10 units of a multiple of 32, as when the light is closer to a wall, the probability
@@ -126,9 +121,6 @@
 	/// If the atom is currently queued to have it's icon updated in `SSicon_update`
 	var/tmp/icon_update_queued = FALSE
 
-	/// Delay to apply before updating the icon in `SSicon_update`
-	var/icon_update_delay = null
-
 	/// How this atom should react to having its astar blocking checked
 	var/can_astar_pass = CANASTARPASS_DENSITY
 
@@ -141,17 +133,6 @@
 	/// The mob currently interacting with the atom during a `do_after` timer. Used to validate `DO_TARGET_UNIQUE_ACT` flag checks.
 	var/mob/do_unique_target_user
 
-	/*
-	* Duplicate vars and logic created for untranslated images for the sake of getting an untranslated langchat to display for listeners who do not understand
-	* the language being spoken. Someone could certainly think of cleaner ways to do this, but for want of a better solution right now, it has been implemented
-	* in this rote manner to make it easier to strip out in future if it needs replaced.
-	*/
-
-	var/image/langchat_image
-	var/image/langchat_image_untranslated
-	var/list/mob/langchat_listeners
-	var/list/mob/langchat_listeners_untranslated
-
 /atom/Destroy(force)
 	if(opacity)
 		updateVisibility(src)
@@ -162,7 +143,11 @@
 	if(length(overlays))
 		overlays.Cut()
 
+	if (length(underlays))
+		underlays.Cut()
+
 	QDEL_NULL(light)
+	QDEL_NULL(static_light)
 
 	if(smoothing_flags & SMOOTH_QUEUED)
 		SSicon_smooth.remove_from_queues(src)
@@ -171,19 +156,18 @@
 	if(icon_update_queued)
 		SSicon_update.remove_from_queue(src)
 
-	if(length(atom_overlay_cache))
-		LAZYCLEARLIST(atom_overlay_cache)
+	LAZYNULL(atom_overlay_cache)
+	LAZYNULL(atom_protected_overlay_cache)
 
-	if(length(atom_protected_overlay_cache))
-		LAZYCLEARLIST(atom_protected_overlay_cache)
 
 	// The component is attached to us normaly and will be deleted elsewhere
 	orbiters = null
 	do_unique_target_user = null
-	QDEL_NULL(langchat_image)
-	QDEL_NULL(langchat_image_untranslated)
-	langchat_listeners?.Cut()
-	langchat_listeners_untranslated?.Cut()
+	for(var/datum/langchat_bubble/entry as anything in langchat_images)
+		for(var/mob/listener as anything in entry.listeners)
+			if(listener.client)
+				listener.client.images -= entry.bubble
+	langchat_images = null
 	return ..()
 
 /atom/proc/handle_ricochet(obj/projectile/ricocheting_projectile)

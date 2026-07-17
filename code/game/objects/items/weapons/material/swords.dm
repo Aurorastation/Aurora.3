@@ -196,7 +196,7 @@
 /obj/item/material/sword_hilt/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/material/sword_blade))
 		var/obj/item/material/sword_blade/blade = attacking_item
-		var/obj/item/material/sword/improvised_sword/new_sword = new(src.loc, blade.material.name)
+		var/obj/item/material/sword/improvised_sword/new_sword = new(src.loc, blade.material.type)
 		new_sword.hilt = src
 		user.drop_from_inventory(src,new_sword)
 		user.drop_from_inventory(blade,new_sword)
@@ -219,7 +219,7 @@
 /obj/item/material/sword_blade/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/material/sword_hilt))
 		var/obj/item/material/sword_hilt/hilt = attacking_item
-		var/obj/item/material/sword/improvised_sword/new_sword = new(src.loc, src.material.name)
+		var/obj/item/material/sword/improvised_sword/new_sword = new(src.loc, src.material.type)
 		new_sword.hilt = hilt.material
 		new_sword.assignDescription()
 		user.drop_from_inventory(src,new_sword)

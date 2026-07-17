@@ -1,6 +1,6 @@
-import { BooleanLike } from '../../common/react';
+import { Box, Button, LabeledList, Section, Stack } from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Box, Button, LabeledList, Section, Stack } from '../components';
 import { Window } from '../layouts';
 
 type NuclearBombData = {
@@ -22,8 +22,8 @@ const KEYPAD_ROWS: string[][] = [
   ['R', '0', 'E'],
 ];
 
-export const NuclearBomb = (props, context) => {
-  const { act, data } = useBackend<NuclearBombData>(context);
+export const NuclearBomb = (props) => {
+  const { act, data } = useBackend<NuclearBombData>();
   const armed = !!data.auth && !!data.yescode;
 
   return (

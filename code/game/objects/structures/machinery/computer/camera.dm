@@ -136,11 +136,18 @@
 	if(!istype(user))
 		return 0
 
-	var/obj/item/card/id/I = user.GetIdCard()
+	var/I = user.GetIdCard()
 	if(!I)
 		return 0
 
-	if(access in I.access)
+	var/list/access_list
+	if(islist(I))
+		access_list = I
+	else if(istype(I, /obj/item))
+		var/obj/item/item = I
+		access_list = item.GetAccess()
+
+	if(access in access_list)
 		return 1
 
 	return 0
@@ -168,8 +175,15 @@
 		if (!check_area)
 			return
 
+		var/list/invalid_cameras
 		for(var/cc in SSmachinery.all_cameras)
+			if(!istype(cc, /obj/structure/machinery/camera))
+				LAZYADD(invalid_cameras, cc)
+				continue
 			var/obj/structure/machinery/camera/camera = cc
+			if(QDELETED(camera))
+				LAZYADD(invalid_cameras, cc)
+				continue
 			if(!camera.loc)
 				continue
 			if (camera.loc.loc != check_area)
@@ -182,6 +196,8 @@
 			if(dist < best_dist)
 				best_dist = dist
 				jump_to = camera
+		if(invalid_cameras)
+			SSmachinery.all_cameras -= invalid_cameras
 	if(isnull(jump_to))
 		return
 	if(can_access_camera(jump_to))

@@ -3,7 +3,7 @@
 
 	if(!enabled) // The computer is turned off
 		last_power_usage = 0
-		return FALSE
+		return PROCESS_KILL // Unpowered computers don't need to process.
 
 	if(health <= broken_damage)
 		shutdown_computer()
@@ -85,7 +85,6 @@
 
 /obj/item/modular_computer/Initialize()
 	. = ..()
-	START_PROCESSING(SSprocessing, src)
 	install_default_hardware()
 	if(hard_drive)
 		install_default_programs()
@@ -319,6 +318,7 @@
 	return GLOB.ntnet_global.add_log(text, network_card)
 
 /obj/item/modular_computer/proc/shutdown_computer(var/loud = TRUE)
+	STOP_PROCESSING(SSprocessing, src)
 	SStgui.close_uis(active_program)
 	kill_program_shutdown(TRUE)
 	for(var/datum/computer_file/program/P in idle_threads)
@@ -340,6 +340,7 @@
 	update_icon()
 
 /obj/item/modular_computer/proc/enable_computer(var/mob/user, var/ar_forced=FALSE)
+	START_PROCESSING(SSprocessing, src)
 	enabled = TRUE
 	if(looping_sound)
 		soundloop.start(src)
@@ -416,13 +417,10 @@
 
 /obj/item/modular_computer/proc/update_uis()
 	if(active_program) //Should we update program ui or computer ui?
-		SSnanoui.update_uis(active_program)
-		SStgui.update_uis(src)
-		if(active_program.NM)
-			SSnanoui.update_uis(active_program.NM)
+		if(active_program)
+			SStgui.update_uis(active_program)
 	else
 		SStgui.update_uis(src)
-		SSnanoui.update_uis(src)
 
 /obj/item/modular_computer/proc/check_update_ui_need()
 	var/ui_update_needed = FALSE
@@ -457,18 +455,6 @@
 
 	if(ui_update_needed)
 		update_uis()
-
-// Used by camera monitor program
-/obj/item/modular_computer/check_eye(var/mob/user)
-	if(active_program)
-		return active_program.check_eye(user)
-	return ..()
-
-// Used by camera monitor program
-/obj/item/modular_computer/grants_equipment_vision(var/mob/user)
-	if(active_program)
-		return active_program.grants_equipment_vision(user)
-	return ..()
 
 /obj/item/modular_computer/get_cell()
 	return battery_module ? battery_module.get_cell() : DEVICE_NO_CELL

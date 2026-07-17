@@ -54,8 +54,6 @@
 	var/obj/structure/machinery/door/airlock/close_other
 	/// The ID of the connected door to close.
 	var/close_other_id
-	/// String (One of `MATERIAL_*`). The material the door is made from. If not set, defaults to steel.
-	var/mineral
 	/// Boolean. Whether or not the door's safeties are enabled. Tied to the safety wire.
 	var/safe = TRUE
 	/// Airlock electronics.
@@ -127,7 +125,7 @@
 	/// String (One of `MATERIAL_*`). The material used for the door's window if `glass` is set. Used to set `window_material` during init.
 	var/init_material_window = MATERIAL_GLASS
 	/// The material of the door's window.
-	var/material/window_material
+	var/singleton/material/window_material
 
 	hashatch = TRUE
 
@@ -243,7 +241,7 @@
 
 	if (glass)
 		paintable |= AIRLOCK_PAINTABLE_WINDOW
-		window_material = SSmaterials.get_material_by_name(init_material_window)
+		window_material = SSmaterials.get_material_by_id(init_material_window)
 		opacity = FALSE
 	update_icon()
 
@@ -284,9 +282,9 @@
 	..()
 
 /obj/structure/machinery/door/airlock/get_material()
-	if(mineral)
-		return SSmaterials.get_material_by_name(mineral)
-	return SSmaterials.get_material_by_name(DEFAULT_WALL_MATERIAL)
+	if(material)
+		return SSmaterials.get_material_by_id(material)
+	return SSmaterials.get_material_by_id(MATERIAL_STEEL)
 
 /obj/structure/machinery/door/airlock/external//External airlocks start here
 	name = "external airlock"
@@ -718,23 +716,23 @@
 /obj/structure/machinery/door/airlock/gold
 	name = "Gold Airlock"
 	door_color = COLOR_GOLD
-	mineral = "gold"
+	material = MATERIAL_GOLD
 
 /obj/structure/machinery/door/airlock/silver
 	name = "Silver Airlock"
 	door_color = COLOR_SILVER
-	mineral = "silver"
+	material = MATERIAL_SILVER
 
 /obj/structure/machinery/door/airlock/diamond
 	name = "Diamond Airlock"
 	door_color = COLOR_DIAMOND
-	mineral = "diamond"
+	material = MATERIAL_DIAMOND
 	maxhealth = OBJECT_HEALTH_EXTREMELY_HIGH
 
 /obj/structure/machinery/door/airlock/sandstone
 	name = "Sandstone Airlock"
 	door_color = COLOR_BEIGE
-	mineral = "sandstone"
+	material = MATERIAL_SANDSTONE
 
 /obj/structure/machinery/door/airlock/palepurple
 	door_color = COLOR_PURPLE
@@ -784,6 +782,7 @@
 		MELEE = ARMOR_MELEE_MINOR,
 		BULLET = ARMOR_BALLISTIC_MINOR
 	)
+	material = MATERIAL_DIONA
 
 /// Placeholder object until it gets new sprites.
 /obj/structure/machinery/door/airlock/diona/external
@@ -794,7 +793,7 @@
 	name = "Uranium Airlock"
 	desc = "And they said I was crazy."
 	door_color = COLOR_GREEN
-	mineral = "uranium"
+	material = MATERIAL_URANIUM
 	var/last_event = 0
 
 /obj/structure/machinery/door/airlock/uranium/process()
@@ -809,7 +808,7 @@
 	name = "Phoron Airlock"
 	desc = "No way this can end badly."
 	door_color = COLOR_VIOLET
-	mineral = MATERIAL_PHORON
+	material = MATERIAL_PHORON
 
 /obj/structure/machinery/door/airlock/phoron/fire_act(exposed_temperature, exposed_volume)
 	. = ..()
@@ -1089,13 +1088,13 @@ About the new airlock wires panel:
 			stripe_overlay = new(stripe_file)
 			stripe_overlay.Blend(stripe_color, ICON_MULTIPLY)
 			SSicon_cache.airlock_icon_cache["[ikey]"] = stripe_overlay
-		if(!glass)
-			var/ikey2 = "[airlock_type]-[stripe_color]-fillstripe"
-			stripe_filling_overlay = SSicon_cache.airlock_icon_cache["[ikey2]"]
-			if(!stripe_filling_overlay)
-				stripe_filling_overlay = new(stripe_fill_file)
-				stripe_filling_overlay.Blend(stripe_color, ICON_MULTIPLY)
-				SSicon_cache.airlock_icon_cache["[ikey2]"] = stripe_filling_overlay
+
+		var/ikey2 = "[airlock_type]-[stripe_color]-fillstripe"
+		stripe_filling_overlay = SSicon_cache.airlock_icon_cache["[ikey2]"]
+		if(!stripe_filling_overlay)
+			stripe_filling_overlay = new(stripe_fill_file)
+			stripe_filling_overlay.Blend(stripe_color, ICON_MULTIPLY)
+			SSicon_cache.airlock_icon_cache["[ikey2]"] = stripe_filling_overlay
 
 	if(arePowerSystemsOn())
 		switch(state)
@@ -1387,7 +1386,7 @@ About the new airlock wires panel:
 	if (src.isElectrified())
 		if (istype(mover, /obj/item))
 			var/obj/item/i = mover
-			if (i.matter && (DEFAULT_WALL_MATERIAL in i.matter) && i.matter[DEFAULT_WALL_MATERIAL] > 0)
+			if(i.matter && SSmaterials.get_material_amount(i.matter, MATERIAL_STEEL) > 0)
 				spark(src, 5, GLOB.alldirs)
 	return ..()
 
@@ -1434,7 +1433,7 @@ About the new airlock wires panel:
 				return
 			if(H.default_attack?.attack_door && !(stat & (BROKEN|NOPOWER)))
 				user.visible_message(SPAN_DANGER("\The [user] forcefully strikes \the [src] with their [H.default_attack.attack_name]!"))
-				user.do_attack_animation(src, null)
+				user.do_attack_animation(src, H.default_attack.attack_effect)
 				playsound(loc, hitsound, 60, TRUE)
 				add_damage(H.default_attack.attack_door)
 				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
@@ -1719,8 +1718,8 @@ About the new airlock wires panel:
 	da.set_dir(src.dir)
 
 	da.anchored = 1
-	if(mineral)
-		da.glass = mineral
+	if(material)
+		da.glass = material
 	else if(glass && !da.glass)
 		da.glass = 1
 	da.state = 1

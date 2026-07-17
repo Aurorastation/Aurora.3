@@ -256,7 +256,7 @@
 
 	// Emitter Blasts - these will eventually completely destroy the door, given enough time.
 	if (damage > 90)
-		destroy_hits--
+		destroy_hits -= (1 * hitting_projectile.anti_materiel_potential)
 		if (destroy_hits <= 0)
 			visible_message(SPAN_DANGER("\The [src.name] disintegrates!"))
 			switch (hitting_projectile.damage_type)
@@ -316,7 +316,7 @@
 
 	if(attacking_item.tool_behaviour == TOOL_HAMMER && user.a_intent != I_HURT)
 		var/obj/item/stack/stack = usr.get_inactive_hand()
-		if(istype(stack) && stack.get_material_name() == get_material_name())
+		if(istype(stack) && stack.get_material() == get_material())
 			if(stat & BROKEN)
 				to_chat(user, SPAN_NOTICE("It looks like \the [src] is pretty busted. It's going to need more than just patching up now."))
 				return TRUE

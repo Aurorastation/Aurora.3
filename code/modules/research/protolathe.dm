@@ -8,7 +8,7 @@
 	active_power_usage = 25 KILO WATTS
 
 	var/max_material_storage = 100000
-	var/list/materials = list(DEFAULT_WALL_MATERIAL = 0, MATERIAL_GLASS = 0, MATERIAL_GOLD = 0, MATERIAL_SILVER = 0, MATERIAL_PHORON = 0, MATERIAL_URANIUM = 0, MATERIAL_DIAMOND = 0)
+	var/list/materials = list(MATERIAL_STEEL = 0, MATERIAL_GLASS = 0, MATERIAL_GOLD = 0, MATERIAL_SILVER = 0, MATERIAL_PHORON = 0, MATERIAL_URANIUM = 0, MATERIAL_DIAMOND = 0)
 
 	/**
 	 * A `/list` of enqueued `/datum/design` to be printed, processed in the queue
@@ -45,6 +45,7 @@
 
 ///Returns the total of all the stored materials
 /obj/structure/machinery/r_n_d/protolathe/proc/TotalMaterials()
+	SSmaterials.normalize_material_amounts(materials)
 	var/t = 0
 	for(var/f in materials)
 		t += materials[f]
@@ -78,6 +79,7 @@
 	for(var/obj/I in component_parts)
 		if(istype(I, /obj/item/reagent_containers/glass/beaker))
 			reagents.trans_to_obj(I, reagents.total_volume)
+	SSmaterials.normalize_material_amounts(materials)
 	for(var/f in materials)
 		if(materials[f] >= SHEET_MATERIAL_AMOUNT)
 			var/path = getMaterialType(f)
@@ -168,7 +170,7 @@
 				to_chat(user, SPAN_NOTICE("You add [amount] [stack.material.sheet_plural_name] of [stack.material.name] to \the [src]."))
 			else
 				to_chat(user, SPAN_NOTICE("You add [amount] [stack.material.sheet_singular_name] of [stack.material.name] to \the [src]."))
-			materials[stack.default_type] += amount * SHEET_MATERIAL_AMOUNT
+			SSmaterials.add_material_amount(materials, stack.default_type, amount * SHEET_MATERIAL_AMOUNT)
 
 			//In case there's things queued up, we run the queue handler
 			handle_queue()
@@ -226,6 +228,8 @@
 
 	else
 		visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] \The [src] flashes: Insufficient materials: [getLackingMaterials(D)]."))
+		if(linked_console)
+			linked_console.updateUsrDialog()
 
 	update_icon()
 
@@ -238,8 +242,12 @@
  * Returns `TRUE` if the design can be built, `FALSE` otherwise
  */
 /obj/structure/machinery/r_n_d/protolathe/proc/canBuild(datum/design/design_to_check)
+	SSmaterials.normalize_material_amounts(materials)
 	for(var/M in design_to_check.materials)
-		if(materials[M] < design_to_check.materials[M])
+		var/material = SSmaterials.material_to_path(M, FALSE)
+		if(!material)
+			material = M
+		if((materials[material] || 0) < design_to_check.materials[M])
 			return FALSE
 
 	for(var/C in design_to_check.chemicals)
@@ -256,12 +264,14 @@
  * Returns a string of the materials that are missing
  */
 /obj/structure/machinery/r_n_d/protolathe/proc/getLackingMaterials(var/datum/design/design_to_check)
+	SSmaterials.normalize_material_amounts(materials)
 	var/ret = ""
 	for(var/M in design_to_check.materials)
-		if(materials[M] < design_to_check.materials[M])
+		var/amount = SSmaterials.get_material_amount(materials, M)
+		if(amount < design_to_check.materials[M])
 			if(ret != "")
 				ret += ", "
-			ret += "[design_to_check.materials[M] - materials[M]] [M]"
+			ret += "[design_to_check.materials[M] - amount] [SSmaterials.material_display_name(M)]"
 	for(var/C in design_to_check.chemicals)
 		if(!reagents.has_reagent(C, design_to_check.chemicals[C]))
 			var/singleton/reagent/R = GET_SINGLETON(C)
@@ -284,8 +294,9 @@
 	use_power_oneoff(power)
 
 	//Consume the materials
+	SSmaterials.normalize_material_amounts(materials)
 	for(var/M in design_to_build.materials)
-		materials[M] = max(0, materials[M] - design_to_build.materials[M] * mat_efficiency)
+		SSmaterials.remove_material_amount(materials, M, design_to_build.materials[M] * mat_efficiency)
 	for(var/C in design_to_build.chemicals)
 		reagents.remove_reagent(C, design_to_build.chemicals[C] * mat_efficiency)
 
@@ -298,9 +309,6 @@
 			if(new_item.matter && new_item.matter.len > 0)
 				for(var/i in new_item.matter)
 					new_item.matter[i] = new_item.matter[i] * mat_efficiency
-
-	if(linked_console)
-		linked_console.updateUsrDialog()
 
 	//We finished building, clear the timer
 	build_callback_timer = null

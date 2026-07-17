@@ -1,3 +1,8 @@
+#define UPDATE_MORALE \
+	morale_ratio = ftanh(beta_value * (morale_points + phi_value)); \
+	morale_ui.icon_state = ((morale_ratio > -0.01 && morale_ratio < 0.01) ? "morale_hidden" : "morale" + "[round(morale_ratio * 4) + 5]"); \
+	morale_ui.update_icon();
+
 /// Screen space movable object for the morale component.
 /atom/movable/screen/morale
 	name = "morale"
@@ -14,13 +19,18 @@
 		qdel(src) // whoops the attached mob doesn't have a morale component.
 		return
 
-	if (!length(morale_comp.moodlets))
+	// This section is Unlinted since we need to access a same-file PRIVATE var
+	// and for whatever ungodly reason strongdmm doesn't allow same-file to touch VAR_PRIVATE
+	var/morale_percent = UNLINT(morale_comp.morale_ratio * 100)
+	if (!morale_percent)
 		to_chat(usr, SPAN_NOTICE("You currently have no morale modifiers."))
 		return
 
-	// This section is Unlinted since we need to access a same-file PRIVATE var
-	// and for whatever ungodly reason strongdmm doesn't allow same-file to touch VAR_PRIVATE
-	UNLINT(to_chat(usr, SPAN_NOTICE("Your current morale bonus is [morale_comp.morale_ratio * 100]%")))
+	to_chat(usr, SPAN_NOTICE("Your current morale bonus is [morale_percent]%"))
+
+	if (!length(morale_comp.moodlets))
+		return
+
 	to_chat(usr, SPAN_NOTICE("You have the following morale modifiers: "))
 	for (var/datum/moodlet/moodlet as anything in morale_comp.moodlets)
 		to_chat(usr, moodlet.get_moodlet_descriptor())
@@ -54,16 +64,24 @@
 	VAR_PRIVATE/morale_ratio = 0.0 // Positive and negative floating points are allowed.
 
 	/**
-	 * The "B" constant in the equation for y = Atanh(Bx + C).
+	 * The "B" constant in the equation for y = Atanh(B(x + C)).
 	 * This constant is not arbitrary, it was carefully selected such that the equation will give "75% of its effect" at 50 morale points, and "96% of its effect" at 100 morale.
 	 * This allows for there to be an effect of diminishing returns for chasing ever increasingly more morale points, while front-loading the bulk of the effects at a specific amount of moodlets.
 	 * Since the effects of morale are a "Logistic Curve", "100% of the morale effect" is only ever obtained at +INFINITY.
 	 * This also goes for the opposite direction, morale penalties max out only at -INFINITY points, but get to "75% of the penalty effect" at -50 points.
 	 *
-	 * The actual "Effects" of morale are to be per-signal, and are defined by the A value in y = Atanh(Bx + C)
+	 * The actual "Effects" of morale are to be per-signal, and are defined by the A value in y = Atanh(B(x + C))
 	 * This is private for a reason, if you need to change it, do so by using set_beta_value(), which will also make the component recalculate its morale ratio.
 	 */
 	VAR_PRIVATE/beta_value = 0.0195
+
+	/**
+	 * The "C" constant in the equation for y = Atanh(B(x + C))
+	 * This constant acts like a "permanent" moodlet with a morale bonus equal to what its set as.
+	 * Please set this extremely sparingly. You won't necessarily break anything by setting it, since the system will tolerate any number between +/- Infinity.
+	 * But making a habit of bypassing the morale system like this can easily trivialize it.
+	 */
+	VAR_PRIVATE/phi_value = 0.0
 
 	/**
 	 * UI element stored for the morale component,
@@ -85,10 +103,41 @@
 	 * The maximum possible panic chance from negative morale point sums.
 	 * Since negative moodlets are unique to psychic damage, the effects of psychically induced panic are uniquely stronger than simply being unskilled.
 	 */
-	var/panic_chance_ceiling = 10
+	var/panic_chance_ceiling = 10.0
 
 	/// The maximum possible positive or negative contribution to surgery success chances from morale modifiers.
-	var/surgery_success_contribution = 10
+	var/surgery_success_contribution = 15.0
+
+	/// The maximum possible positive or negative contribution to firearm dispersion (in degrees)
+	var/firearm_dispersion_contribution = 15.0
+
+	/// The maximum possible positive or negative contribution to firearm accuracy (in tiles of effective distance)
+	var/firearm_accuracy_contribution = 1.5
+
+	/// The maximum possible positive or negative contribution to melee damage (x100 to convert this to +%)
+	var/melee_damage_contribution = 0.075
+
+	/**
+	 * The maximum possible contribution to mech move delays (other than forwards motion).
+	 * This applies to strafing, turning, and reverse movements.
+	 */
+	var/mech_move_delay_contribution = 0.75
+
+	/// The maximum possible positive or negative percent modifier to crafting speed.
+	var/crafting_speed_contribution = 0.25
+
+	/**
+	 * The maximum possible contribution to plants harvested from morale.
+	 * Note that yield is rounded to integer amounts.
+	 * This will give +1 yield after morale reaches at least 75%, and -1 yield at -75%
+	 */
+	var/plant_yield_contribution = 1.35
+
+	/// The maximum possible positive or negative percent modifier to plant harvesting speed
+	var/harvest_speed_contribution = 0.25
+
+	/// The maximum possible positive or negative (percentage as decimal) contribution to surgery speed from morale modifiers.
+	var/surgery_speed_contribution = 0.1
 
 /datum/component/morale/proc/get_morale_ratio()
 	return morale_ratio
@@ -98,17 +147,20 @@
 
 /datum/component/morale/proc/add_morale_points(input)
 	morale_points += input
-	morale_ratio = ftanh(beta_value * morale_points)
+	UPDATE_MORALE
 
-	// I get to do this freakishly compact state setting because I can
-	// logically prove via VAR_PRIVATE that this is only ever set via a hyperbolic tangent
-	// And that because a hyperbolic tangent will only ever return a value between -1 and 1,
-	// the range of this equation becomes the set of integers between 1 and 9 inclusive.
-	morale_ui.icon_state = ((morale_ratio > -0.0001 && morale_ratio < 0.0001) ? "morale_hidden" : "morale" + "[round(morale_ratio * 4) + 5]")
+/datum/component/morale/proc/get_beta_value()
+	return beta_value
 
 /datum/component/morale/proc/set_beta_value(input)
 	beta_value = input
-	morale_ratio = ftanh(beta_value * morale_points)
+
+/datum/component/morale/proc/get_phi_value()
+	return phi_value
+
+/datum/component/morale/proc/set_phi_value(input)
+	phi_value = input
+	UPDATE_MORALE
 
 /**
  * Your one-stop-shop for making moodlets. This proc returns the pre-existing moodlet of a given type.
@@ -148,6 +200,9 @@
 	RegisterSignal(parent, COMSIG_MECH_MOVE_STRAFE, PROC_REF(handle_user_strafe), override = TRUE)
 	RegisterSignal(parent, COMSIG_MECH_TOGGLE_POWER, PROC_REF(handle_mech_toggle_power), override = TRUE)
 	RegisterSignal(parent, COMSIG_GET_SURGERY_SUCCESS_MODIFIERS, PROC_REF(handle_surgery_modifiers), override = TRUE)
+	RegisterSignal(parent, COMSIG_GET_CRAFTING_MODIFIERS, PROC_REF(handle_crafting_speed), override = TRUE)
+	RegisterSignal(parent, COMSIG_PLANT_HARVESTER, PROC_REF(modify_yield), override = TRUE)
+	UPDATE_MORALE
 
 /datum/component/morale/Destroy()
 	QDEL_LIST_FORCE(moodlets)
@@ -170,6 +225,8 @@
 	UnregisterSignal(parent, COMSIG_MECH_MOVE_STRAFE)
 	UnregisterSignal(parent, COMSIG_MECH_TOGGLE_POWER)
 	UnregisterSignal(parent, COMSIG_GET_SURGERY_SUCCESS_MODIFIERS)
+	UnregisterSignal(parent, COMSIG_GET_CRAFTING_MODIFIERS)
+	UnregisterSignal(parent, COMSIG_PLANT_HARVESTER)
 	return ..()
 
 /datum/component/morale/process(seconds_per_tick)
@@ -190,7 +247,7 @@
 	if (!list_trimmed)
 		return
 
-	morale_ratio = ftanh(morale_points)
+	UPDATE_MORALE
 
 /*
 						AND NOW THE GIANT WALL OF SIGNAL HANDLERS
@@ -205,12 +262,12 @@
 																											*/
 /datum/component/morale/proc/modify_hit_effect(owner, mob/living/target, obj/item/weapon, power, hit_zone)
 	SIGNAL_HANDLER
-	*power = *power * (1 + (0.05 * morale_ratio))
+	*power = *power * (1 + (melee_damage_contribution * morale_ratio))
 
 /datum/component/morale/proc/handle_accuracy(mob/shooter, accuracy_decrease, dispersion_increase)
 	SIGNAL_HANDLER
-	*accuracy_decrease = *accuracy_decrease - morale_ratio
-	*dispersion_increase = *dispersion_increase - 10 * morale_ratio
+	*accuracy_decrease = *accuracy_decrease - firearm_accuracy_contribution * morale_ratio
+	*dispersion_increase = *dispersion_increase - firearm_dispersion_contribution * morale_ratio
 
 /datum/component/morale/proc/safety_fumble(mob/shooter, obj/item/gun/shoota, cancelled)
 	SIGNAL_HANDLER
@@ -261,7 +318,7 @@
 	if (direction == NORTH)
 		return
 
-	*delay_modifier = *delay_modifier - 0.5 * morale_ratio
+	*delay_modifier = *delay_modifier - mech_move_delay_contribution * morale_ratio
 
 /datum/component/morale/proc/handle_user_strafe(mob/living/user, direction, delay_modifier)
 	SIGNAL_HANDLER
@@ -274,7 +331,7 @@
 			SPAN_DANGER("You fumble with your mech's controls in a blind panic!"))
 		*direction = angle2dir(dir2angle(direction) + 180)
 
-	*delay_modifier = *delay_modifier - 0.5 * morale_ratio
+	*delay_modifier = *delay_modifier - mech_move_delay_contribution * morale_ratio
 
 /datum/component/morale/proc/handle_mech_toggle_power(mob/user, cancelled, delay)
 	SIGNAL_HANDLER
@@ -289,9 +346,10 @@
 	*delay = *delay - (5 * morale_ratio) SECONDS
 	to_chat(user, SPAN_WARNING("The pressure on your mind causes you to stumble in searching for the power switch..."))
 
-/datum/component/morale/proc/handle_surgery_modifiers(mob/living/user, success_rate)
+/datum/component/morale/proc/handle_surgery_modifiers(mob/living/user, mob/living/carbon/target, success_rate, duration)
 	SIGNAL_HANDLER
 	*success_rate = *success_rate + surgery_success_contribution * morale_ratio
+	*duration = *duration * (1 - surgery_speed_contribution * morale_ratio)
 
 /datum/component/morale/proc/get_morale_hud(mob/living/carbon/human/user)
 	SIGNAL_HANDLER
@@ -299,3 +357,14 @@
 		return // draw nothing.
 
 	user.client?.screen |= morale_ui
+
+/datum/component/morale/proc/handle_crafting_speed(mob/user, doafter_time)
+	SIGNAL_HANDLER
+	*doafter_time = *doafter_time * (1 - (crafting_speed_contribution * morale_ratio))
+
+/datum/component/morale/proc/modify_yield(owner, datum/seed/plant, total_yield, cancelled, doafter)
+	SIGNAL_HANDLER
+	*total_yield = *total_yield + plant_yield_contribution * morale_ratio
+	*doafter = *doafter * (1 - (harvest_speed_contribution * morale_ratio))
+
+#undef UPDATE_MORALE

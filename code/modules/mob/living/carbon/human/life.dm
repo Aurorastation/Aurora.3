@@ -470,7 +470,7 @@
 			for(var/obj/item/organ/external/O in organs)
 				if(QDELETED(O))
 					continue
-				if((O.damage + LOW_PRESSURE_DAMAGE) < O.max_damage)
+				if((O.get_damage() + LOW_PRESSURE_DAMAGE) < O.max_damage)
 					O.take_damage(brute = LOW_PRESSURE_DAMAGE, used_weapon = "Low Pressure")
 			if(getOxyLoss() < 55)
 				adjustOxyLoss(4)
@@ -705,12 +705,6 @@
 			max_stamina *= 1.1
 		stamina_recovery = species.stamina_recovery
 		sprint_cost_factor = species.sprint_cost_factor
-
-		if(CE_ADRENALINE in chem_effects)
-			sprint_speed_factor += 0.1*chem_effects[CE_ADRENALINE]
-			max_stamina *= 1 + chem_effects[CE_ADRENALINE]
-			sprint_cost_factor -= 0.35 * chem_effects[CE_ADRENALINE]
-			stamina_recovery += max ((stamina_recovery * 0.7 * chem_effects[CE_ADRENALINE]), 5)
 
 		var/obj/item/clothing/suit = wear_suit
 		var/protected = FALSE

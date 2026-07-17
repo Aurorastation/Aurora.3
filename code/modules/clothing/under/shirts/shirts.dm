@@ -17,9 +17,21 @@
 	if(ismob(loc))
 		M.update_inv_wear_suit()
 
+/obj/item/clothing/under/dressshirt/Initialize()
+	. = ..()
+	update_icon()
+
+/obj/item/clothing/under/dressshirt/update_icon()
+	. = ..()
+	var/initial_state = initial(icon_state)
+	var/new_state = "[initial_state]_r"
+	icon_state = rolled ? new_state : initial_state
+	item_state = rolled ? new_state : initial_state
+	overlay_state = rolled ? new_state : initial_state
+	update_clothing_icon()
+
 /obj/item/clothing/under/dressshirt/verb/roll_up_shirt_sleeves()
-	set name = "Roll Up Sleeves"
-	set desc = "Roll up your shirt sleeves. Doesn't work with some shirts."
+	set name = "Roll Up/Down Sleeves"
 	set category = "Object.Equipped"
 	set src in usr
 
@@ -34,12 +46,8 @@
 		return
 
 	rolled = !rolled
-	to_chat(usr, SPAN_NOTICE("You roll your shirt sleeves [rolled ? "up" : "down"]."))
-	icon_state = rolled ? new_state : initial_state
-	item_state = rolled ? new_state : initial_state
-	overlay_state = rolled ? new_state : initial_state
 	update_icon()
-	update_clothing_icon()
+	to_chat(usr, SPAN_NOTICE("You roll your shirt sleeves [rolled ? "up" : "down"]."))
 
 /obj/item/clothing/under/dressshirt/alt
 	name = "dress shirt"
@@ -71,12 +79,15 @@
 	icon_state = "dressshirt_asymmetric"
 	item_state = "dressshirt_asymmetric"
 
+<<<<<<< HEAD
 /obj/item/clothing/under/dressshirt/plaid
 	name = "plaid dress shirt"
 	desc = "A dress shirt with a plaid pattern."
 	icon_state = "plaidshirt"
 	item_state = "plaidshirt"
 
+=======
+>>>>>>> upstream/master
 // So people can see how these appear in the loadout
 /obj/item/clothing/under/dressshirt/rolled
 	rolled = TRUE
@@ -93,9 +104,12 @@
 /obj/item/clothing/under/dressshirt/crop/rolled
 	rolled = TRUE
 
+<<<<<<< HEAD
 /obj/item/clothing/under/dressshirt/plaid/rolled
 	rolled = TRUE
 
+=======
+>>>>>>> upstream/master
 /obj/item/clothing/under/dressshirt/asymmetric/rolled
 	rolled = TRUE
 

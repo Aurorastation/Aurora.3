@@ -213,7 +213,7 @@
 		//if(do_after(user, min(60, round( ((maxhealth/health)*10)+(malfunction*10) ))) //Take longer to repair heavier damage
 		if(attacking_item.use_tool(src, user, 30, volume = 50))
 			if (coil.use(1))
-				health = initial(health)
+				health = maxhealth
 				malfunction = FALSE
 				to_chat(user, SPAN_NOTICE("You repair the [src]!"))
 				update_icon()
@@ -290,23 +290,27 @@
 	check_failure()
 
 /obj/structure/machinery/shield/proc/check_failure()
-	var/health_percentage = (health / initial(health)) * 100
-	switch(health_percentage)
-		if(-INFINITY to 25)
-			if(alpha != 150)
-				animate(src, 1 SECOND, alpha = 150)
-		if(26 to 50)
-			if(alpha != 175)
-				animate(src, 1 SECOND, alpha = 175)
-		if(51 to 75)
-			if(alpha != 210)
-				animate(src, 1 SECOND, alpha = 210)
-		if(76 to 90)
-			if(alpha != 230)
-				animate(src, 1 SECOND, alpha = 230)
-		if(91 to INFINITY)
-			if(alpha != initial(alpha))
-				animate(src, 1 SECOND, alpha = initial(alpha))
+	var/maximum_health = initial(health)
+	if(!maximum_health)
+		maximum_health = maxhealth
+	if(maximum_health)
+		var/health_percentage = (health / maximum_health) * 100
+		switch(health_percentage)
+			if(-INFINITY to 25)
+				if(alpha != 150)
+					animate(src, 1 SECOND, alpha = 150)
+			if(26 to 50)
+				if(alpha != 175)
+					animate(src, 1 SECOND, alpha = 175)
+			if(51 to 75)
+				if(alpha != 210)
+					animate(src, 1 SECOND, alpha = 210)
+			if(76 to 90)
+				if(alpha != 230)
+					animate(src, 1 SECOND, alpha = 230)
+			if(91 to INFINITY)
+				if(alpha != initial(alpha))
+					animate(src, 1 SECOND, alpha = initial(alpha))
 	if(health <= 0)
 		visible_message(SPAN_NOTICE("\The [src] dissipates!"))
 		qdel(src)
@@ -334,7 +338,7 @@
 
 /obj/structure/machinery/shield/attackby(obj/item/attacking_item, mob/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	user.do_attack_animation(src, attacking_item)
+	user.do_attack_animation(src, used_item = attacking_item)
 	//Calculate damage
 	var/aforce = attacking_item.force
 	if(attacking_item.damtype == DAMAGE_BRUTE || attacking_item.damtype == DAMAGE_BURN)

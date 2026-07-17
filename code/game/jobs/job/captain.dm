@@ -26,7 +26,7 @@ GLOBAL_DATUM_INIT(captain_announcement, /datum/announcement/minor, new(do_newsca
 	blacklisted_species = list(SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_UNATHI, SPECIES_DIONA, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER, SPECIES_DIONA, SPECIES_DIONA_COEUS)
 
 	skill_requirements = alist(
-		/singleton/skill/pilot_spacecraft = SKILL_LEVEL_FAMILIAR
+		/singleton/skill/pilot_spacecraft = SKILL_LEVEL_PROFESSIONAL
 	)
 
 /obj/outfit/job/captain
@@ -68,6 +68,12 @@ GLOBAL_DATUM_INIT(captain_announcement, /datum/announcement/minor, new(do_newsca
 		var/obj/item/clothing/under/U = H.w_uniform
 		var/obj/item/clothing/accessory/medal/gold/captain/medal = new()
 		U.attach_accessory(null, medal)
+
+	if(SSticker.mode)
+		if(MODE_REVOLUTIONARY in SSticker.mode.antag_tags)
+			to_chat(H, FONT_HUGE(SPAN_DANGER("You are a Captain in a Revolution round!")))
+			to_chat(H, FONT_LARGE(SPAN_BOLD("Remember that you are supposed to comply with all orders from SCC Command. Although you may not spawn as a Loyalist, you are the person on the ship that is most beholden to Central Command orders.")))
+			to_chat(H, FONT_LARGE(SPAN_BOLD("This is both due to your status in the hierarchy of the SCC, and also to allow the gamemode as a whole to work. Only very extreme factors may justify you not joining the Loyalists. [SPAN_DANGER("If this is the case, confirm it with admins via adminhelp first!")]")))
 
 	return TRUE
 
@@ -111,7 +117,7 @@ GLOBAL_DATUM_INIT(captain_announcement, /datum/announcement/minor, new(do_newsca
 	blacklisted_species = list(SPECIES_TAJARA_ZHAN, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
 	skill_requirements = alist(
-		/singleton/skill/pilot_spacecraft = SKILL_LEVEL_FAMILIAR
+		/singleton/skill/pilot_spacecraft = SKILL_LEVEL_PROFESSIONAL
 	)
 
 /obj/outfit/job/xo
@@ -169,7 +175,7 @@ GLOBAL_DATUM_INIT(captain_announcement, /datum/announcement/minor, new(do_newsca
 	blacklisted_species = list(SPECIES_TAJARA_ZHAN, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
 	skill_requirements = alist(
-		/singleton/skill/pilot_spacecraft = SKILL_LEVEL_FAMILIAR
+		/singleton/skill/pilot_spacecraft = SKILL_LEVEL_PROFESSIONAL
 	)
 
 /obj/outfit/job/bridge_crew

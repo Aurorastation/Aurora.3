@@ -15,6 +15,7 @@
 	melee_damage_upper = 8
 	armor_penetration = 5
 	attacktext = "slices"
+	attack_vis_effect = ATTACK_EFFECT_SLASH
 	faction = "silicon"
 	min_oxy = 0
 	minbodytemp = 0

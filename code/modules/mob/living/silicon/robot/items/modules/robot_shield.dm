@@ -1,4 +1,7 @@
-//Personal shielding for the combat module.
+/**
+ * Personal shield for the military robot module.
+ * Deploys an energy shield that blocks a configurable percentage of damage using a robot's internal cell.
+ */
 /obj/item/borg/combat/shield
 	name = "personal shielding"
 	desc = "A powerful experimental module that turns aside or absorbs incoming attacks at the cost of charge."
@@ -8,10 +11,11 @@
 
 /obj/item/borg/combat/shield/on_module_activate(mob/living/silicon/robot/R)
 	R.shield_overlay = image(R.icon, "[R.module_sprites[R.icontype][ROBOT_CHASSIS]]-shield")
-	R.AddOverlays(R.shield_overlay)
+	R.shield_emissive = emissive_appearance(R.icon, "[R.module_sprites[R.icontype][ROBOT_CHASSIS]]-shield")
+	R.AddOverlays(list(R.shield_overlay, R.shield_emissive))
 
 /obj/item/borg/combat/shield/on_module_deactivate(mob/living/silicon/robot/R)
-	R.CutOverlays(R.shield_overlay)
+	R.CutOverlays(list(R.shield_overlay, R.shield_emissive))
 
 /obj/item/borg/combat/shield/verb/set_shield_level()
 	set name = "Set shield level"

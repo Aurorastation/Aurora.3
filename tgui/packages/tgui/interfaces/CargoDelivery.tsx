@@ -1,6 +1,12 @@
-import { BooleanLike } from '../../common/react';
+import {
+  Button,
+  LabeledList,
+  Section,
+  Table,
+  Tabs,
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Button, LabeledList, Section, Table, Tabs } from '../components';
 import { NtosWindow } from '../layouts';
 
 export type CargoData = {
@@ -52,42 +58,48 @@ type Item = {
   supplier_name: string;
 };
 
-export const CargoDelivery = (props, context) => {
-  const { act, data } = useBackend<CargoData>(context);
+const hasValidOrder = (order?: Order | null) => !!order?.order_id;
+
+export const CargoDelivery = (props) => {
+  const { act, data } = useBackend<CargoData>();
 
   return (
-    <NtosWindow resizable>
+    <NtosWindow resizable theme="orion" width={620} height={800}>
       <NtosWindow.Content scrollable>
         <Section>
           <Tabs>
             <Tabs.Tab onClick={() => act('page', { page: 'overview_main' })}>
               Main
             </Tabs.Tab>
-            {data.order_details && (
-              <>
-                {' '}
-                <Tabs.Tab
-                  onClick={() =>
-                    act('page', {
-                      page: 'order_overview',
-                      order_overview: data.order_details.order_id.toString(),
-                    })
-                  }
-                >
-                  Overview
-                </Tabs.Tab>
-                <Tabs.Tab
-                  onClick={() =>
-                    act('page', {
-                      page: 'order_payment',
-                      order_payment: data.order_details.order_id.toString(),
-                    })
-                  }
-                >
-                  Payment
-                </Tabs.Tab>
-              </>
-            )}
+
+            <Tabs.Tab
+              onClick={() =>
+                act('page', {
+                  page: 'order_overview',
+                  order_overview: data.order_details?.order_id?.toString(),
+                })
+              }
+            >
+              Overview
+            </Tabs.Tab>
+
+            <Tabs.Tab
+              onClick={() =>
+                act('page', {
+                  page: 'order_payment',
+                  order_payment: data.order_details?.order_id?.toString(),
+                })
+              }
+            >
+              Payment
+            </Tabs.Tab>
+            <Button
+              content="Clear Selected Order"
+              icon="times"
+              disabled={!data.order_details?.order_id}
+              onClick={() => act('clear_order')}
+              style={{ marginLeft: 'auto' }}
+            />
           </Tabs>
         </Section>
         {data.page === 'overview_main' ? (
@@ -102,8 +114,8 @@ export const CargoDelivery = (props, context) => {
   );
 };
 
-export const MainView = (props, context) => {
-  const { act, data } = useBackend<CargoData>(context);
+export const MainView = (props) => {
+  const { act, data } = useBackend<CargoData>();
 
   return (
     <Section>
@@ -137,8 +149,16 @@ export const MainView = (props, context) => {
   );
 };
 
-export const Overview = (props, context) => {
-  const { act, data } = useBackend<CargoData>(context);
+export const Overview = (props) => {
+  const { act, data } = useBackend<CargoData>();
+
+  if (!hasValidOrder(data.order_details)) {
+    return (
+      <Section title="Overview">
+        No order selected. Please select an order from the main list first.
+      </Section>
+    );
+  }
 
   return (
     <Section title="Overview">
@@ -214,38 +234,53 @@ export const Overview = (props, context) => {
   );
 };
 
-export const Payment = (props, context) => {
-  const { act, data } = useBackend<CargoData>(context);
+export const Payment = (props) => {
+  const { act, data } = useBackend<CargoData>();
+
+  if (!hasValidOrder(data.order_details)) {
+    return (
+      <Section title="Payment">
+        No order selected. Please select an order from the main list first.
+      </Section>
+    );
+  }
 
   return (
     <Section
-      title={'Payment: Order No. ' + data.order_details.order_id}
+      title={`Payment: Order No. ${data.order_details.order_id}`}
       buttons={
         <>
           <Button
             content="Account"
-            color="good"
+            color="caution"
             onClick={() => act('accountselect')}
           />
           <Button
-            content={
-              data.order_details.status === 'shipped'
-                ? 'Confirm Delivery'
-                : data.order_details.status === 'delivered'
-                  ? 'Delivered Already'
-                  : 'Not Shipped'
-            }
             disabled={data.order_details.status !== 'shipped'}
             icon="check"
-            color="green"
+            color="approve"
             onClick={() => act('deliver', { deliver: 'true' })}
-          />
+          >
+            {data.order_details.status === 'shipped'
+              ? 'Deliver'
+              : data.order_details.status === 'delivered'
+                ? 'Delivered'
+                : 'Not Shipped'}
+          </Button>
           <Button
             content="Pay"
             disabled={!data.order_details.needs_payment}
             icon="credit-card"
-            color="green"
+            color="approve"
             onClick={() => act('pay', { deliver: 'true' })}
+          />
+          <Button
+            content="Print"
+            onClick={() =>
+              act('order_print', {
+                order_print: data.order_details.order_id.toString(),
+              })
+            }
           />
         </>
       }

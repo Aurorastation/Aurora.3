@@ -116,6 +116,12 @@
 	allowed_roles = list("Shaft Miner", "Operations Manager", "Ship Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice", "Engineering Personnel", "Operations Personnel")
 	origin_restriction = list(/singleton/origin_item/origin/himeo, /singleton/origin_item/origin/ipc_himeo, /singleton/origin_item/origin/free_council)
 
+/datum/gear/utility/newgibson_voidsuit_kit
+	display_name = "new gibsonite voidsuit kit"
+	path = /obj/item/voidsuit_modkit/newgibson
+	allowed_roles = list("Shaft Miner", "Operations Manager", "Ship Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice", "Engineering Personnel", "Operations Personnel")
+	origin_restriction = list(/singleton/origin_item/origin/new_gibson, /singleton/origin_item/origin/skrell_biesel) //A New Gibsonite tajara origin will also need to be added here if/when one is made.
+
 // See the IPC-exclusive tab for the human variant.
 /datum/gear/utility/assunzione_kit
 	display_name = "assunzionii voidsuit kit"

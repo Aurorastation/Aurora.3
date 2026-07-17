@@ -86,6 +86,9 @@
 	var/burn_mod = 1
 	var/brute_mod = 1
 
+	/// Override for the visual attack effect shown on 'do_attack_animation()'.
+	var/attack_vis_effect
+
 	/// used to limit people from queuing up limb-breaks
 	var/limb_breaking = FALSE
 	/// Basically a catch-all aura/force-field thing.
@@ -126,3 +129,5 @@
 	var/datum/weakref/last_weather
 
 	var/tmp/last_push_notif
+
+	var/seer = 0 //for cult//Carbon, probably Human

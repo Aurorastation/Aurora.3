@@ -228,22 +228,11 @@
 	icon_state = "wflight"
 	item_state = "wflight"
 
-/obj/item/clothing/suit/storage/toggle/leather_jacket/flight/legion
-	name = "tcfl flight jacket"
-	desc = "A Tau Ceti Foreign Legion pilot's jacket. This is the more common, less durable variety, which typically finds itself percolating amongst all ranks of the TCFL."
+/obj/item/clothing/suit/storage/toggle/leather_jacket/flight/tcaf
+	name = "TCAF flight jacket"
+	desc = "A cheap pilot's jacket made from a silky, shiny nanonylon material and lined with tough, protective synthfabrics. It is ubiquitous throughout the Tau Ceti Armed Forces."
 	icon_state = "lflight"
 	item_state = "lflight"
-	armor = list(
-		BIO = ARMOR_BIO_MINOR
-	)
-	siemens_coefficient = 0.75
-
-/obj/item/clothing/suit/storage/toggle/leather_jacket/flight/legion/tcaf
-	name = "TCAF flight jacket"
-	desc = "A cheap pilot's jacket. An immense stock of exactly this design has been grandfathered into the Tau Ceti Armed Forces via its predecessor, the Tau Ceti Foreign Legion, to the point of a near-complete ubiquity."
-
-/obj/item/clothing/suit/storage/toggle/leather_jacket/flight/legion/alt
-	desc = "A Tau Ceti Foreign Legion pilot's jacket made from a silky, shiny nanonylon material and lined with tough, protective synthfabrics."
 	armor = list(
 		MELEE = ARMOR_MELEE_RESISTANT,
 		BULLET = ARMOR_BALLISTIC_MINOR,
@@ -251,7 +240,7 @@
 		ENERGY = ARMOR_ENERGY_MINOR,
 		BOMB = ARMOR_BOMB_PADDED
 	)
-	siemens_coefficient = 0.35
+	siemens_coefficient = 0.75
 
 /obj/item/clothing/suit/storage/toggle/leather_jacket/military
 	name = "military jacket"
@@ -273,6 +262,147 @@
 /obj/item/clothing/suit/storage/toggle/leather_jacket/military/old/alt
 	icon_state = "mold_alt"
 	item_state = "mold_alt"
+
+/obj/item/clothing/suit/storage/toggle/leather_jacket/reade_racing
+	name = "reade extreme racing jacket"
+	desc = "A synthleather racing jacket. \
+	The jacket has various patches and insignia of unsavoury, underground racing groups and sponsors based on and around Reade stitched or printed onto it. \
+	It can be tightly strapped and zipped up tight to offer some void protection to the torso, and a thick layer of fire resistant material lines the inside of the \
+	jacket — still not the safest to get into an accident in."
+	icon = 'icons/obj/item/clothing/suit/storage/toggle/human/biesel/reade_racing_jacket.dmi'
+	icon_state = "racing"
+	item_state = "racing"
+	has_accents = TRUE
+	build_from_parts = TRUE
+	contained_sprite = TRUE
+
+	// This is a *space* extreme racing jacket so, it will have some moderate protection from some space environmental hazards, but nothing that replaces the need to source proper voidsuits.
+	// Legs/head/hands are not protected so, you will still be quickly disabled by void barotrauma if not wearing other PPE.
+	gas_transfer_coefficient = 0.85
+	siemens_coefficient = 0.85
+	heat_protection = UPPER_TORSO|LOWER_TORSO|ARMS
+	max_heat_protection_temperature = T0C + 40
+	fire_resist = T0C + 40
+	max_pressure_protection = 101.3
+
+	/// Determines if and what decal is applied to the back of the jacket.
+	var/decal
+
+	/// Boolean. Has the jacket been fastened tight for some moderate void/heat protection?
+	var/voidproofed = FALSE
+
+/obj/item/clothing/suit/storage/toggle/leather_jacket/reade_racing/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This jacket can be fastened to provide temporary protection in near-void conditions and moderately heated environments."
+	. += "It is not a suitable replacement for a proper space suit as it does not offer total void protection, may come loose on its own, and does not cover the entire body."
+
+/obj/item/clothing/suit/storage/toggle/leather_jacket/reade_racing/get_mob_overlay(var/mob/living/carbon/human/human, var/mob_icon, var/mob_state, var/slot)
+	var/image/I = ..()
+	if(equip_slot == slot_wear_suit)
+		if(decal)
+			var/image/decal_overlay = overlay_image(icon, decal, flags = RESET_COLOR)
+			I.AddOverlays(decal_overlay)
+	return I
+
+/obj/item/clothing/suit/storage/toggle/leather_jacket/reade_racing/verb/voidproof_toggle_verb()
+	set name = "Fasten/Unfasten Racing Jacket Straps"
+	set category = "Object"
+	set src in usr
+
+	if(use_check_and_message(usr))
+		return
+	if(!ismob(src.loc))
+		to_chat(usr, SPAN_WARNING("You need to be wearing the jacket to fasten it tight"))
+		return
+	if(opened)
+		to_chat(usr, SPAN_WARNING("The jacket must be zipped up first!"))
+		return
+
+	if(!do_after(usr, 2 SECONDS))
+		return
+
+	if(voidproofed)
+		usr.visible_message(SPAN_NOTICE("[usr] unfastens the straps of their racing jacket."),
+							SPAN_NOTICE("You unfasten the straps of your racing jacket. Much comfier and more mobile!"))
+		playsound(usr, 'sound/items/zip.ogg', 50, 1)
+		loosen_straps(usr)
+	else
+		usr.visible_message(SPAN_NOTICE("[usr] fastens the straps of their racing jacket tight."),
+							SPAN_NOTICE("You fasten the straps of your racing jacket tight, providing some moderate void/heat protection. This is going to slow you down a bit..."))
+		playsound(usr, 'sound/items/zip.ogg', 50, 1)
+		fasten_straps(usr)
+
+/obj/item/clothing/suit/storage/toggle/leather_jacket/reade_racing/proc/fasten_straps(mob/user)
+		// Buffed pressure/gas transfer/heat protection
+		min_pressure_protection = 5 // Protects against all but a hard void (and even then, your hands/feet/head aren't protected)
+		gas_transfer_coefficient = 0.20
+		max_heat_protection_temperature = T0C + 200
+		fire_resist = T0C + 200
+		max_pressure_protection = SPACE_SUIT_MAX_PRESSURE*0.8
+		slowdown = 0.2 // cause its more umcomfortable, i guess? slightly better than a softsuit
+		voidproofed = TRUE
+
+		// After a while, the straps automatically loosen.
+		addtimer(CALLBACK(src, PROC_REF(straps_come_loose), user), rand(60, 120) SECONDS)
+
+/obj/item/clothing/suit/storage/toggle/leather_jacket/reade_racing/proc/loosen_straps(mob/user)
+	min_pressure_protection = initial(min_pressure_protection)
+	gas_transfer_coefficient = initial(gas_transfer_coefficient)
+	max_heat_protection_temperature = initial(max_heat_protection_temperature)
+	fire_resist = initial(fire_resist)
+	max_pressure_protection = initial(max_pressure_protection)
+	slowdown = initial(slowdown)
+	voidproofed = FALSE
+
+/obj/item/clothing/suit/storage/toggle/leather_jacket/reade_racing/proc/straps_come_loose(var/mob/user)
+	if(voidproofed)
+		to_chat(user, SPAN_WARNING("You feel a strap of the racing jacket come loose!"))
+		min_pressure_protection = initial(min_pressure_protection)
+		gas_transfer_coefficient = initial(gas_transfer_coefficient)
+		max_heat_protection_temperature = initial(max_heat_protection_temperature)
+		voidproofed = FALSE
+
+/obj/item/clothing/suit/storage/toggle/leather_jacket/reade_racing/checker
+	decal = "decal_checker"
+	desc = "A synthetic leather racing jacket with a thin layer of protective padding. The jacket has various patches and insignia of unsavoury, underground racing groups and sponsors based on and around Reade stitched or printed onto it. It has a checkered pattern printed on the back."
+
+/obj/item/clothing/suit/storage/toggle/leather_jacket/reade_racing/eagle
+	decal = "decal_eagle"
+	desc = "A synthetic leather racing jacket with a thin layer of protective padding. The jacket has various patches and insignia of unsavoury, underground racing groups and sponsors based on and around Reade stitched or printed onto it. It has an eagle printed on the back."
+
+/obj/item/clothing/suit/storage/toggle/leather_jacket/reade_racing/eagle2
+	decal = "decal_eagle2"
+	desc = "A synthetic leather racing jacket with a thin layer of protective padding. The jacket has various patches and insignia of unsavoury, underground racing groups and sponsors based on and around Reade stitched or printed onto it. It has an eagle printed on the back."
+
+/obj/item/clothing/suit/storage/toggle/leather_jacket/reade_racing/skull
+	decal = "decal_skull"
+	desc = "A synthetic leather racing jacket with a thin layer of protective padding. The jacket has various patches and insignia of unsavoury, underground racing groups and sponsors based on and around Reade stitched or printed onto it. It has a skull printed on the back."
+
+/obj/item/clothing/suit/storage/toggle/leather_jacket/reade_racing/flames
+	decal = "decal_flames"
+	desc = "A synthetic leather racing jacket with a thin layer of protective padding. The jacket has various patches and insignia of unsavoury, underground racing groups and sponsors based on and around Reade stitched or printed onto it. It has a flame decal printed on the back."
+
+/obj/item/clothing/suit/storage/toggle/leather_jacket/reade_racing/knife
+	decal = "decal_knife"
+	desc = "A synthetic leather racing jacket with a thin layer of protective padding. The jacket has various patches and insignia of unsavoury, underground racing groups and sponsors based on and around Reade stitched or printed onto it. It has a bloodied knife printed on the back, much like the notorious The Killer displayed."
+
+/obj/item/clothing/suit/storage/toggle/leather_jacket/reade_racing/crown
+	decal = "decal_crown"
+	desc = "A synthetic leather racing jacket with a thin layer of protective padding. The jacket has various patches and insignia of unsavoury, underground racing groups and sponsors based on and around Reade stitched or printed onto it. It has a crown printed on the back, much like the legendary The Monarch displayed."
+
+/obj/item/clothing/suit/storage/toggle/leather_jacket/reade_racing/zombie
+	decal = "decal_zombie"
+	desc = "A synthetic leather racing jacket with a thin layer of protective padding. The jacket has various patches and insignia of unsavoury, underground racing groups and sponsors based on and around Reade stitched or printed onto it. It has a zombie head decal printed on the back, much like the infamous The Zombie displayed."
+
+/obj/item/clothing/suit/storage/toggle/leather_jacket/reade_racing/cat
+	decal = "decal_cat"
+	desc = "A synthetic leather racing jacket with a thin layer of protective padding. The jacket has various patches and insignia of unsavoury, underground racing groups and sponsors based on and around Reade stitched or printed onto it. It has a cat head printed on the back."
+
+/obj/item/clothing/suit/storage/toggle/leather_jacket/reade_racing/random/Initialize()
+	. = ..()
+	decal = pick("decal_checker", "decal_eagle", "decal_eagle2", "decal_skull", "decal_flames", "decal_knife", "decal_crown", "decal_zombie", "decal_cat")
+	color = get_random_colour(lower = 150)
+	accent_color = get_random_colour(1)
 
 //This one has buttons for some reason
 /obj/item/clothing/suit/storage/toggle/brown_jacket
@@ -464,13 +594,13 @@
 	icon_state = "varsity_brown"
 	item_state = "varsity_brown"
 
-/obj/item/clothing/suit/storage/legion
-	name = "tcfl jacket"
-	desc = "A pale blue canvas jacket embossed with the insignia of the Tau Ceti Foreign Legion."
+/obj/item/clothing/suit/storage/tcaf/legion
+	name = "TCAF foreign legions jacket"
+	desc = "A pale blue canvas jacket embossed with the insignia of one of the TCAF service branch's Foreign Legions corp."
 	icon_state = "tcfljacket"
 	item_state = "tcfljacket"
 
-/obj/item/clothing/suit/storage/legion/tcaf
+/obj/item/clothing/suit/storage/tcaf
 	name = "TCAF jacket"
 	desc = "A pale blue canvas jacket embossed with the insignia of the Tau Ceti Armed Forces."
 	icon_state = "tcaf_jacket"

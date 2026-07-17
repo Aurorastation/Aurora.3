@@ -557,8 +557,8 @@ default behaviour is:
 	if(repair_brain && should_have_organ(BP_BRAIN))
 		repair_brain = FALSE
 		var/obj/item/organ/internal/brain/brain = internal_organs_by_name[BP_BRAIN]
-		if(brain.damage > (brain.max_damage/2))
-			brain.damage = (brain.max_damage/2)
+		if(brain.get_damage() > (brain.max_damage/2))
+			brain.set_damage(brain.max_damage/2)
 		if(brain.status & ORGAN_DEAD)
 			brain.status &= ~ORGAN_DEAD
 			START_PROCESSING(SSprocessing, brain)
@@ -929,7 +929,7 @@ default behaviour is:
 	QDEL_LIST(auras)
 	QDEL_NULL(psi)
 	QDEL_NULL(aiming)
-	QDEL_LIST(aimed_at_by)
+	aimed_at_by?.Cut()
 	//Remove contained mobs
 	if(loc)
 		for(var/mob/M in contents)
@@ -942,7 +942,7 @@ default behaviour is:
 	available_maneuvers?.Cut()
 	default_language = null
 	QDEL_NULL(z_eye)
-	QDEL_NULL(last_weather)
+	last_weather = null
 	return ..()
 
 /mob/living/proc/nervous_system_failure()

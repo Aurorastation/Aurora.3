@@ -2388,8 +2388,8 @@
 /obj/structure/weapons_rack{
 	req_one_access = list(247)
 	},
-/obj/item/gun/energy/blaster/tcaf,
-/obj/item/gun/energy/blaster/tcaf,
+/obj/item/gun/energy/blaster/guardian,
+/obj/item/gun/energy/blaster/guardian,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "Ps" = (

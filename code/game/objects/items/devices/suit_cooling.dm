@@ -1,12 +1,15 @@
 /obj/item/suit_cooling_unit
-	name = "portable suit cooling unit"
-	desc = "A portable heat sink and liquid cooled radiator that can be hooked up to a space suit's existing temperature controls to provide industrial levels of cooling."
-	w_class = WEIGHT_CLASS_BULKY
+	name = "portable cooling unit"
+	desc = "A portable heat sink and liquid cooled radiator that can be hooked up to a space suit's \
+	existing temperature controls to provide industrial levels of cooling. Used by synthetics to \
+	enable spacewalks, and to stabilise the chassis in the event of internal cooler failure."
+	w_class = WEIGHT_CLASS_NORMAL
 	icon = 'icons/obj/item/suitcooler.dmi'
 	icon_state = "suitcooler0"
 	item_state = "coolingpack"
 	action_button_name = "Toggle Cooling Unit"
-	slot_flags = SLOT_BACK	//you can carry it on your back if you want, but it won't do anything unless attached to suit storage
+	slot_flags = SLOT_BACK
+	contained_sprite = TRUE
 
 	//copied from tank.dm
 	obj_flags = OBJ_FLAG_CONDUCTABLE
@@ -17,14 +20,25 @@
 
 	origin_tech = list(TECH_MAGNET = 2, TECH_MATERIAL = 2)
 
-	var/celltype = /obj/item/cell/high
+	// Type of cell the IPC cooling unit starts with.
+	var/celltype = /obj/item/cell/apc
 
 	matter = list(MATERIAL_ALUMINIUM = 25000, MATERIAL_GLASS = 3500)
-	var/on = 0				//is it turned on?
-	var/cover_open = 0		//is the cover open?
+
+	/// Is it turned on?
+	var/on = 0
+	/// Is the cover open?
+	var/cover_open = 0
+
 	var/obj/item/cell/cell
-	var/max_cooling = 24				//in degrees kelvin per second - probably don't need to mess with heat capacity here
-	var/charge_consumption = 8.3		//charge per second at max_cooling
+
+	/// In degrees kelvin per second - probably don't need to mess with heat capacity here
+	var/max_cooling = 24
+
+	/// Base charge consumption per second. Modified by how much cooling work the cooler is doing.
+	var/charge_consumption = 15.4
+
+	/// Target to cool an IPC to.
 	var/thermostat = T20C
 
 	//TODO: make it heat up the surroundings when not in space
@@ -64,7 +78,7 @@
 		cell = new celltype(src)
 
 /obj/item/suit_cooling_unit/Destroy()
-	STOP_PROCESSING(SSmobs, src)
+	STOP_PROCESSING(SSprocessing, src)
 	QDEL_NULL(cell)
 	return ..()
 
@@ -137,7 +151,7 @@
 		return
 
 	on = TRUE
-	START_PROCESSING(SSmobs, src)
+	START_PROCESSING(SSprocessing, src)
 	update_icon()
 
 /obj/item/suit_cooling_unit/proc/turn_off()
@@ -145,7 +159,7 @@
 		var/mob/M = src.loc
 		to_chat(M, SPAN_WARNING("\The [src] clicks and whines as it powers down."))
 	on = FALSE
-	STOP_PROCESSING(SSmobs, src)
+	STOP_PROCESSING(SSprocessing, src)
 	update_icon()
 
 /obj/item/suit_cooling_unit/attack_self(mob/user)
@@ -241,3 +255,7 @@
 
 /obj/item/suit_cooling_unit/no_cell
 	celltype = null
+
+// Mostly for special spawns, events, etc., so they don't have to worry about cell charge.
+/obj/item/suit_cooling_unit/hyper_cell
+	celltype = /obj/item/cell/hyper

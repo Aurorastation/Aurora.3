@@ -207,6 +207,13 @@
 	/// Used to override hardcoded clothing dmis in human clothing pr
 	var/icon_override
 
+	/// Angle of the icon, used for piercing and slashing attack animations, clockwise from *east-facing* sprites
+	var/icon_angle = 0
+	///icon file for an alternate attack icon
+	var/attack_icon
+	///icon state for an alternate attack icon
+	var/attack_icon_state
+
 	var/charge_failure_message = " cannot be recharged."
 	var/held_maptext
 
@@ -337,23 +344,22 @@
 
 	I.forceMove(T)
 
-/obj/item/get_examine_text(mob/user, distance, is_adjacent, infix, suffix, get_extended = FALSE)
-	var/size
-	switch(src.w_class)
-		if (WEIGHT_CLASS_HUGE to INFINITY)
-			size = "huge"
-		if (WEIGHT_CLASS_BULKY to WEIGHT_CLASS_HUGE)
-			size = "bulky"
-		if (WEIGHT_CLASS_NORMAL to WEIGHT_CLASS_BULKY)
-			size = "normal-sized"
-		if (WEIGHT_CLASS_SMALL to WEIGHT_CLASS_NORMAL)
-			size = "small"
-		if (0 to WEIGHT_CLASS_SMALL)
-			size = "tiny"
-	//Changed this switch to ranges instead of tiered values, to cope with granularity and also
-	//things outside its range ~Nanako
+/obj/item/examine_descriptor(mob/user)
+	return "item"
 
-	. = ..(user, distance, is_adjacent, "It is a [size] item.", get_extended = get_extended)
+/obj/item/examine_tags(mob/user)
+	var/list/parent_tags = ..()
+	parent_tags.Insert(1, weight_class_to_text(w_class)) // To make size display first, otherwise it looks goofy
+	. = parent_tags
+	.[weight_class_to_text(w_class)] = weight_class_to_tooltip(w_class)
+
+	if (siemens_coefficient == 0)
+		.["insulated"] = "It is made from a robust electrical insulator and will block any electricity passing through it!"
+	else if (siemens_coefficient <= 0.5)
+		.["partially insulated"] = "It is made from a poor insulator that will dampen (but not fully block) electric shocks passing through it."
+
+/obj/item/get_examine_text(mob/user, distance, is_adjacent, infix, suffix, get_extended = FALSE)
+	. = ..(user, distance, is_adjacent, get_extended = get_extended)
 	var/datum/component/armor/armor_component = GetComponent(/datum/component/armor)
 	if(armor_component && !armor_component.hidden)
 		. += FONT_SMALL(SPAN_NOTICE("\[?\] This item has armor values. <a href='byond://?src=[REF(src)];examine_armor=1'>\[Show Armor Values\]</a>"))
@@ -666,11 +672,13 @@ GLOBAL_LIST_INIT(slot_flags_enumeration, list(
 	"[slot_pants]" = SLOT_PANTS
 	))
 
-//the mob M is attempting to equip this item into the slot passed through as 'slot'. Return 1 if it can do this and 0 if it can't.
-//If you are making custom procs but would like to retain partial or complete functionality of this one, include a 'return ..()' to where you want this to happen.
-//Set disable_warning to 1 if you wish it to not give you outputs.
-//Should probably move the bulk of this into mob code some time, as most of it is related to the definition of slots and not item-specific
-/obj/item/proc/mob_can_equip(M as mob, slot, disable_warning = FALSE, bypass_blocked_check = FALSE)
+/**
+ * the mob M is attempting to equip this item into the slot passed through as 'slot'. Return 1 if it can do this and 0 if it can't.
+ * If you are making custom procs but would like to retain partial or complete functionality of this one, include a 'return ..()' to where you want this to happen.
+ * Set disable_warning to 1 if you wish it to not give you outputs.
+ * Should probably move the bulk of this into mob code some time, as most of it is related to the definition of slots and not item-specific
+ */
+/obj/item/proc/mob_can_equip(mob/M, slot, disable_warning = FALSE, bypass_blocked_check = FALSE, is_overlay_check = FALSE)
 	if(!slot) return 0
 	if(!M) return 0
 
@@ -845,7 +853,7 @@ GLOBAL_LIST_INIT(slot_flags_enumeration, list(
 			)
 
 		eyes.take_damage(rand(3,4))
-		if(eyes.damage >= eyes.min_bruised_damage)
+		if(eyes.get_damage() >= eyes.min_bruised_damage)
 			if(H.stat != DEAD)
 				if(eyes.robotic <= 1) //robot eyes bleeding might be a bit silly
 					to_chat(H, SPAN_DANGER("Your eyes start to bleed profusely!"))
@@ -856,7 +864,7 @@ GLOBAL_LIST_INIT(slot_flags_enumeration, list(
 				H.eye_blurry += 10
 				H.Paralyse(1)
 				H.Weaken(4)
-			if (eyes.damage >= eyes.min_broken_damage)
+			if (eyes.get_damage() >= eyes.min_broken_damage)
 				if(H.stat != DEAD)
 					to_chat(H, SPAN_WARNING("You go blind!"))
 		var/obj/item/organ/external/affecting = H.get_organ(BP_HEAD)
@@ -932,7 +940,7 @@ GLOBAL_LIST_INIT(slot_flags_enumeration, list(
 
 /obj/item/proc/showoff(mob/user)
 	var/list/viewers = get_hearers_in_view(world.view, src)
-	user.langchat_speech("holds up [src].", viewers, GLOB.all_languages, skip_language_check = TRUE, animation_style = LANGCHAT_FAST_POP, additional_styles = list("langchat_small", "emote"))
+	user.langchat_speech("holds up [src].", viewers, animation_style = LANGCHAT_FAST_POP, additional_styles = list("langchat_small", "emote"))
 	for (var/mob/M in viewers)
 		if(!user.is_invisible_to(M))
 			M.show_message("<b>[user]</b> holds up [icon2html(src, M)] [src]. <a href='byond://?src=[REF(M)];lookitem=[REF(src)]'>Take a closer look.</a>",1)

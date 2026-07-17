@@ -66,7 +66,7 @@
 	var/loudening = FALSE // whether we're increasing the speech volume of our pilot
 
 	// Material
-	var/material/material
+	var/singleton/material/material
 
 	// Cockpit access vars.
 	var/hatch_closed = FALSE
@@ -113,7 +113,8 @@
 		if(pilot.client)
 			pilot.client.screen -= hud_elements
 			pilot.client.images -= hud_elements
-		pilot.forceMove(get_turf(src))
+		if (!QDELETED(pilot)) // Forcemove doesn't accept QDELETED inputs.
+			pilot.forceMove(get_turf(src))
 	pilots = null
 
 	QDEL_LIST(hud_elements)
@@ -324,9 +325,6 @@
 		var/mob/living/heavy_vehicle/exosuit = loc
 		if(istype(exosuit) && exosuit.head && exosuit.head.radio && exosuit.head.radio.is_functional())
 			return ..()
-
-/obj/item/radio/exosuit/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/ui_state/state = GLOB.mech_state)
-	. = ..()
 
 /mob/living/heavy_vehicle/proc/become_remote()
 	for(var/mob/user in pilots)

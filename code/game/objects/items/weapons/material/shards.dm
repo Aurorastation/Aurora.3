@@ -14,7 +14,7 @@
 	thrown_force_divisor = 0.4 // 4 with weight 15 (glass)
 	item_state = "shard-glass"
 	attack_verb = list("stabbed", "slashed", "sliced", "cut")
-	default_material = "glass"
+	default_material = MATERIAL_GLASS
 	unbreakable = 1 //It's already broken.
 	drops_debris = FALSE
 	drop_sound = 'sound/effects/glass_step.ogg'
@@ -105,6 +105,11 @@
 // Preset types - left here for the code that uses them
 /obj/item/material/shard/shrapnel/Initialize(newloc, material_key)
 	. = ..(loc, MATERIAL_STEEL)
+
+/obj/item/material/shard/shrapnel/large/Initialize(newloc, material_key) //Shrapnel large enough to be removed by hand. Used by ship weapons.
+	. = ..(loc, MATERIAL_STEEL)
+	icon_state = "large"
+	w_class = WEIGHT_CLASS_NORMAL
 
 /obj/item/material/shard/shrapnel/flechette/Initialize(newloc, material_key)
 	. = ..(loc, MATERIAL_TITANIUM)

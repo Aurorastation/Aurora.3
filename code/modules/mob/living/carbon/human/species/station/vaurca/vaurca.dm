@@ -30,7 +30,6 @@
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/bug
 	rarity_value = 4
 	slowdown = 1
-	darksight = 8 //Allows you to see through black k'ois if the night vision is on
 	eyes = "vaurca_eyes" //makes it so that eye colour is not changed when skin colour is.
 	eyes_are_impermeable = TRUE
 
@@ -172,6 +171,8 @@
 		"C'thur: Unbound Mouv" = "#96B4FF", "C'thur: Bound Mouv" = "#5A96FF",
 		"C'thur: Unbound Xetl" = "#370078", "C'thur: Bound Xetl" = "#3C0F5F"
 	)
+	mob_strength = 1.35 // Requested by Vaurca lore to make them a bit more different
+	mass_modifier = REFERENCE_MASS_VAURCA_KA / REFERENCE_MASS_HUMAN
 
 /datum/species/bug/before_equip(var/mob/living/carbon/human/H)
 	. = ..()

@@ -31,6 +31,8 @@
 
 	var/broadcast_status_next_process = FALSE
 
+	var/datum/looping_sound/ventilation_humming/ventilation_humming
+
 /obj/structure/machinery/atmospherics/unary/vent_scrubber/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "This filters the atmosphere of harmful gas. Filtered gas goes to the pipes connected to it, typically a scrubber pipe."
@@ -60,6 +62,7 @@
 		LAZYADD(T.blueprints, I)
 
 	. = ..()
+	ventilation_humming = new(src)
 	air_contents.volume = ATMOS_DEFAULT_VOLUME_FILTER
 
 	initial_loc = get_area(loc)
@@ -194,10 +197,13 @@
 		broadcast_status()
 		broadcast_status_next_process = FALSE
 
-	if(!use_power || (stat & (NOPOWER|BROKEN)) || !loc)
+	if((!use_power || (stat & (NOPOWER|BROKEN)) || !loc) || welded)
+		if(ventilation_humming && ventilation_humming.loop_started)
+			ventilation_humming.stop()
 		return 0
-	if(welded)
-		return 0
+	else
+		if(ventilation_humming && !ventilation_humming.loop_started)
+			ventilation_humming.start()
 
 	var/datum/gas_mixture/environment = loc.return_air()
 
@@ -412,13 +418,13 @@
 			to_chat(user, SPAN_WARNING("\The [attacking_item] can only be used to tear open welded scrubbers!"))
 			return TRUE
 		user.visible_message(SPAN_WARNING("\The [user] starts using \the [attacking_item] to hack open \the [src]!"), SPAN_NOTICE("You start hacking open \the [src] with \the [attacking_item]..."))
-		user.do_attack_animation(src, attacking_item)
+		user.do_attack_animation(src, used_item = attacking_item)
 		playsound(loc, 'sound/weapons/smash.ogg', 60, TRUE)
 		var/cut_amount = 3
 		for(var/i = 0; i <= cut_amount; i++)
 			if(!attacking_item || !do_after(user, 30, src))
 				return TRUE
-			user.do_attack_animation(src, attacking_item)
+			user.do_attack_animation(src, used_item = attacking_item)
 			user.visible_message(SPAN_WARNING("\The [user] smashes \the [attacking_item] into \the [src]!"), SPAN_NOTICE("You smash \the [attacking_item] into \the [src]."))
 			playsound(loc, 'sound/weapons/smash.ogg', 60, TRUE)
 			if(i == cut_amount)

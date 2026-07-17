@@ -1,0 +1,254 @@
+2026-07-02:
+  ASmallCuteCat:
+  - qol: The Crime Kits now spawn on a rack in the Investigators' Office.
+  - qol: There are now two interrogation rooms.
+  - qol: Reorganizes Evidence Storage - morgue is now separate, there's a front desk
+      to leave evidence for Investigators, and there's individually labeled lockers
+      to store contraband.
+  - qol: Expands Forensics. Adds a whiteboard, neatens the desks by moving all of
+      the spare equipment to shelving, adds another coatrack.
+  - qol: Expands the Autopsy Lab. Literally. The only difference is that it's a little
+      bit bigger than before.
+  - imageadd: Adds a new sprite for the Evidence Shelf, edited from the original Retail
+      Shelf sprite.
+  Benbot16:
+  - bugfix: Silicons can view the overmap properly
+  Hellfirejag:
+  - balance: Made psirens about 20% tankier.
+  NewOriginalSchwann, Batrachophrenoboocosmomachia:
+  - rscadd: Radio station configurations.
+  TheGreyWolf, Wezzy:
+  - rscadd: Added hangar tech voidsuits to EVA storage.
+  - rscadd: Hangar techs now have EVA access.
+2026-07-03:
+  Wowzewow (Wezzy):
+  - rscadd: Adds Z.Z. Zhao's custom items.
+2026-07-05:
+  MattAtlas:
+  - rscadd: All gamemodes and Odysseys now have a defined round canonicity. You can
+      now view canonicity status for the current round in the Status panel, and get
+      more information by clicking the round canon button. Admins and Storytellers
+      can modify this.
+  - rscadd: Storytellers can now change round canonicity in any round they are part
+      of. Do this through the Canon panel.
+2026-07-08:
+  Hellfirejag:
+  - refactor: Removed several unused vars from atoms and mobs to save on memory and
+      time.
+  - rscadd: Improved the descriptions of most skills to be more transparent about
+      what they modify and by how much, so that players may make more informed decisions
+      about what skills they wish to take.
+  - rscadd: Tweaked the mech piloting skill to be less punishing on mech maneuverability.
+  - bugfix: Fixed a variety of incomplete destroys which were causing a similar variety
+      of bugs and lag spikes.
+  Wowzewow (Wezzy):
+  - bugfix: Fixes Ministry and Leadership skill ability icon cropping.
+  kano:
+  - bugfix: Fixed garage shutters and a single window in the fabrication section missing
+      firelocks.
+  - qol: Hull window shutters are now down by default. Fabrication and surgery rooms
+      now have their own shutters.
+  - qol: Re-arranges the piping and the vents in the area, so they're simple and no
+      longer obscured.
+  - qol: Re-positions some wall objects.
+  - qol: Adds two portable cooling units and a power outlet to the workshop surgery
+      room as per TGW's feedback.
+  - rscadd: Slight changes to the tile-work.
+  - rscadd: Adds a recharge station inside the workshop.
+  wezzy/alsoandanswer (sprites), kermit (code):
+  - rscadd: Adds customisable Readic racing jackets.
+  - rscadd: Adds New Gibsonite uranium accessories.
+  - rscadd: Adds a New Gibson mining/engineering voidsuit with a modkit.
+  - rscadd: Adds a personalised Readic breath mask.
+2026-07-09:
+  ASmallCuteCat:
+  - rscadd: Overhauls the layout of the service department, most notably, moving the
+      bar and kitchen closer together.
+  - rscadd: Adds an alternate route to reach the Service department, ending its torment
+      as a dead-end hallway.
+  - rscadd: Adds new holosigns for the bar and kitchen which indicate that the respective
+      departments are open.
+  - rscadd: Adds a tableware box that contains plates, bowls, and cutlery.
+  - imageadd: Adds sprites for the new holosigns.
+  - imageadd: Adds a bowl icon for the tableware box.
+  Fenodyree:
+  - rscadd: Energy shields now change colour as they take damage.
+  - bugfix: Fixes holding multiple shields only checking the first one for blocking.
+  - bugfix: Fixes energy shields not overloading properly.
+  MynameAsJeff:
+  - rscadd: Added some extra stuff to Military-Oriented Offships, and NVGs to those
+      who aren't issued with thermals.
+  TheGreyWolf:
+  - rscdel: Deleted every mapped in ashtray on the Horizon. They can still be crafted.
+  Wowzewow (Wezzy):
+  - bugfix: Updates microwave emissives to render properly under objects.
+  diggiez:
+  - rscadd: 'Pilot: Spacecraft is now split between tiers based on a ship''s pilot
+      class. Familiar for shuttles, Trained for most ships, Professional for the Horizon.'
+  - rscadd: You may attempt to pilot ships a level higher with penalties, including
+      at Familiar. Only those 2+ tiers away are hard-denied.
+  - rscadd: 'Three piloting education backgrounds: Flight Academy, Fleet Training,
+      and Expeditionary Trade. First two are for Bridge personnel, last is for any
+      role focused on away missions.'
+  - rscadd: Professional Piloting gives the convenient ability to deduce the current
+      overmap coordinate from examining space for 3s.
+  - rscadd: With Familiar in Electrical Engineering, ship consoles may be given emergency
+      battery life. Useful when you'd otherwise be stranded from no power.
+  - rscadd: Repairing and hotwiring ship consoles now requires Familiar in Electrical
+      Engineering.
+  - rscadd: Research Directors need Shuttle Piloting as they're expected to be able
+      to pilot the Intrepid or Quark when necessary.
+  - rscadd: Doctor of Psychology education gives Trained in Leadership, as was intended
+      to happen with the addition of Leadership.
+  hazelmouse:
+  - rscadd: Introduced a lot of detailing to the recently remapped chapel.
+  - rscadd: Reintroduced a morgue and a crematorium to the chapel.
+  - bugfix: Removed erroneous shield diffuser outside what is now the workshop, added
+      one to the new corpse disposals location.
+  - bugfix: Resolved erroneous maintenance airlock access near chapel.
+  - bugfix: Security Officers have access to the fore chamber of Evidence Storage
+      again.
+  kano:
+  - rscadd: Added a looping sound for loreconsoles.
+2026-07-10:
+  FabianK3:
+  - bugfix: Cut ventilation and SMES humming down to improve sound location source
+      updates.
+  - bugfix: Fixed residual C4 explosive effect after completed detonation.
+  - rscadd: Added a new sound track for the default lobby tracks and lemurian sea.
+  - rscadd: Added ambience sound loop for vents and scrubbers.
+  - rscadd: Added ambience sound loop for SMES.
+  - rscadd: Lobby and sector soundtracks now get shuffeled, resulting in a less repetitive
+      lobby music experience.
+  Hellfirejag:
+  - bugfix: Fixed some items always wasting process() time unnecessarily.
+  - rscadd: Added a new Resolve skill to the Everyday category. Resolve as a skill
+      provides a small passive bonus to a characters Morale statistic.
+  - bugfix: Fixed Morale not properly updating its effects when a moodlet (such as
+      Psychic Damage) expires.
+  fyni:
+  - rscadd: Adds psiren tentacle meat and psiren body meat. A skilled butcher is needed
+      to get the body meats disconnected from the organ filled meat inside. Consume
+      at your own peril. Recipes to be added later - when the Horizon discovers them.
+2026-07-11:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Implements a bunch of material helpers to deal with fabrication bugs.
+  - refactor: Repaths /material to /singleton/material.
+  - refactor: Replaces all material string defines to path defines, replacing SSmaterials
+      procs w/ GET_SINGLETON instead.
+  - refactor: Removes all material var edited objects from all maps, adding new presets
+      where necessary.
+  - refactor: Updates recipes unit test to run all recipes against all material singletons.
+  - bugfix: Prevents several material recipes from being generated for non-rigid materials
+      (i.e. cloth railings).
+  Hellfirejag:
+  - bugfix: Fixed hardsuits globally wasting processing time when not equipped.
+  - refactor: Tick differentiated hardsuits.
+  kermit:
+  - bugfix: Removes duplicate leather jacket loadout selection from Reade racing jacket
+      loadout selection.
+2026-07-12:
+  Fenodyree:
+  - rscadd: Energy shields now change colour as they take damage.
+  - bugfix: Fixes holding multiple shields only checking the first one for blocking.
+  - bugfix: Fixes energy shields not overloading properly.
+  Hellfirejag:
+  - bugfix: Fixed Timers processing forever even after their time runs out.
+  - bugfix: Fixed the cargo elevator permanently increasing the servers per-tick processing
+      cost.
+  - rscadd: Tweaked the Air stat panel to give significantly more useful information
+      for debugging when and why air is causing lag.
+  - refactor: Refactored air tanks to no longer require constant processing when idle.
+  MattAtlas:
+  - rscadd: Stickers now only have a 10% chance of staying persistent, and only stay
+      around for 2 days.
+2026-07-13:
+  ASmallCuteCat:
+  - qol: Kitchen supplies now spawn on the kitchen counters, adds missing soda machine,
+      moves dinnerware vendor, removes extra oven.
+  - qol: The freezer is no longer lethal to Unathi chefs (-4C instead of -20C)
+  Batrachophrenoboocosmomachia:
+  - rscadd: Ports tg-style dynamic turf reservations.
+  - bugfix: Fixes emergency shields runtiming when hit by thrown objects.
+  - bugfix: Fixes several stale global list runtimes.
+  - bugfix: Fixes several health percentage checks that could use unset initial health
+      values.
+  - bugfix: Fixes additional materials regressions.
+  - bugfix: Fixes invalid fuel injector depletion math.
+  - bugfix: Makes accelerated particles apply radiation damage to living mobs they
+      pass through.
+  - bugfix: Fixes Loner point exploit.
+  Hellfirejag:
+  - rscadd: Movables (Mobs, Objects) now have a Mass value (in Kilograms) that can
+      be used for kinematic equations.
+  - rscadd: All species datums now include a Mass modifier that allows them to start
+      with a specific mass.
+  - rscadd: Movables (Mobs, Objects) also have a derived Effective Mass that can be
+      dynamically modified via a Signal. Meaning Skills, Drugs, Hardsuits, Equipment,
+      Cybernetics, etc can all touch it.
+  - rscadd: Reworked Fireman Carrying limits to instead be based on relative effective
+      mass.
+  - rscadd: Added a new Conditioning skill that increases a character's Effective
+      Mass, allowing them to Lift/Drag/Fireman heavier objects or people.
+  - rscadd: Dragging and Grabbing characters now slows down the user based on this
+      relative Effective Mass.
+  - refactor: Refactored Limbs (and some organs) to no longer require constant processing.
+      They now only occupy processor time if they actually need to.
+  MattAtlas:
+  - rscdel: Combat lying is now removed. You will now always drop your items when
+      lying down.
+2026-07-14:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Chat Client TGUI properly clears message field after sending message.
+  - bugfix: ATM TGUI better handles money input amounts not being 'finalized' internally
+      before using withdrawal buttons.
+  - bugfix: Agent ID TGUI no longer spammy when updating fields.
+  Dessysalta:
+  - rscadd: Added a custom item for Nietzschka.
+  - imageadd: As above.
+  Fenodyree:
+  - balance: The percent chance to break bones is now increased linearly up to 4 times
+      max health, instead of by flat damage.
+  - balance: Sharp and edged weapons are now more likely to hit organs, if the ribs
+      are not yet broken.
+  - bugfix: Bullets are no longer treated as blunt weapons. This increases their chance
+      to hit organs and decreases their chance to break bone.
+  Hellfirejag:
+  - balance: Tweaked baseline strength modifiers for Skrell to allow them to fireman
+      carry a human without requiring the Conditioning skill.
+2026-07-15:
+  ASmallCuteCat:
+  - imageadd: Adds a sprite meant to be used by a sign that indicates a particular
+      area is shielded against the Radiation Storm event.
+  Batrachophrenoboocosmomachia:
+  - balance: Latex gloves (including nitrile and all other child types) no longer
+      have a chance to leave fingerprints.
+  Benbot16:
+  - bugfix: Changes AI UI logic to check for camera view instead of the AI eye's view
+      when determining whether a machine's UI should be viewable.
+  Hellfirejag:
+  - rscadd: Psirens can now visit the ship, both via overmap hazard, or as a random
+      event.
+  - rscadd: Technomancers can now summon the 3 basic Psiren types
+  Wowzewow (Wezzy):
+  - bugfix: Fixes loadout rolled sleeved shirts not being able to be unrolled.
+  - bugfix: Fixes asymmetric dress shirts not being able to be rolled up.
+  - bugfix: Fixes a runtime with captain.
+  diggiez:
+  - bugfix: Vaurcae are properly notified when in a sector without Hivenet Echoes.
+  - bugfix: 'Ghost roles aren''t checked for Pilot: Spacecraft anymore.'
+  - bugfix: Ghost roles aren't checked for Mechanical Engineering for emitter use
+      anymore.
+  hazelmouse:
+  - rscadd: Implemented small remaps of the service washroom and bar.
+  - rscadd: Resolved an unwanted interaction with the chaplain's corpse disposals
+      chute.
+  - rscadd: Implemented several small tweaks to the service department, inclusive
+      of lighting changes, swapped turfs, and realigned machinery.
+2026-07-16:
+  fyni:
+  - rscadd: Adds the missing line which allows the Sun Reach origin to appear
+  - rscadd: Adds Sun Reach origin, which allows Reachers to finally be resistant to
+      heat.
+  - rscadd: Changes Novi Jadran origin description.
+  - rscdel: Remove Sun Reach accent from Imperial Frontier origin.

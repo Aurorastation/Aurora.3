@@ -1,7 +1,8 @@
-import { BooleanLike } from '../../common/react';
+import { Box, Button, Section, Table } from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend, useLocalState } from '../backend';
-import { Input, Box, Button, Section, Table } from '../components';
 import { Window } from '../layouts';
+import { SearchBar } from './common/SearchBar';
 
 export type PanelData = {
   holder_ref: string;
@@ -22,31 +23,25 @@ type Player = {
   age: any; // string or number
 };
 
-export const PlayerPanel = (props, context) => {
-  const { act, data } = useBackend<PanelData>(context);
+export const PlayerPanel = (props) => {
+  const { act, data } = useBackend<PanelData>();
 
-  const [searchTerm, setSearchTerm] = useLocalState<string>(
-    context,
-    `searchTerm`,
-    ``,
-  );
+  const [searchTerm, setSearchTerm] = useLocalState<string>(`searchTerm`, ``);
 
   return (
-    <Window resizable theme="admin">
+    <Window theme="admin">
       <Window.Content scrollable>
         <Section
           title="Players"
           buttons={
-            <Input
+            <SearchBar
               autoFocus
-              autoSelect
               placeholder="Search by ckey, name, or assignment"
-              width="40vw"
-              maxLength={512}
-              onInput={(e, value) => {
+              query={searchTerm}
+              onSearch={(value) => {
                 setSearchTerm(value);
               }}
-              value={searchTerm}
+              style={{ width: '40vw' }}
             />
           }
         >

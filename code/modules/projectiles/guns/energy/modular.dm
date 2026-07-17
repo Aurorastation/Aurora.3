@@ -12,7 +12,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	force = 15
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
-	matter = list(DEFAULT_WALL_MATERIAL = 2000)
+	matter = list(MATERIAL_STEEL = 2000)
 	can_turret = TRUE
 	zoomdevicename = null
 	max_shots = 0
@@ -53,6 +53,49 @@
 		if(6 to INFINITY)
 			. += "Your combined professional expertise in firearms and research will show you all information about this weapon, you will also be able to repair it without decreasing its reliability, and have an excellent chance to improve it when repairing."
 			. += "It can be improved up to its improvement potential, which is increased by firing it. Firing it at players increases it most rapidly, following by firing it at simple mobs, then firing it at objects."
+
+/obj/item/gun/energy/laser/prototype/Initialize(mapload)
+	. = ..()
+	RegisterSignal(src, COMSIG_PROJECTILE_ON_HIT, PROC_REF(on_projectile_hit))
+
+/obj/item/gun/energy/laser/prototype/Destroy()
+	UnregisterSignal(src, COMSIG_PROJECTILE_ON_HIT)
+	return ..()
+
+///This handles the improvement potential gain from firing the weapon. The actual improvement is handled in repair of the individual compoents, this just determines how much improvement potential is gained.
+/obj/item/gun/energy/laser/prototype/proc/on_projectile_hit(fired_from, atom/movable/firer, atom/target, angle, def_zone, blocked)
+	SIGNAL_HANDLER
+	if(!target || target == firer)
+		return
+
+	if (istype(target, /obj/structure/machinery/portable_atmospherics/hydroponics))
+		if (istype(modulator, /obj/item/laser_components/modulator/floramut) || istype(modulator, /obj/item/laser_components/modulator/floramut2))
+			improvement_potential += (1  * IMPROVEMENT_MULTIPLIER) / (max(1, burst))
+			return
+
+	if(isliving(target))  //No improvement unless your target is a mob.
+		var/mob/living/target_mob = target
+		if(target_mob.stat != DEAD) //No improvement from shooting at dead things. Bring a doctor in to keep your target dummy alive. This also makes it harder to improve more powerful weapons, as you kill your target faster.
+			if(ishuman(target_mob))
+				var/mob/living/carbon/human/human_target = target
+				if (istype(modulator, /obj/item/laser_components/modulator/taser))
+					if (human_target.incapacitated()) //No benefit from tasing someone who's already incapacitated. Get the phramacist to make you oxycomorphine.
+						return
+				if(human_target.get_species() == SPECIES_MONKEY)
+					improvement_potential += (2  * IMPROVEMENT_MULTIPLIER) / (max(1, burst)) //Monkeys die easily, research only gets two boxes of monkey cubes without xenobiology.
+					return
+				if(human_target.client)
+					improvement_potential += (10  * IMPROVEMENT_MULTIPLIER) / (max(1, burst)) //10 seems like a lot, but this is a 20% improvement to 1 variable on 1 component. A 5 mod gun (8 total components), with an average of 3 improvable variables would need 120 shots on a player to max out.
+					return
+
+			if(isslime(target_mob))
+				if (istype(modulator, /obj/item/laser_components/modulator/freeze))
+					improvement_potential += (2 * IMPROVEMENT_MULTIPLIER) / (max(1, burst))
+					return
+
+			improvement_potential += (5 * IMPROVEMENT_MULTIPLIER) / (max(1, burst)) //Mechs, protohumans, and any other human mobs without a player.
+	else if(!isturf(target))
+		improvement_potential += (1 * IMPROVEMENT_MULTIPLIER) / (max(1, burst))
 
 /obj/item/gun/energy/laser/prototype/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
@@ -163,38 +206,8 @@
 	else
 		to_chat(user, "There is nothing to repair on the gun!")
 
-/obj/item/gun/energy/laser/prototype/handle_post_fire(mob/user, atom/target) //This handles the improvement potential gain from firing the weapon. The actual improvement is handled in repair of the individual compoents, this just determines how much improvement potential is gained.
-	if(target)
-		improvement_potential += (0.1 * IMPROVEMENT_MULTIPLIER) / (max(1, burst))  //100 shots to improve by 1%, you can only improve if your gun takes damage, so it will need many repair cycles for this to be significant.
-
-		if (istype(target, /obj/structure/machinery/portable_atmospherics/hydroponics))
-			if (istype(modulator, /obj/item/laser_components/modulator/floramut) || istype(modulator, /obj/item/laser_components/modulator/floramut2))
-				improvement_potential += (1  * IMPROVEMENT_MULTIPLIER) / (max(1, burst))
-				return ..()
-
-		if(target != user) //No improvement from shooting yourself.
-			if(isliving(target))  //No improvement unless your target is a mob.
-				var/mob/living/target_mob = target
-				if(target_mob.stat != DEAD) //No improvement from shooting at dead things. Bring a doctor in to keep your target dummy alive. This also makes it harder to improve more powerful weapons, as you kill your target faster.
-					if(ishuman(target_mob))
-						var/mob/living/carbon/human/human_target = target
-						if (istype(modulator, /obj/item/laser_components/modulator/taser))
-							if (human_target.incapacitated()) //No benefit from tasing someone who's already incapacitated. Get the phramacist to make you oxycomorphine.
-								return ..()
-						if(human_target.get_species() == SPECIES_MONKEY)
-							improvement_potential += (2  * IMPROVEMENT_MULTIPLIER) / (max(1, burst)) //Monkeys die easily, research only gets two boxes of monkey cubes without xenobiology.
-							return ..()
-						if(human_target.client)
-							improvement_potential += (10  * IMPROVEMENT_MULTIPLIER) / (max(1, burst)) //10 seems like a lot, but this is a 20% improvement to 1 variable on 1 component. A 5 mod gun (8 total components), with an average of 3 improvable variables would need 120 shots on a player to max out.
-							return ..()
-
-					if(isslime(target_mob))
-						if (istype(modulator, /obj/item/laser_components/modulator/freeze))
-							improvement_potential += (2 * IMPROVEMENT_MULTIPLIER) / (max(1, burst))
-							return ..()
-
-					improvement_potential += (5 * IMPROVEMENT_MULTIPLIER) / (max(1, burst)) //Mechs, protohumans, and any other human mobs without a player.
-	..()
+/obj/item/gun/energy/laser/prototype/handle_post_fire(mob/user, atom/target)
+	return ..()
 
 /obj/item/gun/energy/laser/prototype/update_icon()
 	..()
@@ -387,9 +400,12 @@
 
 	while(improvement_potential > 0 && damaged_components.len)
 		var/list/upgradable_components = list()
-		for(var/obj/item/laser_components/component in damaged_components)
-			if(component.total_improved < IMPROVEMENT_CAP)
-				upgradable_components += component
+		for(var/obj/item/laser_components/component in damaged_components) //Only give it improvement potential if it's damaged.
+			if((component.total_improved + component.improvement_potential) < component.improvement_cap) //Only give it improvement potential if it doesn't have enough to hit cap.
+				if(component.increasable_stats.len || component.decreaseable_stats.len) //Don't give it to components with nothing to improve.
+					upgradable_components += component
+			else
+				damaged_components.Remove(component) //If a component has reached the improvement cap, it can't be improved anymore.
 
 		if(!upgradable_components.len)
 			to_chat(user, SPAN_WARNING("There's nothing to improve on the components of this gun."))
@@ -527,10 +543,55 @@
 		return 1
 
 /obj/item/gun/energy/laser/prototype/get_print_info()
-	. = ..(FALSE)
+	. = ""
+
+	var/l_modified_damage = 1 / max(1, burst - 1)
+	var/l_modified_max_shots = 1
+	for(var/i in list(capacitor, focusing_lens, modulator) + gun_mods)
+		var/obj/item/laser_components/l_component = i
+		if(!l_component)
+			continue
+
+		if(l_component.damage != 0)
+			l_modified_damage *= l_component.damage
+		if(l_component.shots != 0)
+			l_modified_max_shots *= l_component.shots
+
+	var/obj/projectile/P = new projectile_type
+	. += "Max Shots: [round(l_modified_max_shots)]<br>"
+	. += "Recharge Type: [self_recharge ? "self recharging" : "not self recharging"]<br>"
+	if(self_recharge)
+		. += "Recharge Time: [initial(recharge_time)]<br>"
+	. += "<br><b>Primary Projectile</b><br>"
+	. += "Damage: [round(min(60, l_modified_damage), 1)]<br>"
+	. += "Damage Type: [initial(P.damage_type)]<br>"
+	. += "Blocked by Armor Type: [initial(P.check_armor)]<br>"
+	. += "Stuns: [initial(P.stun) ? "true" : "false"]<br>"
+	if(initial(P.shrapnel_type))
+		var/obj/shrapnel = new P.shrapnel_type
+		. += "Shrapnel Type: [shrapnel.name]<br>"
+	. += "Armor Penetration: [initial(P.armor_penetration)]%<br>"
+	. += "Burst: [burst]<br>"
+	. += "Reliability: [reliability]<br>"
+
+	if(secondary_projectile_type)
+		var/obj/projectile/P_second = new secondary_projectile_type
+		. += "<br><b>Secondary Projectile</b><br>"
+		. += "Damage: [initial(P_second.damage)]<br>"
+		. += "Damage Type: [initial(P_second.damage_type)]<br>"
+		. += "Blocked by Armor Type: [initial(P_second.check_armor)]<br>"
+		. += "Stuns: [initial(P_second.stun) ? "true" : "false"]<br>"
+		if(initial(P_second.shrapnel_type))
+			var/obj/shrapnel_second = new P_second.shrapnel_type
+			. += "Shrapnel Type: [shrapnel_second.name]<br>"
+		. += "Armor Penetration: [initial(P_second.armor_penetration)]%<br>"
+
+	. += "<br>"
 
 	for(var/i in list(capacitor, focusing_lens, modulator) + gun_mods)
 		var/obj/item/laser_components/l_component = i
+		if(!l_component)
+			continue
 
 		. += "<br>Component Name: [initial(l_component.name)]</br><br>"
 		var/l_repair_name = initial(l_component.repair_item.name) ? initial(l_component.repair_item.name) : "nothing"
