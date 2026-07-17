@@ -62,6 +62,14 @@
 	icon_state = "rescue_axe_red"
 	item_state = "rescue_axe_red"
 
+/obj/item/crowbar/rescue_axe/tactical
+	name = "tactical axe"
+	desc = "A short axe with a carbon fibre handle, meant to be both an emergency tool and a weapon."
+	icon = 'icons/obj/item/tactical_axe.dmi'
+	icon_state = "combataxe"
+	item_state = "combataxe"
+	contained_sprite = TRUE
+
 /obj/item/crowbar/hydraulic_rescue_tool
 	name = "hydraulic rescue tool"
 	desc = "A hydraulic rescue tool that functions like a crowbar by applying strong amounts of hydraulic pressure to force open different things. Also known as jaws of life."
