@@ -3,7 +3,7 @@
 
 /obj/effect/shuttle_landmark/cryo_outpost
 	base_area = /area/cryo_outpost/outside/landing
-	base_turf = /turf/simulated/floor/exoplanet/barren
+	base_turf = /turf/simulated/floor/exoplanet/assunzione
 
 // --------------------- shuttle
 

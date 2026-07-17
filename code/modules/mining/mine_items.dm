@@ -424,6 +424,18 @@
 	icon_state = "purpflag"
 	light_color = LIGHT_COLOR_PURPLE
 
+/obj/item/stack/flag/purple/planted
+	name = "purple beacon"
+	icon_state = "purpflag_open"
+	amount = 1
+	upright = TRUE
+	anchored = TRUE
+
+/obj/item/stack/flag/purple/planted/Initialize()
+	. = ..()
+	base_state = "purpflag"
+	set_light(2)
+
 /obj/item/stack/flag/attackby(obj/item/attacking_item, mob/user)
 	if(upright && istype(attacking_item, src.type))
 		src.attack_hand(user)

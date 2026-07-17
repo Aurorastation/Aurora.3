@@ -3,18 +3,18 @@
 
 /datum/exoplanet_theme/desert/cryo_outpost
 	name = "Cryo Outpost"
-
-	surface_color = "#5c5142"
+	surface_turfs = list(
+		/turf/simulated/floor/exoplanet/basalt,
+		/turf/simulated/mineral/planet
+	)
 
 /datum/exoplanet_theme/desert/cryo_outpost/mountain
 	mountain_threshold = 0.0
 
 /datum/exoplanet_theme/grass/cryo_outpost
 
-	surface_color = "#5c5142"
-
 	surface_turfs = list(
-		/turf/simulated/floor/exoplanet/grass,
+		/turf/simulated/floor/exoplanet/basalt,
 		/turf/simulated/mineral/planet
 	)
 
