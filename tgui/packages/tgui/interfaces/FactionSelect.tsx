@@ -193,8 +193,8 @@ const FactionPanel = (props: { currentFaction: Faction }) => {
             <img
               src={resolveAsset(currentFaction.logo)}
               alt={currentFaction.name}
-              height="13em"
-              width="13em"
+              height="48px"
+              width="48px"
             />
           </Stack.Item>
           <Stack.Item bold fontSize={1.25}>
