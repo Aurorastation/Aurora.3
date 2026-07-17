@@ -1,3 +1,0 @@
-help: "Please replace it with a proper subtype, instead of the abstract type."
-=/obj/structure/machinery/power/apc:
-  banned: true
