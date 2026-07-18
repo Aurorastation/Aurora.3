@@ -1,7 +1,0 @@
-author: TheGreyWolf
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed the bugged search function in the cooking codex."
-  - bugfix: "Fixed potential duplicate and entries not being removed in the cooking codex and cargo programs."

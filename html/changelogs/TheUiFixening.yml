@@ -1,7 +1,0 @@
-author: TheGreyWolf
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed the chem codex searching."
-  - bugfix: "Fixed the oversized icons in the faction selection screen."
