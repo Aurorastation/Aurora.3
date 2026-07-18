@@ -1,0 +1,7 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixes pda lights not working."
+  - bugfix: "Fixes the cargo tug lights."

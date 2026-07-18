@@ -40,6 +40,9 @@ SUBSYSTEM_DEF(codex)
 		var/singleton/recipe/recipe = GET_SINGLETON(reaction_path)
 		var/list/cookingRecipeData = list()
 
+		// ID for TGUI to use
+		cookingRecipeData["id"] = "[reaction_path]"
+
 		// result
 		var/obj/item/recipe_result = recipe.result
 		cookingRecipeData["result"] = initial(recipe_result.name)
@@ -80,6 +83,8 @@ SUBSYSTEM_DEF(codex)
 			cookingRecipeData["ingredients"] += "[reagent.name] coating"
 
 		// kitchen appliance
+		cookingRecipeData["appliances"] = ""
+
 		if(recipe.appliance)
 			cookingRecipeData["appliances"] = recipe.get_appliance_names()
 
@@ -147,7 +152,7 @@ SUBSYSTEM_DEF(codex)
 		if(chemistry_codex_ignored_result_path && is_path_in_list(CR.result, chemistry_codex_ignored_result_path))
 			continue
 		var/singleton/reagent/R = GET_SINGLETON(CR.result)
-		var/chemistryReactionData = list(id = CR.id)
+		var/chemistryReactionData = list(id = "[chem_path]")
 		chemistryReactionData["result"] = list(
 			name = R.name,
 			description = R.description,

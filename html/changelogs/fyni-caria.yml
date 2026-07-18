@@ -1,0 +1,7 @@
+author: fyni
+delete-after: True
+changes:
+  - rscadd: "Adds the Caria origin, by request of human lore. Carians are vulnrable to light, but have low light vision."
+  - rscadd: "Adds the Caria accent."
+  - rscadd: "Adds Carian flags, available in the loadout."
+  - rscadd: "Adds the Carian tribunal necklace, available in the loadout."

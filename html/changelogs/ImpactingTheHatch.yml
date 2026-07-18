@@ -1,0 +1,7 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - rscadd: "Impact drills can now be used for robotics surgery the same way regular tools can."
+  - bugfix: "Fixed a couple of hardcoded tool interactions to use tool behavior instead."
