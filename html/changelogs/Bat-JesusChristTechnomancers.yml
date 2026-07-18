@@ -1,0 +1,13 @@
+author: Batrachophrenoboocosmomachia
+delete-after: True
+
+changes:
+  - bugfix: "Fixes Mend Synthetic repairing human synthetics and robotic prosthetics incorrectly."
+  - bugfix: "Fixes Dispel not removing Technomancer effects from its target."
+  - bugfix: "Fixes Corona not making targets glow or easier to hit."
+  - bugfix: "Fixes Resurrect not enforcing its maximum time-since-death limit."
+  - bugfix: "Fixes Mend Internals skipping organic body parts because it used old bitflags."
+  - bugfix: "Fixes Shield's scepter enhancement being straight up ignored."
+  - bugfix: "Fixes Energy Siphon overfilling synthetic internal cells."
+  - bugfix: "Fixes Audible Deception playing on the user instead of the targeted turf, defeating the entire point of it."
+  - bugfix: "Fixes a bunch of spells not actually ending immediately when energy runs out, and potential harddels.)"
