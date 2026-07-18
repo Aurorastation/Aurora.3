@@ -245,3 +245,77 @@
       chute.
   - rscadd: Implemented several small tweaks to the service department, inclusive
       of lighting changes, swapped turfs, and realigned machinery.
+2026-07-16:
+  fyni:
+  - rscadd: Adds the missing line which allows the Sun Reach origin to appear
+  - rscadd: Adds Sun Reach origin, which allows Reachers to finally be resistant to
+      heat.
+  - rscadd: Changes Novi Jadran origin description.
+  - rscdel: Remove Sun Reach accent from Imperial Frontier origin.
+2026-07-18:
+  Batrachophrenoboocosmomachia:
+  - rscadd: Adds Seizure and Heart Attack buttons to the Damage Menu.
+  - rscadd: Adds tooltips to several buttons in the Damage Menu.
+  Fenodyree:
+  - bugfix: Fixed the Retract All Hardsuit Parts verb, by making hardsuit boots retractable
+      with the chestpiece deployed, at a heavy slowdown
+  - bugfix: Fixed the stealth system module not decloaking when the user fires a gun
+      or hits a mob.
+  - bugfix: Fixed being able to instantly remove your hardsuit if it had a storage
+      module in it.
+  - bugfix: Fixed mounted energy guns being stuck in taser mode. Also extends support
+      to other guns with multiple firemods.
+  - bugfix: Fixed most hardsuit modules not having an on-mob sprite.
+  - bugfix: Fixed synthetic chargers not charging the hardsuit, if the wearer was
+      an IPC.
+  - bugfix: Fixed the hardsuit UI not updating when toggling jetpack stabalizers.
+  - bugfix: Fixed the advanced hacking tool searching the wearer's entire contents
+      to see if it had been dropped every tick.
+  MattAtlas:
+  - rscadd: Added a tactical rescue axe to security officer and head of security lockers,
+      to the uplink, and to most antag preps (heist, merc, burglar).
+  - bugfix: Distress beacons no longer make all sensors consoles stop functioning.
+  - rscadd: Added a line to event canonicity clarifying that you must roleplay injuries
+      obtained during canon event rounds to the best of your ability, and that you
+      cannot ignore or downplay them without explicit approval from administration.
+  TheGreyWolf:
+  - rscadd: Using butazoline in an overdose level or in cryo now permits it to heal
+      tendons.
+  - rscadd: Changed up some of the possible warehouse spawns, including mob spawns.
+  - rscadd: tripled the chance of large hostile xenofauna in the warehouse from 3%
+      to 9% per round.
+  - balance: Reduced the warehouse spawn total from 180 to 120.
+  - rscadd: Cell chargers can now be constructed and deconstructed.
+  - rscadd: Cell chargers now use components and can be upgraded similarly to other
+      items with component. They are overall twice as effective as a regular recharger
+      with similar components.
+  - rscadd: Added a recharger to the machinist's workshop.
+  - rscadd: Impact drills can now be used for robotics surgery the same way regular
+      tools can.
+  - bugfix: Fixed a couple of hardcoded tool interactions to use tool behavior instead.
+  - bugfix: Fixes pda lights not working.
+  - bugfix: Fixes the cargo tug lights.
+  - rscadd: Organ bounties now require the organs to be organic.
+  - bugfix: Fixed the chem codex searching.
+  - bugfix: Fixed the oversized icons in the faction selection screen.
+  - bugfix: Fixed the bugged search function in the cooking codex.
+  - bugfix: Fixed potential duplicate and entries not being removed in the cooking
+      codex and cargo programs.
+  Wowzewow (Wezzy):
+  - bugfix: Crowbars are just called crowbars now. The old name 'pocket crowbar' has
+      been removed. Because they can't fit in pockets.
+  diggiez:
+  - bugfix: The No Breathe Trait works, and Runtime's shuttle area requires power.
+  fyni:
+  - rscadd: Adds the Caria origin, by request of human lore. Carians are vulnrable
+      to light, but have low light vision.
+  - rscadd: Adds the Caria accent.
+  - rscadd: Adds Carian flags, available in the loadout.
+  - rscadd: Adds the Carian tribunal necklace, available in the loadout.
+  hazelmouse:
+  - bugfix: Human Axiomites now have a range of accents to choose from, for first
+      generation immigrants.
+  - rscadd: Introduces cultures, origins, and accents for Ecclesiastical Axiom and
+      the Salamasian Republic.
+  - imageadd: Introduces flags, available in the loadout, for the Salamasian Republic.
+      Sprites provided by Ill Fated.

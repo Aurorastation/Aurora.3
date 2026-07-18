@@ -149,12 +149,18 @@
 		for(var/requester in SSdistress.active_distress_beacons)
 			var/datum/distress_beacon/beacon = SSdistress.active_distress_beacons[requester]
 			var/obj/effect/overmap/vessel = beacon.requester
-			var/mob/living/carbon/human/H = beacon.user
-			var/job_string = H.job ? "[H.job] " : ""
+			var/mob/living/carbon/human/H = beacon.user.resolve()
+
+			var/job_string = "N/A"
+			if(H)
+				job_string = H.job ? "[H.job] " : ""
+
 			var/bearing = round(90 - Atan2(vessel.x - linked.x, vessel.y - linked.y),5)
 			if(bearing < 0)
 				bearing += 360
-			distress_beacons.Add(list(list("requester" = vessel.name, "sender" = "[job_string][H.name]", "bearing" = bearing)))
+
+			distress_beacons.Add(list(list("requester" = vessel.name, "sender" = H ? "[job_string][beacon.user_name]" : "Unknown", "bearing" = bearing)))
+
 		if(length(distress_beacons))
 			data["distress_beacons"] = distress_beacons
 		data["desired_range"] = sensors.desired_range
@@ -379,7 +385,10 @@
 	if (action == "play_message")
 		var/requester = params["play_message"]
 		var/datum/distress_beacon/beacon = SSdistress.active_distress_beacons[requester]
-		var/mob/living/carbon/human/sender = beacon.user
+		var/mob/living/carbon/human/sender = beacon.user.resolve()
+		if(!sender)
+			visible_message(SPAN_NOTICE("\The [src] beeps unsuccessfully, signalling an error in the playback."))
+			return TRUE
 		var/user_name = beacon.user_name
 		var/accent_icon = sender.get_accent_icon()
 		visible_message(SPAN_NOTICE("\The [src] beeps a few times as it replays the distress message."))
