@@ -2,7 +2,7 @@ author: Batrachophrenoboocosmomachia
 delete-after: True
 
 changes:
-  - bugfix: "Fixes Mend Synthetic repairing human synthetics and robotic prosthetics incorrectly."
+  - bugfix: "Fixes Mend Synthetic not repairing synthetic/robotic limbs correctly."
   - bugfix: "Fixes Dispel not removing Technomancer effects from its target."
   - bugfix: "Fixes Corona not making targets glow or easier to hit."
   - bugfix: "Fixes Resurrect not enforcing its maximum time-since-death limit."
