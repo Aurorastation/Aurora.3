@@ -204,7 +204,25 @@
 /datum/modular_computer_app_presets/civilian/New()
 	. = ..()
 	program_list += COMPUTER_APP_PRESET_SYSTEM + COMPUTER_APP_PRESET_HORIZON_CIVILIAN
-	program_list += list(/datum/computer_file/program/game/arcade, /datum/computer_file/program/cooking_codex, /datum/computer_file/program/bartending_codex)
+	program_list += /datum/computer_file/program/game/arcade
+
+/datum/modular_computer_app_presets/civilian/bartender
+	name = "bartender"
+	display_name = "Bartender"
+	description = "Contains programs for bartenders."
+
+/datum/modular_computer_app_presets/civilian/bartender/New()
+	. = ..()
+	program_list += /datum/computer_file/program/bartending_codex
+
+/datum/modular_computer_app_presets/civilian/chef
+	name = "chef"
+	display_name = "Chef"
+	description = "Contains programs for chefs."
+
+/datum/modular_computer_app_presets/civilian/chef/New()
+	. = ..()
+	program_list += /datum/computer_file/program/cooking_codex
 
 /datum/modular_computer_app_presets/civilian/janitor
 	name = "janitor"
