@@ -953,7 +953,7 @@
 		else
 			to_chat(user, SPAN_WARNING("You need at least twelve rods to complete \the [src]."))
 			return
-	else if(istype(attacking_item, /obj/item/screwdriver))
+	else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		return
 	else
 		..()

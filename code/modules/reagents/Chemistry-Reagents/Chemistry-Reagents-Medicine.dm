@@ -71,6 +71,13 @@
 	M.add_chemical_effect(CE_ITCH, M.chem_doses[type])
 	M.adjustHydrationLoss(1*removed)
 
+	if(((M.chem_doses[type] > 30) && prob(2)) || ((M.bodytemperature < 189) && prob(10))) //Butazoline treats torn tendons when dose is greater than 30u. Alternatively, if the drug is used in a cryotube.
+		var/mob/living/carbon/human/H = M
+		for(var/obj/item/organ/external/E in H.organs)
+			if(E.status & TENDON_CUT)
+				E.status &= ~TENDON_CUT
+				M.visible_message("<b>[M]</b> spasms!", SPAN_DANGER("You feel a stabbing pain in your [E.name]!"))
+
 /singleton/reagent/kelotane
 	name = "Kelotane"
 	description = "Kelotane is a complex medication which specifically targets tissues which have been lost to severe burning by encouraging the rate at which these damaged tissues are regenerated."

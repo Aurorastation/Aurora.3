@@ -1,6 +1,6 @@
 /obj/item/crowbar
-	name = "pocket crowbar"
-	desc = "A small crowbar. This handy tool is useful for lots of things, such as prying floor tiles or opening unpowered doors."
+	name = "crowbar"
+	desc = "This handy tool is useful for lots of things, such as prying floor tiles or opening unpowered doors."
 	icon = 'icons/obj/tools.dmi'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/lefthand_tools.dmi',
@@ -61,6 +61,14 @@
 /obj/item/crowbar/rescue_axe/red
 	icon_state = "rescue_axe_red"
 	item_state = "rescue_axe_red"
+
+/obj/item/crowbar/rescue_axe/tactical
+	name = "tactical axe"
+	desc = "A short axe with a carbon fibre handle, meant to be both an emergency tool and a weapon."
+	icon = 'icons/obj/item/tactical_axe.dmi'
+	icon_state = "combataxe"
+	item_state = "combataxe"
+	contained_sprite = TRUE
 
 /obj/item/crowbar/hydraulic_rescue_tool
 	name = "hydraulic rescue tool"

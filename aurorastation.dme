@@ -1882,6 +1882,7 @@
 #include "code\modules\background\origins\origins\human\elyra.dm"
 #include "code\modules\background\origins\origins\human\sol.dm"
 #include "code\modules\background\origins\origins\ipc\coalition.dm"
+#include "code\modules\background\origins\origins\ipc\ecclesiastical.dm"
 #include "code\modules\background\origins\origins\ipc\elyra.dm"
 #include "code\modules\background\origins\origins\ipc\golden_deep.dm"
 #include "code\modules\background\origins\origins\ipc\megacorporate.dm"
