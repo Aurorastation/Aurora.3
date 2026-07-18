@@ -1,0 +1,5 @@
+author: Batrachophrenoboocosmomachia
+delete-after: True
+changes:
+  - rscadd: "Adds Seizure and Heart Attack buttons to the Damage Menu."
+  - rscadd: "Adds tooltips to several buttons in the Damage Menu."

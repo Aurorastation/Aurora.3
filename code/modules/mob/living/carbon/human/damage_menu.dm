@@ -144,6 +144,13 @@
 		if("misc")
 			log_and_message_admins("used the Damage Menu to deploy [params["action"]] on [H]", usr, get_turf(H))
 			switch(params["action"])
+				// Minor actions()
+				if("seizure")
+					H.seizure()
+				if("heart attack")
+					if(!H.trigger_heart_attack())
+						to_chat(usr, SPAN_WARNING("Unable to trigger a heart attack on [H]."))
+				// Major actions
 				if("wind")
 					toggle_wind_paralysis(H, usr)
 				if("gigashatter")
