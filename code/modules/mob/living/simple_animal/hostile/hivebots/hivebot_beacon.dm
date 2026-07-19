@@ -165,6 +165,11 @@
 	var/T = get_turf(src)
 	new /obj/effect/gibspawner/robot(T)
 	spark(T, 3, GLOB.alldirs)
+	//Smoke effect, we disappear in a smoke
+	var/datum/effect/effect/system/smoke_spread/S = new /datum/effect/effect/system/smoke_spread()
+	S.set_up(5, 0, get_turf(src))
+	S.attach(get_turf(src))
+	S.start()
 	QDEL_IN(src, 0)
 	return
 
