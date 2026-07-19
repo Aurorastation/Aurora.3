@@ -1,0 +1,78 @@
+[
+	{
+		"type": "MazegenHauberk",
+		"allowed_area": "/area/dummy/maze",
+		"default_floor": "/turf/simulated/floor/plating",
+		"winding_percent": 20,
+		"extra_connector_chance": 20,
+		"hallway_horizontal_marker": "/obj/effect/map_effect/marker/mapmanip/submap/insert/dummy/hallway_horizontal",
+		"hallway_vertical_marker": "/obj/effect/map_effect/marker/mapmanip/submap/insert/dummy/hallway_vertical",
+		"hallway_node_marker": "/obj/effect/map_effect/marker/mapmanip/submap/insert/dummy/hallway_floor",
+		"room_configs": [
+			{
+				"marker": "/obj/effect/map_effect/marker/mapmanip/submap/insert/dummy/small",
+				"width": 3,
+				"height": 3,
+				"min": 5,
+				"max": 8
+			},
+			{
+				"marker": "/obj/effect/map_effect/marker/mapmanip/submap/insert/dummy/medium",
+				"width": 5,
+				"height": 5,
+				"min": 2,
+				"max": 3
+			}
+		]
+	},
+	{
+		"type": "SubmapExtractInsert",
+		"submap_size_x": 9,
+		"submap_size_y": 9,
+		"submap_size_z": 1,
+		"submaps_dmm": "_a_dummy_submaps.dmm",
+		"marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/dummy/small",
+		"marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/dummy/small",
+		"submaps_can_repeat": true
+	},
+	{
+		"type": "SubmapExtractInsert",
+		"submap_size_x": 15,
+		"submap_size_y": 15,
+		"submap_size_z": 1,
+		"submaps_dmm": "_a_dummy_submaps.dmm",
+		"marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/dummy/medium",
+		"marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/dummy/medium",
+		"submaps_can_repeat": true
+	},
+	{
+		"type": "SubmapExtractInsert",
+		"submap_size_x": 9,
+		"submap_size_y": 9,
+		"submap_size_z": 1,
+		"submaps_dmm": "_a_dummy_submaps.dmm",
+		"marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/dummy/hallway_horizontal",
+		"marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/dummy/hallway_horizontal",
+		"submaps_can_repeat": true
+	},
+	{
+		"type": "SubmapExtractInsert",
+		"submap_size_x": 9,
+		"submap_size_y": 9,
+		"submap_size_z": 1,
+		"submaps_dmm": "_a_dummy_submaps.dmm",
+		"marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/dummy/hallway_vertical",
+		"marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/dummy/hallway_vertical",
+		"submaps_can_repeat": true
+	},
+	{
+		"type": "SubmapExtractInsert",
+		"submap_size_x": 3,
+		"submap_size_y": 3,
+		"submap_size_z": 1,
+		"submaps_dmm": "_a_dummy_submaps.dmm",
+		"marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/dummy/hallway_floor",
+		"marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/dummy/hallway_floor",
+		"submaps_can_repeat": true
+	}
+]

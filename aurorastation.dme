@@ -4089,6 +4089,8 @@
 #include "maps\_common\mapsystem\map.dm"
 #include "maps\_common\mapsystem\map_unit.dm"
 #include "maps\away\away_sites.dm"
+#include "maps\away\away_site\_a_dummy\_a_dummy.dm"
+#include "maps\away\away_site\_a_dummy\_a_dummy_areas.dm"
 #include "maps\away\away_site\abandoned_casino\abandoned_casino.dm"
 #include "maps\away\away_site\abandoned_casino\abandoned_casino_areas.dm"
 #include "maps\away\away_site\abandoned_casino\abandoned_casino_landmarks.dm"
