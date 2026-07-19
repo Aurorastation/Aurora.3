@@ -244,6 +244,26 @@
 	if(helmet)
 		helmet.tint = (active? vision_restriction : offline_vision_restriction)
 
+/**
+ * Updates the hardsuit's slowdown if it changes.
+ * This gives a heavy slowdown penalty if the suit is deployed but the boots are not.
+ * Otherwise, it is an easy exploit to make any hardsuit stealthy by wearing everything EXCEPT the boots.
+ * Now you can creep in your hardsuit, but you have to go slowly to do it.
+ */
+/obj/item/rig/proc/update_slowdown()
+	var/new_slowdown = initial(slowdown)
+
+	if(offline)
+		new_slowdown = offline_slowdown
+	else if(chest && wearer?.wear_suit == chest && (!boots || wearer.shoes != boots)) //If the chest is deployed, but the boots are not.
+		new_slowdown = offline_slowdown + 2 //The boots aren't taking the weight of the suit, so the wearer isn't benefiting from the hardsuit's powered servos.
+
+	if(slowdown != new_slowdown)
+		slowdown = new_slowdown
+		wearer?.update_equipment_speed_mods() //This should only proc if worn, but just in case we check.
+		if(slowdown == offline_slowdown + 2)
+			to_chat(wearer, SPAN_WARNING("Without the boots deployed, the hardsuit's servos aren't supporting the weight of the suit."))
+
 /obj/item/rig/proc/suit_is_deployed()
 	if(!istype(wearer) || src.loc != wearer || wearer.back != src)
 		return 0
@@ -475,9 +495,8 @@
 			offline = 0
 			if(istype(wearer) && !wearer.wearing_rig)
 				wearer.wearing_rig = src
-			if(slowdown != initial(slowdown))
-				slowdown = initial(slowdown)
-				wearer?.update_equipment_speed_mods()
+
+	update_slowdown()
 
 	if(offline != previous_offline_status)
 		update_icon(TRUE)
@@ -499,9 +518,7 @@
 			for(var/obj/item/rig_module/module in installed_modules)
 				module.deactivate()
 			offline = 2
-			if(slowdown != offline_slowdown)
-				slowdown = offline_slowdown
-				wearer?.update_equipment_speed_mods()
+			update_slowdown()
 		return
 
 	if(malfunction_delay > 0)
@@ -515,6 +532,9 @@
 
 	if(power_usage_this_tick)
 		cell.use(power_usage_this_tick)
+
+	if(!malfunctioning && !electrified && !open && offline && !wearer) //If nothing is wrong with it and it is not in use, it should stop processing.
+		return PROCESS_KILL
 
 /obj/item/rig/proc/check_power_cost(var/mob/living/user, var/cost, var/use_unconcious, var/obj/item/rig_module/mod, var/user_is_ai)
 
@@ -784,10 +804,12 @@
 							if(selected_module.suit_overlay_active)
 								selected_module.suit_overlay = selected_module.suit_overlay_active
 							sound_to(usr, module?.sound_activate)
+							balloon_alert_to_viewers("deploys \the [module.interface_name]", "deploys \the [module.interface_name]")
 						else
 							sound_to(usr, selected_module?.sound_deactivate)
 							selected_module.suit_overlay = null
 							selected_module = null
+							balloon_alert_to_viewers("retracts \the [module.interface_name]",  "retracts \the [module.interface_name]")
 						update_icon(TRUE)
 						playsound(src.loc, 'sound/items/rfd_dispense.ogg', 25, FALSE)
 					if("select_charge_type")
@@ -843,9 +865,13 @@
 			if(!do_after(M, seal_delay))
 				return FALSE
 
+		if(wearer && wearer != M)
+			unregister_wearer_signals(wearer)
+
 		M.visible_message(SPAN_NOTICE("<b>[M] struggles into \the [src].</b>"), SPAN_NOTICE("<b>You struggle into \the [src].</b>"))
 		wearer = M
 		wearer.wearing_rig = src
+		register_wearer_signals(wearer)
 		update_icon(TRUE)
 		return TRUE
 	return TRUE
@@ -895,16 +921,6 @@
 			var/mob/living/carbon/human/holder
 			holder = use_obj.loc
 			if(istype(holder))
-				// Special code for boots. This is to prevent boots from being retracted while the chest piece is deployed.
-				// Otherwise, it is an easy exploit to make any hardsuit stealthy by wearing everything EXCEPT the boots.
-				var/obj/item/chest_slot = holder.wear_suit
-				var/obj/item/chest_obj = chest
-				if(use_obj == boots && chest_slot == chest_obj)
-					to_chat(wearer, SPAN_WARNING("The chest piece of the hardsuit must be retracted before you can retract your boots!"))
-					sound_to(wearer, 'sound/machines/terminal/terminal_error.ogg')
-					piece_being_deployed = FALSE
-					return
-
 				if(check_slot == use_obj)
 					to_chat(wearer, "<font color='blue'><b>Your [use_obj.name] [use_obj.gender == PLURAL ? "retract" : "retracts"] swiftly.</b></font>")
 					playsound(src, 'sound/machines/rig/rig_retract.ogg', 30, FALSE)
@@ -924,6 +940,9 @@
 					to_chat(wearer, SPAN_WARNING("You must remain still while the suit deploys its parts."))
 					piece_being_deployed = FALSE
 					return FALSE
+			if(!wearer || wearer.back != src) ///Prevents an edge case where a suit with a storage module can be removed while deploying, causing a runtime.
+				piece_being_deployed = FALSE
+				return FALSE
 			// If we're deploying the chest, we also try to deploy boots. If we can't also deploy boots, the entire thing fails.
 			if(use_obj == chest)
 				var/obj/item/boots_slot = wearer.shoes
@@ -951,6 +970,7 @@
 		helmet.update_light(wearer)
 
 	update_icon(TRUE)
+	update_slowdown()
 
 	piece_being_deployed = FALSE
 	return TRUE
@@ -1020,11 +1040,42 @@
 		toggle_piece(piece, H, ONLY_RETRACT)
 
 /obj/item/rig/proc/null_wearer(var/mob/user)
+	unregister_wearer_signals(wearer)
 	for(var/piece in list("helmet","gauntlets",BP_CHEST,"boots"))
 		toggle_piece(piece, user, ONLY_RETRACT)
 	if(wearer)
 		wearer.wearing_rig = null
 		wearer = null
+
+/obj/item/rig/proc/register_wearer_signals(mob/living/carbon/human/new_wearer)
+	if(!new_wearer)
+		return
+
+	RegisterSignal(new_wearer, COMSIG_MOB_CLICKON, PROC_REF(handle_wearer_click))
+
+/obj/item/rig/proc/unregister_wearer_signals(mob/living/carbon/human/old_wearer)
+	if(!old_wearer)
+		return
+
+	UnregisterSignal(old_wearer, COMSIG_MOB_CLICKON)
+
+/obj/item/rig/proc/handle_wearer_click(mob/user, atom/target, modifiers)
+	SIGNAL_HANDLER
+	if(offline == 2)
+		return
+	if(LAZYACCESS(modifiers, SHIFT_CLICK))
+		return
+	if(LAZYACCESS(modifiers, ALT_CLICK))
+		return
+	if(LAZYACCESS(modifiers, RIGHT_CLICK))
+		return
+
+	if(user.in_throw_mode && (isturf(target) || isturf(target.loc)) && user.throw_item(target)) //Prevents throwing items while remaining cloaked.
+		attack_disrupt_check()
+
+	if(ismob(target)) //This doesn't prevent guns firing at turfs, that is handled in /obj/item/gun/proc/handle_post_fire
+		if(target != user)
+			attack_disrupt_check()
 
 /obj/item/rig/on_slotmove(var/mob/user)
 	..()

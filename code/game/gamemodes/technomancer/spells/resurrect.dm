@@ -25,10 +25,10 @@
 		if(L.stat != DEAD)
 			to_chat(user, SPAN_WARNING("\The [L] isn't dead!"))
 			return 0
+		if(L.timeofdeath && (world.time - L.timeofdeath) > 30 MINUTES)
+			to_chat(user, SPAN_DANGER("\The [L]'s been dead for too long, even this function cannot replace cloning at this point."))
+			return 0
 		if(pay_energy(5000))
-			if(L.tod > world.time + 30 MINUTES)
-				to_chat(user, SPAN_DANGER("\The [L]'s been dead for too long, even this function cannot replace cloning at this point."))
-				return 0
 			to_chat(user, SPAN_NOTICE("You stab \the [L] with a hidden integrated hypo, attempting to bring them back..."))
 			if(istype(L, /mob/living/simple_animal))
 				var/mob/living/simple_animal/SM = L
