@@ -476,12 +476,16 @@
 
 /obj/projectile/bullet/gauss/highex
 	name = "high-ex shell"
-	damage = 10
+	damage = 11
 	armor_penetration = 30
+	anti_materiel_potential = 9 //Just enough to be able to destroy doors with repeated hits.
 
 /obj/projectile/bullet/gauss/highex/on_hit(atom/target, blocked, def_zone)
 	. = ..()
 	explosion(get_turf(target), -1, 0, 2)
+	if(ismob(target))
+		var/mob/living/L = target
+		L.ex_act(2) //This is called directly, because a heavy explosion can destroy floors. This does heavy explosion damage just to the hit mob.
 	if(ismovable(target))
 		var/atom/movable/T = target
 		var/throwdir = get_dir(firer,target)
