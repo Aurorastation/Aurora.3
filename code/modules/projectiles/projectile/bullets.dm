@@ -485,11 +485,11 @@
 	explosion(get_turf(target), -1, 0, 2)
 	if(ismob(target))
 		var/mob/living/L = target  //This damage is dealt directly, instead of using ex_act, so that floors aren't destroyed and the target isnt stunned.
-			apply_damage(42, DAMAGE_BRUTE, def_zone, "Explosive blast", DAMAGE_FLAG_EXPLODE)
-			apply_damage(42, DAMAGE_BURN, def_zone, "Explosive blast", DAMAGE_FLAG_EXPLODE)
+			apply_damage(40, DAMAGE_BRUTE, def_zone, "Explosive blast", DAMAGE_FLAG_EXPLODE)
+			apply_damage(40, DAMAGE_BURN, def_zone, "Explosive blast", DAMAGE_FLAG_EXPLODE)
 
-			apply_damage(18, DAMAGE_BRUTE, null, "Explosive blast", DAMAGE_FLAG_EXPLODE | DAMAGE_FLAG_DISPERSED)
-			apply_damage(18, DAMAGE_BURN, null, "Explosive blast", DAMAGE_FLAG_EXPLODE | DAMAGE_FLAG_DISPERSED)
+			apply_damage(15, DAMAGE_BRUTE, null, "Explosive blast", DAMAGE_FLAG_EXPLODE | DAMAGE_FLAG_DISPERSED)
+			apply_damage(15, DAMAGE_BURN, null, "Explosive blast", DAMAGE_FLAG_EXPLODE | DAMAGE_FLAG_DISPERSED)
 	if(ismovable(target))
 		var/atom/movable/T = target
 		var/throwdir = get_dir(firer,target)
