@@ -169,8 +169,7 @@
 	var/datum/effect/effect/system/smoke_spread/S = new /datum/effect/effect/system/smoke_spread()
 	S.set_up(5, 0, src.loc)
 	S.start()
-	QDEL_IN(src, 0)
-	return
+	qdel(src)
 
 /mob/living/simple_animal/hostile/hivebotbeacon/think()
 	. =..()
