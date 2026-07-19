@@ -72,3 +72,17 @@
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
+
+/singleton/cargo_item/watertank
+	category = "miscellaneous"
+	name = "water tank"
+	supplier = "orion"
+	description = "A tank filled with water."
+	price = 10
+	items = list(
+		/obj/structure/reagent_dispensers/watertank
+	)
+	access = 0
+	container_type = "box"
+	groupable = TRUE
+	spawn_amount = 1
