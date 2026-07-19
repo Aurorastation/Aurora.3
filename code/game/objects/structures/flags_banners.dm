@@ -1357,7 +1357,7 @@
 	flag_structure = /obj/structure/sign/flag/ecclesiastical_axiom
 
 /obj/structure/sign/flag/ecclesiastical_axiom
-	name = "\improper Ecclesiatical Axiom flag"
+	name = "\improper Ecclesiastical Axiom flag"
 	desc = "The flag of the Ecclesiastical Authority of Axiom, the frontier nation-state \
 	administered by the Trinary Perfection on the planet of Axiom."
 	desc_extended = "The Ecclesiastical Authority views itself as a shield, protecting both \
@@ -1374,7 +1374,7 @@
 	unmovable = TRUE
 
 /obj/item/flag/ecclesiastical_axiom/l
-	name = "large Ecclesiatical Axiom flag"
+	name = "large Ecclesiastical Axiom flag"
 	flag_size = TRUE
 	flag_structure = /obj/structure/sign/flag/ecclesiastical_axiom/large
 
