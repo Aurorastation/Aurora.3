@@ -31,7 +31,7 @@ Deployable Kits
 /obj/structure/blocker/proc/set_material(var/material_name)
 	if(force_material)
 		material_name = force_material
-	material = SSmaterials.get_material_by_name(material_name)
+	material = SSmaterials.get_material_by_id(material_name)
 	if(!material)
 		qdel(src)
 		return
@@ -61,7 +61,7 @@ Deployable Kits
 		var/obj/item/I = usr.get_inactive_hand()
 		if(I && istype(I, /obj/item/stack))
 			var/obj/item/stack/D = I
-			if(D.get_material_name() != material.name)
+			if(D.get_material() != material)
 				to_chat(user, SPAN_WARNING("You need one sheet of [material.display_name] to repair \the [src]."))
 				return ..()
 			if(health < maxhealth)
@@ -263,7 +263,7 @@ Deployable Kits
 	desc = "A deployable barrier, bearing the marks of the Tau Ceti Armed Forces. Swipe your ID card to lock/unlock it."
 	icon_state = "barrier_legion"
 	req_access = null
-	req_one_access = list(ACCESS_TCAF_SHIPS, ACCESS_LEGION)
+	req_one_access = list(ACCESS_TCAF)
 
 /obj/item/deployable_kit
 	name = "Emergency Floodlight Kit"
@@ -324,8 +324,8 @@ Deployable Kits
 	new /obj/structure/curtain/open/medical(free_spot, src)
 
 /obj/item/deployable_kit/legion_turret
-	name = "legion blaster turret assembly kit"
-	desc = "A quick assembly kit to deploy a blaster turret in the field. Swipe with a TCFL id card to configure it once assembled."
+	name = "TCAF blaster turret assembly kit"
+	desc = "A quick assembly kit to deploy a blaster turret in the field. Swipe with a TCAF  id card to configure it once assembled."
 	icon = 'icons/obj/turrets.dmi'
 	icon_state = "blaster_turret_kit"
 	item_state = "table_parts"

@@ -18,13 +18,6 @@
 	///Intearaction flags
 	var/interaction_flags_atom = NONE
 
-	var/flags_ricochet = NONE
-
-	///When a projectile tries to ricochet off this atom, the projectile ricochet chance is multiplied by this
-	var/receive_ricochet_chance_mod = 1
-	///When a projectile ricochets off this atom, it deals the normal damage * this modifier to this atom
-	var/receive_ricochet_damage_coeff = 0.33
-
 	var/update_icon_on_init	= FALSE // Default to 'no'.
 
 	var/level = 2
@@ -53,8 +46,6 @@
 	var/datum/reagents/reagents = null
 	var/list/reagents_to_add
 	var/list/reagent_data
-
-	var/gfi_layer_rotation = GFI_ROTATION_DEFAULT
 
 	//light stuff
 
@@ -130,9 +121,6 @@
 	/// If the atom is currently queued to have it's icon updated in `SSicon_update`
 	var/tmp/icon_update_queued = FALSE
 
-	/// Delay to apply before updating the icon in `SSicon_update`
-	var/icon_update_delay = null
-
 	/// How this atom should react to having its astar blocking checked
 	var/can_astar_pass = CANASTARPASS_DENSITY
 
@@ -155,6 +143,9 @@
 	if(length(overlays))
 		overlays.Cut()
 
+	if (length(underlays))
+		underlays.Cut()
+
 	QDEL_NULL(light)
 	QDEL_NULL(static_light)
 
@@ -165,16 +156,18 @@
 	if(icon_update_queued)
 		SSicon_update.remove_from_queue(src)
 
-	if(length(atom_overlay_cache))
-		LAZYCLEARLIST(atom_overlay_cache)
+	LAZYNULL(atom_overlay_cache)
+	LAZYNULL(atom_protected_overlay_cache)
 
-	if(length(atom_protected_overlay_cache))
-		LAZYCLEARLIST(atom_protected_overlay_cache)
 
 	// The component is attached to us normaly and will be deleted elsewhere
 	orbiters = null
 	do_unique_target_user = null
-	langchat_drop_images()
+	for(var/datum/langchat_bubble/entry as anything in langchat_images)
+		for(var/mob/listener as anything in entry.listeners)
+			if(listener.client)
+				listener.client.images -= entry.bubble
+	langchat_images = null
 	return ..()
 
 /atom/proc/handle_ricochet(obj/projectile/ricocheting_projectile)

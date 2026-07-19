@@ -35,6 +35,14 @@
 		'sound/music/lobby/lights_edge/lights_edge_2.ogg'
 	)
 
+	lore_radio_stations = list(
+		"87.4 XNS Interstellar Broadcasting" = 'texts/lore_radio/lights_edge/87.4_XNS_Interstellar.txt',
+		"89.8 DomeChat" = 'texts/lore_radio/lights_edge/89.8_DomeChat.txt',
+		"96.2 Coalition Hits!" = 'texts/lore_radio/lights_edge/96.2_Coalition_Hits.txt',
+		"105.4 Automated Travel Advisory Broadcast System" = 'texts/lore_radio/lights_edge/105.4_Automated_Advisory.txt',
+		"114.8 RADIO LEMURIAN TRUTH" = 'texts/lore_radio/lights_edge/114.8_Radio_Lemurian_Truth.txt'
+	)
+
 /datum/space_sector/lemurian_sea//The actual proposed area of void as written. Should be as dark as possible, due to no starlight
 	name = SECTOR_LEMURIAN_SEA
 	description = "The Lemurian Sea is an astrological curiosity which is entirely free of stars. This region is a relatively new discovery and classification, having only been officially broken off of Light’s Edge by most astrographical institutions following the rediscovery of Assunzione and limited exploration beyond its position on the border of what would become the Lemurian Sea. Most astrological charts advise avoiding the region as travelers are known to report a feeling of general uneasiness while passing through it and many vessels are known to have disappeared within the Sea. "
@@ -45,26 +53,27 @@
 	starlight_range = 0
 	overmap_hazards_multiplier = 1.3
 	cargo_price_coef = list(
-		"nanotrasen" = 6.0,
-		"orion" = 6.0,
-		"hephaestus" = 6.0,
-		"zeng_hu" = 6.0,
-		"eckharts" = 6.0,
-		"getmore" = 6.0,
-		"arizi" = 6.0,
-		"blam" = 6.0,
-		"iac" = 6.0,
-		"zharkov" = 6.0,
-		"virgo" = 6.0,
-		"bishop" = 6.0,
-		"xion" = 6.0,
-		"zavodskoi" = 6.0,
+		"nanotrasen" = 2.5,
+		"orion" = 2.5,
+		"hephaestus" = 2.5,
+		"zeng_hu" = 2.5,
+		"eckharts" = 2.5,
+		"getmore" = 2.5,
+		"arizi" = 2.5,
+		"blam" = 2.5,
+		"iac" = 2.5,
+		"zharkov" = 2.5,
+		"virgo" = 2.5,
+		"bishop" = 2.5,
+		"xion" = 2.5,
+		"zavodskoi" = 2.5,
 		)
 
 	lobby_tracks = list(
 		'sound/music/lobby/lights_edge/lights_edge_1.ogg',
 		'sound/music/lobby/lights_edge/lights_edge_2.ogg',
-		'sound/music/lobby/dangerous_space/dangerous_space_1.ogg'
+		'sound/music/lobby/dangerous_space/dangerous_space_1.ogg',
+		'sound/music/lobby/spatial_audio.ogg'
 	)
 
 	sector_welcome_message = 'sound/AI/welcome_lemurian_sea_outer.ogg'
@@ -72,10 +81,15 @@
 	sector_lobby_transitions = 0
 	sector_hud_menu = 'icons/misc/hudmenu/lemurian_hud.dmi'
 	hivenet_echoes = FALSE
-	ghostroles_enabled = FALSE
 	away_sites_enabled = FALSE
 	ccia_link = FALSE
+
+	lore_radio_stations = list(
+		"105.4 Automated Travel Advisory Broadcast System" = 'texts/lore_radio/lights_edge/105.4_Automated_Advisory.txt'
+	)
 
 /datum/space_sector/lemurian_sea/far
 	name = SECTOR_LEMURIAN_SEA_FAR
 	sector_welcome_message = 'sound/AI/welcome_lemurian_sea_inner.ogg'
+
+	lore_radio_stations = list()

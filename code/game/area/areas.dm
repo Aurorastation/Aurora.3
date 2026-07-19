@@ -206,13 +206,23 @@
 
 /area/proc/get_cameras()
 	. = list()
+	var/list/invalid_cameras
 	for (var/thing in SSmachinery.all_cameras)
+		if(!istype(thing, /obj/structure/machinery/camera))
+			LAZYADD(invalid_cameras, thing)
+			continue
 		var/obj/structure/machinery/camera/C = thing
+		if(QDELETED(C))
+			LAZYADD(invalid_cameras, thing)
+			continue
 		if (!isturf(C.loc))
 			continue
 
 		if (C.loc.loc == src) // What the fuck is this?
 			. += C
+
+	if(invalid_cameras)
+		SSmachinery.all_cameras -= invalid_cameras
 
 /area/proc/atmosalert(danger_level, var/alarm_source)
 	if (danger_level == 0)
@@ -540,7 +550,7 @@
 
 		//Although hostile mobs instadying to turrets is fun
 		//If there's no AI they'll just be hit with stunbeams all day and spam the attack logs.
-		if (istype(A, /area/turret_protected) || LAZYLEN(A.turret_controls))
+		if (LAZYLEN(A.turret_controls))
 			continue
 
 		if(!A.hostile_events)

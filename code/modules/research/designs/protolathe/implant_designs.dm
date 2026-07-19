@@ -1,5 +1,5 @@
 /datum/design/item/implant
-	materials = list(DEFAULT_WALL_MATERIAL = 50, MATERIAL_GLASS = 50)
+	materials = list(MATERIAL_STEEL = 50, MATERIAL_GLASS = 50)
 	p_category = "Implantable Biocircuit Designs"
 
 /datum/design/item/implant/adrenaline

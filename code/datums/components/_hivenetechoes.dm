@@ -23,21 +23,9 @@
 		return
 
 	owner = parent
-
 	// Setup the first time the echoes will begin playing.
 	next_broadcastEcho = world.time + rand(180, 300) SECONDS
 	next_projectionEcho = world.time + rand(240, 480) SECONDS
-
-	// Check during component init if we're in a sector that blocks hivenet echoes, and if so, skip processing init.
-	if(!SSatlas.current_sector.hivenet_echoes)
-		if(is_lemurian_sea_sector())
-			to_chat(parent, SPAN_CULT("The Fog cuts you off from the greater Hivenet. Without its echoes, you feel deeply dreadful."))
-		else
-			to_chat(parent, SPAN_WARNING("The faint echoes of the greater Hivenet fade away. Without them, you feel low in company."))
-		if(is_lemurian_sea_sector())
-			START_PROCESSING(SSprocessing, src)
-		return
-
 	// Finally start the clock.
 	START_PROCESSING(SSprocessing, src)
 
@@ -47,10 +35,11 @@
 	return ..()
 
 /datum/component/HiveEchoes/process(seconds_per_tick)
-	if(is_lemurian_sea_sector())
-		return
-
 	if(!SSatlas.current_sector.hivenet_echoes)
+		if(is_lemurian_sea_sector())
+			to_chat(parent, SPAN_CULT("The Fog cuts you off from the greater Hivenet. Without its echoes, you feel deeply dreadful."))
+		else
+			to_chat(parent, SPAN_WARNING("The faint echoes of the greater Hivenet fade away. Without them, you feel low in company."))
 		STOP_PROCESSING(SSprocessing, src)
 		return
 
@@ -80,7 +69,7 @@
 	if(joined && topic == "gossip")
 		to_chat(owner, "<i><span class='game say'>Hivenet, <span class='name'>a [pick("Faint", "Distant", "Fading", "Fleeting", "Drifting", "Low", "Weak", "Far", "Pinging", "Whispering")] Echo</span> broadcasts, <span class='vaurca'>\"[pick(echo_starter)]" + " " + "[pick(echo_response)]\"</span></span></i>")
 	else
-		to_chat(owner, "<i><span class='game say'>Hivenet, <span class='name'>a [pick("Faint", "Distant", "Fading", "Fleeting", "Drifting", "Low", "Weak", "Far", "Pinging", "Whispering")] Echo</span> broadcasts, <span class='vaurca'>\"[pick(echo_starter)]\"</span></span></i>") //this works
+		to_chat(owner, "<i><span class='game say'>Hivenet, <span class='name'>a [pick("Faint", "Distant", "Fading", "Fleeting", "Drifting", "Low", "Weak", "Far", "Pinging", "Whispering")] Echo</span> broadcasts, <span class='vaurca'>\"[pick(echo_starter)]\"</span></span></i>")
 		sleep(rand(5,15))
 		to_chat(owner, "<i><span class='game say'>Hivenet, <span class='name'>a [pick("Faint", "Distant", "Fading", "Fleeting", "Drifting", "Low", "Weak", "Far", "Pinging", "Whispering")] Echo</span> broadcasts, <span class='vaurca'>\"[pick(echo_response)]\"</span></span></i>")
 

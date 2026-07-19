@@ -349,11 +349,20 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
 
 	return target.calculate_zone_with_miss_chance(zone, miss_chance_mod)
 
+/mob/proc/get_modifier_miss_chance_modifier()
+	if(!modifiers)
+		return 0
+	var/total_modifier = 0
+	for(var/datum/modifier/M in modifiers)
+		if(M.active)
+			total_modifier += M.miss_chance_modifier
+	return total_modifier
+
 /mob/proc/calculate_zone_with_miss_chance(var/zone, var/miss_chance_mod)
 	var/miss_chance = 10
 	if (zone in GLOB.base_miss_chance)
 		miss_chance = GLOB.base_miss_chance[zone]
-	miss_chance = max(miss_chance + miss_chance_mod, 0)
+	miss_chance = max(miss_chance + miss_chance_mod + get_modifier_miss_chance_modifier(), 0)
 	if(prob(miss_chance))
 		if(prob(70))
 			return null
@@ -367,7 +376,7 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
 	var/miss_chance = 10
 	if(zone in GLOB.base_miss_chance)
 		miss_chance = GLOB.base_miss_chance[zone]
-	miss_chance = max(miss_chance + miss_chance_mod, 0)
+	miss_chance = max(miss_chance + miss_chance_mod + get_modifier_miss_chance_modifier(), 0)
 	if(prob(miss_chance))
 		return pick(GLOB.base_miss_chance)
 	return zone
@@ -487,14 +496,16 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
 /proc/shake_camera(mob/M, duration, strength=1, drift = FALSE)
 	if(!M || !M.client || duration < 1)
 		return
+	// This variable exists simply to reduce total strength of screenshake; in the future, it should be hooked to a client preference setting (standard/reduced screenshake for motion-sickness)
+	var/reduction_modifier = 2/3
 	var/drift_mode = (drift == TRUE)
 	var/client/C = M.client
 	var/oldx = C.pixel_x
 	var/oldy = C.pixel_y
-	var/max_x = strength*ICON_SIZE_X
-	var/max_y = strength*ICON_SIZE_Y
-	var/min_x = -(strength*ICON_SIZE_X)
-	var/min_y = -(strength*ICON_SIZE_Y)
+	var/max_x = strength*ICON_SIZE_X*(reduction_modifier)
+	var/max_y = strength*ICON_SIZE_Y*(reduction_modifier)
+	var/min_x = -(strength*ICON_SIZE_X)*(reduction_modifier)
+	var/min_y = -(strength*ICON_SIZE_Y)*(reduction_modifier)
 
 	//How much time to allot for each pixel moved
 	var/time_scalar = (1 / ICON_SIZE_ALL) * TILES_PER_SECOND
@@ -1391,7 +1402,3 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
 		message_notifications.Cut(1, 2)
 
 	message_notifications[key_check] = world.time + next_message_time
-
-/// Gets a mob's strength.
-/mob/proc/get_mob_strength()
-	return mob_weight + mob_strength

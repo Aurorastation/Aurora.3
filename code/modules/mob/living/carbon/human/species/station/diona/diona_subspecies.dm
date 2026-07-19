@@ -25,3 +25,4 @@ In return, they are generally substantially more fragile, being especially susce
 	pain_mod = 2
 	brute_mod = 1.1
 	burn_mod = 1.3
+	mass_modifier = REFERENCE_MASS_DIONA_COEUS / REFERENCE_MASS_HUMAN

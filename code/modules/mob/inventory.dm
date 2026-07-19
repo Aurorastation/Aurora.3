@@ -40,7 +40,7 @@
 	if(item_to_equip.item_flags & ITEM_FLAG_NO_MOVE) //Cannot move ITEM_FLAG_NO_MOVE items from one inventory slot to another. Cannot do canremove here because then BSTs spawn naked.
 		return FALSE
 
-	if(!item_to_equip.mob_can_equip(src, slot, disable_warning, bypass_blocked_check))
+	if(!item_to_equip.mob_can_equip(src, slot, disable_warning, bypass_blocked_check, is_overlay_check = FALSE))
 		if(delete_on_fail)
 			qdel(item_to_equip)
 		else
@@ -422,8 +422,9 @@ GLOBAL_LIST_INIT(slot_equipment_priority, list(
 		item = G.throw_held() //throw the person instead of the grab
 		if(ismob(item) && G.state >= GRAB_NECK)
 			var/mob/M = item
-			if(M.mob_weight > get_mob_strength())
-				to_chat(src, SPAN_WARNING("[M] is far too heavy for you to throw around!"))
+			var/grabber_strength = get_effective_mass() * mob_strength
+			if(M.mass > grabber_strength)
+				to_chat(src, SPAN_WARNING("[M] is heavier (or more unwieldy) than your limit of [grabber_strength]kg, you cannot throw them!"))
 				return
 
 			throw_range = round(throw_range * (src.mob_size/M.mob_size))

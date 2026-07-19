@@ -202,12 +202,12 @@
 
 	// External Organ Pain Damage
 	var/organ_low_pain_message = "<b>Your %PARTNAME% hurts.</b>"
-	var/organ_med_pain_message = "<b><font size=3>Your %PARTNAME% hurts badly!</font></b>"
-	var/organ_high_pain_message = "<b><font size=3>Your %PARTNAME% is screaming out in pain!</font></b>"
+	var/organ_med_pain_message = "<b><font size=4>Your %PARTNAME% hurts badly!</font></b>"
+	var/organ_high_pain_message = "<b><font size=5>Your %PARTNAME% is screaming out in pain!</font></b>"
 
 	var/organ_low_burn_message = SPAN_DANGER("Your %PARTNAME% burns.")
-	var/organ_med_burn_message = SPAN_DANGER("<font size=3>Your %PARTNAME% burns horribly!</font>")
-	var/organ_high_burn_message = SPAN_DANGER("<font size=4>Your %PARTNAME% feels like it's on fire!</font>")
+	var/organ_med_burn_message = SPAN_DANGER("<font size=4>Your %PARTNAME% burns horribly!</font>")
+	var/organ_high_burn_message = SPAN_DANGER("<font size=5>Your %PARTNAME% feels like it's on fire!</font>")
 
 	var/list/stutter_verbs = list("stammers", "stutters")
 
@@ -300,8 +300,6 @@
 	var/has_fine_manipulation = 1
 	/// The lower, the thicker the skin and better the insulation.
 	var/siemens_coefficient = 1
-	/// Native darksight distance.
-	var/darksight = 2
 	/// Various specific features.
 	var/flags = 0
 	/// Appearance/display related features.
@@ -474,10 +472,33 @@
 	/// A list of species components that should only EVER apply to this species. This is because some components must be removed if the species changes (imagine changing from IPC to human as a merc).
 	var/list/species_components
 
+	var/list/default_emotes = list()
+
+	// Vars used for Autohiss
+	var/has_autohiss = FALSE
+	var/list/autohiss_basic_map = null
+	var/list/autohiss_extra_map = null
+	var/list/autohiss_exempt = null
+	var/list/autohiss_basic_extend = null
+	var/list/autohiss_extra_extend = null
+	var/autohiss_extender = "..."
+	var/ignore_subsequent = FALSE
+
+	/**
+	 * The "Mass Modifier" used to set the starting mass of a player character for a given species.
+	 * This should always be written as REFERENCE_MASS_SPECIES / REFERENCE_MASS_HUMAN
+	 * This division by REFERENCE_MASS_HUMAN will be algebraically cancelled out,
+	 * when multiplied by the humanoid character's standard mass (which happens to be REFERENCE_MASS_HUMAN)
+	 *
+	 * This is a pure number ratio (kg / kg), it has no SI Units.
+	 */
+	var/mass_modifier = REFERENCE_MASS_HUMAN / REFERENCE_MASS_HUMAN
+
 /datum/species/proc/get_eyes(var/mob/living/carbon/human/H)
 	return
 
 /datum/species/New()
+	ENFORCE_POSITIVE_SPECIES_MASS(mass_modifier)
 	if(hud_type)
 		hud = new hud_type()
 	else

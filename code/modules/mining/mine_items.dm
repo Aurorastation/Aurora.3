@@ -15,7 +15,7 @@
 	throwforce = 4.0
 	force = 15
 	w_class = WEIGHT_CLASS_BULKY
-	matter = list(DEFAULT_WALL_MATERIAL = 3750)
+	matter = list(MATERIAL_STEEL = 3750)
 	var/digspeed //moving the delay to an item var so R&D can make improved picks. --NEO
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1)
 	attack_verb = list("hit", "pierced", "sliced", "attacked")
@@ -70,7 +70,7 @@
 		item_state = initial(item_state)
 	update_held_icon()
 
-/obj/item/pickaxe/mob_can_equip(M, slot, disable_warning = FALSE)
+/obj/item/pickaxe/mob_can_equip(M, slot, disable_warning = FALSE, bypass_blocked_check = FALSE, is_overlay_check = FALSE)
 	//Cannot equip wielded items.
 	if(wielded)
 		to_chat(M, SPAN_WARNING("Unwield the [initial(name)] first!"))
@@ -331,7 +331,7 @@
 	throwforce = 4.0
 	w_class = WEIGHT_CLASS_NORMAL
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1)
-	matter = list(DEFAULT_WALL_MATERIAL = 50)
+	matter = list(MATERIAL_STEEL = 50)
 	attack_verb = list("bashed", "bludgeoned", "thrashed", "whacked")
 	sharp = FALSE
 	edge = TRUE
@@ -621,7 +621,7 @@
 	item_state = "electronic"
 	throw_speed = 4
 	throw_range = 20
-	matter = list(DEFAULT_WALL_MATERIAL = 500)
+	matter = list(MATERIAL_STEEL = 500)
 	var/turf/simulated/mineral/random/sonar
 	var/active = 0
 
@@ -933,13 +933,26 @@ GLOBAL_LIST_INIT_TYPED(total_extraction_beacons, /obj/structure/extraction_point
 		if(A.anchored)
 			return
 		var/turf/T = get_turf(A)
+		if(!T)
+			return
+		var/list/invalid_inhibitors
 		for(var/found_inhibitor in GLOB.bluespace_inhibitors)
+			if(!istype(found_inhibitor, /obj/structure/machinery/anti_bluespace))
+				LAZYADD(invalid_inhibitors, found_inhibitor)
+				continue
 			var/obj/structure/machinery/anti_bluespace/AB = found_inhibitor
+			if(QDELETED(AB))
+				LAZYADD(invalid_inhibitors, found_inhibitor)
+				continue
 			if(T.z != AB.z || get_dist(T, AB) > 8 || (AB.stat & (NOPOWER | BROKEN)))
 				continue
 			AB.use_power_oneoff(AB.active_power_usage)
 			to_chat(user, SPAN_WARNING("A nearby bluespace inhibitor interferes with \the [src]!"))
+			if(invalid_inhibitors)
+				GLOB.bluespace_inhibitors -= invalid_inhibitors
 			return
+		if(invalid_inhibitors)
+			GLOB.bluespace_inhibitors -= invalid_inhibitors
 		to_chat(user, SPAN_NOTICE("You start attaching the pack to \the [A]..."))
 		if(do_after(user,50))
 			to_chat(user, SPAN_NOTICE("You attach the pack to \the [A] and activate it."))
