@@ -158,7 +158,7 @@ ABSTRACT_TYPE(/obj/item/package)
 		Probably more expensive then it should be."
 	icon_state = "supply_package"
 	item_state = "supply_package"
-	persistant_objects_expiration_time_days = 360
+	persistent_objects_expiration_time_days = 360
 
 /obj/item/package/persistent_supply/Initialize()
 	. = ..()
