@@ -1,4 +1,4 @@
-author: The_Ill_Fated, hazelmouse
+author: The_Ill_Fated, hazelmouse, Batrachophrenoboocosmomachia
 delete-after: True
 
 # Any changes you've made.  See valid prefix list above.
@@ -7,5 +7,6 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - imageadd: "Adds flags and banners for a large number of Solarian and formerly Solarian worlds, all now accessible in the loadout (with the exception of original Lycoris) (The_Ill_Fated)."
+  - imageadd: "Adds flags and banners for a large number of Solarian and formerly Solarian worlds, all now accessible in the loadout (with the exception of original Lycoris). (The_Ill_Fated)"
   - imageadd: "Adds flag and banner for the Ecclesiastical Authority of Axiom, both now accessible in the loadout. (hazelmouse)"
+  - code_imp: "Rearrangement of icons/obj/structures/flags.dmi contents to sort flags by nations, removes old Sol canton template, adds new Sol stripe template. (Batrachophrenoboocosmomachia)"
