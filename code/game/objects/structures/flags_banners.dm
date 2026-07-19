@@ -888,16 +888,14 @@
 
 /obj/item/flag/red_coalition
 	name = "\improper Red Coalition flag"
-	desc = "A high quality copy of an original Red Coalition banner. This variant on the standard was flown by the Zelazny arcology during the Martian World War, Zelazny's origins as a \
-	mining colony represented in the center by the alchemical symbol for iron."
+	desc = "A high quality copy of an original Red Coalition banner. This variant on the standard was flown by the Zelazny arcology during the Martian World War, Zelazny's origins as a mining colony represented in the center by the alchemical symbol for iron."
 	icon_state = "coalition_flag_boxed"
 	flag_path = "red_coalition"
 	flag_structure = /obj/structure/sign/flag/red_coalition
 
 /obj/structure/sign/flag/red_coalition
 	name = "\improper Red Coalition flag"
-	desc = "A high quality copy of an original Red Coalition banner. This variant on the standard was flown by the Zelazny arcology during the Martian World War, Zelazny's origins as a \
-	mining colony represented in the center by the alchemical symbol for iron."
+	desc = "A high quality copy of an original Red Coalition banner. This variant on the standard was flown by the Zelazny arcology during the Martian World War, Zelazny's origins as a mining colony represented in the center by the alchemical symbol for iron."
 	icon_state = "red_coalition"
 	flag_path = "red_coalition"
 	flag_item = /obj/item/flag/red_coalition
@@ -933,20 +931,14 @@
 /obj/item/flag/dpra
 	name = "\improper Democratic People's Republic of Adhomai flag"
 	desc = "The black flag of the Democratic People's Republic of Adhomai."
-	desc_extended = "The most pervasive and successful rebellion came from a group calling themselves the Adhomai Libeation Army, a group made up of Tajara from almost every walk of \
-	life. Opposing corporate claims on Tajaran soil and citing mismatched development and governmental negligence as the fault of humanity, they aim \
-	to \"free Tajara from the new shackles imposed upon them by the corporate overlords and return Adhomai to a free, prosperous planet like our ancestors dreamed of.\" They named the \
-	nation they were fighting for the Democratic People's Republic of Adhomai."
+	desc_extended = "The most pervasive and successful rebellion came from a group calling themselves the Adhomai Libeation Army, a group made up of Tajara from almost every walk of life. Opposing corporate claims on Tajaran soil and citing mismatched development and governmental negligence as the fault of humanity, they aim to \"free Tajara from the new shackles imposed upon them by the corporate overlords and return Adhomai to a free, prosperous planet like our ancestors dreamed of.\" They named the nation they were fighting for the Democratic People's Republic of Adhomai."
 	flag_path = "dpra"
 	flag_structure = /obj/structure/sign/flag/dpra
 
 /obj/structure/sign/flag/dpra
 	name = "\improper Democratic People's Republic of Adhomai flag"
 	desc = "The black flag of the Democratic People's Republic of Adhomai."
-	desc_extended = "The most pervasive and successful rebellion came from a group calling themselves the Adhomai Libeation Army, a group made up of Tajara from almost every walk of \
-	life. Opposing corporate claims on Tajaran soil and citing mismatched development and governmental negligence as the fault of humanity, they aim \
-	to \"free Tajara from the new shackles imposed upon them by the corporate overlords and return Adhomai to a free, prosperous planet like our ancestors dreamed of.\" They named the \
-	nation they were fighting for the Democratic People's Republic of Adhomai."
+	desc_extended = "The most pervasive and successful rebellion came from a group calling themselves the Adhomai Libeation Army, a group made up of Tajara from almost every walk of life. Opposing corporate claims on Tajaran soil and citing mismatched development and governmental negligence as the fault of humanity, they aim to \"free Tajara from the new shackles imposed upon them by the corporate overlords and return Adhomai to a free, prosperous planet like our ancestors dreamed of.\" They named the nation they were fighting for the Democratic People's Republic of Adhomai."
 	flag_path = "dpra"
 	icon_state = "dpra"
 	flag_item = /obj/item/flag/dpra
@@ -983,21 +975,13 @@
 	name = "\improper People's Republic of Adhomai flag"
 	desc = "The Tajaran flag of the People's Republic of Adhomai."
 	flag_path = "pra"
-	desc_extended = "Lead by President Njadrasanukii Hadii, the People's Republic of Adhomai are considered the 'loyalist' faction on Adhomai and enjoy galactic recognition as the \
-	government of Adhomai. It claims to be the true keeper of Al'mari's legacy. However, the PRA can be described as a Hadiist branch of Al'mari's revolutionary ideology - that means \
-	putting the State at the top of a hierarchy of power. The PRA is a very centralized state, but in recent years has slowly been able to start making true its promises to bring \
-	revolution to the masses. With land reform, enfranchisement of women and peasantry, literacy initiatives, and the collectivization of farms and the means of production, the PRA is \
-	struggling to hold true to its radical ideals while an entrenched upper party stubbornly tries to hold onto power."
+	desc_extended = "Lead by President Njadrasanukii Hadii, the People's Republic of Adhomai are considered the 'loyalist' faction on Adhomai and enjoy galactic recognition as the government of Adhomai. It claims to be the true keeper of Al'mari's legacy. However, the PRA can be described as a Hadiist branch of Al'mari's revolutionary ideology - that means putting the State at the top of a hierarchy of power. The PRA is a very centralized state, but in recent years has slowly been able to start making true its promises to bring revolution to the masses. With land reform, enfranchisement of women and peasantry, literacy initiatives, and the collectivization of farms and the means of production, the PRA is struggling to hold true to its radical ideals while an entrenched upper party stubbornly tries to hold onto power."
 	flag_structure = /obj/structure/sign/flag/pra
 
 /obj/structure/sign/flag/pra
 	name = "\improper People's Republic of Adhomai flag"
 	desc = "The tajaran flag of the People's Republic of Adhomai."
-	desc_extended = "Lead by President Njadrasanukii Hadii, the People's Republic of Adhomai are considered the 'loyalist' faction on Adhomai and enjoy galactic recognition as the \
-	government of Adhomai. It claims to be the true keeper of Al'mari's legacy. However, the PRA can be described as a Hadiist branch of Al'mari's revolutionary ideology - that means \
-	putting the State at the top of a hierarchy of power. The PRA is a very centralized state, but in recent years has slowly been able to start making true its promises to bring \
-	revolution to the masses. With land reform, enfranchisement of women and peasantry, literacy initiatives, and the collectivization of farms and the means of production, the PRA is \
-	struggling to hold true to its radical ideals while an entrenched upper party stubbornly tries to hold onto power."
+	desc_extended = "Lead by President Njadrasanukii Hadii, the People's Republic of Adhomai are considered the 'loyalist' faction on Adhomai and enjoy galactic recognition as the government of Adhomai. It claims to be the true keeper of Al'mari's legacy. However, the PRA can be described as a Hadiist branch of Al'mari's revolutionary ideology - that means putting the State at the top of a hierarchy of power. The PRA is a very centralized state, but in recent years has slowly been able to start making true its promises to bring revolution to the masses. With land reform, enfranchisement of women and peasantry, literacy initiatives, and the collectivization of farms and the means of production, the PRA is struggling to hold true to its radical ideals while an entrenched upper party stubbornly tries to hold onto power."
 	flag_path = "pra"
 	icon_state = "pra"
 	flag_item = /obj/item/flag/pra
@@ -1034,21 +1018,13 @@
 	name = "\improper New Kingdom of Adhomai flag"
 	desc = "The blue flag of the New Kingdom of Adhomai."
 	flag_path = "nka"
-	desc_extended = " The New Kingdom is ruled by a Njarir'Akhran noble line that survived the previous Revolution by remaining in hiding, owing to the efforts of their supporters. \
-	Ruled by King Vahzirthaamro Azunja specifically, he denounces both other factions in the civil war as illegitimate and himself as the only legitimate ruler of Adhomai. \
-	Supporters of the New Kingdom tend to be rare outside lands it controls. However, they believe strongly that the current republic on Adhomai was founded on genocide and unspeakable \
-	slaughters. The New Kingdom puts forth the ideology that Republicanism is bloodshed. The only way to return Adhomai to peace and prosperity is to learn from the mistakes of the \
-	ancient nobles and Republicans, and create a new noble dynasty."
+	desc_extended = " The New Kingdom is ruled by a Njarir'Akhran noble line that survived the previous Revolution by remaining in hiding, owing to the efforts of their supporters. Ruled by King Vahzirthaamro Azunja specifically, he denounces both other factions in the civil war as illegitimate and himself as the only legitimate ruler of Adhomai. Supporters of the New Kingdom tend to be rare outside lands it controls. However, they believe strongly that the current republic on Adhomai was founded on genocide and unspeakable slaughters. The New Kingdom puts forth the ideology that Republicanism is bloodshed. The only way to return Adhomai to peace and prosperity is to learn from the mistakes of the ancient nobles and Republicans, and create a new noble dynasty."
 	flag_structure = /obj/structure/sign/flag/nka
 
 /obj/structure/sign/flag/nka
 	name = "\improper New Kingdom of Adhomai flag"
 	desc = "The blue flag of the New Kingdom of Adhomai."
-	desc_extended = " The New Kingdom is ruled by a Njarir'Akhran noble line that survived the previous Revolution by remaining in hiding, owing to the efforts of their supporters. \
-	Ruled by King Vahzirthaamro Azunja specifically, he denounces both other factions in the civil war as illegitimate and himself as the only legitimate ruler of Adhomai. \
-	Supporters of the New Kingdom tend to be rare outside lands it controls. However, they believe strongly that the current republic on Adhomai was founded on genocide and unspeakable \
-	slaughters. The New Kingdom puts forth the ideology that Republicanism is bloodshed. The only way to return Adhomai to peace and prosperity is to learn from the mistakes of the \
-	ancient nobles and Republicans, and create a new noble dynasty."
+	desc_extended = " The New Kingdom is ruled by a Njarir'Akhran noble line that survived the previous Revolution by remaining in hiding, owing to the efforts of their supporters. Ruled by King Vahzirthaamro Azunja specifically, he denounces both other factions in the civil war as illegitimate and himself as the only legitimate ruler of Adhomai. Supporters of the New Kingdom tend to be rare outside lands it controls. However, they believe strongly that the current republic on Adhomai was founded on genocide and unspeakable slaughters. The New Kingdom puts forth the ideology that Republicanism is bloodshed. The only way to return Adhomai to peace and prosperity is to learn from the mistakes of the ancient nobles and Republicans, and create a new noble dynasty."
 	flag_path = "nka"
 	icon_state = "nka"
 	flag_item = /obj/item/flag/nka
@@ -1085,25 +1061,13 @@
 	name = "\improper Free Tajaran Council flag"
 	desc = "The red and black flag of the Free Tajaran Council, the largest tajaran community in Himeo."
 	flag_path = "ftc"
-	desc_extended = "The Free Tajaran Council began as a rebel faction in the Duchy of Shungsta during the First Revolution. Born among oppressed peasants and factory workers, \
-	the movement advocated for the total abolishment of the existing governments in favor of local democratic councils. The Free Council became a serious contender for power in Northern Ras'nrr after Volin Kar'etrink - a young Hharar worker known to be a firebrand - was elected its leader. \
-	Due to its innate hostility to all other Adhomian Civil War factions, the Free Tajaran Council was unable to secure any significant territory outside of Northern Ras'nrr. The Council's forces were quickly defeated by the Hadiist forces when they invaded the region in 2427. \
-	Assisted off-world by the intervention of NanoTrasen, the surviving tajara travelled through Coalition of Colonies territory until reaching Himeo. Posing as refugees from the ongoing civil war, they were granted asylum and a degree of autonomy. \
-	Through the cooperation with Himeo, the Free Council prospered and grew in numbers. Despite all the prosperity however, Volin Kar'etrink is very old; little time is left for him in this world. \
-	The Free Tajaran Council now stands at a crossroads: a choice must be made concerning their future. In their struggle to influence the tajara, the nations on Adhomai have taken notice of the sizable community in Himeo. \
-	The Council is now a battleground for another proxy war between the Adhomian nations, who each sponsor different opposing factions within the community to gain their eventual support."
+	desc_extended = "The Free Tajaran Council began as a rebel faction in the Duchy of Shungsta during the First Revolution. Born among oppressed peasants and factory workers, the movement advocated for the total abolishment of the existing governments in favor of local democratic councils. The Free Council became a serious contender for power in Northern Ras'nrr after Volin Kar'etrink - a young Hharar worker known to be a firebrand - was elected its leader. Due to its innate hostility to all other Adhomian Civil War factions, the Free Tajaran Council was unable to secure any significant territory outside of Northern Ras'nrr. The Council's forces were quickly defeated by the Hadiist forces when they invaded the region in 2427. Assisted off-world by the intervention of NanoTrasen, the surviving tajara travelled through Coalition of Colonies territory until reaching Himeo. Posing as refugees from the ongoing civil war, they were granted asylum and a degree of autonomy. Through the cooperation with Himeo, the Free Council prospered and grew in numbers. Despite all the prosperity however, Volin Kar'etrink is very old; little time is left for him in this world. The Free Tajaran Council now stands at a crossroads: a choice must be made concerning their future. In their struggle to influence the tajara, the nations on Adhomai have taken notice of the sizable community in Himeo. The Council is now a battleground for another proxy war between the Adhomian nations, who each sponsor different opposing factions within the community to gain their eventual support."
 	flag_structure = /obj/structure/sign/flag/ftc
 
 /obj/structure/sign/flag/ftc
 	name = "\improper Free Tajaran Council flag"
 	desc = "The red and black flag of the Free Tajaran Council, the largest tajaran community in Himeo."
-	desc_extended = "The Free Tajaran Council began as a rebel faction in the Duchy of Shungsta during the First Revolution. Born among oppressed peasants and factory workers, \
-	the movement advocated for the total abolishment of the existing governments in favor of local democratic councils. The Free Council became a serious contender for power in Northern Ras'nrr after Volin Kar'etrink - a young Hharar worker known to be a firebrand - was elected its leader. \
-	Due to its innate hostility to all other Adhomian Civil War factions, the Free Tajaran Council was unable to secure any significant territory outside of Northern Ras'nrr. The Council's forces were quickly defeated by the Hadiist forces when they invaded the region in 2427. \
-	Assisted off-world by the intervention of NanoTrasen, the surviving tajara travelled through Coalition of Colonies territory until reaching Himeo. Posing as refugees from the ongoing civil war, they were granted asylum and a degree of autonomy. \
-	Through the cooperation with Himeo, the Free Council prospered and grew in numbers. Despite all the prosperity however, Volin Kar'etrink is very old; little time is left for him in this world. \
-	The Free Tajaran Council now stands at a crossroads: a choice must be made concerning their future. In their struggle to influence the tajara, the nations on Adhomai have taken notice of the sizable community in Himeo. \
-	The Council is now a battleground for another proxy war between the Adhomian nations, who each sponsor different opposing factions within the community to gain their eventual support."
+	desc_extended = "The Free Tajaran Council began as a rebel faction in the Duchy of Shungsta during the First Revolution. Born among oppressed peasants and factory workers, the movement advocated for the total abolishment of the existing governments in favor of local democratic councils. The Free Council became a serious contender for power in Northern Ras'nrr after Volin Kar'etrink - a young Hharar worker known to be a firebrand - was elected its leader. Due to its innate hostility to all other Adhomian Civil War factions, the Free Tajaran Council was unable to secure any significant territory outside of Northern Ras'nrr. The Council's forces were quickly defeated by the Hadiist forces when they invaded the region in 2427. Assisted off-world by the intervention of NanoTrasen, the surviving tajara travelled through Coalition of Colonies territory until reaching Himeo. Posing as refugees from the ongoing civil war, they were granted asylum and a degree of autonomy. Through the cooperation with Himeo, the Free Council prospered and grew in numbers. Despite all the prosperity however, Volin Kar'etrink is very old; little time is left for him in this world. The Free Tajaran Council now stands at a crossroads: a choice must be made concerning their future. In their struggle to influence the tajara, the nations on Adhomai have taken notice of the sizable community in Himeo. The Council is now a battleground for another proxy war between the Adhomian nations, who each sponsor different opposing factions within the community to gain their eventual support."
 	flag_path = "ftc"
 	icon_state = "ftc"
 	flag_item = /obj/item/flag/ftc
@@ -1341,43 +1305,80 @@
 /obj/structure/sign/flag/trinaryperfection/large/west/Initialize(mapload)
 	. = ..(mapload, WEST)
 
+// Ecclesiarchy (also Trinarist)
+
+/obj/item/flag/ecclesiastical_axiom
+	name = "\improper Ecclesiastical Axiom flag"
+	desc = "The flag of the Ecclesiastical Authority of Axiom, the frontier nation-state \
+	administered by the Trinary Perfection on the planet of Axiom."
+	desc_extended = "The Ecclesiastical Authority views itself as a shield, protecting both \
+	nations of the planet of Axiom with the strength of church infrastructure. Its coat of \
+	arms consists of a white heater shield trimmed with gold, within which is framed the \
+	planet of Axiom overlooked by a great red nazar. It is principly an apotropaic symbol, \
+	combining the symbolism of the evil eye with Encoded Axiom Liturgical script dissuading \
+	all meddlers from interference in the Ecclesiarchy's affairs and domestic rule."
+	flag_path = "ecclesiastical_axiom"
+	flag_structure = /obj/structure/sign/flag/ecclesiastical_axiom
+
+/obj/structure/sign/flag/ecclesiastical_axiom
+	name = "\improper Ecclesiastical Axiom flag"
+	desc = "The flag of the Ecclesiastical Authority of Axiom, the frontier nation-state \
+	administered by the Trinary Perfection on the planet of Axiom."
+	desc_extended = "The Ecclesiastical Authority views itself as a shield, protecting both \
+	nations of the planet of Axiom with the strength of church infrastructure. Its coat of \
+	arms consists of a white heater shield trimmed with gold, within which is framed the \
+	planet of Axiom overlooked by a great red nazar. It is principly an apotropaic symbol, \
+	combining the symbolism of the evil eye with Encoded Axiom Liturgical script dissuading \
+	all meddlers from interference in the Ecclesiarchy's affairs and domestic rule."
+	flag_path = "ecclesiastical_axiom"
+	icon_state = "ecclesiastical_axiom"
+	flag_item = /obj/item/flag/ecclesiastical_axiom
+
+/obj/structure/sign/flag/ecclesiastical_axiom/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/ecclesiastical_axiom/l
+	name = "large Ecclesiastical Axiom flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/ecclesiastical_axiom/large
+
+/obj/structure/sign/flag/ecclesiastical_axiom/large
+	icon_state = "ecclesiastical_axiom_l"
+	flag_path = "ecclesiastical_axiom"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/ecclesiastical_axiom/l
+
+/obj/structure/sign/flag/ecclesiastical_axiom/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/ecclesiastical_axiom/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/ecclesiastical_axiom/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/ecclesiastical_axiom/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
+
 // Salamasian Republic
 
 /obj/item/flag/salamasian_republic
-	name = "\improper Salamasian Republic flag"
-	desc = "The flag of the Salamasian Republic, one of the two codependent states of \
-	Axiom, also known as Nuʻu or Orepit. Born from corporate colonization, abandonment, \
-	revolt, and generations of hardship, the republic and its people have shaped a vibrant \
-	culture wholly their own."
-	desc_extended = "The flag of the Salamasian Republic consists of a bright turquoise field \
-	above a deep teal band. Upon the field sits a large orange disc, accompanied by three smaller \
-	spheres in tan, blue, and gray. The turquoise field represents the sky and sea of Nuʻu, \
-	recalling the world’s broad oceans and open horizons. The deep teal band represents land, \
-	home, and cultivation: the fertile ground upon which the old mining settlements became villages, \
-	cities, and, in time, a republic. The orange disc depicts Aloʻo le La, the orange dwarf star of \
-	the Tagaloa system. The three smaller discs represent the other visible bodies of the Tagaloa sky: \
-	Leiloa, Vaoati, and Faʻatiu, shown from top to bottom. They are also commonly read as symbols of \
-	family, strength, and virtue, core ideals of Faʻa Salamasia. As a whole, the flag recreates the \
-	sky as seen from Nuʻu’s surface, with its celestial neighbors visible above the land of Nu’u."
+	name = "\improper Salamasian Flag"
+	desc = "The flag of the Salamasian Republic, one of the two codependent states of Axiom, also known as Nuʻu or Orepit. Born from corporate colonization, abandonment, revolt, and generations of hardship, the republic and its people have shaped a vibrant culture wholly their own."
+	desc_extended = "The flag of the Salamasian Republic consists of a bright turquoise field above a deep teal band. Upon the field sits a large orange disc, accompanied by three smaller spheres in tan, blue, and gray.<br> \
+	The turquoise field represents the sky and sea of Nuʻu, recalling the world’s broad oceans and open horizons. The deep teal band represents land, home, and cultivation: the fertile ground upon which the old mining settlements became villages, cities, and, in time, a republic.<br> \
+	The orange disc depicts Aloʻo le La, the orange dwarf star of the Tagaloa system. The three smaller discs represent the other visible bodies of the Tagaloa sky: Leiloa, Vaoati, and Faʻatiu, shown from top to bottom. They are also commonly read as symbols of family, strength, and virtue, core ideals of Faʻa Salamasia.<br> \
+	As a whole, the flag recreates the sky as seen from Nuʻu’s surface, with its celestial neighbors visible above the land of Nu’u."
 	flag_path = "salamasian_republic"
 	flag_structure = /obj/structure/sign/flag/salamasian_republic
 
 /obj/structure/sign/flag/salamasian_republic
-	name = "\improper Salamasian Republic flag"
-	desc = "The flag of the Salamasian Republic, one of the two codependent states of \
-	Axiom, also known as Nuʻu or Orepit. Born from corporate colonization, abandonment, \
-	revolt, and generations of hardship, the republic and its people have shaped a vibrant \
-	culture wholly their own."
-	desc_extended = "The flag of the Salamasian Republic consists of a bright turquoise field \
-	above a deep teal band. Upon the field sits a large orange disc, accompanied by three smaller \
-	spheres in tan, blue, and gray. The turquoise field represents the sky and sea of Nuʻu, \
-	recalling the world’s broad oceans and open horizons. The deep teal band represents land, \
-	home, and cultivation: the fertile ground upon which the old mining settlements became villages, \
-	cities, and, in time, a republic. The orange disc depicts Aloʻo le La, the orange dwarf star of \
-	the Tagaloa system. The three smaller discs represent the other visible bodies of the Tagaloa sky: \
-	Leiloa, Vaoati, and Faʻatiu, shown from top to bottom. They are also commonly read as symbols of \
-	family, strength, and virtue, core ideals of Faʻa Salamasia. As a whole, the flag recreates the \
-	sky as seen from Nuʻu’s surface, with its celestial neighbors visible above the land of Nu’u."
+	name = "\improper Salamasian Flag"
+	desc = "The flag of the Salamasian Republic, one of the two codependent states of Axiom, also known as Nuʻu or Orepit. Born from corporate colonization, abandonment, revolt, and generations of hardship, the republic and its people have shaped a vibrant culture wholly their own."
+	desc_extended = "The flag of the Salamasian Republic consists of a bright turquoise field above a deep teal band. Upon the field sits a large orange disc, accompanied by three smaller spheres in tan, blue, and gray.<br> \
+	The turquoise field represents the sky and sea of Nuʻu, recalling the world’s broad oceans and open horizons. The deep teal band represents land, home, and cultivation: the fertile ground upon which the old mining settlements became villages, cities, and, in time, a republic.<br> \
+	The orange disc depicts Aloʻo le La, the orange dwarf star of the Tagaloa system. The three smaller discs represent the other visible bodies of the Tagaloa sky: Leiloa, Vaoati, and Faʻatiu, shown from top to bottom. They are also commonly read as symbols of family, strength, and virtue, core ideals of Faʻa Salamasia.<br> \
+	As a whole, the flag recreates the sky as seen from Nuʻu’s surface, with its celestial neighbors visible above the land of Nu’u."
 	flag_path = "salamasian_republic"
 	icon_state = "salamasian_republic"
 	flag_item = /obj/item/flag/salamasian_republic
@@ -1386,11 +1387,22 @@
 	unmovable = TRUE
 
 /obj/item/flag/salamasian_republic/l
-	name = "large Salamasian Republic flag"
+	name = "\improper Salamasian Flag"
+	desc = "The flag of the Salamasian Republic, one of the two codependent states of Axiom, also known as Nuʻu or Orepit. Born from corporate colonization, abandonment, revolt, and generations of hardship, the republic and its people have shaped a vibrant culture wholly their own."
+	desc_extended = "The flag of the Salamasian Republic consists of a bright turquoise field above a deep teal band. Upon the field sits a large orange disc, accompanied by three smaller spheres in tan, blue, and gray.<br> \
+	The turquoise field represents the sky and sea of Nuʻu, recalling the world’s broad oceans and open horizons. The deep teal band represents land, home, and cultivation: the fertile ground upon which the old mining settlements became villages, cities, and, in time, a republic.<br> \
+	The orange disc depicts Aloʻo le La, the orange dwarf star of the Tagaloa system. The three smaller discs represent the other visible bodies of the Tagaloa sky: Leiloa, Vaoati, and Faʻatiu, shown from top to bottom. They are also commonly read as symbols of family, strength, and virtue, core ideals of Faʻa Salamasia.<br> \
+	As a whole, the flag recreates the sky as seen from Nuʻu’s surface, with its celestial neighbors visible above the land of Nu’u."
 	flag_size = TRUE
 	flag_structure = /obj/structure/sign/flag/salamasian_republic/large
 
 /obj/structure/sign/flag/salamasian_republic/large
+	name = "\improper Salamasian Flag"
+	desc = "The flag of the Salamasian Republic, one of the two codependent states of Axiom, also known as Nuʻu or Orepit. Born from corporate colonization, abandonment, revolt, and generations of hardship, the republic and its people have shaped a vibrant culture wholly their own."
+	desc_extended = "The flag of the Salamasian Republic consists of a bright turquoise field above a deep teal band. Upon the field sits a large orange disc, accompanied by three smaller spheres in tan, blue, and gray.<br> \
+	The turquoise field represents the sky and sea of Nuʻu, recalling the world’s broad oceans and open horizons. The deep teal band represents land, home, and cultivation: the fertile ground upon which the old mining settlements became villages, cities, and, in time, a republic.<br> \
+	The orange disc depicts Aloʻo le La, the orange dwarf star of the Tagaloa system. The three smaller discs represent the other visible bodies of the Tagaloa sky: Leiloa, Vaoati, and Faʻatiu, shown from top to bottom. They are also commonly read as symbols of family, strength, and virtue, core ideals of Faʻa Salamasia.<br> \
+	As a whole, the flag recreates the sky as seen from Nuʻu’s surface, with its celestial neighbors visible above the land of Nu’u."
 	icon_state = "salamasian_republic_l"
 	flag_path = "salamasian_republic"
 	flag_size = TRUE
@@ -1494,30 +1506,26 @@
 
 /obj/item/flag/kazhkz
 	name = "\improper House Kazhkz standard"
-	desc = "A red-and-orange standard with a circular chevron which represents House Kazhkz-Han'san, one of the unathi houses of the \
-	Empire of Dominia. They are known for their more modernist nature and aversion to augmentation."
+	desc = "A red-and-orange standard with a circular chevron which represents House Kazhkz-Han'san, one of the unathi houses of the Empire of Dominia. They are known for their more modernist nature and aversion to augmentation."
 	flag_path = "kazhkz"
 	flag_structure = /obj/structure/sign/flag/kazhkz
 
 /obj/structure/sign/flag/kazhkz
 	name = "\improper House Kazhkz standard"
-	desc = "A red-and-orange standard with a circular chevron which represents House Kazhkz-Han'san, one of the unathi houses of the \
-	Empire of Dominia. They are known for their more modernist nature and aversion to augmentation."
+	desc = "A red-and-orange standard with a circular chevron which represents House Kazhkz-Han'san, one of the unathi houses of the Empire of Dominia. They are known for their more modernist nature and aversion to augmentation."
 	flag_path = "kazhkz"
 	icon_state = "kazhkz"
 	flag_item = /obj/item/flag/kazhkz
 
 /obj/item/flag/hansan
 	name = "\improper House Han'san standard"
-	desc = "A green standard with a circular chevron which represents the Clan Han'san, currently sidelined in the \
-	unathi House Kazhkz-Han'san. They are known for their conservative and militant nature."
+	desc = "A green standard with a circular chevron which represents the Clan Han'san, currently sidelined in the unathi House Kazhkz-Han'san. They are known for their conservative and militant nature."
 	flag_path = "hansan"
 	flag_structure = /obj/structure/sign/flag/hansan
 
 /obj/structure/sign/flag/hansan
 	name = "\improper House Han'san standard"
-	desc = "A green standard with a circular chevron which represents the Clan Han'san, currently sidelined in the \
-	unathi House Kazhkz-Han'san. They are known for their conservative and militant nature."
+	desc = "A green standard with a circular chevron which represents the Clan Han'san, currently sidelined in the unathi House Kazhkz-Han'san. They are known for their conservative and militant nature."
 	flag_path = "hansan"
 	icon_state = "hansan"
 	flag_item = /obj/item/flag/hansan
@@ -1551,54 +1559,42 @@
 /obj/item/flag/seok
 	name = "\improper House Seok standard"
 	desc = "The red-black-red banner of House Seok. Long live the Empress and her family!"
-	desc_extended = "House Seok symbolizes itself with a traditional character roughly translating as ancient, signifying its venerable history and \
-	ties to the Imperial Household. Many Imperial cultural buildings, from libraries to opera houses, have this symbol engraved somewhere inside them as \
-	an enduring testament to House Seok's generosity."
+	desc_extended = "House Seok symbolizes itself with a traditional character roughly translating as ancient, signifying its venerable history and ties to the Imperial Household. Many Imperial cultural buildings, from libraries to opera houses, have this symbol engraved somewhere inside them as an enduring testament to House Seok's generosity."
 	flag_path = "seok"
 	flag_structure = /obj/structure/sign/flag/seok
 
 /obj/structure/sign/flag/seok
 	name = "\improper House Seok standard"
 	desc = "The red-black-red banner of House Seok. Long live the Empress and her family!"
-	desc_extended = "House Seok symbolizes itself with a traditional character roughly translating as ancient, signifying its venerable history and \
-	ties to the Imperial Household. Many Imperial cultural buildings, from libraries to opera houses, have this symbol engraved somewhere inside them as \
-	an enduring testament to House Seok's generosity."
+	desc_extended = "House Seok symbolizes itself with a traditional character roughly translating as ancient, signifying its venerable history and ties to the Imperial Household. Many Imperial cultural buildings, from libraries to opera houses, have this symbol engraved somewhere inside them as an enduring testament to House Seok's generosity."
 	icon_state = "seok"
 	flag_item = /obj/item/flag/seok
 
 /obj/item/flag/kaneko
 	name = "\improper House Kaneko standard"
 	desc = "The gold-and-silver banner of House Kaneko. Long live Zhurong and Count Kaneko!"
-	desc_extended = "The sixth great houses' symbol, a golden crysanthemum, symbolises the long history of House Kaneko and its great potential - and ambition. \
-	This symbol is often stamped on the support beams of Zhurong's structures and on the interior of Imperial Fleet hulls, symbolizing the steel used to construct \
-	it draws from the same great strength as House Kaneko."
+	desc_extended = "The sixth great houses' symbol, a golden crysanthemum, symbolises the long history of House Kaneko and its great potential - and ambition. This symbol is often stamped on the support beams of Zhurong's structures and on the interior of Imperial Fleet hulls, symbolizing the steel used to construct it draws from the same great strength as House Kaneko."
 	flag_path = "kaneko"
 	flag_structure = /obj/structure/sign/flag/kaneko
 
 /obj/structure/sign/flag/kaneko
 	name = "\improper House Kaneko standard"
 	desc = "The gold-and-silver banner of House Kaneko. Long live Zhurong and Count Kaneko!"
-	desc_extended = "The sixth great houses' symbol, a golden crysanthemum, symbolises the long history of House Kaneko and its great potential - and ambition. \
-	This symbol is often stamped on the support beams of Zhurong's structures and on the interior of Imperial Fleet hulls, symbolizing the steel used to construct \
-	it draws from the same great strength as House Kaneko."
+	desc_extended = "The sixth great houses' symbol, a golden crysanthemum, symbolises the long history of House Kaneko and its great potential - and ambition. This symbol is often stamped on the support beams of Zhurong's structures and on the interior of Imperial Fleet hulls, symbolizing the steel used to construct it draws from the same great strength as House Kaneko."
 	icon_state = "kaneko"
 	flag_item = /obj/item/flag/kaneko
 
 /obj/item/flag/sinzendorf
 	name = "\improper House von Sinzendorf standard"
 	desc = "The black-and-red banner of House von Sinzendorf. En garde!"
-	desc_extended = "The crossed swords and Imperial Eye of House von Sinzendorf’s crest feature prominently on its banner. The swords symbolize duty, honour, \
-	and loyalty until the end. The Imperial Eye symbolizes the Imperial Household, their masters. The Imperial Household's guard is closely associated with the \
-	von Sinzendorf's symbol, due to their long history as the Imperial family's bodyguards."
+	desc_extended = "The crossed swords and Imperial Eye of House von Sinzendorf’s crest feature prominently on its banner. The swords symbolize duty, honour, and loyalty until the end. The Imperial Eye symbolizes the Imperial Household, their masters. The Imperial Household's guard is closely associated with the von Sinzendorf's symbol, due to their long history as the Imperial family's bodyguards."
 	flag_path = "sinzendorf"
 	flag_structure = /obj/structure/sign/flag/sinzendorf
 
 /obj/structure/sign/flag/sinzendorf
 	name = "\improper House von Sinzendorf standard"
 	desc = "The black-and-red banner of House von Sinzendorf. En garde!"
-	desc_extended = "The crossed swords and Imperial Eye of House von Sinzendorf’s crest feature prominently on its banner. The swords symbolize duty, honour, \
-	and loyalty until the end. The Imperial Eye symbolizes the Imperial Household, their masters. The Imperial Household's guard is closely associated with the \
-	von Sinzendorf's symbol, due to their long history as the Imperial family's bodyguards."
+	desc_extended = "The crossed swords and Imperial Eye of House von Sinzendorf’s crest feature prominently on its banner. The swords symbolize duty, honour, and loyalty until the end. The Imperial Eye symbolizes the Imperial Household, their masters. The Imperial Household's guard is closely associated with the von Sinzendorf's symbol, due to their long history as the Imperial family's bodyguards."
 	icon_state = "sinzendorf"
 	flag_item = /obj/item/flag/sinzendorf
 
@@ -1644,14 +1640,22 @@
 	. = ..(mapload, WEST)
 
 /obj/item/flag/biesel/old
-	name = "old Autonomous Solarian Republic of Biesel flag"
-	desc = "The flag used by Biesel and Valkyrie while they were semi-autonomous colonies of the Solarian Alliance, re-instated briefly during the 33rd Fleet's invasion and occupation in 2459. Due to this and the general hatred of the Sol Alliance across Tau Ceti, displaying this flag anywhere in Tau Ceti space would be a bold move, and is illegal as it often carries anti-corporatist and/or treasonous sentiments."
+	name = "\improper Solarian Bieselite Banner"
+	desc = "The banner of the Autonomous Sovereign Solarian Republic of Biesel, the pre-independence government that administered Biesel and Valkyrie prior to 2452. Commonly known as the Copper Stars, it is still flown by some Solarian-loyal Bieselites, though its display within Biesel is legal, the SCC considers it to be contraband on their ships and facilities."
+	desc_extended = "The banner of the Autonomous Republic consists of a broad white field flanked by blue vertical bars. Centered upon the field is a ringed emblem surrounded by eight copper stars.<br> \
+	The white field represents peace and unity between Biesel’s diverse inhabitants, the people of Valkyrie, and the wider peoples of the Alliance. The blue bars represent the broad, expansive oceans that dominate Biesel.<br> \
+	The central roundel represents both Biesel and Valkyrie. The red center marks Biesel itself, while the surrounding blue ring recalls Valkyrie and its orbit. The outer gold ring represents the republic’s proud and nearly unique autonomous status within the Alliance.<br> \
+	The eight copper stars represent the old republic’s eight provinces: the seven provinces of Biesel and the single province of Valkyrie."
 	flag_path = "biesel_old"
 	flag_structure = /obj/structure/sign/flag/biesel/old
 
 /obj/structure/sign/flag/biesel/old
-	name = "old Autonomous Solarian Republic of Biesel flag"
-	desc = "The flag used by Biesel and Valkyrie while they were semi-autonomous colonies of the Solarian Alliance, re-instated briefly during the 33rd Fleet's invasion and occupation in 2459. Due to this and the general hatred of the Sol Alliance across Tau Ceti, displaying this flag anywhere in Tau Ceti space would be a bold move, and is illegal as it often carries anti-corporatist and/or treasonous sentiments."
+	name = "\improper Solarian Bieselite Banner"
+	desc = "The banner of the Autonomous Sovereign Solarian Republic of Biesel, the pre-independence government that administered Biesel and Valkyrie prior to 2452. Commonly known as the Copper Stars, it is still flown by some Solarian-loyal Bieselites, though its display within Biesel is legal, the SCC considers it to be contraband on their ships and facilities."
+	desc_extended = "The banner of the Autonomous Republic consists of a broad white field flanked by blue vertical bars. Centered upon the field is a ringed emblem surrounded by eight copper stars.<br> \
+	The white field represents peace and unity between Biesel’s diverse inhabitants, the people of Valkyrie, and the wider peoples of the Alliance. The blue bars represent the broad, expansive oceans that dominate Biesel.<br> \
+	The central roundel represents both Biesel and Valkyrie. The red center marks Biesel itself, while the surrounding blue ring recalls Valkyrie and its orbit. The outer gold ring represents the republic’s proud and nearly unique autonomous status within the Alliance.<br> \
+	The eight copper stars represent the old republic’s eight provinces: the seven provinces of Biesel and the single province of Valkyrie."
 	flag_path = "biesel_old"
 	icon_state = "biesel_old"
 	flag_item = /obj/item/flag/biesel/old
@@ -1660,11 +1664,22 @@
 	unmovable = TRUE
 
 /obj/item/flag/biesel/old/l
-	name = "large old Autonomous Solarian Republic of Biesel flag"
+	name = "\improper Solarian Bieselite Flag"
+	desc = "The flag of the Autonomous Sovereign Solarian Republic of Biesel, the pre-independence government that administered Biesel and Valkyrie prior to 2452. Commonly known as the Copper Stars, it is still flown by some Solarian-loyal Bieselites, though its display within Biesel is legal, the SCC considers it to be contraband on their ships and facilities."
+	desc_extended = "The flag of the Autonomous Republic consists of a broad white field flanked by blue vertical bars. Centered upon the field is a ringed emblem surrounded by eight copper stars.<br> \
+	The white field represents peace and unity between Biesel’s diverse inhabitants, the people of Valkyrie, and the wider peoples of the Alliance. The blue bars represent the broad, expansive oceans that dominate Biesel.<br> \
+	The central roundel represents both Biesel and Valkyrie. The red center marks Biesel itself, while the surrounding blue ring recalls Valkyrie and its orbit. The outer gold ring represents the republic’s proud and nearly unique autonomous status within the Alliance.<br> \
+	The eight copper stars represent the old republic’s eight provinces: the seven provinces of Biesel and the single province of Valkyrie."
 	flag_size = TRUE
 	flag_structure = /obj/structure/sign/flag/biesel/old/large
 
 /obj/structure/sign/flag/biesel/old/large
+	name = "\improper Solarian Bieselite Flag"
+	desc = "The flag of the Autonomous Sovereign Solarian Republic of Biesel, the pre-independence government that administered Biesel and Valkyrie prior to 2452. Commonly known as the Copper Stars, it is still flown by some Solarian-loyal Bieselites, though its display within Biesel is legal, the SCC considers it to be contraband on their ships and facilities."
+	desc_extended = "The flag of the Autonomous Republic consists of a broad white field flanked by blue vertical bars. Centered upon the field is a ringed emblem surrounded by eight copper stars.<br> \
+	The white field represents peace and unity between Biesel’s diverse inhabitants, the people of Valkyrie, and the wider peoples of the Alliance. The blue bars represent the broad, expansive oceans that dominate Biesel.<br> \
+	The central roundel represents both Biesel and Valkyrie. The red center marks Biesel itself, while the surrounding blue ring recalls Valkyrie and its orbit. The outer gold ring represents the republic’s proud and nearly unique autonomous status within the Alliance.<br> \
+	The eight copper stars represent the old republic’s eight provinces: the seven provinces of Biesel and the single province of Valkyrie."
 	icon_state = "biesel_old_l"
 	flag_path = "biesel_old"
 	flag_size = TRUE
@@ -1683,29 +1698,48 @@
 	. = ..(mapload, WEST)
 
 /obj/item/flag/biesel/antique
-	name = "antique Solarian Colonial Mandate of Tau Ceti flag"
-	desc = "The flag used by Biesel and Valkyrie before the Interstellar War, during its initial colonization. This flag still has the old Solarian Alliance canton in the corner. This flag is old enough that it is considered an antique and not illegal to display, but would still be a bad move to publicly display it in Tau Ceti space, primarily due to its rarity."
-	flag_path = "antique_biesel"
+	name = "\improper Tau Cetian Banner"
+	desc = "The banner used by the Solarian Colonial Mandate of Tau Ceti, the colonial government that administered Biesel and Valkyrie during the system’s initial settlement period, at the height of the Solarian Alliance’s Hegemonic Era. Now regarded as an antique, it is seen most often in museums, textbooks, private collections, and among enthusiasts who mourn an age when mankind seemed capable of grander things."
+	desc_extended = "The Tau Cetian banner consists of a white field crossed by a broad diagonal blue band. At its center is a ringed roundel encircled by twelve white stars, each set against a red shadow.<br> \
+	The white field represents opportunity and hope, reflecting the promise Tau Ceti held for its first settlers. The diagonal blue band represents the broad expanse of Biesel’s oceans, one of the many traits that made the world attractive for colonization.<br> \
+	The central roundel represents Biesel and Valkyrie together. The red center marks Biesel itself, while the surrounding blue ring recalls Valkyrie and its orbit. The gold ring around them represents the wealth of the system and the promise of a brighter future.<br> \
+	The twelve surrounding stars represent the founding settlements of Biesel and Valkyrie. Their red shadows serve as a reminder of the past: the many histories, cultures, and sacrifices carried by the settlers as Tau Cetians built a better world for themselves and their children."
+	flag_path = "biesel_old2"
 	flag_structure = /obj/structure/sign/flag/biesel/antique
 
 /obj/structure/sign/flag/biesel/antique
-	name = "antique Solarian Colonial Mandate of Tau Ceti flag"
-	desc = "The flag used by Biesel and Valkyrie before the Interstellar War, during its initial colonization. This flag still has the old Solarian Alliance canton in the corner. This flag is old enough that it is considered an antique and not illegal to display, but would still be a bad move to publicly display it in Tau Ceti space, primarily due to its rarity."
-	flag_path = "antique_biesel"
-	icon_state = "antique_biesel"
+	name = "\improper Tau Cetian Banner"
+	desc = "The banner used by the Solarian Colonial Mandate of Tau Ceti, the colonial government that administered Biesel and Valkyrie during the system’s initial settlement period, at the height of the Solarian Alliance’s Hegemonic Era. Now regarded as an antique, it is seen most often in museums, textbooks, private collections, and among enthusiasts who mourn an age when mankind seemed capable of grander things."
+	desc_extended = "The Tau Cetian banner consists of a white field crossed by a broad diagonal blue band. At its center is a ringed roundel encircled by twelve white stars, each set against a red shadow.<br> \
+	The white field represents opportunity and hope, reflecting the promise Tau Ceti held for its first settlers. The diagonal blue band represents the broad expanse of Biesel’s oceans, one of the many traits that made the world attractive for colonization.<br> \
+	The central roundel represents Biesel and Valkyrie together. The red center marks Biesel itself, while the surrounding blue ring recalls Valkyrie and its orbit. The gold ring around them represents the wealth of the system and the promise of a brighter future.<br> \
+	The twelve surrounding stars represent the founding settlements of Biesel and Valkyrie. Their red shadows serve as a reminder of the past: the many histories, cultures, and sacrifices carried by the settlers as Tau Cetians built a better world for themselves and their children."
+	flag_path = "biesel_old2"
+	icon_state = "biesel_old2"
 	flag_item = /obj/item/flag/biesel/antique
 
 /obj/structure/sign/flag/biesel/antique/unmovable
 	unmovable = TRUE
 
 /obj/item/flag/biesel/antique/l
-	name = "large antique Solarian Colonial Mandate of Tau Ceti flag"
+	name = "\improper Tau Cetian Flag"
+	desc = "The flag used by the Solarian Colonial Mandate of Tau Ceti, the colonial government that administered Biesel and Valkyrie during the system’s initial settlement period, at the height of the Solarian Alliance’s Hegemonic Era. Now regarded as an antique, it is seen most often in museums, textbooks, private collections, and among enthusiasts who mourn an age when mankind seemed capable of grander things."
+	desc_extended = "The Tau Cetian flag consists of a white field crossed by a broad diagonal blue band. At its center is a ringed roundel encircled by twelve white stars, each set against a red shadow.<br> \
+	The white field represents opportunity and hope, reflecting the promise Tau Ceti held for its first settlers. The diagonal blue band represents the broad expanse of Biesel’s oceans, one of the many traits that made the world attractive for colonization.<br> \
+	The central roundel represents Biesel and Valkyrie together. The red center marks Biesel itself, while the surrounding blue ring recalls Valkyrie and its orbit. The gold ring around them represents the wealth of the system and the promise of a brighter future.<br> \
+	The twelve surrounding stars represent the founding settlements of Biesel and Valkyrie. Their red shadows serve as a reminder of the past: the many histories, cultures, and sacrifices carried by the settlers as Tau Cetians built a better world for themselves and their children."
 	flag_size = TRUE
 	flag_structure = /obj/structure/sign/flag/biesel/antique/large
 
 /obj/structure/sign/flag/biesel/antique/large
-	icon_state = "biesel_antique_l"
-	flag_path = "biesel_antique"
+	name = "\improper Tau Cetian Flag"
+	desc = "The flag used by the Solarian Colonial Mandate of Tau Ceti, the colonial government that administered Biesel and Valkyrie during the system’s initial settlement period, at the height of the Solarian Alliance’s Hegemonic Era. Now regarded as an antique, it is seen most often in museums, textbooks, private collections, and among enthusiasts who mourn an age when mankind seemed capable of grander things."
+	desc_extended = "The Tau Cetian flag consists of a white field crossed by a broad diagonal blue band. At its center is a ringed roundel encircled by twelve white stars, each set against a red shadow.<br> \
+	The white field represents opportunity and hope, reflecting the promise Tau Ceti held for its first settlers. The diagonal blue band represents the broad expanse of Biesel’s oceans, one of the many traits that made the world attractive for colonization.<br> \
+	The central roundel represents Biesel and Valkyrie together. The red center marks Biesel itself, while the surrounding blue ring recalls Valkyrie and its orbit. The gold ring around them represents the wealth of the system and the promise of a brighter future.<br> \
+	The twelve surrounding stars represent the founding settlements of Biesel and Valkyrie. Their red shadows serve as a reminder of the past: the many histories, cultures, and sacrifices carried by the settlers as Tau Cetians built a better world for themselves and their children."
+	icon_state = "biesel_old2_l"
+	flag_path = "biesel_old2"
 	flag_size = TRUE
 	flag_item = /obj/item/flag/biesel/antique/l
 
@@ -1769,16 +1803,14 @@
 /obj/item/flag/fisanduh
 	name = "\improper Confederated States of Fisanduh flag"
 	desc = "A flag of the fallen Confederated States of Fisanduh."
-	desc_extended = "The red-gold-white flag of the Confederated States of Fisanduh and, by extention, the Fisanduh Freedom Front. Due to its origins, possession of such a flag in the Empire outside of Fisanduh itself can carry an extremely harsh punishment if one is an Imperial citizen or \
-	subject. This has not stopped it from becoming a symbol of resistance, and reproductions are extremely common in more rebellious areas of the Empire. Even if they are beaten-down and run ragged by war, the spirit of Fisanduh will live forever in the hearts of its people."
+	desc_extended = "The red-gold-white flag of the Confederated States of Fisanduh and, by extention, the Fisanduh Freedom Front. Due to its origins, possession of such a flag in the Empire outside of Fisanduh itself can carry an extremely harsh punishment if one is an Imperial citizen or subject. This has not stopped it from becoming a symbol of resistance, and reproductions are extremely common in more rebellious areas of the Empire. Even if they are beaten-down and run ragged by war, the spirit of Fisanduh will live forever in the hearts of its people."
 	flag_path = "fisanduh"
 	flag_structure = /obj/structure/sign/flag/fisanduh
 
 /obj/structure/sign/flag/fisanduh
 	name = "\improper Confederated States of Fisanduh flag"
 	desc = "A flag of the fallen Confederated States of Fisanduh."
-	desc_extended = "The red-gold-white flag of the Confederated States of Fisanduh and, by extention, the Fisanduh Freedom Front. Due to its origins, possession of such a flag in the Empire outside of Fisanduh itself can carry an extremely harsh punishment if one is an Imperial citizen or \
-	subject. This has not stopped it from becoming a symbol of resistance, and reproductions are extremely common in more rebellious areas of the Empire. Even if they are beaten-down and run ragged by war, the spirit of Fisanduh will live forever in the hearts of its people."
+	desc_extended = "The red-gold-white flag of the Confederated States of Fisanduh and, by extention, the Fisanduh Freedom Front. Due to its origins, possession of such a flag in the Empire outside of Fisanduh itself can carry an extremely harsh punishment if one is an Imperial citizen or subject. This has not stopped it from becoming a symbol of resistance, and reproductions are extremely common in more rebellious areas of the Empire. Even if they are beaten-down and run ragged by war, the spirit of Fisanduh will live forever in the hearts of its people."
 	flag_path = "fisanduh"
 	icon_state = "fisanduh"
 	flag_item = /obj/item/flag/fisanduh
@@ -1813,21 +1845,15 @@
 
 /obj/item/flag/gadpathur
 	name = "\improper United Planetary Defense Council of Gadpathur flag"
-	desc = "The black and brown flag of Gadpathur, featuring the planet's commonly-seen sun iconography in the centre. The Gadpathurian flag is a common sight in the Coalition's military, and can be seen everywhere on Gadpathur -- from lighters to ID card to government buildings. \
-	It is uncommonly seen outside of the Coalition as a symbol of anti-Solarian sentiment."
-	desc_extended = "The Gadpathurian flag is, surprisingly, a variation of the common flag of its hated enemy: the Alliance of Sovereign Solarian Nations. The reason for this is simple: in the immediate aftermath of the planet's orbital bombardment by the Solarian \
-	Navy the most common flags available for the various successor states were the ASSN flags still flying over the ruins of government buildings. The black-brown flag of Ashia Patvardhan's Gadpathurian Reunification League that is now Gadpathur's flag was simply one of many of \
-	these variant flags before the League's reunification. The black and brown represent the planet itself, while the red-and-gold sun represents that the people of the planet are still alive and burning with a desire to never again fall."
+	desc = "The black and brown flag of Gadpathur, featuring the planet's commonly-seen sun iconography in the centre. The Gadpathurian flag is a common sight in the Coalition's military, and can be seen everywhere on Gadpathur -- from lighters to ID card to government buildings. It is uncommonly seen outside of the Coalition as a symbol of anti-Solarian sentiment."
+	desc_extended = "The Gadpathurian flag is, surprisingly, a variation of the common flag of its hated enemy: the Alliance of Sovereign Solarian Nations. The reason for this is simple: in the immediate aftermath of the planet's orbital bombardment by the Solarian Navy the most common flags available for the various successor states were the ASSN flags still flying over the ruins of government buildings. The black-brown flag of Ashia Patvardhan's Gadpathurian Reunification League that is now Gadpathur's flag was simply one of many of these variant flags before the League's reunification. The black and brown represent the planet itself, while the red-and-gold sun represents that the people of the planet are still alive and burning with a desire to never again fall."
 	flag_path = "gadpathur"
 	flag_structure = /obj/structure/sign/flag/gadpathur
 
 /obj/structure/sign/flag/gadpathur
 	name = "\improper United Planetary Defense Council of Gadpathur flag"
-	desc = "The black and brown flag of Gadpathur, featuring the planet's commonly-seen sun iconography in the centre. The Gadpathurian flag is a common sight in the Coalition's military, and can be seen everywhere on Gadpathur -- from lighters to ID card to government buildings. \
-	It is uncommonly seen outside of the Coalition as a symbol of anti-Solarian sentiment."
-	desc_extended = "The Gadpathurian flag is, surprisingly, a variation of the common flag of its hated enemy: the Alliance of Sovereign Solarian Nations. The reason for this is simple: in the immediate aftermath of the planet's orbital bombardment by the Solarian \
-	Navy the most common flags available for the various successor states were the ASSN flags still flying over the ruins of government buildings. The black-brown flag of Ashia Patvardhan's Gadpathurian Reunification League that is now Gadpathur's flag was simply one of many of \
-	these variant flags before the League's reunification. The black and brown represent the planet itself, while the red-and-gold sun represents that the people of the planet are still alive and burning with a desire to never again fall."
+	desc = "The black and brown flag of Gadpathur, featuring the planet's commonly-seen sun iconography in the centre. The Gadpathurian flag is a common sight in the Coalition's military, and can be seen everywhere on Gadpathur -- from lighters to ID card to government buildings. It is uncommonly seen outside of the Coalition as a symbol of anti-Solarian sentiment."
+	desc_extended = "The Gadpathurian flag is, surprisingly, a variation of the common flag of its hated enemy: the Alliance of Sovereign Solarian Nations. The reason for this is simple: in the immediate aftermath of the planet's orbital bombardment by the Solarian Navy the most common flags available for the various successor states were the ASSN flags still flying over the ruins of government buildings. The black-brown flag of Ashia Patvardhan's Gadpathurian Reunification League that is now Gadpathur's flag was simply one of many of these variant flags before the League's reunification. The black and brown represent the planet itself, while the red-and-gold sun represents that the people of the planet are still alive and burning with a desire to never again fall."
 	flag_path = "gadpathur"
 	icon_state = "gadpathur"
 	flag_item = /obj/item/flag/gadpathur
@@ -1863,16 +1889,14 @@
 /obj/item/flag/vysoka
 	name = "\improper Free System of Vysoka flag"
 	desc = "The flag of the Free System of Vysoka."
-	desc_extended = "The red, yellow and Coalition-blue flag of Vysoka, as drawn when one wishes to represent the planet as a whole. As Vysokan communities are rather traditional and tied to their respective Host, village or city-state, natives are more likely to \
-	identify with local symbols. This has not stopped the original flag from being flown in times of much-needed unity."
+	desc_extended = "The red, yellow and Coalition-blue flag of Vysoka, as drawn when one wishes to represent the planet as a whole. As Vysokan communities are rather traditional and tied to their respective Host, village or city-state, natives are more likely to identify with local symbols. This has not stopped the original flag from being flown in times of much-needed unity."
 	flag_path = "vysoka"
 	flag_structure = /obj/structure/sign/flag/vysoka
 
 /obj/structure/sign/flag/vysoka
 	name = "\improper Free System of Vysoka flag"
 	desc = "The flag of the Free System of Vysoka."
-	desc_extended = "The red, yellow and Coalition-blue flag of Vysoka, as drawn when one wishes to represent the planet as a whole. As Vysokan communities are rather traditional and tied to their respective Host, village or city-state, natives are more likely to \
-	identify with local symbols. This has not stopped the original flag from being flown in times of much-needed unity."
+	desc_extended = "The red, yellow and Coalition-blue flag of Vysoka, as drawn when one wishes to represent the planet as a whole. As Vysokan communities are rather traditional and tied to their respective Host, village or city-state, natives are more likely to identify with local symbols. This has not stopped the original flag from being flown in times of much-needed unity."
 	flag_path = "vysoka"
 	icon_state = "vysoka"
 	flag_item = /obj/item/flag/vysoka
@@ -1908,16 +1932,14 @@
 /obj/item/flag/konyang
 	name = "\improper Konyang flag"
 	desc = "The flag of Konyang."
-	desc_extended = "The white, blue and yellow flag of Konyang was adopted in 2462, having unofficially been used by pro-autonomy circles long before the declaration of independence. The traditional taitju represents peace and harmony as the highest values of \
-	the new state, with the color blue representing the waterways the planet is known for and yellow, their aim of prosperity. The white background represents Konyang's purity."
+	desc_extended = "The white, blue and yellow flag of Konyang was adopted in 2462, having unofficially been used by pro-autonomy circles long before the declaration of independence. The traditional taitju represents peace and harmony as the highest values of the new state, with the color blue representing the waterways the planet is known for and yellow, their aim of prosperity. The white background represents Konyang's purity."
 	flag_path = "konyang"
 	flag_structure = /obj/structure/sign/flag/konyang
 
 /obj/structure/sign/flag/konyang
 	name = "\improper Konyang flag"
 	desc = "The flag of Konyang."
-	desc_extended = "The white, blue and yellow flag of Konyang was adopted in 2462, having unofficially been used by pro-autonomy circles long before the declaration of independence. The traditional taitju represents peace and harmony as the highest values of \
-	the new state, with the color blue representing the waterways the planet is known for and yellow, their aim of prosperity. The white background represents Konyang's purity."
+	desc_extended = "The white, blue and yellow flag of Konyang was adopted in 2462, having unofficially been used by pro-autonomy circles long before the declaration of independence. The traditional taitju represents peace and harmony as the highest values of the new state, with the color blue representing the waterways the planet is known for and yellow, their aim of prosperity. The white background represents Konyang's purity."
 	flag_path = "konyang"
 	icon_state = "konyang"
 	flag_item = /obj/item/flag/konyang
@@ -1948,27 +1970,70 @@
 /obj/structure/sign/flag/konyang/large/west/Initialize(mapload)
 	. = ..(mapload, WEST)
 
+/obj/item/flag/konyang/old
+	name = "\improper Solarian Konyanger Banner"
+	desc = "The banner of the former Sovereign Solarian Republic of Konyang. Though the world is now de facto independent, Sol continues to recognize a rump government-in-exile and denies the legitimacy of the Coalition-aligned state."
+	desc_extended = "The banner of the Sovereign Solarian Republic of Konyang consists of horizontal bands of gold, red, and blue on a white field. The colors draw from East Asian cosmology: red represents heaven, blue symbolizes the earth, and gold signifies humanity. Together, the three fields reflect the philosophical and cultural traditions carried to Konyang by its earliest settlers. The white field signifies unity, coexistence, and a shared civic identity despite longstanding political and social divisions.<br> \
+	Centered upon the flag is a tricolor taegeuk of red, blue, and gold. The emblem symbolizes balance and harmony between heaven, earth, and mankind."
+	flag_path = "konyang_old"
+	flag_structure = /obj/structure/sign/flag/konyang/old
+
+/obj/structure/sign/flag/konyang/old
+	name = "\improper Solarian Konyanger Banner"
+	desc = "The banner of the former Sovereign Solarian Republic of Konyang. Though the world is now de facto independent, Sol continues to recognize a rump government-in-exile and denies the legitimacy of the Coalition-aligned state."
+	desc_extended = "The banner of the Sovereign Solarian Republic of Konyang consists of horizontal bands of gold, red, and blue on a white field. The colors draw from East Asian cosmology: red represents heaven, blue symbolizes the earth, and gold signifies humanity. Together, the three fields reflect the philosophical and cultural traditions carried to Konyang by its earliest settlers. The white field signifies unity, coexistence, and a shared civic identity despite longstanding political and social divisions.<br> \
+	Centered upon the flag is a tricolor taegeuk of red, blue, and gold. The emblem symbolizes balance and harmony between heaven, earth, and mankind."
+	flag_path = "konyang_old"
+	icon_state = "konyang_old"
+	flag_item = /obj/item/flag/konyang/old
+
+/obj/structure/sign/flag/konyang/old/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/konyang/old/l
+	name = "\improper Solarian Konyanger Flag"
+	desc = "The flag of the former Sovereign Solarian Republic of Konyang. Though the world is now de facto independent, Sol continues to recognize a rump government-in-exile and denies the legitimacy of the Coalition-aligned state."
+	desc_extended = "The flag of the Sovereign Solarian Republic of Konyang consists of horizontal bands of gold, red, and blue on a white field. The colors draw from East Asian cosmology: red represents heaven, blue symbolizes the earth, and gold signifies humanity. Together, the three fields reflect the philosophical and cultural traditions carried to Konyang by its earliest settlers. The white field signifies unity, coexistence, and a shared civic identity despite longstanding political and social divisions.<br> \
+	Centered upon the flag is a tricolor taegeuk of red, blue, and gold. The emblem symbolizes balance and harmony between heaven, earth, and mankind."
+	flag_path = "konyang_old"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/konyang/old/large
+
+/obj/structure/sign/flag/konyang/old/large
+	name = "\improper Solarian Konyanger Flag"
+	desc = "The flag of the former Sovereign Solarian Republic of Konyang. Though the world is now de facto independent, Sol continues to recognize a rump government-in-exile and denies the legitimacy of the Coalition-aligned state."
+	desc_extended = "The flag of the Sovereign Solarian Republic of Konyang consists of horizontal bands of gold, red, and blue on a white field. The colors draw from East Asian cosmology: red represents heaven, blue symbolizes the earth, and gold signifies humanity. Together, the three fields reflect the philosophical and cultural traditions carried to Konyang by its earliest settlers. The white field signifies unity, coexistence, and a shared civic identity despite longstanding political and social divisions.<br> \
+	Centered upon the flag is a tricolor taegeuk of red, blue, and gold. The emblem symbolizes balance and harmony between heaven, earth, and mankind."
+	icon_state = "konyang_old_l"
+	flag_path = "konyang_old"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/konyang/old/l
+
+/obj/structure/sign/flag/konyang/old/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/konyang/old/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/konyang/old/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/konyang/old/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
+
 // Izharshan
 
 /obj/item/flag/izharshan
 	name = "\improper Izharshan Flag"
-	desc = "The tan and orange flag of Izharshan's Raiders, depicting a Unathi skull and a star above, surrounded by axes. Due to the sheer size of Izharshan's fleet, and the wide area in \
-	which they operate has this specific flag be sighted far and wide, leading to the misconception for some that it is in fact used by all Unathi pirates."
-	desc_extended = "Iconography is taken quite seriously among Unathi pirates. With much time to spare during lengthy flights, it's not rare for crew, especially officers, to indulge in arts, leading to fleets often finding skilled artists \
-	in their ranks who, alongside their Fang Captains, create their flag. Though there are recurring elements in Unathi pirate flag designs, such as depictions of heads, skulls, stellar bodies \
-	and weaponry, there are no proper rules in creating a flag for ones Unathi fleets... Still, the sheer popularity of Izharshan's flag, and the fact that it was one of the first flags created by a Unathi Pirate fleet made it a model to follow \
-	for many others, with a Sinta (or their head or skull) taking a central place in the picture, and other elements complimenting it, generally in a symmetrical fashion."
+	desc = "The tan and orange flag of Izharshan's Raiders, depicting a Unathi skull and a star above, surrounded by axes. Due to the sheer size of Izharshan's fleet, and the wide area in which they operate has this specific flag be sighted far and wide, leading to the misconception for some that it is in fact used by all Unathi pirates."
+	desc_extended = "Iconography is taken quite seriously among Unathi pirates. With much time to spare during lengthy flights, it's not rare for crew, especially officers, to indulge in arts, leading to fleets often finding skilled artists in their ranks who, alongside their Fang Captains, create their flag. Though there are recurring elements in Unathi pirate flag designs, such as depictions of heads, skulls, stellar bodies and weaponry, there are no proper rules in creating a flag for ones Unathi fleets... Still, the sheer popularity of Izharshan's flag, and the fact that it was one of the first flags created by a Unathi Pirate fleet made it a model to follow for many others, with a Sinta (or their head or skull) taking a central place in the picture, and other elements complimenting it, generally in a symmetrical fashion."
 	flag_path = "izharshan"
 	flag_structure = /obj/structure/sign/flag/izharshan
 
 /obj/structure/sign/flag/izharshan
 	name = "\improper Izharshan Flag"
-	desc = "The tan and orange flag of Izharshan's Raiders, depicting a Unathi skull and a star above, surrounded by axes. Due to the sheer size of Izharshan's fleet, and the wide area in \
-	which they operate has this specific flag be sighted far and wide, leading to the misconception for some that it is in fact used by all Unathi pirates."
-	desc_extended = "Iconography is taken quite seriously among Unathi pirates. With much time to spare during lengthy flights, it's not rare for crew, especially officers, to indulge in arts, leading to fleets often finding skilled artists \
-	in their ranks who, alongside their Fang Captains, create their flag. Though there are recurring elements in Unathi pirate flag designs, such as depictions of heads, skulls, stellar bodies \
-	and weaponry, there are no proper rules in creating a flag for ones Unathi fleets... Still, the sheer popularity of Izharshan's flag, and the fact that it was one of the first flags created by a Unathi Pirate fleet made it a model to follow \
-	for many others, with a Sinta (or their head or skull) taking a central place in the picture, and other elements complimenting it, generally in a symmetrical fashion."
+	desc = "The tan and orange flag of Izharshan's Raiders, depicting a Unathi skull and a star above, surrounded by axes. Due to the sheer size of Izharshan's fleet, and the wide area in which they operate has this specific flag be sighted far and wide, leading to the misconception for some that it is in fact used by all Unathi pirates."
+	desc_extended = "Iconography is taken quite seriously among Unathi pirates. With much time to spare during lengthy flights, it's not rare for crew, especially officers, to indulge in arts, leading to fleets often finding skilled artists in their ranks who, alongside their Fang Captains, create their flag. Though there are recurring elements in Unathi pirate flag designs, such as depictions of heads, skulls, stellar bodies and weaponry, there are no proper rules in creating a flag for ones Unathi fleets... Still, the sheer popularity of Izharshan's flag, and the fact that it was one of the first flags created by a Unathi Pirate fleet made it a model to follow for many others, with a Sinta (or their head or skull) taking a central place in the picture, and other elements complimenting it, generally in a symmetrical fashion."
 	flag_path = "izharshan"
 	icon_state = "izharshan"
 	flag_item = /obj/item/flag/izharshan
@@ -1980,21 +2045,15 @@
 
 /obj/item/flag/tarwa
 	name = "\improper Tarwa Conglomerate flag"
-	desc = "The black, white and green flag of the Tarwa Conglomerate, depicting an Unathi skeleton with a diona gestalt growing within it. This flag is rarely seen within civilised space, and only \
-	occasionally mentioned in spacer tales, speaking of a 'fleet of the living dead'."
-	desc_extended = "The Tarwa Conglomerate's banner was, according to legend, designed by Tarskin Tarwa himself, once a brilliant scientist at the Skalamar University of Medicine. When he was expelled \
-	for his experiments on 'Sinta-Diona compatibility', he took to the stars as a pirate. The Conglomerate's ships are rare sightings in civilised space, clinging to the edges of the known Spur. Little is known \
-	of this enigmatic pirate fleet, but every now and then a tale will be heard of wrecked ships moving again, crewed by the living dead..."
+	desc = "The black, white and green flag of the Tarwa Conglomerate, depicting an Unathi skeleton with a diona gestalt growing within it. This flag is rarely seen within civilised space, and only occasionally mentioned in spacer tales, speaking of a 'fleet of the living dead'."
+	desc_extended = "The Tarwa Conglomerate's banner was, according to legend, designed by Tarskin Tarwa himself, once a brilliant scientist at the Skalamar University of Medicine. When he was expelled for his experiments on 'Sinta-Diona compatibility', he took to the stars as a pirate. The Conglomerate's ships are rare sightings in civilised space, clinging to the edges of the known Spur. Little is known of this enigmatic pirate fleet, but every now and then a tale will be heard of wrecked ships moving again, crewed by the living dead..."
 	flag_path = "tarwa"
 	flag_structure = /obj/structure/sign/flag/tarwa
 
 /obj/structure/sign/flag/tarwa
 	name = "\improper Tarwa Conglomerate Flag"
-	desc = "The black, white and green flag of the Tarwa Conglomerate, depicting an Unathi skeleton with a diona gestalt growing within it. This flag is rarely seen within civilised space, and only \
-	occasionally mentioned in spacer tales, speaking of a 'fleet of the living dead'."
-	desc_extended = "The Tarwa Conglomerate's banner was, according to legend, designed by Tarskin Tarwa himself, once a brilliant scientist at the Skalamar University of Medicine. When he was expelled \
-	for his experiments on 'Sinta-Diona compatibility', he took to the stars as a pirate. The Conglomerate's ships are rare sightings in civilised space, clinging to the edges of the known Spur. Little is known \
-	of this enigmatic pirate fleet, but every now and then a tale will be heard of wrecked ships moving again, crewed by the living dead..."
+	desc = "The black, white and green flag of the Tarwa Conglomerate, depicting an Unathi skeleton with a diona gestalt growing within it. This flag is rarely seen within civilised space, and only occasionally mentioned in spacer tales, speaking of a 'fleet of the living dead'."
+	desc_extended = "The Tarwa Conglomerate's banner was, according to legend, designed by Tarskin Tarwa himself, once a brilliant scientist at the Skalamar University of Medicine. When he was expelled for his experiments on 'Sinta-Diona compatibility', he took to the stars as a pirate. The Conglomerate's ships are rare sightings in civilised space, clinging to the edges of the known Spur. Little is known of this enigmatic pirate fleet, but every now and then a tale will be heard of wrecked ships moving again, crewed by the living dead..."
 	flag_path = "tarwa"
 	icon_state = "tarwa"
 	flag_item = /obj/item/flag/tarwa
@@ -2180,14 +2239,16 @@
 // San Colette
 
 /obj/item/flag/sancolette
-	name = "\improper Sovereign Solarian Republic of San Colette flag"
-	desc = "The flag of the Sovereign Solarian Republic of San Colette."
+	name = "\improper San Colettish Banneer"
+	desc = "The banner of the Sovereign Solarian Republic of San Colette, a prominent member state on the cusp of the Middle and Outer Rings. San Colette has only recently emerged from the ruins of the War in the Northern Reaches, now standing between renewed prosperity and the heavy burdens of reconstruction."
+	desc_extended = "The banner of San Colette bears a horizontal tricolor of red, white, and gold, with three pale blue stars set across the central white field. The red field represents the blood shed in the founding and defense of the Republic, a meaning made fresh by the War in the Northern Reaches and the fighting that ravaged San Colette itself. The white field represents order, peace, and the Republic’s place between Sol, the Middle Ring, the Outer Ring, and the Coalition frontier beyond. The gold field represents San Colette’s prosperity, drawn most of all from the trade and commerce brought by the warp gate network, as well as the wealth of phoronics. The three blue stars represent the world’s three great continents, bound together by the Republic’s unity and a shared sense of brotherhood."
 	flag_path = "sancolette"
 	flag_structure = /obj/structure/sign/flag/sancolette
 
 /obj/structure/sign/flag/sancolette
-	name = "\improper Sovereign Solarian Republic of San Colette flag"
-	desc = "The flag of the Sovereign Solarian Republic of San Colette."
+	name = "\improper San Colettish Banneer"
+	desc = "The banner of the Sovereign Solarian Republic of San Colette, a prominent member state on the cusp of the Middle and Outer Rings. San Colette has only recently emerged from the ruins of the War in the Northern Reaches, now standing between renewed prosperity and the heavy burdens of reconstruction."
+	desc_extended = "The banner of San Colette bears a horizontal tricolor of red, white, and gold, with three pale blue stars set across the central white field. The red field represents the blood shed in the founding and defense of the Republic, a meaning made fresh by the War in the Northern Reaches and the fighting that ravaged San Colette itself. The white field represents order, peace, and the Republic’s place between Sol, the Middle Ring, the Outer Ring, and the Coalition frontier beyond. The gold field represents San Colette’s prosperity, drawn most of all from the trade and commerce brought by the warp gate network, as well as the wealth of phoronics. The three blue stars represent the world’s three great continents, bound together by the Republic’s unity and a shared sense of brotherhood."
 	flag_path = "sancolette"
 	icon_state = "sancolette"
 	flag_item = /obj/item/flag/sancolette
@@ -2196,11 +2257,16 @@
 	unmovable = TRUE
 
 /obj/item/flag/sancolette/l
-	name = "large Sovereign Solarian Republic of San Colette flag"
+	name = "\improper San Colettish Flag"
+	desc = "The flag of the Sovereign Solarian Republic of San Colette, a prominent member state on the cusp of the Middle and Outer Rings. San Colette has only recently emerged from the ruins of the War in the Northern Reaches, now standing between renewed prosperity and the heavy burdens of reconstruction."
+	desc_extended = "The flag of San Colette bears a horizontal tricolor of red, white, and gold, with three pale blue stars set across the central white field. The red field represents the blood shed in the founding and defense of the Republic, a meaning made fresh by the War in the Northern Reaches and the fighting that ravaged San Colette itself. The white field represents order, peace, and the Republic’s place between Sol, the Middle Ring, the Outer Ring, and the Coalition frontier beyond. The gold field represents San Colette’s prosperity, drawn most of all from the trade and commerce brought by the warp gate network, as well as the wealth of phoronics. The three blue stars represent the world’s three great continents, bound together by the Republic’s unity and a shared sense of brotherhood."
 	flag_size = TRUE
 	flag_structure = /obj/structure/sign/flag/sancolette/large
 
 /obj/structure/sign/flag/sancolette/large
+	name = "\improper San Colettish Flag"
+	desc = "The flag of the Sovereign Solarian Republic of San Colette, a prominent member state on the cusp of the Middle and Outer Rings. San Colette has only recently emerged from the ruins of the War in the Northern Reaches, now standing between renewed prosperity and the heavy burdens of reconstruction."
+	desc_extended = "The flag of San Colette bears a horizontal tricolor of red, white, and gold, with three pale blue stars set across the central white field. The red field represents the blood shed in the founding and defense of the Republic, a meaning made fresh by the War in the Northern Reaches and the fighting that ravaged San Colette itself. The white field represents order, peace, and the Republic’s place between Sol, the Middle Ring, the Outer Ring, and the Coalition frontier beyond. The gold field represents San Colette’s prosperity, drawn most of all from the trade and commerce brought by the warp gate network, as well as the wealth of phoronics. The three blue stars represent the world’s three great continents, bound together by the Republic’s unity and a shared sense of brotherhood."
 	icon_state = "sancolette_l"
 	flag_path = "sancolette"
 	flag_size = TRUE
@@ -2298,18 +2364,80 @@
 /obj/structure/sign/flag/mictlan/large/west/Initialize(mapload)
 	. = ..(mapload, WEST)
 
+/obj/item/flag/mictlan/old
+	name = "\improper Solarian Mictlani Banner"
+	desc = "The banner of the former Sovereign Solarian Republic of Mictlan. Though Mictlan is now a member state of the Republic of Biesel, Sol continues to recognize a rump government-in-exile and denies the legitimacy of the Bieselite-aligned state."
+	desc_extended = "The banner of Solarian Mictlan consists of a horizontal bicolor of gold and green. Centered upon the field is La Ceiba Blanca, the national tree of Mictlan.<br> \
+	The gold field represents sunlight, hope, and the promise of tomorrow carried by Mictlan’s first settlers when they made landfall on the world. The green field represents Mictlan’s jungles and fertile fields.<br> \
+	La Ceiba Blanca represents the Mictlani people themselves. Its trunk and roots recall the world’s long-dead founders and the ancestors of its modern population, while its branches signify the many communities that grew upon Mictlan, diverse yet joined beneath one shared identity.<br> \
+	The banner’s colors and the profile of La Ceiba Blanca differ in subtle ways from the Bieselite-endorsed variant. Both versions remain common across the restive world, even in the aftermath of the settlement that ended Samaritan’s insurgency."
+	flag_path = "mictlan_old"
+	flag_structure = /obj/structure/sign/flag/mictlan/old
+
+/obj/structure/sign/flag/mictlan/old
+	name = "\improper Solarian Mictlani Banner"
+	desc = "The banner of the former Sovereign Solarian Republic of Mictlan. Though Mictlan is now a member state of the Republic of Biesel, Sol continues to recognize a rump government-in-exile and denies the legitimacy of the Bieselite-aligned state."
+	desc_extended = "The banner of Solarian Mictlan consists of a horizontal bicolor of gold and green. Centered upon the field is La Ceiba Blanca, the national tree of Mictlan.<br> \
+	The gold field represents sunlight, hope, and the promise of tomorrow carried by Mictlan’s first settlers when they made landfall on the world. The green field represents Mictlan’s jungles and fertile fields.<br> \
+	La Ceiba Blanca represents the Mictlani people themselves. Its trunk and roots recall the world’s long-dead founders and the ancestors of its modern population, while its branches signify the many communities that grew upon Mictlan, diverse yet joined beneath one shared identity.<br> \
+	The banner’s colors and the profile of La Ceiba Blanca differ in subtle ways from the Bieselite-endorsed variant. Both versions remain common across the restive world, even in the aftermath of the settlement that ended Samaritan’s insurgency."
+	flag_path = "mictlan_old"
+	icon_state = "mictlan_old"
+	flag_item = /obj/item/flag/mictlan/old
+
+/obj/structure/sign/flag/mictlan/old/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/mictlan/old/l
+	name = "\improper Solarian Mictlani Flag"
+	desc = "The flag of the former Sovereign Solarian Republic of Mictlan. Though Mictlan is now a member state of the Republic of Biesel, Sol continues to recognize a rump government-in-exile and denies the legitimacy of the Bieselite-aligned state."
+	desc_extended = "The flag of Solarian Mictlan consists of a horizontal bicolor of gold and green. Centered upon the field is La Ceiba Blanca, the national tree of Mictlan.<br> \
+	The gold field represents sunlight, hope, and the promise of tomorrow carried by Mictlan’s first settlers when they made landfall on the world. The green field represents Mictlan’s jungles and fertile fields.<br> \
+	La Ceiba Blanca represents the Mictlani people themselves. Its trunk and roots recall the world’s long-dead founders and the ancestors of its modern population, while its branches signify the many communities that grew upon Mictlan, diverse yet joined beneath one shared identity.<br> \
+	The flag’s colors and the profile of La Ceiba Blanca differ in subtle ways from the Bieselite-endorsed variant. Both versions remain common across the restive world, even in the aftermath of the settlement that ended Samaritan’s insurgency."
+	flag_path = "mictlan_old"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/mictlan/old/large
+
+/obj/structure/sign/flag/mictlan/old/large
+	name = "\improper Solarian Mictlani Flag"
+	desc = "The flag of the former Sovereign Solarian Republic of Mictlan. Though Mictlan is now a member state of the Republic of Biesel, Sol continues to recognize a rump government-in-exile and denies the legitimacy of the Bieselite-aligned state."
+	desc_extended = "The flag of Solarian Mictlan consists of a horizontal bicolor of gold and green. Centered upon the field is La Ceiba Blanca, the national tree of Mictlan.<br> \
+	The gold field represents sunlight, hope, and the promise of tomorrow carried by Mictlan’s first settlers when they made landfall on the world. The green field represents Mictlan’s jungles and fertile fields.<br> \
+	La Ceiba Blanca represents the Mictlani people themselves. Its trunk and roots recall the world’s long-dead founders and the ancestors of its modern population, while its branches signify the many communities that grew upon Mictlan, diverse yet joined beneath one shared identity.<br> \
+	The flag’s colors and the profile of La Ceiba Blanca differ in subtle ways from the Bieselite-endorsed variant. Both versions remain common across the restive world, even in the aftermath of the settlement that ended Samaritan’s insurgency."
+	icon_state = "mictlan_old_l"
+	flag_path = "mictlan_old"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/mictlan/old/l
+
+/obj/structure/sign/flag/mictlan/old/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/mictlan/old/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/mictlan/old/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/mictlan/old/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
 
 // New Hai Phong
 
 /obj/item/flag/nhp
-	name = "\improper New Hai Phong flag"
-	desc = "The flag of New Hai Phong."
+	name = "\improper New Hai Phongese Banner"
+	desc = "The banner of the Sovereign Solarian Democratic Socialist Republic of New Hai Phong, a Jewel World and economic powerhouse of the Alliance. Shaped by deep cultural roots, vast Hephaestus-backed industry, endemic pollution, and entrenched corruption, New Hai Phong stands as one of Sol’s most crowded and industrious worlds."
+	desc_extended = "The banner of New Hai Phong consists of a red field, centered by a trio of white tobacco leaves. Flanking the leaves is the word “Freedom,” split across both sides of the central emblem in Solarian Common.<br> \
+	The red field represents the partnership of labor and industry that built New Hai Phong’s vast factory cities, as well as the heat, toil, and sacrifice woven into the world’s modern identity. The white tobacco leaves represent New Hai Phong’s most famous export. Though the planet is now better known for heavy manufacturing, tobacco remains one of its oldest and most culturally rooted symbols, tied to trade, agriculture, and local custom"
 	flag_path = "newhaiphong"
 	flag_structure = /obj/structure/sign/flag/nhp
 
 /obj/structure/sign/flag/nhp
-	name = "\improper New Hai Phong flag"
-	desc = "The flag of New Hai Phong."
+	name = "\improper New Hai Phongese Banner"
+	desc = "The banner of the Sovereign Solarian Democratic Socialist Republic of New Hai Phong, a Jewel World and economic powerhouse of the Alliance. Shaped by deep cultural roots, vast Hephaestus-backed industry, endemic pollution, and entrenched corruption, New Hai Phong stands as one of Sol’s most crowded and industrious worlds."
+	desc_extended = "The banner of New Hai Phong consists of a red field, centered by a trio of white tobacco leaves. Flanking the leaves is the word “Freedom,” split across both sides of the central emblem in Solarian Common.<br> \
+	The red field represents the partnership of labor and industry that built New Hai Phong’s vast factory cities, as well as the heat, toil, and sacrifice woven into the world’s modern identity. The white tobacco leaves represent New Hai Phong’s most famous export. Though the planet is now better known for heavy manufacturing, tobacco remains one of its oldest and most culturally rooted symbols, tied to trade, agriculture, and local custom"
 	flag_path = "newhaiphong"
 	icon_state = "newhaiphong"
 	flag_item = /obj/item/flag/nhp
@@ -2318,11 +2446,18 @@
 	unmovable = TRUE
 
 /obj/item/flag/nhp/l
-	name = "large New Hai Phong flag"
+	name = "\improper New Hai Phongese Flag"
+	desc = "The flag of the Sovereign Solarian Democratic Socialist Republic of New Hai Phong, a Jewel World and economic powerhouse of the Alliance. Shaped by deep cultural roots, vast Hephaestus-backed industry, endemic pollution, and entrenched corruption, New Hai Phong stands as one of Sol’s most crowded and industrious worlds."
+	desc_extended = "The flag of New Hai Phong consists of a red field, centered by a trio of white tobacco leaves. Flanking the leaves is the word “Freedom,” split across both sides of the central emblem in Solarian Common.<br> \
+	The red field represents the partnership of labor and industry that built New Hai Phong’s vast factory cities, as well as the heat, toil, and sacrifice woven into the world’s modern identity. The white tobacco leaves represent New Hai Phong’s most famous export. Though the planet is now better known for heavy manufacturing, tobacco remains one of its oldest and most culturally rooted symbols, tied to trade, agriculture, and local custom"
 	flag_size = TRUE
 	flag_structure = /obj/structure/sign/flag/nhp/large
 
 /obj/structure/sign/flag/nhp/large
+	name = "\improper New Hai Phongese Flag"
+	desc = "The flag of the Sovereign Solarian Democratic Socialist Republic of New Hai Phong, a Jewel World and economic powerhouse of the Alliance. Shaped by deep cultural roots, vast Hephaestus-backed industry, endemic pollution, and entrenched corruption, New Hai Phong stands as one of Sol’s most crowded and industrious worlds."
+	desc_extended = "The flag of New Hai Phong consists of a red field, centered by a trio of white tobacco leaves. Flanking the leaves is the word “Freedom,” split across both sides of the central emblem in Solarian Common.<br> \
+	The red field represents the partnership of labor and industry that built New Hai Phong’s vast factory cities, as well as the heat, toil, and sacrifice woven into the world’s modern identity. The white tobacco leaves represent New Hai Phong’s most famous export. Though the planet is now better known for heavy manufacturing, tobacco remains one of its oldest and most culturally rooted symbols, tied to trade, agriculture, and local custom"
 	icon_state = "newhaiphong_l"
 	flag_path = "newhaiphong"
 	flag_size = TRUE
@@ -2343,14 +2478,20 @@
 // Silversun
 
 /obj/item/flag/silversun
-	name = "\improper Silversun flag"
-	desc = "The flag of Silversun."
+	name = "\improper Silversunner Flag"
+	desc = "The flag of the Sovereign Solarian Republic of Silversun, a prosperous Jewel World known for its mild climate, expansive oceans, and simmering cultural conflict between its original inhabitants and its growing expatriate population."
+	desc_extended = "The flag of Silversun consists of a gold and blue bicolor. Centered upon the field is a silver sun sinking into the horizon, its lower half broken by bands of blue.<br> \
+	The gold field represents natural beauty, light, and the hope carried by the world’s original inhabitants, many of them refugees from an environmentally damaged Earth seeking a better future. The blue field represents Silversun’s oceans, islands, and expansive coastlines, which remain central to the world’s identity.<br> \
+	The silver emblem represents Silversun itself, rising from the sea. Its broken lower bands recall waves across the horizon, while also suggesting the fragile balance between settlement and nature."
 	flag_path = "silversun"
 	flag_structure = /obj/structure/sign/flag/silversun
 
 /obj/structure/sign/flag/silversun
-	name = "\improper Silversun flag"
-	desc = "The flag of Silversun."
+	name = "\improper Silversunner Flag"
+	desc = "The flag of the Sovereign Solarian Republic of Silversun, a prosperous Jewel World known for its mild climate, expansive oceans, and simmering cultural conflict between its original inhabitants and its growing expatriate population."
+	desc_extended = "The flag of Silversun consists of a gold and blue bicolor. Centered upon the field is a silver sun sinking into the horizon, its lower half broken by bands of blue.<br> \
+	The gold field represents natural beauty, light, and the hope carried by the world’s original inhabitants, many of them refugees from an environmentally damaged Earth seeking a better future. The blue field represents Silversun’s oceans, islands, and expansive coastlines, which remain central to the world’s identity.<br> \
+	The silver emblem represents Silversun itself, rising from the sea. Its broken lower bands recall waves across the horizon, while also suggesting the fragile balance between settlement and nature."
 	flag_path = "silversun"
 	icon_state = "silversun"
 	flag_item = /obj/item/flag/silversun
@@ -2359,11 +2500,20 @@
 	unmovable = TRUE
 
 /obj/item/flag/silversun/l
-	name = "large Silversun flag"
+	name = "\improper Silversunner Flag"
+	desc = "The flag of the Sovereign Solarian Republic of Silversun, a prosperous Jewel World known for its mild climate, expansive oceans, and simmering cultural conflict between its original inhabitants and its growing expatriate population."
+	desc_extended = "The flag of Silversun consists of a gold and blue bicolor. Centered upon the field is a silver sun sinking into the horizon, its lower half broken by bands of blue.<br> \
+	The gold field represents natural beauty, light, and the hope carried by the world’s original inhabitants, many of them refugees from an environmentally damaged Earth seeking a better future. The blue field represents Silversun’s oceans, islands, and expansive coastlines, which remain central to the world’s identity.<br> \
+	The silver emblem represents Silversun itself, rising from the sea. Its broken lower bands recall waves across the horizon, while also suggesting the fragile balance between settlement and nature."
 	flag_size = TRUE
 	flag_structure = /obj/structure/sign/flag/silversun/large
 
 /obj/structure/sign/flag/silversun/large
+	name = "\improper Silversunner Flag"
+	desc = "The flag of the Sovereign Solarian Republic of Silversun, a prosperous Jewel World known for its mild climate, expansive oceans, and simmering cultural conflict between its original inhabitants and its growing expatriate population."
+	desc_extended = "The flag of Silversun consists of a gold and blue bicolor. Centered upon the field is a silver sun sinking into the horizon, its lower half broken by bands of blue.<br> \
+	The gold field represents natural beauty, light, and the hope carried by the world’s original inhabitants, many of them refugees from an environmentally damaged Earth seeking a better future. The blue field represents Silversun’s oceans, islands, and expansive coastlines, which remain central to the world’s identity.<br> \
+	The silver emblem represents Silversun itself, rising from the sea. Its broken lower bands recall waves across the horizon, while also suggesting the fragile balance between settlement and nature."
 	icon_state = "silversun_l"
 	flag_path = "silversun"
 	flag_size = TRUE
@@ -2384,24 +2534,39 @@
 // Luna
 
 /obj/item/flag/luna
-	name = "\improper Lunan flag"
-	desc = "The flag of Luna. The crescent represents Luna itself, and is meant to remind viewers of Selene's headpiece."
+	name = "\improper Lunan Banner"
+	desc = "The banner of Luna, mankind’s oldest off-world colony and one of the wealthiest member states of Sol. It is a symbol long regarded as a center of Human diplomacy, wealth, and culture across the Spur."
+	desc_extended = "The Lunan banner bears a tricolor of pale blue, black, and gold, with a prominent white selenite crescent set at its center.<br> \
+	The pale blue field represents the clear, unbroken view Lunans have of mankind’s homeworld above them, while the black field stands in contrast, representing the harsh vacuum beyond Luna’s domes.<br> \
+	The gold field represents Luna’s great prosperity, and enduring wealth. The crescent of Selene represents Luna itself, recalling the moon’s ancient place in Human memory, myth, and history."
 	flag_path = "luna"
 	flag_structure = /obj/structure/sign/flag/luna
 
 /obj/structure/sign/flag/luna
-	name = "\improper Lunan flag"
-	desc = "The flag of Luna. The crescent represents Luna itself, and is meant to remind viewers of Selene's headpiece."
+	name = "\improper Lunan Banner"
+	desc = "The banner of Luna, mankind’s oldest off-world colony and one of the wealthiest member states of Sol. It is a symbol long regarded as a center of Human diplomacy, wealth, and culture across the Spur."
+	desc_extended = "The Lunan banner bears a tricolor of pale blue, black, and gold, with a prominent white selenite crescent set at its center.<br> \
+	The pale blue field represents the clear, unbroken view Lunans have of mankind’s homeworld above them, while the black field stands in contrast, representing the harsh vacuum beyond Luna’s domes.<br> \
+	The gold field represents Luna’s great prosperity, and enduring wealth. The crescent of Selene represents Luna itself, recalling the moon’s ancient place in Human memory, myth, and history."
 	flag_path = "luna"
 	icon_state = "luna"
 	flag_item = /obj/item/flag/luna
 
 /obj/item/flag/luna/l
-	name = "large Lunan flag"
+	name = "\improper Lunan Flag"
+	desc = "The flag of Luna, mankind’s oldest off-world colony and one of the wealthiest member states of Sol. It is a symbol long regarded as a center of Human diplomacy, wealth, and culture across the Spur."
+	desc_extended = "The Lunan flag bears a tricolor of pale blue, black, and gold, with a prominent white selenite crescent set at its center.<br> \
+	The pale blue field represents the clear, unbroken view Lunans have of mankind’s homeworld above them, while the black field stands in contrast, representing the harsh vacuum beyond Luna’s domes.<br> \
+	The gold field represents Luna’s great prosperity, and enduring wealth. The crescent of Selene represents Luna itself, recalling the moon’s ancient place in Human memory, myth, and history."
 	flag_size = TRUE
 	flag_structure = /obj/structure/sign/flag/luna/large
 
 /obj/structure/sign/flag/luna/large
+	name = "\improper Lunan Flag"
+	desc = "The flag of Luna, mankind’s oldest off-world colony and one of the wealthiest member states of Sol. It is a symbol long regarded as a center of Human diplomacy, wealth, and culture across the Spur."
+	desc_extended = "The Lunan flag bears a tricolor of pale blue, black, and gold, with a prominent white selenite crescent set at its center.<br> \
+	The pale blue field represents the clear, unbroken view Lunans have of mankind’s homeworld above them, while the black field stands in contrast, representing the harsh vacuum beyond Luna’s domes.<br> \
+	The gold field represents Luna’s great prosperity, and enduring wealth. The crescent of Selene represents Luna itself, recalling the moon’s ancient place in Human memory, myth, and history."
 	icon_state = "luna_l"
 	flag_path = "luna"
 	flag_size = TRUE
@@ -3216,16 +3381,14 @@
 /obj/item/flag/traditionalist
 	name = "\improper Traditionalist Coalition flag"
 	desc = "The blue-and-green battle standard of the defeated Traditionalist Coalition. Flying this flag is an act of treason under Izweski law."
-	desc_extended = "The Traditionalist Coalition chose a simple flag to represent its myriad nations - blue for the waters and green for the earth of Moghes, with gilded axes representing their willingness to fight for their beliefs. \
-	Given the events of the Contact War, the colors of the flag are often considered somewhat of a bitter irony."
+	desc_extended = "The Traditionalist Coalition chose a simple flag to represent its myriad nations - blue for the waters and green for the earth of Moghes, with gilded axes representing their willingness to fight for their beliefs. Given the events of the Contact War, the colors of the flag are often considered somewhat of a bitter irony."
 	flag_path = "traditionalist"
 	flag_structure = /obj/structure/sign/flag/traditionalist
 
 /obj/structure/sign/flag/traditionalist
 	name = "\improper Traditionalist Coalition flag"
 	desc = "The blue-and-green battle standard of the defeated Traditionalist Coalition. Flying this flag is a high crime under Izweski law."
-	desc_extended = "The Traditionalist Coalition chose a simple flag to represent its myriad nations - blue for the waters and green for the earth of Moghes, with gilded axes representing their willingness to fight for their beliefs. \
-	Given the events of the Contact War, the colors of the flag are often considered somewhat of a bitter irony."
+	desc_extended = "The Traditionalist Coalition chose a simple flag to represent its myriad nations - blue for the waters and green for the earth of Moghes, with gilded axes representing their willingness to fight for their beliefs. Given the events of the Contact War, the colors of the flag are often considered somewhat of a bitter irony."
 	flag_path = "traditionalist"
 	icon_state = "traditionalist"
 	flag_item = /obj/item/flag/traditionalist
@@ -3299,24 +3462,39 @@
 // Callisto
 
 /obj/item/flag/callisto
-	name = "\improper Callistean flag"
-	desc = "The flag of the Commonwealth of Callisto, the gateway to Sol and its largest port."
+	name = "\improper Callistean Banner"
+	desc = "The banner of the Sovereign Solarian Commonwealth of Callisto, the densely urbanized moon of Jupiter known for its vast orbital infrastructure, rich culture, and enormous cities. Once barren, Callisto has become a chief commercial center of the Alliance, as well as its largest port."
+	desc_extended = "The banner of Callisto is dominated by a broad gold field, marked by an arrangement of celestial bodies ringed in red and white. On the fly, the field is overtaken by a representation of Jupiter.<br> \
+	The gold field represents Callisto’s immense wealth, prosperity, and commercial weight. The celestial bodies represent the Jovian system itself, with Callisto shown alongside its sister moons beneath the presence of Jupiter. Their outlines reflect a common Callistean view of the system: Jupiter and Callisto stand foremost, while the other Jovian moons occupy a secondary place.<br> \
+	The red ring around Callisto emphasizes the Commonwealth’s self-image as the queen of the Jovian system, its richest port, busiest hub, and most important settled world. The white rings around the other moons acknowledge their place within the same system, while still marking them as lesser in Callistean thought."
 	flag_path = "callisto"
 	flag_structure = /obj/structure/sign/flag/callisto
 
 /obj/structure/sign/flag/callisto
-	name = "\improper Callistean flag"
-	desc = "The flag of the Commonwealth of Callisto, the gateway to Sol and its largest port."
+	name = "\improper Callistean Banner"
+	desc = "The banner of the Sovereign Solarian Commonwealth of Callisto, the densely urbanized moon of Jupiter known for its vast orbital infrastructure, rich culture, and enormous cities. Once barren, Callisto has become a chief commercial center of the Alliance, as well as its largest port."
+	desc_extended = "The banner of Callisto is dominated by a broad gold field, marked by an arrangement of celestial bodies ringed in red and white. On the fly, the field is overtaken by a representation of Jupiter.<br> \
+	The gold field represents Callisto’s immense wealth, prosperity, and commercial weight. The celestial bodies represent the Jovian system itself, with Callisto shown alongside its sister moons beneath the presence of Jupiter. Their outlines reflect a common Callistean view of the system: Jupiter and Callisto stand foremost, while the other Jovian moons occupy a secondary place.<br> \
+	The red ring around Callisto emphasizes the Commonwealth’s self-image as the queen of the Jovian system, its richest port, busiest hub, and most important settled world. The white rings around the other moons acknowledge their place within the same system, while still marking them as lesser in Callistean thought."
 	flag_path = "callisto"
 	icon_state = "callisto"
 	flag_item = /obj/item/flag/callisto
 
 /obj/item/flag/callisto/l
-	name = "large Callistean flag"
+	name = "\improper Callistean Flag"
+	desc = "The flag of the Sovereign Solarian Commonwealth of Callisto, the densely urbanized moon of Jupiter known for its vast orbital infrastructure, rich culture, and enormous cities. Once barren, Callisto has become a chief commercial center of the Alliance, as well as its largest port."
+	desc_extended = "The flag of Callisto is dominated by a broad gold field, marked by an arrangement of celestial bodies ringed in red and white. On the fly, the field is overtaken by a representation of Jupiter.<br> \
+	The gold field represents Callisto’s immense wealth, prosperity, and commercial weight. The celestial bodies represent the Jovian system itself, with Callisto shown alongside its sister moons beneath the presence of Jupiter. Their outlines reflect a common Callistean view of the system: Jupiter and Callisto stand foremost, while the other Jovian moons occupy a secondary place.<br> \
+	The red ring around Callisto emphasizes the Commonwealth’s self-image as the queen of the Jovian system, its richest port, busiest hub, and most important settled world. The white rings around the other moons acknowledge their place within the same system, while still marking them as lesser in Callistean thought."
 	flag_size = TRUE
 	flag_structure = /obj/structure/sign/flag/callisto/large
 
 /obj/structure/sign/flag/callisto/large
+	name = "\improper Callistean Flag"
+	desc = "The flag of the Sovereign Solarian Commonwealth of Callisto, the densely urbanized moon of Jupiter known for its vast orbital infrastructure, rich culture, and enormous cities. Once barren, Callisto has become a chief commercial center of the Alliance, as well as its largest port."
+	desc_extended = "The flag of Callisto is dominated by a broad gold field, marked by an arrangement of celestial bodies ringed in red and white. On the fly, the field is overtaken by a representation of Jupiter.<br> \
+	The gold field represents Callisto’s immense wealth, prosperity, and commercial weight. The celestial bodies represent the Jovian system itself, with Callisto shown alongside its sister moons beneath the presence of Jupiter. Their outlines reflect a common Callistean view of the system: Jupiter and Callisto stand foremost, while the other Jovian moons occupy a secondary place.<br> \
+	The red ring around Callisto emphasizes the Commonwealth’s self-image as the queen of the Jovian system, its richest port, busiest hub, and most important settled world. The white rings around the other moons acknowledge their place within the same system, while still marking them as lesser in Callistean thought."
 	icon_state = "callisto_l"
 	flag_path = "callisto"
 	flag_size = TRUE
@@ -3334,27 +3512,196 @@
 /obj/structure/sign/flag/callisto/large/west/Initialize(mapload)
 	. = ..(mapload, WEST)
 
+// Ganymede
+
+/obj/item/flag/ganymede
+	name = "\improper Ganymedean Banner"
+	desc = "The banner of the Sovereign Solarian Federation of Ganymede, often derided as Callisto’s forgotten twin, yet undeniably a vital center of agriculture, scientific research, and communication infrastructure within the Sol System."
+	desc_extended = "The banner of Ganymede features a diagonally slanted tricolor of crimson, white, and green, interrupted by a white circle and a white-and-green star. The crimson represents the perseverance and determination of the Ganymedean people, who have carved prosperity out of one of the harshest environments in the Sol System. The white band symbolizes the vast subsurface oceans upon which the moon depends, while the green field evokes Ganymede’s towering agricultural complexes, establishing it as the breadbasket of Sol.<br> \
+	The white circle represents Jupiter, the colossal planet around which Ganymede orbits, while the star symbolizes Ganymede itself, small in comparison, yet vital and indispensable within the Jovian system."
+	flag_path = "gany"
+	flag_structure = /obj/structure/sign/flag/ganymede
+
+/obj/structure/sign/flag/ganymede
+	name = "\improper Ganymedean Banner"
+	desc = "The banner of the Sovereign Solarian Federation of Ganymede, often derided as Callisto’s forgotten twin, yet undeniably a vital center of agriculture, scientific research, and communication infrastructure within the Sol System."
+	desc_extended = "The banner of Ganymede features a diagonally slanted tricolor of crimson, white, and green, interrupted by a white circle and a white-and-green star. The crimson represents the perseverance and determination of the Ganymedean people, who have carved prosperity out of one of the harshest environments in the Sol System. The white band symbolizes the vast subsurface oceans upon which the moon depends, while the green field evokes Ganymede’s towering agricultural complexes, establishing it as the breadbasket of Sol.<br> \
+	The white circle represents Jupiter, the colossal planet around which Ganymede orbits, while the star symbolizes Ganymede itself, small in comparison, yet vital and indispensable within the Jovian system."
+	flag_path = "gany"
+	icon_state = "gany"
+	flag_item = /obj/item/flag/ganymede
+
+/obj/item/flag/ganymede/l
+	name = "\improper Ganymedean Flag"
+	desc = "The flag of the Sovereign Solarian Federation of Ganymede, often derided as Callisto’s forgotten twin, yet undeniably a vital center of agriculture, scientific research, and communication infrastructure within the Sol System."
+	desc_extended = "The flag of Ganymede features a diagonally slanted tricolor of crimson, white, and green, interrupted by a white circle and a white-and-green star. The crimson represents the perseverance and determination of the Ganymedean people, who have carved prosperity out of one of the harshest environments in the Sol System. The white band symbolizes the vast subsurface oceans upon which the moon depends, while the green field evokes Ganymede’s towering agricultural complexes, establishing it as the breadbasket of Sol.<br> \
+	The white circle represents Jupiter, the colossal planet around which Ganymede orbits, while the star symbolizes Ganymede itself, small in comparison, yet vital and indispensable within the Jovian system."
+	flag_path = "gany"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/ganymede/large
+
+/obj/structure/sign/flag/ganymede/large
+	name = "\improper Ganymedean Flag"
+	desc = "The flag of the Sovereign Solarian Federation of Ganymede, often derided as Callisto’s forgotten twin, yet undeniably a vital center of agriculture, scientific research, and communication infrastructure within the Sol System."
+	desc_extended = "The flag of Ganymede features a diagonally slanted tricolor of crimson, white, and green, interrupted by a white circle and a white-and-green star. The crimson represents the perseverance and determination of the Ganymedean people, who have carved prosperity out of one of the harshest environments in the Sol System. The white band symbolizes the vast subsurface oceans upon which the moon depends, while the green field evokes Ganymede’s towering agricultural complexes, establishing it as the breadbasket of Sol.<br> \
+	The white circle represents Jupiter, the colossal planet around which Ganymede orbits, while the star symbolizes Ganymede itself, small in comparison, yet vital and indispensable within the Jovian system."
+	icon_state = "gany_l"
+	flag_path = "gany"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/ganymede/l
+
+/obj/structure/sign/flag/ganymede/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/ganymede/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/ganymede/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/ganymede/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
+
+// Europa
+
+/obj/item/flag/europa
+	name = "\improper Europan Banner"
+	desc = "The banner of the Sovereign Solarian Confederation of Europa, Sol’s moon of subglacial settlements, stations, and submarines. It is notable as the place where Mankind first encountered extraterrestrial life."
+	desc_extended = "The banner of Europa bears a field of black, gray, and red. At its center rests a stylized depiction of the Jovian system, showing Jupiter and its four attendant moons.<br> \
+	The black field represents the unknown depths of the Europan Sea, whose life and secrets remain only partly understood.<br> \
+	The gray field represents Europa’s ice shell and the built world beneath it: stations, laboratories, submarine docks, aquafarms, and pressure-sealed habitats. The red field represents the hazards that define Europan life, from radiation above the ice to pressure, cold, and darkness below it.<br> \
+	The central image represents Jupiter itself, alongside its four largest moons: Ganymede, Callisto, Io, and Europa. The singular red mark upon the gas giant depicts the Great Red Spot, an ancient storm and one of the most recognizable features of the Jovian system."
+	flag_path = "europa"
+	flag_structure = /obj/structure/sign/flag/europa
+
+/obj/structure/sign/flag/europa
+	name = "\improper Europan Banner"
+	desc = "The banner of the Sovereign Solarian Confederation of Europa, Sol’s moon of subglacial settlements, stations, and submarines. It is notable as the place where Mankind first encountered extraterrestrial life."
+	desc_extended = "The banner of Europa bears a field of black, gray, and red. At its center rests a stylized depiction of the Jovian system, showing Jupiter and its four attendant moons.<br> \
+	The black field represents the unknown depths of the Europan Sea, whose life and secrets remain only partly understood.<br> \
+	The gray field represents Europa’s ice shell and the built world beneath it: stations, laboratories, submarine docks, aquafarms, and pressure-sealed habitats. The red field represents the hazards that define Europan life, from radiation above the ice to pressure, cold, and darkness below it.<br> \
+	The central image represents Jupiter itself, alongside its four largest moons: Ganymede, Callisto, Io, and Europa. The singular red mark upon the gas giant depicts the Great Red Spot, an ancient storm and one of the most recognizable features of the Jovian system."
+	flag_path = "europa"
+	icon_state = "europa"
+	flag_item = /obj/item/flag/europa
+
+/obj/item/flag/europa/l
+	name = "\improper Europan Flag"
+	desc = "The flag of the Sovereign Solarian Confederation of Europa, Sol’s moon of subglacial settlements, stations, and submarines. It is notable as the place where Mankind first encountered extraterrestrial life."
+	desc_extended = "The flag of Europa bears a field of black, gray, and red. At its center rests a stylized depiction of the Jovian system, showing Jupiter and its four attendant moons.<br> \
+	The black field represents the unknown depths of the Europan Sea, whose life and secrets remain only partly understood.<br> \
+	The gray field represents Europa’s ice shell and the built world beneath it: stations, laboratories, submarine docks, aquafarms, and pressure-sealed habitats. The red field represents the hazards that define Europan life, from radiation above the ice to pressure, cold, and darkness below it.<br> \
+	The central image represents Jupiter itself, alongside its four largest moons: Ganymede, Callisto, Io, and Europa. The singular red mark upon the gas giant depicts the Great Red Spot, an ancient storm and one of the most recognizable features of the Jovian system."
+	flag_path = "europa"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/europa/large
+
+/obj/structure/sign/flag/europa/large
+	name = "\improper Europan Flag"
+	desc = "The flag of the Sovereign Solarian Confederation of Europa, Sol’s moon of subglacial settlements, stations, and submarines. It is notable as the place where Mankind first encountered extraterrestrial life."
+	desc_extended = "The flag of Europa bears a field of black, gray, and red. At its center rests a stylized depiction of the Jovian system, showing Jupiter and its four attendant moons.<br> \
+	The black field represents the unknown depths of the Europan Sea, whose life and secrets remain only partly understood.<br> \
+	The gray field represents Europa’s ice shell and the built world beneath it: stations, laboratories, submarine docks, aquafarms, and pressure-sealed habitats. The red field represents the hazards that define Europan life, from radiation above the ice to pressure, cold, and darkness below it.<br> \
+	The central image represents Jupiter itself, alongside its four largest moons: Ganymede, Callisto, Io, and Europa. The singular red mark upon the gas giant depicts the Great Red Spot, an ancient storm and one of the most recognizable features of the Jovian system."
+	icon_state = "europa_l"
+	flag_path = "europa"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/europa/l
+
+/obj/structure/sign/flag/europa/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/europa/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/europa/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/europa/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
+
+// Enceladus
+
+/obj/item/flag/enceladus
+	name = "\improper Enceladian Banner"
+	desc = "The banner of the Sovereign Solarian Federal Republic of Enceladus, a densely populated, Earthlike moon of Saturn renowned for its cultural richness."
+	desc_extended = "The banner of Enceladus consists of a horizontal tricolor of green, blue, and red, separated by thin white bands. The green represents the moon’s successful terraforming and lush forests, the blue its oceans and clear skies, and the red the hardships of its original settlers.<br> \
+	Centered on the blue field is a ring of white stars encircling a larger red-and-white star. The outer stars represent the Republic’s ten provinces, while the central star denotes the federal capital district."
+	flag_path = "enceladus"
+	flag_structure = /obj/structure/sign/flag/enceladus
+
+/obj/structure/sign/flag/enceladus
+	name = "\improper Enceladian Banner"
+	desc = "The banner of the Sovereign Solarian Federal Republic of Enceladus, a densely populated, Earthlike moon of Saturn renowned for its cultural richness."
+	desc_extended = "The banner of Enceladus consists of a horizontal tricolor of green, blue, and red, separated by thin white bands. The green represents the moon’s successful terraforming and lush forests, the blue its oceans and clear skies, and the red the hardships of its original settlers.<br> \
+	Centered on the blue field is a ring of white stars encircling a larger red-and-white star. The outer stars represent the Republic’s ten provinces, while the central star denotes the federal capital district."
+	flag_path = "enceladus"
+	icon_state = "enceladus"
+	flag_item = /obj/item/flag/enceladus
+
+/obj/item/flag/enceladus/l
+	name = "\improper Enceladian Flag"
+	desc = "The flag of the Sovereign Solarian Federal Republic of Enceladus, a densely populated, Earthlike moon of Saturn renowned for its cultural richness."
+	desc_extended = "The flag of Enceladus consists of a horizontal tricolor of green, blue, and red, separated by thin white bands. The green represents the moon’s successful terraforming and lush forests, the blue its oceans and clear skies, and the red the hardships of its original settlers.<br> \
+	Centered on the blue field is a ring of white stars encircling a larger red-and-white star. The outer stars represent the Republic’s ten provinces, while the central star denotes the federal capital district."
+	flag_path = "enceladus"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/enceladus/large
+
+/obj/structure/sign/flag/enceladus/large
+	name = "\improper Enceladian Flag"
+	desc = "The flag of the Sovereign Solarian Federal Republic of Enceladus, a densely populated, Earthlike moon of Saturn renowned for its cultural richness."
+	desc_extended = "The flag of Enceladus consists of a horizontal tricolor of green, blue, and red, separated by thin white bands. The green represents the moon’s successful terraforming and lush forests, the blue its oceans and clear skies, and the red the hardships of its original settlers.<br> \
+	Centered on the blue field is a ring of white stars encircling a larger red-and-white star. The outer stars represent the Republic’s ten provinces, while the central star denotes the federal capital district."
+	icon_state = "enceladus_l"
+	flag_path = "enceladus"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/enceladus/l
+
+/obj/structure/sign/flag/enceladus/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/enceladus/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/enceladus/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/enceladus/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
+
 // Venus
 
 /obj/item/flag/venus
-	name = "\improper Venusian flag"
-	desc = "The flag of Venus, the beating heart of Solarian cinema and entertainment."
+	name = "\improper Venusian Banner"
+	desc = "The banner of the Sovereign Solarian Republic of Venus, the beating heart of Solarian cinema and entertainment, and an indisputable cultural titan of the Spur."
+	desc_extended = "The banner of Venus features a vibrant orange field crossed by a golden horizontal band. Centered on the banner are two intersecting “V” shapes, with a pale blossom set between them. The orange field represents both the natural beauty of Venus’s upper atmosphere, home to the planet’s aerostat cities, as well as the glamour and warmth of its vast entertainment and media industries.<br> \
+	The golden band symbolizes prestige, success, and artistic excellence, reflecting Venus’s reputation as the center of Solarian cinema and culture. The light and dark chevrons represent Venus’s two primary populations: the Cythereans and the Jintarians, respectively. The blossom at their center is emblematic of the beauty and artistry the two peoples have created together."
 	flag_path = "venus"
 	flag_structure = /obj/structure/sign/flag/venus
 
 /obj/structure/sign/flag/venus
-	name = "\improper Venusian flag"
-	desc = "The flag of Venus, the beating heart of Solarian cinema and entertainment."
+	name = "\improper Venusian Banner"
+	desc = "The banner of the Sovereign Solarian Republic of Venus, the beating heart of Solarian cinema and entertainment, and an indisputable cultural titan of the Spur."
+	desc_extended = "The banner of Venus features a vibrant orange field crossed by a golden horizontal band. Centered on the banner are two intersecting “V” shapes, with a pale blossom set between them. The orange field represents both the natural beauty of Venus’s upper atmosphere, home to the planet’s aerostat cities, as well as the glamour and warmth of its vast entertainment and media industries.<br> \
+	The golden band symbolizes prestige, success, and artistic excellence, reflecting Venus’s reputation as the center of Solarian cinema and culture. The light and dark chevrons represent Venus’s two primary populations: the Cythereans and the Jintarians, respectively. The blossom at their center is emblematic of the beauty and artistry the two peoples have created together."
 	flag_path = "venus"
 	icon_state = "venus"
 	flag_item = /obj/item/flag/venus
 
 /obj/item/flag/venus/l
-	name = "large Venusian flag"
+	name = "\improper Venusian Flag"
+	desc = "The flag of the Sovereign Solarian Republic of Venus, the beating heart of Solarian cinema and entertainment, and an indisputable cultural titan of the Spur."
+	desc_extended = "The flag of Venus features a vibrant orange field crossed by a golden horizontal band. Centered on the banner are two intersecting “V” shapes, with a pale blossom set between them. The orange field represents both the natural beauty of Venus’s upper atmosphere, home to the planet’s aerostat cities, as well as the glamour and warmth of its vast entertainment and media industries.<br> \
+	The golden band symbolizes prestige, success, and artistic excellence, reflecting Venus’s reputation as the center of Solarian cinema and culture. The light and dark chevrons represent Venus’s two primary populations: the Cythereans and the Jintarians, respectively. The blossom at their center is emblematic of the beauty and artistry the two peoples have created together."
 	flag_size = TRUE
 	flag_structure = /obj/structure/sign/flag/venus/large
 
 /obj/structure/sign/flag/venus/large
+	name = "\improper Venusian Flag"
+	desc = "The flag of the Sovereign Solarian Republic of Venus, the beating heart of Solarian cinema and entertainment, and an indisputable cultural titan of the Spur."
+	desc_extended = "The flag of Venus features a vibrant orange field crossed by a golden horizontal band. Centered on the banner are two intersecting “V” shapes, with a pale blossom set between them. The orange field represents both the natural beauty of Venus’s upper atmosphere, home to the planet’s aerostat cities, as well as the glamour and warmth of its vast entertainment and media industries.<br> \
+	The golden band symbolizes prestige, success, and artistic excellence, reflecting Venus’s reputation as the center of Solarian cinema and culture. The light and dark chevrons represent Venus’s two primary populations: the Cythereans and the Jintarians, respectively. The blossom at their center is emblematic of the beauty and artistry the two peoples have created together."
 	icon_state = "venus_l"
 	flag_path = "venus"
 	flag_size = TRUE
@@ -3807,6 +4154,58 @@
 /obj/structure/sign/flag/newgibson/large/west/Initialize(mapload)
 	. = ..(mapload, WEST)
 
+/obj/item/flag/newgibson/old
+	name = "\improper Solarian Gibsonite Banner"
+	desc = "The banner used by the Autonomous Sovereign Solarian Parliamentary Republic of New Gibson, the pre-independence government that administered New Gibson prior to 2452. Commonly known as the Black Cross, it is still flown by some Solarian-loyal Gibsonites. While its display remains legal within Biesel, the SCC classifies it as contraband aboard its ships and facilities."
+	desc_extended = "The Solarian Gibsonite banner consists of a pale blue field marked by a black Nordic cross, bordered in gold.<br> \
+	The pale blue field represents New Gibson’s frozen skies, perpetual twilight, and snow-choked surface. The black cross represents the planet’s underground cities, deep mines, tunnel networks, and the industrial labor that defined Gibsonite life beneath the ice and permafrost. Its Nordic form recalls the Scandinavian roots of New Gibson’s first settlers, many of whom fled the flooding and ecological ruin of Earth’s northern regions.<br> \
+	The gold border represents the mineral wealth that made New Gibson a target for settlement, extraction, and industrial development."
+	flag_path = "newgibson_old"
+	flag_structure = /obj/structure/sign/flag/newgibson/old
+
+/obj/structure/sign/flag/newgibson/old
+	name = "\improper Solarian Gibsonite Banner"
+	desc = "The banner used by the Autonomous Sovereign Solarian Parliamentary Republic of New Gibson, the pre-independence government that administered New Gibson prior to 2452. Commonly known as the Black Cross, it is still flown by some Solarian-loyal Gibsonites. While its display remains legal within Biesel, the SCC classifies it as contraband aboard its ships and facilities."
+	desc_extended = "The Solarian Gibsonite banner consists of a pale blue field marked by a black Nordic cross, bordered in gold.<br> \
+	The pale blue field represents New Gibson’s frozen skies, perpetual twilight, and snow-choked surface. The black cross represents the planet’s underground cities, deep mines, tunnel networks, and the industrial labor that defined Gibsonite life beneath the ice and permafrost. Its Nordic form recalls the Scandinavian roots of New Gibson’s first settlers, many of whom fled the flooding and ecological ruin of Earth’s northern regions.<br> \
+	The gold border represents the mineral wealth that made New Gibson a target for settlement, extraction, and industrial development."
+	flag_path = "newgibson_old"
+	icon_state = "newgibson_old"
+	flag_item = /obj/item/flag/newgibson/old
+
+/obj/item/flag/newgibson/old/l
+	name = "\improper Solarian Gibsonite Flag"
+	desc = "The flag used by the Autonomous Sovereign Solarian Parliamentary Republic of New Gibson, the pre-independence government that administered New Gibson prior to 2452. Commonly known as the Black Cross, it is still flown by some Solarian-loyal Gibsonites. While its display remains legal within Biesel, the SCC classifies it as contraband aboard its ships and facilities."
+	desc_extended = "The Solarian Gibsonite Flag consists of a pale blue field marked by a black Nordic cross, bordered in gold.<br> \
+	The pale blue field represents New Gibson’s frozen skies, perpetual twilight, and snow-choked surface. The black cross represents the planet’s underground cities, deep mines, tunnel networks, and the industrial labor that defined Gibsonite life beneath the ice and permafrost. Its Nordic form recalls the Scandinavian roots of New Gibson’s first settlers, many of whom fled the flooding and ecological ruin of Earth’s northern regions.<br> \
+	The gold border represents the mineral wealth that made New Gibson a target for settlement, extraction, and industrial development."
+	flag_path = "newgibson_old"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/newgibson/old/large
+
+/obj/structure/sign/flag/newgibson/old/large
+	name = "\improper Solarian Gibsonite Flag"
+	desc = "The flag used by the Autonomous Sovereign Solarian Parliamentary Republic of New Gibson, the pre-independence government that administered New Gibson prior to 2452. Commonly known as the Black Cross, it is still flown by some Solarian-loyal Gibsonites. While its display remains legal within Biesel, the SCC classifies it as contraband aboard its ships and facilities."
+	desc_extended = "The Solarian Gibsonite Flag consists of a pale blue field marked by a black Nordic cross, bordered in gold.<br> \
+	The pale blue field represents New Gibson’s frozen skies, perpetual twilight, and snow-choked surface. The black cross represents the planet’s underground cities, deep mines, tunnel networks, and the industrial labor that defined Gibsonite life beneath the ice and permafrost. Its Nordic form recalls the Scandinavian roots of New Gibson’s first settlers, many of whom fled the flooding and ecological ruin of Earth’s northern regions.<br> \
+	The gold border represents the mineral wealth that made New Gibson a target for settlement, extraction, and industrial development."
+	icon_state = "newgibson_old_l"
+	flag_path = "newgibson_old"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/newgibson/old/l
+
+/obj/structure/sign/flag/newgibson/old/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/newgibson/old/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/newgibson/old/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/newgibson/old/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
+
 // The Commonwealth of Valkyrie.
 /obj/structure/sign/flag/valkyrie
 	name = "\improper Valkyrie flag"
@@ -3845,25 +4244,34 @@
 
 // Pluto.
 /obj/structure/sign/flag/pluto
-	name = "\improper Pluto flag"
-	desc = "The flag of Pluto, the furthest planet of the Sol System and one of the few socialist states in the modern Spur. Soviet citizens - be proud, you opened the road to the stars from Earth!"
-	desc_extended = "The flag of the Communist Party of the Supreme Soviet of the Plutonian System and Surrounding Space is intended to hearken back to the flags of Earth's Soviet republics. The blue represents the beauty of the stars, while the large star with five smaller stars represents Pluto and its moons."
+	name = "\improper Plutonian Banner"
+	desc = "The banner of the Special Administrative Zone of Pluto, the furthest planet in the Sol system and one of the few socialist states in the modern Spur."
+	desc_extended = "The banner of Pluto features a broad crimson field adorned with five golden stars and a band of sky blue along the bottom. The crimson field represents the strength, sacrifice, and revolutionary spirit of the Plutonian people.<br> \
+	The Six golden stars symbolize Pluto and its five moons, reflecting the unity of the Plutonian system. The sky-blue band at the base represents the beauty and vastness of space, as well as the icy landscapes and frozen seas that define the remote world itself."
 	icon_state = "pluto"
 	flag_item = /obj/item/flag/pluto
 
 /obj/item/flag/pluto
-	name = "\improper Pluto flag"
-	desc = "The flag of Pluto, the furthest planet of the Sol System and one of the few socialist states in the modern Spur. Soviet citizens - be proud, you opened the road to the stars from Earth!"
-	desc_extended = "The flag of the Communist Party of the Supreme Soviet of the Plutonian System and Surrounding Space is intended to hearken back to the flags of Earth's Soviet republics. The blue represents the beauty of the stars, while the large star with five smaller stars represents Pluto and its moons."
+	name = "\improper Plutonian Banner"
+	desc = "The banner of the Special Administrative Zone of Pluto, the furthest planet in the Sol system and one of the few socialist states in the modern Spur."
+	desc_extended = "The banner of Pluto features a broad crimson field adorned with five golden stars and a band of sky blue along the bottom. The crimson field represents the strength, sacrifice, and revolutionary spirit of the Plutonian people.<br> \
+	The Six golden stars symbolize Pluto and its five moons, reflecting the unity of the Plutonian system. The sky-blue band at the base represents the beauty and vastness of space, as well as the icy landscapes and frozen seas that define the remote world itself."
 	flag_path = "pluto"
 	flag_structure = /obj/structure/sign/flag/pluto
 
 /obj/item/flag/pluto/l
-	name = "\improper large Pluto flag"
+	name = "\improper Plutonian Flag"
+	desc = "The flag of the Special Administrative Zone of Pluto, the furthest planet in the Sol system and one of the few socialist states in the modern Spur."
+	desc_extended = "The flag of Pluto features a broad crimson field adorned with five golden stars and a band of sky blue along the bottom. The crimson field represents the strength, sacrifice, and revolutionary spirit of the Plutonian people.<br> \
+	The Six golden stars symbolize Pluto and its five moons, reflecting the unity of the Plutonian system. The sky-blue band at the base represents the beauty and vastness of space, as well as the icy landscapes and frozen seas that define the remote world itself."
 	flag_path = "pluto"
 	flag_structure = /obj/structure/sign/flag/pluto/large
 
 /obj/structure/sign/flag/pluto/large
+	name = "\improper Plutonian Flag"
+	desc = "The flag of the Special Administrative Zone of Pluto, the furthest planet in the Sol system and one of the few socialist states in the modern Spur."
+	desc_extended = "The flag of Pluto features a broad crimson field adorned with five golden stars and a band of sky blue along the bottom. The crimson field represents the strength, sacrifice, and revolutionary spirit of the Plutonian people.<br> \
+	The Six golden stars symbolize Pluto and its five moons, reflecting the unity of the Plutonian system. The sky-blue band at the base represents the beauty and vastness of space, as well as the icy landscapes and frozen seas that define the remote world itself."
 	icon_state = "pluto_l"
 	flag_path = "pluto"
 	flag_size = TRUE
@@ -3883,25 +4291,34 @@
 
 // SSRM (Southern Solarian Reconstruction Mandate).
 /obj/structure/sign/flag/ssrm
-	name = "\improper Southern Solarian Reconstruction Mandate flag"
-	desc = "The flag of the Southern Solarian Reconstruction Mandate. Intended to be simple and easy to produce."
-	desc_extended = "Simple to produce and manufacture, the Reconstruction Mandate flags are temporary by design - once the regions are stabilized, the flags will be furled and lowered for the last time."
+	name = "\improper Southern Mandate Banner"
+	desc = "The banner of the Southern Solarian Reconstruction Mandate, the emergency authority established by the Alliance to restore order, and civil administration to the devastated Southern Reaches."
+	desc_extended = "The banner of the Southern Reconstruction Mandate consists of a horizontal tricolor of red, white, and blue. The red field represents the Solarian Army, while the blue symbolizes the Solarian Marine Corps, the two branches chiefly responsible for the occupation and reconstruction of the worlds of the Southern Reaches. The white field between them signifies stability, reconstruction, and the restoration of civil authority following the collapse of the Southern Fleet Administration, and the region’s reintegration.<br> \
+	C"
 	icon_state = "ssrm"
 	flag_item = /obj/item/flag/ssrm
 
 /obj/item/flag/ssrm
-	name = "\improper Southern Solarian Reconstruction Mandate flag"
-	desc = "The flag of the Southern Solarian Reconstruction Mandate. Intended to be simple and easy to produce."
-	desc_extended = "Simple to produce and manufacture, the Reconstruction Mandate flags are temporary by design - once the regions are stabilized, the flags will be furled and lowered for the last time."
+	name = "\improper Southern Mandate Banner"
+	desc = "The banner of the Southern Solarian Reconstruction Mandate, the emergency authority established by the Alliance to restore order, and civil administration to the devastated Southern Reaches."
+	desc_extended = "The banner of the Southern Reconstruction Mandate consists of a horizontal tricolor of red, white, and blue. The red field represents the Solarian Army, while the blue symbolizes the Solarian Marine Corps, the two branches chiefly responsible for the occupation and reconstruction of the worlds of the Southern Reaches. The white field between them signifies stability, reconstruction, and the restoration of civil authority following the collapse of the Southern Fleet Administration, and the region’s reintegration.<br> \
+	C"
 	flag_path = "ssrm"
 	flag_structure = /obj/structure/sign/flag/ssrm
 
 /obj/item/flag/ssrm/l
-	name = "\improper large Southern Solarian Reconstruction Mandate flag"
+	name = "\improper Southern Mandate Flag"
+	desc = "The flag of the Southern Solarian Reconstruction Mandate, the emergency authority established by the Alliance to restore order, and civil administration to the devastated Southern Reaches."
+	desc_extended = "The flag of the Southern Reconstruction Mandate consists of a horizontal tricolor of red, white, and blue. The red field represents the Solarian Army, while the blue symbolizes the Solarian Marine Corps, the two branches chiefly responsible for the occupation and reconstruction of the worlds of the Southern Reaches. The white field between them signifies stability, reconstruction, and the restoration of civil authority following the collapse of the Southern Fleet Administration, and the region’s reintegration.<br> \
+	C"
 	flag_path = "ssrm"
 	flag_structure = /obj/structure/sign/flag/ssrm/large
 
 /obj/structure/sign/flag/ssrm/large
+	name = "\improper Southern Mandate Flag"
+	desc = "The flag of the Southern Solarian Reconstruction Mandate, the emergency authority established by the Alliance to restore order, and civil administration to the devastated Southern Reaches."
+	desc_extended = "The flag of the Southern Reconstruction Mandate consists of a horizontal tricolor of red, white, and blue. The red field represents the Solarian Army, while the blue symbolizes the Solarian Marine Corps, the two branches chiefly responsible for the occupation and reconstruction of the worlds of the Southern Reaches. The white field between them signifies stability, reconstruction, and the restoration of civil authority following the collapse of the Southern Fleet Administration, and the region’s reintegration.<br> \
+	C"
 	icon_state = "ssrm_l"
 	flag_path = "ssrm"
 	flag_size = TRUE
@@ -3921,25 +4338,34 @@
 
 // NSRM (Northern Solarian Reconstruction Mandate).
 /obj/structure/sign/flag/nsrm
-	name = "\improper Northern Solarian Reconstruction Mandate flag"
-	desc = "The flag of the Northern Solarian Reconstruction Mandate. Intended to be simple and easy to produce."
-	desc_extended = "Simple to produce and manufacture, the Reconstruction Mandate flags are temporary by design - once the regions are stabilized, the flags will be furled and lowered for the last time."
+	name = "\improper Northern Mandate Banner"
+	desc = "The banner of the Northern Solarian Reconstruction Mandate, the emergency authority established by the Alliance to restore order, and civil administration to the devastated Northern Reaches."
+	desc_extended = "The banner of the Northern Reconstruction Mandate consists of a horizontal tricolor of red, white, and blue. The red field represents the Solarian Army, while the blue symbolizes the Solarian Marine Corps, the two branches chiefly responsible for the occupation and reconstruction of the worlds of the Northern Reaches. The white field between them signifies stability, reconstruction, and the restoration of civil authority following the collapse of the Front and League.<br> \
+	C"
 	icon_state = "nsrm"
 	flag_item = /obj/item/flag/nsrm
 
 /obj/item/flag/nsrm
-	name = "\improper Northern Solarian Reconstruction Mandate flag"
-	desc = "The flag of the Northern Solarian Reconstruction Mandate. Intended to be simple and easy to produce."
-	desc_extended = "Simple to produce and manufacture, the Reconstruction Mandate flags are temporary by design - once the regions are stabilized, the flags will be furled and lowered for the last time."
+	name = "\improper Northern Mandate Banner"
+	desc = "The banner of the Northern Solarian Reconstruction Mandate, the emergency authority established by the Alliance to restore order, and civil administration to the devastated Northern Reaches."
+	desc_extended = "The banner of the Northern Reconstruction Mandate consists of a horizontal tricolor of red, white, and blue. The red field represents the Solarian Army, while the blue symbolizes the Solarian Marine Corps, the two branches chiefly responsible for the occupation and reconstruction of the worlds of the Northern Reaches. The white field between them signifies stability, reconstruction, and the restoration of civil authority following the collapse of the Front and League.<br> \
+	C"
 	flag_path = "nsrm"
 	flag_structure = /obj/structure/sign/flag/nsrm
 
 /obj/item/flag/nsrm/l
-	name = "\improper large Northern Solarian Reconstruction Mandate flag"
+	name = "\improper Northern Mandate Flag"
+	desc = "The flag of the Northern Solarian Reconstruction Mandate, the emergency authority established by the Alliance to restore order, and civil administration to the devastated Northern Reaches."
+	desc_extended = "The flag of the Northern Reconstruction Mandate consists of a horizontal tricolor of red, white, and blue. The red field represents the Solarian Army, while the blue symbolizes the Solarian Marine Corps, the two branches chiefly responsible for the occupation and reconstruction of the worlds of the Northern Reaches. The white field between them signifies stability, reconstruction, and the restoration of civil authority following the collapse of the Front and League.<br> \
+	C"
 	flag_path = "nsrm"
 	flag_structure = /obj/structure/sign/flag/nsrm/large
 
 /obj/structure/sign/flag/nsrm/large
+	name = "\improper Northern Mandate Flag"
+	desc = "The flag of the Northern Solarian Reconstruction Mandate, the emergency authority established by the Alliance to restore order, and civil administration to the devastated Northern Reaches."
+	desc_extended = "The flag of the Northern Reconstruction Mandate consists of a horizontal tricolor of red, white, and blue. The red field represents the Solarian Army, while the blue symbolizes the Solarian Marine Corps, the two branches chiefly responsible for the occupation and reconstruction of the worlds of the Northern Reaches. The white field between them signifies stability, reconstruction, and the restoration of civil authority following the collapse of the Front and League.<br> \
+	C"
 	icon_state = "nsrm_l"
 	flag_path = "nsrm"
 	flag_size = TRUE
@@ -3959,24 +4385,34 @@
 
 // Mars.
 /obj/structure/sign/flag/mars
-	name = "\improper Provisional Government of Mars flag"
-	desc = "Intended to invoke unity between the Martian “Blues” (Solarian loyalists) and “Reds” (Martian loyalists) in the aftermath of the Violet Dawn disaster, this flag uses red (for Mars) in addition to blue and white (for the Alliance) in its design."
-	desc_extended = "The Alliance of Sovereign Solarian Nations' Provisional Government of Mars' flag was designed in a short period of time under the stressful conditions of the early Solarian Civil War, when many worried the Sol System itself would fall into infighting as the remnants of Frost's government struggled to resist a coup by more moderate forces."
+	name = "\improper Provisional Martian Banner"
+	desc = "The banner of the Provisional Government of Mars, the military occupation authority established on the world following the reestablishment of Solarian control over the Red planet following Violet Dawn."
+	desc_extended = "The banner of the Provisional Government of Mars consists of a horizontal tricolor of red, white, and blue. The red field represents the Solarian Army, while the blue symbolizes the Solarian Marine Corps, the two branches chiefly responsible for the occupation and reconstruction of the world. The white field between them signifies stability, reconstruction, and the restoration of civil authority following the Violet Dawn catastrophe.<br> \
+	Centered upon the white field is a stylized globe rendered in gold, an emblem dating back to the pre-Solarian, colonization era of Martian history."
 	icon_state = "mars"
 	flag_item = /obj/item/flag/mars
 
 /obj/item/flag/mars
-	name = "\improper Provisional Government of Mars flag"
-	desc = "The flag of Mars."
+	name = "\improper Provisional Martian Banner"
+	desc = "The banner of the Provisional Government of Mars, the military occupation authority established on the world following the reestablishment of Solarian control over the Red planet following Violet Dawn."
+	desc_extended = "The banner of the Provisional Government of Mars consists of a horizontal tricolor of red, white, and blue. The red field represents the Solarian Army, while the blue symbolizes the Solarian Marine Corps, the two branches chiefly responsible for the occupation and reconstruction of the world. The white field between them signifies stability, reconstruction, and the restoration of civil authority following the Violet Dawn catastrophe.<br> \
+	Centered upon the white field is a stylized globe rendered in gold, an emblem dating back to the pre-Solarian, colonization era of Martian history."
 	flag_path = "mars"
 	flag_structure = /obj/structure/sign/flag/mars
 
 /obj/item/flag/mars/l
-	name = "\improper large Provisional Government of Mars flag"
+	name = "\improper Provisional Martian Flag"
+	desc = "The flag of the Provisional Government of Mars, the military occupation authority established on the world following the reestablishment of Solarian control over the Red planet following Violet Dawn."
+	desc_extended = "The flag of the Provisional Government of Mars consists of a horizontal tricolor of red, white, and blue. The red field represents the Solarian Army, while the blue symbolizes the Solarian Marine Corps, the two branches chiefly responsible for the occupation and reconstruction of the world. The white field between them signifies stability, reconstruction, and the restoration of civil authority following the Violet Dawn catastrophe.<br> \
+	Centered upon the white field is a stylized globe rendered in gold, an emblem dating back to the pre-Solarian, colonization era of Martian history."
 	flag_path = "mars"
 	flag_structure = /obj/structure/sign/flag/mars/large
 
 /obj/structure/sign/flag/mars/large
+	name = "\improper Provisional Martian Flag"
+	desc = "The flag of the Provisional Government of Mars, the military occupation authority established on the world following the reestablishment of Solarian control over the Red planet following Violet Dawn."
+	desc_extended = "The flag of the Provisional Government of Mars consists of a horizontal tricolor of red, white, and blue. The red field represents the Solarian Army, while the blue symbolizes the Solarian Marine Corps, the two branches chiefly responsible for the occupation and reconstruction of the world. The white field between them signifies stability, reconstruction, and the restoration of civil authority following the Violet Dawn catastrophe.<br> \
+	Centered upon the white field is a stylized globe rendered in gold, an emblem dating back to the pre-Solarian, colonization era of Martian history."
 	icon_state = "mars_l"
 	flag_path = "mars"
 	flag_size = TRUE
@@ -3994,20 +4430,68 @@
 /obj/structure/sign/flag/mars/large/west/Initialize(mapload)
 	. = ..(mapload, WEST)
 
+// Old Mars
+/obj/structure/sign/flag/mars/old
+	name = "\improper Martian Union Banner"
+	desc = "The banner of the defunct Sovereign Solarian Union of Mars, a controversial and troubled regime that ruled prior to Violet Dawn. It is still often flown by Martian “Reds” and by those nostalgic for what they consider “better” times."
+	desc_extended = "The banner of the Martian Union is defined by fields of rust red and blue, representing the rival “Reds” and “Blues,” while the white field symbolizes unity, an ideal often proclaimed by the now-defunct government but rarely achieved.<br> \
+	The central motif represents Mars itself, its intersecting form alluding to both factions. To the right, a pair of stars represents Phobos and Deimos."
+	icon_state = "unionmars"
+	flag_item = /obj/item/flag/mars/old
+
+/obj/item/flag/mars/old
+	name = "\improper Martian Union Banner"
+	desc = "The banner of the defunct Sovereign Solarian Union of Mars, a controversial and troubled regime that ruled prior to Violet Dawn. It is still often flown by Martian “Reds” and by those nostalgic for what they consider “better” times."
+	desc_extended = "The banner of the Martian Union is defined by fields of rust red and blue, representing the rival “Reds” and “Blues,” while the white field symbolizes unity, an ideal often proclaimed by the now-defunct government but rarely achieved.<br> \
+	The central motif represents Mars itself, its intersecting form alluding to both factions. To the right, a pair of stars represents Phobos and Deimos."
+	flag_path = "unionmars"
+	flag_structure = /obj/structure/sign/flag/mars/old
+
+/obj/item/flag/mars/old/l
+	name = "\improper Martian Union Flag"
+	desc = "The flag of the defunct Sovereign Solarian Union of Mars, a controversial and troubled regime that ruled prior to Violet Dawn. It is still often flown by Martian “Reds” and by those nostalgic for what they consider “better” times."
+	desc_extended = "The flag of the Martian Union is defined by fields of rust red and blue, representing the rival “Reds” and “Blues,” while the white field symbolizes unity, an ideal often proclaimed by the now-defunct government but rarely achieved.<br> \
+	The central motif represents Mars itself, its intersecting form alluding to both factions. To the right, a pair of stars represents Phobos and Deimos."
+	flag_path = "unionmars"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/mars/old/large
+
+/obj/structure/sign/flag/mars/old/large
+	name = "\improper Martian Union Flag"
+	desc = "The flag of the defunct Sovereign Solarian Union of Mars, a controversial and troubled regime that ruled prior to Violet Dawn. It is still often flown by Martian “Reds” and by those nostalgic for what they consider “better” times."
+	desc_extended = "The flag of the Martian Union is defined by fields of rust red and blue, representing the rival “Reds” and “Blues,” while the white field symbolizes unity, an ideal often proclaimed by the now-defunct government but rarely achieved.<br> \
+	The central motif represents Mars itself, its intersecting form alluding to both factions. To the right, a pair of stars represents Phobos and Deimos."
+	icon_state = "unionmars_l"
+	flag_path = "unionmars"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/mars/old/l
+
+/obj/structure/sign/flag/mars/old/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/mars/old/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/mars/old/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/mars/old/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
+
 // Visegrad
 /obj/item/flag/visegrad
-	name = "\improper Visegrad flag"
-	desc = "The flag of Visegrad."
-	desc_extended = "The blue, white, green and red flag of Visegrad was the original Warsaw Pact-created design for the planet's flag, and even after it acquired independence it was maintained, though with the removal of the socialist emblem and the addition of a Solarian ensign. \
-	It is said that the green represents the forests of the planet, the white the stormclouds, and the blue the sky hidden above, while the red is supposed to represent shared national unity."
+	name = "\improper Visegradi Banner"
+	desc = "The banner of the Sovereign Solarian Free Republic of Visegrad, a rugged, storm-swept world of the Middle Ring that has endured, and overcome, great hardship since its colonization."
+	desc_extended = "The banner of Visegrad features bands of blue, white, and green along with a red inward-pointing chevron. The blue field represents the sky beyond the planet’s near-constant storms, rarely seen by those who live beneath them.<br> \
+	The white strip symbolizes the thick cloud cover and frequent rainfall that dominate Visegrad’s climate, while the green field reflects the world’s dense forests and heavy vegetation. The red chevron represents Visegradi unity and national determination, forged through the shared struggles of generations of exiles, settlers, and their descendents."
 	flag_path = "visegrad"
 	flag_structure = /obj/structure/sign/flag/visegrad
 
 /obj/structure/sign/flag/visegrad
-	name = "\improper Visegrad flag"
-	desc = "The flag of Visegrad."
-	desc_extended = "The blue, white, green and red flag of Visegrad was the original Warsaw Pact-created design for the planet's flag, and even after it acquired independence it was maintained, though with the removal of the socialist emblem and the addition of a Solarian ensign. \
-	It is said that the green represents the forests of the planet, the white the stormclouds, and the blue the sky hidden above, while the red is supposed to represent shared national unity."
+	name = "\improper Visegradi Banner"
+	desc = "The banner of the Sovereign Solarian Free Republic of Visegrad, a rugged, storm-swept world of the Middle Ring that has endured, and overcome, great hardship since its colonization."
+	desc_extended = "The banner of Visegrad features bands of blue, white, and green along with a red inward-pointing chevron. The blue field represents the sky beyond the planet’s near-constant storms, rarely seen by those who live beneath them.<br> \
+	The white strip symbolizes the thick cloud cover and frequent rainfall that dominate Visegrad’s climate, while the green field reflects the world’s dense forests and heavy vegetation. The red chevron represents Visegradi unity and national determination, forged through the shared struggles of generations of exiles, settlers, and their descendents."
 	flag_path = "visegrad"
 	icon_state = "visegrad"
 	flag_item = /obj/item/flag/visegrad
@@ -4016,11 +4500,18 @@
 	unmovable = TRUE
 
 /obj/item/flag/visegrad/l
-	name = "\improper large Visegrad flag"
+	name = "\improper Visegradi Flag"
+	desc = "The flag of the Sovereign Solarian Free Republic of Visegrad, a rugged, storm-swept world of the Middle Ring that has endured, and overcome, great hardship since its colonization."
+	desc_extended = "The Flag of Visegrad features bands of blue, white, and green along with a red inward-pointing chevron. The blue field represents the sky beyond the planet’s near-constant storms, rarely seen by those who live beneath them.<br> \
+	The white strip symbolizes the thick cloud cover and frequent rainfall that dominate Visegrad’s climate, while the green field reflects the world’s dense forests and heavy vegetation. The red chevron represents Visegradi unity and national determination, forged through the shared struggles of generations of exiles, settlers, and their descendents."
 	flag_path = "visegrad"
 	flag_structure = /obj/structure/sign/flag/visegrad/large
 
 /obj/structure/sign/flag/visegrad/large
+	name = "\improper Visegradi Flag"
+	desc = "The flag of the Sovereign Solarian Free Republic of Visegrad, a rugged, storm-swept world of the Middle Ring that has endured, and overcome, great hardship since its colonization."
+	desc_extended = "The Flag of Visegrad features bands of blue, white, and green along with a red inward-pointing chevron. The blue field represents the sky beyond the planet’s near-constant storms, rarely seen by those who live beneath them.<br> \
+	The white strip symbolizes the thick cloud cover and frequent rainfall that dominate Visegrad’s climate, while the green field reflects the world’s dense forests and heavy vegetation. The red chevron represents Visegradi unity and national determination, forged through the shared struggles of generations of exiles, settlers, and their descendents."
 	icon_state = "visegrad_l"
 	flag_path = "visegrad"
 	flag_size = TRUE
@@ -4039,79 +4530,92 @@
 	. = ..(mapload, WEST)
 
 // Old Visegrad.
-/obj/item/flag/old_visegrad
+/obj/item/flag/visegrad_old
 	name = "\improper Pact-era Visegrad flag"
 	desc = "The colonial flag of Visegrad, featuring the iconography of the Soviet Union and Warsaw Pact."
 	desc_extended = "Controversial on Visegrad itself due to its associations with the colony's past as a dumping ground for dissidents, reproductions of colonial-era flags are commonly sold to tourists and as collector's items. A vintage flag can go for tens of thousands of credits, but most in circulation currently are reproductions of varying quality - some even made in the Republic of Biesel."
-	flag_path = "old_visegrad"
-	flag_structure = /obj/structure/sign/flag/old_visegrad
+	flag_path = "visegrad_old"
+	flag_structure = /obj/structure/sign/flag/visegrad_old
 
-/obj/structure/sign/flag/old_visegrad
+/obj/structure/sign/flag/visegrad_old
 	name = "\improper Pact-era Visegrad flag"
 	desc = "The colonial flag of Visegrad, featuring the iconography of the Soviet Union and Warsaw Pact."
 	desc_extended = "Controversial on Visegrad itself due to its associations with the colony's past as a dumping ground for dissidents, reproductions of colonial-era flags are commonly sold to tourists and as collector's items. A vintage flag can go for tens of thousands of credits, but most in circulation currently are reproductions of varying quality - some even made in the Republic of Biesel."
-	icon_state = "old_visegrad"
-	flag_item = /obj/item/flag/old_visegrad
+	icon_state = "visegrad_old"
+	flag_item = /obj/item/flag/visegrad_old
 
-/obj/item/flag/old_visegrad/l
+/obj/item/flag/visegrad_old/l
 	name = "\improper large Pact-era Visegrad flag"
-	flag_path = "old_visegrad"
-	flag_structure = /obj/structure/sign/flag/old_visegrad/large
+	flag_path = "visegrad_old"
+	flag_structure = /obj/structure/sign/flag/visegrad_old/large
 
-/obj/structure/sign/flag/old_visegrad/large
-	icon_state = "old_visegrad_l"
-	flag_path = "old_visegrad"
+/obj/structure/sign/flag/visegrad_old/large
+	icon_state = "visegrad_old_l"
+	flag_path = "visegrad_old"
 	flag_size = TRUE
-	flag_item = /obj/item/flag/old_visegrad/l
+	flag_item = /obj/item/flag/visegrad_old/l
 
-/obj/structure/sign/flag/old_visegrad/large/north/Initialize(mapload)
+/obj/structure/sign/flag/visegrad_old/large/north/Initialize(mapload)
 	. = ..(mapload, NORTH)
 
-/obj/structure/sign/flag/old_visegrad/large/south/Initialize(mapload)
+/obj/structure/sign/flag/visegrad_old/large/south/Initialize(mapload)
 	. = ..(mapload, SOUTH)
 
-/obj/structure/sign/flag/old_visegrad/large/east/Initialize(mapload)
+/obj/structure/sign/flag/visegrad_old/large/east/Initialize(mapload)
 	. = ..(mapload, EAST)
 
-/obj/structure/sign/flag/old_visegrad/large/west/Initialize(mapload)
+/obj/structure/sign/flag/visegrad_old/large/west/Initialize(mapload)
 	. = ..(mapload, WEST)
 
 // Old Xanu
-/obj/item/flag/old_xanu
-	name = "\improper Solarian-era Xanu flag"
-	desc = "The flag of the Sovereign Solarian Nation of Xanu Prime. Nearly two-hundred years out of print, most of these are museum pieces or reproductions."
-	desc_extended = "The Department of Colonization designed this flag during the First Astonishment era of Xanu's history (2227-60), and it proved to be fairly popular. During the Interstellar War it was common for pro-Coalition Xanans to rip the third of the flag containing the Alliance's flag off, then display the remaining two-thirds. The All-Xanu Republic's current flag bears some resemblance to this flag."
-	flag_path = "old_xanu"
-	flag_structure = /obj/structure/sign/flag/old_xanu
+/obj/item/flag/xanu_old
+	name = "\improper Solarian Xanan Banner"
+	desc = "The banner used by the Sovereign Solarian Nation of Xanu Prime, the government established by Hegemonic Era Sol following the end of the Xanan Civil War. Unpopular and largely ineffective, the administration lasted only eighteen years before the outbreak of the Interstellar War. Today, the flag is found almost exclusively in museums and private collections."
+	desc_extended = "The Solarian Xanan banner consists of alternating bands of orange, blue, and green. Centered upon the field is a ringed roundel bearing a white star edged in green.<br> \
+	The blue bands represent the liberty and freedom promised to the Xanan people, while the orange bands represent the determination and hard work that built Xanu Prime. The white of the central star represents justice and peace. The green recalls the world itself, its fertile land, and the promise of renewal after the civil war.<br> \
+	The star stands for unity, with each point representing one of Xanu Prime’s primary founding cultures: French, Indian, Pakistani, Belgian, and Dutch."
+	flag_path = "xanu_old"
+	flag_structure = /obj/structure/sign/flag/xanu_old
 
-/obj/structure/sign/flag/old_xanu
-	name = "\improper Solarian-era Xanu flag"
-	desc = "The flag of the Sovereign Solarian Nation of Xanu Prime. Nearly two-hundred years out of print, most of these are museum pieces or reproductions."
-	desc_extended = "The Department of Colonization designed this flag during the First Astonishment era of Xanu's history (2227-60), and it proved to be fairly popular. During the Interstellar War it was common for pro-Coalition Xanans to rip the third of the flag containing the Alliance's flag off, then display the remaining two-thirds. The All-Xanu Republic's current flag bears some resemblance to this flag."
-	icon_state = "old_xanu"
-	flag_item = /obj/item/flag/old_xanu
+/obj/structure/sign/flag/xanu_old
+	name = "\improper Solarian Xanan Banner"
+	desc = "The banner used by the Sovereign Solarian Nation of Xanu Prime, the government established by Hegemonic Era Sol following the end of the Xanan Civil War. Unpopular and largely ineffective, the administration lasted only eighteen years before the outbreak of the Interstellar War. Today, the flag is found almost exclusively in museums and private collections."
+	desc_extended = "The Solarian Xanan banner consists of alternating bands of orange, blue, and green. Centered upon the field is a ringed roundel bearing a white star edged in green.<br> \
+	The blue bands represent the liberty and freedom promised to the Xanan people, while the orange bands represent the determination and hard work that built Xanu Prime. The white of the central star represents justice and peace. The green recalls the world itself, its fertile land, and the promise of renewal after the civil war.<br> \
+	The star stands for unity, with each point representing one of Xanu Prime’s primary founding cultures: French, Indian, Pakistani, Belgian, and Dutch."
+	icon_state = "xanu_old"
+	flag_item = /obj/item/flag/xanu_old
 
-/obj/item/flag/old_xanu/l
-	name = "\improper large Solarian-era Xanu flag"
-	flag_path = "old_xanu"
-	flag_structure = /obj/structure/sign/flag/old_xanu/large
+/obj/item/flag/xanu_old/l
+	name = "\improper Solarian Xanan Flag"
+	desc = "The flag used by the Sovereign Solarian Nation of Xanu Prime, the government established by Hegemonic Era Sol following the end of the Xanan Civil War. Unpopular and largely ineffective, the administration lasted only eighteen years before the outbreak of the Interstellar War. Today, the flag is found almost exclusively in museums and private collections."
+	desc_extended = "The Solarian Xanan Flag consists of alternating bands of orange, blue, and green. Centered upon the field is a ringed roundel bearing a white star edged in green.<br> \
+	The blue bands represent the liberty and freedom promised to the Xanan people, while the orange bands represent the determination and hard work that built Xanu Prime. The white of the central star represents justice and peace. The green recalls the world itself, its fertile land, and the promise of renewal after the civil war.<br> \
+	The star stands for unity, with each point representing one of Xanu Prime’s primary founding cultures: French, Indian, Pakistani, Belgian, and Dutch."
+	flag_path = "xanu_old"
+	flag_structure = /obj/structure/sign/flag/xanu_old/large
 
-/obj/structure/sign/flag/old_xanu/large
-	icon_state = "old_xanu_l"
-	flag_path = "old_xanu"
+/obj/structure/sign/flag/xanu_old/large
+	name = "\improper Solarian Xanan Flag"
+	desc = "The flag used by the Sovereign Solarian Nation of Xanu Prime, the government established by Hegemonic Era Sol following the end of the Xanan Civil War. Unpopular and largely ineffective, the administration lasted only eighteen years before the outbreak of the Interstellar War. Today, the flag is found almost exclusively in museums and private collections."
+	desc_extended = "The Solarian Xanan Flag consists of alternating bands of orange, blue, and green. Centered upon the field is a ringed roundel bearing a white star edged in green.<br> \
+	The blue bands represent the liberty and freedom promised to the Xanan people, while the orange bands represent the determination and hard work that built Xanu Prime. The white of the central star represents justice and peace. The green recalls the world itself, its fertile land, and the promise of renewal after the civil war.<br> \
+	The star stands for unity, with each point representing one of Xanu Prime’s primary founding cultures: French, Indian, Pakistani, Belgian, and Dutch."
+	icon_state = "xanu_old_l"
+	flag_path = "xanu_old"
 	flag_size = TRUE
-	flag_item = /obj/item/flag/old_xanu/l
+	flag_item = /obj/item/flag/xanu_old/l
 
-/obj/structure/sign/flag/old_xanu/large/north/Initialize(mapload)
+/obj/structure/sign/flag/xanu_old/large/north/Initialize(mapload)
 	. = ..(mapload, NORTH)
 
-/obj/structure/sign/flag/old_xanu/large/south/Initialize(mapload)
+/obj/structure/sign/flag/xanu_old/large/south/Initialize(mapload)
 	. = ..(mapload, SOUTH)
 
-/obj/structure/sign/flag/old_xanu/large/east/Initialize(mapload)
+/obj/structure/sign/flag/xanu_old/large/east/Initialize(mapload)
 	. = ..(mapload, EAST)
 
-/obj/structure/sign/flag/old_xanu/large/west/Initialize(mapload)
+/obj/structure/sign/flag/xanu_old/large/west/Initialize(mapload)
 	. = ..(mapload, WEST)
 
 // HPS Narrows
@@ -4244,31 +4748,31 @@
 
 // Sankt Frederick
 /obj/structure/sign/flag/sfk
-	name = "\improper Sankt Frederick banner"
-	desc = "The banner of Sankt Frederick, the steadfast breadbasket of the Solarian Wildlands."
+	name = "\improper Frederickian Banner"
+	desc = "The banner of the Sovereign Solarian Free State of Sankt Frederick, the steadfast breadbasket of the Solarian Wildlands."
 	desc_extended = "The banner of Sankt Frederick features a vertical tricolor of black, white, and blue, representing the planet’s rich soil, the people’s unity and perseverance, and its many lakes and rivers. At its center lies a blue escutcheon bearing a white wheat stalk, symbolizing Sankt Frederick’s agricultural heritage and its vital role in sustaining the wider Alliance."
 	icon_state = "sfk"
 	flag_item = /obj/item/flag/sfk
 
 /obj/item/flag/sfk
-	name = "\improper Sankt Frederick banner"
-	desc = "The banner of Sankt Frederick, the steadfast breadbasket of the Solarian Wildlands."
+	name = "\improper Frederickian Banner"
+	desc = "The banner of the Sovereign Solarian Free State of Sankt Frederick, the steadfast breadbasket of the Solarian Wildlands."
 	desc_extended = "The banner of Sankt Frederick features a vertical tricolor of black, white, and blue, representing the planet’s rich soil, the people’s unity and perseverance, and its many lakes and rivers. At its center lies a blue escutcheon bearing a white wheat stalk, symbolizing Sankt Frederick’s agricultural heritage and its vital role in sustaining the wider Alliance."
 	flag_path = "sfk"
 	flag_structure = /obj/structure/sign/flag/sfk
 
 /obj/item/flag/sfk/l
-	name = "\improper Sankt Frederick flag"
-	desc =  "The flag of Sankt Frederick, the steadfast breadbasket of the Solarian Wildlands."
-	desc_extended = "The flag of Sankt Frederick features a horizontal tricolor of black, white, and blue, representing the planet’s rich soil, the people’s unity and perseverance, and its many lakes and rivers. At its center lies a blue escutcheon bearing a white wheat stalk, symbolizing Sankt Frederick’s agricultural heritage and its vital role in sustaining the wider Alliance."
+	name = "\improper Frederickian Flag"
+	desc =  "The flag of the Sovereign Solarian Free State of Sankt Frederick, the steadfast breadbasket of the Solarian Wildlands."
+	desc_extended = "The flag of Sankt Frederick features a vertical tricolor of black, white, and blue, representing the planet’s rich soil, the people’s unity and perseverance, and its many lakes and rivers. At its center lies a blue escutcheon bearing a white wheat stalk, symbolizing Sankt Frederick’s agricultural heritage and its vital role in sustaining the wider Alliance."
 	flag_path = "sfk"
 	flag_size = TRUE
 	flag_structure = /obj/structure/sign/flag/sfk/large
 
 /obj/structure/sign/flag/sfk/large
-	name = "\improper Sankt Frederick flag"
-	desc =  "The flag of Sankt Frederick, the steadfast breadbasket of the Solarian Wildlands."
-	desc_extended = "The flag of Sankt Frederick features a horizontal tricolor of black, white, and blue, representing the planet’s rich soil, the people’s unity and perseverance, and its many lakes and rivers. At its center lies a blue escutcheon bearing a white wheat stalk, symbolizing Sankt Frederick’s agricultural heritage and its vital role in sustaining the wider Alliance."
+	name = "\improper Frederickian Flag"
+	desc =  "The flag of the Sovereign Solarian Free State of Sankt Frederick, the steadfast breadbasket of the Solarian Wildlands."
+	desc_extended = "The flag of Sankt Frederick features a vertical tricolor of black, white, and blue, representing the planet’s rich soil, the people’s unity and perseverance, and its many lakes and rivers. At its center lies a blue escutcheon bearing a white wheat stalk, symbolizing Sankt Frederick’s agricultural heritage and its vital role in sustaining the wider Alliance."
 	icon_state = "sfk_l"
 	flag_path = "sfk"
 	flag_size = TRUE
@@ -4284,6 +4788,307 @@
 	. = ..(mapload, EAST)
 
 /obj/structure/sign/flag/sfk/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
+
+// Novo Igman
+/obj/item/flag/novo_igman
+	name = "\improper Novo Igmani Banner"
+	desc = "The banner of the Sovereign Solarian Federal Republic of Novo Igman, the industrial heartland of the Northern Reaches, now recovering from the devastation of two separate invasions and its own fierce resistance, a durable symbol of Igmani tenacity."
+	desc_extended = "The banner of Novo Igman features a field of deep blue and crimson, divided by a prominent white cross and centered on a dark blue roundel bearing a ring of gold stars around a larger central star.<br> \
+	The blue represents stability, unity, and Novo Igman’s loyalty to the Solarian Alliance, while the crimson reflects the planet’s industrial strength and the labor that underpins its prosperity. The white cross symbolizes peace and coexistence among the world’s predominantly Yugoslav-descended population.<br> \
+	The central emblem represents Novo Igman itself, while the surrounding gold stars signify the Republic’s eight federal states, united in purpose."
+	flag_path = "novo_igman"
+	flag_structure = /obj/structure/sign/flag/novo_igman
+
+/obj/structure/sign/flag/novo_igman
+	name = "\improper Novo Igmani Banner"
+	desc = "The banner of the Sovereign Solarian Federal Republic of Novo Igman, the industrial heartland of the Northern Reaches, now recovering from the devastation of two separate invasions and its own fierce resistance, a durable symbol of Igmani tenacity."
+	desc_extended = "The banner of Novo Igman features a field of deep blue and crimson, divided by a prominent white cross and centered on a dark blue roundel bearing a ring of gold stars around a larger central star.<br> \
+	The blue represents stability, unity, and Novo Igman’s loyalty to the Solarian Alliance, while the crimson reflects the planet’s industrial strength and the labor that underpins its prosperity. The white cross symbolizes peace and coexistence among the world’s predominantly Yugoslav-descended population.<br> \
+	The central emblem represents Novo Igman itself, while the surrounding gold stars signify the Republic’s eight federal states, united in purpose."
+	flag_path = "novo_igman"
+	icon_state = "novo_igman"
+	flag_item = /obj/item/flag/novo_igman
+
+/obj/item/flag/novo_igman/l
+	name = "\improper Novo Igmani Flag"
+	desc = "The flag of the Sovereign Solarian Federal Republic of Novo Igman, the industrial heartland of the Northern Reaches, now recovering from the devastation of two separate invasions and its own fierce resistance, a durable symbol of Igmani tenacity."
+	desc_extended = "The flag of Novo Igman features a field of deep blue and crimson, divided by a prominent white cross and centered on a dark blue roundel bearing a ring of gold stars around a larger central star.<br> \
+	The blue represents stability, unity, and Novo Igman’s loyalty to the Solarian Alliance, while the crimson reflects the planet’s industrial strength and the labor that underpins its prosperity. The white cross symbolizes peace and coexistence among the world’s predominantly Yugoslav-descended population.<br> \
+	The central emblem represents Novo Igman itself, while the surrounding gold stars signify the Republic’s eight federal states, united in purpose."
+	flag_path = "novo_igman"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/novo_igman/large
+
+/obj/structure/sign/flag/novo_igman/large
+	name = "\improper Novo Igmani Flag"
+	desc = "The flag of the Sovereign Solarian Federal Republic of Novo Igman, the industrial heartland of the Northern Reaches, now recovering from the devastation of two separate invasions and its own fierce resistance, a durable symbol of Igmani tenacity."
+	desc_extended = "The flag of Novo Igman features a field of deep blue and crimson, divided by a prominent white cross and centered on a dark blue roundel bearing a ring of gold stars around a larger central star.<br> \
+	The blue represents stability, unity, and Novo Igman’s loyalty to the Solarian Alliance, while the crimson reflects the planet’s industrial strength and the labor that underpins its prosperity. The white cross symbolizes peace and coexistence among the world’s predominantly Yugoslav-descended population.<br> \
+	The central emblem represents Novo Igman itself, while the surrounding gold stars signify the Republic’s eight federal states, united in purpose."
+	icon_state = "novo_igman_l"
+	flag_path = "novo_igman"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/novo_igman/l
+
+/obj/structure/sign/flag/novo_igman/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/novo_igman/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/novo_igman/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/novo_igman/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
+
+// Unity Station
+/obj/item/flag/unity
+	name = "\improper Stationer Banner"
+	desc = "The banner of the Sovereign Solarian Federal District of Unity Station, one of the largest structures ever built by human hands, anchored at Earth’s L5 Lagrange point. It serves as the seat of the Solarian Government while also standing as a sovereign member state in its own right."
+	desc_extended = "The banner of Unity Station features a slate gray field, bisected by two horizontal bands of blaze orange. At its center rests a white seal bearing a detailed depiction of the station itself.<br> \
+	The gray field represents the Federal District’s claimed neutrality and impartiality in the affairs of other member states. The twin orange bands honor the sacrifice, hardship, and labor of the engineers, technicians, dockworkers, planners, and other specialists whose work made Unity Station possible.<br> \
+	The central seal represents Unity Station itself, a vast feat of engineering and the shared pride of those who call it home."
+	flag_path = "unity"
+	flag_structure = /obj/structure/sign/flag/unity
+
+/obj/structure/sign/flag/unity
+	name = "\improper Stationer Banner"
+	desc = "The banner of the Sovereign Solarian Federal District of Unity Station, one of the largest structures ever built by human hands, anchored at Earth’s L5 Lagrange point. It serves as the seat of the Solarian Government while also standing as a sovereign member state in its own right."
+	desc_extended = "The banner of Unity Station features a slate gray field, bisected by two horizontal bands of blaze orange. At its center rests a white seal bearing a detailed depiction of the station itself.<br> \
+	The gray field represents the Federal District’s claimed neutrality and impartiality in the affairs of other member states. The twin orange bands honor the sacrifice, hardship, and labor of the engineers, technicians, dockworkers, planners, and other specialists whose work made Unity Station possible.<br> \
+	The central seal represents Unity Station itself, a vast feat of engineering and the shared pride of those who call it home."
+	flag_path = "unity"
+	icon_state = "unity"
+	flag_item = /obj/item/flag/unity
+
+/obj/item/flag/unity/l
+	name = "\improper Stationer Flag"
+	desc = "The flag of the Sovereign Solarian Federal District of Unity Station, one of the largest structures ever built by human hands, anchored at Earth’s L5 Lagrange point. It serves as the seat of the Solarian Government while also standing as a sovereign member state in its own right."
+	desc_extended = "The flag of Unity Station features a slate gray field, bisected by two horizontal bands of blaze orange. At its center rests a white seal bearing a detailed depiction of the station itself.<br> \
+	The gray field represents the Federal District’s claimed neutrality and impartiality in the affairs of other member states. The twin orange bands honor the sacrifice, hardship, and labor of the engineers, technicians, dockworkers, planners, and other specialists whose work made Unity Station possible.<br> \
+	The central seal represents Unity Station itself, a vast feat of engineering and the shared pride of those who call it home."
+	flag_path = "unity"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/unity/large
+
+/obj/structure/sign/flag/unity/large
+	name = "\improper Stationer Flag"
+	desc = "The flag of the Sovereign Solarian Federal District of Unity Station, one of the largest structures ever built by human hands, anchored at Earth’s L5 Lagrange point. It serves as the seat of the Solarian Government while also standing as a sovereign member state in its own right."
+	desc_extended = "The flag of Unity Station features a slate gray field, bisected by two horizontal bands of blaze orange. At its center rests a white seal bearing a detailed depiction of the station itself.<br> \
+	The gray field represents the Federal District’s claimed neutrality and impartiality in the affairs of other member states. The twin orange bands honor the sacrifice, hardship, and labor of the engineers, technicians, dockworkers, planners, and other specialists whose work made Unity Station possible.<br> \
+	The central seal represents Unity Station itself, a vast feat of engineering and the shared pride of those who call it home."
+	icon_state = "unity_l"
+	flag_path = "unity"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/unity/l
+
+/obj/structure/sign/flag/unity/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/unity/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/unity/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/unity/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
+
+// Lycoris
+/obj/item/flag/lycoris
+	name = "\improper Provisional Lycorii Banner"
+	desc = "The banner of the Provisional Government of Lycoris, the military occupation authority established on the world following the fall of the Solarian Restoration Front."
+	desc_extended = "The banner of the Provisional Government of Lycoris consists of a horizontal tricolor of red, white, and blue. The red field represents the Solarian Army, while the blue symbolizes the Solarian Marine Corps, the two branches chiefly responsible for the occupation and reconstruction of the world. The white field between them signifies stability, reconstruction, and the restoration of civil authority following the collapse of the Solarian Restoration Front.<br> \
+	Centered upon the white field is a lycoris flower, the namesake bloom from which the planet derives its name."
+	flag_path = "mandate_lycoris"
+	flag_structure = /obj/structure/sign/flag/lycoris
+
+/obj/structure/sign/flag/lycoris
+	name = "\improper Provisional Lycorii Banner"
+	desc = "The banner of the Provisional Government of Lycoris, the military occupation authority established on the world following the fall of the Solarian Restoration Front."
+	desc_extended = "The banner of the Provisional Government of Lycoris consists of a horizontal tricolor of red, white, and blue. The red field represents the Solarian Army, while the blue symbolizes the Solarian Marine Corps, the two branches chiefly responsible for the occupation and reconstruction of the world. The white field between them signifies stability, reconstruction, and the restoration of civil authority following the collapse of the Solarian Restoration Front.<br> \
+	Centered upon the white field is a lycoris flower, the namesake bloom from which the planet derives its name."
+	flag_path = "mandate_lycoris"
+	icon_state = "mandate_lycoris"
+	flag_item = /obj/item/flag/lycoris
+
+/obj/item/flag/lycoris/l
+	name = "\improper Provisional Lycorii Flag"
+	desc = "The flag of the Provisional Government of Lycoris, the military occupation authority established on the world following the fall of the Solarian Restoration Front."
+	desc_extended = "The flag of the Provisional Government of Lycoris consists of a horizontal tricolor of red, white, and blue. The red field represents the Solarian Army, while the blue symbolizes the Solarian Marine Corps, the two branches chiefly responsible for the occupation and reconstruction of the world. The white field between them signifies stability, reconstruction, and the restoration of civil authority following the collapse of the Solarian Restoration Front.<br> \
+	Centered upon the white field is a lycoris flower, the namesake bloom from which the planet derives its name."
+	flag_path = "mandate_lycoris"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/lycoris/large
+
+/obj/structure/sign/flag/lycoris/large
+	name = "\improper Provisional Lycorii Flag"
+	desc = "The flag of the Provisional Government of Lycoris, the military occupation authority established on the world following the fall of the Solarian Restoration Front."
+	desc_extended = "The flag of the Provisional Government of Lycoris consists of a horizontal tricolor of red, white, and blue. The red field represents the Solarian Army, while the blue symbolizes the Solarian Marine Corps, the two branches chiefly responsible for the occupation and reconstruction of the world. The white field between them signifies stability, reconstruction, and the restoration of civil authority following the collapse of the Solarian Restoration Front.<br> \
+	Centered upon the white field is a lycoris flower, the namesake bloom from which the planet derives its name."
+	icon_state = "mandate_lycoris_l"
+	flag_path = "mandate_lycoris"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/lycoris/l
+
+/obj/structure/sign/flag/lycoris/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/lycoris/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/lycoris/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/lycoris/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
+
+/obj/item/flag/lycoris/old
+	name = "\improper Lycorii Banner"
+	desc = "The banner of the former Sovereign Solarian Federal Republic of Lycoris and Lycoris Minoris, prior to the world’s occupation at the end of the Solarian Civil War. Few other flags have inspired as much fear and terror as this one."
+	desc_extended = "The banner of Lycoris is dominated by a black field bordered by red and white bands, centered upon a stylized crimson planetary emblem. The black field represents strength, endurance, and loyalty, values heavily emphasized by the pre-war Lycorii state. The red symbolizes sacrifice and the blood of the laborers who built the Federal Republic, while the white borders represent civic order and unity.<br> \
+	Centered upon the banner is a crimson planetary emblem, with the larger sphere representing Lycoris and the smaller orbiting dot symbolizing Lycoris Minoris. While once flown proudly by many loyal Solarians, its public display is now a criminal offense across the Alliance."
+	flag_path = "pwlycoris"
+	flag_structure = /obj/structure/sign/flag/lycoris/old
+
+/obj/structure/sign/flag/lycoris/old
+	name = "\improper Lycorii Banner"
+	desc = "The banner of the former Sovereign Solarian Federal Republic of Lycoris and Lycoris Minoris, prior to the world’s occupation at the end of the Solarian Civil War. Few other flags have inspired as much fear and terror as this one."
+	desc_extended = "The banner of Lycoris is dominated by a black field bordered by red and white bands, centered upon a stylized crimson planetary emblem. The black field represents strength, endurance, and loyalty, values heavily emphasized by the pre-war Lycorii state. The red symbolizes sacrifice and the blood of the laborers who built the Federal Republic, while the white borders represent civic order and unity.<br> \
+	Centered upon the banner is a crimson planetary emblem, with the larger sphere representing Lycoris and the smaller orbiting dot symbolizing Lycoris Minoris. While once flown proudly by many loyal Solarians, its public display is now a criminal offense across the Alliance."
+	flag_path = "pwlycoris"
+	icon_state = "pwlycoris"
+	flag_item = /obj/item/flag/lycoris/old
+
+/obj/item/flag/lycoris/old/l
+	name = "\improper Lycorii Flag"
+	desc = "The flag of the former Sovereign Solarian Federal Republic of Lycoris and Lycoris Minoris, prior to the world’s occupation at the end of the Solarian Civil War. Few other flags have inspired as much fear and terror as this one."
+	desc_extended = "The flag of Lycoris is dominated by a black field bordered by red and white bands, centered upon a stylized crimson planetary emblem. The black field represents strength, endurance, and loyalty, values heavily emphasized by the pre-war Lycorii state. The red symbolizes sacrifice and the blood of the laborers who built the Federal Republic, while the white borders represent civic order and unity.<br> \
+	Centered upon the flag is a crimson planetary emblem, with the larger sphere representing Lycoris and the smaller orbiting dot symbolizing Lycoris Minoris. While once flown proudly by many loyal Solarians, its public display is now a criminal offense across the Alliance."
+	flag_path = "pwlycoris"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/lycoris/old/large
+
+/obj/structure/sign/flag/lycoris/old/large
+	name = "\improper Lycorii Flag"
+	desc = "The flag of the former Sovereign Solarian Federal Republic of Lycoris and Lycoris Minoris, prior to the world’s occupation at the end of the Solarian Civil War. Few other flags have inspired as much fear and terror as this one."
+	desc_extended = "The flag of Lycoris is dominated by a black field bordered by red and white bands, centered upon a stylized crimson planetary emblem. The black field represents strength, endurance, and loyalty, values heavily emphasized by the pre-war Lycorii state. The red symbolizes sacrifice and the blood of the laborers who built the Federal Republic, while the white borders represent civic order and unity.<br> \
+	Centered upon the flag is a crimson planetary emblem, with the larger sphere representing Lycoris and the smaller orbiting dot symbolizing Lycoris Minoris. While once flown proudly by many loyal Solarians, its public display is now a criminal offense across the Alliance."
+	icon_state = "pwlycoris_l"
+	flag_path = "pwlycoris"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/lycoris/old/l
+
+/obj/structure/sign/flag/lycoris/old/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/lycoris/old/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/lycoris/old/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/lycoris/old/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
+
+// New Peoria
+/obj/item/flag/new_peoria
+	name = "\improper New Peorian Banner"
+	desc = "The banner of the Sovereign Solarian Republic of New Peoria, a world renowned for its immense river systems, natural beauty, and long tradition of social cohesion."
+	desc_extended = "The banner of the Sovereign Solarian Republic of New Peoria consists of a vertical tricolor of blue, white, and green. The blue field represents the planet’s immense river systems, which dominate the supercontinent of New Peoria and serve as vital economic,and transit corridors. The white field symbolizes peace and unity, recalling the world’s long history of social harmony prior to its rupture during the Solarian Civil War. The green field represents New Peoria’s vast forests, plains, wetlands, and jungles, regarded as a shared natural inheritance belonging to all New Peorians.<br> \
+	Centered upon the white field is the “Black Poppy,” a native wildflower and recently adopted national emblem. Found throughout the world’s heartlands, the flower was adopted following the civil war as a memorial to the fallen and the world they fought to preserve."
+	flag_path = "new_peoria"
+	flag_structure = /obj/structure/sign/flag/new_peoria
+
+/obj/structure/sign/flag/new_peoria
+	name = "\improper New Peorian Banner"
+	desc = "The banner of the Sovereign Solarian Republic of New Peoria, a world renowned for its immense river systems, natural beauty, and long tradition of social cohesion."
+	desc_extended = "The banner of the Sovereign Solarian Republic of New Peoria consists of a vertical tricolor of blue, white, and green. The blue field represents the planet’s immense river systems, which dominate the supercontinent of New Peoria and serve as vital economic,and transit corridors. The white field symbolizes peace and unity, recalling the world’s long history of social harmony prior to its rupture during the Solarian Civil War. The green field represents New Peoria’s vast forests, plains, wetlands, and jungles, regarded as a shared natural inheritance belonging to all New Peorians.<br> \
+	Centered upon the white field is the “Black Poppy,” a native wildflower and recently adopted national emblem. Found throughout the world’s heartlands, the flower was adopted following the civil war as a memorial to the fallen and the world they fought to preserve."
+	flag_path = "new_peoria"
+	icon_state = "new_peoria"
+	flag_item = /obj/item/flag/new_peoria
+
+/obj/item/flag/new_peoria/l
+	name = "\improper New Peorian Flag"
+	desc = "The flag of the Sovereign Solarian Republic of New Peoria, a world renowned for its immense river systems, natural beauty, and long tradition of social cohesion."
+	desc_extended = "The flag of the Sovereign Solarian Republic of New Peoria consists of a vertical tricolor of blue, white, and green. The blue field represents the planet’s immense river systems, which dominate the supercontinent of New Peoria and serve as vital economic,and transit corridors. The white field symbolizes peace and unity, recalling the world’s long history of social harmony prior to its rupture during the Solarian Civil War. The green field represents New Peoria’s vast forests, plains, wetlands, and jungles, regarded as a shared natural inheritance belonging to all New Peorians.<br> \
+	Centered upon the white field is the “Black Poppy,” a native wildflower and recently adopted national emblem. Found throughout the world’s heartlands, the flower was adopted following the civil war as a memorial to the fallen and the world they fought to preserve."
+	flag_path = "new_peoria"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/new_peoria/large
+
+/obj/structure/sign/flag/new_peoria/large
+	name = "\improper New Peorian Flag"
+	desc = "The flag of the Sovereign Solarian Republic of New Peoria, a world renowned for its immense river systems, natural beauty, and long tradition of social cohesion."
+	desc_extended = "The flag of the Sovereign Solarian Republic of New Peoria consists of a vertical tricolor of blue, white, and green. The blue field represents the planet’s immense river systems, which dominate the supercontinent of New Peoria and serve as vital economic,and transit corridors. The white field symbolizes peace and unity, recalling the world’s long history of social harmony prior to its rupture during the Solarian Civil War. The green field represents New Peoria’s vast forests, plains, wetlands, and jungles, regarded as a shared natural inheritance belonging to all New Peorians.<br> \
+	Centered upon the white field is the “Black Poppy,” a native wildflower and recently adopted national emblem. Found throughout the world’s heartlands, the flower was adopted following the civil war as a memorial to the fallen and the world they fought to preserve."
+	icon_state = "new_peoria_l"
+	flag_path = "new_peoria"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/new_peoria/l
+
+/obj/structure/sign/flag/new_peoria/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/new_peoria/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/new_peoria/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/new_peoria/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
+
+// Lhokgon
+/obj/item/flag/lhokgon
+	name = "\improper Lhokger Banner"
+	desc = "The banner of the Sovereign Solarian Federal Republic of Lhokgon, a heavily scarred Helium-3 refining world renowned for its resilience, democratic spirit, and deeply rooted cultural heritage."
+	desc_extended = "The banner of the Federal Solarian Republic of Lhokgon consists of a white field bordered by alternating bands of yellow and green. The yellow represents the world’s Hindu, Buddhist, and Sikh traditions, while the green symbolizes its Islamic heritage, together reflecting the diverse cultural foundations established by the system’s original Himalayan settlers. The white field signifies unity, peace, and hope for the future.<br> \
+	Centered upon the flag is a stylized lotus flower enclosed within a green circle. Serving as the national emblem of Lhokgon, the lotus reflects the perseverance and endurance of its people through the hardships of colonization. Its alternating green and gold petals symbolize harmony between the world’s faiths and communities, united despite adversity."
+	flag_path = "lhokgon"
+	flag_structure = /obj/structure/sign/flag/lhokgon
+
+/obj/structure/sign/flag/lhokgon
+	name = "\improper Lhokger Banner"
+	desc = "The banner of the Sovereign Solarian Federal Republic of Lhokgon, a heavily scarred Helium-3 refining world renowned for its resilience, democratic spirit, and deeply rooted cultural heritage."
+	desc_extended = "The banner of the Federal Solarian Republic of Lhokgon consists of a white field bordered by alternating bands of yellow and green. The yellow represents the world’s Hindu, Buddhist, and Sikh traditions, while the green symbolizes its Islamic heritage, together reflecting the diverse cultural foundations established by the system’s original Himalayan settlers. The white field signifies unity, peace, and hope for the future.<br> \
+	Centered upon the flag is a stylized lotus flower enclosed within a green circle. Serving as the national emblem of Lhokgon, the lotus reflects the perseverance and endurance of its people through the hardships of colonization. Its alternating green and gold petals symbolize harmony between the world’s faiths and communities, united despite adversity."
+	flag_path = "lhokgon"
+	icon_state = "lhokgon"
+	flag_item = /obj/item/flag/lhokgon
+
+/obj/item/flag/lhokgon/l
+	name = "\improper Lhokger Flag"
+	desc = "The flag of the Sovereign Solarian Federal Republic of Lhokgon, a heavily scarred Helium-3 refining world renowned for its resilience, democratic spirit, and deeply rooted cultural heritage."
+	desc_extended = "The flag of the Federal Solarian Republic of Lhokgon consists of a white field bordered by alternating bands of yellow and green. The yellow represents the world’s Hindu, Buddhist, and Sikh traditions, while the green symbolizes its Islamic heritage, together reflecting the diverse cultural foundations established by the system’s original Himalayan settlers. The white field signifies unity, peace, and hope for the future.<br> \
+	Centered upon the flag is a stylized lotus flower enclosed within a green circle. Serving as the national emblem of Lhokgon, the lotus reflects the perseverance and endurance of its people through the hardships of colonization. Its alternating green and gold petals symbolize harmony between the world’s faiths and communities, united despite adversity."
+	flag_path = "lhokgon"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/lhokgon/large
+
+/obj/structure/sign/flag/lhokgon/large
+	name = "\improper Lhokger Flag"
+	desc = "The flag of the Sovereign Solarian Federal Republic of Lhokgon, a heavily scarred Helium-3 refining world renowned for its resilience, democratic spirit, and deeply rooted cultural heritage."
+	desc_extended = "The flag of the Federal Solarian Republic of Lhokgon consists of a white field bordered by alternating bands of yellow and green. The yellow represents the world’s Hindu, Buddhist, and Sikh traditions, while the green symbolizes its Islamic heritage, together reflecting the diverse cultural foundations established by the system’s original Himalayan settlers. The white field signifies unity, peace, and hope for the future.<br> \
+	Centered upon the flag is a stylized lotus flower enclosed within a green circle. Serving as the national emblem of Lhokgon, the lotus reflects the perseverance and endurance of its people through the hardships of colonization. Its alternating green and gold petals symbolize harmony between the world’s faiths and communities, united despite adversity."
+	icon_state = "lhokgon_l"
+	flag_path = "lhokgon"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/lhokgon/l
+
+/obj/structure/sign/flag/lhokgon/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/lhokgon/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/lhokgon/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/lhokgon/large/west/Initialize(mapload)
 	. = ..(mapload, WEST)
 
 // Outer Eyes
