@@ -1,0 +1,7 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - rscadd: "The mechanical engineering skill now provides a situational damage bonus for attacking structures such as airlocks and windows."
+  - rscadd: "The mechanical engineering skill now modifies the speed and repair amount when repairing a mech with a welder."
+  - rscadd: "Repairing mechs is now no longer instantaneous."
+  - rscadd: "Attempting to repair a mech with a welder will now automatically repeat the repair action until either completed, or interrupted."
