@@ -20,7 +20,7 @@
 	desc = "The mining colony of Himeo hosts a sizable number of IPC, most of whom toil in the industrial and excavation centres. Free units find Himeo relatively comfortable, the absence of megacorporations and communal spirit offering safety."
 	possible_accents = list(ACCENT_HIMEO, ACCENT_TTS)
 	possible_citizenships = list(CITIZENSHIP_COALITION, CITIZENSHIP_BIESEL, CITIZENSHIP_NONE)
-	possible_religions = RELIGIONS_ALL_IPC
+	possible_religions = RELIGIONS_ALL_IPCù
 
 /singleton/origin_item/origin/ipc_assunzione
 	name = "Republic of Assunzione"

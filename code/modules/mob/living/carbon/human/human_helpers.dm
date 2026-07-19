@@ -81,7 +81,7 @@
 		equipment_prescription = equipment_prescription || G.prescription
 		if(G.overlay)
 			equipment_overlays |= G.overlay
-		if(G.lighting_alpha != lighting_alpha)
+		if(lighting_alpha < G.lighting_alpha) //only change the lighting alpha if what we have is worse
 			lighting_alpha = G.lighting_alpha
 		if(G.see_invisible)
 			if(equipment_see_invis)
