@@ -114,6 +114,9 @@
 		maximum_linked_and_alive_hivebots = maximum_linked_and_alive_hivebots + (length(GLOB.player_list) * maximum_linked_and_alive_hivebots_to_playing_players_scaling_factor)
 
 	if(!mapload)
+		var/datum/effect/effect/system/smoke_spread/S = new /datum/effect/effect/system/smoke_spread()
+		S.set_up(5, 0, src.loc)
+		S.start()
 		visible_message(SPAN_DANGER("[src] warps in!"))
 		playsound(src.loc, 'sound/effects/EMPulse.ogg', 25, 1)
 		addtimer(CALLBACK(src, PROC_REF(activate_beacon)), 450)
