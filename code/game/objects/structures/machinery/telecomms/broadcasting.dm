@@ -230,6 +230,18 @@
 	radio_msg.base_clarity = compression ? CLARITY_FAINT : CLARITY_CLEAR
 	radio_msg.radio_parts = list(part_a, part_b, part_c)
 
+	var/list/log_data = list(
+		"source" = source,
+		"speaker" = M,
+		"frequency" = frequency,
+		"transmission_method" = transmission_method,
+	)
+	log_telecomms("[key_name(M)] ([data["name"]]/[data["job"]]) on [freq_text]: [message]", log_data)
+	for(var/datum/say_segment/segment as anything in radio_msg.segments)
+		if(segment.language?.flags & INNATE)
+			log_radio_emote("[key_name(M)] ([data["name"]]/[data["job"]]) on [freq_text]: [message]", log_data)
+			break
+
 	for (var/mob/hearer in receive)
 		if(!hearer)
 			crash_with("null found in the hearers list returned by the spatial grid")

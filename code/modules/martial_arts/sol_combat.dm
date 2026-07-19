@@ -92,8 +92,8 @@
 		playsound(get_turf(D), SFX_PUNCH, 50, 1, -1)
 
 	A.visible_message(SPAN_DANGER("[A] [picked_hit_type] [D]!"))
-	A.attack_log += "\[[time_stamp()]\] <span class='warning'>["[picked_hit_type]"] [D.name] ([D.ckey])</span>"
-	D.attack_log += "\[[time_stamp()]\] <font color='orange'>["Has Been [picked_hit_type]"] by [A.name] ([A.ckey])</font>"
+	A.log_message("[picked_hit_type] [D.name] ([D.ckey])", LOG_ATTACK, log_globally = FALSE)
+	D.log_message("Has Been [picked_hit_type] by [A.name] ([A.ckey])", LOG_VICTIM, log_globally = FALSE)
 	msg_admin_attack("[key_name(A)] ["has [picked_hit_type]"] [key_name(D)] (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[A.x];Y=[A.y];Z=[A.z]'>JMP</a>)",ckey=key_name(A),ckey_target=key_name(D))
 
 	return 1
@@ -104,8 +104,8 @@
 	if(check_streak(A,D))
 		return 1
 
-	A.attack_log += "\[[time_stamp()]\] <span class='warning'>Disarmed [D.name] ([D.ckey])</span>"
-	D.attack_log += "\[[time_stamp()]\] <font color='orange'>Has been disarmed by [A.name] ([A.ckey])</font>"
+	A.log_message("Disarmed [D.name] ([D.ckey])", LOG_ATTACK, log_globally = FALSE)
+	D.log_message("Has been disarmed by [A.name] ([A.ckey])", LOG_VICTIM, log_globally = FALSE)
 	msg_admin_attack("[key_name(A)] disarmed [D.name] ([D.ckey]) (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[D.x];Y=[D.y];Z=[D.z]'>JMP</a>)",ckey=key_name(D),ckey_target=key_name(A))
 
 	if(prob(60))

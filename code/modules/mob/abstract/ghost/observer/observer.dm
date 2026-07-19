@@ -44,7 +44,7 @@
 	var/turf/T
 	if (ismob(body))
 		T = get_turf(body)				//Where is the body located?
-		attack_log = body.attack_log	//preserve our attack logs by copying them to our ghost
+		logging = body.logging?.Copy()	// Preserve body individual logs on the ghost's mob source.
 
 		var/originaldesc = desc
 		var/o_transform = transform
@@ -178,7 +178,9 @@ Works together with spawning an observer, noted above.
 		ghost.can_reenter_corpse = can_reenter_corpse
 		ghost.timeofdeath = src.stat == DEAD ? src.timeofdeath : world.time
 
-		ghost.ckey = ckey
+		var/ghost_ckey = ckey
+		ghost.ckey = ghost_ckey
+		ghost.bind_persistent_client_by_ckey(ghost_ckey)
 		ghost.initialise_postkey(should_set_timer)
 		if(ghost.client)
 			if(!ghost.client.holder && !GLOB.config.antag_hud_allowed)		// For new ghosts we remove the verb from even showing up if it's not allowed.
@@ -523,6 +525,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		var/msg = sanitize(input(src, "Message:", "Spectral Whisper") as text|null)
 		if(msg)
 			log_say("SpectralWhisper: [key_name(usr)]->[M.key] : [msg]")
+			log_directed_talk(src, M, msg, LOG_SAY, "spectral whisper")
 			to_chat(M, SPAN_WARNING(" You hear a strange, unidentifiable voice in your head... <font color='purple'>[msg]</font>"))
 			to_chat(src, SPAN_WARNING(" You said: '[msg]' to [M]."))
 		else

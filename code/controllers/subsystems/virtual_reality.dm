@@ -125,13 +125,14 @@ SUBSYSTEM_DEF(virtualreality)
 	..()
 	speech_synthesizer_langs = list(GLOB.all_languages[LANGUAGE_TCB])
 
-// Handles saving of the original mob and assigning the new mob
+/// Handles saving of the original mob and assigning the new mob
 /datum/controller/subsystem/virtualreality/proc/mind_transfer(var/mob/living/M, var/mob/living/target)
 	var/new_ckey = M.ckey
 	target.old_mob = M
 	M.vr_mob = target
 	target.ckey = new_ckey
 	M.ckey = "@[new_ckey]"
+	target.bind_persistent_client_by_ckey(new_ckey)
 	add_verb(target, /mob/proc/body_return)
 
 	target.get_vr_name(M)
@@ -178,8 +179,10 @@ SUBSYSTEM_DEF(virtualreality)
 	voice_name = user.real_name // name that'll display on radios
 
 /mob/proc/ckey_transfer(var/mob/target, var/null_vr_mob = TRUE)
-	target.ckey = src.ckey
+	var/transfer_ckey = src.ckey
+	target.ckey = transfer_ckey
 	src.ckey = null
+	target.bind_persistent_client_by_ckey(transfer_ckey)
 	if(null_vr_mob)
 		target.vr_mob = null
 

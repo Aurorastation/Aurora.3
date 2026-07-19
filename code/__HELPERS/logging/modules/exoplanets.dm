@@ -5,3 +5,4 @@
 	if (GLOB.config?.logsettings["log_modules_exoplanets"])
 		WRITE_LOG(GLOB.config.logfiles["world_modules_exoplanets_log"], "Exoplanets: [text]")
 #endif
+	logger?.Log(LOG_CATEGORY_MODULE_EXOPLANETS, "Exoplanets: [text]")

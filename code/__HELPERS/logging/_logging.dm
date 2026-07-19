@@ -10,6 +10,7 @@
 /proc/log_startup()
 	var/static/already_logged = FALSE
 	if (!already_logged)
+		logger?.Log(LOG_CATEGORY_WORLD, "Starting up. (ID: [GLOB.round_id])")
 		log_world(GLOB.diary, "[log_end]\n[log_end]\nStarting up. (ID: [GLOB.round_id]) [log_end]\n---------------------[log_end]")
 		already_logged = TRUE
 	else
@@ -19,24 +20,23 @@
 	_log_topic("[GLOB.round_id] TOPIC: \"[T]\", from:[addr], master:[master], key:[key], auth:[queryparams["auth"] ? queryparams["auth"] : "null"] [log_end]")
 
 /proc/log_error(msg)
+	logger?.Log(LOG_CATEGORY_WORLD, "ERROR: [msg]")
 	world.log <<  "## ERROR: [msg][log_end]"
 	log_world("ERROR", msg)
 
 /proc/shutdown_logging()
-	dll_call(RUST_G, "log_close_all")
+	logger?.shutdown_logging()
+	rustg_log_close_all()
 
 //print a warning message to world.log
 /proc/warning(msg)
-	#if defined(UNIT_TEST)
-
+#if defined(UNIT_TEST)
 	LOG_GITHUB_WARNING(msg)
-
-	#else
-
+#else
+	logger?.Log(LOG_CATEGORY_WORLD, "WARNING: [msg]")
 	world.log <<  "## WARNING: [msg][log_end]"
 	log_world("WARNING: [msg]")
-
-	#endif
+#endif
 
 //print a testing-mode debug message to world.log and world
 #ifdef TESTING
@@ -69,27 +69,50 @@ GLOBAL_LIST_INIT(testing_global_profiler, list("_PROFILE_NAME" = "Global"))
 
 /proc/game_log(category, text)
 	WRITE_LOG(GLOB.diary, "[GLOB.round_id] [category]: [text][log_end]")
+	logger?.Log(LOG_CATEGORY_GAME, "[category]: [text]", list("legacy_category" = category))
 
-/proc/log_signal(var/text)
+/proc/log_signal(var/text, list/data)
 	if(length(GLOB.signal_log) >= 100)
 		GLOB.signal_log.Cut(1, 2)
 	GLOB.signal_log.Add("|[time_stamp()]| [text]")
-	_log_signal(text)
+	_log_signal(text, data)
 
 /proc/log_ntirc(text, level = SEVERITY_NOTICE, ckey = "", conversation = "")
-	log_chat(text)
+	log_chat(text, list(
+		"severity" = level,
+		"ckey" = ckey,
+		"conversation" = conversation,
+	))
 
 /proc/log_misc(text)
 	log_world("MISC", text)
+	logger?.Log(LOG_CATEGORY_MISC, "MISC: [text]")
 
 /proc/log_tgs(text, severity = SEVERITY_INFO)
 	log_world("TGS[SEVERITY_INFO]: [text]")
+	logger?.Log(LOG_CATEGORY_TGS, "TGS[severity]: [text]", list("severity" = severity))
+
+/proc/tgs_info_log(text)
+	logger?.Log(LOG_CATEGORY_TGS, "TGS[SEVERITY_INFO]: Info: [text]", list("severity" = SEVERITY_INFO))
+	log_world("TGS Info: [text]")
+
+/proc/tgs_warning_log(text)
+	logger?.Log(LOG_CATEGORY_TGS, "TGS[SEVERITY_WARNING]: Warn: [text]", list("severity" = SEVERITY_WARNING))
+	log_world("TGS Warn: [text]")
+
+/proc/tgs_error_log(text)
+	logger?.Log(LOG_CATEGORY_TGS, "TGS[SEVERITY_ERROR]: Error: [text]", list("severity" = SEVERITY_ERROR))
+	stack_trace("TGS Error: [text]")
 
 /proc/log_ntsl(text, severity = SEVERITY_NOTICE, ckey = "")
 	log_world("NTSL: [text]")
+	logger?.Log(LOG_CATEGORY_NTSL, "NTSL: [text]", list(
+		"severity" = severity,
+		"ckey" = ckey,
+	))
 
 /proc/log_exception(exception/e)
-	if (isnull(GLOB.config) || GLOB.config.logsettings["log_runtime"])
+	if (isnull(config) || CONFIG_GET(flag/log_runtime))
 		log_runtime("RUNTIME ERROR:\n[e.name] - [e.desc] @@@ [e.file]")
 
 		for(var/k in e.vars)
@@ -214,32 +237,38 @@ GLOBAL_LIST_INIT(testing_global_profiler, list("_PROFILE_NAME" = "Global"))
 /proc/log_tgui(user, message, context,
 		datum/tgui_window/window,
 		datum/src_object)
+	var/entry = ""
+	// Insert user info
+	if(!user)
+		entry += "<nobody>"
+	else if(istype(user, /mob))
+		var/mob/mob = user
+		entry += "[mob.ckey] (as [mob] at [mob.x],[mob.y],[mob.z])"
+	else if(istype(user, /client))
+		var/client/client = user
+		entry += "[client.ckey]"
+	// Insert context
+	if(context)
+		entry += " in [context]"
+	else if(window)
+		entry += " in [window.id]"
+	// Resolve src_object
+	if(!src_object && window?.locked_by)
+		src_object = window.locked_by.src_object
+	// Insert src_object info
+	if(src_object)
+		entry += "\nUsing: [src_object.type] [text_ref(src_object)]"
+	// Insert message
+	if(message)
+		entry += "\n[message]"
 	if(GLOB.config.logsettings["log_subsystems_tgui"])
-		var/entry = ""
-		// Insert user info
-		if(!user)
-			entry += "<nobody>"
-		else if(istype(user, /mob))
-			var/mob/mob = user
-			entry += "[mob.ckey] (as [mob] at [mob.x],[mob.y],[mob.z])"
-		else if(istype(user, /client))
-			var/client/client = user
-			entry += "[client.ckey]"
-		// Insert context
-		if(context)
-			entry += " in [context]"
-		else if(window)
-			entry += " in [window.id]"
-		// Resolve src_object
-		if(!src_object && window?.locked_by)
-			src_object = window.locked_by.src_object
-		// Insert src_object info
-		if(src_object)
-			entry += "\nUsing: [src_object.type] [text_ref(src_object)]"
-		// Insert message
-		if(message)
-			entry += "\n[message]"
 		WRITE_LOG(GLOB.config.logfiles["world_subsystems_tgui"], "TGUI: [entry]")
+	logger?.Log(LOG_CATEGORY_HREF_TGUI, "TGUI: [entry]", list(
+		"user" = user,
+		"context" = context,
+		"window" = window,
+		"src_object" = src_object,
+	))
 
 /proc/loc_name(atom/A)
 	if(!istype(A))

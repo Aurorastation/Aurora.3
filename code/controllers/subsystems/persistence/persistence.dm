@@ -85,6 +85,7 @@ SUBSYSTEM_DEF(persistence)
  */
 /datum/controller/subsystem/persistence/Initialize()
 	. = ..()
+	log_subsystem_persistence("Initializing persistence subsystem.")
 	if(!GLOB.config.sql_enabled)
 		log_subsystem_persistence_warning("SQL configuration not enabled. Persistence subsystem requires SQL. Skipping init.")
 		return SS_INIT_SUCCESS
@@ -105,6 +106,7 @@ SUBSYSTEM_DEF(persistence)
  * The shutdown consists of finalization steps for each persistent data type.
  */
 /datum/controller/subsystem/persistence/Shutdown()
+	log_subsystem_persistence("Shutting down persistence subsystem.")
 	if(prevent_saving)
 		log_subsystem_persistence_warning("Persistence subsystem was toggled to not save. Skipping subsystem finalization.")
 		return

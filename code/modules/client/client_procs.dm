@@ -112,8 +112,12 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 		return
 
 	//Logs all hrefs
-	if(GLOB.config && GLOB.config.logsettings["log_hrefs"] && GLOB.href_logfile)
-		WRITE_LOG(GLOB.config.logfiles["world_href_log"], "<small>[time2text(world.timeofday,"hh:mm")] [src] (usr:[usr])</small> || [hsrc ? "[hsrc] " : ""][href]<br>")
+	log_href("<small>[time2text(world.timeofday,"hh:mm")] [src] (usr:[usr])</small> || [hsrc ? "[hsrc] " : ""][href]<br>", list(
+		"client" = src,
+		"user" = usr,
+		"hsrc" = hsrc,
+		"href" = href,
+	))
 
 	switch(href_list["_src_"])
 		if("holder")	hsrc = holder
@@ -366,6 +370,8 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 
 	GLOB.clients += src
 	GLOB.directory[ckey] = src
+	if(!IsGuestKey(key) || !GLOB.config.external_auth)
+		bind_persistent_client()
 	connection_time = world.time
 	connection_realtime = world.realtime
 	connection_timeofday = world.timeofday
@@ -456,6 +462,8 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 /client/proc/InitClient()
 	SHOULD_NOT_SLEEP(TRUE)
 
+	bind_persistent_client()
+
 	to_chat_immediate(src, SPAN_ALERT("If the title screen is black, resources are still downloading. Please be patient until the title screen appears."))
 
 	var/local_connection = (GLOB.config.auto_local_admin && !GLOB.config.use_authentik_api && (isnull(address) || GLOB.localhost_addresses[address]))
@@ -507,7 +515,7 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 		tooltips = new /datum/tooltip(src)
 
 	if(holder)
-		add_admin_verbs()
+		SSadmin_verbs.assosciate_admin(src)
 
 	check_ip_intel()
 
@@ -528,10 +536,13 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 	return ..()
 
 /client/Destroy(force)
+	persistent_client?.set_client(null)
 	GLOB.ticket_panels -= src
 	GLOB.staff -= src
 	GLOB.directory -= ckey
 	GLOB.clients -= src
+	if(SSadmin_verbs)
+		SSadmin_verbs.deassosciate_admin(src, refresh_verbs = FALSE, restore_aooc = FALSE)
 	if(holder)
 		holder.owner = null
 		GLOB.staff -= src

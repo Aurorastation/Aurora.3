@@ -285,8 +285,8 @@
 			var/mob/M = O.throwing?.thrower?.resolve()
 			var/client/assailant = M.client
 			if(assailant)
-				src.attack_log += "\[[time_stamp()]\] <font color='orange'>Has been hit with a [O], thrown by [M.name] ([assailant.ckey])</font>"
-				M.attack_log += "\[[time_stamp()]\] <span class='warning'>Hit [src.name] ([src.ckey]) with a thrown [O]</span>"
+				log_message("Has been hit with a [O], thrown by [M.name] ([assailant.ckey])", LOG_VICTIM, log_globally = FALSE)
+				M.log_message("Hit [src.name] ([src.ckey]) with a thrown [O]", LOG_ATTACK, log_globally = FALSE)
 				if(!istype(src,/mob/living/simple_animal/rat))
 					msg_admin_attack("[src.name] ([src.ckey]) was hit by a [O], thrown by [M.name] ([assailant.ckey]) (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(M),ckey_target=key_name(src))
 
@@ -353,8 +353,8 @@
 	if(!damage)
 		return
 
-	user.attack_log += "\[[time_stamp()]\] <span class='warning'>attacked [src.name] ([src.ckey])</span>"
-	src.attack_log += "\[[time_stamp()]\] <font color='orange'>was attacked by [user.name] ([user.ckey])</font>"
+	user.log_message("attacked [src.name] ([src.ckey])", LOG_ATTACK, log_globally = FALSE)
+	log_message("was attacked by [user.name] ([user.ckey])", LOG_VICTIM, log_globally = FALSE)
 	if (attack_message)
 		src.visible_message(SPAN_DANGER("[user] has [attack_message] [src]!"))
 	user.do_attack_animation(src)

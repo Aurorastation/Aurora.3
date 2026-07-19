@@ -5,3 +5,4 @@
 	if (GLOB.config?.logsettings["log_modules_sectors"])
 		WRITE_LOG(GLOB.config.logfiles["world_modules_sectors_log"], "Sectors: [text]")
 #endif
+	logger?.Log(LOG_CATEGORY_MODULE_SECTORS, "Sectors: [text]")

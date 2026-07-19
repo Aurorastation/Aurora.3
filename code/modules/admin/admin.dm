@@ -67,6 +67,7 @@ var/global/enabled_spooking = 0
 		<a href='byond://?src=[REF(src)];traitor=[REF(M)]'>TP</a> -
 		<a href='byond://?src=[REF(usr)];priv_msg=[REF(M)]'>PM</a> -
 		<a href='byond://?src=[REF(src)];subtlemessage=[REF(M)]'>SM</a> -
+		[check_rights(R_ADMIN, 0) ? "<a href='byond://?src=[REF(src)];individuallog=[REF(M)]'>Logs</a> - " : ""]
 		[admin_jump_link(M, src)]\] <br>
 		<b>Mob type</b> = [M.type]<br><br>
 		<A href='byond://?src=[REF(src)];boot2=[REF(M)]'>Kick</A> |
@@ -1179,26 +1180,29 @@ var/global/enabled_spooking = 0
 	message_admins(SPAN_NOTICE("[key_name_admin(usr)] toggled guests game entering [GLOB.config.guests_allowed?"":"dis"]allowed."), 1)
 	feedback_add_details("admin_verb","TGU") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
-/datum/admins/proc/output_ai_laws()
+/proc/output_ai_laws_to_user(mob/user = usr)
 	var/ai_number = 0
 	for(var/mob/living/silicon/S in GLOB.mob_list)
 		ai_number++
 		if(isAI(S))
-			to_chat(usr, "<b>AI [key_name(S, usr)]'s laws:</b>")
+			to_chat(user, "<b>AI [key_name(S, user)]'s laws:</b>")
 		else if(isrobot(S))
 			var/mob/living/silicon/robot/R = S
-			to_chat(usr, "<b>CYBORG [key_name(S, usr)] [R.connected_ai?"(Slaved to: [R.connected_ai])":"(Independant)"]: laws:</b>")
+			to_chat(user, "<b>CYBORG [key_name(S, user)] [R.connected_ai?"(Slaved to: [R.connected_ai])":"(Independant)"]: laws:</b>")
 		else if (ispAI(S))
-			to_chat(usr, "<b>pAI [key_name(S, usr)]'s laws:</b>")
+			to_chat(user, "<b>pAI [key_name(S, user)]'s laws:</b>")
 		else
-			to_chat(usr, "<b>SOMETHING SILICON [key_name(S, usr)]'s laws:</b>")
+			to_chat(user, "<b>SOMETHING SILICON [key_name(S, user)]'s laws:</b>")
 
 		if (S.laws == null)
-			to_chat(usr, "[key_name(S, usr)]'s laws are null?? Contact a coder.")
+			to_chat(user, "[key_name(S, user)]'s laws are null?? Contact a coder.")
 		else
-			S.laws.show_laws(usr)
+			S.laws.show_laws(user)
 	if(!ai_number)
-		to_chat(usr, "<b>No AIs located</b>") //Just so you know the thing is actually working and not just ignoring you.)
+		to_chat(user, "<b>No AIs located</b>") //Just so you know the thing is actually working and not just ignoring you.)
+
+/datum/admins/proc/output_ai_laws()
+	output_ai_laws_to_user(usr)
 
 /client/proc/update_mob_sprite(mob/living/carbon/human/H as mob)
 	set category = "Admin"
@@ -1275,7 +1279,9 @@ var/global/enabled_spooking = 0
 	message_admins("<span class='adminnotice'>[key_name_admin(usr)] has put [frommob.ckey] in control of [tomob.name].</span>")
 	log_admin("[key_name(usr)] stuffed [frommob.ckey] into [tomob.name].")
 	feedback_add_details("admin_verb","CGD")
-	tomob.ckey = frommob.ckey
+	var/transfer_ckey = frommob.ckey
+	tomob.ckey = transfer_ckey
+	tomob.bind_persistent_client_by_ckey(transfer_ckey)
 	tomob.client.init_verbs()
 	qdel(frommob)
 	return 1

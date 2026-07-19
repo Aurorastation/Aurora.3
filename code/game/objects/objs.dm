@@ -398,7 +398,7 @@
 		var/list/hearers = get_hearers_in_view(7, src)
 		var/list/clients_in_hearers = list()
 		for(var/mob/mob in hearers)
-			if(mob.client)
+			if(HAS_CONNECTED_PLAYER(mob))
 				clients_in_hearers += mob.client
 		if(length(clients_in_hearers))
 			langchat_speech(message, hearers)

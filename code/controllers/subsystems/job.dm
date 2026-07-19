@@ -1,4 +1,4 @@
-#define Debug(text) if (GLOB.Debug2) {job_debug += text}
+#define Debug(text) if (GLOB.Debug2) {job_debug += text; log_job_debug(text)}
 
 SUBSYSTEM_DEF(jobs)
 	// Subsystem stuff.
@@ -345,6 +345,7 @@ SUBSYSTEM_DEF(jobs)
 	var/alt_title = null
 	if(H.mind)
 		H.mind.assigned_role = rank
+		log_manifest(H.ckey, H.mind, H, joined_late)
 		alt_title = H.mind.role_alt_title
 
 		switch(rank)

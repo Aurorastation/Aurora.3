@@ -274,6 +274,7 @@
 
 		if (GLOB.config.access_deny_vms && count >= GLOB.config.access_deny_vms)
 			log_access("Failed Login: [C.ckey] [C.address] [C.computer_id] - Matching [count]/[GLOB.config.access_deny_vms] VM identifiers. IDs: [A].")
+			log_suspicious_login("Failed Login: [C.ckey] [C.address] [C.computer_id] - Matching [count]/[GLOB.config.access_deny_vms] VM identifiers. IDs: [A].", list("client" = C, "vm_identifiers" = A, "matches" = count), FALSE)
 			message_admins("Failed Login: [C.ckey] [C.address] [C.computer_id] - Matching [count]/[GLOB.config.access_deny_vms] VM identifiers. IDs: [A].")
 			spawn(20)
 				if (C)
@@ -320,12 +321,14 @@
 	if (ding_bannu)
 		if (!C.holder)
 			log_and_message_admins("[C.ckey] from [C.address]-[C.computer_id] was caught bandodging. Mirror applied for ban #[ding_bannu], kicking shortly.")
+			log_suspicious_login("[C.ckey] from [C.address]-[C.computer_id] was caught bandodging. Mirror applied for ban #[ding_bannu], kicking shortly.", list("client" = C, "ban_id" = ding_bannu), FALSE)
 			apply_ban_mirror(C.ckey, C.address, C.computer_id, ding_bannu, 2, conn_info)
 			spawn(20)
 				del(C)
 		else
 			// Stop kicking me off my test server, fuck.
 			log_and_message_admins("[C.ckey] is a staff but was caught bandodging! Ban ID: #[ding_bannu].")
+			log_suspicious_login("[C.ckey] is a staff but was caught bandodging! Ban ID: #[ding_bannu].", list("client" = C, "ban_id" = ding_bannu), FALSE)
 
 	return
 

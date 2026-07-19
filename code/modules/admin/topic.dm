@@ -724,6 +724,17 @@
 		var/mob/M = locate(href_list["adminplayeropts"])
 		show_player_panel(M)
 
+	else if(href_list["individuallog"])
+		if(!check_rights(R_ADMIN))
+			return
+
+		var/mob/M = locate(href_list["individuallog"]) in GLOB.mob_list
+		if(!ismob(M))
+			to_chat(usr, "This can only be used on instances of type /mob.")
+			return
+
+		show_individual_logging_panel(M, href_list["log_src"], href_list["log_type"])
+
 	else if(href_list["adminplayerobservejump"])
 		if(!check_rights(R_MOD|R_ADMIN))
 			return
@@ -831,7 +842,7 @@
 		dat += "Location: [location_description]<br>"
 		if(special_role_description)
 			dat += "Special Role Desc: [special_role_description]<br>"
-		dat += "(<a href='byond://?src=[REF(usr)];priv_msg=[REF(M)]'>PM</a>) (<A href='byond://?src=[REF(src)];adminplayeropts=[REF(M)]'>PP</A>) (<A href='byond://?_src_=vars;Vars=[REF(M)]'>VV</A>) (<A href='byond://?src=[REF(src)];subtlemessage=[REF(M)]'>SM</A>) ([admin_jump_link(M, src)]) (<A href='byond://?src=[REF(src)];secretsadmin=check_antagonist'>CA</A>)"
+		dat += "(<a href='byond://?src=[REF(usr)];priv_msg=[REF(M)]'>PM</a>) (<A href='byond://?src=[REF(src)];adminplayeropts=[REF(M)]'>PP</A>) (<A href='byond://?_src_=vars;Vars=[REF(M)]'>VV</A>) (<A href='byond://?src=[REF(src)];subtlemessage=[REF(M)]'>SM</A>) [check_rights(R_ADMIN, 0) ? "(<A href='byond://?src=[REF(src)];individuallog=[REF(M)]'>Logs</A>) " : ""]([admin_jump_link(M, src)]) (<A href='byond://?src=[REF(src)];secretsadmin=check_antagonist'>CA</A>)"
 
 		var/datum/browser/extrainfo_win = new(usr, "extrainfo", "Extra Info", 450, 500)
 		extrainfo_win.set_content(dat)
@@ -1408,6 +1419,7 @@
 		comment.message = com_msg
 		comment.posted = "[worldtime2text()]"
 		viewing_story.comments += comment
+		log_comment("[src.admincaster_signature] commented on [viewing_story.parent_channel?.channel_name]/[viewing_story.message_type]: [com_msg]", list("story" = viewing_story, "comment" = comment, "admin" = usr))
 		to_chat(usr, "Comment successfully added!")
 		src.admincaster_screen = 20
 		src.access_news_network()

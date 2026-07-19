@@ -26,16 +26,17 @@
   "log_tools":0,
   "log_loadout":1,
   "log_manifest":1,
+  "log_as_human_readable":1,
   "log_subsystems":1,
   "log_subsystems_chemistry":1,
   "log_subsystems_codex":1,
+  "log_subsystems_dbcore":1,
   "log_subsystems_atlas":1,
   "log_subsystems_ghostroles":1,
   "log_subsystems_law":1,
   "log_subsystems_cargo":1,
   "log_subsystems_persistence":1,
   "log_subsystems_discord":0,
-  "log_subsystems_documents":1,
   "log_subsystems_fail2topic":1,
   "log_subsystems_mapfinalization":1,
   "log_subsystems_tgui":1,
@@ -48,5 +49,7 @@
   "log_subsystems_zas_debug":0,
   "log_subsystems_http":1,
   "log_subsystems_ipintel":1,
-  "log_subsystems_odyssey":1
+  "log_subsystems_odyssey":1,
+  "log_subsystems_sentry":1,
+  "log_modules_ruins":1
 }

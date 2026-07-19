@@ -147,6 +147,7 @@
 	var/isMod = check_rights(R_MOD|R_ADMIN, 0, user)
 	data["holder_ref"] = "[REF(user.client.holder)]"
 	data["is_mod"] = isMod
+	data["is_admin"] = check_rights(R_ADMIN, 0, user)
 
 	var/list/mobs = sortmobs()
 
@@ -164,6 +165,7 @@
 		player["name"] = M.name
 		var/real_name = GetMobRealName(M)
 		player["real_name"] = real_name
+		player["previous_names"] = M.persistent_client?.get_played_names() || ""
 
 		if(ishuman(M))
 			var/mob/living/carbon/human/H = M
@@ -234,6 +236,18 @@
 					ckey = M.ckey
 
 			C.holder.show_player_info(ckey)
+			. = TRUE
+
+		if("individual_logs")
+			if(!check_rights(R_ADMIN))
+				return
+
+			var/mob/M = locate(params["individual_logs"])
+			if(!ismob(M))
+				to_chat(usr, SPAN_WARNING("This can only be used on mobs."))
+				return
+
+			show_individual_logging_panel(M)
 			. = TRUE
 
 		if("wind")

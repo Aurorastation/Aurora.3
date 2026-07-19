@@ -10,6 +10,7 @@
  */
 
 GLOBAL_DATUM_INIT(admin_state, /datum/ui_state/admin_state, new(R_ADMIN))
+GLOBAL_DATUM_INIT(admin_or_moderator_state, /datum/ui_state/admin_state, new(R_ADMIN|R_MOD))
 GLOBAL_DATUM_INIT(moderator_state, /datum/ui_state/admin_state, new(R_MOD))
 GLOBAL_DATUM_INIT(debug_state, /datum/ui_state/admin_state, new(R_DEBUG))
 GLOBAL_DATUM_INIT(fun_state, /datum/ui_state/admin_state, new(R_FUN))

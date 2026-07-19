@@ -62,7 +62,7 @@
 		//Ban Checking
 		. = CheckBan(ckey, computer_id, address)
 		if(.)
-			log_access("Failed Login: [key] [computer_id] [address] - Banned [.["reason"]]")
+			log_suspicious_login("Failed Login: [key] [computer_id] [address] - Banned [.["reason"]]")
 			message_admins(SPAN_NOTICE("Failed Login: [key] id:[computer_id] ip:[address] - Banned [.["reason"]]"))
 			return .
 
@@ -126,6 +126,7 @@
 			if (GLOB.config.forum_passphrase)
 				desc += "\nTo register on the forums, please use the following passphrase: [GLOB.config.forum_passphrase]"
 
+			log_suspicious_login("Failed Login: [ckey] [computer_id] [address] - Banned (#[ban_id])", list("ban_id" = ban_id), FALSE)
 			LOG_CLIENT_CONNECTION(ACCESS_STATUS_BANNED)
 			return list("reason"="[bantype]", "desc"="[desc]", "id" = ban_id)
 
@@ -237,7 +238,7 @@
 
 		var/desc = "\nReason:(StickyBan) You, or another user of this computer or connection ([bannedckey]) is banned from playing here. The ban reason is:\n[ban["message"]]\nThis ban was applied by [ban["admin"]]\nThis is a BanEvasion Detection System ban, if you think this ban is a mistake, please wait EXACTLY 6 seconds, then try again before filing an appeal.\n"
 		. = list("reason" = "Stickyban", "desc" = desc)
-		log_access("Failed Login: [key] [computer_id] [address] - StickyBanned [ban["message"]] Target Username: [bannedckey] Placed by [ban["admin"]]")
+		log_suspicious_login("Failed Login: [key] [computer_id] [address] - StickyBanned [ban["message"]] Target Username: [bannedckey] Placed by [ban["admin"]]")
 		LOG_CLIENT_CONNECTION(ACCESS_STATUS_STICKYBANNED)
 
 	LOG_CLIENT_CONNECTION(ACCESS_STATUS_PERMITTED)

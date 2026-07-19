@@ -8,6 +8,7 @@
 	if(!msg)	return
 
 	log_admin("ADMIN: [key_name(src)] : [msg]")
+	log_adminsay("[key_name(src)] : [msg]", list("speaker" = mob, "client" = src))
 
 	if(check_rights(R_ADMIN,0))
 		for(var/s in GLOB.staff)
@@ -29,6 +30,7 @@
 
 	if (!msg)
 		return
+	log_admin_private("MOD: [key_name(src)] : [msg]", list("speaker" = mob, "client" = src))
 
 	var/sender_name = key_name(usr, 1)
 	if(check_rights(R_ADMIN, 0))
@@ -51,6 +53,7 @@
 	if(!msg)	return
 
 	log_admin("DEV: [key_name(src)] : [msg]")
+	log_admin_private("DEV: [key_name(src)] : [msg]", list("speaker" = mob, "client" = src))
 
 	if(check_rights(R_DEV,0))
 		msg = "<span class='devsay'>[create_text_tag("DEV")] <EM>[key_name(usr, 0, 1, 0)]</EM>: <span class='message linkify'>[msg]</span></span>"
@@ -70,6 +73,7 @@
 	if(!msg)	return
 
 	log_admin("CCIASAY: [key_name(src)] : [msg]")
+	log_admin_private("CCIASAY: [key_name(src)] : [msg]", list("speaker" = mob, "client" = src))
 
 	if(check_rights((R_CCIAA|R_ADMIN),0))
 		msg = "<span class='cciaasay'>[create_text_tag("CCIA")] <EM>[key_name(usr, 0, 1, 0)]</EM>: <span class='message linkify'>[msg]</span></span>"

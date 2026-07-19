@@ -81,11 +81,13 @@
 	if(ban_id)
 		if(!client.holder)
 			log_and_message_admins("[ckey] from [client.address]-[client.computer_id] was caught bandodging. Mirror applied for ban #[ban_id], kicking shortly.")
+			log_suspicious_login("[ckey] from [client.address]-[client.computer_id] was caught bandodging. Mirror applied for ban #[ban_id], kicking shortly.", list("client" = client, "ban_id" = ban_id), FALSE)
 			apply_ban_mirror(ckey, client.address, client.computer_id, ban_id, 2, extra_info)
 			spawn(20)
 				del(client)
 		else
 			log_and_message_admins("[ckey] is a staff but was caught bandodging! Ban ID: #[ban_id].")
+			log_suspicious_login("[ckey] is a staff but was caught bandodging! Ban ID: #[ban_id].", list("client" = client, "ban_id" = ban_id), FALSE)
 
 #undef TGUI_TELEMETRY_MAX_CONNECTIONS
 #undef TGUI_TELEMETRY_RESPONSE_WINDOW

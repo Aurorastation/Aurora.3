@@ -52,24 +52,28 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 	"log_manifest" = TRUE,	// Manifest
 	"log_asset" = FALSE,	// log asset caching
 	"log_loadout" = TRUE,	// Loadout
+	"log_as_human_readable" = TRUE,	// Write human-readable structured logs alongside JSON logs
 
 	/*#### SUBSYSTEMS ####*/
 
 	"log_subsystems" = TRUE,	// General Subsystems
 	"log_subsystems_chemistry" = TRUE,	// SSChemistry
 	"log_subsystems_codex" = TRUE,	// SScodex
+	"log_subsystems_dbcore" = TRUE,	// SSdbcore
+	"log_subsystems_discord" = TRUE,	// SSdiscord
 	"log_subsystems_atlas" = TRUE,	// ATLAS
 	"log_subsystems_ghostroles" = TRUE,	// Ghost Roles
 	"log_subsystems_law" = TRUE,	// Law
 	"log_subsystems_cargo" = TRUE, // Cargo
 	"log_subsystems_persistence" = TRUE, // Persistence
-	"log_subsystems_documents" = TRUE, // Documents
 	"log_subsystems_fail2topic" = TRUE, // Fail2Topic
 	"log_subsystems_mapfinalization" = TRUE, // Map Finalization
 	"log_subsystems_tgui" = TRUE, // TGUI
 	"log_subsystems_zas" = FALSE, // ZAS
 	"log_subsystems_zas_debug" = FALSE, // ZAS debug
 	"log_subsystems_http" = TRUE, //HTTP Log
+	"log_subsystems_ipintel" = TRUE, // IPIntel
+	"log_subsystems_odyssey" = TRUE, // Odyssey
 	"log_subsystems_sentry" = TRUE, //Sentry subsystem self-diagnostics
 
 	/*#### MODULES ####*/
@@ -78,6 +82,7 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 	"log_modules_customitems" = TRUE,	// Custom Items
 	"log_modules_exoplanets" = TRUE,	// Exoplanets
 	"log_modules_sectors" = TRUE,	// Overmap Sectors
+	"log_modules_ruins" = TRUE,	// Ruins
 	"world_modules_ruins_log" = TRUE,	// Ruins
 
 	)
@@ -86,8 +91,6 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 	var/list/logfiles = list(
 	"world_asset_log" = "world_asset.log",
 	"config_error_log" = "config_error.log",
-	"filter_log" = "filter.log",
-	"lua_log" = "lua.log",
 	"world_map_error_log" = "world_map_error.log",
 	"perf_log" = "perf.log",
 	"world_qdel_log" = "world_qdel.log",
@@ -118,18 +121,21 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 	"world_subsystems_log" = "subsystems/world_subsystems.log",
 	"world_subsystems_chemistry_log" = "subsystems/chemistry.log",
 	"world_subsystems_codex_log" = "subsystems/codex.log",
+	"world_subsystems_dbcore_log" = "subsystems/dbcore.log",
+	"world_subsystems_discord_log" = "subsystems/discord.log",
 	"world_subsystems_atlas_log" = "subsystems/atlas.log",
 	"world_subsystems_ghostroles_log" = "subsystems/ghostroles.log",
 	"world_subsystems_law_log" = "subsystems/law.log",
 	"world_subsystems_cargo_log" = "subsystems/cargo.log",
 	"world_subsystems_persistence_log" = "subsystems/persistence.log",
-	"world_subsystems_documents_log" = "subsystems/documents.log",
 	"world_subsystems_fail2topic_log" = "subsystems/fail2topic.log",
 	"world_subsystems_mapfinalization_log" = "subsystems/mapfinalization.log",
 	"world_subsystems_tgui" = "subsystems/tgui.log",
 	"world_subsystems_zas" = "subsystems/zas.log",
 	"world_subsystems_zas_debug" = "subsystems/zas.log",
 	"world_subsystems_http" = "subsystems/http.log",
+	"world_subsystems_ipintel" = "subsystems/ipintel.log",
+	"world_subsystems_odyssey_log" = "subsystems/odyssey.log",
 	"world_subsystems_sentry_log" = "subsystems/sentry.log",
 
 	/*#### MODULES ####*/
@@ -487,6 +493,8 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 GENERAL_PROTECT_DATUM(/datum/configuration)
 
 /datum/configuration/New()
+	init_config_entries()
+
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
 	for (var/T in L)
 		// I wish I didn't have to instance the game modes in order to look up
@@ -1228,6 +1236,7 @@ GENERAL_PROTECT_DATUM(/datum/configuration)
 	Master.OnConfigLoad()
 
 /datum/configuration/proc/save_logging_config()
+	sync_logging_config_entries()
 	rustg_file_write(json_encode(GLOB.config.logsettings), "config/logging.json")
 	rustg_file_write(json_encode(GLOB.config.logfiles), "config/logging_files.json")
 
@@ -1238,14 +1247,25 @@ GENERAL_PROTECT_DATUM(/datum/configuration)
 ///Load the LOGGING configuration
 /datum/configuration/proc/load_logging_config()
 	try
+		var/list/default_logfiles = src.logfiles.Copy()
+
 		if((rustg_file_exists("config/logging.json") == "true"))
 			src.logsettings = json_decode(rustg_file_read("config/logging.json"))
 
 		if((rustg_file_exists("config/logging_files.json") == "true"))
 			src.logfiles = json_decode(rustg_file_read("config/logging_files.json"))
 
+		if(!islist(src.logfiles))
+			src.logfiles = default_logfiles.Copy()
+		else
+			for(var/logfile_key in default_logfiles)
+				if(!(logfile_key in src.logfiles))
+					src.logfiles[logfile_key] = default_logfiles[logfile_key]
+
 	catch(var/exception/e)
 		WARNING("Unable to read or restore log config from the configuration files. Exception: [json_encode(e)]")
+
+	sync_logging_config_entries()
 
 ///Load the AWAY SITES configuration
 /datum/configuration/proc/load_away_sites_config()
@@ -1326,4 +1346,5 @@ GENERAL_PROTECT_DATUM(/datum/configuration)
 	#if defined(UNIT_TEST)
 	for(var/k in GLOB.config.logsettings)
 		GLOB.config.logsettings[k] = TRUE
+	sync_logging_config_entries()
 	#endif
