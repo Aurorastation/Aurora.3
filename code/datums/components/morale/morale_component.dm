@@ -310,7 +310,7 @@
 	if (effective_morale < 0)
 		effective_morale *= psi_panic_effect_modifier
 		if (prob(25)) // Don't spam it for every shot
-			to_chat(user, SPAN_WARNING("The pressure on your mind makes it hard to aim properly..."))
+			to_chat(shooter, SPAN_WARNING("The pressure on your mind makes it hard to aim properly..."))
 
 	*accuracy_decrease = *accuracy_decrease - firearm_accuracy_contribution * effective_morale
 	*dispersion_increase = *dispersion_increase - firearm_dispersion_contribution * effective_morale
@@ -438,7 +438,7 @@
 	var/effective_morale = morale_ratio
 	if (effective_morale < 0)
 		effective_morale *= psi_panic_effect_modifier
-		to_chat(user, SPAN_WARNING("The pressure on your mind makes it hard to focus on harvesting the plants..."))
+		to_chat(owner, SPAN_WARNING("The pressure on your mind makes it hard to focus on harvesting the plants..."))
 
 	*total_yield = *total_yield + plant_yield_contribution * morale_ratio
 	*doafter = *doafter * (1 - (harvest_speed_contribution * morale_ratio))
