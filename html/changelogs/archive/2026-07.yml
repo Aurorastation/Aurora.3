@@ -319,3 +319,7 @@
       the Salamasian Republic.
   - imageadd: Introduces flags, available in the loadout, for the Salamasian Republic.
       Sprites provided by Ill Fated.
+2026-07-19:
+  hazelmouse:
+  - rscadd: Implemented some mapping tweaks to service, now featuring better seating
+      in the mess hall!
