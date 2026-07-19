@@ -76,7 +76,6 @@ SUBSYSTEM_DEF(machinery)
 	all_holopads = SSmachinery.all_holopads
 	all_apcs = SSmachinery.all_apcs
 	all_lights = SSmachinery.all_lights
-	next_arc_light_break = SSmachinery.next_arc_light_break
 	recipe_datums = SSmachinery.recipe_datums
 	breaker_boxes = SSmachinery.breaker_boxes
 	all_sensors = SSmachinery.all_sensors
