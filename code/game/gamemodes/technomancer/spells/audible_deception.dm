@@ -76,7 +76,7 @@
 	. = ..()
 	var/turf/T = get_turf(hit_atom)
 	if(selected_sound && pay_energy(200))
-		playsound(src, selected_sound, 80, 1, -1)
+		playsound(T, selected_sound, 80, 1, -1)
 		adjust_instability(1)
 		// Air Horn time.
 		if(selected_sound == 'sound/items/AirHorn.ogg' && pay_energy(3800))

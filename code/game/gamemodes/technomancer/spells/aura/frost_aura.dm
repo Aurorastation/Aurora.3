@@ -20,6 +20,7 @@
 /obj/item/spell/aura/frost/process()
 	if(!pay_energy(100))
 		qdel(src)
+		return
 	var/list/nearby_mobs = range(round(calculate_spell_power(4)),owner)
 
 	var/temp_change = calculate_spell_power(40)
