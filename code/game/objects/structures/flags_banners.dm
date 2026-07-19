@@ -1341,6 +1341,61 @@
 /obj/structure/sign/flag/trinaryperfection/large/west/Initialize(mapload)
 	. = ..(mapload, WEST)
 
+// Ecclesiarchy (also Trinarist)
+
+/obj/item/flag/ecclesiastical_axiom
+	name = "\improper Ecclesiastical Axiom flag"
+	desc = "The flag of the Ecclesiastical Authority of Axiom, the frontier nation-state \
+	administered by the Trinary Perfection on the planet of Axiom."
+	desc_extended = "The Ecclesiastical Authority views itself as a shield, protecting both \
+	nations of the planet of Axiom with the strength of church infrastructure. Its coat of \
+	arms consists of a white heater shield trimmed with gold, within which is framed the \
+	planet of Axiom overlooked by a great red nazar. It is principly an apotropaic symbol, \
+	combining the symbolism of the evil eye with Encoded Axiom Liturgical script dissuading \
+	all meddlers from interference in the Ecclesiarchy's affairs and domestic rule."
+	flag_path = "ecclesiastical_axiom"
+	flag_structure = /obj/structure/sign/flag/ecclesiastical_axiom
+
+/obj/structure/sign/flag/ecclesiastical_axiom
+	name = "\improper Ecclesiatical Axiom flag"
+	desc = "The flag of the Ecclesiastical Authority of Axiom, the frontier nation-state \
+	administered by the Trinary Perfection on the planet of Axiom."
+	desc_extended = "The Ecclesiastical Authority views itself as a shield, protecting both \
+	nations of the planet of Axiom with the strength of church infrastructure. Its coat of \
+	arms consists of a white heater shield trimmed with gold, within which is framed the \
+	planet of Axiom overlooked by a great red nazar. It is principly an apotropaic symbol, \
+	combining the symbolism of the evil eye with Encoded Axiom Liturgical script dissuading \
+	all meddlers from interference in the Ecclesiarchy's affairs and domestic rule."
+	flag_path = "ecclesiastical_axiom"
+	icon_state = "ecclesiastical_axiom"
+	flag_item = /obj/item/flag/ecclesiastical_axiom
+
+/obj/structure/sign/flag/ecclesiastical_axiom/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/ecclesiastical_axiom/l
+	name = "large Ecclesiatical Axiom flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/ecclesiastical_axiom/large
+
+/obj/structure/sign/flag/ecclesiastical_axiom/large
+	icon_state = "ecclesiastical_axiom_l"
+	flag_path = "ecclesiastical_axiom"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/ecclesiastical_axiom/l
+
+/obj/structure/sign/flag/ecclesiastical_axiom/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/ecclesiastical_axiom/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/ecclesiastical_axiom/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/ecclesiastical_axiom/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
+
 // Salamasian Republic
 
 /obj/item/flag/salamasian_republic
