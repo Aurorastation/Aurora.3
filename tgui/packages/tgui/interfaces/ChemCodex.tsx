@@ -1,4 +1,4 @@
-import { LabeledList, NoticeBox, Section } from 'tgui-core/components';
+import { LabeledList, Section } from 'tgui-core/components';
 import { useBackend, useLocalState } from '../backend';
 import { NtosWindow } from '../layouts';
 import { SearchBar } from './common/SearchBar';
@@ -41,7 +41,7 @@ export const ChemCodex = (props) => {
           buttons={
             <SearchBar
               autoFocus
-              placeholder="Search by name"
+              placeholder="Search"
               query={searchTerm}
               onSearch={(value) => {
                 setSearchTerm(value);
@@ -62,7 +62,7 @@ export const ChemCodex = (props) => {
               title={`${reaction.result.name}(${reaction.result.amount}u)`}
               key={reaction.id}
             >
-              <NoticeBox>{reaction.result.description}</NoticeBox>
+              <Section>{reaction.result.description}</Section>
               <Section title="Required Reagents">
                 <LabeledList>
                   {reaction.reagents.map((reagent) => (
@@ -71,44 +71,46 @@ export const ChemCodex = (props) => {
                     </LabeledList.Item>
                   ))}
                 </LabeledList>
-                <Section title="Catalysts">
-                  <LabeledList>
-                    {reaction.catalysts.length
-                      ? reaction.catalysts.map((catalyst) => (
-                          <LabeledList.Item
-                            label={catalyst.name}
-                            key={catalyst.name}
-                          >
-                            {catalyst.amount}u
-                          </LabeledList.Item>
-                        ))
-                      : 'No catalysts present for this recipe.'}
-                  </LabeledList>
-                </Section>
-                <Section title="Inhibitors">
-                  <LabeledList>
-                    {reaction.inhibitors.length
-                      ? reaction.inhibitors.map((inhibitor) => (
-                          <LabeledList.Item
-                            label={inhibitor.name}
-                            key={inhibitor.name}
-                          >
-                            {inhibitor.amount}u
-                          </LabeledList.Item>
-                        ))
-                      : 'No inhibitors present for this recipe.'}
-                  </LabeledList>
-                </Section>
-                <Section title="Other">
-                  <LabeledList>
-                    <LabeledList.Item label="Minimum Required Temperature">
-                      {reaction.temp_min ? reaction.temp_min : 'None.'}
-                    </LabeledList.Item>
-                    <LabeledList.Item label="Maximum Required Temperature">
-                      {reaction.temp_max ? reaction.temp_max : 'None.'}
-                    </LabeledList.Item>
-                  </LabeledList>
-                </Section>
+                {reaction.catalysts.length ? (
+                  <Section title="Catalysts">
+                    <LabeledList>
+                      {reaction.catalysts.map((catalyst) => (
+                        <LabeledList.Item
+                          label={catalyst.name}
+                          key={catalyst.name}
+                        >
+                          {catalyst.amount}u
+                        </LabeledList.Item>
+                      ))}
+                    </LabeledList>
+                  </Section>
+                ) : null}
+                {reaction.inhibitors.length ? (
+                  <Section title="Inhibitors">
+                    <LabeledList>
+                      {reaction.inhibitors.map((inhibitor) => (
+                        <LabeledList.Item
+                          label={inhibitor.name}
+                          key={inhibitor.name}
+                        >
+                          {inhibitor.amount}u
+                        </LabeledList.Item>
+                      ))}
+                    </LabeledList>
+                  </Section>
+                ) : null}
+                {reaction.temp_min || reaction.temp_max ? (
+                  <Section title="Temperature">
+                    <LabeledList>
+                      <LabeledList.Item label="Minimum">
+                        {reaction.temp_min ? `${reaction.temp_min}K` : 'N/A'}
+                      </LabeledList.Item>
+                      <LabeledList.Item label="Maximum">
+                        {reaction.temp_max ? `${reaction.temp_max}K` : 'N/A'}
+                      </LabeledList.Item>
+                    </LabeledList>
+                  </Section>
+                ) : null}
               </Section>
             </Section>
           ))}

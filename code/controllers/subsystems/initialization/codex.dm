@@ -8,12 +8,8 @@ SUBSYSTEM_DEF(codex)
 	var/list/cooking_codex_data = list()
 
 	/// List of chemistry/reagent reactions and associated data.
-	var/list/bartending_codex_data = list()
-	var/list/bartending_codex_ignored_reaction_path = list(/datum/chemical_reaction/slime)
-	var/list/bartending_codex_unignored_result_path = list(/singleton/reagent/drink, /singleton/reagent/alcohol)
-
-	/// List of chemistry/reagent reactions and associated data.
 	var/list/chemistry_codex_data = list()
+	var/list/bartending_codex_data = list()
 	var/list/chemistry_codex_ignored_reaction_path = list(/datum/chemical_reaction/slime)
 	var/list/chemistry_codex_ignored_result_path = list(/singleton/reagent/drink, /singleton/reagent/alcohol)
 
@@ -27,7 +23,6 @@ SUBSYSTEM_DEF(codex)
 
 	else
 		generate_cooking_codex()
-		generate_bartending_codex()
 		generate_chemistry_codex()
 		generate_fusion_codex()
 		log_subsystem_codex("SScodex: [length(cooking_codex_data)] cooking recipes; [length(bartending_codex_data)] bartending recipes; [length(chemistry_codex_data)] chemistry recipes; [length(fusion_codex_data)] fusion recipes;")
@@ -92,55 +87,6 @@ SUBSYSTEM_DEF(codex)
 		cookingRecipeData["ingredients"] = english_list(cookingRecipeData["ingredients"])
 		cooking_codex_data += list(cookingRecipeData)
 
-/datum/controller/subsystem/codex/proc/generate_bartending_codex()
-	bartending_codex_data = list()
-	for(var/chem_path in SSchemistry.chemical_reactions_clean)
-		if(bartending_codex_ignored_reaction_path && is_path_in_list(chem_path, bartending_codex_ignored_reaction_path))
-			continue
-		var/datum/chemical_reaction/CR = new chem_path
-		if(!CR.result)
-			continue
-		if(bartending_codex_unignored_result_path && !is_path_in_list(CR.result, bartending_codex_unignored_result_path))
-			continue
-		var/singleton/reagent/R = GET_SINGLETON(CR.result)
-		var/bartendingReactionData = list(id = "[chem_path]")
-		bartendingReactionData["result"] = list(
-			name = R.name,
-			description = R.description,
-			amount = CR.result_amount
-		)
-
-		bartendingReactionData["reagents"] = list()
-		for(var/reagent in CR.required_reagents)
-			var/singleton/reagent/required_reagent = reagent
-			bartendingReactionData["reagents"] += list(list(
-				name = initial(required_reagent.name),
-				amount = CR.required_reagents[reagent]
-			))
-
-		bartendingReactionData["catalysts"] = list()
-		for(var/reagent_path in CR.catalysts)
-			var/singleton/reagent/required_reagent = reagent_path
-			bartendingReactionData["catalysts"] += list(list(
-				name = initial(required_reagent.name),
-				amount = CR.catalysts[reagent_path]
-			))
-
-		bartendingReactionData["inhibitors"] = list()
-		for(var/reagent_path in CR.inhibitors)
-			var/singleton/reagent/required_reagent = reagent_path
-			var/inhibitor_amount = CR.inhibitors[reagent_path] ? CR.inhibitors[reagent_path] : "Any"
-			bartendingReactionData["inhibitors"] += list(list(
-				name = initial(required_reagent.name),
-				amount = inhibitor_amount
-			))
-
-		bartendingReactionData["temp_min"] = CR.required_temperature_min
-
-		bartendingReactionData["temp_max"] = CR.required_temperature_max
-
-		bartending_codex_data += list(bartendingReactionData)
-
 /datum/controller/subsystem/codex/proc/generate_chemistry_codex()
 	chemistry_codex_data = list()
 	for(var/chem_path in SSchemistry.chemical_reactions_clean)
@@ -148,8 +94,6 @@ SUBSYSTEM_DEF(codex)
 			continue
 		var/datum/chemical_reaction/CR = new chem_path
 		if(!CR.result)
-			continue
-		if(chemistry_codex_ignored_result_path && is_path_in_list(CR.result, chemistry_codex_ignored_result_path))
 			continue
 		var/singleton/reagent/R = GET_SINGLETON(CR.result)
 		var/chemistryReactionData = list(id = "[chem_path]")
@@ -188,7 +132,10 @@ SUBSYSTEM_DEF(codex)
 
 		chemistryReactionData["temp_max"] = CR.required_temperature_max
 
-		chemistry_codex_data += list(chemistryReactionData)
+		if(chemistry_codex_ignored_result_path && is_path_in_list(CR.result, chemistry_codex_ignored_result_path))
+			bartending_codex_data += list(chemistryReactionData) // What is bartending, but a dimunitive form of chemistry?
+		else
+			chemistry_codex_data += list(chemistryReactionData)
 
 /// Generate a list of all fusion reaction fusion_reactions, then populate the codex from that list.
 /datum/controller/subsystem/codex/proc/generate_fusion_codex()
