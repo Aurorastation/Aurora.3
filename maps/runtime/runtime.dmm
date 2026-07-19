@@ -1264,7 +1264,6 @@
 /area/runtime/floor_one/main)
 "dC" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/mob/living/simple_animal/hostile/hivebotbeacon,
 /turf/simulated/floor/plating,
 /area/runtime/floor_one/construction)
 "dE" = (

@@ -114,9 +114,6 @@
 		maximum_linked_and_alive_hivebots = maximum_linked_and_alive_hivebots + (length(GLOB.player_list) * maximum_linked_and_alive_hivebots_to_playing_players_scaling_factor)
 
 	if(!mapload)
-		var/datum/effect/effect/system/smoke_spread/S = new /datum/effect/effect/system/smoke_spread()
-		S.set_up(5, 0, src.loc)
-		S.start()
 		visible_message(SPAN_DANGER("[src] warps in!"))
 		playsound(src.loc, 'sound/effects/EMPulse.ogg', 25, 1)
 		addtimer(CALLBACK(src, PROC_REF(activate_beacon)), 450)
@@ -165,11 +162,8 @@
 	var/T = get_turf(src)
 	new /obj/effect/gibspawner/robot(T)
 	spark(T, 3, GLOB.alldirs)
-	//Smoke effect, we disappear in a smoke
-	var/datum/effect/effect/system/smoke_spread/S = new /datum/effect/effect/system/smoke_spread()
-	S.set_up(5, 0, src.loc)
-	S.start()
-	qdel(src)
+	QDEL_IN(src, 0)
+	return
 
 /mob/living/simple_animal/hostile/hivebotbeacon/think()
 	. =..()
