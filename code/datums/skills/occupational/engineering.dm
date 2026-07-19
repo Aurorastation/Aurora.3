@@ -50,7 +50,7 @@
 		SKILL_LEVEL_PROFESSIONAL = "You have many years of training in general Engineering concepts, equivalent to a Master's Degree or better.<br>" \
 			+ " - You can craft items 50% faster.<br>" \
 			+ " - Items you craft are of much higher quality on average.<br>" \
-			+ " - You deal 20% more damage when attacking structures such as airlocks, windows, and machinery.<br>"
+			+ " - You deal 20% more damage when attacking structures such as airlocks, windows, and machinery.<br>" \
 			+ " - You can repair exosuits 75% faster<br>" \
 			+ " - Each use of a welder on an exosuit repairs 15 more damage.",
 	)
