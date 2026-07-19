@@ -1,3 +1,13 @@
+/**
+ * This macro is absolutely required to handle recalculating the morale_ratio and updating UI effects,
+ * whenever any morale modifier is updated, added, or removed.
+ *
+ * Failing to use this macro whenever any private value changes causes the component
+ * to no longer provide mathematically correct results from its internal calculation.
+ *
+ * At the core of the morale component is a Hyperbolic Tangent function, which is calculated in advance so as to eliminate the need for
+ * expensive recalculating every time it is called to modify checks.
+ */
 #define UPDATE_MORALE \
 	morale_ratio = ftanh(beta_value * (morale_points + phi_value)); \
 	morale_ui.icon_state = ((morale_ratio > -0.01 && morale_ratio < 0.01) ? "morale_hidden" : "morale" + "[round(morale_ratio * 4) + 5]"); \
@@ -103,7 +113,7 @@
 	 * The maximum possible panic chance from negative morale point sums.
 	 * Since negative moodlets are unique to psychic damage, the effects of psychically induced panic are uniquely stronger than simply being unskilled.
 	 */
-	var/panic_chance_ceiling = 10.0
+	var/panic_chance_ceiling = 30.0
 
 	/// The maximum possible positive or negative contribution to surgery success chances from morale modifiers.
 	var/surgery_success_contribution = 15.0
@@ -139,25 +149,39 @@
 	/// The maximum possible positive or negative (percentage as decimal) contribution to surgery speed from morale modifiers.
 	var/surgery_speed_contribution = 0.1
 
+	/**
+	 * The increase in effective morale ratio for psychic damage. This makes it so that the psi-panic condition
+	 * has a greater effect on penalizing skills than positive morale gives bonuses to them.
+	 */
+	var/psi_panic_effect_modifier = 3.0
+
+/// Returns the current percentage effect of morale, expressed as a floating point number between -1.0 and 1.0
 /datum/component/morale/proc/get_morale_ratio()
 	return morale_ratio
 
+/// Returns the current number of morale points (which is not linearly related to the effects of morale).
 /datum/component/morale/proc/get_morale_points()
 	return morale_points
 
+/// Adds (or removes) morale points to the component, then forces a recalculation of morale effects.
 /datum/component/morale/proc/add_morale_points(input)
 	morale_points += input
 	UPDATE_MORALE
 
+/// Returns the "B" constant for the morale component's internal equation.
 /datum/component/morale/proc/get_beta_value()
 	return beta_value
 
+/// Sets the "B" constant for the morale component's internal equation, then forces a recalculation of morale effects.
 /datum/component/morale/proc/set_beta_value(input)
 	beta_value = input
+	UPDATE_MORALE
 
+/// Returns the "C" constant for the morale component's internal equation.
 /datum/component/morale/proc/get_phi_value()
 	return phi_value
 
+/// Sets the "C" constant for the morale component's internal equation, then forces a recalculation of morale effects.
 /datum/component/morale/proc/set_phi_value(input)
 	phi_value = input
 	UPDATE_MORALE
@@ -229,6 +253,13 @@
 	UnregisterSignal(parent, COMSIG_PLANT_HARVESTER)
 	return ..()
 
+/**
+ * Morale components begin processing whenever they become the owner of any moodlets.
+ * The Morale component is solely responsible for handling the lifetime of its owned moodlets,
+ * since it must be responsible for maintaining the mathematical integrity of its internal equations.
+ *
+ * The component will also stop processing when it has no moodlets to handle, and start processing again once it gains any.
+ */
 /datum/component/morale/process(seconds_per_tick)
 	if (!length(moodlets))
 		return PROCESS_KILL
@@ -260,15 +291,31 @@
 			Otherwise, morale effects are generally equivalent to "up to half a skill rank"
 					for a large variety of numerical effects related to skills.
 																											*/
+/datum/component/morale/proc/get_morale_hud(mob/living/carbon/human/user)
+	SIGNAL_HANDLER
+	if (QDELING(src))
+		return // draw nothing.
+
+	user.client?.screen |= morale_ui
+
+/// Slightly increases melee damage with positive morale, Psi-panic from negative morale reduces it.
 /datum/component/morale/proc/modify_hit_effect(owner, mob/living/target, obj/item/weapon, power, hit_zone)
 	SIGNAL_HANDLER
 	*power = *power * (1 + (melee_damage_contribution * morale_ratio))
 
+/// Increases gun accuracy with positive morale. Psi-panic from negative morale makes it much worse.
 /datum/component/morale/proc/handle_accuracy(mob/shooter, accuracy_decrease, dispersion_increase)
 	SIGNAL_HANDLER
-	*accuracy_decrease = *accuracy_decrease - firearm_accuracy_contribution * morale_ratio
-	*dispersion_increase = *dispersion_increase - firearm_dispersion_contribution * morale_ratio
+	var/effective_morale = morale_ratio
+	if (effective_morale < 0)
+		effective_morale *= psi_panic_effect_modifier
+		if (prob(25)) // Don't spam it for every shot
+			to_chat(user, SPAN_WARNING("The pressure on your mind makes it hard to aim properly..."))
 
+	*accuracy_decrease = *accuracy_decrease - firearm_accuracy_contribution * effective_morale
+	*dispersion_increase = *dispersion_increase - firearm_dispersion_contribution * effective_morale
+
+/// Psi-panic from negative morale can cause a shooter to fail to disengage a gun's safety. This includes the automatic disengage when firing on harm intent.
 /datum/component/morale/proc/safety_fumble(mob/shooter, obj/item/gun/shoota, cancelled)
 	SIGNAL_HANDLER
 	// Up to 50% chance to fumble a safety when in a psionically-induced panic.
@@ -280,30 +327,35 @@
 		SPAN_DANGER("\The [shooter] fumbles with \the [shoota]'s safety in a blind panic!"),
 		SPAN_DANGER("You fumble with \the [shoota]'s safety in a blind panic!"))
 
+/// Positive morale slightly improves unarmed hit/block chances. Psi-panic from negative morale reduces it instead.
 /datum/component/morale/proc/handle_harm_attack(mob/attacker, mob/defender, attacker_skill_level, miss_chance, rand_damage, block_chance)
 	SIGNAL_HANDLER
 	*attacker_skill_level = *attacker_skill_level + (unarmed_rank_contribution * morale_ratio)
 	*miss_chance = *miss_chance - unarmed_chance_contribution * morale_ratio
 	*block_chance = *block_chance - unarmed_chance_contribution * morale_ratio
 
+/// Positive morale slightly improves unarmed hit/block chances. Psi-panic from negative morale reduces it instead.
 /datum/component/morale/proc/handle_harm_defend(mob/defender, mob/attacker, defender_skill_level, miss_chance, rand_damage, block_chance)
 	SIGNAL_HANDLER
 	*defender_skill_level = *defender_skill_level - (unarmed_rank_contribution * morale_ratio)
 	*miss_chance = *miss_chance + unarmed_chance_contribution * morale_ratio
 	*block_chance = *block_chance + unarmed_chance_contribution * morale_ratio
 
+/// Positive morale slightly improves unarmed hit/block chances. Psi-panic from negative morale reduces it instead.
 /datum/component/morale/proc/handle_disarm_attack(mob/attacker, mob/defender, attacker_skill_level, disarm_cost, push_chance, disarm_chance)
 	SIGNAL_HANDLER
 	*attacker_skill_level = *attacker_skill_level + (unarmed_rank_contribution * morale_ratio)
 	*push_chance = *push_chance - unarmed_chance_contribution * morale_ratio
 	*disarm_chance = *disarm_chance - unarmed_chance_contribution * morale_ratio
 
+/// Positive morale slightly improves unarmed hit/block chances. Psi-panic from negative morale reduces it instead.
 /datum/component/morale/proc/handle_disarm_defend(mob/defender, mob/attacker, defender_skill_level, disarm_cost, push_chance, disarm_chance)
 	SIGNAL_HANDLER
 	*defender_skill_level = *defender_skill_level + (unarmed_rank_contribution * morale_ratio)
 	*push_chance = *push_chance + unarmed_chance_contribution * morale_ratio
 	*disarm_chance = *disarm_chance + unarmed_chance_contribution * morale_ratio
 
+/// Positive morale improves mech handling characteristics, negative morale both worsens them, and gives a chance to scramble movement inputs.
 /datum/component/morale/proc/handle_user_move(mob/living/user, direction, delay_modifier)
 	SIGNAL_HANDLER
 	if (parent != user)
@@ -318,8 +370,15 @@
 	if (direction == NORTH)
 		return
 
-	*delay_modifier = *delay_modifier - mech_move_delay_contribution * morale_ratio
+	var/effective_morale = morale_ratio
+	if (effective_morale < 0)
+		effective_morale *= psi_panic_effect_modifier
+		if (prob(5)) // Don't spam it on every move
+			to_chat(user, SPAN_WARNING("The pressure on your mind makes it hard to focus on piloting the mech..."))
 
+	*delay_modifier = *delay_modifier - mech_move_delay_contribution * effective_morale
+
+/// Positive morale improves mech handling characteristics, negative morale both worsens them, and gives a chance to scramble movement inputs.
 /datum/component/morale/proc/handle_user_strafe(mob/living/user, direction, delay_modifier)
 	SIGNAL_HANDLER
 	if (parent != user)
@@ -331,8 +390,14 @@
 			SPAN_DANGER("You fumble with your mech's controls in a blind panic!"))
 		*direction = angle2dir(dir2angle(direction) + 180)
 
-	*delay_modifier = *delay_modifier - mech_move_delay_contribution * morale_ratio
+	var/effective_morale = morale_ratio
+	if (effective_morale < 0)
+		effective_morale *= psi_panic_effect_modifier
+		if (prob(5)) // Don't spam it on every move
+			to_chat(user, SPAN_WARNING("The pressure on your mind makes it hard to focus on piloting the mech..."))
+	*delay_modifier = *delay_modifier - mech_move_delay_contribution * effective_morale
 
+/// The psi-panic condition from psychic damage makes it more difficult to power up a mech. No effects on this from positive morale.
 /datum/component/morale/proc/handle_mech_toggle_power(mob/user, cancelled, delay)
 	SIGNAL_HANDLER
 	if (parent != user || cancelled || morale_points >= 0)
@@ -346,24 +411,35 @@
 	*delay = *delay - (5 * morale_ratio) SECONDS
 	to_chat(user, SPAN_WARNING("The pressure on your mind causes you to stumble in searching for the power switch..."))
 
+/// Positive morale makes surgery easier/faster. Psi-panic from megative morale makes it much harder.
 /datum/component/morale/proc/handle_surgery_modifiers(mob/living/user, mob/living/carbon/target, success_rate, duration)
 	SIGNAL_HANDLER
+	var/effective_morale = morale_ratio
+	if (effective_morale < 0)
+		effective_morale *= psi_panic_effect_modifier
+		to_chat(user, SPAN_WARNING("The pressure on your mind makes it hard to focus on the surgery..."))
+
 	*success_rate = *success_rate + surgery_success_contribution * morale_ratio
 	*duration = *duration * (1 - surgery_speed_contribution * morale_ratio)
 
-/datum/component/morale/proc/get_morale_hud(mob/living/carbon/human/user)
-	SIGNAL_HANDLER
-	if (QDELING(src))
-		return // draw nothing.
-
-	user.client?.screen |= morale_ui
-
+/// Positive morale makes item crafting faster. Psi-panic from negative morale makes it much slower.
 /datum/component/morale/proc/handle_crafting_speed(mob/user, doafter_time)
 	SIGNAL_HANDLER
+	var/effective_morale = morale_ratio
+	if (effective_morale < 0)
+		effective_morale *= psi_panic_effect_modifier
+		to_chat(user, SPAN_WARNING("The pressure on your mind makes it hard to focus on constructing..."))
+
 	*doafter_time = *doafter_time * (1 - (crafting_speed_contribution * morale_ratio))
 
+/// Positive morale improves plant harvesting yield/speed. Psi-panic from negative morale makes it much worse.
 /datum/component/morale/proc/modify_yield(owner, datum/seed/plant, total_yield, cancelled, doafter)
 	SIGNAL_HANDLER
+	var/effective_morale = morale_ratio
+	if (effective_morale < 0)
+		effective_morale *= psi_panic_effect_modifier
+		to_chat(user, SPAN_WARNING("The pressure on your mind makes it hard to focus on harvesting the plants..."))
+
 	*total_yield = *total_yield + plant_yield_contribution * morale_ratio
 	*doafter = *doafter * (1 - (harvest_speed_contribution * morale_ratio))
 
