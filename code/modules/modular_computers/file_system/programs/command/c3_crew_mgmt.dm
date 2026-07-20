@@ -1,12 +1,13 @@
 /datum/computer_file/program/comm_control
 	filename = "comm_control"
 	filedesc = "C3 Crew Management"
-	extended_desc = "Command-facing operational picture for offship teams."
+	extended_desc = "Command-facing application for command, communications, and control of both ship and crew assets."
 	program_icon_state = "comm_monitor"
 	program_key_icon_state = "lightblue_key"
 	color = LIGHT_COLOR_BLUE
-	size = 12
+	size = 8
 	required_access_run = list(ACCESS_HEADS, ACCESS_BRIDGE_CREW)
+	requires_access_to_run = PROGRAM_ACCESS_LIST_ONE
 	required_access_download = list(ACCESS_HEADS, ACCESS_BRIDGE_CREW)
 	network_destination = "station long-range communication array"
 	// The app must open during outages so command can see degraded state instead of failing to launch.
@@ -297,7 +298,7 @@
 			update_ui = TRUE
 
 		if("rename_team")
-			var/new_name = tgui_input_text(user, "Enter a new team name.", "Rename Team", team.display_name, max_length = MAX_NAME_LEN)
+			var/new_name = tgui_input_text(user, "Enter a new team name.", "Rename Team", team.display_name, max_length = MAX_NAME_LEN, encode = FALSE)
 			if(!new_name || computer.use_check_and_message(user))
 				return TRUE
 			if(team.set_name(new_name, user))
@@ -371,13 +372,12 @@
 		if("set_objective")
 			var/objective_slot = params["slot"]
 			var/current_objective = team.get_objective_text(objective_slot)
-			var/objective_text = sanitize(tgui_input_text(user, "Set [team.get_objective_label(objective_slot)] objective.", "Team Objective", current_objective, multiline = TRUE, encode = FALSE))
+			var/objective_text = tgui_input_text(user, "Set [team.get_objective_label(objective_slot)] objective.", "Team Objective", current_objective, multiline = TRUE, encode = FALSE)
 			if(!objective_text || computer.use_check_and_message(user))
 				return TRUE
-			objective_text = copytext(objective_text, 1, MAX_MESSAGE_LEN)
 			if(team.set_objective(objective_slot, objective_text, user))
 				// Objectives are persisted first; delivery failure only affects the reminder message.
-				var/list/delivery = deliver_team_message(team, "team", "[capitalize(team.get_objective_label(objective_slot))] objective: [objective_text]", user)
+				var/list/delivery = deliver_team_message(team, "team", "[capitalize(team.get_objective_label(objective_slot))] objective: [team.get_objective_text(objective_slot)]", user)
 				report_delivery(user, delivery)
 			update_ui = TRUE
 
@@ -397,19 +397,17 @@
 			update_ui = TRUE
 
 		if("message_team")
-			var/message = sanitize(tgui_input_text(user, "Message the full team.", "Team Message", multiline = TRUE, encode = FALSE))
+			var/message = tgui_input_text(user, "Message the full team.", "Team Message", multiline = TRUE, encode = FALSE)
 			if(!message || computer.use_check_and_message(user))
 				return TRUE
-			message = copytext(message, 1, MAX_MESSAGE_LEN)
 			var/list/delivery = deliver_team_message(team, "team", message, user)
 			report_delivery(user, delivery)
 			update_ui = TRUE
 
 		if("message_lead")
-			var/message = sanitize(tgui_input_text(user, "Message the team lead.", "Team Lead Message", multiline = TRUE, encode = FALSE))
+			var/message = tgui_input_text(user, "Message the team lead.", "Team Lead Message", multiline = TRUE, encode = FALSE)
 			if(!message || computer.use_check_and_message(user))
 				return TRUE
-			message = copytext(message, 1, MAX_MESSAGE_LEN)
 			var/list/delivery = deliver_team_message(team, "lead", message, user)
 			report_delivery(user, delivery)
 			update_ui = TRUE
@@ -426,27 +424,12 @@
 	// Reachable z-levels are the privacy/security gate; do not build rows from live mob positions here.
 	return build_crew_sensor_lookup(GLOB.ntnet_global.get_reachable_z_levels(computer.network_card, NTNET_COMMUNICATION))
 
-/// Builds one team's TGUI model, including roster rows, readiness counts, role coverage, group summary, destination context, and logs.
+/// Builds one team's TGUI model, including roster rows, group summary, destination context, and logs.
 /datum/computer_file/program/comm_control/proc/build_team_data(var/datum/team/team, var/list/sensor_lookup, var/ntnet_available, var/list/destination_sources)
 	var/obj/effect/overmap/visitable/horizon = get_horizon_sector()
 	team.apply_default_destination(horizon)
 
 	var/list/roster = list()
-	var/list/counts = list(
-		"total" = 0,
-		"living" = 0,
-		"conscious" = 0,
-		"unconscious" = 0,
-		"dead" = 0,
-		"ssd" = 0,
-		"unknown" = 0
-	)
-	var/list/role_coverage = list(
-		"medical" = 0,
-		"engineering" = 0,
-		"security" = 0,
-		"command" = 0
-	)
 
 	// Lead distance and offset are relative to lead tracking; no live coordinates are used if sensors are not tracking.
 	var/list/lead_tracking
@@ -462,25 +445,8 @@
 			group_summary = team.group_summary || "Group topology pending"
 
 	for(var/member_key in team.member_records)
-		var/list/row = build_roster_row(team, member_key, sensor_lookup, lead_tracking, horizon, ntnet_available, role_coverage)
+		var/list/row = build_roster_row(team, member_key, sensor_lookup, lead_tracking, horizon, ntnet_available)
 		roster += list(row)
-
-		// Readiness counts intentionally use live mob presence; this is not location disclosure.
-		counts["total"]++
-		switch(row["state"])
-			if("conscious")
-				counts["living"]++
-				counts["conscious"]++
-			if("unconscious")
-				counts["living"]++
-				counts["unconscious"]++
-			if("ssd")
-				counts["living"]++
-				counts["ssd"]++
-			if("dead")
-				counts["dead"]++
-			else
-				counts["unknown"]++
 
 	var/list/logs = list()
 	// Copy logs into the TGUI payload so consumers cannot mutate the team's log list through returned data.
@@ -494,8 +460,6 @@
 		"operator" = team.get_operator_name(),
 		"primary_objective" = team.primary_objective,
 		"secondary_objective" = team.secondary_objective,
-		"counts" = counts,
-		"role_coverage" = role_coverage,
 		"group_summary" = group_summary,
 		"destination_context" = build_destination_context(team, destination_sources),
 		"roster" = roster,
@@ -510,7 +474,7 @@
  * * Suit sensor data
  * * Lead-relative positioning
  */
-/datum/computer_file/program/comm_control/proc/build_roster_row(var/datum/team/team, var/member_key, var/list/sensor_lookup, var/list/lead_tracking, var/obj/effect/overmap/visitable/horizon, var/ntnet_available, var/list/role_coverage)
+/datum/computer_file/program/comm_control/proc/build_roster_row(var/datum/team/team, var/member_key, var/list/sensor_lookup, var/list/lead_tracking, var/obj/effect/overmap/visitable/horizon, var/ntnet_available)
 	var/datum/record/general/general_record = team.get_member_record(member_key)
 	var/mob/living/carbon/human/live_member = team.resolve_member_live_mob(member_key)
 	var/list/sensor_data = get_crew_sensor_data_for_member(general_record, live_member, sensor_lookup)
@@ -525,9 +489,6 @@
 		assignment = live_member.get_assignment("Unknown", "No Job")
 	else if(sensor_data && sensor_data["ass"])
 		assignment = sensor_data["ass"]
-	var/role_coverage_key = get_member_role_coverage_key(general_record, live_member, assignment)
-	if(role_coverage_key && !isnull(role_coverage[role_coverage_key]))
-		role_coverage[role_coverage_key]++
 	var/state = get_member_state(live_member, general_record)
 	// Cache sensor mode wins because it is tied to the same sensor sample as any cached location.
 	var/sensor_level = (sensor_data && !isnull(sensor_data["stype"])) ? sensor_data["stype"] : (istype(live_member) ? getsensorlevel(live_member) : SUIT_SENSOR_OFF)
@@ -621,30 +582,6 @@
 		return "no tracking"
 	return "not visible"
 
-/// Classifies a roster member into the role coverage buckets currently displayed in C3 app.
-/datum/computer_file/program/comm_control/proc/get_member_role_coverage_key(var/datum/record/general/general_record, var/mob/living/carbon/human/live_member, var/assignment)
-	if(issilicon(live_member) || (istype(live_member) && live_member.isSynthetic()))
-		return
-
-	var/datum/job/job
-	if(SSjobs)
-		if(general_record?.real_rank)
-			job = SSjobs.GetJob(make_list_rank(general_record.real_rank))
-		if(!istype(job) && assignment && assignment != "Unknown")
-			job = SSjobs.GetJob(make_list_rank(assignment))
-	if(istype(job))
-		// Keep category mapping tied to canonical job role defines, not localized display text or alt titles.
-		if(job.type in EQUIPMENT_ROLES)
-			return
-		if(job.type in MEDICAL_ROLES)
-			return "medical"
-		if(job.type in ENGINEERING_ROLES)
-			return "engineering"
-		if(job.type in SECURITY_ROLES)
-			return "security"
-		if((job.type in COMMAND_ROLES) || (job.type in COMMAND_SUPPORT_ROLES))
-			return "command"
-
 /// Converts individual lead-relative distance into the current display band.
 /datum/computer_file/program/comm_control/proc/get_lead_distance_band_label(var/list/tracking, var/list/lead_tracking)
 	if(!lead_tracking || !lead_tracking["tracking"])
@@ -691,8 +628,8 @@
 			return "Same area"
 		return get_lead_offset_distance_label(tracking, lead_tracking)
 	if(tracking["sector"] && tracking["sector"] == lead_tracking["sector"])
-		return "Same contact, different z-level"
-	return "Different contact level"
+		return "Different z"
+	return "Different contact"
 
 /// Returns TRUE for Horizon-owned sensor consoles in Horizon station areas.
 /datum/computer_file/program/comm_control/proc/is_legitimate_horizon_sensor_console(var/obj/structure/machinery/computer/ship/sensors/sensor_console, var/obj/effect/overmap/visitable/horizon)
@@ -782,6 +719,9 @@
 		"unknown" = 0
 	)
 
+	if(!message)
+		return delivery
+	message = sanitize(html_decode(message), MAX_MESSAGE_LEN, encode = FALSE)
 	if(!message)
 		return delivery
 

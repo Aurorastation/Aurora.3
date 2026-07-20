@@ -305,32 +305,19 @@ SUBSYSTEM_DEF(team_cohesion)
 
 /// Builds the summary text for current group topology
 /datum/controller/subsystem/team_cohesion/proc/build_group_topology(var/component_count, var/detached_subgroups, var/minor_detached_groups, var/isolated_members, var/untracked_members, var/leader_component_size, var/max_leader_distance)
-	var/summary = "Unified"
+	var/summary = "Unified main body"
 	if(detached_subgroups > 1 || (detached_subgroups && (minor_detached_groups || isolated_members)))
-		summary = "Multiple detached groups"
-	else if(detached_subgroups)
-		summary = "Main body with detached subgroup"
-	else if(minor_detached_groups)
-		summary = "Main body with minor detached group"
+		summary = "Multiple detached subgroups"
+	else if(detached_subgroups || minor_detached_groups)
+		summary = "Detached subgroup"
 	else if(isolated_members)
 		if(leader_component_size <= 1 && isolated_members >= 2)
-			summary = "Dispersed from leader body"
+			summary = "Dispersed from leader"
 		else
-			summary = "Main body with detached individual[isolated_members == 1 ? "" : "s"]"
+			summary = "Unified with detached individual[isolated_members == 1 ? "" : "s"]"
 	else if(untracked_members)
 		summary = "Partial tracking data"
 	else if(component_count <= 1 && max_leader_distance > TEAM_LEAD_BAND_EXTENDED_RANGE)
 		summary = "Extended main body"
 
-	var/list/details = list()
-	if(detached_subgroups)
-		details += "[detached_subgroups] subgroup[detached_subgroups == 1 ? "" : "s"]"
-	if(minor_detached_groups)
-		details += "[minor_detached_groups] minor group[minor_detached_groups == 1 ? "" : "s"]"
-	if(isolated_members)
-		details += "[isolated_members] isolated"
-	if(untracked_members)
-		details += "[untracked_members] untracked"
-	if(length(details))
-		summary += " ([jointext(details, ", ")])"
 	return summary

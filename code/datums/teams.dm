@@ -157,7 +157,7 @@ GLOBAL_VAR_INIT(team_uid, 0)
 	if(!new_name)
 		return FALSE
 
-	new_name = trim(new_name, MAX_NAME_LEN)
+	new_name = sanitize(html_decode(new_name), MAX_NAME_LEN, encode = FALSE)
 	if(!new_name)
 		return FALSE
 	if(display_name == new_name)
@@ -328,6 +328,10 @@ GLOBAL_VAR_INIT(team_uid, 0)
 	return "unknown"
 
 /datum/team/proc/set_objective(var/objective_slot, var/objective_text, var/mob/actor)
+	if(!objective_text)
+		return FALSE
+
+	objective_text = sanitize(html_decode(objective_text), MAX_MESSAGE_LEN, encode = FALSE)
 	if(!objective_text)
 		return FALSE
 

@@ -64,8 +64,6 @@ type Team = {
   operator: string;
   primary_objective: string;
   secondary_objective: string;
-  counts: Record<string, number>;
-  role_coverage: Record<string, number>;
   group_summary: string;
   destination_context: DestinationContext;
   roster: RosterRow[];
@@ -146,7 +144,7 @@ export const TeamControl = (props) => {
   );
 
   return (
-    <NtosWindow width={1600} height={1000}>
+    <NtosWindow width={1800} height={1000}>
       <NtosWindow.Content scrollable>
         {!data.authenticated ? (
           <NoticeBox>Command access required.</NoticeBox>
@@ -228,6 +226,7 @@ const CommandOverview = (props: {
             </Tabs.Tab>
           </Tabs>
         </Stack.Item>
+        <Stack.Item width="1%"></Stack.Item>
         <Stack.Item grow>
           {visiblePanel === 'comms' && <CommandCommsPanel />}
           {visiblePanel === 'messages' && <CommandMessagesPanel />}
@@ -276,7 +275,7 @@ const TeamsSection = (props: {
           </Stack.Item>
           <Stack.Item grow>
             <Stack fill>
-              <Stack.Item width="32%">
+              <Stack.Item width="31%">
                 {selectedTeam ? (
                   <TeamStatusOrders
                     team={selectedTeam}
@@ -287,6 +286,7 @@ const TeamsSection = (props: {
                   <NoticeBox>No team selected.</NoticeBox>
                 )}
               </Stack.Item>
+              <Stack.Item width="1%"></Stack.Item>
               <Stack.Item grow>
                 <TeamMonitor
                   rows={monitorRows}
@@ -852,7 +852,10 @@ const TeamMonitor = (props: {
           {showTeam && <Table.Cell>Team</Table.Cell>}
           <Table.Cell header>Name</Table.Cell>
           <Table.Cell header>Assignment</Table.Cell>
-          <Table.Cell header>Location</Table.Cell>
+          <Table.Cell header>Contact</Table.Cell>
+          <Table.Cell header>X</Table.Cell>
+          <Table.Cell header>Y</Table.Cell>
+          <Table.Cell header>Z</Table.Cell>
           <Table.Cell header>
             <Tooltip content="Groups are automatic topology components: main body, detached subgroups, minor groups, or isolated members." position="top">
               <Box as="span" inline>
@@ -888,9 +891,12 @@ const TeamMonitor = (props: {
               <Table.Cell>{row.assignment}</Table.Cell>
               <Table.Cell>
                 {row.location_state === 'tracking'
-                  ? `${row.area} / ${row.sector}`
+                  ? `${row.sector}`
                   : row.location_state}
               </Table.Cell>
+              <Table.Cell>{row.x}</Table.Cell>
+              <Table.Cell>{row.y}</Table.Cell>
+              <Table.Cell>{row.z}</Table.Cell>
               <Table.Cell color={groupRelationshipColor(row.group_type)}>
                 {row.group_relationship}
               </Table.Cell>
