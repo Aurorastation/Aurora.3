@@ -251,6 +251,7 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
 								if(!no_afterchange || (model_key != space_key))
 									if(!grid_models[model_key])
 										CRASH("Undefined model key in DMM.")
+									log_world("---------DEBUG: attempting to parse model_key [model_key]: [grid_models[model_key]]") // note: remove this
 									var/datum/grid_load_metadata/M = parse_grid(grid_models[model_key], model_key, xcrd, ycrd, zcrd, no_changeturf || zexpansion)
 									if (M)
 										atoms_to_initialise += M.atoms_to_initialise
