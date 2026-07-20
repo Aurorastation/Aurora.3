@@ -226,7 +226,7 @@ const CommandOverview = (props: {
             </Tabs.Tab>
           </Tabs>
         </Stack.Item>
-        <Stack.Item width="1%"></Stack.Item>
+        <Stack.Item width="1%" />
         <Stack.Item grow>
           {visiblePanel === 'comms' && <CommandCommsPanel />}
           {visiblePanel === 'messages' && <CommandMessagesPanel />}
@@ -286,13 +286,9 @@ const TeamsSection = (props: {
                   <NoticeBox>No team selected.</NoticeBox>
                 )}
               </Stack.Item>
-              <Stack.Item width="1%"></Stack.Item>
+              <Stack.Item width="1%" />
               <Stack.Item grow>
-                <TeamMonitor
-                  rows={monitorRows}
-                  showTeam={false}
-                  act={act}
-                />
+                <TeamMonitor rows={monitorRows} showTeam={false} act={act} />
               </Stack.Item>
             </Stack>
           </Stack.Item>
@@ -360,9 +356,7 @@ const TeamStatusOrders = (props: {
       }
     >
       <LabeledList>
-        <LabeledList.Item label="Operator">
-          {team.operator}
-        </LabeledList.Item>
+        <LabeledList.Item label="Operator">{team.operator}</LabeledList.Item>
         <LabeledList.Item label="Lead">{team.lead}</LabeledList.Item>
         <LabeledList.Item label="Group Status">
           {team.group_summary}
@@ -488,7 +482,6 @@ const TeamStatusOrders = (props: {
     </Section>
   );
 };
-
 
 const CommandCommsPanel = (props) => {
   return (
@@ -634,7 +627,9 @@ const CommunicationsOptions = (props) => {
             }
             icon="print"
             selected={!!data.message_printing_intercepts}
-            disabled={!data.have_printer || !data.ntnet_communications_available}
+            disabled={
+              !data.have_printer || !data.ntnet_communications_available
+            }
             onClick={() => act('toggleintercept')}
           />
         </Stack.Item>
@@ -651,9 +646,7 @@ const CommunicationsOptions = (props) => {
                     (!!option.needs_syscontrol && !data.net_syscont) ||
                     (!!data.isAI && !option.silicon_allowed)
                   }
-                  onClick={() =>
-                    act('evac', { target: option.option_target })
-                  }
+                  onClick={() => act('evac', { target: option.option_target })}
                 />
               ))}
             </Section>
@@ -785,15 +778,18 @@ const MessageList = (props: {
     <Stack fill>
       <Stack.Item width="30%">
         <Section title="History" fill scrollable>
-          {messages.slice().reverse().map((message) => (
-            <Button
-              fluid
-              key={message.id}
-              content={message.title}
-              selected={`${message.id}` === `${activeMessage?.id}`}
-              onClick={() => setViewingMessage(`${message.id}`)}
-            />
-          ))}
+          {messages
+            .slice()
+            .reverse()
+            .map((message) => (
+              <Button
+                fluid
+                key={message.id}
+                content={message.title}
+                selected={`${message.id}` === `${activeMessage?.id}`}
+                onClick={() => setViewingMessage(`${message.id}`)}
+              />
+            ))}
         </Section>
       </Stack.Item>
       <Stack.Item grow>
@@ -839,14 +835,15 @@ const TeamMonitor = (props: {
   showTeam: boolean;
   act: (action: string, params?: Record<string, unknown>) => void;
 }) => {
-  const {
-    rows,
-    showTeam,
-    act,
-  } = props;
+  const { rows, showTeam, act } = props;
 
   return (
-    <Section fill scrollable fitted title={showTeam ? 'Command Monitor' : 'Team Monitor'}>
+    <Section
+      fill
+      scrollable
+      fitted
+      title={showTeam ? 'Command Monitor' : 'Team Monitor'}
+    >
       <Table>
         <Table.Row header>
           {showTeam && <Table.Cell>Team</Table.Cell>}
@@ -857,21 +854,30 @@ const TeamMonitor = (props: {
           <Table.Cell header>Y</Table.Cell>
           <Table.Cell header>Z</Table.Cell>
           <Table.Cell header>
-            <Tooltip content="Groups are automatic topology components: main body, detached subgroups, minor groups, or isolated members." position="top">
+            <Tooltip
+              content="Groups are automatic topology components: main body, detached subgroups, minor groups, or isolated members."
+              position="top"
+            >
               <Box as="span" inline>
                 Group
               </Box>
             </Tooltip>
           </Table.Cell>
           <Table.Cell header>
-            <Tooltip content="Bands describe this member's distance range from the team lead when both have tracking-grade suit sensors." position="top">
+            <Tooltip
+              content="Bands describe this member's distance range from the team lead when both have tracking-grade suit sensors."
+              position="top"
+            >
               <Box as="span" inline>
                 Band
               </Box>
             </Tooltip>
           </Table.Cell>
           <Table.Cell header>
-            <Tooltip content="Offset shows this member's lead-relative area, range, bearing, z-level, or contact-level separation." position="top">
+            <Tooltip
+              content="Offset shows this member's lead-relative area, range, bearing, z-level, or contact-level separation."
+              position="top"
+            >
               <Box as="span" inline>
                 Offset
               </Box>
@@ -934,9 +940,7 @@ const TeamMonitor = (props: {
           ))
         ) : (
           <Table.Row>
-            <Table.Cell colSpan={9}>
-              No roster rows available.
-            </Table.Cell>
+            <Table.Cell colSpan={9}>No roster rows available.</Table.Cell>
           </Table.Row>
         )}
       </Table>
@@ -987,22 +991,21 @@ const CommandLogs = (props: { teams: Team[] }) => {
 };
 
 const sortRosterRows = (rows: MonitorRow[]) => {
-  return rows
-    .sort((a, b) => {
-      const leadSort = Number(b.is_lead) - Number(a.is_lead);
-      if (leadSort) {
-        return leadSort;
-      }
-      const groupSort = (a.group_sort ?? 5000) - (b.group_sort ?? 5000);
-      if (groupSort) {
-        return groupSort;
-      }
-      const teamSort = a.teamName.localeCompare(b.teamName);
-      if (teamSort) {
-        return teamSort;
-      }
-      return a.name.localeCompare(b.name);
-    });
+  return rows.sort((a, b) => {
+    const leadSort = Number(b.is_lead) - Number(a.is_lead);
+    if (leadSort) {
+      return leadSort;
+    }
+    const groupSort = (a.group_sort ?? 5000) - (b.group_sort ?? 5000);
+    if (groupSort) {
+      return groupSort;
+    }
+    const teamSort = a.teamName.localeCompare(b.teamName);
+    if (teamSort) {
+      return teamSort;
+    }
+    return a.name.localeCompare(b.name);
+  });
 };
 
 const leadDistanceBandColor = (band: string) => {
