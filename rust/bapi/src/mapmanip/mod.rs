@@ -4,7 +4,6 @@ use core::to_grid_map;
 use core::GridMap;
 use core::TileGrid;
 
-use byondapi::value::ByondValue;
 use dmmtools::dmi::Dir;
 use dmmtools::dmm::Coord3;
 use dmmtools::dmm::Prefab;
@@ -450,55 +449,4 @@ fn mapmanip_orientation_randomize(map: &mut GridMap) -> eyre::Result<()> {
 
     *map = new_map;
     Ok(())
-}
-
-///
-#[byondapi::bind]
-fn mapmanip_read_dmm_file(path: ByondValue) -> eyre::Result<ByondValue> {
-    internal_mapmanip_read_dmm_file(path)
-}
-
-pub(crate) fn internal_mapmanip_read_dmm_file(path: ByondValue) -> eyre::Result<ByondValue> {
-    //setup_panic_handler();
-
-    let path: std::path::PathBuf = path
-        .get_string()
-        .wrap_err(format!("path arg is not a string: {:?}", path))?
-        .into();
-
-    // just return null if path is bad for whatever reason
-    if !path.is_file() || !path.exists() {
-        return Ok(ByondValue::null());
-    }
-
-    // read file and parse with spacemandmm
-    let mut dmm = dmmtools::dmm::Map::from_file(&path).wrap_err(format!(
-        "spacemandmm parsing error; dmm file path: {path:?}; see error from spacemandmm below for more information"
-    ))?;
-
-    // do mapmanip if defined for this dmm
-    let path_mapmanip_config = {
-        let mut p = path.clone();
-        p.set_extension("jsonc");
-        p
-    };
-    if path_mapmanip_config.exists() {
-        // get path for dir of this dmm
-        let path_dir = path.parent().wrap_err("no parent")?;
-        // parse config
-        let config = crate::mapmanip::mapmanip_config_parse(&path_mapmanip_config).wrap_err(
-            format!("config parse fail; path: {:?}", path_mapmanip_config),
-        )?;
-        // do actual map manipulation
-        dmm = crate::mapmanip::mapmanip(path_dir, dmm, &config)
-            .wrap_err(format!("mapmanip fail; dmm file path: {path:?}"))?;
-    }
-
-    // convert the map back to a string
-    let dmm = crate::mapmanip::core::map_to_string(&dmm).wrap_err(format!(
-        "error in converting map back to string; dmm file path: {path:?}"
-    ))?;
-
-    // and return it
-    Ok(ByondValue::new_str(dmm)?)
 }

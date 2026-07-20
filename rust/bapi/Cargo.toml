@@ -11,7 +11,7 @@ crate-type = ["cdylib"]
 [dependencies]
 atomic_float = "1.0.0"
 bitflags = "2.5.0"
-byondapi = { git = "https://github.com/spacestation13/byondapi-rs.git", version = "0.6.14" }
+byondapi = { git = "https://github.com/spacestation13/byondapi-rs", rev = "5afdd9863a0fc1d8d1d42dd2128c9978f54e12ca" }
 eyre = "0.6.12"
 rand = { version = "0.8.6", features = ["small_rng"] }
 scc = "2.1.1"
