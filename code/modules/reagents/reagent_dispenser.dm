@@ -44,9 +44,18 @@
 	src.x = x
 	src.y = y
 	src.z = z
-	if(!content["remaining_volume"] || content["remaining_volume"] <= 0 || !reagents)
+	if(!content["remaining_volume"] || content["remaining_volume"] <= 0)
 		qdel(src)
-	reagents.total_volume = content["remaining_volume"]
+
+	// This happens before Initialize, reagents are not generated yet, override to-be-added contents
+	var/reagent_count = LAZYLEN(reagents_to_add)
+	if(!reagent_count)
+		return
+
+	var/volume_per_type = content["remaining_volume"] / reagent_count
+
+	for(var/reagent in reagents_to_add)
+		reagents_to_add[reagent] = volume_per_type
 
 /obj/structure/reagent_dispensers/verb/set_APTFT() //set amount_per_transfer_from_this
 	set name = "Set transfer amount"
