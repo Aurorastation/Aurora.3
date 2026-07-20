@@ -395,19 +395,24 @@
 	tag_icon = "damascus"
 	text_tag = "DAM"
 
-/datum/accent/orepitter
-	name = ACCENT_OREPIT
-	description = "Native Orepitters developed their own way of speech that stemmed from centuries of complete isolation. The vast distances of the planet's desert surface required loud, high pitched sounds for reliable communication, \
-	making it the primary characteristic of the Orepitter accent."
-	tag_icon = "orepit"
-	text_tag = "ORE"
+/datum/accent/salamasian
+	name = ACCENT_SALAMASIAN
+	description = "The Salamasians descend primarily from the peoples of Samoa, and their dialects thusly resemble \
+	those of their ancestors. Due to their long-term isolation, having been largely cut off from the outside world since \
+	the withdrawal of Hephaestus Industries, Salamasian Common is extremely archaic; many words and phonetics are reserved \
+	here that were phased out of other variants of the language well over a century ago."
+	tag_icon = "salamasian"
+	text_tag = "SAL"
 
-/datum/accent/providence
-	name = ACCENT_PROVIDENCE
-	description = "While the capital of the Trinarists never had a sole language, its people from all over the Spur have come to adopt a unified accent. Characterised by fast-paced speaking and unique intonations to match the style of their \
-	synthetic brethren, IPCs have also come to adopt the accent for non-EAL languages."
-	tag_icon = "providence"
-	text_tag = "PDE"
+/datum/accent/axiom
+	name = ACCENT_AXIOM
+	description = "Descending jointly from the Biesellite accents of the original settlers and the Salamasian \
+	dialects around them, the Axiomite accent is a peculiar chimera that tends to confuse any that listen to it. \
+	Due to the influence of highly archaic Salamasian dialects, it features many words and phonetics otherwise \
+	phased out of more modern permutations of Sol Common, earning it a grandiose, theatrical air - which is undercut \
+	quite terribly by the semi-regular appearance of very modern colloquialisms."
+	tag_icon = "axiomite"
+	text_tag = "AXI"
 
 /datum/accent/reade
 	name = ACCENT_READE
@@ -451,3 +456,9 @@
 	description = "Zhurongese is a dialect of Vulgar Morozi found on the Core World of Zhurong, where it is spoken by the Secondaries who make up most of the skilled workers and supervisors on the planet. While it mostly sticks to traditional Vulgar Morozi structures, its origin on one of the oldest colonies in the Empire and Zhurong itself being a more restricted world has led to this dialect being less influenced by the broader Spur. Scholars believe this dialect may be closer to pre-Imperial Vulgar Morozi than any other in the Empire."
 	tag_icon = "zhurong"
 	text_tag = "ZHU"
+
+/datum/accent/caria
+	name = ACCENT_DOMINIA_CARIA
+	description = "Carian Standard is an unusual dialect from an atypical world. The only non-Morozi dialect of Tradeband found in the Empires borders, it is similar to High Morozi in its pronunciation and grammatical structures. Speakers of this dialect are viewed with suspicion in the Empire, believed to be sorcerers, witches, and often touched by some form of darkness — but they are equally called for their worlds association with augury and the divine, with Carian seers prized by many noble households in the Empire."
+	tag_icon = "caria"
+	text_tag = "CAR"

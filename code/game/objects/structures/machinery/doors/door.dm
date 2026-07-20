@@ -316,7 +316,7 @@
 
 	if(attacking_item.tool_behaviour == TOOL_HAMMER && user.a_intent != I_HURT)
 		var/obj/item/stack/stack = usr.get_inactive_hand()
-		if(istype(stack) && stack.get_material_name() == get_material_name())
+		if(istype(stack) && stack.get_material() == get_material())
 			if(stat & BROKEN)
 				to_chat(user, SPAN_NOTICE("It looks like \the [src] is pretty busted. It's going to need more than just patching up now."))
 				return TRUE

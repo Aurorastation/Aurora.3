@@ -25,7 +25,7 @@
 			if(target_organ)
 				var/obj/item/organ/internal/I = H.internal_organs_by_name[target_organ]
 				if(I)
-					var/can_damage = I.max_damage - I.damage
+					var/can_damage = I.max_damage - I.get_damage()
 					if(can_damage > 0)
 						if(dam > can_damage)
 							I.take_internal_damage(can_damage, silent=TRUE)

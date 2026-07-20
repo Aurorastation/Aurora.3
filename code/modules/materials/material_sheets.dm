@@ -1,4 +1,4 @@
-// Stacked resources. They use a material datum for a lot of inherited values.
+/// Stacked resources. They use a material datum for a lot of inherited values.
 /obj/item/stack/material
 	force = 11
 	throwforce = 5
@@ -6,7 +6,8 @@
 	throw_speed = 3
 	throw_range = 3
 	max_amount = 50
-	recyclable = TRUE // Pretty much all materials should be recyclable
+	/// Pretty much all materials should be recyclable
+	recyclable = TRUE
 
 	var/default_type = MATERIAL_STEEL
 	var/singleton/material/material
@@ -26,7 +27,7 @@
 
 	if(!default_type)
 		default_type = MATERIAL_STEEL
-	material = GET_SINGLETON(default_type)
+	material = SSmaterials.get_material_by_id(default_type)
 	if(!material)
 		return INITIALIZE_HINT_QDEL
 
@@ -283,7 +284,7 @@
 	update_icon()
 
 /obj/item/stack/material/steel
-	name = DEFAULT_WALL_MATERIAL
+	name = "steel"
 	icon_state = "sheet-metal"
 	default_type = MATERIAL_STEEL
 	icon_has_variants = TRUE

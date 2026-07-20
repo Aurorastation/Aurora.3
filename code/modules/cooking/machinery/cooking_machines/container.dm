@@ -184,7 +184,7 @@
 
 /obj/item/reagent_containers/cooking_container/skillet/Initialize(var/mapload, var/mat_key)
 	. = ..(mapload)
-	var/singleton/material/material = GET_SINGLETON(mat_key || MATERIAL_STEEL)
+	var/singleton/material/material = SSmaterials.get_material_by_id(mat_key || MATERIAL_STEEL)
 	if(!material)
 		return
 	if(material.type != MATERIAL_STEEL)
@@ -205,7 +205,7 @@
 
 /obj/item/reagent_containers/cooking_container/saucepan/Initialize(var/mapload, var/mat_key)
 	. = ..(mapload)
-	var/singleton/material/material = GET_SINGLETON(mat_key || MATERIAL_STEEL)
+	var/singleton/material/material = SSmaterials.get_material_by_id(mat_key || MATERIAL_STEEL)
 	if(!material)
 		return
 	if(material.type != MATERIAL_STEEL)
@@ -227,7 +227,7 @@
 
 /obj/item/reagent_containers/cooking_container/pot/Initialize(mapload, mat_key)
 	. = ..(mapload)
-	var/singleton/material/material = GET_SINGLETON(mat_key || MATERIAL_STEEL)
+	var/singleton/material/material = SSmaterials.get_material_by_id(mat_key || MATERIAL_STEEL)
 	if(!material)
 		return
 	if(mat_key && mat_key != MATERIAL_STEEL)
@@ -342,7 +342,7 @@
 	filling_states = "-10;10;25;50;75;80;100"
 	center_of_mass = list("x" = 17,"y" = 7)
 	max_space = 30
-	matter = list(DEFAULT_WALL_MATERIAL = 300)
+	matter = list(MATERIAL_STEEL = 300)
 	volume = 180
 	amount_per_transfer_from_this = 10
 	possible_transfer_amounts = list(5,10,15,25,30,60,180)

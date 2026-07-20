@@ -249,7 +249,7 @@ GLOBAL_LIST_EMPTY(designs_imprinter_categories)
 	icon_state = "datadisk2"
 	item_state = "card-id"
 	w_class = WEIGHT_CLASS_SMALL
-	matter = list(DEFAULT_WALL_MATERIAL = 30, MATERIAL_GLASS = 10)
+	matter = list(MATERIAL_STEEL = 30, MATERIAL_GLASS = 10)
 	var/datum/tech/stored
 
 /obj/item/disk/tech_disk/feedback_hints(mob/user, distance, is_adjacent)
@@ -273,7 +273,7 @@ GLOBAL_LIST_EMPTY(designs_imprinter_categories)
 	icon_state = "datadisk2"
 	item_state = "card-id"
 	w_class = WEIGHT_CLASS_SMALL
-	matter = list(DEFAULT_WALL_MATERIAL = 30, MATERIAL_GLASS = 10)
+	matter = list(MATERIAL_STEEL = 30, MATERIAL_GLASS = 10)
 	var/datum/design/blueprint
 
 /obj/item/disk/design_disk/feedback_hints(mob/user, distance, is_adjacent)

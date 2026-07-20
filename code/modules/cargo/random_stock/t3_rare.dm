@@ -81,18 +81,23 @@ STOCK_ITEM_RARE(ims, 1.5)
 	new /obj/item/surgery/scalpel/manager(L)
 
 STOCK_ITEM_RARE(exogear, 1.5)
-	var/list/equips = list(
-		/obj/item/mecha_equipment/clamp = 1,
-		/obj/item/mecha_equipment/drill = 1,
-		/obj/item/mecha_equipment/mounted_system/extinguisher = 1,
-		/obj/item/mecha_equipment/mounted_system/rfd = 0.08,
-		/obj/item/mecha_equipment/mounted_system/plasmacutter = 0.5,
-		/obj/item/mecha_equipment/catapult = 0.8,
-		/obj/item/mecha_equipment/sleeper = 0.9
+	var/list/allmecha = typesof(/obj/item/mecha_equipment)
+
+	var/list/exclusion = list(
+		/obj/item/mecha_equipment/mounted_system/soul_javelin,
+		/obj/item/mecha_equipment/doomblade,
+		/obj/item/mecha_equipment/mounted_system/combat,
+		/obj/item/gun/launcher/mech,
+		/obj/item/mecha_equipment,
+		/obj/item/mecha_equipment/crisis_drone/alien,
+		/obj/item/mecha_equipment/mounted_system/mining,
+		/obj/item/mecha_equipment/phazon
 	)
 
+	allmecha -= exclusion
+
 	for(var/i in 1 to rand(1,2))
-		var/type = pickweight(equips)
+		var/type = pickweight(allmecha)
 		new type(L)
 
 STOCK_ITEM_RARE(teleporter, 1)

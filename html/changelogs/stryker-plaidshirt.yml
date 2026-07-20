@@ -44,7 +44,7 @@
 #################################
 
 # Your name.
-author: MattAtlas
+author: The Stryker
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -55,4 +55,4 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Stickers now only have a 10% chance of staying persistent, and only stay around for 2 days."
+  - rscadd: "Adds a plaid shirt to the loadout as an alternate to the dress shirt."

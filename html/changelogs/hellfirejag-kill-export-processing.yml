@@ -1,4 +1,0 @@
-author: Hellfirejag
-delete-after: True
-changes:
-  - bugfix: "Fixed the cargo elevator permanently increasing the servers per-tick processing cost."
