@@ -94,7 +94,7 @@
 				if (application_in_progress == FALSE)
 					application_in_progress = TRUE
 					user.visible_message(SPAN_NOTICE("\The [user] begins to apply nanite past to the broken support systems of [user != target_mob ? " \the [target_mob]'s" : "\the [user]'s"] endoskeleton..."), \
-						SPAN_NOTICE("You begin to apply nanite paste to the broken support systems of [user != target_mob ? " \the [target_mob]'s" : "your"] [endoskeleton]..."))
+						SPAN_NOTICE("You begin to apply nanite paste to the broken support systems of [user != target_mob ? " \the [target_mob]'s" : "your"] endoskeleton..."))
 					if(do_mob(user, target_mob, application_time))
 						SEND_SIGNAL(target_mob, COMSIG_SYNTH_ENDOSKELETON_REPAIR, rand(15, 30))
 						user.visible_message(SPAN_NOTICE("\The [user] mends the broken links in [user != target_mob ? " \the [target_mob]'s" : "\the [user]'s"] endoskeleton with \the [src]."),\
