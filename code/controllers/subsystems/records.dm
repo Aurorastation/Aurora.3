@@ -8,6 +8,29 @@ SUBSYSTEM_DEF(records)
 	var/list/warrants
 	var/list/shuttle_assignments
 	var/list/shuttle_manifests
+	/// Teams have some scaffolding here because their membership is records-driven.
+	var/list/teams
+	/// Randomgen names should be mostly grounded but a few silly ones don't hurt anybody!
+	/// Teams will probably be renamed by command anyway to actually describe a function.
+	/// One hopes.
+	var/list/random_team_names = list(
+		"Anvil", "Archer", "Argent", "Austrolidian", "Avalanche", "Banner", "Banshee", "Bastion",
+		"Biscuit", "Boreal", "Buckler", "Bulwark", "Cabbage", "Cae'rrin", "Cavalier", "Comet",
+		"Corsair", "Duckling", "Dusk", "Doorknob", "Dynamo", "Eagle", "Echelon", "Eclipse", "Ember",
+		"Falcon", "Fathom", "Flapjack", "Flint", "Forge", "Gale", "Gauntlet", "Gemini", "Ghost",
+		"Gorgon", "Granite", "Gumdrop", "Halo", "Hammer", "Hamster", "Ha'rron", "Havoc", "Helios", "Helix",
+		"Herald", "Hydra", "Hunter", "Hurricane", "Icicle", "Impulse", "Invictus", "Ivory", "Ixiludustrion",
+		"Jackal", "Jade", "Javelin", "Jellybean", "Jinx", "Judgment", "Juggernaut", "Katana", "Kazoo",
+		"Ketchup", "Kla'izzkar", "Kodiak", "Kraken", "Labyrinth", "Lance", "Lantern", "Liability",
+		"Lunchbox", "Lumen", "Lynx", "Mace", "Maelstrom", "Manticore", "Marauder", "Meatball", "Meteor",
+		"Minotaur", "Mirage", "Nimbus", "Nomad", "Noodle", "Northstar", "Nova", "Oatmeal", "Onyx", "Oracle",
+		"Osprey", "Paladin", "Parallax", "Pulsar", "Pyre", "Quasar", "Queen", "Quiver", "Radiant",
+		"Rak'narr", "Raptor", "Razor", "Rocket", "Rook", "Ry'tiik", "Saber", "Sandwich", "Sentinel",
+		"Solstice", "Rafama", "Teapot", "Templar", "Tempest", "Torch", "Tower", "Trident", "Turnip",
+		"Umbra", "Undertow", "Ursa", "Valor", "Vector", "Veil", "Vertex", "Vesper", "Vigil", "Viper",
+		"Vulcan", "Waffle", "Warlock", "Watchtower", "Wayfinder", "Whiteout", "Wildfire", "Wyvern", "X-Ray",
+		"Yarnball", "Yellowjacket", "Zealot", "Zenith", "Zephyr", "Ziggurat", "Zircon", "Zodiac"
+	)
 
 	var/list/excluded_fields
 	var/list/localized_fields
@@ -24,8 +47,10 @@ SUBSYSTEM_DEF(records)
 		localized_fields[type] = compute_localized_field(type)
 
 	for(var/shuttle in SSatlas.current_map.shuttle_manifests)
-		var/datum/record/shuttle_assignment/A = new /datum/record/shuttle_assignment(shuttle)
-		shuttle_assignments += A
+		var/datum/record/shuttle_assignment/assignment = new /datum/record/shuttle_assignment(shuttle)
+		shuttle_assignments += assignment
+
+	seed_standing_teams()
 
 	InitializeCitizenships()
 	InitializeReligions()
@@ -39,6 +64,7 @@ SUBSYSTEM_DEF(records)
 	warrants = list()
 	shuttle_assignments = list()
 	shuttle_manifests = list()
+	teams = list()
 	excluded_fields = list()
 	localized_fields = list()
 	manifest = list()
@@ -115,6 +141,7 @@ SUBSYSTEM_DEF(records)
 			records_locked |= record
 		if(/datum/record/general)
 			records |= record
+			refresh_team_member_record_cache(record)
 			reset_manifest()
 		if(/datum/record/warrant)
 			warrants |= record
@@ -130,6 +157,7 @@ SUBSYSTEM_DEF(records)
 		if(/datum/record/general/locked)
 			records_locked -= record
 		if(/datum/record/general)
+			prune_team_membership_for_record(record)
 			records -= record
 			reset_manifest()
 		if(/datum/record/warrant)
@@ -179,6 +207,121 @@ SUBSYSTEM_DEF(records)
 		if(record_type & RECORD_SECURITY)
 			if(r.security.vars[field] == value)
 				return r
+
+/// Returns a random standing team display name, with a generic fallback if the list is unavailable
+/datum/controller/subsystem/records/proc/generate_team_display_name(var/index)
+	if(length(random_team_names))
+		return pick(random_team_names)
+	return index ? "Team [index]" : "Team"
+
+/// Creates the default standing teams during records subsystem initialization
+/datum/controller/subsystem/records/proc/seed_standing_teams()
+	var/team_index = 1
+	while(team_index <= 4)
+		create_team(generate_team_display_name(team_index))
+		team_index++
+
+/// Creates a new team, stores it in SSrecords, logs its creation, and invalidates crew manifest activity cache
+/datum/controller/subsystem/records/proc/create_team(var/display_name, var/mob/actor)
+	var/datum/team/team = new()
+	team.display_name = display_name || generate_team_display_name()
+	var/obj/effect/overmap/visitable/default_destination
+	if(SSshuttle && SSatlas.current_map.overmap_visitable_type)
+		default_destination = SSshuttle.ship_by_type(SSatlas.current_map.overmap_visitable_type)
+	team.apply_default_destination(default_destination)
+	teams += team
+
+	team.append_log("created team", actor)
+	reset_manifest()
+	return team
+
+/// Locates a team by its generated team id
+/datum/controller/subsystem/records/proc/get_team_by_id(var/team_id)
+	if(!team_id)
+		return
+
+	for(var/datum/team/team as anything in teams)
+		if(team.id == team_id)
+			return team
+
+/// Returns general crew records eligible for team assignment based on crew manifest
+/datum/controller/subsystem/records/proc/get_team_member_pool()
+	var/list/member_pool = list()
+	for(var/datum/record/general/general_record as anything in records)
+		if(!general_record.name || !general_record.rank)
+			continue
+		member_pool += general_record
+	return member_pool
+
+/// Assigns a general crew record to a team, moving it out of any other team first.
+/datum/controller/subsystem/records/proc/assign_general_record_to_team(var/datum/team/team, var/general_record_id, var/mob/actor)
+	if(!istype(team) || isnull(general_record_id))
+		return FALSE
+
+	var/datum/record/general/general_record = find_record("id", general_record_id, RECORD_GENERAL)
+	if(!istype(general_record))
+		return FALSE
+
+	var/member_key = "record:[general_record.id]"
+	var/was_existing = !!team.member_records[member_key]
+	for(var/datum/team/other_team as anything in teams)
+		if(other_team == team)
+			continue
+		if(other_team.member_records[member_key])
+			other_team.remove_member(member_key, actor)
+
+	var/success = team.add_member(general_record, actor, !was_existing)
+	if(success)
+		reset_manifest()
+	return success
+
+/// Removes a member (key) from a team and invalidates crew manifest activity cache on success.
+/datum/controller/subsystem/records/proc/remove_team_member(var/datum/team/team, var/member_key, var/mob/actor)
+	if(!istype(team))
+		return FALSE
+
+	var/datum/record/general/removed_record = team.remove_member(member_key, actor)
+	if(removed_record)
+		reset_manifest()
+		return TRUE
+	return FALSE
+
+/// Finds the team containing a given general crew record.
+/datum/controller/subsystem/records/proc/get_team_for_general_record(var/datum/record/general/general_record)
+	if(!istype(general_record))
+		return
+
+	var/member_key = "record:[general_record.id]"
+	for(var/datum/team/team as anything in teams)
+		if(team.member_records[member_key])
+			return team
+
+/// Updates cached team member names when a general record changes
+/datum/controller/subsystem/records/proc/refresh_team_member_record_cache(var/datum/record/general/general_record)
+	if(!istype(general_record) || isnull(general_record.id))
+		return FALSE
+
+	var/member_key = "record:[general_record.id]"
+	var/updated = FALSE
+	for(var/datum/team/team as anything in teams)
+		if(team.member_records[member_key])
+			team.member_records[member_key] = general_record
+			team.last_known_member_display_names[member_key] = general_record.name
+			updated = TRUE
+	return updated
+
+/// Removes a deleted general record from all team rosters BEFORE the record leaves SSrecords.
+/datum/controller/subsystem/records/proc/prune_team_membership_for_record(var/datum/record/general/general_record)
+	if(!istype(general_record) || isnull(general_record.id))
+		return FALSE
+
+	var/member_key = "record:[general_record.id]"
+	var/pruned = FALSE
+	for(var/datum/team/team as anything in teams)
+		if(team.member_records[member_key])
+			team.remove_member(member_key, "Records")
+			pruned = TRUE
+	return pruned
 
 /datum/controller/subsystem/records/proc/build_records()
 	for(var/mob/living/carbon/human/H in GLOB.player_list)
@@ -238,10 +381,9 @@ SUBSYSTEM_DEF(records)
 	// by default, we use the physical status as our activity_state
 	var/activity_state = general_record.physical_status
 
-	// look if we possibly have a manifest record we can use instead
-	var/datum/record/shuttle_manifest/manifest = find_record("name", general_record.name, RECORD_SHUTTLE_MANIFEST)
-	if(manifest)
-		return "Away Mission: " + manifest.shuttle
+	var/datum/team/team = get_team_for_general_record(general_record)
+	if(team)
+		return "Team: " + (team.display_name || "Unknown")
 
 	return activity_state
 

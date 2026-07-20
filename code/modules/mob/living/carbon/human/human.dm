@@ -241,6 +241,11 @@
 	var/custom_time = culture.get_custom_time()
 	if(custom_time)
 		. += custom_time
+	if(SSrecords)
+		var/list/team_status = SSrecords.get_team_status_items(src)
+		if(length(team_status))
+			. += team_status
+			. += ""
 	if(internal)
 		if(!internal.air_contents)
 			qdel(internal)

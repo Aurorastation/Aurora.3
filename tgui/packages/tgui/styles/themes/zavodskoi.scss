@@ -24,4 +24,67 @@
   .Layout__content {
     background-image: url('../../assets/bg-zavod.svg');
   }
+
+  .Table {
+    background-color: hsla(0, 100%, 3%, 0.45);
+    border: 1px solid hsla(0, 100%, 35%, 0.22);
+    border-collapse: separate;
+    border-spacing: 0;
+    box-shadow: inset 0 0 0 1px hsla(0, 100%, 50%, 0.06);
+
+    &__row {
+      background-color: hsla(0, 100%, 5%, 0.42);
+
+      &:nth-child(even):not(&--header) {
+        background-color: hsla(0, 70%, 8%, 0.34);
+      }
+
+      &:hover:not(&--header) {
+        background-color: hsla(0, 100%, 18%, 0.45);
+      }
+
+      &--header {
+        background-color: hsla(0, 100%, 14%, 0.65);
+        color: hsl(31, 100%, 72%);
+        text-transform: uppercase;
+        letter-spacing: 0.035em;
+        box-shadow: inset 0 -1px 0 hsla(0, 100%, 50%, 0.28);
+      }
+    }
+
+    &__cell {
+      border-bottom: 1px solid hsla(0, 100%, 32%, 0.18);
+      border-right: 1px solid hsla(0, 100%, 24%, 0.1);
+      padding-left: 10px;
+      padding-top: 0.35rem;
+      padding-bottom: 0.35rem;
+
+      &:last-child {
+        border-right: none;
+      }
+    }
+  }
+
+  .Tabs {
+    border-bottom: 1px solid hsl(0, 80%, 18%);
+    margin-bottom: 0.5rem;
+
+    &__tab {
+      background-color: hsla(0, 100%, 3%, 0.7);
+      border: 1px solid hsl(0, 70%, 14%);
+      color: hsl(0, 80%, 55%);
+
+      &:hover {
+        background-color: hsla(0, 100%, 28%, 0.18);
+        color: hsl(0, 100%, 72%);
+      }
+
+      &--selected {
+        background-color: hsl(0, 100%, 18%);
+        border-color: hsl(0, 100%, 42%);
+        color: hsl(30, 100%, 75%);
+        box-shadow: inset 0 -2px 0 hsl(30, 100%, 55%);
+      }
+    }
+  }
 }
