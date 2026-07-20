@@ -9,6 +9,7 @@
 	required_access_run = list(ACCESS_HEADS, ACCESS_BRIDGE_CREW)
 	requires_access_to_run = PROGRAM_ACCESS_LIST_ONE
 	required_access_download = list(ACCESS_HEADS, ACCESS_BRIDGE_CREW)
+	requires_access_to_download = PROGRAM_ACCESS_LIST_ONE
 	network_destination = "station long-range communication array"
 	// The app must open during outages so command can see degraded state instead of failing to launch.
 	requires_ntnet = FALSE
