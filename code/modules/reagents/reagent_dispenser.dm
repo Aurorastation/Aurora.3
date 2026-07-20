@@ -139,7 +139,7 @@
 	name = "extinguisher tank"
 	desc = "A tank filled with extinguisher fluid."
 	icon_state = "extinguisher_tank"
-	amount_per_transfer_from_this = 150
+	amount_per_transfer_from_this = 150 // Same volume as extinguisher refillers, quality of life value
 	reagents_to_add = list(/singleton/reagent/toxin/fertilizer/monoammoniumphosphate = 1000)
 	is_persistent = TRUE
 
