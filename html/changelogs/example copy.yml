@@ -1,0 +1,7 @@
+author: FabianK3
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed the CICs escape hatch location landing on a wall. It now leads into the engineering hallway."
+  - qol: "Added an recommended escape hatch location marker and sign to the bridge. The marked location leads into the bar hallway."
