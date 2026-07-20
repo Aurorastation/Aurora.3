@@ -47,11 +47,10 @@
 	if(!content["remaining_volume"] || content["remaining_volume"] <= 0)
 		qdel(src)
 
-	// This happens before Initialize, reagents are not generated yet, override to-be-added contents
-	var/reagent_count = LAZYLEN(reagents_to_add)
-	if(!reagent_count)
+	if(!LAZYLEN(reagents_to_add))
 		return
 
+	// This happens before Initialize, reagents are not generated yet, override to-be-added contents
 	// Keep ratios the same if multiple reagents are within reagents_to_add
 	var/scale = content["remaining_volume"] / capacity
 	for(var/reagent in reagents_to_add)
