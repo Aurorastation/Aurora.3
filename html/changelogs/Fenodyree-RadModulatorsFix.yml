@@ -4,5 +4,5 @@ delete-after: True
 changes:
   - bugfix: "Fixes flora rays dealing full toxin damage, despite not being combat modulators. Also updates the message if they are powerful enough to deal damage."
   - bugfix: "Fixes flora rays not checking radiation armor, despite being radiation beams."
-  - bugfix: "Fixes Phoron bolts dealing the wrong damage and respecting the wrong armour type."
+  - bugfix: "Fixes Phoron bolts dealing the wrong damage and respecting the wrong armour type. They now do toxin and check bio armor. They also irradiate more, as radiation now goes up to 1000."
 
