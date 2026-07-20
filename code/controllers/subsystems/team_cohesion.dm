@@ -229,8 +229,9 @@ SUBSYSTEM_DEF(team_cohesion)
 
 		var/group_signature_id = "component-[component_index]"
 		var/display_relationship = relationship
-		if(component_size > 1 && group_type in list("main_body", "detached_subgroup", "minor_detached_group"))
-			display_relationship = "[relationship] ([component_size])"
+		if(component_size > 1)
+			if(group_type in list("main_body", "detached_subgroup", "minor_detached_group"))
+				display_relationship = "[relationship] ([component_size])"
 
 		for(var/member_key in component)
 			group_member_states[member_key] = list(

@@ -60,3 +60,18 @@
 							"/obj/item/stock_parts/subspace/filter" = 1,
 							"/obj/item/stock_parts/subspace/crystal" = 1,
 							"/obj/item/stock_parts/micro_laser/high" = 2)
+
+/obj/item/circuitboard/ntnet_relay
+	name = T_BOARD("NTNet Quantum Relay")
+	build_path = /obj/structure/machinery/ntnet_relay
+	board_type = BOARD_MACHINE
+	origin_tech = list(TECH_DATA = 4)
+	req_components = list(
+							"/obj/item/stack/cable_coil" = 15,
+							"/obj/item/stock_parts/subspace/filter" = 1,
+							"/obj/item/stock_parts/subspace/crystal" = 1,
+							"/obj/item/stock_parts/micro_laser/high" = 2)
+
+/obj/item/circuitboard/ntnet_relay/field
+	name = T_BOARD("NTNet Field Relay")
+	build_path = /obj/structure/machinery/ntnet_relay/field

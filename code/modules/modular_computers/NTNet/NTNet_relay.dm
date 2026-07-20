@@ -11,13 +11,13 @@
 	/// This is mostly for backwards reference and to allow varedit modifications from ingame.
 	var/datum/ntnet/NTNet
 	/// Set to FALSE if the relay was turned off
-	var/enabled = FALSE
+	var/enabled = TRUE
 	/// Set to TRUE if the relay failed due to (D)DoS attack
 	var/dos_failure = FALSE
 	/// Backwards reference for qdel() stuff
 	var/list/dos_sources = list()
 	/// Core relays are the NTNet source of truth. Field relays only extend a live core.
-	var/core_service = FALSE
+	var/core_service = TRUE
 	/// Overmap tile range from this relay's sector to an operable core.
 	var/backhaul_range = 0
 
@@ -28,15 +28,13 @@
 	var/dos_capacity = 500
 	/// Amount of DoS "packets" dissipated over time.
 	var/dos_dissipate = 1
-
 	component_types = list(
-		/obj/item/stack/cable_coil{amount = 15},
-		/obj/item/circuitboard/ntnet_relay/core
+		/obj/item/circuitboard/ntnet_relay,
+		/obj/item/stack/cable_coil = 15,
+		/obj/item/stock_parts/micro_laser/high = 2,
+		/obj/item/stock_parts/subspace/filter,
+		/obj/item/stock_parts/subspace/crystal
 	)
-
-/obj/structure/machinery/ntnet_relay/core
-	enabled = TRUE
-	core_service = TRUE
 
 /obj/structure/machinery/ntnet_relay/operable()
 	if(!..(EMPED))
@@ -50,17 +48,9 @@
 /obj/structure/machinery/ntnet_relay/proc/provides_core_service()
 	return core_service && operable() && is_valid_core_location()
 
-/obj/structure/machinery/ntnet_relay/proc/resolve_linked()
-	if(!SSatlas.current_map.use_overmap)
-		return linked
-	if(!istype(linked))
-		sync_linked()
-	return linked
-
 /obj/structure/machinery/ntnet_relay/proc/is_valid_core_location()
 	if(!SSatlas.current_map.use_overmap)
 		return TRUE
-	resolve_linked()
 	if(istype(linked))
 		return linked.base
 	return is_station_level(z)
@@ -82,14 +72,11 @@
 /obj/structure/machinery/ntnet_relay/proc/can_backhaul_to(var/obj/structure/machinery/ntnet_relay/core)
 	if(!istype(core) || !core.provides_core_service())
 		return FALSE
-	resolve_linked()
-	core.resolve_linked()
 	if(SSatlas.current_map.use_overmap && istype(linked) && istype(core.linked))
 		return get_dist(linked, core.linked) <= backhaul_range
 	return AreConnectedZLevels(z, core.z)
 
 /obj/structure/machinery/ntnet_relay/proc/get_covered_z_levels()
-	resolve_linked()
 	if(SSatlas.current_map.use_overmap && istype(linked))
 		return linked.map_z.Copy()
 	return GetConnectedZlevels(z)
@@ -189,7 +176,6 @@
 	uid = gl_uid
 	gl_uid++
 
-	resolve_linked()
 	update_icon()
 
 	if(GLOB.ntnet_global)
@@ -231,9 +217,13 @@
 	name = "NTNet Field Relay"
 	desc = "A deployable NTNet relay that extends local network coverage while it has short-range backhaul to an operational core relay."
 	active_power_usage = 5000
+	enabled = FALSE
 	core_service = FALSE
 	backhaul_range = 1
 	component_types = list(
-		/obj/item/stack/cable_coil{amount = 15},
-		/obj/item/circuitboard/ntnet_relay
+		/obj/item/circuitboard/ntnet_relay/field,
+		/obj/item/stack/cable_coil = 15,
+		/obj/item/stock_parts/micro_laser/high = 2,
+		/obj/item/stock_parts/subspace/filter,
+		/obj/item/stock_parts/subspace/crystal
 	)
