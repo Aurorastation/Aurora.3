@@ -1,0 +1,7 @@
+author: kermit
+
+delete-after: True
+
+changes:
+  - rscadd: "Reduces the captain piloting skill requirement from Professional to Trained."
+
