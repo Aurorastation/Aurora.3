@@ -1,0 +1,10 @@
+author: Fenodyree
+delete-after: True
+
+changes:
+  - bugfix: "Fixes the Mend power taking 15 seconds to scan every organ, even if the organ is healthy."
+  - bugfix: "Fixes the Mend power not being able to fix blindness."
+  - bugfix: "Fixes the Mend power not being able to fix heat attacks."
+  - bugfix: "Fixes the Mend power not being able to fix brute or burn damage."
+  - bugfix: "Fixes the Mend power not respecting psychic sensitivity."
+  - bugfix: "Fixes the Mend power thinking every external organ is robotic."
