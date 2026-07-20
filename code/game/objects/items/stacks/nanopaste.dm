@@ -98,7 +98,7 @@
 					if(do_mob(user, target_mob, application_time))
 						SEND_SIGNAL(target_mob, COMSIG_SYNTH_ENDOSKELETON_REPAIR, rand(15, 30))
 						user.visible_message(SPAN_NOTICE("\The [user] mends the broken links in [user != target_mob ? " \the [target_mob]'s" : "\the [user]'s"] endoskeleton with \the [src]."),\
-												SPAN_NOTICE("You successfully mend the broken links in[user == target_mob ? "your" : "[target_mob]'s"] endoskeleton with \the [src]."))
+												SPAN_NOTICE("You successfully mend the broken links in [user == target_mob ? "your" : "[target_mob]'s"] endoskeleton with \the [src]."))
 						use(1)
 					application_in_progress = FALSE
 
