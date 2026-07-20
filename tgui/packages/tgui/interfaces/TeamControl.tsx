@@ -622,8 +622,8 @@ const CommunicationsOptions = (props) => {
           <Button
             content={
               data.message_printing_intercepts
-                ? 'Disable Message Print Intercept'
-                : 'Enable Message Print Intercept'
+                ? 'Message Auto-Printing Enabled'
+                : 'Message Auto-Printing Disabled'
             }
             icon="print"
             selected={!!data.message_printing_intercepts}

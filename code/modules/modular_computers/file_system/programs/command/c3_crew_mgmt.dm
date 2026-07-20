@@ -125,7 +125,7 @@
 	var/authenticated = can_run(user)
 	switch(action)
 		if("emergencymaint")
-			if(authenticated && (isAI(user) || !issilicon(user)))
+			if((authenticated && (isAI(user) || !issilicon(user))) && ntn_cont)
 				if(GLOB.maint_all_access)
 					revoke_maint_all_access()
 					feedback_inc("alert_comms_maintRevoke", 1)
@@ -265,7 +265,14 @@
 	if(.)
 		return
 
+	var/ntn_comm = !!get_signal(NTNET_COMMUNICATION)
+	var/ntn_cont = !!get_signal(NTNET_SYSTEMCONTROL)
 	var/mob/user = usr
+	if(!ntn_comm && !ntn_cont)
+		to_chat(user, FONT_SMALL(SPAN_WARNING("\The [src] displays, \"NETWORK ERROR - Unable to connect to NTNet. Please retry. If problem persists contact your system administrator.\".")))
+		return TRUE
+
+
 	if(!can_run(user))
 		to_chat(user, SPAN_WARNING("Authentication error: command access required."))
 		return TRUE
@@ -565,22 +572,12 @@
 /// Explains why a member location is or is not visible from sensor cache, NTNet, jamming, and suit sensor mode.
 /datum/computer_file/program/comm_control/proc/get_location_state(var/mob/living/carbon/human/live_member, var/list/sensor_data, var/sensor_level, var/ntnet_available)
 	// A live jammer blocks even previously resolvable members because this label explains current visibility.
-	if(istype(live_member) && within_jamming_range(live_member))
-		return "no comms"
-	if(!ntnet_available)
-		return "NTNet unavailable"
+	if((istype(live_member) && within_jamming_range(live_member)) || !ntnet_available || (sensor_data && sensor_data["stype"] < SUIT_SENSOR_TRACKING))
+		return "No tracking"
 	if(sensor_data && sensor_data["stype"] >= SUIT_SENSOR_TRACKING)
-		return "tracking"
-	// A cache row with low sensor mode proves comms exist, but precise location is intentionally unavailable.
-	if(sensor_data && sensor_data["stype"] < SUIT_SENSOR_TRACKING)
-		return "no tracking"
+		return "Tracking"
 	if(!istype(live_member))
-		return "not applicable"
-	if(sensor_level <= SUIT_SENSOR_OFF)
-		return "sensors off"
-	// No cache row exists, so fall back to the live suit setting to explain why tracking cannot appear.
-	if(sensor_level < SUIT_SENSOR_TRACKING)
-		return "no tracking"
+		return "ERR"
 	return "not visible"
 
 /// Converts individual lead-relative distance into the current display band.
@@ -741,7 +738,7 @@
 		delivery[result]++
 
 	// Log the attempted order even if some members cannot receive it, so command has a durable audit trail.
-	var/action_name = target == "lead" ? "lead message sent" : "team message sent"
+	var/action_name = target == "lead" ? "lead message set/send" : "team message set/send"
 	team.append_log(action_name, actor, message)
 	if(delivery["failed"] || delivery["unknown"])
 		action_name = target == "lead" ? "lead message failure" : "team message failure"
@@ -763,7 +760,9 @@
 	if(!(GET_Z(member) in reachable_z_levels))
 		return "unknown"
 
+	var/full_message = "<b>C3 Directive - ([team.display_name]):</b> [message]"
 	to_chat(member, SPAN_HIGHDANGER("<b>C3 Directive - ([team.display_name]):</b> [message]"))
+	member.play_screen_text(full_message,/atom/movable/screen/text/screen_text/command_order,COLOR_RED)
 	return "sent"
 
 /// Reports aggregate delivery results back to the command operator.
