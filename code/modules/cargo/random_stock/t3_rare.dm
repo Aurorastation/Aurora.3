@@ -126,12 +126,6 @@ STOCK_ITEM_RARE(xbow, 0.5)
 	else
 		new /obj/item/gun/energy/crossbow(L)
 
-STOCK_ITEM_RARE(watertank, 1)
-	if(prob(25))
-		new /obj/item/watertank/janitor(L)
-	else
-		new /obj/item/watertank(L)
-
 STOCK_ITEM_RARE(rare_clothing, 1)
 	var/list/clothing_picks = list(
 		/obj/item/clothing/under/elyra_holo,
