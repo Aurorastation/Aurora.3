@@ -58,3 +58,13 @@
 /obj/effect/map_effect/marker/mapmanip/submap/extract/dummy/medium
 	name = "medium room"
 	color = COLOR_SUN
+
+// ---- Priority test
+
+/obj/effect/map_effect/marker/mapmanip/submap/insert/dummy/priority
+	name = "priority room"
+	color = COLOR_GOLD
+
+/obj/effect/map_effect/marker/mapmanip/submap/extract/dummy/priority
+	name = "priority room"
+	color = COLOR_GOLD

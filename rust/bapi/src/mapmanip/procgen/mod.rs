@@ -49,11 +49,21 @@ const SAFE_HORIZONTAL_HALL: &[MapTileVal; 9] = &[
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub(crate) struct MazeRoomConfig {
+    /// Mapmanip marker associated with the room type.
     marker: String,
+    /// The width of the room scaled to 1/3rd, not the real length. Because maze generation scales the map down by 3.
+    /// So if your room is 15x15 tiles, width and height should be 5. For 21x21 => 7, etc.
+    /// See the documentation above [`MazegenHauberk`] for details.
     width: i32,
+    /// The height of the room scaled to 1/3rd, not the real length. Exact same logic as above.
     height: i32,
+    /// Minimum number of the allowed instances of the room in the maze.
     min: i32,
+    /// Maximum number of the allowed instances of the room in the maze.
     max: i32,
+    /// If true, this instance will take priority before any room placement, so it's guaranteed to exist. `False` by default.
+    #[serde(default)]
+    always_present: bool,
 }
 
 pub(crate) type MazeRoomConfigs = Vec<MazeRoomConfig>;
@@ -83,8 +93,9 @@ pub(crate) struct MazegenHauberkSettings {
     /// specifies its submap insertion marker, dimensions, and minimum and
     /// maximum requested number of rooms of this type generated.
     room_configs: MazeRoomConfigs,
+    /// The Z-Level of the DMM file where the maze is located at.
+    z_level: i32,
 }
-
 type CellGrid = Vec<Vec<MapTileVal>>;
 
 type RegionGrid = Vec<Vec<i8>>;
@@ -136,23 +147,25 @@ type RegionGrid = Vec<Vec<i8>>;
 ///     "default_floor": "/turf/simulated/floor/plasteel",
 ///     "winding_percent": 20,
 ///     "extra_connector_chance": 20,
-///     "hallway_horizontal_marker": "/obj/effect/map_effect/marker/mapmanip/submap/insert/deepmaints/hallway_horizontal",
-///     "hallway_vertical_marker": "/obj/effect/map_effect/marker/mapmanip/submap/insert/deepmaints/hallway_vertical",
-///     "hallway_node_marker": "/obj/effect/map_effect/marker/mapmanip/submap/insert/deepmaints/hallway_floor",
+///     "z_level:" 1,
+///     "hallway_horizontal_marker": "/obj/effect/map_effect/marker/mapmanip/submap/insert/your_maps_name/hallway_horizontal",
+///     "hallway_vertical_marker": "/obj/effect/map_effect/marker/mapmanip/submap/insert/syour_maps_name/hallway_vertical",
+///     "hallway_node_marker": "/obj/effect/map_effect/marker/mapmanip/submap/insert/your_maps_name/hallway_floor",
 ///     "room_configs": [
 ///         {
-///             "marker": "/obj/effect/map_effect/marker/mapmanip/submap/insert/deepmaints/small",
+///             "marker": "/obj/effect/map_effect/marker/mapmanip/submap/insert/your_maps_name/small",
 ///             "width": 3,
 ///             "height": 3,
 ///             "min": 7,
 ///             "max": 9
 ///         },
 ///         {
-///             "marker": "/obj/effect/map_effect/marker/mapmanip/submap/insert/deepmaints/medium",
+///             "marker": "/obj/effect/map_effect/marker/mapmanip/submap/insert/your_maps_name/medium",
 ///             "width": 5,
 ///             "height": 5,
 ///             "min": 2,
 ///             "max": 3
+///             "always_present": true,
 ///         }
 ///     ]
 /// }
@@ -160,10 +173,7 @@ type RegionGrid = Vec<Vec<i8>>;
 ///
 /// ## Shortcomings
 ///
-/// 1. Currently this mapmanip only works on the 1st z-level of a map file. This
-///    isn't an impossible thing to fix, I just didn't feel like setting it up
-///    to handle other z-levels.
-/// 2. As a result of the mazegen algorithm using odd-sized rooms to ensure
+/// 1. As a result of the mazegen algorithm using odd-sized rooms to ensure
 ///    consistent spacing for hallways and junctions, and the fact that the maze
 ///    is generated on a grid scaled to 1/3rd the original map size, all rooms
 ///    must have sides with dimensions that are both odd and multiples of three,
@@ -220,6 +230,8 @@ impl MazegenHauberk {
         }
 
         room_config_idxes.shuffle(rng);
+        // put the "always_present" rooms to the end of the shuffled list, so they're first to be picked as "idx"
+        room_config_idxes.sort_by_key(|&idx| self.settings.room_configs[idx].always_present);
         for _ in 0..=MAX_ROOM_PLACEMENT_TRIES {
             if room_config_idxes.is_empty() {
                 break;
@@ -489,7 +501,7 @@ pub(crate) fn mapmanip_mazegen_hauberk(
     // set up the grid to ignore any cells that aren't the correct /area type
     for x in 1..map.size.x {
         for y in 1..map.size.y {
-            if let Some(tile) = map.grid.get(&Coord3::new(x, y, 1)) {
+            if let Some(tile) = map.grid.get(&Coord3::new(x, y, settings.z_level)) {
                 if let Some(area) = tile.get_area() {
                     if !area.path.starts_with(&settings.allowed_area) {
                         data.grid[(x / SCALE) as usize][(y / SCALE) as usize] = MAP_TILE_IGNORE;
@@ -511,7 +523,7 @@ pub(crate) fn mapmanip_mazegen_hauberk(
             if root_val.0 >= 0 {
                 let root_tile = map
                     .grid
-                    .get_mut(&Coord3::new((x * 3) + 1, (y * 3) + 1, 1))
+                    .get_mut(&Coord3::new((x * 3) + 1, (y * 3) + 1, settings.z_level))
                     .unwrap();
                 root_tile.prefabs.push(Prefab::from_path(
                     settings.room_configs[root_val.0 as usize].marker.clone(),
@@ -531,7 +543,7 @@ pub(crate) fn mapmanip_mazegen_hauberk(
                 data.grid[(x + 2) as usize][y as usize] = MAP_TILE_RESERVED_FLOOR;
                 let tile = map
                     .grid
-                    .get_mut(&Coord3::new((x - 1) * 3 + 1, (y - 1) * 3 + 1, 1))
+                    .get_mut(&Coord3::new((x - 1) * 3 + 1, (y - 1) * 3 + 1, settings.z_level))
                     .unwrap();
                 tile.prefabs
                     .retain(|prefab| !prefab.path.starts_with(MAPMANIP_MARKER_PREFIX));
@@ -542,7 +554,7 @@ pub(crate) fn mapmanip_mazegen_hauberk(
                 data.grid[x as usize][(y + 2) as usize] = MAP_TILE_RESERVED_FLOOR;
                 let tile = map
                     .grid
-                    .get_mut(&Coord3::new((x - 1) * 3 + 1, (y - 1) * 3 + 1, 1))
+                    .get_mut(&Coord3::new((x - 1) * 3 + 1, (y - 1) * 3 + 1, settings.z_level))
                     .unwrap();
                 tile.prefabs
                     .retain(|prefab| !prefab.path.starts_with(MAPMANIP_MARKER_PREFIX));
@@ -552,7 +564,7 @@ pub(crate) fn mapmanip_mazegen_hauberk(
                 data.grid[x as usize][y as usize] = MAP_TILE_FLOOR;
                 let tile = map
                     .grid
-                    .get_mut(&Coord3::new(x * 3 + 1, y * 3 + 1, 1))
+                    .get_mut(&Coord3::new(x * 3 + 1, y * 3 + 1, settings.z_level))
                     .unwrap();
                 tile.prefabs
                     .insert(0, Prefab::from_path(&settings.hallway_node_marker));
@@ -560,7 +572,7 @@ pub(crate) fn mapmanip_mazegen_hauberk(
 
             for a in (x * 3)..(x + 1) * 3 {
                 for b in (y * 3)..(y + 1) * 3 {
-                    let tile = map.grid.get_mut(&Coord3::new(a + 1, b + 1, 1)).unwrap();
+                    let tile = map.grid.get_mut(&Coord3::new(a + 1, b + 1, settings.z_level)).unwrap();
                     tile.remove_turf().wrap_err("map tile has no turf")?;
                     tile.prefabs
                         .insert(0, Prefab::from_path(&settings.default_floor));
