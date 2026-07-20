@@ -153,7 +153,7 @@ SUBSYSTEM_DEF(jobs)
 ///This proc is called before the level loop of DivideOccupations() and will try to select a head, ignoring ALL non-head preferences for every level until it locates a head or runs out of levels to check
 /datum/controller/subsystem/jobs/proc/FillHeadPosition()
 	for(var/level = 1 to 3)
-		for(var/command_position in command_positions)
+		for(var/command_position in GLOB.command_positions)
 			var/datum/job/job = GetJob(command_position)
 			if(!job)
 				continue
@@ -170,7 +170,7 @@ SUBSYSTEM_DEF(jobs)
 
 ///This proc is called at the start of the level loop of DivideOccupations() and will cause head jobs to be checked before any other jobs of the same level
 /datum/controller/subsystem/jobs/proc/CheckHeadPositions(level)
-	for(var/command_position in command_positions)
+	for(var/command_position in GLOB.command_positions)
 		var/datum/job/job = GetJob(command_position)
 		if(!job)	continue
 		var/list/candidates = FindOccupationCandidates(job, level)
@@ -587,7 +587,7 @@ SUBSYSTEM_DEF(jobs)
 
 		if(spawnpos && istype(spawnpos))
 			if(spawnpos.check_job_spawning(rank))
-				if(istype(spawnpos, /datum/spawnpoint/cryo) && (rank in command_positions))
+				if(istype(spawnpos, /datum/spawnpoint/cryo) && (rank in GLOB.command_positions))
 					H.forceMove(pick(spawnpos.turfs))
 				else
 					H.forceMove(pick(spawnpos.turfs))

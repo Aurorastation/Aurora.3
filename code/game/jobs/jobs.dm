@@ -73,8 +73,8 @@ var/const/EVENTOPS			=(1<<4)
 var/const/EVENTSRV			=(1<<5)
 
 
-// Positions Lists
-var/list/command_positions = list(
+// Positions Lists //holy shitcode
+GLOBAL_LIST_INIT(command_positions, list(
 	"Captain",
 	"Executive Officer",
 	"Head of Security",
@@ -82,9 +82,9 @@ var/list/command_positions = list(
 	"Research Director",
 	"Chief Medical Officer",
 	"Operations Manager"
-)
+))
 
-var/list/command_support_positions = list(
+GLOBAL_LIST_INIT(command_support_positions, list(
 	"Human Resources Assistant",
 	"Corporate Liaison",
 	"Consular Officer",
@@ -92,17 +92,23 @@ var/list/command_support_positions = list(
 	"Diplomatic Aide",
 	"Diplomatic Bodyguard",
 	"Corporate Aide"
-)
+))
 
-var/list/engineering_positions = list(
+GLOBAL_LIST_INIT(engineering_positions, list(
 	"Chief Engineer",
 	"Ship Engineer",
+	"Reactor Operator",
+	"Maintenance Technician",
+	"Systems Engineer",
 	"Atmospheric Technician",
+	"Environmental Systems Engineer",
+	"Propulsion Engineer",
+	"Damage Control Technician",
 	"Engineering Apprentice",
 	"Engineering Personnel"
-)
+))
 
-var/list/medical_positions = list(
+GLOBAL_LIST_INIT(medical_positions, list(
 	"Chief Medical Officer",
 	"Physician",
 	"Surgeon",
@@ -111,9 +117,9 @@ var/list/medical_positions = list(
 	"Paramedic",
 	"Medical Intern",
 	"Medical Personnel"
-)
+))
 
-var/list/science_positions = list(
+GLOBAL_LIST_INIT(science_positions, list(
 	"Research Director",
 	"Scientist",
 	"Xenoarchaeologist",
@@ -121,17 +127,17 @@ var/list/science_positions = list(
 	"Xenobotanist",
 	"Research Intern",
 	"Science Personnel"
-)
+))
 
-var/list/cargo_positions = list(
+GLOBAL_LIST_INIT(cargo_positions, list(
 	"Operations Manager",
 	"Hangar Technician",
 	"Shaft Miner",
 	"Machinist",
 	"Operations Personnel"
-)
+))
 
-var/list/service_positions = list(
+GLOBAL_LIST_INIT(service_positions, list(
 	"Executive Officer",
 	"Bartender",
 	"Gardener",
@@ -140,42 +146,42 @@ var/list/service_positions = list(
 	"Librarian",
 	"Chaplain",
 	"Service Personnel"
-)
+))
 
-var/list/civilian_positions = list(
+GLOBAL_LIST_INIT(civilian_positions, list(
 	"Assistant",
 	"Off-Duty Crew Member",
 	"Passenger",
 	"Merchant",
 	"Corporate Reporter"
-)
+))
 
-var/list/security_positions = list(
+GLOBAL_LIST_INIT(security_positions, list(
 	"Head of Security",
 	"Warden",
 	"Investigator",
 	"Security Officer",
 	"Security Cadet",
 	"Security Personnel"
-)
+))
 
-var/list/nonhuman_positions = list(
+GLOBAL_LIST_INIT(nonhuman_positions, list(
 	"AI",
 	"Cyborg",
 	"pAI"
-)
+))
 
-var/list/armory_positions = list(
+GLOBAL_LIST_INIT(armory_positions, list(
 	"AI",
 	"Warden",
 	"Captain",
 	"Executive Officer",
 	"Head of Security",
 	"Operations Manager"
-)
+))
 
 /proc/guest_jobbans(var/job)
-	return ((job in command_positions) || job == "Corporate Liaison" || job == "Consular Officer")
+	return ((job in GLOB.command_positions) || job == "Corporate Liaison" || job == "Consular Officer")
 
 /proc/get_job_datums()
 	var/list/occupations = list()

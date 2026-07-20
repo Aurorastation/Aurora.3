@@ -146,7 +146,7 @@
 
 /datum/gear/eyes/goon_goggles/New()
 	..()
-	allowed_roles = security_positions
+	allowed_roles = GLOB.security_positions
 	var/list/goggles = list()
 	goggles["goggles, tactical"] = list(/obj/item/clothing/glasses/safety/goggles/goon, null)
 	goggles["goggles, tactical (PMCG)"] = list(/obj/item/clothing/glasses/safety/goggles/goon/pmc, "Private Military Contracting Group")

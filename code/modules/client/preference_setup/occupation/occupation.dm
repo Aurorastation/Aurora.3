@@ -184,7 +184,7 @@
 			index = 0
 
 		var/rank = job.title
-		var/head = (rank in command_positions) || (rank == "AI")
+		var/head = (rank in GLOB.command_positions) || (rank == "AI")
 		dat += "<tr style='background-color: [hex2cssrgba(job.selection_color, head ? 1 : 0.5)];'><td width='60%' align='right'>"
 
 		var/list/available = pref.GetValidTitles(job)

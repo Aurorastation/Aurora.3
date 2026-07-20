@@ -323,8 +323,8 @@ GLOBAL_PROTECT(jobban_keylist)
 	//Regular jobs
 	//Command
 	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-	jobs += "<tr align='center' bgcolor='114dc1'><th colspan='[length(command_positions)]'><a href='byond://?src=[REF(src)];jobban_job=commanddept;jobban_tgt=[ckey]'>Command Positions</a></th></tr><tr align='center'>"
-	for (var/jobPos in command_positions)
+	jobs += "<tr align='center' bgcolor='114dc1'><th colspan='[length(GLOB.command_positions)]'><a href='byond://?src=[REF(src)];jobban_job=commanddept;jobban_tgt=[ckey]'>Command Positions</a></th></tr><tr align='center'>"
+	for (var/jobPos in GLOB.command_positions)
 		if (!jobPos)
 			continue
 		var/datum/job/job = SSjobs.GetJob(jobPos)
@@ -345,8 +345,8 @@ GLOBAL_PROTECT(jobban_keylist)
 
 	//Command Support
 	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-	jobs += "<tr align='center' bgcolor='114dc1'><th colspan='[length(command_support_positions)]'><a href='byond://?src=[REF(src)];jobban_job=commandsupportdept;jobban_tgt=[ckey]'>Command Support Positions</a></th></tr><tr align='center'>"
-	for (var/jobPos in command_support_positions)
+	jobs += "<tr align='center' bgcolor='114dc1'><th colspan='[length(GLOB.command_support_positions)]'><a href='byond://?src=[REF(src)];jobban_job=commandsupportdept;jobban_tgt=[ckey]'>Command Support Positions</a></th></tr><tr align='center'>"
+	for (var/jobPos in GLOB.command_support_positions)
 		if (!jobPos)
 			continue
 		var/datum/job/job = SSjobs.GetJob(jobPos)
@@ -368,8 +368,8 @@ GLOBAL_PROTECT(jobban_keylist)
 	//Security
 	counter = 0
 	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-	jobs += "<tr bgcolor='991818'><th colspan='[length(security_positions)]'><a href='byond://?src=[REF(src)];jobban_job=securitydept;jobban_tgt=[ckey]'>Security Positions</a></th></tr><tr align='center'>"
-	for (var/jobPos in security_positions)
+	jobs += "<tr bgcolor='991818'><th colspan='[length(GLOB.security_positions)]'><a href='byond://?src=[REF(src)];jobban_job=securitydept;jobban_tgt=[ckey]'>Security Positions</a></th></tr><tr align='center'>"
+	for (var/jobPos in GLOB.security_positions)
 		if (!jobPos)
 			continue
 		var/datum/job/job = SSjobs.GetJob(jobPos)
@@ -391,8 +391,8 @@ GLOBAL_PROTECT(jobban_keylist)
 	//Engineering
 	counter = 0
 	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-	jobs += "<tr bgcolor='c67519'><th colspan='[length(engineering_positions)]'><a href='byond://?src=[REF(src)];jobban_job=engineeringdept;jobban_tgt=[ckey]'>Engineering Positions</a></th></tr><tr align='center'>"
-	for (var/jobPos in engineering_positions)
+	jobs += "<tr bgcolor='c67519'><th colspan='[length(GLOB.engineering_positions)]'><a href='byond://?src=[REF(src)];jobban_job=engineeringdept;jobban_tgt=[ckey]'>Engineering Positions</a></th></tr><tr align='center'>"
+	for (var/jobPos in GLOB.engineering_positions)
 		if (!jobPos)
 			continue
 		var/datum/job/job = SSjobs.GetJob(jobPos)
@@ -414,8 +414,8 @@ GLOBAL_PROTECT(jobban_keylist)
 	//Medical
 	counter = 0
 	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-	jobs += "<tr bgcolor='15903a'><th colspan='[length(medical_positions)]'><a href='byond://?src=[REF(src)];jobban_job=medicaldept;jobban_tgt=[ckey]'>Medical Positions</a></th></tr><tr align='center'>"
-	for (var/jobPos in medical_positions)
+	jobs += "<tr bgcolor='15903a'><th colspan='[length(GLOB.medical_positions)]'><a href='byond://?src=[REF(src)];jobban_job=medicaldept;jobban_tgt=[ckey]'>Medical Positions</a></th></tr><tr align='center'>"
+	for (var/jobPos in GLOB.medical_positions)
 		if (!jobPos)
 			continue
 		var/datum/job/job = SSjobs.GetJob(jobPos)
@@ -437,8 +437,8 @@ GLOBAL_PROTECT(jobban_keylist)
 	//Science
 	counter = 0
 	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-	jobs += "<tr bgcolor='a44799'><th colspan='[length(science_positions)]'><a href='byond://?src=[REF(src)];jobban_job=sciencedept;jobban_tgt=[ckey]'>Science Positions</a></th></tr><tr align='center'>"
-	for (var/jobPos in science_positions)
+	jobs += "<tr bgcolor='a44799'><th colspan='[length(GLOB.science_positions)]'><a href='byond://?src=[REF(src)];jobban_job=sciencedept;jobban_tgt=[ckey]'>Science Positions</a></th></tr><tr align='center'>"
+	for (var/jobPos in GLOB.science_positions)
 		if (!jobPos)
 			continue
 		var/datum/job/job = SSjobs.GetJob(jobPos)
@@ -460,8 +460,8 @@ GLOBAL_PROTECT(jobban_keylist)
 	//Cargo
 	counter = 0
 	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-	jobs += "<tr bgcolor='593616'><th colspan='[length(cargo_positions)]'><a href='byond://?src=[REF(src)];jobban_job=cargodept;jobban_tgt=[ckey]'>Cargo Positions</a></th></tr><tr align='center'>"
-	for (var/jobPos in cargo_positions)
+	jobs += "<tr bgcolor='593616'><th colspan='[length(GLOB.cargo_positions)]'><a href='byond://?src=[REF(src)];jobban_job=cargodept;jobban_tgt=[ckey]'>Cargo Positions</a></th></tr><tr align='center'>"
+	for (var/jobPos in GLOB.cargo_positions)
 		if (!jobPos)
 			continue
 		var/datum/job/job = SSjobs.GetJob(jobPos)
@@ -482,8 +482,8 @@ GLOBAL_PROTECT(jobban_keylist)
 	//Service
 	counter = 0
 	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-	jobs += "<tr bgcolor='90524b'><th colspan='[length(service_positions)]'><a href='byond://?src=[REF(src)];jobban_job=servicedept;jobban_tgt=[ckey]'>Service Positions</a></th></tr><tr align='center'>"
-	for (var/jobPos in service_positions)
+	jobs += "<tr bgcolor='90524b'><th colspan='[length(GLOB.service_positions)]'><a href='byond://?src=[REF(src)];jobban_job=servicedept;jobban_tgt=[ckey]'>Service Positions</a></th></tr><tr align='center'>"
+	for (var/jobPos in GLOB.service_positions)
 		if (!jobPos)
 			continue
 		var/datum/job/job = SSjobs.GetJob(jobPos)
@@ -505,8 +505,8 @@ GLOBAL_PROTECT(jobban_keylist)
 	//Civilian
 	counter = 0
 	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-	jobs += "<tr bgcolor='999999'><th colspan='[length(civilian_positions)]'><a href='byond://?src=[REF(src)];jobban_job=civiliandept;jobban_tgt=[ckey]'>Civilian Positions</a></th></tr><tr align='center'>"
-	for (var/jobPos in civilian_positions)
+	jobs += "<tr bgcolor='999999'><th colspan='[length(GLOB.civilian_positions)]'><a href='byond://?src=[REF(src)];jobban_job=civiliandept;jobban_tgt=[ckey]'>Civilian Positions</a></th></tr><tr align='center'>"
+	for (var/jobPos in GLOB.civilian_positions)
 		if (!jobPos)
 			continue
 		var/datum/job/job = SSjobs.GetJob(jobPos)
@@ -527,8 +527,8 @@ GLOBAL_PROTECT(jobban_keylist)
 	//Non-Human (Green)
 	counter = 0
 	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-	jobs += "<tr bgcolor='ccffcc'><th colspan='[length(nonhuman_positions)+1]'><a href='byond://?src=[REF(src)];jobban_job=nonhumandept;jobban_tgt=[ckey]'>Non-human Positions</a></th></tr><tr align='center'>"
-	for (var/jobPos in nonhuman_positions)
+	jobs += "<tr bgcolor='ccffcc'><th colspan='[length(GLOB.nonhuman_positions)+1]'><a href='byond://?src=[REF(src)];jobban_job=nonhumandept;jobban_tgt=[ckey]'>Non-human Positions</a></th></tr><tr align='center'>"
+	for (var/jobPos in GLOB.nonhuman_positions)
 		if (!jobPos)
 			continue
 		var/datum/job/job = SSjobs.GetJob(jobPos)
@@ -632,7 +632,7 @@ GLOBAL_PROTECT(jobban_keylist)
 	var/list/joblist = list()
 	switch (job)
 		if ("commanddept")
-			for (var/jobPos in command_positions)
+			for (var/jobPos in GLOB.command_positions)
 				if (!jobPos)
 					continue
 				var/datum/job/temp = SSjobs.GetJob(jobPos)
@@ -640,7 +640,7 @@ GLOBAL_PROTECT(jobban_keylist)
 					continue
 				joblist += temp.title
 		if ("commandsupportdept")
-			for (var/jobPos in command_support_positions)
+			for (var/jobPos in GLOB.command_support_positions)
 				if (!jobPos)
 					continue
 				var/datum/job/temp = SSjobs.GetJob(jobPos)
@@ -648,7 +648,7 @@ GLOBAL_PROTECT(jobban_keylist)
 					continue
 				joblist += temp.title
 		if ("securitydept")
-			for (var/jobPos in security_positions)
+			for (var/jobPos in GLOB.security_positions)
 				if (!jobPos)
 					continue
 				var/datum/job/temp = SSjobs.GetJob(jobPos)
@@ -656,7 +656,7 @@ GLOBAL_PROTECT(jobban_keylist)
 					continue
 				joblist += temp.title
 		if ("engineeringdept")
-			for (var/jobPos in engineering_positions)
+			for (var/jobPos in GLOB.engineering_positions)
 				if (!jobPos)
 					continue
 				var/datum/job/temp = SSjobs.GetJob(jobPos)
@@ -664,7 +664,7 @@ GLOBAL_PROTECT(jobban_keylist)
 					continue
 				joblist += temp.title
 		if ("medicaldept")
-			for (var/jobPos in medical_positions)
+			for (var/jobPos in GLOB.medical_positions)
 				if (!jobPos)
 					continue
 				var/datum/job/temp = SSjobs.GetJob(jobPos)
@@ -672,7 +672,7 @@ GLOBAL_PROTECT(jobban_keylist)
 					continue
 				joblist += temp.title
 		if ("sciencedept")
-			for (var/jobPos in science_positions)
+			for (var/jobPos in GLOB.science_positions)
 				if (!jobPos)
 					continue
 				var/datum/job/temp = SSjobs.GetJob(jobPos)
@@ -680,7 +680,7 @@ GLOBAL_PROTECT(jobban_keylist)
 					continue
 				joblist += temp.title
 		if ("servicedept")
-			for (var/jobPos in service_positions)
+			for (var/jobPos in GLOB.service_positions)
 				if (!jobPos)
 					continue
 				var/datum/job/temp = SSjobs.GetJob(jobPos)
@@ -688,7 +688,7 @@ GLOBAL_PROTECT(jobban_keylist)
 					continue
 				joblist += temp.title
 		if ("civiliandept")
-			for (var/jobPos in civilian_positions)
+			for (var/jobPos in GLOB.civilian_positions)
 				if (!jobPos)
 					continue
 				var/datum/job/temp = SSjobs.GetJob(jobPos)
@@ -697,7 +697,7 @@ GLOBAL_PROTECT(jobban_keylist)
 				joblist += temp.title
 		if ("nonhumandept")
 			joblist += "pAI"
-			for (var/jobPos in nonhuman_positions)
+			for (var/jobPos in GLOB.nonhuman_positions)
 				if (!jobPos)
 					continue
 				var/datum/job/temp = SSjobs.GetJob(jobPos)
@@ -705,7 +705,7 @@ GLOBAL_PROTECT(jobban_keylist)
 					continue
 				joblist += temp.title
 		if ("cargodept")
-			for (var/jobPos in cargo_positions)
+			for (var/jobPos in GLOB.cargo_positions)
 				if (!jobPos)
 					continue
 				var/datum/job/temp = SSjobs.GetJob(jobPos)

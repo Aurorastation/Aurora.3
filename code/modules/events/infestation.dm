@@ -36,7 +36,7 @@
 	for(var/mob/living/carbon/human/H in GLOB.living_mob_list)
 		if(H.stat == CONSCIOUS && H.client)
 			player_count++
-			if(H.mind.assigned_role in armory_positions)
+			if(H.mind.assigned_role in GLOB.armory_positions)
 				armory_access = TRUE
 	if((player_count >= 15) && armory_access)
 		possible_mobs = list(
