@@ -614,6 +614,7 @@ const CommunicationsOptions = (props) => {
                 : 'Enable Maintenance Emergency Access'
             }
             color={data.current_maint_all_access ? 'red' : ''}
+            disabled={!data.ntnet_communications_available || !data.net_syscont}
             icon="door-closed"
             onClick={() => act('emergencymaint')}
           />

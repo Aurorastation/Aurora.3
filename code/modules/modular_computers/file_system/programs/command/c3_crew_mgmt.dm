@@ -315,7 +315,7 @@
 
 		if("randomize_team_name")
 			var/new_name = SSrecords.generate_team_display_name()
-			if(team.set_name(new_name, user))
+			if(team.set_name("Team [new_name]", user))
 				to_chat(user, SPAN_NOTICE("Team renamed to [team.display_name]."))
 			update_ui = TRUE
 
@@ -380,12 +380,12 @@
 		if("set_objective")
 			var/objective_slot = params["slot"]
 			var/current_objective = team.get_objective_text(objective_slot)
-			var/objective_text = tgui_input_text(user, "Set [team.get_objective_label(objective_slot)] objective.", "Team Objective", current_objective, multiline = TRUE, encode = FALSE)
+			var/objective_text = tgui_input_text(user, "Set [team.get_objective_label(objective_slot)] objective.", "Team Objective", current_objective, max_length = 64, multiline = TRUE, encode = FALSE)
 			if(!objective_text || computer.use_check_and_message(user))
 				return TRUE
 			if(team.set_objective(objective_slot, objective_text, user))
 				// Objectives are persisted first; delivery failure only affects the reminder message.
-				var/list/delivery = deliver_team_message(team, "team", "[capitalize(team.get_objective_label(objective_slot))] objective: [team.get_objective_text(objective_slot)]", user)
+				var/list/delivery = deliver_team_message(team, "team", "<b>[capitalize(team.get_objective_label(objective_slot))] objective:</b> [team.get_objective_text(objective_slot)]", user)
 				report_delivery(user, delivery)
 			update_ui = TRUE
 
@@ -405,7 +405,7 @@
 			update_ui = TRUE
 
 		if("message_team")
-			var/message = tgui_input_text(user, "Message the full team.", "Team Message", multiline = TRUE, encode = FALSE)
+			var/message = tgui_input_text(user, "Message the full team.", "Team Message", max_length = 64, multiline = TRUE, encode = FALSE)
 			if(!message || computer.use_check_and_message(user))
 				return TRUE
 			var/list/delivery = deliver_team_message(team, "team", message, user)
@@ -413,7 +413,7 @@
 			update_ui = TRUE
 
 		if("message_lead")
-			var/message = tgui_input_text(user, "Message the team lead.", "Team Lead Message", multiline = TRUE, encode = FALSE)
+			var/message = tgui_input_text(user, "Message the team lead.", "Team Lead Message", max_length = 64, multiline = TRUE, encode = FALSE)
 			if(!message || computer.use_check_and_message(user))
 				return TRUE
 			var/list/delivery = deliver_team_message(team, "lead", message, user)

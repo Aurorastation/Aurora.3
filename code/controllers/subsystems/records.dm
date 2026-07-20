@@ -218,7 +218,7 @@ SUBSYSTEM_DEF(records)
 /datum/controller/subsystem/records/proc/seed_standing_teams()
 	var/team_index = 1
 	while(team_index <= 4)
-		create_team(generate_team_display_name(team_index))
+		create_team("Team [generate_team_display_name(team_index)]")
 		team_index++
 
 /// Creates a new team, stores it in SSrecords, logs its creation, and invalidates crew manifest activity cache
