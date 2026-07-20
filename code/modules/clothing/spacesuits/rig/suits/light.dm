@@ -11,7 +11,7 @@
 		MELEE = ARMOR_MELEE_MAJOR,
 		BULLET = ARMOR_BALLISTIC_SMALL,
 		LASER = ARMOR_LASER_RIFLE,
-		energy = ARMOR_MELEE_MINOR,
+		ENERGY = ARMOR_MELEE_MINOR,
 		BOMB = ARMOR_BOMB_PADDED
 	)
 	emp_protection = 100
@@ -27,6 +27,16 @@
 	helm_type =  /obj/item/clothing/head/helmet/space/rig/light
 	boot_type =  /obj/item/clothing/shoes/magboots/rig/light
 	glove_type = /obj/item/clothing/gloves/rig/light
+
+/obj/item/rig/light/update_slowdown() //Light rigs do not suffer a penalty for undeployed boots
+	var/new_slowdown = initial(slowdown)
+
+	if(offline)
+		new_slowdown = offline_slowdown
+
+	if(slowdown != new_slowdown)
+		slowdown = new_slowdown
+		wearer?.update_equipment_speed_mods() //This should only proc if worn, but just in case we check.
 
 /obj/item/clothing/suit/space/rig/light
 	name = "suit"

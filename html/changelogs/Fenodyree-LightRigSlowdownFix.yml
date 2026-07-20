@@ -1,0 +1,6 @@
+author: Fenodyree
+delete-after: True
+
+changes:
+  - bugfix: "Fixes light rigs getting slowdown from having undeployed boots."
+  - bugfix: "Fixes light rigs having no energy armour."
