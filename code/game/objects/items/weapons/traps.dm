@@ -443,6 +443,9 @@
 	/// A weakref to the mob currently held inside the trap
 	var/datum/weakref/captured = null
 
+	/// TRUE while an entered signal has queued an async capture that has not finished yet.
+	var/tmp/capture_pending = FALSE
+
 /obj/item/trap/animal/get_trap_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = list()
 	if(captured)
@@ -486,10 +489,19 @@
 	if(!deployed || !anchored)
 		return
 
-	if(captured) // just in case but this shouldn't happen
+	if(captured || capture_pending) // just in case but this shouldn't happen
+		return
+
+	capture_pending = TRUE
+	INVOKE_ASYNC(src, PROC_REF(capture_from_entered), arrived)
+
+/obj/item/trap/animal/proc/capture_from_entered(atom/movable/arrived)
+	if(!deployed || !anchored || captured || arrived?.loc != loc)
+		capture_pending = FALSE
 		return
 
 	capture(arrived)
+	capture_pending = FALSE
 
 /obj/item/trap/animal/proc/capture(var/atom/movable/movable_atom, var/msg = 1)
 	if(!isliving(movable_atom))
