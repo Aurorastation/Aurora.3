@@ -27,8 +27,9 @@
 			log_and_message_admins("has placed a map template [log_name].")
 			to_chat(usr, "Successfully placed map template [log_name].")
 		else
-			log_and_message_admins("has failed to place a map template [log_name].")
-			to_chat(usr, "Failed to place map template [log_name].")
+			var/failure_reason = template.last_load_error ? " Reason: [template.last_load_error]" : ""
+			log_and_message_admins("has failed to place a map template [log_name].[failure_reason]")
+			to_chat(usr, "Failed to place map template [log_name].[failure_reason]")
 	usr.client.images -= preview
 
 /datum/admins/proc/map_template_load_new_z()
@@ -64,8 +65,9 @@
 		log_and_message_admins("has placed a map template [log_name] on Z bounds [bounds[MAP_MINZ]] - [bounds[MAP_MAXZ]].")
 		to_chat(usr, "Successfully place map template [log_name].")
 	else
-		log_and_message_admins("has failed to place a map template [log_name].")
-		to_chat(usr, "Failed to place map template [log_name].")
+		var/failure_reason = template.last_load_error ? " Reason: [template.last_load_error]" : ""
+		log_and_message_admins("has failed to place a map template [log_name].[failure_reason]")
+		to_chat(usr, "Failed to place map template [log_name].[failure_reason]")
 	SSair.can_fire = TRUE
 
 /datum/admins/proc/map_template_upload()
@@ -82,17 +84,25 @@
 		to_chat(usr, "Bad map file: [map]")
 		return
 
+	var/map_text = file2text(map)
+	if(!map_text)
+		var/failure_reason = " Reason: uploaded file could not be read or was empty."
+		log_and_message_admins("failed to upload map template '[map]'.[failure_reason]")
+		to_chat(usr, "Map template '[map]' failed to load properly.[failure_reason]")
+		return
+
 	var/rounded_wtime = round(world.time)
-	rustg_file_write(file2text(map), "data/logs/[GLOB.diary_date_string]_[rounded_wtime]_[map]")
+	rustg_file_write(map_text, "data/logs/[GLOB.diary_date_string]_[rounded_wtime]_[map]")
 
-	var/datum/map_template/M = new(list(map), "[map]")
+	var/datum/map_template/M = new(list(map_text), "[map]")
 
-	log_and_message_admins("is attempting to upload a map template '[map]''.")
-	to_chat(usr, "Attempting to upload map template '[map]''.")
+	log_and_message_admins("is attempting to upload a map template '[map]'.")
+	to_chat(usr, "Attempting to upload map template '[map]'.")
 	if(M.preload_size())
 		to_chat(usr, "Map template '[map]' ready to place ([M.width]x[M.height]).")
 		SSmapping.map_templates[M.name] = M
-		log_and_message_admins("has uploaded map template '[map]''.")
+		log_and_message_admins("has uploaded map template '[map]'.")
 	else
-		log_and_message_admins("failed to upload map template '[map]''.")
-		to_chat(usr, "Map template '[map]' failed to load properly")
+		var/failure_reason = M.last_load_error ? " Reason: [M.last_load_error]" : ""
+		log_and_message_admins("failed to upload map template '[map]'.[failure_reason]")
+		to_chat(usr, "Map template '[map]' failed to load properly.[failure_reason]")

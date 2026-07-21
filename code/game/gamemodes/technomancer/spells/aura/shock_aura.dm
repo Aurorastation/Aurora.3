@@ -19,6 +19,7 @@
 /obj/item/spell/aura/shock/process()
 	if(!pay_energy(500))
 		qdel(src)
+		return
 	var/list/nearby_mobs = range(calculate_spell_power(4), owner)
 	var/power = calculate_spell_power(7)
 	if(check_for_scepter())

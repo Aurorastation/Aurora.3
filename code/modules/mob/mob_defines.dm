@@ -91,16 +91,8 @@
 	var/brokejaw = null
 	var/real_name = null
 	var/flavor_text = ""
-	var/med_record = ""
-	var/sec_record = ""
-	var/list/incidents = list()
 	var/list/additional_vision_handlers = list()
-	var/gen_record = ""
-	var/ccia_record = ""
-	var/list/ccia_actions = list()
-	var/exploit_record = ""
 	var/blinded = null
-	var/bhunger = 0						//Carbon
 	var/ajourn = 0
 	var/druggy = 0						//Carbon
 	var/confused = 0					//Carbon
@@ -114,7 +106,6 @@
 	var/resting = 0						//Carbon
 	var/lying = 0	// Is the mob lying down?
 	var/lying_prev = 0	// Was the mob lying down before?
-	var/lying_is_intentional = FALSE	// Is the mob lying down intentionally? (eg. a manouver)
 	var/canmove = 1
 	//Allows mobs to move through dense areas without restriction. For instance, in space or out of holder objects.
 	var/incorporeal_move = INCORPOREAL_DISABLE
@@ -156,7 +147,6 @@
 	var/stunned = 0
 	var/weakened = 0
 	var/losebreath = 0 //Carbon
-	var/shakecamera = 0
 	var/a_intent = I_HELP//Living
 	var/m_intent = M_WALK //Living
 	var/lastKnownIP = null
@@ -170,8 +160,6 @@
 	/// contains [/atom/movable/screen/alert only] // On /mob so clientless mobs will throw alerts properly
 	var/list/alerts = list()
 	var/list/screens = list()
-
-	var/seer = 0 //for cult//Carbon, probably Human
 
 	var/datum/hud/hud_used = null
 
@@ -258,7 +246,6 @@
 
 	var/frozen = FALSE //related to wizard statues, if set to true, life won't process
 
-	gfi_layer_rotation = GFI_ROTATION_DEFDIR
 	var/disconnect_time = null//Time of client loss, set by Logout(), for timekeeping
 
 	var/mob_thinks = TRUE
@@ -312,9 +299,6 @@
 	//handles up-down floaty effect in space and zero-gravity
 	var/is_floating = FALSE
 
-	// Used by the Nano UI Manager (/datum/SSnanoui) to track UIs opened by this mob
-	var/list/open_nanouis = list()
-
 	var/last_pain_message = ""
 	var/next_pain_time = 0
 
@@ -351,7 +335,5 @@
 	var/list/usable_emotes = list()
 
 	var/client/my_client // Need to keep track of this ourselves, since by the time Logout() is called the client has already been nulled
-
-	var/get_rig_stats = 0
 
 	var/thinking_enabled = FALSE

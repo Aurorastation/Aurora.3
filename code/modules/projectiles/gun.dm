@@ -50,7 +50,7 @@ ABSTRACT_TYPE(/obj/item/gun)
 	contained_sprite = TRUE
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
-	matter = list(DEFAULT_WALL_MATERIAL = 2000)
+	matter = list(MATERIAL_STEEL = 2000)
 	w_class = WEIGHT_CLASS_NORMAL
 	throwforce = 5
 	throw_speed = 4
@@ -597,12 +597,11 @@ ABSTRACT_TYPE(/obj/item/gun)
 	if(recoil)
 		shake_camera(user, recoil + 1, recoil)
 
-	if(ishuman(user) && user.invisibility == INVISIBILITY_LEVEL_TWO) //shooting will disable a rig cloaking device
+	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(istype(H.back, /obj/item/rig))
 			var/obj/item/rig/R = H.back
-			for(var/obj/item/rig_module/stealth_field/S in R.installed_modules)
-				S.deactivate()
+			R.attack_disrupt_check()  //This currently handles decloaking ninjas who shoot guns. Other modules could use attack_disrupt_check() in future.
 	update_icon()
 
 /obj/item/gun/proc/play_fire_sound()
@@ -886,17 +885,14 @@ ABSTRACT_TYPE(/obj/item/gun)
 	update_icon()
 	update_held_icon()
 
-#define LYING_DOWN_FIRE_DELAY_AND_RECOIL_STAT_MULTIPLIER 0.9 //If the mob is intentionally lying down, apply this as a bonus to the fire delay and recoil
-#define LYING_DOWN_ACCURACY_STAT_MULTIPLIER 1.1 //If the mob is intentionally lying down, apply this as a bonus to accuracy
-
 /obj/item/gun/proc/update_firing_delays()
 	if(wielded)
 		if(!isnull(fire_delay_wielded))
-			fire_delay = usr.lying_is_intentional ? (fire_delay_wielded * LYING_DOWN_FIRE_DELAY_AND_RECOIL_STAT_MULTIPLIER) : fire_delay_wielded
+			fire_delay = fire_delay_wielded
 		if(!isnull(recoil_wielded))
-			recoil = usr.lying_is_intentional ? (recoil_wielded * LYING_DOWN_FIRE_DELAY_AND_RECOIL_STAT_MULTIPLIER) : recoil_wielded
+			recoil = recoil_wielded
 		if(!isnull(accuracy_wielded))
-			accuracy = usr.lying_is_intentional ? (accuracy_wielded * LYING_DOWN_ACCURACY_STAT_MULTIPLIER) : accuracy_wielded
+			accuracy = accuracy_wielded
 	else
 		if(!isnull(fire_delay_wielded))
 			fire_delay = initial(fire_delay)
@@ -904,9 +900,6 @@ ABSTRACT_TYPE(/obj/item/gun)
 			recoil = initial(recoil)
 		if(!isnull(accuracy_wielded))
 			accuracy = initial(accuracy)
-
-#undef LYING_DOWN_FIRE_DELAY_AND_RECOIL_STAT_MULTIPLIER
-#undef LYING_DOWN_ACCURACY_STAT_MULTIPLIER
 
 /obj/item/gun/mob_can_equip(mob/user, slot, disable_warning, bypass_blocked_check = FALSE, is_overlay_check = FALSE)
 	//Cannot equip wielded items.

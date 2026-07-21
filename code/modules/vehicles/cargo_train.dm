@@ -18,6 +18,9 @@
 	var/obj/item/key/key
 	var/key_type = /obj/item/key/cargo_train
 
+	light_range = 3
+	light_power = 1
+
 /obj/vehicle/train/cargo/engine/Destroy()
 	QDEL_NULL(key)
 	return ..()

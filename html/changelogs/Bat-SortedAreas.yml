@@ -1,0 +1,8 @@
+author: Batrachophrenoboocosmomachia
+delete-after: True
+changes:
+  - code_imp: "Updates map_path var for mapping unit tests to be a list instead of a var, allowing for opting-in of unit tests on by-map basis."
+  - code_imp: "Updates fire alarm directionality map test for (almost) all directional wall-mounted objects, with only sccv_horizon map currently opted-in."
+  - bugfix: "Adds extra safety for GLOB.SortedAreas having entries removed but not later re-generated."
+  - bugfix: "Fixes all the incorrectly mapped areas on the Horizon exposed by newly-run unit tests."
+  - imageadd: "Adds currently unused map_helper sprites for airlocks- prep for future work."

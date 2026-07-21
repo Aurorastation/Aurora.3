@@ -19,7 +19,7 @@
 	var/spent = FALSE
 	/// Define to false if overlays aren't wanted, such as if the sprite isn't designed for them.
 	var/has_overlays = TRUE
-	matter = list(MATERIAL_GLASS = 400, DEFAULT_WALL_MATERIAL = 200)
+	matter = list(MATERIAL_GLASS = 400, MATERIAL_STEEL = 200)
 
 /obj/item/reagent_containers/inhaler/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
