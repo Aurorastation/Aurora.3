@@ -320,6 +320,75 @@
   - imageadd: Introduces flags, available in the loadout, for the Salamasian Republic.
       Sprites provided by Ill Fated.
 2026-07-19:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Fixes Mend Synthetic not repairing synthetic/robotic limbs correctly.
+  - bugfix: Fixes Dispel not removing Technomancer effects from its target.
+  - bugfix: Fixes Corona not making targets glow or easier to hit.
+  - bugfix: Fixes Resurrect not enforcing its maximum time-since-death limit.
+  - bugfix: Fixes Mend Internals skipping organic body parts because it used old bitflags.
+  - bugfix: Fixes Shield's scepter enhancement being straight up ignored.
+  - bugfix: Fixes Energy Siphon overfilling synthetic internal cells.
+  - bugfix: Fixes Audible Deception playing on the user instead of the targeted turf,
+      defeating the entire point of it.
+  - bugfix: Fixes a bunch of spells not actually ending immediately when energy runs
+      out (and potential harddels.)
+  FabianK3:
+  - server: 'Database: Added new tables for persistent generics and history, refactored
+      persistent objects.'
+  - bugfix: Fix duplicate code-behind ID for admin persistence toggle verb.
+  - admin: 'MC/VV: Moved Persistent object register from GLOB to subsystem var space.'
+  - admin: 'MC/VV: Cache list for persistent generics (generic_cache) and persistent
+      history (history_cache) added to subsystem var space.'
+  - admin: 'MC/VV: Update stat entry of persistence subsystem. It now displays master-save-toggle,
+      persistent object register, generics cache, history cache with entry count and
+      possible panic-mode warning.'
+  - admin: 'Logging: Added sentry integration to persistence subsystem error/panic
+      logging.'
+  - code_imp: Renamed map send_welcome proc to post_gamemode_setup and moved SCCV
+      Horizon round start fax logic into new proc. This proc can be used for map specific
+      init logic for any map respectively.
+  - rscadd: 'CI/CD: Added new CI job to find object types on maps that should be excluded.
+      Config file under maps/forbiddenMapTypes.json and currently includes persistent
+      ash trays on the SCCV Horizon and the operations warehouse submap.'
+  - experiment: Updated the persistence subsystem/framework and introduced persistent
+      generics and persistent history. Technical documentation for maintainers and
+      contributors will be available on the repository wiki. Update includes a near-complete
+      overhaul of the existing subsystem and added a lot of newly available methods
+      to make a lot of things persistent that couldn't be made possible with the previous
+      object-only persistence.
+  - rscadd: Added macros to easily create new persistent type definitions, the basis
+      for persistent generics and history.
+  - rscadd: Added cleanup-rule definitions for persistent history definitions, used
+      to specify how different persistent history mechanics should be cleaned up on
+      a database level.
+  - rscadd: Added dedicated file for persistent type definitions.
+  - code_imp: Misc. changes to file structures, defines and the persistence subsystem
+      related to the persistence framework update.
+  - rscadd: 'New persistent mechanics: Persistent Horizon position (persistent generic
+      example mechanic) - The SCCV Horizon will now retain its position on the overmap
+      from round to round. Where did we park again?'
+  - rscadd: 'New persistent mechanics: Persistent records of mining yields (persistent
+      history example mechanic) - When miners claim their ore points using the ore
+      console, the points will be saved. Every shift a report will be generated based
+      of the points collected by each individual miner over the last 7 days. Who met
+      their quota last week?'
+  - bugfix: Added an init flag to the persistence subsystem to verify init success.
+      If any issues arise during the subsystems init, saving at round end will be
+      skipped (panic mode).
+  - rscadd: Implemented numeric version of list insert sort, based of existing test
+      list insert sort.
+  - rscadd: Implemented top K insertion sort selection for persistence subsystem cache.
+  The Stryker:
+  - rscadd: Adds a plaid shirt to the loadout as an alternate to the dress shirt.
+  Wowzewow (Wezzy):
+  - bugfix: Fixes bedsheets turning invisible.
+  - bugfix: Fixes being upside down when being rested by a bedsheet.
   hazelmouse:
   - rscadd: Implemented some mapping tweaks to service, now featuring better seating
       in the mess hall!
+2026-07-21:
+  FabianK3:
+  - bugfix: Fixed the CICs escape hatch location landing on a wall. It now leads into
+      the engineering hallway.
+  - qol: Added an recommended escape hatch location marker and sign to the bridge.
+      The marked location leads into hydroponics, unrestricted access on exit added.
