@@ -386,3 +386,9 @@
   hazelmouse:
   - rscadd: Implemented some mapping tweaks to service, now featuring better seating
       in the mess hall!
+2026-07-21:
+  FabianK3:
+  - bugfix: Fixed the CICs escape hatch location landing on a wall. It now leads into
+      the engineering hallway.
+  - qol: Added an recommended escape hatch location marker and sign to the bridge.
+      The marked location leads into hydroponics, unrestricted access on exit added.
