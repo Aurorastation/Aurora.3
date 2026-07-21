@@ -171,14 +171,20 @@
 	item_path = /obj/item/bodybag/cryobag
 	var/datum/gas_mixture/airtank
 
-	var/stasis_power = 20
-	var/degradation_time = 60 // 2 minutes: 60 ticks * 2 seconds per tick
+	/// Starting stasis multiplier.
+	var/stasis_power = 10
+
+	/**
+	 * Number of seconds between degredation periods.
+	 * Stasis bags lose 25% of their current stasis value per interval of this many seconds.
+	 */
+	var/degradation_time = 60
 
 /obj/structure/closet/body_bag/cryobag/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Applies a [stasis_power]x stasis effect to any living creature stored inside this bag."
-	. += "This causes effects such as bleeding and brain damage to accumulate 10x slower."
-	. += "stasis bags will only last for [degradation_time] seconds before becoming useless. The bag will turn from blue to grey when this happens."
+	. += "This causes effects such as bleeding and brain damage to accumulate [stasis_power]x slower."
+	. += "stasis bags lose 25% of their stasis power every [degradation_time] seconds. The bag will turn from blue to grey when this happens."
 
 /obj/structure/closet/body_bag/cryobag/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -235,13 +241,13 @@
 		folded.stasis_power = stasis_power
 		folded.color = color_saturation(get_saturation())
 
-/obj/structure/closet/body_bag/cryobag/process()
+/obj/structure/closet/body_bag/cryobag/process(seconds_per_tick)
 	if(stasis_power < 2)
 		return PROCESS_KILL
 	var/mob/living/carbon/human/H = locate() in src
 	if(!H)
 		return PROCESS_KILL
-	degradation_time--
+	degradation_time -= seconds_per_tick
 	if(degradation_time < 0)
 		degradation_time = initial(degradation_time)
 		stasis_power = round(0.75 * stasis_power)
@@ -255,7 +261,7 @@
 /obj/structure/closet/body_bag/cryobag/return_air() //Used to make stasis bags protect from vacuum.
 	if(airtank)
 		return airtank
-	..()
+	else return ..()
 
 /obj/item/usedcryobag
 	name = "used stasis bag"
