@@ -28,11 +28,8 @@
 /obj/item/circuitboard/security/public
 	name = T_BOARD("public camera monitor")
 	build_path = /obj/structure/machinery/computer/security/terminal/public
-	req_access = list()
-
-/obj/item/circuitboard/security/public/New()
-	..()
 	console_networks = list(NETWORK_EXPEDITION, NETWORK_NEWS)
+	req_access = list()
 
 /obj/item/circuitboard/security/construct(var/obj/structure/machinery/computer/security/C)
 	if (..(C))
