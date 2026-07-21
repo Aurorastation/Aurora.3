@@ -71,10 +71,6 @@
 
 	toggle_open(usr)
 
-/obj/item/electronic_assembly
-	var/max_components_device = 16
-	var/max_complexity_device = 42
-
 /obj/item/electronic_assembly/device
 	name = "electronic device"
 	icon_state = "setup_device"

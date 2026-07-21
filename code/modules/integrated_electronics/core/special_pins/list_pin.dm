@@ -17,7 +17,7 @@
 /datum/integrated_io/list/proc/interact(mob/user)
 	var/list/my_list = data
 	var/t = "<h2>[src]</h2><br>"
-	t += "List length: [my_list.len]<br>"
+	t += "List length: [length(my_list)]<br>"
 	t += "<a href='byond://?src=[REF(src)]'>Refresh</a>  |  "
 	t += "<a href='byond://?src=[REF(src)];add=1'>Add</a>  |  "
 	t += "<a href='byond://?src=[REF(src)];remove=1'>Remove</a>  |  "
@@ -26,7 +26,7 @@
 	t += "<a href='byond://?src=[REF(src)];clear=1'>Clear</a><br>"
 	t += "<hr>"
 
-	for(var/i = 1; i <= my_list.len; i++)
+	for(var/i = 1; i <= length(my_list); i++)
 		t += "#[i] | [display_data(my_list[i])]  |  "
 		t += "<a href='byond://?src=[REF(src)];edit=1;pos=[i]'>Edit</a>  |  "
 		t += "<a href='byond://?src=[REF(src)];remove=1;pos=[i]'>Remove</a><br>"
@@ -47,7 +47,7 @@
 
 	var/list/my_list = data
 
-	if(my_list.len >= IC_MAX_LIST_LENGTH)
+	if(length(my_list) >= IC_MAX_LIST_LENGTH)
 		my_list.Cut(1, 2)
 
 	my_list += list(new_entry)
@@ -56,7 +56,7 @@
 /datum/integrated_io/list/proc/remove_from_list_by_position(mob/user, position)
 	var/list/my_list = data
 
-	if(!my_list.len)
+	if(!length(my_list))
 		to_chat(user, SPAN_WARNING("The list is empty, there's nothing to remove."))
 		return
 
@@ -65,7 +65,7 @@
 
 	position = round(position)
 
-	if(position < 1 || position > my_list.len)
+	if(position < 1 || position > length(my_list))
 		return
 
 	my_list.Cut(position, position + 1)
@@ -74,7 +74,7 @@
 /datum/integrated_io/list/proc/remove_from_list(mob/user, target_entry)
 	var/list/my_list = data
 
-	if(!my_list.len)
+	if(!length(my_list))
 		to_chat(user, SPAN_WARNING("The list is empty, there's nothing to remove."))
 		return
 
@@ -90,7 +90,7 @@
 /datum/integrated_io/list/proc/edit_in_list(mob/user, target_entry)
 	var/list/my_list = data
 
-	if(!my_list.len)
+	if(!length(my_list))
 		to_chat(user, SPAN_WARNING("The list is empty, there's nothing to modify."))
 		return
 
@@ -107,7 +107,7 @@
 /datum/integrated_io/list/proc/edit_in_list_by_position(mob/user, position)
 	var/list/my_list = data
 
-	if(!my_list.len)
+	if(!length(my_list))
 		to_chat(user, SPAN_WARNING("The list is empty, there's nothing to modify."))
 		return
 
@@ -116,7 +116,7 @@
 
 	position = round(position)
 
-	if(position < 1 || position > my_list.len)
+	if(position < 1 || position > length(my_list))
 		return
 
 	var/target_entry = my_list[position]
@@ -127,7 +127,7 @@
 /datum/integrated_io/list/proc/swap_inside_list(mob/user, first_target, second_target)
 	var/list/my_list = data
 
-	if(my_list.len <= 1)
+	if(length(my_list) <= 1)
 		to_chat(user, SPAN_WARNING("The list is empty, or too small to do any meaningful swapping."))
 		return
 

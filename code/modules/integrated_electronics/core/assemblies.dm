@@ -14,6 +14,8 @@
 
 	var/max_components = IC_COMPONENTS_BASE
 	var/max_complexity = IC_COMPLEXITY_BASE
+	var/max_components_device = 16
+	var/max_complexity_device = 42
 	var/max_components_implant = 16
 	var/max_complexity_implant = 42
 	// Whether the assembly panel is open for direct circuit access.

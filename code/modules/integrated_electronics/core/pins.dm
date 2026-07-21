@@ -68,14 +68,15 @@ list[](
 
 	if(islist(input))
 		var/list/my_list = input
-		var/result = "list\[[my_list.len]\]("
-		if(my_list.len)
+		var/list_length = length(my_list)
+		var/result = "list\[[list_length]\]("
+		if(list_length)
 			result += "<br>"
 			var/pos = 0
 			for(var/line in my_list)
 				result += "[display_data(line)]"
 				pos++
-				if(pos != my_list.len)
+				if(pos != list_length)
 					result += ",<br>"
 			result += "<br>"
 		result += ")"

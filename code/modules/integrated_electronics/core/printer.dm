@@ -49,12 +49,17 @@
 	max_phoron = 20
 
 
+/obj/item/integrated_circuit_printer/Destroy()
+	assembly_to_clone = null
+	clone_item_to_clone = null
+
+	return ..()
+
+
 /obj/item/integrated_circuit_printer/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/stack/material))
 		var/obj/item/stack/material/stack = attacking_item
-		var/material_name = lowertext(stack.material.name)
-
-		if(stack.material.name == DEFAULT_WALL_MATERIAL)
+		if(stack.material.type == MATERIAL_STEEL)
 			var/num = min(FLOOR((max_metal - metal) / metal_per_sheet, 1), stack.amount)
 			if(num < 1)
 				to_chat(user, SPAN_WARNING("\The [src] is too full to add more steel."))
@@ -65,7 +70,7 @@
 				metal += num * metal_per_sheet
 				return TRUE
 
-		if(material_name == "phoron")
+		if(stack.material.type == MATERIAL_PHORON)
 			var/num = min(FLOOR((max_phoron - phoron) / phoron_per_sheet, 1), stack.amount)
 			if(num < 1)
 				to_chat(user, SPAN_WARNING("\The [src] is too full to add more phoron."))

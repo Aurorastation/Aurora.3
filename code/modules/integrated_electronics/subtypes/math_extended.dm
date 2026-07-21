@@ -293,6 +293,12 @@
 			succeed(fcosh(A))
 		if("tanh")
 			succeed(ftanh(A))
+		if("sech")
+			succeed(fsech(A))
+		if("csch")
+			succeed(fcsch(A))
+		if("coth")
+			succeed(fcoth(A))
 		if("deadband")
 			if(!isnum(A) || !isnum(B))
 				fail()
@@ -434,6 +440,27 @@
 	category_text = "MATH - Trigonometry"
 	inputs = list("value" = IC_PINTYPE_NUMBER)
 	operation = "tanh"
+
+/obj/item/integrated_circuit/math/numeric/hyperbolic_secant
+	name = "hyperbolic secant circuit"
+	desc = "Calculates hyperbolic secant."
+	category_text = "MATH - Trigonometry"
+	inputs = list("value" = IC_PINTYPE_NUMBER)
+	operation = "sech"
+
+/obj/item/integrated_circuit/math/numeric/hyperbolic_cosecant
+	name = "hyperbolic cosecant circuit"
+	desc = "Calculates hyperbolic cosecant."
+	category_text = "MATH - Trigonometry"
+	inputs = list("value" = IC_PINTYPE_NUMBER)
+	operation = "csch"
+
+/obj/item/integrated_circuit/math/numeric/hyperbolic_cotangent
+	name = "hyperbolic cotangent circuit"
+	desc = "Calculates hyperbolic cotangent."
+	category_text = "MATH - Trigonometry"
+	inputs = list("value" = IC_PINTYPE_NUMBER)
+	operation = "coth"
 
 // Geometry.
 /obj/item/integrated_circuit/math/geometry
