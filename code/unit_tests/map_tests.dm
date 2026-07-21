@@ -28,8 +28,6 @@
 	if (!SSatlas.current_map)
 		return
 
-	// This is formatted strangely because it fails the indentation test if it's formatted properly.
-	// ¯\_(ツ)_/¯
 	var/list/exempt_areas = typecacheof(SSatlas.current_map.ut_environ_exempt_areas)
 	var/list/exempt_from_atmos = typecacheof(SSatlas.current_map.ut_atmos_exempt_areas)
 	var/list/exempt_from_apc = typecacheof(SSatlas.current_map.ut_apc_exempt_areas)
@@ -450,43 +448,50 @@
 
 	return test_status
 
-// At present, only fire alarms have NSEW as immediate children, whereas APCs and Air Alarms also have them as sub-children.
-// In the future, areas should have additional vars to populate APC data automatically, allowing them to have directional
-// immediate children too for mapping testing.
-/datum/unit_test/map_test/no_panel_dir_var_edits
-	name = "MAP: Check for Fire Alarm dir var edits"
+// Checks mapped wall-mounted objects with direction presets.
+/datum/unit_test/map_test/no_directional_subtype_dir_var_edits
+	name = "MAP: Check for directional subtype dir var edits"
+	// Right now, this only runs on the Horizon. ALL NEW MAPS should opt-in to this unit test.
+	// Old maps are REQUIRED to be opted-in when they're touched for the first time since this unit test was added.
+	map_path = list("sccv_horizon")
 
-/datum/unit_test/map_test/no_panel_dir_var_edits/start_test()
+/datum/unit_test/map_test/no_directional_subtype_dir_var_edits/start_test()
 	var/test_status = UNIT_TEST_PASSED
 	var/checks = 0
 	var/failed_checks = 0
-	var/firealarm_increment
-	var/turf/T
+	var/list/checked_types = typecacheof(list(
+		/obj/structure/machinery/alarm,
+		/obj/structure/machinery/power/apc,
+		/obj/structure/machinery/firealarm,
+		// save this for nbt2. fuck me. i don't have the strength for this rn. no one does.
+		// /obj/structure/machinery/light_switch,
+		/obj/structure/extinguisher_cabinet,
+		/obj/structure/fireaxecabinet,
+		/obj/structure/closet/walllocker,
+		/obj/item/radio/intercom,
+	))
 
-	for(var/obj/structure/machinery/firealarm/F in world)
-		T = get_turf(F)
-		firealarm_increment = 0
-		if(istype(F, /obj/structure/machinery/firealarm/north))
-			if(F.dir != NORTH)
-				firealarm_increment++
-		if(istype(F, /obj/structure/machinery/firealarm/south))
-			if(F.dir != SOUTH)
-				firealarm_increment++
-		if(istype(F, /obj/structure/machinery/firealarm/east))
-			if(F.dir != EAST)
-				firealarm_increment++
-		if(istype(F, /obj/structure/machinery/firealarm/west))
-			if(F.dir != WEST)
-				firealarm_increment++
+	for(var/obj/O in world)
+		if(!is_type_in_typecache(O, checked_types))
+			continue
+
+		var/turf/object_turf = O.loc
+		if(istype(object_turf))
+			if(!is_station_level(object_turf.z))
+				continue
+
+		var/obj/obj_type = O.type
+		var/expected_dir = initial(obj_type.dir)
 		checks++
-		if(firealarm_increment > 1)
+
+		if(O.dir != expected_dir)
 			failed_checks++
-			TEST_FAIL("Manually var edited [F] at ([F.x],[F.y],[F.z]) in [T.loc].")
+			TEST_FAIL("Mapped [O] ([O.type]) at ([O.x],[O.y],[O.z]) in [get_area(O)] has dir [dir2text(O.dir)], but its type's initial dir is [dir2text(expected_dir)]. Use the matching directional subtype instead of editing dir.")
 
 	if(failed_checks)
-		TEST_FAIL("\[[failed_checks] / [checks]\] Some fire alarms had their dir var manually edited instead of using a preset variant. Please also check new APCs and air alarms in the area.")
+		TEST_FAIL("\[[failed_checks] / [checks]\] Checked objects had their dir var manually edited.")
 	else
-		TEST_PASS("All \[[checks]\] fire alarms mapped properly.")
+		TEST_PASS("All \[[checks]\] checked objects are mapped with their initial dir values.")
 
 	return test_status
 
