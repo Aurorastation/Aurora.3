@@ -740,9 +740,9 @@
 	else
 		..()
 
-/obj/item/trap/animal/Move()
-	. = ..()
-	if(!. || !captured)
+/// Split behavior into its own proc because the original behavior only used to work on Move(), not forceMove().
+/obj/item/trap/animal/proc/sync_captured_mob()
+	if(!captured)
 		return
 
 	var/datum/M = captured.resolve()
@@ -752,9 +752,20 @@
 
 	var/mob/living/L = M
 	if(buckled == L && L.buckled_to == src)
-		L.forceMove(loc)
+		if(L.loc != loc)
+			L.forceMove(loc)
 	else
 		captured = null
+
+/obj/item/trap/animal/Move()
+	. = ..()
+	if(.)
+		sync_captured_mob()
+
+/obj/item/trap/animal/forceMove(atom/destination)
+	. = ..()
+	if(.)
+		sync_captured_mob()
 
 /obj/item/trap/animal/attack_hand(mob/user)
 	if(user.loc == src || captured)
