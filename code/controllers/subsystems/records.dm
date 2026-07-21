@@ -372,18 +372,20 @@ SUBSYSTEM_DEF(records)
 		if(depI.len > 0)
 			var/depDat
 			for(var/list/item in depI)
-				depDat += "<li><strong>[item["name"]]</strong> - [item["rank"]] ([item["active"]])</li>"
+				depDat += "<li><strong>[item["name"]]</strong> - [item["rank"]] ([item["active_tooltip"] || item["active"]])</li>"
 			dat += "<h3>[dep]</h3><ul>[depDat]</ul>"
 	return dat
 
 /// gets the activity state, which gets displayed in the crew manifest
 /datum/controller/subsystem/records/proc/get_activity_state(var/datum/record/general/general_record)
-	// by default, we use the physical status as our activity_state
-	var/activity_state = general_record.physical_status
+	return general_record.physical_status || "Active"
 
+/// Gets the activity tooltip, adding team context without changing the status value used for the manifest indicator color.
+/datum/controller/subsystem/records/proc/get_activity_tooltip(var/datum/record/general/general_record)
+	var/activity_state = get_activity_state(general_record)
 	var/datum/team/team = get_team_for_general_record(general_record)
 	if(team)
-		return "Team: " + (team.display_name || "Unknown")
+		return "[activity_state] - Team: [team.display_name || "Unknown"]"
 
 	return activity_state
 
@@ -417,6 +419,7 @@ SUBSYSTEM_DEF(records)
 				"name" = general_record.name, \
 				"rank" = general_record.rank, \
 				"active" = get_activity_state(general_record), \
+				"active_tooltip" = get_activity_tooltip(general_record), \
 				"head" = supervisor, \
 				"ooc_role" = FALSE)
 			if(supervisor) // they are a supervisor/head, put them on top

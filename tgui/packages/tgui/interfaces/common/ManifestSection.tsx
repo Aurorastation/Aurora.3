@@ -13,6 +13,7 @@ type Crew = {
   name: string;
   rank: string;
   active: string;
+  active_tooltip?: string;
   head: BooleanLike;
   ooc_role: BooleanLike;
 };
@@ -62,7 +63,7 @@ export const ManifestSection = (props) => {
                       {crewmate.rank}
                     </Table.Cell>
                     <Table.Cell textAlign="right" width="5%" pr="3%" pt="10px">
-                      <Tooltip content={crewmate.active}>
+                      <Tooltip content={crewmate.active_tooltip || crewmate.active}>
                         <Icon
                           name="circle"
                           className={
