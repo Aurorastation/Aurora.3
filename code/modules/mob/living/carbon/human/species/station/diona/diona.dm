@@ -73,6 +73,7 @@ They are very slow, reasonably strong, and quite durable. They also require ligh
 		MELEE = ARMOR_MELEE_MEDIUM
 	)
 
+
 	pain_mod = 0.5
 	grab_mod = 0.6 // Viney Tentacles and shit to cling onto
 	resist_mod = 1.5 // Reasonably stronk, not moreso than an Unathi or robot.
@@ -191,7 +192,7 @@ They are very slow, reasonably strong, and quite durable. They also require ligh
 		if((!D.client && !D.mind) || D.stat == DEAD)
 			qdel(D)
 
-//This handles nymphs, which are the only diona specie that can run, since they don't breathe they just take pain damage instead
+//used to just handle running for nymphs. Dionae take pain damage the longer they run, no lungs.
 /datum/species/diona/handle_sprint_cost(mob/living/carbon/human/H, cost, pre_move)
 	if(!pre_move)
 		H.adjustHalLoss(cost*0.3)
