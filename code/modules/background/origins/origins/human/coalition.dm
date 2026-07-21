@@ -72,9 +72,6 @@
 /singleton/origin_item/origin/gadpathur/on_apply(var/mob/living/carbon/human/H)
 	. = ..()
 	H.AddComponent(/datum/component/armor, list(RAD = ARMOR_RAD_MINOR))
-	H.default_lighting_alpha = LIGHTING_PLANE_ALPHA_VERY_VISIBLE
-	H.AddElement(/datum/element/light_sensitivity)
-
 
 /singleton/origin_item/origin/gadpathur/on_remove(mob/living/carbon/human/H)
 	. = ..()

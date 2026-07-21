@@ -24,6 +24,11 @@
 	origin_traits = list(TRAIT_ORIGIN_COLD_RESISTANCE)
 	origin_traits_descriptions = list("are more acclimatised to the cold.")
 
+/singleton/origin_item/origin/new_gibson/on_apply(var/mob/living/carbon/human/H)
+	. = ..()
+	H.default_lighting_alpha = LIGHTING_PLANE_ALPHA_VERY_VISIBLE
+	H.AddElement(/datum/element/light_sensitivity)
+
 /singleton/origin_item/origin/reade
 	name = "Reade"
 	desc = "A gas giant in outer Tau Ceti, home to both platforms within the planet's atmosphere and countless smaller outposts in orbit and on its many moons. A fledgling culture defined by company and military towns can be found within the non-unified Reade's atmosphere, with city state-like platforms competing with one another and responsible for much of the Republic of Biesel's military shipbuilding. In orbit and among its moons, smaller off-worlder communities can be found."
