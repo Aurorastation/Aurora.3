@@ -505,9 +505,14 @@
 	if(capturing_mob.loc != loc)
 		capturing_mob.forceMove(loc)
 
-	captured = WEAKREF(capturing_mob)
-	INVOKE_ASYNC(src, PROC_REF(buckle), capturing_mob)
+	var/old_layer = layer
 	layer = capturing_mob.layer + 0.1
+	if(!buckle(capturing_mob))
+		layer = old_layer
+		unbuckle()
+		return
+
+	captured = WEAKREF(capturing_mob)
 
 	playsound(src, 'sound/weapons/beartrap_shut.ogg', 100, 1)
 
@@ -737,16 +742,19 @@
 
 /obj/item/trap/animal/Move()
 	. = ..()
-	if(captured)
-		var/datum/M = captured.resolve()
-		if(isliving(M))
-			var/mob/living/L = M
-			if(L && buckled.buckled_to == src)
-				L.forceMove(loc)
-			else if(L)
-				captured = null
-		else
-			captured = null
+	if(!. || !captured)
+		return
+
+	var/datum/M = captured.resolve()
+	if(!isliving(M))
+		captured = null
+		return
+
+	var/mob/living/L = M
+	if(buckled == L && L.buckled_to == src)
+		L.forceMove(loc)
+	else
+		captured = null
 
 /obj/item/trap/animal/attack_hand(mob/user)
 	if(user.loc == src || captured)
@@ -771,6 +779,9 @@
 			user.visible_message("[SPAN_BOLD("[user]")] successfully moves around \the [src] without triggering it.", SPAN_NOTICE("You successfully move around \the [src] without triggering it."))
 
 /obj/item/trap/animal/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	if(over != user)
+		return ..()
+
 	if(!isliving(user) || !src.Adjacent(user))
 		return
 
@@ -894,6 +905,9 @@
 		..()
 
 /obj/item/trap/animal/large/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	if(over != user)
+		return ..()
+
 	if(captured)
 		to_chat(user, SPAN_WARNING("The trap door's down, you can't get through there!"))
 		return

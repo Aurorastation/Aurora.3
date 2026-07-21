@@ -1,0 +1,5 @@
+author: Batrachophrenoboocosmomachia
+delete-after: True
+changes:
+  - bugfix: "Fixed captured creatures in large animal traps/cages potentially causing runtimes when the cage was placed on tables or racks."
+  - bugfix: "Fixed dragging large animal traps/cages onto tables or racks being treated as the mover trying to step through the trap."
