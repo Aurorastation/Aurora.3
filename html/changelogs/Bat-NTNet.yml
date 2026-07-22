@@ -3,3 +3,7 @@ delete-after: True
 changes:
   - rscadd: "Adds NTNet extensibility, requires new machinery constructed on away-site z-levels."
   - rscadd: "Breaks NTNet Relay machinery into Quantum Relay ('core' obj on Horizon) and Field Relay (deployable off-site constructions)."
+  - qol: "Embedded cameras (basically every video camera EXCEPT those which are installed on walls) can now be viewed from NTNet-connected z-level, not just connected ones."
+  - rscadd: "Adds several public camera monitor consoles to the Horizon (near where public sensor grid feed consoles already exist)."
+  - rscadd: "Adds some spare camera console boards to Horizon technical storage."
+  - bugfix: "Fixes Jockey comms (frequency was missing from ANTAG_FREQS)."
