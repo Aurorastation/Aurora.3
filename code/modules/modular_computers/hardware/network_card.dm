@@ -85,7 +85,7 @@ GLOBAL_VAR_INIT(ntnet_card_uid, 1)
 		return 0
 	if(!check_functionality())
 		return 0
-	if(!GLOB.ntnet_global || !GLOB.ntnet_global.check_function(specific_action))
+	if(!GLOB.ntnet_global)
 		return 0
 
 	return GLOB.ntnet_global.get_signal_for_endpoint(parent_computer, specific_action, ethernet, long_range)

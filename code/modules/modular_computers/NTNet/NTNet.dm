@@ -81,6 +81,12 @@ GLOBAL_DATUM_INIT(ntnet_global, /datum/ntnet, new)
 		return (operating && setting_systemcontrol)
 	return operating
 
+/datum/ntnet/proc/check_endpoint_function(var/specific_action = 0, var/ethernet = FALSE)
+	// Wireless firewall toggles do not affect wired endpoints, but wired endpoints still need a live core service
+	if(ethernet)
+		return has_operable_core()
+	return check_function(specific_action)
+
 /datum/ntnet/proc/has_operable_core()
 	if(!relays || !relays.len)
 		return FALSE
@@ -93,7 +99,7 @@ GLOBAL_DATUM_INIT(ntnet_global, /datum/ntnet, new)
 /// 'For endpoint' signifies that sometimes we will abstract a device as being a modular computer when really all we care about is whether it is networked.
 /// This will likely need to be simplified in future.
 /datum/ntnet/proc/get_signal_for_endpoint(var/atom/endpoint, var/specific_action = 0, var/ethernet = FALSE, var/long_range = FALSE)
-	if(!istype(endpoint) || !check_function(specific_action))
+	if(!istype(endpoint) || !check_endpoint_function(specific_action, ethernet))
 		return 0
 
 	var/area/A = get_area(endpoint)
