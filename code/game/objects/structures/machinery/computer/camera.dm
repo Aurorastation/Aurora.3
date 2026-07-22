@@ -121,6 +121,8 @@
 
 	if (user.stat || user.blinded || !operable())
 		return 0
+	if(!C.can_use())
+		return 0
 	set_current(C)
 
 	if (!(C.z in GetConnectedZlevels(starting_z_level)))

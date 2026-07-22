@@ -48,11 +48,23 @@
 /obj/structure/machinery/ntnet_relay/proc/provides_core_service()
 	return core_service && operable() && is_valid_core_location()
 
+/obj/structure/machinery/ntnet_relay/proc/ensure_linked()
+	if(!SSatlas.current_map.use_overmap)
+		return linked
+	if(istype(linked) && (z in linked.map_z))
+		return linked
+	linked = null
+	return sync_linked()
+
 /obj/structure/machinery/ntnet_relay/proc/is_valid_core_location()
 	if(!SSatlas.current_map.use_overmap)
 		return TRUE
-	if(istype(linked))
-		return linked.base
+	var/obj/effect/overmap/visitable/sector = ensure_linked()
+	if(istype(sector))
+		return sector.base
+	var/obj/effect/overmap/visitable/known_sector = GLOB.map_sectors["[z]"]
+	if(istype(known_sector))
+		return FALSE
 	return is_station_level(z)
 
 /obj/structure/machinery/ntnet_relay/proc/can_route_to_core()
@@ -60,25 +72,37 @@
 		return FALSE
 	if(core_service)
 		return provides_core_service()
-	if(!GLOB.ntnet_global || !GLOB.ntnet_global.has_operable_core())
+	if(!GLOB.ntnet_global)
 		return FALSE
+	return !!get_backhaul_core()
+
+/obj/structure/machinery/ntnet_relay/proc/get_backhaul_core()
+	if(!GLOB.ntnet_global)
+		return
+	ensure_linked()
 	for(var/obj/structure/machinery/ntnet_relay/R in GLOB.ntnet_global.relays)
 		if(R == src || !R.provides_core_service())
 			continue
 		if(can_backhaul_to(R))
-			return TRUE
-	return FALSE
+			return R
 
 /obj/structure/machinery/ntnet_relay/proc/can_backhaul_to(var/obj/structure/machinery/ntnet_relay/core)
 	if(!istype(core) || !core.provides_core_service())
 		return FALSE
-	if(SSatlas.current_map.use_overmap && istype(linked) && istype(core.linked))
-		return get_dist(linked, core.linked) <= backhaul_range
+	if(SSatlas.current_map.use_overmap)
+		var/obj/effect/overmap/visitable/source_sector = ensure_linked()
+		var/obj/effect/overmap/visitable/core_sector = core.ensure_linked()
+		if(!istype(source_sector) || !istype(core_sector))
+			return FALSE
+		return get_dist(source_sector, core_sector) <= backhaul_range
 	return AreConnectedZLevels(z, core.z)
 
 /obj/structure/machinery/ntnet_relay/proc/get_covered_z_levels()
-	if(SSatlas.current_map.use_overmap && istype(linked))
-		return linked.map_z.Copy()
+	if(SSatlas.current_map.use_overmap)
+		var/obj/effect/overmap/visitable/sector = ensure_linked()
+		if(istype(sector))
+			return sector.map_z.Copy()
+		return list()
 	return GetConnectedZlevels(z)
 
 /obj/structure/machinery/ntnet_relay/proc/covers_z(var/z_level)
@@ -147,6 +171,8 @@
 		ui.open()
 
 /obj/structure/machinery/ntnet_relay/ui_data(mob/user)
+	var/obj/structure/machinery/ntnet_relay/backhaul_core = core_service ? null : get_backhaul_core()
+	var/backhaul_online = core_service ? can_route_to_core() : !!backhaul_core
 	var/list/data = list()
 	data["enabled"] = enabled
 	data["dos_capacity"] = dos_capacity
@@ -155,7 +181,8 @@
 	data["relay_class"] = core_service ? "Core" : "Field"
 	data["linked_sector"] = linked ? linked.name : "Unlinked"
 	data["backhaul_range"] = backhaul_range
-	data["backhaul_online"] = can_route_to_core()
+	data["backhaul_online"] = backhaul_online
+	data["backhaul_core"] = core_service ? "Self" : (backhaul_core?.linked ? backhaul_core.linked.name : "None")
 
 	return data
 
@@ -188,6 +215,7 @@
 	if(GLOB.ntnet_global)
 		GLOB.ntnet_global.relays.Add(src)
 		NTNet = GLOB.ntnet_global
+		sync_linked()
 		GLOB.ntnet_global.add_log("New quantum relay activated. Current amount of linked relays: [NTNet.relays.len]")
 
 /obj/structure/machinery/ntnet_relay/LateInitialize()

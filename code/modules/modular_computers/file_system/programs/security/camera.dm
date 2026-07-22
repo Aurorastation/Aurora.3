@@ -126,6 +126,9 @@
 	return (check_network_access(user, ACCESS_SECURITY) && GLOB.security_level >= SEC_LEVEL_BLUE) || check_network_access(user, network_access)
 
 /datum/computer_file/program/camera_monitor/proc/can_reach_camera(var/obj/structure/machinery/camera/C)
+	if(!C?.can_use())
+		return FALSE
+
 	var/turf/camera_turf = get_turf(C)
 	if(!camera_turf || !GLOB.ntnet_global)
 		return FALSE

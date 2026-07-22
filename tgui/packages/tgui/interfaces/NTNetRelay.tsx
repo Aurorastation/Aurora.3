@@ -12,6 +12,7 @@ export type NTNetData = {
   linked_sector: string;
   backhaul_range: number;
   backhaul_online: BooleanLike;
+  backhaul_core: string;
 };
 
 export const NTNetRelay = (props) => {
@@ -54,6 +55,9 @@ export const NTNetRelay = (props) => {
               </LabeledList.Item>
               <LabeledList.Item label="Backhaul">
                 {data.backhaul_online ? 'Online' : 'Offline'}
+              </LabeledList.Item>
+              <LabeledList.Item label="Backhaul Core">
+                {data.backhaul_core}
               </LabeledList.Item>
               <LabeledList.Item label="Backhaul Range">
                 {data.backhaul_range}

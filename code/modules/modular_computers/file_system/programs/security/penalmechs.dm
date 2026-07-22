@@ -40,7 +40,7 @@
 			var/turf/mech_turf = get_turf(M)
 			mechData["location"] = "[mech_turf.x], [mech_turf.y], [mech_turf.z]"
 
-			mechData["camera_status"] = M.camera.status
+			mechData["camera_status"] = M.camera.can_use()
 			mechData["lockdown"] = M.lockdown
 			mechs += list(mechData)
 
@@ -131,6 +131,9 @@
 	return TRUE
 
 /datum/computer_file/program/penal_mechs/proc/can_reach_camera(var/obj/structure/machinery/camera/C)
+	if(!C?.can_use())
+		return FALSE
+
 	var/turf/camera_turf = get_turf(C)
 	if(!camera_turf || !computer?.network_card || !GLOB.ntnet_global)
 		return FALSE
