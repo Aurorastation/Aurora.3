@@ -37,7 +37,6 @@
 	. = ..()
 	program_list += COMPUTER_APP_PRESET_SYSTEM
 	program_list += list(/datum/computer_file/program/camera_monitor/hacked,
-						/datum/computer_file/program/comm_control,
 						/datum/computer_file/program/suit_sensors,
 						/datum/computer_file/program/alarm_monitor/all,
 						/datum/computer_file/program/lighting_control,

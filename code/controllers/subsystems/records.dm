@@ -228,12 +228,29 @@ SUBSYSTEM_DEF(records)
 	var/obj/effect/overmap/visitable/default_destination
 	if(SSshuttle && SSatlas.current_map.overmap_visitable_type)
 		default_destination = SSshuttle.ship_by_type(SSatlas.current_map.overmap_visitable_type)
-	team.apply_default_destination(default_destination)
+	seed_team_default_destination(team, default_destination)
 	teams += team
 
 	team.append_log("created team", actor)
 	reset_manifest()
 	return team
+
+/// Sets the initial team destination once, without restoring it after command clears or changes it.
+/datum/controller/subsystem/records/proc/seed_team_default_destination(var/datum/team/team, var/obj/effect/overmap/visitable/default_destination)
+	if(!istype(team) || !istype(default_destination) || team.destination_overmap_ref || team.destination_name)
+		return FALSE
+
+	team.destination_overmap_ref = WEAKREF(default_destination)
+	team.destination_name = default_destination.name
+	return TRUE
+
+/// Applies late default destinations to standing teams once shuttle sectors exist.
+/datum/controller/subsystem/records/proc/seed_team_default_destinations(var/obj/effect/overmap/visitable/default_destination)
+	var/updated = FALSE
+	for(var/datum/team/team as anything in teams)
+		if(seed_team_default_destination(team, default_destination))
+			updated = TRUE
+	return updated
 
 /// Locates a team by its generated team id
 /datum/controller/subsystem/records/proc/get_team_by_id(var/team_id)

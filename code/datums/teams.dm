@@ -80,8 +80,6 @@ GLOBAL_VAR_INIT(team_uid, 0)
 	var/datum/weakref/destination_overmap_ref
 	/// Cached name in case we lose contact or it gets deleted
 	var/destination_name
-	/// If we manually cleared the dest, don't try to jam it down our throats again if we lose and pick it back up.
-	var/destination_manually_cleared = FALSE
 	/// Weakref to the command operator currently claiming this team in Command and Communication.
 	var/datum/weakref/operator_ref
 	/// Member key for the assigned team lead.
@@ -247,7 +245,6 @@ GLOBAL_VAR_INIT(team_uid, 0)
 
 	destination_overmap_ref = WEAKREF(destination_contact)
 	destination_name = destination_contact.name
-	destination_manually_cleared = FALSE
 	append_log("destination changed", actor, destination_name)
 	return TRUE
 
@@ -258,16 +255,7 @@ GLOBAL_VAR_INIT(team_uid, 0)
 	var/old_destination = destination_name || "Unknown"
 	destination_overmap_ref = null
 	destination_name = null
-	destination_manually_cleared = TRUE
 	append_log("destination cleared", actor, old_destination)
-	return TRUE
-
-/datum/team/proc/apply_default_destination(var/obj/effect/overmap/visitable/default_destination)
-	if(destination_manually_cleared || destination_overmap_ref || !istype(default_destination))
-		return FALSE
-
-	destination_overmap_ref = WEAKREF(default_destination)
-	destination_name = default_destination.name
 	return TRUE
 
 /// Resolves the currently claimed command operator for display in C3 app and status panels.

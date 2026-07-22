@@ -21,9 +21,6 @@
 	var/centcomm_message_cooldown = 0
 	var/announcement_cooldown = 0
 	var/datum/announcement/priority/crew_announcement = new
-	var/list/destination_sources_cache
-	var/list/destination_contacts_cache
-	var/destination_sources_cache_expires = 0
 
 /datum/computer_file/program/comm_control/New(obj/item/modular_computer/comp, intercept_printing = FALSE, shuttle_call = FALSE)
 	. = ..()
@@ -89,8 +86,10 @@
 	data["def_SEC_LEVEL_BLUE"] = SEC_LEVEL_BLUE
 	data["def_SEC_LEVEL_GREEN"] = SEC_LEVEL_GREEN
 	data["ntnet_communications_available"] = ntn_comm
-	var/list/destination_sources = get_available_destination_sources()
-	data["destination_contacts"] = get_available_destination_contacts()
+	var/obj/effect/overmap/visitable/horizon = get_horizon_sector()
+	var/list/destination_data = get_available_destination_data(horizon)
+	var/list/destination_sources = destination_data["sources"]
+	data["destination_contacts"] = destination_data["contacts"]
 	data["teams"] = list()
 
 	data["messages"] = GLOB.comm_messages
@@ -111,7 +110,7 @@
 	// Build sensor data once per UI update so every team row uses one consistent NTNet snapshot.
 	var/list/sensor_lookup = build_sensor_lookup(ntn_comm)
 	for(var/datum/team/team as anything in SSrecords.teams)
-		data["teams"] += list(build_team_data(team, sensor_lookup, ntn_comm, destination_sources))
+		data["teams"] += list(build_team_data(team, sensor_lookup, ntn_comm, destination_sources, horizon))
 
 	return data
 
@@ -362,7 +361,8 @@
 			update_ui = TRUE
 
 		if("set_destination")
-			var/list/available_destinations = get_available_destination_sources(TRUE)
+			var/list/destination_data = get_available_destination_data(get_horizon_sector(), TRUE)
+			var/list/available_destinations = destination_data["sources"]
 			var/obj/effect/overmap/visitable/selected_destination
 			for(var/obj/effect/overmap/visitable/contact as anything in available_destinations)
 				if("[REF(contact)]" == params["contact"])
@@ -436,10 +436,7 @@
 	return build_crew_sensor_lookup(GLOB.ntnet_global.get_reachable_z_levels(computer.network_card, NTNET_COMMUNICATION))
 
 /// Builds one team's TGUI model, including roster rows, group summary, destination context, and logs.
-/datum/computer_file/program/comm_control/proc/build_team_data(var/datum/team/team, var/list/sensor_lookup, var/ntnet_available, var/list/destination_sources)
-	var/obj/effect/overmap/visitable/horizon = get_horizon_sector()
-	team.apply_default_destination(horizon)
-
+/datum/computer_file/program/comm_control/proc/build_team_data(var/datum/team/team, var/list/sensor_lookup, var/ntnet_available, var/list/destination_sources, var/obj/effect/overmap/visitable/horizon)
 	var/list/roster = list()
 
 	// Lead distance and offset are relative to lead tracking; no live coordinates are used if sensors are not tracking.
@@ -472,7 +469,7 @@
 		"primary_objective" = team.primary_objective,
 		"secondary_objective" = team.secondary_objective,
 		"group_summary" = group_summary,
-		"destination_context" = build_destination_context(team, destination_sources),
+		"destination_context" = build_destination_context(team, destination_sources, horizon),
 		"roster" = roster,
 		"logs" = logs
 	)
@@ -638,45 +635,35 @@
 		return
 	contact_sources[contact] = source
 
-/// Returns currently selectable destination contacts from legitimate Horizon sensors plus the default Horizon contact.
-/datum/computer_file/program/comm_control/proc/get_available_destination_sources(var/force_refresh = FALSE)
-	if(!force_refresh && !isnull(destination_sources_cache) && destination_sources_cache_expires > world.time)
-		return destination_sources_cache
+/// Returns currently selectable destination contacts and matching TGUI payload from Horizon sensors plus the default Horizon contact.
+/datum/computer_file/program/comm_control/proc/get_available_destination_data(var/obj/effect/overmap/visitable/horizon, var/force_refresh = FALSE)
+	var/static/list/destination_data_cache
+	var/static/destination_data_cache_expires = 0
+	if(!force_refresh && !isnull(destination_data_cache) && destination_data_cache_expires > world.time)
+		return destination_data_cache
 
 	var/list/contact_sources = list()
-	var/obj/effect/overmap/visitable/horizon = get_horizon_sector()
-	if(!istype(horizon))
-		destination_sources_cache = contact_sources
-		destination_contacts_cache = list()
-		destination_sources_cache_expires = world.time + 5 SECONDS
-		return destination_sources_cache
+	if(istype(horizon))
+		add_available_destination_contact(contact_sources, horizon, TEAM_DESTINATION_DEFAULT_SOURCE)
 
-	add_available_destination_contact(contact_sources, horizon, TEAM_DESTINATION_DEFAULT_SOURCE)
-
-	if(horizon.consoles)
-		for(var/obj/structure/machinery/computer/ship/sensors/sensor_console in horizon.consoles)
-			for(var/obj/effect/overmap/visitable/contact as anything in sensor_console.objects_in_view)
-				if(sensor_console.contact_datums[contact])
-					add_available_destination_contact(contact_sources, contact, TEAM_DESTINATION_SENSOR_SOURCE)
-
-			for(var/obj/effect/overmap/visitable/datalinked_ship as anything in sensor_console.datalink_contacts)
-				var/list/datalinked_contacts = sensor_console.datalink_contacts[datalinked_ship]
-				for(var/obj/effect/overmap/visitable/contact as anything in datalinked_contacts)
+		if(horizon.consoles)
+			for(var/obj/structure/machinery/computer/ship/sensors/sensor_console in horizon.consoles)
+				for(var/obj/effect/overmap/visitable/contact as anything in sensor_console.objects_in_view)
 					if(sensor_console.contact_datums[contact])
-						add_available_destination_contact(contact_sources, contact, TEAM_DESTINATION_DATALINK_SOURCE)
+						add_available_destination_contact(contact_sources, contact, TEAM_DESTINATION_SENSOR_SOURCE)
 
-	destination_sources_cache = contact_sources
-	destination_contacts_cache = build_available_destination_contacts(contact_sources)
-	destination_sources_cache_expires = world.time + 5 SECONDS
-	return destination_sources_cache
+				for(var/obj/effect/overmap/visitable/datalinked_ship as anything in sensor_console.datalink_contacts)
+					var/list/datalinked_contacts = sensor_console.datalink_contacts[datalinked_ship]
+					for(var/obj/effect/overmap/visitable/contact as anything in datalinked_contacts)
+						if(sensor_console.contact_datums[contact])
+							add_available_destination_contact(contact_sources, contact, TEAM_DESTINATION_DATALINK_SOURCE)
 
-/// Returns the cached TGUI destination contact payload built with the matching source snapshot.
-/datum/computer_file/program/comm_control/proc/get_available_destination_contacts()
-	if(isnull(destination_contacts_cache) || isnull(destination_sources_cache) || destination_sources_cache_expires <= world.time)
-		get_available_destination_sources()
-	if(!isnull(destination_contacts_cache))
-		return destination_contacts_cache
-	return list()
+	destination_data_cache = list(
+		"sources" = contact_sources,
+		"contacts" = build_available_destination_contacts(contact_sources)
+	)
+	destination_data_cache_expires = world.time + 5 SECONDS
+	return destination_data_cache
 
 /// Builds the TGUI list of destination contacts command may currently assign to teams.
 /datum/computer_file/program/comm_control/proc/build_available_destination_contacts(var/list/contact_sources)
@@ -692,7 +679,7 @@
 	return contacts
 
 /// Builds destination context from stored team destination data and current legitimate Horizon sensor contacts.
-/datum/computer_file/program/comm_control/proc/build_destination_context(var/datum/team/team, var/list/contact_sources)
+/datum/computer_file/program/comm_control/proc/build_destination_context(var/datum/team/team, var/list/contact_sources, var/obj/effect/overmap/visitable/horizon)
 	var/list/context = list(
 		"name" = team.destination_name || "Unknown",
 		"contact_status" = "unset"
@@ -708,7 +695,6 @@
 		return context
 
 	context["name"] = contact.name
-	var/obj/effect/overmap/visitable/horizon = get_horizon_sector()
 	if(contact == horizon)
 		context["contact_status"] = "default destination"
 		return context
