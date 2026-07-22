@@ -69,7 +69,7 @@
 
 	var/use_internal_tank = TRUE
 	var/datum/gas_mixture/inside_air
-	var/internal_tank_valve = 45 // arbitrary for now
+	var/internal_tank_valve = 100 //Not arbitrary.
 	var/obj/item/tank/internal_tank
 	var/syndie = FALSE
 	var/last_shake = 0
@@ -118,11 +118,12 @@
 		if (I != internal_tank && I != cell)
 			I.forceMove(loc)
 
-	for(var/mob/M in src)
+	for(var/mob/M in contents)
 		M.forceMove(loc)
 		if(M.client)
 			M.client.eye = M.client.mob
 			M.client.perspective = MOB_PERSPECTIVE
+			M.set_fullscreen(FALSE, "closet_impaired", /atom/movable/screen/fullscreen/closet_impaired)
 
 /obj/structure/closet/airbubble/Initialize()
 	. = ..()
@@ -154,8 +155,8 @@
 
 	dump_contents()
 
-	update_icon()
 	opened = 1
+	update_icon()
 	playsound(loc, open_sound, 15, 1, -3)
 	density = 0
 	return 1
