@@ -8,11 +8,15 @@ GLOBAL_VAR_INIT(ntnet_card_uid, 1)
 	critical = FALSE
 	icon_state = "netcard_basic"
 	hardware_size = 1
-	var/identification_id			// Identification ID. Technically MAC address of this device. Can't be changed by user.
-	var/identification_string = ""	// Identification string, technically nickname seen in the network. Can be set by user.
+	/// Identification ID. Technically MAC address of this device. Can't be changed by user.
+	var/identification_id
+	/// Identification string, technically nickname seen in the network. Can be set by user.
+	var/identification_string = ""
 	var/long_range = FALSE
-	var/ethernet = FALSE // Hard-wired, therefore always on, ignores NTNet wireless checks.
-	var/obj/item/integrated_signaler/signal/sradio = FALSE // integrated signaler - not present on basic model.
+	/// Hard-wired, therefore always on, ignores NTNet wireless checks.
+	var/ethernet = FALSE
+	/// Integrated signaler - not present on basic model.
+	var/obj/item/integrated_signaler/signal/sradio = FALSE
 	malfunction_probability = 1
 
 /obj/item/computer_hardware/network_card/diagnostics(mob/user)
@@ -45,7 +49,7 @@ GLOBAL_VAR_INIT(ntnet_card_uid, 1)
 
 /obj/item/computer_hardware/network_card/advanced
 	name = "advanced NTNet network card"
-	desc = "An advanced network card for usage with standard NTNet frequencies. Its transmitter is strong enough to connect even off-station."
+	desc = "An advanced network card for usage with standard NTNet frequencies. Its transmitter can sustain high-bandwidth links to nearby NTNet relays."
 	long_range = TRUE
 	origin_tech = list(TECH_DATA = 4, TECH_ENGINEERING = 2)
 	power_usage = 150 // Better range but higher power usage.
@@ -69,11 +73,11 @@ GLOBAL_VAR_INIT(ntnet_card_uid, 1)
 	. = ..()
 	sradio = new /obj/item/integrated_signaler/signal(src)
 
-// Returns a string identifier of this network card
+/// Returns a string identifier of this network card
 /obj/item/computer_hardware/network_card/proc/get_network_tag()
 	return "[identification_string] (NID [identification_id])"
 
-// 0 - No signal, 1 - Low signal, 2 - High signal. 3 - Wired Connection
+/// 0 - No signal, 1 - Low signal, 2 - High signal. 3 - Wired Connection
 /obj/item/computer_hardware/network_card/proc/get_signal(var/specific_action = 0)
 	if(!parent_computer) // Hardware is not installed in anything. No signal. How did this even get called?
 		return 0
@@ -84,24 +88,7 @@ GLOBAL_VAR_INIT(ntnet_card_uid, 1)
 	if(!GLOB.ntnet_global || !GLOB.ntnet_global.check_function(specific_action))
 		return 0
 
-	if(parent_computer)
-		var/turf/T = get_turf(parent_computer)
-		if((T && istype(T)) && is_station_level(T.z))
-			// Computer is on station. Low/High signal depending on what type of network card you have
-			if(ethernet)
-				return 3
-			else if(long_range)
-				return 2
-			else
-				return 1
-		var/area/A = get_area(parent_computer)
-		if(A.centcomm_area && ethernet)
-			return 3
-
-	if(long_range) // Computer is not on station, but it has upgraded network card. Low signal.
-		return 1
-
-	return 0 // Computer is not on station and does not have upgraded network card. No signal.
+	return GLOB.ntnet_global.get_signal(src, specific_action)
 
 /obj/item/computer_hardware/network_card/Destroy()
 	if(sradio)
