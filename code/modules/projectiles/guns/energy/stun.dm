@@ -41,7 +41,7 @@
 	has_item_ratio = FALSE
 	w_class = WEIGHT_CLASS_SMALL
 	origin_tech = list(TECH_COMBAT = 2, TECH_MAGNET = 2, TECH_ILLEGAL = 5)
-	matter = list(DEFAULT_WALL_MATERIAL = 2000)
+	matter = list(MATERIAL_STEEL = 2000)
 	slot_flags = SLOT_BELT
 	suppressed = TRUE
 	can_unsuppress = FALSE
@@ -73,5 +73,5 @@
 	force = 15
 	icon_state = "crossbowlarge"
 	item_state = "crossbow"
-	matter = list(DEFAULT_WALL_MATERIAL = 200000)
+	matter = list(MATERIAL_STEEL = 200000)
 	projectile_type = /obj/projectile/energy/bolt/large

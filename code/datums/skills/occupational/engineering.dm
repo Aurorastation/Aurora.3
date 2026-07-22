@@ -9,7 +9,8 @@
 	component_type = ELECTRICAL_ENGINEERING_SKILL_COMPONENT
 	skill_level_descriptions = alist(
 		SKILL_LEVEL_UNFAMILIAR = "You have little to no experience working with electrical systems.",
-		SKILL_LEVEL_FAMILIAR = "You have some experience working with electrical systes, though are not formally trained.",
+		SKILL_LEVEL_FAMILIAR = "You have some experience working with electrical systems, though are not formally trained.<br>" \
+		+ " - You can use a power cell to attempt emergency power bypasses on piloting consoles when they're unpowered.",
 		SKILL_LEVEL_TRAINED = "You have formal training in electrical engineering concepts, equivalent to a Bachelor's Degree.",
 		SKILL_LEVEL_PROFESSIONAL = "You have many years of training in electrical related Engineering concepts, equivalent to a Master's Degree or better.<br>" \
 			+ " - You can tell what most machinery and airlock wires do just by looking at them." \
@@ -40,7 +41,7 @@
 			+ " - Items you craft are generally at average quality.<br>" \
 			+ " - You can interact with most if not all Engineering equipment.",
 		SKILL_LEVEL_PROFESSIONAL = "You have many years of training in general Engineering concepts, equivalent to a Master's Degree or better.<br>" \
-			+ " - You can craft items significantly faster.<br>" \
+			+ " - You can craft items 50% faster.<br>" \
 			+ " - Items you craft are of much higher quality on average.<br>" \
 	)
 

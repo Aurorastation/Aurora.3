@@ -325,7 +325,7 @@
 		var/obj/item/I = usr.get_inactive_hand()
 		if(I && istype(I, /obj/item/stack))
 			var/obj/item/stack/D = I
-			if(D.get_material_name() != material.name)
+			if(D.get_material() != material)
 				return ..()
 			if(health < maxhealth)
 				if(D.get_amount() < 1)

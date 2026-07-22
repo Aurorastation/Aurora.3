@@ -13,6 +13,9 @@
 	/// Time until the next ongoing message
 	var/next_message = 0
 
+/obj/item/organ/internal/augment/bioaug/mind_blanker/process_initialize()
+	START_PROCESSING(SSprocessing, src)
+
 /obj/item/organ/internal/augment/bioaug/mind_blanker/Initialize()
 	. = ..()
 	if(!owner)

@@ -251,9 +251,9 @@ ABSTRACT_TYPE(/obj/structure/machinery/controlhub)
 	icon_state = "holocontrol"
 	req_access = list(ACCESS_BAR)
 	controls = list(
-		"counter shutters" = list("type" = "blast_door", "id" = "bar_shutter"),
+		"counter shutters" = list("type" = "blast_door", "id" = "bar_counter_shutter"),
 		"holosign" = list("type" = "holosign", "id" = "bar"),
-		"maintenance shutters" = list("type" = "blast_door", "id" = "bar_maint"),
-		"safety shutters" = list("type" = "blast_door", "id" = "bar_viewing_shutters"),
-		"window tint" = list("type" = "windowtint", "id" = "bar_fore")
+		"dividing door" = list("type" = "blast_door", "id" = "service_divider_shutter"),
+		"safety shutters" = list("type" = "blast_door", "id" = "bar_window_shutter"),
+		"window tint" = list("type" = "windowtint", "id" = "bar_tint")
 	)

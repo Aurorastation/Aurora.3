@@ -959,6 +959,20 @@
 		var/type = pick(utensils)
 		new type(src)
 
+/obj/item/storage/box/large/tableware
+	name = "assorted tableware"
+	illustration = "bowl"
+	color = COLOR_PALE_GREEN_GRAY
+	max_storage_space = DEFAULT_LARGEBOX_STORAGE
+	desc = "Contains plates, bowls, and basic cutlery sets."
+	starts_with = list(
+		/obj/item/material/kitchen/utensil/fork = 3,
+		/obj/item/material/kitchen/utensil/spoon = 3,
+		/obj/item/material/kitchen/utensil/knife = 3,
+		/obj/item/reagent_containers/bowl = 3,
+		/obj/item/reagent_containers/bowl/plate = 3
+	)
+
 /obj/item/storage/box/snack
 	name = "rations box"
 	illustration = "snack"
@@ -1929,3 +1943,60 @@
 		/obj/item/organ/internal/augment/bioaug/mind_blanker
 	)
 	storage_slots = 4
+
+// Trash components. Bottom of the line
+/obj/item/storage/box/components
+	name = "low-grade component box"
+	illustration = "circuit"
+	color = COLOR_BLUE_GRAY
+	make_exact_fit = TRUE
+	can_hold_strict = TRUE
+	display_contents_with_number = TRUE
+	allow_quick_gather = TRUE
+	use_to_pickup = TRUE
+	can_hold = list(/obj/item/stock_parts)
+	starts_with = list(
+		/obj/item/stock_parts/console_screen = 3,
+		/obj/item/stock_parts/capacitor = 4,
+		/obj/item/stock_parts/scanning_module = 4,
+		/obj/item/stock_parts/manipulator = 4,
+		/obj/item/stock_parts/micro_laser = 4,
+		/obj/item/stock_parts/matter_bin = 4,
+	)
+
+// The decent stuff. Better than the small ones
+/obj/item/storage/box/components/advanced
+	name = "mid-grade component box"
+	starts_with = list(
+		/obj/item/stock_parts/console_screen = 3,
+		/obj/item/stock_parts/capacitor/adv = 4,
+		/obj/item/stock_parts/scanning_module/adv = 4,
+		/obj/item/stock_parts/manipulator/nano = 4,
+		/obj/item/stock_parts/micro_laser/high = 4,
+		/obj/item/stock_parts/matter_bin/adv = 4,
+	)
+
+// Top tier components
+/obj/item/storage/box/components/super_advanced
+	name = "high-grade component box"
+	starts_with = list(
+		/obj/item/stock_parts/console_screen = 3,
+		/obj/item/stock_parts/capacitor/super = 4,
+		/obj/item/stock_parts/scanning_module/phasic = 4,
+		/obj/item/stock_parts/manipulator/pico = 4,
+		/obj/item/stock_parts/micro_laser/ultra = 4,
+		/obj/item/stock_parts/matter_bin/super = 4,
+	)
+
+//Telecomms parts
+/obj/item/storage/box/components/telecomms
+	name = "telecomm component box"
+	starts_with = list(
+		/obj/item/stock_parts/subspace/ansible = 4,
+		/obj/item/stock_parts/subspace/filter = 4,
+		/obj/item/stock_parts/subspace/amplifier = 4,
+		/obj/item/stock_parts/subspace/treatment = 4,
+		/obj/item/stock_parts/subspace/analyzer = 4,
+		/obj/item/stock_parts/subspace/crystal = 4,
+		/obj/item/stock_parts/subspace/transmitter = 4
+	)

@@ -10,7 +10,7 @@
 /obj/structure/easel/Initialize(ml, _mat, _reinf_mat)
 	. = ..()
 	RegisterSignal(src, COMSIG_MOVABLE_MOVED, PROC_REF(move_painting))
-	material = SSmaterials.get_material_by_name(MATERIAL_WOOD)
+	material = GET_SINGLETON(MATERIAL_WOOD)
 
 /obj/structure/easel/Destroy()
 	painting = null

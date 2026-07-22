@@ -134,7 +134,6 @@
 	new /obj/item/gun/energy/repeater/pistol(src)
 	new /obj/item/taperoll/police(src)
 	new /obj/item/breath_analyzer(src)
-	new /obj/item/crowbar/red(src)
 	new /obj/item/ipc_tag_scanner(src)
 	new /obj/item/taperecorder(src)
 	new /obj/item/binoculars(src)
@@ -145,6 +144,7 @@
 	new /obj/item/storage/belt/security/full(src)
 	new /obj/item/storage/belt/security/vestbelt(src)
 	new /obj/item/storage/box/fancy/keypouch/sec(src)
+	new /obj/item/crowbar/rescue_axe/tactical(src)
 
 /obj/structure/closet/secure_closet/hos2
 	name = "head of security's attire"
@@ -288,6 +288,7 @@
 	new /obj/item/storage/belt/security/full(src)
 	new /obj/item/storage/belt/security/vestbelt(src)
 	new /obj/item/clothing/suit/storage/hazardvest/security/officer(src)
+	new /obj/item/crowbar/rescue_axe/tactical(src)
 
 /obj/structure/closet/secure_closet/investigator
 	name = "investigator's locker"

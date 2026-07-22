@@ -14,7 +14,7 @@
 	desc_extended = "It takes significantly longer to apply nanopaste to yourself than it does to apply it to others. Nanites are best enjoyed with a friend!"
 
 	/// What materials does it take to fabricate nanopaste?
-	var/list/construction_cost = list(DEFAULT_WALL_MATERIAL = 7000, MATERIAL_GLASS = 7000)
+	var/list/construction_cost = list(MATERIAL_STEEL = 7000, MATERIAL_GLASS = 7000)
 	/// How long does it take to apply nanopaste?
 	var/time_to_apply = 2 SECONDS
 	/// Multiplier applied to time_to_apply, if we want it to take longer in some situations.

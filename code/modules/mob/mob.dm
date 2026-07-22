@@ -916,7 +916,6 @@
 	if(!found_grab)
 		if(!resting && MOB_IS_INCAPACITATED(INCAPACITATION_KNOCKDOWN) && H?.can_stand_overridden())
 			lying = FALSE
-			lying_is_intentional = FALSE
 			canmove = TRUE
 		else
 			if(buckled_to)
@@ -924,12 +923,10 @@
 					var/obj/vehicle/V = buckled_to
 					if(MOB_IS_INCAPACITATED(INCAPACITATION_DISABLED))
 						lying = TRUE
-						lying_is_intentional = FALSE
 						canmove = FALSE
 						pixel_y = V.mob_offset_y - 5
 					else
 						if(buckled_to.buckle_lying != -1) lying = buckled_to.buckle_lying
-						lying_is_intentional = FALSE
 						canmove = TRUE
 						pixel_y = V.mob_offset_y
 				else
@@ -937,7 +934,6 @@
 					canmove = FALSE
 					if(buckled_to.buckle_lying != -1)
 						lying = buckled_to.buckle_lying
-						lying_is_intentional = FALSE
 					if(buckled_to.buckle_movable)
 						anchored = FALSE
 						canmove = TRUE
@@ -945,22 +941,18 @@
 				anchored = TRUE
 				canmove = FALSE
 				lying = FALSE
-				lying_is_intentional = FALSE
 			else if(sleeping)
 				lying = resting || (stat == DEAD) || (MOB_IS_INCAPACITATED(INCAPACITATION_KNOCKDOWN) && !(H?.species?.sleeps_upright)) // Vaurca, IPCs and Diona sleep standing up, unless they were already lying down
-				lying_is_intentional = FALSE
 				canmove = !MOB_IS_INCAPACITATED(INCAPACITATION_KNOCKOUT) && !weakened
 			else
 				var/incapacitated = (stat == DEAD) || MOB_IS_INCAPACITATED(INCAPACITATION_KNOCKOUT) || weakened && !recently_slept
 				lying = incapacitated || resting
-				lying_is_intentional = !incapacitated
 				canmove = !MOB_IS_INCAPACITATED(INCAPACITATION_KNOCKOUT) && !weakened
 
 	if(lying)
 		ADD_TRAIT(src, TRAIT_UNDENSE, TRAIT_SOURCE_LYING_DOWN)
-		if(!lying_is_intentional)
-			if(l_hand) unEquip(l_hand)
-			if(r_hand) unEquip(r_hand)
+		if(l_hand) unEquip(l_hand)
+		if(r_hand) unEquip(r_hand)
 	else
 		REMOVE_TRAIT(src, TRAIT_UNDENSE, TRAIT_SOURCE_LYING_DOWN)
 

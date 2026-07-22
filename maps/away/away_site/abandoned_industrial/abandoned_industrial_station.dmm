@@ -1348,9 +1348,7 @@
 /area/abandoned_industrial_station/docks_east)
 "el" = (
 /obj/effect/floor_decal/corner/green/diagonal,
-/obj/structure/table/glass{
-	table_reinf = "glass"
-	},
+/obj/structure/table/glass/reinf,
 /obj/random/medical,
 /obj/random/medical,
 /turf/simulated/floor/tiled/white,
@@ -9634,9 +9632,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_industrial_station/hangar)
 "DZ" = (
-/obj/structure/table/glass{
-	table_reinf = "glass"
-	},
+/obj/structure/table/glass/reinf,
 /obj/item/flashlight/lamp/off{
 	pixel_x = -3;
 	pixel_y = 4
@@ -9767,9 +9763,7 @@
 /area/abandoned_industrial_station/docks_east)
 "EF" = (
 /obj/effect/floor_decal/corner/green/diagonal,
-/obj/structure/table/glass{
-	table_reinf = "glass"
-	},
+/obj/structure/table/glass/reinf,
 /obj/item/reagent_containers/syringe/inaprovaline,
 /turf/simulated/floor/tiled/white,
 /area/abandoned_industrial_station/medical)
@@ -11858,9 +11852,7 @@
 /area/abandoned_industrial_station/hallways)
 "Lh" = (
 /obj/effect/floor_decal/corner/green/diagonal,
-/obj/structure/table/glass{
-	table_reinf = "glass"
-	},
+/obj/structure/table/glass/reinf,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/abandoned_industrial_station/medical)

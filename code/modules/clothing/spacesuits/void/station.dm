@@ -335,3 +335,48 @@
 		RAD = ARMOR_RAD_RESISTANT
 	)
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_IPC, BODYTYPE_UNATHI, BODYTYPE_SKRELL, BODYTYPE_VAURCA)
+
+/obj/item/clothing/head/helmet/space/void/ops
+	name = "operations voidsuit helmet"
+	desc = "A special helmet designed for work in a hazardous, low pressure environments. This one is standard issue for Orion personnel doing EVA deliveries."
+	icon = 'icons/obj/clothing/voidsuit/station/operations.dmi'
+	icon_state = "hangartech_helm"
+	item_state = "hangartech_helm"
+	item_state_slots = list( //so that it isn't overridden on refit
+		slot_r_hand_str = "hangartech_helm",
+		slot_l_hand_str = "hangartech_helm"
+	)
+	contained_sprite = TRUE
+	icon_supported_species_tags = list("skr", "taj", "una", "ipc")
+	armor = list(
+		MELEE = ARMOR_MELEE_KNIVES,
+		BULLET = ARMOR_BALLISTIC_MINOR,
+		LASER = ARMOR_LASER_MINOR,
+		BOMB = ARMOR_BOMB_RESISTANT,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_MINOR
+	)
+	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_IPC, BODYTYPE_UNATHI, BODYTYPE_SKRELL)
+
+/obj/item/clothing/suit/space/void/ops
+	name = "operations voidsuit"
+	desc = "A special suit that protects against hazardous, low pressure environments. This one is standard issue for Orion personnel doing EVA deliveries."
+	icon = 'icons/obj/clothing/voidsuit/station/operations.dmi'
+	icon_state = "hangartech"
+	item_state = "hangartech"
+	item_state_slots = list( //so that it isn't overridden on refit
+		slot_r_hand_str = "hangartech",
+		slot_l_hand_str = "hangartech"
+	)
+	contained_sprite = TRUE
+	icon_supported_species_tags = list("skr", "taj", "una", "ipc")
+	allowed = list(/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit)
+	armor = list(
+		MELEE = ARMOR_MELEE_KNIVES,
+		BULLET = ARMOR_BALLISTIC_MINOR,
+		LASER = ARMOR_LASER_MINOR,
+		BOMB = ARMOR_BOMB_RESISTANT,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_MINOR
+	)
+	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_IPC, BODYTYPE_UNATHI, BODYTYPE_SKRELL)

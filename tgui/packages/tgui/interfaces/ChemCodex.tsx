@@ -8,6 +8,7 @@ export type CodexData = {
 };
 
 type Reaction = {
+  id: string;
   result: Result;
   reagents: Reagent[];
   catalysts: Reagent[];
@@ -59,7 +60,7 @@ export const ChemCodex = (props) => {
           .map((reaction) => (
             <Section
               title={`${reaction.result.name}(${reaction.result.amount}u)`}
-              key={reaction.result.name}
+              key={reaction.id}
             >
               <NoticeBox>{reaction.result.description}</NoticeBox>
               <Section title="Required Reagents">

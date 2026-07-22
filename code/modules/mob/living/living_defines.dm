@@ -129,3 +129,5 @@
 	var/datum/weakref/last_weather
 
 	var/tmp/last_push_notif
+
+	var/seer = 0 //for cult//Carbon, probably Human

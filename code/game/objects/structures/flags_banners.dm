@@ -1341,6 +1341,73 @@
 /obj/structure/sign/flag/trinaryperfection/large/west/Initialize(mapload)
 	. = ..(mapload, WEST)
 
+// Salamasian Republic
+
+/obj/item/flag/salamasian_republic
+	name = "\improper Salamasian Republic flag"
+	desc = "The flag of the Salamasian Republic, one of the two codependent states of \
+	Axiom, also known as Nuʻu or Orepit. Born from corporate colonization, abandonment, \
+	revolt, and generations of hardship, the republic and its people have shaped a vibrant \
+	culture wholly their own."
+	desc_extended = "The flag of the Salamasian Republic consists of a bright turquoise field \
+	above a deep teal band. Upon the field sits a large orange disc, accompanied by three smaller \
+	spheres in tan, blue, and gray. The turquoise field represents the sky and sea of Nuʻu, \
+	recalling the world’s broad oceans and open horizons. The deep teal band represents land, \
+	home, and cultivation: the fertile ground upon which the old mining settlements became villages, \
+	cities, and, in time, a republic. The orange disc depicts Aloʻo le La, the orange dwarf star of \
+	the Tagaloa system. The three smaller discs represent the other visible bodies of the Tagaloa sky: \
+	Leiloa, Vaoati, and Faʻatiu, shown from top to bottom. They are also commonly read as symbols of \
+	family, strength, and virtue, core ideals of Faʻa Salamasia. As a whole, the flag recreates the \
+	sky as seen from Nuʻu’s surface, with its celestial neighbors visible above the land of Nu’u."
+	flag_path = "salamasian_republic"
+	flag_structure = /obj/structure/sign/flag/salamasian_republic
+
+/obj/structure/sign/flag/salamasian_republic
+	name = "\improper Salamasian Republic flag"
+	desc = "The flag of the Salamasian Republic, one of the two codependent states of \
+	Axiom, also known as Nuʻu or Orepit. Born from corporate colonization, abandonment, \
+	revolt, and generations of hardship, the republic and its people have shaped a vibrant \
+	culture wholly their own."
+	desc_extended = "The flag of the Salamasian Republic consists of a bright turquoise field \
+	above a deep teal band. Upon the field sits a large orange disc, accompanied by three smaller \
+	spheres in tan, blue, and gray. The turquoise field represents the sky and sea of Nuʻu, \
+	recalling the world’s broad oceans and open horizons. The deep teal band represents land, \
+	home, and cultivation: the fertile ground upon which the old mining settlements became villages, \
+	cities, and, in time, a republic. The orange disc depicts Aloʻo le La, the orange dwarf star of \
+	the Tagaloa system. The three smaller discs represent the other visible bodies of the Tagaloa sky: \
+	Leiloa, Vaoati, and Faʻatiu, shown from top to bottom. They are also commonly read as symbols of \
+	family, strength, and virtue, core ideals of Faʻa Salamasia. As a whole, the flag recreates the \
+	sky as seen from Nuʻu’s surface, with its celestial neighbors visible above the land of Nu’u."
+	flag_path = "salamasian_republic"
+	icon_state = "salamasian_republic"
+	flag_item = /obj/item/flag/salamasian_republic
+
+/obj/structure/sign/flag/salamasian_republic/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/salamasian_republic/l
+	name = "large Salamasian Republic flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/salamasian_republic/large
+
+/obj/structure/sign/flag/salamasian_republic/large
+	icon_state = "salamasian_republic_l"
+	flag_path = "salamasian_republic"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/salamasian_republic/l
+
+/obj/structure/sign/flag/salamasian_republic/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/salamasian_republic/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/salamasian_republic/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/salamasian_republic/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
+
 // Golden Deep
 
 /obj/item/flag/goldendeep
@@ -4260,4 +4327,49 @@
 	. = ..(mapload, EAST)
 
 /obj/structure/sign/flag/outer_eyes/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
+
+// Caria
+
+/obj/structure/sign/flag/caria
+	name = "\improper Caria banner"
+	desc = "The flag of the Imperial Viceroyalty of Caria, a trade-focused Dominian colonial world."
+	desc_extended = "The twin moons of the Carian flag represent Lixus, the reflective moon which makes life on the planet possible at all. The twin fires represent a sacred tradition where members of the Adirim — its voting body — pass between two sacred flames to purify their souls before voting."
+	icon_state = "caria"
+	flag_item = /obj/item/flag/caria
+
+/obj/item/flag/caria
+	name = "\improper Caria banner"
+	desc = "The flag of the Imperial Viceroyalty of Caria, a trade-focused Dominian colonial world."
+	desc_extended = "The twin moons of the Carian flag represent Lixus, the reflective moon which makes life on the planet possible at all. The twin fires represent a sacred tradition where members of the Adirim — its voting body — pass between two sacred flames to purify their souls before voting."
+	flag_path = "caria"
+	flag_structure = /obj/structure/sign/flag/caria
+
+/obj/item/flag/caria/l
+	name = "\improper Caria flag"
+	desc =  "The flag of the Imperial Viceroyalty of Caria, a trade-focused Dominian colonial world."
+	desc_extended = "The twin moons of the Carian flag represent Lixus, the reflective moon which makes life on the planet possible at all. The twin fires represent a sacred tradition where members of the Adirim — its voting body — pass between two sacred flames to purify their souls before voting."
+	flag_path = "caria"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/caria/large
+
+/obj/structure/sign/flag/caria/large
+	name = "\improper Caria flag"
+	desc =  "The flag of the Imperial Viceroyalty of Caria, a trade-focused Dominian colonial world."
+	desc_extended = "The twin moons of the Carian flag represent Lixus, the reflective moon which makes life on the planet possible at all. The twin fires represent a sacred tradition where members of the Adirim — its voting body — pass between two sacred flames to purify their souls before voting."
+	icon_state = "caria_l"
+	flag_path = "caria"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/caria/l
+
+/obj/structure/sign/flag/caria/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/caria/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/caria/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/caria/large/west/Initialize(mapload)
 	. = ..(mapload, WEST)

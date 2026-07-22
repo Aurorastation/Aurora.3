@@ -21,7 +21,7 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 	)
 
 	var/max_material_storage = 75000
-	var/list/materials = list(DEFAULT_WALL_MATERIAL = 0, MATERIAL_GLASS = 0, MATERIAL_GOLD = 0, MATERIAL_SILVER = 0, MATERIAL_PHORON = 0, MATERIAL_URANIUM = 0, MATERIAL_DIAMOND = 0)
+	var/list/materials = list(MATERIAL_STEEL = 0, MATERIAL_GLASS = 0, MATERIAL_GOLD = 0, MATERIAL_SILVER = 0, MATERIAL_PHORON = 0, MATERIAL_URANIUM = 0, MATERIAL_DIAMOND = 0)
 
 	/**
 	 * A `/list` of enqueued `/datum/design` to be printed, processed in the queue
@@ -85,6 +85,7 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 		icon_state = "circuit_imprinter"
 
 /obj/structure/machinery/r_n_d/circuit_imprinter/proc/TotalMaterials()
+	SSmaterials.normalize_material_amounts(materials)
 	var/t = 0
 	for(var/f in materials)
 		t += materials[f]
@@ -95,6 +96,7 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 		// This will distribute all reagents amongst the contained beakers
 		if(istype(I, /obj/item/reagent_containers/glass/beaker))
 			reagents.trans_to_obj(I, reagents.total_volume)
+	SSmaterials.normalize_material_amounts(materials)
 	for(var/f in materials)
 		if(materials[f] >= SHEET_MATERIAL_AMOUNT)
 			var/path = getMaterialType(f)
@@ -164,7 +166,7 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 	if(do_after(user, 16))
 		if(stack.use(amount))
 			to_chat(user, SPAN_NOTICE("You add [amount] sheets to \the [src]."))
-			materials[stack.default_type] += amount * SHEET_MATERIAL_AMOUNT
+			SSmaterials.add_material_amount(materials, stack.default_type, amount * SHEET_MATERIAL_AMOUNT)
 
 			//In case there's things queued up, we run the queue handler
 			handle_queue()
@@ -232,8 +234,12 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
  * Returns `TRUE` if the design can be built, `FALSE` otherwise
  */
 /obj/structure/machinery/r_n_d/circuit_imprinter/proc/canBuild(datum/design/design_to_check)
+	SSmaterials.normalize_material_amounts(materials)
 	for(var/M in design_to_check.materials)
-		if(materials[M] < design_to_check.materials[M])
+		var/material = SSmaterials.material_to_path(M, FALSE)
+		if(!material)
+			material = M
+		if((materials[material] || 0) < design_to_check.materials[M])
 			return FALSE
 
 	for(var/C in design_to_check.chemicals)
@@ -250,13 +256,15 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
  * Returns a string of the materials that are missing
  */
 /obj/structure/machinery/r_n_d/circuit_imprinter/proc/getLackingMaterials(datum/design/design_to_check)
+	SSmaterials.normalize_material_amounts(materials)
 	var/ret = ""
 
 	for(var/M in design_to_check.materials)
-		if(materials[M] < design_to_check.materials[M])
+		var/amount = SSmaterials.get_material_amount(materials, M)
+		if(amount < design_to_check.materials[M])
 			if(ret != "")
 				ret += ", "
-			ret += "[design_to_check.materials[M] - materials[M]] [M]"
+			ret += "[design_to_check.materials[M] - amount] [SSmaterials.material_display_name(M)]"
 
 	for(var/C in design_to_check.chemicals)
 		if(!reagents.has_reagent(C, design_to_check.chemicals[C]))
@@ -281,8 +289,9 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 	use_power_oneoff(power)
 
 	//Consume the materials
+	SSmaterials.normalize_material_amounts(materials)
 	for(var/M in design_to_build.materials)
-		materials[M] = max(0, materials[M] - design_to_build.materials[M] * mat_efficiency)
+		SSmaterials.remove_material_amount(materials, M, design_to_build.materials[M] * mat_efficiency)
 
 	for(var/C in design_to_build.chemicals)
 		reagents.remove_reagent(C, design_to_build.chemicals[C] * mat_efficiency)

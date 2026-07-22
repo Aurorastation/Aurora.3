@@ -51,14 +51,13 @@
 	if((mutations & mRun))
 		tally = 0
 
-	if(isitem(pulling) && !(species.flags & NO_EQUIP_SPEEDMODS))
-		var/obj/item/P = pulling
-		tally += P.slowdown
+	var/effective_mass = get_effective_mass()
+	if(pulling && pulling.mass > mass)
+		tally += pulling.mass / effective_mass
 
 	var/obj/item/grab/grab = get_type_in_hands(/obj/item/grab)
-	if(istype(grab) && ishuman(grab.affecting))
-		if(grab.affecting.mob_weight > get_mob_strength())
-			tally += grab.affecting.mob_weight - get_mob_strength()
+	if(istype(grab) && ismovable(grab.affecting) && grab.affecting.mass > mass)
+		tally += grab.affecting.mass / effective_mass
 
 	var/turf/T = get_turf(src)
 	if(T) // changelings don't get movement costs
@@ -79,7 +78,6 @@
 	if(!isnull(facing_dir) && facing_dir != dir)
 		tally += 3
 
-	tally = round(tally, 0.1)
 
 	return tally
 

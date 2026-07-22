@@ -46,7 +46,7 @@
 	name = "IPC Refugee"
 	desc = "You are an IPC refugee, fleeing from the Wildlands onboard a heavily run down freighter in search of a better life."
 
-	welcome_message = "You are an IPC refugee, fleeing from the Wildlands in search of a better life on a journey that has been nothing but perilous at every turn. A number of your synthetic brethren have already perished, but you've come too far to give up on your dreams of freedom now. Do what you must to survive, and maybe you'll reach Konyang or Orepit yet."
+	welcome_message = "You are an IPC refugee, fleeing from the Wildlands in search of a better life on a journey that has been nothing but perilous at every turn. A number of your synthetic brethren have already perished, but you've come too far to give up on your dreams of freedom now. Do what you must to survive, and maybe you'll reach Konyang or Axiom yet."
 
 	spawnpoints = list("refugee_crew_ipc")
 	max_count = 3
