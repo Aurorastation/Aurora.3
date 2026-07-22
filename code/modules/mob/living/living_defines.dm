@@ -27,6 +27,7 @@
 
 	var/mob/living/cameraFollow = null
 	var/list/datum/action/actions = list()
+	var/datum/action/cancel_camera_view/camera_view_cancel_action
 
 	/// Time of death
 	var/tod = null

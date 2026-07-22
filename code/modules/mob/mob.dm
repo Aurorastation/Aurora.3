@@ -411,7 +411,13 @@
 			else
 				client.perspective = EYE_PERSPECTIVE
 				client.eye = loc
+	if(istype(src, /mob/living))
+		var/mob/living/living_mob = src
+		living_mob.update_camera_view_action()
 	return
+
+/mob/proc/is_viewing_camera()
+	return client && istype(client.eye, /obj/structure/machinery/camera)
 
 
 /mob/proc/show_inv(mob/user)

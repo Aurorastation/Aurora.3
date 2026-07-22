@@ -549,6 +549,14 @@
 
 	return
 
+/mob/living/proc/update_camera_view_action()
+	if(is_viewing_camera())
+		if(!camera_view_cancel_action)
+			camera_view_cancel_action = new
+		camera_view_cancel_action.Grant(src)
+	else if(camera_view_cancel_action?.owner)
+		camera_view_cancel_action.Remove(src)
+
 /mob/living/update_action_buttons()
 	if(!hud_used) return
 	if(!client) return
