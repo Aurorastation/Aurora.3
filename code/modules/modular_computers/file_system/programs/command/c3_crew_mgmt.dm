@@ -21,6 +21,9 @@
 	var/centcomm_message_cooldown = 0
 	var/announcement_cooldown = 0
 	var/datum/announcement/priority/crew_announcement = new
+	var/list/destination_sources_cache
+	var/list/destination_contacts_cache
+	var/destination_sources_cache_expires = 0
 
 /datum/computer_file/program/comm_control/New(obj/item/modular_computer/comp, intercept_printing = FALSE, shuttle_call = FALSE)
 	. = ..()
@@ -87,7 +90,7 @@
 	data["def_SEC_LEVEL_GREEN"] = SEC_LEVEL_GREEN
 	data["ntnet_communications_available"] = ntn_comm
 	var/list/destination_sources = get_available_destination_sources()
-	data["destination_contacts"] = build_available_destination_contacts(destination_sources)
+	data["destination_contacts"] = get_available_destination_contacts()
 	data["teams"] = list()
 
 	data["messages"] = GLOB.comm_messages
@@ -359,7 +362,7 @@
 			update_ui = TRUE
 
 		if("set_destination")
-			var/list/available_destinations = get_available_destination_sources()
+			var/list/available_destinations = get_available_destination_sources(TRUE)
 			var/obj/effect/overmap/visitable/selected_destination
 			for(var/obj/effect/overmap/visitable/contact as anything in available_destinations)
 				if("[REF(contact)]" == params["contact"])
@@ -629,15 +632,6 @@
 		return "Different z"
 	return "Different contact"
 
-/// Returns TRUE for Horizon-owned sensor consoles in Horizon station areas.
-/datum/computer_file/program/comm_control/proc/is_legitimate_horizon_sensor_console(var/obj/structure/machinery/computer/ship/sensors/sensor_console, var/obj/effect/overmap/visitable/horizon)
-	if(!istype(sensor_console) || !istype(horizon))
-		return FALSE
-	if(sensor_console.linked != horizon)
-		return FALSE
-	var/area/console_area = get_area(sensor_console)
-	return console_area && is_station_area(console_area)
-
 /// Adds a currently selectable overmap destination contact to an associative contact/source list.
 /datum/computer_file/program/comm_control/proc/add_available_destination_contact(var/list/contact_sources, var/obj/effect/overmap/visitable/contact, var/source)
 	if(!istype(contact) || QDELETED(contact))
@@ -645,34 +639,51 @@
 	contact_sources[contact] = source
 
 /// Returns currently selectable destination contacts from legitimate Horizon sensors plus the default Horizon contact.
-/datum/computer_file/program/comm_control/proc/get_available_destination_sources()
+/datum/computer_file/program/comm_control/proc/get_available_destination_sources(var/force_refresh = FALSE)
+	if(!force_refresh && !isnull(destination_sources_cache) && destination_sources_cache_expires > world.time)
+		return destination_sources_cache
+
 	var/list/contact_sources = list()
 	var/obj/effect/overmap/visitable/horizon = get_horizon_sector()
 	if(!istype(horizon))
-		return contact_sources
+		destination_sources_cache = contact_sources
+		destination_contacts_cache = list()
+		destination_sources_cache_expires = world.time + 5 SECONDS
+		return destination_sources_cache
 
 	add_available_destination_contact(contact_sources, horizon, TEAM_DESTINATION_DEFAULT_SOURCE)
 
-	for(var/obj/structure/machinery/computer/ship/sensors/sensor_console as anything in SSmachinery.machinery)
-		if(!is_legitimate_horizon_sensor_console(sensor_console, horizon))
-			continue
-
-		for(var/obj/effect/overmap/visitable/contact as anything in sensor_console.objects_in_view)
-			if(sensor_console.contact_datums[contact])
-				add_available_destination_contact(contact_sources, contact, TEAM_DESTINATION_SENSOR_SOURCE)
-
-		for(var/obj/effect/overmap/visitable/datalinked_ship as anything in sensor_console.datalink_contacts)
-			var/list/datalinked_contacts = sensor_console.datalink_contacts[datalinked_ship]
-			for(var/obj/effect/overmap/visitable/contact as anything in datalinked_contacts)
+	if(horizon.consoles)
+		for(var/obj/structure/machinery/computer/ship/sensors/sensor_console in horizon.consoles)
+			for(var/obj/effect/overmap/visitable/contact as anything in sensor_console.objects_in_view)
 				if(sensor_console.contact_datums[contact])
-					add_available_destination_contact(contact_sources, contact, TEAM_DESTINATION_DATALINK_SOURCE)
+					add_available_destination_contact(contact_sources, contact, TEAM_DESTINATION_SENSOR_SOURCE)
 
-	return contact_sources
+			for(var/obj/effect/overmap/visitable/datalinked_ship as anything in sensor_console.datalink_contacts)
+				var/list/datalinked_contacts = sensor_console.datalink_contacts[datalinked_ship]
+				for(var/obj/effect/overmap/visitable/contact as anything in datalinked_contacts)
+					if(sensor_console.contact_datums[contact])
+						add_available_destination_contact(contact_sources, contact, TEAM_DESTINATION_DATALINK_SOURCE)
+
+	destination_sources_cache = contact_sources
+	destination_contacts_cache = build_available_destination_contacts(contact_sources)
+	destination_sources_cache_expires = world.time + 5 SECONDS
+	return destination_sources_cache
+
+/// Returns the cached TGUI destination contact payload built with the matching source snapshot.
+/datum/computer_file/program/comm_control/proc/get_available_destination_contacts()
+	if(isnull(destination_contacts_cache) || isnull(destination_sources_cache) || destination_sources_cache_expires <= world.time)
+		get_available_destination_sources()
+	if(!isnull(destination_contacts_cache))
+		return destination_contacts_cache
+	return list()
 
 /// Builds the TGUI list of destination contacts command may currently assign to teams.
 /datum/computer_file/program/comm_control/proc/build_available_destination_contacts(var/list/contact_sources)
 	var/list/contacts = list()
 	for(var/obj/effect/overmap/visitable/contact as anything in contact_sources)
+		if(!istype(contact) || QDELETED(contact))
+			continue
 		contacts += list(list(
 			"name" = contact.name,
 			"ref" = "[REF(contact)]",
