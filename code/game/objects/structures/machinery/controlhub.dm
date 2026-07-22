@@ -275,5 +275,5 @@ ABSTRACT_TYPE(/obj/structure/machinery/controlhub)
 	controls = list(
 		"interior window tint" = list("type" = "windowtint", "id" = "xo_office_tint"),
 		"privacy window tint" = list("type" = "windowtint", "id" = "xo_privacy_tint"),
-		"privacy shutters" = list("type" = "blast_door", "id" = "xo_office_privacy_shutter"),
+		"privacy shutter" = list("type" = "blast_door", "id" = "xo_office_privacy_shutter"),
 	)

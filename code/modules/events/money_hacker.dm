@@ -19,7 +19,7 @@
 	for(var/obj/structure/machinery/telecomms/message_server/MS in SSmachinery.all_telecomms)
 		if(!MS.use_power || !(MS.z in affecting_z))
 			continue
-		MS.send_rc_message("Executive Officer's Desk", my_department, message, "", "", 2)
+		MS.send_rc_message("Executive Officer's Office", my_department, message, "", "", 2)
 
 
 /datum/event/money_hacker/tick()
@@ -63,4 +63,4 @@
 	for(var/obj/structure/machinery/telecomms/message_server/MS in SSmachinery.all_telecomms)
 		if(!MS.use_power || !(MS.z in affecting_z))
 			continue
-		MS.send_rc_message("Executive Officer's Desk", my_department, message, "", "", 2)
+		MS.send_rc_message("Executive Officer's Office", my_department, message, "", "", 2)

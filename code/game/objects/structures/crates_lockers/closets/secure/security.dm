@@ -57,6 +57,8 @@
 /obj/structure/closet/secure_closet/xo/fill()
 	..()
 	//Supply
+	new /obj/item/storage/briefcase/black(src)
+	new /obj/item/storage/secure/briefcase (src)
 	new /obj/item/storage/box/ids(src)
 	new /obj/item/storage/box/ids(src)
 	new /obj/item/radio/headset/heads/xo(src)
@@ -75,6 +77,7 @@
 	//Tools
 	new /obj/item/megaphone/command(src)
 	new /obj/item/storage/stickersheet/goldstar(src)
+	new /obj/item/journal/notepad/scc/filled(src)
 	new /obj/item/gun/energy/repeater/pistol(src)
 	new /obj/item/flash(src)
 	new /obj/item/radio(src)
