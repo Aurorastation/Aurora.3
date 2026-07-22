@@ -69,7 +69,7 @@
 
 	var/use_internal_tank = TRUE
 	var/datum/gas_mixture/inside_air
-	var/internal_tank_valve = 100 //Not arbitrary.
+	var/internal_tank_valve = ONE_ATMOSPHERE // in Kilopascals
 	var/obj/item/tank/internal_tank
 	var/syndie = FALSE
 	var/last_shake = 0
