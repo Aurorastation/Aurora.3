@@ -1,0 +1,5 @@
+author: Batrachophrenoboocosmomachia
+delete-after: True
+changes:
+  - rscadd: "Adds NTNet extensibility, requires new machinery constructed on away-site z-levels."
+  - rscadd: "Breaks NTNet Relay machinery into Quantum Relay ('core' obj on Horizon) and Field Relay (deployable off-site constructions)."
