@@ -86,17 +86,24 @@
 		return FALSE
 	return z_level in get_covered_z_levels()
 
+/// 'For endpoint' signifies that sometimes we will abstract a device as being a modular computer when really all we care about is whether it is networked.
+/// This will likely need to be simplified in future.
+/obj/structure/machinery/ntnet_relay/proc/get_signal_for_endpoint(var/atom/endpoint, var/ethernet = FALSE, var/long_range = FALSE)
+	if(!istype(endpoint))
+		return 0
+	var/turf/T = get_turf(endpoint)
+	if(!istype(T) || !covers_z(T.z))
+		return 0
+	if(ethernet)
+		return 3
+	if(long_range)
+		return 2
+	return 1
+
 /obj/structure/machinery/ntnet_relay/proc/get_signal(var/obj/item/computer_hardware/network_card/card)
 	if(!istype(card) || !card.parent_computer)
 		return 0
-	var/turf/T = get_turf(card.parent_computer)
-	if(!istype(T) || !covers_z(T.z))
-		return 0
-	if(card.ethernet)
-		return 3
-	if(card.long_range)
-		return 2
-	return 1
+	return get_signal_for_endpoint(card.parent_computer, card.ethernet, card.long_range)
 
 /obj/structure/machinery/ntnet_relay/update_icon()
 	ClearOverlays()

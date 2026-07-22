@@ -26,6 +26,8 @@
 	camera_monitor_program = new("Compless")
 	// Make sure that camera_monitor knows its been generated from a dedicated console; this will define its network access.
 	camera_monitor_program.monitored_networks = console_networks
+	camera_monitor_program.ntnet_endpoint = src
+	camera_monitor_program.ntnet_endpoint_ethernet = TRUE
 
 /obj/structure/machinery/computer/security/Destroy()
 	if(camera_monitor_program)
@@ -41,6 +43,8 @@
 /obj/structure/machinery/computer/security/check_eye(var/mob/user as mob)
 	if (user.stat || user.blinded || !operable())
 		return -1
+	if(camera_monitor_program?.current_camera)
+		return camera_monitor_program.check_eye(user)
 	if(!current_camera)
 		return 0
 	var/viewflag = current_camera.check_eye(user)
@@ -51,6 +55,8 @@
 /obj/structure/machinery/computer/security/grants_equipment_vision(var/mob/user as mob)
 	if(user.stat || user.blinded || !operable())
 		return FALSE
+	if(camera_monitor_program?.current_camera)
+		return camera_monitor_program.grants_equipment_vision(user)
 	if(!current_camera)
 		return FALSE
 	var/viewflag = current_camera.check_eye(user)

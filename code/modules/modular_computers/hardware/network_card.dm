@@ -88,7 +88,7 @@ GLOBAL_VAR_INIT(ntnet_card_uid, 1)
 	if(!GLOB.ntnet_global || !GLOB.ntnet_global.check_function(specific_action))
 		return 0
 
-	return GLOB.ntnet_global.get_signal(src, specific_action)
+	return GLOB.ntnet_global.get_signal_for_endpoint(parent_computer, specific_action, ethernet, long_range)
 
 /obj/item/computer_hardware/network_card/Destroy()
 	if(sradio)

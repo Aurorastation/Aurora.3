@@ -90,22 +90,34 @@ GLOBAL_DATUM_INIT(ntnet_global, /datum/ntnet, new)
 			return TRUE
 	return FALSE
 
-/datum/ntnet/proc/get_signal(var/obj/item/computer_hardware/network_card/card, var/specific_action = 0)
-	if(!istype(card) || !check_function(specific_action))
+/// 'For endpoint' signifies that sometimes we will abstract a device as being a modular computer when really all we care about is whether it is networked.
+/// This will likely need to be simplified in future.
+/datum/ntnet/proc/get_signal_for_endpoint(var/atom/endpoint, var/specific_action = 0, var/ethernet = FALSE, var/long_range = FALSE)
+	if(!istype(endpoint) || !check_function(specific_action))
 		return 0
 
-	var/obj/item/modular_computer/computer = card.parent_computer
-	if(!computer)
-		return 0
-
-	var/area/A = get_area(computer)
-	if(A?.centcomm_area && card.ethernet)
+	var/area/A = get_area(endpoint)
+	if(A?.centcomm_area && ethernet)
 		return 3
 
 	var/signal = 0
 	for(var/obj/structure/machinery/ntnet_relay/R in relays)
-		signal = max(signal, R.get_signal(card))
+		signal = max(signal, R.get_signal_for_endpoint(endpoint, ethernet, long_range))
 	return signal
+
+/datum/ntnet/proc/get_signal(var/obj/item/computer_hardware/network_card/card, var/specific_action = 0)
+	if(!istype(card) || !card.parent_computer)
+		return 0
+	return get_signal_for_endpoint(card.parent_computer, specific_action, card.ethernet, card.long_range)
+
+/datum/ntnet/proc/get_reachable_z_levels_for_endpoint(var/atom/endpoint, var/specific_action = 0, var/ethernet = FALSE, var/long_range = FALSE)
+	. = list()
+	if(get_signal_for_endpoint(endpoint, specific_action, ethernet, long_range) <= 0)
+		return
+
+	for(var/obj/structure/machinery/ntnet_relay/R in relays)
+		if(R.can_route_to_core())
+			. |= R.get_covered_z_levels()
 
 /datum/ntnet/proc/get_reachable_z_levels(var/obj/item/computer_hardware/network_card/card, var/specific_action = 0)
 	. = list()

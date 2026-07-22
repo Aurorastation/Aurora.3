@@ -121,7 +121,7 @@
 		A.client.eye = A.eyeobj
 		return TRUE
 
-	if(!is_contact_area(get_area(C)))
+	if(!can_reach_camera(C))
 		to_chat(user, SPAN_NOTICE("This camera is too far away to connect to!"))
 		return FALSE
 
@@ -129,6 +129,13 @@
 	user.machine = ui_host()
 	user.reset_view(current_camera)
 	return TRUE
+
+/datum/computer_file/program/penal_mechs/proc/can_reach_camera(var/obj/structure/machinery/camera/C)
+	var/turf/camera_turf = get_turf(C)
+	if(!camera_turf || !computer?.network_card || !GLOB.ntnet_global)
+		return FALSE
+
+	return (camera_turf.z in GLOB.ntnet_global.get_reachable_z_levels(computer.network_card, requires_ntnet_feature))
 
 /datum/computer_file/program/penal_mechs/proc/set_current(var/obj/structure/machinery/camera/C)
 	if(current_camera == C)

@@ -46,6 +46,15 @@
 	var/current_network
 	/// Used for camera monitor consoles from which this interface can be launched. If it exists, only provide that console's "console_networks" networks.
 	var/list/monitored_networks = list()
+	/// Used by non-modular camera consoles that run this program - abstracts as modular comp w/ network card.
+	var/atom/ntnet_endpoint
+	var/ntnet_endpoint_ethernet = FALSE
+	var/ntnet_endpoint_long_range = FALSE
+
+/datum/computer_file/program/camera_monitor/ui_host()
+	if(ntnet_endpoint)
+		return ntnet_endpoint
+	return ..()
 
 /datum/computer_file/program/camera_monitor/ui_data(mob/user)
 	var/list/data = initial_data()
@@ -116,6 +125,16 @@
 
 	return (check_network_access(user, ACCESS_SECURITY) && GLOB.security_level >= SEC_LEVEL_BLUE) || check_network_access(user, network_access)
 
+/datum/computer_file/program/camera_monitor/proc/can_reach_camera(var/obj/structure/machinery/camera/C)
+	var/turf/camera_turf = get_turf(C)
+	if(!camera_turf || !GLOB.ntnet_global)
+		return FALSE
+
+	if(computer?.network_card)
+		return (camera_turf.z in GLOB.ntnet_global.get_reachable_z_levels(computer.network_card, requires_ntnet_feature))
+
+	return (camera_turf.z in GLOB.ntnet_global.get_reachable_z_levels_for_endpoint(ntnet_endpoint, requires_ntnet_feature, ntnet_endpoint_ethernet, ntnet_endpoint_long_range))
+
 /datum/computer_file/program/camera_monitor/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
@@ -165,7 +184,7 @@
 		A.client.eye = A.eyeobj
 		return TRUE
 
-	if(!is_contact_area(get_area(C)))
+	if(!can_reach_camera(C))
 		to_chat(user, SPAN_NOTICE("This camera is too far away to connect to!"))
 		return FALSE
 
@@ -187,6 +206,10 @@
 	if(!current_camera)
 		return 0
 
+	if(!can_reach_camera(current_camera))
+		reset_current()
+		return -1
+
 	var/viewflag = current_camera.check_eye(user)
 	if(viewflag < 0)
 		reset_current()
@@ -194,6 +217,8 @@
 
 /datum/computer_file/program/camera_monitor/grants_equipment_vision(mob/user)
 	if(user.stat || user.blinded || !current_camera)
+		return FALSE
+	if(!can_reach_camera(current_camera))
 		return FALSE
 	return current_camera.grants_equipment_vision(user)
 
