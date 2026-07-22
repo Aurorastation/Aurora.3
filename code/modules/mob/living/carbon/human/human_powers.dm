@@ -1658,8 +1658,8 @@
 		to_chat(src, SPAN_DANGER("Your mind is dark, unable to communicate with the Hive."))
 		return
 
-	if(is_lemurian_sea_sector())
-		to_chat(src, SPAN_DANGER("The Fog cuts you off from the Hivenet."))
+	if(!SSatlas.current_sector.hivenet_echoes && isNotContactLevel(src.z))
+		to_chat(src, SPAN_DANGER("You're too far from any Hivenet relay."))
 		return
 
 	if(!istype(S) && !istype(V))
@@ -2054,8 +2054,8 @@
 	if(!istype(S))
 		to_chat(src, SPAN_WARNING("You require a functional neural socket to do this!"))
 		return FALSE
-	if(is_lemurian_sea_sector())
-		to_chat(src, SPAN_DANGER("The Fog cuts you off from the Hivenet."))
+	if(!SSatlas.current_sector.hivenet_echoes && isNotContactLevel(src.z))
+		to_chat(src, SPAN_DANGER("You're too far from any Hivenet relay."))
 		return FALSE
 	if(S.last_action > world.time)
 		to_chat(src, SPAN_WARNING("You must wait before attempting another Hivenet action!"))
@@ -2192,8 +2192,8 @@
 		to_chat(src, SPAN_WARNING("You are not connected to the Hivenet!"))
 		return
 
-	if(is_lemurian_sea_sector())
-		to_chat(src, SPAN_WARNING("You attempt to reach the Hivenet, but find nothing!"))
+	if(!SSatlas.current_sector.hivenet_echoes && isNotContactLevel(src.z))
+		to_chat(src, SPAN_WARNING("You attempt to reach the Hivenet, but find nothing this far from relays!"))
 		return
 
 	if(within_jamming_range(src))
@@ -2215,8 +2215,8 @@
 	set desc = "Get a list of all vaurca currently on the Hivenet."
 	set category = "Hivenet"
 
-	if(is_lemurian_sea_sector())
-		to_chat(src, SPAN_WARNING("You attempt to query the Hivenet, but find nothing."))
+	if(!SSatlas.current_sector.hivenet_echoes && isNotContactLevel(src.z))
+		to_chat(src, SPAN_WARNING("You attempt to query the Hivenet, but find nothing this far from relays."))
 		return
 
 	var/list/all_vaurca = list()
