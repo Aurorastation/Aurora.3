@@ -330,11 +330,10 @@
 /datum/action/cancel_camera_view/Trigger()
 	if(!Checks())
 		return
-	owner.cancel_camera()
-	owner.update_camera_view_action()
+	owner.cancel_remote_view()
 
 /datum/action/cancel_camera_view/CheckRemoval(mob/living/user)
-	return !user?.is_viewing_camera()
+	return !user || !user.is_viewing_remote_view()
 
 /datum/action/eye
 	action_type = AB_GENERIC

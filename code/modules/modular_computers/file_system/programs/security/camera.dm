@@ -175,6 +175,10 @@
 			usr.reset_view(current_camera)
 			return TRUE
 
+/datum/computer_file/program/camera_monitor/kill_program(forced)
+	reset_current()
+	return ..()
+
 /datum/computer_file/program/camera_monitor/proc/switch_to_camera(var/mob/user, var/obj/structure/machinery/camera/C)
 	//don't need to check if the camera works for AI because the AI jumps to the camera location and doesn't actually look through cameras.
 	if(isAI(user))

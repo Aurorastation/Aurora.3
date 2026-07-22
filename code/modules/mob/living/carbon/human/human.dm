@@ -2324,9 +2324,7 @@
 
 /mob/living/proc/look_up_open_space(var/turf/T)
 	if(client && !MOB_IS_INCAPACITATED(INCAPACITATION_DISABLED))
-		if(z_eye)
-			reset_view(null)
-			QDEL_NULL(z_eye)
+		if(z_eye && clear_z_eye())
 			return
 		var/turf/above = GET_TURF_ABOVE(T)
 		if(TURF_IS_MIMICING(above))
@@ -2347,9 +2345,7 @@
 
 /mob/living/proc/look_down_open_space(var/turf/T)
 	if(client && !MOB_IS_INCAPACITATED(INCAPACITATION_DISABLED))
-		if(z_eye)
-			reset_view(null)
-			QDEL_NULL(z_eye)
+		if(z_eye && clear_z_eye())
 			return
 		if(TURF_IS_MIMICING(T) && GET_TURF_BELOW(T))
 			z_eye = new /atom/movable/z_observer/z_down(T, src, T)

@@ -30,10 +30,18 @@
 	camera_monitor_program.ntnet_endpoint_ethernet = TRUE
 
 /obj/structure/machinery/computer/security/Destroy()
+	reset_remote_viewers()
 	if(camera_monitor_program)
+		camera_monitor_program.reset_current()
 		camera_monitor_program = null
 
 	. = ..()
+
+/obj/structure/machinery/computer/security/proc/reset_remote_viewers()
+	for(var/mob/M in GLOB.player_list)
+		if(M.machine == src && M.is_viewing_remote_view())
+			M.unset_machine()
+			M.reset_view(null)
 
 /obj/structure/machinery/computer/security/attack_ai(var/mob/user as mob)
 	if(!ai_can_interact(user))
