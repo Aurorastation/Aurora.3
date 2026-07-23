@@ -128,7 +128,7 @@
 
 	return eyeobj.EyeMove(n, direct)
 
-/mob/abstract/eye/EyeMove(n, direct) as num
+/mob/abstract/eye/EyeMove(n, direct)
 	var/initial = initial(sprint)
 	var/max_sprint = 50
 
