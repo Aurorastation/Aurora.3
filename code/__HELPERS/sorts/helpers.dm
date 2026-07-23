@@ -39,7 +39,7 @@
  *
  * @param {int} toIndex - The index to stop sorting at. Default: 0.
  */
-/proc/sortTim(list/to_sort, cmp = GLOBAL_PROC_REF(cmp_numeric_asc), associative = FALSE, fromIndex = 1, toIndex = 0) as /list
+/proc/sortTim(list/to_sort, cmp = GLOBAL_PROC_REF(cmp_numeric_asc), associative = FALSE, fromIndex = 1, toIndex = 0) as list
 	CREATE_SORT_INSTANCE(to_sort, cmp, associative, fromIndex, toIndex)
 
 	sorter.timSort(fromIndex, toIndex)
