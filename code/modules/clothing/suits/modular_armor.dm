@@ -10,6 +10,59 @@
 	restricted_accessory_slots = list(ACCESSORY_SLOT_ARMOR_PLATE, ACCESSORY_SLOT_ARM_GUARDS, ACCESSORY_SLOT_LEG_GUARDS, ACCESSORY_SLOT_ARMOR_POCKETS)
 	valid_accessory_slots = list(ACCESSORY_SLOT_ARMOR_PLATE, ACCESSORY_SLOT_ARM_GUARDS, ACCESSORY_SLOT_LEG_GUARDS, ACCESSORY_SLOT_ARMOR_POCKETS, ACCESSORY_SLOT_GENERIC, ACCESSORY_SLOT_ARMBAND, ACCESSORY_SLOT_CAPE, ACCESSORY_SLOT_UTILITY_MINOR)
 	pockets = null
+	/// The armor plate connected to this carrier. No plate stacking for you!
+	var/obj/item/armor_plate/plate
+
+/obj/item/clothing/suit/armor/carrier/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	if(plate)
+		. += SPAN_NOTICE("It has an armor plate slotted in.")
+	else
+		. += SPAN_NOTICE("It does not have an armour plate slotted in.")
+
+/obj/item/clothing/suit/armor/carrier/mechanics_hints(mob/user, distance, is_adjacent)
+	. = ..()
+	. += SPAN_NOTICE("<b>Alt-Click</b> to remove the armour plate.")
+
+/obj/item/clothing/suit/armor/carrier/attackby(obj/item/attacking_item, mob/user)
+	..()
+	if(istype(attacking_item, /obj/item/armor_plate))
+		var/obj/item/armor_plate/new_plate = attacking_item
+		if(istype(plate))
+			remove_plate(user)
+		add_plate(new_plate, user)
+
+/obj/item/clothing/suit/armor/carrier/proc/remove_plate(mob/living/carbon/human/user)
+	if(user)
+		user.visible_message(SPAN_NOTICE("[user] starts shuffling the plate out of [user.get_pronoun("his")] [src]..."), SPAN_NOTICE("You start shuffling the plate out of your [src]."))
+		if(!do_after(user, 3 SECONDS))
+			return
+		user.put_in_hands(plate)
+		user.visible_message(SPAN_NOTICE("[user] removes \the [plate] from [user.get_pronoun("his")] [src]."), SPAN_NOTICE("You remove \the [plate] from your [src]."))
+	else
+		plate.forceMove(get_turf(loc))
+	plate = null
+
+/obj/item/clothing/suit/armor/carrier/proc/add_plate(obj/item/armor_plate/new_plate, mob/living/carbon/human/user)
+	if(!istype(new_plate))
+		return
+
+	if(user)
+		user.visible_message(SPAN_NOTICE("[user] starts slotting \the [new_plate] into \the [user.get_pronoun("his")] [src]..."), SPAN_NOTICE("You start slotting \the [new_plate] into your [src]..."))
+		if(!do_after(user, 2 SECONDS))
+			return
+		user.visible_message(SPAN_NOTICE("[user] slots \the [new_plate] into [user.get_pronoun("his")] [src]"), SPAN_NOTICE("You slot \the [new_plate] into your [src]."))
+		user.drop_from_inventory(new_plate)
+	plate = new_plate
+	plate.forceMove(src)
+
+/obj/item/clothing/suit/armor/carrier/AltClick(mob/user)
+	. = ..()
+	if(plate)
+		remove_plate(user)
+
+/obj/item/clothing/suit/armor/carrier/get_armor_component(obj/item/organ/external/def_zone)
+	return plate ? plate.GetComponent(/datum/component/armor) : ..()
 
 /obj/item/clothing/suit/armor/carrier/dominia
 	name = "imperial army flak vest"

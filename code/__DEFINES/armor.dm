@@ -56,3 +56,6 @@
 #define  ARMOR_ENERGY_RESISTANT		40
 #define  ARMOR_ENERGY_STRONG		75
 #define  ARMOR_ENERGY_SHIELDED		100
+
+/// If this armour plate is broken or not.
+#define ARMOUR_PLATE_BROKEN			1

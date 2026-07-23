@@ -12,3 +12,6 @@
 
 //Vaurca-specific traits
 #define TRAIT_ORIGIN_ELECTRONIC_WARFARE "electronic_warfare"
+
+/// This trait originates from a condition.
+#define TRAIT_ORIGIN_CONDITION "condition"

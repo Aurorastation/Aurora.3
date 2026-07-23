@@ -70,6 +70,22 @@
 	drift = generator("circle", 0.4, NORMAL_RAND)
 	velocity = generator("circle", 0, 3, NORMAL_RAND)
 
+/particles/blood
+	name = "blood"
+	width = 500
+	height = 500
+	count = 250
+	spawning = 15
+	lifespan = 1 SECONDS
+	fade = 1 SECONDS
+	position = generator("circle", list(-32, 0), list(32, 0), NORMAL_RAND)
+	friction = 0.15
+	gradient = list(0, COLOR_RED, 0.75, COLOR_MAROON)
+	color_change = 0.1
+	color = 0
+	gravity = list(0, 1)
+	drift = generator("circle", 0.4, NORMAL_RAND)
+	velocity = generator("circle", 0, 3, NORMAL_RAND)
 
 /particles/heat/high
 	name = "high heat"

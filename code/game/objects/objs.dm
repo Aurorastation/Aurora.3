@@ -35,6 +35,8 @@
 	var/noslice = FALSE
 	/// The armor of this object, turned into an armor component.
 	var/list/armor
+	/// The type of armour component to spawn.
+	var/armor_component_type = /datum/component/armor
 	/// Set to TRUE when shocked by the tesla ball, to not repeatedly shock the object.
 	var/being_shocked = FALSE
 
@@ -126,10 +128,10 @@
 	if(islist(armor))
 		for(var/type in armor)
 			if(armor[type])
-				AddComponent(/datum/component/armor, armor)
+				AddComponent(armor_component_type, armor)
 				break
 	else if(should_use_health)
-		AddComponent(/datum/component/armor, GLOB.default_object_armor, TRUE)
+		AddComponent(armor_component_type, GLOB.default_object_armor, TRUE)
 
 /obj/Destroy()
 	if(persistent_objects_track_active) // Prevent hard deletion of references in the persistence register by removing it preemptively

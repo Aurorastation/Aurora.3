@@ -556,7 +556,11 @@
 		if(ORGAN_IS_DISLOCATED(O))
 			wounds += "dislocated"
 		if(O.status & ORGAN_BROKEN)
-			wounds += "[O.broken_description]"
+			var/list/fractures = list()
+			for(var/datum/condition/organ/fracture/F in O.conditions)
+				if(istype(F, /datum/condition/organ/fracture))
+					fractures += F.name
+			wounds += english_list(fractures)
 		if(O.open)
 			wounds += "open incision"
 

@@ -121,7 +121,7 @@
 	/// HP value of the limb's tendon
 	var/tendon_health = 30
 
-	var/list/tendon_msgs = list("tore apart", "ripped away")
+	var/list/tendon_msgs = list("tear apart", "ripped away")
 
 	var/damage_msg = SPAN_WARNING("You feel an intense pain!")
 	var/broken_description
@@ -223,6 +223,8 @@
 	else if(limb_flags & ORGAN_HAS_TENDON)
 		limb_flags &= ~ORGAN_HAS_TENDON
 
+	add_possible_conditions()
+
 /obj/item/organ/external/Destroy()
 	if(parent?.children)
 		parent.children -= src
@@ -261,6 +263,25 @@
 
 	QDEL_NULL(tendon)
 	return ..()
+
+/**
+ * Adds a bunch of generic conditions to the organ to reduce copypaste.
+ * Basically to avoid having to copypaste the same list across a trillion organs.
+ */
+/obj/item/organ/external/proc/add_possible_conditions()
+	if(!possible_conditions)
+		possible_conditions = list()
+	if(!BP_IS_ROBOTIC(src))
+		if(limb_flags & ORGAN_CAN_BREAK)
+			possible_conditions += list(
+				/datum/condition/organ/fracture/hairline = 50,
+				/datum/condition/organ/fracture/comminuted = 40,
+				/datum/condition/organ/fracture/compound = 30
+			)
+		possible_conditions += list(
+			/datum/condition/organ/slash/incision = 30,
+			/datum/condition/organ/burn/eschar = 30
+		)
 
 /obj/item/organ/external/proc/invalidate_marking_cache()
 	cached_markings = null
@@ -431,9 +452,9 @@
 					DAMAGE PROCS
 ****************************************************/
 
-/obj/item/organ/external/proc/is_damageable(var/additional_damage = 0)
+/*/obj/item/organ/external/proc/is_damageable(var/additional_damage = 0)
 	//Continued damage to vital organs can kill you, and robot organs don't count towards total damage so no need to cap them.
-	return (BP_IS_ROBOTIC(src) || brute_dam + burn_dam + additional_damage < max_damage * 4)
+	return (BP_IS_ROBOTIC(src) || brute_dam + burn_dam + additional_damage < max_damage * 4)*/
 
 /obj/item/organ/external/take_damage(brute, burn, damage_flags, used_weapon = null, list/forbidden_limbs = list(), var/silent)
 	brute = round(brute * brute_mod, 0.1)
@@ -466,7 +487,7 @@
 	if(used_weapon)
 		add_autopsy_data("[used_weapon]", brute + burn)
 
-	var/spillover = 0
+	/*var/spillover = 0 TODOMATT: investigate if this is necessary, and if it is, remember to search it in vsc and re-add it elsewhere
 	if(!is_damageable(brute + burn))
 		spillover = brute_dam + burn_dam + brute - max_damage
 		if(spillover > 0)
@@ -474,7 +495,7 @@
 		else
 			spillover = brute_dam + burn_dam + brute + burn - max_damage
 			if(spillover > 0)
-				burn = max(burn - spillover, 0)
+				burn = max(burn - spillover, 0)*/
 
 	handle_limb_gibbing(used_weapon, brute, burn)
 
@@ -491,7 +512,7 @@
 			burn /= 2
 
 	var/datum/wound/created_wound
-	var/can_cut = !BP_IS_ROBOTIC(src) && (sharp || prob(brute))
+	var/can_cut = !BP_IS_ROBOTIC(src) && sharp
 	if(brute)
 		var/to_create = INJURY_TYPE_BRUISE
 		if(can_cut)
@@ -499,13 +520,13 @@
 			//need to check sharp again here so that blunt damage that was strong enough to break skin doesn't give puncture wounds
 			if(sharp && !edge || bullet)
 				to_create = INJURY_TYPE_PIERCE
-		created_wound = createwound(to_create, brute)
+		created_wound = createwound(to_create, brute, damage_flags)
 
 	if(burn)
 		if(laser)
-			created_wound = createwound(INJURY_TYPE_LASER, burn)
+			created_wound = createwound(INJURY_TYPE_LASER, burn, damage_flags)
 		else
-			created_wound = createwound(INJURY_TYPE_BURN, burn)
+			created_wound = createwound(INJURY_TYPE_BURN, burn, damage_flags)
 
 	add_pain(0.6 * burn + 0.4 * brute)
 
@@ -513,8 +534,8 @@
 		SEND_SIGNAL(owner, COMSIG_DAMAGE_TO_ENDOSKELETON, burn + brute)
 
 	//If there are still hurties to dispense
-	if (spillover)
-		owner.shock_stage += spillover * GLOB.config.organ_damage_spillover_multiplier
+	//if (spillover)
+	//	owner.shock_stage += spillover * GLOB.config.organ_damage_spillover_multiplier
 
 	// sync the organ's damage with its wounds
 	update_damages()
@@ -672,7 +693,7 @@ This function completely restores a damaged organ to perfect condition.
 	owner.updatehealth()
 	START_PROCESSING(SSprocessing, src)
 
-/obj/item/organ/external/proc/createwound(type = INJURY_TYPE_CUT, damage)
+/obj/item/organ/external/proc/createwound(type = INJURY_TYPE_CUT, damage, damage_flags)
 	if(damage <= 0 || !owner)
 		return
 	START_PROCESSING(SSprocessing, src)
@@ -735,8 +756,17 @@ This function completely restores a damaged organ to perfect condition.
 
 				return W
 
+	// TODOMATT shitty placeholder test code
+	if(length(possible_conditions))
+		for(var/condition_type in possible_conditions)
+			if(!has_condition(condition_type))
+				var/datum/condition/organ/new_condition = new condition_type(src, type)
+				if(!QDELETED(new_condition))
+					LAZYADD(conditions, new_condition)
+					break //only one at a time please
+
 	//Creating wound
-	var/wound_type = get_wound_type(type, damage)
+	var/wound_type = get_wound_type(type, damage, damage_flags)
 
 	if(wound_type)
 		var/datum/wound/W = new wound_type(damage, src)
@@ -1122,6 +1152,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 					SPAN_DANGER("\The [owner]'s [src.name] flies off in an arc!"),\
 					"<span class='moderate'><b><font size=5>Your [src.name] goes flying off!</font></b></span>",\
 					SPAN_DANGER("You hear the terrible sound of [gore_sound]."))
+				playsound(owner, 'sound/effects/conditions/disembowelment.ogg', 100, FALSE)
 		if(DROPLIMB_BURN)
 			var/gore = "[(status & ORGAN_ROBOT) ? "": " of burning flesh"]"
 			owner.visible_message(
@@ -1135,6 +1166,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 				SPAN_DANGER("\The [owner]'s [src.name] explodes[gore]!"),\
 				"<span class='moderate'><b><font size=5>Your [src.name] explodes[gore]!</font></b></span>",\
 				SPAN_DANGER("You hear the [gore_sound]."))
+			playsound(owner, 'sound/effects/conditions/condition_high_1.ogg', 100, FALSE)
 
 	var/mob/living/carbon/human/victim = owner //Keep a reference for post-removed().
 	var/obj/item/organ/external/original_parent = parent
@@ -1279,36 +1311,10 @@ Note that amputating the affected organ does in fact remove the infection from t
 	return rval
 
 /// Fractures the bone, so long as it isn't robotic or already broken. When the silent flag is set, no message or sound will be played, and there will be no pain effects
-/obj/item/organ/external/proc/fracture(var/silent = FALSE)
-	if(status & ORGAN_ROBOT)
-		return	//ORGAN_BROKEN doesn't have the same meaning for robot limbs
-	if((status & ORGAN_BROKEN) || !(limb_flags & ORGAN_CAN_BREAK))
-		return
-	if(QDELETED(owner))
-		return
-
-	START_PROCESSING(SSprocessing, src)
-	if(!silent)
-		var/message = pick("broke in half", "shattered")
-		owner.visible_message(\
-			SPAN_WARNING("<font size=4>You hear a loud cracking sound coming from \the [owner]!</font>"),\
-			SPAN_DANGER("<font size=5>Something feels like it [message] in your [name]!</font>"),\
-			"You hear a sickening crack!")
-		if(owner.species && owner.can_feel_pain())
-			owner.emote("scream")
-			owner.flash_strong_pain()
-		playsound(src.loc, SFX_FRACTURE, 100, 1, -2)
-
-	status |= ORGAN_BROKEN
-	broken_description = pick("broken", "fracture", "hairline fracture")
-	perma_injury = brute_dam
-
-	// Fractures have a chance of getting you out of restraints
-	if(prob(25))
-		release_restraints()
-
-	// This is mostly for the ninja suit to stop ninja being so crippled by breaks.
-	check_rigsplints()
+/obj/item/organ/external/proc/fracture(silent = FALSE, fracture_type = /datum/condition/organ/fracture/comminuted)
+	var/datum/condition/organ/fracture/fracture = new fracture_type(src, INJURY_TYPE_BRUISE, silent)
+	if(!QDELETED(fracture))
+		LAZYADD(conditions, fracture)
 
 /obj/item/organ/external/proc/mend_fracture()
 	if(status & ORGAN_ROBOT)
@@ -1416,6 +1422,8 @@ Note that amputating the affected organ does in fact remove the infection from t
 		return FALSE
 	if(get_pain() > pain_disability_threshold)
 		return FALSE
+	if(HAS_TRAIT(src, TRAIT_FOURTH_DEGREE_ESCHAR))
+		return FALSE
 	if(brute_ratio >= 100)
 		return FALSE
 	if(burn_ratio >= 100)
@@ -1456,7 +1464,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 				break
 	//Nothing still? Make a new wound for this object to embed in.
 	if(!supplied_wound)
-		supplied_wound = createwound(INJURY_TYPE_PIERCE, W.w_class * EMBED_BASE_DAMAGE)
+		supplied_wound = createwound(INJURY_TYPE_PIERCE, W.w_class * EMBED_BASE_DAMAGE, W.damage_flags())
 
 	if(!supplied_wound || (W in supplied_wound.embedded_objects)) // Just in case.
 		return
@@ -1705,10 +1713,8 @@ Note that amputating the affected organ does in fact remove the infection from t
 /obj/item/organ/external/proc/get_pain()
 	if(!ORGAN_CAN_FEEL_PAIN(src) || BP_IS_ROBOTIC(src))
 		return 0
-	. = pain + 0.7 * brute_dam + 0.8 * burn_dam + 0.5 * get_genetic_damage()
-	if(is_broken())
-		. += 10
-	else if(ORGAN_IS_DISLOCATED(src))
+	. = pain + 0.7 * brute_dam + 0.8 * burn_dam + 0.5 * get_genetic_damage() + perma_injury
+	if(ORGAN_IS_DISLOCATED(src))
 		. += 5
 	for(var/obj/item/organ/internal/I as anything in internal_organs)
 		. += 0.3 * I.getToxLoss()
