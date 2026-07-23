@@ -1,0 +1,10 @@
+
+author: Fendoyree
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixes airbubble pressure setting. It's now high enough that you don't die from using one."
+  - bugfix: "Fixes airbubble blinding you forever when you get out of it."
+  - bugfix: "Fixes airbubble sprite not updating when it is opened from inside."
+
