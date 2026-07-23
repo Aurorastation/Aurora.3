@@ -81,7 +81,7 @@
 
 /singleton/origin_item/origin/caria/on_apply(mob/living/carbon/human/H)
 	. = ..()
-	H.default_lighting_alpha = LIGHTING_PLANE_ALPHA_ALMOST_VISIBLE
+	H.default_lighting_alpha = LIGHTING_PLANE_ALPHA_VERY_VISIBLE
 	H.AddElement(/datum/element/light_sensitivity)
 
 /singleton/origin_item/origin/imperial_frontier
