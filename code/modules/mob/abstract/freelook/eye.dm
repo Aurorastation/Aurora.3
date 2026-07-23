@@ -36,9 +36,10 @@
 	return ..()
 
 /mob/abstract/eye/Move(n, direct)
-	if(owner == src)
-		return EyeMove(n, direct)
-	return 0
+	if(owner != src)
+		return FALSE
+
+	EyeMove(n, direct)
 
 /mob/abstract/eye/can_ztravel(var/direction)
 	return TRUE
@@ -128,7 +129,7 @@
 
 	return eyeobj.EyeMove(n, direct)
 
-/mob/abstract/eye/EyeMove(n, direct) as num
+/mob/abstract/eye/EyeMove(n, direct)
 	var/initial = initial(sprint)
 	var/max_sprint = 50
 
