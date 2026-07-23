@@ -122,13 +122,13 @@
 			return
 		return loc
 
-/mob/proc/EyeMove(n, direct) as num
+/mob/proc/EyeMove(n, direct)
 	if(!eyeobj)
 		return
 
 	return eyeobj.EyeMove(n, direct)
 
-/mob/abstract/eye/EyeMove(n, direct)
+/mob/abstract/eye/EyeMove(n, direct) as num
 	var/initial = initial(sprint)
 	var/max_sprint = 50
 
