@@ -148,6 +148,8 @@ They are very slow, reasonably strong, and quite durable. They also require ligh
 	tail_animation = 'icons/mob/species/diona/tail.dmi'
 	selectable_tails = list("No Tail", "Unathi Tail")
 
+	mass_modifier = REFERENCE_MASS_DIONA / REFERENCE_MASS_HUMAN
+
 /datum/species/diona/can_understand(var/mob/other)
 	var/mob/living/carbon/alien/diona/D = other
 	if(istype(D))

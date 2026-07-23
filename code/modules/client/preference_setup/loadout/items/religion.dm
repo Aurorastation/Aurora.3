@@ -157,6 +157,11 @@ ABSTRACT_TYPE(/datum/gear/religion/dominia)
 	path = /obj/item/clothing/accessory/dominia/lyodii
 	culture_restriction = list(/singleton/origin_item/culture/dominia)
 
+/datum/gear/religion/dominia/accessory/caria
+	display_name = "carian tribunal necklace"
+	path = /obj/item/clothing/accessory/dominia/caria
+	culture_restriction = list(/singleton/origin_item/culture/dominia)
+
 /datum/gear/religion/dominia/accessory/tic
 	display_name = "retired tribunal investigator card selection"
 	description = "A selection of cards identifying the user as a retired tribunal investigator."

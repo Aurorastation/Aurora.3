@@ -204,7 +204,7 @@
 	..()
 
 /obj/structure/machinery/door/firedoor/get_material()
-	return GET_SINGLETON(DEFAULT_WALL_MATERIAL)
+	return SSmaterials.get_material_by_id(MATERIAL_STEEL)
 
 /obj/structure/machinery/door/firedoor/CollidedWith(atom/bumped_atom)
 	if(p_open || operating)

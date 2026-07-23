@@ -118,3 +118,20 @@
 	)
 	required = TRUE
 	component_type = PILOT_MECHS_SKILL_COMPONENT
+
+/singleton/skill/conditioning
+	name = "Conditioning"
+	description = "Governs a character's ability to pick up, drag, and throw heavy objects, particularly crates and people. " \
+		+ "By default, most characters can comfortably lift or drag 1.25x their body weight without penalty. " \
+		+ "This includes determining how heavy a character you can fireman carry, and with how much slowdown. "
+	maximum_level = SKILL_LEVEL_PROFESSIONAL
+	uneducated_skill_cap = SKILL_LEVEL_PROFESSIONAL
+	category =  /singleton/skill_category/occupational
+	subcategory = SKILL_SUBCATEGORY_OPERATIONS
+	skill_level_descriptions = alist(
+		SKILL_LEVEL_UNFAMILIAR = "You have no modifiers from your Conditioning.",
+		SKILL_LEVEL_FAMILIAR = "Your maximum Lift Capacity is increased by 25%",
+		SKILL_LEVEL_TRAINED = "Your maximum Lift Capacity is increased by 50%",
+		SKILL_LEVEL_PROFESSIONAL = "Your maximum Lift Capacity is increased by 75%"
+	)
+	component_type = CONDITIONING_SKILL_COMPONENT

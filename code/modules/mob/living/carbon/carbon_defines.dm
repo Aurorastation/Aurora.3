@@ -65,3 +65,5 @@
 	/// Hallucinations currently affecting the mob. Not to be confused with singular "hallucination" which is a NUM variable like confused/drowsy/eye_blind etc
 	var/list/hallucinations = list()
 	var/shock_stage = 0
+
+	mass = REFERENCE_MASS_HUMAN

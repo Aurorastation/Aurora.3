@@ -80,12 +80,12 @@
 
 /obj/structure/bed/New(newloc, new_material = MATERIAL_STEEL, new_padding_material, new_painted_colour)
 	..(newloc)
-	material = GET_SINGLETON(new_material)
+	material = SSmaterials.get_material_by_id(new_material)
 	if(!istype(material))
 		qdel(src)
 		return
 	if(new_padding_material)
-		padding_material = GET_SINGLETON(new_padding_material)
+		padding_material = SSmaterials.get_material_by_id(new_padding_material)
 	if(new_painted_colour)
 		painted_colour = new_painted_colour
 	update_icon()
@@ -254,7 +254,7 @@
 	update_icon()
 
 /obj/structure/bed/proc/add_padding(var/padding_type)
-	padding_material = GET_SINGLETON(padding_type)
+	padding_material = SSmaterials.get_material_by_id(padding_type)
 	generate_strings(TRUE)
 	update_icon()
 

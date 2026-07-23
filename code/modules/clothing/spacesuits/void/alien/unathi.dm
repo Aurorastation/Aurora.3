@@ -41,6 +41,8 @@
 	species_restricted = list(BODYTYPE_UNATHI)
 	refittable = FALSE
 
+	movement_sounds = SFX_ARMOURED_VOIDSUIT_FOOTSTEPS
+
 /obj/item/clothing/head/helmet/space/void/kataphract/spec
 	name = "kataphract specialist voidsuit helmet"
 	desc = "A tough plated helmet with slits for the eyes, emblazoned paint across the top indicates that it belongs to the Kataphracts of the Unathi Izweski Hegemony. This one has the markings of a Specialist."
@@ -106,6 +108,8 @@
 	species_restricted = list(BODYTYPE_UNATHI)
 	refittable = FALSE
 
+	movement_sounds = SFX_ARMOURED_VOIDSUIT_FOOTSTEPS
+
 /obj/item/clothing/head/helmet/space/void/unathi_pirate/captain
 	name = "unathi raider captain helmet"
 	desc = "A decent helmet made to fit with a larger combat assembly."
@@ -138,6 +142,8 @@
 	allowed = list(/obj/item/gun,/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/material/sword,/obj/item/melee/hammer,/obj/item/melee/energy)
 	species_restricted = list(BODYTYPE_UNATHI)
 	refittable = FALSE
+
+	movement_sounds = SFX_ARMOURED_VOIDSUIT_FOOTSTEPS
 
 /obj/item/clothing/head/helmet/space/void/hegemony
 	name = "hegemony military helmet"
@@ -212,6 +218,8 @@
 		BIO = ARMOR_BIO_SHIELDED,
 		RAD = ARMOR_RAD_SHIELDED
 	)
+
+	movement_sounds = SFX_ARMOURED_VOIDSUIT_FOOTSTEPS
 
 /obj/item/clothing/suit/space/void/unathi_pirate/tarwa/captain
 	name = "tarwa conglomerate captain's voidsuit"

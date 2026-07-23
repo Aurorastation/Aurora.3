@@ -165,7 +165,7 @@ SUBSYSTEM_DEF(unit_tests)
 
 		TEST_GROUP_OPEN("[test.name]")
 
-		if (test.map_path && SSatlas.current_map && SSatlas.current_map.path != test.map_path)
+		if (length(test.map_path) && SSatlas.current_map && !(SSatlas.current_map.path in test.map_path))
 			test.pass(TEST_OUTPUT_GREEN("Check Disabled: This test is not allowed to run on this map."), __FILE__, __LINE__)
 			TEST_GROUP_CLOSE("[test.name]")
 			if (MC_TICK_CHECK)

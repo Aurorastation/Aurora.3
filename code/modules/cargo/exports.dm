@@ -71,21 +71,24 @@ then the player gets the profit from selling his own wasted time.
 
 /datum/export/New()
 	..()
-	START_PROCESSING(SSprocessing,src)
 	init_cost = cost
 	export_types = typecacheof(export_types)
 	exclude_types = typecacheof(exclude_types)
-
 
 /datum/export/Destroy()
 	STOP_PROCESSING(SSprocessing,src)
 	return ..()
 
-/datum/export/process()
-	..()
-	cost *= NUM_E**(k_elasticity * (1/30))
+/**
+ * Whenever any item is Exported, the value of consecutive exports of the same type sharply decreases.
+ * This process ensures that the value of exports gradually recovers over time, and then stops when the price reaches its origin.
+ */
+/datum/export/process(seconds_per_tick)
+	. = ..()
+	cost *= NUM_E**(k_elasticity * (seconds_per_tick/30))
 	if(cost > init_cost)
 		cost = init_cost
+		return PROCESS_KILL
 
 // Checks the cost. 0 cost items are skipped in export.
 /datum/export/proc/get_cost(obj/O, contr = 0, emag = 0)
@@ -123,7 +126,10 @@ then the player gets the profit from selling his own wasted time.
 	total_cost += the_cost
 	total_amount += amount
 
+	// Each unit of an item sold temporarily decreases the overall sell value of that item.
 	cost *= NUM_E**(-1*k_elasticity*amount)		//marginal cost modifier
+	// After its sold, queue up processing so that the price will gradually recover over time.
+	START_PROCESSING(SSprocessing, src)
 	//SSblackbox.record_feedback("nested tally", "export_sold_cost", 1, list("[O.type]", "[the_cost]"))
 
 // Total printout for the cargo console.

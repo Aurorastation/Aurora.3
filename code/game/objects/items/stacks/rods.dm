@@ -29,7 +29,7 @@ GLOBAL_LIST_INIT_TYPED(rod_recipes, /datum/stack_recipe, list(
 	throw_range = 20
 	drop_sound = 'sound/items/drop/metal_rod.ogg'
 	pickup_sound = 'sound/items/pickup/metal_rod.ogg'
-	matter = list(DEFAULT_WALL_MATERIAL = 937.5)
+	matter = list(MATERIAL_STEEL = 937.5)
 	recyclable = TRUE
 	max_amount = 60
 	attack_verb = list("hit", "bludgeoned", "whacked")
@@ -112,7 +112,7 @@ GLOBAL_LIST_INIT_TYPED(rod_recipes, /datum/stack_recipe, list(
 	singular_name = "length"
 	max_amount = 50
 	w_class = WEIGHT_CLASS_SMALL
-	matter = list(DEFAULT_WALL_MATERIAL = 937.5)
+	matter = list(MATERIAL_STEEL = 937.5)
 	attack_verb = list("hit", "whacked", "sliced")
 
 /obj/item/stack/barbed_wire/assembly_hints(mob/user, distance, is_adjacent)
@@ -133,7 +133,7 @@ GLOBAL_LIST_INIT_TYPED(rod_recipes, /datum/stack_recipe, list(
 	icon = 'icons/obj/barricades.dmi'
 	icon_state = "liquidbags"
 	w_class = WEIGHT_CLASS_SMALL
-	matter = list(DEFAULT_WALL_MATERIAL = 650, MATERIAL_PHORON = 100, MATERIAL_PLASTEEL = 150)
+	matter = list(MATERIAL_STEEL = 650, MATERIAL_PHORON = 100, MATERIAL_PLASTEEL = 150)
 
 /obj/item/stack/liquidbags/half_full
 	amount = 25

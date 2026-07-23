@@ -6,7 +6,7 @@
 	throw_speed = 1
 	throw_range = 5
 	w_class = WEIGHT_CLASS_SMALL
-	matter = list(DEFAULT_WALL_MATERIAL = 320, MATERIAL_GLASS = 800)
+	matter = list(MATERIAL_STEEL = 320, MATERIAL_GLASS = 800)
 	var/obj/item/implant/imp = null
 
 /obj/item/implanter/New()

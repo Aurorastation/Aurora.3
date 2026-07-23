@@ -12,7 +12,7 @@
 
 /obj/structure/curtain/Initialize()
 	. = ..()
-	material = GET_SINGLETON(curtain_material)
+	material = SSmaterials.get_material_by_id(curtain_material)
 	AddComponent(/datum/component/turf_hand)
 
 /obj/structure/curtain/open

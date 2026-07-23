@@ -261,13 +261,13 @@
 		if(glass)
 			to_chat(user, SPAN_WARNING("\The [src] already has glass installed."))
 			return
-		var/obj/item/stack/S = attacking_item
-		var/material_name = S.get_material_name()
+		var/obj/item/stack/material/S = attacking_item
+		var/singleton/material/glass_material = S.get_material()
 		if(S.get_amount() >= 2)
-			if(material_name != MATERIAL_GLASS_REINFORCED)
+			if(glass_material?.type != MATERIAL_GLASS_REINFORCED)
 				to_chat(user, SPAN_WARNING("You can only use reinforced glass to install a window into an airlock assembly."))
 				return
-			if(material_name == MATERIAL_GLASS_REINFORCED)
+			if(glass_material.type == MATERIAL_GLASS_REINFORCED)
 				user.visible_message("<b>[user]</b> starts installing \the [S] into the airlock assembly.", SPAN_WARNING("You start installing \the [S] into the airlock assembly."))
 				if(attacking_item.use_tool(src, user, 40, volume = 50) && !glass)
 					if(S.use(2))

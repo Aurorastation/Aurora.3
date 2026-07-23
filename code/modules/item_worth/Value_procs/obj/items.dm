@@ -23,7 +23,7 @@
 	return material.value * amount
 
 /obj/item/ore/Value()
-	var/singleton/material/mat = GET_SINGLETON(material)
+	var/singleton/material/mat = SSmaterials.get_material_by_id(material)
 	if(mat)
 		return mat.value
 	return 0

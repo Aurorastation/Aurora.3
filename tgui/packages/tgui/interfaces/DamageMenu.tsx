@@ -123,7 +123,15 @@ export const DamageMenu = (props) => {
             )}
           </Table>
         </Section>
-        <Section title="Miscellaneous">
+        <Section title="Miscellaneous - Minor">
+          <Button
+            content="Seizure"
+            color="yellow"
+            icon="wind"
+            onClick={() => act('misc', { action: 'seizure' })}
+          />
+        </Section>
+        <Section title="Miscellaneous - Major">
           <Button
             content="Toggle Wind"
             color="red"
@@ -131,27 +139,38 @@ export const DamageMenu = (props) => {
             onClick={() => act('misc', { action: 'wind' })}
           />
           <Button
+            content="Heart Attack"
+            color="red"
+            icon="heart-pulse"
+            tooltip="Stops the target's heart and pushes them into critical shock. Healthy, full-blood, quickly-treated targets may recover. Untreated or already-compromised targets are likely to die."
+            onClick={() => act('misc', { action: 'heart attack' })}
+          />
+          <Button
             content="Gigashatter"
             color="red"
             icon="bone"
+            tooltip="Applies Shatter (bone fracture) to all limbs simultaneously."
             onClick={() => act('misc', { action: 'gigashatter' })}
           />
           <Button
             content="Kill"
             color="red"
             icon="skull-crossbones"
+            tooltip="Kills the target mob. Instant death, no cause."
             onClick={() => act('misc', { action: 'kill' })}
           />
           <Button
             content="Gib"
             color="red"
             icon="splotch"
+            tooltip="Splat."
             onClick={() => act('misc', { action: 'gib' })}
           />
           <Button
             content="Dust"
             color="red"
             icon="exclamation-triangle"
+            tooltip="Turns the target mob into dust."
             onClick={() => act('misc', { action: 'dust' })}
           />
         </Section>

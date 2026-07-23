@@ -13,10 +13,10 @@
 	desc = "It looks pretty sciency."
 	icon = 'icons/obj/rig_modules.dmi'
 	icon_state = "generic"
-	matter = list(DEFAULT_WALL_MATERIAL = 20000, MATERIAL_PLASTIC = 30000, MATERIAL_GLASS = 5000)
+	matter = list(MATERIAL_STEEL = 20000, MATERIAL_PLASTIC = 30000, MATERIAL_GLASS = 5000)
 
 	/// This is literally never read anywhere. All construction cost info lives within the /design. Due for removal.
-	var/list/construction_cost = list(DEFAULT_WALL_MATERIAL=7000, MATERIAL_GLASS =7000)
+	var/list/construction_cost = list(MATERIAL_STEEL=7000, MATERIAL_GLASS =7000)
 	/// This is literally never read anywhere. All construction cost info lives within the /design. Due for removal.
 	var/construction_time = 100
 
@@ -429,19 +429,7 @@
 		return TRUE
 	return FALSE
 
-/mob/living/carbon/human/ClickOn(atom/A, params)
-	. = ..()
-	if (ismob(A) && istype(back, /obj/item/rig))
-		var/obj/item/rig/R = back
-		R.attack_disrupt_check(src)
-
-/mob/living/carbon/human/throw_item(atom/target)
-	. = ..()
-	if (ismob(src) && istype(back, /obj/item/rig))
-		var/obj/item/rig/R = back
-		R.attack_disrupt_check(src)
-
 /obj/item/rig/proc/attack_disrupt_check()
 	for (var/obj/item/rig_module/module in installed_modules)
 		if (module.active && module.attackdisrupts)
-			module.deactivate()
+			module.deactivate(src.wearer)

@@ -4,14 +4,7 @@
 
 /obj/item/organ/external/leg/nymph/Initialize()
 	. = ..()
-	AddComponent(/datum/component/nymph_limb)
-	var/datum/component/nymph_limb/N = GetComponent(/datum/component/nymph_limb)
-	N.setup_limb(src)
-
-/obj/item/organ/external/leg/nymph/process()
-	..()
-	var/datum/component/nymph_limb/N = GetComponent(/datum/component/nymph_limb)
-	N.handle_nymph(src)
+	AddComponent(/datum/component/nymph_limb, src)
 
 // Right Leg
 /obj/item/organ/external/leg/right/nymph
@@ -19,14 +12,7 @@
 
 /obj/item/organ/external/leg/right/nymph/Initialize()
 	. = ..()
-	AddComponent(/datum/component/nymph_limb)
-	var/datum/component/nymph_limb/N = GetComponent(/datum/component/nymph_limb)
-	N.setup_limb(src)
-
-/obj/item/organ/external/leg/right/nymph/process()
-	..()
-	var/datum/component/nymph_limb/N = GetComponent(/datum/component/nymph_limb)
-	N.handle_nymph(src)
+	AddComponent(/datum/component/nymph_limb, src)
 
 // Left Arm
 /obj/item/organ/external/arm/nymph
@@ -34,14 +20,7 @@
 
 /obj/item/organ/external/arm/nymph/Initialize()
 	. = ..()
-	AddComponent(/datum/component/nymph_limb)
-	var/datum/component/nymph_limb/N = GetComponent(/datum/component/nymph_limb)
-	N.setup_limb(src)
-
-/obj/item/organ/external/arm/nymph/process()
-	..()
-	var/datum/component/nymph_limb/N = GetComponent(/datum/component/nymph_limb)
-	N.handle_nymph(src)
+	AddComponent(/datum/component/nymph_limb, src)
 
 // Right Arm
 /obj/item/organ/external/arm/right/nymph
@@ -49,50 +28,35 @@
 
 /obj/item/organ/external/arm/right/nymph/Initialize()
 	. = ..()
-	AddComponent(/datum/component/nymph_limb)
-	var/datum/component/nymph_limb/N = GetComponent(/datum/component/nymph_limb)
-	N.setup_limb(src)
-
-/obj/item/organ/external/arm/right/nymph/process()
-	..()
-	var/datum/component/nymph_limb/N = GetComponent(/datum/component/nymph_limb)
-	N.handle_nymph(src)
+	AddComponent(/datum/component/nymph_limb, src)
 
 // Left Hand
 /obj/item/organ/external/hand/nymph
 
 /obj/item/organ/external/hand/nymph/Initialize()
 	. = ..()
-	AddComponent(/datum/component/nymph_limb)
-	var/datum/component/nymph_limb/N = GetComponent(/datum/component/nymph_limb)
-	N.setup_limb(src)
+	AddComponent(/datum/component/nymph_limb, src)
 
 // Right Hand
 /obj/item/organ/external/hand/right/nymph
 
 /obj/item/organ/external/hand/right/nymph/Initialize()
 	. = ..()
-	AddComponent(/datum/component/nymph_limb)
-	var/datum/component/nymph_limb/N = GetComponent(/datum/component/nymph_limb)
-	N.setup_limb(src)
+	AddComponent(/datum/component/nymph_limb, src)
 
 // Left Foot
 /obj/item/organ/external/foot/nymph
 
 /obj/item/organ/external/foot/nymph/Initialize()
 	. = ..()
-	AddComponent(/datum/component/nymph_limb)
-	var/datum/component/nymph_limb/N = GetComponent(/datum/component/nymph_limb)
-	N.setup_limb(src)
+	AddComponent(/datum/component/nymph_limb, src)
 
 // Right Foot
 /obj/item/organ/external/foot/right/nymph
 
 /obj/item/organ/external/foot/right/nymph/Initialize()
 	. = ..()
-	AddComponent(/datum/component/nymph_limb)
-	var/datum/component/nymph_limb/N = GetComponent(/datum/component/nymph_limb)
-	N.setup_limb(src)
+	AddComponent(/datum/component/nymph_limb, src)
 
 /datum/component/nymph_limb
 	var/list/valid_species = list(SPECIES_UNATHI, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
@@ -120,7 +84,51 @@
 		BP_R_FOOT = /obj/item/organ/external/foot/right/nymph
 	)
 
-/datum/component/nymph_limb/proc/setup_limb(var/obj/item/organ/external/E)
+	/// Typecasted owner of the component as an external limb.
+	var/obj/item/organ/external/limb
+
+/datum/component/nymph_limb/Initialize(obj/item/organ/external/E)
+	. = ..()
+	if (!istype(E))
+		qdel(src)
+		stack_trace("[src] was added to an entity that was not of type obj/item/organ/external. This component REQUIRES an external limb, and will delete itself immediately if one isn't provided to its AddComponent args.")
+		return
+
+	setup_limb(E)
+	START_PROCESSING(SSprocessing, src)
+
+/datum/component/nymph_limb/process()
+	. = ..()
+	if (!limb)
+		qdel(src)
+		return PROCESS_KILL
+
+	var/mob/living/carbon/alien/diona/limb_nymph = limb.nymph
+	if(!istype(limb_nymph) || !limb || !is_type_in_list(limb, nymph_limb_types))
+		qdel(src)
+		return PROCESS_KILL
+
+	if((!limb.owner || limb_nymph.stat == DEAD))
+		nymph_out(limb, limb_nymph)
+		return PROCESS_KILL
+
+	if(!limb.is_usable())
+		nymph_out(limb, limb_nymph, forced = TRUE)
+		return PROCESS_KILL
+
+	var/blood_volume = round(REAGENT_VOLUME(limb.owner.vessel, /singleton/reagent/blood))
+	if(!blood_volume)
+		nymph_out(limb, limb_nymph, forced = TRUE)
+		return PROCESS_KILL
+
+	if(REAGENT_DATA(limb.owner.vessel, /singleton/reagent/blood))
+		limb.owner.vessel.remove_reagent(/singleton/reagent/blood, BLOOD_REGEN_RATE / (2 * nymph_limb_types_by_name.len))
+	if(blood_volume <= 0)
+		nymph_out(limb, limb_nymph, forced = TRUE)
+		return PROCESS_KILL
+
+/datum/component/nymph_limb/proc/setup_limb(obj/item/organ/external/E)
+	limb = E
 	if(is_type_in_list(E, nymph_limb_types))
 		E.nymph = new /mob/living/carbon/alien/diona
 
@@ -132,28 +140,6 @@
 		E.set_dna(new /datum/dna)
 
 	E.limb_flags &= ~(ORGAN_CAN_BREAK | ORGAN_CAN_MAIM | ORGAN_HAS_TENDON)
-
-// Called by process()
-/datum/component/nymph_limb/proc/handle_nymph(var/obj/item/organ/external/E)
-	var/mob/living/carbon/alien/diona/limb_nymph = E.nymph
-	if(!istype(limb_nymph))
-		return FALSE
-	if(!E || !is_type_in_list(E, nymph_limb_types))
-		return FALSE
-	if((!E.owner || limb_nymph.stat == DEAD))
-		nymph_out(E, limb_nymph)
-		return FALSE
-
-	if(!E.is_usable())
-		nymph_out(E, limb_nymph, forced = TRUE)
-		return FALSE
-
-	var/blood_volume = round(REAGENT_VOLUME(E.owner.vessel, /singleton/reagent/blood))
-	if(blood_volume)
-		if(REAGENT_DATA(E.owner.vessel, /singleton/reagent/blood))
-			E.owner.vessel.remove_reagent(/singleton/reagent/blood, BLOOD_REGEN_RATE / (2 * nymph_limb_types_by_name.len))
-	if(blood_volume <= 0)
-		nymph_out(E, limb_nymph, forced = TRUE)
 
 // Host detach
 /mob/living/carbon/human/proc/detach_nymph_limb()

@@ -59,7 +59,7 @@
 	throwforce = round(material.get_blunt_damage()*thrown_force_divisor)
 
 /obj/item/material/proc/set_material(var/new_material)
-	material = GET_SINGLETON(new_material)
+	material = SSmaterials.get_material_by_id(new_material)
 	if(!material)
 		qdel(src)
 	else

@@ -233,7 +233,7 @@
 /obj/item/nullrod/clockworkstave
 	name = "\improper clockwork stave"
 	desc = "A long, wooden stave with a gear and triangle at the top, utilized by the clergy of the Trinary Perfection. The ornate pieces atop the stave are often delicately \
-	hand-crafted by synthetics from the monastic Society of Pitters and exported off the planet of Orepit."
+	hand-crafted by synthetics from the monastic Order of Pitters and exported off the planet of Axiom."
 	icon = 'icons/obj/trinary_stave.dmi'
 	icon_state = "trinary_stave"
 	item_state = "trinary_stave"

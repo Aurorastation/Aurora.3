@@ -105,6 +105,15 @@
 	if (network)
 		network.update = 1
 
+// This exists because for stupid reasons these machines touch air directly instead of respecting an air tank's procs.
+/obj/structure/machinery/portable_atmospherics/Exited(atom/movable/gone, direction)
+	. = ..()
+	if(gone == holding)
+		if(istype(gone, /obj/item/tank))
+			var/obj/item/tank/T = gone
+			T.update_icon()
+		holding = null
+
 /obj/structure/machinery/portable_atmospherics/attackby(obj/item/attacking_item, mob/user)
 	if ((istype(attacking_item, /obj/item/tank) && !( src.destroyed )))
 		if (src.holding)

@@ -16,7 +16,7 @@ STOCK_ITEM_COMMON(meds, 5)
 STOCK_ITEM_COMMON(steel, 7)
 	new /obj/item/stack/material/steel(L, 50)
 
-STOCK_ITEM_COMMON(glass, 2.5)
+STOCK_ITEM_COMMON(glass, 3)
 	if(prob(35))
 		new /obj/item/stack/material/glass/reinforced(L, rand(10,50))
 	else
@@ -28,7 +28,7 @@ STOCK_ITEM_COMMON(wood, 2)
 STOCK_ITEM_COMMON(plastic, 1.5)
 	new /obj/item/stack/material/plastic(L, rand(10,50))
 
-STOCK_ITEM_COMMON(cardboard, 1)
+STOCK_ITEM_COMMON(cardboard, 3)
 	new /obj/item/stack/material/cardboard(L, rand(10,50))
 
 //A lightreplacer and a kit of lights
@@ -101,10 +101,6 @@ STOCK_ITEM_COMMON(crayons, 1.5)
 
 STOCK_ITEM_COMMON(figure, 1)
 	new /obj/random/action_figure(L)
-
-STOCK_ITEM_COMMON(bombsupply, 4.5)
-	for(var/i in 1 to rand(1, 3))
-		new /obj/random/bomb_supply(L)
 
 STOCK_ITEM_COMMON(tech, 5)
 	for(var/i in 1 to rand(1, 3))
@@ -197,17 +193,23 @@ STOCK_ITEM_COMMON(wheelchair, 1)
 STOCK_ITEM_COMMON(trap, 2)
 	new /obj/item/trap(L)
 	if(prob(30))
-		new /obj/item/trap(L)
+		new /obj/item/trap/animal(L)
 
 STOCK_ITEM_COMMON(utensil, 2)
 	new /obj/item/storage/box/kitchen(L)
 
 STOCK_ITEM_COMMON(utilitygrenades, 1.5)
 	for(var/i in 1 to rand(1, 3))
-		if(prob(50))
-			new /obj/item/grenade/chem_grenade/metalfoam(L)
-		else
-			new /obj/item/grenade/chem_grenade/cleaner(L)
+		var/picked = rand(1, 4)
+		switch(picked)
+			if(1)
+				new /obj/item/grenade/chem_grenade/metalfoam(L)
+			if(2)
+				new /obj/item/grenade/chem_grenade/antiweed(L)
+			if(3)
+				new /obj/item/grenade/chem_grenade/monoammoniumphosphate(L)
+			if(4)
+				new /obj/item/grenade/chem_grenade/cleaner(L)
 
 STOCK_ITEM_COMMON(nanopaste, 2)
 	new /obj/item/stack/nanopaste(L)
@@ -235,8 +237,10 @@ STOCK_ITEM_COMMON(gloves, 3.3)
 
 STOCK_ITEM_COMMON(insulated, 1.5)
 	new /obj/item/clothing/gloves/yellow(L)
-	if(prob(50))
-		new /obj/item/clothing/gloves/yellow(L)
+	if(prob(30))
+		new /obj/item/clothing/gloves/yellow/specialt(L)
+	if(prob(30))
+		new /obj/item/clothing/gloves/yellow/specialu(L)
 
 STOCK_ITEM_COMMON(scanners, 3.2)
 	//A random scanning device, most are useless
@@ -278,6 +282,12 @@ STOCK_ITEM_COMMON(forensic, 1)
 		new /obj/item/uv_light(L)
 	if(prob(25))
 		new /obj/item/storage/box/slides(L)
+	if(prob(10))
+		new /obj/item/forensics/sample_kit(L)
+	if(prob(10))
+		new /obj/item/forensics/sample_kit/powder(L)
+	if(prob(10))
+		new /obj/item/storage/box/fancy/csi_markers(L)
 
 STOCK_ITEM_COMMON(cleaning, 3.5)
 	if(prob(80))
@@ -438,7 +448,8 @@ STOCK_ITEM_COMMON(snacks, 4)
 		/obj/item/storage/box/snack = 10,
 		/obj/item/storage/box/large/produce = 8,
 		/obj/item/storage/field_ration = 3,
-		/obj/item/storage/field_ration/nka = 1
+		/obj/item/storage/field_ration/nka = 1,
+		/obj/item/storage/field_ration/dpra = 0.5
 	)
 
 	var/type = pickweight(snacks)
@@ -449,14 +460,9 @@ STOCK_ITEM_COMMON(posters, 3)
 	if(prob(40))
 		new /obj/item/contraband/poster(L)
 
-STOCK_ITEM_COMMON(parts, 4)
+STOCK_ITEM_COMMON(parts, 2)
 	var/list/parts = list(
-		/obj/item/stock_parts/console_screen = 3, //Low ranking parts, common
-		/obj/item/stock_parts/capacitor = 3,
-		/obj/item/stock_parts/scanning_module = 3,
-		/obj/item/stock_parts/manipulator = 3,
-		/obj/item/stock_parts/micro_laser = 3,
-		/obj/item/stock_parts/matter_bin = 3,
+		/obj/item/storage/box/components = 10, //Low ranking parts, common
 		/obj/item/stock_parts/capacitor/adv = 1, //Improved parts, less common
 		/obj/item/stock_parts/scanning_module/adv = 1,
 		/obj/item/stock_parts/manipulator/nano = 1,
@@ -496,13 +502,14 @@ STOCK_ITEM_COMMON(warning, 2.2)
 
 STOCK_ITEM_COMMON(gasmask, 2)
 	var/list/masks = list(
-		/obj/item/clothing/mask/gas = 10,
+		/obj/item/clothing/mask/gas = 5,
 		/obj/item/clothing/mask/gas/swat = 5,
 		/obj/item/clothing/mask/gas/mime = 0.5,
 		/obj/item/clothing/mask/gas/monkeymask = 0.5,
 		/obj/item/clothing/mask/gas/sexymime = 0.5,
 		/obj/item/clothing/mask/gas/cyborg = 1,
-		/obj/item/clothing/mask/gas/owl_mask = 1
+		/obj/item/clothing/mask/gas/owl_mask = 1,
+		/obj/item/clothing/mask/gas/half = 5
 	)
 
 	var/type = pickweight(masks)

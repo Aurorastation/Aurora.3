@@ -6,7 +6,7 @@
 	item_state = "manual_mining"
 	contained_sprite = TRUE
 	origin_tech = list(TECH_MAGNET = 1, TECH_ENGINEERING = 1)
-	matter = list(DEFAULT_WALL_MATERIAL = 150)
+	matter = list(MATERIAL_STEEL = 150)
 
 /obj/item/mining_scanner/attack_self(mob/user)
 	to_chat(user, SPAN_NOTICE("You begin sweeping \the [src] about, scanning for metal deposits."))

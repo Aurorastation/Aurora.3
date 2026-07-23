@@ -9,7 +9,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 	throw_speed = 4
 	throw_range = 20
-	matter = list(DEFAULT_WALL_MATERIAL = 500)
+	matter = list(MATERIAL_STEEL = 500)
 	var/obj/item/disk/nuclear/the_disk = null
 	var/active = 0
 

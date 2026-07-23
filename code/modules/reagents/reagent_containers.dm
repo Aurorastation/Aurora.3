@@ -55,7 +55,7 @@
 	if(!possible_transfer_amounts)
 		src.verbs -= /obj/item/reagent_containers/verb/set_APTFT
 	create_reagents(volume)
-	shatter_material = GET_SINGLETON(shatter_material)
+	shatter_material = SSmaterials.get_material_by_id(shatter_material)
 
 /obj/item/reagent_containers/attack_self(mob/user)
 	return

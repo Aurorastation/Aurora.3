@@ -1,26 +1,26 @@
 /datum/design/item/synthetic
 	build_type = MECHFAB
 	time = 12 SECONDS
-	materials = list(DEFAULT_WALL_MATERIAL = 10000, MATERIAL_GLASS = 5000)
+	materials = list(MATERIAL_STEEL = 10000, MATERIAL_GLASS = 5000)
 	category = "Synthetic Parts"
 
 /datum/design/item/synthetic/air_cooling_unit
 	name = "Standard Air Cooling Unit"
 	desc = "Parts to assemble a retail air cooling unit."
 	build_path = /obj/item/organ/internal/machine/cooling_unit/air
-	materials = list(DEFAULT_WALL_MATERIAL = 10000, MATERIAL_GLASS = 5000)
+	materials = list(MATERIAL_STEEL = 10000, MATERIAL_GLASS = 5000)
 
 /datum/design/item/synthetic/zenghu_air_cooling_unit
 	name = "Zeng-Hu Penta-Fan Air Cooling System"
 	desc = "Parts to assemble a Zeng-Hu penta-fan air cooling system."
 	build_path = /obj/item/organ/internal/machine/cooling_unit/air/zenghu
-	materials = list(DEFAULT_WALL_MATERIAL = 10000, MATERIAL_GLASS = 5000, MATERIAL_DIAMOND = 5000, MATERIAL_PLASTEEL = 2500)
+	materials = list(MATERIAL_STEEL = 10000, MATERIAL_GLASS = 5000, MATERIAL_DIAMOND = 5000, MATERIAL_PLASTEEL = 2500)
 
 /datum/design/item/synthetic/xion_air_cooling_unit
 	name = "Xion Advanced Air Cooling Unit"
 	desc = "Parts to assemble a Xion advanced air cooling unitw."
 	build_path = /obj/item/organ/internal/machine/cooling_unit/air/xion
-	materials = list(DEFAULT_WALL_MATERIAL = 10000, MATERIAL_GLASS = 5000, MATERIAL_DIAMOND = 1000, MATERIAL_PLASTEEL = 7500)
+	materials = list(MATERIAL_STEEL = 10000, MATERIAL_GLASS = 5000, MATERIAL_DIAMOND = 1000, MATERIAL_PLASTEEL = 7500)
 
 /datum/design/item/synthetic/liquid_cooling_unit
 	name = "Standard Liquid Cooling Unit"

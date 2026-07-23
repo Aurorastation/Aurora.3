@@ -7,7 +7,7 @@
 	. = ..(mapload)
 	if(!new_material)
 		new_material = MATERIAL_STEEL
-	material = GET_SINGLETON(new_material)
+	material = SSmaterials.get_material_by_id(new_material)
 	if(!istype(material))
 		qdel(src)
 		return

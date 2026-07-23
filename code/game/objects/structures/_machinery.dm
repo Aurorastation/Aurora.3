@@ -251,7 +251,7 @@ Class Procs:
 		if(prob(50))
 			metal_to_spawn++
 		else
-			new /obj/item/material/shard(current_turf, DEFAULT_WALL_MATERIAL)
+			new /obj/item/material/shard(current_turf, MATERIAL_STEEL)
 	if(metal_to_spawn)
 		new /obj/item/stack/material/steel(get_turf(src), metal_to_spawn)
 	if(!should_use_health)

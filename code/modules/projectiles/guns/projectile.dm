@@ -3,7 +3,7 @@ ABSTRACT_TYPE(/obj/item/gun/projectile)
 	desc = "A gun that fires bullets."
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	w_class = WEIGHT_CLASS_NORMAL
-	matter = list(DEFAULT_WALL_MATERIAL = 1000)
+	matter = list(MATERIAL_STEEL = 1000)
 	recoil = 1
 
 	var/caliber = "357"		//determines which casings will fit

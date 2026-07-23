@@ -1,5 +1,5 @@
 /datum/design/item/hud
-	materials = list(DEFAULT_WALL_MATERIAL = 50, MATERIAL_GLASS = 50)
+	materials = list(MATERIAL_STEEL = 50, MATERIAL_GLASS = 50)
 	p_category = "HUD Glasses Designs"
 
 /datum/design/item/hud/health

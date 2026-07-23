@@ -20,52 +20,52 @@
 	name = "Prosthetic Left Arm"
 	build_path = /obj/item/organ/external/arm/ipc
 	time = 20 SECONDS
-	materials = list(DEFAULT_WALL_MATERIAL = 18000)
+	materials = list(MATERIAL_STEEL = 18000)
 
 /datum/design/item/mechfab/prosthetic/r_arm
 	name = "Prosthetic Right Arm"
 	build_path = /obj/item/organ/external/arm/right/ipc
 	time = 20 SECONDS
-	materials = list(DEFAULT_WALL_MATERIAL = 18000)
+	materials = list(MATERIAL_STEEL = 18000)
 
 /datum/design/item/mechfab/prosthetic/l_leg
 	name = "Prosthetic Left Leg"
 	build_path = /obj/item/organ/external/leg/ipc
 	time = 20 SECONDS
-	materials = list(DEFAULT_WALL_MATERIAL = 15000)
+	materials = list(MATERIAL_STEEL = 15000)
 
 /datum/design/item/mechfab/prosthetic/r_leg
 	name = "Prosthetic Right Leg"
 	build_path = /obj/item/organ/external/leg/right/ipc
 	time = 20 SECONDS
-	materials = list(DEFAULT_WALL_MATERIAL = 15000)
+	materials = list(MATERIAL_STEEL = 15000)
 
 /datum/design/item/mechfab/prosthetic/l_hand
 	name = "Prosthetic Left Hand"
 	build_path = /obj/item/organ/external/hand/ipc
 	time = 20 SECONDS
-	materials = list(DEFAULT_WALL_MATERIAL = 8000)
+	materials = list(MATERIAL_STEEL = 8000)
 
 /datum/design/item/mechfab/prosthetic/r_hand
 	name = "Prosthetic Right Hand"
 	build_path = /obj/item/organ/external/hand/right/ipc
 	time = 20 SECONDS
-	materials = list(DEFAULT_WALL_MATERIAL = 8000)
+	materials = list(MATERIAL_STEEL = 8000)
 
 /datum/design/item/mechfab/prosthetic/l_foot
 	name = "Prosthetic Left Foot"
 	build_path = /obj/item/organ/external/foot/ipc
 	time = 20 SECONDS
-	materials = list(DEFAULT_WALL_MATERIAL = 8000)
+	materials = list(MATERIAL_STEEL = 8000)
 
 /datum/design/item/mechfab/prosthetic/r_foot
 	name = "Prosthetic Right Foot"
 	build_path = /obj/item/organ/external/foot/right/ipc
 	time = 20 SECONDS
-	materials = list(DEFAULT_WALL_MATERIAL = 8000)
+	materials = list(MATERIAL_STEEL = 8000)
 
 /datum/design/item/mechfab/prosthetic/groin_cap
 	name = "Prosthetic Groin Cap"
 	build_path = /obj/item/organ/external/groin/ipc/unbranded/cap
 	use_direct_buildpath = TRUE
-	materials = list(DEFAULT_WALL_MATERIAL = 25000)
+	materials = list(MATERIAL_STEEL = 25000)

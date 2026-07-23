@@ -105,7 +105,7 @@
 	// This should be considered for any moderation purpose
 	var/persistent_objects_author_ckey = null
 	// Expiration time used when saving/updating a persistent type, this can be changed depending on the use case by assigning a new value
-	var/persistant_objects_expiration_time_days = PERSISTENT_DEFAULT_EXPIRATION_DAYS
+	var/persistent_objects_expiration_time_days = PERSISTENT_DEFAULT_EXPIRATION_DAYS
 	/* END PERSISTENCE VARS */
 
 	/// for easy reference of talking atoms

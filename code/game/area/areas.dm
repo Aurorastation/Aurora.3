@@ -206,13 +206,23 @@
 
 /area/proc/get_cameras()
 	. = list()
+	var/list/invalid_cameras
 	for (var/thing in SSmachinery.all_cameras)
+		if(!istype(thing, /obj/structure/machinery/camera))
+			LAZYADD(invalid_cameras, thing)
+			continue
 		var/obj/structure/machinery/camera/C = thing
+		if(QDELETED(C))
+			LAZYADD(invalid_cameras, thing)
+			continue
 		if (!isturf(C.loc))
 			continue
 
 		if (C.loc.loc == src) // What the fuck is this?
 			. += C
+
+	if(invalid_cameras)
+		SSmachinery.all_cameras -= invalid_cameras
 
 /area/proc/atmosalert(danger_level, var/alarm_source)
 	if (danger_level == 0)

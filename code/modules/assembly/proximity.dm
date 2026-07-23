@@ -5,7 +5,7 @@
 	drop_sound = 'sound/items/drop/component.ogg'
 	pickup_sound = 'sound/items/pickup/component.ogg'
 	origin_tech = list(TECH_MAGNET = 1)
-	matter = list(DEFAULT_WALL_MATERIAL = 800, MATERIAL_GLASS = 200)
+	matter = list(MATERIAL_STEEL = 800, MATERIAL_GLASS = 200)
 	movable_flags = MOVABLE_FLAG_PROXMOVE
 	wires = WIRE_PULSE_ASSEMBLY
 

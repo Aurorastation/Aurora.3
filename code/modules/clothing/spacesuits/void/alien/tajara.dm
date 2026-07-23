@@ -30,6 +30,8 @@
 	species_restricted = list(BODYTYPE_TAJARA)
 	refittable = FALSE
 
+	movement_sounds = SFX_ARMOURED_VOIDSUIT_FOOTSTEPS
+
 /obj/item/clothing/head/helmet/space/void/pra
 	name = "kosmostrelki voidsuit helmet"
 	desc = "A tajaran helmet used by the crew of the Republican Orbital Fleet."
@@ -152,6 +154,8 @@
 	species_restricted = list(BODYTYPE_TAJARA)
 	refittable = FALSE
 
+	movement_sounds = SFX_ARMOURED_VOIDSUIT_FOOTSTEPS
+
 /obj/item/clothing/head/helmet/space/void/nka
 	name = "new kingdom mercantile voidsuit helmet"
 	desc = "An amalgamation of old civilian voidsuits and diving suits. This bulky space suit is used by the crew of the New Kingdom's mercantile navy."
@@ -200,6 +204,8 @@
 	)
 	species_restricted = list(BODYTYPE_TAJARA)
 	refittable = FALSE
+
+	movement_sounds = SFX_ARMOURED_VOIDSUIT_FOOTSTEPS
 
 /obj/item/clothing/head/helmet/space/void/dpra
 	name = "people's volunteer spacer militia voidsuit helmet"

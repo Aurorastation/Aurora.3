@@ -77,6 +77,7 @@
 
 	bodyfall_sound = SFX_BODYFALL
 	use_alt_hair_layer = FALSE
+	mass_modifier = REFERENCE_MASS_IPC_SHELL / REFERENCE_MASS_HUMAN
 
 /datum/species/machine/shell/get_species(var/reference, var/mob/living/carbon/human/H, var/records)
 	if(reference)
@@ -121,6 +122,8 @@
 		/datum/unarmed_attack/kick/ipc,
 		/datum/unarmed_attack/terminator,
 		/datum/unarmed_attack/bite/strong)
+
+	mass_modifier = REFERENCE_MASS_IPC_SHELL / REFERENCE_MASS_HUMAN
 
 /datum/species/machine/shell/rogue/check_tag(var/mob/living/carbon/human/new_machine, var/client/player)
 	return
@@ -205,6 +208,7 @@
 	)
 
 	machine_ui_theme = "hephaestus"
+	mass_modifier = REFERENCE_MASS_IPC_INDUSTRIAL / REFERENCE_MASS_HUMAN
 
 /datum/species/machine/industrial/get_light_color()
 	return LIGHT_COLOR_TUNGSTEN
@@ -405,6 +409,8 @@
 		ballistic = ARMOR_BALLISTIC_PISTOL,
 		melee = ARMOR_MELEE_KEVLAR
 	)
+
+	mass_modifier = REFERENCE_MASS_IPC_INDUSTRIAL / REFERENCE_MASS_HUMAN
 
 /mob/living/carbon/human/proc/discard_limb()
 	set name = "Discard Limb"

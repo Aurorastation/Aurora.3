@@ -135,26 +135,26 @@
 
 	if(ishuman(occupant))
 		var/mob/living/carbon/human/H = occupant
-		var/obj/item/organ/internal/machine/power_core/IC = H.internal_organs_by_name[BP_CELL]
-		if(istype(IC))
-			target = IC.cell
-
-		// Different reactor types have different external recharge speeds.
 		if(isipc(H))
 			reactor = H.internal_organs_by_name[BP_REACTOR]
 			if(!istype(reactor))
 				return
 
-		if((!target || target.percent() > 98) && istype(H.back, /obj/item/rig))
+		if((!target || target.percent() > 99) && istype(H.back, /obj/item/rig))
 			var/obj/item/rig/R = H.back
 			if(R.cell && !R.cell.fully_charged())
 				target = R.cell
+
+		if(!target)
+			var/obj/item/organ/internal/machine/power_core/IC = H.internal_organs_by_name[BP_CELL]
+			if(istype(IC))
+				target = IC.cell
 
 	if(target && !target.fully_charged())
 		var/diff = min(target.maxcharge - target.charge, charging_power * CELLRATE * seconds_per_tick) // Capped by charging_power / tick
 		var/charge_used = cell.use(diff)
 
-		if(!reactor) // not an IPC
+		if(!reactor || target.percent() < 99) // not an IPC
 			target.give(charge_used * charging_efficiency)
 		else
 			reactor.generate_power(charge_used * charging_efficiency * reactor.external_charge_multiplier)

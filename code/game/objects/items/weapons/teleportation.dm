@@ -10,12 +10,25 @@
  * Special inhibitor handling. Different from the one used by teleport datums.
  */
 /proc/check_inhibitors(var/turf/T)
+	if(!istype(T))
+		return TRUE
+	var/list/invalid_inhibitors
 	for(var/found_inhibitor in GLOB.bluespace_inhibitors)
+		if(!istype(found_inhibitor, /obj/structure/machinery/anti_bluespace))
+			LAZYADD(invalid_inhibitors, found_inhibitor)
+			continue
 		var/obj/structure/machinery/anti_bluespace/AB = found_inhibitor
+		if(QDELETED(AB))
+			LAZYADD(invalid_inhibitors, found_inhibitor)
+			continue
 		if(T.z != AB.z || get_dist(T, AB) > 8 || (AB.stat & (NOPOWER | BROKEN)))
 			continue
 		else
+			if(invalid_inhibitors)
+				GLOB.bluespace_inhibitors -= invalid_inhibitors
 			return FALSE
+	if(invalid_inhibitors)
+		GLOB.bluespace_inhibitors -= invalid_inhibitors
 	return TRUE
 
 /*
@@ -38,7 +51,7 @@
 	throw_speed = 4
 	throw_range = 20
 	origin_tech = list(TECH_MAGNET = 1)
-	matter = list(DEFAULT_WALL_MATERIAL = 400)
+	matter = list(MATERIAL_STEEL = 400)
 
 /obj/item/locator/attack_self(mob/user as mob)
 	user.set_machine(src)
@@ -150,7 +163,7 @@ Frequency:
 	throw_speed = 3
 	throw_range = 5
 	origin_tech = list(TECH_MAGNET = 1, TECH_BLUESPACE = 3)
-	matter = list(DEFAULT_WALL_MATERIAL = 10000)
+	matter = list(MATERIAL_STEEL = 10000)
 
 	var/obj/structure/machinery/teleport/pad/linked_pad
 	var/list/active_teleporters
@@ -278,7 +291,7 @@ Frequency:
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	w_class = WEIGHT_CLASS_SMALL
 	origin_tech = list(TECH_MAGNET = 2, TECH_BLUESPACE = 3)
-	matter = list(DEFAULT_WALL_MATERIAL = 400)
+	matter = list(MATERIAL_STEEL = 400)
 	var/obj/structure/closet/attached_closet
 	var/obj/item/closet_teleporter/linked_teleporter
 	var/last_use = 0

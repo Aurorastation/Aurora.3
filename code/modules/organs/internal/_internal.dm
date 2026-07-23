@@ -39,20 +39,17 @@
 	return ..()
 
 /// Sets the internal organ as belonging to the targeted external organ, and matches the target's species/robotness. Also updates all organ lists belonging to the owner.
-/obj/item/organ/internal/replaced(var/mob/living/carbon/human/target, var/obj/item/organ/external/affected)
-	if(!istype(target))
-		return 0
+/obj/item/organ/internal/replaced(mob/living/carbon/human/target, obj/item/organ/external/affected)
+	. = ..()
 
 	// robotic organs emulate behavior of the equivalent flesh organ of the species
 	if(BP_IS_ROBOTIC(src) || !species)
 		species = target.species
 
-	..()
-
 	target.internal_organs |= src
 	affected.internal_organs |= src
 	target.internal_organs_by_name[organ_tag] = src
-	return 1
+	return TRUE
 
 /obj/item/organ/internal/die()
 	..()
@@ -121,6 +118,7 @@
 	min_bruised_damage = FLOOR(0.25 * max_damage, 1)
 
 /obj/item/organ/internal/proc/take_internal_damage(amount, var/silent=0)
+	START_PROCESSING(SSprocessing, src)
 	if(BP_IS_ROBOTIC(src))
 		damage = between(0, src.damage + (amount * 0.8), max_damage)
 	else

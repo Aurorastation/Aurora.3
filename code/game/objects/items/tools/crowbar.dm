@@ -1,6 +1,6 @@
 /obj/item/crowbar
-	name = "pocket crowbar"
-	desc = "A small crowbar. This handy tool is useful for lots of things, such as prying floor tiles or opening unpowered doors."
+	name = "crowbar"
+	desc = "This handy tool is useful for lots of things, such as prying floor tiles or opening unpowered doors."
 	icon = 'icons/obj/tools.dmi'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/lefthand_tools.dmi',
@@ -18,7 +18,7 @@
 	usesound = SFX_CROWBAR
 	surgerysound = 'sound/items/surgery/retractor.ogg'
 	origin_tech = list(TECH_ENGINEERING = 1)
-	matter = list(DEFAULT_WALL_MATERIAL = 50)
+	matter = list(MATERIAL_STEEL = 50)
 	attack_verb = list("attacked", "bashed", "battered", "bludgeoned", "whacked")
 	tool_behaviour = TOOL_CROWBAR
 	toolspeed = 1
@@ -62,6 +62,14 @@
 	icon_state = "rescue_axe_red"
 	item_state = "rescue_axe_red"
 
+/obj/item/crowbar/rescue_axe/tactical
+	name = "tactical axe"
+	desc = "A short axe with a carbon fibre handle, meant to be both an emergency tool and a weapon."
+	icon = 'icons/obj/item/tactical_axe.dmi'
+	icon_state = "combataxe"
+	item_state = "combataxe"
+	contained_sprite = TRUE
+
 /obj/item/crowbar/hydraulic_rescue_tool
 	name = "hydraulic rescue tool"
 	desc = "A hydraulic rescue tool that functions like a crowbar by applying strong amounts of hydraulic pressure to force open different things. Also known as jaws of life."
@@ -77,7 +85,7 @@
 	drop_sound = 'sound/items/drop/crowbar.ogg'
 	pickup_sound = 'sound/items/pickup/crowbar.ogg'
 	origin_tech = list(TECH_ENGINEERING = 1)
-	matter = list(DEFAULT_WALL_MATERIAL = 50)
+	matter = list(MATERIAL_STEEL = 50)
 	attack_verb = list("attacked", "rammed", "battered", "bludgeoned")
 	toolspeed = 0.7
 	force_opens = TRUE

@@ -9,9 +9,9 @@
 /obj/effect/overlay/burnt_wall/Initialize(mapload, new_name, new_mat, new_reinf_mat)
 	. = ..()
 	name = "burnt [new_name]"
-	material = GET_SINGLETON(new_mat)
+	material = SSmaterials.get_material_by_id(new_mat)
 	if(new_reinf_mat)
-		reinf_material = GET_SINGLETON(new_reinf_mat)
+		reinf_material = SSmaterials.get_material_by_id(new_reinf_mat)
 	color = material.icon_colour
 	if(material.opacity < 0.5)
 		alpha = 125

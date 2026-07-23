@@ -151,7 +151,6 @@
 #define DEFAULT_TABLE_MATERIAL "plastic"
 #define DEFAULT_TABLE_REINF_MATERIAL "plasteel"
 #define DEFAULT_TABLE_FLIP_WEIGHT 22
-#define DEFAULT_WALL_MATERIAL "steel"
 
 #define SHARD_SHARD "shard"
 #define SHARD_SHRAPNEL "shrapnel"
@@ -231,7 +230,7 @@
 //Cargo random stock vars
 //These are used in randomstock.dm
 //And also for generating random loot crates in crates.dm
-#define TOTAL_STOCK 	180//The total number of items we'll spawn in cargo stock
+#define TOTAL_STOCK 	120//The total number of items we'll spawn in cargo stock
 
 #define STOCK_UNCOMMON_PROB	25
 //The probability, as a percentage for each item, that we'll choose from the uncommon spawns list

@@ -240,7 +240,7 @@
 				tank_off()
 				return
 			var/safe_pressure_min = breather.species.breath_pressure + 5
-			safe_pressure_min *= 1 + rand(1,4) * L.damage/L.max_damage
+			safe_pressure_min *= 1 + rand(1,4) * L.get_damage()/L.max_damage
 
 			if(!tank_active) // Activates and sets the kPa to a safe pressure. This keeps from it constantly resetting itself
 				tank.distribute_pressure = safe_pressure_min

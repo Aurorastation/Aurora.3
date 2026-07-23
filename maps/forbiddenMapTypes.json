@@ -1,0 +1,9 @@
+{
+	"forbidden_type_mappings": [
+		{
+			"title": "Objects excluded due to persistent mechanics",
+			"maps": ["sccv_horizon.dmm", "ops_warehouse_small_storage.dmm"],
+			"forbidden_types": ["/obj/item/material/ashtray"]
+		}
+	]
+}

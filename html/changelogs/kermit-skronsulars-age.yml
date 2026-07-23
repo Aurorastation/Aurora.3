@@ -1,0 +1,6 @@
+author: kermit
+
+delete-after: True
+
+changes:
+  - rscadd: "Reduces the skrell consular age requirement to 100."

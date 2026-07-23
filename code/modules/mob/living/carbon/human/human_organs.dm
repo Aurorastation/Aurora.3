@@ -195,7 +195,7 @@
 		if(!brain || stat == DEAD || (status_flags & FAKEDEATH))
 			brain_result = 0
 		else if(stat != DEAD)
-			brain_result = round(max(0,(1 - brain.damage/brain.max_damage)*100))
+			brain_result = round(max(0,(1 - brain.get_damage()/brain.max_damage)*100))
 	else
 		brain_result = -1
 	return brain_result

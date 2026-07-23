@@ -283,7 +283,7 @@
 
 	return list(spawn_cost, player_cost, ship_cost)
 
-/datum/map/proc/send_welcome()
+/datum/map/proc/post_gamemode_setup()
 	return
 
 /datum/map/proc/load_holodeck_programs()

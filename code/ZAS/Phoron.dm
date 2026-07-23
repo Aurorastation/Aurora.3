@@ -113,9 +113,9 @@ GLOBAL_DATUM_INIT(contamination_overlay, /image, image('icons/effects/contaminat
 	var/obj/item/organ/internal/eyes/E = get_eyes(no_synthetic = TRUE)
 	if(E)
 		if(prob(20)) to_chat(src, SPAN_DANGER("Your eyes burn!"))
-		E.damage += 2.5
+		E.add_damage(2.5)
 		eye_blurry = min(eye_blurry+1.5,50)
-		if (prob(max(0,E.damage - 15) + 1) &&!eye_blind)
+		if (prob(max(0,E.get_damage() - 15) + 1) &&!eye_blind)
 			to_chat(src, SPAN_DANGER("You are blinded!"))
 			eye_blind += 20
 

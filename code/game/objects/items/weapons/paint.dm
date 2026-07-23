@@ -7,7 +7,7 @@
 	icon = 'icons/obj/items.dmi'
 	icon_state = "paint_empty"
 	item_state = "paintcan"
-	matter = list(DEFAULT_WALL_MATERIAL = 200)
+	matter = list(MATERIAL_STEEL = 200)
 	w_class = WEIGHT_CLASS_NORMAL
 	amount_per_transfer_from_this = 10
 	possible_transfer_amounts = list(10,20,30,60)

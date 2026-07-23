@@ -443,6 +443,7 @@
 	projectile = /obj/projectile/energy/floramut
 	icon_state = "somatoray"
 	firing_sound = 'sound/effects/stealthoff.ogg'
+	damage = 0.1 //This deals toxin damage. Very strong unless it has a big damage malus.
 
 /obj/item/laser_components/modulator/floramut2
 	name = "betaray modulator"
@@ -450,6 +451,7 @@
 	projectile = /obj/projectile/energy/florayield
 	icon_state = "betaray"
 	firing_sound = 'sound/effects/stealthoff.ogg'
+	damage = 0.1 //This deals toxin damage. Very strong unless it has a big damage malus.
 
 /obj/item/laser_components/modulator/xenovermin
 	name = "xenovermin modulator"
@@ -504,6 +506,7 @@
 	name = "phoron bolt modulator"
 	desc = "Modulates the beam into firing toxic phoron bolts."
 	projectile = /obj/projectile/energy/phoron
+	damage = 0.5
 	icon_state = "tox"
 	firing_sound = 'sound/effects/stealthoff.ogg'
 	origin_tech = list(TECH_COMBAT = 4, TECH_PHORON = 4)

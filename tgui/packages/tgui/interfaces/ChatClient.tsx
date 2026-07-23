@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import {
   Box,
   Button,
@@ -174,8 +175,7 @@ export const AllUsers = (props) => {
 
 export const Chat = (props) => {
   const { act, data } = useBackend<ChatData>();
-  const [newMessage, setNewMessage] = useLocalState<string>(`newMessage`, ``);
-
+  const [messageInputKey, setMessageInputKey] = useState(0);
   const [creatingJoinPassword, setCreatingJoinPassword] = useLocalState(
     'creatingJoinPassword',
     0,
@@ -186,6 +186,8 @@ export const Chat = (props) => {
   const [creatingTitle, setCreatingTitle] = useLocalState('creatingTitle', 0);
 
   const [title, setTitle] = useLocalState<string>(`title`, ``);
+
+  const activeRef = data.active ? data.active.ref : '';
 
   return (
     <Section
@@ -284,15 +286,20 @@ export const Chat = (props) => {
       &nbsp;
       <Box>
         <Input
-          value={newMessage}
+          key={`${activeRef}-${messageInputKey}`}
           placeholder="Type your message. Press enter to send."
+          autoFocus
           width="100%"
           selfClear={true}
           onEnter={(v) => {
-            setNewMessage(v);
+            if (!v.length) {
+              return;
+            }
+
+            setMessageInputKey((key) => key + 1);
             act('send', {
               message: v,
-              target: data.active ? data.active.ref : '',
+              target: activeRef,
             });
           }}
         />

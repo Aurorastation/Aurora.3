@@ -19,10 +19,14 @@
 
 	var/loaded = 0 // Times loaded this round
 	var/static/dmm_suite/maploader = new
+	var/datum/parsed_map/cached_map
+	var/keep_cached_map = FALSE
 	var/list/shuttles_to_initialise = list()
 	var/base_turf_for_zs = null
 	var/accessibility_weight = 0
 	var/template_flags = TEMPLATE_FLAG_ALLOW_DUPLICATES
+	/// Last admin-facing map loader failure reason.
+	var/last_load_error = null
 
 	///A list of groups, as strings, that this template belongs to. When adding new map templates, try to keep this balanced on the CI execution time, or consider adding a new one
 	///ONLY IF IT'S THE LONGEST RUNNING CI POD AND THEY ARE ALREADY BALANCED
@@ -38,25 +42,106 @@
 	if(rename)
 		name = rename
 
-/datum/map_template/proc/preload_size(path)
-	var/list/bounds = list(1.#INF, 1.#INF, 1.#INF, -1.#INF, -1.#INF, -1.#INF)
+/datum/map_template/proc/preload_size(path = null, cache = FALSE)
+	last_load_error = null
+	if(path)
+		mappath = path
+	if(!mappath)
+		last_load_error = "no map source assigned"
+		return FALSE
 
-	var/datum/map_load_metadata/M = maploader.load_map_impl(file(mappath), 1, 1, cropMap=FALSE, measureOnly=TRUE, no_changeturf=TRUE)
+	var/list/bounds = list(1.#INF, 1.#INF, 1.#INF, -1.#INF, -1.#INF, -1.#INF)
+	var/map_source = get_map_source()
+	if(!map_source)
+		last_load_error = "unable to normalize map source ([describe_map_source()])"
+		return FALSE
+
+	var/datum/map_load_metadata/M = maploader.load_map_impl(map_source, 1, 1, 1, cropMap = FALSE, measureOnly = TRUE, no_changeturf = TRUE, cache_metadata = cache)
 	if(M)
 		bounds = extend_bounds_if_needed(bounds, M.bounds)
+		if(cache)
+			cached_map = M.parsed_map
 	else
+		last_load_error = "DMM parser returned no measured bounds for [describe_map_source()]"
 		return FALSE
 
 	width = bounds[MAP_MAXX] - bounds[MAP_MINX] + 1
-	height = bounds[MAP_MAXY] - bounds[MAP_MINX] + 1
+	height = bounds[MAP_MAXY] - bounds[MAP_MINY] + 1
 	return bounds
 
+/datum/map_template/proc/get_map_source()
+	if(islist(mappath))
+		var/list/map_sources = mappath
+		if(!length(map_sources))
+			return null
+		return map_sources[1]
+	if(isfile(mappath))
+		return mappath
+	return file(mappath)
+
+/datum/map_template/proc/describe_map_source()
+	if(islist(mappath))
+		var/list/map_sources = mappath
+		if(!length(map_sources))
+			return "empty source list"
+		var/source = map_sources[1]
+		if(isfile(source))
+			return "source list with file [source]"
+		if(istext(source))
+			return "source list with text length [length(source)]"
+		return "source list with [source]"
+	if(isfile(mappath))
+		return "file [mappath]"
+	if(istext(mappath))
+		return "path [mappath]"
+	return "[mappath]"
+
+/// Takes in a type path, locates an instance of that type in the cached map, and calculates its offset from the origin of the map, returns this offset in the form list(x, y).
+/datum/map_template/proc/discover_offset(obj/marker)
+	if(!cached_map && mappath)
+		preload_size(mappath, TRUE)
+	if(!cached_map || !cached_map.key_len)
+		return null
+
+	var/key
+	var/found_marker = FALSE
+	var/list/models = cached_map.grid_models
+	for(key in models)
+		if(findtext(models[key], "[marker]")) // Yay compile time checks
+			found_marker = TRUE
+			break // This works by assuming there will ever only be one mobile dock in a template at most
+	if(!found_marker)
+		return null
+
+	for(var/datum/grid_set/gset as anything in cached_map.gridSets)
+		var/ycrd = gset.ycrd
+		for(var/line in gset.gridLines)
+			var/xcrd = gset.xcrd
+			for(var/j in 1 to length(line) step cached_map.key_len)
+				if(key == copytext(line, j, j + cached_map.key_len))
+					return list(xcrd, ycrd)
+				++xcrd
+			--ycrd
+	return null
+
+/datum/map_template/proc/post_load()
+	return
+
+/datum/map_template/proc/update_blacklist(turf/T, list/input_blacklist)
+	return
+
 /datum/map_template/proc/load_new_z(var/no_changeturf = TRUE)
+	last_load_error = null
 	var/x = round((world.maxx - width)/2)
 	var/y = round((world.maxy - height)/2)
 
 	if (x < 1) x = 1
 	if (y < 1) y = 1
+
+	var/map_source = get_map_source()
+	if(!map_source)
+		last_load_error = "unable to normalize map source ([describe_map_source()])"
+		return FALSE
 
 	var/list/bounds = list(1.#INF, 1.#INF, 1.#INF, -1.#INF, -1.#INF, -1.#INF)
 	var/list/atoms_to_initialise = list()
@@ -72,13 +157,15 @@
 			base_level = level
 		GLOB.map_templates["[level.z_value]"] = src
 
-	var/datum/map_load_metadata/M = maploader.load_map(file(mappath), x, y, base_level.z_value, no_changeturf = no_changeturf)
+	var/datum/map_load_metadata/M = maploader.load_map(map_source, x, y, base_level.z_value, no_changeturf = no_changeturf)
 
 	if(M)
 		bounds = extend_bounds_if_needed(bounds, M.bounds)
 		atoms_to_initialise += M.atoms_to_initialise
 	else
 		SSicon_smooth.can_fire = TRUE
+		SSshuttle.block_queue = shuttle_state
+		last_load_error = "DMM loader failed while loading new z from [describe_map_source()]"
 		return FALSE
 
 	for (var/z_index = bounds[MAP_MINZ]; z_index <= bounds[MAP_MAXZ]; z_index++)
@@ -173,26 +260,39 @@
 			T.static_lighting_build_overlay()
 
 /datum/map_template/proc/load(turf/T, centered = FALSE)
+	last_load_error = null
 	if(centered)
 		T = locate(T.x - round(width / 2) , T.y - round(height / 2) , T.z)
 	if(!T)
+		last_load_error = "invalid placement turf"
 		return
-	if(T.x + width > world.maxx)
+	if(T.x + width - 1 > world.maxx)
+		last_load_error = "template would exceed world maxx ([T.x] + [width] - 1 > [world.maxx])"
 		return
-	if(T.y + height > world.maxy)
+	if(T.y + height - 1 > world.maxy)
+		last_load_error = "template would exceed world maxy ([T.y] + [height] - 1 > [world.maxy])"
 		return
 
 	var/list/atoms_to_initialise = list()
+	var/list/bounds
+	var/map_source = get_map_source()
+	if(!map_source)
+		last_load_error = "unable to normalize map source ([describe_map_source()])"
+		return FALSE
+
 	var/shuttle_state = pre_init_shuttles()
 
 	//Since SSicon_smooth.add_to_queue() manually wakes the subsystem, we have to use enable/disable.
 	SSicon_smooth.can_fire = FALSE
 
-	var/datum/map_load_metadata/M = maploader.load_map(file(mappath), T.x, T.y, T.z, cropMap=TRUE)
+	var/datum/map_load_metadata/M = maploader.load_map(map_source, T.x, T.y, T.z, cropMap=TRUE)
 	if(M)
 		atoms_to_initialise += M.atoms_to_initialise
+		bounds = M.bounds
 	else
 		SSicon_smooth.can_fire = TRUE
+		SSshuttle.block_queue = shuttle_state
+		last_load_error = "DMM loader failed while placing from [describe_map_source()]"
 		return FALSE
 
 	//initialize things that are normally initialized after map load
@@ -202,7 +302,8 @@
 	SSicon_smooth.can_fire = TRUE
 	message_admins("[name] loaded at [T.x], [T.y], [T.z]")
 	log_game("[name] loaded at [T.x], [T.y], [T.z]")
-	return TRUE
+	cached_map = keep_cached_map ? cached_map : null
+	return bounds
 
 /datum/map_template/proc/get_affected_turfs(turf/T, centered = FALSE)
 	SHOULD_NOT_SLEEP(TRUE)
