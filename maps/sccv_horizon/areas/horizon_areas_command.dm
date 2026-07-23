@@ -27,8 +27,14 @@
 	area_blurb = "The most daunting office on the entire ship. Except for CCIA's. Theirs is still a little scarier."
 	horizon_deck = 3
 
-/area/horizon/command/heads/xo
+/area/horizon/command/heads/xo_office
 	name = "Executive Officer's Office"
+	icon_state = "head_quarters"
+	area_blurb = "No one really knows what goes on in here, but Ian usually seems pretty happy so it's got that going for it.."
+	horizon_deck = 3
+
+/area/horizon/command/heads/xo_desk
+	name = "Executive Officer's Desk"
 	icon_state = "head_quarters"
 	area_blurb = "No one really knows what goes on in here, but Ian usually seems pretty happy so it's got that going for it.."
 	horizon_deck = 3
