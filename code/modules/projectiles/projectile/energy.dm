@@ -95,7 +95,9 @@
 /obj/projectile/energy/phoron
 	name = "phoron bolt"
 	icon_state = "energy"
-	irradiate = 20
+	irradiate = 80 //Radiation goes up to 1000
+	check_armor = BIO
+	damage_type = DAMAGE_TOXIN
 
 /obj/projectile/energy/bfg
 	name = "distortion"
