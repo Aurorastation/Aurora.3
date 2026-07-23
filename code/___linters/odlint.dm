@@ -28,7 +28,7 @@
 #pragma DanglingVarType error
 #pragma MissingInterpolatedExpression error
 #pragma AmbiguousResourcePath error
-#pragma InvalidVarType notice
+#pragma InvalidVarType error
 #pragma InvalidReturnType error
 //3000-3999
 #pragma EmptyBlock error
