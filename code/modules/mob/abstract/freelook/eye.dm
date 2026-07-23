@@ -122,7 +122,7 @@
 			return
 		return loc
 
-/mob/proc/EyeMove(n, direct)
+/mob/proc/EyeMove(n, direct) as num
 	if(!eyeobj)
 		return
 
