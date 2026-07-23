@@ -30,7 +30,7 @@
 	possible_citizenships = CITIZENSHIPS_COALITION
 	possible_religions = RELIGIONS_COALITION
 	origin_traits = list(TRAIT_ORIGIN_COLD_RESISTANCE)
-	origin_traits_descriptions = list("are more acclimatised to the cold.", "are more sensitive to bright lights")
+	origin_traits_descriptions = list("are more acclimatised to the cold", "are more sensitive to bright lights", "can see slightly better in the dark")
 
 /singleton/origin_item/origin/himeo/on_apply(mob/living/carbon/human/H)
 	. = ..()
