@@ -6,7 +6,7 @@
 	all_vaurca = set_all_vaurca
 
 /datum/tgui_module/hivenet_manifest/ui_interact(var/mob/user, var/datum/tgui/ui)
-	if(is_lemurian_sea_sector())
+	if(!SSatlas.current_sector.hivenet_echoes && isNotContactLevel(user.z))
 		to_chat(user, SPAN_WARNING("You attempt to query the Hivenet, but find nothing."))
 		return
 
@@ -18,7 +18,7 @@
 /datum/tgui_module/hivenet_manifest/ui_data(mob/user)
 	var/list/data = list()
 
-	if(is_lemurian_sea_sector())
+	if(!SSatlas.current_sector.hivenet_echoes && isNotContactLevel(user.z))
 		SStgui.close_uis(src)
 		return data
 
