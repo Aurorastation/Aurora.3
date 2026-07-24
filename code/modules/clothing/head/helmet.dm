@@ -32,6 +32,7 @@
 	. = ..()
 	if(camera)
 		verbs += /obj/item/clothing/head/helmet/proc/toggle_camera
+		verbs += /obj/item/clothing/head/helmet/proc/toggle_expedition_camera_network
 	if(has_storage)
 		hold = new /obj/item/storage/internal/helmet(src)
 		hold.storage_slots = slots
@@ -81,7 +82,7 @@
 	return ..()
 
 /obj/item/clothing/head/helmet/proc/toggle_camera()
-	set name = "Toggle Helmet Camera"
+	set name = "Helmet Camera - Toggle On/Off"
 	set category = "Object.Equipped"
 	set src in usr
 
@@ -96,6 +97,30 @@
 			to_chat(usr, SPAN_NOTICE("User scanned as [camera.c_tag]. Camera activated."))
 		else
 			to_chat(usr, SPAN_NOTICE("Camera deactivated."))
+
+/obj/item/clothing/head/helmet/proc/toggle_expedition_camera_network()
+	set name = "Helmet Camera - Toggle Expedition Network"
+	set category = "Object.Equipped"
+	set src in usr
+
+	if(ispath(camera))
+		camera = new camera(src)
+		camera.set_status(0)
+
+	if(!camera)
+		return
+
+	if(NETWORK_EXPEDITION in camera.network)
+		if(length(camera.network) == 1)
+			to_chat(usr, SPAN_WARNING("This camera is already an expedition camera."))
+			return
+
+		camera.remove_network(NETWORK_EXPEDITION)
+		to_chat(usr, SPAN_NOTICE("Camera disconnected from the expedition network."))
+		return
+
+	camera.add_network(NETWORK_EXPEDITION)
+	to_chat(usr, SPAN_NOTICE("Camera connected to the expedition network."))
 
 /obj/item/clothing/head/helmet/space/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
