@@ -245,15 +245,20 @@ ABSTRACT_TYPE(/obj/item/mecha_equipment/mounted_system/mining)
 
 /obj/item/mecha_equipment/ore_summoner/Destroy()
 	linked_box = null // Clear the reference to prevent hard deletes.
-	UnregisterSignal(owner, COMSIG_MOVABLE_MOVED)
+	if (owner)
+		UnregisterSignal(owner, COMSIG_MOVABLE_MOVED)
 	return ..()
 
 /obj/item/mecha_equipment/ore_summoner/installed()
 	. = ..()
+	if (!owner)
+		return
+
 	RegisterSignal(owner, COMSIG_MOVABLE_MOVED, PROC_REF(pickup_ores))
 
 /obj/item/mecha_equipment/ore_summoner/uninstalled()
-	UnregisterSignal(owner, COMSIG_MOVABLE_MOVED)
+	if (owner)
+		UnregisterSignal(owner, COMSIG_MOVABLE_MOVED)
 	return ..()
 
 /obj/item/mecha_equipment/ore_summoner/proc/pickup_ores()
