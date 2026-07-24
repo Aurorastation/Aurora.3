@@ -1782,6 +1782,21 @@
 	},
 /turf/simulated/open,
 /area/horizon/hallway/primary/deck_3/starboard)
+"ajT" = (
+/obj/structure/table/wood,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/random/pottedplant_small{
+	pixel_x = 4;
+	pixel_y = 4
+	},
+/obj/effect/floor_decal/spline/fancy/wood/cee,
+/turf/simulated/floor/wood,
+/area/horizon/hallway/primary/deck_2/central)
 "ajV" = (
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
@@ -31953,30 +31968,11 @@
 /turf/simulated/floor,
 /area/horizon/maintenance/deck_3/aft/port)
 "edH" = (
-/obj/item/reagent_containers/food/condiment/shaker/peppermill{
-	pixel_x = 3;
-	pixel_y = 9
+/obj/structure/machinery/computer/security/terminal/public{
+	dir = 4
 	},
-/obj/item/reagent_containers/food/condiment/shaker/salt{
-	pixel_y = 9;
-	pixel_x = 8
-	},
-/obj/structure/table/wood/gamblingtable,
-/obj/structure/machinery/power/outlet{
-	pixel_y = 3
-	},
-/obj/item/flame/candle{
-	pixel_x = -8;
-	pixel_y = 9
-	},
-/obj/item/flame/candle{
-	pixel_x = -4;
-	pixel_y = 9
-	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 10
-	},
-/turf/simulated/floor/wood,
+/obj/effect/floor_decal/industrial/outline/service,
+/turf/simulated/floor/tiled/full,
 /area/horizon/service/mess_hall)
 "edI" = (
 /obj/structure/machinery/light{
@@ -75002,8 +74998,25 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
-/obj/structure/bed/stool/chair/padded/beige{
-	dir = 4
+/obj/structure/table/wood/gamblingtable,
+/obj/structure/machinery/power/outlet{
+	pixel_y = 3
+	},
+/obj/item/reagent_containers/food/condiment/shaker/peppermill{
+	pixel_x = 3;
+	pixel_y = 9
+	},
+/obj/item/reagent_containers/food/condiment/shaker/salt{
+	pixel_y = 9;
+	pixel_x = 8
+	},
+/obj/item/flame/candle{
+	pixel_x = -4;
+	pixel_y = 9
+	},
+/obj/item/flame/candle{
+	pixel_x = -8;
+	pixel_y = 9
 	},
 /turf/simulated/floor/wood,
 /area/horizon/service/mess_hall)
@@ -97169,7 +97182,10 @@
 /turf/simulated/floor/plating,
 /area/horizon/hangar/intrepid)
 "mBr" = (
-/obj/structure/table/reinforced/steel,
+/obj/structure/machinery/computer/ship/navigation/terminal{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/engineering/shields)
 "mBL" = (
@@ -114158,10 +114174,10 @@
 /turf/unsimulated/floor/wood,
 /area/antag/actor)
 "oMV" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 9
-	},
 /obj/structure/machinery/light/small/floor,
+/obj/effect/floor_decal/spline/fancy/wood/cee{
+	dir = 8
+	},
 /turf/simulated/floor/wood,
 /area/horizon/service/cafeteria)
 "oMW" = (
@@ -117740,6 +117756,16 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/operations/office)
+"pjU" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/machinery/computer/security/terminal/public{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/full,
+/area/horizon/hallway/primary/deck_2/central)
 "pka" = (
 /obj/structure/machinery/hologram/holopad,
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
@@ -137721,6 +137747,15 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/bar)
+"rOz" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/horizon/service/cafeteria)
 "rOA" = (
 /obj/structure/lattice,
 /obj/structure/platform/ledge/dark{
@@ -174616,9 +174651,11 @@
 /turf/simulated/floor/plating,
 /area/horizon/maintenance/deck_1/wing/port/far)
 "wzf" = (
-/obj/effect/floor_decal/spline/fancy/wood,
 /obj/structure/railing/mapped,
 /obj/random/pottedplant,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
+	},
 /turf/simulated/floor/wood,
 /area/horizon/service/cafeteria)
 "wzh" = (
@@ -182779,14 +182816,12 @@
 /turf/simulated/floor/plating,
 /area/horizon/stairwell/engineering/deck_1)
 "xzj" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 10
-	},
-/obj/structure/bed/stool/chair/padded/brown{
+/obj/structure/machinery/computer/security/terminal/public{
 	dir = 1
 	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/railing/mapped,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/tiled/full,
 /area/horizon/service/cafeteria)
 "xzl" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -288029,8 +288064,8 @@ kBh
 wVn
 jGO
 ufZ
-kBh
-wVn
+ajT
+pjU
 dvo
 ewE
 fWT
@@ -354079,7 +354114,7 @@ paJ
 ljn
 dvq
 ogi
-fFN
+rOz
 wzf
 hFA
 uMd
