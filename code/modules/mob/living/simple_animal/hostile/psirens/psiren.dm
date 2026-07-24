@@ -46,7 +46,6 @@
 	butchering_products = list(/obj/item/reagent_containers/food/snacks/squidmeat/psiren_body_meat = 1)
 
 	attack_vis_effect = ATTACK_EFFECT_DISARM
-	smart_melee = TRUE
 	smart_ranged = FALSE
 
 	var/list/cursed_messages = list("DRINK DEEPLY OF THE FINAL NIGHT.",

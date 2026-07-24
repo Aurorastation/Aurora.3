@@ -27,7 +27,6 @@
 	minbodytemp = 0
 
 	tameable = FALSE
-	smart_melee = FALSE
 
 	flying = TRUE
 	attack_emote = "buzzes at"

@@ -30,7 +30,6 @@
 	speed = 4
 	tameable = FALSE
 	flying = TRUE
-	smart_melee = FALSE
 	pass_flags = PASSTABLE|PASSRAILING
 	emote_hear = list("emits a harsh noise")
 	emote_sounds = list(
