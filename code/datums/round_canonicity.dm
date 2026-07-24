@@ -68,21 +68,25 @@
 /singleton/canonicity/proc/round_canon_info()
 	. = list()
 	switch(round_canon)
-		if(ROUND_FULL_CANON)
-			. += "This round is canon. All actions taken by non-antagonists during this round are considered canon."
 		if(ROUND_NON_CANON)
 			. += "This round is non-canon. All actions taken during this round are considered non-canon."
+		if(ROUND_FULL_CANON)
+			. += "This round is canon. All actions taken by non-antagonists during this round are considered canon."
 
 /singleton/canonicity/proc/antagonist_actions_canon_info()
 	. = list()
 	switch(antagonist_actions_canon)
 		if(ANTAGONIST_ACTIONS_NOT_EXPECTED)
 			. += "Antagonist actions are not expected during this round."
-		if(ANTAGONIST_ACTIONS_CANON)
-			. += "Antagonist actions are canon during this round. This includes event antagonists."
 		if(ANTAGONIST_ACTIONS_NOT_CANON)
 			. += "Antagonist actions are not canon during this round."
 			. += "This includes actions by non-antagonists directly influenced by antagonists."
+		if(ANTAGONIST_ACTIONS_CANON)
+			. += "Antagonist actions are canon during this round. This includes event antagonists."
+		if(ANTAGONIST_ACTIONS_EXTREME_CANON)
+			. += "Antagonist actions are canon during this round. This includes event antagonists."
+			. += "Event antagonists will NOT pull any punches. You are expected and extremely encouraged to play carefully and to the best of your ability."
+			. += "All characters are liable to be killed if it is deemed appropriate for the story."
 
 /singleton/canonicity/proc/character_death_canon_info()
 	. = list()
@@ -169,7 +173,8 @@
 
 /singleton/canonicity/extreme
 	name = "Extreme Canon"
-	desc = "This type of canon is in place for events where you are expected to play as realistically and as carefully as possible. All your actions will have permanent consequences."
+	desc = "This type of canon is in place for events where you are expected to play as realistically and as carefully as possible. All your actions will have permanent consequences. Volunteers will play \
+			antagonists to the best of their ability, without holding back."
 	round_canon = ROUND_FULL_CANON
 	antagonist_actions_canon = ANTAGONIST_ACTIONS_CANON
 	character_death_canon = EXTREME_CHARACTER_DEATH
