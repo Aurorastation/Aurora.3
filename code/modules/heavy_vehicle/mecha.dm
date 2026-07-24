@@ -21,6 +21,8 @@
 
 	var/obj/item/radio/exosuit/radio
 	var/obj/structure/machinery/camera/camera
+	/// Whether pilots want the external camera to broadcast while its hardware is functional
+	var/camera_enabled = TRUE
 
 	var/wreckage_path = /obj/structure/mech_wreckage
 
@@ -114,6 +116,7 @@
 			pilot.client.screen -= hud_elements
 			pilot.client.images -= hud_elements
 		if (!QDELETED(pilot)) // Forcemove doesn't accept QDELETED inputs.
+			remove_verb(pilot, /mob/proc/toggle_exosuit_camera)
 			remove_verb(pilot, /mob/proc/change_exosuit_camera_network)
 			pilot.forceMove(get_turf(src))
 	pilots = null

@@ -86,6 +86,9 @@
 	set category = "Object.Equipped"
 	set src in usr
 
+	toggle_camera_for(usr)
+
+/obj/item/clothing/head/helmet/proc/toggle_camera_for(mob/user)
 	if(ispath(camera))
 		camera = new camera(src)
 		camera.set_status(0)
@@ -93,16 +96,19 @@
 	if(camera)
 		camera.set_status(!camera.status)
 		if(camera.status)
-			camera.c_tag = FindNameFromID(usr)
-			to_chat(usr, SPAN_NOTICE("User scanned as [camera.c_tag]. Camera activated."))
+			camera.c_tag = FindNameFromID(user)
+			to_chat(user, SPAN_NOTICE("User scanned as [camera.c_tag]. Camera activated."))
 		else
-			to_chat(usr, SPAN_NOTICE("Camera deactivated."))
+			to_chat(user, SPAN_NOTICE("Camera deactivated."))
 
 /obj/item/clothing/head/helmet/proc/toggle_expedition_camera_network()
 	set name = "Helmet Camera - Toggle Expedition Network"
 	set category = "Object.Equipped"
 	set src in usr
 
+	toggle_expedition_camera_network_for(usr)
+
+/obj/item/clothing/head/helmet/proc/toggle_expedition_camera_network_for(mob/user)
 	if(ispath(camera))
 		camera = new camera(src)
 		camera.set_status(0)
@@ -112,15 +118,15 @@
 
 	if(NETWORK_EXPEDITION in camera.network)
 		if(length(camera.network) == 1)
-			to_chat(usr, SPAN_WARNING("This camera is already an expedition camera."))
+			to_chat(user, SPAN_WARNING("This camera is already an expedition camera."))
 			return
 
 		camera.remove_network(NETWORK_EXPEDITION)
-		to_chat(usr, SPAN_NOTICE("Camera disconnected from the expedition network."))
+		to_chat(user, SPAN_NOTICE("Camera disconnected from the expedition network."))
 		return
 
 	camera.add_network(NETWORK_EXPEDITION)
-	to_chat(usr, SPAN_NOTICE("Camera connected to the expedition network."))
+	to_chat(user, SPAN_NOTICE("Camera connected to the expedition network."))
 
 /obj/item/clothing/head/helmet/space/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
