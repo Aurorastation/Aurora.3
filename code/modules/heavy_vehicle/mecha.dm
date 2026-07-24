@@ -114,6 +114,7 @@
 			pilot.client.screen -= hud_elements
 			pilot.client.images -= hud_elements
 		if (!QDELETED(pilot)) // Forcemove doesn't accept QDELETED inputs.
+			remove_verb(pilot, /mob/proc/change_exosuit_camera_network)
 			pilot.forceMove(get_turf(src))
 	pilots = null
 
@@ -332,6 +333,9 @@
 
 	remote = TRUE
 	name = name + " \"[pick("Jaeger", "Reaver", "Templar", "Juggernaut", "Basilisk")]-[rand(0, 999)]\""
+	if(camera)
+		camera.c_tag = name
+		invalidateCameraCache()
 	if(!remote_network)
 		remote_network = REMOTE_GENERIC_MECH
 	SSvirtualreality.add_mech(src, remote_network)

@@ -15,10 +15,11 @@
 	for(var/thing in pilots)
 		var/mob/pilot = thing
 		if(pilot.loc != src) // Admin jump or teleport/grab.
+			remove_verb(pilot, /mob/proc/change_exosuit_camera_network)
 			if(pilot.client)
 				pilot.client.screen -= hud_elements
-				LAZYREMOVE(pilots, pilot)
-				UNSETEMPTY(pilots)
+			LAZYREMOVE(pilots, pilot)
+			UNSETEMPTY(pilots)
 
 	if(radio)
 		var/radio_check = head?.radio && head.radio.is_functional() && get_cell()

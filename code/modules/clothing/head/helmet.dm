@@ -125,7 +125,7 @@
 /obj/item/clothing/head/helmet/space/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if((distance <= 1) && camera)
-		. += FONT_SMALL(SPAN_NOTICE("To toggle the helmet camera, right click the helmet and press <b>Toggle Helmet Camera</b>."))
+		. += FONT_SMALL(SPAN_NOTICE("To toggle or configure the helmet camera, right-click the helmet for options, or equip it and view your new Object verbs."))
 		. += "This helmet has a built-in camera. It's [!ispath(camera) && camera.status ? "" : "in"]active."
 
 /obj/item/clothing/head/helmet/hos

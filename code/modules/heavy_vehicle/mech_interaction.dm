@@ -240,6 +240,7 @@
 	to_chat(user, SPAN_NOTICE("You climb into \the [src]."))
 	user.forceMove(src)
 	LAZYDISTINCTADD(pilots, user)
+	add_verb(user, /mob/proc/change_exosuit_camera_network)
 	RegisterSignal(user, COMSIG_MOB_FACEDIR, PROC_REF(handle_user_turn))
 	RegisterSignal(user, COMSIG_INPUT_KEY_QUICK_EQUIP, PROC_REF(strafe_left))
 	RegisterSignal(user, COMSIG_INPUT_KEY_DROP, PROC_REF(strafe_right))
@@ -274,11 +275,64 @@
 		user.client.eye = user
 	if(user in pilots)
 		set_intent(I_HURT)
+		remove_verb(user, /mob/proc/change_exosuit_camera_network)
 		LAZYREMOVE(pilots, user)
 		UnregisterSignal(user, COMSIG_MOB_FACEDIR)
 		UnregisterSignal(user, COMSIG_INPUT_KEY_QUICK_EQUIP)
 		UnregisterSignal(user, COMSIG_INPUT_KEY_DROP)
 		UNSETEMPTY(pilots)
+
+/mob/proc/change_exosuit_camera_network()
+	set name = "Change Exosuit Camera Network"
+	set category = "Exosuit Interface"
+
+	var/mob/living/heavy_vehicle/exosuit = loc
+	if(!istype(exosuit) || !(src in exosuit.pilots))
+		remove_verb(src, /mob/proc/change_exosuit_camera_network)
+		return
+
+	var/obj/structure/machinery/camera/mech_camera = exosuit.camera
+	if(!mech_camera)
+		to_chat(src, SPAN_WARNING("\The [exosuit] has no camera."))
+		return
+
+	var/list/available_networks = list(
+		NETWORK_COMMAND,
+		NETWORK_ENGINEERING,
+		NETWORK_MEDICAL,
+		NETWORK_MINE,
+		NETWORK_RESEARCH,
+		NETWORK_SECURITY,
+		NETWORK_SUPPLY,
+		NETWORK_SERVICE,
+		NETWORK_EXPEDITION,
+		NETWORK_NEWS
+	)
+	if(player_is_antag(mind))
+		available_networks += NETWORK_MECHS
+
+	var/default_network = mech_camera.network[1]
+	if(!(default_network in available_networks))
+		default_network = null
+
+	var/chosen_network = tgui_input_list(src, "Select a camera network for \the [exosuit].", "Exosuit Camera Network", available_networks, default_network)
+	if(!chosen_network || !(chosen_network in available_networks))
+		return
+	if(chosen_network == NETWORK_MECHS && !player_is_antag(mind))
+		return
+	if(QDELETED(exosuit) || loc != exosuit || !(src in exosuit.pilots) || QDELETED(mech_camera) || exosuit.camera != mech_camera)
+		return
+
+	if(length(mech_camera.network) == 1 && mech_camera.network[1] == chosen_network)
+		to_chat(src, SPAN_NOTICE("\The [exosuit]'s camera is already connected to [chosen_network]."))
+		return
+
+	var/list/old_networks = mech_camera.network.Copy()
+	for(var/old_network in old_networks)
+		if(old_network != chosen_network)
+			mech_camera.remove_network(old_network)
+	mech_camera.add_network(chosen_network)
+	to_chat(src, SPAN_NOTICE("\The [exosuit]'s camera network is now [chosen_network]."))
 
 /mob/living/heavy_vehicle/proc/handle_user_turn(var/mob/living/user, var/direction)
 	SIGNAL_HANDLER
@@ -655,6 +709,9 @@ GLOBAL_DATUM_INIT(mech_state, /datum/ui_state/default, new())
 	if(!new_name || new_name == name || (user != src && !(user in pilots)))
 		return
 	name = new_name
+	if(camera)
+		camera.c_tag = name
+		invalidateCameraCache()
 	to_chat(user, SPAN_NOTICE("You have redesignated this exosuit as \the [name]."))
 
 /mob/living/heavy_vehicle/proc/trample(var/mob/living/H)
