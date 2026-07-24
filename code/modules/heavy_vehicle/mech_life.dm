@@ -37,6 +37,9 @@
 
 	if(!powered)
 		//Shut down all systems
+		if (!power && sound_looping) // This is stupid why is this a second var?
+			soundloop.stop()
+			sound_looping = FALSE
 		if(head)
 			head.active_sensors = FALSE
 		for(var/hardpoint in hardpoints)
