@@ -27,12 +27,12 @@
 	UnregisterSignal(parent, COMSIG_PSI_MIND_POWER)
 	return ..()
 
-/datum/component/psi_suppression/proc/modify_sensitivity(var/parent, var/effective_sensitivity)
+/datum/component/psi_suppression/proc/modify_sensitivity(parent, effective_sensitivity)
 	SIGNAL_HANDLER
 
 	*effective_sensitivity += sensitivity_modifier
 
-/datum/component/psi_suppression/proc/cancel_power(var/parent, var/caster, var/cancelled, var/cancel_return, var/wide_field)
+/datum/component/psi_suppression/proc/cancel_power(parent, caster, cancelled, cancel_return, wide_field)
 	SIGNAL_HANDLER
 
 	*cancelled = TRUE
@@ -40,3 +40,4 @@
 		return
 
 	to_chat(parent, SPAN_DANGER("You repulse an outside thought!"))
+	astype(parent, /mob/living)?.psi?.spend_power(15)
