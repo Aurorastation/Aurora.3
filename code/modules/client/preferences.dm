@@ -91,6 +91,7 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 	var/gear_modified = FALSE
 
 	// IPC Stuff
+	var/machine_custom_model
 	var/machine_tag_status = TRUE
 	var/machine_serial_number
 	var/machine_ownership_status = IPC_OWNERSHIP_COMPANY
