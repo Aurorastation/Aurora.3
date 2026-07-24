@@ -24,7 +24,7 @@
 	if(prob(10) && (owner.can_feel_pain()))
 		if(stage < 3)
 			to_chat(owner, SPAN_WARNING("You feel a stinging pain in your head!"))
-		else
+		else if(prob(10))
 			to_chat(owner, "A part of you tries to fight back, but the taste of the black k'ois puts you at ease.")
 		owner.visible_message("<b>[owner]</b> winces slightly.")
 		owner.adjustHalLoss(5)
@@ -43,14 +43,14 @@
 		if(prob(5))
 			if(stage < 4)
 				to_chat(owner, SPAN_WARNING("You feel something squirming inside of you!"))
-			else
+			else if(prob(5))
 				to_chat(owner, SPAN_GOOD("You feel it, within you. Its presence soothes, a constant companion. There is no need to resist. We are with you. We will not abandon you."))
 			owner.reagents.add_reagent(/singleton/reagent/kois/black, 4)
 
 		else if(prob(5))
 			if(stage < 4)
 				to_chat(owner, SPAN_GOOD("In your struggle, a part of you wishes for the spread to continue."))
-			else
+			else if(prob(5))
 				to_chat(owner, SPAN_GOOD("You cannot ever believe that you struggled against this feeling. You are home. You are happy."))
 
 		else if(prob(10))
@@ -92,7 +92,7 @@
 			if(owner.can_feel_pain())
 				to_chat(owner, SPAN_WARNING("You feel an unbearable pain in your mind!"))
 				owner.emote("scream")
-			else if(full_zombie)
+			else if(full_zombie && prob(10))
 				to_chat(owner, SPAN_GOOD("Your mind hums with a billion voices that are not your own. You will never be alone again. Unbidden, a smile comes to your face."))
 			owner.adjustBrainLoss(1, 55)
 
