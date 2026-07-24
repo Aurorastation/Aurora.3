@@ -47,7 +47,6 @@
 	/// If set, then this nymph is inside a gestalt.
 	var/mob/living/carbon/gestalt = null
 	var/kept_clean = FALSE
-
 	/// Nymph who owns this nymph if split. AI diona nymphs will follow this nymph, and these nymphs can be controlled by the master.
 	var/mob/living/carbon/alien/diona/master_nymph
 	/// List of all related nymphs.
@@ -56,6 +55,9 @@
 	var/echo = FALSE
 	/// Whether or not the nymph is detached.
 	var/detached = FALSE
+	/// Whether the nymph can crawl through vents.
+	var/mob/living/carbon/alien/diona/dionae_vent_crawl = TRUE
+
 
 	var/datum/reagents/metabolism/ingested
 
@@ -73,6 +75,7 @@
 	setup_dionastats()
 	eat_types |= TYPE_ORGANIC
 	nutrition = 0 //We dont start with biomass
+	remove_verb(src, /mob/living/proc/ventcrawl)
 	update_verbs()
 
 /mob/living/carbon/alien/diona/Destroy()
@@ -274,16 +277,19 @@
 		add_verb(src, /mob/living/carbon/alien/diona/proc/merge)
 		add_verb(src, /mob/living/carbon/proc/absorb_nymph)
 		add_verb(src, /mob/living/carbon/alien/diona/proc/grow)
-		add_verb(src, /mob/living/proc/ventcrawl)
 		add_verb(src, /mob/living/proc/hide)
 		add_verb(src, /mob/living/carbon/proc/sample)
 		add_verb(src, /mob/living/carbon/alien/diona/proc/remove_hat)
 		add_verb(src, /mob/living/carbon/alien/diona/proc/attach_nymph_limb)
 		add_verb(src, /mob/living/carbon/alien/diona/proc/detach_nymph_limb)
+		add_verb(src, /mob/living/proc/ventcrawl)
 		remove_verb(src, /mob/living/carbon/alien/diona/proc/split) // we want to remove this one
 
 	remove_verb(src, /mob/living/carbon/alien/verb/evolve) //We don't want the old alien evolve verb
 
+
+/mob/living/carbon/alien/diona/can_ventcrawl()
+		return dionae_vent_crawl
 
 /mob/living/carbon/alien/diona/get_status_tab_items()
 	. = ..()

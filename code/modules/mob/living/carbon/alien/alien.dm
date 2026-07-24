@@ -25,7 +25,7 @@
 
 	time_of_birth = world.time
 
-	add_verb(src, /mob/living/proc/ventcrawl)
+	//add_verb(src, /mob/living/proc/ventcrawl)
 	add_verb(src, /mob/living/proc/hide)
 
 	name = "[initial(name)] ([rand(1, 1000)])"

@@ -96,7 +96,7 @@ GLOBAL_LIST_INIT(can_enter_vent_with, list(
 	return 1
 
 /mob/living/carbon/alien/can_ventcrawl()
-	return 1
+	return 0
 
 /mob/living/carbon/alien/ventcrawl_carry()
 	return 1
