@@ -56,14 +56,14 @@
 /datum/design/item/integrated_electronics/custom_circuit_printer
 	name = "Portable Integrated Circuit Printer"
 	desc = "A portable(ish) printer for modular machines."
-	req_tech = list(TECH_MATERIAL = 3, TECH_ENGINEERING = 4, TECH_DATA = 5)
+	req_tech = list(TECH_MATERIAL = 3, TECH_ENGINEERING = 3, TECH_DATA = 3)
 	materials = list(MATERIAL_STEEL = 10000)
 	build_path = /obj/item/integrated_circuit_printer
 
 /datum/design/item/integrated_electronics/custom_circuit_printer_upgrade
 	name = "Integrated Circuit Printer Upgrade - Advanced Designs"
 	desc = "Allows the integrated circuit printer to create advanced circuits."
-	req_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 4)
+	req_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 5)
 	materials = list(MATERIAL_STEEL = 2000)
 	build_path = /obj/item/disk/integrated_circuit/upgrade/advanced
 
