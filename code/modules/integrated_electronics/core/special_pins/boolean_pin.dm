@@ -1,3 +1,8 @@
+/*
+ * core/special_pins/boolean_pin.dm
+ * Boolean pin type behavior and conversion for TRUE/FALSE style circuit values.
+ */
+
 // These pins only contain 0 or 1.  Null is not allowed.
 /datum/integrated_io/boolean
 	name = "boolean pin"

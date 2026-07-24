@@ -1,9 +1,14 @@
+/*
+ * subtypes/output.dm
+ * Output circuits that speak, display, signal, pulse, transmit, or otherwise emit circuit results into the game world.
+ */
+
 /obj/item/integrated_circuit/output
 	category_text = "Output"
 
 /obj/item/integrated_circuit/output/screen
 	name = "small screen"
-	desc = "This small screen can display a single piece of data, when the machine is examined closely."
+	desc = "Displays one value when the assembly is examined closely."
 	icon_state = "screen"
 	inputs = list("displayed data" = IC_PINTYPE_ANY)
 	outputs = list()
@@ -34,31 +39,130 @@
 
 /obj/item/integrated_circuit/output/screen/medium
 	name = "screen"
-	desc = "This screen allows for people holding the device to see a piece of data."
+	desc = "Displays data to the person holding the device."
 	icon_state = "screen_medium"
 	power_draw_per_use = 200
 
 /obj/item/integrated_circuit/output/screen/medium/do_work()
 	..()
-	var/list/nearby_things = range(0, get_turf(src))
+	var/turf/T = get_turf(src)
+	if(!T)
+		return
+	var/list/nearby_things = range(0, T)
+	var/list/viewing = viewers(T)
 	for(var/mob/M in nearby_things)
 		var/obj/O = assembly ? assembly : src
-		to_chat(M, SPAN_NOTICE("[icon2html(O, viewers(get_turf(src)))] [stuff_to_display]"))
+		to_chat(M, SPAN_NOTICE("[icon2html(O, viewing)] [stuff_to_display]"))
 
 /obj/item/integrated_circuit/output/screen/large
 	name = "large screen"
-	desc = "This screen allows for people able to see the device to see a piece of data."
+	desc = "Displays data to nearby viewers who can see the device."
 	icon_state = "screen_large"
 	power_draw_per_use = 400
 
 /obj/item/integrated_circuit/output/screen/large/do_work()
 	..()
-	var/obj/O = assembly ? loc : assembly
-	O.visible_message(SPAN_NOTICE("[icon2html(O, viewers(get_turf(src)))] [stuff_to_display]"))
+	var/obj/O = assembly ? assembly : src
+	var/turf/T = get_turf(src)
+	if(!O || !T)
+		return
+	O.visible_message(SPAN_NOTICE("[icon2html(O, viewers(T))] [stuff_to_display]"))
+
+/obj/item/integrated_circuit/output/state_display
+	name = "state display"
+	desc = "Displays a compact label and value when the assembly is examined closely."
+	icon_state = "screen"
+	complexity = 2
+	inputs = list(
+		"label" = IC_PINTYPE_STRING,
+		"value" = IC_PINTYPE_ANY,
+		"enabled" = IC_PINTYPE_BOOLEAN
+	)
+	inputs_default = list(
+		"1" = "Status",
+		"3" = TRUE
+	)
+	outputs = list(
+		"displayed" = IC_PINTYPE_BOOLEAN
+	)
+	activators = list(
+		"update" = IC_PINTYPE_PULSE_IN,
+		"on updated" = IC_PINTYPE_PULSE_OUT,
+		"on invalid" = IC_PINTYPE_PULSE_OUT
+	)
+	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+	power_draw_per_use = 100
+
+	var/stuff_to_display = null
+
+/obj/item/integrated_circuit/output/state_display/disconnect_all()
+	..()
+	stuff_to_display = null
+
+/obj/item/integrated_circuit/output/state_display/any_examine(mob/user)
+	. = ..()
+	if(!isnull(stuff_to_display))
+		. += "There is a little status display reading '[stuff_to_display]'."
+
+/obj/item/integrated_circuit/output/state_display/do_work()
+	if(!get_pin_data(IC_INPUT, 3))
+		stuff_to_display = null
+		set_pin_data(IC_OUTPUT, 1, FALSE)
+		push_data()
+		activate_pin(3)
+		return
+
+	var/label = get_pin_data(IC_INPUT, 1)
+	var/value = get_pin_data(IC_INPUT, 2, FALSE)
+
+	if(isnull(value))
+		stuff_to_display = null
+		set_pin_data(IC_OUTPUT, 1, FALSE)
+		push_data()
+		activate_pin(3)
+		return
+
+	stuff_to_display = sanitizeSafe("[ic_safe_text(label, "Status")]: [ic_display_value(value)]", MAX_MESSAGE_LEN)
+	set_pin_data(IC_OUTPUT, 1, TRUE)
+	push_data()
+	activate_pin(2)
+
+/obj/item/integrated_circuit/output/pulse_result
+	name = "pulse result router"
+	desc = "Routes a value into true, false, or invalid pulse outputs."
+	icon_state = "template"
+	complexity = 1
+	inputs = list(
+		"value" = IC_PINTYPE_ANY
+	)
+	outputs = list(
+		"value" = IC_PINTYPE_ANY
+	)
+	activators = list(
+		"evaluate" = IC_PINTYPE_PULSE_IN,
+		"on true" = IC_PINTYPE_PULSE_OUT,
+		"on false" = IC_PINTYPE_PULSE_OUT,
+		"on invalid" = IC_PINTYPE_PULSE_OUT
+	)
+	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+	power_draw_per_use = 10
+
+/obj/item/integrated_circuit/output/pulse_result/do_work()
+	var/value = get_pin_data(IC_INPUT, 1, FALSE)
+
+	set_pin_data(IC_OUTPUT, 1, value)
+	push_data()
+
+	if(isnull(value))
+		activate_pin(4)
+	else if(ic_truthy(value))
+		activate_pin(2)
+	else
+		activate_pin(3)
 
 /obj/item/integrated_circuit/output/light
 	name = "light"
-	desc = "This light can turn on and off on command."
+	desc = "Turns a light on or off when pulsed."
 	icon_state = "light"
 	complexity = 4
 	inputs = list()
@@ -112,7 +216,7 @@
 
 /obj/item/integrated_circuit/output/light/advanced
 	name = "advanced light"
-	desc = "This light can turn on and off on command, in any color, and in various brightness levels."
+	desc = "Turns a configurable colored light on or off when pulsed."
 	icon_state = "light_adv"
 	complexity = 8
 	inputs = list(
@@ -128,7 +232,7 @@
 
 /obj/item/integrated_circuit/output/sound
 	name = "speaker circuit"
-	desc = "A miniature speaker is attached to this component."
+	desc = "Plays sounds from the assembly."
 	icon_state = "speaker"
 	complexity = 8
 	cooldown_per_use = 1 SECOND
@@ -144,8 +248,8 @@
 
 /obj/item/integrated_circuit/output/text_to_speech
 	name = "text-to-speech circuit"
-	desc = "A miniature speaker is attached to this component."
-	extended_desc = "This unit is more advanced than the plain speaker circuit, able to transpose any valid text to speech."
+	desc = "Plays sounds from the assembly."
+	extended_desc = "Converts valid text input into spoken audio."
 	icon_state = "speaker"
 	complexity = 12
 	cooldown_per_use = 1 SECOND
@@ -156,10 +260,30 @@
 	power_draw_per_use = 600
 
 /obj/item/integrated_circuit/output/text_to_speech/do_work()
-	text = get_pin_data(IC_INPUT, 1)
-	if(!isnull(text))
-		var/obj/O = assembly ? loc : assembly
-		audible_message("[icon2html(O, viewers(get_turf(O)))] \The [O.name] states, \"[text]\"")
+	var/text = get_pin_data(IC_INPUT, 1)
+
+	if(isnull(text))
+		return
+
+	/*
+	 * If this TTS circuit is inside an electronic radio headset,
+	 * output privately to the headset wearer only.
+	 */
+	var/obj/item/electronic_assembly/clothing/A = loc
+
+	if(istype(A))
+		var/obj/item/radio/headset/circuitry/H = A.clothing
+
+		if(istype(H))
+			H.private_tts_output(text)
+			return
+
+	/*
+	 * Fallback behavior for every TTS circuit outside the electronic radio headset.
+	 */
+	var/obj/O = loc ? loc : src
+	var/turf/T = get_turf(O)
+	audible_message("[icon2html(O, viewers(T))] \The [O.name] states, \"[text]\"")
 
 /obj/item/integrated_circuit/output/sound/Initialize()
 	. = ..()
@@ -183,7 +307,7 @@
 
 /obj/item/integrated_circuit/output/sound/beeper
 	name = "beeper circuit"
-	desc = "A miniature speaker is attached to this component.  This is often used in the construction of motherboards, which use \
+	desc = "Plays sounds from the assembly.  This is often used in the construction of motherboards, which use \
 	the speaker to tell the user if something goes very wrong when booting up.  It can also do other similar synthetic sounds such \
 	as buzzing, pinging, chiming, and more."
 	sounds = list(
@@ -200,7 +324,7 @@
 
 /obj/item/integrated_circuit/output/sound/beepsky
 	name = "securitron sound circuit"
-	desc = "A miniature speaker is attached to this component.  Considered by some to be the essential component for a securitron."
+	desc = "A miniature speaker that plays alert tones or warning sounds."
 	sounds = list(
 		"creep"        = 'sound/voice/bcreep.ogg',
 		"criminal"     = 'sound/voice/bcriminal.ogg',
@@ -215,7 +339,7 @@
 
 /obj/item/integrated_circuit/output/sound/medbot
 	name = "medibot sound circuit"
-	desc = "A miniature speaker is attached to this component, used to annoy patients while they get pricked by a medbot."
+	desc = "A miniature speaker that plays medical bot audio cues."
 	sounds = list(
 		"surgeon"     = 'sound/voice/medbot/msurgeon.ogg',
 		"radar"       = 'sound/voice/medbot/mradar.ogg',
@@ -237,8 +361,8 @@
 
 /obj/item/integrated_circuit/output/video_camera
 	name = "video camera circuit"
-	desc = "This small camera allows a remote viewer to see what it sees."
-	extended_desc = "The camera is linked to the Research camera network by default, but can be changed."
+	desc = "Creates a camera feed from the assembly's position."
+	extended_desc = "Creates a camera feed. It uses the Research camera network by default, but the network can be changed."
 	icon_state = "video_camera"
 	w_class = WEIGHT_CLASS_SMALL
 	complexity = 10
@@ -295,8 +419,8 @@
 
 /obj/item/integrated_circuit/output/led
 	name = "light-emitting diode"
-	desc = "This a LED that is lit whenever there is TRUE-equivalent data on its input."
-	extended_desc = "TRUE-equivalent values are: Non-empty strings, non-zero numbers, and valid refs."
+	desc = "This LED lights while its input contains TRUE-equivalent data."
+	extended_desc = "TRUE values include non-empty text, non-zero numbers, valid refs, and populated lists. FALSE values include null, 0, and empty text."
 	complexity = 0.1
 	icon_state = "led"
 	inputs = list("lit" = IC_PINTYPE_BOOLEAN)
@@ -375,7 +499,7 @@
 
 /obj/item/integrated_circuit/output/printer
 	name = "printer"
-	desc = "This printer can print text to a sheet of paper. If the eject pin is set or the paper is full of text it will eject the paper after printing"
+	desc = "Prints text to paper. If the eject input is enabled, or if the paper is full, the paper is ejected after printing."
 	icon_state = "screen"
 	inputs = list("printed data" = IC_PINTYPE_ANY, "paper source" = IC_PINTYPE_REF, "eject sheet" = IC_PINTYPE_BOOLEAN)
 	outputs = list()
@@ -410,6 +534,8 @@
 			paper_sheet.set_content(null, copytext(stuff_to_print, 1, MAX_PAPER_MESSAGE_LEN))
 			stuff_to_print = copytext(stuff_to_print, MAX_PAPER_MESSAGE_LEN)
 			if(stuff_to_print || eject)
+				if(!using_tray)
+					return
 				paper_sheet = paper_source.get_item(TRUE)
 				audible_message(SPAN_NOTICE("\The [src] buzzes and spits out a sheet of paper."))
 				paper_sheet.forceMove(get_turf(src))

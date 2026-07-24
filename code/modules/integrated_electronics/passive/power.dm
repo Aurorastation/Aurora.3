@@ -1,7 +1,12 @@
+/*
+ * passive/power.dm
+ * Passive power circuits and power-network integration for assemblies.
+ */
+
 
 /obj/item/integrated_circuit/passive/power
 	name = "power thingy"
-	desc = "Does power stuff."
+	desc = "Base type for integrated power circuits."
 	complexity = 5
 	origin_tech = list(TECH_POWER = 2, TECH_ENGINEERING = 2, TECH_DATA = 2)
 	category_text = "Power - Passive"
@@ -12,14 +17,13 @@
 // For calculators.
 /obj/item/integrated_circuit/passive/power/solar_cell
 	name = "tiny photovoltaic cell"
-	desc = "It's a very tiny solar cell, generally used in calculators."
+	desc = "A very small solar cell for low-power assemblies."
 	extended_desc = "The cell generates up to 100 W of energy in optimal lighting conditions. Less light will result in less power being generated."
 	icon_state = "solar_cell"
 	complexity = 8
 	origin_tech = list(TECH_POWER = 3, TECH_ENGINEERING = 3, TECH_DATA = 2)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
-	/// Multiplied by amount of lumens to get amount of power to generate.
 	var/power_factor = 15
 
 /obj/item/integrated_circuit/passive/power/solar_cell/make_energy()
@@ -33,7 +37,7 @@
 // For fat machines that need fat power, like drones.
 /obj/item/integrated_circuit/passive/power/relay
 	name = "tesla power relay"
-	desc = "A seemingly enigmatic device which connects to nearby APCs wirelessly and draws power from them."
+	desc = "Connects to nearby APCs wirelessly and draws power from them."
 	w_class = WEIGHT_CLASS_NORMAL
 	extended_desc = "The siphon generates 1 kW of energy, so long as an APC is in the same room, with a cell that has energy. It will always drain \
 	from the 'equipment' power channel."
@@ -46,7 +50,7 @@
 // For really fat machines.
 /obj/item/integrated_circuit/passive/power/relay/large
 	name = "large tesla power relay"
-	desc = "A seemingly enigmatic device which connects to nearby APCs wirelessly and draws power from them, now in industiral size!"
+	desc = "Connects to nearby APCs wirelessly and draws a larger amount of power from them."
 	w_class = WEIGHT_CLASS_BULKY
 	extended_desc = "The siphon generates 4 kW of energy, so long as an APC is in the same room, with a cell that has energy. It will always drain \
 	from the 'equipment' power channel."
@@ -68,7 +72,7 @@
 // For implants.
 /obj/item/integrated_circuit/passive/power/metabolic_siphon
 	name = "metabolic siphon"
-	desc = "A complicated piece of technology which converts bodily nutriments of a host into electricity, or vice versa."
+	desc = "Converts a host's nutrients into electricity, or uses electricity to supply nutrients."
 	extended_desc = "The siphon generates 10W of energy, so long as the siphon exists inside a biological entity.  The entity will feel an increased \
 	appetite and will need to eat more often due to this.  This device will fail if used inside synthetic entities.\
 	If the polarity is reversed, it will instead generate chemical energy with electricity, continuously consuming power from the assembly.\
@@ -122,7 +126,7 @@
 	name = "fuel cell"
 	desc = "Produces electricity from chemicals."
 	icon_state = "chemical_cell"
-	extended_desc = "This is effectively an internal beaker. It will consume and produce power from phoron, slime jelly, welding fuel, carbon,\
+	extended_desc = "Functions as an internal beaker for the assembly. It will consume and produce power from phoron, slime jelly, welding fuel, carbon,\
 						ethanol, nutriments and blood, in order of decreasing efficiency. It will consume fuel only if the battery can take more energy."
 
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
@@ -162,24 +166,32 @@
 	name = "power network interface"
 	desc = "Gives or takes power from a wire underneath the machine."
 	icon_state = "powernet"
-	extended_desc = "The assembly must be anchored, with a wrench, and a wire node must be avaiable directly underneath.<br>\
+	extended_desc = "The assembly must be anchored, with a wrench, and a wire node must be available directly underneath.<br>\
 	The first pin determines if power is moved at all. The second pin, if true, will draw from the powernet to charge the assembly's \
 	cell, otherwise it will give power from the cell to the powernet."
 	complexity = 20
+	size = 1
 	inputs = list(
 		"active" = IC_PINTYPE_BOOLEAN,
 		"draw power" = IC_PINTYPE_BOOLEAN
-		)
+	)
 	outputs = list(
 		"power in grid" = IC_PINTYPE_NUMBER,
 		"surplus power" = IC_PINTYPE_NUMBER,
 		"load" = IC_PINTYPE_NUMBER
-		)
+	)
 	activators = list()
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	origin_tech = list(TECH_ENGINEERING = 2, TECH_POWER = 2)
 	var/obj/structure/machinery/power/circuit_io/IO = null // Dummy power machine to move energy in/out without a bunch of code duplication.
 	var/throughput = 10000 // Give/take up to 10kW.
+
+/obj/item/integrated_circuit/passive/power/powernet/builtin
+	name = "built-in power network interface"
+	desc = "A built-in power network interface for machine-integrated electronic assemblies."
+	complexity = 0
+	size = 0
+	spawn_flags = 0
 
 /obj/item/integrated_circuit/passive/power/powernet/Initialize()
 	IO = new(src)
