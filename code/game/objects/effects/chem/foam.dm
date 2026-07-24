@@ -15,6 +15,7 @@
 	var/amount = 3
 	var/expand = 1
 	var/metal = 0
+	var/reagents_checked = FALSE
 
 /obj/effect/effect/foam/New(var/loc, var/ismetal = 0)
 	..(loc)
@@ -45,11 +46,25 @@
 	QDEL_IN(src, 5)
 
 /obj/effect/effect/foam/proc/checkReagents() // transfer any reagents to the floor
+	reagents_checked = TRUE
 	if(!metal && reagents)
 		var/turf/T = get_turf(src)
 		reagents.touch_turf(T)
 		for(var/obj/O in T)
 			reagents.touch_obj(O)
+
+/obj/effect/effect/foam/proc/add_carried_reagents(var/list/reagent_ids)
+	if(metal || !LAZYLEN(reagent_ids))
+		return FALSE
+
+	if(!reagents)
+		create_reagents(10)
+
+	var/added = FALSE
+	for(var/id in reagent_ids)
+		if(reagents.add_reagent(id, 1, safety = 1))
+			added = TRUE
+	return added
 
 /obj/effect/effect/foam/process()
 	if(--amount < 0)
@@ -65,15 +80,16 @@
 
 		var/obj/effect/effect/foam/F = locate() in T
 		if(F)
+			if(!metal && reagents)
+				if(F.add_carried_reagents(reagents.reagent_volumes) && F.reagents_checked)
+					F.checkReagents()
 			continue
 
 		F = new(T, metal)
 		F.amount = amount
 		if(!metal)
-			F.create_reagents(10)
 			if(reagents)
-				for(var/_R in reagents.reagent_volumes)
-					F.reagents.add_reagent(_R, 1, safety = 1) //added safety check since reagents in the foam have already had a chance to react
+				F.add_carried_reagents(reagents.reagent_volumes)
 
 /obj/effect/effect/foam/fire_act(exposed_temperature, exposed_volume) // foam disolves when heated, except metal foams
 	. = ..()
@@ -125,18 +141,19 @@
 	var/obj/effect/effect/foam/F = locate() in location
 	if(F)
 		F.amount += amount
+		if(!metal)
+			if(F.add_carried_reagents(carried_reagents) && F.reagents_checked)
+				F.checkReagents()
 		return
 
 	F = new /obj/effect/effect/foam(location, metal)
 	F.amount = amount
 
 	if(!metal) // don't carry other chemicals if a metal foam
-		F.create_reagents(10)
-
-		if(carried_reagents)
-			for(var/id in carried_reagents)
-				F.reagents.add_reagent(id, 1, safety = 1) //makes a safety call because all reagents should have already reacted anyway
+		if(LAZYLEN(carried_reagents))
+			F.add_carried_reagents(carried_reagents)
 		else
+			F.create_reagents(10)
 			F.reagents.add_reagent(/singleton/reagent/water, 1, safety = 1)
 
 // wall formed by metal foams, dense and opaque, but easy to break
