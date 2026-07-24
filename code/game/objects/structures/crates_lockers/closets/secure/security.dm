@@ -83,25 +83,6 @@
 	new /obj/item/radio(src)
 	new /obj/item/taperecorder(src)
 
-/obj/structure/closet/secure_closet/xo2
-	name = "executive officer's attire"
-	req_access = list(ACCESS_HOP)
-	icon_state = "sec"
-	icon_door = "hop"
-
-/obj/structure/closet/secure_closet/xo2/fill()
-	..()
-	new /obj/item/clothing/under/rank/xo(src)
-	new /obj/item/clothing/head/caphat/xo(src)
-	new /obj/random/suit(src)
-	new /obj/random/suit(src)
-	new /obj/item/clothing/shoes/sneakers/brown(src)
-	new /obj/item/clothing/shoes/sneakers/black(src)
-	new /obj/item/clothing/shoes/laceup/brown(src)
-	new /obj/item/clothing/shoes/sneakers(src)
-	new /obj/item/clothing/head/caphat/cap/beret/xo(src)
-	new /obj/item/clothing/gloves/captain/white/xo(src)
-
 /obj/structure/closet/secure_closet/hos
 	name = "head of security's locker"
 	req_access = list(ACCESS_HOS)

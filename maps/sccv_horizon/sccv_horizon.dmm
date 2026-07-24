@@ -38703,8 +38703,7 @@
 	icon_state = "2-4"
 	},
 /obj/structure/table/reinforced/steel,
-/obj/structure/machinery/door/window/southleft{
-	dir = 1;
+/obj/structure/machinery/door/window/desk/northleft{
 	req_access = list(57)
 	},
 /obj/structure/machinery/door/blast/shutters{
@@ -80359,7 +80358,7 @@
 	dir = 5
 	},
 /obj/effect/floor_decal/corner/dark_green/full,
-/obj/structure/machinery/light,
+/obj/structure/machinery/light/floor,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
@@ -81677,6 +81676,10 @@
 /obj/structure/machinery/power/outlet{
 	pixel_y = 4;
 	pixel_x = 8
+	},
+/obj/structure/machinery/vending/encryption{
+	pixel_y = 32;
+	pixel_x = -23
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/command/heads/xo_desk)
@@ -84114,10 +84117,6 @@
 /obj/item/pen/multi{
 	pixel_x = -4;
 	pixel_y = 4
-	},
-/obj/structure/machinery/vending/encryption{
-	pixel_y = 32;
-	pixel_x = 10
 	},
 /obj/structure/machinery/recharger{
 	pixel_x = 9;
@@ -101826,6 +101825,10 @@
 	pixel_x = 6;
 	pixel_y = 1
 	},
+/obj/structure/machinery/camera/network/command{
+	c_tag = "Bridge - XO Office";
+	dir = 1
+	},
 /turf/simulated/floor/wood,
 /area/horizon/command/heads/xo_office)
 "ngj" = (
@@ -118860,6 +118863,9 @@
 	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
 	icon_state = "plank_shadow";
 	name = "floor planks"
+	},
+/obj/structure/machinery/door/window/holowindoor{
+	dir = 1
 	},
 /turf/simulated/floor/holofloor/wood{
 	dir = 6;
@@ -140623,9 +140629,6 @@
 "sgz" = (
 /obj/structure/noticeboard{
 	pixel_y = 30
-	},
-/obj/structure/machinery/camera/network/command{
-	c_tag = "Bridge - XO Office"
 	},
 /turf/simulated/floor/carpet,
 /area/horizon/command/heads/xo_office)
