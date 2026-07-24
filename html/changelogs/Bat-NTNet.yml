@@ -3,7 +3,7 @@ delete-after: True
 changes:
   - rscadd: "Adds NTNet extensibility, requires new machinery constructed on away-site z-levels."
   - rscadd: "Breaks NTNet Relay machinery into Quantum Relay ('core' obj on Horizon) and Field Relay (deployable off-site constructions)."
-  - rscadd: "Adds several public camera monitor consoles to the Horizon (near where public sensor grid feed consoles already exist)."
+  - rscadd: "Adds several public camera monitor consoles to the Horizon."
   - rscadd: "Adds some spare camera console boards to Horizon technical storage."
   - rscadd: "Adds camera toggle verb for hardsuits and exosuits."
   - rscadd: "Adds camera network configuration verb for helmet cams, hardsuits, and exosuits."
