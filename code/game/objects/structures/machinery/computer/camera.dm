@@ -26,12 +26,22 @@
 	camera_monitor_program = new("Compless")
 	// Make sure that camera_monitor knows its been generated from a dedicated console; this will define its network access.
 	camera_monitor_program.monitored_networks = console_networks
+	camera_monitor_program.ntnet_endpoint = src
+	camera_monitor_program.ntnet_endpoint_ethernet = TRUE
 
 /obj/structure/machinery/computer/security/Destroy()
+	reset_remote_viewers()
 	if(camera_monitor_program)
+		camera_monitor_program.reset_current()
 		camera_monitor_program = null
 
 	. = ..()
+
+/obj/structure/machinery/computer/security/proc/reset_remote_viewers()
+	for(var/mob/M in GLOB.player_list)
+		if(M.machine == src && M.is_viewing_remote_view())
+			M.unset_machine()
+			M.reset_view(null)
 
 /obj/structure/machinery/computer/security/attack_ai(var/mob/user as mob)
 	if(!ai_can_interact(user))
@@ -41,6 +51,8 @@
 /obj/structure/machinery/computer/security/check_eye(var/mob/user as mob)
 	if (user.stat || user.blinded || !operable())
 		return -1
+	if(camera_monitor_program?.current_camera)
+		return camera_monitor_program.check_eye(user)
 	if(!current_camera)
 		return 0
 	var/viewflag = current_camera.check_eye(user)
@@ -51,6 +63,8 @@
 /obj/structure/machinery/computer/security/grants_equipment_vision(var/mob/user as mob)
 	if(user.stat || user.blinded || !operable())
 		return FALSE
+	if(camera_monitor_program?.current_camera)
+		return camera_monitor_program.grants_equipment_vision(user)
 	if(!current_camera)
 		return FALSE
 	var/viewflag = current_camera.check_eye(user)
@@ -114,6 +128,8 @@
 		return 1
 
 	if (user.stat || user.blinded || !operable())
+		return 0
+	if(!C.can_use())
 		return 0
 	set_current(C)
 
@@ -311,7 +327,7 @@
 	req_access = list(150)
 
 /obj/structure/machinery/computer/security/terminal
-	name = "camera monitor terminal"
+	name = "public camera monitor"
 	icon = 'icons/obj/modular_computers/modular_terminal.dmi'
 	icon_screen = "cameras"
 	icon_keyboard = "security_key"
@@ -320,3 +336,7 @@
 	has_off_keyboards = TRUE
 	can_pass_under = FALSE
 	light_power_on = 1
+
+/obj/structure/machinery/computer/security/terminal/public
+	console_networks = list(NETWORK_EXPEDITION, NETWORK_NEWS)
+	circuit = /obj/item/circuitboard/security/public

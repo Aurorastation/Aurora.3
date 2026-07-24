@@ -21,6 +21,16 @@
 
 	data["ntnetstatus"] = GLOB.ntnet_global.check_function()
 	data["ntnetrelays"] = GLOB.ntnet_global.relays.len
+	data["ntnetcores"] = 0
+	data["ntnetfieldrelays"] = 0
+	data["ntnetroutedrelays"] = 0
+	for(var/obj/structure/machinery/ntnet_relay/R in GLOB.ntnet_global.relays)
+		if(R.core_service)
+			data["ntnetcores"]++
+		else
+			data["ntnetfieldrelays"]++
+		if(R.can_route_to_core())
+			data["ntnetroutedrelays"]++
 	data["idsstatus"] = GLOB.ntnet_global.intrusion_detection_enabled
 	data["idsalarm"] = GLOB.ntnet_global.intrusion_detection_alarm
 

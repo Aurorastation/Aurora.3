@@ -254,6 +254,20 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 /obj/structure/machinery/computer/ship/proc/viewing_overmap(mob/user)
 	return (WEAKREF(user) in viewers) || (linked && (WEAKREF(user) in linked.navigation_viewers))
 
+/obj/structure/machinery/computer/ship/proc/unlook_all_viewers()
+	if(!LAZYLEN(viewers))
+		return
+
+	var/list/current_viewers = viewers.Copy()
+	for(var/datum/weakref/W in current_viewers)
+		var/mob/M = W.resolve()
+		if(M)
+			unlook(M)
+			if(M.machine == src)
+				M.unset_machine()
+		else
+			LAZYREMOVE(viewers, W)
+
 /obj/structure/machinery/computer/ship/CouldNotUseTopic(mob/user)
 	. = ..()
 	unlook(user)
@@ -274,6 +288,7 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 		return SEE_THRU
 
 /obj/structure/machinery/computer/ship/Destroy()
+	unlook_all_viewers()
 	if(linked)
 		linked = null
 	if(connected)
@@ -284,13 +299,6 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 	sensor_ref = null
 	identification = null
 	QDEL_NULL(sound_token)
-	if(LAZYLEN(viewers))
-		for(var/datum/weakref/W in viewers)
-			var/M = W.resolve()
-			if(M)
-				unlook(M)
-				if(linked)
-					LAZYREMOVE(linked.navigation_viewers, W)
 	. = ..()
 
 /obj/structure/machinery/computer/ship/on_user_login(mob/M)

@@ -1,7 +1,7 @@
 GLOBAL_DATUM_INIT(ntnet_global, /datum/ntnet, new)
 
 
-// This is the NTNet datum. There can be only one NTNet datum in game at once. Modular computers read data from this.
+/// This is the NTNet datum. There can be only one NTNet datum in game at once. Modular computers read data from this.
 /datum/ntnet
 	var/list/relays = list()
 	var/list/logs = list()
@@ -13,22 +13,24 @@ GLOBAL_DATUM_INIT(ntnet_global, /datum/ntnet, new)
 	var/list/available_news = list()
 	var/list/fileservers = list()
 	var/list/datum/ntnet_account/users = list()
-	// Amount of logs the system tries to keep in memory. Keep below 999 to prevent byond from acting weirdly.
-	// High values make displaying logs much laggier.
+	/// Amount of logs the system tries to keep in memory. Keep below 999 to prevent byond from acting weirdly.
+	/// High values make displaying logs much laggier.
 	var/setting_maxlogcount = 100
 
-	// These only affect wireless. LAN (consoles) are unaffected since it would be possible to create scenario where someone turns off NTNet, and is unable to turn it back on since it refuses connections
+	/// These only affect wireless. LAN (consoles) are unaffected since it would be possible to create scenario where someone turns off NTNet, and is unable to turn it back on since it refuses connections
 	var/setting_softwaredownload = TRUE
 	var/setting_peertopeer = TRUE
 	var/setting_communication = TRUE
 	var/setting_systemcontrol = TRUE
-	var/setting_disabled = FALSE					// Setting to 1 will disable all wireless, independently on relays status.
+	/// Setting to 1 will disable all wireless, independently on relays status.
+	var/setting_disabled = FALSE
+	/// Whether the IDS warning system is enabled
+	var/intrusion_detection_enabled = TRUE
+	/// Set when there is an IDS warning due to malicious (antag) software.
+	var/intrusion_detection_alarm = FALSE
 
-	var/intrusion_detection_enabled = TRUE		// Whether the IDS warning system is enabled
-	var/intrusion_detection_alarm = FALSE		// Set when there is an IDS warning due to malicious (antag) software.
 
-
-// If new NTNet datum is spawned, it replaces the old one.
+/// If new NTNet datum is spawned, it replaces the old one.
 /datum/ntnet/New()
 	if(GLOB.ntnet_global && (GLOB.ntnet_global != src))
 		GLOB.ntnet_global = src // There can be only one.
@@ -41,7 +43,7 @@ GLOBAL_DATUM_INIT(ntnet_global, /datum/ntnet, new)
 	//add some default channels
 	new /datum/ntnet_conversation("NTNet Relay", TRUE)
 
-// Simplified logging: Adds a log. log_string is mandatory parameter, source is optional.
+/// Simplified logging: Adds a log. log_string is mandatory parameter, source is optional.
 /datum/ntnet/proc/add_log(var/log_string, var/obj/item/computer_hardware/network_card/source = null, var/messaging=FALSE)
 	var/log_text = "[worldtime2text()] - "
 	if(source)
@@ -62,18 +64,9 @@ GLOBAL_DATUM_INIT(ntnet_global, /datum/ntnet, new)
 			else
 				break
 
-// Checks whether NTNet operates. If parameter is passed checks whether specific function is enabled.
+/// Checks whether NTNet's core service operates. If parameter is passed checks whether specific function is enabled.
 /datum/ntnet/proc/check_function(var/specific_action = 0)
-	if(!relays || !relays.len) // No relays found. NTNet is down
-		return FALSE
-
-	var/operating = FALSE
-
-	// Check all relays. If we have at least one working relay, network is up.
-	for(var/obj/structure/machinery/ntnet_relay/R in relays)
-		if(R.operable())
-			operating = TRUE
-			break
+	var/operating = has_operable_core()
 
 	if(setting_disabled)
 		return FALSE
@@ -88,7 +81,60 @@ GLOBAL_DATUM_INIT(ntnet_global, /datum/ntnet, new)
 		return (operating && setting_systemcontrol)
 	return operating
 
-// Builds lists that contain downloadable software.
+/datum/ntnet/proc/check_endpoint_function(var/specific_action = 0, var/ethernet = FALSE)
+	// Wireless firewall toggles do not affect wired endpoints, but wired endpoints still need a live core service
+	if(ethernet)
+		return has_operable_core()
+	return check_function(specific_action)
+
+/datum/ntnet/proc/has_operable_core()
+	if(!relays || !relays.len)
+		return FALSE
+
+	for(var/obj/structure/machinery/ntnet_relay/R in relays)
+		if(R.provides_core_service())
+			return TRUE
+	return FALSE
+
+/// 'For endpoint' signifies that sometimes we will abstract a device as being a modular computer when really all we care about is whether it is networked.
+/// This will likely need to be simplified in future.
+/datum/ntnet/proc/get_signal_for_endpoint(var/atom/endpoint, var/specific_action = 0, var/ethernet = FALSE, var/long_range = FALSE)
+	if(!istype(endpoint) || !check_endpoint_function(specific_action, ethernet))
+		return 0
+
+	var/area/A = get_area(endpoint)
+	if(A?.centcomm_area && ethernet)
+		return 3
+
+	var/signal = 0
+	for(var/obj/structure/machinery/ntnet_relay/R in relays)
+		signal = max(signal, R.get_signal_for_endpoint(endpoint, ethernet, long_range))
+	return signal
+
+/datum/ntnet/proc/get_signal(var/obj/item/computer_hardware/network_card/card, var/specific_action = 0)
+	if(!istype(card) || !card.parent_computer)
+		return 0
+	return get_signal_for_endpoint(card.parent_computer, specific_action, card.ethernet, card.long_range)
+
+/datum/ntnet/proc/get_reachable_z_levels_for_endpoint(var/atom/endpoint, var/specific_action = 0, var/ethernet = FALSE, var/long_range = FALSE)
+	. = list()
+	if(get_signal_for_endpoint(endpoint, specific_action, ethernet, long_range) <= 0)
+		return
+
+	for(var/obj/structure/machinery/ntnet_relay/R in relays)
+		if(R.can_route_to_core())
+			. |= R.get_covered_z_levels()
+
+/datum/ntnet/proc/get_reachable_z_levels(var/obj/item/computer_hardware/network_card/card, var/specific_action = 0)
+	. = list()
+	if(get_signal(card, specific_action) <= 0)
+		return
+
+	for(var/obj/structure/machinery/ntnet_relay/R in relays)
+		if(R.can_route_to_core())
+			. |= R.get_covered_z_levels()
+
+/// Builds lists that contain downloadable software.
 /datum/ntnet/proc/build_software_lists()
 	available_station_software = list()
 	available_antag_software = list()
@@ -109,7 +155,7 @@ GLOBAL_DATUM_INIT(ntnet_global, /datum/ntnet, new)
 		var/datum/modular_computer_app_presets/prs = new path()
 		available_software_presets.Add(prs)
 
-// Builds lists that contain downloadable software.
+/// Builds lists that contain downloadable software.
 /datum/ntnet/proc/build_news_list()
 	available_news = list()
 	for(var/F in typesof(/datum/computer_file/data/news_article/))
@@ -117,14 +163,13 @@ GLOBAL_DATUM_INIT(ntnet_global, /datum/ntnet, new)
 		if(news.stored_data)
 			available_news.Add(news)
 
-
-// Attempts to find a downloadable file according to filename var
+/// Attempts to find a downloadable file according to filename var
 /datum/ntnet/proc/find_ntnet_file_by_name(var/filename)
 	for(var/datum/computer_file/program/P in available_software)
 		if(filename == P.filename)
 			return P
 
-// Resets the IDS alarm
+/// Resets the IDS alarm
 /datum/ntnet/proc/resetIDS()
 	intrusion_detection_alarm = FALSE
 
@@ -132,13 +177,13 @@ GLOBAL_DATUM_INIT(ntnet_global, /datum/ntnet, new)
 	resetIDS()
 	intrusion_detection_enabled = !intrusion_detection_enabled
 
-// Removes all logs
+/// Removes all logs
 /datum/ntnet/proc/purge_logs()
 	logs = list()
 	messages = list()
 	add_log("-!- LOGS DELETED BY SYSTEM OPERATOR -!-")
 
-// Updates maximal amount of stored logs. Use this instead of setting the number, it performs required checks.
+/// Updates maximal amount of stored logs. Use this instead of setting the number, it performs required checks.
 /datum/ntnet/proc/update_max_log_count(var/lognumber)
 	if(!lognumber)
 		return FALSE

@@ -8,7 +8,7 @@
 		return
 
 	switch(network)
-		if(NETWORK_THUNDER, NETWORK_NEWS)
+		if(NETWORK_THUNDER, NETWORK_NEWS, NETWORK_EXPEDITION)
 			return FALSE
 		if(NETWORK_REACTOR,NETWORK_ENGINEERING,NETWORK_ENGINEERING_OUTPOST,NETWORK_ALARM_ATMOS,NETWORK_ALARM_FIRE,NETWORK_ALARM_POWER)
 			return ACCESS_ENGINE
@@ -46,6 +46,15 @@
 	var/current_network
 	/// Used for camera monitor consoles from which this interface can be launched. If it exists, only provide that console's "console_networks" networks.
 	var/list/monitored_networks = list()
+	/// Used by non-modular camera consoles that run this program - abstracts as modular comp w/ network card.
+	var/atom/ntnet_endpoint
+	var/ntnet_endpoint_ethernet = FALSE
+	var/ntnet_endpoint_long_range = FALSE
+
+/datum/computer_file/program/camera_monitor/ui_host()
+	if(ntnet_endpoint)
+		return ntnet_endpoint
+	return ..()
 
 /datum/computer_file/program/camera_monitor/ui_data(mob/user)
 	var/list/data = initial_data()
@@ -108,12 +117,26 @@
 
 	return 0
 
+/// If no network_access is passed, or if 0 is returned, we treat this as no camera access required. Allowed it.
 /datum/computer_file/program/camera_monitor/proc/can_access_network(var/mob/user, var/network_access)
 	// No access passed, or 0 which is considered no access requirement. Allow it.
 	if(!network_access)
 		return TRUE
 
 	return (check_network_access(user, ACCESS_SECURITY) && GLOB.security_level >= SEC_LEVEL_BLUE) || check_network_access(user, network_access)
+
+/datum/computer_file/program/camera_monitor/proc/can_reach_camera(var/obj/structure/machinery/camera/C)
+	if(!C?.can_use())
+		return FALSE
+
+	var/turf/camera_turf = get_turf(C)
+	if(!camera_turf || !GLOB.ntnet_global)
+		return FALSE
+
+	if(computer?.network_card)
+		return (camera_turf.z in GLOB.ntnet_global.get_reachable_z_levels(computer.network_card, requires_ntnet_feature))
+
+	return (camera_turf.z in GLOB.ntnet_global.get_reachable_z_levels_for_endpoint(ntnet_endpoint, requires_ntnet_feature, ntnet_endpoint_ethernet, ntnet_endpoint_long_range))
 
 /datum/computer_file/program/camera_monitor/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
@@ -152,6 +175,10 @@
 			usr.reset_view(current_camera)
 			return TRUE
 
+/datum/computer_file/program/camera_monitor/kill_program(forced)
+	reset_current()
+	return ..()
+
 /datum/computer_file/program/camera_monitor/proc/switch_to_camera(var/mob/user, var/obj/structure/machinery/camera/C)
 	//don't need to check if the camera works for AI because the AI jumps to the camera location and doesn't actually look through cameras.
 	if(isAI(user))
@@ -164,7 +191,7 @@
 		A.client.eye = A.eyeobj
 		return TRUE
 
-	if(!is_contact_area(get_area(C)))
+	if(!can_reach_camera(C))
 		to_chat(user, SPAN_NOTICE("This camera is too far away to connect to!"))
 		return FALSE
 
@@ -186,6 +213,10 @@
 	if(!current_camera)
 		return 0
 
+	if(!can_reach_camera(current_camera))
+		reset_current()
+		return -1
+
 	var/viewflag = current_camera.check_eye(user)
 	if(viewflag < 0)
 		reset_current()
@@ -193,6 +224,8 @@
 
 /datum/computer_file/program/camera_monitor/grants_equipment_vision(mob/user)
 	if(user.stat || user.blinded || !current_camera)
+		return FALSE
+	if(!can_reach_camera(current_camera))
 		return FALSE
 	return current_camera.grants_equipment_vision(user)
 
@@ -233,8 +266,8 @@
 
 /datum/computer_file/program/camera_monitor/news
 	filename = "idcammon"
-	filedesc = "Journalism Camera Monitoring"
-	extended_desc = "This program allows remote access to station's camera system. Some camera networks may have additional access requirements. This version has has a connection to news networks."
+	filedesc = "Public Camera Monitoring"
+	extended_desc = "This program allows remote access to station's camera system. Some camera networks may have additional access requirements. This version has has a connection to news and expeditionary networks."
 	size = 2
 	required_access_download = null
 	usage_flags = PROGRAM_ALL
@@ -242,5 +275,5 @@
 /datum/computer_file/program/camera_monitor/news/modify_networks_list(var/list/networks)
 	networks = list()
 	networks.Add(list(list("tag" = NETWORK_NEWS, "has_access" = 1)))
-	networks.Add(list(list("tag" = NETWORK_THUNDER, "has_access" = 1)))
+	networks.Add(list(list("tag" = NETWORK_EXPEDITION, "has_access" = 1)))
 	return networks
