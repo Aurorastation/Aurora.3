@@ -886,6 +886,17 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	allow_analyzer = FALSE
 	circuit = /obj/item/circuitboard/robotics_console
 
+/obj/structure/machinery/computer/rdconsole/robotics/terminal
+	name = "robotics R&D terminal"
+	icon = 'icons/obj/modular_computers/modular_terminal.dmi'
+	icon_screen = "mecha"
+	icon_keyboard = "power_key"
+	icon_keyboard_emis = "power_key_mask"
+	is_connected = TRUE
+	has_off_keyboards = TRUE
+	can_pass_under = FALSE
+	light_power_on = 1
+
 /obj/structure/machinery/computer/rdconsole/core
 	name = "core R&D console"
 	desc = "A console which is used to operate various research devices. It is the backbone of any megacorporate research division."

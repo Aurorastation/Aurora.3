@@ -430,6 +430,14 @@
 	color = COLOR_TILED
 	pass_flags_self = LETPASSTHROW|PASSSTRUCTURE|PASSRAILING
 
+/obj/structure/platform/Initialize(mapload)
+	. = ..()
+	update_icon()
+
+/obj/structure/platform/update_icon()
+	if(dir == NORTH)
+		layer = ABOVE_HUMAN_LAYER
+
 /obj/structure/platform/dark
 	icon_state = "platform_dark"
 	color = COLOR_DARK_GUNMETAL
@@ -510,9 +518,6 @@
 /obj/structure/platform/cutout/CanPass()
 	return TRUE
 
-/obj/structure/platform/bar
-	layer = ABOVE_HUMAN_LAYER
-
 /// No special CanPass for this one.
 /obj/structure/platform_deco
 	name = "platform"
@@ -521,6 +526,14 @@
 	icon = 'icons/obj/structure/platforms.dmi'
 	icon_state = "platform_deco"
 	color = COLOR_TILED
+
+/obj/structure/platform_deco/Initialize(mapload)
+	. = ..()
+	update_icon()
+
+/obj/structure/platform_deco/update_icon()
+	if(dir & (NORTH|SOUTH))
+		layer = ABOVE_HUMAN_LAYER
 
 /obj/structure/platform_deco/dark
 	icon_state = "platform_deco_dark"

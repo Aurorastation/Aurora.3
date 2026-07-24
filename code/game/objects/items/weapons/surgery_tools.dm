@@ -336,6 +336,8 @@
 /obj/item/storage/box/fancy/tray/machinist
 	name = "machinist operation tray"
 	desc = "A tray of various tools for use by machinists in repairing robots."
+	// So additional tools can be added.
+	max_storage_space = 23
 	can_hold = list(
 		/obj/item/surgery/cautery,
 		/obj/item/surgery/circular_saw,
