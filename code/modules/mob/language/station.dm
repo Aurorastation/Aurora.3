@@ -219,16 +219,55 @@
 	key = "9"
 	native = 1
 	flags = WHITELISTED | HIVEMIND
-	syllables = list("vaur","uyek","uyit","avek","sc'theth","k'ztak","teth","wre'ge","lii","dra'","zo'","ra'","k'lax'","zz","vh","ik","ak",
-	"uhk","zir","sc'orth","sc'er","thc'yek","th'zirk","th'esk","k'ayek","ka'mil","sc'","ik'yir","yol","kig","k'zit","'","'","zrk","krg","isk'yet","na'k",
-	"sc'azz","th'sc","nil","n'ahk","sc'yeth","aur'sk","iy'it","azzg","a'","i'","o'","u'","a","i","o","u","zz","kr","ak","nrk")
+	syllables = list("vaur","uyek","uyit","avek","sth'ec","k'ztak","teth","wre'ge","dra","zo","ra","zz","vh","iek","ak",
+	"uhk","zir","sc'orth","sc'er","thc'yek","th'zirk","th'esk","k'aye","ka'il","sc","i'ir","yol","kig","k'z","xi'v","xa'r","zrk","krg","k'yet","na'k",
+	"sc'azz","th'sc","nil","n'ahk","sc'yeth","aur'sk","y'it","azzg","a'vl","i'or","o'ue","u'kh","agh","iv","osh","utt","zz","kr","ak","nrk")
 
-/datum/language/bug/get_random_name()
-	var/new_name = "[pick(list("Ka'","Za'","Ka'"))]"
-	new_name += "[pick(list("Akaix'","Viax'"))]"
-	new_name += "[pick(list("Uyek","Uyit","Avek","Theth","Ztak","Teth","Zir","Yek","Zirk","Ayek","Yir","Kig","Yol","'Zrk","Nazgr","Yet","Nak","Kiihr","Gruz","Guurz","Nagr","Zkk","Zohd","Norc","Agraz","Yizgr","Yinzr","Nuurg","Iii","Lix","Nhagh","Xir","Z'zit","Zhul","Zgr","Na'k","Isk'yet","Agha"))]"
-	var/list/hive_names = list("Zo'ra" = 3, "K'lax" = 1, "C'thur" = 1)
-	new_name += " [pickweight(hive_names)]"
+/datum/language/bug/get_random_name(species, hive, bound = FALSE)
+	var/new_name
+	if(!species)
+		new_name = "[pick(list("Ka'","Za'","Ka'"))]"
+	switch(species)
+		if(SPECIES_VAURCA_WORKER)
+			new_name = "Ka'"
+		if(SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_WARFORM)
+			new_name = "Za'"
+		if(SPECIES_VAURCA_BREEDER)
+			new_name = "Ta'"
+		if(SPECIES_VAURCA_BULWARK)
+			new_name = "Ra'"
+	if(bound || species == SPECIES_VAURCA_WARFORM) // Warforms are exclusively Bound
+		new_name += "Viax'"
+	else
+		new_name += "Akaix'"
+	var/list/name_sounds = list("uew", "ek", "yi", "it", "ave", "te", "theth", "zta" ,"ak","th","zi", "rr", "yek","zik","ae",
+	"ir", "kg", "yol", "rk", "azg", "wt", "nak", "kii", "ru", "uur", "aer", "ai", "ee", "eie", "ou", "oh", "oo", "yh", "yv", "yu",
+	"nag", "zkk", "zohd", "norc", "graz", "izg", "yin", "nur", "iii", "lix", "li", "dre", "dru", "fe", "fra", "je", "jv", "ge",
+	"nha", "xir", "zz", "zhul", "gr", "ak", "isk", "a", "gha", "bz", "bl", "va", "xn", "qk", "qr", "qa", "ql")
+	var/personal_name
+	if(species == SPECIES_VAURCA_BREEDER) // Ta use different names and are allowed >2 syllables
+		for(var/i in 1 to 3)
+			if(prob(50) && i < 3)
+				personal_name += "[pick(syllables)][prob(50) ? "'":""]"
+			else
+				personal_name += "[pick(name_sounds)]"
+	else if(!personal_name)
+		if(prob(40))
+			personal_name += "[pick(syllables)][prob(20) ? "'":""]" // Occasionally dip into the syllable list for extra variety
+		else
+			personal_name += "[pick(name_sounds)][prob(40) ? "'":""]"
+		personal_name += "[pick(name_sounds)]"
+	new_name += "[capitalize(personal_name)]"
+	switch(hive)
+		if("C'thur Hive")
+			new_name += "C'thur"
+		if("K'lax Hive")
+			new_name += "K'lax"
+		if("Zo'ra Hive")
+			new_name += "Zo'ra"
+		else
+			var/list/hive_names = list("Zo'ra" = 3, "K'lax" = 1, "C'thur" = 1)
+			new_name += " [pickweight(hive_names)]"
 	return new_name
 
 /datum/language/bug/broadcast(var/mob/living/speaker,var/message,var/speaker_mask)
