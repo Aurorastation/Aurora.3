@@ -148,6 +148,10 @@
 	. = ..()
 	card_slot.stored_item = new /obj/item/pen/silver
 
+/obj/item/modular_computer/handheld/wristbound/preset/pda/engineering/install_default_hardware()
+	..()
+	network_card = new /obj/item/computer_hardware/network_card/signaler(src)
+
 /obj/item/modular_computer/handheld/wristbound/preset/pda/engineering/atmos
 	_app_preset_type = /datum/modular_computer_app_presets/engineering/atmos
 
@@ -177,6 +181,10 @@
 /obj/item/modular_computer/handheld/wristbound/preset/pda/supply/machinist
 	_app_preset_type = /datum/modular_computer_app_presets/supply/machinist
 
+/obj/item/modular_computer/handheld/wristbound/preset/pda/supply/machinist/install_default_hardware()
+	..()
+	network_card = new /obj/item/computer_hardware/network_card/signaler(src)
+
 // Medical
 
 /obj/item/modular_computer/handheld/wristbound/preset/pda/medical
@@ -204,6 +212,10 @@
 /obj/item/modular_computer/handheld/wristbound/preset/pda/research/Initialize()
 	. = ..()
 	card_slot.stored_item = new /obj/item/pen/white
+
+/obj/item/modular_computer/handheld/wristbound/preset/pda/research/install_default_hardware()
+	..()
+	network_card = new /obj/item/computer_hardware/network_card/signaler(src)
 
 /obj/item/modular_computer/handheld/wristbound/preset/pda/research/rd
 	_app_preset_type = /datum/modular_computer_app_presets/research/rd

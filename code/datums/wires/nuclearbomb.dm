@@ -2,6 +2,8 @@
 	proper_name = "Nuclear Fission Device"
 	holder_type = /obj/structure/machinery/nuclearbomb
 	random = 1
+	// If we ever get an explosives or similar skill... well, probably not even then.
+	associated_skill = null
 
 /datum/wires/nuclearbomb/New()
 	wires = list(

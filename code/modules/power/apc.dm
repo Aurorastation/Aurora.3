@@ -175,6 +175,8 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 	/// If we're actually able to charge
 	var/charge_mode = CHARGE_MODE_CHARGE
 	var/last_time = 1
+	/// For doing silly games with blowing out lights
+	var/light_explosion_safety = TRUE
 
 /obj/structure/machinery/power/apc/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()

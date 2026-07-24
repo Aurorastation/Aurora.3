@@ -55,6 +55,7 @@ ABSTRACT_TYPE(/datum/modular_computer_app_presets)
 	/datum/computer_file/program/camera_monitor,\
 	/datum/computer_file/program/lighting_control,\
 	/datum/computer_file/program/fusion_codex,\
+	/datum/computer_file/program/signaler,\
 )
 
 #define COMPUTER_APP_PRESET_HORIZON_MEDICAL list(\
@@ -71,6 +72,7 @@ ABSTRACT_TYPE(/datum/modular_computer_app_presets)
 	/datum/computer_file/program/scanner/science,\
 	/datum/computer_file/program/scanner/gas,\
 	/datum/computer_file/program/away_manifest,\
+	/datum/computer_file/program/signaler,\
 )
 
 #define COMPUTER_APP_PRESET_HORIZON_SECURITY list(\

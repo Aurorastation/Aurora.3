@@ -1,6 +1,7 @@
 /datum/wires/fabricator
 	proper_name = "Fabricator"
 	holder_type = /obj/structure/machinery/fabricator
+	associated_skill = MECHANICAL_ENGINEERING_SKILL_COMPONENT
 
 /datum/wires/fabricator/New(atom/holder)
 	wires = list(

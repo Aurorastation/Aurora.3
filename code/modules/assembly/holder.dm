@@ -189,13 +189,22 @@
 		return FALSE
 	if(!secured)
 		audible_message("[icon2html(src, viewers(get_turf(src)))] *beep* *beep*", "*beep* *beep*")
+		return FALSE
 	if(normal && a_right && a_left)
-		if(a_right != D)
-			a_right.pulsed(FALSE)
-		if(a_left != D)
-			a_left.pulsed(FALSE)
+		var/obj/item/assembly/right = a_right
+		if(right && right != D && right.holder == src)
+			right.pulsed(FALSE)
+		if(QDELETED(src))
+			return TRUE
+		var/obj/item/assembly/left = a_left
+		if(left && left != D && left.holder == src)
+			left.pulsed(FALSE)
+		if(QDELETED(src))
+			return TRUE
 	if(master)
 		master.receive_signal()
+	else
+		audible_message("[icon2html(src, viewers(get_turf(src)))] *beep* *beep*", "*beep* *beep*")
 	return TRUE
 
 /obj/item/assembly_holder/hear_talk(mob/living/M, msg, verb, datum/language/speaking)

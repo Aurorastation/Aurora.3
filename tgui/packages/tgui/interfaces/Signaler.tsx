@@ -32,15 +32,15 @@ export const Signaler = (props) => {
           <LabeledList>
             <LabeledList.Item label="Frequency">
               <NumberInput
-                minValue={12}
-                maxValue={16}
+                minValue={120}
+                maxValue={160}
                 unit="kHz"
-                value={data.frequency / 10}
-                step={0.2}
+                value={data.frequency}
+                step={0.1}
                 stepPixelSize={6}
-                format={(value) => toFixed(value, 2)}
+                format={(value) => toFixed(value, 1)}
                 width="80px"
-                onChange={(value) => act('freq', { freq: value * 10 })}
+                onChange={(value) => act('freq', { freq: value })}
               />
             </LabeledList.Item>
             <LabeledList.Item label="Code">

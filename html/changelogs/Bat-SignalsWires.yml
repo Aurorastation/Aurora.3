@@ -1,0 +1,13 @@
+author: Batrachophrenoboocosmomachia
+delete-after: True
+changes:
+  - qol: "Eligible non-random wire panels now use relevant domain skills where applicable: engineering skills, robotics, and xenobiology implemented, instead of only Electrical Engineering 4."
+  - rscadd: "Adds new wire to APCs that blows out all the lights if you pulse it with the safeties off."
+  - rscadd: "Adds the Signal Manager NTOS app for signaler-capable network cards. Pre-installed in Engineering, Research, and Machinist app presets."
+  - rscadd: "Engineering, Research, and Machinist character modular computers now come with signaler-capable network cards."
+  - qol: "Increases remote signaler availability in EngiTech vendors and made assembly items tiny."
+  - bugfix: "Fixes air alarm wiring to use the correct wire datum path."
+  - bugfix: "Fixes canister-attached signaler regression."
+  - bugfix: "Fixes assembly holders failing silently when unsecured to fuel tanks; fuel tanks now reject unsecured assembly holders."
+  - bugfix: "Fixes runtime when an activation deletes or detaches one of the paired assemblies."
+  - qol: "Reduces the Fusion Codex program size."

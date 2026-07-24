@@ -54,6 +54,10 @@
 	. = ..()
 	card_slot.stored_item = new /obj/item/pen/silver
 
+/obj/item/modular_computer/handheld/preset/engineering/install_default_hardware()
+	..()
+	network_card = new /obj/item/computer_hardware/network_card/signaler(src)
+
 /obj/item/modular_computer/handheld/preset/engineering/atmos
 	_app_preset_type = /datum/modular_computer_app_presets/engineering/atmos
 
@@ -79,6 +83,10 @@
 
 /obj/item/modular_computer/handheld/preset/supply/machinist
 	_app_preset_type = /datum/modular_computer_app_presets/supply/machinist
+
+/obj/item/modular_computer/handheld/preset/supply/machinist/install_default_hardware()
+	..()
+	network_card = new /obj/item/computer_hardware/network_card/signaler(src)
 
 // Cargo Delivery
 /obj/item/modular_computer/handheld/preset/supply/cargo_delivery
@@ -118,6 +126,10 @@
 /obj/item/modular_computer/handheld/preset/research/Initialize()
 	. = ..()
 	card_slot.stored_item = new /obj/item/pen/white
+
+/obj/item/modular_computer/handheld/preset/research/install_default_hardware()
+	..()
+	network_card = new /obj/item/computer_hardware/network_card/signaler(src)
 
 /obj/item/modular_computer/handheld/preset/research/rd
 	_app_preset_type = /datum/modular_computer_app_presets/research/rd
