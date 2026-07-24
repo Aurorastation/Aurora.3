@@ -1,0 +1,5 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - rscadd: "Added feedback messages for when psychic damage is penalizing a user's skills."
+  - balance: "Increased the penalties to skills from psychic damage by a factor of 3."
