@@ -91,11 +91,3 @@
 							"/obj/item/stock_parts/capacitor" = 1,
 							"/obj/item/stack/cable_coil" = 1,
 							"/obj/item/stock_parts/console_screen" = 1)
-
-/obj/item/circuitboard/ntnet_relay
-	name = T_BOARD("NTNet Quantum Relay")
-	build_path = /obj/structure/machinery/ntnet_relay
-	board_type = BOARD_MACHINE
-	origin_tech = list(TECH_DATA = 4)
-	req_components = list(
-							"/obj/item/stack/cable_coil" = 15)

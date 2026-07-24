@@ -41,6 +41,8 @@ SUBSYSTEM_DEF(shuttle)
 			LAZYDISTINCTADD(shuttles_to_initialize, shuttle_type)
 	block_queue = FALSE
 	clear_init_queue()
+	if(SSatlas.current_map.overmap_visitable_type)
+		SSrecords.seed_team_default_destinations(ship_by_type(SSatlas.current_map.overmap_visitable_type))
 
 	return SS_INIT_SUCCESS
 

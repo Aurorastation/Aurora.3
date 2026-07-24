@@ -8,7 +8,7 @@
 		return
 
 	switch(network)
-		if(NETWORK_THUNDER, NETWORK_NEWS)
+		if(NETWORK_THUNDER, NETWORK_NEWS, NETWORK_EXPEDITION)
 			return FALSE
 		if(NETWORK_REACTOR,NETWORK_ENGINEERING,NETWORK_ENGINEERING_OUTPOST,NETWORK_ALARM_ATMOS,NETWORK_ALARM_FIRE,NETWORK_ALARM_POWER)
 			return ACCESS_ENGINE
@@ -108,6 +108,7 @@
 
 	return 0
 
+/// If no network_access is passed, or if 0 is returned, we treat this as no camera access required. Allowed it.
 /datum/computer_file/program/camera_monitor/proc/can_access_network(var/mob/user, var/network_access)
 	// No access passed, or 0 which is considered no access requirement. Allow it.
 	if(!network_access)
@@ -233,8 +234,8 @@
 
 /datum/computer_file/program/camera_monitor/news
 	filename = "idcammon"
-	filedesc = "Journalism Camera Monitoring"
-	extended_desc = "This program allows remote access to station's camera system. Some camera networks may have additional access requirements. This version has has a connection to news networks."
+	filedesc = "Public Camera Monitoring"
+	extended_desc = "This program allows remote access to station's camera system. Some camera networks may have additional access requirements. This version has has a connection to news and expeditionary networks."
 	size = 2
 	required_access_download = null
 	usage_flags = PROGRAM_ALL
@@ -242,5 +243,5 @@
 /datum/computer_file/program/camera_monitor/news/modify_networks_list(var/list/networks)
 	networks = list()
 	networks.Add(list(list("tag" = NETWORK_NEWS, "has_access" = 1)))
-	networks.Add(list(list("tag" = NETWORK_THUNDER, "has_access" = 1)))
+	networks.Add(list(list("tag" = NETWORK_EXPEDITION, "has_access" = 1)))
 	return networks

@@ -28,7 +28,6 @@
 	var/used = FALSE
 	var/dirtiness = 0
 	var/list/targets
-	var/list/datum/disease2/disease/viruses
 	var/time = 30
 
 	var/last_jab = 0 //Spam prevention

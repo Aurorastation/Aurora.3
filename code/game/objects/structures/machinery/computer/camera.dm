@@ -311,7 +311,7 @@
 	req_access = list(150)
 
 /obj/structure/machinery/computer/security/terminal
-	name = "camera monitor terminal"
+	name = "public camera monitor"
 	icon = 'icons/obj/modular_computers/modular_terminal.dmi'
 	icon_screen = "cameras"
 	icon_keyboard = "security_key"
@@ -320,3 +320,7 @@
 	has_off_keyboards = TRUE
 	can_pass_under = FALSE
 	light_power_on = 1
+
+/obj/structure/machinery/computer/security/terminal/public
+	console_networks = list(NETWORK_EXPEDITION, NETWORK_NEWS)
+	circuit = /obj/item/circuitboard/security/public

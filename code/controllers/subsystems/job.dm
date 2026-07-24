@@ -279,7 +279,7 @@ SUBSYSTEM_DEF(jobs)
 			unassigned -= player
 	return TRUE
 
-/datum/controller/subsystem/jobs/proc/EquipRank(mob/living/carbon/human/H, rank, joined_late = FALSE, spawning_at)
+/datum/controller/subsystem/jobs/proc/EquipRank(mob/living/carbon/human/H, rank, joined_late = FALSE, spawning_at, var/real_client = TRUE)
 	if(!H)
 		return null
 
@@ -308,11 +308,12 @@ SUBSYSTEM_DEF(jobs)
 		job.pre_equip(H)
 		job.setup_account(H)
 		job.after_spawn(H)
-		EquipCustom(H, job, H.client.prefs, custom_equip_leftovers, spawn_in_storage, custom_equip_slots)
+		if(real_client)
+			EquipCustom(H, job, H.client.prefs, custom_equip_leftovers, spawn_in_storage, custom_equip_slots)
 
 		job.equip(H)
-
-		spawn_in_storage += EquipCustomDeferred(H, H.client.prefs, custom_equip_leftovers, custom_equip_slots)
+		if(real_client)
+			spawn_in_storage += EquipCustomDeferred(H, H.client.prefs, custom_equip_leftovers, custom_equip_slots)
 	else
 		to_chat(H,"Your job is [rank] and the game just can't handle it! Please report this bug to an administrator.")
 
@@ -355,8 +356,8 @@ SUBSYSTEM_DEF(jobs)
 				Debug("ER/([H]): Job is AI, returning early.")
 				return H
 
-		//Deferred item spawning.
-		if(LAZYLEN(spawn_in_storage))
+		//Deferred item spawning. Note- if there's no actual player, then spawn_in_storage will still be empty. Check is just for safety.
+		if(real_client && LAZYLEN(spawn_in_storage))
 			EquipItemsStorage(H, H.client.prefs, spawn_in_storage)
 
 	to_chat(H, "<B>You are [job.get_total_positions() == 1 ? "the" : "a"] [alt_title ? alt_title : rank].</B>")
@@ -388,9 +389,13 @@ SUBSYSTEM_DEF(jobs)
 
 	var/obj/item/clothing/under/uniform = H.w_uniform
 	if(istype(uniform) && uniform.has_sensor)
-		uniform.sensor_mode = SUIT_SENSOR_MODES[H.client.prefs.sensor_setting]
+		if(!real_client)
+			uniform.sensor_mode = SUIT_SENSOR_TRACKING
+		else
+			uniform.sensor_mode = SUIT_SENSOR_MODES[H.client.prefs.sensor_setting]
 
-	INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(show_location_blurb), H.client, 10 SECONDS)
+	if(H.client)
+		INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(show_location_blurb), H.client, 10 SECONDS)
 
 	if(spawning_at == "Arrivals Shuttle")
 		to_chat(H, "<b>[SSatlas.current_map.command_spawn_message]</b>")
@@ -403,7 +408,7 @@ SUBSYSTEM_DEF(jobs)
 		for(var/antag_type in SSticker.mode.antag_tags)
 			var/datum/antagonist/A = GLOB.all_antag_types[antag_type]
 			A.update_current_antag_max()
-			if((A.role_type in H.client.prefs.be_special_role) && !(A.flags & ANTAG_OVERRIDE_JOB) && antag_count < A.cur_max)
+			if(real_client && (A.role_type in H.client.prefs.be_special_role) && !(A.flags & ANTAG_OVERRIDE_JOB) && antag_count < A.cur_max)
 				A.add_antagonist(H.mind)
 				break
 
@@ -576,7 +581,7 @@ SUBSYSTEM_DEF(jobs)
 
 		var/datum/spawnpoint/spawnpos
 
-		if(H.client.prefs.spawnpoint in SSatlas.spawn_locations)
+		if(H.client?.prefs.spawnpoint in SSatlas.spawn_locations)
 			spawnpos = SSatlas.spawn_locations[H.client.prefs.spawnpoint]
 
 		if(rank == "Cyborg")
@@ -640,10 +645,12 @@ SUBSYSTEM_DEF(jobs)
 	// Delete the mob.
 	qdel(H)
 
-// Equips a human-type with their custom loadout crap.
-// Returns TRUE on success, FALSE otherwise.
-// H, job, and prefs MUST be supplied and not null.
-// leftovers, storage, custom_equip_slots can be passed if their return values are required (proc mutates passed list), or ignored if not required.
+/**
+ * Equips a human-type with their custom loadout crap.
+ * Returns TRUE on success, FALSE otherwise.
+ * H, job, and prefs MUST be supplied and not null.
+ * leftovers, storage, custom_equip_slots can be passed if their return values are required (proc mutates passed list), or ignored if not required.
+ */
 /datum/controller/subsystem/jobs/proc/EquipCustom(mob/living/carbon/human/H, datum/job/job, datum/preferences/prefs, list/leftovers = null, list/storage = null, list/custom_equip_slots = list())
 	log_loadout("EC/([H]): Entry.")
 	if (!istype(H) || !job)

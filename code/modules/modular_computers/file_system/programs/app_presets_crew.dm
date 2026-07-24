@@ -31,7 +31,7 @@
 
 /datum/modular_computer_app_presets/engineering/ce/New()
 	. = ..()
-	program_list += list(/datum/computer_file/program/comm,	/datum/computer_file/program/records/employment)
+	program_list += list(/datum/computer_file/program/comm_control,	/datum/computer_file/program/records/employment)
 
 
 /*##########################
@@ -56,7 +56,7 @@
 
 /datum/modular_computer_app_presets/medical/cmo/New()
 	. = ..()
-	program_list += list(/datum/computer_file/program/records/employment, /datum/computer_file/program/scanner/science, /datum/computer_file/program/comm)
+	program_list += list(/datum/computer_file/program/records/employment, /datum/computer_file/program/scanner/science, /datum/computer_file/program/comm_control)
 
 
 /*##########################
@@ -81,7 +81,7 @@
 
 /datum/modular_computer_app_presets/research/rd/New()
 	. = ..()
-	program_list += list(/datum/computer_file/program/comm,	/datum/computer_file/program/records/employment)
+	program_list += list(/datum/computer_file/program/comm_control,	/datum/computer_file/program/records/employment)
 
 /*##########################
 	BRIDGE CREW PRESETS
@@ -94,7 +94,7 @@
 
 /datum/modular_computer_app_presets/bridge/New()
 	. = ..()
-	program_list += COMPUTER_APP_PRESET_SYSTEM + COMPUTER_APP_PRESET_HORIZON_CIVILIAN + /datum/computer_file/program/away_manifest
+	program_list += COMPUTER_APP_PRESET_SYSTEM + COMPUTER_APP_PRESET_HORIZON_CIVILIAN + list(/datum/computer_file/program/away_manifest, /datum/computer_file/program/comm_control)
 
 
 /*##########################
@@ -110,9 +110,9 @@
 	. = ..()
 	program_list += COMPUTER_APP_PRESET_SYSTEM + COMPUTER_APP_PRESET_HORIZON_CIVILIAN
 	program_list += list(/datum/computer_file/program/card_mod,
-						/datum/computer_file/program/comm/intercept,
 						/datum/computer_file/program/docks,
 						/datum/computer_file/program/away_manifest,
+						/datum/computer_file/program/comm_control/intercept,
 						/datum/computer_file/program/records/employment,
 						)
 
@@ -167,7 +167,7 @@
 
 /datum/modular_computer_app_presets/security/armory/New()
 	. = ..()
-	program_list += list(/datum/computer_file/program/implant_tracker, /datum/computer_file/program/comm)
+	program_list += list(/datum/computer_file/program/implant_tracker, /datum/computer_file/program/comm_control)
 
 
 /datum/modular_computer_app_presets/security/investigations
@@ -189,7 +189,7 @@
 
 /datum/modular_computer_app_presets/security/hos/New()
 	. = ..()
-	program_list += list(/datum/computer_file/program/comm,	/datum/computer_file/program/records/employment)
+	program_list += list(/datum/computer_file/program/comm_control,	/datum/computer_file/program/records/employment)
 
 
 /*##########################
@@ -252,8 +252,7 @@
 
 /datum/modular_computer_app_presets/supply/om/New()
 	. = ..()
-	program_list += list(/datum/computer_file/program/comm, /datum/computer_file/program/docks)
-
+	program_list += list(/datum/computer_file/program/comm_control, /datum/computer_file/program/docks)
 
 /datum/modular_computer_app_presets/supply/mining
 	name = "operations_mining"

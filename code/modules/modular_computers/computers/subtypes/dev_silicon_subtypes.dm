@@ -16,7 +16,7 @@
 	hard_drive.store_file(new /datum/computer_file/program/away_manifest(src))
 	hard_drive.store_file(new /datum/computer_file/program/implant_tracker(src))
 	hard_drive.store_file(new /datum/computer_file/program/guntracker(src))
-	hard_drive.store_file(new /datum/computer_file/program/comm(src))
+	hard_drive.store_file(new /datum/computer_file/program/comm_control(src))
 
 /obj/item/modular_computer/silicon/robot
 	hardware_flag = PROGRAM_SILICON_ROBOT
