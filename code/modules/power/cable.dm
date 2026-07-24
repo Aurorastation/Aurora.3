@@ -604,8 +604,8 @@ By design, d1 is the smallest direction and d2 is the highest
 			to_chat(user, SPAN_WARNING("You can't repair damage to your own body - it's against OH&S."))
 			return
 
-		if(S.burn_dam)
-			if(S.burn_dam > ROBOLIMB_SELF_REPAIR_CAP)
+		if(LIMB_GET_BURN_DAMAGE(S))
+			if(LIMB_GET_BURN_DAMAGE(S) > ROBOLIMB_SELF_REPAIR_CAP)
 				to_chat(user, SPAN_WARNING("The damage is far too severe to patch over externally!"))
 				return
 			else
@@ -618,7 +618,7 @@ By design, d1 is the smallest direction and d2 is the highest
 		return ..()
 
 /obj/item/stack/cable_coil/proc/repair_organ(var/mob/living/user, var/mob/living/carbon/human/target, var/obj/item/organ/external/affecting)
-	if(!affecting.burn_dam)
+	if(!LIMB_GET_BURN_DAMAGE(affecting))
 		user.visible_message(SPAN_NOTICE("\The [user] finishes mending the burnt wiring in [target]'s [affecting]."))
 		return
 

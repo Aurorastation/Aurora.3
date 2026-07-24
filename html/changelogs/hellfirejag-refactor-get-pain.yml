@@ -1,0 +1,4 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - refactor: "Refactored get_pain() to have essentially nonexistent cost."

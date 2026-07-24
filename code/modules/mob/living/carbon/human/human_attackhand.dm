@@ -629,7 +629,7 @@
 	if(!target_zone)
 		return 0
 	var/obj/item/organ/external/organ = get_organ(check_zone(target_zone))
-	if(!organ || ORGAN_IS_DISLOCATED(organ) || organ.dislocated == -1)
+	if(!organ || ORGAN_IS_DISLOCATED(organ) || LIMB_GET_DISLOCATED(organ) == -1)
 		return 0
 
 	user.visible_message(SPAN_WARNING("[user] begins to dislocate [src]'s [organ.joint]!"))

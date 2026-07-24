@@ -244,8 +244,8 @@
 			var/painful_check = FALSE
 			for(var/obj/item/organ/external/org in H.organs)
 				var/list/status = list()
-				var/brutedamage = org.brute_dam
-				var/burndamage = org.burn_dam
+				var/brutedamage = LIMB_GET_BRUTE_DAMAGE(org)
+				var/burndamage = LIMB_GET_BURN_DAMAGE(org)
 
 				// Basic Anatomy 1: All the obvious stuff
 				// Damaged and missing limbs
@@ -290,7 +290,7 @@
 				// Broken limbs
 				// Regular and arterial bleeding are vague
 				// Necrotic is vague
-				if(org.dislocated == 2)
+				if(LIMB_GET_DISLOCATED(org) == 2)
 					status += (anatomy >= 2 ? "dislocated" : "hanging oddly")
 				if(org.status & ORGAN_BROKEN)
 					status += (anatomy < 3 ? "hurts when touched" : "broken")

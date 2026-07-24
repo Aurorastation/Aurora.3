@@ -305,7 +305,7 @@ emp_act
 	return TRUE
 
 /mob/living/carbon/human/proc/attack_joint(var/obj/item/organ/external/organ, var/obj/item/W, var/blocked)
-	if(!organ || (organ.dislocated == 2) || (organ.dislocated == -1))
+	if(!organ || (LIMB_GET_DISLOCATED(organ) == 2) || (LIMB_GET_DISLOCATED(organ) == -1))
 		return 0
 
 	var/blocked_ratio = get_blocked_ratio(organ.limb_name, W.damtype, W.damage_flags(), W.armor_penetration, W.force)

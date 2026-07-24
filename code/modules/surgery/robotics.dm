@@ -202,7 +202,7 @@
 		var/obj/item/weldingtool/welder = tool
 		if(!welder.isOn() || welder.get_fuel() < 2)
 			return FALSE
-	return affected && affected.open == ORGAN_ENCASED_RETRACTED && affected.brute_dam > 0 && target_zone != BP_MOUTH
+	return affected && affected.open == ORGAN_ENCASED_RETRACTED && LIMB_GET_BRUTE_DAMAGE(affected) > 0 && target_zone != BP_MOUTH
 
 /singleton/surgery_step/robotics/repair_brute/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -243,7 +243,7 @@
 
 	var/obj/item/stack/cable_coil/C = tool
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	var/limb_can_operate = (affected && affected.open == ORGAN_ENCASED_RETRACTED && affected.burn_dam > 0 && target_zone != BP_MOUTH)
+	var/limb_can_operate = (affected && affected.open == ORGAN_ENCASED_RETRACTED && LIMB_GET_BURN_DAMAGE(affected) > 0 && target_zone != BP_MOUTH)
 	if(limb_can_operate)
 		if(istype(C))
 			if(!C.get_amount() >= 6)
