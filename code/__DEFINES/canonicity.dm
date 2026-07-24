@@ -17,6 +17,8 @@
 #define LIMITED_CHARACTER_DEATH			1
 /// If players are FORCED to keep character deaths canon. In this case, ALL CHARACTER DEATHS MUST GO THROUGH HEADMINS AND LOREMASTERS TO BE RETCONNED. THERE ARE NO EXCEPTIONS!
 #define FORCED_CHARACTER_DEATH			2
+/// Players are FORCED to keep character deaths canon, and NO retcons will be handed out barring extreme bug-caused cases.
+#define EXTREME_CHARACTER_DEATH			3
 
 /// Away sites are NOT canon in this round.
 #define AWAY_SITE_NOT_CANON				0

@@ -87,6 +87,8 @@
 /singleton/canonicity/proc/character_death_canon_info()
 	. = list()
 	switch(character_death_canon)
+		if(NO_CHARACTER_DEATH)
+			. += "Character deaths are not canon during this round."
 		if(LIMITED_CHARACTER_DEATH)
 			. += "Character deaths are limited during this round. If all involved parties agree, character deaths can be retconned. If you would like to contest a death, or determine if a party counts as involved, please adminhelp."
 			. += "To count as involved, a player has to be an active participant of your death, meaning that they must have intentionally contributed to it. As an example, if you die to a carp on an expedition, you can retcon this death without asking others."
@@ -94,8 +96,10 @@
 			. += "Character deaths are forced canon during this round. All character deaths must go through headmins and loremasters to be retconned, no exceptions!"
 			. += "All injuries sustained as part of this round are immediately and fully canon, and should be roleplayed to the best of your ability, both in this round and the following. \
 				Do not ignore an injury you have obtained without explicit approval from administration. You are expected to roleplay its consequences believably, even extending to following rounds."
-		if(NO_CHARACTER_DEATH)
-			. += "Character deaths are not canon during this round."
+		if(EXTREME_CHARACTER_DEATH)
+			. += "Character deaths are forced canon during this round. All character deaths will be canon, and the only retcons accepted will be SOLELY in extreme, bug-related deaths!"
+			. += "All injuries sustained as part of this round are immediately and fully canon, and should be roleplayed to the best of your ability, both in this round and the following. \
+				Do not ignore an injury you have obtained without explicit approval from administration. You are expected to roleplay its consequences believably, even extending to following rounds."
 
 /singleton/canonicity/proc/away_site_canon_info()
 	. = list()
@@ -162,3 +166,12 @@
 	character_death_canon = NO_CHARACTER_DEATH
 	away_site_canon = AWAY_SITE_NOT_CANON
 	offship_canon = OFFSHIP_NOT_CANON
+
+/singleton/canonicity/extreme
+	name = "Extreme Canon"
+	desc = "This type of canon is in place for events where you are expected to play as realistically and as carefully as possible. All your actions will have permanent consequences."
+	round_canon = ROUND_FULL_CANON
+	antagonist_actions_canon = ANTAGONIST_ACTIONS_CANON
+	character_death_canon = EXTREME_CHARACTER_DEATH
+	away_site_canon = AWAY_SITE_CANON_FULL
+	offship_canon = OFFSHIP_CANON_FULL
