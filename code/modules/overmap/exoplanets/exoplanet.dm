@@ -9,6 +9,8 @@
 	var/datum/gas_mixture/atmosphere
 	/// Cached main ZAS surface zone per generated z-level. Resolved lazily after ZAS finishes building.
 	var/list/main_planetary_zones = list()
+	/// Last ZAS update revision processed per generated z-level.
+	var/list/main_planetary_zone_atmosphere_revisions = list()
 	var/list/breathgas = list()	//list of gases animals/plants require to survive
 	var/badgas					//id of gas that is toxic to life here
 
@@ -275,11 +277,22 @@
 		if(!atmosphere)
 			continue
 		var/zone/Z = get_main_planetary_zone(zlevel)
-		if(Z && !length(Z.fire_tiles) && !atmosphere.compare(Z.air)) //let fire die out first if there is one
+		if(!Z)
+			continue
+		var/zlevel_key = "[zlevel]"
+		var/last_atmosphere_revision = main_planetary_zone_atmosphere_revisions[zlevel_key]
+		if(!isnull(last_atmosphere_revision) && last_atmosphere_revision == Z.update_revision)
+			continue
+		// Let ZAS settle and fire die out first if there is one
+		if(Z.needs_update || length(Z.fire_tiles))
+			continue
+		if(!atmosphere.compare(Z.air))
 			var/datum/gas_mixture/daddy = new() //make a fake 'planet' zone gas
 			daddy.copy_from(atmosphere)
 			daddy.group_multiplier = Z.air.group_multiplier
 			Z.air.equalize(daddy)
+			SSair.mark_zone_update(Z)
+		main_planetary_zone_atmosphere_revisions[zlevel_key] = Z.update_revision
 
 /// Attempts to not only identify the largest air zone, but also cache it for subsequent ticks.
 /obj/effect/overmap/visitable/sector/exoplanet/proc/get_main_planetary_zone(zlevel)
@@ -290,6 +303,7 @@
 		return cached_zone
 
 	main_planetary_zones -= zlevel_key
+	main_planetary_zone_atmosphere_revisions -= zlevel_key
 
 	// Exoplanet transition edges are unsimulated, so only scan the generated interior when resolving the main surface zone.
 	var/min_x = TRANSITIONEDGE + 1

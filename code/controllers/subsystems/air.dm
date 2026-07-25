@@ -419,6 +419,7 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 		return
 	zones_to_update += Z
 	Z.needs_update = 1
+	Z.update_revision++
 
 /datum/controller/subsystem/air/proc/mark_edge_sleeping(connection_edge/E)
 	#ifdef ZASDBG
