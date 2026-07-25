@@ -155,7 +155,7 @@
 		sound_to_play.volume = volume_override || volume //Use volume as fallback if theres no override
 		if(ismob(parent))
 			var/mob/mob_parent = parent
-			if(mob_parent.client)
+			if(mob_parent.client?.prefs)
 				sound_to_play.volume *= mob_parent.client.prefs.looping_sound_volume / 100
 		SEND_SOUND(parent, sound_to_play)
 	else

@@ -108,7 +108,7 @@
 	for(var/mob/listening_mob in listeners | dead_players_by_zlevel[source_z])//observers always hear through walls
 		if(get_dist(listening_mob, turf_source) <= maxdistance)
 			var/listener_volume = vol
-			if(use_looping_sound_volume)
+			if(use_looping_sound_volume && listening_mob.client?.prefs)
 				listener_volume *= listening_mob.client.prefs.looping_sound_volume / 100
 
 			//Aurora snowflake, if we don't ignore the walls, account for wall-like obstacles to dampen the sound
