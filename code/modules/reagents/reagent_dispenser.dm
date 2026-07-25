@@ -227,11 +227,11 @@
 		return
 
 	if (reagents.total_volume > 500)
-		explosion(src.loc,1,2,4)
+		explosion(src.loc, 1, 2, 4, spreading = TRUE)
 	else if (reagents.total_volume > 100)
-		explosion(src.loc,0,1,3)
+		explosion(src.loc, 0, 1, 3, spreading = TRUE)
 	else if (reagents.total_volume > 50)
-		explosion(src.loc,-1,1,2)
+		explosion(src.loc, -1, 1, 2, spreading = TRUE)
 
 	..()
 

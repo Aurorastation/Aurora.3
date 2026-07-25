@@ -273,7 +273,7 @@
 			if(turf_clear(T))
 				new /obj/structure/foamedmetal(T, src)
 	applyfalldamage(A)
-	explosion(A, 0, 0, 2, 2)
+	explosion(A, 0, 0, 2, 2, spreading = TRUE)
 	var/datum/effect/effect/system/smoke_spread/S = new /datum/effect/effect/system/smoke_spread()
 	S.set_up(5, 0, A)
 	S.start()

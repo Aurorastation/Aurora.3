@@ -184,7 +184,7 @@
 				O.throw_at_random(FALSE, 3, THROWNOBJ_KNOCKBACK_SPEED)
 			else
 				qdel(O)
-		explosion(loc, 1, 2, 4, 8) //copied from the catastrophic failure code
+		explosion(loc, 1, 2, 4, 8, spreading = TRUE) //copied from the catastrophic failure code
 		qdel(src)
 	else if(is_badly_damaged() && !busted)
 		busted = TRUE
@@ -374,7 +374,7 @@
 						src.ping("Magnetic containment stabilised.")
 						return
 					src.ping("DANGER! Magnetic containment field failure in 3 ... 2 ... 1 ...")
-					explosion(src.loc,1,2,4,8)
+					explosion(src.loc, 1, 2, 4, 8, spreading = TRUE)
 					// Not sure if this is necessary, but just in case the SMES *somehow* survived..
 					qdel(src)
 
