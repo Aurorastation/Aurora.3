@@ -160,7 +160,7 @@
 	else
 		if(owner.set_hardpoint(hardpoint_tag))
 			icon_state = "hardpoint_selected"
-	playsound(owner, 'sound/weapons/laser_safetyon.ogg', 50, 0)
+	playsound(owner, 'sound/weapons/laser_safetyon.ogg', 50, 0, falloff_exponent = (SOUND_FALLOFF_EXPONENT+4))
 
 /atom/movable/screen/mecha/eject
 	name = "eject"
@@ -217,7 +217,7 @@
 	var/main_color = owner.use_air ? "#d1d1d1" : "#525252"
 	maptext = "<span style=\"font-family: 'Small Fonts'; color: [main_color]; -dm-text-outline: 1 #242424; font-size: 6px;\">AIR</span>"
 	notify_user(usr, SPAN_NOTICE("Auxiliary atmospheric system [owner.use_air ? "enabled" : "disabled"]."))
-	playsound(owner, 'sound/weapons/laser_safetyon.ogg', 50, 0)
+	playsound(owner, 'sound/weapons/laser_safetyon.ogg', 50, 0, falloff_exponent = (SOUND_FALLOFF_EXPONENT+4))
 
 /atom/movable/screen/mecha/toggle/maint
 	name = "toggle maintenance protocol"
@@ -232,7 +232,7 @@
 	var/main_color = owner.maintenance_protocols ? "#d1d1d1" : "#525252"
 	maptext = "<span style=\"font-family: 'Small Fonts'; color: [main_color]; -dm-text-outline: 1 #242424; font-size: 6px;\">MAINT</span>"
 	notify_user(usr, SPAN_NOTICE("Maintenance protocols [owner.maintenance_protocols ? "enabled" : "disabled"]."))
-	playsound(owner, 'sound/weapons/laser_safetyon.ogg', 50, 0)
+	playsound(owner, 'sound/weapons/laser_safetyon.ogg', 50, 0, falloff_exponent = (SOUND_FALLOFF_EXPONENT+4))
 
 /atom/movable/screen/mecha/toggle/power_control
 	name = "power control"
@@ -266,7 +266,7 @@
 	var/main_color = owner.hardpoints_locked ? "#d1d1d1" : "#525252"
 	maptext = "<span style=\"font-family: 'Small Fonts'; color: [main_color]; -dm-text-outline: 1 #242424; font-size: 6px;\">GEAR</span>"
 	notify_user(usr, SPAN_NOTICE("Hardpoint system access is now [owner.hardpoints_locked ? "disabled" : "enabled"]."))
-	playsound(owner, 'sound/weapons/laser_safetyon.ogg', 50, 0)
+	playsound(owner, 'sound/weapons/laser_safetyon.ogg', 50, 0, falloff_exponent = (SOUND_FALLOFF_EXPONENT+4))
 
 /atom/movable/screen/mecha/toggle/hatch
 	name = "toggle hatch lock"
