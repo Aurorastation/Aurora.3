@@ -42,7 +42,7 @@
  * * required_preferences - What preference is required to be on on the client, for the sound to play
  * * required_asfx_toggles - What toggles are required to be on on the client, for the sound to play
  */
-/proc/playsound(atom/source, soundin, vol as num, vary, extrarange as num, falloff_exponent = SOUND_FALLOFF_EXPONENT, frequency = null, channel = 0, pressure_affected = TRUE, ignore_walls = TRUE, falloff_distance = SOUND_DEFAULT_FALLOFF_DISTANCE, use_reverb = TRUE, required_preferences, required_asfx_toggles)
+/proc/playsound(atom/source, soundin, vol as num, vary, extrarange as num, falloff_exponent = SOUND_FALLOFF_EXPONENT, frequency = null, channel = 0, pressure_affected = TRUE, ignore_walls = TRUE, falloff_distance = SOUND_DEFAULT_FALLOFF_DISTANCE, use_reverb = TRUE, required_preferences, required_asfx_toggles, use_looping_sound_volume = FALSE)
 	if(isarea(source))
 		CRASH("playsound(): source is an area")
 
@@ -107,11 +107,15 @@
 
 	for(var/mob/listening_mob in listeners | dead_players_by_zlevel[source_z])//observers always hear through walls
 		if(get_dist(listening_mob, turf_source) <= maxdistance)
+			var/listener_volume = vol
+			if(use_looping_sound_volume)
+				listener_volume *= listening_mob.client.prefs.looping_sound_volume / 100
+
 			//Aurora snowflake, if we don't ignore the walls, account for wall-like obstacles to dampen the sound
 			if(ignore_walls)
-				listening_mob.playsound_local(turf_source, soundin, vol, vary, frequency, falloff_exponent, channel, pressure_affected, S, maxdistance, falloff_distance, 1, use_reverb)
+				listening_mob.playsound_local(turf_source, soundin, listener_volume, vary, frequency, falloff_exponent, channel, pressure_affected, S, maxdistance, falloff_distance, 1, use_reverb)
 			else
-				adjust_sound_based_on_path_obstacles(listening_mob, turf_source, soundin, vol, vary, frequency, falloff_exponent, channel, pressure_affected, S, maxdistance, falloff_distance, use_reverb)
+				adjust_sound_based_on_path_obstacles(listening_mob, turf_source, soundin, listener_volume, vary, frequency, falloff_exponent, channel, pressure_affected, S, maxdistance, falloff_distance, use_reverb)
 
 			. += listening_mob
 
@@ -243,4 +247,3 @@
 		return soundin
 	var/datum/sound_effect/sfx = SSsounds.sfx_datum_by_key[soundin]
 	return sfx?.return_sfx() || soundin
-

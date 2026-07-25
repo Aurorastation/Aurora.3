@@ -3,4 +3,4 @@ author: Geeves
 delete-after: True
 
 changes:
-  - rscadd: "Added a preference to toggle looping sounds under the SFX preferences tab."
+  - rscadd: "Added the option to manually change the looping sound channel volume in the SFX Preferences tab."

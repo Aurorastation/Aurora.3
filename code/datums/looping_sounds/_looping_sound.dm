@@ -153,6 +153,10 @@
 	if(direct)
 		sound_to_play.channel = sound_channel || SSsounds.random_available_channel()
 		sound_to_play.volume = volume_override || volume //Use volume as fallback if theres no override
+		if(ismob(parent))
+			var/mob/mob_parent = parent
+			if(mob_parent.client)
+				sound_to_play.volume *= mob_parent.client.prefs.looping_sound_volume / 100
 		SEND_SOUND(parent, sound_to_play)
 	else
 		playsound(
@@ -166,7 +170,7 @@
 			ignore_walls = ignore_walls,
 			falloff_distance = falloff_distance,
 			use_reverb = use_reverb,
-			required_asfx_toggles = ASFX_LOOPING_SOUNDS
+			use_looping_sound_volume = TRUE
 		)
 
 /// Returns the sound we should now be playing.
