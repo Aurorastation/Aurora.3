@@ -14,7 +14,8 @@ GLOBAL_LIST_INIT(sfx_toggles, list(
 	/client/proc/toggle_dropsounds,
 	/client/proc/toggle_arcadesounds,
 	/client/proc/toggle_radiosounds,
-	/client/proc/toggle_instrumentsounds
+	/client/proc/toggle_instrumentsounds,
+	/client/proc/toggle_looping_sounds
 ))
 
 /client/var/has_sfx_verbs = FALSE
@@ -147,3 +148,12 @@ GLOBAL_LIST_INIT(sfx_toggles, list(
 	prefs.sfx_toggles ^= ASFX_INSTRUMENT
 	prefs.save_preferences()
 	to_chat(src, SPAN_INFO("You will [(prefs.sfx_toggles & ASFX_INSTRUMENT) ? "now" : "no longer"] hear instrument sounds."))
+
+/client/proc/toggle_looping_sounds()
+	set name = "Toggle Looping SFX"
+	set category = "SFX Preferences"
+	set desc = "Toggles hearing looping sound effects"
+
+	prefs.sfx_toggles ^= ASFX_LOOPING_SOUNDS
+	prefs.save_preferences()
+	to_chat(src, SPAN_INFO("You will [(prefs.sfx_toggles & ASFX_LOOPING_SOUNDS) ? "now" : "no longer"] hear looping sound effects."))

@@ -165,7 +165,8 @@
 			pressure_affected = pressure_affected,
 			ignore_walls = ignore_walls,
 			falloff_distance = falloff_distance,
-			use_reverb = use_reverb
+			use_reverb = use_reverb,
+			required_asfx_toggles = ASFX_LOOPING_SOUNDS
 		)
 
 /// Returns the sound we should now be playing.
