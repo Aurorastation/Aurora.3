@@ -141,9 +141,8 @@
 	var/obj/effect/effect/foam/F = locate() in location
 	if(F)
 		F.amount += amount
-		if(!metal)
-			if(F.add_carried_reagents(carried_reagents) && F.reagents_checked)
-				F.checkReagents()
+		if(!metal && F.add_carried_reagents(carried_reagents) && F.reagents_checked)
+			F.checkReagents()
 		return
 
 	F = new /obj/effect/effect/foam(location, metal)
