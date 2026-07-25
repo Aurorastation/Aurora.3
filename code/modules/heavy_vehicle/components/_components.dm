@@ -113,6 +113,7 @@
 	if(RC.take_damage(brute, burn))
 		playsound(src, 'sound/mecha/internaldmgalarm.ogg', 100, 0, falloff_exponent = (SOUND_FALLOFF_EXPONENT+4))
 		playsound(src, 'sound/mecha/critdestr.ogg', 100, 0, falloff_exponent = (SOUND_FALLOFF_EXPONENT+4))
+		spark(src, 8)
 		qdel(RC)
 		update_components()
 
