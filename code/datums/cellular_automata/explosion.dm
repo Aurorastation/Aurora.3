@@ -42,7 +42,7 @@
 
 /datum/automata_cell/explosion/proc/on_turf_entered(turf/source, atom/movable/arrived)
 	SIGNAL_HANDLER
-	if(QDELETED(arrived) || arrived in exploded_atoms)
+	if(QDELETED(arrived) || (arrived in exploded_atoms))
 		return
 	exploded_atoms += arrived
 	arrived.ex_act(get_severity())
@@ -101,7 +101,7 @@
 	var/severity = get_severity()
 	in_turf.ex_act(severity, direction)
 	for(var/atom/movable/thing as anything in in_turf)
-		if(QDELETED(thing) || !thing.simulated || thing in exploded_atoms)
+		if(QDELETED(thing) || !thing.simulated || (thing in exploded_atoms))
 			continue
 		var/obj/object = thing
 		if(istype(object) && object.hides_under_flooring() && !in_turf.is_plating())
