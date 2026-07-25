@@ -379,3 +379,19 @@
 	path = /obj/item/organ/internal/augment/bioaug/head_fluff/lhand_fluff
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_DIONA, SPECIES_DIONA_COEUS, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER, SPECIES_UNATHI)
+
+/datum/gear/augment/smes_induction_link
+	display_name = "SMES induction link"
+	description = "A miniaturized, superconductive energy storage (SMES) cell utilizing phoronic magnet coils installed in the user's palms. " \
+		+ "The SMES feeds into an induction link, which can wirelessly charge the cell of a held object. It has NanoTrasen Corporation branding."
+	path = /obj/item/organ/internal/augment/smes_induction_link
+	cost = 4
+	origin_restriction = ORIGINS_BIESEL
+	whitelisted = null
+
+/datum/gear/augment/smes_induction_link/New()
+	..()
+	var/list/augs = list()
+	augs["SMES induction link, right hand"] = /obj/item/organ/internal/augment/smes_induction_link
+	augs["SMES induction link, left hand"] = /obj/item/organ/internal/augment/smes_induction_link/left
+	gear_tweaks += new /datum/gear_tweak/path(augs)

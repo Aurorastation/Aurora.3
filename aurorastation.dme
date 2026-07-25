@@ -3284,6 +3284,7 @@
 #include "code\modules\organs\subtypes\augment\augments\platelet_factories.dm"
 #include "code\modules\organs\subtypes\augment\augments\psi_receiver.dm"
 #include "code\modules\organs\subtypes\augment\augments\sight_lights.dm"
+#include "code\modules\organs\subtypes\augment\augments\smes_induction_link.dm"
 #include "code\modules\organs\subtypes\augment\augments\subdermal_carapace.dm"
 #include "code\modules\organs\subtypes\augment\augments\suspension.dm"
 #include "code\modules\organs\subtypes\augment\augments\synthetic_cords.dm"
