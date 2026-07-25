@@ -144,12 +144,12 @@ type RegionGrid = Vec<Vec<i8>>;
 /// {
 ///     "type": "MazegenHauberk",
 ///     "allowed_area": "/area/mazegen",
-///     "default_floor": "/turf/simulated/floor/plasteel",
+///     "default_floor": "/turf/simulated/floor/plating",
 ///     "winding_percent": 20,
 ///     "extra_connector_chance": 20,
-///     "z_level:" 1,
+///     "z_level": 1,
 ///     "hallway_horizontal_marker": "/obj/effect/map_effect/marker/mapmanip/submap/insert/your_maps_name/hallway_horizontal",
-///     "hallway_vertical_marker": "/obj/effect/map_effect/marker/mapmanip/submap/insert/syour_maps_name/hallway_vertical",
+///     "hallway_vertical_marker": "/obj/effect/map_effect/marker/mapmanip/submap/insert/your_maps_name/hallway_vertical",
 ///     "hallway_node_marker": "/obj/effect/map_effect/marker/mapmanip/submap/insert/your_maps_name/hallway_floor",
 ///     "room_configs": [
 ///         {
