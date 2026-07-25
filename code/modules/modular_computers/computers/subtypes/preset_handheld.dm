@@ -20,9 +20,15 @@
 /obj/item/modular_computer/handheld/preset/civilian
 	_app_preset_type = /datum/modular_computer_app_presets/civilian
 
+/obj/item/modular_computer/handheld/preset/civilian/bartender
+	_app_preset_type = /datum/modular_computer_app_presets/civilian/bartender
+
 /obj/item/modular_computer/handheld/preset/civilian/bartender/Initialize()
 	. = ..()
 	card_slot.stored_item = new /obj/item/pen/fountain
+
+/obj/item/modular_computer/handheld/preset/civilian/chef
+	_app_preset_type = /datum/modular_computer_app_presets/civilian/chef
 
 /obj/item/modular_computer/handheld/preset/civilian/librarian/Initialize()
 	. = ..()

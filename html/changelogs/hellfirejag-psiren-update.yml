@@ -1,0 +1,10 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - rscadd: "Psiren Darters, Omens, and Beckoners can now shoot through windows, while dealing less damage overall."
+  - rscadd: "Psiren attacks are now less likely to cause bleeds."
+  - rscadd: "Psiren variants now have specific names."
+  - rscadd: "Psychic damage messages now print to random locations on the screen."
+  - rscadd: "Added a new psiren subtype, the Beckoner."
+  - rscadd: "Psiren Beckoners can now appear in wandering psiren events"
+  - rscadd: "Technomancers can now summon Psiren Beckoners"

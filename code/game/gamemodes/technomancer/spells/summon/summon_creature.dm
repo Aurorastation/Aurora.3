@@ -37,7 +37,8 @@
 		"BEAR"					=	/mob/living/simple_animal/hostile/bear,
 		"PSIREN LASHER" 		=	/mob/living/simple_animal/hostile/psiren,
 		"PSIREN DARTER"			= 	/mob/living/simple_animal/hostile/psiren/ranged,
-		"PSIREN OMEN"			=	/mob/living/simple_animal/hostile/psiren/omen
+		"PSIREN OMEN"			=	/mob/living/simple_animal/hostile/psiren/omen,
+		"PSIREN BECKONER"		=	/mob/living/simple_animal/hostile/psiren/omen/beckoner,
 		)
 	cooldown = 30
 	instability_cost = 10

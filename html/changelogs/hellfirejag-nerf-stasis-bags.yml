@@ -1,0 +1,4 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - balance: "Stasis Bags now only provide 10x stasis to start off, rather than 20x."
