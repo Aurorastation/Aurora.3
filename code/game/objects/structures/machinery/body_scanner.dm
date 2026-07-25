@@ -931,7 +931,7 @@
 
 /obj/structure/machinery/body_scanconsole/embedded/get_occupant()
 	if(monitor_console?.table)
-		return monitor_console.table.get_valid_occupant()
+		return monitor_console?.table?.get_valid_occupant()
 
 	return null
 
