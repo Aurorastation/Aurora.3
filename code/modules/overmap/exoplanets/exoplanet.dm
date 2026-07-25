@@ -7,6 +7,8 @@
 	var/list/animals = list()
 	var/max_animal_count
 	var/datum/gas_mixture/atmosphere
+	/// Cached main ZAS surface zone per generated z-level. Resolved lazily after ZAS finishes building.
+	var/list/main_planetary_zones = list()
 	var/list/breathgas = list()	//list of gases animals/plants require to survive
 	var/badgas					//id of gas that is toxic to life here
 
@@ -272,17 +274,62 @@
 
 		if(!atmosphere)
 			continue
-		var/zone/Z
-		for(var/i = 1 to maxx)
-			var/turf/simulated/T = locate(i, 2, zlevel)
-			if(istype(T) && T.zone && T.zone.contents.len > (maxx*maxy*0.25)) //if it's a zone quarter of zlevel, good enough odds it's planetary main one
-				Z = T.zone
-				break
+		var/zone/Z = get_main_planetary_zone(zlevel)
 		if(Z && !length(Z.fire_tiles) && !atmosphere.compare(Z.air)) //let fire die out first if there is one
 			var/datum/gas_mixture/daddy = new() //make a fake 'planet' zone gas
 			daddy.copy_from(atmosphere)
 			daddy.group_multiplier = Z.air.group_multiplier
 			Z.air.equalize(daddy)
+
+/// Attempts to not only identify the largest air zone, but also cache it for subsequent ticks.
+/obj/effect/overmap/visitable/sector/exoplanet/proc/get_main_planetary_zone(zlevel)
+	var/zlevel_key = "[zlevel]"
+	var/zone/cached_zone = main_planetary_zones[zlevel_key]
+	// ZAS may invalidate and rebuild zones after terrain changes. Keep the cached zone only while it is still valid!
+	if(cached_zone && !cached_zone.invalid)
+		return cached_zone
+
+	main_planetary_zones -= zlevel_key
+
+	// Exoplanet transition edges are unsimulated, so only scan the generated interior when resolving the main surface zone.
+	var/min_x = TRANSITIONEDGE + 1
+	var/min_y = TRANSITIONEDGE + 1
+	var/max_x = maxx - (TRANSITIONEDGE + 1)
+	var/max_y = maxy - (TRANSITIONEDGE + 1)
+	var/turf/lower_left = locate(min_x, min_y, zlevel)
+	var/turf/upper_right = locate(max_x, max_y, zlevel)
+	if(!lower_left || !upper_right)
+		return null
+
+	// If it's a zone quarter of zlevel, good enough odds it's planetary main one.
+	var/minimum_zone_size = maxx * maxy * 0.25
+	var/zone/best_zone
+	var/best_zone_size = 0
+	var/list/checked_zones = list()
+	var/zas_pending = FALSE
+	for(var/turf/simulated/T in block(lower_left, upper_right))
+		// Dynamic turf generation queues ZAS updates... Do not cache a main zone while the surface may still be settling!
+		if(T.needs_air_update)
+			zas_pending = TRUE
+			continue
+		if(!TURF_HAS_VALID_ZONE(T))
+			continue
+		var/zone/current_zone = T.zone
+		if(current_zone in checked_zones)
+			continue
+		checked_zones += current_zone
+		var/current_zone_size = current_zone.contents.len
+		if(current_zone_size <= best_zone_size || current_zone_size <= minimum_zone_size)
+			continue
+		best_zone = current_zone
+		best_zone_size = current_zone_size
+
+	// Try again on a later processing tick once ZAS has finished assigning/rebuilding the planet's surface zones
+	if(zas_pending)
+		return null
+	if(best_zone)
+		main_planetary_zones[zlevel_key] = best_zone
+	return best_zone
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/remove_animal(mob/M)
 	animals -= M
