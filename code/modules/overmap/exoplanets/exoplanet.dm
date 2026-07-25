@@ -226,6 +226,7 @@
 	generate_features()
 	theme.after_map_generation(src)
 	generate_landing(2)
+	finalize_outdoor_atmosphere()
 	update_biome()
 	generate_planet_image()
 	START_PROCESSING(SSprocessing, src)
@@ -378,6 +379,56 @@
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/generate_features()
 	spawned_features = seedRuins(map_z, features_budget, possible_features, /area/exoplanet, maxx, maxy)
+
+/**
+ * Applies the generated planetary atmosphere AFTER terrain and ruins finish loading.
+ *
+ * Exoplanet turf subtypes initialize themselves with the planet's air, but ruins and
+ * terrain generation may place ordinary simulated turfs which otherwise retain their
+ * type's standard atmosphere. The area's mapped is_outside value is authoritative:
+ * OUTSIDE_NO preserves sealed interiors, while every outdoor turf receives planetary air.
+ *
+ * Without this behavior, you see weird cross-contamination issues, especially in cases
+ * where maps don't have their /areas configured properly.
+ */
+/obj/effect/overmap/visitable/sector/exoplanet/proc/finalize_outdoor_atmosphere()
+	if(!atmosphere)
+		return
+
+	var/list/outdoor_zones = list()
+	for(var/zlevel in map_z)
+		var/turf/lower_left = locate(TRANSITIONEDGE + 1, TRANSITIONEDGE + 1, zlevel)
+		var/turf/upper_right = locate(maxx - (TRANSITIONEDGE + 1), maxy - (TRANSITIONEDGE + 1), zlevel)
+		if(!lower_left || !upper_right)
+			continue
+
+		for(var/turf/simulated/T in block(lower_left, upper_right))
+			var/area/A = get_area(T)
+			if(!A || A.is_outside == OUTSIDE_NO)
+				continue
+
+			T.initial_gas = atmosphere.gas.Copy()
+			T.temperature = atmosphere.temperature
+
+			// Dynamic z-levels are created after SSair initializes. Usually these turfs are
+			// still unzoned... but if ZAS already found them, take care not to break them.
+			if(TURF_HAS_VALID_ZONE(T))
+				outdoor_zones |= T.zone
+			else if(T.air)
+				T.air.group_multiplier = 1
+				T.air.copy_from(atmosphere)
+			else
+				T.make_air()
+
+			CHECK_TICK
+
+	// A zone stores ONE shared mixture, so update it once rather than once per member turf.
+	for(var/zone/Z as anything in outdoor_zones)
+		if(Z.invalid)
+			continue
+		Z.air.copy_from(atmosphere)
+		SSair.mark_zone_update(Z)
+		CHECK_TICK
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/update_biome()
 	for(var/datum/seed/S as anything in seeds)
