@@ -313,6 +313,17 @@
 	icon_state = "preview_threethirds"
 	blend_state = "threethirds"
 
+/obj/effect/floor_decal/corner/dark_teal
+	name = "dark teal corner"
+	color = COLOR_DARK_TEAL
+
+/obj/effect/floor_decal/corner/dark_teal/diagonal
+	icon_state = "preview_diagonal"
+	blend_state = "diagonal"
+
+/obj/effect/floor_decal/corner/dark_teal/full
+	icon_state = "preview_threethirds"
+	blend_state = "threethirds"
 //Wide Corners// - Works better with some kinds of floors when you want the line of corner decals to connect
 
 /obj/effect/floor_decal/corner_wide
