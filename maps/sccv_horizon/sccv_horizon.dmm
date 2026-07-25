@@ -2110,6 +2110,10 @@
 /obj/effect/floor_decal/corner/dark_teal/full{
 	dir = 1
 	},
+/obj/structure/machinery/camera/network/medbay{
+	c_tag = "Medical - Main Storage";
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/main_storage)
 "alx" = (
@@ -33559,6 +33563,10 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/structure/machinery/camera/network/medbay{
+	c_tag = "Medical - Lobby";
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/reception)
 "eoX" = (
@@ -47150,6 +47158,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/horizon/maintenance/deck_2/wing/port/near)
+"ggH" = (
+/obj/effect/floor_decal/corner/dark_teal{
+	dir = 10
+	},
+/obj/structure/machinery/camera/network/medbay{
+	c_tag = "Medical - Entrance";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/horizon/medical/gen_treatment)
 "ggJ" = (
 /obj/effect/floor_decal/corner/black{
 	dir = 9
@@ -64495,6 +64513,16 @@
 /obj/effect/floor_decal/industrial/loading/yellow,
 /turf/unsimulated/floor,
 /area/centcom/spawning)
+"itG" = (
+/obj/structure/machinery/stasis_bed{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/medical,
+/obj/structure/machinery/camera/network/medbay{
+	c_tag = "Medical - ICU"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/horizon/medical/icu)
 "itH" = (
 /turf/simulated/open,
 /area/horizon/medical/hallway/upper)
@@ -121346,6 +121374,9 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
+/obj/structure/machinery/camera/network/medbay{
+	c_tag = "Medical - General Treatment 1"
+	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/gen_treatment)
 "pKf" = (
@@ -135857,6 +135888,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mercenary)
+"rDD" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized/firedoor{
+	id = "surgery2"
+	},
+/obj/structure/machinery/camera/network/medbay{
+	c_tag = "Medical - Lobby";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/medical/surgery)
 "rDF" = (
 /obj/structure/table/reinforced/wood,
 /obj/item/storage/slide_projector,
@@ -146903,13 +146944,6 @@
 	color = "#FFFFFF"
 	},
 /obj/structure/disposalpipe/segment,
-/obj/structure/machinery/button/switch/windowtint{
-	dir = 10;
-	id = "recovery";
-	pixel_y = 12;
-	pixel_x = 9;
-	name = "exterior window tint control"
-	},
 /turf/simulated/floor/plating,
 /area/horizon/medical/gen_treatment)
 "sWK" = (
@@ -281052,7 +281086,7 @@ vzf
 sYn
 kFX
 rlU
-boz
+rDD
 bTy
 uvb
 jnq
@@ -283884,7 +283918,7 @@ xQy
 sSU
 dBw
 kji
-toX
+ggH
 hAn
 gcZ
 pZj
@@ -285421,7 +285455,7 @@ uHe
 qjR
 yks
 xlm
-kyF
+itG
 uCp
 fdj
 mEX
