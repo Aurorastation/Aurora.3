@@ -222,7 +222,7 @@
 	alt_citizenships = list(
 		"Consular Officer" = list("Republic of Biesel", "Sol Alliance", "Coalition of Colonies", "Republic of Elyra", "Elyran Non-Citizen Person", "Eridani Federation", "Empire of Dominia", "Karszekani Moghes", "Nralakk Federation", "The Consortium of Hieroaetheria", "The Union of Gla'orr", "The Eternal Republic of The Ekane", "People's Republic of Adhomai", "Democratic People's Republic of Adhomai", "New Kingdom of Adhomai", "Free Tajaran Council", "Zo'ra Hive", "K'lax Hive", "C'thur Hive", "Undercover Lii'kenka", "None", "Golden Deep", "Ecclesiastical Authority of Axiom"),
 		"Foreign Service Officer" = list("Sol Alliance"),
-		"Party Representative" = list("People's Republic of Adhomai")
+		"Party Representative" = list("People's Republic of Adhomai"),
 		"Kreshwan" = list("Karszekani Moghes")
 	)
 
