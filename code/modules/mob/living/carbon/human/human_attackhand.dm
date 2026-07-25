@@ -113,7 +113,13 @@
 			return 1
 
 		if(I_GRAB)
-			if(M == src || anchored)
+			if(M == src)
+				var/obj/item/organ/external/selected_organ = get_organ(M.zone_sel.selecting)
+				if(!selected_organ || !selected_organ.robotic)
+					return 0
+				return manually_detach_prosthetic(selected_organ)
+
+			if(anchored)
 				return 0
 			if(M.is_pacified())
 				to_chat(M, SPAN_NOTICE("You don't want to risk hurting [src]!"))

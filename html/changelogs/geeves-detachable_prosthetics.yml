@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Added detachable prosthetics. Use grab intent on your prosthetic to remove it, click on yourself with the missing limb targetted to replace it."
