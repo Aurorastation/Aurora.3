@@ -1058,8 +1058,7 @@
 	if(receiving_limb)
 		receiving_limb.prosthetic_sockets |= limb.limb_name
 
-	var/use_inactive_hand = (hand && limb.limb_name in list(BP_L_ARM, BP_L_HAND)) \
-		|| (!hand && limb.limb_name in list(BP_R_ARM, BP_R_HAND))
+	var/use_inactive_hand = (hand && (limb.limb_name in list(BP_L_ARM, BP_L_HAND))) || (!hand && (limb.limb_name in list(BP_R_ARM, BP_R_HAND)))
 
 	limb.removed(src)
 	limb.forceMove(get_turf(src))
