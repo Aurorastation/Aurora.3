@@ -2,3 +2,4 @@ author: fyni
 delete-after: True
 changes:
   - rscadd: "Updates all references to the Hegemony to the Karszekani Moghes for accents, origins, citizenships and consulars."
+  - rscadd: "Add the Kreshwan title to Karszekani consulars."
