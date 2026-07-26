@@ -516,6 +516,7 @@
 	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
 	icon_state = "cetibar"
 
+	trash = /obj/item/trash/cetibar
 	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/sugar = 1)
 	reagent_data = list(/singleton/reagent/nutriment = list("chocolate" = 2, "nougat" = 1, "caramel" = 1))
 	bitesize = 2
@@ -528,6 +529,7 @@
 	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
 	icon_state = "idrisbar"
 
+	trash = /obj/item/trash/idrisbar
 	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/sugar = 1)
 	reagent_data = list(/singleton/reagent/nutriment = list("chocolate" = 2, "caramel" = 1, "puffed rice" = 1))
 	bitesize = 2
@@ -539,6 +541,8 @@
 	filling_color = "#552200"
 	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
 	icon_state = "getmore_3"
+
+	trash = /obj/item/trash/getmore_bubbles
 	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/sugar = 1)
 	reagent_data = list(/singleton/reagent/nutriment = list("chocolate" = 4))
 	bitesize = 2
@@ -550,6 +554,8 @@
 	filling_color = "#552200"
 	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
 	icon_state = "getmore_2"
+
+	trash = /obj/item/trash/getmore_nuts
 	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/sugar = 1)
 	reagent_data = list(/singleton/reagent/nutriment = list("chocolate" = 3, "almonds" = 1))
 	bitesize = 2
@@ -562,6 +568,7 @@
 	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
 	icon_state = "getmore_4"
 
+	trash = /obj/item/trash/getmore_kelp
 	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/sugar = 3)
 	reagent_data = list(/singleton/reagent/nutriment = list("chocolate" = 2, "sea salt" = 2, "sugar kelp" = 2))
 	bitesize = 3
@@ -574,6 +581,7 @@
 	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
 	icon_state = "getmore"
 
+	trash = /obj/item/trash/getmore
 	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/sugar = 3)
 	reagent_data = list(/singleton/reagent/nutriment = list("chocolate" = 2, "vomit" = 1))
 	bitesize = 3
@@ -594,7 +602,7 @@
 	drop_sound = 'sound/items/drop/wrapper.ogg'
 	pickup_sound = 'sound/items/pickup/wrapper.ogg'
 
-	trash = /obj/item/trash/foysnack
+	trash = /obj/item/trash/readies
 	closable = FALSE
 	icon_overlays = FALSE
 
