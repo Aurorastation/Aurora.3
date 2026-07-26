@@ -7158,16 +7158,13 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 1
-	},
-/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1
-	},
-/obj/structure/cable/green{
-	icon_state = "2-8"
-	},
 /obj/effect/floor_decal/corner/dark_teal,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/gen_treatment)
 "aTV" = (
@@ -31200,9 +31197,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/command/bridge/controlroom)
 "dZM" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/effect/floor_decal/corner/dark_teal{
 	dir = 5
 	},
@@ -43127,11 +43121,6 @@
 	dir = 8
 	},
 /obj/structure/machinery/disposal/small/west,
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/effect/floor_decal/corner/dark_teal{
 	dir = 6
 	},
@@ -64978,9 +64967,6 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/engineering/atmos)
 "iwD" = (
-/obj/structure/cable/green{
-	icon_state = "2-8"
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
@@ -68286,9 +68272,6 @@
 /obj/structure/machinery/body_scanconsole{
 	dir = 1;
 	pixel_y = 6
-	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
 	},
 /obj/effect/floor_decal/corner/beige/full{
 	dir = 4
@@ -91857,11 +91840,6 @@
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/pharmacy)
 "lRg" = (
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/structure/machinery/firealarm/east,
 /obj/structure/machinery/vending/medical{
 	density = 0;
@@ -135870,16 +135848,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mercenary)
-"rDD" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/polarized/firedoor{
-	id = "surgery2"
-	},
-/obj/structure/machinery/camera/network/medbay{
-	c_tag = "Medical - Lobby";
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/horizon/medical/surgery)
 "rDF" = (
 /obj/structure/table/reinforced/wood,
 /obj/item/storage/slide_projector,
@@ -160236,10 +160204,6 @@
 /turf/simulated/floor/wood,
 /area/horizon/medical/psych)
 "uHg" = (
-/obj/structure/machinery/power/apc/high/west,
-/obj/structure/cable/green{
-	icon_state = "0-4"
-	},
 /obj/effect/floor_decal/corner/beige/full,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/medical/gen_treatment)
@@ -171687,9 +171651,6 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/structure/cable/green{
-	icon_state = "1-8"
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -172914,9 +172875,6 @@
 /turf/unsimulated/floor,
 /area/antag/raider)
 "wqd" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/structure/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/gen_treatment)
@@ -281067,7 +281025,7 @@ vzf
 sYn
 kFX
 rlU
-rDD
+boz
 bTy
 uvb
 jnq
